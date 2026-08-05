@@ -32,6 +32,7 @@ from __future__ import annotations
 
 import asyncio
 import logging
+from datetime import timedelta
 
 import asyncpg
 
@@ -51,6 +52,25 @@ BATCH_SIZE = 25
 # Demand rows honoured per kind per cycle — demand is a priority lane, not a
 # bypass of the budget.
 DEMAND_LIMIT = 50
+
+# How long a failed item waits before the loop tries it again, by attempt
+# count. Failure is never final — the last entry repeats — because the
+# alternative is what this replaced: one bad batch retiring a word, a
+# grammar point or a drill permanently, with the learner reading English
+# forever and nothing in the system aware of it.
+#
+# The curve is shaped for the two real cases. A transient failure (a
+# timeout, a rate limit, a checker having an off moment) clears on the
+# first or second retry, so those are minutes apart. Content the model
+# genuinely cannot render keeps costing a couple of calls a day rather
+# than a hot loop.
+RETRY_BACKOFF = (
+    timedelta(minutes=2),
+    timedelta(minutes=15),
+    timedelta(hours=1),
+    timedelta(hours=6),
+    timedelta(days=1),
+)
 
 # ---------------------------------------------------------------------------
 # Demand: "a learner just saw this in English". Card reads record what was
@@ -115,6 +135,80 @@ async def note_demand(conn, kind: str, ref_ids, locale: str | None) -> None:
         logger.debug("translation demand not recorded: %s", exc)
         return
     kick()
+
+
+def _backoff_sql(alias: str, kind: str) -> str:
+    """A NOT EXISTS clause that hides items still inside their retry window.
+
+    Written as SQL rather than a post-filter because every pending_* query
+    has a LIMIT: filtering afterwards would let a batch of backed-off rows
+    fill the limit and starve everything behind them.
+
+    Only ever spliced in when the caller has PROBED that the table exists
+    (see table_present) — naming a missing table would abort the sweep's
+    single transaction and take every kind down with it.
+    """
+    cases = " ".join(
+        f"WHEN a.attempts <= {i + 1} THEN interval '{int(d.total_seconds())} seconds'"
+        for i, d in enumerate(RETRY_BACKOFF)
+    )
+    last = int(RETRY_BACKOFF[-1].total_seconds())
+    return f"""
+        AND NOT EXISTS (
+          SELECT 1 FROM translation_attempts a
+           WHERE a.kind = '{kind}' AND a.ref_id = {alias} AND a.locale = $2
+             AND a.last_attempt_at > now() - (CASE {cases}
+                   ELSE interval '{last} seconds' END))"""
+
+
+async def record_attempts(
+    conn: asyncpg.Connection, kind: str, ref_ids, locale: str,
+    error: str | None = None,
+) -> None:
+    """Mark these items as tried-and-not-landed, so they come back later.
+
+    Best-effort by design: if the ledger can't be written the worst case is
+    that the item is retried sooner than the backoff intended, which is the
+    right way to fail. Never raises into the sweep.
+    """
+    ids = [r for r in ref_ids if r]
+    if not ids:
+        return
+    try:
+        if not await table_present(conn, "translation_attempts"):
+            return
+        await conn.execute(
+            """INSERT INTO translation_attempts
+                   (kind, ref_id, locale, attempts, last_attempt_at, last_error)
+               SELECT $1, unnest($2::uuid[]), $3, 1, now(), $4
+               ON CONFLICT (kind, ref_id, locale) DO UPDATE
+                 SET attempts = translation_attempts.attempts + 1,
+                     last_attempt_at = now(),
+                     last_error = EXCLUDED.last_error""",
+            kind, ids, locale, (error or "")[:500] or None,
+        )
+    except Exception as exc:  # noqa: BLE001 — a ledger, never the sweep
+        logger.debug("attempt not recorded for %s/%s: %s", kind, locale, exc)
+
+
+async def clear_attempts(
+    conn: asyncpg.Connection, kind: str, ref_ids, locale: str
+) -> None:
+    """Forget the failures for content that has now landed, so the table
+    holds outstanding problems rather than history."""
+    ids = [r for r in ref_ids if r]
+    if not ids:
+        return
+    try:
+        if not await table_present(conn, "translation_attempts"):
+            return
+        await conn.execute(
+            """DELETE FROM translation_attempts
+                WHERE kind = $1 AND ref_id = ANY($2::uuid[]) AND locale = $3""",
+            kind, ids, locale,
+        )
+    except Exception as exc:  # noqa: BLE001
+        logger.debug("attempts not cleared for %s/%s: %s", kind, locale, exc)
 
 
 # Detection mirrors the loop's pending_* queries exactly: a kind is demanded
@@ -240,13 +334,39 @@ async def discover_pairs(conn: asyncpg.Connection) -> list[dict]:
 
 async def pending_words(
     conn: asyncpg.Connection, language_id: str, locale: str, limit: int,
-    ids: list | None = None,
+    ids: list | None = None, backoff: bool = False,
+    skip_reviewed: bool = True,
 ) -> list[dict]:
     """Words of the course still lacking a *locale* gloss, in the order a
     learner meets them. Mirrors the CLI's query, plus: a non-English course
     word must HAVE an English gloss (the pivot the maker disambiguates with);
     for the English course the headword itself is the English. *ids*
-    restricts to specific words (the demand lane)."""
+    restricts to specific words (the demand lane).
+
+    Two independent gates, because "has this landed?" and "should I try it
+    now?" are different questions and conflating them cost a real bug:
+
+    *skip_reviewed* excludes words whose gloss was rejected into the human
+    queue. It is the only brake available without the attempt ledger, so it
+    stays on by default — retrying every cycle with nothing pacing it would
+    burn the budget on the same few words forever. Turn it OFF to ask the
+    pure content question, "is there a gloss yet", which is what deciding
+    whether an attempt failed requires. Leaving it on there made a rejected
+    word look successful, so no attempt was recorded, so nothing was ever
+    paced — and the loop retried it on every single cycle.
+
+    *backoff* is the ledger's own gate: a rejected gloss waits out its retry
+    window and then gets another go, because a checker that rejected once is
+    not an oracle and the alternative was a word stuck in English forever.
+    """
+    gate = ""
+    if backoff:
+        gate += _backoff_sql("v.id", "word")
+    if skip_reviewed and not backoff:
+        gate += """
+          AND NOT EXISTS (
+            SELECT 1 FROM translation_reviews r
+             WHERE r.vocabulary_id = v.id AND r.locale = $2)"""
     rows = await conn.fetch(
         f"""
         SELECT v.id, v.word, v.part_of_speech AS pos,
@@ -263,9 +383,7 @@ async def pending_words(
           AND NOT EXISTS (
             SELECT 1 FROM translations t
              WHERE t.vocabulary_id = v.id AND t.locale = $2)
-          AND NOT EXISTS (
-            SELECT 1 FROM translation_reviews r
-             WHERE r.vocabulary_id = v.id AND r.locale = $2)
+          {gate}
           AND (l.code = 'en' OR EXISTS (
             SELECT 1 FROM translations t
              WHERE t.vocabulary_id = v.id AND t.locale = 'en'))
@@ -304,24 +422,31 @@ async def _apply(conn: asyncpg.Connection, locale: str,
 
 async def pending_drills(
     conn: asyncpg.Connection, language_id: str, locale: str, limit: int,
-    ids: list | None = None,
+    ids: list | None = None, backoff: bool = False,
 ) -> list[dict]:
-    """Drill sentences of the course with no *locale* row yet — the strings a
-    learner reads on every grammar card (the translation under the cloze and
-    the hint). A row with NULL fields counts as attempted: rejected renderings
-    are recorded as NULLs so the sweep converges instead of re-spending, and
-    the card COALESCEs to English exactly as before."""
+    """Drill sentences whose translation or hint still reads in English —
+    the strings a learner sees on every grammar card.
+
+    A row used to count as attempted even when both fields came back NULL,
+    which converged the sweep by declaring the drill finished in English.
+    Now a drill is pending while a field with English source text has no
+    rendering, and the attempt ledger (not a hollow row) is what stops the
+    loop re-spending on it every cycle."""
     rows = await conn.fetch(
         f"""
         SELECT ds.id, ds.sentence, ds.translation, ds.hint
         FROM drill_sentences ds
         JOIN grammar_points gp ON gp.id = ds.grammar_point_id
+        LEFT JOIN drill_hint_translations dht
+               ON dht.drill_id = ds.id AND dht.locale = $2
         WHERE gp.language_id = $1
           AND ($4::uuid[] IS NULL OR ds.id = ANY($4::uuid[]))
           AND (ds.translation IS NOT NULL OR ds.hint IS NOT NULL)
-          AND NOT EXISTS (
-            SELECT 1 FROM drill_hint_translations dht
-             WHERE dht.drill_id = ds.id AND dht.locale = $2)
+          AND (
+            (COALESCE(ds.translation, '') <> '' AND dht.translation IS NULL)
+            OR (COALESCE(ds.hint, '') <> '' AND dht.hint IS NULL)
+          )
+          {_backoff_sql("ds.id", "drill") if backoff else ""}
         ORDER BY {_LEVEL_ORDER.replace('v.level', 'gp.level')} NULLS LAST,
                  gp.display_order NULLS LAST, ds.display_order NULLS LAST, ds.id
         LIMIT $3
@@ -333,7 +458,7 @@ async def pending_drills(
 
 async def pending_explanations(
     conn: asyncpg.Connection, language_id: str, locale: str, limit: int,
-    ids: list | None = None,
+    ids: list | None = None, backoff: bool = False,
 ) -> list[dict]:
     """Grammar points whose explanation has no *locale* rendering yet."""
     rows = await conn.fetch(
@@ -346,6 +471,7 @@ async def pending_explanations(
           AND NOT EXISTS (
             SELECT 1 FROM explanation_translations et
              WHERE et.grammar_point_id = gp.id AND et.locale = $2)
+          {_backoff_sql("gp.id", "explanation") if backoff else ""}
         ORDER BY {_LEVEL_ORDER.replace('v.level', 'gp.level')} NULLS LAST,
                  gp.display_order NULLS LAST, gp.id
         LIMIT $3
@@ -357,21 +483,35 @@ async def pending_explanations(
 
 async def pending_grammar_meta(
     conn: asyncpg.Connection, language_id: str, locale: str, limit: int,
-    ids: list | None = None,
+    ids: list | None = None, backoff: bool = False,
 ) -> list[dict]:
-    """Grammar points whose title/notes have no *locale* row yet — the name a
-    learner sees on cards, the grammar path and search. A row with NULL
-    fields counts as attempted (rejections converge, COALESCE keeps
-    English)."""
+    """Grammar points whose title/notes still read in English.
+
+    "Has a row" used to mean "done", and _translate_grammar_meta wrote a row
+    whether or not anything came back — so a point whose title and notes all
+    failed was marked finished with every field NULL, and the read path's
+    COALESCE served English forever. That is the card in the bug report: a
+    Catalan point with a Spanish interface, an English title and an English
+    culture note, and nothing anywhere trying to fix it.
+
+    Now a point is pending while any field that HAS English source text
+    still has no rendering, so a partial success finishes on a later pass
+    instead of freezing half-translated.
+    """
     rows = await conn.fetch(
         f"""
         SELECT gp.id, gp.title, gp.culture_note, gp.function_note
         FROM grammar_points gp
+        LEFT JOIN grammar_point_translations gpt
+               ON gpt.grammar_point_id = gp.id AND gpt.locale = $2
         WHERE gp.language_id = $1
           AND ($4::uuid[] IS NULL OR gp.id = ANY($4::uuid[]))
-          AND NOT EXISTS (
-            SELECT 1 FROM grammar_point_translations gpt
-             WHERE gpt.grammar_point_id = gp.id AND gpt.locale = $2)
+          AND (
+            (COALESCE(gp.title, '') <> '' AND gpt.title IS NULL)
+            OR (COALESCE(gp.culture_note, '') <> '' AND gpt.culture_note IS NULL)
+            OR (COALESCE(gp.function_note, '') <> '' AND gpt.function_note IS NULL)
+          )
+          {_backoff_sql("gp.id", "grammar_meta") if backoff else ""}
         ORDER BY {_LEVEL_ORDER.replace('v.level', 'gp.level')} NULLS LAST,
                  gp.display_order NULLS LAST, gp.id
         LIMIT $3
@@ -412,7 +552,7 @@ async def pending_gym_labels(
 
 async def pending_examples(
     conn: asyncpg.Connection, language_id: str, locale: str, limit: int,
-    vocab_ids: list | None = None,
+    vocab_ids: list | None = None, backoff: bool = False,
 ) -> list[dict]:
     """Reviewed English example sentences whose *locale* sibling row doesn't
     exist yet. The sibling is a full example_sentences row (same sentence,
@@ -420,7 +560,7 @@ async def pending_examples(
     hand, this is the loop's lane. Unreviewed rows are skipped — no point
     translating content a learner can't see."""
     rows = await conn.fetch(
-        """
+        f"""
         SELECT es.id, es.vocabulary_id, es.language_id, es.sentence,
                es.translation
         FROM example_sentences es
@@ -434,6 +574,7 @@ async def pending_examples(
              WHERE es2.vocabulary_id = es.vocabulary_id
                AND es2.sentence = es.sentence
                AND es2.translation_locale = $2)
+          {_backoff_sql("es.vocabulary_id", "example") if backoff else ""}
         ORDER BY es.difficulty_rank NULLS LAST, es.id
         LIMIT $3
         """,
@@ -496,8 +637,12 @@ async def _translate_drills(conn, pair, rows) -> int:
     """English drill translation + hint → the locale, one maker–checker pass
     per field. Approved renderings are stored as draft rows (reviewed=false —
     live immediately, the read path COALESCEs with no reviewed gate, and a
-    reviewer can amend later); rejected ones store NULL, which both records
-    the attempt and leaves the card on its English fallback.
+    reviewer can amend later).
+
+    A drill that rendered NOTHING is left with no row at all. Writing one
+    used to "record the attempt", but pending_drills read a row as done, so
+    a single failed batch retired the drill in English permanently. The
+    attempt ledger records the try now; the row means content.
 
     On the self-pair only the HINT is rendered: the translation would spell
     out the cloze answer (see self_pair)."""
@@ -516,14 +661,20 @@ async def _translate_drills(conn, pair, rows) -> int:
     applied = 0
     for r in rows:
         vals = out[str(r["id"])]
+        if not (vals["translation"] or vals["hint"]):
+            continue
         await conn.execute(
             """INSERT INTO drill_hint_translations
                    (drill_id, locale, hint, translation, reviewed)
                VALUES ($1, $2, $3, $4, false)
-               ON CONFLICT (drill_id, locale) DO NOTHING""",
+               ON CONFLICT (drill_id, locale) DO UPDATE SET
+                 -- Fill what an earlier pass missed; never clobber a
+                 -- rendering that already exists.
+                 hint = COALESCE(drill_hint_translations.hint, EXCLUDED.hint),
+                 translation = COALESCE(drill_hint_translations.translation,
+                                        EXCLUDED.translation)""",
             r["id"], pair["locale"], vals["hint"], vals["translation"])
-        if vals["translation"] or vals["hint"]:
-            applied += 1
+        applied += 1
     return applied
 
 
@@ -572,16 +723,29 @@ async def _translate_grammar_meta(conn, pair, rows) -> int:
     applied = 0
     for r in rows:
         vals = out[str(r["id"])]
+        if not any(vals.values()):
+            # Nothing came back. Writing the row anyway is what made failure
+            # permanent: pending_grammar_meta saw a row, called the point
+            # done, and the learner kept the English title forever.
+            continue
         await conn.execute(
             """INSERT INTO grammar_point_translations
                    (grammar_point_id, locale, title, culture_note,
                     function_note, reviewed)
                VALUES ($1, $2, $3, $4, $5, false)
-               ON CONFLICT (grammar_point_id, locale) DO NOTHING""",
+               ON CONFLICT (grammar_point_id, locale) DO UPDATE SET
+                 -- Fill the gaps a previous pass left; never overwrite a
+                 -- rendering that already landed (a reviewer may have
+                 -- corrected it).
+                 title = COALESCE(grammar_point_translations.title,
+                                  EXCLUDED.title),
+                 culture_note = COALESCE(grammar_point_translations.culture_note,
+                                         EXCLUDED.culture_note),
+                 function_note = COALESCE(grammar_point_translations.function_note,
+                                          EXCLUDED.function_note)""",
             r["id"], pair["locale"], vals["title"], vals["culture_note"],
             vals["function_note"])
-        if any(vals.values()):
-            applied += 1
+        applied += 1
     return applied
 
 
@@ -728,10 +892,80 @@ async def _sweep_stale_demand(conn) -> None:
     )
 
 
+async def _still_pending(conn, kind: str, b: dict, ids: list) -> set:
+    """Which of *ids* the translator did NOT manage to land.
+
+    Asked by re-running the kind's own pending query over the same ids, so
+    "landed" means exactly what the loop's own predicate means — no second
+    definition of done to drift out of sync with the first.
+
+    Every scheduling gate is off here on purpose. This is the content
+    question ("is the rendering there?"), not the scheduling one ("should I
+    try it now?"): with the gates on, a word that had just been rejected —
+    or one still inside its retry window — reads as landed, no attempt gets
+    recorded, and nothing paces the retry.
+    """
+    if not ids:
+        return set()
+    lang, loc = b["language_id"], b["locale"]
+    n = len(ids)
+    if kind == "word":
+        rows = await pending_words(conn, lang, loc, n, ids,
+                                   skip_reviewed=False)
+    elif kind == "drill":
+        rows = await pending_drills(conn, lang, loc, n, ids)
+    elif kind == "explanation":
+        rows = await pending_explanations(conn, lang, loc, n, ids)
+    elif kind == "grammar_meta":
+        rows = await pending_grammar_meta(conn, lang, loc, n, ids)
+    elif kind == "example":
+        return await words_with_pending_examples(conn, lang, loc, ids)
+    else:
+        return set()
+    return {r["id"] for r in rows}
+
+
+# The sweep names its kinds for logging; the ledger names them the way the
+# demand queue does. One map rather than two vocabularies.
+_SWEEP_KIND = {
+    "drills": "drill",
+    "explanations": "explanation",
+    "grammar-meta": "grammar_meta",
+    "examples": "example",
+}
+
+
+async def _settle(conn, kind: str, pair: dict, tried: list) -> None:
+    """Record the outcome of a sweep batch in the attempt ledger.
+
+    The sweep has no queue to leave things in, so without this a failure
+    there was invisible: the next cycle re-fetched the same rows, spent the
+    same budget and failed the same way, forever crowding out content that
+    would have succeeded. Now a failure costs its backoff and steps aside.
+    """
+    if not tried:
+        return
+    stuck = await _still_pending(conn, kind, pair, tried)
+    landed = [i for i in tried if i not in stuck]
+    await clear_attempts(conn, kind, landed, pair["locale"])
+    if stuck:
+        await record_attempts(conn, kind, list(stuck), pair["locale"],
+                              error="no rendering returned")
+
+
 async def process_demand(conn: asyncpg.Connection, budget: int,
                          stats: dict) -> int:
     """The priority lane: translate exactly what learners just saw in
-    English, oldest first, spending from the same cycle budget."""
+    English, oldest first, spending from the same cycle budget.
+
+    Demand now survives a failed attempt. It used to be deleted whatever
+    happened — "processed (or unprocessable)" — which, combined with three
+    kinds recording failure as a permanent success, is why a learner who
+    hit one bad batch stayed on English forever with nothing retrying.
+    A row leaves this queue when its content lands, and the attempt ledger
+    paces the retries in between.
+    """
+    have_attempts = await table_present(conn, "translation_attempts")
     batches = await _demand_batches(conn)
     if not batches:
         return budget
@@ -749,10 +983,16 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
         # and half in English, permanently.
         take = min(budget, BATCH_SIZE)
         kind, ids = b["kind"], b["ref_ids"][:take]
+        # What the model was actually handed this cycle. Filled from the
+        # rows each pending_* returns, NOT from the whole batch: items
+        # sitting inside their retry window are skipped by the query, and
+        # counting those as fresh failures would race the backoff up to its
+        # ceiling within minutes and rewrite the ledger on every pass.
+        tried: list = []
         n = 0
         if kind == "word":
             rows = await pending_words(conn, b["language_id"], b["locale"],
-                                       take, ids)
+                                       take, ids, backoff=have_attempts)
             if rows:
                 items = [{"i": i, "word": r["word"], "pos": r["pos"],
                           "definition": r["definition"], "example": r["example"]}
@@ -768,50 +1008,41 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
                 stats["applied"] += applied
                 stats["queued"] += queued
                 n = len(rows)
+                tried = [r["id"] for r in rows]
         elif kind == "drill":
             rows = await pending_drills(conn, b["language_id"], b["locale"],
-                                        take, ids)
+                                        take, ids, backoff=have_attempts)
             if rows:
                 stats["drills"] += await _translate_drills(conn, pair, rows)
                 n = len(rows)
+                tried = [r["id"] for r in rows]
         elif kind == "explanation":
             rows = await pending_explanations(conn, b["language_id"],
                                               b["locale"],
-                                              take, ids)
+                                              take, ids, backoff=have_attempts)
             if rows:
                 stats["explanations"] += await _translate_explanations(
                     conn, pair, rows)
                 n = len(rows)
+                tried = [r["id"] for r in rows]
         elif kind == "grammar_meta":
             rows = await pending_grammar_meta(conn, b["language_id"],
                                               b["locale"],
-                                              take, ids)
+                                              take, ids, backoff=have_attempts)
             if rows:
                 stats["grammar_meta"] += await _translate_grammar_meta(
                     conn, pair, rows)
                 n = len(rows)
+                tried = [r["id"] for r in rows]
         elif kind == "example":
             rows = [] if self_pair(b) else await pending_examples(
                 conn, b["language_id"], b["locale"],
-                take, ids)
+                take, ids, backoff=have_attempts)
             if rows:
-                done = await _translate_examples(conn, pair, rows)
-                stats["examples"] += done
+                stats["examples"] += await _translate_examples(conn, pair, rows)
                 n = len(rows)
-                # Keep the words that still have sentences waiting. Unlike
-                # every other kind, one ref_id here is not one unit of work
-                # — a word owns several sentences, so a row-limited pass
-                # covers only some of the batch. Clearing all of it dropped
-                # the rest onto the sweep, which reaches examples last.
-                #
-                # Only when something actually landed, though: retaining
-                # after a pass that applied nothing would spin the same rows
-                # every cycle and wedge the lane behind content the
-                # generator keeps refusing.
-                if done:
-                    still = await words_with_pending_examples(
-                        conn, b["language_id"], b["locale"], ids)
-                    ids = [i for i in ids if i not in still]
+                # Example rows are SENTENCES; demand is per word.
+                tried = list({r["vocabulary_id"] for r in rows})
         elif kind == "gym":
             rows = await pending_gym_labels(conn, b["language_code"],
                                             b["locale"])
@@ -819,7 +1050,31 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
                 stats["gym_labels"] += await _translate_gym_labels(
                     conn, pair, rows[:take])
                 n = min(len(rows), take)
-        await _clear_demand(conn, kind, ids, b["locale"])
+
+        # Gym labels have no per-ref pending query and no partial state:
+        # one manifest, done or not. Self-pair examples are not work at all.
+        if kind == "gym" or (kind == "example" and self_pair(b)):
+            await _clear_demand(conn, kind, ids, b["locale"])
+        else:
+            # Landed or not, judged by the kind's OWN pending predicate.
+            # What landed leaves the queue and loses its failure history;
+            # what was tried and didn't land is one attempt older and waits
+            # for its next window. Anything skipped because it is already
+            # inside a window is left completely alone — still queued, no
+            # attempt counted.
+            stuck = await _still_pending(conn, kind, b, tried)
+            landed = [i for i in tried if i not in stuck]
+            await clear_attempts(conn, kind, landed, b["locale"])
+            await _clear_demand(conn, kind, landed, b["locale"])
+            if stuck:
+                await record_attempts(conn, kind, list(stuck), b["locale"],
+                                      error="no rendering returned")
+                stats["retrying"] = stats.get("retrying", 0) + len(stuck)
+                if not have_attempts:
+                    # No ledger means nothing paces a retry, so drop the row
+                    # rather than spin on it every cycle. The breadth-first
+                    # sweep is then the only way back — slow, but bounded.
+                    await _clear_demand(conn, kind, list(stuck), b["locale"])
         if n:
             budget -= n
             stats["processed"] += n
@@ -829,7 +1084,12 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
     # Demand that didn't fit this cycle's budget (a big lookahead, a busy
     # hour) makes the loop go again promptly instead of sleeping a full
     # sweep interval — the budget still caps each cycle's burst.
-    if any(await _demand_batches(conn)):
+    #
+    # Conditional on having DONE something: rows now survive a failure, so
+    # "demand exists" is no longer the same question as "there is work I can
+    # act on". A queue holding nothing but items inside their retry windows
+    # would otherwise spin the loop every 30 seconds to do nothing at all.
+    if stats.get("demand") and any(await _demand_batches(conn)):
         stats["demand_left"] = True
     return budget
 
@@ -852,6 +1112,10 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
     have_demand = await table_present(conn, "translation_demand")
     have_gpt = await table_present(conn, "grammar_point_translations")
     have_gym = await table_present(conn, "gym_label_translations")
+    # The attempt ledger. Without it the sweep keeps its old shape, where
+    # what stops a retry is the overlay row itself; with it, a failure is
+    # paced and always comes back.
+    have_attempts = await table_present(conn, "translation_attempts")
 
     # Repair translations produced BEFORE they were stored visibly. Those
     # rows are not just hidden, they're stuck: pending_examples skips any
@@ -882,7 +1146,8 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
         if budget <= 0:
             break
         rows = await pending_words(conn, pair["language_id"], pair["locale"],
-                                   min(budget, BATCH_SIZE))
+                                   min(budget, BATCH_SIZE),
+                                   backoff=have_attempts)
         if not rows:
             continue
         stats["pairs"] += 1
@@ -901,6 +1166,7 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
         stats["processed"] += len(merged)
         stats["applied"] += applied
         stats["queued"] += queued
+        await _settle(conn, "word", pair, [r["id"] for r in rows])
         logger.info(
             "auto-translate %s→%s: applied %d, queued %d (%d learner(s))",
             pair["language_code"], pair["locale"], applied, queued,
@@ -928,13 +1194,17 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
             if kind == "examples" and self_pair(pair):
                 continue
             rows = await fetch(conn, pair["language_id"], pair["locale"],
-                               min(budget, BATCH_SIZE))
+                               min(budget, BATCH_SIZE), backoff=have_attempts)
             if not rows:
                 continue
             budget -= len(rows)
             done = await translate(conn, pair, rows)
             stats[stat] += done
             stats["processed"] += len(rows)
+            await _settle(
+                conn, _SWEEP_KIND[kind], pair,
+                list({r["vocabulary_id"] for r in rows}) if kind == "examples"
+                else [r["id"] for r in rows])
             logger.info("auto-translate %s→%s: %s %d/%d",
                         pair["language_code"], pair["locale"], kind, done,
                         len(rows))

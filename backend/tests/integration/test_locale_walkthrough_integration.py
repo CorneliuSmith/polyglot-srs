@@ -209,15 +209,34 @@ async def _walkthrough(pool, code: str, locale_code: str, locale_name: str,
             assert all(r["reviewed"] is True for r in ex)
             assert any(r["translation"].startswith(mark) for r in ex)
 
-        # ---- The demand queue drained -------------------------------------
-        # Everything translated stays quiet; only kinds whose first-of-batch
-        # rendering the mock REJECTED (and which retry by design — an
-        # explanation stores nothing on reject, an example gets no sibling
-        # row) may have been re-noted by the reloads above.
-        left = {r["kind"] for r in await conn.fetch(
-            "SELECT kind FROM translation_demand WHERE locale = $1",
-            locale_code)}
-        assert left <= {"explanation", "example"}, left
+        # ---- The demand queue holds only what is genuinely missing --------
+        # Every kind retries now, so "which kinds are left" no longer says
+        # anything useful — the mock rejects the first item of every batch,
+        # so any kind can legitimately still be queued. The invariant worth
+        # pinning is the other one: nothing that LANDED is still sitting in
+        # the queue. A row leaves when its content exists, and only then.
+        for row in await conn.fetch(
+            "SELECT kind, ref_id FROM translation_demand WHERE locale = $1",
+            locale_code,
+        ):
+            kind, ref = row["kind"], row["ref_id"]
+            if kind == "word":
+                got = await conn.fetchval(
+                    "SELECT count(*) FROM translations "
+                    "WHERE vocabulary_id = $1 AND locale = $2", ref, locale_code)
+            elif kind == "explanation":
+                got = await conn.fetchval(
+                    "SELECT count(*) FROM explanation_translations "
+                    "WHERE grammar_point_id = $1 AND locale = $2", ref,
+                    locale_code)
+            elif kind == "grammar_meta":
+                got = await conn.fetchval(
+                    "SELECT count(*) FROM grammar_point_translations "
+                    "WHERE grammar_point_id = $1 AND locale = $2 "
+                    "  AND title IS NOT NULL", ref, locale_code)
+            else:
+                continue  # drill/example are per-field or per-sentence
+            assert not got, f"{kind} {ref} landed but is still queued"
 
         # Leave nothing running: retryable rejects on an auto-enabled course
         # would leak into other tests' cycle counts in the same session.
@@ -633,14 +652,34 @@ async def test_demand_beyond_the_cycle_cap_survives_to_the_next_pass(
         remaining = await conn.fetchval(
             "SELECT count(*) FROM translation_demand "
             "WHERE locale = 'cp2' AND kind = 'word'")
-        assert remaining == 4, f"unpaid demand was dropped: {remaining} left"
+        # Four never got paid for, and the one the mock rejected keeps its
+        # place too — demand is released by content landing, not by having
+        # been looked at once.
+        assert remaining == 5, f"unpaid or failed demand was dropped: {remaining}"
         assert left == 0, left
 
-        # The next pass picks up exactly what was left, and converges.
+        # The next pass clears everything it can. What stays behind is
+        # exactly what did not land, each carrying an attempt to pace it.
         await process_demand(conn, 50, stats)
-        assert await conn.fetchval(
-            "SELECT count(*) FROM translation_demand "
-            "WHERE locale = 'cp2' AND kind = 'word'") == 0
+        stuck = await conn.fetch(
+            "SELECT ref_id FROM translation_demand "
+            "WHERE locale = 'cp2' AND kind = 'word'")
+        for r in stuck:
+            assert not await conn.fetchval(
+                "SELECT count(*) FROM translations "
+                "WHERE vocabulary_id = $1 AND locale = 'cp2'", r["ref_id"]), \
+                "a glossed word is still queued"
+            assert await conn.fetchval(
+                "SELECT attempts FROM translation_attempts "
+                "WHERE kind = 'word' AND ref_id = $1 AND locale = 'cp2'",
+                r["ref_id"]), "a stuck word with no attempt would never be paced"
+
+        # Age the ledger and the stragglers come back rather than being
+        # abandoned — the property this whole mechanism exists for.
+        await conn.execute(
+            "UPDATE translation_attempts SET last_attempt_at = "
+            "now() - interval '2 days' WHERE locale = 'cp2'")
+        await process_demand(conn, 50, stats)
 
         # Every word ends up resolved — glossed, or parked for a human.
         settled = await conn.fetchval(
