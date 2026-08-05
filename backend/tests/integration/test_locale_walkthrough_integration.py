@@ -786,3 +786,75 @@ async def test_sentences_already_written_hidden_get_un_hidden(pool, monkeypatch)
             "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
             course)
     del c
+
+
+async def test_the_self_pair_is_not_scored_on_work_that_never_happens(pool, monkeypatch):
+    """Learning a language THROUGH itself must still be able to reach ready.
+
+    The loop deliberately never renders example sentences for a self-pair —
+    translating one reproduces the drill sentence with the blank filled in,
+    handing over the answer (auto_translate.self_pair). Readiness scored a
+    word on its gloss AND its examples regardless, so those points could
+    never be earned: the score was capped below the start threshold forever
+    and the wait screen could never advance on its own.
+    """
+    from backend.repositories.cards import READY_ENOUGH, session_readiness
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "sp1", "Selfish", auto=True)
+    uid = await _learner(pool, "self@sp1", course, "sp1")   # course == locale
+    c = await _build_course(pool, course, uid, "sp1")
+
+    async with pool.privileged_connection() as conn:
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        # 2 words + 2 grammar points. Words score ONCE here, not twice.
+        assert st["learn"]["total"] == 4, st["learn"]
+
+    await _cycle(pool)
+
+    async with pool.privileged_connection() as conn:
+        # Glosses and explanations are all this pair can ever have, so with
+        # those filled it must reach 100% — under the old scoring it was
+        # capped at half regardless, permanently short of the threshold.
+        for vid in c["words"]:
+            await conn.execute(
+                """INSERT INTO translations (vocabulary_id, locale, definition)
+                   VALUES ($1, 'sp1', 'definición')
+                   ON CONFLICT (vocabulary_id, locale) DO NOTHING""", vid)
+        for gp in c["points"]:
+            await conn.execute(
+                """INSERT INTO explanation_translations
+                       (grammar_point_id, locale, explanation)
+                   VALUES ($1, 'sp1', 'explicación')
+                   ON CONFLICT DO NOTHING""", gp)
+
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        assert st["learn"]["pct"] == 1.0, st["learn"]
+        assert st["learn"]["ready_enough"] is True
+        assert st["learn"]["pct"] >= READY_ENOUGH
+
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
+    del c
+
+
+async def test_a_normal_pair_still_scores_its_example_lines(pool, monkeypatch):
+    """The self-pair exemption must not quietly disable the check that made
+    readiness honest for everyone else."""
+    from backend.repositories.cards import session_readiness
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "np1", "Normalish", auto=True)
+    await _lang(pool, "np2", "Normallocale", auto=False)
+    uid = await _learner(pool, "norm@np1", course, "np2")
+    c = await _build_course(pool, course, uid, "np1")
+
+    async with pool.privileged_connection() as conn:
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        # 2 words counted TWICE (gloss + examples) + 2 grammar points.
+        assert st["learn"]["total"] == 6, st["learn"]
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
+    del c
