@@ -38,6 +38,7 @@ import FeedbackAlert from '../feedback/FeedbackAlert'
 import FeedbackButton from '../feedback/FeedbackButton'
 import NewPicksPrompt from '../recommendations/NewPicksPrompt'
 import type { LearnDeck } from '../../api/types'
+import PersonalDecksSection from '../decks/PersonalDecksSection'
 import { useViewAsKey } from '../../stores/viewAsStore'
 
 /** A first-class practice-destination tile (Gym / Read / Tutor). Users have
@@ -660,6 +661,15 @@ export default function DashboardPage() {
                   visibleDecks.map((deck) => (
                     <DeckRow key={deck.id} deck={deck} onLearn={handleLearnDeck} />
                   ))
+                )}
+                {/* Personal cards live here too. They used to appear ONLY on
+                    /decks, which nothing in the app links to — so a learner's
+                    own saved cards were reviewable but had no visible home,
+                    and the deck list looked like it had lost them. */}
+                {activeLanguageId && (
+                  <div className="border-t border-gray-100 p-4">
+                    <PersonalDecksSection languageId={activeLanguageId} />
+                  </div>
                 )}
               </div>
             )}
