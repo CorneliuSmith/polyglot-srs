@@ -344,11 +344,7 @@ export default function DashboardPage() {
             title + utility icons stay on the bar. */}
         <div className="flex items-center justify-between gap-2">
           <h1 className="text-2xl font-bold text-gray-900">{t('nav.study')}</h1>
-          {/* The language switcher lives in the header on every section, so
-              it never has to be hunted for — which language you're in
-              changes what all four of them show. */}
           <div className="flex items-center gap-3 sm:gap-4">
-            <LanguagePicker compact />
             {/* Desktop inline nav */}
             <nav className="hidden md:flex items-center gap-4">
               {navItems.map((item) => (
@@ -435,6 +431,17 @@ export default function DashboardPage() {
         {showWhatsNew && <WhatsNewPanel onClose={() => setShowWhatsNew(false)} />}
 
         <InstallPrompt />
+
+        {/* The STUDY language. A deliberate, infrequent choice, and legible
+            by definition — so it stays here as a labelled control rather
+            than following the learner around. The globe in the header is
+            the interface language, which is a different thing entirely. */}
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            {t('dashboard.activeLanguage')}
+          </label>
+          <LanguagePicker />
+        </div>
 
         {/* Learning tip (throttled to ~once a day; off in Settings) */}
         {/* Staff only: something came in and nobody has closed it out. */}
