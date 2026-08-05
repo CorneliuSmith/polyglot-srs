@@ -13,7 +13,8 @@
     "progress": "Прогресс",
     "more": "Ещё",
     "primary": "Основные разделы",
-    "languageGuide": "Справочник языка"
+    "languageGuide": "Справочник языка",
+    "sections": "Разделы"
   },
   "header": {
     "whatsNew": "Что нового",

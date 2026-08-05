@@ -13,7 +13,8 @@
     "progress": "Progress",
     "more": "More",
     "primary": "Main sections",
-    "languageGuide": "Language guide"
+    "languageGuide": "Language guide",
+    "sections": "Sections"
   },
   "header": {
     "whatsNew": "What's new",

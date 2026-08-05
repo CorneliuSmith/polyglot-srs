@@ -21,6 +21,7 @@ import PlacementOffer from '../onboarding/PlacementOffer'
 import ReviewPromptGate from './ReviewPromptGate'
 import WhatsNewPanel from '../announcements/WhatsNewPanel'
 import { unseenWhatsNew } from '../announcements/whatsNew'
+import SectionNav from '../../components/SectionNav'
 import InstallPrompt from '../../components/InstallPrompt'
 import LearningTip from '../tips/LearningTip'
 import FeedbackAlert from '../feedback/FeedbackAlert'
@@ -345,20 +346,12 @@ export default function DashboardPage() {
         <div className="flex items-center justify-between gap-2">
           <h1 className="text-2xl font-bold text-gray-900">{t('nav.study')}</h1>
           <div className="flex items-center gap-3 sm:gap-4">
-            {/* Desktop inline nav */}
-            <nav className="hidden md:flex items-center gap-4">
-              {navItems.map((item) => (
-                <button
-                  key={item.to}
-                  type="button"
-                  onClick={() => navigate(item.to)}
-                  aria-label={item.label}
-                  className="text-sm text-gray-500 hover:text-lang"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </nav>
+            {/* Desktop section nav. The individual destinations that used
+                to sit here (Decks, Tutor, Read…) live inside these four
+                sections, exactly as they do on a phone — and unlike that
+                row, this one can actually reach Practice, Progress and
+                More, which desktop previously could not open at all. */}
+            <SectionNav />
             {/* Utility cluster, set apart from navigation: announcements
                 and the tour are ABOUT the app, not places in it. */}
             <span aria-hidden className="hidden md:block h-4 w-px bg-gray-200" />
