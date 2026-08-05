@@ -205,6 +205,34 @@ describe('Reaching the four sections without a tab bar', () => {
   })
 })
 
+describe('The desktop rail on the Study page', () => {
+  beforeEach(() => vi.clearAllMocks())
+
+  it('brings the next things a learner reaches for back beside the loop', async () => {
+    // Four sections is right for a phone, where the daily loop had been
+    // sitting seventh. A desktop screen is not short of room, and the same
+    // split left Study as two tiles above several hundred pixels of grey.
+    const { default: DesktopRail } = await import('../features/dashboard/DesktopRail')
+    renderAt(<DesktopRail />)
+    expect(await screen.findByTestId('desktop-rail')).toBeInTheDocument()
+    fireEvent.click(screen.getByTestId('rail-read'))
+    expect(mockNavigate).toHaveBeenCalledWith('/read')
+    fireEvent.click(screen.getByTestId('rail-letters'))
+    expect(mockNavigate).toHaveBeenCalledWith('/letters')
+  })
+
+  it('leaves the progress card out until there is a number worth showing', async () => {
+    const { default: DesktopRail } = await import('../features/dashboard/DesktopRail')
+    const { unmount } = renderAt(<DesktopRail />)
+    await screen.findByTestId('desktop-rail')
+    expect(screen.queryByTestId('rail-progress')).toBeNull()
+    unmount()
+
+    renderAt(<DesktopRail stats={{ profile: { items_studied: 42 } } as never} />)
+    expect(await screen.findByTestId('rail-progress')).toBeInTheDocument()
+  })
+})
+
 describe('The interface-language escape hatch', () => {
   it('puts the globe on every section', async () => {
     // Someone stranded in a language they cannot read has to be able to
