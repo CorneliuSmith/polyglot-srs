@@ -343,8 +343,12 @@ export default function DashboardPage() {
             nav links collapse behind a menu button below md and only the
             title + utility icons stay on the bar. */}
         <div className="flex items-center justify-between gap-2">
-          <h1 className="text-2xl font-bold text-gray-900">{t('nav.dashboard')}</h1>
+          <h1 className="text-2xl font-bold text-gray-900">{t('nav.study')}</h1>
+          {/* The language switcher lives in the header on every section, so
+              it never has to be hunted for — which language you're in
+              changes what all four of them show. */}
           <div className="flex items-center gap-3 sm:gap-4">
+            <LanguagePicker compact />
             {/* Desktop inline nav */}
             <nav className="hidden md:flex items-center gap-4">
               {navItems.map((item) => (
@@ -431,14 +435,6 @@ export default function DashboardPage() {
         {showWhatsNew && <WhatsNewPanel onClose={() => setShowWhatsNew(false)} />}
 
         <InstallPrompt />
-
-        {/* Language picker */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            {t('dashboard.activeLanguage')}
-          </label>
-          <LanguagePicker />
-        </div>
 
         {/* Learning tip (throttled to ~once a day; off in Settings) */}
         {/* Staff only: something came in and nobody has closed it out. */}

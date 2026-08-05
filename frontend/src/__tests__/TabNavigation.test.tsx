@@ -48,6 +48,7 @@ vi.mock('../stores/prefsStore', () => ({
   ),
 }))
 vi.mock('../stores/viewAsStore', () => ({ useViewAsKey: () => 'self' }))
+vi.mock('../api/dashboard', () => ({ getDashboardStats: vi.fn() }))
 
 function renderAt(ui: React.ReactNode, path = '/') {
   const client = new QueryClient({
@@ -166,5 +167,52 @@ describe('BottomNav during a session', () => {
       expect(screen.getByTestId('bottom-nav')).toBeInTheDocument()
       unmount()
     }
+  })
+})
+
+describe('The language switcher follows you', () => {
+  it('is present on every section, not just Study', async () => {
+    // Which language you're in changes what ALL four show — Practice's Gym
+    // availability, Progress's numbers, More's language guide. Going back
+    // to Study to change it and returning was a detour with no purpose.
+    for (const ui of [<PracticePage key="p" />, <MorePage key="m" />]) {
+      const { unmount } = renderAt(ui)
+      expect(await screen.findByTestId('language-picker')).toBeInTheDocument()
+      unmount()
+    }
+  })
+})
+
+describe('ProgressPage empty state', () => {
+  it('explains itself instead of rendering a column of zeros', async () => {
+    const { getDashboardStats } = await import('../api/dashboard')
+    vi.mocked(getDashboardStats).mockResolvedValue({
+      streak_days: 0,
+      cefr_progress: { A1: { learned: 0, total: 10 } },
+      forecast: [{ date: '2026-08-05', count: 0 }],
+      activity: [{ date: '2026-08-05', vocab: 0, grammar: 0 }],
+      stages: { vocab: { Beginner: 0 }, grammar: { Beginner: 0 } },
+      profile: { items_studied: 0 },
+    } as never)
+    const { default: ProgressPage } = await import('../features/dashboard/ProgressPage')
+    renderAt(<ProgressPage />)
+    expect(await screen.findByTestId('progress-empty')).toBeInTheDocument()
+  })
+
+  it('shows the real cards as soon as anything has been studied', async () => {
+    const { getDashboardStats } = await import('../api/dashboard')
+    vi.mocked(getDashboardStats).mockResolvedValue({
+      streak_days: 2,
+      cefr_progress: { A1: { learned: 4, total: 10 } },
+      forecast: [{ date: '2026-08-05', count: 3 }],
+      activity: [{ date: '2026-08-05', vocab: 2, grammar: 1 }],
+      stages: { vocab: { Beginner: 4 }, grammar: { Beginner: 1 } },
+      profile: { items_studied: 7 },
+    } as never)
+    const { default: ProgressPage } = await import('../features/dashboard/ProgressPage')
+    renderAt(<ProgressPage />)
+    await waitFor(() =>
+      expect(screen.queryByTestId('progress-empty')).toBeNull(),
+    )
   })
 })

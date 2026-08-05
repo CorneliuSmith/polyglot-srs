@@ -7,6 +7,7 @@ import { getGymManifest } from '../../api/gym'
 import { getRecommendations } from '../../api/recommendations'
 import { usePrefsStore } from '../../stores/prefsStore'
 import DirArrow from '../../components/DirArrow'
+import SectionHeader from '../../components/SectionHeader'
 import NewPicksPrompt from '../recommendations/NewPicksPrompt'
 import PersonalDecksSection from '../decks/PersonalDecksSection'
 
@@ -110,7 +111,7 @@ export default function PracticePage() {
   return (
     <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       <div className="max-w-3xl mx-auto px-4 py-6 space-y-4 pb-24 md:pb-6">
-        <h1 className="text-2xl font-bold text-gray-900">{t('nav.practice')}</h1>
+        <SectionHeader title={t('nav.practice')} />
 
         <div
           data-testid="feature-tiles"

@@ -98,7 +98,9 @@
     "dayStudied": "étudié",
     "dayNotStudied": "non étudié",
     "activityDay": "{{date}} : {{vocab}} vocabulaire, {{grammar}} grammaire",
-    "levelProgress": "Progression {{level}}"
+    "levelProgress": "Progression {{level}}",
+    "progressEmptyTitle": "Rien à afficher pour l'instant",
+    "progressEmptyBody": "Une fois que vous aurez appris et révisé quelques éléments, votre série, vos prévisions, votre activité et votre progression par niveau apparaîtront ici."
   },
   "stages": {
     "beginner": "Débutant",
@@ -449,7 +451,8 @@
   "staffBar": {
     "reviewMode": "Mode relecture",
     "flagOn": "Sélectionnez n’importe quel texte pour le signaler",
-    "flagOff": "Signalez du contenu pendant vos études"
+    "flagOff": "Signalez du contenu pendant vos études",
+    "collapse": "Réduire"
   },
   "whatsNew": {
     "title": "Nouveautés",

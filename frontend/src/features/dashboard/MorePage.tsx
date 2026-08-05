@@ -8,6 +8,7 @@ import { getMyRoles } from '../../api/contribute'
 import { useViewAsKey } from '../../stores/viewAsStore'
 import { usePrefsStore } from '../../stores/prefsStore'
 import DirArrow from '../../components/DirArrow'
+import SectionHeader from '../../components/SectionHeader'
 import FeedbackButton from '../feedback/FeedbackButton'
 import { lettersFor } from '../letters/lettersData'
 import { factsFor } from '../about/languageFacts'
@@ -85,7 +86,7 @@ export default function MorePage() {
   return (
     <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       <div className="max-w-3xl mx-auto px-4 py-6 space-y-4 pb-24 md:pb-6">
-        <h1 className="text-2xl font-bold text-gray-900">{t('nav.more')}</h1>
+        <SectionHeader title={t('nav.more')} />
 
         {(hasLetters || hasFacts) && (
           <section className="space-y-2" data-testid="language-guide">
