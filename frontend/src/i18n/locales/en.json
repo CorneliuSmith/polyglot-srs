@@ -13,7 +13,8 @@
     "progress": "Progress",
     "more": "More",
     "primary": "Main sections",
-    "languageGuide": "Language guide"
+    "languageGuide": "Language guide",
+    "sections": "Sections"
   },
   "header": {
     "whatsNew": "What's new",
@@ -1354,6 +1355,7 @@
     "body": "Nobody has studied this in {{language}} yet. We're writing it now — you're the trailblazer.",
     "bodyGeneric": "Nobody has studied this in your language yet. We're writing it now — you're the trailblazer.",
     "progress": "{{pct}}% ready",
+    "cardsReady": "{{have}} of {{needed}} cards ready",
     "waitAndPlay": "Wait & play",
     "startInEnglish": "Start in English",
     "leave": "Back to Study",

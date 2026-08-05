@@ -172,6 +172,12 @@ export interface ReadinessLane {
   total: number
   ready: number
   pct: number
+  /** Cards in the upcoming batch. */
+  cards: number
+  /** Cards whose first-read text (gloss, explanation) is already there. */
+  cards_ready: number
+  /** How many of those it takes to start — the gate the learner feels. */
+  start_cards: number
   ready_enough: boolean
 }
 

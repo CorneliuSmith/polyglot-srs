@@ -858,3 +858,103 @@ async def test_a_normal_pair_still_scores_its_example_lines(pool, monkeypatch):
             "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
             course)
     del c
+
+
+async def test_a_few_ready_cards_open_the_gate_at_a_low_percentage(
+    pool, monkeypatch,
+):
+    """The gate a learner actually feels: enough CARDS to start on.
+
+    The percentage measures the whole batch, glosses and example sentences
+    together, and sentences are translated last — so it climbs slowly and
+    stays low long after there is real work available. Gating on it alone
+    left someone sitting at 5% with usable cards already waiting and no way
+    in, which is the shape of every "it got stuck" report.
+
+    Cards ready is the other way in. Sentences still drive the percentage
+    and still fill during the session (the learn loop re-serves its lessons
+    on every advance), but they no longer keep anyone out.
+    """
+    from backend.repositories.cards import (
+        READY_ENOUGH,
+        START_CARDS,
+        session_readiness,
+    )
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "gate1", "Gateish", auto=True)
+    await _lang(pool, "gate2", "Gatelocale", auto=False)
+    uid = await _learner(pool, "gate@gate1", course, "gate2")
+    c = await _build_course(pool, course, uid, "gate1")
+
+    async with pool.privileged_connection() as conn:
+        # Four cards: two words, two grammar points. Nothing translated.
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        assert st["learn"]["cards"] == 4
+        assert st["learn"]["cards_ready"] == 0
+        assert st["learn"]["start_cards"] == START_CARDS
+        assert st["learn"]["ready_enough"] is False
+
+        # Two glosses and one explanation land — nothing else. Every example
+        # sentence is still English, so the percentage stays under the bar.
+        for vid in c["words"]:
+            await conn.execute(
+                "INSERT INTO translations (vocabulary_id, locale, definition) "
+                "VALUES ($1, 'gate2', 'rendered')", vid)
+        await conn.execute(
+            "INSERT INTO explanation_translations (grammar_point_id, locale, "
+            "explanation) VALUES ($1, 'gate2', 'rendered')", c["points"][0])
+
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        assert st["learn"]["cards_ready"] == START_CARDS
+        # The old gate would still be shut: 3 of 6 points is under 0.6.
+        assert st["learn"]["pct"] < READY_ENOUGH
+        # The new one is open.
+        assert st["learn"]["ready_enough"] is True
+
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
+    del c
+
+
+async def test_the_gate_scales_down_to_a_batch_smaller_than_the_threshold(
+    pool, monkeypatch,
+):
+    """A two-card batch must not need three ready cards to start."""
+    from backend.repositories.cards import session_readiness
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "gate3", "Smallish", auto=True)
+    await _lang(pool, "gate4", "Smalllocale", auto=False)
+    uid = await _learner(pool, "small@gate3", course, "gate4")
+
+    async with pool.privileged_connection() as conn:
+        deck = await conn.fetchval(
+            "INSERT INTO content_lists (language_id, list_type, level, title) "
+            "VALUES ($1, 'vocabulary', 'A1', 'A1 Vocabulary') RETURNING id",
+            course)
+        await conn.execute(
+            "INSERT INTO user_content_subscriptions (user_id, content_list_id) "
+            "VALUES ($1, $2)", uid, deck)
+        vid = await conn.fetchval(
+            "INSERT INTO vocabulary (language_id, word, level, frequency_rank) "
+            "VALUES ($1, 'lone', 'A1', 1) RETURNING id", course)
+        await conn.execute(
+            "INSERT INTO translations (vocabulary_id, locale, definition) "
+            "VALUES ($1, 'en', 'only')", vid)
+
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        assert st["learn"]["cards"] == 1
+        assert st["learn"]["start_cards"] == 1
+        assert st["learn"]["ready_enough"] is False
+
+        await conn.execute(
+            "INSERT INTO translations (vocabulary_id, locale, definition) "
+            "VALUES ($1, 'gate4', 'rendered')", vid)
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        assert st["learn"]["ready_enough"] is True
+
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)

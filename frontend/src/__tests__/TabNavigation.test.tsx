@@ -170,6 +170,69 @@ describe('BottomNav during a session', () => {
   })
 })
 
+describe('Reaching the four sections without a tab bar', () => {
+  beforeEach(() => vi.clearAllMocks())
+
+  // BottomNav is md:hidden, on the stated grounds that "the header's inline
+  // nav already does this job" on desktop. It did not — that row lists
+  // Decks, Tutor, Read, Gym, Search and Account, which are destinations
+  // INSIDE the sections, not the sections. So a desktop learner could not
+  // open Practice, Progress or More at all, and the Study page looked
+  // abandoned because most of what used to be on it had moved there.
+  it('offers every section from a section page', async () => {
+    renderAt(<PracticePage />)
+    expect(await screen.findByTestId('section-nav')).toBeInTheDocument()
+    for (const id of [
+      'section-study', 'section-practice', 'section-progress', 'section-more',
+    ]) {
+      expect(screen.getByTestId(id)).toBeInTheDocument()
+    }
+  })
+
+  it('marks the section you are actually in', async () => {
+    renderAt(<MorePage />, '/more')
+    await screen.findByTestId('section-nav')
+    expect(screen.getByTestId('section-more')).toHaveAttribute('aria-current', 'page')
+    // '/' is a prefix of everything, so Study must be compared exactly.
+    expect(screen.getByTestId('section-study')).not.toHaveAttribute('aria-current')
+  })
+
+  it('navigates between sections', async () => {
+    renderAt(<PracticePage />, '/practice')
+    await screen.findByTestId('section-nav')
+    fireEvent.click(screen.getByTestId('section-progress'))
+    expect(mockNavigate).toHaveBeenCalledWith('/progress')
+  })
+})
+
+describe('The desktop rail on the Study page', () => {
+  beforeEach(() => vi.clearAllMocks())
+
+  it('brings the next things a learner reaches for back beside the loop', async () => {
+    // Four sections is right for a phone, where the daily loop had been
+    // sitting seventh. A desktop screen is not short of room, and the same
+    // split left Study as two tiles above several hundred pixels of grey.
+    const { default: DesktopRail } = await import('../features/dashboard/DesktopRail')
+    renderAt(<DesktopRail />)
+    expect(await screen.findByTestId('desktop-rail')).toBeInTheDocument()
+    fireEvent.click(screen.getByTestId('rail-read'))
+    expect(mockNavigate).toHaveBeenCalledWith('/read')
+    fireEvent.click(screen.getByTestId('rail-letters'))
+    expect(mockNavigate).toHaveBeenCalledWith('/letters')
+  })
+
+  it('leaves the progress card out until there is a number worth showing', async () => {
+    const { default: DesktopRail } = await import('../features/dashboard/DesktopRail')
+    const { unmount } = renderAt(<DesktopRail />)
+    await screen.findByTestId('desktop-rail')
+    expect(screen.queryByTestId('rail-progress')).toBeNull()
+    unmount()
+
+    renderAt(<DesktopRail stats={{ profile: { items_studied: 42 } } as never} />)
+    expect(await screen.findByTestId('rail-progress')).toBeInTheDocument()
+  })
+})
+
 describe('The interface-language escape hatch', () => {
   it('puts the globe on every section', async () => {
     // Someone stranded in a language they cannot read has to be able to

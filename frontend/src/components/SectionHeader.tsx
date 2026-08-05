@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import SectionNav from './SectionNav'
 import UiLanguageSwitcher from './UiLanguageSwitcher'
 
 /**
@@ -28,6 +29,9 @@ export default function SectionHeader({
     <div className="flex items-center justify-between gap-3 flex-wrap">
       <h1 className="text-2xl font-bold text-gray-900">{title}</h1>
       <div className="flex items-center gap-2">
+        {/* Desktop has no tab bar, so without this the only way back to
+            another section is the browser's Back button. */}
+        <SectionNav />
         {actions}
         <UiLanguageSwitcher />
       </div>
