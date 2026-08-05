@@ -427,7 +427,8 @@
     "durationMin_one": "{{count}} min",
     "durationMin_other": "{{count}} min",
     "durationSec_one": "{{count}} seg",
-    "durationSec_other": "{{count}} seg"
+    "durationSec_other": "{{count}} seg",
+    "loadFailed": "No se pudo cargar tu sesión de repaso."
   },
   "about": {
     "title": "Cosas que saber",

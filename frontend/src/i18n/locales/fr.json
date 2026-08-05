@@ -427,7 +427,8 @@
     "durationMin_one": "{{count}} min",
     "durationMin_other": "{{count}} min",
     "durationSec_one": "{{count}} s",
-    "durationSec_other": "{{count}} s"
+    "durationSec_other": "{{count}} s",
+    "loadFailed": "Impossible de charger votre session de révision."
   },
   "about": {
     "title": "À savoir",

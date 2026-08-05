@@ -79,6 +79,18 @@ async def table_present(conn, table: str) -> bool:
     return bool(await conn.fetchval("SELECT to_regclass($1) IS NOT NULL", table))
 
 
+async def column_present(conn, table: str, column: str) -> bool:
+    """Whether *table.column* exists. Same discipline as table_present, and
+    same reason: a query naming a missing COLUMN raises too, and that throw
+    aborts the whole pooled transaction. Reads a catalog view, so it never
+    raises even when the table itself is absent."""
+    return bool(await conn.fetchval(
+        """SELECT EXISTS (SELECT 1 FROM information_schema.columns
+                           WHERE table_name = $1 AND column_name = $2)""",
+        table, column,
+    ))
+
+
 async def note_demand(conn, kind: str, ref_ids, locale: str | None) -> None:
     """Record that content was served with an English fallback for *locale*.
 

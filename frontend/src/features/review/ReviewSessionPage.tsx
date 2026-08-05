@@ -173,7 +173,7 @@ function ReviewSessionInner({
     !readinessQuery.data.review.ready_enough
   const handleStart = useCallback(() => setStartNow(true), [])
 
-  const { data: fetched, isLoading } = useQuery(
+  const { data: fetched, isLoading, isError } = useQuery(
     cram
       ? {
           queryKey: ['cram-cards', cramPoints, cramMix, cramCount],
@@ -593,6 +593,27 @@ function ReviewSessionInner({
           languages.find((l) => l.code === readinessQuery.data?.locale)?.name
         }
       />
+    )
+  }
+
+  // A failed fetch leaves `cards` null forever, and the loading branch below
+  // caught that case too — so a 500 showed "Loading cards…" indefinitely with
+  // no error, no retry and no way back. Say what happened instead.
+  if (isError) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+        <div className="text-center space-y-4">
+          <p className="text-xl text-red-600">{t('review.loadFailed')}</p>
+          <p className="text-sm text-gray-500">{t('learnSession.tryAgainLater')}</p>
+          <button
+            type="button"
+            onClick={() => navigate('/')}
+            className="text-lang hover:underline text-sm"
+          >
+            {t('common.backToDashboardLong')}
+          </button>
+        </div>
+      </div>
     )
   }
 
