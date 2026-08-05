@@ -9,6 +9,8 @@ apply path and the review-queue path in one sweep.
 """
 from __future__ import annotations
 
+import pytest
+
 from backend.services.auto_translate import (
     note_missing_content,
     run_translation_cycle,
@@ -18,6 +20,23 @@ from backend.services.auto_translate import (
 from .conftest import requires_db
 
 pytestmark = requires_db
+
+
+@pytest.fixture(autouse=True)
+async def _quiet_the_other_courses(pool):
+    """Leave no course switched on behind you.
+
+    Every test here runs the WHOLE sweep, so a course another test left
+    enabled is swept too and lands in the same global counters. That was
+    harmless while failed content was excluded permanently — it could never
+    come back. Now that a failure retries, one test's leftovers show up in
+    the next test's "processed" and the assertions stop meaning what they
+    say. Several tests already did this by hand at the end; this makes it
+    the rule.
+    """
+    yield
+    async with pool.privileged_connection() as conn:
+        await conn.execute("UPDATE languages SET auto_translate_enabled = false")
 
 
 class _MockSettings:
@@ -217,10 +236,14 @@ async def test_the_cycle_budget_caps_spend(pool, monkeypatch):
 async def test_drills_and_explanations_fill_after_the_glosses(pool, monkeypatch):
     """The strings a grammar card actually shows — the drill translation and
     hint under the cloze, and the point's explanation — fill from the same
-    budget once glosses are done. The mock rejects the FIRST item of every
-    batch: a rejected drill rendering is recorded as a NULL row (attempted,
-    card keeps its English fallback, no re-spend), a rejected explanation is
-    simply retried later because that table requires non-null text."""
+    budget once glosses are done.
+
+    The mock rejects the FIRST item of every batch, so this also pins what
+    a rejection now means. It used to write a row of NULLs "to record the
+    attempt", and pending_drills read any row as done — so one rejected
+    drill kept its English forever. A drill that renders nothing now gets
+    NO row, stays pending, and comes back on its retry window; the attempt
+    ledger is what records the try."""
     _mock_ai(monkeypatch)
     course = await _lang(pool, "at6", "Drillish", auto=True)
     await _lang(pool, "es2", "Spanish2", auto=False)
@@ -254,13 +277,19 @@ async def test_drills_and_explanations_fill_after_the_glosses(pool, monkeypatch)
         rows = {str(r["drill_id"]): r for r in await conn.fetch(
             "SELECT drill_id, translation, hint, reviewed "
             "FROM drill_hint_translations WHERE locale = 'es2'")}
-        # Both drills got a row — attempted is recorded either way.
-        assert set(rows) == {str(d1), str(d2)}
-        # Batch item 0 (d1) was rejected for both fields → NULL fallback row.
-        assert rows[str(d1)]["translation"] is None
+        # Only the drill that actually rendered has a row. d1 was rejected
+        # for both fields, so it gets none — a row would mean "done" and
+        # retire it in English.
+        assert set(rows) == {str(d2)}
         # Item 1 (d2) carries the mock's rendering, stored as a live draft.
         assert rows[str(d2)]["translation"] == "[Spanish2] That is water."
         assert rows[str(d2)]["reviewed"] is False
+        # The rejection was recorded as an attempt, not as a result — that
+        # is what brings d1 back instead of abandoning it.
+        att = await conn.fetchrow(
+            "SELECT attempts FROM translation_attempts "
+            "WHERE kind = 'drill' AND ref_id = $1 AND locale = 'es2'", d1)
+        assert att is not None and att["attempts"] >= 1
         ets = await conn.fetch(
             "SELECT grammar_point_id, explanation FROM explanation_translations "
             "WHERE locale = 'es2'")
@@ -269,11 +298,21 @@ async def test_drills_and_explanations_fill_after_the_glosses(pool, monkeypatch)
         assert str(ets[0]["grammar_point_id"]) in {str(gp1), str(gp2)}
         assert ets[0]["explanation"].startswith("[Spanish2]")
 
-    # A second sweep re-touches only the rejected explanation — every drill
-    # already has its attempted row.
+    # An immediate second sweep touches nothing: everything that failed is
+    # inside its retry window. This is the part that keeps a permanent
+    # failure from becoming a permanent hot loop.
     stats2 = await _cycle(pool)
-    assert stats2["drills"] == 0
-    assert stats2["processed"] == 1
+    assert stats2["processed"] == 0
+
+    # ...and once the window passes, it comes back. This is the whole point:
+    # a rejection is a reason to wait, not a reason to stop. Age the ledger
+    # rather than sleep two minutes.
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "UPDATE translation_attempts SET last_attempt_at = "
+            "now() - interval '2 days' WHERE locale = 'es2'")
+    stats3 = await _cycle(pool)
+    assert stats3["processed"] >= 1, "a failed rendering must be retried"
 
 
 async def test_demand_lane_beats_the_sweep_and_clears_itself(pool, monkeypatch):
@@ -313,20 +352,26 @@ async def test_demand_lane_beats_the_sweep_and_clears_itself(pool, monkeypatch):
     assert stats["demand"] >= 1
 
     async with pool.privileged_connection() as conn:
+        # Title and culture note were each item 0 of their own batch, so the
+        # mock rejected both and NO row is written — a row of NULLs used to
+        # be written here and it retired the point in English permanently.
         gpt = await conn.fetchrow(
             "SELECT title, culture_note FROM grammar_point_translations "
             "WHERE grammar_point_id = $1 AND locale = 'fr2'", gp)
-        # Title was batch item 0 → mock-rejected → NULL (English fallback);
-        # the culture note is item 0 of ITS batch too. Both fields attempted,
-        # the row itself proves grammar_meta ran through the demand lane.
-        assert gpt is not None
+        assert gpt is None
         et = await conn.fetchval(
             "SELECT count(*) FROM explanation_translations "
             "WHERE grammar_point_id = $1 AND locale = 'fr2'", gp)
         assert et in (0, 1)  # rejected-or-stored; either way it was attempted
+        # The demand lane ran — proven by the attempt ledger rather than by
+        # a hollow row, and the demand SURVIVES so the point comes back.
+        att = await conn.fetch(
+            "SELECT kind, attempts FROM translation_attempts "
+            "WHERE ref_id = $1 AND locale = 'fr2'", gp)
+        assert {r["kind"] for r in att} >= {"grammar_meta"}
         left = await conn.fetchval(
             "SELECT count(*) FROM translation_demand WHERE locale = 'fr2'")
-        assert left == 0
+        assert left >= 1, "demand for content that did not land must not be dropped"
 
 
 async def test_demand_for_a_switched_off_course_is_ignored(pool, monkeypatch):
@@ -567,3 +612,110 @@ async def test_example_demand_survives_a_row_limited_pass(pool, monkeypatch):
         }
         assert still, "the budget was too small for this to cover everything"
         assert left == still
+
+
+async def test_a_failed_rendering_is_retried_not_retired(pool, monkeypatch):
+    """The bug in the report: "once it fails, it just stops and does nothing".
+
+    A Catalan grammar card with a Spanish interface, showing an English
+    title, an English explanation and an English culture note — with the
+    loop running, the course switched on, and nothing anywhere trying to
+    fix it. Three kinds recorded a FAILURE as a permanent SUCCESS:
+
+      * a rejected word gloss wrote a translation_reviews row, and
+        pending_words skipped any word that had one;
+      * grammar_point_translations got a row even when every field came
+        back empty, and pending_grammar_meta skipped any point with a row;
+      * drill_hint_translations did the same.
+
+    So one bad batch retired that content for good. This walks the whole
+    life of a failure: it does not look done, it does not hot-loop, and it
+    comes back.
+    """
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "at13", "Retryish", auto=True)
+    await _lang(pool, "ca2", "Catalanish", auto=False)
+    await _learner(pool, "ca@at13", course, "ca2")
+
+    async with pool.privileged_connection() as conn:
+        # One point, so it is the first — and only — item of its batch, and
+        # the mock rejects the first item of every batch.
+        gp = await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed, "
+            "display_order, explanation, culture_note) "
+            "VALUES ($1, 'Definite articles', 'A1', true, 1, "
+            "'El, la, els and les.', 'A very Catalan touch.') RETURNING id",
+            course)
+
+    await _cycle(pool)
+
+    async with pool.privileged_connection() as conn:
+        # It failed, so there is NO row claiming it is done.
+        assert await conn.fetchval(
+            "SELECT count(*) FROM grammar_point_translations "
+            "WHERE grammar_point_id = $1 AND locale = 'ca2'", gp) == 0
+        # The failure is recorded where a failure belongs.
+        att = await conn.fetchrow(
+            "SELECT attempts FROM translation_attempts "
+            "WHERE kind = 'grammar_meta' AND ref_id = $1 AND locale = 'ca2'", gp)
+        assert att is not None, "a failure nobody recorded is a failure nobody retries"
+        first_attempts = att["attempts"]
+
+        # And it is still pending, which is what the old code could not say.
+        from backend.services.auto_translate import pending_grammar_meta
+        assert await pending_grammar_meta(conn, course, "ca2", 10, [gp])
+
+    # Immediately again: the retry window holds, so no budget is burned.
+    before = await _cycle(pool)
+    async with pool.privileged_connection() as conn:
+        assert (await conn.fetchval(
+            "SELECT attempts FROM translation_attempts "
+            "WHERE kind = 'grammar_meta' AND ref_id = $1 AND locale = 'ca2'",
+            gp)) == first_attempts, "backoff did not hold; this would hot-loop"
+    del before
+
+    # Past the window, it is tried again — and this time the mock's batch
+    # has a second item, so the rendering lands.
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "UPDATE translation_attempts SET last_attempt_at = "
+            "now() - interval '2 days' WHERE locale = 'ca2'")
+        await conn.execute(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed, "
+            "display_order, explanation) VALUES ($1, 'Decoy', 'A1', true, 0, "
+            "'Sacrificial first item.')", course)
+
+    await _cycle(pool)
+
+    async with pool.privileged_connection() as conn:
+        got = await conn.fetchrow(
+            "SELECT title, culture_note FROM grammar_point_translations "
+            "WHERE grammar_point_id = $1 AND locale = 'ca2'", gp)
+        assert got is not None and got["title"], \
+            "the point that failed first must eventually be translated"
+
+        # The culture note is item 0 of its OWN batch (the decoy has none),
+        # so it was rejected again — and that is the second half of the fix.
+        # A partly-rendered point used to freeze exactly like a failed one:
+        # the row existed, so the point read as finished and the missing
+        # field stayed English forever. It is still pending, so the loop
+        # will come back and fill the gap.
+        assert got["culture_note"] is None
+        from backend.services.auto_translate import pending_grammar_meta
+        assert await pending_grammar_meta(conn, course, "ca2", 10, [gp]), \
+            "a half-translated point must keep trying for the rest"
+        assert await conn.fetchval(
+            "SELECT count(*) FROM translation_attempts "
+            "WHERE kind = 'grammar_meta' AND ref_id = $1 AND locale = 'ca2'",
+            gp) == 1, "work outstanding means a ledger row still pacing it"
+
+        # And content that fully lands leaves no trace behind: the ledger
+        # holds outstanding problems, not history, so it stays small.
+        done = await conn.fetchval(
+            "SELECT count(*) FROM translation_attempts a "
+            " JOIN grammar_point_translations g "
+            "   ON g.grammar_point_id = a.ref_id AND g.locale = a.locale "
+            "WHERE a.kind = 'grammar_meta' AND a.locale = 'ca2' "
+            "  AND g.title IS NOT NULL AND g.culture_note IS NOT NULL "
+            "  AND g.function_note IS NOT NULL")
+        assert done == 0, "a finished point should not still be in the ledger"
