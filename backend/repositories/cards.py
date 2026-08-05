@@ -908,6 +908,19 @@ async def pretranslate_upcoming(
 # early cards, so holding out for a perfect session wastes their time.
 READY_ENOUGH = 0.6
 
+# ...but the percentage is not the only way in, and on its own it was the
+# wrong gate. It measures the WHOLE batch, glosses and example sentences
+# together, so a learner could sit at 5% with three perfectly good cards
+# already waiting for them and no way to begin. A session only needs enough
+# cards to start on; the rest lands while they work, and the learn loop
+# re-serves its lessons on every advance so it appears without a restart.
+#
+# A card counts here when the thing you read FIRST is in your language — a
+# word's gloss, a grammar point's explanation. Example sentences are most
+# of what a vocabulary card shows and they still drive the percentage, but
+# they must never be what keeps someone out of a session.
+START_CARDS = 3
+
 
 async def session_readiness(
     conn: asyncpg.Connection, user_id: str, language_id: str,
@@ -965,11 +978,16 @@ async def session_readiness(
         per_word = 2 if scores_examples else 1
         total = len(vocab_ids) * per_word + len(grammar_ids)
         ready = 0
+        # Cards a learner could start on right now, counted separately from
+        # the percentage: this is what decides whether they are let in.
+        cards_ready = 0
         if vocab_ids:
-            ready += int(await conn.fetchval(
+            glossed = int(await conn.fetchval(
                 """SELECT count(*) FROM translations
                     WHERE vocabulary_id = ANY($1::uuid[]) AND locale = $2""",
                 list(vocab_ids), locale) or 0)
+            ready += glossed
+            cards_ready += glossed
             # Words with nothing left to translate — phrased as "no reviewed
             # English example is missing its locale sibling" so a word that
             # simply HAS no examples counts as done, rather than holding the
@@ -990,14 +1008,24 @@ async def session_readiness(
         if grammar_ids:
             # A grammar card's body is its explanation; that's what a
             # learner reads first and what takes longest to render.
-            ready += int(await conn.fetchval(
+            explained = int(await conn.fetchval(
                 """SELECT count(*) FROM explanation_translations
                     WHERE grammar_point_id = ANY($1::uuid[]) AND locale = $2""",
                 list(grammar_ids), locale) or 0)
+            ready += explained
+            cards_ready += explained
         pct = 1.0 if total == 0 else ready / total
+        cards = len(vocab_ids) + len(grammar_ids)
+        # Either way in: a few cards ready to work through, or a batch far
+        # enough along overall. The card count is what rescues someone from
+        # a low percentage they can do nothing about — glosses land before
+        # sentences, so three usable cards routinely exist at 20%.
+        enough_cards = cards > 0 and cards_ready >= min(START_CARDS, cards)
         out[key] = {
             "total": total, "ready": ready, "pct": round(pct, 3),
-            "ready_enough": total == 0 or pct >= READY_ENOUGH,
+            "cards": cards, "cards_ready": cards_ready,
+            "start_cards": min(START_CARDS, cards),
+            "ready_enough": total == 0 or enough_cards or pct >= READY_ENOUGH,
         }
 
     # The wait-screen game plays the words of the SESSION being waited for —

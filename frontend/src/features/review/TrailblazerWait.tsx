@@ -194,7 +194,18 @@ export default function TrailblazerWait({
   })
 
   const lane = readiness.data?.[kind]
-  const pct = lane ? Math.round(lane.pct * 100) : 0
+  // The bar tracks the thing that actually opens the gate: cards you could
+  // start on. Showing the whole-batch percentage instead meant someone sat
+  // watching "5 %" with no idea they were one card from being let in — and
+  // that number climbs slowest precisely because example sentences, which
+  // are the bulk of it, are translated last.
+  const needed = lane?.start_cards ?? 0
+  const have = Math.min(lane?.cards_ready ?? 0, needed)
+  const pct = needed > 0
+    ? Math.round((have / needed) * 100)
+    : lane
+      ? Math.round(lane.pct * 100)
+      : 0
 
   // Keyed on the COUNT and the fetch timestamp, not on `lane` itself:
   // react-query's structural sharing keeps the object referentially stable
@@ -286,7 +297,9 @@ export default function TrailblazerWait({
             />
           </div>
           <p className="text-xs text-gray-500">
-            {t('trailblazer.progress', { pct })}
+            {needed > 0
+              ? t('trailblazer.cardsReady', { have, needed })
+              : t('trailblazer.progress', { pct })}
           </p>
           {stalled && (
             <p className="text-xs text-amber-700" data-testid="trailblazer-stalled">

@@ -1354,6 +1354,7 @@
     "body": "Nadie ha estudiado esto en {{language}} todavía. Lo estamos escribiendo ahora: eres el pionero.",
     "bodyGeneric": "Nadie ha estudiado esto en tu idioma todavía. Lo estamos escribiendo ahora: eres el pionero.",
     "progress": "{{pct}} % listo",
+    "cardsReady": "{{have}} de {{needed}} tarjetas listas",
     "waitAndPlay": "Esperar y jugar",
     "startInEnglish": "Empezar en inglés",
     "leave": "Volver a Estudiar",

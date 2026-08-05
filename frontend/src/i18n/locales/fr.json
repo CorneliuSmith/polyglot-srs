@@ -1354,6 +1354,7 @@
     "body": "Personne n'a encore étudié ceci en {{language}}. Nous l'écrivons maintenant — vous ouvrez la voie.",
     "bodyGeneric": "Personne n'a encore étudié ceci dans votre langue. Nous l'écrivons maintenant — vous ouvrez la voie.",
     "progress": "{{pct}} % prêt",
+    "cardsReady": "{{have}} carte(s) sur {{needed}} prête(s)",
     "waitAndPlay": "Attendre et jouer",
     "startInEnglish": "Commencer en anglais",
     "leave": "Retour à Étudier",
