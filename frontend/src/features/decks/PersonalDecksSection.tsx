@@ -10,19 +10,24 @@ import {
   renamePersonalDeck,
   getPersonalTranslationStatus,
   translatePersonalCards,
+  createPersonalCard,
+  deletePersonalCard,
 } from '../../api/personalDecks'
 
 /**
  * Personal decks (owner request): learner-named folders over the cards
- * minted from the Tutor and the Reader. Organization only — creating
- * cards by hand stays off for now. Deleting a deck never deletes cards;
- * they fall back to "Unfiled".
+ * minted from the Tutor and the Reader, plus cards written here by hand.
+ * Deleting a DECK never deletes its cards — they fall back to "Unfiled";
+ * deleting a CARD is explicit and confirmed, and takes its review
+ * scheduling and any locale translations with it.
  */
 export default function PersonalDecksSection({ languageId }: { languageId: string }) {
   const { t } = useTranslation()
   const queryClient = useQueryClient()
   const [newName, setNewName] = useState('')
   const [openDeckId, setOpenDeckId] = useState<string | null>(null)
+  const [composing, setComposing] = useState(false)
+  const [draft, setDraft] = useState({ sentence: '', answer: '', translation: '' })
 
   const { data: decks = [] } = useQuery({
     queryKey: ['personal-decks', languageId],
@@ -74,6 +79,30 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
     mutationFn: (id: string) => deletePersonalDeck(id),
     onSuccess: invalidate,
   })
+  const addCardMutation = useMutation({
+    mutationFn: () =>
+      createPersonalCard({
+        languageId,
+        sentence: draft.sentence,
+        answer: draft.answer,
+        translation: draft.translation,
+      }),
+    onSuccess: () => {
+      setDraft({ sentence: '', answer: '', translation: '' })
+      setComposing(false)
+      invalidate()
+      queryClient.invalidateQueries({ queryKey: ['dashboard'] })
+    },
+  })
+  const deleteCardMutation = useMutation({
+    mutationFn: (cardId: string) => deletePersonalCard(cardId),
+    onSuccess: () => {
+      invalidate()
+      queryClient.invalidateQueries({ queryKey: ['dashboard'] })
+      queryClient.invalidateQueries({ queryKey: ['due-cards'] })
+    },
+  })
+
   const fileMutation = useMutation({
     mutationFn: ({ cardId, deckId }: { cardId: string; deckId: string | null }) =>
       filePersonalCard(cardId, deckId),
@@ -189,6 +218,82 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
         </button>
       </form>
 
+      {composing ? (
+        <form
+          data-testid="personal-card-form"
+          onSubmit={(e) => {
+            e.preventDefault()
+            if (draft.sentence.trim() && draft.answer.trim()) {
+              addCardMutation.mutate()
+            }
+          }}
+          className="rounded-2xl border border-gray-200 bg-white p-4 space-y-2"
+        >
+          <input
+            type="text"
+            value={draft.sentence}
+            onChange={(e) => setDraft({ ...draft, sentence: e.target.value })}
+            placeholder={t('decks.cardSentencePlaceholder')}
+            maxLength={500}
+            aria-label={t('decks.cardSentenceLabel')}
+            className="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm outline-none focus:border-lang/50"
+          />
+          <input
+            type="text"
+            value={draft.answer}
+            onChange={(e) => setDraft({ ...draft, answer: e.target.value })}
+            placeholder={t('decks.cardAnswerPlaceholder')}
+            maxLength={100}
+            aria-label={t('decks.cardAnswerLabel')}
+            className="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm outline-none focus:border-lang/50"
+          />
+          <input
+            type="text"
+            value={draft.translation}
+            onChange={(e) => setDraft({ ...draft, translation: e.target.value })}
+            placeholder={t('decks.cardTranslationPlaceholder')}
+            maxLength={500}
+            aria-label={t('decks.cardTranslationLabel')}
+            className="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm outline-none focus:border-lang/50"
+          />
+          <p className="text-xs text-gray-500">{t('decks.cardBlankHint')}</p>
+          {addCardMutation.isError && (
+            <p className="text-xs text-red-600" data-testid="card-add-error">
+              {t('decks.cardAnswerMissing')}
+            </p>
+          )}
+          <div className="flex items-center gap-2">
+            <button
+              type="submit"
+              disabled={
+                !draft.sentence.trim() ||
+                !draft.answer.trim() ||
+                addCardMutation.isPending
+              }
+              className="rounded-xl bg-lang hover:bg-lang-dark disabled:opacity-40 text-lang-on text-sm font-semibold px-4 py-2"
+            >
+              {t('decks.cardSave')}
+            </button>
+            <button
+              type="button"
+              onClick={() => setComposing(false)}
+              className="text-xs text-gray-500 hover:text-gray-700"
+            >
+              {t('common.cancel')}
+            </button>
+          </div>
+        </form>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setComposing(true)}
+          data-testid="personal-card-add"
+          className="text-sm text-lang hover:underline"
+        >
+          {t('decks.cardAdd')}
+        </button>
+      )}
+
       <div className="space-y-2">
         {groups.map((g) => {
           if (g.id === null && g.cards.length === 0) return null
@@ -246,6 +351,17 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
                           {(c.sentence ?? '').replace('{{answer}}', '___')}
                         </span>
                       </span>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (window.confirm(t('decks.cardDeleteConfirm', { answer: c.answer })))
+                            deleteCardMutation.mutate(c.id)
+                        }}
+                        aria-label={t('decks.cardDeleteFor', { answer: c.answer })}
+                        className="text-xs text-gray-400 hover:text-red-600"
+                      >
+                        {t('decks.delete')}
+                      </button>
                       <select
                         value={c.deck_id ?? ''}
                         onChange={(e) =>

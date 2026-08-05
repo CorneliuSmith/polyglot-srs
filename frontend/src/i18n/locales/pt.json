@@ -684,7 +684,19 @@
     "translateAction": "Traduzir as minhas cartas",
     "translating": "A traduzir…",
     "translateDone": "Foram traduzidas {{count}} das suas cartas.",
-    "translateFailed": "Não funcionou. A sua quota não foi cobrada."
+    "translateFailed": "Não funcionou. A sua quota não foi cobrada.",
+    "cardAdd": "+ Escrever uma carta",
+    "cardSave": "Guardar carta",
+    "cardSentencePlaceholder": "Uma frase no idioma que está a aprender",
+    "cardAnswerPlaceholder": "A palavra a praticar (tem de estar na frase)",
+    "cardTranslationPlaceholder": "O que significa (opcional)",
+    "cardSentenceLabel": "Frase",
+    "cardAnswerLabel": "Palavra a praticar",
+    "cardTranslationLabel": "Significado",
+    "cardBlankHint": "A palavra que escolher fica oculta ao rever a carta.",
+    "cardAnswerMissing": "Essa palavra não está na frase, por isso não haveria nada para ocultar. Verifique a ortografia.",
+    "cardDeleteConfirm": "Eliminar a carta de «{{answer}}»?",
+    "cardDeleteFor": "Eliminar a carta de {{answer}}"
   },
   "notes": {
     "pickLanguageFirst": "Escolha um idioma no painel primeiro.",

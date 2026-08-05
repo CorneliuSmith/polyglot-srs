@@ -684,7 +684,19 @@
     "translateAction": "Traducir mis tarjetas",
     "translating": "Traduciendo…",
     "translateDone": "Se tradujeron {{count}} tarjetas tuyas.",
-    "translateFailed": "No funcionó. No se cobró tu asignación."
+    "translateFailed": "No funcionó. No se cobró tu asignación.",
+    "cardAdd": "+ Escribir una tarjeta",
+    "cardSave": "Guardar tarjeta",
+    "cardSentencePlaceholder": "Una frase en el idioma que estudias",
+    "cardAnswerPlaceholder": "La palabra a practicar (debe estar en la frase)",
+    "cardTranslationPlaceholder": "Qué significa (opcional)",
+    "cardSentenceLabel": "Frase",
+    "cardAnswerLabel": "Palabra a practicar",
+    "cardTranslationLabel": "Significado",
+    "cardBlankHint": "La palabra que elijas se oculta al repasar la tarjeta.",
+    "cardAnswerMissing": "Esa palabra no está en la frase, así que no habría nada que ocultar. Revisa la ortografía.",
+    "cardDeleteConfirm": "¿Eliminar la tarjeta de «{{answer}}»?",
+    "cardDeleteFor": "Eliminar la tarjeta de {{answer}}"
   },
   "notes": {
     "pickLanguageFirst": "Primero elige un idioma en el panel.",

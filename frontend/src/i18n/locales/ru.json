@@ -708,7 +708,19 @@
     "translateAction": "Перевести мои карточки",
     "translating": "Перевод…",
     "translateDone": "Переведено карточек: {{count}}.",
-    "translateFailed": "Не получилось. Лимит не списан."
+    "translateFailed": "Не получилось. Лимит не списан.",
+    "cardAdd": "+ Создать карточку",
+    "cardSave": "Сохранить карточку",
+    "cardSentencePlaceholder": "Предложение на изучаемом языке",
+    "cardAnswerPlaceholder": "Слово для отработки (должно быть в предложении)",
+    "cardTranslationPlaceholder": "Что это значит (необязательно)",
+    "cardSentenceLabel": "Предложение",
+    "cardAnswerLabel": "Слово для отработки",
+    "cardTranslationLabel": "Значение",
+    "cardBlankHint": "Выбранное слово скрывается при повторении карточки.",
+    "cardAnswerMissing": "Этого слова нет в предложении, скрывать нечего. Проверьте написание.",
+    "cardDeleteConfirm": "Удалить карточку «{{answer}}»?",
+    "cardDeleteFor": "Удалить карточку {{answer}}"
   },
   "notes": {
     "pickLanguageFirst": "Сначала выберите язык на главной.",

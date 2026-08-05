@@ -684,7 +684,19 @@
     "translateAction": "Traduire mes cartes",
     "translating": "Traduction…",
     "translateDone": "{{count}} de vos cartes ont été traduites.",
-    "translateFailed": "Échec. Votre quota n'a pas été débité."
+    "translateFailed": "Échec. Votre quota n'a pas été débité.",
+    "cardAdd": "+ Écrire une carte",
+    "cardSave": "Enregistrer la carte",
+    "cardSentencePlaceholder": "Une phrase dans la langue que vous apprenez",
+    "cardAnswerPlaceholder": "Le mot à travailler (il doit figurer dans la phrase)",
+    "cardTranslationPlaceholder": "Ce que cela veut dire (facultatif)",
+    "cardSentenceLabel": "Phrase",
+    "cardAnswerLabel": "Mot à travailler",
+    "cardTranslationLabel": "Signification",
+    "cardBlankHint": "Le mot choisi est masqué lors de la révision.",
+    "cardAnswerMissing": "Ce mot ne figure pas dans la phrase, il n'y aurait donc rien à masquer. Vérifiez l'orthographe.",
+    "cardDeleteConfirm": "Supprimer la carte « {{answer}} » ?",
+    "cardDeleteFor": "Supprimer la carte {{answer}}"
   },
   "notes": {
     "pickLanguageFirst": "Choisissez d’abord une langue sur le tableau de bord.",

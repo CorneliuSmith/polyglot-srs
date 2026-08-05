@@ -126,3 +126,73 @@ async def test_personal_cards_still_list_when_the_deck_migration_is_missing(pool
         assert cards[0]["answer"] == "büyük"
         assert cards[0]["deck_id"] is None
     del uid
+
+
+async def test_a_learner_can_write_and_delete_their_own_cards(pool):
+    """Authoring was deliberately off ("organization only"); the owner has
+    since asked for it. Two properties matter: the blank is derived from the
+    answer rather than typed by hand, and deleting takes the scheduling row
+    with it — user_cards.card_id is polymorphic, so nothing cascades, and a
+    stranded row keeps surfacing in reviews as a card with no text."""
+    from backend.repositories.notes import create_personal_card
+    from backend.repositories.personal_decks import (
+        build_cloze,
+        delete_personal_card,
+    )
+
+    lang, uid, _ = await _setup(pool, "pci", "pcj")
+
+    # The blank is worked out, not typed. Whole words only and
+    # case-insensitive, so a sentence-initial capital still matches, and a
+    # word that is merely a substring of another does NOT.
+    assert build_cloze("Bu ev çok guzel.", "guzel") == "Bu ev çok {{answer}}."
+    assert build_cloze("Guzel bir ev.", "guzel") == "{{answer}} bir ev."
+    assert build_cloze("Bu ev buyukbaba.", "buyuk") is None
+    assert build_cloze("Bu ev güzel.", "kitap") is None
+
+    async with pool.privileged_connection() as conn:
+        sentence = build_cloze("Bu ev çok guzel.", "guzel")
+        card_row = await create_personal_card(
+            conn, uid, lang, sentence, "guzel", "This house is very nice.",
+            None, None)
+        assert card_row
+
+        cards = await list_personal_cards(conn, lang)
+        assert any(c["answer"] == "guzel" for c in cards)
+
+        cloze_id = next(c["id"] for c in cards if c["answer"] == "guzel")
+        due_before = await get_due_cards(conn, lang, 20, "pcj")
+        assert any(str(d["card_id"]) == cloze_id for d in due_before)
+
+        assert await delete_personal_card(conn, cloze_id) is True
+
+        # Gone from the listing AND from the review queue — no orphan row.
+        assert not any(c["id"] == cloze_id
+                       for c in await list_personal_cards(conn, lang))
+        assert not any(str(d["card_id"]) == cloze_id
+                       for d in await get_due_cards(conn, lang, 20, "pcj"))
+        assert await conn.fetchval(
+            "SELECT count(*) FROM user_cards "
+            "WHERE card_type = 'personal' AND card_id = $1", cloze_id) == 0
+
+        # Deleting something already gone is reported, not crashed.
+        assert await delete_personal_card(conn, cloze_id) is False
+
+
+async def test_deleting_a_card_takes_its_locale_translations_with_it(pool):
+    """The overlay is ON DELETE CASCADE — a deleted card must not leave
+    private translated text behind."""
+    from backend.repositories.personal_decks import delete_personal_card
+
+    lang, uid, cloze = await _setup(pool, "pck", "pcl")
+    async with pool.privileged_connection() as conn:
+        await store_card_translations(conn, [(cloze, "Muy grande.")], "pcl")
+        assert await conn.fetchval(
+            "SELECT count(*) FROM user_cloze_card_translations "
+            "WHERE cloze_id = $1", cloze) == 1
+
+        await delete_personal_card(conn, cloze)
+        assert await conn.fetchval(
+            "SELECT count(*) FROM user_cloze_card_translations "
+            "WHERE cloze_id = $1", cloze) == 0
+    del uid, lang

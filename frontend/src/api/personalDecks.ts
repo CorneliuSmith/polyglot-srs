@@ -80,3 +80,25 @@ export async function translatePersonalCards(
   })
   return data
 }
+
+/** Write a card by hand. The blank is derived server-side from the answer. */
+export async function createPersonalCard(input: {
+  languageId: string
+  sentence: string
+  answer: string
+  translation?: string
+  deckId?: string | null
+}): Promise<{ id: string }> {
+  const { data } = await apiClient.post('/api/personal-decks/cards', {
+    language_id: input.languageId,
+    sentence: input.sentence,
+    answer: input.answer,
+    translation: input.translation ?? '',
+    deck_id: input.deckId ?? null,
+  })
+  return data
+}
+
+export async function deletePersonalCard(cardId: string): Promise<void> {
+  await apiClient.delete(`/api/personal-decks/cards/${cardId}`)
+}

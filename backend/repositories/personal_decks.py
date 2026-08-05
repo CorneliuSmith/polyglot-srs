@@ -1,10 +1,13 @@
 """Personal decks — learner-named folders for personal cloze cards.
 
-Organization only (owner decision): decks group the cards minted from the
-Tutor and the Reader; learners cannot author cards directly yet. All
-queries run under RLS, so user scoping is the connection's context.
+Decks group the cards minted from the Tutor and the Reader, and (owner
+request, superseding the original organization-only rule) cards the learner
+writes or deletes themselves. All queries run under RLS, so user scoping is
+the connection's context.
 """
 from __future__ import annotations
+
+import re
 
 import asyncpg
 
@@ -208,3 +211,38 @@ async def store_card_translations(
         )
         stored += 1
     return stored
+
+
+def build_cloze(sentence: str, answer: str) -> str | None:
+    """Put the {{answer}} marker into a learner-written sentence.
+
+    Review renders the sentence with the marker blanked, so a card without
+    one would present the answer in plain sight. Matches whole words only
+    and case-insensitively — "Büyük" at the start of a sentence is still the
+    answer "büyük". Returns None when the word isn't in the sentence, which
+    the router turns into a message rather than storing a broken card.
+    """
+    if "{{answer}}" in sentence:
+        return sentence
+    word = answer.strip()
+    if not word:
+        return None
+    pattern = re.compile(rf"(?<!\w){re.escape(word)}(?!\w)", re.IGNORECASE)
+    replaced, count = pattern.subn("{{answer}}", sentence, count=1)
+    return replaced if count else None
+
+
+async def delete_personal_card(conn: asyncpg.Connection, cloze_id: str) -> bool:
+    """Remove a personal card and its scheduling row.
+
+    user_cards.card_id is polymorphic — no foreign key to user_cloze_cards —
+    so nothing cascades and the scheduling row has to go explicitly. Left
+    behind it would keep surfacing in reviews as a card whose text no longer
+    exists. RLS scopes both statements to the owner.
+    """
+    await conn.execute(
+        "DELETE FROM user_cards WHERE card_type = 'personal' AND card_id = $1",
+        cloze_id,
+    )
+    res = await conn.execute("DELETE FROM user_cloze_cards WHERE id = $1", cloze_id)
+    return res.endswith(" 1")

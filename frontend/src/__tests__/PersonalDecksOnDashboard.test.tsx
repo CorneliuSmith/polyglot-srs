@@ -8,6 +8,8 @@ import {
   getPersonalCards,
   getPersonalTranslationStatus,
   translatePersonalCards,
+  createPersonalCard,
+  deletePersonalCard,
 } from '../api/personalDecks'
 
 vi.mock('../api/personalDecks', () => ({
@@ -19,6 +21,8 @@ vi.mock('../api/personalDecks', () => ({
   filePersonalCard: vi.fn(),
   getPersonalTranslationStatus: vi.fn(),
   translatePersonalCards: vi.fn(),
+  createPersonalCard: vi.fn(),
+  deletePersonalCard: vi.fn(),
 }))
 
 vi.mock('react-i18next', () => ({
@@ -33,6 +37,8 @@ const mockDecks = vi.mocked(getPersonalDecks)
 const mockCards = vi.mocked(getPersonalCards)
 const mockStatus = vi.mocked(getPersonalTranslationStatus)
 const mockTranslate = vi.mocked(translatePersonalCards)
+const mockCreate = vi.mocked(createPersonalCard)
+const mockDelete = vi.mocked(deletePersonalCard)
 
 function renderSection() {
   const client = new QueryClient({
@@ -115,5 +121,68 @@ describe('PersonalDecksSection', () => {
     renderSection()
     // Still explains itself rather than taking the dashboard down with it.
     expect(await screen.findByTestId('personal-decks-empty')).toBeInTheDocument()
+  })
+
+  it('lets the learner write their own card', async () => {
+    mockCards.mockResolvedValue([card])
+    mockCreate.mockResolvedValue({ id: 'new-1' })
+    renderSection()
+
+    await userEvent.click(await screen.findByTestId('personal-card-add'))
+    await userEvent.type(
+      screen.getByLabelText('decks.cardSentenceLabel'), 'Bu ev çok guzel.')
+    await userEvent.type(screen.getByLabelText('decks.cardAnswerLabel'), 'guzel')
+    await userEvent.click(screen.getByText('decks.cardSave'))
+
+    await waitFor(() =>
+      expect(mockCreate).toHaveBeenCalledWith(
+        expect.objectContaining({ answer: 'guzel', sentence: 'Bu ev çok guzel.' }),
+      ),
+    )
+  })
+
+  it('will not save a card with no sentence or no answer', async () => {
+    mockCards.mockResolvedValue([card])
+    renderSection()
+    await userEvent.click(await screen.findByTestId('personal-card-add'))
+
+    // Both fields are required — a card missing either cannot be reviewed.
+    expect(screen.getByText('decks.cardSave')).toBeDisabled()
+    await userEvent.type(
+      screen.getByLabelText('decks.cardSentenceLabel'), 'Bu ev guzel.')
+    expect(screen.getByText('decks.cardSave')).toBeDisabled()
+    await userEvent.type(screen.getByLabelText('decks.cardAnswerLabel'), 'guzel')
+    expect(screen.getByText('decks.cardSave')).toBeEnabled()
+  })
+
+  it('says what went wrong when the answer is not in the sentence', async () => {
+    mockCards.mockResolvedValue([card])
+    mockCreate.mockRejectedValue(new Error('422'))
+    renderSection()
+
+    await userEvent.click(await screen.findByTestId('personal-card-add'))
+    await userEvent.type(
+      screen.getByLabelText('decks.cardSentenceLabel'), 'Bu ev guzel.')
+    await userEvent.type(screen.getByLabelText('decks.cardAnswerLabel'), 'kitap')
+    await userEvent.click(screen.getByText('decks.cardSave'))
+
+    expect(await screen.findByTestId('card-add-error')).toBeInTheDocument()
+  })
+
+  it('deletes a card, but only after confirming', async () => {
+    mockCards.mockResolvedValue([card])
+    mockDelete.mockResolvedValue(undefined)
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(false)
+    renderSection()
+
+    await userEvent.click(await screen.findByText('decks.unfiled'))
+    await userEvent.click(
+      await screen.findByLabelText('decks.cardDeleteFor'))
+    expect(mockDelete).not.toHaveBeenCalled()
+
+    confirmSpy.mockReturnValue(true)
+    await userEvent.click(screen.getByLabelText('decks.cardDeleteFor'))
+    await waitFor(() => expect(mockDelete).toHaveBeenCalledWith('c1'))
+    confirmSpy.mockRestore()
   })
 })
