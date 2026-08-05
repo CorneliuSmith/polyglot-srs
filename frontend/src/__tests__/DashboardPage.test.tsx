@@ -134,6 +134,15 @@ vi.mock('../stores/prefsStore', () => ({
   ),
 }))
 vi.mock('../components/LanguagePicker', () => ({ default: () => <div /> }))
+// Without this the active language's CODE never resolves, and the two
+// reference tiles key off it (they're hidden for a language with no data).
+vi.mock('../api/profile', () => ({
+  getLanguages: vi.fn(() =>
+    Promise.resolve([{ id: 'lang-es', code: 'es', name: 'Spanish', rtl: false }]),
+  ),
+  getProfile: vi.fn(() => Promise.resolve({ support_locale: null })),
+  updateProfile: vi.fn(),
+}))
 
 import DashboardPage, { DeckRow } from '../features/dashboard/DashboardPage'
 import { setDeckSubscription, getLearnDecks } from '../api/review'
@@ -272,6 +281,23 @@ describe('Dashboard tiles', () => {
     renderDashboard()
     fireEvent.click(await screen.findByTestId('tile-gym'))
     expect(mockNavigate).toHaveBeenCalledWith('/gym')
+  })
+
+  it('Letters and Things to Know are a coloured pair above the study tiles', async () => {
+    renderDashboard()
+    await screen.findByText(/learned today/i)
+
+    // One container holds the pair, so they share a row rather than stacking
+    // as two full-width grey rows that read as secondary chrome.
+    expect(screen.getByTestId('reference-tiles')).toBeDefined()
+    fireEvent.click(screen.getByTestId('tile-about'))
+    expect(mockNavigate).toHaveBeenCalledWith('/about')
+
+    // Spanish has a letter guide too (lettersData covers 22 languages, not
+    // just the non-Latin scripts), so the pair shares a row.
+    fireEvent.click(screen.getByTestId('tile-letters'))
+    expect(mockNavigate).toHaveBeenCalledWith('/letters')
+    expect(screen.getByTestId('reference-tiles').className).toContain('grid')
   })
 
   it('Read and Tutor are first-class tiles beside the command center', async () => {

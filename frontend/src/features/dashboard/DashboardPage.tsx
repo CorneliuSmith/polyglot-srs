@@ -1,5 +1,13 @@
 import { useEffect, useState } from 'react'
-import { Bell, BookOpen, Dumbbell, Menu, MessagesSquare } from 'lucide-react'
+import {
+  Bell,
+  BookOpen,
+  Dumbbell,
+  Globe2,
+  Languages,
+  Menu,
+  MessagesSquare,
+} from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -45,6 +53,54 @@ import { useViewAsKey } from '../../stores/viewAsStore'
  * shown they don't read buried link lists — these sit right under the
  * Learn/Review command center with the same visual weight, so the features
  * are discovered by SEEING them. */
+/** Letters & Sounds and Things to Know: the reference pair, above Learn
+ * and Review. They were plain white rows with a grey border, which read as
+ * secondary chrome next to the coloured study tiles — easy to scroll past
+ * on the screen where a new learner most needs them. Tinted with the
+ * language's own accent so the top of the dashboard is one family: soft
+ * here for reference, solid below for the thing you came to do.
+ *
+ * bg-lang-soft is theme-safe by construction — index.css maps it through
+ * --lang-soft-surface, which `.dark` overrides so the pastel doesn't glare.
+ */
+function ReferenceTile({
+  icon: Icon,
+  title,
+  caption,
+  testId,
+  onClick,
+  disabled = false,
+}: {
+  icon: LucideIcon
+  title: string
+  caption: string
+  testId: string
+  onClick: () => void
+  disabled?: boolean
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      data-testid={testId}
+      className="w-full rounded-2xl border border-lang/25 bg-lang-soft hover:border-lang disabled:opacity-50 px-4 py-3 text-start transition-colors flex items-center gap-3"
+      style={{ minHeight: '44px' }}
+    >
+      <span className="shrink-0 rounded-xl bg-lang/15 p-2">
+        <Icon aria-hidden className="h-5 w-5 text-lang" strokeWidth={1.75} />
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="block text-sm font-bold text-gray-900">{title}</span>
+        <span className="block text-xs font-normal text-gray-600 leading-tight">
+          {caption}
+        </span>
+      </span>
+      <DirArrow className="shrink-0 text-lang" />
+    </button>
+  )
+}
+
 function FeatureTile({
   icon: Icon,
   label,
@@ -505,48 +561,43 @@ export default function DashboardPage() {
 
         <LearningTip context="dashboard" />
 
-        {/* Letters & Sounds (beta request): the alphabet with pronunciation,
-            right under the language and before the study tiles. Hidden for
-            languages with no letter guide. */}
-        {hasLetters && (
-          <button
-            type="button"
-            onClick={() => navigate('/letters')}
-            disabled={!activeLanguageId}
-            className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-start flex items-center justify-between"
-            style={{ minHeight: '44px' }}
+        {/* The reference pair, above the study tiles: Letters & Sounds (the
+            alphabet with pronunciation) and Things to Know (a one-minute
+            orientation — family, reach, word order, history). Either is
+            hidden when the language has no data for it, so the grid drops
+            to one column rather than leaving a gap. */}
+        {(hasLetters || hasFacts) && (
+          <div
+            data-testid="reference-tiles"
+            className={
+              hasLetters && hasFacts
+                ? 'grid grid-cols-1 sm:grid-cols-2 gap-3'
+                : 'space-y-3'
+            }
           >
-            <span>
-              {t('dashboard.lettersTitle')}
-              <span className="block text-xs font-normal text-gray-500">
-                {t('dashboard.lettersSub')}
-              </span>
-            </span>
-            <DirArrow className="text-lang" />
-          </button>
+            {hasLetters && (
+              <ReferenceTile
+                icon={Languages}
+                title={t('dashboard.lettersTitle')}
+                caption={t('dashboard.lettersSub')}
+                testId="tile-letters"
+                onClick={() => navigate('/letters')}
+                disabled={!activeLanguageId}
+              />
+            )}
+            {hasFacts && (
+              <ReferenceTile
+                icon={Globe2}
+                title={t('dashboard.aboutTitle')}
+                caption={t('dashboard.aboutSub')}
+                testId="tile-about"
+                onClick={() => navigate('/about')}
+                disabled={!activeLanguageId}
+              />
+            )}
+          </div>
         )}
 
-        {/* Things to know about this language: a one-minute orientation —
-            family, reach, word order, history, what's distinctive. Sits with
-            Letters & Sounds as the reference pair (the Gym moved down to the
-            practice destinations). */}
-        {hasFacts && (
-          <button
-            type="button"
-            onClick={() => navigate('/about')}
-            disabled={!activeLanguageId}
-            className="w-full bg-white hover:bg-gray-50 disabled:opacity-50 text-gray-800 font-semibold rounded-xl px-6 py-3 text-sm border border-gray-200 transition-colors text-start flex items-center justify-between"
-            style={{ minHeight: '44px' }}
-          >
-            <span>
-              {t('dashboard.aboutTitle')}
-              <span className="block text-xs font-normal text-gray-500">
-                {t('dashboard.aboutSub')}
-              </span>
-            </span>
-            <DirArrow className="text-lang" />
-          </button>
-        )}
 
         {/* Command center: Learn (deck sections) + Review, Bunpro-style */}
         {isLoading || !stats ? (
