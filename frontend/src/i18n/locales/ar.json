@@ -7,7 +7,13 @@
     "gym": "التمارين",
     "search": "البحث",
     "account": "الحساب",
-    "menu": "القائمة"
+    "menu": "القائمة",
+    "study": "الدراسة",
+    "practice": "التدريب",
+    "progress": "التقدم",
+    "more": "المزيد",
+    "primary": "الأقسام الرئيسية",
+    "languageGuide": "دليل اللغة"
   },
   "header": {
     "whatsNew": "ما الجديد",

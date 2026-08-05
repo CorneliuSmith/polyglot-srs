@@ -1,4 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom'
+import BottomNav from './BottomNav'
 import { useAuthStore } from '../stores/authStore'
 import StaffBar from './StaffBar'
 
@@ -25,10 +26,14 @@ export default function ProtectedRoute() {
   // authenticated page — this is the app's only shared authenticated shell,
   // so it's the single place a global bar can live. It renders nothing at
   // all for a plain learner.
+  // BottomNav rides here for the same reason: the only shared shell. It
+  // hides itself on desktop, where the header's inline nav already covers
+  // the same destinations without spending vertical space.
   return (
     <>
       <StaffBar />
       <Outlet />
+      <BottomNav />
     </>
   )
 }
