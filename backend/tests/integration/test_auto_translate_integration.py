@@ -719,3 +719,59 @@ async def test_a_failed_rendering_is_retried_not_retired(pool, monkeypatch):
             "  AND g.title IS NOT NULL AND g.culture_note IS NOT NULL "
             "  AND g.function_note IS NOT NULL")
         assert done == 0, "a finished point should not still be in the ledger"
+
+
+async def test_one_provider_error_does_not_end_the_cycle(pool, monkeypatch):
+    """A 429 on one batch must cost that batch, not everyone's translations.
+
+    Nothing between messages.create and auto_translate_loop caught anything,
+    so a single provider error propagated to the top and aborted the entire
+    cycle — every remaining pair and kind skipped, the next cycle starting
+    from the same place and hitting the same wall. One rate limit could stop
+    all translation indefinitely while the logs said only "sweep failed".
+
+    That is also how the trivia bank could take the fill down with it: both
+    spend the same key, and the game's generation runs at exactly the moment
+    a learner is waiting on their own content.
+    """
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "at14", "Boomish", auto=True)
+    await _lang(pool, "de2", "Germanish", auto=False)
+    await _learner(pool, "de@at14", course, "de2")
+    await _word(pool, course, "wort", 1, "word")
+
+    async with pool.privileged_connection() as conn:
+        # Two points: the mock rejects the first item of every batch, so the
+        # second is the one whose rendering can actually land.
+        await conn.execute(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed, "
+            "display_order, explanation) VALUES ($1, 'Decoy', 'A1', true, 0, "
+            "'Sacrificial first item.')", course)
+        gp = await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed, "
+            "display_order, explanation) VALUES ($1, 'Cases', 'A1', true, 1, "
+            "'How cases work.') RETURNING id", course)
+
+    # The word lane blows up the way a rate limit would.
+    async def boom(*_a, **_k):
+        raise RuntimeError("429 rate_limit_error")
+
+    monkeypatch.setattr(
+        "backend.services.auto_translate.maker_check_batch", boom)
+
+    stats = await _cycle(pool)
+
+    # The cycle survived and the kinds BEHIND the failure still ran.
+    assert stats["explanations"] >= 1, \
+        "a failed word batch must not skip the rest of the cycle"
+
+    async with pool.privileged_connection() as conn:
+        # The real reason is on the ledger, not swallowed into a log line.
+        err = await conn.fetchval(
+            "SELECT last_error FROM translation_attempts "
+            "WHERE kind = 'word' AND locale = 'de2' LIMIT 1")
+        assert err and "429" in err, err
+        # And the explanation actually landed.
+        assert await conn.fetchval(
+            "SELECT count(*) FROM explanation_translations "
+            "WHERE grammar_point_id = $1 AND locale = 'de2'", gp) == 1

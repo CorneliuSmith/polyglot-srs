@@ -935,6 +935,36 @@ _SWEEP_KIND = {
 }
 
 
+class _BatchError(Exception):
+    """One translate call died. Carries the reason to the ledger."""
+
+
+async def _guard(coro, kind: str, pair: dict):
+    """Run one translate call so that its failure costs a BATCH, not the sweep.
+
+    Nothing between messages.create and auto_translate_loop caught anything,
+    so a single provider error — a 429, a timeout, a 500 — propagated to the
+    top and aborted the entire cycle. Every remaining pair and every
+    remaining kind was skipped, and the next cycle started from the same
+    place and hit the same wall. One rate limit could therefore stop all
+    translation for everyone, indefinitely, while the logs said only
+    "sweep failed".
+
+    That is also how the trivia bank could take the loop down with it: both
+    spend the same key, so the game's generation could provoke the very
+    error that killed the fill the learner was waiting on.
+    """
+    try:
+        return await coro
+    except asyncio.CancelledError:
+        raise
+    except Exception as exc:  # noqa: BLE001 — one batch, not the cycle
+        logger.warning("auto-translate %s→%s: %s batch failed: %s",
+                       pair.get("language_code"), pair.get("locale"), kind,
+                       exc)
+        raise _BatchError(f"{type(exc).__name__}: {exc}") from exc
+
+
 async def _settle(conn, kind: str, pair: dict, tried: list) -> None:
     """Record the outcome of a sweep batch in the attempt ledger.
 
@@ -983,6 +1013,7 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
         # and half in English, permanently.
         take = min(budget, BATCH_SIZE)
         kind, ids = b["kind"], b["ref_ids"][:take]
+        failure: str | None = None
         # What the model was actually handed this cycle. Filled from the
         # rows each pending_* returns, NOT from the whole batch: items
         # sitting inside their retry window are skipped by the query, and
@@ -990,67 +1021,71 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
         # ceiling within minutes and rewrite the ledger on every pass.
         tried: list = []
         n = 0
-        if kind == "word":
-            rows = await pending_words(conn, b["language_id"], b["locale"],
-                                       take, ids, backoff=have_attempts)
-            if rows:
-                items = [{"i": i, "word": r["word"], "pos": r["pos"],
-                          "definition": r["definition"], "example": r["example"]}
-                         for i, r in enumerate(rows)]
-                results = await maker_check_batch(
-                    b["locale_name"], items,
-                    source_language=b["language_name"])
-                by_i = {x["i"]: x for x in results}
-                merged = [{**by_i[i], "id": rows[i]["id"],
-                           "proposed": by_i[i]["gloss"]}
-                          for i in range(len(rows)) if i in by_i]
-                applied, queued = await _apply(conn, b["locale"], merged)
-                stats["applied"] += applied
-                stats["queued"] += queued
-                n = len(rows)
-                tried = [r["id"] for r in rows]
-        elif kind == "drill":
-            rows = await pending_drills(conn, b["language_id"], b["locale"],
-                                        take, ids, backoff=have_attempts)
-            if rows:
-                stats["drills"] += await _translate_drills(conn, pair, rows)
-                n = len(rows)
-                tried = [r["id"] for r in rows]
-        elif kind == "explanation":
-            rows = await pending_explanations(conn, b["language_id"],
-                                              b["locale"],
-                                              take, ids, backoff=have_attempts)
-            if rows:
-                stats["explanations"] += await _translate_explanations(
-                    conn, pair, rows)
-                n = len(rows)
-                tried = [r["id"] for r in rows]
-        elif kind == "grammar_meta":
-            rows = await pending_grammar_meta(conn, b["language_id"],
-                                              b["locale"],
-                                              take, ids, backoff=have_attempts)
-            if rows:
-                stats["grammar_meta"] += await _translate_grammar_meta(
-                    conn, pair, rows)
-                n = len(rows)
-                tried = [r["id"] for r in rows]
-        elif kind == "example":
-            rows = [] if self_pair(b) else await pending_examples(
-                conn, b["language_id"], b["locale"],
-                take, ids, backoff=have_attempts)
-            if rows:
-                stats["examples"] += await _translate_examples(conn, pair, rows)
-                n = len(rows)
-                # Example rows are SENTENCES; demand is per word.
-                tried = list({r["vocabulary_id"] for r in rows})
-        elif kind == "gym":
-            rows = await pending_gym_labels(conn, b["language_code"],
-                                            b["locale"])
-            if rows:
-                stats["gym_labels"] += await _translate_gym_labels(
-                    conn, pair, rows[:take])
-                n = min(len(rows), take)
-
+        try:
+            if kind == "word":
+                rows = await pending_words(conn, b["language_id"], b["locale"],
+                                           take, ids, backoff=have_attempts)
+                if rows:
+                    items = [{"i": i, "word": r["word"], "pos": r["pos"],
+                              "definition": r["definition"], "example": r["example"]}
+                             for i, r in enumerate(rows)]
+                    results = await _guard(maker_check_batch(
+                        b["locale_name"], items,
+                        source_language=b["language_name"]), kind, b)
+                    by_i = {x["i"]: x for x in results}
+                    merged = [{**by_i[i], "id": rows[i]["id"],
+                               "proposed": by_i[i]["gloss"]}
+                              for i in range(len(rows)) if i in by_i]
+                    applied, queued = await _apply(conn, b["locale"], merged)
+                    stats["applied"] += applied
+                    stats["queued"] += queued
+                    n = len(rows)
+                    tried = [r["id"] for r in rows]
+            elif kind == "drill":
+                rows = await pending_drills(conn, b["language_id"], b["locale"],
+                                            take, ids, backoff=have_attempts)
+                if rows:
+                    stats["drills"] += await _guard(
+                        _translate_drills(conn, pair, rows), kind, b)
+                    n = len(rows)
+                    tried = [r["id"] for r in rows]
+            elif kind == "explanation":
+                rows = await pending_explanations(conn, b["language_id"],
+                                                  b["locale"],
+                                                  take, ids, backoff=have_attempts)
+                if rows:
+                    stats["explanations"] += await _guard(
+                        _translate_explanations(conn, pair, rows), kind, b)
+                    n = len(rows)
+                    tried = [r["id"] for r in rows]
+            elif kind == "grammar_meta":
+                rows = await pending_grammar_meta(conn, b["language_id"],
+                                                  b["locale"],
+                                                  take, ids, backoff=have_attempts)
+                if rows:
+                    stats["grammar_meta"] += await _guard(
+                        _translate_grammar_meta(conn, pair, rows), kind, b)
+                    n = len(rows)
+                    tried = [r["id"] for r in rows]
+            elif kind == "example":
+                rows = [] if self_pair(b) else await pending_examples(
+                    conn, b["language_id"], b["locale"],
+                    take, ids, backoff=have_attempts)
+                if rows:
+                    stats["examples"] += await _guard(
+                        _translate_examples(conn, pair, rows), kind, b)
+                    n = len(rows)
+                    # Example rows are SENTENCES; demand is per word.
+                    tried = list({r["vocabulary_id"] for r in rows})
+            elif kind == "gym":
+                rows = await pending_gym_labels(conn, b["language_code"],
+                                                b["locale"])
+                if rows:
+                    stats["gym_labels"] += await _guard(
+                        _translate_gym_labels(conn, pair, rows[:take]), kind, b)
+                    n = min(len(rows), take)
+        except _BatchError as exc:
+            failure = str(exc)
         # Gym labels have no per-ref pending query and no partial state:
         # one manifest, done or not. Self-pair examples are not work at all.
         if kind == "gym" or (kind == "example" and self_pair(b)):
@@ -1067,8 +1102,9 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
             await clear_attempts(conn, kind, landed, b["locale"])
             await _clear_demand(conn, kind, landed, b["locale"])
             if stuck:
-                await record_attempts(conn, kind, list(stuck), b["locale"],
-                                      error="no rendering returned")
+                await record_attempts(
+                    conn, kind, list(stuck), b["locale"],
+                    error=failure or "no rendering returned")
                 stats["retrying"] = stats.get("retrying", 0) + len(stuck)
                 if not have_attempts:
                     # No ledger means nothing paces a retry, so drop the row
@@ -1155,10 +1191,17 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
         items = [{"i": i, "word": r["word"], "pos": r["pos"],
                   "definition": r["definition"], "example": r["example"]}
                  for i, r in enumerate(rows)]
-        results = await maker_check_batch(
-            pair["locale_name"], items,
-            source_language=pair["language_name"],
-        )
+        try:
+            results = await _guard(maker_check_batch(
+                pair["locale_name"], items,
+                source_language=pair["language_name"],
+            ), "word", pair)
+        except _BatchError as exc:
+            # One pair's provider error must not end the cycle for every
+            # other pair and kind behind it.
+            await record_attempts(conn, "word", [r["id"] for r in rows],
+                                  pair["locale"], error=str(exc))
+            continue
         by_i = {b["i"]: b for b in results}
         merged = [{**by_i[i], "id": rows[i]["id"], "proposed": by_i[i]["gloss"]}
                   for i in range(len(rows)) if i in by_i]
@@ -1198,13 +1241,17 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
             if not rows:
                 continue
             budget -= len(rows)
-            done = await translate(conn, pair, rows)
+            refs = (list({r["vocabulary_id"] for r in rows})
+                    if kind == "examples" else [r["id"] for r in rows])
+            try:
+                done = await _guard(translate(conn, pair, rows), kind, pair)
+            except _BatchError as exc:
+                await record_attempts(conn, _SWEEP_KIND[kind], refs,
+                                      pair["locale"], error=str(exc))
+                continue
             stats[stat] += done
             stats["processed"] += len(rows)
-            await _settle(
-                conn, _SWEEP_KIND[kind], pair,
-                list({r["vocabulary_id"] for r in rows}) if kind == "examples"
-                else [r["id"] for r in rows])
+            await _settle(conn, _SWEEP_KIND[kind], pair, refs)
             logger.info("auto-translate %s→%s: %s %d/%d",
                         pair["language_code"], pair["locale"], kind, done,
                         len(rows))
@@ -1221,7 +1268,11 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
             continue
         rows = rows[:min(budget, BATCH_SIZE)]
         budget -= len(rows)
-        done = await _translate_gym_labels(conn, pair, rows)
+        try:
+            done = await _guard(
+                _translate_gym_labels(conn, pair, rows), "gym", pair)
+        except _BatchError:
+            continue
         stats["gym_labels"] += done
         stats["processed"] += len(rows)
         logger.info("auto-translate %s→%s: gym labels %d/%d",

@@ -20,7 +20,15 @@ from backend.services.auto_translate import table_present
 
 # Keep enough unseen questions ahead of each learner that a wait never runs
 # dry, without generating a corpus nobody reads.
-LOW_WATER = 30
+#
+# Deliberately BELOW the written baseline (services/trivia_corpus holds 20
+# per locale). At 30 a freshly seeded locale was permanently "running low",
+# so every single /trivia request fired a background generation — and
+# /trivia is called at exactly the moment a learner is sitting on the wait
+# screen watching for their own translations. The game was competing with
+# the fill it exists to cover for, on the same API key, every time it
+# appeared.
+LOW_WATER = 8
 TOP_UP_BATCH = 15
 
 

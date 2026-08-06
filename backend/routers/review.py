@@ -61,7 +61,7 @@ from backend.repositories.trivia import (
 )
 from backend.repositories.tutor import log_tutor_usage
 from backend.services.allowance import get_allowance, reject_if_unavailable
-from backend.services.auto_translate import kick
+from backend.services.auto_translate import kick, table_present
 from backend.services.fsrs import (
     AnswerResult,
     CardState,
@@ -271,8 +271,16 @@ async def trivia(limit: int = 6, user: dict = Depends(get_current_user)):
             questions = await unseen_trivia(conn, user["id"], locale, limit)
     # Running low but not empty: top up behind them, so the NEXT wait is
     # already stocked and nobody pays for it twice.
+    #
+    # Not while this locale still has translation demand outstanding. The
+    # game and the fill spend the same key, and this request happens at
+    # precisely the moment a learner is watching for their own content —
+    # so a top-up here competes with the thing they are waiting on, and
+    # can provoke the rate limit that stalls it. Entertainment yields to
+    # the session.
     elif questions and remaining < LOW_WATER and translations_available():
-        asyncio.create_task(_top_up_trivia(locale))
+        if not await _locale_has_pending_translations(locale):
+            asyncio.create_task(_top_up_trivia(locale))
 
     # Last resort: serve the baseline straight from memory. Reaching here
     # means the bank could not be read OR written — in practice, the
@@ -281,6 +289,26 @@ async def trivia(limit: int = 6, user: dict = Depends(get_current_user)):
     if not questions:
         questions = offline_questions(locale, limit)
     return {"locale": locale, "questions": questions}
+
+
+async def _locale_has_pending_translations(locale: str) -> bool:
+    """Is the loop still owed work for this support language?
+
+    Used to keep the trivia generator out of the way while a learner's own
+    content is filling. Returns False on any problem: the failure mode of
+    "we topped up when we needn't have" is a wasted call, and the failure
+    mode of "we never top up again" is an empty game.
+    """
+    try:
+        async with privileged_connection() as conn:
+            if not await table_present(conn, "translation_demand"):
+                return False
+            return bool(await conn.fetchval(
+                "SELECT EXISTS (SELECT 1 FROM translation_demand "
+                "WHERE locale = $1)", locale))
+    except Exception as exc:  # noqa: BLE001 — a scheduling hint, not a gate
+        logger.debug("pending-translation check failed for %s: %s", locale, exc)
+        return False
 
 
 # Locales whose baseline has already been laid down by this process. The

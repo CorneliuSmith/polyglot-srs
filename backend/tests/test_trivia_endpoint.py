@@ -170,8 +170,8 @@ async def test_a_locale_with_no_baseline_falls_through_to_the_generator(client):
 
 @pytest.mark.asyncio
 async def test_a_thin_bank_grows_behind_the_learner(client):
-    """The baseline is a floor, not a ceiling — twenty questions is under
-    LOW_WATER, so the generator widens the corpus after the request is
+    """The baseline is a floor, not a ceiling — once a learner has worked
+    below LOW_WATER the generator widens the corpus after the request is
     answered rather than making anyone wait for it.
 
     Asserted on the SCHEDULING rather than on generate_trivia having run:
@@ -190,8 +190,10 @@ async def test_a_thin_bank_grows_behind_the_learner(client):
     rls, priv = _patch_pools(conn)
     with rls, priv, \
         patch("backend.routers.review.unseen_trivia", new=AsyncMock(return_value=served)), \
-        patch("backend.routers.review.count_unseen", new=AsyncMock(return_value=20)), \
+        patch("backend.routers.review.count_unseen", new=AsyncMock(return_value=5)), \
         patch("backend.routers.review.translations_available", return_value=True), \
+        patch("backend.routers.review._locale_has_pending_translations",
+              new=AsyncMock(return_value=False)), \
         patch("backend.routers.review._top_up_trivia", top_up):
         resp = client.get("/api/review/trivia", headers=_auth_headers())
 
@@ -213,3 +215,54 @@ async def test_the_baseline_is_only_laid_down_once_per_locale(client):
         client.get("/api/review/trivia", headers=_auth_headers())
 
     assert store.await_count == 1
+
+
+async def test_the_game_does_not_compete_with_the_fill_it_covers_for(client):
+    """Entertainment yields to the session.
+
+    /api/review/trivia is called at exactly the moment a learner is sitting
+    on the wait screen watching for their own translations — and the game
+    and the fill spend the same API key. A top-up here competes with the
+    thing they are waiting on and can provoke the rate limit that stalls
+    it, which is what "whenever the game shows up the translation feature
+    fails" looked like from the outside.
+
+    (It was guaranteed, too: the written baseline is 20 questions and
+    LOW_WATER used to be 30, so a freshly seeded locale was permanently
+    "running low" and every single request fired a generation.)
+    """
+    conn = _conn_returning("fr")
+    served = [{"id": "t1", "question": "q", "options": ["a", "b"],
+               "answer_index": 0, "fact": "f"}]
+
+    async def _noop() -> None:
+        return None
+
+    top_up = MagicMock(side_effect=lambda _locale: _noop())
+    rls, priv = _patch_pools(conn)
+    with rls, priv, \
+        patch("backend.routers.review.unseen_trivia", new=AsyncMock(return_value=served)), \
+        patch("backend.routers.review.count_unseen", new=AsyncMock(return_value=5)), \
+        patch("backend.routers.review.translations_available", return_value=True), \
+        patch("backend.routers.review._locale_has_pending_translations",
+              new=AsyncMock(return_value=True)), \
+        patch("backend.routers.review._top_up_trivia", top_up):
+        resp = client.get("/api/review/trivia", headers=_auth_headers())
+
+    # The learner still gets their game — from the bank, for free.
+    assert resp.status_code == 200
+    assert resp.json()["questions"] == served
+    top_up.assert_not_called()
+
+
+def test_the_bank_is_considered_stocked_once_the_baseline_is_down():
+    """LOW_WATER must sit BELOW the written baseline.
+
+    Above it, a seeded locale can never be "stocked": every request sees a
+    bank under the mark and schedules a generation, forever, for a bank
+    that was already fine.
+    """
+    from backend.repositories.trivia import LOW_WATER
+    from backend.services.trivia_corpus import seed_questions
+
+    assert LOW_WATER < len(seed_questions("en"))
