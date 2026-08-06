@@ -400,6 +400,18 @@ export interface TranslationStatus {
   provider_ready: boolean
   budget_per_cycle: number
   sweep_seconds: number
+  /** The settings flag. Everything else here describes work the sweep WOULD
+   * do; none of it happens if the loop was never switched on. */
+  loop_enabled: boolean
+  /** What the sweep has actually done in the serving process. Distinguishes
+   * "enabled but never started" from "running and finding nothing". */
+  loop: {
+    started: boolean
+    last_cycle_at: string | null
+    cycles: number
+    last_error: string | null
+    last_stats: Record<string, number> | null
+  }
   migrations: Record<string, boolean>
   switched_off: { language: string; code: string; locale: string; learners: number }[]
   pairs: {
