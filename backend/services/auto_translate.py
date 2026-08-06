@@ -1504,8 +1504,13 @@ async def translation_status(conn: asyncpg.Connection) -> dict:
         "pairs": [],
         "switched_off": [],
     }
-    for table in ("translation_demand", "grammar_point_translations",
-                  "gym_label_translations"):
+    # translation_attempts belongs here even though nothing crashes without
+    # it: the retry ledger is what paces a failed item instead of abandoning
+    # it, so its absence is silent by design and therefore invisible unless
+    # this readout names it. A green "Migrations applied" that doesn't cover
+    # the table is worse than no light at all.
+    for table in ("translation_demand", "translation_attempts",
+                  "grammar_point_translations", "gym_label_translations"):
         status["migrations"][table] = await table_present(conn, table)
 
     # Learners whose course is switched OFF — the most common cause of

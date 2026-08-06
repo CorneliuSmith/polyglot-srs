@@ -357,3 +357,25 @@ async def test_the_readout_answers_is_it_running(pool):
         "the loop that schedules it, so calling the unit directly must not "
         "fake proof that the loop is alive"
     )
+
+
+async def test_the_readout_covers_every_table_the_loop_depends_on(pool):
+    """A green "Migrations applied" that skips a table is a false negative
+    with a light on it.
+
+    translation_attempts is the one most likely to be missed: nothing
+    crashes without it, the loop just quietly stops pacing its retries. The
+    admin panel reduces this dict to a single dot, so anything absent here
+    is invisible in production.
+    """
+    from backend.services.auto_translate import translation_status
+
+    async with pool.privileged_connection() as conn:
+        status = await translation_status(conn)
+
+    for table in ("translation_demand", "translation_attempts",
+                  "grammar_point_translations", "gym_label_translations"):
+        assert table in status["migrations"], (
+            f"{table} is never probed, so its migration being unapplied "
+            f"cannot be seen from the admin readout"
+        )

@@ -27,6 +27,20 @@ function Check({ ok, label }: { ok: boolean; label: string }) {
   )
 }
 
+/** "4 min ago" — a timestamp alone doesn't answer "is it alive right now",
+ * which is the only reason anyone reads this line. */
+function ago(iso: string | null): string {
+  if (!iso) return 'never'
+  const secs = Math.max(0, (Date.now() - new Date(iso).getTime()) / 1000)
+  if (!Number.isFinite(secs)) return 'never'
+  if (secs < 90) return 'just now'
+  const mins = Math.round(secs / 60)
+  if (mins < 60) return `${mins} min ago`
+  const hours = Math.round(mins / 60)
+  if (hours < 48) return `${hours}h ago`
+  return `${Math.round(hours / 24)}d ago`
+}
+
 export default function TranslationStatusPanel() {
   const { data, isLoading, isError } = useQuery({
     queryKey: ['translation-status'],
@@ -43,6 +57,23 @@ export default function TranslationStatusPanel() {
   const missing = Object.entries(data.migrations)
     .filter(([, ok]) => !ok)
     .map(([t]) => t)
+
+  // The sweep is the one thing every other number here depends on, and it
+  // was the one thing this panel didn't show — so a dead loop and a drained
+  // queue looked identical. `loop` is optional at runtime because a server
+  // deployed before it existed simply won't send it; treat that as unknown
+  // rather than as broken.
+  const beat = data.loop
+  const loopRunning = Boolean(data.loop_enabled && beat?.started && !beat?.last_error)
+  const loopLabel = !data.loop_enabled
+    ? 'Sweep switched off — set auto_translate_loop_enabled'
+    : !beat
+      ? 'Sweep status unknown — server predates this readout'
+      : !beat.started
+        ? 'Sweep enabled but never started in this process'
+        : beat.last_error
+          ? `Last sweep failed: ${beat.last_error}`
+          : `Sweep running · last cycle ${ago(beat.last_cycle_at)} · ${beat.cycles} cycles`
 
   return (
     <div className="space-y-3" data-testid="translation-status">
@@ -63,6 +94,7 @@ export default function TranslationStatusPanel() {
               : `Run supabase db push — missing: ${missing.join(', ')}`
           }
         />
+        <Check ok={loopRunning} label={loopLabel} />
         <span className="text-xs text-gray-400">
           {data.budget_per_cycle} items per {Math.round(data.sweep_seconds / 60)} min
         </span>
@@ -77,6 +109,16 @@ export default function TranslationStatusPanel() {
 
       {data.pairs.map((p) => {
         const left = Object.values(p.pending).reduce((a, b) => a + b, 0)
+        // A raw backlog invites the wrong conclusion. 14,830 words looks
+        // like a fault; "≈3d at this rate" reads as arithmetic, which is
+        // what it is. Whole-backlog only — a learner's own cards are drawn
+        // from demand first and don't wait behind this.
+        const hours =
+          data.budget_per_cycle > 0
+            ? (left / data.budget_per_cycle) * (data.sweep_seconds / 3600)
+            : 0
+        const eta =
+          hours < 1 ? '< 1h' : hours < 48 ? `${Math.round(hours)}h` : `${Math.round(hours / 24)}d`
         return (
           <div
             key={`${p.code}-${p.locale}`}
@@ -95,7 +137,7 @@ export default function TranslationStatusPanel() {
                 Object.entries(p.pending)
                   .filter(([, n]) => n > 0)
                   .map(([kind, n]) => `${n} ${kind}`)
-                  .join(' · ') + ' left'
+                  .join(' · ') + ` left · ≈${eta} at this rate`
               )}
             </p>
             <p className="text-[11px] text-gray-400">
