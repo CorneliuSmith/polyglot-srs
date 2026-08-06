@@ -90,4 +90,7 @@ then grants access directly so you can exercise the gated → unlocked flow.
 ## Docs
 
 - [`data/README.md`](data/README.md) — data sourcing, licensing, grammar pipeline
+- [`docs/offline.md`](docs/offline.md) — downloadable packs, and why they don't need native apps
+- [`docs/native-apps.md`](docs/native-apps.md) — the iOS/Android Capacitor shells
+- [`docs/decisions/`](docs/decisions/) — why things are the way they are (ADRs)
 - [`docs/claude-db-access.md`](docs/claude-db-access.md) — giving this environment DB access (staging only)
