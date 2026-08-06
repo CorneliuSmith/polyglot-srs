@@ -32,7 +32,7 @@ from __future__ import annotations
 
 import asyncio
 import logging
-from datetime import timedelta
+from datetime import UTC, datetime, timedelta
 
 import asyncpg
 
@@ -80,6 +80,28 @@ RETRY_BACKOFF = (
 # ---------------------------------------------------------------------------
 
 _wake = asyncio.Event()
+
+# Proof of life for the sweep, in this process.
+#
+# Every failure mode of this feature used to look identical from outside:
+# a bar stuck at zero. The status readout could say the course was on, the
+# provider was ready and the backlog was N — and still not answer the first
+# question anyone actually has, which is "is the thing running at all?".
+# A loop that never started, a task that died, or a worker that simply
+# isn't the one running it all present as "nothing is translating", and
+# each has a completely different fix.
+_HEARTBEAT: dict = {
+    "started": False,
+    "last_cycle_at": None,
+    "last_stats": None,
+    "last_error": None,
+    "cycles": 0,
+}
+
+
+def heartbeat() -> dict:
+    """What the sweep has done in THIS process. Copied, not shared."""
+    return dict(_HEARTBEAT)
 
 
 def kick() -> None:
@@ -1288,6 +1310,7 @@ async def auto_translate_loop() -> None:
     from backend.repositories.pool import privileged_connection
 
     logger.info("auto-translate loop started (every %ds)", SWEEP_SECONDS)
+    _HEARTBEAT["started"] = True
     while True:
         stats: dict = {}
         try:
@@ -1296,11 +1319,19 @@ async def auto_translate_loop() -> None:
                     stats = await run_translation_cycle(conn)
                 if stats["processed"]:
                     logger.info("auto-translate sweep: %s", stats)
+            _HEARTBEAT["last_error"] = None
         except asyncio.CancelledError:
             raise
         except Exception as exc:  # noqa: BLE001 — the loop must survive anything
             logger.warning("auto-translate sweep failed: %s", exc)
+            _HEARTBEAT["last_error"] = f"{type(exc).__name__}: {exc}"
             stats = {}
+        # Stamped whether or not anything was translated: "ran and found
+        # nothing to do" and "never ran" are different answers, and only one
+        # of them means something is broken.
+        _HEARTBEAT["last_cycle_at"] = datetime.now(UTC).isoformat()
+        _HEARTBEAT["last_stats"] = stats or None
+        _HEARTBEAT["cycles"] += 1
         if stats.get("demand_left"):
             # Outstanding demand: pace, then go again — don't leave a learner
             # waiting out the sweep interval mid-session.
@@ -1369,6 +1400,84 @@ async def count_pending(conn, kind: str, language_id: str, locale: str) -> int:
     return int(await conn.fetchval(_PENDING_COUNTS[kind], language_id, locale))
 
 
+async def diagnose_pair(
+    conn: asyncpg.Connection, language_id: str, locale: str
+) -> dict:
+    """Why this ONE (course, support locale) pair is or isn't filling.
+
+    translation_status answers the question for pairs the loop already
+    finds. That is the wrong end: a pair that fails a precondition is
+    exactly the one nobody can explain, and it is invisible there — no
+    error, no log line, a bar stuck at zero and four plausible theories.
+
+    Returns named blockers, so "it's stuck" becomes "the course is switched
+    off" or "that locale isn't in the languages table" without another
+    round of guessing.
+    """
+    blockers: list[str] = []
+    detail: dict = {}
+
+    lang = await conn.fetchrow(
+        "SELECT code, name, auto_translate_enabled FROM languages WHERE id = $1",
+        language_id)
+    if lang is None:
+        return {"blockers": ["unknown_language"], "detail": {}}
+    detail["course"] = lang["code"]
+    if not lang["auto_translate_enabled"]:
+        blockers.append("switched_off")
+
+    # discover_pairs joins the locale back to `languages`; without a row the
+    # pair simply does not exist as far as the loop is concerned.
+    if not await conn.fetchval(
+        "SELECT 1 FROM languages WHERE code = $1", locale
+    ):
+        blockers.append("locale_not_a_language")
+
+    if locale == "en":
+        blockers.append("english_is_the_source")
+
+    learners = int(await conn.fetchval(
+        """SELECT count(*) FROM user_profiles
+            WHERE active_language_id = $1 AND support_locale = $2""",
+        language_id, locale) or 0)
+    detail["learners_with_this_active"] = learners
+    if not learners:
+        # The sweep is demand-driven off active_language_id; a learner whose
+        # ACTIVE course is a different one still generates demand rows by
+        # reading cards, but the breadth-first sweep will never reach this.
+        blockers.append("no_learner_has_this_course_active")
+
+    if not translations_available():
+        blockers.append("no_provider")
+
+    for table in ("translation_demand", "translation_attempts",
+                  "grammar_point_translations"):
+        if not await table_present(conn, table):
+            blockers.append(f"migration_missing:{table}")
+
+    if await table_present(conn, "translation_demand"):
+        detail["queued"] = int(await conn.fetchval(
+            "SELECT count(*) FROM translation_demand WHERE locale = $1",
+            locale) or 0)
+    if await table_present(conn, "translation_attempts"):
+        detail["retrying"] = int(await conn.fetchval(
+            "SELECT count(*) FROM translation_attempts WHERE locale = $1",
+            locale) or 0)
+        detail["last_error"] = await conn.fetchval(
+            """SELECT last_error FROM translation_attempts
+                WHERE locale = $1 AND last_error IS NOT NULL
+                ORDER BY last_attempt_at DESC LIMIT 1""", locale)
+
+    detail["words_pending"] = await count_pending(
+        conn, "words", language_id, locale)
+    detail["glosses_filled"] = int(await conn.fetchval(
+        """SELECT count(*) FROM translations t
+            JOIN vocabulary v ON v.id = t.vocabulary_id
+           WHERE v.language_id = $1 AND t.locale = $2""",
+        language_id, locale) or 0)
+    return {"blockers": blockers, "detail": detail}
+
+
 async def translation_status(conn: asyncpg.Connection) -> dict:
     """Why translation is (or isn't) happening — the admin readout.
 
@@ -1383,6 +1492,14 @@ async def translation_status(conn: asyncpg.Connection) -> dict:
         "budget_per_cycle": getattr(
             get_settings(), "auto_translate_words_per_cycle", 50),
         "sweep_seconds": SWEEP_SECONDS,
+        # The first question anyone asks, and the one this readout could not
+        # answer: is the sweep running? Everything below describes work the
+        # loop WOULD do; none of it means anything if the loop is not there.
+        # loop_enabled is the settings flag; heartbeat is what this process
+        # has actually done, so "enabled but never ran" is visible too.
+        "loop_enabled": getattr(
+            get_settings(), "auto_translate_loop_enabled", False),
+        "loop": heartbeat(),
         "migrations": {},
         "pairs": [],
         "switched_off": [],
