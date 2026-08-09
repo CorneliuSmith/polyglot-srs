@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Bell, CircleUserRound, Menu } from 'lucide-react'
+import { Bell, CircleUserRound, Clapperboard, Menu } from 'lucide-react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
@@ -612,6 +612,29 @@ export default function DashboardPage() {
 
           </div>
         )}
+
+        {/* Weekly picks — its own card, NOT filed under Practice (owner:
+            "it is not a part of practice"). Below lg only; desktop has the
+            rail's own Recommended card. */}
+        <button
+          type="button"
+          data-testid="reco-card"
+          onClick={() => navigate('/recommendations')}
+          className="lg:hidden w-full bg-white hover:bg-gray-50 rounded-2xl px-4 py-3 border border-gray-200 shadow-sm text-start flex items-center gap-3"
+          style={{ minHeight: '44px' }}
+        >
+          <span className="shrink-0 rounded-xl bg-lang/10 p-2">
+            <Clapperboard aria-hidden className="h-5 w-5 text-lang" strokeWidth={1.75} />
+          </span>
+          <span className="min-w-0 flex-1">
+            <span className="block text-sm font-semibold text-gray-800">
+              {t('dashboard.recommendedTitle')}
+            </span>
+            <span className="block text-xs text-gray-500">
+              {t('dashboard.recommendedSub')}
+            </span>
+          </span>
+        </button>
         </div>
 
         <DesktopRail stats={stats} />

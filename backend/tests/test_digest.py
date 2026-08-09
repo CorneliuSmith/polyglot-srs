@@ -256,6 +256,10 @@ class TestWeeklyRecsSweep:
         self.insert = p(patch(
             "backend.repositories.recommendations.insert_recommendation",
             new=AsyncMock(return_value={"id": "b1"})))
+        p(patch("backend.repositories.recommendations.recommended_titles",
+                new=AsyncMock(return_value=["Old Pick"])))
+        p(patch("backend.repositories.recommendations.rated_titles",
+                new=AsyncMock(return_value=[])))
         self.usage = p(patch(
             "backend.repositories.tutor.log_tutor_usage", new=AsyncMock()))
         p(patch("backend.services.digest.email_configured", return_value=True))
@@ -274,8 +278,10 @@ class TestWeeklyRecsSweep:
         conn = self._conn([self.ROW])
         with self._stack(conn, allowance=self.ALLOWED, items=RECOS):
             assert await sweep_weekly_recommendations(conn) == 1
-        # Grounded in the learner's CURRENT level each week.
+        # Grounded in the learner's CURRENT level each week, and never
+        # repeating an earlier pick.
         assert self.generate.await_args.kwargs["level"] == "B1"
+        assert self.generate.await_args.kwargs["exclude_titles"] == ["Old Pick"]
         self.insert.assert_awaited_once()
         # One unit of the monthly pool, under the counted 'recs' kind.
         assert self.usage.await_args.kwargs["kind"] == "recs"

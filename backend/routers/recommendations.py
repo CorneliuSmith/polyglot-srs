@@ -21,6 +21,9 @@ from backend.repositories.recommendations import (
     latest_recommendation_at,
     list_recommendations,
     mark_recommendations_seen,
+    rated_titles,
+    recommended_titles,
+    set_reco_feedback,
     unseen_batch,
     upsert_reco_profile,
 )
@@ -113,6 +116,45 @@ async def mark_seen(user: dict = Depends(get_current_user)):
     return {"ok": True}
 
 
+class FeedbackBody(BaseModel):
+    item_index: int = Field(ge=0, le=15)
+    done: bool = False
+    rating: int | None = Field(default=None, ge=1, le=5)
+
+
+@router.put("/batches/{batch_id}/feedback")
+async def put_feedback(
+    batch_id: str,
+    body: FeedbackBody,
+    user: dict = Depends(get_current_user),
+):
+    """Mark one pick finished and/or rate it 1–5 (owner: "users should be
+    able to mark what they watched, read, listened to and give it a
+    rating"). The engine reads this back — finished/rated titles are never
+    re-recommended, and ratings steer the next batch."""
+    try:
+        UUID(batch_id)
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="Invalid batch id",
+        ) from exc
+    async with rls_connection(user["id"]) as conn:
+        ok = await set_reco_feedback(
+            conn, user["id"], batch_id, body.item_index,
+            done=body.done, rating=body.rating,
+        )
+    if not ok:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail=(
+                "Saving feedback needs migration 20260922 applied — "
+                "run `supabase db push` (or the batch isn't yours)."
+            ),
+        )
+    return {"saved": True}
+
+
 @router.get("/{language_id}")
 async def get_recommendations(
     language_id: str, user: dict = Depends(get_current_user)
@@ -183,6 +225,11 @@ async def refresh_recommendations(
                 status_code=status.HTTP_404_NOT_FOUND, detail="Unknown language"
             )
         stats = await get_study_stats(conn, user["id"], language_id)
+        # What the engine must not repeat, and how earlier picks landed —
+        # a batch that re-recommends last month's series reads as the
+        # engine not paying attention.
+        exclude = await recommended_titles(conn, user["id"], language_id)
+        reactions = await rated_titles(conn, user["id"], language_id)
 
     # Paid-tutor gate: recommendations are a tutor+ perk (each batch is a model
     # call). Free/blocked accounts get a clear 402 the UI turns into an upsell.
@@ -210,6 +257,8 @@ async def refresh_recommendations(
         genres=profile["genres"],
         media_types=profile["media_types"],
         model=model,
+        exclude_titles=exclude,
+        reactions=reactions,
     )
     if not items:
         raise HTTPException(

@@ -11,6 +11,10 @@ export interface RecoItem {
   level: string
   /** The work's genre — 'crime drama', 'indie folk', 'true crime'. */
   genre?: string
+  /** The learner's feedback, merged in by the server (absent before the
+   *  feedback migration lands). */
+  done?: boolean
+  rating?: number | null
 }
 
 /** A generated batch, kept in the history. */
@@ -104,6 +108,22 @@ export async function getUnseenRecommendations(
 /** Dismiss the prompt — server-side, so it settles on every device. */
 export async function markRecommendationsSeen(): Promise<void> {
   await apiClient.post('/api/recommendations/seen')
+}
+
+/** Mark a pick finished and/or rate it 1–5. The engine reads this back:
+ *  finished/rated titles are never re-recommended, and ratings steer the
+ *  next batch's taste. */
+export async function setRecoFeedback(
+  batchId: string,
+  itemIndex: number,
+  done: boolean,
+  rating: number | null,
+): Promise<void> {
+  await apiClient.put(`/api/recommendations/batches/${batchId}/feedback`, {
+    item_index: itemIndex,
+    done,
+    rating,
+  })
 }
 
 /** The stable media-type ids a pick can carry. Display labels live in i18n

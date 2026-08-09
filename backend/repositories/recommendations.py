@@ -77,24 +77,141 @@ async def latest_recommendation_at(
     )
 
 
+async def feedback_table_present(conn: asyncpg.Connection) -> bool:
+    """Whether migration 20260922 has landed — to_regclass, never raises
+    (a thrown UndefinedTableError would abort the pooled transaction and
+    take the whole history read down with it)."""
+    return bool(await conn.fetchval(
+        "SELECT to_regclass('media_reco_feedback') IS NOT NULL"
+    ))
+
+
 async def list_recommendations(
     conn: asyncpg.Connection, user_id: str, language_id: str, limit: int = 50
 ) -> list[dict]:
-    """Every batch for this (learner, language), newest first — the history."""
+    """Every batch for this (learner, language), newest first — the history.
+    Each item carries the learner's feedback (done, rating) when the
+    feedback migration has landed; plain items otherwise."""
     rows = await conn.fetch(
         "SELECT id, items, level, created_at FROM media_recommendations "
         "WHERE user_id = $1 AND language_id = $2 "
         "ORDER BY created_at DESC LIMIT $3",
         user_id, language_id, limit,
     )
-    return [
-        {
-            "id": str(r["id"]),
-            "items": _load_items(r["items"]),
+    feedback: dict[tuple[str, int], dict] = {}
+    if rows and await feedback_table_present(conn):
+        fb_rows = await conn.fetch(
+            """
+            SELECT batch_id, item_index, done, rating
+            FROM media_reco_feedback
+            WHERE user_id = $1 AND batch_id = ANY($2::uuid[])
+            """,
+            user_id, [r["id"] for r in rows],
+        )
+        feedback = {
+            (str(f["batch_id"]), f["item_index"]):
+                {"done": f["done"], "rating": f["rating"]}
+            for f in fb_rows
+        }
+    out = []
+    for r in rows:
+        batch_id = str(r["id"])
+        items = [
+            {**item,
+             **feedback.get((batch_id, i), {"done": False, "rating": None})}
+            for i, item in enumerate(_load_items(r["items"]))
+        ]
+        out.append({
+            "id": batch_id,
+            "items": items,
             "level": r["level"],
             "created_at": r["created_at"].isoformat(),
-        }
+        })
+    return out
+
+
+async def set_reco_feedback(
+    conn: asyncpg.Connection,
+    user_id: str,
+    batch_id: str,
+    item_index: int,
+    *,
+    done: bool,
+    rating: int | None,
+) -> bool:
+    """Record "I finished this" / a 1–5 rating for one pick. Returns False
+    when the migration hasn't landed (router 503s naming it) or the batch
+    isn't this learner's."""
+    if not await feedback_table_present(conn):
+        return False
+    owned = await conn.fetchval(
+        "SELECT 1 FROM media_recommendations WHERE id = $1 AND user_id = $2",
+        batch_id, user_id,
+    )
+    if not owned:
+        return False
+    await conn.execute(
+        """
+        INSERT INTO media_reco_feedback
+            (user_id, batch_id, item_index, done, rating, updated_at)
+        VALUES ($1, $2, $3, $4, $5, now())
+        ON CONFLICT (user_id, batch_id, item_index) DO UPDATE SET
+            done = EXCLUDED.done,
+            rating = EXCLUDED.rating,
+            updated_at = now()
+        """,
+        user_id, batch_id, item_index, done, rating,
+    )
+    return True
+
+
+async def recommended_titles(
+    conn: asyncpg.Connection, user_id: str, language_id: str, cap: int = 40
+) -> list[str]:
+    """Every title already recommended to this learner for this language,
+    newest batches first — what the engine must NOT pick again."""
+    rows = await conn.fetch(
+        """
+        SELECT DISTINCT ON (title) title FROM (
+          SELECT jsonb_array_elements(r.items::jsonb)->>'title' AS title,
+                 r.created_at
+          FROM media_recommendations r
+          WHERE r.user_id = $1 AND r.language_id = $2
+        ) t
+        WHERE title IS NOT NULL AND title <> ''
+        ORDER BY title, created_at DESC
+        LIMIT $3
+        """,
+        user_id, language_id, cap,
+    )
+    return [r["title"] for r in rows]
+
+
+async def rated_titles(
+    conn: asyncpg.Connection, user_id: str, language_id: str, cap: int = 20
+) -> list[dict]:
+    """The learner's reactions to earlier picks — title, rating, done —
+    newest first. Steers the next batch's taste. Empty before the feedback
+    migration lands."""
+    if not await feedback_table_present(conn):
+        return []
+    rows = await conn.fetch(
+        """
+        SELECT r.items::jsonb->(f.item_index)->>'title' AS title,
+               f.rating, f.done
+        FROM media_reco_feedback f
+        JOIN media_recommendations r ON r.id = f.batch_id
+        WHERE f.user_id = $1 AND r.language_id = $2
+          AND (f.rating IS NOT NULL OR f.done)
+        ORDER BY f.updated_at DESC
+        LIMIT $3
+        """,
+        user_id, language_id, cap,
+    )
+    return [
+        {"title": r["title"], "rating": r["rating"], "done": r["done"]}
         for r in rows
+        if r["title"]
     ]
 
 

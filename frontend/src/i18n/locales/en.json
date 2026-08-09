@@ -770,7 +770,10 @@
     "dismissPicks": "Dismiss this week’s picks",
     "andMore_one": "and {{count}} more",
     "andMore_other": "and {{count}} more",
-    "seePicks": "See this week’s picks"
+    "seePicks": "See this week’s picks",
+    "finished": "Finished",
+    "yourRating": "Your rating",
+    "rateStar": "Rate {{count}} of 5"
   },
   "onboarding": {
     "back": "Back",

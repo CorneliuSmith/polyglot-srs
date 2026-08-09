@@ -4,7 +4,6 @@ import { useQuery } from '@tanstack/react-query'
 import { BookOpen, Dumbbell, MessagesSquare } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { getGymManifest } from '../../api/gym'
-import { getRecommendations } from '../../api/recommendations'
 import { usePrefsStore } from '../../stores/prefsStore'
 import DirArrow from '../../components/DirArrow'
 import SectionHeader from '../../components/SectionHeader'
@@ -98,18 +97,6 @@ export default function PracticePage() {
   })
   const hasGym = (gymManifest?.columns.length ?? 0) > 0
 
-  const { data: recoState } = useQuery({
-    queryKey: ['recommendations', activeLanguageId],
-    queryFn: () => getRecommendations(activeLanguageId!),
-    enabled: !!activeLanguageId,
-    retry: false,
-  })
-  // Visible whenever the feature is ON — it used to also require an
-  // existing batch, which hid the only way in for exactly the learner who
-  // hadn't been yet (and, pre-server-sweep, therefore had no batches).
-  const showReco = !!recoState?.enabled
-  const latestReco = recoState?.batches[0]
-
   return (
     <div className="min-h-screen bg-gray-50 overflow-x-hidden">
       <div className="max-w-3xl mx-auto px-4 py-6 space-y-4 pb-24 md:pb-6">
@@ -160,19 +147,10 @@ export default function PracticePage() {
           disabled={!activeLanguageId}
           testId="row-notes"
         />
-        {showReco && (
-          <LinkRow
-            title={t('dashboard.recommendedTitle')}
-            sub={
-              latestReco
-                ? t('dashboard.recommendedPicks', { count: latestReco.items.length })
-                : t('dashboard.recommendedSub')
-            }
-            onClick={() => navigate('/recommendations')}
-            testId="row-reco"
-          />
-        )}
-
+        {/* The reco entry moved to the Study page + desktop rail (owner:
+            recommendations are not practice). The new-picks nudge stays —
+            it's a transient "this week's batch is in" prompt, not a
+            destination. */}
         <NewPicksPrompt />
 
         {activeLanguageId && <PersonalDecksSection languageId={activeLanguageId} />}

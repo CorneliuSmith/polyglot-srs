@@ -24,11 +24,17 @@ vi.mock('../api/recommendations', async (orig) => ({
     Promise.resolve({ enabled: true, about: '', genres: [], media_types: [] }),
   ),
   updateRecoProfile: vi.fn(),
+  setRecoFeedback: vi.fn(() => Promise.resolve()),
 }))
 
-import { getRecommendations, refreshRecommendations } from '../api/recommendations'
+import {
+  getRecommendations,
+  refreshRecommendations,
+  setRecoFeedback,
+} from '../api/recommendations'
 const mockGet = getRecommendations as ReturnType<typeof vi.fn>
 const mockRefresh = refreshRecommendations as ReturnType<typeof vi.fn>
+const mockFeedback = setRecoFeedback as ReturnType<typeof vi.fn>
 
 const batch = {
   id: 'b1',
@@ -125,6 +131,25 @@ describe('RecommendationsPage', () => {
     expect(
       await screen.findByText(/asked for a few fresh batches already/i),
     ).toBeDefined()
+  })
+
+  it('marks a pick finished and rates it — feedback the engine reads back', async () => {
+    mockGet.mockResolvedValue({
+      enabled: true, entitled: true, stale: false, batches: [batch],
+    })
+    renderPage()
+    await screen.findByText('Cien años')
+
+    // "I've finished this" on the first pick.
+    fireEvent.click(screen.getByTestId('reco-done-b1-0'))
+    await waitFor(() =>
+      expect(mockFeedback).toHaveBeenCalledWith('b1', 0, true, null))
+
+    // Four stars on the second — rating implies finished.
+    const stars = screen.getAllByLabelText(/rate 4 of 5/i)
+    fireEvent.click(stars[1])
+    await waitFor(() =>
+      expect(mockFeedback).toHaveBeenCalledWith('b1', 1, true, 4))
   })
 
   it('embeds the taste-profile editor — the same data Settings edits', async () => {

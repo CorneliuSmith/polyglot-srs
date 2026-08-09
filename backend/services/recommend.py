@@ -105,6 +105,25 @@ def _mock_recs(language_name: str, media_types: list[str]) -> list[dict]:
     return [catalogue[t] for t in types if t in catalogue][:4] or [catalogue["book"]]
 
 
+def _reaction_lines(reactions: list[dict]) -> str:
+    """The learner's reactions to earlier picks, one per line, for the
+    prompt: "Loved 'X' (5/5)", "Finished 'Y'", "Didn't click with 'Z' (2/5)"."""
+    lines = []
+    for r in reactions:
+        title = r.get("title")
+        if not title:
+            continue
+        rating = r.get("rating")
+        if rating is not None:
+            verb = ("Loved" if rating >= 4
+                    else "Was lukewarm on" if rating == 3
+                    else "Didn't click with")
+            lines.append(f"- {verb} '{title}' ({rating}/5)")
+        elif r.get("done"):
+            lines.append(f"- Finished '{title}'")
+    return "\n".join(lines)
+
+
 async def generate_recommendations(
     *,
     language_name: str,
@@ -115,9 +134,16 @@ async def generate_recommendations(
     genres: list[str],
     media_types: list[str],
     model: str | None = None,
+    exclude_titles: list[str] | None = None,
+    reactions: list[dict] | None = None,
 ) -> list[dict]:
     """Draft a batch of immersion picks calibrated to the learner. Returns a
-    list of pick dicts (may be empty if the model returns nothing usable)."""
+    list of pick dicts (may be empty if the model returns nothing usable).
+
+    exclude_titles: everything already recommended — a batch that repeats
+    last month's picks reads as the engine not paying attention.
+    reactions: [{title, rating, done}] from the learner's feedback, so a
+    5-star series pulls the next batch toward more of the same."""
     settings = get_settings()
     if getattr(settings, "tutor_dev_mock", False):
         return _mock_recs(language_name, media_types)
@@ -126,6 +152,19 @@ async def generate_recommendations(
     level_str = level or "beginner (early A1)"
     interests = about.strip() or "(not specified)"
     genre_str = ", ".join(genres) if genres else "(no genre preference given)"
+    exclusions = (
+        "\nAlready recommended — do NOT pick any of these again:\n"
+        + "\n".join(f"- {t}" for t in exclude_titles)
+        if exclude_titles
+        else ""
+    )
+    reaction_block = _reaction_lines(reactions or [])
+    reaction_txt = (
+        f"\nTheir reactions to earlier picks (steer toward what they loved, "
+        f"away from what didn't land):\n{reaction_block}"
+        if reaction_block
+        else ""
+    )
 
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     resp = await client.messages.create(
@@ -156,6 +195,7 @@ async def generate_recommendations(
                 f"- Interests / about them: {interests}\n"
                 f"- Preferred genres: {genre_str}\n"
                 f"- Wants recommendations for: {', '.join(types)}\n"
+                f"{exclusions}{reaction_txt}"
             ),
         }],
         output_config={"format": {"type": "json_schema", "schema": _RECO_SCHEMA}},
