@@ -328,4 +328,76 @@ describe('listening mode (WP19a)', () => {
     expect(screen.queryByTestId('listening-drill')).toBeNull()
     expect(screen.getByText(/a student/)).toBeDefined()
   })
+
+  /* The inline blank sits inside a line of text, so its height decides where
+   * the underline is drawn. A flat 44px min-height made the box taller than
+   * the line; inline boxes align on the baseline, so the surplus hung below
+   * and the bar detached from its own words — "the typing bars are sometimes
+   * hidden". The touch target now applies only to coarse pointers.
+   *
+   * jsdom has no layout engine, so this pins the mechanism rather than the
+   * pixels: no unconditional min-height on the inline blank, and the target
+   * still unconditional on the standalone inputs, where a taller box costs
+   * nothing because they are not inline. */
+  describe('the blank sits on its own line', () => {
+    it('does not force a height on the inline blank', () => {
+      render(
+        <DrillCard
+          sentence="Ell {{answer}} a casa."
+          value=""
+          onChange={() => {}}
+          onSubmit={() => {}}
+          disabled={false}
+        />,
+      )
+      const input = screen.getByRole('textbox') as HTMLInputElement
+      expect(input.style.minHeight).toBe('')
+      expect(input.className).toContain('pointer-coarse:min-h-[44px]')
+    })
+
+    it('keeps one font-size utility on the blank', () => {
+      render(
+        <DrillCard
+          sentence="Ell {{answer}} a casa."
+          value=""
+          onChange={() => {}}
+          onSubmit={() => {}}
+          disabled={false}
+        />,
+      )
+      // text-xl and text-base together left the outcome to stylesheet order.
+      const cls = (screen.getByRole('textbox') as HTMLInputElement).className
+      expect(cls).toContain('text-xl')
+      expect(cls).not.toContain('text-base')
+    })
+
+    it('keeps the touch target on the standalone type-the-word input', () => {
+      render(
+        <DrillCard
+          sentence="to arrive on foot"
+          value=""
+          onChange={() => {}}
+          onSubmit={() => {}}
+          disabled={false}
+        />,
+      )
+      const input = screen.getByRole('textbox') as HTMLInputElement
+      expect(input.style.minHeight).toBe('44px')
+    })
+
+    it('keeps the touch target on the listening input', () => {
+      render(
+        <DrillCard
+          sentence="Ell {{answer}} a casa."
+          value=""
+          onChange={() => {}}
+          onSubmit={() => {}}
+          disabled={false}
+          hideSentence
+        />,
+      )
+      const input = screen.getByRole('textbox') as HTMLInputElement
+      expect(input.style.minHeight).toBe('44px')
+    })
+  })
 })
