@@ -56,3 +56,12 @@ export function voiceFor(languageCode: string): SpeechSynthesisVoice | null {
     null
   )
 }
+
+/** Whether the device can speak this language at all. Returns null when it's
+ * unknowable — some engines populate their voice list late, and an empty
+ * list means "not loaded yet", not "no voices". */
+export function hasVoiceFor(languageCode: string): boolean | null {
+  if (voices.length === 0) refreshVoices()
+  if (voices.length === 0) return null
+  return voiceFor(languageCode) != null
+}
