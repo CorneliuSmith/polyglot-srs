@@ -8,6 +8,7 @@ import {
   listAllRoles,
   overridePlan,
   revokeRole,
+  setAccountPrice,
   setTutorAccess,
   type AdminAccount,
   type GrantableRole,
@@ -226,6 +227,67 @@ function TutorCell({ account }: { account: AdminAccount }) {
   )
 }
 
+/** The account's monthly charge (owner: "I should be able to control their
+ * monthly charge"). Dollars in the box, cents on the wire; blank = the
+ * standard plan prices; 0 = subscribed free of charge, no Stripe involved.
+ * Checkout charges whatever stands here via price_data, so no per-person
+ * Price objects ever exist in the Stripe dashboard. */
+function PriceCell({ account }: { account: AdminAccount }) {
+  const queryClient = useQueryClient()
+  const [amount, setAmount] = useState<string>(
+    account.monthly_cents == null
+      ? ''
+      : (account.monthly_cents / 100).toFixed(2),
+  )
+  const mutation = useMutation({
+    mutationFn: (cents: number | null) => setAccountPrice(account.id, cents),
+    onSuccess: () =>
+      queryClient.invalidateQueries({ queryKey: ['admin-accounts'] }),
+  })
+
+  const save = () => {
+    const trimmed = amount.trim()
+    if (trimmed === '') {
+      if (account.monthly_cents != null) mutation.mutate(null)
+      return
+    }
+    const dollars = Number(trimmed)
+    if (!Number.isFinite(dollars) || dollars < 0) return
+    const cents = Math.round(dollars * 100)
+    if (cents !== account.monthly_cents) mutation.mutate(cents)
+  }
+
+  return (
+    <div className="space-y-1">
+      <div className="flex items-center gap-1 text-xs text-gray-500">
+        <span>$</span>
+        <input
+          value={amount}
+          onChange={(e) => setAmount(e.target.value.replace(/[^0-9.]/g, ''))}
+          onBlur={save}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') (e.target as HTMLInputElement).blur()
+          }}
+          placeholder="standard"
+          aria-label={`Monthly charge for ${account.email}`}
+          title="This account's monthly charge in dollars. Blank = standard plan pricing · 0 = free"
+          className="w-20 rounded border border-gray-300 bg-white px-2 py-1 text-xs tabular-nums"
+          inputMode="decimal"
+        />
+        <span>/mo</span>
+      </div>
+      {account.monthly_cents === 0 && (
+        <span className="text-[10px] text-emerald-600">free account</span>
+      )}
+      {mutation.isError && (
+        <p className="text-xs text-red-500">
+          {errorMessage(mutation.error)}
+        </p>
+      )}
+    </div>
+  )
+}
+
 function AccountRow({
   account,
   grants,
@@ -318,6 +380,9 @@ function AccountRow({
       </td>
       <td className="px-3 py-2">
         <TutorCell account={account} />
+      </td>
+      <td className="px-3 py-2">
+        <PriceCell account={account} />
       </td>
       <td className="px-3 py-2 text-end">
         <button
@@ -491,6 +556,7 @@ export default function AccountsPanel({
                   <th className="px-3 py-1 font-normal">Plan</th>
                   <th className="px-3 py-1 font-normal">Roles</th>
                   <th className="px-3 py-1 font-normal">Tutor</th>
+                  <th className="px-3 py-1 font-normal">Charge</th>
                   <th className="px-3 py-1" />
                 </tr>
               </thead>

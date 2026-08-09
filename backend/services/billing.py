@@ -103,6 +103,52 @@ def create_plan_checkout_session(
     return {"url": session["url"], "session_id": session["id"]}
 
 
+def create_priced_plan_checkout_session(
+    *,
+    user_id: str,
+    plan_scope: str,
+    plan_language_id: str | None,
+    monthly_cents: int,
+    currency: str,
+    customer_id: str,
+    success_url: str,
+    cancel_url: str,
+) -> dict:
+    """Checkout for an ADMIN-PRICED subscription (the generalized charge).
+
+    Same metadata — and therefore the exact same webhook grant/revoke path —
+    as the fixed plans, but the amount comes from price_data: an inline
+    price minted at checkout time. No dashboard Price object exists or is
+    needed, which is what lets the admin set any monthly charge per account
+    from the panel instead of managing Stripe products.
+    """
+    meta = {
+        "kind": "plan",
+        "user_id": user_id,
+        "plan_scope": plan_scope,
+        "plan_language_id": plan_language_id or "",
+    }
+    session = _stripe().checkout.Session.create(
+        mode="subscription",
+        customer=customer_id,
+        line_items=[{
+            "price_data": {
+                "currency": currency,
+                "unit_amount": monthly_cents,
+                "recurring": {"interval": "month"},
+                "product_data": {"name": "PolyglotSRS subscription"},
+            },
+            "quantity": 1,
+        }],
+        client_reference_id=user_id,
+        metadata=meta,
+        subscription_data={"metadata": meta},
+        success_url=success_url,
+        cancel_url=cancel_url,
+    )
+    return {"url": session["url"], "session_id": session["id"]}
+
+
 def create_portal_session(*, customer_id: str, return_url: str) -> str:
     """A Stripe Billing Portal URL — upgrades/downgrades prorate there."""
     session = _stripe().billing_portal.Session.create(

@@ -136,7 +136,10 @@ def client():
          patch("backend.dependencies.get_settings", return_value=FakeSettings()), \
          patch("backend.routers.billing.get_settings", return_value=FakeSettings()), \
          patch("backend.services.billing.get_settings", return_value=FakeSettings()), \
-         patch("backend.routers.billing.privileged_connection", _fake_priv):
+         patch("backend.routers.billing.privileged_connection", _fake_priv), \
+         patch("backend.routers.billing.get_custom_price",
+               new=AsyncMock(return_value=None)):
+        # No admin-set price by default; the custom-pricing tests override.
         app = create_app()
         with TestClient(app, raise_server_exceptions=True) as c:
             yield c
@@ -309,7 +312,7 @@ class TestPlanEndpoints:
     def test_prices_null_until_configured(self, client):
         resp = client.get("/api/billing/plan/prices", headers=_auth_headers())
         assert resp.status_code == 200
-        assert resp.json() == {"single": None, "all": None}
+        assert resp.json() == {"single": None, "all": None, "custom": None}
 
     def test_portal_503_when_not_configured(self, client):
         resp = client.post("/api/billing/portal", headers=_auth_headers())
@@ -336,3 +339,145 @@ class TestPlanEndpoints:
         args = mock_set.await_args
         assert args.args[1:] == (TEST_USER_ID, "all", None)
         assert args.kwargs["subscription_id"] == "sub_p9"
+
+
+# ── admin-set per-account pricing (the generalized charge) ───────────────────
+
+class TestCustomPricing:
+    """The owner's dial: each account's monthly charge is set from the admin
+    panel and checkout charges exactly that — through price_data, so no
+    per-person Price objects ever exist in the Stripe dashboard."""
+
+    def test_prices_show_the_admin_set_charge(self, client):
+        with patch("backend.routers.billing.get_custom_price",
+                   new=AsyncMock(return_value={
+                       "monthly_cents": 1234, "currency": "usd",
+                       "note": None})):
+            resp = client.get("/api/billing/plan/prices",
+                              headers=_auth_headers())
+        assert resp.status_code == 200
+        priced = {"amount_cents": 1234, "currency": "usd",
+                  "interval": "month"}
+        # Mirrored onto both scopes: the charge is per ACCOUNT, whichever
+        # plan shape they pick, so existing price displays need no changes.
+        assert resp.json() == {"single": priced, "all": priced,
+                               "custom": priced}
+
+    def test_zero_priced_account_subscribes_free_without_stripe(self):
+        """0 cents = free. No key, no dev-mock, no Stripe round trip — the
+        plan lands exactly as a paid webhook would land it."""
+        unpaid = FakeSettings()
+        unpaid.stripe_dev_mock = False  # and no secret key either
+        with patch("backend.main.init_pool", new=AsyncMock()), \
+             patch("backend.main.close_pool", new=AsyncMock()), \
+             patch("backend.main.get_settings", return_value=unpaid), \
+             patch("backend.dependencies.get_settings", return_value=unpaid), \
+             patch("backend.routers.billing.get_settings", return_value=unpaid), \
+             patch("backend.services.billing.get_settings", return_value=unpaid), \
+             patch("backend.routers.billing.privileged_connection", _fake_priv), \
+             patch("backend.routers.billing.get_custom_price",
+                   new=AsyncMock(return_value={
+                       "monthly_cents": 0, "currency": "usd", "note": None})), \
+             patch("backend.routers.billing.set_plan_subscription",
+                   new=AsyncMock()) as mock_set:
+            app = create_app()
+            with TestClient(app, raise_server_exceptions=True) as c:
+                resp = c.post("/api/billing/plan/checkout",
+                              json={"plan_scope": "all"},
+                              headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"granted": True, "url": None}
+        args = mock_set.await_args
+        assert args.args[1:] == (TEST_USER_ID, "all", None)
+        assert args.kwargs["subscription_id"] == "admin-free"
+
+    def test_priced_checkout_charges_the_admin_amount(self):
+        """A custom price checks out through price_data with THAT amount —
+        and needs no configured plan Price ids at all."""
+        class PricedSettings(FakeSettings):
+            stripe_secret_key = "sk_test_x"
+            stripe_dev_mock = False
+            stripe_price_single = ""   # deliberately unconfigured:
+            stripe_price_all = ""      # the custom lane must not need them
+
+        with patch("backend.main.init_pool", new=AsyncMock()), \
+             patch("backend.main.close_pool", new=AsyncMock()), \
+             patch("backend.main.get_settings", return_value=PricedSettings()), \
+             patch("backend.dependencies.get_settings", return_value=PricedSettings()), \
+             patch("backend.routers.billing.get_settings", return_value=PricedSettings()), \
+             patch("backend.services.billing.get_settings", return_value=PricedSettings()), \
+             patch("backend.routers.billing.privileged_connection", _fake_priv), \
+             patch("backend.routers.billing.get_custom_price",
+                   new=AsyncMock(return_value={
+                       "monthly_cents": 750, "currency": "usd", "note": None})), \
+             patch("backend.routers.billing.get_customer_id",
+                   new=AsyncMock(return_value="cus_7")), \
+             patch("backend.services.billing.create_priced_plan_checkout_session",
+                   return_value={"url": "https://checkout.stripe/c",
+                                 "session_id": "cs_c"}) as mk:
+            app = create_app()
+            with TestClient(app, raise_server_exceptions=True) as c:
+                resp = c.post("/api/billing/plan/checkout",
+                              json={"plan_scope": "all"},
+                              headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"granted": False,
+                               "url": "https://checkout.stripe/c"}
+        assert mk.call_args.kwargs["monthly_cents"] == 750
+        assert mk.call_args.kwargs["currency"] == "usd"
+
+    def test_priced_session_builds_inline_price_data(self):
+        """The service builds a price_data line item (inline price) with the
+        same plan metadata the webhook grant path already understands."""
+        fake_stripe = type("S", (), {})()
+        captured = {}
+
+        class _Session:
+            @staticmethod
+            def create(**kwargs):
+                captured.update(kwargs)
+                return {"url": "https://checkout/x", "id": "cs_9"}
+
+        fake_stripe.checkout = type("C", (), {"Session": _Session})()
+        with patch("backend.services.billing._stripe",
+                   return_value=fake_stripe):
+            out = billing.create_priced_plan_checkout_session(
+                user_id=TEST_USER_ID, plan_scope="all",
+                plan_language_id=None, monthly_cents=750, currency="usd",
+                customer_id="cus_7", success_url="s", cancel_url="c",
+            )
+        assert out["url"] == "https://checkout/x"
+        item = captured["line_items"][0]["price_data"]
+        assert item["unit_amount"] == 750
+        assert item["recurring"] == {"interval": "month"}
+        assert captured["metadata"]["kind"] == "plan"
+        assert captured["subscription_data"]["metadata"]["plan_scope"] == "all"
+
+
+class TestCustomPriceRepo:
+    """The repo degrades on a missing migration: reads say 'no custom
+    price', writes say 'cannot' so the admin endpoint can name the fix."""
+
+    @pytest.mark.asyncio
+    async def test_reads_are_none_before_the_migration(self):
+        from backend.repositories.billing import get_custom_price
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=None)  # to_regclass miss
+        assert await get_custom_price(conn, TEST_USER_ID) is None
+        conn.fetchrow.assert_not_awaited()
+
+    @pytest.mark.asyncio
+    async def test_writes_refuse_before_the_migration(self):
+        from backend.repositories.billing import set_custom_price
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=None)
+        assert await set_custom_price(conn, TEST_USER_ID, 500) is False
+        conn.execute.assert_not_awaited()
+
+    @pytest.mark.asyncio
+    async def test_none_clears_back_to_standard_pricing(self):
+        from backend.repositories.billing import set_custom_price
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=True)
+        assert await set_custom_price(conn, TEST_USER_ID, None) is True
+        assert "DELETE FROM custom_prices" in conn.execute.await_args.args[0]

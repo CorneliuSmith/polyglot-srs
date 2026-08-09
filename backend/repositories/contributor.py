@@ -2228,18 +2228,34 @@ async def find_user_by_email(
 async def list_accounts(conn: asyncpg.Connection) -> list[dict]:
     """Every account with what an admin needs at a glance (privileged;
     router verifies the admin role first): email, joined, plan, roles,
-    and how much they've studied."""
+    how much they've studied, and their admin-set monthly charge."""
+    # Probe rather than try/except: a raised UndefinedTableError aborts the
+    # whole pooled transaction, and this listing must keep working before
+    # migration 20260920 lands (the price column just reads as unset).
+    has_prices = bool(
+        await conn.fetchval("SELECT to_regclass('custom_prices') IS NOT NULL")
+    )
+    price_select = (
+        "cp.monthly_cents, cp.currency AS price_currency,"
+        if has_prices
+        else "NULL::int AS monthly_cents, NULL::text AS price_currency,"
+    )
+    price_join = (
+        "LEFT JOIN custom_prices cp ON cp.user_id = u.id" if has_prices else ""
+    )
     rows = await conn.fetch(
-        """
+        f"""
         SELECT u.id, u.email, u.created_at, u.last_sign_in_at,
                up.plan_scope, pl.code AS plan_language,
                up.tutor_access, up.tutor_daily_cap,
-               COALESCE(r.roles, '{}') AS roles,
+               {price_select}
+               COALESCE(r.roles, '{{}}') AS roles,
                COALESCE(c.cards, 0) AS cards,
                COALESCE(c.langs, 0) AS languages_studied
         FROM auth.users u
         LEFT JOIN user_profiles up ON up.id = u.id
         LEFT JOIN languages pl ON pl.id = up.plan_language_id
+        {price_join}
         LEFT JOIN LATERAL (
             SELECT array_agg(DISTINCT cr.role) AS roles
             FROM contributor_roles cr WHERE cr.user_id = u.id
@@ -2263,6 +2279,8 @@ async def list_accounts(conn: asyncpg.Connection) -> list[dict]:
             "plan_language": r["plan_language"],
             "tutor_access": r["tutor_access"] or "default",
             "tutor_daily_cap": r["tutor_daily_cap"],
+            "monthly_cents": r["monthly_cents"],
+            "price_currency": r["price_currency"],
             "roles": list(r["roles"] or []),
             "cards": r["cards"],
             "languages_studied": r["languages_studied"],

@@ -26,6 +26,10 @@ export interface PlanPrice {
 export interface PlanPrices {
   single: PlanPrice | null
   all: PlanPrice | null
+  /** Admin-set monthly charge for THIS account. When present the server
+   * already mirrors it onto both scopes, so price displays need no special
+   * casing — this field just names the fact for UIs that want to. */
+  custom?: PlanPrice | null
 }
 
 /** Live Stripe prices for the two plans; null until billing is configured. */
