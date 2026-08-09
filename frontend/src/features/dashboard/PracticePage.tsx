@@ -104,8 +104,10 @@ export default function PracticePage() {
     enabled: !!activeLanguageId,
     retry: false,
   })
-  const showReco =
-    !!recoState?.enabled && recoState.entitled && recoState.batches.length > 0
+  // Visible whenever the feature is ON — it used to also require an
+  // existing batch, which hid the only way in for exactly the learner who
+  // hadn't been yet (and, pre-server-sweep, therefore had no batches).
+  const showReco = !!recoState?.enabled
   const latestReco = recoState?.batches[0]
 
   return (

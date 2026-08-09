@@ -151,3 +151,20 @@ async def test_force_still_requires_entitlement():
                 AsyncMock(return_value=NOT_ENTITLED),
         })
     assert exc.value.status_code == 402
+
+
+@pytest.mark.asyncio
+async def test_an_exhausted_month_gets_a_clear_402():
+    """Batches spend from the monthly AI pool (owner: 'a plus feature that
+    will use some of their monthly ai') — an entitled learner whose month
+    is spent waits for the reset, with the same allowance_exhausted error
+    the tutor gives."""
+    drained = {**ENTITLED, "used": 1000, "remaining": 0}
+    with pytest.raises(HTTPException) as exc:
+        await _call(
+            force=True,
+            **{"backend.routers.recommendations.get_allowance":
+               AsyncMock(return_value=drained)},
+        )
+    assert exc.value.status_code == 402
+    assert exc.value.detail["code"] == "allowance_exhausted"

@@ -1,9 +1,17 @@
-"""Weekly review digest: the email body, and the send sweep."""
+"""Weekly review digest: the email body, and the send sweeps."""
+from contextlib import ExitStack
 from unittest.mock import AsyncMock, patch
 
 import pytest
 
-from backend.services.digest import DIGEST_HOUR_UTC, digest_html, sweep_weekly_digests
+from backend.services.digest import (
+    DIGEST_HOUR_UTC,
+    RECS_HOUR_UTC,
+    digest_html,
+    picks_html,
+    sweep_weekly_digests,
+    sweep_weekly_recommendations,
+)
 
 APP = "https://app.example"
 
@@ -210,3 +218,129 @@ class TestSweep:
             dt.now.return_value.hour = DIGEST_HOUR_UTC
             assert await sweep_weekly_digests(conn) == 1
         assert "completely fine" in send.await_args.args[2]
+
+
+class TestWeeklyRecsSweep:
+    """The server-side engine. Batches used to be drafted only when the
+    learner OPENED the page (the client fired the refresh), so anyone who
+    didn't visit got nothing new and no email ever arrived. The sweep now
+    drafts the week's picks itself and mails them, spending one unit of the
+    learner's monthly allowance per batch."""
+
+    ROW = {
+        "user_id": "u1", "language_id": "l1", "email": "kate@t",
+        "language_code": "ca", "language_name": "Catalan",
+        "tutor_model": None,
+    }
+    ALLOWED = {"entitled": True, "unlimited": False, "remaining": 50}
+
+    def _stack(self, conn, *, allowance, items):
+        """The full patch set for one sweep run at the right hour."""
+        stack = ExitStack()
+        p = stack.enter_context
+        p(patch("backend.services.digest.datetime")).now.return_value.hour = (
+            RECS_HOUR_UTC
+        )
+        p(patch("backend.services.allowance.get_allowance",
+                new=AsyncMock(return_value=allowance)))
+        p(patch("backend.repositories.recommendations.get_reco_profile",
+                new=AsyncMock(return_value={
+                    "enabled": True, "about": "crime shows",
+                    "genres": ["True crime"], "media_types": ["series"]})))
+        p(patch("backend.repositories.tutor.get_study_stats",
+                new=AsyncMock(return_value={
+                    "highest_level_reached": "B1", "learned_cards": 300})))
+        self.generate = p(patch(
+            "backend.services.recommend.generate_recommendations",
+            new=AsyncMock(return_value=items)))
+        self.insert = p(patch(
+            "backend.repositories.recommendations.insert_recommendation",
+            new=AsyncMock(return_value={"id": "b1"})))
+        self.usage = p(patch(
+            "backend.repositories.tutor.log_tutor_usage", new=AsyncMock()))
+        p(patch("backend.services.digest.email_configured", return_value=True))
+        self.send = p(patch("backend.services.digest.send_email",
+                            new=AsyncMock(return_value=True)))
+        return stack
+
+    def _conn(self, rows, lock=True):
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=lock)  # the advisory lock
+        conn.fetch = AsyncMock(return_value=rows)
+        return conn
+
+    @pytest.mark.asyncio
+    async def test_drafts_spends_and_emails_with_the_reasons(self):
+        conn = self._conn([self.ROW])
+        with self._stack(conn, allowance=self.ALLOWED, items=RECOS):
+            assert await sweep_weekly_recommendations(conn) == 1
+        # Grounded in the learner's CURRENT level each week.
+        assert self.generate.await_args.kwargs["level"] == "B1"
+        self.insert.assert_awaited_once()
+        # One unit of the monthly pool, under the counted 'recs' kind.
+        assert self.usage.await_args.kwargs["kind"] == "recs"
+        # The email names the language and carries every pick's WHY.
+        subject, body = self.send.await_args.args[1:3]
+        assert "Catalan" in subject
+        assert "magical realism" in body
+        assert "/recommendations" in body
+
+    @pytest.mark.asyncio
+    async def test_runs_only_at_its_hour(self):
+        conn = self._conn([self.ROW])
+        with patch("backend.services.digest.datetime") as dt:
+            dt.now.return_value.hour = (RECS_HOUR_UTC + 1) % 24
+            assert await sweep_weekly_recommendations(conn) == 0
+        conn.fetch.assert_not_called()
+
+    @pytest.mark.asyncio
+    async def test_an_unentitled_learner_costs_nothing(self):
+        conn = self._conn([self.ROW])
+        with self._stack(conn,
+                         allowance={"entitled": False, "unlimited": False,
+                                    "remaining": 0},
+                         items=RECOS):
+            assert await sweep_weekly_recommendations(conn) == 0
+        self.generate.assert_not_called()
+        self.send.assert_not_called()
+
+    @pytest.mark.asyncio
+    async def test_an_exhausted_month_waits_for_the_reset(self):
+        conn = self._conn([self.ROW])
+        with self._stack(conn,
+                         allowance={"entitled": True, "unlimited": False,
+                                    "remaining": 0},
+                         items=RECOS):
+            assert await sweep_weekly_recommendations(conn) == 0
+        self.generate.assert_not_called()
+
+    @pytest.mark.asyncio
+    async def test_only_one_worker_runs_the_pass(self):
+        # Every uvicorn worker runs the loop; the advisory lock makes sure
+        # only one of them drafts (and pays for) a given week.
+        conn = self._conn([self.ROW], lock=False)
+        with self._stack(conn, allowance=self.ALLOWED, items=RECOS):
+            assert await sweep_weekly_recommendations(conn) == 0
+        conn.fetch.assert_not_called()
+
+    @pytest.mark.asyncio
+    async def test_the_batch_lands_even_when_email_is_down(self):
+        # Log-only email must not stop the app itself getting fresh picks.
+        conn = self._conn([self.ROW])
+        with self._stack(conn, allowance=self.ALLOWED, items=RECOS):
+            with patch("backend.services.digest.email_configured",
+                       return_value=False):
+                assert await sweep_weekly_recommendations(conn) == 1
+        self.insert.assert_awaited_once()
+        self.send.assert_not_called()
+
+
+class TestPicksEmail:
+    def test_names_the_language_and_shows_every_why(self):
+        html = picks_html(language_name="Catalan", items=RECOS, app_url=APP)
+        assert "Your weekly Catalan picks" in html
+        assert "Cien años de soledad" in html
+        assert "magical realism" in html
+        assert f"{APP}/recommendations" in html
+        # And how to turn it off — every recurring email owes people that.
+        assert "turn them off" in html
