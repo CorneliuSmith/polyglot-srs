@@ -40,10 +40,11 @@ function extractDetail(err: unknown): string | undefined {
 export default function LanguageVisibilityPanel() {
   const qc = useQueryClient()
   const setActiveLanguageId = usePrefsStore((s) => s.setActiveLanguageId)
-  // One row's settings drawer open at a time: the point of this panel is
-  // cycling through languages, and each opened drawer replacing the last
-  // keeps the list readable while doing exactly that.
+  // One row's settings drawer open at a time keeps the list readable while
+  // cycling; "Edit all settings" opens every drawer for a sweep across the
+  // whole catalog in one view.
   const [openRow, setOpenRow] = useState<string | null>(null)
+  const [showAll, setShowAll] = useState(false)
   const { data: languages = [] } = useQuery({
     queryKey: ['languages'],
     queryFn: getLanguages,
@@ -120,22 +121,46 @@ export default function LanguageVisibilityPanel() {
       className="bg-white rounded-2xl border border-gray-100 p-4 text-sm space-y-3"
       data-testid="language-visibility-panel"
     >
-      <div>
-        <h2 className="text-sm font-semibold text-gray-800">Language visibility</h2>
-        <p className="text-xs text-gray-500">
-          Hidden languages stay out of onboarding and the language picker for
-          everyone else — nothing is deleted. Click a name to switch your own
-          active language there, hidden or not. Learners are always served:
-          whatever a learner is waiting on translates regardless of the
-          toggle, and a course in real recent use gets a starter corpus
-          scaled by its active learners. Auto-translate opts the course into
-          the <em>full</em> backlog fill on top of that; rejects go to the
-          review queue either way.
-        </p>
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <h2 className="text-sm font-semibold text-gray-800">Language visibility</h2>
+          <p className="text-xs text-gray-500">
+            Hidden languages stay out of onboarding and the language picker for
+            everyone else — nothing is deleted. Click a name to switch your own
+            active language there, hidden or not. Learners are always served:
+            whatever a learner is waiting on translates regardless of the
+            toggle, and a course in real recent use gets a starter corpus
+            scaled by its active learners. Auto-translate opts the course into
+            the <em>full</em> backlog fill on top of that — it works only
+            toward the interface languages real learners on the course
+            actually use, and goes quiet once the backlog is drained; rejects
+            go to the review queue either way.
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => {
+            setShowAll(!showAll)
+            setOpenRow(null)
+          }}
+          className="shrink-0 rounded-lg border border-gray-200 px-2 py-1 text-xs text-gray-600 hover:bg-gray-50"
+        >
+          {showAll ? 'Collapse all' : 'Edit all settings'}
+        </button>
       </div>
       <div className="divide-y divide-gray-100">
         {languages.map((lang) => {
           const r = readinessById.get(lang.id)
+          const expanded = showAll || openRow === lang.id
+          // With every drawer open at once, a failed save must point at the
+          // row it belongs to — not appear under all of them.
+          const rowError =
+            policyMutation.isError && policyMutation.variables?.id === lang.id
+              ? policyMutation.error
+              : tutorModelMutation.isError &&
+                  tutorModelMutation.variables?.id === lang.id
+                ? tutorModelMutation.error
+                : null
           return (
             <div key={lang.id} className="py-2">
             <div className="flex items-center justify-between gap-3">
@@ -203,11 +228,11 @@ export default function LanguageVisibilityPanel() {
                 <button
                   type="button"
                   onClick={() => setOpenRow(openRow === lang.id ? null : lang.id)}
-                  aria-expanded={openRow === lang.id}
+                  aria-expanded={expanded}
                   aria-label={`${lang.name} settings`}
                   title="Review policy and tutor model"
                   className={`rounded-md p-1 ${
-                    openRow === lang.id
+                    expanded
                       ? 'bg-gray-100 text-gray-700'
                       : 'text-gray-400 hover:text-gray-600'
                   }`}
@@ -216,7 +241,13 @@ export default function LanguageVisibilityPanel() {
                 </button>
               </div>
             </div>
-            {openRow === lang.id && r && (
+            {expanded && !r && (
+              <div className="mt-2 ms-6 rounded-lg bg-gray-50 p-3 text-xs text-gray-400">
+                Policy and tutor model unavailable — the review status for
+                this language hasn't loaded.
+              </div>
+            )}
+            {expanded && r && (
               <div
                 className="mt-2 ms-6 space-y-2 rounded-lg bg-gray-50 p-3"
                 data-testid={`language-settings-${lang.code}`}
@@ -261,10 +292,9 @@ export default function LanguageVisibilityPanel() {
                     ))}
                   </select>
                 </label>
-                {(policyMutation.isError || tutorModelMutation.isError) && (
+                {rowError != null && (
                   <p className="text-[11px] text-red-500">
-                    {extractDetail(policyMutation.error ?? tutorModelMutation.error) ??
-                      'Could not save.'}
+                    {extractDetail(rowError) ?? 'Could not save.'}
                   </p>
                 )}
               </div>
