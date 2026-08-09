@@ -11,6 +11,7 @@ from backend.config import get_settings
 from backend.dependencies import get_current_user
 from backend.repositories.billing import (
     deactivate_plan_by_subscription,
+    get_custom_price,
     get_customer_id,
     grant_entitlement,
     revoke_by_subscription,
@@ -78,15 +79,28 @@ async def checkout(
 
 @router.get("/plan/prices")
 async def plan_prices(user: dict = Depends(get_current_user)):
-    """The two plans' live Stripe prices (WP16d — never hardcoded).
+    """The plans' live prices for THIS account (WP16d — never hardcoded).
 
-    Unconfigured scopes come back null; the UI shows its free-beta copy.
+    Standard accounts see the two Stripe plan prices; unconfigured scopes
+    come back null and the UI shows its free-beta copy. An account with an
+    admin-set monthly charge sees THAT amount on both scopes (the charge is
+    per account, whichever scope they pick) plus a `custom` field naming it.
     Fetched per request behind auth — pricing pages are low-traffic and
     stale prices are worse than a Stripe read.
     """
+    async with privileged_connection() as conn:
+        custom = await get_custom_price(conn, user["id"])
+    custom_price = (
+        {"amount_cents": custom["monthly_cents"],
+         "currency": custom["currency"], "interval": "month"}
+        if custom else None
+    )
+    if custom_price:
+        return {"single": custom_price, "all": custom_price,
+                "custom": custom_price}
     if not get_settings().stripe_secret_key:
-        return {"single": None, "all": None}
-    return billing.list_plan_prices()
+        return {"single": None, "all": None, "custom": None}
+    return {**billing.list_plan_prices(), "custom": None}
 
 
 @router.post("/plan/checkout")
@@ -104,12 +118,35 @@ async def plan_checkout(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             detail="A single-language plan needs plan_language_id",
         )
-    if not billing.plans_configured():
+    settings = get_settings()
+
+    # An admin-set monthly charge outranks the fixed plan prices: it's the
+    # generalized lane — any amount, no dashboard Price object.
+    async with privileged_connection() as conn:
+        custom = await get_custom_price(conn, user["id"])
+
+    # Priced at zero by the admin = subscribed free of charge. No Stripe
+    # round trip; the plan lands exactly as a paid webhook would land it.
+    if custom and custom["monthly_cents"] == 0:
+        async with privileged_connection() as conn:
+            await set_plan_subscription(
+                conn, user["id"], body.plan_scope, body.plan_language_id,
+                subscription_id="admin-free", customer_id=None,
+            )
+        return {"granted": True, "url": None}
+
+    # Custom pricing needs only the secret key (the price is inline);
+    # standard pricing needs the configured Price ids too.
+    configured = (
+        bool(settings.stripe_secret_key) or settings.stripe_dev_mock
+        if custom
+        else billing.plans_configured()
+    )
+    if not configured:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail="Plan billing is not configured on this server",
         )
-    settings = get_settings()
 
     if settings.stripe_dev_mock:
         async with privileged_connection() as conn:
@@ -126,14 +163,26 @@ async def plan_checkout(
             await save_customer_id(conn, user["id"], customer_id)
 
     base = settings.app_base_url.rstrip("/")
-    session = billing.create_plan_checkout_session(
-        user_id=user["id"],
-        plan_scope=body.plan_scope,
-        plan_language_id=body.plan_language_id,
-        customer_id=customer_id,
-        success_url=f"{base}/settings",
-        cancel_url=f"{base}/settings",
-    )
+    if custom:
+        session = billing.create_priced_plan_checkout_session(
+            user_id=user["id"],
+            plan_scope=body.plan_scope,
+            plan_language_id=body.plan_language_id,
+            monthly_cents=custom["monthly_cents"],
+            currency=custom["currency"],
+            customer_id=customer_id,
+            success_url=f"{base}/settings",
+            cancel_url=f"{base}/settings",
+        )
+    else:
+        session = billing.create_plan_checkout_session(
+            user_id=user["id"],
+            plan_scope=body.plan_scope,
+            plan_language_id=body.plan_language_id,
+            customer_id=customer_id,
+            success_url=f"{base}/settings",
+            cancel_url=f"{base}/settings",
+        )
     return {"granted": False, "url": session["url"]}
 
 

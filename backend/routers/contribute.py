@@ -22,6 +22,7 @@ from backend.repositories.audit import (
     list_recent_changes,
     revert_change,
 )
+from backend.repositories.billing import set_custom_price
 from backend.repositories.change_requests import (
     cast_vote,
     create_request,
@@ -2506,6 +2507,54 @@ async def override_plan(
     if not ok:
         raise HTTPException(status_code=404, detail="Account not found")
     return {"plan_scope": body.plan_scope}
+
+
+class AccountPrice(BaseModel):
+    # None clears the row back to standard plan pricing; 0 = subscribed free
+    # of charge. Upper bound is a sanity rail (a million dollars a month is
+    # a typo, not a price).
+    monthly_cents: int | None = Field(default=None, ge=0, le=100_000_000)
+    currency: str = Field(default="usd", pattern="^[a-z]{3}$")
+    note: str | None = Field(default=None, max_length=200)
+
+
+@router.put("/users/{user_id}/price")
+async def set_account_price(
+    user_id: str,
+    body: AccountPrice,
+    user: dict = Depends(get_current_user),
+):
+    """Set (or clear) the account's monthly charge (admin-only).
+
+    This is the generalized billing dial: checkout charges this amount
+    through Stripe price_data, so no per-person Price objects ever exist in
+    the Stripe dashboard. Null returns the account to the standard plan
+    prices; 0 subscribes it free with no Stripe involvement at all.
+    """
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        exists = await conn.fetchval(
+            "SELECT 1 FROM auth.users WHERE id = $1", user_id
+        )
+        if not exists:
+            raise HTTPException(status_code=404, detail="Account not found")
+        ok = await set_custom_price(
+            conn, user_id, body.monthly_cents,
+            currency=body.currency, note=body.note,
+        )
+    if not ok:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail=(
+                "Custom pricing needs migration 20260920 applied — "
+                "run `supabase db push` (check /api/health/schema)"
+            ),
+        )
+    return {
+        "user_id": user_id,
+        "monthly_cents": body.monthly_cents,
+        "currency": body.currency,
+    }
 
 
 class TutorAccessOverride(BaseModel):

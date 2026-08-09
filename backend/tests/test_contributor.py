@@ -1370,6 +1370,42 @@ class TestAccountAdmin:
         assert resp.status_code == 200
         mock_set.assert_awaited_once()
 
+    def test_price_override_saves(self, client):
+        """The generalized charge: the admin sets an account's monthly
+        price and the repo write gets exactly those cents."""
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.set_custom_price",
+                   new=AsyncMock(return_value=True)) as mock_set:
+            resp = client.put(
+                "/api/contribute/users/99999999-aaaa-bbbb-cccc-000000000001/price",
+                json={"monthly_cents": 750},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["monthly_cents"] == 750
+        assert mock_set.await_args.args[2] == 750
+
+    def test_price_override_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.put(
+                "/api/contribute/users/99999999-aaaa-bbbb-cccc-000000000001/price",
+                json={"monthly_cents": 750},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_price_override_503_names_the_missing_migration(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.set_custom_price",
+                   new=AsyncMock(return_value=False)):
+            resp = client.put(
+                "/api/contribute/users/99999999-aaaa-bbbb-cccc-000000000001/price",
+                json={"monthly_cents": 750},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 503
+        assert "20260920" in resp.json()["detail"]
+
     def test_tutor_override_saves(self, client):
         with _roles([{"language_id": None, "role": "admin"}]), \
              patch("backend.routers.contribute.set_tutor_access",

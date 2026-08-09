@@ -575,6 +575,9 @@ export interface AdminAccount {
   plan_language: string | null
   tutor_access: TutorAccess
   tutor_daily_cap: number | null
+  /** Admin-set monthly charge in cents; null = standard plan pricing. */
+  monthly_cents: number | null
+  price_currency: string | null
   roles: string[]
   cards: number
   languages_studied: number
@@ -610,6 +613,17 @@ export async function setTutorAccess(
   await apiClient.put(`/api/contribute/users/${userId}/tutor`, {
     access,
     daily_cap: dailyCap,
+  })
+}
+
+/** Set (or with null, clear) the account's monthly charge in cents.
+ * Checkout charges this amount via Stripe price_data; 0 = free. */
+export async function setAccountPrice(
+  userId: string,
+  monthlyCents: number | null,
+): Promise<void> {
+  await apiClient.put(`/api/contribute/users/${userId}/price`, {
+    monthly_cents: monthlyCents,
   })
 }
 

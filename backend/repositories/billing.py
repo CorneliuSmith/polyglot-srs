@@ -115,6 +115,67 @@ async def set_plan_subscription(
     )
 
 
+async def _custom_prices_present(conn: asyncpg.Connection) -> bool:
+    """Whether migration 20260920 has landed. Probed with to_regclass (never
+    raises) because a thrown UndefinedTableError aborts the whole pooled
+    transaction — the checkout path must degrade to standard pricing, not
+    take the endpoint down."""
+    return bool(
+        await conn.fetchval("SELECT to_regclass('custom_prices') IS NOT NULL")
+    )
+
+
+async def get_custom_price(
+    conn: asyncpg.Connection, user_id: str
+) -> dict | None:
+    """The admin-set monthly charge for this account, or None (standard
+    plan pricing applies). A missing migration reads as None on purpose —
+    the learner-facing checkout must never 500 over an admin feature."""
+    if not await _custom_prices_present(conn):
+        return None
+    row = await conn.fetchrow(
+        "SELECT monthly_cents, currency, note FROM custom_prices "
+        "WHERE user_id = $1",
+        user_id,
+    )
+    return dict(row) if row else None
+
+
+async def set_custom_price(
+    conn: asyncpg.Connection,
+    user_id: str,
+    monthly_cents: int | None,
+    *,
+    currency: str = "usd",
+    note: str | None = None,
+) -> bool:
+    """Upsert the account's monthly charge; None clears it back to standard
+    pricing. Returns False when the migration hasn't landed so the admin
+    endpoint can 503 naming it — an admin's write failing silently is worse
+    than a learner's read degrading."""
+    if not await _custom_prices_present(conn):
+        return False
+    if monthly_cents is None:
+        await conn.execute(
+            "DELETE FROM custom_prices WHERE user_id = $1", user_id
+        )
+        return True
+    await conn.execute(
+        """
+        INSERT INTO custom_prices (user_id, monthly_cents, currency, note,
+                                   updated_at)
+        VALUES ($1, $2, $3, $4, now())
+        ON CONFLICT (user_id) DO UPDATE SET
+            monthly_cents = EXCLUDED.monthly_cents,
+            currency = EXCLUDED.currency,
+            note = EXCLUDED.note,
+            updated_at = now()
+        """,
+        user_id, monthly_cents, currency, note,
+    )
+    return True
+
+
 async def deactivate_plan_by_subscription(
     conn: asyncpg.Connection, subscription_id: str
 ) -> int:
