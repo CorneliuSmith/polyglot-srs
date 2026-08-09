@@ -1,10 +1,22 @@
+import { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { Settings2 } from 'lucide-react'
 import { getLanguages } from '../../api/profile'
 import {
   getLanguageReadiness,
   setLanguageAutoTranslate,
+  setLanguagePolicy,
+  setLanguageTutorModel,
   setLanguageVisibility,
+  TUTOR_MODELS,
 } from '../../api/contribute'
+import type { PublishPolicy } from '../../lib/publishPolicy'
+import {
+  normalizePolicy,
+  POLICY_HELP,
+  POLICY_LABELS,
+  PUBLISH_POLICIES,
+} from '../../lib/publishPolicy'
 import CircleFlag from '../../components/CircleFlag'
 import { usePrefsStore } from '../../stores/prefsStore'
 import TranslationStatusPanel from './TranslationStatusPanel'
@@ -28,6 +40,10 @@ function extractDetail(err: unknown): string | undefined {
 export default function LanguageVisibilityPanel() {
   const qc = useQueryClient()
   const setActiveLanguageId = usePrefsStore((s) => s.setActiveLanguageId)
+  // One row's settings drawer open at a time: the point of this panel is
+  // cycling through languages, and each opened drawer replacing the last
+  // keeps the list readable while doing exactly that.
+  const [openRow, setOpenRow] = useState<string | null>(null)
   const { data: languages = [] } = useQuery({
     queryKey: ['languages'],
     queryFn: getLanguages,
@@ -58,6 +74,25 @@ export default function LanguageVisibilityPanel() {
       setLanguageAutoTranslate(id, enabled),
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ['languages'] })
+    },
+  })
+
+  // The two dials that used to live only on the active language's
+  // ContributorPage controls — reaching them for another course meant
+  // switching your own active language there first, once per language.
+  const policyMutation = useMutation({
+    mutationFn: ({ id, policy }: { id: string; policy: PublishPolicy }) =>
+      setLanguagePolicy(id, policy),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['language-readiness'] })
+      qc.invalidateQueries({ queryKey: ['grammar'] })
+    },
+  })
+  const tutorModelMutation = useMutation({
+    mutationFn: ({ id, model }: { id: string; model: string | null }) =>
+      setLanguageTutorModel(id, model),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ['language-readiness'] })
     },
   })
 
@@ -102,7 +137,8 @@ export default function LanguageVisibilityPanel() {
         {languages.map((lang) => {
           const r = readinessById.get(lang.id)
           return (
-            <div key={lang.id} className="flex items-center justify-between gap-3 py-2">
+            <div key={lang.id} className="py-2">
+            <div className="flex items-center justify-between gap-3">
               <button
                 type="button"
                 onClick={() => setActiveLanguageId(lang.id)}
@@ -164,7 +200,75 @@ export default function LanguageVisibilityPanel() {
                     className="rounded border-gray-300"
                   />
                 </label>
+                <button
+                  type="button"
+                  onClick={() => setOpenRow(openRow === lang.id ? null : lang.id)}
+                  aria-expanded={openRow === lang.id}
+                  aria-label={`${lang.name} settings`}
+                  title="Review policy and tutor model"
+                  className={`rounded-md p-1 ${
+                    openRow === lang.id
+                      ? 'bg-gray-100 text-gray-700'
+                      : 'text-gray-400 hover:text-gray-600'
+                  }`}
+                >
+                  <Settings2 aria-hidden className="h-4 w-4" />
+                </button>
               </div>
+            </div>
+            {openRow === lang.id && r && (
+              <div
+                className="mt-2 ms-6 space-y-2 rounded-lg bg-gray-50 p-3"
+                data-testid={`language-settings-${lang.code}`}
+              >
+                <label className="block text-xs text-gray-600">
+                  <span className="font-medium">Publish policy</span>
+                  <select
+                    value={normalizePolicy(r.review_policy)}
+                    onChange={(e) =>
+                      policyMutation.mutate({
+                        id: lang.id,
+                        policy: e.target.value as PublishPolicy,
+                      })
+                    }
+                    aria-label={`${lang.name} publish policy`}
+                    className="mt-1 block w-full rounded-lg border border-gray-200 bg-white px-2 py-1.5 text-xs"
+                  >
+                    {PUBLISH_POLICIES.map((p) => (
+                      <option key={p} value={p}>{POLICY_LABELS[p]}</option>
+                    ))}
+                  </select>
+                  <span className="mt-1 block text-[11px] text-gray-400">
+                    {POLICY_HELP[normalizePolicy(r.review_policy)]}
+                  </span>
+                </label>
+                <label className="block text-xs text-gray-600">
+                  <span className="font-medium">Tutor model</span>
+                  <select
+                    value={r.tutor_model ?? ''}
+                    onChange={(e) =>
+                      tutorModelMutation.mutate({
+                        id: lang.id,
+                        model: e.target.value || null,
+                      })
+                    }
+                    aria-label={`${lang.name} tutor model`}
+                    className="mt-1 block w-full rounded-lg border border-gray-200 bg-white px-2 py-1.5 text-xs"
+                  >
+                    <option value="">Default (server setting)</option>
+                    {TUTOR_MODELS.map((m) => (
+                      <option key={m} value={m}>{m}</option>
+                    ))}
+                  </select>
+                </label>
+                {(policyMutation.isError || tutorModelMutation.isError) && (
+                  <p className="text-[11px] text-red-500">
+                    {extractDetail(policyMutation.error ?? tutorModelMutation.error) ??
+                      'Could not save.'}
+                  </p>
+                )}
+              </div>
+            )}
             </div>
           )
         })}

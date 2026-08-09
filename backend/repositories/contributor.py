@@ -649,6 +649,7 @@ async def language_release_readiness(conn: asyncpg.Connection) -> list[dict]:
     rows = await conn.fetch(
         """
         SELECT l.id, l.code, l.name, l.is_visible,
+          l.grammar_review_policy, l.tutor_model,
           (SELECT count(*) FROM grammar_points gp
             WHERE gp.language_id = l.id AND gp.reviewed = false
               AND COALESCE(gp.explanation, '') <> '') AS draft_points,
@@ -691,6 +692,11 @@ async def language_release_readiness(conn: asyncpg.Connection) -> list[dict]:
             "code": r["code"],
             "name": r["name"],
             "is_visible": r["is_visible"],
+            # The other two per-language dials, so the admin can work every
+            # language from the one panel instead of switching their own
+            # active course fourteen times to reach each one's controls.
+            "review_policy": r["grammar_review_policy"],
+            "tutor_model": r["tutor_model"],
             "draft_points": int(r["draft_points"]),
             "pending_drills": int(r["pending_drills"]),
             "pending_examples": int(r["pending_examples"]),
