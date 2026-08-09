@@ -208,6 +208,8 @@ async def sweep_weekly_recommendations(conn) -> int:
     from backend.repositories.recommendations import (
         get_reco_profile,
         insert_recommendation,
+        rated_titles,
+        recommended_titles,
     )
     from backend.repositories.tutor import get_study_stats, log_tutor_usage
     from backend.services.allowance import get_allowance
@@ -270,6 +272,9 @@ async def sweep_weekly_recommendations(conn) -> int:
                 genres=profile["genres"],
                 media_types=profile["media_types"],
                 model=model,
+                exclude_titles=await recommended_titles(
+                    conn, user_id, language_id),
+                reactions=await rated_titles(conn, user_id, language_id),
             )
             if not items:
                 continue

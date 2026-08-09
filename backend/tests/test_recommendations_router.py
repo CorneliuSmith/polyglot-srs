@@ -64,6 +64,8 @@ def _patches(**overrides):
         "backend.routers.recommendations.log_tutor_usage": AsyncMock(),
         "backend.routers.recommendations._is_stale": AsyncMock(return_value=False),
         "backend.routers.recommendations.list_recommendations": AsyncMock(return_value=[]),
+        "backend.routers.recommendations.recommended_titles": AsyncMock(return_value=[]),
+        "backend.routers.recommendations.rated_titles": AsyncMock(return_value=[]),
     }
     base.update(overrides)
     return [patch(target, value) for target, value in base.items()]
@@ -168,3 +170,59 @@ async def test_an_exhausted_month_gets_a_clear_402():
         )
     assert exc.value.status_code == 402
     assert exc.value.detail["code"] == "allowance_exhausted"
+
+
+@pytest.mark.asyncio
+async def test_the_draft_never_repeats_and_reads_the_ratings():
+    """Owner: "it should try not to generate things previously recommended"
+    — every earlier title is passed as an exclusion, and the learner's
+    ratings ride along to steer the taste."""
+    gen = AsyncMock(return_value=[{"type": "book", "title": "fresh"}])
+    result = await _call(
+        force=True,
+        **{
+            "backend.routers.recommendations.generate_recommendations": gen,
+            "backend.routers.recommendations.recommended_titles":
+                AsyncMock(return_value=["Old Pick", "Older Pick"]),
+            "backend.routers.recommendations.rated_titles":
+                AsyncMock(return_value=[
+                    {"title": "Old Pick", "rating": 5, "done": True}]),
+        },
+    )
+    assert result["generated"] is True
+    assert gen.await_args.kwargs["exclude_titles"] == ["Old Pick", "Older Pick"]
+    assert gen.await_args.kwargs["reactions"][0]["rating"] == 5
+
+
+@pytest.mark.asyncio
+async def test_feedback_saves_done_and_rating():
+    from backend.routers.recommendations import FeedbackBody, put_feedback
+
+    saved = AsyncMock(return_value=True)
+    with patch("backend.routers.recommendations.rls_connection", _fake_rls), \
+         patch("backend.routers.recommendations.set_reco_feedback", saved):
+        result = await put_feedback(
+            "22222222-2222-2222-2222-222222222222",
+            FeedbackBody(item_index=1, done=True, rating=4),
+            user=USER,
+        )
+    assert result == {"saved": True}
+    assert saved.await_args.kwargs == {"done": True, "rating": 4}
+    assert saved.await_args.args[3] == 1  # the item index
+
+
+@pytest.mark.asyncio
+async def test_feedback_503s_before_the_migration():
+    from backend.routers.recommendations import FeedbackBody, put_feedback
+
+    with patch("backend.routers.recommendations.rls_connection", _fake_rls), \
+         patch("backend.routers.recommendations.set_reco_feedback",
+               AsyncMock(return_value=False)):
+        with pytest.raises(HTTPException) as exc:
+            await put_feedback(
+                "22222222-2222-2222-2222-222222222222",
+                FeedbackBody(item_index=0, done=True, rating=None),
+                user=USER,
+            )
+    assert exc.value.status_code == 503
+    assert "20260922" in exc.value.detail

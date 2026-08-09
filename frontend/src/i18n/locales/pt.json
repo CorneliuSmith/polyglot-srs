@@ -770,7 +770,10 @@
     "dismissPicks": "Dispensar as sugestões desta semana",
     "andMore_one": "e mais {{count}}",
     "andMore_other": "e mais {{count}}",
-    "seePicks": "Ver as sugestões desta semana"
+    "seePicks": "Ver as sugestões desta semana",
+    "finished": "Concluído",
+    "yourRating": "Sua avaliação",
+    "rateStar": "Avaliar com {{count}} de 5"
   },
   "onboarding": {
     "back": "Voltar",

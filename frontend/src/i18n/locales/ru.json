@@ -800,7 +800,10 @@
     "andMore_few": "и ещё {{count}}",
     "andMore_many": "и ещё {{count}}",
     "andMore_other": "и ещё {{count}}",
-    "seePicks": "Смотреть подборку недели"
+    "seePicks": "Смотреть подборку недели",
+    "finished": "Завершено",
+    "yourRating": "Ваша оценка",
+    "rateStar": "Оценить на {{count}} из 5"
   },
   "onboarding": {
     "back": "Назад",

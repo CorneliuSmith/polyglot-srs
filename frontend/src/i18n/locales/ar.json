@@ -815,7 +815,10 @@
     "andMore_few": "و{{count}} أخرى",
     "andMore_many": "و{{count}} أخرى",
     "andMore_other": "و{{count}} أخرى",
-    "seePicks": "عرض اقتراحات هذا الأسبوع"
+    "seePicks": "عرض اقتراحات هذا الأسبوع",
+    "finished": "أنهيته",
+    "yourRating": "تقييمك",
+    "rateStar": "قيّم بـ {{count}} من 5"
   },
   "onboarding": {
     "back": "رجوع",

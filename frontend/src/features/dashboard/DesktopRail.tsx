@@ -90,7 +90,7 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
         <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-400">
           {t('nav.practice')}
         </h2>
-        <div className={`grid gap-2 ${hasGym ? 'grid-cols-2' : 'grid-cols-3'}`}>
+        <div className={`grid gap-2 ${hasGym ? 'grid-cols-3' : 'grid-cols-2'}`}>
           {hasGym && (
             <RailTile
               icon={Dumbbell}
@@ -113,18 +113,27 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
             disabled={!activeLanguageId}
             onClick={() => navigate('/tutor')}
           />
-          {/* The weekly picks page — the one destination this rail was
-              missing, so the feature was invisible on desktop unless you
-              knew the URL. */}
-          <RailTile
-            icon={Clapperboard}
-            label={t('dashboard.recommendedTitle')}
-            testId="rail-reco"
-            disabled={!activeLanguageId}
-            onClick={() => navigate('/recommendations')}
-          />
         </div>
       </section>
+
+      {/* Weekly picks get their OWN card (owner: "it is not a part of
+          practice") — recommendations are things to enjoy beyond the app,
+          not an exercise. */}
+      <button
+        type="button"
+        data-testid="rail-reco"
+        onClick={() => navigate('/recommendations')}
+        disabled={!activeLanguageId}
+        className="rounded-2xl border border-gray-100 bg-white p-4 text-start shadow-sm transition-colors hover:border-lang/40 disabled:opacity-40"
+      >
+        <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-400">
+          {t('dashboard.recommendedTitle')}
+        </h2>
+        <p className="flex items-center gap-1.5 text-sm text-gray-700">
+          <Clapperboard aria-hidden className="h-4 w-4 shrink-0 text-lang" />
+          {t('dashboard.recommendedSub')}
+        </p>
+      </button>
 
       <section className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
         <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-400">

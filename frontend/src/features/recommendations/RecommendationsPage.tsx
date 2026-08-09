@@ -3,10 +3,12 @@ import { useTranslation } from 'react-i18next'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import {
   BookOpen,
+  Check,
   Film,
   Headphones,
   Music,
   Sparkles,
+  Star,
   Tv,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
@@ -17,6 +19,7 @@ import {
   getRecommendations,
   refreshRecommendations,
   markRecommendationsSeen,
+  setRecoFeedback,
   type RecoBatch,
   type RecoItem,
 } from '../../api/recommendations'
@@ -37,10 +40,35 @@ function formatDate(iso: string, locale: string): string {
   })
 }
 
-function RecoCard({ item }: { item: RecoItem }) {
+function RecoCard({
+  item,
+  batchId,
+  index,
+}: {
+  item: RecoItem
+  batchId: string
+  index: number
+}) {
   const { t } = useTranslation()
+  const queryClient = useQueryClient()
+  const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const Icon = MEDIA_TYPE_ICONS[item.type] ?? Sparkles
   const label = t(`recos.mediaTypes.${item.type}`, { defaultValue: item.type })
+
+  // "I watched / read / listened to this" + a 1–5 rating. The engine reads
+  // it back: finished/rated titles are never re-recommended, and ratings
+  // steer the next batch's taste.
+  const feedback = useMutation({
+    mutationFn: (input: { done: boolean; rating: number | null }) =>
+      setRecoFeedback(batchId, index, input.done, input.rating),
+    onSuccess: () =>
+      queryClient.invalidateQueries({
+        queryKey: ['recommendations', activeLanguageId],
+      }),
+  })
+  const done = item.done ?? false
+  const rating = item.rating ?? null
+
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
       <div className="flex items-center gap-2 mb-1">
@@ -72,6 +100,54 @@ function RecoCard({ item }: { item: RecoItem }) {
           {item.why}
         </p>
       )}
+      <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-gray-50 pt-2">
+        <button
+          type="button"
+          onClick={() => feedback.mutate({ done: !done, rating })}
+          disabled={feedback.isPending}
+          aria-pressed={done}
+          data-testid={`reco-done-${batchId}-${index}`}
+          className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium transition-colors disabled:opacity-50 ${
+            done
+              ? 'bg-lang-soft text-lang-dark'
+              : 'border border-gray-200 text-gray-500 hover:text-lang'
+          }`}
+        >
+          <Check aria-hidden className="h-3.5 w-3.5" />
+          {t('recos.finished')}
+        </button>
+        <span
+          className="inline-flex items-center gap-0.5"
+          role="group"
+          aria-label={t('recos.yourRating')}
+        >
+          {[1, 2, 3, 4, 5].map((n) => (
+            <button
+              key={n}
+              type="button"
+              onClick={() =>
+                feedback.mutate({
+                  // Rating something implies you've been through it.
+                  done: true,
+                  rating: rating === n ? null : n,
+                })
+              }
+              disabled={feedback.isPending}
+              aria-label={t('recos.rateStar', { count: n })}
+              className="p-0.5 disabled:opacity-50"
+            >
+              <Star
+                aria-hidden
+                className={`h-4 w-4 ${
+                  rating != null && n <= rating
+                    ? 'fill-amber-400 text-amber-400'
+                    : 'text-gray-300 hover:text-amber-300'
+                }`}
+              />
+            </button>
+          ))}
+        </span>
+      </div>
     </div>
   )
 }
@@ -88,7 +164,7 @@ function Batch({ batch, heading }: { batch: RecoBatch; heading: string }) {
       </div>
       <div className="grid gap-3 sm:grid-cols-2">
         {batch.items.map((item, i) => (
-          <RecoCard key={`${batch.id}-${i}`} item={item} />
+          <RecoCard key={`${batch.id}-${i}`} item={item} batchId={batch.id} index={i} />
         ))}
       </div>
     </section>
