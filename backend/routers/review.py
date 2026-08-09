@@ -51,8 +51,10 @@ from backend.repositories.onboarding import get_placement_form_misses
 from backend.repositories.pool import privileged_connection, rls_connection
 from backend.repositories.review import add_card_feedback, insert_review_log
 from backend.repositories.trivia import (
+    BANK_FLOOR,
     LOW_WATER,
     TOP_UP_BATCH,
+    bank_size,
     count_unseen,
     existing_questions,
     least_recently_seen,
@@ -279,9 +281,17 @@ async def trivia(limit: int = 6, user: dict = Depends(get_current_user)):
     # so a top-up here competes with the thing they are waiting on, and
     # can provoke the rate limit that stalls it. Entertainment yields to
     # the session.
-    elif questions and remaining < LOW_WATER and translations_available():
-        if not await _locale_has_pending_translations(locale):
-            asyncio.create_task(_top_up_trivia(locale))
+    # Two background growth triggers, same guard rails for both (a provider,
+    # and no outstanding translation demand for this locale — the session
+    # always outranks the game on the shared key):
+    #  - the learner is running low on UNSEEN questions (the personal case);
+    #  - the locale's whole bank is under its floor (the corpus case) — the
+    #    owner's "at least 200", grown natively in each locale rather than
+    #    written once and translated.
+    elif questions and translations_available():
+        if remaining < LOW_WATER or await _bank_below_floor(locale):
+            if not await _locale_has_pending_translations(locale):
+                asyncio.create_task(_top_up_trivia(locale))
 
     # A fully-read bank: this learner has answered everything we hold in
     # their language and the generator couldn't widen it (no provider, or
@@ -299,6 +309,20 @@ async def trivia(limit: int = 6, user: dict = Depends(get_current_user)):
     if not questions:
         questions = offline_questions(locale, limit)
     return {"locale": locale, "questions": questions}
+
+
+async def _bank_below_floor(locale: str) -> bool:
+    """Is this locale's bank still short of BANK_FLOOR questions?
+
+    Returns False on any problem, same reasoning as the pending check
+    below: a skipped top-up costs nothing, a crashed request costs a game.
+    """
+    try:
+        async with privileged_connection() as conn:
+            return await bank_size(conn, locale) < BANK_FLOOR
+    except Exception as exc:  # noqa: BLE001 — a scheduling hint, not a gate
+        logger.debug("bank-floor check failed for %s: %s", locale, exc)
+        return False
 
 
 async def _locale_has_pending_translations(locale: str) -> bool:

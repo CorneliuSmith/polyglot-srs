@@ -3979,6 +3979,2760 @@ _QUESTIONS: list[dict] = [
                        "للأصوات السلافية — ш وч وж. ولم يفعل بطرس الأكبر بعد "
                        "ثمانية قرون سوى ترشيق أشكال الحروف."},
     },
+    # ------------------------------------------- writing systems & scripts
+    {
+        "answer": 1,
+        "en": {"question": "An Arabic speaker writes news in one form of the language and jokes with family in another. What is this called?",
+               "options": ["Bilingualism", "Diglossia — a high and a low variety living side by side", "Code error", "Dialect death"],
+               "fact": "Modern Standard Arabic serves print, school and "
+                       "speeches; the spoken darija of Morocco or Egypt "
+                       "serves life. Swiss German and standard German split "
+                       "the same way — and no one speaks the high variety "
+                       "at the dinner table."},
+        "es": {"question": "Un hablante de árabe escribe las noticias en una forma de la lengua y bromea con su familia en otra. ¿Cómo se llama esto?",
+               "options": ["Bilingüismo", "Diglosia: una variedad alta y una baja conviviendo", "Error de código", "Muerte dialectal"],
+               "fact": "El árabe estándar moderno sirve para la prensa, la "
+                       "escuela y los discursos; la dariya hablada de "
+                       "Marruecos o Egipto sirve para la vida. El alemán de "
+                       "Suiza y el estándar se reparten igual — y nadie "
+                       "habla la variedad alta en la mesa."},
+        "fr": {"question": "Un arabophone écrit les nouvelles dans une forme de la langue et plaisante en famille dans une autre. Comment cela s'appelle-t-il ?",
+               "options": ["Le bilinguisme", "La diglossie — une variété haute et une basse qui cohabitent", "Une erreur de code", "La mort dialectale"],
+               "fact": "L'arabe standard moderne sert à la presse, à l'école "
+                       "et aux discours ; la darija parlée du Maroc ou "
+                       "d'Égypte sert à la vie. Le suisse allemand et "
+                       "l'allemand standard se partagent de la même façon — "
+                       "et personne ne parle la variété haute à table."},
+        "pt": {"question": "Um falante de árabe escreve as notícias numa forma da língua e brinca com a família noutra. Como se chama isto?",
+               "options": ["Bilinguismo", "Diglossia — uma variedade alta e uma baixa a conviver", "Erro de código", "Morte dialetal"],
+               "fact": "O árabe padrão moderno serve a imprensa, a escola e "
+                       "os discursos; a darija falada de Marrocos ou do "
+                       "Egito serve a vida. O alemão da Suíça e o padrão "
+                       "dividem-se da mesma maneira — e ninguém fala a "
+                       "variedade alta à mesa."},
+        "ru": {"question": "Арабоговорящий пишет новости на одной форме языка, а шутит с семьёй на другой. Как это называется?",
+               "options": ["Двуязычие", "Диглоссия — «высокая» и «низкая» разновидности бок о бок", "Ошибка кода", "Смерть диалекта"],
+               "fact": "Современный стандартный арабский обслуживает печать, "
+                       "школу и речи; разговорная дарижа Марокко или Египта — "
+                       "жизнь. Так же делят труд швейцарский и литературный "
+                       "немецкий, и «высокой» разновидностью за ужином не "
+                       "говорит никто."},
+        "ar": {"question": "يكتب الناطق بالعربية الأخبار بصيغة من اللغة ويمازح أهله بأخرى. ماذا تسمى هذه الظاهرة؟",
+               "options": ["ثنائية اللغة", "الازدواج اللغوي — صيغة فصحى وأخرى دارجة تتعايشان", "خطأ في الترميز", "موت اللهجة"],
+               "fact": "الفصحى للصحافة والمدرسة والخُطب، والدارجة المغربية أو "
+                       "المصرية للحياة اليومية. وينقسم الألمانيّ السويسري "
+                       "والألمانيّ الفصيح على النحو نفسه — ولا أحد يتكلم "
+                       "الصيغة العليا على مائدة العشاء."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "How many writing systems does an ordinary Japanese sentence mix?",
+               "options": ["One", "Two", "Three — kanji, hiragana and katakana, each with its own job", "Five"],
+               "fact": "Kanji carry word roots, hiragana the grammar, "
+                       "katakana the loanwords — so a reader can see at a "
+                       "glance which part of the sentence is which. Rōmaji "
+                       "makes an occasional fourth."},
+        "es": {"question": "¿Cuántos sistemas de escritura mezcla una frase japonesa corriente?",
+               "options": ["Uno", "Dos", "Tres: kanji, hiragana y katakana, cada uno con su función", "Cinco"],
+               "fact": "Los kanji llevan las raíces, el hiragana la "
+                       "gramática, el katakana los préstamos — así el lector "
+                       "ve de un vistazo qué parte de la frase es cada cosa. "
+                       "El rōmaji hace de cuarto ocasional."},
+        "fr": {"question": "Combien de systèmes d'écriture une phrase japonaise ordinaire mélange-t-elle ?",
+               "options": ["Un", "Deux", "Trois — kanji, hiragana et katakana, chacun avec son rôle", "Cinq"],
+               "fact": "Les kanji portent les racines, les hiragana la "
+                       "grammaire, les katakana les emprunts — le lecteur "
+                       "voit d'un coup d'œil quelle partie de la phrase est "
+                       "quoi. Le rōmaji fait un quatrième occasionnel."},
+        "pt": {"question": "Quantos sistemas de escrita mistura uma frase japonesa corrente?",
+               "options": ["Um", "Dois", "Três — kanji, hiragana e katakana, cada um com a sua função", "Cinco"],
+               "fact": "Os kanji levam as raízes, o hiragana a gramática, o "
+                       "katakana os empréstimos — o leitor vê num relance "
+                       "que parte da frase é o quê. O rōmaji faz de quarto "
+                       "ocasional."},
+        "ru": {"question": "Сколько систем письма смешивает обычное японское предложение?",
+               "options": ["Одну", "Две", "Три — кандзи, хирагану и катакану, у каждой своя работа", "Пять"],
+               "fact": "Кандзи несут корни слов, хирагана — грамматику, "
+                       "катакана — заимствования, так что читатель с одного "
+                       "взгляда видит, где что. Ромадзи бывает четвёртой."},
+        "ar": {"question": "كم نظام كتابة تخلط الجملة اليابانية العادية؟",
+               "options": ["واحدًا", "اثنين", "ثلاثة — الكانجي والهيراغانا والكاتاكانا، لكلٍّ وظيفته", "خمسة"],
+               "fact": "الكانجي تحمل جذور الكلمات، والهيراغانا القواعد، "
+                       "والكاتاكانا الكلمات المستعارة — فيرى القارئ بلمحة أي "
+                       "جزء من الجملة هو ماذا. والروماجي رابعٌ يظهر أحيانًا."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "In Devanagari, the script of Hindi, the letter क alone reads “ka”. What does that make it?",
+               "options": ["An abugida: every consonant carries a built-in vowel unless marked otherwise",
+                           "An alphabet like Greek",
+                           "A set of word-pictures",
+                           "A syllable lottery"],
+               "fact": "Abugidas dress a consonant with vowel marks: क ka, "
+                       "कि ki, कु ku. Ethiopia's Ge'ez script and the "
+                       "scripts of Thai, Burmese, Khmer and most of India "
+                       "work this way — a third answer to the "
+                       "alphabet-or-syllabary question."},
+        "es": {"question": "En devanagari, la escritura del hindi, la letra क sola se lee “ka”. ¿Qué la convierte eso?",
+               "options": ["En un abugida: cada consonante lleva una vocal incorporada salvo marca en contra",
+                           "En un alfabeto como el griego",
+                           "En un juego de pictogramas",
+                           "En una lotería de sílabas"],
+               "fact": "Los abugidas visten la consonante con marcas "
+                       "vocálicas: क ka, कि ki, कु ku. Así funcionan el "
+                       "ge'ez de Etiopía y las escrituras del tailandés, el "
+                       "birmano, el jemer y casi toda la India — una tercera "
+                       "respuesta a la pregunta alfabeto-o-silabario."},
+        "fr": {"question": "En devanagari, l'écriture du hindi, la lettre क seule se lit « ka ». Qu'est-ce que cela en fait ?",
+               "options": ["Un abugida : chaque consonne porte une voyelle incorporée, sauf marque contraire",
+                           "Un alphabet comme le grec",
+                           "Un jeu de pictogrammes",
+                           "Une loterie de syllabes"],
+               "fact": "Les abugidas habillent la consonne de marques "
+                       "vocaliques : क ka, कि ki, कु ku. Le guèze "
+                       "d'Éthiopie et les écritures du thaï, du birman, du "
+                       "khmer et de presque toute l'Inde fonctionnent "
+                       "ainsi — une troisième réponse à la question "
+                       "alphabet-ou-syllabaire."},
+        "pt": {"question": "Em devanágari, a escrita do hindi, a letra क sozinha lê-se “ka”. O que faz dela isso?",
+               "options": ["Um abugida: cada consoante traz uma vogal embutida, salvo marca em contrário",
+                           "Um alfabeto como o grego",
+                           "Um conjunto de pictogramas",
+                           "Uma lotaria de sílabas"],
+               "fact": "Os abugidas vestem a consoante com marcas vocálicas: "
+                       "क ka, कि ki, कु ku. O ge'ez da Etiópia e as "
+                       "escritas do tailandês, do birmanês, do khmer e de "
+                       "quase toda a Índia funcionam assim — uma terceira "
+                       "resposta à pergunta alfabeto-ou-silabário."},
+        "ru": {"question": "В деванагари, письме хинди, буква क сама по себе читается «ка». Что это за тип письма?",
+               "options": ["Абугида: каждый согласный несёт встроенный гласный, пока не отмечено иное",
+                           "Алфавит вроде греческого",
+                           "Набор рисунков-слов",
+                           "Слоговая лотерея"],
+               "fact": "Абугиды одевают согласный огласовками: क ка, कि "
+                       "ки, कु ку. Так работают эфиопский геэз и письмена "
+                       "тайского, бирманского, кхмерского и почти всей "
+                       "Индии — третий ответ на вопрос «алфавит или "
+                       "слоговое письмо»."},
+        "ar": {"question": "في الديفاناغارية، خط الهندية، الحرف क وحده يُقرأ “كَا”. ماذا يجعلها ذلك؟",
+               "options": ["أبوجيدا: كل صامت يحمل صائتًا مدمجًا ما لم يُوسم بغيره",
+                           "أبجدية كاليونانية",
+                           "مجموعة صور للكلمات",
+                           "يانصيب مقاطع"],
+               "fact": "الأبوجيدا تُلبس الصامتَ علاماتِ صوائت: क كَا، कि "
+                       "كِي، कु كُو. وهكذا يعمل الجعزية الإثيوبي وخطوط "
+                       "التايلاندية والبورمية والخميرية ومعظم الهند — جواب "
+                       "ثالث عن سؤال أبجدية أم مقطعية. والحركات العربية "
+                       "قريبة من الفكرة."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "In 1928 Turkey switched alphabets. How fast did the country move from Arabic to Latin script?",
+               "options": ["Over about thirty years", "Within months — newspapers, schools and signs", "It never fully finished", "Only after 1950"],
+               "fact": "The new 29-letter alphabet was tailored to Turkish "
+                       "sounds — ç, ş, ğ, ı — and the old script vanished "
+                       "from public life within a year. Few languages have "
+                       "ever changed their writing so completely, so fast."},
+        "es": {"question": "En 1928 Turquía cambió de alfabeto. ¿Con qué rapidez pasó el país de la escritura árabe a la latina?",
+               "options": ["A lo largo de unos treinta años", "En cuestión de meses: prensa, escuelas y rótulos", "Nunca terminó del todo", "Solo después de 1950"],
+               "fact": "El nuevo alfabeto de 29 letras se ajustó a los "
+                       "sonidos turcos — ç, ş, ğ, ı — y la escritura vieja "
+                       "desapareció de la vida pública en un año. Pocas "
+                       "lenguas han cambiado su escritura tan completa y "
+                       "rápidamente."},
+        "fr": {"question": "En 1928, la Turquie a changé d'alphabet. À quelle vitesse le pays est-il passé de l'écriture arabe à la latine ?",
+               "options": ["Sur une trentaine d'années", "En quelques mois — journaux, écoles et enseignes", "Cela ne s'est jamais tout à fait achevé", "Seulement après 1950"],
+               "fact": "Le nouvel alphabet de 29 lettres était taillé pour "
+                       "les sons turcs — ç, ş, ğ, ı — et l'ancienne écriture "
+                       "a quitté la vie publique en un an. Peu de langues "
+                       "ont changé d'écriture aussi complètement, aussi "
+                       "vite."},
+        "pt": {"question": "Em 1928 a Turquia trocou de alfabeto. Com que rapidez passou o país da escrita árabe à latina?",
+               "options": ["Ao longo de uns trinta anos", "Em meses — jornais, escolas e tabuletas", "Nunca terminou de todo", "Só depois de 1950"],
+               "fact": "O novo alfabeto de 29 letras foi talhado para os "
+                       "sons turcos — ç, ş, ğ, ı — e a escrita antiga "
+                       "desapareceu da vida pública num ano. Poucas línguas "
+                       "mudaram a sua escrita tão completa e depressa."},
+        "ru": {"question": "В 1928 году Турция сменила алфавит. Как быстро страна перешла с арабского письма на латиницу?",
+               "options": ["Лет за тридцать", "За считанные месяцы — газеты, школы, вывески", "Полностью так и не перешла", "Только после 1950 года"],
+               "fact": "Новый алфавит из 29 букв скроили под турецкие звуки "
+                       "— ç, ş, ğ, ı — и старое письмо исчезло из публичной "
+                       "жизни за год. Мало какой язык менял письменность "
+                       "настолько полно и быстро."},
+        "ar": {"question": "عام 1928 بدّلت تركيا أبجديتها. بأي سرعة انتقلت البلاد من الخط العربي إلى اللاتيني؟",
+               "options": ["على مدى ثلاثين عامًا تقريبًا", "خلال أشهر — الصحف والمدارس واللافتات", "لم يكتمل الانتقال قط", "بعد 1950 فقط"],
+               "fact": "فُصِّلت الأبجدية الجديدة ذات 29 حرفًا على أصوات "
+                       "التركية — ç وş وğ وı — واختفى الخط القديم من الحياة "
+                       "العامة خلال سنة. قلّما بدّلت لغةٌ كتابتها بهذا "
+                       "الاكتمال وبهذه السرعة."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "How did the earliest writing manage to record abstract words like names?",
+               "options": ["It couldn't, so names went unwritten",
+                           "With special name-symbols",
+                           "The rebus principle: use the picture of a thing that SOUNDS like what you mean",
+                           "By inventing an alphabet immediately"],
+               "fact": "Like writing “belief” with a bee and a leaf. "
+                       "Sumerian scribes wrote the syllable ti (“life”) "
+                       "with the arrow sign, also ti — the moment pictures "
+                       "started recording sounds, and writing became able "
+                       "to say anything."},
+        "es": {"question": "¿Cómo logró la escritura más antigua registrar palabras abstractas, como los nombres?",
+               "options": ["No podía, así que los nombres quedaban sin escribir",
+                           "Con símbolos especiales para nombres",
+                           "Con el principio del jeroglífico-jeroglífico (rebus): usar el dibujo de algo que SUENA como lo que quieres decir",
+                           "Inventando un alfabeto de inmediato"],
+               "fact": "Como escribir “soldado” con un sol y un dado. "
+                       "Los escribas sumerios anotaban la sílaba ti "
+                       "(“vida”) con el signo de la flecha, también ti — "
+                       "el momento en que los dibujos empezaron a registrar "
+                       "sonidos, y la escritura pudo decirlo todo."},
+        "fr": {"question": "Comment la toute première écriture a-t-elle réussi à noter des mots abstraits, comme les noms propres ?",
+               "options": ["Elle ne le pouvait pas : les noms restaient non écrits",
+                           "Avec des symboles spéciaux pour les noms",
+                           "Par le principe du rébus : utiliser l'image d'une chose qui SONNE comme ce qu'on veut dire",
+                           "En inventant tout de suite un alphabet"],
+               "fact": "Comme écrire « chagrin » avec un chat et un "
+                       "grain. Les scribes sumériens notaient la syllabe ti "
+                       "(« vie ») avec le signe de la flèche, ti aussi — "
+                       "l'instant où les images se mirent à noter des sons, "
+                       "et où l'écriture put tout dire."},
+        "pt": {"question": "Como conseguiu a escrita mais antiga registar palavras abstratas, como os nomes?",
+               "options": ["Não conseguia, e os nomes ficavam por escrever",
+                           "Com símbolos especiais para nomes",
+                           "Pelo princípio do rébus: usar a imagem de algo que SOA como o que se quer dizer",
+                           "Inventando logo um alfabeto"],
+               "fact": "Como escrever “soldado” com um sol e um dado. Os "
+                       "escribas sumérios notavam a sílaba ti (“vida”) "
+                       "com o sinal da flecha, também ti — o momento em que "
+                       "as imagens passaram a registar sons, e a escrita "
+                       "pôde dizer tudo."},
+        "ru": {"question": "Как самая ранняя письменность ухитрялась записывать отвлечённые слова — например, имена?",
+               "options": ["Никак — имена оставались незаписанными",
+                           "Особыми знаками для имён",
+                           "По принципу ребуса: рисунком вещи, которая ЗВУЧИТ как то, что нужно сказать",
+                           "Сразу изобрели алфавит"],
+               "fact": "Как записать «столица» через стол и лица. "
+                       "Шумерские писцы обозначали слог ti («жизнь») "
+                       "знаком стрелы — тоже ti. В этот момент картинки "
+                       "начали записывать звуки, и письмо смогло сказать "
+                       "что угодно."},
+        "ar": {"question": "كيف استطاعت أقدم كتابة تدوين الكلمات المجردة كالأسماء؟",
+               "options": ["لم تستطع، فبقيت الأسماء غير مكتوبة",
+                           "برموز خاصة بالأسماء",
+                           "بمبدأ الأحجية الصوتية: استخدام صورة شيء يُشبه صوتُه ما تريد قوله",
+                           "باختراع أبجدية فورًا"],
+               "fact": "كمن يكتب “سلسبيل” بصور سلسلة وبئر. دوّن الكتبة "
+                       "السومريون المقطع ti (“حياة”) بعلامة السهم، وهو ti "
+                       "أيضًا — تلك هي اللحظة التي بدأت فيها الصور تسجل "
+                       "الأصوات فصارت الكتابة قادرة على قول أي شيء."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "What made the Rosetta Stone the key to Egyptian hieroglyphs?",
+               "options": ["It listed every hieroglyph with its meaning",
+                           "It carried the SAME decree in hieroglyphs, Demotic and Greek — and Greek could be read",
+                           "It was written by a Greek tourist",
+                           "It contained a pronunciation guide"],
+               "fact": "Champollion cracked it in 1822 by chasing royal "
+                       "names — Ptolemy, Cleopatra — through the cartouches, "
+                       "proving hieroglyphs wrote sounds, not just ideas. "
+                       "Every undeciphered script hunts for its own Rosetta."},
+        "es": {"question": "¿Qué hizo de la piedra de Rosetta la llave de los jeroglíficos egipcios?",
+               "options": ["Enumeraba cada jeroglífico con su significado",
+                           "Llevaba el MISMO decreto en jeroglífico, demótico y griego — y el griego se podía leer",
+                           "La escribió un turista griego",
+                           "Contenía una guía de pronunciación"],
+               "fact": "Champollion la descifró en 1822 persiguiendo "
+                       "nombres reales — Ptolomeo, Cleopatra — por los "
+                       "cartuchos, y demostró que los jeroglíficos escribían "
+                       "sonidos, no solo ideas. Toda escritura sin descifrar "
+                       "busca su propia Rosetta."},
+        "fr": {"question": "Qu'est-ce qui a fait de la pierre de Rosette la clef des hiéroglyphes égyptiens ?",
+               "options": ["Elle listait chaque hiéroglyphe avec son sens",
+                           "Elle portait le MÊME décret en hiéroglyphes, en démotique et en grec — et le grec, on savait le lire",
+                           "Un touriste grec l'avait écrite",
+                           "Elle contenait un guide de prononciation"],
+               "fact": "Champollion la déchiffra en 1822 en traquant les "
+                       "noms royaux — Ptolémée, Cléopâtre — dans les "
+                       "cartouches, prouvant que les hiéroglyphes notaient "
+                       "des sons, pas seulement des idées. Toute écriture "
+                       "non déchiffrée cherche sa Rosette."},
+        "pt": {"question": "O que fez da pedra de Roseta a chave dos hieróglifos egípcios?",
+               "options": ["Listava cada hieróglifo com o seu significado",
+                           "Trazia o MESMO decreto em hieróglifos, demótico e grego — e o grego sabia-se ler",
+                           "Foi escrita por um turista grego",
+                           "Continha um guia de pronúncia"],
+               "fact": "Champollion decifrou-a em 1822 perseguindo nomes "
+                       "reais — Ptolomeu, Cleópatra — pelos cartuchos, "
+                       "provando que os hieróglifos escreviam sons, não só "
+                       "ideias. Toda a escrita por decifrar procura a sua "
+                       "própria Roseta."},
+        "ru": {"question": "Что сделало Розеттский камень ключом к египетским иероглифам?",
+               "options": ["На нём был список иероглифов со значениями",
+                           "Он нёс ОДИН И ТОТ ЖЕ указ иероглифами, демотикой и по-гречески — а греческий читать умели",
+                           "Его написал греческий путешественник",
+                           "На нём было руководство по произношению"],
+               "fact": "Шампольон расшифровал его в 1822 году, выслеживая "
+                       "царские имена — Птолемей, Клеопатра — в картушах, и "
+                       "доказал, что иероглифы записывают звуки, а не только "
+                       "идеи. Каждое нерасшифрованное письмо ищет свою "
+                       "Розетту."},
+        "ar": {"question": "ما الذي جعل حجر رشيد مفتاحَ الهيروغليفية المصرية؟",
+               "options": ["أنه يسرد كل رمز هيروغليفي بمعناه",
+                           "أنه حمل المرسوم نفسه بالهيروغليفية والديموطيقية واليونانية — واليونانية كانت مقروءة",
+                           "أن سائحًا يونانيًا كتبه",
+                           "أنه تضمّن دليل نطق"],
+               "fact": "فكّ شامبليون رموزه عام 1822 بتتبّع الأسماء الملكية — "
+                       "بطليموس وكليوباترا — داخل الخراطيش، فأثبت أن "
+                       "الهيروغليفية تكتب أصواتًا لا أفكارًا فحسب. وكل خطٍّ "
+                       "لم يُفك بعدُ يبحث عن حجر رشيد خاص به."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "Linear B, scratched on clay tablets in Bronze Age Crete, turned out to record…",
+               "options": ["an early form of Greek — deciphered only in 1952",
+                           "Egyptian",
+                           "Phoenician",
+                           "a language still unknown"],
+               "fact": "Michael Ventris, an architect working from wartime "
+                       "code-breaking methods, showed the tablets were "
+                       "Greek five centuries older than Homer — mostly "
+                       "palace inventories of sheep, oil and chariot "
+                       "wheels. Its cousin Linear A remains unread."},
+        "es": {"question": "El lineal B, grabado en tablillas de arcilla en la Creta de la Edad del Bronce, resultó registrar…",
+               "options": ["una forma temprana de griego, descifrada recién en 1952",
+                           "egipcio",
+                           "fenicio",
+                           "una lengua aún desconocida"],
+               "fact": "Michael Ventris, un arquitecto que aplicó métodos "
+                       "del criptoanálisis de guerra, mostró que las "
+                       "tablillas eran griego cinco siglos anterior a "
+                       "Homero — sobre todo inventarios palaciegos de "
+                       "ovejas, aceite y ruedas de carro. Su primo, el "
+                       "lineal A, sigue sin leerse."},
+        "fr": {"question": "Le linéaire B, gravé sur des tablettes d'argile dans la Crète de l'âge du bronze, s'est révélé noter…",
+               "options": ["une forme ancienne de grec — déchiffrée seulement en 1952",
+                           "de l'égyptien",
+                           "du phénicien",
+                           "une langue toujours inconnue"],
+               "fact": "Michael Ventris, architecte formé aux méthodes du "
+                       "décryptage de guerre, montra que les tablettes "
+                       "étaient du grec antérieur de cinq siècles à Homère — "
+                       "surtout des inventaires palatiaux de moutons, "
+                       "d'huile et de roues de char. Son cousin le linéaire "
+                       "A reste illisible."},
+        "pt": {"question": "O linear B, gravado em tabuinhas de argila na Creta da Idade do Bronze, revelou-se registar…",
+               "options": ["uma forma antiga de grego — decifrada só em 1952",
+                           "egípcio",
+                           "fenício",
+                           "uma língua ainda desconhecida"],
+               "fact": "Michael Ventris, um arquiteto a aplicar métodos da "
+                       "criptoanálise de guerra, mostrou que as tabuinhas "
+                       "eram grego cinco séculos anterior a Homero — "
+                       "sobretudo inventários palacianos de ovelhas, azeite "
+                       "e rodas de carro. O primo linear A continua por "
+                       "ler."},
+        "ru": {"question": "Линейное письмо Б, процарапанное на глиняных табличках Крита бронзового века, оказалось записью…",
+               "options": ["ранней формы греческого — расшифровано лишь в 1952 году",
+                           "египетского",
+                           "финикийского",
+                           "языка, неизвестного до сих пор"],
+               "fact": "Майкл Вентрис, архитектор с методами военных "
+                       "дешифровщиков, показал: таблички — греческий на "
+                       "пять веков старше Гомера, в основном дворцовые "
+                       "описи овец, масла и колёс колесниц. Его родич, "
+                       "линейное письмо А, не прочитан до сих пор."},
+        "ar": {"question": "الخط الخطي “ب” المحفور على ألواح طينية في كريت العصر البرونزي تبيّن أنه يسجّل…",
+               "options": ["صيغة مبكرة من اليونانية — لم تُفك إلا عام 1952",
+                           "المصرية",
+                           "الفينيقية",
+                           "لغة ما تزال مجهولة"],
+               "fact": "أثبت مايكل فنتريس، وهو معماري استعان بأساليب فك "
+                       "الشفرات الحربية، أن الألواح يونانيةٌ أقدم من هوميروس "
+                       "بخمسة قرون — ومعظمها جرودُ قصورٍ للأغنام والزيت "
+                       "وعجلات المركبات. أما قريبه الخطي “أ” فلم يُقرأ "
+                       "بعد."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "Why are Norse runes all straight lines and sharp angles?",
+               "options": ["Religious rules required it",
+                           "They were made to be CARVED — curves are hard to cut across wood grain",
+                           "Their creators couldn't draw curves",
+                           "To save space"],
+               "fact": "Writing tools shape letters everywhere: cuneiform "
+                       "is wedge-shaped from pressing reeds into clay, "
+                       "Chinese strokes follow the brush, and roman "
+                       "serifs echo the chisel."},
+        "es": {"question": "¿Por qué las runas nórdicas son todo líneas rectas y ángulos afilados?",
+               "options": ["Lo exigían reglas religiosas",
+                           "Se hicieron para TALLARSE: las curvas son difíciles de cortar a contraveta",
+                           "Sus creadores no sabían trazar curvas",
+                           "Para ahorrar espacio"],
+               "fact": "Las herramientas moldean las letras en todas "
+                       "partes: la cuneiforme es de cuñas por presionar "
+                       "cañas en arcilla, los trazos chinos siguen el "
+                       "pincel y las serifas romanas recuerdan el cincel."},
+        "fr": {"question": "Pourquoi les runes nordiques ne sont-elles que lignes droites et angles vifs ?",
+               "options": ["Des règles religieuses l'exigeaient",
+                           "Elles étaient faites pour être GRAVÉES — les courbes se taillent mal à travers le fil du bois",
+                           "Leurs créateurs ne savaient pas tracer de courbes",
+                           "Pour gagner de la place"],
+               "fact": "Partout, l'outil façonne la lettre : le cunéiforme "
+                       "est fait de coins pressés dans l'argile, les traits "
+                       "chinois suivent le pinceau, et les empattements "
+                       "romains gardent la mémoire du ciseau."},
+        "pt": {"question": "Porque é que as runas nórdicas são só linhas retas e ângulos vivos?",
+               "options": ["Regras religiosas exigiam-no",
+                           "Foram feitas para TALHAR — curvas cortam-se mal contra o veio da madeira",
+                           "Os criadores não sabiam traçar curvas",
+                           "Para poupar espaço"],
+               "fact": "A ferramenta molda a letra em todo o lado: o "
+                       "cuneiforme é de cunhas prensadas na argila, os "
+                       "traços chineses seguem o pincel, e as serifas "
+                       "romanas ecoam o cinzel."},
+        "ru": {"question": "Почему скандинавские руны — сплошь прямые линии и острые углы?",
+               "options": ["Так требовали религиозные правила",
+                           "Их создавали для РЕЗЬБЫ: кривые плохо режутся поперёк волокон дерева",
+                           "Их создатели не умели чертить кривые",
+                           "Для экономии места"],
+               "fact": "Инструмент лепит букву повсюду: клинопись — из "
+                       "клиньев тростника, вдавленных в глину, китайские "
+                       "черты следуют кисти, а римские засечки помнят "
+                       "резец."},
+        "ar": {"question": "لماذا الرونية الإسكندنافية كلها خطوط مستقيمة وزوايا حادة؟",
+               "options": ["فرضتها قواعد دينية",
+                           "صُنعت لتُحفَر — والمنحنيات عسيرة القطع عبر ألياف الخشب",
+                           "لم يعرف صانعوها رسم المنحنيات",
+                           "توفيرًا للمساحة"],
+               "fact": "الأداة تصوغ الحرف في كل مكان: المسمارية أسافين قصبٍ "
+                       "مضغوطة في الطين، وضربات الصينية تتبع الفرشاة، "
+                       "والخط العربي نفسه وليد القلم القصبي المائل."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "The digits 1, 2, 3 are called “Arabic numerals” in the West. Where were they actually born?",
+               "options": ["Arabia", "Greece", "India — Arabic scholars carried them west", "Rome"],
+               "fact": "Indian mathematicians invented the place-value "
+                       "system and zero; al-Khwarizmi's books spread them, "
+                       "so Europe named them after the messenger. Arabic "
+                       "itself calls them “Indian numerals” — and uses "
+                       "different digit shapes."},
+        "es": {"question": "A las cifras 1, 2, 3 en Occidente se les llama “números arábigos”. ¿Dónde nacieron en realidad?",
+               "options": ["En Arabia", "En Grecia", "En la India: los sabios árabes las llevaron al oeste", "En Roma"],
+               "fact": "Los matemáticos indios inventaron el valor "
+                       "posicional y el cero; los libros de Al-Juarismi los "
+                       "difundieron, y Europa los bautizó por el mensajero. "
+                       "El propio árabe los llama “números indios” — y "
+                       "usa otras formas para las cifras."},
+        "fr": {"question": "Les chiffres 1, 2, 3 sont dits « chiffres arabes » en Occident. Où sont-ils réellement nés ?",
+               "options": ["En Arabie", "En Grèce", "En Inde — les savants arabes les ont portés vers l'ouest", "À Rome"],
+               "fact": "Les mathématiciens indiens ont inventé la notation "
+                       "de position et le zéro ; les livres d'Al-Khwarizmi "
+                       "les ont diffusés, et l'Europe les a nommés d'après "
+                       "le messager. L'arabe lui-même les appelle "
+                       "« chiffres indiens » — avec d'autres formes."},
+        "pt": {"question": "Os algarismos 1, 2, 3 chamam-se “arábicos” no Ocidente. Onde nasceram realmente?",
+               "options": ["Na Arábia", "Na Grécia", "Na Índia — os sábios árabes levaram-nos para ocidente", "Em Roma"],
+               "fact": "Os matemáticos indianos inventaram o valor de "
+                       "posição e o zero; os livros de Al-Khwarizmi "
+                       "espalharam-nos, e a Europa deu-lhes o nome do "
+                       "mensageiro. O próprio árabe chama-lhes “algarismos "
+                       "indianos” — e usa outras formas."},
+        "ru": {"question": "Цифры 1, 2, 3 на Западе зовут «арабскими». Где они родились на самом деле?",
+               "options": ["В Аравии", "В Греции", "В Индии — арабские учёные принесли их на запад", "В Риме"],
+               "fact": "Индийские математики изобрели позиционную запись и "
+                       "ноль; книги аль-Хорезми разнесли их, и Европа "
+                       "назвала цифры именем посредника. Сам арабский зовёт "
+                       "их «индийскими» — и пишет другими знаками. Да и "
+                       "слово «цифра» — от арабского sifr, «ноль»."},
+        "ar": {"question": "الأرقام 1 و2 و3 تسمى في الغرب “أرقامًا عربية”. أين وُلدت في الحقيقة؟",
+               "options": ["في الجزيرة العربية", "في اليونان", "في الهند — وحملها العلماء العرب غربًا", "في روما"],
+               "fact": "اخترع رياضيو الهند نظام الخانات والصفر؛ ونشرتها كتب "
+                       "الخوارزمي، فسمّاها الأوروبيون باسم الرسول لا "
+                       "المُرسِل. والعربية نفسها تسميها “الأرقام الهندية” "
+                       "— ومن “صِفر” جاءت كلمة chiffre الفرنسية وcipher "
+                       "الإنجليزية."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "Why does English write “knight” with a k and gh nobody says?",
+               "options": ["Spelling froze while pronunciation kept moving — those letters were once all heard",
+                           "Printers added decorative letters",
+                           "To distinguish it from “night” in speech",
+                           "French influence"],
+               "fact": "Chaucer's knight was “k-n-i-ch-t”, every letter "
+                       "sounded. French keeps whole silent syllables — "
+                       "parlent — and Danish spelling drifts from speech "
+                       "further still. Spelling is a museum; speech is a "
+                       "street."},
+        "es": {"question": "¿Por qué el inglés escribe “knight” con una k y una gh que nadie pronuncia?",
+               "options": ["La ortografía se congeló mientras la pronunciación seguía andando: esas letras se oían todas",
+                           "Los impresores añadieron letras decorativas",
+                           "Para distinguirlo de “night” al hablar",
+                           "Influencia francesa"],
+               "fact": "El caballero de Chaucer era “k-n-i-ch-t”, con "
+                       "cada letra sonando. El francés guarda sílabas mudas "
+                       "enteras — parlent — y el danés se aleja aún más de "
+                       "su habla. La ortografía es un museo; el habla, una "
+                       "calle."},
+        "fr": {"question": "Pourquoi l'anglais écrit-il « knight » avec un k et un gh que personne ne prononce ?",
+               "options": ["L'orthographe a gelé pendant que la prononciation continuait d'avancer — toutes ces lettres s'entendaient jadis",
+                           "Les imprimeurs ont ajouté des lettres décoratives",
+                           "Pour le distinguer de « night » à l'oral",
+                           "Influence française"],
+               "fact": "Le chevalier de Chaucer se disait « k-n-i-ch-t », "
+                       "chaque lettre sonnant. Le français garde des "
+                       "syllabes muettes entières — « parlent » — et le "
+                       "danois s'éloigne plus encore de sa parole. "
+                       "L'orthographe est un musée ; la parole, une rue."},
+        "pt": {"question": "Porque é que o inglês escreve “knight” com um k e um gh que ninguém diz?",
+               "options": ["A ortografia congelou enquanto a pronúncia continuou a andar — essas letras já se ouviram todas",
+                           "Os impressores acrescentaram letras decorativas",
+                           "Para o distinguir de “night” na fala",
+                           "Influência francesa"],
+               "fact": "O cavaleiro de Chaucer era “k-n-i-ch-t”, cada "
+                       "letra soando. O francês guarda sílabas mudas "
+                       "inteiras — parlent — e o dinamarquês afasta-se ainda "
+                       "mais da fala. A ortografia é um museu; a fala, uma "
+                       "rua."},
+        "ru": {"question": "Почему английский пишет «knight» с k и gh, которых никто не произносит?",
+               "options": ["Орфография застыла, а произношение ушло вперёд — когда-то звучала каждая буква",
+                           "Печатники добавили буквы для красоты",
+                           "Чтобы в речи отличать от «night»",
+                           "Французское влияние"],
+               "fact": "Рыцарь у Чосера звучал «к-н-и-х-т», каждой "
+                       "буквой. Французский хранит целые немые слоги — "
+                       "parlent, — а датское письмо ушло от речи ещё дальше. "
+                       "Орфография — музей; речь — улица."},
+        "ar": {"question": "لماذا تكتب الإنجليزية “knight” بحرفي k وgh لا ينطقهما أحد؟",
+               "options": ["تجمّد الإملاء بينما واصل النطق مسيره — كانت تلك الحروف كلها مسموعة يومًا",
+                           "أضاف الطابعون حروفًا للزينة",
+                           "للتفريق عن “night” في الكلام",
+                           "تأثير فرنسي"],
+               "fact": "كان فارس تشوسر يُنطق “ك-ن-ي-خ-ت” بكل حروفه. "
+                       "والفرنسية تحتفظ بمقاطع صامتة كاملة — parlent — "
+                       "والدنماركية أبعد من ذلك عن نطقها. الإملاء متحفٌ، "
+                       "والكلام شارع."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "Which language opens questions and exclamations with upside-down marks — ¿ and ¡?",
+               "options": ["Portuguese", "Spanish", "Italian", "Romanian"],
+               "fact": "Adopted by the Spanish Royal Academy in 1754 so a "
+                       "reader knows the sentence's tune before starting "
+                       "it — Spanish word order often doesn't signal a "
+                       "question. No other major language followed."},
+        "es": {"question": "¿Qué lengua abre preguntas y exclamaciones con signos invertidos — ¿ y ¡?",
+               "options": ["El portugués", "El español", "El italiano", "El rumano"],
+               "fact": "Los adoptó la Real Academia en 1754 para que el "
+                       "lector conozca la melodía de la frase antes de "
+                       "empezarla — el orden de palabras español muchas "
+                       "veces no delata la pregunta. Ninguna otra gran "
+                       "lengua lo siguió."},
+        "fr": {"question": "Quelle langue ouvre questions et exclamations par des signes renversés — ¿ et ¡ ?",
+               "options": ["Le portugais", "L'espagnol", "L'italien", "Le roumain"],
+               "fact": "Adoptés par l'Académie royale espagnole en 1754 "
+                       "pour que le lecteur connaisse la mélodie de la "
+                       "phrase avant de la commencer — l'ordre des mots "
+                       "espagnol ne signale souvent pas la question. "
+                       "Aucune autre grande langue n'a suivi."},
+        "pt": {"question": "Que língua abre perguntas e exclamações com sinais invertidos — ¿ e ¡?",
+               "options": ["O português", "O espanhol", "O italiano", "O romeno"],
+               "fact": "Adotados pela Real Academia Espanhola em 1754 para "
+                       "o leitor conhecer a melodia da frase antes de a "
+                       "começar — a ordem das palavras em espanhol muitas "
+                       "vezes não denuncia a pergunta. Nenhuma outra grande "
+                       "língua seguiu o exemplo."},
+        "ru": {"question": "Какой язык открывает вопросы и восклицания перевёрнутыми знаками — ¿ и ¡?",
+               "options": ["Португальский", "Испанский", "Итальянский", "Румынский"],
+               "fact": "Их ввела Испанская королевская академия в 1754 "
+                       "году, чтобы читатель знал мелодию фразы до её "
+                       "начала: испанский порядок слов часто не выдаёт "
+                       "вопроса. Ни один другой крупный язык не "
+                       "последовал."},
+        "ar": {"question": "أي لغة تفتتح الأسئلة والتعجب بعلامتين مقلوبتين — ¿ و¡؟",
+               "options": ["البرتغالية", "الإسبانية", "الإيطالية", "الرومانية"],
+               "fact": "أقرّتهما الأكاديمية الملكية الإسبانية عام 1754 ليعرف "
+                       "القارئ لحن الجملة قبل أن يبدأها — فترتيب الكلمات "
+                       "الإسباني كثيرًا ما لا يكشف السؤال. ولم تحذُ حذوَها "
+                       "لغة كبيرة أخرى."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "Which language still capitalizes Every Single Noun?",
+               "options": ["Dutch", "Swedish", "German", "Icelandic"],
+               "fact": "English did it too in the 18th century — read the "
+                       "US Constitution — and Danish kept it until 1948. "
+                       "German held on: Leben “life” wears its capital, "
+                       "leben “to live” doesn't, and sometimes that's "
+                       "the only visible difference."},
+        "es": {"question": "¿Qué lengua sigue escribiendo con mayúscula Todos Los Sustantivos?",
+               "options": ["El neerlandés", "El sueco", "El alemán", "El islandés"],
+               "fact": "El inglés también lo hacía en el siglo XVIII — "
+                       "léase la Constitución de EE. UU. — y el danés lo "
+                       "mantuvo hasta 1948. El alemán resistió: Leben "
+                       "“vida” lleva su mayúscula, leben “vivir” no, "
+                       "y a veces esa es la única diferencia visible."},
+        "fr": {"question": "Quelle langue met encore la majuscule à Chaque Nom Commun ?",
+               "options": ["Le néerlandais", "Le suédois", "L'allemand", "L'islandais"],
+               "fact": "L'anglais le faisait aussi au XVIIIe siècle — "
+                       "lisez la Constitution américaine — et le danois "
+                       "l'a gardé jusqu'en 1948. L'allemand a tenu bon : "
+                       "Leben « la vie » porte sa majuscule, leben "
+                       "« vivre » non, et c'est parfois la seule "
+                       "différence visible."},
+        "pt": {"question": "Que língua ainda escreve com maiúscula Todos Os Substantivos?",
+               "options": ["O neerlandês", "O sueco", "O alemão", "O islandês"],
+               "fact": "O inglês também o fazia no século XVIII — leia-se a "
+                       "Constituição dos EUA — e o dinamarquês manteve-o "
+                       "até 1948. O alemão resistiu: Leben “vida” leva "
+                       "maiúscula, leben “viver” não, e às vezes essa é "
+                       "a única diferença visível."},
+        "ru": {"question": "Какой язык до сих пор пишет С Большой Буквы Каждое Существительное?",
+               "options": ["Нидерландский", "Шведский", "Немецкий", "Исландский"],
+               "fact": "Английский делал так же в XVIII веке — почитайте "
+                       "конституцию США, — а датский держался до 1948 года. "
+                       "Немецкий устоял: Leben «жизнь» носит заглавную, "
+                       "leben «жить» — нет, и порой это единственная "
+                       "видимая разница."},
+        "ar": {"question": "أي لغة ما تزال تكتب كل اسم بحرف كبير في أوله؟",
+               "options": ["الهولندية", "السويدية", "الألمانية", "الآيسلندية"],
+               "fact": "فعلت الإنجليزية ذلك أيضًا في القرن الثامن عشر — "
+                       "اقرأ الدستور الأمريكي — وأبقته الدنماركية حتى 1948. "
+                       "وصمدت الألمانية: Leben “الحياة” بحرف كبير، وleben "
+                       "“يعيش” من دونه، وقد يكون ذلك الفرق المرئي "
+                       "الوحيد."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "Spoken Hindi and Urdu speakers chat with no interpreter. What separates the two on paper?",
+               "options": ["Script and formal vocabulary: Devanagari and Sanskrit borrowings vs Perso-Arabic script and Persian borrowings",
+                           "Completely different grammar",
+                           "Different word order",
+                           "Nothing at all"],
+               "fact": "One spoken continuum, two writing systems, two "
+                       "borrowing traditions, two national standards — the "
+                       "clearest case of politics drawing the language "
+                       "border. Serbian and Croatian repeat the pattern "
+                       "with Cyrillic and Latin."},
+        "es": {"question": "Hablantes de hindi y de urdu conversan sin intérprete. ¿Qué separa a las dos sobre el papel?",
+               "options": ["La escritura y el vocabulario culto: devanagari y préstamos sánscritos frente a escritura persoárabe y préstamos persas",
+                           "Gramáticas completamente distintas",
+                           "Otro orden de palabras",
+                           "Nada en absoluto"],
+               "fact": "Un continuo hablado, dos escrituras, dos "
+                       "tradiciones de préstamo, dos estándares "
+                       "nacionales: el caso más claro de frontera "
+                       "lingüística trazada por la política. El serbio y el "
+                       "croata repiten el patrón con cirílico y latino."},
+        "fr": {"question": "Les locuteurs du hindi et de l'ourdou bavardent sans interprète. Qu'est-ce qui sépare les deux sur le papier ?",
+               "options": ["L'écriture et le vocabulaire soutenu : devanagari et emprunts sanskrits contre écriture perso-arabe et emprunts persans",
+                           "Des grammaires complètement différentes",
+                           "Un autre ordre des mots",
+                           "Rien du tout"],
+               "fact": "Un même continuum parlé, deux écritures, deux "
+                       "traditions d'emprunt, deux standards nationaux — le "
+                       "cas le plus net de frontière linguistique tracée "
+                       "par la politique. Le serbe et le croate répètent le "
+                       "schéma avec cyrillique et latin."},
+        "pt": {"question": "Falantes de hindi e urdu conversam sem intérprete. O que separa as duas no papel?",
+               "options": ["A escrita e o vocabulário culto: devanágari e empréstimos sânscritos contra escrita perso-árabe e empréstimos persas",
+                           "Gramáticas completamente diferentes",
+                           "Outra ordem de palavras",
+                           "Nada de nada"],
+               "fact": "Um contínuo falado, duas escritas, duas tradições "
+                       "de empréstimo, dois padrões nacionais — o caso mais "
+                       "claro de fronteira linguística traçada pela "
+                       "política. O sérvio e o croata repetem o padrão com "
+                       "cirílico e latino."},
+        "ru": {"question": "Говорящие на хинди и урду болтают без переводчика. Что разделяет их на бумаге?",
+               "options": ["Письмо и книжная лексика: деванагари с санскритскими заимствованиями против персо-арабского письма с персидскими",
+                           "Совершенно разная грамматика",
+                           "Другой порядок слов",
+                           "Вообще ничего"],
+               "fact": "Один разговорный континуум, две письменности, две "
+                       "традиции заимствований, два государственных "
+                       "стандарта — самый наглядный случай языковой "
+                       "границы, проведённой политикой. Сербский и "
+                       "хорватский повторяют узор кириллицей и латиницей."},
+        "ar": {"question": "يتحادث متكلمو الهندية والأردية بلا مترجم. فما الذي يفصل بينهما على الورق؟",
+               "options": ["الخط والمعجم الرسمي: ديفاناغارية واقتراض سنسكريتي مقابل خط فارسي-عربي واقتراض فارسي",
+                           "قواعد مختلفة تمامًا",
+                           "ترتيب كلمات آخر",
+                           "لا شيء إطلاقًا"],
+               "fact": "متصلٌ منطوق واحد وخطّان وتقليدا اقتراض ومعياران "
+                       "وطنيان — أوضح حالة لحدود لغوية رسمتها السياسة. "
+                       "وتكرر الصربية والكرواتية النمط بالسيريلية "
+                       "واللاتينية."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "Persian is written in the Arabic script. What family does the language itself belong to?",
+               "options": ["Semitic, like Arabic",
+                           "Indo-European — a distant cousin of English, French and Hindi",
+                           "Turkic",
+                           "It is an isolate"],
+               "fact": "Script and family are independent: Persian mādar "
+                       "is sister to “mother” and Latin mater. Turkish "
+                       "wore the Arabic script for centuries while being "
+                       "Turkic; Swahili wore it too while being Bantu."},
+        "es": {"question": "El persa se escribe con el alfabeto árabe. ¿A qué familia pertenece la lengua en sí?",
+               "options": ["A la semítica, como el árabe",
+                           "A la indoeuropea: prima lejana del inglés, el francés y el hindi",
+                           "A la túrquica",
+                           "Es una lengua aislada"],
+               "fact": "Escritura y familia son independientes: el persa "
+                       "mādar es hermana de “madre” y del latín mater. "
+                       "El turco vistió siglos la escritura árabe siendo "
+                       "túrquico; el suajili también, siendo bantú."},
+        "fr": {"question": "Le persan s'écrit avec l'alphabet arabe. À quelle famille la langue elle-même appartient-elle ?",
+               "options": ["Sémitique, comme l'arabe",
+                           "Indo-européenne — cousine lointaine de l'anglais, du français et du hindi",
+                           "Turcique",
+                           "C'est un isolat"],
+               "fact": "Écriture et famille sont indépendantes : le persan "
+                       "mādar est sœur de « mère » et du latin mater. "
+                       "Le turc a porté des siècles l'écriture arabe tout "
+                       "en étant turcique ; le swahili aussi, tout en étant "
+                       "bantou."},
+        "pt": {"question": "O persa escreve-se com o alfabeto árabe. A que família pertence a língua em si?",
+               "options": ["À semítica, como o árabe",
+                           "À indo-europeia — prima afastada do inglês, do francês e do hindi",
+                           "À turcomana",
+                           "É um isolado"],
+               "fact": "Escrita e família são independentes: o persa mādar "
+                       "é irmã de “mãe” e do latim mater. O turco vestiu "
+                       "séculos a escrita árabe sendo túrquico; o suaíli "
+                       "também, sendo banto."},
+        "ru": {"question": "Персидский пишется арабским письмом. К какой семье принадлежит сам язык?",
+               "options": ["К семитской, как арабский",
+                           "К индоевропейской — дальний родич английского, французского и хинди",
+                           "К тюркской",
+                           "Это изолят"],
+               "fact": "Письмо и родство независимы: персидское mādar — "
+                       "сестра русского «мать» и латинского mater. "
+                       "Турецкий веками носил арабское письмо, оставаясь "
+                       "тюркским; суахили тоже — оставаясь банту."},
+        "ar": {"question": "تُكتب الفارسية بالخط العربي. فإلى أي أسرة تنتمي اللغة نفسها؟",
+               "options": ["السامية كالعربية",
+                           "الهندوأوروبية — قريبة بعيدة للإنجليزية والفرنسية والهندية",
+                           "التركية",
+                           "إنها لغة معزولة"],
+               "fact": "الخط والنسب مستقلان: الفارسية mādar أخت الإنجليزية "
+                       "mother واللاتينية mater. لبست التركية الخط العربي "
+                       "قرونًا وهي تركية النسب؛ ولبسته السواحلية وهي "
+                       "بانتوية."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "What is braille, linguistically speaking?",
+               "options": ["A language of its own",
+                           "A simplified code for short messages",
+                           "A writing system — it can write French, Arabic, Chinese, music or mathematics",
+                           "A kind of shorthand for English only"],
+               "fact": "Louis Braille adapted a soldiers' night-writing "
+                       "code at fifteen. Each language maps the six-dot "
+                       "cells its own way — and contracted braille packs "
+                       "frequent words into single cells, like a tactile "
+                       "shorthand."},
+        "es": {"question": "¿Qué es el braille, lingüísticamente hablando?",
+               "options": ["Una lengua propia",
+                           "Un código simplificado para mensajes cortos",
+                           "Un sistema de escritura: puede escribir francés, árabe, chino, música o matemáticas",
+                           "Una taquigrafía solo para inglés"],
+               "fact": "Louis Braille adaptó a los quince años un código "
+                       "militar de escritura nocturna. Cada lengua asigna "
+                       "las celdas de seis puntos a su manera — y el "
+                       "braille contraído comprime palabras frecuentes en "
+                       "una sola celda, como una taquigrafía táctil."},
+        "fr": {"question": "Qu'est-ce que le braille, linguistiquement parlant ?",
+               "options": ["Une langue à part entière",
+                           "Un code simplifié pour messages courts",
+                           "Un système d'écriture — il peut écrire le français, l'arabe, le chinois, la musique ou les mathématiques",
+                           "Une sténographie réservée à l'anglais"],
+               "fact": "Louis Braille adapta à quinze ans un code militaire "
+                       "d'écriture nocturne. Chaque langue distribue à sa "
+                       "façon les cellules de six points — et le braille "
+                       "abrégé condense les mots fréquents en une seule "
+                       "cellule, comme une sténo tactile."},
+        "pt": {"question": "O que é o braille, linguisticamente falando?",
+               "options": ["Uma língua própria",
+                           "Um código simplificado para mensagens curtas",
+                           "Um sistema de escrita — pode escrever francês, árabe, chinês, música ou matemática",
+                           "Uma estenografia só para inglês"],
+               "fact": "Louis Braille adaptou aos quinze anos um código "
+                       "militar de escrita noturna. Cada língua distribui "
+                       "as células de seis pontos à sua maneira — e o "
+                       "braille contraído comprime palavras frequentes numa "
+                       "só célula, como uma estenografia táctil."},
+        "ru": {"question": "Что такое брайль с лингвистической точки зрения?",
+               "options": ["Отдельный язык",
+                           "Упрощённый код для коротких сообщений",
+                           "Система письма — ею можно записать французский, арабский, китайский, ноты и математику",
+                           "Стенография только для английского"],
+               "fact": "Луи Брайль в пятнадцать лет приспособил военный "
+                       "код «ночного письма». Каждый язык раскладывает "
+                       "шеститочечные ячейки по-своему, а краткопись "
+                       "Брайля сжимает частые слова в одну ячейку — "
+                       "осязательная стенография."},
+        "ar": {"question": "ما البرايل من وجهة نظر لغوية؟",
+               "options": ["لغة قائمة بذاتها",
+                           "شفرة مبسطة للرسائل القصيرة",
+                           "نظام كتابة — يكتب الفرنسية والعربية والصينية والموسيقى والرياضيات",
+                           "اختزال للإنجليزية وحدها"],
+               "fact": "كيّف لويس برايل في الخامسة عشرة شفرةً عسكرية "
+                       "لـ“الكتابة الليلية”. وكل لغة توزّع خلايا النقاط "
+                       "الست على طريقتها — وللعربية برايلها الخاص، وثمة "
+                       "برايل مختزل يضغط الكلمات الشائعة في خلية واحدة."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "Icelandic schoolchildren can read sagas written around 800 years ago. Why?",
+               "options": ["The sagas are modernised for them",
+                           "Icelandic has changed unusually little — isolation and deliberate purism kept it archaic",
+                           "All Icelanders study Old Norse for years",
+                           "The sagas were written recently"],
+               "fact": "The spelling standard leans archaic, and new ideas "
+                       "get native coinages instead of loans: tölva "
+                       "“computer” welds tala (number) to völva "
+                       "(prophetess) — a number-prophetess. Pronunciation "
+                       "has moved more than the page shows."},
+        "es": {"question": "Los escolares islandeses pueden leer sagas escritas hace unos 800 años. ¿Por qué?",
+               "options": ["Las sagas se les modernizan",
+                           "El islandés ha cambiado inusualmente poco: el aislamiento y un purismo deliberado lo mantuvieron arcaico",
+                           "Todos los islandeses estudian nórdico antiguo durante años",
+                           "Las sagas se escribieron hace poco"],
+               "fact": "La norma ortográfica tira a arcaica y las ideas "
+                       "nuevas reciben acuñaciones propias en vez de "
+                       "préstamos: tölva “ordenador” suelda tala "
+                       "(número) con völva (profetisa) — una profetisa de "
+                       "números. La pronunciación ha andado más de lo que "
+                       "la página muestra."},
+        "fr": {"question": "Les écoliers islandais peuvent lire des sagas écrites il y a environ 800 ans. Pourquoi ?",
+               "options": ["On leur modernise les sagas",
+                           "L'islandais a exceptionnellement peu changé — l'isolement et un purisme délibéré l'ont gardé archaïque",
+                           "Tous les Islandais étudient le vieux norrois pendant des années",
+                           "Les sagas ont été écrites récemment"],
+               "fact": "La norme orthographique penche vers l'archaïque, et "
+                       "les idées neuves reçoivent des créations locales "
+                       "plutôt que des emprunts : tölva « ordinateur » "
+                       "soude tala (nombre) à völva (prophétesse) — une "
+                       "prophétesse des nombres. La prononciation a bougé "
+                       "plus que la page ne le montre."},
+        "pt": {"question": "As crianças islandesas conseguem ler sagas escritas há cerca de 800 anos. Porquê?",
+               "options": ["As sagas são-lhes modernizadas",
+                           "O islandês mudou invulgarmente pouco — o isolamento e um purismo deliberado mantiveram-no arcaico",
+                           "Todos os islandeses estudam nórdico antigo durante anos",
+                           "As sagas foram escritas há pouco"],
+               "fact": "A norma ortográfica pende para o arcaico, e as "
+                       "ideias novas recebem cunhagens próprias em vez de "
+                       "empréstimos: tölva “computador” solda tala "
+                       "(número) a völva (profetisa) — uma profetisa dos "
+                       "números. A pronúncia andou mais do que a página "
+                       "mostra."},
+        "ru": {"question": "Исландские школьники могут читать саги, записанные около 800 лет назад. Почему?",
+               "options": ["Саги для них осовременивают",
+                           "Исландский изменился необычайно мало — изоляция и сознательный пуризм сохранили его архаичным",
+                           "Все исландцы годами учат древнескандинавский",
+                           "Саги написаны недавно"],
+               "fact": "Орфографическая норма тяготеет к архаике, а новые "
+                       "понятия получают свои слова вместо заимствований: "
+                       "tölva «компьютер» сваривает tala (число) с völva "
+                       "(пророчица) — числовая пророчица. Произношение "
+                       "ушло дальше, чем видно со страницы."},
+        "ar": {"question": "يستطيع تلاميذ آيسلندا قراءة ملاحم كُتبت قبل نحو 800 سنة. لماذا؟",
+               "options": ["تُحدَّث الملاحم لهم",
+                           "تغيّرت الآيسلندية قليلًا على نحو استثنائي — حفظتها العزلة والتزمّت اللغوي المتعمد",
+                           "يدرس الآيسلنديون جميعًا النوردية القديمة سنوات",
+                           "كُتبت الملاحم حديثًا"],
+               "fact": "معيار الإملاء يميل إلى القديم، والمفاهيم الجديدة "
+                       "تُنحت نحتًا محليًا بدل الاستعارة: tölva "
+                       "“حاسوب” تلحم tala (عدد) بـvölva (عرّافة) — "
+                       "عرّافة أعداد. أما النطق فقد تحرك أكثر مما تُظهر "
+                       "الصفحة."},
+    },
+    # -------------------------- acquisition, psycholinguistics, use
+    {
+        "answer": 0,
+        "en": {"question": "What can a six-month-old baby do that its parents no longer can?",
+               "options": ["Hear the difference between speech sounds of ANY language",
+                           "Understand grammar",
+                           "Read facial expressions",
+                           "Remember melodies"],
+               "fact": "Infants start as universal listeners; by about "
+                       "their first birthday they specialise in their own "
+                       "language's sounds — which is why Japanese adults "
+                       "struggle with r/l and English speakers with Hindi's "
+                       "retroflexes. The categories close early."},
+        "es": {"question": "¿Qué puede hacer un bebé de seis meses que sus padres ya no pueden?",
+               "options": ["Distinguir de oído los sonidos de CUALQUIER lengua",
+                           "Entender la gramática",
+                           "Leer las expresiones de la cara",
+                           "Recordar melodías"],
+               "fact": "Los bebés empiezan como oyentes universales; hacia "
+                       "su primer cumpleaños se especializan en los sonidos "
+                       "de su lengua — por eso a los japoneses adultos les "
+                       "cuestan r/l y a los hispanohablantes las "
+                       "retroflejas del hindi. Las categorías se cierran "
+                       "pronto."},
+        "fr": {"question": "Que sait faire un bébé de six mois que ses parents ne savent plus faire ?",
+               "options": ["Entendre la différence entre les sons de N'IMPORTE QUELLE langue",
+                           "Comprendre la grammaire",
+                           "Lire les expressions du visage",
+                           "Retenir des mélodies"],
+               "fact": "Les nourrissons commencent en auditeurs "
+                       "universels ; vers leur premier anniversaire, ils se "
+                       "spécialisent dans les sons de leur langue — voilà "
+                       "pourquoi les adultes japonais peinent sur r/l et "
+                       "les francophones sur les rétroflexes du hindi. Les "
+                       "catégories se ferment tôt."},
+        "pt": {"question": "O que consegue fazer um bebé de seis meses que os pais já não conseguem?",
+               "options": ["Ouvir a diferença entre os sons de QUALQUER língua",
+                           "Entender a gramática",
+                           "Ler expressões faciais",
+                           "Lembrar melodias"],
+               "fact": "Os bebés começam como ouvintes universais; por "
+                       "volta do primeiro aniversário especializam-se nos "
+                       "sons da sua língua — por isso os japoneses adultos "
+                       "sofrem com r/l e os lusófonos com as retroflexas do "
+                       "hindi. As categorias fecham cedo."},
+        "ru": {"question": "Что умеет полугодовалый младенец, чего уже не умеют его родители?",
+               "options": ["Слышать разницу между звуками ЛЮБОГО языка",
+                           "Понимать грамматику",
+                           "Читать выражения лиц",
+                           "Запоминать мелодии"],
+               "fact": "Младенцы начинают как универсальные слушатели; к "
+                       "первому дню рождения они специализируются на звуках "
+                       "родного языка — потому взрослым японцам трудно с "
+                       "r/l, а русскоговорящим — с ретрофлексными хинди. "
+                       "Категории закрываются рано."},
+        "ar": {"question": "ما الذي يستطيعه رضيع في شهره السادس ولم يعد والداه يستطيعانه؟",
+               "options": ["تمييز أصوات أي لغة كانت بأذنه",
+                           "فهم القواعد",
+                           "قراءة تعابير الوجوه",
+                           "حفظ الألحان"],
+               "fact": "يبدأ الرضّع مستمعين كونيين؛ وقرب عيد ميلادهم الأول "
+                       "يتخصصون في أصوات لغتهم — ولهذا يعاني اليابانيون "
+                       "الكبار من r/l ويعاني الناطقون بالعربية من p/b. "
+                       "فالفئات الصوتية تُغلق مبكرًا."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "Why do adults who master a language's grammar perfectly still keep an accent?",
+               "options": ["Laziness",
+                           "The sound categories and motor habits of the first language are set deep — grammar is learnable for life, new phonemes far less so",
+                           "Accents are genetic",
+                           "They secretly translate everything"],
+               "fact": "Joseph Conrad wrote English prose among the "
+                       "century's finest and spoke it, by all accounts, "
+                       "with a heavy Polish accent his whole life. The pen "
+                       "has no accent."},
+        "es": {"question": "¿Por qué los adultos que dominan a la perfección la gramática de una lengua conservan el acento?",
+               "options": ["Pereza",
+                           "Las categorías de sonido y los hábitos motores de la primera lengua quedan grabados: la gramática se aprende toda la vida; los fonemas nuevos, mucho menos",
+                           "El acento es genético",
+                           "Traducen todo en secreto"],
+               "fact": "Joseph Conrad escribió una prosa inglesa de las "
+                       "mejores de su siglo y la habló, según todos los "
+                       "testimonios, con un fuerte acento polaco toda su "
+                       "vida. La pluma no tiene acento."},
+        "fr": {"question": "Pourquoi des adultes qui maîtrisent parfaitement la grammaire d'une langue gardent-ils un accent ?",
+               "options": ["Par paresse",
+                           "Les catégories sonores et les habitudes motrices de la première langue sont ancrées — la grammaire s'apprend toute la vie, les phonèmes nouveaux beaucoup moins",
+                           "L'accent est génétique",
+                           "Ils traduisent tout en secret"],
+               "fact": "Joseph Conrad écrivit une prose anglaise parmi les "
+                       "plus belles de son siècle et la parla, de l'avis "
+                       "général, avec un fort accent polonais toute sa vie. "
+                       "La plume n'a pas d'accent."},
+        "pt": {"question": "Porque é que adultos que dominam perfeitamente a gramática de uma língua mantêm o sotaque?",
+               "options": ["Preguiça",
+                           "As categorias de som e os hábitos motores da primeira língua ficam gravados — a gramática aprende-se a vida toda; fonemas novos, muito menos",
+                           "O sotaque é genético",
+                           "Traduzem tudo em segredo"],
+               "fact": "Joseph Conrad escreveu prosa inglesa das melhores "
+                       "do seu século e falou-a, por todos os relatos, com "
+                       "forte sotaque polaco a vida inteira. A caneta não "
+                       "tem sotaque."},
+        "ru": {"question": "Почему взрослые, в совершенстве освоившие грамматику языка, всё равно сохраняют акцент?",
+               "options": ["Из лени",
+                           "Звуковые категории и моторика первого языка врезаны глубоко: грамматика учится всю жизнь, новые фонемы — куда хуже",
+                           "Акцент передаётся генетически",
+                           "Они втайне всё переводят"],
+               "fact": "Джозеф Конрад писал английскую прозу из лучших в "
+                       "своём веке, а говорил по-английски, по всем "
+                       "свидетельствам, с сильным польским акцентом до "
+                       "конца жизни. У пера акцента нет."},
+        "ar": {"question": "لماذا يحتفظ الكبار الذين أتقنوا قواعد لغةٍ إتقانًا تامًا بلكنتهم؟",
+               "options": ["كسلًا",
+                           "فئات الأصوات وعادات النطق الحركية للغة الأولى راسخة عميقًا — فالقواعد تُتعلم مدى الحياة أما الأصوات الجديدة فأعسر بكثير",
+                           "اللكنة وراثية",
+                           "إنهم يترجمون كل شيء سرًّا"],
+               "fact": "كتب جوزيف كونراد نثرًا إنجليزيًا من أرقى نثر قرنه، "
+                       "وظل بحسب كل الشهادات يتكلمها بلكنة بولندية ثقيلة "
+                       "طوال حياته. القلم لا لكنة له."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "How much of ordinary written English is just the word “the”?",
+               "options": ["About 0.1%", "About 1%", "About 6–7% — the most common word is startlingly dominant", "About 20%"],
+               "fact": "Word frequencies follow Zipf's law: the second "
+                       "word is about half as common as the first, the "
+                       "third a third, and a long tail of words occurs "
+                       "once. It holds in every language tested — nobody "
+                       "fully knows why."},
+        "es": {"question": "¿Qué parte del español escrito corriente es solo la palabra “de”?",
+               "options": ["Cerca del 0,1%", "Cerca del 1%", "Cerca del 5–7%: la palabra más común domina de forma asombrosa", "Cerca del 20%"],
+               "fact": "Las frecuencias siguen la ley de Zipf: la segunda "
+                       "palabra es la mitad de común que la primera, la "
+                       "tercera un tercio, y una larga cola aparece una "
+                       "sola vez. Se cumple en todas las lenguas "
+                       "estudiadas — nadie sabe del todo por qué."},
+        "fr": {"question": "Quelle part du français écrit ordinaire revient au seul mot « de » ?",
+               "options": ["Environ 0,1 %", "Environ 1 %", "Environ 5–7 % — le mot le plus fréquent domine de façon saisissante", "Environ 20 %"],
+               "fact": "Les fréquences suivent la loi de Zipf : le "
+                       "deuxième mot est deux fois moins fréquent que le "
+                       "premier, le troisième trois fois moins, et une "
+                       "longue traîne n'apparaît qu'une fois. Cela vaut "
+                       "pour toutes les langues testées — nul ne sait tout "
+                       "à fait pourquoi."},
+        "pt": {"question": "Que parte do português escrito corrente é só a palavra “de”?",
+               "options": ["Cerca de 0,1%", "Cerca de 1%", "Cerca de 5–7% — a palavra mais comum domina de forma espantosa", "Cerca de 20%"],
+               "fact": "As frequências seguem a lei de Zipf: a segunda "
+                       "palavra é metade tão comum como a primeira, a "
+                       "terceira um terço, e uma longa cauda aparece uma só "
+                       "vez. Vale em todas as línguas testadas — ninguém "
+                       "sabe bem porquê."},
+        "ru": {"question": "Какую долю обычного русского текста занимает один только предлог «в»?",
+               "options": ["Около 0,1%", "Около 1%", "Около 4–6% — самое частое слово поразительно доминирует", "Около 20%"],
+               "fact": "Частоты слов подчиняются закону Ципфа: второе слово "
+                       "вдвое реже первого, третье — втрое, а длинный хвост "
+                       "встречается по одному разу. Это верно для всех "
+                       "проверенных языков — и никто до конца не знает "
+                       "почему."},
+        "ar": {"question": "كم تبلغ حصة كلمة “في” وحدها من النص العربي العادي تقريبًا؟",
+               "options": ["نحو 0.1%", "نحو 1%", "نحو 3–6% — الكلمة الأكثر شيوعًا تهيمن هيمنة مدهشة", "نحو 20%"],
+               "fact": "تخضع تواترات الكلمات لقانون زيف: الكلمة الثانية "
+                       "نصف شيوع الأولى، والثالثة ثلثها، وذيل طويل من "
+                       "الكلمات لا يرد إلا مرة. ويصدق هذا على كل لغة "
+                       "اختُبرت — ولا أحد يعلم السبب تمام العلم."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "Spanish is spoken with more syllables per second than English. Does it deliver information faster?",
+               "options": ["No — faster languages pack less into each syllable, and the information rate comes out similar",
+                           "Yes, much faster",
+                           "No, much slower",
+                           "It delivers no information"],
+               "fact": "Cross-language studies keep landing on the same "
+                       "trade-off: Japanese and Spanish sprint through "
+                       "light syllables, English and Mandarin walk with "
+                       "heavy ones, and the bits per second converge. "
+                       "Languages find the same channel capacity by "
+                       "different routes."},
+        "es": {"question": "El español se habla con más sílabas por segundo que el inglés. ¿Transmite la información más rápido?",
+               "options": ["No: las lenguas rápidas meten menos en cada sílaba, y la tasa de información acaba pareja",
+                           "Sí, mucho más rápido",
+                           "No, mucho más lento",
+                           "No transmite información"],
+               "fact": "Los estudios comparados topan una y otra vez con "
+                       "el mismo canje: el japonés y el español corren con "
+                       "sílabas ligeras, el inglés y el chino caminan con "
+                       "sílabas densas, y los bits por segundo convergen. "
+                       "Las lenguas llegan a la misma capacidad por rutas "
+                       "distintas."},
+        "fr": {"question": "L'espagnol se parle avec plus de syllabes par seconde que l'anglais. Livre-t-il l'information plus vite ?",
+               "options": ["Non — les langues rapides mettent moins dans chaque syllabe, et le débit d'information s'équilibre",
+                           "Oui, bien plus vite",
+                           "Non, bien plus lentement",
+                           "Il ne livre aucune information"],
+               "fact": "Les études comparées retombent toujours sur le "
+                       "même troc : le japonais et l'espagnol sprintent en "
+                       "syllabes légères, l'anglais et le mandarin marchent "
+                       "en syllabes denses, et les bits par seconde "
+                       "convergent. Les langues trouvent la même capacité "
+                       "de canal par des chemins différents."},
+        "pt": {"question": "O espanhol fala-se com mais sílabas por segundo do que o inglês. Entrega a informação mais depressa?",
+               "options": ["Não — as línguas rápidas põem menos em cada sílaba, e a taxa de informação sai parecida",
+                           "Sim, muito mais depressa",
+                           "Não, muito mais devagar",
+                           "Não entrega informação nenhuma"],
+               "fact": "Os estudos comparados batem sempre na mesma troca: "
+                       "o japonês e o espanhol correm em sílabas leves, o "
+                       "inglês e o mandarim caminham em sílabas densas, e "
+                       "os bits por segundo convergem. As línguas chegam à "
+                       "mesma capacidade por rotas diferentes."},
+        "ru": {"question": "В испанском больше слогов в секунду, чем в английском. Значит ли это, что он передаёт информацию быстрее?",
+               "options": ["Нет — быстрые языки кладут в каждый слог меньше, и скорость информации выходит сходной",
+                           "Да, гораздо быстрее",
+                           "Нет, гораздо медленнее",
+                           "Он не передаёт информации"],
+               "fact": "Сравнительные исследования упираются в один и тот "
+                       "же размен: японский и испанский бегут лёгкими "
+                       "слогами, английский и китайский шагают тяжёлыми, а "
+                       "биты в секунду сходятся. Языки выходят на одну "
+                       "пропускную способность разными путями."},
+        "ar": {"question": "تُنطق الإسبانية بمقاطع في الثانية أكثر من الإنجليزية. فهل تنقل المعلومات أسرع؟",
+               "options": ["لا — اللغات السريعة تضع في كل مقطع أقل، فيتقارب معدل المعلومات",
+                           "نعم، أسرع بكثير",
+                           "لا، أبطأ بكثير",
+                           "لا تنقل معلومات"],
+               "fact": "تصل الدراسات المقارنة دومًا إلى المقايضة نفسها: "
+                       "اليابانية والإسبانية تعدوان بمقاطع خفيفة، "
+                       "والإنجليزية والصينية تمشيان بمقاطع كثيفة، ويتقارب "
+                       "عدد البتات في الثانية. تبلغ اللغات سعة القناة "
+                       "ذاتها من طرق شتى."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "In the McGurk effect, watching lips say “ga” while the audio plays “ba” makes most people hear…",
+               "options": ["“ba”, as the audio says", "“da” — the brain splits the difference between eye and ear", "silence", "both sounds at once"],
+               "fact": "Speech perception is audiovisual: the brain fuses "
+                       "what it sees with what it hears without asking "
+                       "permission. It's part of why phone calls in a "
+                       "second language are so much harder than "
+                       "face-to-face talk."},
+        "es": {"question": "En el efecto McGurk, ver unos labios decir “ga” mientras el audio reproduce “ba” hace que la mayoría oiga…",
+               "options": ["“ba”, como dice el audio", "“da”: el cerebro parte la diferencia entre ojo y oído", "silencio", "los dos sonidos a la vez"],
+               "fact": "Percibir el habla es audiovisual: el cerebro "
+                       "fusiona lo que ve con lo que oye sin pedir permiso. "
+                       "En parte por eso las llamadas en una segunda lengua "
+                       "cuestan tanto más que la conversación cara a cara."},
+        "fr": {"question": "Dans l'effet McGurk, regarder des lèvres dire « ga » pendant que l'audio joue « ba » fait entendre à la plupart des gens…",
+               "options": ["« ba », comme le dit l'audio", "« da » — le cerveau coupe la poire en deux entre l'œil et l'oreille", "le silence", "les deux sons à la fois"],
+               "fact": "La perception de la parole est audiovisuelle : le "
+                       "cerveau fusionne ce qu'il voit et ce qu'il entend "
+                       "sans demander la permission. C'est en partie "
+                       "pourquoi téléphoner dans une langue seconde est "
+                       "tellement plus dur que parler face à face."},
+        "pt": {"question": "No efeito McGurk, ver lábios a dizer “ga” enquanto o áudio toca “ba” faz a maioria ouvir…",
+               "options": ["“ba”, como diz o áudio", "“da” — o cérebro divide a diferença entre olho e ouvido", "silêncio", "os dois sons ao mesmo tempo"],
+               "fact": "A perceção da fala é audiovisual: o cérebro funde o "
+                       "que vê com o que ouve sem pedir licença. É em parte "
+                       "por isso que os telefonemas numa segunda língua "
+                       "custam tanto mais do que a conversa cara a cara."},
+        "ru": {"question": "В эффекте Мак-Гурка, когда губы на видео говорят «га», а звук — «ба», большинство слышит…",
+               "options": ["«ба», как в записи", "«да» — мозг делит разницу между глазом и ухом", "тишину", "оба звука сразу"],
+               "fact": "Восприятие речи аудиовизуально: мозг сплавляет "
+                       "увиденное с услышанным, не спрашивая разрешения. "
+                       "Отчасти поэтому телефонный разговор на чужом языке "
+                       "настолько труднее беседы лицом к лицу."},
+        "ar": {"question": "في تأثير مكغورك، مشاهدة شفتين تقولان “غا” بينما الصوت يقول “با” تجعل معظم الناس يسمعون…",
+               "options": ["“با” كما في التسجيل", "“دا” — يقسم الدماغ الفرق بين العين والأذن", "صمتًا", "الصوتين معًا"],
+               "fact": "إدراك الكلام سمعي-بصري: يدمج الدماغ ما يراه بما "
+                       "يسمعه دون استئذان. وهذا بعض سبب كون المكالمات "
+                       "الهاتفية بلغة ثانية أشق كثيرًا من الحديث وجهًا "
+                       "لوجه."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "Users of sign languages report a version of “tip of the tongue”. What is it called?",
+               "options": ["Tip of the eye", "Hand freeze", "“Tip of the fingers” — knowing the sign but failing to retrieve it", "Sign block"],
+               "fact": "Signers even get partial retrieval — recalling the "
+                       "handshape but not the movement — exactly parallel "
+                       "to remembering a word's first letter. The mental "
+                       "dictionary works alike whether words are spoken or "
+                       "signed."},
+        "es": {"question": "Quienes usan lenguas de señas describen una versión del “en la punta de la lengua”. ¿Cómo se llama?",
+               "options": ["En la punta del ojo", "Congelación de manos", "“En la punta de los dedos”: sabes el signo pero no logras recuperarlo", "Bloqueo de señas"],
+               "fact": "Los señantes incluso recuperan a medias — recuerdan "
+                       "la forma de la mano pero no el movimiento — en "
+                       "paralelo exacto a recordar la primera letra de una "
+                       "palabra. El diccionario mental funciona igual, "
+                       "hablado o señado."},
+        "fr": {"question": "Les locuteurs des langues des signes décrivent une version du « mot sur le bout de la langue ». Comment l'appelle-t-on ?",
+               "options": ["Sur le bout de l'œil", "Le gel des mains", "« Sur le bout des doigts » — connaître le signe sans parvenir à le retrouver", "Le blocage du signe"],
+               "fact": "Les signeurs récupèrent même partiellement — la "
+                       "configuration de la main mais pas le mouvement — en "
+                       "parallèle exact du souvenir de la première lettre "
+                       "d'un mot. Le dictionnaire mental fonctionne pareil, "
+                       "parlé ou signé."},
+        "pt": {"question": "Os utilizadores de línguas de sinais relatam uma versão do “debaixo da língua”. Como se chama?",
+               "options": ["Na ponta do olho", "Congelamento das mãos", "“Na ponta dos dedos” — saber o sinal mas não conseguir recuperá-lo", "Bloqueio de sinal"],
+               "fact": "Os sinalizantes até recuperam parcialmente — "
+                       "lembram a forma da mão mas não o movimento — em "
+                       "paralelo exato a lembrar a primeira letra de uma "
+                       "palavra. O dicionário mental funciona igual, falado "
+                       "ou sinalizado."},
+        "ru": {"question": "Носители жестовых языков описывают свою версию «вертится на языке». Как она называется?",
+               "options": ["«Вертится на глазу»", "Замирание рук", "«Вертится на пальцах» — жест знаком, но не извлекается", "Жестовый блок"],
+               "fact": "У жестикулирующих бывает даже частичное "
+                       "припоминание — форма кисти без движения — в точной "
+                       "параллели к «помню первую букву». Ментальный "
+                       "словарь устроен одинаково, звучит слово или "
+                       "показывается."},
+        "ar": {"question": "يصف مستخدمو لغات الإشارة نسختهم من “على طرف اللسان”. ماذا تسمى؟",
+               "options": ["على طرف العين", "تجمّد اليدين", "“على أطراف الأصابع” — تعرف الإشارة ولا تستطيع استحضارها", "انسداد الإشارة"],
+               "fact": "بل يحدث لهم استرجاع جزئي — يتذكرون شكل الكف دون "
+                       "الحركة — في موازاة تامة لتذكر أول حرف من الكلمة. "
+                       "فالمعجم الذهني يعمل بالطريقة نفسها، نُطقت الكلمة أو "
+                       "أُشيرت."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "Shown a spiky shape and a round blob and the names “kiki” and “bouba”, what do people everywhere do?",
+               "options": ["Call the spiky one kiki and the round one bouba — sound carries a feel of shape",
+                           "Choose at random",
+                           "Refuse to answer",
+                           "Reverse it in most cultures"],
+               "fact": "The match holds across continents and in toddlers. "
+                       "Sound symbolism is real but soft — it bends "
+                       "vocabulary gently, it doesn't dictate it, which is "
+                       "why words for “knife” still differ everywhere."},
+        "es": {"question": "Ante una forma puntiaguda y una redondeada, y los nombres “kiki” y “bouba”, ¿qué hace la gente en todas partes?",
+               "options": ["Llama kiki a la puntiaguda y bouba a la redonda: el sonido lleva una sensación de forma",
+                           "Elige al azar",
+                           "Se niega a contestar",
+                           "Lo invierte en la mayoría de las culturas"],
+               "fact": "La correspondencia se mantiene entre continentes y "
+                       "en niños pequeños. El simbolismo fónico es real "
+                       "pero suave: inclina el vocabulario, no lo dicta — "
+                       "por eso “cuchillo” sigue diciéndose distinto en "
+                       "cada lengua."},
+        "fr": {"question": "Devant une forme piquante et une forme ronde, et les noms « kiki » et « bouba », que font les gens partout ?",
+               "options": ["Ils appellent kiki la piquante et bouba la ronde — le son porte une sensation de forme",
+                           "Ils choisissent au hasard",
+                           "Ils refusent de répondre",
+                           "Ils inversent dans la plupart des cultures"],
+               "fact": "L'appariement tient d'un continent à l'autre et "
+                       "chez les tout-petits. Le symbolisme sonore est réel "
+                       "mais doux — il incline le vocabulaire sans le "
+                       "dicter, et c'est pourquoi « couteau » se dit "
+                       "encore autrement partout."},
+        "pt": {"question": "Perante uma forma bicuda e uma redonda, e os nomes “kiki” e “bouba”, o que fazem as pessoas em todo o lado?",
+               "options": ["Chamam kiki à bicuda e bouba à redonda — o som carrega uma sensação de forma",
+                           "Escolhem ao acaso",
+                           "Recusam-se a responder",
+                           "Invertem na maioria das culturas"],
+               "fact": "A correspondência mantém-se entre continentes e em "
+                       "crianças pequenas. O simbolismo sonoro é real mas "
+                       "suave — inclina o vocabulário, não o dita, e por "
+                       "isso “faca” continua a dizer-se diferente em "
+                       "cada língua."},
+        "ru": {"question": "Показав людям колючую фигуру и округлую кляксу и имена «кики» и «буба», что обнаруживают повсюду?",
+               "options": ["Колючую зовут кики, округлую — буба: звук несёт ощущение формы",
+                           "Выбирают наугад",
+                           "Отказываются отвечать",
+                           "В большинстве культур наоборот"],
+               "fact": "Соответствие держится на всех континентах и у "
+                       "малышей. Звукосимволизм реален, но мягок — он "
+                       "подталкивает словарь, а не диктует его, потому "
+                       "«нож» всё равно всюду звучит по-разному."},
+        "ar": {"question": "أمام شكل مدبب وآخر مستدير وباسمي “كيكي” و“بوبا”، ماذا يفعل الناس في كل مكان؟",
+               "options": ["يسمّون المدبب كيكي والمستدير بوبا — فالصوت يحمل إحساسًا بالشكل",
+                           "يختارون عشوائيًا",
+                           "يرفضون الإجابة",
+                           "يعكسون في معظم الثقافات"],
+               "fact": "يثبت هذا التوافق عبر القارات وعند الأطفال الصغار. "
+                       "الرمزية الصوتية حقيقية لكنها لطيفة — تُميل المعجم "
+                       "ولا تمليه، ولهذا ما زالت كلمة “سكين” تختلف من "
+                       "لغة إلى لغة."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "It pours in English as “cats and dogs”. What falls in French and Spanish?",
+               "options": ["Also cats and dogs — the image is universal",
+                           "Ropes in French (des cordes), pitchers in Spanish (a cántaros)",
+                           "Frogs in both",
+                           "Nothing — the idiom can't be said"],
+               "fact": "Idioms almost never survive word-for-word travel: "
+                       "Russians pour “as from a bucket”, Germans get "
+                       "“string rain”, and in Yoruba heavy rain simply "
+                       "gets its own verb. Translate the image, not the "
+                       "words."},
+        "es": {"question": "En inglés llueve “a gatos y perros”. ¿Qué cae en francés y en español?",
+               "options": ["También gatos y perros: la imagen es universal",
+                           "Cuerdas en francés (des cordes), cántaros en español",
+                           "Ranas en ambos",
+                           "Nada: el modismo no puede decirse"],
+               "fact": "Los modismos casi nunca sobreviven al viaje "
+                       "palabra por palabra: los rusos vierten “como de "
+                       "un cubo”, los alemanes reciben “lluvia de "
+                       "cuerdas”, y en yoruba la lluvia fuerte tiene "
+                       "sencillamente su propio verbo. Traduce la imagen, "
+                       "no las palabras."},
+        "fr": {"question": "En anglais, il pleut « des chats et des chiens ». Que tombe-t-il en français et en espagnol ?",
+               "options": ["Aussi des chats et des chiens — l'image est universelle",
+                           "Des cordes en français, des cruches en espagnol (a cántaros)",
+                           "Des grenouilles dans les deux",
+                           "Rien — l'idiome ne peut pas se dire"],
+               "fact": "Les idiomes survivent rarement au voyage mot à "
+                       "mot : les Russes versent « comme d'un seau », "
+                       "les Allemands reçoivent une « pluie de "
+                       "ficelles », et en yoruba la grosse pluie a "
+                       "simplement son propre verbe. Traduisez l'image, pas "
+                       "les mots."},
+        "pt": {"question": "Em inglês chove “gatos e cães”. O que cai em francês e em espanhol?",
+               "options": ["Também gatos e cães — a imagem é universal",
+                           "Cordas em francês (des cordes), cântaros em espanhol",
+                           "Rãs em ambos",
+                           "Nada — o idiomatismo não se pode dizer"],
+               "fact": "Os idiomatismos quase nunca sobrevivem à viagem "
+                       "palavra a palavra: os russos despejam “como de um "
+                       "balde”, os alemães apanham “chuva de cordéis”, "
+                       "e em iorubá a chuva forte tem simplesmente o seu "
+                       "próprio verbo. Traduz-se a imagem, não as palavras."},
+        "ru": {"question": "По-английски льёт «кошками и собаками». Что льётся по-французски и по-испански?",
+               "options": ["Тоже кошки и собаки — образ универсален",
+                           "Верёвки во французском (des cordes), кувшины в испанском (a cántaros)",
+                           "Лягушки в обоих",
+                           "Никак — идиому нельзя сказать"],
+               "fact": "Идиомы почти никогда не переживают дословного "
+                       "переезда: по-русски льёт «как из ведра», у "
+                       "немцев «дождь верёвками», а в йоруба у ливня "
+                       "просто свой глагол. Переводите образ, а не слова."},
+        "ar": {"question": "بالإنجليزية تمطر “قططًا وكلابًا”. فماذا يسقط بالفرنسية والإسبانية؟",
+               "options": ["قطط وكلاب أيضًا — الصورة كونية",
+                           "حبال بالفرنسية (des cordes) وجِرار بالإسبانية (a cántaros)",
+                           "ضفادع في كلتيهما",
+                           "لا شيء — التعبير لا يقال"],
+               "fact": "قلّما تنجو التعابير من السفر كلمةً كلمة: الروس "
+                       "يسكبون “كما من دلو”، والألمان يتلقون “مطر "
+                       "خيوط”، والعربية تقول “تمطر كأفواه القِرَب”. "
+                       "ترجِم الصورةَ لا الكلمات."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "French vous, Spanish usted, Russian вы — what did English do with its polite “you”?",
+               "options": ["Never had one",
+                           "Still uses it daily",
+                           "Kept ONLY the polite form — “thou” was the informal one, and it died",
+                           "Merged it into “y'all”"],
+               "fact": "So English politeness went underground: it now "
+                       "lives in phrasing — “could you possibly” — "
+                       "instead of pronouns. Quakers kept “thee” for "
+                       "centuries precisely to refuse the social ladder."},
+        "es": {"question": "El francés vous, el español usted, el ruso вы… ¿qué hizo el inglés con su “tú/usted”?",
+               "options": ["Nunca tuvo distinción",
+                           "Todavía la usa a diario",
+                           "Conservó SOLO la forma cortés: “thou” era el tuteo, y murió",
+                           "La fundió en “y'all”"],
+               "fact": "La cortesía inglesa se volvió subterránea: ahora "
+                       "vive en el fraseo — “could you possibly” — en "
+                       "vez de en los pronombres. Los cuáqueros mantuvieron "
+                       "“thee” durante siglos precisamente para rechazar "
+                       "la escalera social. Curioso: usted nació de "
+                       "“vuestra merced”."},
+        "fr": {"question": "Français vous, espagnol usted, russe вы — qu'a fait l'anglais de son vouvoiement ?",
+               "options": ["Il n'en a jamais eu",
+                           "Il s'en sert encore tous les jours",
+                           "Il n'a gardé QUE la forme polie — « thou » était le tutoiement, et il est mort",
+                           "Il l'a fondu dans « y'all »"],
+               "fact": "La politesse anglaise est passée sous terre : elle "
+                       "vit désormais dans la tournure — « could you "
+                       "possibly » — plutôt que dans les pronoms. Les "
+                       "quakers ont gardé « thee » des siècles, "
+                       "précisément pour refuser l'échelle sociale."},
+        "pt": {"question": "O francês vous, o espanhol usted, o russo вы — o que fez o inglês ao seu “tu/você”?",
+               "options": ["Nunca teve distinção",
+                           "Ainda a usa todos os dias",
+                           "Guardou SÓ a forma de cortesia — “thou” era o tratamento íntimo, e morreu",
+                           "Fundiu-a em “y'all”"],
+               "fact": "A cortesia inglesa passou à clandestinidade: vive "
+                       "agora na frase — “could you possibly” — em vez "
+                       "de nos pronomes. Os quakers guardaram “thee” "
+                       "séculos, precisamente para recusar a escada social. "
+                       "Curioso: você nasceu de “vossa mercê”."},
+        "ru": {"question": "Французское vous, испанское usted, русское «вы» — а что сделал английский со своим вежливым «вы»?",
+               "options": ["У него его никогда не было",
+                           "До сих пор пользуется каждый день",
+                           "Оставил ТОЛЬКО вежливую форму: «thou» было «ты» — и умерло",
+                           "Слил его в «y'all»"],
+               "fact": "Английская вежливость ушла в подполье: теперь она "
+                       "живёт в оборотах — «could you possibly» — а не в "
+                       "местоимениях. Квакеры веками держались за "
+                       "«thee» именно затем, чтобы отвергнуть социальную "
+                       "лестницу."},
+        "ar": {"question": "الفرنسية vous والإسبانية usted والروسية вы — فماذا فعلت الإنجليزية بضمير التبجيل عندها؟",
+               "options": ["لم يكن عندها قط",
+                           "ما زالت تستعمله يوميًا",
+                           "أبقت صيغة التبجيل وحدها — كانت “thou” للمخاطبة الحميمة فماتت",
+                           "أذابته في “y'all”"],
+               "fact": "فذهب التهذيب الإنجليزي إلى السر: يسكن اليوم في "
+                       "الصياغة — “could you possibly” — لا في "
+                       "الضمائر. وتمسّك الكويكرز بـ“thee” قرونًا رفضًا "
+                       "للسلّم الاجتماعي بالذات."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "Speakers of Guugu Yimithirr in Australia don't say “left” or “right”. How do they give directions?",
+               "options": ["By pointing only",
+                           "By compass points, always: “your north hand”, “move the cup south”",
+                           "By naming landmarks",
+                           "They avoid talking about space"],
+               "fact": "Speaking it requires knowing where north is at all "
+                       "times, indoors or out — and speakers do, running a "
+                       "constant mental compass that stuns researchers. "
+                       "Several Aboriginal and Mayan languages work the "
+                       "same way."},
+        "es": {"question": "Los hablantes de guugu yimithirr, en Australia, no dicen “izquierda” ni “derecha”. ¿Cómo dan indicaciones?",
+               "options": ["Solo señalando",
+                           "Con puntos cardinales, siempre: “tu mano norte”, “mueve la taza al sur”",
+                           "Nombrando puntos de referencia",
+                           "Evitan hablar del espacio"],
+               "fact": "Hablarlo exige saber dónde está el norte en todo "
+                       "momento, bajo techo o al aire libre — y los "
+                       "hablantes lo saben, con una brújula mental continua "
+                       "que asombra a los investigadores. Varias lenguas "
+                       "aborígenes y mayas funcionan igual."},
+        "fr": {"question": "Les locuteurs du guugu yimithirr, en Australie, ne disent ni « gauche » ni « droite ». Comment donnent-ils des directions ?",
+               "options": ["Uniquement en pointant",
+                           "Par les points cardinaux, toujours : « ta main nord », « pousse la tasse vers le sud »",
+                           "En nommant des repères",
+                           "Ils évitent de parler de l'espace"],
+               "fact": "Le parler exige de savoir où est le nord à tout "
+                       "instant, dedans comme dehors — et les locuteurs le "
+                       "savent, boussole mentale toujours allumée, à la "
+                       "stupeur des chercheurs. Plusieurs langues "
+                       "aborigènes et mayas font pareil."},
+        "pt": {"question": "Os falantes de guugu yimithirr, na Austrália, não dizem “esquerda” nem “direita”. Como dão indicações?",
+               "options": ["Só apontando",
+                           "Por pontos cardeais, sempre: “a tua mão norte”, “empurra a chávena para sul”",
+                           "Nomeando pontos de referência",
+                           "Evitam falar do espaço"],
+               "fact": "Falá-lo exige saber onde fica o norte a toda a "
+                       "hora, dentro ou fora de casa — e os falantes sabem, "
+                       "com uma bússola mental contínua que espanta os "
+                       "investigadores. Várias línguas aborígenes e maias "
+                       "funcionam assim."},
+        "ru": {"question": "Носители языка гуугу-йимитир в Австралии не говорят «слева» и «справа». Как они объясняют дорогу?",
+               "options": ["Только жестами",
+                           "Всегда по сторонам света: «твоя северная рука», «подвинь чашку к югу»",
+                           "Называя ориентиры",
+                           "Избегают говорить о пространстве"],
+               "fact": "Чтобы говорить на нём, нужно всегда знать, где "
+                       "север — в помещении и снаружи, — и носители знают, "
+                       "нося в голове постоянный компас, поражающий "
+                       "исследователей. Так же устроены несколько "
+                       "австралийских и майяских языков."},
+        "ar": {"question": "متكلمو لغة غوغو ييميثير في أستراليا لا يقولون “يمين” ولا “يسار”. فكيف يدلّون على الاتجاهات؟",
+               "options": ["بالإشارة فقط",
+                           "بالجهات الأصلية دائمًا: “يدك الشمالية”، “حرّك الكوب جنوبًا”",
+                           "بذكر المعالم",
+                           "يتجنبون الحديث عن المكان"],
+               "fact": "التكلم بها يستلزم معرفة جهة الشمال في كل لحظة، في "
+                       "الداخل والخارج — والمتكلمون يعرفونها فعلًا، "
+                       "ببوصلة ذهنية دائمة تُدهش الباحثين. وعلى هذا النحو "
+                       "تعمل لغات أسترالية ومايانية عدة."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "How does French say 97?",
+               "options": ["Simply “ninety-seven”",
+                           "“Ninety and seven”",
+                           "“Four-twenty-seventeen” (quatre-vingt-dix-sept) — a leftover of counting by twenties",
+                           "It borrows the English word"],
+               "fact": "Twenty-counting survives at the edges of Europe: "
+                       "Danish halvfems packs it tighter still, Basque and "
+                       "Georgian count by twenties throughout — and "
+                       "Belgian and Swiss French quietly say "
+                       "nonante-sept instead."},
+        "es": {"question": "¿Cómo dice el francés 97?",
+               "options": ["Simplemente “noventa y siete”",
+                           "“Noventa con siete”",
+                           "“Cuatro-veintes-diecisiete” (quatre-vingt-dix-sept): un resto de contar de veinte en veinte",
+                           "Toma prestada la palabra inglesa"],
+               "fact": "El conteo por veintenas sobrevive en los bordes de "
+                       "Europa: el danés halvfems lo comprime aún más, el "
+                       "vasco y el georgiano cuentan por veintes de "
+                       "principio a fin — y el francés de Bélgica y Suiza "
+                       "dice tranquilamente nonante-sept."},
+        "fr": {"question": "Comment le français de France dit-il 97 ?",
+               "options": ["Simplement « nonante-sept », partout",
+                           "« Nonante et sept »",
+                           "« Quatre-vingt-dix-sept » — un vestige du compte par vingtaines",
+                           "Il emprunte le mot anglais"],
+               "fact": "Le compte par vingt survit aux marges de "
+                       "l'Europe : le danois halvfems le compresse plus "
+                       "fort encore, le basque et le géorgien comptent par "
+                       "vingtaines de bout en bout — et les français de "
+                       "Belgique et de Suisse disent tranquillement "
+                       "nonante-sept."},
+        "pt": {"question": "Como diz o francês 97?",
+               "options": ["Simplesmente “noventa e sete”",
+                           "“Noventa com sete”",
+                           "“Quatro-vintes-dezassete” (quatre-vingt-dix-sept) — um resto da contagem de vinte em vinte",
+                           "Pede emprestada a palavra inglesa"],
+               "fact": "A contagem por vintenas sobrevive nas margens da "
+                       "Europa: o dinamarquês halvfems comprime-a ainda "
+                       "mais, o basco e o georgiano contam por vintes do "
+                       "princípio ao fim — e o francês da Bélgica e da "
+                       "Suíça diz tranquilamente nonante-sept."},
+        "ru": {"question": "Как французский говорит «97»?",
+               "options": ["Просто «девяносто семь»",
+                           "«Девяносто и семь»",
+                           "«Четырежды-двадцать-семнадцать» (quatre-vingt-dix-sept) — след счёта двадцатками",
+                           "Заимствует английское слово"],
+               "fact": "Счёт двадцатками выжил по краям Европы: датское "
+                       "halvfems сжимает его ещё туже, баскский и "
+                       "грузинский считают двадцатками насквозь — а "
+                       "бельгийские и швейцарские французы спокойно говорят "
+                       "nonante-sept."},
+        "ar": {"question": "كيف تقول الفرنسية 97؟",
+               "options": ["ببساطة “سبعة وتسعون”",
+                           "“تسعون وسبعة”",
+                           "“أربع-عشرينات-وسبع-عشرة” (quatre-vingt-dix-sept) — بقيةٌ من العد بالعشرينات",
+                           "تستعير الكلمة الإنجليزية"],
+               "fact": "يعيش العد بالعشرينات على أطراف أوروبا: الدنماركية "
+                       "halvfems تضغطه أشد، والباسكية والجورجية تعدان "
+                       "بالعشرينات من أولها إلى آخرها — وفرنسيةُ بلجيكا "
+                       "وسويسرا تقول بهدوء nonante-sept."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "When a pronunciation starts changing, who does sociolinguistics consistently find leading it?",
+               "options": ["Young women, generation after generation",
+                           "Elderly men",
+                           "Radio announcers",
+                           "Teachers"],
+               "fact": "From Labov's department-store vowels on, study "
+                       "after study finds women about a generation ahead "
+                       "on changes that later become the standard. "
+                       "Yesterday's “sloppy speech” complaint is "
+                       "tomorrow's dictionary entry."},
+        "es": {"question": "Cuando una pronunciación empieza a cambiar, ¿quién encabeza el cambio según la sociolingüística, una y otra vez?",
+               "options": ["Las mujeres jóvenes, generación tras generación",
+                           "Los hombres mayores",
+                           "Los locutores de radio",
+                           "Los maestros"],
+               "fact": "Desde las vocales de los grandes almacenes de "
+                       "Labov, estudio tras estudio encuentra a las mujeres "
+                       "una generación por delante en los cambios que luego "
+                       "serán la norma. La queja de hoy por “hablar "
+                       "descuidado” es la entrada de diccionario de "
+                       "mañana."},
+        "fr": {"question": "Quand une prononciation commence à changer, qui la sociolinguistique trouve-t-elle systématiquement en tête ?",
+               "options": ["Les jeunes femmes, génération après génération",
+                           "Les hommes âgés",
+                           "Les présentateurs de radio",
+                           "Les enseignants"],
+               "fact": "Depuis les voyelles de grands magasins de Labov, "
+                       "étude après étude trouve les femmes une génération "
+                       "en avance sur les changements qui deviendront la "
+                       "norme. La plainte d'hier sur le « parler "
+                       "relâché » est l'entrée de dictionnaire de "
+                       "demain."},
+        "pt": {"question": "Quando uma pronúncia começa a mudar, quem é que a sociolinguística encontra sempre à frente?",
+               "options": ["As mulheres jovens, geração após geração",
+                           "Os homens idosos",
+                           "Os locutores de rádio",
+                           "Os professores"],
+               "fact": "Desde as vogais de armazém de Labov, estudo após "
+                       "estudo encontra as mulheres uma geração à frente "
+                       "nas mudanças que depois viram norma. A queixa de "
+                       "ontem sobre “fala desleixada” é a entrada de "
+                       "dicionário de amanhã."},
+        "ru": {"question": "Когда произношение начинает меняться, кого социолингвистика раз за разом находит во главе перемен?",
+               "options": ["Молодых женщин, поколение за поколением",
+                           "Пожилых мужчин",
+                           "Радиоведущих",
+                           "Учителей"],
+               "fact": "Начиная с лабовских гласных в универмагах, "
+                       "исследование за исследованием находит женщин на "
+                       "поколение впереди в изменениях, которые потом "
+                       "станут нормой. Вчерашняя жалоба на «небрежную "
+                       "речь» — завтрашняя словарная статья."},
+        "ar": {"question": "حين يبدأ نطقٌ ما بالتغير، من الذي يجده علم اللغة الاجتماعي في طليعته مرة بعد مرة؟",
+               "options": ["الشابات، جيلًا بعد جيل",
+                           "كبار السن من الرجال",
+                           "مذيعو الراديو",
+                           "المعلمون"],
+               "fact": "منذ دراسة لابوف لصوائت المتاجر الكبرى، تجد الدراسات "
+                       "المرأةَ متقدمةً جيلًا كاملًا في التغيرات التي تصير "
+                       "لاحقًا هي المعيار. شكوى الأمس من “الكلام "
+                       "المتراخي” هي مدخل معجم الغد."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "“Toilet” replaced ruder words, then needed replacing by “bathroom”, then “restroom”. What is this cycle called?",
+               "options": ["Spelling reform",
+                           "The euphemism treadmill — the polite word absorbs the taboo and needs replacing again",
+                           "Semantic bleaching",
+                           "Word inflation"],
+               "fact": "The taboo outruns every new label, because it "
+                       "sticks to the THING, not the word. “Toilet” "
+                       "itself began as delicate French for a little cloth. "
+                       "Job titles and medical terms ride the same "
+                       "treadmill."},
+        "es": {"question": "“Retrete” cedió a “váter”, luego a “baño”, luego a “aseo”. ¿Cómo se llama este ciclo?",
+               "options": ["Reforma ortográfica",
+                           "La noria del eufemismo: la palabra fina absorbe el tabú y hay que reemplazarla otra vez",
+                           "Desgaste semántico",
+                           "Inflación léxica"],
+               "fact": "El tabú alcanza a cada etiqueta nueva, porque se "
+                       "pega a la COSA, no a la palabra. “Retrete” "
+                       "empezó siendo un delicado galicismo para un "
+                       "cuartito apartado. Los títulos laborales y los "
+                       "términos médicos giran en la misma noria."},
+        "fr": {"question": "« Lieux d'aisances » a cédé à « cabinets », puis à « toilettes ». Comment s'appelle ce cycle ?",
+               "options": ["La réforme orthographique",
+                           "Le tapis roulant de l'euphémisme — le mot poli absorbe le tabou et doit être remplacé à son tour",
+                           "Le blanchiment sémantique",
+                           "L'inflation lexicale"],
+               "fact": "Le tabou rattrape chaque étiquette neuve, parce "
+                       "qu'il colle à la CHOSE, pas au mot. "
+                       "« Toilette » a commencé en délicat diminutif de "
+                       "toile. Les intitulés de métiers et les termes "
+                       "médicaux tournent sur le même tapis."},
+        "pt": {"question": "“Retrete” cedeu a “casa de banho”, depois a “lavabo”, depois a “WC”. Como se chama este ciclo?",
+               "options": ["Reforma ortográfica",
+                           "A passadeira do eufemismo — a palavra educada absorve o tabu e precisa de ser substituída outra vez",
+                           "Desbotamento semântico",
+                           "Inflação lexical"],
+               "fact": "O tabu apanha cada rótulo novo, porque se cola à "
+                       "COISA, não à palavra. “Toilette” começou por "
+                       "ser um delicado diminutivo francês de tecido. Os "
+                       "títulos profissionais e os termos médicos andam na "
+                       "mesma passadeira."},
+        "ru": {"question": "«Нужник» сменился «уборной», та — «туалетом», тот — «санузлом». Как называется этот цикл?",
+               "options": ["Орфографическая реформа",
+                           "Беговая дорожка эвфемизмов: вежливое слово впитывает табу, и его снова надо менять",
+                           "Семантическое выцветание",
+                           "Словесная инфляция"],
+               "fact": "Табу догоняет каждый новый ярлык, потому что "
+                       "липнет к ВЕЩИ, а не к слову: «туалет» начинался "
+                       "как изящное французское словцо о наряде. По той же "
+                       "дорожке бегут названия профессий и медицинские "
+                       "термины."},
+        "ar": {"question": "“بيت الخلاء” أفسح لـ“المرحاض”، ثم “دورة المياه”، ثم “الحمّام”. ماذا تسمى هذه الدورة؟",
+               "options": ["إصلاح إملائي",
+                           "دولاب التلطيف — تمتص الكلمة المهذبة الوصمة فتحتاج بدورها إلى بديل",
+                           "بهتان دلالي",
+                           "تضخم لفظي"],
+               "fact": "تلحق الوصمة بكل تسمية جديدة لأنها تلتصق بالشيء لا "
+                       "بالكلمة. و“toilette” نفسها بدأت تصغيرًا فرنسيًا "
+                       "رقيقًا لقطعة قماش. وتدور ألقاب المهن والمصطلحات "
+                       "الطبية في الدولاب نفسه."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "In Dyirbal, an Australian language, speakers traditionally switched to a special vocabulary when…",
+               "options": ["hunting",
+                           "singing",
+                           "certain in-laws were within earshot — an “avoidance register” with different words for everything",
+                           "it rained"],
+               "fact": "The “mother-in-law language” kept the same "
+                       "grammar but swapped the entire vocabulary — one "
+                       "grammar wearing two lexicons. Politeness can run "
+                       "deeper than pronouns: whole parallel word-stocks."},
+        "es": {"question": "En dyirbal, una lengua australiana, los hablantes cambiaban tradicionalmente a un vocabulario especial cuando…",
+               "options": ["cazaban",
+                           "cantaban",
+                           "ciertos parientes políticos estaban al alcance del oído: un “registro de evitación” con otras palabras para todo",
+                           "llovía"],
+               "fact": "La “lengua de la suegra” conservaba la misma "
+                       "gramática pero cambiaba el vocabulario entero — una "
+                       "gramática vistiendo dos léxicos. La cortesía puede "
+                       "calar más hondo que los pronombres: vocabularios "
+                       "paralelos completos."},
+        "fr": {"question": "En dyirbal, langue d'Australie, les locuteurs passaient traditionnellement à un vocabulaire spécial quand…",
+               "options": ["ils chassaient",
+                           "ils chantaient",
+                           "certains beaux-parents étaient à portée d'oreille — un « registre d'évitement » aux mots tous différents",
+                           "il pleuvait"],
+               "fact": "La « langue de la belle-mère » gardait la même "
+                       "grammaire mais changeait tout le lexique — une "
+                       "grammaire portant deux vocabulaires. La politesse "
+                       "peut aller plus profond que les pronoms : des "
+                       "stocks de mots parallèles entiers."},
+        "pt": {"question": "Em dyirbal, uma língua australiana, os falantes mudavam tradicionalmente para um vocabulário especial quando…",
+               "options": ["caçavam",
+                           "cantavam",
+                           "certos sogros estavam ao alcance do ouvido — um “registo de evitação” com palavras diferentes para tudo",
+                           "chovia"],
+               "fact": "A “língua da sogra” mantinha a mesma gramática "
+                       "mas trocava o vocabulário inteiro — uma gramática a "
+                       "vestir dois léxicos. A cortesia pode ir mais fundo "
+                       "do que os pronomes: acervos de palavras paralelos "
+                       "completos."},
+        "ru": {"question": "В дьирбале, языке Австралии, говорящие по традиции переходили на особый словарь, когда…",
+               "options": ["охотились",
+                           "пели",
+                           "поблизости были определённые свойственники — «регистр избегания» с другими словами для всего",
+                           "шёл дождь"],
+               "fact": "«Язык тёщи» сохранял ту же грамматику, но менял "
+                       "весь словарь — одна грамматика в двух лексиконах. "
+                       "Вежливость может уходить глубже местоимений: в "
+                       "целые параллельные запасы слов."},
+        "ar": {"question": "في الديربالية، وهي لغة أسترالية, كان المتكلمون تقليديًا ينتقلون إلى معجم خاص عندما…",
+               "options": ["يصطادون",
+                           "يغنّون",
+                           "يكون بعض الأصهار على مسمع منهم — “سجل تجنّب” بكلمات مختلفة لكل شيء",
+                           "تمطر"],
+               "fact": "حافظت “لغة الحماة” على القواعد نفسها لكنها "
+                       "بدّلت المعجم كله — قواعد واحدة تلبس معجمين. قد يذهب "
+                       "التهذيب أعمق من الضمائر: إلى مخزونات كلمات موازية "
+                       "بأكملها."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "In 1980s Nicaragua, deaf children brought together in new schools did something linguists had never watched happen. What?",
+               "options": ["They learned Spanish unusually fast",
+                           "They CREATED a brand-new language — Nicaraguan Sign Language — in a generation",
+                           "They stayed without language",
+                           "They adopted American signs wholesale"],
+               "fact": "The first cohort built a rough contact code; the "
+                       "younger children who received it made it "
+                       "grammatical — agreement, verb classes, spatial "
+                       "syntax. The strongest live evidence that language "
+                       "capacity is born, not taught."},
+        "es": {"question": "En la Nicaragua de los años 80, niños sordos reunidos en escuelas nuevas hicieron algo que los lingüistas nunca habían visto ocurrir. ¿Qué?",
+               "options": ["Aprendieron español inusualmente rápido",
+                           "CREARON una lengua nueva — la lengua de señas nicaragüense — en una generación",
+                           "Se quedaron sin lengua",
+                           "Adoptaron en bloque las señas americanas"],
+               "fact": "La primera cohorte armó un código de contacto "
+                       "tosco; los niños menores que lo recibieron lo "
+                       "volvieron gramatical — concordancia, clases "
+                       "verbales, sintaxis espacial. La prueba viva más "
+                       "fuerte de que la capacidad de lenguaje nace, no se "
+                       "enseña."},
+        "fr": {"question": "Dans le Nicaragua des années 1980, des enfants sourds réunis dans de nouvelles écoles ont fait une chose que les linguistes n'avaient jamais vue se produire. Laquelle ?",
+               "options": ["Ils ont appris l'espagnol exceptionnellement vite",
+                           "Ils ont CRÉÉ une langue toute neuve — la langue des signes nicaraguayenne — en une génération",
+                           "Ils sont restés sans langue",
+                           "Ils ont adopté en bloc les signes américains"],
+               "fact": "La première cohorte bâtit un code de contact "
+                       "fruste ; les plus jeunes qui le reçurent le "
+                       "rendirent grammatical — accords, classes verbales, "
+                       "syntaxe spatiale. La plus forte preuve vivante que "
+                       "la capacité de langage naît au lieu de "
+                       "s'enseigner."},
+        "pt": {"question": "Na Nicarágua dos anos 1980, crianças surdas reunidas em escolas novas fizeram algo que os linguistas nunca tinham visto acontecer. O quê?",
+               "options": ["Aprenderam espanhol invulgarmente depressa",
+                           "CRIARAM uma língua nova em folha — a língua gestual nicaraguense — numa geração",
+                           "Ficaram sem língua",
+                           "Adotaram em bloco os gestos americanos"],
+               "fact": "A primeira leva construiu um código de contacto "
+                       "tosco; as crianças mais novas que o receberam "
+                       "tornaram-no gramatical — concordância, classes "
+                       "verbais, sintaxe espacial. A prova viva mais forte "
+                       "de que a capacidade de linguagem nasce, não se "
+                       "ensina."},
+        "ru": {"question": "В Никарагуа 1980-х глухие дети, собранные в новых школах, сделали то, чего лингвисты никогда не наблюдали вживую. Что именно?",
+               "options": ["Необычно быстро выучили испанский",
+                           "СОЗДАЛИ совершенно новый язык — никарагуанский жестовый — за одно поколение",
+                           "Остались без языка",
+                           "Целиком переняли американские жесты"],
+               "fact": "Первый набор построил грубый контактный код; "
+                       "младшие, получив его, сделали его грамматичным — "
+                       "согласование, глагольные классы, пространственный "
+                       "синтаксис. Сильнейшее живое свидетельство, что "
+                       "языковая способность рождается, а не преподаётся."},
+        "ar": {"question": "في نيكاراغوا الثمانينيات، فعل أطفال صُمّ جُمعوا في مدارس جديدة شيئًا لم يشهد اللغويون حدوثه قط. ما هو؟",
+               "options": ["تعلموا الإسبانية بسرعة غير عادية",
+                           "أنشأوا لغة جديدة كليًا — لغة الإشارة النيكاراغوية — في جيل واحد",
+                           "بقوا بلا لغة",
+                           "تبنّوا الإشارات الأمريكية جملةً"],
+               "fact": "بنت الدفعة الأولى شفرة تواصل خشنة؛ فلما تلقاها "
+                       "الأصغر سنًا جعلوها نحوية — مطابقةً وأصنافَ أفعال "
+                       "وتركيبًا مكانيًا. أقوى دليل حي على أن ملكة اللغة "
+                       "تولد ولا تُلقَّن."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "Every healthy human community speaks. How does writing compare?",
+               "options": ["An invention, made from scratch only a handful of times in history — most languages have never been written",
+                           "Equally universal",
+                           "Older than speech",
+                           "Universal since ancient times"],
+               "fact": "Writing was independently invented in "
+                       "Mesopotamia, China and Mesoamerica — nearly "
+                       "everything else is borrowing and adaptation. "
+                       "Speech is the species trait; writing is "
+                       "technology, which is why it must be taught."},
+        "es": {"question": "Toda comunidad humana sana habla. ¿Cómo se compara la escritura?",
+               "options": ["Es un invento, creado de cero solo un puñado de veces en la historia: la mayoría de las lenguas nunca se han escrito",
+                           "Es igual de universal",
+                           "Es más antigua que el habla",
+                           "Es universal desde la antigüedad"],
+               "fact": "La escritura se inventó de forma independiente en "
+                       "Mesopotamia, China y Mesoamérica — casi todo lo "
+                       "demás es préstamo y adaptación. El habla es rasgo "
+                       "de la especie; la escritura es tecnología, y por "
+                       "eso hay que enseñarla."},
+        "fr": {"question": "Toute communauté humaine en bonne santé parle. Et l'écriture, en comparaison ?",
+               "options": ["Une invention, créée de zéro une poignée de fois dans l'histoire — la plupart des langues n'ont jamais été écrites",
+                           "Tout aussi universelle",
+                           "Plus ancienne que la parole",
+                           "Universelle depuis l'Antiquité"],
+               "fact": "L'écriture fut inventée indépendamment en "
+                       "Mésopotamie, en Chine et en Mésoamérique — presque "
+                       "tout le reste est emprunt et adaptation. La parole "
+                       "est un trait de l'espèce ; l'écriture est une "
+                       "technologie, et c'est pourquoi il faut "
+                       "l'enseigner."},
+        "pt": {"question": "Toda a comunidade humana saudável fala. E a escrita, em comparação?",
+               "options": ["É uma invenção, criada do zero só umas poucas vezes na história — a maioria das línguas nunca foi escrita",
+                           "É igualmente universal",
+                           "É mais antiga do que a fala",
+                           "É universal desde a antiguidade"],
+               "fact": "A escrita foi inventada de forma independente na "
+                       "Mesopotâmia, na China e na Mesoamérica — quase tudo "
+                       "o resto é empréstimo e adaptação. A fala é traço da "
+                       "espécie; a escrita é tecnologia, e por isso tem de "
+                       "se ensinar."},
+        "ru": {"question": "Всякое здоровое человеческое сообщество говорит. А как с письмом?",
+               "options": ["Письмо — изобретение, созданное с нуля считанные разы в истории; большинство языков никогда не записывались",
+                           "Оно так же универсально",
+                           "Оно древнее речи",
+                           "Оно универсально с древности"],
+               "fact": "Письменность независимо изобрели в Месопотамии, "
+                       "Китае и Мезоамерике — почти всё остальное "
+                       "заимствование и приспособление. Речь — свойство "
+                       "вида; письмо — технология, потому ему и приходится "
+                       "учить."},
+        "ar": {"question": "كل جماعة بشرية سليمة تتكلم. فماذا عن الكتابة مقارنةً بذلك؟",
+               "options": ["اختراعٌ ابتُكر من الصفر مرات معدودة في التاريخ — ومعظم اللغات لم تُكتب قط",
+                           "كونية بالقدر نفسه",
+                           "أقدم من الكلام",
+                           "كونية منذ القدم"],
+               "fact": "اختُرعت الكتابة استقلالًا في بلاد الرافدين والصين "
+                       "وأمريكا الوسطى — وكل ما عداها تقريبًا اقتراض "
+                       "وتكييف. الكلام سمةُ النوع البشري؛ أما الكتابة "
+                       "فتقنية، ولهذا لا بد من تعليمها."},
+    },
+    # ---------------------- families, diversity, grammar around the world
+    {
+        "answer": 1,
+        "en": {"question": "Which country is the most linguistically dense place on Earth?",
+               "options": ["India", "Papua New Guinea — around 840 languages among some ten million people", "Brazil", "Nigeria"],
+               "fact": "Mountain valleys, islands and ten millennia of "
+                       "settlement each kept communities apart. Neighbouring "
+                       "villages can speak languages as different as English "
+                       "and Japanese; Tok Pisin bridges them."},
+        "es": {"question": "¿Qué país es el lugar lingüísticamente más denso de la Tierra?",
+               "options": ["La India", "Papúa Nueva Guinea: unas 840 lenguas entre unos diez millones de personas", "Brasil", "Nigeria"],
+               "fact": "Valles montañosos, islas y diez milenios de "
+                       "poblamiento mantuvieron separadas a las "
+                       "comunidades. Aldeas vecinas pueden hablar lenguas "
+                       "tan distintas como el español y el japonés; el tok "
+                       "pisin les sirve de puente."},
+        "fr": {"question": "Quel pays est l'endroit le plus dense en langues de la Terre ?",
+               "options": ["L'Inde", "La Papouasie-Nouvelle-Guinée — environ 840 langues pour quelque dix millions d'habitants", "Le Brésil", "Le Nigeria"],
+               "fact": "Vallées de montagne, îles et dix millénaires de "
+                       "peuplement ont tenu les communautés à l'écart les "
+                       "unes des autres. Des villages voisins peuvent "
+                       "parler des langues aussi différentes que le "
+                       "français et le japonais ; le tok pisin fait le "
+                       "pont."},
+        "pt": {"question": "Que país é o lugar linguisticamente mais denso da Terra?",
+               "options": ["A Índia", "A Papua-Nova Guiné — cerca de 840 línguas entre uns dez milhões de pessoas", "O Brasil", "A Nigéria"],
+               "fact": "Vales de montanha, ilhas e dez milénios de "
+                       "povoamento mantiveram as comunidades separadas. "
+                       "Aldeias vizinhas podem falar línguas tão diferentes "
+                       "como o português e o japonês; o tok pisin faz a "
+                       "ponte."},
+        "ru": {"question": "Какая страна — самое языково плотное место на Земле?",
+               "options": ["Индия", "Папуа — Новая Гвинея: около 840 языков на примерно десять миллионов человек", "Бразилия", "Нигерия"],
+               "fact": "Горные долины, острова и десять тысячелетий "
+                       "заселения держали общины порознь. Соседние деревни "
+                       "могут говорить на языках, различных как русский и "
+                       "японский; мостом служит ток-писин."},
+        "ar": {"question": "أي بلد هو أكثف بقعة لغويًا على وجه الأرض؟",
+               "options": ["الهند", "بابوا غينيا الجديدة — نحو 840 لغة بين نحو عشرة ملايين نسمة", "البرازيل", "نيجيريا"],
+               "fact": "الوديان الجبلية والجزر وعشرة آلاف سنة من الاستيطان "
+                       "أبقت الجماعات متباعدة. قد تتكلم قريتان متجاورتان "
+                       "لغتين تختلفان اختلاف العربية عن اليابانية؛ "
+                       "وتجسر بينهما التوك-بيسين."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "Of the world's roughly 7,000 languages, how many are considered endangered?",
+               "options": ["A few dozen", "About one in twenty", "Around HALF — many with no child speakers left", "Almost none"],
+               "fact": "When no children learn a language, its clock is "
+                       "set. But the road runs both ways: Hebrew returned "
+                       "from no native speakers to millions, and Māori and "
+                       "Hawaiian are climbing back through immersion "
+                       "schools."},
+        "es": {"question": "De las cerca de 7.000 lenguas del mundo, ¿cuántas se consideran amenazadas?",
+               "options": ["Unas pocas docenas", "Aproximadamente una de cada veinte", "Cerca de la MITAD, muchas ya sin hablantes niños", "Casi ninguna"],
+               "fact": "Cuando ningún niño aprende una lengua, su reloj "
+                       "queda en marcha. Pero el camino tiene dos "
+                       "sentidos: el hebreo volvió de cero hablantes "
+                       "nativos a millones, y el maorí y el hawaiano "
+                       "remontan mediante escuelas de inmersión."},
+        "fr": {"question": "Sur les quelque 7 000 langues du monde, combien sont considérées comme menacées ?",
+               "options": ["Quelques dizaines", "Environ une sur vingt", "Près de la MOITIÉ — beaucoup sans plus aucun enfant locuteur", "Presque aucune"],
+               "fact": "Quand plus aucun enfant n'apprend une langue, son "
+                       "horloge est lancée. Mais la route va dans les deux "
+                       "sens : l'hébreu est revenu de zéro locuteur natif à "
+                       "des millions, et le māori et le hawaïen remontent "
+                       "par les écoles d'immersion."},
+        "pt": {"question": "Das cerca de 7.000 línguas do mundo, quantas se consideram ameaçadas?",
+               "options": ["Umas poucas dezenas", "Cerca de uma em vinte", "Perto de METADE — muitas já sem falantes crianças", "Quase nenhuma"],
+               "fact": "Quando nenhuma criança aprende uma língua, o "
+                       "relógio dela fica a contar. Mas a estrada tem dois "
+                       "sentidos: o hebraico voltou de zero falantes "
+                       "nativos a milhões, e o māori e o havaiano sobem de "
+                       "volta pelas escolas de imersão."},
+        "ru": {"question": "Из примерно 7000 языков мира сколько считаются под угрозой исчезновения?",
+               "options": ["Несколько десятков", "Примерно один из двадцати", "Около ПОЛОВИНЫ — у многих не осталось детей-носителей", "Почти ни одного"],
+               "fact": "Когда язык не учат дети, его часы запущены. Но "
+                       "дорога двусторонняя: иврит вернулся от нуля "
+                       "носителей к миллионам, а маори и гавайский "
+                       "выбираются обратно через школы погружения."},
+        "ar": {"question": "من بين نحو سبعة آلاف لغة في العالم، كم لغة تُعد مهددة بالاندثار؟",
+               "options": ["بضع عشرات", "واحدة من كل عشرين تقريبًا", "نحو النصف — وكثير منها لم يعد يتعلمه الأطفال", "لا تكاد توجد"],
+               "fact": "حين لا يتعلم الأطفال لغةً، تبدأ ساعتها بالعد. لكن "
+                       "الطريق ذو اتجاهين: عادت العبرية من صفر متكلم أصلي "
+                       "إلى الملايين، والماورية والهاوايية تصعدان من جديد "
+                       "عبر مدارس الانغماس."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "What makes the revival of Hebrew unique in language history?",
+               "options": ["A language with NO native speakers became the mother tongue of millions",
+                           "It was the fastest spelling reform ever",
+                           "It borrowed no words at all",
+                           "It was decreed by a single law"],
+               "fact": "For centuries Hebrew lived in books and liturgy "
+                       "only. From the 1880s, families in Ottoman "
+                       "Palestine — Ben-Yehuda's famously first — raised "
+                       "children in it, coining daily words as they went. "
+                       "No other full revival has succeeded on that "
+                       "scale."},
+        "es": {"question": "¿Qué hace único al renacimiento del hebreo en la historia de las lenguas?",
+               "options": ["Una lengua SIN hablantes nativos se volvió lengua materna de millones",
+                           "Fue la reforma ortográfica más rápida de la historia",
+                           "No tomó prestada ninguna palabra",
+                           "Se decretó con una sola ley"],
+               "fact": "Durante siglos el hebreo vivió solo en libros y "
+                       "liturgia. Desde la década de 1880, familias de la "
+                       "Palestina otomana — la de Ben-Yehuda, célebremente "
+                       "la primera — criaron hijos en él, acuñando palabras "
+                       "cotidianas sobre la marcha. Ningún otro "
+                       "renacimiento pleno ha triunfado a esa escala."},
+        "fr": {"question": "Qu'est-ce qui rend la renaissance de l'hébreu unique dans l'histoire des langues ?",
+               "options": ["Une langue SANS locuteurs natifs est devenue la langue maternelle de millions de gens",
+                           "Ce fut la réforme orthographique la plus rapide de l'histoire",
+                           "Elle n'a emprunté aucun mot",
+                           "Un seul décret l'a ordonnée"],
+               "fact": "Des siècles durant, l'hébreu ne vécut que dans les "
+                       "livres et la liturgie. À partir des années 1880, "
+                       "des familles de Palestine ottomane — celle de "
+                       "Ben-Yehuda, fameusement la première — y élevèrent "
+                       "leurs enfants, forgeant les mots du quotidien en "
+                       "chemin. Aucune autre renaissance complète n'a "
+                       "réussi à cette échelle."},
+        "pt": {"question": "O que torna o renascimento do hebraico único na história das línguas?",
+               "options": ["Uma língua SEM falantes nativos tornou-se língua materna de milhões",
+                           "Foi a reforma ortográfica mais rápida de sempre",
+                           "Não pediu emprestada palavra nenhuma",
+                           "Foi decretado por uma única lei"],
+               "fact": "Durante séculos o hebraico viveu só nos livros e "
+                       "na liturgia. A partir da década de 1880, famílias "
+                       "da Palestina otomana — a de Ben-Yehuda, "
+                       "celebremente a primeira — criaram filhos nele, "
+                       "cunhando palavras do dia a dia pelo caminho. Nenhum "
+                       "outro renascimento pleno triunfou a essa escala."},
+        "ru": {"question": "Чем возрождение иврита уникально в истории языков?",
+               "options": ["Язык БЕЗ носителей стал родным для миллионов",
+                           "Это была самая быстрая реформа орфографии",
+                           "Он не заимствовал ни одного слова",
+                           "Его предписали одним законом"],
+               "fact": "Веками иврит жил только в книгах и литургии. С "
+                       "1880-х семьи в османской Палестине — семья "
+                       "Бен-Иехуды, как известно, первой — растили на нём "
+                       "детей, на ходу чеканя бытовые слова. Ни одно другое "
+                       "полное возрождение не удалось в таком масштабе."},
+        "ar": {"question": "ما الذي يجعل إحياء العبرية فريدًا في تاريخ اللغات؟",
+               "options": ["لغة بلا متكلمين أصليين صارت لغةً أمًّا لملايين",
+                           "كانت أسرع إصلاح إملائي في التاريخ",
+                           "لم تستعر كلمة واحدة",
+                           "صدر بها مرسوم واحد"],
+               "fact": "عاشت العبرية قرونًا في الكتب والطقوس وحدها. ومنذ "
+                       "ثمانينيات القرن التاسع عشر أخذت أسرٌ في فلسطين "
+                       "العثمانية — وأشهرها أسرة بن يهودا الأولى — تربي "
+                       "أطفالها بها وتسكّ كلمات الحياة اليومية في الطريق. "
+                       "ولم ينجح إحياء كامل آخر بهذا الحجم."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "What are Māori “kōhanga reo”, founded from 1982?",
+               "options": ["Traditional song contests",
+                           "“Language nests” — preschools run entirely in Māori, elders passing the language straight to toddlers",
+                           "Radio stations",
+                           "Dictionary projects"],
+               "fact": "The nest model — skip the lost generation, connect "
+                       "grandparents to toddlers — was copied by Hawaiian, "
+                       "Welsh, Sámi and many others. It reframed revival: "
+                       "not a school subject but a home."},
+        "es": {"question": "¿Qué son los “kōhanga reo” maoríes, fundados desde 1982?",
+               "options": ["Concursos de canto tradicionales",
+                           "“Nidos de lengua”: preescolares enteramente en maorí, con los mayores pasando la lengua directo a los pequeños",
+                           "Emisoras de radio",
+                           "Proyectos de diccionario"],
+               "fact": "El modelo del nido — saltarse la generación "
+                       "perdida y conectar a los abuelos con los niños "
+                       "pequeños — fue copiado por el hawaiano, el galés, "
+                       "el sami y muchos más. Replanteó el renacimiento: "
+                       "no una asignatura, sino un hogar."},
+        "fr": {"question": "Que sont les « kōhanga reo » māoris, fondés à partir de 1982 ?",
+               "options": ["Des concours de chant traditionnels",
+                           "Des « nids de langue » — des maternelles entièrement en māori, où les anciens passent la langue directement aux tout-petits",
+                           "Des stations de radio",
+                           "Des projets de dictionnaires"],
+               "fact": "Le modèle du nid — sauter la génération perdue, "
+                       "relier les grands-parents aux tout-petits — fut "
+                       "copié par le hawaïen, le gallois, le same et bien "
+                       "d'autres. Il a recadré la renaissance : non pas une "
+                       "matière scolaire, mais un foyer."},
+        "pt": {"question": "O que são os “kōhanga reo” māori, fundados a partir de 1982?",
+               "options": ["Concursos de canto tradicionais",
+                           "“Ninhos de língua” — pré-escolas inteiramente em māori, com os mais velhos a passar a língua direto aos pequenos",
+                           "Estações de rádio",
+                           "Projetos de dicionário"],
+               "fact": "O modelo do ninho — saltar a geração perdida, "
+                       "ligar os avós aos mais pequenos — foi copiado pelo "
+                       "havaiano, pelo galês, pelo sámi e muitos outros. "
+                       "Reenquadrou o renascimento: não uma disciplina, mas "
+                       "um lar."},
+        "ru": {"question": "Что такое маорийские «kōhanga reo», основанные с 1982 года?",
+               "options": ["Конкурсы традиционного пения",
+                           "«Языковые гнёзда» — детские сады целиком на маори, где старики передают язык прямо малышам",
+                           "Радиостанции",
+                           "Словарные проекты"],
+               "fact": "Модель гнезда — перешагнуть потерянное поколение, "
+                       "соединить дедов с малышами — переняли гавайский, "
+                       "валлийский, саамские и многие другие. Она "
+                       "переосмыслила возрождение: не школьный предмет, а "
+                       "дом."},
+        "ar": {"question": "ما “كوهانغا ريو” الماورية التي أُسست منذ 1982؟",
+               "options": ["مسابقات غناء تقليدية",
+                           "“أعشاش لغة” — رياض أطفال بالماورية وحدها، يمرر فيها الكبارُ اللغةَ إلى الصغار مباشرة",
+                           "محطات إذاعية",
+                           "مشاريع معاجم"],
+               "fact": "نموذج العش — تجاوز الجيل الضائع ووصل الأجداد "
+                       "بالأطفال — نسخته الهاوايية والويلزية والصامية "
+                       "وغيرها كثير. لقد أعاد صياغة الإحياء: لا مادةً "
+                       "مدرسية بل بيتًا."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "Indonesian unites a country of 700+ languages. What was it based on?",
+               "options": ["Javanese, the biggest language",
+                           "Dutch",
+                           "Malay — for centuries the TRADE language of the archipelago, native to relatively few",
+                           "An invented language"],
+               "fact": "Choosing giant Javanese would have crowned one "
+                       "ethnic group; little Malay belonged to everyone's "
+                       "market. Swahili plays the same role across East "
+                       "Africa — lingua francas win by being nobody's "
+                       "prize."},
+        "es": {"question": "El indonesio une un país de más de 700 lenguas. ¿En qué se basó?",
+               "options": ["En el javanés, la lengua mayor",
+                           "En el neerlandés",
+                           "En el malayo: durante siglos la lengua COMERCIAL del archipiélago, materna de relativamente pocos",
+                           "En una lengua inventada"],
+               "fact": "Elegir el gigantesco javanés habría coronado a una "
+                       "etnia; el pequeño malayo era el mercado de todos. "
+                       "El suajili juega el mismo papel en África "
+                       "oriental — las linguas francas ganan por no ser el "
+                       "trofeo de nadie."},
+        "fr": {"question": "L'indonésien unit un pays de plus de 700 langues. Sur quoi fut-il fondé ?",
+               "options": ["Sur le javanais, la plus grande langue",
+                           "Sur le néerlandais",
+                           "Sur le malais — des siècles durant la langue de COMMERCE de l'archipel, maternelle pour assez peu de gens",
+                           "Sur une langue inventée"],
+               "fact": "Choisir le géant javanais aurait couronné une "
+                       "ethnie ; le petit malais appartenait au marché de "
+                       "tous. Le swahili joue le même rôle en Afrique de "
+                       "l'Est — les langues véhiculaires gagnent en "
+                       "n'étant le trophée de personne."},
+        "pt": {"question": "O indonésio une um país de mais de 700 línguas. Em que se baseou?",
+               "options": ["No javanês, a língua maior",
+                           "No neerlandês",
+                           "No malaio — durante séculos a língua de COMÉRCIO do arquipélago, materna de relativamente poucos",
+                           "Numa língua inventada"],
+               "fact": "Escolher o gigante javanês teria coroado uma "
+                       "etnia; o pequeno malaio pertencia ao mercado de "
+                       "todos. O suaíli faz o mesmo papel na África "
+                       "Oriental — as línguas francas ganham por não serem "
+                       "o troféu de ninguém."},
+        "ru": {"question": "Индонезийский объединяет страну с 700+ языками. На чём он основан?",
+               "options": ["На яванском, крупнейшем языке",
+                           "На нидерландском",
+                           "На малайском — веками ТОРГОВОМ языке архипелага, родном для сравнительно немногих",
+                           "На искусственном языке"],
+               "fact": "Выбор гигантского яванского короновал бы один "
+                       "народ; маленький малайский был рынком для всех. Ту "
+                       "же роль в Восточной Африке играет суахили: "
+                       "лингва-франка побеждает тем, что она — ничей "
+                       "трофей."},
+        "ar": {"question": "توحّد الإندونيسية بلدًا فيه أكثر من 700 لغة. فعلامَ بُنيت؟",
+               "options": ["على الجاوية، اللغة الكبرى",
+                           "على الهولندية",
+                           "على الملايوية — لغة التجارة في الأرخبيل قرونًا، وهي أم لقلة نسبيًا",
+                           "على لغة مخترعة"],
+               "fact": "اختيار الجاوية العملاقة كان سيتوّج قومية واحدة؛ "
+                       "أما الملايوية الصغيرة فكانت سوقَ الجميع. وتلعب "
+                       "السواحلية الدور نفسه في شرق أفريقيا — تفوز اللغات "
+                       "الوسيطة لأنها غنيمة لا يملكها أحد."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "Which family contains the most languages of any on Earth — Swahili, Yoruba, Xhosa and Zulu among them?",
+               "options": ["Indo-European", "Niger-Congo, with roughly 1,500 languages", "Afro-Asiatic", "Austronesian"],
+               "fact": "Most of it is the Bantu expansion: farming "
+                       "communities spreading from around the "
+                       "Nigeria–Cameroon border across half of Africa in "
+                       "3,000 years — which is why noun-class prefixes echo "
+                       "from Douala to Durban."},
+        "es": {"question": "¿Qué familia contiene más lenguas que ninguna otra en la Tierra — entre ellas el suajili, el yoruba, el xhosa y el zulú?",
+               "options": ["La indoeuropea", "La Níger-Congo, con aproximadamente 1.500 lenguas", "La afroasiática", "La austronesia"],
+               "fact": "Casi todo es la expansión bantú: comunidades "
+                       "agrícolas extendiéndose desde la frontera "
+                       "Nigeria-Camerún por media África en 3.000 años — "
+                       "por eso los prefijos de clase nominal resuenan de "
+                       "Duala a Durban."},
+        "fr": {"question": "Quelle famille contient plus de langues qu'aucune autre sur Terre — dont le swahili, le yoruba, le xhosa et le zoulou ?",
+               "options": ["L'indo-européenne", "Le Niger-Congo, avec environ 1 500 langues", "L'afro-asiatique", "L'austronésienne"],
+               "fact": "L'essentiel en est l'expansion bantoue : des "
+                       "communautés agricoles s'étendant depuis la "
+                       "frontière Nigeria-Cameroun sur la moitié de "
+                       "l'Afrique en 3 000 ans — d'où les préfixes de "
+                       "classe nominale qui résonnent de Douala à Durban."},
+        "pt": {"question": "Que família contém mais línguas do que qualquer outra na Terra — entre elas o suaíli, o iorubá, o xhosa e o zulu?",
+               "options": ["A indo-europeia", "A Níger-Congo, com cerca de 1.500 línguas", "A afro-asiática", "A austronésia"],
+               "fact": "Quase tudo é a expansão bantu: comunidades "
+                       "agrícolas a espalhar-se da fronteira "
+                       "Nigéria-Camarões por metade da África em 3.000 "
+                       "anos — por isso os prefixos de classe nominal ecoam "
+                       "de Duala a Durban."},
+        "ru": {"question": "Какая семья содержит больше языков, чем любая другая на Земле, — среди них суахили, йоруба, коса и зулу?",
+               "options": ["Индоевропейская", "Нигеро-конголезская, примерно 1500 языков", "Афразийская", "Австронезийская"],
+               "fact": "Основная её часть — экспансия банту: земледельцы, "
+                       "расселившиеся от границы Нигерии и Камеруна на "
+                       "пол-Африки за 3000 лет, — потому префиксы именных "
+                       "классов и перекликаются от Дуалы до Дурбана."},
+        "ar": {"question": "أي أسرة لغوية تضم لغات أكثر من أي أسرة أخرى على الأرض — ومنها السواحلية واليوروبا والكوسا والزولو؟",
+               "options": ["الهندوأوروبية", "النيجرية-الكونغولية، بنحو 1500 لغة", "الأفروآسيوية", "الأسترونيزية"],
+               "fact": "جُلّها توسع البانتو: جماعات زراعية انتشرت من حدود "
+                       "نيجيريا والكاميرون عبر نصف أفريقيا في ثلاثة آلاف "
+                       "سنة — ولهذا تتردد سوابق أصناف الأسماء من دوالا إلى "
+                       "ديربان."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "Malagasy, the language of Madagascar off the African coast, is most closely related to…",
+               "options": ["languages of BORNEO, an ocean away in Indonesia",
+                           "Swahili, across the channel",
+                           "Arabic",
+                           "Zulu"],
+               "fact": "Austronesian sailors crossed the Indian Ocean "
+                       "around the mid-first millennium. Their family had "
+                       "already spread from Taiwan through the Philippines "
+                       "and Indonesia to, eventually, Hawaiʻi, Easter "
+                       "Island and Aotearoa — Māori is a member — the "
+                       "widest-flung family of the pre-modern world."},
+        "es": {"question": "El malgache, la lengua de Madagascar, frente a la costa africana, está emparentado sobre todo con…",
+               "options": ["lenguas de BORNEO, a un océano de distancia, en Indonesia",
+                           "el suajili, al otro lado del canal",
+                           "el árabe",
+                           "el zulú"],
+               "fact": "Navegantes austronesios cruzaron el Índico hacia "
+                       "mediados del primer milenio. Su familia ya se había "
+                       "extendido de Taiwán por Filipinas e Indonesia "
+                       "hasta llegar con el tiempo a Hawái, la isla de "
+                       "Pascua y Aotearoa — el maorí es miembro — la "
+                       "familia más desparramada del mundo premoderno."},
+        "fr": {"question": "Le malgache, langue de Madagascar au large de l'Afrique, est le plus étroitement apparenté à…",
+               "options": ["des langues de BORNÉO, à un océan de là, en Indonésie",
+                           "au swahili, de l'autre côté du canal",
+                           "à l'arabe",
+                           "au zoulou"],
+               "fact": "Des navigateurs austronésiens traversèrent l'océan "
+                       "Indien vers le milieu du premier millénaire. Leur "
+                       "famille s'étendait déjà de Taïwan aux Philippines "
+                       "et à l'Indonésie, pour atteindre à terme Hawaï, "
+                       "l'île de Pâques et Aotearoa — le māori en est "
+                       "membre — la famille la plus étalée du monde "
+                       "prémoderne."},
+        "pt": {"question": "O malgaxe, a língua de Madagáscar, ao largo da costa africana, é mais aparentado com…",
+               "options": ["línguas do BORNÉU, a um oceano de distância, na Indonésia",
+                           "o suaíli, do outro lado do canal",
+                           "o árabe",
+                           "o zulu"],
+               "fact": "Navegadores austronésios cruzaram o Índico por "
+                       "meados do primeiro milénio. A família deles já se "
+                       "estendia de Taiwan pelas Filipinas e Indonésia até "
+                       "chegar, com o tempo, ao Havai, à ilha de Páscoa e a "
+                       "Aotearoa — o māori é membro — a família mais "
+                       "espalhada do mundo pré-moderno."},
+        "ru": {"question": "Малагасийский — язык Мадагаскара у берегов Африки — ближе всего в родстве с…",
+               "options": ["языками БОРНЕО, за океаном, в Индонезии",
+                           "суахили, через пролив",
+                           "арабским",
+                           "зулу"],
+               "fact": "Австронезийские мореходы пересекли Индийский океан "
+                       "около середины первого тысячелетия. Их семья уже "
+                       "растянулась от Тайваня через Филиппины и Индонезию "
+                       "— и дотянулась потом до Гавайев, острова Пасхи и "
+                       "Аотеароа: маори — её член. Самая раскинутая семья "
+                       "домодерного мира."},
+        "ar": {"question": "الملغاشية، لغة مدغشقر قبالة الساحل الأفريقي، أقرب قرابةً إلى…",
+               "options": ["لغات بورنيو في إندونيسيا، على بُعد محيط كامل",
+                           "السواحلية عبر القناة",
+                           "العربية",
+                           "الزولو"],
+               "fact": "عبر بحّارة أسترونيزيون المحيطَ الهندي نحو منتصف "
+                       "الألفية الأولى. وكانت أسرتهم قد امتدت من تايوان "
+                       "عبر الفلبين وإندونيسيا لتبلغ لاحقًا هاواي وجزيرة "
+                       "القيامة وأوتياروا — والماورية من أعضائها — أوسع "
+                       "أسرة انتشارًا في العالم قبل الحديث."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "How far does the Turkic language family stretch?",
+               "options": ["Only Turkey",
+                           "From the Balkans to Siberia — Turkish, Azerbaijani, Uzbek, Kazakh, Uyghur, Yakut…",
+                           "Turkey and Iran only",
+                           "It has no living relatives"],
+               "fact": "A Turk and an Uzbek can partly follow each other "
+                       "across 3,000 kilometres. The family's shared "
+                       "skeleton — vowel harmony, suffix chains, verb "
+                       "last — survives from the Mediterranean to the "
+                       "Arctic Circle."},
+        "es": {"question": "¿Hasta dónde se extiende la familia de lenguas túrquicas?",
+               "options": ["Solo Turquía",
+                           "De los Balcanes a Siberia: turco, azerí, uzbeko, kazajo, uigur, yakuto…",
+                           "Solo Turquía e Irán",
+                           "No tiene parientes vivos"],
+               "fact": "Un turco y un uzbeko pueden seguirse a medias a "
+                       "3.000 kilómetros de distancia. El esqueleto común "
+                       "de la familia — armonía vocálica, cadenas de "
+                       "sufijos, verbo al final — sobrevive del "
+                       "Mediterráneo al círculo polar."},
+        "fr": {"question": "Jusqu'où s'étend la famille des langues turciques ?",
+               "options": ["La Turquie seulement",
+                           "Des Balkans à la Sibérie — turc, azéri, ouzbek, kazakh, ouïghour, iakoute…",
+                           "La Turquie et l'Iran seulement",
+                           "Elle n'a pas de parents vivants"],
+               "fact": "Un Turc et un Ouzbek peuvent en partie se suivre à "
+                       "3 000 kilomètres de distance. Le squelette commun "
+                       "de la famille — harmonie vocalique, chaînes de "
+                       "suffixes, verbe en dernier — survit de la "
+                       "Méditerranée au cercle polaire."},
+        "pt": {"question": "Até onde se estende a família de línguas turcomanas?",
+               "options": ["Só a Turquia",
+                           "Dos Balcãs à Sibéria — turco, azeri, usbeque, cazaque, uigur, iacuto…",
+                           "Só a Turquia e o Irão",
+                           "Não tem parentes vivos"],
+               "fact": "Um turco e um usbeque conseguem seguir-se em parte "
+                       "a 3.000 quilómetros de distância. O esqueleto comum "
+                       "da família — harmonia vocálica, cadeias de sufixos, "
+                       "verbo no fim — sobrevive do Mediterrâneo ao círculo "
+                       "polar."},
+        "ru": {"question": "Как далеко простирается тюркская языковая семья?",
+               "options": ["Только Турция",
+                           "От Балкан до Сибири: турецкий, азербайджанский, узбекский, казахский, уйгурский, якутский…",
+                           "Только Турция и Иран",
+                           "У неё нет живых родственников"],
+               "fact": "Турок и узбек могут отчасти понимать друг друга "
+                       "через 3000 километров. Общий скелет семьи — "
+                       "гармония гласных, цепочки суффиксов, глагол в "
+                       "конце — выживает от Средиземного моря до "
+                       "полярного круга."},
+        "ar": {"question": "إلى أي مدى تمتد أسرة اللغات التركية؟",
+               "options": ["تركيا وحدها",
+                           "من البلقان إلى سيبيريا — التركية والأذرية والأوزبكية والكازاخية والأويغورية والياقوتية…",
+                           "تركيا وإيران فقط",
+                           "لا أقارب أحياء لها"],
+               "fact": "يستطيع تركي وأوزبكي أن يفهم كلٌّ الآخرَ جزئيًا عبر "
+                       "ثلاثة آلاف كيلومتر. والهيكل المشترك للأسرة — "
+                       "انسجام الصوائت وسلاسل اللواحق والفعل في الآخر — "
+                       "باقٍ من المتوسط إلى الدائرة القطبية."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "The plural of Arabic kitāb (book) is kutub. What happened?",
+               "options": ["A suffix was added",
+                           "The word was doubled",
+                           "The VOWELS changed inside the fixed consonants — a “broken plural”",
+                           "Nothing; context decides"],
+               "fact": "Arabic has dozens of broken-plural patterns — "
+                       "walad/awlād, madīna/mudun — and learners simply "
+                       "must learn each noun's. English keeps a Germanic "
+                       "miniature of the idea: foot/feet, mouse/mice."},
+        "es": {"question": "El plural del árabe kitāb (libro) es kutub. ¿Qué ha pasado?",
+               "options": ["Se añadió un sufijo",
+                           "Se duplicó la palabra",
+                           "Cambiaron las VOCALES dentro de las consonantes fijas: un “plural fracto”",
+                           "Nada; decide el contexto"],
+               "fact": "El árabe tiene docenas de patrones de plural "
+                       "fracto — walad/awlād, madīna/mudun — y el aprendiz "
+                       "simplemente debe saberse el de cada sustantivo. El "
+                       "inglés guarda una miniatura germánica de la idea: "
+                       "foot/feet, mouse/mice."},
+        "fr": {"question": "Le pluriel de l'arabe kitāb (livre) est kutub. Que s'est-il passé ?",
+               "options": ["On a ajouté un suffixe",
+                           "On a doublé le mot",
+                           "Les VOYELLES ont changé à l'intérieur des consonnes fixes — un « pluriel brisé »",
+                           "Rien ; le contexte décide"],
+               "fact": "L'arabe a des dizaines de schèmes de pluriel "
+                       "brisé — walad/awlād, madīna/mudun — et l'apprenant "
+                       "doit simplement connaître celui de chaque nom. "
+                       "L'anglais garde une miniature germanique de "
+                       "l'idée : foot/feet, mouse/mice."},
+        "pt": {"question": "O plural do árabe kitāb (livro) é kutub. O que aconteceu?",
+               "options": ["Acrescentou-se um sufixo",
+                           "Duplicou-se a palavra",
+                           "As VOGAIS mudaram dentro das consoantes fixas — um “plural fraturado”",
+                           "Nada; o contexto decide"],
+               "fact": "O árabe tem dezenas de padrões de plural "
+                       "fraturado — walad/awlād, madīna/mudun — e o "
+                       "aprendente tem simplesmente de saber o de cada "
+                       "substantivo. O inglês guarda uma miniatura "
+                       "germânica da ideia: foot/feet, mouse/mice."},
+        "ru": {"question": "Множественное число арабского kitāb (книга) — kutub. Что произошло?",
+               "options": ["Добавился суффикс",
+                           "Слово удвоилось",
+                           "Внутри неизменных согласных сменились ГЛАСНЫЕ — «ломаное множественное»",
+                           "Ничего; решает контекст"],
+               "fact": "В арабском десятки моделей ломаного множественного "
+                       "— walad/awlād, madīna/mudun, — и учащемуся просто "
+                       "надо знать модель каждого слова. Английский хранит "
+                       "германскую миниатюру той же идеи: foot/feet, "
+                       "mouse/mice."},
+        "ar": {"question": "جمع “كتاب” هو “كُتُب”. ماذا حدث للكلمة؟",
+               "options": ["أُضيفت لاحقة",
+                           "ضوعفت الكلمة",
+                           "تغيّرت الحركات داخل الصوامت الثابتة — إنه “جمع التكسير”",
+                           "لا شيء؛ السياق يقرر"],
+               "fact": "في العربية عشرات أوزان جمع التكسير — ولد/أولاد، "
+                       "مدينة/مُدُن — وما على المتعلم إلا حفظ وزن كل اسم. "
+                       "وتحفظ الإنجليزية مصغّرًا جرمانيًا للفكرة نفسها: "
+                       "foot/feet وmouse/mice."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "Mandarin Chinese has no past tense. How does it say that something already happened?",
+               "options": ["It can't express time",
+                           "With particles and time words: le after the verb, “yesterday” up front",
+                           "By changing tone",
+                           "By word order alone"],
+               "fact": "Chinese marks ASPECT — complete, ongoing, "
+                       "experienced — rather than tense. Indonesian works "
+                       "with time words alone: sudah “already”, akan "
+                       "“going to”. A language can skip any category, "
+                       "and route the meaning another way."},
+        "es": {"question": "El chino mandarín no tiene tiempo pasado. ¿Cómo dice que algo ya ocurrió?",
+               "options": ["No puede expresar el tiempo",
+                           "Con partículas y palabras temporales: le tras el verbo, “ayer” delante",
+                           "Cambiando el tono",
+                           "Solo con el orden de palabras"],
+               "fact": "El chino marca el ASPECTO — completo, en curso, "
+                       "experimentado — y no el tiempo. El indonesio se "
+                       "arregla solo con palabras temporales: sudah "
+                       "“ya”, akan “va a”. Una lengua puede saltarse "
+                       "cualquier categoría y encaminar el significado por "
+                       "otra vía."},
+        "fr": {"question": "Le chinois mandarin n'a pas de passé. Comment dit-il qu'une chose a déjà eu lieu ?",
+               "options": ["Il ne peut pas exprimer le temps",
+                           "Par des particules et des mots de temps : le après le verbe, « hier » en tête",
+                           "En changeant de ton",
+                           "Par le seul ordre des mots"],
+               "fact": "Le chinois marque l'ASPECT — accompli, en cours, "
+                       "vécu — plutôt que le temps. L'indonésien s'en tire "
+                       "avec les seuls mots de temps : sudah « déjà », "
+                       "akan « va ». Une langue peut sauter n'importe "
+                       "quelle catégorie et faire passer le sens par un "
+                       "autre chemin."},
+        "pt": {"question": "O chinês mandarim não tem pretérito. Como diz que algo já aconteceu?",
+               "options": ["Não consegue exprimir o tempo",
+                           "Com partículas e palavras de tempo: le depois do verbo, “ontem” à frente",
+                           "Mudando o tom",
+                           "Só pela ordem das palavras"],
+               "fact": "O chinês marca o ASPETO — completo, em curso, "
+                       "vivido — em vez do tempo. O indonésio governa-se só "
+                       "com palavras de tempo: sudah “já”, akan “vai”. "
+                       "Uma língua pode saltar qualquer categoria e "
+                       "encaminhar o sentido por outra via."},
+        "ru": {"question": "В китайском нет прошедшего времени. Как он говорит, что нечто уже случилось?",
+               "options": ["Он не может выразить время",
+                           "Частицами и словами времени: le после глагола, «вчера» в начале",
+                           "Сменой тона",
+                           "Одним порядком слов"],
+               "fact": "Китайский маркирует ВИД — завершённое, длящееся, "
+                       "пережитое, — а не время. Индонезийский обходится "
+                       "одними словами времени: sudah «уже», akan "
+                       "«собирается». Язык может пропустить любую "
+                       "категорию и провести смысл другим путём — русскому "
+                       "ли с его видовыми парами этого не знать."},
+        "ar": {"question": "لا زمن ماضيًا في الصينية. فكيف تقول إن أمرًا قد وقع؟",
+               "options": ["لا تستطيع التعبير عن الزمن",
+                           "بأدوات وكلمات زمن: le بعد الفعل و“أمس” في الصدارة",
+                           "بتغيير النغمة",
+                           "بترتيب الكلمات وحده"],
+               "fact": "تَسِمُ الصينية الجهةَ — مكتمل، جارٍ، مُجرَّب — لا "
+                       "الزمن. وتكتفي الإندونيسية بكلمات الزمن وحدها: sudah "
+                       "“قد/فعلًا” وakan “سوف”. تستطيع اللغة إسقاط أي "
+                       "مقولة وتمرير المعنى من طريق آخر."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "English leans hard on “the” and “a”. How unusual are articles, globally?",
+               "options": ["Most languages do WITHOUT them — Russian, Turkish, Japanese, Swahili, Hindi…",
+                           "Nearly every language has them",
+                           "Only English has them",
+                           "All languages once had them and lost them"],
+               "fact": "Definiteness gets routed elsewhere: word order, "
+                       "case, demonstratives, or simply context. Meanwhile "
+                       "article languages disagree profoundly about where "
+                       "articles go — Romanian and the Scandinavian "
+                       "languages glue them onto the END of the noun."},
+        "es": {"question": "El español se apoya en “el” y “un”. ¿Qué tan comunes son los artículos en el mundo?",
+               "options": ["La mayoría de las lenguas se las arregla SIN ellos: ruso, turco, japonés, suajili, hindi…",
+                           "Casi todas las lenguas los tienen",
+                           "Solo las lenguas romances los tienen",
+                           "Todas los tuvieron y los perdieron"],
+               "fact": "La definitud se encamina por otra parte: orden de "
+                       "palabras, casos, demostrativos o simple contexto. Y "
+                       "las lenguas con artículo discrepan a fondo sobre "
+                       "dónde va: el rumano y las lenguas escandinavas lo "
+                       "pegan al FINAL del sustantivo."},
+        "fr": {"question": "Le français s'appuie fort sur « le » et « un ». Les articles sont-ils si répandus dans le monde ?",
+               "options": ["La plupart des langues s'en passent — russe, turc, japonais, swahili, hindi…",
+                           "Presque toutes les langues en ont",
+                           "Seules les langues romanes en ont",
+                           "Toutes en ont eu puis les ont perdus"],
+               "fact": "La définitude passe par d'autres canaux : ordre "
+                       "des mots, cas, démonstratifs ou simple contexte. Et "
+                       "les langues à articles divergent profondément sur "
+                       "leur place — le roumain et les langues "
+                       "scandinaves le collent à la FIN du nom."},
+        "pt": {"question": "O português apoia-se em “o” e “um”. Quão comuns são os artigos no mundo?",
+               "options": ["A maioria das línguas passa SEM eles — russo, turco, japonês, suaíli, hindi…",
+                           "Quase todas as línguas os têm",
+                           "Só as línguas românicas os têm",
+                           "Todas os tiveram e perderam"],
+               "fact": "A definitude segue por outros canais: ordem das "
+                       "palavras, casos, demonstrativos ou simples "
+                       "contexto. E as línguas com artigo divergem "
+                       "profundamente sobre onde ele vai — o romeno e as "
+                       "línguas escandinavas colam-no ao FIM do "
+                       "substantivo."},
+        "ru": {"question": "Английский держится за «the» и «a». Насколько вообще обычны артикли в языках мира?",
+               "options": ["Большинство языков обходится БЕЗ них — русский, турецкий, японский, суахили, хинди…",
+                           "Они есть почти во всех языках",
+                           "Они есть только в английском",
+                           "Все языки их имели и потеряли"],
+               "fact": "Определённость идёт другими путями: порядком слов, "
+                       "падежами, указательными словами или просто "
+                       "контекстом. А языки с артиклями глубоко расходятся "
+                       "в том, где ему стоять: румынский и скандинавские "
+                       "клеят его к КОНЦУ существительного."},
+        "ar": {"question": "تتكئ الإنجليزية على “the” و“a”. فما مدى شيوع أدوات التعريف في لغات العالم؟",
+               "options": ["معظم اللغات تستغني عنها — الروسية والتركية واليابانية والسواحلية والهندية…",
+                           "تكاد توجد في كل لغة",
+                           "لا توجد إلا في الإنجليزية",
+                           "كانت في كل اللغات ثم ضاعت"],
+               "fact": "يمر التعريف من قنوات أخرى: ترتيب الكلمات أو "
+                       "الإعراب أو أسماء الإشارة أو السياق وحده — والعربية "
+                       "تعرفه بأداة واحدة “ال”. وتختلف لغات الأدوات "
+                       "اختلافًا عميقًا في موضعها: الرومانية والإسكندنافية "
+                       "تلصقانها بآخر الاسم."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "Spanish says “no vi nada” — literally “I didn't see nothing”. What is this?",
+               "options": ["A logical error Spanish tolerates",
+                           "Negative concord: negatives AGREE with each other, standard in most Romance and Slavic languages",
+                           "Slang",
+                           "Emphasis only"],
+               "fact": "Russian piles up three in a row — nikto nikogda "
+                       "nichego — and it's textbook grammar. English "
+                       "banned double negatives in the 1700s by analogy "
+                       "with mathematics; Chaucer and Shakespeare used "
+                       "them freely."},
+        "es": {"question": "El español dice “no vi nada”, dos negaciones seguidas. ¿Qué es esto?",
+               "options": ["Un error lógico que el español tolera",
+                           "Concordancia negativa: las negaciones CONCUERDAN entre sí, lo normal en las lenguas romances y eslavas",
+                           "Jerga",
+                           "Solo énfasis"],
+               "fact": "El ruso apila tres seguidas — nikto nikogda "
+                       "nichego — y es gramática de manual. El inglés "
+                       "prohibió la doble negación en el siglo XVIII por "
+                       "analogía con las matemáticas; Chaucer y Shakespeare "
+                       "las usaban con toda libertad."},
+        "fr": {"question": "L'espagnol dit « no vi nada » — mot à mot « je n'ai pas vu rien ». Qu'est-ce que c'est ?",
+               "options": ["Une erreur logique que l'espagnol tolère",
+                           "La concordance négative : les négations S'ACCORDENT entre elles, la norme dans les langues romanes et slaves",
+                           "De l'argot",
+                           "De l'emphase seulement"],
+               "fact": "Le russe en empile trois — nikto nikogda "
+                       "nichego — et c'est la grammaire du manuel. "
+                       "L'anglais a banni la double négation au XVIIIe "
+                       "siècle par analogie avec les mathématiques ; "
+                       "Chaucer et Shakespeare en usaient librement. Le "
+                       "français « ne… rien » en garde la structure."},
+        "pt": {"question": "O português diz “não vi nada” — duas negações seguidas. O que é isto?",
+               "options": ["Um erro lógico que a língua tolera",
+                           "Concordância negativa: as negações CONCORDAM entre si, o normal nas línguas românicas e eslavas",
+                           "Gíria",
+                           "Só ênfase"],
+               "fact": "O russo empilha três seguidas — nikto nikogda "
+                       "nichego — e é gramática de manual. O inglês baniu a "
+                       "dupla negação no século XVIII por analogia com a "
+                       "matemática; Chaucer e Shakespeare usavam-na à "
+                       "vontade."},
+        "ru": {"question": "По-испански «no vi nada» — буквально «не видел ничего». Что это?",
+               "options": ["Логическая ошибка, которую испанский терпит",
+                           "Отрицательное согласование: отрицания СОГЛАСУЮТСЯ друг с другом — норма романских и славянских языков",
+                           "Сленг",
+                           "Только усиление"],
+               "fact": "Русский нанизывает три подряд — «никто никогда "
+                       "ничего» — и это хрестоматийная грамматика. "
+                       "Английский запретил двойное отрицание в XVIII веке "
+                       "по аналогии с математикой; Чосер и Шекспир "
+                       "пользовались им свободно."},
+        "ar": {"question": "تقول الإسبانية “no vi nada” — حرفيًا “لم أرَ لا شيء”. ما هذا؟",
+               "options": ["خطأ منطقي تتسامح فيه الإسبانية",
+                           "التطابق السلبي: أدوات النفي تتوافق بعضها مع بعض — وهو المعيار في الرومانسية والسلافية",
+                           "عامية",
+                           "توكيد فقط"],
+               "fact": "تكدّس الروسية ثلاثًا متتالية — nikto nikogda "
+                       "nichego — وهي قواعد الكتاب المدرسي. حظرت "
+                       "الإنجليزية النفي المزدوج في القرن الثامن عشر قياسًا "
+                       "على الرياضيات؛ وكان تشوسر وشكسبير يستعملانه "
+                       "بحرية."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "Which living language do historical linguists prize as closest to ancient Indo-European in sound?",
+               "options": ["Modern Greek", "Icelandic", "Lithuanian — its endings and accent preserve startling archaisms", "Welsh"],
+               "fact": "Lithuanian dievas “god” sits beside Sanskrit "
+                       "devas; whole case endings match forms "
+                       "reconstructed for five thousand years ago. The "
+                       "saying goes that a linguist wanting to hear "
+                       "Proto-Indo-European should listen to a Lithuanian "
+                       "farmer."},
+        "es": {"question": "¿Qué lengua viva aprecian los lingüistas históricos como la más cercana en sonido al indoeuropeo antiguo?",
+               "options": ["El griego moderno", "El islandés", "El lituano: sus terminaciones y su acento conservan arcaísmos asombrosos", "El galés"],
+               "fact": "El lituano dievas “dios” se sienta junto al "
+                       "sánscrito devas; terminaciones enteras coinciden "
+                       "con formas reconstruidas de hace cinco mil años. "
+                       "Dice el dicho que el lingüista que quiera oír "
+                       "protoindoeuropeo escuche a un campesino lituano."},
+        "fr": {"question": "Quelle langue vivante les linguistes historiques prisent-ils comme la plus proche, par ses sons, du vieil indo-européen ?",
+               "options": ["Le grec moderne", "L'islandais", "Le lituanien — ses désinences et son accent conservent des archaïsmes saisissants", "Le gallois"],
+               "fact": "Le lituanien dievas « dieu » siège à côté du "
+                       "sanskrit devas ; des désinences entières coïncident "
+                       "avec des formes reconstruites d'il y a cinq mille "
+                       "ans. Le dicton veut qu'un linguiste désireux "
+                       "d'entendre du proto-indo-européen écoute un paysan "
+                       "lituanien."},
+        "pt": {"question": "Que língua viva os linguistas históricos prezam como a mais próxima, no som, do indo-europeu antigo?",
+               "options": ["O grego moderno", "O islandês", "O lituano — as terminações e o acento preservam arcaísmos espantosos", "O galês"],
+               "fact": "O lituano dievas “deus” senta-se ao lado do "
+                       "sânscrito devas; terminações inteiras coincidem com "
+                       "formas reconstruídas de há cinco mil anos. Diz o "
+                       "ditado que um linguista que queira ouvir "
+                       "proto-indo-europeu escute um lavrador lituano."},
+        "ru": {"question": "Какой живой язык историческая лингвистика ценит как ближайший по звучанию к древнему индоевропейскому?",
+               "options": ["Новогреческий", "Исландский", "Литовский — его окончания и ударение хранят поразительные архаизмы", "Валлийский"],
+               "fact": "Литовское dievas «бог» стоит рядом с "
+                       "санскритским devas; целые падежные окончания "
+                       "совпадают с формами, восстановленными для "
+                       "пятитысячелетней давности. Поговорка велит "
+                       "лингвисту, желающему услышать праиндоевропейский, "
+                       "слушать литовского крестьянина."},
+        "ar": {"question": "أي لغة حية يُجلّها اللغويون التاريخيون بوصفها الأقرب صوتًا إلى الهندوأوروبية القديمة؟",
+               "options": ["اليونانية الحديثة", "الآيسلندية", "الليتوانية — نهاياتها ونبرها يحفظان عتائق مذهلة", "الويلزية"],
+               "fact": "الليتوانية dievas “إله” تجلس بجوار السنسكريتية "
+                       "devas؛ ونهايات إعراب كاملة تطابق صيغًا أُعيد "
+                       "بناؤها لما قبل خمسة آلاف سنة. ويقول المثل: من أراد "
+                       "من اللغويين سماع الهندوأوروبية الأم فليُنصت إلى "
+                       "فلاح ليتواني."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "Portuguese can conjugate an INFINITIVE: “para sairmos” — “for us-to-leave”. How rare is that?",
+               "options": ["Every Romance language does it",
+                           "Very rare — the “personal infinitive” is a signature of Portuguese and Galician",
+                           "Borrowed from Arabic",
+                           "It's a spelling convention"],
+               "fact": "The personal infinitive lets Portuguese pack "
+                       "“in order for us to leave” into two words while "
+                       "staying an infinitive — a construction grammarians "
+                       "cross oceans to admire. Hungarian, unrelated, "
+                       "arrived at a similar trick independently."},
+        "es": {"question": "El portugués puede conjugar un INFINITIVO: “para sairmos”, “para salir-nosotros”. ¿Qué tan raro es eso?",
+               "options": ["Todas las lenguas romances lo hacen",
+                           "Rarísimo: el “infinitivo personal” es seña de identidad del portugués y el gallego",
+                           "Se tomó del árabe",
+                           "Es una convención ortográfica"],
+               "fact": "El infinitivo personal permite al portugués meter "
+                       "“para que salgamos” en dos palabras sin dejar "
+                       "de ser infinitivo — una construcción que los "
+                       "gramáticos cruzan océanos para admirar. El húngaro, "
+                       "sin parentesco, llegó por su cuenta a un truco "
+                       "parecido."},
+        "fr": {"question": "Le portugais peut conjuguer un INFINITIF : « para sairmos » — « pour nous-partir ». À quel point est-ce rare ?",
+               "options": ["Toutes les langues romanes le font",
+                           "Très rare — l'« infinitif personnel » est une signature du portugais et du galicien",
+                           "C'est emprunté à l'arabe",
+                           "C'est une convention d'orthographe"],
+               "fact": "L'infinitif personnel permet au portugais de "
+                       "loger « pour que nous partions » en deux mots "
+                       "tout en restant à l'infinitif — une construction "
+                       "que les grammairiens traversent les océans pour "
+                       "admirer. Le hongrois, sans parenté, est arrivé "
+                       "seul à un tour semblable."},
+        "pt": {"question": "O português consegue conjugar um INFINITIVO: “para sairmos”. Quão raro é isso?",
+               "options": ["Todas as línguas românicas o fazem",
+                           "Raríssimo — o “infinitivo pessoal” é assinatura do português e do galego",
+                           "Foi emprestado do árabe",
+                           "É uma convenção ortográfica"],
+               "fact": "O infinitivo pessoal deixa o português meter "
+                       "“para que saiamos” em duas palavras sem deixar "
+                       "de ser infinitivo — uma construção que os "
+                       "gramáticos atravessam oceanos para admirar. O "
+                       "húngaro, sem parentesco nenhum, chegou sozinho a "
+                       "um truque parecido."},
+        "ru": {"question": "Португальский умеет спрягать ИНФИНИТИВ: «para sairmos» — «чтобы нам-уйти». Насколько это редкость?",
+               "options": ["Так делают все романские языки",
+                           "Большая редкость: «личный инфинитив» — фирменный знак португальского и галисийского",
+                           "Это заимствовано из арабского",
+                           "Это условность орфографии"],
+               "fact": "Личный инфинитив позволяет португальскому уложить "
+                       "«чтобы мы ушли» в два слова, оставаясь "
+                       "инфинитивом, — конструкция, ради которой грамматисты "
+                       "пересекают океаны. Венгерский, вовсе не родственный, "
+                       "самостоятельно пришёл к похожему фокусу."},
+        "ar": {"question": "تستطيع البرتغالية تصريف المصدر: “para sairmos” أي “لكي نغادر-نحن”. فما ندرة ذلك؟",
+               "options": ["كل اللغات الرومانسية تفعله",
+                           "نادر جدًا — “المصدر الشخصي” علامة مميزة للبرتغالية والجاليقية",
+                           "مستعار من العربية",
+                           "مجرد عرف إملائي"],
+               "fact": "يتيح المصدر الشخصي للبرتغالية حشر “لكي نغادر” "
+                       "في كلمتين مع بقائه مصدرًا — تركيبٌ يقطع النحاة "
+                       "المحيطات لإعجابهم به. والمجرية، ولا قرابة بينهما، "
+                       "بلغت حيلة مشابهة على حدة."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "In French, “les amis” sounds a z between the words that “les copains” doesn't. What is this?",
+               "options": ["Liaison: a normally silent final consonant surfaces before a vowel",
+                           "A spelling mistake in speech",
+                           "An accent feature of Paris only",
+                           "Random variation"],
+               "fact": "The z of les was always there in writing, silent "
+                       "until a vowel wakes it. Liaison even carries "
+                       "grammar: petit ami with the t sounded is "
+                       "“boyfriend”, not just any small friend."},
+        "es": {"question": "En francés, “les amis” hace sonar una z entre las palabras que “les copains” no tiene. ¿Qué es esto?",
+               "options": ["La liaison: una consonante final normalmente muda aflora ante vocal",
+                           "Un error ortográfico al hablar",
+                           "Un rasgo del acento de París solamente",
+                           "Variación aleatoria"],
+               "fact": "La z de les siempre estuvo en la escritura, muda "
+                       "hasta que una vocal la despierta. La liaison hasta "
+                       "acarrea gramática: petit ami con la t sonada es "
+                       "“novio”, no cualquier amigo pequeño."},
+        "fr": {"question": "En français, « les amis » fait sonner un z entre les mots que « les copains » n'a pas. Qu'est-ce que c'est ?",
+               "options": ["La liaison : une consonne finale normalement muette refait surface devant une voyelle",
+                           "Une faute d'orthographe à l'oral",
+                           "Un trait de l'accent parisien seulement",
+                           "Une variation aléatoire"],
+               "fact": "Le z de « les » a toujours été là à l'écrit, "
+                       "muet jusqu'à ce qu'une voyelle le réveille. La "
+                       "liaison porte même de la grammaire : « petit "
+                       "ami » avec le t sonné, c'est l'amoureux — pas "
+                       "n'importe quel petit copain."},
+        "pt": {"question": "Em francês, “les amis” faz soar um z entre as palavras que “les copains” não tem. O que é isto?",
+               "options": ["A liaison: uma consoante final normalmente muda vem à tona antes de vogal",
+                           "Um erro ortográfico na fala",
+                           "Um traço do sotaque de Paris apenas",
+                           "Variação aleatória"],
+               "fact": "O z de les sempre esteve na escrita, mudo até uma "
+                       "vogal o acordar. A liaison até carrega gramática: "
+                       "petit ami com o t soado é “namorado”, não um "
+                       "amigo pequeno qualquer."},
+        "ru": {"question": "Во французском в «les amis» между словами звучит z, которого нет в «les copains». Что это?",
+               "options": ["Лиэзон: обычно немой конечный согласный всплывает перед гласным",
+                           "Орфографическая ошибка в речи",
+                           "Черта только парижского выговора",
+                           "Случайное колебание"],
+               "fact": "Буква z в les всегда была на письме — немая, пока "
+                       "её не разбудит гласный. Лиэзон несёт даже "
+                       "грамматику: petit ami с озвученным t — это "
+                       "«возлюбленный», а не просто маленький друг."},
+        "ar": {"question": "في الفرنسية تُسمَع زاي بين كلمتي “les amis” لا وجود لها في “les copains”. ما هذا؟",
+               "options": ["الوصل: صامت أخير صامتٌ عادةً يطفو قبل الصائت",
+                           "خطأ إملائي في الكلام",
+                           "سمة لهجة باريس وحدها",
+                           "تنوع عشوائي"],
+               "fact": "زاي les كانت في الكتابة دومًا، صامتةً حتى يوقظها "
+                       "صائت. بل يحمل الوصل قواعدَ: petit ami بتاء مسموعة "
+                       "تعني “الحبيب” لا أيَّ صديق صغير."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "“Do you like it?” — what is odd, cross-linguistically, about that little “do”?",
+               "options": ["Nothing; most languages have one",
+                           "It is a politeness marker",
+                           "Almost NO other language needs a dummy verb to ask or negate — English do-support is a genuine rarity",
+                           "It was borrowed from Latin"],
+               "fact": "Other Germanic languages just flip: "
+                       "“Magst du…?”. Learners' “Like you it?” is "
+                       "perfectly good German, Dutch and Old English "
+                       "grammar — the odd one out here is modern English "
+                       "itself."},
+        "es": {"question": "“Do you like it?” — ¿qué tiene de raro, entre las lenguas, ese pequeño “do”?",
+               "options": ["Nada; casi todas las lenguas tienen uno",
+                           "Es una marca de cortesía",
+                           "Casi NINGUNA otra lengua necesita un verbo comodín para preguntar o negar: el do inglés es una verdadera rareza",
+                           "Se tomó del latín"],
+               "fact": "Las demás lenguas germánicas simplemente "
+                       "invierten: “Magst du…?”. El “Like you "
+                       "it?” del aprendiz es gramática perfecta en "
+                       "alemán, neerlandés e inglés antiguo — aquí el raro "
+                       "es el inglés moderno."},
+        "fr": {"question": "« Do you like it? » — qu'a-t-il d'étrange, entre les langues, ce petit « do » ?",
+               "options": ["Rien ; la plupart des langues en ont un",
+                           "C'est une marque de politesse",
+                           "Presque AUCUNE autre langue n'a besoin d'un verbe béquille pour interroger ou nier — le do anglais est une vraie rareté",
+                           "Il fut emprunté au latin"],
+               "fact": "Les autres langues germaniques se contentent "
+                       "d'inverser : « Magst du…? ». Le « Like you "
+                       "it? » de l'apprenant est une grammaire parfaite "
+                       "en allemand, en néerlandais et en vieil anglais — "
+                       "l'étrange, ici, c'est l'anglais moderne lui-même."},
+        "pt": {"question": "“Do you like it?” — o que tem de estranho, entre as línguas, aquele pequeno “do”?",
+               "options": ["Nada; a maioria das línguas tem um",
+                           "É uma marca de cortesia",
+                           "Quase NENHUMA outra língua precisa de um verbo fantoche para perguntar ou negar — o do inglês é uma raridade genuína",
+                           "Foi emprestado do latim"],
+               "fact": "As outras línguas germânicas simplesmente "
+                       "invertem: “Magst du…?”. O “Like you it?” "
+                       "do aprendente é gramática perfeita em alemão, "
+                       "neerlandês e inglês antigo — o esquisito aqui é o "
+                       "próprio inglês moderno."},
+        "ru": {"question": "«Do you like it?» — что странного, по меркам языков мира, в этом маленьком «do»?",
+               "options": ["Ничего, такой есть почти везде",
+                           "Это показатель вежливости",
+                           "Почти НИ одному другому языку не нужен глагол-пустышка для вопроса и отрицания — английское do-support настоящая редкость",
+                           "Оно заимствовано из латыни"],
+               "fact": "Другие германские языки просто переставляют: "
+                       "«Magst du…?». Ученическое «Like you it?» — "
+                       "безупречная грамматика немецкого, нидерландского и "
+                       "древнеанглийского. Странный здесь — сам "
+                       "современный английский."},
+        "ar": {"question": "“Do you like it?” — ما الغريب، بمقياس اللغات، في كلمة “do” الصغيرة هذه؟",
+               "options": ["لا شيء؛ لمعظم اللغات مثلها",
+                           "إنها علامة تهذيب",
+                           "لا تكاد لغة أخرى تحتاج فعلًا زائفًا للسؤال والنفي — فـdo الإنجليزية ندرة حقيقية",
+                           "استُعيرت من اللاتينية"],
+               "fact": "سائر الجرمانية تكتفي بالقلب: “Magst du…?”. "
+                       "وجملة المتعلم “Like you it?” قواعدُ سليمة تمامًا "
+                       "في الألمانية والهولندية والإنجليزية القديمة — الشاذ "
+                       "هنا هو الإنجليزية الحديثة نفسها."},
+    },
 ]
 
 

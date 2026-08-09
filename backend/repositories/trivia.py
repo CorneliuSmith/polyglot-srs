@@ -31,6 +31,23 @@ from backend.services.auto_translate import table_present
 LOW_WATER = 8
 TOP_UP_BATCH = 15
 
+# How large the bank should GROW per locale, given a provider — the owner's
+# floor ("at least 200 questions"). The written baseline guarantees the
+# first 120 with no key at all; the generator, handed the existing
+# questions as its avoid-list, widens the rest natively in each locale in
+# the background. A floor, not a ceiling: LOW_WATER keeps topping up for a
+# heavy player who reads past it.
+BANK_FLOOR = 200
+
+
+async def bank_size(conn: asyncpg.Connection, locale: str) -> int:
+    """How many questions the bank holds for *locale*, seen or not."""
+    if not locale or not await table_present(conn, "language_trivia"):
+        return 0
+    return int(await conn.fetchval(
+        "SELECT count(*) FROM language_trivia WHERE locale = $1", locale,
+    ) or 0)
+
 
 async def unseen_trivia(
     conn: asyncpg.Connection, user_id: str, locale: str, limit: int = 10,
