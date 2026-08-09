@@ -294,3 +294,52 @@ async def test_a_fully_read_bank_reserves_the_longest_ago_question(client):
     # The in-memory fallback is for a bank that cannot be READ — not for a
     # bank that was read to the end.
     offline.assert_not_called()
+
+
+@pytest.mark.asyncio
+async def test_a_bank_under_its_floor_grows_even_for_a_fresh_learner(client):
+    """The owner's floor: 200 questions per locale. A learner with plenty
+    of unseen questions used to mean no growth at all — the personal
+    LOW_WATER was the only trigger — so the bank could idle at the written
+    baseline forever. Now the corpus itself is a reason to grow."""
+    conn = _conn_returning("es")
+    served = [{"id": "t1", "question": "q", "options": ["a", "b"],
+               "answer_index": 0, "fact": "f"}]
+
+    async def _noop() -> None:
+        return None
+
+    top_up = MagicMock(side_effect=lambda _locale: _noop())
+    rls, priv = _patch_pools(conn)
+    with rls, priv, \
+        patch("backend.routers.review.unseen_trivia", new=AsyncMock(return_value=served)), \
+        patch("backend.routers.review.count_unseen", new=AsyncMock(return_value=90)), \
+        patch("backend.routers.review.translations_available", return_value=True), \
+        patch("backend.routers.review._bank_below_floor",
+              new=AsyncMock(return_value=True)), \
+        patch("backend.routers.review._locale_has_pending_translations",
+              new=AsyncMock(return_value=False)), \
+        patch("backend.routers.review._top_up_trivia", top_up):
+        resp = client.get("/api/review/trivia", headers=_auth_headers())
+
+    assert resp.status_code == 200
+    top_up.assert_called_once_with("es")
+
+
+@pytest.mark.asyncio
+async def test_a_bank_at_its_floor_stops_spending(client):
+    conn = _conn_returning("fr")
+    served = [{"id": "t1", "question": "q", "options": ["a", "b"],
+               "answer_index": 0, "fact": "f"}]
+    top_up = MagicMock()
+    rls, priv = _patch_pools(conn)
+    with rls, priv, \
+        patch("backend.routers.review.unseen_trivia", new=AsyncMock(return_value=served)), \
+        patch("backend.routers.review.count_unseen", new=AsyncMock(return_value=90)), \
+        patch("backend.routers.review.translations_available", return_value=True), \
+        patch("backend.routers.review._bank_below_floor",
+              new=AsyncMock(return_value=False)), \
+        patch("backend.routers.review._top_up_trivia", top_up):
+        client.get("/api/review/trivia", headers=_auth_headers())
+
+    top_up.assert_not_called()
