@@ -151,13 +151,14 @@ export default function TranslationStatusPanel() {
       {data.switched_off.length > 0 && (
         <div>
           <p className="text-xs font-semibold text-amber-700">
-            Learners waiting on a switched-off course
+            Courses off the full backlog fill
           </p>
           <ul className="mt-0.5 space-y-0.5">
             {data.switched_off.map((o) => (
               <li key={`${o.code}-${o.locale}`} className="text-[11px] text-gray-500">
                 {o.language} → {o.locale} · {o.learners} learner
-                {o.learners === 1 ? '' : 's'} — turn Auto-translate on above
+                {o.learners === 1 ? '' : 's'} — demand and a starter corpus
+                still fill; turn Auto-translate on to drain the whole backlog
               </li>
             ))}
           </ul>

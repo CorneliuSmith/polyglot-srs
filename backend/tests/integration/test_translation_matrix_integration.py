@@ -56,6 +56,27 @@ async def _quiet_after(pool):
         await conn.execute("UPDATE languages SET auto_translate_enabled = false")
 
 
+@pytest.fixture(autouse=True)
+async def _yesterdays_learners_rest(pool):
+    """Each test speaks for its own learners only.
+
+    Profiles left behind by earlier tests read as "recent activity", which
+    makes their switched-off courses baseline pairs — silently competing
+    for the same per-cycle budget the current test is asserting on. Put
+    them outside the activity window; the test about to run creates its own
+    fresh (and therefore active) learner."""
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "UPDATE user_profiles SET updated_at = now() - interval '60 days'")
+        # Demand the OTHER integration file left half-finished (the dev mock
+        # rejects the first item of every batch, so some rows never settle).
+        # Demand now outranks the toggle, so those stale rows would spend
+        # this test's cycle budget before the pair under test sees any.
+        await conn.execute("DELETE FROM translation_demand")
+        await conn.execute("DELETE FROM translation_attempts")
+    yield
+
+
 async def _course_and_learner(
     pool, code: str, locale: str, *, auto: bool = True,
     locale_is_a_language: bool = True,
@@ -191,13 +212,88 @@ async def test_every_support_locale_is_a_live_pair(pool, locale):
 
 
 async def test_a_switched_off_course_says_so(pool):
-    """The most common cause of "I turned it on and nothing happened" is
-    that it was turned on for a DIFFERENT course. That must be reportable,
-    not guessable."""
+    """The toggle now governs the backlog, not the learner — but "the
+    backlog will not drain" is still a real answer to "why is most of this
+    course still English", so the diagnosis keeps naming it."""
     course, _ = await _course_and_learner(pool, "mxoff", "es", auto=False)
     async with pool.privileged_connection() as conn:
         why = await diagnose_pair(conn, course, "es")
     assert "switched_off" in why["blockers"], why
+
+
+async def test_a_switched_off_course_still_serves_a_waiting_learner(pool):
+    """The production bug, pinned: most courses ship with auto-translate
+    OFF, and the demand lane used to filter on that toggle — so every
+    language change sat at "0 of 3 cards ready" forever while the loop
+    reported itself healthy. A learner on the wait screen outranks the
+    toggle; the wait must converge exactly as it does for an enabled
+    course."""
+    course, uid = await _course_and_learner(pool, "mxoffgo", "fr", auto=False)
+    state, ready = await _run_until_ready(pool, uid, course)
+    assert ready, f"switched-off course never became startable: {state['learn']}"
+
+
+async def test_a_switched_off_course_in_use_gets_a_starter_corpus(pool):
+    """The baseline lane: recent real accounts on a switched-off course buy
+    it a usage-scaled starter corpus WITHOUT anyone sitting on the wait
+    screen — the course fills before the learner asks, not after."""
+    from backend.services.auto_translate import baseline_pairs
+
+    course, _uid = await _course_and_learner(pool, "mxbase", "pt", auto=False)
+    async with pool.privileged_connection() as conn:
+        pairs = await baseline_pairs(conn)
+        assert any(str(p["language_id"]) == course and p["locale"] == "pt"
+                   for p in pairs), "an in-use switched-off course is not a baseline pair"
+        await run_translation_cycle(conn)
+        got = await conn.fetchval(
+            """SELECT count(*) FROM translations t
+                 JOIN vocabulary v ON v.id = t.vocabulary_id
+                WHERE v.language_id = $1 AND t.locale = 'pt'""", course)
+    assert int(got) > 0, "no starter corpus was bought for an in-use course"
+
+
+async def test_an_abandoned_switched_off_course_costs_nothing(pool):
+    """The other half of the baseline contract: the spend follows the
+    people. A pair whose learners have not been seen inside the activity
+    window gets no starter corpus at all."""
+    from backend.services.auto_translate import baseline_pairs
+
+    course, uid = await _course_and_learner(pool, "mxgone", "ru", auto=False)
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "UPDATE user_profiles SET updated_at = now() - interval '60 days' "
+            "WHERE id = $1", uid)
+        pairs = await baseline_pairs(conn)
+        assert not any(str(p["language_id"]) == course and p["locale"] == "ru"
+                       for p in pairs), "an abandoned pair is still being paid for"
+        await run_translation_cycle(conn)
+        got = await conn.fetchval(
+            """SELECT count(*) FROM translations t
+                 JOIN vocabulary v ON v.id = t.vocabulary_id
+                WHERE v.language_id = $1 AND t.locale = 'ru'""", course)
+    assert int(got) == 0, f"an abandoned pair got {got} translations"
+
+
+async def test_the_starter_corpus_stops_at_its_ceiling(pool, monkeypatch):
+    """The baseline is a starter, not a drain the admin cannot switch off.
+    Once the pair holds its usage-scaled share, further cycles buy nothing
+    more for it."""
+    import backend.services.auto_translate as at
+
+    monkeypatch.setattr(at, "BASELINE_WORDS_PER_ACTIVE_LEARNER", 2)
+    monkeypatch.setattr(at, "BASELINE_WORDS_MAX", 2)
+    course, _uid = await _course_and_learner(pool, "mxceil", "ar", auto=False)
+    async with pool.privileged_connection() as conn:
+        for _ in range(3):
+            await run_translation_cycle(conn)
+            await conn.execute(
+                "UPDATE translation_attempts SET last_attempt_at = "
+                "now() - interval '2 days'")
+        got = await conn.fetchval(
+            """SELECT count(*) FROM translations t
+                 JOIN vocabulary v ON v.id = t.vocabulary_id
+                WHERE v.language_id = $1 AND t.locale = 'ar'""", course)
+    assert int(got) <= 2, f"the ceiling did not hold: {got} translations bought"
 
 
 async def test_a_locale_missing_from_languages_says_so(pool):

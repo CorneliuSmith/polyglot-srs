@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { Trans, useTranslation } from 'react-i18next'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   confirmLearnSession,
@@ -320,6 +320,14 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
         </div>
       </div>
     )
+  }
+
+  // No active language means no query will ever run: every hook above is
+  // `enabled: !!activeLanguageId`, so without the redirect this page sits
+  // on "preparing…" forever with nothing to press. Reached by a direct
+  // /learn link or restored tab after prefs were cleared.
+  if (!activeLanguageId) {
+    return <Navigate to="/" replace />
   }
 
   if (!learnQuery.isSuccess) {

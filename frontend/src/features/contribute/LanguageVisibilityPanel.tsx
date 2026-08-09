@@ -90,10 +90,12 @@ export default function LanguageVisibilityPanel() {
         <p className="text-xs text-gray-500">
           Hidden languages stay out of onboarding and the language picker for
           everyone else — nothing is deleted. Click a name to switch your own
-          active language there, hidden or not. Auto-translate fills missing
-          translations in learners&apos; own languages for that course — only
-          for language pairs real accounts use, with rejects going to the
-          review queue.
+          active language there, hidden or not. Learners are always served:
+          whatever a learner is waiting on translates regardless of the
+          toggle, and a course in real recent use gets a starter corpus
+          scaled by its active learners. Auto-translate opts the course into
+          the <em>full</em> backlog fill on top of that; rejects go to the
+          review queue either way.
         </p>
       </div>
       <div className="divide-y divide-gray-100">
@@ -134,7 +136,7 @@ export default function LanguageVisibilityPanel() {
                 )}
                 <label
                   className="flex items-center gap-2 text-xs text-gray-500"
-                  title="Fill missing translations in learners' own languages automatically — only for language pairs real accounts use. Rejected translations go to the review queue, and it never draws on a learner's usage allowance."
+                  title="Opt this course into the FULL backlog fill. Off still serves learners: what they wait on translates on demand, and recent real use buys a usage-scaled starter corpus. Rejects go to the review queue either way; no learner allowance is drawn."
                 >
                   Auto-translate
                   <input
