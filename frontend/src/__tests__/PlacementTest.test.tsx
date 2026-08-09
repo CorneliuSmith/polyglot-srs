@@ -266,6 +266,18 @@ describe('PlacementTest input method', () => {
     await waitFor(() =>
       expect((screen.getByLabelText('water') as HTMLInputElement).value).toContain('\u0628'),
     )
+    // Then let go \u2014 after the assertion, not before. simple-keyboard arms a
+    // hold-to-repeat timer on mousedown and cancels it on mouseup, and a
+    // press that is never released leaves that timer running: it fires
+    // ~500ms later, after the test has passed and jsdom has been torn down,
+    // so the repeat reaches React in a world with no `window` and vitest
+    // fails the whole RUN rather than the test. Green on the pull request
+    // twice, red on main.
+    //
+    // Releasing BEFORE the assertion doesn't work: the press itself is
+    // delivered on a timer too, and mouseup cancels that as well, so the
+    // key never lands at all.
+    fireEvent.mouseUp(key)
   })
 })
 
