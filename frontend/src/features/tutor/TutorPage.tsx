@@ -621,7 +621,27 @@ export default function TutorPage() {
           </div>
         ) : (
           <form
-            className="flex gap-2"
+            /* Pinned to the bottom of the viewport, not to the bottom of the
+             * page. The column is `min-h-screen`, so it has no ceiling: the
+             * message list is `flex-1 overflow-y-auto` but nothing constrains
+             * its height, so it grows with the conversation instead of
+             * scrolling inside itself, the document grows past the viewport,
+             * and this box gets pushed under the fold. Reported as "the entry
+             * bar is at the bottom of the screen and sometimes hidden because
+             * you need to scroll down but don't know that" — the worst kind
+             * of missing control, because nothing on screen suggests there is
+             * anywhere to scroll to.
+             *
+             * `sticky bottom-0` rather than giving the column a fixed height:
+             * StaffBar renders as a SIBLING above this page in ProtectedRoute,
+             * so an `h-screen` here would be a full viewport BELOW that bar
+             * and would push the composer under the fold by exactly the bar's
+             * height — for staff only, which is who reported it. Sticky needs
+             * no such arithmetic and is right whatever sits above.
+             *
+             * The background is opaque on purpose: messages scroll underneath
+             * this, and a transparent bar would let them read through it. */
+            className="sticky bottom-0 z-10 flex gap-2 bg-gray-50 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]"
             onSubmit={(e) => {
               e.preventDefault()
               handleSend()
