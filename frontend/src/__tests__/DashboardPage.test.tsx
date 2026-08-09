@@ -238,6 +238,12 @@ describe('Dashboard tiles', () => {
     ])
   })
 
+  it('the header account symbol opens Account in one tap', async () => {
+    renderDashboard()
+    fireEvent.click(await screen.findByTestId('header-account'))
+    expect(mockNavigate).toHaveBeenCalledWith('/account')
+  })
+
   it('the Learn tile draws from the whole queue (unscoped) so the backend round-robins', async () => {
     renderDashboard()
     fireEvent.click(

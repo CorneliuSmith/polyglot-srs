@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-import { Globe2, Languages } from 'lucide-react'
+import { CircleUserRound, Globe2, Languages, Layers, Search } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { getLanguages } from '../../api/profile'
 import { getMyRoles } from '../../api/contribute'
@@ -118,17 +118,22 @@ export default function MorePage() {
           <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
             {t('nav.more')}
           </h2>
+          {/* Icons for the destination rows too — Account especially was
+              the last text-only entry while every feature row had one. */}
           <Row
+            icon={Layers}
             title={t('nav.decks')}
             onClick={() => navigate('/decks')}
             testId="row-decks"
           />
           <Row
+            icon={Search}
             title={t('nav.search')}
             onClick={() => navigate('/search')}
             testId="row-search"
           />
           <Row
+            icon={CircleUserRound}
             title={t('nav.account')}
             onClick={() => navigate('/account')}
             testId="row-account"
