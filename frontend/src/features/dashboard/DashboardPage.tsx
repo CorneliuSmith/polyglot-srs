@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Bell, Menu } from 'lucide-react'
+import { Bell, CircleUserRound, Menu } from 'lucide-react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
@@ -359,6 +359,19 @@ export default function DashboardPage() {
             {/* Utility cluster, set apart from navigation: announcements
                 and the tour are ABOUT the app, not places in it. */}
             <span aria-hidden className="hidden md:block h-4 w-px bg-gray-200" />
+            {/* Account as a one-tap symbol (owner): it was reachable only
+                through the mobile menu or the More section — the last
+                text-only destination while everything else got an icon. */}
+            <button
+              type="button"
+              data-testid="header-account"
+              onClick={() => navigate('/account')}
+              aria-label={t('nav.account')}
+              title={t('nav.account')}
+              className="w-9 h-9 md:w-7 md:h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-400 hover:text-lang hover:border-lang/40"
+            >
+              <CircleUserRound aria-hidden className="h-4 w-4 md:h-3.5 md:w-3.5" />
+            </button>
             <UiLanguageSwitcher />
             <button
               type="button"
