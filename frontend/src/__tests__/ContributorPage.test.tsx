@@ -11,6 +11,12 @@ vi.mock('../api/contribute', () => ({
   listAccounts: vi.fn(() => Promise.resolve([])),
   deleteAccount: vi.fn(),
   overridePlan: vi.fn(),
+  setAccountPrice: vi.fn(() => Promise.resolve()),
+  listTrialRequests: vi.fn(() =>
+    Promise.resolve({ requests: [], available: true }),
+  ),
+  approveTrialRequest: vi.fn(),
+  rejectTrialRequest: vi.fn(),
   getTranslationReviews: vi.fn(() => Promise.resolve([])),
   getTranslationStatus: vi.fn(() =>
     Promise.resolve({

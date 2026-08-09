@@ -17,6 +17,13 @@ export default function ProtectedRoute() {
 
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated)()
   const loading = useAuthStore((s) => s.loading)
+  // Trial accounts are minted with a TEMPORARY password and this metadata
+  // flag; nothing in the app is reachable until they choose their own.
+  // Cleared by ResetPasswordPage in the same updateUser call that sets the
+  // new password.
+  const mustChangePassword = useAuthStore(
+    (s) => s.session?.user?.user_metadata?.must_change_password === true,
+  )
 
   if (loading) {
     return (
@@ -31,6 +38,10 @@ export default function ProtectedRoute() {
 
   if (!isAuthenticated) {
     return <Navigate to="/login" replace />
+  }
+
+  if (mustChangePassword) {
+    return <Navigate to="/reset-password" replace />
   }
 
   // Staff chrome (Review Mode + the admin "view as" switcher) above every

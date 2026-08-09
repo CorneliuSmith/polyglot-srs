@@ -7,8 +7,10 @@ caller's role is verified for the target language.
 
 from __future__ import annotations
 
+import html
 import logging
 import re
+import secrets
 import uuid
 from datetime import UTC, datetime, timedelta
 
@@ -121,6 +123,12 @@ from backend.repositories.languages import (
     set_language_visibility,
 )
 from backend.repositories.pool import privileged_connection, rls_connection
+from backend.repositories.trials import (
+    get_trial_request,
+    list_trial_requests,
+    mark_trial_decided,
+    trials_table_present,
+)
 from backend.repositories.tutor import (
     PLAN_TIERS,
     aggregate_tutor_usage,
@@ -130,6 +138,7 @@ from backend.repositories.tutor import (
 )
 from backend.services.allowance import effective_plan_limits
 from backend.services.drills import validate_drill
+from backend.services.email import send_email
 from backend.services.generate import generation_available
 from backend.services.generation_admin import (
     MAX_ITEMS_PER_RUN,
@@ -2507,6 +2516,98 @@ async def override_plan(
     if not ok:
         raise HTTPException(status_code=404, detail="Account not found")
     return {"plan_scope": body.plan_scope}
+
+
+@router.get("/trial-requests")
+async def trial_requests(user: dict = Depends(get_current_user)):
+    """The trial-access queue (admin-only). available=False before the
+    migration lands, so the panel can say so instead of showing an
+    eternally empty list."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        if not await trials_table_present(conn):
+            return {"requests": [], "available": False}
+        return {"requests": await list_trial_requests(conn), "available": True}
+
+
+@router.post("/trial-requests/{request_id}/approve")
+async def approve_trial_request(
+    request_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Approve a trial request (admin-only): mint the account with a
+    TEMPORARY password, flag it must_change_password (enforced by the app
+    on first sign-in), email the applicant, record the decision.
+
+    The temp password is also returned to the panel — email is log-only
+    until Resend is configured, and an approval whose password nobody can
+    read helps no one. It's shown once, like the invite flow's.
+    """
+    await _require_admin(user["id"])
+    temp_password = secrets.token_urlsafe(9)
+    async with privileged_connection() as conn:
+        if not await trials_table_present(conn):
+            raise HTTPException(status_code=404, detail="Request not found")
+        req = await get_trial_request(conn, request_id)
+        if req is None:
+            raise HTTPException(status_code=404, detail="Request not found")
+        if req["status"] != "pending":
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail=f"This request was already {req['status']}.",
+            )
+        try:
+            uid = await create_auth_user(
+                conn, req["email"], temp_password,
+                user_meta={"must_change_password": True},
+            )
+        except ValueError:
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail="An account with that email already exists.",
+            ) from None
+        await mark_trial_decided(conn, request_id, "approved", user["id"])
+
+    from backend.config import get_settings
+    base = get_settings().app_base_url.rstrip("/")
+    emailed = await send_email(
+        req["email"],
+        "Your PolyglotSRS trial is ready",
+        "<p>Your trial access was approved. Sign in with:</p>"
+        f"<p>Email: <strong>{html.escape(req['email'])}</strong><br>"
+        f"Temporary password: <strong>{html.escape(temp_password)}</strong></p>"
+        f'<p><a href="{html.escape(base)}/login">Sign in</a> — you\'ll be '
+        "asked to choose your own password first thing.</p>",
+    )
+    return {
+        "email": req["email"],
+        "user_id": uid,
+        "temp_password": temp_password,
+        "emailed": emailed,
+    }
+
+
+@router.post("/trial-requests/{request_id}/reject")
+async def reject_trial_request(
+    request_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Reject a trial request (admin-only). No email — silence is kinder
+    than an automated no, and the owner can always write one by hand."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        if not await trials_table_present(conn):
+            raise HTTPException(status_code=404, detail="Request not found")
+        req = await get_trial_request(conn, request_id)
+        if req is None:
+            raise HTTPException(status_code=404, detail="Request not found")
+        if req["status"] != "pending":
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail=f"This request was already {req['status']}.",
+            )
+        await mark_trial_decided(conn, request_id, "rejected", user["id"])
+    return {"email": req["email"], "status": "rejected"}
 
 
 class AccountPrice(BaseModel):

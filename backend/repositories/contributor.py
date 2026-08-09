@@ -2319,9 +2319,15 @@ async def set_account_plan(
 
 
 async def create_auth_user(
-    conn: asyncpg.Connection, email: str, password: str
+    conn: asyncpg.Connection, email: str, password: str,
+    user_meta: dict | None = None,
 ) -> str:
     """Create a confirmed email+password auth account via SQL (privileged).
+
+    user_meta lands in raw_user_meta_data, which GoTrue serves as the JWT's
+    user_metadata — the seam the trial flow uses for its
+    must_change_password flag (rides in every session, cleared client-side
+    via auth.updateUser, no profile column or migration involved).
 
     Fallback for when the GoTrue admin HTTP API is unreachable from the
     server (the deploy's egress to *.supabase.co hangs while the database
@@ -2355,10 +2361,10 @@ async def create_auth_user(
                      -- both candidate schemas in scope.
                      crypt($2, gen_salt('bf')),
                      now(), '{"provider": "email", "providers": ["email"]}',
-                     '{}', now(), now(), '', '', '', '')
+                     $3::jsonb, now(), now(), '', '', '', '')
                 RETURNING id
                 """,
-                email, password,
+                email, password, json.dumps(user_meta or {}),
             )
             uid = str(row["id"])
             await conn.execute(

@@ -616,6 +616,47 @@ export async function setTutorAccess(
   })
 }
 
+export interface TrialRequestRow {
+  id: string
+  email: string
+  name: string | null
+  note: string | null
+  status: 'pending' | 'approved' | 'rejected'
+  requested_at: string
+  decided_at: string | null
+}
+
+export async function listTrialRequests(): Promise<{
+  requests: TrialRequestRow[]
+  available: boolean
+}> {
+  const response = await apiClient.get<{
+    requests: TrialRequestRow[]
+    available: boolean
+  }>('/api/contribute/trial-requests')
+  return response.data
+}
+
+/** Approve: mints the account with a temp password (forced reset on first
+ * sign-in) and emails the applicant. The password comes back for the panel
+ * to show once — email is log-only until Resend is configured. */
+export async function approveTrialRequest(requestId: string): Promise<{
+  email: string
+  temp_password: string
+  emailed: boolean
+}> {
+  const response = await apiClient.post<{
+    email: string
+    temp_password: string
+    emailed: boolean
+  }>(`/api/contribute/trial-requests/${requestId}/approve`)
+  return response.data
+}
+
+export async function rejectTrialRequest(requestId: string): Promise<void> {
+  await apiClient.post(`/api/contribute/trial-requests/${requestId}/reject`)
+}
+
 /** Set (or with null, clear) the account's monthly charge in cents.
  * Checkout charges this amount via Stripe price_data; 0 = free. */
 export async function setAccountPrice(

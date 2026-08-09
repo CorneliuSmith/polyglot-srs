@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Navigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { requestTrial } from '../../api/trial'
 import { supabase } from '../../lib/supabase'
 import { useAuthStore } from '../../stores/authStore'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
@@ -25,6 +26,34 @@ export default function LoginPage() {
   // Forgot-password mode: same email field, no password — sends the
   // recovery link that lands on /reset-password.
   const [resetMode, setResetMode] = useState(false)
+  // Trial-request mode: the invite-only beta's front door. Same email
+  // field, an optional note, no password — the admin approves from the
+  // panel and the applicant gets a temporary password by email.
+  const [trialMode, setTrialMode] = useState(false)
+  const [trialName, setTrialName] = useState('')
+  const [trialNote, setTrialNote] = useState('')
+
+  async function handleTrialRequest(e: React.FormEvent) {
+    e.preventDefault()
+    setError(null)
+    setMessage(null)
+    setLoading(true)
+    try {
+      await requestTrial(email, trialName, trialNote)
+      setMessage(
+        'Request received! If it’s approved you’ll get an email with a ' +
+          'temporary password.',
+      )
+      setTrialName('')
+      setTrialNote('')
+    } catch (err) {
+      const detail = (err as { response?: { data?: { detail?: string } } })
+        ?.response?.data?.detail
+      setError(detail ?? 'Could not send the request — try again in a moment.')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   async function handleResetRequest(e: React.FormEvent) {
     e.preventDefault()
@@ -102,13 +131,13 @@ export default function LoginPage() {
         <h1 className="text-2xl font-bold text-center mb-6 text-gray-900">
           Polyglot SRS
         </h1>
-        {INVITE_ONLY && !resetMode && (
+        {INVITE_ONLY && !resetMode && !trialMode && (
           <p className="text-sm text-gray-500 mb-4">{t('login.privateBeta')}</p>
         )}
 
         {/* Tabs — hidden entirely in invite-only beta (accounts are
             created by the admin; Supabase-side signup is disabled too) */}
-        {!resetMode && !INVITE_ONLY && (
+        {!resetMode && !trialMode && !INVITE_ONLY && (
         <div className="flex rounded-lg overflow-hidden border border-gray-200 mb-6">
           <button
             type="button"
@@ -141,9 +170,22 @@ export default function LoginPage() {
           <p className="text-sm text-gray-600 mb-4">{t('login.resetIntro')}</p>
         )}
 
+        {trialMode && (
+          <p className="text-sm text-gray-600 mb-4">
+            Ask for trial access — if it’s approved you’ll get an email with
+            a temporary password to sign in with.
+          </p>
+        )}
+
         {/* Email/Password form */}
         <form
-          onSubmit={resetMode ? handleResetRequest : handleEmailAuth}
+          onSubmit={
+            resetMode
+              ? handleResetRequest
+              : trialMode
+                ? handleTrialRequest
+                : handleEmailAuth
+          }
           className="space-y-4"
         >
           <div>
@@ -163,7 +205,46 @@ export default function LoginPage() {
             />
           </div>
 
-          {!resetMode && (
+          {trialMode && (
+            <>
+              <div>
+                <label
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                  htmlFor="trial-name"
+                >
+                  Name (optional)
+                </label>
+                <input
+                  id="trial-name"
+                  type="text"
+                  value={trialName}
+                  onChange={(e) => setTrialName(e.target.value)}
+                  maxLength={100}
+                  className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-lang focus:border-transparent"
+                  style={{ minHeight: '44px' }}
+                  autoComplete="name"
+                />
+              </div>
+              <div>
+                <label
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                  htmlFor="trial-note"
+                >
+                  What would you like to learn? (optional)
+                </label>
+                <textarea
+                  id="trial-note"
+                  value={trialNote}
+                  onChange={(e) => setTrialNote(e.target.value)}
+                  maxLength={500}
+                  rows={2}
+                  className="w-full rounded-lg border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-lang focus:border-transparent"
+                />
+              </div>
+            </>
+          )}
+
+          {!resetMode && !trialMode && (
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="password">
               {t('login.password')}
@@ -200,35 +281,51 @@ export default function LoginPage() {
               ? t('login.loading')
               : resetMode
                 ? t('login.sendResetLink')
-                : tab === 'signin'
-                  ? t('login.signIn')
-                  : t('login.createAccount')}
+                : trialMode
+                  ? 'Request trial access'
+                  : tab === 'signin'
+                    ? t('login.signIn')
+                    : t('login.createAccount')}
           </button>
         </form>
 
-        <div className="mt-3 text-center">
-          {resetMode ? (
+        <div className="mt-3 text-center space-y-1">
+          {resetMode || trialMode ? (
             <button
               type="button"
-              onClick={() => { setResetMode(false); setError(null); setMessage(null) }}
+              onClick={() => {
+                setResetMode(false)
+                setTrialMode(false)
+                setError(null)
+                setMessage(null)
+              }}
               className="text-sm text-lang hover:underline"
             >
               {t('login.backToSignIn')}
             </button>
           ) : (
             tab === 'signin' && (
-              <button
-                type="button"
-                onClick={() => { setResetMode(true); setError(null); setMessage(null) }}
-                className="text-sm text-lang hover:underline"
-              >
-                {t('login.forgotPassword')}
-              </button>
+              <>
+                <button
+                  type="button"
+                  onClick={() => { setResetMode(true); setError(null); setMessage(null) }}
+                  className="block w-full text-sm text-lang hover:underline"
+                >
+                  {t('login.forgotPassword')}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => { setTrialMode(true); setError(null); setMessage(null) }}
+                  className="block w-full text-sm text-lang hover:underline"
+                >
+                  No account? Request trial access
+                </button>
+              </>
             )
           )}
         </div>
 
-        {!resetMode && !INVITE_ONLY && (
+        {!resetMode && !trialMode && !INVITE_ONLY && (
         <>
         <div className="relative my-5">
           <div className="absolute inset-0 flex items-center">

@@ -30,6 +30,9 @@ class Settings(BaseSettings):
     resend_api_key: str = ""
     resend_from: str = "PolyglotSRS <onboarding@resend.dev>"
     email_reminders_enabled: bool = True
+    # Where trial-access requests are announced. Empty = no email (the
+    # admin panel's queue still shows every request).
+    admin_notify_email: str = ""
     # Public base URL used in reminder emails' links.
     app_url: str = "https://polyglot-srs-avaraq-xhk74.ondigitalocean.app"
 
