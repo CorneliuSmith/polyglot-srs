@@ -114,8 +114,123 @@ def heartbeat() -> dict:
 
 
 def kick() -> None:
-    """Wake the loop now (called after demand is recorded)."""
+    """Wake the loop now (called after demand is recorded).
+
+    Best-effort ONLY, and known to miss in production: the event is
+    in-process, and under multiple workers/replicas the process serving
+    the request need not be the one whose sweep does the work. The owner's
+    panel showed 18 cycles in ~4.5 h — the bare 15-minute cadence, not one
+    extra cycle from a kick — while wait screens sat at 0 of 3 the whole
+    time and filled "eventually" (the next timer sweep). Anything a
+    learner is actively waiting on must NOT rely on this reaching a loop;
+    that is what fill_start_batch below is for.
+    """
     _wake.set()
+
+
+# One inline fill at a time per (user, language), and few across the
+# process: this runs on the web worker, so it must be impossible for an
+# impatient refresher to stack model calls.
+_INLINE_FILLS: dict[tuple[str, str], float] = {}
+_INLINE_COOLDOWN_S = 90
+_INLINE_CONCURRENCY = asyncio.Semaphore(2)
+# Enough for the start gate (START_CARDS=3) plus the next few cards, small
+# enough that one maker–checker round trip covers it.
+INLINE_FILL_WORDS = 8
+INLINE_FILL_POINTS = 3
+
+
+async def fill_start_batch(
+    user_id: str, language_id: str,
+    vocab_ids: list, grammar_ids: list,
+) -> None:
+    """Translate the learner's first cards NOW, in the process they are
+    talking to.
+
+    The wait screen used to record demand and kick() the sweep — which
+    works only when the kicked process is the one that sweeps. In the
+    deployed topology it demonstrably is not, so a learner watched
+    "0 of 3" until some other process's quarter-hour timer fired. This
+    path owns the wait screen's promise directly: the handful of glosses
+    and explanations the start gate needs, one bounded round trip, written
+    by the web worker itself. The loop remains the bulk engine for
+    everything else; this is the espresso shot, not the pot.
+
+    Fire-and-forget safe: never raises, cooldown per (user, language),
+    process-wide concurrency cap of 2.
+    """
+    key = (str(user_id), str(language_id))
+    now = asyncio.get_event_loop().time()
+    last = _INLINE_FILLS.get(key)
+    if last is not None and now - last < _INLINE_COOLDOWN_S:
+        return
+    _INLINE_FILLS[key] = now
+    if not translations_available():
+        return
+    try:
+        async with _INLINE_CONCURRENCY:
+            from backend.repositories.pool import privileged_connection
+
+            async with privileged_connection() as conn:
+                locale = await conn.fetchval(
+                    "SELECT support_locale FROM user_profiles WHERE id = $1",
+                    user_id)
+                if not locale or locale == "en":
+                    return
+                pair = await conn.fetchrow(
+                    """SELECT l.id AS language_id, l.code AS language_code,
+                              l.name AS language_name,
+                              loc.code AS locale, loc.name AS locale_name
+                       FROM languages l
+                       LEFT JOIN languages loc ON loc.code = $2
+                       WHERE l.id = $1""", language_id, locale)
+                if pair is None:
+                    return
+                pair = dict(pair)
+                # A support locale with no languages row still deserves a
+                # readable name in the prompt.
+                pair["locale"] = locale
+                pair["locale_name"] = pair["locale_name"] or locale
+
+                # Words first: the start gate counts glossed words, and one
+                # batch covers it.
+                rows = await pending_words(
+                    conn, language_id, locale, INLINE_FILL_WORDS,
+                    ids=list(vocab_ids) or None)
+                if rows:
+                    items = [{"i": i, "word": r["word"], "pos": r["pos"],
+                              "definition": r["definition"],
+                              "example": r["example"]}
+                             for i, r in enumerate(rows)]
+                    results = await maker_check_batch(
+                        pair["locale_name"], items,
+                        source_language=pair["language_name"])
+                    by_i = {b["i"]: b for b in results}
+                    merged = [{**by_i[i], "id": rows[i]["id"],
+                               "proposed": by_i[i]["gloss"]}
+                              for i in range(len(rows)) if i in by_i]
+                    applied, _ = await _apply(conn, locale, merged)
+                    await _settle(conn, "word", pair,
+                                  [r["id"] for r in rows])
+                    logger.info(
+                        "inline fill %s→%s: %d/%d words for a waiting learner",
+                        pair["language_code"], locale, applied, len(rows))
+
+                # Then the explanations of the batch's grammar points — a
+                # grammar card's body, and what its readiness counts.
+                if grammar_ids:
+                    rows = await pending_explanations(
+                        conn, language_id, locale, INLINE_FILL_POINTS,
+                        ids=list(grammar_ids))
+                    if rows:
+                        done = await _translate_explanations(conn, pair, rows)
+                        await _settle(conn, "explanation", pair,
+                                      [r["id"] for r in rows])
+                        logger.info(
+                            "inline fill %s→%s: %d/%d explanations",
+                            pair["language_code"], locale, done, len(rows))
+    except Exception as exc:  # noqa: BLE001 — a wait-screen helper, never a page
+        logger.warning("inline start-batch fill failed: %s", exc)
 
 
 async def table_present(conn, table: str) -> bool:
