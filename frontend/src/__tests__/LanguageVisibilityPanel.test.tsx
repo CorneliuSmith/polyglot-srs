@@ -266,6 +266,47 @@ describe('LanguageVisibilityPanel', () => {
         expect(mockSetTutorModel).toHaveBeenCalledWith('lang-es', 'claude-sonnet-5'))
     })
 
+    it('Edit all settings opens every drawer; each dial still targets its own language', async () => {
+      mockReadiness.mockResolvedValue([
+        readinessRow('lang-es', 0), readinessRow('lang-he', 0)])
+      mockSetPolicy.mockResolvedValue(undefined)
+      renderPanel()
+      await screen.findByText('Spanish')
+      fireEvent.click(screen.getByRole('button', { name: /edit all settings/i }))
+      expect(await screen.findByTestId('language-settings-es')).toBeDefined()
+      expect(screen.getByTestId('language-settings-he')).toBeDefined()
+
+      fireEvent.change(screen.getByLabelText(/hebrew publish policy/i), {
+        target: { value: 'ai_ok' },
+      })
+      await waitFor(() =>
+        expect(mockSetPolicy).toHaveBeenCalledWith('lang-he', 'ai_ok'))
+      expect(mockSetPolicy).toHaveBeenCalledTimes(1)
+
+      fireEvent.click(screen.getByRole('button', { name: /collapse all/i }))
+      expect(screen.queryByTestId('language-settings-es')).toBeNull()
+      expect(screen.queryByTestId('language-settings-he')).toBeNull()
+    })
+
+    it('a failed save reports under ITS row, not every open drawer', async () => {
+      mockReadiness.mockResolvedValue([
+        readinessRow('lang-es', 0), readinessRow('lang-he', 0)])
+      mockSetPolicy.mockRejectedValue({
+        response: { data: { detail: 'policy rejected by server' } },
+      })
+      renderPanel()
+      await screen.findByText('Spanish')
+      fireEvent.click(screen.getByRole('button', { name: /edit all settings/i }))
+      fireEvent.change(await screen.findByLabelText(/hebrew publish policy/i), {
+        target: { value: 'ai_ok' },
+      })
+      const errors = await screen.findAllByText('policy rejected by server')
+      expect(errors).toHaveLength(1)
+      expect(
+        screen.getByTestId('language-settings-he').textContent,
+      ).toContain('policy rejected by server')
+    })
+
     it('opening another row closes the first \u2014 cycling, not stacking', async () => {
       mockReadiness.mockResolvedValue([
         readinessRow('lang-es', 0), readinessRow('lang-he', 0)])
