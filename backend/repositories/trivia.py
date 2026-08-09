@@ -63,6 +63,43 @@ async def unseen_trivia(
     ]
 
 
+async def least_recently_seen(
+    conn: asyncpg.Connection, user_id: str, locale: str, limit: int = 10,
+) -> list[dict]:
+    """Questions this learner HAS been asked, the longest-ago first.
+
+    The graceful floor under a fully-read bank: when nothing unseen is left
+    and the generator can't (or shouldn't) run, a question from weeks ago
+    beats an empty panel — and beats the same three questions on every
+    wait, which is what any fixed fallback ordering degenerates into.
+    Spacing the repeats as far apart as the bank allows is the best that
+    can be done without new content, so that is what this does.
+    """
+    if not locale or not await table_present(conn, "language_trivia"):
+        return []
+    rows = await conn.fetch(
+        """
+        SELECT t.id, t.question, t.options, t.answer_index, t.fact
+        FROM language_trivia t
+        JOIN user_trivia_seen s ON s.trivia_id = t.id AND s.user_id = $2
+        WHERE t.locale = $1
+        ORDER BY s.seen_at ASC
+        LIMIT $3
+        """,
+        locale, user_id, limit,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "question": r["question"],
+            "options": list(r["options"]),
+            "answer_index": r["answer_index"],
+            "fact": r["fact"],
+        }
+        for r in rows
+    ]
+
+
 async def count_unseen(
     conn: asyncpg.Connection, user_id: str, locale: str
 ) -> int:
@@ -142,10 +179,15 @@ async def mark_seen(
     """
     if not trivia_ids or not await table_present(conn, "user_trivia_seen"):
         return
+    # DO UPDATE, not DO NOTHING: a learner who has read the whole bank gets
+    # re-served from least_recently_seen, and that ordering only works if a
+    # re-serve refreshes seen_at. With DO NOTHING every timestamp froze at
+    # first sight, so the "least recent" question was the same question
+    # forever — the exact repetition the rotation exists to prevent.
     await conn.execute(
         """INSERT INTO user_trivia_seen (user_id, trivia_id)
            SELECT $1, t.id FROM language_trivia t
             WHERE t.id = ANY($2::uuid[])
-           ON CONFLICT DO NOTHING""",
+           ON CONFLICT (user_id, trivia_id) DO UPDATE SET seen_at = now()""",
         user_id, trivia_ids,
     )

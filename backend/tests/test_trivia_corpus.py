@@ -76,13 +76,22 @@ def test_an_unknown_locale_gets_nothing_rather_than_english():
 
 
 def test_offline_ids_are_stable_and_distinct():
+    """The DRAW is random — a fixed slice made every visit to the offline
+    path the same questions in the same order — but each question's id must
+    stay stable across calls and processes, because the client posts ids
+    back to /trivia/seen."""
     a = offline_questions("es", 8)
-    b = offline_questions("es", 8)
     assert len(a) == 8
-    assert [x["id"] for x in a] == [x["id"] for x in b]
     assert len({x["id"] for x in a}) == 8
+    # Same question text → same id, wherever and whenever it was drawn.
+    ids = {}
+    for _ in range(6):
+        for item in offline_questions("es", 20):
+            assert ids.setdefault(item["question"], item["id"]) == item["id"]
     # Same question, different locale, different row.
-    assert a[0]["id"] != offline_questions("fr", 1)[0]["id"]
+    es = {x["question"]: x["id"] for x in offline_questions("es", 72)}
+    fr = {x["id"] for x in offline_questions("fr", 72)}
+    assert not fr & set(es.values())
 
 
 def test_offline_questions_are_ready_to_serve():
