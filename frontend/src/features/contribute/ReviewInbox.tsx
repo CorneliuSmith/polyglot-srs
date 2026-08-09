@@ -10,6 +10,7 @@ const QUEUES: { key: keyof ReviewInboxCounts; label: string; hint: string }[] = 
   { key: 'pending_examples', label: 'Generated examples', hint: 'Word examples' },
   { key: 'flagged_examples', label: 'Flagged examples', hint: 'Word examples · flagged' },
   { key: 'translation_suggestions', label: 'Translation fixes', hint: 'Word examples · suggested' },
+  { key: 'ai_translations', label: 'AI translations', hint: 'AI generated · awaiting review' },
   { key: 'ai_levels', label: 'AI vocab levels', hint: 'AI levels panel' },
   { key: 'change_requests', label: 'Change requests', hint: 'Change requests board' },
   { key: 'suggestions', label: 'Content suggestions', hint: 'Suggestions panel' },

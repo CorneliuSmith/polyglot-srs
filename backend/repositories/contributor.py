@@ -625,7 +625,11 @@ async def review_inbox_counts(
           (SELECT count(*) FROM card_feedback f
             WHERE f.language_id = $1 AND f.status = 'open') AS feedback,
           (SELECT count(*) FROM grammar_point_overlaps o
-            WHERE o.language_id = $1 AND o.status = 'open') AS overlaps
+            WHERE o.language_id = $1 AND o.status = 'open') AS overlaps,
+          (SELECT count(*) FROM translation_reviews r
+             JOIN vocabulary v ON r.vocabulary_id = v.id
+            WHERE v.language_id = $1
+              AND r.status = 'pending') AS ai_translations
         """,
         language_id,
     )
@@ -3109,9 +3113,12 @@ async def queue_definition_review(
 
 
 async def list_translation_reviews(
-    conn: asyncpg.Connection, status_filter: str = "pending"
+    conn: asyncpg.Connection, status_filter: str = "pending",
+    language_id: str | None = None,
 ) -> list[dict]:
-    """Pending AI-translation rejects, with the card's word + current gloss."""
+    """Pending AI-translation rejects, with the card's word + current gloss.
+    language_id scopes the queue to one course — the Review workspace shows
+    the working language's pile, not every language's at once."""
     rows = await conn.fetch(
         """
         SELECT r.id, r.locale, r.proposed, r.reason, r.status, r.created_at,
@@ -3122,10 +3129,11 @@ async def list_translation_reviews(
         FROM translation_reviews r
         JOIN vocabulary v ON r.vocabulary_id = v.id
         WHERE r.status = $1
+          AND ($2::uuid IS NULL OR v.language_id = $2)
         ORDER BY r.locale, r.created_at
         LIMIT 200
         """,
-        status_filter,
+        status_filter, language_id,
     )
     return [
         {

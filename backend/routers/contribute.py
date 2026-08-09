@@ -2317,11 +2317,17 @@ async def reject_content_suggestion(
 
 
 @router.get("/translation-reviews")
-async def translation_reviews_queue(user: dict = Depends(get_current_user)):
-    """Glosses/hints the AI maker-checker refused to auto-apply (admin-only)."""
+async def translation_reviews_queue(
+    language_id: str | None = None,
+    user: dict = Depends(get_current_user),
+):
+    """Glosses/hints the AI maker-checker refused to auto-apply (admin-only).
+    language_id scopes the queue to one course — the Review workspace lists
+    the working language's pile alongside the other review queues."""
     await _require_admin(user["id"])
     async with privileged_connection() as conn:
-        return {"reviews": await list_translation_reviews(conn)}
+        return {"reviews": await list_translation_reviews(
+            conn, language_id=language_id)}
 
 
 async def _resolve_review(review_id: str, user: dict, approve: bool) -> dict:
