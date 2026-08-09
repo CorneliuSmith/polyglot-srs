@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { Settings2 } from 'lucide-react'
+import { ArrowLeftRight, Settings2 } from 'lucide-react'
 import { getLanguages } from '../../api/profile'
 import {
   getLanguageReadiness,
@@ -40,6 +40,7 @@ function extractDetail(err: unknown): string | undefined {
 export default function LanguageVisibilityPanel() {
   const qc = useQueryClient()
   const setActiveLanguageId = usePrefsStore((s) => s.setActiveLanguageId)
+  const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   // One row's settings drawer open at a time keeps the list readable while
   // cycling; "Edit all settings" opens every drawer for a sweep across the
   // whole catalog in one view.
@@ -126,8 +127,9 @@ export default function LanguageVisibilityPanel() {
           <h2 className="text-sm font-semibold text-gray-800">Language visibility</h2>
           <p className="text-xs text-gray-500">
             Hidden languages stay out of onboarding and the language picker for
-            everyone else — nothing is deleted. Click a name to switch your own
-            active language there, hidden or not. Learners are always served:
+            everyone else — nothing is deleted. The ⇄ arrow (or the name)
+            switches your own active language there, hidden or not — the
+            marked row is where you are now. Learners are always served:
             whatever a learner is waiting on translates regardless of the
             toggle, and a course in real recent use gets a starter corpus
             scaled by its active learners. Auto-translate opts the course into
@@ -172,8 +174,29 @@ export default function LanguageVisibilityPanel() {
               >
                 <CircleFlag code={lang.code} size={18} />
                 <span className="text-gray-800 truncate">{lang.name}</span>
+                {/* The name click was the only way in and nothing marked
+                    where you already were — invisible on touch screens,
+                    where there is no hover underline and no tooltip. The
+                    switch is now an explicit control below; this chip is
+                    the feedback that it worked. */}
+                {lang.id === activeLanguageId && (
+                  <span className="shrink-0 rounded-full bg-lang-soft px-1.5 py-0.5 text-[10px] text-lang-dark">
+                    active
+                  </span>
+                )}
               </button>
               <div className="flex items-center gap-3 shrink-0">
+                {lang.id !== activeLanguageId && (
+                  <button
+                    type="button"
+                    onClick={() => setActiveLanguageId(lang.id)}
+                    aria-label={`Switch your active language to ${lang.name}`}
+                    title={`Make ${lang.name} your active language (works even while it's hidden)`}
+                    className="rounded-md p-1 text-gray-400 hover:text-gray-600"
+                  >
+                    <ArrowLeftRight aria-hidden className="h-4 w-4" />
+                  </button>
+                )}
                 {r && r.awaiting_review > 0 && (
                   <span
                     className="text-[10px] rounded px-1.5 py-0.5 bg-amber-50 text-amber-700"
