@@ -73,8 +73,17 @@ vi.mock('../api/contribute', () => ({
 }))
 // DrillsEditor is its own tested unit; stub it here to keep this test focused.
 vi.mock('../features/contribute/DrillsEditor', () => ({ default: () => null }))
+const { mockSetActiveLanguage } = vi.hoisted(() => ({
+  mockSetActiveLanguage: vi.fn(),
+}))
 vi.mock('../stores/prefsStore', () => ({
-  usePrefsStore: vi.fn(() => 'lang-tr'),
+  usePrefsStore: vi.fn(
+    (selector: (s: Record<string, unknown>) => unknown) =>
+      selector({
+        activeLanguageId: 'lang-tr',
+        setActiveLanguageId: mockSetActiveLanguage,
+      }),
+  ),
 }))
 
 import { getLanguages } from '../api/profile'
@@ -122,6 +131,33 @@ describe('ContributorPage', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     mockGetLanguages.mockResolvedValue([{ id: 'lang-tr', code: 'tr', name: 'Turkish', rtl: false }])
+  })
+
+  it('swaps the whole workspace to another language from the header', async () => {
+    /* Every tab, queue, and setting on this page is scoped to one language;
+     * reaching another used to require changing your own study language
+     * from a control buried elsewhere. The switch is the page header now. */
+    mockGetLanguages.mockResolvedValue([
+      { id: 'lang-tr', code: 'tr', name: 'Turkish', rtl: false, is_visible: true },
+      { id: 'lang-ca', code: 'ca', name: 'Catalan', rtl: false, is_visible: false },
+    ])
+    mockGetGrammar.mockResolvedValue({
+      is_admin: true, points: [], review_policy: 'strict',
+    })
+    renderPage()
+
+    const select = (await screen.findByLabelText(
+      /working language/i,
+    )) as HTMLSelectElement
+    // Hidden languages are listed too — this page is how they get built.
+    // (findByText also waits out the options' async load.)
+    expect(
+      await within(select).findByText('Catalan (hidden)'),
+    ).toBeDefined()
+    expect(select.value).toBe('lang-tr')
+
+    fireEvent.change(select, { target: { value: 'lang-ca' } })
+    expect(mockSetActiveLanguage).toHaveBeenCalledWith('lang-ca')
   })
 
   it('lists editable grammar points and saves an edit', async () => {

@@ -624,6 +624,7 @@ export default function ContributorPage() {
   const navigate = useNavigate()
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
+  const setActiveLanguageId = usePrefsStore((s) => s.setActiveLanguageId)
   const [tab, setTab] = useState<WorkspaceTab>('contribute')
   // Grammar points have a full authoring surface; vocab is browse + votable
   // suggestions (WP32). The toggle scopes the Contribute/Review content list.
@@ -657,14 +658,33 @@ export default function ContributorPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-4">
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-gray-900">
-            Contribute · {language?.name ?? ''}
+        <div className="flex items-center justify-between gap-3">
+          <h1 className="flex min-w-0 items-center gap-2 text-2xl font-bold text-gray-900">
+            <span className="shrink-0">Contribute ·</span>
+            {/* The whole workspace — every tab, queue, and setting below —
+                is scoped to ONE language, and reaching another used to mean
+                changing your own study language somewhere else first. The
+                switch lives here now, where the scope it changes is. Lists
+                hidden languages too: this page is how they get built. */}
+            <select
+              value={activeLanguageId ?? ''}
+              onChange={(e) => setActiveLanguageId(e.target.value)}
+              aria-label="Working language"
+              title="Everything on this page applies to this language"
+              className="min-w-0 rounded-lg border border-gray-200 bg-white px-2 py-1 text-lg font-semibold text-gray-900"
+            >
+              {languages.map((l) => (
+                <option key={l.id} value={l.id}>
+                  {l.name}
+                  {l.is_visible ? '' : ' (hidden)'}
+                </option>
+              ))}
+            </select>
           </h1>
           <button
             type="button"
             onClick={() => navigate('/')}
-            className="text-sm text-lang hover:underline"
+            className="shrink-0 text-sm text-lang hover:underline"
           >
             Dashboard
           </button>
