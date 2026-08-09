@@ -23,6 +23,12 @@ logger = logging.getLogger(__name__)
 
 SWEEP_SECONDS = 60 * 60  # hourly: the digest is day-granular, not hour-granular
 DIGEST_HOUR_UTC = 16
+# The recs engine runs the hour BEFORE the digest, so the digest always
+# carries this week's fresh picks rather than last week's.
+RECS_HOUR_UTC = 15
+# Batches drafted per pass — bounds one sweep's model spend; stragglers are
+# picked up on the following days' passes.
+RECS_BATCH_CAP = 25
 
 # Inline styles throughout, and a table for the shell: every major mail client
 # strips <style> blocks, and several still do not honour flex/grid. This is
@@ -159,6 +165,134 @@ def digest_html(
     )
 
 
+def picks_html(*, language_name: str, items: list[dict], app_url: str) -> str:
+    """The weekly picks email. Same block the digest embeds — every pick
+    leads with WHY it fits — plus its own shell for learners who don't take
+    the digest. Pure function of its inputs, like digest_html."""
+    return (
+        f'<div style="{_WRAPPER}">'
+        f'<div style="{_CARD}">'
+        f'<p style="margin:0 0 4px;font-size:16px;font-weight:700">'
+        f"Your weekly {escape(language_name)} picks</p>"
+        f'<p style="{_MUTED}">Fresh this week, matched to your current level '
+        f"and the interests in your profile.</p>"
+        f"</div>"
+        f"{_reco_block(items)}"
+        f'<div style="text-align:center;margin:4px 0 12px">'
+        f'<a href="{escape(app_url)}/recommendations" '
+        f'style="display:inline-block;background:#166534;color:#ffffff;'
+        f'text-decoration:none;font-weight:600;font-size:15px;'
+        f'padding:12px 22px;border-radius:10px">See all your picks</a></div>'
+        f'<p style="{_MUTED};text-align:center">'
+        f"You're getting this because Recommendations are on in your "
+        f'settings. <a href="{escape(app_url)}/recommendations" '
+        f'style="color:#6b7280">Adjust your profile or turn them off</a>.</p>'
+        f"</div>"
+    )
+
+
+async def sweep_weekly_recommendations(conn) -> int:
+    """Draft the week's picks server-side and email them. Returns batches made.
+
+    Before this, a batch was drafted only when the learner OPENED the
+    recommendations page — the client fired the refresh call. Anyone who
+    didn't visit got nothing new, and the weekly digest then had nothing
+    fresh to carry: "I have never gotten an email on the recs." The engine
+    now runs here: for every learner with the feature on whose latest batch
+    for their active language is a week old (or who has none), draft a new
+    one calibrated to their CURRENT level and progress, spend one unit of
+    their monthly AI allowance, and send the picks — each with its reason —
+    by email. Skips (no entitlement, exhausted allowance, no provider)
+    leave the learner exactly as they were; nothing is marked used.
+    """
+    from backend.repositories.recommendations import (
+        get_reco_profile,
+        insert_recommendation,
+    )
+    from backend.repositories.tutor import get_study_stats, log_tutor_usage
+    from backend.services.allowance import get_allowance
+    from backend.services.models import resolve_model
+    from backend.services.recommend import generate_recommendations
+
+    now = datetime.now(UTC)
+    if now.hour != RECS_HOUR_UTC:
+        return 0
+    # One worker per database does the pass — every uvicorn worker runs this
+    # loop, and two of them drafting the same learner's week would double
+    # the spend and the email.
+    if not await conn.fetchval(
+        "SELECT pg_try_advisory_xact_lock(hashtext('weekly_recs_sweep'))"
+    ):
+        return 0
+    rows = await conn.fetch(
+        """
+        SELECT p.user_id, up.active_language_id AS language_id, u.email,
+               l.code AS language_code, l.name AS language_name, l.tutor_model
+        FROM media_reco_profile p
+        JOIN user_profiles up ON up.id = p.user_id
+        JOIN auth.users u ON u.id = p.user_id
+        JOIN languages l ON l.id = up.active_language_id
+        WHERE p.enabled
+          AND up.active_language_id IS NOT NULL
+          AND NOT EXISTS (
+            SELECT 1 FROM media_recommendations r
+             WHERE r.user_id = p.user_id
+               AND r.language_id = up.active_language_id
+               AND r.created_at > now() - interval '7 days')
+        ORDER BY p.user_id
+        LIMIT $1
+        """,
+        RECS_BATCH_CAP,
+    )
+    app_url = getattr(get_settings(), "app_url", "").rstrip("/")
+    made = 0
+    for r in rows:
+        user_id = str(r["user_id"])
+        language_id = str(r["language_id"])
+        try:
+            allowance = await get_allowance(user_id, language_id)
+            if not allowance["entitled"]:
+                continue
+            if not allowance["unlimited"] and allowance["remaining"] <= 0:
+                continue
+            profile = await get_reco_profile(conn, user_id)
+            stats = await get_study_stats(conn, user_id, language_id)
+            level = stats.get("highest_level_reached")
+            model = resolve_model(
+                "recommend", r["language_code"], override=r["tutor_model"]
+            )
+            items = await generate_recommendations(
+                language_name=r["language_name"],
+                language_code=r["language_code"],
+                level=level,
+                learned_count=int(stats.get("learned_cards") or 0),
+                about=profile["about"],
+                genres=profile["genres"],
+                media_types=profile["media_types"],
+                model=model,
+            )
+            if not items:
+                continue
+            await insert_recommendation(conn, user_id, language_id, items, level)
+            await log_tutor_usage(conn, user_id, language_id, model, kind="recs")
+            made += 1
+            if email_configured() and r["email"]:
+                await send_email(
+                    r["email"],
+                    f"Your weekly {r['language_name']} picks",
+                    picks_html(
+                        language_name=r["language_name"],
+                        items=items,
+                        app_url=app_url,
+                    ),
+                )
+        except Exception as exc:  # noqa: BLE001 — one learner, not the sweep
+            logger.warning(
+                "weekly recs: drafting for %s failed: %s", user_id, exc
+            )
+    return made
+
+
 async def sweep_weekly_digests(conn) -> int:
     """One pass. Returns how many digests were accepted for delivery.
 
@@ -244,6 +378,17 @@ async def digest_loop() -> None:
 
     logger.info("weekly digest loop started (every %ds)", SWEEP_SECONDS)
     while True:
+        # Recs first (their hour precedes the digest hour), each pass in its
+        # own guarded block so one sweep failing never costs the other.
+        try:
+            async with privileged_connection() as conn:
+                n = await sweep_weekly_recommendations(conn)
+            if n:
+                logger.info("weekly recommendations: drafted %d", n)
+        except asyncio.CancelledError:
+            raise
+        except Exception as exc:  # noqa: BLE001 — the loop must survive anything
+            logger.warning("weekly recommendations sweep failed: %s", exc)
         try:
             async with privileged_connection() as conn:
                 n = await sweep_weekly_digests(conn)

@@ -58,16 +58,18 @@ async def count_tutor_messages(
     """Messages this user has spent from their allowance since *since*.
 
     Counted kinds draw the pool: 'chat' (a tutor turn), 'gym_gen' (a Gym
-    on-demand generation, WP41) and 'gym_chart' (a chart made for a new word
-    those drills exercise, WP45). 'summary' rows are the operator's cost
-    accounting for the post-session summarizer — part of a message already
-    spent — and never count.
+    on-demand generation, WP41), 'gym_chart' (a chart made for a new word
+    those drills exercise, WP45), and 'recs' (a recommendations batch —
+    owner: a Plus feature that uses some of their monthly AI; ~1/week, so
+    it costs about four messages a month). 'summary' rows are the
+    operator's cost accounting for the post-session summarizer — part of a
+    message already spent — and never count.
     """
     n = await conn.fetchval(
         """
         SELECT count(*) FROM tutor_usage
         WHERE user_id = $1 AND created_at >= $2
-          AND kind IN ('chat', 'gym_gen', 'gym_chart')
+          AND kind IN ('chat', 'gym_gen', 'gym_chart', 'recs')
         """,
         user_id, since,
     )

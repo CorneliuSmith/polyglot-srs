@@ -25,7 +25,7 @@ from backend.repositories.recommendations import (
     upsert_reco_profile,
 )
 from backend.repositories.tutor import get_study_stats, log_tutor_usage
-from backend.services.allowance import get_allowance
+from backend.services.allowance import get_allowance, reject_if_unavailable
 from backend.services.models import resolve_model
 from backend.services.rate_limit import reco_refresh_limiter
 from backend.services.recommend import MEDIA_TYPES, generate_recommendations
@@ -192,6 +192,10 @@ async def refresh_recommendations(
             status_code=status.HTTP_402_PAYMENT_REQUIRED,
             detail="Recommendations need a tutor+ subscription for this language.",
         )
+    # And each batch spends from the same monthly pool the tutor draws
+    # (owner: "a plus feature that will use some of their monthly ai") —
+    # an exhausted month means no more batches until it resets.
+    reject_if_unavailable(allowance)
 
     level = stats.get("highest_level_reached")
     # The admin's per-language model override (languages.tutor_model) —

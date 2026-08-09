@@ -20,6 +20,7 @@ import {
   type RecoBatch,
   type RecoItem,
 } from '../../api/recommendations'
+import RecoSettings from './RecoSettings'
 
 const MEDIA_TYPE_ICONS: Record<string, LucideIcon> = {
   book: BookOpen,
@@ -266,6 +267,13 @@ export default function RecommendationsPage() {
               {t('recos.noneYet')}
             </p>
           )}
+
+        {/* The taste profile, editable right here. The SAME component (and
+            data) Settings renders, so what this page says and what Settings
+            says can never drift apart — edit in either place and the other
+            reflects it. Every future batch is drafted from what stands
+            here. */}
+        {data?.enabled && <RecoSettings />}
       </div>
     </div>
   )

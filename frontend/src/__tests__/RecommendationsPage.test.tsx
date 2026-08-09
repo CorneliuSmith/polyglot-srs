@@ -19,6 +19,11 @@ vi.mock('../api/recommendations', async (orig) => ({
   ...(await orig<typeof import('../api/recommendations')>()),
   getRecommendations: vi.fn(),
   refreshRecommendations: vi.fn(),
+  // The embedded profile editor (RecoSettings) fetches these.
+  getRecoProfile: vi.fn(() =>
+    Promise.resolve({ enabled: true, about: '', genres: [], media_types: [] }),
+  ),
+  updateRecoProfile: vi.fn(),
 }))
 
 import { getRecommendations, refreshRecommendations } from '../api/recommendations'
@@ -120,6 +125,17 @@ describe('RecommendationsPage', () => {
     expect(
       await screen.findByText(/asked for a few fresh batches already/i),
     ).toBeDefined()
+  })
+
+  it('embeds the taste-profile editor — the same data Settings edits', async () => {
+    /* Owner: "info in their profile should match what they said in their
+     * profile and vice-versa" — one component, one API, two surfaces. */
+    mockGet.mockResolvedValue({
+      enabled: true, entitled: true, stale: false, batches: [batch],
+    })
+    renderPage()
+    expect(await screen.findByText('Cien años')).toBeDefined()
+    expect(await screen.findByText(/about you/i)).toBeDefined()
   })
 
   it('renders the current batch and history', async () => {

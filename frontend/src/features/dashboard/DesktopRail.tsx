@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import {
   BookOpen,
+  Clapperboard,
   Dumbbell,
   Flame,
   MessagesSquare,
@@ -89,7 +90,7 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
         <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-400">
           {t('nav.practice')}
         </h2>
-        <div className={`grid gap-2 ${hasGym ? 'grid-cols-3' : 'grid-cols-2'}`}>
+        <div className={`grid gap-2 ${hasGym ? 'grid-cols-2' : 'grid-cols-3'}`}>
           {hasGym && (
             <RailTile
               icon={Dumbbell}
@@ -111,6 +112,16 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
             testId="rail-tutor"
             disabled={!activeLanguageId}
             onClick={() => navigate('/tutor')}
+          />
+          {/* The weekly picks page — the one destination this rail was
+              missing, so the feature was invisible on desktop unless you
+              knew the URL. */}
+          <RailTile
+            icon={Clapperboard}
+            label={t('dashboard.recommendedTitle')}
+            testId="rail-reco"
+            disabled={!activeLanguageId}
+            onClick={() => navigate('/recommendations')}
           />
         </div>
       </section>
