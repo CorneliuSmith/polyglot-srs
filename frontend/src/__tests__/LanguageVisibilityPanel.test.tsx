@@ -35,7 +35,10 @@ vi.mock('../api/contribute', () => ({
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(
     (selector: (s: Record<string, unknown>) => unknown) =>
-      selector({ setActiveLanguageId: mockSetActive }),
+      selector({
+        setActiveLanguageId: mockSetActive,
+        activeLanguageId: 'lang-es',
+      }),
   ),
 }))
 
@@ -160,6 +163,23 @@ describe('LanguageVisibilityPanel', () => {
     renderPanel()
     fireEvent.click(await screen.findByText('Hebrew'))
     expect(mockSetActive).toHaveBeenCalledWith('lang-he')
+  })
+
+  it('every other row carries an explicit switch button; the active row is marked instead', async () => {
+    /* The name click was the ONLY way in and nothing marked where you
+     * already were — invisible on touch screens (no hover underline, no
+     * tooltip), which read as "the swap is gone". */
+    renderPanel()
+    await screen.findByText('Hebrew')
+    fireEvent.click(
+      screen.getByLabelText(/switch your active language to hebrew/i),
+    )
+    expect(mockSetActive).toHaveBeenCalledWith('lang-he')
+    // Spanish IS the active language: it shows the marker, not the button.
+    expect(screen.getByText('active')).toBeDefined()
+    expect(
+      screen.queryByLabelText(/switch your active language to spanish/i),
+    ).toBeNull()
   })
 
   describe('release gate (owner: "released after review")', () => {
