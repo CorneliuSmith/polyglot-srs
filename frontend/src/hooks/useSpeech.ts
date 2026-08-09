@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { speechSupported, toBcp47, voiceFor } from '../lib/speech'
+import { hasVoiceFor, speechSupported, toBcp47, voiceFor } from '../lib/speech'
 
 /**
  * Browser speech synthesis for the target language. Free and offline (uses the
@@ -19,6 +19,14 @@ export function useSpeech() {
   const speak = useCallback(
     (text: string, languageCode: string) => {
       if (!supported || !text) return
+      // No installed voice for the language → refuse rather than let the
+      // engine "help" with its default voice. A Spanish default reading the
+      // Catalan "Els nens juguen al parc." mangles the phonology AND
+      // expands the abbreviation "parc." to "parcela" — confidently wrong
+      // audio that teaches a learner the wrong sounds. Silence is the
+      // lesser harm. (null = the voice list hasn't loaded; let those
+      // through, lang-only matching may still find the right voice.)
+      if (hasVoiceFor(languageCode) === false) return
       window.speechSynthesis.cancel()
       const utterance = new SpeechSynthesisUtterance(text)
       utterance.lang = toBcp47(languageCode)
