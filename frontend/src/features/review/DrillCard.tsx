@@ -185,7 +185,23 @@ export default function DrillCard({
     )
   }
 
-  // Fill-in-the-blank mode: split at {{answer}} marker
+  // Fill-in-the-blank mode: split at {{answer}} marker.
+  //
+  // The blank is an INLINE input, so its height decides where the underline
+  // lands relative to the sentence. A flat `min-height: 44px` — the mobile
+  // touch-target rule, correct on the standalone inputs above — makes the
+  // box taller than the 40px line it sits in, and because inline boxes align
+  // on the BASELINE the surplus hangs underneath: the bar drew ~16px below
+  // its own words, floating in the gap before the next line. On a phone the
+  // column is narrow and it reads as part of the flow; on a desktop column
+  // the sentence wraps and the bar visibly detaches from the blank it
+  // belongs to. Reported as "the typing bars are sometimes hidden".
+  //
+  // So the touch target is applied only where a finger is actually used.
+  // With a fine pointer the box is its natural 30px and the underline sits
+  // where a handwritten blank would. (`text-base` came off at the same time:
+  // it was on the same element as `text-xl`, which wins by stylesheet order,
+  // so it changed nothing and only obscured which size was in force.)
   const parts = sentence.split('{{answer}}')
   const before = parts[0]
   const after = parts.slice(1).join('{{answer}}')
@@ -259,8 +275,7 @@ export default function DrillCard({
             onChange={(e) => handleChange(e.target.value)}
             onKeyDown={handleKeyDown}
             disabled={disabled}
-            className={`inline-block min-w-[120px] border-b-2 ${inputTone} outline-none text-xl text-center mx-1 py-0 bg-transparent text-base touch-manipulation`}
-            style={{ minHeight: '44px' }}
+            className={`inline-block min-w-[120px] border-b-2 ${inputTone} outline-none text-xl text-center mx-1 py-0 bg-transparent touch-manipulation pointer-coarse:min-h-[44px]`}
             dir={resolvedDir}
           />
           {after}
