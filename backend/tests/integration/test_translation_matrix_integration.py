@@ -221,6 +221,33 @@ async def test_a_switched_off_course_says_so(pool):
     assert "switched_off" in why["blockers"], why
 
 
+async def test_the_wait_converges_with_no_loop_at_all(pool):
+    """The deployed topology's truth: kick() wakes only its own process,
+    and the process a request lands on is routinely not the one that
+    sweeps. So the wait screen's fill must complete with the loop NEVER
+    running — the inline start-batch fill, driven from the request path,
+    is the only engine this test allows."""
+    from backend.repositories.cards import session_readiness, start_batch_ids
+    from backend.services.auto_translate import _INLINE_FILLS, fill_start_batch
+
+    course, uid = await _course_and_learner(pool, "mxinline", "es")
+    _INLINE_FILLS.clear()
+    async with pool.privileged_connection() as conn:
+        before = await session_readiness(conn, uid, course, batch_size=10)
+        assert not before["learn"]["ready_enough"], "test needs a cold pair"
+        vocab_ids, grammar_ids = await start_batch_ids(conn, uid, course, 10)
+
+    # What the router create_task's — run to completion, no cycles anywhere.
+    await fill_start_batch(uid, course, vocab_ids, grammar_ids)
+
+    async with pool.privileged_connection() as conn:
+        after = await session_readiness(conn, uid, course, batch_size=10)
+    assert after["learn"]["cards_ready"] >= after["learn"]["start_cards"], (
+        f"inline fill did not open the session: {after['learn']}")
+    assert after["learn"]["ready_enough"]
+    _INLINE_FILLS.clear()
+
+
 async def test_a_switched_off_course_still_serves_a_waiting_learner(pool):
     """The production bug, pinned: most courses ship with auto-translate
     OFF, and the demand lane used to filter on that toggle — so every

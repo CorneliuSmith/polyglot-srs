@@ -38,6 +38,7 @@ from backend.repositories.cards import (
     reset_language_progress,
     session_readiness,
     set_deck_subscription,
+    start_batch_ids,
     update_card_srs,
 )
 from backend.repositories.contributor import (
@@ -64,7 +65,7 @@ from backend.repositories.trivia import (
 )
 from backend.repositories.tutor import log_tutor_usage
 from backend.services.allowance import get_allowance, reject_if_unavailable
-from backend.services.auto_translate import kick, table_present
+from backend.services.auto_translate import fill_start_batch, kick, table_present
 from backend.services.fsrs import (
     AnswerResult,
     CardState,
@@ -190,6 +191,19 @@ async def readiness(
                 conn, user["id"], language_id, batch_size=max(1, min(limit, 100))
             )
             kick()
+            # ...but the kick is an in-process event, and in the deployed
+            # topology the process that sweeps is routinely NOT the process
+            # serving this request — the owner watched "0 of 3" for minutes
+            # while the fill landed "eventually" (the next timer sweep).
+            # So the start batch is filled HERE, by this worker, bounded
+            # and cooldown-guarded: the wait screen's promise must not
+            # depend on reaching a loop somewhere else.
+            vocab_ids, grammar_ids = await start_batch_ids(
+                conn, user["id"], language_id,
+                batch_size=max(1, min(limit, 100)))
+    if not state["learn"]["ready_enough"] or not state["review"]["ready_enough"]:
+        asyncio.create_task(fill_start_batch(
+            user["id"], language_id, vocab_ids, grammar_ids))
     return state
 
 

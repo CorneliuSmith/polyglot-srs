@@ -849,6 +849,21 @@ async def _next_level_ids(
     return [r["id"] for r in vocab], [r["id"] for r in grammar]
 
 
+async def start_batch_ids(
+    conn: asyncpg.Connection, user_id: str, language_id: str,
+    batch_size: int = 10,
+) -> tuple[list, list]:
+    """The ids of the learn batch a waiting learner is about to meet —
+    what the inline fill translates first. Same selectors readiness
+    scores, so the fill and the gate are looking at the same cards."""
+    batch = max(batch_size, 1)
+    vocab = await _select_vocab_candidate_ids(
+        conn, user_id, language_id, batch, None)
+    grammar = await _select_grammar_candidate_ids(
+        conn, user_id, language_id, batch, None)
+    return vocab, grammar
+
+
 async def pretranslate_upcoming(
     conn: asyncpg.Connection,
     user_id: str,
