@@ -138,6 +138,7 @@ _INLINE_CONCURRENCY = asyncio.Semaphore(2)
 # enough that one maker–checker round trip covers it.
 INLINE_FILL_WORDS = 8
 INLINE_FILL_POINTS = 3
+INLINE_FILL_SENTENCES = 8
 
 
 async def fill_start_batch(
@@ -152,9 +153,12 @@ async def fill_start_batch(
     deployed topology it demonstrably is not, so a learner watched
     "0 of 3" until some other process's quarter-hour timer fired. This
     path owns the wait screen's promise directly: the handful of glosses
-    and explanations the start gate needs, one bounded round trip, written
-    by the web worker itself. The loop remains the bulk engine for
-    everything else; this is the espresso shot, not the pot.
+    and explanations the start gate needs, plus the sentence layer under
+    them (example sentences, drill translations/hints) — without it the
+    first cards opened with translated bodies over English "in context"
+    lines, which read as another failure. A few bounded round trips,
+    written by the web worker itself. The loop remains the bulk engine
+    for everything else; this is the espresso shot, not the pot.
 
     Fire-and-forget safe: never raises, cooldown per (user, language),
     process-wide concurrency cap of 2.
@@ -216,6 +220,24 @@ async def fill_start_batch(
                         "inline fill %s→%s: %d/%d words for a waiting learner",
                         pair["language_code"], locale, applied, len(rows))
 
+                # The example sentences under those words — the "in context"
+                # block a learner reads in the same first minute. The start
+                # gate doesn't count them, but a card that opens with a
+                # translated gloss over English sentences reads as
+                # half-loaded. Skipped on the self-pair, where a rendering
+                # would just restate the sentence.
+                if vocab_ids and not self_pair(pair):
+                    rows = await pending_examples(
+                        conn, language_id, locale, INLINE_FILL_SENTENCES,
+                        vocab_ids=list(vocab_ids))
+                    if rows:
+                        done = await _translate_examples(conn, pair, rows)
+                        await _settle(conn, "example", pair,
+                                      list({r["vocabulary_id"] for r in rows}))
+                        logger.info(
+                            "inline fill %s→%s: %d/%d example sentences",
+                            pair["language_code"], locale, done, len(rows))
+
                 # Then the explanations of the batch's grammar points — a
                 # grammar card's body, and what its readiness counts.
                 if grammar_ids:
@@ -229,6 +251,28 @@ async def fill_start_batch(
                         logger.info(
                             "inline fill %s→%s: %d/%d explanations",
                             pair["language_code"], locale, done, len(rows))
+
+                    # And those points' drill sentences — the "in context"
+                    # lines of a grammar card. pending_drills is keyed by
+                    # drill id, so map the batch's points to their drills
+                    # first. On the self-pair _translate_drills renders
+                    # hints only (the translation would spell out the
+                    # cloze answer).
+                    drill_ids = [r["id"] for r in await conn.fetch(
+                        """SELECT id FROM drill_sentences
+                           WHERE grammar_point_id = ANY($1::uuid[])""",
+                        list(grammar_ids))]
+                    if drill_ids:
+                        rows = await pending_drills(
+                            conn, language_id, locale, INLINE_FILL_SENTENCES,
+                            ids=drill_ids)
+                        if rows:
+                            done = await _translate_drills(conn, pair, rows)
+                            await _settle(conn, "drill", pair,
+                                          [r["id"] for r in rows])
+                            logger.info(
+                                "inline fill %s→%s: %d/%d drills",
+                                pair["language_code"], locale, done, len(rows))
     except Exception as exc:  # noqa: BLE001 — a wait-screen helper, never a page
         logger.warning("inline start-batch fill failed: %s", exc)
 

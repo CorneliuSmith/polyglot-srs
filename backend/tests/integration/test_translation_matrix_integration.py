@@ -242,9 +242,23 @@ async def test_the_wait_converges_with_no_loop_at_all(pool):
 
     async with pool.privileged_connection() as conn:
         after = await session_readiness(conn, uid, course, batch_size=10)
+        # The sentence layer must ride along: a card that opens with a
+        # translated gloss/explanation over English "in context" lines
+        # reads as another failure (the Thai/Spanish screenshot).
+        examples = await conn.fetchval(
+            """SELECT count(*) FROM example_sentences
+                WHERE language_id = $1 AND translation_locale = 'es'""",
+            course)
+        drills = await conn.fetchval(
+            """SELECT count(*) FROM drill_hint_translations dht
+                 JOIN drill_sentences ds ON ds.id = dht.drill_id
+                 JOIN grammar_points gp ON gp.id = ds.grammar_point_id
+                WHERE gp.language_id = $1 AND dht.locale = 'es'""", course)
     assert after["learn"]["cards_ready"] >= after["learn"]["start_cards"], (
         f"inline fill did not open the session: {after['learn']}")
     assert after["learn"]["ready_enough"]
+    assert int(examples) > 0, "inline fill left the example sentences in English"
+    assert int(drills) > 0, "inline fill left the drill lines in English"
     _INLINE_FILLS.clear()
 
 

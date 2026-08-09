@@ -136,6 +136,52 @@ async def test_the_inline_fill_cooldown_stops_refresh_stampedes():
 
 
 @pytest.mark.asyncio
+async def test_the_inline_fill_carries_the_sentence_layer():
+    """A card that opens with a translated gloss/explanation over English
+    "in context" lines reads as another failure — the fill must cover the
+    start batch's example sentences and drill lines, not only the fields
+    the readiness gate counts (the Thai/Spanish screenshot)."""
+    auto_translate._INLINE_FILLS.clear()
+    conn = AsyncMock()
+    conn.fetchval = AsyncMock(return_value="es")
+    conn.fetchrow = AsyncMock(return_value={
+        "language_id": "l1", "language_code": "th",
+        "language_name": "Thai", "locale": "es", "locale_name": "Spanish"})
+    conn.fetch = AsyncMock(return_value=[{"id": "d1"}])  # the points' drills
+
+    ctx = MagicMock()
+    ctx.return_value.__aenter__ = AsyncMock(return_value=conn)
+    ctx.return_value.__aexit__ = AsyncMock(return_value=False)
+
+    ex_rows = [{"id": "e1", "vocabulary_id": "v1", "language_id": "l1",
+                "sentence": "s", "translation": "t"}]
+    dr_rows = [{"id": "d1", "sentence": "s", "translation": "t", "hint": "h"}]
+    tex = AsyncMock(return_value=1)
+    tdr = AsyncMock(return_value=1)
+    with patch("backend.repositories.pool.privileged_connection", ctx), \
+         patch.object(auto_translate, "translations_available",
+                      return_value=True), \
+         patch.object(auto_translate, "pending_words",
+                      new=AsyncMock(return_value=[])), \
+         patch.object(auto_translate, "pending_explanations",
+                      new=AsyncMock(return_value=[])), \
+         patch.object(auto_translate, "pending_examples",
+                      new=AsyncMock(return_value=ex_rows)), \
+         patch.object(auto_translate, "pending_drills",
+                      new=AsyncMock(return_value=dr_rows)), \
+         patch.object(auto_translate, "_translate_examples", tex), \
+         patch.object(auto_translate, "_translate_drills", tdr), \
+         patch.object(auto_translate, "_settle", new=AsyncMock()) as settle:
+        await auto_translate.fill_start_batch("u3", "l1", ["v1"], ["g1"])
+
+    tex.assert_awaited_once()
+    tdr.assert_awaited_once()
+    settled_kinds = [c.args[1] for c in settle.await_args_list]
+    assert "example" in settled_kinds and "drill" in settled_kinds
+    auto_translate._INLINE_FILLS.clear()
+
+
+@pytest.mark.asyncio
 async def test_the_inline_fill_never_raises():
     """It is create_task'd from a request handler; an exception must die
     here, logged, not as an unhandled task error."""

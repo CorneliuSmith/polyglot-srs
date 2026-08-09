@@ -169,3 +169,35 @@ production sticks AGAIN after this deploys, the next probe is the admin
 panel's sweep line at the moment of the stall (distinguishes a dead loop
 from a failing provider) — and that observation costs the owner one
 screenshot, not another iteration of guesswork.
+
+## Round 3 (2026-08-09) — the fill worked, the sentences didn't ride along
+
+Owner's report after the Round 2 deploy, with a screenshot: *"It seems the
+loading worked better but it did not trigger the sentence translations as
+well?"* — a Thai grammar card, Spanish interface, where CÓMO FUNCIONA (the
+explanation) IS Spanish but the EN CONTEXTO lines under it are English.
+
+That is Round 2's fix behaving exactly as written, and written too
+narrowly: `fill_start_batch` translated precisely what the readiness gate
+counts — word glosses and grammar explanations — and left the sentence
+layer (example sentences, drill translations/hints) to the background
+loop. Which is the same loop the whole round established cannot be
+reached from the request path in the deployed topology. So the card's
+body loaded inline and its sentences waited for the quarter-hour sweep:
+the original bug, one layer down.
+
+Fix: the inline fill now carries the sentence layer too, same bounds and
+guards —
+
+- example sentences for the batch's vocab ids (`pending_examples` →
+  `_translate_examples`, ≤`INLINE_FILL_SENTENCES=8` per pass, skipped on
+  the self-pair where a rendering would restate the sentence);
+- the batch's grammar points' drills (points mapped to drill ids first,
+  since `pending_drills` is keyed by drill; `_translate_drills` already
+  renders hint-only on the self-pair);
+- both settled into the attempt ledger with the sweep's own ref
+  semantics (examples per distinct vocabulary_id, drills per drill id).
+
+Regression tests: the no-loop convergence test now also asserts locale
+example rows and drill_hint_translations exist after the fill; a unit
+test pins the wiring (sentence helpers called, both kinds settled).
