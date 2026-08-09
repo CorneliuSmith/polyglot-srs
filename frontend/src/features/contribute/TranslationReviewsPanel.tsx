@@ -6,14 +6,21 @@ import {
 } from '../../api/contribute'
 
 /** The AI maker-checker's "not sure" pile: glosses and hints it refused to
- * auto-apply. An admin approves (applies to the card) or rejects (dismisses).
+ * auto-apply. Lives in the REVIEW workspace with the other queues (owner:
+ * "these should go into the review section, marked as AI generated"),
+ * scoped to the working language, each row badged with the review type.
+ * An admin approves (applies to the card) or rejects (dismisses).
  * 'en-hint' rows are flagged English definitions; other locales are
  * English-course L1 glosses. */
-export default function TranslationReviewsPanel() {
+export default function TranslationReviewsPanel({
+  languageId,
+}: {
+  languageId?: string
+}) {
   const queryClient = useQueryClient()
   const { data: reviews } = useQuery({
-    queryKey: ['translation-reviews'],
-    queryFn: getTranslationReviews,
+    queryKey: ['translation-reviews', languageId ?? 'all'],
+    queryFn: () => getTranslationReviews(languageId),
     retry: false,
   })
   const refresh = () =>
@@ -34,9 +41,12 @@ export default function TranslationReviewsPanel() {
       className="bg-white rounded-2xl border border-gray-100 p-4 text-sm"
       data-testid="translation-reviews"
     >
-      <h2 className="text-sm font-semibold text-gray-800">
-        AI translations awaiting review
-      </h2>
+      <div className="flex flex-wrap items-center gap-2">
+        <h2 className="text-sm font-semibold text-gray-800">AI translations</h2>
+        <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-medium text-amber-700">
+          AI generated · awaiting review
+        </span>
+      </div>
       <p className="text-xs text-gray-500 mb-3">
         The maker–checker wasn’t confident enough to apply these. Approve to
         put the proposed text on the card; reject to dismiss.

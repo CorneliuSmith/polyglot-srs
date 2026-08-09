@@ -317,9 +317,12 @@ export interface TranslationReview {
   created_at: string | null
 }
 
-export async function getTranslationReviews(): Promise<TranslationReview[]> {
+export async function getTranslationReviews(
+  languageId?: string,
+): Promise<TranslationReview[]> {
   const response = await apiClient.get<{ reviews: TranslationReview[] }>(
     '/api/contribute/translation-reviews',
+    { params: languageId ? { language_id: languageId } : {} },
   )
   return response.data.reviews
 }
@@ -1194,6 +1197,7 @@ export interface ReviewInboxCounts {
   notes: number
   feedback: number
   overlaps: number
+  ai_translations: number
 }
 
 export interface ReviewInbox {

@@ -1273,6 +1273,18 @@ class TestTranslationReviews:
         assert resp.status_code == 200
         assert resp.json() == {"reviews": items}
 
+    def test_queue_scopes_to_the_working_language(self, client):
+        """The Review workspace lists ONE language's pile — language_id is
+        passed through to the repo filter."""
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.list_translation_reviews",
+                   new=AsyncMock(return_value=[])) as mock_list:
+            resp = client.get(
+                f"/api/contribute/translation-reviews?language_id={LANG}",
+                headers=_auth_headers())
+        assert resp.status_code == 200
+        assert mock_list.await_args.kwargs["language_id"] == LANG
+
     def test_approve_applies(self, client):
         with _roles([{"language_id": None, "role": "admin"}]), \
              patch("backend.routers.contribute.resolve_translation_review",

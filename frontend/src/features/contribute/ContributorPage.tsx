@@ -778,7 +778,6 @@ export default function ContributorPage() {
                 <LanguageVisibilityPanel />
                 <SuggestionMetricsPanel />
                 <GenerationPanel />
-                <TranslationReviewsPanel />
                 <TrialRequestsPanel />
                 <AccountsPanel languages={languages} selfId={selfId} />
                 <RolesPanel languages={languages} />
@@ -804,6 +803,11 @@ export default function ContributorPage() {
                 {/* One roll-up of everything awaiting review action, above the
                     individual queue panels. */}
                 <ReviewInbox languageId={activeLanguageId} />
+                {/* AI-proposed glosses the maker-checker wouldn't auto-apply.
+                    Moved here from the Admin tab (owner): review work lives
+                    in the Review section, badged with its type. Self-hides
+                    for non-admins and when the queue is empty. */}
+                <TranslationReviewsPanel languageId={activeLanguageId} />
                 {/* Generated grammar drills awaiting review. Full reviewers
                     approve/reject; trial reviewers recommend. Hidden when none
                     pending. */}

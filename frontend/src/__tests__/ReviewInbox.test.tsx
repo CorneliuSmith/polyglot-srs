@@ -14,6 +14,7 @@ const ZERO = {
   grammar_pending: 0, pending_drills: 0, flagged_drills: 0, pending_examples: 0,
   flagged_examples: 0, translation_suggestions: 0, ai_levels: 0,
   change_requests: 0, suggestions: 0, notes: 0, feedback: 0, overlaps: 0,
+  ai_translations: 0,
 }
 
 function renderInbox() {
@@ -43,6 +44,18 @@ describe('ReviewInbox', () => {
     expect(screen.getByText('Change requests')).toBeDefined()
     // Empty queues are not rendered.
     expect(screen.queryByText('Learner feedback')).toBeNull()
+  })
+
+  it('counts AI translations awaiting review, marked with their type', async () => {
+    mockGet.mockResolvedValue({
+      counts: { ...ZERO, ai_translations: 4 },
+      can_publish: true,
+    })
+    renderInbox()
+    expect(await screen.findByTestId('review-inbox')).toBeDefined()
+    expect(screen.getByText('AI translations')).toBeDefined()
+    expect(screen.getByText('AI generated · awaiting review')).toBeDefined()
+    expect(screen.getByText(/4 awaiting/)).toBeDefined()
   })
 
   it('reads All clear when nothing is pending', async () => {
