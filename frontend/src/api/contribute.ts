@@ -159,6 +159,9 @@ export interface LanguageReadiness {
   code: string
   name: string
   is_visible: boolean
+  /** Raw stored policy — may be the legacy 'strict'; normalize before use. */
+  review_policy?: string | null
+  tutor_model?: string | null
   draft_points: number
   pending_drills: number
   pending_examples: number

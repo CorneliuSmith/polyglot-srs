@@ -466,4 +466,35 @@ describe('reaching End session in a long conversation', () => {
     ).toBeDefined()
     expect(screen.getByRole('button', { name: /scroll to bottom/i })).toBeDefined()
   })
+
+  /* The composer sits at the END of a `min-h-screen` column whose message
+   * list is `flex-1 overflow-y-auto` with nothing capping its height — so
+   * the list grows with the conversation instead of scrolling inside
+   * itself, the document outgrows the viewport, and the entry box lands
+   * under the fold with nothing on screen suggesting there is anywhere to
+   * scroll to. Measured in Chromium before the fix: 1403px down a 800px
+   * viewport.
+   *
+   * jsdom has no layout, so this pins the mechanism. `sticky bottom-0` in
+   * particular, NOT a fixed height on the column: StaffBar is a sibling
+   * above this page, so `h-screen` would sit a whole viewport below it and
+   * push the composer under the fold by the bar's height — for staff only,
+   * which is who reported this. */
+  it('pins the composer to the viewport instead of the end of the page', async () => {
+    mockGetTutorStatus.mockResolvedValue(statusWith(freeAllowance(14)))
+    renderPage()
+    const input = await screen.findByPlaceholderText(/message your tutor/i)
+    const form = input.closest('form')
+    expect(form).not.toBeNull()
+    expect(form!.className).toContain('sticky')
+    expect(form!.className).toContain('bottom-0')
+  })
+
+  it('gives the pinned composer an opaque background', async () => {
+    // Messages scroll underneath it; a transparent bar reads through.
+    mockGetTutorStatus.mockResolvedValue(statusWith(freeAllowance(14)))
+    renderPage()
+    const input = await screen.findByPlaceholderText(/message your tutor/i)
+    expect(input.closest('form')!.className).toMatch(/bg-\w/)
+  })
 })

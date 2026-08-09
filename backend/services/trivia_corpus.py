@@ -1152,6 +1152,950 @@ _QUESTIONS: list[dict] = [
                     "الهبوط مباشرة.",
         },
     },
+    {
+        "answer": 1,
+        "en": {"question": "Which of these languages uses click consonants?",
+               "options": ["Turkish", "Xhosa", "Russian", "Catalan"],
+               "fact": "Xhosa has around eighteen click consonants, adopted "
+                       "centuries ago from neighbouring Khoisan languages — "
+                       "the X in “Xhosa” is itself a click."},
+        "es": {"question": "¿Cuál de estas lenguas usa consonantes de chasquido (clics)?",
+               "options": ["El turco", "El xhosa", "El ruso", "El catalán"],
+               "fact": "El xhosa tiene unos dieciocho clics, adoptados hace "
+                       "siglos de las lenguas joisanas vecinas: la X de "
+                       "“xhosa” es en sí misma un clic."},
+        "fr": {"question": "Laquelle de ces langues utilise des consonnes à clic ?",
+               "options": ["Le turc", "Le xhosa", "Le russe", "Le catalan"],
+               "fact": "Le xhosa compte environ dix-huit clics, empruntés il y "
+                       "a des siècles aux langues khoïsanes voisines — le X de "
+                       "« xhosa » est lui-même un clic."},
+        "pt": {"question": "Qual destas línguas usa consoantes de clique?",
+               "options": ["O turco", "O xhosa", "O russo", "O catalão"],
+               "fact": "O xhosa tem cerca de dezoito cliques, adotados há "
+                       "séculos das línguas khoisan vizinhas — o X de "
+                       "“xhosa” é, ele próprio, um clique."},
+        "ru": {"question": "В каком из этих языков есть щёлкающие согласные (клики)?",
+               "options": ["В турецком", "В коса", "В русском", "В каталанском"],
+               "fact": "В языке коса около восемнадцати щёлкающих согласных, "
+                       "заимствованных столетия назад у соседних койсанских "
+                       "языков — буква X в названии «Xhosa» сама "
+                       "обозначает щелчок."},
+        "ar": {"question": "أي من هذه اللغات تستخدم الأصوات الطقطقية (النقرية)؟",
+               "options": ["التركية", "الكوسا", "الروسية", "الكتالانية"],
+               "fact": "في لغة الكوسا نحو ثمانية عشر صوتًا طقطقيًا، اقتُبست قبل "
+                       "قرون من لغات الخويسان المجاورة — وحرف X في اسم "
+                       "“Xhosa” هو نفسه صوت طقطقة."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "Which alphabet was deliberately invented, rather than evolving over centuries?",
+               "options": ["Latin", "Greek", "Korean Hangul", "Cyrillic"],
+               "fact": "Hangul was published in 1446 under King Sejong so "
+                       "ordinary people could learn to read; its letter shapes "
+                       "sketch the position of the tongue and lips."},
+        "es": {"question": "¿Qué alfabeto fue inventado deliberadamente, en lugar de evolucionar durante siglos?",
+               "options": ["El latino", "El griego", "El hangul coreano", "El cirílico"],
+               "fact": "El hangul se publicó en 1446 bajo el rey Sejong para "
+                       "que la gente corriente pudiera aprender a leer; sus "
+                       "letras dibujan la posición de la lengua y los labios."},
+        "fr": {"question": "Quel alphabet a été inventé délibérément, au lieu d'évoluer au fil des siècles ?",
+               "options": ["Le latin", "Le grec", "Le hangeul coréen", "Le cyrillique"],
+               "fact": "Le hangeul a été publié en 1446 sous le roi Sejong "
+                       "pour que le peuple puisse apprendre à lire ; la forme "
+                       "des lettres esquisse la position de la langue et des "
+                       "lèvres."},
+        "pt": {"question": "Que alfabeto foi inventado deliberadamente, em vez de evoluir ao longo de séculos?",
+               "options": ["O latino", "O grego", "O hangul coreano", "O cirílico"],
+               "fact": "O hangul foi publicado em 1446 sob o rei Sejong para "
+                       "que as pessoas comuns pudessem aprender a ler; as "
+                       "letras desenham a posição da língua e dos lábios."},
+        "ru": {"question": "Какой алфавит был создан намеренно, а не складывался веками?",
+               "options": ["Латинский", "Греческий", "Корейский хангыль", "Кириллица"],
+               "fact": "Хангыль обнародовали в 1446 году при короле Седжоне, "
+                       "чтобы читать мог простой народ; форма букв "
+                       "схематически изображает положение языка и губ."},
+        "ar": {"question": "أي أبجدية اختُرعت اختراعًا مقصودًا بدل أن تتطور عبر القرون؟",
+               "options": ["اللاتينية", "اليونانية", "الهانغل الكورية", "السيريلية"],
+               "fact": "نُشرت الهانغل عام 1446 في عهد الملك سيجونغ ليتمكن عامة "
+                       "الناس من تعلم القراءة؛ وأشكال حروفها ترسم وضع اللسان "
+                       "والشفتين."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "What is true of sign languages like ASL?",
+               "options": ["They are pantomime",
+                           "They are signed versions of the local spoken language",
+                           "They are full languages with their own grammar",
+                           "They are the same all over the world"],
+               "fact": "American Sign Language is closer to French Sign "
+                       "Language than to British — its grammar travelled with "
+                       "a school founded from Paris, not with English."},
+        "es": {"question": "¿Qué es cierto sobre las lenguas de señas como la ASL?",
+               "options": ["Son pantomima",
+                           "Son versiones en señas de la lengua hablada local",
+                           "Son lenguas completas con gramática propia",
+                           "Son iguales en todo el mundo"],
+               "fact": "La lengua de señas americana se parece más a la "
+                       "francesa que a la británica: su gramática viajó con "
+                       "una escuela fundada desde París, no con el inglés."},
+        "fr": {"question": "Que peut-on dire des langues des signes comme l'ASL ?",
+               "options": ["C'est de la pantomime",
+                           "Ce sont des versions signées de la langue parlée locale",
+                           "Ce sont des langues à part entière, avec leur propre grammaire",
+                           "Elles sont identiques dans le monde entier"],
+               "fact": "La langue des signes américaine est plus proche de la "
+                       "française que de la britannique : sa grammaire a "
+                       "voyagé avec une école fondée depuis Paris, pas avec "
+                       "l'anglais."},
+        "pt": {"question": "O que é verdade sobre as línguas de sinais como a ASL?",
+               "options": ["São pantomima",
+                           "São versões em sinais da língua falada local",
+                           "São línguas completas, com gramática própria",
+                           "São iguais no mundo inteiro"],
+               "fact": "A língua de sinais americana é mais próxima da "
+                       "francesa do que da britânica: a gramática viajou com "
+                       "uma escola fundada a partir de Paris, não com o "
+                       "inglês."},
+        "ru": {"question": "Что верно о жестовых языках, таких как амслен (ASL)?",
+               "options": ["Это пантомима",
+                           "Это жестовые версии местного звучащего языка",
+                           "Это полноценные языки со своей грамматикой",
+                           "Они одинаковы во всём мире"],
+               "fact": "Американский жестовый язык ближе к французскому, чем "
+                       "к британскому: его грамматика пришла со школой, "
+                       "основанной выходцами из Парижа, а не с английским."},
+        "ar": {"question": "ما الصحيح بشأن لغات الإشارة مثل لغة الإشارة الأمريكية؟",
+               "options": ["إنها تمثيل إيمائي",
+                           "إنها نسخ بالإشارة من اللغة المنطوقة المحلية",
+                           "إنها لغات كاملة لها قواعدها الخاصة",
+                           "إنها واحدة في كل أنحاء العالم"],
+               "fact": "لغة الإشارة الأمريكية أقرب إلى الفرنسية منها إلى "
+                       "البريطانية: فقد جاءت قواعدها مع مدرسة أُسست من باريس، "
+                       "لا مع الإنجليزية."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "On La Gomera in the Canary Islands, Spanish can be…",
+               "options": ["whistled", "drummed", "hummed", "clapped"],
+               "fact": "Silbo Gomero turns Spanish into whistles that carry "
+                       "for kilometres across ravines — and it is taught in "
+                       "the island's schools today."},
+        "es": {"question": "En La Gomera, en las islas Canarias, el español se puede…",
+               "options": ["silbar", "tocar con tambores", "tararear", "aplaudir"],
+               "fact": "El silbo gomero convierte el español en silbidos que "
+                       "cruzan barrancos a kilómetros de distancia, y hoy se "
+                       "enseña en las escuelas de la isla."},
+        "fr": {"question": "À La Gomera, aux îles Canaries, l'espagnol peut être…",
+               "options": ["sifflé", "tambouriné", "fredonné", "frappé dans les mains"],
+               "fact": "Le silbo gomero transforme l'espagnol en sifflements "
+                       "qui portent à des kilomètres par-dessus les ravins — "
+                       "et il s'enseigne aujourd'hui à l'école sur l'île."},
+        "pt": {"question": "Em La Gomera, nas ilhas Canárias, o espanhol pode ser…",
+               "options": ["assobiado", "tocado em tambores", "cantarolado", "batido com palmas"],
+               "fact": "O silbo gomero converte o espanhol em assobios que "
+                       "atravessam ravinas a quilómetros de distância — e hoje "
+                       "é ensinado nas escolas da ilha."},
+        "ru": {"question": "На острове Гомера (Канарские острова) на испанском можно…",
+               "options": ["свистеть", "барабанить", "напевать", "хлопать"],
+               "fact": "Сильбо гомеро превращает испанский в свист, слышный "
+                       "за километры через ущелья, — и сегодня ему учат в "
+                       "школах острова."},
+        "ar": {"question": "في جزيرة لا غوميرا بجزر الكناري، يمكن للإسبانية أن…",
+               "options": ["تُصفَّر", "تُقرَع بالطبول", "تُدندَن", "تُصفَّق"],
+               "fact": "يحوّل “الصفير الغوميري” الإسبانية إلى صفير يُسمع "
+                       "على بُعد كيلومترات عبر الوديان — وهو يُدرَّس اليوم في "
+                       "مدارس الجزيرة."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "What is the most common basic word order in the world's languages?",
+               "options": ["Subject–verb–object, like English",
+                           "Subject–object–verb, like Turkish and Japanese",
+                           "Verb first, like Welsh",
+                           "Object first"],
+               "fact": "Nearly half of all languages put the verb last. "
+                       "Verb-first languages like Welsh and Māori are far "
+                       "rarer, and object-first ones are vanishingly so."},
+        "es": {"question": "¿Cuál es el orden de palabras básico más común entre las lenguas del mundo?",
+               "options": ["Sujeto–verbo–objeto, como el inglés",
+                           "Sujeto–objeto–verbo, como el turco y el japonés",
+                           "El verbo primero, como el galés",
+                           "El objeto primero"],
+               "fact": "Casi la mitad de las lenguas ponen el verbo al final. "
+                       "Las lenguas con verbo inicial, como el galés o el "
+                       "maorí, son mucho más raras; las de objeto inicial, "
+                       "rarísimas."},
+        "fr": {"question": "Quel est l'ordre des mots de base le plus répandu parmi les langues du monde ?",
+               "options": ["Sujet–verbe–objet, comme l'anglais",
+                           "Sujet–objet–verbe, comme le turc et le japonais",
+                           "Le verbe d'abord, comme le gallois",
+                           "L'objet d'abord"],
+               "fact": "Près de la moitié des langues placent le verbe en "
+                       "dernier. Les langues à verbe initial comme le gallois "
+                       "ou le māori sont bien plus rares, et celles à objet "
+                       "initial, exceptionnelles."},
+        "pt": {"question": "Qual é a ordem de palavras básica mais comum entre as línguas do mundo?",
+               "options": ["Sujeito–verbo–objeto, como o inglês",
+                           "Sujeito–objeto–verbo, como o turco e o japonês",
+                           "O verbo primeiro, como o galês",
+                           "O objeto primeiro"],
+               "fact": "Quase metade das línguas põe o verbo no fim. Línguas "
+                       "com verbo inicial, como o galês e o māori, são bem "
+                       "mais raras; com objeto inicial, raríssimas."},
+        "ru": {"question": "Какой базовый порядок слов встречается в языках мира чаще всего?",
+               "options": ["Подлежащее–сказуемое–дополнение, как в английском",
+                           "Подлежащее–дополнение–сказуемое, как в турецком и японском",
+                           "Сначала глагол, как в валлийском",
+                           "Сначала дополнение"],
+               "fact": "Почти половина языков ставит глагол в конец. Языки, "
+                       "начинающие с глагола, вроде валлийского и маори, "
+                       "заметно реже, а начинающие с дополнения — единичны."},
+        "ar": {"question": "ما ترتيب الكلمات الأساسي الأكثر شيوعًا بين لغات العالم؟",
+               "options": ["فاعل–فعل–مفعول، كما في الإنجليزية",
+                           "فاعل–مفعول–فعل، كما في التركية واليابانية",
+                           "الفعل أولًا، كما في الويلزية",
+                           "المفعول أولًا"],
+               "fact": "نحو نصف اللغات يضع الفعل في آخر الجملة. أما اللغات "
+                       "التي تبدأ بالفعل، كالويلزية والماورية، فأندر بكثير، "
+                       "والتي تبدأ بالمفعول نادرة للغاية."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "Besides singular and plural, what third grammatical number does Arabic have?",
+               "options": ["The dual, for exactly two",
+                           "The trial, for exactly three",
+                           "The paucal, for a few",
+                           "It has no third number"],
+               "fact": "In Arabic, kitābān means “two books” with no word "
+                       "for “two” at all — the ending carries it. Slovene "
+                       "and Ancient Greek kept a dual as well."},
+        "es": {"question": "Además del singular y el plural, ¿qué tercer número gramatical tiene el árabe?",
+               "options": ["El dual, para exactamente dos",
+                           "El trial, para exactamente tres",
+                           "El paucal, para unos pocos",
+                           "No tiene un tercer número"],
+               "fact": "En árabe, kitābān significa “dos libros” sin "
+                       "ninguna palabra para “dos”: la terminación lo "
+                       "dice todo. El esloveno y el griego antiguo también "
+                       "conservaron un dual."},
+        "fr": {"question": "Outre le singulier et le pluriel, quel troisième nombre grammatical possède l'arabe ?",
+               "options": ["Le duel, pour exactement deux",
+                           "Le triel, pour exactement trois",
+                           "Le paucal, pour quelques-uns",
+                           "Il n'a pas de troisième nombre"],
+               "fact": "En arabe, kitābān signifie « deux livres » sans "
+                       "aucun mot pour « deux » : c'est la terminaison "
+                       "qui le dit. Le slovène et le grec ancien ont eux aussi "
+                       "conservé un duel."},
+        "pt": {"question": "Além do singular e do plural, que terceiro número gramatical tem o árabe?",
+               "options": ["O dual, para exatamente dois",
+                           "O trial, para exatamente três",
+                           "O paucal, para uns poucos",
+                           "Não tem um terceiro número"],
+               "fact": "Em árabe, kitābān significa “dois livros” sem "
+                       "palavra nenhuma para “dois”: a terminação diz "
+                       "tudo. O esloveno e o grego antigo também conservaram "
+                       "um dual."},
+        "ru": {"question": "Кроме единственного и множественного, какое третье грамматическое число есть в арабском?",
+               "options": ["Двойственное — ровно для двух",
+                           "Тройственное — ровно для трёх",
+                           "Паукальное — для нескольких",
+                           "Третьего числа нет"],
+               "fact": "По-арабски kitābān значит «две книги» — без "
+                       "всякого слова «две»: всё делает окончание. "
+                       "Двойственное число сохранили также словенский и "
+                       "древнегреческий."},
+        "ar": {"question": "إلى جانب المفرد والجمع، ما العدد النحوي الثالث في العربية؟",
+               "options": ["المثنى، لاثنين بالضبط",
+                           "الثلاثي، لثلاثة بالضبط",
+                           "عدد القِلة، لبضعة أشياء",
+                           "لا عدد ثالث فيها"],
+               "fact": "“كتابان” تعني كتابين اثنين من دون ذكر كلمة "
+                       "“اثنين” أصلًا — فالنهاية تحمل المعنى. وقد احتفظت "
+                       "السلوفينية واليونانية القديمة بالمثنى أيضًا."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "In Turkish, the verb ending can change depending on…",
+               "options": ["whether you saw it happen or only heard about it",
+                           "how polite you are being",
+                           "the size of the object",
+                           "the day of the week"],
+               "fact": "Gitti is “he went (I witnessed it)”; gitmiş is "
+                       "“he apparently went”. Some Amazonian languages "
+                       "mark five grades of evidence — and marking one is not "
+                       "optional."},
+        "es": {"question": "En turco, la terminación del verbo puede cambiar según…",
+               "options": ["si lo viste tú mismo o solo te lo contaron",
+                           "el grado de cortesía",
+                           "el tamaño del objeto",
+                           "el día de la semana"],
+               "fact": "Gitti es “se fue (yo lo vi)”; gitmiş, “por lo "
+                       "visto se fue”. Algunas lenguas amazónicas marcan "
+                       "cinco grados de evidencia, y marcarla es obligatorio."},
+        "fr": {"question": "En turc, la terminaison du verbe peut changer selon…",
+               "options": ["que vous avez vu la chose ou qu'on vous l'a racontée",
+                           "le degré de politesse",
+                           "la taille de l'objet",
+                           "le jour de la semaine"],
+               "fact": "Gitti : « il est parti (je l'ai vu) » ; gitmiş : "
+                       "« il serait parti, paraît-il ». Certaines "
+                       "langues d'Amazonie distinguent cinq degrés de preuve — "
+                       "et le marquage est obligatoire."},
+        "pt": {"question": "Em turco, a terminação do verbo pode mudar conforme…",
+               "options": ["você viu acontecer ou só ouviu contar",
+                           "o grau de cortesia",
+                           "o tamanho do objeto",
+                           "o dia da semana"],
+               "fact": "Gitti é “ele foi (eu vi)”; gitmiş é “ao que "
+                       "parece, ele foi”. Algumas línguas amazónicas marcam "
+                       "cinco graus de evidência — e marcar é obrigatório."},
+        "ru": {"question": "В турецком окончание глагола может меняться в зависимости от того…",
+               "options": ["видели ли вы событие сами или знаете о нём с чужих слов",
+                           "насколько вежливо вы говорите",
+                           "какого размера предмет",
+                           "какой сегодня день недели"],
+               "fact": "Gitti — «он ушёл (я видел)»; gitmiş — «он, "
+                       "судя по всему, ушёл». В некоторых амазонских "
+                       "языках различается пять степеней достоверности, и "
+                       "выбрать одну из них обязательно."},
+        "ar": {"question": "في التركية، قد تتغير نهاية الفعل بحسب…",
+               "options": ["هل رأيتَ الحدث بنفسك أم سمعت عنه فقط",
+                           "درجة التهذيب",
+                           "حجم الشيء",
+                           "يوم الأسبوع"],
+               "fact": "Gitti تعني “ذهب (وقد رأيتُه)”، أما gitmiş فتعني "
+                       "“يبدو أنه ذهب”. بعض لغات الأمازون تميّز خمس درجات "
+                       "من الدليل — والتمييز إلزامي لا اختياري."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "If a language has only three colour words, which are they almost always?",
+               "options": ["Black, white and red",
+                           "Blue, green and yellow",
+                           "Red, green and blue",
+                           "Black, white and blue"],
+               "fact": "Colour vocabularies grow in a near-universal order: "
+                       "dark, light, then red — blue arrives late. Homer "
+                       "famously calls the sea “wine-dark”, never blue."},
+        "es": {"question": "Si una lengua tiene solo tres palabras para colores, ¿cuáles son casi siempre?",
+               "options": ["Negro, blanco y rojo",
+                           "Azul, verde y amarillo",
+                           "Rojo, verde y azul",
+                           "Negro, blanco y azul"],
+               "fact": "Los vocabularios de color crecen en un orden casi "
+                       "universal: oscuro, claro y luego rojo; el azul llega "
+                       "tarde. Homero llama al mar “vinoso”, nunca "
+                       "azul."},
+        "fr": {"question": "Si une langue n'a que trois mots de couleur, lesquels sont-ce presque toujours ?",
+               "options": ["Noir, blanc et rouge",
+                           "Bleu, vert et jaune",
+                           "Rouge, vert et bleu",
+                           "Noir, blanc et bleu"],
+               "fact": "Les vocabulaires des couleurs grandissent dans un "
+                       "ordre quasi universel : sombre, clair, puis rouge — le "
+                       "bleu vient tard. Homère dit la mer « couleur de "
+                       "vin », jamais bleue."},
+        "pt": {"question": "Se uma língua tem só três palavras para cores, quais são quase sempre?",
+               "options": ["Preto, branco e vermelho",
+                           "Azul, verde e amarelo",
+                           "Vermelho, verde e azul",
+                           "Preto, branco e azul"],
+               "fact": "Os vocabulários de cor crescem numa ordem quase "
+                       "universal: escuro, claro e depois vermelho — o azul "
+                       "chega tarde. Homero chama ao mar “cor de vinho”, "
+                       "nunca azul."},
+        "ru": {"question": "Если в языке всего три слова для цветов, какие это почти всегда цвета?",
+               "options": ["Чёрный, белый и красный",
+                           "Синий, зелёный и жёлтый",
+                           "Красный, зелёный и синий",
+                           "Чёрный, белый и синий"],
+               "fact": "Названия цветов появляются в языках почти в одном и "
+                       "том же порядке: тёмный, светлый, затем красный — синий "
+                       "приходит поздно. У Гомера море «винноцветное», "
+                       "но не синее."},
+        "ar": {"question": "إذا لم يكن في لغة إلا ثلاث كلمات للألوان، فما هي في الغالب؟",
+               "options": ["الأسود والأبيض والأحمر",
+                           "الأزرق والأخضر والأصفر",
+                           "الأحمر والأخضر والأزرق",
+                           "الأسود والأبيض والأزرق"],
+               "fact": "تنمو مفردات الألوان بترتيب يكاد يكون واحدًا في كل "
+                       "اللغات: الداكن ثم الفاتح ثم الأحمر — ويتأخر الأزرق. "
+                       "هوميروس يصف البحر بأنه “بلون الخمر” ولا يقول "
+                       "أزرق قط."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "Why do words like “mama” and “papa” sound similar in unrelated languages?",
+               "options": ["They share one ancient ancestor",
+                           "They come from babies' first babbling sounds",
+                           "They were spread by Latin",
+                           "It is pure coincidence"],
+               "fact": "M, p, b and ah are the first sounds infants can make, "
+                       "and parents everywhere hear their names in them. "
+                       "Georgian flips it: mama is “dad” and deda is "
+                       "“mum”."},
+        "es": {"question": "¿Por qué palabras como “mamá” y “papá” suenan parecido en lenguas sin parentesco?",
+               "options": ["Comparten un único ancestro antiguo",
+                           "Vienen de los primeros balbuceos de los bebés",
+                           "Las difundió el latín",
+                           "Es pura coincidencia"],
+               "fact": "M, p, b y a son los primeros sonidos que un bebé puede "
+                       "producir, y los padres de todo el mundo oyen en ellos "
+                       "sus nombres. El georgiano lo invierte: mama es "
+                       "“papá” y deda, “mamá”."},
+        "fr": {"question": "Pourquoi des mots comme « maman » et « papa » se ressemblent-ils dans des langues sans lien de parenté ?",
+               "options": ["Ils partagent un unique ancêtre très ancien",
+                           "Ils viennent des premiers babillages des bébés",
+                           "Le latin les a répandus",
+                           "C'est une pure coïncidence"],
+               "fact": "M, p, b et a sont les premiers sons qu'un nourrisson "
+                       "sait produire, et les parents du monde entier y "
+                       "entendent leurs noms. Le géorgien inverse tout : mama "
+                       "y veut dire « papa », et deda « maman »."},
+        "pt": {"question": "Por que palavras como “mamã” e “papá” soam parecido em línguas sem parentesco?",
+               "options": ["Partilham um único antepassado antigo",
+                           "Vêm dos primeiros balbucios dos bebés",
+                           "Foram espalhadas pelo latim",
+                           "É pura coincidência"],
+               "fact": "M, p, b e á são os primeiros sons que um bebé consegue "
+                       "produzir, e os pais de todo o mundo ouvem neles os "
+                       "seus nomes. O georgiano inverte: mama é “pai” e "
+                       "deda é “mãe”."},
+        "ru": {"question": "Почему слова вроде «мама» и «папа» похожи в неродственных языках?",
+               "options": ["У них один древний общий предок",
+                           "Они происходят из первого лепета младенцев",
+                           "Их разнесла латынь",
+                           "Это чистое совпадение"],
+               "fact": "М, п, б и а — первые звуки, которые умеет произносить "
+                       "младенец, и родители всего мира слышат в них свои "
+                       "имена. Грузинский всё переворачивает: mama там — "
+                       "«папа», а deda — «мама»."},
+        "ar": {"question": "لماذا تتشابه كلمات مثل “ماما” و“بابا” في لغات لا قرابة بينها؟",
+               "options": ["لأن لها سلفًا واحدًا قديمًا",
+                           "لأنها من أولى مناغاة الرضّع",
+                           "لأن اللاتينية نشرتها",
+                           "إنها محض مصادفة"],
+               "fact": "الميم والباء والألف أول ما يستطيع الرضيع نطقه، "
+                       "والآباء في كل مكان يسمعون فيها أسماءهم. وتقلبها "
+                       "الجورجية رأسًا على عقب: mama تعني الأب وdeda تعني "
+                       "الأم."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "Portuguese “saudade” is famous as…",
+               "options": ["a folk dance",
+                           "a word for missing someone or something, hard to translate in one word",
+                           "a kind of wine",
+                           "a formal greeting"],
+               "fact": "Every language has one-word gaps others envy: Danish "
+                       "hygge (cosy togetherness), German Fernweh (an ache "
+                       "for far-away places), Arabic ya'aburnee (“may you "
+                       "outlive me”)."},
+        "es": {"question": "La palabra portuguesa “saudade” es famosa por ser…",
+               "options": ["una danza popular",
+                           "una palabra para la añoranza de alguien o algo, difícil de traducir en una sola palabra",
+                           "un tipo de vino",
+                           "un saludo formal"],
+               "fact": "Toda lengua tiene huecos de una sola palabra que otras "
+                       "envidian: el danés hygge (calidez compartida), el "
+                       "alemán Fernweh (anhelo de lugares lejanos), el árabe "
+                       "ya'aburnee (“que me sobrevivas”)."},
+        "fr": {"question": "Le mot portugais « saudade » est célèbre comme…",
+               "options": ["une danse populaire",
+                           "un mot disant le manque d'un être ou d'un lieu, difficile à traduire en un seul mot",
+                           "un type de vin",
+                           "une salutation formelle"],
+               "fact": "Chaque langue a ses mots-trous que les autres lui "
+                       "envient : le danois hygge (chaleur partagée), "
+                       "l'allemand Fernweh (le mal du lointain), l'arabe "
+                       "ya'aburnee (« puisses-tu me survivre »)."},
+        "pt": {"question": "A palavra portuguesa “saudade” é famosa como…",
+               "options": ["uma dança popular",
+                           "uma palavra para a falta que alguém ou algo nos faz, difícil de traduzir numa só palavra",
+                           "um tipo de vinho",
+                           "uma saudação formal"],
+               "fact": "Toda língua tem lacunas de uma palavra só que as "
+                       "outras invejam: o dinamarquês hygge (aconchego "
+                       "partilhado), o alemão Fernweh (saudade do longe), o "
+                       "árabe ya'aburnee (“que me sobrevivas”)."},
+        "ru": {"question": "Португальское слово «saudade» знаменито тем, что…",
+               "options": ["это народный танец",
+                           "это слово о тоске по кому-то или чему-то, которое трудно перевести одним словом",
+                           "это сорт вина",
+                           "это официальное приветствие"],
+               "fact": "В каждом языке есть слова-лакуны, которым завидуют "
+                       "другие: датское hygge (уютная близость), немецкое "
+                       "Fernweh (тоска по дальним краям), арабское ya'aburnee "
+                       "(«переживи меня»)."},
+        "ar": {"question": "كلمة “ساوداده” البرتغالية مشهورة بوصفها…",
+               "options": ["رقصة شعبية",
+                           "كلمة عن الحنين إلى شخص أو شيء، يصعب نقلها بكلمة واحدة",
+                           "نوعًا من النبيذ",
+                           "تحية رسمية"],
+               "fact": "في كل لغة كلمات لا تُترجم بكلمة واحدة وتحسدها عليها "
+                       "اللغات الأخرى: الدنماركية hygge (دفء الصحبة)، "
+                       "والألمانية Fernweh (الحنين إلى الأماكن البعيدة)، "
+                       "والعربية “يعبرني”."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "In Indonesian, how do you usually make a plural?",
+               "options": ["Add an -s",
+                           "Say the word twice: orang “person”, orang-orang “people”",
+                           "Change the vowel",
+                           "Add a prefix"],
+               "fact": "Doubling — reduplication — is everywhere in the "
+                       "world's languages, marking plurals, intensity or "
+                       "repetition. English uses it too: “is it a DATE-date "
+                       "or just lunch?”"},
+        "es": {"question": "En indonesio, ¿cómo se forma normalmente el plural?",
+               "options": ["Añadiendo una -s",
+                           "Repitiendo la palabra: orang “persona”, orang-orang “gente”",
+                           "Cambiando la vocal",
+                           "Añadiendo un prefijo"],
+               "fact": "La reduplicación aparece en lenguas de todo el mundo "
+                       "para marcar plural, intensidad o repetición. El "
+                       "español coloquial también la usa: “era un café "
+                       "café”."},
+        "fr": {"question": "En indonésien, comment forme-t-on d'ordinaire le pluriel ?",
+               "options": ["En ajoutant un -s",
+                           "En répétant le mot : orang « personne », orang-orang « les gens »",
+                           "En changeant la voyelle",
+                           "En ajoutant un préfixe"],
+               "fact": "Le redoublement existe dans les langues du monde "
+                       "entier pour dire le pluriel, l'intensité ou la "
+                       "répétition. Le français familier s'en sert aussi : "
+                       "« c'est du café-café »."},
+        "pt": {"question": "Em indonésio, como se faz normalmente o plural?",
+               "options": ["Acrescenta-se um -s",
+                           "Repete-se a palavra: orang “pessoa”, orang-orang “pessoas”",
+                           "Muda-se a vogal",
+                           "Acrescenta-se um prefixo"],
+               "fact": "A reduplicação aparece em línguas do mundo inteiro "
+                       "para marcar plural, intensidade ou repetição. O "
+                       "português coloquial também a usa: “é um café "
+                       "café”."},
+        "ru": {"question": "Как в индонезийском обычно образуется множественное число?",
+               "options": ["Добавлением -s",
+                           "Повторением слова: orang — «человек», orang-orang — «люди»",
+                           "Сменой гласной",
+                           "Добавлением приставки"],
+               "fact": "Редупликация встречается в языках всего мира и "
+                       "означает множественность, усиление или повтор. Есть "
+                       "она и в русском: «чуть-чуть», «еле-еле»."},
+        "ar": {"question": "كيف يُصاغ الجمع عادةً في الإندونيسية؟",
+               "options": ["بإضافة -s",
+                           "بتكرار الكلمة: orang “شخص”، وorang-orang “أشخاص”",
+                           "بتغيير الحركة",
+                           "بإضافة سابقة"],
+               "fact": "التكرار موجود في لغات العالم كلها للدلالة على الجمع "
+                       "أو التوكيد أو المعاودة. وفي العربية شيء قريب منه: "
+                       "“شيئًا فشيئًا” و“كثيرًا كثيرًا”."},
+    },
+    {
+        "answer": 2,
+        "en": {"question": "Roughly how many grammatical cases does Hungarian have?",
+               "options": ["Two", "Around six", "Around eighteen", "None"],
+               "fact": "Where English says “in the house”, Hungarian says "
+                       "házban — one word. Finnish plays the same game with "
+                       "about fifteen cases; Russian gets by with six."},
+        "es": {"question": "¿Aproximadamente cuántos casos gramaticales tiene el húngaro?",
+               "options": ["Dos", "Unos seis", "Unos dieciocho", "Ninguno"],
+               "fact": "Donde el español dice “en la casa”, el húngaro "
+                       "dice házban: una sola palabra. El finés juega igual "
+                       "con unos quince casos; al ruso le bastan seis."},
+        "fr": {"question": "Combien de cas grammaticaux le hongrois possède-t-il, environ ?",
+               "options": ["Deux", "Environ six", "Environ dix-huit", "Aucun"],
+               "fact": "Là où le français dit « dans la maison », le "
+                       "hongrois dit házban — un seul mot. Le finnois joue au "
+                       "même jeu avec une quinzaine de cas ; le russe s'en "
+                       "tire avec six."},
+        "pt": {"question": "Aproximadamente quantos casos gramaticais tem o húngaro?",
+               "options": ["Dois", "Uns seis", "Uns dezoito", "Nenhum"],
+               "fact": "Onde o português diz “na casa”, o húngaro diz "
+                       "házban — uma palavra só. O finlandês joga o mesmo jogo "
+                       "com uns quinze casos; ao russo bastam seis."},
+        "ru": {"question": "Сколько примерно грамматических падежей в венгерском?",
+               "options": ["Два", "Около шести", "Около восемнадцати", "Ни одного"],
+               "fact": "Там, где по-русски говорят «в доме», венгр "
+                       "скажет házban — одним словом. Финский играет в ту же "
+                       "игру с примерно пятнадцатью падежами; русскому хватает "
+                       "шести."},
+        "ar": {"question": "كم عدد الحالات الإعرابية في المجرية تقريبًا؟",
+               "options": ["اثنتان", "نحو ست", "نحو ثماني عشرة", "لا شيء"],
+               "fact": "حيث تقول العربية “في البيت” بكلمتين، تقول المجرية "
+                       "házban بكلمة واحدة. والفنلندية تلعب اللعبة نفسها بنحو "
+                       "خمس عشرة حالة، بينما تكتفي الروسية بست."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "Some early Greek inscriptions are written “boustrophedon”. What does that mean?",
+               "options": ["Alternating direction line by line, like an ox ploughing a field",
+                           "Vertically, top to bottom",
+                           "In a spiral toward the centre",
+                           "In mirror writing throughout"],
+               "fact": "The word means “as the ox turns”. One line runs "
+                       "left to right, the next right to left — the reader's "
+                       "eye never has to sweep back."},
+        "es": {"question": "Algunas inscripciones griegas antiguas están escritas en “bustrofedon”. ¿Qué significa?",
+               "options": ["Alternando la dirección línea a línea, como ara un buey",
+                           "En vertical, de arriba abajo",
+                           "En espiral hacia el centro",
+                           "Todo en escritura especular"],
+               "fact": "La palabra significa “como gira el buey”. Una "
+                       "línea va de izquierda a derecha y la siguiente al "
+                       "revés: el ojo del lector nunca tiene que volver atrás."},
+        "fr": {"question": "Certaines inscriptions grecques archaïques sont écrites en « boustrophédon ». Qu'est-ce que cela signifie ?",
+               "options": ["Le sens d'écriture alterne à chaque ligne, comme le bœuf qui laboure",
+                           "À la verticale, de haut en bas",
+                           "En spirale vers le centre",
+                           "Entièrement en écriture miroir"],
+               "fact": "Le mot signifie « comme tourne le bœuf ». Une "
+                       "ligne va de gauche à droite, la suivante de droite à "
+                       "gauche — l'œil du lecteur n'a jamais à revenir en "
+                       "arrière."},
+        "pt": {"question": "Algumas inscrições gregas antigas estão escritas em “bustrofédon”. O que significa isso?",
+               "options": ["A direção alterna linha a linha, como um boi a lavrar",
+                           "Na vertical, de cima para baixo",
+                           "Em espiral até ao centro",
+                           "Tudo em escrita espelhada"],
+               "fact": "A palavra significa “como o boi vira”. Uma linha "
+                       "corre da esquerda para a direita e a seguinte ao "
+                       "contrário — o olho do leitor nunca precisa de voltar "
+                       "atrás."},
+        "ru": {"question": "Некоторые ранние греческие надписи написаны «бустрофедоном». Что это значит?",
+               "options": ["Направление письма меняется с каждой строкой, как борозда за волом",
+                           "Вертикально, сверху вниз",
+                           "По спирали к центру",
+                           "Целиком зеркальным письмом"],
+               "fact": "Слово значит «как поворачивает вол». Одна "
+                       "строка идёт слева направо, следующая — справа налево: "
+                       "глазу читателя не приходится возвращаться к краю."},
+        "ar": {"question": "بعض النقوش اليونانية المبكرة مكتوبة بأسلوب “بوسطروفيدون”. فما معناه؟",
+               "options": ["يتناوب اتجاه الكتابة سطرًا بعد سطر، كما يحرث الثور الحقل",
+                           "عموديًا من أعلى إلى أسفل",
+                           "بشكل لولبي نحو المركز",
+                           "بكتابة معكوسة كليًا"],
+               "fact": "الكلمة تعني “كما يدور الثور”. سطر يمضي من اليسار "
+                       "إلى اليمين والتالي بالعكس — فلا تحتاج عين القارئ إلى "
+                       "الرجوع إلى أول السطر."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "Which pair of English words both come from Arabic?",
+               "options": ["Algebra and coffee", "Piano and opera",
+                           "Tea and typhoon", "Sauna and ski"],
+               "fact": "Al-jabr names a 9th-century Baghdad mathematics book; "
+                       "qahwa became kahve, caffè, coffee. Alcohol, cotton, "
+                       "sugar and zero made the same journey."},
+        "es": {"question": "¿Qué par de palabras vienen ambas del árabe?",
+               "options": ["Álgebra y café", "Piano y ópera",
+                           "Té y tifón", "Sauna y esquí"],
+               "fact": "Al-jabr da nombre a un libro de matemáticas del "
+                       "Bagdad del siglo IX; qahwa se volvió kahve, caffè, "
+                       "café. Alcohol, algodón, azúcar y cero hicieron el "
+                       "mismo viaje."},
+        "fr": {"question": "Quelle paire de mots vient tout entière de l'arabe ?",
+               "options": ["Algèbre et café", "Piano et opéra",
+                           "Thé et typhon", "Sauna et ski"],
+               "fact": "Al-jabr est le titre d'un traité de mathématiques du "
+                       "Bagdad du IXe siècle ; qahwa est devenu kahve, caffè, "
+                       "café. Alcool, coton, sucre et zéro ont fait le même "
+                       "voyage."},
+        "pt": {"question": "Que par de palavras vem, ambas, do árabe?",
+               "options": ["Álgebra e café", "Piano e ópera",
+                           "Chá e tufão", "Sauna e esqui"],
+               "fact": "Al-jabr dá nome a um livro de matemática da Bagdade "
+                       "do século IX; qahwa virou kahve, caffè, café. Álcool, "
+                       "algodão, açúcar e zero fizeram a mesma viagem."},
+        "ru": {"question": "Какая пара слов целиком пришла из арабского?",
+               "options": ["Алгебра и кофе", "Пианино и опера",
+                           "Чай и тайфун", "Сауна и лыжи"],
+               "fact": "Аль-джабр — из названия багдадского учебника "
+                       "математики IX века; qahwa стало kahve, caffè, кофе. "
+                       "Тот же путь прошли алкоголь, хлопок (cotton), сахар и "
+                       "цифра ноль."},
+        "ar": {"question": "أي زوج من الكلمات الإنجليزية جاء كلاهما من العربية؟",
+               "options": ["Algebra وcoffee", "Piano وopera",
+                           "Tea وtyphoon", "Sauna وski"],
+               "fact": "“الجبر” من عنوان كتاب رياضيات بغدادي من القرن "
+                       "التاسع؛ و“قهوة” صارت kahve ثم caffè ثم coffee. "
+                       "وسلكت “الكحول” و“القطن” و“السكر” "
+                       "و“صفر” الطريق نفسه."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "Spanish “embarazada” looks like “embarrassed”, but means…",
+               "options": ["embarrassed", "pregnant", "busy", "wealthy"],
+               "fact": "Translators call these false friends. German “Gift” "
+                       "is poison, Italian “camera” is a room, and Russian "
+                       "“магазин” (magazin) is a shop, not a magazine."},
+        "es": {"question": "La palabra inglesa “embarrassed” se parece a “embarazada”, pero significa…",
+               "options": ["embarazada", "avergonzado", "ocupado", "rico"],
+               "fact": "Los traductores los llaman falsos amigos. El alemán "
+                       "“Gift” es veneno, el italiano “camera” es "
+                       "una habitación y el ruso “магазин” es una "
+                       "tienda, no una revista."},
+        "fr": {"question": "L'espagnol « embarazada » ressemble à « embarrassée », mais signifie…",
+               "options": ["embarrassée", "enceinte", "occupée", "riche"],
+               "fact": "Les traducteurs appellent cela des faux amis. "
+                       "L'allemand « Gift » est un poison, l'italien "
+                       "« camera » une chambre, et le russe "
+                       "« магазин » un magasin… c'est-à-dire une "
+                       "boutique, pas une revue."},
+        "pt": {"question": "O espanhol “embarazada” parece “embaraçada”, mas significa…",
+               "options": ["embaraçada", "grávida", "ocupada", "rica"],
+               "fact": "Os tradutores chamam-lhes falsos amigos. O alemão "
+                       "“Gift” é veneno, o italiano “camera” é um "
+                       "quarto e o russo “магазин” é uma loja, não uma "
+                       "revista."},
+        "ru": {"question": "Испанское «embarazada» похоже на «embarrassed» («смущённая»), но значит…",
+               "options": ["смущённая", "беременная", "занятая", "богатая"],
+               "fact": "Переводчики зовут такие пары ложными друзьями. "
+                       "Немецкое «Gift» — яд, итальянское "
+                       "«camera» — комната, а английское "
+                       "«magazine» — журнал, вовсе не магазин."},
+        "ar": {"question": "الكلمة الإسبانية “embarazada” تشبه الإنجليزية “embarrassed” (محرَج)، لكنها تعني…",
+               "options": ["محرَجة", "حامل", "مشغولة", "ثرية"],
+               "fact": "يسمي المترجمون هذه الأزواج “الأصدقاء الكاذبين”. "
+                       "فالألمانية “Gift” تعني سمًّا، والإيطالية "
+                       "“camera” غرفة، والروسية “магазин” متجرًا لا "
+                       "مجلة."},
+    },
+    {
+        "answer": 1,
+        "en": {"question": "The most common vowel sound in English is…",
+               "options": ["the “ee” in “see”",
+                           "the schwa — the weak “uh” in “about”",
+                           "the “a” in “cat”",
+                           "the “o” in “go”"],
+               "fact": "Unstressed English vowels collapse into the schwa, "
+                       "which is one big reason spelling and sound drift so "
+                       "far apart: the a, e, o in “about”, “taken”, "
+                       "“lemon” are all the same sound."},
+        "es": {"question": "El sonido vocálico más frecuente del inglés es…",
+               "options": ["la “ee” de “see”",
+                           "la schwa: la “uh” débil de “about”",
+                           "la “a” de “cat”",
+                           "la “o” de “go”"],
+               "fact": "Las vocales átonas del inglés se reducen a la schwa, "
+                       "y por eso ortografía y sonido se separan tanto: la a, "
+                       "la e y la o de “about”, “taken” y "
+                       "“lemon” suenan igual."},
+        "fr": {"question": "Le son de voyelle le plus fréquent de l'anglais est…",
+               "options": ["le « ee » de « see »",
+                           "le schwa — le « euh » faible de « about »",
+                           "le « a » de « cat »",
+                           "le « o » de « go »"],
+               "fact": "Les voyelles atones de l'anglais s'affaissent en "
+                       "schwa — grande raison pour laquelle l'orthographe et "
+                       "le son divergent tant : le a, le e et le o de "
+                       "« about », « taken », « lemon » se "
+                       "prononcent pareil."},
+        "pt": {"question": "O som de vogal mais comum do inglês é…",
+               "options": ["o “ee” de “see”",
+                           "o schwa — o “ã” fraco de “about”",
+                           "o “a” de “cat”",
+                           "o “o” de “go”"],
+               "fact": "As vogais átonas do inglês reduzem-se ao schwa, e é "
+                       "em grande parte por isso que grafia e som se afastam "
+                       "tanto: o a, o e e o o de “about”, “taken” e "
+                       "“lemon” soam igual."},
+        "ru": {"question": "Самый частый гласный звук английского языка — это…",
+               "options": ["«и» в «see»",
+                           "шва — слабое «э» в «about»",
+                           "«э» в «cat»",
+                           "«оу» в «go»"],
+               "fact": "Безударные гласные английского сводятся к шва — "
+                       "потому написание и звучание так расходятся: a, e и o "
+                       "в «about», «taken», «lemon» звучат "
+                       "одинаково. Похожая редукция есть и в русском: "
+                       "«молоко» звучит как «мълако»."},
+        "ar": {"question": "أكثر أصوات العلة شيوعًا في الإنجليزية هو…",
+               "options": ["“ee” في “see”",
+                           "الشوا — الصوت الضعيف في أول “about”",
+                           "“a” في “cat”",
+                           "“o” في “go”"],
+               "fact": "تتقلص أصوات العلة غير المنبورة في الإنجليزية إلى "
+                       "الشوا، وهذا سبب رئيسي لابتعاد الكتابة عن النطق: فحروف "
+                       "a وe وo في “about” و“taken” و“lemon” "
+                       "تُنطق كلها صوتًا واحدًا."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "According to a famous quip, what separates a “language” from a “dialect”?",
+               "options": ["An army and a navy — politics, not linguistics",
+                           "Grammar complexity",
+                           "Having a writing system",
+                           "Vocabulary size"],
+               "fact": "Swedes and Norwegians chat across their “language” "
+                       "border; many Chinese “dialects” cannot understand "
+                       "each other at all. The border is drawn by states, not "
+                       "by grammar."},
+        "es": {"question": "Según una frase célebre, ¿qué separa una “lengua” de un “dialecto”?",
+               "options": ["Un ejército y una armada: política, no lingüística",
+                           "La complejidad de la gramática",
+                           "Tener un sistema de escritura",
+                           "El tamaño del vocabulario"],
+               "fact": "Suecos y noruegos conversan a través de su frontera "
+                       "“lingüística”; muchos “dialectos” chinos "
+                       "no se entienden entre sí en absoluto. La frontera la "
+                       "trazan los Estados, no la gramática."},
+        "fr": {"question": "Selon un mot célèbre, qu'est-ce qui sépare une « langue » d'un « dialecte » ?",
+               "options": ["Une armée et une marine — la politique, pas la linguistique",
+                           "La complexité de la grammaire",
+                           "Le fait d'avoir une écriture",
+                           "La taille du vocabulaire"],
+               "fact": "Suédois et Norvégiens bavardent par-dessus leur "
+                       "frontière « linguistique » ; bien des "
+                       "« dialectes » chinois ne se comprennent pas du "
+                       "tout entre eux. La frontière est tracée par les États, "
+                       "pas par la grammaire."},
+        "pt": {"question": "Segundo um dito famoso, o que separa uma “língua” de um “dialeto”?",
+               "options": ["Um exército e uma marinha — política, não linguística",
+                           "A complexidade da gramática",
+                           "Ter um sistema de escrita",
+                           "O tamanho do vocabulário"],
+               "fact": "Suecos e noruegueses conversam através da sua "
+                       "fronteira “linguística”; muitos “dialetos” "
+                       "chineses não se entendem uns aos outros. A fronteira é "
+                       "traçada pelos Estados, não pela gramática."},
+        "ru": {"question": "Согласно известной шутке, чем «язык» отличается от «диалекта»?",
+               "options": ["Армией и флотом — то есть политикой, а не лингвистикой",
+                           "Сложностью грамматики",
+                           "Наличием письменности",
+                           "Размером словаря"],
+               "fact": "Шведы и норвежцы спокойно болтают через свою "
+                       "«языковую» границу, а многие китайские "
+                       "«диалекты» вовсе не понимают друг друга. "
+                       "Границу проводят государства, а не грамматика."},
+        "ar": {"question": "بحسب قول مأثور، ما الذي يفصل “اللغة” عن “اللهجة”؟",
+               "options": ["جيش وأسطول — أي السياسة لا علم اللغة",
+                           "تعقيد القواعد",
+                           "امتلاك نظام كتابة",
+                           "حجم المفردات"],
+               "fact": "السويديون والنرويجيون يتحادثون عبر حدود "
+                       "“لغتيهما”، بينما كثير من “اللهجات” الصينية "
+                       "لا يفهم بعضها بعضًا إطلاقًا. الحدود ترسمها الدول لا "
+                       "القواعد."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "About how many distinct sounds (phonemes) does Hawaiian use?",
+               "options": ["About 13", "About 44", "About 80", "More than 100"],
+               "fact": "Eight consonants and five vowels — among the world's "
+                       "smallest inventories, which is why every Hawaiian "
+                       "syllable ends in a vowel. English uses about 44; !Xóõ "
+                       "in Botswana over 100. Māori runs small too."},
+        "es": {"question": "¿Aproximadamente cuántos sonidos distintos (fonemas) usa el hawaiano?",
+               "options": ["Unos 13", "Unos 44", "Unos 80", "Más de 100"],
+               "fact": "Ocho consonantes y cinco vocales: uno de los "
+                       "inventarios más pequeños del mundo, y por eso toda "
+                       "sílaba hawaiana termina en vocal. El inglés usa unos "
+                       "44; el !xóõ de Botsuana, más de 100. El maorí también "
+                       "es pequeño."},
+        "fr": {"question": "Environ combien de sons distincts (phonèmes) le hawaïen utilise-t-il ?",
+               "options": ["Environ 13", "Environ 44", "Environ 80", "Plus de 100"],
+               "fact": "Huit consonnes et cinq voyelles — l'un des plus "
+                       "petits inventaires du monde, d'où le fait que toute "
+                       "syllabe hawaïenne finit par une voyelle. L'anglais en "
+                       "utilise environ 44 ; le !xóõ du Botswana, plus de 100. "
+                       "Le māori aussi est tout petit."},
+        "pt": {"question": "Aproximadamente quantos sons distintos (fonemas) usa o havaiano?",
+               "options": ["Uns 13", "Uns 44", "Uns 80", "Mais de 100"],
+               "fact": "Oito consoantes e cinco vogais — um dos inventários "
+                       "mais pequenos do mundo, e por isso toda a sílaba "
+                       "havaiana termina em vogal. O inglês usa uns 44; o "
+                       "!xóõ do Botsuana, mais de 100. O māori também é "
+                       "pequeno."},
+        "ru": {"question": "Сколько примерно различных звуков (фонем) в гавайском языке?",
+               "options": ["Около 13", "Около 44", "Около 80", "Больше 100"],
+               "fact": "Восемь согласных и пять гласных — один из самых "
+                       "маленьких наборов в мире; потому каждый гавайский "
+                       "слог кончается гласным. В английском около 44 фонем, "
+                       "в языке къхонг (!Xóõ) в Ботсване — больше ста. У маори "
+                       "набор тоже крошечный."},
+        "ar": {"question": "كم عدد الأصوات المميزة (الفونيمات) في اللغة الهاوايية تقريبًا؟",
+               "options": ["نحو 13", "نحو 44", "نحو 80", "أكثر من 100"],
+               "fact": "ثمانية صوامت وخمس صوائت — من أصغر المخزونات الصوتية "
+                       "في العالم، ولهذا ينتهي كل مقطع هاوايي بصائت. "
+                       "الإنجليزية فيها نحو 44، ولغة !Xóõ في بوتسوانا أكثر من "
+                       "مئة. والماورية صغيرة المخزون أيضًا."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "Which language is written with one of the world's shortest alphabets — about 12 letters?",
+               "options": ["Rotokas, in Papua New Guinea", "Russian", "Arabic", "Greek"],
+               "fact": "Rotokas needs about a dozen letters; Khmer sits at "
+                       "the other end with 74. Russian uses 33, Arabic 28, "
+                       "Greek 24."},
+        "es": {"question": "¿Qué lengua se escribe con uno de los alfabetos más cortos del mundo, de unas 12 letras?",
+               "options": ["El rotokas, de Papúa Nueva Guinea", "El ruso", "El árabe", "El griego"],
+               "fact": "Al rotokas le basta una docena de letras; el jemer "
+                       "está en el otro extremo con 74. El ruso usa 33, el "
+                       "árabe 28 y el griego 24."},
+        "fr": {"question": "Quelle langue s'écrit avec l'un des alphabets les plus courts du monde — environ 12 lettres ?",
+               "options": ["Le rotokas, en Papouasie-Nouvelle-Guinée", "Le russe", "L'arabe", "Le grec"],
+               "fact": "Une douzaine de lettres suffisent au rotokas ; le "
+                       "khmer occupe l'autre extrême avec 74. Le russe en "
+                       "utilise 33, l'arabe 28, le grec 24."},
+        "pt": {"question": "Que língua se escreve com um dos alfabetos mais curtos do mundo — cerca de 12 letras?",
+               "options": ["O rotokas, da Papua-Nova Guiné", "O russo", "O árabe", "O grego"],
+               "fact": "Ao rotokas basta-lhe uma dúzia de letras; o khmer "
+                       "está no outro extremo, com 74. O russo usa 33, o "
+                       "árabe 28, o grego 24."},
+        "ru": {"question": "Какой язык записывается одним из самых коротких алфавитов в мире — около 12 букв?",
+               "options": ["Ротокас в Папуа — Новой Гвинее", "Русский", "Арабский", "Греческий"],
+               "fact": "Ротокасу хватает дюжины букв; на другом конце — "
+                       "кхмерский с 74. В русском 33 буквы, в арабском 28, в "
+                       "греческом 24."},
+        "ar": {"question": "أي لغة تُكتب بواحدة من أقصر أبجديات العالم — نحو 12 حرفًا؟",
+               "options": ["الروتوكاس في بابوا غينيا الجديدة", "الروسية", "العربية", "اليونانية"],
+               "fact": "تكفي الروتوكاس اثنتا عشرة حرفًا تقريبًا؛ وفي الطرف "
+                       "الآخر الخميرية بـ74 حرفًا. وللروسية 33 حرفًا، وللعربية "
+                       "28، ولليونانية 24."},
+    },
+    {
+        "answer": 0,
+        "en": {"question": "Which European language is a “language isolate”, related to no other known language?",
+               "options": ["Basque", "Hungarian", "Finnish", "Albanian"],
+               "fact": "Hungarian and Finnish are distant cousins in the "
+                       "Uralic family, and Albanian is Indo-European. Basque "
+                       "stands alone — likely a survivor from before "
+                       "Indo-European reached Europe."},
+        "es": {"question": "¿Qué lengua europea es una “lengua aislada”, sin parentesco conocido con ninguna otra?",
+               "options": ["El euskera", "El húngaro", "El finés", "El albanés"],
+               "fact": "El húngaro y el finés son primos lejanos dentro de la "
+                       "familia urálica, y el albanés es indoeuropeo. El "
+                       "euskera está solo: probablemente sobrevive de antes "
+                       "de que el indoeuropeo llegara a Europa."},
+        "fr": {"question": "Quelle langue européenne est un « isolat », sans parenté connue avec aucune autre ?",
+               "options": ["Le basque", "Le hongrois", "Le finnois", "L'albanais"],
+               "fact": "Le hongrois et le finnois sont de lointains cousins "
+                       "de la famille ouralienne, et l'albanais est "
+                       "indo-européen. Le basque est seul — sans doute un "
+                       "survivant d'avant l'arrivée de l'indo-européen en "
+                       "Europe."},
+        "pt": {"question": "Que língua europeia é uma “língua isolada”, sem parentesco conhecido com nenhuma outra?",
+               "options": ["O basco", "O húngaro", "O finlandês", "O albanês"],
+               "fact": "O húngaro e o finlandês são primos afastados na "
+                       "família urálica, e o albanês é indo-europeu. O basco "
+                       "está sozinho — provavelmente um sobrevivente de antes "
+                       "de o indo-europeu chegar à Europa."},
+        "ru": {"question": "Какой европейский язык — «язык-изолят», не родственный ни одному известному языку?",
+               "options": ["Баскский", "Венгерский", "Финский", "Албанский"],
+               "fact": "Венгерский и финский — дальние родственники в "
+                       "уральской семье, албанский — индоевропейский. "
+                       "Баскский стоит особняком: скорее всего, он уцелел с "
+                       "времён до прихода индоевропейцев в Европу."},
+        "ar": {"question": "أي لغة أوروبية “لغة معزولة” لا قرابة معروفة لها بأي لغة أخرى؟",
+               "options": ["الباسكية", "المجرية", "الفنلندية", "الألبانية"],
+               "fact": "المجرية والفنلندية قريبتان بعيدتان ضمن الأسرة "
+                       "الأورالية، والألبانية هندوأوروبية. أما الباسكية فوحيدة "
+                       "— ولعلها ناجية من عهد ما قبل وصول الهندوأوروبية إلى "
+                       "أوروبا."},
+    },
 ]
 
 

@@ -152,14 +152,20 @@ async def test_english_course_fills_a_live_support_locale(pool, monkeypatch):
     assert n >= stats["gym_labels"]
 
 
-async def test_nothing_happens_while_the_switch_is_off(pool, monkeypatch):
-    """A live pair with the course toggled OFF spends nothing — the switch is
-    the admin's cost control, and off is the default."""
+async def test_an_off_course_with_no_recent_learners_spends_nothing(pool, monkeypatch):
+    """The switch plus absence is still the admin's cost control. A course
+    toggled OFF whose learners have drifted outside the activity window is
+    invisible to every lane: no backlog (the switch), no baseline (nobody
+    active), no demand (nobody waiting)."""
     _mock_ai(monkeypatch)
     es = await _lang(pool, "at2", "Spanishish", auto=False)
     await _lang(pool, "fr", "French", auto=False)
-    await _learner(pool, "off@at2", es, "fr")
+    uid = await _learner(pool, "off@at2", es, "fr")
     w = await _word(pool, es, "casa", 1, "house")
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "UPDATE user_profiles SET updated_at = now() - interval '60 days' "
+            "WHERE id = $1", uid)
 
     stats = await _cycle(pool)
 
@@ -374,30 +380,38 @@ async def test_demand_lane_beats_the_sweep_and_clears_itself(pool, monkeypatch):
         assert left >= 1, "demand for content that did not land must not be dropped"
 
 
-async def test_demand_for_a_switched_off_course_is_ignored(pool, monkeypatch):
-    """Demand is a priority lane, not a bypass: rows for a course whose
-    auto-translate toggle is off are never picked up (and cost nothing)."""
+async def test_demand_for_a_switched_off_course_is_served(pool, monkeypatch):
+    """Demand IS a bypass, by design. It only exists because a real learner
+    just met this content in English — usually on the wait screen, watching
+    a bar that promises exactly this work. The toggle governs the backlog;
+    it filtered this lane once, and since courses ship switched off, every
+    language change sat at "0 of 3 cards ready" forever."""
     from backend.services.auto_translate import note_missing_content
 
     _mock_ai(monkeypatch)
     course = await _lang(pool, "at9", "Offish", auto=False)
     await _lang(pool, "ru2", "Russian2", auto=False)
 
+    # Two points, because the dev mock's checker rejects the FIRST item of
+    # every batch: with one point the title could never land and the test
+    # would measure the mock, not the lane.
     async with pool.privileged_connection() as conn:
-        gp = await conn.fetchval(
+        gps = [await conn.fetchval(
             "INSERT INTO grammar_points (language_id, title, level, reviewed, "
-            "display_order, explanation) VALUES ($1, 'Point', 'A1', true, 1, "
-            "'Text.') RETURNING id", course)
-        await note_missing_content(conn, "ru2", grammar_ids=[gp])
+            "display_order, explanation) VALUES ($1, $2, 'A1', true, $3, "
+            "'Text.') RETURNING id", course, f"Point {i}", i)
+            for i in range(2)]
+        await note_missing_content(conn, "ru2", grammar_ids=gps)
 
     stats = await _cycle(pool)
-    assert stats["demand"] == 0
+    assert stats["demand"] >= 1, "a waiting learner was ignored"
 
     async with pool.privileged_connection() as conn:
         n = await conn.fetchval(
             "SELECT count(*) FROM grammar_point_translations "
-            "WHERE grammar_point_id = $1", gp)
-        assert n == 0
+            "WHERE grammar_point_id = ANY($1::uuid[]) "
+            "AND title IS NOT NULL", gps)
+        assert n >= 1, "demand was counted but nothing was written"
 
 
 async def test_learn_session_start_pretranslates_the_upcoming_queue(pool, monkeypatch):

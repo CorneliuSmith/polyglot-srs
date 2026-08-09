@@ -9,6 +9,9 @@ vi.mock('../api/profile', () => ({ getLanguages: vi.fn() }))
 vi.mock('../api/contribute', () => ({
   setLanguageVisibility: vi.fn(),
   setLanguageAutoTranslate: vi.fn(),
+  setLanguagePolicy: vi.fn(),
+  setLanguageTutorModel: vi.fn(),
+  TUTOR_MODELS: ['claude-fable-5', 'claude-sonnet-5'],
   getLanguageReadiness: vi.fn(() => Promise.resolve([])),
   getTranslationStatus: vi.fn(() =>
     Promise.resolve({
@@ -40,6 +43,8 @@ import { getLanguages } from '../api/profile'
 import {
   getLanguageReadiness,
   setLanguageAutoTranslate,
+  setLanguagePolicy,
+  setLanguageTutorModel,
   setLanguageVisibility,
 } from '../api/contribute'
 
@@ -47,12 +52,16 @@ const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
 const mockSetVisibility = setLanguageVisibility as ReturnType<typeof vi.fn>
 const mockSetAutoTranslate = setLanguageAutoTranslate as ReturnType<typeof vi.fn>
 const mockReadiness = getLanguageReadiness as ReturnType<typeof vi.fn>
+const mockSetPolicy = setLanguagePolicy as ReturnType<typeof vi.fn>
+const mockSetTutorModel = setLanguageTutorModel as ReturnType<typeof vi.fn>
 
 const readinessRow = (id: string, awaiting: number) => ({
   id,
   code: id.slice(-2),
   name: id,
   is_visible: false,
+  review_policy: 'strict',
+  tutor_model: null,
   draft_points: awaiting,
   pending_drills: 0,
   pending_examples: 0,
@@ -208,6 +217,65 @@ describe('LanguageVisibilityPanel', () => {
         expect(mockSetVisibility).toHaveBeenCalledWith('lang-es', false),
       )
       confirmSpy.mockRestore()
+    })
+  })
+
+  describe('the per-row settings drawer (one window for every language)', () => {
+    /* Review policy and tutor model used to be editable only for the
+     * admin's own ACTIVE language, so cycling through the courses meant
+     * changing your own study language once per row. Every dial now opens
+     * from the row itself. */
+    it('opens a row\u2019s drawer with its policy and tutor model', async () => {
+      mockReadiness.mockResolvedValue([readinessRow('lang-es', 0)])
+      renderPanel()
+      await screen.findByText('Spanish')
+      fireEvent.click(await screen.findByLabelText(/spanish settings/i))
+      const policy = (await screen.findByLabelText(
+        /spanish publish policy/i,
+      )) as HTMLSelectElement
+      // The stored legacy 'strict' reads back as human_only, not as a
+      // mystery value the <select> can't display.
+      expect(policy.value).toBe('human_only')
+      const model = screen.getByLabelText(/spanish tutor model/i) as HTMLSelectElement
+      expect(model.value).toBe('')
+    })
+
+    it('changing the policy calls the API for THAT language', async () => {
+      mockReadiness.mockResolvedValue([readinessRow('lang-es', 0)])
+      mockSetPolicy.mockResolvedValue(undefined)
+      renderPanel()
+      await screen.findByText('Spanish')
+      fireEvent.click(await screen.findByLabelText(/spanish settings/i))
+      fireEvent.change(await screen.findByLabelText(/spanish publish policy/i), {
+        target: { value: 'ai_ok' },
+      })
+      await waitFor(() =>
+        expect(mockSetPolicy).toHaveBeenCalledWith('lang-es', 'ai_ok'))
+    })
+
+    it('changing the tutor model calls the API; empty means the default', async () => {
+      mockReadiness.mockResolvedValue([readinessRow('lang-es', 0)])
+      mockSetTutorModel.mockResolvedValue(undefined)
+      renderPanel()
+      await screen.findByText('Spanish')
+      fireEvent.click(await screen.findByLabelText(/spanish settings/i))
+      fireEvent.change(await screen.findByLabelText(/spanish tutor model/i), {
+        target: { value: 'claude-sonnet-5' },
+      })
+      await waitFor(() =>
+        expect(mockSetTutorModel).toHaveBeenCalledWith('lang-es', 'claude-sonnet-5'))
+    })
+
+    it('opening another row closes the first \u2014 cycling, not stacking', async () => {
+      mockReadiness.mockResolvedValue([
+        readinessRow('lang-es', 0), readinessRow('lang-he', 0)])
+      renderPanel()
+      await screen.findByText('Spanish')
+      fireEvent.click(await screen.findByLabelText(/spanish settings/i))
+      expect(await screen.findByTestId('language-settings-es')).toBeDefined()
+      fireEvent.click(screen.getByLabelText(/hebrew settings/i))
+      expect(await screen.findByTestId('language-settings-he')).toBeDefined()
+      expect(screen.queryByTestId('language-settings-es')).toBeNull()
     })
   })
 })

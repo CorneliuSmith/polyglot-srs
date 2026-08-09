@@ -17,3 +17,4 @@ which also carries the template.
 | [0001](0001-probe-tables-instead-of-catching-errors.md) | Ask whether a table exists; don't find out by failing |
 | [0002](0002-a-failed-translation-is-not-a-finished-one.md) | A failed translation is not a finished one |
 | [0003](0003-offline-belongs-in-the-web-layer.md) | Offline belongs in the web layer, not in a new native app |
+| [0004](0004-the-toggle-governs-the-backlog-not-the-learner.md) | The auto-translate toggle governs the backlog, not the learner |

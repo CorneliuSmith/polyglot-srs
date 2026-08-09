@@ -6,9 +6,18 @@ version — the "translate by demand, not by matrix" rule as running code:
 
   - A (course, support locale) pair is worked on ONLY while at least one real
     account has that combination in user_profiles. No learners, no spend.
-  - The course must have `languages.auto_translate_enabled` switched on by an
-    admin (the language-management panel) — the loop's on/off switch, per
-    learning language. Default off.
+  - Three lanes, in priority order, all inside one per-cycle budget:
+      1. DEMAND — content a learner is looking at (or waiting on) right now.
+        Always served, whatever the course's toggle says: a person on the
+        wait screen outranks every configuration knob.
+      2. BASELINE — a course switched OFF but in real recent use gets a
+        starter corpus scaled by its active learners (150 words each,
+        capped at 600), so being used and being usable stay the same thing
+        while an abandoned course costs nothing.
+      3. BACKLOG — `languages.auto_translate_enabled` (the admin panel
+        toggle) opts a course into the full breadth-first drain. This is
+        what the toggle governs — bulk spend, not whether learners are
+        served.
   - Each sweep translates a bounded number of words (settings
     .auto_translate_words_per_cycle), most-subscribed pair first, A1 before
     C2, frequent before rare — so cost per hour is capped and the content
@@ -352,6 +361,85 @@ async def discover_pairs(conn: asyncpg.Connection) -> list[dict]:
         return [dict(r) for r in rows]
     except asyncpg.exceptions.UndefinedColumnError:
         return []
+
+
+# How much of a switched-OFF course the loop will still fill, per learner
+# who has actually been here lately. The toggle stops the backlog drain —
+# it must not stop the course being usable — so a pair with real recent
+# accounts gets a starter corpus sized by that usage and nothing more.
+# 150 words is roughly a first couple of weeks of study; the cap keeps a
+# course with one enthusiastic classroom from quietly becoming a full
+# drain the admin thought they had switched off.
+BASELINE_WORDS_PER_ACTIVE_LEARNER = 150
+BASELINE_WORDS_MAX = 600
+BASELINE_ACTIVE_DAYS = 14
+
+
+async def baseline_pairs(conn: asyncpg.Connection) -> list[dict]:
+    """(course, locale) pairs whose course is switched OFF but which real,
+    recently active accounts are using — plus how much starter corpus each
+    is still owed.
+
+    "Active" is either of the two signals we actually have: a review logged
+    in the window, or the profile touched in the window (login/settings).
+    A pair whose learners have all drifted away gets nothing: the spend
+    follows the people, not the configuration.
+
+    Returns the same keys discover_pairs does, plus `allowance` — how many
+    more items the baseline is willing to buy for this pair, ever, at the
+    current usage level. Empty when the toggle column's migration hasn't
+    landed (same fail-closed rule as discover_pairs).
+    """
+    try:
+        rows = await conn.fetch(
+            f"""
+            SELECT l.id   AS language_id,
+                   l.code AS language_code,
+                   l.name AS language_name,
+                   loc.code AS locale,
+                   loc.name AS locale_name,
+                   count(*) AS learners,
+                   count(*) FILTER (
+                     WHERE p.updated_at > now() - interval '{BASELINE_ACTIVE_DAYS} days'
+                        OR EXISTS (
+                          SELECT 1 FROM review_log rl
+                            JOIN user_cards uc ON uc.id = rl.card_id
+                           WHERE rl.user_id = p.id
+                             AND uc.language_id = l.id
+                             AND rl.created_at > now() - interval '{BASELINE_ACTIVE_DAYS} days')
+                   ) AS active_learners,
+                   (SELECT count(*) FROM translations t
+                      JOIN vocabulary v ON v.id = t.vocabulary_id
+                     WHERE v.language_id = l.id AND t.locale = loc.code)
+                     AS translated_words
+            FROM user_profiles p
+            JOIN languages l   ON l.id = p.active_language_id
+            JOIN languages loc ON loc.code = p.support_locale
+            WHERE NOT l.auto_translate_enabled
+              AND p.support_locale IS NOT NULL
+              AND p.support_locale <> 'en'
+            GROUP BY l.id, l.code, l.name, loc.code, loc.name
+            ORDER BY count(*) DESC, l.name, loc.code
+            """
+        )
+    except (asyncpg.exceptions.UndefinedColumnError,
+            asyncpg.exceptions.UndefinedTableError):
+        return []
+    out = []
+    for r in rows:
+        active = int(r["active_learners"])
+        if active <= 0:
+            continue
+        ceiling = min(BASELINE_WORDS_PER_ACTIVE_LEARNER * active,
+                      BASELINE_WORDS_MAX)
+        allowance = ceiling - int(r["translated_words"])
+        if allowance <= 0:
+            continue
+        out.append({**{k: r[k] for k in
+                       ("language_id", "language_code", "language_name",
+                        "locale", "locale_name", "learners")},
+                    "allowance": allowance})
+    return out
 
 
 async def pending_words(
@@ -858,7 +946,17 @@ _DEMAND_RESOLVERS = {
 
 async def _demand_batches(conn: asyncpg.Connection) -> list[dict]:
     """Outstanding demand grouped into (kind, language, locale) batches,
-    oldest request first. Empty when the demand migration hasn't landed."""
+    oldest request first. Empty when the demand migration hasn't landed.
+
+    Deliberately NOT filtered by the course's auto_translate toggle. Demand
+    means a real learner is looking at English right now — usually on the
+    wait screen, watching a bar that promises this exact work. The toggle
+    used to gate this lane too, and since most courses ship switched off,
+    every language change sat at "0 of 3 cards ready" forever while the
+    loop reported itself healthy. The toggle governs the BACKLOG — whether
+    the sweep drains a whole course nobody is waiting on — not whether a
+    waiting learner gets their batch.
+    """
     batches: dict[tuple, dict] = {}
     try:
         for kind, joins in _DEMAND_RESOLVERS.items():
@@ -872,7 +970,6 @@ async def _demand_batches(conn: asyncpg.Connection) -> list[dict]:
                 {joins}
                 JOIN languages loc ON loc.code = d.locale
                 WHERE d.kind = $1
-                  AND l.auto_translate_enabled
                 GROUP BY d.ref_id, d.locale, l.id, l.code, l.name, loc.name
                 ORDER BY min(d.requested_at)
                 LIMIT $2
@@ -1160,7 +1257,7 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
     """
     stats = {"pairs": 0, "processed": 0, "applied": 0, "queued": 0,
              "drills": 0, "explanations": 0, "grammar_meta": 0,
-             "gym_labels": 0, "examples": 0, "demand": 0}
+             "gym_labels": 0, "examples": 0, "demand": 0, "baseline": 0}
     budget = getattr(get_settings(), "auto_translate_words_per_cycle", 50)
 
     # Which of the 20260914 tables exist yet. Probed (never thrown): the
@@ -1196,20 +1293,41 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
     if have_demand:
         budget = await process_demand(conn, budget, stats)
 
+    # Two tiers of breadth-first work behind the demand lane:
+    #  - switched-ON courses: the full backlog, as ever (cap = None);
+    #  - switched-OFF courses with recently active learners: a starter
+    #    corpus, capped by usage (baseline_pairs), so a course being used
+    #    is never unusable but a course nobody visits costs nothing.
     pairs = await discover_pairs(conn)
+    for p in pairs:
+        p["cap"] = None
+    for p in await baseline_pairs(conn):
+        p["cap"] = p["allowance"]
+        pairs.append(p)
     if not pairs or budget <= 0:
         return stats
+
+    def take_for(pair: dict, want: int) -> int:
+        return want if pair["cap"] is None else max(0, min(want, pair["cap"]))
+
+    def spend(pair: dict, n: int) -> None:
+        if pair["cap"] is not None:
+            pair["cap"] -= n
+            stats["baseline"] += n
 
     for pair in pairs:
         if budget <= 0:
             break
+        take = take_for(pair, min(budget, BATCH_SIZE))
+        if take <= 0:
+            continue
         rows = await pending_words(conn, pair["language_id"], pair["locale"],
-                                   min(budget, BATCH_SIZE),
-                                   backoff=have_attempts)
+                                   take, backoff=have_attempts)
         if not rows:
             continue
         stats["pairs"] += 1
         budget -= len(rows)
+        spend(pair, len(rows))
         items = [{"i": i, "word": r["word"], "pos": r["pos"],
                   "definition": r["definition"], "example": r["example"]}
                  for i, r in enumerate(rows)]
@@ -1258,11 +1376,15 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
                 break
             if kind == "examples" and self_pair(pair):
                 continue
+            take = take_for(pair, min(budget, BATCH_SIZE))
+            if take <= 0:
+                continue
             rows = await fetch(conn, pair["language_id"], pair["locale"],
-                               min(budget, BATCH_SIZE), backoff=have_attempts)
+                               take, backoff=have_attempts)
             if not rows:
                 continue
             budget -= len(rows)
+            spend(pair, len(rows))
             refs = (list({r["vocabulary_id"] for r in rows})
                     if kind == "examples" else [r["id"] for r in rows])
             try:
@@ -1284,12 +1406,16 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
     for pair in pairs:
         if not have_gym or budget <= 0:
             break
+        take = take_for(pair, min(budget, BATCH_SIZE))
+        if take <= 0:
+            continue
         rows = await pending_gym_labels(conn, pair["language_code"],
                                         pair["locale"])
         if not rows:
             continue
-        rows = rows[:min(budget, BATCH_SIZE)]
+        rows = rows[:take]
         budget -= len(rows)
+        spend(pair, len(rows))
         try:
             done = await _guard(
                 _translate_gym_labels(conn, pair, rows), "gym", pair)
@@ -1424,6 +1550,10 @@ async def diagnose_pair(
         return {"blockers": ["unknown_language"], "detail": {}}
     detail["course"] = lang["code"]
     if not lang["auto_translate_enabled"]:
+        # No longer fatal: the demand lane serves waiting learners and the
+        # baseline lane buys a usage-scaled starter corpus regardless of the
+        # toggle. Still reported, because "the backlog will not drain" is a
+        # real answer to "why is most of this course still English".
         blockers.append("switched_off")
 
     # discover_pairs joins the locale back to `languages`; without a row the
