@@ -55,6 +55,7 @@ from backend.repositories.trivia import (
     TOP_UP_BATCH,
     count_unseen,
     existing_questions,
+    least_recently_seen,
     mark_seen,
     store_trivia,
     unseen_trivia,
@@ -281,6 +282,15 @@ async def trivia(limit: int = 6, user: dict = Depends(get_current_user)):
     elif questions and remaining < LOW_WATER and translations_available():
         if not await _locale_has_pending_translations(locale):
             asyncio.create_task(_top_up_trivia(locale))
+
+    # A fully-read bank: this learner has answered everything we hold in
+    # their language and the generator couldn't widen it (no provider, or
+    # it yielded nothing). Re-serve what they saw LONGEST ago rather than
+    # going quiet — mark_seen refreshes the timestamp on re-serve, so the
+    # repeats cycle through the whole bank instead of pinning to one slice.
+    if not questions:
+        async with rls_connection(user["id"]) as conn:
+            questions = await least_recently_seen(conn, user["id"], locale, limit)
 
     # Last resort: serve the baseline straight from memory. Reaching here
     # means the bank could not be read OR written — in practice, the

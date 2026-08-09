@@ -266,3 +266,31 @@ def test_the_bank_is_considered_stocked_once_the_baseline_is_down():
     from backend.services.trivia_corpus import seed_questions
 
     assert LOW_WATER < len(seed_questions("en"))
+
+
+@pytest.mark.asyncio
+async def test_a_fully_read_bank_reserves_the_longest_ago_question(client):
+    """The learner has answered everything we hold and the generator can't
+    widen the bank. Going quiet punishes the most engaged players; serving
+    the fixed baseline slice shows the same three questions on every wait.
+    The bank re-serves what they saw LONGEST ago instead."""
+    conn = _conn_returning("es")
+    recycled = [{"id": "old1", "question": "seen long ago", "options": ["a", "b"],
+                 "answer_index": 0, "fact": "f"}]
+    rls, priv = _patch_pools(conn)
+    with rls, priv, \
+        patch("backend.routers.review.unseen_trivia", new=AsyncMock(return_value=[])), \
+        patch("backend.routers.review.count_unseen", new=AsyncMock(return_value=0)), \
+        patch("backend.routers.review.store_trivia", new=AsyncMock(return_value=0)), \
+        patch("backend.routers.review.translations_available", return_value=False), \
+        patch("backend.routers.review.least_recently_seen",
+              new=AsyncMock(return_value=recycled)) as lrs, \
+        patch("backend.routers.review.offline_questions") as offline:
+        resp = client.get("/api/review/trivia", headers=_auth_headers())
+
+    assert resp.status_code == 200
+    assert resp.json()["questions"] == recycled
+    lrs.assert_awaited()
+    # The in-memory fallback is for a bank that cannot be READ — not for a
+    # bank that was read to the end.
+    offline.assert_not_called()
