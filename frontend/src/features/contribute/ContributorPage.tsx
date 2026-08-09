@@ -29,6 +29,7 @@ import SuggestionsPanel from './SuggestionsPanel'
 import SuggestionMetricsPanel from './SuggestionMetricsPanel'
 import RolesPanel from './RolesPanel'
 import AccountsPanel from './AccountsPanel'
+import TrialRequestsPanel from './TrialRequestsPanel'
 import AnalyticsPanel from './AnalyticsPanel'
 import EngagementPanel from './EngagementPanel'
 import LanguageVisibilityPanel from './LanguageVisibilityPanel'
@@ -758,6 +759,7 @@ export default function ContributorPage() {
                 <SuggestionMetricsPanel />
                 <GenerationPanel />
                 <TranslationReviewsPanel />
+                <TrialRequestsPanel />
                 <AccountsPanel languages={languages} selfId={selfId} />
                 <RolesPanel languages={languages} />
                 <ReviewPolicyControl

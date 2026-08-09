@@ -1,16 +1,86 @@
-"""Auth router — JWT-based user info and profile management."""
+"""Auth router — JWT-based user info, profile management, trial requests."""
 
 from __future__ import annotations
 
+from html import escape
+
 import asyncpg
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 from pydantic import BaseModel, Field
 
+from backend.config import get_settings
 from backend.dependencies import get_current_user
 from backend.repositories.cards import pretranslate_upcoming
-from backend.repositories.pool import rls_connection
+from backend.repositories.pool import privileged_connection, rls_connection
+from backend.repositories.trials import add_trial_request, trials_table_present
+from backend.services.email import send_email
+from backend.services.rate_limit import RateLimiter
 
 router = APIRouter()
+
+# The one unauthenticated write in the app. Generous for humans, useless
+# for scripts: a handful of requests per IP per hour.
+trial_request_limiter = RateLimiter("trial_request", max_calls=5,
+                                    per_seconds=3600)
+
+
+class TrialRequestBody(BaseModel):
+    email: str = Field(min_length=5, max_length=200,
+                       pattern=r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+    name: str | None = Field(default=None, max_length=100)
+    note: str | None = Field(default=None, max_length=500)
+
+
+@router.post("/trial-request")
+async def request_trial(body: TrialRequestBody, request: Request):
+    """Ask for trial access (public — the login page's front door).
+
+    Signup stays disabled; this queues the request for the admin, who
+    approves it from the panel (which mints the account with a temporary
+    password). The response is identical whether the email is new, already
+    queued, or already an account — the form must not enumerate anything.
+    """
+    # Behind the platform's proxy every request shares the LB's address, so
+    # key on the forwarded client when present — spoofable, but this is a
+    # soft nuisance cap, and the alternative is one global 5/hour budget
+    # for every visitor at once.
+    forwarded = request.headers.get("x-forwarded-for", "")
+    client_key = (
+        forwarded.split(",")[0].strip()
+        or (request.client.host if request.client else "unknown")
+    )
+    if not await trial_request_limiter.allow(client_key):
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="Too many requests — try again later.",
+        )
+    async with privileged_connection() as conn:
+        if not await trials_table_present(conn):
+            raise HTTPException(
+                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+                detail=(
+                    "Trial signup isn't available on this server yet "
+                    "(migration 20260921 pending)."
+                ),
+            )
+        added = await add_trial_request(conn, body.email, body.name, body.note)
+
+    # Announce NEW requests only (a duplicate would let a stranger make the
+    # admin's inbox ring on someone else's behalf). Log-only when no
+    # ADMIN_NOTIFY_EMAIL / Resend key — the panel's queue shows it anyway.
+    admin_to = get_settings().admin_notify_email
+    if added and admin_to:
+        who = escape(body.name or body.email)
+        note = f"<p>{escape(body.note)}</p>" if body.note else ""
+        await send_email(
+            admin_to,
+            f"PolyglotSRS: trial access request from {body.email}",
+            f"<p><strong>{who}</strong> ({escape(body.email)}) asked for "
+            f"trial access.</p>{note}"
+            "<p>Approve or reject it from the admin panel's "
+            "Trial requests queue.</p>",
+        )
+    return {"received": True}
 
 # Columns added by migration 20260908 (the weekly digest opt-in). The profile
 # is fetched on EVERY page load, so a deploy that ships this code before the

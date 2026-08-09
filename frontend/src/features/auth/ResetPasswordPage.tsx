@@ -29,7 +29,14 @@ export default function ResetPasswordPage() {
     }
     setSaving(true)
     try {
-      const { error } = await supabase.auth.updateUser({ password })
+      // Clearing must_change_password in the SAME call: trial accounts
+      // arrive here with a temporary password and that metadata flag —
+      // ProtectedRoute blocks the whole app until both are replaced.
+      // Harmless on the recovery-link path, where the flag is absent.
+      const { error } = await supabase.auth.updateUser({
+        password,
+        data: { must_change_password: false },
+      })
       if (error) {
         setError(error.message)
       } else {
