@@ -820,25 +820,41 @@ async def tutor_chat_stream(
         })
 
 
+# Free-form maps aren't expressible under the API's strict-schema rules
+# (every object node must set additionalProperties: false, so a typed map
+# is rejected with a 400 before the model runs) — the updates travel as
+# {key, value} PAIRS and are folded back into dicts on return.
+_KV_PAIRS = {
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "key": {"type": "string",
+                    "description": "A snake_case label for the fact."},
+            "value": {"type": "string",
+                      "description": "The fact itself, concise."},
+        },
+        "required": ["key", "value"],
+        "additionalProperties": False,
+    },
+}
+
 _SUMMARY_SCHEMA = {
     "type": "object",
     "properties": {
         "user_profile_updates": {
-            "type": "object",
+            **_KV_PAIRS,
             "description": (
                 "Global facts learned this session (native language, goals, "
-                "motivation, interests). Keys are snake_case labels; values are "
-                "concise strings. Empty object if nothing new."
+                "motivation, interests). Empty list if nothing new."
             ),
-            "additionalProperties": {"type": "string"},
         },
         "language_profile_updates": {
-            "type": "object",
+            **_KV_PAIRS,
             "description": (
                 "Facts specific to this language (proficiency, recurring error "
-                "patterns, topics covered). Empty object if nothing new."
+                "patterns, topics covered). Empty list if nothing new."
             ),
-            "additionalProperties": {"type": "string"},
         },
         "session_summary": {
             "type": "string",
@@ -856,6 +872,18 @@ _SUMMARY_SCHEMA = {
     ],
     "additionalProperties": False,
 }
+
+
+def _fold_pairs(pairs) -> dict:
+    """[{key, value}, …] → {key: value}, tolerating a model that answered
+    with a plain dict anyway (older transcripts in tests do)."""
+    if isinstance(pairs, dict):
+        return pairs
+    out = {}
+    for p in pairs or []:
+        if isinstance(p, dict) and p.get("key"):
+            out[str(p["key"])] = p.get("value")
+    return out
 
 
 async def summarize_session(
@@ -946,8 +974,9 @@ async def summarize_session(
             "usage": usage,
         }
     return {
-        "user_profile_updates": data.get("user_profile_updates") or {},
-        "language_profile_updates": data.get("language_profile_updates") or {},
+        "user_profile_updates": _fold_pairs(data.get("user_profile_updates")),
+        "language_profile_updates":
+            _fold_pairs(data.get("language_profile_updates")),
         "session_summary": data.get("session_summary") or (prior_summary or ""),
         "usage": usage,
     }

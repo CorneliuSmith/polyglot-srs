@@ -63,10 +63,14 @@ CHECKER_SCHEMA = {
                     "reason": {"type": "string"},
                 },
                 "required": ["index", "verdict"],
+                # Required by the API on every object node — without it the
+                # call 400s before the model runs.
+                "additionalProperties": False,
             },
         }
     },
     "required": ["verdicts"],
+    "additionalProperties": False,
 }
 
 CHECKER_PROMPT = """You are quality-gating sentences harvested from \
