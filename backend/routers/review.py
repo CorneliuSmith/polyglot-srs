@@ -162,6 +162,18 @@ async def get_due(
             conn, language_id, limit=limit, support_locale=support,
             card_type=card_type,
         )
+    # Same worker-local fill the wait screen gets. get_due_cards records
+    # demand for whatever it served in English, but demand relies on kick()
+    # reaching the process that sweeps — which the deployed topology
+    # routinely doesn't (see fill_start_batch). A review session served
+    # half-English sentences sat that way until some other process's timer.
+    # Cooldown- and concurrency-guarded inside; fire-and-forget.
+    if support and support != "en":
+        asyncio.create_task(fill_start_batch(
+            user["id"], language_id,
+            [c["card_id"] for c in cards if c.get("card_type") == "vocabulary"],
+            [c["card_id"] for c in cards if c.get("card_type") == "grammar"],
+        ))
     return cards
 
 

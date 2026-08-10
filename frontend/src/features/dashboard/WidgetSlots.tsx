@@ -5,13 +5,15 @@ import { usePrefsStore } from '../../stores/prefsStore'
 import type { DashboardStats } from '../../api/types'
 
 /**
- * iPhone-style widget slots under the Study bar (owner request): two open
+ * iPhone-style widget slots on the Study page (owner request): two open
  * spaces where the learner pins compact views of the progress charts they
  * actually glance at, instead of scrolling to the Progress tab for them.
  *
- * The full charts stay on Progress; these are deliberately small versions
- * that fit a half-width card. Choice is device-local (prefsStore) — which
- * chart you like at the top of your phone is not account state.
+ * Each slot is a full-width horizontal bar (owner: "long horizontal bars
+ * so the content fits correctly" — the half-width cards squeezed the
+ * charts), stacked below the Learn/Review tiles. The full charts stay on
+ * Progress; choice is device-local (prefsStore) — which chart you like
+ * glancing at is not account state.
  */
 
 const SLOT_COUNT = 2
@@ -37,27 +39,23 @@ const LABEL_KEYS: Record<WidgetId, string> = {
 function StreakWidget({ stats }: { stats?: DashboardStats }) {
   const { t } = useTranslation()
   return (
-    <div className="flex items-center justify-center gap-2 h-full">
-      <Flame aria-hidden className="h-7 w-7 text-orange-400" />
-      <div>
-        <span className="block text-2xl font-bold leading-none text-gray-900">
-          {stats?.streak_days ?? 0}
-        </span>
-        <span className="block text-[10px] text-gray-500">
-          {t('settings.progress.dayStreak')}
-        </span>
-      </div>
+    <div className="flex items-center gap-2">
+      <Flame aria-hidden className="h-6 w-6 text-orange-400" />
+      <span className="text-2xl font-bold leading-none text-gray-900">
+        {stats?.streak_days ?? 0}
+      </span>
+      <span className="text-xs text-gray-500">
+        {t('settings.progress.dayStreak')}
+      </span>
     </div>
   )
 }
 
 function ItemsStudiedWidget({ stats }: { stats?: DashboardStats }) {
   return (
-    <div className="flex items-center justify-center h-full">
-      <span className="text-3xl font-bold text-gray-900">
-        {stats?.profile?.items_studied ?? 0}
-      </span>
-    </div>
+    <span className="text-2xl font-bold leading-none text-gray-900">
+      {stats?.profile?.items_studied ?? 0}
+    </span>
   )
 }
 
@@ -66,21 +64,21 @@ function ForecastWidget({ stats }: { stats?: DashboardStats }) {
   const forecast = stats?.forecast ?? []
   const max = Math.max(1, ...forecast.map((d) => d.count))
   return (
-    <div className="flex items-end justify-between gap-1 h-full">
+    <div className="flex items-end gap-2 w-full">
       {forecast.map((d, i) => {
         const day = new Date(`${d.date}T00:00:00Z`)
         const label =
           i === 0 ? t('common.today') : t(`days.${DAY_KEYS[day.getUTCDay()]}`)
         return (
           <div key={d.date} className="flex-1 flex flex-col items-center justify-end gap-0.5 min-w-0">
-            <span className="text-[9px] tabular-nums text-gray-500 leading-none">
+            <span className="text-[10px] tabular-nums text-gray-500 leading-none">
               {d.count > 0 ? d.count : ''}
             </span>
             <div
               className={`w-full rounded-t ${d.count > 0 ? 'bg-lang/70' : 'bg-gray-100'}`}
-              style={{ height: `${Math.max(3, (d.count / max) * 28)}px` }}
+              style={{ height: `${Math.max(3, (d.count / max) * 30)}px` }}
             />
-            <span className="text-[8px] text-gray-400 truncate max-w-full">{label}</span>
+            <span className="text-[9px] text-gray-400 truncate max-w-full">{label}</span>
           </div>
         )
       })}
@@ -89,11 +87,10 @@ function ForecastWidget({ stats }: { stats?: DashboardStats }) {
 }
 
 function ActivityWidget({ stats }: { stats?: DashboardStats }) {
-  // Last week only — half a card can't hold the full two-week chart.
-  const activity = (stats?.activity ?? []).slice(-7)
+  const activity = stats?.activity ?? []
   const max = Math.max(1, ...activity.map((d) => d.vocab + d.grammar))
   return (
-    <div className="flex items-end justify-between gap-1 h-full">
+    <div className="flex items-end gap-1 w-full">
       {activity.map((d) => {
         const total = d.vocab + d.grammar
         return (
@@ -118,16 +115,16 @@ function ActivityWidget({ stats }: { stats?: DashboardStats }) {
 function CefrWidget({ stats }: { stats?: DashboardStats }) {
   const progress = stats?.cefr_progress ?? {}
   return (
-    <div className="space-y-1">
+    <div className="grid grid-cols-6 gap-2 w-full">
       {CEFR_LEVELS.map((level) => {
         const { learned = 0, total = 0 } = progress[level] ?? {}
         const pct = total > 0 ? Math.round((learned / total) * 100) : 0
         return (
-          <div key={level} className="flex items-center gap-1.5">
-            <span className="w-5 text-[9px] font-semibold text-gray-500 shrink-0">
-              {level}
+          <div key={level} className="flex flex-col gap-1 min-w-0">
+            <span className="text-[10px] font-semibold text-gray-500">
+              {level} <span className="font-normal text-gray-400">{pct}%</span>
             </span>
-            <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+            <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
               <div
                 className="h-full bg-lang rounded-full"
                 style={{ width: `${pct}%` }}
@@ -170,7 +167,7 @@ export default function WidgetSlots({ stats }: { stats?: DashboardStats }) {
   }
 
   return (
-    <div data-testid="widget-slots" className="grid grid-cols-2 gap-4">
+    <div data-testid="widget-slots" className="space-y-3">
       {Array.from({ length: SLOT_COUNT }, (_, i) => {
         const id = chosen[i]
         if (id) {
@@ -179,25 +176,23 @@ export default function WidgetSlots({ stats }: { stats?: DashboardStats }) {
             <div
               key={id}
               data-testid={`widget-${id}`}
-              className="bg-white rounded-2xl shadow-sm border border-gray-100 p-3"
+              className="bg-white rounded-2xl shadow-sm border border-gray-100 px-4 py-3 flex items-center gap-4"
             >
-              <div className="flex items-center justify-between mb-2">
-                <h2 className="text-[10px] uppercase tracking-wide text-gray-400 truncate">
-                  {t(LABEL_KEYS[id])}
-                </h2>
-                <button
-                  type="button"
-                  onClick={() => removeWidget(id)}
-                  aria-label={t('dashboard.removeWidget')}
-                  title={t('dashboard.removeWidget')}
-                  className="shrink-0 -me-1 -mt-1 p-1 text-gray-300 hover:text-gray-500"
-                >
-                  <X aria-hidden className="h-3.5 w-3.5" />
-                </button>
-              </div>
-              <div className="h-16">
+              <h2 className="w-20 sm:w-24 shrink-0 text-[10px] uppercase tracking-wide text-gray-400 leading-tight">
+                {t(LABEL_KEYS[id])}
+              </h2>
+              <div className="flex-1 min-w-0 flex items-center">
                 <Body stats={stats} />
               </div>
+              <button
+                type="button"
+                onClick={() => removeWidget(id)}
+                aria-label={t('dashboard.removeWidget')}
+                title={t('dashboard.removeWidget')}
+                className="shrink-0 p-1 text-gray-300 hover:text-gray-500"
+              >
+                <X aria-hidden className="h-3.5 w-3.5" />
+              </button>
             </div>
           )
         }
@@ -206,13 +201,13 @@ export default function WidgetSlots({ stats }: { stats?: DashboardStats }) {
         return (
           <div key={`empty-${i}`}>
             {pickerFor === i ? (
-              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-2 space-y-1">
+              <div className="bg-white rounded-2xl shadow-sm border border-gray-100 px-3 py-2 flex flex-wrap items-center gap-1.5">
                 {available.map((id) => (
                   <button
                     key={id}
                     type="button"
                     onClick={() => addWidget(id)}
-                    className="w-full text-start px-2 py-1.5 text-xs font-medium text-gray-700 rounded-lg hover:bg-lang-soft hover:text-lang"
+                    className="px-2.5 py-1.5 text-xs font-medium text-gray-700 rounded-lg border border-gray-200 hover:bg-lang-soft hover:text-lang hover:border-lang/40"
                   >
                     {t(LABEL_KEYS[id])}
                   </button>
@@ -220,7 +215,7 @@ export default function WidgetSlots({ stats }: { stats?: DashboardStats }) {
                 <button
                   type="button"
                   onClick={() => setPickerFor(null)}
-                  className="w-full text-center px-2 py-1 text-[10px] text-gray-400 hover:text-gray-600"
+                  className="ms-auto px-2 py-1 text-[10px] text-gray-400 hover:text-gray-600"
                 >
                   {t('common.cancel')}
                 </button>
@@ -230,7 +225,7 @@ export default function WidgetSlots({ stats }: { stats?: DashboardStats }) {
                 type="button"
                 onClick={() => setPickerFor(i)}
                 data-testid={`widget-add-${i}`}
-                className="w-full h-full min-h-[6.5rem] rounded-2xl border-2 border-dashed border-gray-200 flex flex-col items-center justify-center gap-1 text-gray-400 hover:text-lang hover:border-lang/40 transition-colors"
+                className="w-full h-12 rounded-2xl border-2 border-dashed border-gray-200 flex items-center justify-center gap-1.5 text-gray-400 hover:text-lang hover:border-lang/40 transition-colors"
               >
                 <Plus aria-hidden className="h-4 w-4" />
                 <span className="text-xs font-medium">{t('dashboard.addWidget')}</span>

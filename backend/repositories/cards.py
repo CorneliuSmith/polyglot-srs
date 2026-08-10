@@ -1418,14 +1418,12 @@ async def get_card_details_bulk(
             grammar_ids,
             eff_locale,
         ):
-            bucket = grammar_examples.setdefault(e["grammar_point_id"], [])
-            if len(bucket) < 5:
-                bucket.append({
-                    # Lesson views show the COMPLETED sentence, not the blank
-                    "sentence": e["sentence"].replace(ANSWER_MARKER, e["answer"]),
-                    "translation": e["translation"],
-                    "hint": e["hint"],
-                })
+            grammar_examples.setdefault(e["grammar_point_id"], []).append({
+                # Lesson views show the COMPLETED sentence, not the blank
+                "sentence": e["sentence"].replace(ANSWER_MARKER, e["answer"]),
+                "translation": e["translation"],
+                "hint": e["hint"],
+            })
             # First-check quiz: the point's first drill, blank kept.
             if e["grammar_point_id"] not in grammar_quiz:
                 grammar_quiz[e["grammar_point_id"]] = {
@@ -1436,6 +1434,18 @@ async def get_card_details_bulk(
                     "transliteration": e["transliteration"],
                     "hint": e["hint"],
                 }
+        # The "in context" block shows 5 of the point's drills — but sampled
+        # across the WHOLE list, not the head. Seed drills open with the
+        # paradigm row (six "pronoun + ser + noun" lines) and only vary
+        # further in, so first-5 showed a learner one frame six ways (the
+        # owner's screenshot). An even stride keeps it deterministic while
+        # reaching the varied sentences.
+        for gp_id, bucket in grammar_examples.items():
+            n = len(bucket)
+            if n > 5:
+                grammar_examples[gp_id] = [
+                    bucket[(i * n) // 5] for i in range(5)
+                ]
 
     # Whatever this Learn batch had to serve in English becomes demand for
     # the auto-translate loop.
