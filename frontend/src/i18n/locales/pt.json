@@ -27,7 +27,8 @@
     "grammar": "Gramática",
     "vocab": "Vocabulário",
     "today": "Hoje",
-    "todayLower": "hoje"
+    "todayLower": "hoje",
+    "cancel": "Cancelar"
   },
   "days": {
     "sun": "dom",
@@ -101,7 +102,10 @@
     "activityDay": "{{date}}: {{vocab}} de vocabulário, {{grammar}} de gramática",
     "levelProgress": "Progresso em {{level}}",
     "progressEmptyTitle": "Ainda não há nada para mostrar",
-    "progressEmptyBody": "Depois de aprender e rever alguns elementos, a sua sequência, previsão, atividade e progresso por nível aparecem aqui."
+    "progressEmptyBody": "Depois de aprender e rever alguns elementos, a sua sequência, previsão, atividade e progresso por nível aparecem aqui.",
+    "streakTitle": "Sequência",
+    "addWidget": "Adicionar widget",
+    "removeWidget": "Remover widget"
   },
   "stages": {
     "beginner": "Iniciante",
