@@ -181,6 +181,10 @@ export default function RecommendationsPage() {
     queryKey: ['recommendations', activeLanguageId],
     queryFn: () => getRecommendations(activeLanguageId!),
     enabled: !!activeLanguageId,
+    // Refresh only STARTS a draft server-side (holding the request open
+    // through the model call 504'd at the gateway) — while one is running,
+    // poll until the batch lands or draft_error says why it didn't.
+    refetchInterval: (query) => (query.state.data?.generating ? 4000 : false),
   })
 
   const refresh = useMutation({
@@ -219,17 +223,22 @@ export default function RecommendationsPage() {
 
   const batches = data?.batches ?? []
   // A failed draft must NOT keep the spinner up: "stale with no batches"
-  // stays true after a 500, and the owner watched "Putting together this
-  // week's picks…" spin forever over three failed requests.
+  // stays true after a failure, and the owner watched "Putting together
+  // this week's picks…" spin forever over three failed requests.
   const drafting =
-    refresh.isPending ||
+    refresh.isPending || !!data?.generating ||
     (!!data?.enabled && !!data?.entitled && data.stale &&
-      batches.length === 0 && !refresh.isError)
+      batches.length === 0 && !refresh.isError && !data?.draft_error)
   const refreshError = refresh.error as {
     response?: { status?: number; data?: { detail?: string } }
   } | null
   const refreshStatus = refreshError?.response?.status
+  // The reason a draft failed: an HTTP error from the refresh request
+  // itself, or the background draft's stored failure served by GET.
   const refreshDetail = refreshError?.response?.data?.detail
+  const draftFailed =
+    (refresh.isError && refreshStatus !== 402 && refreshStatus !== 429) ||
+    (!!data?.draft_error && !drafting)
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -301,14 +310,16 @@ export default function RecommendationsPage() {
         {/* A draft failed outright. Say so (spinning forever said nothing),
             and show the server's reason — for admins it names the actual
             exception, which is how this gets diagnosed. */}
-        {refresh.isError && refreshStatus !== 402 && refreshStatus !== 429 && (
+        {draftFailed && (
           <div
             data-testid="reco-error"
             className="bg-white rounded-2xl border border-red-100 shadow-sm p-4 space-y-1"
           >
             <p className="text-sm text-red-700">{t('recos.draftFailed')}</p>
-            {refreshDetail && (
-              <p className="text-xs text-gray-500 break-words">{refreshDetail}</p>
+            {(refreshDetail ?? data?.draft_error) && (
+              <p className="text-xs text-gray-500 break-words">
+                {refreshDetail ?? data?.draft_error}
+              </p>
             )}
           </div>
         )}
