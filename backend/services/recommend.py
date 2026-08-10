@@ -55,10 +55,15 @@ _RECO_SCHEMA = {
                     },
                 },
                 "required": ["type", "title", "blurb", "why", "level"],
+                # The API REJECTS any object node that doesn't opt out of
+                # extra keys — this exact schema 400'd on every single call,
+                # which is why the feature never produced a batch.
+                "additionalProperties": False,
             },
         },
     },
     "required": ["picks"],
+    "additionalProperties": False,
 }
 
 

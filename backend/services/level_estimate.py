@@ -31,10 +31,15 @@ _SCHEMA = {
                     "level": {"type": "string", "enum": list(CEFR)},
                 },
                 "required": ["word", "level"],
+                # Required by the API on every object node — without it the
+                # call 400s before the model runs (the recs schema shipped
+                # that way and never produced a batch).
+                "additionalProperties": False,
             },
         },
     },
     "required": ["levels"],
+    "additionalProperties": False,
 }
 
 

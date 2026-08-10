@@ -1096,6 +1096,33 @@ class TestSummarizeSession:
         assert fake_client.messages.create.await_args.kwargs["model"] == "claude-sonnet-4-6"
 
     @pytest.mark.asyncio
+    async def test_folds_key_value_pairs_into_the_profile_dicts(self):
+        # The strict-schema rules reject free-form maps, so the model now
+        # answers with {key, value} pairs — callers still receive dicts.
+        from backend.services import tutor as tutor_mod
+
+        payload = {
+            "user_profile_updates": [
+                {"key": "motivation", "value": "heritage"}],
+            "language_profile_updates": [
+                {"key": "level", "value": "B1"},
+                {"key": "struggles", "value": "noun classes"}],
+            "session_summary": "Reviewed noun classes.",
+        }
+        fake_client = AsyncMock()
+        fake_client.messages.create = AsyncMock(
+            return_value=_Resp([_TextBlock(json.dumps(payload))])
+        )
+        with patch.object(tutor_mod, "AsyncAnthropic", return_value=fake_client), \
+             patch.object(tutor_mod, "get_settings", return_value=FakeSettings()):
+            result = await tutor_mod.summarize_session(
+                "sw", [{"role": "user", "content": "teach me noun classes"}],
+            )
+        assert result["user_profile_updates"] == {"motivation": "heritage"}
+        assert result["language_profile_updates"] == {
+            "level": "B1", "struggles": "noun classes"}
+
+    @pytest.mark.asyncio
     async def test_empty_history_returns_prior_summary(self):
         from backend.services import tutor as tutor_mod
 
