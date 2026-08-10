@@ -103,6 +103,21 @@ describe('RecommendationsPage', () => {
     )
   })
 
+  it('stops the spinner and shows the reason when a draft fails', async () => {
+    // A 500 used to leave "Putting together this week's picks…" spinning
+    // forever over three failed requests, saying nothing.
+    mockGet.mockResolvedValue({ enabled: true, entitled: true, stale: true, batches: [] })
+    mockRefresh.mockRejectedValue({
+      response: { status: 502, data: { detail: 'Couldn\'t draft — [RuntimeError: boom]' } },
+    })
+    renderPage()
+    expect(await screen.findByTestId('reco-error')).toBeDefined()
+    expect(screen.getByText(/RuntimeError: boom/)).toBeDefined()
+    expect(screen.queryByTestId('reco-drafting')).toBeNull()
+    // And the retry button comes back instead of an eternal wait.
+    expect(await screen.findByTestId('reco-refresh-now')).toBeDefined()
+  })
+
   it('invites a first batch rather than saying there is nothing', async () => {
     mockGet.mockResolvedValue({
       enabled: true, entitled: true, stale: false, batches: [],

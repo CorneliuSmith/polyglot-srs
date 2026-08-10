@@ -247,3 +247,37 @@ async def test_an_admin_is_always_entitled():
         },
     )
     assert result["generated"] is True
+
+
+@pytest.mark.asyncio
+async def test_a_provider_error_is_a_502_that_tells_the_admin_why():
+    """The admin bypass made generation reachable and it answered a bare
+    500 with the reason invisible ("Recs is not working"). A crashed model
+    call is a 502; an admin's response detail names the actual exception
+    so the owner can read the cause in devtools."""
+    boom = AsyncMock(side_effect=RuntimeError("model exploded"))
+    with pytest.raises(HTTPException) as exc:
+        await _call(
+            force=True,
+            **{
+                "backend.routers.recommendations.generate_recommendations": boom,
+                "backend.routers.recommendations._is_admin_user":
+                    AsyncMock(return_value=True),
+            },
+        )
+    assert exc.value.status_code == 502
+    assert "RuntimeError: model exploded" in exc.value.detail
+
+
+@pytest.mark.asyncio
+async def test_a_provider_error_stays_vague_for_learners():
+    boom = AsyncMock(side_effect=RuntimeError("model exploded"))
+    with pytest.raises(HTTPException) as exc:
+        await _call(
+            force=True,
+            **{
+                "backend.routers.recommendations.generate_recommendations": boom,
+            },
+        )
+    assert exc.value.status_code == 502
+    assert "model exploded" not in exc.value.detail

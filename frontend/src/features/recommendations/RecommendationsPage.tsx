@@ -218,10 +218,18 @@ export default function RecommendationsPage() {
   }, [data, queryClient, activeLanguageId])
 
   const batches = data?.batches ?? []
+  // A failed draft must NOT keep the spinner up: "stale with no batches"
+  // stays true after a 500, and the owner watched "Putting together this
+  // week's picks…" spin forever over three failed requests.
   const drafting =
-    refresh.isPending || (!!data?.enabled && !!data?.entitled && data.stale && batches.length === 0)
-  const refreshStatus = (refresh.error as { response?: { status?: number } })
-    ?.response?.status
+    refresh.isPending ||
+    (!!data?.enabled && !!data?.entitled && data.stale &&
+      batches.length === 0 && !refresh.isError)
+  const refreshError = refresh.error as {
+    response?: { status?: number; data?: { detail?: string } }
+  } | null
+  const refreshStatus = refreshError?.response?.status
+  const refreshDetail = refreshError?.response?.data?.detail
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -288,6 +296,21 @@ export default function RecommendationsPage() {
           <p className="text-sm text-amber-600">
             {t('recos.needPlus')}
           </p>
+        )}
+
+        {/* A draft failed outright. Say so (spinning forever said nothing),
+            and show the server's reason — for admins it names the actual
+            exception, which is how this gets diagnosed. */}
+        {refresh.isError && refreshStatus !== 402 && refreshStatus !== 429 && (
+          <div
+            data-testid="reco-error"
+            className="bg-white rounded-2xl border border-red-100 shadow-sm p-4 space-y-1"
+          >
+            <p className="text-sm text-red-700">{t('recos.draftFailed')}</p>
+            {refreshDetail && (
+              <p className="text-xs text-gray-500 break-words">{refreshDetail}</p>
+            )}
+          </div>
         )}
 
         {/* Ask for picks NOW, rather than waiting out the weekly window.

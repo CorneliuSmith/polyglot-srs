@@ -243,6 +243,10 @@ class TestWeeklyRecsSweep:
         )
         p(patch("backend.services.allowance.get_allowance",
                 new=AsyncMock(return_value=allowance)))
+        # Not an admin unless a test says so — the admin bypass must not
+        # mask the entitlement gates these tests exercise.
+        p(patch("backend.repositories.contributor.get_roles",
+                new=AsyncMock(return_value=[])))
         p(patch("backend.repositories.recommendations.get_reco_profile",
                 new=AsyncMock(return_value={
                     "enabled": True, "about": "crime shows",
@@ -309,6 +313,22 @@ class TestWeeklyRecsSweep:
             assert await sweep_weekly_recommendations(conn) == 0
         self.generate.assert_not_called()
         self.send.assert_not_called()
+
+    @pytest.mark.asyncio
+    async def test_an_admin_drafts_without_a_plan(self):
+        # The router's admin bypass, mirrored here — without it the sweep
+        # silently skipped the owner every week ("the recommendations never
+        # come through"): admin accounts aren't Plus-entitled.
+        conn = self._conn([self.ROW])
+        with self._stack(conn,
+                         allowance={"entitled": False, "unlimited": False,
+                                    "remaining": 0},
+                         items=RECOS):
+            with patch("backend.repositories.contributor.get_roles",
+                       new=AsyncMock(return_value=[
+                           {"language_id": None, "role": "admin"}])):
+                assert await sweep_weekly_recommendations(conn) == 1
+        self.insert.assert_awaited_once()
 
     @pytest.mark.asyncio
     async def test_an_exhausted_month_waits_for_the_reset(self):

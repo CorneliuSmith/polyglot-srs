@@ -7,6 +7,7 @@ interests. Every batch is kept so they can look back over the whole history.
 """
 from __future__ import annotations
 
+import logging
 from datetime import UTC, datetime, timedelta
 from uuid import UUID
 
@@ -35,6 +36,7 @@ from backend.services.rate_limit import reco_refresh_limiter
 from backend.services.recommend import MEDIA_TYPES, generate_recommendations
 
 router = APIRouter()
+logger = logging.getLogger(__name__)
 
 # Once a week: a new batch is only drafted when the last one is at least this
 # old, so opening the app repeatedly never regenerates (or re-charges).
@@ -262,18 +264,31 @@ async def refresh_recommendations(
     # The admin's per-language model override (languages.tutor_model) —
     # previously only tutor chat and the Reader threaded this through.
     model = resolve_model("recommend", lang["code"], override=lang["tutor_model"])
-    items = await generate_recommendations(
-        language_name=lang["name"],
-        language_code=lang["code"],
-        level=level,
-        learned_count=int(stats.get("learned_cards") or 0),
-        about=profile["about"],
-        genres=profile["genres"],
-        media_types=profile["media_types"],
-        model=model,
-        exclude_titles=exclude,
-        reactions=reactions,
-    )
+    try:
+        items = await generate_recommendations(
+            language_name=lang["name"],
+            language_code=lang["code"],
+            level=level,
+            learned_count=int(stats.get("learned_cards") or 0),
+            about=profile["about"],
+            genres=profile["genres"],
+            media_types=profile["media_types"],
+            model=model,
+            exclude_titles=exclude,
+            reactions=reactions,
+        )
+    except Exception as exc:  # noqa: BLE001 — a provider error is a 502, not a 500
+        # The admin bypass made this path reachable for the first time and it
+        # answered a bare 500 — the reason invisible to everyone. Log the full
+        # traceback, and tell an ADMIN what actually failed (the owner reads
+        # this in devtools; learners get the friendly line).
+        logger.exception("recommendations draft failed (model=%s)", model)
+        detail = "Couldn't draft recommendations just now — try again later."
+        if admin:
+            detail += f" [{type(exc).__name__}: {exc}]"
+        raise HTTPException(
+            status_code=status.HTTP_502_BAD_GATEWAY, detail=detail
+        ) from exc
     if not items:
         raise HTTPException(
             status_code=status.HTTP_502_BAD_GATEWAY,
