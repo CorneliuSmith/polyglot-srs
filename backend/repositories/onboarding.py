@@ -595,15 +595,24 @@ async def get_placement_answers(
     # ходить/идти). The review flow already accepts a card's recorded
     # alternatives — placement must too, or valid answers grade as misses
     # and the staircase under-places.
+    # The English gloss rides along as `prompt` too: it is the question the
+    # learner was actually shown, so the result screen can say what was
+    # asked, and the synonym check needs it to compare senses against.
     vocab = await conn.fetch(
-        "SELECT id, word AS answer, level, alternatives FROM vocabulary "
-        "WHERE language_id = $1 AND id = ANY($2::uuid[])",
+        """
+        SELECT v.id, v.word AS answer, v.level, v.alternatives,
+               (SELECT definition FROM translations t
+                 WHERE t.vocabulary_id = v.id AND t.locale = 'en' LIMIT 1)
+                 AS prompt
+        FROM vocabulary v
+        WHERE v.language_id = $1 AND v.id = ANY($2::uuid[])
+        """,
         language_id,
         item_ids,
     )
     grammar = await conn.fetch(
         """
-        SELECT ds.id, ds.answer, gp.level
+        SELECT ds.id, ds.answer, gp.level, ds.sentence AS prompt
         FROM drill_sentences ds
         JOIN grammar_points gp ON ds.grammar_point_id = gp.id
         WHERE gp.language_id = $1 AND ds.id = ANY($2::uuid[])
@@ -618,6 +627,7 @@ async def get_placement_answers(
         str(r["id"]): {
             "answer": r["answer"], "level": r["level"], "kind": "vocabulary",
             "alternatives": list(r["alternatives"] or []),
+            "prompt": r["prompt"],
         }
         for r in vocab
     }
@@ -625,12 +635,42 @@ async def get_placement_answers(
         {
             str(r["id"]): {
                 "answer": r["answer"], "level": r["level"], "kind": "grammar",
-                "alternatives": [],
+                "alternatives": [], "prompt": r["prompt"],
             }
             for r in grammar
         }
     )
     return answers
+
+
+async def lookup_word_glosses(
+    conn: asyncpg.Connection, language_id: str, words: list[str]
+) -> dict[str, str]:
+    """{typed word (lowercased): its English gloss}, for the words among
+    *words* that are real vocabulary of this course.
+
+    The synonym half of placement grading (see services/placement_grade):
+    a learner who answers "to walk" with a different real word of the
+    language deserves to have that word looked up rather than marked wrong
+    because the seeds recorded only one headword. Only ever called for
+    answers that already FAILED the normal check, so it costs one indexed
+    lookup on a miss and nothing at all on a clean run.
+    """
+    cleaned = [w.strip().lower() for w in words if w and w.strip()]
+    if not cleaned:
+        return {}
+    rows = await conn.fetch(
+        """
+        SELECT lower(v.word) AS word,
+               (SELECT definition FROM translations t
+                 WHERE t.vocabulary_id = v.id AND t.locale = 'en' LIMIT 1)
+                 AS definition
+        FROM vocabulary v
+        WHERE v.language_id = $1 AND lower(v.word) = ANY($2::text[])
+        """,
+        language_id, cleaned,
+    )
+    return {r["word"]: r["definition"] for r in rows if r["definition"]}
 
 
 async def complete_onboarding(

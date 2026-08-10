@@ -1,5 +1,12 @@
 import { describe, it, expect } from 'vitest'
-import { pickTip, TIPS, TIP_THROTTLE_MS, allTipsSeen } from '../features/tips/tips'
+import {
+  allTipsSeen,
+  dayNumber,
+  pickDailyTip,
+  pickTip,
+  TIPS,
+  TIP_THROTTLE_MS,
+} from '../features/tips/tips'
 
 const base = {
   enabled: true,
@@ -40,5 +47,55 @@ describe('pickTip', () => {
     expect(allTipsSeen(seenTipIds)).toBe(true)
     // Fresh cycle: it returns something rather than going silent forever.
     expect(pickTip({ ...base, seenTipIds })).not.toBeNull()
+  })
+})
+
+describe('pickDailyTip', () => {
+  const daily = {
+    enabled: true,
+    seenTipIds: [] as string[],
+    now: Date.UTC(2026, 7, 10, 12),
+    context: 'dashboard' as const,
+  }
+
+  it('always has a tip for the Study page, however recently one was shown', () => {
+    // The whole point: pickTip would return null here 23 hours out of 24,
+    // which read as the tips having been removed.
+    expect(pickDailyTip(daily)).not.toBeNull()
+  })
+
+  it('is stable across reloads within the same day', () => {
+    const morning = pickDailyTip({ ...daily, now: Date.UTC(2026, 7, 10, 9) })
+    const evening = pickDailyTip({ ...daily, now: Date.UTC(2026, 7, 10, 21) })
+    expect(morning?.id).toBe(evening?.id)
+  })
+
+  it('turns over the next day', () => {
+    const ids = new Set(
+      [0, 1, 2, 3].map(
+        (d) => pickDailyTip({ ...daily, now: Date.UTC(2026, 7, 10 + d, 12) })?.id,
+      ),
+    )
+    expect(ids.size).toBeGreaterThan(1)
+  })
+
+  it('prefers a tip that fits the dashboard', () => {
+    expect(pickDailyTip(daily)?.contexts).toContain('dashboard')
+  })
+
+  it('stays closed for the rest of the day once dismissed, and returns tomorrow', () => {
+    const today = dayNumber(daily.now)
+    expect(pickDailyTip({ ...daily, dismissedDay: today })).toBeNull()
+    expect(
+      pickDailyTip({
+        ...daily,
+        now: Date.UTC(2026, 7, 11, 12),
+        dismissedDay: today,
+      }),
+    ).not.toBeNull()
+  })
+
+  it('honours the off switch', () => {
+    expect(pickDailyTip({ ...daily, enabled: false })).toBeNull()
   })
 })

@@ -53,6 +53,9 @@ const item = (id: string, prompt: string) => ({
 describe('PlacementTest', () => {
   beforeEach(() => {
     vi.clearAllMocks()
+    // No writing assessment on this account: these tests are about the
+    // staircase and its result, not the premium final question.
+    mockWritingOffer.mockResolvedValue({ available: false })
     mockSetLevel.mockResolvedValue({ level: 'B1', subscribed: 3, unsubscribed: 0 })
   })
 
@@ -339,5 +342,125 @@ describe('PlacementTest written route', () => {
     renderTest()
     await screen.findByLabelText('water')
     expect(screen.queryByText(/rather write a paragraph/i)).toBeNull()
+  })
+})
+
+describe('PlacementTest result transparency', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockWritingOffer.mockResolvedValue({ available: false })
+    mockSetLevel.mockResolvedValue({ level: 'B1', subscribed: 0, unsubscribed: 0 })
+  })
+
+  const finished = {
+    available: true, done: true, asked: 4, estimated_level: 'B1',
+    per_level: { A2: { correct: 2, total: 2 }, B1: { correct: 1, total: 2 } },
+    threshold: 0.6,
+    breakdown: [
+      {
+        kind: 'vocabulary', level: 'A2', prompt: 'to walk', typed: 'andar',
+        expected: 'caminar', correct: true, verdict: 'synonym',
+        accepted_as: 'to walk; to go about',
+      },
+      {
+        kind: 'vocabulary', level: 'B1', prompt: 'the bridge', typed: 'puerta',
+        expected: 'puente', correct: false, verdict: 'wrong', accepted_as: null,
+      },
+    ],
+  }
+
+  it('explains the rule that decided the level', async () => {
+    mockNext.mockResolvedValue(finished)
+    renderTest()
+    const result = await screen.findByTestId('placement-result')
+    // The learner is told the actual rule, not just handed a letter.
+    expect(result.textContent).toMatch(/highest level where you answered at least 60%/i)
+  })
+
+  it('shows the per-level scores behind it', async () => {
+    mockNext.mockResolvedValue(finished)
+    renderTest()
+    await screen.findByTestId('placement-result')
+    const tally = screen.getByTestId('placement-tally')
+    expect(tally.textContent).toContain('2/2')
+    expect(tally.textContent).toContain('1/2')
+  })
+
+  it('shows every question, and says when a synonym was accepted', async () => {
+    mockNext.mockResolvedValue(finished)
+    renderTest()
+    await screen.findByTestId('placement-result')
+    fireEvent.click(screen.getByTestId('placement-show-working'))
+    const working = await screen.findByTestId('placement-breakdown')
+    expect(working.textContent).toContain('andar')
+    // Their word counted — and it is NOT presented as a mistake with a
+    // correction beside it, which is the whole point of the fix.
+    expect(working.textContent).toMatch(/your word also works/i)
+    expect(working.textContent).not.toContain('expected: caminar')
+    // A genuinely wrong answer still gets its correction.
+    expect(working.textContent).toContain('expected: puente')
+  })
+})
+
+describe('PlacementTest final writing question', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockWritingOffer.mockResolvedValue({ available: true })
+    mockSetLevel.mockResolvedValue({ level: 'B2', subscribed: 0, unsubscribed: 0 })
+    mockNext.mockResolvedValue({
+      available: true, done: true, asked: 6, estimated_level: 'B1',
+      per_level: { B1: { correct: 2, total: 3 } }, threshold: 0.6, breakdown: [],
+    })
+  })
+
+  it('asks for a paragraph after the quiz, with a prompt to write about', async () => {
+    renderTest()
+    const writing = await screen.findByTestId('placement-writing')
+    expect(writing.textContent).toMatch(/last question/i)
+    // A blank box gets a blank answer, so there is an actual topic.
+    expect(writing.textContent).toMatch(/plans changed unexpectedly/i)
+  })
+
+  it('places the learner on the blended level, not the quiz alone', async () => {
+    mockAssess.mockResolvedValue({
+      level: 'B2', notes: 'Good range.', focus: [],
+      quiz_level: 'B1', blended_level: 'B2',
+    })
+    renderTest()
+    await screen.findByTestId('placement-writing')
+    fireEvent.change(await screen.findByLabelText(/your latin writing/i), {
+      target: { value: 'Cum in urbem venissem, omnia mutata erant.' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: /assess my writing/i }))
+
+    const result = await screen.findByTestId('placement-result')
+    expect(result.textContent).toMatch(/looks about\s*B2/)
+    // And it says why the two signals combined the way they did.
+    expect(result.textContent).toMatch(/what you can produce is the better guide/i)
+    fireEvent.click(screen.getByRole('button', { name: /set me to B2/i }))
+    await waitFor(() => expect(mockSetLevel).toHaveBeenCalledWith('lang-la', 'B2'))
+  })
+
+  it('sends the quiz level along so the server can blend them', async () => {
+    mockAssess.mockResolvedValue({
+      level: 'B2', notes: '', focus: [], quiz_level: 'B1', blended_level: 'B2',
+    })
+    renderTest()
+    await screen.findByTestId('placement-writing')
+    fireEvent.change(await screen.findByLabelText(/your latin writing/i), {
+      target: { value: 'Scripsi.' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: /assess my writing/i }))
+    await waitFor(() =>
+      expect(mockAssess).toHaveBeenCalledWith('lang-la', 'la', 'Scripsi.', 'B1'),
+    )
+  })
+
+  it('can be skipped, leaving the quiz result standing', async () => {
+    renderTest()
+    await screen.findByTestId('placement-writing')
+    fireEvent.click(screen.getByRole('button', { name: /skip this and see my result/i }))
+    const result = await screen.findByTestId('placement-result')
+    expect(result.textContent).toMatch(/looks about\s*B1/)
   })
 })

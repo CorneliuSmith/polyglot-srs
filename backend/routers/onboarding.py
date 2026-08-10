@@ -7,6 +7,7 @@ from pydantic import BaseModel, Field
 
 from backend.config import get_settings
 from backend.dependencies import get_current_user
+from backend.repositories.contributor import get_roles, is_admin
 from backend.repositories.onboarding import (
     CEFR_ORDER,
     MAX_ADAPTIVE_ITEMS,
@@ -15,6 +16,7 @@ from backend.repositories.onboarding import (
     estimate_level,
     get_placement_answers,
     get_status,
+    lookup_word_glosses,
     placement_history,
     record_placement_attempt,
     sample_placement_items,
@@ -30,6 +32,7 @@ from backend.repositories.tutor import (
 from backend.services.models import resolve_model
 from backend.services.nlp import validate_answer_async
 from backend.services.nlp.base import AnswerResult
+from backend.services.placement_grade import blend_levels, shares_a_sense
 from backend.services.rate_limit import tutor_chat_limiter
 from backend.services.writing_baseline import MAX_SAMPLE_CHARS, assess_writing
 
@@ -40,6 +43,122 @@ router = APIRouter()
 MIN_PLACEMENT_ITEMS = 4
 # Answers the NLP layer judges correct (or sloppy-but-right) count as a pass.
 _PASSING = {AnswerResult.CORRECT, AnswerResult.CORRECT_SLOPPY}
+# The pass mark estimate_level applies at each CEFR level. Named here because
+# the result screen now SHOWS the learner the rule that placed them.
+PLACEMENT_THRESHOLD = 0.6
+
+
+async def _grade_entries(
+    user_id: str,
+    code: str,
+    language_id: str,
+    entries: list[PlacementAnswer],
+    answers: dict[str, dict],
+) -> list[dict]:
+    """Grade one placement run, item by item, with the evidence kept.
+
+    Returns a row per gradable answer: what was asked, what the learner
+    typed, what was expected, whether it counted and WHY. Two things depend
+    on that last part. The learner sees it (a bare CEFR letter explains
+    nothing about how it was reached), and a valid synonym is rescued here
+    rather than silently costing a band:
+
+    the seeds populate `vocabulary.alternatives` for almost nothing, so a
+    vocabulary prompt used to accept exactly one headword. Any other real
+    word with the same meaning graded as a miss, and the adaptive staircase
+    steps DOWN on a miss — so answering "to walk" with the language's other
+    word for walking could cost a whole level. A failed vocabulary answer
+    is now looked up in the course's own word list, and counts when its
+    gloss shares a whole sense with the prompt's.
+    """
+    graded: list[dict] = []
+    for entry in entries:
+        key = answers.get(entry.id)
+        if key is None or key["level"] is None:
+            continue  # not one of ours — ignore rather than error
+        typed = (entry.input or "").strip()
+        if not typed:
+            # "I don't know" is a miss, but it is not a wrong ANSWER, and
+            # showing it as one reads like the app misread them.
+            graded.append({
+                "id": entry.id, "kind": key.get("kind") or "vocabulary",
+                "level": key["level"], "prompt": key.get("prompt"),
+                "expected": key["answer"], "typed": "",
+                "correct": False, "verdict": "skipped",
+            })
+            continue
+        try:
+            result, _ = await validate_answer_async(
+                code, typed, key["answer"],
+                {"answer_alternatives": key.get("alternatives") or []},
+            )
+        except ValueError as exc:
+            raise HTTPException(
+                status_code=422, detail=f"Unsupported language: {code}"
+            ) from exc
+        correct = result in _PASSING
+        graded.append({
+            "id": entry.id, "kind": key.get("kind") or "vocabulary",
+            "level": key["level"], "prompt": key.get("prompt"),
+            "expected": key["answer"], "typed": typed,
+            "correct": correct,
+            "verdict": (
+                "correct" if result is AnswerResult.CORRECT
+                else "typo" if correct
+                else "wrong"
+            ),
+        })
+
+    # Synonym rescue, for the vocabulary misses only — one lookup, and none
+    # at all on a clean run.
+    rescuable = [
+        g for g in graded
+        if not g["correct"] and g["kind"] == "vocabulary"
+        and g["typed"] and g["prompt"]
+    ]
+    if rescuable:
+        async with rls_connection(user_id) as conn:
+            glosses = await lookup_word_glosses(
+                conn, language_id, [g["typed"] for g in rescuable]
+            )
+        for g in rescuable:
+            gloss = glosses.get(g["typed"].lower())
+            if gloss and shares_a_sense(g["prompt"], gloss):
+                g["correct"] = True
+                g["verdict"] = "synonym"
+                # What they typed IS an answer to the question asked; say so
+                # rather than leaving the expected word looking like a
+                # correction.
+                g["accepted_as"] = gloss
+    return graded
+
+
+def _tally(graded: list[dict]) -> tuple[dict[str, list[int]], dict[str, list[str]]]:
+    """Per-level (correct, total) and the missed ids by kind."""
+    per_level: dict[str, list[int]] = {}
+    missed: dict[str, list[str]] = {"grammar": [], "vocabulary": []}
+    for g in graded:
+        tally = per_level.setdefault(g["level"], [0, 0])
+        tally[1] += 1
+        if g["correct"]:
+            tally[0] += 1
+        else:
+            missed[g["kind"]].append(g["id"])
+    return per_level, missed
+
+
+def _breakdown(graded: list[dict]) -> list[dict]:
+    """The per-question evidence the result screen shows (owner: "I want
+    users to be able to understand why they received a rating")."""
+    return [
+        {
+            "kind": g["kind"], "level": g["level"], "prompt": g["prompt"],
+            "typed": g["typed"], "expected": g["expected"],
+            "correct": g["correct"], "verdict": g["verdict"],
+            "accepted_as": g.get("accepted_as"),
+        }
+        for g in graded
+    ]
 
 
 class PlacementAnswer(BaseModel):
@@ -156,35 +275,17 @@ async def placement_next(
         )
 
     pool_by_id = {it["id"]: it for it in pool}
-    graded: list[tuple[dict, bool]] = []
-    per_level: dict[str, list[int]] = {}
+    rows = await _grade_entries(
+        user["id"], code, language_id,
+        [e for e in body.history if e.id in pool_by_id],
+        answers,
+    )
     # Which items they got WRONG — the half of the result the app used to
     # throw away, and the only thing that says what to work on.
-    missed: dict[str, list[str]] = {"grammar": [], "vocabulary": []}
-    for entry in body.history:
-        item = pool_by_id.get(entry.id)
-        key = answers.get(entry.id)
-        if item is None or key is None or key["level"] is None:
-            continue  # not one of ours — ignore rather than error
-        try:
-            result, _ = await validate_answer_async(
-                code, entry.input, key["answer"],
-                {"answer_alternatives": key.get("alternatives") or []},
-            )
-        except ValueError as exc:
-            raise HTTPException(
-                status_code=422, detail=f"Unsupported language: {code}"
-            ) from exc
-        correct = result in _PASSING
-        graded.append((item, correct))
-        tally = per_level.setdefault(key["level"], [0, 0])
-        tally[1] += 1
-        if correct:
-            tally[0] += 1
-        else:
-            missed[key.get("kind") or item.get("kind") or "vocabulary"].append(
-                entry.id
-            )
+    per_level, missed = _tally(rows)
+    graded: list[tuple[dict, bool]] = [
+        (pool_by_id[r["id"]], r["correct"]) for r in rows if r["id"] in pool_by_id
+    ]
 
     nxt = adaptive_next(pool, graded)
     if nxt is None:
@@ -212,6 +313,10 @@ async def placement_next(
             "asked": len(graded),
             "attempt": history["attempts"] + 1,
             "previous_level": history["last_level"],
+            # The evidence behind the letter (owner: "I want users to be
+            # able to understand why they received a rating").
+            "breakdown": _breakdown(rows),
+            "threshold": PLACEMENT_THRESHOLD,
         }
     return {
         "available": True, "done": False,
@@ -236,28 +341,12 @@ async def score_placement(
             conn, language_id, [a.id for a in body.answers]
         )
 
-    # Tally correct/total per CEFR level using the language's NLP validator.
-    per_level: dict[str, list[int]] = {}
-    missed: dict[str, list[str]] = {"grammar": [], "vocabulary": []}
-    for answer in body.answers:
-        item = answers.get(answer.id)
-        if item is None or item["level"] is None:
-            continue
-        try:
-            result, _ = await validate_answer_async(
-                code, answer.input, item["answer"],
-                {"answer_alternatives": item.get("alternatives") or []},
-            )
-        except ValueError as exc:
-            raise HTTPException(
-                status_code=422, detail=f"Unsupported language: {code}"
-            ) from exc
-        tally = per_level.setdefault(item["level"], [0, 0])
-        tally[1] += 1
-        if result in _PASSING:
-            tally[0] += 1
-        else:
-            missed[item.get("kind") or "vocabulary"].append(answer.id)
+    # Tally correct/total per CEFR level using the language's NLP validator
+    # (plus the synonym rescue — see _grade_entries).
+    rows = await _grade_entries(
+        user["id"], code, language_id, body.answers, answers
+    )
+    per_level, missed = _tally(rows)
 
     estimated = estimate_level({lvl: (c, t) for lvl, (c, t) in per_level.items()})
     async with rls_connection(user["id"]) as conn:
@@ -277,6 +366,8 @@ async def score_placement(
         "per_level": {lvl: {"correct": c, "total": t} for lvl, (c, t) in per_level.items()},
         "attempt": previous["attempts"] + 1,
         "previous_level": previous["last_level"],
+        "breakdown": _breakdown(rows),
+        "threshold": PLACEMENT_THRESHOLD,
     }
 
 
@@ -284,17 +375,27 @@ class WritingSample(BaseModel):
     language_id: str
     language_code: str = Field(min_length=2, max_length=8)
     text: str = Field(min_length=1, max_length=MAX_SAMPLE_CHARS)
+    # The staircase result this sample follows, when it was taken as the
+    # final question of a placement run. Blended into the verdict below.
+    quiz_level: str | None = None
 
 
 async def _writing_assessment_available(conn, user_id: str, language_id: str) -> bool:
     """Token guard (owner): the writing assessment spends a model call, so
     it's only offered to accounts with a tutor entitlement (paid or
-    owner-granted) — or in dev-mock, where no key is spent."""
+    owner-granted) — or in dev-mock, where no key is spent.
+
+    Admins are always offered it: the owner runs the API key, and gating
+    their own testing surface behind a plan they don't hold is how the
+    recommendations feature stayed invisible to the person building it.
+    """
     settings = get_settings()
     if getattr(settings, "tutor_dev_mock", False):
         return True
     if not settings.anthropic_api_key:
         return False
+    if is_admin(await get_roles(conn, user_id)):
+        return True
     return await has_tutor_entitlement(conn, user_id, language_id)
 
 
@@ -369,7 +470,15 @@ async def writing_sample(
             resolve_model("semantic_check", body.language_code),
             usage=usage, kind="writing_baseline",
         )
-    return result
+    # Taken as the final question of a placement run, the sample doesn't
+    # merely sit beside the quiz — it decides, within a band (owner: the
+    # writing sample "is the best way to determine placement"). See
+    # services/placement_grade.blend_levels for why it's clamped.
+    return {
+        **result,
+        "quiz_level": body.quiz_level,
+        "blended_level": blend_levels(body.quiz_level, result["level"]),
+    }
 
 
 @router.put("/level")

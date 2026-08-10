@@ -862,7 +862,23 @@
     "offerBody": "A short test that adapts to your answers — most people finish in 5–8 questions. We'll use the result to queue grammar and vocabulary that actually fits you, instead of starting you at A1 by default.",
     "offerNotNow": "Not now is fine — you can take it, and retake it, <b>any time</b> from Settings → Your level.",
     "takeTest": "Take the test",
-    "notNow": "Not now"
+    "notNow": "Not now",
+    "finalQuestion": "Last question — write a short paragraph",
+    "skipWriting": "Skip this and see my result",
+    "whyFromQuiz": "You were placed at {{level}} because that is the highest level where you answered at least {{percent}}% of the questions correctly.",
+    "whyWithWriting": "Your questions pointed to {{quiz}} and your writing showed {{writing}}, so we placed you at {{level}} — what you can produce is the better guide.",
+    "showAnswers": "Show my answers",
+    "hideAnswers": "Hide my answers",
+    "expected": "(expected: {{answer}})",
+    "acceptedSynonym": "your word also works",
+    "acceptedTypo": "accepted — small slip",
+    "skipped": "skipped",
+    "noAnswer": "(no answer)",
+    "prompts": {
+      "beginner": "Write about your day: where you go, who you see, what you like to eat.",
+      "intermediate": "Tell us about a time your plans changed unexpectedly. What happened, and what would you do differently?",
+      "advanced": "Should cities ban cars from their centres? Argue your position and answer the strongest objection to it."
+    }
   },
   "welcome": {
     "title": "Your toolkit",

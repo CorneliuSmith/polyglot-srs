@@ -67,6 +67,12 @@ interface PrefsState {
   seenTipIds: string[]
   lastTipShownAt: number
   recordTipShown: (id: string) => void
+  // Day number (see tips.dayNumber) the learner last closed the Study page's
+  // tip of the day. That tip is always present rather than throttled, so
+  // closing it needs to mean "not today" — otherwise the only way to be rid
+  // of it for an afternoon is to switch tips off entirely.
+  tipDismissedDay: number
+  dismissTipForToday: (day: number) => void
   // Language ids where the learner has waved off the first-time placement
   // offer. Server-side attempt history says whether they've EVER placed;
   // this says whether they've already said "not now" to being asked. Kept
@@ -137,6 +143,8 @@ export const usePrefsStore = create<PrefsState>()(
             lastTipShownAt: Date.now(),
           }
         }),
+      tipDismissedDay: 0,
+      dismissTipForToday: (day) => set({ tipDismissedDay: day }),
       placementOfferDismissed: [],
       dismissPlacementOffer: (languageId) =>
         set((s) => ({
