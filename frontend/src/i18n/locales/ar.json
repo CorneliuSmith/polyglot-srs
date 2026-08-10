@@ -822,7 +822,8 @@
     "seePicks": "عرض اقتراحات هذا الأسبوع",
     "finished": "أنهيته",
     "yourRating": "تقييمك",
-    "rateStar": "قيّم بـ {{count}} من 5"
+    "rateStar": "قيّم بـ {{count}} من 5",
+    "draftFailed": "تعذّر إعداد اقتراحاتك — حاول مرة أخرى بعد قليل."
   },
   "onboarding": {
     "back": "رجوع",

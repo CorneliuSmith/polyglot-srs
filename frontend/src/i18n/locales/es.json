@@ -777,7 +777,8 @@
     "seePicks": "Ver las sugerencias de esta semana",
     "finished": "Terminado",
     "yourRating": "Tu valoración",
-    "rateStar": "Valorar con {{count}} de 5"
+    "rateStar": "Valorar con {{count}} de 5",
+    "draftFailed": "No se pudieron generar tus recomendaciones; inténtalo de nuevo en un momento."
   },
   "onboarding": {
     "back": "Atrás",

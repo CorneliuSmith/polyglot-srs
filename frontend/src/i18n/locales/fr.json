@@ -777,7 +777,8 @@
     "seePicks": "Voir les suggestions de la semaine",
     "finished": "Terminé",
     "yourRating": "Votre note",
-    "rateStar": "Noter {{count}} sur 5"
+    "rateStar": "Noter {{count}} sur 5",
+    "draftFailed": "La préparation de vos recommandations a échoué — réessayez dans un instant."
   },
   "onboarding": {
     "back": "Retour",

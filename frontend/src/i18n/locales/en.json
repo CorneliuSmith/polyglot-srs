@@ -777,7 +777,8 @@
     "seePicks": "See this week’s picks",
     "finished": "Finished",
     "yourRating": "Your rating",
-    "rateStar": "Rate {{count}} of 5"
+    "rateStar": "Rate {{count}} of 5",
+    "draftFailed": "Drafting your picks failed — try again in a moment."
   },
   "onboarding": {
     "back": "Back",

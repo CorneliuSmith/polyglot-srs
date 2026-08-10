@@ -205,6 +205,7 @@ async def sweep_weekly_recommendations(conn) -> int:
     by email. Skips (no entitlement, exhausted allowance, no provider)
     leave the learner exactly as they were; nothing is marked used.
     """
+    from backend.repositories.contributor import get_roles, is_admin
     from backend.repositories.recommendations import (
         get_reco_profile,
         insert_recommendation,
@@ -252,10 +253,16 @@ async def sweep_weekly_recommendations(conn) -> int:
         user_id = str(r["user_id"])
         language_id = str(r["language_id"])
         try:
+            # Admins draft regardless of plan — same bypass the router's
+            # refresh has. Without it the sweep silently skipped the owner
+            # every week ("the recommendations never come through"): admin
+            # accounts aren't Plus-entitled, and `continue` left no trace.
+            roles_admin = is_admin(await get_roles(conn, user_id))
             allowance = await get_allowance(user_id, language_id)
-            if not allowance["entitled"]:
+            if not allowance["entitled"] and not roles_admin:
                 continue
-            if not allowance["unlimited"] and allowance["remaining"] <= 0:
+            if (not roles_admin and not allowance["unlimited"]
+                    and allowance["remaining"] <= 0):
                 continue
             profile = await get_reco_profile(conn, user_id)
             stats = await get_study_stats(conn, user_id, language_id)
