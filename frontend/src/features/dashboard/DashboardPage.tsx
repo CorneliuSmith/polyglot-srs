@@ -463,7 +463,9 @@ export default function DashboardPage() {
         {/* Staff only: something came in and nobody has closed it out. */}
         <FeedbackAlert canSeeQueue={canContribute} />
 
-        <LearningTip context="dashboard" />
+        {/* Tip of the day: present every day rather than throttled — the
+            20-hour rule left the Study page blank almost always. */}
+        <LearningTip context="dashboard" mode="daily" />
 
         {/* Command center: Learn (deck sections) + Review, Bunpro-style */}
         {isLoading || !stats ? (

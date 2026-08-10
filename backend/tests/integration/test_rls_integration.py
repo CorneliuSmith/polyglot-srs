@@ -1571,8 +1571,12 @@ async def test_placement_includes_grammar_cloze(pool):
     # `kind` rides along so a scorer can tell a missed DRILL from a missed
     # WORD without re-querying — the two feed different halves of the
     # placement insight (structures vs vocabulary).
+    # `prompt` rides along too: it is the question the learner was actually
+    # shown, so the result screen can say what was asked (and, for a vocab
+    # item, the synonym check has a gloss to compare senses against).
     assert answers[str(drill)] == {
         "answer": "roja", "level": "A2", "kind": "grammar", "alternatives": [],
+        "prompt": "la casa {{answer}}",
     }
 
 

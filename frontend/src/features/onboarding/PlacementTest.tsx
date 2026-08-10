@@ -9,7 +9,11 @@ import {
   setLearnerLevel,
 } from '../../api/onboarding'
 import { getSchemaHealth, pendingMigrationNote } from '../../api/health'
-import type { PlacementItem, WritingAssessment } from '../../api/onboarding'
+import type {
+  PlacementBreakdownItem,
+  PlacementItem,
+  WritingAssessment,
+} from '../../api/onboarding'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { languageDisplayName } from '../../lib/languages'
@@ -66,9 +70,18 @@ export default function PlacementTest({
   const [item, setItem] = useState<PlacementItem | null>(null)
   const [input, setInput] = useState('')
   const [maxItems, setMaxItems] = useState(12)
-  const [result, setResult] = useState<
-    { level: string | null; previous: string | null; asked: number } | null
-  >(null)
+  const [result, setResult] = useState<{
+    level: string | null
+    previous: string | null
+    asked: number
+    perLevel: Record<string, { correct: number; total: number }>
+    breakdown: PlacementBreakdownItem[]
+    threshold: number
+  } | null>(null)
+  // Whether the learner has asked to see the per-question evidence. Folded
+  // away by default — the answer to "what level am I" is the level; the
+  // working belongs one tap behind it.
+  const [showWorking, setShowWorking] = useState(false)
   const [unavailable, setUnavailable] = useState(false)
   // When the start fails, ask the server WHY rather than shrugging. A schema
   // that is behind the build is the commonest cause and the app can already
@@ -89,6 +102,10 @@ export default function PlacementTest({
   // Offered here rather than only in signup, so it reaches every language a
   // learner adds and every retake.
   const [writing, setWriting] = useState(false)
+  // Set when the learner waves off the FINAL writing question. Kept apart
+  // from `writing` because that flag also drives the "I'd rather write"
+  // side door, which is a different thing entirely.
+  const [skippedWriting, setSkippedWriting] = useState(false)
   const [sample, setSample] = useState('')
   const [assessment, setAssessment] = useState<WritingAssessment | null>(null)
   const { data: writingOffer } = useQuery({
@@ -98,7 +115,9 @@ export default function PlacementTest({
   })
   const assess = useMutation({
     mutationFn: () =>
-      assessWritingSample(language.id, language.code, sample.trim()),
+      assessWritingSample(
+        language.id, language.code, sample.trim(), result?.level ?? null,
+      ),
     onSuccess: setAssessment,
   })
 
@@ -115,6 +134,9 @@ export default function PlacementTest({
           level: res.estimated_level ?? null,
           previous: res.previous_level ?? null,
           asked: res.asked,
+          perLevel: res.per_level ?? {},
+          breakdown: res.breakdown ?? [],
+          threshold: res.threshold ?? 0.6,
         })
         // The attempt is recorded server-side on completion — the offer
         // shouldn't come back the next time this language loads.
@@ -145,6 +167,29 @@ export default function PlacementTest({
     start([])
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language.id])
+
+  // What to place them at. A written sample outranks the staircase (the
+  // server clamps it to one band) — production is what a level describes.
+  const finalLevel =
+    assessment?.blended_level ?? assessment?.level ?? result?.level ?? 'A1'
+
+  // The final question, for accounts that have the writing assessment
+  // (owner: a sample "is the best way to determine placement"). The
+  // staircase measures what they recognize; a paragraph measures what they
+  // can build. DERIVED rather than latched when the quiz finishes: the
+  // availability query and the last staircase round race, and a learner
+  // whose quiz landed first would silently never be asked.
+  const finalWritingStep =
+    !!result && !!writingOffer?.available && !assessment && !skippedWriting
+  const showWriting = writing || finalWritingStep
+
+  // The writing prompt, pitched at whatever the quiz just found: asking a
+  // near-beginner to argue a position measures nothing, and giving a C1 "what
+  // did you do yesterday" gives them no room to show what they have.
+  const promptBand = (() => {
+    const idx = CEFR_ORDER.indexOf(result?.level ?? 'A1')
+    return idx >= 4 ? 'advanced' : idx >= 2 ? 'intermediate' : 'beginner'
+  })()
 
   const submit = (raw: string) => {
     if (!item || next.isPending) return
@@ -180,38 +225,146 @@ export default function PlacementTest({
               {t('placement.close')}
             </button>
           </div>
-        ) : result ? (
+        ) : result && !showWriting ? (
           <div className="space-y-3" data-testid="placement-result">
             <p className="text-sm text-gray-800">
               <Trans
                 i18nKey="placement.resultSummary"
                 values={{
                   language: languageDisplayName(language.code, language.name, i18n.language),
-                  level: result.level ?? 'A1',
+                  level: finalLevel,
                   questions: t('placement.questionCount', { count: result.asked }),
                 }}
                 components={{ b: <b /> }}
               />
             </p>
-            {result.level && movement(t, result.previous, result.level) && (
+            {movement(t, result.previous, finalLevel) && (
               <p className="text-xs text-lang-dark font-medium">
-                {movement(t, result.previous, result.level)}
+                {movement(t, result.previous, finalLevel)}
               </p>
             )}
+
+            {/* Why this level, in one sentence: the rule that decided it. */}
+            <p className="text-xs text-gray-500">
+              {assessment
+                ? t('placement.whyWithWriting', {
+                    quiz: result.level ?? 'A1',
+                    writing: assessment.level,
+                    level: finalLevel,
+                  })
+                : t('placement.whyFromQuiz', {
+                    level: finalLevel,
+                    percent: Math.round(result.threshold * 100),
+                  })}
+            </p>
+
+            {/* Per-level tally: the arithmetic behind that sentence. */}
+            {Object.keys(result.perLevel).length > 0 && (
+              <ul className="space-y-1" data-testid="placement-tally">
+                {CEFR_ORDER.filter((lvl) => result.perLevel[lvl]).map((lvl) => {
+                  const { correct, total } = result.perLevel[lvl]
+                  const passed = total > 0 && correct / total >= result.threshold
+                  return (
+                    <li key={lvl} className="flex items-center gap-2 text-xs">
+                      <span className="w-7 font-semibold text-gray-600">{lvl}</span>
+                      <span className="flex-1 h-1.5 rounded-full bg-gray-100 overflow-hidden">
+                        <span
+                          className={`block h-full rounded-full ${passed ? 'bg-lang' : 'bg-gray-300'}`}
+                          style={{ width: `${total ? (correct / total) * 100 : 0}%` }}
+                        />
+                      </span>
+                      <span className="tabular-nums text-gray-500">
+                        {correct}/{total}
+                      </span>
+                    </li>
+                  )
+                })}
+              </ul>
+            )}
+
+            {/* And the questions themselves, one tap away. */}
+            {result.breakdown.length > 0 && (
+              <div>
+                <button
+                  type="button"
+                  data-testid="placement-show-working"
+                  onClick={() => setShowWorking((v) => !v)}
+                  className="text-xs font-medium text-lang hover:underline"
+                >
+                  {showWorking
+                    ? t('placement.hideAnswers')
+                    : t('placement.showAnswers')}
+                </button>
+                {showWorking && (
+                  <ul
+                    className="mt-2 max-h-56 space-y-2 overflow-y-auto"
+                    data-testid="placement-breakdown"
+                  >
+                    {result.breakdown.map((b, i) => (
+                      <li
+                        key={i}
+                        className="rounded-lg border border-gray-100 bg-gray-50 p-2 text-xs"
+                      >
+                        <div className="flex items-start justify-between gap-2">
+                          <span className="text-gray-700">{b.prompt}</span>
+                          <span className="shrink-0 text-[10px] text-gray-400">
+                            {b.level}
+                          </span>
+                        </div>
+                        <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
+                          <span className={b.correct ? 'text-green-700' : 'text-red-600'}>
+                            {b.correct ? '✓' : '✗'}
+                          </span>
+                          <LanguageWrapper languageCode={language.code}>
+                            <span className="text-gray-800">
+                              {b.typed || t('placement.noAnswer')}
+                            </span>
+                          </LanguageWrapper>
+                          {/* Only correct an answer that was actually wrong —
+                              telling somebody the "right" word when theirs was
+                              also right is how a synonym reads as a mistake. */}
+                          {!b.correct && b.verdict !== 'skipped' && (
+                            <span className="text-gray-500">
+                              {t('placement.expected', { answer: b.expected })}
+                            </span>
+                          )}
+                          {b.verdict === 'synonym' && (
+                            <span className="rounded bg-lang-soft px-1.5 py-0.5 text-[10px] text-lang-dark">
+                              {t('placement.acceptedSynonym')}
+                            </span>
+                          )}
+                          {b.verdict === 'typo' && (
+                            <span className="rounded bg-lang-soft px-1.5 py-0.5 text-[10px] text-lang-dark">
+                              {t('placement.acceptedTypo')}
+                            </span>
+                          )}
+                          {b.verdict === 'skipped' && (
+                            <span className="text-[10px] text-gray-400">
+                              {t('placement.skipped')}
+                            </span>
+                          )}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )}
+
             <p className="text-xs text-gray-500">
               {t('placement.applyHelp')}
             </p>
             <div className="flex gap-2">
               <button
                 type="button"
-                onClick={() => apply.mutate(result.level ?? 'A1')}
+                onClick={() => apply.mutate(finalLevel)}
                 disabled={apply.isPending}
                 className="flex-1 rounded-xl bg-lang text-lang-on px-4 py-2.5 text-sm font-semibold hover:bg-lang-dark disabled:opacity-50"
                 style={{ minHeight: '44px' }}
               >
                 {apply.isPending
                   ? t('placement.settingUp')
-                  : t('placement.setMeTo', { level: result.level ?? 'A1' })}
+                  : t('placement.setMeTo', { level: finalLevel })}
               </button>
               <button
                 type="button"
@@ -228,10 +381,17 @@ export default function PlacementTest({
               </p>
             )}
           </div>
-        ) : writing ? (
+        ) : showWriting ? (
           <div className="space-y-3" data-testid="placement-writing">
             <p className="text-sm font-semibold text-gray-800">
-              {t('placement.writeParagraph', { language: languageDisplayName(language.code, language.name, i18n.language) })}
+              {result
+                ? t('placement.finalQuestion')
+                : t('placement.writeParagraph', { language: languageDisplayName(language.code, language.name, i18n.language) })}
+            </p>
+            {/* An actual topic to write about (owner: "give a prompt and ask
+                for a writing sample") — a blank box gets a blank answer. */}
+            <p className="rounded-lg border border-lang/20 bg-lang-soft/50 px-3 py-2 text-sm text-gray-800">
+              {t(`placement.prompts.${promptBand}`)}
             </p>
             <p className="text-xs text-gray-500">
               {t('placement.writingHelp')}
@@ -308,10 +468,14 @@ export default function PlacementTest({
             )}
             <button
               type="button"
-              onClick={() => setWriting(false)}
+              onClick={() =>
+                result ? setSkippedWriting(true) : setWriting(false)
+              }
               className="block w-full text-center text-xs text-gray-400 hover:text-lang"
             >
-              {t('placement.backToQuestions')}
+              {result
+                ? t('placement.skipWriting')
+                : t('placement.backToQuestions')}
             </button>
           </div>
         ) : item ? (

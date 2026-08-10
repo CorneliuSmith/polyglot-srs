@@ -536,3 +536,170 @@ class TestPlacementEvidenceCapture:
         kwargs = recorder.await_args.kwargs
         assert kwargs["missed_vocabulary_ids"] == ["v1"]
         assert kwargs["per_level"] == {"A1": {"correct": 0, "total": 1}}
+
+
+class TestPlacementSynonyms:
+    """Owner: "I am worrying that you are just using vocab with synonyms
+    being blocked." The shipped seeds populate vocabulary.alternatives for
+    almost nothing, so a definition prompt accepted exactly one headword —
+    and since the staircase steps DOWN on a miss, one blocked synonym could
+    cost a whole band. A failed vocabulary answer is now looked up in the
+    course's own word list and counts when its gloss shares a sense."""
+
+    def _run(self, client, glosses, typed="andar"):
+        pool = [{"id": "a1", "kind": "vocabulary", "level": "B1",
+                 "prompt": "to walk", "translation": None}] + _items(11)
+        answers = {"a1": {"answer": "caminar", "level": "B1",
+                          "kind": "vocabulary", "alternatives": [],
+                          "prompt": "to walk"}}
+        with patch("backend.routers.onboarding._language_code",
+                   new=AsyncMock(return_value="es")), \
+             patch("backend.routers.onboarding.sample_placement_items",
+                   new=AsyncMock(return_value=pool)), \
+             patch("backend.routers.onboarding.get_placement_answers",
+                   new=AsyncMock(return_value=answers)), \
+             patch("backend.routers.onboarding.lookup_word_glosses",
+                   new=AsyncMock(return_value=glosses)), \
+             patch("backend.routers.onboarding.adaptive_next",
+                   return_value=None), \
+             patch("backend.routers.onboarding.validate_answer_async",
+                   new=AsyncMock(return_value=(AnswerResult.WRONG, None))):
+            resp = client.post(f"/api/onboarding/placement/{LANG}/next", json={
+                "history": [{"id": "a1", "input": typed}],
+            }, headers=_auth_headers())
+        assert resp.status_code == 200
+        return resp.json()
+
+    def test_synonym_is_accepted_and_labelled(self, client):
+        # andar is a real Spanish word meaning "to walk" — the seeds just
+        # never recorded it as an alternative of caminar.
+        body = self._run(client, {"andar": "to walk; to go about"})
+        item = next(b for b in body["breakdown"] if b["prompt"] == "to walk")
+        assert item["correct"] is True
+        assert item["verdict"] == "synonym"
+        assert item["accepted_as"] == "to walk; to go about"
+
+    def test_a_merely_related_word_is_still_wrong(self, client):
+        # ir ("to go") is not an answer to "to walk" — the rescue must not
+        # turn the test into a participation trophy.
+        body = self._run(client, {"ir": "to go"}, typed="ir")
+        item = next(b for b in body["breakdown"] if b["prompt"] == "to walk")
+        assert item["correct"] is False
+        assert item["verdict"] == "wrong"
+
+    def test_a_word_that_is_not_in_the_course_is_still_wrong(self, client):
+        body = self._run(client, {}, typed="qwerty")
+        item = next(b for b in body["breakdown"] if b["prompt"] == "to walk")
+        assert item["correct"] is False
+
+
+class TestPlacementTransparency:
+    """Owner: "I want users to be able to understand why they received a
+    rating" — the verdict now ships with the evidence behind it."""
+
+    def _finish(self, client, result):
+        answers = {"a1": {"answer": "uno", "level": "A1",
+                          "kind": "vocabulary", "alternatives": [],
+                          "prompt": "one"}}
+        pool = [{"id": "a1", "kind": "vocabulary", "level": "A1",
+                 "prompt": "one", "translation": None}]
+        with patch("backend.routers.onboarding._language_code",
+                   new=AsyncMock(return_value="es")), \
+             patch("backend.routers.onboarding.sample_placement_items",
+                   new=AsyncMock(return_value=pool * 4)), \
+             patch("backend.routers.onboarding.get_placement_answers",
+                   new=AsyncMock(return_value=answers)), \
+             patch("backend.routers.onboarding.adaptive_next",
+                   return_value=None), \
+             patch("backend.routers.onboarding.validate_answer_async",
+                   new=AsyncMock(return_value=(result, None))):
+            resp = client.post(f"/api/onboarding/placement/{LANG}/next", json={
+                "history": [{"id": "a1", "input": "uno"}],
+            }, headers=_auth_headers())
+        assert resp.status_code == 200
+        return resp.json()
+
+    def test_the_result_carries_every_question_and_the_pass_mark(self, client):
+        body = self._finish(client, AnswerResult.CORRECT)
+        assert body["done"] is True
+        assert body["threshold"] == 0.6
+        item = body["breakdown"][0]
+        assert item == {
+            "kind": "vocabulary", "level": "A1", "prompt": "one",
+            "typed": "uno", "expected": "uno", "correct": True,
+            "verdict": "correct", "accepted_as": None,
+        }
+
+    def test_an_accent_slip_reads_as_a_typo_not_a_failure(self, client):
+        body = self._finish(client, AnswerResult.CORRECT_SLOPPY)
+        assert body["breakdown"][0]["verdict"] == "typo"
+        assert body["breakdown"][0]["correct"] is True
+
+    def test_a_skipped_question_is_not_shown_as_a_wrong_answer(self, client):
+        answers = {"a1": {"answer": "uno", "level": "A1",
+                          "kind": "vocabulary", "alternatives": [],
+                          "prompt": "one"}}
+        pool = [{"id": "a1", "kind": "vocabulary", "level": "A1",
+                 "prompt": "one", "translation": None}]
+        validator = AsyncMock(return_value=(AnswerResult.WRONG, None))
+        with patch("backend.routers.onboarding._language_code",
+                   new=AsyncMock(return_value="es")), \
+             patch("backend.routers.onboarding.sample_placement_items",
+                   new=AsyncMock(return_value=pool * 4)), \
+             patch("backend.routers.onboarding.get_placement_answers",
+                   new=AsyncMock(return_value=answers)), \
+             patch("backend.routers.onboarding.adaptive_next",
+                   return_value=None), \
+             patch("backend.routers.onboarding.validate_answer_async",
+                   new=validator):
+            resp = client.post(f"/api/onboarding/placement/{LANG}/next", json={
+                "history": [{"id": "a1", "input": "   "}],
+            }, headers=_auth_headers())
+        item = resp.json()["breakdown"][0]
+        assert item["verdict"] == "skipped" and item["correct"] is False
+        # "I don't know" costs nothing to grade — no validator call at all.
+        validator.assert_not_called()
+
+
+class TestWritingBlend:
+    """Owner: the writing sample "is the best way to determine placement" —
+    taken as the final question it decides the level, within one band."""
+
+    def _post(self, client, verdict_level, quiz_level=None):
+        body = {"language_id": LANG, "language_code": "es",
+                "text": "Ayer fui al mercado porque quería cocinar."}
+        if quiz_level:
+            body["quiz_level"] = quiz_level
+        limiter = AsyncMock()
+        limiter.allow = AsyncMock(return_value=True)
+        # The real limiter is Redis-backed in a full-suite run and its
+        # connection belongs to whichever event loop reached it first, so
+        # sharing it across test loops fails only in the full run.
+        with patch("backend.routers.onboarding.get_settings",
+                   return_value=_WritingSettings(dev_mock=True)), \
+             patch("backend.routers.onboarding.tutor_chat_limiter", limiter), \
+             patch("backend.routers.onboarding.assess_writing",
+                   new=AsyncMock(return_value=(
+                       {"level": verdict_level, "notes": "n", "focus": []},
+                       {"input_tokens": 1, "output_tokens": 1},
+                   ))):
+            resp = client.post(
+                "/api/onboarding/writing-sample", json=body,
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        return resp.json()
+
+    def test_the_sample_outranks_the_quiz(self, client):
+        body = self._post(client, "B2", quiz_level="B1")
+        assert body["quiz_level"] == "B1"
+        assert body["blended_level"] == "B2"
+
+    def test_a_single_paragraph_cannot_jump_two_bands(self, client):
+        # A generous judge on one paragraph must not move an A2 to C1.
+        assert self._post(client, "C1", quiz_level="A2")["blended_level"] == "B1"
+
+    def test_it_still_works_as_a_standalone_assessment(self, client):
+        body = self._post(client, "B1")
+        assert body["quiz_level"] is None
+        assert body["blended_level"] == "B1" == body["level"]

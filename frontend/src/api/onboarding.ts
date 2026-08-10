@@ -22,11 +22,30 @@ export interface PlacementResponse {
   previous_level?: string | null
 }
 
+/** One graded question, kept so the learner can see WHY they were placed
+ *  where they were rather than just being handed a letter. */
+export interface PlacementBreakdownItem {
+  kind: 'vocabulary' | 'grammar'
+  level: string
+  prompt: string | null
+  typed: string
+  expected: string
+  correct: boolean
+  /** correct | typo (accent slip) | synonym (another valid word) | wrong |
+   *  skipped ("I don't know") */
+  verdict: 'correct' | 'typo' | 'synonym' | 'wrong' | 'skipped'
+  /** The gloss of the synonym that was accepted, when verdict is synonym. */
+  accepted_as: string | null
+}
+
 export interface PlacementScore {
   estimated_level: string
   per_level: Record<string, { correct: number; total: number }>
   attempt?: number
   previous_level?: string | null
+  breakdown?: PlacementBreakdownItem[]
+  /** The share of a level that must be right to be placed at it (0.6). */
+  threshold?: number
 }
 
 export interface PlacementAttempt {
@@ -85,6 +104,8 @@ export interface PlacementNextResponse {
   per_level?: Record<string, { correct: number; total: number }>
   attempt?: number
   previous_level?: string | null
+  breakdown?: PlacementBreakdownItem[]
+  threshold?: number
 }
 
 /**
@@ -130,6 +151,12 @@ export interface WritingAssessment {
   level: string
   notes: string
   focus: string[]
+  /** The staircase result this sample followed, when it was taken as the
+   *  final question of a placement run. */
+  quiz_level?: string | null
+  /** The level the two signals agree on — what to actually place them at.
+   *  Production outranks the quiz, clamped to one band. */
+  blended_level?: string | null
 }
 
 /** Assess a short free-writing sample: returns a CEFR estimate + note, and
@@ -138,11 +165,13 @@ export async function assessWritingSample(
   languageId: string,
   languageCode: string,
   text: string,
+  quizLevel?: string | null,
 ): Promise<WritingAssessment> {
   const response = await apiClient.post('/api/onboarding/writing-sample', {
     language_id: languageId,
     language_code: languageCode,
     text,
+    quiz_level: quizLevel ?? null,
   })
   return response.data
 }

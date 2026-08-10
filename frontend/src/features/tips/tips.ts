@@ -66,16 +66,62 @@ export function pickTip(s: PickTipState): Tip | null {
   if (!s.enabled) return null
   if (s.now - s.lastTipShownAt < TIP_THROTTLE_MS) return null
 
-  const seen = new Set(s.seenTipIds)
-  let pool = TIPS.filter((t) => !seen.has(t.id))
-  if (pool.length === 0) pool = TIPS // all seen — allow a fresh cycle
-
-  if (s.context) {
-    const fitting = pool.filter((t) => t.contexts?.includes(s.context!))
-    if (fitting.length) pool = fitting
-  }
+  const pool = candidatePool(s.seenTipIds, s.context)
   if (pool.length === 0) return null
 
   const r = s.rand ? s.rand() : Math.random()
   return pool[Math.min(pool.length - 1, Math.floor(r * pool.length))]
+}
+
+/** Unseen tips first, preferring ones that fit *context*; the whole set once
+ *  the learner has seen them all. */
+function candidatePool(seenTipIds: string[], context?: TipContext): Tip[] {
+  const seen = new Set(seenTipIds)
+  let pool = TIPS.filter((t) => !seen.has(t.id))
+  if (pool.length === 0) pool = TIPS // all seen — allow a fresh cycle
+  if (context) {
+    const fitting = pool.filter((t) => t.contexts?.includes(context))
+    if (fitting.length) pool = fitting
+  }
+  return pool
+}
+
+/** Which day it is, in the viewer's own timezone. The tip of the day has to
+ *  turn over at local midnight, not at 00:00 UTC. */
+export function dayNumber(now: number): number {
+  const d = new Date(now)
+  return Math.floor(
+    (now - d.getTimezoneOffset() * 60_000) / (24 * 60 * 60 * 1000),
+  )
+}
+
+export interface DailyTipState {
+  enabled: boolean
+  seenTipIds: string[]
+  now: number
+  context?: TipContext
+  /** The day the learner last closed the tip (see dayNumber). */
+  dismissedDay?: number
+}
+
+/**
+ * The tip of the day: one tip that is simply PRESENT on a page, all day.
+ *
+ * pickTip's throttle answers "may I interrupt?", which is right before a
+ * session — but the Study page used the same rule, so its tip was absent
+ * roughly 23 hours out of 24, and a session elsewhere could burn the day's
+ * allowance before the learner ever got there. The owner reported the tips
+ * as simply gone, which from the outside is exactly what that looks like.
+ *
+ * Deterministic in the day number, so it survives reloads and navigation
+ * without flickering to a different tip, and rotates once a day. Closing it
+ * hides it until tomorrow.
+ */
+export function pickDailyTip(s: DailyTipState): Tip | null {
+  if (!s.enabled) return null
+  const today = dayNumber(s.now)
+  if (s.dismissedDay === today) return null
+  const pool = candidatePool(s.seenTipIds, s.context)
+  if (pool.length === 0) return null
+  return pool[today % pool.length]
 }

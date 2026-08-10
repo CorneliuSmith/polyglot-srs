@@ -862,7 +862,23 @@
     "offerBody": "Um teste curto que se adapta às suas respostas — a maioria das pessoas termina em 5–8 perguntas. Usaremos o resultado para montar uma fila de gramática e vocabulário que realmente combina com você, em vez de começar no A1 por padrão.",
     "offerNotNow": "Agora não? Tudo bem — você pode fazê-lo, e refazê-lo, <b>a qualquer momento</b> em Configurações → Seu nível.",
     "takeTest": "Fazer o teste",
-    "notNow": "Agora não"
+    "notNow": "Agora não",
+    "finalQuestion": "Última pergunta — escreva um parágrafo curto",
+    "skipWriting": "Saltar e ver o meu resultado",
+    "whyFromQuiz": "Ficou em {{level}} porque é o nível mais alto em que acertou pelo menos {{percent}}% das perguntas.",
+    "whyWithWriting": "As perguntas apontavam para {{quiz}} e a sua escrita mostrou {{writing}}, por isso ficou em {{level}} — o que consegue produzir é o melhor guia.",
+    "showAnswers": "Ver as minhas respostas",
+    "hideAnswers": "Ocultar as minhas respostas",
+    "expected": "(esperado: {{answer}})",
+    "acceptedSynonym": "a sua palavra também serve",
+    "acceptedTypo": "aceite — pequeno lapso",
+    "skipped": "ignorada",
+    "noAnswer": "(sem resposta)",
+    "prompts": {
+      "beginner": "Escreva sobre o seu dia: aonde vai, quem vê, o que gosta de comer.",
+      "intermediate": "Conte uma vez em que os seus planos mudaram de repente. O que aconteceu e o que faria de diferente?",
+      "advanced": "As cidades deviam proibir carros nos centros? Defenda a sua posição e responda à objeção mais forte."
+    }
   },
   "welcome": {
     "title": "Seu kit de ferramentas",

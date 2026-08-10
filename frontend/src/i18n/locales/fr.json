@@ -862,7 +862,23 @@
     "offerBody": "Un court test qui s’adapte à vos réponses — la plupart des gens terminent en 5–8 questions. Le résultat sert à mettre en file une grammaire et un vocabulaire qui vous correspondent vraiment, au lieu de vous faire démarrer à A1 par défaut.",
     "offerNotNow": "Pas maintenant, aucun souci — vous pouvez le passer, et le repasser, <b>à tout moment</b> depuis Réglages → Votre niveau.",
     "takeTest": "Passer le test",
-    "notNow": "Pas maintenant"
+    "notNow": "Pas maintenant",
+    "finalQuestion": "Dernière question — écrivez un court paragraphe",
+    "skipWriting": "Passer et voir mon résultat",
+    "whyFromQuiz": "Vous êtes placé·e en {{level}} car c'est le niveau le plus élevé où vous avez répondu correctement à au moins {{percent}} % des questions.",
+    "whyWithWriting": "Les questions indiquaient {{quiz}} et votre écrit a montré {{writing}} : nous vous plaçons en {{level}}, car ce que vous produisez est le meilleur repère.",
+    "showAnswers": "Voir mes réponses",
+    "hideAnswers": "Masquer mes réponses",
+    "expected": "(attendu : {{answer}})",
+    "acceptedSynonym": "votre mot convient aussi",
+    "acceptedTypo": "accepté — petit écart",
+    "skipped": "passée",
+    "noAnswer": "(pas de réponse)",
+    "prompts": {
+      "beginner": "Parlez de votre journée : où vous allez, qui vous voyez, ce que vous aimez manger.",
+      "intermediate": "Racontez une fois où vos projets ont changé à l'improviste. Que s'est-il passé, et que feriez-vous autrement ?",
+      "advanced": "Les villes devraient-elles interdire les voitures dans leur centre ? Défendez votre position et répondez à l'objection la plus forte."
+    }
   },
   "welcome": {
     "title": "Votre boîte à outils",
