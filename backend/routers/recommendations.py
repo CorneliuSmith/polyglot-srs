@@ -14,6 +14,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
 from backend.dependencies import get_current_user
+from backend.repositories.contributor import get_roles, is_admin
 from backend.repositories.pool import rls_connection
 from backend.repositories.recommendations import (
     get_reco_profile,
@@ -74,6 +75,16 @@ async def put_profile(
             media_types=_clean_types(body.media_types),
         )
         return await get_reco_profile(conn, user["id"])
+
+
+async def _is_admin_user(user_id: str) -> bool:
+    """Admins are always entitled to recommendations — the owner runs the
+    API key, so the Plus paywall gating their own testing surface meant
+    the person building the feature could never see the generate button
+    (reported twice). The allowance still logs usage; it just can't say no
+    to an admin."""
+    async with rls_connection(user_id) as conn:
+        return is_admin(await get_roles(conn, user_id))
 
 
 def _require_uuid(language_id: str) -> None:
@@ -170,7 +181,7 @@ async def get_recommendations(
         stale = await _is_stale(conn, user["id"], language_id)
     return {
         "enabled": profile["enabled"],
-        "entitled": bool(allowance["entitled"]),
+        "entitled": bool(allowance["entitled"]) or await _is_admin_user(user["id"]),
         "stale": stale,
         "batches": batches,
     }
@@ -233,8 +244,10 @@ async def refresh_recommendations(
 
     # Paid-tutor gate: recommendations are a tutor+ perk (each batch is a model
     # call). Free/blocked accounts get a clear 402 the UI turns into an upsell.
+    # Admins bypass both gates — the owner runs the key.
     allowance = await get_allowance(user["id"], language_id)
-    if not allowance["entitled"]:
+    admin = await _is_admin_user(user["id"])
+    if not allowance["entitled"] and not admin:
         raise HTTPException(
             status_code=status.HTTP_402_PAYMENT_REQUIRED,
             detail="Recommendations need a tutor+ subscription for this language.",
@@ -242,7 +255,8 @@ async def refresh_recommendations(
     # And each batch spends from the same monthly pool the tutor draws
     # (owner: "a plus feature that will use some of their monthly ai") —
     # an exhausted month means no more batches until it resets.
-    reject_if_unavailable(allowance)
+    if not admin:
+        reject_if_unavailable(allowance)
 
     level = stats.get("highest_level_reached")
     # The admin's per-language model override (languages.tutor_model) —

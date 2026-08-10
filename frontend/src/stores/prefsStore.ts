@@ -81,6 +81,12 @@ interface PrefsState {
   // migration for something a dismissed banner already answers.
   feedbackSeenAt: string | null
   markFeedbackSeen: (isoTimestamp: string | null) => void
+  // Learner-chosen stat widgets under the Study bar (owner: iPhone-style
+  // slots). Ordered widget ids, at most two; empty slots offer "+ Add".
+  // Device-local like the theme — which chart you like glancing at is not
+  // account state.
+  dashboardWidgets: string[]
+  setDashboardWidgets: (ids: string[]) => void
 }
 
 export const usePrefsStore = create<PrefsState>()(
@@ -140,6 +146,8 @@ export const usePrefsStore = create<PrefsState>()(
         })),
       feedbackSeenAt: null,
       markFeedbackSeen: (isoTimestamp) => set({ feedbackSeenAt: isoTimestamp }),
+      dashboardWidgets: [],
+      setDashboardWidgets: (ids) => set({ dashboardWidgets: ids.slice(0, 2) }),
     }),
     {
       name: 'polyglot-prefs',

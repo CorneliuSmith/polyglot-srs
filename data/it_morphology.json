@@ -154,6 +154,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"abbandonerèi"
+],
+[
+"tu",
+"abbandonerésti"
+],
+[
+"lui/lei",
+"abbandonerèbbe"
+],
+[
+"noi",
+"abbandonerémmo"
+],
+[
+"voi",
+"abbandoneréste"
+],
+[
+"loro",
+"abbandonerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -345,6 +374,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"abbasserèi"
+],
+[
+"tu",
+"abbasserésti"
+],
+[
+"lui/lei",
+"abbasserèbbe"
+],
+[
+"noi",
+"abbasserémmo"
+],
+[
+"voi",
+"abbasseréste"
+],
+[
+"loro",
+"abbasserèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -505,6 +563,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"abbatterèi"
+],
+[
+"tu",
+"abbatterésti"
+],
+[
+"lui/lei",
+"abbatterèbbe"
+],
+[
+"noi",
+"abbatterémmo"
+],
+[
+"voi",
+"abbatteréste"
+],
+[
+"loro",
+"abbatterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -709,6 +796,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"abbraccerèi"
+],
+[
+"tu",
+"abbraccerésti"
+],
+[
+"lui/lei",
+"abbraccerèbbe"
+],
+[
+"noi",
+"abbraccerémmo"
+],
+[
+"voi",
+"abbracceréste"
+],
+[
+"loro",
+"abbraccerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -878,6 +994,7 @@
 "pos": "noun"
 },
 "accadere": {
+"charts": [],
 "chips": [
 {
 "label": "Gerund",
@@ -1062,6 +1179,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"accederèi"
+],
+[
+"tu",
+"accederésti"
+],
+[
+"lui/lei",
+"accederèbbe"
+],
+[
+"noi",
+"accederémmo"
+],
+[
+"voi",
+"accederéste"
+],
+[
+"loro",
+"accederèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -1222,6 +1368,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"accelererèi"
+],
+[
+"tu",
+"accelererésti"
+],
+[
+"lui/lei",
+"accelererèbbe"
+],
+[
+"noi",
+"accelererémmo"
+],
+[
+"voi",
+"accelereréste"
+],
+[
+"loro",
+"accelererèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -1395,6 +1570,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"accenderèi"
+],
+[
+"tu",
+"accenderésti"
+],
+[
+"lui/lei",
+"accenderèbbe"
+],
+[
+"noi",
+"accenderémmo"
+],
+[
+"voi",
+"accenderéste"
+],
+[
+"loro",
+"accenderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -1634,6 +1838,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"accetterèi"
+],
+[
+"tu",
+"accetterésti"
+],
+[
+"lui/lei",
+"accetterèbbe"
+],
+[
+"noi",
+"accetterémmo"
+],
+[
+"voi",
+"accetteréste"
+],
+[
+"loro",
+"accetterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -1851,6 +2084,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"accompagnerèi"
+],
+[
+"tu",
+"accompagnerésti"
+],
+[
+"lui/lei",
+"accompagnerèbbe"
+],
+[
+"noi",
+"accompagnerémmo"
+],
+[
+"voi",
+"accompagneréste"
+],
+[
+"loro",
+"accompagnerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -2099,6 +2361,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"accuserèi"
+],
+[
+"tu",
+"accuserésti"
+],
+[
+"lui/lei",
+"accuserèbbe"
+],
+[
+"noi",
+"accuserémmo"
+],
+[
+"voi",
+"accuseréste"
+],
+[
+"loro",
+"accuserèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -2321,6 +2612,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"acquisterèi"
+],
+[
+"tu",
+"acquisterésti"
+],
+[
+"lui/lei",
+"acquisterèbbe"
+],
+[
+"noi",
+"acquisterémmo"
+],
+[
+"voi",
+"acquisteréste"
+],
+[
+"loro",
+"acquisterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -2623,6 +2943,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"adotterèi"
+],
+[
+"tu",
+"adotterésti"
+],
+[
+"lui/lei",
+"adotterèbbe"
+],
+[
+"noi",
+"adotterémmo"
+],
+[
+"voi",
+"adotteréste"
+],
+[
+"loro",
+"adotterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -2973,6 +3322,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"affitterèi"
+],
+[
+"tu",
+"affitterésti"
+],
+[
+"lui/lei",
+"affitterèbbe"
+],
+[
+"noi",
+"affitterémmo"
+],
+[
+"voi",
+"affitteréste"
+],
+[
+"loro",
+"affitterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -3146,6 +3524,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"affronterèi"
+],
+[
+"tu",
+"affronterésti"
+],
+[
+"lui/lei",
+"affronterèbbe"
+],
+[
+"noi",
+"affronterémmo"
+],
+[
+"voi",
+"affronteréste"
+],
+[
+"loro",
+"affronterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -3407,6 +3814,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"aggiungerèi"
+],
+[
+"tu",
+"aggiungerésti"
+],
+[
+"lui/lei",
+"aggiungerèbbe"
+],
+[
+"noi",
+"aggiungerémmo"
+],
+[
+"voi",
+"aggiungeréste"
+],
+[
+"loro",
+"aggiungerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -3589,6 +4025,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"aggiusterèi"
+],
+[
+"tu",
+"aggiusterésti"
+],
+[
+"lui/lei",
+"aggiusterèbbe"
+],
+[
+"noi",
+"aggiusterémmo"
+],
+[
+"voi",
+"aggiusteréste"
+],
+[
+"loro",
+"aggiusterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -3832,6 +4297,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"agirèi"
+],
+[
+"tu",
+"agirésti"
+],
+[
+"lui/lei",
+"agirèbbe"
+],
+[
+"noi",
+"agirémmo"
+],
+[
+"voi",
+"agiréste"
+],
+[
+"loro",
+"agirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -3992,6 +4486,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"agiterèi"
+],
+[
+"tu",
+"agiterésti"
+],
+[
+"lui/lei",
+"agiterèbbe"
+],
+[
+"noi",
+"agiterémmo"
+],
+[
+"voi",
+"agiteréste"
+],
+[
+"loro",
+"agiterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -4258,6 +4781,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"aiuterèi"
+],
+[
+"tu",
+"aiuterésti"
+],
+[
+"lui/lei",
+"aiuterèbbe"
+],
+[
+"noi",
+"aiuterémmo"
+],
+[
+"voi",
+"aiuteréste"
+],
+[
+"loro",
+"aiuterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -4789,6 +5341,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"allontanerèi"
+],
+[
+"tu",
+"allontanerésti"
+],
+[
+"lui/lei",
+"allontanerèbbe"
+],
+[
+"noi",
+"allontanerémmo"
+],
+[
+"voi",
+"allontaneréste"
+],
+[
+"loro",
+"allontanerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -4949,6 +5530,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si allontanerèi"
+],
+[
+"tu",
+"si allontanerésti"
+],
+[
+"lui/lei",
+"si allontanerèbbe"
+],
+[
+"noi",
+"si allontanerémmo"
+],
+[
+"voi",
+"si allontaneréste"
+],
+[
+"loro",
+"si allontanerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -5188,6 +5798,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"alzerèi"
+],
+[
+"tu",
+"alzerésti"
+],
+[
+"lui/lei",
+"alzerèbbe"
+],
+[
+"noi",
+"alzerémmo"
+],
+[
+"voi",
+"alzeréste"
+],
+[
+"loro",
+"alzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -5348,6 +5987,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si alzerèi"
+],
+[
+"tu",
+"si alzerésti"
+],
+[
+"lui/lei",
+"si alzerèbbe"
+],
+[
+"noi",
+"si alzerémmo"
+],
+[
+"voi",
+"si alzeréste"
+],
+[
+"loro",
+"si alzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -5543,6 +6211,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"amerèi"
+],
+[
+"tu",
+"amerésti"
+],
+[
+"lui/lei",
+"amerèbbe"
+],
+[
+"noi",
+"amerémmo"
+],
+[
+"voi",
+"ameréste"
+],
+[
+"loro",
+"amerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -5963,6 +6660,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ammazzerèi"
+],
+[
+"tu",
+"ammazzerésti"
+],
+[
+"lui/lei",
+"ammazzerèbbe"
+],
+[
+"noi",
+"ammazzerémmo"
+],
+[
+"voi",
+"ammazzeréste"
+],
+[
+"loro",
+"ammazzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -6132,6 +6858,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ammetterèi"
+],
+[
+"tu",
+"ammetterésti"
+],
+[
+"lui/lei",
+"ammetterèbbe"
+],
+[
+"noi",
+"ammetterémmo"
+],
+[
+"voi",
+"ammetteréste"
+],
+[
+"loro",
+"ammetterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -6397,6 +7152,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"analizzerèi"
+],
+[
+"tu",
+"analizzerésti"
+],
+[
+"lui/lei",
+"analizzerèbbe"
+],
+[
+"noi",
+"analizzerémmo"
+],
+[
+"voi",
+"analizzeréste"
+],
+[
+"loro",
+"analizzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -6592,6 +7376,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"andrèi"
+],
+[
+"tu",
+"andrésti"
+],
+[
+"lui/lei",
+"andrèbbe"
+],
+[
+"noi",
+"andrémmo"
+],
+[
+"voi",
+"andréste"
+],
+[
+"loro",
+"andrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -6752,6 +7565,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"se ne andrèi"
+],
+[
+"tu",
+"se ne andrésti"
+],
+[
+"lui/lei",
+"se ne andrèbbe"
+],
+[
+"noi",
+"se ne andrémmo"
+],
+[
+"voi",
+"se ne andréste"
+],
+[
+"loro",
+"se ne andrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -7106,6 +7948,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"annullerèi"
+],
+[
+"tu",
+"annullerésti"
+],
+[
+"lui/lei",
+"annullerèbbe"
+],
+[
+"noi",
+"annullerémmo"
+],
+[
+"voi",
+"annulleréste"
+],
+[
+"loro",
+"annullerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -7275,6 +8146,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"annuncerèi"
+],
+[
+"tu",
+"annuncerésti"
+],
+[
+"lui/lei",
+"annuncerèbbe"
+],
+[
+"noi",
+"annuncerémmo"
+],
+[
+"voi",
+"annunceréste"
+],
+[
+"loro",
+"annuncerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -7730,6 +8630,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"apparirèi"
+],
+[
+"tu",
+"apparirésti"
+],
+[
+"lui/lei",
+"apparirèbbe"
+],
+[
+"noi",
+"apparirémmo"
+],
+[
+"voi",
+"appariréste"
+],
+[
+"loro",
+"apparirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -8000,6 +8929,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"apprezzerèi"
+],
+[
+"tu",
+"apprezzerésti"
+],
+[
+"lui/lei",
+"apprezzerèbbe"
+],
+[
+"noi",
+"apprezzerémmo"
+],
+[
+"voi",
+"apprezzeréste"
+],
+[
+"loro",
+"apprezzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -8182,6 +9140,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"approfitterèi"
+],
+[
+"tu",
+"approfitterésti"
+],
+[
+"lui/lei",
+"approfitterèbbe"
+],
+[
+"noi",
+"approfitterémmo"
+],
+[
+"voi",
+"approfitteréste"
+],
+[
+"loro",
+"approfitterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -8426,6 +9413,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"aprirèi"
+],
+[
+"tu",
+"aprirésti"
+],
+[
+"lui/lei",
+"aprirèbbe"
+],
+[
+"noi",
+"aprirémmo"
+],
+[
+"voi",
+"apriréste"
+],
+[
+"loro",
+"aprirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -8940,6 +9956,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"arrabbierèi"
+],
+[
+"tu",
+"arrabbierésti"
+],
+[
+"lui/lei",
+"arrabbierèbbe"
+],
+[
+"noi",
+"arrabbierémmo"
+],
+[
+"voi",
+"arrabbieréste"
+],
+[
+"loro",
+"arrabbierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -9122,6 +10167,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si arrenderèi"
+],
+[
+"tu",
+"si arrenderésti"
+],
+[
+"lui/lei",
+"si arrenderèbbe"
+],
+[
+"noi",
+"si arrenderémmo"
+],
+[
+"voi",
+"si arrenderéste"
+],
+[
+"loro",
+"si arrenderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -9291,6 +10365,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"arresterèi"
+],
+[
+"tu",
+"arresterésti"
+],
+[
+"lui/lei",
+"arresterèbbe"
+],
+[
+"noi",
+"arresterémmo"
+],
+[
+"voi",
+"arresteréste"
+],
+[
+"loro",
+"arresterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -9482,6 +10585,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"arriverèi"
+],
+[
+"tu",
+"arriverésti"
+],
+[
+"lui/lei",
+"arriverèbbe"
+],
+[
+"noi",
+"arriverémmo"
+],
+[
+"voi",
+"arriveréste"
+],
+[
+"loro",
+"arriverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -9893,6 +11025,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ascolterèi"
+],
+[
+"tu",
+"ascolterésti"
+],
+[
+"lui/lei",
+"ascolterèbbe"
+],
+[
+"noi",
+"ascolterémmo"
+],
+[
+"voi",
+"ascolteréste"
+],
+[
+"loro",
+"ascolterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -10092,6 +11253,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"aspetterèi"
+],
+[
+"tu",
+"aspetterésti"
+],
+[
+"lui/lei",
+"aspetterèbbe"
+],
+[
+"noi",
+"aspetterémmo"
+],
+[
+"voi",
+"aspetteréste"
+],
+[
+"loro",
+"aspetterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -10305,6 +11495,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"assaggerèi"
+],
+[
+"tu",
+"assaggerésti"
+],
+[
+"lui/lei",
+"assaggerèbbe"
+],
+[
+"noi",
+"assaggerémmo"
+],
+[
+"voi",
+"assaggeréste"
+],
+[
+"loro",
+"assaggerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -10605,6 +11824,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"assicurerèi"
+],
+[
+"tu",
+"assicurerésti"
+],
+[
+"lui/lei",
+"assicurerèbbe"
+],
+[
+"noi",
+"assicurerémmo"
+],
+[
+"voi",
+"assicureréste"
+],
+[
+"loro",
+"assicurerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -10765,6 +12013,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si assicurerèi"
+],
+[
+"tu",
+"si assicurerésti"
+],
+[
+"lui/lei",
+"si assicurerèbbe"
+],
+[
+"noi",
+"si assicurerémmo"
+],
+[
+"voi",
+"si assicureréste"
+],
+[
+"loro",
+"si assicurerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -10987,6 +12264,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"assisterèi"
+],
+[
+"tu",
+"assisterésti"
+],
+[
+"lui/lei",
+"assisterèbbe"
+],
+[
+"noi",
+"assisterémmo"
+],
+[
+"voi",
+"assisteréste"
+],
+[
+"loro",
+"assisterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -11191,6 +12497,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"assumerèi"
+],
+[
+"tu",
+"assumerésti"
+],
+[
+"lui/lei",
+"assumerèbbe"
+],
+[
+"noi",
+"assumerémmo"
+],
+[
+"voi",
+"assumeréste"
+],
+[
+"loro",
+"assumerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -11492,6 +12827,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"attaccherèi"
+],
+[
+"tu",
+"attaccherésti"
+],
+[
+"lui/lei",
+"attaccherèbbe"
+],
+[
+"noi",
+"attaccherémmo"
+],
+[
+"voi",
+"attaccheréste"
+],
+[
+"loro",
+"attaccherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -11696,6 +13060,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"attenderèi"
+],
+[
+"tu",
+"attenderésti"
+],
+[
+"lui/lei",
+"attenderèbbe"
+],
+[
+"noi",
+"attenderémmo"
+],
+[
+"voi",
+"attenderéste"
+],
+[
+"loro",
+"attenderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -11913,6 +13306,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"atterrerèi"
+],
+[
+"tu",
+"atterrerésti"
+],
+[
+"lui/lei",
+"atterrerèbbe"
+],
+[
+"noi",
+"atterrerémmo"
+],
+[
+"voi",
+"atterreréste"
+],
+[
+"loro",
+"atterrerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -12130,6 +13552,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"attirerèi"
+],
+[
+"tu",
+"attirerésti"
+],
+[
+"lui/lei",
+"attirerèbbe"
+],
+[
+"noi",
+"attirerémmo"
+],
+[
+"voi",
+"attireréste"
+],
+[
+"loro",
+"attirerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -12290,6 +13741,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"attiverèi"
+],
+[
+"tu",
+"attiverésti"
+],
+[
+"lui/lei",
+"attiverèbbe"
+],
+[
+"noi",
+"attiverémmo"
+],
+[
+"voi",
+"attiveréste"
+],
+[
+"loro",
+"attiverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -12521,6 +14001,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"attraverserèi"
+],
+[
+"tu",
+"attraverserésti"
+],
+[
+"lui/lei",
+"attraverserèbbe"
+],
+[
+"noi",
+"attraverserémmo"
+],
+[
+"voi",
+"attraverseréste"
+],
+[
+"loro",
+"attraverserèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -12800,6 +14309,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"aumenterèi"
+],
+[
+"tu",
+"aumenterésti"
+],
+[
+"lui/lei",
+"aumenterèbbe"
+],
+[
+"noi",
+"aumenterémmo"
+],
+[
+"voi",
+"aumenteréste"
+],
+[
+"loro",
+"aumenterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -13188,6 +14726,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"avanzerèi"
+],
+[
+"tu",
+"avanzerésti"
+],
+[
+"lui/lei",
+"avanzerèbbe"
+],
+[
+"noi",
+"avanzerémmo"
+],
+[
+"voi",
+"avanzeréste"
+],
+[
+"loro",
+"avanzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -13388,6 +14955,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ce la avrèi"
+],
+[
+"tu",
+"ce la avrésti"
+],
+[
+"lui/lei",
+"ce la avrèbbe"
+],
+[
+"noi",
+"ce la avrémmo"
+],
+[
+"voi",
+"ce la avréste"
+],
+[
+"loro",
+"ce la avrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -13548,6 +15144,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"avrèi"
+],
+[
+"tu",
+"avrésti"
+],
+[
+"lui/lei",
+"avrèbbe"
+],
+[
+"noi",
+"avrémmo"
+],
+[
+"voi",
+"avréste"
+],
+[
+"loro",
+"avrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -13814,6 +15439,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"avvertirèi"
+],
+[
+"tu",
+"avvertirésti"
+],
+[
+"lui/lei",
+"avvertirèbbe"
+],
+[
+"noi",
+"avvertirémmo"
+],
+[
+"voi",
+"avvertiréste"
+],
+[
+"loro",
+"avvertirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -13983,6 +15637,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"avvierèi"
+],
+[
+"tu",
+"avvierésti"
+],
+[
+"lui/lei",
+"avvierèbbe"
+],
+[
+"noi",
+"avvierémmo"
+],
+[
+"voi",
+"avvieréste"
+],
+[
+"loro",
+"avvierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -14156,6 +15839,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"avvicinerèi"
+],
+[
+"tu",
+"avvicinerésti"
+],
+[
+"lui/lei",
+"avvicinerèbbe"
+],
+[
+"noi",
+"avvicinerémmo"
+],
+[
+"voi",
+"avvicineréste"
+],
+[
+"loro",
+"avvicinerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -14316,6 +16028,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si avvicinerèi"
+],
+[
+"tu",
+"si avvicinerésti"
+],
+[
+"lui/lei",
+"si avvicinerèbbe"
+],
+[
+"noi",
+"si avvicinerémmo"
+],
+[
+"voi",
+"si avvicineréste"
+],
+[
+"loro",
+"si avvicinerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -14476,6 +16217,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"avviserèi"
+],
+[
+"tu",
+"avviserésti"
+],
+[
+"lui/lei",
+"avviserèbbe"
+],
+[
+"noi",
+"avviserémmo"
+],
+[
+"voi",
+"avviseréste"
+],
+[
+"loro",
+"avviserèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -14799,6 +16569,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"bacerèi"
+],
+[
+"tu",
+"bacerésti"
+],
+[
+"lui/lei",
+"bacerèbbe"
+],
+[
+"noi",
+"bacerémmo"
+],
+[
+"voi",
+"baceréste"
+],
+[
+"loro",
+"bacerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -15003,6 +16802,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"baderèi"
+],
+[
+"tu",
+"baderésti"
+],
+[
+"lui/lei",
+"baderèbbe"
+],
+[
+"noi",
+"baderémmo"
+],
+[
+"voi",
+"baderéste"
+],
+[
+"loro",
+"baderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -15316,6 +17144,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ballerèi"
+],
+[
+"tu",
+"ballerésti"
+],
+[
+"lui/lei",
+"ballerèbbe"
+],
+[
+"noi",
+"ballerémmo"
+],
+[
+"voi",
+"balleréste"
+],
+[
+"loro",
+"ballerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -16073,6 +17930,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"basterèi"
+],
+[
+"tu",
+"basterésti"
+],
+[
+"lui/lei",
+"basterèbbe"
+],
+[
+"noi",
+"basterémmo"
+],
+[
+"voi",
+"basteréste"
+],
+[
+"loro",
+"basterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -16281,6 +18167,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"batterèi"
+],
+[
+"tu",
+"batterésti"
+],
+[
+"lui/lei",
+"batterèbbe"
+],
+[
+"noi",
+"batterémmo"
+],
+[
+"voi",
+"batteréste"
+],
+[
+"loro",
+"batterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -16542,6 +18457,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"beccherèi"
+],
+[
+"tu",
+"beccherésti"
+],
+[
+"lui/lei",
+"beccherèbbe"
+],
+[
+"noi",
+"beccherémmo"
+],
+[
+"voi",
+"beccheréste"
+],
+[
+"loro",
+"beccherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -16922,6 +18866,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"berrèi"
+],
+[
+"tu",
+"berrésti"
+],
+[
+"lui/lei",
+"berrèbbe"
+],
+[
+"noi",
+"berrémmo"
+],
+[
+"voi",
+"berréste"
+],
+[
+"loro",
+"berrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -17645,6 +19618,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"bloccherèi"
+],
+[
+"tu",
+"bloccherésti"
+],
+[
+"lui/lei",
+"bloccherèbbe"
+],
+[
+"noi",
+"bloccherémmo"
+],
+[
+"voi",
+"bloccheréste"
+],
+[
+"loro",
+"bloccherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -18410,6 +20412,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"brucerèi"
+],
+[
+"tu",
+"brucerésti"
+],
+[
+"lui/lei",
+"brucerèbbe"
+],
+[
+"noi",
+"brucerémmo"
+],
+[
+"voi",
+"bruceréste"
+],
+[
+"loro",
+"brucerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -18898,6 +20929,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"busserèi"
+],
+[
+"tu",
+"busserésti"
+],
+[
+"lui/lei",
+"busserèbbe"
+],
+[
+"noi",
+"busserémmo"
+],
+[
+"voi",
+"busseréste"
+],
+[
+"loro",
+"busserèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -19093,6 +21153,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"butterèi"
+],
+[
+"tu",
+"butterésti"
+],
+[
+"lui/lei",
+"butterèbbe"
+],
+[
+"noi",
+"butterémmo"
+],
+[
+"voi",
+"butteréste"
+],
+[
+"loro",
+"butterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -19318,6 +21407,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"caccerèi"
+],
+[
+"tu",
+"caccerésti"
+],
+[
+"lui/lei",
+"caccerèbbe"
+],
+[
+"noi",
+"caccerémmo"
+],
+[
+"voi",
+"cacceréste"
+],
+[
+"loro",
+"caccerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -19535,6 +21653,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"cadrèi"
+],
+[
+"tu",
+"cadrésti"
+],
+[
+"lui/lei",
+"cadrèbbe"
+],
+[
+"noi",
+"cadrémmo"
+],
+[
+"voi",
+"cadréste"
+],
+[
+"loro",
+"cadrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -19884,6 +22031,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"calmerèi"
+],
+[
+"tu",
+"calmerésti"
+],
+[
+"lui/lei",
+"calmerèbbe"
+],
+[
+"noi",
+"calmerémmo"
+],
+[
+"voi",
+"calmeréste"
+],
+[
+"loro",
+"calmerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -20141,6 +22317,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"cambierèi"
+],
+[
+"tu",
+"cambierésti"
+],
+[
+"lui/lei",
+"cambierèbbe"
+],
+[
+"noi",
+"cambierémmo"
+],
+[
+"voi",
+"cambieréste"
+],
+[
+"loro",
+"cambierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -20432,6 +22637,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"camminerèi"
+],
+[
+"tu",
+"camminerésti"
+],
+[
+"lui/lei",
+"camminerèbbe"
+],
+[
+"noi",
+"camminerémmo"
+],
+[
+"voi",
+"cammineréste"
+],
+[
+"loro",
+"camminerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -20789,6 +23023,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"cancellerèi"
+],
+[
+"tu",
+"cancellerésti"
+],
+[
+"lui/lei",
+"cancellerèbbe"
+],
+[
+"noi",
+"cancellerémmo"
+],
+[
+"voi",
+"cancelleréste"
+],
+[
+"loro",
+"cancellerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -21116,6 +23379,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"canterèi"
+],
+[
+"tu",
+"canterésti"
+],
+[
+"lui/lei",
+"canterèbbe"
+],
+[
+"noi",
+"canterémmo"
+],
+[
+"voi",
+"canteréste"
+],
+[
+"loro",
+"canterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -21439,6 +23731,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"capirèi"
+],
+[
+"tu",
+"capirésti"
+],
+[
+"lui/lei",
+"capirèbbe"
+],
+[
+"noi",
+"capirémmo"
+],
+[
+"voi",
+"capiréste"
+],
+[
+"loro",
+"capirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -21621,6 +23942,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"capiterèi"
+],
+[
+"tu",
+"capiterésti"
+],
+[
+"lui/lei",
+"capiterèbbe"
+],
+[
+"noi",
+"capiterémmo"
+],
+[
+"voi",
+"capiteréste"
+],
+[
+"loro",
+"capiterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -22092,6 +24442,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"caricherèi"
+],
+[
+"tu",
+"caricherésti"
+],
+[
+"lui/lei",
+"caricherèbbe"
+],
+[
+"noi",
+"caricherémmo"
+],
+[
+"voi",
+"caricheréste"
+],
+[
+"loro",
+"caricherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -22871,6 +25250,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"catturerèi"
+],
+[
+"tu",
+"catturerésti"
+],
+[
+"lui/lei",
+"catturerèbbe"
+],
+[
+"noi",
+"catturerémmo"
+],
+[
+"voi",
+"cattureréste"
+],
+[
+"loro",
+"catturerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -23044,6 +25452,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"causerèi"
+],
+[
+"tu",
+"causerésti"
+],
+[
+"lui/lei",
+"causerèbbe"
+],
+[
+"noi",
+"causerémmo"
+],
+[
+"voi",
+"causeréste"
+],
+[
+"loro",
+"causerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -23265,6 +25702,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"cavalcherèi"
+],
+[
+"tu",
+"cavalcherésti"
+],
+[
+"lui/lei",
+"cavalcherèbbe"
+],
+[
+"noi",
+"cavalcherémmo"
+],
+[
+"voi",
+"cavalcheréste"
+],
+[
+"loro",
+"cavalcherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -23482,6 +25948,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"se la caverèi"
+],
+[
+"tu",
+"se la caverésti"
+],
+[
+"lui/lei",
+"se la caverèbbe"
+],
+[
+"noi",
+"se la caverémmo"
+],
+[
+"voi",
+"se la caveréste"
+],
+[
+"loro",
+"se la caverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -23818,6 +26313,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"cederèi"
+],
+[
+"tu",
+"cederésti"
+],
+[
+"lui/lei",
+"cederèbbe"
+],
+[
+"noi",
+"cederémmo"
+],
+[
+"voi",
+"cederéste"
+],
+[
+"loro",
+"cederèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -23978,6 +26502,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"celebrerèi"
+],
+[
+"tu",
+"celebrerésti"
+],
+[
+"lui/lei",
+"celebrerèbbe"
+],
+[
+"noi",
+"celebrerémmo"
+],
+[
+"voi",
+"celebreréste"
+],
+[
+"loro",
+"celebrerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -24270,6 +26823,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"cenerèi"
+],
+[
+"tu",
+"cenerésti"
+],
+[
+"lui/lei",
+"cenerèbbe"
+],
+[
+"noi",
+"cenerémmo"
+],
+[
+"voi",
+"ceneréste"
+],
+[
+"loro",
+"cenerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -24593,6 +27175,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"cercherèi"
+],
+[
+"tu",
+"cercherésti"
+],
+[
+"lui/lei",
+"cercherèbbe"
+],
+[
+"noi",
+"cercherémmo"
+],
+[
+"voi",
+"cercheréste"
+],
+[
+"loro",
+"cercherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -24977,6 +27588,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"chiacchiererèi"
+],
+[
+"tu",
+"chiacchiererésti"
+],
+[
+"lui/lei",
+"chiacchiererèbbe"
+],
+[
+"noi",
+"chiacchiererémmo"
+],
+[
+"voi",
+"chiacchiereréste"
+],
+[
+"loro",
+"chiacchiererèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -25172,6 +27812,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"chiamerèi"
+],
+[
+"tu",
+"chiamerésti"
+],
+[
+"lui/lei",
+"chiamerèbbe"
+],
+[
+"noi",
+"chiamerémmo"
+],
+[
+"voi",
+"chiameréste"
+],
+[
+"loro",
+"chiamerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -25398,6 +28067,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"chiarirèi"
+],
+[
+"tu",
+"chiarirésti"
+],
+[
+"lui/lei",
+"chiarirèbbe"
+],
+[
+"noi",
+"chiarirémmo"
+],
+[
+"voi",
+"chiariréste"
+],
+[
+"loro",
+"chiarirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -25611,6 +28309,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"chiederèi"
+],
+[
+"tu",
+"chiederésti"
+],
+[
+"lui/lei",
+"chiederèbbe"
+],
+[
+"noi",
+"chiederémmo"
+],
+[
+"voi",
+"chiederéste"
+],
+[
+"loro",
+"chiederèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -25938,6 +28665,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"chiuderèi"
+],
+[
+"tu",
+"chiuderésti"
+],
+[
+"lui/lei",
+"chiuderèbbe"
+],
+[
+"noi",
+"chiuderémmo"
+],
+[
+"voi",
+"chiuderéste"
+],
+[
+"loro",
+"chiuderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -26926,6 +29682,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"coglierèi"
+],
+[
+"tu",
+"coglierésti"
+],
+[
+"lui/lei",
+"coglierèbbe"
+],
+[
+"noi",
+"coglierémmo"
+],
+[
+"voi",
+"coglieréste"
+],
+[
+"loro",
+"coglierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -27186,6 +29971,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"coinvolgerèi"
+],
+[
+"tu",
+"coinvolgerésti"
+],
+[
+"lui/lei",
+"coinvolgerèbbe"
+],
+[
+"noi",
+"coinvolgerémmo"
+],
+[
+"voi",
+"coinvolgeréste"
+],
+[
+"loro",
+"coinvolgerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -27394,6 +30208,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"collaborerèi"
+],
+[
+"tu",
+"collaborerésti"
+],
+[
+"lui/lei",
+"collaborerèbbe"
+],
+[
+"noi",
+"collaborerémmo"
+],
+[
+"voi",
+"collaboreréste"
+],
+[
+"loro",
+"collaborerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -27615,6 +30458,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"collegherèi"
+],
+[
+"tu",
+"collegherésti"
+],
+[
+"lui/lei",
+"collegherèbbe"
+],
+[
+"noi",
+"collegherémmo"
+],
+[
+"voi",
+"collegheréste"
+],
+[
+"loro",
+"collegherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -28003,6 +30875,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"colpirèi"
+],
+[
+"tu",
+"colpirésti"
+],
+[
+"lui/lei",
+"colpirèbbe"
+],
+[
+"noi",
+"colpirémmo"
+],
+[
+"voi",
+"colpiréste"
+],
+[
+"loro",
+"colpirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -28255,6 +31156,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"comanderèi"
+],
+[
+"tu",
+"comanderésti"
+],
+[
+"lui/lei",
+"comanderèbbe"
+],
+[
+"noi",
+"comanderémmo"
+],
+[
+"voi",
+"comanderéste"
+],
+[
+"loro",
+"comanderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -28446,6 +31376,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"combatterèi"
+],
+[
+"tu",
+"combatterésti"
+],
+[
+"lui/lei",
+"combatterèbbe"
+],
+[
+"noi",
+"combatterémmo"
+],
+[
+"voi",
+"combatteréste"
+],
+[
+"loro",
+"combatterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -28628,6 +31587,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"combinerèi"
+],
+[
+"tu",
+"combinerésti"
+],
+[
+"lui/lei",
+"combinerèbbe"
+],
+[
+"noi",
+"combinerémmo"
+],
+[
+"voi",
+"combineréste"
+],
+[
+"loro",
+"combinerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -28832,6 +31820,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"comincerèi"
+],
+[
+"tu",
+"comincerésti"
+],
+[
+"lui/lei",
+"comincerèbbe"
+],
+[
+"noi",
+"comincerémmo"
+],
+[
+"voi",
+"cominceréste"
+],
+[
+"loro",
+"comincerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -29075,6 +32092,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"commetterèi"
+],
+[
+"tu",
+"commetterésti"
+],
+[
+"lui/lei",
+"commetterèbbe"
+],
+[
+"noi",
+"commetterémmo"
+],
+[
+"voi",
+"commetteréste"
+],
+[
+"loro",
+"commetterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -29428,6 +32474,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"competerèi"
+],
+[
+"tu",
+"competerésti"
+],
+[
+"lui/lei",
+"competerèbbe"
+],
+[
+"noi",
+"competerémmo"
+],
+[
+"voi",
+"competeréste"
+],
+[
+"loro",
+"competerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -29597,6 +32672,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"compierèi"
+],
+[
+"tu",
+"compierésti"
+],
+[
+"lui/lei",
+"compierèbbe"
+],
+[
+"noi",
+"compierémmo"
+],
+[
+"voi",
+"compieréste"
+],
+[
+"loro",
+"compierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -29757,6 +32861,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"compilerèi"
+],
+[
+"tu",
+"compilerésti"
+],
+[
+"lui/lei",
+"compilerèbbe"
+],
+[
+"noi",
+"compilerémmo"
+],
+[
+"voi",
+"compileréste"
+],
+[
+"loro",
+"compilerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -29966,6 +33099,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"completerèi"
+],
+[
+"tu",
+"completerésti"
+],
+[
+"lui/lei",
+"completerèbbe"
+],
+[
+"noi",
+"completerémmo"
+],
+[
+"voi",
+"completeréste"
+],
+[
+"loro",
+"completerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -30246,6 +33408,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si comporterèi"
+],
+[
+"tu",
+"si comporterésti"
+],
+[
+"lui/lei",
+"si comporterèbbe"
+],
+[
+"noi",
+"si comporterémmo"
+],
+[
+"voi",
+"si comporteréste"
+],
+[
+"loro",
+"si comporterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -30428,6 +33619,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"comprerèi"
+],
+[
+"tu",
+"comprerésti"
+],
+[
+"lui/lei",
+"comprerèbbe"
+],
+[
+"noi",
+"comprerémmo"
+],
+[
+"voi",
+"compreréste"
+],
+[
+"loro",
+"comprerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -30601,6 +33821,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"comprenderèi"
+],
+[
+"tu",
+"comprenderésti"
+],
+[
+"lui/lei",
+"comprenderèbbe"
+],
+[
+"noi",
+"comprenderémmo"
+],
+[
+"voi",
+"comprenderéste"
+],
+[
+"loro",
+"comprenderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -30855,6 +34104,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"comunicherèi"
+],
+[
+"tu",
+"comunicherésti"
+],
+[
+"lui/lei",
+"comunicherèbbe"
+],
+[
+"noi",
+"comunicherémmo"
+],
+[
+"voi",
+"comunicheréste"
+],
+[
+"loro",
+"comunicherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -31077,6 +34355,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si concentrerèi"
+],
+[
+"tu",
+"si concentrerésti"
+],
+[
+"lui/lei",
+"si concentrerèbbe"
+],
+[
+"noi",
+"si concentrerémmo"
+],
+[
+"voi",
+"si concentreréste"
+],
+[
+"loro",
+"si concentrerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -31294,6 +34601,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"concluderèi"
+],
+[
+"tu",
+"concluderésti"
+],
+[
+"lui/lei",
+"concluderèbbe"
+],
+[
+"noi",
+"concluderémmo"
+],
+[
+"voi",
+"concluderéste"
+],
+[
+"loro",
+"concluderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -31560,6 +34896,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"condividerèi"
+],
+[
+"tu",
+"condividerésti"
+],
+[
+"lui/lei",
+"condividerèbbe"
+],
+[
+"noi",
+"condividerémmo"
+],
+[
+"voi",
+"condivideréste"
+],
+[
+"loro",
+"condividerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -31800,6 +35165,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"condurrèi"
+],
+[
+"tu",
+"condurrésti"
+],
+[
+"lui/lei",
+"condurrèbbe"
+],
+[
+"noi",
+"condurrémmo"
+],
+[
+"voi",
+"condurréste"
+],
+[
+"loro",
+"condurrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -31995,6 +35389,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"confermerèi"
+],
+[
+"tu",
+"confermerésti"
+],
+[
+"lui/lei",
+"confermerèbbe"
+],
+[
+"noi",
+"confermerémmo"
+],
+[
+"voi",
+"confermeréste"
+],
+[
+"loro",
+"confermerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -32155,6 +35578,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"confesserèi"
+],
+[
+"tu",
+"confesserésti"
+],
+[
+"lui/lei",
+"confesserèbbe"
+],
+[
+"noi",
+"confesserémmo"
+],
+[
+"voi",
+"confesseréste"
+],
+[
+"loro",
+"confesserèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -32587,6 +36039,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"conoscerèi"
+],
+[
+"tu",
+"conoscerésti"
+],
+[
+"lui/lei",
+"conoscerèbbe"
+],
+[
+"noi",
+"conoscerémmo"
+],
+[
+"voi",
+"conosceréste"
+],
+[
+"loro",
+"conoscerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -32769,6 +36250,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"conquisterèi"
+],
+[
+"tu",
+"conquisterésti"
+],
+[
+"lui/lei",
+"conquisterèbbe"
+],
+[
+"noi",
+"conquisterémmo"
+],
+[
+"voi",
+"conquisteréste"
+],
+[
+"loro",
+"conquisterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -32964,6 +36474,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"consegnerèi"
+],
+[
+"tu",
+"consegnerésti"
+],
+[
+"lui/lei",
+"consegnerèbbe"
+],
+[
+"noi",
+"consegnerémmo"
+],
+[
+"voi",
+"consegneréste"
+],
+[
+"loro",
+"consegnerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -33177,6 +36716,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"conserverèi"
+],
+[
+"tu",
+"conserverésti"
+],
+[
+"lui/lei",
+"conserverèbbe"
+],
+[
+"noi",
+"conserverémmo"
+],
+[
+"voi",
+"conserveréste"
+],
+[
+"loro",
+"conserverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -33337,6 +36905,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"considererèi"
+],
+[
+"tu",
+"considererésti"
+],
+[
+"lui/lei",
+"considererèbbe"
+],
+[
+"noi",
+"considererémmo"
+],
+[
+"voi",
+"considereréste"
+],
+[
+"loro",
+"considererèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -33652,6 +37249,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"conterèi"
+],
+[
+"tu",
+"conterésti"
+],
+[
+"lui/lei",
+"conterèbbe"
+],
+[
+"noi",
+"conterémmo"
+],
+[
+"voi",
+"conteréste"
+],
+[
+"loro",
+"conterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -33812,6 +37438,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"contatterèi"
+],
+[
+"tu",
+"contatterésti"
+],
+[
+"lui/lei",
+"contatterèbbe"
+],
+[
+"noi",
+"contatterémmo"
+],
+[
+"voi",
+"contatteréste"
+],
+[
+"loro",
+"contatterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -34020,6 +37675,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"conterrèi"
+],
+[
+"tu",
+"conterrésti"
+],
+[
+"lui/lei",
+"conterrèbbe"
+],
+[
+"noi",
+"conterrémmo"
+],
+[
+"voi",
+"conterréste"
+],
+[
+"loro",
+"conterrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -34268,6 +37952,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"continuerèi"
+],
+[
+"tu",
+"continuerésti"
+],
+[
+"lui/lei",
+"continuerèbbe"
+],
+[
+"noi",
+"continuerémmo"
+],
+[
+"voi",
+"continueréste"
+],
+[
+"loro",
+"continuerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -34534,6 +38247,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"controllerèi"
+],
+[
+"tu",
+"controllerésti"
+],
+[
+"lui/lei",
+"controllerèbbe"
+],
+[
+"noi",
+"controllerémmo"
+],
+[
+"voi",
+"controlleréste"
+],
+[
+"loro",
+"controllerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -34769,6 +38511,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"convincerèi"
+],
+[
+"tu",
+"convincerésti"
+],
+[
+"lui/lei",
+"convincerèbbe"
+],
+[
+"noi",
+"convincerémmo"
+],
+[
+"voi",
+"convinceréste"
+],
+[
+"loro",
+"convincerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -34951,6 +38722,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"convivrèi"
+],
+[
+"tu",
+"convivrésti"
+],
+[
+"lui/lei",
+"convivrèbbe"
+],
+[
+"noi",
+"convivrémmo"
+],
+[
+"voi",
+"convivréste"
+],
+[
+"loro",
+"convivrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -35269,6 +39069,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"coprirèi"
+],
+[
+"tu",
+"coprirésti"
+],
+[
+"lui/lei",
+"coprirèbbe"
+],
+[
+"noi",
+"coprirémmo"
+],
+[
+"voi",
+"copriréste"
+],
+[
+"loro",
+"coprirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -35583,6 +39412,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"correrèi"
+],
+[
+"tu",
+"correrésti"
+],
+[
+"lui/lei",
+"correrèbbe"
+],
+[
+"noi",
+"correrémmo"
+],
+[
+"voi",
+"correréste"
+],
+[
+"loro",
+"correrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -36155,6 +40013,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"costruirèi"
+],
+[
+"tu",
+"costruirésti"
+],
+[
+"lui/lei",
+"costruirèbbe"
+],
+[
+"noi",
+"costruirémmo"
+],
+[
+"voi",
+"costruiréste"
+],
+[
+"loro",
+"costruirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -36442,6 +40329,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"creerèi"
+],
+[
+"tu",
+"creerésti"
+],
+[
+"lui/lei",
+"creerèbbe"
+],
+[
+"noi",
+"creerémmo"
+],
+[
+"voi",
+"creeréste"
+],
+[
+"loro",
+"creerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -36664,6 +40580,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"crederèi"
+],
+[
+"tu",
+"crederésti"
+],
+[
+"lui/lei",
+"crederèbbe"
+],
+[
+"noi",
+"crederémmo"
+],
+[
+"voi",
+"crederéste"
+],
+[
+"loro",
+"crederèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -36894,6 +40839,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"crescerèi"
+],
+[
+"tu",
+"crescerésti"
+],
+[
+"lui/lei",
+"crescerèbbe"
+],
+[
+"noi",
+"crescerémmo"
+],
+[
+"voi",
+"cresceréste"
+],
+[
+"loro",
+"crescerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -37257,6 +41231,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"crollerèi"
+],
+[
+"tu",
+"crollerésti"
+],
+[
+"lui/lei",
+"crollerèbbe"
+],
+[
+"noi",
+"crollerémmo"
+],
+[
+"voi",
+"crolleréste"
+],
+[
+"loro",
+"crollerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -37531,6 +41534,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"cucinerèi"
+],
+[
+"tu",
+"cucinerésti"
+],
+[
+"lui/lei",
+"cucinerèbbe"
+],
+[
+"noi",
+"cucinerémmo"
+],
+[
+"voi",
+"cucineréste"
+],
+[
+"loro",
+"cucinerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -37870,6 +41902,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"curerèi"
+],
+[
+"tu",
+"curerésti"
+],
+[
+"lui/lei",
+"curerèbbe"
+],
+[
+"noi",
+"curerémmo"
+],
+[
+"voi",
+"cureréste"
+],
+[
+"loro",
+"curerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -38290,6 +42351,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"darèi"
+],
+[
+"tu",
+"darésti"
+],
+[
+"lui/lei",
+"darèbbe"
+],
+[
+"noi",
+"darémmo"
+],
+[
+"voi",
+"daréste"
+],
+[
+"loro",
+"darèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -38450,6 +42540,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si darèi"
+],
+[
+"tu",
+"si darésti"
+],
+[
+"lui/lei",
+"si darèbbe"
+],
+[
+"noi",
+"si darémmo"
+],
+[
+"voi",
+"si daréste"
+],
+[
+"loro",
+"si darèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -38765,6 +42884,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"deciderèi"
+],
+[
+"tu",
+"deciderésti"
+],
+[
+"lui/lei",
+"deciderèbbe"
+],
+[
+"noi",
+"deciderémmo"
+],
+[
+"voi",
+"decideréste"
+],
+[
+"loro",
+"deciderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -39027,6 +43175,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"definirèi"
+],
+[
+"tu",
+"definirésti"
+],
+[
+"lui/lei",
+"definirèbbe"
+],
+[
+"noi",
+"definirémmo"
+],
+[
+"voi",
+"definiréste"
+],
+[
+"loro",
+"definirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -39430,6 +43607,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"denuncerèi"
+],
+[
+"tu",
+"denuncerésti"
+],
+[
+"lui/lei",
+"denuncerèbbe"
+],
+[
+"noi",
+"denuncerémmo"
+],
+[
+"voi",
+"denunceréste"
+],
+[
+"loro",
+"denuncerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -39669,6 +43875,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"descriverèi"
+],
+[
+"tu",
+"descriverésti"
+],
+[
+"lui/lei",
+"descriverèbbe"
+],
+[
+"noi",
+"descriverémmo"
+],
+[
+"voi",
+"descriveréste"
+],
+[
+"loro",
+"descriverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -39851,6 +44086,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"desidererèi"
+],
+[
+"tu",
+"desidererésti"
+],
+[
+"lui/lei",
+"desidererèbbe"
+],
+[
+"noi",
+"desidererémmo"
+],
+[
+"voi",
+"desidereréste"
+],
+[
+"loro",
+"desidererèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -40165,6 +44429,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"determinerèi"
+],
+[
+"tu",
+"determinerésti"
+],
+[
+"lui/lei",
+"determinerèbbe"
+],
+[
+"noi",
+"determinerémmo"
+],
+[
+"voi",
+"determineréste"
+],
+[
+"loro",
+"determinerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -40536,6 +44829,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"dichiarerèi"
+],
+[
+"tu",
+"dichiarerésti"
+],
+[
+"lui/lei",
+"dichiarerèbbe"
+],
+[
+"noi",
+"dichiarerémmo"
+],
+[
+"voi",
+"dichiareréste"
+],
+[
+"loro",
+"dichiarerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -40771,6 +45093,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"difenderèi"
+],
+[
+"tu",
+"difenderésti"
+],
+[
+"lui/lei",
+"difenderèbbe"
+],
+[
+"noi",
+"difenderémmo"
+],
+[
+"voi",
+"difenderéste"
+],
+[
+"loro",
+"difenderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -40931,6 +45282,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si difenderèi"
+],
+[
+"tu",
+"si difenderésti"
+],
+[
+"lui/lei",
+"si difenderèbbe"
+],
+[
+"noi",
+"si difenderémmo"
+],
+[
+"voi",
+"si difenderéste"
+],
+[
+"loro",
+"si difenderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -41202,6 +45582,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"diffonderèi"
+],
+[
+"tu",
+"diffonderésti"
+],
+[
+"lui/lei",
+"diffonderèbbe"
+],
+[
+"noi",
+"diffonderémmo"
+],
+[
+"voi",
+"diffonderéste"
+],
+[
+"loro",
+"diffonderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -41446,6 +45855,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"dimenticherèi"
+],
+[
+"tu",
+"dimenticherésti"
+],
+[
+"lui/lei",
+"dimenticherèbbe"
+],
+[
+"noi",
+"dimenticherémmo"
+],
+[
+"voi",
+"dimenticheréste"
+],
+[
+"loro",
+"dimenticherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -41655,6 +46093,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"dimostrerèi"
+],
+[
+"tu",
+"dimostrerésti"
+],
+[
+"lui/lei",
+"dimostrerèbbe"
+],
+[
+"noi",
+"dimostrerémmo"
+],
+[
+"voi",
+"dimostreréste"
+],
+[
+"loro",
+"dimostrerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -41916,6 +46383,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"dipingerèi"
+],
+[
+"tu",
+"dipingerésti"
+],
+[
+"lui/lei",
+"dipingerèbbe"
+],
+[
+"noi",
+"dipingerémmo"
+],
+[
+"voi",
+"dipingeréste"
+],
+[
+"loro",
+"dipingerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -42116,6 +46612,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"dirèi"
+],
+[
+"tu",
+"dirésti"
+],
+[
+"lui/lei",
+"dirèbbe"
+],
+[
+"noi",
+"dirémmo"
+],
+[
+"voi",
+"diréste"
+],
+[
+"loro",
+"dirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -42355,6 +46880,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"dirigerèi"
+],
+[
+"tu",
+"dirigerésti"
+],
+[
+"lui/lei",
+"dirigerèbbe"
+],
+[
+"noi",
+"dirigerémmo"
+],
+[
+"voi",
+"dirigeréste"
+],
+[
+"loro",
+"dirigerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -42542,6 +47096,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si dirèi"
+],
+[
+"tu",
+"si dirésti"
+],
+[
+"lui/lei",
+"si dirèbbe"
+],
+[
+"noi",
+"si dirémmo"
+],
+[
+"voi",
+"si diréste"
+],
+[
+"loro",
+"si dirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -42886,6 +47469,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"discuterèi"
+],
+[
+"tu",
+"discuterésti"
+],
+[
+"lui/lei",
+"discuterèbbe"
+],
+[
+"noi",
+"discuterémmo"
+],
+[
+"voi",
+"discuteréste"
+],
+[
+"loro",
+"discuterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -43046,6 +47658,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"disegnerèi"
+],
+[
+"tu",
+"disegnerésti"
+],
+[
+"lui/lei",
+"disegnerèbbe"
+],
+[
+"noi",
+"disegnerémmo"
+],
+[
+"voi",
+"disegneréste"
+],
+[
+"loro",
+"disegnerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -43396,6 +48037,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"distinguerèi"
+],
+[
+"tu",
+"distinguerésti"
+],
+[
+"lui/lei",
+"distinguerèbbe"
+],
+[
+"noi",
+"distinguerémmo"
+],
+[
+"voi",
+"distingueréste"
+],
+[
+"loro",
+"distinguerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -43565,6 +48235,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"distrarrèi"
+],
+[
+"tu",
+"distrarrésti"
+],
+[
+"lui/lei",
+"distrarrèbbe"
+],
+[
+"noi",
+"distrarrémmo"
+],
+[
+"voi",
+"distrarréste"
+],
+[
+"loro",
+"distrarrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -43795,6 +48494,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"distruggerèi"
+],
+[
+"tu",
+"distruggerésti"
+],
+[
+"lui/lei",
+"distruggerèbbe"
+],
+[
+"noi",
+"distruggerémmo"
+],
+[
+"voi",
+"distruggeréste"
+],
+[
+"loro",
+"distruggerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -43968,6 +48696,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"disturberèi"
+],
+[
+"tu",
+"disturberésti"
+],
+[
+"lui/lei",
+"disturberèbbe"
+],
+[
+"noi",
+"disturberémmo"
+],
+[
+"voi",
+"disturberéste"
+],
+[
+"loro",
+"disturberèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -44198,6 +48955,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"diventerèi"
+],
+[
+"tu",
+"diventerésti"
+],
+[
+"lui/lei",
+"diventerèbbe"
+],
+[
+"noi",
+"diventerémmo"
+],
+[
+"voi",
+"diventeréste"
+],
+[
+"loro",
+"diventerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -44407,6 +49193,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"divertirèi"
+],
+[
+"tu",
+"divertirésti"
+],
+[
+"lui/lei",
+"divertirèbbe"
+],
+[
+"noi",
+"divertirémmo"
+],
+[
+"voi",
+"divertiréste"
+],
+[
+"loro",
+"divertirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -44567,6 +49382,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si divertirèi"
+],
+[
+"tu",
+"si divertirésti"
+],
+[
+"lui/lei",
+"si divertirèbbe"
+],
+[
+"noi",
+"si divertirémmo"
+],
+[
+"voi",
+"si divertiréste"
+],
+[
+"loro",
+"si divertirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -44736,6 +49580,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"dividerèi"
+],
+[
+"tu",
+"dividerésti"
+],
+[
+"lui/lei",
+"dividerèbbe"
+],
+[
+"noi",
+"dividerémmo"
+],
+[
+"voi",
+"divideréste"
+],
+[
+"loro",
+"dividerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -44953,6 +49826,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"divorzierèi"
+],
+[
+"tu",
+"divorzierésti"
+],
+[
+"lui/lei",
+"divorzierèbbe"
+],
+[
+"noi",
+"divorzierémmo"
+],
+[
+"voi",
+"divorzieréste"
+],
+[
+"loro",
+"divorzierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -45439,6 +50341,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"donerèi"
+],
+[
+"tu",
+"donerésti"
+],
+[
+"lui/lei",
+"donerèbbe"
+],
+[
+"noi",
+"donerémmo"
+],
+[
+"voi",
+"doneréste"
+],
+[
+"loro",
+"donerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -45700,6 +50631,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"dormirèi"
+],
+[
+"tu",
+"dormirésti"
+],
+[
+"lui/lei",
+"dormirèbbe"
+],
+[
+"noi",
+"dormirémmo"
+],
+[
+"voi",
+"dormiréste"
+],
+[
+"loro",
+"dormirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -45974,6 +50934,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"dovrèi"
+],
+[
+"tu",
+"dovrésti"
+],
+[
+"lui/lei",
+"dovrèbbe"
+],
+[
+"noi",
+"dovrémmo"
+],
+[
+"voi",
+"dovréste"
+],
+[
+"loro",
+"dovrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -46364,6 +51353,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"dubiterèi"
+],
+[
+"tu",
+"dubiterésti"
+],
+[
+"lui/lei",
+"dubiterèbbe"
+],
+[
+"noi",
+"dubiterémmo"
+],
+[
+"voi",
+"dubiteréste"
+],
+[
+"loro",
+"dubiterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -46594,6 +51612,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"durerèi"
+],
+[
+"tu",
+"durerésti"
+],
+[
+"lui/lei",
+"durerèbbe"
+],
+[
+"noi",
+"durerémmo"
+],
+[
+"voi",
+"dureréste"
+],
+[
+"loro",
+"durerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -47037,6 +52084,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"effettuerèi"
+],
+[
+"tu",
+"effettuerésti"
+],
+[
+"lui/lei",
+"effettuerèbbe"
+],
+[
+"noi",
+"effettuerémmo"
+],
+[
+"voi",
+"effettueréste"
+],
+[
+"loro",
+"effettuerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -47432,6 +52508,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"eliminerèi"
+],
+[
+"tu",
+"eliminerésti"
+],
+[
+"lui/lei",
+"eliminerèbbe"
+],
+[
+"noi",
+"eliminerémmo"
+],
+[
+"voi",
+"elimineréste"
+],
+[
+"loro",
+"eliminerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -47715,6 +52820,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"empirèi"
+],
+[
+"tu",
+"empirésti"
+],
+[
+"lui/lei",
+"empirèbbe"
+],
+[
+"noi",
+"empirémmo"
+],
+[
+"voi",
+"empiréste"
+],
+[
+"loro",
+"empirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -47906,6 +53040,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ci entrerèi"
+],
+[
+"tu",
+"ci entrerésti"
+],
+[
+"lui/lei",
+"ci entrerèbbe"
+],
+[
+"noi",
+"ci entrerémmo"
+],
+[
+"voi",
+"ci entreréste"
+],
+[
+"loro",
+"ci entrerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -48066,6 +53229,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"entrerèi"
+],
+[
+"tu",
+"entrerésti"
+],
+[
+"lui/lei",
+"entrerèbbe"
+],
+[
+"noi",
+"entrerémmo"
+],
+[
+"voi",
+"entreréste"
+],
+[
+"loro",
+"entrerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -48533,6 +53725,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"esagererèi"
+],
+[
+"tu",
+"esagererésti"
+],
+[
+"lui/lei",
+"esagererèbbe"
+],
+[
+"noi",
+"esagererémmo"
+],
+[
+"voi",
+"esagereréste"
+],
+[
+"loro",
+"esagererèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -48724,6 +53945,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"esaminerèi"
+],
+[
+"tu",
+"esaminerésti"
+],
+[
+"lui/lei",
+"esaminerèbbe"
+],
+[
+"noi",
+"esaminerémmo"
+],
+[
+"voi",
+"esamineréste"
+],
+[
+"loro",
+"esaminerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -48937,6 +54187,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"escluderèi"
+],
+[
+"tu",
+"escluderésti"
+],
+[
+"lui/lei",
+"escluderèbbe"
+],
+[
+"noi",
+"escluderémmo"
+],
+[
+"voi",
+"escluderéste"
+],
+[
+"loro",
+"escluderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -49141,6 +54420,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"eseguirèi"
+],
+[
+"tu",
+"eseguirésti"
+],
+[
+"lui/lei",
+"eseguirèbbe"
+],
+[
+"noi",
+"eseguirémmo"
+],
+[
+"voi",
+"eseguiréste"
+],
+[
+"loro",
+"eseguirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -49406,6 +54714,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"esisterèi"
+],
+[
+"tu",
+"esisterésti"
+],
+[
+"lui/lei",
+"esisterèbbe"
+],
+[
+"noi",
+"esisterémmo"
+],
+[
+"voi",
+"esisteréste"
+],
+[
+"loro",
+"esisterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -49654,6 +54991,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"esploderèi"
+],
+[
+"tu",
+"esploderésti"
+],
+[
+"lui/lei",
+"esploderèbbe"
+],
+[
+"noi",
+"esploderémmo"
+],
+[
+"voi",
+"esploderéste"
+],
+[
+"loro",
+"esploderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -49814,6 +55180,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"esplorerèi"
+],
+[
+"tu",
+"esplorerésti"
+],
+[
+"lui/lei",
+"esplorerèbbe"
+],
+[
+"noi",
+"esplorerémmo"
+],
+[
+"voi",
+"esploreréste"
+],
+[
+"loro",
+"esplorerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -50058,6 +55453,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"esprimerèi"
+],
+[
+"tu",
+"esprimerésti"
+],
+[
+"lui/lei",
+"esprimerèbbe"
+],
+[
+"noi",
+"esprimerémmo"
+],
+[
+"voi",
+"esprimeréste"
+],
+[
+"loro",
+"esprimerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -50240,6 +55664,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ci sarèi"
+],
+[
+"tu",
+"ci sarésti"
+],
+[
+"lui/lei",
+"ci sarèbbe"
+],
+[
+"noi",
+"ci sarémmo"
+],
+[
+"voi",
+"ci saréste"
+],
+[
+"loro",
+"ci sarèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -50400,6 +55853,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sarèi"
+],
+[
+"tu",
+"sarésti"
+],
+[
+"lui/lei",
+"sarèbbe"
+],
+[
+"noi",
+"sarémmo"
+],
+[
+"voi",
+"saréste"
+],
+[
+"loro",
+"sarèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -50569,6 +56051,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"vi sarèi"
+],
+[
+"tu",
+"vi sarésti"
+],
+[
+"lui/lei",
+"vi sarèbbe"
+],
+[
+"noi",
+"vi sarémmo"
+],
+[
+"voi",
+"vi saréste"
+],
+[
+"loro",
+"vi sarèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -50805,6 +56316,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"estrarrèi"
+],
+[
+"tu",
+"estrarrésti"
+],
+[
+"lui/lei",
+"estrarrèbbe"
+],
+[
+"noi",
+"estrarrémmo"
+],
+[
+"voi",
+"estrarréste"
+],
+[
+"loro",
+"estrarrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -51079,6 +56619,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"evacuerèi"
+],
+[
+"tu",
+"evacuerésti"
+],
+[
+"lui/lei",
+"evacuerèbbe"
+],
+[
+"noi",
+"evacuerémmo"
+],
+[
+"voi",
+"evacueréste"
+],
+[
+"loro",
+"evacuerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -51252,6 +56821,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"evaderèi"
+],
+[
+"tu",
+"evaderésti"
+],
+[
+"lui/lei",
+"evaderèbbe"
+],
+[
+"noi",
+"evaderémmo"
+],
+[
+"voi",
+"evaderéste"
+],
+[
+"loro",
+"evaderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -51474,6 +57072,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"eviterèi"
+],
+[
+"tu",
+"eviterésti"
+],
+[
+"lui/lei",
+"eviterèbbe"
+],
+[
+"noi",
+"eviterémmo"
+],
+[
+"voi",
+"eviteréste"
+],
+[
+"loro",
+"eviterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -51842,6 +57469,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"fallirèi"
+],
+[
+"tu",
+"fallirésti"
+],
+[
+"lui/lei",
+"fallirèbbe"
+],
+[
+"noi",
+"fallirémmo"
+],
+[
+"voi",
+"falliréste"
+],
+[
+"loro",
+"fallirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -52205,6 +57861,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ce la farèi"
+],
+[
+"tu",
+"ce la farésti"
+],
+[
+"lui/lei",
+"ce la farèbbe"
+],
+[
+"noi",
+"ce la farémmo"
+],
+[
+"voi",
+"ce la faréste"
+],
+[
+"loro",
+"ce la farèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -52378,6 +58063,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"farèi"
+],
+[
+"tu",
+"farésti"
+],
+[
+"lui/lei",
+"farèbbe"
+],
+[
+"noi",
+"farémmo"
+],
+[
+"voi",
+"faréste"
+],
+[
+"loro",
+"farèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -52564,6 +58278,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"la farèi"
+],
+[
+"tu",
+"la farésti"
+],
+[
+"lui/lei",
+"la farèbbe"
+],
+[
+"noi",
+"la farémmo"
+],
+[
+"voi",
+"la faréste"
+],
+[
+"loro",
+"la farèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -52785,6 +58528,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si farèi"
+],
+[
+"tu",
+"si farésti"
+],
+[
+"lui/lei",
+"si farèbbe"
+],
+[
+"noi",
+"si farémmo"
+],
+[
+"voi",
+"si faréste"
+],
+[
+"loro",
+"si farèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -53464,6 +59236,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ferirèi"
+],
+[
+"tu",
+"ferirésti"
+],
+[
+"lui/lei",
+"ferirèbbe"
+],
+[
+"noi",
+"ferirémmo"
+],
+[
+"voi",
+"feriréste"
+],
+[
+"loro",
+"ferirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -53672,6 +59473,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"fermerèi"
+],
+[
+"tu",
+"fermerésti"
+],
+[
+"lui/lei",
+"fermerèbbe"
+],
+[
+"noi",
+"fermerémmo"
+],
+[
+"voi",
+"fermeréste"
+],
+[
+"loro",
+"fermerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -53832,6 +59662,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si fermerèi"
+],
+[
+"tu",
+"si fermerésti"
+],
+[
+"lui/lei",
+"si fermerèbbe"
+],
+[
+"noi",
+"si fermerémmo"
+],
+[
+"voi",
+"si fermeréste"
+],
+[
+"loro",
+"si fermerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -54107,6 +59966,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"festeggerèi"
+],
+[
+"tu",
+"festeggerésti"
+],
+[
+"lui/lei",
+"festeggerèbbe"
+],
+[
+"noi",
+"festeggerémmo"
+],
+[
+"voi",
+"festeggeréste"
+],
+[
+"loro",
+"festeggerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -54438,6 +60326,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"fiderèi"
+],
+[
+"tu",
+"fiderésti"
+],
+[
+"lui/lei",
+"fiderèbbe"
+],
+[
+"noi",
+"fiderémmo"
+],
+[
+"voi",
+"fideréste"
+],
+[
+"loro",
+"fiderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -54598,6 +60515,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si fiderèi"
+],
+[
+"tu",
+"si fiderésti"
+],
+[
+"lui/lei",
+"si fiderèbbe"
+],
+[
+"noi",
+"si fiderémmo"
+],
+[
+"voi",
+"si fideréste"
+],
+[
+"loro",
+"si fiderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -54987,6 +60933,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"filmerèi"
+],
+[
+"tu",
+"filmerésti"
+],
+[
+"lui/lei",
+"filmerèbbe"
+],
+[
+"noi",
+"filmerémmo"
+],
+[
+"voi",
+"filmeréste"
+],
+[
+"loro",
+"filmerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -55288,6 +61263,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"fingerèi"
+],
+[
+"tu",
+"fingerésti"
+],
+[
+"lui/lei",
+"fingerèbbe"
+],
+[
+"noi",
+"fingerémmo"
+],
+[
+"voi",
+"fingeréste"
+],
+[
+"loro",
+"fingerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -55457,6 +61461,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"finirèi"
+],
+[
+"tu",
+"finirésti"
+],
+[
+"lui/lei",
+"finirèbbe"
+],
+[
+"noi",
+"finirémmo"
+],
+[
+"voi",
+"finiréste"
+],
+[
+"loro",
+"finirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -55617,6 +61650,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"la finirèi"
+],
+[
+"tu",
+"la finirésti"
+],
+[
+"lui/lei",
+"la finirèbbe"
+],
+[
+"noi",
+"la finirémmo"
+],
+[
+"voi",
+"la finiréste"
+],
+[
+"loro",
+"la finirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -55874,6 +61936,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"firmerèi"
+],
+[
+"tu",
+"firmerésti"
+],
+[
+"lui/lei",
+"firmerèbbe"
+],
+[
+"noi",
+"firmerémmo"
+],
+[
+"voi",
+"firmeréste"
+],
+[
+"loro",
+"firmerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -56100,6 +62191,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"fisserèi"
+],
+[
+"tu",
+"fisserésti"
+],
+[
+"lui/lei",
+"fisserèbbe"
+],
+[
+"noi",
+"fisserémmo"
+],
+[
+"voi",
+"fisseréste"
+],
+[
+"loro",
+"fisserèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -56331,6 +62451,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"flirterèi"
+],
+[
+"tu",
+"flirterésti"
+],
+[
+"lui/lei",
+"flirterèbbe"
+],
+[
+"noi",
+"flirterémmo"
+],
+[
+"voi",
+"flirteréste"
+],
+[
+"loro",
+"flirterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -56833,6 +62982,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"formerèi"
+],
+[
+"tu",
+"formerésti"
+],
+[
+"lui/lei",
+"formerèbbe"
+],
+[
+"noi",
+"formerémmo"
+],
+[
+"voi",
+"formeréste"
+],
+[
+"loro",
+"formerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -57055,6 +63233,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"fornirèi"
+],
+[
+"tu",
+"fornirésti"
+],
+[
+"lui/lei",
+"fornirèbbe"
+],
+[
+"noi",
+"fornirémmo"
+],
+[
+"voi",
+"forniréste"
+],
+[
+"loro",
+"fornirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -57329,6 +63536,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"forzerèi"
+],
+[
+"tu",
+"forzerésti"
+],
+[
+"lui/lei",
+"forzerèbbe"
+],
+[
+"noi",
+"forzerémmo"
+],
+[
+"voi",
+"forzeréste"
+],
+[
+"loro",
+"forzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -57604,6 +63840,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"fotterèi"
+],
+[
+"tu",
+"fotterésti"
+],
+[
+"lui/lei",
+"fotterèbbe"
+],
+[
+"noi",
+"fotterémmo"
+],
+[
+"voi",
+"fotteréste"
+],
+[
+"loro",
+"fotterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -58007,6 +64272,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"fregherèi"
+],
+[
+"tu",
+"fregherésti"
+],
+[
+"lui/lei",
+"fregherèbbe"
+],
+[
+"noi",
+"fregherémmo"
+],
+[
+"voi",
+"fregheréste"
+],
+[
+"loro",
+"fregherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -58246,6 +64540,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"frequenterèi"
+],
+[
+"tu",
+"frequenterésti"
+],
+[
+"lui/lei",
+"frequenterèbbe"
+],
+[
+"noi",
+"frequenterémmo"
+],
+[
+"voi",
+"frequenteréste"
+],
+[
+"loro",
+"frequenterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -58613,6 +64936,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"fuggirèi"
+],
+[
+"tu",
+"fuggirésti"
+],
+[
+"lui/lei",
+"fuggirèbbe"
+],
+[
+"noi",
+"fuggirémmo"
+],
+[
+"voi",
+"fuggiréste"
+],
+[
+"loro",
+"fuggirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -58795,6 +65147,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"fumerèi"
+],
+[
+"tu",
+"fumerésti"
+],
+[
+"lui/lei",
+"fumerèbbe"
+],
+[
+"noi",
+"fumerémmo"
+],
+[
+"voi",
+"fumeréste"
+],
+[
+"loro",
+"fumerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -59022,6 +65403,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"funzionerèi"
+],
+[
+"tu",
+"funzionerésti"
+],
+[
+"lui/lei",
+"funzionerèbbe"
+],
+[
+"noi",
+"funzionerémmo"
+],
+[
+"voi",
+"funzioneréste"
+],
+[
+"loro",
+"funzionerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -59581,6 +65991,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"garantirèi"
+],
+[
+"tu",
+"garantirésti"
+],
+[
+"lui/lei",
+"garantirèbbe"
+],
+[
+"noi",
+"garantirémmo"
+],
+[
+"voi",
+"garantiréste"
+],
+[
+"loro",
+"garantirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -60186,6 +66625,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"gestirèi"
+],
+[
+"tu",
+"gestirésti"
+],
+[
+"lui/lei",
+"gestirèbbe"
+],
+[
+"noi",
+"gestirémmo"
+],
+[
+"voi",
+"gestiréste"
+],
+[
+"loro",
+"gestirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -60359,6 +66827,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"getterèi"
+],
+[
+"tu",
+"getterésti"
+],
+[
+"lui/lei",
+"getterèbbe"
+],
+[
+"noi",
+"getterémmo"
+],
+[
+"voi",
+"getteréste"
+],
+[
+"loro",
+"getterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -60665,6 +67162,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"giocherèi"
+],
+[
+"tu",
+"giocherésti"
+],
+[
+"lui/lei",
+"giocherèbbe"
+],
+[
+"noi",
+"giocherémmo"
+],
+[
+"voi",
+"giocheréste"
+],
+[
+"loro",
+"giocherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -61090,6 +67616,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"girerèi"
+],
+[
+"tu",
+"girerésti"
+],
+[
+"lui/lei",
+"girerèbbe"
+],
+[
+"noi",
+"girerémmo"
+],
+[
+"voi",
+"gireréste"
+],
+[
+"loro",
+"girerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -61329,6 +67884,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"giudicherèi"
+],
+[
+"tu",
+"giudicherésti"
+],
+[
+"lui/lei",
+"giudicherèbbe"
+],
+[
+"noi",
+"giudicherémmo"
+],
+[
+"voi",
+"giudicheréste"
+],
+[
+"loro",
+"giudicherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -61616,6 +68200,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"giurerèi"
+],
+[
+"tu",
+"giurerésti"
+],
+[
+"lui/lei",
+"giurerèbbe"
+],
+[
+"noi",
+"giurerémmo"
+],
+[
+"voi",
+"giureréste"
+],
+[
+"loro",
+"giurerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -61846,6 +68459,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"giustificherèi"
+],
+[
+"tu",
+"giustificherésti"
+],
+[
+"lui/lei",
+"giustificherèbbe"
+],
+[
+"noi",
+"giustificherémmo"
+],
+[
+"voi",
+"giustificheréste"
+],
+[
+"loro",
+"giustificherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -62094,6 +68736,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"godrèi"
+],
+[
+"tu",
+"godrésti"
+],
+[
+"lui/lei",
+"godrèbbe"
+],
+[
+"noi",
+"godrémmo"
+],
+[
+"voi",
+"godréste"
+],
+[
+"loro",
+"godrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -62355,6 +69026,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"governerèi"
+],
+[
+"tu",
+"governerésti"
+],
+[
+"lui/lei",
+"governerèbbe"
+],
+[
+"noi",
+"governerémmo"
+],
+[
+"voi",
+"governeréste"
+],
+[
+"loro",
+"governerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -62850,6 +69550,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"griderèi"
+],
+[
+"tu",
+"griderésti"
+],
+[
+"lui/lei",
+"griderèbbe"
+],
+[
+"noi",
+"griderémmo"
+],
+[
+"voi",
+"grideréste"
+],
+[
+"loro",
+"griderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -63115,6 +69844,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"guadagnerèi"
+],
+[
+"tu",
+"guadagnerésti"
+],
+[
+"lui/lei",
+"guadagnerèbbe"
+],
+[
+"noi",
+"guadagnerémmo"
+],
+[
+"voi",
+"guadagneréste"
+],
+[
+"loro",
+"guadagnerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -63354,6 +70112,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"guarderèi"
+],
+[
+"tu",
+"guarderésti"
+],
+[
+"lui/lei",
+"guarderèbbe"
+],
+[
+"noi",
+"guarderémmo"
+],
+[
+"voi",
+"guarderéste"
+],
+[
+"loro",
+"guarderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -63575,6 +70362,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"guarirèi"
+],
+[
+"tu",
+"guarirésti"
+],
+[
+"lui/lei",
+"guarirèbbe"
+],
+[
+"noi",
+"guarirémmo"
+],
+[
+"voi",
+"guariréste"
+],
+[
+"loro",
+"guarirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -63797,6 +70613,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"guiderèi"
+],
+[
+"tu",
+"guiderésti"
+],
+[
+"lui/lei",
+"guiderèbbe"
+],
+[
+"noi",
+"guiderémmo"
+],
+[
+"voi",
+"guideréste"
+],
+[
+"loro",
+"guiderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -64152,6 +70997,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"identificherèi"
+],
+[
+"tu",
+"identificherésti"
+],
+[
+"lui/lei",
+"identificherèbbe"
+],
+[
+"noi",
+"identificherémmo"
+],
+[
+"voi",
+"identificheréste"
+],
+[
+"loro",
+"identificherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -64392,6 +71266,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ignorerèi"
+],
+[
+"tu",
+"ignorerésti"
+],
+[
+"lui/lei",
+"ignorerèbbe"
+],
+[
+"noi",
+"ignorerémmo"
+],
+[
+"voi",
+"ignoreréste"
+],
+[
+"loro",
+"ignorerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -64711,6 +71614,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"immaginerèi"
+],
+[
+"tu",
+"immaginerésti"
+],
+[
+"lui/lei",
+"immaginerèbbe"
+],
+[
+"noi",
+"immaginerémmo"
+],
+[
+"voi",
+"immagineréste"
+],
+[
+"loro",
+"immaginerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -64986,6 +71918,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"imparerèi"
+],
+[
+"tu",
+"imparerésti"
+],
+[
+"lui/lei",
+"imparerèbbe"
+],
+[
+"noi",
+"imparerémmo"
+],
+[
+"voi",
+"impareréste"
+],
+[
+"loro",
+"imparerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -65168,6 +72129,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"impazzirèi"
+],
+[
+"tu",
+"impazzirésti"
+],
+[
+"lui/lei",
+"impazzirèbbe"
+],
+[
+"noi",
+"impazzirémmo"
+],
+[
+"voi",
+"impazziréste"
+],
+[
+"loro",
+"impazzirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -65328,6 +72318,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"impedirèi"
+],
+[
+"tu",
+"impedirésti"
+],
+[
+"lui/lei",
+"impedirèbbe"
+],
+[
+"noi",
+"impedirémmo"
+],
+[
+"voi",
+"impediréste"
+],
+[
+"loro",
+"impedirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -65912,6 +72931,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"incastrerèi"
+],
+[
+"tu",
+"incastrerésti"
+],
+[
+"lui/lei",
+"incastrerèbbe"
+],
+[
+"noi",
+"incastrerémmo"
+],
+[
+"voi",
+"incastreréste"
+],
+[
+"loro",
+"incastrerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -66081,6 +73129,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"incazzerèi"
+],
+[
+"tu",
+"incazzerésti"
+],
+[
+"lui/lei",
+"incazzerèbbe"
+],
+[
+"noi",
+"incazzerémmo"
+],
+[
+"voi",
+"incazzeréste"
+],
+[
+"loro",
+"incazzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -66351,6 +73428,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"incolperèi"
+],
+[
+"tu",
+"incolperésti"
+],
+[
+"lui/lei",
+"incolperèbbe"
+],
+[
+"noi",
+"incolperémmo"
+],
+[
+"voi",
+"incolperéste"
+],
+[
+"loro",
+"incolperèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -66511,6 +73617,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"incontrerèi"
+],
+[
+"tu",
+"incontrerésti"
+],
+[
+"lui/lei",
+"incontrerèbbe"
+],
+[
+"noi",
+"incontrerémmo"
+],
+[
+"voi",
+"incontreréste"
+],
+[
+"loro",
+"incontrerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -66755,6 +73890,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"indagherèi"
+],
+[
+"tu",
+"indagherésti"
+],
+[
+"lui/lei",
+"indagherèbbe"
+],
+[
+"noi",
+"indagherémmo"
+],
+[
+"voi",
+"indagheréste"
+],
+[
+"loro",
+"indagherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -67003,6 +74167,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"indicherèi"
+],
+[
+"tu",
+"indicherésti"
+],
+[
+"lui/lei",
+"indicherèbbe"
+],
+[
+"noi",
+"indicherémmo"
+],
+[
+"voi",
+"indicheréste"
+],
+[
+"loro",
+"indicherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -67256,6 +74449,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"individuerèi"
+],
+[
+"tu",
+"individuerésti"
+],
+[
+"lui/lei",
+"individuerèbbe"
+],
+[
+"noi",
+"individuerémmo"
+],
+[
+"voi",
+"individueréste"
+],
+[
+"loro",
+"individuerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -67469,6 +74691,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"indosserèi"
+],
+[
+"tu",
+"indosserésti"
+],
+[
+"lui/lei",
+"indosserèbbe"
+],
+[
+"noi",
+"indosserémmo"
+],
+[
+"voi",
+"indosseréste"
+],
+[
+"loro",
+"indosserèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -67642,6 +74893,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"indovinerèi"
+],
+[
+"tu",
+"indovinerésti"
+],
+[
+"lui/lei",
+"indovinerèbbe"
+],
+[
+"noi",
+"indovinerémmo"
+],
+[
+"voi",
+"indovineréste"
+],
+[
+"loro",
+"indovinerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -67965,6 +75245,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"infilerèi"
+],
+[
+"tu",
+"infilerésti"
+],
+[
+"lui/lei",
+"infilerèbbe"
+],
+[
+"noi",
+"infilerémmo"
+],
+[
+"voi",
+"infileréste"
+],
+[
+"loro",
+"infilerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -68160,6 +75469,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"influenzerèi"
+],
+[
+"tu",
+"influenzerésti"
+],
+[
+"lui/lei",
+"influenzerèbbe"
+],
+[
+"noi",
+"influenzerémmo"
+],
+[
+"voi",
+"influenzeréste"
+],
+[
+"loro",
+"influenzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -68320,6 +75658,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"informerèi"
+],
+[
+"tu",
+"informerésti"
+],
+[
+"lui/lei",
+"informerèbbe"
+],
+[
+"noi",
+"informerémmo"
+],
+[
+"voi",
+"informeréste"
+],
+[
+"loro",
+"informerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -68542,6 +75909,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"infrangerèi"
+],
+[
+"tu",
+"infrangerésti"
+],
+[
+"lui/lei",
+"infrangerèbbe"
+],
+[
+"noi",
+"infrangerémmo"
+],
+[
+"voi",
+"infrangeréste"
+],
+[
+"loro",
+"infrangerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -68711,6 +76107,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ingannerèi"
+],
+[
+"tu",
+"ingannerésti"
+],
+[
+"lui/lei",
+"ingannerèbbe"
+],
+[
+"noi",
+"ingannerémmo"
+],
+[
+"voi",
+"inganneréste"
+],
+[
+"loro",
+"ingannerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -69038,6 +76463,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"inizierèi"
+],
+[
+"tu",
+"inizierésti"
+],
+[
+"lui/lei",
+"inizierèbbe"
+],
+[
+"noi",
+"inizierémmo"
+],
+[
+"voi",
+"inizieréste"
+],
+[
+"loro",
+"inizierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -69361,6 +76815,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"insegnerèi"
+],
+[
+"tu",
+"insegnerésti"
+],
+[
+"lui/lei",
+"insegnerèbbe"
+],
+[
+"noi",
+"insegnerémmo"
+],
+[
+"voi",
+"insegneréste"
+],
+[
+"loro",
+"insegnerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -69534,6 +77017,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"inseguirèi"
+],
+[
+"tu",
+"inseguirésti"
+],
+[
+"lui/lei",
+"inseguirèbbe"
+],
+[
+"noi",
+"inseguirémmo"
+],
+[
+"voi",
+"inseguiréste"
+],
+[
+"loro",
+"inseguirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -69703,6 +77215,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"inserirèi"
+],
+[
+"tu",
+"inserirésti"
+],
+[
+"lui/lei",
+"inserirèbbe"
+],
+[
+"noi",
+"inserirémmo"
+],
+[
+"voi",
+"inseriréste"
+],
+[
+"loro",
+"inserirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -69916,6 +77457,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"insisterèi"
+],
+[
+"tu",
+"insisterésti"
+],
+[
+"lui/lei",
+"insisterèbbe"
+],
+[
+"noi",
+"insisterémmo"
+],
+[
+"voi",
+"insisteréste"
+],
+[
+"loro",
+"insisterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -70254,6 +77824,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"interferirèi"
+],
+[
+"tu",
+"interferirésti"
+],
+[
+"lui/lei",
+"interferirèbbe"
+],
+[
+"noi",
+"interferirémmo"
+],
+[
+"voi",
+"interferiréste"
+],
+[
+"loro",
+"interferirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -70477,6 +78076,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"interpreterèi"
+],
+[
+"tu",
+"interpreterésti"
+],
+[
+"lui/lei",
+"interpreterèbbe"
+],
+[
+"noi",
+"interpreterémmo"
+],
+[
+"voi",
+"interpreteréste"
+],
+[
+"loro",
+"interpreterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -70650,6 +78278,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"interrogherèi"
+],
+[
+"tu",
+"interrogherésti"
+],
+[
+"lui/lei",
+"interrogherèbbe"
+],
+[
+"noi",
+"interrogherémmo"
+],
+[
+"voi",
+"interrogheréste"
+],
+[
+"loro",
+"interrogherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -70845,6 +78502,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"interromperèi"
+],
+[
+"tu",
+"interromperésti"
+],
+[
+"lui/lei",
+"interromperèbbe"
+],
+[
+"noi",
+"interromperémmo"
+],
+[
+"voi",
+"interromperéste"
+],
+[
+"loro",
+"interromperèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -71040,6 +78726,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"interverrèi"
+],
+[
+"tu",
+"interverrésti"
+],
+[
+"lui/lei",
+"interverrèbbe"
+],
+[
+"noi",
+"interverrémmo"
+],
+[
+"voi",
+"interverréste"
+],
+[
+"loro",
+"interverrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -71349,6 +79064,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"inventerèi"
+],
+[
+"tu",
+"inventerésti"
+],
+[
+"lui/lei",
+"inventerèbbe"
+],
+[
+"noi",
+"inventerémmo"
+],
+[
+"voi",
+"inventeréste"
+],
+[
+"loro",
+"inventerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -71601,6 +79345,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"investirèi"
+],
+[
+"tu",
+"investirésti"
+],
+[
+"lui/lei",
+"investirèbbe"
+],
+[
+"noi",
+"investirémmo"
+],
+[
+"voi",
+"investiréste"
+],
+[
+"loro",
+"investirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -71770,6 +79543,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"invierèi"
+],
+[
+"tu",
+"invierésti"
+],
+[
+"lui/lei",
+"invierèbbe"
+],
+[
+"noi",
+"invierémmo"
+],
+[
+"voi",
+"invieréste"
+],
+[
+"loro",
+"invierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -71978,6 +79780,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"inviterèi"
+],
+[
+"tu",
+"inviterésti"
+],
+[
+"lui/lei",
+"inviterèbbe"
+],
+[
+"noi",
+"inviterémmo"
+],
+[
+"voi",
+"inviteréste"
+],
+[
+"loro",
+"inviterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -72738,6 +80569,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si lamenterèi"
+],
+[
+"tu",
+"si lamenterésti"
+],
+[
+"lui/lei",
+"si lamenterèbbe"
+],
+[
+"noi",
+"si lamenterémmo"
+],
+[
+"voi",
+"si lamenteréste"
+],
+[
+"loro",
+"si lamenterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -72999,6 +80859,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"lancerèi"
+],
+[
+"tu",
+"lancerésti"
+],
+[
+"lui/lei",
+"lancerèbbe"
+],
+[
+"noi",
+"lancerémmo"
+],
+[
+"voi",
+"lanceréste"
+],
+[
+"loro",
+"lancerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -73199,6 +81088,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"lascerèi"
+],
+[
+"tu",
+"lascerésti"
+],
+[
+"lui/lei",
+"lascerèbbe"
+],
+[
+"noi",
+"lascerémmo"
+],
+[
+"voi",
+"lasceréste"
+],
+[
+"loro",
+"lascerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -73359,6 +81277,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si lascerèi"
+],
+[
+"tu",
+"si lascerésti"
+],
+[
+"lui/lei",
+"si lascerèbbe"
+],
+[
+"noi",
+"si lascerémmo"
+],
+[
+"voi",
+"si lasceréste"
+],
+[
+"loro",
+"si lascerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -73672,6 +81619,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"laverèi"
+],
+[
+"tu",
+"laverésti"
+],
+[
+"lui/lei",
+"laverèbbe"
+],
+[
+"noi",
+"laverémmo"
+],
+[
+"voi",
+"laveréste"
+],
+[
+"loro",
+"laverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -73845,6 +81821,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"lavorerèi"
+],
+[
+"tu",
+"lavorerésti"
+],
+[
+"lui/lei",
+"lavorerèbbe"
+],
+[
+"noi",
+"lavorerémmo"
+],
+[
+"voi",
+"lavoreréste"
+],
+[
+"loro",
+"lavorerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -74138,6 +82143,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"legherèi"
+],
+[
+"tu",
+"legherésti"
+],
+[
+"lui/lei",
+"legherèbbe"
+],
+[
+"noi",
+"legherémmo"
+],
+[
+"voi",
+"legheréste"
+],
+[
+"loro",
+"legherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -74382,6 +82416,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"leggerèi"
+],
+[
+"tu",
+"leggerésti"
+],
+[
+"lui/lei",
+"leggerèbbe"
+],
+[
+"noi",
+"leggerémmo"
+],
+[
+"voi",
+"leggeréste"
+],
+[
+"loro",
+"leggerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -74854,6 +82917,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"libererèi"
+],
+[
+"tu",
+"libererésti"
+],
+[
+"lui/lei",
+"libererèbbe"
+],
+[
+"noi",
+"libererémmo"
+],
+[
+"voi",
+"libereréste"
+],
+[
+"loro",
+"libererèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -75014,6 +83106,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si libererèi"
+],
+[
+"tu",
+"si libererésti"
+],
+[
+"lui/lei",
+"si libererèbbe"
+],
+[
+"noi",
+"si libererémmo"
+],
+[
+"voi",
+"si libereréste"
+],
+[
+"loro",
+"si libererèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -75288,6 +83409,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"licenzierèi"
+],
+[
+"tu",
+"licenzierésti"
+],
+[
+"lui/lei",
+"licenzierèbbe"
+],
+[
+"noi",
+"licenzierémmo"
+],
+[
+"voi",
+"licenzieréste"
+],
+[
+"loro",
+"licenzierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -75677,6 +83827,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"litigherèi"
+],
+[
+"tu",
+"litigherésti"
+],
+[
+"lui/lei",
+"litigherèbbe"
+],
+[
+"noi",
+"litigherémmo"
+],
+[
+"voi",
+"litigheréste"
+],
+[
+"loro",
+"litigherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -75917,6 +84096,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"localizzerèi"
+],
+[
+"tu",
+"localizzerésti"
+],
+[
+"lui/lei",
+"localizzerèbbe"
+],
+[
+"noi",
+"localizzerémmo"
+],
+[
+"voi",
+"localizzeréste"
+],
+[
+"loro",
+"localizzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -76165,6 +84373,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"lotterèi"
+],
+[
+"tu",
+"lotterésti"
+],
+[
+"lui/lei",
+"lotterèbbe"
+],
+[
+"noi",
+"lotterémmo"
+],
+[
+"voi",
+"lotteréste"
+],
+[
+"loro",
+"lotterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -77165,6 +85402,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"mancherèi"
+],
+[
+"tu",
+"mancherésti"
+],
+[
+"lui/lei",
+"mancherèbbe"
+],
+[
+"noi",
+"mancherémmo"
+],
+[
+"voi",
+"mancheréste"
+],
+[
+"loro",
+"mancherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -77365,6 +85631,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"manderèi"
+],
+[
+"tu",
+"manderésti"
+],
+[
+"lui/lei",
+"manderèbbe"
+],
+[
+"noi",
+"manderémmo"
+],
+[
+"voi",
+"manderéste"
+],
+[
+"loro",
+"manderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -77569,6 +85864,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"mangerèi"
+],
+[
+"tu",
+"mangerésti"
+],
+[
+"lui/lei",
+"mangerèbbe"
+],
+[
+"noi",
+"mangerémmo"
+],
+[
+"voi",
+"mangeréste"
+],
+[
+"loro",
+"mangerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -77839,6 +86163,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"manipolerèi"
+],
+[
+"tu",
+"manipolerésti"
+],
+[
+"lui/lei",
+"manipolerèbbe"
+],
+[
+"noi",
+"manipolerémmo"
+],
+[
+"voi",
+"manipoleréste"
+],
+[
+"loro",
+"manipolerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -78047,6 +86400,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"manterrèi"
+],
+[
+"tu",
+"manterrésti"
+],
+[
+"lui/lei",
+"manterrèbbe"
+],
+[
+"noi",
+"manterrémmo"
+],
+[
+"voi",
+"manterréste"
+],
+[
+"loro",
+"manterrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -78373,6 +86755,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"marcirèi"
+],
+[
+"tu",
+"marcirésti"
+],
+[
+"lui/lei",
+"marcirèbbe"
+],
+[
+"noi",
+"marcirémmo"
+],
+[
+"voi",
+"marciréste"
+],
+[
+"loro",
+"marcirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -78934,6 +87345,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"masticherèi"
+],
+[
+"tu",
+"masticherésti"
+],
+[
+"lui/lei",
+"masticherèbbe"
+],
+[
+"noi",
+"masticherémmo"
+],
+[
+"voi",
+"masticheréste"
+],
+[
+"loro",
+"masticherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -79612,6 +88052,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"mentirèi"
+],
+[
+"tu",
+"mentirésti"
+],
+[
+"lui/lei",
+"mentirèbbe"
+],
+[
+"noi",
+"mentirémmo"
+],
+[
+"voi",
+"mentiréste"
+],
+[
+"loro",
+"mentirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -80229,6 +88698,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ci metterèi"
+],
+[
+"tu",
+"ci metterésti"
+],
+[
+"lui/lei",
+"ci metterèbbe"
+],
+[
+"noi",
+"ci metterémmo"
+],
+[
+"voi",
+"ci metteréste"
+],
+[
+"loro",
+"ci metterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -80389,6 +88887,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"metterèi"
+],
+[
+"tu",
+"metterésti"
+],
+[
+"lui/lei",
+"metterèbbe"
+],
+[
+"noi",
+"metterémmo"
+],
+[
+"voi",
+"metteréste"
+],
+[
+"loro",
+"metterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -80549,6 +89076,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si metterèi"
+],
+[
+"tu",
+"si metterésti"
+],
+[
+"lui/lei",
+"si metterèbbe"
+],
+[
+"noi",
+"si metterémmo"
+],
+[
+"voi",
+"si metteréste"
+],
+[
+"loro",
+"si metterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -80906,6 +89462,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"migliorerèi"
+],
+[
+"tu",
+"migliorerésti"
+],
+[
+"lui/lei",
+"migliorerèbbe"
+],
+[
+"noi",
+"migliorerémmo"
+],
+[
+"voi",
+"miglioreréste"
+],
+[
+"loro",
+"migliorerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -81614,6 +90199,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"modificherèi"
+],
+[
+"tu",
+"modificherésti"
+],
+[
+"lui/lei",
+"modificherèbbe"
+],
+[
+"noi",
+"modificherémmo"
+],
+[
+"voi",
+"modificheréste"
+],
+[
+"loro",
+"modificherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -81871,6 +90485,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"mollerèi"
+],
+[
+"tu",
+"mollerésti"
+],
+[
+"lui/lei",
+"mollerèbbe"
+],
+[
+"noi",
+"mollerémmo"
+],
+[
+"voi",
+"molleréste"
+],
+[
+"loro",
+"mollerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -82216,6 +90859,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"monterèi"
+],
+[
+"tu",
+"monterésti"
+],
+[
+"lui/lei",
+"monterèbbe"
+],
+[
+"noi",
+"monterémmo"
+],
+[
+"voi",
+"monteréste"
+],
+[
+"loro",
+"monterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -82584,6 +91256,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"mostrerèi"
+],
+[
+"tu",
+"mostrerésti"
+],
+[
+"lui/lei",
+"mostrerèbbe"
+],
+[
+"noi",
+"mostrerémmo"
+],
+[
+"voi",
+"mostreréste"
+],
+[
+"loro",
+"mostrerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -82968,6 +91669,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"muoverèi"
+],
+[
+"tu",
+"muoverésti"
+],
+[
+"lui/lei",
+"muoverèbbe"
+],
+[
+"noi",
+"muoverémmo"
+],
+[
+"voi",
+"muoveréste"
+],
+[
+"loro",
+"muoverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -83128,6 +91858,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si muoverèi"
+],
+[
+"tu",
+"si muoverésti"
+],
+[
+"lui/lei",
+"si muoverèbbe"
+],
+[
+"noi",
+"si muoverémmo"
+],
+[
+"voi",
+"si muoveréste"
+],
+[
+"loro",
+"si muoverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -83536,6 +92295,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"nascerèi"
+],
+[
+"tu",
+"nascerésti"
+],
+[
+"lui/lei",
+"nascerèbbe"
+],
+[
+"noi",
+"nascerémmo"
+],
+[
+"voi",
+"nasceréste"
+],
+[
+"loro",
+"nascerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -83709,6 +92497,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"nasconderèi"
+],
+[
+"tu",
+"nasconderésti"
+],
+[
+"lui/lei",
+"nasconderèbbe"
+],
+[
+"noi",
+"nasconderémmo"
+],
+[
+"voi",
+"nasconderéste"
+],
+[
+"loro",
+"nasconderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -83869,6 +92686,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si nasconderèi"
+],
+[
+"tu",
+"si nasconderésti"
+],
+[
+"lui/lei",
+"si nasconderèbbe"
+],
+[
+"noi",
+"si nasconderémmo"
+],
+[
+"voi",
+"si nasconderéste"
+],
+[
+"loro",
+"si nasconderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -84285,6 +93131,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"negherèi"
+],
+[
+"tu",
+"negherésti"
+],
+[
+"lui/lei",
+"negherèbbe"
+],
+[
+"noi",
+"negherémmo"
+],
+[
+"voi",
+"negheréste"
+],
+[
+"loro",
+"negherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -84507,6 +93382,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"negozierèi"
+],
+[
+"tu",
+"negozierésti"
+],
+[
+"lui/lei",
+"negozierèbbe"
+],
+[
+"noi",
+"negozierémmo"
+],
+[
+"voi",
+"negozieréste"
+],
+[
+"loro",
+"negozierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -84982,6 +93886,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"nominerèi"
+],
+[
+"tu",
+"nominerésti"
+],
+[
+"lui/lei",
+"nominerèbbe"
+],
+[
+"noi",
+"nominerémmo"
+],
+[
+"voi",
+"nomineréste"
+],
+[
+"loro",
+"nominerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -85686,6 +94619,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"nuoterèi"
+],
+[
+"tu",
+"nuoterésti"
+],
+[
+"lui/lei",
+"nuoterèbbe"
+],
+[
+"noi",
+"nuoterémmo"
+],
+[
+"voi",
+"nuoteréste"
+],
+[
+"loro",
+"nuoterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -86084,6 +95046,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"occuperèi"
+],
+[
+"tu",
+"occuperésti"
+],
+[
+"lui/lei",
+"occuperèbbe"
+],
+[
+"noi",
+"occuperémmo"
+],
+[
+"voi",
+"occuperéste"
+],
+[
+"loro",
+"occuperèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -86244,6 +95235,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si occuperèi"
+],
+[
+"tu",
+"si occuperésti"
+],
+[
+"lui/lei",
+"si occuperèbbe"
+],
+[
+"noi",
+"si occuperémmo"
+],
+[
+"voi",
+"si occuperéste"
+],
+[
+"loro",
+"si occuperèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -86457,6 +95477,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"odierèi"
+],
+[
+"tu",
+"odierésti"
+],
+[
+"lui/lei",
+"odierèbbe"
+],
+[
+"noi",
+"odierémmo"
+],
+[
+"voi",
+"odieréste"
+],
+[
+"loro",
+"odierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -86718,6 +95767,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"offrirèi"
+],
+[
+"tu",
+"offrirésti"
+],
+[
+"lui/lei",
+"offrirèbbe"
+],
+[
+"noi",
+"offrirémmo"
+],
+[
+"voi",
+"offriréste"
+],
+[
+"loro",
+"offrirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -87143,6 +96221,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"onorerèi"
+],
+[
+"tu",
+"onorerésti"
+],
+[
+"lui/lei",
+"onorerèbbe"
+],
+[
+"noi",
+"onorerémmo"
+],
+[
+"voi",
+"onoreréste"
+],
+[
+"loro",
+"onorerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -87374,6 +96481,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"opererèi"
+],
+[
+"tu",
+"opererésti"
+],
+[
+"lui/lei",
+"opererèbbe"
+],
+[
+"noi",
+"opererémmo"
+],
+[
+"voi",
+"opereréste"
+],
+[
+"loro",
+"opererèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -87741,6 +96877,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ordinerèi"
+],
+[
+"tu",
+"ordinerésti"
+],
+[
+"lui/lei",
+"ordinerèbbe"
+],
+[
+"noi",
+"ordinerémmo"
+],
+[
+"voi",
+"ordineréste"
+],
+[
+"loro",
+"ordinerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -88016,6 +97181,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"organizzerèi"
+],
+[
+"tu",
+"organizzerésti"
+],
+[
+"lui/lei",
+"organizzerèbbe"
+],
+[
+"noi",
+"organizzerémmo"
+],
+[
+"voi",
+"organizzeréste"
+],
+[
+"loro",
+"organizzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -88444,6 +97638,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"oserèi"
+],
+[
+"tu",
+"oserésti"
+],
+[
+"lui/lei",
+"oserèbbe"
+],
+[
+"noi",
+"oserémmo"
+],
+[
+"voi",
+"oseréste"
+],
+[
+"loro",
+"oserèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -88680,6 +97903,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"osserverèi"
+],
+[
+"tu",
+"osserverésti"
+],
+[
+"lui/lei",
+"osserverèbbe"
+],
+[
+"noi",
+"osserverémmo"
+],
+[
+"voi",
+"osserveréste"
+],
+[
+"loro",
+"osserverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -88954,6 +98206,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"otterrèi"
+],
+[
+"tu",
+"otterrésti"
+],
+[
+"lui/lei",
+"otterrèbbe"
+],
+[
+"noi",
+"otterrémmo"
+],
+[
+"voi",
+"otterréste"
+],
+[
+"loro",
+"otterrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -89379,6 +98660,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"pagherèi"
+],
+[
+"tu",
+"pagherésti"
+],
+[
+"lui/lei",
+"pagherèbbe"
+],
+[
+"noi",
+"pagherémmo"
+],
+[
+"voi",
+"pagheréste"
+],
+[
+"loro",
+"pagherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -90149,6 +99459,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"parcheggerèi"
+],
+[
+"tu",
+"parcheggerésti"
+],
+[
+"lui/lei",
+"parcheggerèbbe"
+],
+[
+"noi",
+"parcheggerémmo"
+],
+[
+"voi",
+"parcheggeréste"
+],
+[
+"loro",
+"parcheggerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -90362,6 +99701,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"parrèi"
+],
+[
+"tu",
+"parrésti"
+],
+[
+"lui/lei",
+"parrèbbe"
+],
+[
+"noi",
+"parrémmo"
+],
+[
+"voi",
+"parréste"
+],
+[
+"loro",
+"parrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -90570,6 +99938,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"parlerèi"
+],
+[
+"tu",
+"parlerésti"
+],
+[
+"lui/lei",
+"parlerèbbe"
+],
+[
+"noi",
+"parlerémmo"
+],
+[
+"voi",
+"parleréste"
+],
+[
+"loro",
+"parlerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -90809,6 +100206,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"parteciperèi"
+],
+[
+"tu",
+"parteciperésti"
+],
+[
+"lui/lei",
+"parteciperèbbe"
+],
+[
+"noi",
+"parteciperémmo"
+],
+[
+"voi",
+"parteciperéste"
+],
+[
+"loro",
+"parteciperèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -91031,6 +100457,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"partirèi"
+],
+[
+"tu",
+"partirésti"
+],
+[
+"lui/lei",
+"partirèbbe"
+],
+[
+"noi",
+"partirémmo"
+],
+[
+"voi",
+"partiréste"
+],
+[
+"loro",
+"partirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -91244,6 +100699,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"partorirèi"
+],
+[
+"tu",
+"partorirésti"
+],
+[
+"lui/lei",
+"partorirèbbe"
+],
+[
+"noi",
+"partorirémmo"
+],
+[
+"voi",
+"partoriréste"
+],
+[
+"loro",
+"partorirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -91483,6 +100967,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"passerèi"
+],
+[
+"tu",
+"passerésti"
+],
+[
+"lui/lei",
+"passerèbbe"
+],
+[
+"noi",
+"passerémmo"
+],
+[
+"voi",
+"passeréste"
+],
+[
+"loro",
+"passerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -92135,6 +101648,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"peggiorerèi"
+],
+[
+"tu",
+"peggiorerésti"
+],
+[
+"lui/lei",
+"peggiorerèbbe"
+],
+[
+"noi",
+"peggiorerémmo"
+],
+[
+"voi",
+"peggioreréste"
+],
+[
+"loro",
+"peggiorerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -92444,6 +101986,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ci penserèi"
+],
+[
+"tu",
+"ci penserésti"
+],
+[
+"lui/lei",
+"ci penserèbbe"
+],
+[
+"noi",
+"ci penserémmo"
+],
+[
+"voi",
+"ci penseréste"
+],
+[
+"loro",
+"ci penserèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -92604,6 +102175,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"penserèi"
+],
+[
+"tu",
+"penserésti"
+],
+[
+"lui/lei",
+"penserèbbe"
+],
+[
+"noi",
+"penserémmo"
+],
+[
+"voi",
+"penseréste"
+],
+[
+"loro",
+"penserèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -92918,6 +102518,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"perderèi"
+],
+[
+"tu",
+"perderésti"
+],
+[
+"lui/lei",
+"perderèbbe"
+],
+[
+"noi",
+"perderémmo"
+],
+[
+"voi",
+"perderéste"
+],
+[
+"loro",
+"perderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -93100,6 +102729,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"perdonerèi"
+],
+[
+"tu",
+"perdonerésti"
+],
+[
+"lui/lei",
+"perdonerèbbe"
+],
+[
+"noi",
+"perdonerémmo"
+],
+[
+"voi",
+"perdoneréste"
+],
+[
+"loro",
+"perdonerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -93450,6 +103108,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"permetterèi"
+],
+[
+"tu",
+"permetterésti"
+],
+[
+"lui/lei",
+"permetterèbbe"
+],
+[
+"noi",
+"permetterémmo"
+],
+[
+"voi",
+"permetteréste"
+],
+[
+"loro",
+"permetterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -93610,6 +103297,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si permetterèi"
+],
+[
+"tu",
+"si permetterésti"
+],
+[
+"lui/lei",
+"si permetterèbbe"
+],
+[
+"noi",
+"si permetterémmo"
+],
+[
+"voi",
+"si permetteréste"
+],
+[
+"loro",
+"si permetterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -93783,6 +103499,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"perquisirèi"
+],
+[
+"tu",
+"perquisirésti"
+],
+[
+"lui/lei",
+"perquisirèbbe"
+],
+[
+"noi",
+"perquisirémmo"
+],
+[
+"voi",
+"perquisiréste"
+],
+[
+"loro",
+"perquisirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -94089,6 +103834,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"pescherèi"
+],
+[
+"tu",
+"pescherésti"
+],
+[
+"lui/lei",
+"pescherèbbe"
+],
+[
+"noi",
+"pescherémmo"
+],
+[
+"voi",
+"pescheréste"
+],
+[
+"loro",
+"pescherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -94403,6 +104177,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"piacerèi"
+],
+[
+"tu",
+"piacerésti"
+],
+[
+"lui/lei",
+"piacerèbbe"
+],
+[
+"noi",
+"piacerémmo"
+],
+[
+"voi",
+"piaceréste"
+],
+[
+"loro",
+"piacerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -94594,6 +104397,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"piangerèi"
+],
+[
+"tu",
+"piangerésti"
+],
+[
+"lui/lei",
+"piangerèbbe"
+],
+[
+"noi",
+"piangerémmo"
+],
+[
+"voi",
+"piangeréste"
+],
+[
+"loro",
+"piangerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -94807,6 +104639,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"pianterèi"
+],
+[
+"tu",
+"pianterésti"
+],
+[
+"lui/lei",
+"pianterèbbe"
+],
+[
+"noi",
+"pianterémmo"
+],
+[
+"voi",
+"pianteréste"
+],
+[
+"loro",
+"pianterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -95060,6 +104921,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"picchierèi"
+],
+[
+"tu",
+"picchierésti"
+],
+[
+"lui/lei",
+"picchierèbbe"
+],
+[
+"noi",
+"picchierémmo"
+],
+[
+"voi",
+"picchieréste"
+],
+[
+"loro",
+"picchierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -95546,6 +105436,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"pioverèi"
+],
+[
+"tu",
+"pioverésti"
+],
+[
+"lui/lei",
+"pioverèbbe"
+],
+[
+"noi",
+"pioverémmo"
+],
+[
+"voi",
+"pioveréste"
+],
+[
+"loro",
+"pioverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -95737,6 +105656,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"piscerèi"
+],
+[
+"tu",
+"piscerésti"
+],
+[
+"lui/lei",
+"piscerèbbe"
+],
+[
+"noi",
+"piscerémmo"
+],
+[
+"voi",
+"pisceréste"
+],
+[
+"loro",
+"piscerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -96656,6 +106604,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"porrèi"
+],
+[
+"tu",
+"porrésti"
+],
+[
+"lui/lei",
+"porrèbbe"
+],
+[
+"noi",
+"porrémmo"
+],
+[
+"voi",
+"porréste"
+],
+[
+"loro",
+"porrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -96882,6 +106859,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"porterèi"
+],
+[
+"tu",
+"porterésti"
+],
+[
+"lui/lei",
+"porterèbbe"
+],
+[
+"noi",
+"porterémmo"
+],
+[
+"voi",
+"porteréste"
+],
+[
+"loro",
+"porterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -97231,6 +107237,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"possiederèi"
+],
+[
+"tu",
+"possiederésti"
+],
+[
+"lui/lei",
+"possiederèbbe"
+],
+[
+"noi",
+"possiederémmo"
+],
+[
+"voi",
+"possiederéste"
+],
+[
+"loro",
+"possiederèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -97590,6 +107625,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"potrèi"
+],
+[
+"tu",
+"potrésti"
+],
+[
+"lui/lei",
+"potrèbbe"
+],
+[
+"noi",
+"potrémmo"
+],
+[
+"voi",
+"potréste"
+],
+[
+"loro",
+"potrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -97855,6 +107919,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"pranzerèi"
+],
+[
+"tu",
+"pranzerésti"
+],
+[
+"lui/lei",
+"pranzerèbbe"
+],
+[
+"noi",
+"pranzerémmo"
+],
+[
+"voi",
+"pranzeréste"
+],
+[
+"loro",
+"pranzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -98208,6 +108301,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"pregherèi"
+],
+[
+"tu",
+"pregherésti"
+],
+[
+"lui/lei",
+"pregherèbbe"
+],
+[
+"noi",
+"pregherémmo"
+],
+[
+"voi",
+"pregheréste"
+],
+[
+"loro",
+"pregherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -98421,6 +108543,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"premerèi"
+],
+[
+"tu",
+"premerésti"
+],
+[
+"lui/lei",
+"premerèbbe"
+],
+[
+"noi",
+"premerémmo"
+],
+[
+"voi",
+"premeréste"
+],
+[
+"loro",
+"premerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -98612,6 +108763,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ci prenderèi"
+],
+[
+"tu",
+"ci prenderésti"
+],
+[
+"lui/lei",
+"ci prenderèbbe"
+],
+[
+"noi",
+"ci prenderémmo"
+],
+[
+"voi",
+"ci prenderéste"
+],
+[
+"loro",
+"ci prenderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -98772,6 +108952,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"prenderèi"
+],
+[
+"tu",
+"prenderésti"
+],
+[
+"lui/lei",
+"prenderèbbe"
+],
+[
+"noi",
+"prenderémmo"
+],
+[
+"voi",
+"prenderéste"
+],
+[
+"loro",
+"prenderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -98932,6 +109141,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"le prenderèi"
+],
+[
+"tu",
+"le prenderésti"
+],
+[
+"lui/lei",
+"le prenderèbbe"
+],
+[
+"noi",
+"le prenderémmo"
+],
+[
+"voi",
+"le prenderéste"
+],
+[
+"loro",
+"le prenderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -99092,6 +109330,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si prenderèi"
+],
+[
+"tu",
+"si prenderésti"
+],
+[
+"lui/lei",
+"si prenderèbbe"
+],
+[
+"noi",
+"si prenderémmo"
+],
+[
+"voi",
+"si prenderéste"
+],
+[
+"loro",
+"si prenderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -99252,6 +109519,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"prenoterèi"
+],
+[
+"tu",
+"prenoterésti"
+],
+[
+"lui/lei",
+"prenoterèbbe"
+],
+[
+"noi",
+"prenoterémmo"
+],
+[
+"voi",
+"prenoteréste"
+],
+[
+"loro",
+"prenoterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -99434,6 +109730,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"preoccuperèi"
+],
+[
+"tu",
+"preoccuperésti"
+],
+[
+"lui/lei",
+"preoccuperèbbe"
+],
+[
+"noi",
+"preoccuperémmo"
+],
+[
+"voi",
+"preoccuperéste"
+],
+[
+"loro",
+"preoccuperèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -99594,6 +109919,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si preoccuperèi"
+],
+[
+"tu",
+"si preoccuperésti"
+],
+[
+"lui/lei",
+"si preoccuperèbbe"
+],
+[
+"noi",
+"si preoccuperémmo"
+],
+[
+"voi",
+"si preoccuperéste"
+],
+[
+"loro",
+"si preoccuperèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -99785,6 +110139,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"preparerèi"
+],
+[
+"tu",
+"preparerésti"
+],
+[
+"lui/lei",
+"preparerèbbe"
+],
+[
+"noi",
+"preparerémmo"
+],
+[
+"voi",
+"prepareréste"
+],
+[
+"loro",
+"preparerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -99945,6 +110328,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si preparerèi"
+],
+[
+"tu",
+"si preparerésti"
+],
+[
+"lui/lei",
+"si preparerèbbe"
+],
+[
+"noi",
+"si preparerémmo"
+],
+[
+"voi",
+"si prepareréste"
+],
+[
+"loro",
+"si preparerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -100149,6 +110561,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"prescinderèi"
+],
+[
+"tu",
+"prescinderésti"
+],
+[
+"lui/lei",
+"prescinderèbbe"
+],
+[
+"noi",
+"prescinderémmo"
+],
+[
+"voi",
+"prescinderéste"
+],
+[
+"loro",
+"prescinderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -100318,6 +110759,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"presenterèi"
+],
+[
+"tu",
+"presenterésti"
+],
+[
+"lui/lei",
+"presenterèbbe"
+],
+[
+"noi",
+"presenterémmo"
+],
+[
+"voi",
+"presenteréste"
+],
+[
+"loro",
+"presenterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -100478,6 +110948,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si presenterèi"
+],
+[
+"tu",
+"si presenterésti"
+],
+[
+"lui/lei",
+"si presenterèbbe"
+],
+[
+"noi",
+"si presenterémmo"
+],
+[
+"voi",
+"si presenteréste"
+],
+[
+"loro",
+"si presenterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -100788,6 +111287,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"presterèi"
+],
+[
+"tu",
+"presterésti"
+],
+[
+"lui/lei",
+"presterèbbe"
+],
+[
+"noi",
+"presterémmo"
+],
+[
+"voi",
+"presteréste"
+],
+[
+"loro",
+"presterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -101019,6 +111547,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"prevedrèi"
+],
+[
+"tu",
+"prevedrésti"
+],
+[
+"lui/lei",
+"prevedrèbbe"
+],
+[
+"noi",
+"prevedrémmo"
+],
+[
+"voi",
+"prevedréste"
+],
+[
+"loro",
+"prevedrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -101179,6 +111736,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"preverrèi"
+],
+[
+"tu",
+"preverrésti"
+],
+[
+"lui/lei",
+"preverrèbbe"
+],
+[
+"noi",
+"preverrémmo"
+],
+[
+"voi",
+"preverréste"
+],
+[
+"loro",
+"preverrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -101689,6 +112275,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"procederèi"
+],
+[
+"tu",
+"procederésti"
+],
+[
+"lui/lei",
+"procederèbbe"
+],
+[
+"noi",
+"procederémmo"
+],
+[
+"voi",
+"procederéste"
+],
+[
+"loro",
+"procederèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -101937,6 +112552,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"produrrèi"
+],
+[
+"tu",
+"produrrésti"
+],
+[
+"lui/lei",
+"produrrèbbe"
+],
+[
+"noi",
+"produrrémmo"
+],
+[
+"voi",
+"produrréste"
+],
+[
+"loro",
+"produrrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -102455,6 +113099,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"prometterèi"
+],
+[
+"tu",
+"prometterésti"
+],
+[
+"lui/lei",
+"prometterèbbe"
+],
+[
+"noi",
+"prometterémmo"
+],
+[
+"voi",
+"prometteréste"
+],
+[
+"loro",
+"prometterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -102650,6 +113323,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"pronuncerèi"
+],
+[
+"tu",
+"pronuncerésti"
+],
+[
+"lui/lei",
+"pronuncerèbbe"
+],
+[
+"noi",
+"pronuncerémmo"
+],
+[
+"voi",
+"pronunceréste"
+],
+[
+"loro",
+"pronuncerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -102810,6 +113512,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"proporrèi"
+],
+[
+"tu",
+"proporrésti"
+],
+[
+"lui/lei",
+"proporrèbbe"
+],
+[
+"noi",
+"proporrémmo"
+],
+[
+"voi",
+"proporréste"
+],
+[
+"loro",
+"proporrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -103080,6 +113811,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"proseguirèi"
+],
+[
+"tu",
+"proseguirésti"
+],
+[
+"lui/lei",
+"proseguirèbbe"
+],
+[
+"noi",
+"proseguirémmo"
+],
+[
+"voi",
+"proseguiréste"
+],
+[
+"loro",
+"proseguirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -103315,6 +114075,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"proteggerèi"
+],
+[
+"tu",
+"proteggerésti"
+],
+[
+"lui/lei",
+"proteggerèbbe"
+],
+[
+"noi",
+"proteggerémmo"
+],
+[
+"voi",
+"proteggeréste"
+],
+[
+"loro",
+"proteggerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -103580,6 +114369,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ci proverèi"
+],
+[
+"tu",
+"ci proverésti"
+],
+[
+"lui/lei",
+"ci proverèbbe"
+],
+[
+"noi",
+"ci proverémmo"
+],
+[
+"voi",
+"ci proveréste"
+],
+[
+"loro",
+"ci proverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -103740,6 +114558,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"proverèi"
+],
+[
+"tu",
+"proverésti"
+],
+[
+"lui/lei",
+"proverèbbe"
+],
+[
+"noi",
+"proverémmo"
+],
+[
+"voi",
+"proveréste"
+],
+[
+"loro",
+"proverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -103940,6 +114787,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"provocherèi"
+],
+[
+"tu",
+"provocherésti"
+],
+[
+"lui/lei",
+"provocherèbbe"
+],
+[
+"noi",
+"provocherémmo"
+],
+[
+"voi",
+"provocheréste"
+],
+[
+"loro",
+"provocherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -104211,6 +115087,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"pubblicherèi"
+],
+[
+"tu",
+"pubblicherésti"
+],
+[
+"lui/lei",
+"pubblicherèbbe"
+],
+[
+"noi",
+"pubblicherémmo"
+],
+[
+"voi",
+"pubblicheréste"
+],
+[
+"loro",
+"pubblicherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -104446,6 +115351,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"pulirèi"
+],
+[
+"tu",
+"pulirésti"
+],
+[
+"lui/lei",
+"pulirèbbe"
+],
+[
+"noi",
+"pulirémmo"
+],
+[
+"voi",
+"puliréste"
+],
+[
+"loro",
+"pulirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -104690,6 +115624,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"punirèi"
+],
+[
+"tu",
+"punirésti"
+],
+[
+"lui/lei",
+"punirèbbe"
+],
+[
+"noi",
+"punirémmo"
+],
+[
+"voi",
+"puniréste"
+],
+[
+"loro",
+"punirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -104876,6 +115839,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"punterèi"
+],
+[
+"tu",
+"punterésti"
+],
+[
+"lui/lei",
+"punterèbbe"
+],
+[
+"noi",
+"punterémmo"
+],
+[
+"voi",
+"punteréste"
+],
+[
+"loro",
+"punterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -105451,6 +116443,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"raccoglierèi"
+],
+[
+"tu",
+"raccoglierésti"
+],
+[
+"lui/lei",
+"raccoglierèbbe"
+],
+[
+"noi",
+"raccoglierémmo"
+],
+[
+"voi",
+"raccoglieréste"
+],
+[
+"loro",
+"raccoglierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -105633,6 +116654,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"racconterèi"
+],
+[
+"tu",
+"racconterésti"
+],
+[
+"lui/lei",
+"racconterèbbe"
+],
+[
+"noi",
+"racconterémmo"
+],
+[
+"voi",
+"racconteréste"
+],
+[
+"loro",
+"racconterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -106017,6 +117067,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"raggiungerèi"
+],
+[
+"tu",
+"raggiungerésti"
+],
+[
+"lui/lei",
+"raggiungerèbbe"
+],
+[
+"noi",
+"raggiungerémmo"
+],
+[
+"voi",
+"raggiungeréste"
+],
+[
+"loro",
+"raggiungerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -106177,6 +117256,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ragionerèi"
+],
+[
+"tu",
+"ragionerésti"
+],
+[
+"lui/lei",
+"ragionerèbbe"
+],
+[
+"noi",
+"ragionerémmo"
+],
+[
+"voi",
+"ragioneréste"
+],
+[
+"loro",
+"ragionerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -106390,6 +117498,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rallenterèi"
+],
+[
+"tu",
+"rallenterésti"
+],
+[
+"lui/lei",
+"rallenterèbbe"
+],
+[
+"noi",
+"rallenterémmo"
+],
+[
+"voi",
+"rallenteréste"
+],
+[
+"loro",
+"rallenterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -106673,6 +117810,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rapirèi"
+],
+[
+"tu",
+"rapirésti"
+],
+[
+"lui/lei",
+"rapirèbbe"
+],
+[
+"noi",
+"rapirémmo"
+],
+[
+"voi",
+"rapiréste"
+],
+[
+"loro",
+"rapirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -106895,6 +118061,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rappresenterèi"
+],
+[
+"tu",
+"rappresenterésti"
+],
+[
+"lui/lei",
+"rappresenterèbbe"
+],
+[
+"noi",
+"rappresenterémmo"
+],
+[
+"voi",
+"rappresenteréste"
+],
+[
+"loro",
+"rappresenterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -107148,6 +118343,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"reagirèi"
+],
+[
+"tu",
+"reagirésti"
+],
+[
+"lui/lei",
+"reagirèbbe"
+],
+[
+"noi",
+"reagirémmo"
+],
+[
+"voi",
+"reagiréste"
+],
+[
+"loro",
+"reagirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -107330,6 +118554,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"realizzerèi"
+],
+[
+"tu",
+"realizzerésti"
+],
+[
+"lui/lei",
+"realizzerèbbe"
+],
+[
+"noi",
+"realizzerémmo"
+],
+[
+"voi",
+"realizzeréste"
+],
+[
+"loro",
+"realizzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -107622,6 +118875,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"reciterèi"
+],
+[
+"tu",
+"reciterésti"
+],
+[
+"lui/lei",
+"reciterèbbe"
+],
+[
+"noi",
+"reciterémmo"
+],
+[
+"voi",
+"reciteréste"
+],
+[
+"loro",
+"reciterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -107830,6 +119112,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"recupererèi"
+],
+[
+"tu",
+"recupererésti"
+],
+[
+"lui/lei",
+"recupererèbbe"
+],
+[
+"noi",
+"recupererémmo"
+],
+[
+"voi",
+"recupereréste"
+],
+[
+"loro",
+"recupererèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -108043,6 +119354,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"reggerèi"
+],
+[
+"tu",
+"reggerésti"
+],
+[
+"lui/lei",
+"reggerèbbe"
+],
+[
+"noi",
+"reggerémmo"
+],
+[
+"voi",
+"reggeréste"
+],
+[
+"loro",
+"reggerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -108299,6 +119639,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"registrerèi"
+],
+[
+"tu",
+"registrerésti"
+],
+[
+"lui/lei",
+"registrerèbbe"
+],
+[
+"noi",
+"registrerémmo"
+],
+[
+"voi",
+"registreréste"
+],
+[
+"loro",
+"registrerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -108639,6 +120008,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"renderèi"
+],
+[
+"tu",
+"renderésti"
+],
+[
+"lui/lei",
+"renderèbbe"
+],
+[
+"noi",
+"renderémmo"
+],
+[
+"voi",
+"renderéste"
+],
+[
+"loro",
+"renderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -108908,6 +120306,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"resisterèi"
+],
+[
+"tu",
+"resisterésti"
+],
+[
+"lui/lei",
+"resisterèbbe"
+],
+[
+"noi",
+"resisterémmo"
+],
+[
+"voi",
+"resisteréste"
+],
+[
+"loro",
+"resisterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -109103,6 +120530,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"respirerèi"
+],
+[
+"tu",
+"respirerésti"
+],
+[
+"lui/lei",
+"respirerèbbe"
+],
+[
+"noi",
+"respirerémmo"
+],
+[
+"voi",
+"respireréste"
+],
+[
+"loro",
+"respirerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -109338,6 +120794,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"resterèi"
+],
+[
+"tu",
+"resterésti"
+],
+[
+"lui/lei",
+"resterèbbe"
+],
+[
+"noi",
+"resterémmo"
+],
+[
+"voi",
+"resteréste"
+],
+[
+"loro",
+"resterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -109507,6 +120992,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"restituirèi"
+],
+[
+"tu",
+"restituirésti"
+],
+[
+"lui/lei",
+"restituirèbbe"
+],
+[
+"noi",
+"restituirémmo"
+],
+[
+"voi",
+"restituiréste"
+],
+[
+"loro",
+"restituirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -109750,6 +121264,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"riavrèi"
+],
+[
+"tu",
+"riavrésti"
+],
+[
+"lui/lei",
+"riavrèbbe"
+],
+[
+"noi",
+"riavrémmo"
+],
+[
+"voi",
+"riavréste"
+],
+[
+"loro",
+"riavrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -110029,6 +121572,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"riceverèi"
+],
+[
+"tu",
+"riceverésti"
+],
+[
+"lui/lei",
+"riceverèbbe"
+],
+[
+"noi",
+"riceverémmo"
+],
+[
+"voi",
+"riceveréste"
+],
+[
+"loro",
+"riceverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -110215,6 +121787,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"richiamerèi"
+],
+[
+"tu",
+"richiamerésti"
+],
+[
+"lui/lei",
+"richiamerèbbe"
+],
+[
+"noi",
+"richiamerémmo"
+],
+[
+"voi",
+"richiameréste"
+],
+[
+"loro",
+"richiamerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -110397,6 +121998,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"richiederèi"
+],
+[
+"tu",
+"richiederésti"
+],
+[
+"lui/lei",
+"richiederèbbe"
+],
+[
+"noi",
+"richiederémmo"
+],
+[
+"voi",
+"richiederéste"
+],
+[
+"loro",
+"richiederèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -110601,6 +122231,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ricomincerèi"
+],
+[
+"tu",
+"ricomincerésti"
+],
+[
+"lui/lei",
+"ricomincerèbbe"
+],
+[
+"noi",
+"ricomincerémmo"
+],
+[
+"voi",
+"ricominceréste"
+],
+[
+"loro",
+"ricomincerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -110783,6 +122442,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"riconoscerèi"
+],
+[
+"tu",
+"riconoscerésti"
+],
+[
+"lui/lei",
+"riconoscerèbbe"
+],
+[
+"noi",
+"riconoscerémmo"
+],
+[
+"voi",
+"riconosceréste"
+],
+[
+"loro",
+"riconoscerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -110974,6 +122662,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ricorderèi"
+],
+[
+"tu",
+"ricorderésti"
+],
+[
+"lui/lei",
+"ricorderèbbe"
+],
+[
+"noi",
+"ricorderémmo"
+],
+[
+"voi",
+"ricorderéste"
+],
+[
+"loro",
+"ricorderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -111156,6 +122873,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ricostruirèi"
+],
+[
+"tu",
+"ricostruirésti"
+],
+[
+"lui/lei",
+"ricostruirèbbe"
+],
+[
+"noi",
+"ricostruirémmo"
+],
+[
+"voi",
+"ricostruiréste"
+],
+[
+"loro",
+"ricostruirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -111329,6 +123075,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"riderèi"
+],
+[
+"tu",
+"riderésti"
+],
+[
+"lui/lei",
+"riderèbbe"
+],
+[
+"noi",
+"riderémmo"
+],
+[
+"voi",
+"rideréste"
+],
+[
+"loro",
+"riderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -111520,6 +123295,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ridurrèi"
+],
+[
+"tu",
+"ridurrésti"
+],
+[
+"lui/lei",
+"ridurrèbbe"
+],
+[
+"noi",
+"ridurrémmo"
+],
+[
+"voi",
+"ridurréste"
+],
+[
+"loro",
+"ridurrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -111680,6 +123484,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"riempirèi"
+],
+[
+"tu",
+"riempirésti"
+],
+[
+"lui/lei",
+"riempirèbbe"
+],
+[
+"noi",
+"riempirémmo"
+],
+[
+"voi",
+"riempiréste"
+],
+[
+"loro",
+"riempirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -111840,6 +123673,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rientrerèi"
+],
+[
+"tu",
+"rientrerésti"
+],
+[
+"lui/lei",
+"rientrerèbbe"
+],
+[
+"noi",
+"rientrerémmo"
+],
+[
+"voi",
+"rientreréste"
+],
+[
+"loro",
+"rientrerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -112013,6 +123875,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rifarèi"
+],
+[
+"tu",
+"rifarésti"
+],
+[
+"lui/lei",
+"rifarèbbe"
+],
+[
+"noi",
+"rifarémmo"
+],
+[
+"voi",
+"rifaréste"
+],
+[
+"loro",
+"rifarèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -112186,6 +124077,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"riferirèi"
+],
+[
+"tu",
+"riferirésti"
+],
+[
+"lui/lei",
+"riferirèbbe"
+],
+[
+"noi",
+"riferirémmo"
+],
+[
+"voi",
+"riferiréste"
+],
+[
+"loro",
+"riferirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -112346,6 +124266,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rifiuterèi"
+],
+[
+"tu",
+"rifiuterésti"
+],
+[
+"lui/lei",
+"rifiuterèbbe"
+],
+[
+"noi",
+"rifiuterémmo"
+],
+[
+"voi",
+"rifiuteréste"
+],
+[
+"loro",
+"rifiuterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -112537,6 +124486,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rifletterèi"
+],
+[
+"tu",
+"rifletterésti"
+],
+[
+"lui/lei",
+"rifletterèbbe"
+],
+[
+"noi",
+"rifletterémmo"
+],
+[
+"voi",
+"rifletteréste"
+],
+[
+"loro",
+"rifletterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -112798,6 +124776,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rilascerèi"
+],
+[
+"tu",
+"rilascerésti"
+],
+[
+"lui/lei",
+"rilascerèbbe"
+],
+[
+"noi",
+"rilascerémmo"
+],
+[
+"voi",
+"rilasceréste"
+],
+[
+"loro",
+"rilascerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -112971,6 +124978,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si rilasserèi"
+],
+[
+"tu",
+"si rilasserésti"
+],
+[
+"lui/lei",
+"si rilasserèbbe"
+],
+[
+"noi",
+"si rilasserémmo"
+],
+[
+"voi",
+"si rilasseréste"
+],
+[
+"loro",
+"si rilasserèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -113162,6 +125198,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rimanderèi"
+],
+[
+"tu",
+"rimanderésti"
+],
+[
+"lui/lei",
+"rimanderèbbe"
+],
+[
+"noi",
+"rimanderémmo"
+],
+[
+"voi",
+"rimanderéste"
+],
+[
+"loro",
+"rimanderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -113322,6 +125387,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rimarrèi"
+],
+[
+"tu",
+"rimarrésti"
+],
+[
+"lui/lei",
+"rimarrèbbe"
+],
+[
+"noi",
+"rimarrémmo"
+],
+[
+"voi",
+"rimarréste"
+],
+[
+"loro",
+"rimarrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -113482,6 +125576,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rimedierèi"
+],
+[
+"tu",
+"rimedierésti"
+],
+[
+"lui/lei",
+"rimedierèbbe"
+],
+[
+"noi",
+"rimedierémmo"
+],
+[
+"voi",
+"rimedieréste"
+],
+[
+"loro",
+"rimedierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -113668,6 +125791,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rimetterèi"
+],
+[
+"tu",
+"rimetterésti"
+],
+[
+"lui/lei",
+"rimetterèbbe"
+],
+[
+"noi",
+"rimetterémmo"
+],
+[
+"voi",
+"rimetteréste"
+],
+[
+"loro",
+"rimetterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -113828,6 +125980,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rimorchierèi"
+],
+[
+"tu",
+"rimorchierésti"
+],
+[
+"lui/lei",
+"rimorchierèbbe"
+],
+[
+"noi",
+"rimorchierémmo"
+],
+[
+"voi",
+"rimorchieréste"
+],
+[
+"loro",
+"rimorchierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -114010,6 +126191,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rimuoverèi"
+],
+[
+"tu",
+"rimuoverésti"
+],
+[
+"lui/lei",
+"rimuoverèbbe"
+],
+[
+"noi",
+"rimuoverémmo"
+],
+[
+"voi",
+"rimuoveréste"
+],
+[
+"loro",
+"rimuoverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -114201,6 +126411,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ringrazierèi"
+],
+[
+"tu",
+"ringrazierésti"
+],
+[
+"lui/lei",
+"ringrazierèbbe"
+],
+[
+"noi",
+"ringrazierémmo"
+],
+[
+"voi",
+"ringrazieréste"
+],
+[
+"loro",
+"ringrazierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -114361,6 +126600,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rintraccerèi"
+],
+[
+"tu",
+"rintraccerésti"
+],
+[
+"lui/lei",
+"rintraccerèbbe"
+],
+[
+"noi",
+"rintraccerémmo"
+],
+[
+"voi",
+"rintracceréste"
+],
+[
+"loro",
+"rintraccerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -114543,6 +126811,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rinuncerèi"
+],
+[
+"tu",
+"rinuncerésti"
+],
+[
+"lui/lei",
+"rinuncerèbbe"
+],
+[
+"noi",
+"rinuncerémmo"
+],
+[
+"voi",
+"rinunceréste"
+],
+[
+"loro",
+"rinuncerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -114716,6 +127013,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"riparerèi"
+],
+[
+"tu",
+"riparerésti"
+],
+[
+"lui/lei",
+"riparerèbbe"
+],
+[
+"noi",
+"riparerémmo"
+],
+[
+"voi",
+"ripareréste"
+],
+[
+"loro",
+"riparerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -114898,6 +127224,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ripartirèi"
+],
+[
+"tu",
+"ripartirésti"
+],
+[
+"lui/lei",
+"ripartirèbbe"
+],
+[
+"noi",
+"ripartirémmo"
+],
+[
+"voi",
+"ripartiréste"
+],
+[
+"loro",
+"ripartirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -115058,6 +127413,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ripeterèi"
+],
+[
+"tu",
+"ripeterésti"
+],
+[
+"lui/lei",
+"ripeterèbbe"
+],
+[
+"noi",
+"ripeterémmo"
+],
+[
+"voi",
+"ripeteréste"
+],
+[
+"loro",
+"ripeterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -115218,6 +127602,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"riporterèi"
+],
+[
+"tu",
+"riporterésti"
+],
+[
+"lui/lei",
+"riporterèbbe"
+],
+[
+"noi",
+"riporterémmo"
+],
+[
+"voi",
+"riporteréste"
+],
+[
+"loro",
+"riporterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -115400,6 +127813,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"riposerèi"
+],
+[
+"tu",
+"riposerésti"
+],
+[
+"lui/lei",
+"riposerèbbe"
+],
+[
+"noi",
+"riposerémmo"
+],
+[
+"voi",
+"riposeréste"
+],
+[
+"loro",
+"riposerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -115595,6 +128037,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"riprenderèi"
+],
+[
+"tu",
+"riprenderésti"
+],
+[
+"lui/lei",
+"riprenderèbbe"
+],
+[
+"noi",
+"riprenderémmo"
+],
+[
+"voi",
+"riprenderéste"
+],
+[
+"loro",
+"riprenderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -115755,6 +128226,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si riprenderèi"
+],
+[
+"tu",
+"si riprenderésti"
+],
+[
+"lui/lei",
+"si riprenderèbbe"
+],
+[
+"noi",
+"si riprenderémmo"
+],
+[
+"voi",
+"si riprenderéste"
+],
+[
+"loro",
+"si riprenderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -115937,6 +128437,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ripulirèi"
+],
+[
+"tu",
+"ripulirésti"
+],
+[
+"lui/lei",
+"ripulirèbbe"
+],
+[
+"noi",
+"ripulirémmo"
+],
+[
+"voi",
+"ripuliréste"
+],
+[
+"loro",
+"ripulirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -116097,6 +128626,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"risalirèi"
+],
+[
+"tu",
+"risalirésti"
+],
+[
+"lui/lei",
+"risalirèbbe"
+],
+[
+"noi",
+"risalirémmo"
+],
+[
+"voi",
+"risaliréste"
+],
+[
+"loro",
+"risalirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -116327,6 +128885,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rischierèi"
+],
+[
+"tu",
+"rischierésti"
+],
+[
+"lui/lei",
+"rischierèbbe"
+],
+[
+"noi",
+"rischierémmo"
+],
+[
+"voi",
+"rischieréste"
+],
+[
+"loro",
+"rischierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -116579,6 +129166,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"risolverèi"
+],
+[
+"tu",
+"risolverésti"
+],
+[
+"lui/lei",
+"risolverèbbe"
+],
+[
+"noi",
+"risolverémmo"
+],
+[
+"voi",
+"risolveréste"
+],
+[
+"loro",
+"risolverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -116783,6 +129399,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"risparmierèi"
+],
+[
+"tu",
+"risparmierésti"
+],
+[
+"lui/lei",
+"risparmierèbbe"
+],
+[
+"noi",
+"risparmierémmo"
+],
+[
+"voi",
+"risparmieréste"
+],
+[
+"loro",
+"risparmierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -116965,6 +129610,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rispetterèi"
+],
+[
+"tu",
+"rispetterésti"
+],
+[
+"lui/lei",
+"rispetterèbbe"
+],
+[
+"noi",
+"rispetterémmo"
+],
+[
+"voi",
+"rispetteréste"
+],
+[
+"loro",
+"rispetterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -117147,6 +129821,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"risponderèi"
+],
+[
+"tu",
+"risponderésti"
+],
+[
+"lui/lei",
+"risponderèbbe"
+],
+[
+"noi",
+"risponderémmo"
+],
+[
+"voi",
+"risponderéste"
+],
+[
+"loro",
+"risponderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -117430,6 +130133,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ritirerèi"
+],
+[
+"tu",
+"ritirerésti"
+],
+[
+"lui/lei",
+"ritirerèbbe"
+],
+[
+"noi",
+"ritirerémmo"
+],
+[
+"voi",
+"ritireréste"
+],
+[
+"loro",
+"ritirerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -117590,6 +130322,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si ritirerèi"
+],
+[
+"tu",
+"si ritirerésti"
+],
+[
+"lui/lei",
+"si ritirerèbbe"
+],
+[
+"noi",
+"si ritirerémmo"
+],
+[
+"voi",
+"si ritireréste"
+],
+[
+"loro",
+"si ritirerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -117811,6 +130572,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ritornerèi"
+],
+[
+"tu",
+"ritornerésti"
+],
+[
+"lui/lei",
+"ritornerèbbe"
+],
+[
+"noi",
+"ritornerémmo"
+],
+[
+"voi",
+"ritorneréste"
+],
+[
+"loro",
+"ritornerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -118002,6 +130792,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ritroverèi"
+],
+[
+"tu",
+"ritroverésti"
+],
+[
+"lui/lei",
+"ritroverèbbe"
+],
+[
+"noi",
+"ritroverémmo"
+],
+[
+"voi",
+"ritroveréste"
+],
+[
+"loro",
+"ritroverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -118224,6 +131043,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"riuscirèi"
+],
+[
+"tu",
+"riuscirésti"
+],
+[
+"lui/lei",
+"riuscirèbbe"
+],
+[
+"noi",
+"riuscirémmo"
+],
+[
+"voi",
+"riusciréste"
+],
+[
+"loro",
+"riuscirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -118428,6 +131276,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rivedrèi"
+],
+[
+"tu",
+"rivedrésti"
+],
+[
+"lui/lei",
+"rivedrèbbe"
+],
+[
+"noi",
+"rivedrémmo"
+],
+[
+"voi",
+"rivedréste"
+],
+[
+"loro",
+"rivedrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -118588,6 +131465,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rivelerèi"
+],
+[
+"tu",
+"rivelerésti"
+],
+[
+"lui/lei",
+"rivelerèbbe"
+],
+[
+"noi",
+"rivelerémmo"
+],
+[
+"voi",
+"riveleréste"
+],
+[
+"loro",
+"rivelerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -118783,6 +131689,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rivivrèi"
+],
+[
+"tu",
+"rivivrésti"
+],
+[
+"lui/lei",
+"rivivrèbbe"
+],
+[
+"noi",
+"rivivrémmo"
+],
+[
+"voi",
+"rivivréste"
+],
+[
+"loro",
+"rivivrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -119111,6 +132046,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"romperèi"
+],
+[
+"tu",
+"romperésti"
+],
+[
+"lui/lei",
+"romperèbbe"
+],
+[
+"noi",
+"romperémmo"
+],
+[
+"voi",
+"romperéste"
+],
+[
+"loro",
+"romperèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -119443,6 +132407,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"rovinerèi"
+],
+[
+"tu",
+"rovinerésti"
+],
+[
+"lui/lei",
+"rovinerèbbe"
+],
+[
+"noi",
+"rovinerémmo"
+],
+[
+"voi",
+"rovineréste"
+],
+[
+"loro",
+"rovinerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -119621,6 +132614,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ruberèi"
+],
+[
+"tu",
+"ruberésti"
+],
+[
+"lui/lei",
+"ruberèbbe"
+],
+[
+"noi",
+"ruberémmo"
+],
+[
+"voi",
+"ruberéste"
+],
+[
+"loro",
+"ruberèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -120027,6 +133049,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sacrificherèi"
+],
+[
+"tu",
+"sacrificherésti"
+],
+[
+"lui/lei",
+"sacrificherèbbe"
+],
+[
+"noi",
+"sacrificherémmo"
+],
+[
+"voi",
+"sacrificheréste"
+],
+[
+"loro",
+"sacrificherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -120297,6 +133348,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"salirèi"
+],
+[
+"tu",
+"salirésti"
+],
+[
+"lui/lei",
+"salirèbbe"
+],
+[
+"noi",
+"salirémmo"
+],
+[
+"voi",
+"saliréste"
+],
+[
+"loro",
+"salirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -120566,6 +133646,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"salterèi"
+],
+[
+"tu",
+"salterésti"
+],
+[
+"lui/lei",
+"salterèbbe"
+],
+[
+"noi",
+"salterémmo"
+],
+[
+"voi",
+"salteréste"
+],
+[
+"loro",
+"salterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -120814,6 +133923,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"salverèi"
+],
+[
+"tu",
+"salverésti"
+],
+[
+"lui/lei",
+"salverèbbe"
+],
+[
+"noi",
+"salverémmo"
+],
+[
+"voi",
+"salveréste"
+],
+[
+"loro",
+"salverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -121106,6 +134244,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sanguinerèi"
+],
+[
+"tu",
+"sanguinerésti"
+],
+[
+"lui/lei",
+"sanguinerèbbe"
+],
+[
+"noi",
+"sanguinerémmo"
+],
+[
+"voi",
+"sanguineréste"
+],
+[
+"loro",
+"sanguinerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -121306,6 +134473,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"saprèi"
+],
+[
+"tu",
+"saprésti"
+],
+[
+"lui/lei",
+"saprèbbe"
+],
+[
+"noi",
+"saprémmo"
+],
+[
+"voi",
+"sapréste"
+],
+[
+"loro",
+"saprèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -121466,6 +134662,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si saprèi"
+],
+[
+"tu",
+"si saprésti"
+],
+[
+"lui/lei",
+"si saprèbbe"
+],
+[
+"noi",
+"si saprémmo"
+],
+[
+"voi",
+"si sapréste"
+],
+[
+"loro",
+"si saprèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -121723,6 +134948,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sbaglierèi"
+],
+[
+"tu",
+"sbaglierésti"
+],
+[
+"lui/lei",
+"sbaglierèbbe"
+],
+[
+"noi",
+"sbaglierémmo"
+],
+[
+"voi",
+"sbaglieréste"
+],
+[
+"loro",
+"sbaglierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -121905,6 +135159,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si sbarazzerèi"
+],
+[
+"tu",
+"si sbarazzerésti"
+],
+[
+"lui/lei",
+"si sbarazzerèbbe"
+],
+[
+"noi",
+"si sbarazzerémmo"
+],
+[
+"voi",
+"si sbarazzeréste"
+],
+[
+"loro",
+"si sbarazzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -122074,6 +135357,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sbatterèi"
+],
+[
+"tu",
+"sbatterésti"
+],
+[
+"lui/lei",
+"sbatterèbbe"
+],
+[
+"noi",
+"sbatterémmo"
+],
+[
+"voi",
+"sbatteréste"
+],
+[
+"loro",
+"sbatterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -122278,6 +135590,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sbrigherèi"
+],
+[
+"tu",
+"sbrigherésti"
+],
+[
+"lui/lei",
+"sbrigherèbbe"
+],
+[
+"noi",
+"sbrigherémmo"
+],
+[
+"voi",
+"sbrigheréste"
+],
+[
+"loro",
+"sbrigherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -122513,6 +135854,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scambierèi"
+],
+[
+"tu",
+"scambierésti"
+],
+[
+"lui/lei",
+"scambierèbbe"
+],
+[
+"noi",
+"scambierémmo"
+],
+[
+"voi",
+"scambieréste"
+],
+[
+"loro",
+"scambierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -122747,6 +136117,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scapperèi"
+],
+[
+"tu",
+"scapperésti"
+],
+[
+"lui/lei",
+"scapperèbbe"
+],
+[
+"noi",
+"scapperémmo"
+],
+[
+"voi",
+"scapperéste"
+],
+[
+"loro",
+"scapperèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -122951,6 +136350,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scaricherèi"
+],
+[
+"tu",
+"scaricherésti"
+],
+[
+"lui/lei",
+"scaricherèbbe"
+],
+[
+"noi",
+"scaricherémmo"
+],
+[
+"voi",
+"scaricheréste"
+],
+[
+"loro",
+"scaricherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -123182,6 +136610,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scatterèi"
+],
+[
+"tu",
+"scatterésti"
+],
+[
+"lui/lei",
+"scatterèbbe"
+],
+[
+"noi",
+"scatterémmo"
+],
+[
+"voi",
+"scatteréste"
+],
+[
+"loro",
+"scatterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -123355,6 +136812,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scaverèi"
+],
+[
+"tu",
+"scaverésti"
+],
+[
+"lui/lei",
+"scaverèbbe"
+],
+[
+"noi",
+"scaverémmo"
+],
+[
+"voi",
+"scaveréste"
+],
+[
+"loro",
+"scaverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -123515,6 +137001,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sceglierèi"
+],
+[
+"tu",
+"sceglierésti"
+],
+[
+"lui/lei",
+"sceglierèbbe"
+],
+[
+"noi",
+"sceglierémmo"
+],
+[
+"voi",
+"sceglieréste"
+],
+[
+"loro",
+"sceglierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -123767,6 +137282,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scenderèi"
+],
+[
+"tu",
+"scenderésti"
+],
+[
+"lui/lei",
+"scenderèbbe"
+],
+[
+"noi",
+"scenderémmo"
+],
+[
+"voi",
+"scenderéste"
+],
+[
+"loro",
+"scenderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -124036,6 +137580,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scherzerèi"
+],
+[
+"tu",
+"scherzerésti"
+],
+[
+"lui/lei",
+"scherzerèbbe"
+],
+[
+"noi",
+"scherzerémmo"
+],
+[
+"voi",
+"scherzeréste"
+],
+[
+"loro",
+"scherzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -124560,6 +138133,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scivolerèi"
+],
+[
+"tu",
+"scivolerésti"
+],
+[
+"lui/lei",
+"scivolerèbbe"
+],
+[
+"noi",
+"scivolerémmo"
+],
+[
+"voi",
+"scivoleréste"
+],
+[
+"loro",
+"scivolerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -124764,6 +138366,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scommetterèi"
+],
+[
+"tu",
+"scommetterésti"
+],
+[
+"lui/lei",
+"scommetterèbbe"
+],
+[
+"noi",
+"scommetterémmo"
+],
+[
+"voi",
+"scommetteréste"
+],
+[
+"loro",
+"scommetterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -124924,6 +138555,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scomparirèi"
+],
+[
+"tu",
+"scomparirésti"
+],
+[
+"lui/lei",
+"scomparirèbbe"
+],
+[
+"noi",
+"scomparirémmo"
+],
+[
+"voi",
+"scompariréste"
+],
+[
+"loro",
+"scomparirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -125115,6 +138775,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sconfiggerèi"
+],
+[
+"tu",
+"sconfiggerésti"
+],
+[
+"lui/lei",
+"sconfiggerèbbe"
+],
+[
+"noi",
+"sconfiggerémmo"
+],
+[
+"voi",
+"sconfiggeréste"
+],
+[
+"loro",
+"sconfiggerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -125381,6 +139070,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scoperèi"
+],
+[
+"tu",
+"scoperésti"
+],
+[
+"lui/lei",
+"scoperèbbe"
+],
+[
+"noi",
+"scoperémmo"
+],
+[
+"voi",
+"scoperéste"
+],
+[
+"loro",
+"scoperèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -125629,6 +139347,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scoppierèi"
+],
+[
+"tu",
+"scoppierésti"
+],
+[
+"lui/lei",
+"scoppierèbbe"
+],
+[
+"noi",
+"scoppierémmo"
+],
+[
+"voi",
+"scoppieréste"
+],
+[
+"loro",
+"scoppierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -125789,6 +139536,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scoprirèi"
+],
+[
+"tu",
+"scoprirésti"
+],
+[
+"lui/lei",
+"scoprirèbbe"
+],
+[
+"noi",
+"scoprirémmo"
+],
+[
+"voi",
+"scopriréste"
+],
+[
+"loro",
+"scoprirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -125962,6 +139738,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scorderèi"
+],
+[
+"tu",
+"scorderésti"
+],
+[
+"lui/lei",
+"scorderèbbe"
+],
+[
+"noi",
+"scorderémmo"
+],
+[
+"voi",
+"scorderéste"
+],
+[
+"loro",
+"scorderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -126131,6 +139936,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scorrerèi"
+],
+[
+"tu",
+"scorrerésti"
+],
+[
+"lui/lei",
+"scorrerèbbe"
+],
+[
+"noi",
+"scorrerémmo"
+],
+[
+"voi",
+"scorreréste"
+],
+[
+"loro",
+"scorrerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -126502,6 +140336,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scriverèi"
+],
+[
+"tu",
+"scriverésti"
+],
+[
+"lui/lei",
+"scriverèbbe"
+],
+[
+"noi",
+"scriverémmo"
+],
+[
+"voi",
+"scriveréste"
+],
+[
+"loro",
+"scriverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -126737,6 +140600,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"scuserèi"
+],
+[
+"tu",
+"scuserésti"
+],
+[
+"lui/lei",
+"scuserèbbe"
+],
+[
+"noi",
+"scuserémmo"
+],
+[
+"voi",
+"scuseréste"
+],
+[
+"loro",
+"scuserèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -126897,6 +140789,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si scuserèi"
+],
+[
+"tu",
+"si scuserésti"
+],
+[
+"lui/lei",
+"si scuserèbbe"
+],
+[
+"noi",
+"si scuserémmo"
+],
+[
+"voi",
+"si scuseréste"
+],
+[
+"loro",
+"si scuserèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -127185,6 +141106,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"siederèi"
+],
+[
+"tu",
+"siederésti"
+],
+[
+"lui/lei",
+"siederèbbe"
+],
+[
+"noi",
+"siederémmo"
+],
+[
+"voi",
+"siederéste"
+],
+[
+"loro",
+"siederèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -127345,6 +141295,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si siederèi"
+],
+[
+"tu",
+"si siederésti"
+],
+[
+"lui/lei",
+"si siederèbbe"
+],
+[
+"noi",
+"si siederémmo"
+],
+[
+"voi",
+"si siederéste"
+],
+[
+"loro",
+"si siederèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -127756,6 +141735,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"seguirèi"
+],
+[
+"tu",
+"seguirésti"
+],
+[
+"lui/lei",
+"seguirèbbe"
+],
+[
+"noi",
+"seguirémmo"
+],
+[
+"voi",
+"seguiréste"
+],
+[
+"loro",
+"seguirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -127987,6 +141995,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sembrerèi"
+],
+[
+"tu",
+"sembrerésti"
+],
+[
+"lui/lei",
+"sembrerèbbe"
+],
+[
+"noi",
+"sembrerémmo"
+],
+[
+"voi",
+"sembreréste"
+],
+[
+"loro",
+"sembrerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -128401,6 +142438,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ci sentirèi"
+],
+[
+"tu",
+"ci sentirésti"
+],
+[
+"lui/lei",
+"ci sentirèbbe"
+],
+[
+"noi",
+"ci sentirémmo"
+],
+[
+"voi",
+"ci sentiréste"
+],
+[
+"loro",
+"ci sentirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -128561,6 +142627,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sentirèi"
+],
+[
+"tu",
+"sentirésti"
+],
+[
+"lui/lei",
+"sentirèbbe"
+],
+[
+"noi",
+"sentirémmo"
+],
+[
+"voi",
+"sentiréste"
+],
+[
+"loro",
+"sentirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -128721,6 +142816,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si sentirèi"
+],
+[
+"tu",
+"si sentirésti"
+],
+[
+"lui/lei",
+"si sentirèbbe"
+],
+[
+"noi",
+"si sentirémmo"
+],
+[
+"voi",
+"si sentiréste"
+],
+[
+"loro",
+"si sentirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -128890,6 +143014,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"separerèi"
+],
+[
+"tu",
+"separerésti"
+],
+[
+"lui/lei",
+"separerèbbe"
+],
+[
+"noi",
+"separerémmo"
+],
+[
+"voi",
+"separeréste"
+],
+[
+"loro",
+"separerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -129072,6 +143225,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"seppellirèi"
+],
+[
+"tu",
+"seppellirésti"
+],
+[
+"lui/lei",
+"seppellirèbbe"
+],
+[
+"noi",
+"seppellirémmo"
+],
+[
+"voi",
+"seppelliréste"
+],
+[
+"loro",
+"seppellirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -129443,6 +143625,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"servirèi"
+],
+[
+"tu",
+"servirésti"
+],
+[
+"lui/lei",
+"servirèbbe"
+],
+[
+"noi",
+"servirémmo"
+],
+[
+"voi",
+"serviréste"
+],
+[
+"loro",
+"servirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -129836,6 +144047,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sfiderèi"
+],
+[
+"tu",
+"sfiderésti"
+],
+[
+"lui/lei",
+"sfiderèbbe"
+],
+[
+"noi",
+"sfiderémmo"
+],
+[
+"voi",
+"sfideréste"
+],
+[
+"loro",
+"sfiderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -130097,6 +144337,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sfrutterèi"
+],
+[
+"tu",
+"sfrutterésti"
+],
+[
+"lui/lei",
+"sfrutterèbbe"
+],
+[
+"noi",
+"sfrutterémmo"
+],
+[
+"voi",
+"sfrutteréste"
+],
+[
+"loro",
+"sfrutterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -130257,6 +144526,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sfuggirèi"
+],
+[
+"tu",
+"sfuggirésti"
+],
+[
+"lui/lei",
+"sfuggirèbbe"
+],
+[
+"noi",
+"sfuggirémmo"
+],
+[
+"voi",
+"sfuggiréste"
+],
+[
+"loro",
+"sfuggirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -130637,6 +144935,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"significherèi"
+],
+[
+"tu",
+"significherésti"
+],
+[
+"lui/lei",
+"significherèbbe"
+],
+[
+"noi",
+"significherémmo"
+],
+[
+"voi",
+"significheréste"
+],
+[
+"loro",
+"significherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -131131,6 +145458,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sistemerèi"
+],
+[
+"tu",
+"sistemerésti"
+],
+[
+"lui/lei",
+"sistemerèbbe"
+],
+[
+"noi",
+"sistemerémmo"
+],
+[
+"voi",
+"sistemeréste"
+],
+[
+"loro",
+"sistemerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -131367,6 +145723,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"smetterèi"
+],
+[
+"tu",
+"smetterésti"
+],
+[
+"lui/lei",
+"smetterèbbe"
+],
+[
+"noi",
+"smetterémmo"
+],
+[
+"voi",
+"smetteréste"
+],
+[
+"loro",
+"smetterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -131527,6 +145912,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"la smetterèi"
+],
+[
+"tu",
+"la smetterésti"
+],
+[
+"lui/lei",
+"la smetterèbbe"
+],
+[
+"noi",
+"la smetterémmo"
+],
+[
+"voi",
+"la smetteréste"
+],
+[
+"loro",
+"la smetterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -131825,6 +146239,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"soddisfarèi"
+],
+[
+"tu",
+"soddisfarésti"
+],
+[
+"lui/lei",
+"soddisfarèbbe"
+],
+[
+"noi",
+"soddisfarémmo"
+],
+[
+"voi",
+"soddisfaréste"
+],
+[
+"loro",
+"soddisfarèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -132086,6 +146529,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"soffrirèi"
+],
+[
+"tu",
+"soffrirésti"
+],
+[
+"lui/lei",
+"soffrirèbbe"
+],
+[
+"noi",
+"soffrirémmo"
+],
+[
+"voi",
+"soffriréste"
+],
+[
+"loro",
+"soffrirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -132312,6 +146784,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sognerèi"
+],
+[
+"tu",
+"sognerésti"
+],
+[
+"lui/lei",
+"sognerèbbe"
+],
+[
+"noi",
+"sognerémmo"
+],
+[
+"voi",
+"sogneréste"
+],
+[
+"loro",
+"sognerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -132679,6 +147180,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"solleverèi"
+],
+[
+"tu",
+"solleverésti"
+],
+[
+"lui/lei",
+"solleverèbbe"
+],
+[
+"noi",
+"solleverémmo"
+],
+[
+"voi",
+"solleveréste"
+],
+[
+"loro",
+"solleverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -132926,6 +147456,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sopporterèi"
+],
+[
+"tu",
+"sopporterésti"
+],
+[
+"lui/lei",
+"sopporterèbbe"
+],
+[
+"noi",
+"sopporterémmo"
+],
+[
+"voi",
+"sopporteréste"
+],
+[
+"loro",
+"sopporterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -133143,6 +147702,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sopravvivrèi"
+],
+[
+"tu",
+"sopravvivrésti"
+],
+[
+"lui/lei",
+"sopravvivrèbbe"
+],
+[
+"noi",
+"sopravvivrémmo"
+],
+[
+"voi",
+"sopravvivréste"
+],
+[
+"loro",
+"sopravvivrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -133400,6 +147988,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sorriderèi"
+],
+[
+"tu",
+"sorriderésti"
+],
+[
+"lui/lei",
+"sorriderèbbe"
+],
+[
+"noi",
+"sorriderémmo"
+],
+[
+"voi",
+"sorrideréste"
+],
+[
+"loro",
+"sorriderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -133625,6 +148242,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sorveglierèi"
+],
+[
+"tu",
+"sorveglierésti"
+],
+[
+"lui/lei",
+"sorveglierèbbe"
+],
+[
+"noi",
+"sorveglierémmo"
+],
+[
+"voi",
+"sorveglieréste"
+],
+[
+"loro",
+"sorveglierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -133864,6 +148510,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sosterrèi"
+],
+[
+"tu",
+"sosterrésti"
+],
+[
+"lui/lei",
+"sosterrèbbe"
+],
+[
+"noi",
+"sosterrémmo"
+],
+[
+"voi",
+"sosterréste"
+],
+[
+"loro",
+"sosterrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -134033,6 +148708,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sostituirèi"
+],
+[
+"tu",
+"sostituirésti"
+],
+[
+"lui/lei",
+"sostituirèbbe"
+],
+[
+"noi",
+"sostituirémmo"
+],
+[
+"voi",
+"sostituiréste"
+],
+[
+"loro",
+"sostituirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -134322,6 +149026,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"spaccherèi"
+],
+[
+"tu",
+"spaccherésti"
+],
+[
+"lui/lei",
+"spaccherèbbe"
+],
+[
+"noi",
+"spaccherémmo"
+],
+[
+"voi",
+"spaccheréste"
+],
+[
+"loro",
+"spaccherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -134610,6 +149343,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sparerèi"
+],
+[
+"tu",
+"sparerésti"
+],
+[
+"lui/lei",
+"sparerèbbe"
+],
+[
+"noi",
+"sparerémmo"
+],
+[
+"voi",
+"spareréste"
+],
+[
+"loro",
+"sparerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -134796,6 +149558,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sparirèi"
+],
+[
+"tu",
+"sparirésti"
+],
+[
+"lui/lei",
+"sparirèbbe"
+],
+[
+"noi",
+"sparirémmo"
+],
+[
+"voi",
+"spariréste"
+],
+[
+"loro",
+"sparirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -134982,6 +149773,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"spaventerèi"
+],
+[
+"tu",
+"spaventerésti"
+],
+[
+"lui/lei",
+"spaventerèbbe"
+],
+[
+"noi",
+"spaventerémmo"
+],
+[
+"voi",
+"spaventeréste"
+],
+[
+"loro",
+"spaventerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -135319,6 +150139,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"spedirèi"
+],
+[
+"tu",
+"spedirésti"
+],
+[
+"lui/lei",
+"spedirèbbe"
+],
+[
+"noi",
+"spedirémmo"
+],
+[
+"voi",
+"spediréste"
+],
+[
+"loro",
+"spedirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -135501,6 +150350,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"spegnerèi"
+],
+[
+"tu",
+"spegnerésti"
+],
+[
+"lui/lei",
+"spegnerèbbe"
+],
+[
+"noi",
+"spegnerémmo"
+],
+[
+"voi",
+"spegneréste"
+],
+[
+"loro",
+"spegnerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -135661,6 +150539,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"spenderèi"
+],
+[
+"tu",
+"spenderésti"
+],
+[
+"lui/lei",
+"spenderèbbe"
+],
+[
+"noi",
+"spenderémmo"
+],
+[
+"voi",
+"spenderéste"
+],
+[
+"loro",
+"spenderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -135852,6 +150759,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"spererèi"
+],
+[
+"tu",
+"spererésti"
+],
+[
+"lui/lei",
+"spererèbbe"
+],
+[
+"noi",
+"spererémmo"
+],
+[
+"voi",
+"spereréste"
+],
+[
+"loro",
+"spererèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -136118,6 +151054,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"spezzerèi"
+],
+[
+"tu",
+"spezzerésti"
+],
+[
+"lui/lei",
+"spezzerèbbe"
+],
+[
+"noi",
+"spezzerémmo"
+],
+[
+"voi",
+"spezzeréste"
+],
+[
+"loro",
+"spezzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -136331,6 +151296,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"spierèi"
+],
+[
+"tu",
+"spierésti"
+],
+[
+"lui/lei",
+"spierèbbe"
+],
+[
+"noi",
+"spierémmo"
+],
+[
+"voi",
+"spieréste"
+],
+[
+"loro",
+"spierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -136509,6 +151503,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"spiegherèi"
+],
+[
+"tu",
+"spiegherésti"
+],
+[
+"lui/lei",
+"spiegherèbbe"
+],
+[
+"noi",
+"spiegherémmo"
+],
+[
+"voi",
+"spiegheréste"
+],
+[
+"loro",
+"spiegherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -136722,6 +151745,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"spingerèi"
+],
+[
+"tu",
+"spingerésti"
+],
+[
+"lui/lei",
+"spingerèbbe"
+],
+[
+"noi",
+"spingerémmo"
+],
+[
+"voi",
+"spingeréste"
+],
+[
+"loro",
+"spingerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -137072,6 +152124,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sposerèi"
+],
+[
+"tu",
+"sposerésti"
+],
+[
+"lui/lei",
+"sposerèbbe"
+],
+[
+"noi",
+"sposerémmo"
+],
+[
+"voi",
+"sposeréste"
+],
+[
+"loro",
+"sposerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -137232,6 +152313,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si sposerèi"
+],
+[
+"tu",
+"si sposerésti"
+],
+[
+"lui/lei",
+"si sposerèbbe"
+],
+[
+"noi",
+"si sposerémmo"
+],
+[
+"voi",
+"si sposeréste"
+],
+[
+"loro",
+"si sposerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -137423,6 +152533,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sposterèi"
+],
+[
+"tu",
+"sposterésti"
+],
+[
+"lui/lei",
+"sposterèbbe"
+],
+[
+"noi",
+"sposterémmo"
+],
+[
+"voi",
+"sposteréste"
+],
+[
+"loro",
+"sposterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -137605,6 +152744,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sprecherèi"
+],
+[
+"tu",
+"sprecherésti"
+],
+[
+"lui/lei",
+"sprecherèbbe"
+],
+[
+"noi",
+"sprecherémmo"
+],
+[
+"voi",
+"sprecheréste"
+],
+[
+"loro",
+"sprecherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -137804,6 +152972,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sputerèi"
+],
+[
+"tu",
+"sputerésti"
+],
+[
+"lui/lei",
+"sputerèbbe"
+],
+[
+"noi",
+"sputerémmo"
+],
+[
+"voi",
+"sputeréste"
+],
+[
+"loro",
+"sputerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -138030,6 +153227,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"stabilirèi"
+],
+[
+"tu",
+"stabilirésti"
+],
+[
+"lui/lei",
+"stabilirèbbe"
+],
+[
+"noi",
+"stabilirémmo"
+],
+[
+"voi",
+"stabiliréste"
+],
+[
+"loro",
+"stabilirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -138199,6 +153425,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"staccherèi"
+],
+[
+"tu",
+"staccherésti"
+],
+[
+"lui/lei",
+"staccherèbbe"
+],
+[
+"noi",
+"staccherémmo"
+],
+[
+"voi",
+"staccheréste"
+],
+[
+"loro",
+"staccherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -138535,6 +153790,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"starèi"
+],
+[
+"tu",
+"starésti"
+],
+[
+"lui/lei",
+"starèbbe"
+],
+[
+"noi",
+"starémmo"
+],
+[
+"voi",
+"staréste"
+],
+[
+"loro",
+"starèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -139274,6 +154558,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"stringerèi"
+],
+[
+"tu",
+"stringerésti"
+],
+[
+"lui/lei",
+"stringerèbbe"
+],
+[
+"noi",
+"stringerémmo"
+],
+[
+"voi",
+"stringeréste"
+],
+[
+"loro",
+"stringerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -139614,6 +154927,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"studierèi"
+],
+[
+"tu",
+"studierésti"
+],
+[
+"lui/lei",
+"studierèbbe"
+],
+[
+"noi",
+"studierémmo"
+],
+[
+"voi",
+"studieréste"
+],
+[
+"loro",
+"studierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -139937,6 +155279,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"subirèi"
+],
+[
+"tu",
+"subirésti"
+],
+[
+"lui/lei",
+"subirèbbe"
+],
+[
+"noi",
+"subirémmo"
+],
+[
+"voi",
+"subiréste"
+],
+[
+"loro",
+"subirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -140097,6 +155468,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"succederèi"
+],
+[
+"tu",
+"succederésti"
+],
+[
+"lui/lei",
+"succederèbbe"
+],
+[
+"noi",
+"succederémmo"
+],
+[
+"voi",
+"succederéste"
+],
+[
+"loro",
+"succederèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -140288,6 +155688,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"succhierèi"
+],
+[
+"tu",
+"succhierésti"
+],
+[
+"lui/lei",
+"succhierèbbe"
+],
+[
+"noi",
+"succhierémmo"
+],
+[
+"voi",
+"succhieréste"
+],
+[
+"loro",
+"succhierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -140470,6 +155899,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"suderèi"
+],
+[
+"tu",
+"suderésti"
+],
+[
+"lui/lei",
+"suderèbbe"
+],
+[
+"noi",
+"suderémmo"
+],
+[
+"voi",
+"suderéste"
+],
+[
+"loro",
+"suderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -140766,6 +156224,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"suonerèi"
+],
+[
+"tu",
+"suonerésti"
+],
+[
+"lui/lei",
+"suonerèbbe"
+],
+[
+"noi",
+"suonerémmo"
+],
+[
+"voi",
+"suoneréste"
+],
+[
+"loro",
+"suonerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -140988,6 +156475,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"supererèi"
+],
+[
+"tu",
+"supererésti"
+],
+[
+"lui/lei",
+"supererèbbe"
+],
+[
+"noi",
+"supererémmo"
+],
+[
+"voi",
+"supereréste"
+],
+[
+"loro",
+"supererèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -141307,6 +156823,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sveglierèi"
+],
+[
+"tu",
+"sveglierésti"
+],
+[
+"lui/lei",
+"sveglierèbbe"
+],
+[
+"noi",
+"sveglierémmo"
+],
+[
+"voi",
+"sveglieréste"
+],
+[
+"loro",
+"sveglierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -141467,6 +157012,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si sveglierèi"
+],
+[
+"tu",
+"si sveglierésti"
+],
+[
+"lui/lei",
+"si sveglierèbbe"
+],
+[
+"noi",
+"si sveglierémmo"
+],
+[
+"voi",
+"si sveglieréste"
+],
+[
+"loro",
+"si sveglierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -141667,6 +157241,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"sverrèi"
+],
+[
+"tu",
+"sverrésti"
+],
+[
+"lui/lei",
+"sverrèbbe"
+],
+[
+"noi",
+"sverrémmo"
+],
+[
+"voi",
+"sverréste"
+],
+[
+"loro",
+"sverrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -141836,6 +157439,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"svilupperèi"
+],
+[
+"tu",
+"svilupperésti"
+],
+[
+"lui/lei",
+"svilupperèbbe"
+],
+[
+"noi",
+"svilupperémmo"
+],
+[
+"voi",
+"svilupperéste"
+],
+[
+"loro",
+"svilupperèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -142031,6 +157663,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"svolgerèi"
+],
+[
+"tu",
+"svolgerésti"
+],
+[
+"lui/lei",
+"svolgerèbbe"
+],
+[
+"noi",
+"svolgerémmo"
+],
+[
+"voi",
+"svolgeréste"
+],
+[
+"loro",
+"svolgerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -142266,6 +157927,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"tacerèi"
+],
+[
+"tu",
+"tacerésti"
+],
+[
+"lui/lei",
+"tacerèbbe"
+],
+[
+"noi",
+"tacerémmo"
+],
+[
+"voi",
+"taceréste"
+],
+[
+"loro",
+"tacerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -142461,6 +158151,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"taglierèi"
+],
+[
+"tu",
+"taglierésti"
+],
+[
+"lui/lei",
+"taglierèbbe"
+],
+[
+"noi",
+"taglierémmo"
+],
+[
+"voi",
+"taglieréste"
+],
+[
+"loro",
+"taglierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -143157,6 +158876,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"telefonerèi"
+],
+[
+"tu",
+"telefonerésti"
+],
+[
+"lui/lei",
+"telefonerèbbe"
+],
+[
+"noi",
+"telefonerémmo"
+],
+[
+"voi",
+"telefoneréste"
+],
+[
+"loro",
+"telefonerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -143457,6 +159205,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"temerèi"
+],
+[
+"tu",
+"temerésti"
+],
+[
+"lui/lei",
+"temerèbbe"
+],
+[
+"noi",
+"temerémmo"
+],
+[
+"voi",
+"temeréste"
+],
+[
+"loro",
+"temerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -143784,6 +159561,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ci terrèi"
+],
+[
+"tu",
+"ci terrésti"
+],
+[
+"lui/lei",
+"ci terrèbbe"
+],
+[
+"noi",
+"ci terrémmo"
+],
+[
+"voi",
+"ci terréste"
+],
+[
+"loro",
+"ci terrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -143944,6 +159750,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"terrèi"
+],
+[
+"tu",
+"terrésti"
+],
+[
+"lui/lei",
+"terrèbbe"
+],
+[
+"noi",
+"terrémmo"
+],
+[
+"voi",
+"terréste"
+],
+[
+"loro",
+"terrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -144113,6 +159948,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si terrèi"
+],
+[
+"tu",
+"si terrésti"
+],
+[
+"lui/lei",
+"si terrèbbe"
+],
+[
+"noi",
+"si terrémmo"
+],
+[
+"voi",
+"si terréste"
+],
+[
+"loro",
+"si terrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -144295,6 +160159,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"tenterèi"
+],
+[
+"tu",
+"tenterésti"
+],
+[
+"lui/lei",
+"tenterèbbe"
+],
+[
+"noi",
+"tenterémmo"
+],
+[
+"voi",
+"tenteréste"
+],
+[
+"loro",
+"tenterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -144583,6 +160476,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"terminerèi"
+],
+[
+"tu",
+"terminerésti"
+],
+[
+"lui/lei",
+"terminerèbbe"
+],
+[
+"noi",
+"terminerémmo"
+],
+[
+"voi",
+"termineréste"
+],
+[
+"loro",
+"terminerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -145065,6 +160987,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"testerèi"
+],
+[
+"tu",
+"testerésti"
+],
+[
+"lui/lei",
+"testerèbbe"
+],
+[
+"noi",
+"testerémmo"
+],
+[
+"voi",
+"testeréste"
+],
+[
+"loro",
+"testerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -145296,6 +161247,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"testimonierèi"
+],
+[
+"tu",
+"testimonierésti"
+],
+[
+"lui/lei",
+"testimonierèbbe"
+],
+[
+"noi",
+"testimonierémmo"
+],
+[
+"voi",
+"testimonieréste"
+],
+[
+"loro",
+"testimonierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -145640,6 +161620,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"tirerèi"
+],
+[
+"tu",
+"tirerésti"
+],
+[
+"lui/lei",
+"tirerèbbe"
+],
+[
+"noi",
+"tirerémmo"
+],
+[
+"voi",
+"tireréste"
+],
+[
+"loro",
+"tirerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -145914,6 +161923,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"toccherèi"
+],
+[
+"tu",
+"toccherésti"
+],
+[
+"lui/lei",
+"toccherèbbe"
+],
+[
+"noi",
+"toccherémmo"
+],
+[
+"voi",
+"toccheréste"
+],
+[
+"loro",
+"toccherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -146127,6 +162165,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"toglierèi"
+],
+[
+"tu",
+"toglierésti"
+],
+[
+"lui/lei",
+"toglierèbbe"
+],
+[
+"noi",
+"toglierémmo"
+],
+[
+"voi",
+"toglieréste"
+],
+[
+"loro",
+"toglierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -146287,6 +162354,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si toglierèi"
+],
+[
+"tu",
+"si toglierésti"
+],
+[
+"lui/lei",
+"si toglierèbbe"
+],
+[
+"noi",
+"si toglierémmo"
+],
+[
+"voi",
+"si toglieréste"
+],
+[
+"loro",
+"si toglierèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -146637,6 +162733,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"tornerèi"
+],
+[
+"tu",
+"tornerésti"
+],
+[
+"lui/lei",
+"tornerèbbe"
+],
+[
+"noi",
+"tornerémmo"
+],
+[
+"voi",
+"torneréste"
+],
+[
+"loro",
+"tornerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -147017,6 +163142,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"tradirèi"
+],
+[
+"tu",
+"tradirésti"
+],
+[
+"lui/lei",
+"tradirèbbe"
+],
+[
+"noi",
+"tradirémmo"
+],
+[
+"voi",
+"tradiréste"
+],
+[
+"loro",
+"tradirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -147256,6 +163410,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"tradurrèi"
+],
+[
+"tu",
+"tradurrésti"
+],
+[
+"lui/lei",
+"tradurrèbbe"
+],
+[
+"noi",
+"tradurrémmo"
+],
+[
+"voi",
+"tradurréste"
+],
+[
+"loro",
+"tradurrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -147608,6 +163791,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"trascinerèi"
+],
+[
+"tu",
+"trascinerésti"
+],
+[
+"lui/lei",
+"trascinerèbbe"
+],
+[
+"noi",
+"trascinerémmo"
+],
+[
+"voi",
+"trascineréste"
+],
+[
+"loro",
+"trascinerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -147768,6 +163980,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"trascorrerèi"
+],
+[
+"tu",
+"trascorrerésti"
+],
+[
+"lui/lei",
+"trascorrerèbbe"
+],
+[
+"noi",
+"trascorrerémmo"
+],
+[
+"voi",
+"trascorreréste"
+],
+[
+"loro",
+"trascorrerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -147959,6 +164200,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"trasferirèi"
+],
+[
+"tu",
+"trasferirésti"
+],
+[
+"lui/lei",
+"trasferirèbbe"
+],
+[
+"noi",
+"trasferirémmo"
+],
+[
+"voi",
+"trasferiréste"
+],
+[
+"loro",
+"trasferirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -148119,6 +164389,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si trasferirèi"
+],
+[
+"tu",
+"si trasferirésti"
+],
+[
+"lui/lei",
+"si trasferirèbbe"
+],
+[
+"noi",
+"si trasferirémmo"
+],
+[
+"voi",
+"si trasferiréste"
+],
+[
+"loro",
+"si trasferirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -148279,6 +164578,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"trasformerèi"
+],
+[
+"tu",
+"trasformerésti"
+],
+[
+"lui/lei",
+"trasformerèbbe"
+],
+[
+"noi",
+"trasformerémmo"
+],
+[
+"voi",
+"trasformeréste"
+],
+[
+"loro",
+"trasformerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -148474,6 +164802,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"trasmetterèi"
+],
+[
+"tu",
+"trasmetterésti"
+],
+[
+"lui/lei",
+"trasmetterèbbe"
+],
+[
+"noi",
+"trasmetterémmo"
+],
+[
+"voi",
+"trasmetteréste"
+],
+[
+"loro",
+"trasmetterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -148647,6 +165004,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"trasporterèi"
+],
+[
+"tu",
+"trasporterésti"
+],
+[
+"lui/lei",
+"trasporterèbbe"
+],
+[
+"noi",
+"trasporterémmo"
+],
+[
+"voi",
+"trasporteréste"
+],
+[
+"loro",
+"trasporterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -148855,6 +165241,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"tratterèi"
+],
+[
+"tu",
+"tratterésti"
+],
+[
+"lui/lei",
+"tratterèbbe"
+],
+[
+"noi",
+"tratterémmo"
+],
+[
+"voi",
+"tratteréste"
+],
+[
+"loro",
+"tratterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -149015,6 +165430,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si tratterèi"
+],
+[
+"tu",
+"si tratterésti"
+],
+[
+"lui/lei",
+"si tratterèbbe"
+],
+[
+"noi",
+"si tratterémmo"
+],
+[
+"voi",
+"si tratteréste"
+],
+[
+"loro",
+"si tratterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -149188,6 +165632,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"tratterrèi"
+],
+[
+"tu",
+"tratterrésti"
+],
+[
+"lui/lei",
+"tratterrèbbe"
+],
+[
+"noi",
+"tratterrémmo"
+],
+[
+"voi",
+"tratterréste"
+],
+[
+"loro",
+"tratterrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -149414,6 +165887,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"tremerèi"
+],
+[
+"tu",
+"tremerésti"
+],
+[
+"lui/lei",
+"tremerèbbe"
+],
+[
+"noi",
+"tremerémmo"
+],
+[
+"voi",
+"tremeréste"
+],
+[
+"loro",
+"tremerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -149763,6 +166265,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ci troverèi"
+],
+[
+"tu",
+"ci troverésti"
+],
+[
+"lui/lei",
+"ci troverèbbe"
+],
+[
+"noi",
+"ci troverémmo"
+],
+[
+"voi",
+"ci troveréste"
+],
+[
+"loro",
+"ci troverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -149923,6 +166454,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"troverèi"
+],
+[
+"tu",
+"troverésti"
+],
+[
+"lui/lei",
+"troverèbbe"
+],
+[
+"noi",
+"troverémmo"
+],
+[
+"voi",
+"troveréste"
+],
+[
+"loro",
+"troverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -150083,6 +166643,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si troverèi"
+],
+[
+"tu",
+"si troverésti"
+],
+[
+"lui/lei",
+"si troverèbbe"
+],
+[
+"noi",
+"si troverémmo"
+],
+[
+"voi",
+"si troveréste"
+],
+[
+"loro",
+"si troverèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -150586,6 +167175,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ucciderèi"
+],
+[
+"tu",
+"ucciderésti"
+],
+[
+"lui/lei",
+"ucciderèbbe"
+],
+[
+"noi",
+"ucciderémmo"
+],
+[
+"voi",
+"uccideréste"
+],
+[
+"loro",
+"ucciderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -150746,6 +167364,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si ucciderèi"
+],
+[
+"tu",
+"si ucciderésti"
+],
+[
+"lui/lei",
+"si ucciderèbbe"
+],
+[
+"noi",
+"si ucciderémmo"
+],
+[
+"voi",
+"si uccideréste"
+],
+[
+"loro",
+"si ucciderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -151247,6 +167894,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"unirèi"
+],
+[
+"tu",
+"unirésti"
+],
+[
+"lui/lei",
+"unirèbbe"
+],
+[
+"noi",
+"unirémmo"
+],
+[
+"voi",
+"uniréste"
+],
+[
+"loro",
+"unirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -151407,6 +168083,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si unirèi"
+],
+[
+"tu",
+"si unirésti"
+],
+[
+"lui/lei",
+"si unirèbbe"
+],
+[
+"noi",
+"si unirémmo"
+],
+[
+"voi",
+"si uniréste"
+],
+[
+"loro",
+"si unirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -151708,6 +168413,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"urlerèi"
+],
+[
+"tu",
+"urlerésti"
+],
+[
+"lui/lei",
+"urlerèbbe"
+],
+[
+"noi",
+"urlerémmo"
+],
+[
+"voi",
+"urleréste"
+],
+[
+"loro",
+"urlerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -151890,6 +168624,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"userèi"
+],
+[
+"tu",
+"userésti"
+],
+[
+"lui/lei",
+"userèbbe"
+],
+[
+"noi",
+"userémmo"
+],
+[
+"voi",
+"useréste"
+],
+[
+"loro",
+"userèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -152072,6 +168835,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"uscirèi"
+],
+[
+"tu",
+"uscirésti"
+],
+[
+"lui/lei",
+"uscirèbbe"
+],
+[
+"noi",
+"uscirémmo"
+],
+[
+"voi",
+"usciréste"
+],
+[
+"loro",
+"uscirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -152232,6 +169024,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ne uscirèi"
+],
+[
+"tu",
+"ne uscirésti"
+],
+[
+"lui/lei",
+"ne uscirèbbe"
+],
+[
+"noi",
+"ne uscirémmo"
+],
+[
+"voi",
+"ne usciréste"
+],
+[
+"loro",
+"ne uscirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -152445,6 +169266,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"utilizzerèi"
+],
+[
+"tu",
+"utilizzerésti"
+],
+[
+"lui/lei",
+"utilizzerèbbe"
+],
+[
+"noi",
+"utilizzerémmo"
+],
+[
+"voi",
+"utilizzeréste"
+],
+[
+"loro",
+"utilizzerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -152737,6 +169587,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"varrèi"
+],
+[
+"tu",
+"varrésti"
+],
+[
+"lui/lei",
+"varrèbbe"
+],
+[
+"noi",
+"varrémmo"
+],
+[
+"voi",
+"varréste"
+],
+[
+"loro",
+"varrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -152976,6 +169855,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"valuterèi"
+],
+[
+"tu",
+"valuterésti"
+],
+[
+"lui/lei",
+"valuterèbbe"
+],
+[
+"noi",
+"valuterémmo"
+],
+[
+"voi",
+"valuteréste"
+],
+[
+"loro",
+"valuterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -153342,6 +170250,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"ci vedrèi"
+],
+[
+"tu",
+"ci vedrésti"
+],
+[
+"lui/lei",
+"ci vedrèbbe"
+],
+[
+"noi",
+"ci vedrémmo"
+],
+[
+"voi",
+"ci vedréste"
+],
+[
+"loro",
+"ci vedrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -153502,6 +170439,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"vedrèi"
+],
+[
+"tu",
+"vedrésti"
+],
+[
+"lui/lei",
+"vedrèbbe"
+],
+[
+"noi",
+"vedrémmo"
+],
+[
+"voi",
+"vedréste"
+],
+[
+"loro",
+"vedrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -153776,6 +170742,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"venderèi"
+],
+[
+"tu",
+"venderésti"
+],
+[
+"lui/lei",
+"venderèbbe"
+],
+[
+"noi",
+"venderémmo"
+],
+[
+"voi",
+"venderéste"
+],
+[
+"loro",
+"venderèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -153958,6 +170953,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"vendicherèi"
+],
+[
+"tu",
+"vendicherésti"
+],
+[
+"lui/lei",
+"vendicherèbbe"
+],
+[
+"noi",
+"vendicherémmo"
+],
+[
+"voi",
+"vendicheréste"
+],
+[
+"loro",
+"vendicherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -154118,6 +171142,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si vendicherèi"
+],
+[
+"tu",
+"si vendicherésti"
+],
+[
+"lui/lei",
+"si vendicherèbbe"
+],
+[
+"noi",
+"si vendicherémmo"
+],
+[
+"voi",
+"si vendicheréste"
+],
+[
+"loro",
+"si vendicherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -154384,6 +171437,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"verrèi"
+],
+[
+"tu",
+"verrésti"
+],
+[
+"lui/lei",
+"verrèbbe"
+],
+[
+"noi",
+"verrémmo"
+],
+[
+"voi",
+"verréste"
+],
+[
+"loro",
+"verrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -154725,6 +171807,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"si vergognerèi"
+],
+[
+"tu",
+"si vergognerésti"
+],
+[
+"lui/lei",
+"si vergognerèbbe"
+],
+[
+"noi",
+"si vergognerémmo"
+],
+[
+"voi",
+"si vergogneréste"
+],
+[
+"loro",
+"si vergognerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -154907,6 +172018,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"verificherèi"
+],
+[
+"tu",
+"verificherésti"
+],
+[
+"lui/lei",
+"verificherèbbe"
+],
+[
+"noi",
+"verificherémmo"
+],
+[
+"voi",
+"verificheréste"
+],
+[
+"loro",
+"verificherèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -155234,6 +172374,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"vestirèi"
+],
+[
+"tu",
+"vestirésti"
+],
+[
+"lui/lei",
+"vestirèbbe"
+],
+[
+"noi",
+"vestirémmo"
+],
+[
+"voi",
+"vestiréste"
+],
+[
+"loro",
+"vestirèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -155496,6 +172665,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"viaggerèi"
+],
+[
+"tu",
+"viaggerésti"
+],
+[
+"lui/lei",
+"viaggerèbbe"
+],
+[
+"noi",
+"viaggerémmo"
+],
+[
+"voi",
+"viaggeréste"
+],
+[
+"loro",
+"viaggerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -155929,6 +173127,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"vincerèi"
+],
+[
+"tu",
+"vincerésti"
+],
+[
+"lui/lei",
+"vincerèbbe"
+],
+[
+"noi",
+"vincerémmo"
+],
+[
+"voi",
+"vinceréste"
+],
+[
+"loro",
+"vincerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -156318,6 +173545,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"visiterèi"
+],
+[
+"tu",
+"visiterésti"
+],
+[
+"lui/lei",
+"visiterèbbe"
+],
+[
+"noi",
+"visiterémmo"
+],
+[
+"voi",
+"visiteréste"
+],
+[
+"loro",
+"visiterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -156677,6 +173933,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"vivrèi"
+],
+[
+"tu",
+"vivrésti"
+],
+[
+"lui/lei",
+"vivrèbbe"
+],
+[
+"noi",
+"vivrémmo"
+],
+[
+"voi",
+"vivréste"
+],
+[
+"loro",
+"vivrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -156890,6 +174175,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"vocerèi"
+],
+[
+"tu",
+"vocerésti"
+],
+[
+"lui/lei",
+"vocerèbbe"
+],
+[
+"noi",
+"vocerémmo"
+],
+[
+"voi",
+"voceréste"
+],
+[
+"loro",
+"vocerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -157103,6 +174417,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"volerèi"
+],
+[
+"tu",
+"volerésti"
+],
+[
+"lui/lei",
+"volerèbbe"
+],
+[
+"noi",
+"volerémmo"
+],
+[
+"voi",
+"voleréste"
+],
+[
+"loro",
+"volerèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -157118,6 +174461,7 @@
 "pos": "verb"
 },
 "volerci": {
+"charts": [],
 "chips": [
 {
 "label": "Gerund",
@@ -157276,6 +174620,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"vorrèi"
+],
+[
+"tu",
+"vorrésti"
+],
+[
+"lui/lei",
+"vorrèbbe"
+],
+[
+"noi",
+"vorrémmo"
+],
+[
+"voi",
+"vorréste"
+],
+[
+"loro",
+"vorrèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -157533,6 +174906,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"volterèi"
+],
+[
+"tu",
+"volterésti"
+],
+[
+"lui/lei",
+"volterèbbe"
+],
+[
+"noi",
+"volterémmo"
+],
+[
+"voi",
+"volteréste"
+],
+[
+"loro",
+"volterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -157759,6 +175161,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"vomiterèi"
+],
+[
+"tu",
+"vomiterésti"
+],
+[
+"lui/lei",
+"vomiterèbbe"
+],
+[
+"noi",
+"vomiterémmo"
+],
+[
+"voi",
+"vomiteréste"
+],
+[
+"loro",
+"vomiterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [
@@ -157932,6 +175363,35 @@
 ]
 ],
 "title": "Subjunctive (present)"
+},
+{
+"rows": [
+[
+"io",
+"voterèi"
+],
+[
+"tu",
+"voterésti"
+],
+[
+"lui/lei",
+"voterèbbe"
+],
+[
+"noi",
+"voterémmo"
+],
+[
+"voi",
+"voteréste"
+],
+[
+"loro",
+"voterèbbero"
+]
+],
+"title": "Conditional"
 }
 ],
 "chips": [

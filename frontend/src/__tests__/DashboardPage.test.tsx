@@ -130,6 +130,8 @@ vi.mock('../stores/prefsStore', () => ({
         // first-time offer stays out of these tiles' way.
         placementOfferDismissed: ['lang-es'],
         dismissPlacementOffer: vi.fn(),
+        dashboardWidgets: [],
+        setDashboardWidgets: vi.fn(),
       }),
   ),
 }))

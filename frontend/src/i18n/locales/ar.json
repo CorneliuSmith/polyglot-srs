@@ -27,7 +27,8 @@
     "grammar": "القواعد",
     "vocab": "المفردات",
     "today": "اليوم",
-    "todayLower": "اليوم"
+    "todayLower": "اليوم",
+    "cancel": "إلغاء"
   },
   "days": {
     "sun": "الأحد",
@@ -107,7 +108,10 @@
     "activityDay": "{{date}}: {{vocab}} مفردات، {{grammar}} قواعد",
     "levelProgress": "تقدم {{level}}",
     "progressEmptyTitle": "لا يوجد ما يُعرض بعد",
-    "progressEmptyBody": "بعد أن تتعلم وتراجع بعض العناصر، ستظهر هنا سلسلتك وتوقعاتك ونشاطك وتقدمك حسب المستوى."
+    "progressEmptyBody": "بعد أن تتعلم وتراجع بعض العناصر، ستظهر هنا سلسلتك وتوقعاتك ونشاطك وتقدمك حسب المستوى.",
+    "streakTitle": "السلسلة",
+    "addWidget": "إضافة أداة",
+    "removeWidget": "إزالة الأداة"
   },
   "stages": {
     "beginner": "مبتدئ",

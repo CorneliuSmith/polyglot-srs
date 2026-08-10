@@ -258,17 +258,28 @@ ROMANCE_TENSES = {
            ("Preterite", {"indicative", "preterite"}),
            ("Imperfect", {"indicative", "imperfect"}),
            ("Future", {"indicative", "future"}),
-           ("Subjunctive (present)", {"subjunctive", "present"})],
+           ("Conditional", {"conditional"}),
+           ("Subjunctive (present)", {"subjunctive", "present"}),
+           ("Subjunctive (imperfect)", {"subjunctive", "imperfect"})],
     "pt": [("Present", {"indicative", "present"}),
            ("Preterite (perfeito)", {"indicative", "preterite"}),
            ("Imperfect", {"indicative", "imperfect"}),
            ("Future", {"indicative", "future"}),
-           ("Subjunctive (present)", {"subjunctive", "present"})],
+           ("Conditional", {"conditional"}),
+           ("Subjunctive (present)", {"subjunctive", "present"}),
+           ("Subjunctive (imperfect)", {"subjunctive", "imperfect"}),
+           # The tense the owner caught missing (quando eu falar, se eu
+           # quiser) — a defining feature of Portuguese, absent from the
+           # charts while the Gym drilled it.
+           ("Subjunctive (future)", {"subjunctive", "future"}),
+           ("Personal infinitive", {"infinitive", "personal"})],
     "it": [("Present", {"indicative", "present"}),
            ("Imperfect", {"indicative", "imperfect"}),
            ("Future", {"indicative", "future"}),
            ("Passato remoto", {"indicative", "past", "historic"}),
-           ("Subjunctive (present)", {"subjunctive", "present"})],
+           ("Conditional", {"conditional"}),
+           ("Subjunctive (present)", {"subjunctive", "present"}),
+           ("Subjunctive (imperfect)", {"subjunctive", "imperfect"})],
     "fr": [("Present", {"indicative", "present"}),
            ("Imperfect", {"indicative", "imperfect"}),
            ("Future", {"indicative", "future"}),
@@ -277,7 +288,9 @@ ROMANCE_TENSES = {
     "ca": [("Present", {"indicative", "present"}),
            ("Imperfect", {"indicative", "imperfect"}),
            ("Future", {"indicative", "future"}),
-           ("Subjunctive (present)", {"subjunctive", "present"})],
+           ("Conditional", {"conditional"}),
+           ("Subjunctive (present)", {"subjunctive", "present"}),
+           ("Subjunctive (imperfect)", {"subjunctive", "imperfect"})],
     "ro": [("Present", {"indicative", "present"}),
            ("Imperfect", {"indicative", "imperfect"}),
            ("Simple perfect", {"indicative", "perfect", "simple"}),
@@ -662,18 +675,193 @@ def build_language(code: str) -> int:
     return len(out)
 
 
+# ── Portuguese derived tenses ────────────────────────────────────────────
+# The kaikki-built PT charts stopped at five tenses, so the very forms the
+# Gym drills (futuro do subjuntivo above all — the owner caught "quando eu
+# falar" missing from every expanded chart) never appeared. The raw dump
+# isn't shipped, but these three are mechanically derivable from data the
+# file already holds:
+#   * futuro do subjuntivo — 3pl preterite minus -ram is the exact stem,
+#     irregulars included (falaram→falar, tiveram→tiver, foram→for);
+#   * infinitivo pessoal — the lemma plus personal endings, fully regular;
+#   * conditional — lemma + -ia endings, with the three contracted stems
+#     (fazer→far-, dizer→dir-, trazer→trar-) and their compounds.
+# Imperfeito do subjuntivo is NOT derived: its nós/vós accent depends on
+# vowel quality (comêssemos vs fizéssemos), so it waits for the next
+# kaikki rebuild, where ROMANCE_TENSES now includes it.
+
+_PT_PERSONAL_ENDINGS = ["", "es", "", "mos", "des", "em"]
+_PT_COND_ENDINGS = ["ia", "ias", "ia", "íamos", "íeis", "iam"]
+
+
+def _pt_rows(base: str, endings: list[str]) -> list[list[str]]:
+    return [[p, base + e]
+            for p, e in zip(ROMANCE_PRONOUNS["pt"], endings)]
+
+
+def _pt_conditional_stem(lemma: str) -> str:
+    for suffix, replacement in (("fazer", "far"), ("dizer", "dir"),
+                                ("trazer", "trar")):
+        if lemma.endswith(suffix):
+            return lemma[: -len(suffix)] + replacement
+    return lemma
+
+
+def augment_pt_entry(word: str, entry: dict) -> bool:
+    """Add the derivable missing PT verb charts in place. Returns True when
+    anything was added. Only touches lemmas ending -ar/-er/-ir (pôr and its
+    compounds contract irregularly — wrong rows would be worse than none)."""
+    if entry.get("pos") != "verb" or not word.endswith(("ar", "er", "ir")):
+        return False
+    charts = entry.setdefault("charts", [])
+    titles = {c.get("title") for c in charts}
+    changed = False
+
+    if "Subjunctive (future)" not in titles:
+        pret = next((c for c in charts
+                     if str(c.get("title", "")).startswith("Preterite")), None)
+        rows = pret.get("rows") if pret else None
+        third_pl = rows[5][1] if rows and len(rows) == 6 else None
+        if third_pl and third_pl.endswith("ram"):
+            base = third_pl[: -len("ram")] + "r"
+            charts.append({"title": "Subjunctive (future)",
+                           "rows": _pt_rows(base, _PT_PERSONAL_ENDINGS)})
+            changed = True
+
+    if "Conditional" not in titles:
+        charts.append({"title": "Conditional",
+                       "rows": _pt_rows(_pt_conditional_stem(word),
+                                        _PT_COND_ENDINGS)})
+        changed = True
+
+    if "Personal infinitive" not in titles:
+        charts.append({"title": "Personal infinitive",
+                       "rows": _pt_rows(word, _PT_PERSONAL_ENDINGS)})
+        changed = True
+
+    return changed
+
+
+# es/it/ca have the same shape of gap the owner caught in PT: the Gym
+# offers the conditional (and, in es, the imperfect subjunctive) while the
+# shipped charts stop short. Both are mechanically derivable:
+#   * conditional — its stem IS the future stem in all three languages, so
+#     strip the 3pl future ending and add the conditional endings
+#     (hablarán→hablar→hablaría, andranno→andr→andrei, faran→far→faria) —
+#     irregular futures carry their irregularity along for free;
+#   * es imperfect subjunctive — 3pl preterite minus -ron is the exact stem
+#     (hablaron→habla-ra, fueron→fue-ra, dijeron→dije-ra), with the stem's
+#     final vowel taking an acute in the nosotros row (habláramos).
+# it/ca imperfect subjunctives are NOT derived (stems aren't recoverable
+# from any shipped chart); they wait for the next kaikki rebuild, where
+# ROMANCE_TENSES now includes them.
+
+# The it forms carry Wiktionary's pedagogical stress marks (parlerànno),
+# matching the rest of the shipped Italian charts; es/ca use plain
+# orthography throughout.
+_FUTURE_3PL_SUFFIX = {"es": "án", "it": "ànno", "ca": "an"}
+_COND_ENDINGS = {
+    "es": ["ía", "ías", "ía", "íamos", "íais", "ían"],
+    "it": ["èi", "ésti", "èbbe", "émmo", "éste", "èbbero"],
+    "ca": ["ia", "ies", "ia", "íem", "íeu", "ien"],
+}
+_ES_IMPF_SUBJ_ENDINGS = ["ra", "ras", "ra", "ramos", "rais", "ran"]
+_ACUTE = {"a": "á", "e": "é"}
+
+
+def _rows(code: str, base: str, endings: list[str]) -> list[list[str]]:
+    return [[p, base + e]
+            for p, e in zip(ROMANCE_PRONOUNS[code], endings)]
+
+
+def _chart_3pl(charts: list[dict], title_prefix: str) -> str | None:
+    """The third-person-plural cell of the named 6-row chart, if present."""
+    chart = next((c for c in charts
+                  if str(c.get("title", "")).startswith(title_prefix)), None)
+    rows = chart.get("rows") if chart else None
+    return rows[5][1] if rows and len(rows) == 6 else None
+
+
+def augment_romance_entry(code: str, word: str, entry: dict) -> bool:
+    """Derive the missing es/it/ca verb charts in place (pt has its own
+    richer augmenter above). Returns True when anything was added."""
+    if entry.get("pos") != "verb":
+        return False
+    charts = entry.setdefault("charts", [])
+    titles = {c.get("title") for c in charts}
+    changed = False
+
+    if "Conditional" not in titles:
+        fut_3pl = _chart_3pl(charts, "Future")
+        suffix = _FUTURE_3PL_SUFFIX[code]
+        if fut_3pl and fut_3pl.endswith(suffix):
+            stem = fut_3pl[: -len(suffix)]
+            charts.append({"title": "Conditional",
+                           "rows": _rows(code, stem, _COND_ENDINGS[code])})
+            changed = True
+
+    if code == "es" and "Subjunctive (imperfect)" not in titles:
+        pret_3pl = _chart_3pl(charts, "Preterite")
+        if pret_3pl and pret_3pl.endswith("ron"):
+            stem = pret_3pl[: -len("ron")]
+            accented = _ACUTE.get(stem[-1])
+            if accented:
+                rows = _rows(code, stem, _ES_IMPF_SUBJ_ENDINGS)
+                rows[3][1] = stem[:-1] + accented + "ramos"
+                charts.append({"title": "Subjunctive (imperfect)",
+                               "rows": rows})
+                changed = True
+
+    return changed
+
+
+_AUGMENTERS = {
+    "pt": augment_pt_entry,
+    "es": lambda word, entry: augment_romance_entry("es", word, entry),
+    "it": lambda word, entry: augment_romance_entry("it", word, entry),
+    "ca": lambda word, entry: augment_romance_entry("ca", word, entry),
+}
+
+
+def augment_existing(code: str) -> int:
+    """Post-process an already-built data/{code}_morphology.json in place —
+    for gaps fixable without the raw kaikki dump. Returns entries changed."""
+    augment = _AUGMENTERS.get(code)
+    if augment is None:
+        return 0
+    path = DATA_DIR / f"{code}_morphology.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    changed = sum(
+        1 for word, entry in data.items() if augment(word, entry)
+    )
+    if changed:
+        with open(path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=0, sort_keys=True)
+            f.write("\n")
+    logger.info("%s: augmented %d entries", code, changed)
+    return changed
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build morphology chart files")
     parser.add_argument("--language", "-l", required=True,
                         choices=[*BUILDERS.keys(), "all"])
+    parser.add_argument("--augment-existing", action="store_true",
+                        help="Post-process the shipped morphology.json "
+                             "instead of rebuilding from the kaikki dump")
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
     codes = list(BUILDERS) if args.language == "all" else [args.language]
     for code in codes:
+        if args.augment_existing:
+            augment_existing(code)
+            continue
         if not (RAW_DIR / f"{code}_kaikki.jsonl").exists():
             logger.warning("%s: no kaikki extract, skipped", code)
             continue
         build_language(code)
+        # Derived charts top up whatever the dump lacked.
+        augment_existing(code)
 
 
 if __name__ == "__main__":

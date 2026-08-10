@@ -66,6 +66,8 @@ def _patches(**overrides):
         "backend.routers.recommendations.list_recommendations": AsyncMock(return_value=[]),
         "backend.routers.recommendations.recommended_titles": AsyncMock(return_value=[]),
         "backend.routers.recommendations.rated_titles": AsyncMock(return_value=[]),
+        "backend.routers.recommendations._is_admin_user":
+            AsyncMock(return_value=False),
     }
     base.update(overrides)
     return [patch(target, value) for target, value in base.items()]
@@ -226,3 +228,22 @@ async def test_feedback_503s_before_the_migration():
             )
     assert exc.value.status_code == 503
     assert "20260922" in exc.value.detail
+
+
+@pytest.mark.asyncio
+async def test_an_admin_is_always_entitled():
+    """The owner runs the API key — the Plus paywall gating their own
+    testing surface meant the person building the feature could never see
+    the generate button (reported twice). Admins bypass both the
+    entitlement and the exhaustion gate."""
+    drained_free = {**NOT_ENTITLED, "remaining": 0}
+    result = await _call(
+        force=True,
+        **{
+            "backend.routers.recommendations.get_allowance":
+                AsyncMock(return_value=drained_free),
+            "backend.routers.recommendations._is_admin_user":
+                AsyncMock(return_value=True),
+        },
+    )
+    assert result["generated"] is True

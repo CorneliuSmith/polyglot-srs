@@ -27,7 +27,8 @@
     "grammar": "Grammar",
     "vocab": "Vocab",
     "today": "Today",
-    "todayLower": "today"
+    "todayLower": "today",
+    "cancel": "Cancel"
   },
   "days": {
     "sun": "Sun",
@@ -101,7 +102,10 @@
     "activityDay": "{{date}}: {{vocab}} vocab, {{grammar}} grammar",
     "levelProgress": "{{level}} progress",
     "progressEmptyTitle": "Nothing to chart yet",
-    "progressEmptyBody": "Once you've learned and reviewed a few items, your streak, forecast, activity and level progress appear here."
+    "progressEmptyBody": "Once you've learned and reviewed a few items, your streak, forecast, activity and level progress appear here.",
+    "streakTitle": "Streak",
+    "addWidget": "Add widget",
+    "removeWidget": "Remove widget"
   },
   "stages": {
     "beginner": "Beginner",

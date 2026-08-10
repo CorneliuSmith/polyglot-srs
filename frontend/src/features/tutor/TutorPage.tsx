@@ -20,6 +20,7 @@ import type { TutorAllowance, TutorMessage, TutorMode } from '../../api/tutor'
 import UsageMeter from '../../components/UsageMeter'
 import { usePrefsStore } from '../../stores/prefsStore'
 import Annotatable from '../contribute/Annotatable'
+import TutorMarkdown from './TutorMarkdown'
 
 // Summarize into memory after this long without activity.
 const IDLE_MS = 3 * 60 * 1000
@@ -499,18 +500,23 @@ export default function TutorPage() {
                 targetLabel={msg.content.slice(0, 200)}
                 field="other"
                 source="tutor"
-                className="me-8 bg-white border border-gray-100 shadow-sm rounded-2xl rounded-es-sm px-4 py-2.5 text-sm text-gray-800 whitespace-pre-wrap"
+                className="me-8 bg-white border border-gray-100 shadow-sm rounded-2xl rounded-es-sm px-4 py-2.5 text-sm text-gray-800"
               >
-                {/* dir=auto: tutor turns mix English explanations with RTL practice text */}
-                <span dir="auto">{msg.content}</span>
+                {/* Rendered as Markdown: the tutor writes tables (catalán
+                    vs español pronouns), bold, and lists — raw pipes and
+                    asterisks made those unreadable. */}
+                <TutorMarkdown content={msg.content} />
               </Annotatable>
             ),
           )}
           {sendMutation.isPending && (
             <div className="me-8 bg-white border border-gray-100 shadow-sm rounded-2xl rounded-es-sm px-4 py-2.5 text-sm">
               {streamingText ? (
-                <span dir="auto" className="text-gray-800 whitespace-pre-wrap">
-                  {streamingText}
+                <span dir="auto" className="text-gray-800">
+                  {/* Markdown live during the stream too — a half-arrived
+                      table flickers less than raw pipes snapping into a
+                      table at the end. */}
+                  <TutorMarkdown content={streamingText} />
                   <span className="text-lang/70">▍</span>
                 </span>
               ) : (

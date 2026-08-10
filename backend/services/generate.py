@@ -845,6 +845,29 @@ def _mock_chart(item: dict) -> dict:
     }
 
 
+# Per-language "don't forget" lists for generated verb charts. "A verb's
+# main tenses" left the model free to stop early, and it reliably dropped
+# exactly the paradigms learners drill hardest — the owner caught the
+# Portuguese futuro do subjuntivo missing from Gym chart expansions.
+# Keyed by language NAME (make_chart receives the name, not the code).
+_PARADIGM_MUSTS = {
+    "Portuguese": "For verbs, always include: presente, pretérito perfeito, "
+                  "imperfeito, futuro, condicional, presente do subjuntivo, "
+                  "imperfeito do subjuntivo, FUTURO DO SUBJUNTIVO, and the "
+                  "infinitivo pessoal.",
+    "Spanish": "For verbs, always include: presente, pretérito, imperfecto, "
+               "futuro, condicional, subjuntivo presente, and subjuntivo "
+               "imperfecto.",
+    "Italian": "For verbs, always include: presente, imperfetto, futuro, "
+               "passato remoto, condizionale, congiuntivo presente, and "
+               "congiuntivo imperfetto.",
+    "Catalan": "For verbs, always include: present, imperfet, futur, "
+               "condicional, subjuntiu present, and subjuntiu imperfet.",
+    "French": "For verbs, always include: présent, imparfait, futur, "
+              "conditionnel, and subjonctif présent.",
+}
+
+
 async def make_chart(
     item: dict, language: str, model: str | None = None,
     usage_out: dict | None = None,
@@ -885,7 +908,8 @@ async def make_chart(
             f"discarded); include only forms you are certain of; if the word "
             f"is uninflectable, return a single small chart of its invariant "
             f"form(s). Keep cell labels short ({language} pronouns / case "
-            f"names as a textbook would print them)."
+            f"names as a textbook would print them). "
+            + _PARADIGM_MUSTS.get(language, "")
         ),
         messages=[{
             "role": "user",
