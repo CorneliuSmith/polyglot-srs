@@ -7,6 +7,7 @@ interests. Every batch is kept so they can look back over the whole history.
 """
 from __future__ import annotations
 
+import asyncio
 import logging
 from datetime import UTC, datetime, timedelta
 from uuid import UUID
@@ -77,6 +78,73 @@ async def put_profile(
             media_types=_clean_types(body.media_types),
         )
         return await get_reco_profile(conn, user["id"])
+
+
+# Drafts in flight, one per (user, language), OUTLIVING the request that
+# started them. The synchronous shape died in production: DigitalOcean's
+# gateway caps a request at about a minute and a batch is one long model
+# call, so refresh answered 504 while the draft was still being written —
+# and killed the work with the connection (owner screenshot, twice). The
+# request now only STARTS the draft; the page polls GET until it lands.
+_DRAFTS: dict[tuple[str, str], asyncio.Task] = {}
+# Why the LAST draft failed, per (user, language) — served by GET so the
+# page can say so instead of spinning (admins get the exception text).
+_DRAFT_ERRORS: dict[tuple[str, str], str] = {}
+
+
+def _drafting(user_id: str, language_id: str) -> bool:
+    task = _DRAFTS.get((str(user_id), str(language_id)))
+    return task is not None and not task.done()
+
+
+async def _draft_batch(
+    user_id: str, language_id: str, *, profile: dict, lang, admin: bool,
+) -> None:
+    """The whole draft, run as a background task: read the learner's current
+    state, one model call, store the batch. Every outcome lands somewhere
+    visible — a success in media_recommendations, a failure in
+    _DRAFT_ERRORS — because a task nobody awaits otherwise fails silently."""
+    key = (str(user_id), str(language_id))
+    model = resolve_model("recommend", lang["code"], override=lang["tutor_model"])
+    try:
+        async with rls_connection(user_id) as conn:
+            stats = await get_study_stats(conn, user_id, language_id)
+            # What the engine must not repeat, and how earlier picks landed —
+            # a batch that re-recommends last month's series reads as the
+            # engine not paying attention.
+            exclude = await recommended_titles(conn, user_id, language_id)
+            reactions = await rated_titles(conn, user_id, language_id)
+        level = stats.get("highest_level_reached")
+        items = await generate_recommendations(
+            language_name=lang["name"],
+            language_code=lang["code"],
+            level=level,
+            learned_count=int(stats.get("learned_cards") or 0),
+            about=profile["about"],
+            genres=profile["genres"],
+            media_types=profile["media_types"],
+            model=model,
+            exclude_titles=exclude,
+            reactions=reactions,
+        )
+        if not items:
+            raise RuntimeError("the model returned no usable picks")
+        async with rls_connection(user_id) as conn:
+            await insert_recommendation(conn, user_id, language_id, items, level)
+            # Accounting only — kind='recs' is NOT counted against the daily
+            # tutor allowance (it's a weekly plan perk, not a chat message).
+            await log_tutor_usage(conn, user_id, language_id, model, kind="recs")
+        _DRAFT_ERRORS.pop(key, None)
+    except Exception as exc:  # noqa: BLE001 — surfaced via GET, never lost
+        logger.exception(
+            "recommendations draft failed for %s (model=%s)", user_id, model
+        )
+        msg = "Couldn't draft recommendations just now — try again later."
+        if admin:
+            msg += f" [{type(exc).__name__}: {exc}]"
+        _DRAFT_ERRORS[key] = msg
+    finally:
+        _DRAFTS.pop(key, None)
 
 
 async def _is_admin_user(user_id: str) -> bool:
@@ -186,6 +254,11 @@ async def get_recommendations(
         "entitled": bool(allowance["entitled"]) or await _is_admin_user(user["id"]),
         "stale": stale,
         "batches": batches,
+        # Draft state, since refresh now only STARTS the work: the page
+        # polls this until the batch lands (generating flips false and a
+        # new batch appears) or fails (draft_error says why).
+        "generating": _drafting(user["id"], language_id),
+        "draft_error": _DRAFT_ERRORS.get((str(user["id"]), str(language_id))),
     }
 
 
@@ -207,6 +280,11 @@ async def refresh_recommendations(
     progress/status the same way the weekly draft is — grounded in
     get_study_stats each time, not cached. Rate-limited on its own
     (reco_refresh_limiter) since staleness isn't there to cap the cost.
+
+    Either way this endpoint only runs the GATES and starts the draft: the
+    model call itself runs as a background task and the page polls GET for
+    the result. Holding the request open through the whole call is what
+    504'd at DigitalOcean's gateway — see _DRAFTS.
     """
     _require_uuid(language_id)
 
@@ -217,6 +295,11 @@ async def refresh_recommendations(
                 status_code=status.HTTP_409_CONFLICT,
                 detail="Recommendations are turned off.",
             )
+        # A draft already running is joined, not doubled — the page fires a
+        # passive refresh on load AND has a button, and an impatient second
+        # click must not spend a second model call.
+        if _drafting(user["id"], language_id):
+            return {"generated": False, "generating": True, "batch": None}
         if force:
             if not await reco_refresh_limiter.allow(user["id"]):
                 raise HTTPException(
@@ -228,7 +311,8 @@ async def refresh_recommendations(
         # batch untouched (no model call).
         elif not await _is_stale(conn, user["id"], language_id):
             batches = await list_recommendations(conn, user["id"], language_id, limit=1)
-            return {"generated": False, "batch": batches[0] if batches else None}
+            return {"generated": False, "generating": False,
+                    "batch": batches[0] if batches else None}
 
         lang = await conn.fetchrow(
             "SELECT code, name, tutor_model FROM languages WHERE id = $1", language_id
@@ -237,12 +321,6 @@ async def refresh_recommendations(
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND, detail="Unknown language"
             )
-        stats = await get_study_stats(conn, user["id"], language_id)
-        # What the engine must not repeat, and how earlier picks landed —
-        # a batch that re-recommends last month's series reads as the
-        # engine not paying attention.
-        exclude = await recommended_titles(conn, user["id"], language_id)
-        reactions = await rated_titles(conn, user["id"], language_id)
 
     # Paid-tutor gate: recommendations are a tutor+ perk (each batch is a model
     # call). Free/blocked accounts get a clear 402 the UI turns into an upsell.
@@ -260,48 +338,9 @@ async def refresh_recommendations(
     if not admin:
         reject_if_unavailable(allowance)
 
-    level = stats.get("highest_level_reached")
-    # The admin's per-language model override (languages.tutor_model) —
-    # previously only tutor chat and the Reader threaded this through.
-    model = resolve_model("recommend", lang["code"], override=lang["tutor_model"])
-    try:
-        items = await generate_recommendations(
-            language_name=lang["name"],
-            language_code=lang["code"],
-            level=level,
-            learned_count=int(stats.get("learned_cards") or 0),
-            about=profile["about"],
-            genres=profile["genres"],
-            media_types=profile["media_types"],
-            model=model,
-            exclude_titles=exclude,
-            reactions=reactions,
-        )
-    except Exception as exc:  # noqa: BLE001 — a provider error is a 502, not a 500
-        # The admin bypass made this path reachable for the first time and it
-        # answered a bare 500 — the reason invisible to everyone. Log the full
-        # traceback, and tell an ADMIN what actually failed (the owner reads
-        # this in devtools; learners get the friendly line).
-        logger.exception("recommendations draft failed (model=%s)", model)
-        detail = "Couldn't draft recommendations just now — try again later."
-        if admin:
-            detail += f" [{type(exc).__name__}: {exc}]"
-        raise HTTPException(
-            status_code=status.HTTP_502_BAD_GATEWAY, detail=detail
-        ) from exc
-    if not items:
-        raise HTTPException(
-            status_code=status.HTTP_502_BAD_GATEWAY,
-            detail="Couldn't draft recommendations just now — try again later.",
-        )
-
-    async with rls_connection(user["id"]) as conn:
-        batch = await insert_recommendation(
-            conn, user["id"], language_id, items, level
-        )
-        # Accounting only — kind='recs' is NOT counted against the daily tutor
-        # allowance (it's a weekly plan perk, not a chat message).
-        await log_tutor_usage(
-            conn, user["id"], language_id, model, kind="recs"
-        )
-    return {"generated": True, "batch": batch}
+    key = (str(user["id"]), str(language_id))
+    _DRAFT_ERRORS.pop(key, None)
+    _DRAFTS[key] = asyncio.create_task(_draft_batch(
+        user["id"], language_id, profile=profile, lang=lang, admin=admin,
+    ))
+    return {"generated": False, "generating": True, "batch": None}

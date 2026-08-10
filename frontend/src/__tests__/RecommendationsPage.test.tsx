@@ -118,6 +118,29 @@ describe('RecommendationsPage', () => {
     expect(await screen.findByTestId('reco-refresh-now')).toBeDefined()
   })
 
+  it('shows a background draft failure served by GET, without a spinner', async () => {
+    // Drafts run server-side now (the synchronous request 504'd at the
+    // gateway) — a failure arrives as state, not as an HTTP error.
+    mockGet.mockResolvedValue({
+      enabled: true, entitled: true, stale: false, batches: [],
+      generating: false, draft_error: 'Couldn\'t draft — [NotFoundError: model x]',
+    })
+    renderPage()
+    const error = await screen.findByTestId('reco-error')
+    expect(error.textContent).toContain('NotFoundError: model x')
+    expect(screen.queryByTestId('reco-drafting')).toBeNull()
+  })
+
+  it('keeps the spinner while a draft is running server-side', async () => {
+    mockGet.mockResolvedValue({
+      enabled: true, entitled: true, stale: true, batches: [], generating: true,
+    })
+    mockRefresh.mockResolvedValue({ generated: false, generating: true, batch: null })
+    renderPage()
+    expect(await screen.findByTestId('reco-drafting')).toBeDefined()
+    expect(screen.queryByTestId('reco-error')).toBeNull()
+  })
+
   it('invites a first batch rather than saying there is nothing', async () => {
     mockGet.mockResolvedValue({
       enabled: true, entitled: true, stale: false, batches: [],

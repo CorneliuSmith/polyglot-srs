@@ -39,10 +39,18 @@ export interface RecoState {
   entitled: boolean
   stale: boolean
   batches: RecoBatch[]
+  /** A draft is running server-side right now — keep polling. */
+  generating?: boolean
+  /** Why the last draft failed, when it did (admins see the exception). */
+  draft_error?: string | null
 }
 
 export interface RefreshResult {
   generated: boolean
+  /** True when a draft is now running server-side — poll getRecommendations
+   *  until it lands. The request no longer waits out the model call (the
+   *  synchronous shape 504'd at the platform gateway). */
+  generating?: boolean
   batch: RecoBatch | null
 }
 
