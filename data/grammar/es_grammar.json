@@ -65,20 +65,20 @@
           "cell": "yo"
         },
         {
-          "sentence": "{{answer}} eres mi amigo.",
+          "sentence": "¿{{answer}} vives aquí?",
           "answer": "Tú",
-          "translation": "You are my friend.",
-          "hint": "informal singular 'you'",
-          "display_order": 2,
-          "cell": "tú"
+          "translation": "Do you live here?",
+          "hint": "you — informal",
+          "cell": "tú",
+          "display_order": 2
         },
         {
-          "sentence": "{{answer}} es mi hermana.",
+          "sentence": "{{answer}} canta muy bien.",
           "answer": "Ella",
-          "translation": "She is my sister.",
+          "translation": "She sings very well.",
           "hint": "she",
-          "display_order": 3,
-          "cell": "ella"
+          "cell": "ella",
+          "display_order": 3
         },
         {
           "sentence": "{{answer}} somos estudiantes.",
@@ -89,27 +89,27 @@
           "cell": "nosotros"
         },
         {
-          "sentence": "{{answer}} son de España.",
-          "answer": "Ellos",
-          "translation": "They are from Spain.",
-          "hint": "they (masculine)",
-          "display_order": 5,
-          "cell": "ellos"
-        },
-        {
-          "sentence": "{{answer}} es mi padre.",
+          "sentence": "{{answer}} trabaja en un banco.",
           "answer": "Él",
-          "translation": "He is my father.",
-          "hint": "he — with accent",
-          "display_order": 6,
-          "cell": "él"
+          "translation": "He works in a bank.",
+          "hint": "he",
+          "cell": "él",
+          "display_order": 5
         },
         {
-          "sentence": "¿{{answer}} es el doctor Ruiz?",
+          "sentence": "¿{{answer}} habla inglés?",
           "answer": "Usted",
-          "translation": "Are you Dr. Ruiz?",
+          "translation": "Do you (formal) speak English?",
           "hint": "you — formal singular",
           "cell": "usted",
+          "display_order": 6
+        },
+        {
+          "sentence": "{{answer}} juegan al fútbol.",
+          "answer": "Ellos",
+          "translation": "They play football.",
+          "hint": "they (masculine)",
+          "cell": "ellos",
           "display_order": 7
         },
         {
@@ -121,12 +121,28 @@
           "display_order": 8
         },
         {
-          "sentence": "{{answer}} son bienvenidos.",
+          "sentence": "¿{{answer}} necesitan ayuda?",
           "answer": "Ustedes",
-          "translation": "You (all) are welcome.",
+          "translation": "Do you (all, formal) need help?",
           "hint": "you all — formal / Latin America",
           "cell": "ustedes",
           "display_order": 9
+        },
+        {
+          "sentence": "{{answer}} eres mi amigo.",
+          "answer": "Tú",
+          "translation": "You are my friend.",
+          "hint": "informal singular 'you'",
+          "display_order": 10,
+          "cell": "tú"
+        },
+        {
+          "sentence": "{{answer}} es mi hermana.",
+          "answer": "Ella",
+          "translation": "She is my sister.",
+          "hint": "she",
+          "display_order": 11,
+          "cell": "ella"
         },
         {
           "sentence": "{{answer}} hablo un poco de español.",
@@ -134,39 +150,15 @@
           "translation": "I speak a little Spanish.",
           "hint": "I",
           "cell": "yo",
-          "display_order": 10
-        },
-        {
-          "sentence": "¿{{answer}} vives aquí?",
-          "answer": "Tú",
-          "translation": "Do you live here?",
-          "hint": "you — informal",
-          "cell": "tú",
-          "display_order": 11
-        },
-        {
-          "sentence": "{{answer}} trabaja en un banco.",
-          "answer": "Él",
-          "translation": "He works in a bank.",
-          "hint": "he",
-          "cell": "él",
           "display_order": 12
         },
         {
-          "sentence": "{{answer}} canta muy bien.",
-          "answer": "Ella",
-          "translation": "She sings very well.",
-          "hint": "she",
-          "cell": "ella",
-          "display_order": 13
-        },
-        {
-          "sentence": "¿{{answer}} habla inglés?",
-          "answer": "Usted",
-          "translation": "Do you (formal) speak English?",
-          "hint": "you — formal singular",
-          "cell": "usted",
-          "display_order": 14
+          "sentence": "{{answer}} es mi padre.",
+          "answer": "Él",
+          "translation": "He is my father.",
+          "hint": "he — with accent",
+          "display_order": 13,
+          "cell": "él"
         },
         {
           "sentence": "{{answer}} vivimos en Madrid.",
@@ -174,7 +166,23 @@
           "translation": "We live in Madrid.",
           "hint": "we",
           "cell": "nosotros",
-          "display_order": 15
+          "display_order": 14
+        },
+        {
+          "sentence": "{{answer}} son de España.",
+          "answer": "Ellos",
+          "translation": "They are from Spain.",
+          "hint": "they (masculine)",
+          "display_order": 15,
+          "cell": "ellos"
+        },
+        {
+          "sentence": "¿{{answer}} es el doctor Ruiz?",
+          "answer": "Usted",
+          "translation": "Are you Dr. Ruiz?",
+          "hint": "you — formal singular",
+          "cell": "usted",
+          "display_order": 16
         },
         {
           "sentence": "¿{{answer}} tenéis hambre?",
@@ -182,20 +190,12 @@
           "translation": "Are you all hungry?",
           "hint": "you all — informal (Spain)",
           "cell": "vosotros",
-          "display_order": 16
-        },
-        {
-          "sentence": "{{answer}} juegan al fútbol.",
-          "answer": "Ellos",
-          "translation": "They play football.",
-          "hint": "they (masculine)",
-          "cell": "ellos",
           "display_order": 17
         },
         {
-          "sentence": "¿{{answer}} necesitan ayuda?",
+          "sentence": "{{answer}} son bienvenidos.",
           "answer": "Ustedes",
-          "translation": "Do you (all, formal) need help?",
+          "translation": "You (all) are welcome.",
           "hint": "you all — formal / Latin America",
           "cell": "ustedes",
           "display_order": 18

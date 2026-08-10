@@ -448,10 +448,6 @@ export default function DashboardPage() {
             behind a tab. One column below that, unchanged. */}
         <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-6 lg:items-start">
         <div className="space-y-6">
-        {/* iPhone-style widget slots (owner request): two open spaces right
-            under the Study bar where the learner pins compact views of the
-            progress charts they prefer. */}
-        <WidgetSlots stats={stats} />
         {/* The STUDY language. A deliberate, infrequent choice, and legible
             by definition — so it stays here as a labelled control rather
             than following the learner around. The globe in the header is
@@ -617,6 +613,11 @@ export default function DashboardPage() {
 
           </div>
         )}
+
+        {/* iPhone-style widget slots (owner request): open spaces below the
+            Learn/Review tiles where the learner pins full-width bar views
+            of the progress charts they prefer. */}
+        <WidgetSlots stats={stats} />
 
         {/* Weekly picks — its own card, NOT filed under Practice (owner:
             "it is not a part of practice"). Below lg only; desktop has the

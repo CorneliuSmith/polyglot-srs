@@ -102,6 +102,37 @@ def _add_usage(usage_out: dict | None, resp) -> None:
             usage_out[key] = (usage_out.get(key) or 0) + n
 
 
+# Set-level variety charter, shared by the drill and example makers. The
+# owner's screenshot made the failure concrete: six subject-pronoun drills,
+# every one "pronoun + ser + noun" — technically correct, reads like a
+# paradigm row, teaches one frame. Per-sentence checks can't catch this
+# (each sentence alone is fine); the maker has to be told the SET must vary.
+_DIVERSITY_RULES = (
+    " Across the set, maximize variety: use a DIFFERENT main verb in each "
+    "sentence (unless the point itself drills one specific verb), different "
+    "topics (work, travel, food, family, plans, opinions, past events — not "
+    "six variations of one situation), and different shapes — mix plain "
+    "statements with at least one question and one negation, and vary how "
+    "sentences open. Never produce a set where every sentence follows the "
+    "same frame."
+)
+
+
+def _complexity_rule(level: str | None) -> str:
+    """Sentence complexity scaled to CEFR level: A-level stays short and
+    concrete, B1+ must read like real speech, not a textbook pattern row."""
+    lvl = (level or "").strip().upper()
+    if lvl in ("A1", "A2"):
+        return (" Keep sentences short and concrete for this level, but still"
+                " varied — simple does not mean identical.")
+    if lvl:
+        return (f" Pitch complexity at CEFR {lvl}: use connectors, "
+                "subordinate clauses and natural time/place detail where the "
+                "level supports them — as rich as the level allows, never "
+                "simpler.")
+    return ""
+
+
 def _mock_drills(point: dict, n: int) -> list[dict]:
     """Deterministic candidates for dev/testing. The first is deliberately
     malformed (answer leaks into the frame) so the checker's reject path is
@@ -160,6 +191,7 @@ async def make_drills(
             f"never the answer; the lemma is that word's dictionary form in "
             f"{language}; give a natural English translation. "
             f"Do not repeat the example sentences."
+            + _DIVERSITY_RULES + _complexity_rule(point.get("level"))
         ),
         messages=[{
             "role": "user",
@@ -350,6 +382,7 @@ async def make_examples(
             f"used, NOT a trivial fragment, a bare label, or a stilted textbook "
             f"line; vary the context; {_translation_rule(language_code)}. Do not "
             f"repeat the existing examples."
+            + _DIVERSITY_RULES + _complexity_rule(word.get("level"))
         ),
         messages=[{
             "role": "user",
@@ -736,8 +769,12 @@ async def audit_drills(
             f"numbered drill, set ok=false (with a short reason) if the sentence is "
             f"unnatural or ungrammatical, the answer is not the exactly correct "
             f"form for the blank, OR it is too trivial / low-value to teach the "
-            f"form.{level_rule} Return exactly one verdict per drill, keyed by its "
-            f"[index]."
+            f"form.{level_rule} Also judge the SET: when several drills all "
+            f"follow one sentence frame (e.g. every one is 'pronoun + to be + "
+            f"noun'), keep the best two and set ok=false on the redundant "
+            f"repeats with reason 'same-frame repeat' — a set that drills one "
+            f"frame six times teaches less than six varied sentences. Return "
+            f"exactly one verdict per drill, keyed by its [index]."
         ),
         messages=[{"role": "user", "content": listing}],
         output_config={"format": {"type": "json_schema", "schema": _DRILL_AUDIT_SCHEMA}},
