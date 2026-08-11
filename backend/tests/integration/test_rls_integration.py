@@ -7,6 +7,7 @@ intended, and that the actual repository SQL runs against the real schema.
 from __future__ import annotations
 
 import asyncio
+import json
 import uuid
 from datetime import timedelta
 
@@ -2384,3 +2385,84 @@ async def test_a_failed_draft_leaves_no_half_written_batch(pool, monkeypatch):
     async with pool.rls_connection(user) as conn:
         assert await list_recommendations(conn, user, lang) == []
     assert "provider down" in reco_router._DRAFT_ERRORS[(user, lang)]
+
+
+async def test_a_rejected_schema_still_produces_a_stored_batch(pool, monkeypatch):
+    """The insurance policy, end to end against the database.
+
+    If the API refuses the schema — the failure that kept this feature dead
+    through four fixes — generate_recommendations retries in plain JSON.
+    This proves that path all the way to a readable batch, so a future
+    strict-mode rule can cost a validated shape but not the feature.
+    """
+    from unittest.mock import AsyncMock, patch
+
+    import httpx as _httpx
+    from anthropic import BadRequestError
+
+    from backend.repositories.recommendations import (
+        list_recommendations,
+        upsert_reco_profile,
+    )
+    from backend.routers import recommendations as reco_router
+    from backend.services import recommend as reco_service
+
+    user = await _new_user(pool, "recs@fallback")
+    lang = await _language(pool, "rb")
+    async with pool.rls_connection(user) as conn:
+        await upsert_reco_profile(
+            conn, user, enabled=True, about="history",
+            genres=[], media_types=["book"],
+        )
+    async with pool.privileged_connection() as conn:
+        lang_row = await conn.fetchrow(
+            "SELECT code, name, tutor_model FROM languages WHERE id = $1", lang
+        )
+
+    request = _httpx.Request("POST", "https://api.anthropic.com/v1/messages")
+    rejection = BadRequestError(
+        "schema rejected",
+        response=_httpx.Response(400, request=request, json={
+            "type": "error",
+            "error": {"type": "invalid_request_error",
+                      "message": "output_config.format.schema: nope"},
+        }),
+        body=None,
+    )
+
+    class _Block:
+        type = "text"
+        text = json.dumps({"picks": [{
+            "type": "book", "title": "Fallback Pick", "creator": "c",
+            "year": "2001", "blurb": "b", "why": "w", "level": "B1",
+            "genre": "history",
+        }]})
+
+    class _Reply:
+        content = [_Block()]
+        usage = None
+
+    client = AsyncMock()
+    client.messages.create = AsyncMock(side_effect=[rejection, _Reply()])
+
+    class _Settings:
+        tutor_dev_mock = False
+        anthropic_api_key = "sk-test"
+        tutor_model = "claude-sonnet-5"
+        tutor_summary_model = "claude-sonnet-5"
+        tutor_model_low_resource = "claude-opus-4-8"
+
+    with patch.object(reco_service, "AsyncAnthropic", return_value=client), \
+         patch.object(reco_service, "get_settings", return_value=_Settings()):
+        await reco_router._draft_batch(
+            user, lang,
+            profile={"about": "history", "genres": [], "media_types": ["book"]},
+            lang=lang_row, admin=True,
+        )
+
+    assert reco_router._DRAFT_ERRORS.get((user, lang)) is None
+    async with pool.rls_connection(user) as conn:
+        batches = await list_recommendations(conn, user, lang)
+    assert [b["items"][0]["title"] for b in batches] == ["Fallback Pick"]
+    # Both calls happened: the schema attempt, then the plain-JSON retry.
+    assert client.messages.create.await_count == 2
