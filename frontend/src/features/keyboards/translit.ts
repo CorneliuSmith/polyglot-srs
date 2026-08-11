@@ -23,7 +23,9 @@
  *    each decodes the field back to a phonetic string and re-encodes it, so
  *    a syllable re-forms correctly as it grows ("ka" → का on the next
  *    keystroke). A trailing consonant with nothing to attach to stays
- *    pending (Latin) until `finalizeTranslit`.
+ *    pending (Latin) until `finalizeTranslit` — except a Korean consonant
+ *    after a syllable, which renders as the 받침 immediately and re-splits
+ *    if a vowel follows (밥 + a → 바바), like a real IME.
  *  - `composeScript` is the on-screen-keyboard counterpart: those keys insert
  *    raw glyphs, which only Hangul needs fusing into blocks.
  */
@@ -564,6 +566,15 @@ const KO_SPLIT_T: Record<string, string> = Object.fromEntries(
   Object.entries(KO_COMPOUND_T).map(([pair, stacked]) => [stacked, pair]),
 )
 
+// A repeated final doubles it tense (박 + k → 밖, 잇 + s → 있) and a
+// following h aspirates it (부억 + h → 부엌) — the only tense/aspirated
+// letters that can sit in the final slot. Needed because the first
+// keystroke already committed the plain batchim.
+const KO_TENSE_T: Record<string, string> = { 'ㄱ': 'ㄲ', 'ㅅ': 'ㅆ' }
+const KO_ASPIRATE_T: Record<string, string> = {
+  'ㄱ': 'ㅋ', 'ㄷ': 'ㅌ', 'ㅂ': 'ㅍ', 'ㅈ': 'ㅊ',
+}
+
 const KO_SYL_BASE = 0xac00
 const KO_SYL_LAST = 0xd7a3
 const KO_SILENT_L = KO_L.indexOf('ㅇ') // the placeholder initial for a bare vowel
@@ -628,13 +639,20 @@ for (const [lat, jamo] of KO_CONS) if (!(jamo in KO_CONS_REV)) KO_CONS_REV[jamo]
 const KO_VOW_REV: Record<string, string> = {}
 for (const [lat, jamo] of KO_VOW) if (!(jamo in KO_VOW_REV)) KO_VOW_REV[jamo] = lat
 
-/** Hangul → the string the encoder re-assembles: every syllable is exploded
- * into its JAMO, never back into romanization.
+/** Hangul → the string the encoder re-assembles.
  *
- * Round-tripping through romanization is what made ㄱ/ㄷ/ㅂ finals flip to
- * ㅋ/ㅌ/ㅍ when the next keystroke moved them into an initial slot ("gada"
- * typed 가타). Carrying the jamo itself is lossless in both directions and
- * keeps the aspirated finals (부엌) and stacked ones (없) intact too. */
+ * Initials stay JAMO (committed): decoding them to romanization is what made
+ * ㄱ/ㄷ/ㅂ flip to the aspirated ㅋ/ㅌ/ㅍ when re-read ("gada" typed 가타).
+ *
+ * FINALS go back to their LAX romanization (ㄱ → g, ㅇ → ng, ㅋ → kh): the
+ * batchim is PROVISIONAL — a trailing consonant renders as the final the
+ * moment it's typed (owner's rule: 밥, not 바p), and only the next keystroke
+ * proves whether it stays (밥 + o → 바보, the ㅂ moves) or was really two
+ * letters (방 + a → 반가, the ng re-reads as n+g). A committed jamo forbids
+ * both re-readings; the lax letter keeps them open, and re-encodes to the
+ * same jamo when nothing follows.
+ *
+ * Vowels also romanize so they can keep growing (ㅔ + u → ㅡ, 한글). */
 function decodeKo(text: string): string {
   let out = ''
   for (const raw of Array.from(text)) {
@@ -643,16 +661,14 @@ function decodeKo(text: string): string {
     if (code >= KO_SYL_BASE && code <= KO_SYL_LAST) {
       const n = code - KO_SYL_BASE
       out += KO_L[Math.floor(n / 588)]
-      // Vowels go back to ROMANIZATION: unlike consonants they are
-      // unambiguous in that direction, and it's what lets a vowel still grow
-      // across keystrokes — ㅔ + "u" has to become ㅡ ("hangeul" → 한글),
-      // which a committed jamo could never do.
       out += KO_VOW_REV[KO_V[Math.floor((n % 588) / 28)]] ?? ''
       const t = KO_T[n % 28] // '' when the syllable is open
-      out += KO_SPLIT_T[t] ?? t
+      const split = KO_SPLIT_T[t] ?? t
+      for (const j of Array.from(split)) out += KO_CONS_REV[j] ?? j
       continue
     }
-    // Standalone jamo: vowels romanize (same reason), consonants stay jamo.
+    // Standalone jamo: vowels romanize (same reason), consonants stay jamo —
+    // a loose jamo is on-screen-keyboard input, explicit by definition.
     const plain = KO_VOW_REV[ch] ?? ch
     out += KO_SPLIT_T[plain] ?? plain
   }
@@ -713,9 +729,11 @@ function koBlock(l: string, v: string, t: string): string {
   return String.fromCodePoint(KO_SYL_BASE + (li * 21 + vi) * 28 + ti)
 }
 
-/** Phonetic → Hangul blocks. A consonant with no vowel yet stays pending
- * (Latin while typing, the bare jamo once finalized) — the same contract the
- * Hindi encoder uses. */
+/** Phonetic → Hangul blocks. A consonant with no syllable before it stays
+ * pending (Latin while typing, the bare jamo once finalized) — the same
+ * contract the Hindi encoder uses. A consonant AFTER a syllable commits as
+ * its provisional batchim at once; see decodeKo for why that stays
+ * reversible. */
 function encodeKo(phon: string, finalize: boolean): string {
   const toks = tokenizeKo(phon)
   let out = ''
@@ -753,25 +771,27 @@ function encodeKo(phon: string, finalize: boolean): string {
       const asFinal = c1.committed ? c1.jamo : KO_FINAL[c1.lat] ?? c1.jamo
       const c2 = toks[i + 1]
       if (KO_T.includes(asFinal) && (!c2 || c2.t !== 'v')) {
-        // A just-typed consonant at the very END is still ambiguous — it
-        // could close this syllable or open the next one, and committing it
-        // as a final would decide the aspiration wrongly ("bapo" → 바보).
-        // Hold it pending; the next keystroke (or submit) settles it.
-        if (c2 || c1.committed || finalize) {
-          final = asFinal
-          i++
-          // A second consonant can stack onto it (ㅂ+ㅅ → ㅄ) — but only if
-          // no vowel follows, because a vowel claims that consonant as its
-          // own initial instead (없 + ㅏ is 업사, not 없아).
-          const d1 = toks[i]
-          const d2 = toks[i + 1]
-          if (d1 && d1.t === 'c' && (!d2 || d2.t !== 'v')) {
-            const stackWith = d1.committed ? d1.jamo : KO_FINAL[d1.lat] ?? d1.jamo
-            const stacked = KO_COMPOUND_T[final + stackWith]
-            if (stacked && (d2 || d1.committed || finalize)) {
-              final = stacked
-              i++
-            }
+        // Commit as the batchim IMMEDIATELY (owner's rule): "bap" renders 밥,
+        // not 바p. The decision stays reversible because decode() hands
+        // finals back as lax romanization — a vowel on the next keystroke
+        // re-splits the block (밥 + a → 바바, 방 + a → 반가).
+        final = asFinal
+        i++
+        // A second consonant can stack onto it (ㅂ+ㅅ → ㅄ), double it
+        // tense (박+k → 밖), or aspirate it (부억+h → 부엌) — but only if
+        // no vowel follows, because a vowel claims that consonant as its
+        // own initial instead (없 + ㅏ is 업사, not 없아).
+        const d1 = toks[i]
+        const d2 = toks[i + 1]
+        if (d1 && d1.t === 'c' && (!d2 || d2.t !== 'v')) {
+          const stackWith = d1.committed ? d1.jamo : KO_FINAL[d1.lat] ?? d1.jamo
+          const stacked =
+            KO_COMPOUND_T[final + stackWith] ??
+            (stackWith === final ? KO_TENSE_T[final] : undefined) ??
+            (!d1.committed && d1.lat === 'h' ? KO_ASPIRATE_T[final] : undefined)
+          if (stacked) {
+            final = stacked
+            i++
           }
         }
       }
@@ -1126,6 +1146,7 @@ export function translitGuide(code: string): GuideRow[] {
         { keys: 'ng', out: 'ㅇ', note: 'the final ㅇ (sarang → 사랑); a word-initial vowel gets it free' },
         { keys: 'hanguk', out: '한국', note: 'letters stack into blocks by themselves' },
         { keys: 'an', out: '안', note: 'a bare vowel is seated on ㅇ automatically' },
+        { keys: 'bap', out: '밥', note: 'a trailing consonant becomes the 받침 at once; a vowel after it re-opens the block (bapa → 바바)' },
         { keys: 'han-a', out: '한아', note: '- splits syllables (hana → 하나); it disappears on submit' },
       ]
     default:

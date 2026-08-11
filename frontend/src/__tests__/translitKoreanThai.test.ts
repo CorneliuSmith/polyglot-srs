@@ -60,14 +60,33 @@ describe('Korean (Hangul) transliteration', () => {
     expect(typeWord('ko', 'uisa')).toBe('의사')
   })
 
-  it('holds a just-typed trailing consonant pending, settles it on submit', () => {
-    // It is genuinely undecided: "ba"+"p" could close 밥 or open 바포. So it
-    // stays Latin until the next keystroke or submit decides — committing it
-    // early is what used to flip the aspiration.
-    expect(convertTranslit('ko', 'han')).toBe('하n')
-    expect(finalizeTranslit('ko', 'han')).toBe('한')
+  it('renders a trailing consonant as the batchim at once (owner ruling)', () => {
+    // "Consider it batchim unless the next character proves otherwise":
+    // 한 renders on the n keystroke, not 하n. Only a consonant with no
+    // syllable before it still waits as Latin.
+    expect(convertTranslit('ko', 'han')).toBe('한')
+    expect(convertTranslit('ko', 'bap')).toBe('밥')
     expect(convertTranslit('ko', 'g')).toBe('g')
     expect(finalizeTranslit('ko', 'g')).toBe('ㄱ')
+  })
+
+  it('a vowel re-opens the committed batchim, carrying the letter as-is', () => {
+    // The owner's example: 밥 + a → 바바 — the ㅂ moves into the next
+    // syllable unchanged. An aspirated initial after a closed syllable is
+    // spelled explicitly (kha/tha/pha/cha) or with the - break.
+    expect(typeWord('ko', 'bapa')).toBe('바바')
+    expect(typeWord('ko', 'bapo')).toBe('바보')
+    expect(typeWord('ko', 'hanguka')).toBe('한구가')
+    expect(typeWord('ko', 'hangukha')).toBe('한구카')
+    expect(typeWord('ko', 'ba-ka')).toBe('바카')
+  })
+
+  it('the n|ng split stays revisable after the batchim commits', () => {
+    // 방 mid-word: the ㅇ was committed as the final, but a vowel proves it
+    // was n + g all along — 반가, not 바아. This is what decoding finals to
+    // lax romanization buys.
+    expect(typeWord('ko', 'banga')).toBe('반가')
+    expect(convertTranslit('ko', convertTranslit('ko', 'ban') + 'g')).toBe('방')
   })
 
   it('a lax final stays lax when the next syllable opens (owner report)', () => {
@@ -77,9 +96,15 @@ describe('Korean (Hangul) transliteration', () => {
     expect(typeWord('ko', 'guga')).toBe('구가')      // was 구카
     expect(typeWord('ko', 'baba')).toBe('바바')      // was 바파
     expect(typeWord('ko', 'hanguga')).toBe('한구가')
-    // …while a genuinely aspirated initial after a closed syllable is kept.
-    expect(typeWord('ko', 'bapo')).toBe('바포')
-    expect(typeWord('ko', 'hanguka')).toBe('한구카')
+  })
+
+  it('tense and aspirated finals still build letter-by-letter', () => {
+    // Each keystroke commits the plain batchim first; the doubling k or the
+    // h then upgrades it in place.
+    expect(typeWord('ko', 'bakk')).toBe('밖')
+    expect(typeWord('ko', 'iss')).toBe('있')
+    expect(typeWord('ko', 'bueokh')).toBe('부엌')
+    expect(typeWord('ko', 'aph')).toBe('앞')
   })
 
   it('round-trips finals that romanization cannot spell', () => {
