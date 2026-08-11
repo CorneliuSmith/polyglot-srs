@@ -11,11 +11,14 @@ testable with no API key — same convention as services/generate.py.
 from __future__ import annotations
 
 import json
+import logging
 
-from anthropic import AsyncAnthropic
+from anthropic import AsyncAnthropic, BadRequestError
 
 from backend.config import get_settings
 from backend.services.models import resolve_model
+
+logger = logging.getLogger(__name__)
 
 MEDIA_TYPES = ("book", "film", "series", "podcast", "music")
 
@@ -32,9 +35,13 @@ _RECO_SCHEMA = {
                     "creator": {
                         "type": "string",
                         "description": "Author, director, showrunner, host, "
-                        "or artist/band.",
+                        "or artist/band. Empty string if genuinely unknown.",
                     },
-                    "year": {"type": "string"},
+                    "year": {
+                        "type": "string",
+                        "description": "Release/publication year, or an empty "
+                        "string if unknown. Never invent one.",
+                    },
                     "blurb": {
                         "type": "string",
                         "description": "One or two sentences on what it is.",
@@ -51,13 +58,18 @@ _RECO_SCHEMA = {
                     "genre": {
                         "type": "string",
                         "description": "The work's genre — 'crime drama', "
-                        "'indie folk', 'true crime'. Short.",
+                        "'indie folk', 'true crime'. Short; empty string if "
+                        "it doesn't fit one.",
                     },
                 },
-                "required": ["type", "title", "blurb", "why", "level"],
-                # The API REJECTS any object node that doesn't opt out of
-                # extra keys — this exact schema 400'd on every single call,
-                # which is why the feature never produced a batch.
+                # EVERY property is required. Strict structured output has two
+                # rules this schema broke, and each one 400s the call before
+                # the model runs: object nodes must forbid extra keys, and
+                # `required` must cover every property. Optional keys are
+                # expressed as "may be an empty string" instead — which is how
+                # every schema in this codebase that actually works is built.
+                "required": ["type", "title", "creator", "year", "blurb",
+                             "why", "level", "genre"],
                 "additionalProperties": False,
             },
         },
@@ -108,6 +120,35 @@ def _mock_recs(language_name: str, media_types: list[str]) -> list[dict]:
         },
     }
     return [catalogue[t] for t in types if t in catalogue][:4] or [catalogue["book"]]
+
+
+def _parse_picks(text: str) -> list[dict]:
+    """The picks out of a model reply, structured or not.
+
+    The fallback path (see generate_recommendations) gets prose-mode JSON,
+    which can arrive fenced or with a sentence in front of it, so the object
+    is located rather than assumed to be the whole body.
+    """
+    raw = (text or "").strip()
+    if raw.startswith("```"):
+        # ```json … ``` → the body between the fences.
+        fenced = raw[3:]
+        raw = fenced.split("```", 1)[0]
+        if raw.lower().startswith("json"):
+            raw = raw[4:]
+        raw = raw.strip()
+    try:
+        data = json.loads(raw)
+    except (json.JSONDecodeError, TypeError):
+        start, end = raw.find("{"), raw.rfind("}")
+        if start < 0 or end <= start:
+            return []
+        try:
+            data = json.loads(raw[start:end + 1])
+        except (json.JSONDecodeError, TypeError):
+            return []
+    picks = data.get("picks") if isinstance(data, dict) else None
+    return [p for p in (picks or []) if isinstance(p, dict)]
 
 
 def _reaction_lines(reactions: list[dict]) -> str:
@@ -171,45 +212,66 @@ async def generate_recommendations(
         else ""
     )
 
-    client = AsyncAnthropic(api_key=settings.anthropic_api_key)
-    resp = await client.messages.create(
-        model=model or resolve_model("recommend", language_code),
-        max_tokens=1500,
-        system=(
-            f"You recommend authentic {language_name} media — books, films, "
-            f"series, podcasts, and music — for a language learner to immerse in beyond "
-            f"their app. Recommend only REAL, verifiable works that genuinely "
-            f"exist in {language_name} (or are widely available dubbed/translated "
-            f"into it); never invent titles. Calibrate difficulty to the "
-            f"learner's level: pick things a notch above where they are so they "
-            f"stretch without drowning. Match their stated interests and genres. "
-            f"Give 3–4 picks, spread across the requested media types. For each: "
-            f"a short blurb of what it is, a sentence on why it fits THIS learner "
-            f"(their interests and level), the CEFR band it suits, and its genre. "
-            f"For music, favour artists with clear diction and lyric-forward "
-            f"songs — lyrics are the learning material. Keep it appealing and "
-            f"specific — not generic textbook fare."
-        ),
-        messages=[{
-            "role": "user",
-            "content": (
-                f"Learner profile\n"
-                f"- Target language: {language_name}\n"
-                f"- Current level (CEFR ceiling): {level_str}\n"
-                f"- Known vocabulary: about {learned_count} words\n"
-                f"- Interests / about them: {interests}\n"
-                f"- Preferred genres: {genre_str}\n"
-                f"- Wants recommendations for: {', '.join(types)}\n"
-                f"{exclusions}{reaction_txt}"
-            ),
-        }],
-        output_config={"format": {"type": "json_schema", "schema": _RECO_SCHEMA}},
+    system = (
+        f"You recommend authentic {language_name} media — books, films, "
+        f"series, podcasts, and music — for a language learner to immerse in beyond "
+        f"their app. Recommend only REAL, verifiable works that genuinely "
+        f"exist in {language_name} (or are widely available dubbed/translated "
+        f"into it); never invent titles. Calibrate difficulty to the "
+        f"learner's level: pick things a notch above where they are so they "
+        f"stretch without drowning. Match their stated interests and genres. "
+        f"Give 3–4 picks, spread across the requested media types. For each: "
+        f"a short blurb of what it is, a sentence on why it fits THIS learner "
+        f"(their interests and level), the CEFR band it suits, and its genre. "
+        f"For music, favour artists with clear diction and lyric-forward "
+        f"songs — lyrics are the learning material. Keep it appealing and "
+        f"specific — not generic textbook fare."
     )
-    text = next((b.text for b in resp.content if b.type == "text"), "{}")
+    prompt = (
+        f"Learner profile\n"
+        f"- Target language: {language_name}\n"
+        f"- Current level (CEFR ceiling): {level_str}\n"
+        f"- Known vocabulary: about {learned_count} words\n"
+        f"- Interests / about them: {interests}\n"
+        f"- Preferred genres: {genre_str}\n"
+        f"- Wants recommendations for: {', '.join(types)}\n"
+        f"{exclusions}{reaction_txt}"
+    )
+
+    client = AsyncAnthropic(api_key=settings.anthropic_api_key)
+    call_model = model or resolve_model("recommend", language_code)
     try:
-        picks = json.loads(text).get("picks", [])
-    except (json.JSONDecodeError, TypeError):
-        picks = []
+        resp = await client.messages.create(
+            model=call_model, max_tokens=1500, system=system,
+            messages=[{"role": "user", "content": prompt}],
+            output_config={
+                "format": {"type": "json_schema", "schema": _RECO_SCHEMA}
+            },
+        )
+    except BadRequestError:
+        # A schema the API won't accept must not be the end of the feature.
+        # This is exactly how recommendations stayed broken for weeks: one
+        # strict-mode rule the schema didn't satisfy, a 400 before the model
+        # ever ran, and no batch ever produced. Ask for the same JSON in
+        # plain prose instead and parse it — a validated shape is nice, a
+        # working feature is the point.
+        logger.warning(
+            "recommendations: schema rejected by the API, retrying as plain "
+            "JSON (model=%s)", call_model, exc_info=True,
+        )
+        resp = await client.messages.create(
+            model=call_model, max_tokens=1500,
+            system=(
+                system + " Reply with ONLY a JSON object, no prose and no "
+                'code fences: {"picks": [{"type": one of '
+                f'{list(MEDIA_TYPES)}, "title": string, "creator": string, '
+                '"year": string, "blurb": string, "why": string, "level": '
+                'string, "genre": string}]}'
+            ),
+            messages=[{"role": "user", "content": prompt}],
+        )
+    text = next((b.text for b in resp.content if b.type == "text"), "{}")
+    picks = _parse_picks(text)
     # Keep only the requested media types, cap the batch.
     wanted = set(types)
     picks = [p for p in picks if p.get("type") in wanted] or picks

@@ -60,9 +60,16 @@ CHECKER_SCHEMA = {
                 "properties": {
                     "index": {"type": "integer"},
                     "verdict": {"type": "string", "enum": ["ok", "reject"]},
-                    "reason": {"type": "string"},
+                    "reason": {
+                        "type": "string",
+                        "description": "Why it was rejected; empty string "
+                        "when the verdict is ok.",
+                    },
                 },
-                "required": ["index", "verdict"],
+                # Strict structured output requires `required` to cover every
+                # property — an optional key 400s the call before the model
+                # runs, which is how the recommendations feature stayed dead.
+                "required": ["index", "verdict", "reason"],
                 # Required by the API on every object node — without it the
                 # call 400s before the model runs.
                 "additionalProperties": False,
