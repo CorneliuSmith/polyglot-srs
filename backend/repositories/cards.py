@@ -139,6 +139,7 @@ async def get_due_cards(
             uc.card_type,
             uc.card_id,
             v.word                          AS word,
+            v.part_of_speech                AS part_of_speech,
             COALESCE(t.definition, t_en.definition) AS definition,
             ex.sentences                    AS example_sentences,
             ex.translations                 AS example_translations,
@@ -528,6 +529,9 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
         "transliteration": transliteration,
         "morphology": r["morphology"],
         "alternatives": r["alternatives"],
+        # 'letter' marks an alphabet-deck card; the input surfaces switch to
+        # letter mode (no ㅇ-seat for a lone Korean vowel, no Thai อ carrier).
+        "part_of_speech": r["part_of_speech"],
     }
 
 

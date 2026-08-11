@@ -77,6 +77,13 @@ class GreekNLP(AccentFoldingNLP):
     # Accent folding is script-agnostic (NFD strips the Greek tonos too).
     leading_articles = ("ο ", "η ", "το ", "οι ", "τα ", "ένας ", "μια ", "ένα ")
 
+    def normalize(self, text: str) -> str:
+        # Final sigma ς is the POSITION of σ, not a different letter — the
+        # alphabet deck's σ card and any word-final σ typed without the
+        # final form were graded wrong over a rendering rule real keyboards
+        # apply automatically.
+        return super().normalize(text).replace("ς", "σ")
+
 
 class PortugueseNLP(AccentFoldingNLP):
     leading_articles = ("o ", "a ", "os ", "as ", "um ", "uma ", "uns ", "umas ")
@@ -127,11 +134,21 @@ class TagalogNLP(AccentFoldingNLP):
     leading_articles = ()
 
 
+# Hebrew final letters → their non-final forms (ך ם ן ף ץ → כ מ נ פ צ).
+_HEBREW_FINALS = str.maketrans("ךםןףץ", "כמנפצ")
+
+
 class HebrewNLP(AccentFoldingNLP):
     """Folds niqqud (vowel points) — Unicode combining marks — so an answer
     typed with or without them matches. No article stripping: Hebrew's ה is
     fused onto the word itself, not a separable "the "."""
     leading_articles = ()
+
+    def fold_lookalikes(self, text: str) -> str:
+        # Final forms are worth learning (unlike niqqud, they are mandatory
+        # in ordinary spelling), so they fold in the COACHING layer: שלומ
+        # for שלום is accepted amber with the proper form named, not green.
+        return text.translate(_HEBREW_FINALS)
 
 
 class PersianNLP(AccentFoldingNLP):

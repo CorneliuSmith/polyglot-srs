@@ -55,6 +55,10 @@ _FOLD_MAP = {
     # get wrong long before it means they don't know the word.
     ord("ؤ"): "و",  # ؤ → و
     ord("ئ"): "ي",  # ئ → ي
+    # Standalone hamza dropped entirely: learners omit word-final ء (سما for
+    # سماء) long before it means they don't know the word — same accept-and-
+    # coach treatment as the seated hamzas above.
+    ord("ء"): "",
     ord("ـ"): "",        # tatweel (kashida) — pure decoration
 }
 
