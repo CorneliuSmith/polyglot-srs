@@ -24,7 +24,9 @@ from __future__ import annotations
 import os
 import socket
 import subprocess
+import sys
 import time
+from pathlib import Path
 
 import httpx
 import jwt as pyjwt
@@ -33,6 +35,12 @@ import pytest
 from .conftest import INTEGRATION_DSN, requires_db
 
 pytestmark = requires_db
+
+# Derived, never hardcoded: CI runs from a different checkout path with no
+# virtualenv, so a literal path to this container's .venv fails there and
+# only there — which is exactly the kind of "passes for me" gap the rest of
+# this file exists to close.
+REPO_ROOT = Path(__file__).resolve().parents[3]
 
 JWT_SECRET = "e2e-jwt-secret-at-least-32-bytes-long!!"
 BOOT_TIMEOUT_S = 60
@@ -69,9 +77,9 @@ def server():
         "TUTOR_DEV_MOCK": "true",
     }
     proc = subprocess.Popen(
-        ["/home/user/polyglot-srs/.venv/bin/uvicorn", "backend.main:create_app",
+        [sys.executable, "-m", "uvicorn", "backend.main:create_app",
          "--factory", "--host", "127.0.0.1", "--port", str(port)],
-        env=env, cwd="/home/user/polyglot-srs",
+        env=env, cwd=str(REPO_ROOT),
         stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
     )
     base = f"http://127.0.0.1:{port}"
