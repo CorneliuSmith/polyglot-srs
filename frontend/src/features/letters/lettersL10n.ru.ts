@@ -1033,7 +1033,133 @@ const koreanRu: LanguageLetters = {
   ],
 }
 
+const hebrewRu: LanguageLetters = {
+  intro: 'Еврейский алфавит — 22 буквы, справа налево. У каждой буквы одна форма (пять меняются в конце слова); гласные почти никогда не пишутся.',
+  sections: [
+    {
+      title: 'Буквы, которые есть в русском',
+      rows: [
+        { char: 'ב', roman: 'b', example: 'בית', sound: 'как б («в» без точки внутри)' },
+        { char: 'ג', roman: 'g', example: 'גדול', sound: 'как г в «год»' },
+        { char: 'ד', roman: 'd', example: 'דג', sound: 'как д в «дом»' },
+        { char: 'ה', roman: 'h', example: 'הר', sound: 'лёгкое придыхание, как английское h; в конце слова немая' },
+        { char: 'ו', roman: 'v', example: 'ורד', sound: 'как в; также пишет долгие «о»/«у»' },
+        { char: 'ז', roman: 'z', example: 'זמן', sound: 'как з в «зуб»' },
+        { char: 'י', roman: 'y', example: 'יד', sound: 'как й; также пишет долгую «и»' },
+        { char: 'כ', roman: 'k', example: 'כלב', sound: 'как к; без точки внутри — как х' },
+        { char: 'ל', roman: 'l', example: 'לילה', sound: 'как л в «лампа»' },
+        { char: 'מ', roman: 'm', example: 'מים', sound: 'как м в «мама»' },
+        { char: 'נ', roman: 'n', example: 'נר', sound: 'как н в «нет»' },
+        { char: 'ס', roman: 's', example: 'ספר', sound: 'как с в «сон»' },
+        { char: 'פ', roman: 'p', example: 'פרח', sound: 'как п; без точки внутри — ф' },
+        { char: 'ק', roman: 'q', example: 'קטן', sound: 'ещё одно к (сегодня звучит как כ)' },
+        { char: 'ר', roman: 'r', example: 'ראש', sound: 'картавое р, как французское' },
+        { char: 'ש', roman: 'sh', example: 'שלום', sound: 'как ш; с точкой слева — с' },
+        { char: 'ת', roman: 't', example: 'תודה', sound: 'как т в «там»' },
+      ],
+    },
+    {
+      title: 'Новые звуки',
+      rows: [
+        { char: 'א', roman: 'a', example: 'אבא', sound: 'немая — опора для гласной' },
+        { char: 'ח', roman: 'ch', example: 'חלב', sound: 'жёсткое х из глубины горла' },
+        { char: 'ט', roman: 'T', example: 'טוב', sound: 'ещё одно т (сегодня звучит как ת); различие только в написании' },
+        { char: 'ע', roman: "'", example: 'עין', sound: 'сжатие в горле; у большинства сегодня немая' },
+        { char: 'צ', roman: 'ts', example: 'ציפור', sound: 'как ц в «цирк»' },
+      ],
+    },
+    {
+      title: 'Конечные формы',
+      note: 'Пять букв меняют форму в конце слова — та же буква, тот же звук. Клавиатура делает это сама.',
+      rows: [
+        { char: 'כ → ך', roman: 'k', example: 'מלך', sound: 'каф в конце слова' },
+        { char: 'מ → ם', roman: 'm', example: 'מים', sound: 'мем в конце слова' },
+        { char: 'נ → ן', roman: 'n', example: 'בן', sound: 'нун в конце слова' },
+        { char: 'פ → ף', roman: 'p/f', example: 'סוף', sound: 'пей в конце слова' },
+        { char: 'צ → ץ', roman: 'ts', example: 'ארץ', sound: 'цади в конце слова' },
+      ],
+    },
+    {
+      title: 'Куда делись гласные',
+      note: 'В обычном иврите большинство гласных не пишется (полное письмо передаёт долгие о/у через ו, и через י). Огласовки (никуд) встречаются только в детских книгах, поэзии и словарях.',
+      rows: [
+        { char: 'וֹ / וּ', roman: 'o / u', example: 'שלום', sound: 'вав в роли гласной: долгие «о» или «у»' },
+        { char: 'י', roman: 'i', example: 'דין', sound: 'йод в роли гласной: долгая «и»' },
+        { char: 'בַ בֶ בִ', roman: '(niqqud)', example: 'בַּיִת', sound: 'огласовки под буквой — почти всегда опускаются' },
+      ],
+    },
+  ],
+}
+
+const persianRu: LanguageLetters = {
+  intro: 'Персидский пишется арабским письмом — 32 буквы, справа налево, обязательная вязь — но фонетика намного проще: без эмфатических и жёстких гортанных, а несколько заимствованных букв слились в обычные с, з, т и х.',
+  sections: [
+    {
+      title: 'Четыре чисто персидские буквы',
+      note: 'Добавлены к арабскому письму для звуков, которых в арабском нет.',
+      positions: true,
+      rows: [
+        { char: 'پ', roman: 'p', example: 'پدر', sound: 'как п в «папа»' },
+        { char: 'چ', roman: 'ch', example: 'چای', sound: 'как ч в «чай»' },
+        { char: 'ژ', roman: 'zh', example: 'ژاله', sound: 'как ж в «жар»' },
+        { char: 'گ', roman: 'g', example: 'گل', sound: 'как г в «год»' },
+      ],
+    },
+    {
+      title: 'Буквы, которые есть в русском',
+      positions: true,
+      rows: [
+        { char: 'ب', roman: 'b', example: 'باب', sound: 'как б в «брат»' },
+        { char: 'ت', roman: 't', example: 'تهران', sound: 'как т в «там»' },
+        { char: 'ج', roman: 'j', example: 'جان', sound: 'как дж в «джем»' },
+        { char: 'د', roman: 'd', example: 'دست', sound: 'как д в «дом»' },
+        { char: 'ر', roman: 'r', example: 'روز', sound: 'одноударное р, как испанское' },
+        { char: 'ز', roman: 'z', example: 'زبان', sound: 'как з в «зуб»' },
+        { char: 'س', roman: 's', example: 'سلام', sound: 'как с в «сон»' },
+        { char: 'ش', roman: 'sh', example: 'شب', sound: 'как ш в «шум»' },
+        { char: 'ف', roman: 'f', example: 'فردا', sound: 'как ф в «флаг»' },
+        { char: 'ک', roman: 'k', example: 'کتاب', sound: 'как к в «кот»' },
+        { char: 'ل', roman: 'l', example: 'لب', sound: 'как л в «лампа»' },
+        { char: 'م', roman: 'm', example: 'مادر', sound: 'как м в «мама»' },
+        { char: 'ن', roman: 'n', example: 'نان', sound: 'как н в «нет»' },
+        { char: 'ه', roman: 'h', example: 'هفت', sound: 'лёгкое придыхание, как английское h' },
+        { char: 'و', roman: 'v', example: 'وقت', sound: 'как в; также пишет долгие «у»/«о»' },
+        { char: 'ی', roman: 'y', example: 'یک', sound: 'как й; также пишет долгую «и»' },
+      ],
+    },
+    {
+      title: 'Заимствованные двойники',
+      note: 'Арабские заимствования сохранили написание, но персидский слил звуки — эти буквы звучат ровно как с, з, т, х или к. Орфография различает слова; рот ничего особенного не делает.',
+      positions: true,
+      rows: [
+        { char: 'ث', roman: 's', example: 'ثانیه', sound: 'обычное с (арабское th)' },
+        { char: 'ص', roman: 's', example: 'صبح', sound: 'обычное с' },
+        { char: 'ذ', roman: 'z', example: 'ذهن', sound: 'обычное з (арабское dh)' },
+        { char: 'ض', roman: 'z', example: 'ضعیف', sound: 'обычное з' },
+        { char: 'ظ', roman: 'z', example: 'ظهر', sound: 'обычное з' },
+        { char: 'ط', roman: 't', example: 'طلا', sound: 'обычное т' },
+        { char: 'ح', roman: 'h', example: 'حال', sound: 'обычное х-придыхание' },
+        { char: 'ع', roman: "'", example: 'عشق', sound: 'лёгкая смычка, или вообще ничего — куда мягче арабского' },
+        { char: 'غ', roman: 'gh', example: 'غذا', sound: 'картавое г, как французское р' },
+        { char: 'ق', roman: 'q / gh', example: 'قلب', sound: 'то же картавое г у большинства говорящих' },
+      ],
+    },
+    {
+      title: 'Гласные и полупробел',
+      rows: [
+        { char: 'آ', roman: 'aa', example: 'آب', sound: 'долгое тёмное «а», ближе к «о» — алеф с шапочкой (мадда)' },
+        { char: 'ا', roman: 'a', example: 'اسم', sound: 'опора гласной в начале слова' },
+        { char: 'و / ی', roman: 'oo / ee', example: 'دور، شیر', sound: 'долгие у и и, пишутся через вав и йе' },
+        { char: 'ــِـ ــَـ ــُـ', roman: 'e a o', example: 'دَر', sound: 'краткие гласные — почти никогда не пишутся' },
+        { char: '‌ (نیم‌فاصله)', roman: '-', example: 'می‌روم', sound: 'полупробел (ZWNJ): держит می при глаголе, но раздельно — набирается через -' },
+      ],
+    },
+  ],
+}
+
 export const LETTERS_RU: Record<string, LanguageLetters> = {
+  he: hebrewRu,
+  fa: persianRu,
   es: spanishRu,
   fr: frenchRu,
   de: germanRu,

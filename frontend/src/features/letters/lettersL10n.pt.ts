@@ -1054,7 +1054,133 @@ const koreanPt: LanguageLetters = {
   ],
 }
 
+const hebrewPt: LanguageLetters = {
+  intro: 'O alfabeto hebraico — 22 letras, da direita para a esquerda. Cada letra mantém uma única forma (cinco mudam no fim da palavra); as vogais quase nunca se escrevem.',
+  sections: [
+    {
+      title: 'Letras que o português já tem',
+      rows: [
+        { char: 'ב', roman: 'b', example: 'בית', sound: "como o b de 'bola' ('v' sem o seu ponto)" },
+        { char: 'ג', roman: 'g', example: 'גדול', sound: "como o g de 'gato'" },
+        { char: 'ד', roman: 'd', example: 'דג', sound: "como o d de 'dado'" },
+        { char: 'ה', roman: 'h', example: 'הר', sound: 'h aspirado leve (como em inglês); mudo no fim da palavra' },
+        { char: 'ו', roman: 'v', example: 'ורד', sound: "como o v de 'vela'; também escreve o 'o'/'u' longo" },
+        { char: 'ז', roman: 'z', example: 'זמן', sound: "como o z de 'zero'" },
+        { char: 'י', roman: 'y', example: 'יד', sound: "como o i de 'ioga'; também escreve o 'i' longo" },
+        { char: 'כ', roman: 'k', example: 'כלב', sound: "como o c de 'casa'; sem o seu ponto, o rr carioca (kh)" },
+        { char: 'ל', roman: 'l', example: 'לילה', sound: "como o l de 'lua'" },
+        { char: 'מ', roman: 'm', example: 'מים', sound: "como o m de 'mão'" },
+        { char: 'נ', roman: 'n', example: 'נר', sound: "como o n de 'noite'" },
+        { char: 'ס', roman: 's', example: 'ספר', sound: "como o s de 'sol'" },
+        { char: 'פ', roman: 'p', example: 'פרח', sound: "como o p de 'pão'; sem o seu ponto, f" },
+        { char: 'ק', roman: 'q', example: 'קטן', sound: 'outro c de casa (hoje igual a כ)' },
+        { char: 'ר', roman: 'r', example: 'ראש', sound: 'r gutural — o rr carioca / r francês' },
+        { char: 'ש', roman: 'sh', example: 'שלום', sound: "como o ch de 'chave'; com ponto à esquerda, s" },
+        { char: 'ת', roman: 't', example: 'תודה', sound: "como o t de 'tudo'" },
+      ],
+    },
+    {
+      title: 'Os sons novos',
+      rows: [
+        { char: 'א', roman: 'a', example: 'אבא', sound: 'muda — um assento para a vogal' },
+        { char: 'ח', roman: 'ch', example: 'חלב', sound: 'como a jota espanhola, vindo da garganta' },
+        { char: 'ט', roman: 'T', example: 'טוב', sound: 'outro t (hoje igual a ת); a ortografia distingue-os' },
+        { char: 'ע', roman: "'", example: 'עין', sound: 'um aperto na garganta; hoje quase sempre mudo' },
+        { char: 'צ', roman: 'ts', example: 'ציפור', sound: "'ts' como em 'tsunami'" },
+      ],
+    },
+    {
+      title: 'Formas finais',
+      note: 'Cinco letras mudam de forma no fim da palavra — mesma letra, mesmo som. O teclado faz isso sozinho.',
+      rows: [
+        { char: 'כ → ך', roman: 'k', example: 'מלך', sound: 'kaf no fim da palavra' },
+        { char: 'מ → ם', roman: 'm', example: 'מים', sound: 'mem no fim da palavra' },
+        { char: 'נ → ן', roman: 'n', example: 'בן', sound: 'nun no fim da palavra' },
+        { char: 'פ → ף', roman: 'p/f', example: 'סוף', sound: 'pe no fim da palavra' },
+        { char: 'צ → ץ', roman: 'ts', example: 'ארץ', sound: 'tsadi no fim da palavra' },
+      ],
+    },
+    {
+      title: 'Para onde foram as vogais',
+      note: 'O hebraico do dia a dia deixa a maioria das vogais sem escrever (o ktiv malé escreve o o/u longo com ו e o i com י). Os pontos (nikud) só aparecem em livros infantis, poesia e dicionários.',
+      rows: [
+        { char: 'וֹ / וּ', roman: 'o / u', example: 'שלום', sound: "vav fazendo de vogal: 'o' ou 'u' longo" },
+        { char: 'י', roman: 'i', example: 'דין', sound: "yod fazendo de vogal: 'i' longo" },
+        { char: 'בַ בֶ בִ', roman: '(niqqud)', example: 'בַּיִת', sound: 'os pontos vocálicos sob a letra — quase sempre omitidos' },
+      ],
+    },
+  ],
+}
+
+const persianPt: LanguageLetters = {
+  intro: 'O persa usa a escrita árabe — 32 letras, da direita para a esquerda, cursiva por regra — mas a fonética é bem mais simples: sem enfáticas nem guturais fortes, e várias letras emprestadas que se fundiram em s, z, t e h comuns.',
+  sections: [
+    {
+      title: 'As quatro letras exclusivas do persa',
+      note: 'Acrescentadas à escrita árabe para sons que o árabe não tem.',
+      positions: true,
+      rows: [
+        { char: 'پ', roman: 'p', example: 'پدر', sound: "como o p de 'pão'" },
+        { char: 'چ', roman: 'ch', example: 'چای', sound: "como o tch de 'tchau'" },
+        { char: 'ژ', roman: 'zh', example: 'ژاله', sound: "como o j de 'já'" },
+        { char: 'گ', roman: 'g', example: 'گل', sound: "como o g de 'gato'" },
+      ],
+    },
+    {
+      title: 'Letras que o português já tem',
+      positions: true,
+      rows: [
+        { char: 'ب', roman: 'b', example: 'باب', sound: "como o b de 'bola'" },
+        { char: 'ت', roman: 't', example: 'تهران', sound: "como o t de 'tudo'" },
+        { char: 'ج', roman: 'j', example: 'جان', sound: "como dj — o j do inglês 'jam'" },
+        { char: 'د', roman: 'd', example: 'دست', sound: "como o d de 'dado'" },
+        { char: 'ر', roman: 'r', example: 'روز', sound: "r de vibração simples, como em 'caro'" },
+        { char: 'ز', roman: 'z', example: 'زبان', sound: "como o z de 'zero'" },
+        { char: 'س', roman: 's', example: 'سلام', sound: "como o s de 'sol'" },
+        { char: 'ش', roman: 'sh', example: 'شب', sound: "como o ch de 'chave'" },
+        { char: 'ف', roman: 'f', example: 'فردا', sound: "como o f de 'flor'" },
+        { char: 'ک', roman: 'k', example: 'کتاب', sound: "como o c de 'casa'" },
+        { char: 'ل', roman: 'l', example: 'لب', sound: "como o l de 'lua'" },
+        { char: 'م', roman: 'm', example: 'مادر', sound: "como o m de 'mão'" },
+        { char: 'ن', roman: 'n', example: 'نان', sound: "como o n de 'noite'" },
+        { char: 'ه', roman: 'h', example: 'هفت', sound: 'h aspirado leve, como em inglês' },
+        { char: 'و', roman: 'v', example: 'وقت', sound: "como o v de 'vela'; também escreve o 'u'/'o' longo" },
+        { char: 'ی', roman: 'y', example: 'یک', sound: "como o i de 'ioga'; também escreve o 'i' longo" },
+      ],
+    },
+    {
+      title: 'As gêmeas emprestadas',
+      note: 'Os empréstimos árabes mantiveram a grafia, mas o persa fundiu os sons — estas letras soam exatamente como s, z, t, h ou q. A ortografia distingue as palavras; a boca não faz nada de especial.',
+      positions: true,
+      rows: [
+        { char: 'ث', roman: 's', example: 'ثانیه', sound: 's comum (o th árabe)' },
+        { char: 'ص', roman: 's', example: 'صبح', sound: 's comum' },
+        { char: 'ذ', roman: 'z', example: 'ذهن', sound: 'z comum (o dh árabe)' },
+        { char: 'ض', roman: 'z', example: 'ضعیف', sound: 'z comum' },
+        { char: 'ظ', roman: 'z', example: 'ظهر', sound: 'z comum' },
+        { char: 'ط', roman: 't', example: 'طلا', sound: 't comum' },
+        { char: 'ح', roman: 'h', example: 'حال', sound: 'h comum' },
+        { char: 'ع', roman: "'", example: 'عشق', sound: 'um pequeno corte na garganta, ou nada — bem mais suave que no árabe' },
+        { char: 'غ', roman: 'gh', example: 'غذا', sound: 'g gargarejado — o rr carioca / r francês' },
+        { char: 'ق', roman: 'q / gh', example: 'قلب', sound: 'o mesmo g gargarejado para a maioria dos falantes' },
+      ],
+    },
+    {
+      title: 'As vogais e o meio-espaço',
+      rows: [
+        { char: 'آ', roman: 'aa', example: 'آب', sound: "um 'a' longo e escuro, puxado para o ó — alef de chapéu (madda)" },
+        { char: 'ا', roman: 'a', example: 'اسم', sound: 'assento da vogal no início da palavra' },
+        { char: 'و / ی', roman: 'oo / ee', example: 'دور، شیر', sound: 'o u e o i longos, escritos com vav e ye' },
+        { char: 'ــِـ ــَـ ــُـ', roman: 'e a o', example: 'دَر', sound: 'as vogais breves — quase nunca escritas' },
+        { char: '‌ (نیم‌فاصله)', roman: '-', example: 'می‌روم', sound: 'o meio-espaço (ZWNJ): mantém می ligado-mas-separado do verbo — digita-se com -' },
+      ],
+    },
+  ],
+}
+
 export const LETTERS_PT: Record<string, LanguageLetters> = {
+  he: hebrewPt,
+  fa: persianPt,
   es: spanishPt,
   fr: frenchPt,
   de: germanPt,

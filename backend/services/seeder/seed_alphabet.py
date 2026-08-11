@@ -5,9 +5,11 @@ One studyable card per letter, at the pre-A1 level 'A0', grouped into an
 letter's romanization + sound, and the learner types the letter (the
 transliteration keyboard turns their Latin keys into the script). Idempotent.
 
-Russian and Greek ship here — clean, unambiguous alphabets. Arabic, Hindi, and
-Thai need per-letter data authored/verified by a speaker (positional forms,
-matras, tone/consonant classes) and are intentionally left for a later wave.
+All eight non-Latin courses ship a deck: ru, el, ar, hi, th, ko, he, fa.
+Romanizations follow the app's own typing scheme (translit.ts) wherever the
+scheme can produce the letter, so the card's prompt doubles as the key to
+type; letters the scheme can't reach (Persian's borrowed ث ص ض ظ ط ح غ)
+are typed on the on-screen keyboard.
 
 CLI: python -m backend.services.seeder.seed_alphabet --language ru
 """
@@ -189,9 +191,71 @@ HANGUL = [
     ("ㅢ", "ui", "'u'+'i' glided; often just 'i' in speech"),
 ]
 
+# Hebrew alef-bet (22), then the five final forms as their own cards — the
+# shape change IS the thing to learn. Romanization = the typing key.
+HEBREW = [
+    ("א", "a", "silent — a seat for a vowel"),
+    ("ב", "b", "'b' as in boy ('v' without its dot)"),
+    ("ג", "g", "'g' as in go"), ("ד", "d", "'d' as in dog"),
+    ("ה", "h", "'h' as in hat; silent at a word's end"),
+    ("ו", "v", "'v'; also spells long 'o'/'u'"),
+    ("ז", "z", "'z' as in zoo"),
+    ("ח", "ch", "'ch' as in Scottish loch"),
+    ("ט", "T", "'t' as in top (same sound as ת today)"),
+    ("י", "y", "'y' as in yes; also spells long 'ee'"),
+    ("כ", "k", "'k'; 'kh' without its dot"),
+    ("ל", "l", "'l' as in lamp"), ("מ", "m", "'m' as in map"),
+    ("נ", "n", "'n' as in net"), ("ס", "s", "'s' as in sun"),
+    ("ע", "'", "a catch in the throat; often silent"),
+    ("פ", "p", "'p'; 'f' without its dot"),
+    ("צ", "ts", "'ts' as in cats"),
+    ("ק", "q", "'k' as in kit (same sound as כ today)"),
+    ("ר", "r", "a gargled 'r' from the back of the throat"),
+    ("ש", "sh", "'sh' as in shoe; 's' with a left dot"),
+    ("ת", "t", "'t' as in top"),
+    ("ך", "k", "kaf at the end of a word — same sound"),
+    ("ם", "m", "mem at the end of a word — same sound"),
+    ("ן", "n", "nun at the end of a word — same sound"),
+    ("ף", "p", "pe at the end of a word — same sound"),
+    ("ץ", "ts", "tsadi at the end of a word — same sound"),
+]
+
+# Persian (32 letters). The borrowed Arabic letters all merged into plain
+# s/z/t/h — the romanization shows the SOUND; the ones the Finglish scheme
+# can't reach are typed on the on-screen keyboard.
+PERSIAN = [
+    ("آ", "aa", "long 'aw' as in law — alef with a madda"),
+    ("ا", "a", "a seat for a vowel at the start of a word"),
+    ("ب", "b", "'b' as in boy"), ("پ", "p", "'p' as in pen"),
+    ("ت", "t", "'t' as in top"),
+    ("ث", "s", "'s' as in sun — borrowed letter, plain 's' in Persian"),
+    ("ج", "j", "'j' as in jam"), ("چ", "ch", "'ch' as in chair"),
+    ("ح", "h", "'h' as in hat — borrowed letter, plain 'h' in Persian"),
+    ("خ", "kh", "'ch' as in Scottish loch"),
+    ("د", "d", "'d' as in dog"),
+    ("ذ", "z", "'z' as in zoo — borrowed letter, plain 'z' in Persian"),
+    ("ر", "r", "a tapped 'r'"), ("ز", "z", "'z' as in zoo"),
+    ("ژ", "zh", "'s' in measure"),
+    ("س", "s", "'s' as in sun"), ("ش", "sh", "'sh' as in shoe"),
+    ("ص", "s", "'s' as in sun — borrowed letter, plain 's' in Persian"),
+    ("ض", "z", "'z' as in zoo — borrowed letter, plain 'z' in Persian"),
+    ("ط", "t", "'t' as in top — borrowed letter, plain 't' in Persian"),
+    ("ظ", "z", "'z' as in zoo — borrowed letter, plain 'z' in Persian"),
+    ("ع", "'", "a slight catch in the throat; often nothing at all"),
+    ("غ", "gh", "a gargled 'g', like a French 'r'"),
+    ("ف", "f", "'f' as in fan"),
+    ("ق", "q", "the same gargled 'g' for most speakers"),
+    ("ک", "k", "'k' as in kit"), ("گ", "g", "'g' as in go"),
+    ("ل", "l", "'l' as in lamp"), ("م", "m", "'m' as in map"),
+    ("ن", "n", "'n' as in net"),
+    ("و", "v", "'v' as in van; also spells long 'oo'/'o'"),
+    ("ه", "h", "'h' as in hat"),
+    ("ی", "y", "'y' as in yes; also spells long 'ee'"),
+]
+
 ALPHABETS: dict[str, list[tuple[str, str, str]]] = {
     "ru": RUSSIAN, "el": GREEK, "ar": ARABIC, "hi": HINDI, "th": THAI,
-    "ko": HANGUL,
+    "ko": HANGUL, "he": HEBREW, "fa": PERSIAN,
 }
 
 # Compat jamo vowels ㅏ..ㅣ (U+314F–U+3163) are exactly the 21 syllable
@@ -200,6 +264,13 @@ ALPHABETS: dict[str, list[tuple[str, str, str]]] = {
 _COMPAT_VOWEL_FIRST, _COMPAT_VOWEL_LAST = 0x314F, 0x3163
 _SILENT_IEUNG_INITIAL = 11
 
+# Hebrew final forms: the transliteration keyboard finalizes a lone typed
+# letter to its FINAL form (k → ך), so each plain/final pair accepts the
+# other — both cards stay fully typeable, and the coaching fold still names
+# the proper form when it matters inside a word.
+_HE_FINAL_OF = {"כ": "ך", "מ": "ם", "נ": "ן", "פ": "ף", "צ": "ץ"}
+_HE_PLAIN_OF = {v: k for k, v in _HE_FINAL_OF.items()}
+
 
 def _letter_alternatives(code: str, letter: str) -> list[str] | None:
     """Extra accepted spellings for a letter card, where the typing scheme
@@ -207,8 +278,9 @@ def _letter_alternatives(code: str, letter: str) -> list[str] | None:
 
     The Korean transliteration keyboard seats a lone vowel on silent ㅇ
     (typing "a" yields 아, never bare ㅏ) — so the vowel cards accept the
-    seated syllable alongside the jamo. Everything else the NLP layer
-    already folds (ᄀ/ㄱ via NFKC, σ/ς, alef variants).
+    seated syllable alongside the jamo. Hebrew plain/final pairs accept each
+    other. Everything else the NLP layer already folds (ᄀ/ㄱ via NFKC, σ/ς,
+    alef variants).
     """
     if code == "ko" and len(letter) == 1:
         cp = ord(letter)
@@ -216,6 +288,11 @@ def _letter_alternatives(code: str, letter: str) -> list[str] | None:
             medial = cp - _COMPAT_VOWEL_FIRST
             seated = chr(0xAC00 + (_SILENT_IEUNG_INITIAL * 21 + medial) * 28)
             return [seated]
+    if code == "he":
+        if letter in _HE_FINAL_OF:
+            return [_HE_FINAL_OF[letter]]
+        if letter in _HE_PLAIN_OF:
+            return [_HE_PLAIN_OF[letter]]
     return None
 
 

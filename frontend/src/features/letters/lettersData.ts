@@ -38,7 +38,16 @@ export interface LanguageLetters {
   sections: LetterSection[]
 }
 
-import { arabicLetters, greekLetters, hindiLetters, koreanLetters, russianLetters, thaiLetters } from './lettersScripts'
+import {
+  arabicLetters,
+  greekLetters,
+  hebrewLetters,
+  hindiLetters,
+  koreanLetters,
+  persianLetters,
+  russianLetters,
+  thaiLetters,
+} from './lettersScripts'
 
 const spanish: LanguageLetters = {
   intro: 'Spanish spelling is honest: five pure vowels, and almost every letter says the same thing every time.',
@@ -616,6 +625,8 @@ export const LETTERS: Record<string, LanguageLetters> = {
   hi: hindiLetters,
   th: thaiLetters,
   ko: koreanLetters,
+  he: hebrewLetters,
+  fa: persianLetters,
 }
 
 import { LETTERS_L10N } from './lettersL10n'

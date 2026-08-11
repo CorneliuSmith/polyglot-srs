@@ -1031,7 +1031,133 @@ const koreanEs: LanguageLetters = {
   ],
 }
 
+const hebrewEs: LanguageLetters = {
+  intro: 'El alefato hebreo — 22 letras, de derecha a izquierda. Cada letra mantiene una sola forma (cinco cambian al final de la palabra); las vocales casi nunca se escriben.',
+  sections: [
+    {
+      title: 'Letras que el español ya tiene',
+      rows: [
+        { char: 'ב', roman: 'b', example: 'בית', sound: "como la b de 'barco' ('v' sin su punto)" },
+        { char: 'ג', roman: 'g', example: 'גדול', sound: "como la g de 'gato'" },
+        { char: 'ד', roman: 'd', example: 'דג', sound: "como la d de 'dedo'" },
+        { char: 'ה', roman: 'h', example: 'הר', sound: 'h aspirada suave (como en inglés); muda a final de palabra' },
+        { char: 'ו', roman: 'v', example: 'ורד', sound: "v labiodental; también escribe la 'o'/'u' larga" },
+        { char: 'ז', roman: 'z', example: 'זמן', sound: 'z sonora, un zumbido — la z inglesa de zoo' },
+        { char: 'י', roman: 'y', example: 'יד', sound: "como la y de 'yo'; también escribe la 'i' larga" },
+        { char: 'כ', roman: 'k', example: 'כלב', sound: "como la c de 'casa'; sin su punto suena como la j" },
+        { char: 'ל', roman: 'l', example: 'לילה', sound: "como la l de 'luna'" },
+        { char: 'מ', roman: 'm', example: 'מים', sound: "como la m de 'mano'" },
+        { char: 'נ', roman: 'n', example: 'נר', sound: "como la n de 'noche'" },
+        { char: 'ס', roman: 's', example: 'ספר', sound: "como la s de 'sol'" },
+        { char: 'פ', roman: 'p', example: 'פרח', sound: "como la p de 'pan'; sin su punto, f" },
+        { char: 'ק', roman: 'q', example: 'קטן', sound: 'otra c de casa (hoy igual que כ)' },
+        { char: 'ר', roman: 'r', example: 'ראש', sound: 'r gutural, como la r francesa' },
+        { char: 'ש', roman: 'sh', example: 'שלום', sound: 'la sh inglesa de shop; con punto a la izquierda, s' },
+        { char: 'ת', roman: 't', example: 'תודה', sound: "como la t de 'tú'" },
+      ],
+    },
+    {
+      title: 'Los sonidos nuevos',
+      rows: [
+        { char: 'א', roman: 'a', example: 'אבא', sound: 'muda — un asiento para la vocal' },
+        { char: 'ח', roman: 'ch', example: 'חלב', sound: 'como la j española, desde la garganta' },
+        { char: 'ט', roman: 'T', example: 'טוב', sound: 'otra t (hoy igual que ת); la ortografía las distingue' },
+        { char: 'ע', roman: "'", example: 'עין', sound: 'un apretón en la garganta; hoy casi siempre muda' },
+        { char: 'צ', roman: 'ts', example: 'ציפור', sound: "'ts' como en 'tsunami'" },
+      ],
+    },
+    {
+      title: 'Formas finales',
+      note: 'Cinco letras cambian de forma al final de la palabra — misma letra, mismo sonido. El teclado lo hace solo.',
+      rows: [
+        { char: 'כ → ך', roman: 'k', example: 'מלך', sound: 'kaf a final de palabra' },
+        { char: 'מ → ם', roman: 'm', example: 'מים', sound: 'mem a final de palabra' },
+        { char: 'נ → ן', roman: 'n', example: 'בן', sound: 'nun a final de palabra' },
+        { char: 'פ → ף', roman: 'p/f', example: 'סוף', sound: 'pe a final de palabra' },
+        { char: 'צ → ץ', roman: 'ts', example: 'ארץ', sound: 'tsadi a final de palabra' },
+      ],
+    },
+    {
+      title: 'A dónde fueron las vocales',
+      note: 'El hebreo cotidiano deja la mayoría de las vocales sin escribir (el ktiv malé escribe la o/u larga con ו y la i con י). Los puntos (nikud) solo aparecen en libros infantiles, poesía y diccionarios.',
+      rows: [
+        { char: 'וֹ / וּ', roman: 'o / u', example: 'שלום', sound: "vav haciendo de vocal: 'o' o 'u' larga" },
+        { char: 'י', roman: 'i', example: 'דין', sound: "yod haciendo de vocal: 'i' larga" },
+        { char: 'בַ בֶ בִ', roman: '(niqqud)', example: 'בַּיִת', sound: 'los puntos vocálicos bajo la letra — casi siempre omitidos' },
+      ],
+    },
+  ],
+}
+
+const persianEs: LanguageLetters = {
+  intro: 'El persa usa la escritura árabe — 32 letras, de derecha a izquierda, cursiva por regla — pero su fonética es mucho más simple: sin enfáticas ni guturales fuertes, y varias letras prestadas que se fundieron en s, z, t y h simples.',
+  sections: [
+    {
+      title: 'Las cuatro letras exclusivas del persa',
+      note: 'Añadidas a la escritura árabe para sonidos que el árabe no tiene.',
+      positions: true,
+      rows: [
+        { char: 'پ', roman: 'p', example: 'پدر', sound: "como la p de 'pan'" },
+        { char: 'چ', roman: 'ch', example: 'چای', sound: "como la ch de 'chico'" },
+        { char: 'ژ', roman: 'zh', example: 'ژاله', sound: 'como la j francesa de jour' },
+        { char: 'گ', roman: 'g', example: 'گل', sound: "como la g de 'gato'" },
+      ],
+    },
+    {
+      title: 'Letras que el español ya tiene',
+      positions: true,
+      rows: [
+        { char: 'ب', roman: 'b', example: 'باب', sound: "como la b de 'barco'" },
+        { char: 'ت', roman: 't', example: 'تهران', sound: "como la t de 'tú'" },
+        { char: 'ج', roman: 'j', example: 'جان', sound: "como la y fuerte rioplatense; el j inglés de jam" },
+        { char: 'د', roman: 'd', example: 'دست', sound: "como la d de 'dedo'" },
+        { char: 'ر', roman: 'r', example: 'روز', sound: "r simple de 'pero'" },
+        { char: 'ز', roman: 'z', example: 'زبان', sound: 'z sonora — la z inglesa de zoo' },
+        { char: 'س', roman: 's', example: 'سلام', sound: "como la s de 'sol'" },
+        { char: 'ش', roman: 'sh', example: 'شب', sound: 'la sh inglesa de shop' },
+        { char: 'ف', roman: 'f', example: 'فردا', sound: "como la f de 'flor'" },
+        { char: 'ک', roman: 'k', example: 'کتاب', sound: "como la c de 'casa'" },
+        { char: 'ل', roman: 'l', example: 'لب', sound: "como la l de 'luna'" },
+        { char: 'م', roman: 'm', example: 'مادر', sound: "como la m de 'mano'" },
+        { char: 'ن', roman: 'n', example: 'نان', sound: "como la n de 'noche'" },
+        { char: 'ه', roman: 'h', example: 'هفت', sound: 'h aspirada suave, como en inglés' },
+        { char: 'و', roman: 'v', example: 'وقت', sound: "v labiodental; también escribe la 'u'/'o' larga" },
+        { char: 'ی', roman: 'y', example: 'یک', sound: "como la y de 'yo'; también escribe la 'i' larga" },
+      ],
+    },
+    {
+      title: 'Las gemelas prestadas',
+      note: 'Los préstamos árabes conservaron su ortografía, pero el persa fundió los sonidos — estas letras suenan exactamente como s, z, t, h o q. La ortografía distingue las palabras; tu boca no hace nada especial.',
+      positions: true,
+      rows: [
+        { char: 'ث', roman: 's', example: 'ثانیه', sound: "s simple (el th árabe)" },
+        { char: 'ص', roman: 's', example: 'صبح', sound: 's simple' },
+        { char: 'ذ', roman: 'z', example: 'ذهن', sound: 'z sonora simple (el dh árabe)' },
+        { char: 'ض', roman: 'z', example: 'ضعیف', sound: 'z sonora simple' },
+        { char: 'ظ', roman: 'z', example: 'ظهر', sound: 'z sonora simple' },
+        { char: 'ط', roman: 't', example: 'طلا', sound: 't simple' },
+        { char: 'ح', roman: 'h', example: 'حال', sound: 'h simple' },
+        { char: 'ع', roman: "'", example: 'عشق', sound: 'un pequeño corte, o nada — mucho más suave que en árabe' },
+        { char: 'غ', roman: 'gh', example: 'غذا', sound: 'g gargarizada — una r francesa' },
+        { char: 'ق', roman: 'q / gh', example: 'قلب', sound: 'la misma g gargarizada para la mayoría de los hablantes' },
+      ],
+    },
+    {
+      title: 'Las vocales y el medio espacio',
+      rows: [
+        { char: 'آ', roman: 'aa', example: 'آب', sound: "una 'a' larga y oscura, hacia la o — alef con sombrero (madda)" },
+        { char: 'ا', roman: 'a', example: 'اسم', sound: 'asiento de la vocal al principio de la palabra' },
+        { char: 'و / ی', roman: 'oo / ee', example: 'دور، شیر', sound: 'la u y la i largas, escritas con vav y ye' },
+        { char: 'ــِـ ــَـ ــُـ', roman: 'e a o', example: 'دَر', sound: 'las vocales breves — casi nunca se escriben' },
+        { char: '‌ (نیم‌فاصله)', roman: '-', example: 'می‌روم', sound: 'el medio espacio (ZWNJ): mantiene می unido-pero-separado de su verbo — se teclea con -' },
+      ],
+    },
+  ],
+}
+
 export const LETTERS_ES: Record<string, LanguageLetters> = {
+  he: hebrewEs,
+  fa: persianEs,
   es: spanishEs,
   fr: frenchEs,
   de: germanEs,

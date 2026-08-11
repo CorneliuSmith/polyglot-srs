@@ -1054,7 +1054,133 @@ const koreanFr: LanguageLetters = {
   ],
 }
 
+const hebrewFr: LanguageLetters = {
+  intro: 'L’alphabet hébreu — 22 lettres, de droite à gauche. Chaque lettre garde une seule forme (cinq changent en fin de mot) ; les voyelles ne s’écrivent presque jamais.',
+  sections: [
+    {
+      title: 'Les lettres que le français a déjà',
+      rows: [
+        { char: 'ב', roman: 'b', example: 'בית', sound: 'comme le b de « bon » (« v » sans son point)' },
+        { char: 'ג', roman: 'g', example: 'גדול', sound: 'comme le g de « gare »' },
+        { char: 'ד', roman: 'd', example: 'דג', sound: 'comme le d de « doux »' },
+        { char: 'ה', roman: 'h', example: 'הר', sound: 'h aspiré léger (comme en anglais) ; muet en fin de mot' },
+        { char: 'ו', roman: 'v', example: 'ורד', sound: 'comme le v de « vin » ; écrit aussi le « o »/« ou » long' },
+        { char: 'ז', roman: 'z', example: 'זמן', sound: 'comme le z de « zéro »' },
+        { char: 'י', roman: 'y', example: 'יד', sound: 'comme le y de « yoga » ; écrit aussi le « i » long' },
+        { char: 'כ', roman: 'k', example: 'כלב', sound: 'comme le k de « képi » ; sans son point, la jota (kh)' },
+        { char: 'ל', roman: 'l', example: 'לילה', sound: 'comme le l de « lune »' },
+        { char: 'מ', roman: 'm', example: 'מים', sound: 'comme le m de « main »' },
+        { char: 'נ', roman: 'n', example: 'נר', sound: 'comme le n de « nuit »' },
+        { char: 'ס', roman: 's', example: 'ספר', sound: 'comme le s de « soleil »' },
+        { char: 'פ', roman: 'p', example: 'פרח', sound: 'comme le p de « pain » ; sans son point, f' },
+        { char: 'ק', roman: 'q', example: 'קטן', sound: 'un autre k (aujourd’hui identique à כ)' },
+        { char: 'ר', roman: 'r', example: 'ראש', sound: 'exactement le r français' },
+        { char: 'ש', roman: 'sh', example: 'שלום', sound: 'comme le ch de « chat » ; avec le point à gauche, s' },
+        { char: 'ת', roman: 't', example: 'תודה', sound: 'comme le t de « table »' },
+      ],
+    },
+    {
+      title: 'Les sons nouveaux',
+      rows: [
+        { char: 'א', roman: 'a', example: 'אבא', sound: 'muette — un siège pour la voyelle' },
+        { char: 'ח', roman: 'ch', example: 'חלב', sound: 'la jota espagnole / le ch allemand de Bach, depuis la gorge' },
+        { char: 'ט', roman: 'T', example: 'טוב', sound: 'un autre t (identique à ת aujourd’hui) ; l’orthographe les distingue' },
+        { char: 'ע', roman: "'", example: 'עין', sound: 'un serrement de gorge ; le plus souvent muet aujourd’hui' },
+        { char: 'צ', roman: 'ts', example: 'ציפור', sound: '« ts » comme dans « tsar »' },
+      ],
+    },
+    {
+      title: 'Les formes finales',
+      note: 'Cinq lettres changent de forme en fin de mot — même lettre, même son. Le clavier le fait tout seul.',
+      rows: [
+        { char: 'כ → ך', roman: 'k', example: 'מלך', sound: 'kaf en fin de mot' },
+        { char: 'מ → ם', roman: 'm', example: 'מים', sound: 'mem en fin de mot' },
+        { char: 'נ → ן', roman: 'n', example: 'בן', sound: 'noun en fin de mot' },
+        { char: 'פ → ף', roman: 'p/f', example: 'סוף', sound: 'pé en fin de mot' },
+        { char: 'צ → ץ', roman: 'ts', example: 'ארץ', sound: 'tsadi en fin de mot' },
+      ],
+    },
+    {
+      title: 'Où sont passées les voyelles',
+      note: 'L’hébreu courant n’écrit pas la plupart des voyelles (le ktiv malé note le o/ou long avec ו et le i avec י). Les points-voyelles (nikoud) n’apparaissent que dans les livres pour enfants, la poésie et les dictionnaires.',
+      rows: [
+        { char: 'וֹ / וּ', roman: 'o / u', example: 'שלום', sound: 'vav en voyelle : « o » ou « ou » long' },
+        { char: 'י', roman: 'i', example: 'דין', sound: 'yod en voyelle : « i » long' },
+        { char: 'בַ בֶ בִ', roman: '(niqqud)', example: 'בַּיִת', sound: 'les points-voyelles sous la lettre — presque toujours omis' },
+      ],
+    },
+  ],
+}
+
+const persianFr: LanguageLetters = {
+  intro: 'Le persan s’écrit avec l’alphabet arabe — 32 lettres, de droite à gauche, cursif par règle — mais sa phonétique est bien plus simple : pas d’emphatiques ni de gutturales dures, et plusieurs lettres empruntées qui ont fusionné en s, z, t et h ordinaires.',
+  sections: [
+    {
+      title: 'Les quatre lettres propres au persan',
+      note: 'Ajoutées à l’alphabet arabe pour des sons que l’arabe n’a pas.',
+      positions: true,
+      rows: [
+        { char: 'پ', roman: 'p', example: 'پدر', sound: 'comme le p de « pain »' },
+        { char: 'چ', roman: 'ch', example: 'چای', sound: '« tch » comme dans « tchèque »' },
+        { char: 'ژ', roman: 'zh', example: 'ژاله', sound: 'exactement le j français de « jour »' },
+        { char: 'گ', roman: 'g', example: 'گل', sound: 'comme le g de « gare »' },
+      ],
+    },
+    {
+      title: 'Les lettres que le français a déjà',
+      positions: true,
+      rows: [
+        { char: 'ب', roman: 'b', example: 'باب', sound: 'comme le b de « bon »' },
+        { char: 'ت', roman: 't', example: 'تهران', sound: 'comme le t de « table »' },
+        { char: 'ج', roman: 'j', example: 'جان', sound: '« dj » comme dans « Djibouti »' },
+        { char: 'د', roman: 'd', example: 'دست', sound: 'comme le d de « doux »' },
+        { char: 'ر', roman: 'r', example: 'روز', sound: 'r battu bref, comme en espagnol' },
+        { char: 'ز', roman: 'z', example: 'زبان', sound: 'comme le z de « zéro »' },
+        { char: 'س', roman: 's', example: 'سلام', sound: 'comme le s de « soleil »' },
+        { char: 'ش', roman: 'sh', example: 'شب', sound: 'comme le ch de « chat »' },
+        { char: 'ف', roman: 'f', example: 'فردا', sound: 'comme le f de « fleur »' },
+        { char: 'ک', roman: 'k', example: 'کتاب', sound: 'comme le k de « képi »' },
+        { char: 'ل', roman: 'l', example: 'لب', sound: 'comme le l de « lune »' },
+        { char: 'م', roman: 'm', example: 'مادر', sound: 'comme le m de « main »' },
+        { char: 'ن', roman: 'n', example: 'نان', sound: 'comme le n de « nuit »' },
+        { char: 'ه', roman: 'h', example: 'هفت', sound: 'h aspiré léger, comme en anglais' },
+        { char: 'و', roman: 'v', example: 'وقت', sound: 'comme le v de « vin » ; écrit aussi le « ou »/« o » long' },
+        { char: 'ی', roman: 'y', example: 'یک', sound: 'comme le y de « yoga » ; écrit aussi le « i » long' },
+      ],
+    },
+    {
+      title: 'Les jumelles empruntées',
+      note: 'Les emprunts arabes ont gardé leur orthographe, mais le persan a fusionné les sons — ces lettres se prononcent exactement s, z, t, h ou q. L’orthographe distingue les mots ; la bouche ne fait rien de spécial.',
+      positions: true,
+      rows: [
+        { char: 'ث', roman: 's', example: 'ثانیه', sound: 's ordinaire (le th arabe)' },
+        { char: 'ص', roman: 's', example: 'صبح', sound: 's ordinaire' },
+        { char: 'ذ', roman: 'z', example: 'ذهن', sound: 'z ordinaire (le dh arabe)' },
+        { char: 'ض', roman: 'z', example: 'ضعیف', sound: 'z ordinaire' },
+        { char: 'ظ', roman: 'z', example: 'ظهر', sound: 'z ordinaire' },
+        { char: 'ط', roman: 't', example: 'طلا', sound: 't ordinaire' },
+        { char: 'ح', roman: 'h', example: 'حال', sound: 'h ordinaire' },
+        { char: 'ع', roman: "'", example: 'عشق', sound: 'un léger coup de glotte, ou rien du tout — bien plus doux qu’en arabe' },
+        { char: 'غ', roman: 'gh', example: 'غذا', sound: 'exactement le r français' },
+        { char: 'ق', roman: 'q / gh', example: 'قلب', sound: 'le même r français pour la plupart des locuteurs' },
+      ],
+    },
+    {
+      title: 'Les voyelles et la demi-espace',
+      rows: [
+        { char: 'آ', roman: 'aa', example: 'آب', sound: 'un « â » long et sombre, vers le o — alef à chapeau (madda)' },
+        { char: 'ا', roman: 'a', example: 'اسم', sound: 'siège de la voyelle en début de mot' },
+        { char: 'و / ی', roman: 'oo / ee', example: 'دور، شیر', sound: 'le ou et le i longs, écrits avec vav et yé' },
+        { char: 'ــِـ ــَـ ــُـ', roman: 'e a o', example: 'دَر', sound: 'les voyelles brèves — presque jamais écrites' },
+        { char: '‌ (نیم‌فاصله)', roman: '-', example: 'می‌روم', sound: 'la demi-espace (ZWNJ) : garde می attaché-mais-séparé de son verbe — se tape avec -' },
+      ],
+    },
+  ],
+}
+
 export const LETTERS_FR: Record<string, LanguageLetters> = {
+  he: hebrewFr,
+  fa: persianFr,
   es: spanishFr,
   fr: frenchFr,
   de: germanFr,

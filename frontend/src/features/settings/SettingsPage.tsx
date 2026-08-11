@@ -127,7 +127,7 @@ const WEEKDAY_KEYS = [
 // Languages with a named script in the catalog (settings.scripts.<code>) for
 // the language-specific section's copy; others fall back to
 // settings.scripts.fallback.
-const SCRIPT_CODES = new Set(['ru', 'ar', 'el', 'hi', 'th', 'ko'])
+const SCRIPT_CODES = new Set(['ru', 'ar', 'el', 'hi', 'th', 'ko', 'he', 'fa'])
 
 // Labels come from the catalog (settings.theme.<value>) at render time.
 const THEMES: Theme[] = ['system', 'light', 'dark']
