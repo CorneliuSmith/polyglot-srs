@@ -122,6 +122,58 @@ def _mock_recs(language_name: str, media_types: list[str]) -> list[dict]:
     return [catalogue[t] for t in types if t in catalogue][:4] or [catalogue["book"]]
 
 
+class RecommendationError(RuntimeError):
+    """A draft that produced nothing, with the reason attached.
+
+    Raised instead of returning an empty list so the failure carries the
+    stop reason and a slice of what the model actually said — the page
+    shows that to an admin, and "no usable picks" alone cost a whole
+    round trip of guessing.
+    """
+
+
+def _text_of(resp) -> str:
+    """The reply's text, or '' — a response can carry no text block at all
+    (a refusal, or a budget spent before the answer started)."""
+    return next((b.text for b in getattr(resp, "content", []) or []
+                 if getattr(b, "type", None) == "text"), "")
+
+
+def _complete_objects(fragment: str) -> list[dict]:
+    """Whole JSON objects salvaged from a truncated array.
+
+    A reply cut off mid-object is unparseable as a whole but usually holds
+    three good picks and half of a fourth. Three picks beat none.
+    """
+    out, depth, start, in_string, escaped = [], 0, None, False, False
+    for i, ch in enumerate(fragment):
+        if in_string:
+            if escaped:
+                escaped = False
+            elif ch == "\\":
+                escaped = True
+            elif ch == '"':
+                in_string = False
+            continue
+        if ch == '"':
+            in_string = True
+        elif ch == "{":
+            if depth == 0:
+                start = i
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0 and start is not None:
+                try:
+                    obj = json.loads(fragment[start:i + 1])
+                except (json.JSONDecodeError, TypeError):
+                    obj = None
+                if isinstance(obj, dict):
+                    out.append(obj)
+                start = None
+    return out
+
+
 def _parse_picks(text: str) -> list[dict]:
     """The picks out of a model reply, structured or not.
 
@@ -141,12 +193,19 @@ def _parse_picks(text: str) -> list[dict]:
         data = json.loads(raw)
     except (json.JSONDecodeError, TypeError):
         start, end = raw.find("{"), raw.rfind("}")
-        if start < 0 or end <= start:
-            return []
-        try:
-            data = json.loads(raw[start:end + 1])
-        except (json.JSONDecodeError, TypeError):
-            return []
+        if start >= 0 and end > start:
+            try:
+                data = json.loads(raw[start:end + 1])
+            except (json.JSONDecodeError, TypeError):
+                data = None
+        else:
+            data = None
+        if data is None:
+            # Truncated mid-object: keep the picks that DID finish. The
+            # outer object never closes, so nothing above can parse it,
+            # and three good picks are a batch while none is a failure.
+            marker = raw.find('"picks"')
+            return _complete_objects(raw[marker:] if marker >= 0 else raw)
     picks = data.get("picks") if isinstance(data, dict) else None
     return [p for p in (picks or []) if isinstance(p, dict)]
 
@@ -240,38 +299,70 @@ async def generate_recommendations(
 
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     call_model = model or resolve_model("recommend", language_code)
-    try:
-        resp = await client.messages.create(
-            model=call_model, max_tokens=1500, system=system,
-            messages=[{"role": "user", "content": prompt}],
-            output_config={
+    plain_system = (
+        system + " Reply with ONLY a JSON object, no prose and no "
+        'code fences: {"picks": [{"type": one of '
+        f'{list(MEDIA_TYPES)}, "title": string, "creator": string, '
+        '"year": string, "blurb": string, "why": string, "level": '
+        'string, "genre": string}]}'
+    )
+
+    async def _ask(structured: bool):
+        kwargs = {
+            "model": call_model,
+            # Four picks × eight fields, two of them prose, plus whatever the
+            # model thinks first. The old 1500 was the smallest budget in the
+            # codebase (everything else uses 2048+) and truncated JSON parses
+            # to nothing, which is exactly the "no usable picks" the owner
+            # saw once the schema itself was accepted.
+            "max_tokens": 4096,
+            "system": system if structured else plain_system,
+            "messages": [{"role": "user", "content": prompt}],
+        }
+        if structured:
+            kwargs["output_config"] = {
                 "format": {"type": "json_schema", "schema": _RECO_SCHEMA}
-            },
-        )
+            }
+        return await client.messages.create(**kwargs)
+
+    try:
+        resp = await _ask(structured=True)
+        picks = _parse_picks(_text_of(resp))
     except BadRequestError:
         # A schema the API won't accept must not be the end of the feature.
         # This is exactly how recommendations stayed broken for weeks: one
         # strict-mode rule the schema didn't satisfy, a 400 before the model
-        # ever ran, and no batch ever produced. Ask for the same JSON in
-        # plain prose instead and parse it — a validated shape is nice, a
-        # working feature is the point.
+        # ever ran, and no batch ever produced.
         logger.warning(
             "recommendations: schema rejected by the API, retrying as plain "
             "JSON (model=%s)", call_model, exc_info=True,
         )
-        resp = await client.messages.create(
-            model=call_model, max_tokens=1500,
-            system=(
-                system + " Reply with ONLY a JSON object, no prose and no "
-                'code fences: {"picks": [{"type": one of '
-                f'{list(MEDIA_TYPES)}, "title": string, "creator": string, '
-                '"year": string, "blurb": string, "why": string, "level": '
-                'string, "genre": string}]}'
-            ),
-            messages=[{"role": "user", "content": prompt}],
+        resp = await _ask(structured=False)
+        picks = _parse_picks(_text_of(resp))
+
+    if not picks:
+        # The structured call came back but yielded nothing usable — an empty
+        # reply, or a body the schema mode still couldn't fill. Retrying in
+        # prose costs one call and has a different failure mode, which is
+        # worth more than a second identical disappointment.
+        logger.warning(
+            "recommendations: no picks parsed (model=%s, stop_reason=%s), "
+            "retrying as plain JSON", call_model, getattr(resp, "stop_reason", None),
         )
-    text = next((b.text for b in resp.content if b.type == "text"), "{}")
-    picks = _parse_picks(text)
+        resp = await _ask(structured=False)
+        picks = _parse_picks(_text_of(resp))
+
+    if not picks:
+        # Say exactly what came back. "No usable picks" on its own sent the
+        # owner round another diagnostic loop; the stop reason and the head
+        # of the reply name the cause (truncation, refusal, empty body).
+        raise RecommendationError(
+            f"the model returned nothing usable "
+            f"(model={call_model}, stop_reason="
+            f"{getattr(resp, 'stop_reason', None)}, "
+            f"reply starts: {_text_of(resp)[:200]!r})"
+        )
+
     # Keep only the requested media types, cap the batch.
     wanted = set(types)
     picks = [p for p in picks if p.get("type") in wanted] or picks

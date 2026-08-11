@@ -62,6 +62,25 @@ class TestTranslate:
         assert by_word["dog"]["gloss"] == "[dog]"
         assert by_word["run"]["gloss"] == "[run]"
 
+    @pytest.mark.asyncio
+    async def test_a_rejected_item_still_carries_what_the_maker_proposed(self):
+        """The review queue exists to show a human the REJECTED proposal.
+
+        `gloss` is empty on a reject (nothing to store) and the queue row was
+        filled from it, so every row reached the reviewer with no proposal —
+        a word, a reason, and a Reject button. `proposed` keeps the maker's
+        attempt so there is something to approve."""
+        s, b = _mock()
+        with s, b:
+            res = await tr.maker_check_batch("Dutch", ITEMS)
+        by_word = {r["word"]: r for r in res}
+        rejected = by_word["cat"]
+        assert rejected["verdict"] == "reject"
+        assert rejected["gloss"] == ""       # nothing auto-applied
+        assert rejected["proposed"]          # but something to review
+        # An approved item proposes what it stored.
+        assert by_word["dog"]["proposed"] == "[dog]"
+
 
 class TestSentenceTranslations:
     @pytest.mark.asyncio

@@ -205,7 +205,15 @@ async def maker_check_batch(target_language: str, items: list[dict],
                             checker_model: str | None = None, *,
                             source_language: str = "English") -> list[dict]:
     """Run maker then checker over a batch. Returns per-item results:
-    {i, word, gloss, verdict, note} where gloss is the final to store (or '')."""
+    {i, word, gloss, proposed, verdict, note}.
+
+    `gloss` is what to STORE — empty when the checker rejected. `proposed`
+    is what the maker actually wrote, kept even on a reject, because the
+    review queue exists precisely to show a human the rejected proposal.
+    Dropping it left every row in that queue with nothing to approve: the
+    reviewer saw a word, a reason, and a Reject button, which is not a
+    review, it is a bin.
+    """
     made = await make_glosses(target_language, items, maker_model,
                               source_language=source_language)
     checkable = [
@@ -222,6 +230,9 @@ async def maker_check_batch(target_language: str, items: list[dict],
         results.append({
             "i": it["i"], "word": it["word"],
             "gloss": store if v["verdict"] in ("ok", "fixed") else "",
+            # The checker's correction if it offered one, else the maker's
+            # own attempt — either way, something a reviewer can judge.
+            "proposed": (v.get("final") or "").strip() or it["gloss"],
             "verdict": v["verdict"], "note": v["note"],
         })
     return results

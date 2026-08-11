@@ -210,8 +210,7 @@ async def fill_start_batch(
                         pair["locale_name"], items,
                         source_language=pair["language_name"])
                     by_i = {b["i"]: b for b in results}
-                    merged = [{**by_i[i], "id": rows[i]["id"],
-                               "proposed": by_i[i]["gloss"]}
+                    merged = [{**by_i[i], "id": rows[i]["id"]}
                               for i in range(len(rows)) if i in by_i]
                     applied, _ = await _apply(conn, locale, merged)
                     await _settle(conn, "word", pair,
@@ -1311,8 +1310,7 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
                         b["locale_name"], items,
                         source_language=b["language_name"]), kind, b)
                     by_i = {x["i"]: x for x in results}
-                    merged = [{**by_i[i], "id": rows[i]["id"],
-                               "proposed": by_i[i]["gloss"]}
+                    merged = [{**by_i[i], "id": rows[i]["id"]}
                               for i in range(len(rows)) if i in by_i]
                     applied, queued = await _apply(conn, b["locale"], merged)
                     stats["applied"] += applied
@@ -1502,7 +1500,7 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
                                   pair["locale"], error=str(exc))
             continue
         by_i = {b["i"]: b for b in results}
-        merged = [{**by_i[i], "id": rows[i]["id"], "proposed": by_i[i]["gloss"]}
+        merged = [{**by_i[i], "id": rows[i]["id"]}
                   for i in range(len(rows)) if i in by_i]
         applied, queued = await _apply(conn, pair["locale"], merged)
         stats["processed"] += len(merged)

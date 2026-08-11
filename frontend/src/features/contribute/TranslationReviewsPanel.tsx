@@ -59,14 +59,24 @@ export default function TranslationReviewsPanel({
             </span>
             <div className="flex-1 min-w-0">
               <div className="font-semibold text-gray-800">{r.word}</div>
+              {/* The decision is current-vs-proposed, so both are shown as a
+                  pair. Proposals used to be dropped on the way in (see
+                  maker_check_batch) and every row rendered as a reason with
+                  a Reject button — a bin, not a review. */}
               {r.current_definition && (
-                <div className="text-xs text-gray-400 truncate">
-                  now: {r.current_definition}
+                <div className="text-xs text-gray-400">
+                  <span className="text-gray-400">now:</span>{' '}
+                  {r.current_definition}
                 </div>
               )}
-              {r.proposed && (
+              {r.proposed ? (
                 <div className="text-xs text-gray-700">
-                  proposed: <b>{r.proposed}</b>
+                  <span className="text-gray-400">proposed:</span>{' '}
+                  <b className="text-gray-900">{r.proposed}</b>
+                </div>
+              ) : (
+                <div className="text-xs text-gray-400 italic">
+                  no replacement proposed — the checker rejected it outright
                 </div>
               )}
               {r.reason && (
@@ -74,16 +84,19 @@ export default function TranslationReviewsPanel({
               )}
             </div>
             <div className="flex gap-1 shrink-0">
-              {r.proposed && (
-                <button
-                  type="button"
-                  onClick={() => approve.mutate(r.id)}
-                  disabled={approve.isPending || reject.isPending}
-                  className="rounded-lg bg-lang px-2.5 py-1 text-xs font-semibold text-lang-on disabled:opacity-50"
-                >
-                  Approve
-                </button>
-              )}
+              <button
+                type="button"
+                onClick={() => approve.mutate(r.id)}
+                disabled={!r.proposed || approve.isPending || reject.isPending}
+                title={
+                  r.proposed
+                    ? 'Put the proposed text on the card'
+                    : 'Nothing to apply — this row has no proposal'
+                }
+                className="rounded-lg bg-lang px-2.5 py-1 text-xs font-semibold text-lang-on disabled:opacity-40"
+              >
+                Approve
+              </button>
               <button
                 type="button"
                 onClick={() => reject.mutate(r.id)}
