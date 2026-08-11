@@ -56,10 +56,40 @@ def _lax_object_nodes(node, path="$"):
     return bad
 
 
+def _optional_properties(node, path="$"):
+    """Object nodes whose `required` doesn't cover every property.
+
+    The second strict-mode rule, and the one that kept recommendations
+    broken after the first was fixed: an optional key is rejected outright.
+    Express "may be absent" as "may be an empty string" instead.
+    """
+    bad = []
+    if isinstance(node, dict):
+        if node.get("type") == "object" and "properties" in node:
+            missing = set(node["properties"]) - set(node.get("required") or [])
+            if missing:
+                bad.append((path, sorted(missing)))
+        for key, value in node.items():
+            bad += _optional_properties(value, f"{path}.{key}")
+    elif isinstance(node, list):
+        for i, value in enumerate(node):
+            bad += _optional_properties(value, f"{path}[{i}]")
+    return bad
+
+
 @pytest.mark.parametrize("module,name", SCHEMAS, ids=[f"{m}.{n}" for m, n in SCHEMAS])
 def test_every_object_node_forbids_extra_properties(module, name):
     schema = getattr(importlib.import_module(module), name)
     assert _lax_object_nodes(schema) == [], (
         f"{module}.{name} has object nodes without additionalProperties: "
         f"false — the API 400s the whole call before the model runs"
+    )
+
+
+@pytest.mark.parametrize("module,name", SCHEMAS, ids=[f"{m}.{n}" for m, n in SCHEMAS])
+def test_every_property_is_required(module, name):
+    schema = getattr(importlib.import_module(module), name)
+    assert _optional_properties(schema) == [], (
+        f"{module}.{name} leaves properties optional — strict structured "
+        f"output rejects that; make them required and allow an empty string"
     )

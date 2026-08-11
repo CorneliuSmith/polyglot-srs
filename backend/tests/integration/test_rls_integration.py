@@ -2286,3 +2286,101 @@ async def test_english_deck_browser_localizes_definitions(pool):
         listing = await get_deck_items(conn, deck)
         hit = next(i for i in listing["items"] if i["item"] == "notwithstanding")
         assert hit["detail"] == "despite"
+
+
+async def test_recommendations_draft_writes_a_batch_through_rls(pool, monkeypatch):
+    """The whole on-demand draft against a REAL database.
+
+    Everything except the model call: the gates, the background task, the
+    RLS-scoped insert, and the usage log — which share one transaction, so
+    a constraint or policy failure on EITHER silently loses the batch. The
+    feature failed in production four times running while its unit tests
+    passed against mocks; this is the test that would have caught a broken
+    write, and it pins the write path for good.
+    """
+    from unittest.mock import AsyncMock
+
+    from backend.repositories.recommendations import (
+        list_recommendations,
+        upsert_reco_profile,
+    )
+    from backend.routers import recommendations as reco_router
+
+    user = await _new_user(pool, "recs@draft")
+    lang = await _language(pool, "rc")
+    async with pool.rls_connection(user) as conn:
+        await upsert_reco_profile(
+            conn, user, enabled=True, about="history",
+            genres=["History"], media_types=["book"],
+        )
+    async with pool.privileged_connection() as conn:
+        lang_row = await conn.fetchrow(
+            "SELECT code, name, tutor_model FROM languages WHERE id = $1", lang
+        )
+
+    picks = [{
+        "type": "book", "title": "Real Batch", "creator": "Someone",
+        "year": "1999", "blurb": "b", "why": "w", "level": "B1",
+        "genre": "history",
+    }]
+    monkeypatch.setattr(
+        reco_router, "generate_recommendations",
+        AsyncMock(return_value=picks),
+    )
+
+    await reco_router._draft_batch(
+        user, lang,
+        profile={"about": "history", "genres": ["History"],
+                 "media_types": ["book"]},
+        lang=lang_row, admin=True,
+    )
+
+    # The batch is readable by its owner, under RLS, with its items intact.
+    async with pool.rls_connection(user) as conn:
+        batches = await list_recommendations(conn, user, lang)
+    assert [b["items"][0]["title"] for b in batches] == ["Real Batch"]
+    # And nothing was recorded as a failure.
+    assert reco_router._DRAFT_ERRORS.get((user, lang)) is None
+
+    # The usage row rides in the SAME transaction as the insert — a rejected
+    # kind would roll the batch back with it.
+    async with pool.privileged_connection() as conn:
+        kinds = await conn.fetch(
+            "SELECT kind FROM tutor_usage WHERE user_id = $1", user
+        )
+    assert [r["kind"] for r in kinds] == ["recs"]
+
+
+async def test_a_failed_draft_leaves_no_half_written_batch(pool, monkeypatch):
+    """A model failure records the reason and writes nothing."""
+    from unittest.mock import AsyncMock
+
+    from backend.repositories.recommendations import (
+        list_recommendations,
+        upsert_reco_profile,
+    )
+    from backend.routers import recommendations as reco_router
+
+    user = await _new_user(pool, "recs@fail")
+    lang = await _language(pool, "rf")
+    async with pool.rls_connection(user) as conn:
+        await upsert_reco_profile(
+            conn, user, enabled=True, about="", genres=[], media_types=[],
+        )
+    async with pool.privileged_connection() as conn:
+        lang_row = await conn.fetchrow(
+            "SELECT code, name, tutor_model FROM languages WHERE id = $1", lang
+        )
+
+    monkeypatch.setattr(
+        reco_router, "generate_recommendations",
+        AsyncMock(side_effect=RuntimeError("provider down")),
+    )
+    await reco_router._draft_batch(
+        user, lang, profile={"about": "", "genres": [], "media_types": []},
+        lang=lang_row, admin=True,
+    )
+
+    async with pool.rls_connection(user) as conn:
+        assert await list_recommendations(conn, user, lang) == []
+    assert "provider down" in reco_router._DRAFT_ERRORS[(user, lang)]
