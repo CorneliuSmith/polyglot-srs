@@ -87,6 +87,36 @@ describe('Korean keycap labels', () => {
   })
 })
 
+describe('alphabet-deck letter cards are typeable (he/fa)', () => {
+  // Mirrors the romanization column of seed_alphabet.py: typing the card's
+  // shown key must produce the letter itself. Hebrew's foldable letters
+  // finalize to their FINAL form — the seeder gives those cards the pair as
+  // an alternative, so both spellings grade correct.
+  const HEBREW: [string, string][] = [
+    ['a', 'א'], ['b', 'ב'], ['g', 'ג'], ['d', 'ד'], ['h', 'ה'], ['v', 'ו'],
+    ['z', 'ז'], ['ch', 'ח'], ['T', 'ט'], ['y', 'י'], ['k', 'ך'], ['l', 'ל'],
+    ['m', 'ם'], ['n', 'ן'], ['s', 'ס'], ["'", 'ע'], ['p', 'ף'], ['ts', 'ץ'],
+    ['q', 'ק'], ['r', 'ר'], ['sh', 'ש'], ['t', 'ת'],
+  ]
+  // The borrowed Arabic letters (ث ص ض ظ ط ح غ ذ) merged into plain s/z/t/h
+  // and are reachable only on the on-screen keyboard — not listed here.
+  const PERSIAN: [string, string][] = [
+    ['aa', 'آ'], ['a', 'ا'], ['b', 'ب'], ['p', 'پ'], ['t', 'ت'], ['j', 'ج'],
+    ['ch', 'چ'], ['kh', 'خ'], ['d', 'د'], ['r', 'ر'], ['z', 'ز'], ['zh', 'ژ'],
+    ['s', 'س'], ['sh', 'ش'], ["'", 'ع'], ['f', 'ف'], ['q', 'ق'], ['k', 'ک'],
+    ['g', 'گ'], ['l', 'ل'], ['m', 'م'], ['n', 'ن'], ['v', 'و'], ['h', 'ه'],
+    ['y', 'ی'],
+  ]
+
+  it.each(HEBREW)('he: typing "%s" produces %s', (keys, letter) => {
+    expect(finalizeTranslit('he', keys)).toBe(letter)
+  })
+
+  it.each(PERSIAN)('fa: typing "%s" produces %s', (keys, letter) => {
+    expect(finalizeTranslit('fa', keys)).toBe(letter)
+  })
+})
+
 describe('the key guide keeps its promises', () => {
   // Rows whose `keys` are literally typeable and whose `out` is the exact
   // field result — the worked examples at the bottom of each guide.

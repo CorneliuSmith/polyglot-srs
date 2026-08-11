@@ -475,3 +475,127 @@ export const koreanLetters: LanguageLetters = {
     },
   ],
 }
+
+export const hebrewLetters: LanguageLetters = {
+  intro: 'The Hebrew alef-bet — 22 letters, written right to left. Letters keep one shape (five change at the end of a word); vowels are usually unwritten.',
+  sections: [
+    {
+      title: 'Letters English has',
+      rows: [
+        { char: 'ב', roman: 'b', example: 'בית', sound: "'b' as in bat (softens to 'v' without its dot)" },
+        { char: 'ג', roman: 'g', example: 'גדול', sound: "'g' as in go" },
+        { char: 'ד', roman: 'd', example: 'דג', sound: "'d' as in dog" },
+        { char: 'ה', roman: 'h', example: 'הר', sound: "'h' as in hat; silent at the end of a word" },
+        { char: 'ו', roman: 'v', example: 'ורד', sound: "'v'; as a vowel letter it spells long 'o' or 'u'" },
+        { char: 'ז', roman: 'z', example: 'זמן', sound: "'z' as in zoo" },
+        { char: 'י', roman: 'y', example: 'יד', sound: "'y' as in yes; as a vowel letter, long 'ee'" },
+        { char: 'כ', roman: 'k', example: 'כלב', sound: "'k'; softens to 'ch' (loch) without its dot" },
+        { char: 'ל', roman: 'l', example: 'לילה', sound: "'l' as in lamp" },
+        { char: 'מ', roman: 'm', example: 'מים', sound: "'m' as in map" },
+        { char: 'נ', roman: 'n', example: 'נר', sound: "'n' as in no" },
+        { char: 'ס', roman: 's', example: 'ספר', sound: "'s' as in sun" },
+        { char: 'פ', roman: 'p', example: 'פרח', sound: "'p'; softens to 'f' without its dot" },
+        { char: 'ק', roman: 'q', example: 'קטן', sound: "'k' as in kite (no English difference from כ today)" },
+        { char: 'ר', roman: 'r', example: 'ראש', sound: 'a gargled r at the back of the throat' },
+        { char: 'ש', roman: 'sh', example: 'שלום', sound: "'sh' as in shop; with a left-side dot it reads 's'" },
+        { char: 'ת', roman: 't', example: 'תודה', sound: "'t' as in top" },
+      ],
+    },
+    {
+      title: 'The new sounds',
+      rows: [
+        { char: 'א', roman: 'a', example: 'אבא', sound: "silent — a seat for a vowel, like the catch in 'uh-oh'" },
+        { char: 'ח', roman: 'ch', example: 'חלב', sound: "'ch' of Scottish loch, from the throat" },
+        { char: 'ט', roman: 'T', example: 'טוב', sound: "'t' — sounds like ת today; the spelling keeps them apart" },
+        { char: 'ע', roman: "'", example: 'עין', sound: 'a squeezed throat vowel; most speakers today make it silent' },
+        { char: 'צ', roman: 'ts', example: 'ציפור', sound: "'ts' as in cats" },
+      ],
+    },
+    {
+      title: 'Final forms',
+      note: 'Five letters change shape at the end of a word — same letter, same sound. The keyboard does it automatically.',
+      rows: [
+        { char: 'כ → ך', roman: 'k', example: 'מלך', sound: 'kaf at the end of a word' },
+        { char: 'מ → ם', roman: 'm', example: 'מים', sound: 'mem at the end of a word' },
+        { char: 'נ → ן', roman: 'n', example: 'בן', sound: 'nun at the end of a word' },
+        { char: 'פ → ף', roman: 'p/f', example: 'סוף', sound: 'pe at the end of a word' },
+        { char: 'צ → ץ', roman: 'ts', example: 'ארץ', sound: 'tsadi at the end of a word' },
+      ],
+    },
+    {
+      title: 'Where the vowels went',
+      note: 'Everyday Hebrew leaves most vowels unwritten (ktiv male spells long o/u with ו and ee with י). The dots and dashes (niqqud) appear only in children’s books, poetry and dictionaries.',
+      rows: [
+        { char: 'וֹ / וּ', roman: 'o / u', example: 'שלום', sound: "vav doing vowel duty: long 'o' or 'oo'" },
+        { char: 'י', roman: 'i', example: 'דין', sound: "yod doing vowel duty: long 'ee'" },
+        { char: 'בַ בֶ בִ', roman: '(niqqud)', example: 'בַּיִת', sound: 'the vowel points — small marks under the letter, usually omitted' },
+      ],
+    },
+  ],
+}
+
+export const persianLetters: LanguageLetters = {
+  intro: 'Persian uses the Arabic script — 32 letters, right to left, cursive by rule — but the sound system is far simpler: no emphatics, no throat-heavy consonants, and several borrowed letters that all merged into plain s, z, t and h.',
+  sections: [
+    {
+      title: 'The four Persian-only letters',
+      note: 'Added to the Arabic script for sounds Arabic lacks.',
+      positions: true,
+      rows: [
+        { char: 'پ', roman: 'p', example: 'پدر', sound: "'p' as in pen" },
+        { char: 'چ', roman: 'ch', example: 'چای', sound: "'ch' as in chair" },
+        { char: 'ژ', roman: 'zh', example: 'ژاله', sound: "'zh' — the s in pleasure" },
+        { char: 'گ', roman: 'g', example: 'گل', sound: "'g' as in go" },
+      ],
+    },
+    {
+      title: 'Letters English has',
+      positions: true,
+      rows: [
+        { char: 'ب', roman: 'b', example: 'باب', sound: "'b' as in bat" },
+        { char: 'ت', roman: 't', example: 'تهران', sound: "'t' as in top" },
+        { char: 'ج', roman: 'j', example: 'جان', sound: "'j' as in jam" },
+        { char: 'د', roman: 'd', example: 'دست', sound: "'d' as in dog" },
+        { char: 'ر', roman: 'r', example: 'روز', sound: 'a tapped r, like Spanish' },
+        { char: 'ز', roman: 'z', example: 'زبان', sound: "'z' as in zoo" },
+        { char: 'س', roman: 's', example: 'سلام', sound: "'s' as in sun" },
+        { char: 'ش', roman: 'sh', example: 'شب', sound: "'sh' as in shop" },
+        { char: 'ف', roman: 'f', example: 'فردا', sound: "'f' as in fun" },
+        { char: 'ک', roman: 'k', example: 'کتاب', sound: "'k' as in kite" },
+        { char: 'ل', roman: 'l', example: 'لب', sound: "'l' as in lamp" },
+        { char: 'م', roman: 'm', example: 'مادر', sound: "'m' as in map" },
+        { char: 'ن', roman: 'n', example: 'نان', sound: "'n' as in no" },
+        { char: 'ه', roman: 'h', example: 'هفت', sound: "'h' as in hat" },
+        { char: 'و', roman: 'v', example: 'وقت', sound: "'v'; as a vowel letter, long 'oo' or 'o'" },
+        { char: 'ی', roman: 'y', example: 'یک', sound: "'y'; as a vowel letter, long 'ee'" },
+      ],
+    },
+    {
+      title: 'The borrowed twins',
+      note: 'Arabic loanwords kept their spelling, but Persian merged the sounds — these letters sound exactly like s, z, t, h or q. Spelling tells words apart; your mouth does nothing special.',
+      positions: true,
+      rows: [
+        { char: 'ث', roman: 's', example: 'ثانیه', sound: "plain 's' (Arabic th)" },
+        { char: 'ص', roman: 's', example: 'صبح', sound: "plain 's'" },
+        { char: 'ذ', roman: 'z', example: 'ذهن', sound: "plain 'z' (Arabic dh)" },
+        { char: 'ض', roman: 'z', example: 'ضعیف', sound: "plain 'z'" },
+        { char: 'ظ', roman: 'z', example: 'ظهر', sound: "plain 'z'" },
+        { char: 'ط', roman: 't', example: 'طلا', sound: "plain 't'" },
+        { char: 'ح', roman: 'h', example: 'حال', sound: "plain 'h'" },
+        { char: 'ع', roman: "'", example: 'عشق', sound: "a slight catch, or nothing at all — far softer than Arabic's" },
+        { char: 'غ', roman: 'gh', example: 'غذا', sound: 'a gargled g — a French r' },
+        { char: 'ق', roman: 'q / gh', example: 'قلب', sound: 'the same gargled g for most speakers' },
+      ],
+    },
+    {
+      title: 'Vowels and the little space',
+      rows: [
+        { char: 'آ', roman: 'aa', example: 'آب', sound: "long 'aw' as in law — alef with a hat (madda)" },
+        { char: 'ا', roman: 'a', example: 'اسم', sound: 'a seat for a vowel at the start of a word' },
+        { char: 'و / ی', roman: 'oo / ee', example: 'دور، شیر', sound: 'the long u and i, written with vav and ye' },
+        { char: 'ــِـ ــَـ ــُـ', roman: 'e a o', example: 'دَر', sound: 'the short vowels — almost never written' },
+        { char: '‌ (نیم‌فاصله)', roman: '-', example: 'می‌روم', sound: 'the half-space (ZWNJ): keeps می attached-but-separate from its verb — type it as -' },
+      ],
+    },
+  ],
+}

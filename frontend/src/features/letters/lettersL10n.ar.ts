@@ -1031,7 +1031,133 @@ const koreanAr: LanguageLetters = {
   ],
 }
 
+const hebrewAr: LanguageLetters = {
+  intro: 'الأبجدية العبرية — 22 حرفًا من اليمين إلى اليسار، وهي قريبة جدًا من العربية: معظم الحروف لها نظير مباشر. للحرف شكل واحد (خمسة تتغير في آخر الكلمة)، والحركات لا تُكتب غالبًا.',
+  sections: [
+    {
+      title: 'حروف لها نظير عربي مباشر',
+      rows: [
+        { char: 'ב', roman: 'b', example: 'בית', sound: 'مثل الباء (ب)؛ بلا نقطة داخلية تلفظ v' },
+        { char: 'ג', roman: 'g', example: 'גדול', sound: 'مثل الجيم المصرية (g)' },
+        { char: 'ד', roman: 'd', example: 'דג', sound: 'مثل الدال (د)' },
+        { char: 'ה', roman: 'h', example: 'הר', sound: 'مثل الهاء (ه)؛ صامتة في آخر الكلمة' },
+        { char: 'ו', roman: 'v', example: 'ורד', sound: 'حرف v؛ ويكتب أيضًا الواو الطويلة (و)' },
+        { char: 'ז', roman: 'z', example: 'זמן', sound: 'مثل الزاي (ز)' },
+        { char: 'י', roman: 'y', example: 'יד', sound: 'مثل الياء (ي)؛ ويكتب الكسرة الطويلة' },
+        { char: 'כ', roman: 'k', example: 'כלב', sound: 'مثل الكاف (ك)؛ بلا نقطة داخلية مثل الخاء' },
+        { char: 'ל', roman: 'l', example: 'לילה', sound: 'مثل اللام (ل)' },
+        { char: 'מ', roman: 'm', example: 'מים', sound: 'مثل الميم (م)' },
+        { char: 'נ', roman: 'n', example: 'נר', sound: 'مثل النون (ن)' },
+        { char: 'ס', roman: 's', example: 'ספר', sound: 'مثل السين (س)' },
+        { char: 'פ', roman: 'p', example: 'פרח', sound: 'حرف p؛ بلا نقطة داخلية مثل الفاء (ف)' },
+        { char: 'ק', roman: 'q', example: 'קטן', sound: 'أصلها القاف (ق)؛ تلفظ اليوم كافًا مثل כ' },
+        { char: 'ר', roman: 'r', example: 'ראש', sound: 'راء مُغَرغَرة مثل الراء الفرنسية — لا تُرَقرَق' },
+        { char: 'ש', roman: 'sh', example: 'שלום', sound: 'مثل الشين (ش)؛ وبنقطة يسرى تلفظ سينًا' },
+        { char: 'ת', roman: 't', example: 'תודה', sound: 'مثل التاء (ت)' },
+      ],
+    },
+    {
+      title: 'الأصوات التي تغيّرت عن نظيرها',
+      rows: [
+        { char: 'א', roman: 'a', example: 'אבא', sound: 'نظير الهمزة/الألف: صامتة، كرسي للحركة' },
+        { char: 'ח', roman: 'ch', example: 'חלב', sound: 'أصلها الحاء، لكنها تلفظ اليوم خاءً (خ)' },
+        { char: 'ט', roman: 'T', example: 'טוב', sound: 'أصلها الطاء (ط)؛ تلفظ اليوم تاءً عادية' },
+        { char: 'ע', roman: "'", example: 'עין', sound: 'نظير العين (ع)؛ معظم المتكلمين اليوم يسقطونها' },
+        { char: 'צ', roman: 'ts', example: 'ציפור', sound: 'أصلها الصاد (ص)؛ تلفظ اليوم «تس»' },
+      ],
+    },
+    {
+      title: 'الأشكال النهائية',
+      note: 'خمسة حروف يتغير شكلها في آخر الكلمة — كالتاء المربوطة عندنا: الحرف نفسه والصوت نفسه. لوحة المفاتيح تتكفل بذلك.',
+      rows: [
+        { char: 'כ → ך', roman: 'k', example: 'מלך', sound: 'الكاف في آخر الكلمة' },
+        { char: 'מ → ם', roman: 'm', example: 'מים', sound: 'الميم في آخر الكلمة' },
+        { char: 'נ → ן', roman: 'n', example: 'בן', sound: 'النون في آخر الكلمة' },
+        { char: 'פ → ף', roman: 'p/f', example: 'סוף', sound: 'الفاء/p في آخر الكلمة' },
+        { char: 'צ → ץ', roman: 'ts', example: 'ארץ', sound: 'التسادي في آخر الكلمة' },
+      ],
+    },
+    {
+      title: 'أين ذهبت الحركات',
+      note: 'كما في العربية تمامًا: الحركات القصيرة لا تُكتب في النص العادي، وحروف العلة الطويلة تُكتب بـ ו و־י. النقاط (نيقود) تظهر فقط في كتب الأطفال والشعر والمعاجم — مثل التشكيل عندنا.',
+      rows: [
+        { char: 'וֹ / וּ', roman: 'o / u', example: 'שלום', sound: 'الواو حين تعمل حرف علة: ضمة أو واو طويلة' },
+        { char: 'י', roman: 'i', example: 'דין', sound: 'الياء حين تعمل حرف علة: كسرة طويلة' },
+        { char: 'בַ בֶ בִ', roman: '(niqqud)', example: 'בַּיִת', sound: 'علامات الحركات تحت الحرف — تُهمل غالبًا كالتشكيل' },
+      ],
+    },
+  ],
+}
+
+const persianAr: LanguageLetters = {
+  intro: 'تكتب الفارسية بالحرف العربي نفسه — 32 حرفًا من اليمين إلى اليسار — لكن نطقها أبسط بكثير: لا إطباق ولا حلقيات ثقيلة، وعدة حروف عربية اندمجت أصواتها في س وز وت وهـ عادية.',
+  sections: [
+    {
+      title: 'الحروف الأربعة الخاصة بالفارسية',
+      note: 'أضيفت إلى الحرف العربي لأصوات لا توجد في العربية.',
+      positions: true,
+      rows: [
+        { char: 'پ', roman: 'p', example: 'پدر', sound: 'باء مهموسة p — باء بثلاث نقاط' },
+        { char: 'چ', roman: 'ch', example: 'چای', sound: 'مثل «تش» في تشاي — جيم بثلاث نقاط' },
+        { char: 'ژ', roman: 'zh', example: 'ژاله', sound: 'مثل الجيم الشامية غير المعطشة (j الفرنسية) — زاي بثلاث نقاط' },
+        { char: 'گ', roman: 'g', example: 'گل', sound: 'مثل الجيم المصرية g — كاف بخط إضافي' },
+      ],
+    },
+    {
+      title: 'حروف تنطق كما تعرفها',
+      positions: true,
+      rows: [
+        { char: 'ب', roman: 'b', example: 'باب', sound: 'الباء كما هي' },
+        { char: 'ت', roman: 't', example: 'تهران', sound: 'التاء كما هي' },
+        { char: 'ج', roman: 'j', example: 'جان', sound: 'الجيم الفصحى المعطشة' },
+        { char: 'د', roman: 'd', example: 'دست', sound: 'الدال كما هي' },
+        { char: 'ر', roman: 'r', example: 'روز', sound: 'الراء كما هي' },
+        { char: 'ز', roman: 'z', example: 'زبان', sound: 'الزاي كما هي' },
+        { char: 'س', roman: 's', example: 'سلام', sound: 'السين كما هي' },
+        { char: 'ش', roman: 'sh', example: 'شب', sound: 'الشين كما هي' },
+        { char: 'ف', roman: 'f', example: 'فردا', sound: 'الفاء كما هي' },
+        { char: 'ک', roman: 'k', example: 'کتاب', sound: 'الكاف — تكتب ک بلا همزة صغيرة' },
+        { char: 'ل', roman: 'l', example: 'لب', sound: 'اللام كما هي' },
+        { char: 'م', roman: 'm', example: 'مادر', sound: 'الميم كما هي' },
+        { char: 'ن', roman: 'n', example: 'نان', sound: 'النون كما هي' },
+        { char: 'ه', roman: 'h', example: 'هفت', sound: 'الهاء كما هي' },
+        { char: 'و', roman: 'v', example: 'وقت', sound: 'تلفظ v لا w؛ وتكتب الواو الطويلة أيضًا' },
+        { char: 'ی', roman: 'y', example: 'یک', sound: 'الياء — تكتب ی بلا نقطتين' },
+      ],
+    },
+    {
+      title: 'التوائم المستعارة',
+      note: 'الكلمات العربية المستعارة حافظت على رسمها، لكن الفارسية وحّدت الأصوات — هذه الحروف تلفظ س أو ز أو ت أو هـ أو ق عادية تمامًا. الرسم يفرّق الكلمات؛ الفم لا يفعل شيئًا خاصًا.',
+      positions: true,
+      rows: [
+        { char: 'ث', roman: 's', example: 'ثانیه', sound: 'سين عادية — لا ثاء في الفارسية' },
+        { char: 'ص', roman: 's', example: 'صبح', sound: 'سين عادية — لا إطباق' },
+        { char: 'ذ', roman: 'z', example: 'ذهن', sound: 'زاي عادية — لا ذال' },
+        { char: 'ض', roman: 'z', example: 'ضعیف', sound: 'زاي عادية' },
+        { char: 'ظ', roman: 'z', example: 'ظهر', sound: 'زاي عادية' },
+        { char: 'ط', roman: 't', example: 'طلا', sound: 'تاء عادية — لا إطباق' },
+        { char: 'ح', roman: 'h', example: 'حال', sound: 'هاء عادية — لا حاء حلقية' },
+        { char: 'ع', roman: "'", example: 'عشق', sound: 'سكتة خفيفة أو لا شيء — أخف كثيرًا من العين العربية' },
+        { char: 'غ', roman: 'gh', example: 'غذا', sound: 'غين مغرغرة — وتلتقي بالقاف في النطق' },
+        { char: 'ق', roman: 'q / gh', example: 'قلب', sound: 'تلفظ غينًا عند معظم المتكلمين' },
+      ],
+    },
+    {
+      title: 'الحركات ونصف المسافة',
+      rows: [
+        { char: 'آ', roman: 'aa', example: 'آب', sound: 'ألف ممدودة داكنة تميل نحو الواو — ألف بمدّة' },
+        { char: 'ا', roman: 'a', example: 'اسم', sound: 'كرسي الحركة في أول الكلمة' },
+        { char: 'و / ی', roman: 'oo / ee', example: 'دور، شیر', sound: 'الواو والياء الطويلتان' },
+        { char: 'ــِـ ــَـ ــُـ', roman: 'e a o', example: 'دَر', sound: 'الحركات القصيرة — لا تكتب غالبًا، كما في العربية' },
+        { char: '‌ (نیم‌فاصله)', roman: '-', example: 'می‌روم', sound: 'نصف المسافة (ZWNJ): تُبقي می ملتصقة-منفصلة عن فعلها — تُكتب بالشرطة -' },
+      ],
+    },
+  ],
+}
+
 export const LETTERS_AR: Record<string, LanguageLetters> = {
+  he: hebrewAr,
+  fa: persianAr,
   es: spanishAr,
   fr: frenchAr,
   de: germanAr,
