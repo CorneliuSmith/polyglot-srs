@@ -506,8 +506,14 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                   <h1 className="text-2xl font-bold text-gray-900">{lesson.title}</h1>
                 </LanguageWrapper>
                 {/* Arabic readings are the tashkeel-vocalized form — the
-                    account-level short-vowels toggle hides them. */}
-                {lesson.reading && (languageCode !== 'ar' || showTashkeel) && (
+                    account-level short-vowels toggle hides them. Letter cards
+                    are the exception: their reading is the Latin typing key
+                    ("H", "3"), not tashkeel, and hiding it left the alphabet
+                    deck with no clue what to type. */}
+                {lesson.reading &&
+                  (languageCode !== 'ar' ||
+                    showTashkeel ||
+                    lesson.part_of_speech === 'letter') && (
                   <p className="text-sm text-gray-500 mt-0.5">{lesson.reading}</p>
                 )}
                 {lesson.part_of_speech && (

@@ -131,6 +131,19 @@ async def main():
         except Exception as e:
             print(f"FAIL {seeder.language_code}: {e}")
 
+    # Alphabet decks ride along with their course: a fresh environment used
+    # to need a separate seed_alphabet call per script that nothing pointed
+    # to, so new deployments simply had no letter decks.
+    from .seed_alphabet import ALPHABETS
+    from .seed_alphabet import seed as seed_alphabet_deck
+    for code in sorted(ALPHABETS):
+        if args.language in (code, "all"):
+            try:
+                n = await seed_alphabet_deck(args.db_url, code)
+                print(f"OK {code}: {n} letters seeded")
+            except Exception as e:
+                print(f"FAIL {code} alphabet: {e}")
+
 
 if __name__ == "__main__":
     asyncio.run(main())
