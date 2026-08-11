@@ -17,7 +17,14 @@ import type {
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { languageDisplayName } from '../../lib/languages'
-import { convertTranslit, finalizeInput, isTranslitEnabled } from '../keyboards/translit'
+import {
+  backspaceUnit,
+  composeScript,
+  convertTranslit,
+  deleteLastUnit,
+  finalizeInput,
+  isTranslitEnabled,
+} from '../keyboards/translit'
 import OnScreenKeyboard, { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
 import type { Language } from '../../api/types'
@@ -520,6 +527,25 @@ export default function PlacementTest({
                         : e.target.value
                       setInput(v)
                     }}
+                    onKeyDown={(e) => {
+                      // IME-style Backspace: peel one jamo off a Hangul
+                      // syllable (한 → 하) instead of deleting the block.
+                      if (e.key !== 'Backspace' || e.nativeEvent.isComposing) return
+                      const el = e.currentTarget
+                      const peeled = backspaceUnit(
+                        language.code,
+                        input,
+                        el.selectionStart ?? input.length,
+                        el.selectionEnd ?? input.length,
+                      )
+                      if (peeled) {
+                        e.preventDefault()
+                        setInput(peeled.text)
+                        requestAnimationFrame(() =>
+                          el.setSelectionRange(peeled.caret, peeled.caret),
+                        )
+                      }
+                    }}
                     aria-label={item.prompt}
                     className="mt-1 w-full rounded-lg border border-gray-300 px-3 py-2.5 text-base"
                   />
@@ -541,10 +567,16 @@ export default function PlacementTest({
                 {showKeyboard && (
                   <OnScreenKeyboard
                     languageCode={language.code as KeyboardLanguage}
-                    onKeyPress={(key) => setInput((v) => v + key)}
+                    // composeScript fuses Hangul jamo into blocks (ᄒ+ᅡ → 하);
+                    // raw appends left the jamo sitting loose beside each
+                    // other. Backspace peels one jamo, IME-style.
+                    onKeyPress={(key) =>
+                      setInput((v) => composeScript(language.code, v + key))
+                    }
                     onEnter={() => input.trim() && submit(input)}
-                    onBackspace={() => setInput((v) => v.slice(0, -1))}
-                    inputRef={inputRef}
+                    onBackspace={() =>
+                      setInput((v) => deleteLastUnit(language.code, v))
+                    }
                   />
                 )}
               </div>

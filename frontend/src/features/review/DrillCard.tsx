@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Headphones } from 'lucide-react'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { useTranslit } from '../keyboards/useTranslit'
-import { convertTranslit, translitGuide } from '../keyboards/translit'
+import { backspaceUnit, convertTranslit, translitGuide } from '../keyboards/translit'
 
 interface DrillCardProps {
   sentence: string
@@ -132,6 +132,22 @@ export default function DrillCard({
     if (e.key === 'Enter' && !e.nativeEvent.isComposing && !disabled) {
       e.preventDefault()
       onSubmit()
+    }
+    // Backspace on a composed Hangul syllable peels ONE jamo (한 → 하), the
+    // way a real IME behaves — native delete vaporizes the whole
+    // three-keystroke block, which made every typo cost a full syllable.
+    if (e.key === 'Backspace' && !e.nativeEvent.isComposing && !disabled) {
+      const input = e.currentTarget
+      const start = input.selectionStart ?? value.length
+      const end = input.selectionEnd ?? value.length
+      const peeled = backspaceUnit(languageCode, value, start, end)
+      if (peeled) {
+        e.preventDefault()
+        onChange(peeled.text)
+        requestAnimationFrame(() => {
+          input.setSelectionRange(peeled.caret, peeled.caret)
+        })
+      }
     }
   }
 

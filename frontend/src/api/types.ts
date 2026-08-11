@@ -39,6 +39,9 @@ export interface DueCard {
   cell?: string | null
   baseline?: string | null
   alternatives: string[] | null
+  // Vocabulary only; 'letter' marks an alphabet-deck card (single-glyph
+  // answer), absent on grammar/personal cards.
+  part_of_speech?: string | null
   language_code: string
   ease_factor: number
   interval: number

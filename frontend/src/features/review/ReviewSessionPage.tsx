@@ -32,7 +32,7 @@ import SuggestChange from '../contribute/SuggestChange'
 import CardFeedback from './CardFeedback'
 import SessionSummary from './SessionSummary'
 import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
-import { composeScript, finalizeInput } from '../keyboards/translit'
+import { composeScript, deleteLastUnit, finalizeInput } from '../keyboards/translit'
 import { hintLayersFor, safePrompt } from './hintLayers'
 import SpeakButton from '../../components/SpeakButton'
 import FormsPanel from '../../components/FormsPanel'
@@ -566,19 +566,25 @@ function ReviewSessionInner({
   }
 
   const handleKeyboardBackspace = () => {
+    const code = card?.language_code ?? ''
     const input = inputRef.current
     if (!input) {
-      setUserInput((prev) => prev.slice(0, -1))
+      setUserInput((prev) => deleteLastUnit(code, prev))
       return
     }
     const start = input.selectionStart ?? input.value.length
     const end = input.selectionEnd ?? input.value.length
-    // Delete the selection, or the character before the caret.
-    const from = start === end ? Math.max(0, start - 1) : start
-    setUserInput(input.value.slice(0, from) + input.value.slice(end))
+    // Delete the selection, or one UNIT before the caret — for Hangul that
+    // peels a jamo off the syllable (한 → 하) instead of the whole block.
+    const head =
+      start === end
+        ? deleteLastUnit(code, input.value.slice(0, start))
+        : input.value.slice(0, start)
+    setUserInput(head + input.value.slice(end))
+    const caret = head.length
     requestAnimationFrame(() => {
       input.focus()
-      input.setSelectionRange(from, from)
+      input.setSelectionRange(caret, caret)
     })
   }
 
@@ -1100,7 +1106,6 @@ function ReviewSessionInner({
                 onKeyPress={handleKeyboardKeyPress}
                 onEnter={handleSubmitAnswer}
                 onBackspace={handleKeyboardBackspace}
-                inputRef={inputRef}
               />
             )}
           </div>
