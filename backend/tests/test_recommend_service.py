@@ -128,3 +128,56 @@ class TestParsePicks:
         assert reco._parse_picks('{"picks": ["nope", {"title": "ok"}]}') == [
             {"title": "ok"}
         ]
+
+
+class TestNoUsablePicks:
+    """The failure the owner hit once the schema was finally accepted: the
+    call succeeded and produced nothing, and "no usable picks" said nothing
+    about why."""
+
+    @pytest.mark.asyncio
+    async def test_an_empty_structured_reply_retries_in_plain_json(self):
+        create = AsyncMock(side_effect=[_Resp(""), _Resp(json.dumps(PICKS))])
+        picks, _ = await _generate(create)
+        assert picks[0]["title"] == "Cien años de soledad"
+        assert create.await_count == 2
+
+    @pytest.mark.asyncio
+    async def test_a_truncated_reply_keeps_the_picks_that_finished(self):
+        # max_tokens cut the array mid-object: two whole picks, half a third.
+        whole = json.dumps(PICKS["picks"][0])
+        truncated = '{"picks": [' + whole + ", " + whole + ', {"type": "film", "title": "Half'
+        picks, _ = await _generate(AsyncMock(return_value=_Resp(truncated)))
+        assert len(picks) == 2
+        assert all(p["title"] == "Cien años de soledad" for p in picks)
+
+    @pytest.mark.asyncio
+    async def test_nothing_at_all_reports_the_stop_reason_and_the_reply(self):
+        empty = _Resp("I'm sorry, I can't help with that.")
+        empty.stop_reason = "max_tokens"
+        with pytest.raises(reco.RecommendationError) as exc:
+            await _generate(AsyncMock(return_value=empty))
+        message = str(exc.value)
+        assert "stop_reason=max_tokens" in message
+        assert "I'm sorry" in message  # what actually came back
+        assert "claude-sonnet-5" in message  # and from which model
+
+    @pytest.mark.asyncio
+    async def test_the_budget_is_large_enough_for_four_full_picks(self):
+        # 1500 was the smallest budget in the codebase and truncated the
+        # reply into unparseability once every field became required.
+        create = AsyncMock(return_value=_Resp(json.dumps(PICKS)))
+        await _generate(create)
+        assert create.await_args.kwargs["max_tokens"] >= 4096
+
+
+class TestCompleteObjects:
+    def test_ignores_braces_inside_strings(self):
+        fragment = '[{"title": "a } brace", "x": 1}, {"title": "b"'
+        assert reco._complete_objects(fragment) == [
+            {"title": "a } brace", "x": 1}
+        ]
+
+    def test_handles_escaped_quotes(self):
+        fragment = r'[{"title": "say \"hi\""}, {"title": "cut'
+        assert reco._complete_objects(fragment) == [{"title": 'say "hi"'}]

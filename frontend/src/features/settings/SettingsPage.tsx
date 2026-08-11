@@ -44,7 +44,6 @@ import RolesPanel from '../contribute/RolesPanel'
 import ReviewQueue from '../contribute/ReviewQueue'
 import AnalyticsPanel from '../contribute/AnalyticsPanel'
 import EngagementPanel from '../contribute/EngagementPanel'
-import TranslationReviewsPanel from '../contribute/TranslationReviewsPanel'
 import {
   ReviewPolicyControl,
   TutorModelControl,
@@ -473,7 +472,10 @@ export default function SettingsPage() {
                 backfill — live here too, not just on /contribute, so they're
                 findable from either admin surface. */}
             <GenerationPanel />
-            <TranslationReviewsPanel />
+            {/* AI translation reviews are NOT here. Review work belongs in
+                the Review section with the other queues (owner, twice) —
+                this page kept a second copy, which is the one the owner
+                kept finding. Contribute → Review is the single home. */}
             <AccountsPanel languages={languages} selfId={selfId} />
             <PlanLimitsPanel />
             <RolesPanel languages={languages} />

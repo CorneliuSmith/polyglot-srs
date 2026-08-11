@@ -65,3 +65,40 @@ describe('TranslationReviewsPanel', () => {
     expect(container.querySelector('[data-testid="translation-reviews"]')).toBeNull()
   })
 })
+
+describe('TranslationReviewsPanel — reviewability', () => {
+  beforeEach(() => vi.clearAllMocks())
+
+  it('shows current and proposed as a pair, so the choice is legible', async () => {
+    mockGet.mockResolvedValue([
+      { id: 'r1', locale: 'ar', word: 'crees', proposed: 'تظن',
+        reason: 'sense mismatch',
+        current_definition: 'second-person singular present subjunctive of crear',
+        created_at: null },
+    ])
+    renderPanel()
+    const row = await screen.findByTestId('translation-reviews')
+    expect(row.textContent).toContain('now:')
+    expect(row.textContent).toContain('proposed:')
+    expect(row.textContent).toContain('تظن')
+    // Approve is live when there IS something to apply.
+    expect(screen.getByRole('button', { name: 'Approve' })).not.toBeDisabled()
+  })
+
+  it('says so when a row has no proposal, instead of hiding Approve', async () => {
+    // What the owner actually saw: rows the checker rejected outright
+    // arrived with an empty proposal, so only Reject rendered and the panel
+    // could do nothing but bin things.
+    mockGet.mockResolvedValue([
+      { id: 'r2', locale: 'ar', word: 'mis', proposed: '',
+        reason: 'no accurate single-word gloss',
+        current_definition: 'plural of mi', created_at: null },
+    ])
+    renderPanel()
+    const row = await screen.findByTestId('translation-reviews')
+    expect(row.textContent).toMatch(/no replacement proposed/i)
+    // The button is present but disabled — an absent control reads as a bug.
+    expect(screen.getByRole('button', { name: 'Approve' })).toBeDisabled()
+    expect(screen.getByRole('button', { name: 'Reject' })).not.toBeDisabled()
+  })
+})
