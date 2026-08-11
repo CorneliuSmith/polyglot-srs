@@ -87,6 +87,37 @@ describe('Korean keycap labels', () => {
   })
 })
 
+describe('alphabet-deck letter cards are typeable (ru/el/ar/hi/th/ko)', () => {
+  // The romanization shown on a letter card is the TYPING KEY — mirrors
+  // seed_alphabet.py after the audit found cards whose shown key produced a
+  // DIFFERENT letter (Greek η said "i", but i types ι) or nothing at all.
+  const CASES: [string, string, string][] = [
+    // Russian: the three that were mistyped or untypeable.
+    ['ru', 'j', 'й'], ['ru', "''", 'ъ'], ['ru', "e'", 'э'],
+    // Greek: η and ω were labeled by sound, not key; σ finalizes to its
+    // word-final form, which the backend folds back (ς == σ).
+    ['el', 'h', 'η'], ['el', 'w', 'ω'], ['el', 's', 'ς'],
+    // Arabic: the scholarly marks (ḥ ṣ ʿ ā) nobody can type became the
+    // chat-scheme keys the converter actually accepts.
+    ['ar', 'aa', 'ا'], ['ar', 'H', 'ح'], ['ar', 'S', 'ص'], ['ar', 'D', 'ض'],
+    ['ar', 'T', 'ط'], ['ar', 'Z', 'ظ'], ['ar', '3', 'ع'], ['ar', 'w', 'و'],
+    // Hindi: diacritic romanizations (ṭa, śa…) became the capital-scheme keys.
+    ['hi', 'aa', 'आ'], ['hi', 'ii', 'ई'], ['hi', 'uu', 'ऊ'],
+    ['hi', 'Ta', 'ट'], ['hi', 'Tha', 'ठ'], ['hi', 'Da', 'ड'], ['hi', 'Dha', 'ढ'],
+    ['hi', 'Na', 'ण'], ['hi', 'sha', 'श'], ['hi', 'Sha', 'ष'],
+    ['hi', 'nga', 'ङ'], ['hi', 'nya', 'ञ'], ['hi', 'cha', 'च'], ['hi', 'chha', 'छ'],
+    // Thai: ก was labeled "g" (its sound) — a key the scheme doesn't have.
+    ['th', 'k', 'ก'], ['th', 'ng', 'ง'],
+    // Korean consonants: the slash-forms (g/k) became the plain typing key.
+    ['ko', 'g', 'ㄱ'], ['ko', 'd', 'ㄷ'], ['ko', 'b', 'ㅂ'], ['ko', 'r', 'ㄹ'],
+    ['ko', 'ng', 'ㅇ'],
+  ]
+
+  it.each(CASES)('%s: typing "%s" produces %s', (code, keys, letter) => {
+    expect(finalizeTranslit(code, keys)).toBe(letter)
+  })
+})
+
 describe('alphabet-deck letter cards are typeable (he/fa)', () => {
   // Mirrors the romanization column of seed_alphabet.py: typing the card's
   // shown key must produce the letter itself. Hebrew's foldable letters

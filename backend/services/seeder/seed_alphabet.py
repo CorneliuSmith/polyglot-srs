@@ -49,13 +49,18 @@ def _load_file_alphabet(code: str) -> list[tuple[str, str, str]] | None:
     return letters or None
 
 # (letter, romanization, sound-for-an-English-speaker)
+# The romanization is the TYPING KEY: what the learner types on the QWERTY
+# transliteration keyboard to produce the letter. A letter card whose shown
+# key produces a different letter (Greek η labeled "i" — but i types ι) is
+# a card the learner cannot pass; the typing scheme, not a scholarly
+# romanization standard, is the source of truth here.
 RUSSIAN = [
     ("а", "a", "'a' as in father"), ("б", "b", "'b' as in boy"),
     ("в", "v", "'v' as in van"), ("г", "g", "'g' as in go"),
     ("д", "d", "'d' as in dog"), ("е", "ye", "'ye' as in yes"),
     ("ё", "yo", "'yo' as in yonder"), ("ж", "zh", "'s' in measure"),
     ("з", "z", "'z' as in zoo"), ("и", "i", "'ee' as in see"),
-    ("й", "y", "short 'y' as in boy"), ("к", "k", "'k' as in kit"),
+    ("й", "j", "short 'y' as in boy"), ("к", "k", "'k' as in kit"),
     ("л", "l", "'l' as in lamp"), ("м", "m", "'m' as in map"),
     ("н", "n", "'n' as in net"), ("о", "o", "'o' as in more"),
     ("п", "p", "'p' as in pen"), ("р", "r", "rolled 'r'"),
@@ -63,9 +68,9 @@ RUSSIAN = [
     ("у", "u", "'oo' as in boot"), ("ф", "f", "'f' as in fan"),
     ("х", "kh", "'ch' in Scottish loch"), ("ц", "ts", "'ts' as in cats"),
     ("ч", "ch", "'ch' as in chip"), ("ш", "sh", "'sh' as in shoe"),
-    ("щ", "shch", "a long, soft 'sh'"), ("ъ", "–", "hard sign — no sound of its own"),
+    ("щ", "shch", "a long, soft 'sh'"), ("ъ", "''", "hard sign — no sound of its own"),
     ("ы", "y", "a dull 'ih', tongue pulled back"), ("ь", "'", "soft sign — softens the letter before it"),
-    ("э", "e", "'e' as in met"), ("ю", "yu", "'yu' as in universe"),
+    ("э", "e'", "'e' as in met"), ("ю", "yu", "'yu' as in universe"),
     ("я", "ya", "'ya' as in yard"),
 ]
 
@@ -73,7 +78,7 @@ GREEK = [
     ("α", "a", "'a' as in father"), ("β", "v", "'v' as in van"),
     ("γ", "g", "soft 'gh'; 'y' before e/i"), ("δ", "d", "'th' as in this"),
     ("ε", "e", "'e' as in met"), ("ζ", "z", "'z' as in zoo"),
-    ("η", "i", "'ee' as in see"), ("θ", "th", "'th' as in thin"),
+    ("η", "h", "'ee' as in see"), ("θ", "th", "'th' as in thin"),
     ("ι", "i", "'ee' as in see"), ("κ", "k", "'k' as in kit"),
     ("λ", "l", "'l' as in lamp"), ("μ", "m", "'m' as in map"),
     ("ν", "n", "'n' as in net"), ("ξ", "x", "'x' as in box"),
@@ -81,21 +86,21 @@ GREEK = [
     ("ρ", "r", "rolled 'r'"), ("σ", "s", "'s' as in sun (final form: ς)"),
     ("τ", "t", "'t' as in top"), ("υ", "y", "'ee' as in see"),
     ("φ", "f", "'f' as in fan"), ("χ", "ch", "'ch' in Scottish loch"),
-    ("ψ", "ps", "'ps' as in lapse"), ("ω", "o", "'o' as in got"),
+    ("ψ", "ps", "'ps' as in lapse"), ("ω", "w", "'o' as in got"),
 ]
 
 ARABIC = [
-    ("ا", "ā", "long 'aa', or a seat for other vowels"),
+    ("ا", "aa", "long 'aa', or a seat for other vowels"),
     ("ب", "b", "'b' as in boy"), ("ت", "t", "'t' as in top"),
     ("ث", "th", "'th' as in think"), ("ج", "j", "'j' as in jam"),
-    ("ح", "ḥ", "a breathy 'h' from deep in the throat"),
+    ("ح", "H", "a breathy 'h' from deep in the throat (also typed 7)"),
     ("خ", "kh", "'ch' as in Scottish loch"), ("د", "d", "'d' as in dog"),
     ("ذ", "dh", "'th' as in this"), ("ر", "r", "a rolled 'r'"),
     ("ز", "z", "'z' as in zoo"), ("س", "s", "'s' as in sun"),
-    ("ش", "sh", "'sh' as in shoe"), ("ص", "ṣ", "a heavy, deep 's'"),
-    ("ض", "ḍ", "a heavy, deep 'd'"), ("ط", "ṭ", "a heavy, deep 't'"),
-    ("ظ", "ẓ", "a heavy, deep 'dh'"),
-    ("ع", "ʿ", "a tight sound from the throat — no English match"),
+    ("ش", "sh", "'sh' as in shoe"), ("ص", "S", "a heavy, deep 's'"),
+    ("ض", "D", "a heavy, deep 'd'"), ("ط", "T", "a heavy, deep 't'"),
+    ("ظ", "Z", "a heavy, deep 'dh'"),
+    ("ع", "3", "a tight sound from the throat — no English match"),
     ("غ", "gh", "a gargled 'r', like a French 'r'"), ("ف", "f", "'f' as in fan"),
     ("ق", "q", "a 'k' made far back in the throat"), ("ك", "k", "'k' as in kit"),
     ("ل", "l", "'l' as in lamp"), ("م", "m", "'m' as in map"),
@@ -107,27 +112,27 @@ ARABIC = [
 # Hindi (Devanagari): vowels first, then the consonant series. Consonants
 # carry the inherent 'a', so क is "ka".
 HINDI = [
-    ("अ", "a", "short 'a' as in about"), ("आ", "ā", "long 'aa' as in father"),
-    ("इ", "i", "short 'i' as in sit"), ("ई", "ī", "long 'ee' as in see"),
-    ("उ", "u", "short 'u' as in put"), ("ऊ", "ū", "long 'oo' as in boot"),
+    ("अ", "a", "short 'a' as in about"), ("आ", "aa", "long 'aa' as in father"),
+    ("इ", "i", "short 'i' as in sit"), ("ई", "ii", "long 'ee' as in see"),
+    ("उ", "u", "short 'u' as in put"), ("ऊ", "uu", "long 'oo' as in boot"),
     ("ए", "e", "'ay' as in say"), ("ऐ", "ai", "'ai' as in aisle"),
     ("ओ", "o", "'o' as in go"), ("औ", "au", "'au' as in caught"),
     ("क", "ka", "'k' as in skate"), ("ख", "kha", "aspirated 'k' — k with a puff"),
     ("ग", "ga", "'g' as in go"), ("घ", "gha", "aspirated 'g'"),
-    ("ङ", "ṅa", "'ng' as in sing"), ("च", "ca", "'ch' as in church"),
-    ("छ", "cha", "aspirated 'ch'"), ("ज", "ja", "'j' as in jam"),
-    ("झ", "jha", "aspirated 'j'"), ("ञ", "ña", "'ny' as in canyon"),
-    ("ट", "ṭa", "hard 't', tongue curled back"), ("ठ", "ṭha", "aspirated hard 't'"),
-    ("ड", "ḍa", "hard 'd', tongue curled back"), ("ढ", "ḍha", "aspirated hard 'd'"),
-    ("ण", "ṇa", "hard 'n', tongue curled back"), ("त", "ta", "soft 't', tongue on teeth"),
+    ("ङ", "nga", "'ng' as in sing"), ("च", "cha", "'ch' as in church"),
+    ("छ", "chha", "aspirated 'ch'"), ("ज", "ja", "'j' as in jam"),
+    ("झ", "jha", "aspirated 'j'"), ("ञ", "nya", "'ny' as in canyon"),
+    ("ट", "Ta", "hard 't', tongue curled back"), ("ठ", "Tha", "aspirated hard 't'"),
+    ("ड", "Da", "hard 'd', tongue curled back"), ("ढ", "Dha", "aspirated hard 'd'"),
+    ("ण", "Na", "hard 'n', tongue curled back"), ("त", "ta", "soft 't', tongue on teeth"),
     ("थ", "tha", "aspirated soft 't'"), ("द", "da", "soft 'd', tongue on teeth"),
     ("ध", "dha", "aspirated soft 'd'"), ("न", "na", "'n' as in net"),
     ("प", "pa", "'p' as in spin"), ("फ", "pha", "aspirated 'p'"),
     ("ब", "ba", "'b' as in boy"), ("भ", "bha", "aspirated 'b'"),
     ("म", "ma", "'m' as in map"), ("य", "ya", "'y' as in yes"),
     ("र", "ra", "a rolled 'r'"), ("ल", "la", "'l' as in lamp"),
-    ("व", "va", "between 'v' and 'w'"), ("श", "śa", "'sh' as in shoe"),
-    ("ष", "ṣa", "hard 'sh', tongue curled back"), ("स", "sa", "'s' as in sun"),
+    ("व", "va", "between 'v' and 'w'"), ("श", "sha", "'sh' as in shoe"),
+    ("ष", "Sha", "hard 'sh', tongue curled back"), ("स", "sa", "'s' as in sun"),
     ("ह", "ha", "'h' as in hat"),
 ]
 
@@ -135,7 +140,7 @@ HINDI = [
 # (low/mid/high) that decides the tone is noted, since it's the thing a
 # beginner needs alongside the shape.
 THAI = [
-    ("ก", "g", "'g' as in go (mid class)"), ("ข", "kh", "'k' with a puff (high class)"),
+    ("ก", "k", "'g' as in go (mid class)"), ("ข", "kh", "'k' with a puff (high class)"),
     ("ฃ", "kh", "'k' with a puff — obsolete (high class)"),
     ("ค", "kh", "'k' with a puff (low class)"),
     ("ฅ", "kh", "'k' with a puff — obsolete (low class)"),
@@ -166,11 +171,11 @@ THAI = [
 # vowels — the block-assembly rule lives in the Letters & Sounds panel;
 # the deck drills each letter's sound.
 HANGUL = [
-    ("ㄱ", "g/k", "between 'g' and 'k'"), ("ㄴ", "n", "'n' as in no"),
-    ("ㄷ", "d/t", "between 'd' and 't'"), ("ㄹ", "r/l", "a tap 'r'; 'l' at the end of a block"),
-    ("ㅁ", "m", "'m' as in mom"), ("ㅂ", "b/p", "between 'b' and 'p'"),
+    ("ㄱ", "g", "between 'g' and 'k'"), ("ㄴ", "n", "'n' as in no"),
+    ("ㄷ", "d", "between 'd' and 't'"), ("ㄹ", "r", "a tap 'r'; 'l' at the end of a block"),
+    ("ㅁ", "m", "'m' as in mom"), ("ㅂ", "b", "between 'b' and 'p'"),
     ("ㅅ", "s", "'s' as in see; 'sh' before ㅣ"),
-    ("ㅇ", "-/ng", "silent at the start; 'ng' at the end"),
+    ("ㅇ", "ng", "silent at the start; 'ng' at the end"),
     ("ㅈ", "j", "between 'j' and 'ch'"), ("ㅎ", "h", "'h' as in hat"),
     ("ㅋ", "k", "'k' with a strong puff"), ("ㅌ", "t", "'t' with a strong puff"),
     ("ㅍ", "p", "'p' with a strong puff"), ("ㅊ", "ch", "'ch' with a strong puff"),
