@@ -65,6 +65,11 @@ except Exception as exc:  # noqa: BLE001
 # Tatweel character (Arabic kashida, used for elongation)
 _TATWEEL = "\u0640"
 
+# Alef maqsura \u0649 (U+0649) and Farsi yeh \u06cc (U+06CC) \u2192 Arabic yeh \u064a (U+064A).
+# The same shape at the end of a word; which one a learner produces is
+# decided by their keyboard, not their knowledge.
+_YEH_FOLD = str.maketrans("\u0649\u06cc", "\u064a\u064a")
+
 # Taa marbuta → ha mapping for the secondary soft-match check
 _TAA_MARBUTA = "\u0629"  # ة
 _HA = "\u0647"  # ه
@@ -123,7 +128,15 @@ class ArabicNLP(BaseNLP):
           1. Strip leading/trailing whitespace
           2. Strip tashkeel (diacritics) via dediac_ar
           3. Normalize alef variants via normalize_alef_ar
-          4. Remove tatweel (kashida, U+0640)
+          4. Normalize yeh variants (ى / Farsi ی → ي)
+          5. Remove tatweel (kashida, U+0640)
+
+        Yeh sits here rather than in the coaching fold: word-final ى vs ي is
+        a keyboard difference more than a knowledge difference (Egyptian
+        orthography writes ي for both), and the owner's call is that typing
+        the dotless form is simply right — green, not amber. Kaf/heh
+        variants stay in fold_lookalikes, where a match is accepted but the
+        proper form is still named.
 
         Intentionally does NOT normalize taa marbuta (ة → ه) to avoid
         conflating semantically distinct words (research pitfall #6).
@@ -137,6 +150,7 @@ class ArabicNLP(BaseNLP):
         text = text.strip()
         text = dediac_ar(text)
         text = normalize_alef_ar(text)
+        text = text.translate(_YEH_FOLD)
         text = text.replace(_TATWEEL, "")
         return text
 

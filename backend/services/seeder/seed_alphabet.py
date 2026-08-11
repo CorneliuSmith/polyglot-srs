@@ -194,6 +194,30 @@ ALPHABETS: dict[str, list[tuple[str, str, str]]] = {
     "ko": HANGUL,
 }
 
+# Compat jamo vowels ㅏ..ㅣ (U+314F–U+3163) are exactly the 21 syllable
+# medials in order; ㅇ is initial index 11 in the syllable arithmetic
+# code = 0xAC00 + (initial*21 + medial)*28 + final.
+_COMPAT_VOWEL_FIRST, _COMPAT_VOWEL_LAST = 0x314F, 0x3163
+_SILENT_IEUNG_INITIAL = 11
+
+
+def _letter_alternatives(code: str, letter: str) -> list[str] | None:
+    """Extra accepted spellings for a letter card, where the typing scheme
+    can't produce the bare glyph.
+
+    The Korean transliteration keyboard seats a lone vowel on silent ㅇ
+    (typing "a" yields 아, never bare ㅏ) — so the vowel cards accept the
+    seated syllable alongside the jamo. Everything else the NLP layer
+    already folds (ᄀ/ㄱ via NFKC, σ/ς, alef variants).
+    """
+    if code == "ko" and len(letter) == 1:
+        cp = ord(letter)
+        if _COMPAT_VOWEL_FIRST <= cp <= _COMPAT_VOWEL_LAST:
+            medial = cp - _COMPAT_VOWEL_FIRST
+            seated = chr(0xAC00 + (_SILENT_IEUNG_INITIAL * 21 + medial) * 28)
+            return [seated]
+    return None
+
 
 async def seed(db_url: str, code: str) -> int:
     # A checked-in artifact wins over the hardcoded table.
@@ -228,16 +252,18 @@ async def seed(db_url: str, code: str) -> int:
             vid = await conn.fetchval(
                 """
                 INSERT INTO vocabulary (language_id, word, reading,
-                                        part_of_speech, level, frequency_rank)
-                VALUES ($1, $2, $3, 'letter', 'A0', $4)
+                                        part_of_speech, level, frequency_rank,
+                                        alternatives)
+                VALUES ($1, $2, $3, 'letter', 'A0', $4, $5)
                 ON CONFLICT (language_id, word)
                     DO UPDATE SET reading = EXCLUDED.reading,
                                  part_of_speech = 'letter',
                                  level = 'A0',
-                                 frequency_rank = EXCLUDED.frequency_rank
+                                 frequency_rank = EXCLUDED.frequency_rank,
+                                 alternatives = EXCLUDED.alternatives
                 RETURNING id
                 """,
-                lang_id, letter, rom, rank,
+                lang_id, letter, rom, rank, _letter_alternatives(code, letter),
             )
             await conn.execute(
                 """

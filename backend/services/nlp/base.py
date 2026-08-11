@@ -269,11 +269,16 @@ class BaseNLP(ABC):
         # strict-form gate below: that gate is about morphology (is vs am),
         # not typography, and without this layer it was failing accentless
         # answers across every Latin-script language's grammar drills.
-        if norm_user and _strip_marks(norm_user) == _strip_marks(norm_correct):
-            return (
-                AnswerResult.CORRECT_SLOPPY,
-                f"Almost — check the accents. Expected: {correct_answer}",
-            )
+        # The folded string must be non-empty: an answer that is ONLY marks
+        # (a bare Hebrew niqqud, a lone harakah) strips to "" on both sides
+        # and was matching any other bare mark.
+        if norm_user:
+            bare_user = _strip_marks(norm_user)
+            if bare_user and bare_user == _strip_marks(norm_correct):
+                return (
+                    AnswerResult.CORRECT_SLOPPY,
+                    f"Almost — check the accents. Expected: {correct_answer}",
+                )
 
         # Layer 2.6: look-alike letters. Scripts where two codepoints render
         # near-identically and phone keyboards disagree about which one to
@@ -284,7 +289,8 @@ class BaseNLP(ABC):
             folded_user = self.fold_lookalikes(norm_user)
             folded_correct = self.fold_lookalikes(norm_correct)
             if folded_user != norm_user or folded_correct != norm_correct:
-                if _strip_marks(folded_user) == _strip_marks(folded_correct):
+                bare_folded = _strip_marks(folded_user)
+                if bare_folded and bare_folded == _strip_marks(folded_correct):
                     return (
                         AnswerResult.CORRECT_SLOPPY,
                         "Almost — check the letter forms. "
@@ -299,8 +305,11 @@ class BaseNLP(ABC):
             card_context and card_context.get("card_type") == "grammar"
         )
 
-        # Layer 3: Lemma match
-        if self.lemmatize(user) == self.lemmatize(correct):
+        # Layer 3: Lemma match. Non-empty for the same reason as layer 2.5:
+        # backends that lemmatize by folding marks turn a bare-mark answer
+        # into "" on both sides.
+        lemma_user = self.lemmatize(user)
+        if lemma_user and lemma_user == self.lemmatize(correct):
             if strict_form:
                 return (
                     AnswerResult.WRONG_FORM,

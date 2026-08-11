@@ -23,8 +23,9 @@ cover the frequency band the app actually teaches.
 from __future__ import annotations
 
 import re
+import unicodedata
 
-from backend.services.nlp.base import BaseNLP
+from backend.services.nlp.base import AnswerResult, BaseNLP
 
 _HANGUL_RE = re.compile(r"[가-힣]")
 
@@ -77,6 +78,26 @@ def _hangul_len(word: str) -> int:
     return len(_HANGUL_RE.findall(word))
 
 
+def _differs_only_in_batchim(user: str, correct: str) -> bool:
+    """True when the strings differ ONLY in some syllables' final consonant.
+
+    Both must be the same length; every differing position must be a pair of
+    Hangul syllables sharing initial and medial (같은 초성/중성) with
+    different finals — 바/밥 yes, 보/밥 no, 바보/바포 no.
+    """
+    if len(user) != len(correct) or user == correct:
+        return False
+    for u, c in zip(user, correct):
+        if u == c:
+            continue
+        cu, cc = ord(u), ord(c)
+        if not (_HANGUL_BASE <= cu <= _HANGUL_LAST and _HANGUL_BASE <= cc <= _HANGUL_LAST):
+            return False
+        if (cu - _HANGUL_BASE) // 28 != (cc - _HANGUL_BASE) // 28:
+            return False  # different initial+vowel, not just the final
+    return True
+
+
 def _drop_final_bieup(ch: str) -> str | None:
     """가+ㅂ (갑) → 가; None when *ch* has no ㅂ final.
 
@@ -96,8 +117,15 @@ class KoreanNLP(BaseNLP):
 
     def normalize(self, text: str) -> str:
         # Hangul has no case; lower() covers mixed-in Latin (loanword
-        # answers typed in ASCII).
-        return text.strip().lower()
+        # answers typed in ASCII). NFKC unifies the two jamo encodings —
+        # compatibility ㄱ (U+3131, what the on-screen keyboard and the
+        # alphabet deck use) and conjoining ᄀ (U+1100, what a system IME
+        # emits mid-composition) are the same letter to a learner but
+        # compare unequal under plain NFC, so single-letter answers were
+        # graded by which keyboard the learner happened to touch. NFKC also
+        # composes a loose L+V(+T) jamo sequence into its syllable, so an
+        # uncomposed ㄱ+ㅏ still matches 가.
+        return unicodedata.normalize("NFKC", text.strip().lower())
 
     def lemmatize(self, word: str) -> str:
         w = self.normalize(word)
@@ -158,3 +186,33 @@ class KoreanNLP(BaseNLP):
     ) -> str | None:
         """Korean has no Slavic-style aspect pairs — always None."""
         return None
+
+    # ------------------------------------------------------------------
+    # Batchim coaching
+    # ------------------------------------------------------------------
+
+    def check_answer(
+        self,
+        user_input: str,
+        correct_answer: str,
+        card_context: dict | None = None,
+    ) -> tuple[AnswerResult, str | None]:
+        """Parent pipeline first, then name the batchim when it's the miss.
+
+        밥 typed as 바 (or 감 as 갑) fell through to the generic wrong
+        message — and single-syllable answers are too short for the
+        near-miss hint, so the learner was told nothing. The final
+        consonant is the hardest part of the block for a beginner; when
+        it is the ONLY difference, say so.
+        """
+        result, msg = super().check_answer(user_input, correct_answer, card_context)
+        if result is AnswerResult.WRONG:
+            user = self.normalize(unicodedata.normalize("NFC", user_input))
+            correct = self.normalize(unicodedata.normalize("NFC", correct_answer))
+            if user and _differs_only_in_batchim(user, correct):
+                return (
+                    AnswerResult.WRONG,
+                    "So close — check the final consonant (받침). "
+                    f"Expected: {correct_answer}",
+                )
+        return result, msg
