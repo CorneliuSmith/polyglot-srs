@@ -10,6 +10,7 @@ import hindiLayout from 'simple-keyboard-layouts/build/layouts/hindi'
 import koreanLayout from 'simple-keyboard-layouts/build/layouts/korean'
 import hebrewLayout from 'simple-keyboard-layouts/build/layouts/hebrew'
 import farsiLayout from 'simple-keyboard-layouts/build/layouts/farsi'
+import { KO_KEYCAP_DISPLAY } from './translit'
 
 export type KeyboardLanguage =
   | 'ru' | 'ar' | 'tr' | 'el' | 'yo' | 'ha' | 'th' | 'hi' | 'ko'
@@ -30,7 +31,6 @@ interface OnScreenKeyboardProps {
   onEnter?: () => void
   /** The keyboard's backspace key — delete before the cursor. */
   onBackspace?: () => void
-  inputRef?: React.RefObject<HTMLInputElement | null>
 }
 
 // QWERTY plus an accent/special-character row — for Latin-script languages the
@@ -210,7 +210,7 @@ export default function OnScreenKeyboard({
       <Keyboard
         layout={layout}
         layoutName={hasShiftLayer ? layoutName : 'default'}
-        display={{ ...HARAKAT_DISPLAY, ...ZWNJ_DISPLAY }}
+        display={{ ...HARAKAT_DISPLAY, ...ZWNJ_DISPLAY, ...KO_KEYCAP_DISPLAY }}
         mergeDisplay
         onKeyPress={handleKeyPress}
         theme="hg-theme-default"

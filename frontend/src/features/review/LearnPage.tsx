@@ -25,7 +25,7 @@ import Annotatable from '../contribute/Annotatable'
 import { prefetchTTSMany } from '../../api/audio'
 import OnScreenKeyboard, { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
-import { composeScript, finalizeInput } from '../keyboards/translit'
+import { composeScript, deleteLastUnit, finalizeInput } from '../keyboards/translit'
 import type { Lesson, ValidateAnswerResponse } from '../../api/types'
 
 /**
@@ -208,7 +208,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
     if (!input) {
       setQuizInput((prev) =>
         replaceBackspace
-          ? prev.slice(0, -1)
+          ? deleteLastUnit(languageCode, prev)
           : composeScript(languageCode, prev + insert),
       )
       return
@@ -216,11 +216,17 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
     const start = input.selectionStart ?? input.value.length
     const end = input.selectionEnd ?? input.value.length
     if (replaceBackspace) {
-      const from = start === end ? Math.max(0, start - 1) : start
-      setQuizInput(input.value.slice(0, from) + input.value.slice(end))
+      // Delete the selection, or one UNIT before the caret — Hangul peels a
+      // jamo off the syllable (한 → 하) rather than losing the whole block.
+      const head =
+        start === end
+          ? deleteLastUnit(languageCode, input.value.slice(0, start))
+          : input.value.slice(0, start)
+      setQuizInput(head + input.value.slice(end))
+      const caret = head.length
       requestAnimationFrame(() => {
         input.focus()
-        input.setSelectionRange(from, from)
+        input.setSelectionRange(caret, caret)
       })
       return
     }
@@ -692,7 +698,6 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                         onKeyPress={(key) => typeIntoQuiz(key)}
                         onEnter={handleCheck}
                         onBackspace={() => typeIntoQuiz('', true)}
-                        inputRef={inputRef}
                       />
                     )}
                   </div>

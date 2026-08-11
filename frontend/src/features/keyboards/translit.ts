@@ -578,6 +578,18 @@ function koNormalizeJamo(ch: string): string {
   return ch
 }
 
+/** Keycap labels for the on-screen keyboard: its keys are conjoining jamo
+ * (ᄀ, U+1100), which draw as dangling half-marks on a keycap. Display the
+ * compatibility jamo (ㄱ) instead while still inserting the conjoining
+ * character the composer expects. */
+export const KO_KEYCAP_DISPLAY: Record<string, string> = {}
+for (let c = 0x1100; c <= 0x1112; c++) {
+  KO_KEYCAP_DISPLAY[String.fromCodePoint(c)] = KO_L[c - 0x1100]
+}
+for (let c = 0x1161; c <= 0x1175; c++) {
+  KO_KEYCAP_DISPLAY[String.fromCodePoint(c)] = KO_V[c - 0x1161]
+}
+
 // Typing scheme. Aspirates are the plain Latin stops (k t p ch), the lax
 // series is voiced (g d b j), and doubling tenses them (kk tt pp ss jj) —
 // the convention every Korean romanization IME uses.
@@ -710,7 +722,14 @@ function encodeKo(phon: string, finalize: boolean): string {
   let i = 0
   while (i < toks.length) {
     const tok = toks[i]
-    if (tok.t === 'o') { out += tok.jamo; i++; continue }
+    if (tok.t === 'o') {
+      // '-' is a syllable break ("han-a" → 한아 where "hana" is 하나). It
+      // stays visible while typing — deleting it eagerly would merge the
+      // Latin letters around it back together — and comes off at submit.
+      out += tok.lat === '-' ? (finalize ? '' : '-') : tok.jamo
+      i++
+      continue
+    }
 
     let initial: string | null = null
     if (tok.t === 'c') {
@@ -763,7 +782,9 @@ function encodeKo(phon: string, finalize: boolean): string {
 }
 
 function convertKo(text: string, finalize: boolean): string {
-  return encodeKo(decodeKo(text), finalize)
+  // No capitals in the scheme; fold them so a phone's auto-capitalized
+  // first letter still converts ("Han" typed by iOS → 한, not a stuck H).
+  return encodeKo(decodeKo(text.toLowerCase()), finalize)
 }
 
 // ── Thai ─────────────────────────────────────────────────────────────────────
@@ -900,7 +921,8 @@ function encodeTh(phon: string, finalize: boolean): string {
 }
 
 function convertTh(text: string, finalize: boolean): string {
-  return encodeTh(decodeTh(text), finalize)
+  // Thai's scheme is all-lowercase too — same auto-capitalize guard as ko.
+  return encodeTh(decodeTh(text.toLowerCase()), finalize)
 }
 
 // ── Public API ───────────────────────────────────────────────────────────────
@@ -949,6 +971,52 @@ export function finalizeTranslit(code: string, text: string): string {
   if (code === 'th') return convertTh(text, true)
   if (code === 'ko') return convertKo(text, true)
   return convertTranslit(code, text)
+}
+
+/** Backspace one UNIT of text. For Hangul this peels one jamo off the last
+ * syllable the way a real IME does — 한 → 하 → ㅎ → nothing, and a stacked
+ * final gives back its first consonant (없 → 업) — instead of vaporizing a
+ * whole three-keystroke block per press. Every other script (and any
+ * non-syllable character) deletes one character. */
+export function deleteLastUnit(code: string, text: string): string {
+  if (!text) return text
+  const chars = Array.from(text)
+  const last = chars[chars.length - 1]
+  const rest = chars.slice(0, -1).join('')
+  if (code === 'ko') {
+    const cp = last.codePointAt(0) ?? 0
+    if (cp >= KO_SYL_BASE && cp <= KO_SYL_LAST) {
+      const n = cp - KO_SYL_BASE
+      const l = Math.floor(n / 588)
+      const v = Math.floor((n % 588) / 28)
+      const t = n % 28
+      if (t > 0) {
+        // Stacked final loses its second consonant; plain final comes off.
+        const split = KO_SPLIT_T[KO_T[t]]
+        const keptT = split ? KO_T.indexOf(split[0]) : 0
+        return rest + String.fromCodePoint(KO_SYL_BASE + (l * 21 + v) * 28 + keptT)
+      }
+      return rest + KO_L[l] // open syllable: drop the vowel, keep the initial
+    }
+  }
+  return rest
+}
+
+/** The Backspace-key half of deleteLastUnit for a real <input>: peel a jamo
+ * when the character before the caret is a composed Hangul syllable, or
+ * return null to let the browser's native delete run (selections, other
+ * scripts, plain characters). */
+export function backspaceUnit(
+  code: string,
+  text: string,
+  start: number,
+  end: number,
+): { text: string; caret: number } | null {
+  if (code !== 'ko' || start !== end || start === 0) return null
+  const cp = text.charCodeAt(start - 1)
+  if (cp < KO_SYL_BASE || cp > KO_SYL_LAST) return null
+  const head = deleteLastUnit(code, text.slice(0, start))
+  return { text: head + text.slice(end), caret: head.length }
 }
 
 export function isTranslitEnabled(
@@ -1045,7 +1113,7 @@ export function translitGuide(code: string): GuideRow[] {
         { keys: '1 2 3 4', out: '่ ้ ๊ ๋', note: 'tone marks — type the digit after the vowel' },
         { keys: 'maa', out: 'มา', note: 'the vowel wraps itself around the consonant' },
         { keys: 'maa2', out: 'ม้า', note: 'máa (horse) — the tone mark lands on the м' },
-        { keys: 'khaao', out: 'เขา', note: 'a leading vowel writes BEFORE the consonant you say it after' },
+        { keys: 'khao', out: 'เขา', note: 'a leading vowel writes BEFORE the consonant you say it after' },
       ]
     case 'ko':
       return [
@@ -1058,6 +1126,7 @@ export function translitGuide(code: string): GuideRow[] {
         { keys: 'ng', out: 'ㅇ', note: 'the final ㅇ (sarang → 사랑); a word-initial vowel gets it free' },
         { keys: 'hanguk', out: '한국', note: 'letters stack into blocks by themselves' },
         { keys: 'an', out: '안', note: 'a bare vowel is seated on ㅇ automatically' },
+        { keys: 'han-a', out: '한아', note: '- splits syllables (hana → 하나); it disappears on submit' },
       ]
     default:
       return []
