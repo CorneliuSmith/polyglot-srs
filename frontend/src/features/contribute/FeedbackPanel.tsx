@@ -1,14 +1,23 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getFeedback, resolveFeedback } from '../../api/contribute'
+import QueueStatus from './QueueStatus'
 
 /**
  * Open learner feedback for the active language, for contributors to triage.
  * Resolving an item removes it from the queue.
  */
-export default function FeedbackPanel({ languageId }: { languageId: string }) {
+export default function FeedbackPanel({
+  languageId,
+  awaiting,
+}: {
+  languageId: string
+  /** What the Review Inbox counts for this queue — lets an empty list that
+   * should not be empty announce itself instead of rendering nothing. */
+  awaiting?: number
+}) {
   const queryClient = useQueryClient()
 
-  const { data: items = [] } = useQuery({
+  const { data: items = [], isError } = useQuery({
     queryKey: ['feedback', languageId],
     queryFn: () => getFeedback(languageId),
     retry: false,
@@ -20,7 +29,15 @@ export default function FeedbackPanel({ languageId }: { languageId: string }) {
       queryClient.invalidateQueries({ queryKey: ['feedback', languageId] }),
   })
 
-  if (items.length === 0) return null
+  if (items.length === 0)
+    return (
+      <QueueStatus
+        title="Learner feedback"
+        isError={isError}
+        awaiting={awaiting}
+        testId="feedback-panel-status"
+      />
+    )
 
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-amber-200 p-4 space-y-2">

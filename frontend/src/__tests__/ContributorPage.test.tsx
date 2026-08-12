@@ -64,6 +64,23 @@ vi.mock('../api/contribute', () => ({
   getPendingExamples: vi.fn(() => Promise.resolve([])),
   reviewExample: vi.fn(),
   getPendingDrills: vi.fn(() => Promise.resolve([])),
+  getReviewInbox: vi.fn(() =>
+    Promise.resolve({
+      counts: {
+        grammar_pending: 0, pending_drills: 0, flagged_drills: 0,
+        pending_examples: 0, flagged_examples: 0, translation_suggestions: 0,
+        ai_levels: 0, change_requests: 0, suggestions: 0, notes: 0,
+        feedback: 0, overlaps: 0, ai_translations: 0,
+        tester_recommendations: 0,
+      },
+      other_languages: [],
+      can_publish: true,
+      is_admin: false,
+    }),
+  ),
+  getTesterRecommendations: vi.fn(() =>
+    Promise.resolve({ recommendations: [], limit: 200, can_publish: true }),
+  ),
   reviewDrill: vi.fn(),
   TUTOR_MODELS: ['claude-opus-4-8', 'claude-sonnet-5'],
   getLanguageReadiness: vi.fn(() => Promise.resolve([])),

@@ -90,6 +90,13 @@ export interface VocabItemEdit {
   frequency_rank: number | null
   definition: string | null
   example_count: number
+  /** Example sentences on this word the recheck flagged. Always an int (0
+   * when the column isn't migrated) — the per-word locator behind the
+   * "Flagged examples" inbox tile. */
+  flagged_count: number
+  /** Example sentences carrying a pending suggested translation — the
+   * locator behind the "Translation fixes" tile. */
+  suggestion_count: number
   ai_check_status: 'pass' | 'concerns' | null
   ai_check_notes: string | null
 }
@@ -100,6 +107,9 @@ export async function getVocabForLanguage(
   items: VocabItemEdit[]
   is_admin: boolean
   can_review: boolean
+  /** Testers reach this list too (advisory only): true for them, while
+   * can_contribute stays false. */
+  can_trial_review?: boolean
   can_contribute: boolean
 }> {
   const response = await apiClient.get('/api/contribute/vocab', {
@@ -787,6 +797,10 @@ export interface ChangeRequest {
   downvotes: number
   my_vote: number
   created_at: string
+  /** Raised by someone whose only standing for this language is tester:
+   * their request is advisory — it can be read and prioritised, never
+   * resolved by them. */
+  is_advisory?: boolean
 }
 
 export interface NewChangeRequest {
@@ -809,7 +823,14 @@ export async function createChangeRequest(body: NewChangeRequest): Promise<{ id:
 export async function getChangeRequests(
   languageId: string,
   status = 'open',
-): Promise<{ requests: ChangeRequest[]; can_resolve: boolean }> {
+): Promise<{
+  requests: ChangeRequest[]
+  can_resolve: boolean
+  /** Voting is a judgement on someone else's judgement, so it stays with
+   * the roles that publish. Testers read and raise; the server 403s their
+   * vote, so the buttons are hidden rather than left to fail. */
+  can_vote?: boolean
+}> {
   const response = await apiClient.get('/api/contribute/change-requests', {
     params: { language_id: languageId, status },
   })
@@ -827,8 +848,18 @@ export async function resolveChangeRequest(
   await apiClient.post(`/api/contribute/change-requests/${requestId}/resolve`, { status })
 }
 
-/** Client mirror of backend can_contribute: admin anywhere, or a
- * contributor/reviewer for this language (null language = all). */
+/** Client mirror of the change-request raise gate: admin anywhere, or a
+ * contributor/reviewer/trial reviewer for this language (null language =
+ * all).
+ *
+ * Trial reviewers belong here (WP31 gap G2). They were excluded, which hid
+ * both the Review Mode toggle and "Suggest a change" from the very people
+ * recruited to review — their reports silently degraded into learner-grade
+ * card feedback while the admin watched an empty change-request board. The
+ * server now accepts their raise (advisory: they may not vote or resolve),
+ * so the client must offer it. */
+const SUGGEST_ROLES = new Set(['contributor', 'reviewer', 'trial_reviewer'])
+
 export function canSuggestForLanguage(
   roles: ContributorRole[],
   languageId: string | null,
@@ -836,7 +867,7 @@ export function canSuggestForLanguage(
   return roles.some(
     (r) =>
       r.role === 'admin' ||
-      ((r.role === 'contributor' || r.role === 'reviewer') &&
+      (SUGGEST_ROLES.has(r.role) &&
         (r.language_id === null || r.language_id === languageId)),
   )
 }
@@ -1072,6 +1103,10 @@ export interface PendingExample {
   origin_detail: string | null
   word: string
   vocabulary_id: string
+  /** Tester verdicts on this row. Approving DELETES the pending row and the
+   * note with it, so it has to be readable here or it is never read at all.
+   * null = nobody has judged it. */
+  recommendations?: RecoTally | null
 }
 
 /** Generated example sentences awaiting review for a language — hidden from
@@ -1198,11 +1233,33 @@ export interface ReviewInboxCounts {
   feedback: number
   overlaps: number
   ai_translations: number
+  /** Advisory approve/reject votes from testers on items still pending —
+   * the testers' main deliverable, previously counted nowhere. */
+  tester_recommendations: number
+}
+
+/** One other language with work waiting on a reviewer. The whole point of
+ * the strip: a submission carries the language the TESTER was studying, not
+ * the one the admin's selector happens to sit on. */
+export interface OtherLanguageWork {
+  id: string
+  code: string
+  name: string
+  /** Sum of every queue below; the server only sends languages where > 0. */
+  total: number
+  counts: ReviewInboxCounts
 }
 
 export interface ReviewInbox {
   counts: ReviewInboxCounts
+  /** Sorted by total desc, current language excluded, zeroes excluded.
+   * Degrades to [] if the roll-up query fails — an empty strip is not proof
+   * that nothing is waiting elsewhere. */
+  other_languages?: OtherLanguageWork[]
   can_publish: boolean
+  /** The AI-translations queue is admin-only to open, so its tile is
+   * admin-only to show. */
+  is_admin?: boolean
 }
 
 /** The unified Review Inbox counts for a language. */
@@ -1247,6 +1304,43 @@ export async function recommend(
     recommendation,
     note,
   })
+}
+
+/** A tester's advisory judgement on one still-pending item, with the note
+ * they wrote — the durable surface for the channel that used to exist only
+ * as a hover tooltip on a row that approval would delete. */
+export interface TesterRecommendation {
+  id: string
+  target_type: 'drill' | 'example'
+  target_id: string
+  recommendation: 'approve' | 'reject'
+  /** Always a string; '' when the tester left no note. */
+  note: string
+  recommender_email: string | null
+  /** The sentence being judged. */
+  target_label: string | null
+  target_translation: string | null
+  /** Grammar-point title (drills) or the word (examples). */
+  context: string | null
+  created_at: string
+}
+
+/** Tester recommendations on items still awaiting review, rejections first
+ * then newest first. Same still-pending filter as the inbox count, so the
+ * tile and this panel always agree. */
+export async function getTesterRecommendations(
+  languageId: string,
+  limit = 200,
+): Promise<{
+  recommendations: TesterRecommendation[]
+  /** The clamped limit the server actually applied. */
+  limit: number
+  can_publish: boolean
+}> {
+  const response = await apiClient.get('/api/contribute/review/recommendations', {
+    params: { language_id: languageId, limit },
+  })
+  return response.data
 }
 
 export interface TrialReviewer {

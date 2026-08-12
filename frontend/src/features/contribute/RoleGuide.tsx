@@ -118,6 +118,14 @@ const GUIDES: Record<GuideRole, Guide> = {
           'carry the same weight whichever role files them.',
       },
       {
+        what: 'Flag the exact words, mid-card',
+        detail:
+          'Turn on Review Mode in the bar at the top, then tap the phrase ' +
+          'that is wrong while you study. It goes to the change-request ' +
+          'board marked advisory — you can raise and read there, but voting ' +
+          'and resolving stay with reviewers.',
+      },
+      {
         what: 'Say when you are unsure',
         detail:
           '“I think this is wrong but I am not certain” is worth filing. It ' +

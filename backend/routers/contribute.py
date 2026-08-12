@@ -88,6 +88,7 @@ from backend.repositories.contributor import (
     list_pending_examples,
     list_review_notes,
     list_suggestions,
+    list_tester_recommendations,
     list_translation_reviews,
     list_unchecked_point_ids,
     list_unchecked_vocab_ids,
@@ -105,6 +106,7 @@ from backend.repositories.contributor import (
     review_example,
     review_examples_bulk,
     review_inbox_counts,
+    review_inbox_other_languages,
     revoke_role,
     save_ai_check,
     save_explanation,
@@ -297,19 +299,28 @@ async def vocab_for_language(
     Read-only: the change-request board (target_type='vocabulary') is how
     reviewers propose and vote on fixes — this just surfaces what's there so
     they can spot thin or missing entries while browsing.
+
+    Open to testers, mirroring GET /contribute/grammar. The per-item
+    endpoints behind this list already allow them (vocab review notes,
+    example recommendations); gating the LIST on can_contribute meant those
+    endpoints had no reachable UI for the one role that most needs them —
+    testers saw "You don't have a contributor role" and filed nothing.
     """
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
-        if not can_contribute(roles, language_id):
+        if not (can_contribute(roles, language_id) or can_trial_review(roles, language_id)):
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
-                detail="You don't have a contributor role for this language",
+                detail="You need a contributor, tester, or reviewer role for this language",
             )
         items = await list_vocab_items(conn, language_id)
     return {
         "items": items,
         "is_admin": is_admin(roles),
         "can_review": can_review(roles, language_id),
+        # Testers can open the list and file notes/recommendations, but not
+        # edit content — the UI scopes its controls on these two flags.
+        "can_trial_review": can_trial_review(roles, language_id),
         "can_contribute": can_contribute(roles, language_id),
     }
 
@@ -1021,11 +1032,22 @@ async def generation_pending(
     user: dict = Depends(get_current_user),
 ):
     """Generated example sentences awaiting review for a language (admin-only,
-    WP42 gate). These are hidden from learners until approved here."""
+    WP42 gate). These are hidden from learners until approved here.
+
+    Each item carries any tester recommendations on it — this is the panel
+    with the bulk-approve button, and approving deletes the pending row, so
+    "someone said this one needs work" has to be readable HERE or it is
+    never read at all."""
     await _require_admin(user["id"])
     limit = max(1, min(limit, 200))
     async with privileged_connection() as conn:
-        return {"pending": await list_pending_examples(conn, language_id, limit)}
+        pending = await list_pending_examples(conn, language_id, limit)
+        recos = await recommendations_for_targets(
+            conn, "example", [e["id"] for e in pending]
+        )
+    for e in pending:
+        e["recommendations"] = recos.get(e["id"])
+    return {"pending": pending}
 
 
 class ExampleReviewRequest(BaseModel):
@@ -1089,7 +1111,15 @@ async def review_inbox(
 ):
     """One roll-up of everything awaiting review action for a language — the
     unified Review Inbox at the top of the Review workspace. Open to anyone who
-    can trial-review the language; it only counts, it doesn't act."""
+    can trial-review the language; it only counts, it doesn't act.
+
+    `other_languages` is the cross-language strip. Every review surface is
+    scoped to the viewer's working language, but a submission carries the
+    language its author was STUDYING — so testers exercising Hebrew while the
+    selector sat on Arabic made the inbox read "All clear". The strip lists
+    every other language that has anything waiting, so the "nothing arrived"
+    reading is only ever reachable when nothing did.
+    """
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
     if not can_trial_review(roles, language_id):
@@ -1099,8 +1129,54 @@ async def review_inbox(
         )
     async with privileged_connection() as conn:
         counts = await review_inbox_counts(conn, language_id)
+    # Separate connection on purpose: privileged_connection wraps a
+    # transaction, so if the roll-up hits a schema this deploy is ahead of,
+    # the abort must not take the counts down with it. The strip is the
+    # feature that degrades, never the inbox.
+    other: list[dict] = []
+    try:
+        async with privileged_connection() as conn:
+            other = await review_inbox_other_languages(conn, language_id)
+    except (
+        asyncpg.exceptions.UndefinedTableError,
+        asyncpg.exceptions.UndefinedColumnError,
+    ):
+        other = []
     return {
         "counts": counts,
+        "other_languages": other,
+        "can_publish": can_review(roles, language_id),
+        # The AI-translations queue can only be OPENED by an admin, so the
+        # viewer needs to know whether the tile it counts has a panel behind
+        # it (a count with no reachable panel reads as a broken inbox).
+        "is_admin": is_admin(roles),
+    }
+
+
+@router.get("/review/recommendations")
+async def tester_recommendations(
+    language_id: str,
+    limit: int = 200,
+    user: dict = Depends(get_current_user),
+):
+    """Testers' advisory ✓/✗ + written notes on items still awaiting a
+    decision — the durable surface for the `tester_recommendations` inbox
+    count. Same gate as the inbox: anyone who can trial-review may read it
+    (it publishes nothing), which also lets a tester see their own answers
+    land somewhere."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not can_trial_review(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only a reviewer or tester for this language can view recommendations",
+        )
+    limit = max(1, min(limit, 500))
+    async with privileged_connection() as conn:
+        items = await list_tester_recommendations(conn, language_id, limit)
+    return {
+        "recommendations": items,
+        "limit": limit,
         "can_publish": can_review(roles, language_id),
     }
 
@@ -1936,9 +2012,15 @@ class ResolveBody(BaseModel):
 async def create_change_request(
     body: NewChangeRequest, user: dict = Depends(get_current_user)
 ):
-    """Raise a votable change request on a card (reviewer / contributor /
-    admin for the card's language). Low-friction: name the field, say what's
-    wrong, optionally suggest a fix. Learners use 'Report an issue' instead."""
+    """Raise a votable change request on a card (tester / reviewer /
+    contributor / admin for the card's language). Low-friction: name the
+    field, say what's wrong, optionally suggest a fix. Learners use 'Report
+    an issue' instead.
+
+    Testers can raise, matching the review-notes endpoints — raising publishes
+    nothing, and this is the board an admin actually watches. Their rows come
+    back marked `is_advisory`; voting and resolving stay closed to them.
+    """
     if body.target_type not in TARGET_TYPES or body.field not in FIELDS:
         raise HTTPException(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
@@ -1946,10 +2028,10 @@ async def create_change_request(
         )
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
-    if not can_contribute(roles, body.language_id):
+    if not (can_trial_review(roles, body.language_id) or can_contribute(roles, body.language_id)):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="You need a reviewer or contributor role for this language",
+            detail="You need a contributor, tester, or reviewer role for this language",
         )
     async with privileged_connection() as conn:
         req_id = await create_request(
@@ -1969,19 +2051,27 @@ async def get_change_requests(
     status: str = "open",
     user: dict = Depends(get_current_user),
 ):
-    """The review board for a language (reviewer / contributor / admin)."""
+    """The review board for a language (tester / reviewer / contributor /
+    admin). Testers read it because they can now raise on it — a board you
+    can post to but not see is how a submission goes quiet."""
     if status not in ("open", "accepted", "rejected"):
         raise HTTPException(status_code=422, detail="Invalid status")
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
-    if not can_contribute(roles, language_id):
+    if not (can_trial_review(roles, language_id) or can_contribute(roles, language_id)):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="You need a reviewer or contributor role for this language",
+            detail="You need a contributor, tester, or reviewer role for this language",
         )
     async with privileged_connection() as conn:
         requests = await list_requests(conn, language_id, user["id"], status)
-    return {"requests": requests, "can_resolve": is_admin(roles)}
+    return {
+        "requests": requests,
+        "can_resolve": is_admin(roles),
+        # Raising is open to testers; voting is not (a vote is a judgement on
+        # someone else's judgement — that stays with the roles that publish).
+        "can_vote": can_contribute(roles, language_id),
+    }
 
 
 @router.post("/change-requests/{request_id}/vote")

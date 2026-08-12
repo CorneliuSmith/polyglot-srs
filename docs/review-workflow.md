@@ -57,6 +57,8 @@ Roles live in `contributor_roles` (user, role, optional `language_id` scope;
 | **View** the review queue / Review Inbox | | | ✅ | ✅ | ✅ |
 | **Recommend** (advisory ✓/✗) on pending items | | | ✅ | ✅ | ✅ |
 | **File a review note** on a card (advisory) | | ✅ | ✅ | ✅ | ✅ |
+| **Raise / read** a change request | | ✅ | ✅ | ✅ | ✅ |
+| **Vote** on a change request | | ✅ | | ✅ | ✅ |
 | **Approve** → flips `reviewed = true`, exposes to learners | | | | ✅ | ✅ |
 | Edit / delete published content | | | | ✅ | ✅ |
 | **Roll back** a logged change | | | | ✅ | ✅ |
@@ -189,10 +191,31 @@ It counts (via `review_inbox_counts()`, `GET /review/inbox`):
 | Content suggestions | proposed definition edits | Suggestions panel |
 | Review notes | open notes on a point | Point review notes |
 | Learner feedback | open card feedback | Feedback panel |
+| Tester recommendations | advisory ✓/✗ + note on items still pending | Tester recommendations (`GET /review/recommendations`) |
 
 The Inbox is **counts only** — it doesn't act. It's the "what needs my
 attention, and how much" view; you still act in the panel below it. Open to
 anyone who can trial-review the language.
+
+### Other languages — why a quiet inbox used to lie
+
+Every review surface is scoped to the **viewer's working language**, but a
+submission carries the language its **author was studying**. Testers sent to
+exercise Hebrew while the admin's selector sat on Arabic produced an inbox
+that read *All clear* — the single biggest cause of "they say they're sending
+reviews and I'm not seeing them".
+
+`GET /review/inbox` therefore also returns `other_languages`: the same queue
+set counted for **every other language**, in ONE query
+(`review_inbox_other_languages()`), with the zero-total languages dropped. The
+Review tab shows it as a strip; clicking a language switches the working
+language. Both halves are built from the same `_INBOX_QUEUES` definition, so
+a tile and the strip can never come to count different things.
+
+The strip is the part allowed to fail: it runs on its own connection and
+falls back to `[]` if the schema is behind the deploy, because
+`privileged_connection()` wraps a transaction and an aborted one would
+otherwise take the counts — on every Review-tab load — down with it.
 
 ---
 
@@ -200,13 +223,22 @@ anyone who can trial-review the language.
 
 These do **not** publish anything. They feed the one reviewer's decision:
 
-- **Change requests** (`card_change_requests`) — anyone with a role can
-  raise "this card is wrong" with an issue + optional suggestion, and role
-  holders vote (`card_change_request_votes`). Only an admin
+- **Change requests** (`card_change_requests`) — anyone with a role,
+  **testers included**, can raise "this card is wrong" with an issue +
+  optional suggestion, and read the board. Voting
+  (`card_change_request_votes`) stays with contributors/reviewers/admins — a
+  vote is a judgement on someone else's judgement — and only an admin
   accepts/rejects (server-enforced). The votes are a signal, not a gate.
-- **Tester recommendations** — a tester's ✓/✗ on a pending
-  drill or example. Shown as a tally next to the item so the reviewer who
-  *does* publish can weigh it.
+  A request raised by someone whose only standing for the language is
+  *tester* comes back marked `is_advisory`. That flag is **derived** from the
+  author's current roles, not stored: a column would need a migration, and
+  migrations here are owner-applied.
+- **Tester recommendations** — a tester's ✓/✗ **and written note** on a
+  pending drill or example. Shown as a tally next to the item, listed in full
+  by `GET /review/recommendations`, and counted in the Inbox while its target
+  is still pending. Before that queue existed the note was a hover tooltip on
+  one panel, and a bulk-approve made it permanently unreadable — weeks of
+  tester answers could leave no visible trace.
 - **Content suggestions** (`content_suggestions`) — proposed definition /
   usage-note edits, approved or rejected by a reviewer.
 - **Review notes** (`point_review_notes`) — freeform "look at this" notes
@@ -289,7 +321,9 @@ button (`POST /review/revert/{log_id}`, gated by `can_review`). It:
 | Role gates | `backend/repositories/contributor.py` — `is_admin`, `can_contribute`, `can_review`, `can_trial_review` |
 | Generation + recheck | `backend/services/{generate,translate,define}.py`, `scripts/generate_content.py` |
 | Semantic check | `backend/services/semantic_check.py`; verdict on `grammar_points.ai_check_status/notes` |
-| Review Inbox | `review_inbox_counts()`; `GET /review/inbox`; `frontend/.../ReviewInbox.tsx` |
+| Review Inbox | `review_inbox_counts()` + `review_inbox_other_languages()` (shared `_INBOX_QUEUES`); `GET /review/inbox`; `frontend/.../ReviewInbox.tsx` |
+| Tester recommendations | `list_tester_recommendations()`; `GET /review/recommendations` |
+| Pre-migration degradation | `_present()` probes tables/columns in one query; missing ones become `0` |
 | Audit + rollback | `backend/repositories/audit.py`; `content_change_log` table; `frontend/.../CardHistory.tsx` |
 | Endpoints | `backend/routers/contribute.py` — `/review/*`, `/admin/audit` |
 

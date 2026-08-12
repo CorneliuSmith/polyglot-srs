@@ -44,6 +44,19 @@ describe('canSuggestForLanguage', () => {
     expect(canSuggestForLanguage([{ role: 'reviewer', language_id: 'ru' }], 'ca')).toBe(false)
     expect(canSuggestForLanguage([], 'ca')).toBe(false)
   })
+
+  it('includes trial reviewers — the people recruited to review', () => {
+    // Excluding them hid both Review Mode and "Suggest a change" from the
+    // testers, so their reports degraded into learner-grade card feedback
+    // while the admin watched an empty change-request board.
+    expect(
+      canSuggestForLanguage([{ role: 'trial_reviewer', language_id: 'ca' }], 'ca'),
+    ).toBe(true)
+    // Still scoped: a tester on another language gets nothing here.
+    expect(
+      canSuggestForLanguage([{ role: 'trial_reviewer', language_id: 'ru' }], 'ca'),
+    ).toBe(false)
+  })
 })
 
 describe('SuggestChange', () => {
@@ -112,11 +125,33 @@ describe('ChangeRequestsPanel', () => {
   })
 
   it('upvoting calls the vote API', async () => {
-    mockGet.mockResolvedValue({ requests: [req], can_resolve: false })
+    mockGet.mockResolvedValue({ requests: [req], can_resolve: false, can_vote: true })
     mockVote.mockResolvedValue(undefined)
     wrap(<ChangeRequestsPanel languageId="ca" />)
     fireEvent.click(await screen.findByRole('button', { name: /upvote/i }))
     await waitFor(() => expect(mockVote).toHaveBeenCalledWith('cr-1', 1))
+  })
+
+  it('hides the vote buttons from a tester, who may raise and read but not vote', async () => {
+    // The server 403s their vote deliberately; a button that always fails
+    // is worse than no button.
+    mockGet.mockResolvedValue({ requests: [req], can_resolve: false, can_vote: false })
+    wrap(<ChangeRequestsPanel languageId="ca" />)
+    expect(await screen.findByText(/meva should be meu/)).toBeDefined()
+    expect(screen.queryByRole('button', { name: /upvote/i })).toBeNull()
+    expect(screen.queryByRole('button', { name: /downvote/i })).toBeNull()
+    // The score still reads — priority is information, not a permission.
+    expect(screen.getByText('3')).toBeDefined()
+  })
+
+  it('badges a tester-raised request as advisory', async () => {
+    mockGet.mockResolvedValue({
+      requests: [{ ...req, is_advisory: true }],
+      can_resolve: true,
+      can_vote: true,
+    })
+    wrap(<ChangeRequestsPanel languageId="ca" />)
+    expect(await screen.findByText('advisory')).toBeDefined()
   })
 
   it('admins get Accept/Reject that resolve the request', async () => {

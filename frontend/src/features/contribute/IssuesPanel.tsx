@@ -1,5 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getReviewNotes, resolveReviewNote } from '../../api/contribute'
+import QueueStatus from './QueueStatus'
 
 /**
  * Open reviewer notes for the language — the audit trail between "fixed it
@@ -9,14 +10,18 @@ import { getReviewNotes, resolveReviewNote } from '../../api/contribute'
 export default function IssuesPanel({
   languageId,
   canResolve,
+  awaiting,
 }: {
   languageId: string
   canResolve: boolean
+  /** What the Review Inbox counts for this queue (see QueueStatus). */
+  awaiting?: number
 }) {
   const queryClient = useQueryClient()
-  const { data: notes = [] } = useQuery({
+  const { data: notes = [], isError } = useQuery({
     queryKey: ['review-notes', languageId],
     queryFn: () => getReviewNotes(languageId),
+    retry: false,
   })
 
   const resolveMutation = useMutation({
@@ -25,7 +30,15 @@ export default function IssuesPanel({
       queryClient.invalidateQueries({ queryKey: ['review-notes', languageId] }),
   })
 
-  if (notes.length === 0) return null
+  if (notes.length === 0)
+    return (
+      <QueueStatus
+        title="Open issues"
+        isError={isError}
+        awaiting={awaiting}
+        testId="issues-panel-status"
+      />
+    )
 
   return (
     <div

@@ -6,18 +6,35 @@ import {
   type RecoTally,
 } from '../../api/contribute'
 
-/** Small "N recommend approve / M reject" line from trial reviewers. */
+/** "N recommend approve / M reject" from trial reviewers, with whatever
+ * they wrote.
+ *
+ * The notes used to live in a `title` tooltip. A reason nobody hovers is a
+ * reason nobody reads — and approving this item DELETES the row and the
+ * note with it, so the tooltip was the last chance to see it. They render
+ * as text now (gap G4). */
 export function RecoSummary({ tally }: { tally?: RecoTally | null }) {
   if (!tally || (tally.approve === 0 && tally.reject === 0)) return null
+  const notes = (tally.notes ?? []).filter((n) => n.trim().length > 0)
   return (
-    <div className="mt-0.5 text-[11px] text-gray-500" title={tally.notes.join(' · ')}>
-      {tally.approve > 0 && (
-        <span className="text-green-700">▲ {tally.approve} recommend approve</span>
-      )}
-      {tally.approve > 0 && tally.reject > 0 && <span> · </span>}
-      {tally.reject > 0 && (
-        <span className="text-red-600">▼ {tally.reject} recommend reject</span>
-      )}
+    <div className="mt-0.5 text-[11px]" data-testid="reco-summary">
+      <div className="text-gray-500">
+        {tally.approve > 0 && (
+          <span className="text-green-700">▲ {tally.approve} recommend approve</span>
+        )}
+        {tally.approve > 0 && tally.reject > 0 && <span> · </span>}
+        {tally.reject > 0 && (
+          <span className="text-red-600">▼ {tally.reject} recommend reject</span>
+        )}
+      </div>
+      {notes.map((n, i) => (
+        <p
+          key={i}
+          className="mt-0.5 whitespace-pre-wrap rounded bg-gray-50 px-1.5 py-0.5 text-gray-600"
+        >
+          “{n}”
+        </p>
+      ))}
     </div>
   )
 }

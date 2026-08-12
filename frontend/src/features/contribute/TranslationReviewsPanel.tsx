@@ -4,6 +4,7 @@ import {
   getTranslationReviews,
   rejectTranslationReview,
 } from '../../api/contribute'
+import QueueStatus from './QueueStatus'
 
 /** The AI maker-checker's "not sure" pile: glosses and hints it refused to
  * auto-apply. Lives in the REVIEW workspace with the other queues (owner:
@@ -14,11 +15,17 @@ import {
  * English-course L1 glosses. */
 export default function TranslationReviewsPanel({
   languageId,
+  awaiting,
 }: {
   languageId?: string
+  /** What the Review Inbox counts for this queue, passed ONLY when the
+   * viewer can open it (admins). Left undefined the panel keeps its old
+   * self-hiding behaviour — reviewers whose GET 403s shouldn't be shown an
+   * error about a queue that isn't theirs. */
+  awaiting?: number
 }) {
   const queryClient = useQueryClient()
-  const { data: reviews } = useQuery({
+  const { data: reviews, isError } = useQuery({
     queryKey: ['translation-reviews', languageId ?? 'all'],
     queryFn: () => getTranslationReviews(languageId),
     retry: false,
@@ -34,7 +41,17 @@ export default function TranslationReviewsPanel({
     onSuccess: refresh,
   })
 
-  if (!reviews || reviews.length === 0) return null
+  if (!reviews || reviews.length === 0) {
+    if (awaiting === undefined) return null
+    return (
+      <QueueStatus
+        title="AI translations"
+        isError={isError}
+        awaiting={awaiting}
+        testId="translation-reviews-status"
+      />
+    )
+  }
 
   return (
     <div

@@ -68,3 +68,49 @@ describe('VocabReviewPanel', () => {
     )
   })
 })
+
+/* Gap G6: "Flagged examples 3 · Translation fixes 4" counted language-wide,
+ * but nothing said WHICH of two thousand words carried them, so the only
+ * way to find one was to expand words at random. */
+describe('VocabReviewPanel — needs attention', () => {
+  const marked = [
+    { ...items[0], flagged_count: 1, suggestion_count: 0 },
+    { ...items[1], flagged_count: 0, suggestion_count: 2 },
+    { id: 'v3', word: 'gato', reading: null, part_of_speech: 'n', level: 'A1',
+      frequency_rank: 9, definition: 'cat', example_count: 3,
+      flagged_count: 0, suggestion_count: 0 },
+  ]
+
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockVocab.mockResolvedValue({
+      items: marked, is_admin: false, can_review: true, can_contribute: true,
+    })
+  })
+
+  it('marks the words carrying flagged examples and translation fixes', async () => {
+    renderPanel()
+    expect(await screen.findByText('1 flagged')).toBeDefined()
+    expect(screen.getByText('2 fixes')).toBeDefined()
+  })
+
+  it('filters the list down to those words on one click', async () => {
+    renderPanel()
+    const chip = await screen.findByTestId('needs-attention-chip')
+    expect(chip.textContent).toContain('Needs attention (2)')
+    fireEvent.click(chip)
+    expect(screen.getByText('hola')).toBeDefined()
+    expect(screen.getByText('adiós')).toBeDefined()
+    // The clean word drops out.
+    expect(screen.queryByText('gato')).toBeNull()
+  })
+
+  it('offers no chip when nothing needs attention', async () => {
+    mockVocab.mockResolvedValue({
+      items, is_admin: false, can_review: true, can_contribute: true,
+    })
+    renderPanel()
+    await screen.findByText('hola')
+    expect(screen.queryByTestId('needs-attention-chip')).toBeNull()
+  })
+})

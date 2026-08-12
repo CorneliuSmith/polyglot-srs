@@ -5,6 +5,7 @@ import {
   voteChangeRequest,
   type ChangeRequest,
 } from '../../api/contribute'
+import QueueStatus from './QueueStatus'
 
 const FIELD_LABEL: Record<string, string> = {
   sentence: 'Sentence',
@@ -23,10 +24,11 @@ const FIELD_LABEL: Record<string, string> = {
 export default function ChangeRequestsPanel({ languageId }: { languageId: string }) {
   const queryClient = useQueryClient()
 
-  const { data } = useQuery({
+  const { data, isError } = useQuery({
     queryKey: ['change-requests', languageId],
     queryFn: () => getChangeRequests(languageId, 'open'),
     enabled: !!languageId,
+    retry: false,
   })
 
   const invalidate = () =>
@@ -45,6 +47,9 @@ export default function ChangeRequestsPanel({ languageId }: { languageId: string
 
   const requests = data?.requests ?? []
   const canResolve = data?.can_resolve ?? false
+  // Testers may raise and read, never vote — the server 403s their vote
+  // deliberately, so the buttons are hidden rather than left to fail.
+  const canVote = data?.can_vote ?? false
 
   return (
     <section className="space-y-3" data-testid="change-requests">
@@ -55,11 +60,22 @@ export default function ChangeRequestsPanel({ languageId }: { languageId: string
         </span>
       </h2>
 
-      {requests.length === 0 && (
-        <p className="text-sm text-gray-500">
-          No open change requests. Raise one from any card while learning or
-          reviewing.
-        </p>
+      {/* A board that reads "nothing here" after a failed fetch is the exact
+          shape of the reported bug: the requests were raised, the admin was
+          told there were none. Say which of the two it is. */}
+      {isError ? (
+        <QueueStatus
+          title="Change requests"
+          isError
+          testId="change-requests-status"
+        />
+      ) : (
+        requests.length === 0 && (
+          <p className="text-sm text-gray-500">
+            No open change requests. Raise one from any card while learning or
+            reviewing.
+          </p>
+        )
       )}
 
       {requests.map((r: ChangeRequest) => (
@@ -67,35 +83,40 @@ export default function ChangeRequestsPanel({ languageId }: { languageId: string
           key={r.id}
           className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 flex gap-3"
         >
-          {/* Vote column */}
+          {/* Vote column — score always, buttons only for the roles that
+              publish. */}
           <div className="flex flex-col items-center gap-0.5 pt-0.5">
-            <button
-              type="button"
-              aria-label="Upvote"
-              onClick={() =>
-                voteMutation.mutate({ id: r.id, vote: r.my_vote === 1 ? 0 : 1 })
-              }
-              className={`text-lg leading-none ${
-                r.my_vote === 1 ? 'text-lang' : 'text-gray-300 hover:text-gray-500'
-              }`}
-            >
-              ▲
-            </button>
+            {canVote && (
+              <button
+                type="button"
+                aria-label="Upvote"
+                onClick={() =>
+                  voteMutation.mutate({ id: r.id, vote: r.my_vote === 1 ? 0 : 1 })
+                }
+                className={`text-lg leading-none ${
+                  r.my_vote === 1 ? 'text-lang' : 'text-gray-300 hover:text-gray-500'
+                }`}
+              >
+                ▲
+              </button>
+            )}
             <span className="text-sm font-semibold tabular-nums text-gray-700">
               {r.score}
             </span>
-            <button
-              type="button"
-              aria-label="Downvote"
-              onClick={() =>
-                voteMutation.mutate({ id: r.id, vote: r.my_vote === -1 ? 0 : -1 })
-              }
-              className={`text-lg leading-none ${
-                r.my_vote === -1 ? 'text-red-500' : 'text-gray-300 hover:text-gray-500'
-              }`}
-            >
-              ▼
-            </button>
+            {canVote && (
+              <button
+                type="button"
+                aria-label="Downvote"
+                onClick={() =>
+                  voteMutation.mutate({ id: r.id, vote: r.my_vote === -1 ? 0 : -1 })
+                }
+                className={`text-lg leading-none ${
+                  r.my_vote === -1 ? 'text-red-500' : 'text-gray-300 hover:text-gray-500'
+                }`}
+              >
+                ▼
+              </button>
+            )}
           </div>
 
           {/* Body */}
@@ -104,6 +125,17 @@ export default function ChangeRequestsPanel({ languageId }: { languageId: string
               <span className="rounded bg-gray-100 px-1.5 py-0.5 font-medium text-gray-600">
                 {FIELD_LABEL[r.field] ?? r.field}
               </span>
+              {/* Raised by a tester: worth reading, but it carries no
+                  publishing standing — say which it is rather than let the
+                  board imply every row came from staff. */}
+              {r.is_advisory && (
+                <span
+                  className="rounded bg-amber-100 px-1.5 py-0.5 font-medium text-amber-800"
+                  title="Raised by a tester — advisory, not a reviewer decision"
+                >
+                  advisory
+                </span>
+              )}
               {r.author_email && <span>by {r.author_email}</span>}
             </div>
             {r.target_label && (
