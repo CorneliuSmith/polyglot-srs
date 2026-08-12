@@ -35,10 +35,17 @@ Arabic-specific:
   274 hints quote Arabic and that convention is good. GOOD `books (كتاب)` — one singular
   token, answer absent. BAD `none but (ما…إلا)` for answer `إلا` ("Fronting & restriction")
   — the quoted construction contains the answer.
-- **Name person, gender and number for any pronoun or conjugated answer**, since the vowel
-  that distinguishes them does not survive normalization. GOOD `you — feminine singular`.
-  BAD `you` for `أنت` in "Personal pronouns", where `أنتَ`, `أنتِ` and `أنتم` are all answers
-  in the same point.
+- **The SENTENCE must fix the referent; the hint must not spell out the features.**
+  Where `أنتَ`, `أنتِ` and `أنتم` are answers in the same point, a bare `you` is
+  underdetermined — but `you — feminine singular` is the leak the Romance files
+  ban (it picks the answer outright). Fix the drill, not the hint: the sentence
+  has to say who is addressed. GOOD sentence `{{answer}} طالبةٌ في الجامعة` — the
+  feminine predicate settles it, hint `you`. BAD: leaving the sentence ambiguous
+  and disambiguating in the hint.
+  This rule USED to read "name person, gender and number, since the vowel that
+  distinguishes them does not survive normalization". That premise is gone: the
+  grader now treats a deliberately vocalized answer on a form drill as a form
+  drill, so `أنتَ` no longer passes for `أنتِ` (backend/services/nlp/arabic.py).
 - **Don't restate the translation.** GOOD `1st person singular — subject of a verbless
   sentence` for `أنا`. BAD `I` under translation `I am a student.`
 - **Grammatical labels in English, parenthesised, after the sense.** GOOD `in wisdom

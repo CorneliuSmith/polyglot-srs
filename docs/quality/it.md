@@ -34,7 +34,7 @@ hint leaks live.
 A hint narrows the answer without containing it: never the answer as a whole word; never a gloss
 already in the drill's own translation; never the `answer — explanation` template; one hint
 resolves to exactly one answer inside a point (allomorph sets excepted where the sentence
-disambiguates); hints are in English, and quoting a Italian base form is fine while whole Italian sentences
+disambiguates); hints are in English, and quoting an Italian base form is fine while whole Italian sentences
 are not.
 
 0. **`lemma, person` is house style and is legitimate.** `essere, io` → `sono`; `amare, tu` →

@@ -54,6 +54,26 @@ per language, and every mechanically-checkable part of it is enforced.
 
 ---
 
+### Where languages may differ
+
+The universal hint rules are restated in every `docs/quality/<code>.md`, and a
+language file may **tighten or relax one — but only with the reason written
+down**. Silent divergence is how "the same standard everywhere" quietly stops
+being true, and it makes two languages' debt counts incomparable.
+
+Two live examples, both legitimate:
+
+- **Gender marking** is absolute in the Romance files (gender is arbitrary, so
+  the learner cannot recover it) and conditional in Russian (gender is
+  usually readable off the nominative ending, so marking it everywhere is
+  noise). Russian says so in its own rule.
+- **Quoting a base form in the hint** is capped at one form in the
+  Arabic-script languages, where the quoted form is often the answer's own
+  stem and a second quote starts giving the pattern away.
+
+If you find a divergence with no stated reason, that is a bug in the docs —
+either bring the file back to the shared rule or write the justification.
+
 ## Layer 1 — Mechanical checks (fast, every commit)
 
 `backend/services/quality/audit_content.py` scans all in-repo learning content

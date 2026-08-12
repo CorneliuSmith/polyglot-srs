@@ -44,10 +44,14 @@ whole of Catalan's leak debt, six drills, all this shape.
 - GOOD: `since — formal causal connector, follows 'ja'` for `que`
 - BAD: `since (ja que)` — the parenthesis prints the answer
 
-**3. Article and agreement drills name the target cell, not the English word** —
-the noun's gender is what is being tested, so the hint must not restate it.
-- GOOD: `feminine singular` for `La` in `{{answer}} casa és gran.`
-- BAD: `the (the house is feminine)` — hands over the reasoning step
+**3. Never state the agreement feature the drill exists to test** — the noun's
+gender is the thing being examined, so the hint must not supply it. `feminine
+singular` picks exactly one of `{el, la, els, les}`, and the learner never has
+to know that `casa` is feminine. No string leaks; the *reasoning step* does.
+Identical to the rule in `es.md`, `fr.md` and `it.md` — the Romance courses
+are held to one standard, so their debt is comparable.
+- GOOD: `the definite article` for `La` in `{{answer}} casa és gran.`
+- BAD: `feminine singular`; `the (the house is feminine)`
 
 **4. Weak-pronoun hints mark gender and number, never the bare English gloss** —
 English `them` covers `els` and `les`; `him/her` collide with the articles.

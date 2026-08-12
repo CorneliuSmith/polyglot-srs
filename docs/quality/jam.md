@@ -134,7 +134,7 @@ Worst offenders, verbatim:
 
 ```bash
 python -m backend.services.quality.audit_content --language jam
-.venv/bin/pytest backend/tests/test_nlp_jamaican.py -q
+# (no test_nlp_jamaican.py yet — see the note below)
 .venv/bin/pytest backend/tests/test_content_quality.py -q
 ```
 

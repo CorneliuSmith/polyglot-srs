@@ -55,7 +55,11 @@ legitimate — the partners are not the drilled form (`делать/сделат
 - BAD: `result still holds → perfective` for both `взял` and `включил` — GOOD: `брать/взять — result
   still holds` / `включить — result still holds`
 
-**5. Noun-answer hints mark gender where gender picks the ending.** Only 8 of 54 do today.
+**5. Noun-answer hints mark gender where gender picks the ending.** Deliberately
+weaker than the Romance rule, which is absolute: Russian gender is recoverable
+from the nominative ending for most nouns, so marking it everywhere would be
+noise — it earns its place only where the learner cannot read it off the word
+(soft signs, indeclinables, and the -а masculines like `папа`). Only 8 of 54 do today.
 - GOOD: `машина (f.) in the genitive` for `машины` — BAD: `job + genitive` for `работы`, no gender,
   and `job` sits in the translation
 
