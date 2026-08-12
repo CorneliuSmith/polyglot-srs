@@ -24,7 +24,9 @@ Severities:
 
 Sub-classes are deliberately NOT exclusive: a self-answering hint is also a
 hard leak and counts under both, because `self_answering` exists to name the
-worst *pattern*, not to excuse it from the leak count.
+worst *pattern*, not to excuse it from the leak count. `agreement_feature`
+follows the same convention — see its comment for why nothing owns a drill
+exclusively here.
 
 Usage:
     python -m backend.services.quality.audit_content
@@ -65,6 +67,7 @@ FAIL_RULES = (
     "leak_hard",
     "self_answering",
     "giveaway_by_gloss",
+    "agreement_feature",
     "duplicate_hint",
     "empty",
     "ar_register",
@@ -142,6 +145,31 @@ _GENDER_HINT_RE = re.compile(
 # under vowel harmony (Turkish mı/mi/mu/mü). Turkish dotless ı included.
 _VOWELS = frozenset("aeiouyıàáâãäåæèéêëìíîïòóôõöøùúûüýÿœ")
 
+# --- agreement_feature -------------------------------------------------------
+# The vocabulary a hint can be built out of before it stops teaching anything.
+# Abbreviations are in because Hindi writes 'masc. singular' and a rule that
+# caught the spelled-out form but not the abbreviation would be arbitrary; the
+# gender family is kept symmetric (fem./neut. have no hit today) for the same
+# reason. Determiner class rides along only as a *companion* — 'plural
+# indefinite' (fr, 2 drills, both answering `des`) is the article hint with the
+# determiner spelled out — never on its own, because "indefinite" names the slot
+# rather than an agreement value the learner was supposed to derive.
+#
+# Person is deliberately ABSENT, on the evidence rather than on principle. Every
+# person-only hint in the content sits on a verb-form drill whose subject is
+# overt in the sentence: nl 'first person' for `heb` under "Ik ___ het koud",
+# 'third singular' for `gaat` under "Zij ___ volgend jaar verhuizen", hi 'first
+# person singular' for मैं under "___ भारतीय हूँ।". The person is free
+# information there; the hidden knowledge is the *form*, which the hint does not
+# supply — the mirror image of the article case, where the form is a mechanical
+# lookup and the noun's gender is the whole exercise. Adding person would also
+# put the rule straight into the `trabajar, él/ella` convention that the leak
+# check already had to be taught to leave alone.
+_FEATURE_SPLIT_RE = re.compile(r"[\s,;/—–-]+")
+_GENDER_FEATURE_RE = re.compile(r"masc(?:uline)?\.?|fem(?:inine)?\.?|neut(?:er)?\.?", re.IGNORECASE)
+_NUMBER_FEATURE_RE = re.compile(r"singular\.?|plural\.?", re.IGNORECASE)
+_DETERMINER_FEATURE_RE = re.compile(r"(?:in)?definite\.?", re.IGNORECASE)
+
 
 def _nfc(text: str | None) -> str:
     return unicodedata.normalize("NFC", text or "")
@@ -206,6 +234,39 @@ def _quoted_construction(hint: str, answer: str) -> str | None:
     return None
 
 
+def _is_agreement_feature_only(hint: str) -> bool:
+    """True when `hint` is nothing but agreement features.
+
+    `feminine singular` under "___ casa és gran." picks `La` out of
+    {el, la, els, les} without the learner ever having to know that casa is
+    feminine — which is the entire thing an article or agreement drill exists to
+    teach. docs/quality/es.md states this ("Never state the agreement feature
+    the drill exists to test"); fr.md and it.md agree; ca.md used to bless it.
+
+    EXCLUSIVELY features is the whole guard. One token that is not a feature and
+    the hint is carrying information the learner still has to supply, so the rule
+    stands down: `trabajar, él/ella` (lemma + person — they must still conjugate),
+    `the definite article — check the noun's gender` (says to do the work rather
+    than doing it), `the — masculine plural` (an English gloss in a point whose
+    answers span word classes). Those last two are arguably the same defect
+    wearing a coat, but a rule that starts guessing which extra words are filler
+    is a rule that fires on convention, and a checker that fires on convention
+    gets switched off.
+
+    At least one gender or number token is required: `indefinite` alone is a
+    slot label, not an agreement value."""
+    tokens = [token for token in _FEATURE_SPLIT_RE.split(hint.strip()) if token]
+    if not tokens:
+        return False
+    agreement = False
+    for token in tokens:
+        if _GENDER_FEATURE_RE.fullmatch(token) or _NUMBER_FEATURE_RE.fullmatch(token):
+            agreement = True
+        elif not _DETERMINER_FEATURE_RE.fullmatch(token):
+            return False
+    return agreement
+
+
 def _arabic_bare_tokens(text: str) -> list[str]:
     """Word tokens of `text` with tashkeel and tatweel removed.
 
@@ -264,8 +325,19 @@ def audit_points(code: str, points: list[dict]) -> dict[str, list[str]]:
         if not _nfc(point.get("explanation")).strip():
             findings["empty"].append(f"[{title}] empty explanation")
 
+        drills = point.get("drills", [])
+        # Does this point offer a choice at all? Needed by `agreement_feature`:
+        # jam's "Plural with dem" answers `dem` in all six of its drills, so its
+        # 'plural' hint names the function of an invariant marker rather than
+        # picking a member of a paradigm — nothing is given away, and demanding
+        # 'plural marker' instead would be a rule firing on style. Every other
+        # feature-only hint in the content sits in a point with a real paradigm
+        # (le/la/les, der/die/das, is/zijn, रहा/रही/रहे).
+        point_answers = {_nfc(d.get("answer")).strip().casefold() for d in drills} - {""}
+        offers_a_choice = len(point_answers) > 1
+
         answers_by_hint: dict[str, set[str]] = defaultdict(set)
-        for index, drill in enumerate(point.get("drills", []), start=1):
+        for index, drill in enumerate(drills, start=1):
             answer = _nfc(drill.get("answer")).strip()
             hint = _nfc(drill.get("hint")).strip()
             translation = _nfc(drill.get("translation")).strip()
@@ -277,7 +349,7 @@ def audit_points(code: str, points: list[dict]) -> dict[str, list[str]]:
                 findings["empty"].append(f"[{title}] drill {index}: empty translation")
 
             if answer and hint:
-                _audit_hint(code, findings, title, answer, hint, translation)
+                _audit_hint(code, findings, title, answer, hint, translation, offers_a_choice)
 
             if translation and sentence and code != "en":
                 # `en` exempted: its translation field is a usage note by design
@@ -320,8 +392,13 @@ def _audit_hint(
     answer: str,
     hint: str,
     translation: str,
+    offers_a_choice: bool = True,
 ) -> None:
-    """The hint-versus-answer rules for a single drill."""
+    """The hint-versus-answer rules for a single drill.
+
+    `offers_a_choice` says whether the drill's point has more than one distinct
+    answer; only `agreement_feature` reads it. It defaults to True so a caller
+    checking one drill in isolation gets the rule rather than silently losing it."""
     match_answer = _fold_marks(code, answer)
     match_hint = _fold_marks(code, hint)
     leaks = bool(_whole_word(match_answer).search(match_hint))
@@ -358,6 +435,18 @@ def _audit_hint(
         findings["giveaway_by_gloss"].append(
             f'[{title}] hint \'{hint}\' inside translation "{translation}"'
         )
+
+    # 'feminine singular' for `La` under "___ casa és gran.": the hint hands over
+    # the agreement feature the drill exists to make the learner derive. Counted
+    # alongside `giveaway_by_gloss` rather than instead of it, following the
+    # convention the docstring sets for `self_answering` ⊂ `leak_hard`: each rule
+    # names a way a hint fails, and one failure does not excuse another. Nothing
+    # "owns" such a drill, and one edit clears both counts. (No drill in the
+    # content trips both today — the check is on hint-vs-translation text, and no
+    # translation contains the bare word "plural" or "feminine" — so the
+    # precedence is a statement of intent, not a live tie-break.)
+    if offers_a_choice and _is_agreement_feature_only(hint):
+        findings["agreement_feature"].append(f"[{title}] hint '{hint}' -> answer '{answer}'")
 
 
 def _audit_structure(code: str, points: list[dict] | None, morphology: dict | None) -> list[str]:
@@ -540,8 +629,9 @@ def print_report(reports: list[dict], examples: int = 5) -> None:
 
 
 def print_summary(reports: list[dict]) -> None:
-    heads = ("leak", "self", "gloss", "dup", "empty", "ar_reg")
-    print("\n" + "-" * 78)
+    # Positional against FAIL_RULES — keep the two in step.
+    heads = ("leak", "self", "gloss", "agree", "dup", "empty", "ar_reg")
+    print("\n" + "-" * (6 + 8 * (len(FAIL_RULES) + 2)))
     print(f"{'lang':<6}" + "".join(f"{h:>8}" for h in heads) + f"{'FAIL':>8}{'warn':>8}")
     for report in reports:
         counts = report["counts"]
@@ -551,7 +641,7 @@ def print_summary(reports: list[dict]) -> None:
         print(f"{report['code']:<6}{cells}{fails:>8}{warns:>8}")
     total_fail = sum(sum(r["counts"][rule] for rule in FAIL_RULES) for r in reports)
     total_warn = sum(sum(r["counts"][rule] for rule in WARN_RULES) for r in reports)
-    print(f"{'all':<6}{'':>48}{total_fail:>8}{total_warn:>8}")
+    print(f"{'all':<6}{'':>{8 * len(FAIL_RULES)}}{total_fail:>8}{total_warn:>8}")
 
 
 def print_sample(code: str, count: int) -> None:

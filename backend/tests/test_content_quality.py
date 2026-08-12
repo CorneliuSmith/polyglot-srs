@@ -123,6 +123,120 @@ class TestLeakGuards:
         assert audit_points("ar", points)["leak_hard"] == []
 
 
+class TestAgreementFeature:
+    """A hint that is nothing but the agreement feature the drill exists to test.
+
+    `feminine singular` picks `La` out of {el, la, els, les} on its own, so the
+    learner never has to know that casa is feminine — the whole exercise. The
+    guards are the same shape as the leak guards: one token of real information
+    in the hint and the rule stands down."""
+
+    def test_feature_only_hint_on_an_article_drill_flags(self):
+        points = [
+            _point(
+                _drill("{{answer}} casa és gran.", "La", "feminine singular",
+                       "The house is big."),
+                # Same drill written the way es.md asks for: it names the work
+                # instead of doing it, so it must not flag.
+                _drill("{{answer}} gat dorm al sofà.", "El",
+                       "the definite article — check the noun's gender",
+                       "The cat sleeps on the sofa."),
+            )
+        ]
+        findings = audit_points("ca", points)
+        assert findings["agreement_feature"] == [
+            "[Test point] hint 'feminine singular' -> answer 'La'"
+        ]
+
+    def test_infinitive_person_convention_is_not_a_feature_hint(self):
+        # The same hint the leak rule already had to be taught to leave alone:
+        # lemma plus person, and the learner still has to conjugate.
+        points = [
+            _point(
+                _drill("Él {{answer}} aquí.", "trabaja", "trabajar, él/ella"),
+                _drill("Él {{answer}} pan.", "come", "comer, él/ella"),
+            )
+        ]
+        assert audit_points("es", points)["agreement_feature"] == []
+
+    def test_features_plus_real_information_do_not_flag(self):
+        # 'the' is an English gloss, 'the verb' names the slot: in points whose
+        # answers span word classes those words are doing work, and a rule that
+        # guessed which extra words are filler would fire on convention.
+        points = [
+            _point(
+                _drill("{{answer}} gats dormen.", "Els", "the — masculine plural"),
+                _drill("Ci {{answer}} due caffè.", "sono", "plural — the verb"),
+            )
+        ]
+        assert audit_points("ca", points)["agreement_feature"] == []
+
+    def test_neuter_and_abbreviated_gender_count(self):
+        # 'neuter' (de/el articles) and 'masc. singular' (hi) are the same hint
+        # as 'masculine singular'; catching one spelling and not another would
+        # be arbitrary.
+        points = [
+            _point(
+                _drill("{{answer}} Haus ist groß.", "Das", "neuter", "The house is big."),
+                _drill("{{answer}} Mann ist hier.", "Der", "masc.", "The man is here."),
+            )
+        ]
+        assert len(audit_points("de", points)["agreement_feature"]) == 2
+
+    def test_determiner_word_needs_a_gender_or_number_beside_it(self):
+        # 'indefinite' alone labels the slot; 'plural indefinite' (fr `des`)
+        # picks the answer.
+        points = [
+            _point(
+                _drill("Elle achète {{answer}} pommes.", "des", "plural indefinite"),
+                _drill("Il y a {{answer}} chat.", "un", "indefinite"),
+            )
+        ]
+        assert audit_points("fr", points)["agreement_feature"] == [
+            "[Test point] hint 'plural indefinite' -> answer 'des'"
+        ]
+
+    def test_person_only_hint_is_not_an_agreement_leak(self):
+        # nl 'first person' / 'third singular' on verb drills: the subject is
+        # overt in the sentence, so the feature is free information and the form
+        # — the thing being taught — is not given away.
+        points = [
+            _point(
+                _drill("Ik {{answer}} het koud.", "heb", "first person"),
+                _drill("Hij {{answer}} honger.", "heeft", "third singular"),
+            )
+        ]
+        assert audit_points("nl", points)["agreement_feature"] == []
+
+    def test_point_with_one_answer_gives_nothing_away(self):
+        # jam "Plural with dem": every drill answers `dem`, so 'plural' names the
+        # function of an invariant marker rather than picking a paradigm member.
+        points = [
+            _point(
+                _drill("Di tiicha {{answer}} taak tuu long.", "dem", "plural",
+                       "The teachers talk too long."),
+                _drill("Di mango {{answer}} swiit.", "dem", "plural marker",
+                       "The mangoes are sweet."),
+            )
+        ]
+        assert audit_points("jam", points)["agreement_feature"] == []
+
+    def test_counts_alongside_giveaway_by_gloss_rather_than_instead_of_it(self):
+        # Same convention as self_answering ⊂ leak_hard: each rule names a way a
+        # hint fails, and one failure does not excuse another.
+        points = [
+            _point(
+                _drill("Er {{answer}} veel mensen.", "zijn", "plural",
+                       "Use the plural form here."),
+                _drill("Er {{answer}} een probleem.", "is", "singular",
+                       "There is a problem."),
+            )
+        ]
+        findings = audit_points("nl", points)
+        assert len(findings["agreement_feature"]) == 2
+        assert len(findings["giveaway_by_gloss"]) == 1
+
+
 class TestOtherRuleGuards:
     def test_allomorph_set_is_exempt_from_duplicate_hint(self):
         hint = "question particle — harmonize with the last vowel"
