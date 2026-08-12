@@ -27,7 +27,7 @@ from __future__ import annotations
 import unicodedata
 
 from backend.services.nlp.arabic_script import fold_arabic_script
-from backend.services.nlp.base import BaseNLP
+from backend.services.nlp.base import AnswerResult, BaseNLP
 
 
 def fold_diacritics(text: str) -> str:
@@ -44,10 +44,17 @@ class AccentFoldingNLP(BaseNLP):
 
     def normalize(self, text: str) -> str:
         t = text.strip().lower()
-        for article in self.leading_articles:
+        article = self._leading_article(t)
+        return t[len(article):].strip() if article else t
+
+    def _leading_article(self, text: str) -> str | None:
+        """The article *text* opens with, or None. Longest first, so "las "
+        is never read as "la " + "s"."""
+        t = text.strip().lower()
+        for article in sorted(self.leading_articles, key=len, reverse=True):
             if t.startswith(article) and len(t) > len(article):
-                return t[len(article):].strip()
-        return t
+                return article
+        return None
 
     def _fold(self, text: str) -> str:
         return fold_diacritics(text)
@@ -62,6 +69,49 @@ class AccentFoldingNLP(BaseNLP):
 
     def get_aspect_partner(self, verb: str, card_context: dict | None = None) -> str | None:
         return None
+
+    # ------------------------------------------------------------------
+    # Article agreement
+    # ------------------------------------------------------------------
+
+    def check_answer(
+        self,
+        user_input: str,
+        correct_answer: str,
+        card_context: dict | None = None,
+    ) -> tuple[AnswerResult, str | None]:
+        """Parent pipeline, then refuse to launder a wrong-gender article.
+
+        normalize() drops a leading article so "libro" passes for "el libro"
+        — deliberate leniency about whether the learner bothered to type it.
+        But it applied just as happily when the learner typed a DIFFERENT
+        article, so "la libro" graded fully CORRECT, and every one of these
+        languages silently accepted the wrong gender on every noun. The
+        Catalan course was reported for exactly this.
+
+        Omitting the article stays free. Getting it WRONG is now named:
+        amber on vocabulary (the word was recalled), and on a grammar drill
+        — where the article IS the thing being tested — WRONG_FORM, the same
+        treatment layers 3-4 already give a right-word-wrong-cell answer.
+        """
+        result, message = super().check_answer(user_input, correct_answer, card_context)
+        if result is not AnswerResult.CORRECT or not self.leading_articles:
+            return result, message
+        typed = self._leading_article(user_input)
+        expected = self._leading_article(correct_answer)
+        # Only a disagreement counts: no article on either side, or on just
+        # one, is the leniency this class exists for.
+        if not typed or not expected or self._fold(typed) == self._fold(expected):
+            return result, message
+        if card_context and card_context.get("card_type") == "grammar":
+            return (
+                AnswerResult.WRONG_FORM,
+                f"Wrong article — check the gender. Expected: {correct_answer}",
+            )
+        return (
+            AnswerResult.CORRECT_SLOPPY,
+            f"Right word — but check the article's gender. Expected: {correct_answer}",
+        )
 
 
 class SpanishNLP(AccentFoldingNLP):

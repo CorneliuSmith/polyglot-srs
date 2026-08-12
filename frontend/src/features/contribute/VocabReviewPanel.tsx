@@ -90,6 +90,8 @@ function VocabRow({
       queryClient.invalidateQueries({ queryKey: ['contribute-vocab', languageId] }),
   })
   const thin = !item.definition || item.example_count === 0
+  const flagged = item.flagged_count ?? 0
+  const suggested = item.suggestion_count ?? 0
   return (
     <div className="border-t border-gray-100 first:border-t-0">
       <button
@@ -115,6 +117,26 @@ function VocabRow({
           {thin && (
             <span className="text-[10px] uppercase tracking-wide bg-amber-50 text-amber-600 rounded px-1.5 py-0.5">
               thin
+            </span>
+          )}
+          {/* The locators the "Flagged examples" / "Translation fixes"
+              inbox tiles used to lack: the counts were language-wide, but
+              nothing said WHICH of two thousand words carried them, so a
+              reviewer expanded words at random and gave up (gap G6). */}
+          {flagged > 0 && (
+            <span
+              className="text-[10px] uppercase tracking-wide bg-red-50 text-red-600 rounded px-1.5 py-0.5"
+              title="Example sentences flagged by the recheck"
+            >
+              {flagged} flagged
+            </span>
+          )}
+          {suggested > 0 && (
+            <span
+              className="text-[10px] uppercase tracking-wide bg-indigo-50 text-indigo-600 rounded px-1.5 py-0.5"
+              title="Example sentences with a suggested translation awaiting a decision"
+            >
+              {suggested} fix{suggested === 1 ? '' : 'es'}
             </span>
           )}
           <span className="text-gray-300">{open ? '▴' : '▾'}</span>
@@ -208,6 +230,9 @@ export default function VocabReviewPanel({
 }) {
   const [search, setSearch] = useState('')
   const [level, setLevel] = useState<string>('all')
+  // Off by default: this is a filter for working a queue down, not the
+  // normal way to browse the language.
+  const [needsAttention, setNeedsAttention] = useState(false)
 
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ['contribute-vocab', languageId, useViewAsKey()],
@@ -225,23 +250,35 @@ export default function VocabReviewPanel({
     return ['all', ...Array.from(set).sort()]
   }, [data])
 
+  /** Words carrying something a reviewer has to decide about: a flagged
+   * example, or a suggested translation waiting on accept/dismiss. */
+  const attentionCount = useMemo(
+    () =>
+      (data?.items ?? []).filter(
+        (it) => (it.flagged_count ?? 0) + (it.suggestion_count ?? 0) > 0,
+      ).length,
+    [data],
+  )
+
   const filtered = useMemo(() => {
     const items = data?.items ?? []
     const q = search.trim().toLowerCase()
     return items.filter(
       (it) =>
         (level === 'all' || it.level === level) &&
+        (!needsAttention ||
+          (it.flagged_count ?? 0) + (it.suggestion_count ?? 0) > 0) &&
         (!q ||
           it.word.toLowerCase().includes(q) ||
           (it.definition ?? '').toLowerCase().includes(q)),
     )
-  }, [data, search, level])
+  }, [data, search, level, needsAttention])
 
   if (isLoading) return <p className="text-gray-500 text-sm">Loading vocab…</p>
   if (forbidden) {
     return (
       <div className="bg-white rounded-2xl border border-gray-100 p-6 text-gray-600">
-        You don’t have a contributor role for this language.
+        You need a contributor, tester, or reviewer role for this language.
       </div>
     )
   }
@@ -284,6 +321,26 @@ export default function VocabReviewPanel({
           ))}
         </select>
       </div>
+
+      {/* Turns the language-wide "Flagged examples 3 · Translation fixes 4"
+          counts into something you can act on: the words those counts are
+          about, in one click. */}
+      {attentionCount > 0 && (
+        <button
+          type="button"
+          onClick={() => setNeedsAttention((v) => !v)}
+          aria-pressed={needsAttention}
+          data-testid="needs-attention-chip"
+          className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
+            needsAttention
+              ? 'border-amber-400 bg-amber-100 text-amber-900'
+              : 'border-amber-200 bg-amber-50 text-amber-700 hover:bg-amber-100'
+          }`}
+        >
+          Needs attention ({attentionCount})
+          {needsAttention && <span className="ms-1 text-amber-600">· clear</span>}
+        </button>
+      )}
 
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         {filtered.map((item) => (

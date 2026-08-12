@@ -97,4 +97,25 @@ describe('GeneratedDrillsPanel', () => {
     expect(screen.getByText(/2 recommend approve/i)).toBeDefined()
     expect(screen.getByText(/1 recommend reject/i)).toBeDefined()
   })
+
+  it('renders the tester’s note as text, not a tooltip', async () => {
+    // It used to be a `title` attribute. Approving this drill deletes the
+    // row and the note with it, so a reason nobody hovers is a reason
+    // nobody ever reads (gap G4).
+    mockPending.mockResolvedValue({
+      pending: [
+        {
+          ...DRILL,
+          recommendations: {
+            approve: 0, reject: 1, notes: ['the answer fits the wrong tense'],
+          },
+        },
+      ],
+      can_publish: true,
+    })
+    renderPanel()
+    const summary = await screen.findByTestId('reco-summary')
+    expect(summary.textContent).toContain('the answer fits the wrong tense')
+    expect(summary.getAttribute('title')).toBeNull()
+  })
 })

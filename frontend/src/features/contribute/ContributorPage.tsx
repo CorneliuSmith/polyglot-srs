@@ -34,7 +34,8 @@ import AnalyticsPanel from './AnalyticsPanel'
 import EngagementPanel from './EngagementPanel'
 import LanguageVisibilityPanel from './LanguageVisibilityPanel'
 import GeneratedDrillsPanel from './GeneratedDrillsPanel'
-import ReviewInbox from './ReviewInbox'
+import ReviewInbox, { useReviewInbox } from './ReviewInbox'
+import TesterRecommendationsPanel from './TesterRecommendationsPanel'
 import GymDrillsPanel from './GymDrillsPanel'
 import AiLevelsPanel from './AiLevelsPanel'
 import GenerationPanel from './GenerationPanel'
@@ -644,6 +645,12 @@ export default function ContributorPage() {
   const refresh = () =>
     queryClient.invalidateQueries({ queryKey: ['contribute-grammar', activeLanguageId] })
 
+  // Same query key as ReviewInbox, so this is the one fetch shared, not a
+  // second round-trip. The counts are what let each queue panel below tell
+  // "nothing waiting" from "the list came back empty but N are waiting".
+  const { data: inbox } = useReviewInbox(activeLanguageId)
+  const inboxCounts = inbox?.counts
+
   // A pure trial reviewer has no Contribute tab; land them on Review instead
   // of a tab they can't see.
   const canContribute = (data?.can_contribute ?? false) || (data?.is_admin ?? false)
@@ -802,12 +809,30 @@ export default function ContributorPage() {
               <>
                 {/* One roll-up of everything awaiting review action, above the
                     individual queue panels. */}
-                <ReviewInbox languageId={activeLanguageId} />
+                <ReviewInbox
+                  languageId={activeLanguageId}
+                  onSwitchLanguage={setActiveLanguageId}
+                />
+                {/* What the testers actually said, with their notes — the
+                    channel that used to survive only as a tooltip on a row
+                    the next bulk-approve would delete. */}
+                {(data.can_trial_review ?? false) && (
+                  <TesterRecommendationsPanel
+                    languageId={activeLanguageId}
+                    languageCode={languageCode}
+                    awaiting={inboxCounts?.tester_recommendations}
+                  />
+                )}
                 {/* AI-proposed glosses the maker-checker wouldn't auto-apply.
                     Moved here from the Admin tab (owner): review work lives
                     in the Review section, badged with its type. Self-hides
                     for non-admins and when the queue is empty. */}
-                <TranslationReviewsPanel languageId={activeLanguageId} />
+                <TranslationReviewsPanel
+                  languageId={activeLanguageId}
+                  // Only admins can open this queue, so only they get told
+                  // when it fails to load (see the panel's prop docs).
+                  awaiting={data.is_admin ? inboxCounts?.ai_translations : undefined}
+                />
                 {/* Generated grammar drills awaiting review. Full reviewers
                     approve/reject; trial reviewers recommend. Hidden when none
                     pending. */}
@@ -836,8 +861,12 @@ export default function ContributorPage() {
                     <IssuesPanel
                       languageId={activeLanguageId}
                       canResolve={data.can_review ?? data.is_admin}
+                      awaiting={inboxCounts?.notes}
                     />
-                    <FeedbackPanel languageId={activeLanguageId} />
+                    <FeedbackPanel
+                      languageId={activeLanguageId}
+                      awaiting={inboxCounts?.feedback}
+                    />
                   </>
                 )}
               </>

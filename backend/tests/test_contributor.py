@@ -131,6 +131,24 @@ class TestContributeEndpoints:
             )
         assert resp.status_code == 403
 
+    def test_list_vocab_open_to_testers(self, client):
+        """A tester 403'd off this list could never reach the vocab note box
+        or the example recommendations the per-item endpoints allow them —
+        the whole surface was unreachable for the role that most needs it."""
+        with _roles([{"language_id": LANG, "role": "trial_reviewer"}]), \
+             patch("backend.routers.contribute.list_vocab_items",
+                   new=AsyncMock(return_value=[])):
+            resp = client.get(
+                "/api/contribute/vocab", params={"language_id": LANG},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["can_trial_review"] is True
+        # Read + recommend only — they still can't edit or publish.
+        assert body["can_contribute"] is False
+        assert body["can_review"] is False
+
     def test_list_vocab_with_role(self, client):
         with _roles([{"language_id": LANG, "role": "reviewer"}]), \
              patch("backend.routers.contribute.list_vocab_items",
@@ -1510,6 +1528,58 @@ class TestChangeRequests:
             )
         assert resp.status_code == 201
 
+    def test_tester_can_raise_and_read_the_board(self, client):
+        """Testers were shut out of the board an admin actually watches, so
+        their reviews silently degraded to learner-grade card feedback."""
+        with _roles([{"language_id": LANG, "role": "trial_reviewer"}]), \
+             patch("backend.routers.contribute.create_request",
+                   new=AsyncMock(return_value=self.CR)):
+            created = client.post(
+                "/api/contribute/change-requests",
+                json={"language_id": LANG, "field": "sentence",
+                      "issue": "the gender agreement is wrong"},
+                headers=_auth_headers(),
+            )
+        assert created.status_code == 201
+
+        with _roles([{"language_id": LANG, "role": "trial_reviewer"}]), \
+             patch("backend.routers.contribute.list_requests",
+                   new=AsyncMock(return_value=[])):
+            board = client.get(
+                "/api/contribute/change-requests",
+                params={"language_id": LANG}, headers=_auth_headers(),
+            )
+        assert board.status_code == 200
+        # Raising and reading, yes; voting and resolving stay with the roles
+        # that publish.
+        assert board.json()["can_vote"] is False
+        assert board.json()["can_resolve"] is False
+
+    def test_tester_still_cannot_vote_or_resolve(self, client):
+        with _roles([{"language_id": LANG, "role": "trial_reviewer"}]), \
+             patch("backend.routers.contribute.get_request_language",
+                   new=AsyncMock(return_value=LANG)):
+            vote = client.post(
+                f"/api/contribute/change-requests/{self.CR}/vote",
+                json={"vote": 1}, headers=_auth_headers(),
+            )
+        assert vote.status_code == 403
+        with _roles([{"language_id": LANG, "role": "trial_reviewer"}]):
+            resolve = client.post(
+                f"/api/contribute/change-requests/{self.CR}/resolve",
+                json={"status": "accepted"}, headers=_auth_headers(),
+            )
+        assert resolve.status_code == 403
+
+    def test_plain_learner_still_cannot_raise(self, client):
+        with _roles([{"language_id": OTHER_LANG, "role": "trial_reviewer"}]):
+            resp = client.post(
+                "/api/contribute/change-requests",
+                json={"language_id": LANG, "field": "sentence", "issue": "x"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
     def test_invalid_field_422(self, client):
         with _roles([{"language_id": LANG, "role": "reviewer"}]):
             resp = client.post(
@@ -2217,6 +2287,250 @@ class TestReviewModeFlags:
             )
         assert resp.status_code == 201
         assert mock_create.await_args.kwargs["quote"] is None
+
+
+# ── the Review Inbox: counts here, plus what's waiting ELSEWHERE ───────────
+# Every review surface is scoped to the viewer's working language, while a
+# submission carries the language its author was STUDYING. Testers exercising
+# Hebrew while the selector sat on Arabic made the inbox read "All clear" —
+# the strip is what stops a quiet tile from meaning "nothing arrived".
+
+class TestReviewInbox:
+    COUNTS = {"feedback": 0, "notes": 0, "tester_recommendations": 0}
+    STRIP = [{"id": OTHER_LANG, "code": "he", "name": "Hebrew", "total": 7,
+              "counts": {"feedback": 7}}]
+
+    def test_inbox_names_the_languages_the_selector_hides(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.review_inbox_counts",
+                   new=AsyncMock(return_value=self.COUNTS)), \
+             patch("backend.routers.contribute.review_inbox_other_languages",
+                   new=AsyncMock(return_value=self.STRIP)):
+            resp = client.get(
+                "/api/contribute/review/inbox",
+                params={"language_id": LANG}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["counts"] == self.COUNTS
+        assert body["other_languages"] == self.STRIP
+        # The AI-translations panel is admin-only, so the viewer needs to know
+        # whether that tile has anything behind it.
+        assert body["is_admin"] is False
+
+    def test_strip_degrades_without_taking_the_inbox_down(self, client):
+        """Migrations are owner-applied, so a deploy can run ahead of the
+        schema. The roll-up is the part allowed to go quiet — never the
+        counts, which are on every Review-tab load."""
+        import asyncpg
+
+        with _roles([{"language_id": LANG, "role": "reviewer"}]), \
+             patch("backend.routers.contribute.review_inbox_counts",
+                   new=AsyncMock(return_value=self.COUNTS)), \
+             patch("backend.routers.contribute.review_inbox_other_languages",
+                   new=AsyncMock(
+                       side_effect=asyncpg.exceptions.UndefinedTableError("nope"))):
+            resp = client.get(
+                "/api/contribute/review/inbox",
+                params={"language_id": LANG}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["counts"] == self.COUNTS
+        assert resp.json()["other_languages"] == []
+
+    def test_testers_can_read_their_own_recommendations_queue(self, client):
+        items = [{"id": "r1", "target_type": "example", "recommendation": "reject",
+                  "note": "reads as a name"}]
+        with _roles([{"language_id": LANG, "role": "trial_reviewer"}]), \
+             patch("backend.routers.contribute.list_tester_recommendations",
+                   new=AsyncMock(return_value=items)):
+            resp = client.get(
+                "/api/contribute/review/recommendations",
+                params={"language_id": LANG}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["recommendations"] == items
+        assert resp.json()["can_publish"] is False
+
+    def test_recommendations_queue_is_role_gated(self, client):
+        with _roles([]):
+            resp = client.get(
+                "/api/contribute/review/recommendations",
+                params={"language_id": LANG}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+
+# ── the tester's half of the gate, both directions ─────────────────────────
+# "Testers submit reviews, the admin never sees them" had two halves. One was
+# the admin's read path (above). The other is this: a tester who is 403'd off
+# the surface they were recruited to use files nothing at all, and the
+# silence looks identical from the outside.
+#
+# So both directions are pinned. Every channel a tester is meant to reach
+# must ANSWER them, and every publishing action must still refuse — the role
+# is advisory, and a tester who could resolve their own report would make the
+# board meaningless.
+
+class TestTesterGates:
+    NOTE = "aaaaaaaa-1111-2222-3333-444444444444"
+    SUGGESTION = "bbbbbbbb-1111-2222-3333-444444444444"
+    FEEDBACK = "cccccccc-1111-2222-3333-444444444444"
+    DRILL = "dddddddd-1111-2222-3333-444444444444"
+    EXAMPLE = "eeeeeeee-1111-2222-3333-444444444444"
+
+    @staticmethod
+    def _tester():
+        return _roles([{"language_id": LANG, "role": "trial_reviewer"}])
+
+    # — what a tester must be able to reach —
+
+    def test_tester_reads_the_notes_board_their_notes_land_on(self, client):
+        """They can file a note; a board you can post to but never read is
+        how a submission goes quiet on the person who made it."""
+        notes = [{"id": "n1", "entity_type": "vocab", "entity_label": "chai",
+                  "note": "the gloss is regional", "status": "open",
+                  "author_email": "tester@x", "created_at": None}]
+        with self._tester(), \
+             patch("backend.routers.contribute.list_review_notes",
+                   new=AsyncMock(return_value=notes)):
+            resp = client.get(
+                "/api/contribute/notes", params={"language_id": LANG},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["notes"][0]["entity_label"] == "chai"
+
+    def test_tester_reads_the_review_inbox(self, client):
+        """Their own output is counted there, so refusing them the roll-up
+        leaves them unable to tell a filed review from a lost one."""
+        with self._tester(), \
+             patch("backend.routers.contribute.review_inbox_counts",
+                   new=AsyncMock(return_value={"tester_recommendations": 2})), \
+             patch("backend.routers.contribute.review_inbox_other_languages",
+                   new=AsyncMock(return_value=[])):
+            resp = client.get(
+                "/api/contribute/review/inbox",
+                params={"language_id": LANG}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["counts"]["tester_recommendations"] == 2
+        # Reading the count is not permission to act on it.
+        assert resp.json()["can_publish"] is False
+
+    def test_tester_recommends_with_their_note_recorded(self, client):
+        """The advisory verdict itself — for most testers the only thing they
+        produce. The NOTE has to reach the repository call intact; it is the
+        whole content of the channel."""
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=LANG)
+        with self._tester(), _rls_yielding(conn), \
+             patch("backend.routers.contribute.add_recommendation",
+                   new=AsyncMock()) as mock_add:
+            resp = client.post(
+                "/api/contribute/review/recommend",
+                json={"target_type": "example", "target_id": self.EXAMPLE,
+                      "recommendation": "reject",
+                      "note": "'Leo' reads as the name Leo here."},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert mock_add.await_args.args[-2:] == (
+            "reject", "'Leo' reads as the name Leo here.",
+        )
+
+    # — what a tester must still be refused —
+
+    def test_tester_cannot_resolve_a_review_note(self, client):
+        with self._tester(), \
+             patch("backend.routers.contribute.get_note_language",
+                   new=AsyncMock(return_value=LANG)), \
+             patch("backend.routers.contribute.resolve_review_note",
+                   new=AsyncMock(return_value=True)) as mock_resolve:
+            resp = client.post(
+                f"/api/contribute/notes/{self.NOTE}/resolve",
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+        mock_resolve.assert_not_awaited()
+
+    def test_tester_cannot_approve_or_reject_a_content_suggestion(self, client):
+        suggestion = AsyncMock(
+            return_value={"language_id": LANG, "status": "pending"}
+        )
+        with self._tester(), \
+             patch("backend.routers.contribute.get_suggestion", new=suggestion), \
+             patch("backend.routers.contribute.approve_suggestion",
+                   new=AsyncMock(return_value=True)) as mock_approve:
+            approve = client.post(
+                f"/api/contribute/suggestions/{self.SUGGESTION}/approve",
+                headers=_auth_headers(),
+            )
+        assert approve.status_code == 403
+        mock_approve.assert_not_awaited()
+
+        with self._tester(), \
+             patch("backend.routers.contribute.get_suggestion", new=suggestion), \
+             patch("backend.routers.contribute.reject_suggestion",
+                   new=AsyncMock(return_value=True)) as mock_reject:
+            reject = client.post(
+                f"/api/contribute/suggestions/{self.SUGGESTION}/reject",
+                json={"review_note": "no"}, headers=_auth_headers(),
+            )
+        assert reject.status_code == 403
+        mock_reject.assert_not_awaited()
+
+    def test_tester_cannot_resolve_learner_feedback(self, client):
+        with self._tester(), \
+             patch("backend.routers.contribute.get_feedback_language",
+                   new=AsyncMock(return_value=LANG)), \
+             patch("backend.routers.contribute.resolve_feedback",
+                   new=AsyncMock(return_value=True)) as mock_resolve:
+            resp = client.post(
+                f"/api/contribute/feedback/{self.FEEDBACK}/resolve",
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+        mock_resolve.assert_not_awaited()
+
+    def test_tester_cannot_publish_a_generated_drill(self, client):
+        """Recommending on a drill is theirs; flipping reviewed=true is not —
+        that is the line the whole advisory role is drawn on."""
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=LANG)
+        with self._tester(), _rls_yielding(conn), \
+             patch("backend.routers.contribute.review_drill",
+                   new=AsyncMock(return_value=True)) as mock_review:
+            resp = client.post(
+                f"/api/contribute/review/generated-drills/{self.DRILL}/review",
+                json={"approve": True}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+        mock_review.assert_not_awaited()
+
+    def test_tester_cannot_approve_generated_examples_one_by_one_or_in_bulk(
+        self, client
+    ):
+        with self._tester(), \
+             patch("backend.routers.contribute.review_example",
+                   new=AsyncMock(return_value=True)) as mock_one:
+            one = client.post(
+                f"/api/contribute/admin/generation/examples/{self.EXAMPLE}/review",
+                json={"approve": True}, headers=_auth_headers(),
+            )
+        assert one.status_code == 403
+        mock_one.assert_not_awaited()
+
+        with self._tester(), \
+             patch("backend.routers.contribute.review_examples_bulk",
+                   new=AsyncMock(return_value=42)) as mock_bulk:
+            bulk = client.post(
+                "/api/contribute/admin/generation/examples/bulk-review",
+                json={"language_id": LANG, "approve": True},
+                headers=_auth_headers(),
+            )
+        assert bulk.status_code == 403
+        mock_bulk.assert_not_awaited()
 
 
 # ── plan message limits: admin-configurable monthly allotments ─────────────

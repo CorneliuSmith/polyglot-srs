@@ -70,7 +70,11 @@ _DIGITS = {
     **{0x06F0 + i: str(i) for i in range(10)},
 }
 
-_TASHKEEL = re.compile(r"[ً-ْٰٓ-ٟۖ-ۭ]")
+# The harakat themselves. Exported: the grader needs to ask whether an
+# answer was DELIBERATELY vocalized, which is a different question from
+# folding the marks away.
+TASHKEEL = re.compile(r"[ً-ْٰٓ-ٟۖ-ۭ]")
+_TASHKEEL = TASHKEEL
 
 
 def fold_arabic_script(text: str) -> str:

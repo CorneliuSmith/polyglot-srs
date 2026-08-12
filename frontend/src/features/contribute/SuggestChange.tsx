@@ -17,10 +17,12 @@ const FIELDS = [
 ]
 
 /**
- * Inline, low-friction change request for STAFF (reviewer / contributor /
- * admin). Shown on any card in Learn or Review; a learner sees nothing (they
- * use "Report an issue"). Names the field, says what's wrong, optionally
- * suggests a fix — the request lands on the review board for voting.
+ * Inline, low-friction change request for anyone with review standing on
+ * this language — reviewer, contributor, admin, and (since WP31 gap G2)
+ * trial reviewers, whose requests land on the board badged advisory. Shown
+ * on any card in Learn or Review; a learner sees nothing (they use "Report
+ * an issue"). Names the field, says what's wrong, optionally suggests a fix
+ * — the request lands on the review board for voting.
  */
 export default function SuggestChange({
   languageId,

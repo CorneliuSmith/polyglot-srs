@@ -64,6 +64,15 @@ async def list_requests(
     """Requests for a language with vote tallies and the viewer's own vote.
 
     Author email is resolved so the board reads without a second call.
+
+    `is_advisory` marks a request raised by someone whose only standing for
+    this language is *tester* — testers may raise and read the board but
+    never vote or resolve, so triage has to be able to tell their input
+    apart from a full contributor's. It is DERIVED from the author's roles
+    rather than stored: adding a column would need a migration, and
+    migrations here are owner-applied. The trade-off is that it reflects the
+    author's roles *now*, not at the time of writing — acceptable, since
+    promoting a tester should indeed retire the advisory marking.
     """
     rows = await conn.fetch(
         """
@@ -72,6 +81,13 @@ async def list_requests(
                cr.quote, cr.quote_context,
                cr.created_at, cr.author_id,
                au.email AS author_email,
+               NOT EXISTS (
+                   SELECT 1 FROM contributor_roles r
+                    WHERE r.user_id = cr.author_id
+                      AND r.role IN ('admin', 'contributor', 'reviewer')
+                      AND (r.language_id IS NULL
+                           OR r.language_id = cr.language_id)
+               ) AS is_advisory,
                COALESCE(SUM(v.vote), 0)                                  AS score,
                COUNT(v.vote) FILTER (WHERE v.vote = 1)                   AS upvotes,
                COUNT(v.vote) FILTER (WHERE v.vote = -1)                  AS downvotes,
@@ -100,6 +116,8 @@ async def list_requests(
             "quote": r["quote"],
             "quote_context": _as_dict(r["quote_context"]),
             "author_email": r["author_email"],
+            # Raised by a tester: read it, weigh it, but it carries no vote.
+            "is_advisory": bool(r["is_advisory"]),
             "score": int(r["score"]),
             "upvotes": int(r["upvotes"]),
             "downvotes": int(r["downvotes"]),

@@ -14,6 +14,7 @@ import {
   type RecheckDryRun,
   type RecheckResult,
 } from '../../api/contribute'
+import { RecoSummary } from './GeneratedDrillsPanel'
 
 /** Admin content-generation panel (WP42): fill example-sentence and drill gaps
  * with the server's Anthropic key. Coverage + model recommendation + a ranked
@@ -595,10 +596,22 @@ export default function GenerationPanel() {
               <button
                 type="button"
                 onClick={() => {
+                  // A tester's "needs work" note dies with the row this
+                  // button approves, so the count of them goes into the
+                  // confirmation rather than being discovered afterwards.
+                  const objected = pending.filter(
+                    (p) => (p.recommendations?.reject ?? 0) > 0,
+                  ).length
                   if (
                     window.confirm(
                       `Approve all pending ${selected.language_name} examples? ` +
-                        'Flagged ones are skipped. They go live to learners.',
+                        'Flagged ones are skipped. They go live to learners.' +
+                        (objected > 0
+                          ? `\n\nWARNING: ${objected} of these carry a tester ` +
+                            'recommendation to REJECT. Approving deletes the ' +
+                            'pending row and their note with it — read those ' +
+                            'first.'
+                          : ''),
                     )
                   )
                     bulkMutation.mutate(true)
@@ -639,6 +652,10 @@ export default function GenerationPanel() {
                   {p.translation && (
                     <div className="text-[11px] text-gray-400">{p.translation}</div>
                   )}
+                  {/* Testers judged some of these. This is the panel with
+                      the bulk-approve button, so it's where their verdict
+                      has to be readable. */}
+                  <RecoSummary tally={p.recommendations} />
                 </div>
                 <div className="flex shrink-0 gap-1">
                   <button

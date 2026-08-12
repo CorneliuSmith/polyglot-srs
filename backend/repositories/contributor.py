@@ -143,15 +143,45 @@ async def list_vocab_items(
     supporting content each entry carries (definition + example count), so a
     reviewer can spot thin or missing entries at a glance. Mirrors
     list_grammar_points; the change-request board is where fixes are proposed
-    and voted on (no direct vocab authoring surface yet)."""
+    and voted on (no direct vocab authoring surface yet).
+
+    `flagged_count` / `suggestion_count` are the per-word locator for the two
+    inbox tiles that were previously un-navigable: the counts were computed
+    language-wide, but the only surface that ACTS on them is buried inside a
+    single word's ExamplesEditor. Without a marker on the list, finding the
+    four flagged sentences among two thousand words meant opening words at
+    random. Both degrade to 0 when their column hasn't been migrated yet.
+    """
+    present = await _present(
+        conn,
+        columns=(
+            "example_sentences.flagged",
+            "example_sentences.suggested_translation",
+        ),
+    )
+    flagged_sql = (
+        """(SELECT count(*) FROM example_sentences es
+             WHERE es.vocabulary_id = v.id AND es.flagged = true)"""
+        if "example_sentences.flagged" in present
+        else "0::bigint"
+    )
+    suggestion_sql = (
+        """(SELECT count(*) FROM example_sentences es
+             WHERE es.vocabulary_id = v.id
+               AND es.suggested_translation IS NOT NULL)"""
+        if "example_sentences.suggested_translation" in present
+        else "0::bigint"
+    )
     rows = await conn.fetch(
-        """
+        f"""
         SELECT v.id, v.word, v.reading, v.part_of_speech, v.level,
                v.frequency_rank,
                v.ai_check_status, v.ai_check_notes,
                COALESCE(t.definition, t_en.definition) AS definition,
                (SELECT count(*) FROM example_sentences es
-                 WHERE es.vocabulary_id = v.id) AS example_count
+                 WHERE es.vocabulary_id = v.id) AS example_count,
+               {flagged_sql} AS flagged_count,
+               {suggestion_sql} AS suggestion_count
         FROM vocabulary v
         LEFT JOIN translations t
                ON v.id = t.vocabulary_id AND t.locale = $2
@@ -172,6 +202,9 @@ async def list_vocab_items(
             "frequency_rank": r["frequency_rank"],
             "definition": r["definition"],
             "example_count": r["example_count"],
+            # Locators for the "Flagged examples" / "Translation fixes" tiles.
+            "flagged_count": int(r["flagged_count"]),
+            "suggestion_count": int(r["suggestion_count"]),
             "ai_check_status": r["ai_check_status"],
             "ai_check_notes": r["ai_check_notes"],
         }
@@ -581,59 +614,210 @@ async def add_example_sentence(
 # ---------------------------------------------------------------------------
 
 
+async def _present(
+    conn: asyncpg.Connection,
+    tables: tuple[str, ...] = (),
+    columns: tuple[str, ...] = (),
+) -> set[str]:
+    """Which of *tables* / *columns* actually exist, in ONE query.
+
+    Migrations are applied by the owner, so a deploy routinely runs ahead of
+    the schema. Every review-inbox read is on a hot admin path, and a raised
+    UndefinedTable/UndefinedColumnError aborts the whole pooled transaction
+    (privileged_connection wraps one) — taking the page down rather than one
+    tile. So we PROBE first and drop the missing pieces from the SQL, the
+    same shape `list_accounts` uses for `custom_prices`.
+
+    *columns* are given as "table.column". Returned names are the inputs that
+    were found, so callers can test membership directly.
+    """
+    rows = await conn.fetch(
+        """
+        SELECT name FROM (
+            SELECT t AS name FROM unnest($1::text[]) AS t
+             WHERE to_regclass(t) IS NOT NULL
+            UNION ALL
+            SELECT c.table_name || '.' || c.column_name AS name
+              FROM information_schema.columns c
+             WHERE c.table_schema = 'public'
+               AND (c.table_name || '.' || c.column_name) = ANY($2::text[])
+        ) s
+        """,
+        list(tables), list(columns),
+    )
+    return {r["name"] for r in rows}
+
+
+# Every queue the Review Inbox rolls up, as (key, SQL predicate over a
+# language id placeholder `%(lang)s`), plus what schema each one needs. One
+# definition, used for BOTH the current-language counts and the
+# cross-language roll-up, so the two can never drift apart (a breakdown that
+# counted different things than the tiles would be worse than none).
+_INBOX_QUEUES: tuple[tuple[str, str, tuple[str, ...]], ...] = (
+    ("grammar_pending", """
+        SELECT count(*) FROM grammar_points gp
+         WHERE gp.language_id = {lang} AND gp.reviewed = false
+           AND COALESCE(gp.explanation, '') <> ''
+     """, ()),
+    ("pending_drills", """
+        SELECT count(*) FROM drill_sentences ds
+          JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+         WHERE gp.language_id = {lang} AND ds.source = 'ai'
+           AND ds.reviewed = false
+     """, ()),
+    ("flagged_drills", """
+        SELECT count(*) FROM drill_sentences ds
+          JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+         WHERE gp.language_id = {lang} AND ds.flagged = true
+     """, ("drill_sentences.flagged",)),
+    ("pending_examples", """
+        SELECT count(*) FROM example_sentences es
+          JOIN vocabulary v ON es.vocabulary_id = v.id
+         WHERE v.language_id = {lang} AND es.source = 'ai'
+           AND es.reviewed = false
+     """, ()),
+    ("flagged_examples", """
+        SELECT count(*) FROM example_sentences es
+          JOIN vocabulary v ON es.vocabulary_id = v.id
+         WHERE v.language_id = {lang} AND es.flagged = true
+     """, ("example_sentences.flagged",)),
+    ("translation_suggestions", """
+        SELECT count(*) FROM example_sentences es
+          JOIN vocabulary v ON es.vocabulary_id = v.id
+         WHERE v.language_id = {lang}
+           AND es.suggested_translation IS NOT NULL
+     """, ("example_sentences.suggested_translation",)),
+    ("ai_levels", """
+        SELECT count(*) FROM vocabulary v
+         WHERE v.language_id = {lang} AND v.level_source = 'ai'
+     """, ("vocabulary.level_source",)),
+    ("change_requests", """
+        SELECT count(*) FROM card_change_requests ccr
+         WHERE ccr.language_id = {lang} AND ccr.status = 'open'
+     """, ("card_change_requests",)),
+    ("suggestions", """
+        SELECT count(*) FROM content_suggestions cs
+         WHERE cs.language_id = {lang} AND cs.status = 'pending'
+     """, ("content_suggestions",)),
+    ("notes", """
+        SELECT count(*) FROM point_review_notes n
+          LEFT JOIN grammar_points gp ON n.grammar_point_id = gp.id
+          LEFT JOIN vocabulary v ON n.vocabulary_id = v.id
+         WHERE COALESCE(gp.language_id, v.language_id) = {lang}
+           AND n.status = 'open'
+     """, ("point_review_notes",)),
+    ("feedback", """
+        SELECT count(*) FROM card_feedback f
+         WHERE f.language_id = {lang} AND f.status = 'open'
+     """, ("card_feedback",)),
+    ("overlaps", """
+        SELECT count(*) FROM grammar_point_overlaps o
+         WHERE o.language_id = {lang} AND o.status = 'open'
+     """, ("grammar_point_overlaps",)),
+    ("ai_translations", """
+        SELECT count(*) FROM translation_reviews r
+          JOIN vocabulary v ON r.vocabulary_id = v.id
+         WHERE v.language_id = {lang} AND r.status = 'pending'
+     """, ("translation_reviews",)),
+    # A tester's advisory ✓/✗ counts as a queue in its own right: it is the
+    # only output most trial reviewers produce, and until now it appeared
+    # nowhere the admin looks. Scoped to targets that are STILL PENDING —
+    # once a reviewer publishes or rejects the item the advice is spent.
+    ("tester_recommendations", """
+        SELECT count(*) FROM review_recommendations rr
+         WHERE rr.language_id = {lang}
+           AND ((rr.target_type = 'drill' AND EXISTS (
+                   SELECT 1 FROM drill_sentences ds
+                    WHERE ds.id = rr.target_id AND ds.reviewed = false))
+             OR (rr.target_type = 'example' AND EXISTS (
+                   SELECT 1 FROM example_sentences es
+                    WHERE es.id = rr.target_id AND es.reviewed = false)))
+     """, ("review_recommendations",)),
+)
+
+# Everything the queue set can need, so one probe covers the whole roll-up.
+_INBOX_TABLES = tuple(sorted({
+    n for _, _, needs in _INBOX_QUEUES for n in needs if "." not in n
+}))
+_INBOX_COLUMNS = tuple(sorted({
+    n for _, _, needs in _INBOX_QUEUES for n in needs if "." in n
+}))
+
+# Queues that add up to "this language needs attention" in the cross-language
+# strip. Deliberately every queue: an admin whose selector sits on Arabic must
+# see that Hebrew has traffic, whatever KIND of traffic it is.
+INBOX_QUEUE_KEYS = tuple(k for k, _, _ in _INBOX_QUEUES)
+
+
+def _inbox_selects(present: set[str], lang_sql: str) -> str:
+    """The queue subqueries, with any whose table/column is missing replaced
+    by a literal 0 (so a pre-migration deploy reads 'nothing here' instead of
+    500ing the Review workspace)."""
+    parts = []
+    for key, sql, needs in _INBOX_QUEUES:
+        if all(n in present for n in needs):
+            parts.append(f"({sql.format(lang=lang_sql)}) AS {key}")
+        else:
+            parts.append(f"0::bigint AS {key}")
+    return ",\n          ".join(parts)
+
+
 async def review_inbox_counts(
     conn: asyncpg.Connection, language_id: str
 ) -> dict:
     """One roll-up of everything awaiting review action for a language — the
     unified Review Inbox. Each key is a queue the existing panels already act
     on; this just answers 'what needs attention, and how much' in one query."""
+    present = await _present(conn, _INBOX_TABLES, _INBOX_COLUMNS)
     row = await conn.fetchrow(
-        """
+        f"""
         SELECT
-          (SELECT count(*) FROM grammar_points gp
-            WHERE gp.language_id = $1 AND gp.reviewed = false
-              AND COALESCE(gp.explanation, '') <> '') AS grammar_pending,
-          (SELECT count(*) FROM drill_sentences ds
-             JOIN grammar_points gp ON ds.grammar_point_id = gp.id
-            WHERE gp.language_id = $1 AND ds.source = 'ai'
-              AND ds.reviewed = false) AS pending_drills,
-          (SELECT count(*) FROM drill_sentences ds
-             JOIN grammar_points gp ON ds.grammar_point_id = gp.id
-            WHERE gp.language_id = $1 AND ds.flagged = true) AS flagged_drills,
-          (SELECT count(*) FROM example_sentences es
-             JOIN vocabulary v ON es.vocabulary_id = v.id
-            WHERE v.language_id = $1 AND es.source = 'ai'
-              AND es.reviewed = false) AS pending_examples,
-          (SELECT count(*) FROM example_sentences es
-             JOIN vocabulary v ON es.vocabulary_id = v.id
-            WHERE v.language_id = $1 AND es.flagged = true) AS flagged_examples,
-          (SELECT count(*) FROM example_sentences es
-             JOIN vocabulary v ON es.vocabulary_id = v.id
-            WHERE v.language_id = $1
-              AND es.suggested_translation IS NOT NULL) AS translation_suggestions,
-          (SELECT count(*) FROM vocabulary v
-            WHERE v.language_id = $1 AND v.level_source = 'ai') AS ai_levels,
-          (SELECT count(*) FROM card_change_requests
-            WHERE language_id = $1 AND status = 'open') AS change_requests,
-          (SELECT count(*) FROM content_suggestions cs
-            WHERE cs.language_id = $1 AND cs.status = 'pending') AS suggestions,
-          (SELECT count(*) FROM point_review_notes n
-             LEFT JOIN grammar_points gp ON n.grammar_point_id = gp.id
-             LEFT JOIN vocabulary v ON n.vocabulary_id = v.id
-            WHERE COALESCE(gp.language_id, v.language_id) = $1
-              AND n.status = 'open') AS notes,
-          (SELECT count(*) FROM card_feedback f
-            WHERE f.language_id = $1 AND f.status = 'open') AS feedback,
-          (SELECT count(*) FROM grammar_point_overlaps o
-            WHERE o.language_id = $1 AND o.status = 'open') AS overlaps,
-          (SELECT count(*) FROM translation_reviews r
-             JOIN vocabulary v ON r.vocabulary_id = v.id
-            WHERE v.language_id = $1
-              AND r.status = 'pending') AS ai_translations
+          {_inbox_selects(present, "$1")}
         """,
         language_id,
     )
     return {k: int(row[k]) for k in row.keys()}
+
+
+async def review_inbox_other_languages(
+    conn: asyncpg.Connection, language_id: str
+) -> list[dict]:
+    """The same queues, counted for every OTHER language, in ONE query.
+
+    The bug this exists for: every review surface is scoped to the admin's
+    working language, but a submission carries the language the TESTER was
+    studying. Testers exercising Hebrew while the selector sits on Arabic
+    made the inbox read "All clear" — the single biggest cause of "they say
+    they're sending reviews and I'm not seeing them".
+
+    Only languages with a non-zero total come back, newest-noisiest first, so
+    the strip is empty exactly when there is genuinely nothing elsewhere.
+    """
+    present = await _present(conn, _INBOX_TABLES, _INBOX_COLUMNS)
+    rows = await conn.fetch(
+        f"""
+        SELECT l.id, l.code, l.name,
+          {_inbox_selects(present, "l.id")}
+        FROM languages l
+        WHERE l.id <> $1
+        """,
+        language_id,
+    )
+    out = []
+    for r in rows:
+        counts = {k: int(r[k]) for k in INBOX_QUEUE_KEYS}
+        total = sum(counts.values())
+        if total == 0:
+            continue
+        out.append({
+            "id": str(r["id"]),
+            "code": r["code"],
+            "name": r["name"],
+            "total": total,
+            "counts": counts,
+        })
+    out.sort(key=lambda d: (-d["total"], d["name"]))
+    return out
 
 
 async def language_release_readiness(conn: asyncpg.Connection) -> list[dict]:
@@ -1330,6 +1514,66 @@ async def recommendations_for_targets(
         }
         for r in rows
     }
+
+
+async def list_tester_recommendations(
+    conn: asyncpg.Connection, language_id: str, limit: int = 200
+) -> list[dict]:
+    """Advisory ✓/✗ + WRITTEN NOTE on items still awaiting a decision.
+
+    The tally attached to a pending item only exists on the one panel that
+    lists that item, and the tester's note was rendered as a hover tooltip —
+    so the single thing a trial reviewer produces had no durable surface an
+    admin could open. This is that surface, and the queue the inbox's
+    `tester_recommendations` tile counts (same still-pending filter).
+
+    Rejections first: a "needs work" on something about to be published is
+    the one that has to be read before the bulk-approve button is pressed.
+    """
+    present = await _present(conn, ("review_recommendations",))
+    if "review_recommendations" not in present:
+        return []
+    rows = await conn.fetch(
+        """
+        SELECT rr.id, rr.target_type, rr.target_id, rr.recommendation,
+               rr.note, rr.created_at, u.email AS recommender_email,
+               COALESCE(ds.sentence, es.sentence)       AS target_label,
+               COALESCE(ds.translation, es.translation) AS target_translation,
+               gp.title AS point_title, v.word AS word
+        FROM review_recommendations rr
+        LEFT JOIN auth.users u ON u.id = rr.recommender_id
+        LEFT JOIN drill_sentences ds
+               ON rr.target_type = 'drill' AND ds.id = rr.target_id
+              AND ds.reviewed = false
+        LEFT JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+        LEFT JOIN example_sentences es
+               ON rr.target_type = 'example' AND es.id = rr.target_id
+              AND es.reviewed = false
+        LEFT JOIN vocabulary v ON es.vocabulary_id = v.id
+        WHERE rr.language_id = $1
+          AND (ds.id IS NOT NULL OR es.id IS NOT NULL)
+        ORDER BY (rr.recommendation = 'reject') DESC, rr.created_at DESC
+        LIMIT $2
+        """,
+        language_id, limit,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "target_type": r["target_type"],
+            "target_id": str(r["target_id"]),
+            "recommendation": r["recommendation"],
+            # The note is the point of the whole channel — plain text, always
+            # present as a key (empty string when they left none).
+            "note": r["note"] or "",
+            "recommender_email": r["recommender_email"],
+            "target_label": r["target_label"],
+            "target_translation": r["target_translation"],
+            "context": r["point_title"] or r["word"],
+            "created_at": r["created_at"].isoformat(),
+        }
+        for r in rows
+    ]
 
 
 async def trial_reviewer_activity(
