@@ -71,32 +71,41 @@ function RecoCard({
 
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
-      <div className="flex items-center gap-2 mb-1">
-        <Icon aria-hidden className="h-4 w-4 text-lang" strokeWidth={1.75} />
+      {/* The model writes these fields free-form, so none of them can assume
+          a size: a genre like "mystery / dark fantasy" wrapped mid-word into
+          a tall blob, and a level like "A1 (passive listening w/ subtitles)"
+          (shrink-0, row couldn't wrap) overflowed clean past the card edge.
+          The row wraps; chips keep their own words whole and drop to a new
+          line as a unit. */}
+      <div className="mb-1 flex flex-wrap items-center gap-x-2 gap-y-1">
+        <Icon aria-hidden className="h-4 w-4 shrink-0 text-lang" strokeWidth={1.75} />
         <span className="text-[11px] uppercase tracking-wide text-gray-400">
           {label}
         </span>
         {item.genre && (
-          <span className="rounded-full bg-gray-100 text-gray-500 text-[11px] px-2 py-0.5">
+          <span className="max-w-full rounded-full bg-gray-100 text-gray-500 text-[11px] px-2 py-0.5">
             {item.genre}
           </span>
         )}
         {item.level && (
-          <span className="ms-auto shrink-0 rounded-full bg-lang-soft text-lang-dark text-[11px] font-medium px-2 py-0.5">
+          <span className="ms-auto max-w-full rounded-full bg-lang-soft text-lang-dark text-[11px] font-medium px-2 py-0.5">
             {item.level}
           </span>
         )}
       </div>
-      <h3 className="text-base font-semibold text-gray-900">{item.title}</h3>
+      <h3 className="text-base font-semibold text-gray-900 break-words">{item.title}</h3>
       {(item.creator || item.year) && (
-        <p className="text-xs text-gray-500">
+        <p className="text-xs text-gray-500 break-words">
           {[item.creator, item.year].filter(Boolean).join(' · ')}
         </p>
       )}
-      <p className="mt-2 text-sm text-gray-700">{item.blurb}</p>
+      <p className="mt-2 text-sm leading-relaxed text-gray-700 break-words">{item.blurb}</p>
       {item.why && (
-        <p className="mt-2 text-sm text-lang-dark bg-lang-soft/50 rounded-lg px-3 py-2">
-          <span className="font-medium">{t('recos.whyFits')}</span>
+        <p className="mt-2 text-sm leading-relaxed text-lang-dark bg-lang-soft/50 rounded-lg px-3 py-2 break-words">
+          {/* The label's trailing space lives in the i18n string, where JSON
+              round-trips have eaten it before — join with an explicit space
+              so the label can never fuse onto the first word. */}
+          <span className="font-medium">{t('recos.whyFits').trim()}</span>{' '}
           {item.why}
         </p>
       )}
