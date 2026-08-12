@@ -214,4 +214,33 @@ describe('RecommendationsPage', () => {
     // Not stale → no auto-generate.
     expect(mockRefresh).not.toHaveBeenCalled()
   })
+
+  it('survives model-written fields of any length (owner screenshot)', async () => {
+    // The model writes genre and level free-form. A long parenthetical level
+    // overflowed clean past the card edge (the header row couldn't wrap and
+    // the chip was shrink-0), and a multi-word genre wrapped mid-word into a
+    // tall blob. The row must wrap; the chips must cap at the card's width.
+    const item = {
+      type: 'series', title: 'Atiye (The Gift)', creator: 'Meriç Acemi',
+      year: '2019', blurb: 'A mystery-fantasy.',
+      why: 'It hits your exact taste signature.',
+      level: 'A1 (passive listening w/ subtitles)',
+      genre: 'mystery / dark fantasy',
+    }
+    mockGet.mockResolvedValue({
+      enabled: true, entitled: true, stale: false,
+      batches: [{ ...batch, items: [item] }],
+    })
+    renderPage()
+    const level = await screen.findByText('A1 (passive listening w/ subtitles)')
+    expect(level.className).toContain('max-w-full')
+    expect(level.className).not.toContain('shrink-0')
+    expect(level.parentElement?.className).toContain('flex-wrap')
+    const genre = screen.getByText('mystery / dark fantasy')
+    expect(genre.className).toContain('max-w-full')
+    // The "why" label must never fuse onto the first word, whatever the
+    // i18n JSON did to the string's trailing space.
+    const why = screen.getByText(/why this fits you/i).parentElement
+    expect(why?.textContent).toMatch(/why this fits you:\s+\S/i)
+  })
 })
