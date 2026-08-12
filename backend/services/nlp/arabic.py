@@ -24,6 +24,7 @@ from __future__ import annotations
 import logging
 import re
 
+from backend.services.nlp.arabic_script import TASHKEEL as _TASHKEEL
 from backend.services.nlp.arabic_script import fold_arabic_script
 from backend.services.nlp.base import AnswerResult, BaseNLP
 
@@ -271,6 +272,34 @@ class ArabicNLP(BaseNLP):
 
         norm_user = self.normalize(user)
         norm_correct = self.normalize(correct)
+
+        # ------------------------------------------------------------------
+        # Check 0: the short vowels ARE the answer on a form drill
+        # ------------------------------------------------------------------
+        # normalize() dediacritizes, so tashkeel never reaches the comparison
+        # — right for ordinary vocabulary, where the marks are optional and
+        # failing on them is the diacritic-invariance rule (NLP-07). On a
+        # GRAMMAR drill it erased the very contrast being taught: وُلد ("was
+        # born") accepted its active ولد inside a point whose explanation
+        # says the passive changes the verb's vowels and not its letters,
+        # أنتِ accepted the masculine أنت sitting in the same point, and
+        # Form II يدرّس accepted Form I يدرس.
+        #
+        # So only where the author DELIBERATELY vocalized the answer, and
+        # only on a form drill, a bare answer is the right word in the wrong
+        # cell — which is exactly what WRONG_FORM already means here.
+        if (
+            base_result is AnswerResult.CORRECT
+            and card_context
+            and card_context.get("card_type") == "grammar"
+            and _TASHKEEL.search(correct)
+            and _TASHKEEL.findall(user) != _TASHKEEL.findall(correct)
+        ):
+            return (
+                AnswerResult.WRONG_FORM,
+                "The short vowels are the answer here. "
+                f"Expected: {correct_answer}",
+            )
 
         # ------------------------------------------------------------------
         # Check A: Taa marbuta vs ha soft-match (NLP-06 pitfall #6)
