@@ -106,15 +106,20 @@ commit message.
 | Full backend | `.venv/bin/pytest backend/tests -q -p no:randomly` | Everything, vs the documented baseline in `CLAUDE.md` |
 | Frontend | `cd frontend && npm run build && npx vitest run` | Type-check + component behaviour |
 
-Integration tests skip silently without a database. Start both services first,
-or you will report a pass that tested nothing:
+Integration tests skip silently without a database — a green run with no
+services proves nothing. Point the two env vars at ANY Postgres and Redis you
+have; only the URLs matter, not how they were started:
 
 ```bash
-su postgres -c '/usr/lib/postgresql/16/bin/pg_ctl -D /var/tmp/pgtest -o "-p 5433" -l /var/tmp/pgtest.log start'
-redis-server --port 6380 --daemonize yes
-INTEGRATION_DATABASE_URL="postgresql://postgres@127.0.0.1:5433/postgres" \
-REDIS_URL="redis://127.0.0.1:6380/0" .venv/bin/pytest backend/tests -q
+INTEGRATION_DATABASE_URL="postgresql://<user>@<host>:<port>/<db>" \
+REDIS_URL="redis://<host>:<port>/0" \
+.venv/bin/pytest backend/tests -q -p no:randomly
 ```
+
+`docker run -p 5432:5432 -e POSTGRES_PASSWORD=x postgres:16` and
+`docker run -p 6379:6379 redis:7` are enough locally; CI wires its own
+services (see `.github/workflows/ci.yml`). Inside the dev container the exact
+`pg_ctl` invocation is in `CLAUDE.md`.
 
 ---
 

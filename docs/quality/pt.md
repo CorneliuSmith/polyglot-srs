@@ -76,7 +76,7 @@ together, and a translation that renders the *completed* sentence in natural Eng
   shows a capitalised `A` before asking for `a`; `O que é {{answer}} está acontecendo ali?` prints
   `O que` while asking for `que`.
 - **A bound clitic is part of the answer, and the drill must make that visible.** `Entregue{{answer}}
-  o documento amanhã.` expects `-me`; typing `me` grades `WRONG` (verified). Defensible for a C1
+  o documento amanhã. (formal)` expects `-me`; typing `me` grades `WRONG` (verified). Fine for a C1
   ênclise point whose hint says "attached after the verb" — as it does — but no A1/A2 point should
   use this shape.
 - **Keep multi-word answers to genuine lexical units.** Only `O que` and `Por que` exist, both

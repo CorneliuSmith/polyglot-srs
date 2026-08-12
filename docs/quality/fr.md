@@ -103,7 +103,7 @@ From the crawl, re-verified by opening `data/grammar/fr_grammar.json`.
   translations; zero `answer — explanation` templates; zero multi-word answers.
 - **`leak_hard`: 0. `construction_quote` (warn): 10** — the largest in the Romance group:
   - `ans='car' hint='because (car)' sent="Je reste ici {{answer}} j'attends un ami."`
-  - `ans='ne' hint='(expletive ne after avant que)' sent="Partez avant qu'il {{answer}} soit tard."`
+  - `ans='ne' hint='(expletive ne after avant que)'` in `Partez avant qu'il {{answer}} soit trop tard.`
 - **`giveaway_by_gloss`: 24.** Worst: `ans='Elle' hint='she' trans='She sings very well.'`;
   `ans='Où' hint='where' trans='Where do you live?'`; `ans='les' hint='them'`.
 - **One-word hints: 27** (crawl agrees). Eight are subject-pronoun glosses; `plural`, `masculine`,
