@@ -7,8 +7,8 @@ bahasa Indonesia baku** — standard Indonesian as codified for school and print
 of news and formal speech. **Explicitly out of scope:** Malaysian Malay (`bahasa Melayu`, a
 different standard), the surrounding regional languages (Javanese, Sundanese, Minang), and
 Jakarta colloquial / `bahasa gaul` as a *production* target below C1 — it appears at C1–C2
-for recognition and register switching (point 37 drills `Lu` and `Udah` inside quoted
-dialogue while the narration stays baku) and nowhere else.
+for recognition and register switching (point 35 drills `Gue` and `Lu`; point 38 keeps `Lu`
+and `Udah` inside quoted dialogue while the narration stays baku) and nowhere else.
 
 **No gender, no noun class, no number agreement, no verb conjugation.** Point 1 is literally
 "Verbs don't conjugate": `mau` is want/wants/wanted for every subject. Nothing is marked on
@@ -81,15 +81,15 @@ noun/identity, not tidak` for `bukan`; `we, excluding the listener` for `kami`. 
 
 ## Question / drill standards
 
-- Natural, current baku Indonesian: `Buku itu dibaca oleh ribuan orang.` is right; sentences that exist only to host an affix are not.
+- Natural, current baku Indonesian: the di- point's first drill, filled, reads `Buku itu dibaca oleh ribuan orang.` — right; sentences that exist only to host an affix are not.
 - **Exactly one blank** — all 152 drills satisfy this today; keep it that way. One unambiguous answer: if a second word fits the frame and the translation equally, tighten the sentence, not the hint.
 - Where the blank is a bound affix glued to its host (`Dia{{answer}} yang bertanggung jawab.`), `answer` must be exactly the characters that fill the gap (`lah`, no hyphen); conversely, never drop the hyphen from a reduplicated free form (`buku-buku`).
 - The translation translates the whole sentence including the register cue — `Would you like to eat? (formal/polite)` earns its parenthetical because the drill chooses `anda` over `kamu`.
-- Pitfalls: the di- passive is *neutral* Indonesian, so its English must read naturally, not stiffly; C2 lexicalised affixation (`mengerti`, `berhasil`, `pengaruh`) must not be hinted as decomposable — that is the point; headline style (point 39) legitimately drops words, so the translation carries what was recovered.
+- Pitfalls: the di- passive is *neutral* Indonesian, so its English must read naturally, not stiffly; C2 lexicalised affixation (`mengerti`, `berhasil`, `pengaruh`) must not be hinted as decomposable — that is the point; headline style (point 40) legitimately drops words, so the translation carries what was recovered.
 
 ## Translation & definition standards
 
-- No bare one-word gloss for a polysemous item. `data/id_frequency.tsv` mostly gets this right — `tahu → to know (a fact)`, `bilang → to say; to tell (informal)`, `pulang → to go home; to return` — but 65 of its 90 rows are unqualified single-sense glosses, acceptable only where the word really has one everyday sense.
+- No bare one-word gloss for a polysemous item. `data/id_frequency.tsv` mostly gets this right — `tahu → to know (a fact)`, `bilang → to say; to tell (informal)`, `pulang → to go home; to return` — but 65 of its 90 rows carry no sense split at all (no `;`, no parenthetical), acceptable only where the word really has one everyday sense.
 - No gender or noun class to mark; instead note the **classifier** where it is not predictable (`orang` people, `ekor` animals, `buah` objects).
 - Register is marked in both directions: `bilang` informal beside `mengatakan`; `lu`/`udah` labelled Jakarta colloquial wherever they appear. One register per drill — baku sentence, plain complete English; dialogue sentence, colloquial English.
 

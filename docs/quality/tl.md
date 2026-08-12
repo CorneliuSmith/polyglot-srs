@@ -83,7 +83,7 @@ answer `I`. GOOD: `the focus prefix used for things handed over — here on an E
 
 ## Question / drill standards
 
-- Natural Manila Tagalog with a plausible speaker: `Kumain na ba kayo?`, `Salamat po.` Avoid frames that only exist to host a particle.
+- Natural Manila Tagalog with a plausible speaker: the enclitic point's drills, filled, read `Kumain na ba kayo?` and `Salamat po.` Avoid frames that only exist to host a particle.
 - **Exactly one blank** — all 152 drills satisfy this today; keep it that way. One unambiguous answer: in a marker point the sentence's verb focus must actually force `ang` over `ng`, or the drill is a coin flip.
 - The blank is often **inside a word**: `Ang libro{{answer}} binasa ko`, `Nag-{{answer}} na ba kayo?`, `{{answer}}-check mo ang email mo.` The `answer` field must be exactly the characters that fill the gap (`ng`, `meeting`, `I`), and the hint must supply the environment (vowel-final host → `-ng`).
 - Capitalisation follows the sentence, not the citation form (`Kumain`, `Nagbasa`); grading lowercases, so this is a presentation rule, not a grading trap.
@@ -92,7 +92,7 @@ answer `I`. GOOD: `the focus prefix used for things handed over — here on an E
 
 ## Translation & definition standards
 
-- No bare one-word gloss for a polysemous item. `data/tl_frequency.tsv` is mostly careful — `may → there is/are; to have (existential marker)`, `wala → there is not; none; to not have`, `iyan → that (near the listener)` — but 64 of its 90 rows are unqualified single-sense glosses; qualify anything with a second everyday sense (`kasi`, `gusto`, `alam`).
+- No bare one-word gloss for a polysemous item. `data/tl_frequency.tsv` is mostly careful — `may → there is/are; to have (existential marker)`, `wala → there is not; none; to not have`, `iyan → that (near the listener)` — but 64 of its 90 rows carry no sense split (no `;`, no parenthetical); qualify anything with a second everyday sense (`kasi`, `alam`, `ito`).
 - No gender or noun class to mark. What must be marked instead is **marker class and focus**: a verb definition should say which focus it is (`kumain` actor-focus, `kinain` object-focus), and a pronoun definition should say which set it belongs to (ang / ng / sa), because those three sets are not interchangeable.
 - Register consistency: `po`/`ho` forms are glossed as polite, Taglish items are labelled Taglish, and literary items (`ani`, `kay` exclamative) are labelled literary so a learner never drops them into ordinary speech.
 
