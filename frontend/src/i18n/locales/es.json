@@ -441,7 +441,8 @@
     "durationMin_other": "{{count}} min",
     "durationSec_one": "{{count}} seg",
     "durationSec_other": "{{count}} seg",
-    "loadFailed": "No se pudo cargar tu sesión de repaso."
+    "loadFailed": "No se pudo cargar tu sesión de repaso.",
+    "layerNotTranslated": "{{label}} (en inglés — aún sin traducir)"
   },
   "about": {
     "title": "Cosas que saber",

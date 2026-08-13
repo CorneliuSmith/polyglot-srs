@@ -23,6 +23,7 @@ from backend.services.cell_glosses import cell_gloss
 from backend.services.extract import ANSWER_MARKER, make_cloze
 from backend.services.gym_manifest import nonstandard_point_titles
 from backend.services.gym_weight import drill_weight
+from backend.services.locale_guard import mark_locale_mismatches
 from backend.services.references import clean_references
 from backend.services.srs_stages import stage_for
 
@@ -387,7 +388,7 @@ async def get_due_cards(
         + [dict(r) for r in personal_rows]
     )
     combined.sort(key=lambda r: r["next_review"])
-    return combined[:limit]
+    return [mark_locale_mismatches(c, eff_locale) for c in combined[:limit]]
 
 
 def _srs_fields(r: asyncpg.Record) -> dict:
@@ -1529,6 +1530,14 @@ async def get_card_details_bulk(
             detail = await get_card_detail(conn, str(c["id"]))
             if detail:
                 details[str(c["id"])] = detail
+    # A lesson's own quiz is a card like any other, and its translation
+    # falls back to English the same way — so the flag has to reach the
+    # nested quiz, not just the lesson wrapper.
+    for detail in details.values():
+        mark_locale_mismatches(detail, support_locale)
+        quiz = detail.get("quiz")
+        if isinstance(quiz, dict):
+            mark_locale_mismatches(quiz, support_locale)
     return details
 
 
@@ -2008,7 +2017,10 @@ async def get_cram_cards(
     # native-language gloss. The frontend still leak-guards it via safePrompt.
     for card in cards:
         card["baseline"] = _gym_baseline(card)
-    return cards
+    # Same guard the review path applies: a Gym card's translation and
+    # baseline fall back to English exactly as a review card's do, and the
+    # learner is told just as confidently that it is their language.
+    return [mark_locale_mismatches(c, support_locale) for c in cards]
 
 
 # Mirror of the frontend's safePrompt recipe detection (hintLayers.ts): a

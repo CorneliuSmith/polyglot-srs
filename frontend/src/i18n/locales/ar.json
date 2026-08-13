@@ -471,7 +471,8 @@
     "durationSec_few": "{{count}} ثوانٍ",
     "durationSec_many": "{{count}} ثانية",
     "durationSec_other": "{{count}} ثانية",
-    "loadFailed": "تعذر تحميل جلسة المراجعة."
+    "loadFailed": "تعذر تحميل جلسة المراجعة.",
+    "layerNotTranslated": "{{label}} (بالإنجليزية — لم تُترجَم بعد)"
   },
   "about": {
     "title": "أشياء تستحق المعرفة",
