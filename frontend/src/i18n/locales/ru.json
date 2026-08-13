@@ -461,7 +461,8 @@
     "durationSec_few": "{{count}} сек",
     "durationSec_many": "{{count}} сек",
     "durationSec_other": "{{count}} сек",
-    "loadFailed": "Не удалось загрузить сессию повторения."
+    "loadFailed": "Не удалось загрузить сессию повторения.",
+    "layerNotTranslated": "{{label}} (на английском — ещё не переведено)"
   },
   "about": {
     "title": "Что стоит знать",

@@ -441,7 +441,8 @@
     "durationMin_other": "{{count}} min",
     "durationSec_one": "{{count}} sec",
     "durationSec_other": "{{count}} sec",
-    "loadFailed": "Couldn't load your review session."
+    "loadFailed": "Couldn't load your review session.",
+    "layerNotTranslated": "{{label}} (English — not yet translated)"
   },
   "about": {
     "title": "Things to know",

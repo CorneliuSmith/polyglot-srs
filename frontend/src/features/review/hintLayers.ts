@@ -46,12 +46,19 @@ export interface HintLayerSource {
   gloss?: string | null
   translation?: string | null
   hint?: string | null
+  /** Fields the server could prove are NOT in the learner's language —
+   * usually an English fallback served because their rendering doesn't
+   * exist yet. Absent means nothing to report. */
+  locale_mismatch?: string[] | null
 }
 
 export interface HintLayer {
   field: HintLayerField
   label: string
   text: string
+  /** True when this text is not in the learner's language. The label says
+   * so, rather than the card claiming an English sentence is "الترجمة". */
+  foreign?: boolean
 }
 
 import i18n from '../../i18n'
@@ -95,7 +102,23 @@ export function safePrompt(text: string, answer: string | null | undefined): str
  * card carries one — i.e. in the Gym) always leads. */
 export function hintLayersFor(languageCode: string, card: HintLayerSource): HintLayer[] {
   const order: HintLayerField[] = ['base', ...(LAYER_ORDER[languageCode] ?? DEFAULT_ORDER)]
+  // A field the server flagged is shown, but never under a label that
+  // claims it is the learner's language: an Arabic speaker was told
+  // "الترجمة" over an English sentence. Withholding it instead would
+  // leave a cloze with no semantic cue at all, so it is labelled with the
+  // language it is actually in and the demand queue fills it for next time.
+  const mismatched = new Set(card.locale_mismatch ?? [])
   return order
     .filter((field) => (card[field] ?? '').toString().trim().length > 0)
-    .map((field) => ({ field, label: i18n.t(LABELS[field]), text: card[field] as string }))
+    .map((field) => {
+      const foreign = mismatched.has(field)
+      return {
+        field,
+        label: foreign
+          ? i18n.t('review.layerNotTranslated', { label: i18n.t(LABELS[field]) })
+          : i18n.t(LABELS[field]),
+        text: card[field] as string,
+        ...(foreign ? { foreign: true } : {}),
+      }
+    })
 }

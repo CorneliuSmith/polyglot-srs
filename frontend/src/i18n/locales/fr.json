@@ -441,7 +441,8 @@
     "durationMin_other": "{{count}} min",
     "durationSec_one": "{{count}} s",
     "durationSec_other": "{{count}} s",
-    "loadFailed": "Impossible de charger votre session de révision."
+    "loadFailed": "Impossible de charger votre session de révision.",
+    "layerNotTranslated": "{{label}} (en anglais — pas encore traduit)"
   },
   "about": {
     "title": "À savoir",

@@ -251,3 +251,51 @@ async def test_personal_decks_survive_a_missing_deck_migration(pool):
         finally:
             await conn.execute("ALTER TABLE pd_hidden RENAME TO personal_decks")
     del uid
+
+
+async def test_an_untranslated_card_is_flagged_before_it_reaches_the_learner(pool):
+    """The reported screen, reproduced through the real query.
+
+    A learner studying Turkish with Arabic support saw
+    "This city is very big and millions of people live there." under the
+    heading الترجمة. Nothing failed: the personal card was minted in
+    English, no Arabic rendering existed, and the payload carried no way
+    for the UI to know which language it had been handed.
+    """
+    lang, uid, cloze = await _setup(pool, "lgt", "ar")
+
+    async with pool.privileged_connection() as conn:
+        due = await get_due_cards(conn, lang, 20, "ar")
+        card = next(d for d in due if d["card_type"] == "personal")
+
+        # Served, because a cloze with no cue at all is worse than one in
+        # the wrong language — but no longer served as if it were Arabic.
+        assert card["translation"] == "This city is very big."
+        assert card["locale_mismatch"] == ["translation"]
+
+        # The hint is the learner's own Turkish answer. Flagging it would
+        # mark every personal card of every non-Latin learner.
+        assert "hint" not in card["locale_mismatch"]
+
+        # Once their language lands, the flag goes away entirely.
+        await store_card_translations(
+            conn, [(cloze, "هذه المدينة كبيرة جداً.")], "ar")
+        due = await get_due_cards(conn, lang, 20, "ar")
+        card = next(d for d in due if d["card_type"] == "personal")
+        assert card["translation"] == "هذه المدينة كبيرة جداً."
+        assert "locale_mismatch" not in card
+    del uid
+
+
+async def test_a_latin_script_learner_sees_no_change(pool):
+    """Script cannot separate English from Spanish, so the guard says
+    nothing rather than guessing — and must not start stamping every card
+    of every Latin-script learner."""
+    lang, uid, _ = await _setup(pool, "lgs", "es")
+
+    async with pool.privileged_connection() as conn:
+        due = await get_due_cards(conn, lang, 20, "es")
+        card = next(d for d in due if d["card_type"] == "personal")
+        assert card["translation"] == "This city is very big."
+        assert "locale_mismatch" not in card
+    del uid
