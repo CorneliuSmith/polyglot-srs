@@ -472,7 +472,12 @@
     "durationSec_many": "{{count}} ثانية",
     "durationSec_other": "{{count}} ثانية",
     "loadFailed": "تعذر تحميل جلسة المراجعة.",
-    "layerNotTranslated": "{{label}} (بالإنجليزية — لم تُترجَم بعد)"
+    "layerNotTranslated": "{{label}} (بالإنجليزية — لم تُترجَم بعد)",
+    "translateMine": "ترجم بطاقاتي ({{count}}) — تستهلك رسالة واحدة",
+    "translateMineWorking": "جارٍ الترجمة…",
+    "translateMineDone": "تُرجمت {{count}} — أعد التحميل لعرضها",
+    "translateMineNone": "لا يوجد ما يُترجم",
+    "translateMineFailed": "تعذّرت الترجمة — حاول لاحقًا"
   },
   "about": {
     "title": "أشياء تستحق المعرفة",

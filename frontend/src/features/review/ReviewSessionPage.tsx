@@ -34,6 +34,7 @@ import SessionSummary from './SessionSummary'
 import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
 import { composeScript, deleteLastUnit, finalizeInput } from '../keyboards/translit'
 import { hintLayersFor, safePrompt } from './hintLayers'
+import TranslateMyCards from './TranslateMyCards'
 import SpeakButton from '../../components/SpeakButton'
 import FormsPanel from '../../components/FormsPanel'
 import { TTS_LANGUAGES, prefetchTTS } from '../../api/audio'
@@ -963,6 +964,15 @@ function ReviewSessionInner({
                     {l.label}
                   </span>
                   {l.text}
+                  {/* Naming the language it is in was only half the fix: the
+                      learner still could not read it. Their own cards are
+                      never swept by the background loop (they are private),
+                      so this is the only place the fill can be asked for —
+                      and asking has to happen where the gap is noticed, not
+                      on a Decks page nobody visits mid-session. */}
+                  {l.foreign && card.card_type === 'personal' && activeLanguageId && (
+                    <TranslateMyCards languageId={activeLanguageId} />
+                  )}
                 </p>
               ))}
             </div>

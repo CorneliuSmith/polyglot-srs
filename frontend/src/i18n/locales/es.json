@@ -442,7 +442,12 @@
     "durationSec_one": "{{count}} seg",
     "durationSec_other": "{{count}} seg",
     "loadFailed": "No se pudo cargar tu sesión de repaso.",
-    "layerNotTranslated": "{{label}} (en inglés — aún sin traducir)"
+    "layerNotTranslated": "{{label}} (en inglés — aún sin traducir)",
+    "translateMine": "Traducir mis {{count}} tarjetas (usa 1 mensaje)",
+    "translateMineWorking": "Traduciendo…",
+    "translateMineDone": "{{count}} traducidas — recarga para verlas",
+    "translateMineNone": "Nada que traducir",
+    "translateMineFailed": "No se pudo traducir — inténtalo más tarde"
   },
   "about": {
     "title": "Cosas que saber",
