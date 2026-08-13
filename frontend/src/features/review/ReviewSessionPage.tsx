@@ -96,6 +96,30 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
   // in one move.
   const [epoch, setEpoch] = useState(0)
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
+  // Watching the PROFILE, not just this page's own locale picker. There are
+  // two ways to change the language and only one used to restart the
+  // session: the in-page picker called onLocaleChanged, while the globe in
+  // the header wrote the profile and refetched — but a running session holds
+  // its card list in state, so the refetched Spanish never reached the
+  // screen. The chrome switched, the cards did not, and only leaving the
+  // page and coming back fixed it. Keyed off the value itself, so any route
+  // that changes it (either picker, or a sync from another device) restarts
+  // the session.
+  const { data: localeProfile } = useQuery({
+    queryKey: ['profile'],
+    queryFn: getProfile,
+  })
+  const supportLocale = localeProfile?.support_locale ?? null
+  const seenLocale = useRef<string | null>(null)
+  useEffect(() => {
+    if (supportLocale == null) return
+    // First load is not a change — remounting there would refetch the
+    // session's cards twice on every entry.
+    if (seenLocale.current !== null && seenLocale.current !== supportLocale) {
+      setEpoch((e) => e + 1)
+    }
+    seenLocale.current = supportLocale
+  }, [supportLocale])
   return (
     <ReviewSessionInner
       key={`${activeLanguageId ?? 'none'}:${epoch}`}
