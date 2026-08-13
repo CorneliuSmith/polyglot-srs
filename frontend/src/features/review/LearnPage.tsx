@@ -38,6 +38,23 @@ export default function LearnPage() {
   // (key epoch): unconfirmed lessons are suspended by design and re-taught
   // by the fresh batch — now localized in the new language.
   const [epoch, setEpoch] = useState(0)
+  // Watched at the profile, not just at this page's own picker: the globe in
+  // the header changes the same setting, and a walkthrough already holding
+  // its lessons in state kept showing the old language until the page was
+  // left and re-entered. See the same guard in ReviewSessionPage.
+  const { data: localeProfile } = useQuery({
+    queryKey: ['profile'],
+    queryFn: getProfile,
+  })
+  const supportLocale = localeProfile?.support_locale ?? null
+  const seenLocale = useRef<string | null>(null)
+  useEffect(() => {
+    if (supportLocale == null) return
+    if (seenLocale.current !== null && seenLocale.current !== supportLocale) {
+      setEpoch((e) => e + 1)
+    }
+    seenLocale.current = supportLocale
+  }, [supportLocale])
   return <LearnInner key={epoch} onLocaleChanged={() => setEpoch((e) => e + 1)} />
 }
 

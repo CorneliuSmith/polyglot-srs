@@ -145,19 +145,55 @@ services (see `.github/workflows/ci.yml`). Inside the dev container the exact
 
 ## Layer 3 — AI review passes (costs allowance; run deliberately)
 
-Mechanical rules cannot judge *meaning*. Two maker–checker passes do:
+Mechanical rules cannot judge *meaning*. Three maker–checker passes do.
+
+### English is the pivot — fix it first
+
+Every locale is generated **from the English**, and the checker then grades
+that locale **against that same English**. So the English is ground truth in
+both directions and was never itself examined: a loose English silently caps
+every language derived from it, while each downstream locale still looks
+correct *relative to its source*. A Spanish rendering can be excellent and
+still be wrong, because it faithfully translated a poor English.
+
+So the order matters. Fix the English, then let the locales re-derive:
 
 ```bash
-# Rewrite confusing/dictionary-jargon definitions. Journals every change; revertible.
-python -m backend.services.seeder.review_hints --language ru --limit 30 --dry-run
-python -m backend.services.seeder.review_hints --language ru --limit 30
+# 1. Judge the ENGLISH against the sentence it claims to translate.
+#    Reads the target-language sentence; the English is what's on trial.
+python -m backend.services.seeder.review_translations --language hi --limit 20 --dry-run
+python -m backend.services.seeder.review_translations --language hi --limit 20
+python -m backend.services.seeder.review_translations --restore <journal-file>
 
-# Audit generated sentences/drills for accuracy, level and usefulness.
+# 2. Rewrite confusing/dictionary-jargon definitions.
+python -m backend.services.seeder.review_hints --language ru --limit 30 --dry-run
+
+# 3. Audit generated sentences/drills for accuracy, level and usefulness.
 python -m backend.services.seeder.generate_content --language ca --recheck
 ```
 
-Anything the checker is unsure about lands in the **Review inbox** for a human,
-rather than being silently applied.
+Correcting an English **deletes the locale renderings built from it** — they
+were faithful to the old text and are now quietly wrong. The demand-driven
+loop refills them from the corrected English on next use. Anything the
+checker is unsure about is flagged for a human rather than guessed at, and
+surfaces in the **Review inbox**.
+
+### Where a content fix actually has to land
+
+The two content stores do not behave the same on re-seed, and getting this
+wrong means editing a file and seeing nothing change:
+
+| Content | Re-seed behaviour | So a fix must… |
+| --- | --- | --- |
+| Grammar drills (`data/grammar/<code>_grammar.json`) | Matched on `(sentence, answer)` and **updated in place** — the row id survives, so learner progress does too | Edit the JSON, then `python -m backend.services.seeder.seed_grammar --language <code>`. Never change `sentence` or `answer`: they are the match key, and changing either orphans the old row and its history. |
+| Example sentences (`data/<code>_sentences.tsv`) | `ON CONFLICT … DO NOTHING` — an existing row **never** changes | Go through the database (`review_translations` does). `--write-tsv` mirrors the change into the repo so a FRESH environment seeds the corrected text, but it will not touch a running deployment. |
+| AI-generated cards | Not in the repo at all | `generate_content --recheck`, or human review through the Review workspace. |
+
+One more caveat before any bulk re-seed: the grammar update path does **not**
+exempt human-edited rows. Deletion protects them — a drill a reviewer touched
+is never deleted — but an update will overwrite a reviewer's in-app hint edit
+if the sentence and answer still match. Check the change log for a language
+before re-seeding it.
 
 ---
 

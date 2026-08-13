@@ -575,3 +575,80 @@ async def generate_trivia(
             "fact": q["fact"].strip(),
         })
     return out
+
+
+async def review_source_translations(
+    source_language: str, items: list[dict], model: str | None = None,
+) -> list[dict]:
+    """Judge the ENGLISH against the sentence it claims to translate.
+
+    Every other checker here runs English → L: the English is treated as
+    ground truth and each locale is generated from it. Nothing ever asked
+    whether the English itself is faithful, so a loose rendering silently
+    caps every language derived from it — the owner noticed a Spanish
+    translation that was fine while the English it came from was not.
+
+    Direction is therefore reversed: *sentence* is in the language being
+    taught, *translation* is the English under review.
+
+    items: {i, sentence, translation}. Returns {i, verdict, translation,
+    note}: 'ok' keep, 'fixed' use the corrected English, 'reject' → empty
+    (a human decides, via the review queue).
+    """
+    settings = get_settings()
+    if getattr(settings, "tutor_dev_mock", False):
+        return [{"i": it["i"], "verdict": "ok",
+                 "translation": it["translation"], "note": ""} for it in items]
+    lines = "\n".join(
+        f'{it["i"]}. {source_language}: {it["sentence"]}\n   English: {it["translation"]}'
+        for it in items
+    )
+    resp = await _client().messages.create(
+        model=model or resolve_model("translate"),
+        max_tokens=4096,
+        system=(
+            f"You check English translations of {source_language} sentences for a "
+            "language course. The English is what learners read to understand the "
+            f"{source_language}, and every other language's version is generated "
+            "FROM this English — so an imprecise English silently corrupts every "
+            "other locale.\n"
+            "Judge only the ENGLISH. Verdict 'ok' when it is accurate and natural. "
+            "'fixed' when you can do better, putting the replacement in `final`: "
+            "correct meaning errors, wrong register, and renderings that are "
+            "defensible but misleading out of context. Prefer the natural English a "
+            "speaker would actually say over a word-by-word gloss, but do not drift "
+            "further from the source than the original did. Keep it the same kind of "
+            "utterance — a question stays a question, a fragment stays a fragment. "
+            "'reject' when the pair is too broken or ambiguous to fix confidently "
+            "(e.g. the English translates a different sentence).\n"
+            "Say in `note` what was wrong, in a few words. Leave `note` empty for 'ok'."
+        ),
+        messages=[{"role": "user", "content": lines}],
+        output_config={"format": {"type": "json_schema", "schema": _CHECKER_SCHEMA}},
+    )
+    text = next((b.text for b in resp.content if b.type == "text"), "{}")
+    try:
+        data = json.loads(text)
+    except (json.JSONDecodeError, TypeError):
+        return []
+    by_i = {}
+    for v in data.get("verdicts", []):
+        verdict = v.get("verdict")
+        if verdict not in ("ok", "fixed", "reject"):
+            verdict = "reject"
+        by_i[v["i"]] = (verdict, (v.get("final") or "").strip(),
+                        (v.get("note") or "").strip())
+    out = []
+    for it in items:
+        verdict, final, note = by_i.get(it["i"], ("reject", "", "no verdict"))
+        # A 'fixed' that came back identical is really an 'ok'; storing it
+        # would spend a write and a stale-marking for nothing.
+        if verdict == "fixed" and final == it["translation"]:
+            verdict, note = "ok", ""
+        out.append({
+            "i": it["i"], "verdict": verdict,
+            "translation": (it["translation"] if verdict == "ok"
+                            else final if verdict == "fixed" else ""),
+            "note": note,
+        })
+    return out
