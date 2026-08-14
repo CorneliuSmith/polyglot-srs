@@ -31,12 +31,73 @@ language derived from it.
 
 ---
 
+## 1a. Two ways to run it, and which one you want
+
+`review_translations` can get its verdicts from either place:
+
+| | Judge | Costs | Use when |
+| --- | --- | --- | --- |
+| **API mode** | the Anthropic API, called by the script | **billed per row** | unattended sweeps, cron |
+| **Offline mode** | **the Claude Code session you are already in** | nothing extra | you are sitting here anyway |
+
+**Offline mode is the default choice when a session is running the job.** The
+model is already in the room; paying the API to do the same reading is
+buying it twice. It needs no `ANTHROPIC_API_KEY` at all.
+
+```bash
+# 1. Pull the rows out. Calls no model, spends nothing.
+python -m backend.services.seeder.review_translations \
+  --language hi --limit 50 --export hi.jsonl
+
+# 2. The session reads hi.jsonl, judges each line, and fills in
+#    verdict / fixed / note ON THE SAME LINES, saving in place.
+
+# 3. Write the verdicts back — same journal, same deletes, same mirrors.
+python -m backend.services.seeder.review_translations --apply hi.jsonl --dry-run
+python -m backend.services.seeder.review_translations --apply hi.jsonl
+```
+
+Each exported line looks like this — `sentence` is what the English is
+judged *against* (a drill's blank is already filled in), and the last three
+fields are blank for the judge:
+
+```json
+{"id": "652797d4-…", "source": "drill", "language": "hi",
+ "sentence": "मैं चाय पीता हूँ।", "english": "I drink tea.",
+ "verdict": "", "fixed": "", "note": ""}
+```
+
+`verdict` is one of:
+
+- **`ok`** — the English is accurate and natural. Nothing is written.
+- **`fixed`** — put the better English in `fixed`. Correct meaning errors,
+  wrong register, and renderings that are defensible but misleading out of
+  context. Do not drift further from the source than the original did, and
+  keep the same kind of utterance: a question stays a question.
+- **`reject`** — too broken or ambiguous to fix confidently (e.g. the
+  English translates a different sentence). The row is flagged for a human;
+  its text is never guessed at.
+
+**One file round-trips on purpose.** A separate verdicts file would lose the
+original `english`, and without it there is no way to notice a row changed
+between export and apply — a stale export would silently overwrite whoever
+edited it. Rows that changed are skipped and counted as `stale`.
+
+The apply summary distinguishes `unchanged` (judged, left alone) from
+`unjudged` (nobody filled a verdict in), so a careful pass that concludes
+"this English is fine" does not read like a file that never got opened.
+
+Everything from section 4 onward applies to both modes — they share the
+write path exactly.
+
+---
+
 ## 2. Before you start
 
 ```bash
-git pull                       # you want #259 or later
-export ANTHROPIC_API_KEY=...
+git pull                       # you want #261 or later for offline mode
 export DATABASE_URL=...        # the live database
+export ANTHROPIC_API_KEY=...   # API mode ONLY; offline mode needs no key
 ```
 
 Confirm you are pointed where you think you are — this is the single
@@ -207,15 +268,30 @@ one. Committing the grammar JSON does mean the next deploy carries it.
 ## 9. Paste this into the local session
 
 > Read `docs/quality/running-locally.md` and `docs/quality/README.md`.
-> I want to run `review_translations` against the live database.
-> `ANTHROPIC_API_KEY` and `DATABASE_URL` are set.
+> I want to run `review_translations` against the live database in
+> **offline mode** — you do the judging, not the API. `DATABASE_URL` is
+> set; there is deliberately no `ANTHROPIC_API_KEY`.
 >
-> Start with `--language <code> --limit 20 --dry-run` and show me the
-> proposed corrections before writing anything — I decide whether to
-> proceed. Then widen only as far as I tell you.
+> Work one language at a time, starting with `<code>`:
 >
-> Rules: never run `--all` without a dry run I have seen; always tell me
-> the journal path after a run; commit the `data/grammar/*.json` diff
-> afterwards, because a re-seed reverts a database-only drill fix; never
-> edit a drill's `sentence` or `answer`; and if anything looks wrong,
-> stop and use `--restore` rather than trying to repair it by hand.
+> 1. `--language <code> --limit 50 --export <code>.jsonl`
+> 2. Read every line. For each, judge the `english` against the
+>    `sentence`, and fill in `verdict` (`ok` / `fixed` / `reject`),
+>    `fixed`, and `note` on that same line. Save in place. Do not
+>    invent, reorder or drop lines, and do not touch `id`, `source`,
+>    `sentence` or `english`.
+> 3. `--apply <code>.jsonl --dry-run`, show me the summary and a sample
+>    of the corrections, and wait for me before applying for real.
+> 4. After applying, tell me the journal path and commit the
+>    `data/grammar/*.json` diff — a re-seed reverts a database-only
+>    drill fix.
+>
+> Judging standard: `ok` unless you can genuinely do better. Correct
+> meaning errors, wrong register, and renderings that mislead out of
+> context. Do not drift further from the source than the original did;
+> keep a question a question. Use `reject` — never a guess — when the
+> pair is too broken or ambiguous to fix confidently.
+>
+> Rules: never run `--all` without a dry run I have seen; never edit a
+> drill's `sentence` or `answer`; if anything looks wrong, stop and use
+> `--restore` rather than repairing by hand.
