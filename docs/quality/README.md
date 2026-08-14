@@ -145,6 +145,11 @@ services (see `.github/workflows/ci.yml`). Inside the dev container the exact
 
 ## Layer 3 — AI review passes (costs allowance; run deliberately)
 
+> Running these yourself, from your own machine, against the live database?
+> **`docs/quality/running-locally.md`** is the runbook: safe order, exactly
+> what each pass writes, how to undo a run, and the two ways a correct fix
+> can quietly un-do itself.
+
 Mechanical rules cannot judge *meaning*. Three maker–checker passes do.
 
 ### English is the pivot — fix it first
