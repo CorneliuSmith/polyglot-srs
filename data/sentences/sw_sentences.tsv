@@ -1,43 +1,504 @@
-word	sentence	translation	difficulty_rank
-malaika	Malaika ni mjumbe wa Mungu.	An angel is a messenger of God.	101
-pepo	Pepo ni roho mbaya.	A demon is an evil spirit.	163
-uzima	Uzima ni muhimu.	Health is important.	174
-neema	Neema ni zawadi ya bure.	Grace is a free gift.	184
-mtumishi	Mtumishi anafanya kazi.	The servant is working.	188
-amri	Mfalme alitoa amri.	The king gave a command.	264
-mwanga	Mwanga wa jua ni mkali.	Sunlight is bright.	272
-wajibu	Ni wajibu wangu.	It is my duty.	279
-naam	Naam, nakubali.	Yes, I agree.	283
-nabii	Nabii alihubiri neno.	The prophet preached the word.	290
-mafundisho	Mafundisho yake ni mazuri.	His teachings are good.	301
-hekalu	Hekalu ni kubwa.	The temple is big.	324
-sabato	Sabato ni siku ya mapumziko.	The Sabbath is a day of rest.	335
-halafu	Nitakula halafu nitalala.	I'll eat then I'll sleep.	346
-panda	Panda mlima polepole.	Climb the mountain slowly.	347
-wema	Wema ni tabia nzuri.	Kindness is a good character trait.	365
-kadhalika	Yeye pia, na wewe kadhalika.	Him too, and you likewise.	370
-mbingu	Mbingu ni bluu.	The sky is blue.	432
-sikukuu	Leo ni sikukuu.	Today is a holiday.	439
-shuka	Shuka hapa, tafadhali.	Get off here, please.	453
-utawala	Utawala wa sheria ni muhimu.	The rule of law is important.	461
-dhabihu	Alitoa dhabihu.	He offered a sacrifice.	468
-hofu	Usiwe na hofu.	Don't be afraid.	470
-mkoa	Mkoa huu ni mkubwa.	This region is big.	475
-kipaji	Ana kipaji cha muziki.	He has a talent for music.	480
-vazi	Vazi lake ni safi.	Her garment is clean.	482
-mwanakondoo	Mwanakondoo ni mdogo.	The lamb is small.	496
-kipofu	Kipofu anahitaji msaada.	A blind person needs help.	513
-imara	Nyumba ni imara.	The house is strong.	517
-kuhubiri	Alianza kuhubiri.	He started to preach.	520
-matakwa	Matakwa yako ni nini?	What are your wishes?	523
-kikombe	Nataka kikombe cha chai.	I want a cup of tea.	537
-taabu	Maisha yana taabu.	Life has hardships.	550
-myahudi	Yeye ni Myahudi.	He is a Jew.	554
-sali	Sali kwa Mungu.	Pray to God.	573
-sadaka	Alitoa sadaka kanisani.	He gave an offering at church.	580
-ushuru	Wafanyabiashara wanalipa ushuru.	Traders pay tax.	581
-upanga	Askari ana upanga.	The soldier has a sword.	583
-ghadhabu	Ghadhabu yake ni kubwa.	His wrath is great.	594
-hubiri	Hubiri habari njema.	Preach the good news.	555
-amuru	Amuru jeshi lako.	Command your army.	464
-taabu	Tulipata taabu njiani.	We had trouble on the way.	550
+word	sentence	translation	difficulty_rank	gloss	transliteration	source
+malaika	Malaika ni mjumbe wa Mungu.	An angel is a messenger of God.	101			
+pepo	Pepo ni roho mbaya.	A demon is an evil spirit.	163			
+uzima	Uzima ni muhimu.	Health is important.	174			
+neema	Neema ni zawadi ya bure.	Grace is a free gift.	184			
+mtumishi	Mtumishi anafanya kazi.	The servant is working.	188			
+amri	Mfalme alitoa amri.	The king gave a command.	264			
+mwanga	Mwanga wa jua ni mkali.	Sunlight is bright.	272			
+wajibu	Ni wajibu wangu.	It is my duty.	279			
+naam	Naam, nakubali.	Yes, I agree.	283			
+nabii	Nabii alihubiri neno.	The prophet preached the word.	290			
+mafundisho	Mafundisho yake ni mazuri.	His teachings are good.	301			
+hekalu	Hekalu ni kubwa.	The temple is big.	324			
+sabato	Sabato ni siku ya mapumziko.	The Sabbath is a day of rest.	335			
+halafu	Nitakula halafu nitalala.	I'll eat then I'll sleep.	346			
+panda	Panda mlima polepole.	Climb the mountain slowly.	347			
+wema	Wema ni tabia nzuri.	Kindness is a good character trait.	365			
+kadhalika	Yeye pia, na wewe kadhalika.	Him too, and you likewise.	370			
+mbingu	Mbingu ni bluu.	The sky is blue.	432			
+sikukuu	Leo ni sikukuu.	Today is a holiday.	439			
+shuka	Shuka hapa, tafadhali.	Get off here, please.	453			
+utawala	Utawala wa sheria ni muhimu.	The rule of law is important.	461			
+dhabihu	Alitoa dhabihu.	He offered a sacrifice.	468			
+hofu	Usiwe na hofu.	Don't be afraid.	470			
+mkoa	Mkoa huu ni mkubwa.	This region is big.	475			
+kipaji	Ana kipaji cha muziki.	He has a talent for music.	480			
+vazi	Vazi lake ni safi.	Her garment is clean.	482			
+mwanakondoo	Mwanakondoo ni mdogo.	The lamb is small.	496			
+kipofu	Kipofu anahitaji msaada.	A blind person needs help.	513			
+imara	Nyumba ni imara.	The house is strong.	517			
+kuhubiri	Alianza kuhubiri.	He started to preach.	520			
+matakwa	Matakwa yako ni nini?	What are your wishes?	523			
+kikombe	Nataka kikombe cha chai.	I want a cup of tea.	537			
+taabu	Maisha yana taabu.	Life has hardships.	550			
+myahudi	Yeye ni Myahudi.	He is a Jew.	554			
+sali	Sali kwa Mungu.	Pray to God.	573			
+sadaka	Alitoa sadaka kanisani.	He gave an offering at church.	580			
+ushuru	Wafanyabiashara wanalipa ushuru.	Traders pay tax.	581			
+upanga	Askari ana upanga.	The soldier has a sword.	583			
+ghadhabu	Ghadhabu yake ni kubwa.	His wrath is great.	594			
+hubiri	Hubiri habari njema.	Preach the good news.	555			
+amuru	Amuru jeshi lako.	Command your army.	464			
+taabu	Tulipata taabu njiani.	We had trouble on the way.	550			
+shikamoo	Shikamoo babu, habari za nyumbani?	Respectful greetings, grandfather. How are things at home?	3	shikamoo (respect.greeting) babu (CL1-grandfather) habari (CL10-news) za (CL10-of) nyumba-ni (CL9-house-LOC)		ai
+marahaba	Shikamoo mama. Marahaba, mwanangu.	Greetings, madam. Thank you, my child.	3	shikamoo (respect.greeting) mama (CL1-mother) marahaba (reply) mwana-ngu (CL1-child-my)		ai
+kwaheri	Kwaheri, tutaonana wiki ijayo.	Goodbye, we will see each other next week.	4	kwaheri (goodbye) tu-ta-on-ana (1PL-FUT-see-RECIP) wiki (CL9-week) i-ja-yo (CL9-come-REL = coming)		ai
+ni	Dada yangu ni mwalimu wa hesabu.	My sister is a mathematics teacher.	2	dada (CL9-sister) y-angu (CL9-my) ni (is) mwalimu (CL1-teacher) wa (CL1-of) hesabu (CL9-mathematics)		ai
+si	Huyu si mgeni, ni jirani yetu.	This is not a stranger; he is our neighbour.	3	huyu (CL1-this) si (is.not) m-geni (CL1-stranger) ni (is) jirani (CL9-neighbour) y-etu (CL9-our)		ai
+lakini	Nilijaribu kupiga simu lakini hakuna aliyepokea.	I tried to call but nobody answered.	6	ni-li-jaribu (1SG-PAST-try) ku-piga (INF-hit) simu (CL9-phone) lakini (but) hakuna (there.is.not) a-li-ye-pokea (CL1-PAST-CL1.REL-receive)		ai
+kiswahili	Ninajifunza Kiswahili tangu mwaka jana.	I have been learning Swahili since last year.	4	ni-na-ji-funza (1SG-PRES-REFL-teach) Kiswahili (CL7-Swahili) tangu (since) mwaka (CL3-year) jana (last)		ai
+kiingereza	Anazungumza Kiingereza na Kifaransa.	She speaks English and French.	3	a-na-zungumza (CL1-PRES-speak) Kiingereza (CL7-English) na (and) Kifaransa (CL7-French)		ai
+sizungumzi	Samahani, sizungumzi Kifaransa vizuri.	Sorry, I do not speak French well.	4	samahani (sorry) si-zungumz-i (1SG.NEG-speak-NEG) Kifaransa (CL7-French) vizuri (CL8-well)		ai
+lugha	Lugha ya taifa hapa ni Kiswahili.	The national language here is Swahili.	4	lugha (CL9-language) ya (CL9-of) taifa (CL5-nation) hapa (CL16-here) ni (is) Kiswahili (CL7-Swahili)		ai
+umri	Una umri gani, kama siri si kubwa?	How old are you, if it is not a big secret?	5	u-na (2SG-have) umri (CL11-age) gani (what.kind) kama (if) siri (CL9-secret) si (is.not) kubwa (CL9-big)		ai
+gani	Unapenda muziki wa aina gani?	What kind of music do you like?	4	u-na-penda (2SG-PRES-like) muziki (CL3-music) wa (CL3-of) aina (CL9-kind) gani (what.kind)		ai
+yeye	Yeye ni mtulivu lakini rafiki yake ni mchangamfu.	She is quiet but her friend is lively.	5	yeye (he/she) ni (is) m-tulivu (CL1-quiet) lakini (but) rafiki (CL9-friend) y-ake (CL9-his/her) ni (is) m-changamfu (CL1-lively)		ai
+sisi	Sisi tunaishi mji mmoja.	We live in the same town.	3	sisi (we) tu-na-ishi (1PL-PRES-live) mji (CL3-town) m-moja (CL3-one)		ai
+mwerevu	Mwanafunzi yule ni mwerevu sana.	That student is very clever.	4	mwanafunzi (CL1-student) yule (CL1-that) ni (is) mw-erevu (CL1-clever) sana (very)		ai
+mpole	Jirani wetu ni mpole na mkarimu.	Our neighbour is gentle and generous.	4	jirani (CL1-neighbour) w-etu (CL1-our) ni (is) m-pole (CL1-gentle) na (and) m-karimu (CL1-generous)		ai
+hodari	Yeye ni hodari katika kucheza mpira.	He is skilful at playing football.	4	yeye (he) ni (is) hodari (skilful) katika (in) ku-cheza (INF-play) mpira (CL3-ball)		ai
+ghali	Nguo hizi ni ghali kuliko nilivyodhani.	These clothes are more expensive than I thought.	6	nguo (CL10-clothes) hizi (CL10-these) ni (are) ghali (expensive) kuliko (than) ni-li-vyo-dhani (1SG-PAST-CL8.REL-think)		ai
+rahisi	Soko la hapa lina bidhaa rahisi.	The market here has cheap goods.	4	soko (CL5-market) la (CL5-of) hapa (CL16-here) li-na (CL5-have) bidhaa (CL10-goods) rahisi (cheap)		ai
+shilingi	Nauli ni shilingi hamsini na tano.	The fare is fifty-five shillings.	3	nauli (CL9-fare) ni (is) shilingi (CL10-shilling) hamsini (fifty) na (and) tano (five)		ai
+chenji	Tafadhali nipe chenji yangu.	Please give me my change.	4	tafadhali (please) ni-p-e (1SG.OBJ-give-SUBJ) chenji (CL9-change) y-angu (CL9-my)		ai
+kadirio	Naomba kadirio la bili, tafadhali.	May I have the bill, please.	5	na-omba (1SG.PRES-request) kadirio (CL5-estimate) la (CL5-of) bili (CL9-bill) tafadhali (please)		ai
+jambo	Kuna jambo moja ninalotaka kukuuliza.	There is one matter I want to ask you about.	6	kuna (CL17-there.is) jambo (CL5-matter) moja (one) ni-na-lo-taka (1SG-PRES-CL5.REL-want) ku-ku-uliza (INF-2SG.OBJ-ask)		ai
+kusoma	Ninasoma sheria katika chuo kikuu.	I am studying law at the university.	4	ni-na-soma (1SG-PRES-study) sheria (CL9-law) katika (in) chuo (CL7-college) ki-kuu (CL7-great)		ai
+lini	Utaondoka lini kwenda Arusha?	When will you leave for Arusha?	3	u-ta-ondoka (2SG-FUT-depart) lini (when) kw-enda (INF-go) Arusha		ai
+wiki	Wiki hii nina mikutano mingi.	This week I have many meetings.	4	wiki (CL9-week) hii (CL9-this) ni-na (1SG-have) mi-kutano (CL4-meeting) mi-ngi (CL4-many)		ai
+kesho	Kesho asubuhi tutakutana stesheni.	Tomorrow morning we will meet at the station.	3	kesho (tomorrow) asubuhi (CL9-morning) tu-ta-kutana (1PL-FUT-meet) stesheni (CL9-station)		ai
+wapi	Unaenda wapi jioni hii?	Where are you going this evening?	2	u-na-enda (2SG-PRES-go) wapi (where) jioni (CL9-evening) hii (CL9-this)		ai
+supamaketi	Ninaenda supamaketi kununua sukari.	I am going to the supermarket to buy sugar.	3	ni-na-enda (1SG-PRES-go) supamaketi (CL9-supermarket) ku-nunua (INF-buy) sukari (CL9-sugar)		ai
+stesheni	Stesheni iko wapi kutoka hapa?	Where is the station from here?	3	stesheni (CL9-station) i-ko (CL9-be.at) wapi (where) kutoka (from) hapa (CL16-here)		ai
+geuka	Geuka kulia baada ya benki.	Turn right after the bank.	3	geuka (turn.IMP) kulia (CL17-right) baada ya (after) benki (CL9-bank)		ai
+kushoto	Duka liko upande wa kushoto.	The shop is on the left-hand side.	4	duka (CL5-shop) li-ko (CL5-be.at) upande (CL11-side) wa (CL11-of) kushoto (CL17-left)		ai
+kulia	Nyumba yao iko kulia mwa barabara.	Their house is on the right of the road.	5	nyumba (CL9-house) y-ao (CL9-their) i-ko (CL9-be.at) kulia (CL17-right) mwa (CL18-of) barabara (CL9-road)		ai
+mbona	Mbona hukuja kwenye sherehe?	How come you did not come to the party?	5	mbona (why/how.come) hu-ku-ja (2SG.NEG-PAST-come) kwenye (at) sherehe (CL9-party)		ai
+treni	Nilikosa treni ya saa mbili.	I missed the eight o'clock train.	4	ni-li-kosa (1SG-PAST-miss) treni (CL9-train) ya (CL9-of) saa (CL9-hour) mbili (two)		ai
+mapema	Tulifika mapema kuliko wageni wengine.	We arrived earlier than the other guests.	5	tu-li-fika (1PL-PAST-arrive) mapema (early) kuliko (than) wa-geni (CL2-guest) w-engine (CL2-other)		ai
+hapa	Weka mzigo wako hapa chini.	Put your load down here.	3	weka (put.IMP) mzigo (CL3-load) w-ako (CL3-your) hapa (CL16-here) chini (below)		ai
+kungoja	Sipendi kungoja kwenye foleni ndefu.	I do not like waiting in a long queue.	5	si-pend-i (1SG.NEG-like-NEG) ku-ngoja (INF-wait) kwenye (at) foleni (CL9-queue) ndefu (CL9-long)		ai
+kuchukia	Nachukia kuchelewa kwa mikutano.	I hate being late for meetings.	4	na-chukia (1SG.PRES-hate) ku-chelewa (INF-be.late) kwa (for) mi-kutano (CL4-meeting)		ai
+peremende	Watoto wanapenda peremende kuliko matunda.	Children like sweets more than fruit.	4	wa-toto (CL2-child) wa-na-penda (CL2-PRES-like) peremende (CL10-sweets) kuliko (than) ma-tunda (CL6-fruit)		ai
+kahawa	Naomba kahawa bila sukari.	May I have coffee without sugar.	3	na-omba (1SG.PRES-request) kahawa (CL9-coffee) bila (without) sukari (CL9-sugar)		ai
+menyu	Unaweza kuniletea menyu, tafadhali?	Could you bring me the menu, please?	5	u-na-weza (2SG-PRES-be.able) ku-ni-let-ea (INF-1SG.OBJ-bring-APPL) menyu (CL9-menu) tafadhali (please)		ai
+kuweza	Naweza kulipa kwa kadi?	Can I pay by card?	3	na-weza (1SG.PRES-be.able) ku-lipa (INF-pay) kwa (by) kadi (CL9-card)		ai
+lipa	Lipa hapa kisha uchukue risiti.	Pay here and then take a receipt.	5	lipa (pay.IMP) hapa (CL16-here) kisha (then) u-chuku-e (2SG-take-SUBJ) risiti (CL9-receipt)		ai
+usiku	Usiku wa Ijumaa tutaenda sinema.	On Friday night we will go to the cinema.	4	usiku (CL11-night) wa (CL11-of) Ijumaa (CL9-Friday) tu-ta-enda (1PL-FUT-go) sinema (CL9-cinema)		ai
+kuambatana	Utaambatana nasi kesho jioni?	Will you come along with us tomorrow evening?	5	u-ta-ambatana (2SG-FUT-accompany) na-si (with-us) kesho (tomorrow) jioni (CL9-evening)		ai
+kupiga	Nitakupigia simu baadaye leo.	I will call you later today.	5	ni-ta-ku-pig-ia (1SG-FUT-2SG.OBJ-hit-APPL) simu (CL9-phone) baadaye (later) leo (today)		ai
+simu	Simu yangu haina chaji.	My phone has no charge.	4	simu (CL9-phone) y-angu (CL9-my) ha-i-na (NEG-CL9-have) chaji (CL9-charge)		ai
+tena	Tutazungumza tena baada ya mkutano.	We will talk again after the meeting.	3	tu-ta-zungumza (1PL-FUT-speak) tena (again) baada ya (after) mkutano (CL3-meeting)		ai
+kazi	Ninaenda kazini kwa basi kila siku.	I go to work by bus every day.	3	ni-na-enda (1SG-PRES-go) kazi-ni (CL9-work-LOC) kwa (by) basi (CL5-bus) kila (every) siku (CL9-day)		ai
+shughuli	Nina shughuli nyingi wiki hii.	I have many engagements this week.	4	ni-na (1SG-have) shughuli (CL10-engagement) nyingi (CL10-many) wiki (CL9-week) hii (CL9-this)		ai
+kuchelewa	Samahani kwa kuchelewa, kulikuwa na msongamano.	Sorry for being late; there was heavy traffic.	6	samahani (sorry) kwa (for) ku-chelewa (INF-be.late) ku-li-kuwa na (CL17-PAST-be with) msongamano (CL3-congestion)		ai
+urithi	Urithi wa utamaduni wetu unapaswa kulindwa.	Our cultural heritage ought to be protected.	9	urithi (CL11-heritage) wa (CL11-of) utamaduni (CL11-culture) w-etu (CL11-our) u-na-paswa (CL11-PRES-ought) ku-lindwa (INF-be.protected)		ai
+msomi	Msomi huyo ameandika vitabu vingi kuhusu historia.	That scholar has written many books about history.	7	msomi (CL1-scholar) huyo (CL1-that) a-me-andika (CL1-PERF-write) vi-tabu (CL8-book) vi-ngi (CL8-many) kuhusu (about) historia (CL9-history)		ai
+kutafakari	Tunapaswa kutafakari maana ya siku hii.	We ought to reflect on the meaning of this day.	8	tu-na-paswa (1PL-PRES-ought) ku-tafakari (INF-reflect) maana (CL9-meaning) ya (CL9-of) siku (CL9-day) hii (CL9-this)		ai
+mtawala	Mtawala wa kwanza wa eneo hili alikuwa maarufu.	The first ruler of this region was renowned.	8	mtawala (CL1-ruler) wa (CL1-of) kwanza (first) wa (CL1-of) eneo (CL5-area) hili (CL5-this) a-li-kuwa (CL1-PAST-be) maarufu (famous)		ai
+upatanishi	Upatanishi ulisaidia kumaliza mgogoro.	The mediation helped end the conflict.	8	upatanishi (CL11-reconciliation) u-li-saidia (CL11-PAST-help) ku-maliza (INF-finish) mgogoro (CL3-conflict)		ai
+bahati	Kwa bahati nzuri tulifika kabla ya mvua.	Luckily we arrived before the rain.	5	kwa (by) bahati (CL9-luck) nzuri (CL9-good) tu-li-fika (1PL-PAST-arrive) kabla ya (before) mvua (CL9-rain)		ai
+mafanikio	Mafanikio yake yanatokana na bidii ya miaka mingi.	Her success stems from many years of diligence.	9	mafanikio (CL6-success) y-ake (CL6-her) ya-na-tokana na (CL6-PRES-stem.from) bidii (CL9-diligence) ya (CL9-of) mi-aka (CL4-year) mi-ngi (CL4-many)		ai
+kukuza	Serikali inakuza utalii katika maeneo ya vijijini.	The government is promoting tourism in rural areas.	8	serikali (CL9-government) i-na-kuza (CL9-PRES-promote) utalii (CL11-tourism) katika (in) ma-eneo (CL6-area) ya (CL6-of) vijiji-ni (CL8-village-LOC)		ai
+ukoloni	Ukoloni uliathiri mifumo ya elimu barani Afrika.	Colonialism affected education systems across Africa.	9	ukoloni (CL11-colonialism) u-li-athiri (CL11-PAST-affect) mi-fumo (CL4-system) ya (CL4-of) elimu (CL9-education) bara-ni (CL5-continent-LOC) Afrika		ai
+ushindi	Ushindi wao ulisherehekewa nchi nzima.	Their victory was celebrated across the whole country.	8	ushindi (CL11-victory) w-ao (CL11-their) u-li-sherehekewa (CL11-PAST-be.celebrated) nchi (CL9-country) nzima (CL9-whole)		ai
+mtazamo	Mtazamo wake kuhusu suala hili umebadilika.	His viewpoint on this issue has changed.	8	mtazamo (CL3-viewpoint) w-ake (CL3-his) kuhusu (about) suala (CL5-issue) hili (CL5-this) u-me-badilika (CL3-PERF-change)		ai
+mavazi	Mavazi ya kitamaduni huvaliwa siku za sherehe.	Traditional dress is worn on festival days.	8	mavazi (CL6-clothing) ya (CL6-of) kitamaduni (CL7-traditional) hu-valiwa (HABITUAL-be.worn) siku (CL10-day) za (CL10-of) sherehe (CL9-festival)		ai
+kizazi	Kizazi kipya kinatumia teknolojia kwa urahisi.	The new generation uses technology easily.	7	kizazi (CL7-generation) ki-pya (CL7-new) ki-na-tumia (CL7-PRES-use) teknolojia (CL9-technology) kwa (with) urahisi (CL11-ease)		ai
+bandari	Bandari ya Mombasa ni kubwa kuliko zote nchini.	The port of Mombasa is the largest in the country.	7	bandari (CL9-port) ya (CL9-of) Mombasa ni (is) kubwa (CL9-big) kuliko (than) z-ote (CL10-all) nchi-ni (CL9-country-LOC)		ai
+bara	Bara la Afrika lina nchi hamsini na nne.	The continent of Africa has fifty-four countries.	6	bara (CL5-continent) la (CL5-of) Afrika li-na (CL5-have) nchi (CL10-country) hamsini na nne (fifty-four)		ai
+mkakati	Mkakati wa kuhifadhi wanyama umeanza kufanya kazi.	The wildlife conservation strategy has begun to work.	9	mkakati (CL3-strategy) wa (CL3-of) ku-hifadhi (INF-conserve) wa-nyama (CL2-animal) u-me-anza (CL3-PERF-begin) ku-fanya (INF-do) kazi (CL9-work)		ai
+kiboko	Viboko hupatikana katika mito mikubwa.	Hippos are found in large rivers.	6	vi-boko (CL8-hippo) hu-patikana (HABITUAL-be.found) katika (in) mi-to (CL4-river) mi-kubwa (CL4-big)		ai
+mazingira	Kulinda mazingira ni jukumu la kila mmoja.	Protecting the environment is everyone's responsibility.	8	ku-linda (INF-protect) mazingira (CL6-environment) ni (is) jukumu (CL5-duty) la (CL5-of) kila (every) m-moja (CL1-one)		ai
+karne	Mji huu ulianzishwa karne ya kumi na tisa.	This town was founded in the nineteenth century.	8	mji (CL3-town) huu (CL3-this) u-li-anzishwa (CL3-PAST-be.founded) karne (CL9-century) ya (CL9-of) kumi na tisa (nineteen)		ai
+mwanzilishi	Mwanzilishi wa shirika hili alikuwa mwalimu.	The founder of this organisation was a teacher.	8	mwanzilishi (CL1-founder) wa (CL1-of) shirika (CL5-organisation) hili (CL5-this) a-li-kuwa (CL1-PAST-be) mwalimu (CL1-teacher)		ai
+marehemu	Tunamkumbuka marehemu kwa kazi yake njema.	We remember the deceased for his good work.	8	tu-na-m-kumbuka (1PL-PRES-CL1.OBJ-remember) marehemu (the.deceased) kwa (for) kazi (CL9-work) y-ake (CL9-his) njema (CL9-good)		ai
+jangwa	Jangwa linaenea kutokana na ukame wa muda mrefu.	The desert is spreading because of prolonged drought.	9	jangwa (CL5-desert) li-na-enea (CL5-PRES-spread) kutokana na (owing.to) ukame (CL11-drought) wa (CL11-of) muda (CL3-period) m-refu (CL3-long)		ai
+kisukuku	Visukuku vilivyopatikana hapa ni vya kale sana.	The fossils found here are extremely ancient.	9	vi-sukuku (CL8-fossil) vi-li-vyo-patikana (CL8-PAST-CL8.REL-be.found) hapa (CL16-here) ni (are) vya (CL8-of) kale (CL9-antiquity) sana (very)		ai
+makumbusho	Makumbusho ya taifa yanahifadhi vitu vya kale.	The national museum preserves ancient objects.	8	makumbusho (CL6-museum) ya (CL6-of) taifa (CL5-nation) ya-na-hifadhi (CL6-PRES-preserve) vi-tu (CL8-thing) vya (CL8-of) kale (CL9-antiquity)		ai
+maendeleo	Maendeleo ya kiuchumi yameongezeka mwaka huu.	Economic development has increased this year.	8	maendeleo (CL6-development) ya (CL6-of) kiuchumi (CL7-economic) ya-me-ongezeka (CL6-PERF-increase) mwaka (CL3-year) huu (CL3-this)		ai
+janga	Janga la njaa liliathiri maeneo mengi.	The famine affected many areas.	8	janga (CL5-catastrophe) la (CL5-of) njaa (CL9-hunger) li-li-athiri (CL5-PAST-affect) ma-eneo (CL6-area) m-engi (CL6-many)		ai
+kulipuka	Volkeno hiyo ililipuka miaka mia moja iliyopita.	That volcano erupted a hundred years ago.	9	volkeno (CL9-volcano) hiyo (CL9-that) i-li-lipuka (CL9-PAST-erupt) mi-aka (CL4-year) mia moja (hundred) i-li-yo-pita (CL4-PAST-REL-pass)		ai
+licha	Licha ya mvua, watu wengi walihudhuria.	Despite the rain, many people attended.	7	licha ya (despite) mvua (CL9-rain) wa-tu (CL2-person) w-engi (CL2-many) wa-li-hudhuria (CL2-PAST-attend)		ai
+mwambao	Mwambao wa Kenya una fukwe nyingi nzuri.	The Kenyan coastline has many fine beaches.	7	mwambao (CL3-coastline) wa (CL3-of) Kenya u-na (CL3-have) fukwe (CL10-beach) nyingi (CL10-many) nzuri (CL10-fine)		ai
+madhumuni	Madhumuni ya mkutano ni kupanga bajeti.	The purpose of the meeting is to plan the budget.	8	madhumuni (CL6-purpose) ya (CL6-of) mkutano (CL3-meeting) ni (is) ku-panga (INF-plan) bajeti (CL9-budget)		ai
+maonyesho	Maonyesho ya sanaa yatafunguliwa Jumamosi.	The art exhibition will open on Saturday.	7	maonyesho (CL6-exhibition) ya (CL6-of) sanaa (CL9-art) ya-ta-funguliwa (CL6-FUT-be.opened) Jumamosi (CL9-Saturday)		ai
+pango	Pango hili lilikuwa makazi ya watu wa kale.	This cave was the dwelling of ancient people.	8	pango (CL5-cave) hili (CL5-this) li-li-kuwa (CL5-PAST-be) makazi (CL6-dwelling) ya (CL6-of) wa-tu (CL2-person) wa (CL2-of) kale (CL9-antiquity)		ai
+ukoo	Kila ukoo una mila zake za kipekee.	Each clan has its own distinctive customs.	8	kila (every) ukoo (CL11-clan) u-na (CL11-have) mila (CL10-custom) z-ake (CL10-its) za (CL10-of) kipekee (CL7-distinctive)		ai
+mwamba	Nyumba ile imejengwa juu ya mwamba mkubwa.	That house is built on a large rock.	7	nyumba (CL9-house) ile (CL9-that) i-me-jengwa (CL9-PERF-be.built) juu ya (on.top.of) mwamba (CL3-rock) m-kubwa (CL3-big)		ai
+kuhamia	Familia yao ilihamia mjini miaka kumi iliyopita.	Their family moved to the city ten years ago.	8	familia (CL9-family) y-ao (CL9-their) i-li-hamia (CL9-PAST-move.to) mji-ni (CL3-town-LOC) mi-aka (CL4-year) kumi (ten) i-li-yo-pita (CL4-PAST-REL-pass)		ai
+haki	Kila mtu ana haki ya kupata elimu.	Everyone has the right to receive an education.	6	kila (every) mtu (CL1-person) a-na (CL1-have) haki (CL9-right) ya (CL9-of) ku-pata (INF-get) elimu (CL9-education)		ai
+mkazi	Wakazi wa eneo hili wanahitaji maji safi.	The residents of this area need clean water.	7	wa-kazi (CL2-resident) wa (CL2-of) eneo (CL5-area) hili (CL5-this) wa-na-hitaji (CL2-PRES-need) maji (CL6-water) safi (clean)		ai
+kuwezesha	Mradi huu unawezesha vijana kupata ujuzi.	This project enables young people to gain skills.	8	mradi (CL3-project) huu (CL3-this) u-na-wezesha (CL3-PRES-enable) vi-jana (CL8-youth) ku-pata (INF-get) ujuzi (CL11-skill)		ai
+shauku	Alionyesha shauku kubwa ya kujifunza muziki.	She showed great eagerness to learn music.	8	a-li-onyesha (CL1-PAST-show) shauku (CL9-eagerness) kubwa (CL9-big) ya (CL9-of) ku-jifunza (INF-learn) muziki (CL3-music)		ai
+taasisi	Taasisi hii inatoa mafunzo ya ualimu.	This institution offers teacher training.	8	taasisi (CL9-institution) hii (CL9-this) i-na-toa (CL9-PRES-give) mafunzo (CL6-training) ya (CL6-of) ualimu (CL11-teaching)		ai
+gereza	Alikaa gerezani kwa miaka mitatu.	He spent three years in prison.	7	a-li-kaa (CL1-PAST-stay) gereza-ni (CL5-prison-LOC) kwa (for) mi-aka (CL4-year) mi-tatu (CL4-three)		ai
+mgogoro	Mgogoro wa ardhi umedumu kwa miongo.	The land dispute has lasted for decades.	9	mgogoro (CL3-conflict) wa (CL3-of) ardhi (CL9-land) u-me-dumu (CL3-PERF-last) kwa (for) mi-ongo (CL4-decade)		ai
+kuchambua	Watafiti walichambua data kwa makini.	The researchers analysed the data carefully.	8	wa-tafiti (CL2-researcher) wa-li-chambua (CL2-PAST-analyse) data (CL9-data) kwa (with) makini (care)		ai
+riwaya	Riwaya yake ilishinda tuzo ya fasihi.	His novel won a literature prize.	8	riwaya (CL9-novel) y-ake (CL9-his) i-li-shinda (CL9-PAST-win) tuzo (CL9-prize) ya (CL9-of) fasihi (CL9-literature)		ai
+umati	Umati mkubwa ulikusanyika uwanjani.	A large crowd gathered at the ground.	8	umati (CL11-crowd) m-kubwa (CL11-big) u-li-kusanyika (CL11-PAST-gather) uwanja-ni (CL11-ground-LOC)		ai
+jukwaa	Msanii alipanda jukwaani akaanza kuimba.	The artist climbed onto the stage and began to sing.	9	msanii (CL1-artist) a-li-panda (CL1-PAST-climb) jukwaa-ni (CL5-stage-LOC) a-ka-anza (CL1-CONSEC-begin) ku-imba (INF-sing)		ai
+kutetea	Alitetea haki za wafanyakazi kwa miaka mingi.	He defended workers' rights for many years.	8	a-li-tetea (CL1-PAST-defend) haki (CL10-right) za (CL10-of) wa-fanyakazi (CL2-worker) kwa (for) mi-aka (CL4-year) mi-ngi (CL4-many)		ai
+kikwazo	Ukosefu wa fedha ulikuwa kikwazo kikubwa.	The lack of funds was a major obstacle.	9	ukosefu (CL11-lack) wa (CL11-of) fedha (CL9-money) u-li-kuwa (CL11-PAST-be) kikwazo (CL7-obstacle) ki-kubwa (CL7-big)		ai
+ulemavu	Watu wenye ulemavu wanastahili fursa sawa.	People with disabilities deserve equal opportunities.	9	wa-tu (CL2-person) w-enye (CL2-having) ulemavu (CL11-disability) wa-na-stahili (CL2-PRES-deserve) fursa (CL10-opportunity) sawa (equal)		ai
+mwanasiasa	Mwanasiasa yule alihutubia umati mkubwa.	That politician addressed a large crowd.	8	mwanasiasa (CL1-politician) yule (CL1-that) a-li-hutubia (CL1-PAST-address) umati (CL11-crowd) m-kubwa (CL11-big)		ai
+azma	Azma yake ya kufaulu ilikuwa kubwa.	His determination to succeed was great.	8	azma (CL9-resolve) y-ake (CL9-his) ya (CL9-of) ku-faulu (INF-succeed) i-li-kuwa (CL9-PAST-be) kubwa (CL9-big)		ai
+tuzo	Alipokea tuzo ya mwanamuziki bora.	She received the award for best musician.	7	a-li-pokea (CL1-PAST-receive) tuzo (CL9-award) ya (CL9-of) mwanamuziki (CL1-musician) bora (best)		ai
+bendi	Bendi yao ilipiga muziki hadi usiku wa manane.	Their band played music until midnight.	7	bendi (CL9-band) y-ao (CL9-their) i-li-piga (CL9-PAST-hit) muziki (CL3-music) hadi (until) usiku (CL11-night) wa (CL11-of) manane (midnight)		ai
+falsafa	Falsafa yake ya maisha ni rahisi na wazi.	His philosophy of life is simple and clear.	8	falsafa (CL9-philosophy) y-ake (CL9-his) ya (CL9-of) maisha (CL6-life) ni (is) rahisi (simple) na (and) wazi (clear)		ai
+undugu	Undugu kati ya jamii hizi ni wa muda mrefu.	The kinship between these communities is long-standing.	9	undugu (CL11-kinship) kati ya (between) jamii (CL10-community) hizi (CL10-these) ni (is) wa (CL11-of) muda (CL3-period) m-refu (CL3-long)		ai
+kusifika	Mji huu unasifika kwa vyakula vyake.	This town is renowned for its food.	8	mji (CL3-town) huu (CL3-this) u-na-sifika (CL3-PRES-be.renowned) kwa (for) vy-akula (CL8-food) vy-ake (CL8-its)		ai
+kutoaminika	Habari zile zilionekana kutoaminika.	That news seemed unbelievable.	9	habari (CL10-news) zile (CL10-those) zi-li-onekana (CL10-PAST-seem) ku-to-aminika (INF-NEG-be.believable)		ai
+vivutio	Vivutio vya utalii vimeongezeka mkoani humu.	Tourist attractions have increased in this region.	9	vi-vutio (CL8-attraction) vya (CL8-of) utalii (CL11-tourism) vi-me-ongezeka (CL8-PERF-increase) mkoa-ni (CL3-region-LOC) humu (CL18-in.here)		ai
+habari	Habari ya kazi yako mpya?	How is your new job?	2	habari (CL9-news) ya (CL9-of) kazi (CL9-work) y-ako (CL9-your) mpya (new)		ai
+asubuhi	Kila asubuhi mimi hunywa chai kabla ya kazi.	Every morning I drink tea before work.	3	kila (every) asubuhi (CL9-morning) mimi (I) hu-nywa (HABITUAL-drink) chai (CL9-tea) kabla ya (before) kazi (CL9-work)		ai
+jioni	Jioni hii kuna baridi kidogo.	This evening it is a little cold.	2	jioni (CL9-evening) hii (CL9-this) kuna (CL17-there.is) baridi (CL9-cold) kidogo (CL7-a.little)		ai
+adhuhuri	Tutakutana adhuhuri mbele ya duka.	We will meet at midday in front of the shop.	3	tu-ta-kutana (1PL-FUT-meet) adhuhuri (CL9-midday) mbele ya (in.front.of) duka (CL5-shop)		ai
+mzima	Baba yangu ni mzima baada ya safari ndefu.	My father is well after the long journey.	3	baba (CL1-father) y-angu (CL9-my) ni (is) m-zima (CL1-well) baada ya (after) safari (CL9-journey) ndefu (CL9-long)		ai
+kabisa	Nimeshiba kabisa, siwezi kula tena.	I am completely full; I cannot eat any more.	3	ni-me-shiba (1SG-PERF-be.full) kabisa (completely) si-wezi (1SG.NEG-be.able) ku-la (INF-eat) tena (again)		ai
+asante	Asante kwa msaada wako wa jana.	Thank you for your help yesterday.	2	asante (thanks) kwa (for) msaada (CL3-help) w-ako (CL3-your) wa (CL3-of) jana (yesterday)		ai
+sana	Kitabu hiki kinavutia sana.	This book is very interesting.	2	kitabu (CL7-book) hiki (CL7-this) ki-na-vutia (CL7-PRES-be.interesting) sana (very)		ai
+mzuri	Mwalimu wetu ni mzuri na mvumilivu.	Our teacher is good and patient.	3	mwalimu (CL1-teacher) w-etu (CL1-our) ni (is) m-zuri (CL1-good) na (and) m-vumilivu (CL1-patient)		ai
+naitwa	Naitwa Amina, na wewe unaitwa nani?	My name is Amina, and what is your name?	2	na-itwa (1SG.PRES-be.called) Amina na (and) wewe (you) u-na-itwa (2SG-PRES-be.called) nani (who)		ai
+jina	Jina langu ni fupi lakini ni gumu kutamka.	My name is short but hard to pronounce.	4	jina (CL5-name) l-angu (CL5-my) ni (is) fupi (CL5-short) lakini (but) ni (is) gumu (CL5-hard) ku-tamka (INF-pronounce)		ai
+furaha	Nina furaha kubwa kuwaona tena.	I am very happy to see you all again.	3	ni-na (1SG-have) furaha (CL9-happiness) kubwa (CL9-big) ku-wa-ona (INF-CL2.OBJ-see) tena (again)		ai
+rafiki	Rafiki yangu anafanya kazi Mombasa.	My friend works in Mombasa.	2	rafiki (CL9-friend) y-angu (CL9-my) a-na-fanya (CL1-PRES-do) kazi (CL9-work) Mombasa		ai
+huyu	Huyu ni dada yangu mdogo.	This is my younger sister.	2	huyu (CL1-this) ni (is) dada (CL9-sister) y-angu (CL9-my) m-dogo (CL1-small)		ai
+yangu	Nyumba yangu iko karibu na soko.	My house is near the market.	3	nyumba (CL9-house) y-angu (CL9-my) i-ko (CL9-be.at) karibu na (near) soko (CL5-market)		ai
+chakula	Chakula cha jioni kiko tayari.	The evening meal is ready.	3	chakula (CL7-food) cha (CL7-of) jioni (CL9-evening) ki-ko (CL7-be.at) tayari (ready)		ai
+kinywaji	Ungependa kinywaji cha baridi?	Would you like a cold drink?	3	u-nge-penda (2SG-COND-like) kinywaji (CL7-drink) cha (CL7-of) baridi (CL9-cold)		ai
+chai	Chai yangu imepoa, naomba nyingine.	My tea has gone cold; may I have another.	4	chai (CL9-tea) y-angu (CL9-my) i-me-poa (CL9-PERF-cool) na-omba (1SG.PRES-request) nyingine (CL9-another)		ai
+wali	Wali wa nazi unanukia vizuri.	The coconut rice smells good.	4	wali (CL11-rice) wa (CL11-of) nazi (CL9-coconut) u-na-nukia (CL11-PRES-smell) vizuri (CL8-well)		ai
+kitamu	Chakula hiki ni kitamu kuliko nilivyotarajia.	This food is tastier than I expected.	5	chakula (CL7-food) hiki (CL7-this) ni (is) ki-tamu (CL7-tasty) kuliko (than) ni-li-vyo-tarajia (1SG-PAST-CL8.REL-expect)		ai
+naomba	Naomba maji ya kunywa, tafadhali.	May I have some drinking water, please.	2	na-omba (1SG.PRES-request) maji (CL6-water) ya (CL6-of) ku-nywa (INF-drink) tafadhali (please)		ai
+tafadhali	Tafadhali nisaidie kubeba mzigo huu.	Please help me carry this load.	4	tafadhali (please) ni-saidi-e (1SG.OBJ-help-SUBJUNCTIVE) ku-beba (INF-carry) mzigo (CL3-load) huu (CL3-this)		ai
+samahani	Samahani, sikukusikia vizuri.	Sorry, I did not hear you well.	4	samahani (sorry) si-ku-ku-sikia (1SG.NEG-PAST-2SG.OBJ-hear) vizuri (CL8-well)		ai
+pole	Pole sana kwa msiba wa familia yenu.	I am very sorry for your family's loss.	4	pole (sympathy) sana (very) kwa (for) msiba (CL3-bereavement) wa (CL3-of) familia (CL9-family) y-enu (CL9-your.PL)		ai
+karibu	Karibu nyumbani, tumekusubiri kwa muda.	Welcome home, we have been waiting for you a while.	4	karibu (welcome) nyumba-ni (CL9-house-LOC) tu-me-ku-subiri (1PL-PERF-2SG.OBJ-wait.for) kwa (for) muda (CL3-time)		ai
+ndani	Watoto wanacheza ndani kwa sababu ya mvua.	The children are playing inside because of the rain.	3	wa-toto (CL2-child) wa-na-cheza (CL2-PRES-play) ndani (inside) kwa sababu ya (because.of) mvua (CL9-rain)		ai
+nyumba	Nyumba zao ni kubwa kuliko zetu.	Their houses are bigger than ours.	4	nyumba (CL10-house) z-ao (CL10-their) ni (are) kubwa (CL10-big) kuliko (than) z-etu (CL10-our)		ai
+mtoto	Mtoto mdogo analala kitandani.	The small child is sleeping in bed.	3	m-toto (CL1-child) m-dogo (CL1-small) a-na-lala (CL1-PRES-sleep) kitanda-ni (CL7-bed-LOC)		ai
+miaka	Mwanangu ana miaka mitano.	My child is five years old.	3	mwana-ngu (CL1-child-my) a-na (CL1-have) mi-aka (CL4-year) mi-tano (CL4-five)		ai
+miezi	Nimeishi hapa kwa miezi mitatu tu.	I have lived here for only three months.	4	ni-me-ishi (1SG-PERF-live) hapa (CL16-here) kwa (for) mi-ezi (CL4-month) mi-tatu (CL4-three) tu (only)		ai
+ngapi	Una vitabu vingapi katika begi lako?	How many books do you have in your bag?	4	u-na (2SG-have) vi-tabu (CL8-book) vi-ngapi (CL8-how.many) katika (in) begi (CL5-bag) l-ako (CL5-your)		ai
+saa	Saa ngapi tutaanza mkutano?	What time will we start the meeting?	3	saa (CL9-hour) ngapi (CL9-how.many) tu-ta-anza (1PL-FUT-begin) mkutano (CL3-meeting)		ai
+mvua	Mvua ilinyesha usiku kucha.	It rained all night long.	4	mvua (CL9-rain) i-li-nyesha (CL9-PAST-fall) usiku (CL11-night) kucha (all.through)		ai
+jua	Jua likichomoza, tutaondoka.	When the sun rises, we will leave.	5	jua (CL5-sun) li-ki-chomoza (CL5-COND/WHEN-rise) tu-ta-ondoka (1PL-FUT-depart)		ai
+joto	Leo kuna joto kali mjini.	Today there is fierce heat in town.	3	leo (today) kuna (CL17-there.is) joto (CL5-heat) kali (CL5-fierce) mji-ni (CL3-town-LOC)		ai
+pesa	Sina pesa za kutosha kununua tikiti.	I do not have enough money to buy a ticket.	4	si-na (1SG.NEG-have) pesa (CL10-money) za (CL10-of) ku-tosha (INF-suffice) ku-nunua (INF-buy) tikiti (CL9-ticket)		ai
+nauli	Nauli ya basi imepanda mwaka huu.	The bus fare has gone up this year.	4	nauli (CL9-fare) ya (CL9-of) basi (CL5-bus) i-me-panda (CL9-PERF-rise) mwaka (CL3-year) huu (CL3-this)		ai
+shilingi	Nilinunua matunda kwa shilingi mia mbili.	I bought fruit for two hundred shillings.	4	ni-li-nunua (1SG-PAST-buy) ma-tunda (CL6-fruit) kwa (for) shilingi (CL10-shilling) mia (hundred) mbili (two)		ai
+kitabu	Kitabu changu kimepotea njiani.	My book got lost on the way.	4	kitabu (CL7-book) ch-angu (CL7-my) ki-me-potea (CL7-PERF-be.lost) njia-ni (CL9-road-LOC)		ai
+vitabu	Vitabu vingi vimepangwa rafuni.	Many books are arranged on the shelf.	5	vi-tabu (CL8-book) vi-ngi (CL8-many) vi-me-pangwa (CL8-PERF-be.arranged) rafu-ni (CL9-shelf-LOC)		ai
+paka	Paka wetu hulala jikoni mchana.	Our cat usually sleeps in the kitchen during the day.	4	paka (CL9-cat) w-etu (CL1-our) hu-lala (HABITUAL-sleep) jiko-ni (CL5-kitchen-LOC) mchana (CL3-daytime)		ai
+mnyama	Mnyama huyu hupatikana msituni.	This animal is found in the forest.	4	m-nyama (CL1-animal) huyu (CL1-this) hu-patikana (HABITUAL-be.found) msitu-ni (CL3-forest-LOC)		ai
+kutembea	Napenda kutembea ufuoni kila jioni.	I like walking on the beach every evening.	3	na-penda (1SG.PRES-like) ku-tembea (INF-walk) ufuo-ni (CL11-shore-LOC) kila (every) jioni (CL9-evening)		ai
+uwanja	Uwanja wa ndege uko mbali na hoteli.	The airport is far from the hotel.	4	uwanja (CL11-field) wa (CL11-of) ndege (CL9-plane) u-ko (CL11-be.at) mbali na (far.from) hoteli (CL9-hotel)		ai
+sinema	Tulikwenda sinema baada ya chakula.	We went to the cinema after the meal.	3	tu-li-kwenda (1PL-PAST-go) sinema (CL9-cinema) baada ya (after) chakula (CL7-food)		ai
+ndege	Ndege yetu itaondoka saa tatu asubuhi.	Our plane will leave at nine in the morning.	4	ndege (CL9-plane) y-etu (CL9-our) i-ta-ondoka (CL9-FUT-depart) saa tatu (hour three = 9 a.m.) asubuhi (CL9-morning)		ai
+safari	Safari ya kwenda Kisumu ilikuwa ndefu.	The journey to Kisumu was long.	4	safari (CL9-journey) ya (CL9-of) ku-enda (INF-go) Kisumu i-li-kuwa (CL9-PAST-be) ndefu (CL9-long)		ai
+ofisi	Ofisi yake iko ghorofa ya pili.	His office is on the second floor.	4	ofisi (CL9-office) y-ake (CL9-his) i-ko (CL9-be.at) ghorofa (CL9-floor) ya (CL9-of) pili (second)		ai
+biashara	Biashara yao imekua haraka mwaka huu.	Their business has grown quickly this year.	5	biashara (CL9-business) y-ao (CL9-their) i-me-kua (CL9-PERF-grow) haraka (quickly) mwaka (CL3-year) huu (CL3-this)		ai
+darasa	Darasa letu lina wanafunzi thelathini.	Our class has thirty students.	4	darasa (CL5-class) l-etu (CL5-our) li-na (CL5-have) wa-nafunzi (CL2-student) thelathini (thirty)		ai
+kalamu	Naomba kalamu yako kwa dakika moja.	May I borrow your pen for one minute.	3	na-omba (1SG.PRES-request) kalamu (CL9-pen) y-ako (CL9-your) kwa (for) dakika (CL9-minute) moja (one)		ai
+jumamosi	Jumamosi ijayo tutasafiri pamoja.	Next Saturday we will travel together.	5	jumamosi (CL9-Saturday) i-ja-yo (CL9-come-CL9.REL = coming) tu-ta-safiri (1PL-FUT-travel) pamoja (together)		ai
+ndoa	Walifunga ndoa mwezi uliopita.	They got married last month.	5	wa-li-funga (CL2-PAST-tie) ndoa (CL9-marriage) mwezi (CL3-month) u-li-o-pita (CL3-PAST-CL3.REL-pass = last)		ai
+hongera	Hongera kwa kufaulu mtihani wako.	Congratulations on passing your exam.	3	hongera (congratulations) kwa (for) ku-faulu (INF-succeed) mtihani (CL3-exam) w-ako (CL3-your)		ai
+sina	Sina habari zozote kuhusu jambo hilo.	I have no news at all about that matter.	5	si-na (1SG.NEG-have) habari (CL10-news) zo-zote (CL10-any) kuhusu (about) jambo (CL5-matter) hilo (CL5-that)		ai
+je	Je, umeshawahi kutembelea Zanzibar?	Have you ever visited Zanzibar?	5	je (Q) u-me-sha-wahi (2SG-PERF-already-manage) ku-tembelea (INF-visit) Zanzibar		ai
+napenda	Napenda muziki wa taarab.	I like taarab music.	2	na-penda (1SG.PRES-like) muziki (CL3-music) wa (CL3-of) taarab		ai
+sipendi	Sipendi kuamka mapema siku za mapumziko.	I do not like waking up early at the weekend.	5	si-pend-i (1SG.NEG-like-NEG) ku-amka (INF-wake) mapema (early) siku (CL10-day) za (CL10-of) ma-pumziko (CL6-rest)		ai
+ningependa	Ningependa kuona menyu, tafadhali.	I would like to see the menu, please.	3	ni-nge-penda (1SG-COND-like) ku-ona (INF-see) menyu (CL9-menu) tafadhali (please)		ai
+ungependa	Ungependa kahawa au chai?	Would you like coffee or tea?	3	u-nge-penda (2SG-COND-like) kahawa (CL9-coffee) au (or) chai (CL9-tea)		ai
+tumefika	Tumefika mapema kuliko tulivyopanga.	We have arrived earlier than we planned.	5	tu-me-fika (1PL-PERF-arrive) mapema (early) kuliko (than) tu-li-vyo-panga (1PL-PAST-CL8.REL-plan)		ai
+niko	Niko njiani, nitafika baada ya dakika kumi.	I am on the way; I will arrive in ten minutes.	4	ni-ko (1SG-be.at) njia-ni (CL9-road-LOC) ni-ta-fika (1SG-FUT-arrive) baada ya (after) dakika (CL10-minute) kumi (ten)		ai
+kupika	Bibi yangu anajua kupika samaki vizuri.	My grandmother knows how to cook fish well.	4	bibi (CL9-grandmother) y-angu (CL9-my) a-na-jua (CL1-PRES-know) ku-pika (INF-cook) samaki (CL9-fish) vizuri (CL8-well)		ai
+kunywa	Watoto wanataka kunywa maziwa.	The children want to drink milk.	3	wa-toto (CL2-child) wa-na-taka (CL2-PRES-want) ku-nywa (INF-drink) maziwa (CL6-milk)		ai
+kukula	Tunapenda kukula pamoja kila Jumapili.	We like eating together every Sunday.	3	tu-na-penda (1PL-PRES-like) ku-la (INF-eat) pamoja (together) kila (every) jumapili (CL9-Sunday)		ai
+nunua	Nunua mkate mmoja ukirudi.	Buy one loaf of bread when you come back.	4	nunua (buy.IMP) mkate (CL3-bread) m-moja (CL3-one) u-ki-rudi (2SG-WHEN-return)		ai
+mvinyo	Mvinyo huu unatoka Afrika Kusini.	This wine comes from South Africa.	4	mvinyo (CL3-wine) huu (CL3-this) u-na-toka (CL3-PRES-come.from) Afrika Kusini (South Africa)		ai
+ukweli	Ukweli daima hujitokeza mwishowe.	The truth always emerges in the end.	6	ukweli (CL11-truth) daima (always) hu-ji-tokeza (HABITUAL-REFL-bring.out) mwisho-we (CL3-end-finally)		ai
+manukato	Manukato haya yananukia waridi.	This perfume smells of roses.	5	ma-nukato (CL6-perfume) haya (CL6-this) ya-na-nukia (CL6-PRES-smell.of) waridi (CL9-rose)		ai
+zawadi	Nilimpa zawadi ndogo siku ya kuzaliwa.	I gave him a small gift on his birthday.	5	ni-li-m-pa (1SG-PAST-CL1.OBJ-give) zawadi (CL9-gift) ndogo (CL9-small) siku (CL9-day) ya (CL9-of) ku-zaliwa (INF-be.born)		ai
+hospitali	Dada yangu anafanya kazi hospitalini.	My sister works at the hospital.	3	dada (CL9-sister) y-angu (CL9-my) a-na-fanya (CL1-PRES-do) kazi (CL9-work) hospitali-ni (CL9-hospital-LOC)		ai
+mapacha	Mapacha wale wanafanana sana.	Those twins resemble each other closely.	5	ma-pacha (CL6-twin) wale (CL2-those) wa-na-fanana (CL2-PRES-resemble.each.other) sana (very)		ai
+mkubwa	Mji mkubwa una msongamano mwingi.	A big city has a lot of congestion.	5	mji (CL3-town) m-kubwa (CL3-big) u-na (CL3-have) msongamano (CL3-congestion) m-wingi (CL3-much)		ai
+kali	Pilipili hii ni kali mno.	This chilli is far too hot.	4	pilipili (CL9-chilli) hii (CL9-this) ni (is) kali (CL9-hot) mno (excessively)		ai
+tayari	Mizigo yetu iko tayari mlangoni.	Our luggage is ready at the door.	4	mi-zigo (CL4-luggage) y-etu (CL4-our) i-ko (CL4-be.at) tayari (ready) mlango-ni (CL3-door-LOC)		ai
+sema	Sema polepole ili nikuelewe.	Speak slowly so that I understand you.	5	sema (speak.IMP) polepole (slowly) ili (so.that) ni-ku-elew-e (1SG-2SG.OBJ-understand-SUBJUNCTIVE)		ai
+msala	Msala uko upande wa kulia.	The toilet is on the right-hand side.	4	msala (CL3-toilet) u-ko (CL3-be.at) upande (CL11-side) wa (CL11-of) ku-lia (INF-right)		ai
+kuamka	Ninaamka saa kumi na moja kila siku.	I wake up at five every day.	3	ni-na-amka (1SG-PRES-wake) saa (CL9-hour) kumi na moja (eleven) kila (every) siku (CL9-day)		ai
+mazoezi	Hufanya mazoezi kabla ya kwenda kazini.	He usually exercises before going to work.	5	hu-fanya (HABITUAL-do) ma-zoezi (CL6-exercise) kabla ya (before) kw-enda (INF-go) kazi-ni (CL9-work-LOC)		ai
+kuoga	Baada ya kukimbia ninapenda kuoga.	After running I like to shower.	4	baada ya (after) ku-kimbia (INF-run) ni-na-penda (1SG-PRES-like) ku-oga (INF-bathe)		ai
+nguvu	Asubuhi huwa nina nguvu nyingi.	In the morning I usually have a lot of energy.	5	asubuhi (CL9-morning) hu-wa (HABITUAL-be) ni-na (1SG-have) nguvu (CL10-strength) nyingi (CL10-much)		ai
+nywele	Nywele zake ni ndefu na nyeusi.	Her hair is long and black.	4	nywele (CL10-hair) z-ake (CL10-her) ni (are) ndefu (CL10-long) na (and) nyeusi (CL10-black)		ai
+mgeni	Mgeni wetu atafika jioni ya leo.	Our guest will arrive this evening.	4	m-geni (CL1-guest) w-etu (CL1-our) a-ta-fika (CL1-FUT-arrive) jioni (CL9-evening) ya (CL9-of) leo (today)		ai
+aina	Duka hili linauza aina nyingi za viatu.	This shop sells many kinds of shoes.	5	duka (CL5-shop) hili (CL5-this) li-na-uza (CL5-PRES-sell) aina (CL10-kind) nyingi (CL10-many) za (CL10-of) vi-atu (CL8-shoe)		ai
+elimu	Elimu ni ufunguo wa maisha bora.	Education is the key to a better life.	5	elimu (CL9-education) ni (is) ufunguo (CL11-key) wa (CL11-of) maisha (CL6-life) bora (better)		ai
+kama	Kama mvua itanyesha, tutakaa ndani.	If it rains, we will stay indoors.	4	kama (if) mvua (CL9-rain) i-ta-nyesha (CL9-FUT-fall) tu-ta-kaa (1PL-FUT-stay) ndani (inside)		ai
+kufuzu	Alifuzu mtihani wake kwa alama nzuri.	She passed her exam with good marks.	5	a-li-fuzu (CL1-PAST-pass) mtihani (CL3-exam) w-ake (CL3-her) kwa (with) alama (CL10-mark) nzuri (CL10-good)		ai
+kutakia	Ninakutakia kila la heri katika kazi mpya.	I wish you all the best in your new job.	6	ni-na-ku-takia (1SG-PRES-2SG.OBJ-wish) kila (every) la heri (CL5-of blessing) katika (in) kazi (CL9-work) mpya (CL9-new)		ai
+kuagiza	Tuliagiza kahawa mbili na keki moja.	We ordered two coffees and one cake.	4	tu-li-agiza (1PL-PAST-order) kahawa (CL10-coffee) mbili (two) na (and) keki (CL9-cake) moja (one)		ai
+mdosi	Mdosi wangu anataka ripoti kesho asubuhi.	My boss wants the report tomorrow morning.	5	m-dosi (CL1-boss) w-angu (CL1-my) a-na-taka (CL1-PRES-want) ripoti (CL9-report) kesho (tomorrow) asubuhi (CL9-morning)		ai
+vitafunio	Tulinunua vitafunio kwa safari ndefu.	We bought snacks for the long journey.	4	tu-li-nunua (1PL-PAST-buy) vi-tafunio (CL8-snack) kwa (for) safari (CL9-journey) ndefu (CL9-long)		ai
+kuamua	Tumeamua kuahirisha mkutano hadi Jumatatu.	We have decided to postpone the meeting until Monday.	6	tu-me-amua (1PL-PERF-decide) ku-ahirisha (INF-postpone) mkutano (CL3-meeting) hadi (until) Jumatatu (CL9-Monday)		ai
+kijana	Kijana yule anafanya kazi benki.	That young man works at a bank.	4	kijana (CL7-youth) yule (CL1-that) a-na-fanya (CL1-PRES-do) kazi (CL9-work) benki (CL9-bank)		ai
+mtaa	Watoto wanacheza mitaani jioni.	The children play in the streets in the evening.	4	wa-toto (CL2-child) wa-na-cheza (CL2-PRES-play) mitaa-ni (CL4-street-LOC) jioni (CL9-evening)		ai
+mwanafunzi	Mwanafunzi huyu husoma kwa bidii.	This student studies diligently.	4	mwanafunzi (CL1-student) huyu (CL1-this) hu-soma (HABITUAL-study) kwa (with) bidii (CL9-diligence)		ai
+mtihani	Mtihani wa mwisho utafanyika Desemba.	The final exam will take place in December.	5	mtihani (CL3-exam) wa (CL3-of) mwisho (CL3-end) u-ta-fanyika (CL3-FUT-take.place) Desemba (December)		ai
+kuimba	Kwaya iliimba wimbo mzuri sana.	The choir sang a very beautiful song.	5	kwaya (CL9-choir) i-li-imba (CL9-PAST-sing) wimbo (CL3-song) m-zuri (CL3-good) sana (very)		ai
+somo	Somo la leo linahusu historia ya pwani.	Today's lesson is about the history of the coast.	5	somo (CL5-lesson) la (CL5-of) leo (today) li-na-husu (CL5-PRES-concern) historia (CL9-history) ya (CL9-of) pwani (CL9-coast)		ai
+mwaliko	Nilipokea mwaliko wa harusi jana.	I received a wedding invitation yesterday.	5	ni-li-pokea (1SG-PAST-receive) mwaliko (CL3-invitation) wa (CL3-of) harusi (CL9-wedding) jana (yesterday)		ai
+msichana	Msichana yule anasoma chuo kikuu.	That girl studies at university.	4	m-sichana (CL1-girl) yule (CL1-that) a-na-soma (CL1-PRES-study) chuo (CL7-college) ki-kuu (CL7-great)		ai
+kukubali	Alikubali ombi letu bila kusita.	He accepted our request without hesitating.	6	a-li-kubali (CL1-PAST-accept) ombi (CL5-request) l-etu (CL5-our) bila (without) ku-sita (INF-hesitate)		ai
+harusi	Harusi yao itafanyika mwezi ujao.	Their wedding will take place next month.	5	harusi (CL9-wedding) y-ao (CL9-their) i-ta-fanyika (CL9-FUT-take.place) mwezi (CL3-month) u-ja-o (CL3-come-REL = next)		ai
+duka	Duka la kona hufunguliwa mapema.	The corner shop opens early.	5	duka (CL5-shop) la (CL5-of) kona (CL9-corner) hu-funguliwa (HABITUAL-be.opened) mapema (early)		ai
+mpenzi	Mpenzi wangu anaishi Dar es Salaam.	My partner lives in Dar es Salaam.	4	mpenzi (CL1-beloved) w-angu (CL1-my) a-na-ishi (CL1-PRES-live) Dar es Salaam		ai
+uhusiano	Uhusiano wao umedumu miaka mingi.	Their relationship has lasted many years.	6	uhusiano (CL11-relationship) w-ao (CL11-their) u-me-dumu (CL11-PERF-last) mi-aka (CL4-year) mi-ngi (CL4-many)		ai
+maisha	Maisha ya mjini ni ghali kuliko ya kijijini.	Town life is more expensive than village life.	6	maisha (CL6-life) ya (CL6-of) mji-ni (CL3-town-LOC) ni (are) ghali (expensive) kuliko (than) ya (CL6-of) kijiji-ni (CL7-village-LOC)		ai
+kuku	Tuliagiza kuku wa kuchoma na wali.	We ordered grilled chicken and rice.	5	tu-li-agiza (1PL-PAST-order) kuku (CL9-chicken) wa (CL1-of) ku-choma (INF-grill) na (and) wali (CL11-rice)		ai
+kuchemsha	Chemsha maji kabla ya kuyanywa.	Boil the water before drinking it.	6	chemsha (boil.IMP) maji (CL6-water) kabla ya (before) ku-ya-nywa (INF-CL6.OBJ-drink)		ai
+mafuta	Chakula hiki kina mafuta mengi mno.	This food has far too much oil.	5	chakula (CL7-food) hiki (CL7-this) ki-na (CL7-have) mafuta (CL6-oil) m-engi (CL6-much) mno (excessively)		ai
+kuuliza	Naomba kuuliza swali moja tu.	May I ask just one question.	4	na-omba (1SG.PRES-request) ku-uliza (INF-ask) swali (CL5-question) moja (one) tu (only)		ai
+kelele	Kelele za mtaani zilinizuia kulala.	The noise from the street stopped me sleeping.	6	kelele (CL10-noise) za (CL10-of) mtaa-ni (CL3-street-LOC) zi-li-ni-zuia (CL10-PAST-1SG.OBJ-prevent) ku-lala (INF-sleep)		ai
+kurudia	Tafadhali rudia ulichosema.	Please repeat what you said.	6	tafadhali (please) rudia (repeat.IMP) u-li-cho-sema (2SG-PAST-CL7.REL-say)		ai
+kuahidi	Aliahidi kurudi kabla ya giza.	He promised to return before dark.	5	a-li-ahidi (CL1-PAST-promise) ku-rudi (INF-return) kabla ya (before) giza (CL5-darkness)		ai
+kukasirika	Alikasirika alipoona kazi haijafanyika.	She got angry when she saw the work had not been done.	7	a-li-kasirika (CL1-PAST-be.angry) a-li-po-ona (CL1-PAST-CL16.REL-see) kazi (CL9-work) ha-i-ja-fanyika (NEG-CL9-not.yet-be.done)		ai
+msongamano	Nilichelewa kwa sababu ya msongamano wa magari.	I was late because of the traffic congestion.	6	ni-li-chelewa (1SG-PAST-be.late) kwa sababu ya (because.of) msongamano (CL3-congestion) wa (CL3-of) ma-gari (CL6-car)		ai
+kuchoka	Tumechoka baada ya safari ndefu.	We are tired after the long journey.	4	tu-me-choka (1PL-PERF-be.tired) baada ya (after) safari (CL9-journey) ndefu (CL9-long)		ai
+kuharibika	Mashine zimeharibika tangu wiki iliyopita.	The machines have been broken since last week.	7	mashine (CL10-machine) zi-me-haribika (CL10-PERF-break.down) tangu (since) wiki (CL9-week) i-li-yo-pita (CL9-PAST-CL9.REL-pass)		ai
+rangi	Napenda rangi ya buluu kuliko nyekundu.	I prefer blue to red.	4	na-penda (1SG.PRES-like) rangi (CL9-colour) ya (CL9-of) buluu (blue) kuliko (than) nyekundu (CL9-red)		ai
+kupima	Naomba kupima sketi hii kabla ya kununua.	May I try on this skirt before buying it.	5	na-omba (1SG.PRES-request) ku-pima (INF-try.on) sketi (CL9-skirt) hii (CL9-this) kabla ya (before) ku-nunua (INF-buy)		ai
+ukubwa	Ukubwa huu ni mkubwa mno kwangu.	This size is far too big for me.	5	ukubwa (CL11-size) huu (CL11-this) ni (is) m-kubwa (CL11-big) mno (excessively) kw-angu (CL17-for.me)		ai
+upepo	Upepo mkali ulivunja matawi ya miti.	The strong wind broke the branches of the trees.	6	upepo (CL11-wind) m-kali (CL11-fierce) u-li-vunja (CL11-PAST-break) ma-tawi (CL6-branch) ya (CL6-of) mi-ti (CL4-tree)		ai
+majira	Majira ya mvua huanza Machi.	The rainy season usually begins in March.	5	majira (CL6-season) ya (CL6-of) mvua (CL9-rain) hu-anza (HABITUAL-begin) Machi (March)		ai
+kuzoea	Nimezoea hali ya hewa ya hapa.	I have got used to the weather here.	5	ni-me-zoea (1SG-PERF-be.accustomed) hali (CL9-condition) ya (CL9-of) hewa (CL9-air) ya (CL9-of) hapa (CL16-here)		ai
+mtalii	Mtalii huyu anatoka Ujerumani.	This tourist comes from Germany.	4	m-talii (CL1-tourist) huyu (CL1-this) a-na-toka (CL1-PRES-come.from) Ujerumani (CL11-Germany)		ai
+pasipoti	Onyesha pasipoti yako kwa afisa.	Show your passport to the officer.	5	onyesha (show.IMP) pasipoti (CL9-passport) y-ako (CL9-your) kwa (to) afisa (CL1-officer)		ai
+kuvuka	Tulivuka mpaka bila matatizo.	We crossed the border without problems.	5	tu-li-vuka (1PL-PAST-cross) mpaka (CL3-border) bila (without) ma-tatizo (CL6-problem)		ai
+likizo	Tutakwenda likizo mwezi wa kumi na mbili.	We will go on holiday in December.	5	tu-ta-kw-enda (1PL-FUT-INF-go) likizo (CL9-holiday) mwezi (CL3-month) wa (CL3-of) kumi na mbili (twelve)		ai
+hema	Tulipiga hema karibu na mto.	We pitched the tent near the river.	5	tu-li-piga (1PL-PAST-hit) hema (CL9-tent) karibu na (near) mto (CL3-river)		ai
+kupanga	Tunapanga safari ya kwenda Lamu.	We are planning a trip to Lamu.	4	tu-na-panga (1PL-PRES-plan) safari (CL9-journey) ya (CL9-of) kw-enda (INF-go) Lamu		ai
+ufuo	Watoto wanacheza ufuoni asubuhi.	The children are playing on the beach in the morning.	5	wa-toto (CL2-child) wa-na-cheza (CL2-PRES-play) ufuo-ni (CL11-beach-LOC) asubuhi (CL9-morning)		ai
+hesabu	Mwanangu ni hodari katika hesabu.	My child is good at mathematics.	4	mwana-ngu (CL1-child-my) ni (is) hodari (skilful) katika (in) hesabu (CL9-mathematics)		ai
+asilimia	Bei imepungua kwa asilimia ishirini.	The price has dropped by twenty per cent.	6	bei (CL9-price) i-me-pungua (CL9-PERF-decrease) kwa (by) asilimia (CL9-percentage) ishirini (twenty)		ai
+jibu	Jibu lake halikuwa sahihi.	His answer was not correct.	6	jibu (CL5-answer) l-ake (CL5-his) ha-li-ku-wa (NEG-CL5-PAST-be) sahihi (correct)		ai
+kuumwa	Ninaumwa na kichwa tangu asubuhi.	I have had a headache since morning.	5	ni-na-umwa (1SG-PRES-be.hurt) na (by) kichwa (CL7-head) tangu (since) asubuhi (CL9-morning)		ai
+miadi	Nina miadi na daktari saa nne.	I have an appointment with the doctor at ten.	4	ni-na (1SG-have) miadi (CL9-appointment) na (with) daktari (CL5-doctor) saa (CL9-hour) nne (four)		ai
+mgongo	Mgongo wangu unaniuma nikikaa muda mrefu.	My back hurts when I sit for a long time.	7	mgongo (CL3-back) w-angu (CL3-my) u-na-ni-uma (CL3-PRES-1SG.OBJ-hurt) ni-ki-kaa (1SG-WHEN-sit) muda (CL3-period) m-refu (CL3-long)		ai
+daktari	Daktari alinishauri kupumzika siku tatu.	The doctor advised me to rest for three days.	6	daktari (CL5-doctor) a-li-ni-shauri (CL1-PAST-1SG.OBJ-advise) ku-pumzika (INF-rest) siku (CL10-day) tatu (three)		ai
+dawa	Kunywa dawa hii mara mbili kwa siku.	Take this medicine twice a day.	4	kunywa (drink.IMP) dawa (CL9-medicine) hii (CL9-this) mara (CL10-time) mbili (two) kwa (per) siku (CL9-day)		ai
+uchungu	Uchungu wa mguu wangu umepungua.	The pain in my leg has lessened.	6	uchungu (CL11-pain) wa (CL11-of) mguu (CL3-leg) w-angu (CL3-my) u-me-pungua (CL11-PERF-decrease)		ai
+chumba	Chumba chetu kiko ghorofa ya tatu.	Our room is on the third floor.	5	chumba (CL7-room) ch-etu (CL7-our) ki-ko (CL7-be.at) ghorofa (CL9-floor) ya (CL9-of) tatu (three)		ai
+teksi	Teksi itatulipisha shilingi mia tano.	The taxi will charge us five hundred shillings.	6	teksi (CL9-taxi) i-ta-tu-lipisha (CL9-FUT-1PL.OBJ-charge) shilingi (CL10-shilling) mia (hundred) tano (five)		ai
+kubeba	Nitakusaidia kubeba mizigo yako.	I will help you carry your luggage.	5	ni-ta-ku-saidia (1SG-FUT-2SG.OBJ-help) ku-beba (INF-carry) mi-zigo (CL4-luggage) y-ako (CL4-your)		ai
+kushiba	Nimeshiba, sitaki chakula zaidi.	I am full; I do not want any more food.	5	ni-me-shiba (1SG-PERF-be.full) si-tak-i (1SG.NEG-want-NEG) chakula (CL7-food) zaidi (more)		ai
+kueleza	Naomba unieleze njia ya kwenda sokoni.	Please explain to me the way to the market.	7	na-omba (1SG.PRES-request) u-ni-elez-e (2SG-1SG.OBJ-explain-SUBJ) njia (CL9-way) ya (CL9-of) kw-enda (INF-go) soko-ni (CL5-market-LOC)		ai
+barabara	Barabara hii inaelekea uwanja wa ndege.	This road leads to the airport.	6	barabara (CL9-road) hii (CL9-this) i-na-elekea (CL9-PRES-head.towards) uwanja (CL11-field) wa (CL11-of) ndege (CL9-plane)		ai
+hoteli	Hoteli yetu iko karibu na bahari.	Our hotel is near the sea.	4	hoteli (CL9-hotel) y-etu (CL9-our) i-ko (CL9-be.at) karibu na (near) bahari (CL9-sea)		ai
+matokeo	Matokeo ya mtihani yatatangazwa Ijumaa.	The exam results will be announced on Friday.	6	matokeo (CL6-result) ya (CL6-of) mtihani (CL3-exam) ya-ta-tangazwa (CL6-FUT-be.announced) Ijumaa (CL9-Friday)		ai
+kuchagua	Alichagua kusoma sheria badala ya udaktari.	She chose to study law instead of medicine.	6	a-li-chagua (CL1-PAST-choose) ku-soma (INF-study) sheria (CL9-law) badala ya (instead.of) udaktari (CL11-medicine)		ai
+nafasi	Kuna nafasi mbili tu zilizobaki.	There are only two places left.	7	kuna (CL17-there.are) nafasi (CL10-place) mbili (two) tu (only) zi-li-zo-baki (CL10-PAST-CL10.REL-remain)		ai
+msingi	Watoto wanasoma shule ya msingi.	The children attend primary school.	4	wa-toto (CL2-child) wa-na-soma (CL2-PRES-study) shule (CL9-school) ya (CL9-of) msingi (CL3-foundation)		ai
+kengele	Kengele ya saa yangu hulia saa kumi na moja.	My alarm goes off at five o'clock.	5	kengele (CL9-bell) ya (CL9-of) saa (CL9-clock) y-angu (CL9-my) hu-lia (HABITUAL-sound) saa (CL9-hour) kumi na moja (eleven)		ai
+kitanda	Ninatandika kitanda changu kila asubuhi.	I make my bed every morning.	4	ni-na-tandika (1SG-PRES-spread) kitanda (CL7-bed) ch-angu (CL7-my) kila (every) asubuhi (CL9-morning)		ai
+uso	Ninanawa uso kwa maji baridi.	I wash my face with cold water.	4	ni-na-nawa (1SG-PRES-wash) uso (CL11-face) kwa (with) maji (CL6-water) baridi (CL6-cold)		ai
+jino	Napiga mswaki meno mara mbili kwa siku.	I brush my teeth twice a day.	5	na-piga (1SG.PRES-hit) mswaki (CL3-toothbrush) meno (CL6-tooth) mara (CL10-time) mbili (two) kwa (per) siku (CL9-day)		ai
+mbwa	Mbwa wetu hubweka wageni wakifika.	Our dog barks when visitors arrive.	6	mbwa (CL9-dog) w-etu (CL1-our) hu-bweka (HABITUAL-bark) wa-geni (CL2-guest) wa-ki-fika (CL2-WHEN-arrive)		ai
+takataka	Ninatoa takataka kila Jumanne jioni.	I take out the rubbish every Tuesday evening.	4	ni-na-toa (1SG-PRES-take.out) takataka (CL9-rubbish) kila (every) Jumanne (CL9-Tuesday) jioni (CL9-evening)		ai
+familia	Familia yetu hukutana kila Jumapili.	Our family meets every Sunday.	4	familia (CL9-family) y-etu (CL9-our) hu-kutana (HABITUAL-meet) kila (every) Jumapili (CL9-Sunday)		ai
+mlango	Funga mlango unapotoka nje.	Close the door when you go out.	5	funga (close.IMP) mlango (CL3-door) u-na-po-toka (2SG-PRES-CL16.REL-leave) nje (outside)		ai
+jirani	Jirani yangu husalimia kila asubuhi.	My neighbour greets me every morning.	5	jirani (CL1-neighbour) y-angu (CL9-my) hu-salimia (HABITUAL-greet) kila (every) asubuhi (CL9-morning)		ai
+ngazi	Napanda ngazi badala ya kutumia lifti.	I take the stairs instead of using the lift.	5	na-panda (1SG.PRES-climb) ngazi (CL9-stairs) badala ya (instead.of) ku-tumia (INF-use) lifti (CL9-lift)		ai
+kituo	Ninasubiri basi kituoni kila siku.	I wait for the bus at the stop every day.	4	ni-na-subiri (1SG-PRES-wait.for) basi (CL5-bus) kituo-ni (CL7-station-LOC) kila (every) siku (CL9-day)		ai
+dereva	Dereva alituambia tushuke hapa.	The driver told us to get off here.	6	dereva (CL5-driver) a-li-tu-ambia (CL1-PAST-1PL.OBJ-tell) tu-shuk-e (1PL-alight-SUBJ) hapa (CL16-here)		ai
+baiskeli	Huenda kazini kwa baiskeli kila siku.	He usually goes to work by bicycle every day.	4	hu-enda (HABITUAL-go) kazi-ni (CL9-work-LOC) kwa (by) baiskeli (CL9-bicycle) kila (every) siku (CL9-day)		ai
+jengo	Jengo hili lilijengwa miaka hamsini iliyopita.	This building was built fifty years ago.	7	jengo (CL5-building) hili (CL5-this) li-li-jengwa (CL5-PAST-be.built) mi-aka (CL4-year) hamsini (fifty) i-li-yo-pita (CL4-PAST-REL-pass)		ai
+usingizi	Nina usingizi, nitalala mapema leo.	I am sleepy; I will go to bed early today.	4	ni-na (1SG-have) usingizi (CL11-sleep) ni-ta-lala (1SG-FUT-sleep) mapema (early) leo (today)		ai
+mtandao	Mtandao umekatika tangu asubuhi.	The internet has been down since morning.	5	mtandao (CL3-internet) u-me-katika (CL3-PERF-be.cut) tangu (since) asubuhi (CL9-morning)		ai
+barua	Nitakutumia barua pepe kesho asubuhi.	I will send you an email tomorrow morning.	5	ni-ta-ku-tumia (1SG-FUT-2SG.OBJ-send) barua (CL9-letter) pepe (lightning) kesho (tomorrow) asubuhi (CL9-morning)		ai
+kupakua	Ninapakua faili kubwa sasa hivi.	I am downloading a large file right now.	5	ni-na-pakua (1SG-PRES-download) faili (CL5-file) kubwa (CL5-big) sasa hivi (right.now)		ai
+tovuti	Tovuti yao ina habari za kutosha.	Their website has enough information.	5	tovuti (CL9-website) y-ao (CL9-their) i-na (CL9-have) habari (CL10-news) za (CL10-of) ku-tosha (INF-suffice)		ai
+maoni	Nataka kusikia maoni yako kuhusu mpango huu.	I want to hear your opinion about this plan.	6	na-taka (1SG.PRES-want) ku-sikia (INF-hear) maoni (CL6-opinion) y-ako (CL6-your) kuhusu (about) mpango (CL3-plan) huu (CL3-this)		ai
+mzazi	Kila mzazi anataka mtoto wake afanikiwe.	Every parent wants their child to succeed.	7	kila (every) m-zazi (CL1-parent) a-na-taka (CL1-PRES-want) m-toto (CL1-child) w-ake (CL1-his) a-fanikiw-e (CL1-succeed-SUBJ)		ai
+chombo	Nitaosha vyombo baada ya chakula.	I will wash the dishes after the meal.	4	ni-ta-osha (1SG-FUT-wash) vyombo (CL8-utensil) baada ya (after) chakula (CL7-food)		ai
+kufua	Hufua nguo zake kila Jumamosi.	She washes her clothes every Saturday.	5	hu-fua (HABITUAL-wash.clothes) nguo (CL10-clothes) z-ake (CL10-her) kila (every) Jumamosi (CL9-Saturday)		ai
+rafu	Weka vitabu hivyo kwenye rafu ya juu.	Put those books on the top shelf.	5	weka (put.IMP) vi-tabu (CL8-book) hivyo (CL8-those) kwenye (on) rafu (CL9-shelf) ya (CL9-of) juu (above)		ai
+mmea	Ninamwagilia mimea kila jioni.	I water the plants every evening.	5	ni-na-mwagilia (1SG-PRES-water) mi-mea (CL4-plant) kila (every) jioni (CL9-evening)		ai
+mboga	Ninanunua mboga sokoni kila Jumanne.	I buy vegetables at the market every Tuesday.	4	ni-na-nunua (1SG-PRES-buy) mboga (CL10-vegetable) soko-ni (CL5-market-LOC) kila (every) Jumanne (CL9-Tuesday)		ai
+mkutano	Mkutano wa leo umeahirishwa hadi kesho.	Today's meeting has been postponed until tomorrow.	6	mkutano (CL3-meeting) wa (CL3-of) leo (today) u-me-ahirishwa (CL3-PERF-be.postponed) hadi (until) kesho (tomorrow)		ai
+dawati	Karatasi zako ziko juu ya dawati.	Your papers are on top of the desk.	5	karatasi (CL10-paper) z-ako (CL10-your) zi-ko (CL10-be.at) juu ya (on.top.of) dawati (CL5-desk)		ai
+kipaumbele	Kazi hii ni kipaumbele cha kwanza.	This task is the first priority.	6	kazi (CL9-work) hii (CL9-this) ni (is) kipaumbele (CL7-priority) cha (CL7-of) kwanza (first)		ai
+wazo	Wazo lako ni zuri, tulijadili kesho.	Your idea is good; let's discuss it tomorrow.	6	wazo (CL5-idea) l-ako (CL5-your) ni (is) zuri (CL5-good) tu-li-jadili (1PL-CL5.OBJ-discuss.SUBJ) kesho (tomorrow)		ai
+kitambulisho	Usisahau kitambulisho chako mlangoni.	Do not forget your ID card at the door.	6	u-si-sahau (2SG-NEG.SUBJ-forget) kitambulisho (CL7-ID) ch-ako (CL7-your) mlango-ni (CL3-door-LOC)		ai
+homa	Ana homa, hataenda shuleni leo.	She has a fever; she will not go to school today.	5	a-na (CL1-have) homa (CL9-fever) ha-ta-enda (CL1.NEG-FUT-go) shule-ni (CL9-school-LOC) leo (today)		ai
+kujaribu	Nimejaribu kupunguza sukari kwenye chai.	I have tried to cut down the sugar in my tea.	5	ni-me-jaribu (1SG-PERF-try) ku-punguza (INF-reduce) sukari (CL9-sugar) kwenye (in) chai (CL9-tea)		ai
+vitamini	Matunda yana vitamini nyingi muhimu.	Fruit contains many important vitamins.	5	ma-tunda (CL6-fruit) ya-na (CL6-have) vitamini (CL10-vitamin) nyingi (CL10-many) muhimu (important)		ai
+soko	Soko la Jumamosi huwa na watu wengi.	The Saturday market is usually crowded.	6	soko (CL5-market) la (CL5-of) Jumamosi (CL9-Saturday) hu-wa na (HABITUAL-be with) wa-tu (CL2-person) w-engi (CL2-many)		ai
+mahali	Hapa ni mahali pazuri pa kupumzika.	This is a good place to rest.	6	hapa (CL16-here) ni (is) mahali (CL16-place) pa-zuri (CL16-good) pa (CL16-of) ku-pumzika (INF-rest)		ai
+mkahawa	Tunakutana kwenye mkahawa saa saba.	We are meeting at the cafe at one o'clock.	4	tu-na-kutana (1PL-PRES-meet) kwenye (at) mkahawa (CL3-cafe) saa (CL9-hour) saba (seven)		ai
+mhudumu	Mhudumu alituletea menyu haraka.	The waiter brought us the menu quickly.	6	m-hudumu (CL1-waiter) a-li-tu-letea (CL1-PAST-1PL.OBJ-bring.APPL) menyu (CL9-menu) haraka (quickly)		ai
+sahani	Sahani hizi ni safi, zitumie.	These plates are clean; use them.	5	sahani (CL10-plate) hizi (CL10-these) ni (are) safi (clean) zi-tumi-e (CL10.OBJ-use-SUBJ)		ai
+meza	Tumehifadhi meza kwa watu wanne.	We have reserved a table for four people.	5	tu-me-hifadhi (1PL-PERF-reserve) meza (CL9-table) kwa (for) wa-tu (CL2-person) wa-nne (CL2-four)		ai
+mchele	Nunua mchele kilo mbili sokoni.	Buy two kilos of rice at the market.	4	nunua (buy.IMP) mchele (CL3-uncooked.rice) kilo (CL9-kilo) mbili (two) soko-ni (CL5-market-LOC)		ai
+kusherehekea	Tutasherehekea kuhitimu kwake Jumamosi.	We will celebrate his graduation on Saturday.	6	tu-ta-sherehekea (1PL-FUT-celebrate) ku-hitimu (INF-graduate) kw-ake (CL15-his) Jumamosi (CL9-Saturday)		ai
+muigizaji	Muigizaji yule ni maarufu Afrika Mashariki.	That actor is famous in East Africa.	6	m-uigizaji (CL1-actor) yule (CL1-that) ni (is) maarufu (famous) Afrika Mashariki (East Africa)		ai
+mshumaa	Tuliwasha mishumaa stima ilipokatika.	We lit candles when the electricity went off.	7	tu-li-washa (1PL-PAST-light) mi-shumaa (CL4-candle) stima (CL9-electricity) i-li-po-katika (CL9-PAST-CL16.REL-be.cut)		ai
+kukodi	Tulikodi gari kwa wiki nzima.	We hired a car for a whole week.	5	tu-li-kodi (1PL-PAST-hire) gari (CL5-car) kwa (for) wiki (CL9-week) nzima (CL9-whole)		ai
+kupoteza	Nilipoteza funguo zangu njiani.	I lost my keys on the way.	5	ni-li-poteza (1SG-PAST-lose) funguo (CL10-key) z-angu (CL10-my) njia-ni (CL9-road-LOC)		ai
+hadithi	Bibi hutusimulia hadithi za zamani.	Grandmother tells us stories of old times.	6	bibi (CL1-grandmother) hu-tu-simulia (HABITUAL-1PL.OBJ-narrate) hadithi (CL10-story) za (CL10-of) zamani (CL9-old.times)		ai
+stima	Stima ilikatika usiku wa manane.	The electricity went off in the middle of the night.	6	stima (CL9-electricity) i-li-katika (CL9-PAST-be.cut) usiku (CL11-night) wa (CL11-of) manane (midnight)		ai
+mazungumzo	Mazungumzo yetu yalidumu saa mbili.	Our conversation lasted two hours.	6	mazungumzo (CL6-conversation) y-etu (CL6-our) ya-li-dumu (CL6-PAST-last) saa (CL10-hour) mbili (two)		ai
+betri	Betri ya simu yangu imeisha.	My phone's battery has run out.	5	betri (CL9-battery) ya (CL9-of) simu (CL9-phone) y-angu (CL9-my) i-me-isha (CL9-PERF-finish)		ai
+machafuko	Chumba kilikuwa na machafuko baada ya sherehe.	The room was a mess after the party.	6	chumba (CL7-room) ki-li-kuwa na (CL7-PAST-be with) machafuko (CL6-disorder) baada ya (after) sherehe (CL9-party)		ai
+kujulisha	Tutakujulisha matokeo mara tutakapoyapata.	We will inform you of the results as soon as we get them.	8	tu-ta-ku-julisha (1PL-FUT-2SG.OBJ-inform) ma-tokeo (CL6-result) mara (once) tu-taka-po-ya-pata (1PL-FUT-CL16.REL-CL6.OBJ-get)		ai
+mteja	Wateja wetu wanaridhika na huduma yetu.	Our clients are satisfied with our service.	6	wa-teja (CL2-client) w-etu (CL2-our) wa-na-ridhika (CL2-PRES-be.satisfied) na (with) huduma (CL9-service) y-etu (CL9-our)		ai
+ukumbusho	Nilitumiwa ukumbusho wa mkutano jana.	I was sent a reminder about the meeting yesterday.	7	ni-li-tumiwa (1SG-PAST-be.sent) ukumbusho (CL11-reminder) wa (CL11-of) mkutano (CL3-meeting) jana (yesterday)		ai
+kampuni	Kampuni yetu imefungua tawi jipya Mombasa.	Our company has opened a new branch in Mombasa.	6	kampuni (CL9-company) y-etu (CL9-our) i-me-fungua (CL9-PERF-open) tawi (CL5-branch) jipya (CL5-new) Mombasa		ai
+kutabiri	Wataalamu wanatabiri mvua nyingi wiki hii.	The experts are forecasting heavy rain this week.	7	wa-taalamu (CL2-expert) wa-na-tabiri (CL2-PRES-forecast) mvua (CL9-rain) nyingi (CL9-much) wiki (CL9-week) hii (CL9-this)		ai
+kufurika	Mto ulifurika baada ya mvua ya siku tatu.	The river flooded after three days of rain.	6	mto (CL3-river) u-li-furika (CL3-PAST-overflow) baada ya (after) mvua (CL9-rain) ya (CL9-of) siku (CL10-day) tatu (three)		ai
+mafuriko	Mafuriko yaliharibu mashamba mengi.	The floods destroyed many farms.	6	ma-furiko (CL6-flood) ya-li-haribu (CL6-PAST-destroy) ma-shamba (CL6-farm) m-engi (CL6-many)		ai
+kuathiri	Ukame umeathiri mavuno mwaka huu.	The drought has affected the harvest this year.	6	ukame (CL11-drought) u-me-athiri (CL11-PERF-affect) ma-vuno (CL6-harvest) mwaka (CL3-year) huu (CL3-this)		ai
+athari	Athari za mabadiliko ya tabianchi zinaonekana.	The effects of climate change are visible.	8	athari (CL10-effect) za (CL10-of) ma-badiliko (CL6-change) ya (CL6-of) tabianchi (CL9-climate) zi-na-onekana (CL10-PRES-be.seen)		ai
+ajali	Ajali ilitokea ghafla karibu na daraja.	The accident happened suddenly near the bridge.	5	ajali (CL9-accident) i-li-tokea (CL9-PAST-happen) ghafla (suddenly) karibu na (near) daraja (CL5-bridge)		ai
+kuteleza	Nilitelezа kwenye sakafu iliyokuwa na maji.	I slipped on the floor that had water on it.	8	ni-li-teleza (1SG-PAST-slip) kwenye (on) sakafu (CL9-floor) i-li-yo-kuwa na (CL9-PAST-REL-be with) maji (CL6-water)		ai
+kufahamu	Sikufahamu maana ya neno hilo.	I did not understand the meaning of that word.	6	si-ku-fahamu (1SG.NEG-PAST-understand) maana (CL9-meaning) ya (CL9-of) neno (CL5-word) hilo (CL5-that)		ai
+ghafla	Umeme ulikatika ghafla wakati wa mkutano.	The power went off suddenly during the meeting.	6	umeme (CL3-electricity) u-li-katika (CL3-PAST-be.cut) ghafla (suddenly) wakati (CL11-time) wa (CL11-of) mkutano (CL3-meeting)		ai
+udhamini	Alipata udhamini wa kusomea nje ya nchi.	She got a scholarship to study abroad.	7	a-li-pata (CL1-PAST-get) udhamini (CL11-scholarship) wa (CL11-of) ku-somea (INF-study.APPL) nje ya (outside) nchi (CL9-country)		ai
+kufanikiwa	Alifanikiwa kupata kazi aliyoitaka.	He succeeded in getting the job he wanted.	8	a-li-fanikiwa (CL1-PAST-succeed) ku-pata (INF-get) kazi (CL9-work) a-li-yo-i-taka (CL1-PAST-CL9.REL-CL9.OBJ-want)		ai
+akiba	Ninaweka akiba kidogo kila mwezi.	I put aside a little savings every month.	5	ni-na-weka (1SG-PRES-put) akiba (CL9-savings) kidogo (CL7-a.little) kila (every) mwezi (CL3-month)		ai
+suala	Suala hili linahitaji majadiliano zaidi.	This issue needs further discussion.	7	suala (CL5-issue) hili (CL5-this) li-na-hitaji (CL5-PRES-need) ma-jadiliano (CL6-discussion) zaidi (more)		ai
+hifadhi	Tulitembelea hifadhi ya taifa ya Nakuru.	We visited Nakuru National Park.	6	tu-li-tembelea (1PL-PAST-visit) hifadhi (CL9-reserve) ya (CL9-of) taifa (CL5-nation) ya (CL9-of) Nakuru		ai
+kliniki	Kliniki hufunguliwa saa mbili asubuhi.	The clinic opens at eight in the morning.	6	kliniki (CL9-clinic) hu-funguliwa (HABITUAL-be.opened) saa (CL9-hour) mbili (two) asubuhi (CL9-morning)		ai
+kuanguka	Mtoto alianguka lakini hakuumia.	The child fell but was not hurt.	6	m-toto (CL1-child) a-li-anguka (CL1-PAST-fall) lakini (but) ha-ku-umia (CL1.NEG-PAST-be.injured)		ai
+kufura	Mguu wake ulifura baada ya ajali.	His leg swelled after the accident.	6	mguu (CL3-leg) w-ake (CL3-his) u-li-fura (CL3-PAST-swell) baada ya (after) ajali (CL9-accident)		ai
+ombi	Ombi lake la likizo lilikubaliwa.	His request for leave was approved.	7	ombi (CL5-request) l-ake (CL5-his) la (CL5-of) likizo (CL9-leave) li-li-kubaliwa (CL5-PAST-be.accepted)		ai
+kutarajia	Tunatarajia wageni kumi jioni ya leo.	We are expecting ten guests this evening.	6	tu-na-tarajia (1PL-PRES-expect) wa-geni (CL2-guest) kumi (ten) jioni (CL9-evening) ya (CL9-of) leo (today)		ai
+kubadilisha	Nataka kubadilisha dola kuwa shilingi.	I want to change dollars into shillings.	6	na-taka (1SG.PRES-want) ku-badilisha (INF-change) dola (CL9-dollar) ku-wa (INF-be) shilingi (CL10-shilling)		ai
+kuwasili	Ndege itawasili saa kumi jioni.	The plane will arrive at four in the afternoon.	5	ndege (CL9-plane) i-ta-wasili (CL9-FUT-arrive) saa (CL9-hour) kumi (ten) jioni (CL9-evening)		ai
+kutua	Ndege ilitua salama licha ya dhoruba.	The plane landed safely despite the storm.	7	ndege (CL9-plane) i-li-tua (CL9-PAST-land) salama (safely) licha ya (despite) dhoruba (CL9-storm)		ai
+kusafiri	Tunasafiri kwenda Kisumu kesho asubuhi.	We are travelling to Kisumu tomorrow morning.	4	tu-na-safiri (1PL-PRES-travel) kw-enda (INF-go) Kisumu kesho (tomorrow) asubuhi (CL9-morning)		ai
+shinikizo	Daktari alipima shinikizo la damu yangu.	The doctor measured my blood pressure.	7	daktari (CL5-doctor) a-li-pima (CL1-PAST-measure) shinikizo (CL5-pressure) la (CL5-of) damu (CL9-blood) y-angu (CL9-my)		ai
+kukatiza	Samahani kwa kukatiza mazungumzo yenu.	Sorry for interrupting your conversation.	6	samahani (sorry) kwa (for) ku-katiza (INF-interrupt) ma-zungumzo (CL6-conversation) y-enu (CL6-your.PL)		ai
+kutegemea	Mafanikio yanategemea bidii yako.	Success depends on your diligence.	7	ma-fanikio (CL6-success) ya-na-tegemea (CL6-PRES-depend.on) bidii (CL9-diligence) y-ako (CL9-your)		ai
+kufanana	Mapacha wale wanafanana kabisa.	Those twins resemble each other completely.	5	ma-pacha (CL6-twin) wale (CL2-those) wa-na-fanana (CL2-PRES-resemble) kabisa (completely)		ai
+kudumu	Urafiki wao umedumu tangu utotoni.	Their friendship has lasted since childhood.	7	urafiki (CL11-friendship) w-ao (CL11-their) u-me-dumu (CL11-PERF-last) tangu (since) utoto-ni (CL11-childhood-LOC)		ai
+bwawa	Hoteli ina bwawa la kuogelea juu ya paa.	The hotel has a swimming pool on the roof.	7	hoteli (CL9-hotel) i-na (CL9-have) bwawa (CL5-pool) la (CL5-of) ku-ogelea (INF-swim) juu ya (on.top.of) paa (CL5-roof)		ai
+mwenyeji	Mwenyeji wetu alitupokea kwa ukarimu.	Our host received us with generosity.	7	mwenyeji (CL1-host) w-etu (CL1-our) a-li-tu-pokea (CL1-PAST-1PL.OBJ-receive) kwa (with) ukarimu (CL11-generosity)		ai
+kuonekana	Mlima Kenya unaonekana vizuri leo.	Mount Kenya is clearly visible today.	6	mlima (CL3-mountain) Kenya u-na-onekana (CL3-PRES-be.seen) vizuri (CL8-well) leo (today)		ai
+anwani	Nipe anwani yako ya barua pepe.	Give me your email address.	5	ni-p-e (1SG.OBJ-give-SUBJ) anwani (CL9-address) y-ako (CL9-your) ya (CL9-of) barua (CL9-letter) pepe (lightning)		ai
+kubonyeza	Bonyeza kitufe hiki ili kuanza.	Press this button to begin.	6	bonyeza (press.IMP) kitufe (CL7-button) hiki (CL7-this) ili (so.that) ku-anza (INF-begin)		ai
+nywila	Nimesahau nywila ya akaunti yangu.	I have forgotten my account password.	6	ni-me-sahau (1SG-PERF-forget) nywila (CL9-password) ya (CL9-of) akaunti (CL9-account) y-angu (CL9-my)		ai
+mhandisi	Mhandisi alikagua jengo kabla ya ujenzi.	The engineer inspected the building before construction.	7	mhandisi (CL1-engineer) a-li-kagua (CL1-PAST-inspect) jengo (CL5-building) kabla ya (before) ujenzi (CL11-construction)		ai
+cheo	Amepandishwa cheo baada ya miaka mitano.	He has been promoted after five years.	8	a-me-pandishwa (CL1-PERF-be.raised) cheo (CL7-rank) baada ya (after) mi-aka (CL4-year) mi-tano (CL4-five)		ai
+mhenga	Wahenga walisema haraka haina baraka.	The elders said that haste has no blessing.	7	wa-henga (CL2-elder) wa-li-sema (CL2-PAST-say) haraka (CL9-haste) ha-i-na (NEG-CL9-have) baraka (CL9-blessing)		ai
+kuthibitisha	Utafiti ulithibitisha nadharia yao.	The research confirmed their theory.	8	utafiti (CL11-research) u-li-thibitisha (CL11-PAST-confirm) nadharia (CL9-theory) y-ao (CL9-their)		ai
+afadhali	Afadhali tuondoke sasa kabla ya msongamano.	We had better leave now before the traffic.	7	afadhali (better) tu-ondok-e (1PL-depart-SUBJ) sasa (now) kabla ya (before) msongamano (CL3-congestion)		ai
+maafa	Maafa ya mafuriko yaliacha wengi bila makazi.	The flood disaster left many without homes.	8	maafa (CL6-disaster) ya (CL6-of) ma-furiko (CL6-flood) ya-li-acha (CL6-PAST-leave) w-engi (CL2-many) bila (without) makazi (CL6-dwelling)		ai
+ngano	Bibi alitusimulia ngano ya sungura na fisi.	Grandmother told us the tale of the hare and the hyena.	7	bibi (CL1-grandmother) a-li-tu-simulia (CL1-PAST-1PL.OBJ-narrate) ngano (CL9-tale) ya (CL9-of) sungura (CL9-hare) na (and) fisi (CL9-hyena)		ai
+kuvutia	Hotuba yake ilivutia wasikilizaji wote.	Her speech captivated all the listeners.	7	hotuba (CL9-speech) y-ake (CL9-her) i-li-vutia (CL9-PAST-attract) wa-sikilizaji (CL2-listener) w-ote (CL2-all)		ai
+mandazi	Tulikunywa chai na mandazi asubuhi.	We had tea and mandazi in the morning.	4	tu-li-kunywa (1PL-PAST-drink) chai (CL9-tea) na (and) ma-ndazi (CL6-fried.cake) asubuhi (CL9-morning)		ai
+mwanasayansi	Mwanasayansi aliwasilisha matokeo ya utafiti.	The scientist presented the research findings.	8	mwanasayansi (CL1-scientist) a-li-wasilisha (CL1-PAST-present) ma-tokeo (CL6-result) ya (CL6-of) utafiti (CL11-research)		ai
+mchanganyiko	Mchanganyiko wa viungo hivi ni mzuri.	The mixture of these spices is good.	6	mchanganyiko (CL3-mixture) wa (CL3-of) vi-ungo (CL8-spice) hivi (CL8-these) ni (is) m-zuri (CL3-good)		ai
+kujali	Usijali, tutamaliza kazi kwa wakati.	Don't worry, we will finish the work on time.	6	u-si-jali (2SG-NEG.SUBJ-care) tu-ta-maliza (1PL-FUT-finish) kazi (CL9-work) kwa (in) wakati (CL11-time)		ai
+msamaha	Aliomba msamaha kwa kuchelewa.	He apologised for being late.	6	a-li-omba (CL1-PAST-ask) msamaha (CL3-pardon) kwa (for) ku-chelewa (INF-be.late)		ai
+kugundua	Waligundua tatizo mapema kabla halijaenea.	They discovered the problem early before it spread.	8	wa-li-gundua (CL2-PAST-discover) tatizo (CL5-problem) mapema (early) kabla (before) ha-li-ja-enea (NEG-CL5-not.yet-spread)		ai
+ukame	Ukame umeathiri mifugo katika eneo hili.	The drought has affected livestock in this area.	7	ukame (CL11-drought) u-me-athiri (CL11-PERF-affect) mi-fugo (CL4-livestock) katika (in) eneo (CL5-area) hili (CL5-this)		ai
+dhoruba	Dhoruba kali ilivunja miti mingi.	A fierce storm broke many trees.	6	dhoruba (CL9-storm) kali (CL9-fierce) i-li-vunja (CL9-PAST-break) mi-ti (CL4-tree) mi-ngi (CL4-many)		ai
+uhakika	Sina uhakika kama atakuja leo.	I am not sure whether he will come today.	6	si-na (1SG.NEG-have) uhakika (CL11-certainty) kama (whether) a-ta-kuja (CL1-FUT-come) leo (today)		ai
+kuruka	Mwanariadha aliruka mita saba.	The athlete jumped seven metres.	6	mwanariadha (CL1-athlete) a-li-ruka (CL1-PAST-jump) mita (CL10-metre) saba (seven)		ai
+utoto	Nakumbuka utotoni tulikuwa tukicheza mtoni.	I remember in childhood we used to play at the river.	8	na-kumbuka (1SG.PRES-remember) utoto-ni (CL11-childhood-LOC) tu-li-kuwa (1PL-PAST-be) tu-ki-cheza (1PL-PARTICIPIAL-play) mto-ni (CL3-river-LOC)		ai
+kukua	Mji huu umekua haraka miaka ya karibuni.	This town has grown quickly in recent years.	7	mji (CL3-town) huu (CL3-this) u-me-kua (CL3-PERF-grow) haraka (quickly) mi-aka (CL4-year) ya (CL4-of) karibuni (recent)		ai
+jiji	Jiji la Nairobi lina watu milioni kadhaa.	The city of Nairobi has several million people.	6	jiji (CL5-city) la (CL5-of) Nairobi li-na (CL5-have) wa-tu (CL2-person) milioni (million) kadhaa (several)		ai
+kipodozi	Duka hili linauza vipodozi vya bei nafuu.	This shop sells affordable cosmetics.	7	duka (CL5-shop) hili (CL5-this) li-na-uza (CL5-PRES-sell) vi-podozi (CL8-cosmetic) vya (CL8-of) bei (CL9-price) nafuu (affordable)		ai
+mchezo	Mchezo wa jana ulikuwa wa kusisimua.	Yesterday's game was thrilling.	7	mchezo (CL3-game) wa (CL3-of) jana (yesterday) u-li-kuwa (CL3-PAST-be) wa (CL3-of) ku-sisimua (INF-thrill)		ai
+mume	Mume wangu anafanya kazi ya uhandisi.	My husband works in engineering.	5	mume (CL1-husband) w-angu (CL1-my) a-na-fanya (CL1-PRES-do) kazi (CL9-work) ya (CL9-of) uhandisi (CL11-engineering)		ai
+mke	Mke wake ni mwalimu wa shule ya msingi.	His wife is a primary school teacher.	5	mke (CL1-wife) w-ake (CL1-his) ni (is) mwalimu (CL1-teacher) wa (CL1-of) shule (CL9-school) ya (CL9-of) msingi (CL3-foundation)		ai
+uzito	Nimepunguza uzito tangu nianze mazoezi.	I have lost weight since I started exercising.	7	ni-me-punguza (1SG-PERF-reduce) uzito (CL11-weight) tangu (since) ni-anz-e (1SG-begin-SUBJ) ma-zoezi (CL6-exercise)		ai
+wimbo	Wimbo huu unanikumbusha utotoni.	This song reminds me of childhood.	6	wimbo (CL3-song) huu (CL3-this) u-na-ni-kumbusha (CL3-PRES-1SG.OBJ-remind) utoto-ni (CL11-childhood-LOC)		ai
+kusambaza	Alisambaza picha za sherehe kwenye mtandao.	She shared the party photos on the internet.	6	a-li-sambaza (CL1-PAST-share) picha (CL10-photo) za (CL10-of) sherehe (CL9-party) kwenye (on) mtandao (CL3-internet)		ai
+kuchekesha	Video yake inachekesha sana.	His video is very funny.	5	video (CL9-video) y-ake (CL9-his) i-na-chekesha (CL9-PRES-be.funny) sana (very)		ai
+tafrija	Tafrija ya kuaga itafanyika Ijumaa.	The farewell party will be held on Friday.	7	tafrija (CL9-party) ya (CL9-of) ku-aga (INF-bid.farewell) i-ta-fanyika (CL9-FUT-take.place) Ijumaa (CL9-Friday)		ai
+kufurahia	Tulifurahia chakula na muziki wa jioni ile.	We enjoyed the food and music that evening.	6	tu-li-furahia (1PL-PAST-enjoy) chakula (CL7-food) na (and) muziki (CL3-music) wa (CL3-of) jioni (CL9-evening) ile (CL9-that)		ai
+kuvunjika	Simu yangu ilivunjika ilipoanguka chini.	My phone broke when it fell on the floor.	7	simu (CL9-phone) y-angu (CL9-my) i-li-vunjika (CL9-PAST-break) i-li-po-anguka (CL9-PAST-CL16.REL-fall) chini (below)		ai
+kupata	Nilipata ujumbe wako jana usiku.	I got your message last night.	4	ni-li-pata (1SG-PAST-get) ujumbe (CL11-message) w-ako (CL11-your) jana (yesterday) usiku (CL11-night)		ai
+shamba	Wazazi wangu wanaishi mashambani.	My parents live in the countryside.	5	wa-zazi (CL2-parent) w-angu (CL2-my) wa-na-ishi (CL2-PRES-live) ma-shamba-ni (CL6-farm-LOC)		ai
+goti	Goti langu linaniuma baada ya mchezo.	My knee hurts after the game.	6	goti (CL5-knee) l-angu (CL5-my) li-na-ni-uma (CL5-PRES-1SG.OBJ-hurt) baada ya (after) mchezo (CL3-game)		ai
+kuumia	Aliumia mkono alipokuwa akicheza.	He hurt his arm while he was playing.	8	a-li-umia (CL1-PAST-be.hurt) mkono (CL3-arm) a-li-po-kuwa (CL1-PAST-CL16.REL-be) a-ki-cheza (CL1-PARTICIPIAL-play)		ai
+kanisa	Harusi itafanyika kanisani saa nne.	The wedding will take place at the church at ten.	6	harusi (CL9-wedding) i-ta-fanyika (CL9-FUT-take.place) kanisa-ni (CL5-church-LOC) saa (CL9-hour) nne (four)		ai
+baraka	Tunawatakia baraka tele katika ndoa yenu.	We wish you abundant blessings in your marriage.	8	tu-na-wa-takia (1PL-PRES-CL2.OBJ-wish) baraka (CL10-blessing) tele (abundant) katika (in) ndoa (CL9-marriage) y-enu (CL9-your.PL)		ai
+ujumbe	Nimepokea ujumbe mzuri kuhusu mapacha.	I have received good news about the twins.	6	ni-me-pokea (1SG-PERF-receive) ujumbe (CL11-message) m-zuri (CL11-good) kuhusu (about) ma-pacha (CL6-twin)		ai
+kushukuru	Tunashukuru kwa msaada wenu wote.	We are grateful for all your help.	5	tu-na-shukuru (1PL-PRES-be.grateful) kwa (for) msaada (CL3-help) w-enu (CL3-your.PL) w-ote (CL3-all)		ai
+kubariki	Mungu awabariki katika safari yenu.	May God bless you on your journey.	7	Mungu (CL1-God) a-wa-barik-i (CL1-CL2.OBJ-bless-SUBJ) katika (in) safari (CL9-journey) y-enu (CL9-your.PL)		ai
+polisi	Polisi walifika haraka baada ya kuitwa.	The police arrived quickly after being called.	6	polisi (CL10-police) wa-li-fika (CL2-PAST-arrive) haraka (quickly) baada ya (after) ku-itwa (INF-be.called)		ai
+kuogopa	Watoto huogopa giza wakiwa peke yao.	Children fear the dark when they are alone.	7	wa-toto (CL2-child) hu-ogopa (HABITUAL-fear) giza (CL5-darkness) wa-ki-wa (CL2-PARTICIPIAL-be) peke y-ao (alone their)		ai
+sanduku	Sanduku hili ni zito kuliko lile.	This box is heavier than that one.	5	sanduku (CL5-box) hili (CL5-this) ni (is) zito (CL5-heavy) kuliko (than) lile (CL5-that)		ai
+kawaida	Kwa kawaida huamka saa kumi na moja.	He usually wakes up at five o'clock.	6	kwa (by) kawaida (CL9-custom) hu-amka (HABITUAL-wake) saa (CL9-hour) kumi na moja (eleven)		ai
+kutamani	Nimetamani kutembelea Lamu kwa miaka mingi.	I have longed to visit Lamu for many years.	7	ni-me-tamani (1SG-PERF-long.for) ku-tembelea (INF-visit) Lamu kwa (for) mi-aka (CL4-year) mi-ngi (CL4-many)		ai
+zamani	Jumba hili lilijengwa zamani sana.	This building was built a very long time ago.	6	jumba (CL5-building) hili (CL5-this) li-li-jengwa (CL5-PAST-be.built) zamani (CL9-old.times) sana (very)		ai
+kunyesha	Mvua ilinyesha siku nzima ya jana.	It rained the whole of yesterday.	5	mvua (CL9-rain) i-li-nyesha (CL9-PAST-fall) siku (CL9-day) nzima (CL9-whole) ya (CL9-of) jana (yesterday)		ai
+bahari	Tulitembea baharini jua likizama.	We walked by the sea as the sun was setting.	8	tu-li-tembea (1PL-PAST-walk) bahari-ni (CL9-sea-LOC) jua (CL5-sun) li-ki-zama (CL5-PARTICIPIAL-sink)		ai
+hewa	Hali ya hewa leo ni nzuri kwa kutembea.	The weather today is good for walking.	5	hali (CL9-condition) ya (CL9-of) hewa (CL9-air) leo (today) ni (is) nzuri (CL9-good) kwa (for) ku-tembea (INF-walk)		ai
+kuchunga	Chunga sana unapovuka barabara.	Be very careful when you cross the road.	7	chunga (guard.IMP) sana (very) u-na-po-vuka (2SG-PRES-CL16.REL-cross) barabara (CL9-road)		ai
+nchi	Nchi yetu ina makabila mengi.	Our country has many ethnic groups.	6	nchi (CL9-country) y-etu (CL9-our) i-na (CL9-have) ma-kabila (CL6-ethnic.group) m-engi (CL6-many)		ai
+mzee	Mzee yule anajua historia ya kijiji chetu.	That elder knows the history of our village.	6	mzee (CL1-elder) yule (CL1-that) a-na-jua (CL1-PRES-know) historia (CL9-history) ya (CL9-of) kijiji (CL7-village) ch-etu (CL7-our)		ai
+uhuru	Kenya ilipata uhuru mwaka wa elfu moja mia tisa sitini na tatu.	Kenya gained independence in nineteen sixty-three.	8	Kenya i-li-pata (CL9-PAST-get) uhuru (CL11-freedom) mwaka (CL3-year) wa (CL3-of) elfu moja mia tisa sitini na tatu (1963)		ai
+shujaa	Mashujaa wa taifa hukumbukwa kila Oktoba.	The nation's heroes are remembered every October.	8	ma-shujaa (CL6-hero) wa (CL2-of) taifa (CL5-nation) hu-kumbukwa (HABITUAL-be.remembered) kila (every) Oktoba (October)		ai
+maarifa	Maarifa ya wazee ni hazina kubwa.	The knowledge of the elders is a great treasure.	7	maarifa (CL6-knowledge) ya (CL6-of) wa-zee (CL2-elder) ni (is) hazina (CL9-treasure) kubwa (CL9-big)		ai
+babu	Babu yangu alikuwa mvuvi maisha yake yote.	My grandfather was a fisherman all his life.	7	babu (CL1-grandfather) y-angu (CL9-my) a-li-kuwa (CL1-PAST-be) mvuvi (CL1-fisherman) maisha (CL6-life) y-ake (CL6-his) y-ote (CL6-all)		ai
+keki	Tulikata keki baada ya kuimba.	We cut the cake after singing.	4	tu-li-kata (1PL-PAST-cut) keki (CL9-cake) baada ya (after) ku-imba (INF-sing)		ai
+krismasi	Krismasi hii tutakuwa pamoja na familia.	This Christmas we will be together with the family.	5	Krismasi (CL9-Christmas) hii (CL9-this) tu-ta-kuwa (1PL-FUT-be) pamoja na (together.with) familia (CL9-family)		ai
+picha	Tupige picha kabla ya kuondoka.	Let's take a photo before leaving.	5	tu-pig-e (1PL-hit-SUBJ) picha (CL9-photo) kabla ya (before) ku-ondoka (INF-depart)		ai
+kuadhimisha	Tutaadhimisha miaka mitano ya kampuni yetu.	We will mark five years of our company.	7	tu-ta-adhimisha (1PL-FUT-commemorate) mi-aka (CL4-year) mi-tano (CL4-five) ya (CL4-of) kampuni (CL9-company) y-etu (CL9-our)		ai
+jamii	Jamii yetu husaidiana wakati wa shida.	Our community helps one another in times of trouble.	7	jamii (CL9-community) y-etu (CL9-our) hu-saidiana (HABITUAL-help.each.other) wakati (CL11-time) wa (CL11-of) shida (CL9-trouble)		ai
+hakuna	Hakuna mtu aliyebaki ofisini.	There is nobody left in the office.	7	hakuna (CL17.NEG-there.is) mtu (CL1-person) a-li-ye-baki (CL1-PAST-CL1.REL-remain) ofisi-ni (CL9-office-LOC)		ai
+kuna	Kuna watu wengi kwenye sherehe.	There are many people at the celebration.	4	kuna (CL17-there.are) wa-tu (CL2-person) w-engi (CL2-many) kwenye (at) sherehe (CL9-celebration)		ai
+pekee	Yeye ni mtoto wa pekee katika familia.	She is an only child in the family.	5	yeye (she) ni (is) mtoto (CL1-child) wa (CL1-of) pekee (only) katika (in) familia (CL9-family)		ai
+kitu	Kuna kitu ninachotaka kukuambia.	There is something I want to tell you.	7	kuna (CL17-there.is) kitu (CL7-thing) ni-na-cho-taka (1SG-PRES-CL7.REL-want) ku-ku-ambia (INF-2SG.OBJ-tell)		ai
+kutoka	Ninatoka Tanzania lakini ninaishi Nairobi.	I come from Tanzania but I live in Nairobi.	3	ni-na-toka (1SG-PRES-come.from) Tanzania lakini (but) ni-na-ishi (1SG-PRES-live) Nairobi		ai
+kuishi	Wanaishi kijiji kidogo karibu na ziwa.	They live in a small village near the lake.	4	wa-na-ishi (CL2-PRES-live) kijiji (CL7-village) ki-dogo (CL7-small) karibu na (near) ziwa (CL5-lake)		ai
+kenya	Kenya ina fukwe nzuri upande wa mashariki.	Kenya has beautiful beaches on the eastern side.	5	Kenya i-na (CL9-have) fukwe (CL10-beach) nzuri (CL10-beautiful) upande (CL11-side) wa (CL11-of) mashariki (CL9-east)		ai
+mkenya	Yeye ni Mkenya aliyezaliwa Mombasa.	He is a Kenyan who was born in Mombasa.	6	yeye (he) ni (is) M-kenya (CL1-Kenyan) a-li-ye-zaliwa (CL1-PAST-CL1.REL-be.born) Mombasa		ai
+mwalimu	Mwalimu wetu anafundisha hesabu na sayansi.	Our teacher teaches mathematics and science.	4	mwalimu (CL1-teacher) w-etu (CL1-our) a-na-fundisha (CL1-PRES-teach) hesabu (CL9-mathematics) na (and) sayansi (CL9-science)		ai
+mfanyakazi	Mfanyakazi huyu amefanya kazi hapa miaka kumi.	This employee has worked here for ten years.	5	m-fanyakazi (CL1-worker) huyu (CL1-this) a-me-fanya (CL1-PERF-do) kazi (CL9-work) hapa (CL16-here) mi-aka (CL4-year) kumi (ten)		ai
+mwanasheria	Dada yangu ni mwanasheria mjini Arusha.	My sister is a lawyer in the town of Arusha.	5	dada (CL9-sister) y-angu (CL9-my) ni (is) mwana-sheria (CL1-lawyer) mji-ni (CL3-town-LOC) Arusha		ai
+fundi	Fundi atakuja kutengeneza bomba kesho.	The technician will come to fix the pipe tomorrow.	5	fundi (CL1-technician) a-ta-kuja (CL1-FUT-come) ku-tengeneza (INF-repair) bomba (CL5-pipe) kesho (tomorrow)		ai
+kujifunza	Ninajifunza Kiswahili kwa muda wa miezi sita.	I have been learning Swahili for six months.	5	ni-na-ji-funza (1SG-PRES-REFL-teach) Kiswahili (CL7-Swahili) kwa (for) muda (CL3-period) wa (CL3-of) mi-ezi (CL4-month) sita (six)		ai
+kuongea	Ninaweza kuongea Kiswahili kidogo tu.	I can speak only a little Swahili.	4	ni-na-weza (1SG-PRES-be.able) ku-ongea (INF-speak) Kiswahili (CL7-Swahili) kidogo (CL7-a.little) tu (only)		ai
+sanifu	Kiswahili sanifu hufundishwa shuleni.	Standard Swahili is taught in schools.	6	Kiswahili (CL7-Swahili) sanifu (standard) hu-fundishwa (HABITUAL-be.taught) shule-ni (CL9-school-LOC)		ai
+shule	Watoto huenda shuleni saa moja asubuhi.	The children go to school at seven in the morning.	4	wa-toto (CL2-child) hu-enda (HABITUAL-go) shule-ni (CL9-school-LOC) saa (CL9-hour) moja (one) asubuhi (CL9-morning)		ai
+chuo	Nilisoma Kiswahili katika chuo kikuu.	I studied Swahili at university.	4	ni-li-soma (1SG-PAST-study) Kiswahili (CL7-Swahili) katika (in) chuo (CL7-college) ki-kuu (CL7-great)		ai
+muda	Umekuwa hapa kwa muda gani?	How long have you been here?	4	u-me-kuwa (2SG-PERF-be) hapa (CL16-here) kwa (for) muda (CL3-period) gani (what.kind)		ai
+nyama	Sili nyama, mimi ni mlaji wa mboga.	I do not eat meat; I am a vegetarian.	6	si-l-i (1SG.NEG-eat-NEG) nyama (CL9-meat) mimi (I) ni (am) m-laji (CL1-eater) wa (CL1-of) mboga (CL9-vegetable)		ai
+samaki	Samaki wa ziwani ni watamu zaidi.	Lake fish are tastier.	5	samaki (CL9-fish) wa (CL1-of) ziwa-ni (CL5-lake-LOC) ni (are) wa-tamu (CL2-tasty) zaidi (more)		ai
+chumvi	Chakula hiki kina chumvi nyingi mno.	This food has far too much salt.	5	chakula (CL7-food) hiki (CL7-this) ki-na (CL7-have) chumvi (CL9-salt) nyingi (CL9-much) mno (excessively)		ai
+kuonja	Naomba kuonja kabla ya kununua.	May I taste it before buying.	4	na-omba (1SG.PRES-request) ku-onja (INF-taste) kabla ya (before) ku-nunua (INF-buy)		ai
+tamu	Embe hili ni tamu kuliko lile.	This mango is sweeter than that one.	5	embe (CL5-mango) hili (CL5-this) ni (is) tamu (sweet) kuliko (than) lile (CL5-that)		ai
+hasa	Napenda matunda, hasa maembe.	I like fruit, especially mangoes.	3	na-penda (1SG.PRES-like) ma-tunda (CL6-fruit) hasa (especially) ma-embe (CL6-mango)		ai
+ndugu	Nina ndugu wawili na dada mmoja.	I have two brothers and one sister.	4	ni-na (1SG-have) ndugu (CL10-sibling) wa-wili (CL2-two) na (and) dada (CL9-sister) m-moja (CL1-one)		ai
+mrefu	Kaka yangu ni mrefu kuliko mimi.	My elder brother is taller than me.	4	kaka (CL1-elder.brother) y-angu (CL9-my) ni (is) m-refu (CL1-tall) kuliko (than) mimi (me)		ai
+urefu	Urefu wangu ni sentimita mia moja sabini.	My height is one hundred and seventy centimetres.	5	urefu (CL11-height) w-angu (CL11-my) ni (is) sentimita (CL10-centimetre) mia (hundred) moja (one) sabini (seventy)		ai
+kuzaliwa	Siku yangu ya kuzaliwa ni tarehe nne Aprili.	My birthday is the fourth of April.	5	siku (CL9-day) y-angu (CL9-my) ya (CL9-of) ku-zaliwa (INF-be.born) ni (is) tarehe (CL9-date) nne (four) Aprili (April)		ai
+desemba	Likizo yetu huanza mwezi wa Desemba.	Our holiday usually begins in December.	5	likizo (CL9-holiday) y-etu (CL9-our) hu-anza (HABITUAL-begin) mwezi (CL3-month) wa (CL3-of) Desemba		ai
+kulala	Ninalala mapema ninapokuwa na kazi asubuhi.	I sleep early when I have work in the morning.	6	ni-na-lala (1SG-PRES-sleep) mapema (early) ni-na-po-kuwa na (1SG-PRES-CL16.REL-be with) kazi (CL9-work) asubuhi (CL9-morning)		ai
+kufikiria	Ninafikiria kuhusu safari ya mwakani.	I am thinking about next year's trip.	5	ni-na-fikiria (1SG-PRES-think) kuhusu (about) safari (CL9-journey) ya (CL9-of) mwaka-ni (CL3-year-LOC = next year)		ai
+runinga	Tunatazama runinga baada ya chakula cha jioni.	We watch television after the evening meal.	4	tu-na-tazama (1PL-PRES-watch) runinga (CL9-television) baada ya (after) chakula (CL7-food) cha (CL7-of) jioni (CL9-evening)		ai
+kompyuta	Kompyuta yangu imeharibika tena.	My computer has broken down again.	4	kompyuta (CL9-computer) y-angu (CL9-my) i-me-haribika (CL9-PERF-be.spoilt) tena (again)		ai
+kiti	Kiti hiki ni cha babu yangu.	This chair is my grandfather's.	4	kiti (CL7-chair) hiki (CL7-this) ni (is) cha (CL7-of) babu (CL1-grandfather) y-angu (CL9-my)		ai
+kamera	Kamera hii ni ya rafiki yangu.	This camera belongs to my friend.	3	kamera (CL9-camera) hii (CL9-this) ni (is) ya (CL9-of) rafiki (CL9-friend) y-angu (CL9-my)		ai
+njaa	Nina njaa kali, twende tukale.	I am very hungry; let's go and eat.	5	ni-na (1SG-have) njaa (CL9-hunger) kali (CL9-fierce) tu-end-e (1PL-go-SUBJ) tu-kal-e (1PL-eat-SUBJ)		ai
+kiu	Nina kiu, naomba maji baridi.	I am thirsty; may I have cold water.	4	ni-na (1SG-have) kiu (CL9-thirst) na-omba (1SG.PRES-request) maji (CL6-water) baridi (CL6-cold)		ai
+wasiwasi	Nina wasiwasi kuhusu matokeo ya mtihani.	I am worried about the exam results.	5	ni-na (1SG-have) wasiwasi (CL11-worry) kuhusu (about) ma-tokeo (CL6-result) ya (CL6-of) mtihani (CL3-exam)		ai
+huzuni	Alikuwa na huzuni baada ya habari zile.	She was sad after that news.	5	a-li-kuwa na (CL1-PAST-be with) huzuni (CL9-sadness) baada ya (after) habari (CL10-news) zile (CL10-those)		ai
+mgonjwa	Mgonjwa amelazwa hospitalini tangu jana.	The patient has been admitted to hospital since yesterday.	6	m-gonjwa (CL1-patient) a-me-lazwa (CL1-PERF-be.laid.down) hospitali-ni (CL9-hospital-LOC) tangu (since) jana (yesterday)		ai
+baridi	Kuna baridi kali mlimani usiku.	It is bitterly cold on the mountain at night.	5	kuna (CL17-there.is) baridi (CL9-cold) kali (CL9-fierce) mlima-ni (CL3-mountain-LOC) usiku (CL11-night)		ai
+mawingu	Mawingu meusi yanaonyesha mvua inakuja.	Black clouds show that rain is coming.	6	ma-wingu (CL6-cloud) m-eusi (CL6-black) ya-na-onyesha (CL6-PRES-show) mvua (CL9-rain) i-na-kuja (CL9-PRES-come)		ai
+anga	Hali ya anga leo ni nzuri kwa safari.	The weather today is good for travelling.	5	hali (CL9-condition) ya (CL9-of) anga (CL5-sky) leo (today) ni (is) nzuri (CL9-good) kwa (for) safari (CL9-journey)		ai
+mara	Nimetembelea Zanzibar mara tatu.	I have visited Zanzibar three times.	4	ni-me-tembelea (1SG-PERF-visit) Zanzibar mara (CL10-time) tatu (three)		ai
+kuzuru	Tulizuru makumbusho ya taifa mwaka jana.	We visited the national museum last year.	6	tu-li-zuru (1PL-PAST-visit) ma-kumbusho (CL6-museum) ya (CL6-of) taifa (CL5-nation) mwaka (CL3-year) jana (last)		ai
+vipi	Umejifunza Kiswahili vipi?	How did you learn Swahili?	4	u-me-ji-funza (2SG-PERF-REFL-teach) Kiswahili (CL7-Swahili) vipi (how)		ai
+kiasi	Ninaelewa kiasi, lakini si kila kitu.	I understand somewhat, but not everything.	5	ni-na-elewa (1SG-PRES-understand) kiasi (CL7-amount) lakini (but) si (not) kila (every) kitu (CL7-thing)		ai
+daima	Yeye daima hufika kabla ya wengine.	He always arrives before the others.	5	yeye (he) daima (always) hu-fika (HABITUAL-arrive) kabla ya (before) w-engine (CL2-other)		ai
+nane	Mtoto wangu ana miaka minane.	My child is eight years old.	4	m-toto (CL1-child) w-angu (CL1-my) a-na (CL1-have) mi-aka (CL4-year) mi-nane (CL4-eight)		ai
+arobaini	Baba yangu ana miaka arobaini na tano.	My father is forty-five years old.	4	baba (CL1-father) y-angu (CL9-my) a-na (CL1-have) mi-aka (CL4-year) arobaini (forty) na (and) tano (five)		ai

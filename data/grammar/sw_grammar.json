@@ -3595,6 +3595,1793 @@
           "display_order": 6
         }
       ]
+    },
+    {
+      "title": "Asking about time, manner and kind: lini, vipi, gani, mbona",
+      "level": "A2",
+      "function": "Ask when, how, what kind and how come, using the interrogatives that follow the verb or the noun.",
+      "explanation": "Beyond the basic nini, nani and wapi, four more interrogatives cover most everyday questions. Lini asks when and follows the verb: utaondoka lini? Vipi asks how or in what way, and also stands alone as an informal 'how are things?'. Gani asks what kind and is unusual in following a noun rather than a verb, taking no concord at all: chai gani?, umri gani? Mbona asks how come, carrying a note of surprise or complaint, and unlike the others it opens the sentence. None of these move to the front the way English question words do; word order otherwise stays as in a statement.",
+      "culture_note": "",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 9,
+      "references": [
+        {
+          "title": "Kamusi Project",
+          "url": "https://kamusi.org/"
+        },
+        {
+          "title": "SwahiliPod101 3-Minute Swahili #8, #14–17",
+          "book": "Learn Swahili Bundle (SwahiliPod101)",
+          "page": "157-196"
+        }
+      ],
+      "related": [],
+      "drills": [
+        {
+          "sentence": "Utarudi {{answer}} kutoka safari?",
+          "answer": "lini",
+          "translation": "When will you return from the trip?",
+          "hint": "the interrogative asking at what point in time",
+          "gloss": "u-ta-rudi (2SG-FUT-return) lini (when) kutoka (from) safari (CL9-journey)",
+          "transliteration": null,
+          "cell": "lini (when)",
+          "display_order": 1
+        },
+        {
+          "sentence": "Mkutano ulianza {{answer}}?",
+          "answer": "lini",
+          "translation": "When did the meeting begin?",
+          "hint": "the interrogative asking at what point in time",
+          "gloss": "mkutano (CL3-meeting) u-li-anza (CL3-PAST-begin) lini (when)",
+          "transliteration": null,
+          "cell": "lini (when)",
+          "display_order": 2
+        },
+        {
+          "sentence": "Umefika {{answer}} bila gari?",
+          "answer": "vipi",
+          "translation": "How did you get here without a car?",
+          "hint": "the interrogative asking in what manner",
+          "gloss": "u-me-fika (2SG-PERF-arrive) vipi (how) bila (without) gari (CL5-car)",
+          "transliteration": null,
+          "cell": "vipi (how)",
+          "display_order": 3
+        },
+        {
+          "sentence": "Habari za leo? {{answer}}?",
+          "answer": "Vipi",
+          "translation": "How are things today? How's it going?",
+          "hint": "the interrogative asking in what manner, used alone as a casual greeting",
+          "gloss": "vipi (how/what's.up)",
+          "transliteration": null,
+          "cell": "vipi (how)",
+          "display_order": 4
+        },
+        {
+          "sentence": "Unataka chai {{answer}}?",
+          "answer": "gani",
+          "translation": "What kind of tea do you want?",
+          "hint": "the invariable interrogative placed after a noun",
+          "gloss": "u-na-taka (2SG-PRES-want) chai (CL9-tea) gani (what.kind)",
+          "transliteration": null,
+          "cell": "gani (what kind)",
+          "display_order": 5
+        },
+        {
+          "sentence": "Kitabu {{answer}} unasoma sasa?",
+          "answer": "gani",
+          "translation": "Which book are you reading now?",
+          "hint": "the invariable interrogative placed after a noun",
+          "gloss": "kitabu (CL7-book) gani (what.kind) u-na-soma (2SG-PRES-read) sasa (now)",
+          "transliteration": null,
+          "cell": "gani (what kind)",
+          "display_order": 6
+        },
+        {
+          "sentence": "{{answer}} hujanijibu ujumbe wangu?",
+          "answer": "Mbona",
+          "translation": "How come you haven't answered my message?",
+          "hint": "the sentence-initial interrogative carrying mild reproach",
+          "gloss": "mbona (how.come) hu-ja-ni-jibu (2SG.NEG-not.yet-1SG.OBJ-answer) ujumbe (CL11-message) w-angu (CL11-my)",
+          "transliteration": null,
+          "cell": "mbona (how come)",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} umeamka mapema hivyo?",
+          "answer": "Mbona",
+          "translation": "How come you woke up so early?",
+          "hint": "the sentence-initial interrogative carrying surprise",
+          "gloss": "mbona (how.come) u-me-amka (2SG-PERF-wake) mapema (early) hivyo (CL8-like.that)",
+          "transliteration": null,
+          "cell": "mbona (how come)",
+          "display_order": 8
+        },
+        {
+          "sentence": "Una umri {{answer}}?",
+          "answer": "gani",
+          "translation": "How old are you?",
+          "hint": "the invariable interrogative placed after a noun",
+          "gloss": "u-na (2SG-have) umri (CL11-age) gani (what.kind)",
+          "transliteration": null,
+          "cell": "gani (what kind)",
+          "display_order": 1
+        },
+        {
+          "sentence": "Tutaonana {{answer}}?",
+          "answer": "lini",
+          "translation": "When shall we see each other?",
+          "hint": "the interrogative asking at what point in time",
+          "gloss": "tu-ta-on-ana (1PL-FUT-see-RECIP) lini (when)",
+          "transliteration": null,
+          "cell": "lini (when)",
+          "display_order": 2
+        }
+      ],
+      "paradigm": [
+        "lini (when)",
+        "vipi (how)",
+        "gani (what kind)",
+        "mbona (how come)"
+      ]
+    },
+    {
+      "title": "Asking for and giving directions",
+      "level": "A2",
+      "function": "Ask where a place is and give directions using the locative copula and the direction words.",
+      "explanation": "A location question pairs the noun with the locative copula and wapi: stesheni iko wapi? The copula carries the noun's class, so it is iko for class 9, liko for class 5, kiko for class 7. Directions themselves rely on a small set: kulia for the right, kushoto for the left, moja kwa moja for straight on, and mbele, nyuma, karibu and mbali for in front, behind, near and far. Each is normally introduced by upande wa, 'on the side of', with the -a of association taking the class 11 concord. Instructions come as bare imperatives — geuka, enda, fuata — and pluralise with -ni for a group.",
+      "culture_note": "",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 10,
+      "references": [
+        {
+          "title": "Kamusi Project",
+          "url": "https://kamusi.org/"
+        },
+        {
+          "title": "SwahiliPod101 3-Minute Swahili #16",
+          "book": "Learn Swahili Bundle (SwahiliPod101)",
+          "page": "185-188"
+        }
+      ],
+      "related": [],
+      "drills": [
+        {
+          "sentence": "Stesheni {{answer}} wapi?",
+          "answer": "iko",
+          "translation": "Where is the station?",
+          "hint": "the class 9 locative copula",
+          "gloss": "stesheni (CL9-station) i-ko (CL9-be.at) wapi (where)",
+          "transliteration": null,
+          "cell": "asking where",
+          "display_order": 1
+        },
+        {
+          "sentence": "Duka {{answer}} wapi?",
+          "answer": "liko",
+          "translation": "Where is the shop?",
+          "hint": "the class 5 locative copula",
+          "gloss": "duka (CL5-shop) li-ko (CL5-be.at) wapi (where)",
+          "transliteration": null,
+          "cell": "asking where",
+          "display_order": 2
+        },
+        {
+          "sentence": "Hoteli iko upande wa {{answer}}.",
+          "answer": "kulia",
+          "translation": "The hotel is on the right-hand side.",
+          "hint": "the side opposite the left",
+          "gloss": "hoteli (CL9-hotel) i-ko (CL9-be.at) upande (CL11-side) wa (CL11-of) kulia (CL17-right)",
+          "transliteration": null,
+          "cell": "left and right",
+          "display_order": 3
+        },
+        {
+          "sentence": "Benki iko upande wa {{answer}}.",
+          "answer": "kushoto",
+          "translation": "The bank is on the left-hand side.",
+          "hint": "the side opposite the right",
+          "gloss": "benki (CL9-bank) i-ko (CL9-be.at) upande (CL11-side) wa (CL11-of) kushoto (CL17-left)",
+          "transliteration": null,
+          "cell": "left and right",
+          "display_order": 4
+        },
+        {
+          "sentence": "Nenda {{answer}} hadi taa za barabarani.",
+          "answer": "moja kwa moja",
+          "translation": "Go straight on as far as the traffic lights.",
+          "hint": "the three-word phrase literally meaning one by one",
+          "gloss": "nenda (go.IMP) moja kwa moja (one by one = straight.on) hadi (until) taa (CL10-light) za (CL10-of) barabara-ni (CL9-road-LOC)",
+          "transliteration": null,
+          "cell": "straight on and distance",
+          "display_order": 5
+        },
+        {
+          "sentence": "Soko liko {{answer}} na hapa.",
+          "answer": "karibu",
+          "translation": "The market is near here.",
+          "hint": "the word meaning close by, also used to welcome",
+          "gloss": "soko (CL5-market) li-ko (CL5-be.at) karibu na (near) hapa (CL16-here)",
+          "transliteration": null,
+          "cell": "straight on and distance",
+          "display_order": 6
+        },
+        {
+          "sentence": "{{answer}} kushoto baada ya daraja.",
+          "answer": "Geuka",
+          "translation": "Turn left after the bridge.",
+          "hint": "the imperative meaning change direction",
+          "gloss": "geuka (turn.IMP) kushoto (CL17-left) baada ya (after) daraja (CL5-bridge)",
+          "transliteration": null,
+          "cell": "imperative instructions",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} njia hii hadi mwisho.",
+          "answer": "Fuata",
+          "translation": "Follow this road to the end.",
+          "hint": "the imperative meaning go along after",
+          "gloss": "fuata (follow.IMP) njia (CL9-road) hii (CL9-this) hadi (until) mwisho (CL3-end)",
+          "transliteration": null,
+          "cell": "imperative instructions",
+          "display_order": 8
+        },
+        {
+          "sentence": "Msikiti {{answer}} wapi?",
+          "answer": "uko",
+          "translation": "Where is the mosque?",
+          "hint": "the class 3 locative copula",
+          "gloss": "msikiti (CL3-mosque) u-ko (CL3-be.at) wapi (where)",
+          "transliteration": null,
+          "cell": "asking where",
+          "display_order": 1
+        },
+        {
+          "sentence": "Uwanja wa ndege uko {{answer}} na mji.",
+          "answer": "mbali",
+          "translation": "The airport is far from the town.",
+          "hint": "the opposite of near",
+          "gloss": "uwanja (CL11-field) wa (CL11-of) ndege (CL9-plane) u-ko (CL11-be.at) mbali na (far.from) mji (CL3-town)",
+          "transliteration": null,
+          "cell": "straight on and distance",
+          "display_order": 2
+        }
+      ],
+      "prerequisites": [
+        "Asking about time, manner and kind: lini, vipi, gani, mbona"
+      ],
+      "paradigm": [
+        "asking where",
+        "left and right",
+        "straight on and distance",
+        "imperative instructions"
+      ]
+    },
+    {
+      "title": "Numbers 11 to 100, and talking about prices",
+      "level": "A2",
+      "function": "Build the numbers above ten with na, and use them to state and ask prices.",
+      "explanation": "Swahili builds the teens transparently: kumi na moja is eleven, kumi na saba seventeen. The tens are ishirini, thelathini, arobaini, hamsini, sitini, sabini, themanini, tisini, and mia is a hundred, so twenty-six is ishirini na sita. Only a few low numerals take a class concord — moja, mbili, tatu, nne, tano, nane — while the Arabic borrowings sita, saba, tisa, kumi and the tens never do. Prices use the currency noun followed by the number: shilingi hamsini na tano. To ask a price, pesa ngapi? or bei gani? both work, and ni ngapi? is the shortest form.",
+      "culture_note": "",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 11,
+      "references": [
+        {
+          "title": "Kamusi Project",
+          "url": "https://kamusi.org/"
+        },
+        {
+          "title": "SwahiliPod101 3-Minute Swahili #10–11",
+          "book": "Learn Swahili Bundle (SwahiliPod101)",
+          "page": "163-170"
+        }
+      ],
+      "related": [],
+      "drills": [
+        {
+          "sentence": "Nina miaka kumi {{answer}} saba.",
+          "answer": "na",
+          "translation": "I am seventeen years old.",
+          "hint": "the linker joining ten to the unit",
+          "gloss": "ni-na (1SG-have) mi-aka (CL4-year) kumi (ten) na (and) saba (seven)",
+          "transliteration": null,
+          "cell": "teens with na",
+          "display_order": 1
+        },
+        {
+          "sentence": "Darasa lina wanafunzi kumi {{answer}} tisa.",
+          "answer": "na",
+          "translation": "The class has nineteen students.",
+          "hint": "the linker joining ten to the unit",
+          "gloss": "darasa (CL5-class) li-na (CL5-have) wa-nafunzi (CL2-student) kumi (ten) na (and) tisa (nine)",
+          "transliteration": null,
+          "cell": "teens with na",
+          "display_order": 2
+        },
+        {
+          "sentence": "Nauli ni shilingi {{answer}} na tano.",
+          "answer": "hamsini",
+          "translation": "The fare is fifty-five shillings.",
+          "hint": "the ten-multiple that is half of a hundred",
+          "gloss": "nauli (CL9-fare) ni (is) shilingi (CL10-shilling) hamsini (fifty) na (and) tano (five)",
+          "transliteration": null,
+          "cell": "the tens",
+          "display_order": 3
+        },
+        {
+          "sentence": "Kitabu kinauzwa shilingi {{answer}} na sita.",
+          "answer": "ishirini",
+          "translation": "The book is sold for twenty-six shillings.",
+          "hint": "the ten-multiple that is twice ten",
+          "gloss": "kitabu (CL7-book) ki-na-uzwa (CL7-PRES-be.sold) shilingi (CL10-shilling) ishirini (twenty) na (and) sita (six)",
+          "transliteration": null,
+          "cell": "the tens",
+          "display_order": 4
+        },
+        {
+          "sentence": "Nimenunua vitabu {{answer}}.",
+          "answer": "viwili",
+          "translation": "I have bought two books.",
+          "hint": "the numeral two carrying the class 8 concord",
+          "gloss": "ni-me-nunua (1SG-PERF-buy) vi-tabu (CL8-book) vi-wili (CL8-two)",
+          "transliteration": null,
+          "cell": "concord on the low numerals",
+          "display_order": 5
+        },
+        {
+          "sentence": "Kuna watu {{answer}} mlangoni.",
+          "answer": "watatu",
+          "translation": "There are three people at the door.",
+          "hint": "the numeral three carrying the class 2 concord",
+          "gloss": "kuna (CL17-there.are) wa-tu (CL2-person) wa-tatu (CL2-three) mlango-ni (CL3-door-LOC)",
+          "transliteration": null,
+          "cell": "concord on the low numerals",
+          "display_order": 6
+        },
+        {
+          "sentence": "Hii ni pesa {{answer}}?",
+          "answer": "ngapi",
+          "translation": "How much is this?",
+          "hint": "the how-many stem with the class 10 concord",
+          "gloss": "hii (CL9-this) ni (is) pesa (CL10-money) ngapi (CL10-how.many)",
+          "transliteration": null,
+          "cell": "asking a price",
+          "display_order": 7
+        },
+        {
+          "sentence": "Nguo hii ni bei {{answer}}?",
+          "answer": "gani",
+          "translation": "What price is this garment?",
+          "hint": "the invariable interrogative placed after a noun",
+          "gloss": "nguo (CL9-garment) hii (CL9-this) ni (is) bei (CL9-price) gani (what.kind)",
+          "transliteration": null,
+          "cell": "asking a price",
+          "display_order": 8
+        },
+        {
+          "sentence": "Nilinunua machungwa {{answer}} sokoni.",
+          "answer": "manne",
+          "translation": "I bought four oranges at the market.",
+          "hint": "the numeral four carrying the class 6 concord",
+          "gloss": "ni-li-nunua (1SG-PAST-buy) ma-chungwa (CL6-orange) ma-nne (CL6-four) soko-ni (CL5-market-LOC)",
+          "transliteration": null,
+          "cell": "concord on the low numerals",
+          "display_order": 1
+        },
+        {
+          "sentence": "Bei yake ni shilingi {{answer}} moja.",
+          "answer": "mia",
+          "translation": "Its price is one hundred shillings.",
+          "hint": "the numeral for ten tens",
+          "gloss": "bei (CL9-price) y-ake (CL9-its) ni (is) shilingi (CL10-shilling) mia (hundred) moja (one)",
+          "transliteration": null,
+          "cell": "the tens",
+          "display_order": 2
+        }
+      ],
+      "prerequisites": [
+        "Asking about time, manner and kind: lini, vipi, gani, mbona"
+      ],
+      "paradigm": [
+        "teens with na",
+        "the tens",
+        "concord on the low numerals",
+        "asking a price"
+      ]
+    },
+    {
+      "title": "Negative infinitives with -to-: kutojua, kutokuwa",
+      "level": "C1",
+      "function": "Negate an infinitive by inserting -to- between ku- and the stem.",
+      "explanation": "Swahili negates a finite verb with a subject prefix, but an infinitive has none, so a different device is used: the infix -to- placed straight after ku-. Kujua is 'to know', kutojua 'not to know'; kuwa is 'to be', kutokuwa 'not to be'. The resulting form behaves exactly like any other infinitive and can follow a preposition, a verb, or stand as a class 15 noun. It is common in formal registers and in writing — kutokuwepo, 'absence', is built the same way. Note that the negative subjunctive uses -si- instead, so usiende means 'don't go'.",
+      "culture_note": "",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 8,
+      "references": [
+        {
+          "title": "Kamusi Project",
+          "url": "https://kamusi.org/"
+        },
+        {
+          "title": "SwahiliPod101 Advanced Audio Blog S2 #3–4",
+          "book": "Learn Swahili Bundle (SwahiliPod101)",
+          "page": "896-908"
+        }
+      ],
+      "related": [],
+      "drills": [
+        {
+          "sentence": "Alilaumiwa kwa {{answer}} ukweli.",
+          "answer": "kutosema",
+          "translation": "He was blamed for not telling the truth.",
+          "hint": "the negative infinitive of the verb meaning to say",
+          "gloss": "a-li-laumiwa (CL1-PAST-be.blamed) kwa (for) ku-to-sema (INF-NEG-say) ukweli (CL11-truth)",
+          "transliteration": null,
+          "cell": "ku- + -to- + stem",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} sio kosa lako.",
+          "answer": "Kutojua",
+          "translation": "Not knowing is not your fault.",
+          "hint": "the negative infinitive of the verb meaning to know",
+          "gloss": "ku-to-jua (INF-NEG-know) sio (is.not) kosa (CL5-fault) l-ako (CL5-your)",
+          "transliteration": null,
+          "cell": "ku- + -to- + stem",
+          "display_order": 2
+        },
+        {
+          "sentence": "Alifanikiwa kwa {{answer}}.",
+          "answer": "kutokata tamaa",
+          "translation": "He succeeded by not giving up.",
+          "hint": "the negative infinitive of the phrase meaning to lose hope",
+          "gloss": "a-li-fanikiwa (CL1-PAST-succeed) kwa (by) ku-to-kata (INF-NEG-cut) tamaa (CL9-desire)",
+          "transliteration": null,
+          "cell": "after a preposition",
+          "display_order": 3
+        },
+        {
+          "sentence": "Habari zile zilionekana {{answer}}.",
+          "answer": "kutoaminika",
+          "translation": "That news seemed unbelievable.",
+          "hint": "the negative infinitive of the verb meaning to be credible",
+          "gloss": "habari (CL10-news) zile (CL10-those) zi-li-onekana (CL10-PAST-seem) ku-to-aminika (INF-NEG-be.believable)",
+          "transliteration": null,
+          "cell": "after a preposition",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} makini kunaweza kusababisha ajali.",
+          "answer": "Kutokuwa",
+          "translation": "Not being careful can cause an accident.",
+          "hint": "the negative infinitive of the verb meaning to be",
+          "gloss": "ku-to-kuwa (INF-NEG-be) makini (careful) ku-na-weza (CL15-PRES-be.able) ku-sababisha (INF-cause) ajali (CL9-accident)",
+          "transliteration": null,
+          "cell": "kutokuwa and kutokuwepo",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} kwake kulisikitisha wote.",
+          "answer": "Kutokuwepo",
+          "translation": "His absence saddened everyone.",
+          "hint": "the negative infinitive meaning failing to be present",
+          "gloss": "ku-to-kuwepo (INF-NEG-be.present) kw-ake (CL15-his) ku-li-sikitisha (CL15-PAST-sadden) w-ote (CL2-all)",
+          "transliteration": null,
+          "cell": "kutokuwa and kutokuwepo",
+          "display_order": 6
+        },
+        {
+          "sentence": "{{answer}} peke yako usiku.",
+          "answer": "Usiende",
+          "translation": "Don't go alone at night.",
+          "hint": "the second person negative subjunctive of the verb meaning to go",
+          "gloss": "u-si-end-e (2SG-NEG-go-SUBJ) peke y-ako (alone your) usiku (CL11-night)",
+          "transliteration": null,
+          "cell": "contrast: negative subjunctive -si-",
+          "display_order": 7
+        },
+        {
+          "sentence": "Alikimbia ili {{answer}}.",
+          "answer": "asichelewe",
+          "translation": "He ran so that he would not be late.",
+          "hint": "the class 1 negative subjunctive of the verb meaning to be late",
+          "gloss": "a-li-kimbia (CL1-PAST-run) ili (so.that) a-si-chelew-e (CL1-NEG-be.late-SUBJ)",
+          "transliteration": null,
+          "cell": "contrast: negative subjunctive -si-",
+          "display_order": 8
+        },
+        {
+          "sentence": "Ninajuta kwa {{answer}} mapema.",
+          "answer": "kutofika",
+          "translation": "I regret not arriving early.",
+          "hint": "the negative infinitive of the verb meaning to arrive",
+          "gloss": "ni-na-juta (1SG-PRES-regret) kwa (for) ku-to-fika (INF-NEG-arrive) mapema (early)",
+          "transliteration": null,
+          "cell": "after a preposition",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} kwa wakati kulisababisha matatizo.",
+          "answer": "Kutolipa",
+          "translation": "Not paying on time caused problems.",
+          "hint": "the negative infinitive of the verb meaning to pay",
+          "gloss": "ku-to-lipa (INF-NEG-pay) kwa (in) wakati (CL11-time) ku-li-sababisha (CL15-PAST-cause) ma-tatizo (CL6-problem)",
+          "transliteration": null,
+          "cell": "ku- + -to- + stem",
+          "display_order": 2
+        }
+      ],
+      "prerequisites": [
+        "Impersonal verbs: inabidi, inafaa, inawezekana"
+      ],
+      "paradigm": [
+        "ku- + -to- + stem",
+        "after a preposition",
+        "kutokuwa and kutokuwepo",
+        "contrast: negative subjunctive -si-"
+      ]
+    },
+    {
+      "title": "The -enye construction: possessing a quality",
+      "level": "B2",
+      "function": "Describe a noun by what it has, using the class-agreeing -enye.",
+      "explanation": "Where English uses 'with' or a relative clause, Swahili often uses -enye, meaning 'having' or 'possessing'. It takes the concord of the noun it describes and is followed directly by a noun: mtu mwenye pesa is 'a person with money', watu wenye ulemavu 'people with disabilities', nyumba yenye bustani 'a house with a garden'. The concords follow the ordinary pattern — mwenye for class 1, wenye for class 2, chenye for class 7, lenye for class 5, yenye for class 9. Its negative counterpart is -sio na, or the fuller relative construction. Note that mwenyeji, 'host', is built from the same stem.",
+      "culture_note": "",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 11,
+      "references": [
+        {
+          "title": "Kamusi Project",
+          "url": "https://kamusi.org/"
+        },
+        {
+          "title": "SwahiliPod101 Advanced Audio Blog S2 #18",
+          "book": "Learn Swahili Bundle (SwahiliPod101)",
+          "page": "965-968"
+        }
+      ],
+      "related": [],
+      "drills": [
+        {
+          "sentence": "Watu {{answer}} ulemavu wanastahili fursa sawa.",
+          "answer": "wenye",
+          "translation": "People with disabilities deserve equal opportunities.",
+          "hint": "the class 2 form of the having-stem",
+          "gloss": "wa-tu (CL2-person) w-enye (CL2-having) ulemavu (CL11-disability) wa-na-stahili (CL2-PRES-deserve) fursa (CL10-opportunity) sawa (equal)",
+          "transliteration": null,
+          "cell": "class 1/2: mwenye, wenye",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ni mtu {{answer}} moyo mwema.",
+          "answer": "mwenye",
+          "translation": "He is a person with a good heart.",
+          "hint": "the class 1 form of the having-stem",
+          "gloss": "ni (is) mtu (CL1-person) mw-enye (CL1-having) moyo (CL3-heart) m-wema (CL3-good)",
+          "transliteration": null,
+          "cell": "class 1/2: mwenye, wenye",
+          "display_order": 2
+        },
+        {
+          "sentence": "Tunatafuta nyumba {{answer}} bustani.",
+          "answer": "yenye",
+          "translation": "We are looking for a house with a garden.",
+          "hint": "the class 9 form of the having-stem",
+          "gloss": "tu-na-tafuta (1PL-PRES-seek) nyumba (CL9-house) y-enye (CL9-having) bustani (CL9-garden)",
+          "transliteration": null,
+          "cell": "class 9/10: yenye, zenye",
+          "display_order": 3
+        },
+        {
+          "sentence": "Alinunua nguo {{answer}} rangi angavu.",
+          "answer": "zenye",
+          "translation": "She bought clothes with bright colours.",
+          "hint": "the class 10 form of the having-stem",
+          "gloss": "a-li-nunua (CL1-PAST-buy) nguo (CL10-clothes) z-enye (CL10-having) rangi (CL10-colour) angavu (bright)",
+          "transliteration": null,
+          "cell": "class 9/10: yenye, zenye",
+          "display_order": 4
+        },
+        {
+          "sentence": "Ni eneo {{answer}} rutuba nyingi.",
+          "answer": "lenye",
+          "translation": "It is an area with great fertility.",
+          "hint": "the class 5 form of the having-stem",
+          "gloss": "ni (is) eneo (CL5-area) l-enye (CL5-having) rutuba (CL9-fertility) nyingi (CL9-much)",
+          "transliteration": null,
+          "cell": "class 5/7: lenye, chenye",
+          "display_order": 5
+        },
+        {
+          "sentence": "Tulikaa chumba {{answer}} madirisha makubwa.",
+          "answer": "chenye",
+          "translation": "We stayed in a room with large windows.",
+          "hint": "the class 7 form of the having-stem",
+          "gloss": "tu-li-kaa (1PL-PAST-stay) chumba (CL7-room) ch-enye (CL7-having) ma-dirisha (CL6-window) ma-kubwa (CL6-big)",
+          "transliteration": null,
+          "cell": "class 5/7: lenye, chenye",
+          "display_order": 6
+        },
+        {
+          "sentence": "Ni mtu {{answer}} na wasiwasi wowote.",
+          "answer": "asiye",
+          "translation": "He is a person without any worry.",
+          "hint": "the class 1 negative relative form, used before 'na'",
+          "gloss": "ni (is) mtu (CL1-person) a-si-ye (CL1-NEG-REL) na (with) wasiwasi (CL11-worry) wo-wote (CL11-any)",
+          "transliteration": null,
+          "cell": "negative: -sio na",
+          "display_order": 7
+        },
+        {
+          "sentence": "Chumba {{answer}} na madirisha ni giza.",
+          "answer": "kisicho",
+          "translation": "A room without windows is dark.",
+          "hint": "the class 7 negative relative form, used before 'na'",
+          "gloss": "chumba (CL7-room) ki-si-cho (CL7-NEG-REL) na (with) ma-dirisha (CL6-window) ni (is) giza (CL5-darkness)",
+          "transliteration": null,
+          "cell": "negative: -sio na",
+          "display_order": 8
+        },
+        {
+          "sentence": "Ni mji {{answer}} historia ndefu.",
+          "answer": "wenye",
+          "translation": "It is a town with a long history.",
+          "hint": "the class 3 form of the having-stem",
+          "gloss": "ni (is) mji (CL3-town) w-enye (CL3-having) historia (CL9-history) ndefu (CL9-long)",
+          "transliteration": null,
+          "cell": "class 1/2: mwenye, wenye",
+          "display_order": 1
+        },
+        {
+          "sentence": "Wanafunzi {{answer}} bidii hufaulu.",
+          "answer": "wenye",
+          "translation": "Students with diligence usually pass.",
+          "hint": "the class 2 form of the having-stem",
+          "gloss": "wa-nafunzi (CL2-student) w-enye (CL2-having) bidii (CL9-diligence) hu-faulu (HABITUAL-succeed)",
+          "transliteration": null,
+          "cell": "class 1/2: mwenye, wenye",
+          "display_order": 2
+        }
+      ],
+      "prerequisites": [
+        "Negative infinitives with -to-: kutojua, kutokuwa"
+      ],
+      "paradigm": [
+        "class 1/2: mwenye, wenye",
+        "class 9/10: yenye, zenye",
+        "class 5/7: lenye, chenye",
+        "negative: -sio na"
+      ]
+    },
+    {
+      "title": "Greetings with habari and the possessive concord",
+      "level": "A1",
+      "function": "Greet somebody by asking after them with habari, choosing the right possessive or -a form.",
+      "explanation": "The everyday greeting is built on habari, literally 'news'. Habari is a class 9 noun, so anything agreeing with it takes the class 9 concord y-. Addressing one person gives habari yako; addressing several gives habari yenu. To ask after a thing or a period rather than a person, the -a of association is used instead: habari ya asubuhi for the morning, habari ya kazi for work, habari ya Nairobi for a place. The expected reply is mzuri or nzuri, usually strengthened to mzuri sana. Habari alone, with nothing after it, is a safe general greeting.",
+      "culture_note": "",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 11,
+      "references": [
+        {
+          "title": "Kamusi Project",
+          "url": "https://kamusi.org/"
+        },
+        {
+          "title": "SwahiliPod101 Absolute Beginner S1 #1–2",
+          "book": "Learn Swahili Bundle (SwahiliPod101)",
+          "page": "8-17"
+        }
+      ],
+      "related": [],
+      "drills": [
+        {
+          "sentence": "Habari {{answer}}, Juma?",
+          "answer": "yako",
+          "translation": "How are you, Juma?",
+          "hint": "the class 9 possessive addressed to one person",
+          "gloss": "habari (CL9-news) y-ako (CL9-your.SG)",
+          "transliteration": null,
+          "cell": "one person",
+          "display_order": 1
+        },
+        {
+          "sentence": "Shikamoo bibi, habari {{answer}}?",
+          "answer": "yako",
+          "translation": "Respectful greetings, grandmother, how are you?",
+          "hint": "the class 9 possessive addressed to one person",
+          "gloss": "shikamoo (respect greeting) bibi (CL9-grandmother) habari (CL9-news) y-ako (CL9-your.SG)",
+          "transliteration": null,
+          "cell": "one person",
+          "display_order": 2
+        },
+        {
+          "sentence": "Habari {{answer}} nyote?",
+          "answer": "yenu",
+          "translation": "How are you all?",
+          "hint": "the class 9 possessive addressed to several people",
+          "gloss": "habari (CL9-news) y-enu (CL9-your.PL) nyote (CL2-all.of.you)",
+          "transliteration": null,
+          "cell": "more than one person",
+          "display_order": 3
+        },
+        {
+          "sentence": "Karibuni, habari {{answer}} wageni?",
+          "answer": "yenu",
+          "translation": "Welcome, how are you, guests?",
+          "hint": "the class 9 possessive addressed to several people",
+          "gloss": "karibu-ni (welcome-PL) habari (CL9-news) y-enu (CL9-your.PL) wa-geni (CL2-guest)",
+          "transliteration": null,
+          "cell": "more than one person",
+          "display_order": 4
+        },
+        {
+          "sentence": "Habari {{answer}} asubuhi?",
+          "answer": "ya",
+          "translation": "Good morning.",
+          "hint": "the class 9 associative linker before a noun",
+          "gloss": "habari (CL9-news) ya (CL9-of) asubuhi (CL9-morning)",
+          "transliteration": null,
+          "cell": "a thing, time or place",
+          "display_order": 5
+        },
+        {
+          "sentence": "Habari {{answer}} kazi yako mpya?",
+          "answer": "ya",
+          "translation": "How is your new job?",
+          "hint": "the class 9 associative linker before a noun",
+          "gloss": "habari (CL9-news) ya (CL9-of) kazi (CL9-work) y-ako (CL9-your)",
+          "transliteration": null,
+          "cell": "a thing, time or place",
+          "display_order": 6
+        },
+        {
+          "sentence": "Habari ya jioni? {{answer}} sana.",
+          "answer": "Mzuri",
+          "translation": "Good evening. Very well.",
+          "hint": "the standard one-word reply meaning fine",
+          "gloss": "m-zuri (CL1-good) sana (very)",
+          "transliteration": null,
+          "cell": "a thing, time or place",
+          "display_order": 1
+        },
+        {
+          "sentence": "Habari ya {{answer}}? Mzuri sana.",
+          "answer": "adhuhuri",
+          "translation": "Good afternoon. Very well.",
+          "hint": "the noun for the middle of the day",
+          "gloss": "habari (CL9-news) ya (CL9-of) adhuhuri (CL9-midday)",
+          "transliteration": null,
+          "cell": "a thing, time or place",
+          "display_order": 2
+        }
+      ],
+      "paradigm": [
+        "one person",
+        "more than one person",
+        "a thing, time or place"
+      ]
+    },
+    {
+      "title": "Introducing yourself: naitwa and jina langu",
+      "level": "A1",
+      "function": "Give your own name and ask somebody else's, using either the verb or the noun construction.",
+      "explanation": "There are two routine ways to give a name. The verb route uses -itwa, the passive of -ita 'to call', so naitwa means literally 'I am called'. Because the subject prefix carries the person, no pronoun is needed: naitwa Amina. The same verb asks the question, with nani 'who' after it: unaitwa nani? The noun route uses jina, a class 5 noun, so its possessive takes the class 5 concord l-: jina langu ni Amina. The plural majina takes class 6 y-: majina yangu. Answering an introduction, nimefurahia kukujua expresses pleasure at meeting.",
+      "culture_note": "",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 12,
+      "references": [
+        {
+          "title": "Kamusi Project",
+          "url": "https://kamusi.org/"
+        },
+        {
+          "title": "SwahiliPod101 Absolute Beginner S1 #3",
+          "book": "Learn Swahili Bundle (SwahiliPod101)",
+          "page": "18-22"
+        }
+      ],
+      "related": [],
+      "drills": [
+        {
+          "sentence": "{{answer}} Fatuma Ali.",
+          "answer": "Naitwa",
+          "translation": "My name is Fatuma Ali.",
+          "hint": "first person present of the verb meaning be called",
+          "gloss": "na-itwa (1SG.PRES-be.called)",
+          "transliteration": null,
+          "cell": "verb: naitwa",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} Musa, mimi ni mwalimu.",
+          "answer": "Naitwa",
+          "translation": "I am called Musa; I am a teacher.",
+          "hint": "first person present of the verb meaning be called",
+          "gloss": "na-itwa (1SG.PRES-be.called) Musa mimi (I) ni (am) mwalimu (CL1-teacher)",
+          "transliteration": null,
+          "cell": "verb: naitwa",
+          "display_order": 2
+        },
+        {
+          "sentence": "Wewe {{answer}} nani?",
+          "answer": "unaitwa",
+          "translation": "What are you called?",
+          "hint": "second person present of the verb meaning be called",
+          "gloss": "wewe (you) u-na-itwa (2SG-PRES-be.called) nani (who)",
+          "transliteration": null,
+          "cell": "question: unaitwa nani",
+          "display_order": 3
+        },
+        {
+          "sentence": "Rafiki yako {{answer}} nani?",
+          "answer": "anaitwa",
+          "translation": "What is your friend called?",
+          "hint": "class 1 present of the verb meaning be called",
+          "gloss": "rafiki (CL9-friend) y-ako (CL9-your) a-na-itwa (CL1-PRES-be.called) nani (who)",
+          "transliteration": null,
+          "cell": "question: unaitwa nani",
+          "display_order": 4
+        },
+        {
+          "sentence": "Jina {{answer}} ni Rehema.",
+          "answer": "langu",
+          "translation": "My name is Rehema.",
+          "hint": "the class 5 possessive meaning belonging to me",
+          "gloss": "jina (CL5-name) l-angu (CL5-my) ni (is) Rehema",
+          "transliteration": null,
+          "cell": "noun: jina langu",
+          "display_order": 5
+        },
+        {
+          "sentence": "Jina {{answer}} ni nani?",
+          "answer": "lako",
+          "translation": "What is your name?",
+          "hint": "the class 5 possessive meaning belonging to you",
+          "gloss": "jina (CL5-name) l-ako (CL5-your) ni (is) nani (who)",
+          "transliteration": null,
+          "cell": "noun: jina langu",
+          "display_order": 6
+        },
+        {
+          "sentence": "Nimefurahia {{answer}}.",
+          "answer": "kukujua",
+          "translation": "I am pleased to know you.",
+          "hint": "the infinitive carrying a second person object infix, meaning to be acquainted with you",
+          "gloss": "ni-me-furahia (1SG-PERF-be.pleased) ku-ku-jua (INF-2SG.OBJ-know)",
+          "transliteration": null,
+          "cell": "verb: naitwa",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} yangu ni Njoroge.",
+          "answer": "Majina",
+          "translation": "My names are Njoroge.",
+          "hint": "the class 6 plural of the word for name",
+          "gloss": "ma-jina (CL6-name) y-angu (CL6-my) ni (are) Njoroge",
+          "transliteration": null,
+          "cell": "noun: jina langu",
+          "display_order": 2
+        }
+      ],
+      "prerequisites": [
+        "Greetings with habari and the possessive concord"
+      ],
+      "paradigm": [
+        "verb: naitwa",
+        "question: unaitwa nani",
+        "noun: jina langu"
+      ]
+    },
+    {
+      "title": "Telling the time: the Swahili saa system",
+      "level": "A2",
+      "function": "Read and say clock times in Swahili, allowing for the six-hour offset from the international clock.",
+      "explanation": "Swahili counts the hours from dawn rather than from midnight, so the Swahili hour runs six hours behind the clock on the wall. Seven o'clock in the morning is saa moja asubuhi, literally 'hour one of the morning', because it is the first hour after sunrise. One o'clock in the afternoon is saa saba, the seventh hour. The rule is simple: subtract six, or add six, to convert. The period word follows the number — asubuhi for the morning, mchana for the afternoon, jioni for the evening, usiku for the night. To ask the time, saa ngapi? uses the class 9 concord on -ngapi.",
+      "culture_note": "",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 12,
+      "references": [
+        {
+          "title": "Kamusi Project",
+          "url": "https://kamusi.org/"
+        },
+        {
+          "title": "SwahiliPod101 Absolute Beginner S1 #19",
+          "book": "Learn Swahili Bundle (SwahiliPod101)",
+          "page": "101-104"
+        }
+      ],
+      "related": [],
+      "drills": [
+        {
+          "sentence": "Ni saa {{answer}} sasa?",
+          "answer": "ngapi",
+          "translation": "What time is it now?",
+          "hint": "the how-many stem carrying the class 9 concord",
+          "gloss": "ni (is) saa (CL9-hour) ngapi (CL9-how.many) sasa (now)",
+          "transliteration": null,
+          "cell": "asking the time",
+          "display_order": 1
+        },
+        {
+          "sentence": "Saa {{answer}} tutaondoka?",
+          "answer": "ngapi",
+          "translation": "At what time will we leave?",
+          "hint": "the how-many stem carrying the class 9 concord",
+          "gloss": "saa (CL9-hour) ngapi (CL9-how.many) tu-ta-ondoka (1PL-FUT-depart)",
+          "transliteration": null,
+          "cell": "asking the time",
+          "display_order": 2
+        },
+        {
+          "sentence": "Ninaamka saa {{answer}} asubuhi, yaani saa saba za usiku wa manane zikiisha.",
+          "answer": "moja",
+          "translation": "I get up at seven in the morning.",
+          "hint": "the numeral for a single unit, giving seven o'clock",
+          "gloss": "ni-na-amka (1SG-PRES-wake) saa (CL9-hour) moja (one) asubuhi (CL9-morning)",
+          "transliteration": null,
+          "cell": "morning hours",
+          "display_order": 3
+        },
+        {
+          "sentence": "Darasa linaanza saa {{answer}} asubuhi.",
+          "answer": "tatu",
+          "translation": "The class begins at nine in the morning.",
+          "hint": "the numeral between two and four, giving nine o'clock",
+          "gloss": "darasa (CL5-class) li-na-anza (CL5-PRES-begin) saa (CL9-hour) tatu (three) asubuhi (CL9-morning)",
+          "transliteration": null,
+          "cell": "morning hours",
+          "display_order": 4
+        },
+        {
+          "sentence": "Tunakula chakula cha mchana saa {{answer}}.",
+          "answer": "saba",
+          "translation": "We eat lunch at one o'clock.",
+          "hint": "the numeral one less than eight, giving one in the afternoon",
+          "gloss": "tu-na-kula (1PL-PRES-eat) chakula (CL7-food) cha (CL7-of) mchana (CL3-daytime) saa (CL9-hour) saba (seven)",
+          "transliteration": null,
+          "cell": "afternoon and evening hours",
+          "display_order": 5
+        },
+        {
+          "sentence": "Duka hufungwa saa {{answer}} jioni.",
+          "answer": "kumi",
+          "translation": "The shop closes at four in the afternoon.",
+          "hint": "the numeral for a full set of fingers, giving four o'clock",
+          "gloss": "duka (CL5-shop) hu-fungwa (HABITUAL-be.closed) saa (CL9-hour) kumi (ten) jioni (CL9-evening)",
+          "transliteration": null,
+          "cell": "afternoon and evening hours",
+          "display_order": 6
+        },
+        {
+          "sentence": "Saa sita {{answer}} ni saa kumi na mbili za mchana kwa saa za kimataifa.",
+          "answer": "mchana",
+          "translation": "Saa sita in the daytime is twelve noon by the international clock.",
+          "hint": "the period word for the middle of the day",
+          "gloss": "saa (CL9-hour) sita (six) mchana (CL3-daytime)",
+          "transliteration": null,
+          "cell": "afternoon and evening hours",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ndege itaondoka saa mbili {{answer}}.",
+          "answer": "usiku",
+          "translation": "The plane will leave at eight at night.",
+          "hint": "the period word for the hours of darkness",
+          "gloss": "ndege (CL9-plane) i-ta-ondoka (CL9-FUT-depart) saa (CL9-hour) mbili (two) usiku (CL11-night)",
+          "transliteration": null,
+          "cell": "afternoon and evening hours",
+          "display_order": 2
+        }
+      ],
+      "paradigm": [
+        "asking the time",
+        "morning hours",
+        "afternoon and evening hours"
+      ]
+    },
+    {
+      "title": "Politeness formulas: asante, tafadhali, samahani, pole, karibu",
+      "level": "A1",
+      "function": "Thank, request, apologise, sympathise and welcome using the fixed courtesy words.",
+      "explanation": "Five short words carry most everyday courtesy, and each has a distinct job. Asante thanks, strengthened as asante sana and pluralised as asanteni. Tafadhali marks a request as polite and may open or close it. Samahani apologises for something you did, or opens a request to a stranger. Pole is not an apology at all: it expresses sympathy for somebody else's misfortune, which is why pole sana is said to someone who is ill or has suffered a loss. Karibu welcomes, with karibuni for several people, and doubles as the reply to asante. Confusing samahani with pole is the commonest learner error.",
+      "culture_note": "",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 13,
+      "references": [
+        {
+          "title": "Kamusi Project",
+          "url": "https://kamusi.org/"
+        },
+        {
+          "title": "SwahiliPod101 Absolute Beginner S1 #4–5, #13",
+          "book": "Learn Swahili Bundle (SwahiliPod101)",
+          "page": "23-34"
+        }
+      ],
+      "related": [],
+      "drills": [
+        {
+          "sentence": "{{answer}} sana kwa msaada wako.",
+          "answer": "Asante",
+          "translation": "Thank you very much for your help.",
+          "hint": "the word of gratitude, singular addressee",
+          "gloss": "asante (thanks) sana (very) kwa (for) msaada (CL3-help) w-ako (CL3-your)",
+          "transliteration": null,
+          "cell": "thanking",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} nyote kwa kuja leo.",
+          "answer": "Asanteni",
+          "translation": "Thank you all for coming today.",
+          "hint": "the word of gratitude with the plural addressee suffix",
+          "gloss": "asante-ni (thanks-PL) nyote (CL2-all.of.you) kwa (for) ku-ja (INF-come) leo (today)",
+          "transliteration": null,
+          "cell": "thanking",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}}, funga mlango.",
+          "answer": "Tafadhali",
+          "translation": "Please close the door.",
+          "hint": "the word that softens a command into a request",
+          "gloss": "tafadhali (please) funga (close.IMP) mlango (CL3-door)",
+          "transliteration": null,
+          "cell": "requesting",
+          "display_order": 3
+        },
+        {
+          "sentence": "Niletee maji, {{answer}}.",
+          "answer": "tafadhali",
+          "translation": "Bring me water, please.",
+          "hint": "the word that softens a command into a request",
+          "gloss": "ni-let-ee (1SG.OBJ-bring-APPL.SUBJ) maji (CL6-water) tafadhali (please)",
+          "transliteration": null,
+          "cell": "requesting",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}}, nimechelewa.",
+          "answer": "Samahani",
+          "translation": "Sorry, I am late.",
+          "hint": "the apology used when you are at fault",
+          "gloss": "samahani (sorry) ni-me-chelewa (1SG-PERF-be.late)",
+          "transliteration": null,
+          "cell": "apologising",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}}, njia ya stesheni ni ipi?",
+          "answer": "Samahani",
+          "translation": "Excuse me, which is the way to the station?",
+          "hint": "the apology word used to open a question to a stranger",
+          "gloss": "samahani (excuse.me) njia (CL9-road) ya (CL9-of) stesheni (CL9-station) ni (is) ipi (CL9-which)",
+          "transliteration": null,
+          "cell": "apologising",
+          "display_order": 6
+        },
+        {
+          "sentence": "{{answer}} sana kwa ugonjwa wako.",
+          "answer": "Pole",
+          "translation": "I am so sorry about your illness.",
+          "hint": "the word offering sympathy for another's misfortune",
+          "gloss": "pole (sympathy) sana (very) kwa (for) ugonjwa (CL11-illness) w-ako (CL11-your)",
+          "transliteration": null,
+          "cell": "sympathising",
+          "display_order": 7
+        },
+        {
+          "sentence": "Umeanguka? {{answer}}!",
+          "answer": "Pole",
+          "translation": "You fell? Oh dear!",
+          "hint": "the word offering sympathy for another's misfortune",
+          "gloss": "u-me-anguka (2SG-PERF-fall) pole (sympathy)",
+          "transliteration": null,
+          "cell": "sympathising",
+          "display_order": 8
+        },
+        {
+          "sentence": "{{answer}} nyumbani kwetu.",
+          "answer": "Karibu",
+          "translation": "Welcome to our home.",
+          "hint": "the welcoming word, one addressee",
+          "gloss": "karibu (welcome) nyumba-ni (CL9-house-LOC) kw-etu (CL17-our)",
+          "transliteration": null,
+          "cell": "welcoming",
+          "display_order": 9
+        },
+        {
+          "sentence": "{{answer}} wageni wote.",
+          "answer": "Karibuni",
+          "translation": "Welcome, all guests.",
+          "hint": "the welcoming word with the plural addressee suffix",
+          "gloss": "karibu-ni (welcome-PL) wa-geni (CL2-guest) wote (CL2-all)",
+          "transliteration": null,
+          "cell": "welcoming",
+          "display_order": 10
+        },
+        {
+          "sentence": "Asante kwa chakula. {{answer}}.",
+          "answer": "Karibu",
+          "translation": "Thanks for the food. You're welcome.",
+          "hint": "the standard reply to thanks, identical to the welcoming word",
+          "gloss": "karibu (you.are.welcome)",
+          "transliteration": null,
+          "cell": "welcoming",
+          "display_order": 1
+        },
+        {
+          "sentence": "Nimekanyaga mguu wako, {{answer}}.",
+          "answer": "samahani",
+          "translation": "I have stepped on your foot, sorry.",
+          "hint": "the apology used when you are at fault",
+          "gloss": "ni-me-kanyaga (1SG-PERF-tread.on) mguu (CL3-foot) w-ako (CL3-your) samahani (sorry)",
+          "transliteration": null,
+          "cell": "apologising",
+          "display_order": 2
+        }
+      ],
+      "paradigm": [
+        "thanking",
+        "requesting",
+        "apologising",
+        "sympathising",
+        "welcoming"
+      ]
+    },
+    {
+      "title": "Talking about illness: ninaumwa na and inaniuma",
+      "level": "A2",
+      "function": "Say which part of the body hurts, using either the passive or the active construction.",
+      "explanation": "Swahili has two standard ways of reporting pain, and both differ from English. The first makes the sufferer the subject of a passive verb and names the body part as the agent: ninaumwa na kichwa, literally 'I am hurt by the head', meaning 'I have a headache'. The second makes the body part the subject of the active verb and puts the sufferer in as an object infix: kichwa kinaniuma, 'the head hurts me'. The infix must agree with the person and the subject prefix with the body part's class, so mgongo unaniuma but macho yananiuma. For a general statement of being unwell, mimi ni mgonjwa or sijisikii vizuri are the usual phrases.",
+      "culture_note": "",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 13,
+      "references": [
+        {
+          "title": "Kamusi Project",
+          "url": "https://kamusi.org/"
+        },
+        {
+          "title": "SwahiliPod101 Beginner S1 #20–21",
+          "book": "Learn Swahili Bundle (SwahiliPod101)",
+          "page": "417-437"
+        }
+      ],
+      "related": [],
+      "drills": [
+        {
+          "sentence": "Ninaumwa na {{answer}} tangu asubuhi.",
+          "answer": "kichwa",
+          "translation": "I have had a headache since morning.",
+          "hint": "the class 7 body part that sits on the shoulders",
+          "gloss": "ni-na-umwa (1SG-PRES-be.hurt) na (by) kichwa (CL7-head) tangu (since) asubuhi (CL9-morning)",
+          "transliteration": null,
+          "cell": "passive: ninaumwa na",
+          "display_order": 1
+        },
+        {
+          "sentence": "Anaumwa na {{answer}} baada ya kukimbia.",
+          "answer": "mguu",
+          "translation": "His leg hurts after running.",
+          "hint": "the class 3 body part you walk on",
+          "gloss": "a-na-umwa (CL1-PRES-be.hurt) na (by) mguu (CL3-leg) baada ya (after) ku-kimbia (INF-run)",
+          "transliteration": null,
+          "cell": "passive: ninaumwa na",
+          "display_order": 2
+        },
+        {
+          "sentence": "Mgongo wangu {{answer}} nikikaa muda mrefu.",
+          "answer": "unaniuma",
+          "translation": "My back hurts me when I sit a long time.",
+          "hint": "class 3 subject, first person object, present tense of the hurt verb",
+          "gloss": "mgongo (CL3-back) w-angu (CL3-my) u-na-ni-uma (CL3-PRES-1SG.OBJ-hurt)",
+          "transliteration": null,
+          "cell": "active: inaniuma",
+          "display_order": 3
+        },
+        {
+          "sentence": "Macho yake {{answer}} kwa sababu ya vumbi.",
+          "answer": "yanamuuma",
+          "translation": "Her eyes hurt her because of the dust.",
+          "hint": "class 6 subject, class 1 object, present tense of the hurt verb",
+          "gloss": "macho (CL6-eye) y-ake (CL6-her) ya-na-mu-uma (CL6-PRES-CL1.OBJ-hurt) kwa sababu ya (because.of) vumbi (CL5-dust)",
+          "transliteration": null,
+          "cell": "active: inaniuma",
+          "display_order": 4
+        },
+        {
+          "sentence": "Mtoto wangu ni {{answer}} leo.",
+          "answer": "mgonjwa",
+          "translation": "My child is ill today.",
+          "hint": "the class 1 noun for somebody who is ill",
+          "gloss": "m-toto (CL1-child) w-angu (CL1-my) ni (is) m-gonjwa (CL1-sick.person) leo (today)",
+          "transliteration": null,
+          "cell": "being unwell in general",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} vizuri tangu jana.",
+          "answer": "Sijisikii",
+          "translation": "I have not been feeling well since yesterday.",
+          "hint": "first person negative reflexive of the verb meaning to feel",
+          "gloss": "si-ji-sikii (1SG.NEG-REFL-feel.NEG) vizuri (CL8-well) tangu (since) jana (yesterday)",
+          "transliteration": null,
+          "cell": "being unwell in general",
+          "display_order": 6
+        },
+        {
+          "sentence": "Daktari aliuliza, unaumwa na {{answer}}?",
+          "answer": "nini",
+          "translation": "The doctor asked, what is hurting you?",
+          "hint": "the interrogative asking about a thing",
+          "gloss": "daktari (CL5-doctor) a-li-uliza (CL1-PAST-ask) u-na-umwa (2SG-PRES-be.hurt) na (by) nini (what)",
+          "transliteration": null,
+          "cell": "passive: ninaumwa na",
+          "display_order": 1
+        },
+        {
+          "sentence": "Tumbo {{answer}} tangu nilipokula samaki.",
+          "answer": "linaniuma",
+          "translation": "My stomach has hurt since I ate the fish.",
+          "hint": "class 5 subject, first person object, present tense of the hurt verb",
+          "gloss": "tumbo (CL5-stomach) li-na-ni-uma (CL5-PRES-1SG.OBJ-hurt) tangu (since) ni-li-po-kula (1SG-PAST-CL16.REL-eat) samaki (CL9-fish)",
+          "transliteration": null,
+          "cell": "active: inaniuma",
+          "display_order": 2
+        }
+      ],
+      "prerequisites": [
+        "States expressed with nina: njaa, kiu, wasiwasi, huzuni"
+      ],
+      "paradigm": [
+        "passive: ninaumwa na",
+        "active: inaniuma",
+        "being unwell in general"
+      ]
+    },
+    {
+      "title": "Ordinal numbers: wa kwanza, ya pili, cha tatu",
+      "level": "A2",
+      "function": "Say first, second, third and so on, with the linker agreeing with the noun's class.",
+      "explanation": "Ordinals are built from the cardinal numbers with the -a of association in front, and that linker carries the noun's class concord: mtu wa kwanza, siku ya pili, kitabu cha tatu, gari la nne. Only 'first' has its own word, kwanza, which is not the cardinal moja; from two upwards the cardinal is simply reused — pili, tatu, nne. Note that pili is used for 'second' rather than mbili. The ordinal always follows its noun. The same linker appears in dates and floors: ghorofa ya tatu, mwezi wa kumi.",
+      "culture_note": "",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 14,
+      "references": [
+        {
+          "title": "Kamusi Project",
+          "url": "https://kamusi.org/"
+        },
+        {
+          "title": "SwahiliPod101 Beginner S1 #25",
+          "book": "Learn Swahili Bundle (SwahiliPod101)",
+          "page": "452-456"
+        }
+      ],
+      "related": [],
+      "drills": [
+        {
+          "sentence": "Yeye ndiye mtoto {{answer}} kwanza.",
+          "answer": "wa",
+          "translation": "He is the first child.",
+          "hint": "the class 1 associative linker",
+          "gloss": "yeye (he) ndiye (CL1-is.indeed) m-toto (CL1-child) wa (CL1-of) kwanza (first)",
+          "transliteration": null,
+          "cell": "class 1/2: wa",
+          "display_order": 1
+        },
+        {
+          "sentence": "Mgeni {{answer}} pili amefika.",
+          "answer": "wa",
+          "translation": "The second guest has arrived.",
+          "hint": "the class 1 associative linker",
+          "gloss": "m-geni (CL1-guest) wa (CL1-of) pili (second) a-me-fika (CL1-PERF-arrive)",
+          "transliteration": null,
+          "cell": "class 1/2: wa",
+          "display_order": 2
+        },
+        {
+          "sentence": "Siku {{answer}} tatu tulisafiri kwenda Mombasa.",
+          "answer": "ya",
+          "translation": "On the third day we travelled to Mombasa.",
+          "hint": "the class 9 associative linker",
+          "gloss": "siku (CL9-day) ya (CL9-of) tatu (three) tu-li-safiri (1PL-PAST-travel) kw-enda (INF-go) Mombasa",
+          "transliteration": null,
+          "cell": "class 9/10: ya",
+          "display_order": 3
+        },
+        {
+          "sentence": "Chumba chetu kiko ghorofa {{answer}} nne.",
+          "answer": "ya",
+          "translation": "Our room is on the fourth floor.",
+          "hint": "the class 9 associative linker",
+          "gloss": "chumba (CL7-room) ch-etu (CL7-our) ki-ko (CL7-be.at) ghorofa (CL9-floor) ya (CL9-of) nne (four)",
+          "transliteration": null,
+          "cell": "class 9/10: ya",
+          "display_order": 4
+        },
+        {
+          "sentence": "Kitabu {{answer}} pili ni kigumu zaidi.",
+          "answer": "cha",
+          "translation": "The second book is harder.",
+          "hint": "the class 7 associative linker",
+          "gloss": "kitabu (CL7-book) cha (CL7-of) pili (second) ni (is) ki-gumu (CL7-hard) zaidi (more)",
+          "transliteration": null,
+          "cell": "class 7/8: cha",
+          "display_order": 5
+        },
+        {
+          "sentence": "Kipindi {{answer}} kwanza kilikuwa kirefu.",
+          "answer": "cha",
+          "translation": "The first session was long.",
+          "hint": "the class 7 associative linker",
+          "gloss": "kipindi (CL7-session) cha (CL7-of) kwanza (first) ki-li-kuwa (CL7-PAST-be) ki-refu (CL7-long)",
+          "transliteration": null,
+          "cell": "class 7/8: cha",
+          "display_order": 6
+        },
+        {
+          "sentence": "Gari {{answer}} tatu ndilo langu.",
+          "answer": "la",
+          "translation": "The third car is mine.",
+          "hint": "the class 5 associative linker",
+          "gloss": "gari (CL5-car) la (CL5-of) tatu (three) ndi-lo (CL5-is.indeed) l-angu (CL5-my)",
+          "transliteration": null,
+          "cell": "class 5/6: la and ya",
+          "display_order": 7
+        },
+        {
+          "sentence": "Somo {{answer}} kwanza linaanza saa mbili.",
+          "answer": "la",
+          "translation": "The first lesson starts at eight.",
+          "hint": "the class 5 associative linker",
+          "gloss": "somo (CL5-lesson) la (CL5-of) kwanza (first) li-na-anza (CL5-PRES-begin) saa (CL9-hour) mbili (two)",
+          "transliteration": null,
+          "cell": "class 5/6: la and ya",
+          "display_order": 8
+        },
+        {
+          "sentence": "Mwezi wa {{answer}} ni Januari.",
+          "answer": "kwanza",
+          "translation": "The first month is January.",
+          "hint": "the special word for the ordinal one, not the cardinal",
+          "gloss": "mwezi (CL3-month) wa (CL3-of) kwanza (first) ni (is) Januari (January)",
+          "transliteration": null,
+          "cell": "class 1/2: wa",
+          "display_order": 1
+        },
+        {
+          "sentence": "Hii ni mara ya {{answer}} kutembelea Kenya.",
+          "answer": "pili",
+          "translation": "This is the second time visiting Kenya.",
+          "hint": "the ordinal for two, which differs from the cardinal mbili",
+          "gloss": "hii (CL9-this) ni (is) mara (CL9-time) ya (CL9-of) pili (second) ku-tembelea (INF-visit) Kenya",
+          "transliteration": null,
+          "cell": "class 9/10: ya",
+          "display_order": 2
+        }
+      ],
+      "prerequisites": [
+        "Numbers 11 to 100, and talking about prices"
+      ],
+      "paradigm": [
+        "class 1/2: wa",
+        "class 9/10: ya",
+        "class 7/8: cha",
+        "class 5/6: la and ya"
+      ]
+    },
+    {
+      "title": "Impersonal verbs: inabidi, inafaa, inawezekana",
+      "level": "B2",
+      "function": "Express obligation, suitability and possibility with a verb that has no real subject.",
+      "explanation": "A small group of verbs takes the class 9 prefix i- as a dummy subject, standing for the situation as a whole rather than any person. Inabidi expresses obligation, inafaa suitability or advisability, and inawezekana possibility. The person affected is carried as an object infix on the impersonal verb, and the following verb goes into the subjunctive: inanibidi niende, 'it obliges me that I go', meaning 'I have to go'. This differs from lazima, which is a noun and simply precedes a subjunctive without any infix. The negative uses ha-: haifai, haiwezekani.",
+      "culture_note": "",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 12,
+      "references": [
+        {
+          "title": "Kamusi Project",
+          "url": "https://kamusi.org/"
+        },
+        {
+          "title": "SwahiliPod101 Intermediate S1 #6, #22",
+          "book": "Learn Swahili Bundle (SwahiliPod101)",
+          "page": "547-563"
+        }
+      ],
+      "related": [],
+      "drills": [
+        {
+          "sentence": "{{answer}} niende hospitali leo.",
+          "answer": "Inanibidi",
+          "translation": "I have to go to hospital today.",
+          "hint": "impersonal present with a first person object infix, from the oblige verb",
+          "gloss": "i-na-ni-bidi (CL9-PRES-1SG.OBJ-oblige) ni-end-e (1SG-go-SUBJ) hospitali (CL9-hospital) leo (today)",
+          "transliteration": null,
+          "cell": "inabidi (obligation)",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} warudi kesho asubuhi.",
+          "answer": "Inawabidi",
+          "translation": "They have to come back tomorrow morning.",
+          "hint": "impersonal present with a class 2 object infix, from the oblige verb",
+          "gloss": "i-na-wa-bidi (CL9-PRES-CL2.OBJ-oblige) wa-rud-i (CL2-return-SUBJ) kesho (tomorrow) asubuhi (CL9-morning)",
+          "transliteration": null,
+          "cell": "inabidi (obligation)",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} tufike mapema kesho.",
+          "answer": "Inafaa",
+          "translation": "It is advisable that we arrive early tomorrow.",
+          "hint": "impersonal present of the verb meaning to be suitable",
+          "gloss": "i-na-faa (CL9-PRES-be.suitable) tu-fik-e (1PL-arrive-SUBJ) mapema (early) kesho (tomorrow)",
+          "transliteration": null,
+          "cell": "inafaa (advisability)",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} kunywa maji mengi wakati wa joto.",
+          "answer": "Inafaa",
+          "translation": "It is advisable to drink plenty of water in hot weather.",
+          "hint": "impersonal present of the verb meaning to be suitable",
+          "gloss": "i-na-faa (CL9-PRES-be.suitable) ku-nywa (INF-drink) maji (CL6-water) m-engi (CL6-much) wakati (CL11-time) wa (CL11-of) joto (CL5-heat)",
+          "transliteration": null,
+          "cell": "inafaa (advisability)",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} mvua ikanyesha jioni.",
+          "answer": "Inawezekana",
+          "translation": "It is possible that it may rain in the evening.",
+          "hint": "impersonal present of the verb meaning to be possible",
+          "gloss": "i-na-wezekana (CL9-PRES-be.possible) mvua (CL9-rain) i-ka-nyesha (CL9-CONSEC-fall) jioni (CL9-evening)",
+          "transliteration": null,
+          "cell": "inawezekana (possibility)",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} kufika huko kwa basi?",
+          "answer": "Inawezekana",
+          "translation": "Is it possible to get there by bus?",
+          "hint": "impersonal present of the verb meaning to be possible",
+          "gloss": "i-na-wezekana (CL9-PRES-be.possible) ku-fika (INF-arrive) huko (CL17-there) kwa (by) basi (CL5-bus)",
+          "transliteration": null,
+          "cell": "inawezekana (possibility)",
+          "display_order": 6
+        },
+        {
+          "sentence": "{{answer}} kuvuta sigara hapa.",
+          "answer": "Haifai",
+          "translation": "It is not appropriate to smoke here.",
+          "hint": "impersonal negative of the verb meaning to be suitable",
+          "gloss": "ha-i-fai (NEG-CL9-be.suitable) ku-vuta (INF-pull) sigara (CL9-cigarette) hapa (CL16-here)",
+          "transliteration": null,
+          "cell": "negative and lazima",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} uende sasa hivi.",
+          "answer": "Lazima",
+          "translation": "You must go right now.",
+          "hint": "the noun meaning necessity, used before a subjunctive",
+          "gloss": "lazima (necessity) u-end-e (2SG-go-SUBJ) sasa hivi (right.now)",
+          "transliteration": null,
+          "cell": "negative and lazima",
+          "display_order": 8
+        },
+        {
+          "sentence": "Ilinibidi {{answer}} kazi mapema jana.",
+          "answer": "niondoke",
+          "translation": "I had to leave work early yesterday.",
+          "hint": "first person subjunctive of the verb meaning to depart",
+          "gloss": "i-li-ni-bidi (CL9-PAST-1SG.OBJ-oblige) ni-ondok-e (1SG-depart-SUBJ) kazi (CL9-work) mapema (early) jana (yesterday)",
+          "transliteration": null,
+          "cell": "inabidi (obligation)",
+          "display_order": 1
+        },
+        {
+          "sentence": "{{answer}} kuahirisha safari kwa sababu ya dhoruba.",
+          "answer": "Ilibidi",
+          "translation": "It was necessary to postpone the journey because of the storm.",
+          "hint": "impersonal past of the oblige verb, with no object infix",
+          "gloss": "i-li-bidi (CL9-PAST-oblige) ku-ahirisha (INF-postpone) safari (CL9-journey) kwa sababu ya (because.of) dhoruba (CL9-storm)",
+          "transliteration": null,
+          "cell": "inabidi (obligation)",
+          "display_order": 2
+        }
+      ],
+      "prerequisites": [
+        "States expressed with nina: njaa, kiu, wasiwasi, huzuni"
+      ],
+      "paradigm": [
+        "inabidi (obligation)",
+        "inafaa (advisability)",
+        "inawezekana (possibility)",
+        "negative and lazima"
+      ]
+    },
+    {
+      "title": "Dates, months and birthdays",
+      "level": "A2",
+      "function": "Give a date, name a month, and say when a birthday falls.",
+      "explanation": "Month names are borrowed and unchanged: Januari, Februari, Machi, Aprili, Mei, Juni, Julai, Agosti, Septemba, Oktoba, Novemba, Desemba. A date is built with tarehe, 'date', followed by the plain cardinal number and then the month: tarehe nne Aprili. The number takes no concord here. Months can also be counted rather than named — mwezi wa nne, 'the fourth month', is a common alternative to Aprili. A birthday is siku ya kuzaliwa, literally 'the day of being born', and the question is siku yako ya kuzaliwa ni lini?",
+      "culture_note": "",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 15,
+      "references": [
+        {
+          "title": "Kamusi Project",
+          "url": "https://kamusi.org/"
+        },
+        {
+          "title": "SwahiliPod101 Top 25 Questions #12",
+          "book": "Learn Swahili Bundle (SwahiliPod101)",
+          "page": "254-256"
+        }
+      ],
+      "related": [],
+      "drills": [
+        {
+          "sentence": "Nilizaliwa {{answer}} kumi na tatu Juni.",
+          "answer": "tarehe",
+          "translation": "I was born on the thirteenth of June.",
+          "hint": "the noun meaning calendar date",
+          "gloss": "ni-li-zaliwa (1SG-PAST-be.born) tarehe (CL9-date) kumi na tatu (thirteen) Juni (June)",
+          "transliteration": null,
+          "cell": "tarehe + number + month",
+          "display_order": 1
+        },
+        {
+          "sentence": "Mkutano ni {{answer}} moja Desemba.",
+          "answer": "tarehe",
+          "translation": "The meeting is on the first of December.",
+          "hint": "the noun meaning calendar date",
+          "gloss": "mkutano (CL3-meeting) ni (is) tarehe (CL9-date) moja (one) Desemba (December)",
+          "transliteration": null,
+          "cell": "tarehe + number + month",
+          "display_order": 2
+        },
+        {
+          "sentence": "Likizo huanza mwezi wa {{answer}}.",
+          "answer": "Desemba",
+          "translation": "The holiday begins in December.",
+          "hint": "the last month of the year",
+          "gloss": "likizo (CL9-holiday) hu-anza (HABITUAL-begin) mwezi (CL3-month) wa (CL3-of) Desemba (December)",
+          "transliteration": null,
+          "cell": "month by name",
+          "display_order": 3
+        },
+        {
+          "sentence": "Shule hufunguliwa {{answer}}.",
+          "answer": "Januari",
+          "translation": "School opens in January.",
+          "hint": "the first month of the year",
+          "gloss": "shule (CL9-school) hu-funguliwa (HABITUAL-be.opened) Januari (January)",
+          "transliteration": null,
+          "cell": "month by name",
+          "display_order": 4
+        },
+        {
+          "sentence": "Nitasafiri mwezi {{answer}} nne.",
+          "answer": "wa",
+          "translation": "I will travel in the fourth month.",
+          "hint": "the class 3 associative linker",
+          "gloss": "ni-ta-safiri (1SG-FUT-travel) mwezi (CL3-month) wa (CL3-of) nne (four)",
+          "transliteration": null,
+          "cell": "month by number",
+          "display_order": 5
+        },
+        {
+          "sentence": "Alifika mwezi {{answer}} nane.",
+          "answer": "wa",
+          "translation": "He arrived in the eighth month.",
+          "hint": "the class 3 associative linker",
+          "gloss": "a-li-fika (CL1-PAST-arrive) mwezi (CL3-month) wa (CL3-of) nane (eight)",
+          "transliteration": null,
+          "cell": "month by number",
+          "display_order": 6
+        },
+        {
+          "sentence": "Siku yako ya {{answer}} ni lini?",
+          "answer": "kuzaliwa",
+          "translation": "When is your birthday?",
+          "hint": "the passive infinitive meaning to come into the world",
+          "gloss": "siku (CL9-day) y-ako (CL9-your) ya (CL9-of) ku-zaliwa (INF-be.born) ni (is) lini (when)",
+          "transliteration": null,
+          "cell": "birthday",
+          "display_order": 7
+        },
+        {
+          "sentence": "Tutasherehekea siku yake ya {{answer}} Jumamosi.",
+          "answer": "kuzaliwa",
+          "translation": "We will celebrate her birthday on Saturday.",
+          "hint": "the passive infinitive meaning to come into the world",
+          "gloss": "tu-ta-sherehekea (1PL-FUT-celebrate) siku (CL9-day) y-ake (CL9-her) ya (CL9-of) ku-zaliwa (INF-be.born) Jumamosi (CL9-Saturday)",
+          "transliteration": null,
+          "cell": "birthday",
+          "display_order": 8
+        },
+        {
+          "sentence": "Alizaliwa tarehe ishirini na {{answer}} Agosti.",
+          "answer": "mbili",
+          "translation": "She was born on the twenty-second of August.",
+          "hint": "the numeral for a pair, with no concord after tarehe",
+          "gloss": "a-li-zaliwa (CL1-PAST-be.born) tarehe (CL9-date) ishirini (twenty) na (and) mbili (two) Agosti (August)",
+          "transliteration": null,
+          "cell": "tarehe + number + month",
+          "display_order": 1
+        },
+        {
+          "sentence": "Mwezi wa kwanza wa mwaka ni {{answer}}.",
+          "answer": "Januari",
+          "translation": "The first month of the year is January.",
+          "hint": "the month that opens the calendar",
+          "gloss": "mwezi (CL3-month) wa (CL3-of) kwanza (first) wa (CL3-of) mwaka (CL3-year) ni (is) Januari (January)",
+          "transliteration": null,
+          "cell": "month by name",
+          "display_order": 2
+        }
+      ],
+      "prerequisites": [
+        "Numbers 11 to 100, and talking about prices"
+      ],
+      "paradigm": [
+        "tarehe + number + month",
+        "month by name",
+        "month by number",
+        "birthday"
+      ]
+    },
+    {
+      "title": "States expressed with nina: njaa, kiu, wasiwasi, huzuni",
+      "level": "A2",
+      "function": "Say how you feel using the have-construction, where English uses the verb to be.",
+      "explanation": "Swahili expresses many bodily and emotional states as things you possess rather than things you are. Nina njaa is literally 'I have hunger' and means 'I am hungry'; nina kiu means 'I am thirsty'; nina baridi, 'I have cold', means 'I feel cold'. The same pattern covers wasiwasi (worry), huzuni (sadness) and homa (fever). The construction is the subject prefix plus -na, so it inflects normally: una njaa?, ana homa, tuna kiu. The negative uses the negative subject prefix: sina njaa. Note the contrast with kuna baridi, which describes the weather rather than the person.",
+      "culture_note": "",
+      "source": "ai",
+      "reviewed": false,
+      "display_order": 16,
+      "references": [
+        {
+          "title": "Kamusi Project",
+          "url": "https://kamusi.org/"
+        },
+        {
+          "title": "SwahiliPod101 Top 25 Questions #19, #21",
+          "book": "Learn Swahili Bundle (SwahiliPod101)",
+          "page": "275-283"
+        }
+      ],
+      "related": [],
+      "drills": [
+        {
+          "sentence": "{{answer}} njaa, twende tukale.",
+          "answer": "Nina",
+          "translation": "I am hungry; let's go and eat.",
+          "hint": "first person singular of the have-construction",
+          "gloss": "ni-na (1SG-have) njaa (CL9-hunger)",
+          "transliteration": null,
+          "cell": "affirmative",
+          "display_order": 1
+        },
+        {
+          "sentence": "Mtoto {{answer}} homa tangu jana.",
+          "answer": "ana",
+          "translation": "The child has had a fever since yesterday.",
+          "hint": "class 1 form of the have-construction",
+          "gloss": "m-toto (CL1-child) a-na (CL1-have) homa (CL9-fever) tangu (since) jana (yesterday)",
+          "transliteration": null,
+          "cell": "affirmative",
+          "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} kiu? Nikuletee maji?",
+          "answer": "Una",
+          "translation": "Are you thirsty? Shall I bring you water?",
+          "hint": "second person singular of the have-construction",
+          "gloss": "u-na (2SG-have) kiu (CL9-thirst) ni-ku-let-ee (1SG-2SG.OBJ-bring-APPL.SUBJ) maji (CL6-water)",
+          "transliteration": null,
+          "cell": "question",
+          "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} wasiwasi kuhusu safari?",
+          "answer": "Una",
+          "translation": "Are you worried about the journey?",
+          "hint": "second person singular of the have-construction",
+          "gloss": "u-na (2SG-have) wasiwasi (CL11-worry) kuhusu (about) safari (CL9-journey)",
+          "transliteration": null,
+          "cell": "question",
+          "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} njaa, nimeshakula.",
+          "answer": "Sina",
+          "translation": "I am not hungry; I have already eaten.",
+          "hint": "first person singular negative of the have-construction",
+          "gloss": "si-na (1SG.NEG-have) njaa (CL9-hunger) ni-me-sha-kula (1SG-PERF-already-eat)",
+          "transliteration": null,
+          "cell": "negative",
+          "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} huzuni, ni uchovu tu.",
+          "answer": "Sina",
+          "translation": "I am not sad, only tired.",
+          "hint": "first person singular negative of the have-construction",
+          "gloss": "si-na (1SG.NEG-have) huzuni (CL9-sadness) ni (is) uchovu (CL11-tiredness) tu (only)",
+          "transliteration": null,
+          "cell": "negative",
+          "display_order": 6
+        },
+        {
+          "sentence": "{{answer}} baridi nje leo.",
+          "answer": "Kuna",
+          "translation": "It is cold outside today.",
+          "hint": "the class 17 existential meaning there is",
+          "gloss": "kuna (CL17-there.is) baridi (CL9-cold) nje (outside) leo (today)",
+          "transliteration": null,
+          "cell": "weather with kuna",
+          "display_order": 7
+        },
+        {
+          "sentence": "{{answer}} joto kali mchana huu.",
+          "answer": "Kuna",
+          "translation": "There is fierce heat this afternoon.",
+          "hint": "the class 17 existential meaning there is",
+          "gloss": "kuna (CL17-there.is) joto (CL5-heat) kali (CL5-fierce) mchana (CL3-afternoon) huu (CL3-this)",
+          "transliteration": null,
+          "cell": "weather with kuna",
+          "display_order": 8
+        },
+        {
+          "sentence": "Baada ya kutembea mbali, tulikuwa na {{answer}} sana.",
+          "answer": "kiu",
+          "translation": "After walking far, we were very thirsty.",
+          "hint": "the state noun meaning a need to drink",
+          "gloss": "baada ya (after) ku-tembea (INF-walk) mbali (far) tu-li-kuwa na (1PL-PAST-be with) kiu (CL9-thirst) sana (very)",
+          "transliteration": null,
+          "cell": "affirmative",
+          "display_order": 1
+        },
+        {
+          "sentence": "Ana {{answer}} kwa sababu amepoteza kazi.",
+          "answer": "huzuni",
+          "translation": "She is sad because she has lost her job.",
+          "hint": "the state noun meaning sorrow",
+          "gloss": "a-na (CL1-have) huzuni (CL9-sadness) kwa sababu (because) a-me-poteza (CL1-PERF-lose) kazi (CL9-work)",
+          "transliteration": null,
+          "cell": "affirmative",
+          "display_order": 2
+        }
+      ],
+      "prerequisites": [
+        "Asking about time, manner and kind: lini, vipi, gani, mbona"
+      ],
+      "paradigm": [
+        "affirmative",
+        "question",
+        "negative",
+        "weather with kuna"
+      ]
     }
   ]
 }

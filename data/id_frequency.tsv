@@ -1,91 +1,582 @@
 rank	word	pos	en
-1	saya	pron	I; me
-2	kamu	pron	you (informal)
+1	yang	pron	which; that; who
+2	di	prep	in; at; on
 3	anda	pron	you (formal, polite)
-4	dia	pron	he; she
-5	kami	pron	we (excluding the listener)
-6	kita	pron	we (including the listener)
-7	mereka	pron	they
-8	ini	pron	this
-9	itu	pron	that
-10	apa	pron	what
-11	siapa	pron	who
+4	dan	conj	and
+5	ini	det	this
+6	itu	det	that
+7	dengan	prep	with
+8	untuk	prep	for
+9	tidak	adv	not; no
+10	dari	prep	from; of
+11	dalam	prep	in; inside
 12	di mana	adv	where
-13	kenapa	adv	why
-14	kapan	adv	when
-15	bagaimana	adv	how
-16	berapa	pron	how much; how many
-17	ada	verb	there is/are; to exist; to have
+13	akan	particle	will; shall
+14	pada	prep	at; on
+15	juga	adv	also; too
+16	ke	prep	to; toward
+17	ada	verb	there is; to have
 18	adalah	verb	to be (used to define or equate two things, not a general copula)
-19	mau	verb	to want
-20	ingin	verb	to want; to wish
-21	tahu	verb	to know (a fact)
-22	lihat	verb	to see; to look
-23	pergi	verb	to go
-24	datang	verb	to come
+19	saya	pron	I; me
+20	kamu	pron	you
+21	dia	pron	he; she
+22	kita	pron	we (inclusive)
+23	kami	pron	we (exclusive)
+24	mereka	pron	they
 25	pulang	verb	to go home; to return
-26	makan	verb	to eat
-27	minum	verb	to drink
-28	tidur	verb	to sleep
-29	suka	verb	to like
-30	cinta	verb	to love
+26	apa	pron	what
+27	tapi	conj	but
+28	atau	conj	or
+29	kalau	conj	if
+30	jika	conj	if
 31	bilang	verb	to say; to tell (informal)
-32	buat	verb	to make; to do
-33	beri	verb	to give
-34	ambil	verb	to take
-35	beli	verb	to buy
+32	karena	conj	because
+33	sudah	adv	already
+34	bisa	verb	can; to be able
+35	harus	verb	must; have to
 36	tolong	particle	please; to help
 37	terima kasih	phrase	thank you
 38	ya	particle	yes
-39	tidak	adv	no; not
+39	mau	verb	to want
 40	bukan	adv	not (negates nouns/identity)
 41	jangan	adv	don't
-42	sudah	adv	already
-43	belum	adv	not yet
-44	akan	adv	will (future marker)
-45	sangat	adv	very
-46	juga	adv	also; too
-47	dan	conj	and
-48	tapi	conj	but
-49	atau	conj	or
-50	karena	conj	because
-51	kalau	conj	if
-52	di	prep	in; at
-53	ke	prep	to
-54	dari	prep	from
-55	dengan	prep	with
-56	untuk	prep	for
-57	rumah	noun	house
-58	air	noun	water
-59	makanan	noun	food
-60	anak	noun	child
-61	laki-laki	noun	man; male
-62	perempuan	noun	woman; female
-63	ibu	noun	mother
-64	ayah	noun	father
-65	hari	noun	day
-66	malam	noun	night
-67	tahun	noun	year
-68	buku	noun	book
-69	kota	noun	city
-70	negara	noun	country
-71	nama	noun	name
-72	waktu	noun	time
-73	teman	noun	friend
-74	baik	adj	good
-75	buruk	adj	bad
-76	besar	adj	big
-77	kecil	adj	small
-78	baru	adj	new
-79	lama	adj	old (of things, duration); long
-80	cantik	adj	beautiful; pretty (of people)
-81	satu	num	one
-82	dua	num	two
-83	tiga	num	three
-84	empat	num	four
-85	lima	num	five
-86	enam	num	six
-87	tujuh	num	seven
-88	delapan	num	eight
-89	sembilan	num	nine
-90	sepuluh	num	ten
+42	ingin	verb	to want; to wish
+43	sangat	adv	very
+44	lebih	adv	more
+45	semua	det	all
+46	banyak	adj	many; much
+47	sedikit	adj	a little; few
+48	sekali	adv	very; once
+49	begitu	adv	so; like that
+50	lalu	adv	then; ago
+51	saja	adv	only; just
+52	masih	adv	still
+53	belum	adv	not yet
+54	bagaimana	adv	how
+55	kenapa	adv	why
+56	mengapa	adv	why
+57	kapan	adv	when
+58	siapa	pron	who
+59	berapa	pron	how much; how many
+60	mana	pron	which; where
+61	sama	adj	same; with
+62	oleh	prep	by
+63	tentang	prep	about
+64	antara	prep	between; among
+65	setelah	prep	after
+66	sebelum	prep	before
+67	sampai	prep	until; to arrive
+68	tanpa	prep	without
+69	seperti	prep	like; as
+70	sebagai	prep	as
+71	supaya	conj	so that
+72	agar	conj	so that
+73	sehingga	conj	so that; thus
+74	meskipun	conj	although
+75	walaupun	conj	although
+76	bahwa	conj	that
+77	ketika	conj	when
+78	selama	prep	during; as long as
+79	hanya	adv	only
+80	selalu	adv	always
+81	sering	adv	often
+82	kadang	adv	sometimes
+83	jarang	adv	rarely
+84	pernah	adv	ever; have (done)
+85	tadi	adv	earlier; just now
+86	nanti	adv	later
+87	sekarang	adv	now
+88	kemarin	adv	yesterday
+89	besok	adv	tomorrow
+90	hari ini	adv	today
+91	lagi	adv	again; more
+92	kembali	adv	again; back
+93	segera	adv	immediately; soon
+94	tiba-tiba	adv	suddenly
+95	mungkin	adv	maybe; possibly
+96	tentu	adv	of course; certainly
+97	pasti	adv	surely; definitely
+98	hampir	adv	almost
+99	cukup	adv	enough; quite
+100	terlalu	adv	too (much)
+101	kira-kira	adv	approximately
+102	bahkan	adv	even
+103	misalnya	adv	for example
+104	yaitu	conj	namely; that is
+105	jadi	conj	so; therefore
+106	maka	conj	then; so
+107	aku	pron	I (informal)
+108	kau	pron	you (informal)
+109	beliau	pron	he; she (respectful)
+110	nya	particle	his; her; its; the
+111	sesuatu	pron	something
+112	seseorang	pron	someone
+113	setiap	det	each; every
+114	beberapa	det	some; several
+115	sendiri	pron	self; alone; own
+116	masing-masing	det	each
+117	lain	adj	other
+118	yang lain	pron	the others
+119	makan	verb	to eat
+120	minum	verb	to drink
+121	pergi	verb	to go
+122	datang	verb	to come
+123	lihat	verb	to see; to look
+124	dengar	verb	to hear; to listen
+125	tahu	verb	to know
+126	pikir	verb	to think
+127	beri	verb	to give
+128	ambil	verb	to take
+129	bicara	verb	to speak; to talk
+130	kata	verb	to say; word
+131	tulis	verb	to write
+132	baca	verb	to read
+133	tanya	verb	to ask
+134	jawab	verb	to answer
+135	belajar	verb	to study; to learn
+136	bekerja	verb	to work
+137	bermain	verb	to play
+138	tidur	verb	to sleep
+139	bangun	verb	to wake up; to get up
+140	duduk	verb	to sit
+141	berdiri	verb	to stand
+142	jalan	verb	to walk; road
+143	lari	verb	to run
+144	buka	verb	to open
+145	tutup	verb	to close
+146	beli	verb	to buy
+147	jual	verb	to sell
+148	bayar	verb	to pay
+149	tunggu	verb	to wait
+150	cari	verb	to look for; to search
+151	temukan	verb	to find
+152	bertemu	verb	to meet
+153	tinggal	verb	to stay; to live; to remain
+154	pakai	verb	to use; to wear
+155	buat	verb	to make; to do
+156	kirim	verb	to send
+157	terima	verb	to receive; to accept
+158	bawa	verb	to bring; to carry
+159	bantu	verb	to help
+160	suka	verb	to like
+161	cinta	verb	to love
+162	benci	verb	to hate
+163	mengerti	verb	to understand
+164	paham	verb	to understand
+165	ingat	verb	to remember
+166	lupa	verb	to forget
+167	coba	verb	to try
+168	mulai	verb	to begin; to start
+169	selesai	verb	to finish; finished
+170	berhenti	verb	to stop
+171	satu	num	one
+172	dua	num	two
+173	tiga	num	three
+174	empat	num	four
+175	lima	num	five
+176	enam	num	six
+177	tujuh	num	seven
+178	delapan	num	eight
+179	sembilan	num	nine
+180	sepuluh	num	ten
+181	sebelas	num	eleven
+182	dua puluh	num	twenty
+183	seratus	num	hundred
+184	seribu	num	thousand
+185	juta	num	million
+186	pertama	num	first
+187	kedua	num	second
+188	terakhir	adj	last
+189	setengah	noun	half
+190	nomor	noun	number
+191	warna	noun	color
+192	merah	adj	red
+193	biru	adj	blue
+194	hijau	adj	green
+195	kuning	adj	yellow
+196	hitam	adj	black
+197	putih	adj	white
+198	cokelat	adj	brown
+199	abu-abu	adj	gray
+200	oranye	adj	orange
+201	orang	noun	person; people
+202	laki-laki	noun	man; male
+203	perempuan	noun	woman; female
+204	pria	noun	man
+205	wanita	noun	woman
+206	anak	noun	child
+207	bayi	noun	baby
+208	teman	noun	friend
+209	keluarga	noun	family
+210	ibu	noun	mother
+211	ayah	noun	father
+212	bapak	noun	father; sir
+213	kakak	noun	older sibling
+214	adik	noun	younger sibling
+215	nenek	noun	grandmother
+216	kakek	noun	grandfather
+217	suami	noun	husband
+218	istri	noun	wife
+219	tetangga	noun	neighbor
+220	tamu	noun	guest
+221	guru	noun	teacher
+222	murid	noun	student; pupil
+223	mahasiswa	noun	university student
+224	dokter	noun	doctor
+225	perawat	noun	nurse
+226	polisi	noun	police
+227	tentara	noun	soldier; army
+228	petani	noun	farmer
+229	pekerja	noun	worker
+230	sopir	noun	driver
+231	penjual	noun	seller
+232	bos	noun	boss
+233	tubuh	noun	body
+234	badan	noun	body
+235	kepala	noun	head
+236	tangan	noun	hand; arm
+237	kaki	noun	foot; leg
+238	mata	noun	eye
+239	telinga	noun	ear
+240	hidung	noun	nose
+241	mulut	noun	mouth
+242	gigi	noun	tooth
+243	rambut	noun	hair
+244	hati	noun	heart; liver; feelings
+245	darah	noun	blood
+246	wajah	noun	face
+247	perut	noun	stomach; belly
+248	suara	noun	voice; sound
+249	matahari	noun	sun
+250	bulan	noun	moon; month
+251	bintang	noun	star
+252	langit	noun	sky
+253	awan	noun	cloud
+254	hujan	noun	rain
+255	angin	noun	wind
+256	api	noun	fire
+257	tanah	noun	land; soil; ground
+258	gunung	noun	mountain
+259	laut	noun	sea
+260	sungai	noun	river
+261	pohon	noun	tree
+262	bunga	noun	flower
+263	hutan	noun	forest
+264	batu	noun	stone; rock
+265	binatang	noun	animal
+266	anjing	noun	dog
+267	kucing	noun	cat
+268	burung	noun	bird
+269	ikan	noun	fish
+270	ayam	noun	chicken
+271	kuda	noun	horse
+272	sapi	noun	cow
+273	air	noun	water
+274	makanan	noun	food
+275	minuman	noun	drink; beverage
+276	nasi	noun	rice (cooked)
+277	roti	noun	bread
+278	daging	noun	meat
+279	telur	noun	egg
+280	buah	noun	fruit
+281	sayur	noun	vegetable
+282	susu	noun	milk
+283	teh	noun	tea
+284	kopi	noun	coffee
+285	gula	noun	sugar
+286	garam	noun	salt
+287	keju	noun	cheese
+288	hari	noun	day
+289	waktu	noun	time
+290	tahun	noun	year
+291	minggu	noun	week; Sunday
+292	jam	noun	hour; clock
+293	menit	noun	minute
+294	pagi	noun	morning
+295	siang	noun	midday; noon
+296	sore	noun	afternoon; evening
+297	malam	noun	night
+298	rumah	noun	house; home
+299	kamar	noun	room
+300	pintu	noun	door
+301	jendela	noun	window
+302	meja	noun	table; desk
+303	kursi	noun	chair
+304	kota	noun	city; town
+305	desa	noun	village
+306	negara	noun	country
+307	dunia	noun	world
+308	uang	noun	money
+309	harga	noun	price
+310	toko	noun	shop; store
+311	pasar	noun	market
+312	baik	adj	good; kind
+313	buruk	adj	bad
+314	jelek	adj	bad; ugly
+315	bagus	adj	good; nice
+316	besar	adj	big; large
+317	kecil	adj	small
+318	baru	adj	new
+319	lama	adj	old; long (time)
+320	tua	adj	old (person)
+321	muda	adj	young
+322	tinggi	adj	tall; high
+323	pendek	adj	short
+324	panjang	adj	long
+325	mudah	adj	easy
+326	sulit	adj	difficult
+327	susah	adj	difficult; hard
+328	cepat	adj	fast; quick
+329	lambat	adj	slow
+330	panas	adj	hot
+331	dingin	adj	cold
+332	penuh	adj	full
+333	kosong	adj	empty
+334	bersih	adj	clean
+335	kotor	adj	dirty
+336	penting	adj	important
+337	menarik	adj	interesting; attractive
+338	bosan	adj	bored
+339	senang	adj	happy; glad
+340	sedih	adj	sad
+341	marah	adj	angry
+342	takut	adj	afraid
+343	lelah	adj	tired
+344	capai	adj	tired
+345	lapar	adj	hungry
+346	haus	adj	thirsty
+347	sakit	adj	sick; painful
+348	sehat	adj	healthy
+349	kuat	adj	strong
+350	lemah	adj	weak
+351	berat	adj	heavy
+352	ringan	adj	light (weight)
+353	keras	adj	hard; loud
+354	lembut	adj	soft; gentle
+355	indah	adj	beautiful
+356	cantik	adj	beautiful; pretty
+357	ganteng	adj	handsome
+358	pintar	adj	smart; clever
+359	bodoh	adj	stupid
+360	kaya	adj	rich
+361	miskin	adj	poor
+362	mahal	adj	expensive
+363	murah	adj	cheap
+364	benar	adj	true; correct
+365	salah	adj	wrong; mistake
+366	jelas	adj	clear
+367	aneh	adj	strange
+368	enak	adj	tasty; pleasant
+369	manis	adj	sweet
+370	pahit	adj	bitter
+371	asin	adj	salty
+372	pedas	adj	spicy
+373	ramai	adj	crowded; lively
+374	sepi	adj	quiet; deserted
+375	aman	adj	safe
+376	bahaya	noun	danger
+377	siap	adj	ready
+378	sibuk	adj	busy
+379	bebas	adj	free
+380	dekat	adj	near; close
+381	jauh	adj	far
+382	luas	adj	wide; spacious
+383	terus	adv	continuously; keep on
+384	langsung	adv	directly; right away
+385	biasanya	adv	usually
+386	khususnya	adv	especially
+387	terutama	adv	especially; mainly
+388	sebenarnya	adv	actually
+389	akhirnya	adv	finally
+390	tentu saja	adv	of course
+391	masyarakat	noun	society; community
+392	pemerintah	noun	government
+393	hukum	noun	law
+394	perang	noun	war
+395	damai	noun	peace
+396	sejarah	noun	history
+397	ilmu	noun	science; knowledge
+398	seni	noun	art
+399	agama	noun	religion
+400	budaya	noun	culture
+401	politik	noun	politics
+402	ekonomi	noun	economy
+403	alam	noun	nature
+404	lingkungan	noun	environment
+405	kesehatan	noun	health
+406	pendidikan	noun	education
+407	kebebasan	noun	freedom
+408	hak	noun	right (entitlement)
+409	masalah	noun	problem
+410	jawaban	noun	answer
+411	solusi	noun	solution
+412	tujuan	noun	goal; purpose
+413	alasan	noun	reason
+414	hasil	noun	result
+415	pikiran	noun	thought; mind
+416	pendapat	noun	opinion
+417	perasaan	noun	feeling
+418	harapan	noun	hope
+419	impian	noun	dream
+420	kesempatan	noun	chance; opportunity
+421	kebenaran	noun	truth
+422	telepon	noun	telephone
+423	ponsel	noun	cell phone
+424	komputer	noun	computer
+425	internet	noun	internet
+426	pesan	noun	message
+427	foto	noun	photo
+428	film	noun	film; movie
+429	musik	noun	music
+430	lagu	noun	song
+431	permainan	noun	game
+432	berita	noun	news
+433	koran	noun	newspaper
+434	buku	noun	book
+435	surat	noun	letter
+436	cerita	noun	story
+437	bahasa	noun	language
+438	nama	noun	name
+439	gambar	noun	picture; image
+440	perjalanan	noun	journey; trip
+441	tiket	noun	ticket
+442	mobil	noun	car
+443	motor	noun	motorcycle
+444	sepeda	noun	bicycle
+445	bus	noun	bus
+446	kereta	noun	train
+447	pesawat	noun	airplane
+448	kapal	noun	ship; boat
+449	bandara	noun	airport
+450	stasiun	noun	station
+451	hotel	noun	hotel
+452	jembatan	noun	bridge
+453	dapur	noun	kitchen
+454	lemari	noun	cupboard; wardrobe
+455	lampu	noun	lamp; light
+456	kunci	noun	key; lock
+457	pisau	noun	knife
+458	sendok	noun	spoon
+459	garpu	noun	fork
+460	piring	noun	plate
+461	gelas	noun	glass
+462	baju	noun	shirt; clothes
+463	celana	noun	pants
+464	sepatu	noun	shoe
+465	topi	noun	hat
+466	tas	noun	bag
+467	sekolah	noun	school
+468	kelas	noun	class; classroom
+469	pelajaran	noun	lesson; subject
+470	ujian	noun	exam
+471	kertas	noun	paper
+472	pensil	noun	pencil
+473	membaca	verb	to read
+474	menulis	verb	to write
+475	berbicara	verb	to speak
+476	mendengar	verb	to hear
+477	melihat	verb	to see
+478	membuat	verb	to make
+479	membeli	verb	to buy
+480	menjual	verb	to sell
+481	membawa	verb	to bring; to carry
+482	memberi	verb	to give
+483	mengambil	verb	to take
+484	menggunakan	verb	to use
+485	mengingat	verb	to remember
+486	melupakan	verb	to forget
+487	mencari	verb	to look for
+488	menemukan	verb	to find
+489	memilih	verb	to choose
+490	memutuskan	verb	to decide
+491	berpikir	verb	to think
+492	berharap	verb	to hope
+493	percaya	verb	to believe; to trust
+494	setuju	verb	to agree
+495	bertanya	verb	to ask
+496	menjawab	verb	to answer
+497	membantu	verb	to help
+498	mengajar	verb	to teach
+499	membuka	verb	to open
+500	menutup	verb	to close
+501	berjalan	verb	to walk
+502	berlari	verb	to run
+503	naik	verb	to go up; to ride
+504	turun	verb	to go down; to get off
+505	masuk	verb	to enter
+506	keluar	verb	to go out; to exit
+507	berangkat	verb	to depart
+508	membayar	verb	to pay
+509	memasak	verb	to cook
+510	mencuci	verb	to wash
+511	atas	noun	top; above
+512	bawah	noun	bottom; below
+513	depan	noun	front
+514	belakang	noun	back; behind
+515	kiri	noun	left
+516	kanan	noun	right
+517	tengah	noun	middle; center
+518	samping	noun	side
+519	luar	noun	outside
+520	sekitar	prep	around
+521	arah	noun	direction
+522	cuaca	noun	weather
+523	musim	noun	season
+524	salju	noun	snow
+525	banjir	noun	flood
+526	gempa	noun	earthquake
+527	pantai	noun	beach; coast
+528	pulau	noun	island
+529	danau	noun	lake
+530	kebun	noun	garden
+531	sawah	noun	rice field
+532	jalan raya	noun	highway
+533	olahraga	noun	sport; exercise
+534	sepak bola	noun	soccer; football
+535	bola	noun	ball
+536	tim	noun	team
+537	pertandingan	noun	match
+538	hobi	noun	hobby
+539	pesta	noun	party
+540	tari	noun	dance
+541	konser	noun	concert
+542	bioskop	noun	cinema
+543	museum	noun	museum
+544	liburan	noun	holiday; vacation
+545	obat	noun	medicine
+546	penyakit	noun	disease
+547	rumah sakit	noun	hospital
+548	leher	noun	neck
+549	bahu	noun	shoulder
+550	lutut	noun	knee
+551	jari	noun	finger
+552	kulit	noun	skin
+553	berbaring	verb	to lie down
+554	istirahat	verb	to rest
+555	bergerak	verb	to move
+556	melempar	verb	to throw
+557	menangkap	verb	to catch
+558	mendorong	verb	to push
+559	memegang	verb	to hold
+560	menyentuh	verb	to touch
+561	tersenyum	verb	to smile
+562	tertawa	verb	to laugh
+563	menangis	verb	to cry
+564	berteriak	verb	to shout
+565	bernapas	verb	to breathe
+566	mencium	verb	to kiss; to smell
+567	memeluk	verb	to hug
+568	menikah	verb	to marry
+569	mengubah	verb	to change
+570	memperbaiki	verb	to repair
+571	modern	adj	modern
+572	kuno	adj	ancient; old-fashioned
+573	terkenal	adj	famous
+574	rahasia	adj	secret
+575	gratis	adj	free (no cost)
+576	mustahil	adj	impossible
+577	biasa	adj	usual; ordinary
+578	khusus	adj	special
+579	umum	adj	general; public
+580	berbeda	adj	different
+581	mirip	adj	similar

@@ -1,91 +1,930 @@
 rank	word	pos	en
-1	אני	pron	I; first-person singular pronoun
-2	אתה	pron	you; second-person masculine singular pronoun
-3	את	pron	you; second-person feminine singular pronoun
-4	הוא	pron	he; also used as present-tense copula "is" (masculine)
-5	היא	pron	she; also used as present-tense copula "is" (feminine)
-6	אנחנו	pron	we; first-person plural pronoun
-7	אתם	pron	you; second-person masculine plural pronoun
-8	הם	pron	they; masculine plural pronoun
+1	של	prep	of
+2	את	particle	(direct-object marker); you (f)
+3	ל	prep	to; for
+4	ה	det	the
+5	ב	prep	in; at
+6	ו	conj	and
+7	לא	adv	no; not
+8	אני	pron	I
 9	הן	pron	they; feminine plural pronoun
-10	מה	pron	what
-11	מי	pron	who
-12	איפה	adv	where
-13	למה	adv	why
-14	מתי	adv	when
-15	איך	adv	how
-16	כן	adv	yes
-17	לא	adv	no; not
-18	בבקשה	adv	please; you're welcome
-19	תודה	noun	thank you; thanks
-20	יש	particle	there is; there are
-21	אין	particle	there isn't; there aren't; no
-22	רוצה	verb	want; wants (present tense)
-23	יודע	verb	know; knows (present tense)
-24	רואה	verb	see; sees (present tense)
-25	הולך	verb	go; goes; walking (present tense)
-26	בא	verb	come; comes (present tense)
-27	אוכל	verb	eat; eats (present tense)
-28	שותה	verb	drink; drinks (present tense)
-29	אוהב	verb	love; like; loves; likes (present tense)
-30	אומר	verb	say; says (present tense)
-31	עושה	verb	do; make; does; makes (present tense)
-32	נותן	verb	give; gives (present tense)
-33	בית	noun	house; home
-34	מים	noun	water
+10	זה	pron	this; it
+11	על	prep	on; about
+12	הוא	pron	he
+13	מה	pron	what
+14	עם	prep	with
+15	אתה	pron	you (m)
+16	כל	det	all; every
+17	אבל	conj	but
+18	הם	pron	they (m)
+19	גם	adv	also; too
+20	כי	conj	because; that
+21	אם	conj	if
+22	יש	verb	there is; have
+23	או	conj	or
+24	רק	adv	only
+25	היא	pron	she
+26	אחד	num	one
+27	כן	adv	yes
+28	אנחנו	pron	we
+29	מי	pron	who
+30	עוד	adv	more; still
+31	איך	adv	how
+32	אז	adv	then; so
+33	כמו	prep	like; as
+34	שם	noun	there; name
 35	מאכל	noun	food; dish
-36	ילד	noun	child; boy
-37	ילדה	noun	girl
-38	איש	noun	man; person
-39	אישה	noun	woman; wife
-40	אמא	noun	mother; mom
-41	אבא	noun	father; dad
-42	יום	noun	day
-43	לילה	noun	night
-44	שנה	noun	year
-45	ספר	noun	book
-46	עיר	noun	city
-47	ארץ	noun	land; country
-48	שם	noun	name
-49	זמן	noun	time
-50	חבר	noun	friend
-51	טוב	adj	good
-52	רע	adj	bad
-53	גדול	adj	big; large
-54	קטן	adj	small; little
-55	חדש	adj	new
-56	ישן	adj	old (of things)
-57	יפה	adj	beautiful; pretty; nice
-58	אחד	num	one
-59	שתיים	num	two
-60	שלוש	num	three
-61	ארבע	num	four
-62	חמש	num	five
-63	שש	num	six
-64	שבע	num	seven
-65	שמונה	num	eight
-66	תשע	num	nine
-67	עשר	num	ten
-68	ו	conj	and
-69	אבל	conj	but
-70	או	conj	or
-71	כי	conj	because
-72	אם	conj	if
-73	ב	prep	in; at
-74	ל	prep	to; for
-75	על	prep	on; about
-76	עם	prep	with
+36	למה	adv	why
+37	פה	adv	here
+38	עכשיו	adv	now
+39	כבר	adv	already
+40	מאוד	adv	very
+41	טוב	adj	good
+42	יותר	adv	more
+43	אולי	adv	maybe
+44	משהו	pron	something
+45	מישהו	pron	someone
+46	שלי	pron	my; mine
+47	אין	verb	there is not; there aren't
+48	הכל	pron	everything
+49	אנשים	noun	people
+50	יום	noun	day
+51	אתם	pron	you (m pl)
+52	הזה	det	this
+53	צריך	verb	need; must
+54	להיות	verb	to be
+55	עושה	verb	does; makes
+56	שלך	pron	your; yours
+57	איפה	adv	where
+58	מתי	adv	when
+59	כמה	adv	how many; how much
+60	דבר	noun	thing; word
+61	שנה	noun	year
+62	בית	noun	house; home
+63	איש	noun	man; person
+64	אישה	noun	woman
+65	ילד	noun	child; boy
+66	זמן	noun	time
+67	עבודה	noun	work; job
+68	כסף	noun	money
+69	חיים	noun	life
+70	מים	noun	water
+71	עיר	noun	city
+72	ארץ	noun	country; land
+73	עולם	noun	world
+74	ראש	noun	head
+75	יד	noun	hand
+76	עין	noun	eye
 77	מ	prep	from
-78	של	prep	of; belonging to
-79	זה	pron	this; it (masculine)
+78	לב	noun	heart
+79	פנים	noun	face
 80	זאת	pron	this; it (feminine)
-81	גם	adv	also; too
-82	מאוד	adv	very
-83	עכשיו	adv	now
-84	היום	adv	today
-85	מחר	adv	tomorrow
-86	אתמול	adv	yesterday
-87	שלום	noun	hello; peace; goodbye
-88	בוקר	noun	morning
-89	ערב	noun	evening
-90	משפחה	noun	family
+81	להגיד	verb	to say; to tell
+82	אמר	verb	said
+83	רוצה	verb	want
+84	יכול	verb	can; able
+85	יודע	verb	know
+86	חושב	verb	think
+87	רואה	verb	see
+88	שומע	verb	hear
+89	בא	verb	come
+90	הולך	verb	go; walk
+91	נותן	verb	give
+92	לוקח	verb	take
+93	אוכל	verb	eat; food
+94	שותה	verb	drink
+95	עשה	verb	did; made
+96	היה	verb	was; had
+97	אמא	noun	mom; mother
+98	אבא	noun	dad; father
+99	חבר	noun	friend (m); boyfriend
+100	משפחה	noun	family
+101	ילדה	noun	girl
+102	בן	noun	son
+103	בת	noun	daughter
+104	אח	noun	brother
+105	אחות	noun	sister
+106	שלום	interj	hello; peace
+107	תודה	interj	thank you
+108	בבקשה	interj	please; you're welcome
+109	סליחה	interj	sorry; excuse me
+110	גדול	adj	big; large
+111	קטן	adj	small; little
+112	חדש	adj	new
+113	ישן	adj	old
+114	יפה	adj	beautiful; nice
+115	רע	adj	bad
+116	קשה	adj	hard; difficult
+117	קל	adj	easy; light
+118	ארוך	adj	long
+119	קצר	adj	short
+120	מהיר	adj	fast; quick
+121	איטי	adj	slow
+122	חם	adj	hot; warm
+123	קר	adj	cold
+124	מלא	adj	full
+125	ריק	adj	empty
+126	נכון	adj	correct; right
+127	אמת	noun	truth
+128	שקר	noun	lie
+129	הרבה	adv	a lot; many
+130	מעט	adv	a little; few
+131	תמיד	adv	always
+132	אף פעם	adv	never
+133	לפעמים	adv	sometimes
+134	שוב	adv	again
+135	מהר	adv	quickly; fast
+136	לאט	adv	slowly
+137	יחד	adv	together
+138	לבד	adv	alone
+139	קרוב	adj	near; close
+140	רחוק	adj	far
+141	מעל	prep	above; over
+142	מתחת	prep	under; below
+143	בין	prep	between; among
+144	לפני	prep	before
+145	אחרי	prep	after
+146	ליד	prep	next to; beside
+147	בתוך	prep	inside
+148	מחוץ	prep	outside
+149	נגד	prep	against
+150	בשביל	prep	for
+151	בגלל	prep	because of
+152	בלי	prep	without
+153	עד	prep	until; up to
+154	מן	prep	from
+155	אל	prep	to; toward
+156	דרך	noun	way; through
+157	סביב	prep	around
+158	אצל	prep	at (someone's place)
+159	כדי	conj	in order to
+160	למרות	prep	despite
+161	אחר	adj	other; another
+162	כזה	det	such; like this
+163	אותו	pron	him; the same
+164	אותה	pron	her
+165	אותם	pron	them (m)
+166	הזאת	det	this (f)
+167	ההוא	det	that (m)
+168	כאן	adv	here
+169	למעלה	adv	up; above
+170	למטה	adv	down; below
+171	קדימה	adv	forward; ahead
+172	אחורה	adv	backward
+173	ימין	noun	right (side)
+174	שמאל	noun	left (side)
+175	שעה	noun	hour
+176	דקה	noun	minute
+177	שבוע	noun	week
+178	חודש	noun	month
+179	בוקר	noun	morning
+180	ערב	noun	evening
+181	לילה	noun	night
+182	צהריים	noun	noon; midday
+183	היום	adv	today
+184	מחר	adv	tomorrow
+185	אתמול	adv	yesterday
+186	מקום	noun	place; spot
+187	דלת	noun	door
+188	חלון	noun	window
+189	שולחן	noun	table; desk
+190	כיסא	noun	chair
+191	מיטה	noun	bed
+192	חדר	noun	room
+193	רחוב	noun	street
+194	כביש	noun	road
+195	מכונית	noun	car
+196	אוטובוס	noun	bus
+197	רכבת	noun	train
+198	מטוס	noun	airplane
+199	ספר	noun	book
+200	עיתון	noun	newspaper
+201	מחשב	noun	computer
+202	טלפון	noun	telephone; phone
+203	מכתב	noun	letter
+204	שאלה	noun	question
+205	תשובה	noun	answer
+206	מילה	noun	word
+207	שפה	noun	language; tongue
+208	סיפור	noun	story
+209	שיר	noun	song; poem
+210	סרט	noun	movie; film
+211	מוזיקה	noun	music
+212	לחם	noun	bread
+213	בשר	noun	meat
+214	חלב	noun	milk
+215	ביצה	noun	egg
+216	פרי	noun	fruit
+217	ירק	noun	vegetable
+218	קפה	noun	coffee
+219	תה	noun	tea
+220	יין	noun	wine
+221	מלח	noun	salt
+222	סוכר	noun	sugar
+223	ארוחה	noun	meal
+224	צלחת	noun	plate
+225	כוס	noun	cup; glass
+226	שתיים	num	two
+227	שלוש	num	three
+228	ארבע	num	four
+229	חמש	num	five
+230	שש	num	six
+231	שבע	num	seven
+232	שמונה	num	eight
+233	תשע	num	nine
+234	עשר	num	ten
+235	מאה	num	hundred
+236	אלף	num	thousand
+237	מיליון	num	million
+238	ראשון	num	first
+239	שני	num	second
+240	שלישי	num	third
+241	אחרון	adj	last
+242	חצי	noun	half
+243	רבע	noun	quarter
+244	מספר	noun	number
+245	זוג	noun	pair; couple
+246	צבע	noun	color
+247	אדום	adj	red
+248	כחול	adj	blue
+249	ירוק	adj	green
+250	צהוב	adj	yellow
+251	שחור	adj	black
+252	לבן	adj	white
+253	חום	adj	brown
+254	אפור	adj	gray
+255	ורוד	adj	pink
+256	כתום	adj	orange
+257	סגול	adj	purple
+258	לעשות	verb	to do; to make
+259	ללכת	verb	to go; to walk
+260	לבוא	verb	to come
+261	לראות	verb	to see
+262	לשמוע	verb	to hear
+263	לדעת	verb	to know
+264	לחשוב	verb	to think
+265	לרצות	verb	to want
+266	לאכול	verb	to eat
+267	לשתות	verb	to drink
+268	לתת	verb	to give
+269	לקחת	verb	to take
+270	לדבר	verb	to speak; to talk
+271	לכתוב	verb	to write
+272	לקרוא	verb	to read; to call
+273	לשאול	verb	to ask
+274	לענות	verb	to answer
+275	לעבוד	verb	to work
+276	ללמוד	verb	to learn; to study
+277	ללמד	verb	to teach
+278	לשחק	verb	to play
+279	לשיר	verb	to sing
+280	לרקוד	verb	to dance
+281	לרוץ	verb	to run
+282	לשבת	verb	to sit
+283	לעמוד	verb	to stand
+284	לישון	verb	to sleep
+285	לקום	verb	to get up; to rise
+286	לפתוח	verb	to open
+287	לסגור	verb	to close
+288	לחכות	verb	to wait
+289	לחפש	verb	to look for; to search
+290	למצוא	verb	to find
+291	לאבד	verb	to lose
+292	לזכור	verb	to remember
+293	לשכוח	verb	to forget
+294	להבין	verb	to understand
+295	לעזור	verb	to help
+296	לנסות	verb	to try
+297	לגור	verb	to live; to dwell
+298	לחיות	verb	to live; to be alive
+299	למות	verb	to die
+300	להתחיל	verb	to begin; to start
+301	לגמור	verb	to finish
+302	לסיים	verb	to finish; to end
+303	להמשיך	verb	to continue
+304	לעצור	verb	to stop
+305	לחזור	verb	to return; to come back
+306	להיכנס	verb	to enter
+307	לצאת	verb	to go out; to exit
+308	לעלות	verb	to go up; to cost
+309	לרדת	verb	to go down; to descend
+310	לנסוע	verb	to travel; to ride
+311	לטוס	verb	to fly
+312	להגיע	verb	to arrive
+313	לעזוב	verb	to leave; to abandon
+314	להישאר	verb	to stay; to remain
+315	לשלם	verb	to pay
+316	לקנות	verb	to buy
+317	למכור	verb	to sell
+318	לתקן	verb	to fix; to repair
+319	לשבור	verb	to break
+320	לנקות	verb	to clean
+321	לבשל	verb	to cook
+322	לרחוץ	verb	to wash
+323	להתלבש	verb	to get dressed
+324	להראות	verb	to show; to look (like)
+325	לספר	verb	to tell; to recount
+326	להסביר	verb	to explain
+327	לשמור	verb	to keep; to guard
+328	לבחור	verb	to choose
+329	להחליט	verb	to decide
+330	להאמין	verb	to believe
+331	לקוות	verb	to hope
+332	לאהוב	verb	to love; to like
+333	לשנוא	verb	to hate
+334	לפחד	verb	to be afraid
+335	לבכות	verb	to cry
+336	לצחוק	verb	to laugh
+337	לחייך	verb	to smile
+338	להרגיש	verb	to feel
+339	לחלום	verb	to dream
+340	גוף	noun	body
+341	רגל	noun	leg; foot
+342	אצבע	noun	finger
+343	אוזן	noun	ear
+344	אף	noun	nose
+345	שן	noun	tooth
+346	שיער	noun	hair
+347	צוואר	noun	neck
+348	גב	noun	back
+349	בטן	noun	belly; stomach
+350	דם	noun	blood
+351	עצם	noun	bone
+352	עור	noun	skin
+353	קול	noun	voice; sound
+354	שמש	noun	sun
+355	ירח	noun	moon
+356	כוכב	noun	star
+357	שמיים	noun	sky; heaven
+358	ענן	noun	cloud
+359	גשם	noun	rain
+360	שלג	noun	snow
+361	רוח	noun	wind; spirit
+362	אש	noun	fire
+363	אדמה	noun	earth; ground; soil
+364	הר	noun	mountain
+365	ים	noun	sea
+366	נהר	noun	river
+367	עץ	noun	tree; wood
+368	פרח	noun	flower
+369	עלה	noun	leaf
+370	דשא	noun	grass
+371	יער	noun	forest
+372	אבן	noun	stone; rock
+373	חול	noun	sand
+374	בעל חיים	noun	animal
+375	כלב	noun	dog
+376	חתול	noun	cat
+377	ציפור	noun	bird
+378	דג	noun	fish
+379	סוס	noun	horse
+380	פרה	noun	cow
+381	עוף	noun	chicken; fowl
+382	מדינה	noun	country; state
+383	ממשלה	noun	government
+384	חוק	noun	law
+385	מלחמה	noun	war
+386	קבוצה	noun	group; team
+387	חברה	noun	company; society
+388	מנהל	noun	manager; director
+389	עובד	noun	worker; employee
+390	מורה	noun	teacher
+391	תלמיד	noun	student; pupil
+392	רופא	noun	doctor
+393	חולה	noun	patient; sick person
+394	שוטר	noun	police officer
+395	חייל	noun	soldier
+396	בית ספר	noun	school
+397	אוניברסיטה	noun	university
+398	בית חולים	noun	hospital
+399	חנות	noun	store; shop
+400	שוק	noun	market
+401	מסעדה	noun	restaurant
+402	בנק	noun	bank
+403	משרד	noun	office
+404	מחיר	noun	price
+405	חשבון	noun	bill; account
+406	מתנה	noun	gift; present
+407	כך	adv	so; thus
+408	ככה	adv	like this; so
+409	בכלל	adv	at all; in general
+410	בעצם	adv	actually; in fact
+411	פשוט	adv	simply; just
+412	ממש	adv	really; truly
+413	בדיוק	adv	exactly
+414	כמעט	adv	almost
+415	בערך	adv	approximately; about
+416	לגמרי	adv	completely
+417	בטח	adv	surely; of course
+418	ודאי	adv	certainly
+419	כנראה	adv	apparently; probably
+420	למשל	adv	for example
+421	כלומר	conj	that is; meaning
+422	בכל זאת	adv	nevertheless
+423	לכן	conj	therefore
+424	בגלל זה	adv	because of that
+425	חוץ מזה	adv	besides; other than that
+426	בנוסף	adv	in addition
+427	קודם	adv	first; earlier
+428	סוף סוף	adv	finally; at last
+429	מיד	adv	immediately
+430	פתאום	adv	suddenly
+431	עדיין	adv	still; yet
+432	כרגע	adv	right now; at the moment
+433	בהתחלה	adv	at first
+434	בסוף	adv	in the end; finally
+435	לאחרונה	adv	recently; lately
+436	בקרוב	adv	soon
+437	אומר	verb	says
+438	מדבר	verb	speaks
+439	כותב	verb	writes
+440	קורא	verb	reads; calls
+441	שואל	verb	asks
+442	עונה	verb	answers
+443	לומד	verb	learns; studies
+444	מלמד	verb	teaches
+445	משחק	verb	plays
+446	גר	verb	lives; dwells
+447	חי	verb	lives; is alive
+448	מבין	verb	understands
+449	עוזר	verb	helps
+450	מנסה	verb	tries
+451	מחכה	verb	waits
+452	מחפש	verb	searches; looks for
+453	מוצא	verb	finds
+454	זוכר	verb	remembers
+455	שוכח	verb	forgets
+456	אוהב	verb	loves; likes
+457	מרגיש	verb	feels
+458	צוחק	verb	laughs
+459	בוכה	verb	cries
+460	קם	verb	gets up; rises
+461	יושב	verb	sits
+462	עומד	verb	stands
+463	רץ	verb	runs
+464	פותח	verb	opens
+465	סוגר	verb	closes
+466	מביא	verb	brings
+467	שולח	verb	sends
+468	מקבל	verb	receives; gets
+469	קונה	verb	buys
+470	מוכר	verb	sells
+471	משלם	verb	pays
+472	עולה	verb	goes up; costs
+473	יורד	verb	goes down
+474	נכנס	verb	enters
+475	יוצא	verb	goes out; exits
+476	חוזר	verb	returns
+477	מגיע	verb	arrives
+478	נוסע	verb	travels; rides
+479	נשאר	verb	stays; remains
+480	עוזב	verb	leaves
+481	מתחיל	verb	begins; starts
+482	גומר	verb	finishes
+483	ממשיך	verb	continues
+484	עוצר	verb	stops
+485	חשוב	adj	important
+486	מעניין	adj	interesting
+487	משעמם	adj	boring
+488	נחמד	adj	nice; pleasant
+489	נעים	adj	pleasant
+490	נורא	adj	terrible; awful
+491	מצוין	adj	excellent
+492	נהדר	adj	wonderful; great
+493	מדהים	adj	amazing
+494	מפחיד	adj	scary
+495	מצחיק	adj	funny
+496	עצוב	adj	sad
+497	שמח	adj	happy; glad
+498	כועס	adj	angry
+499	עייף	adj	tired
+500	רעב	adj	hungry
+501	צמא	adj	thirsty
+502	בריא	adj	healthy
+503	חזק	adj	strong
+504	חלש	adj	weak
+505	גבוה	adj	tall; high
+506	נמוך	adj	short; low
+507	רחב	adj	wide; broad
+508	צר	adj	narrow
+509	עבה	adj	thick
+510	דק	adj	thin
+511	כבד	adj	heavy
+512	כמו כן	adv	likewise; also
+513	שונה	adj	different
+514	דומה	adj	similar
+515	מיוחד	adj	special
+516	רגיל	adj	regular; usual
+517	אמיתי	adj	real; true
+518	בטוח	adj	sure; safe
+519	מסוכן	adj	dangerous
+520	מוכן	adj	ready
+521	פנוי	adj	free; available
+522	עסוק	adj	busy
+523	ברור	adj	clear; obvious
+524	קשור	adj	related; connected
+525	אפשרי	adj	possible
+526	נדיר	adj	rare
+527	נפוץ	adj	common
+528	מטבח	noun	kitchen
+529	אמבטיה	noun	bathroom; bathtub
+530	סלון	noun	living room
+531	גינה	noun	garden
+532	מפתח	noun	key
+533	שעון	noun	clock; watch
+534	מנורה	noun	lamp
+535	מקרר	noun	refrigerator
+536	תנור	noun	oven; stove
+537	סכין	noun	knife
+538	מזלג	noun	fork
+539	כף	noun	spoon
+540	בגד	noun	garment; clothing
+541	חולצה	noun	shirt
+542	מכנסיים	noun	pants; trousers
+543	שמלה	noun	dress
+544	נעל	noun	shoe
+545	גרב	noun	sock
+546	כובע	noun	hat
+547	מעיל	noun	coat
+548	משקפיים	noun	glasses
+549	תיק	noun	bag
+550	ארנק	noun	wallet
+551	שעון יד	noun	wristwatch
+552	מזג אוויר	noun	weather
+553	טמפרטורה	noun	temperature
+554	חורף	noun	winter
+555	קיץ	noun	summer
+556	אביב	noun	spring
+557	סתיו	noun	autumn; fall
+558	תאריך	noun	date
+559	שבת	noun	Saturday; Sabbath
+560	חג	noun	holiday; festival
+561	יום הולדת	noun	birthday
+562	אחת עשרה	num	eleven
+563	שתים עשרה	num	twelve
+564	עשרים	num	twenty
+565	שלושים	num	thirty
+566	ארבעים	num	forty
+567	חמישים	num	fifty
+568	מאתיים	num	two hundred
+569	רביעי	num	fourth
+570	חמישי	num	fifth
+571	אפס	num	zero
+572	שישי	noun	Friday
+573	שיעור	noun	lesson; class
+574	מבחן	noun	test; exam
+575	ציון	noun	grade; mark
+576	שיעורי בית	noun	homework
+577	כיתה	noun	classroom; grade
+578	לוח	noun	board; blackboard
+579	עט	noun	pen
+580	עיפרון	noun	pencil
+581	מחברת	noun	notebook
+582	דף	noun	page; sheet
+583	תרגיל	noun	exercise
+584	פרויקט	noun	project
+585	תואר	noun	degree; title
+586	מקצוע	noun	profession; subject
+587	ישיבה	noun	meeting; session
+588	פגישה	noun	meeting; appointment
+589	רעיון	noun	idea
+590	תוכנית	noun	plan; program
+591	מטרה	noun	goal; purpose
+592	בעיה	noun	problem
+593	פתרון	noun	solution
+594	הצלחה	noun	success
+595	כישלון	noun	failure
+596	ניסיון	noun	experience; attempt
+597	סיכוי	noun	chance; opportunity
+598	סכנה	noun	danger
+599	טעות	noun	mistake; error
+600	סיבה	noun	reason; cause
+601	אינטרנט	noun	internet
+602	אתר	noun	website; site
+603	מסך	noun	screen
+604	מקלדת	noun	keyboard
+605	תמונה	noun	picture; photo
+606	וידאו	noun	video
+607	הודעה	noun	message
+608	מייל	noun	email
+609	אפליקציה	noun	app; application
+610	חדשות	noun	news
+611	פרסומת	noun	advertisement; commercial
+612	נסיעה	noun	trip; ride
+613	טיול	noun	trip; hike
+614	חופשה	noun	vacation; holiday
+615	כרטיס	noun	ticket; card
+616	תחנה	noun	station; stop
+617	שדה תעופה	noun	airport
+618	מלון	noun	hotel
+619	מפה	noun	map
+620	כיוון	noun	direction
+621	גשר	noun	bridge
+622	פארק	noun	park
+623	כיכר	noun	square (plaza)
+624	בניין	noun	building
+625	קומה	noun	floor; story
+626	מדרגות	noun	stairs
+627	מעלית	noun	elevator
+628	שכונה	noun	neighborhood
+629	כפר	noun	village
+630	מרכז	noun	center
+631	צד	noun	side
+632	רגש	noun	emotion; feeling
+633	אהבה	noun	love
+634	שמחה	noun	joy; happiness
+635	עצב	noun	sadness
+636	כעס	noun	anger
+637	פחד	noun	fear
+638	דאגה	noun	worry
+639	תקווה	noun	hope
+640	חלום	noun	dream
+641	מחשבה	noun	thought
+642	זיכרון	noun	memory
+643	דעה	noun	opinion
+644	אמונה	noun	belief; faith
+645	רצון	noun	will; desire
+646	צורך	noun	need
+647	כוח	noun	strength; power
+648	מזל	noun	luck
+649	כבוד	noun	honor; respect
+650	אמון	noun	trust
+651	צחוק	noun	laughter
+652	לשים	verb	to put; to place
+653	להביא	verb	to bring
+654	לשלוח	verb	to send
+655	לקבל	verb	to receive; to get
+656	לפגוש	verb	to meet
+657	להכיר	verb	to know (someone); to be acquainted
+658	להזמין	verb	to invite; to order
+659	להתקשר	verb	to call (phone)
+660	לספור	verb	to count
+661	למדוד	verb	to measure
+662	לבדוק	verb	to check
+663	לשנות	verb	to change
+664	לתאר	verb	to describe
+665	להשוות	verb	to compare
+666	לבנות	verb	to build
+667	ליצור	verb	to create
+668	לצייר	verb	to draw; to paint
+669	לצלם	verb	to photograph
+670	לשמח	verb	to make happy
+671	להפריע	verb	to disturb; to bother
+672	לדאוג	verb	to worry
+673	להתעורר	verb	to wake up
+674	להתקלח	verb	to shower
+675	להתרגש	verb	to get excited
+676	להתרגל	verb	to get used to
+677	להתכונן	verb	to prepare
+678	צעיר	adj	young
+679	זקן	adj	old (person)
+680	עשיר	adj	rich
+681	עני	adj	poor
+682	חכם	adj	smart; wise
+683	טיפש	adj	stupid; foolish
+684	נקי	adj	clean
+685	מלוכלך	adj	dirty
+686	יבש	adj	dry
+687	רטוב	adj	wet
+688	מתוק	adj	sweet
+689	מר	adj	bitter
+690	חמוץ	adj	sour
+691	חריף	adj	spicy; sharp
+692	טעים	adj	tasty; delicious
+693	מוזר	adj	strange; weird
+694	שקט	adj	quiet
+695	רועש	adj	noisy; loud
+696	בהיר	adj	bright; light
+697	כהה	adj	dark
+698	עגול	adj	round
+699	ישר	adj	straight
+700	שלם	adj	whole; complete
+701	ארוחת בוקר	noun	breakfast
+702	ארוחת צהריים	noun	lunch
+703	ארוחת ערב	noun	dinner
+704	מנה	noun	dish; portion
+705	מרק	noun	soup
+706	סלט	noun	salad
+707	אורז	noun	rice
+708	פסטה	noun	pasta
+709	תפוח	noun	apple
+710	בננה	noun	banana
+711	תפוז	noun	orange
+712	ענב	noun	grape
+713	עגבנייה	noun	tomato
+714	מלפפון	noun	cucumber
+715	בצל	noun	onion
+716	תפוח אדמה	noun	potato
+717	גבינה	noun	cheese
+718	חמאה	noun	butter
+719	דבש	noun	honey
+720	שמן	noun	oil
+721	עוגה	noun	cake
+722	עוגייה	noun	cookie
+723	שוקולד	noun	chocolate
+724	גלידה	noun	ice cream
+725	ממתק	noun	candy; sweet
+726	מיץ	noun	juice
+727	בירה	noun	beer
+728	משקה	noun	drink; beverage
+729	אריה	noun	lion
+730	פיל	noun	elephant
+731	דוב	noun	bear
+732	קוף	noun	monkey
+733	נמר	noun	tiger; leopard
+734	זאב	noun	wolf
+735	שפן	noun	rabbit
+736	עכבר	noun	mouse
+737	נחש	noun	snake
+738	צפרדע	noun	frog
+739	דבורה	noun	bee
+740	זבוב	noun	fly
+741	פרפר	noun	butterfly
+742	יתוש	noun	mosquito
+743	כבשה	noun	sheep
+744	עז	noun	goat
+745	מהנדס	noun	engineer
+746	עורך דין	noun	lawyer
+747	אמן	noun	artist
+748	זמר	noun	singer
+749	שחקן	noun	actor; player
+750	סופר	noun	writer; author
+751	עיתונאי	noun	journalist
+752	מדען	noun	scientist
+753	טבח	noun	cook; chef
+754	נהג	noun	driver
+755	פקיד	noun	clerk
+756	שוער	noun	goalkeeper; doorman
+757	מלצר	noun	waiter
+758	הורה	noun	parent
+759	סבא	noun	grandfather
+760	סבתא	noun	grandmother
+761	דוד	noun	uncle
+762	דודה	noun	aunt
+763	נכד	noun	grandson
+764	נכדה	noun	granddaughter
+765	בן דוד	noun	cousin (m)
+766	בעל	noun	husband; owner
+767	שכן	noun	neighbor
+768	אורח	noun	guest
+769	זר	noun	stranger; foreigner
+770	תינוק	noun	baby
+771	נער	noun	teenager; youth
+772	לפגוע	verb	to hurt; to hit
+773	להרוג	verb	to kill
+774	להציל	verb	to save; to rescue
+775	להגן	verb	to defend; to protect
+776	להילחם	verb	to fight
+777	לנצח	verb	to win; to defeat
+778	להפסיד	verb	to lose (a game)
+779	לתפוס	verb	to catch; to grab
+780	לזרוק	verb	to throw
+781	להרים	verb	to lift; to pick up
+782	למשוך	verb	to pull
+783	לדחוף	verb	to push
+784	לגעת	verb	to touch
+785	להחזיק	verb	to hold
+786	לשמור על	verb	to look after
+787	לטפל	verb	to take care; to treat
+788	להאכיל	verb	to feed
+789	להשקות	verb	to water; to irrigate
+790	לגדל	verb	to raise; to grow
+791	לגדול	verb	to grow up
+792	להתחתן	verb	to get married
+793	להתגרש	verb	to get divorced
+794	להיפגש	verb	to meet up
+795	להיפרד	verb	to part; to say goodbye
+796	לשכנע	verb	to convince
+797	להסכים	verb	to agree
+798	להתנגד	verb	to object; to oppose
+799	להתלונן	verb	to complain
+800	להודות	verb	to thank; to admit
+801	להתנצל	verb	to apologize
+802	לברך	verb	to bless; to congratulate
+803	לאחל	verb	to wish
+804	תרבות	noun	culture
+805	היסטוריה	noun	history
+806	מדע	noun	science
+807	אמנות	noun	art
+808	דת	noun	religion
+809	פוליטיקה	noun	politics
+810	כלכלה	noun	economy
+811	טבע	noun	nature
+812	סביבה	noun	environment
+813	בריאות	noun	health
+814	חינוך	noun	education
+815	חופש	noun	freedom
+816	זכות	noun	right (entitlement)
+817	חובה	noun	duty; obligation
+818	צדק	noun	justice
+819	שוויון	noun	equality
+820	שינוי	noun	change
+821	התפתחות	noun	development
+822	קדמה	noun	progress
+823	קצת	adv	a little; a bit
+824	מספיק	adv	enough
+825	יותר מדי	adv	too much
+826	כל אחד	pron	everyone; each one
+827	אף אחד	pron	no one
+828	שום דבר	pron	nothing
+829	כלום	pron	nothing; anything
+830	רוב	noun	most; majority
+831	חלק	noun	part; some
+832	כולם	pron	everyone; all of them
+833	עצמי	pron	myself
+834	עצמו	pron	himself
+835	זה את זה	pron	each other
+836	אותנו	pron	us
+837	חומר	noun	material; substance
+838	ברזל	noun	iron
+839	זהב	noun	gold
+840	זכוכית	noun	glass
+841	פלסטיק	noun	plastic
+842	נייר	noun	paper
+843	בד	noun	cloth; fabric
+844	צורה	noun	shape; form
+845	עיגול	noun	circle
+846	ריבוע	noun	square
+847	קו	noun	line
+848	נקודה	noun	point; dot
+849	גובה	noun	height
+850	רוחב	noun	width
+851	אורך	noun	length
+852	עומק	noun	depth
+853	משקל	noun	weight
+854	גודל	noun	size
+855	מרחק	noun	distance
+856	מהירות	noun	speed
+857	כמות	noun	amount; quantity
+858	ספורט	noun	sport
+859	כדורגל	noun	soccer; football
+860	כדורסל	noun	basketball
+861	שחייה	noun	swimming
+862	ריצה	noun	running
+863	אופניים	noun	bicycle
+864	כדור	noun	ball
+865	תחביב	noun	hobby
+866	מסיבה	noun	party
+867	ריקוד	noun	dance
+868	הופעה	noun	show; performance
+869	תיאטרון	noun	theater
+870	קונצרט	noun	concert
+871	מוזיאון	noun	museum
+872	כאב	noun	pain; ache
+873	מחלה	noun	disease; illness
+874	תרופה	noun	medicine; drug
+875	חיסון	noun	vaccine
+876	ניתוח	noun	surgery; operation
+877	פציעה	noun	injury
+878	דיאטה	noun	diet
+879	כושר	noun	fitness
+880	שריר	noun	muscle
+881	ברך	noun	knee
+882	כתף	noun	shoulder
+883	מרפק	noun	elbow
+884	לשכב	verb	to lie down
+885	לנוח	verb	to rest
+886	להזיז	verb	to move (something)
+887	לזוז	verb	to move (oneself)
+888	להסתכל	verb	to look; to watch
+889	להביט	verb	to gaze; to look
+890	להקשיב	verb	to listen
+891	לצעוק	verb	to shout; to yell
+892	ללחוש	verb	to whisper
+893	לשרוק	verb	to whistle
+894	לנשום	verb	to breathe
+895	להריח	verb	to smell
+896	לטעום	verb	to taste
+897	לבלוע	verb	to swallow
+898	ללעוס	verb	to chew
+899	לנשק	verb	to kiss
+900	לחבק	verb	to hug
+901	לברוח	verb	to escape; to flee
+902	להתחבא	verb	to hide
+903	לחזק	verb	to strengthen
+904	להחליף	verb	to replace; to exchange
+905	להוסיף	verb	to add
+906	להוריד	verb	to take down; to download
+907	להעלות	verb	to upload; to raise
+908	לחלק	verb	to divide; to distribute
+909	לחבר	verb	to connect; to add
+910	להכפיל	verb	to multiply; to double
+911	לחשב	verb	to calculate
+912	חשוך	adj	dark
+913	מואר	adj	lit; bright
+914	צפוף	adj	crowded
+915	זול	adj	cheap
+916	יקר	adj	expensive; dear
+917	חינם	adj	free (no cost)
+918	מודרני	adj	modern
+919	עתיק	adj	ancient
+920	מפורסם	adj	famous
+921	ידוע	adj	known; well-known
+922	סודי	adj	secret
+923	לחלוטין	adv	absolutely; entirely
+924	בקושי	adv	barely; hardly
+925	במיוחד	adv	especially
+926	בעיקר	adv	mainly; mostly
+927	בקלות	adv	easily
+928	בכוונה	adv	on purpose; deliberately
+929	במקרה	adv	by chance; accidentally

@@ -1,11 +1,11 @@
 rank	word	pos	en
-1	من	pron	I; first-person singular pronoun
-2	تو	pron	you (singular, informal)
-3	او	pron	he; she; third-person singular pronoun
-4	ما	pron	we
-5	شما	pron	you (plural, or formal singular)
-6	آنها	pron	they
-7	است	verb	is; third-person singular present of "to be"
+1	و	conj	and
+2	در	prep	in; at
+3	به	prep	to
+4	از	prep	from; of
+5	که	conj	that; which; who
+6	را	particle	(direct-object marker)
+7	این	det	this
 8	هستم	verb	I am
 9	هستی	verb	you are (singular)
 10	هستیم	verb	we are
@@ -21,71 +21,565 @@ rank	word	pos	en
 20	می‌کنم	verb	to do; to make; I do/make
 21	می‌دهم	verb	to give; I give
 22	چی	pron	what (colloquial)
-23	چه	pron	what
-24	کی	pron	who
-25	کجا	adv	where
-26	چرا	adv	why
+23	با	prep	with
+24	است	verb	is
+25	برای	prep	for
+26	آن	det	that
 27	چه وقت	adv	when
-28	چطور	adv	how
-29	خانه	noun	house; home
-30	آب	noun	water
-31	غذا	noun	food
-32	بچه	noun	child
-33	مرد	noun	man
-34	زن	noun	woman
-35	مادر	noun	mother
-36	پدر	noun	father
-37	روز	noun	day
-38	شب	noun	night
-39	سال	noun	year
-40	کتاب	noun	book
-41	شهر	noun	city
-42	کشور	noun	country
-43	اسم	noun	name
-44	زمان	noun	time
-45	دوست	noun	friend
-46	خوب	adj	good
-47	بد	adj	bad
-48	بزرگ	adj	big; large
-49	کوچک	adj	small; little
-50	جدید	adj	new
-51	قدیمی	adj	old (of things)
-52	زیبا	adj	beautiful
-53	یک	num	one
-54	دو	num	two
-55	سه	num	three
-56	چهار	num	four
-57	پنج	num	five
-58	شش	num	six
-59	هفت	num	seven
-60	هشت	num	eight
-61	نه	num	nine; also "no" (negation, homograph)
-62	ده	num	ten
-63	بله	particle	yes
+28	یک	num	one; a
+29	من	pron	I
+30	تو	pron	you (sg)
+31	او	pron	he; she
+32	ما	pron	we
+33	شما	pron	you (pl/formal)
+34	آنها	pron	they
+35	هم	adv	also; too
+36	اما	conj	but
+37	یا	conj	or
+38	اگر	conj	if
+39	نه	adv	no
+40	بله	adv	yes
+41	خیلی	adv	very; a lot
+42	بسیار	adv	very; much
+43	هر	det	each; every
+44	همه	det	all; everyone
+45	هیچ	det	no; none; any
+46	چه	pron	what
+47	چرا	adv	why
+48	چطور	adv	how
+49	چگونه	adv	how
+50	کجا	adv	where
+51	کی	pron	when; who
+52	چند	det	how many; several
+53	چیزی	pron	something; anything
+54	کسی	pron	someone; anyone
+55	باید	verb	must; should
+56	شاید	adv	maybe; perhaps
+57	حالا	adv	now
+58	الان	adv	now; right now
+59	دیگر	adv	other; anymore
+60	هنوز	adv	still; yet
+61	فقط	adv	only; just
+62	همیشه	adv	always
+63	هرگز	adv	never
 64	لطفا	adv	please
 65	ممنون	intj	thank you; grateful
 66	متشکرم	intj	thank you (formal)
-67	و	conj	and
-68	اما	conj	but
-69	یا	conj	or
-70	چون	conj	because
-71	اگر	conj	if
-72	در	prep	in; at
-73	به	prep	to; toward
-74	از	prep	from; of
-75	با	prep	with
-76	برای	prep	for
-77	این	det	this
-78	آن	det	that
-79	هر	det	each; every
-80	همه	pron	all; everyone
-81	خیلی	adv	very; much; a lot
-82	هم	adv	also; too
+67	گاهی	adv	sometimes
+68	اینجا	adv	here
+69	آنجا	adv	there
+70	خوب	adj	good
+71	بد	adj	bad
+72	بزرگ	adj	big; large
+73	کوچک	adj	small
+74	زیاد	adj	much; a lot
+75	کم	adj	little; few
+76	تازه	adj	new; fresh
+77	قدیمی	adj	old
+78	زیبا	adj	beautiful
+79	خوشحال	adj	happy
+80	ناراحت	adj	upset; sad
+81	راست	adj	right; true
+82	چپ	noun	left
 83	می‌توانم	verb	to be able to; I can
-84	باید	verb	must; should
-85	چای	noun	tea
-86	نان	noun	bread
-87	کار	noun	work; job
-88	پول	noun	money
-89	امروز	adv	today
-90	فردا	adv	tomorrow
+84	بودن	verb	to be
+85	داشتن	verb	to have
+86	شدن	verb	to become
+87	کردن	verb	to do; to make
+88	رفتن	verb	to go
+89	آمدن	verb	to come
+90	گفتن	verb	to say
+91	دیدن	verb	to see
+92	دانستن	verb	to know
+93	خواستن	verb	to want
+94	توانستن	verb	to be able to
+95	گرفتن	verb	to take; to get
+96	دادن	verb	to give
+97	خوردن	verb	to eat
+98	نوشیدن	verb	to drink
+99	خواندن	verb	to read; to sing
+100	نوشتن	verb	to write
+101	شنیدن	verb	to hear
+102	فهمیدن	verb	to understand
+103	رسیدن	verb	to arrive; to reach
+104	گذاشتن	verb	to put; to place
+105	برداشتن	verb	to pick up; to remove
+106	آوردن	verb	to bring
+107	بردن	verb	to take away; to win
+108	زدن	verb	to hit; to strike
+109	خریدن	verb	to buy
+110	فروختن	verb	to sell
+111	ساختن	verb	to build; to make
+112	کار کردن	verb	to work
+113	بازی کردن	verb	to play
+114	زندگی کردن	verb	to live
+115	صحبت کردن	verb	to talk; to speak
+116	فکر کردن	verb	to think
+117	پیدا کردن	verb	to find
+118	شروع کردن	verb	to start
+119	تمام کردن	verb	to finish
+120	دوست داشتن	verb	to like; to love
+121	نگاه کردن	verb	to look
+122	گوش دادن	verb	to listen
+123	سوال کردن	verb	to ask
+124	جواب دادن	verb	to answer
+125	کمک کردن	verb	to help
+126	منتظر بودن	verb	to wait
+127	خوابیدن	verb	to sleep
+128	هست	verb	there is; exists
+129	نیست	verb	is not
+130	بود	verb	was
+131	دارد	verb	has
+132	می‌شود	verb	becomes; it is possible
+133	می‌کند	verb	does
+134	می‌رود	verb	goes
+135	می‌آید	verb	comes
+136	چیز	noun	thing
+137	کار	noun	work; job; thing
+138	روز	noun	day
+139	شب	noun	night
+140	سال	noun	year
+141	ماه	noun	month; moon
+142	هفته	noun	week
+143	ساعت	noun	hour; clock; watch
+144	وقت	noun	time
+145	زمان	noun	time; era
+146	آدم	noun	person; human
+147	مرد	noun	man
+148	زن	noun	woman; wife
+149	بچه	noun	child; kid
+150	پسر	noun	boy; son
+151	دختر	noun	girl; daughter
+152	دوست	noun	friend
+153	خانواده	noun	family
+154	مادر	noun	mother
+155	پدر	noun	father
+156	برادر	noun	brother
+157	خواهر	noun	sister
+158	خانه	noun	house; home
+159	شهر	noun	city
+160	کشور	noun	country
+161	جهان	noun	world
+162	دنیا	noun	world
+163	راه	noun	road; way
+164	خیابان	noun	street
+165	ماشین	noun	car
+166	آب	noun	water
+167	غذا	noun	food
+168	نان	noun	bread
+169	پول	noun	money
+170	دست	noun	hand
+171	سر	noun	head
+172	چشم	noun	eye
+173	دل	noun	heart
+174	اسم	noun	name
+175	کتاب	noun	book
+176	مدرسه	noun	school
+177	دانشگاه	noun	university
+178	زبان	noun	language; tongue
+179	حرف	noun	word; letter; talk
+180	دو	num	two
+181	سه	num	three
+182	چهار	num	four
+183	پنج	num	five
+184	شش	num	six
+185	هفت	num	seven
+186	هشت	num	eight
+187	ده	num	ten
+188	بیست	num	twenty
+189	سی	num	thirty
+190	صد	num	hundred
+191	هزار	num	thousand
+192	میلیون	num	million
+193	اول	num	first
+194	دوم	num	second
+195	سوم	num	third
+196	آخر	adj	last
+197	نصف	noun	half
+198	عدد	noun	number
+199	رنگ	noun	color
+200	قرمز	adj	red
+201	آبی	adj	blue
+202	سبز	adj	green
+203	زرد	adj	yellow
+204	سیاه	adj	black
+205	سفید	adj	white
+206	قهوه‌ای	adj	brown
+207	خاکستری	adj	gray
+208	نارنجی	adj	orange
+209	بدن	noun	body
+210	پا	noun	foot; leg
+211	انگشت	noun	finger
+212	گوش	noun	ear
+213	بینی	noun	nose
+214	دهان	noun	mouth
+215	دندان	noun	tooth
+216	مو	noun	hair
+217	گردن	noun	neck
+218	شکم	noun	belly; stomach
+219	خون	noun	blood
+220	صورت	noun	face
+221	صدا	noun	voice; sound
+222	خورشید	noun	sun
+223	ستاره	noun	star
+224	آسمان	noun	sky
+225	ابر	noun	cloud
+226	باران	noun	rain
+227	برف	noun	snow
+228	باد	noun	wind
+229	آتش	noun	fire
+230	زمین	noun	earth; ground
+231	کوه	noun	mountain
+232	دریا	noun	sea
+233	رودخانه	noun	river
+234	درخت	noun	tree
+235	گل	noun	flower
+236	جنگل	noun	forest
+237	سنگ	noun	stone; rock
+238	حیوان	noun	animal
+239	سگ	noun	dog
+240	گربه	noun	cat
+241	پرنده	noun	bird
+242	ماهی	noun	fish
+243	اسب	noun	horse
+244	گاو	noun	cow
+245	گوشت	noun	meat
+246	شیر	noun	milk; lion
+247	تخم مرغ	noun	egg
+248	میوه	noun	fruit
+249	سبزی	noun	vegetable
+250	سیب	noun	apple
+251	برنج	noun	rice
+252	چای	noun	tea
+253	قهوه	noun	coffee
+254	نمک	noun	salt
+255	شکر	noun	sugar
+256	روغن	noun	oil
+257	پنیر	noun	cheese
+258	سیب‌زمینی	noun	potato
+259	گوجه	noun	tomato
+260	همسر	noun	spouse
+261	شوهر	noun	husband
+262	عمو	noun	uncle (paternal)
+263	خاله	noun	aunt (maternal)
+264	پدربزرگ	noun	grandfather
+265	مادربزرگ	noun	grandmother
+266	همسایه	noun	neighbor
+267	مهمان	noun	guest
+268	معلم	noun	teacher
+269	دانش‌آموز	noun	student; pupil
+270	دانشجو	noun	university student
+271	دکتر	noun	doctor
+272	پرستار	noun	nurse
+273	مهندس	noun	engineer
+274	راننده	noun	driver
+275	کارگر	noun	worker
+276	رئیس	noun	boss; chief
+277	سرباز	noun	soldier
+278	پلیس	noun	police
+279	فروشنده	noun	seller; salesperson
+280	مغازه	noun	shop; store
+281	بازار	noun	market; bazaar
+282	رستوران	noun	restaurant
+283	بیمارستان	noun	hospital
+284	اتاق	noun	room
+285	پنجره	noun	window
+286	میز	noun	table; desk
+287	صندلی	noun	chair
+288	تخت	noun	bed
+289	دیوار	noun	wall
+290	کلید	noun	key
+291	زشت	adj	ugly
+292	سخت	adj	hard; difficult
+293	آسان	adj	easy
+294	راحت	adj	comfortable; easy
+295	سریع	adj	fast; quick
+296	کند	adj	slow
+297	گرم	adj	warm; hot
+298	سرد	adj	cold
+299	بلند	adj	tall; loud; long
+300	کوتاه	adj	short
+301	سنگین	adj	heavy
+302	سبک	adj	light (weight)
+303	پر	adj	full
+304	خالی	adj	empty
+305	تمیز	adj	clean
+306	کثیف	adj	dirty
+307	مهم	adj	important
+308	جالب	adj	interesting
+309	خسته	adj	tired
+310	گرسنه	adj	hungry
+311	تشنه	adj	thirsty
+312	مریض	adj	sick
+313	سالم	adj	healthy
+314	قوی	adj	strong
+315	پرسیدن	verb	to ask
+316	خندیدن	verb	to laugh
+317	گریه کردن	verb	to cry
+318	دویدن	verb	to run
+319	نشستن	verb	to sit
+320	ایستادن	verb	to stand
+321	باز کردن	verb	to open
+322	بستن	verb	to close
+323	پوشیدن	verb	to wear; to put on
+324	شستن	verb	to wash
+325	پختن	verb	to cook
+326	درست کردن	verb	to make; to fix
+327	یاد گرفتن	verb	to learn
+328	یاد دادن	verb	to teach
+329	به یاد آوردن	verb	to remember
+330	فراموش کردن	verb	to forget
+331	انتخاب کردن	verb	to choose
+332	تصمیم گرفتن	verb	to decide
+333	امیدوار بودن	verb	to hope
+334	باور کردن	verb	to believe
+335	پس	conj	so; then
+336	چون	conj	because
+337	زیرا	conj	because
+338	بنابراین	conj	therefore
+339	ولی	conj	but
+340	یعنی	conj	that is; meaning
+341	مثل	prep	like; such as
+342	مانند	prep	like; similar to
+343	مثلا	adv	for example
+344	البته	adv	of course
+345	حتی	adv	even
+346	تقریبا	adv	almost; approximately
+347	کاملا	adv	completely
+348	واقعا	adv	really
+349	حتما	adv	definitely; for sure
+350	معمولا	adv	usually
+351	اصلا	adv	at all; not at all
+352	دقیقا	adv	exactly
+353	بالاخره	adv	finally; at last
+354	ناگهان	adv	suddenly
+355	زود	adv	early; soon
+356	دیر	adv	late
+357	دوباره	adv	again
+358	بعد	adv	after; later
+359	قبل	adv	before; earlier
+360	قبلا	adv	previously; before
+361	امروز	adv	today
+362	فردا	adv	tomorrow
+363	دیروز	adv	yesterday
+364	امشب	adv	tonight
+365	صبح	noun	morning
+366	ظهر	noun	noon
+367	عصر	noun	evening; afternoon
+368	پایین	noun	down; bottom
+369	بالا	noun	up; top
+370	بیرون	noun	outside
+371	داخل	noun	inside
+372	جلو	noun	front
+373	عقب	noun	back
+374	وسط	noun	middle
+375	بدون	prep	without
+376	تا	prep	until; up to
+377	روی	prep	on
+378	زیر	prep	under
+379	بین	prep	between; among
+380	کنار	prep	next to; beside
+381	درباره	prep	about
+382	علیه	prep	against
+383	مردم	noun	people
+384	جامعه	noun	society
+385	دولت	noun	government
+386	قانون	noun	law
+387	جنگ	noun	war
+388	صلح	noun	peace
+389	تاریخ	noun	history; date
+390	علم	noun	science; knowledge
+391	هنر	noun	art
+392	دین	noun	religion
+393	فرهنگ	noun	culture
+394	سیاست	noun	politics
+395	اقتصاد	noun	economy
+396	طبیعت	noun	nature
+397	محیط زیست	noun	environment
+398	سلامت	noun	health
+399	آموزش	noun	education; training
+400	آزادی	noun	freedom
+401	حق	noun	right; truth
+402	مشکل	noun	problem
+403	راه حل	noun	solution
+404	هدف	noun	goal; aim
+405	دلیل	noun	reason
+406	نتیجه	noun	result
+407	فکر	noun	thought; idea
+408	نظر	noun	opinion; view
+409	احساس	noun	feeling
+410	عشق	noun	love
+411	ترس	noun	fear
+412	امید	noun	hope
+413	آرزو	noun	wish; dream
+414	خواب	noun	sleep; dream
+415	تلفن	noun	telephone
+416	موبایل	noun	cell phone
+417	کامپیوتر	noun	computer
+418	اینترنت	noun	internet
+419	پیام	noun	message
+420	عکس	noun	photo; picture
+421	فیلم	noun	movie; film
+422	موسیقی	noun	music
+423	آهنگ	noun	song; tune
+424	بازی	noun	game
+425	خبر	noun	news
+426	روزنامه	noun	newspaper
+427	سفر	noun	trip; journey
+428	بلیط	noun	ticket
+429	هواپیما	noun	airplane
+430	قطار	noun	train
+431	اتوبوس	noun	bus
+432	فرودگاه	noun	airport
+433	هتل	noun	hotel
+434	نقشه	noun	map
+435	رانندگی کردن	verb	to drive
+436	سفر کردن	verb	to travel
+437	برگشتن	verb	to return
+438	ماندن	verb	to stay
+439	رها کردن	verb	to leave; to let go
+440	افتادن	verb	to fall
+441	بلند شدن	verb	to get up; to rise
+442	پریدن	verb	to jump
+443	گم کردن	verb	to lose
+444	پیدا شدن	verb	to be found; to appear
+445	دیدن‌ کردن	verb	to visit
+446	ملاقات کردن	verb	to meet
+447	دعوت کردن	verb	to invite
+448	تشکر کردن	verb	to thank
+449	عذرخواهی کردن	verb	to apologize
+450	قبول کردن	verb	to accept
+451	رد کردن	verb	to reject; to pass
+452	موافق بودن	verb	to agree
+453	مخالفت کردن	verb	to oppose
+454	شکایت کردن	verb	to complain
+455	ترسیدن	verb	to be afraid
+456	نگران بودن	verb	to worry
+457	احساس کردن	verb	to feel
+458	خواب دیدن	verb	to dream
+459	جوان	adj	young
+460	پیر	adj	old (person)
+461	ثروتمند	adj	rich
+462	فقیر	adj	poor
+463	باهوش	adj	smart; clever
+464	خطرناک	adj	dangerous
+465	امن	adj	safe
+466	آماده	adj	ready
+467	مشغول	adj	busy
+468	آزاد	adj	free
+469	واضح	adj	clear
+470	درست	adj	correct; right
+471	غلط	adj	wrong
+472	خوشمزه	adj	delicious
+473	شیرین	adj	sweet
+474	تلخ	adj	bitter
+475	گران	adj	expensive
+476	ارزان	adj	cheap
+477	مدرن	adj	modern
+478	مشهور	adj	famous
+479	هوا	noun	weather; air
+480	زمستان	noun	winter
+481	تابستان	noun	summer
+482	بهار	noun	spring
+483	پاییز	noun	autumn; fall
+484	فصل	noun	season
+485	تعطیلات	noun	holidays; vacation
+486	جشن	noun	celebration
+487	تولد	noun	birthday
+488	عید	noun	festival; holiday
+489	آشپزخانه	noun	kitchen
+490	حمام	noun	bathroom
+491	یخچال	noun	refrigerator
+492	چراغ	noun	lamp; light
+493	چاقو	noun	knife
+494	قاشق	noun	spoon
+495	چنگال	noun	fork
+496	بشقاب	noun	plate
+497	لیوان	noun	glass; cup
+498	فنجان	noun	cup
+499	لباس	noun	clothes; garment
+500	پیراهن	noun	shirt
+501	شلوار	noun	pants; trousers
+502	کفش	noun	shoe
+503	کلاه	noun	hat
+504	کیف	noun	bag
+505	عینک	noun	glasses
+506	ساعت مچی	noun	wristwatch
+507	درس	noun	lesson; class
+508	امتحان	noun	exam; test
+509	نمره	noun	grade; mark
+510	تکلیف	noun	homework; duty
+511	کلاس	noun	class; classroom
+512	قلم	noun	pen
+513	مداد	noun	pencil
+514	دفتر	noun	notebook; office
+515	کاغذ	noun	paper
+516	صفحه	noun	page
+517	سوال	noun	question
+518	جواب	noun	answer
+519	معنی	noun	meaning
+520	مثال	noun	example
+521	داستان	noun	story
+522	شعر	noun	poem; poetry
+523	قیمت	noun	price
+524	پول نقد	noun	cash
+525	هدیه	noun	gift
+526	جعبه	noun	box
+527	کاغذ دیواری	noun	wallpaper
+528	تصویر	noun	image; picture
+529	رنگ‌ها	noun	colors
+530	بو	noun	smell; scent
+531	طعم	noun	taste; flavor
+532	نور	noun	light
+533	سایه	noun	shadow; shade
+534	صدای	noun	sound of
+535	ورزش	noun	sport; exercise
+536	فوتبال	noun	soccer; football
+537	توپ	noun	ball
+538	تیم	noun	team
+539	مسابقه	noun	match; competition
+540	سرگرمی	noun	hobby; pastime
+541	مهمانی	noun	party
+542	رقص	noun	dance
+543	کنسرت	noun	concert
+544	تئاتر	noun	theater
+545	موزه	noun	museum
+546	درد	noun	pain
+547	بیماری	noun	disease; illness
+548	دارو	noun	medicine; drug
+549	دراز کشیدن	verb	to lie down
+550	استراحت کردن	verb	to rest
+551	حرکت کردن	verb	to move
+552	تکان دادن	verb	to shake; to move
+553	تماشا کردن	verb	to watch
+554	گوش کردن	verb	to listen
+555	فریاد زدن	verb	to shout
+556	نفس کشیدن	verb	to breathe
+557	بوسیدن	verb	to kiss
+558	بغل کردن	verb	to hug
+559	فرار کردن	verb	to escape; to run away
+560	قایم شدن	verb	to hide
+561	اضافه کردن	verb	to add
+562	عوض کردن	verb	to change; to replace
+563	تعمیر کردن	verb	to repair
+564	تمیز کردن	verb	to clean
+565	حساب کردن	verb	to calculate; to count
+566	اندازه گرفتن	verb	to measure
+567	امتحان کردن	verb	to try; to test
+568	توضیح دادن	verb	to explain
+569	تنها	adj	alone; only
+570	خالص	adj	pure
+571	خشک	adj	dry
+572	خیس	adj	wet
+573	روشن	adj	bright; light; on
+574	تاریک	adj	dark
+575	گرد	adj	round
+576	صاف	adj	smooth; flat; clear
+577	نزدیک	adj	near; close
+578	دور	adj	far
+579	عمیق	adj	deep
+580	کم‌عمق	adj	shallow
+581	ساکت	adj	quiet
+582	بلندگو	noun	loudspeaker
+583	جدید	adj	new
+584	عجیب	adj	strange; weird
