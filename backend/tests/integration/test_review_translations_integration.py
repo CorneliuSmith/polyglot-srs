@@ -19,6 +19,7 @@ What is load-bearing here:
 """
 from __future__ import annotations
 
+import json
 import uuid
 from unittest.mock import AsyncMock
 
@@ -203,3 +204,210 @@ class TestEveryLanguageAndBothPivots:
         assert len(codes) > 20
         assert "en" not in codes
         assert {"hi", "es", "ar", "ca"} <= set(codes)
+
+
+class TestOfflineJudging:
+    """Judging in a Claude Code session instead of paying the API per row.
+
+    The model is already in the room, so the module's job shrinks to moving
+    rows out to a file and verdicts back in. The write path is shared with
+    the API path, so what matters here is the file contract and the one
+    hazard the API path does not have: time passes between export and apply.
+    """
+
+    async def test_export_writes_what_a_judge_needs_and_calls_nothing(
+            self, conn, tmp_path):
+        fx = await _fixture(conn)
+        out = tmp_path / "export.jsonl"
+        n = await rt.export_file(INTEGRATION_DSN, [fx["code"]], limit=10,
+                                 sources=rt.SOURCES, path=out)
+        assert n == 2
+        rows = [json.loads(x) for x in out.read_text(encoding="utf-8").splitlines()]
+        by_source = {r["source"]: r for r in rows}
+        assert set(by_source) == {"drill", "example"}
+        # The drill's blank is filled — the judge compares English against a
+        # whole sentence, not a gapped one.
+        assert by_source["drill"]["sentence"] == "मैं चाय पीता हूँ।"
+        assert by_source["drill"]["english"] == "I drink tea."
+        # Blank fields for the judge, present so the file is fillable in place.
+        assert by_source["drill"]["verdict"] == ""
+        assert by_source["drill"]["fixed"] == ""
+
+    async def _export(self, conn, tmp_path):
+        fx = await _fixture(conn)
+        out = tmp_path / "export.jsonl"
+        await rt.export_file(INTEGRATION_DSN, [fx["code"]], limit=10,
+                             sources=rt.SOURCES, path=out)
+        rows = [json.loads(x) for x in out.read_text(encoding="utf-8").splitlines()]
+        return fx, out, rows
+
+    def _write(self, path, rows):
+        path.write_text("\n".join(json.dumps(r, ensure_ascii=False)
+                                  for r in rows) + "\n", encoding="utf-8")
+
+    async def test_a_filled_export_applies_exactly_like_the_api_path(
+            self, conn, tmp_path, monkeypatch):
+        fx, out, rows = await self._export(conn, tmp_path)
+        monkeypatch.setattr(rt, "REPO", tmp_path)
+        monkeypatch.setattr(rt, "BACKUP_DIR", tmp_path / "backups")
+        for r in rows:
+            r["verdict"], r["fixed"], r["note"] = "fixed", "A better English.", "x"
+        self._write(out, rows)
+
+        counts = await rt.apply_file(INTEGRATION_DSN, out, dry_run=False,
+                                     write_tsv=False)
+
+        assert counts["fixed"] == 2
+        assert counts["stale_dropped"] == 2   # the es example row + the overlay
+        assert await conn.fetchval(
+            "SELECT translation FROM drill_sentences WHERE id = $1",
+            fx["drill_id"]) == "A better English."
+        assert await conn.fetchval(
+            "SELECT count(*) FROM drill_hint_translations WHERE drill_id = $1",
+            fx["drill_id"]) == 0
+        # And it is undoable, exactly like the API path.
+        journal = next((tmp_path / "backups").glob("*drill*.jsonl"))
+        await rt.restore(INTEGRATION_DSN, journal)
+        assert await conn.fetchval(
+            "SELECT translation FROM drill_sentences WHERE id = $1",
+            fx["drill_id"]) == "I drink tea."
+
+    async def test_a_row_edited_since_the_export_is_never_overwritten(
+            self, conn, tmp_path, monkeypatch):
+        # The hazard the API path does not have: a human fixes the row while
+        # the session is judging. Applying blind would silently undo them.
+        fx, out, rows = await self._export(conn, tmp_path)
+        monkeypatch.setattr(rt, "REPO", tmp_path)
+        monkeypatch.setattr(rt, "BACKUP_DIR", tmp_path / "backups")
+        await conn.execute(
+            "UPDATE drill_sentences SET translation = $2 WHERE id = $1",
+            fx["drill_id"], "A human got here first.")
+        for r in rows:
+            r["verdict"], r["fixed"] = "fixed", "The machine's version."
+        self._write(out, rows)
+
+        counts = await rt.apply_file(INTEGRATION_DSN, out, dry_run=False,
+                                     write_tsv=False)
+
+        assert counts["stale"] == 1
+        assert counts["fixed"] == 1           # the untouched example still lands
+        assert await conn.fetchval(
+            "SELECT translation FROM drill_sentences WHERE id = $1",
+            fx["drill_id"]) == "A human got here first."
+
+    async def test_an_unjudged_or_half_finished_file_writes_nothing(
+            self, conn, tmp_path, monkeypatch):
+        fx, out, rows = await self._export(conn, tmp_path)
+        monkeypatch.setattr(rt, "REPO", tmp_path)
+        # Straight from --export: every verdict still blank.
+        counts = await rt.apply_file(INTEGRATION_DSN, out, dry_run=False,
+                                     write_tsv=False)
+        assert counts["unjudged"] == 2
+        assert counts["fixed"] == 0 and counts["queued"] == 0
+        assert counts["checked"] == 0     # nothing was judged, so nothing checked
+        assert await conn.fetchval(
+            "SELECT translation FROM drill_sentences WHERE id = $1",
+            fx["drill_id"]) == "I drink tea."
+
+    async def test_judged_and_left_alone_is_not_reported_as_unjudged(
+            self, conn, tmp_path, monkeypatch):
+        # A careful pass that concludes "this English is fine" must not read
+        # like a file nobody opened — the operator uses these counters to
+        # decide whether the run actually happened.
+        fx, out, rows = await self._export(conn, tmp_path)
+        monkeypatch.setattr(rt, "REPO", tmp_path)
+        for r in rows:
+            r["verdict"] = "ok"
+        self._write(out, rows)
+
+        counts = await rt.apply_file(INTEGRATION_DSN, out, dry_run=False,
+                                     write_tsv=False)
+
+        assert counts["checked"] == 2
+        assert counts["unchanged"] == 2
+        assert counts["unjudged"] == 0
+        assert counts["fixed"] == 0
+
+    async def test_a_fix_identical_to_the_original_counts_as_left_alone(
+            self, conn, tmp_path, monkeypatch):
+        fx, out, rows = await self._export(conn, tmp_path)
+        monkeypatch.setattr(rt, "REPO", tmp_path)
+        for r in rows:
+            r["verdict"], r["fixed"] = "fixed", r["english"]
+        self._write(out, rows)
+
+        counts = await rt.apply_file(INTEGRATION_DSN, out, dry_run=False,
+                                     write_tsv=False)
+
+        assert counts["unchanged"] == 2 and counts["unjudged"] == 0
+        assert counts["fixed"] == 0
+
+    async def test_reject_flags_for_a_human_and_ok_changes_nothing(
+            self, conn, tmp_path, monkeypatch):
+        fx, out, rows = await self._export(conn, tmp_path)
+        monkeypatch.setattr(rt, "REPO", tmp_path)
+        for r in rows:
+            if r["source"] == "drill":
+                r["verdict"], r["note"] = "reject", "translates a different sentence"
+            else:
+                r["verdict"] = "ok"
+        self._write(out, rows)
+
+        counts = await rt.apply_file(INTEGRATION_DSN, out, dry_run=False,
+                                     write_tsv=False)
+
+        assert counts["queued"] == 1 and counts["fixed"] == 0
+        row = await conn.fetchrow(
+            "SELECT flagged, flag_reason FROM drill_sentences WHERE id = $1",
+            fx["drill_id"])
+        assert row["flagged"] is True
+        assert "different sentence" in row["flag_reason"]
+
+    async def test_a_dry_run_apply_writes_nothing(self, conn, tmp_path,
+                                                  monkeypatch):
+        fx, out, rows = await self._export(conn, tmp_path)
+        monkeypatch.setattr(rt, "REPO", tmp_path)
+        for r in rows:
+            r["verdict"], r["fixed"] = "fixed", "Different English."
+        self._write(out, rows)
+
+        counts = await rt.apply_file(INTEGRATION_DSN, out, dry_run=True,
+                                     write_tsv=False)
+
+        assert counts["fixed"] == 0
+        assert await conn.fetchval(
+            "SELECT translation FROM drill_sentences WHERE id = $1",
+            fx["drill_id"]) == "I drink tea."
+
+    async def test_an_unknown_id_is_reported_rather_than_crashing(
+            self, conn, tmp_path):
+        out = tmp_path / "bad.jsonl"
+        out.write_text("\n".join([
+            json.dumps({"id": str(uuid.uuid4()), "source": "drill",
+                        "verdict": "fixed", "english": "x", "fixed": "y"}),
+            json.dumps({"id": "not-a-uuid", "source": "drill",
+                        "verdict": "fixed", "english": "x", "fixed": "y"}),
+        ]) + "\n", encoding="utf-8")
+        counts = await rt.apply_file(INTEGRATION_DSN, out, dry_run=False,
+                                     write_tsv=False)
+        assert counts["unknown"] == 2 and counts["fixed"] == 0
+
+    async def test_the_source_is_recovered_when_the_file_omits_it(
+            self, conn, tmp_path, monkeypatch):
+        # A hand-written or agent-rewritten file may drop the field; the id
+        # is enough to find the row.
+        fx, out, rows = await self._export(conn, tmp_path)
+        monkeypatch.setattr(rt, "REPO", tmp_path)
+        monkeypatch.setattr(rt, "BACKUP_DIR", tmp_path / "backups")
+        drill = next(r for r in rows if r["source"] == "drill")
+        drill.pop("source")
+        drill["verdict"], drill["fixed"] = "fixed", "Recovered anyway."
+        self._write(out, [drill])
+
+        counts = await rt.apply_file(INTEGRATION_DSN, out, dry_run=False,
+                                     write_tsv=False)
+
+        assert counts["fixed"] == 1
+        assert await conn.fetchval(
+            "SELECT translation FROM drill_sentences WHERE id = $1",
+            fx["drill_id"]) == "Recovered anyway."

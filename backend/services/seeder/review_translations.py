@@ -46,11 +46,26 @@ have their own clarity pass in `review_hints.py`.
         fix with the file's stale English. Mirroring drills is therefore
         not optional and happens whenever a fix is applied.
 
-Pilot first (needs a real key; nothing is written on --dry-run):
+## Two ways to run it
+
+Against the API (bills per row; nothing is written on --dry-run):
+
     python -m backend.services.seeder.review_translations --language hi --limit 20 --dry-run
     python -m backend.services.seeder.review_translations --language hi --limit 20
-    python -m backend.services.seeder.review_translations --all
     python -m backend.services.seeder.review_translations --all --source drill
+
+Or offline, with **no API key at all** — the judging is done by a Claude
+Code session, which is already paid for, and this module just moves rows in
+and out of a file:
+
+    python -m backend.services.seeder.review_translations --language hi --limit 50 --export hi.jsonl
+    # ... the session fills verdict/fixed/note on each line, in place ...
+    python -m backend.services.seeder.review_translations --apply hi.jsonl --dry-run
+    python -m backend.services.seeder.review_translations --apply hi.jsonl
+
+Both write through the same code, so the journal, the stale-locale deletes
+and the grammar-JSON mirror behave identically. Undo is the same either way:
+
     python -m backend.services.seeder.review_translations --restore <file>
 """
 from __future__ import annotations
@@ -343,6 +358,177 @@ async def review_language(
         await conn.close()
 
 
+# ------------------------------------------- offline mode (no API key needed)
+#
+# The pass above calls the Anthropic API, which bills. When the judging is
+# done by a Claude Code session instead, the model is already in the room and
+# paying twice is silly — so the work splits in two:
+#
+#   --export FILE   read candidates, write them out, call nothing
+#   (the session fills in verdict/fixed/note, editing the file in place)
+#   --apply FILE    write the verdicts back, with every safety the API path has
+#
+# One file round-trips deliberately. A separate verdicts file would lose the
+# original English, and without the original there is no way to notice that a
+# row changed between export and apply — so a stale export would silently
+# overwrite somebody's newer edit.
+
+_LOOKUP = {
+    "drill": """
+        SELECT ds.id, ds.sentence, ds.answer, ds.translation,
+               l.code AS code, gp.language_id AS language_id
+        FROM drill_sentences ds
+        JOIN grammar_points gp ON gp.id = ds.grammar_point_id
+        JOIN languages l ON l.id = gp.language_id
+        WHERE ds.id = $1
+    """,
+    "example": """
+        SELECT es.id, es.sentence, NULL::text AS answer, es.translation,
+               l.code AS code, es.language_id AS language_id
+        FROM example_sentences es
+        JOIN languages l ON l.id = es.language_id
+        WHERE es.id = $1
+    """,
+}
+
+
+async def _resolve_row(conn, row_id: str, hint: str | None):
+    """Find a row by id, trusting but not requiring the file's `source`."""
+    order = [hint] if hint in _SOURCE else []
+    order += [s for s in SOURCES if s != hint]
+    for source in order:
+        try:
+            row = await conn.fetchrow(_LOOKUP[source], row_id)
+        except (ValueError, TypeError, asyncpg.DataError):
+            return None  # not a uuid at all
+        if row:
+            return source, dict(row)
+    return None
+
+
+async def export_file(db_url: str, codes: list[str], *, limit: int,
+                      sources: tuple[str, ...], path: Path) -> int:
+    """Write the rows a judge should look at. Calls no model, spends nothing."""
+    conn = await asyncpg.connect(db_url)
+    n = 0
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with open(path, "w", encoding="utf-8") as f:
+            for code in codes:
+                lang = await conn.fetchrow(
+                    "SELECT id, name FROM languages WHERE code = $1", code)
+                if not lang:
+                    logger.warning("no such language: %s", code)
+                    continue
+                for source in sources:
+                    items = await _SOURCE[source]["candidates"](
+                        conn, lang["id"], limit)
+                    for it in items:
+                        f.write(json.dumps({
+                            "id": str(it["id"]),
+                            "source": source,
+                            "language": code,
+                            # The sentence in the language being taught, blank
+                            # already filled for a drill. This is the thing the
+                            # English is judged AGAINST.
+                            "sentence": it["display"],
+                            "english": it["translation"],
+                            # For the judge to fill in:
+                            "verdict": "",   # ok | fixed | reject
+                            "fixed": "",     # the better English, if verdict=fixed
+                            "note": "",      # a few words on what was wrong
+                        }, ensure_ascii=False) + "\n")
+                        n += 1
+                    logger.info("%s/%s: %d exported", code, source, len(items))
+    finally:
+        await conn.close()
+    return n
+
+
+async def apply_file(db_url: str, path: Path, *, dry_run: bool,
+                     write_tsv: bool) -> dict:
+    """Apply a judged export. Same journal, deletes and mirrors as the API path."""
+    records = [json.loads(line) for line in
+               path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    conn = await asyncpg.connect(db_url)
+    totals = _zero()
+    # unjudged: nobody filled a verdict in. unchanged: judged, and the verdict
+    # was "leave it". Lumping them together makes a complete, careful run read
+    # exactly like a file that never got looked at.
+    totals.update(unjudged=0, unchanged=0, stale=0, unknown=0)
+    groups: dict[tuple[str, str], list[dict]] = {}
+    try:
+        for rec in records:
+            verdict = str(rec.get("verdict") or "").strip().lower()
+            if verdict not in ("ok", "fixed", "reject"):
+                # A line nobody judged is left alone rather than guessed at —
+                # including a half-finished file.
+                totals["unjudged"] += 1
+                continue
+            totals["checked"] += 1
+            if verdict == "ok":
+                totals["unchanged"] += 1
+                continue
+
+            found = await _resolve_row(conn, str(rec.get("id") or ""),
+                                       rec.get("source"))
+            if not found:
+                totals["unknown"] += 1
+                logger.warning("  no such row, skipping: %s", rec.get("id"))
+                continue
+            source, row = found
+
+            if row["translation"] != rec.get("english"):
+                # Edited since the export was taken. Applying now would undo
+                # whoever did that, so it goes back in the queue instead.
+                totals["stale"] += 1
+                logger.warning("  changed since export, skipping: %s", row["id"])
+                continue
+
+            if verdict == "reject":
+                totals["queued"] += 1
+                if not dry_run:
+                    await _SOURCE[source]["queue"](
+                        conn, row, str(rec.get("note") or "unclear"))
+                continue
+
+            new = str(rec.get("fixed") or "").strip()
+            if not new or new == row["translation"]:
+                # "fixed" with nothing different in it is really an "ok".
+                totals["unchanged"] += 1
+                continue
+            groups.setdefault((row["code"], source), []).append(
+                {"item": row, "old": row["translation"], "new": new})
+
+        planned = sum(len(v) for v in groups.values())
+        if dry_run:
+            logger.info(
+                "DRY RUN — %d would be fixed, %d queued for a human, "
+                "%d left as-is, %d not judged, %d changed since export, "
+                "%d not found",
+                planned, totals["queued"], totals["unchanged"],
+                totals["unjudged"], totals["stale"], totals["unknown"])
+            return totals
+
+        for (code, source), fixes in groups.items():
+            _journal(code, source, fixes)
+            for fix in fixes:
+                await _SOURCE[source]["apply"](conn, fix["item"], fix["new"])
+                totals["fixed"] += 1
+                totals["stale_dropped"] += await _SOURCE[source]["stale"](
+                    conn, fix["item"], fix["item"]["language_id"])
+            if source == "drill":
+                _rewrite_grammar_json(
+                    code, {(f["item"]["sentence"], f["item"]["answer"]): f["new"]
+                           for f in fixes})
+            elif write_tsv:
+                _rewrite_tsv(code, {f["item"]["sentence"]: f["new"]
+                                    for f in fixes})
+        return totals
+    finally:
+        await conn.close()
+
+
 # -------------------------------------------------------------- file mirrors
 
 def _rewrite_tsv(code: str, replacements: dict[str, str]) -> int:
@@ -478,6 +664,11 @@ async def main() -> None:
                         "(drill fixes always mirror — a re-seed would undo them)")
     p.add_argument("--restore", metavar="FILE",
                    help="undo a run, by its journal file")
+    p.add_argument("--export", metavar="FILE",
+                   help="write candidates to FILE and call no model — for "
+                        "judging in a Claude Code session instead of the API")
+    p.add_argument("--apply", metavar="FILE",
+                   help="apply a judged export (the same file, verdicts filled in)")
     p.add_argument("--db-url", default=os.environ.get("DATABASE_URL"))
     args = p.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(message)s")
@@ -491,11 +682,15 @@ async def main() -> None:
             path = BACKUP_DIR / args.restore
         print(f"restored {await restore(args.db_url, path)} translations")
         return
-    if not translations_available():
-        print("ERROR: no translation provider configured (ANTHROPIC_API_KEY).")
-        return
 
     sources = SOURCES if args.source == "all" else (args.source,)
+
+    # --apply needs no language list and no provider: the file says what to do.
+    if args.apply:
+        counts = await apply_file(args.db_url, Path(args.apply),
+                                  dry_run=args.dry_run, write_tsv=args.write_tsv)
+        print(f"applied: {counts}")
+        return
 
     codes: list[str] = []
     if args.all:
@@ -509,6 +704,20 @@ async def main() -> None:
         codes = [args.language]
     else:
         print("ERROR: pass --language CODE or --all.")
+        return
+
+    # Exporting reads and writes a file. No provider needed, nothing spent.
+    if args.export:
+        path = Path(args.export)
+        n = await export_file(args.db_url, codes, limit=args.limit,
+                              sources=sources, path=path)
+        print(f"exported {n} rows to {path} — fill in verdict/fixed/note, "
+              f"then: --apply {path} --dry-run")
+        return
+
+    if not translations_available():
+        print("ERROR: no translation provider configured (ANTHROPIC_API_KEY).\n"
+              "       To judge in a Claude Code session instead, use --export.")
         return
 
     total = _zero()
