@@ -36,16 +36,27 @@ export default function LanguagePicker() {
   const listRef = useRef<HTMLUListElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
 
-  // Auto-select first language when none is stored
+  // Nothing stored on THIS device? Ask the account what the learner chose —
+  // never guess.
+  //
+  // This used to be `languages[0]`, and GET /api/languages is ORDER BY name,
+  // so the alphabetically first of 27 courses won: Arabic. A brand-new
+  // account, or any existing one opened in a fresh browser / private window /
+  // second device / after clearing site data, was silently switched to
+  // Arabic — and the guess was written back to the profile, overwriting the
+  // course they had actually chosen at onboarding. That is how an English
+  // speaker who signed up for Spanish ends up looking at Arabic.
+  //
+  // The profile is the authority; the local store is only a cache of it.
+  // When the account has no course either, pick NOTHING: onboarding sets it,
+  // and an unset picker asks rather than deciding for them.
   useEffect(() => {
-    if (!activeLanguageId && languages.length > 0) {
-      const firstId = languages[0].id
-      setActiveLanguageId(firstId)
-      updateProfile({ active_language_id: firstId }).catch(() => {
-        // Non-fatal: store is updated even if the server call fails
-      })
+    if (activeLanguageId || languages.length === 0) return
+    const fromProfile = profile?.active_language_id
+    if (fromProfile && languages.some((l) => l.id === fromProfile)) {
+      setActiveLanguageId(fromProfile)
     }
-  }, [activeLanguageId, languages, setActiveLanguageId])
+  }, [activeLanguageId, languages, profile?.active_language_id, setActiveLanguageId])
 
   // Close on any click outside the component.
   useEffect(() => {
