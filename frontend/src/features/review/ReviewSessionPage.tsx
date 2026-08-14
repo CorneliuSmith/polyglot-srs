@@ -426,11 +426,13 @@ function ReviewSessionInner({
   // English cards render definitions/translations in the learner's support
   // locale — let them switch it right here instead of trekking to Settings.
   // Saving restarts the session (key remount) with re-localized cards.
-  const studyingEnglish = (cards?.[0]?.language_code ?? '') === 'en'
+  // Not gated on the course being English: cards.py _effective_locale
+  // applies support_locale to EVERY course, so a Spanish learner whose
+  // locale drifted to Arabic needs this switch too — and needs the option
+  // list to actually load, which `enabled: studyingEnglish` prevented.
   const { data: languages = [] } = useQuery({
     queryKey: ['languages'],
     queryFn: getLanguages,
-    enabled: studyingEnglish,
   })
   const localeMutation = useMutation({
     mutationFn: (support_locale: string) => updateProfile({ support_locale }),
@@ -890,25 +892,23 @@ function ReviewSessionInner({
             </span>
           ) : (
             <span className="flex items-center gap-2">
-              {studyingEnglish && (
-                <select
-                  value={profile?.support_locale ?? 'en'}
-                  onChange={(e) => localeMutation.mutate(e.target.value)}
-                  disabled={localeMutation.isPending}
-                  aria-label={t('review.translationsLanguage')}
-                  title={t('review.showTranslationsIn')}
-                  className="text-xs rounded-lg border border-gray-200 bg-white px-2 py-1 text-gray-600"
-                >
-                  <option value="en">{t('review.english')}</option>
-                  {languages
-                    .filter((l) => l.code !== 'en')
-                    .map((l) => (
-                      <option key={l.code} value={l.code}>
-                        {languageDisplayName(l.code, l.name, i18n.language)}
-                      </option>
-                    ))}
-                </select>
-              )}
+              <select
+                value={profile?.support_locale ?? 'en'}
+                onChange={(e) => localeMutation.mutate(e.target.value)}
+                disabled={localeMutation.isPending}
+                aria-label={t('review.translationsLanguage')}
+                title={t('review.showTranslationsIn')}
+                className="text-xs rounded-lg border border-gray-200 bg-white px-2 py-1 text-gray-600"
+              >
+                <option value="en">{t('review.english')}</option>
+                {languages
+                  .filter((l) => l.code !== 'en')
+                  .map((l) => (
+                    <option key={l.code} value={l.code}>
+                      {languageDisplayName(l.code, l.name, i18n.language)}
+                    </option>
+                  ))}
+              </select>
               <span>{t(`review.cardType.${card.card_type}`)}</span>
             </span>
           )}
