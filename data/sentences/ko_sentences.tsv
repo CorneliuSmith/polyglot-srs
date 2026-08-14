@@ -1,0 +1,460 @@
+word	sentence	translation	difficulty_rank	gloss	transliteration	source
+책	이것은 책이에요.	This is a book.	1			ai
+학생	저는 학생이에요.	I am a student.	1			ai
+선생님	그 사람은 선생님이에요.	That person is a teacher.	1			ai
+건물	저 건물은 학교예요.	That building is a school.	2			ai
+고양이	고양이가 소파 위에 있어요.	The cat is on the sofa.	2			ai
+개	개는 문 앞에 있어요.	The dog is in front of the door.	2			ai
+커피	저는 커피가 있어요.	I have coffee.	1			ai
+냉장고	냉장고는 방 안에 있어요.	The refrigerator is in the room.	2			ai
+가방	가방은 탁자 밑에 있어요.	The bag is under the table.	2			ai
+전화기	저는 전화기가 있어요.	I have a phone.	1			ai
+나라	한국은 나라예요.	Korea is a country.	1			ai
+도시	그 도시는 미국에 있어요.	That city is in the USA.	2			ai
+창문	창문 옆에 침대가 있어요.	There is a bed next to the window.	2			ai
+쥐	쥐가 냉장고 뒤에 있어요.	A rat is behind the refrigerator.	2			ai
+강아지	강아지가 여기에 있어요.	The puppy is here.	2			ai
+컴퓨터	저는 컴퓨터가 있어요.	I have a computer.	1			ai
+잡지	그것은 잡지예요.	That is a magazine.	1			ai
+은행	은행은 호텔 옆에 있어요.	The bank is next to the hotel.	2			ai
+미국	그 여자는 미국 사람이에요.	That woman is American.	2			ai
+식당	식당은 건물 안에 있어요.	The restaurant is inside the building.	2			ai
+텔레비전	텔레비전은 방 안에 있어요.	The television is in the room.	2			ai
+의자	의자가 탁자 옆에 있어요.	The chair is next to the table.	2			ai
+나무	이것은 나무예요.	This is a tree.	1			ai
+네	네, 저는 학생이에요.	Yes, I am a student.	1			ai
+안녕하세요	안녕하세요, 선생님.	Hello, teacher.	1			ai
+감사하다	감사합니다.	Thank you.	1			ai
+고맙다	고마워요.	Thank you.	1			ai
+펜	나는 펜이 있다.	I have a pen.	1			ai
+차	그것은 차예요.	That is a car.	1			ai
+침대	저것은 침대예요.	That (thing) is a bed.	1			ai
+의사	그 사람은 의사예요.	That person is a doctor.	1			ai
+여자	저는 여자예요.	I am a woman.	1			ai
+남자	나는 남자이다.	I am a man.	1			ai
+학교	선생님은 학교에 있어요.	The teacher is at the school.	2			ai
+여권	이것은 저의 여권이에요.	This is my passport.	1		igeoseun jeoui yeogwonieyo	ai
+사진	그것은 저의 사진이에요.	That thing is my picture.	1		geugeoseun jeoui sajinieyo	ai
+누나	이 사람은 저의 누나예요.	This person is my older sister.	1		i sarameun jeoui nunayeyo	ai
+형	그 사람은 저의 형입니다.	That person is my older brother.	2		geu sarameun jeoui hyeongimnida	ai
+돼지고기	이 고기는 돼지고기입니다.	This meat is pork.	2		i gogineun dwaejigogiimnida	ai
+비밀	그것은 큰 비밀이었어요.	That was a big secret.	2		geugeoseun keun bimilieosseoyo	ai
+애기	저는 나쁜 애기였어요.	I was a bad baby.	2		jeoneun nappeun aegiyeosseoyo	ai
+직업	그것은 저의 직업이 아닙니다.	That is not my job.	2		geugeoseun jeoui jigeobi animnida	ai
+극장	저 큰 건물은 극장입니다.	That big building over there is a theater.	2		jeo keun geonmureun geukjangimnida	ai
+공원	그 장소는 공원이 될 거예요.	That place will become a park.	3		geu jangsoneun gongwoni doel geoyeyo	ai
+미래	저는 미래에 의사가 될 것입니다.	I will become a doctor in the future.	3		jeoneun mirae-e uisaga doel geosimnida	ai
+나라	한국이 곧 좋은 나라가 될 것이다.	Korea will become a good country soon.	3		hanguki got joeun naraga doel geosida	ai
+문제	그 문제는 쉬울 거예요.	That problem will probably be easy.	3		geu munjeneun swiul geoyeyo	ai
+돈	문제는 돈이 아닐 거야.	The problem is probably not money.	3		munjeneun doni anil geoya	ai
+밥	저는 밥을 먹을 거예요.	I will eat a meal.	2		jeoneun babeul meogeul geoyeyo	ai
+영어	저는 내일 영어를 공부할 거예요.	I will study English tomorrow.	2		jeoneun naeil yeongeoreul gongbuhal geoyeyo	ai
+친구	나는 내일 친구를 만날 거야.	I will meet my friend tomorrow.	2		naneun naeil chingureul mannal geoya	ai
+학교	저는 내일 학교에 갈 것입니다.	I will go to school tomorrow.	2		jeoneun naeil hakgyo-e gal geosimnida	ai
+문	저는 문을 열 거예요.	I will open the door.	2		jeoneun muneul yeol geoyeyo	ai
+야구	야구는 좋은 스포츠야.	Baseball is a good sport.	1		yaguneun joeun seupocheuya	ai
+펜	책상에 펜 다섯 개가 있어요.	There are five pens on the desk.	2		chaeksang-e pen daseot gaega isseoyo	ai
+사람	저는 어제 사람 두 명을 만났어요.	I met two people yesterday.	2		jeoneun eoje saram du myeong-eul mannasseoyo	ai
+되다	저는 선생님이 되었어요.	I became a teacher.	2		jeoneun seonsaengnimi doeeosseoyo	ai
+돕다	친구가 저를 도울 거예요.	My friend will help me.	3		chinguga jeoreul doul geoyeyo	ai
+걷다	저는 공원에서 걸을 거예요.	I will walk in the park.	3		jeoneun gongwon-eseo georeul geoyeyo	ai
+짓다	저는 큰 집을 지을 것입니다.	I will build a big house.	3		jeoneun keun jibeul jieul geosimnida	ai
+잠그다	저는 문을 잠글 거예요.	I will lock the door.	3		jeoneun muneul jamgeul geoyeyo	ai
+길다	그 영화는 길 것이다.	That movie will be long.	3		geu yeonghwaneun gil geosida	ai
+개	저는 땅콩 두 개를 먹었어요.	I ate two peanuts.	1			ai
+명	저는 어제 친구 다섯 명을 만났어요.	I met five friends yesterday.	1			ai
+대	그 사람은 차 네 대가 있어요.	That person has four cars.	2			ai
+잔	저는 우유 두 잔을 샀어요.	I bought two glasses of milk.	2			ai
+번	저는 오늘 두 번 운동할 것입니다.	I will exercise twice today.	2			ai
+번째	저는 세 번째 문을 열었어요.	I opened the third door.	3			ai
+첫	그 사람은 저의 첫 번째 친구예요.	That person is my first friend.	3			ai
+둘째	우리 둘째는 고등학생이에요.	Our second (child) is a high school student.	4			ai
+첫째	첫째, 저는 야채를 많이 먹겠습니다.	First, I will eat a lot of vegetables.	4			ai
+시	우리는 야구를 1 시에 할 거예요.	We will play baseball at 1:00.	2			ai
+분	우리는 7 시 20 분에 시작할 거예요.	We will start at 7:20.	2			ai
+시간	저는 어제 두 시간 동안 TV 를 봤어요.	I watched TV for two hours yesterday.	3			ai
+초	1 분은 60 초입니다.	One minute is sixty seconds.	3			ai
+살	저는 열 살이에요.	I am ten years old.	1			ai
+나이	나이가 몇 살이에요?	How old are you?	2			ai
+마지막	이것은 저의 마지막 수업이에요.	This is my last class.	3			ai
+지난	저는 지난 주에 캐나다에 갔어요.	I went to Canada last week.	3			ai
+다음	저는 다음 주에 영화를 볼 거예요.	I will see a movie next week.	2			ai
+처음	저는 어제 선생님을 처음 만났어요.	I met my teacher for the first time yesterday.	4			ai
+동안	저는 30 분 동안 공부했어요.	I studied for 30 minutes.	2			ai
+하루	저는 하루 동안 여행했어요.	I travelled for one day.	3			ai
+이틀	저는 이틀 동안 안 잤어요.	I didn't sleep for two days.	3			ai
+사흘	저는 사흘 동안 밥을 안 먹었어요.	I didn't eat rice for three days.	4			ai
+날	저는 그 날에 선생님이 되었어요.	I became a teacher on that day.	3			ai
+첫날	저는 첫날에 그 여자를 만났어요.	I met that woman on the first day.	3			ai
+주	우리는 10 일 동안 한국에 있을 거예요.	We will be in Korea for ten days.	3			ai
+주일	저는 4 주일 동안 여자친구를 안 만났어요.	I didn't meet my girlfriend for four weeks.	4			ai
+달	저는 두 달 동안 한국어 수업을 들었어요.	I took a Korean class for two months.	3			ai
+개월	저는 2 개월 동안 한국어 수업을 들었어요.	I took a Korean class for two months.	3			ai
+계획	저는 5 일 동안 계획이 없을 거예요.	I won't have plans for five days.	3			ai
+달리다	저는 한 시간 동안 달렸어요.	I ran for one hour.	2			ai
+운전하다	저는 여덟 시간 동안 운전했어요.	I drove for eight hours.	3			ai
+듣다	저는 지난 수업을 안 들었어요.	I didn't attend the previous class.	4			ai
+일	저는 이 여권을 1 월 2 일에 받았어요.	I received this passport on January 2nd.	4			ai
+팔월	저는 8 월 15 일에 도착할 거예요.	I will arrive on August 15th.	3			ai
+현충일	현충일은 6 월에 있어요.	Memorial Day is in June.	5			ai
+보통	저는 보통 두 시간 동안 공부해요.	I usually study for two hours.	3			ai
+잠	저는 어제 잠이 들었어요.	I fell asleep yesterday.	2			ai
+모자	저는 모자를 가져갈 거예요.	I will bring my hat.	2			ai
+줄	줄이 아주 길어요.	The line is very long.	1			ai
+감기	저는 감기에 걸렸어요.	I caught a cold.	2			ai
+기침	동생이 기침을 해요.	My younger sibling is coughing.	2			ai
+독감	제 사촌이 독감에 걸렸어요.	My cousin caught the flu.	2			ai
+재채기	재채기가 났어요.	I sneezed.	3			ai
+동아리	저는 수학 동아리에 들었어요.	I joined the math club.	3			ai
+취미	우리는 취미가 똑같아요.	Our hobbies are exactly the same.	2			ai
+수학	저는 수학을 좋아해요.	I like math.	1			ai
+가족	제 가족은 아주 시끄러워요.	My family is very noisy.	2			ai
+실력	저는 제 실력을 자랑했어요.	I showed off my skills.	3			ai
+사촌	제 사촌은 캐나다에 살아요.	My cousin lives in Canada.	2			ai
+삶	저는 제 삶이 좋아요.	I like my life.	3			ai
+맥주	저는 맥주를 주문했어요.	I ordered a beer.	1			ai
+과거	저는 과거를 돌아봤어요.	I looked back on the past.	3			ai
+마음	그 그림이 마음에 들어요.	I like that picture.	3			ai
+그림	저는 그림을 벽에 걸었어요.	I hung the picture on the wall.	2			ai
+속	가방 속에 모자가 있어요.	There is a hat inside the bag.	2			ai
+똑같다	우리 모자는 똑같아요.	Our hats are exactly the same.	2			ai
+자랑스럽다	저는 제 가족이 자랑스러워요.	I am proud of my family.	3			ai
+시끄럽다	동아리 방이 아주 시끄러워요.	The club room is very noisy.	2			ai
+흔하다	이 이름은 한국에서 흔해요.	This name is common in Korea.	3			ai
+드물다	그런 실력은 아주 드물어요.	Skills like that are very rare.	3			ai
+걸리다	집에서 학교까지 삼십 분이 걸려요.	It takes thirty minutes from home to school.	2			ai
+부르다	선생님이 제 이름을 불렀어요.	The teacher called my name.	2			ai
+고르다	저는 모자를 골랐어요.	I picked a hat.	2			ai
+넣다	저는 책을 가방에 넣었어요.	I put the book in my bag.	1			ai
+경험하다	저는 한국에서 많은 것을 경험했어요.	I experienced many things in Korea.	3			ai
+설명하다	선생님이 그 문법을 설명했어요.	The teacher explained that grammar.	2			ai
+결혼하다	제 사촌이 지난달에 결혼했어요.	My cousin got married last month.	2			ai
+자랑하다	그 사람은 새 컴퓨터를 자랑했어요.	That person showed off his new computer.	3			ai
+돌리다	저는 기계를 돌렸어요.	I ran the machine.	3			ai
+돌다	저는 뒤로 돌았어요.	I turned around.	2			ai
+아마도	아마도 문이 잠겨 있을 거예요.	The door will probably be locked.	3			ai
+켜지다	제 컴퓨터가 켜져 있어요.	My computer is on.	2			ai
+꺼지다	교실의 TV가 꺼져 있어요.	The TV in the classroom is off.	2			ai
+잠기다	가게 문이 잠겨 있어요.	The shop door is locked.	2			ai
+닫히다	지금 창문이 닫혀 있어요.	The window is closed right now.	2			ai
+속이다	친구가 저를 속였어요.	My friend tricked me.	3			ai
+속다	저는 친구에게 속았어요.	I was tricked by my friend.	3			ai
+끝나다	수업이 끝났어요.	The class is over.	1			ai
+끝내다	저는 오늘 일을 끝냈어요.	I finished the work today.	2			ai
+고장 나다	제 휴대폰이 고장 났어요.	My cell phone is broken.	2			ai
+기회	좋은 기회가 주어졌어요.	A good chance was given to me.	3			ai
+지어지다	그 집은 작년에 지어졌어요.	That house was built last year.	3			ai
+그립다	저는 한국 음식이 그리워요.	I miss Korean food.	3			ai
+돌아오다	저는 저녁에 집에 돌아왔어요.	I came back home in the evening.	2			ai
+돌아가다	저는 다음 달에 캐나다에 돌아갈 거예요.	I will go back to Canada next month.	2			ai
+돌려주다	저는 친구에게 모자를 돌려줬어요.	I gave the hat back to my friend.	2			ai
+나오다	학생들이 교실에서 나왔어요.	The students came out of the classroom.	1			ai
+나가다	저는 방에서 나갔어요.	I went out of the room.	1			ai
+들어오다	남자가 방에 들어왔어요.	A man came into the room.	1			ai
+들어가다	선생님이 교실에 들어갔어요.	The teacher went into the classroom.	1			ai
+가져오다	친구가 맥주를 가져왔어요.	My friend brought beer.	2			ai
+화	저는 어제 화가 났어요.	I got angry yesterday.	2			ai
+땀	너무 더워서 땀이 났어요.	It was so hot that I was sweating.	3			ai
+기억	친구의 이름이 갑자기 기억났어요.	My friend's name suddenly came back to me.	3			ai
+냄새	그 방에서 이상한 냄새가 났어요.	A strange smell was coming from that room.	3			ai
+사고	학교 앞에서 사고가 났어요.	There was an accident in front of the school.	3			ai
+생각	좋은 생각이 났어요.	I got a good idea.	2			ai
+다르다	제 생각은 조금 달라요	My opinion is a little different.	2		je saenggageun jogeum dallayo	ai
+비슷하다	저는 친구와 비슷해요	I am similar to my friend.	1		jeoneun chinguwa biseutaeyo	ai
+같다	이 연필은 제 연필과 같아요	This pencil is the same as my pencil.	1		i yeonpireun je yeonpilgwa gatayo	ai
+똑같다	우리는 똑같아요	We are exactly the same.	1		urineun ttokgatayo	ai
+또	그는 또 늦었어요	He was late again.	2		geuneun tto neujeosseoyo	ai
+쓰다	저의 아버지는 모자를 항상 써요	My father always wears a hat.	2		jeoui abeojineun mojareul hangsang sseoyo	ai
+걸리다	학교까지 십 분 걸려요	It takes ten minutes to get to school.	2		hakgyokkaji sip bun geollyeoyo	ai
+아프다	배가 아파요	My stomach hurts.	1		baega apayo	ai
+감기	저는 감기에 걸렸어요	I have a cold.	2		jeoneun gamgie geollyeosseoyo	ai
+독감	동생은 독감에 걸렸어요	My younger sibling has the flu.	2		dongsaengeun dokgame geollyeosseoyo	ai
+기침	아이가 밤에 기침을 많이 했어요	The child coughed a lot at night.	3		aiga bame gichimeul mani haesseoyo	ai
+재채기	저는 아침에 재채기를 세 번 했어요	I sneezed three times this morning.	3		jeoneun achime jaechaegireul se beon haesseoyo	ai
+경제	한국 경제는 최근에 많이 변했어요	The Korean economy has changed a lot recently.	3		hanguk gyeongjeneun choegeune mani byeonhaesseoyo	ai
+역사	저는 역사를 공부해요	I study history.	1		jeoneun yeoksareul gongbuhaeyo	ai
+과학	과학은 재미있어요	Science is interesting.	1		gwahageun jaemiisseoyo	ai
+충동	저는 충동 때문에 옷을 많이 샀어요	I bought a lot of clothes because of an impulse.	3		jeoneun chungdong ttaemune oseul mani sasseoyo	ai
+문화	저는 한국 문화를 좋아해요	I like Korean culture.	1		jeoneun hanguk munhwareul joahaeyo	ai
+개인	이것은 개인 문제예요	This is a personal matter.	2		igeoseun gaein munjeyeyo	ai
+자연	저는 자연을 사랑해요	I love nature.	2		jeoneun jayeoneul saranghaeyo	ai
+자연스럽다	그녀의 목소리는 자연스러워요	Her voice sounds natural.	3		geunyeoui moksorineun jayeonseureowoyo	ai
+실망하다	저는 친구에게 실망했어요	I was disappointed in my friend.	3		jeoneun chinguege silmanghaesseoyo	ai
+실망스럽다	그 소식은 정말 실망스러웠어요	That news was really disappointing.	3		geu sosigeun jeongmal silmangseureowosseoyo	ai
+사랑스럽다	그 아기는 정말 사랑스러워요	That baby is really lovely.	3		geu agineun jeongmal sarangseureowoyo	ai
+만족스럽다	이번 시험 결과는 만족스러웠어요	This time the exam result was satisfactory.	3		ibeon siheom gyeolgwaneun manjokseureowosseoyo	ai
+조금	물을 조금 마셨어요	I drank a little water.	1		mureul jogeum masyeosseoyo	ai
+그러나	저는 학교에 갔어요. 그러나 친구는 안 왔어요	I went to school. However, my friend didn't come.	2		jeoneun hakgyoe gasseoyo. geureona chinguneun an wasseoyo	ai
+관계	우리의 관계는 아주 좋아요	Our relationship is very good.	2		uriui gwangyeneun aju joayo	ai
+스트레스	요즘 스트레스가 많아요	I have a lot of stress these days.	2		yojeum seuteureseuga manayo	ai
+연필	제 연필은 책상 위에 있어요	My pencil is on the desk.	1		je yeonpireun chaeksang wie isseoyo	ai
+색깔	저 꽃의 색깔이 예뻐요	The color of that flower is pretty.	2		jeo kkochui saekkkari yeppeoyo	ai
+그녀	그녀는 제 선생님이에요	She is my teacher.	1		geunyeoneun je seonsaengnimieyo	ai
+결과	시험 결과가 나왔어요	The exam results came out.	2		siheom gyeolgwaga nawasseoyo	ai
+꿈	어제 이상한 꿈을 꿨어요	I had a strange dream yesterday.	2		eoje isanghan kkumeul kkwosseoyo	ai
+세상	세상은 넓어요	The world is wide.	2		sesangeun neolbeoyo	ai
+세계	저는 세계 여행을 하고 싶어요	I want to travel the world.	3		jeoneun segye yeohaengeul hago sipeoyo	ai
+회화	저는 한국어 회화를 연습해요	I practice Korean conversation.	2		jeoneun hangugeo hoehwareul yeonseupaeyo	ai
+문자	친구에게 문자를 보냈어요	I sent a text message to my friend.	2		chinguege munjareul bonaesseoyo	ai
+가슴	가슴이 아파요	My chest hurts.	1		gaseumi apayo	ai
+제목	이 책의 제목을 잊었어요	I forgot the title of this book.	2		i chaegui jemogeul ijeosseoyo	ai
+근처	우리 집 근처에 공원이 있어요	There is a park near our house.	2		uri jip geuncheoe gongwoni isseoyo	ai
+나중	그 이야기는 나중에 해요	Let's talk about that later.	2		geu iyagineun najunge haeyo	ai
+최근	최근에 새 영화를 봤어요	I saw a new movie recently.	2		choegeune sae yeonghwareul bwasseoyo	ai
+풀다	저는 그 문제를 풀었어요	I solved that problem.	2		jeoneun geu munjereul pureosseoyo	ai
+꿈꾸다	저는 큰 집을 꿈꿔요	I dream of a big house.	3		jeoneun keun jibeul kkumkkwoyo	ai
+태어나다	저는 캐나다에서 태어났어요	I was born in Canada.	2		jeoneun kaenadaeseo taeeonasseoyo	ai
+다니다	저는 그 학교에 다녀요	I attend that school.	2		jeoneun geu hakgyoe danyeoyo	ai
+믿다	저는 친구를 믿어요	I believe my friend.	1		jeoneun chingureul mideoyo	ai
+가깝다	지하철역은 여기에서 가까워요	The subway station is close to here.	2		jihacheollyeogeun yeogieseo gakkawoyo	ai
+힘들다	이 일은 조금 힘들어요	This work is a little hard.	2		i ireun jogeum himdeureoyo	ai
+순수하다	그 아이의 마음은 순수해요	That child's heart is pure.	3		geu aiui maeumeun sunsuhaeyo	ai
+차이	두 나라의 문화 차이가 커요	The cultural difference between the two countries is big.	3		du naraui munhwa chaiga keoyo	ai
+그만두다	그는 작년에 회사를 그만두었어요	He quit the company last year.	3		geuneun jangnyeone hoesareul geumandueosseoyo	ai
+그	그는 제 형이에요	He is my older brother.	1		geuneun je hyeongieyo	ai
+실망	그 결과는 큰 실망이었어요	That result was a big disappointment.	3		geu gyeolgwaneun keun silmangieosseoyo	ai
+사랑	사랑은 언제나 어려워요	Love is always difficult.	2		sarangeun eonjena eoryeowoyo	ai
+만족	저는 이 결과에 만족해요	I am satisfied with this result.	3		jeoneun i gyeolgwae manjokaeyo	ai
+민주	민주 국가에서는 국민이 투표해요	In a democracy, the people vote.	4		minju gukgaeseoneun gungmini tupyohaeyo	ai
+과일	저는 과일을 많이 먹고 싶어요.	I want to eat a lot of fruit.	1			ai
+우산	비가 와서 저는 우산을 샀어요.	It rained, so I bought an umbrella.	2			ai
+방학	방학 동안 저는 바다에 가고 싶어요.	I want to go to the sea during vacation.	2			ai
+부엌	어머니는 부엌에서 감자를 잘라요.	My mother is cutting potatoes in the kitchen.	2			ai
+순서	저는 병원에서 제 순서를 기다렸어요.	I waited for my turn at the hospital.	2			ai
+고객	오늘 가게에 고객이 많아요.	There are many customers in the store today.	2			ai
+시험	저는 다음 주에 시험을 봐요.	I am taking an exam next week.	1			ai
+문법	저는 한국어 문법을 매일 공부해요.	I study Korean grammar every day.	1			ai
+머무르다	우리는 부산에서 삼 일 동안 머무를 거예요.	We will stay in Busan for three days.	3			ai
+초대하다	저는 친구를 생일 파티에 초대했어요.	I invited my friend to the birthday party.	2			ai
+울다	애기가 오래 울었어요.	The baby cried for a long time.	1			ai
+환영하다	우리는 새 학생을 환영했어요.	We welcomed the new student.	2			ai
+반갑다	만나서 반갑습니다.	Nice to meet you.	1			ai
+따뜻하다	오늘 날씨가 따뜻해요.	The weather is warm today.	1			ai
+높다	이 산은 아주 높아요.	This mountain is very high.	1			ai
+낮다	저 건물은 낮아요.	That building is low.	1			ai
+가난하다	그 사람은 가난하지만 기분이 좋아요.	That person is poor but is in a good mood.	3			ai
+권	저는 방학 동안 책 두 권을 읽고 싶어요.	I want to read two books during vacation.	2			ai
+분	이분은 저의 담임선생님입니다.	This person is my homeroom teacher.	2			ai
+만족스럽다	이번 시험 결과는 만족스러웠어요.	This exam's results were satisfactory.	3			ai
+자랑스럽다	저는 저의 형이 아주 자랑스러워요.	I am very proud of my older brother.	3			ai
+실망하다	저는 그 결과에 실망했어요.	I was disappointed in that result.	3			ai
+원하다	저는 새 우산을 원해요.	I want a new umbrella.	2			ai
+그립다	저는 고향이 그리워요.	I miss my hometown.	3			ai
+쉬다	저는 내일 집에서 쉬고 싶어요.	I want to rest at home tomorrow.	1			ai
+보내다	저는 친구에게 편지를 보냈어요.	I sent a letter to my friend.	1			ai
+걸어가다	저는 매일 학교에 걸어가요.	I walk to school every day.	2			ai
+부자	이 사람은 부자이고 저 사람은 가난해요.	This person is rich and that person is poor.	3			ai
+단어	문법은 어렵고 단어는 쉬워요.	Grammar is hard, but words are easy.	2			ai
+칼	저는 칼로 무를 잘랐어요.	I cut the radish with a knife.	2			ai
+원숭이	동물원에서 원숭이가 바나나를 먹고 있어요.	A monkey is eating a banana at the zoo.	2			ai
+교과서	제 교과서는 책상 위에 있어요.	My textbook is on the desk.	1			ai
+충전기	저는 충전기를 학교에 두고 왔어요.	I left my charger at school.	2			ai
+청구서	저는 아직 청구서를 확인하지 않았어요.	I haven't checked the bill yet.	3			ai
+계산기	계산기로 값을 다시 확인했어요.	I checked the price again with a calculator.	2			ai
+밥솥	밥솥에 밥이 조금 남아 있어요.	There is a little rice left in the rice cooker.	3			ai
+백과사전	백과사전은 소설보다 더 두꺼워요.	An encyclopedia is thicker than a novel.	3			ai
+전공	제 전공은 한국어예요.	My major is Korean.	1			ai
+가위	저는 가위로 종이를 자르고 있어요.	I am cutting paper with scissors.	2			ai
+부모님	부모님은 지금 시내에 있어요.	My parents are downtown right now.	2			ai
+피부	겨울에 제 피부가 건조해져요.	My skin gets dry in winter.	3			ai
+군대	제 형은 작년에 군대에 갔어요.	My older brother went to the army last year.	2			ai
+지도	저는 어제 지도를 보고 있었어요.	I was looking at a map yesterday.	2			ai
+새벽	새벽에 밖은 아주 조용해요.	It is very quiet outside at dawn.	2			ai
+어깨	어깨가 아파서 병원에 갔어요.	My shoulder hurt, so I went to the hospital.	2			ai
+백화점	저는 백화점에서 가위를 샀어요.	I bought scissors at the department store.	2			ai
+대학생	대학생들은 도서관에서 공부하고 있어요.	The university students are studying in the library.	2			ai
+중학교	제 동생은 중학교에 다녀요.	My younger sibling goes to middle school.	1			ai
+가수	그 가수는 노래를 아주 잘해요.	That singer sings very well.	1			ai
+자르다	저는 머리를 짧게 자르고 싶어요.	I want to cut my hair short.	3			ai
+요청하다	저는 회사에 휴가를 요청했어요.	I requested a vacation from the company.	3			ai
+안타깝다	그 결과가 정말 안타까워요.	That result is really unfortunate.	3			ai
+젖다	비 때문에 신발이 젖었어요.	My shoes got wet because of the rain.	2			ai
+주로	저는 주로 저녁에 운동해요.	I mostly exercise in the evening.	2			ai
+이쪽	이쪽으로 오세요.	Please come this way.	1			ai
+한식	저는 양식보다 한식을 더 좋아해요.	I like Korean food more than western food.	2			ai
+키	제 남동생은 키가 많이 커졌어요.	My younger brother has gotten a lot taller.	3			ai
+별	산에서는 별이 잘 보여요.	You can see the stars well in the mountains.	2			ai
+태도	그 학생의 태도가 좋아졌어요.	That student's attitude has gotten better.	3			ai
+월급	월급이 내년에 더 많아질 거예요.	My salary will become bigger next year.	3			ai
+시내	우리는 시내에서 오래 이야기했어요.	We talked for a long time downtown.	2			ai
+추억	이 사진은 좋은 추억이에요.	This photo is a good memory.	2			ai
+라면	저는 새벽에 라면을 먹었어요.	I ate instant noodles at dawn.	2			ai
+좁다	이 방은 조금 좁아요.	This room is a little small.	2			ai
+넓다	저는 더 넓은 집을 찾고 있어요.	I am looking for a wider house.	3			ai
+게으르다	저는 주말에 게을러져요.	I become lazy on the weekend.	3			ai
+편하다	이 의자가 더 편해요.	This chair is more comfortable.	2			ai
+씻다	저는 밥을 먹기 전에 손을 씻어요.	I wash my hands before eating.	2			ai
+확인하다	청구서를 다시 확인해 주세요.	Please check the bill again.	2			ai
+모으다	우리는 돈을 모으고 있어요.	We are collecting money.	2			ai
+추천하다	친구가 이 소설을 추천했어요.	My friend recommended this novel.	2			ai
+덜	오늘은 어제보다 덜 추워요.	Today is less cold than yesterday.	3			ai
+제일	저는 한식을 제일 좋아해요.	I like Korean food the most.	2			ai
+여러	여러 사람이 그 소문을 알고 있어요.	Various people know that rumor.	3			ai
+옛날	옛날에 저는 중학교 선생님이었어요.	Long ago I was a middle school teacher.	2			ai
+교수	그 교수는 아주 친절해요.	That professor is very kind.	2			ai
+거울	저는 아침마다 거울을 봐요.	I look in the mirror every morning.	2			ai
+잘하다	제 동생은 수영을 잘해요.	My younger sibling is good at swimming.	2			ai
+못하다	저는 요리를 못해요.	I am bad at cooking.	2			ai
+헷갈리다	이 두 단어가 헷갈려요.	These two words are confusing.	3			ai
+늘다	한국어 실력이 많이 늘었어요.	My Korean ability has improved a lot.	3			ai
+어둡다	방이 너무 어두워요.	The room is too dark.	2			ai
+소식	오늘 좋은 소식을 들었어요.	I heard good news today.	2			ai
+졸업하다	저는 작년에 졸업했어요.	I graduated last year.	2			ai
+이기다	우리 팀이 이겼어요.	Our team won.	1			ai
+지다	어제 경기에서 졌어요.	We lost the game yesterday.	2			ai
+벌써	벌써 열 시예요.	It's already ten o'clock.	1			ai
+특히	저는 특히 만화책을 좋아해요.	I especially like comic books.	2			ai
+간단하다	이 문제는 아주 간단해요.	This problem is very simple.	2			ai
+낮잠	점심을 먹고 낮잠을 잤어요.	I ate lunch and took a nap.	2			ai
+낫다	이제 감기가 나았어요.	My cold is better now.	3			ai
+평소	오늘은 평소보다 일찍 일어났어요.	Today I got up earlier than usual.	3			ai
+제일	저는 여름을 제일 좋아해요.	I like summer the most.	2			ai
+부족하다	시간이 부족해요.	There isn't enough time.	2			ai
+타다	저는 매일 버스를 타요.	I ride the bus every day.	1			ai
+잘못	그것은 제 잘못이었어요.	That was my fault.	3			ai
+잘	어젯밤에 잘 잤어요.	I slept well last night.	1			ai
+못	어제 시험을 못 봤어요.	I did poorly on the exam yesterday.	3			ai
+엄마	엄마는 벌써 밥을 먹었어요.	Mom already ate.	1			ai
+교통	이 도시는 교통이 복잡해요.	The traffic in this city is complicated.	3			ai
+계란	냉장고에 계란이 몇 개 있나요?	How many eggs are there in the fridge?	2			ai
+자리	그 자리를 누가 차지했어요?	Who took (occupied) that seat?	3			ai
+차지하다	이 큰 책상이 방을 다 차지해요.	This big desk takes up the whole room.	3			ai
+파일	그 파일을 어떻게 보낼 거예요?	How are you going to send that file?	2			ai
+첨부하다	누가 이 파일을 첨부했나요?	Who attached this file?	3			ai
+로션	여기서도 로션을 파나요?	Do you sell lotion here too?	2			ai
+치마	이 치마가 너무 짧은가요?	Is this skirt too short?	2			ai
+짧다	제 머리가 너무 짧아요.	My hair is too short.	1			ai
+복잡하다	이 일이 왜 이렇게 복잡해요?	Why is this work so complicated?	2			ai
+습관	어떤 습관이 제일 올바른 습관인가요?	Which habit is the most proper habit?	4			ai
+올바르다	그 대답이 올바른가요?	Is that answer correct?	3			ai
+단계	다음 단계를 언제 시작할 거예요?	When will you start the next step?	3			ai
+벌금	벌금이 얼마나 비싼가요?	How expensive is the fine?	4			ai
+찢다	이 종이를 왜 찢었니?	Why did you rip this paper?	3			ai
+다녀오다	어제 병원에 다녀왔나요?	Did you go to the hospital and come back yesterday?	3			ai
+예상하다	그 결과를 예상했나요?	Did you expect that result?	4			ai
+수거하다	쓰레기를 며칠에 수거해요?	On what day do they collect the garbage?	4			ai
+중요성	이 단계의 중요성을 대개 사람들이 몰라요.	People usually don't know the importance of this step.	5			ai
+바깥	바깥이 지금 어때요?	How is it outside right now?	2			ai
+쯤	몇 시쯤 집에 왔니?	About what time did you come home?	3			ai
+서로	두 사람이 서로 언제 만났어요?	When did the two of them meet each other?	3			ai
+퍼센트	학생들 몇 퍼센트가 시험을 잘 봤나요?	What percent of the students did well on the exam?	4			ai
+며칠	오늘이 며칠이야?	What date is it today?	2			ai
+얼마나	학교에 얼마나 자주 가요?	How often do you go to school?	2			ai
+언제든지	언제든지 저에게 전화해요.	Call me any time.	3			ai
+필독	이 책은 학생들에게 필독이에요.	This book is a must-read for students.	5			ai
+짓	동생이 또 이상한 짓을 했니?	Did your little brother do something strange again?	4			ai
+몇	너는 몇 반이니?	What class are you in?	2			ai
+냄새	부엌에서 좋은 냄새가 나요.	A nice smell is coming from the kitchen.	1			ai
+영화	우리는 주말에 영화를 두 번 봤어요.	We watched movies twice on the weekend.	2			ai
+대학교	제 언니는 서울에 있는 대학교에 다녀요.	My older sister attends a university in Seoul.	2			ai
+치마	저는 어제 시장에서 치마를 두 개 샀어요.	I bought two skirts at the market yesterday.	2			ai
+쪽	역은 이쪽이 아니고 저쪽이에요.	The station isn't this way; it's that way.	2			ai
+반장	우리 반의 반장은 아주 친절해요.	Our class president is very kind.	2			ai
+벌금	주차 벌금을 어제 냈어요.	I paid the parking fine yesterday.	3			ai
+차지하다	그 소파는 자리를 너무 많이 차지해요.	That sofa takes up too much space.	3			ai
+많이	저는 오늘 물을 많이 마셨어요.	I drank a lot of water today.	1			ai
+눈보라	어젯밤에 눈보라 때문에 학교에 못 갔어요.	I couldn't go to school last night because of the blizzard.	3			ai
+뉴스	아버지는 아침마다 뉴스를 봐요.	My father watches the news every morning.	1			ai
+전쟁	그 작품은 전쟁에 대한 이야기예요.	That work is a story about war.	3			ai
+날짜	회의 날짜를 변경했어요.	We changed the date of the meeting.	2			ai
+변경하다	선생님이 시험 날짜를 변경했어요.	The teacher changed the exam date.	2			ai
+그릇	그릇 세 개를 씻었어요.	I washed three bowls.	2			ai
+손톱	제 동생은 손톱을 짧게 자르지 않아요.	My younger sibling doesn't cut their fingernails short.	3			ai
+손등	손등에 눈이 떨어졌어요.	Snow fell on the back of my hand.	3			ai
+독자	이 신문의 독자는 대부분 젊은 사람이에요.	Most readers of this newspaper are young people.	3			ai
+부부	옆집 부부는 개를 두 마리 키워요.	The couple next door raises two dogs.	3			ai
+들르다	집에 가기 전에 서점에 들를 거예요.	I'll stop by the bookstore before going home.	3			ai
+내려가다	저는 지하실로 내려갔어요.	I went down to the basement.	2			ai
+내려오다	아이가 계단에서 천천히 내려왔어요.	The child came down the stairs slowly.	2			ai
+발표하다	회사는 새 계획을 다음 주에 발표할 거예요.	The company will announce the new plan next week.	3			ai
+드러나다	그 사실이 뉴스에서 드러났어요.	That fact was revealed on the news.	4			ai
+드러내다	그는 자기 감정을 잘 드러내지 않아요.	He doesn't reveal his feelings easily.	4			ai
+섬세하다	이 작품은 아주 섬세해요.	This piece of work is very delicate.	4			ai
+푸르다	여름 바다는 정말 푸르러요.	The summer sea is really blue.	4			ai
+대부분	학생들은 대부분 도서관에 있어요.	Most of the students are in the library.	2			ai
+송이	저는 꽃 한 송이를 받았어요.	I received a single flower.	3			ai
+종류	이 가게는 셔츠 세 종류를 팔아요.	This shop sells three types of shirts.	3			ai
+가지	저는 두 가지 색을 좋아해요.	I like two kinds of colors.	3			ai
+그렇다	그런 뉴스는 믿지 마세요.	Don't believe news like that.	3			ai
+이렇다	이런 날씨에는 밖에 나가고 싶지 않아요.	I don't want to go out in weather like this.	3			ai
+보라색	제 방의 커튼은 보라색이에요.	The curtains in my room are purple.	1			ai
+회색	회색 셔츠가 저에게 잘 맞아요.	The gray shirt fits me well.	2			ai
+갈색	저는 갈색 그릇을 하나 샀어요.	I bought one brown bowl.	2			ai
+초록색	봄에는 산이 초록색이 돼요.	In spring the mountains become green.	2			ai
+연두색	연두색 셔츠를 입은 사람이 제 친구예요.	The person wearing the light green shirt is my friend.	3			ai
+분홍색	분홍색 꽃 한 송이를 책상에 놓았어요.	I put a single pink flower on the desk.	2			ai
+젓가락	저는 젓가락으로 국수를 먹어요.	I eat noodles with chopsticks.	1			ai
+혀	뜨거운 국 때문에 혀를 데었어요.	I burned my tongue because of the hot soup.	2			ai
+지갑	지갑을 기숙사에 두고 왔어요.	I left my wallet in the dorm.	2			ai
+기숙사	새 기숙사는 학교 안에 있어요.	The new dorm is inside the school.	1			ai
+주소	이 편지에 주소를 쓰세요.	Please write the address on this letter.	1			ai
+메뉴	이 식당은 메뉴가 아주 많아요.	This restaurant has a very big menu.	1			ai
+아시아	아시아에는 나라가 많아요.	There are many countries in Asia.	1			ai
+동남아시아	저는 겨울에 동남아시아에 가고 싶어요.	I want to go to South East Asia in the winter.	2			ai
+눈물	그 영화를 보고 눈물이 났어요.	I shed tears after watching that movie.	2			ai
+회의	회의가 끝난 후에 점심을 먹었어요.	After the meeting ended, I had lunch.	2			ai
+고향	제 고향은 아주 작은 마을이에요.	My hometown is a very small village.	1			ai
+휴일	휴일에 하루 종일 잤어요.	I slept all day long on the holiday.	2			ai
+아기	아기가 낮잠을 자고 있어요.	The baby is taking a nap.	1			ai
+산책하다	저는 저녁을 먹은 후에 산책해요.	I go for a walk after eating dinner.	2			ai
+사귀다	그들은 2년 동안 사귀었어요.	They dated for two years.	2			ai
+무관심하다	그 사람은 정치에 무관심해요.	That person is indifferent to politics.	3			ai
+심하다	오늘은 감기가 너무 심해요.	My cold is very severe today.	2			ai
+하루 종일	저는 하루 종일 집에 있었어요.	I was at home all day long.	1			ai
+예전	예전에 이곳은 시장이었어요.	In the old days this place was a market.	2			ai
+관심이 있다	저는 한국 역사에 관심이 있어요.	I am interested in Korean history.	2			ai
+이때	이때 아무도 말을 하지 않았어요.	At this moment nobody said a word.	3			ai
+마다	저는 아침마다 커피를 마셔요.	I drink coffee every morning.	1			ai
+언제든지	언제든지 저에게 전화하세요.	Call me anytime.	2			ai
+데	저는 조용한 데에서 공부하고 싶어요.	I want to study in a quiet place.	2			ai
+모든 것	모든 것이 잘 될 거예요.	Everything will go well.	2			ai
+전	저는 회의 전에 주소를 확인했어요.	I checked the address before the meeting.	2			ai
+후	세 시간 후에 다시 올게요.	I will come again three hours from now.	2			ai
+직전	시험 직전에 물을 마셨어요.	I drank water right before the exam.	3			ai
+직후	수업 직후에 도서관에 갔어요.	I went to the library right after class.	3			ai
+이내	우리는 1년 이내에 결혼할 거예요.	We will get married within one year.	3			ai
+이래로	한국에 온 이래로 김치를 매일 먹어요.	Since coming to Korea I have eaten kimchi every day.	4			ai
+안	나는 집 안에 있다.	I am inside the house.	1			ai
+모두	학생 모두가 회의에 갔어요.	All of the students went to the meeting.	2			ai
+다	저는 숙제를 다 했어요.	I did all of my homework.	1			ai
+모든	모든 학생이 시험을 봤어요.	Every student took the exam.	1			ai
+어디나	여기는 어디나 사람이 많아요.	There are a lot of people everywhere here.	2			ai
+언제나	저는 언제나 같은 버스를 타요.	I always take the same bus.	2			ai
+누구나	누구나 실수를 해요.	Everyone makes mistakes.	2			ai
+뭔가	가방에 뭔가 있어요.	There is something in the bag.	2			ai
+어딘가	열쇠를 어딘가에 두었어요.	I put my keys somewhere.	2			ai
+언젠가	언젠가 아시아를 다 여행하고 싶어요.	Someday I want to travel all around Asia.	3			ai
+누군가	누군가 제 이름을 불렀어요.	Somebody called my name.	2			ai
+아무나	이 일은 아무나 할 수 있어요.	Anybody can do this job.	2			ai
+아무도	집에 아무도 없어요.	There is nobody at home.	2			ai
+아무 거나	저는 아무 거나 먹어도 괜찮아요.	I'm fine eating anything.	3			ai
+아무 데나	아무 데나 앉으세요.	Please sit anywhere.	3			ai
+아무 때나	아무 때나 오세요.	Come anytime.	3			ai
+아무 것도	저는 아침에 아무 것도 안 먹었어요.	I didn't eat anything in the morning.	3			ai
+아무 데도	어제는 아무 데도 안 갔어요.	I didn't go anywhere yesterday.	3			ai
+어느	어느 겨울 눈이 아주 많이 왔다.	One winter it snowed a great deal.	4			ai
+공원	저는 공원에 가고 싶어요	I want to go to the park.	1			ai
+아무 데나	저는 아무 데나 가고 싶어요	I want to go anywhere.	2			ai
+아무 데서나	저는 아무 데서나 먹고 싶어요	I want to eat anywhere.	2			ai
+아무 것도	저는 아무 것도 먹고 싶지 않아요	I don't want to eat anything.	2			ai
+아무 데도	아기는 아무 데도 가지 않았어	The baby didn't go anywhere.	2			ai
+버스	저는 아무 버스나 타고 갈 거예요	I'm going to take any bus and leave.	3			ai
+말	저는 아무 말도 하지 않았어요	I didn't say anything.	2			ai
+관계	저는 엄마랑 아무 관계도 없어요	I have no relationship with my mother.	3			ai
+고르다	아무 거나 고르세요!	Choose anything!	2			ai
+아무나	아무나 그것을 할 수 있어요	Anybody can do that.	3			ai
+두다	가방을 아무 데나 두세요	Put your bag down anywhere.	3			ai
+마다	이 버스는 10 분마다 와요	This bus comes every 10 minutes.	2			ai
+다르다	학생마다 달라요	Each student is different.	2			ai
+날	날마다 = each day	each day	1			ai
+금요일	금요일마다 친구를 만나요	I meet my friend every Friday.	2			ai
+운전하다	저는 그 차를 운전하고 싶어요	I want to drive that car.	2			ai
+수영	수영을 못해	I'm not good at swimming.	2			ai
+잘하다	한국어를 잘해	I'm good at Korean.	2			ai
+저녁식사	엄마가 온 후에 저는 저녁식사를 먹을 거예요	I will eat dinner after mom comes.	3			ai
+탁자	이 탁자는 얼마예요?	How much is this table?	2			ai
+얼마나 자주	여기에 얼마나 자주 와요?	How often do you come here?	2			ai
+날씨	날씨가 추워졌어요	The weather got cold.	2			ai
+강아지	강아지는 고양이랑 쥐보다 더 커요	The dog is bigger than the cat and the mouse.	3			ai
+학생	학생마다 다른 책을 읽었어요	Each student read a different book.	3			ai
+아무도	아무도 그렇게 하지 않아요	Nobody does it like that.	3			ai

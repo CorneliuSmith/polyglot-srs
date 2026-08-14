@@ -65,3 +65,6 @@ data/ru_translations.tsv
 node_modules/
 backups/
 dump.rdb
+# extra-agent's staging copy of what it emitted into data/. The emitted seed
+# files themselves are committed; this scratch mirror of them is not.
+.extra-agent/

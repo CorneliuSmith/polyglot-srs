@@ -61,6 +61,120 @@
           "usage": "Raising the subject with 께서 + 시, humbling yourself with 드리다/뵙다.",
           "example": "선생님께서 오셨어요. — The teacher has arrived.",
           "nonstandard": true
+        },
+        {
+          "point": "이다: to be",
+          "label": "Copula 이다",
+          "usage": "Attach 이다 / 야·이야 / 예요·이에요 to a noun to say 'X is Y'.",
+          "example": "이것은 책이에요."
+        },
+        {
+          "point": "Present Tense Conjugation of 이다 / 아니다",
+          "label": "이다 – present",
+          "usage": "Attach 이다 to a noun to say 'is/am/are' at the right politeness level.",
+          "example": "저는 선생님이에요."
+        },
+        {
+          "point": "Past Tense Conjugation of 이다 / 아니다",
+          "label": "이다 – past",
+          "usage": "Attach ~이었/~였 plus a politeness ending to a noun to say 'was/were'.",
+          "example": "저는 의사였어요."
+        },
+        {
+          "point": "Future Tense with ~ㄹ/을 것이다",
+          "label": "~ㄹ/을 것이다 (future)",
+          "usage": "Add ~ㄹ/을 to the stem, then 것/거 + 이다 to say 'will …'.",
+          "example": "저는 밥을 먹을 거예요."
+        },
+        {
+          "point": "Irregular Stems + ~ㄹ/을",
+          "label": "Irregulars + ~ㄹ/을",
+          "usage": "Apply ㅅ/ㄷ/ㅂ/ㄹ irregular changes when adding ~ㄹ/을 to a stem.",
+          "example": "저는 공원에서 걸을 거예요."
+        },
+        {
+          "point": "Passive verbs with ~아/어 있다 (describing a state)",
+          "label": "Passive state ~아/어 있다",
+          "usage": "Turn a passive verb into a 'is currently in this state' form.",
+          "example": "문이 잠겨 있어요."
+        },
+        {
+          "point": "Passive/active pairs with 나다 and 내다",
+          "label": "나다 / 내다 pairs",
+          "usage": "Pick the passive (나다) or active (내다) member of the pair.",
+          "example": "숙제는 끝났어요."
+        },
+        {
+          "point": "나다 with nouns (기억이 나다, 화가 나다, 땀이 나다…)",
+          "label": "Noun + 나다",
+          "usage": "Say that a feeling, memory or event 'comes up' (subject takes ~이/가).",
+          "example": "저는 땀이 나요."
+        },
+        {
+          "point": "Korean compound verbs (verb stem + ~아/어 + verb)",
+          "label": "Compound verbs (~아/어 + verb)",
+          "usage": "Join two verbs with ~아/어 to form one compound verb.",
+          "example": "남자는 방에 들어왔어요."
+        },
+        {
+          "point": "Sequential ~아/어서",
+          "label": "Sequential ~아/어서",
+          "usage": "Verb stem + ~아/어서 when the first action leads directly into the second (가다/오다, 앉다/서다/눕다).",
+          "example": "우리는 집에 와서 바로 잤어요."
+        },
+        {
+          "point": "I want to: ~고 싶다",
+          "label": "Want to (~고 싶다)",
+          "usage": "Verb stem + ~고 싶다, conjugated like an adjective, to say 'want to do'.",
+          "example": "저는 내일 쉬고 싶어요."
+        },
+        {
+          "point": "Present Progressive: ~고 있다",
+          "label": "~고 있다 (progressive)",
+          "usage": "Verb stem + ~고 있다 for an action going on right now",
+          "example": "저는 청구서를 지금 확인하고 있어요."
+        },
+        {
+          "point": "~아/어 있다: being in a state",
+          "label": "~아/어 있다 (resulting state)",
+          "usage": "Verb stem + ~아/어 있다 for the state left after the action",
+          "example": "나는 학교 옆에 서 있어."
+        },
+        {
+          "point": "Tenses of ~아/어지다 (example: 추워지다)",
+          "label": "~아/어지다 tenses",
+          "usage": "Conjugate 'become + adjective' like any verb",
+          "example": "날씨가 주말에 추워졌어요."
+        },
+        {
+          "point": "Formal questions ~ㅂ/습니까?",
+          "label": "~ㅂ/습니까? (formal question)",
+          "usage": "Formal high-respect question ending: ~ㅂ니까 after a vowel, ~습니까 after a consonant",
+          "example": "매일 아침을 먹습니까?"
+        },
+        {
+          "point": "Korean Questions ~니",
+          "label": "~니 questions",
+          "usage": "Informal question ending, usable in all tenses",
+          "example": "학교에 가니?"
+        },
+        {
+          "point": "Korean Questions ~나(요)",
+          "label": "~나(요) soft questions",
+          "usage": "Softly ask a question with a verb or 있다/없다",
+          "example": "지금 밥을 먹고 있나요?"
+        },
+        {
+          "point": "~기 전에 (before doing)",
+          "label": "~기 전에",
+          "usage": "Verb stem + ~기 전에 = 'before doing something'; no tense inside the clause.",
+          "example": "저는 자기 전에 이를 닦아요."
+        },
+        {
+          "point": "~ㄴ/은 후에 (after doing)",
+          "label": "~ㄴ/은 후에",
+          "usage": "Verb stem + ~은 (consonant) / ~ㄴ (vowel) + 후에 = 'after doing'.",
+          "example": "저는 숙제를 끝낸 후에 잤어요."
         }
       ]
     },
@@ -147,6 +261,264 @@
           "usage": "Fold what someone said into your sentence.",
           "example": "친구가 내일 온다고 해요. — My friend says he's coming tomorrow.",
           "nonstandard": true
+        }
+      ]
+    },
+    {
+      "kind": "nouns",
+      "label": "Noun forms & cases",
+      "entries": [
+        {
+          "point": "Topic particle ~는/은",
+          "label": "Topic ~는/은",
+          "usage": "Attach the subject particle, choosing the form by the noun's final sound.",
+          "example": "저는 한국 사람이에요."
+        },
+        {
+          "point": "Object particle ~를/을",
+          "label": "Object ~를/을",
+          "usage": "Attach the object particle to the noun the verb acts on.",
+          "example": "나는 책을 (object) 읽다 – structure practice"
+        },
+        {
+          "point": "이것, 그것, 저것 (pronouns)",
+          "label": "이것/그것/저것",
+          "usage": "Use the demonstrative pronouns as subject or object.",
+          "example": "이것은 책이에요."
+        },
+        {
+          "point": "Pure Korean Numbers and Counters",
+          "label": "Number + counter",
+          "usage": "Put a pure Korean number and a counter after the noun being counted.",
+          "example": "사람 두 명"
+        },
+        {
+          "point": "Counters with numbers (개, 명, 대, 잔)",
+          "label": "Counters",
+          "usage": "Number + counter for counting nouns (개, 명, 대, 잔)",
+          "example": "저는 펜 네 개를 샀어요."
+        },
+        {
+          "point": "Month names (1월 – 12월)",
+          "label": "Months of the year",
+          "usage": "Sino-Korean number + 월 to name a calendar month",
+          "example": "제 생일은 3 월 2 일이에요."
+        },
+        {
+          "point": "~이/가 and ~는/은 Revisited",
+          "label": "Topic vs subject particle",
+          "usage": "~는/은 for general facts and comparisons; ~이/가 for a specific, just-noticed situation.",
+          "example": "산은 높다."
+        },
+        {
+          "point": "모두 (all / everybody, everything)",
+          "label": "모두 (all / everybody)",
+          "usage": "Adverbially = 다; as a pronoun it takes particles (모두가, 모두를, 모두에게).",
+          "example": "선생님 모두가 회의에 갔어요."
+        },
+        {
+          "point": "아무나 / 아무도 (anybody / nobody)",
+          "label": "아무나 / 아무도",
+          "usage": "아무나 = anybody (positive sentence); 아무도 = nobody (negative predicate required).",
+          "example": "집에 아무도 없어요."
+        },
+        {
+          "point": "아무 + 거/데/때 + ~나 (anything / anywhere / anytime)",
+          "label": "아무 + 거/데/때",
+          "usage": "~나 for 'anything/anywhere/anytime'; ~도 for 'nothing/nowhere' with a negative verb.",
+          "example": "아무 때나 오세요."
+        },
+        {
+          "point": "~마다 (each / every)",
+          "label": "Noun + ~마다",
+          "usage": "Attach ~마다 to a noun to mean 'each/every' one of it.",
+          "example": "학생마다 달라요"
+        }
+      ]
+    },
+    {
+      "kind": "adjectives",
+      "label": "Adjective forms",
+      "entries": [
+        {
+          "point": "있다 with ~이/가: to have, to be at a location",
+          "label": "있다 + ~이/가",
+          "usage": "Mark the possessed thing with ~이/가 before 있다.",
+          "example": "저는 커피가 있어요."
+        },
+        {
+          "point": "Turning adjectives into verbs with ~아/어하다 (좋아하다, 싫어하다)",
+          "label": "~아/어하다 verbs",
+          "usage": "Make a feeling-adjective into a verb that can take an object.",
+          "example": "저는 맥주를 좋아해요."
+        },
+        {
+          "point": "Comparing with 다르다/비슷하다/같다 and the particle ~와/과/랑/이랑/하고",
+          "label": "Comparison adjectives (polite)",
+          "usage": "Say X is different from / similar to / the same as Y using ~와/과",
+          "example": "저는 친구와 비슷해요"
+        },
+        {
+          "point": "Describing nouns with adjective phrases (다른/같은/비슷한)",
+          "label": "Adjective → noun modifier (~ㄴ/은)",
+          "usage": "Describe a noun with an adjective or a whole comparison phrase",
+          "example": "저는 비슷한 가방을 샀어요"
+        },
+        {
+          "point": "Talking about pain and sickness: 아프다 and ~에 걸리다",
+          "label": "아프다 (ㅡ irregular)",
+          "usage": "Say a body part hurts (with 이/가) or that someone was sick",
+          "example": "배가 아파요"
+        },
+        {
+          "point": "Korean suffix: ~적/~적으로/~적이다",
+          "label": "~적 / ~적으로 / ~적이다",
+          "usage": "Turn a Chinese-origin noun into a descriptive word, an adverb, or an adjective",
+          "example": "그 결정은 경제적이에요"
+        },
+        {
+          "point": "Korean suffix: ~스럽다",
+          "label": "~스럽다 (ㅂ irregular)",
+          "usage": "Say something has the properties of a noun: lovely, natural, disappointing",
+          "example": "그 아기는 사랑스러워요"
+        },
+        {
+          "point": "Adjectives with ~스럽다",
+          "label": "~스럽다 adjectives",
+          "usage": "Noun + ~스럽다 makes an adjective; ㅂ-irregular, modifier ~스러운, adverb ~스럽게.",
+          "example": "결과는 만족스러웠어요."
+        },
+        {
+          "point": "Adjective + ~아/어지다: to become (adjective)",
+          "label": "~아/어지다 (become + adj)",
+          "usage": "Adjective stem + ~아/어지다 turns 'be ___' into 'get/become ___'",
+          "example": "집 값은 비싸지고 있어요."
+        },
+        {
+          "point": "낫다 – to be better",
+          "label": "낫다 (ㅅ-irregular)",
+          "usage": "Say 'better' in an explicit comparison; ㅅ drops before vowels",
+          "example": "라면보다 밥이 더 나아요."
+        },
+        {
+          "point": "Korean Questions ~ㄴ/은가(요)",
+          "label": "~ㄴ/은가(요) soft questions",
+          "usage": "Softly ask about a present state with an adjective or 이다",
+          "example": "이 방이 너무 작은가요?"
+        },
+        {
+          "point": "어때? – asking for an opinion",
+          "label": "어때 (opinion) forms",
+          "usage": "Ask someone's evaluation of something, present or past",
+          "example": "한국 어때?"
+        }
+      ]
+    },
+    {
+      "kind": "other",
+      "label": "Other forms",
+      "entries": [
+        {
+          "point": "Demonstratives 이, 그, 저",
+          "label": "이/그/저",
+          "usage": "Pick the right 'this/that' word before a noun.",
+          "example": "그 사람은 의사예요."
+        },
+        {
+          "point": "Sino-Korean Numbers",
+          "label": "Sino-Korean numbers",
+          "usage": "Combine 일~십, 백, 천, 만 to build numbers for money, time and math.",
+          "example": "오천육백"
+        },
+        {
+          "point": "Saying zero: 영 and 공",
+          "label": "Saying zero: 영 vs 공",
+          "usage": "Pick 영 for math, scores and temperatures; 공 when reciting digits like phone or room numbers.",
+          "example": "제 전화번호는 공일공에 일이삼사예요."
+        },
+        {
+          "point": "Telling time: 시 and 분",
+          "label": "Clock time (시/분)",
+          "usage": "Pure Korean number + 시 for the hour, Sino-Korean number + 분 for the minutes",
+          "example": "저는 2 시 30 분에 왔어요."
+        },
+        {
+          "point": "번째: ordinal numbers",
+          "label": "Ordinals (번째)",
+          "usage": "Number + 번째 = first/second/third…, with 첫 for 'first'",
+          "example": "저는 세 번째 문을 열었어요."
+        },
+        {
+          "point": "Shortened ordinals: 첫째, 둘째, 셋째, 넷째",
+          "label": "Short ordinals (첫째)",
+          "usage": "첫째/둘째/셋째/넷째 for one's children and for listing points",
+          "example": "우리 셋째는 야구를 좋아해요."
+        },
+        {
+          "point": "Korean months: 달 vs 개월",
+          "label": "Months (달/개월)",
+          "usage": "두 달 (pure Korean) or 이 개월 (Sino-Korean) for an amount of months",
+          "example": "저는 두 달 동안 한국어를 공부했어요."
+        },
+        {
+          "point": "Pure Korean vs Sino-Korean numbers with time counters",
+          "label": "Number system by counter",
+          "usage": "Chinese-origin time words take Sino-Korean numbers; native ones take pure Korean numbers",
+          "example": "저는 두 달 동안, 즉 이 개월 동안 공부했어요."
+        },
+        {
+          "point": "~는/은 vs ~이/가: general statements and immediate experience",
+          "label": "Topic 는/은 vs subject 이/가",
+          "usage": "Use 는/은 for general or contrastive statements, 이/가 for something specific you are experiencing now",
+          "example": "비가 와요."
+        },
+        {
+          "point": "Who (누구 / 누가)",
+          "label": "누구/누가 (who)",
+          "usage": "Place the 'who' pronoun in the subject, object or pre-이다 slot",
+          "example": "누가 그 자리를 차지했어요?"
+        },
+        {
+          "point": "What (뭐 / 무엇)",
+          "label": "뭐/무엇 (what)",
+          "usage": "Choose the right 'what' pronoun and decide whether a particle is used",
+          "example": "점심이 뭐야?"
+        },
+        {
+          "point": "몇 + counter: asking 'how many'",
+          "label": "몇 + counter",
+          "usage": "Build 'how many ___?' questions with the right counter.",
+          "example": "차가 몇 대 있어요?"
+        },
+        {
+          "point": "~는/은 and ~이/가 revisited: nuance and form",
+          "label": "~는/은 vs ~이/가",
+          "usage": "Pick the topic or subject particle and the right allomorph.",
+          "example": "누가 밥을 먹었어? 내가 밥을 먹었어."
+        },
+        {
+          "point": "Time expression + 후에 (later / from now)",
+          "label": "시간 + 후에",
+          "usage": "Amount of time + 후에 = '___ later / ___ from now'.",
+          "example": "저는 세 시간 후에 다시 올게요."
+        },
+        {
+          "point": "Question word + ~나 (everywhere / every time / everyone)",
+          "label": "의문사 + ~나 (every-)",
+          "usage": "어디나 / 언제나 / 누구나 = everywhere / every time / everyone; no particles.",
+          "example": "누구나 실수를 해요."
+        },
+        {
+          "point": "Question word + ~ㄴ가 (something / somewhere / sometime / somebody)",
+          "label": "의문사 + ~ㄴ가 (some-)",
+          "usage": "뭔가 / 어딘가 / 언젠가 / 누군가 = something / somewhere / sometime / somebody.",
+          "example": "누군가 지갑을 잃어버렸어요."
+        },
+        {
+          "point": "아무 + ~나 / ~도 (any… / none…)",
+          "label": "아무 + 나/도",
+          "usage": "Build 'any-' words with ~나 and 'no-' words with ~도 plus a negative verb.",
+          "example": "아무나 그것을 할 수 있어요"
         }
       ]
     }

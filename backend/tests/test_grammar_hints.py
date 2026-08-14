@@ -4,10 +4,10 @@ Gym "baseline" cue, so it must be in the TARGET language ("<infinitive>,
 
 The languages whose base form is an infinitive (Romance/Germanic) or a
 lemmatizable citation form (Russian) were cleaned to "<base>, <person>" and are
-locked here. The four still-English languages are HELD on purpose: ar (Semitic —
+locked here. The still-English languages are HELD on purpose: ar (Semitic —
 no infinitive; hints describe the prefix), el (Greek cites the 1sg present, not
-an infinitive), tr (agglutinative), xh (Bantu). Their base-form model is
-different and needs a native/LLM pass, so they're reported, not failed.
+an infinitive), tr and ko (agglutinative), xh and sw (Bantu). Their base-form
+model is different and needs a native/LLM pass, so they're reported, not failed.
 """
 from __future__ import annotations
 
@@ -22,7 +22,10 @@ _ENGLISH_HINT = re.compile(r"\bto\s+[a-z]+\b|\bform of\b", re.I)
 _CLEAN = {"es", "fr", "it", "ca", "ro", "de", "ru"}
 
 # Held on purpose (base form isn't a derivable infinitive): reported, not failed.
-_HELD = {"ar", "el", "tr", "xh"}
+# ko and sw joined when the extracted courses added their first conjugation
+# drills — Korean is agglutinative like tr, Swahili is Bantu like xh, so the
+# same "no derivable infinitive" rationale applies rather than a new exemption.
+_HELD = {"ar", "el", "tr", "xh", "ko", "sw"}
 
 
 def _english_conjugation_hints(code: str) -> list[tuple[str, str, str]]:
