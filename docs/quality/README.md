@@ -156,13 +156,34 @@ every language derived from it, while each downstream locale still looks
 correct *relative to its source*. A Spanish rendering can be excellent and
 still be wrong, because it faithfully translated a poor English.
 
+**The English sits in two tables, and both are pivots.** Checking one and
+not the other leaves half the cards in the product unexamined:
+
+| Where | Feeds | Seen by the learner as |
+| --- | --- | --- |
+| `example_sentences.translation` (locale `en`) | every other locale's row for that sentence | the "in context" line under a vocabulary card |
+| `drill_sentences.translation` | every `drill_hint_translations` row | the English under a grammar drill |
+
+`review_translations` covers both by default (`--source example` / `--source
+drill` narrows it). Drill hints are deliberately out of its scope — a hint is
+judged on whether it narrows without leaking, which is Layer 1's job.
+
 So the order matters. Fix the English, then let the locales re-derive:
 
 ```bash
 # 1. Judge the ENGLISH against the sentence it claims to translate.
 #    Reads the target-language sentence; the English is what's on trial.
+#    Both content types, one language, nothing written:
 python -m backend.services.seeder.review_translations --language hi --limit 20 --dry-run
 python -m backend.services.seeder.review_translations --language hi --limit 20
+
+#    Every language, both content types. --limit is per language PER SOURCE,
+#    so this is 27 × 2 × 50 rows of judging — size it against the allowance
+#    and start with --dry-run.
+python -m backend.services.seeder.review_translations --all --limit 50 --dry-run
+python -m backend.services.seeder.review_translations --all --limit 50
+
+#    One run, undone exactly — file mirrors included.
 python -m backend.services.seeder.review_translations --restore <journal-file>
 
 # 2. Rewrite confusing/dictionary-jargon definitions.
@@ -174,9 +195,12 @@ python -m backend.services.seeder.generate_content --language ca --recheck
 
 Correcting an English **deletes the locale renderings built from it** — they
 were faithful to the old text and are now quietly wrong. The demand-driven
-loop refills them from the corrected English on next use. Anything the
-checker is unsure about is flagged for a human rather than guessed at, and
-surfaces in the **Review inbox**.
+loop refills them from the corrected English on next use. For a drill the
+whole `drill_hint_translations` row goes, hint included: that table holds both
+in one row and the loop refills only rows that are *absent*, so blanking a
+column would strand it forever. Anything the checker is unsure about is
+flagged for a human rather than guessed at, and surfaces in the **Review
+inbox**.
 
 ### Where a content fix actually has to land
 
@@ -185,7 +209,7 @@ wrong means editing a file and seeing nothing change:
 
 | Content | Re-seed behaviour | So a fix must… |
 | --- | --- | --- |
-| Grammar drills (`data/grammar/<code>_grammar.json`) | Matched on `(sentence, answer)` and **updated in place** — the row id survives, so learner progress does too | Edit the JSON, then `python -m backend.services.seeder.seed_grammar --language <code>`. Never change `sentence` or `answer`: they are the match key, and changing either orphans the old row and its history. |
+| Grammar drills (`data/grammar/<code>_grammar.json`) | Matched on `(sentence, answer)` and **updated in place** — the row id survives, so learner progress does too | Edit the JSON, then `python -m backend.services.seeder.seed_grammar --language <code>`. Never change `sentence` or `answer`: they are the match key, and changing either orphans the old row and its history. The reverse also bites — a database-only fix is **reverted by the next seed**, which is why `review_translations` writes the JSON for drills automatically rather than behind `--write-tsv`. Commit that diff. |
 | Example sentences (`data/<code>_sentences.tsv`) | `ON CONFLICT … DO NOTHING` — an existing row **never** changes | Go through the database (`review_translations` does). `--write-tsv` mirrors the change into the repo so a FRESH environment seeds the corrected text, but it will not touch a running deployment. |
 | AI-generated cards | Not in the repo at all | `generate_content --recheck`, or human review through the Review workspace. |
 
