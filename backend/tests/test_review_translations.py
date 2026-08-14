@@ -11,6 +11,7 @@ two consequences of changing an English that other rows were built on.
 """
 from __future__ import annotations
 
+import json
 from unittest.mock import AsyncMock, patch
 
 import pytest
@@ -129,6 +130,282 @@ class TestDevMock:
             out = await translate.review_source_translations("Hindi", ITEM)
         assert out[0]["verdict"] == "ok"
         assert out[0]["translation"] == "What else is there?"
+
+
+class _Conn:
+    """Enough asyncpg surface for the pass, with the calls recorded."""
+
+    def __init__(self, rows=()):
+        self.rows = list(rows)
+        self.executed: list[tuple[str, tuple]] = []
+
+    async def fetch(self, sql, *args):
+        self.last_fetch = sql
+        return self.rows
+
+    async def execute(self, sql, *args):
+        self.executed.append((" ".join(sql.split()), args))
+        return "DELETE 3" if sql.strip().startswith("DELETE") else "UPDATE 1"
+
+    async def fetchrow(self, sql, *args):
+        return {"id": "lang-1", "name": "Hindi"}
+
+    async def close(self):
+        pass
+
+
+DRILL_ROW = {
+    "id": "drill-1",
+    "sentence": "मैं चाय {{answer}} हूँ।",
+    "answer": "पीता",
+    "translation": "I drink tea.",
+}
+
+
+class TestBothPivotsAreCovered:
+    """The English lives in two tables and BOTH feed every other locale.
+
+    The first version of this pass read example_sentences only, which left
+    every grammar drill in every course unexamined.
+    """
+
+    def test_the_default_is_both_content_types(self):
+        assert rt.SOURCES == ("example", "drill")
+        assert set(rt._SOURCE) == set(rt.SOURCES)
+
+    @pytest.mark.asyncio
+    async def test_a_drill_reaches_the_judge_with_its_blank_filled(self):
+        # The stored sentence is gapped; the translation renders the
+        # COMPLETED sentence. Handing over "मैं चाय ___ हूँ।" would have the
+        # judge call a correct English a mistranslation.
+        out = await rt._drill_candidates(_Conn([DRILL_ROW]), "lang-1", 10)
+        assert out[0]["display"] == "मैं चाय पीता हूँ।"
+        assert out[0]["sentence"] == DRILL_ROW["sentence"]  # match key preserved
+
+    @pytest.mark.asyncio
+    async def test_an_example_sentence_is_its_own_display(self):
+        row = {"id": "ex-1", "sentence": "और क्या है?",
+               "translation": "What else is there?"}
+        out = await rt._example_candidates(_Conn([row]), "lang-1", 10)
+        assert out[0]["display"] == "और क्या है?"
+        assert out[0]["answer"] is None
+
+    @pytest.mark.asyncio
+    async def test_a_drill_answer_that_is_missing_does_not_crash(self):
+        row = {**DRILL_ROW, "answer": None}
+        out = await rt._drill_candidates(_Conn([row]), "lang-1", 10)
+        assert out[0]["display"] == "मैं चाय  हूँ।"
+
+
+class TestStaleLocaleRows:
+    @pytest.mark.asyncio
+    async def test_fixing_a_drill_drops_the_whole_overlay_row(self):
+        # drill_hint_translations holds the locale hint AND translation in
+        # one row, and pending_drills gates on the row being ABSENT —
+        # blanking a column would leave a row that never refills.
+        conn = _Conn()
+        n = await rt._stale_drill(conn, {"id": "drill-1"}, "lang-1")
+        assert n == 3
+        sql, args = conn.executed[0]
+        assert sql.startswith("DELETE FROM drill_hint_translations")
+        assert args == ("drill-1",)
+
+    @pytest.mark.asyncio
+    async def test_fixing_an_example_drops_by_sentence_not_by_id(self):
+        # One sentence is an example for several words, each with its own
+        # locale rows; keying on id would leave the others stale.
+        conn = _Conn()
+        await rt._stale_example(conn, {"id": "ex-1", "sentence": "और क्या है?"},
+                                "lang-1")
+        sql, args = conn.executed[0]
+        assert "translation_locale <> 'en'" in sql
+        assert args == ("lang-1", "और क्या है?")
+
+
+class TestQueueingForAHuman:
+    @pytest.mark.asyncio
+    async def test_each_source_flags_its_own_table(self):
+        conn = _Conn()
+        await rt._queue_drill(conn, {"id": "drill-1"}, "ambiguous")
+        await rt._queue_example(conn, {"id": "ex-1"}, "ambiguous")
+        assert conn.executed[0][0].startswith("UPDATE drill_sentences")
+        assert conn.executed[1][0].startswith("UPDATE example_sentences")
+
+    @pytest.mark.asyncio
+    async def test_a_pre_migration_table_loses_the_flag_not_the_run(self):
+        class Old(_Conn):
+            async def execute(self, sql, *args):
+                raise __import__("asyncpg").UndefinedColumnError("no flagged")
+
+        await rt._queue_drill(Old(), {"id": "drill-1"}, "ambiguous")  # no raise
+
+
+class TestGrammarJsonMirror:
+    """For drills the mirror is REQUIRED, not a courtesy.
+
+    seed_grammar matches on (sentence, answer) and UPDATEs translation in
+    place, so a database-only fix is reverted by the next seed.
+    """
+
+    def _write(self, tmp_path, indent=2):
+        import json as _json
+        path = tmp_path / "data" / "grammar" / "hi_grammar.json"
+        path.parent.mkdir(parents=True)
+        doc = {"language": "hi", "points": [{"title": "P1", "drills": [
+            {"sentence": "मैं चाय {{answer}} हूँ।", "answer": "पीता",
+             "translation": "I drink tea.", "hint": "to drink, masc."},
+            {"sentence": "मैं चाय {{answer}} हूँ।", "answer": "पीती",
+             "translation": "I drink tea.", "hint": "to drink, fem."},
+        ]}]}
+        path.write_text(_json.dumps(doc, ensure_ascii=False, indent=indent) + "\n",
+                        encoding="utf-8")
+        return path
+
+    def test_the_match_key_is_sentence_and_answer_together(self, tmp_path,
+                                                           monkeypatch):
+        # Both drills share a sentence and a translation; only the one whose
+        # ANSWER matches may change, or the masculine fix lands on the
+        # feminine drill too.
+        path = self._write(tmp_path)
+        monkeypatch.setattr(rt, "REPO", tmp_path)
+        n = rt._rewrite_grammar_json(
+            "hi", {("मैं चाय {{answer}} हूँ।", "पीता"): "I drink tea (m.)."})
+        assert n == 1
+        drills = json.loads(path.read_text(encoding="utf-8"))["points"][0]["drills"]
+        assert drills[0]["translation"] == "I drink tea (m.)."
+        assert drills[1]["translation"] == "I drink tea."
+        assert drills[0]["hint"] == "to drink, masc."  # nothing else touched
+
+    def test_the_file_keeps_its_own_indent(self, tmp_path, monkeypatch):
+        # ha, ko, mi, pt and yo are indent=1. Re-dumping at 2 rewrites every
+        # line of a 3000-line file and buries the one that changed.
+        path = self._write(tmp_path, indent=1)
+        monkeypatch.setattr(rt, "REPO", tmp_path)
+        rt._rewrite_grammar_json(
+            "hi", {("मैं चाय {{answer}} हूँ।", "पीता"): "I drink tea (m.)."})
+        body = path.read_text(encoding="utf-8")
+        assert '\n "language": "hi",' in body
+        assert '\n  "language"' not in body
+
+    def test_a_missing_file_warns_rather_than_raising(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(rt, "REPO", tmp_path)
+        assert rt._rewrite_grammar_json("zz", {("a", "b"): "c"}) == 0
+
+    def test_detect_indent_falls_back_when_nothing_is_indented(self):
+        assert rt._detect_indent('{"a":1}') == 2
+        assert rt._detect_indent('{\n  "a": 1\n}') == 2
+        assert rt._detect_indent('{\n "a": 1\n}') == 1
+
+
+class TestJournalAndRestore:
+    def test_the_journal_records_which_table_a_fix_came_from(self, tmp_path,
+                                                             monkeypatch):
+        monkeypatch.setattr(rt, "BACKUP_DIR", tmp_path)
+        path = rt._journal("hi", "drill", [{
+            "item": DRILL_ROW, "old": "I drink tea.", "new": "I drink tea (m.)."}])
+        rec = json.loads(path.read_text(encoding="utf-8").splitlines()[0])
+        assert rec["source"] == "drill"
+        assert rec["language"] == "hi"
+        assert rec["answer"] == "पीता"
+        assert "drill" in path.name
+
+    @pytest.mark.asyncio
+    async def test_restore_sends_each_record_to_its_own_table(self, tmp_path,
+                                                              monkeypatch):
+        journal = tmp_path / "j.jsonl"
+        journal.write_text(
+            json.dumps({"id": "d1", "source": "drill", "language": "hi",
+                        "sentence": "s", "answer": "a", "old": "was",
+                        "new": "now"}) + "\n"
+            + json.dumps({"id": "e1", "source": "example", "sentence": "s2",
+                          "old": "was2", "new": "now2"}) + "\n",
+            encoding="utf-8")
+        conn = _Conn()
+        monkeypatch.setattr(rt.asyncpg, "connect", AsyncMock(return_value=conn))
+        monkeypatch.setattr(rt, "REPO", tmp_path)  # no grammar file: warn, no raise
+        assert await rt.restore("postgres://x", journal) == 2
+        assert conn.executed[0][0].startswith("UPDATE drill_sentences")
+        assert conn.executed[1][0].startswith("UPDATE example_sentences")
+
+    @pytest.mark.asyncio
+    async def test_a_journal_from_before_drills_still_restores(self, tmp_path,
+                                                              monkeypatch):
+        # Runs already on disk have no `source` key; they are all examples.
+        journal = tmp_path / "old.jsonl"
+        journal.write_text(
+            json.dumps({"id": "e1", "sentence": "s", "old": "was", "new": "now"})
+            + "\n", encoding="utf-8")
+        conn = _Conn()
+        monkeypatch.setattr(rt.asyncpg, "connect", AsyncMock(return_value=conn))
+        assert await rt.restore("postgres://x", journal) == 1
+        assert conn.executed[0][0].startswith("UPDATE example_sentences")
+
+
+class TestTheDrillPassEndToEnd:
+    @pytest.mark.asyncio
+    async def test_a_fix_lands_in_the_db_and_the_file_and_clears_the_overlay(
+            self, tmp_path, monkeypatch):
+        path = tmp_path / "data" / "grammar" / "hi_grammar.json"
+        path.parent.mkdir(parents=True)
+        path.write_text(json.dumps({"language": "hi", "points": [{"drills": [
+            {"sentence": DRILL_ROW["sentence"], "answer": "पीता",
+             "translation": "I drink tea."}]}]}, ensure_ascii=False, indent=2)
+            + "\n", encoding="utf-8")
+        monkeypatch.setattr(rt, "REPO", tmp_path)
+        monkeypatch.setattr(rt, "BACKUP_DIR", tmp_path / "backups")
+        monkeypatch.setattr(rt, "review_source_translations", AsyncMock(
+            return_value=[{"i": 0, "verdict": "fixed",
+                           "translation": "I drink tea (m.).", "note": "gender"}]))
+        conn = _Conn([DRILL_ROW])
+        counts = await rt.review_source(
+            conn, "drill", "hi", {"id": "lang-1", "name": "Hindi"},
+            limit=10, batch_size=20, dry_run=False, write_tsv=False)
+
+        assert counts == {"checked": 1, "fixed": 1, "queued": 0,
+                          "stale_dropped": 3}
+        assert conn.executed[0][0].startswith("UPDATE drill_sentences")
+        assert conn.executed[1][0].startswith(
+            "DELETE FROM drill_hint_translations")
+        drills = json.loads(path.read_text(encoding="utf-8"))["points"][0]["drills"]
+        assert drills[0]["translation"] == "I drink tea (m.)."
+
+    @pytest.mark.asyncio
+    async def test_a_dry_run_touches_neither_the_db_nor_the_file(
+            self, tmp_path, monkeypatch):
+        path = tmp_path / "data" / "grammar" / "hi_grammar.json"
+        path.parent.mkdir(parents=True)
+        original = json.dumps({"language": "hi", "points": [{"drills": [
+            {"sentence": DRILL_ROW["sentence"], "answer": "पीता",
+             "translation": "I drink tea."}]}]}, ensure_ascii=False, indent=2) + "\n"
+        path.write_text(original, encoding="utf-8")
+        monkeypatch.setattr(rt, "REPO", tmp_path)
+        monkeypatch.setattr(rt, "review_source_translations", AsyncMock(
+            return_value=[{"i": 0, "verdict": "reject", "translation": "",
+                           "note": "ambiguous"}]))
+        conn = _Conn([DRILL_ROW])
+        counts = await rt.review_source(
+            conn, "drill", "hi", {"id": "lang-1", "name": "Hindi"},
+            limit=10, batch_size=20, dry_run=True, write_tsv=False)
+
+        assert counts["checked"] == 1 and counts["queued"] == 1
+        assert conn.executed == []  # not even the flag
+        assert path.read_text(encoding="utf-8") == original
+
+    @pytest.mark.asyncio
+    async def test_every_language_runs_every_source(self, monkeypatch):
+        seen = []
+
+        async def _spy(conn, source, code, lang, **kw):
+            seen.append((code, source))
+            return rt._zero()
+
+        monkeypatch.setattr(rt, "review_source", _spy)
+        monkeypatch.setattr(rt.asyncpg, "connect", AsyncMock(return_value=_Conn()))
+        out = await rt.review_language(
+            "postgres://x", "hi", limit=10, batch_size=20, dry_run=True,
+            write_tsv=False)
+        assert seen == [("hi", "example"), ("hi", "drill")]
+        assert set(out["by_source"]) == {"example", "drill"}
 
 
 class TestTsvMirror:
