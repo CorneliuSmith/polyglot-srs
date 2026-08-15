@@ -142,6 +142,7 @@ async def get_due_cards(
             v.word                          AS word,
             v.part_of_speech                AS part_of_speech,
             COALESCE(t.definition, t_en.definition) AS definition,
+            ex.translation_locales          AS example_translation_locales,
             ex.sentences                    AS example_sentences,
             ex.translations                 AS example_translations,
             ex.glosses                      AS example_glosses,
@@ -172,14 +173,21 @@ async def get_due_cards(
                 array_agg(pes.gloss
                           ORDER BY pes.difficulty_rank ASC NULLS LAST, pes.id) AS glosses,
                 array_agg(pes.transliteration
-                          ORDER BY pes.difficulty_rank ASC NULLS LAST, pes.id) AS transliterations
+                          ORDER BY pes.difficulty_rank ASC NULLS LAST, pes.id) AS transliterations,
+                -- Which language the chosen translation is ACTUALLY in. The
+                -- row above may be the English fallback rather than the
+                -- learner's locale, and without this the card cannot tell
+                -- the difference — so it presented one as the other.
+                array_agg(pes.translation_locale
+                          ORDER BY pes.difficulty_rank ASC NULLS LAST, pes.id) AS translation_locales
             FROM (
                 -- One row per sentence: prefer the learner's-locale
                 -- translation, fall back to the English row when no locale
                 -- rendering exists yet. Never a third, random language.
                 SELECT DISTINCT ON (es.sentence)
                        es.sentence, es.translation, es.gloss,
-                       es.transliteration, es.difficulty_rank, es.id
+                       es.transliteration, es.difficulty_rank, es.id,
+                       es.translation_locale
                 FROM example_sentences es
                 WHERE es.vocabulary_id = v.id
                   AND es.translation_locale IN ($3, 'en')
@@ -383,7 +391,8 @@ async def get_due_cards(
 
     # Merge and sort by next_review
     combined = (
-        [_vocab_card(r, stats.get(str(r["id"]), {})) for r in vocab_rows]
+        [_vocab_card(r, stats.get(str(r["id"]), {}), eff_locale)
+         for r in vocab_rows]
         + [_grammar_card(r, stats.get(str(r["id"]), {})) for r in grammar_rows]
         + [dict(r) for r in personal_rows]
     )
@@ -486,7 +495,8 @@ def _pick_index(
     return pool[_stable_pick(len(pool), key)]
 
 
-def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
+def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
+                eff_locale: str = "en") -> dict:
     """Shape a vocabulary row into a card, preferring a cloze example sentence.
 
     The sentence changes on every APPEARANCE of the card (Bunpro-style): a
@@ -502,6 +512,7 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
     translations = r["example_translations"] or []
     glosses = r["example_glosses"] or []
     translits = r["example_transliterations"] or []
+    locales = r.get("example_translation_locales") or []
     candidates = []
     for i, raw in enumerate(sentences):
         cloze = make_cloze(raw, word)
@@ -511,14 +522,16 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
                 translations[i] if i < len(translations) else None,
                 glosses[i] if i < len(glosses) else None,
                 translits[i] if i < len(translits) else None,
+                locales[i] if i < len(locales) else None,
             ))
     sentence, translation, hint = (r["definition"] or word), None, None
-    gloss, transliteration = None, None
+    gloss, transliteration, translation_locale = None, None, None
     if candidates:
         idx = _pick_index(
             [c[0] for c in candidates], r["last_prompt"], stats, _rotation_key(r)
         )
-        sentence, translation, gloss, transliteration = candidates[idx]
+        (sentence, translation, gloss, transliteration,
+         translation_locale) = candidates[idx]
         hint = r["definition"]
     return {
         **_srs_fields(r),
@@ -526,6 +539,16 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
         "correct_answer": word,
         "hint": hint,
         "translation": translation,
+        # The language the translation above is actually written in, and a
+        # flag the card can act on. A learner asking for Spanish who is
+        # handed the English fallback (or nothing) should be told the
+        # translation is on its way — not shown another language under a
+        # "TRADUCCIÓN" label, which is exactly what used to happen.
+        "translation_locale": translation_locale,
+        "translation_pending": bool(
+            translation and translation_locale
+            and translation_locale != eff_locale
+        ),
         "gloss": gloss,
         "transliteration": transliteration,
         "morphology": r["morphology"],

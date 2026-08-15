@@ -50,6 +50,13 @@ export interface HintLayerSource {
    * usually an English fallback served because their rendering doesn't
    * exist yet. Absent means nothing to report. */
   locale_mismatch?: string[] | null
+  // The server compared the translation it served against the locale the
+  // learner asked for. Authoritative where locale_mismatch cannot be:
+  // that guard is script-based, so it is silent for every Latin-script
+  // locale — a Spanish learner was shown Greek and Romanian under
+  // "TRADUCCIÓN" with nothing flagged, because both are simply "not the
+  // expected script" only when the expected script is known.
+  translation_pending?: boolean | null
 }
 
 export interface HintLayer {
@@ -108,6 +115,7 @@ export function hintLayersFor(languageCode: string, card: HintLayerSource): Hint
   // leave a cloze with no semantic cue at all, so it is labelled with the
   // language it is actually in and the demand queue fills it for next time.
   const mismatched = new Set(card.locale_mismatch ?? [])
+  if (card.translation_pending) mismatched.add('translation')
   return order
     .filter((field) => (card[field] ?? '').toString().trim().length > 0)
     .map((field) => {
