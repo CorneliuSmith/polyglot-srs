@@ -57,6 +57,9 @@ export interface HintLayerSource {
   // "TRADUCCIÓN" with nothing flagged, because both are simply "not the
   // expected script" only when the expected script is known.
   translation_pending?: boolean | null
+  /** What the learner has to produce. Used only to keep the authored hint
+   * from handing it to them — see the guard in hintLayersFor. */
+  correct_answer?: string | null
 }
 
 export interface HintLayer {
@@ -117,16 +120,42 @@ export function hintLayersFor(languageCode: string, card: HintLayerSource): Hint
   const mismatched = new Set(card.locale_mismatch ?? [])
   if (card.translation_pending) mismatched.add('translation')
   return order
-    .filter((field) => (card[field] ?? '').toString().trim().length > 0)
-    .map((field) => {
+    .map((field) => ({ field, text: layerText(field, card) }))
+    .filter(({ text }) => text.length > 0)
+    .map(({ field, text }) => {
       const foreign = mismatched.has(field)
       return {
         field,
         label: foreign
           ? i18n.t('review.layerNotTranslated', { label: i18n.t(LABELS[field]) })
           : i18n.t(LABELS[field]),
-        text: card[field] as string,
+        text,
         ...(foreign ? { foreign: true } : {}),
       }
     })
+}
+
+/**
+ * One layer's text, with the answer-leak guard applied to the authored hint.
+ *
+ * The guard used to live at the Gym's call site alone, which meant the same
+ * hint the Gym carefully blanked was handed over verbatim in a graded review
+ * session and as the listening-mode cue. 256 of the 8,049 authored drill
+ * hints contain the answer as a whole word — "haben, wir" for the answer
+ * *haben*, "since (ja que)" for *que* — so on those cards the hint WAS the
+ * answer, and learners noticed and said so.
+ *
+ * Running it here instead means every surface that renders a layer is
+ * covered by construction, including whichever one gets written next. A
+ * blanked hint drops out below rather than showing an empty row, and the
+ * dots stay in step with what is actually revealable.
+ *
+ * Only the authored hint is guarded. A translation that happens to contain
+ * the answer is a different thing — it is the meaning cue the exercise is
+ * built on, and blanking it would leave a cloze with nothing to go on.
+ */
+function layerText(field: HintLayerField, card: HintLayerSource): string {
+  const raw = (card[field] ?? '').toString().trim()
+  if (field !== 'hint' || !raw) return raw
+  return safePrompt(raw, card.correct_answer)
 }
