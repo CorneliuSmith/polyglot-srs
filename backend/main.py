@@ -24,6 +24,7 @@ from backend.routers.personal_decks import router as personal_decks_router
 from backend.routers.reader import router as reader_router
 from backend.routers.recommendations import router as recommendations_router
 from backend.routers.review import router as review_router
+from backend.routers.speak import router as speak_router
 from backend.routers.tutor import router as tutor_router
 from backend.services.nlp import init_nlp_backends
 
@@ -166,6 +167,7 @@ def create_app() -> FastAPI:
     _app.include_router(audio_router, prefix="/api/audio", tags=["audio"])
     _app.include_router(reader_router, prefix="/api/reader", tags=["reader"])
     _app.include_router(gym_router, prefix="/api/gym", tags=["gym"])
+    _app.include_router(speak_router, prefix="/api/speak", tags=["speak"])
     _app.include_router(feedback_router, prefix="/api/feedback", tags=["feedback"])
 
     @_app.get("/api/health")

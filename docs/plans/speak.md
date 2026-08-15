@@ -1,7 +1,8 @@
 # Speak — conversation practice with a correction pass
 
-A feature plan. Not built; this is the design to argue with before anyone
-writes code.
+A feature plan. **Stage 1 is built** (typed Flow mode plus the end-of-session
+summary — see the sequencing table below); stages 2–4 are still design to
+argue with before anyone writes code.
 
 **Name: Speak.** It sits in Practice alongside Gym and Read. Those two are
 recognition and comprehension; this is the only place the learner *produces*
@@ -178,13 +179,41 @@ Each stage is usable on its own; stop after any of them.
 
 | Stage | What ships | Why this order |
 | --- | --- | --- |
-| 1 | Text-only Flow mode + summary | Proves the turn engine and the error extraction with no audio risk at all |
+| 1 ✅ | Text-only Flow mode + summary | Proves the turn engine and the error extraction with no audio risk at all |
 | 2 | Speech in and out | Latency work lands against something already known to work |
 | 3 | Coach mode | The interrupting correction is the riskiest UX call; earn the right to it |
 | 4 | Cards from the summary | Wire to personal cards once the errors are known to be worth keeping |
 
 Stage 1 is genuinely useful alone — a typed conversation partner with an
 end-of-session breakdown is a real feature.
+
+### What stage 1 actually shipped
+
+`services/speak.py` (one tool call per turn returning reply + errors; a
+second, cheaper call groups them at the end), `repositories/speak.py`,
+`routers/speak.py` (`/status`, `/start`, `/turn`, `/end`),
+`features/speak/SpeakPage.tsx`, and migration
+`20260923000000_speak_sessions.sql`.
+
+Four decisions worth knowing before building stage 2:
+
+- **The turn response never carries the errors.** They are stored and
+  withheld until `/end`. A client cannot leak what it is never sent, so
+  flow mode's promise does not depend on the frontend behaving.
+- **`/end` is not gated on the allowance.** Someone who spent their last
+  message on the conversation still gets told what they got wrong. A
+  session with no errors makes no model call at all.
+- **The breakdown survives a failed summary call** — `_fallback_groups`
+  groups mechanically by error type. Cruder, but a learner who finished a
+  session always gets something.
+- **The session, not the request, decides the course.** `/turn` takes only
+  a session id; a client that passed its own `language_id` could aim a
+  session at another course's model and level.
+
+Two things the plan asked for that stage 1 does NOT do: the summary's
+cards are display-only (adding them is stage 4), and there is no
+`/status` entry until the migration is applied — the page reports itself
+unavailable rather than offering a conversation that cannot be saved.
 
 ---
 

@@ -14,7 +14,8 @@
     "more": "المزيد",
     "primary": "الأقسام الرئيسية",
     "languageGuide": "دليل اللغة",
-    "sections": "الأقسام"
+    "sections": "الأقسام",
+    "speak": "التحدث"
   },
   "header": {
     "whatsNew": "ما الجديد",
@@ -111,7 +112,8 @@
     "progressEmptyBody": "بعد أن تتعلم وتراجع بعض العناصر، ستظهر هنا سلسلتك وتوقعاتك ونشاطك وتقدمك حسب المستوى.",
     "streakTitle": "السلسلة",
     "addWidget": "إضافة أداة",
-    "removeWidget": "إزالة الأداة"
+    "removeWidget": "إزالة الأداة",
+    "speakCaption": "أجرِ محادثة"
   },
   "stages": {
     "beginner": "مبتدئ",
@@ -1461,5 +1463,40 @@
     "triviaWrong": "ليس تمامًا.",
     "triviaNext": "السؤال التالي",
     "stalled": "يستغرق هذا وقتًا أطول من المعتاد. يمكنك البدء بالإنجليزية وسيتحول تلقائيًا عند الجاهزية."
+  },
+  "speak": {
+    "loading": "جارٍ التحميل…",
+    "unavailable": "التحدث غير متاح هنا بعد.",
+    "backToPractice": "العودة إلى التمرين",
+    "intro": "أجرِ محادثة. لا شيء يقاطعك — كل ما يهم يأتي في النهاية.",
+    "topicLabel": "عمّ نتحدث؟",
+    "topicPlaceholder": "الطلب في مقهى",
+    "topicHint": "اتركه فارغًا وسيبدأ محدثك.",
+    "startButton": "ابدأ الحديث",
+    "starting": "جارٍ البدء…",
+    "startFailed": "تعذّر البدء — حاول مرة أخرى.",
+    "yourMove": "قل شيئًا لتبدأ.",
+    "thinking": "…",
+    "inputLabel": "رسالتك",
+    "inputPlaceholder": "اكتب ردك",
+    "send": "إرسال",
+    "done": "تم",
+    "ending": "جارٍ إعداد الملخص…",
+    "endFailed": "تعذّر إنهاء الجلسة — حاول مرة أخرى.",
+    "turnFailed": "لم تُرسل. رسالتك ما زالت هنا — حاول مرة أخرى.",
+    "summaryStats_one": "دور واحد",
+    "summaryStats_two": "دوران",
+    "summaryStats_few": "{{count}} أدوار",
+    "summaryStats_many": "{{count}} دورًا",
+    "summaryStats_other": "{{count}} دور",
+    "whatCameUp": "ما ظهر",
+    "nothingCameUp": "لا شيء يحتاج تصحيحًا. جرّب مرة أخرى.",
+    "timesCount_one": "مرة واحدة",
+    "timesCount_two": "مرتان",
+    "timesCount_few": "{{count}} مرات",
+    "timesCount_many": "{{count}} مرة",
+    "timesCount_other": "{{count}} مرة",
+    "wordsYouReachedFor": "كلمات احتجت إليها",
+    "talkAgain": "تحدث مرة أخرى"
   }
 }

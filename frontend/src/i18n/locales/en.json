@@ -14,7 +14,8 @@
     "more": "More",
     "primary": "Main sections",
     "languageGuide": "Language guide",
-    "sections": "Sections"
+    "sections": "Sections",
+    "speak": "Speak"
   },
   "header": {
     "whatsNew": "What's new",
@@ -105,7 +106,8 @@
     "progressEmptyBody": "Once you've learned and reviewed a few items, your streak, forecast, activity and level progress appear here.",
     "streakTitle": "Streak",
     "addWidget": "Add widget",
-    "removeWidget": "Remove widget"
+    "removeWidget": "Remove widget",
+    "speakCaption": "Have a conversation"
   },
   "stages": {
     "beginner": "Beginner",
@@ -1398,5 +1400,34 @@
     "triviaWrong": "Not quite.",
     "triviaNext": "Next question",
     "stalled": "This is taking longer than it should. You can start in English and it will switch over as it lands."
+  },
+  "speak": {
+    "loading": "Loading…",
+    "unavailable": "Speak isn’t available here yet.",
+    "backToPractice": "Back to Practice",
+    "intro": "Have a conversation. Nothing interrupts you — everything worth knowing comes at the end.",
+    "topicLabel": "What shall we talk about?",
+    "topicPlaceholder": "Ordering at a café",
+    "topicHint": "Leave it blank and your partner will start.",
+    "startButton": "Start talking",
+    "starting": "Starting…",
+    "startFailed": "That didn’t start — try again.",
+    "yourMove": "Say something to begin.",
+    "thinking": "…",
+    "inputLabel": "Your message",
+    "inputPlaceholder": "Type your reply",
+    "send": "Send",
+    "done": "Done",
+    "ending": "Putting it together…",
+    "endFailed": "Couldn’t finish the session — try again.",
+    "turnFailed": "That didn’t send. Your message is still here — try again.",
+    "summaryStats_one": "{{count}} turn",
+    "summaryStats_other": "{{count}} turns",
+    "whatCameUp": "What came up",
+    "nothingCameUp": "Nothing came up worth fixing. Have another one.",
+    "timesCount_one": "{{count}} time",
+    "timesCount_other": "{{count}} times",
+    "wordsYouReachedFor": "Words you reached for",
+    "talkAgain": "Talk again"
   }
 }

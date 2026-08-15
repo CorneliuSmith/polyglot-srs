@@ -14,7 +14,8 @@
     "more": "Más",
     "primary": "Secciones principales",
     "languageGuide": "Guía del idioma",
-    "sections": "Secciones"
+    "sections": "Secciones",
+    "speak": "Hablar"
   },
   "header": {
     "whatsNew": "Novedades",
@@ -105,7 +106,8 @@
     "progressEmptyBody": "Cuando hayas aprendido y repasado algunos elementos, aquí aparecerán tu racha, tu previsión, tu actividad y tu progreso por nivel.",
     "streakTitle": "Racha",
     "addWidget": "Añadir widget",
-    "removeWidget": "Quitar widget"
+    "removeWidget": "Quitar widget",
+    "speakCaption": "Mantén una conversación"
   },
   "stages": {
     "beginner": "Principiante",
@@ -1398,5 +1400,34 @@
     "triviaWrong": "No exactamente.",
     "triviaNext": "Siguiente pregunta",
     "stalled": "Esto está tardando más de lo normal. Puedes empezar en inglés y cambiará solo cuando llegue."
+  },
+  "speak": {
+    "loading": "Cargando…",
+    "unavailable": "Hablar aún no está disponible aquí.",
+    "backToPractice": "Volver a Práctica",
+    "intro": "Mantén una conversación. Nada te interrumpe: todo lo que importa llega al final.",
+    "topicLabel": "¿De qué hablamos?",
+    "topicPlaceholder": "Pedir en una cafetería",
+    "topicHint": "Déjalo en blanco y tu interlocutor empezará.",
+    "startButton": "Empezar a hablar",
+    "starting": "Empezando…",
+    "startFailed": "No se pudo empezar; inténtalo de nuevo.",
+    "yourMove": "Di algo para empezar.",
+    "thinking": "…",
+    "inputLabel": "Tu mensaje",
+    "inputPlaceholder": "Escribe tu respuesta",
+    "send": "Enviar",
+    "done": "Listo",
+    "ending": "Preparando el resumen…",
+    "endFailed": "No se pudo terminar la sesión; inténtalo de nuevo.",
+    "turnFailed": "No se envió. Tu mensaje sigue aquí; inténtalo de nuevo.",
+    "summaryStats_one": "{{count}} turno",
+    "summaryStats_other": "{{count}} turnos",
+    "whatCameUp": "Lo que apareció",
+    "nothingCameUp": "No apareció nada que corregir. Prueba otra vez.",
+    "timesCount_one": "{{count}} vez",
+    "timesCount_other": "{{count}} veces",
+    "wordsYouReachedFor": "Palabras que buscaste",
+    "talkAgain": "Hablar otra vez"
   }
 }

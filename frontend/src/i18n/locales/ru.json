@@ -14,7 +14,8 @@
     "more": "Ещё",
     "primary": "Основные разделы",
     "languageGuide": "Справочник языка",
-    "sections": "Разделы"
+    "sections": "Разделы",
+    "speak": "Говорить"
   },
   "header": {
     "whatsNew": "Что нового",
@@ -109,7 +110,8 @@
     "progressEmptyBody": "Когда вы выучите и повторите несколько элементов, здесь появятся серия, прогноз, активность и прогресс по уровням.",
     "streakTitle": "Серия",
     "addWidget": "Добавить виджет",
-    "removeWidget": "Убрать виджет"
+    "removeWidget": "Убрать виджет",
+    "speakCaption": "Поговорите"
   },
   "stages": {
     "beginner": "Новичок",
@@ -1440,5 +1442,38 @@
     "triviaWrong": "Не совсем.",
     "triviaNext": "Следующий вопрос",
     "stalled": "Это занимает больше времени, чем обычно. Можно начать на английском — язык переключится сам, когда всё будет готово."
+  },
+  "speak": {
+    "loading": "Загрузка…",
+    "unavailable": "Раздел «Говорить» здесь пока недоступен.",
+    "backToPractice": "Назад к практике",
+    "intro": "Просто поговорите. Вас никто не перебивает — всё важное будет в конце.",
+    "topicLabel": "О чём поговорим?",
+    "topicPlaceholder": "Заказ в кафе",
+    "topicHint": "Оставьте пустым — собеседник начнёт сам.",
+    "startButton": "Начать разговор",
+    "starting": "Начинаем…",
+    "startFailed": "Не удалось начать — попробуйте ещё раз.",
+    "yourMove": "Скажите что-нибудь, чтобы начать.",
+    "thinking": "…",
+    "inputLabel": "Ваше сообщение",
+    "inputPlaceholder": "Напишите ответ",
+    "send": "Отправить",
+    "done": "Готово",
+    "ending": "Собираем итоги…",
+    "endFailed": "Не удалось завершить сессию — попробуйте ещё раз.",
+    "turnFailed": "Сообщение не отправилось. Оно сохранено — попробуйте ещё раз.",
+    "summaryStats_one": "{{count}} реплика",
+    "summaryStats_few": "{{count}} реплики",
+    "summaryStats_many": "{{count}} реплик",
+    "summaryStats_other": "{{count}} реплик",
+    "whatCameUp": "Что встретилось",
+    "nothingCameUp": "Исправлять нечего. Попробуйте ещё раз.",
+    "timesCount_one": "{{count}} раз",
+    "timesCount_few": "{{count}} раза",
+    "timesCount_many": "{{count}} раз",
+    "timesCount_other": "{{count}} раз",
+    "wordsYouReachedFor": "Слова, которых не хватило",
+    "talkAgain": "Поговорить ещё"
   }
 }

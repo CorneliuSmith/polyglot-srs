@@ -64,6 +64,7 @@ class _RedisBackend:
     def __init__(self, url: str, name: str, max_calls: int, per_seconds: float):
         import redis.asyncio as aioredis
 
+        self._url = url
         self._redis = aioredis.from_url(url)
         self._script = self._redis.register_script(_SLIDING_WINDOW_LUA)
         self.name = name
@@ -79,8 +80,32 @@ class _RedisBackend:
         )
         return bool(result)
 
-    def reset(self) -> None:  # pragma: no cover - tests use the memory backend
-        pass
+    def reset(self) -> None:
+        """Drop every window this limiter is holding.
+
+        Only tests call this, and it used to be a no-op with a comment
+        claiming tests always use the memory backend. They don't: the
+        documented way to run the full suite sets REDIS_URL so the
+        integration tests can see a broker, which quietly switched every
+        limiter to this backend and turned conftest's autouse reset into
+        nothing. Rate-limit state then leaked across the whole run, and
+        whichever tests happened to come after twenty-odd chat calls failed
+        with 429s — a moving set of failures with no connection to the code
+        that "broke" them.
+
+        Synchronous on purpose: the fixture that calls it is synchronous,
+        and a short-lived client here is cheaper than making every caller
+        await a teardown.
+        """
+        import redis
+
+        client = redis.from_url(self._url)
+        try:
+            keys = list(client.scan_iter(match=f"ratelimit:{self.name}:*"))
+            if keys:
+                client.delete(*keys)
+        finally:
+            client.close()
 
 
 class RateLimiter:
@@ -108,7 +133,18 @@ class RateLimiter:
         return await self._get_backend().allow(key)
 
     def reset(self) -> None:
-        self._get_backend().reset()
+        """Forget every window. Tests only — conftest calls it per test.
+
+        Also drops the cached backend. The async Redis client binds to the
+        event loop that first drove it, and every TestClient runs its own
+        loop, so a client built by one test file failed for every later one
+        with a dead-loop read error — which surfaced as unrelated endpoints
+        500ing, in a set that moved whenever test order did. Rebuilding is
+        cheap: from_url() doesn't connect.
+        """
+        if self._backend is not None:
+            self._backend.reset()
+            self._backend = None
 
 
 # Tutor chat: interactive, allow a brisk pace but cap runaway loops.
