@@ -126,8 +126,45 @@ _SUMMARY_SCHEMA = {
                         "description": "Their own phrases, quoted.",
                     },
                     "count": {"type": "integer"},
+                    "card": {
+                        "type": "object",
+                        "description": (
+                            "A card the learner may choose to keep, built "
+                            "from THEIR OWN sentence with the mistake fixed "
+                            "— not a textbook example. Practising the "
+                            "sentence they actually tried to say is the "
+                            "whole point."
+                        ),
+                        "properties": {
+                            "sentence": {
+                                "type": "string",
+                                "description": (
+                                    "Their sentence, corrected, in full. The "
+                                    "answer below must appear in it "
+                                    "word-for-word."
+                                ),
+                            },
+                            "answer": {
+                                "type": "string",
+                                "description": (
+                                    "The single word from that sentence that "
+                                    "was wrong — this is what gets blanked "
+                                    "out, so spell it exactly as it appears."
+                                ),
+                            },
+                            "translation": {
+                                "type": "string",
+                                "description": (
+                                    "What the sentence means, in the "
+                                    "learner's support language."
+                                ),
+                            },
+                        },
+                        "required": ["sentence", "answer", "translation"],
+                        "additionalProperties": False,
+                    },
                 },
-                "required": ["label", "note", "examples", "count"],
+                "required": ["label", "note", "examples", "count", "card"],
                 "additionalProperties": False,
             },
         },
@@ -147,8 +184,17 @@ _SUMMARY_SCHEMA = {
                         "type": "string",
                         "description": "In the learner's support language.",
                     },
+                    "example": {
+                        "type": "string",
+                        "description": (
+                            "A short sentence from THIS conversation using "
+                            "the term, containing it word-for-word. Lets the "
+                            "word be practised in the context they met it in "
+                            "rather than as a bare pair."
+                        ),
+                    },
                 },
-                "required": ["term", "meaning"],
+                "required": ["term", "meaning", "example"],
                 "additionalProperties": False,
             },
         },
@@ -310,8 +356,36 @@ def _fallback_groups(errors: list[dict]) -> list[dict]:
                 f"{i['learner_said']} → {i['should_be']}" for i in items[:4]
             ],
             "count": len(items),
+            # No card. A per-turn error records the phrase that was wrong,
+            # not the whole sentence it sat in, so there is nothing here to
+            # build a cloze from. Offering a broken card is worse than
+            # offering none.
+            "card": None,
         })
     return groups
+
+
+def _usable_card(card) -> dict | None:
+    """Keep a card only if it can actually become one.
+
+    The card endpoint blanks *answer* out of *sentence* and rejects the save
+    when the answer isn't a whole word there. Checking it here means the
+    learner never meets an Add button that 422s when they press it — the
+    button is simply absent for groups that cannot produce a card.
+    """
+    if not isinstance(card, dict):
+        return None
+    sentence = (card.get("sentence") or "").strip()
+    answer = (card.get("answer") or "").strip()
+    if not sentence or not answer:
+        return None
+    if answer.lower() not in sentence.lower():
+        return None
+    return {
+        "sentence": sentence,
+        "answer": answer,
+        "translation": (card.get("translation") or "").strip(),
+    }
 
 
 async def summarize_speak_session(
@@ -343,7 +417,8 @@ async def summarize_speak_session(
     if getattr(settings, "tutor_dev_mock", False):
         return (
             {"groups": _fallback_groups(errors),
-             "vocabulary": [{"term": "[dev mock]", "meaning": "a placeholder"}],
+             "vocabulary": [{"term": "[dev mock]", "meaning": "a placeholder",
+                             "example": "This is a [dev mock] sentence."}],
              "stats": stats},
             {"input_tokens": 5, "output_tokens": 20,
              "cache_write_tokens": 0, "cache_read_tokens": 0},
@@ -403,7 +478,10 @@ async def summarize_speak_session(
             "groups": _fallback_groups(errors), "vocabulary": [], "stats": stats
         }, counts
 
-    groups = [g for g in (data.get("groups") or []) if g.get("label")]
+    groups = [
+        {**g, "card": _usable_card(g.get("card"))}
+        for g in (data.get("groups") or []) if g.get("label")
+    ]
     return {
         "groups": groups or _fallback_groups(errors),
         "vocabulary": [

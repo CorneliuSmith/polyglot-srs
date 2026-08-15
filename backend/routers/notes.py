@@ -57,7 +57,7 @@ class PersonalCardCreate(BaseModel):
     # Where the card came from, so it can be filed somewhere the learner will
     # find it. Free text is rejected — this names a deck, and an open field
     # would let callers mint arbitrary decks on every save.
-    source: Literal["reading", "tutor", "notes"] = "notes"
+    source: Literal["reading", "tutor", "notes", "speak"] = "notes"
 
 
 # Auto-filing destinations. Learners can rename these afterwards; the
@@ -67,6 +67,7 @@ DECK_FOR_SOURCE = {
     "reading": "From reading",
     "tutor": "From the tutor",
     "notes": "From my notes",
+    "speak": "From speaking",
 }
 
 

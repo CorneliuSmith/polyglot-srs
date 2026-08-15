@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { Loader2, Send } from 'lucide-react'
+import { Check, Loader2, Send } from 'lucide-react'
 import {
   endSpeakSession,
   getSpeakStatus,
@@ -11,6 +11,7 @@ import {
 } from '../../api/speak'
 import type { SpeakSummary } from '../../api/speak'
 import type { TutorAllowance } from '../../api/tutor'
+import { createPersonalCard } from '../../api/notes'
 import { getLanguages } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
@@ -147,6 +148,7 @@ export default function SpeakPage() {
         <SummaryView
           summary={summary}
           languageCode={language?.code ?? 'en'}
+          languageId={activeLanguageId}
           onAgain={() => {
             setSummary(null)
             setExchanges([])
@@ -286,13 +288,51 @@ function Shell({
 function SummaryView({
   summary,
   languageCode,
+  languageId,
   onAgain,
 }: {
   summary: SpeakSummary
   languageCode: string
+  languageId: string | null
   onAgain: () => void
 }) {
   const { t } = useTranslation()
+  const navigate = useNavigate()
+  // Nothing is added on its own. These track what the learner chose, so a
+  // second tap can't duplicate a card and the button can say it worked.
+  const [added, setAdded] = useState<Record<string, boolean>>({})
+  const [failed, setFailed] = useState<Record<string, boolean>>({})
+
+  const add = useMutation({
+    mutationFn: async ({
+      key, sentence, answer, translation, gloss,
+    }: {
+      key: string
+      sentence: string
+      answer: string
+      translation?: string
+      gloss?: string
+    }) => {
+      await createPersonalCard({
+        languageId: languageId!,
+        languageCode,
+        sentence,
+        answer,
+        translation,
+        gloss,
+        source: 'speak',
+      })
+      return key
+    },
+    onSuccess: (key) => {
+      setAdded((prev) => ({ ...prev, [key]: true }))
+      setFailed((prev) => ({ ...prev, [key]: false }))
+    },
+    onError: (_e, vars) => setFailed((prev) => ({ ...prev, [vars.key]: true })),
+  })
+
+  const anyAdded = Object.values(added).some(Boolean)
+
   return (
     <div data-testid="speak-summary">
       <p className="text-sm text-gray-600">
@@ -334,6 +374,24 @@ function SummaryView({
                     </ul>
                   </LanguageWrapper>
                 )}
+                {/* Absent when the session produced nothing a card could be
+                    built from — better than a button that fails on tap. */}
+                {g.card && (
+                  <AddButton
+                    testId={`speak-add-group-${i}`}
+                    added={!!added[`g${i}`]}
+                    failed={!!failed[`g${i}`]}
+                    disabled={add.isPending || !languageId}
+                    onClick={() =>
+                      add.mutate({
+                        key: `g${i}`,
+                        sentence: g.card!.sentence,
+                        answer: g.card!.answer,
+                        translation: g.card!.translation,
+                      })
+                    }
+                  />
+                )}
               </li>
             ))}
           </ul>
@@ -345,28 +403,108 @@ function SummaryView({
           <h2 className="mt-5 text-sm font-bold text-gray-900">
             {t('speak.wordsYouReachedFor')}
           </h2>
-          <ul className="mt-2 rounded-xl border border-gray-200 bg-white p-4 space-y-1">
+          <ul className="mt-2 rounded-xl border border-gray-200 bg-white p-4 space-y-2">
             {summary.vocabulary.map((v, i) => (
-              <li key={i} className="text-sm text-gray-700">
-                <LanguageWrapper languageCode={languageCode}>
-                  <span className="font-semibold">{v.term}</span>
-                </LanguageWrapper>
-                <span className="text-gray-500"> — {v.meaning}</span>
+              <li
+                key={i}
+                className="flex items-baseline justify-between gap-3 text-sm text-gray-700"
+              >
+                <span>
+                  <LanguageWrapper languageCode={languageCode}>
+                    <span className="font-semibold">{v.term}</span>
+                  </LanguageWrapper>
+                  <span className="text-gray-500"> — {v.meaning}</span>
+                </span>
+                <AddButton
+                  testId={`speak-add-word-${i}`}
+                  added={!!added[`v${i}`]}
+                  failed={!!failed[`v${i}`]}
+                  disabled={add.isPending || !languageId}
+                  onClick={() =>
+                    add.mutate({
+                      key: `v${i}`,
+                      // Prefer the sentence they met it in; the server falls
+                      // back to a type-the-word card from the gloss when the
+                      // term isn't a whole word there.
+                      sentence: v.example || v.term,
+                      answer: v.term,
+                      gloss: v.meaning,
+                    })
+                  }
+                />
               </li>
             ))}
           </ul>
         </>
       )}
 
+      {anyAdded && (
+        <button
+          type="button"
+          onClick={() => navigate('/review')}
+          data-testid="speak-practise"
+          className="mt-5 w-full rounded-xl bg-lang px-6 py-3 text-sm font-bold text-white"
+          style={{ minHeight: '44px' }}
+        >
+          {t('speak.practiseThese')}
+        </button>
+      )}
+
       <button
         type="button"
         onClick={onAgain}
         data-testid="speak-again"
-        className="mt-5 w-full rounded-xl bg-lang px-6 py-3 text-sm font-bold text-white"
+        className={`mt-3 w-full rounded-xl px-6 py-3 text-sm font-bold ${
+          anyAdded
+            ? 'border border-gray-300 bg-white text-gray-800'
+            : 'bg-lang text-white'
+        }`}
         style={{ minHeight: '44px' }}
       >
         {t('speak.talkAgain')}
       </button>
     </div>
+  )
+}
+
+/** Opt-in, one tap, and honest about what happened. Nothing is ever added
+ * without the learner asking — a summary that quietly filled their reviews
+ * would make them wary of finishing a session at all. */
+function AddButton({
+  testId,
+  added,
+  failed,
+  disabled,
+  onClick,
+}: {
+  testId: string
+  added: boolean
+  failed: boolean
+  disabled: boolean
+  onClick: () => void
+}) {
+  const { t } = useTranslation()
+  if (added) {
+    return (
+      <span
+        data-testid={testId}
+        className="shrink-0 inline-flex items-center gap-1 text-xs font-semibold text-green-700"
+      >
+        <Check aria-hidden className="h-3.5 w-3.5" />
+        {t('speak.added')}
+      </span>
+    )
+  }
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      data-testid={testId}
+      className="shrink-0 rounded-lg border border-lang/40 px-3 py-1.5 text-xs font-semibold text-lang disabled:opacity-50"
+      style={{ minHeight: '32px' }}
+    >
+      {failed ? t('speak.addRetry') : t('speak.add')}
+    </button>
   )
 }

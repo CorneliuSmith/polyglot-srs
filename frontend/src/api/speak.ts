@@ -10,6 +10,16 @@ export interface SpeakError {
   note: string
 }
 
+/** Card material built from the learner's OWN corrected sentence. Null when
+ * the session produced nothing a cloze could be made from — the server checks
+ * that `answer` really appears in `sentence`, so an Add button is never
+ * offered for a card that would be rejected on save. */
+export interface SpeakCard {
+  sentence: string
+  answer: string
+  translation: string
+}
+
 /** A recurring problem, grouped by what the learner needs to understand
  * rather than by error label — three pronoun slips are one group. */
 export interface SpeakGroup {
@@ -17,11 +27,15 @@ export interface SpeakGroup {
   note: string
   examples: string[]
   count: number
+  card: SpeakCard | null
 }
 
 export interface SpeakVocabulary {
   term: string
   meaning: string
+  /** A sentence from this conversation using the term, so the word can be
+   * practised where they met it rather than as a bare pair. */
+  example?: string
 }
 
 /** Counts, deliberately not a score: the plan is explicit that the moment

@@ -1,8 +1,13 @@
 # Speak — conversation practice with a correction pass
 
-A feature plan. **Stage 1 is built** (typed Flow mode plus the end-of-session
-summary — see the sequencing table below); stages 2–4 are still design to
-argue with before anyone writes code.
+A feature plan. **Stages 1 and 4 are built** (typed Flow mode, the
+end-of-session summary, and opt-in cards from it — see the sequencing table
+below). Stages 2 and 3 are still design to argue with before anyone writes
+code.
+
+Stage 4 came before 2 and 3 deliberately: speech needs an STT provider this
+codebase does not have and the owner has not chosen, whereas cards need
+nothing new and are what makes a Speak session feed the rest of the app.
 
 **Name: Speak.** It sits in Practice alongside Gym and Read. Those two are
 recognition and comprehension; this is the only place the learner *produces*
@@ -182,7 +187,7 @@ Each stage is usable on its own; stop after any of them.
 | 1 ✅ | Text-only Flow mode + summary | Proves the turn engine and the error extraction with no audio risk at all |
 | 2 | Speech in and out | Latency work lands against something already known to work |
 | 3 | Coach mode | The interrupting correction is the riskiest UX call; earn the right to it |
-| 4 | Cards from the summary | Wire to personal cards once the errors are known to be worth keeping |
+| 4 ✅ | Cards from the summary | Wire to personal cards once the errors are known to be worth keeping |
 
 Stage 1 is genuinely useful alone — a typed conversation partner with an
 end-of-session breakdown is a real feature.
@@ -210,10 +215,31 @@ Four decisions worth knowing before building stage 2:
   a session id; a client that passed its own `language_id` could aim a
   session at another course's model and level.
 
-Two things the plan asked for that stage 1 does NOT do: the summary's
-cards are display-only (adding them is stage 4), and there is no
+One thing the plan asked for that stage 1 does NOT do: there is no
 `/status` entry until the migration is applied — the page reports itself
 unavailable rather than offering a conversation that cannot be saved.
+
+### What stage 4 shipped
+
+The summary's cards are real. Each group carries a `card` built from the
+learner's OWN corrected sentence, and each vocabulary item carries the
+sentence from the conversation it appeared in, so both are practised in
+context rather than as bare pairs. They file into a "From speaking" deck
+through the same `/api/notes/cards` path `TranslateMyCards` uses.
+
+Three things worth knowing:
+
+- **Nothing is ever added automatically.** Every card is one deliberate
+  tap. A summary that quietly filled someone's reviews would make them
+  wary of finishing a session, which is the opposite of the point.
+- **A card that could not be saved is never offered.** `_usable_card`
+  checks the answer really appears in the sentence — the same rule the card
+  endpoint enforces — so the Add button is absent rather than broken.
+  Fallback groups carry no card at all: a per-turn error records the phrase
+  that was wrong, not the sentence around it.
+- **"Practise these" appears only once something has been kept**, and
+  routes to the normal review session. There is no separate Speak-only
+  drill mode to maintain.
 
 ---
 

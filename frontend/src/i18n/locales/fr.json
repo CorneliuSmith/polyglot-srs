@@ -1428,6 +1428,10 @@
     "timesCount_one": "{{count}} fois",
     "timesCount_other": "{{count}} fois",
     "wordsYouReachedFor": "Mots qui vous ont manqué",
-    "talkAgain": "Reparler"
+    "talkAgain": "Reparler",
+    "add": "+ Ajouter",
+    "added": "Ajoutée",
+    "addRetry": "Réessayer",
+    "practiseThese": "S’entraîner"
   }
 }

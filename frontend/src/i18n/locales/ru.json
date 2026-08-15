@@ -1474,6 +1474,10 @@
     "timesCount_many": "{{count}} раз",
     "timesCount_other": "{{count}} раз",
     "wordsYouReachedFor": "Слова, которых не хватило",
-    "talkAgain": "Поговорить ещё"
+    "talkAgain": "Поговорить ещё",
+    "add": "+ Добавить",
+    "added": "Добавлено",
+    "addRetry": "Ещё раз",
+    "practiseThese": "Потренировать"
   }
 }
