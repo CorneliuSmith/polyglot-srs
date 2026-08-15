@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { Trans, useTranslation } from 'react-i18next'
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
@@ -493,7 +492,8 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                   </option>
                 ))}
             </select>
-            <UiLanguageSwitcher />
+            {/* No globe mid-walkthrough: it changes the card language under
+                a session already in progress. Every other page has it. */}
             <button
               type="button"
               onClick={() => navigate('/')}
