@@ -195,7 +195,9 @@ function ReviewSessionInner({
     !startNow &&
     readinessQuery.data != null &&
     !readinessQuery.data.review.ready_enough
-  const handleStart = useCallback(() => setStartNow(true), [])
+  // Bumped when the wait screen hands over — see handleStart, declared below
+  // once `cards` exists.
+  const [deckEpoch, setDeckEpoch] = useState(0)
 
   const { data: fetched, isLoading, isError } = useQuery(
     cram
@@ -217,7 +219,10 @@ function ReviewSessionInner({
           refetchOnWindowFocus: false,
         }
       : {
-          queryKey: ['due-cards', activeLanguageId, sessionSize, reviewType ?? 'all', supportLocale],
+          queryKey: [
+            'due-cards', activeLanguageId, sessionSize, reviewType ?? 'all',
+            supportLocale, deckEpoch,
+          ],
           queryFn: () => getDueCards(activeLanguageId!, sessionSize, reviewType),
           // Deliberately NOT gated on readiness. Due cards already exist —
           // fetching them is read-only and cheap, so the wait screen decides
@@ -246,6 +251,28 @@ function ReviewSessionInner({
   useEffect(() => {
     if (fetched && cards === null) setCards(fetched)
   }, [fetched, cards])
+
+  // Leaving the Trailblazer wait re-pulls the deck.
+  //
+  // The deck is fetched on mount and then frozen — staleTime Infinity plus
+  // the snapshot above — which is right for a running session and wrong for
+  // one that started behind the wait. Those cards were pulled BEFORE the
+  // fill landed, so the learner sat through the whole wait, played the
+  // trivia game, and then met the very English they had been waiting to have
+  // translated. Nothing refetched, because nothing had changed from
+  // react-query's point of view.
+  //
+  // Changing the query key is what re-fetches. The alternatives don't work:
+  // the deck deliberately isn't gated on readiness (gating it stalled a
+  // mid-session language switch behind the new pair's fill), and staleTime
+  // Infinity means it will never refetch on its own. Clearing the snapshot
+  // in the same breath lets the effect above take the fresh deck; gcTime 0
+  // means the new key has nothing cached to flash first.
+  const handleStart = useCallback(() => {
+    setCards(null)
+    setDeckEpoch((n) => n + 1)
+    setStartNow(true)
+  }, [])
 
   const session = useReviewSession(
     cards ?? [],

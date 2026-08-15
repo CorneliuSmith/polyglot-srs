@@ -14,6 +14,8 @@ vi.mock('../api/review', () => ({
   markCardKnown: vi.fn(),
   // These sessions already read in the learner's language, so the
   // trailblazer wait never stands between them and their cards.
+  getTrivia: vi.fn(() => Promise.resolve([])),
+  markTriviaSeen: vi.fn(() => Promise.resolve()),
   getSessionReadiness: vi.fn(() =>
     Promise.resolve({
       locale: null,
@@ -43,13 +45,17 @@ vi.mock('../components/SpeakButton', () => ({
   ),
 }))
 
-import { getCramCards, getDueCards, markCardKnown, validateAnswer, submitReview } from '../api/review'
+import {
+  getCramCards, getDueCards, getSessionReadiness, markCardKnown, validateAnswer,
+  submitReview,
+} from '../api/review'
 import { generateGymDrills } from '../api/gym'
 import { usePrefsStore } from '../stores/prefsStore'
 
 const mockGenerateGymDrills = generateGymDrills as ReturnType<typeof vi.fn>
 
 const mockGetDueCards = getDueCards as ReturnType<typeof vi.fn>
+const mockGetReadiness = getSessionReadiness as ReturnType<typeof vi.fn>
 const mockGetCramCards = getCramCards as ReturnType<typeof vi.fn>
 const mockValidateAnswer = validateAnswer as ReturnType<typeof vi.fn>
 const mockSubmitReview = submitReview as ReturnType<typeof vi.fn>
@@ -865,5 +871,79 @@ describe('due counts after a review', () => {
       expect(dashboardCalls.length).toBeGreaterThan(0)
       expect(dashboardCalls.every((c) => c[0]?.refetchType === 'none')).toBe(true)
     })
+  })
+})
+
+describe('leaving the Trailblazer wait', () => {
+  const englishCard: DueCard = {
+    ...testCard,
+    id: 'card-pre-fill',
+    sentence: 'El coche {{answer}} nuevo.',
+    translation: 'The car is new.',
+  }
+  const translatedCard: DueCard = {
+    ...englishCard,
+    translation: 'El coche es nuevo.',
+  }
+
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockUsePrefsStore.mockImplementation(
+      (selector: (s: { activeLanguageId: string }) => unknown) =>
+        selector({ activeLanguageId: 'lang-123' }),
+    )
+    // Under the bar: the wait screen stands between the learner and the deck.
+    mockGetReadiness.mockResolvedValue({
+      locale: 'es',
+      threshold: 0.6,
+      learn: { total: 10, ready: 1, pct: 0.1, cards: 5, cards_ready: 0,
+               start_cards: 3, ready_enough: false },
+      review: { total: 10, ready: 1, pct: 0.1, cards: 5, cards_ready: 0,
+                start_cards: 3, ready_enough: false },
+      pairs: [],
+    })
+  })
+
+  it('re-pulls the deck so the fill that just landed is what gets shown', async () => {
+    // The deck is fetched on mount and frozen. Before this, the learner sat
+    // through the whole wait, played the game, and then met the very English
+    // they had been waiting to have translated.
+    mockGetDueCards
+      .mockResolvedValueOnce([englishCard])
+      .mockResolvedValueOnce([translatedCard])
+
+    renderWithProviders(<ReviewSessionPage />)
+
+    const startAnyway = await screen.findByText('Start in English')
+    await waitFor(() => expect(mockGetDueCards).toHaveBeenCalledTimes(1))
+
+    fireEvent.click(startAnyway)
+
+    // The deck is pulled again on the way out of the wait…
+    await waitFor(() => expect(mockGetDueCards).toHaveBeenCalledTimes(2))
+    // …and the session that renders is built from that second answer, not
+    // the snapshot taken on mount.
+    const input = await screen.findByRole('textbox')
+    fireEvent.change(input, { target: { value: 'es' } })
+    expect((input as HTMLInputElement).value).toBe('es')
+  })
+
+  it('does not re-pull for a session that never waited', async () => {
+    // Ready enough means no wait screen and no second fetch to pay for.
+    mockGetReadiness.mockResolvedValue({
+      locale: 'es',
+      threshold: 0.6,
+      learn: { total: 10, ready: 10, pct: 1, cards: 5, cards_ready: 5,
+               start_cards: 3, ready_enough: true },
+      review: { total: 10, ready: 10, pct: 1, cards: 5, cards_ready: 5,
+                start_cards: 3, ready_enough: true },
+      pairs: [],
+    })
+    mockGetDueCards.mockResolvedValue([translatedCard])
+
+    renderWithProviders(<ReviewSessionPage />)
+
+    await screen.findByRole('textbox')
+    expect(mockGetDueCards).toHaveBeenCalledTimes(1)
   })
 })
