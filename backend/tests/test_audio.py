@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+import base64
 import time
 from contextlib import asynccontextmanager
 from unittest.mock import AsyncMock, MagicMock, patch
 
+import asyncpg
 import jwt as pyjwt
 import pytest
 from fastapi.testclient import TestClient
@@ -36,9 +38,19 @@ def _auth_headers() -> dict:
     return {"Authorization": f"Bearer {token}"}
 
 
-def _conn(fetchval_results):
+def _conn(fetchval_results, cache_rows=None):
     conn = AsyncMock()
-    conn.fetchval = AsyncMock(side_effect=fetchval_results)
+    conn.fetchval = AsyncMock(side_effect=list(fetchval_results))
+    # The cache lookup reads (storage_path, audio) as one row now that a
+    # clip can be held in the database when its upload failed. Derive the
+    # rows from the same fixtures unless a test states them: a string is a
+    # stored clip, anything else is a miss.
+    if cache_rows is None:
+        cache_rows = [
+            {"storage_path": v, "audio": None} if isinstance(v, str) else None
+            for v in fetchval_results
+        ]
+    conn.fetchrow = AsyncMock(side_effect=list(cache_rows))
     return conn
 
 
@@ -258,7 +270,12 @@ class TestTTSEndpoint:
 
     def test_upload_failure_still_serves_the_clip_inline(self):
         # Storage is an optimization: a broken bucket/key must never
-        # regress the learner to the browser voice. No cache row either.
+        # regress the learner to the browser voice.
+        #
+        # This used to assert "no cache row either", which is what made the
+        # clip cost a fresh synthesis on every later play. The audio has
+        # been paid for by the time we get here — whether the upload landed
+        # decides HOW it is remembered, never WHETHER.
         priv = _conn([None])
         rls = _conn([True])
         upload = MagicMock(status_code=403, text="signature verification failed")
@@ -285,7 +302,13 @@ class TestTTSEndpoint:
         assert body["url"] is None
         import base64
         assert base64.b64decode(body["audio_b64"]) == b"mp3bytes"
-        priv.execute.assert_not_awaited()
+        # Recorded with the bytes and no storage path — so the next play is
+        # a cache hit that promotes it, not another call to the provider.
+        priv.execute.assert_awaited_once()
+        args = priv.execute.await_args.args
+        assert "INSERT INTO tts_audio" in args[0]
+        assert args[4] is None          # storage_path
+        assert args[5] == b"mp3bytes"   # audio
 
     def test_upload_timeout_trips_cooldown_then_skips_storage(self):
         # Prod egress quirk: connections to Supabase's HTTP APIs hang.
@@ -417,3 +440,89 @@ class TestTTSEndpoint:
         assert upload_call.kwargs["content"] == b"mp3bytes"
         # …and the cache row was written.
         priv.execute.assert_awaited_once()
+
+
+class TestDurableCache:
+    """Synthesize once, ever — even when the CDN upload fails.
+
+    storage_path was NOT NULL, so a clip could only be recorded if it
+    reached the bucket. Everything else was served inline and forgotten,
+    and every later play paid the provider again. These cover the path that
+    closes it.
+    """
+
+    def _http(self, *, ok: bool):
+        resp = MagicMock(
+            status_code=200 if ok else 403, text="" if ok else "denied"
+        )
+        client = AsyncMock()
+        client.__aenter__ = AsyncMock(return_value=client)
+        client.__aexit__ = AsyncMock(return_value=False)
+        client.post = AsyncMock(return_value=resp)
+        return client
+
+    def _post(self, priv, rls, http_client, synth=b"mp3bytes"):
+        ps = _client(priv, rls)
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], \
+             patch("backend.routers.audio.synthesize",
+                   new=AsyncMock(return_value=synth)) as mock_synth, \
+             patch("backend.routers.audio.httpx.AsyncClient",
+                   return_value=http_client):
+            app = create_app()
+            with TestClient(app) as client:
+                resp = client.post(
+                    "/api/audio/tts",
+                    json={"language_code": "pt", "text": "você"},
+                    headers=_auth_headers(),
+                )
+        return resp, mock_synth
+
+    def test_a_database_held_clip_is_never_synthesized_again(self):
+        # The cache hit that this whole change exists to produce.
+        priv = _conn(
+            [None], cache_rows=[{"storage_path": None, "audio": b"mp3bytes"}]
+        )
+        resp, synth = self._post(priv, _conn([True]), self._http(ok=False))
+
+        assert resp.status_code == 200
+        assert resp.json()["cached"] is True
+        assert base64.b64decode(resp.json()["audio_b64"]) == b"mp3bytes"
+        synth.assert_not_awaited()
+
+    def test_a_database_held_clip_is_promoted_once_storage_recovers(self):
+        # The bytes column is a safety net, not the destination: one bad
+        # afternoon must not leave megabytes in Postgres forever.
+        priv = _conn(
+            [None], cache_rows=[{"storage_path": None, "audio": b"mp3bytes"}]
+        )
+        resp, synth = self._post(priv, _conn([True]), self._http(ok=True))
+
+        assert resp.json()["url"].endswith(".mp3")
+        assert "audio_b64" not in resp.json()
+        synth.assert_not_awaited()
+        # …and the row now points at the bucket with the bytes dropped.
+        sql = priv.execute.await_args.args[0]
+        assert "UPDATE tts_audio" in sql
+        assert "audio = NULL" in sql
+
+    def test_a_successful_upload_stores_no_bytes(self):
+        priv = _conn([None])
+        resp, _ = self._post(priv, _conn([True]), self._http(ok=True))
+
+        assert resp.json()["url"].endswith(".mp3")
+        args = priv.execute.await_args.args
+        assert args[4] is not None   # storage_path
+        assert args[5] is None       # audio — the CDN has it
+
+    def test_an_unmigrated_database_still_serves_audio(self):
+        # The audio column lands by hand. Until it does, a clip that could
+        # not be uploaded goes back to costing a synthesis next time — but
+        # the learner must still hear this one rather than meet a 500.
+        priv = _conn([None])
+        priv.execute = AsyncMock(
+            side_effect=asyncpg.exceptions.UndefinedColumnError("no column")
+        )
+        resp, _ = self._post(priv, _conn([True]), self._http(ok=False))
+
+        assert resp.status_code == 200
+        assert base64.b64decode(resp.json()["audio_b64"]) == b"mp3bytes"

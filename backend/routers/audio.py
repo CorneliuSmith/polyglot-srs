@@ -15,6 +15,7 @@ import base64
 import logging
 import time
 
+import asyncpg
 import httpx
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
@@ -103,6 +104,108 @@ def _public_url(settings, path: str) -> str:
     return f"{settings.supabase_url.rstrip('/')}/storage/v1/object/public/tts/{path}"
 
 
+async def _upload_clip(settings, storage_path: str, audio: bytes) -> bool:
+    """Push one clip to the public bucket. True when it landed.
+
+    Failure is never fatal here — the caller always has the bytes and can
+    serve them inline. What matters is that a failure is REPORTED, so the
+    caller records the clip in the database instead of losing it.
+    """
+    global _storage_down_until
+    if not settings.supabase_service_role_key:
+        return False
+    if time.monotonic() < _storage_down_until:
+        return False
+    try:
+        async with httpx.AsyncClient(timeout=_STORAGE_TIMEOUT) as client:
+            resp = await client.post(
+                f"{settings.supabase_url.rstrip('/')}/storage/v1/object/tts/{storage_path}",
+                headers={
+                    "apikey": settings.supabase_service_role_key,
+                    "Authorization": f"Bearer {settings.supabase_service_role_key}",
+                    "Content-Type": "audio/mpeg",
+                    "x-upsert": "true",
+                },
+                content=audio,
+            )
+    except Exception as exc:  # noqa: BLE001 — storage outage ≠ no audio
+        _storage_down_until = time.monotonic() + _STORAGE_COOLDOWN_S
+        logger.error(
+            "TTS upload errored (%s): %s — skipping storage for %.0fs",
+            type(exc).__name__, exc, _STORAGE_COOLDOWN_S,
+        )
+        return False
+    if resp.status_code in (200, 201):
+        return True
+    logger.error("TTS upload failed (%s): %s", resp.status_code, resp.text[:200])
+    return False
+
+
+async def _record_clip(
+    language_code: str, voice: str, key: str,
+    storage_path: str | None, audio: bytes | None,
+) -> None:
+    """Remember that this clip exists, whichever form we have it in.
+
+    The audio column arrives in 20260924000000_tts_audio_durable.sql. Until
+    that lands, a clip we could not upload cannot be recorded at all — so
+    fall back to the old behaviour rather than failing the request. The
+    learner still hears the audio; it just costs another synthesis next
+    time, exactly as it did before.
+    """
+    try:
+        async with privileged_connection() as conn:
+            await conn.execute(
+                """
+                INSERT INTO tts_audio
+                    (language_code, voice, text_hash, storage_path, audio)
+                VALUES ($1, $2, $3, $4, $5)
+                ON CONFLICT (voice, text_hash) DO NOTHING
+                """,
+                language_code, voice, key, storage_path, audio,
+            )
+    except (asyncpg.exceptions.UndefinedColumnError,
+            asyncpg.exceptions.NotNullViolationError):
+        if storage_path is None:
+            logger.warning(
+                "tts_audio.audio not migrated — clip stays uncached and will "
+                "be synthesized again next play"
+            )
+            return
+        async with privileged_connection() as conn:
+            await conn.execute(
+                """
+                INSERT INTO tts_audio
+                    (language_code, voice, text_hash, storage_path)
+                VALUES ($1, $2, $3, $4)
+                ON CONFLICT (voice, text_hash) DO NOTHING
+                """,
+                language_code, voice, key, storage_path,
+            )
+
+
+async def _promote(
+    settings, voice: str, key: str, storage_path: str, audio: bytes
+) -> str | None:
+    """Move a database-held clip up to the CDN, now that we're here anyway.
+
+    The bytes column is a safety net, not the destination: it exists so a
+    storage outage costs disk instead of a repeat synthesis. Once uploads
+    work again the clip belongs in the bucket, and the row should stop
+    carrying it — otherwise one bad afternoon leaves megabytes in Postgres
+    forever. Returns the public URL on success.
+    """
+    if not await _upload_clip(settings, storage_path, audio):
+        return None
+    async with privileged_connection() as conn:
+        await conn.execute(
+            "UPDATE tts_audio SET storage_path = $3, audio = NULL "
+            "WHERE voice = $1 AND text_hash = $2",
+            voice, key, storage_path,
+        )
+    return _public_url(settings, storage_path)
+
+
 @router.post("/tts")
 async def tts(
     body: TTSRequest,
@@ -120,13 +223,41 @@ async def tts(
     storage_path = f"{body.language_code}/{key}.mp3"
     settings = get_settings()
 
+    # A cache hit must never reach the synthesis provider. The audio column
+    # is absent until 20260924000000 lands, so read it defensively — an
+    # unmigrated database still gets the storage_path behaviour it had.
     async with privileged_connection() as conn:
-        cached = await conn.fetchval(
-            "SELECT storage_path FROM tts_audio WHERE voice = $1 AND text_hash = $2",
-            voice, key,
-        )
+        try:
+            cached = await conn.fetchrow(
+                "SELECT storage_path, audio FROM tts_audio "
+                "WHERE voice = $1 AND text_hash = $2",
+                voice, key,
+            )
+        except asyncpg.exceptions.UndefinedColumnError:
+            path = await conn.fetchval(
+                "SELECT storage_path FROM tts_audio "
+                "WHERE voice = $1 AND text_hash = $2",
+                voice, key,
+            )
+            cached = {"storage_path": path, "audio": None} if path else None
     if cached:
-        return {"url": _public_url(settings, cached), "cached": True}
+        if cached["storage_path"]:
+            return {
+                "url": _public_url(settings, cached["storage_path"]),
+                "cached": True,
+            }
+        # Held in the database because its upload failed once. Try to move it
+        # to the CDN while we're here; serve it inline either way. What we do
+        # NOT do is synthesize it again — that is the whole point.
+        audio = bytes(cached["audio"])
+        url = await _promote(settings, voice, key, storage_path, audio)
+        if url:
+            return {"url": url, "cached": True}
+        return {
+            "url": None,
+            "cached": True,
+            "audio_b64": base64.b64encode(audio).decode(),
+        }
 
     # Only now (cache misses cost real work) gate + verify.
     if not await tts_limiter.allow(user["id"]):
@@ -152,57 +283,29 @@ async def tts(
 
     # Storage is an OPTIMIZATION, not a requirement: when the service key
     # is missing or the upload fails, the learner still gets the neural
-    # clip inline (base64) and only the CDN caching is lost. Beta lesson:
+    # clip inline (base64) and only the CDN delivery is lost. Beta lesson:
     # a broken cache layer must never regress audio to the browser voice.
-    global _storage_down_until
-    stored = False
-    if settings.supabase_service_role_key and time.monotonic() >= _storage_down_until:
-        try:
-            async with httpx.AsyncClient(timeout=_STORAGE_TIMEOUT) as client:
-                resp = await client.post(
-                    f"{settings.supabase_url.rstrip('/')}/storage/v1/object/tts/{storage_path}",
-                    headers={
-                        "apikey": settings.supabase_service_role_key,
-                        "Authorization": f"Bearer {settings.supabase_service_role_key}",
-                        "Content-Type": "audio/mpeg",
-                        "x-upsert": "true",
-                    },
-                    content=audio,
-                )
-            if resp.status_code in (200, 201):
-                stored = True
-            else:
-                logger.error(
-                    "TTS upload failed (%s): %s", resp.status_code, resp.text[:200]
-                )
-        except Exception as exc:  # noqa: BLE001 — storage outage ≠ no audio
-            _storage_down_until = time.monotonic() + _STORAGE_COOLDOWN_S
-            logger.error(
-                "TTS upload errored (%s): %s — skipping storage for %.0fs",
-                type(exc).__name__, exc, _STORAGE_COOLDOWN_S,
-            )
-    elif settings.supabase_service_role_key:
-        logger.warning("TTS storage in cooldown — serving audio inline")
-    else:
+    #
+    # But it must not cost a repeat synthesis either. This clip has now been
+    # paid for; whether it reached the bucket decides HOW it is remembered,
+    # never WHETHER. A failed upload files the bytes in the database and the
+    # next play promotes them, so the provider is charged once per distinct
+    # (voice, text) however the network behaves.
+    if not settings.supabase_service_role_key:
         logger.error(
             "TTS storage disabled: SUPABASE_SERVICE_ROLE_KEY is not set — "
-            "serving audio inline without caching"
+            "keeping the clip in the database instead"
         )
-
+    stored = await _upload_clip(settings, storage_path, audio)
+    await _record_clip(
+        body.language_code, voice, key,
+        storage_path if stored else None,
+        None if stored else audio,
+    )
     if not stored:
         return {
             "url": None,
             "cached": False,
             "audio_b64": base64.b64encode(audio).decode(),
         }
-
-    async with privileged_connection() as conn:
-        await conn.execute(
-            """
-            INSERT INTO tts_audio (language_code, voice, text_hash, storage_path)
-            VALUES ($1, $2, $3, $4)
-            ON CONFLICT (voice, text_hash) DO NOTHING
-            """,
-            body.language_code, voice, key, storage_path,
-        )
     return {"url": _public_url(settings, storage_path), "cached": False}
