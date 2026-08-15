@@ -218,3 +218,126 @@ class TestRepairingWhatIsAlreadyWrong:
             "SELECT translation_locale FROM example_sentences WHERE "
             "language_id = $1 AND translation = 'Edited by a human.'",
             fx["lang_id"]) == "en"
+
+    async def test_repair_survives_a_reseed_having_already_run(
+            self, conn, tmp_path, monkeypatch):
+        """The owner's crash, reproduced.
+
+        UniqueViolationError on uq_example_sentences_vocab_sentence_locale,
+        (vocabulary_id, sentence, translation_locale) = (..., 'I am.', 'es').
+
+        Sequence: the old seeder stored the Spanish text as 'en'; a seed with
+        the FIXED seeder then inserted the same text as 'es' (different
+        locale, no conflict — the duplicate the tests above describe); repair
+        then tried to relabel the stale row to 'es' and hit the row already
+        sitting there.
+
+        Repair must be runnable in any order, and twice.
+        """
+        fx = await _course(conn, "we")
+        vocab_id = await conn.fetchval(
+            "SELECT id FROM vocabulary WHERE language_id = $1", fx["lang_id"])
+        # The stale row AND the corrected one, exactly as a re-seed leaves it.
+        for locale in ("en", "es"):
+            await conn.execute(
+                """INSERT INTO example_sentences
+                       (language_id, vocabulary_id, sentence, translation,
+                        translation_locale)
+                   VALUES ($1, $2, 'We are the 99%.', 'Somos el 99%.', $3)""",
+                fx["lang_id"], vocab_id, locale)
+        _write(tmp_path, monkeypatch, fx["code"], TSV)
+
+        await seed_sentences.repair_locales(INTEGRATION_DSN, fx["code"])
+
+        rows = await conn.fetch(
+            "SELECT translation_locale FROM example_sentences WHERE "
+            "language_id = $1 AND translation = 'Somos el 99%.'",
+            fx["lang_id"])
+        # The duplicate is gone and the correct row is untouched.
+        assert [r["translation_locale"] for r in rows] == ["es"]
+
+    async def test_a_flagged_duplicate_is_kept_not_quietly_deleted(
+            self, conn, tmp_path, monkeypatch):
+        """Flagging leaves the translation text alone.
+
+        So the text match that protects an EDITED row protects nothing here:
+        a reviewer's flag sits on a row whose text is still exactly the
+        file's. Deleting it would drop the flag, and the reviewer would find
+        the row they raised simply gone. Leaving it mislabelled is worse
+        content but recoverable — it stays visible in the flag queue.
+        """
+        fx = await _course(conn, "we")
+        vocab_id = await conn.fetchval(
+            "SELECT id FROM vocabulary WHERE language_id = $1", fx["lang_id"])
+        await conn.execute(
+            """INSERT INTO example_sentences
+                   (language_id, vocabulary_id, sentence, translation,
+                    translation_locale, flagged, flag_reason)
+               VALUES ($1, $2, 'We are the 99%.', 'Somos el 99%.', 'en',
+                       true, 'reads oddly')""",
+            fx["lang_id"], vocab_id)
+        await conn.execute(
+            """INSERT INTO example_sentences
+                   (language_id, vocabulary_id, sentence, translation,
+                    translation_locale)
+               VALUES ($1, $2, 'We are the 99%.', 'Somos el 99%.', 'es')""",
+            fx["lang_id"], vocab_id)
+        _write(tmp_path, monkeypatch, fx["code"], TSV)
+
+        await seed_sentences.repair_locales(INTEGRATION_DSN, fx["code"])
+
+        rows = await conn.fetch(
+            "SELECT translation_locale, flagged FROM example_sentences WHERE "
+            "language_id = $1 AND translation = 'Somos el 99%.' "
+            "ORDER BY translation_locale", fx["lang_id"])
+        assert [(r["translation_locale"], r["flagged"]) for r in rows] == [
+            ("en", True), ("es", False)]
+
+    async def test_a_suggested_translation_is_kept_too(
+            self, conn, tmp_path, monkeypatch):
+        # Same shape as flagging: the suggestion lives in its own column, so
+        # the row's text still matches the file.
+        fx = await _course(conn, "we")
+        vocab_id = await conn.fetchval(
+            "SELECT id FROM vocabulary WHERE language_id = $1", fx["lang_id"])
+        await conn.execute(
+            """INSERT INTO example_sentences
+                   (language_id, vocabulary_id, sentence, translation,
+                    translation_locale, suggested_translation)
+               VALUES ($1, $2, 'We are the 99%.', 'Somos el 99%.', 'en',
+                       'Somos el noventa y nueve por ciento.')""",
+            fx["lang_id"], vocab_id)
+        await conn.execute(
+            """INSERT INTO example_sentences
+                   (language_id, vocabulary_id, sentence, translation,
+                    translation_locale)
+               VALUES ($1, $2, 'We are the 99%.', 'Somos el 99%.', 'es')""",
+            fx["lang_id"], vocab_id)
+        _write(tmp_path, monkeypatch, fx["code"], TSV)
+
+        await seed_sentences.repair_locales(INTEGRATION_DSN, fx["code"])
+
+        assert await conn.fetchval(
+            "SELECT count(*) FROM example_sentences WHERE language_id = $1 "
+            "AND suggested_translation IS NOT NULL", fx["lang_id"]) == 1
+
+    async def test_repair_is_idempotent(self, conn, tmp_path, monkeypatch):
+        fx = await _course(conn, "we")
+        vocab_id = await conn.fetchval(
+            "SELECT id FROM vocabulary WHERE language_id = $1", fx["lang_id"])
+        await conn.execute(
+            """INSERT INTO example_sentences
+                   (language_id, vocabulary_id, sentence, translation,
+                    translation_locale)
+               VALUES ($1, $2, 'We are the 99%.', 'Somos el 99%.', 'en')""",
+            fx["lang_id"], vocab_id)
+        _write(tmp_path, monkeypatch, fx["code"], TSV)
+
+        await seed_sentences.repair_locales(INTEGRATION_DSN, fx["code"])
+        await seed_sentences.repair_locales(INTEGRATION_DSN, fx["code"])
+
+        rows = await conn.fetch(
+            "SELECT translation_locale FROM example_sentences WHERE "
+            "language_id = $1 AND translation = 'Somos el 99%.'",
+            fx["lang_id"])
+        assert [r["translation_locale"] for r in rows] == ["es"]

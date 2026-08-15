@@ -164,6 +164,47 @@ async def repair_locales(db_url: str, code: str) -> int:
                 and (vocab_id := id_by_word.get(row["word"].lower()))
             ]
             for i in range(0, len(args), 1000):
+                batch = args[i:i + 1000]
+                # Drop the stale row FIRST where the correctly-labelled one
+                # already exists, or the relabel below collides with it:
+                #   uq_example_sentences_vocab_sentence_locale
+                #   (vocabulary_id, sentence, translation_locale)
+                #
+                # That collision is not hypothetical. A seed run with the
+                # FIXED seeder inserts the 'es' row alongside the stale 'en'
+                # one (different locale, so no conflict), which is exactly
+                # the duplicate the seeder tests describe. Repairing after
+                # such a run then tries to make a second 'es' row.
+                #
+                # Only ever deletes a row whose translation text is
+                # character-for-character the file's, and only when the
+                # correct row is already present — a proven duplicate, never
+                # the last copy of anything.
+                await conn.executemany(
+                    """
+                    DELETE FROM example_sentences
+                     WHERE vocabulary_id = $2
+                       AND sentence = $3
+                       AND translation = $4
+                       AND translation_locale = 'en'
+                       -- Never delete a row a human has touched. The text
+                       -- match above catches an EDIT (edited text no longer
+                       -- matches the file), but flagging or suggesting
+                       -- leaves the text alone — so those need saying
+                       -- outright. A flagged duplicate stays mislabelled
+                       -- and visible to a reviewer, which beats silently
+                       -- dropping their flag.
+                       AND coalesce(is_modified, false) = false
+                       AND coalesce(flagged, false) = false
+                       AND suggested_translation IS NULL
+                       AND EXISTS (
+                           SELECT 1 FROM example_sentences e2
+                            WHERE e2.vocabulary_id = $2
+                              AND e2.sentence = $3
+                              AND e2.translation_locale = $1)
+                    """,
+                    batch,
+                )
                 await conn.executemany(
                     """
                     UPDATE example_sentences
@@ -172,8 +213,13 @@ async def repair_locales(db_url: str, code: str) -> int:
                        AND sentence = $3
                        AND translation = $4
                        AND translation_locale = 'en'
+                       AND NOT EXISTS (
+                           SELECT 1 FROM example_sentences e2
+                            WHERE e2.vocabulary_id = $2
+                              AND e2.sentence = $3
+                              AND e2.translation_locale = $1)
                     """,
-                    args[i:i + 1000],
+                    batch,
                 )
             fixed += len(args)
         logger.info("%s: repair pass covered %d file rows", code, fixed)
