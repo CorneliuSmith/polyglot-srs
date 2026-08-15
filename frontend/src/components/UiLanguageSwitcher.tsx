@@ -110,13 +110,34 @@ export default function UiLanguageSwitcher() {
     setOpen(false)
     applyUiLanguage(code)
     if (authed) {
-      // One switch changes BOTH the chrome and the cards: support_locale is
-      // what card queries COALESCE glosses on, so without it a Spanish UI
-      // still served English cards. Glosses fall back to English per word
-      // until the translation overlay for this pair fills in.
-      // Best-effort account sync; the local switch already happened and a
-      // failed write must not undo it.
-      updateProfile({ ui_language: code, support_locale: code })
+      // The chrome language always follows the globe. The CARD language
+      // follows it only while nobody has said otherwise.
+      //
+      // This used to set both, unconditionally, on every use. So a learner
+      // who had deliberately picked their translations language in Learn,
+      // Review or Settings had it silently replaced by their interface
+      // language the next time they touched the globe — which reads as the
+      // app forgetting the choice and flipping back on its own.
+      //
+      // support_locale IS the record of that: it is NULL until something
+      // sets it, so "nothing chosen" and "chosen" are already
+      // distinguishable without a new column. Automatic fills the empty
+      // case; an explicit choice outranks it and is left alone.
+      //
+      // (One honest seam: choosing English explicitly also stores NULL — 'en'
+      // is the reset value — so that one choice can still be re-cascaded.
+      // Separating them needs a column and this endpoint is on every page
+      // load, so it is not worth taking the app down over.)
+      // Read from the cache rather than a useQuery: this switcher is
+      // rendered on the login page OUTSIDE any QueryClientProvider (see the
+      // guarded useQueryClient above), so a hook here would throw. Signed in,
+      // ProfileLanguageSync has already put the profile there.
+      const cached = queryClient?.getQueryData<{ support_locale?: string | null }>(
+        ['profile'],
+      )
+      const chosen = cached?.support_locale != null
+      updateProfile(chosen ? { ui_language: code }
+                           : { ui_language: code, support_locale: code })
         .then(() => queryClient?.invalidateQueries())
         .catch(() => {})
     }
