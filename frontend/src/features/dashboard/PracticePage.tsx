@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-import { BookOpen, Dumbbell, MessagesSquare } from 'lucide-react'
+import { BookOpen, Dumbbell, MessagesSquare, Mic } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { getGymManifest } from '../../api/gym'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -102,9 +102,12 @@ export default function PracticePage() {
       <div className="max-w-3xl mx-auto px-4 py-6 space-y-4 pb-24 md:pb-6">
         <SectionHeader title={t('nav.practice')} />
 
+        {/* Four tiles wrap to two rows on a phone rather than shrinking to
+            three-across-plus-one; a 2-column grid keeps every tap target
+            the same width whether or not this language has a Gym. */}
         <div
           data-testid="feature-tiles"
-          className={`grid gap-3 ${hasGym ? 'grid-cols-3' : 'grid-cols-2'}`}
+          className={`grid gap-3 ${hasGym ? 'grid-cols-2' : 'grid-cols-3'}`}
         >
           {hasGym && (
             <FeatureTile
@@ -121,6 +124,14 @@ export default function PracticePage() {
             caption={t('dashboard.readCaption')}
             testId="tile-read"
             onClick={() => navigate('/read')}
+            disabled={!activeLanguageId}
+          />
+          <FeatureTile
+            icon={Mic}
+            label={t('nav.speak')}
+            caption={t('dashboard.speakCaption')}
+            testId="tile-speak"
+            onClick={() => navigate('/speak')}
             disabled={!activeLanguageId}
           />
           <FeatureTile

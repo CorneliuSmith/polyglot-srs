@@ -1,0 +1,413 @@
+"""Speak — the conversation partner and the end-of-session breakdown.
+
+Design notes live in docs/plans/speak.md; the two that shape this file:
+
+**One model call per turn.** The call returns BOTH the partner's reply and
+the structured list of what the learner got wrong. Two calls would double
+the latency, and the reply is better when the model has already noticed the
+mistake — it can steer the conversation somewhere the learner can succeed.
+
+**Latency is the product.** Above about three seconds it stops feeling like
+conversation and becomes turn-taking with a form. That is why the reply is
+capped short, why history is trimmed, and why the summary is a separate call
+that happens once, at the end, when nobody is waiting to speak.
+
+Stage 1 is text-only and flow-mode-only: errors are collected silently every
+turn and shown all at once when the learner is done.
+"""
+from __future__ import annotations
+
+import json
+import logging
+from collections import Counter
+
+from anthropic import AsyncAnthropic
+
+from backend.config import get_settings
+
+logger = logging.getLogger("speak")
+
+MAX_TURN_CHARS = 2000
+MAX_TOPIC_CHARS = 120
+
+# How many previous turns ride along as context. Ten turns of a beginner
+# conversation is a few hundred tokens — cheap — and further back than that
+# stops informing the next reply. The DB keeps every turn regardless; this
+# only bounds what the model is shown.
+MAX_HISTORY_TURNS = 10
+
+# Errors the summary groups under. A closed list keeps "subject pronouns"
+# from arriving as four different labels across one session and splitting
+# into four one-off findings the learner can't act on.
+ERROR_TYPES = (
+    "agreement", "verb_form", "word_order", "word_choice",
+    "preposition", "article", "gender", "pronoun", "spelling", "register",
+)
+
+_TURN_TOOL = {
+    "name": "emit_turn",
+    "description": "Reply to the learner and record what they got wrong.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "reply": {
+                "type": "string",
+                "description": (
+                    "Your conversational reply, in the target language. One "
+                    "to three sentences. End with a question or an opening "
+                    "that gives them something to say back."
+                ),
+            },
+            "errors": {
+                "type": "array",
+                "description": (
+                    "Mistakes in the learner's message. Empty list when it "
+                    "was fine. Do not invent errors to seem useful, and do "
+                    "not flag informal-but-correct speech."
+                ),
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "type": {"type": "string", "enum": list(ERROR_TYPES)},
+                        "learner_said": {
+                            "type": "string",
+                            "description": "Their exact words, quoted short.",
+                        },
+                        "should_be": {
+                            "type": "string",
+                            "description": "The corrected form, same length.",
+                        },
+                        "note": {
+                            "type": "string",
+                            "description": (
+                                "One short sentence on why, in the learner's "
+                                "support language. No grammar jargon they "
+                                "would not already know."
+                            ),
+                        },
+                    },
+                    "required": ["type", "learner_said", "should_be", "note"],
+                    "additionalProperties": False,
+                },
+            },
+        },
+        "required": ["reply", "errors"],
+        "additionalProperties": False,
+    },
+}
+
+_SUMMARY_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "groups": {
+            "type": "array",
+            "description": (
+                "The recurring problems, most frequent first. Group by what "
+                "the learner needs to understand, not by error type label — "
+                "three pronoun slips are ONE group."
+            ),
+            "items": {
+                "type": "object",
+                "properties": {
+                    "label": {
+                        "type": "string",
+                        "description": "A short name, e.g. 'Subject pronouns'.",
+                    },
+                    "note": {
+                        "type": "string",
+                        "description": (
+                            "Two sentences at most: what they did and the "
+                            "rule, in their support language."
+                        ),
+                    },
+                    "examples": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "description": "Their own phrases, quoted.",
+                    },
+                    "count": {"type": "integer"},
+                },
+                "required": ["label", "note", "examples", "count"],
+                "additionalProperties": False,
+            },
+        },
+        "vocabulary": {
+            "type": "array",
+            "description": (
+                "Words and short phrases worth keeping from this "
+                "conversation — ones the partner used that the learner "
+                "visibly did not have, or reached for and missed. Empty is "
+                "a fine answer."
+            ),
+            "items": {
+                "type": "object",
+                "properties": {
+                    "term": {"type": "string"},
+                    "meaning": {
+                        "type": "string",
+                        "description": "In the learner's support language.",
+                    },
+                },
+                "required": ["term", "meaning"],
+                "additionalProperties": False,
+            },
+        },
+    },
+    "required": ["groups", "vocabulary"],
+    "additionalProperties": False,
+}
+
+
+def _usage(response) -> dict[str, int]:
+    usage = getattr(response, "usage", None)
+    return {
+        "input_tokens": getattr(usage, "input_tokens", 0) or 0,
+        "output_tokens": getattr(usage, "output_tokens", 0) or 0,
+        "cache_write_tokens": getattr(usage, "cache_creation_input_tokens", 0) or 0,
+        "cache_read_tokens": getattr(usage, "cache_read_input_tokens", 0) or 0,
+    }
+
+
+def _system_prompt(
+    language_name: str,
+    level: str,
+    topic: str | None,
+    support_language: str | None,
+) -> str:
+    """The partner's brief.
+
+    The level cap is the load-bearing line. Without an explicit instruction
+    the model writes B2 prose at an A2 learner and the session turns into a
+    listening test they fail — so the ceiling is stated as a rule about
+    sentence length and tense range, not as a CEFR label the model is left
+    to interpret.
+    """
+    explain_in = support_language or "English"
+    topic_line = (
+        f"You are talking about: {topic}."
+        if topic else
+        "No topic was chosen — open with something everyday and easy to "
+        "answer, and follow where they take it."
+    )
+    return (
+        f"You are a friendly {language_name} conversation partner for a "
+        f"learner at CEFR level {level}. This is a spoken-style chat, not a "
+        f"lesson.\n\n"
+        f"{topic_line}\n\n"
+        "How you talk:\n"
+        f"- Reply ONLY in {language_name}. Never translate yourself.\n"
+        f"- Stay at {level} or a touch above — short sentences, common "
+        "words, tenses a learner at this level has met. If you would need a "
+        "structure above their level, say the simpler thing instead.\n"
+        "- One to three sentences. You are a partner, not a monologue.\n"
+        "- Always give them a way back in: ask something, or leave an "
+        "obvious opening.\n"
+        "- React to what they actually said. Never say 'good job' — you are "
+        "a person having a conversation, not a teacher marking them.\n"
+        "- If you cannot understand them, say so naturally and ask again in "
+        "simpler words. Do not guess wildly.\n\n"
+        "What you record:\n"
+        "- Alongside your reply, list what they got wrong. The learner does "
+        "NOT see this now; it is collected for the end of the session.\n"
+        "- Only real mistakes. Informal, clipped, or regional-but-correct "
+        "speech is not an error. An empty list is a good answer.\n"
+        f"- Write the notes in {explain_in}.\n"
+        "- Judge only what they wrote. Never flag spelling of a word they "
+        "typed on a keyboard they may not have."
+    )
+
+
+def _mock_turn(learner_text: str) -> dict:
+    """Deterministic partner for tutor_dev_mock — exercises the whole flow
+    (reply + error extraction + summary grouping) with no API key."""
+    errors = []
+    if "yo " in f" {learner_text.lower()}":
+        errors.append({
+            "type": "pronoun",
+            "learner_said": "yo",
+            "should_be": "(drop it)",
+            "note": "[dev mock] The subject pronoun is usually left out.",
+        })
+    return {
+        "reply": f"[dev mock] Interesting — tell me more about that. "
+                 f"({len(learner_text)} characters)",
+        "errors": errors,
+    }
+
+
+async def speak_turn(
+    language_name: str,
+    level: str,
+    history: list[dict],
+    learner_text: str,
+    topic: str | None = None,
+    support_language: str | None = None,
+    model: str | None = None,
+) -> tuple[dict, dict[str, int]]:
+    """One conversational turn.
+
+    *history* is [{"learner_text": …, "partner_text": …}, …] oldest first.
+    Returns ({"reply": str, "errors": [...]}, token counts).
+    """
+    settings = get_settings()
+    model = model or settings.tutor_model
+
+    if getattr(settings, "tutor_dev_mock", False):
+        return _mock_turn(learner_text), {
+            "input_tokens": 8, "output_tokens": 30,
+            "cache_write_tokens": 0, "cache_read_tokens": 0,
+        }
+
+    messages: list[dict] = []
+    for turn in history[-MAX_HISTORY_TURNS:]:
+        messages.append({"role": "user", "content": turn["learner_text"]})
+        messages.append({"role": "assistant", "content": turn["partner_text"]})
+    messages.append({"role": "user", "content": learner_text})
+
+    client = AsyncAnthropic(api_key=settings.anthropic_api_key)
+    response = await client.messages.create(
+        model=model,
+        max_tokens=1024,
+        system=_system_prompt(language_name, level, topic, support_language),
+        messages=messages,
+        tools=[_TURN_TOOL],
+        tool_choice={"type": "tool", "name": "emit_turn"},
+    )
+    counts = _usage(response)
+    block = next((b for b in response.content if b.type == "tool_use"), None)
+    if block is None or not isinstance(block.input, dict):
+        raise ValueError("Speak turn returned no structured payload")
+    reply = (block.input.get("reply") or "").strip()
+    if not reply:
+        raise ValueError("Speak turn came back with an empty reply")
+    errors = [
+        e for e in (block.input.get("errors") or [])
+        if isinstance(e, dict) and e.get("learner_said") and e.get("should_be")
+    ]
+    return {"reply": reply, "errors": errors}, counts
+
+
+def _fallback_groups(errors: list[dict]) -> list[dict]:
+    """Group by error type without a model call.
+
+    Used when the summary call fails or is skipped. Cruder than the model's
+    grouping — it can only group by the type label — but a learner who
+    finished a session always gets their breakdown. Losing the summary is
+    the one failure this feature cannot afford: it is the entire payoff for
+    the conversation they just had.
+    """
+    by_type: dict[str, list[dict]] = {}
+    for err in errors:
+        by_type.setdefault(err.get("type") or "other", []).append(err)
+    groups = []
+    for kind, items in sorted(
+        by_type.items(), key=lambda kv: len(kv[1]), reverse=True
+    ):
+        groups.append({
+            "label": kind.replace("_", " ").capitalize(),
+            "note": items[0].get("note") or "",
+            "examples": [
+                f"{i['learner_said']} → {i['should_be']}" for i in items[:4]
+            ],
+            "count": len(items),
+        })
+    return groups
+
+
+async def summarize_speak_session(
+    language_name: str,
+    turns: list[dict],
+    errors: list[dict],
+    support_language: str | None = None,
+    model: str | None = None,
+) -> tuple[dict, dict[str, int] | None]:
+    """The end-of-session breakdown.
+
+    Returns (summary, token counts) — counts are None when no model call ran,
+    so the caller knows not to log a cost row.
+
+    A clean session costs nothing: with no errors there is nothing to group,
+    and the vocabulary list is not worth a call on its own.
+    """
+    stats = {
+        "turns": len(turns),
+        "error_count": len(errors),
+        "types": dict(Counter(e.get("type") for e in errors if e.get("type"))),
+    }
+    if not errors:
+        return {"groups": [], "vocabulary": [], "stats": stats}, None
+
+    settings = get_settings()
+    model = model or settings.tutor_summary_model
+
+    if getattr(settings, "tutor_dev_mock", False):
+        return (
+            {"groups": _fallback_groups(errors),
+             "vocabulary": [{"term": "[dev mock]", "meaning": "a placeholder"}],
+             "stats": stats},
+            {"input_tokens": 5, "output_tokens": 20,
+             "cache_write_tokens": 0, "cache_read_tokens": 0},
+        )
+
+    transcript = "\n".join(
+        f"learner: {t['learner_text']}\npartner: {t['partner_text']}"
+        for t in turns
+    )
+    explain_in = support_language or "English"
+    system = (
+        f"You write the end-of-session breakdown for a {language_name} "
+        "conversation practice app. You are given the transcript and the "
+        "mistakes noticed during it.\n\n"
+        "Group the mistakes by what the learner needs to understand, not by "
+        "label — three slips of the same underlying rule are ONE group, with "
+        "all three quoted as examples. Order by how much each one gets in "
+        "the way of being understood.\n"
+        f"Write labels and notes in {explain_in}; quote the learner's own "
+        "words untranslated. Be brief and unsentimental. Do not praise, do "
+        "not score, do not pad the list — two real groups beat six thin ones."
+    )
+
+    client = AsyncAnthropic(api_key=settings.anthropic_api_key)
+    try:
+        response = await client.messages.create(
+            model=model,
+            max_tokens=2048,
+            system=system,
+            messages=[{
+                "role": "user",
+                "content": (
+                    f"Transcript:\n{transcript}\n\n"
+                    f"Mistakes noticed:\n"
+                    f"{json.dumps(errors, ensure_ascii=False)}"
+                ),
+            }],
+            output_config={
+                "format": {"type": "json_schema", "schema": _SUMMARY_SCHEMA}
+            },
+        )
+    except Exception:
+        # Never cost the learner their breakdown because the grouping call
+        # failed — fall back to the mechanical grouping and log the cause.
+        logger.exception("Speak summary call failed; using fallback grouping")
+        return {
+            "groups": _fallback_groups(errors), "vocabulary": [], "stats": stats
+        }, None
+
+    counts = _usage(response)
+    text = next((b.text for b in response.content if b.type == "text"), "{}")
+    try:
+        data = json.loads(text)
+    except (json.JSONDecodeError, TypeError):
+        logger.warning("Speak summary was not valid JSON; using fallback")
+        return {
+            "groups": _fallback_groups(errors), "vocabulary": [], "stats": stats
+        }, counts
+
+    groups = [g for g in (data.get("groups") or []) if g.get("label")]
+    return {
+        "groups": groups or _fallback_groups(errors),
+        "vocabulary": [
+            v for v in (data.get("vocabulary") or []) if v.get("term")
+        ],
+        "stats": stats,
+    }, counts

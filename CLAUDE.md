@@ -25,15 +25,23 @@ the merge imply it was clean.
 
 ### Known-failing backend tests (environment, not the code)
 
-16 tests fail on a clean checkout in this container and are NOT regressions:
+8 tests fail on a clean checkout in this container and are NOT regressions:
 
 - `test_nlp_english.py` (5) — the spaCy English model isn't installed.
-- `test_tutor.py` (5), `test_audio.py` (3), `test_reader.py` (1),
-  `test_onboarding.py` (1), `test_contributor.py::TestAiCheck` (1) — need a
-  live `ANTHROPIC_API_KEY` / provider.
+- `test_audio.py` (3) — needs a live `ANTHROPIC_API_KEY` / provider.
 
 Compare against this baseline before claiming a regression. When the count
-changes, find out why rather than assuming it's the same 16.
+changes, find out why rather than assuming it's the same 8.
+
+This baseline was 16 until the rate limiter stopped caching a Redis client
+against a dead event loop (`services/rate_limit.RateLimiter.reset`). Eight
+of those "environmental" failures — across `test_tutor`, `test_reader`,
+`test_onboarding` and `test_contributor` — were that bug, not a missing
+key: each TestClient runs its own event loop, and whichever test file first
+built the async client left every later one reading from a closed one. It
+looked environmental because the failing set moved whenever test order did.
+Worth remembering the next time a failure is filed under "needs a provider"
+on the strength of it failing here and passing in CI.
 
 ### Running the full backend suite
 

@@ -14,7 +14,8 @@
     "more": "Mais",
     "primary": "Secções principais",
     "languageGuide": "Guia do idioma",
-    "sections": "Secções"
+    "sections": "Secções",
+    "speak": "Falar"
   },
   "header": {
     "whatsNew": "Novidades",
@@ -105,7 +106,8 @@
     "progressEmptyBody": "Depois de aprender e rever alguns elementos, a sua sequência, previsão, atividade e progresso por nível aparecem aqui.",
     "streakTitle": "Sequência",
     "addWidget": "Adicionar widget",
-    "removeWidget": "Remover widget"
+    "removeWidget": "Remover widget",
+    "speakCaption": "Tenha uma conversa"
   },
   "stages": {
     "beginner": "Iniciante",
@@ -1398,5 +1400,34 @@
     "triviaWrong": "Não exatamente.",
     "triviaNext": "Pergunta seguinte",
     "stalled": "Isto está a demorar mais do que devia. Pode começar em inglês e mudará sozinho quando chegar."
+  },
+  "speak": {
+    "loading": "Carregando…",
+    "unavailable": "Falar ainda não está disponível aqui.",
+    "backToPractice": "Voltar para Prática",
+    "intro": "Tenha uma conversa. Nada interrompe você — o que importa vem no fim.",
+    "topicLabel": "Sobre o que vamos falar?",
+    "topicPlaceholder": "Pedir num café",
+    "topicHint": "Deixe em branco e seu parceiro começa.",
+    "startButton": "Começar a falar",
+    "starting": "Começando…",
+    "startFailed": "Não deu para começar — tente de novo.",
+    "yourMove": "Diga algo para começar.",
+    "thinking": "…",
+    "inputLabel": "Sua mensagem",
+    "inputPlaceholder": "Escreva sua resposta",
+    "send": "Enviar",
+    "done": "Pronto",
+    "ending": "Montando o resumo…",
+    "endFailed": "Não deu para encerrar a sessão — tente de novo.",
+    "turnFailed": "Não enviou. Sua mensagem continua aqui — tente de novo.",
+    "summaryStats_one": "{{count}} turno",
+    "summaryStats_other": "{{count}} turnos",
+    "whatCameUp": "O que apareceu",
+    "nothingCameUp": "Nada para corrigir. Faça outra.",
+    "timesCount_one": "{{count}} vez",
+    "timesCount_other": "{{count}} vezes",
+    "wordsYouReachedFor": "Palavras que faltaram",
+    "talkAgain": "Falar de novo"
   }
 }

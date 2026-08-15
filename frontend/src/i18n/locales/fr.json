@@ -14,7 +14,8 @@
     "more": "Plus",
     "primary": "Sections principales",
     "languageGuide": "Guide de la langue",
-    "sections": "Sections"
+    "sections": "Sections",
+    "speak": "Parler"
   },
   "header": {
     "whatsNew": "Nouveautés",
@@ -105,7 +106,8 @@
     "progressEmptyBody": "Une fois que vous aurez appris et révisé quelques éléments, votre série, vos prévisions, votre activité et votre progression par niveau apparaîtront ici.",
     "streakTitle": "Série",
     "addWidget": "Ajouter un widget",
-    "removeWidget": "Retirer le widget"
+    "removeWidget": "Retirer le widget",
+    "speakCaption": "Avoir une conversation"
   },
   "stages": {
     "beginner": "Débutant",
@@ -1398,5 +1400,34 @@
     "triviaWrong": "Pas tout à fait.",
     "triviaNext": "Question suivante",
     "stalled": "Cela prend plus de temps que prévu. Vous pouvez commencer en anglais : le basculement se fera tout seul."
+  },
+  "speak": {
+    "loading": "Chargement…",
+    "unavailable": "Parler n’est pas encore disponible ici.",
+    "backToPractice": "Retour à Pratique",
+    "intro": "Ayez une conversation. Rien ne vous interrompt — l’essentiel arrive à la fin.",
+    "topicLabel": "De quoi parle-t-on ?",
+    "topicPlaceholder": "Commander dans un café",
+    "topicHint": "Laissez vide et votre interlocuteur commencera.",
+    "startButton": "Commencer à parler",
+    "starting": "Démarrage…",
+    "startFailed": "Le démarrage a échoué — réessayez.",
+    "yourMove": "Dites quelque chose pour commencer.",
+    "thinking": "…",
+    "inputLabel": "Votre message",
+    "inputPlaceholder": "Écrivez votre réponse",
+    "send": "Envoyer",
+    "done": "Terminé",
+    "ending": "Préparation du bilan…",
+    "endFailed": "Impossible de terminer la session — réessayez.",
+    "turnFailed": "L’envoi a échoué. Votre message est toujours là — réessayez.",
+    "summaryStats_one": "{{count}} tour",
+    "summaryStats_other": "{{count}} tours",
+    "whatCameUp": "Ce qui est ressorti",
+    "nothingCameUp": "Rien à corriger. Refaites-en une.",
+    "timesCount_one": "{{count}} fois",
+    "timesCount_other": "{{count}} fois",
+    "wordsYouReachedFor": "Mots qui vous ont manqué",
+    "talkAgain": "Reparler"
   }
 }
