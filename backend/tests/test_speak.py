@@ -6,6 +6,7 @@ API key, same pattern as the tutor and reader tests.
 
 from __future__ import annotations
 
+import json
 import time
 from unittest.mock import AsyncMock, patch
 
@@ -18,6 +19,7 @@ from backend.services.speak import (
     _fallback_groups,
     _mock_turn,
     _system_prompt,
+    _usable_card,
     speak_turn,
     summarize_speak_session,
 )
@@ -224,6 +226,71 @@ class TestSummary:
         groups = _fallback_groups(_errors("gender", "verb_form", "gender"))
         assert [g["label"] for g in groups] == ["Gender", "Verb form"]
         assert groups[0]["count"] == 2
+
+    def test_fallback_groups_offer_no_card(self):
+        """A per-turn error records the phrase that was wrong, not the
+        sentence around it — there is nothing to blank out. Offering a
+        broken card is worse than offering none."""
+        assert all(
+            g["card"] is None for g in _fallback_groups(_errors("gender"))
+        )
+
+    def test_a_card_whose_answer_is_missing_from_its_sentence_is_dropped(self):
+        """The card endpoint blanks the answer out of the sentence and 422s
+        when it isn't there. Checking here means the learner never sees an
+        Add button that fails when they press it."""
+        assert _usable_card({
+            "sentence": "Quiero un café.", "answer": "hablo",
+            "translation": "x",
+        }) is None
+
+    def test_a_usable_card_survives_and_is_trimmed(self):
+        assert _usable_card({
+            "sentence": "  Quiero un café.  ", "answer": " Quiero ",
+            "translation": " I want a coffee. ",
+        }) == {
+            "sentence": "Quiero un café.", "answer": "Quiero",
+            "translation": "I want a coffee.",
+        }
+
+    def test_a_card_missing_a_field_is_dropped(self):
+        assert _usable_card({"sentence": "Quiero un café."}) is None
+        assert _usable_card({"answer": "Quiero"}) is None
+        assert _usable_card(None) is None
+
+    async def test_an_unusable_card_from_the_model_becomes_none(self):
+        """End to end: a model that returns a card the endpoint would reject
+        must not put an Add button in front of the learner."""
+        payload = {
+            "groups": [{
+                "label": "Pronouns", "note": "drop it", "examples": ["yo"],
+                "count": 1,
+                "card": {"sentence": "Quiero café.", "answer": "hablo",
+                         "translation": "I want coffee."},
+            }],
+            "vocabulary": [],
+        }
+
+        class FakeResponse:
+            content = [type("B", (), {
+                "type": "text", "text": json.dumps(payload),
+            })()]
+            usage = None
+
+        settings = FakeSettings()
+        settings.tutor_dev_mock = False
+        settings.anthropic_api_key = "sk-test"
+        with patch("backend.services.speak.get_settings",
+                   return_value=settings), \
+             patch("backend.services.speak.AsyncAnthropic") as client_cls:
+            client_cls.return_value.messages.create = AsyncMock(
+                return_value=FakeResponse()
+            )
+            summary, _ = await summarize_speak_session(
+                "Spanish", [], _errors("pronoun"),
+            )
+        assert summary["groups"][0]["card"] is None
+        assert summary["groups"][0]["label"] == "Pronouns"
 
     async def test_a_failed_summary_call_still_returns_a_breakdown(self):
         """Losing the summary is the one failure this feature cannot afford:

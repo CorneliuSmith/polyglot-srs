@@ -29,12 +29,20 @@ vi.mock('../api/speak', async (orig) => ({
   endSpeakSession: vi.fn(),
 }))
 
+vi.mock('../api/notes', async (orig) => ({
+  ...(await orig<typeof import('../api/notes')>()),
+  createPersonalCard: vi.fn(),
+}))
+
 import {
   endSpeakSession,
   getSpeakStatus,
   sendSpeakTurn,
   startSpeakSession,
 } from '../api/speak'
+import { createPersonalCard } from '../api/notes'
+
+const mockAddCard = createPersonalCard as ReturnType<typeof vi.fn>
 
 const mockStatus = getSpeakStatus as ReturnType<typeof vi.fn>
 const mockStart = startSpeakSession as ReturnType<typeof vi.fn>
@@ -57,6 +65,28 @@ function renderPage() {
       </MemoryRouter>
     </QueryClientProvider>,
   )
+}
+
+function fullSummary() {
+  return {
+    groups: [{
+      label: 'Subject pronouns',
+      note: 'Spanish drops these unless contrasting.',
+      examples: ['yo quiero → quiero'],
+      count: 3,
+      card: {
+        sentence: 'Quiero un café con leche.',
+        answer: 'Quiero',
+        translation: 'I want a coffee with milk.',
+      },
+    }],
+    vocabulary: [{
+      term: 'para llevar',
+      meaning: 'to take away',
+      example: '¿Para tomar aquí o para llevar?',
+    }],
+    stats: { turns: 4, error_count: 3, types: { pronoun: 3 } },
+  }
 }
 
 /** Get through the topic screen and into a live conversation. */
@@ -126,19 +156,7 @@ describe('SpeakPage', () => {
 
   it('shows the grouped breakdown when the session ends', async () => {
     await startTalking()
-    mockEnd.mockResolvedValue({
-      already_ended: false,
-      summary: {
-        groups: [{
-          label: 'Subject pronouns',
-          note: 'Spanish drops these unless contrasting.',
-          examples: ['yo quiero → quiero'],
-          count: 3,
-        }],
-        vocabulary: [{ term: 'para llevar', meaning: 'to take away' }],
-        stats: { turns: 4, error_count: 3, types: { pronoun: 3 } },
-      },
-    })
+    mockEnd.mockResolvedValue({ already_ended: false, summary: fullSummary() })
 
     fireEvent.click(screen.getByTestId('speak-done'))
 
@@ -146,6 +164,94 @@ describe('SpeakPage', () => {
     expect(screen.getByText('Subject pronouns')).toBeInTheDocument()
     expect(screen.getByText('yo quiero → quiero')).toBeInTheDocument()
     expect(screen.getByText('para llevar')).toBeInTheDocument()
+  })
+
+  it('adds nothing until the learner asks', async () => {
+    // A summary that quietly filled their reviews would make them wary of
+    // finishing a session at all.
+    await startTalking()
+    mockEnd.mockResolvedValue({ already_ended: false, summary: fullSummary() })
+    fireEvent.click(screen.getByTestId('speak-done'))
+    await screen.findByTestId('speak-summary')
+
+    expect(mockAddCard).not.toHaveBeenCalled()
+    // …and there's nowhere to practise until something has been kept.
+    expect(screen.queryByTestId('speak-practise')).not.toBeInTheDocument()
+  })
+
+  it('keeps a grammar card built from the learner’s own sentence', async () => {
+    await startTalking()
+    mockEnd.mockResolvedValue({ already_ended: false, summary: fullSummary() })
+    mockAddCard.mockResolvedValue({ id: 'c1', sentence: '…', deck_name: null })
+    fireEvent.click(screen.getByTestId('speak-done'))
+    await screen.findByTestId('speak-summary')
+
+    fireEvent.click(screen.getByTestId('speak-add-group-0'))
+
+    await waitFor(() => expect(mockAddCard).toHaveBeenCalledTimes(1))
+    expect(mockAddCard).toHaveBeenCalledWith(
+      expect.objectContaining({
+        sentence: 'Quiero un café con leche.',
+        answer: 'Quiero',
+        source: 'speak',
+      }),
+    )
+    await screen.findByTestId('speak-practise')
+  })
+
+  it('keeps a word in the sentence they met it in', async () => {
+    await startTalking()
+    mockEnd.mockResolvedValue({ already_ended: false, summary: fullSummary() })
+    mockAddCard.mockResolvedValue({ id: 'c2', sentence: '…', deck_name: null })
+    fireEvent.click(screen.getByTestId('speak-done'))
+    await screen.findByTestId('speak-summary')
+
+    fireEvent.click(screen.getByTestId('speak-add-word-0'))
+
+    await waitFor(() =>
+      expect(mockAddCard).toHaveBeenCalledWith(
+        expect.objectContaining({
+          sentence: '¿Para tomar aquí o para llevar?',
+          answer: 'para llevar',
+          gloss: 'to take away',
+          source: 'speak',
+        }),
+      ),
+    )
+  })
+
+  it('offers no Add button for a group with no usable card', async () => {
+    // The mechanical fallback grouping records the phrase that was wrong,
+    // not the sentence around it, so there is nothing to blank out.
+    await startTalking()
+    mockEnd.mockResolvedValue({
+      already_ended: false,
+      summary: {
+        ...fullSummary(),
+        groups: [{
+          label: 'Gender', note: 'la, not el.',
+          examples: ['el casa → la casa'], count: 1, card: null,
+        }],
+      },
+    })
+    fireEvent.click(screen.getByTestId('speak-done'))
+    await screen.findByTestId('speak-summary')
+
+    expect(screen.getByText('Gender')).toBeInTheDocument()
+    expect(screen.queryByTestId('speak-add-group-0')).not.toBeInTheDocument()
+  })
+
+  it('says so and lets them retry when a card fails to save', async () => {
+    await startTalking()
+    mockEnd.mockResolvedValue({ already_ended: false, summary: fullSummary() })
+    mockAddCard.mockRejectedValue(new Error('nope'))
+    fireEvent.click(screen.getByTestId('speak-done'))
+    await screen.findByTestId('speak-summary')
+
+    fireEvent.click(screen.getByTestId('speak-add-group-0'))
+
+    await screen.findByText(/Try again/i)
+    expect(screen.queryByTestId('speak-practise')).not.toBeInTheDocument()
   })
 
   it('says so plainly when a session had nothing to correct', async () => {
