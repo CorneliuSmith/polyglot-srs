@@ -30,6 +30,25 @@ isn't drawn *away* from anything, because the supporting text never
 registered in the first place. "Sparse" is what a page looks like when its
 second tier has been bleached out.
 
+## Dark mode, checked too
+
+`.dark` remaps the whole grey ramp (`index.css`), so the same utility class
+resolves to a different colour there — a sweep in one theme silently moves
+the other. Measured against the dark card surface `#1a2130`:
+
+| Class | Hex under `.dark` | On card | Verdict |
+| --- | --- | --- | --- |
+| `text-gray-300` | `#46526b` | 2.05:1 | fails — disabled controls only |
+| `text-gray-400` | `#7f8ba3` | 4.70:1 | passes, barely |
+| `text-gray-500` | `#97a3ba` | 6.34:1 | passes comfortably |
+| `text-gray-700` | `#cbd4e4` | 10.79:1 | passes |
+| `text-gray-900` | `#eef2f9` | 14.34:1 | passes |
+
+The dark ramp was already sound — it is the light one that was broken. The
+`400 → 500` sweep moved dark mode from 4.70:1 to 6.34:1 as well, so both
+themes improved and neither regressed. Worth re-measuring both any time a
+grey moves, because one class means two colours here.
+
 ## The change
 
 Every `text-gray-400` became `text-gray-500` — **2.54:1 → 4.83:1**, across
