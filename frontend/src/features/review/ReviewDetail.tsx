@@ -64,7 +64,7 @@ function ProgressPanel({ progress }: { progress: CardProgress }) {
           <span className="block text-base font-semibold text-gray-800 tabular-nums">
             {c.value}
           </span>
-          <span className="block text-[10px] uppercase tracking-wide text-gray-400">
+          <span className="block text-[10px] uppercase tracking-wide text-gray-500">
             {c.label}
           </span>
         </div>
@@ -150,7 +150,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
 
       {open && (
         <div className="mt-2 space-y-4 text-sm" data-testid="review-detail">
-          {isLoading && <p className="text-gray-400">{t('common.loading')}</p>}
+          {isLoading && <p className="text-gray-500">{t('common.loading')}</p>}
           {isError && <p className="text-red-500">{t('review.detailLoadError')}</p>}
 
           {data && (
@@ -187,7 +187,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
                       <span className="block text-base font-semibold text-gray-800 tabular-nums">
                         {stats.repetitions}
                       </span>
-                      <span className="block text-[10px] uppercase tracking-wide text-gray-400">
+                      <span className="block text-[10px] uppercase tracking-wide text-gray-500">
                         {t('review.timesStudied')}
                       </span>
                     </div>
@@ -195,7 +195,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
                       <span className="block text-base font-semibold text-gray-800 tabular-nums">
                         {stats.streak}
                       </span>
-                      <span className="block text-[10px] uppercase tracking-wide text-gray-400">
+                      <span className="block text-[10px] uppercase tracking-wide text-gray-500">
                         {t('review.streak')}
                       </span>
                     </div>
@@ -203,7 +203,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
                       <span className="block text-base font-semibold text-gray-800 tabular-nums">
                         {stats.lapses}
                       </span>
-                      <span className="block text-[10px] uppercase tracking-wide text-gray-400">
+                      <span className="block text-[10px] uppercase tracking-wide text-gray-500">
                         {t('review.misses')}
                       </span>
                     </div>
@@ -213,7 +213,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
                           ? new Date(stats.next_review).toLocaleDateString(i18n.language)
                           : '—'}
                       </span>
-                      <span className="block text-[10px] uppercase tracking-wide text-gray-400">
+                      <span className="block text-[10px] uppercase tracking-wide text-gray-500">
                         {t('review.nextReview')}
                       </span>
                     </div>
@@ -379,7 +379,7 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
                 !data.definition &&
                 !data.usage_note &&
                 data.examples.length === 0 && (
-                  <p className="text-gray-400">{t('review.noExtraNotes')}</p>
+                  <p className="text-gray-500">{t('review.noExtraNotes')}</p>
                 )}
             </>
           )}

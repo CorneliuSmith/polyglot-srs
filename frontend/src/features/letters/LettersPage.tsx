@@ -88,7 +88,7 @@ export default function LettersPage() {
             className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4"
             data-testid="letters-section"
           >
-            <h2 className="text-xs uppercase tracking-wide text-gray-400 mb-1">
+            <h2 className="text-xs uppercase tracking-wide text-gray-500 mb-1">
               {section.title}
             </h2>
             {section.note && (
@@ -115,7 +115,7 @@ export default function LettersPage() {
                               {shape.wrap(row.char)}
                             </span>
                           </LanguageWrapper>
-                          <span className="text-[9px] text-gray-400">
+                          <span className="text-[9px] text-gray-500">
                             {shape.label}
                           </span>
                         </span>
@@ -142,7 +142,7 @@ export default function LettersPage() {
                   )}
                   <div className="flex-1 min-w-0">
                     <p className="text-sm text-gray-700">{row.sound}</p>
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-gray-500">
                       {t('letters.asIn')} <span className="text-gray-600">{row.example}</span>
                     </p>
                   </div>

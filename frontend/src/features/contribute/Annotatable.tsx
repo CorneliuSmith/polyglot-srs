@@ -161,7 +161,7 @@ export default function Annotatable({
         </button>
       </div>
       {sent && (
-        <p className="mt-1 text-center text-xs text-gray-400" role="status">
+        <p className="mt-1 text-center text-xs text-gray-500" role="status">
           ✓ Sent to the review board
         </p>
       )}
@@ -303,7 +303,7 @@ function FlagPopover({
         <button
           type="button"
           onClick={() => setExpanded(true)}
-          className="mt-2 text-xs text-gray-400 hover:text-lang"
+          className="mt-2 text-xs text-gray-500 hover:text-lang"
         >
           Add a note or a fix…
         </button>
@@ -316,7 +316,7 @@ function FlagPopover({
       <button
         type="button"
         onClick={onCancel}
-        className="mt-2 block w-full text-center text-xs text-gray-400 hover:text-gray-600"
+        className="mt-2 block w-full text-center text-xs text-gray-500 hover:text-gray-600"
       >
         Cancel
       </button>

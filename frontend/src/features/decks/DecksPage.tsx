@@ -83,7 +83,7 @@ export default function DecksPage() {
 
         <LanguagePicker />
 
-        {isLoading && <p className="text-sm text-gray-400">{t('decks.loadingDecks')}</p>}
+        {isLoading && <p className="text-sm text-gray-500">{t('decks.loadingDecks')}</p>}
 
         {grammar.length > 0 && (
           <section className="space-y-3">

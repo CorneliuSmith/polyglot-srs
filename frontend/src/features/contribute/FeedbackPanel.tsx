@@ -48,7 +48,7 @@ export default function FeedbackPanel({
         <div key={f.id} className="flex items-start justify-between gap-3 text-sm border-t border-gray-100 pt-2">
           <div>
             <span className="font-medium text-gray-700">{f.card_title ?? f.content_id}</span>
-            <span className="text-xs text-gray-400"> · {f.card_type}</span>
+            <span className="text-xs text-gray-500"> · {f.card_type}</span>
             <p className="text-gray-600">{f.message}</p>
           </div>
           <button

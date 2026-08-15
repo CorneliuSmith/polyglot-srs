@@ -102,14 +102,14 @@ function PromptModal({ prompt }: { prompt: ReviewPrompt }) {
                 Quick reviewer check-in
               </p>
               <p className="mt-0.5 text-sm text-gray-700">{prompt.question}</p>
-              <p className="mt-0.5 text-[11px] text-gray-400">
+              <p className="mt-0.5 text-[11px] text-gray-500">
                 One card before you dive in. The more you help, the less often
                 we'll ask.
               </p>
             </div>
 
             <div className="rounded-xl border border-gray-100 bg-gray-50 px-3 py-2.5">
-              <div className="text-[11px] uppercase tracking-wide text-gray-400">
+              <div className="text-[11px] uppercase tracking-wide text-gray-500">
                 {prompt.target_type === 'drill' ? 'Drill' : 'Example'} ·{' '}
                 {prompt.context}
               </div>
@@ -152,7 +152,7 @@ function PromptModal({ prompt }: { prompt: ReviewPrompt }) {
               type="button"
               onClick={() => answer.mutate('skip')}
               disabled={answer.isPending}
-              className="w-full text-center text-xs text-gray-400 hover:text-gray-600 disabled:opacity-50"
+              className="w-full text-center text-xs text-gray-500 hover:text-gray-600 disabled:opacity-50"
             >
               I can't tell — skip this one
             </button>

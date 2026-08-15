@@ -114,7 +114,7 @@ export default function InvitePanel() {
         </p>
       )}
 
-      <p className="text-xs text-gray-400 border-t border-gray-100 pt-2">
+      <p className="text-xs text-gray-500 border-t border-gray-100 pt-2">
         Adding accounts is all this role does — you can’t see the account list,
         change anyone’s plan, or grant roles. Ask an admin for those.
       </p>

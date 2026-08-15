@@ -45,7 +45,7 @@ function TranslitControls({
   const { t } = useTranslation()
   return (
     <div className="mt-3 text-xs">
-      <div className="flex items-center justify-center gap-3 text-gray-400">
+      <div className="flex items-center justify-center gap-3 text-gray-500">
         <button
           type="button"
           onClick={onToggle}
@@ -54,7 +54,7 @@ function TranslitControls({
           className={`rounded-full px-2 py-0.5 border transition ${
             enabled
               ? 'border-lang/30 bg-lang-soft text-lang'
-              : 'border-gray-200 text-gray-400 hover:text-gray-600'
+              : 'border-gray-200 text-gray-500 hover:text-gray-600'
           }`}
         >
           {enabled ? t('review.qwertyOn') : t('review.qwertyOff')}
@@ -83,7 +83,7 @@ function TranslitControls({
                     {row.keys}
                   </td>
                   <td className="py-0.5 text-gray-900">{row.out}</td>
-                  <td className="ps-2 py-0.5 text-gray-400">{row.note ?? ''}</td>
+                  <td className="ps-2 py-0.5 text-gray-500">{row.note ?? ''}</td>
                 </tr>
               ))}
             </tbody>
@@ -237,7 +237,7 @@ export default function DrillCard({
         className="flex flex-col items-center gap-4"
         data-testid="listening-drill"
       >
-        <p className="text-sm text-gray-400 text-center">
+        <p className="text-sm text-gray-500 text-center">
           <Headphones aria-hidden className="me-1 inline h-4 w-4 align-[-2px]" />{t('review.listenPause')}
         </p>
         <p

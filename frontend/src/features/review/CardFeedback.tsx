@@ -17,7 +17,7 @@ export default function CardFeedback({ cardId }: { cardId: string }) {
   })
 
   if (mutation.isSuccess) {
-    return <p className="text-xs text-gray-400">{t('review.feedbackThanks')}</p>
+    return <p className="text-xs text-gray-500">{t('review.feedbackThanks')}</p>
   }
 
   if (!open) {
@@ -25,7 +25,7 @@ export default function CardFeedback({ cardId }: { cardId: string }) {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="text-xs text-gray-400 hover:text-gray-600 hover:underline"
+        className="text-xs text-gray-500 hover:text-gray-600 hover:underline"
       >
         {t('review.reportIssue')}
       </button>
@@ -53,7 +53,7 @@ export default function CardFeedback({ cardId }: { cardId: string }) {
         <button
           type="button"
           onClick={() => setOpen(false)}
-          className="text-xs text-gray-400 hover:underline"
+          className="text-xs text-gray-500 hover:underline"
         >
           {t('review.cancel')}
         </button>

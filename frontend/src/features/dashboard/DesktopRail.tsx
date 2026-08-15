@@ -87,7 +87,7 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
       aria-label={t('nav.practice')}
     >
       <section className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-        <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-400">
+        <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-500">
           {t('nav.practice')}
         </h2>
         <div className={`grid gap-2 ${hasGym ? 'grid-cols-3' : 'grid-cols-2'}`}>
@@ -126,7 +126,7 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
         disabled={!activeLanguageId}
         className="rounded-2xl border border-gray-100 bg-white p-4 text-start shadow-sm transition-colors hover:border-lang/40 disabled:opacity-40"
       >
-        <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-400">
+        <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
           {t('dashboard.recommendedTitle')}
         </h2>
         <p className="flex items-center gap-1.5 text-sm text-gray-700">
@@ -136,7 +136,7 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
       </button>
 
       <section className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-        <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-400">
+        <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-500">
           {t('nav.languageGuide')}
         </h2>
         <div className="grid grid-cols-2 gap-2">
@@ -162,7 +162,7 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
           onClick={() => navigate('/progress')}
           className="rounded-2xl border border-gray-100 bg-white p-4 text-start shadow-sm transition-colors hover:border-lang/40"
         >
-          <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-400">
+          <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-500">
             {t('nav.progress')}
           </h2>
           <p className="mb-2 flex items-center gap-1.5 text-sm text-gray-700">

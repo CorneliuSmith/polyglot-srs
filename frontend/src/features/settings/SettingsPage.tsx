@@ -644,7 +644,7 @@ export default function SettingsPage() {
             {t('settings.plan.manageBilling')}
           </button>
           {billingUnavailable && (
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-gray-500">
               {t('settings.plan.billingUnavailable')}
             </p>
           )}
@@ -1171,7 +1171,7 @@ export default function SettingsPage() {
           {t('settings.signOut')}
         </button>
 
-        <p className="text-center text-xs text-gray-400">
+        <p className="text-center text-xs text-gray-500">
           <a href="/terms" className="hover:text-lang hover:underline">
             {t('login.terms')}
           </a>

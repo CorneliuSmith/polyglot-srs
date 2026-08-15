@@ -192,7 +192,7 @@ export default function LanguageVisibilityPanel() {
                     onClick={() => setActiveLanguageId(lang.id)}
                     aria-label={`Switch your active language to ${lang.name}`}
                     title={`Make ${lang.name} your active language (works even while it's hidden)`}
-                    className="rounded-md p-1 text-gray-400 hover:text-gray-600"
+                    className="rounded-md p-1 text-gray-500 hover:text-gray-600"
                   >
                     <ArrowLeftRight aria-hidden className="h-4 w-4" />
                   </button>
@@ -212,7 +212,7 @@ export default function LanguageVisibilityPanel() {
                 )}
                 {r && r.open_reports > 0 && (
                   <span
-                    className="text-[10px] text-gray-400"
+                    className="text-[10px] text-gray-500"
                     title="Open notes, change requests and learner feedback"
                   >
                     {r.open_reports} open
@@ -257,7 +257,7 @@ export default function LanguageVisibilityPanel() {
                   className={`rounded-md p-1 ${
                     expanded
                       ? 'bg-gray-100 text-gray-700'
-                      : 'text-gray-400 hover:text-gray-600'
+                      : 'text-gray-500 hover:text-gray-600'
                   }`}
                 >
                   <Settings2 aria-hidden className="h-4 w-4" />
@@ -265,7 +265,7 @@ export default function LanguageVisibilityPanel() {
               </div>
             </div>
             {expanded && !r && (
-              <div className="mt-2 ms-6 rounded-lg bg-gray-50 p-3 text-xs text-gray-400">
+              <div className="mt-2 ms-6 rounded-lg bg-gray-50 p-3 text-xs text-gray-500">
                 Policy and tutor model unavailable — the review status for
                 this language hasn't loaded.
               </div>
@@ -292,7 +292,7 @@ export default function LanguageVisibilityPanel() {
                       <option key={p} value={p}>{POLICY_LABELS[p]}</option>
                     ))}
                   </select>
-                  <span className="mt-1 block text-[11px] text-gray-400">
+                  <span className="mt-1 block text-[11px] text-gray-500">
                     {POLICY_HELP[normalizePolicy(r.review_policy)]}
                   </span>
                 </label>

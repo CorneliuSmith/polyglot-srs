@@ -70,7 +70,7 @@ export default function ResourceList({
   const group = (label: string, items: ReferenceLink[]) =>
     items.length > 0 && (
       <div>
-        <span className="block text-[10px] uppercase tracking-wide text-gray-400 mb-1">
+        <span className="block text-[10px] uppercase tracking-wide text-gray-500 mb-1">
           {label}
         </span>
         <ul className="space-y-1.5">
@@ -86,15 +86,15 @@ export default function ResourceList({
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`hover:underline ${
-                      isRead ? 'text-gray-400' : 'text-lang'
+                      isRead ? 'text-gray-500' : 'text-lang'
                     }`}
                   >
                     {ref.title}
                   </a>
                 ) : (
-                  <span className={isRead ? 'text-gray-400' : 'text-gray-700'}>
+                  <span className={isRead ? 'text-gray-500' : 'text-gray-700'}>
                     {ref.title}
-                    <span className="text-gray-400">
+                    <span className="text-gray-500">
                       {' — '}
                       {ref.book}
                       {ref.page ? `, ${t('shared.pageAbbrev', { page: ref.page })}` : ''}

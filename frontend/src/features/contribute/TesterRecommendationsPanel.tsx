@@ -63,7 +63,7 @@ export default function TesterRecommendationsPanel({
         <h2 className="text-sm font-semibold text-gray-800">
           Tester recommendations
         </h2>
-        <span className="text-xs text-gray-400">
+        <span className="text-xs text-gray-500">
           {capped
             ? `showing first ${items.length} of ${awaiting}`
             : `${items.length} on items still pending`}
@@ -83,7 +83,7 @@ export default function TesterRecommendationsPanel({
             <div className="flex items-start justify-between gap-2">
               <div className="min-w-0">
                 {r.context && (
-                  <div className="text-[11px] uppercase tracking-wide text-gray-400">
+                  <div className="text-[11px] uppercase tracking-wide text-gray-500">
                     {r.target_type === 'drill' ? 'Drill' : 'Example'} · {r.context}
                   </div>
                 )}
@@ -93,7 +93,7 @@ export default function TesterRecommendationsPanel({
                   </LanguageWrapper>
                 )}
                 {r.target_translation && (
-                  <div className="text-[11px] text-gray-400">
+                  <div className="text-[11px] text-gray-500">
                     {r.target_translation}
                   </div>
                 )}
@@ -115,7 +115,7 @@ export default function TesterRecommendationsPanel({
                 {r.note}
               </p>
             )}
-            <p className="mt-0.5 text-[11px] text-gray-400">
+            <p className="mt-0.5 text-[11px] text-gray-500">
               {r.recommender_email ?? 'a tester'}
             </p>
           </li>

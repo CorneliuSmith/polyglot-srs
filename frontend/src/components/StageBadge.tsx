@@ -18,7 +18,7 @@ export default function StageBadge({ stage }: { stage: StageName | null }) {
   const { t } = useTranslation()
   if (!stage) {
     return (
-      <span className="text-[10px] uppercase tracking-wide rounded-full px-2 py-0.5 border border-gray-200 text-gray-400">
+      <span className="text-[10px] uppercase tracking-wide rounded-full px-2 py-0.5 border border-gray-200 text-gray-500">
         {t('stages.notStudied')}
       </span>
     )

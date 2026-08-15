@@ -89,15 +89,15 @@ export default function SuggestionsPanel({ languageId }: { languageId: string })
                   AI · doc
                 </span>
               )}
-              <span className="text-xs text-gray-400">{s.entity_type}</span>
+              <span className="text-xs text-gray-500">{s.entity_type}</span>
             </span>
           </div>
           <div className="mt-1 space-y-1">
             {FIELDS.filter(([k]) => s.proposed[k] !== undefined).map(([k, label]) => (
               <div key={k} className="text-xs">
-                <span className="text-gray-400">{label}: </span>
+                <span className="text-gray-500">{label}: </span>
                 <span className="text-red-500 line-through">{s.current[k] || '∅'}</span>
-                <span className="text-gray-400"> → </span>
+                <span className="text-gray-500"> → </span>
                 <span className="text-green-700 font-medium">{s.proposed[k]}</span>
               </div>
             ))}

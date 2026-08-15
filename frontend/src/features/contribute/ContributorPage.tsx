@@ -96,7 +96,7 @@ export function TutorModelControl({
           <option key={m} value={m}>{m}</option>
         ))}
       </select>
-      <p className="mt-2 text-xs text-gray-400">
+      <p className="mt-2 text-xs text-gray-500">
         <button
           type="button"
           onClick={() => {
@@ -158,7 +158,7 @@ export function TutorCostsPanel() {
         languages, all users — learners always pay flat tiers.
       </p>
       {data.rows.length === 0 ? (
-        <p className="text-xs text-gray-400">No tutor usage recorded yet.</p>
+        <p className="text-xs text-gray-500">No tutor usage recorded yet.</p>
       ) : (
         <table className="w-full text-xs">
           <thead>
@@ -356,7 +356,7 @@ function PointEditor({
       <div className="flex items-center justify-between">
         <h2 className="font-semibold text-gray-900">
           {point.title}
-          {point.level && <span className="text-xs text-gray-400 ms-2">{point.level}</span>}
+          {point.level && <span className="text-xs text-gray-500 ms-2">{point.level}</span>}
         </h2>
         <span
           className={
@@ -379,7 +379,7 @@ function PointEditor({
           {point.ai_check_status === 'concerns' && (
             <span className="rounded-full px-2 py-0.5 bg-amber-100 text-amber-800">concerns</span>
           )}
-          {!point.ai_check_status && <span className="text-gray-400">not run</span>}
+          {!point.ai_check_status && <span className="text-gray-500">not run</span>}
           <button
             type="button"
             onClick={() => aiCheckMutation.mutate()}

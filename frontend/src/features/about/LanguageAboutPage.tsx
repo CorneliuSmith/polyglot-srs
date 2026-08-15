@@ -20,12 +20,12 @@ function GlossedExample({ example }: { example: SyntaxExample }) {
         {example.words.map((word, i) => (
           <div key={i} className="flex flex-col">
             <span className="text-sm text-gray-900">{word.w}</span>
-            <span className="text-[11px] text-gray-400">{word.g}</span>
+            <span className="text-[11px] text-gray-500">{word.g}</span>
           </div>
         ))}
       </div>
       <p className="mt-2 text-sm text-gray-700">
-        <DirArrow className="text-gray-400" /> {example.translation}
+        <DirArrow className="text-gray-500" /> {example.translation}
       </p>
       {example.note && (
         <p className="mt-1 text-xs text-gray-500">{example.note}</p>
@@ -103,7 +103,7 @@ export default function LanguageAboutPage() {
                   key={row.label}
                   className="p-4 flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4"
                 >
-                  <span className="shrink-0 sm:w-40 text-xs uppercase tracking-wide text-gray-400">
+                  <span className="shrink-0 sm:w-40 text-xs uppercase tracking-wide text-gray-500">
                     {row.label}
                   </span>
                   <span className="text-sm text-gray-700">{row.value}</span>
@@ -116,7 +116,7 @@ export default function LanguageAboutPage() {
               className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4"
               data-testid="about-syntax"
             >
-              <h3 className="text-xs uppercase tracking-wide text-gray-400 mb-2">
+              <h3 className="text-xs uppercase tracking-wide text-gray-500 mb-2">
                 {t('about.sentences')}
               </h3>
               <p className="text-sm text-gray-700 leading-relaxed">
@@ -133,7 +133,7 @@ export default function LanguageAboutPage() {
 
             {/* History */}
             <section className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
-              <h3 className="text-xs uppercase tracking-wide text-gray-400 mb-2">
+              <h3 className="text-xs uppercase tracking-wide text-gray-500 mb-2">
                 {t('about.history')}
               </h3>
               <p className="text-sm text-gray-700 leading-relaxed">{facts.history}</p>
@@ -141,7 +141,7 @@ export default function LanguageAboutPage() {
 
             {/* What makes it unique */}
             <section className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
-              <h3 className="text-xs uppercase tracking-wide text-gray-400 mb-2">
+              <h3 className="text-xs uppercase tracking-wide text-gray-500 mb-2">
                 {t('about.unique')}
               </h3>
               <ul className="space-y-2">

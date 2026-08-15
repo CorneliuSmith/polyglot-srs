@@ -34,7 +34,7 @@ export default function CEFRProgress({ progress }: CEFRProgressProps) {
                   style={{ width: `${pct}%` }}
                 />
               </div>
-              <span className="w-9 text-xs text-gray-400 text-end shrink-0">{pct}%</span>
+              <span className="w-9 text-xs text-gray-500 text-end shrink-0">{pct}%</span>
             </div>
           )
         })}

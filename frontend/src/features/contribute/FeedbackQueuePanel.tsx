@@ -53,16 +53,16 @@ function FeedbackRow({
           {CATEGORY_LABEL[item.category] ?? item.category}
         </span>
         {item.page && (
-          <span className="text-gray-400">on {item.page}</span>
+          <span className="text-gray-500">on {item.page}</span>
         )}
         {item.language_name && (
-          <span className="text-gray-400">· {item.language_name}</span>
+          <span className="text-gray-500">· {item.language_name}</span>
         )}
-        <span className="text-gray-400">
+        <span className="text-gray-500">
           · {new Date(item.created_at).toLocaleDateString()}
         </span>
         {item.email && (
-          <span className="min-w-0 flex-1 truncate text-end text-gray-400">
+          <span className="min-w-0 flex-1 truncate text-end text-gray-500">
             {item.email}
           </span>
         )}
@@ -95,7 +95,7 @@ function FeedbackRow({
               type="button"
               onClick={() => mutation.mutate('open')}
               disabled={mutation.isPending}
-              className="text-xs text-gray-400 hover:underline"
+              className="text-xs text-gray-500 hover:underline"
             >
               Reopen
             </button>
@@ -159,7 +159,7 @@ export default function FeedbackQueuePanel({
         </button>
       </div>
 
-      {isLoading && <p className="text-xs text-gray-400">Loading…</p>}
+      {isLoading && <p className="text-xs text-gray-500">Loading…</p>}
       {isError && (
         <p className="text-sm text-red-600">Couldn’t load the feedback queue.</p>
       )}

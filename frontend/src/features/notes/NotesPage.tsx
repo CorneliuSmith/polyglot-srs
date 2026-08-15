@@ -131,7 +131,7 @@ export default function NotesPage() {
 
         {sentences && (
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-gray-500">
               {t('notes.highlightHint')}
             </p>
             {sentences.map((s, i) => (
@@ -197,7 +197,7 @@ export default function NotesPage() {
               >
                 {cardMutation.isPending ? t('notes.adding') : t('notes.addCard')}
               </button>
-              <button type="button" onClick={() => setSelection(null)} className="text-xs text-gray-400 hover:underline">
+              <button type="button" onClick={() => setSelection(null)} className="text-xs text-gray-500 hover:underline">
                 {t('notes.cancel')}
               </button>
               {cardMutation.isError && (

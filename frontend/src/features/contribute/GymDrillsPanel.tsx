@@ -43,7 +43,7 @@ export default function GymDrillsPanel({
 
       {columns.map((col) => (
         <div key={col.kind} className="space-y-1.5">
-          <p className="text-xs uppercase tracking-wide text-gray-400">
+          <p className="text-xs uppercase tracking-wide text-gray-500">
             {col.label}
           </p>
           {col.entries.map((e) => {
@@ -67,7 +67,7 @@ export default function GymDrillsPanel({
                       </span>
                     )}
                   </span>
-                  <span className="flex items-center gap-2 text-xs text-gray-400">
+                  <span className="flex items-center gap-2 text-xs text-gray-500">
                     <span className="tabular-nums">
                       {e.drills} drill{e.drills === 1 ? '' : 's'}
                     </span>

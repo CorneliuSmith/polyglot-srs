@@ -158,7 +158,7 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
     <section className="space-y-3" data-testid="personal-decks">
       <h2 className="font-semibold text-gray-800">
         {t('decks.personalDecks')}
-        <span className="ms-2 text-xs font-normal text-gray-400">
+        <span className="ms-2 text-xs font-normal text-gray-500">
           {t('decks.personalDecksSub')}
         </span>
       </h2>
@@ -311,7 +311,7 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
                   className="flex-1 text-start text-sm font-semibold text-gray-800"
                 >
                   {g.name}
-                  <span className="ms-2 text-xs font-normal text-gray-400">
+                  <span className="ms-2 text-xs font-normal text-gray-500">
                     {t('decks.cardCount', { count: g.cards.length })}
                   </span>
                 </button>
@@ -320,14 +320,14 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
                     <button
                       type="button"
                       onClick={() => handleRename(g.id!, g.name)}
-                      className="text-xs text-gray-400 hover:text-lang"
+                      className="text-xs text-gray-500 hover:text-lang"
                     >
                       {t('decks.rename')}
                     </button>
                     <button
                       type="button"
                       onClick={() => handleDelete(g.id!, g.name)}
-                      className="text-xs text-gray-400 hover:text-red-600"
+                      className="text-xs text-gray-500 hover:text-red-600"
                     >
                       {t('decks.delete')}
                     </button>
@@ -337,7 +337,7 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
               {open && (
                 <ul className="border-t border-gray-100 px-4 py-2 divide-y divide-gray-50">
                   {g.cards.length === 0 && (
-                    <li className="py-2 text-xs text-gray-400">
+                    <li className="py-2 text-xs text-gray-500">
                       {t('decks.emptyDeckHint')}
                     </li>
                   )}
@@ -347,7 +347,7 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
                         <span className="block text-sm font-medium text-gray-800">
                           {c.answer}
                         </span>
-                        <span className="block text-xs text-gray-400 truncate">
+                        <span className="block text-xs text-gray-500 truncate">
                           {(c.sentence ?? '').replace('{{answer}}', '___')}
                         </span>
                       </span>
@@ -358,7 +358,7 @@ export default function PersonalDecksSection({ languageId }: { languageId: strin
                             deleteCardMutation.mutate(c.id)
                         }}
                         aria-label={t('decks.cardDeleteFor', { answer: c.answer })}
-                        className="text-xs text-gray-400 hover:text-red-600"
+                        className="text-xs text-gray-500 hover:text-red-600"
                       >
                         {t('decks.delete')}
                       </button>

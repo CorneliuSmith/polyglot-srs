@@ -534,7 +534,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                   <p className="text-sm text-gray-500 mt-0.5">{lesson.reading}</p>
                 )}
                 {lesson.part_of_speech && (
-                  <p className="text-xs text-gray-400 mt-0.5">{lesson.part_of_speech}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">{lesson.part_of_speech}</p>
                 )}
               </div>
               {lesson.title && (
@@ -544,7 +544,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
 
             {lesson.definition && (
               <p className="text-gray-800">
-                <span className="text-xs uppercase tracking-wide text-gray-400 block">
+                <span className="text-xs uppercase tracking-wide text-gray-500 block">
                   {t('learnSession.meaning')}
                 </span>
                 {lesson.definition}
@@ -553,7 +553,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
 
             {lesson.explanation && (
               <div>
-                <span className="text-xs uppercase tracking-wide text-gray-400 block mb-1">
+                <span className="text-xs uppercase tracking-wide text-gray-500 block mb-1">
                   {t('learnSession.howItWorks')}
                 </span>
                 <ExplanationView text={lesson.explanation} />
@@ -568,7 +568,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
 
             {lesson.examples.length > 0 && (
               <div>
-                <span className="text-xs uppercase tracking-wide text-gray-400 block mb-1">
+                <span className="text-xs uppercase tracking-wide text-gray-500 block mb-1">
                   {t('learnSession.inContext')}
                 </span>
                 <ul className="space-y-2">
@@ -602,7 +602,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
 
             {lesson.references.length > 0 && (
               <div>
-                <span className="text-xs uppercase tracking-wide text-gray-400 block mb-1">
+                <span className="text-xs uppercase tracking-wide text-gray-500 block mb-1">
                   {t('learnSession.sources')}
                 </span>
                 <ul className="space-y-1">
@@ -625,7 +625,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
             {/* First check: answer one drill correctly to queue this item */}
             {lesson.quiz && (
               <div className="border-t border-gray-100 pt-4">
-                <span className="text-xs uppercase tracking-wide text-gray-400 block mb-3">
+                <span className="text-xs uppercase tracking-wide text-gray-500 block mb-3">
                   {t('learnSession.yourTurn')}
                 </span>
                 <DrillCard
@@ -656,12 +656,12 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                   </p>
                 )}
                 {lesson.quiz.gloss && (
-                  <p className="text-xs text-gray-400 text-center mt-1">
+                  <p className="text-xs text-gray-500 text-center mt-1">
                     {lesson.quiz.gloss}
                   </p>
                 )}
                 {lesson.quiz.translation && (
-                  <p className="text-xs text-gray-400 text-center mt-1">
+                  <p className="text-xs text-gray-500 text-center mt-1">
                     {lesson.quiz.translation}
                   </p>
                 )}
@@ -694,7 +694,7 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                           knownMutation.mutate(lesson.card_id)
                       }}
                       disabled={knownMutation.isPending}
-                      className="text-xs text-gray-400 hover:text-lang disabled:opacity-50"
+                      className="text-xs text-gray-500 hover:text-lang disabled:opacity-50"
                       title={t('learnSession.skipDrillTitle')}
                     >
                       {t('learnSession.alreadyKnowButton')}

@@ -57,7 +57,7 @@ function ChangeRow({
       <div className="flex items-center justify-between gap-2">
         <span>
           <span className={`font-medium ${label.cls}`}>{label.text}</span>
-          <span className="text-gray-400"> · {change.actor_email ?? 'system'}</span>
+          <span className="text-gray-500"> · {change.actor_email ?? 'system'}</span>
           <span className="text-gray-300"> · {fmt(change.created_at)}</span>
         </span>
         {canRevert && change.revertible && (
@@ -78,7 +78,7 @@ function ChangeRow({
       {(change.before || change.after) && change.action === 'edited' && (
         <div className="mt-0.5 space-y-0.5">
           {change.before && (
-            <div className="text-gray-400 line-through truncate">
+            <div className="text-gray-500 line-through truncate">
               {summarize(change.before)}
             </div>
           )}
@@ -122,15 +122,15 @@ export default function CardHistory({
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="text-[11px] text-gray-400 hover:text-gray-600"
+        className="text-[11px] text-gray-500 hover:text-gray-600"
       >
         {open ? 'Hide history' : 'History'}
       </button>
       {open && (
         <div data-testid="card-history" className="mt-1 rounded-lg bg-gray-50 border border-gray-100 px-2.5 py-1">
-          {isLoading && <p className="text-xs text-gray-400 py-1">Loading…</p>}
+          {isLoading && <p className="text-xs text-gray-500 py-1">Loading…</p>}
           {data && data.changes.length === 0 && (
-            <p className="text-xs text-gray-400 py-1">No changes recorded yet.</p>
+            <p className="text-xs text-gray-500 py-1">No changes recorded yet.</p>
           )}
           {data && data.changes.length > 0 && (
             <ul className="divide-y divide-gray-100">

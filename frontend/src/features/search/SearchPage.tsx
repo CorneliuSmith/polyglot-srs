@@ -70,9 +70,9 @@ export default function SearchPage() {
         />
 
         {query.length > 0 && query.length < 2 && (
-          <p className="text-sm text-gray-400">{t('search.typeAtLeast')}</p>
+          <p className="text-sm text-gray-500">{t('search.typeAtLeast')}</p>
         )}
-        {isFetching && <p className="text-sm text-gray-400">{t('search.searching')}</p>}
+        {isFetching && <p className="text-sm text-gray-500">{t('search.searching')}</p>}
         {empty && !isFetching && (
           <p className="text-sm text-gray-500">
             {t('search.noMatches', {
@@ -86,7 +86,7 @@ export default function SearchPage() {
 
         {data && data.grammar.length > 0 && (
           <section>
-            <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
+            <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
               {t('common.grammar')}
             </h2>
             <ol className="space-y-2" data-testid="search-grammar">
@@ -109,7 +109,7 @@ export default function SearchPage() {
                       )}
                     </span>
                     {hit.level && (
-                      <span className="text-xs text-gray-400">{hit.level}</span>
+                      <span className="text-xs text-gray-500">{hit.level}</span>
                     )}
                     {hit.learned && (
                       <span className="text-xs rounded-full px-2 py-0.5 bg-green-50 text-green-700">
@@ -125,7 +125,7 @@ export default function SearchPage() {
 
         {data && data.vocabulary.length > 0 && (
           <section>
-            <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
+            <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
               {t('decks.vocabulary')}
             </h2>
             <ol className="space-y-2" data-testid="search-vocab">
@@ -146,7 +146,7 @@ export default function SearchPage() {
                     </span>
                   </span>
                   {hit.level && (
-                    <span className="text-xs text-gray-400">{hit.level}</span>
+                    <span className="text-xs text-gray-500">{hit.level}</span>
                   )}
                   {hit.learned && (
                     <span className="text-xs rounded-full px-2 py-0.5 bg-green-50 text-green-700">

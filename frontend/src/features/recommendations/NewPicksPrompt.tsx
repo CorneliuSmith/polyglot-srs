@@ -66,7 +66,7 @@ export default function NewPicksPrompt() {
           type="button"
           onClick={() => dismiss.mutate()}
           aria-label={t('recos.dismissPicks')}
-          className="shrink-0 text-gray-400 hover:text-gray-600"
+          className="shrink-0 text-gray-500 hover:text-gray-600"
         >
           <X aria-hidden className="h-4 w-4" />
         </button>
@@ -75,7 +75,7 @@ export default function NewPicksPrompt() {
       <ul className="space-y-1">
         {preview.map((item, i) => (
           <li key={i} className="text-sm text-gray-700">
-            <span className="text-[11px] uppercase tracking-wide text-gray-400">
+            <span className="text-[11px] uppercase tracking-wide text-gray-500">
               {t(`recos.mediaTypes.${item.type}`, { defaultValue: item.type })}
             </span>{' '}
             <span className="font-medium">{item.title}</span>

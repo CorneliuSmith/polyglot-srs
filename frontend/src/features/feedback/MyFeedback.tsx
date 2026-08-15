@@ -33,7 +33,7 @@ export default function MyFeedback() {
       <ul className="space-y-3">
         {items.map((item) => (
           <li key={item.id} className="border-t border-gray-100 pt-3 first:border-t-0 first:pt-0">
-            <div className="flex flex-wrap items-center gap-2 text-[11px] text-gray-400">
+            <div className="flex flex-wrap items-center gap-2 text-[11px] text-gray-500">
               <span className="rounded bg-gray-100 px-1.5 py-0.5 text-gray-600">
                 {t(`feedback.categories.${item.category}`, {
                   defaultValue: item.category,

@@ -314,7 +314,7 @@ export default function PlacementTest({
                       >
                         <div className="flex items-start justify-between gap-2">
                           <span className="text-gray-700">{b.prompt}</span>
-                          <span className="shrink-0 text-[10px] text-gray-400">
+                          <span className="shrink-0 text-[10px] text-gray-500">
                             {b.level}
                           </span>
                         </div>
@@ -346,7 +346,7 @@ export default function PlacementTest({
                             </span>
                           )}
                           {b.verdict === 'skipped' && (
-                            <span className="text-[10px] text-gray-400">
+                            <span className="text-[10px] text-gray-500">
                               {t('placement.skipped')}
                             </span>
                           )}
@@ -413,7 +413,7 @@ export default function PlacementTest({
                 className="w-full rounded-lg border border-gray-300 px-3 py-2 text-base"
               />
             </LanguageWrapper>
-            <p className="text-end text-[11px] text-gray-400">
+            <p className="text-end text-[11px] text-gray-500">
               {t('placement.wordCount', {
                 count: sample.trim().split(/\s+/).filter(Boolean).length,
               })}
@@ -478,7 +478,7 @@ export default function PlacementTest({
               onClick={() =>
                 result ? setSkippedWriting(true) : setWriting(false)
               }
-              className="block w-full text-center text-xs text-gray-400 hover:text-lang"
+              className="block w-full text-center text-xs text-gray-500 hover:text-lang"
             >
               {result
                 ? t('placement.skipWriting')
@@ -491,7 +491,7 @@ export default function PlacementTest({
               <h2 className="font-semibold text-gray-800">
                 {t('placement.answerIn', { language: languageDisplayName(language.code, language.name, i18n.language) })}
               </h2>
-              <span className="shrink-0 text-xs text-gray-400 tabular-nums">
+              <span className="shrink-0 text-xs text-gray-500 tabular-nums">
                 {history.length + 1} / {maxItems}
               </span>
             </div>
@@ -504,7 +504,7 @@ export default function PlacementTest({
                 <p className="text-base text-gray-700">{item.prompt}</p>
               )}
               {item.translation && (
-                <p className="text-xs text-gray-400">{item.translation}</p>
+                <p className="text-xs text-gray-500">{item.translation}</p>
               )}
               <LanguageWrapper languageCode={language.code}>
                 <form
@@ -613,7 +613,7 @@ export default function PlacementTest({
             <button
               type="button"
               onClick={onClose}
-              className="block w-full text-center text-xs text-gray-400 hover:text-lang"
+              className="block w-full text-center text-xs text-gray-500 hover:text-lang"
             >
               {t('placement.stopTest')}
             </button>
@@ -630,7 +630,7 @@ export default function PlacementTest({
               {cause ?? t('placement.startErrorHelp')}
             </p>
             {cause && (
-              <p className="text-[11px] text-gray-400">
+              <p className="text-[11px] text-gray-500">
                 {t('placement.migrationNote')}
               </p>
             )}
@@ -660,7 +660,7 @@ export default function PlacementTest({
             <button
               type="button"
               onClick={onClose}
-              className="block w-full text-center text-xs text-gray-400 hover:text-lang"
+              className="block w-full text-center text-xs text-gray-500 hover:text-lang"
             >
               {t('placement.cancel')}
             </button>

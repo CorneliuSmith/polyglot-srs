@@ -262,7 +262,7 @@ export default function OnboardingPage() {
               <h2 className="font-semibold text-gray-800">
                 {t('placement.answerIn', { language: languageDisplayName(language.code, language.name, i18n.language) })}
               </h2>
-              <span className="shrink-0 text-xs text-gray-400 tabular-nums">
+              <span className="shrink-0 text-xs text-gray-500 tabular-nums">
                 {history.length + 1} / {maxItems}
               </span>
             </div>
@@ -275,7 +275,7 @@ export default function OnboardingPage() {
                 <p className="text-base text-gray-700">{currentItem.prompt}</p>
               )}
               {currentItem.translation && (
-                <p className="text-xs text-gray-400">{currentItem.translation}</p>
+                <p className="text-xs text-gray-500">{currentItem.translation}</p>
               )}
               <LanguageWrapper languageCode={language.code}>
                 {/* Real form: some Android IMEs never emit a usable Enter
@@ -335,7 +335,7 @@ export default function OnboardingPage() {
             <button
               type="button"
               onClick={declineTest}
-              className="block w-full text-center text-xs text-gray-400 hover:text-lang"
+              className="block w-full text-center text-xs text-gray-500 hover:text-lang"
             >
               {t('onboarding.skipTest')}
             </button>
@@ -482,7 +482,7 @@ export default function OnboardingPage() {
                   : t('onboarding.allUnpriced')}
               </span>
             </button>
-            <p className="text-xs text-gray-400">
+            <p className="text-xs text-gray-500">
               {t('onboarding.billingNote')}
             </p>
             <button

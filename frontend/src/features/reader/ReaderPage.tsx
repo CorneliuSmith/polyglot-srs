@@ -370,7 +370,7 @@ export default function ReaderPage() {
                   ]
                 ).map((group) => (
                   <div key={group.name} className="flex flex-wrap items-center gap-1.5">
-                    <span className="w-16 text-[11px] uppercase tracking-wide text-gray-400">
+                    <span className="w-16 text-[11px] uppercase tracking-wide text-gray-500">
                       {group.label}
                     </span>
                     {group.choices.map(([value, label]) => (
@@ -398,7 +398,7 @@ export default function ReaderPage() {
                   {t('reader.generateError')}
                 </p>
               )}
-              <p className="text-[11px] text-gray-400">
+              <p className="text-[11px] text-gray-500">
                 {t('reader.usageNote')}
               </p>
               <UsageMeter allowance={usage?.allowance} />
@@ -419,7 +419,7 @@ export default function ReaderPage() {
                     <span className="text-sm font-medium text-gray-800 block">
                       {r.title}
                     </span>
-                    <span className="text-xs text-gray-400">
+                    <span className="text-xs text-gray-500">
                       {r.topic} · {r.level ?? ''} ·{' '}
                       {t('reader.shelfNewWords', { count: r.new_word_count })}
                     </span>
@@ -489,7 +489,7 @@ export default function ReaderPage() {
                           key={sIdx}
                           className="flex items-center gap-3 rounded-xl border border-gray-100 bg-gray-50 px-3 py-2"
                         >
-                          <span className="text-xs tabular-nums text-gray-400 w-6">
+                          <span className="text-xs tabular-nums text-gray-500 w-6">
                             {sIdx + 1}.
                           </span>
                           <SpeakButton
@@ -615,7 +615,7 @@ export default function ReaderPage() {
                         >
                           {stage === 'assisted' && openTranslations.has(sIdx) && (
                             <p className="text-sm text-gray-600">
-                              <span className="me-2 text-[10px] uppercase tracking-wide text-gray-400">
+                              <span className="me-2 text-[10px] uppercase tracking-wide text-gray-500">
                                 {t('reader.translation')}
                               </span>
                               {sentence.translation}
@@ -623,7 +623,7 @@ export default function ReaderPage() {
                           )}
                           {explanations[sIdx] && shownExplanations.has(sIdx) && (
                             <div data-testid="sentence-explanation">
-                              <span className="block text-[10px] uppercase tracking-wide text-gray-400 mb-1">
+                              <span className="block text-[10px] uppercase tracking-wide text-gray-500 mb-1">
                                 {t('common.grammar')}
                               </span>
                               <ExplanationView
@@ -691,7 +691,7 @@ export default function ReaderPage() {
                     {guessAttempt === 0 && guessText.trim() ? t('reader.lockItIn') : t('reader.reveal')}
                   </button>
                 </form>
-                <p className="text-[11px] text-gray-400">
+                <p className="text-[11px] text-gray-500">
                   {guessAttempt === 0 ? (
                     <>{t('reader.noIdea')}</>
                   ) : (
@@ -723,7 +723,7 @@ export default function ReaderPage() {
                 className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 space-y-2"
                 data-testid="new-words"
               >
-                <p className="text-xs uppercase tracking-wide text-gray-400">
+                <p className="text-xs uppercase tracking-wide text-gray-500">
                   {t('reader.newWordsTitle')}
                 </p>
                 {savedDeck && (

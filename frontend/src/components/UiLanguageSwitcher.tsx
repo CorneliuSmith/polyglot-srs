@@ -132,7 +132,7 @@ export default function UiLanguageSwitcher() {
         aria-expanded={open}
         data-testid="ui-language-switcher"
         title={t('switcher.label')}
-        className="w-9 h-9 md:w-7 md:h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-400 hover:text-lang hover:border-lang/40 leading-none"
+        className="w-9 h-9 md:w-7 md:h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:text-lang hover:border-lang/40 leading-none"
       >
         <Globe aria-hidden className="h-4 w-4 md:h-3.5 md:w-3.5" />
       </button>

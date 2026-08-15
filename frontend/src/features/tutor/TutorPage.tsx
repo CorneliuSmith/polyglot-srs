@@ -336,7 +336,7 @@ export default function TutorPage() {
         </div>
 
         {/* One-line explainer of the two modes (beta request). */}
-        <p className="text-[11px] text-gray-400 mb-2">
+        <p className="text-[11px] text-gray-500 mb-2">
           {mode === 'practice'
             ? t('tutor.practiceLine')
             : t('tutor.referenceLine')}
@@ -349,7 +349,7 @@ export default function TutorPage() {
             className="flex flex-wrap items-center gap-1.5 mb-2"
             data-testid="active-focus"
           >
-            <span className="text-[10px] uppercase tracking-wide text-gray-400">
+            <span className="text-[10px] uppercase tracking-wide text-gray-500">
               {t('tutor.activeFocus')}
             </span>
             {status!.focus!.map((f) => (
@@ -385,7 +385,7 @@ export default function TutorPage() {
               >
                 <div className="min-w-0 text-sm">
                   <span className="font-medium text-gray-900">{s.item}</span>
-                  <span className="ms-1.5 text-[10px] uppercase tracking-wide text-gray-400">
+                  <span className="ms-1.5 text-[10px] uppercase tracking-wide text-gray-500">
                     {s.kind === 'grammar' ? t('tutor.kindGrammar') : t('tutor.kindVocab')}
                   </span>
                   {s.evidence && (
@@ -427,13 +427,13 @@ export default function TutorPage() {
             data-testid="past-sessions"
           >
             {pastSessions.length === 0 && (
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-gray-500">
                 {t('tutor.noPastSessions')}
               </p>
             )}
             {pastSessions.map((sess) => (
               <div key={sess.id} className="text-xs">
-                <p className="text-gray-400">
+                <p className="text-gray-500">
                   {new Date(sess.created_at).toLocaleDateString(i18n.language, {
                     month: 'short', day: 'numeric',
                   })}{' '}
@@ -453,7 +453,7 @@ export default function TutorPage() {
           <div className="mb-3" data-testid="tutor-allowance">
             <UsageMeter allowance={allowance} />
             {['free', 'single', 'all'].includes(allowance.tier) && (
-              <p className="mt-1 text-xs text-gray-400">
+              <p className="mt-1 text-xs text-gray-500">
                 <button
                   type="button"
                   onClick={() => subscribeMutation.mutate()}
@@ -520,7 +520,7 @@ export default function TutorPage() {
                   <span className="text-lang/70">▍</span>
                 </span>
               ) : (
-                <span className="text-gray-400">{t('tutor.thinking')}</span>
+                <span className="text-gray-500">{t('tutor.thinking')}</span>
               )}
               {/* An escape hatch from a turn that isn't coming back. The
                   server's heartbeat keeps the connection alive while the
@@ -530,7 +530,7 @@ export default function TutorPage() {
               <button
                 type="button"
                 onClick={handleStop}
-                className="mt-1 block text-xs text-gray-400 hover:text-gray-600 hover:underline"
+                className="mt-1 block text-xs text-gray-500 hover:text-gray-600 hover:underline"
               >
                 {t('tutor.stop')}
               </button>

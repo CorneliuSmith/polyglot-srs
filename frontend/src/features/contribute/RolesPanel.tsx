@@ -76,7 +76,7 @@ export default function RolesPanel({ languages }: { languages: Language[] }) {
               <span className="text-xs rounded-full px-2 py-0.5 bg-lang-soft text-lang-dark capitalize">
                 {g.role}
               </span>
-              <span className="text-xs text-gray-400">
+              <span className="text-xs text-gray-500">
                 {languageName(g.language_id, g.language_code)}
               </span>
               <button
@@ -153,7 +153,7 @@ export default function RolesPanel({ languages }: { languages: Language[] }) {
       </form>
       {/* A tester got locked to one language because "All languages" here
           read like the STUDY plan. It is not — say so where the admin looks. */}
-      <p className="text-xs text-gray-400">
+      <p className="text-xs text-gray-500">
         Roles control content permissions (editing, reviewing). To change which
         languages an account can <em>study</em>, use the Accounts panel’s plan
         switch (Single ↔ All languages).

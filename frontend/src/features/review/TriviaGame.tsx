@@ -80,7 +80,7 @@ export default function TriviaGame({ onEmpty }: { onEmpty?: () => void }) {
                     ? 'border-green-400 bg-green-50 text-green-800'
                     : chosen
                       ? 'border-red-300 bg-red-50 text-red-700'
-                      : 'border-gray-200 bg-white text-gray-400'
+                      : 'border-gray-200 bg-white text-gray-500'
               }`}
             >
               {opt}

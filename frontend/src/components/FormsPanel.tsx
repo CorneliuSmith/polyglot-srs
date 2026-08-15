@@ -76,7 +76,7 @@ export default function FormsPanel({
                   </th>
                 </tr>
                 {chart.columns && (
-                  <tr className="text-xs text-gray-400">
+                  <tr className="text-xs text-gray-500">
                     {chart.columns.map((col, j) => (
                       <th key={j} className="text-start px-2 py-0.5 font-normal">
                         {col}
