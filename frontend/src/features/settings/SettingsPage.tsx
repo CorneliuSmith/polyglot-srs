@@ -172,10 +172,6 @@ export default function SettingsPage() {
 
   const { data: profile } = useQuery({ queryKey: ['profile'], queryFn: getProfile })
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
-  // The "learning English from" support locale only matters when the active
-  // language IS English — hide it otherwise.
-  const studyingEnglish =
-    languages.find((l) => l.id === activeLanguageId)?.code === 'en'
   const selfId = useAuthStore((s) => s.session?.user?.id ?? null)
 
   // Account is a role-tabbed hub (beta request): Learner settings are the
@@ -1061,29 +1057,33 @@ export default function SettingsPage() {
           )}
         </section>
 
-        {studyingEnglish && (
-          <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
-            <h2 className="font-semibold text-gray-800">{t('settings.support.title')}</h2>
-            <p className="text-xs text-gray-500">{t('settings.support.desc')}</p>
-            <select
-              value={profile?.support_locale ?? 'en'}
-              onChange={(e) => supportMutation.mutate(e.target.value)}
-              disabled={supportMutation.isPending}
-              aria-label={t('settings.support.title')}
-              className="rounded-lg border border-gray-300 px-3 py-2 text-sm bg-white"
-            >
-              <option value="en">{t('settings.support.englishOption')}</option>
-              {languages
-                .filter((l) => l.code !== 'en')
-                .map((l) => (
-                  <option key={l.code} value={l.code}>{languageDisplayName(l.code, l.name, i18n.language)}</option>
-                ))}
-            </select>
-            {supportMutation.isError && (
-              <p className="text-xs text-red-500">{t('settings.support.saveError')}</p>
-            )}
-          </section>
-        )}
+        {/* Shown on EVERY course, not just English. The backend applies
+            support_locale to every course (cards.py _effective_locale), and
+            the globe writes it for everyone — so gating this control on
+            "studying English" left the setting live and its only off-switch
+            invisible. An English speaker learning Spanish got Arabic
+            translations with no way back. */}
+        <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
+          <h2 className="font-semibold text-gray-800">{t('settings.support.title')}</h2>
+          <p className="text-xs text-gray-500">{t('settings.support.desc')}</p>
+          <select
+            value={profile?.support_locale ?? 'en'}
+            onChange={(e) => supportMutation.mutate(e.target.value)}
+            disabled={supportMutation.isPending}
+            aria-label={t('settings.support.title')}
+            className="rounded-lg border border-gray-300 px-3 py-2 text-sm bg-white"
+          >
+            <option value="en">{t('settings.support.englishOption')}</option>
+            {languages
+              .filter((l) => l.code !== 'en')
+              .map((l) => (
+                <option key={l.code} value={l.code}>{languageDisplayName(l.code, l.name, i18n.language)}</option>
+              ))}
+          </select>
+          {supportMutation.isError && (
+            <p className="text-xs text-red-500">{t('settings.support.saveError')}</p>
+          )}
+        </section>
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
           <h2 className="font-semibold text-gray-800">{t('settings.theme.title')}</h2>

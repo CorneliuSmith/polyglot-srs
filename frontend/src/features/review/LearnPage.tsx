@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { Trans, useTranslation } from 'react-i18next'
 import { Navigate, useNavigate, useSearchParams } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
@@ -79,13 +78,15 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
   const language = languages.find((l) => l.id === activeLanguageId)
 
-  // WP22: English lessons render definitions/hints/explanations in the
-  // learner's support locale — switchable right here, like in reviews.
-  const studyingEnglish = language?.code === 'en'
+  // EVERY course renders definitions/hints/explanations in the learner's
+  // support locale (cards.py _effective_locale), so the switch belongs on
+  // every course too. It used to be gated on `language?.code === 'en'`,
+  // which left an English speaker studying Spanish looking at Arabic
+  // translations with the only off-switch hidden — and this query disabled,
+  // so the options never loaded either.
   const { data: profile } = useQuery({
     queryKey: ['profile'],
     queryFn: getProfile,
-    enabled: studyingEnglish,
   })
   const localeMutation = useMutation({
     mutationFn: (support_locale: string) => updateProfile({ support_locale }),
@@ -474,26 +475,25 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                 })}
           </p>
           <span className="flex items-center gap-3">
-            {studyingEnglish && (
-              <select
-                value={profile?.support_locale ?? 'en'}
-                onChange={(e) => localeMutation.mutate(e.target.value)}
-                disabled={localeMutation.isPending}
-                aria-label={t('review.translationsLanguage')}
-                title={t('learnSession.showExplanationsIn')}
-                className="text-xs rounded-lg border border-gray-200 bg-white px-2 py-1 text-gray-600"
-              >
-                <option value="en">{t('review.english')}</option>
-                {languages
-                  .filter((l) => l.code !== 'en')
-                  .map((l) => (
-                    <option key={l.code} value={l.code}>
-                      {languageDisplayName(l.code, l.name, i18n.language)}
-                    </option>
-                  ))}
-              </select>
-            )}
-            <UiLanguageSwitcher />
+            <select
+              value={profile?.support_locale ?? 'en'}
+              onChange={(e) => localeMutation.mutate(e.target.value)}
+              disabled={localeMutation.isPending}
+              aria-label={t('review.translationsLanguage')}
+              title={t('learnSession.showExplanationsIn')}
+              className="text-xs rounded-lg border border-gray-200 bg-white px-2 py-1 text-gray-600"
+            >
+              <option value="en">{t('review.english')}</option>
+              {languages
+                .filter((l) => l.code !== 'en')
+                .map((l) => (
+                  <option key={l.code} value={l.code}>
+                    {languageDisplayName(l.code, l.name, i18n.language)}
+                  </option>
+                ))}
+            </select>
+            {/* No globe mid-walkthrough: it changes the card language under
+                a session already in progress. Every other page has it. */}
             <button
               type="button"
               onClick={() => navigate('/')}

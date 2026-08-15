@@ -66,7 +66,7 @@ async def _seed_file(
             row["rank"], row_source, license_, row["gloss"],
             row["transliteration"]
             or (romanize(row["sentence"]) if romanize else None),
-            reviewed,
+            reviewed, row["translation_locale"],
         ))
 
     before = await conn.fetchval(
@@ -77,8 +77,9 @@ async def _seed_file(
             """
             INSERT INTO example_sentences
                 (language_id, vocabulary_id, sentence, translation,
-                 difficulty_rank, source, license, gloss, transliteration, reviewed)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+                 difficulty_rank, source, license, gloss, transliteration,
+                 reviewed, translation_locale)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
             ON CONFLICT (vocabulary_id, sentence, translation_locale)
                 DO NOTHING
             """,
@@ -106,7 +107,79 @@ def _read_rows(path):
                 "gloss": (row.get("gloss") or "").strip() or None,
                 "transliteration": (row.get("transliteration") or "").strip(),
                 "source": (row.get("source") or "").strip().lower() or None,
+                # The language the TRANSLATION is written in — not the course.
+                # data/en_sentences.tsv carries this column and every one of
+                # its 202,772 rows is a NON-English locale (tr, de, fr, ru, es,
+                # it, pt, ro, ar, el, sw, hi, ca; zero 'en'). Dropping it filed
+                # all of them as English, so a Russian learner of English was
+                # served Spanish, French and Romanian under "in context" — and
+                # because the conflict key is (vocabulary_id, sentence,
+                # translation_locale), collapsing 13 locales onto 'en' also
+                # meant 12 of every 13 translations were silently discarded.
+                # Every other course's file omits the column; those really are
+                # English translations, so 'en' stays the default.
+                "translation_locale":
+                    (row.get("translation_locale") or "").strip().lower() or "en",
             }
+
+
+async def repair_locales(db_url: str, code: str) -> int:
+    """Relabel rows this seeder previously filed under the wrong locale.
+
+    Re-seeding cannot fix them: the insert is ON CONFLICT DO NOTHING, so a
+    row already sitting there — with the wrong translation_locale — is left
+    exactly as it is. The damage has to be corrected in place first.
+
+    Matching is on the translation TEXT, not on position: a row is relabelled
+    only when its stored translation is character-for-character the one the
+    file lists for that locale. So a Spanish string is only ever relabelled
+    'es'. Rows a human has since edited no longer match and are left alone.
+
+    Run this BEFORE re-seeding. Repair fixes the labels of the rows that
+    survived; the re-seed then inserts the 12-in-13 that the conflict key
+    silently swallowed while every locale was masquerading as 'en'.
+    """
+    conn = await asyncpg.connect(db_url)
+    try:
+        lang_id = await conn.fetchval(
+            "SELECT id FROM languages WHERE code = $1", code)
+        if not lang_id:
+            raise ValueError(f"language '{code}' not found")
+        vocab_rows = await conn.fetch(
+            "SELECT lower(word) AS w, id FROM vocabulary WHERE language_id = $1",
+            lang_id,
+        )
+        id_by_word = {r["w"]: r["id"] for r in vocab_rows}
+
+        fixed = 0
+        for path in (SENTENCES_DIR / f"{code}_sentences.tsv",
+                     DATA_DIR / f"{code}_sentences.tsv"):
+            if not path.exists():
+                continue
+            args = [
+                (row["translation_locale"], vocab_id, row["sentence"],
+                 row["translation"])
+                for row in _read_rows(path)
+                if row["translation_locale"] != "en" and row["translation"]
+                and (vocab_id := id_by_word.get(row["word"].lower()))
+            ]
+            for i in range(0, len(args), 1000):
+                await conn.executemany(
+                    """
+                    UPDATE example_sentences
+                       SET translation_locale = $1
+                     WHERE vocabulary_id = $2
+                       AND sentence = $3
+                       AND translation = $4
+                       AND translation_locale = 'en'
+                    """,
+                    args[i:i + 1000],
+                )
+            fixed += len(args)
+        logger.info("%s: repair pass covered %d file rows", code, fixed)
+        return fixed
+    finally:
+        await conn.close()
 
 
 async def seed(db_url: str, code: str) -> int:
@@ -139,11 +212,21 @@ async def seed(db_url: str, code: str) -> int:
 async def main() -> None:
     parser = argparse.ArgumentParser(description="Seed example sentences for vocabulary")
     parser.add_argument("--language", "-l", required=True)
+    parser.add_argument("--repair-locales", action="store_true",
+                        help="relabel rows filed under the wrong locale; run "
+                             "this BEFORE re-seeding (the insert is ON "
+                             "CONFLICT DO NOTHING and cannot fix them)")
     parser.add_argument("--db-url", default=os.environ.get("DATABASE_URL"))
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
     if not args.db_url:
         print("ERROR: DATABASE_URL not set. Pass --db-url or set DATABASE_URL.")
+        return
+    if args.repair_locales:
+        n = await repair_locales(args.db_url, args.language)
+        print(f"OK {args.language}: repair pass covered {n} file rows — "
+              f"now re-run without --repair-locales to insert the "
+              f"translations the old conflict key dropped")
         return
     n = await seed(args.db_url, args.language)
     print(f"OK {args.language}: {n} example sentences loaded")

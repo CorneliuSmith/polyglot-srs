@@ -62,3 +62,39 @@ describe('the label exists in every shipped locale', () => {
     expect(value).toContain('X')
   })
 })
+
+describe('a translation in the wrong language is labelled, whatever the script', () => {
+  it('flags a Latin-script fallback that script detection cannot see', () => {
+    // The screenshot: a Spanish learner shown Greek and Romanian under
+    // "TRADUCCIÓN". locale_mismatch is script-based and silent for Latin
+    // locales, so the server's own locale comparison has to drive this.
+    const layers = hintLayersFor('en', {
+      translation: 'Ești unul dintre noi.',
+      translation_pending: true,
+      hint: 'one of us',
+    })
+    const translation = layers.find((l) => l.field === 'translation')
+    expect(translation?.foreign).toBe(true)
+    expect(translation?.label).not.toBe(i18n.t('review.layerTranslation'))
+  })
+
+  it('leaves a real match alone', () => {
+    const layers = hintLayersFor('en', {
+      translation: '¿Y qué vamos a hacer?',
+      translation_pending: false,
+      hint: 'to do',
+    })
+    const translation = layers.find((l) => l.field === 'translation')
+    expect(translation?.foreign).toBeUndefined()
+    expect(translation?.label).toBe(i18n.t('review.layerTranslation'))
+  })
+
+  it('still honours the script guard when it does fire', () => {
+    const layers = hintLayersFor('en', {
+      translation: 'Και τι θα κάνουμε;',
+      locale_mismatch: ['translation'],
+      hint: 'to do',
+    })
+    expect(layers.find((l) => l.field === 'translation')?.foreign).toBe(true)
+  })
+})

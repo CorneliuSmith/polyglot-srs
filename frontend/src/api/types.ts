@@ -25,6 +25,11 @@ export interface DueCard {
   correct_answer: string
   hint?: string | null
   translation?: string | null
+  // The language `translation` is actually in, and whether that differs
+  // from the locale the learner asked for. Set by the server; the card
+  // labels a mismatch instead of passing another language off as theirs.
+  translation_locale?: string | null
+  translation_pending?: boolean | null
   // language-aware hint layers (present when authored for this sentence)
   gloss?: string | null
   transliteration?: string | null
