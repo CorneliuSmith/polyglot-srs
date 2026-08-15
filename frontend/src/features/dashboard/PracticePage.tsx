@@ -102,12 +102,48 @@ export default function PracticePage() {
       <div className="max-w-3xl mx-auto px-4 py-6 space-y-4 pb-24 md:pb-6">
         <SectionHeader title={t('nav.practice')} />
 
-        {/* Four tiles wrap to two rows on a phone rather than shrinking to
-            three-across-plus-one; a 2-column grid keeps every tap target
-            the same width whether or not this language has a Gym. */}
+        {/* Speak leads, and it is the only thing on this screen wearing the
+            accent — the rule from docs/design/contrast-and-hierarchy.md:
+            spend the accent on the one element the eye should land on, and
+            keep everything around it quiet. It earns that slot twice over.
+            It is the only place in the app where the learner PRODUCES
+            language rather than recognising it, and it was arriving as the
+            fourth of four identical tiles, which is how a new feature goes
+            unnoticed. */}
+        <button
+          type="button"
+          onClick={() => navigate('/speak')}
+          disabled={!activeLanguageId}
+          data-testid="tile-speak"
+          className="group w-full rounded-2xl bg-lang text-lang-on disabled:opacity-50 px-4 py-4 text-start flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow"
+          style={{ minHeight: '44px' }}
+        >
+          <span
+            aria-hidden
+            className="flex-none grid place-items-center h-11 w-11 rounded-xl bg-white/15"
+          >
+            <Mic className="h-6 w-6" strokeWidth={1.75} />
+          </span>
+          <span className="flex-1 min-w-0">
+            <span className="flex items-center gap-2">
+              <span className="text-base font-bold">{t('nav.speak')}</span>
+              <span className="rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide">
+                {t('dashboard.speakNew')}
+              </span>
+            </span>
+            <span className="block mt-0.5 text-[13px] leading-snug text-lang-on/85">
+              {t('dashboard.speakPitch')}
+            </span>
+          </span>
+          <DirArrow className="flex-none text-lang-on/70 group-hover:text-lang-on" />
+        </button>
+
+        {/* The quiet row. Two or three across depending on whether this
+            language has a Gym — both fit a phone without shrinking the tap
+            targets, which four never did. */}
         <div
           data-testid="feature-tiles"
-          className={`grid gap-3 ${hasGym ? 'grid-cols-2' : 'grid-cols-3'}`}
+          className={`grid gap-3 ${hasGym ? 'grid-cols-3' : 'grid-cols-2'}`}
         >
           {hasGym && (
             <FeatureTile
@@ -124,14 +160,6 @@ export default function PracticePage() {
             caption={t('dashboard.readCaption')}
             testId="tile-read"
             onClick={() => navigate('/read')}
-            disabled={!activeLanguageId}
-          />
-          <FeatureTile
-            icon={Mic}
-            label={t('nav.speak')}
-            caption={t('dashboard.speakCaption')}
-            testId="tile-speak"
-            onClick={() => navigate('/speak')}
             disabled={!activeLanguageId}
           />
           <FeatureTile
