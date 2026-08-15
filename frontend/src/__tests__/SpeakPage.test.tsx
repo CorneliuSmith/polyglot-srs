@@ -290,3 +290,113 @@ describe('SpeakPage', () => {
     expect(screen.queryByText(/\/\s*10\b/)).not.toBeInTheDocument()
   })
 })
+
+describe('SpeakPage — choosing when to be corrected', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+  })
+
+  it('offers both modes before the session starts', async () => {
+    mockStatus.mockResolvedValue({ available: true, allowance, sessions: [] })
+    renderPage()
+    await screen.findByTestId('speak-start')
+
+    expect(screen.getByTestId('speak-mode-coach')).toBeInTheDocument()
+    expect(screen.getByTestId('speak-mode-flow')).toBeInTheDocument()
+    expect(screen.getByText(/One correction as you go/i)).toBeInTheDocument()
+    expect(screen.getByText(/Corrections at the end/i)).toBeInTheDocument()
+  })
+
+  it('starts in flow unless coach is chosen', async () => {
+    mockStatus.mockResolvedValue({ available: true, allowance, sessions: [] })
+    mockStart.mockResolvedValue({ session_id: 's1', mode: 'flow', topic: null })
+    renderPage()
+    fireEvent.click(await screen.findByTestId('speak-start'))
+
+    await waitFor(() => expect(mockStart).toHaveBeenCalled())
+    expect(mockStart.mock.calls[0][3]).toBe('flow')
+  })
+
+  it('passes coach through when the learner picks it', async () => {
+    mockStatus.mockResolvedValue({ available: true, allowance, sessions: [] })
+    mockStart.mockResolvedValue({ session_id: 's1', mode: 'coach', topic: null })
+    renderPage()
+    await screen.findByTestId('speak-start')
+
+    fireEvent.click(screen.getByTestId('speak-mode-coach').querySelector('input')!)
+    fireEvent.click(screen.getByTestId('speak-start'))
+
+    await waitFor(() => expect(mockStart).toHaveBeenCalled())
+    expect(mockStart.mock.calls[0][3]).toBe('coach')
+  })
+
+  it('shows one correction, never a list', async () => {
+    // A learner corrected three times per turn stops talking.
+    mockStatus.mockResolvedValue({ available: true, allowance, sessions: [] })
+    mockStart.mockResolvedValue({ session_id: 's1', mode: 'coach', topic: null })
+    renderPage()
+    fireEvent.click(await screen.findByTestId('speak-start'))
+    await screen.findByTestId('speak-input')
+
+    mockTurn.mockResolvedValue({
+      reply: '¿Para tomar aquí?',
+      turn_index: 0,
+      allowance,
+      correction: {
+        type: 'pronoun',
+        learner_said: 'Yo quiero',
+        should_be: 'Quiero',
+        note: 'Spanish drops the subject pronoun.',
+      },
+    })
+    fireEvent.change(screen.getByTestId('speak-input'), {
+      target: { value: 'Yo quiero un café' },
+    })
+    fireEvent.click(screen.getByTestId('speak-send'))
+
+    await screen.findByTestId('speak-correction-0')
+    expect(screen.getByText(/Yo quiero → Quiero/)).toBeInTheDocument()
+    expect(
+      screen.getByText('Spanish drops the subject pronoun.'),
+    ).toBeInTheDocument()
+  })
+
+  it('shows nothing mid-session in flow mode', async () => {
+    mockStatus.mockResolvedValue({ available: true, allowance, sessions: [] })
+    mockStart.mockResolvedValue({ session_id: 's1', mode: 'flow', topic: null })
+    renderPage()
+    fireEvent.click(await screen.findByTestId('speak-start'))
+    await screen.findByTestId('speak-input')
+
+    // Flow sends no correction key at all.
+    mockTurn.mockResolvedValue({
+      reply: '¿Para tomar aquí?', turn_index: 0, allowance,
+    })
+    fireEvent.change(screen.getByTestId('speak-input'), {
+      target: { value: 'Yo quiero un café' },
+    })
+    fireEvent.click(screen.getByTestId('speak-send'))
+
+    await screen.findByText('¿Para tomar aquí?')
+    expect(screen.queryByTestId('speak-correction-0')).not.toBeInTheDocument()
+  })
+
+  it('says nothing when a coached turn was clean', async () => {
+    mockStatus.mockResolvedValue({ available: true, allowance, sessions: [] })
+    mockStart.mockResolvedValue({ session_id: 's1', mode: 'coach', topic: null })
+    renderPage()
+    fireEvent.click(await screen.findByTestId('speak-start'))
+    await screen.findByTestId('speak-input')
+
+    mockTurn.mockResolvedValue({
+      reply: 'Claro.', turn_index: 0, allowance, correction: null,
+    })
+    fireEvent.change(screen.getByTestId('speak-input'), {
+      target: { value: 'Quiero un café' },
+    })
+    fireEvent.click(screen.getByTestId('speak-send'))
+
+    await screen.findByText('Claro.')
+    expect(screen.queryByTestId('speak-correction-0')).not.toBeInTheDocument()
+  })
+})

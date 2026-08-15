@@ -1478,6 +1478,11 @@
     "add": "+ Добавить",
     "added": "Добавлено",
     "addRetry": "Ещё раз",
-    "practiseThese": "Потренировать"
+    "practiseThese": "Потренировать",
+    "modeLegend": "Когда исправлять?",
+    "modeCoach": "Наставник",
+    "modeCoachSub": "По одному замечанию сразу",
+    "modeFlow": "Поток",
+    "modeFlowSub": "Замечания в конце"
   }
 }

@@ -42,9 +42,9 @@ from backend.services.tutor import resolve_tutor_model
 logger = logging.getLogger("speak")
 router = APIRouter()
 
-# Stage 1 ships flow only. The column and this pattern already allow
-# 'coach' so an old session's mode still reads back once stage 3 lands.
-_MODES = "^(flow)$"
+# flow  — corrections wait for the summary.
+# coach — ONE correction per turn, then the conversation moves on.
+_MODES = "^(flow|coach)$"
 
 
 class StartRequest(BaseModel):
@@ -145,9 +145,14 @@ async def turn(
 ):
     """One exchange: they say something, the partner answers.
 
-    Errors noticed this turn are stored but never returned — flow mode shows
-    them only in the end-of-session summary. The client cannot leak what the
-    learner is not meant to see yet if it is never sent.
+    In flow mode the errors noticed this turn are stored and never returned:
+    the client cannot leak what the learner is not meant to see yet if it is
+    never sent.
+
+    In coach mode exactly ONE comes back — the first, which the model was
+    asked to make the most impeding. Never a list. A learner corrected three
+    times in a turn stops talking, and the other two are not lost: every
+    error is stored either way and they all reach the summary.
 
     The session, not the request, decides which course this is: a client
     that passed its own language_id could point a session at another
@@ -230,10 +235,15 @@ async def turn(
             result["reply"], result["errors"],
         )
 
+    errors = result["errors"]
     used_after = None if allowance["unlimited"] else (allowance["used"] or 0) + 1
     return {
         "reply": result["reply"],
         "turn_index": len(history),
+        # Present (possibly null) only in coach mode. Flow sends no key at
+        # all, so a client cannot render what it was never given.
+        **({"correction": errors[0] if errors else None}
+           if session["mode"] == "coach" else {}),
         "allowance": {
             **allowance,
             "used": used_after,

@@ -1432,6 +1432,11 @@
     "add": "+ Add",
     "added": "Added",
     "addRetry": "Try again",
-    "practiseThese": "Practise these"
+    "practiseThese": "Practise these",
+    "modeLegend": "How should corrections work?",
+    "modeCoach": "Coach",
+    "modeCoachSub": "One correction as you go",
+    "modeFlow": "Flow",
+    "modeFlowSub": "Corrections at the end"
   }
 }

@@ -61,9 +61,12 @@ _TURN_TOOL = {
             "errors": {
                 "type": "array",
                 "description": (
-                    "Mistakes in the learner's message. Empty list when it "
-                    "was fine. Do not invent errors to seem useful, and do "
-                    "not flag informal-but-correct speech."
+                    "Mistakes in the learner's message, MOST IMPEDING FIRST "
+                    "— the one that most gets in the way of being understood "
+                    "leads the list, because in coach mode only that one is "
+                    "shown and the rest wait for the end. Empty list when the "
+                    "message was fine. Do not invent errors to seem useful, "
+                    "and do not flag informal-but-correct speech."
                 ),
                 "items": {
                     "type": "object",

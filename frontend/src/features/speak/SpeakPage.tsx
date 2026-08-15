@@ -9,7 +9,7 @@ import {
   sendSpeakTurn,
   startSpeakSession,
 } from '../../api/speak'
-import type { SpeakSummary } from '../../api/speak'
+import type { SpeakError, SpeakMode, SpeakSummary } from '../../api/speak'
 import type { TutorAllowance } from '../../api/tutor'
 import { createPersonalCard } from '../../api/notes'
 import { getLanguages } from '../../api/profile'
@@ -21,6 +21,8 @@ import UsageMeter from '../../components/UsageMeter'
 interface Exchange {
   learner: string
   partner: string
+  /** Coach mode only, and at most one. */
+  correction?: SpeakError | null
 }
 
 /**
@@ -55,6 +57,7 @@ export default function SpeakPage() {
   })
 
   const [topic, setTopic] = useState('')
+  const [mode, setMode] = useState<SpeakMode>('flow')
   const [sessionId, setSessionId] = useState<string | null>(null)
   const [exchanges, setExchanges] = useState<Exchange[]>([])
   const [draft, setDraft] = useState('')
@@ -76,7 +79,7 @@ export default function SpeakPage() {
 
   const start = useMutation({
     mutationFn: () =>
-      startSpeakSession(activeLanguageId!, language!.code, topic.trim()),
+      startSpeakSession(activeLanguageId!, language!.code, topic.trim(), mode),
     onSuccess: (data) => {
       setSessionId(data.session_id)
       setExchanges([])
@@ -89,7 +92,10 @@ export default function SpeakPage() {
   const turn = useMutation({
     mutationFn: (text: string) => sendSpeakTurn(sessionId!, text),
     onSuccess: (data, text) => {
-      setExchanges((prev) => [...prev, { learner: text, partner: data.reply }])
+      setExchanges((prev) => [
+        ...prev,
+        { learner: text, partner: data.reply, correction: data.correction },
+      ])
       setAllowance(data.allowance)
       setError(null)
     },
@@ -162,6 +168,45 @@ export default function SpeakPage() {
     return (
       <Shell title={t('nav.speak')} allowance={allowance}>
         <p className="text-sm text-gray-600">{t('speak.intro')}</p>
+
+        <fieldset className="mt-4">
+          <legend className="text-sm font-semibold text-gray-800">
+            {t('speak.modeLegend')}
+          </legend>
+          <div className="mt-2 space-y-2">
+            {(['coach', 'flow'] as SpeakMode[]).map((m) => (
+              <label
+                key={m}
+                data-testid={`speak-mode-${m}`}
+                className={`flex items-start gap-3 rounded-xl border p-3 cursor-pointer ${
+                  mode === m
+                    ? 'border-lang bg-lang-soft/40'
+                    : 'border-gray-200 bg-white'
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="speak-mode"
+                  value={m}
+                  checked={mode === m}
+                  onChange={() => setMode(m)}
+                  className="mt-0.5 accent-[color:var(--lang)]"
+                />
+                <span>
+                  <span className="block text-sm font-bold text-gray-900">
+                    {t(m === 'coach' ? 'speak.modeCoach' : 'speak.modeFlow')}
+                  </span>
+                  <span className="block text-xs text-gray-500">
+                    {t(m === 'coach'
+                      ? 'speak.modeCoachSub'
+                      : 'speak.modeFlowSub')}
+                  </span>
+                </span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
         <label
           htmlFor="speak-topic"
           className="block mt-4 text-sm font-semibold text-gray-800"
@@ -203,6 +248,26 @@ export default function SpeakPage() {
             <p className="ms-auto max-w-[85%] rounded-2xl bg-lang-soft/60 px-4 py-2 text-sm text-gray-900 w-fit">
               {x.learner}
             </p>
+            {/* One line, one point, then the conversation moves on. Never a
+                list — a learner corrected three times per turn stops
+                talking. The rest are kept for the summary. */}
+            {x.correction && (
+              <div
+                data-testid={`speak-correction-${i}`}
+                className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-2 text-sm"
+              >
+                <span className="font-semibold text-gray-900">
+                  <LanguageWrapper languageCode={language?.code ?? 'en'}>
+                    <span>
+                      {x.correction.learner_said} → {x.correction.should_be}
+                    </span>
+                  </LanguageWrapper>
+                </span>
+                <span className="block mt-0.5 text-gray-600">
+                  {x.correction.note}
+                </span>
+              </div>
+            )}
             <LanguageWrapper languageCode={language?.code ?? 'en'}>
               <p className="max-w-[85%] rounded-2xl bg-white border border-gray-200 px-4 py-2 text-sm text-gray-900 w-fit">
                 {x.partner}

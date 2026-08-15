@@ -1,13 +1,14 @@
 # Speak — conversation practice with a correction pass
 
-A feature plan. **Stages 1 and 4 are built** (typed Flow mode, the
-end-of-session summary, and opt-in cards from it — see the sequencing table
-below). Stages 2 and 3 are still design to argue with before anyone writes
-code.
+A feature plan. **Stages 1, 3 and 4 are built** (typed Flow mode, the
+end-of-session summary, opt-in cards from it, and the Coach/Flow choice —
+see the sequencing table below). Only stage 2, speech itself, is still
+design.
 
-Stage 4 came before 2 and 3 deliberately: speech needs an STT provider this
-codebase does not have and the owner has not chosen, whereas cards need
-nothing new and are what makes a Speak session feed the rest of the app.
+Everything ran ahead of stage 2 for one reason: speech needs an STT provider
+this codebase does not have and the owner has not chosen. The costing for
+that is in docs/plans/speak-speech.md. Nothing else was blocked, so nothing
+else waited.
 
 **Name: Speak.** It sits in Practice alongside Gym and Read. Those two are
 recognition and comprehension; this is the only place the learner *produces*
@@ -186,7 +187,7 @@ Each stage is usable on its own; stop after any of them.
 | --- | --- | --- |
 | 1 ✅ | Text-only Flow mode + summary | Proves the turn engine and the error extraction with no audio risk at all |
 | 2 | Speech in and out | Latency work lands against something already known to work |
-| 3 | Coach mode | The interrupting correction is the riskiest UX call; earn the right to it |
+| 3 ✅ | Coach mode | The interrupting correction is the riskiest UX call; earn the right to it |
 | 4 ✅ | Cards from the summary | Wire to personal cards once the errors are known to be worth keeping |
 
 Stage 1 is genuinely useful alone — a typed conversation partner with an
@@ -218,6 +219,20 @@ Four decisions worth knowing before building stage 2:
 One thing the plan asked for that stage 1 does NOT do: there is no
 `/status` entry until the migration is applied — the page reports itself
 unavailable rather than offering a conversation that cannot be saved.
+
+### What stage 3 shipped
+
+The mode chooser the mockup above promised, and it does what the mockup
+says: in Coach mode a turn comes back with exactly ONE correction, never a
+list. The model is asked to order its findings most-impeding-first and the
+first is the one shown; the rest are stored and reach the summary like
+everything else, so nothing is lost by not interrupting with it.
+
+Flow sends no `correction` key at all — not an empty one. A client cannot
+render what it was never given, so the promise does not depend on the
+frontend behaving. Coach sends the key even when the turn was clean (as
+`null`), so "nothing was wrong" is distinguishable from "this mode does not
+correct".
 
 ### What stage 4 shipped
 

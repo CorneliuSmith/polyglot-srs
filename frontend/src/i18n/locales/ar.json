@@ -1501,6 +1501,11 @@
     "add": "+ إضافة",
     "added": "تمت الإضافة",
     "addRetry": "أعد المحاولة",
-    "practiseThese": "تدرّب على هذه"
+    "practiseThese": "تدرّب على هذه",
+    "modeLegend": "كيف تريد التصحيحات؟",
+    "modeCoach": "مرشد",
+    "modeCoachSub": "تصحيح واحد أثناء الحديث",
+    "modeFlow": "انسياب",
+    "modeFlowSub": "التصحيحات في النهاية"
   }
 }
