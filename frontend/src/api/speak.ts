@@ -61,6 +61,11 @@ export interface SpeakSessionRow {
   turn_count: number
 }
 
+/** 'flow' holds every correction back until the summary; 'coach' shows one
+ * per turn. Both end with the same summary — flow is not "no feedback", it
+ * is "feedback that does not interrupt". */
+export type SpeakMode = 'flow' | 'coach'
+
 export interface SpeakStatus {
   available: boolean
   allowance: TutorAllowance | null
@@ -78,11 +83,12 @@ export async function startSpeakSession(
   languageId: string,
   languageCode: string,
   topic?: string,
-): Promise<{ session_id: string; mode: string; topic: string | null }> {
+  mode: SpeakMode = 'flow',
+): Promise<{ session_id: string; mode: SpeakMode; topic: string | null }> {
   const response = await apiClient.post('/api/speak/start', {
     language_id: languageId,
     language_code: languageCode,
-    mode: 'flow',
+    mode,
     topic: topic || null,
   })
   return response.data
@@ -91,7 +97,14 @@ export async function startSpeakSession(
 export async function sendSpeakTurn(
   sessionId: string,
   text: string,
-): Promise<{ reply: string; turn_index: number; allowance: TutorAllowance }> {
+): Promise<{
+  reply: string
+  turn_index: number
+  allowance: TutorAllowance
+  /** Coach mode only, and at most one — never a list. Absent in flow mode,
+   * null when the turn was clean. */
+  correction?: SpeakError | null
+}> {
   const response = await apiClient.post('/api/speak/turn', {
     session_id: sessionId,
     text,

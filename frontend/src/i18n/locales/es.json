@@ -1432,6 +1432,11 @@
     "add": "+ Añadir",
     "added": "Añadida",
     "addRetry": "Reintentar",
-    "practiseThese": "Practicar estas"
+    "practiseThese": "Practicar estas",
+    "modeLegend": "¿Cómo quieres las correcciones?",
+    "modeCoach": "Guía",
+    "modeCoachSub": "Una corrección sobre la marcha",
+    "modeFlow": "Fluidez",
+    "modeFlowSub": "Correcciones al final"
   }
 }

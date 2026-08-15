@@ -419,12 +419,12 @@ class TestSpeakEndpoints:
         assert resp.json()["session_id"] == TEST_SESSION_ID
         assert resp.json()["topic"] == "Ordering a coffee"
 
-    def test_coach_mode_is_not_offered_yet(self, client):
-        """Stage 1 is flow only; asking for coach is a 422, not a session
-        that silently behaves like flow."""
+    def test_an_unknown_mode_is_rejected(self, client):
+        """Only the two real modes. A typo must not open a session that
+        silently behaves like flow."""
         resp = client.post("/api/speak/start", headers=_auth_headers(), json={
             "language_id": TEST_LANGUAGE_ID, "language_code": "es",
-            "mode": "coach",
+            "mode": "gentle",
         })
         assert resp.status_code == 422
 
@@ -535,3 +535,75 @@ class TestSpeakEndpoints:
                 "language_id": TEST_LANGUAGE_ID, "language_code": "es",
             })
         assert resp.status_code == 503
+
+
+class TestCoachMode:
+    """One correction per turn, then the conversation moves on.
+
+    The plan is emphatic that this is never a list: a learner corrected
+    three times in a turn stops talking. The other errors are not lost —
+    every one is stored and they all reach the summary.
+    """
+
+    def _live(self, **over):
+        return _live_session(mode="coach", **over)
+
+    def test_coach_returns_exactly_one_correction(self, client):
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=self._live())), \
+             patch("backend.routers.speak.list_turns",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.speak.append_turn", new=AsyncMock()):
+            resp = client.post("/api/speak/turn", headers=_auth_headers(), json={
+                "session_id": TEST_SESSION_ID, "text": "Yo quiero un café",
+            })
+        body = resp.json()
+        assert body["correction"]["type"] == "pronoun"
+        assert not isinstance(body["correction"], list)
+
+    def test_every_error_is_still_stored_for_the_summary(self, client):
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=self._live())), \
+             patch("backend.routers.speak.list_turns",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.speak.append_turn",
+                   new=AsyncMock()) as appended:
+            client.post("/api/speak/turn", headers=_auth_headers(), json={
+                "session_id": TEST_SESSION_ID, "text": "Yo quiero un café",
+            })
+        assert appended.await_args.args[5]  # the full list, not just the one
+
+    def test_a_clean_turn_says_so_rather_than_omitting_the_key(self, client):
+        # The key is present-but-null so the client can tell "nothing wrong"
+        # apart from "this mode doesn't correct".
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=self._live())), \
+             patch("backend.routers.speak.list_turns",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.speak.append_turn", new=AsyncMock()):
+            resp = client.post("/api/speak/turn", headers=_auth_headers(), json={
+                "session_id": TEST_SESSION_ID, "text": "Quiero un café",
+            })
+        assert "correction" in resp.json()
+        assert resp.json()["correction"] is None
+
+    def test_flow_sends_no_correction_key_at_all(self, client):
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=_live_session(mode="flow"))), \
+             patch("backend.routers.speak.list_turns",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.speak.append_turn", new=AsyncMock()):
+            resp = client.post("/api/speak/turn", headers=_auth_headers(), json={
+                "session_id": TEST_SESSION_ID, "text": "Yo quiero un café",
+            })
+        assert "correction" not in resp.json()
+
+    def test_coach_can_be_started(self, client):
+        with patch("backend.routers.speak.start_session",
+                   new=AsyncMock(return_value=TEST_SESSION_ID)):
+            resp = client.post("/api/speak/start", headers=_auth_headers(), json={
+                "language_id": TEST_LANGUAGE_ID, "language_code": "es",
+                "mode": "coach",
+            })
+        assert resp.status_code == 200
+        assert resp.json()["mode"] == "coach"
