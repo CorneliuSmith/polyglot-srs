@@ -25,23 +25,32 @@ the merge imply it was clean.
 
 ### Known-failing backend tests (environment, not the code)
 
-8 tests fail on a clean checkout in this container and are NOT regressions:
+5 tests fail on a clean checkout in this container and are NOT regressions:
 
 - `test_nlp_english.py` (5) — the spaCy English model isn't installed.
-- `test_audio.py` (3) — needs a live `ANTHROPIC_API_KEY` / provider.
 
 Compare against this baseline before claiming a regression. When the count
-changes, find out why rather than assuming it's the same 8.
+changes, find out why rather than assuming it's the same 5.
 
-This baseline was 16 until the rate limiter stopped caching a Redis client
-against a dead event loop (`services/rate_limit.RateLimiter.reset`). Eight
-of those "environmental" failures — across `test_tutor`, `test_reader`,
-`test_onboarding` and `test_contributor` — were that bug, not a missing
-key: each TestClient runs its own event loop, and whichever test file first
-built the async client left every later one reading from a closed one. It
-looked environmental because the failing set moved whenever test order did.
-Worth remembering the next time a failure is filed under "needs a provider"
-on the strength of it failing here and passing in CI.
+**This baseline was 16, and none of the other 11 were environmental.** Both
+causes were test-infrastructure bugs that only appear when the suite is run
+the documented way:
+
+1. Eight — across `test_tutor`, `test_reader`, `test_onboarding` and
+   `test_contributor` — were `RateLimiter` caching its async Redis client
+   against a dead event loop. Each TestClient runs its own loop, so
+   whichever file built the client left every later one reading from a
+   closed one.
+2. Three in `test_audio.py` were `tts_limiter` missing from conftest's
+   autouse reset. The cap is 30 calls a minute per user, every test in that
+   file uses the same user id, and running the suite as documented sets
+   `REDIS_URL` — so the budget lived in Redis and later tests got 429s.
+
+Both looked environmental from outside: they passed alone, passed without
+`REDIS_URL`, passed in CI, and the failing set moved with test order. That
+is what a shared-state bug looks like, not what a missing key looks like. A
+missing key fails the same test every time. Check which shape you have
+before filing a failure under "needs a provider".
 
 ### Running the full backend suite
 
