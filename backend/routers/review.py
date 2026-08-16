@@ -23,6 +23,7 @@ from backend.repositories.cards import (
     add_learn_batch,
     add_mixed_learn_batch,
     confirm_learn_batch,
+    due_batch_ids,
     get_card_detail,
     get_card_details_bulk,
     get_cram_cards,
@@ -210,9 +211,25 @@ async def readiness(
             # So the start batch is filled HERE, by this worker, bounded
             # and cooldown-guarded: the wait screen's promise must not
             # depend on reaching a loop somewhere else.
-            vocab_ids, grammar_ids = await start_batch_ids(
-                conn, user["id"], language_id,
-                batch_size=max(1, min(limit, 100)))
+            #
+            # Fill the half that is actually stuck. Learn and review are
+            # scored separately above and gated separately by their pages,
+            # but this used to fill the learn batch either way — so a
+            # review session waiting on French glosses paid for the
+            # translation of words it wasn't waiting on, and its own gate
+            # never moved. The inline fill is cooldown-guarded per (user,
+            # language), so the wrong half didn't merely miss: it held the
+            # lock the right half needed.
+            batch = max(1, min(limit, 100))
+            vocab_ids, grammar_ids = [], []
+            if not state["learn"]["ready_enough"]:
+                vocab_ids, grammar_ids = await start_batch_ids(
+                    conn, user["id"], language_id, batch_size=batch)
+            if not state["review"]["ready_enough"]:
+                due_v, due_g = await due_batch_ids(
+                    conn, user["id"], language_id, batch_size=batch)
+                vocab_ids = list(dict.fromkeys([*vocab_ids, *due_v]))
+                grammar_ids = list(dict.fromkeys([*grammar_ids, *due_g]))
     if not state["learn"]["ready_enough"] or not state["review"]["ready_enough"]:
         asyncio.create_task(fill_start_batch(
             user["id"], language_id, vocab_ids, grammar_ids))
