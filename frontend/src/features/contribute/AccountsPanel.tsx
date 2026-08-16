@@ -86,7 +86,7 @@ function RolesCell({
     <div className="space-y-1">
       <div className="flex flex-wrap items-center gap-1">
         {grants.length === 0 && !adding && (
-          <span className="text-xs text-gray-400">learner</span>
+          <span className="text-xs text-gray-500">learner</span>
         )}
         {grants.map((g) => {
           // Revoking your own admin grant locks you out of this panel —
@@ -99,7 +99,7 @@ function RolesCell({
               className="inline-flex items-center gap-1 text-xs rounded-full ps-2 pe-1 py-0.5 bg-lang-soft text-lang-dark"
             >
               <span className="capitalize">{g.role}</span>
-              <span className="text-gray-400">· {scopeName(g)}</span>
+              <span className="text-gray-500">· {scopeName(g)}</span>
               <button
                 type="button"
                 onClick={() => revokeMutation.mutate(g)}
@@ -346,7 +346,7 @@ function AccountRow({
     <tr className="odd:bg-gray-50 align-top">
       <td className="px-3 py-2">
         <span className="block text-sm text-gray-800">{account.email}</span>
-        <span className="block text-xs text-gray-400">
+        <span className="block text-xs text-gray-500">
           joined {account.created_at?.slice(0, 10) ?? '—'}
           {isSelf && ' · you'}
         </span>
@@ -546,11 +546,11 @@ export default function AccountsPanel({
       {open && <InviteForm />}
       {open && (
         <div className="overflow-x-auto">
-          {isLoading && <p className="text-xs text-gray-400">Loading…</p>}
+          {isLoading && <p className="text-xs text-gray-500">Loading…</p>}
           {!isLoading && (
             <table className="w-full text-sm" data-testid="accounts-table">
               <thead>
-                <tr className="text-start text-xs text-gray-400">
+                <tr className="text-start text-xs text-gray-500">
                   <th className="px-3 py-1 font-normal">Account</th>
                   <th className="px-3 py-1 font-normal">Activity</th>
                   <th className="px-3 py-1 font-normal">Plan</th>

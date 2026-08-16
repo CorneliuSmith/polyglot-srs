@@ -48,7 +48,7 @@ export default function UsageMeter({
         />
       </div>
       {resets && (
-        <p className="mt-1 text-xs text-gray-400">{t('usage.resets', { date: resets })}</p>
+        <p className="mt-1 text-xs text-gray-500">{t('usage.resets', { date: resets })}</p>
       )}
     </div>
   )

@@ -60,10 +60,10 @@ export default function IssuesPanel({
                   {n.entity_type === 'vocab' ? 'word' : 'grammar'}
                 </span>
                 {n.level && (
-                  <span className="ms-1 text-xs text-gray-400">{n.level}</span>
+                  <span className="ms-1 text-xs text-gray-500">{n.level}</span>
                 )}
                 <p className="text-gray-700 whitespace-pre-wrap">{n.note}</p>
-                <p className="text-xs text-gray-400">{n.author_email}</p>
+                <p className="text-xs text-gray-500">{n.author_email}</p>
               </div>
               {canResolve && (
                 <button

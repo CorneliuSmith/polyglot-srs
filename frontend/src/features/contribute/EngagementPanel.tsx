@@ -98,7 +98,7 @@ export default function EngagementPanel() {
     >
       <div className="text-xl font-bold text-lang tabular-nums">{value}</div>
       <div className="text-xs text-gray-600">{label}</div>
-      <div className="text-[10px] text-gray-400">{sub ?? 'tap for users'}</div>
+      <div className="text-[10px] text-gray-500">{sub ?? 'tap for users'}</div>
     </button>
   )
 
@@ -139,7 +139,7 @@ export default function EngagementPanel() {
         <div className="mb-3 overflow-x-auto" data-testid="engagement-users">
           <table className="w-full text-xs whitespace-nowrap">
             <thead>
-              <tr className="text-start text-gray-400 uppercase tracking-wide text-[10px]">
+              <tr className="text-start text-gray-500 uppercase tracking-wide text-[10px]">
                 <th className="py-1 pe-2">User</th>
                 <th className="py-1 pe-2">Last active</th>
                 <th className="py-1 pe-2 text-end">Reviews</th>
@@ -164,7 +164,7 @@ export default function EngagementPanel() {
                     <td className="py-1 pe-2 text-end tabular-nums">
                       {u.reviews}
                       {u.review_minutes > 0 && (
-                        <span className="text-gray-400"> · {u.review_minutes}m</span>
+                        <span className="text-gray-500"> · {u.review_minutes}m</span>
                       )}
                     </td>
                     <td className="py-1 pe-2 text-end tabular-nums">{u.tutor_messages}</td>
@@ -176,9 +176,9 @@ export default function EngagementPanel() {
                     <tr data-testid="engagement-user-detail">
                       <td colSpan={7} className="py-1 ps-4 bg-gray-50/60">
                         {!userLangs ? (
-                          <span className="text-gray-400">Loading…</span>
+                          <span className="text-gray-500">Loading…</span>
                         ) : userLangs.length === 0 ? (
-                          <span className="text-gray-400">No per-language activity.</span>
+                          <span className="text-gray-500">No per-language activity.</span>
                         ) : (
                           <table className="w-full text-[11px]">
                             <tbody>
@@ -198,7 +198,7 @@ export default function EngagementPanel() {
                                   <td className="py-0.5 pe-2 text-end tabular-nums">
                                     {l.readings} reads
                                   </td>
-                                  <td className="py-0.5 text-end text-gray-400">
+                                  <td className="py-0.5 text-end text-gray-500">
                                     last review {relativeDay(l.last_review)}
                                   </td>
                                 </tr>
@@ -213,7 +213,7 @@ export default function EngagementPanel() {
               ))}
               {users && shownUsers.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="py-2 text-gray-400">
+                  <td colSpan={7} className="py-2 text-gray-500">
                     No users match this tile.
                   </td>
                 </tr>
@@ -225,7 +225,7 @@ export default function EngagementPanel() {
 
       {data.top_languages.length > 0 && (
         <div>
-          <h3 className="text-xs uppercase tracking-wide text-gray-400 mb-1">
+          <h3 className="text-xs uppercase tracking-wide text-gray-500 mb-1">
             Most-studied languages
           </h3>
           <table className="w-full text-xs">
@@ -246,7 +246,7 @@ export default function EngagementPanel() {
                   <td className="py-1 text-end text-gray-500">
                     {l.learners} learner{l.learners === 1 ? '' : 's'}
                   </td>
-                  <td className="py-1 text-end text-gray-400">
+                  <td className="py-1 text-end text-gray-500">
                     {l.cards.toLocaleString()} cards
                   </td>
                 </tr>

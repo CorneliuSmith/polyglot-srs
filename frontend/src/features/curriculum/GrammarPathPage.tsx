@@ -134,7 +134,7 @@ export default function GrammarPathPage() {
 
         {levels.map((level) => (
           <section key={level}>
-            <h2 className="text-sm font-semibold text-gray-400 uppercase tracking-wide mb-2">
+            <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
               {level === 'Other' ? t('path.otherLevel') : level}
             </h2>
             <ol className="space-y-2">
@@ -153,7 +153,7 @@ export default function GrammarPathPage() {
                     className="w-full text-start px-4 py-3 flex items-center gap-3"
                     style={{ minHeight: '44px' }}
                   >
-                    <span className="text-xs text-gray-400 w-5 shrink-0">{i + 1}</span>
+                    <span className="text-xs text-gray-500 w-5 shrink-0">{i + 1}</span>
                     <span className="flex-1">
                       <span className="block text-sm font-semibold text-gray-900">
                         {point.title}
@@ -198,7 +198,7 @@ export default function GrammarPathPage() {
                               {/* Arabic readings carry tashkeel — hidden when
                                   the short-vowels setting is off. */}
                               {ex.reading && (languageCode !== 'ar' || showTashkeel) && (
-                                <span className="block text-gray-400 text-xs italic">
+                                <span className="block text-gray-500 text-xs italic">
                                   {ex.reading}
                                 </span>
                               )}

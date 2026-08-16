@@ -122,12 +122,12 @@ export default function ReviewInbox({
     >
       <div className="flex items-baseline justify-between">
         <h3 className="text-sm font-semibold text-gray-800">Review inbox</h3>
-        <span className="text-xs text-gray-400">
+        <span className="text-xs text-gray-500">
           {total === 0 ? 'All clear' : `${total} awaiting`}
         </span>
       </div>
       {total === 0 ? (
-        <p className="mt-2 text-xs text-gray-400">
+        <p className="mt-2 text-xs text-gray-500">
           Nothing is waiting on a reviewer for this language right now.
         </p>
       ) : (
@@ -146,7 +146,7 @@ export default function ReviewInbox({
                     {n}
                   </span>
                 </div>
-                <span className="mt-0.5 block text-[10px] uppercase tracking-wide text-gray-400">
+                <span className="mt-0.5 block text-[10px] uppercase tracking-wide text-gray-500">
                   {q.hint}
                 </span>
                 {/* The panel below caps its own list; say so rather than

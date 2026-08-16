@@ -32,7 +32,7 @@ function Chart({ series, field, label, color }: {
     <div>
       <div className="flex items-baseline justify-between">
         <span className="text-xs text-gray-500">{label}</span>
-        <span className="text-xs tabular-nums text-gray-400">
+        <span className="text-xs tabular-nums text-gray-500">
           today {last ? last[field] : 0} · peak {max}
         </span>
       </div>
@@ -115,13 +115,13 @@ export default function AnalyticsPanel() {
 
       {cohorts && cohorts.length > 0 && (
         <div className="mt-5">
-          <h3 className="text-xs uppercase tracking-wide text-gray-400 mb-1">
+          <h3 className="text-xs uppercase tracking-wide text-gray-500 mb-1">
             Retention · signup cohorts × weeks since
           </h3>
           <div className="overflow-x-auto">
             <table className="w-full text-xs whitespace-nowrap">
               <thead>
-                <tr className="text-start text-gray-400 uppercase tracking-wide text-[10px]">
+                <tr className="text-start text-gray-500 uppercase tracking-wide text-[10px]">
                   <th className="py-1 pe-2">Joined week of</th>
                   <th className="py-1 pe-2 text-end">Size</th>
                   {Array.from({ length: 8 }, (_, i) => (
@@ -156,7 +156,7 @@ export default function AnalyticsPanel() {
               </tbody>
             </table>
           </div>
-          <p className="mt-1 text-[10px] text-gray-400">
+          <p className="mt-1 text-[10px] text-gray-500">
             w0 is the signup week itself; future weeks read 0% until they
             happen.
           </p>

@@ -107,7 +107,9 @@
     "streakTitle": "Sequência",
     "addWidget": "Adicionar widget",
     "removeWidget": "Remover widget",
-    "speakCaption": "Tenha uma conversa"
+    "speakCaption": "Tenha uma conversa",
+    "speakNew": "Novo",
+    "speakPitch": "Tenha uma conversa. Correções durante ou no final."
   },
   "stages": {
     "beginner": "Iniciante",

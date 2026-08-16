@@ -122,7 +122,7 @@ function ExampleRow({
               edited
             </span>
           )}
-          <span className="text-gray-400">{ex.source}</span>
+          <span className="text-gray-500">{ex.source}</span>
         </span>
         {ex.flagged && ex.flag_reason && (
           <span className="mt-0.5 block text-xs text-red-500">
@@ -181,7 +181,7 @@ function ExampleRow({
               if (window.confirm('Delete this example sentence?')) del.mutate()
             }}
             disabled={del.isPending}
-            className="text-gray-400 hover:text-red-600"
+            className="text-gray-500 hover:text-red-600"
           >
             Delete
           </button>
@@ -233,10 +233,10 @@ export default function ExamplesEditor({
   const onChanged = () =>
     queryClient.invalidateQueries({ queryKey: ['vocab-examples', vocabularyId] })
 
-  if (isLoading) return <p className="text-xs text-gray-400">Loading examples…</p>
+  if (isLoading) return <p className="text-xs text-gray-500">Loading examples…</p>
   const examples = data?.examples ?? []
   if (examples.length === 0) {
-    return <p className="text-xs text-gray-400">No example sentences yet.</p>
+    return <p className="text-xs text-gray-500">No example sentences yet.</p>
   }
 
   return (

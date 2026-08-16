@@ -335,7 +335,7 @@ export default function GenerationPanel() {
                 <td className="py-1 text-end tabular-nums">
                   {r.grammar_no_drills}/{r.grammar_total}
                 </td>
-                <td className="py-1 text-end tabular-nums text-gray-400">
+                <td className="py-1 text-end tabular-nums text-gray-500">
                   {r.ai_examples + r.ai_drills}
                 </td>
                 <td className="py-1 text-end tabular-nums">
@@ -650,7 +650,7 @@ export default function GenerationPanel() {
                     <span className="font-medium">{p.word}</span> · {p.sentence}
                   </div>
                   {p.translation && (
-                    <div className="text-[11px] text-gray-400">{p.translation}</div>
+                    <div className="text-[11px] text-gray-500">{p.translation}</div>
                   )}
                   {/* Testers judged some of these. This is the panel with
                       the bulk-approve button, so it's where their verdict

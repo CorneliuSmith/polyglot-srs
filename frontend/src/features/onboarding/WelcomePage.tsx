@@ -114,7 +114,7 @@ export default function WelcomePage() {
           {t('welcome.goDashboard')}
         </button>
 
-        <p className="text-xs text-gray-400 text-center">
+        <p className="text-xs text-gray-500 text-center">
           {t('welcome.reopenNote')}
         </p>
       </div>

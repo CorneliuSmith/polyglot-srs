@@ -81,7 +81,7 @@ export default function FeedbackButton({ page }: { page: string }) {
           type="button"
           onClick={close}
           aria-label={t('feedback.closeAria')}
-          className="shrink-0 text-gray-400 hover:text-gray-600"
+          className="shrink-0 text-gray-500 hover:text-gray-600"
         >
           <X aria-hidden className="h-4 w-4" />
         </button>
@@ -145,7 +145,7 @@ export default function FeedbackButton({ page }: { page: string }) {
             >
               {mutation.isPending ? t('feedback.sending') : t('feedback.send')}
             </button>
-            <span className="text-[11px] text-gray-400">
+            <span className="text-[11px] text-gray-500">
               {t('feedback.screenNote')}
             </span>
           </div>

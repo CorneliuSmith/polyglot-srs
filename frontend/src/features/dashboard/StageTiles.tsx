@@ -32,7 +32,7 @@ export default function StageTiles({
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
       <div className="flex items-center justify-between mb-3">
-        <h2 className="text-xs uppercase tracking-wide text-gray-400">{t('dashboard.progressTitle')}</h2>
+        <h2 className="text-xs uppercase tracking-wide text-gray-500">{t('dashboard.progressTitle')}</h2>
         <div className="flex rounded-lg border border-gray-200 overflow-hidden text-xs">
           {(['grammar', 'vocab'] as const).map((k) => (
             <button

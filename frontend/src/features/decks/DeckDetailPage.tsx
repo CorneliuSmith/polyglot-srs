@@ -77,7 +77,7 @@ function ResetCardButton({ item, deckId }: { item: DeckItem; deckId: string | un
           resetMutation.mutate()
       }}
       disabled={resetMutation.isPending}
-      className="text-gray-400 hover:text-red-600 disabled:opacity-50"
+      className="text-gray-500 hover:text-red-600 disabled:opacity-50"
       title={t('decks.resetCardTitle')}
     >
       {resetMutation.isSuccess ? t('decks.resetDone') : t('dashboard.resetProgress')}
@@ -127,7 +127,7 @@ function FlagBox({ pointId }: { pointId: string }) {
       <button
         type="button"
         onClick={() => setOpen(false)}
-        className="text-xs text-gray-400 hover:underline"
+        className="text-xs text-gray-500 hover:underline"
       >
         Cancel
       </button>
@@ -184,7 +184,7 @@ function GrammarRow({
       </button>
       {open && (
         <div className="px-4 pb-4 space-y-3">
-          {isLoading && <p className="text-xs text-gray-400">{t('common.loading')}</p>}
+          {isLoading && <p className="text-xs text-gray-500">{t('common.loading')}</p>}
           {detail?.explanation && <ExplanationView text={detail.explanation} />}
           <div className="flex items-center gap-4 text-xs">
             <button
@@ -271,7 +271,7 @@ function VocabRow({
       </button>
       {open && (
         <div className="px-4 pb-4 space-y-3">
-          {isLoading && <p className="text-xs text-gray-400">{t('common.loading')}</p>}
+          {isLoading && <p className="text-xs text-gray-500">{t('common.loading')}</p>}
           {detail && (
             <>
               <p className="text-sm text-gray-700">
@@ -433,7 +433,7 @@ export default function DeckDetailPage() {
 
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
           {isLoading && (
-            <p className="px-4 py-3 text-sm text-gray-400">{t('decks.loadingItems')}</p>
+            <p className="px-4 py-3 text-sm text-gray-500">{t('decks.loadingItems')}</p>
           )}
           {filtered.map((item) =>
             item.kind === 'grammar' ? (

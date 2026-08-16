@@ -10,7 +10,9 @@ import i18n, {
 const { mockAuthed } = vi.hoisted(() => ({ mockAuthed: { value: false } }))
 
 vi.mock('../api/profile', () => ({
-  getProfile: vi.fn(() => Promise.resolve({ ui_language: 'en' })),
+  getProfile: vi.fn(() =>
+    Promise.resolve({ ui_language: 'en', support_locale: null }),
+  ),
   updateProfile: vi.fn(() => Promise.resolve({})),
 }))
 vi.mock('../stores/authStore', () => ({
@@ -20,9 +22,10 @@ vi.mock('../stores/authStore', () => ({
   ),
 }))
 
-import { updateProfile } from '../api/profile'
+import { getProfile, updateProfile } from '../api/profile'
 
 const mockUpdateProfile = updateProfile as ReturnType<typeof vi.fn>
+const mockGetProfile = getProfile as ReturnType<typeof vi.fn>
 
 function renderSwitcher() {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } })
@@ -164,5 +167,50 @@ describe('detection order', () => {
     await i18n.changeLanguage('es')
     syncUiLanguageFromProfile('ar')
     expect(i18n.language).toBe('es')
+  })
+})
+
+describe('the globe and an explicitly chosen translations language', () => {
+  beforeEach(async () => {
+    vi.clearAllMocks()
+    await reset()
+    mockAuthed.value = true
+  })
+  afterEach(() => {
+    mockAuthed.value = false
+  })
+
+  async function pickSpanishFromTheGlobe() {
+    renderSwitcher()
+    fireEvent.click(await screen.findByTestId('ui-language-switcher'))
+    fireEvent.click(await screen.findByText('Español'))
+    await waitFor(() => expect(mockUpdateProfile).toHaveBeenCalled())
+    return mockUpdateProfile.mock.calls[0][0]
+  }
+
+  it('fills the card language when nothing has been chosen', async () => {
+    // The automatic case: a Spanish interface should bring Spanish cards
+    // with it rather than leaving the learner on English.
+    mockGetProfile.mockResolvedValue({ ui_language: 'en', support_locale: null })
+    expect(await pickSpanishFromTheGlobe()).toEqual({
+      ui_language: 'es', support_locale: 'es',
+    })
+  })
+
+  it('leaves a chosen card language alone', async () => {
+    // The bug: this used to send support_locale unconditionally, so a
+    // learner who had picked Russian in Learn or Settings had it replaced
+    // by their interface language the next time they touched the globe —
+    // which reads as the app forgetting the choice and flipping back.
+    mockGetProfile.mockResolvedValue({ ui_language: 'en', support_locale: 'ru' })
+    const sent = await pickSpanishFromTheGlobe()
+    expect(sent).toEqual({ ui_language: 'es' })
+    expect(sent).not.toHaveProperty('support_locale')
+  })
+
+  it('still changes the interface either way', async () => {
+    mockGetProfile.mockResolvedValue({ ui_language: 'en', support_locale: 'ru' })
+    const sent = await pickSpanishFromTheGlobe()
+    expect(sent.ui_language).toBe('es')
   })
 })

@@ -73,7 +73,7 @@ function CramTopUp({ label }: { label: string }) {
           aria-hidden
         />
         <p className="text-gray-700">{label}</p>
-        <p className="text-xs text-gray-400">
+        <p className="text-xs text-gray-500">
           {t('review.cramTopupNote')}
         </p>
       </div>
@@ -867,13 +867,13 @@ function ReviewSessionInner({
               navigate('/')
             }}
             aria-label={t('review.exitSession')}
-            className="text-xl leading-none text-gray-400 hover:text-lang"
+            className="text-xl leading-none text-gray-500 hover:text-lang"
           >
             {t('review.exitArrow')}
           </button>
           {/* No globe in a running session: it changes the card language
               mid-review. It lives on every other page, and in Settings. */}
-          <div className="flex items-center gap-4 text-sm text-gray-400">
+          <div className="flex items-center gap-4 text-sm text-gray-500">
             <button type="button" onClick={() => navigate('/grammar')} className="hover:text-lang">
               {t('review.path')}
             </button>
@@ -958,7 +958,7 @@ function ReviewSessionInner({
         {/* Card area */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
           {shownTopHint && (
-            <p className="text-sm text-gray-400 text-center mb-4">
+            <p className="text-sm text-gray-500 text-center mb-4">
               {shownTopHint.text}
             </p>
           )}
@@ -1008,7 +1008,7 @@ function ReviewSessionInner({
                   className={
                     l.field === 'transliteration'
                       ? 'text-sm italic text-gray-500'
-                      : 'text-xs text-gray-400'
+                      : 'text-xs text-gray-500'
                   }
                 >
                   <span className="text-[10px] uppercase tracking-wide text-gray-300 me-2">
@@ -1035,7 +1035,7 @@ function ReviewSessionInner({
                 type="button"
                 onClick={() => setChartOpen((v) => !v)}
                 aria-expanded={chartOpen}
-                className="text-sm text-gray-400 hover:text-lang"
+                className="text-sm text-gray-500 hover:text-lang"
               >
                 {chartOpen
                   ? t('review.hideChart')
@@ -1086,7 +1086,7 @@ function ReviewSessionInner({
                 type="button"
                 aria-label={t('review.showHint')}
                 onClick={() => setHintLevel(hintLevel >= maxHint ? 0 : hintLevel + 1)}
-                className="flex items-center gap-2 text-sm text-gray-400 hover:text-lang"
+                className="flex items-center gap-2 text-sm text-gray-500 hover:text-lang"
               >
                 {t('review.hint')}
                 {Array.from({ length: maxHint }).map((_, i) => (
@@ -1108,7 +1108,7 @@ function ReviewSessionInner({
                 className={`ms-auto text-sm rounded-full px-3 py-1 border transition ${
                   listening
                     ? 'border-lang/40 bg-lang-soft text-lang'
-                    : 'border-gray-200 text-gray-400 hover:text-lang'
+                    : 'border-gray-200 text-gray-500 hover:text-lang'
                 }`}
               >
                 <Headphones aria-hidden className="me-1 inline h-3.5 w-3.5 align-[-2px]" />{listening ? t('review.listeningOn') : t('review.listeningOff')}
@@ -1117,7 +1117,7 @@ function ReviewSessionInner({
             {/* Card escape hatches: defer without grading, or retire a card
                 the learner genuinely already knows (graded reviews only —
                 cram cards are synthetic and have nothing to retire). */}
-            <div className="flex items-center justify-center gap-5 pt-1 text-xs text-gray-400">
+            <div className="flex items-center justify-center gap-5 pt-1 text-xs text-gray-500">
               <button
                 type="button"
                 onClick={() => session.advance()}
@@ -1216,7 +1216,7 @@ function ReviewSessionInner({
                 <div
                   className={`flex items-center gap-2 bg-white rounded-2xl border-2 px-3 py-1.5 shadow-sm ${resultStyles}`}
                 >
-                  <span className="flex items-center gap-1 text-gray-400">
+                  <span className="flex items-center gap-1 text-gray-500">
                     <SpeakButton
                       text={completedSentence}
                       languageCode={card.language_code}
@@ -1254,7 +1254,7 @@ function ReviewSessionInner({
                       setUserInput(lastInput)
                       session.retry()
                     }}
-                    className="text-xs text-gray-400 hover:text-lang"
+                    className="text-xs text-gray-500 hover:text-lang"
                   >
                     <Undo2 aria-hidden className="me-0.5 inline h-3.5 w-3.5 align-[-2px]" />{t('review.undo')}
                   </button>
@@ -1264,7 +1264,7 @@ function ReviewSessionInner({
                       type="button"
                       onClick={() => handleRate('wrong')}
                       disabled={submitMutation.isPending}
-                      className="text-xs text-gray-400 hover:text-red-500"
+                      className="text-xs text-gray-500 hover:text-red-500"
                     >
                       {t('review.gotItWrong')}
                     </button>

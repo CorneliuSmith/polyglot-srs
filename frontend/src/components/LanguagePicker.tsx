@@ -117,7 +117,7 @@ export default function LanguagePicker() {
   if (languages.length === 0) {
     return (
       <div
-        className="w-full rounded-lg border border-gray-300 bg-gray-100 px-3 py-2 text-sm text-gray-400 animate-pulse"
+        className="w-full rounded-lg border border-gray-300 bg-gray-100 px-3 py-2 text-sm text-gray-500 animate-pulse"
         style={{ minHeight: '44px' }}
         aria-label={t('picker.loadingLanguages')}
       />
@@ -151,7 +151,7 @@ export default function LanguagePicker() {
         </span>
         <ChevronDown
           aria-hidden
-          className={`h-4 w-4 text-gray-400 transition-transform ${open ? 'rotate-180' : ''}`}
+          className={`h-4 w-4 text-gray-500 transition-transform ${open ? 'rotate-180' : ''}`}
         />
       </button>
 
@@ -197,7 +197,7 @@ export default function LanguagePicker() {
                   <span aria-hidden className="text-lang font-semibold">✓</span>
                 )}
                 {locked && (
-                  <span className="text-[10px] text-gray-400">
+                  <span className="text-[10px] text-gray-500">
                     {t('picker.allLanguagesPlan')}
                   </span>
                 )}

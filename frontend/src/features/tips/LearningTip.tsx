@@ -78,7 +78,7 @@ export default function LearningTip({
         type="button"
         onClick={close}
         aria-label={t('tips.dismiss')}
-        className="absolute top-2 end-2 h-6 w-6 rounded-full text-gray-400 hover:text-gray-600 hover:bg-white/60 leading-none"
+        className="absolute top-2 end-2 h-6 w-6 rounded-full text-gray-500 hover:text-gray-600 hover:bg-white/60 leading-none"
       >
         ×
       </button>
@@ -87,7 +87,7 @@ export default function LearningTip({
         {t(`tips.items.${tip.id}.title`)}
       </p>
       <p className="mt-1 text-sm text-gray-600">{t(`tips.items.${tip.id}.body`)}</p>
-      <p className="mt-1 text-[11px] text-gray-400">{t('tips.footer')}</p>
+      <p className="mt-1 text-[11px] text-gray-500">{t('tips.footer')}</p>
     </div>
   )
 }

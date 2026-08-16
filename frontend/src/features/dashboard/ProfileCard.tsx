@@ -26,7 +26,7 @@ export default function ProfileCard({
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 space-y-4">
       <div>
-        <h2 className="text-xs uppercase tracking-wide text-gray-400 mb-2">
+        <h2 className="text-xs uppercase tracking-wide text-gray-500 mb-2">
           {t('dashboard.streak', { count: streakDays })}
         </h2>
         <div className="flex items-center justify-between">
@@ -46,7 +46,7 @@ export default function ProfileCard({
                     '·'
                   )}
                 </span>
-                <span className="text-[10px] text-gray-400">
+                <span className="text-[10px] text-gray-500">
                   {Array.from(t(DAY_KEYS[day.getUTCDay()]))[0]}
                 </span>
               </div>

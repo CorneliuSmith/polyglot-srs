@@ -83,7 +83,7 @@ export default function CircleFlag({
     return (
       <Globe
         aria-hidden
-        className={`shrink-0 text-gray-400 ${className}`}
+        className={`shrink-0 text-gray-500 ${className}`}
         style={{ width: size, height: size }}
       />
     )

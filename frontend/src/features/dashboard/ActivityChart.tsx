@@ -8,7 +8,7 @@ export default function ActivityChart({ activity }: { activity: ActivityDay[] })
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
       <div className="flex items-center justify-between mb-3">
-        <h2 className="text-xs uppercase tracking-wide text-gray-400">{t('dashboard.activityTitle')}</h2>
+        <h2 className="text-xs uppercase tracking-wide text-gray-500">{t('dashboard.activityTitle')}</h2>
         <div className="flex items-center gap-3 text-[10px] text-gray-500">
           <span className="flex items-center gap-1">
             <span className="inline-block w-2 h-2 rounded-sm bg-lang" /> {t('common.vocab')}
@@ -45,7 +45,7 @@ export default function ActivityChart({ activity }: { activity: ActivityDay[] })
           )
         })}
       </div>
-      <div className="flex justify-between mt-1 text-[10px] text-gray-400">
+      <div className="flex justify-between mt-1 text-[10px] text-gray-500">
         <span>{t('dashboard.twoWeeksAgo')}</span>
         <span>{t('common.todayLower')}</span>
       </div>

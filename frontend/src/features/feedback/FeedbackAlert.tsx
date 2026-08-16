@@ -74,7 +74,7 @@ export default function FeedbackAlert({ canSeeQueue }: { canSeeQueue: boolean })
         aria-label="Dismiss"
         title="Dismiss until something new arrives"
         onClick={() => markFeedbackSeen(data.latest_at)}
-        className="text-gray-400 hover:text-gray-600 shrink-0"
+        className="text-gray-500 hover:text-gray-600 shrink-0"
         style={{ minWidth: '32px', minHeight: '32px' }}
       >
         <X aria-hidden className="h-4 w-4 mx-auto" />

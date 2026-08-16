@@ -53,7 +53,7 @@ function TierRow({
         aria-label={`${PLAN_TIER_LABELS[tier]} monthly messages`}
         className="w-28 rounded border border-gray-300 px-2 py-1 text-sm tabular-nums"
       />
-      <span className="text-xs text-gray-400">msgs/month</span>
+      <span className="text-xs text-gray-500">msgs/month</span>
       <button
         type="button"
         onClick={() => onSave(parsed)}
@@ -100,7 +100,7 @@ export default function PlanLimitsPanel() {
         </p>
       </div>
 
-      {isLoading && <p className="text-xs text-gray-400">Loading…</p>}
+      {isLoading && <p className="text-xs text-gray-500">Loading…</p>}
       {isError && (
         <p className="text-sm text-red-600">Couldn’t load the allotments.</p>
       )}
@@ -128,7 +128,7 @@ export default function PlanLimitsPanel() {
           stored — try again.
         </p>
       )}
-      <p className="text-[11px] text-gray-400">
+      <p className="text-[11px] text-gray-500">
         A per-account override (Accounts → tutor access) still wins over the
         tier default for that one person.
       </p>

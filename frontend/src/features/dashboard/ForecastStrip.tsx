@@ -9,7 +9,7 @@ export default function ForecastStrip({ forecast }: { forecast: ForecastDay[] })
   const max = Math.max(1, ...forecast.map((d) => d.count))
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
-      <h2 className="text-xs uppercase tracking-wide text-gray-400 mb-3">
+      <h2 className="text-xs uppercase tracking-wide text-gray-500 mb-3">
         {t('dashboard.forecastTitle')}
       </h2>
       <div className="flex items-end justify-between gap-2" style={{ height: 72 }}>
@@ -25,7 +25,7 @@ export default function ForecastStrip({ forecast }: { forecast: ForecastDay[] })
                 className={`w-full rounded-t ${d.count > 0 ? 'bg-lang/70' : 'bg-gray-100'}`}
                 style={{ height: `${Math.max(4, (d.count / max) * 44)}px` }}
               />
-              <span className="text-[10px] text-gray-400">{label}</span>
+              <span className="text-[10px] text-gray-500">{label}</span>
             </div>
           )
         })}

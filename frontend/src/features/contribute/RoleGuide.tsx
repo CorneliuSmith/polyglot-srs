@@ -242,9 +242,9 @@ export default function RoleGuide({ role }: { role: GuideRole }) {
         <BookOpen aria-hidden className="h-4 w-4 shrink-0 text-lang" />
         <span className="flex-1 font-semibold text-gray-800">{guide.title}</span>
         {open ? (
-          <ChevronDown aria-hidden className="h-4 w-4 shrink-0 text-gray-400" />
+          <ChevronDown aria-hidden className="h-4 w-4 shrink-0 text-gray-500" />
         ) : (
-          <ChevronRight aria-hidden className="h-4 w-4 shrink-0 text-gray-400" />
+          <ChevronRight aria-hidden className="h-4 w-4 shrink-0 text-gray-500" />
         )}
       </button>
 

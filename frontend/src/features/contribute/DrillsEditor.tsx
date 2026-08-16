@@ -139,7 +139,7 @@ export default function DrillsEditor({
 
       {open && (
         <div className="mt-2 space-y-2" data-testid="drills-editor">
-          {isLoading && <p className="text-xs text-gray-400">Loading…</p>}
+          {isLoading && <p className="text-xs text-gray-500">Loading…</p>}
 
           {drills.map((d) =>
             editingId === d.id ? (
@@ -217,7 +217,7 @@ export default function DrillsEditor({
                     </span>
                   )}
                   {d.translation && (
-                    <span className="block text-xs text-gray-400">{d.translation}</span>
+                    <span className="block text-xs text-gray-500">{d.translation}</span>
                   )}
                   {d.flagged && d.flag_reason && (
                     <span className="block text-xs text-red-500">

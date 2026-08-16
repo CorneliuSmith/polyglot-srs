@@ -162,7 +162,7 @@ export default function GymPage() {
           </span>
         </div>
 
-        {isLoading && <p className="text-sm text-gray-400">{t('common.loading')}</p>}
+        {isLoading && <p className="text-sm text-gray-500">{t('common.loading')}</p>}
 
         {!isLoading && columns.length === 0 && (
           <div className="bg-white rounded-2xl border border-gray-100 p-6 text-sm text-gray-500">
@@ -192,7 +192,7 @@ export default function GymPage() {
                     key={col.kind}
                     className="bg-white rounded-2xl border border-gray-100 p-4"
                   >
-                    <h2 className="text-xs uppercase tracking-wide text-gray-400 mb-3">
+                    <h2 className="text-xs uppercase tracking-wide text-gray-500 mb-3">
                       {COLUMN_LABEL_KEYS[col.label]
                         ? t(COLUMN_LABEL_KEYS[col.label])
                         : col.label}
@@ -221,7 +221,7 @@ export default function GymPage() {
                               <span className="font-medium">
                                 {formLabel(e.label, t)}
                               </span>
-                              <span className="flex items-center gap-1 text-[10px] text-gray-400">
+                              <span className="flex items-center gap-1 text-[10px] text-gray-500">
                                 {e.familiar && (
                                   <span
                                     className="rounded-full bg-lang-soft text-lang px-1.5 py-0.5"
@@ -254,7 +254,7 @@ export default function GymPage() {
                                 <p className="text-gray-600">{e.usage}</p>
                               )}
                               {e.example && (
-                                <p className="mt-1 text-gray-400">{e.example}</p>
+                                <p className="mt-1 text-gray-500">{e.example}</p>
                               )}
                             </div>
                           )}
@@ -329,7 +329,7 @@ export default function GymPage() {
                 />
                 <span>
                   {t('gym.generateLabel')}
-                  <span className="block text-xs text-gray-400">
+                  <span className="block text-xs text-gray-500">
                     {t('gym.generateSub')}
                   </span>
                 </span>

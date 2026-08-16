@@ -55,7 +55,7 @@ export default function ChangeRequestsPanel({ languageId }: { languageId: string
     <section className="space-y-3" data-testid="change-requests">
       <h2 className="font-semibold text-gray-800">
         Change requests
-        <span className="ms-2 text-xs font-normal text-gray-400">
+        <span className="ms-2 text-xs font-normal text-gray-500">
           suggestions from Learn &amp; Review — vote to prioritise
         </span>
       </h2>
@@ -121,7 +121,7 @@ export default function ChangeRequestsPanel({ languageId }: { languageId: string
 
           {/* Body */}
           <div className="flex-1 min-w-0 space-y-1">
-            <div className="flex items-center gap-2 text-xs text-gray-400">
+            <div className="flex items-center gap-2 text-xs text-gray-500">
               <span className="rounded bg-gray-100 px-1.5 py-0.5 font-medium text-gray-600">
                 {FIELD_LABEL[r.field] ?? r.field}
               </span>
@@ -162,7 +162,7 @@ export default function ChangeRequestsPanel({ languageId }: { languageId: string
             <p className="text-sm text-gray-800">{r.issue}</p>
             {r.suggestion && (
               <p className="text-sm text-green-700">
-                <span className="text-gray-400">Suggested: </span>
+                <span className="text-gray-500">Suggested: </span>
                 {r.suggestion}
               </p>
             )}

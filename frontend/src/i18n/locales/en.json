@@ -107,7 +107,9 @@
     "streakTitle": "Streak",
     "addWidget": "Add widget",
     "removeWidget": "Remove widget",
-    "speakCaption": "Have a conversation"
+    "speakCaption": "Have a conversation",
+    "speakNew": "New",
+    "speakPitch": "Have a conversation. Corrections as you go, or all at the end."
   },
   "stages": {
     "beginner": "Beginner",

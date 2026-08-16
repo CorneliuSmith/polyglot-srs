@@ -148,7 +148,7 @@ function VocabRow({
             {item.part_of_speech && <span className="italic">{item.part_of_speech}</span>}
             {item.reading && <span> · {item.reading}</span>}
             {item.frequency_rank != null && (
-              <span className="text-gray-400"> · rank #{item.frequency_rank}</span>
+              <span className="text-gray-500"> · rank #{item.frequency_rank}</span>
             )}
           </p>
           <div>
@@ -186,7 +186,7 @@ function VocabRow({
                 {item.ai_check_status === 'concerns' && (
                   <span className="rounded-full px-2 py-0.5 bg-amber-100 text-amber-800">concerns</span>
                 )}
-                {!item.ai_check_status && <span className="text-gray-400">not run</span>}
+                {!item.ai_check_status && <span className="text-gray-500">not run</span>}
                 {canRunCheck && (
                   <button
                     type="button"

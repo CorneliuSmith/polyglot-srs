@@ -80,7 +80,7 @@ export default function InstallPrompt() {
         type="button"
         onClick={() => setDismissed(true)}
         aria-label={t('install.dismiss')}
-        className="text-gray-400 hover:text-gray-600 text-lg leading-none"
+        className="text-gray-500 hover:text-gray-600 text-lg leading-none"
       >
         ×
       </button>

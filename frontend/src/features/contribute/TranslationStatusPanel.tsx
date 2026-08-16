@@ -48,7 +48,7 @@ export default function TranslationStatusPanel() {
     refetchInterval: 60_000,
   })
 
-  if (isLoading) return <p className="text-xs text-gray-400">Checking…</p>
+  if (isLoading) return <p className="text-xs text-gray-500">Checking…</p>
   if (isError || !data) {
     return <p className="text-xs text-red-500">Could not read status.</p>
   }
@@ -95,7 +95,7 @@ export default function TranslationStatusPanel() {
           }
         />
         <Check ok={loopRunning} label={loopLabel} />
-        <span className="text-xs text-gray-400">
+        <span className="text-xs text-gray-500">
           {data.budget_per_cycle} items per {Math.round(data.sweep_seconds / 60)} min
         </span>
       </div>
@@ -126,7 +126,7 @@ export default function TranslationStatusPanel() {
           >
             <p className="text-xs font-semibold text-gray-800">
               {p.language} → {p.locale}{' '}
-              <span className="font-normal text-gray-400">
+              <span className="font-normal text-gray-500">
                 · {p.learners} learner{p.learners === 1 ? '' : 's'}
               </span>
             </p>
@@ -140,7 +140,7 @@ export default function TranslationStatusPanel() {
                   .join(' · ') + ` left · ≈${eta} at this rate`
               )}
             </p>
-            <p className="text-[11px] text-gray-400">
+            <p className="text-[11px] text-gray-500">
               done: {p.filled.words} words · {p.filled.drills} drills ·{' '}
               {p.filled.explanations} explanations
             </p>

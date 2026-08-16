@@ -107,7 +107,9 @@
     "streakTitle": "Série",
     "addWidget": "Ajouter un widget",
     "removeWidget": "Retirer le widget",
-    "speakCaption": "Avoir une conversation"
+    "speakCaption": "Avoir une conversation",
+    "speakNew": "Nouveau",
+    "speakPitch": "Ayez une conversation. Corrections au fil de l’eau ou à la fin."
   },
   "stages": {
     "beginner": "Débutant",

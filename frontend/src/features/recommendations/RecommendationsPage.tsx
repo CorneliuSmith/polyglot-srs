@@ -79,7 +79,7 @@ function RecoCard({
           line as a unit. */}
       <div className="mb-1 flex flex-wrap items-center gap-x-2 gap-y-1">
         <Icon aria-hidden className="h-4 w-4 shrink-0 text-lang" strokeWidth={1.75} />
-        <span className="text-[11px] uppercase tracking-wide text-gray-400">
+        <span className="text-[11px] uppercase tracking-wide text-gray-500">
           {label}
         </span>
         {item.genre && (
@@ -167,7 +167,7 @@ function Batch({ batch, heading }: { batch: RecoBatch; heading: string }) {
     <section className="space-y-3" data-testid="reco-batch">
       <div className="flex items-baseline justify-between">
         <h2 className="text-sm font-semibold text-gray-700">{heading}</h2>
-        <span className="text-xs text-gray-400">
+        <span className="text-xs text-gray-500">
           {formatDate(batch.created_at, i18n.language)}
         </span>
       </div>
@@ -266,7 +266,7 @@ export default function RecommendationsPage() {
           <h1 className="text-lg font-bold text-gray-900">{t('dashboard.recommendedTitle')}</h1>
         </div>
 
-        {isLoading && <p className="text-sm text-gray-400">{t('common.loading')}</p>}
+        {isLoading && <p className="text-sm text-gray-500">{t('common.loading')}</p>}
 
         {/* Feature off → point to Settings. */}
         {data && !data.enabled && (
@@ -365,7 +365,7 @@ export default function RecommendationsPage() {
             <Batch batch={batches[0]} heading={t('recos.thisWeeksPicks')} />
             {batches.length > 1 && (
               <div className="space-y-6">
-                <h2 className="text-xs uppercase tracking-wide text-gray-400">
+                <h2 className="text-xs uppercase tracking-wide text-gray-500">
                   {t('recos.earlier')}
                 </h2>
                 {batches.slice(1).map((b) => (

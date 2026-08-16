@@ -70,7 +70,7 @@ export default function SuggestEditModal(props: {
       >
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-bold text-gray-900">Suggest an edit</h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-xl leading-none">×</button>
+          <button onClick={onClose} className="text-gray-500 hover:text-gray-600 text-xl leading-none">×</button>
         </div>
 
         {done ? (
@@ -97,7 +97,7 @@ export default function SuggestEditModal(props: {
             </div>
 
             <div className="mt-4">
-              <p className="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-1">
+              <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">
                 Preview
               </p>
               <div className="rounded-xl border border-gray-100 bg-gray-50 p-3" data-testid="card-preview">

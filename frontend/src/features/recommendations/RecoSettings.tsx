@@ -134,7 +134,7 @@ export default function RecoSettings() {
               placeholder={t('recoSettings.aboutPlaceholder')}
               className="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm focus:border-lang focus:outline-none"
             />
-            <p className="mt-1 text-[11px] text-gray-400">
+            <p className="mt-1 text-[11px] text-gray-500">
               {t('recoSettings.aboutHint')}
             </p>
           </div>
@@ -191,7 +191,7 @@ export default function RecoSettings() {
                 )
               })}
             </div>
-            <p className="mt-1 text-[11px] text-gray-400">
+            <p className="mt-1 text-[11px] text-gray-500">
               {t('recoSettings.mediaHint')}
             </p>
           </div>

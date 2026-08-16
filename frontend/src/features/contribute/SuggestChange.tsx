@@ -75,7 +75,7 @@ export default function SuggestChange({
 
   if (done) {
     return (
-      <p className="text-xs text-gray-400 text-center mt-2" role="status">
+      <p className="text-xs text-gray-500 text-center mt-2" role="status">
         ✓ Sent to the review board
       </p>
     )
@@ -86,7 +86,7 @@ export default function SuggestChange({
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="block mx-auto mt-2 text-xs text-gray-400 hover:text-lang"
+        className="block mx-auto mt-2 text-xs text-gray-500 hover:text-lang"
       >
         ✎ Suggest a change (reviewer)
       </button>
@@ -137,7 +137,7 @@ export default function SuggestChange({
         <button
           type="button"
           onClick={() => setOpen(false)}
-          className="text-xs text-gray-400 hover:text-gray-600"
+          className="text-xs text-gray-500 hover:text-gray-600"
         >
           Cancel
         </button>

@@ -74,7 +74,7 @@ export default function SpeakButton({
       className={
         className ??
         `inline-flex items-center justify-center rounded p-1 hover:text-lang ${
-          active ? 'text-lang' : 'text-gray-400'
+          active ? 'text-lang' : 'text-gray-500'
         }`
       }
     >

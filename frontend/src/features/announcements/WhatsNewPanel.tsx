@@ -53,7 +53,7 @@ export default function WhatsNewPanel({ onClose }: { onClose: () => void }) {
                       {t('whatsNew.newBadge')}
                     </span>
                   )}
-                  <span className="ms-auto text-xs text-gray-400 whitespace-nowrap">
+                  <span className="ms-auto text-xs text-gray-500 whitespace-nowrap">
                     {t(`whatsNew.entries.${entry.id}.date`)}
                   </span>
                 </div>

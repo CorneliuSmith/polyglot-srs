@@ -121,7 +121,7 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
               className={`rounded-lg border px-2 py-1.5 text-xs transition-colors ${
                 open
                   ? 'border-lang/40 bg-lang-soft text-lang'
-                  : 'border-gray-200 text-gray-400 hover:text-lang hover:border-lang/40'
+                  : 'border-gray-200 text-gray-500 hover:text-lang hover:border-lang/40'
               }`}
             >
               <span
@@ -170,7 +170,7 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
                   type="button"
                   onClick={handleReset}
                   disabled={resetMutation.isPending}
-                  className="text-gray-400 hover:text-red-600"
+                  className="text-gray-500 hover:text-red-600"
                   title={t('dashboard.resetProgressHint')}
                 >
                   {t('dashboard.resetProgress')}
@@ -181,7 +181,7 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
               className="rounded-lg bg-gray-50 border border-gray-100 p-3 text-xs space-y-1"
               data-testid="deck-preview"
             >
-              {previewLoading && <p className="text-gray-400">{t('common.loading')}</p>}
+              {previewLoading && <p className="text-gray-500">{t('common.loading')}</p>}
               {preview?.items.map((it, i) => (
                 <p key={i} className="text-gray-700">
                   <span className="font-medium">{it.item}</span>
@@ -189,7 +189,7 @@ export function DeckRow({ deck, onLearn }: { deck: LearnDeck; onLearn: (d: Learn
                 </p>
               ))}
               {preview && preview.items.length === 0 && (
-                <p className="text-gray-400">{t('dashboard.deckEmpty')}</p>
+                <p className="text-gray-500">{t('dashboard.deckEmpty')}</p>
               )}
             </div>
           </div>
@@ -325,6 +325,7 @@ export default function DashboardPage() {
   // menu on phones, where a single row of them overflowed the viewport.
   const navItems: { label: string; to: string }[] = [
     { label: t('nav.decks'), to: '/decks' },
+    { label: t('nav.speak'), to: '/speak' },
     { label: t('nav.tutor'), to: '/tutor' },
     { label: t('nav.read'), to: '/read' },
     ...(hasGym ? [{ label: t('nav.gym'), to: '/gym' }] : []),
@@ -369,7 +370,7 @@ export default function DashboardPage() {
               onClick={() => navigate('/account')}
               aria-label={t('nav.account')}
               title={t('nav.account')}
-              className="w-9 h-9 md:w-7 md:h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-400 hover:text-lang hover:border-lang/40"
+              className="w-9 h-9 md:w-7 md:h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:text-lang hover:border-lang/40"
             >
               <CircleUserRound aria-hidden className="h-4 w-4 md:h-3.5 md:w-3.5" />
             </button>
@@ -379,7 +380,7 @@ export default function DashboardPage() {
               onClick={() => setShowWhatsNew(true)}
               aria-label={t('header.whatsNew')}
               title={t('header.whatsNew')}
-              className="relative w-9 h-9 md:w-7 md:h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-400 hover:text-lang hover:border-lang/40 text-sm md:text-xs leading-none"
+              className="relative w-9 h-9 md:w-7 md:h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:text-lang hover:border-lang/40 text-sm md:text-xs leading-none"
             >
               <Bell aria-hidden className="h-4 w-4 md:h-3.5 md:w-3.5" />
               {unseenCount > 0 && (
@@ -396,7 +397,7 @@ export default function DashboardPage() {
               onClick={() => setShowTour(true)}
               aria-label={t('header.takeTour')}
               title={t('header.takeTour')}
-              className="w-9 h-9 md:w-7 md:h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-400 hover:text-lang hover:border-lang/40 text-sm md:text-xs leading-none"
+              className="w-9 h-9 md:w-7 md:h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:text-lang hover:border-lang/40 text-sm md:text-xs leading-none"
             >
               ?
             </button>

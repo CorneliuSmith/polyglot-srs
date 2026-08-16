@@ -7,6 +7,7 @@ import {
   Dumbbell,
   Flame,
   MessagesSquare,
+  Mic,
   SpellCheck,
   Sparkles,
 } from 'lucide-react'
@@ -87,9 +88,28 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
       aria-label={t('nav.practice')}
     >
       <section className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-        <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-400">
+        <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-500">
           {t('nav.practice')}
         </h2>
+        {/* Speak leads here the same way it leads Practice — one accented
+            element, everything else quiet. A fourth equal tile in this rail
+            would be both cramped and invisible, which is how it went
+            unnoticed on Practice. */}
+        <button
+          type="button"
+          data-testid="rail-speak"
+          disabled={!activeLanguageId}
+          onClick={() => navigate('/speak')}
+          className="mb-2 w-full rounded-xl bg-lang text-lang-on disabled:opacity-50 px-3 py-2.5 flex items-center gap-2.5 text-start hover:opacity-95"
+        >
+          <Mic aria-hidden className="h-5 w-5 flex-none" strokeWidth={1.75} />
+          <span className="flex-1 min-w-0 text-sm font-bold truncate">
+            {t('nav.speak')}
+          </span>
+          <span className="flex-none rounded-full bg-white/20 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wide">
+            {t('dashboard.speakNew')}
+          </span>
+        </button>
         <div className={`grid gap-2 ${hasGym ? 'grid-cols-3' : 'grid-cols-2'}`}>
           {hasGym && (
             <RailTile
@@ -126,7 +146,7 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
         disabled={!activeLanguageId}
         className="rounded-2xl border border-gray-100 bg-white p-4 text-start shadow-sm transition-colors hover:border-lang/40 disabled:opacity-40"
       >
-        <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-400">
+        <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
           {t('dashboard.recommendedTitle')}
         </h2>
         <p className="flex items-center gap-1.5 text-sm text-gray-700">
@@ -136,7 +156,7 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
       </button>
 
       <section className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-        <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-400">
+        <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-500">
           {t('nav.languageGuide')}
         </h2>
         <div className="grid grid-cols-2 gap-2">
@@ -162,7 +182,7 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
           onClick={() => navigate('/progress')}
           className="rounded-2xl border border-gray-100 bg-white p-4 text-start shadow-sm transition-colors hover:border-lang/40"
         >
-          <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-400">
+          <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-500">
             {t('nav.progress')}
           </h2>
           <p className="mb-2 flex items-center gap-1.5 text-sm text-gray-700">

@@ -81,18 +81,18 @@ export default function TranslationReviewsPanel({
                   maker_check_batch) and every row rendered as a reason with
                   a Reject button — a bin, not a review. */}
               {r.current_definition && (
-                <div className="text-xs text-gray-400">
-                  <span className="text-gray-400">now:</span>{' '}
+                <div className="text-xs text-gray-500">
+                  <span className="text-gray-500">now:</span>{' '}
                   {r.current_definition}
                 </div>
               )}
               {r.proposed ? (
                 <div className="text-xs text-gray-700">
-                  <span className="text-gray-400">proposed:</span>{' '}
+                  <span className="text-gray-500">proposed:</span>{' '}
                   <b className="text-gray-900">{r.proposed}</b>
                 </div>
               ) : (
-                <div className="text-xs text-gray-400 italic">
+                <div className="text-xs text-gray-500 italic">
                   no replacement proposed — the checker rejected it outright
                 </div>
               )}

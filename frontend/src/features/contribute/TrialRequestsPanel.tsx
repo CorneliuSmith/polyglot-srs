@@ -89,7 +89,7 @@ export default function TrialRequestsPanel() {
         </div>
       </div>
 
-      {isLoading && <p className="text-xs text-gray-400">Loading…</p>}
+      {isLoading && <p className="text-xs text-gray-500">Loading…</p>}
       {data && !data.available && (
         <p className="text-xs text-amber-700 bg-amber-50 rounded-lg px-3 py-2">
           Trial signup needs migration 20260921 applied — run{' '}
@@ -97,7 +97,7 @@ export default function TrialRequestsPanel() {
         </p>
       )}
       {data?.available && requests.length === 0 && (
-        <p className="text-xs text-gray-400">No requests yet.</p>
+        <p className="text-xs text-gray-500">No requests yet.</p>
       )}
 
       {pending.length > 0 && (
@@ -110,7 +110,7 @@ export default function TrialRequestsPanel() {
                     {r.name ? `${r.name} · ` : ''}
                     {r.email}
                   </span>
-                  <span className="block text-xs text-gray-400">
+                  <span className="block text-xs text-gray-500">
                     asked {r.requested_at.slice(0, 10)}
                   </span>
                   {r.note && (
@@ -163,7 +163,7 @@ export default function TrialRequestsPanel() {
       })}
 
       {decided.length > 0 && (
-        <details className="text-xs text-gray-400">
+        <details className="text-xs text-gray-500">
           <summary className="cursor-pointer">
             Decided ({decided.length})
           </summary>

@@ -113,7 +113,9 @@
     "streakTitle": "السلسلة",
     "addWidget": "إضافة أداة",
     "removeWidget": "إزالة الأداة",
-    "speakCaption": "أجرِ محادثة"
+    "speakCaption": "أجرِ محادثة",
+    "speakNew": "جديد",
+    "speakPitch": "أجرِ محادثة. تصحيحات أثناء الحديث أو كلها في النهاية."
   },
   "stages": {
     "beginner": "مبتدئ",

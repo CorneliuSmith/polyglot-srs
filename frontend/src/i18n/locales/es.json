@@ -107,7 +107,9 @@
     "streakTitle": "Racha",
     "addWidget": "Añadir widget",
     "removeWidget": "Quitar widget",
-    "speakCaption": "Mantén una conversación"
+    "speakCaption": "Mantén una conversación",
+    "speakNew": "Nuevo",
+    "speakPitch": "Mantén una conversación. Correcciones sobre la marcha o al final."
   },
   "stages": {
     "beginner": "Principiante",

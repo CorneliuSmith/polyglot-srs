@@ -65,7 +65,7 @@ export default function ReviewQueue({
           data-testid="review-queue-empty"
         >
           <p className="text-sm text-gray-500">No reviews in the queue right now.</p>
-          <p className="mt-1 text-xs text-gray-400">
+          <p className="mt-1 text-xs text-gray-500">
             Edits others suggest, card issues they report, and feedback they leave
             will show up here for you to approve or resolve.
           </p>

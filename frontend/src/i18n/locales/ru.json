@@ -111,7 +111,9 @@
     "streakTitle": "Серия",
     "addWidget": "Добавить виджет",
     "removeWidget": "Убрать виджет",
-    "speakCaption": "Поговорите"
+    "speakCaption": "Поговорите",
+    "speakNew": "Новое",
+    "speakPitch": "Поговорите. Замечания сразу или все в конце."
   },
   "stages": {
     "beginner": "Новичок",

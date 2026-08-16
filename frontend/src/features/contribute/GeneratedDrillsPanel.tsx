@@ -98,7 +98,7 @@ export default function GeneratedDrillsPanel({
             className="flex items-start justify-between gap-2 rounded-lg border border-gray-100 px-2.5 py-1.5"
           >
             <div className="min-w-0">
-              <div className="text-xs text-gray-400">
+              <div className="text-xs text-gray-500">
                 {d.point_title}
                 {d.cell && <span className="ms-1 text-lang">· {d.cell}</span>}
               </div>
@@ -111,10 +111,10 @@ export default function GeneratedDrillsPanel({
                 )}
               </div>
               {d.translation && (
-                <div className="text-[11px] text-gray-400">{d.translation}</div>
+                <div className="text-[11px] text-gray-500">{d.translation}</div>
               )}
               {d.hint && (
-                <div className="text-[11px] text-gray-400">hint: {d.hint}</div>
+                <div className="text-[11px] text-gray-500">hint: {d.hint}</div>
               )}
               {d.flagged && d.flag_reason && (
                 <div className="text-[11px] text-red-500">⚠ {d.flag_reason}</div>
