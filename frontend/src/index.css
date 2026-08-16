@@ -26,7 +26,29 @@
   --lang-stage-5-on: #ffffff;
 }
 
+/* Language colour, made usable in three places instead of one.
+   --lang-primary is a raw brand hue and ranges from Catalan's yellow to
+   Spanish indigo, so it can only be trusted as a FILL. Mixing it gives the
+   other two roles a guarantee the raw hue cannot:
+     tint  — mixed toward the page, so a card reads as belonging to this
+             language while staying a quiet background at every hue;
+     edge  — the same, slightly stronger, for borders;
+     label — mixed toward INK, which is what makes coloured text safe: even
+             Catalan yellow lands near ink-dark once 62% of it is #111827,
+             so a label is legible in every language rather than only the
+             dark-hued ones.
+   That is the whole rule — colour toward the ground for surfaces, colour
+   toward the ink for type. */
+:root {
+  --lang-tint:  color-mix(in srgb, var(--lang-primary) 4%, #ffffff);
+  --lang-edge:  color-mix(in srgb, var(--lang-primary) 22%, #e5e7eb);
+  --lang-label: color-mix(in srgb, var(--lang-primary) 38%, #111827);
+}
+
 @theme inline {
+  --color-lang-tint: var(--lang-tint);
+  --color-lang-edge: var(--lang-edge);
+  --color-lang-label: var(--lang-label);
   --color-lang: var(--lang-primary);
   --color-lang-dark: var(--lang-primary-dark);
   --color-lang-accent: var(--lang-accent);
@@ -82,6 +104,11 @@
      read generally in dark mode". Swap the surface for a dark, language-
      tinted one so the same pairings stay readable in both themes. */
   --lang-soft-surface: color-mix(in srgb, var(--lang-primary) 20%, #161c2a);
+  /* Same three roles, re-mixed for the dark ground: surfaces go toward the
+     dark card, labels toward near-white so they stay legible there. */
+  --lang-tint:  color-mix(in srgb, var(--lang-primary) 12%, #1a2130);
+  --lang-edge:  color-mix(in srgb, var(--lang-primary) 30%, #2f3a4e);
+  --lang-label: color-mix(in srgb, var(--lang-primary) 34%, #eef2f9);
 }
 
 .dark .bg-white {

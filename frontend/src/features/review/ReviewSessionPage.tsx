@@ -956,7 +956,7 @@ function ReviewSessionInner({
         )}
 
         {/* Card area */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
+        <div className="bg-lang-tint rounded-2xl shadow-sm border border-lang-edge p-6 md:p-8">
           {shownTopHint && (
             <p className="text-sm text-gray-500 text-center mb-4">
               {shownTopHint.text}
@@ -1011,7 +1011,7 @@ function ReviewSessionInner({
                       : 'text-xs text-gray-500'
                   }
                 >
-                  <span className="text-[10px] uppercase tracking-wide text-gray-300 me-2">
+                  <span className="text-[10px] uppercase tracking-wide text-lang-label/70 me-2">
                     {l.label}
                   </span>
                   {l.text}

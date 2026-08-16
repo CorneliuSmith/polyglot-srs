@@ -87,8 +87,8 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
       className="hidden lg:flex lg:flex-col lg:gap-4"
       aria-label={t('nav.practice')}
     >
-      <section className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-        <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-500">
+      <section className="rounded-2xl border border-lang-edge bg-lang-tint p-4 shadow-sm">
+        <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-lang-label">
           {t('nav.practice')}
         </h2>
         {/* Speak leads here the same way it leads Practice — one accented
@@ -146,7 +146,7 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
         disabled={!activeLanguageId}
         className="rounded-2xl border border-gray-100 bg-white p-4 text-start shadow-sm transition-colors hover:border-lang/40 disabled:opacity-40"
       >
-        <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+        <h2 className="mb-2 text-xs font-semibold uppercase tracking-wide text-lang-label">
           {t('dashboard.recommendedTitle')}
         </h2>
         <p className="flex items-center gap-1.5 text-sm text-gray-700">
@@ -155,8 +155,8 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
         </p>
       </button>
 
-      <section className="rounded-2xl border border-gray-100 bg-white p-4 shadow-sm">
-        <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-500">
+      <section className="rounded-2xl border border-lang-edge bg-lang-tint p-4 shadow-sm">
+        <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-lang-label">
           {t('nav.languageGuide')}
         </h2>
         <div className="grid grid-cols-2 gap-2">
@@ -182,7 +182,7 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
           onClick={() => navigate('/progress')}
           className="rounded-2xl border border-gray-100 bg-white p-4 text-start shadow-sm transition-colors hover:border-lang/40"
         >
-          <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-gray-500">
+          <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-lang-label">
             {t('nav.progress')}
           </h2>
           <p className="mb-2 flex items-center gap-1.5 text-sm text-gray-700">
