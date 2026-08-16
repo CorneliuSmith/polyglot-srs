@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import asyncpg
 
+from backend.repositories.level import chosen_level, resolve
 from backend.repositories.onboarding import get_placement_insight
 from backend.repositories.reader import CEFR_ORDER, get_learner_model
 from backend.repositories.tutor import (
@@ -153,6 +154,17 @@ async def get_assessment_summary(
     # is actionable even when the level came from cards.
     if placement:
         summary["placement"] = placement
+
+    # The learner's OWN choice is a FLOOR (repositories/level.py — the
+    # level twin of the support-locale rule). Card evidence may still
+    # pitch ABOVE it, but it can never again drag a self-declared B2 down
+    # to A1 because their account is young. Before this, Settings → Your
+    # level re-seated deck subscriptions and stored nothing, so the value
+    # the user set never reached a single prompt.
+    chosen = await chosen_level(conn, user_id, language_id)
+    if chosen:
+        summary["chosen_level"] = chosen
+        summary["level"] = resolve(chosen, summary["level"])
 
     summary["weak_words"] = [w.get("word") for w in weak if w.get("word")]
     summary["focus"] = [

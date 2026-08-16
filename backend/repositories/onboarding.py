@@ -12,6 +12,7 @@ import re
 
 import asyncpg
 
+from backend.repositories.level import set_chosen_level
 from backend.services.extract import ANSWER_MARKER
 
 # CEFR ladder, easiest first.
@@ -685,6 +686,10 @@ async def complete_onboarding(
 
     Returns the number of new subscriptions created and the chosen settings.
     """
+    # The onboarding choice is a real choice — store it as the floor the
+    # AI features pitch from, same as a Settings change (level.py).
+    await set_chosen_level(conn, user_id, language_id, level,
+                           source="onboarding")
     levels = levels_at_or_below(level)
     lists = await conn.fetch(
         """
@@ -741,6 +746,13 @@ async def set_learner_level(
     touched — unsubscribing only stops NEW cards from that deck (the same
     guarantee set_deck_subscription documents).
     """
+    # Persist the choice FIRST — this is the half that was missing. The
+    # deck re-seat below shapes what Learn serves; the stored chosen_level
+    # is what Tutor/Read/Speak pitch from (repositories/level.py — the
+    # floor rule). Best-effort: an unapplied migration costs persistence,
+    # never the re-seat.
+    await set_chosen_level(conn, user_id, language_id, level, source="settings")
+
     levels = set(levels_at_or_below(level))
     rows = await conn.fetch(
         """

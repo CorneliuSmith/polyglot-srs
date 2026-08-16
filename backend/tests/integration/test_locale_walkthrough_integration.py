@@ -1197,3 +1197,42 @@ async def test_an_explicit_choice_survives_interface_flips(pool, monkeypatch):
             "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
             course)
     del c
+
+
+async def test_the_settings_level_reaches_every_prompt(pool, monkeypatch):
+    """Stage 1 of adaptive-sessions, end to end against a real database.
+
+    Before: Settings → Your level re-seated deck subscriptions and stored
+    nothing; get_assessment_summary derived level from card history
+    (fallback A1), so the choice never reached a single AI prompt. Now
+    set_learner_level persists chosen_level and the assessment applies it
+    as a floor — the same summary object Tutor, Read and Speak all read.
+    """
+    from backend.repositories.assessment import get_assessment_summary
+    from backend.repositories.onboarding import set_learner_level
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "lvl1", "Levelish", auto=False)
+    uid = await _learner(pool, "level@lvl1", course, None)
+    c = await _build_course(pool, course, uid, "lvl")
+
+    async with pool.privileged_connection() as conn:
+        # A young account: card evidence is thin, so the derived level is
+        # the A1 default.
+        before = await get_assessment_summary(conn, uid, course)
+        assert before["level"] == "A1"
+
+        # The user sets B2 in Settings. Decks re-seat AND the choice is
+        # stored — the half that was missing.
+        result = await set_learner_level(conn, uid, course, "B2")
+        assert result["level"] == "B2"
+
+        after = await get_assessment_summary(conn, uid, course)
+        assert after["level"] == "B2"
+        assert after["chosen_level"] == "B2"
+
+        # Changed again, it follows again — no freeze, no cache.
+        await set_learner_level(conn, uid, course, "A2")
+        again = await get_assessment_summary(conn, uid, course)
+        assert again["level"] == "A2"
+    del c

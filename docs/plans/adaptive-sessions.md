@@ -301,16 +301,25 @@ Each PR is independently shippable; stopping after 2 already resolves the
 reported symptoms. 6–7 are the substance layer and carry the two owner
 decisions (embeddings provider; tutor transcript storage).
 
-## Owner decisions needed before the relevant PR
+## Owner decisions — RESOLVED 16 Aug 2026
 
-1. **PR 1**: on a level *downgrade* in Settings, should decks above the new
-   level unsubscribe (current `set_learner_level` behavior) — assumed yes.
-2. **PR 3**: may `demonstrated` ever *lower* pitch below chosen_level with
-   consent prompt, or is chosen_level an absolute floor? Assumed: absolute
-   floor, nudge only.
-3. **PR 6**: embeddings — hosted (recommended) or self-hosted; and enable
-   pgvector on the Supabase project (owner action, like all migrations).
-4. **PR 4/tutor**: store tutor transcripts, or keep summaries-only?
+The owner took the recommendations broadly, with one refinement stated in
+their own words: *"level is used at the start of sessions but if the user
+wants harder content above their level give it to them."*
+
+1. **Downgrade re-seats decks**: yes (kept).
+2. **chosen_level is an absolute floor**, nudge only — AND an explicit
+   harder request (stretch, substantive, "make it harder") is honored
+   ABOVE the resolved level, uncapped. Given, not argued with.
+3. **Embeddings**: hosted API, per recommendation. pgvector enablement
+   remains an owner action at stage 6.
+4. **Tutor transcripts**: still open — summaries-only stands until the
+   owner says otherwise.
+
+Stages 1 and 2 are IMPLEMENTED (learner_levels migration +
+repositories/level.py + assessment floor + Reader level-shift dials +
+contract checker). Stage 1's frontend half — the shared useProfileEpoch
+reload hook — and stages 3–7 remain for the implementing session.
 
 ## What this deliberately does not do
 
