@@ -531,11 +531,17 @@ async def complete(
             )
         if body.native_language:
             # Seed the tutor's memory with the learner's native language.
+            # They typed it into a form themselves — provenance "stated".
             from backend.repositories.tutor import (
                 get_user_profile,
                 upsert_user_profile,
             )
+            from backend.services.tutor import apply_profile_updates
             profile = await get_user_profile(conn, user["id"])
-            profile["native_language"] = body.native_language
+            profile = apply_profile_updates(
+                profile,
+                {"native_language": body.native_language},
+                {"native_language": "stated"},
+            )
             await upsert_user_profile(conn, user["id"], profile)
     return result

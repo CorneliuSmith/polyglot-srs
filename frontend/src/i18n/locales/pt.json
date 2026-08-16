@@ -993,6 +993,16 @@
       "title": "Dicas de aprendizado",
       "desc": "Lembretes ocasionais de estudo com base em evidências — como praticar, por que o cronograma funciona — mostrados no máximo cerca de uma vez por dia. Desative aqui para nunca vê-los."
     },
+    "memory": {
+      "title": "O que seu tutor lembra",
+      "desc": "Fatos duráveis que seu tutor guarda entre as sessões. Os que ele deduziu ficam marcados: são tratados como hipóteses, não como verdades. Apague o que estiver errado ou indesejado e o tutor esquece na hora.",
+      "global": "Todos os idiomas",
+      "stated": "Você contou ao tutor",
+      "inferred": "Palpite do tutor",
+      "empty": "Nada ainda — o tutor vai lembrando das coisas conforme vocês conversam.",
+      "forget": "Esquecer “{{fact}}”",
+      "forgetError": "Não foi possível apagar — tente de novo."
+    },
     "email": {
       "title": "E-mail",
       "dailyTitle": "Lembrete diário",

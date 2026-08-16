@@ -521,6 +521,90 @@ async def upsert_language_profile(
     )
 
 
+def profile_facts(profile: dict) -> list[dict]:
+    """The learner-visible facts in a profile dict.
+
+    Underscore keys are the tutor's internal state (_active_focus, _sources)
+    and never facts. Each fact carries its provenance from the _sources map;
+    a key recorded before provenance tracking reads as "inferred" — the same
+    cautious default the prompt uses.
+    """
+    sources = profile.get("_sources") or {}
+    return [
+        {"key": k, "value": v, "source": sources.get(k, "inferred")}
+        for k, v in profile.items()
+        if not k.startswith("_")
+    ]
+
+
+async def list_tutor_memory(conn: asyncpg.Connection, user_id: str) -> dict:
+    """Everything the tutor remembers about a learner, for the Settings
+    panel: global facts plus per-language facts (languages with none are
+    omitted — an empty group is noise, not information)."""
+    global_profile = await get_user_profile(conn, user_id)
+    rows = await conn.fetch(
+        """
+        SELECT tlp.language_id, l.name, l.code, tlp.profile
+        FROM tutor_language_profile tlp
+        JOIN languages l ON l.id = tlp.language_id
+        WHERE tlp.user_id = $1
+        ORDER BY l.name
+        """,
+        user_id,
+    )
+    languages = []
+    for r in rows:
+        facts = profile_facts(_load_jsonb(r["profile"]))
+        if facts:
+            languages.append({
+                "language_id": str(r["language_id"]),
+                "name": r["name"],
+                "code": r["code"],
+                "facts": facts,
+            })
+    return {"global": profile_facts(global_profile), "languages": languages}
+
+
+async def delete_tutor_memory_fact(
+    conn: asyncpg.Connection,
+    user_id: str,
+    scope: str,
+    key: str,
+    language_id: str | None = None,
+) -> bool:
+    """Remove one remembered fact (and its provenance entry) at the
+    learner's request. Returns False when there was no such fact.
+
+    Underscore keys are refused: they are tutor plumbing, not facts, and
+    the API must not offer a path to corrupt them.
+    """
+    if key.startswith("_"):
+        return False
+    if scope == "global":
+        profile = await get_user_profile(conn, user_id)
+    elif scope == "language" and language_id:
+        lang = await get_language_profile(conn, user_id, language_id)
+        profile = lang["profile"]
+    else:
+        return False
+    if key not in profile:
+        return False
+    profile = dict(profile)
+    del profile[key]
+    sources = dict(profile.get("_sources") or {})
+    sources.pop(key, None)
+    if sources:
+        profile["_sources"] = sources
+    else:
+        profile.pop("_sources", None)
+    if scope == "global":
+        await upsert_user_profile(conn, user_id, profile)
+    else:
+        # session_summary=None leaves the rolling summary untouched.
+        await upsert_language_profile(conn, user_id, language_id, profile)
+    return True
+
+
 # ---------------------------------------------------------------------------
 # WP19(e): mastery stars — tutor-suggested, learner-confirmed advancement
 # ---------------------------------------------------------------------------
