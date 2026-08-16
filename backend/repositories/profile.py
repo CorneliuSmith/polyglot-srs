@@ -9,20 +9,22 @@ had drifted.
 
 The rule, stated once:
 
-    explicit choice  →  support_locale   (set in Settings; survives
-                                          everything, including the globe)
+    explicit choice  →  support_locale   (set in Settings)
     otherwise        →  ui_language      (automatic: help follows the
                                           interface, with no stored state
                                           to go stale)
     'en' / nothing   →  None             (English — the authored source,
                                           nothing to translate)
 
-`support_locale` therefore stores ONLY explicit decisions and NULL means
-automatic. It must never be written as a side effect of changing the
-interface language — that is precisely the freeze this module exists to
-end: the globe used to materialize the automatic case into a stored
-"choice", after which switching the interface back left the old value
-overriding forever.
+`support_locale` stores ONLY explicit decisions and NULL means automatic.
+The globe never writes a language INTO it — that is precisely the freeze
+this module exists to end: the globe used to materialize the automatic
+case into a stored "choice", after which switching the interface back
+left the old value overriding forever. What a globe tap does do is RESET
+it ('auto' → NULL): the globe is the user deciding their language, and
+the last decision wins — a Settings split lasts until the next globe tap
+re-decides, in both directions (owner's rule: "the page is supposed to
+refresh based on what the user says on the globe").
 
 Every reader — request paths and the auto-translate loop's scans alike —
 must go through this module. A scan that filters on the raw column while

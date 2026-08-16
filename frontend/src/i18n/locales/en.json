@@ -1018,7 +1018,7 @@
     },
     "support": {
       "title": "Learning English from",
-      "desc": "Hints, definitions, and example-sentence translations appear in this language instead of English.",
+      "desc": "Hints, definitions, and example-sentence translations appear in this language instead of English. Changing the site language with the globe resets this to Automatic.",
       "englishOption": "English (definitions)",
       "saveError": "Couldn’t save — try again.",
       "autoOption": "Automatic — follows the interface language"

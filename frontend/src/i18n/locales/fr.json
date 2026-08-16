@@ -1018,7 +1018,7 @@
     },
     "support": {
       "title": "Apprendre l’anglais depuis",
-      "desc": "Les indices, définitions et traductions des phrases d’exemple s’affichent dans cette langue au lieu de l’anglais.",
+      "desc": "Les indices, définitions et traductions des phrases d’exemple s’affichent dans cette langue au lieu de l’anglais. Changer la langue du site avec le globe réinitialise ce réglage sur Automatique.",
       "englishOption": "Anglais (définitions)",
       "saveError": "Enregistrement impossible — réessayez.",
       "autoOption": "Automatique — suit la langue de l’interface"
