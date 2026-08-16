@@ -863,3 +863,11 @@ class TestNotesLanguage:
             {},
         )
         assert lang is None
+
+
+class TestNoSelfAnsweringNudges:
+    def test_the_partner_never_hands_over_the_word_it_asks_for(self):
+        # Same failure class as the tutor's self-answering dica, at the
+        # conversational scale: a nudge to try a form must not contain it.
+        prompt = _system_prompt("Spanish", "A2", None, None)
+        assert "never include the answer in the same message" in prompt
