@@ -1,14 +1,9 @@
 # Speak — conversation practice with a correction pass
 
-A feature plan. **Stages 1, 3 and 4 are built** (typed Flow mode, the
-end-of-session summary, opt-in cards from it, and the Coach/Flow choice —
-see the sequencing table below). Only stage 2, speech itself, is still
-design.
-
-Everything ran ahead of stage 2 for one reason: speech needs an STT provider
-this codebase does not have and the owner has not chosen. The costing for
-that is in docs/plans/speak-speech.md. Nothing else was blocked, so nothing
-else waited.
+A feature plan. **All four stages are built.** Stage 2 shipped on Azure's
+fast-transcription tier, on the same key and region the app already used
+for neural TTS — the recommendation from docs/plans/speak-speech.md, taken
+as written.
 
 **Name: Speak.** It sits in Practice alongside Gym and Read. Those two are
 recognition and comprehension; this is the only place the learner *produces*
@@ -186,7 +181,7 @@ Each stage is usable on its own; stop after any of them.
 | Stage | What ships | Why this order |
 | --- | --- | --- |
 | 1 ✅ | Text-only Flow mode + summary | Proves the turn engine and the error extraction with no audio risk at all |
-| 2 | Speech in and out | Latency work lands against something already known to work |
+| 2 ✅ | Speech in and out | Latency work lands against something already known to work |
 | 3 ✅ | Coach mode | The interrupting correction is the riskiest UX call; earn the right to it |
 | 4 ✅ | Cards from the summary | Wire to personal cards once the errors are known to be worth keeping |
 
@@ -219,6 +214,63 @@ Four decisions worth knowing before building stage 2:
 One thing the plan asked for that stage 1 does NOT do: there is no
 `/status` entry until the migration is applied — the page reports itself
 unavailable rather than offering a conversation that cannot be saved.
+
+### What stage 2 shipped
+
+`services/stt.py` (Azure fast transcription), `POST /api/speak/transcribe`,
+`POST /api/speak/say`, `features/speak/useRecorder.ts`, and a `speech`
+block on `/api/speak/status`. No new vendor and no new secret: STT is a
+different endpoint on the Speech resource already in production.
+
+**The recording is never kept.** It is read into memory, transcribed, and
+dropped when the request returns — not written to storage, not logged, not
+retained to save a re-record. The response carries the transcript and no
+handle by which the audio could be fetched again, because there isn't one.
+A recording of someone's voice is biometric data; a language app has no
+business holding it. The consent line says this in the interface, because
+a microphone permission prompt is not consent.
+
+**The transcript goes into the text box, not into a turn.** It is the same
+box a typed turn is written in, and it is editable there. ASR mishears an
+accented beginner, and being corrected for a word you did not say is the
+fastest way to stop trusting the feature — so nothing is sent until the
+learner has read it. It also leaves exactly one Send to reason about.
+
+**Tap to start, tap to stop — not hold-to-talk.** The plan sketched
+push-to-talk and it is the better metaphor right up until you build it: a
+`pointerup` that lands outside the button never fires, so the recorder runs
+on with the microphone light lit. It is also unreachable by keyboard, which
+would make the one place in the app that practises production the one place
+a keyboard user cannot go.
+
+**Listening and speaking are separate facts and neither implies the
+other.** `/status` reports both. Speak can hear Hebrew, Persian, Indonesian
+and Filipino, none of which have a neural voice; it cannot hear Latin,
+Māori, Xhosa, Yoruba, Hausa or Jamaican Patois, and Māori and Latin do have
+voices in the reader. A course missing either half keeps the typed path
+permanently — the start screen says so on the way in, rather than the
+learner discovering a missing button mid-conversation.
+
+**"Say that again" replays the same line slower** (-35% against the usual
+-10%), fetched on press rather than with the turn: most lines are never
+replayed and synthesizing all of them up front would spend real money on
+audio nobody listens to. This was the control the plan argued hardest for
+— comprehension failure is the commonest reason a conversation dies.
+
+Two things worth knowing for whoever touches this next:
+
+- **The partner's line is synthesized through Speak, not `/api/audio/tts`.**
+  That endpoint checks the text is one of *ours* — a drill sentence, an
+  example, a vocabulary word — which is what keeps it from being an open
+  synthesis proxy. A reply written seconds ago for one learner passes no
+  such test, so the check here is ownership instead: the line is read back
+  out of the caller's own session and nothing the client sends is
+  synthesized.
+- **Format is the whole cross-browser story.** Chrome and Firefox record
+  WebM/Opus; Safari has no WebM encoder and produces MP4/AAC. The
+  recorder probes with `isTypeSupported` and falls back to the browser
+  default rather than throwing, and the server matches MIME types on their
+  base so `audio/webm;codecs=opus` is recognised as WebM.
 
 ### What stage 3 shipped
 
@@ -275,4 +327,13 @@ Three things worth knowing:
 4. **Does Coach correct pronunciation?** Everything above is grammar and word
    choice from the transcript. Pronunciation needs the audio and a different
    kind of model, and is a much harder promise to keep. I would leave it out
-   of v1 and say so in the UI rather than do it badly.
+   of v1 and say so in the UI rather than do it badly. **Stage 2 shipped
+   without it** — and because the audio is discarded, adding it later means
+   deciding to keep recordings for the length of one scoring call, which is
+   a privacy decision rather than a feature decision.
+
+5. **Is 2–3 seconds acceptable?** Batch transcription was chosen over
+   streaming at a fifth of the price (docs/plans/speak-speech.md). If the
+   pause after releasing reads as broken in real use, the move is Azure's
+   real-time tier — same vendor, same key, a websocket, and about
+   $0.042/session instead of $0.008.

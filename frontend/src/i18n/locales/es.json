@@ -1439,6 +1439,19 @@
     "modeCoach": "Guía",
     "modeCoachSub": "Una corrección sobre la marcha",
     "modeFlow": "Fluidez",
-    "modeFlowSub": "Correcciones al final"
+    "modeFlowSub": "Correcciones al final",
+    "micStart": "Hablar",
+    "micStop": "Parar",
+    "micListening": "Escuchando…",
+    "micTranscribing": "Escribiendo lo que dijiste…",
+    "micDenied": "El micrófono está bloqueado. Permítelo en tu navegador o escribe.",
+    "micFailed": "El micrófono no funcionó — escribe en su lugar.",
+    "micHeardNothing": "No he captado nada. Inténtalo otra vez o escríbelo.",
+    "micUnsupportedLanguage": "Este idioma todavía no se puede escuchar — escribe tu turno.",
+    "micPrivacy": "Tu grabación se transcribe y se descarta. Nunca se guarda.",
+    "transcriptLabel": "Revísalo antes de enviarlo",
+    "playPartner": "Escuchar",
+    "playSlower": "Repítelo, más despacio",
+    "playFailed": "No se pudo reproducir."
   }
 }

@@ -4,6 +4,7 @@ import pytest
 
 from backend.services.rate_limit import (
     ai_review_limiter,
+    stt_limiter,
     tts_limiter,
     tutor_chat_limiter,
 )
@@ -20,7 +21,8 @@ def fixed_seed():
 def _reset_rate_limiters():
     """Keep the AI rate limiters from leaking across tests.
 
-    tts_limiter was missing from this list, which cost three tests that
+    Every limiter belongs here, without exception. tts_limiter was
+    missing from this list, which cost three tests that
     were filed in CLAUDE.md as needing a live provider. They don't: the
     TTS cap is 30 calls a minute per user, every test in test_audio.py
     uses the same user id, and the documented way to run the full suite
@@ -32,4 +34,5 @@ def _reset_rate_limiters():
     tutor_chat_limiter.reset()
     ai_review_limiter.reset()
     tts_limiter.reset()
+    stt_limiter.reset()
     yield

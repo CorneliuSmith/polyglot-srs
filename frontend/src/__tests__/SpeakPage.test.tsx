@@ -27,6 +27,8 @@ vi.mock('../api/speak', async (orig) => ({
   startSpeakSession: vi.fn(),
   sendSpeakTurn: vi.fn(),
   endSpeakSession: vi.fn(),
+  transcribeTurn: vi.fn(),
+  speakPartnerLine: vi.fn(),
 }))
 
 vi.mock('../api/notes', async (orig) => ({
@@ -38,7 +40,9 @@ import {
   endSpeakSession,
   getSpeakStatus,
   sendSpeakTurn,
+  speakPartnerLine,
   startSpeakSession,
+  transcribeTurn,
 } from '../api/speak'
 import { createPersonalCard } from '../api/notes'
 
@@ -48,6 +52,13 @@ const mockStatus = getSpeakStatus as ReturnType<typeof vi.fn>
 const mockStart = startSpeakSession as ReturnType<typeof vi.fn>
 const mockTurn = sendSpeakTurn as ReturnType<typeof vi.fn>
 const mockEnd = endSpeakSession as ReturnType<typeof vi.fn>
+const mockTranscribe = transcribeTurn as ReturnType<typeof vi.fn>
+const mockSay = speakPartnerLine as ReturnType<typeof vi.fn>
+
+/** What the server reports about this course. Both halves default OFF, so a
+ * test that wants a microphone has to say so — the typed path is the one
+ * that must keep working everywhere. */
+const NO_SPEECH = { listen: false, speak: false }
 
 const allowance = {
   tier: 'plus', unlimited: false, entitled: true, limit: 100, used: 3,
@@ -90,8 +101,10 @@ function fullSummary() {
 }
 
 /** Get through the topic screen and into a live conversation. */
-async function startTalking() {
-  mockStatus.mockResolvedValue({ available: true, allowance, sessions: [] })
+async function startTalking(speech = NO_SPEECH) {
+  mockStatus.mockResolvedValue({
+    available: true, allowance, sessions: [], speech,
+  })
   mockStart.mockResolvedValue({ session_id: 's1', mode: 'flow', topic: null })
   renderPage()
   const startButton = await screen.findByTestId('speak-start')
@@ -107,7 +120,7 @@ describe('SpeakPage', () => {
   it('hides the feature when the server says it is unavailable', async () => {
     // The tables land by hand, so the page can exist before the schema does.
     mockStatus.mockResolvedValue({
-      available: false, allowance: null, sessions: [],
+      available: false, allowance: null, sessions: [], speech: NO_SPEECH,
     })
     renderPage()
     await screen.findByText(/isn’t available/i)
@@ -297,7 +310,9 @@ describe('SpeakPage — choosing when to be corrected', () => {
   })
 
   it('offers both modes before the session starts', async () => {
-    mockStatus.mockResolvedValue({ available: true, allowance, sessions: [] })
+    mockStatus.mockResolvedValue({
+      available: true, allowance, sessions: [], speech: NO_SPEECH,
+    })
     renderPage()
     await screen.findByTestId('speak-start')
 
@@ -308,7 +323,9 @@ describe('SpeakPage — choosing when to be corrected', () => {
   })
 
   it('starts in flow unless coach is chosen', async () => {
-    mockStatus.mockResolvedValue({ available: true, allowance, sessions: [] })
+    mockStatus.mockResolvedValue({
+      available: true, allowance, sessions: [], speech: NO_SPEECH,
+    })
     mockStart.mockResolvedValue({ session_id: 's1', mode: 'flow', topic: null })
     renderPage()
     fireEvent.click(await screen.findByTestId('speak-start'))
@@ -318,7 +335,9 @@ describe('SpeakPage — choosing when to be corrected', () => {
   })
 
   it('passes coach through when the learner picks it', async () => {
-    mockStatus.mockResolvedValue({ available: true, allowance, sessions: [] })
+    mockStatus.mockResolvedValue({
+      available: true, allowance, sessions: [], speech: NO_SPEECH,
+    })
     mockStart.mockResolvedValue({ session_id: 's1', mode: 'coach', topic: null })
     renderPage()
     await screen.findByTestId('speak-start')
@@ -332,7 +351,9 @@ describe('SpeakPage — choosing when to be corrected', () => {
 
   it('shows one correction, never a list', async () => {
     // A learner corrected three times per turn stops talking.
-    mockStatus.mockResolvedValue({ available: true, allowance, sessions: [] })
+    mockStatus.mockResolvedValue({
+      available: true, allowance, sessions: [], speech: NO_SPEECH,
+    })
     mockStart.mockResolvedValue({ session_id: 's1', mode: 'coach', topic: null })
     renderPage()
     fireEvent.click(await screen.findByTestId('speak-start'))
@@ -362,7 +383,9 @@ describe('SpeakPage — choosing when to be corrected', () => {
   })
 
   it('shows nothing mid-session in flow mode', async () => {
-    mockStatus.mockResolvedValue({ available: true, allowance, sessions: [] })
+    mockStatus.mockResolvedValue({
+      available: true, allowance, sessions: [], speech: NO_SPEECH,
+    })
     mockStart.mockResolvedValue({ session_id: 's1', mode: 'flow', topic: null })
     renderPage()
     fireEvent.click(await screen.findByTestId('speak-start'))
@@ -382,7 +405,9 @@ describe('SpeakPage — choosing when to be corrected', () => {
   })
 
   it('says nothing when a coached turn was clean', async () => {
-    mockStatus.mockResolvedValue({ available: true, allowance, sessions: [] })
+    mockStatus.mockResolvedValue({
+      available: true, allowance, sessions: [], speech: NO_SPEECH,
+    })
     mockStart.mockResolvedValue({ session_id: 's1', mode: 'coach', topic: null })
     renderPage()
     fireEvent.click(await screen.findByTestId('speak-start'))
@@ -398,5 +423,202 @@ describe('SpeakPage — choosing when to be corrected', () => {
 
     await screen.findByText('Claro.')
     expect(screen.queryByTestId('speak-correction-0')).not.toBeInTheDocument()
+  })
+})
+
+/**
+ * Stage 2 — speech (docs/plans/speak.md).
+ *
+ * The rule under all of these: the typed path must keep working
+ * everywhere, and the microphone appears only where BOTH the browser and
+ * the course can support it. A dead mic button on a Latin course is worse
+ * than no mic button, because the learner presses it.
+ */
+class FakeRecorder {
+  static supported: string[] = ['audio/webm;codecs=opus']
+  static isTypeSupported = (t: string) => FakeRecorder.supported.includes(t)
+  ondataavailable: ((e: { data: Blob }) => void) | null = null
+  onstop: (() => void) | null = null
+  mimeType: string
+  constructor(_stream: unknown, opts?: { mimeType?: string }) {
+    this.mimeType = opts?.mimeType ?? 'audio/webm'
+  }
+  start() {
+    this.ondataavailable?.({ data: new Blob(['x'], { type: this.mimeType }) })
+  }
+  stop() {
+    this.onstop?.()
+  }
+}
+
+function grantMicrophone(granted = true) {
+  const track = { stop: vi.fn() }
+  Object.defineProperty(globalThis.navigator, 'mediaDevices', {
+    configurable: true,
+    value: {
+      getUserMedia: granted
+        ? vi.fn(async () => ({ getTracks: () => [track] }))
+        : vi.fn(async () => {
+            const err = new Error('no') as Error & { name: string }
+            err.name = 'NotAllowedError'
+            throw err
+          }),
+    },
+  })
+  ;(globalThis as unknown as { MediaRecorder: unknown }).MediaRecorder =
+    FakeRecorder
+  return track
+}
+
+describe('SpeakPage — speech', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+    grantMicrophone()
+  })
+
+  it('offers no microphone for a language that cannot be heard', async () => {
+    // Latin, Māori, Yoruba. The browser is perfectly capable; the course
+    // has no recognizer, and that is permanent rather than a stopgap — so
+    // the page says so on the way in rather than showing a dead button.
+    mockStatus.mockResolvedValue({
+      available: true, allowance, sessions: [],
+      speech: { listen: false, speak: true },
+    })
+    mockStart.mockResolvedValue({ session_id: 's1', mode: 'flow', topic: null })
+    renderPage()
+    await screen.findByTestId('speak-no-listen')
+    fireEvent.click(screen.getByTestId('speak-start'))
+    await screen.findByTestId('speak-input')
+    expect(screen.queryByTestId('speak-mic')).not.toBeInTheDocument()
+  })
+
+  it('offers no microphone when the browser cannot record', async () => {
+    // Same page, same course, no MediaRecorder — an old browser, or an
+    // http:// origin where getUserMedia is simply absent.
+    delete (globalThis as unknown as { MediaRecorder?: unknown }).MediaRecorder
+    await startTalking({ listen: true, speak: true })
+    expect(screen.queryByTestId('speak-mic')).not.toBeInTheDocument()
+    // …and the typed path is untouched.
+    expect(screen.getByTestId('speak-input')).toBeInTheDocument()
+  })
+
+  it('puts the transcript in the box instead of sending it', async () => {
+    // The load-bearing decision. ASR mishears an accented beginner, and
+    // being corrected for a word you did not say is the fastest way to
+    // stop trusting the feature — so the learner reads and fixes it first.
+    await startTalking({ listen: true, speak: false })
+    mockTranscribe.mockResolvedValue('Quiero un café con leche')
+
+    fireEvent.click(screen.getByTestId('speak-mic'))
+    await waitFor(() =>
+      expect(screen.getByTestId('speak-mic')).toHaveAttribute(
+        'aria-pressed', 'true',
+      ),
+    )
+    fireEvent.click(screen.getByTestId('speak-mic'))
+
+    await waitFor(() =>
+      expect(screen.getByTestId('speak-input')).toHaveValue(
+        'Quiero un café con leche',
+      ),
+    )
+    expect(mockTurn).not.toHaveBeenCalled()
+    await screen.findByTestId('speak-transcript-note')
+  })
+
+  it('sends how long they spoke, and nothing when they typed', async () => {
+    await startTalking({ listen: true, speak: false })
+    mockTranscribe.mockResolvedValue('Hola')
+    mockTurn.mockResolvedValue({
+      reply: '¡Hola!', turn_index: 0, allowance,
+    })
+
+    fireEvent.click(screen.getByTestId('speak-mic'))
+    await waitFor(() =>
+      expect(screen.getByTestId('speak-mic')).toHaveAttribute(
+        'aria-pressed', 'true',
+      ),
+    )
+    fireEvent.click(screen.getByTestId('speak-mic'))
+    await waitFor(() =>
+      expect(screen.getByTestId('speak-input')).toHaveValue('Hola'),
+    )
+    fireEvent.click(screen.getByTestId('speak-send'))
+    await waitFor(() => expect(mockTurn).toHaveBeenCalled())
+    expect(typeof mockTurn.mock.calls[0][2]).toBe('number')
+
+    // A typed turn carries no duration at all — the summary's speaking
+    // share is a measurement, not an estimate from character counts.
+    fireEvent.change(screen.getByTestId('speak-input'), {
+      target: { value: 'Otra vez' },
+    })
+    fireEvent.click(screen.getByTestId('speak-send'))
+    await waitFor(() => expect(mockTurn).toHaveBeenCalledTimes(2))
+    expect(mockTurn.mock.calls[1][2]).toBeUndefined()
+  })
+
+  it('says so when it heard nothing, and posts no turn', async () => {
+    await startTalking({ listen: true, speak: false })
+    mockTranscribe.mockResolvedValue('')
+    fireEvent.click(screen.getByTestId('speak-mic'))
+    await waitFor(() =>
+      expect(screen.getByTestId('speak-mic')).toHaveAttribute(
+        'aria-pressed', 'true',
+      ),
+    )
+    fireEvent.click(screen.getByTestId('speak-mic'))
+    await screen.findByText(/didn’t catch anything/i)
+    expect(mockTurn).not.toHaveBeenCalled()
+  })
+
+  it('explains a blocked microphone instead of failing silently', async () => {
+    grantMicrophone(false)
+    await startTalking({ listen: true, speak: false })
+    fireEvent.click(screen.getByTestId('speak-mic'))
+    await screen.findByTestId('speak-mic-denied')
+    expect(screen.getByTestId('speak-mic')).toHaveAttribute(
+      'aria-pressed', 'false',
+    )
+  })
+
+  it('states what happens to the recording before one is made', async () => {
+    // A permission prompt is not consent. One plain line, in view, before
+    // the first press.
+    await startTalking({ listen: true, speak: false })
+    expect(screen.getByTestId('speak-mic-state')).toHaveTextContent(
+      /transcribed and discarded/i,
+    )
+  })
+
+  it('replays the partner’s line, and again slower', async () => {
+    // The control the plan argued hardest for: comprehension failure is
+    // the commonest reason a conversation dies, and without a replay the
+    // learner's only recovery is to quit.
+    await startTalking({ listen: false, speak: true })
+    mockTurn.mockResolvedValue({
+      reply: '¿Para tomar aquí o para llevar?', turn_index: 0, allowance,
+    })
+    mockSay.mockResolvedValue('QUJD')
+    fireEvent.change(screen.getByTestId('speak-input'), {
+      target: { value: 'Un café' },
+    })
+    fireEvent.click(screen.getByTestId('speak-send'))
+
+    const play = await screen.findByTestId('speak-play-0')
+    fireEvent.click(play)
+    await waitFor(() => expect(mockSay).toHaveBeenCalledWith('s1', 0, false))
+    fireEvent.click(screen.getByTestId('speak-play-slow-0'))
+    await waitFor(() => expect(mockSay).toHaveBeenCalledWith('s1', 0, true))
+  })
+
+  it('offers no replay for a language with no voice', async () => {
+    await startTalking({ listen: true, speak: false })
+    mockTurn.mockResolvedValue({ reply: 'Vale.', turn_index: 0, allowance })
+    fireEvent.change(screen.getByTestId('speak-input'), {
+      target: { value: 'Hola' },
+    })
+    fireEvent.click(screen.getByTestId('speak-send'))
+    await screen.findByText('Vale.')
+    expect(screen.queryByTestId('speak-play-0')).not.toBeInTheDocument()
   })
 })

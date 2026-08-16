@@ -2,13 +2,16 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { Check, Loader2, Send } from 'lucide-react'
+import { Check, Loader2, Mic, Send, Square, Volume2 } from 'lucide-react'
 import {
   endSpeakSession,
   getSpeakStatus,
   sendSpeakTurn,
+  speakPartnerLine,
   startSpeakSession,
+  transcribeTurn,
 } from '../../api/speak'
+import { useRecorder } from './useRecorder'
 import type { SpeakError, SpeakMode, SpeakSummary } from '../../api/speak'
 import type { TutorAllowance } from '../../api/tutor'
 import { createPersonalCard } from '../../api/notes'
@@ -67,6 +70,16 @@ export default function SpeakPage() {
   const [error, setError] = useState<string | null>(null)
   const endRef = useRef<HTMLDivElement>(null)
 
+  // Speech. The recorder is a browser fact, `status.speech` is a server
+  // fact, and the microphone needs both: a course Azure cannot transcribe
+  // is as mute as a browser with no MediaRecorder.
+  const recorder = useRecorder()
+  const canListen = recorder.supported && !!status?.speech?.listen
+  const canHear = !!status?.speech?.speak
+  // Held from the recording that produced the current draft, so a turn
+  // the learner edits before sending still reports the time they spoke.
+  const [spokenMs, setSpokenMs] = useState<number | null>(null)
+
   useEffect(() => {
     if (status?.allowance) setAllowance(status.allowance)
   }, [status?.allowance])
@@ -94,9 +107,44 @@ export default function SpeakPage() {
     onError: () => setError(t('speak.startFailed')),
   })
 
+  /**
+   * Stop recording, transcribe, and put the result in the draft box —
+   * NOT straight into a turn.
+   *
+   * The transcript is shown for the learner to read and fix first. ASR
+   * mishears an accented beginner, and being corrected for a word you did
+   * not say is the fastest way to stop trusting the whole feature. It also
+   * means the typed path and the spoken path converge on the same box, so
+   * there is one Send and one thing to test.
+   */
+  const transcribe = useMutation({
+    mutationFn: async () => {
+      const recorded = await recorder.stop()
+      if (!recorded) return null
+      const text = await transcribeTurn(sessionId!, recorded.blob)
+      return { text, ms: recorded.ms }
+    },
+    onSuccess: (result) => {
+      if (!result || !result.text.trim()) {
+        setError(t('speak.micHeardNothing'))
+        return
+      }
+      setDraft(result.text)
+      setSpokenMs(result.ms)
+      setError(null)
+    },
+    onError: () => setError(t('speak.micFailed')),
+  })
+
+  // The duration travels WITH the turn rather than being read out of state
+  // inside the mutation. submit() clears it in the same tick it fires, and
+  // react-query resolves the mutation function a beat later — so reading
+  // `spokenMs` in here saw the cleared value and every spoken turn was
+  // recorded as though it had been typed.
   const turn = useMutation({
-    mutationFn: (text: string) => sendSpeakTurn(sessionId!, text),
-    onSuccess: (data, text) => {
+    mutationFn: ({ text, audioMs }: { text: string; audioMs?: number }) =>
+      sendSpeakTurn(sessionId!, text, audioMs),
+    onSuccess: (data, { text }) => {
       setExchanges((prev) => [
         ...prev,
         { learner: text, partner: data.reply, correction: data.correction },
@@ -106,7 +154,7 @@ export default function SpeakPage() {
     },
     // The draft is put back on failure — losing what someone just typed
     // because the network hiccuped is the fastest way to end a session.
-    onError: (_err, text) => {
+    onError: (_err, { text }) => {
       setDraft(text)
       setError(t('speak.turnFailed'))
     },
@@ -125,7 +173,14 @@ export default function SpeakPage() {
     const text = draft.trim()
     if (!text || turn.isPending) return
     setDraft('')
-    turn.mutate(text)
+    turn.mutate({ text, audioMs: spokenMs ?? undefined })
+    setSpokenMs(null)
+  }
+
+  function toggleMic() {
+    setError(null)
+    if (recorder.recording) transcribe.mutate()
+    else void recorder.start()
   }
 
   if (!activeLanguageId || statusLoading) {
@@ -227,6 +282,19 @@ export default function SpeakPage() {
           className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-3 text-sm"
         />
         <p className="mt-1 text-xs text-gray-500">{t('speak.topicHint')}</p>
+        {/* Said once, up front, rather than discovered as a missing
+            button mid-conversation. Latin, Māori, Yoruba, Hausa, Xhosa and
+            Jamaican Patois have no recognizer, and that is permanent
+            rather than a stopgap — so the session is a typed one and says
+            so before it starts. */}
+        {!status.speech?.listen && (
+          <p
+            className="mt-3 text-xs text-gray-600"
+            data-testid="speak-no-listen"
+          >
+            {t('speak.micUnsupportedLanguage')}
+          </p>
+        )}
         <button
           type="button"
           data-testid="speak-start"
@@ -280,6 +348,13 @@ export default function SpeakPage() {
                 {x.partner}
               </p>
             </LanguageWrapper>
+            {canHear && sessionId && (
+              <PartnerAudio
+                sessionId={sessionId}
+                turnIndex={i}
+                onError={() => setError(t('speak.playFailed'))}
+              />
+            )}
           </div>
         ))}
         {turn.isPending && (
@@ -292,11 +367,56 @@ export default function SpeakPage() {
       </div>
 
       {error && <p className="mt-3 text-sm text-red-600">{error}</p>}
+      {recorder.error === 'denied' && (
+        <p className="mt-3 text-sm text-red-600" data-testid="speak-mic-denied">
+          {t('speak.micDenied')}
+        </p>
+      )}
+
+      {/* The transcript lands in the same box a typed turn is written in,
+          and is editable there. Two reasons: ASR mishears an accented
+          beginner and the learner must be able to fix it before being
+          corrected for a word they didn't say — and it leaves exactly one
+          Send, rather than a spoken path that bypasses the typed one. */}
+      {spokenMs !== null && draft && (
+        <p className="mt-3 text-xs text-gray-500" data-testid="speak-transcript-note">
+          {t('speak.transcriptLabel')}
+        </p>
+      )}
 
       <div className="mt-4 flex items-end gap-2">
+        {canListen && (
+          <button
+            type="button"
+            onClick={toggleMic}
+            disabled={transcribe.isPending || turn.isPending}
+            aria-pressed={recorder.recording}
+            aria-label={
+              recorder.recording ? t('speak.micStop') : t('speak.micStart')
+            }
+            data-testid="speak-mic"
+            className={`rounded-xl p-3 disabled:opacity-50 ${
+              recorder.recording
+                ? 'bg-red-600 text-white animate-pulse'
+                : 'border border-lang text-lang bg-white'
+            }`}
+            style={{ minHeight: '44px', minWidth: '44px' }}
+          >
+            {recorder.recording ? (
+              <Square aria-hidden className="h-5 w-5" />
+            ) : (
+              <Mic aria-hidden className="h-5 w-5" />
+            )}
+          </button>
+        )}
         <textarea
           value={draft}
-          onChange={(e) => setDraft(e.target.value)}
+          onChange={(e) => {
+            setDraft(e.target.value)
+            // Edited by hand after a recording: the duration still stands.
+            // They spoke for that long; fixing a misheard word doesn't
+            // change how long they talked.
+          }}
           onKeyDown={(e) => {
             if (e.key === 'Enter' && !e.shiftKey) {
               e.preventDefault()
@@ -323,6 +443,18 @@ export default function SpeakPage() {
         </button>
       </div>
 
+      {canListen && (
+        <p className="mt-2 text-xs text-gray-500" data-testid="speak-mic-state">
+          {recorder.recording
+            ? t('speak.micListening')
+            : transcribe.isPending
+              ? t('speak.micTranscribing')
+              /* A permission prompt is not consent. One plain line, before
+                 the first recording, saying what happens to the audio. */
+              : t('speak.micPrivacy')}
+        </p>
+      )}
+
       <button
         type="button"
         onClick={() => finish.mutate()}
@@ -334,6 +466,88 @@ export default function SpeakPage() {
         {finish.isPending ? t('speak.ending') : t('speak.done')}
       </button>
     </Shell>
+  )
+}
+
+/**
+ * The partner's line, out loud — and again, slower.
+ *
+ * "Say that again" is the one control the plan argued hardest for.
+ * Comprehension failure is the commonest reason a conversation dies, and
+ * without a replay the learner's only recovery is to quit the session.
+ *
+ * Each clip is fetched on press rather than with the turn: most lines are
+ * never replayed, and synthesizing every one of them up front would spend
+ * real money on audio nobody listens to.
+ */
+function PartnerAudio({
+  sessionId,
+  turnIndex,
+  onError,
+}: {
+  sessionId: string
+  turnIndex: number
+  onError: () => void
+}) {
+  const { t } = useTranslation()
+  const [busy, setBusy] = useState<'normal' | 'slow' | null>(null)
+  const audio = useRef<HTMLAudioElement | null>(null)
+
+  useEffect(() => {
+    // Stop a clip still playing when the component goes — leaving a voice
+    // talking over the next screen is worse than silence.
+    return () => {
+      audio.current?.pause()
+      audio.current = null
+    }
+  }, [])
+
+  async function play(slow: boolean) {
+    if (busy) return
+    setBusy(slow ? 'slow' : 'normal')
+    try {
+      const b64 = await speakPartnerLine(sessionId, turnIndex, slow)
+      audio.current?.pause()
+      const el = new Audio(`data:audio/mpeg;base64,${b64}`)
+      audio.current = el
+      // play() rejects when autoplay policy blocks it — a real outcome,
+      // not an exception to swallow, so it is reported like any failure.
+      await el.play()
+    } catch {
+      onError()
+    } finally {
+      setBusy(null)
+    }
+  }
+
+  return (
+    <div className="flex items-center gap-1">
+      <button
+        type="button"
+        onClick={() => play(false)}
+        disabled={busy !== null}
+        aria-label={t('speak.playPartner')}
+        data-testid={`speak-play-${turnIndex}`}
+        className="rounded-lg p-2 text-gray-500 hover:text-lang disabled:opacity-50"
+        style={{ minHeight: '44px', minWidth: '44px' }}
+      >
+        {busy === 'normal' ? (
+          <Loader2 aria-hidden className="h-4 w-4 animate-spin" />
+        ) : (
+          <Volume2 aria-hidden className="h-4 w-4" />
+        )}
+      </button>
+      <button
+        type="button"
+        onClick={() => play(true)}
+        disabled={busy !== null}
+        data-testid={`speak-play-slow-${turnIndex}`}
+        className="rounded-lg px-2 py-1 text-xs text-gray-500 hover:text-lang disabled:opacity-50"
+        style={{ minHeight: '44px' }}
+      >
+        {t('speak.playSlower')}
+      </button>
+    </div>
   )
 }
 

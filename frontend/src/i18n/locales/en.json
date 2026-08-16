@@ -1439,6 +1439,19 @@
     "modeCoach": "Coach",
     "modeCoachSub": "One correction as you go",
     "modeFlow": "Flow",
-    "modeFlowSub": "Corrections at the end"
+    "modeFlowSub": "Corrections at the end",
+    "micStart": "Speak",
+    "micStop": "Stop",
+    "micListening": "Listening…",
+    "micTranscribing": "Writing that down…",
+    "micDenied": "The microphone was blocked. Allow it in your browser, or type instead.",
+    "micFailed": "The microphone didn’t work — type instead.",
+    "micHeardNothing": "I didn’t catch anything. Try again, or type it.",
+    "micUnsupportedLanguage": "This language can’t be listened to yet — type your turn.",
+    "micPrivacy": "Your recording is transcribed and discarded. It is never stored.",
+    "transcriptLabel": "Check this before you send it",
+    "playPartner": "Listen",
+    "playSlower": "Say that again, slower",
+    "playFailed": "Couldn’t play that."
   }
 }

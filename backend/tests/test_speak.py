@@ -23,6 +23,7 @@ from backend.services.speak import (
     speak_turn,
     summarize_speak_session,
 )
+from backend.services.tts import SLOW_RATE
 
 TEST_SECRET = "test-jwt-secret-for-unit-tests-32bytes"
 TEST_USER_ID = "550e8400-e29b-41d4-a716-446655440000"
@@ -523,7 +524,11 @@ class TestSpeakEndpoints:
             )
         assert resp.status_code == 200
         assert resp.json() == {
-            "available": False, "allowance": None, "sessions": []
+            "available": False, "allowance": None, "sessions": [],
+            # Reported alongside, never inferred from `available`: the page
+            # has to draw a microphone or not, and "Speak is off here" and
+            # "this course cannot be heard" are different sentences.
+            "speech": {"listen": False, "speak": False},
         }
 
     def test_start_is_503_when_the_migration_is_missing(self, client):
@@ -607,3 +612,165 @@ class TestCoachMode:
             })
         assert resp.status_code == 200
         assert resp.json()["mode"] == "coach"
+
+
+class TestSpeech:
+    """Stage 2 — speech in and out (docs/plans/speak.md).
+
+    The two rules these pin are the ones that would be quietly convenient
+    to break: the recording is never kept, and the session — never the
+    request — decides which language is being heard and spoken.
+    """
+
+    def _post_audio(self, client, *, content_type="audio/webm;codecs=opus"):
+        return client.post(
+            "/api/speak/transcribe",
+            headers=_auth_headers(),
+            data={"session_id": TEST_SESSION_ID},
+            files={"audio": ("turn.webm", b"\x1aE\xdf\xa3fake-opus",
+                             content_type)},
+        )
+
+    def test_a_recording_is_transcribed_and_not_returned(self, client):
+        heard = AsyncMock(return_value="Quiero un café con leche")
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=_live_session())), \
+             patch("backend.routers.speak.transcription_available",
+                   return_value=True), \
+             patch("backend.routers.speak.transcribe", heard):
+            resp = self._post_audio(client)
+        assert resp.status_code == 200
+        # The transcript, and nothing else. No clip id, no URL, no handle
+        # by which the audio could be fetched again — because it is gone.
+        assert resp.json() == {"text": "Quiero un café con leche"}
+
+    def test_the_session_decides_the_language_not_the_client(self, client):
+        """A client that named its own language could aim a recording at
+        another course's recognizer. The code comes from the session's
+        course row, and nothing in the request can move it."""
+        heard = AsyncMock(return_value="hola")
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=_live_session())), \
+             patch("backend.routers.speak.transcription_available",
+                   return_value=True), \
+             patch("backend.routers.speak.transcribe", heard):
+            resp = client.post(
+                "/api/speak/transcribe",
+                headers=_auth_headers(),
+                data={"session_id": TEST_SESSION_ID, "language_code": "ru"},
+                files={"audio": ("t.webm", b"x", "audio/webm")},
+            )
+        assert resp.status_code == 200
+        # _conn()'s languages row is Spanish; the smuggled "ru" is ignored.
+        assert heard.await_args.args[1] == "es"
+
+    def test_silence_is_not_an_error(self, client):
+        """Pressed and released without speaking. The page says so; it does
+        not post an empty turn or show a failure."""
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=_live_session())), \
+             patch("backend.routers.speak.transcription_available",
+                   return_value=True), \
+             patch("backend.routers.speak.transcribe",
+                   new=AsyncMock(return_value="")):
+            resp = self._post_audio(client)
+        assert resp.status_code == 200
+        assert resp.json()["text"] == ""
+
+    def test_a_course_with_no_recognizer_says_type_it(self, client):
+        """Latin, Māori, Yoruba. Not a 500 and not a silent empty string —
+        a stated 'this language has no microphone yet'."""
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=_live_session())), \
+             patch("backend.routers.speak.transcription_available",
+                   return_value=True), \
+             patch("backend.routers.speak.locale_for", return_value=None):
+            resp = self._post_audio(client)
+        assert resp.status_code == 501
+
+    def test_a_finished_session_takes_no_more_audio(self, client):
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=_live_session(ended_at="now"))):
+            resp = self._post_audio(client)
+        assert resp.status_code == 409
+
+    def test_a_provider_failure_falls_back_to_typing(self, client):
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=_live_session())), \
+             patch("backend.routers.speak.transcription_available",
+                   return_value=True), \
+             patch("backend.routers.speak.transcribe",
+                   new=AsyncMock(side_effect=RuntimeError("azure down"))):
+            resp = self._post_audio(client)
+        assert resp.status_code == 502
+        assert "type it" in resp.json()["detail"]
+
+    def test_the_partner_speaks_only_lines_from_your_own_session(self, client):
+        """/api/audio/tts refuses text that isn't ours — that is what keeps
+        it from being an open synthesis proxy. A partner's reply is not
+        'ours' by that test, so this endpoint checks ownership instead: the
+        line is read back out of the caller's session and nothing the
+        client sends is synthesized."""
+        synth = AsyncMock(return_value=b"ID3-mp3")
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=_live_session())), \
+             patch("backend.routers.speak.list_turns", new=AsyncMock(
+                 return_value=[{"idx": 0, "learner_text": "hola",
+                                "partner_text": "¿Qué tal?", "audio_ms": None,
+                                "errors": []}])), \
+             patch("backend.routers.speak.synthesize", synth):
+            resp = client.post("/api/speak/say", headers=_auth_headers(), json={
+                "session_id": TEST_SESSION_ID, "turn_index": 0,
+            })
+        assert resp.status_code == 200
+        assert resp.json()["audio_b64"]
+        assert synth.await_args.args[0] == "¿Qué tal?"
+
+    def test_say_that_again_is_slower(self, client):
+        synth = AsyncMock(return_value=b"ID3-mp3")
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=_live_session())), \
+             patch("backend.routers.speak.list_turns", new=AsyncMock(
+                 return_value=[{"idx": 0, "learner_text": "",
+                                "partner_text": "¿Qué tal?", "audio_ms": None,
+                                "errors": []}])), \
+             patch("backend.routers.speak.synthesize", synth):
+            fast = client.post("/api/speak/say", headers=_auth_headers(), json={
+                "session_id": TEST_SESSION_ID, "turn_index": 0})
+            slow = client.post("/api/speak/say", headers=_auth_headers(), json={
+                "session_id": TEST_SESSION_ID, "turn_index": 0, "slow": True})
+        assert fast.status_code == slow.status_code == 200
+        assert synth.await_args_list[0].kwargs["rate"] is None
+        assert synth.await_args_list[1].kwargs["rate"] == SLOW_RATE
+
+    def test_a_turn_that_does_not_exist_is_404(self, client):
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=_live_session())), \
+             patch("backend.routers.speak.list_turns",
+                   new=AsyncMock(return_value=[])):
+            resp = client.post("/api/speak/say", headers=_auth_headers(), json={
+                "session_id": TEST_SESSION_ID, "turn_index": 3,
+            })
+        assert resp.status_code == 404
+
+    def test_a_spoken_turn_records_how_long_they_spoke(self, client):
+        """The summary's 'you spoke 61% of the time' is a measurement, not
+        an estimate from character counts — so a typed turn contributes
+        nothing to it rather than a guess."""
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=_live_session())), \
+             patch("backend.routers.speak.list_turns",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.speak.append_turn",
+                   new=AsyncMock()) as appended:
+            client.post("/api/speak/turn", headers=_auth_headers(), json={
+                "session_id": TEST_SESSION_ID, "text": "Quiero un café",
+                "audio_ms": 4200,
+            })
+            spoken = appended.await_args.kwargs["audio_ms"]
+            client.post("/api/speak/turn", headers=_auth_headers(), json={
+                "session_id": TEST_SESSION_ID, "text": "Quiero un café",
+            })
+            typed = appended.await_args.kwargs["audio_ms"]
+        assert spoken == 4200
+        assert typed is None

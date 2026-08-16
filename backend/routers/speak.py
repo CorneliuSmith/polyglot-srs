@@ -8,10 +8,19 @@ what you got wrong should never be the thing you run out of.
 
 from __future__ import annotations
 
+import base64
 import logging
 
 import anthropic
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import (
+    APIRouter,
+    Depends,
+    File,
+    Form,
+    HTTPException,
+    UploadFile,
+    status,
+)
 from pydantic import BaseModel, Field
 
 from backend.dependencies import get_current_user
@@ -30,7 +39,11 @@ from backend.repositories.speak import (
 from backend.repositories.tutor import log_tutor_usage
 from backend.routers.tutor import _get_allowance, _reject_if_unavailable
 from backend.services.generate import generation_available
-from backend.services.rate_limit import tutor_chat_limiter
+from backend.services.rate_limit import (
+    stt_limiter,
+    tts_limiter,
+    tutor_chat_limiter,
+)
 from backend.services.speak import (
     MAX_TOPIC_CHARS,
     MAX_TURN_CHARS,
@@ -38,6 +51,13 @@ from backend.services.speak import (
     speak_turn,
     summarize_speak_session,
 )
+from backend.services.stt import (
+    MAX_AUDIO_BYTES,
+    locale_for,
+    transcribe,
+    transcription_available,
+)
+from backend.services.tts import SLOW_RATE, synthesize, voice_for
 from backend.services.tutor import resolve_tutor_model
 
 logger = logging.getLogger("speak")
@@ -58,6 +78,19 @@ class StartRequest(BaseModel):
 class TurnRequest(BaseModel):
     session_id: str
     text: str = Field(min_length=1, max_length=MAX_TURN_CHARS)
+    # How long they spoke, when they spoke. Absent on a typed turn — the
+    # summary's speaking share counts measured audio only, rather than
+    # inventing a duration from a character count.
+    audio_ms: int | None = Field(default=None, ge=0, le=10 * 60 * 1000)
+
+
+class SayRequest(BaseModel):
+    session_id: str
+    turn_index: int = Field(ge=0)
+    # "Say that again" replays the same line slower. Comprehension failure
+    # is the commonest reason a conversation dies and without this the
+    # learner's only recovery is to quit.
+    slow: bool = False
 
 
 class EndRequest(BaseModel):
@@ -127,18 +160,167 @@ async def speak_status(
     Reports unavailable — rather than failing later — when the migration
     hasn't been applied, so the UI hides the entry instead of offering a
     conversation that cannot be saved.
+
+    `speech` answers the two questions the page has to settle before it can
+    draw itself: can this course be HEARD, and can it be SPOKEN. They are
+    different facts with different answers — Speak can listen to Hebrew,
+    Persian, Indonesian and Filipino, which have no neural voice; it cannot
+    listen to Latin or Māori, which do have TTS in the reader. A course
+    that fails either test keeps the typed path permanently, and the UI
+    says which half is missing rather than showing a dead microphone.
     """
+    off = {"available": False, "allowance": None, "sessions": [],
+           "speech": {"listen": False, "speak": False}}
     if not generation_available():
-        return {"available": False, "allowance": None, "sessions": []}
+        return off
     async with rls_connection(user["id"]) as conn:
         if not await tables_ready(conn):
-            return {"available": False, "allowance": None, "sessions": []}
+            return off
         try:
             sessions = await list_recent_sessions(conn, user["id"], language_id)
         except SpeakUnavailableError:
-            return {"available": False, "allowance": None, "sessions": []}
+            return off
+        code = await conn.fetchval(
+            "SELECT code FROM languages WHERE id = $1", language_id)
     allowance = await _get_allowance(user["id"], language_id)
-    return {"available": True, "allowance": allowance, "sessions": sessions}
+    return {
+        "available": True,
+        "allowance": allowance,
+        "sessions": sessions,
+        "speech": {
+            "listen": bool(
+                code and transcription_available() and locale_for(code)
+            ),
+            "speak": bool(code and voice_for(code)),
+        },
+    }
+
+
+@router.post("/transcribe")
+async def transcribe_turn(
+    session_id: str = Form(...),
+    audio: UploadFile = File(...),
+    user: dict = Depends(get_current_user),
+):
+    """Turn one recorded utterance into text. The audio is never kept.
+
+    It is read into memory, sent to the provider, and dropped when this
+    function returns — not written to storage, not logged, not retained to
+    save a re-record. A recording of someone's voice is biometric data and
+    keeping it would make a language app into a processor of it.
+
+    The transcript comes back for the learner to SEE and edit before it is
+    sent as a turn; this endpoint deliberately does not chain into /turn.
+    ASR mishears an accented beginner, and being corrected for a word you
+    did not say is the fastest way to stop trusting the feature.
+
+    The session decides the language, like every other Speak endpoint: a
+    client that named its own could aim a recording at another course's
+    recognizer.
+    """
+    try:
+        async with rls_connection(user["id"]) as conn:
+            session = await get_session(conn, user["id"], session_id)
+            if not session:
+                raise HTTPException(status_code=404, detail="Unknown session")
+            if session["ended_at"]:
+                raise HTTPException(
+                    status_code=409, detail="That session is already finished"
+                )
+            _, code, _ = await _language(conn, session["language_id"])
+    except SpeakUnavailableError as exc:
+        raise _UNAVAILABLE from exc
+
+    if not transcription_available() or not locale_for(code):
+        raise HTTPException(
+            status_code=status.HTTP_501_NOT_IMPLEMENTED,
+            detail="Speaking isn't available for this language yet — type it",
+        )
+    if not await stt_limiter.allow(user["id"]):
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="Too many recordings — slow down a moment.",
+        )
+
+    # Bounded read: an UploadFile is a stream, and .read() with no argument
+    # on a mis-wired client is an unbounded allocation. One byte over the
+    # cap is enough to know it is over.
+    data = await audio.read(MAX_AUDIO_BYTES + 1)
+    if len(data) > MAX_AUDIO_BYTES:
+        raise HTTPException(
+            status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+            detail="That recording is too long",
+        )
+    try:
+        text = await transcribe(data, code, audio.content_type)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    except Exception as exc:  # noqa: BLE001 — provider is best-effort
+        logger.error("Transcription failed (%s): %s", type(exc).__name__, exc)
+        raise HTTPException(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            detail="That didn't come through — try again, or type it",
+        ) from exc
+
+    # Silence is not an error. The learner pressed and released without
+    # saying anything, or the microphone was muted; "" tells the page to
+    # say so rather than posting an empty turn.
+    return {"text": text}
+
+
+@router.post("/say")
+async def say(
+    body: SayRequest,
+    user: dict = Depends(get_current_user),
+):
+    """The partner's line, out loud.
+
+    A separate path from /api/audio/tts on purpose. That endpoint checks
+    the text is one of OURS — a drill sentence, an example, a vocabulary
+    word — which is what stops it being an open synthesis proxy. A
+    partner's reply is none of those things; it was written seconds ago
+    for one learner. So the check here is ownership instead: the text is
+    read back out of the caller's own session, and nothing a client sends
+    is synthesized.
+
+    Returned inline rather than cached to the CDN. Every line in a
+    conversation is unique by construction, so a cache would be a store of
+    single-use rows — and a store of one side of somebody's conversation.
+    """
+    try:
+        async with rls_connection(user["id"]) as conn:
+            session = await get_session(conn, user["id"], body.session_id)
+            if not session:
+                raise HTTPException(status_code=404, detail="Unknown session")
+            _, code, _ = await _language(conn, session["language_id"])
+            turns = await list_turns(conn, body.session_id)
+    except SpeakUnavailableError as exc:
+        raise _UNAVAILABLE from exc
+
+    line = next(
+        (t["partner_text"] for t in turns if t["idx"] == body.turn_index), None
+    )
+    if not line:
+        raise HTTPException(status_code=404, detail="Unknown turn")
+    if voice_for(code) is None:
+        raise HTTPException(
+            status_code=status.HTTP_501_NOT_IMPLEMENTED,
+            detail="No voice for this language yet",
+        )
+    if not await tts_limiter.allow(user["id"]):
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="Too many audio requests — slow down a moment.",
+        )
+    try:
+        clip = await synthesize(line, code, rate=SLOW_RATE if body.slow else None)
+    except Exception as exc:  # noqa: BLE001 — provider is best-effort
+        logger.error("Speak TTS failed (%s): %s", type(exc).__name__, exc)
+        raise HTTPException(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            detail="Audio generation failed",
+        ) from exc
+    return {"audio_b64": base64.b64encode(clip).decode()}
 
 
 @router.post("/start")
@@ -300,7 +482,7 @@ async def turn(
         )
         await append_turn(
             conn, body.session_id, len(history), text,
-            result["reply"], result["errors"],
+            result["reply"], result["errors"], audio_ms=body.audio_ms,
         )
 
     errors = result["errors"]
