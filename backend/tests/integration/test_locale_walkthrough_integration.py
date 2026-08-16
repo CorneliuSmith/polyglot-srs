@@ -1236,3 +1236,55 @@ async def test_the_settings_level_reaches_every_prompt(pool, monkeypatch):
         again = await get_assessment_summary(conn, uid, course)
         assert again["level"] == "A2"
     del c
+
+
+async def test_a_missing_learner_levels_table_cannot_poison_the_request(
+    pool, monkeypatch,
+):
+    """The production outage, reproduced and pinned.
+
+    Every request path runs inside rls_connection's transaction. The
+    first version of the learner_levels guard caught UndefinedTableError
+    in Python — but Postgres had already aborted the transaction, so the
+    tutor's NEXT query died and the endpoint 500'd, on every AI feature,
+    for as long as the migration stayed unpushed. The fix probes with
+    to_regclass, which never raises.
+
+    Here the table is genuinely absent (dropped inside this transaction,
+    rolled back after) and the whole assessment read — the exact call the
+    tutor makes — must succeed, and the connection must still answer
+    queries afterward.
+    """
+    import backend.repositories.level as level_mod
+    from backend.repositories.assessment import get_assessment_summary
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "poz1", "Poisonish", auto=False)
+    uid = await _learner(pool, "poison@poz1", course, None)
+    c = await _build_course(pool, course, uid, "poz")
+
+    class _RollbackError(Exception):
+        pass
+
+    level_mod._TABLE_SEEN = False
+    try:
+        async with pool.privileged_connection() as conn:
+            with __import__("pytest").raises(_RollbackError):
+                async with conn.transaction():
+                    # The world as deployed: the migration hasn't landed.
+                    await conn.execute("DROP TABLE learner_levels")
+
+                    summary = await get_assessment_summary(conn, uid, course)
+                    assert summary["level"] == "A1"
+                    assert "chosen_level" not in summary
+
+                    # The transaction is NOT aborted: the connection still
+                    # answers. This line is the one that 500'd in prod.
+                    assert await conn.fetchval("SELECT 1") == 1
+                    raise _RollbackError  # restore the table
+            # After rollback the table is back and the rule works again.
+            assert await conn.fetchval(
+                "SELECT to_regclass('learner_levels') IS NOT NULL")
+    finally:
+        level_mod._TABLE_SEEN = False
+    del c
