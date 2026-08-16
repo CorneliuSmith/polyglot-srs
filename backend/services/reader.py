@@ -13,11 +13,15 @@ is schema-guaranteed rather than parsed out of prose.
 
 from __future__ import annotations
 
+import logging
 from typing import Any
 
 from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
+from backend.repositories.level import shift_level
+
+logger = logging.getLogger("reader")
 
 MAX_TOPIC_CHARS = 120
 
@@ -92,13 +96,17 @@ _VOICE_RULE = {
                 "sentence is one speaker's line with the name attached, "
                 "natural back-and-forth.",
 }
-_COMPLEXITY_RULE = {
-    "easier": " Ease off: noticeably shorter, simpler sentences than typical "
-              "for this level.",
-    "stretch": " Stretch: slightly more complex sentences than typical for "
-               "this level — a subordinate clause here and there — while "
-               "staying fully comprehensible.",
-}
+# The complexity dial is a LEVEL SHIFT, not a tone hint. It used to add
+# one soft sentence against the HARD CONSTRAINTS cage below, and in a
+# language model a hard constraint plus a soft nudge resolves to the hard
+# constraint — "stretch" produced the same baby text and the owner said
+# so ("the content is sometimes way too simple", "does not actually
+# listen to the rules"). Now easier/stretch move the target level itself
+# (repositories/level.py shift_level) and the constraint block is
+# rewritten per mode. The owner's standing rule: an explicit ask for
+# harder content is GIVEN, uncapped — stretch means one full level up
+# from wherever they sit, including above their own chosen level.
+_COMPLEXITY_SHIFT = {"easier": -1, "level": 0, "stretch": +1}
 
 
 def _placement_rule(placement: dict | None) -> str:
@@ -132,36 +140,69 @@ def _placement_rule(placement: dict | None) -> str:
     return ("\n- " + " ".join(bits)) if bits else ""
 
 
+def _constraint_block(
+    mode: str, target_level: str, structures: str, known_words: str
+) -> str:
+    """The constraint block, written per mode — because one block for all
+    three dials is how "stretch" produced the same text as "easier".
+
+    easier/level keep the cage: known structures, level-locked
+    vocabulary. stretch OPENS it — the learner explicitly asked for
+    harder, and glosses are one tap away, which is what the Reader's
+    gloss machinery is for. Their known words become calibration, not a
+    ceiling, and grammar may run a level past their cards.
+    """
+    if mode == "stretch":
+        return f"""HARD CONSTRAINTS:
+- Pitch the text at {target_level} — genuinely at it, not beneath it. The \
+learner ASKED for harder material; do not soften it back down.
+- Grammar: their learned structures ({structures or "the basics"}) are the \
+FLOOR, not the limit — use {target_level} constructions beyond them freely.
+- Vocabulary: their strongest known words are calibration only, NOT a \
+ceiling: {known_words or "(new learner)"}. Unknown words are welcome — \
+every word carries a tap-to-reveal gloss, so difficulty costs a tap, not \
+comprehension.
+- Seed EXACTLY 5–8 genuinely NEW words worth learning at {target_level}. \
+Mark them new:true in the tokens and list them in new_words."""
+    return f"""HARD CONSTRAINTS:
+- Pitch the text at {target_level}.
+- Grammar: use ONLY structures the learner has learned: {structures or "the absolute basics (present tense, simple sentences)"}.
+- Vocabulary: stay within what a {target_level} learner knows. Their \
+strongest known words, for calibration: {known_words or "(new learner — use only top-frequency words)"}.
+- Seed EXACTLY 5–8 genuinely NEW words the learner is likely to meet next \
+at this level. Each must appear in a context that makes its meaning \
+guessable without a dictionary. Mark them new:true in the tokens and list \
+them in new_words."""
+
+
 def _system_prompt(
     language_code: str, gloss_locale: str, learner: dict,
     options: dict | None = None,
 ) -> str:
     opts = options or {}
+    mode = opts.get("complexity") or "level"
     length_rule = _LENGTH_RULE.get(opts.get("length") or "", _LENGTH_RULE["medium"])
     voice_rule = _VOICE_RULE.get(opts.get("voice") or "", "")
-    complexity_rule = _COMPLEXITY_RULE.get(opts.get("complexity") or "", "")
     known_words = ", ".join(learner.get("known_words") or [])
     structures = "; ".join(learner.get("learned_structures") or [])
     weak = ", ".join(learner.get("weak_words") or [])
     focus = "; ".join(learner.get("focus") or [])
     level = learner.get("level") or "A1"
+    # The dial shifts the LEVEL, uncapped upward (owner: "if the user
+    # wants harder content above their level give it to them").
+    target_level = shift_level(level, _COMPLEXITY_SHIFT.get(mode, 0))
     placement = _placement_rule(learner.get("placement"))
+    constraints = _constraint_block(mode, target_level, structures, known_words)
     return f"""You write reading material for one specific learner inside \
 PolyglotSRS, a spaced-repetition language app. Target language: \
-{language_code}. The learner's level: {level}.
+{language_code}. The learner's level: {level}. This text is pitched at: \
+{target_level}.
 
 {length_rule} on the requested topic — natural, warm, factually \
 grounded prose, never a vocabulary exercise dressed as a \
-text.{voice_rule}{complexity_rule}
+text.{voice_rule}
 
-HARD CONSTRAINTS:
-- Grammar: use ONLY structures the learner has learned: {structures or "the absolute basics (present tense, simple sentences)"}.
-- Vocabulary: stay within what a {level} learner knows. Their strongest \
-known words, for calibration: {known_words or "(new learner — use only top-frequency words)"}.
-- Seed EXACTLY 5–8 genuinely NEW words the learner is likely to meet next \
-at this level. Each must appear in a context that makes its meaning \
-guessable without a dictionary. Mark them new:true in the tokens and list \
-them in new_words.
+{constraints}
 - Where natural (never forced), re-expose these weak words: {weak or "(none)"} \
 and these focus structures: {focus or "(none)"}.{placement}
 
@@ -226,6 +267,76 @@ def _validate_reading(payload: dict) -> dict:
     return payload
 
 
+# The contract checker — the anti-trash mechanism (adaptive-sessions
+# plan, stage 2). The dials stopped being suggestions the day the owner
+# said "does not actually listen to the rules provided": every generated
+# text is now GRADED against what was asked — pitched level, length band,
+# voice — by one small model call, and a text that flunks is regenerated
+# once with the verdict injected. The verdict ships in the reading's
+# payload either way (check field), so obedience is observable instead of
+# anecdotal. A checker failure (provider hiccup, bad JSON) never blocks
+# the reading — ungraded beats undelivered.
+_CHECK_TOOL = {
+    "name": "emit_check",
+    "description": "Report whether the text honors its contract.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "level_ok": {"type": "boolean"},
+            "level_estimate": {
+                "type": "string",
+                "enum": ["A1", "A2", "B1", "B2", "C1", "C2"],
+            },
+            "length_ok": {"type": "boolean"},
+            "voice_ok": {"type": "boolean"},
+            "note": {"type": "string", "description": "One line on any miss."},
+        },
+        "required": ["level_ok", "level_estimate", "length_ok", "voice_ok"],
+    },
+}
+
+_LENGTH_BANDS = {"short": (60, 200), "medium": (130, 330), "long": (250, 500)}
+
+
+async def _check_reading(
+    client: AsyncAnthropic, reading: dict, language_code: str,
+    target_level: str, options: dict, model: str,
+) -> dict | None:
+    """One cheap grading call. None when the check itself failed."""
+    opts = options or {}
+    text = " ".join(
+        s.get("text", "") for s in (reading.get("sentences") or [])
+    )
+    voice = opts.get("voice") or "any"
+    length = opts.get("length") or "medium"
+    lo, hi = _LENGTH_BANDS.get(length, _LENGTH_BANDS["medium"])
+    try:
+        response = await client.messages.create(
+            model=model,
+            max_tokens=300,
+            system=(
+                "You grade generated language-learning texts against their "
+                "contract. Judge honestly; a text that undershoots its "
+                "level is a FAIL even if it is pleasant."
+            ),
+            messages=[{
+                "role": "user",
+                "content": (
+                    f"Language: {language_code}. Contract: pitched at "
+                    f"{target_level}; length {length} (~{lo}–{hi} words); "
+                    f"voice {voice}.\n\nTEXT:\n{text}"
+                ),
+            }],
+            tools=[_CHECK_TOOL],
+            tool_choice={"type": "tool", "name": "emit_check"},
+        )
+        block = next((b for b in response.content if b.type == "tool_use"), None)
+        return dict(block.input) if block and isinstance(block.input, dict) else None
+    except Exception as exc:  # noqa: BLE001 — grading is best-effort
+        logger.warning("reading check failed: %s", exc)
+        return None
+
+
 async def generate_reading(
     language_code: str,
     topic: str,
@@ -234,9 +345,20 @@ async def generate_reading(
     model: str | None = None,
     options: dict | None = None,
 ) -> tuple[dict, dict[str, int]]:
-    """Generate one reading. Returns (reading, usage token counts)."""
+    """Generate one reading, graded against its contract.
+
+    Returns (reading, usage token counts). reading["check"] carries the
+    grader's verdict ({level_ok, level_estimate, length_ok, voice_ok,
+    note, retried}) when grading ran — the observable answer to "did it
+    listen to the dials", logged either way.
+    """
     settings = get_settings()
     model = model or settings.tutor_model
+    opts = options or {}
+    mode = opts.get("complexity") or "level"
+    target_level = shift_level(
+        learner.get("level") or "A1", _COMPLEXITY_SHIFT.get(mode, 0)
+    )
 
     if getattr(settings, "tutor_dev_mock", False):
         return _validate_reading(_mock_reading(topic)), {
@@ -245,28 +367,63 @@ async def generate_reading(
         }
 
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
-    response = await client.messages.create(
-        model=model,
-        max_tokens=8192,
-        system=_system_prompt(language_code, gloss_locale, learner, options),
-        messages=[{
-            "role": "user",
-            "content": f"Please write me something to read about: {topic}",
-        }],
-        tools=[READING_TOOL],
-        tool_choice={"type": "tool", "name": "emit_reading"},
+
+    async def _one_attempt(extra: str = "") -> tuple[dict, dict]:
+        response = await client.messages.create(
+            model=model,
+            max_tokens=8192,
+            system=_system_prompt(language_code, gloss_locale, learner, options)
+            + extra,
+            messages=[{
+                "role": "user",
+                "content": f"Please write me something to read about: {topic}",
+            }],
+            tools=[READING_TOOL],
+            tool_choice={"type": "tool", "name": "emit_reading"},
+        )
+        usage = getattr(response, "usage", None)
+        counts = {
+            "input_tokens": getattr(usage, "input_tokens", 0) or 0,
+            "output_tokens": getattr(usage, "output_tokens", 0) or 0,
+            "cache_write_tokens": getattr(usage, "cache_creation_input_tokens", 0) or 0,
+            "cache_read_tokens": getattr(usage, "cache_read_input_tokens", 0) or 0,
+        }
+        tool_use = next(
+            (b for b in response.content if b.type == "tool_use"), None
+        )
+        if tool_use is None or not isinstance(tool_use.input, dict):
+            raise ValueError("Reading generation returned no structured payload")
+        return _validate_reading(tool_use.input), counts
+
+    reading, counts = await _one_attempt()
+    # The cheaper summary-class model grades; the verdict decides one
+    # retry, then the second attempt is served regardless — the learner
+    # is never held hostage to a perfectionist loop.
+    check_model = getattr(settings, "tutor_summary_model", None) or model
+    verdict = await _check_reading(
+        client, reading, language_code, target_level, opts, check_model
     )
-    usage = getattr(response, "usage", None)
-    counts = {
-        "input_tokens": getattr(usage, "input_tokens", 0) or 0,
-        "output_tokens": getattr(usage, "output_tokens", 0) or 0,
-        "cache_write_tokens": getattr(usage, "cache_creation_input_tokens", 0) or 0,
-        "cache_read_tokens": getattr(usage, "cache_read_input_tokens", 0) or 0,
-    }
-    tool_use = next((b for b in response.content if b.type == "tool_use"), None)
-    if tool_use is None or not isinstance(tool_use.input, dict):
-        raise ValueError("Reading generation returned no structured payload")
-    return _validate_reading(tool_use.input), counts
+    if verdict and not (
+        verdict.get("level_ok")
+        and verdict.get("length_ok")
+        and verdict.get("voice_ok")
+    ):
+        logger.info(
+            "reading flunked its contract (%s → retrying): %s",
+            target_level, verdict,
+        )
+        retry_note = (
+            "\n\nA previous attempt FAILED its contract check: "
+            f"{verdict.get('note') or verdict}. Fix exactly that."
+        )
+        reading, counts2 = await _one_attempt(retry_note)
+        for key in counts:
+            counts[key] += counts2.get(key, 0)
+        verdict = dict(verdict, retried=True)
+    if verdict is not None:
+        reading["check"] = verdict
+        logger.info("reading contract verdict (%s): %s", target_level, verdict)
+    return reading, counts
 
 
 async def explain_sentence(

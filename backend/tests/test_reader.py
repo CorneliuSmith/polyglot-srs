@@ -277,7 +277,11 @@ def test_system_prompt_honours_text_options():
     )
     assert "80–120" in shaped
     assert "DIALOGUE" in shaped
-    assert "Stretch" in shaped
+    # Stretch is a LEVEL SHIFT now, not a tone sentence: B1 learner →
+    # text pitched at B2, cage opened (see test_level_rules.py for the
+    # full dial matrix).
+    assert "pitched at: B2" in shaped
+    assert "FLOOR, not the limit" in shaped
 
     longer = _system_prompt("es", "en", learner, {"length": "long", "voice": "first"})
     assert "300–400" in longer and "FIRST person" in longer
