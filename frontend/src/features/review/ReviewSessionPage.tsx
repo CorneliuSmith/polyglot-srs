@@ -12,7 +12,7 @@ import {
   validateAnswer,
 } from '../../api/review'
 import { recordGymAttempt, generateGymDrills } from '../../api/gym'
-import { getLanguages, getProfile, updateProfile } from '../../api/profile'
+import { getLanguages, getProfile } from '../../api/profile'
 import type { DueCard } from '../../api/types'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { languageDisplayName } from '../../lib/languages'
@@ -123,17 +123,14 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
     <ReviewSessionInner
       key={`${activeLanguageId ?? 'none'}:${epoch}`}
       cram={cram}
-      onLocaleChanged={() => setEpoch((e) => e + 1)}
     />
   )
 }
 
 function ReviewSessionInner({
   cram,
-  onLocaleChanged,
 }: {
   cram: boolean
-  onLocaleChanged: () => void
 }) {
   const navigate = useNavigate()
   const { t, i18n } = useTranslation()
@@ -459,16 +456,6 @@ function ReviewSessionInner({
   const { data: languages = [] } = useQuery({
     queryKey: ['languages'],
     queryFn: getLanguages,
-  })
-  const localeMutation = useMutation({
-    mutationFn: (support_locale: string) => updateProfile({ support_locale }),
-    onSuccess: async () => {
-      // Await the profile refetch so the new supportLocale is in place, then
-      // remount — the remounted session re-keys the due-cards query on the
-      // fresh locale and pulls re-localized cards.
-      await queryClient.invalidateQueries({ queryKey: ['profile'] })
-      onLocaleChanged()
-    },
   })
 
   const validateMutation = useMutation({
@@ -918,24 +905,9 @@ function ReviewSessionInner({
               {t('review.quickCram')}
             </span>
           ) : (
+            /* Same as Learn: no language control inside a running
+               session. It belongs in Settings. */
             <span className="flex items-center gap-2">
-              <select
-                value={profile?.support_locale ?? 'en'}
-                onChange={(e) => localeMutation.mutate(e.target.value)}
-                disabled={localeMutation.isPending}
-                aria-label={t('review.translationsLanguage')}
-                title={t('review.showTranslationsIn')}
-                className="text-xs rounded-lg border border-gray-200 bg-white px-2 py-1 text-gray-600"
-              >
-                <option value="en">{t('review.english')}</option>
-                {languages
-                  .filter((l) => l.code !== 'en')
-                  .map((l) => (
-                    <option key={l.code} value={l.code}>
-                      {languageDisplayName(l.code, l.name, i18n.language)}
-                    </option>
-                  ))}
-              </select>
               <span>{t(`review.cardType.${card.card_type}`)}</span>
             </span>
           )}
