@@ -84,7 +84,15 @@ export async function startSpeakSession(
   languageCode: string,
   topic?: string,
   mode: SpeakMode = 'flow',
-): Promise<{ session_id: string; mode: SpeakMode; topic: string | null }> {
+): Promise<{
+  session_id: string
+  mode: SpeakMode
+  topic: string | null
+  /** The partner's first line when the learner left the topic blank and
+   * asked it to start. Null when they named a topic, or when the opener
+   * could not be generated and they should start instead. */
+  opening: string | null
+}> {
   const response = await apiClient.post('/api/speak/start', {
     language_id: languageId,
     language_code: languageCode,

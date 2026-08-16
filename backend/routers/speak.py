@@ -34,6 +34,7 @@ from backend.services.rate_limit import tutor_chat_limiter
 from backend.services.speak import (
     MAX_TOPIC_CHARS,
     MAX_TURN_CHARS,
+    speak_opening,
     speak_turn,
     summarize_speak_session,
 )
@@ -80,6 +81,30 @@ async def _language(conn, language_id: str) -> tuple[str, str, str | None]:
     return row["name"], row["code"], row["tutor_model"]
 
 
+def _model_history(turns: list[dict]) -> tuple[list[dict], str | None]:
+    """The transcript split into what the model can be sent, and what it
+    has to be told.
+
+    A partner-opened session starts with a turn nobody spoke — empty learner
+    text, a real partner line. The messages list has to begin with the
+    learner, so that line cannot ride along as a pair. Dropping it silently
+    would leave the partner with no memory of its own opening question and
+    it would ask again. So the pairs go to `messages` and the opener goes
+    into the system prompt.
+    """
+    pairs = [
+        {"learner_text": t["learner_text"], "partner_text": t["partner_text"]}
+        for t in turns
+        if (t["learner_text"] or "").strip()
+    ]
+    opener = next(
+        (t["partner_text"] for t in turns
+         if not (t["learner_text"] or "").strip()),
+        None,
+    )
+    return pairs, opener
+
+
 async def _support_language(conn, user_id: str) -> str | None:
     """The language to write corrections IN. None → English."""
     code = await conn.fetchval(
@@ -121,8 +146,20 @@ async def start(
     body: StartRequest,
     user: dict = Depends(get_current_user),
 ):
-    """Open a session. No model call — and so no allowance draw — until the
-    learner actually says something."""
+    """Open a session, and let the partner speak first if asked.
+
+    The start screen offers "leave it blank and your partner will start".
+    That was a promise the code did not keep — the session opened on an
+    empty transcript and "Say something to begin", which is the opposite of
+    what the learner chose. When no topic is given the partner now opens for
+    real, and that opening is stored as the session's first turn so it
+    reaches the model's context and the end-of-session summary like any
+    other line.
+
+    Naming a topic still costs nothing here: the learner has already said
+    what they want to talk about, so there is nothing for the partner to
+    break the ice with.
+    """
     if not generation_available():
         raise _UNAVAILABLE
     allowance = await _get_allowance(user["id"], body.language_id)
@@ -135,7 +172,40 @@ async def start(
             )
     except SpeakUnavailableError as exc:
         raise _UNAVAILABLE from exc
-    return {"session_id": session_id, "mode": body.mode, "topic": topic}
+
+    if topic:
+        return {"session_id": session_id, "mode": body.mode,
+                "topic": topic, "opening": None}
+
+    # Best-effort: a partner who cannot think of an opener is a worse
+    # session, not a broken one. Fall back to the learner starting rather
+    # than failing the whole thing on the doorstep.
+    try:
+        async with rls_connection(user["id"]) as conn:
+            language_name, code, override_model = await _language(
+                conn, body.language_id
+            )
+            learner = await get_assessment_summary(
+                conn, user["id"], body.language_id, depth="reading"
+            )
+        model = resolve_tutor_model(code, override_model)
+        opening, usage = await speak_opening(
+            language_name, learner["level"], None, model=model,
+        )
+        async with rls_connection(user["id"]) as conn:
+            await log_tutor_usage(
+                conn, user["id"], body.language_id, model, usage=usage
+            )
+            # learner_text is '' — nobody spoke. list_turns keeps it, and
+            # _model_messages below drops the empty half so the model sees
+            # an assistant-first conversation rather than a blank user turn.
+            await append_turn(conn, session_id, 0, "", opening, [])
+    except Exception as exc:  # noqa: BLE001 — an opener is not worth a 500
+        logger.warning("Speak opener failed, learner starts instead: %s", exc)
+        opening = None
+
+    return {"session_id": session_id, "mode": body.mode,
+            "topic": topic, "opening": opening}
 
 
 @router.post("/turn")
@@ -194,19 +264,17 @@ async def turn(
         )
 
     model = resolve_tutor_model(code, override_model)
+    pairs, opener = _model_history(history)
     try:
         result, usage = await speak_turn(
             language_name,
             learner["level"],
-            [
-                {"learner_text": t["learner_text"],
-                 "partner_text": t["partner_text"]}
-                for t in history
-            ],
+            pairs,
             text,
             topic=session["topic"],
             support_language=support_language,
             model=model,
+            opened_with=opener,
         )
     except ValueError as exc:
         logger.error("Speak turn came back malformed: %s", exc)

@@ -1071,7 +1071,7 @@ function ReviewSessionInner({
               aria-label={t('review.submitAnswer')}
               onClick={handleSubmitAnswer}
               disabled={!userInput.trim() || validateMutation.isPending}
-              className="w-full bg-white hover:bg-gray-50 disabled:opacity-40 text-gray-500 hover:text-lang rounded-2xl border-2 border-gray-300 px-6 py-2 text-2xl leading-none transition-colors touch-manipulation"
+              className="w-full bg-lang hover:bg-lang-dark text-lang-on disabled:opacity-40 rounded-2xl border-2 border-lang px-6 py-2 text-2xl leading-none transition-colors touch-manipulation"
               style={{ minHeight: '44px' }}
             >
               {validateMutation.isPending ? '…' : '→'}
@@ -1108,7 +1108,7 @@ function ReviewSessionInner({
                 className={`ms-auto text-sm rounded-full px-3 py-1 border transition ${
                   listening
                     ? 'border-lang/40 bg-lang-soft text-lang'
-                    : 'border-gray-200 text-gray-500 hover:text-lang'
+                    : 'border-lang-2-edge text-lang-2-label hover:bg-lang-2-tint'
                 }`}
               >
                 <Headphones aria-hidden className="me-1 inline h-3.5 w-3.5 align-[-2px]" />{listening ? t('review.listeningOn') : t('review.listeningOff')}
