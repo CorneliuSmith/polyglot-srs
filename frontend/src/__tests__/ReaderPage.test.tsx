@@ -116,6 +116,28 @@ describe('ReaderPage (WP21)', () => {
     })
   })
 
+  it('the challenge row offers explicit A1–C2 levels and sends the pick', async () => {
+    // Owner: "add a1 - c2 levels as an option" — absolute pins alongside
+    // the relative easier/level/stretch dial.
+    mockGenerate.mockResolvedValue({
+      id: 'r-1', reading, level: 'A1', allowance: { unlimited: true },
+    })
+    renderPage()
+    const input = await screen.findByPlaceholderText(/street food/i)
+    fireEvent.change(input, { target: { value: 'cats' } })
+    for (const level of ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']) {
+      expect(screen.getByRole('button', { name: level })).toBeDefined()
+    }
+    fireEvent.click(screen.getByRole('button', { name: 'B2' }))
+    fireEvent.click(screen.getByRole('button', { name: /write it/i }))
+    await screen.findByTestId('listen-first')
+    expect(mockGenerate).toHaveBeenCalledWith('lang-es', 'es', 'cats', {
+      length: 'medium',
+      voice: 'any',
+      complexity: 'B2',
+    })
+  })
+
   it('listen-first holds the text back until the learner chooses', async () => {
     mockGenerate.mockResolvedValue({
       id: 'r-1', reading, level: 'A1', allowance: { unlimited: true },

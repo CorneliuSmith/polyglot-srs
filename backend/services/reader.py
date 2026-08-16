@@ -19,7 +19,7 @@ from typing import Any
 from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
-from backend.repositories.level import shift_level
+from backend.repositories.level import CEFR_ORDER, shift_level
 
 logger = logging.getLogger("reader")
 
@@ -109,6 +109,47 @@ _VOICE_RULE = {
 _COMPLEXITY_SHIFT = {"easier": -1, "level": 0, "stretch": +1}
 
 
+def resolve_dial(level: str, mode: str) -> tuple[str, bool]:
+    """The challenge dial → (target_level, open_cage).
+
+    Relative modes shift the learner's resolved level (easier −1,
+    stretch +1, which also opens the cage). An explicit CEFR value pins
+    the target to exactly that level — and the cage opens whenever the
+    target sits ABOVE the learner, for the same reason stretch opens it:
+    they asked for harder, and glosses absorb the cost. A2 chosen by a B2
+    learner stays caged at A2.
+    """
+    if level not in CEFR_ORDER:
+        level = "A1"
+    if mode in CEFR_ORDER:
+        return mode, CEFR_ORDER.index(mode) > CEFR_ORDER.index(level)
+    return shift_level(level, _COMPLEXITY_SHIFT.get(mode, 0)), mode == "stretch"
+
+
+# Appended to BOTH cages. Two owner complaints live here. "The Maya build
+# this big temple... every king rule one city": the cage forbade past
+# tense and nothing said correctness was inviolable, so the model wrote
+# broken English to comply — constraint-compliance silently outranked
+# grammaticality. And "not information dense or informative": warmth
+# survived the vocabulary lock, facts didn't, because nothing demanded
+# any.
+_QUALITY_RULES = """
+- Every sentence must be CORRECT, natural prose in the target language — \
+the kind a native editor would pass. The level limits which structures \
+you may USE, never correctness. If the content wants a structure outside \
+the limits (past events at A1), recast the sentence so an allowed \
+structure fits naturally — or use the needed structure anyway: one \
+correct sentence slightly above level beats a broken sentence at level, \
+because glosses are one tap away. Never bend agreement, tense, or word \
+order to seem simpler.
+- The learner is an adult; the level constrains the language, not the \
+content. Every sentence should carry real information — a fact, a name, \
+a number, a date, a place, a cause, a comparison. No filler ("X is \
+amazing", "Do you know X?"), no padding: a good low-level text reads \
+like a well-written encyclopedia entry for beginners, not a picture \
+book."""
+
+
 def _placement_rule(placement: dict | None) -> str:
     """Turn the placement result into a coverage instruction.
 
@@ -141,18 +182,20 @@ def _placement_rule(placement: dict | None) -> str:
 
 
 def _constraint_block(
-    mode: str, target_level: str, structures: str, known_words: str
+    open_cage: bool, target_level: str, structures: str, known_words: str
 ) -> str:
-    """The constraint block, written per mode — because one block for all
-    three dials is how "stretch" produced the same text as "easier".
+    """The constraint block, written per cage — because one block for all
+    the dials is how "stretch" produced the same text as "easier".
 
-    easier/level keep the cage: known structures, level-locked
-    vocabulary. stretch OPENS it — the learner explicitly asked for
-    harder, and glosses are one tap away, which is what the Reader's
-    gloss machinery is for. Their known words become calibration, not a
-    ceiling, and grammar may run a level past their cards.
+    The closed cage: known structures, level-locked vocabulary. The open
+    cage (stretch, or an explicit level above the learner's) drops the
+    lock — the learner explicitly asked for harder, and glosses are one
+    tap away, which is what the Reader's gloss machinery is for. Their
+    known words become calibration, not a ceiling, and grammar may run
+    past their cards. Both cages end on the quality rules: correct
+    language and informative content are never mode-dependent.
     """
-    if mode == "stretch":
+    if open_cage:
         return f"""HARD CONSTRAINTS:
 - Pitch the text at {target_level} — genuinely at it, not beneath it. The \
 learner ASKED for harder material; do not soften it back down.
@@ -163,16 +206,16 @@ ceiling: {known_words or "(new learner)"}. Unknown words are welcome — \
 every word carries a tap-to-reveal gloss, so difficulty costs a tap, not \
 comprehension.
 - Seed EXACTLY 5–8 genuinely NEW words worth learning at {target_level}. \
-Mark them new:true in the tokens and list them in new_words."""
+Mark them new:true in the tokens and list them in new_words.{_QUALITY_RULES}"""
     return f"""HARD CONSTRAINTS:
 - Pitch the text at {target_level}.
-- Grammar: use ONLY structures the learner has learned: {structures or "the absolute basics (present tense, simple sentences)"}.
+- Grammar: prefer structures the learner has learned: {structures or "the absolute basics (present tense, simple sentences)"}.
 - Vocabulary: stay within what a {target_level} learner knows. Their \
 strongest known words, for calibration: {known_words or "(new learner — use only top-frequency words)"}.
 - Seed EXACTLY 5–8 genuinely NEW words the learner is likely to meet next \
 at this level. Each must appear in a context that makes its meaning \
 guessable without a dictionary. Mark them new:true in the tokens and list \
-them in new_words."""
+them in new_words.{_QUALITY_RULES}"""
 
 
 def _system_prompt(
@@ -188,11 +231,14 @@ def _system_prompt(
     weak = ", ".join(learner.get("weak_words") or [])
     focus = "; ".join(learner.get("focus") or [])
     level = learner.get("level") or "A1"
-    # The dial shifts the LEVEL, uncapped upward (owner: "if the user
-    # wants harder content above their level give it to them").
-    target_level = shift_level(level, _COMPLEXITY_SHIFT.get(mode, 0))
+    # The dial moves the LEVEL, uncapped upward (owner: "if the user
+    # wants harder content above their level give it to them") — either
+    # relatively (easier/stretch) or pinned to an explicit CEFR choice.
+    target_level, open_cage = resolve_dial(level, mode)
     placement = _placement_rule(learner.get("placement"))
-    constraints = _constraint_block(mode, target_level, structures, known_words)
+    constraints = _constraint_block(
+        open_cage, target_level, structures, known_words
+    )
     return f"""You write reading material for one specific learner inside \
 PolyglotSRS, a spaced-repetition language app. Target language: \
 {language_code}. The learner's level: {level}. This text is pitched at: \
@@ -289,9 +335,27 @@ _CHECK_TOOL = {
             },
             "length_ok": {"type": "boolean"},
             "voice_ok": {"type": "boolean"},
+            "grammar_ok": {
+                "type": "boolean",
+                "description": (
+                    "False on ANY grammatical error in the target language "
+                    "— wrong tense for the meaning, broken agreement, wrong "
+                    "word order. Simplified-but-broken is a fail."
+                ),
+            },
+            "substance_ok": {
+                "type": "boolean",
+                "description": (
+                    "False when sentences carry no real information — "
+                    "filler ('X is amazing'), empty rhetorical questions, "
+                    "restating the title. Simple language with real facts "
+                    "passes; vibes do not."
+                ),
+            },
             "note": {"type": "string", "description": "One line on any miss."},
         },
-        "required": ["level_ok", "level_estimate", "length_ok", "voice_ok"],
+        "required": ["level_ok", "level_estimate", "length_ok", "voice_ok",
+                     "grammar_ok", "substance_ok"],
     },
 }
 
@@ -317,7 +381,11 @@ async def _check_reading(
             system=(
                 "You grade generated language-learning texts against their "
                 "contract. Judge honestly; a text that undershoots its "
-                "level is a FAIL even if it is pleasant."
+                "level is a FAIL even if it is pleasant. Grammar is graded "
+                "as written for meaning: a low level NEVER excuses broken "
+                "language ('The Maya build this temple' for a past event "
+                "fails grammar_ok). Substance is graded like an editor: "
+                "sentences that inform pass, filler does not."
             ),
             messages=[{
                 "role": "user",
@@ -356,9 +424,7 @@ async def generate_reading(
     model = model or settings.tutor_model
     opts = options or {}
     mode = opts.get("complexity") or "level"
-    target_level = shift_level(
-        learner.get("level") or "A1", _COMPLEXITY_SHIFT.get(mode, 0)
-    )
+    target_level, _ = resolve_dial(learner.get("level") or "A1", mode)
 
     if getattr(settings, "tutor_dev_mock", False):
         return _validate_reading(_mock_reading(topic)), {
@@ -407,6 +473,10 @@ async def generate_reading(
         verdict.get("level_ok")
         and verdict.get("length_ok")
         and verdict.get("voice_ok")
+        # Absent (an older cached grader shape) must not flunk the text —
+        # only an explicit False does.
+        and verdict.get("grammar_ok", True)
+        and verdict.get("substance_ok", True)
     ):
         logger.info(
             "reading flunked its contract (%s → retrying): %s",

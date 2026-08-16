@@ -305,6 +305,34 @@ async def test_generate_rejects_bad_option(client):
     assert resp.status_code == 422
 
 
+def test_generate_accepts_an_explicit_cefr_level(client):
+    """The challenge dial's absolute half: A1–C2 are valid complexity
+    values, anything else is still rejected."""
+    with patch(
+        "backend.routers.reader.save_reading",
+        new=AsyncMock(return_value=TEST_READING_ID),
+    ), patch(
+        "backend.routers.reader.log_grammar_gaps", new=AsyncMock(return_value=0),
+    ), patch(
+        "backend.routers.reader.log_tutor_usage", new=AsyncMock(),
+    ):
+        resp = client.post(
+            "/api/reader/generate",
+            json={"language_id": TEST_LANGUAGE_ID, "language_code": "es",
+                  "topic": "cats", "complexity": "B2"},
+            headers=_auth_headers(),
+        )
+    assert resp.status_code == 200
+
+    resp = client.post(
+        "/api/reader/generate",
+        json={"language_id": TEST_LANGUAGE_ID, "language_code": "es",
+              "topic": "cats", "complexity": "Z9"},
+        headers=_auth_headers(),
+    )
+    assert resp.status_code == 422
+
+
 def test_system_prompt_carries_the_placement_result():
     """Owner: Read should have insight into test results. A reading text is
     the cheapest way to re-expose a structure someone got wrong."""

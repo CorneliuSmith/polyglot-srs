@@ -161,7 +161,7 @@ class TestReaderDials:
         # The cage opens: known material is a floor/calibration, not a cap.
         assert "FLOOR, not the limit" in prompt
         assert "NOT a ceiling" in prompt
-        assert "use ONLY structures" not in prompt
+        assert "prefer structures" not in prompt
 
     def test_stretch_rises_above_the_chosen_level_uncapped(self):
         # The owner's rule verbatim: "if the user wants harder content
@@ -175,13 +175,13 @@ class TestReaderDials:
         prompt = _system_prompt("es", "en", {"level": "B1"},
                                 {"complexity": "easier"})
         assert "pitched at: A2" in prompt
-        assert "use ONLY structures" in prompt
+        assert "prefer structures" in prompt
 
     def test_level_mode_is_the_cage_at_their_level(self):
         prompt = _system_prompt("es", "en", {"level": "B1"},
                                 {"complexity": "level"})
         assert "pitched at: B1" in prompt
-        assert "use ONLY structures" in prompt
+        assert "prefer structures" in prompt
 
     def test_voice_and_length_still_carry(self):
         prompt = _system_prompt(
@@ -190,6 +190,39 @@ class TestReaderDials:
         )
         assert "DIALOGUE" in prompt
         assert "300–400" in prompt
+
+    # The explicit CEFR pins — the owner: "add a1 - c2 levels as an
+    # option". An explicit level replaces the relative dial entirely.
+
+    def test_an_explicit_level_pins_the_target_regardless_of_learner(self):
+        prompt = _system_prompt("es", "en", {"level": "A1"},
+                                {"complexity": "B2"})
+        assert "pitched at: B2" in prompt
+
+    def test_explicit_level_above_the_learner_opens_the_cage(self):
+        prompt = _system_prompt("es", "en", {"level": "A1"},
+                                {"complexity": "B2"})
+        assert "FLOOR, not the limit" in prompt
+
+    def test_explicit_level_at_or_below_keeps_the_cage_shut(self):
+        # A B2 learner asking for A2 gets a caged A2 text, not a stretch.
+        prompt = _system_prompt("es", "en", {"level": "B2"},
+                                {"complexity": "A2"})
+        assert "pitched at: A2" in prompt
+        assert "prefer structures" in prompt
+
+    def test_quality_rules_ride_in_both_cages(self):
+        """The Maya regression: 'The Maya build this big temple', 'every
+        king rule one city' — the cage forbade past tense and nothing said
+        correctness was inviolable. And 'not information dense': nothing
+        demanded facts. Both rules must survive whichever cage is built."""
+        for opts in ({"complexity": "level"}, {"complexity": "stretch"},
+                     {"complexity": "C1"}):
+            prompt = _system_prompt("en", "en", {"level": "A1"}, opts)
+            assert "never correctness" in prompt
+            assert "Never bend agreement, tense, or word order" in prompt
+            assert "carry real information" in prompt
+            assert "encyclopedia entry" in prompt
 
 
 class TestTheChecker:
@@ -275,6 +308,65 @@ class TestTheChecker:
         assert "FAILED its contract check" in gens[1]["system"]
         assert "reads like A1" in gens[1]["system"]
         assert reading["check"]["retried"] is True
+
+    def test_the_grader_must_judge_grammar_and_substance(self):
+        # The Maya text PASSED the old checker: right level, right length,
+        # broken English, empty sentences. Both axes are now required.
+        from backend.services.reader import _CHECK_TOOL
+
+        required = _CHECK_TOOL["input_schema"]["required"]
+        assert "grammar_ok" in required
+        assert "substance_ok" in required
+
+    async def test_broken_grammar_alone_flunks_the_text(self):
+        from backend.services import reader as mod
+
+        calls = []
+        async def create(**kwargs):
+            calls.append(kwargs)
+            if kwargs["tools"][0]["name"] == "emit_check":
+                return self._response({
+                    "level_ok": True, "length_ok": True, "voice_ok": True,
+                    "grammar_ok": False, "substance_ok": True,
+                    "level_estimate": "A1",
+                    "note": "past events written in bare present",
+                })
+            return self._response(self._reading())
+
+        with patch.object(mod, "get_settings", return_value=self._settings()), \
+             patch.object(mod, "AsyncAnthropic") as client_cls:
+            client_cls.return_value.messages.create = create
+            reading, _ = await mod.generate_reading(
+                "en", "the Maya", {"level": "A1"},
+            )
+        gens = [c for c in calls if c["tools"][0]["name"] == "emit_reading"]
+        assert len(gens) == 2
+        assert "past events written in bare present" in gens[1]["system"]
+        assert reading["check"]["retried"] is True
+
+    async def test_an_explicit_level_reaches_the_grader_contract(self):
+        from backend.services import reader as mod
+
+        calls = []
+        async def create(**kwargs):
+            calls.append(kwargs)
+            if kwargs["tools"][0]["name"] == "emit_check":
+                return self._response({
+                    "level_ok": True, "length_ok": True, "voice_ok": True,
+                    "grammar_ok": True, "substance_ok": True,
+                    "level_estimate": "C1",
+                })
+            return self._response(self._reading())
+
+        with patch.object(mod, "get_settings", return_value=self._settings()), \
+             patch.object(mod, "AsyncAnthropic") as client_cls:
+            client_cls.return_value.messages.create = create
+            await mod.generate_reading(
+                "es", "cafés", {"level": "A2"},
+                options={"complexity": "C1"},
+            )
+        check = next(c for c in calls if c["tools"][0]["name"] == "emit_check")
+        assert "pitched at C1" in check["messages"][0]["content"]
 
     async def test_a_broken_grader_never_blocks_the_reading(self):
         from backend.services import reader as mod
