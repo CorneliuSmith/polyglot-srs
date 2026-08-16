@@ -361,10 +361,18 @@ export default function ReaderPage() {
                     {
                       name: 'complexity' as const,
                       label: t('reader.challenge'),
+                      // Relative dials first, then explicit CEFR pins —
+                      // the codes are level names in every locale.
                       choices: [
                         ['easier', t('reader.easier')],
                         ['level', t('reader.myLevel')],
                         ['stretch', t('reader.stretch')],
+                        ['A1', 'A1'],
+                        ['A2', 'A2'],
+                        ['B1', 'B1'],
+                        ['B2', 'B2'],
+                        ['C1', 'C1'],
+                        ['C2', 'C2'],
                       ],
                     },
                   ]

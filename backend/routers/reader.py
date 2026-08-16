@@ -45,7 +45,12 @@ class GenerateRequest(BaseModel):
     # Per-text options (bounded): how long, whose voice, how hard.
     length: str = Field(default="medium", pattern="^(short|medium|long)$")
     voice: str = Field(default="any", pattern="^(any|first|third|dialogue)$")
-    complexity: str = Field(default="level", pattern="^(easier|level|stretch)$")
+    # Relative (easier/level/stretch) or an explicit CEFR pin — the owner:
+    # "add a1 - c2 levels as an option".
+    complexity: str = Field(
+        default="level",
+        pattern="^(easier|level|stretch|A1|A2|B1|B2|C1|C2)$",
+    )
 
 
 class ExplainRequest(BaseModel):

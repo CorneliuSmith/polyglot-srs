@@ -37,7 +37,16 @@ export interface ReadingSummary {
 export interface ReadingOptions {
   length: 'short' | 'medium' | 'long'
   voice: 'any' | 'first' | 'third' | 'dialogue'
-  complexity: 'easier' | 'level' | 'stretch'
+  complexity:
+    | 'easier'
+    | 'level'
+    | 'stretch'
+    | 'A1'
+    | 'A2'
+    | 'B1'
+    | 'B2'
+    | 'C1'
+    | 'C2'
 }
 
 export async function generateReading(
