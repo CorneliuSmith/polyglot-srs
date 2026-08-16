@@ -17,6 +17,7 @@ from pydantic import BaseModel, Field
 from backend.dependencies import get_current_user
 from backend.repositories.assessment import get_assessment_summary
 from backend.repositories.pool import privileged_connection, rls_connection
+from backend.repositories.profile import effective_support_locale
 from backend.repositories.reader import (
     get_reading,
     list_readings,
@@ -57,11 +58,7 @@ async def _support_gloss_locale(conn, user_id: str, language_code: str) -> str:
     (Spanish-from-Spanish gets monolingual Spanish glosses, the way a
     learner's dictionary would)."""
     del language_code
-    row = await conn.fetchrow(
-        "SELECT support_locale FROM user_profiles WHERE id = $1", user_id
-    )
-    locale = row["support_locale"] if row else None
-    return locale or "en"
+    return await effective_support_locale(conn, user_id) or "en"
 
 
 @router.post("/generate")

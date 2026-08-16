@@ -946,7 +946,8 @@ async def pretranslate_upcoming(
     """
     try:
         locale = await conn.fetchval(
-            "SELECT support_locale FROM user_profiles WHERE id = $1", user_id
+            "SELECT COALESCE(support_locale, NULLIF(ui_language, 'en')) "
+            "FROM user_profiles WHERE id = $1", user_id
         )
         if not locale or locale == "en":
             return
@@ -1015,7 +1016,8 @@ async def session_readiness(
     signal the UI actually acts on: start now, or offer to wait.
     """
     locale = await conn.fetchval(
-        "SELECT support_locale FROM user_profiles WHERE id = $1", user_id
+        "SELECT COALESCE(support_locale, NULLIF(ui_language, 'en')) "
+            "FROM user_profiles WHERE id = $1", user_id
     )
     out: dict = {"locale": locale, "threshold": READY_ENOUGH}
     if not locale or locale == "en":

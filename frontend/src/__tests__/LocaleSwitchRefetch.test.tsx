@@ -32,7 +32,8 @@ vi.mock('../api/review', () => ({
   validateAnswer: vi.fn(),
   markCardKnown: vi.fn(),
 }))
-vi.mock('../api/profile', () => ({
+vi.mock('../api/profile', async (orig) => ({
+  ...(await orig<typeof import('../api/profile')>()),
   getProfile: () => getProfile(),
   updateProfile: vi.fn(async () => ({})),
   getLanguages: vi.fn(async () => []),

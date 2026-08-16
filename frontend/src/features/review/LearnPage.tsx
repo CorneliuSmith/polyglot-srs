@@ -10,7 +10,7 @@ import {
   startLearnSession,
   validateAnswer,
 } from '../../api/review'
-import { getLanguages, getProfile } from '../../api/profile'
+import { effectiveSupportLocale, getLanguages, getProfile } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { languageDisplayName } from '../../lib/languages'
 import LanguageWrapper from '../../components/LanguageWrapper'
@@ -45,7 +45,12 @@ export default function LearnPage() {
     queryKey: ['profile'],
     queryFn: getProfile,
   })
-  const supportLocale = localeProfile?.support_locale ?? null
+  // The EFFECTIVE locale — explicit choice or, automatically, the
+  // interface language — so a globe tap moves this too, not only an edit
+  // in Settings. Watching the raw column missed the automatic case.
+  const supportLocale = localeProfile
+    ? effectiveSupportLocale(localeProfile)
+    : null
   const seenLocale = useRef<string | null>(null)
   useEffect(() => {
     if (supportLocale == null) return

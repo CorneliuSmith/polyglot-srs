@@ -12,7 +12,7 @@ import {
   validateAnswer,
 } from '../../api/review'
 import { recordGymAttempt, generateGymDrills } from '../../api/gym'
-import { getLanguages, getProfile } from '../../api/profile'
+import { effectiveSupportLocale, getLanguages, getProfile } from '../../api/profile'
 import type { DueCard } from '../../api/types'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { languageDisplayName } from '../../lib/languages'
@@ -108,7 +108,12 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
     queryKey: ['profile'],
     queryFn: getProfile,
   })
-  const supportLocale = localeProfile?.support_locale ?? null
+  // Effective, not raw: in the automatic case the help language IS the
+  // interface language, so a globe tap must restart this session the same
+  // way an explicit Settings change does.
+  const supportLocale = localeProfile
+    ? effectiveSupportLocale(localeProfile)
+    : null
   const seenLocale = useRef<string | null>(null)
   useEffect(() => {
     if (supportLocale == null) return
@@ -177,7 +182,7 @@ function ReviewSessionInner({
   // "learning English from" language then genuinely re-keys and refetches
   // the localized cards, instead of racing an invalidate + remount.
   const { data: profile } = useQuery({ queryKey: ['profile'], queryFn: getProfile })
-  const supportLocale = profile?.support_locale ?? 'en'
+  const supportLocale = effectiveSupportLocale(profile)
   // Trailblazer gate — reviews only. Cram draws from grammar points the
   // learner picked, not a locale-backed queue, so it never waits.
   const [startNow, setStartNow] = useState(false)

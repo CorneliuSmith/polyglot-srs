@@ -51,6 +51,7 @@ from backend.repositories.fsrs_weights import get_effective_params
 from backend.repositories.gym import record_gym_attempt
 from backend.repositories.onboarding import get_placement_form_misses
 from backend.repositories.pool import privileged_connection, rls_connection
+from backend.repositories.profile import effective_support_locale
 from backend.repositories.review import add_card_feedback, insert_review_log
 from backend.repositories.trivia import (
     BANK_FLOOR,
@@ -132,10 +133,13 @@ class ConfirmLearnRequest(BaseModel):
 
 
 async def _support_locale(conn, user_id: str) -> str | None:
-    """The learner's chosen support language (localizes English cards)."""
-    return await conn.fetchval(
-        "SELECT support_locale FROM user_profiles WHERE id = $1", user_id
-    )
+    """The learner's support language (localizes card content).
+
+    Explicit choice wins; otherwise the interface language — the one rule,
+    defined once in repositories/profile.py. Reading the raw column here
+    is how the interface ended up English while the help stayed French.
+    """
+    return await effective_support_locale(conn, user_id)
 
 
 @router.get("/due")
@@ -288,9 +292,7 @@ async def trivia(limit: int = 6, user: dict = Depends(get_current_user)):
     """
     limit = max(1, min(limit, 20))
     async with rls_connection(user["id"]) as conn:
-        locale = await conn.fetchval(
-            "SELECT support_locale FROM user_profiles WHERE id = $1", user["id"]
-        ) or "en"
+        locale = await effective_support_locale(conn, user["id"]) or "en"
         questions = await unseen_trivia(conn, user["id"], locale, limit)
         remaining = await count_unseen(conn, user["id"], locale)
 

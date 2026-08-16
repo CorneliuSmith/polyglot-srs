@@ -86,8 +86,17 @@ def _conn(code="ru", rows=None, support_locale=None, label_rows=None):
             return label_rows or []
         return rows or []
 
+    async def fetchrow(sql, *args):
+        # The effective-locale rule (repositories/profile.py) reads both
+        # columns in one row. ui_language 'en' keeps the fixture's meaning:
+        # the supplied support_locale IS the effective locale.
+        if "support_locale" in sql:
+            return {"support_locale": support_locale, "ui_language": "en"}
+        return None
+
     conn.fetchval = AsyncMock(side_effect=fetchval)
     conn.fetch = AsyncMock(side_effect=fetch)
+    conn.fetchrow = AsyncMock(side_effect=fetchrow)
     return conn
 
 

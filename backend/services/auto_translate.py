@@ -177,7 +177,8 @@ async def fill_start_batch(
 
             async with privileged_connection() as conn:
                 locale = await conn.fetchval(
-                    "SELECT support_locale FROM user_profiles WHERE id = $1",
+                    "SELECT COALESCE(support_locale, NULLIF(ui_language, 'en')) "
+                    "FROM user_profiles WHERE id = $1",
                     user_id)
                 if not locale or locale == "en":
                     return
@@ -508,10 +509,11 @@ async def discover_pairs(conn: asyncpg.Connection) -> list[dict]:
                    count(*) AS learners
             FROM user_profiles p
             JOIN languages l   ON l.id = p.active_language_id
-            JOIN languages loc ON loc.code = p.support_locale
+            JOIN languages loc
+                 ON loc.code = COALESCE(p.support_locale, p.ui_language)
             WHERE l.auto_translate_enabled
-              AND p.support_locale IS NOT NULL
-              AND p.support_locale <> 'en'
+              AND COALESCE(p.support_locale, p.ui_language) IS NOT NULL
+              AND COALESCE(p.support_locale, p.ui_language) <> 'en'
             GROUP BY l.id, l.code, l.name, loc.code, loc.name
             ORDER BY count(*) DESC, l.name, loc.code
             """
@@ -572,10 +574,11 @@ async def baseline_pairs(conn: asyncpg.Connection) -> list[dict]:
                      AS translated_words
             FROM user_profiles p
             JOIN languages l   ON l.id = p.active_language_id
-            JOIN languages loc ON loc.code = p.support_locale
+            JOIN languages loc
+                 ON loc.code = COALESCE(p.support_locale, p.ui_language)
             WHERE NOT l.auto_translate_enabled
-              AND p.support_locale IS NOT NULL
-              AND p.support_locale <> 'en'
+              AND COALESCE(p.support_locale, p.ui_language) IS NOT NULL
+              AND COALESCE(p.support_locale, p.ui_language) <> 'en'
             GROUP BY l.id, l.code, l.name, loc.code, loc.name
             ORDER BY count(*) DESC, l.name, loc.code
             """
@@ -1725,7 +1728,8 @@ async def diagnose_pair(
 
     learners = int(await conn.fetchval(
         """SELECT count(*) FROM user_profiles
-            WHERE active_language_id = $1 AND support_locale = $2""",
+            WHERE active_language_id = $1
+              AND COALESCE(support_locale, ui_language) = $2""",
         language_id, locale) or 0)
     detail["learners_with_this_active"] = learners
     if not learners:
@@ -1806,13 +1810,16 @@ async def translation_status(conn: asyncpg.Connection) -> dict:
         status["switched_off"] = [
             dict(r) for r in await conn.fetch(
                 """
-                SELECT l.name AS language, l.code, p.support_locale AS locale,
+                SELECT l.name AS language, l.code,
+                       COALESCE(p.support_locale, p.ui_language) AS locale,
                        count(*) AS learners
                 FROM user_profiles p
                 JOIN languages l ON l.id = p.active_language_id
                 WHERE NOT l.auto_translate_enabled
-                  AND p.support_locale IS NOT NULL AND p.support_locale <> 'en'
-                GROUP BY l.name, l.code, p.support_locale
+                  AND COALESCE(p.support_locale, p.ui_language) IS NOT NULL
+                  AND COALESCE(p.support_locale, p.ui_language) <> 'en'
+                GROUP BY l.name, l.code,
+                         COALESCE(p.support_locale, p.ui_language)
                 ORDER BY count(*) DESC
                 """
             )

@@ -774,3 +774,92 @@ class TestSpeech:
             typed = appended.await_args.kwargs["audio_ms"]
         assert spoken == 4200
         assert typed is None
+
+
+class TestNotesLanguage:
+    """Which language the correction notes are written in.
+
+    The owner's screenshot: an all-English page — English interface,
+    English conversation — whose coach card was in French. The notes
+    language came from the raw support_locale column, which the globe had
+    frozen long before; nothing on screen agreed with it. These pin the
+    shared rule (repositories/profile.py) at the exact surface where the
+    mix was seen: explicit choice wins, otherwise the notes follow the
+    interface language, and the two can never disagree silently again.
+    """
+
+    def _turn(self, client, profile_row, locale_names):
+        conn = client.fake_conn
+
+        async def fetchrow(sql, *args):
+            if "FROM languages" in sql:
+                return {"name": "Spanish", "code": "es", "tutor_model": None}
+            if "support_locale" in sql:
+                return profile_row
+            return None
+
+        async def fetchval(sql, *args):
+            if "SELECT name FROM languages" in sql:
+                return locale_names.get(args[0])
+            return None
+
+        conn.fetchrow = AsyncMock(side_effect=fetchrow)
+        conn.fetchval = AsyncMock(side_effect=fetchval)
+
+        captured = {}
+
+        async def fake_turn(*args, **kwargs):
+            captured.update(kwargs)
+            return {"reply": "Vale.", "errors": []}, {
+                "input_tokens": 1, "output_tokens": 1,
+            }
+
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=_live_session())), \
+             patch("backend.routers.speak.list_turns",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.speak.append_turn", new=AsyncMock()), \
+             patch("backend.routers.speak.speak_turn", fake_turn):
+            resp = client.post("/api/speak/turn", headers=_auth_headers(), json={
+                "session_id": TEST_SESSION_ID, "text": "Hola",
+            })
+        assert resp.status_code == 200
+        return captured["support_language"]
+
+    def test_automatic_notes_follow_the_interface_language(self, client):
+        # Nothing chosen + French interface → French notes. The page and
+        # the coaching agree by construction.
+        lang = self._turn(
+            client,
+            {"support_locale": None, "ui_language": "fr"},
+            {"fr": "French"},
+        )
+        assert lang == "French"
+
+    def test_an_english_interface_gets_english_notes(self, client):
+        # The screenshot's fix: automatic + English interface → English
+        # notes (None = the prompt's default), not a leftover language.
+        lang = self._turn(
+            client,
+            {"support_locale": None, "ui_language": "en"},
+            {},
+        )
+        assert lang is None
+
+    def test_an_explicit_choice_beats_the_interface(self, client):
+        # A French speaker learning English keeps French notes under an
+        # English interface — that divergence is a real decision.
+        lang = self._turn(
+            client,
+            {"support_locale": "fr", "ui_language": "en"},
+            {"fr": "French"},
+        )
+        assert lang == "French"
+
+    def test_explicit_english_survives_a_foreign_interface(self, client):
+        lang = self._turn(
+            client,
+            {"support_locale": "en", "ui_language": "fr"},
+            {},
+        )
+        assert lang is None

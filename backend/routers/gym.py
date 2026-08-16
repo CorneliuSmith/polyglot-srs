@@ -18,6 +18,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 
 from backend.dependencies import get_current_user
 from backend.repositories.pool import rls_connection
+from backend.repositories.profile import effective_support_locale
 from backend.services.auto_translate import note_demand, table_present
 from backend.services.gym_manifest import load_manifest as _load_manifest
 
@@ -95,9 +96,7 @@ async def gym_manifest(
         # where a translation exists (gym_label_translations, filled by the
         # auto-translate loop), falling back per entry to the manifest's
         # English. `example` is course-language text and never swaps.
-        locale = await conn.fetchval(
-            "SELECT support_locale FROM user_profiles WHERE id = $1", user["id"]
-        )
+        locale = await effective_support_locale(conn, user["id"])
         labels_l10n = await label_overlay(conn, code, locale, manifest,
                                           language_id)
 

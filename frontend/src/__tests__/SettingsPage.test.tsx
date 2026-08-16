@@ -167,14 +167,38 @@ describe('SettingsPage', () => {
         Array.from(select.options).some((o) => o.value === 'es'),
       ).toBe(true),
     )
-    expect(select.value).toBe('en') // default: English definitions
+    // Nothing chosen displays as what it IS — Automatic (follows the
+    // interface language) — not as a silent "English" that misstates the
+    // stored NULL. The picker never lies about the state again.
+    expect(select.value).toBe('auto')
     fireEvent.change(select, { target: { value: 'es' } })
     await waitFor(() =>
       expect(mockUpdate).toHaveBeenCalledWith({ support_locale: 'es' }),
     )
-    // English itself is not offered as a "from" language (it's the reset row)
+    // English itself is not offered as a "from" language (it's an explicit
+    // help-language choice, listed once above the real languages)
     const labels = Array.from(select.options).map((o) => o.text)
     expect(labels.filter((l) => l.includes('English'))).toHaveLength(1)
+  })
+
+  it('offers the way back to automatic', async () => {
+    // The escape hatch's other half: a frozen or regretted choice must be
+    // clearable. 'auto' is the reset sentinel the backend stores as NULL —
+    // after which the help language follows the interface again.
+    mockPrefsActiveLanguageId = 'lang-en'
+    renderPage()
+    const select = (await screen.findByLabelText(
+      'Learning English from',
+    )) as HTMLSelectElement
+    await waitFor(() =>
+      expect(
+        Array.from(select.options).some((o) => o.value === 'auto'),
+      ).toBe(true),
+    )
+    fireEvent.change(select, { target: { value: 'auto' } })
+    await waitFor(() =>
+      expect(mockUpdate).toHaveBeenCalledWith({ support_locale: 'auto' }),
+    )
   })
 
   it('shows the plan and upgrades single → all (WP16)', async () => {
