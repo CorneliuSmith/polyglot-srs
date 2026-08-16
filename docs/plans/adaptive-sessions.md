@@ -104,6 +104,29 @@ the support-locale freeze (#277/#278), the tutor model that kept resetting
 out (#64), and now F1. Each was found by a user hitting it. There is no
 test layer whose job is "every stored preference reaches every consumer."
 
+### F6 — The language rule is only half-deployed: consumption is fixed, reload is not
+
+#277/#278 made the language choice authoritative — one resolver
+(`repositories/profile.py`), the globe re-decides everything, every
+backend surface reads the effective locale per request. That is the
+CONSUMPTION half. The RELOAD half — a change visibly taking effect in
+whatever the user is looking at — exists only where it was hand-built:
+
+| Surface | Reacts live to a language change? |
+| --- | --- |
+| Learn / Review | **yes** — each hand-rolls a profile watcher + epoch remount (LearnPage.tsx:44-61, ReviewSessionPage.tsx:107-126) |
+| Tutor | **no** — no profile watcher; the next *message* gets the new help language (backend reads per request) but nothing on screen refetches or says so |
+| Read | **no** — an open text keeps its old-locale glosses; no re-key |
+| Speak | **no** — same: the next turn's notes follow, the page doesn't |
+| Dashboard/Practice widgets | mixed — whatever `invalidateQueries()` from the globe happens to catch |
+
+Two hand-rolled copies of the watcher and three missing ones is how the
+"it doesn't reload" reports keep happening: the owner's match-game report
+("when the game finishes it does not reload in a way that the new
+language now shows") and the Portuguese-course screenshot were both this
+half, not the consumption half. Level changes (F1) will need the
+identical machinery — which is the argument for building it ONCE.
+
 ---
 
 ## The design
@@ -204,6 +227,48 @@ model's generic register. Design:
 - **Read**: the library exists; gets the same session-row treatment on the
   page for consistency.
 
+### The language choice is the template — and reloads are half of every contract
+
+The just-shipped language rule is the model this whole plan follows, so
+it is explicitly IN scope, not background: `effective_support_locale`
+(explicit choice → else interface language, resolved at read time, the
+globe re-decides on every tap) is to `repositories/profile.py` what
+`effective_level` will be to `repositories/level.py`. Same shape, same
+tests, same guarantee. The conformance matrix (below) carries the
+language rows first — support-locale tri-state ('auto'/'en'/language),
+ui_language, globe reset — because they are the rows with live incident
+history.
+
+And every preference contract has two halves, both tested:
+
+1. **Consumption** — the stored/derived value reaches every consumer
+   (prompt, query, response field). Done for language; F1 shows it
+   missing for level.
+2. **Reload** — a change takes effect in what the user is LOOKING at,
+   not just the next fresh page. One shared mechanism replaces the two
+   hand-rolled watchers and fills the three gaps (F6): a
+   `useProfileEpoch(selector)` hook — watch any profile-derived value
+   (effective locale, effective level, active language), bump an epoch
+   key on change, remount/refetch what it wraps. Learn and Review
+   migrate onto it; Tutor, Read and Speak adopt it with
+   feature-appropriate semantics:
+
+   - **Learn/Review**: restart the session with fresh cards (today's
+     behavior, now shared code).
+   - **Read**: re-key the open text's gloss queries; the text itself is
+     course-language and stands.
+   - **Tutor/Speak**: an in-flight conversation is never silently
+     restarted — the course language hasn't changed, and the backend
+     already picks up the new help language on the next turn. The page
+     refetches its profile-derived chrome and, on an ACTIVE-language
+     change, parks the session view (the session belongs to the old
+     course; the server already refuses to re-aim it).
+
+   Every wait screen, match game, and summary view sits inside the same
+   epoch — the owner's "finished game didn't reload into the new
+   language" class of bug becomes structurally impossible rather than
+   individually patched.
+
 ### The conformance layer (the "across the board" ask)
 
 A matrix test suite, `backend/tests/test_state_conformance.py`,
@@ -224,11 +289,11 @@ generalized).
 
 | PR | Ships | Proves itself by |
 | --- | --- | --- |
-| 1 | `learner_levels` migration (chosen_level, demonstrated, confidence, source, updated_at) + `repositories/level.py` + Settings writes chosen_level (keeps re-seating decks) + all prompt surfaces read `effective_level` | Matrix tests: set level in Settings → Tutor/Read/Speak prompts carry it, immediately; degrade-without-migration test (CLAUDE.md rule) |
+| 1 | `learner_levels` migration (chosen_level, demonstrated, confidence, source, updated_at) + `repositories/level.py` + Settings writes chosen_level (keeps re-seating decks) + all prompt surfaces read `effective_level` + `useProfileEpoch` hook, adopted by Learn/Review (replacing their hand-rolled watchers) and wired for BOTH effective level and effective locale | Matrix tests: set level in Settings → Tutor/Read/Speak prompts carry it, immediately; a level OR language change live-reloads Learn/Review through the shared hook; degrade-without-migration test (CLAUDE.md rule) |
 | 2 | Reader dial rewrite (complexity = level shift, cage → calibration for stretch) + the checker pass + verdict log | Grader-verified: 20 generated texts across dials, per-dial obedience asserted in an integration test; verdicts visible in admin |
 | 3 | Demonstrated-skill aggregation (speak errors, tutor corrections, reader gaps → `demonstrated`) + Settings nudge UI | Fixture sessions with planted error rates move `demonstrated` predictably; never moves `chosen_level` |
 | 4 | Speak sessions: history UI, transcript/summary revisit, resume-unfinished | A stranded session is reattachable; past summaries browsable |
-| 5 | Conformance matrix suite, full breadth + frontend invalidation audit | Every existing preference passes; a deliberately broken consumer fails |
+| 5 | Conformance matrix suite, full breadth — language rows first (support-locale tri-state, ui_language, globe reset) then level, batch size, explicit content, accents, tashkeel, translit, tutor model, session size, reminders — + `useProfileEpoch` adopted by Tutor/Read/Speak with the per-feature reload semantics above | Every preference passes BOTH halves (consumed + live-reloads); a deliberately broken consumer fails; the two language incidents (#277/#278 shapes) are pinned as regression tests |
 | 6 | RAG: pgvector migration, embedding seam + corpus backfill CLI, Read "substantive" mode | Substantive text demonstrably quotes/grounds retrieved facts; A/B against non-RAG in the verdict log |
 | 7 | RAG into Tutor + Speak (long-horizon memory retrieval) | Partner references a specific weeks-old session detail in a fixture |
 
