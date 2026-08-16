@@ -12,8 +12,6 @@ from __future__ import annotations
 
 from unittest.mock import AsyncMock, patch
 
-import asyncpg
-
 from backend.repositories.level import (
     chosen_level,
     resolve,
@@ -58,21 +56,53 @@ class TestShift:
 class TestDegradation:
     """The migration lands by the owner's hand (CLAUDE.md). Until then,
     every read is 'no floor' — pre-migration behavior — and a Settings
-    save loses persistence, never the deck re-seat."""
+    save loses persistence, never the deck re-seat.
 
-    async def test_a_missing_table_reads_as_no_choice(self):
+    The HOW matters as much as the WHAT, and it shipped a real outage:
+    presence must be probed with to_regclass, because every caller runs
+    inside rls_connection's transaction and a thrown UndefinedTableError
+    aborts it — Postgres fails every later query in the request no
+    matter what Python catches. The tutor 500'd in production within
+    hours of a try/except "guard". These tests therefore assert the
+    failing query is NEVER ISSUED, not that its error is caught.
+    """
+
+    def _absent_conn(self):
+        import backend.repositories.level as level_mod
+
+        level_mod._TABLE_SEEN = False
         conn = AsyncMock()
-        conn.fetchval = AsyncMock(
-            side_effect=asyncpg.exceptions.UndefinedTableError()
-        )
+        conn.fetchval = AsyncMock(return_value=False)  # the probe says no
+        conn.execute = AsyncMock()
+        return conn
+
+    async def test_a_missing_table_reads_as_no_choice_without_erroring(self):
+        conn = self._absent_conn()
         assert await chosen_level(conn, "u", "l") is None
+        # Exactly one fetchval — the to_regclass probe. The SELECT that
+        # would abort the surrounding transaction is never sent.
+        assert conn.fetchval.await_count == 1
+        assert "to_regclass" in conn.fetchval.await_args.args[0]
 
     async def test_a_missing_table_makes_the_write_a_soft_no(self):
-        conn = AsyncMock()
-        conn.execute = AsyncMock(
-            side_effect=asyncpg.exceptions.UndefinedTableError()
-        )
+        conn = self._absent_conn()
         assert await set_chosen_level(conn, "u", "l", "B2") is False
+        conn.execute.assert_not_awaited()
+
+    async def test_presence_is_cached_only_once_true(self):
+        import backend.repositories.level as level_mod
+
+        level_mod._TABLE_SEEN = False
+        conn = AsyncMock()
+        # First probe: absent. Second: the migration landed mid-flight.
+        conn.fetchval = AsyncMock(side_effect=[False, True, "B2"])
+        assert await chosen_level(conn, "u", "l") is None
+        assert await chosen_level(conn, "u", "l") == "B2"
+        # Cached now — no third probe.
+        conn.fetchval = AsyncMock(return_value="B1")
+        assert await chosen_level(conn, "u", "l") == "B1"
+        assert "learner_levels" in conn.fetchval.await_args.args[0]
+        level_mod._TABLE_SEEN = False
 
 
 class TestTheFloorReachesThePrompts:

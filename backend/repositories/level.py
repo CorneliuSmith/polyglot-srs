@@ -24,14 +24,36 @@ given, not argued with.**
           job is that the base they shift from is the one the user set.
 
 Missing-migration rule (CLAUDE.md): learner_levels may not exist yet.
-Every read degrades to "no floor" — exactly the pre-migration behavior —
-rather than taking down a hot path.
+Presence is probed with to_regclass — a catalog lookup that NEVER raises
+— and cached once seen. Catching UndefinedTableError instead is NOT a
+guard here and shipped a real outage: every read path runs inside
+rls_connection's transaction (SET LOCAL needs one), and a failed
+statement aborts that transaction in Postgres regardless of any Python
+except — so the "degraded" tutor/reader/speak request died on its NEXT
+query with a 500. cards.py documents this exact trap; this module
+learned it the hard way within hours of deploying without it.
 """
 from __future__ import annotations
 
 import asyncpg
 
 CEFR_ORDER = ["A1", "A2", "B1", "B2", "C1", "C2"]
+
+# Only presence is cached: a migration applied while the app runs is
+# picked up on the next probe, no restart (same policy as cards.py).
+_TABLE_SEEN = False
+
+
+async def _table_present(conn: asyncpg.Connection) -> bool:
+    global _TABLE_SEEN
+    if _TABLE_SEEN:
+        return True
+    present = bool(await conn.fetchval(
+        "SELECT to_regclass('learner_levels') IS NOT NULL"
+    ))
+    if present:
+        _TABLE_SEEN = True
+    return present
 
 
 def resolve(chosen: str | None, evidence: str | None) -> str:
@@ -65,15 +87,13 @@ async def chosen_level(
     None means "never chosen" — evidence alone decides, which is exactly
     the pre-migration behavior, so an unapplied migration changes nothing.
     """
-    try:
-        return await conn.fetchval(
-            """SELECT chosen_level FROM learner_levels
-                WHERE user_id = $1 AND language_id = $2""",
-            user_id, language_id,
-        )
-    except (asyncpg.exceptions.UndefinedTableError,
-            asyncpg.exceptions.UndefinedColumnError):
+    if not await _table_present(conn):
         return None
+    return await conn.fetchval(
+        """SELECT chosen_level FROM learner_levels
+            WHERE user_id = $1 AND language_id = $2""",
+        user_id, language_id,
+    )
 
 
 async def set_chosen_level(
@@ -84,21 +104,19 @@ async def set_chosen_level(
     source: str = "settings",
 ) -> bool:
     """Record the user's explicit level. Returns False (rather than
-    raising) when the migration hasn't landed — the caller's deck
-    re-seating must still happen, so a missing table costs persistence,
-    not the whole action."""
-    try:
-        await conn.execute(
-            """INSERT INTO learner_levels
-                   (user_id, language_id, chosen_level, source, updated_at)
-               VALUES ($1, $2, $3, $4, now())
-               ON CONFLICT (user_id, language_id) DO UPDATE SET
-                   chosen_level = EXCLUDED.chosen_level,
-                   source = EXCLUDED.source,
-                   updated_at = now()""",
-            user_id, language_id, level, source,
-        )
-        return True
-    except (asyncpg.exceptions.UndefinedTableError,
-            asyncpg.exceptions.UndefinedColumnError):
+    raising or aborting the surrounding transaction) when the migration
+    hasn't landed — the caller's deck re-seating must still happen, so a
+    missing table costs persistence, not the whole action."""
+    if not await _table_present(conn):
         return False
+    await conn.execute(
+        """INSERT INTO learner_levels
+               (user_id, language_id, chosen_level, source, updated_at)
+           VALUES ($1, $2, $3, $4, now())
+           ON CONFLICT (user_id, language_id) DO UPDATE SET
+               chosen_level = EXCLUDED.chosen_level,
+               source = EXCLUDED.source,
+               updated_at = now()""",
+        user_id, language_id, level, source,
+    )
+    return True
