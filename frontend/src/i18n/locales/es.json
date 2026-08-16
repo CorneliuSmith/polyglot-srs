@@ -1018,7 +1018,7 @@
     },
     "support": {
       "title": "Aprendo inglés desde",
-      "desc": "Las pistas, definiciones y traducciones de las frases de ejemplo aparecen en este idioma en lugar de en inglés.",
+      "desc": "Las pistas, definiciones y traducciones de las frases de ejemplo aparecen en este idioma en lugar de en inglés. Cambiar el idioma del sitio con el globo restablece esto a Automático.",
       "englishOption": "Inglés (definiciones)",
       "saveError": "No se pudo guardar — inténtalo de nuevo.",
       "autoOption": "Automático — sigue el idioma de la interfaz"

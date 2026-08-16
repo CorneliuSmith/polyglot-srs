@@ -110,45 +110,30 @@ export default function UiLanguageSwitcher() {
     setOpen(false)
     applyUiLanguage(code)
     if (authed) {
-      // The globe changes the INTERFACE language, and nothing else. The
-      // help language (glosses, corrections, tutor notes) follows it
-      // automatically SERVER-side — repositories/profile.py resolves
-      // "no explicit choice" as "use ui_language" at read time — so the
-      // automatic case has no stored state that can go stale.
+      // The globe is the user DECIDING their language, and the last
+      // decision wins everywhere (owner: "the page is supposed to
+      // refresh based on what the user says on the globe"). So a tap
+      // sets the interface language AND resets the help language to
+      // automatic — 'auto' stores NULL, after which the server derives
+      // help from ui_language at read time (repositories/profile.py).
+      // Everything on screen then agrees with the globe by construction,
+      // and there is no stored state left to go stale.
       //
-      // The globe used to write support_locale itself to make automatic
-      // work, and that write is the bug this replaces: it converted
-      // "never chosen" into "chosen". Tap the globe to French once and
-      // support_locale froze at 'fr'; tap back to English and the freeze
-      // — now indistinguishable from a real choice — kept overriding.
-      // The owner's screenshot: an all-English page whose Speak partner
-      // coached in French.
-      //
-      // One heal for rows that old code froze: if the stored choice is in
-      // LOCKSTEP with the interface language (support == ui — exactly the
-      // state the old write produced), the pair moves together, so the
-      // "choice" is re-cascaded to automatic ('auto' → NULL) and follows
-      // the globe again. A DIVERGENT choice (interface English, help
-      // French) is indistinguishable from a real decision — a French
-      // speaker learning English is precisely that shape — and is never
-      // touched; Settings is where it changes.
-      //
-      // Read from the cache rather than a useQuery: this switcher is
-      // rendered on the login page OUTSIDE any QueryClientProvider (see the
-      // guarded useQueryClient above), so a hook here would throw. Signed in,
-      // ProfileLanguageSync has already put the profile there.
-      const cached = queryClient?.getQueryData<{
-        support_locale?: string | null
-        ui_language?: string
-      }>(['profile'])
-      const lockstep =
-        cached?.support_locale != null &&
-        cached.support_locale === cached.ui_language
-      updateProfile(
-        lockstep
-          ? { ui_language: code, support_locale: 'auto' }
-          : { ui_language: code },
-      )
+      // Unconditional on purpose. Two earlier subtler versions each
+      // stranded someone:
+      //  - writing support_locale = code froze the "automatic" state
+      //    into a fake choice (the original bug: an all-English page
+      //    whose Speak coach wrote French, months after one tap);
+      //  - preserving a divergent stored choice through globe taps meant
+      //    the page did NOT follow the globe for exactly the people the
+      //    freeze had bitten — indistinguishable, from the data alone,
+      //    from a deliberate split.
+      // The rule that survives contact with users: globe tap → one
+      // language everywhere. A deliberate split (interface English, help
+      // French) is still available in Settings, and lasts until the next
+      // globe tap re-decides — the last decision wins in both
+      // directions.
+      updateProfile({ ui_language: code, support_locale: 'auto' })
         .then(() => queryClient?.invalidateQueries())
         .catch(() => {})
     }

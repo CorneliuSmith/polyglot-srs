@@ -122,11 +122,13 @@ describe('UiLanguageSwitcher', () => {
     renderSwitcher()
     fireEvent.click(screen.getByLabelText('Site language'))
     fireEvent.click(screen.getByText('Français'))
-    // ui_language ONLY. The help language follows it server-side in the
-    // automatic case; writing support_locale here is the freeze bug the
-    // describe block below documents.
+    // The new interface language, plus the help-language reset — never a
+    // language written into support_locale (the freeze bug the describe
+    // block below documents).
     await waitFor(() =>
-      expect(mockUpdateProfile).toHaveBeenCalledWith({ ui_language: 'fr' }),
+      expect(mockUpdateProfile).toHaveBeenCalledWith({
+        ui_language: 'fr', support_locale: 'auto',
+      }),
     )
   })
 })
@@ -188,38 +190,41 @@ describe('the globe and an explicitly chosen translations language', () => {
     return mockUpdateProfile.mock.calls[0][0]
   }
 
-  it('never materializes the automatic case', async () => {
-    // The freeze this file exists to prevent: with nothing chosen, the
-    // globe used to WRITE support_locale to make automatic work — which
-    // converted "never chosen" into "chosen". One tap to French and the
-    // help language froze at French; tapping back to English left an
-    // all-English page whose Speak partner coached in French. Automatic
-    // is now resolved server-side from ui_language at read time, so the
-    // globe has nothing to store — and nothing to go stale.
+  // The globe is the user DECIDING their language, and the last decision
+  // wins everywhere — the owner's rule, verbatim: "the page is supposed
+  // to refresh based on what the user says on the globe". So one payload,
+  // from every starting state: the new interface language plus a reset of
+  // the help language to automatic ('auto' → stored NULL; the server then
+  // derives help from ui_language at read time).
+  //
+  // The unconditional reset is the point, and it is third-time-lucky:
+  //  - v1 wrote support_locale = code, which froze "automatic" into a
+  //    fake choice (an all-English page whose Speak coach wrote French,
+  //    months after one tap);
+  //  - v2 preserved divergent stored choices through globe taps, which
+  //    meant the page did NOT follow the globe for exactly the accounts
+  //    v1 had frozen — the shapes are indistinguishable in the data.
+  // A deliberate split still exists: Settings, until the next globe tap.
+
+  it('never writes a language into support_locale when nothing is chosen', async () => {
     mockGetProfile.mockResolvedValue({ ui_language: 'en', support_locale: null })
-    const sent = await pickSpanishFromTheGlobe()
-    expect(sent).toEqual({ ui_language: 'es' })
-    expect(sent).not.toHaveProperty('support_locale')
+    expect(await pickSpanishFromTheGlobe()).toEqual({
+      ui_language: 'es', support_locale: 'auto',
+    })
   })
 
-  it('leaves a divergent explicit choice alone', async () => {
-    // Interface English, help Russian — indistinguishable from a real
-    // decision (a Russian speaker learning English is exactly this
-    // shape), so the globe must never touch it. Settings is where it
-    // changes.
+  it('re-decides over a divergent stored choice', async () => {
+    // Interface English, help Russian — whether that split was deliberate
+    // (Settings) or a leftover freeze, the globe tap is a NEWER decision
+    // and everything follows it.
     mockGetProfile.mockResolvedValue({ ui_language: 'en', support_locale: 'ru' })
-    const sent = await pickSpanishFromTheGlobe()
-    expect(sent).toEqual({ ui_language: 'es' })
-    expect(sent).not.toHaveProperty('support_locale')
+    expect(await pickSpanishFromTheGlobe()).toEqual({
+      ui_language: 'es', support_locale: 'auto',
+    })
   })
 
-  it('heals a lockstep "choice" back to automatic', async () => {
-    // support == ui is exactly the state the old globe write produced:
-    // the pair moved together, meaning nobody ever chose to split them.
-    // Re-cascading it ('auto' → stored NULL) is what lets accounts frozen
-    // by the old code start following the globe again — without it, every
-    // beta profile stays frozen forever, since the write that froze them
-    // no longer exists to overwrite itself.
+  it('heals a lockstep freeze back to automatic', async () => {
+    // support == ui is exactly the state the old write produced.
     mockGetProfile.mockResolvedValue({ ui_language: 'fr', support_locale: 'fr' })
     expect(await pickSpanishFromTheGlobe()).toEqual({
       ui_language: 'es', support_locale: 'auto',

@@ -1018,7 +1018,7 @@
     },
     "support": {
       "title": "Aprendendo inglês a partir de",
-      "desc": "As dicas, definições e traduções das frases de exemplo aparecem neste idioma em vez de inglês.",
+      "desc": "As dicas, definições e traduções das frases de exemplo aparecem neste idioma em vez de inglês. Mudar o idioma do site com o globo redefine isto para Automático.",
       "englishOption": "Inglês (definições)",
       "saveError": "Não foi possível salvar — tente de novo.",
       "autoOption": "Automático — acompanha o idioma da interface"
