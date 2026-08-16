@@ -36,9 +36,11 @@ from backend.repositories.pool import rls_connection
 from backend.repositories.profile import effective_support_locale
 from backend.repositories.tutor import (
     create_mastery_suggestions,
+    delete_tutor_memory_fact,
     get_language_profile,
     get_user_profile,
     list_mastery_suggestions,
+    list_tutor_memory,
     list_tutor_sessions,
     log_tutor_session,
     log_tutor_usage,
@@ -51,6 +53,7 @@ from backend.services.allowance import reject_if_unavailable as _reject_if_unava
 from backend.services.generate import generation_available
 from backend.services.rate_limit import tutor_chat_limiter
 from backend.services.tutor import (
+    apply_profile_updates,
     available_tutors,
     merge_remembered,
     resolve_tutor_model,
@@ -568,6 +571,49 @@ async def tutor_session_history(
     return {"sessions": sessions}
 
 
+@router.get("/memory")
+async def tutor_memory(user: dict = Depends(get_current_user)):
+    """Everything the tutor remembers about the caller, with provenance.
+
+    The Settings "What your tutor remembers" panel — the learner's window
+    into (and veto over) the profile the AI writers maintain. No language
+    gate: memory about you is yours to see even where no tutor is
+    configured.
+    """
+    async with rls_connection(user["id"]) as conn:
+        return await list_tutor_memory(conn, user["id"])
+
+
+@router.delete("/memory")
+async def delete_memory_fact(
+    scope: str,
+    key: str,
+    language_id: str | None = None,
+    user: dict = Depends(get_current_user),
+):
+    """Delete one remembered fact at the learner's request."""
+    if scope not in ("global", "language"):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="scope must be 'global' or 'language'",
+        )
+    if scope == "language" and not language_id:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="language scope needs a language_id",
+        )
+    async with rls_connection(user["id"]) as conn:
+        deleted = await delete_tutor_memory_fact(
+            conn, user["id"], scope, key, language_id
+        )
+    if not deleted:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="No such remembered fact",
+        )
+    return {"deleted": True}
+
+
 class ResolveSuggestionRequest(BaseModel):
     action: str = Field(pattern="^(accept|dismiss)$")
 
@@ -646,8 +692,16 @@ async def end_session(
         )
         return {"summarized": False}
 
-    new_user = {**user_profile, **(result.get("user_profile_updates") or {})}
-    new_lang = {**lang["profile"], **(result.get("language_profile_updates") or {})}
+    new_user = apply_profile_updates(
+        user_profile,
+        result.get("user_profile_updates") or {},
+        result.get("user_profile_sources"),
+    )
+    new_lang = apply_profile_updates(
+        lang["profile"],
+        result.get("language_profile_updates") or {},
+        result.get("language_profile_sources"),
+    )
     summary = result.get("session_summary") or lang["session_summary"]
     usage = result.get("usage")
 

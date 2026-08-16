@@ -993,6 +993,16 @@
       "title": "Consejos de aprendizaje",
       "desc": "Sugerencias ocasionales con base científica — cómo practicar, por qué funciona el calendario — mostradas como mucho una vez al día. Desactívalas aquí para no verlas nunca."
     },
+    "memory": {
+      "title": "Lo que tu tutor recuerda",
+      "desc": "Datos duraderos que tu tutor conserva entre sesiones. Los que ha deducido están marcados: los trata como hipótesis, no como verdades. Borra lo que sea incorrecto o no quieras y el tutor lo olvidará al instante.",
+      "global": "Todos los idiomas",
+      "stated": "Se lo dijiste al tutor",
+      "inferred": "Suposición del tutor",
+      "empty": "Nada todavía — el tutor recuerda cosas a medida que conversáis.",
+      "forget": "Olvidar «{{fact}}»",
+      "forgetError": "No se pudo borrar — inténtalo de nuevo."
+    },
     "email": {
       "title": "Correo",
       "dailyTitle": "Recordatorio diario",

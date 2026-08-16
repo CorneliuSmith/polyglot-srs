@@ -262,6 +262,46 @@ export async function streamTutorMessage(
   throw new Error('Stream ended without a done event')
 }
 
+/** One durable fact the tutor holds about the learner. `source` is its
+ * provenance: 'stated' = the learner said it about themselves; 'inferred' =
+ * an AI's deduction (or a fact recorded before provenance was tracked). */
+export interface TutorMemoryFact {
+  key: string
+  value: string | string[]
+  source: 'stated' | 'inferred'
+}
+
+export interface TutorMemory {
+  global: TutorMemoryFact[]
+  languages: {
+    language_id: string
+    name: string
+    code: string
+    facts: TutorMemoryFact[]
+  }[]
+}
+
+/** Everything the tutor remembers about the caller — the Settings panel's
+ * window into (and veto over) the AI-maintained learner profile. */
+export async function getTutorMemory(): Promise<TutorMemory> {
+  const response = await apiClient.get<TutorMemory>('/api/tutor/memory')
+  return response.data
+}
+
+export async function deleteTutorMemoryFact(input: {
+  scope: 'global' | 'language'
+  key: string
+  languageId?: string
+}): Promise<void> {
+  await apiClient.delete('/api/tutor/memory', {
+    params: {
+      scope: input.scope,
+      key: input.key,
+      ...(input.languageId ? { language_id: input.languageId } : {}),
+    },
+  })
+}
+
 /** The learner's verdict on a mastery star: accept advances the card's
  * schedule (~a month out), dismiss clears the star. */
 export async function resolveMasterySuggestion(

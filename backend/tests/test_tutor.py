@@ -311,8 +311,11 @@ class TestMergeRemembered:
                 {"scope": "language", "key": "level", "value": "A2"},
             ],
         )
-        assert user == {"native_language": "English"}
-        assert lang == {"level": "A2"}
+        assert user == {
+            "native_language": "English",
+            "_sources": {"native_language": "inferred"},
+        }
+        assert lang == {"level": "A2", "_sources": {"level": "inferred"}}
 
     def test_repeated_key_becomes_list(self):
         _, lang = merge_remembered(
@@ -1013,7 +1016,8 @@ class TestTutorChatService:
 
         first = _Resp([
             _ToolUseBlock("t1", "remember",
-                          {"scope": "global", "key": "native_language", "value": "English"}),
+                          {"scope": "global", "key": "native_language",
+                           "value": "English", "source": "stated"}),
         ], usage=_Usage(input_tokens=100, output_tokens=30))
         second = _Resp(
             [_TextBlock("Got it — let's practice.")],
@@ -1029,7 +1033,8 @@ class TestTutorChatService:
             )
         assert reply == "Got it — let's practice."
         assert remembered == [
-            {"scope": "global", "key": "native_language", "value": "English"}
+            {"scope": "global", "key": "native_language",
+             "value": "English", "source": "stated"}
         ]
         assert fake_client.messages.create.await_count == 2
         # WP9b: the turn total sums BOTH tool-loop calls
@@ -1103,7 +1108,13 @@ class TestSummarizeSession:
         usage = result.pop("usage")  # WP9b: summarizer cost rides along
         assert set(usage) == {"input_tokens", "output_tokens",
                               "cache_write_tokens", "cache_read_tokens"}
-        assert result == payload
+        # Plain-dict payloads (older transcripts) carry no provenance, so
+        # the sources maps come back empty and default to inferred later.
+        assert result == {
+            **payload,
+            "user_profile_sources": {},
+            "language_profile_sources": {},
+        }
         assert fake_client.messages.create.await_args.kwargs["model"] == "claude-sonnet-4-6"
 
     @pytest.mark.asyncio
@@ -1202,8 +1213,10 @@ class TestDevMock:
                 [{"role": "user", "content": "/remember global native_language English"}],
                 [],
             )
+        # A /remember typed by a human is a stated fact, not an inference.
         assert remembered == [
-            {"scope": "global", "key": "native_language", "value": "English"}
+            {"scope": "global", "key": "native_language",
+             "value": "English", "source": "stated"}
         ]
 
     @pytest.mark.asyncio
@@ -1377,9 +1390,12 @@ class TestMasteryEndpoints:
         # The star went to the suggestions table…
         stars = mock_create.await_args.args[3]
         assert stars == [remembered[1]]
-        # …and the language profile only received the real note.
+        # …and the language profile only received the real note (tagged
+        # with its provenance — no source claimed means inferred).
         saved_profile = mock_lang.await_args.args[3]
-        assert saved_profile == {"topic": "travel"}
+        assert saved_profile == {
+            "topic": "travel", "_sources": {"topic": "inferred"},
+        }
 
     def test_reference_mode_never_stars(self, client):
         p1, p2, p3 = _patch_chat_repos()
@@ -1531,3 +1547,312 @@ class TestGuardrails:
         assert "Guardrails" in blocks[0]["text"]
         assert "explicit content is OFF" in blocks[1]["text"]
         assert "REFERENCE question" in blocks[1]["text"]
+
+
+# ---------------------------------------------------------------------------
+# Memory provenance — stated vs inferred (the "Russian native speaker" fix)
+# ---------------------------------------------------------------------------
+
+
+class TestMemoryProvenance:
+    """Every remembered fact carries who claimed it. The failure this
+    prevents: an AI inferred "native_language: Russian" from what the
+    learner STUDIES, and the tutor presented it back as profile truth."""
+
+    def test_the_remember_tool_demands_a_source(self):
+        from backend.services.tutor import REMEMBER_TOOL
+
+        schema = REMEMBER_TOOL["input_schema"]
+        assert schema["properties"]["source"]["enum"] == ["stated", "inferred"]
+        assert "source" in schema["required"]
+        # The exact trap this feature exists for is named in the tool docs.
+        assert "native language" in schema["properties"]["source"]["description"]
+
+    def test_a_stated_correction_displaces_an_old_guess(self):
+        # The learner says "English is my native language" and the tutor
+        # remembers it: the value AND its provenance must both flip.
+        user, _ = merge_remembered(
+            {"native_language": "Russian",
+             "_sources": {"native_language": "inferred"}},
+            {},
+            [{"scope": "global", "key": "native_language",
+              "value": "English", "source": "stated"}],
+        )
+        assert user["native_language"] == "English"
+        assert user["_sources"]["native_language"] == "stated"
+
+    def test_a_note_without_a_source_reads_as_inferred(self):
+        user, _ = merge_remembered(
+            {}, {},
+            [{"scope": "global", "key": "motivation", "value": "travel"}],
+        )
+        assert user["_sources"]["motivation"] == "inferred"
+
+    def test_the_executor_never_trusts_an_unknown_source(self):
+        from backend.services.tutor import _execute_tools
+
+        remembered: list[dict] = []
+        _execute_tools(
+            [_ToolUseBlock("t1", "remember", {
+                "scope": "global", "key": "goal", "value": "fluency",
+                "source": "definitely-true",
+            })],
+            "tr", remembered,
+        )
+        assert remembered[0]["source"] == "inferred"
+
+    def test_underscore_keys_cannot_be_poisoned_through_remember(self):
+        user, lang = merge_remembered(
+            {}, {},
+            [{"scope": "global", "key": "_sources", "value": "boom"},
+             {"scope": "language", "key": "_active_focus", "value": "boom"}],
+        )
+        assert user == {} and lang == {}
+
+    def test_appending_to_a_list_never_mutates_the_snapshot(self):
+        """The router diffs new vs old profile to decide whether to persist.
+        The old in-place append mutated the shared list, so the diff saw
+        nothing and appended facts silently never reached the database."""
+        before = {"interest": ["food"]}
+        _, lang = merge_remembered(
+            {}, before,
+            [{"scope": "language", "key": "interest", "value": "music"}],
+        )
+        assert before == {"interest": ["food"]}
+        assert lang["interest"] == ["food", "music"]
+        assert lang != before
+
+    def test_the_prompt_marks_origins_and_orders_hedging(self):
+        blocks = build_system_blocks(
+            "tr", [],
+            user_profile={"native_language": "Russian",
+                          "_sources": {"native_language": "inferred"}},
+        )
+        text = blocks[1]["text"]
+        assert '"origin": "inferred"' in text
+        # The behavioural rule, not just the data: hypotheses get hedged,
+        # confirmed facts come back through remember as stated.
+        assert "working hypothesis" in text
+        assert "never assert it" in text
+        assert "source=stated" in text
+
+    def test_a_legacy_profile_without_sources_reads_as_inferred(self):
+        blocks = build_system_blocks(
+            "tr", [], user_profile={"native_language": "Russian"},
+        )
+        assert '"origin": "inferred"' in blocks[1]["text"]
+
+    def test_a_stated_fact_is_presented_as_stated(self):
+        blocks = build_system_blocks(
+            "tr", [],
+            user_profile={"native_language": "English",
+                          "_sources": {"native_language": "stated"}},
+        )
+        assert '"origin": "stated"' in blocks[1]["text"]
+
+    def test_internal_keys_pass_through_unannotated(self):
+        # _active_focus is tutor plumbing the charter references by name —
+        # wrapping it in {value, origin} would break that contract.
+        from backend.services.tutor import _annotate_profile
+
+        out = _annotate_profile({
+            "_active_focus": [{"structure": "Locative", "reason": "r"}],
+            "_sources": {"topic": "stated"},
+            "topic": "travel",
+        })
+        assert out == {
+            "_active_focus": [{"structure": "Locative", "reason": "r"}],
+            "topic": {"value": "travel", "origin": "stated"},
+        }
+
+    def test_apply_profile_updates_merges_values_and_sources(self):
+        from backend.services.tutor import apply_profile_updates
+
+        merged = apply_profile_updates(
+            {"motivation": "trip", "_sources": {"motivation": "stated"}},
+            {"struggles": "articles"},
+            {"struggles": "inferred"},
+        )
+        assert merged == {
+            "motivation": "trip",
+            "struggles": "articles",
+            "_sources": {"motivation": "stated", "struggles": "inferred"},
+        }
+        # No updates → untouched copy, no _sources conjured from nothing.
+        assert apply_profile_updates({"a": "1"}, {}, None) == {"a": "1"}
+
+
+class TestSummarizerIdentityGuard:
+    """The post-session summarizer reads a transcript after the fact — its
+    guess about who the learner IS must never become their profile."""
+
+    @pytest.mark.asyncio
+    async def test_an_inferred_native_language_is_dropped(self):
+        from backend.services import tutor as tutor_mod
+
+        payload = {
+            "user_profile_updates": [
+                {"key": "native_language", "value": "Russian",
+                 "source": "inferred"},
+                {"key": "motivation", "value": "heritage",
+                 "source": "inferred"},
+            ],
+            "language_profile_updates": [],
+            "session_summary": "s",
+        }
+        fake_client = AsyncMock()
+        fake_client.messages.create = AsyncMock(
+            return_value=_Resp([_TextBlock(json.dumps(payload))])
+        )
+        with patch.object(tutor_mod, "AsyncAnthropic", return_value=fake_client), \
+             patch.object(tutor_mod, "get_settings", return_value=FakeSettings()):
+            result = await tutor_mod.summarize_session(
+                "ru", [{"role": "user", "content": "Я учу русский"}],
+            )
+        assert result["user_profile_updates"] == {"motivation": "heritage"}
+        assert "native_language" not in result["user_profile_sources"]
+
+    @pytest.mark.asyncio
+    async def test_a_stated_native_language_is_kept(self):
+        from backend.services import tutor as tutor_mod
+
+        payload = {
+            "user_profile_updates": [
+                {"key": "native_language", "value": "English",
+                 "source": "stated"},
+            ],
+            "language_profile_updates": [],
+            "session_summary": "s",
+        }
+        fake_client = AsyncMock()
+        fake_client.messages.create = AsyncMock(
+            return_value=_Resp([_TextBlock(json.dumps(payload))])
+        )
+        with patch.object(tutor_mod, "AsyncAnthropic", return_value=fake_client), \
+             patch.object(tutor_mod, "get_settings", return_value=FakeSettings()):
+            result = await tutor_mod.summarize_session(
+                "ru", [{"role": "user", "content": "my native language is English"}],
+            )
+        assert result["user_profile_updates"] == {"native_language": "English"}
+        assert result["user_profile_sources"]["native_language"] == "stated"
+
+    def test_the_summarizer_is_told_the_rule(self):
+        # The schema guard catches the output; the prompt prevents the
+        # attempt. Both halves matter — check the instruction exists.
+        import inspect
+
+        from backend.services import tutor as tutor_mod
+
+        src = inspect.getsource(tutor_mod.summarize_session)
+        assert "never implies it is their native language" in src
+
+
+# ---------------------------------------------------------------------------
+# The memory panel — list + per-fact delete (repo and endpoints)
+# ---------------------------------------------------------------------------
+
+
+class TestMemoryRepo:
+    def test_profile_facts_reads_sources_and_hides_plumbing(self):
+        from backend.repositories.tutor import profile_facts
+
+        facts = profile_facts({
+            "native_language": "Russian",
+            "motivation": "travel",
+            "_sources": {"motivation": "stated"},
+            "_active_focus": [{"structure": "X"}],
+        })
+        assert facts == [
+            {"key": "native_language", "value": "Russian",
+             "source": "inferred"},
+            {"key": "motivation", "value": "travel", "source": "stated"},
+        ]
+
+    @pytest.mark.asyncio
+    async def test_delete_removes_the_fact_and_its_source(self):
+        from backend.repositories import tutor as repo
+
+        stored = {"native_language": "Russian", "motivation": "travel",
+                  "_sources": {"native_language": "inferred",
+                               "motivation": "stated"}}
+        with patch.object(repo, "get_user_profile",
+                          new=AsyncMock(return_value=stored)), \
+             patch.object(repo, "upsert_user_profile",
+                          new=AsyncMock()) as mock_upsert:
+            ok = await repo.delete_tutor_memory_fact(
+                AsyncMock(), "u-1", "global", "native_language"
+            )
+        assert ok is True
+        saved = mock_upsert.await_args.args[2]
+        assert saved == {"motivation": "travel",
+                         "_sources": {"motivation": "stated"}}
+
+    @pytest.mark.asyncio
+    async def test_delete_refuses_plumbing_and_missing_keys(self):
+        from backend.repositories import tutor as repo
+
+        with patch.object(repo, "get_user_profile",
+                          new=AsyncMock(return_value={"a": "1"})), \
+             patch.object(repo, "upsert_user_profile",
+                          new=AsyncMock()) as mock_upsert:
+            assert not await repo.delete_tutor_memory_fact(
+                AsyncMock(), "u-1", "global", "_sources")
+            assert not await repo.delete_tutor_memory_fact(
+                AsyncMock(), "u-1", "global", "nope")
+            assert not await repo.delete_tutor_memory_fact(
+                AsyncMock(), "u-1", "language", "a")  # no language_id
+        mock_upsert.assert_not_awaited()
+
+
+class TestMemoryEndpoints:
+    def test_requires_auth(self, client):
+        assert client.get("/api/tutor/memory").status_code == 401
+
+    def test_lists_memory(self, client):
+        memory = {
+            "global": [{"key": "native_language", "value": "Russian",
+                        "source": "inferred"}],
+            "languages": [],
+        }
+        with patch("backend.routers.tutor.list_tutor_memory",
+                   new=AsyncMock(return_value=memory)):
+            resp = client.get("/api/tutor/memory", headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == memory
+
+    def test_delete_happy_path(self, client):
+        with patch("backend.routers.tutor.delete_tutor_memory_fact",
+                   new=AsyncMock(return_value=True)) as mock_del:
+            resp = client.delete(
+                "/api/tutor/memory",
+                params={"scope": "global", "key": "native_language"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"deleted": True}
+        assert mock_del.await_args.args[2:] == (
+            "global", "native_language", None)
+
+    def test_delete_unknown_fact_404(self, client):
+        with patch("backend.routers.tutor.delete_tutor_memory_fact",
+                   new=AsyncMock(return_value=False)):
+            resp = client.delete(
+                "/api/tutor/memory",
+                params={"scope": "global", "key": "nope"},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 404
+
+    def test_delete_validates_scope(self, client):
+        resp = client.delete(
+            "/api/tutor/memory",
+            params={"scope": "cosmic", "key": "k"},
+            headers=_auth_headers(),
+        )
+        assert resp.status_code == 422
+        resp = client.delete(
+            "/api/tutor/memory",
+            params={"scope": "language", "key": "k"},  # no language_id
+            headers=_auth_headers(),
+        )
+        assert resp.status_code == 422

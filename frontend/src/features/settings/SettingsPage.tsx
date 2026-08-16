@@ -20,6 +20,7 @@ import { usePrefsStore } from '../../stores/prefsStore'
 import type { Theme } from '../../stores/prefsStore'
 import { hasTranslit } from '../keyboards/translit'
 import RecoSettings from '../recommendations/RecoSettings'
+import TutorMemoryPanel from './TutorMemoryPanel'
 import { supabase } from '../../lib/supabase'
 import LanguagePicker from '../../components/LanguagePicker'
 import LanguageWrapper from '../../components/LanguageWrapper'
@@ -915,6 +916,8 @@ export default function SettingsPage() {
         )}
 
         <RecoSettings />
+
+        <TutorMemoryPanel />
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
           <div className="flex items-start justify-between gap-4">

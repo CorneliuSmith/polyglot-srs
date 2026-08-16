@@ -192,7 +192,9 @@ When you learn something durable and worth remembering next session — the \
 learner's goal or motivation, their native language, an interest to build \
 lessons around, or a recurring error pattern — call the `remember` tool. \
 Use it sparingly and only for things that should persist; do not record \
-transient chat.
+transient chat. Be honest about each fact's source: `stated` only when \
+the learner said it about themselves, `inferred` for your own deductions \
+— and never infer someone's native language from what they study.
 
 Mastery stars: when THIS session gives clear evidence the learner has \
 already mastered one of their weak items — they produced the exact \
@@ -300,10 +302,68 @@ REMEMBER_TOOL: dict[str, Any] = {
                 "type": "string",
                 "description": "The fact to remember, stated concisely.",
             },
+            "source": {
+                "type": "string",
+                "enum": ["stated", "inferred"],
+                "description": (
+                    "stated = the learner explicitly said this about "
+                    "themselves in this conversation. inferred = your own "
+                    "deduction from their data or behavior (which language "
+                    "they study is NEVER evidence of their native language). "
+                    "When unsure, say inferred."
+                ),
+            },
         },
-        "required": ["scope", "key", "value"],
+        "required": ["scope", "key", "value", "source"],
     },
 }
+
+# Facts about who the learner IS, not how they study. An AI's guess at one
+# of these presented back as profile truth is how "you study Russian"
+# became "Russian is your native language" — the summarizer may only write
+# them when the learner stated them in the transcript.
+IDENTITY_KEYS = frozenset({"native_language"})
+
+# Reserved key inside each profile jsonb: {fact_key: "stated"|"inferred"}.
+# A key with no entry predates provenance tracking and reads as inferred —
+# the safe default, since it makes the tutor confirm rather than assert.
+SOURCES_KEY = "_sources"
+
+
+def _annotate_profile(profile: dict) -> dict:
+    """Rewrite a profile dict for the prompt: each plain fact becomes
+    {"value", "origin"} so the tutor can tell a learner-stated fact from an
+    AI inference. Internal keys (_active_focus, …) pass through untouched;
+    the _sources bookkeeping itself is folded in, never shown raw."""
+    sources = profile.get(SOURCES_KEY) or {}
+    out: dict[str, Any] = {}
+    for key, value in profile.items():
+        if key == SOURCES_KEY:
+            continue
+        if key.startswith("_"):
+            out[key] = value
+            continue
+        out[key] = {"value": value, "origin": sources.get(key, "inferred")}
+    return out
+
+
+def apply_profile_updates(
+    profile: dict, updates: dict, sources: dict | None = None
+) -> dict:
+    """Merge summarizer updates into a profile, keeping provenance (pure).
+
+    Values overwrite; each updated key's origin lands in the profile's
+    _sources map ("inferred" when the summarizer didn't attest one), and
+    origins of untouched keys are preserved.
+    """
+    if not updates:
+        return dict(profile)
+    merged = {**profile, **updates}
+    merged[SOURCES_KEY] = {
+        **(profile.get(SOURCES_KEY) or {}),
+        **{k: (sources or {}).get(k, "inferred") for k in updates},
+    }
+    return merged
 
 
 def _format_memory(
@@ -338,14 +398,27 @@ def _format_memory(
         )
     if user_profile:
         parts.append(
-            "Learner profile (applies across all their languages):\n"
-            + json.dumps(user_profile, ensure_ascii=False, indent=1)
+            "Learner profile (applies across all their languages). Every "
+            "fact carries its origin: 'stated' means the learner said it "
+            "about themselves; 'inferred' means an AI deduced it (or it "
+            "predates origin tracking). An inferred fact is a working "
+            "hypothesis, NOT profile truth — hedge it (\"it seems…\"), "
+            "never assert it (\"your profile says…\"), and confirm it "
+            "before building coaching on it. When the learner corrects or "
+            "confirms one, call `remember` with source=stated — their word "
+            "always beats an inference:\n"
+            + json.dumps(
+                _annotate_profile(user_profile), ensure_ascii=False, indent=1
+            )
         )
     if language_profile:
         parts.append(
             "Learner profile for this language (proficiency, error patterns, "
-            "topics covered):\n"
-            + json.dumps(language_profile, ensure_ascii=False, indent=1)
+            "topics covered; same origin rules as above):\n"
+            + json.dumps(
+                _annotate_profile(language_profile),
+                ensure_ascii=False, indent=1,
+            )
         )
     if session_summary:
         parts.append(f"Summary of recent sessions:\n{session_summary}")
@@ -492,6 +565,10 @@ def merge_remembered(
     Returns new (user_profile, language_profile). Repeated keys are collected
     into a list so the tutor can record several error patterns or interests
     without overwriting earlier ones.
+
+    Each note may carry a "source" ("stated"|"inferred", default inferred);
+    the key's entry in the profile's _sources map reflects the most recent
+    write, so a learner's correction (stated) always displaces an old guess.
     """
     user = dict(user_profile)
     lang = dict(language_profile)
@@ -499,7 +576,7 @@ def merge_remembered(
         scope = note.get("scope")
         key = note.get("key")
         value = note.get("value")
-        if not key or value is None:
+        if not key or value is None or key.startswith("_"):
             continue
         if scope == "_mastery":
             # Mastery stars are suggestion rows, not profile facts — the
@@ -524,13 +601,26 @@ def merge_remembered(
             continue
         target = user if scope == "global" else lang
         existing = target.get(key)
+        source = note.get("source") or "inferred"
         if existing is None:
+            target[key] = value
+        elif source == "stated" or key in IDENTITY_KEYS:
+            # A learner's own words REPLACE what was there — a correction
+            # that merely appends ("native_language: [Russian, English]")
+            # preserves the wrong guess it was meant to kill. Identity
+            # keys are single-valued for the same reason.
             target[key] = value
         elif isinstance(existing, list):
             if value not in existing:
-                existing.append(value)
+                # Copy-on-write: the caller diffs new vs old profile to
+                # decide whether to persist, so never mutate the shared list.
+                target[key] = [*existing, value]
         elif existing != value:
             target[key] = [existing, value]
+        target[SOURCES_KEY] = {
+            **(target.get(SOURCES_KEY) or {}),
+            key: source,
+        }
     return user, lang
 
 
@@ -585,7 +675,11 @@ def _mock_chat(language_code: str, history: list[dict], weak_areas: list[dict]) 
     if last_user.startswith("/remember"):
         parts = last_user.split(maxsplit=3)
         if len(parts) == 4 and parts[1] in ("global", "language"):
-            remembered.append({"scope": parts[1], "key": parts[2], "value": parts[3]})
+            # A human typed the fact themselves — that's "stated".
+            remembered.append({
+                "scope": parts[1], "key": parts[2], "value": parts[3],
+                "source": "stated",
+            })
             return f"[dev mock] Remembered ({parts[1]}) {parts[2]} = {parts[3]}.", remembered
     # `/star <kind> <item> <evidence>` exercises the mastery-star path
     # (suggest_mastered → suggestion row) deterministically.
@@ -624,10 +718,15 @@ def _execute_tools(
     for tu in tool_uses:
         content = "Unknown tool."
         if tu.name == "remember" and isinstance(tu.input, dict):
+            source = tu.input.get("source")
             remembered.append({
                 "scope": tu.input.get("scope"),
                 "key": tu.input.get("key"),
                 "value": tu.input.get("value"),
+                # Only the two known origins pass; anything else (or a
+                # missing field) is the cautious default.
+                "source": source if source in ("stated", "inferred")
+                else "inferred",
             })
             content = "Saved."
         elif tu.name == "suggest_mastered" and isinstance(tu.input, dict):
@@ -839,8 +938,17 @@ _KV_PAIRS = {
                     "description": "A snake_case label for the fact."},
             "value": {"type": "string",
                       "description": "The fact itself, concise."},
+            "source": {
+                "type": "string",
+                "enum": ["stated", "inferred"],
+                "description": (
+                    "stated ONLY when the learner explicitly said this about "
+                    "themselves in the transcript; inferred for anything "
+                    "deduced. When unsure, inferred."
+                ),
+            },
         },
-        "required": ["key", "value"],
+        "required": ["key", "value", "source"],
         "additionalProperties": False,
     },
 }
@@ -880,16 +988,32 @@ _SUMMARY_SCHEMA = {
 }
 
 
-def _fold_pairs(pairs) -> dict:
-    """[{key, value}, …] → {key: value}, tolerating a model that answered
-    with a plain dict anyway (older transcripts in tests do)."""
+def _fold_pairs(pairs) -> tuple[dict, dict]:
+    """[{key, value, source}, …] → ({key: value}, {key: source}), tolerating
+    a model that answered with a plain dict anyway (older transcripts in
+    tests do — those carry no provenance, so their sources map is empty and
+    every fact defaults to inferred downstream).
+
+    Identity keys (native_language, …) are dropped entirely unless attested
+    as stated: the summarizer reads a transcript after the fact, and its
+    guess about who the learner IS must never become their profile. The live
+    `remember` tool may still infer — the learner is present to correct it.
+    """
     if isinstance(pairs, dict):
-        return pairs
-    out = {}
-    for p in pairs or []:
-        if isinstance(p, dict) and p.get("key"):
-            out[str(p["key"])] = p.get("value")
-    return out
+        values, sources = dict(pairs), {}
+    else:
+        values, sources = {}, {}
+        for p in pairs or []:
+            if isinstance(p, dict) and p.get("key"):
+                key = str(p["key"])
+                values[key] = p.get("value")
+                if p.get("source") in ("stated", "inferred"):
+                    sources[key] = p["source"]
+    for key in IDENTITY_KEYS:
+        if key in values and sources.get(key) != "stated":
+            del values[key]
+            sources.pop(key, None)
+    return values, sources
 
 
 async def summarize_session(
@@ -940,7 +1064,12 @@ async def summarize_session(
         "You maintain a language learner's memory for a tutoring app. Given the "
         "current profile and a tutoring transcript, extract only durable facts "
         "worth keeping for next session and write a concise running summary. Do "
-        "not invent facts the transcript doesn't support. Keep the summary "
+        "not invent facts the transcript doesn't support. Mark each fact's "
+        "source honestly: 'stated' only when the learner explicitly said it "
+        "about themselves in the transcript, 'inferred' for everything you "
+        "deduced. Identity facts (like native_language) may ONLY be recorded "
+        "when the learner literally stated them — that someone studies a "
+        "language never implies it is their native language. Keep the summary "
         "focused on proficiency, struggles, and what to do next."
     )
     context = {
@@ -979,10 +1108,15 @@ async def summarize_session(
             "session_summary": prior_summary or "",
             "usage": usage,
         }
+    user_updates, user_sources = _fold_pairs(data.get("user_profile_updates"))
+    lang_updates, lang_sources = _fold_pairs(
+        data.get("language_profile_updates")
+    )
     return {
-        "user_profile_updates": _fold_pairs(data.get("user_profile_updates")),
-        "language_profile_updates":
-            _fold_pairs(data.get("language_profile_updates")),
+        "user_profile_updates": user_updates,
+        "user_profile_sources": user_sources,
+        "language_profile_updates": lang_updates,
+        "language_profile_sources": lang_sources,
         "session_summary": data.get("session_summary") or (prior_summary or ""),
         "usage": usage,
     }

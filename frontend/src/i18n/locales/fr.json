@@ -993,6 +993,16 @@
       "title": "Conseils d’apprentissage",
       "desc": "De temps en temps, un conseil d’étude fondé sur la recherche — comment pratiquer, pourquoi le planning fonctionne — affiché au plus une fois par jour environ. Désactivez-les ici pour ne plus jamais les voir."
     },
+    "memory": {
+      "title": "Ce que votre tuteur retient",
+      "desc": "Des faits durables que votre tuteur conserve entre les sessions. Ceux qu’il a devinés sont signalés : il les traite comme des hypothèses, pas comme des vérités. Supprimez ce qui est faux ou indésirable et le tuteur l’oublie aussitôt.",
+      "global": "Toutes les langues",
+      "stated": "Vous l’avez dit au tuteur",
+      "inferred": "Supposition du tuteur",
+      "empty": "Rien pour l’instant — le tuteur retient des choses au fil de vos échanges.",
+      "forget": "Oublier « {{fact}} »",
+      "forgetError": "Suppression impossible — réessayez."
+    },
     "email": {
       "title": "E-mail",
       "dailyTitle": "Rappel quotidien",

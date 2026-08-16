@@ -993,6 +993,16 @@
       "title": "Learning tips",
       "desc": "Occasional evidence-based study nudges — how to practise, why the schedule works — shown at most about once a day. Turn them off here to never see them."
     },
+    "memory": {
+      "title": "What your tutor remembers",
+      "desc": "Durable facts your tutor keeps between sessions. Facts it guessed are marked — it treats them as hypotheses, not truth. Delete anything wrong or unwanted and the tutor forgets it immediately.",
+      "global": "All languages",
+      "stated": "You told the tutor",
+      "inferred": "Tutor’s guess",
+      "empty": "Nothing yet — the tutor remembers things as you chat.",
+      "forget": "Forget “{{fact}}”",
+      "forgetError": "Couldn’t delete that — try again."
+    },
     "email": {
       "title": "Email",
       "dailyTitle": "Daily reminder",
