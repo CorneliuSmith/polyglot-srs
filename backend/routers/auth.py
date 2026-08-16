@@ -109,15 +109,22 @@ _UPSERT_SQL = """
         (id, batch_size, ui_language, active_language_id, support_locale,
          reminder_opt_in, reminder_hour_utc{cols})
     VALUES ($1, COALESCE($2, 5), COALESCE($3, 'en'), $4,
-            NULLIF($5, 'en'), COALESCE($6, false), COALESCE($7, 16){vals})
+            NULLIF($5, 'auto'), COALESCE($6, false), COALESCE($7, 16){vals})
     ON CONFLICT (id) DO UPDATE SET
         batch_size = COALESCE($2, user_profiles.batch_size),
         ui_language = COALESCE($3, user_profiles.ui_language),
         active_language_id = COALESCE($4, user_profiles.active_language_id),
-        -- 'en' explicitly RESETS the support locale to the default
+        -- Tri-state: absent keeps the stored value; 'auto' resets to NULL
+        -- (automatic — help follows the interface language, resolved at
+        -- read time by repositories/profile.py); any language code,
+        -- INCLUDING 'en', is stored as an explicit choice. 'en' used to be
+        -- the reset value, which made "I want English help" inexpressible
+        -- once automatic meant "follow the interface": a French-interface
+        -- learner asking for English glosses would have been snapped back
+        -- to French.
         support_locale = CASE
             WHEN $5 IS NULL THEN user_profiles.support_locale
-            ELSE NULLIF($5, 'en')
+            ELSE NULLIF($5, 'auto')
         END,
         reminder_opt_in = COALESCE($6, user_profiles.reminder_opt_in),
         reminder_hour_utc = COALESCE($7, user_profiles.reminder_hour_utc),
@@ -205,7 +212,9 @@ async def upsert_profile(
     user: dict = Depends(get_current_user),
 ):
     """Create or update user profile (upsert)."""
-    if body.support_locale is not None:
+    # 'auto' is the reset sentinel, not a language: it stores NULL, which
+    # means "follow the interface language" (repositories/profile.py).
+    if body.support_locale is not None and body.support_locale != "auto":
         async with rls_connection(user["id"]) as conn:
             known = await conn.fetchval(
                 "SELECT count(*) FROM languages WHERE code = $1",
@@ -295,7 +304,8 @@ async def upsert_profile(
             # of what this learner will meet — queue their upcoming content
             # for translation NOW, so even the first learn session (and every
             # review after it) opens already localized. Never blocks the save.
-            if body.active_language_id and body.support_locale:
+            if (body.active_language_id and body.support_locale
+                    and body.support_locale not in ("auto", "en")):
                 await pretranslate_upcoming(
                     conn, user["id"], body.active_language_id,
                     body.batch_size or 10,

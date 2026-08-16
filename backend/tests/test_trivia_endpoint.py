@@ -70,6 +70,12 @@ def _forget_seeded_locales():
 def _conn_returning(locale: str = "es"):
     conn = AsyncMock()
     conn.fetchval.return_value = locale
+    # The effective-locale rule (repositories/profile.py) reads both
+    # columns in one fetchrow; serving the locale as an explicit choice
+    # keeps each test's intent unchanged.
+    conn.fetchrow = AsyncMock(
+        return_value={"support_locale": locale, "ui_language": "en"}
+    )
     return conn
 
 

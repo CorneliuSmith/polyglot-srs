@@ -24,6 +24,7 @@ from backend.repositories.personal_decks import (
     untranslated_cards,
 )
 from backend.repositories.pool import rls_connection
+from backend.repositories.profile import effective_support_locale
 from backend.repositories.tutor import log_tutor_usage
 from backend.services.allowance import get_allowance, reject_if_unavailable
 from backend.services.models import resolve_model
@@ -113,9 +114,7 @@ async def translation_status(
     agrees to it.
     """
     async with rls_connection(user["id"]) as conn:
-        locale = await conn.fetchval(
-            "SELECT support_locale FROM user_profiles WHERE id = $1", user["id"]
-        )
+        locale = await effective_support_locale(conn, user["id"])
         pending = await untranslated_cards(conn, language_id, locale or "en")
     allowance = await get_allowance(user["id"], language_id)
     return {
@@ -146,9 +145,7 @@ async def translate_cards(
         )
 
     async with rls_connection(user["id"]) as conn:
-        locale = await conn.fetchval(
-            "SELECT support_locale FROM user_profiles WHERE id = $1", user["id"]
-        )
+        locale = await effective_support_locale(conn, user["id"])
         pending = await untranslated_cards(conn, body.language_id, locale or "en")
         if not pending:
             return {"translated": 0, "charged": False}

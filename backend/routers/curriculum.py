@@ -15,6 +15,7 @@ from backend.repositories.curriculum import (
     set_reference_read,
 )
 from backend.repositories.pool import rls_connection
+from backend.repositories.profile import effective_support_locale
 
 router = APIRouter()
 
@@ -48,10 +49,10 @@ async def search(
 
 
 async def _support_locale(conn, user_id: str) -> str | None:
-    row = await conn.fetchrow(
-        "SELECT support_locale FROM user_profiles WHERE id = $1", user_id
-    )
-    return row["support_locale"] if row else None
+    # Explicit choice wins; otherwise the interface language — the shared
+    # rule (repositories/profile.py), so grammar explanations can never
+    # disagree with the rest of the app about which language help is in.
+    return await effective_support_locale(conn, user_id)
 
 
 @router.get("/{language_id}")

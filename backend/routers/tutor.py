@@ -33,6 +33,7 @@ from backend.config import get_settings
 from backend.dependencies import get_current_user
 from backend.repositories.assessment import get_assessment_summary
 from backend.repositories.pool import rls_connection
+from backend.repositories.profile import effective_support_locale
 from backend.repositories.tutor import (
     create_mastery_suggestions,
     get_language_profile,
@@ -114,11 +115,15 @@ _SUPPORT_NAMES = {
 
 async def _support_language(conn, user_id: str) -> str | None:
     """The learner's support language as an English name — the language the
-    tutor should explain IN (their card-gloss language). None → English."""
-    code = await conn.fetchval(
-        "SELECT support_locale FROM user_profiles WHERE id = $1", user_id
-    )
-    if not code or code == "en":
+    tutor should explain IN (their card-gloss language). None → English.
+
+    Resolved through the shared rule (repositories/profile.py): an explicit
+    Settings choice wins, otherwise the interface language. The tutor
+    explaining in a language the interface isn't showing is the exact mix
+    Speak was caught doing.
+    """
+    code = await effective_support_locale(conn, user_id)
+    if not code:
         return None
     name = await conn.fetchval(
         "SELECT name FROM languages WHERE code = $1", code

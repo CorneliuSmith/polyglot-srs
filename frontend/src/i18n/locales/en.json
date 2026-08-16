@@ -1020,7 +1020,8 @@
       "title": "Learning English from",
       "desc": "Hints, definitions, and example-sentence translations appear in this language instead of English.",
       "englishOption": "English (definitions)",
-      "saveError": "Couldn’t save — try again."
+      "saveError": "Couldn’t save — try again.",
+      "autoOption": "Automatic — follows the interface language"
     },
     "theme": {
       "title": "Theme",

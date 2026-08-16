@@ -23,6 +23,7 @@ from backend.repositories.cards import (
     get_deck_items,
     get_due_cards,
     get_vocab_item,
+    pretranslate_upcoming,
 )
 from backend.repositories.curriculum import get_curriculum, get_curriculum_point
 from backend.services.auto_translate import run_translation_cycle
@@ -1099,3 +1100,100 @@ async def test_the_gate_scales_down_to_a_batch_smaller_than_the_threshold(
         await conn.execute(
             "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
             course)
+
+
+async def test_the_automatic_help_language_follows_the_interface(
+    pool, monkeypatch,
+):
+    """The state machine the owner asked for, end to end.
+
+    Automatic (support_locale NULL) means the help language IS the
+    interface language, resolved at read time — nothing chosen, nothing
+    stored, nothing to go stale. Before this rule, "automatic" was
+    materialized by the globe writing support_locale, which converted it
+    into a frozen choice: the observed result was an English interface
+    whose Speak coach wrote French, because every backend reader treated
+    the raw column as the truth and NULL as English.
+
+    Here: an automatic learner's readiness, demand queue and rendered
+    cards all speak the interface language — and when the interface
+    changes, they all move together, instantly, with no write to
+    support_locale at all.
+    """
+    from backend.repositories.cards import session_readiness
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "aut1", "Autoish", auto=True)
+    await _lang(pool, "aut2", "Autolocale", auto=False)
+    uid = await _learner(pool, "auto@aut1", course, None)
+    c = await _build_course(pool, course, uid, "aut")
+
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "UPDATE user_profiles SET ui_language = 'aut2' WHERE id = $1", uid)
+
+        # Readiness scores the INTERFACE language, not English.
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        assert st["locale"] == "aut2"
+        assert st["learn"]["ready_enough"] is False
+
+        # The demand the wait screen records is for that language too.
+        await pretranslate_upcoming(conn, uid, course, batch_size=10)
+        queued = {r["locale"] for r in await conn.fetch(
+            "SELECT DISTINCT locale FROM translation_demand")}
+        assert "aut2" in queued
+
+    # One loop cycle — the sweep's profile scan must FIND the automatic
+    # learner (it used to filter on the raw column and skip them).
+    stats = await _cycle(pool)
+    assert stats["demand"] >= 1
+
+    async with pool.privileged_connection() as conn:
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        assert st["learn"]["cards_ready"] >= 1
+
+        # The globe flips the interface to English → the help language
+        # follows in the SAME read. No stored state, so nothing can lag or
+        # freeze: this is the "stable once they decide" property.
+        await conn.execute(
+            "UPDATE user_profiles SET ui_language = 'en' WHERE id = $1", uid)
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        assert st["locale"] is None or st["locale"] == "en"
+        assert st["learn"]["ready_enough"] is True  # English needs no wait
+
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
+    del c
+
+
+async def test_an_explicit_choice_survives_interface_flips(pool, monkeypatch):
+    """The other half of the rule: a decision, once made, never moves.
+
+    A learner who chose their help language in Settings keeps it through
+    any number of interface changes — the exact opposite of the freeze
+    bug, where a language nobody chose kept overriding. Decided = stable;
+    undecided = follows. Never a third state.
+    """
+    from backend.repositories.cards import session_readiness
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "exp1", "Explicitish", auto=True)
+    await _lang(pool, "exp2", "Explocale", auto=False)
+    await _lang(pool, "exp3", "Otherlocale", auto=False)
+    uid = await _learner(pool, "explicit@exp1", course, "exp2")
+    c = await _build_course(pool, course, uid, "exp")
+
+    async with pool.privileged_connection() as conn:
+        for ui in ("en", "exp3", "en"):
+            await conn.execute(
+                "UPDATE user_profiles SET ui_language = $2 WHERE id = $1",
+                uid, ui)
+            st = await session_readiness(conn, uid, course, batch_size=10)
+            assert st["locale"] == "exp2", (
+                f"explicit choice moved under ui_language={ui!r}"
+            )
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
+    del c

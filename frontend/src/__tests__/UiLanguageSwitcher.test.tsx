@@ -122,11 +122,11 @@ describe('UiLanguageSwitcher', () => {
     renderSwitcher()
     fireEvent.click(screen.getByLabelText('Site language'))
     fireEvent.click(screen.getByText('Français'))
+    // ui_language ONLY. The help language follows it server-side in the
+    // automatic case; writing support_locale here is the freeze bug the
+    // describe block below documents.
     await waitFor(() =>
-      expect(mockUpdateProfile).toHaveBeenCalledWith({
-        ui_language: 'fr',
-        support_locale: 'fr',
-      }),
+      expect(mockUpdateProfile).toHaveBeenCalledWith({ ui_language: 'fr' }),
     )
   })
 })
@@ -188,24 +188,42 @@ describe('the globe and an explicitly chosen translations language', () => {
     return mockUpdateProfile.mock.calls[0][0]
   }
 
-  it('fills the card language when nothing has been chosen', async () => {
-    // The automatic case: a Spanish interface should bring Spanish cards
-    // with it rather than leaving the learner on English.
+  it('never materializes the automatic case', async () => {
+    // The freeze this file exists to prevent: with nothing chosen, the
+    // globe used to WRITE support_locale to make automatic work — which
+    // converted "never chosen" into "chosen". One tap to French and the
+    // help language froze at French; tapping back to English left an
+    // all-English page whose Speak partner coached in French. Automatic
+    // is now resolved server-side from ui_language at read time, so the
+    // globe has nothing to store — and nothing to go stale.
     mockGetProfile.mockResolvedValue({ ui_language: 'en', support_locale: null })
-    expect(await pickSpanishFromTheGlobe()).toEqual({
-      ui_language: 'es', support_locale: 'es',
-    })
+    const sent = await pickSpanishFromTheGlobe()
+    expect(sent).toEqual({ ui_language: 'es' })
+    expect(sent).not.toHaveProperty('support_locale')
   })
 
-  it('leaves a chosen card language alone', async () => {
-    // The bug: this used to send support_locale unconditionally, so a
-    // learner who had picked Russian in Learn or Settings had it replaced
-    // by their interface language the next time they touched the globe —
-    // which reads as the app forgetting the choice and flipping back.
+  it('leaves a divergent explicit choice alone', async () => {
+    // Interface English, help Russian — indistinguishable from a real
+    // decision (a Russian speaker learning English is exactly this
+    // shape), so the globe must never touch it. Settings is where it
+    // changes.
     mockGetProfile.mockResolvedValue({ ui_language: 'en', support_locale: 'ru' })
     const sent = await pickSpanishFromTheGlobe()
     expect(sent).toEqual({ ui_language: 'es' })
     expect(sent).not.toHaveProperty('support_locale')
+  })
+
+  it('heals a lockstep "choice" back to automatic', async () => {
+    // support == ui is exactly the state the old globe write produced:
+    // the pair moved together, meaning nobody ever chose to split them.
+    // Re-cascading it ('auto' → stored NULL) is what lets accounts frozen
+    // by the old code start following the globe again — without it, every
+    // beta profile stays frozen forever, since the write that froze them
+    // no longer exists to overwrite itself.
+    mockGetProfile.mockResolvedValue({ ui_language: 'fr', support_locale: 'fr' })
+    expect(await pickSpanishFromTheGlobe()).toEqual({
+      ui_language: 'es', support_locale: 'auto',
+    })
   })
 
   it('still changes the interface either way', async () => {

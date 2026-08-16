@@ -27,7 +27,10 @@ vi.mock('../api/review', () => ({
   ),
   refreshLessons: vi.fn(() => Promise.resolve([])),
 }))
-vi.mock('../api/profile', () => ({
+vi.mock('../api/profile', async (orig) => ({
+  // Spread the real module: effectiveSupportLocale is a pure function the
+  // page needs, and a factory that omits it renders a blank screen.
+  ...(await orig<typeof import('../api/profile')>()),
   getLanguages: vi.fn(),
   getProfile: vi.fn(() => Promise.resolve({ support_locale: null })),
   updateProfile: vi.fn(),

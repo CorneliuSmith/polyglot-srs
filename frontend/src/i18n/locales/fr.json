@@ -1020,7 +1020,8 @@
       "title": "Apprendre l’anglais depuis",
       "desc": "Les indices, définitions et traductions des phrases d’exemple s’affichent dans cette langue au lieu de l’anglais.",
       "englishOption": "Anglais (définitions)",
-      "saveError": "Enregistrement impossible — réessayez."
+      "saveError": "Enregistrement impossible — réessayez.",
+      "autoOption": "Automatique — suit la langue de l’interface"
     },
     "theme": {
       "title": "Thème",

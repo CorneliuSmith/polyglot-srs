@@ -26,6 +26,7 @@ from pydantic import BaseModel, Field
 from backend.dependencies import get_current_user
 from backend.repositories.assessment import get_assessment_summary
 from backend.repositories.pool import rls_connection
+from backend.repositories.profile import effective_support_locale
 from backend.repositories.speak import (
     SpeakUnavailableError,
     append_turn,
@@ -139,11 +140,17 @@ def _model_history(turns: list[dict]) -> tuple[list[dict], str | None]:
 
 
 async def _support_language(conn, user_id: str) -> str | None:
-    """The language to write corrections IN. None → English."""
-    code = await conn.fetchval(
-        "SELECT support_locale FROM user_profiles WHERE id = $1", user_id
-    )
-    if not code or code == "en":
+    """The language to write corrections IN. None → English.
+
+    Resolved through the shared rule (repositories/profile.py) — explicit
+    Settings choice, else the interface language. This is the function
+    that produced the owner's screenshot: it read the raw support_locale
+    column, which the globe had frozen to French months of taps ago, so an
+    all-English page coached in French. The correction language must never
+    be able to disagree with the language the learner is being shown.
+    """
+    code = await effective_support_locale(conn, user_id)
+    if not code:
         return None
     return await conn.fetchval(
         "SELECT name FROM languages WHERE code = $1", code

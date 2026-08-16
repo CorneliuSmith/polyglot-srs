@@ -1066,13 +1066,22 @@ export default function SettingsPage() {
         <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
           <h2 className="font-semibold text-gray-800">{t('settings.support.title')}</h2>
           <p className="text-xs text-gray-500">{t('settings.support.desc')}</p>
+          {/* Tri-state, honestly displayed. 'auto' (stored NULL) means the
+              help language FOLLOWS the interface language — the default,
+              with no stored state to go stale. Any language here, including
+              English, is an explicit choice that survives everything,
+              globe taps included. 'en' used to double as the reset value,
+              which made "English help under a French interface"
+              inexpressible once automatic meant "follow the interface". */}
           <select
-            value={profile?.support_locale ?? 'en'}
+            value={profile?.support_locale ?? 'auto'}
             onChange={(e) => supportMutation.mutate(e.target.value)}
             disabled={supportMutation.isPending}
             aria-label={t('settings.support.title')}
+            data-testid="support-locale-select"
             className="rounded-lg border border-gray-300 px-3 py-2 text-sm bg-white"
           >
+            <option value="auto">{t('settings.support.autoOption')}</option>
             <option value="en">{t('settings.support.englishOption')}</option>
             {languages
               .filter((l) => l.code !== 'en')

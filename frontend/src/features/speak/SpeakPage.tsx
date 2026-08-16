@@ -327,18 +327,25 @@ export default function SpeakPage() {
                 list — a learner corrected three times per turn stops
                 talking. The rest are kept for the summary. */}
             {x.correction && (
+              // Amber-family TEXT on the amber chip, never gray: the dark
+              // theme remaps the whole gray ramp light while amber tints
+              // deliberately stay light (index.css — "highlighted callouts
+              // on dark"), so gray-900 here rendered near-white on cream
+              // and the correction — the one line Coach mode exists for —
+              // was illegible in dark mode. Same convention as the Tutor
+              // mastery card and FeedbackPanel.
               <div
                 data-testid={`speak-correction-${i}`}
                 className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-2 text-sm"
               >
-                <span className="font-semibold text-gray-900">
+                <span className="font-semibold text-amber-900">
                   <LanguageWrapper languageCode={language?.code ?? 'en'}>
                     <span>
                       {x.correction.learner_said} → {x.correction.should_be}
                     </span>
                   </LanguageWrapper>
                 </span>
-                <span className="block mt-0.5 text-gray-600">
+                <span className="block mt-0.5 text-amber-800">
                   {x.correction.note}
                 </span>
               </div>
