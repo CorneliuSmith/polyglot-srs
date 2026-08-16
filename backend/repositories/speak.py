@@ -114,24 +114,31 @@ async def append_turn(
     learner_text: str,
     partner_text: str,
     errors: list[dict],
+    audio_ms: int | None = None,
 ) -> None:
     """Record one exchange and bump the session's counter.
 
     ON CONFLICT DO NOTHING on (session_id, idx): a double-submitted turn —
     an impatient tap, a retried request — must not append the same exchange
     twice and desynchronise the transcript from what the learner saw.
+
+    *audio_ms* is how long the learner actually spoke, when they spoke. It
+    is the only real measurement in the summary's "you spoke 61% of the
+    time" — a typed turn contributes nothing to it rather than being
+    guessed at from its character count.
     """
     try:
         async with conn.transaction():
             await conn.execute(
                 """
                 INSERT INTO speak_turns
-                    (session_id, idx, learner_text, partner_text, errors)
-                VALUES ($1, $2, $3, $4, $5::jsonb)
+                    (session_id, idx, learner_text, partner_text, errors,
+                     audio_ms)
+                VALUES ($1, $2, $3, $4, $5::jsonb, $6)
                 ON CONFLICT (session_id, idx) DO NOTHING
                 """,
                 session_id, idx, learner_text, partner_text,
-                json.dumps(errors, ensure_ascii=False),
+                json.dumps(errors, ensure_ascii=False), audio_ms,
             )
             await conn.execute(
                 """

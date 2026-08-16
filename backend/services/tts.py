@@ -45,6 +45,10 @@ VOICES: dict[str, str] = {
 
 # Slightly slower than native speed — these are learners.
 RATE = "-10%"
+# "Say that again" in a Speak conversation. Slow enough to be a genuinely
+# different listen, not so slow the prosody falls apart and the sentence
+# becomes harder to parse than it was at speed.
+SLOW_RATE = "-35%"
 
 
 def voice_for(language_code: str) -> str | None:
@@ -56,8 +60,13 @@ def cache_key(voice: str, text: str) -> str:
     return hashlib.sha256(f"{voice}\x00{text}".encode()).hexdigest()[:40]
 
 
-async def synthesize(text: str, language_code: str) -> bytes:
+async def synthesize(
+    text: str, language_code: str, rate: str | None = None
+) -> bytes:
     """Render *text* to MP3 bytes with the language's voice.
+
+    *rate* overrides the default learner pace — SLOW_RATE is what
+    Speak's "say that again" replays a partner's line at.
 
     Provider chain (beta lesson 2026-07-16: Microsoft rejects edge-tts's
     keyless endpoint from datacenter IPs — it works from a laptop and
@@ -82,12 +91,13 @@ async def synthesize(text: str, language_code: str) -> bytes:
             text, voice,
             settings.azure_speech_key,
             getattr(settings, "azure_speech_region", "eastus"),
+            rate or RATE,
         )
-    return await _synthesize_edge(text, voice)
+    return await _synthesize_edge(text, voice, rate or RATE)
 
 
 async def _synthesize_azure(
-    text: str, voice: str, key: str, region: str
+    text: str, voice: str, key: str, region: str, rate: str = RATE
 ) -> bytes:
     """Azure Cognitive Services Speech — the exact same neural voices as
     edge-tts, through the keyed API that datacenters may actually use."""
@@ -104,7 +114,7 @@ async def _synthesize_azure(
     ssml = (
         f"<speak version='1.0' xml:lang='{lang}'>"
         f"<voice name='{voice}'>"
-        f"<prosody rate='{RATE}'>{body}</prosody>"
+        f"<prosody rate='{rate}'>{body}</prosody>"
         f"</voice></speak>"
     )
     async with httpx.AsyncClient(timeout=30) as client:
@@ -127,10 +137,12 @@ async def _synthesize_azure(
     return resp.content
 
 
-async def _synthesize_edge(text: str, voice: str) -> bytes:
+async def _synthesize_edge(
+    text: str, voice: str, rate: str = RATE
+) -> bytes:
     import edge_tts
 
-    communicate = edge_tts.Communicate(text, voice, rate=RATE)
+    communicate = edge_tts.Communicate(text, voice, rate=rate)
     chunks: list[bytes] = []
     async for message in communicate.stream():
         if message["type"] == "audio":

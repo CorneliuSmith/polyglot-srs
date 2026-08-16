@@ -1508,6 +1508,19 @@
     "modeCoach": "مرشد",
     "modeCoachSub": "تصحيح واحد أثناء الحديث",
     "modeFlow": "انسياب",
-    "modeFlowSub": "التصحيحات في النهاية"
+    "modeFlowSub": "التصحيحات في النهاية",
+    "micStart": "تكلّم",
+    "micStop": "إيقاف",
+    "micListening": "أستمع…",
+    "micTranscribing": "أكتب ما قلته…",
+    "micDenied": "الميكروفون محجوب. اسمح به في المتصفح، أو اكتب بدلاً من ذلك.",
+    "micFailed": "لم يعمل الميكروفون — اكتب بدلاً من ذلك.",
+    "micHeardNothing": "لم أسمع شيئًا. حاول مرة أخرى أو اكتبها.",
+    "micUnsupportedLanguage": "لا يمكن الاستماع إلى هذه اللغة بعد — اكتب دورك.",
+    "micPrivacy": "يُحوَّل تسجيلك إلى نص ثم يُحذف. لا يُحفظ أبدًا.",
+    "transcriptLabel": "راجعها قبل الإرسال",
+    "playPartner": "استمع",
+    "playSlower": "أعِدها ببطء",
+    "playFailed": "تعذّر التشغيل."
   }
 }

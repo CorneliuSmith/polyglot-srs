@@ -152,6 +152,10 @@ tutor_chat_limiter = RateLimiter("tutor_chat", max_calls=20, per_seconds=60)
 # TTS cache misses synthesize + upload — cap the generation rate per user
 # (cache hits are not limited; they cost one SELECT).
 tts_limiter = RateLimiter("tts", max_calls=30, per_seconds=60)
+# Speech-to-text: one call per spoken turn, and a turn takes at least a few
+# seconds to say. Well above any real conversation, low enough that a stuck
+# client cannot bill an audio hour in a minute.
+stt_limiter = RateLimiter("stt", max_calls=30, per_seconds=60)
 # AI semantic review: heavier calls, tighter cap.
 ai_review_limiter = RateLimiter("ai_review", max_calls=10, per_seconds=60)
 # Recommendations: the passive weekly draft is already self-limiting (it only

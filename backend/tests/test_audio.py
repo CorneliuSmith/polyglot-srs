@@ -13,7 +13,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from backend.main import create_app
-from backend.services.tts import VOICES, cache_key, voice_for
+from backend.services.tts import RATE, VOICES, cache_key, voice_for
 
 TEST_SECRET = "test-jwt-secret-for-unit-tests-32bytes"
 TEST_USER_ID = "550e8400-e29b-41d4-a716-446655440000"
@@ -178,7 +178,7 @@ class TestProviderChain:
              ) as mock_edge:
             audio = asyncio.run(tts_mod.synthesize("hola", "es"))
         assert audio == b"edgebytes"
-        mock_edge.assert_awaited_once_with("hola", "es-ES-ElviraNeural")
+        mock_edge.assert_awaited_once_with("hola", "es-ES-ElviraNeural", RATE)
 
 
 class TestTTSEndpoint:

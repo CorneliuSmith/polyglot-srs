@@ -66,10 +66,20 @@ export interface SpeakSessionRow {
  * is "feedback that does not interrupt". */
 export type SpeakMode = 'flow' | 'coach'
 
+/** Two separate facts, and neither implies the other. Speak can LISTEN to
+ * Hebrew, Persian, Indonesian and Filipino, which have no neural voice; it
+ * cannot listen to Latin or Māori, which do have one in the reader. A course
+ * missing either half keeps the typed path — permanently, not as a stopgap. */
+export interface SpeakSpeech {
+  listen: boolean
+  speak: boolean
+}
+
 export interface SpeakStatus {
   available: boolean
   allowance: TutorAllowance | null
   sessions: SpeakSessionRow[]
+  speech: SpeakSpeech
 }
 
 export async function getSpeakStatus(languageId: string): Promise<SpeakStatus> {
@@ -102,9 +112,52 @@ export async function startSpeakSession(
   return response.data
 }
 
+/**
+ * One recorded turn → text. The audio is not stored anywhere, by the
+ * browser or the server; it exists for the length of this request.
+ *
+ * Deliberately does NOT chain into sendSpeakTurn. The transcript comes
+ * back for the learner to read and fix first — ASR mishears an accented
+ * beginner, and being corrected for a word you did not say is the fastest
+ * way to stop trusting the feature.
+ *
+ * An empty string is a real answer: they pressed and released without
+ * saying anything.
+ */
+export async function transcribeTurn(
+  sessionId: string,
+  audio: Blob,
+): Promise<string> {
+  const form = new FormData()
+  form.append('session_id', sessionId)
+  // The filename matters only in that Azure reads its extension; the
+  // server derives the real format from the blob's type.
+  form.append('audio', audio, 'turn')
+  const response = await apiClient.post('/api/speak/transcribe', form)
+  return response.data.text ?? ''
+}
+
+/** The partner's line as audio, base64 MP3. `slow` is "say that again" —
+ * the same sentence at a pace you can actually pick apart. */
+export async function speakPartnerLine(
+  sessionId: string,
+  turnIndex: number,
+  slow = false,
+): Promise<string> {
+  const response = await apiClient.post('/api/speak/say', {
+    session_id: sessionId,
+    turn_index: turnIndex,
+    slow,
+  })
+  return response.data.audio_b64
+}
+
 export async function sendSpeakTurn(
   sessionId: string,
   text: string,
+  /** How long they spoke, when they spoke. Omitted for a typed turn — the
+   * summary's speaking share counts measured audio only. */
+  audioMs?: number,
 ): Promise<{
   reply: string
   turn_index: number
@@ -116,6 +169,7 @@ export async function sendSpeakTurn(
   const response = await apiClient.post('/api/speak/turn', {
     session_id: sessionId,
     text,
+    audio_ms: audioMs ?? null,
   })
   return response.data
 }
