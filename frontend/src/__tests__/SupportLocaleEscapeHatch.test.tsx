@@ -15,11 +15,21 @@
  * had no options in it. The learner could see the damage and not reach the
  * lever.
  *
- * These tests pin the lever open. Every one of them fails on the old code.
+ * These tests pinned the lever open INSIDE a running session.
+ *
+ * The owner has since removed it from Learn and Review — a language control
+ * mid-session re-fetches the very cards the learner is part-way through,
+ * which is its own kind of broken. So the rule is now narrower rather than
+ * reversed: the lever must exist, it must not live inside a session.
+ *
+ * It lives in Settings, and the globe — a wordless icon, which is what
+ * makes it usable by someone who cannot read the current UI — is on every
+ * page that is not a running session. That is the escape hatch. This file
+ * now guards the new shape: no picker in the session, and no reintroducing
+ * one without reading the incident above.
  */
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, waitFor } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { render, screen } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { MemoryRouter } from 'react-router-dom'
 
@@ -104,60 +114,21 @@ function renderSession() {
 }
 
 describe('the way out is reachable from a non-English course', () => {
-  it('shows the translations-language picker on a Spanish course', async () => {
+  it('has no language picker inside a running session', async () => {
     renderSession()
     await screen.findByText('أقرأ كتابًا.')
-    // Gated on studyingEnglish before, so on any non-English course this
-    // was simply absent and the learner was stuck.
+    // Mid-session it re-fetched the deck under a learner who was part-way
+    // through. The way out is the globe on every other page, and Settings.
     expect(
-      await screen.findByRole('combobox', { name: /translations/i }),
-    ).toBeInTheDocument()
+      screen.queryByRole('combobox', { name: /translations/i }),
+    ).not.toBeInTheDocument()
   })
 
-  it('loads the options — the picker is useless empty', async () => {
+  it('does not write the profile from inside a session', async () => {
+    // The lever being absent is only half of it: nothing in here should be
+    // able to change the card language under the session either.
     renderSession()
-    // `enabled: studyingEnglish` meant this call never went out on a
-    // Spanish course, so even a rendered picker would offer nothing but
-    // the hardcoded English entry.
-    await waitFor(() => expect(getLanguages).toHaveBeenCalled())
-    const select = await screen.findByRole('combobox', { name: /translations/i })
-    const values = Array.from(
-      select.querySelectorAll('option'),
-    ).map((o) => (o as HTMLOptionElement).value)
-    expect(values).toContain('en')
-    expect(values).toContain('ar')
-  })
-
-  it('shows the locale actually in force, not a default of English', async () => {
-    // Rendering 'en' while serving Arabic would tell the learner the
-    // setting is already correct and hide the real cause from them.
-    renderSession()
-    const select = (await screen.findByRole('combobox', {
-      name: /translations/i,
-    })) as HTMLSelectElement
-    expect(select.value).toBe('ar')
-  })
-
-  it('choosing English writes it, which is what resets the profile', async () => {
-    renderSession()
-    const select = await screen.findByRole('combobox', { name: /translations/i })
-    await userEvent.selectOptions(select, 'en')
-    // The backend maps 'en' -> NULL (NULLIF($5,'en')), so this is the
-    // documented reset, not merely another locale.
-    await waitFor(() =>
-      expect(updateProfile).toHaveBeenCalledWith({ support_locale: 'en' }),
-    )
-  })
-
-  it('still works on an English course — the old case is not broken', async () => {
-    usePrefsStore.setState({ activeLanguageId: 'lang-en' })
-    getDueCards.mockResolvedValue([
-      { ...spanishCard('I read a book.'), language_code: 'en' },
-    ])
-    renderSession()
-    await screen.findByText('I read a book.')
-    expect(
-      await screen.findByRole('combobox', { name: /translations/i }),
-    ).toBeInTheDocument()
+    await screen.findByText('أقرأ كتابًا.')
+    expect(updateProfile).not.toHaveBeenCalled()
   })
 })

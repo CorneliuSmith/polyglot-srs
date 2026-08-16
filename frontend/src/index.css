@@ -43,12 +43,23 @@
   --lang-tint:  color-mix(in srgb, var(--lang-primary) 4%, #ffffff);
   --lang-edge:  color-mix(in srgb, var(--lang-primary) 22%, #e5e7eb);
   --lang-label: color-mix(in srgb, var(--lang-primary) 38%, #111827);
+  /* Every flag has a SECOND colour and it was going unused. Mixed the same
+     three ways it becomes a whole parallel family, which is what lets HELP
+     read as its own system rather than more of the card. Measured across
+     the palette, accent label on the primary tint: worst case is Portuguese
+     at 5.85:1, against a 4.5 requirement. */
+  --lang-2-tint:  color-mix(in srgb, var(--lang-accent) 7%, #ffffff);
+  --lang-2-edge:  color-mix(in srgb, var(--lang-accent) 30%, #e5e7eb);
+  --lang-2-label: color-mix(in srgb, var(--lang-accent) 38%, #111827);
 }
 
 @theme inline {
   --color-lang-tint: var(--lang-tint);
   --color-lang-edge: var(--lang-edge);
   --color-lang-label: var(--lang-label);
+  --color-lang-2-tint: var(--lang-2-tint);
+  --color-lang-2-edge: var(--lang-2-edge);
+  --color-lang-2-label: var(--lang-2-label);
   --color-lang: var(--lang-primary);
   --color-lang-dark: var(--lang-primary-dark);
   --color-lang-accent: var(--lang-accent);
@@ -109,6 +120,9 @@
   --lang-tint:  color-mix(in srgb, var(--lang-primary) 12%, #1a2130);
   --lang-edge:  color-mix(in srgb, var(--lang-primary) 30%, #2f3a4e);
   --lang-label: color-mix(in srgb, var(--lang-primary) 34%, #eef2f9);
+  --lang-2-tint:  color-mix(in srgb, var(--lang-accent) 14%, #1a2130);
+  --lang-2-edge:  color-mix(in srgb, var(--lang-accent) 34%, #2f3a4e);
+  --lang-2-label: color-mix(in srgb, var(--lang-accent) 34%, #eef2f9);
 }
 
 .dark .bg-white {

@@ -892,6 +892,37 @@ async def start_batch_ids(
     return vocab, grammar
 
 
+async def due_batch_ids(
+    conn: asyncpg.Connection, user_id: str, language_id: str,
+    batch_size: int = 10,
+) -> tuple[list, list]:
+    """The ids of the REVIEW queue a waiting learner is about to meet.
+
+    The learn batch and the review queue are different cards — the learn
+    selector returns vocabulary the learner has NOT started, which is by
+    definition everything the review queue is not. The wait screen scores
+    them separately and the review session gates on its own half, so the
+    inline fill has to be able to aim at this half too. Filling the learn
+    batch on behalf of a stalled review session translated words the
+    learner wasn't waiting on, and the gate it was meant to open never
+    moved: the wait sat at 0 of 3 while the match game beside it filled up
+    with the learn batch's freshly translated words, which is what the
+    owner was looking at.
+    """
+    batch = max(batch_size, 1)
+    due = await conn.fetch(
+        """SELECT card_type, card_id FROM user_cards
+            WHERE user_id = $1 AND language_id = $2
+              AND next_review <= now() AND is_suspended = false
+            ORDER BY next_review LIMIT $3""",
+        user_id, language_id, batch,
+    )
+    return (
+        [r["card_id"] for r in due if r["card_type"] == "vocabulary"],
+        [r["card_id"] for r in due if r["card_type"] == "grammar"],
+    )
+
+
 async def pretranslate_upcoming(
     conn: asyncpg.Connection,
     user_id: str,
@@ -940,6 +971,13 @@ async def pretranslate_upcoming(
                 conn, user_id, language_id, batch * NEXT_LEVEL_SESSIONS
             )
             vocab, grammar = vocab + up_v, grammar + up_g
+        # ...and the cards already due. Every selector above returns work
+        # the learner has NOT started, so on a fresh support locale the
+        # review queue — the half a returning learner actually opens — had
+        # no demand recorded for it at all.
+        if level is None:
+            due_v, due_g = await due_batch_ids(conn, user_id, language_id, span)
+            vocab, grammar = vocab + due_v, grammar + due_g
         await note_missing_content(conn, locale,
                                    vocab_ids=vocab, grammar_ids=grammar)
     except Exception as exc:  # noqa: BLE001 — never break the learn flow
@@ -1000,15 +1038,7 @@ async def session_readiness(
         conn, user_id, language_id, batch, None)
     learn_g = await _select_grammar_candidate_ids(
         conn, user_id, language_id, batch, None)
-    due = await conn.fetch(
-        """SELECT card_type, card_id FROM user_cards
-            WHERE user_id = $1 AND language_id = $2
-              AND next_review <= now() AND is_suspended = false
-            ORDER BY next_review LIMIT $3""",
-        user_id, language_id, batch,
-    )
-    review_v = [r["card_id"] for r in due if r["card_type"] == "vocabulary"]
-    review_g = [r["card_id"] for r in due if r["card_type"] == "grammar"]
+    review_v, review_g = await due_batch_ids(conn, user_id, language_id, batch)
 
     for key, vocab_ids, grammar_ids in (
         ("learn", learn_v, learn_g), ("review", review_v, review_g),

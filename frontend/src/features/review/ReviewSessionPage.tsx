@@ -12,7 +12,7 @@ import {
   validateAnswer,
 } from '../../api/review'
 import { recordGymAttempt, generateGymDrills } from '../../api/gym'
-import { getLanguages, getProfile, updateProfile } from '../../api/profile'
+import { getLanguages, getProfile } from '../../api/profile'
 import type { DueCard } from '../../api/types'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { languageDisplayName } from '../../lib/languages'
@@ -123,17 +123,14 @@ export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) 
     <ReviewSessionInner
       key={`${activeLanguageId ?? 'none'}:${epoch}`}
       cram={cram}
-      onLocaleChanged={() => setEpoch((e) => e + 1)}
     />
   )
 }
 
 function ReviewSessionInner({
   cram,
-  onLocaleChanged,
 }: {
   cram: boolean
-  onLocaleChanged: () => void
 }) {
   const navigate = useNavigate()
   const { t, i18n } = useTranslation()
@@ -459,16 +456,6 @@ function ReviewSessionInner({
   const { data: languages = [] } = useQuery({
     queryKey: ['languages'],
     queryFn: getLanguages,
-  })
-  const localeMutation = useMutation({
-    mutationFn: (support_locale: string) => updateProfile({ support_locale }),
-    onSuccess: async () => {
-      // Await the profile refetch so the new supportLocale is in place, then
-      // remount — the remounted session re-keys the due-cards query on the
-      // fresh locale and pulls re-localized cards.
-      await queryClient.invalidateQueries({ queryKey: ['profile'] })
-      onLocaleChanged()
-    },
   })
 
   const validateMutation = useMutation({
@@ -918,24 +905,9 @@ function ReviewSessionInner({
               {t('review.quickCram')}
             </span>
           ) : (
+            /* Same as Learn: no language control inside a running
+               session. It belongs in Settings. */
             <span className="flex items-center gap-2">
-              <select
-                value={profile?.support_locale ?? 'en'}
-                onChange={(e) => localeMutation.mutate(e.target.value)}
-                disabled={localeMutation.isPending}
-                aria-label={t('review.translationsLanguage')}
-                title={t('review.showTranslationsIn')}
-                className="text-xs rounded-lg border border-gray-200 bg-white px-2 py-1 text-gray-600"
-              >
-                <option value="en">{t('review.english')}</option>
-                {languages
-                  .filter((l) => l.code !== 'en')
-                  .map((l) => (
-                    <option key={l.code} value={l.code}>
-                      {languageDisplayName(l.code, l.name, i18n.language)}
-                    </option>
-                  ))}
-              </select>
               <span>{t(`review.cardType.${card.card_type}`)}</span>
             </span>
           )}
@@ -1071,7 +1043,7 @@ function ReviewSessionInner({
               aria-label={t('review.submitAnswer')}
               onClick={handleSubmitAnswer}
               disabled={!userInput.trim() || validateMutation.isPending}
-              className="w-full bg-white hover:bg-gray-50 disabled:opacity-40 text-gray-500 hover:text-lang rounded-2xl border-2 border-gray-300 px-6 py-2 text-2xl leading-none transition-colors touch-manipulation"
+              className="w-full bg-lang hover:bg-lang-dark text-lang-on disabled:opacity-40 rounded-2xl border-2 border-lang px-6 py-2 text-2xl leading-none transition-colors touch-manipulation"
               style={{ minHeight: '44px' }}
             >
               {validateMutation.isPending ? '…' : '→'}
@@ -1108,7 +1080,7 @@ function ReviewSessionInner({
                 className={`ms-auto text-sm rounded-full px-3 py-1 border transition ${
                   listening
                     ? 'border-lang/40 bg-lang-soft text-lang'
-                    : 'border-gray-200 text-gray-500 hover:text-lang'
+                    : 'border-lang-2-edge text-lang-2-label hover:bg-lang-2-tint'
                 }`}
               >
                 <Headphones aria-hidden className="me-1 inline h-3.5 w-3.5 align-[-2px]" />{listening ? t('review.listeningOn') : t('review.listeningOff')}

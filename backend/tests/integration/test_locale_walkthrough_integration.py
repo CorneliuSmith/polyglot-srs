@@ -957,6 +957,108 @@ async def test_a_few_ready_cards_open_the_gate_at_a_low_percentage(
     del c
 
 
+async def test_the_review_queue_is_reachable_by_the_fill_that_gates_it(
+    pool, monkeypatch,
+):
+    """A stalled REVIEW session must be able to name the cards it is stuck on.
+
+    Every selector feeding the inline fill returned work the learner had
+    NOT started — which is, by definition, everything the review queue is
+    not. So a review session gated on its own half asked for a fill and
+    got the learn batch: words the learner wasn't waiting on, paid for out
+    of the same per-(user, language) cooldown that the review half needed.
+    The owner watched "0 of 3" on a Hindi review session while the match
+    game beside it filled up with freshly French-glossed words from the
+    learn batch — the fill working perfectly, aimed at the wrong half.
+    """
+    from backend.repositories.cards import (
+        due_batch_ids,
+        session_readiness,
+        start_batch_ids,
+    )
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "revq1", "Reviewish", auto=True)
+    await _lang(pool, "revq2", "Reviewlocale", auto=False)
+    uid = await _learner(pool, "due@revq1", course, "revq2")
+    c = await _build_course(pool, course, uid, "revq")
+
+    async with pool.privileged_connection() as conn:
+        batch = await add_mixed_learn_batch(conn, uid, course, 10)
+        assert batch["added"] == 4
+        # They finished the lesson: the cards are live and come round again.
+        await conn.execute(
+            "UPDATE user_cards SET is_suspended = false, next_review = now() "
+            "WHERE user_id = $1 AND language_id = $2", uid, course)
+
+        # Nothing left to learn, four cards to review — the exact split the
+        # fill used to get backwards.
+        learn_v, learn_g = await start_batch_ids(conn, uid, course, 10)
+        due_v, due_g = await due_batch_ids(conn, uid, course, 10)
+        assert (learn_v, learn_g) == ([], [])
+        assert sorted(str(i) for i in due_v) == sorted(c["words"])
+        assert sorted(str(i) for i in due_g) == sorted(c["points"])
+
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        assert st["learn"]["ready_enough"] is True   # nothing to wait for
+        assert st["review"]["cards"] == 4
+        assert st["review"]["cards_ready"] == 0
+        assert st["review"]["ready_enough"] is False
+
+        # Translate what the review gate is actually scoring, and it opens.
+        for vid in c["words"]:
+            await conn.execute(
+                "INSERT INTO translations (vocabulary_id, locale, definition) "
+                "VALUES ($1, 'revq2', 'rendered')", vid)
+        await conn.execute(
+            "INSERT INTO explanation_translations (grammar_point_id, locale, "
+            "explanation) VALUES ($1, 'revq2', 'rendered')", c["points"][0])
+
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        assert st["review"]["cards_ready"] == 3
+        assert st["review"]["ready_enough"] is True
+
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
+
+
+async def test_the_due_queue_is_queued_for_the_loop_as_well(pool, monkeypatch):
+    """...and the background loop hears about it too.
+
+    pretranslate_upcoming is what stocks the demand table between sessions.
+    It looked ahead over unstarted vocabulary only, so on a support locale
+    nobody had used before, a returning learner's due queue — the half they
+    actually open — had no demand recorded against it at all.
+    """
+    from backend.repositories.cards import pretranslate_upcoming
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "revq3", "Duelandish", auto=True)
+    await _lang(pool, "revq4", "Duelocale", auto=False)
+    uid = await _learner(pool, "loop@revq3", course, "revq4")
+    c = await _build_course(pool, course, uid, "revd")
+
+    async with pool.privileged_connection() as conn:
+        await add_mixed_learn_batch(conn, uid, course, 10)
+        await conn.execute(
+            "UPDATE user_cards SET is_suspended = false, next_review = now() "
+            "WHERE user_id = $1 AND language_id = $2", uid, course)
+        await conn.execute("DELETE FROM translation_demand WHERE locale = $1",
+                           "revq4")
+
+        await pretranslate_upcoming(conn, uid, course, batch_size=10)
+
+        queued = {str(r["ref_id"]) for r in await conn.fetch(
+            "SELECT ref_id FROM translation_demand "
+            " WHERE locale = 'revq4' AND kind = 'word'")}
+        assert set(c["words"]) <= queued
+
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
+
+
 async def test_the_gate_scales_down_to_a_batch_smaller_than_the_threshold(
     pool, monkeypatch,
 ):

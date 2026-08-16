@@ -10,7 +10,7 @@ import {
   startLearnSession,
   validateAnswer,
 } from '../../api/review'
-import { getLanguages, getProfile, updateProfile } from '../../api/profile'
+import { getLanguages, getProfile } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { languageDisplayName } from '../../lib/languages'
 import LanguageWrapper from '../../components/LanguageWrapper'
@@ -54,10 +54,10 @@ export default function LearnPage() {
     }
     seenLocale.current = supportLocale
   }, [supportLocale])
-  return <LearnInner key={epoch} onLocaleChanged={() => setEpoch((e) => e + 1)} />
+  return <LearnInner key={epoch} />
 }
 
-function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
+function LearnInner() {
   const navigate = useNavigate()
   const { t, i18n } = useTranslation()
   const queryClient = useQueryClient()
@@ -84,17 +84,6 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
   // which left an English speaker studying Spanish looking at Arabic
   // translations with the only off-switch hidden — and this query disabled,
   // so the options never loaded either.
-  const { data: profile } = useQuery({
-    queryKey: ['profile'],
-    queryFn: getProfile,
-  })
-  const localeMutation = useMutation({
-    mutationFn: (support_locale: string) => updateProfile({ support_locale }),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['profile'] })
-      onLocaleChanged()
-    },
-  })
 
   // The lesson batch is fetched as a one-shot QUERY, not a mutation fired
   // from an effect: the query cache dedupes StrictMode's double mount (one
@@ -474,26 +463,13 @@ function LearnInner({ onLocaleChanged }: { onLocaleChanged: () => void }) {
                   total: lessons.length,
                 })}
           </p>
+          {/* No language control mid-session — not the globe, and not the
+              translations picker that used to sit here. Both change the
+              card language under a walkthrough already in progress, which
+              means re-fetching the lesson the learner is halfway through.
+              It lives in Settings, where changing it costs nothing because
+              nothing is running. */}
           <span className="flex items-center gap-3">
-            <select
-              value={profile?.support_locale ?? 'en'}
-              onChange={(e) => localeMutation.mutate(e.target.value)}
-              disabled={localeMutation.isPending}
-              aria-label={t('review.translationsLanguage')}
-              title={t('learnSession.showExplanationsIn')}
-              className="text-xs rounded-lg border border-gray-200 bg-white px-2 py-1 text-gray-600"
-            >
-              <option value="en">{t('review.english')}</option>
-              {languages
-                .filter((l) => l.code !== 'en')
-                .map((l) => (
-                  <option key={l.code} value={l.code}>
-                    {languageDisplayName(l.code, l.name, i18n.language)}
-                  </option>
-                ))}
-            </select>
-            {/* No globe mid-walkthrough: it changes the card language under
-                a session already in progress. Every other page has it. */}
             <button
               type="button"
               onClick={() => navigate('/')}

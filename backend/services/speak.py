@@ -222,6 +222,7 @@ def _system_prompt(
     level: str,
     topic: str | None,
     support_language: str | None,
+    opened_with: str | None = None,
 ) -> str:
     """The partner's brief.
 
@@ -238,6 +239,16 @@ def _system_prompt(
         "No topic was chosen — open with something everyday and easy to "
         "answer, and follow where they take it."
     )
+    # A partner-opened session has no user turn before the assistant's first
+    # line, and the messages list must start with the learner — so the line
+    # rides here instead. Without it the partner asks its opening question a
+    # second time, having no memory of asking it.
+    if opened_with:
+        topic_line += (
+            f'\n\nYou have already opened the conversation with: '
+            f'"{opened_with}". Do not greet them again or repeat that '
+            f'question — their message is the answer to it.'
+        )
     return (
         f"You are a friendly {language_name} conversation partner for a "
         f"learner at CEFR level {level}. This is a spoken-style chat, not a "
@@ -292,6 +303,7 @@ async def speak_turn(
     topic: str | None = None,
     support_language: str | None = None,
     model: str | None = None,
+    opened_with: str | None = None,
 ) -> tuple[dict, dict[str, int]]:
     """One conversational turn.
 
@@ -317,7 +329,9 @@ async def speak_turn(
     response = await client.messages.create(
         model=model,
         max_tokens=1024,
-        system=_system_prompt(language_name, level, topic, support_language),
+        system=_system_prompt(
+            language_name, level, topic, support_language, opened_with
+        ),
         messages=messages,
         tools=[_TURN_TOOL],
         tool_choice={"type": "tool", "name": "emit_turn"},
@@ -492,3 +506,56 @@ async def summarize_speak_session(
         ],
         "stats": stats,
     }, counts
+
+
+async def speak_opening(
+    language_name: str,
+    level: str,
+    topic: str | None = None,
+    model: str | None = None,
+) -> tuple[str, dict[str, int]]:
+    """The partner's first line, when the learner asked it to start.
+
+    "Leave it blank and your partner will start" was a promise the code did
+    not keep: the session opened with an empty transcript and "Say something
+    to begin", which is the opposite of what the learner chose. This is the
+    line that keeps it.
+
+    Deliberately its own call rather than a turn: there is no learner text to
+    grade, so the turn tool's whole error-extraction half would be dead
+    weight and the model would be invited to invent mistakes in a message
+    nobody sent.
+    """
+    settings = get_settings()
+    model = model or settings.tutor_model
+
+    if getattr(settings, "tutor_dev_mock", False):
+        return f"[dev mock] ¿{topic or 'Qué tal'}?", {
+            "input_tokens": 4, "output_tokens": 12,
+            "cache_write_tokens": 0, "cache_read_tokens": 0,
+        }
+
+    about = (
+        f"Open a conversation about: {topic}."
+        if topic else
+        "Open with something everyday and easy to answer."
+    )
+    client = AsyncAnthropic(api_key=settings.anthropic_api_key)
+    response = await client.messages.create(
+        model=model,
+        max_tokens=256,
+        system=(
+            f"You are a friendly {language_name} conversation partner for a "
+            f"learner at CEFR level {level}.\n\n{about}\n\n"
+            f"Reply ONLY in {language_name}, in ONE short sentence ending in "
+            "a question they can answer at their level. No greeting-plus-"
+            "question pile-up, no English, no explanation of what you are "
+            "doing — just the opening line."
+        ),
+        messages=[{"role": "user", "content": "Start the conversation."}],
+    )
+    counts = _usage(response)
+    text = next((b.text for b in response.content if b.type == "text"), "").strip()
+    if not text:
+        raise ValueError("Speak opening came back empty")
+    return text, counts

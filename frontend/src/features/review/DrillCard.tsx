@@ -110,7 +110,10 @@ export default function DrillCard({
   const translit = useTranslit(languageCode)
   const hasMarker = sentence.includes('{{answer}}')
   const inputTone = (result && RESULT_INPUT_STYLES[result]) ||
-    'border-lang/50 focus:border-lang'
+    // The entry point should look like the entry point. A half-strength
+    // border read as decoration; full strength plus a focus ring says
+    // "this is the thing you act on".
+    'border-lang focus:border-lang focus:ring-2 focus:ring-lang/30'
 
 
   // Resolve direction: languageCode takes precedence, fall back to legacy dir prop

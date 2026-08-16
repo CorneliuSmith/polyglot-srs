@@ -19,6 +19,7 @@ import SectionHeader from '../../components/SectionHeader'
 import UsageMeter from '../../components/UsageMeter'
 
 interface Exchange {
+  /** Empty for the partner's opening line — nobody spoke before it. */
   learner: string
   partner: string
   /** Coach mode only, and at most one. */
@@ -82,7 +83,11 @@ export default function SpeakPage() {
       startSpeakSession(activeLanguageId!, language!.code, topic.trim(), mode),
     onSuccess: (data) => {
       setSessionId(data.session_id)
-      setExchanges([])
+      // "Leave it blank and your partner will start" — so when it did, the
+      // conversation opens with its line rather than an empty screen.
+      setExchanges(
+        data.opening ? [{ learner: '', partner: data.opening }] : [],
+      )
       setSummary(null)
       setError(null)
     },
@@ -245,9 +250,11 @@ export default function SpeakPage() {
         )}
         {exchanges.map((x, i) => (
           <div key={i} className="space-y-2">
-            <p className="ms-auto max-w-[85%] rounded-2xl bg-lang-soft/60 px-4 py-2 text-sm text-gray-900 w-fit">
-              {x.learner}
-            </p>
+            {x.learner && (
+              <p className="ms-auto max-w-[85%] rounded-2xl bg-lang-soft/60 px-4 py-2 text-sm text-gray-900 w-fit">
+                {x.learner}
+              </p>
+            )}
             {/* One line, one point, then the conversation moves on. Never a
                 list — a learner corrected three times per turn stops
                 talking. The rest are kept for the summary. */}

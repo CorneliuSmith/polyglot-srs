@@ -90,13 +90,55 @@ def test_a_not_ready_wait_fills_its_own_start_batch(client):
         patch("backend.routers.review.pretranslate_upcoming", new=AsyncMock()), \
         patch("backend.routers.review.start_batch_ids",
               new=AsyncMock(return_value=(["v1", "v2"], ["g1"]))), \
+        patch("backend.routers.review.due_batch_ids",
+              new=AsyncMock(return_value=(["v2", "v3"], ["g2"]))), \
         patch("backend.routers.review.kick"), \
         patch("backend.routers.review.fill_start_batch", filled):
         resp = client.get(
             "/api/review/readiness?language_id=lang-1", headers=_auth_headers())
 
     assert resp.status_code == 200
-    filled.assert_called_once_with(TEST_USER_ID, "lang-1", ["v1", "v2"], ["g1"])
+    # Both halves are stuck, so both are filled — once each. v2 is due AND
+    # unstarted in this fixture; it must not be paid for twice.
+    filled.assert_called_once_with(
+        TEST_USER_ID, "lang-1", ["v1", "v2", "v3"], ["g1", "g2"])
+
+
+def test_a_stalled_review_fills_the_review_queue_not_the_learn_batch(client):
+    """The half that is stuck is the half that gets filled.
+
+    Learn and review are scored separately and gated separately by their
+    pages, but the fill used to aim at the learn batch either way. A
+    review session waiting on French glosses therefore bought the
+    translation of words the learner had not started — and since the
+    inline fill is cooldown-guarded per (user, language), the wrong half
+    did not merely miss, it held the lock the right half needed. The
+    owner watched "0 of 3" while the match game beside it filled up with
+    the learn batch's freshly translated words.
+    """
+    state = _ready()
+    state["review"] = {"total": 6, "ready": 0, "pct": 0.0, "cards": 3,
+                       "cards_ready": 0, "start_cards": 3,
+                       "ready_enough": False}
+    conn = AsyncMock()
+    filled = MagicMock(side_effect=lambda *a: asyncio.sleep(0))
+    with _rls(conn), \
+        patch("backend.routers.review.session_readiness",
+              new=AsyncMock(return_value=state)), \
+        patch("backend.routers.review.pretranslate_upcoming", new=AsyncMock()), \
+        patch("backend.routers.review.start_batch_ids",
+              new=AsyncMock(return_value=(["learn-1"], ["learn-g"]))) as learn, \
+        patch("backend.routers.review.due_batch_ids",
+              new=AsyncMock(return_value=(["due-1"], ["due-g"]))), \
+        patch("backend.routers.review.kick"), \
+        patch("backend.routers.review.fill_start_batch", filled):
+        resp = client.get(
+            "/api/review/readiness?language_id=lang-1", headers=_auth_headers())
+
+    assert resp.status_code == 200
+    learn.assert_not_awaited()
+    filled.assert_called_once_with(
+        TEST_USER_ID, "lang-1", ["due-1"], ["due-g"])
 
 
 def test_a_ready_session_spends_nothing(client):

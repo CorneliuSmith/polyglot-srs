@@ -94,6 +94,37 @@ Worst case 6.08:1 against a 4.5:1 requirement — so the colour goes up and
 the legibility goes up together, which is the point. Dark mode re-mixes the
 same three tokens toward its own ground and near-white ink.
 
+## Two colour families, one per job
+
+Every flag has a SECOND colour and it was going unused. Mixed the same three
+ways it becomes a parallel family, which is what lets HELP read as its own
+system rather than as more of the card:
+
+| Family | Source | Carries |
+| --- | --- | --- |
+| primary | `--lang-primary` | the card, its border and labels, the submit action |
+| second | `--lang-accent` | the hint system — a different family, so help is never mistaken for the question |
+
+Measured across the palette, accent label on the primary tint: Portuguese
+5.85:1 is the worst case, Catalan 12.94:1 the best, against a 4.5
+requirement. So a card can carry both of its language's colours and stay
+legible everywhere.
+
+## Where attention should land, in order
+
+Three things on a session screen, ranked, each drawn differently rather than
+all in grey:
+
+1. **The question.** Largest type, `gray-900`, on the language's tint. It is
+   the only thing at that size.
+2. **The entry.** A full-strength `--lang-primary` border with a focus ring,
+   and a filled submit in the same colour. It used to be a half-strength
+   border and a grey-on-white arrow — quieter than the card around it, which
+   is backwards for the one element the learner has to act on.
+3. **The help.** The second family, and only there. Reaching for a hint is a
+   different act from answering, so it should not look like the answer
+   button in a lighter shade.
+
 ## Rules to hold to from here
 
 1. **Never put text below `gray-500`** unless it is a disabled control.
