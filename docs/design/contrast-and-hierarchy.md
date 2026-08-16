@@ -58,6 +58,42 @@ design, made legible.
 `text-gray-300` (17 uses) was left alone: it marks disabled controls, and
 WCAG explicitly exempts disabled elements from the contrast minimum.
 
+## Bringing the language colour in
+
+Contrast alone left the app legible but grey. Every course already has a
+palette (`lib/languageColors.ts`) and it was reaching almost nothing — a
+border on the picker, a couple of icons.
+
+The reason it could not be used more widely is that `--lang-primary` is a
+raw brand hue ranging from Catalan's `#FCDD09` yellow to English navy
+`#012169`. As TEXT that is unusable at one end and fine at the other, so it
+stayed a fill. Mixing solves it, and the mix direction is the whole rule:
+
+| Token | Mix | Role |
+| --- | --- | --- |
+| `--lang-tint` | 4% hue + white | card and rail surfaces |
+| `--lang-edge` | 22% hue + `#e5e7eb` | borders on those surfaces |
+| `--lang-label` | 38% hue + **ink** | eyebrow labels, section headings |
+
+**Colour toward the ground for surfaces; colour toward the ink for type.**
+Mixing a label 62% into `#111827` drags every hue into a legible range
+while keeping it recognisably that language's colour. Measured across the
+palette, label on tint:
+
+| Language | Label | Ratio |
+| --- | --- | --- |
+| Catalan (yellow) | `#6a631c` | 6.08:1 |
+| Xhosa (amber) | `#6b541f` | 7.04:1 |
+| Hindi (orange) | `#6b492c` | 7.80:1 |
+| Swahili (cyan) | `#0b4d6c` | 8.77:1 |
+| Italian (green) | `#0b4432` | 10.55:1 |
+| Spanish (red) | `#4c1722` | 13.53:1 |
+| English (navy) | `#0b1b40` | 15.61:1 |
+
+Worst case 6.08:1 against a 4.5:1 requirement — so the colour goes up and
+the legibility goes up together, which is the point. Dark mode re-mixes the
+same three tokens toward its own ground and near-white ink.
+
 ## Rules to hold to from here
 
 1. **Never put text below `gray-500`** unless it is a disabled control.
