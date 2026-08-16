@@ -139,6 +139,17 @@ class TestBuildSystemBlocks:
         for code in self.LANGS:
             assert "register" in build_system_blocks(code, [])[0]["text"].lower()
 
+    def test_a_drill_may_never_answer_itself(self):
+        """The owner's screenshot: 'Completa a frase: ___ sou o treinador…
+        (dica: primeira lacuna = "eu"…)' — a fill-in-the-blank whose hint
+        listed every answer, so the exercise tested transcription. The
+        review-UI hint guard (safePrompt) cannot reach freeform chat text,
+        so the rule ships in the prompt itself, for every language."""
+        for code in self.LANGS:
+            text = build_system_blocks(code, [])[0]["text"]
+            assert "NEVER self-answering" in text
+            assert "Cue the CATEGORY" in text
+
     def test_stable_block_is_cached(self):
         blocks = build_system_blocks("tr", [])
         assert blocks[0]["cache_control"] == {"type": "ephemeral"}
