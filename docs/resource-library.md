@@ -3,13 +3,17 @@
 **Location:** `~/Library/CloudStorage/Dropbox/Online Learning/` (the owner's
 personal course library, local to this machine).
 
-**The rule (from §3b of the ROADMAP): these materials are calibration only.**
-They are copyrighted commercial courses. NEVER cite them in app content,
-NEVER copy a sentence, drill, or explanation from them, NEVER add them to a
-grammar point's `references`. Use them to (1) check a language's canonical
-teaching sequence, (2) calibrate sentence naturalness and register, and
-(3) audit our machine-authored paths for gaps. Public sources (academies,
-Wiktionary, Tatoeba) provide the actual content.
+**The rule (amended by the owner, 2026-08-17 — see
+`docs/extraction-sources.md`): facts ship, sentences are regenerated.**
+These are copyrighted commercial courses. Vocabulary, grammar structure,
+paradigms, teaching sequence, and pitfalls may be extracted and shipped.
+NEVER ship a verbatim course sentence, dialogue, or drill sentence — every
+example/drill sentence is freshly written and checker-verified. NEVER cite
+these materials in app content or add them to a grammar point's
+`references`. They also remain what they always were: the calibration bar
+for (1) canonical teaching sequence, (2) sentence naturalness and register,
+(3) auditing machine-authored paths for gaps. Public sources (academies,
+Wiktionary, Tatoeba) remain the citable content backbone.
 
 **Tooling:** PDFs extract cleanly with `pdftotext` (poppler, installed
 2026-07). Audio/video (mp3/mp4) content is not machine-readable here — only
