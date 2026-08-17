@@ -313,8 +313,14 @@ wants harder content above their level give it to them."*
    ABOVE the resolved level, uncapped. Given, not argued with.
 3. **Embeddings**: hosted API, per recommendation. pgvector enablement
    remains an owner action at stage 6.
-4. **Tutor transcripts**: still open — summaries-only stands until the
-   owner says otherwise.
+4. **Tutor transcripts**: RESOLVED 17 Aug 2026 — *"Let's keep the
+   summaries."* Summaries-only is now the settled posture, not a default
+   awaiting review: the tutor stores what it learned, never the words that
+   taught it. Session history (stage 4) therefore browses summaries, and
+   "revisit a past session" means re-reading its summary — Speak, which
+   already stores full transcripts, keeps them for the resume path but
+   gains no transcript-browsing UI. Nothing needs to be deleted: no tutor
+   transcript was ever stored.
 
 Stages 1 and 2 are IMPLEMENTED (learner_levels migration +
 repositories/level.py + assessment floor + Reader level-shift dials +
