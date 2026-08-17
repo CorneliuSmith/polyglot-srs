@@ -1,6 +1,7 @@
 # Speak — conversation practice with a correction pass
 
-A feature plan. **All four stages are built.** Stage 2 shipped on Azure's
+A feature plan. **All four stages are built, plus a fifth (the
+conversation options) added on the owner's request.** Stage 2 shipped on Azure's
 fast-transcription tier, on the same key and region the app already used
 for neural TTS — the recommendation from docs/plans/speak-speech.md, taken
 as written.
@@ -184,6 +185,7 @@ Each stage is usable on its own; stop after any of them.
 | 2 ✅ | Speech in and out | Latency work lands against something already known to work |
 | 3 ✅ | Coach mode | The interrupting correction is the riskiest UX call; earn the right to it |
 | 4 ✅ | Cards from the summary | Wire to personal cards once the errors are known to be worth keeping |
+| 5 ✅ | Conversation options (auto-speak, hidden text, auto-listen, auto-send) | Added after use: the manual replay button was the only way to hear anything |
 
 Stage 1 is genuinely useful alone — a typed conversation partner with an
 end-of-session breakdown is a real feature.
@@ -307,6 +309,72 @@ Three things worth knowing:
 - **"Practise these" appears only once something has been kept**, and
   routes to the normal review session. There is no separate Speak-only
   drill mode to maintain.
+
+### What stage 5 shipped — the conversation options
+
+The owner: *"For speaking the audio never auto-speaks for users. Instead,
+they have to click the repeat slowly. Create options that provides users real
+convo situations. Audio output automatic or not. Audio response hidden or
+not, auto-response wait (I don't know the best way to do this feature but
+listen for the audio input immediately and send for them when they stop for a
+bit)."*
+
+Four switches, in `prefsStore.speakConversation`, all defaulting OFF so a
+session behaves exactly as it did until somebody asks for more:
+
+| Switch | What it does | Needs |
+| --- | --- | --- |
+| Speak out loud | plays each partner line as it arrives | a voice for the course |
+| Hide the words | the line is heard, not read, with a one-tap reveal | a voice for the course |
+| Listen automatically | opens the microphone when the partner finishes | a recognizer + MediaRecorder |
+| Send when I stop talking | ends and sends the turn on a pause | the above + an AudioContext |
+
+Plus one button that turns the last three on together, for the people who
+just want hands-free.
+
+**They are four switches rather than one mode** because they fail
+differently. Someone on a train wants the partner's text without its voice;
+someone practising listening wants the voice without the text; someone in a
+quiet office wants neither but still wants the microphone armed. A single
+"hands-free mode" would have to pick one of those for everybody.
+
+Five decisions worth knowing:
+
+- **The microphone opens only when the clip has ENDED.** `playLine` resolves
+  on the audio element's `ended` event and only then arms the recorder.
+  Arming it any earlier records the partner's own voice back into the
+  learner's transcript, which is the obvious bug in this feature and the one
+  a test pins.
+- **Auto-send did not delete the transcript-review decision from stage 2 — it
+  turned it into a grace window.** The transcript still appears, for
+  `AUTO_SEND_GRACE_MS` (2s), with a Cancel that moves it into the text box
+  for editing. Hands-free means nobody has to press anything; it does not
+  mean being corrected for words you never said.
+- **Silence detection is adaptive, and reports WHY it stopped**
+  (`features/speak/silence.ts`). The gate sits a few times above the
+  quietest level seen so far, clamped at both ends: a fixed threshold makes
+  soft speakers inaudible in a study and everybody inaudible in a café, and
+  without the ceiling a learner who starts talking before the first sample
+  would set the floor from their own voice. `silence` and `max` transcribe;
+  **`nothing` throws the recording away without calling the provider**,
+  because an empty transcription costs money and buys nothing.
+- **A switch whose prerequisite is missing is shown DISABLED with the
+  reason**, never hidden and never quietly inert. `canDetectSilence()` gates
+  auto-send, `speech.speak` gates the two audio switches, `recordingSupported()`
+  gates the microphone ones.
+- **Auto-speak shares one audio element and one clip cache with the replay
+  buttons.** The element is primed with a silent clip inside the Start tap,
+  because mobile Safari only plays a media element programmatically after it
+  has played once inside a real gesture; if playback is refused anyway the
+  page says so and the manual buttons still work. The cache means hearing a
+  line again — the "say that again, slower" that started this whole
+  request — costs nothing the second time.
+
+**Cost note.** Auto-speak synthesizes every line rather than the ones a
+learner asks for, so a 20-turn conversation goes from a handful of clips to
+20. At Azure's $16/1M characters that is about 5¢ per hundred conversations —
+irrelevant next to the model call. Continuous listening is the one to watch
+if batch STT ever moves to the real-time tier.
 
 ---
 

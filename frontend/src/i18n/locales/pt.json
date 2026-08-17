@@ -1478,6 +1478,25 @@
     "transcriptLabel": "Confira antes de enviar",
     "playPartner": "Ouvir",
     "playSlower": "Repita, mais devagar",
-    "playFailed": "Não foi possível reproduzir."
+    "playFailed": "Não foi possível reproduzir.",
+    "conversationOptions": "Como a conversa deve funcionar",
+    "optAutoSpeak": "Falar em voz alta",
+    "optAutoSpeakHint": "O seu parceiro diz cada frase assim que ela chega.",
+    "optHideText": "Ocultar as palavras",
+    "optHideTextHint": "Ouça primeiro — toque para ler a frase se precisar.",
+    "optAutoListen": "Ouvir automaticamente",
+    "optAutoListenHint": "O microfone abre assim que o seu parceiro termina.",
+    "optAutoSend": "Enviar quando eu parar de falar",
+    "optAutoSendHint": "Sem botões: faça uma pausa e a sua vez é enviada.",
+    "optNoVoice": "Este idioma ainda não tem voz.",
+    "optNoMic": "Este idioma ou navegador ainda não consegue ouvir.",
+    "optNoSilenceDetection": "Este navegador não deteta quando você para de falar.",
+    "handsFree": "Ativar os três — mãos livres",
+    "showText": "Mostrar as palavras",
+    "autoSending": "A enviar isto…",
+    "autoSendCancel": "Não enviar — quero corrigir",
+    "micListeningHandsFree": "A ouvir… pare de falar e será enviado.",
+    "micStillThere": "Não ouvi nada. Toque no microfone quando estiver pronto.",
+    "autoplayBlocked": "O seu navegador não reproduziu sozinho — use o botão de ouvir."
   }
 }

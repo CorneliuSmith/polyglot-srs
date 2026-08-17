@@ -2,7 +2,16 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { Check, Loader2, Mic, Send, Square, Volume2 } from 'lucide-react'
+import {
+  Check,
+  Eye,
+  Loader2,
+  Mic,
+  Send,
+  Square,
+  Volume2,
+  X,
+} from 'lucide-react'
 import {
   endSpeakSession,
   getSpeakStatus,
@@ -11,9 +20,12 @@ import {
   startSpeakSession,
   transcribeTurn,
 } from '../../api/speak'
-import { useRecorder } from './useRecorder'
+import { recordingSupported, useRecorder } from './useRecorder'
+import { canDetectSilence } from './silence'
+import type { AutoStopReason } from './silence'
 import type { SpeakError, SpeakMode, SpeakSummary } from '../../api/speak'
 import type { TutorAllowance } from '../../api/tutor'
+import type { SpeakConversationPrefs } from '../../stores/prefsStore'
 import { createPersonalCard } from '../../api/notes'
 import { getLanguages } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -27,6 +39,28 @@ interface Exchange {
   partner: string
   /** Coach mode only, and at most one. */
   correction?: SpeakError | null
+}
+
+/**
+ * How long a transcript sits on screen before a hands-free turn sends
+ * itself. Short enough to feel automatic, long enough to catch "I didn't say
+ * that" — the transcript-review decision from stage 2 survives as a grace
+ * window rather than being deleted.
+ */
+export const AUTO_SEND_GRACE_MS = 2000
+
+/** A one-sample silent clip, played on the Start tap purely to unlock the
+ * audio element. iOS only lets a media element play programmatically once it
+ * has played inside a real gesture, and Start is the last gesture before the
+ * partner speaks. */
+const SILENT_WAV =
+  'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA='
+
+const CONVERSATION_DEFAULTS: SpeakConversationPrefs = {
+  autoSpeak: false,
+  hideText: false,
+  autoListen: false,
+  autoSend: false,
 }
 
 /**
@@ -73,12 +107,50 @@ export default function SpeakPage() {
   // Speech. The recorder is a browser fact, `status.speech` is a server
   // fact, and the microphone needs both: a course Azure cannot transcribe
   // is as mute as a browser with no MediaRecorder.
-  const recorder = useRecorder()
-  const canListen = recorder.supported && !!status?.speech?.listen
+  const canListen = recordingSupported() && !!status?.speech?.listen
   const canHear = !!status?.speech?.speak
   // Held from the recording that produced the current draft, so a turn
   // the learner edits before sending still reports the time they spoke.
   const [spokenMs, setSpokenMs] = useState<number | null>(null)
+
+  // ── Conversation options (owner request) ──────────────────────────────
+  // Four switches, each defaulting off, and each one only ON if the thing it
+  // needs exists: no voice for this course means no auto-speak, no analyser
+  // in this browser means no auto-send. A toggle that silently does nothing
+  // is worse than one that isn't offered.
+  const storedConversation = usePrefsStore((s) => s.speakConversation)
+  const setConversation = usePrefsStore((s) => s.setSpeakConversation)
+  const conv = { ...CONVERSATION_DEFAULTS, ...(storedConversation ?? {}) }
+  const canAutoSend = canDetectSilence()
+  const autoSpeak = conv.autoSpeak && canHear
+  const maskText = conv.hideText && canHear
+  const autoListen = conv.autoListen && canListen
+  const autoSend = conv.autoSend && canListen && canAutoSend
+
+  // Which partner lines the learner has asked to read, in a hidden-text
+  // session. Reset with each conversation.
+  const [revealed, setRevealed] = useState<Record<number, boolean>>({})
+  // A transcript waiting out its grace window before it sends itself.
+  const [pending, setPending] = useState<{ text: string; ms: number } | null>(
+    null,
+  )
+  // Set when the browser refused to play audio we didn't ask a finger for.
+  // The manual play buttons still work, so this is a note, not an error.
+  const [autoplayBlocked, setAutoplayBlocked] = useState(false)
+  // Synthesized clips, keyed by turn and pace. Auto-speak and the replay
+  // buttons share it, so hearing a line again costs nothing.
+  const clips = useRef(new Map<string, string>())
+  const player = useRef<HTMLAudioElement | null>(null)
+  // How many exchanges have already been spoken/armed, so a re-render never
+  // plays the same line twice.
+  const announced = useRef(0)
+  // Read inside callbacks that outlive the render that made them.
+  const flags = useRef({ autoSpeak, autoListen, autoSend })
+  flags.current = { autoSpeak, autoListen, autoSend }
+
+  const recorder = useRecorder({
+    onAutoStop: autoSend ? (reason) => handleAutoStop(reason) : undefined,
+  })
 
   useEffect(() => {
     if (status?.allowance) setAllowance(status.allowance)
@@ -103,9 +175,106 @@ export default function SpeakPage() {
       )
       setSummary(null)
       setError(null)
+      // A new conversation starts with nothing spoken, nothing revealed and
+      // no clips worth keeping — the turn indexes belong to the old session.
+      announced.current = 0
+      clips.current.clear()
+      setRevealed({})
+      setPending(null)
+      setAutoplayBlocked(false)
     },
     onError: () => setError(t('speak.startFailed')),
   })
+
+  /** One synthesized clip, fetched once and remembered. */
+  async function getClip(turnIndex: number, slow: boolean): Promise<string> {
+    const key = `${turnIndex}:${slow ? 1 : 0}`
+    const cached = clips.current.get(key)
+    if (cached) return cached
+    const b64 = await speakPartnerLine(sessionId!, turnIndex, slow)
+    clips.current.set(key, b64)
+    return b64
+  }
+
+  /**
+   * Unlock the audio element inside the Start tap.
+   *
+   * Mobile Safari will only play a media element programmatically after that
+   * element has played once inside a real gesture. Start is the last gesture
+   * before the partner speaks, so a one-sample silent clip is played here and
+   * the same element carries every line afterwards. Failure is fine: the page
+   * falls back to the manual play buttons and says so.
+   */
+  function primePlayer() {
+    if (player.current) return
+    try {
+      const el = new Audio(SILENT_WAV)
+      player.current = el
+      void el.play()?.then?.(() => el.pause())?.catch?.(() => {})
+    } catch {
+      // No Audio in this environment; auto-speak degrades to the buttons.
+    }
+  }
+
+  /** Speak one partner line and resolve when it has finished — false if the
+   * browser wouldn't play it. Waiting for the END matters: arming the
+   * microphone early would record the partner's own voice. */
+  async function playLine(turnIndex: number): Promise<boolean> {
+    try {
+      const b64 = await getClip(turnIndex, false)
+      const el = player.current ?? new Audio()
+      player.current = el
+      el.src = `data:audio/mpeg;base64,${b64}`
+      await new Promise<void>((resolve, reject) => {
+        el.onended = () => resolve()
+        el.onerror = () => reject(new Error('playback'))
+        const started = el.play() as Promise<void> | undefined
+        started?.catch?.(reject)
+      })
+      return true
+    } catch {
+      return false
+    }
+  }
+
+  /** Open the microphone for the learner's reply, if they asked for that. */
+  function armListening() {
+    if (!flags.current.autoListen) return
+    if (recorder.recording || transcribe.isPending || turn.isPending) return
+    setError(null)
+    void recorder.start()
+  }
+
+  /**
+   * The partner has just said something: read it out, then listen.
+   *
+   * Both halves are optional and independent, and the order is the point —
+   * speaking first and listening after is what makes a hands-free session a
+   * conversation instead of two things talking over each other.
+   */
+  async function announce(turnIndex: number) {
+    if (flags.current.autoSpeak) {
+      const played = await playLine(turnIndex)
+      if (!played) setAutoplayBlocked(true)
+    }
+    armListening()
+  }
+
+  /**
+   * The detector says the learner stopped. What that means depends on why.
+   *
+   * 'nothing' is an empty room: throw the recording away without calling the
+   * provider, because an empty transcription costs money and buys nothing,
+   * and say something rather than leaving the microphone light on.
+   */
+  function handleAutoStop(reason: AutoStopReason) {
+    if (reason === 'nothing') {
+      recorder.cancel()
+      setError(t('speak.micStillThere'))
+      return
+    }
+    transcribe.mutate()
+  }
 
   /**
    * Stop recording, transcribe, and put the result in the draft box —
@@ -129,9 +298,16 @@ export default function SpeakPage() {
         setError(t('speak.micHeardNothing'))
         return
       }
+      setError(null)
+      // Hands-free: the transcript still gets read, it just isn't waited on.
+      // It goes up with a countdown and a Cancel, so "that isn't what I said"
+      // remains a two-second decision instead of a lost one.
+      if (flags.current.autoSend) {
+        setPending({ text: result.text, ms: result.ms })
+        return
+      }
       setDraft(result.text)
       setSpokenMs(result.ms)
-      setError(null)
     },
     onError: () => setError(t('speak.micFailed')),
   })
@@ -161,13 +337,52 @@ export default function SpeakPage() {
   })
 
   const finish = useMutation({
-    mutationFn: () => endSpeakSession(sessionId!),
+    mutationFn: () => {
+      // Done means done: stop listening and stop talking before the summary
+      // arrives, or a hands-free session keeps holding the microphone and a
+      // clip plays over the next screen.
+      recorder.cancel()
+      player.current?.pause?.()
+      setPending(null)
+      return endSpeakSession(sessionId!)
+    },
     onSuccess: (data) => {
       setSummary(data.summary)
       setSessionId(null)
     },
     onError: () => setError(t('speak.endFailed')),
   })
+
+  /** The partner's newest line, spoken and answered. Keyed on how many
+   * exchanges exist, and guarded by a counter rather than the effect's deps,
+   * because a re-render must never replay a line the learner already heard. */
+  useEffect(() => {
+    if (!sessionId) return
+    const index = exchanges.length - 1
+    if (index < 0 || announced.current > index) return
+    announced.current = index + 1
+    void announce(index)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [exchanges.length, sessionId])
+
+  /** A pending transcript sends itself when its grace window runs out. */
+  useEffect(() => {
+    if (!pending) return
+    const timer = window.setTimeout(() => {
+      setPending(null)
+      turn.mutate({ text: pending.text, audioMs: pending.ms })
+    }, AUTO_SEND_GRACE_MS)
+    return () => window.clearTimeout(timer)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pending])
+
+  /** Leaving the page mid-sentence must not leave a voice talking. */
+  useEffect(() => {
+    return () => {
+      player.current?.pause?.()
+      player.current = null
+    }
+  }, [])
 
   function submit() {
     const text = draft.trim()
@@ -295,10 +510,22 @@ export default function SpeakPage() {
             {t('speak.micUnsupportedLanguage')}
           </p>
         )}
+        <ConversationOptions
+          value={conv}
+          onChange={setConversation}
+          canHear={canHear}
+          canListen={canListen}
+          canAutoSend={canAutoSend}
+        />
+
         <button
           type="button"
           data-testid="speak-start"
-          onClick={() => start.mutate()}
+          onClick={() => {
+            // Inside the gesture, so the partner can speak later.
+            if (conv.autoSpeak && canHear) primePlayer()
+            start.mutate()
+          }}
           disabled={start.isPending || !language}
           className="mt-4 w-full rounded-xl bg-lang px-6 py-3 text-sm font-bold text-white disabled:opacity-50"
           style={{ minHeight: '44px' }}
@@ -350,15 +577,32 @@ export default function SpeakPage() {
                 </span>
               </div>
             )}
-            <LanguageWrapper languageCode={language?.code ?? 'en'}>
-              <p className="max-w-[85%] rounded-2xl bg-white border border-gray-200 px-4 py-2 text-sm text-gray-900 w-fit">
-                {x.partner}
-              </p>
-            </LanguageWrapper>
+            {/* Listening practice: heard, not read, until they ask. The
+                words are withheld rather than absent — one tap shows them,
+                because a learner stuck on one word should be able to look
+                instead of abandoning the conversation. */}
+            {maskText && !revealed[i] ? (
+              <button
+                type="button"
+                onClick={() => setRevealed((prev) => ({ ...prev, [i]: true }))}
+                data-testid={`speak-reveal-${i}`}
+                className="flex items-center gap-2 rounded-2xl border border-dashed border-gray-300 bg-white px-4 py-2 text-sm text-gray-500 w-fit"
+                style={{ minHeight: '44px' }}
+              >
+                <Eye aria-hidden className="h-4 w-4" />
+                {t('speak.showText')}
+              </button>
+            ) : (
+              <LanguageWrapper languageCode={language?.code ?? 'en'}>
+                <p className="max-w-[85%] rounded-2xl bg-white border border-gray-200 px-4 py-2 text-sm text-gray-900 w-fit">
+                  {x.partner}
+                </p>
+              </LanguageWrapper>
+            )}
             {canHear && sessionId && (
               <PartnerAudio
-                sessionId={sessionId}
                 turnIndex={i}
+                getClip={getClip}
                 onError={() => setError(t('speak.playFailed'))}
               />
             )}
@@ -389,6 +633,40 @@ export default function SpeakPage() {
         <p className="mt-3 text-xs text-gray-500" data-testid="speak-transcript-note">
           {t('speak.transcriptLabel')}
         </p>
+      )}
+
+      {/* Hands-free: what was heard, on its way, with two seconds to stop it.
+          Sending without showing anything would be faster and would also mean
+          being corrected for words you never said — so the transcript still
+          gets read, it just doesn't need a tap. */}
+      {pending && (
+        <div
+          data-testid="speak-pending"
+          className="mt-3 flex items-start gap-3 rounded-xl border border-lang/40 bg-lang-soft/40 px-4 py-2"
+        >
+          <span className="flex-1 text-sm text-gray-800">
+            <span className="block text-xs text-lang-label">
+              {t('speak.autoSending')}
+            </span>
+            {pending.text}
+          </span>
+          <button
+            type="button"
+            onClick={() => {
+              // Not what they said: keep the text, let them fix it, and don't
+              // send anything until they do.
+              setDraft(pending.text)
+              setSpokenMs(pending.ms)
+              setPending(null)
+            }}
+            aria-label={t('speak.autoSendCancel')}
+            data-testid="speak-pending-cancel"
+            className="shrink-0 rounded-lg border border-gray-300 bg-white p-2 text-gray-600"
+            style={{ minHeight: '44px', minWidth: '44px' }}
+          >
+            <X aria-hidden className="h-4 w-4" />
+          </button>
+        </div>
       )}
 
       <div className="mt-4 flex items-end gap-2">
@@ -453,7 +731,9 @@ export default function SpeakPage() {
       {canListen && (
         <p className="mt-2 text-xs text-gray-500" data-testid="speak-mic-state">
           {recorder.recording
-            ? t('speak.micListening')
+            ? autoSend
+              ? t('speak.micListeningHandsFree')
+              : t('speak.micListening')
             : transcribe.isPending
               ? t('speak.micTranscribing')
               /* A permission prompt is not consent. One plain line, before
@@ -461,6 +741,33 @@ export default function SpeakPage() {
               : t('speak.micPrivacy')}
         </p>
       )}
+
+      {/* The browser refused to play a clip nobody's finger asked for. The
+          replay buttons still work, so this explains rather than alarms. */}
+      {autoplayBlocked && (
+        <p className="mt-2 text-xs text-gray-600" data-testid="speak-autoplay-blocked">
+          {t('speak.autoplayBlocked')}
+        </p>
+      )}
+
+      {/* Mid-conversation, the options are a disclosure rather than a panel:
+          the escape hatch has to be reachable without ending the session
+          (a hands-free session in a suddenly-crowded room). */}
+      <details className="mt-4">
+        <summary className="cursor-pointer text-xs font-semibold text-lang">
+          {t('speak.conversationOptions')}
+        </summary>
+        <div className="mt-2">
+          <ConversationOptions
+            value={conv}
+            onChange={setConversation}
+            canHear={canHear}
+            canListen={canListen}
+            canAutoSend={canAutoSend}
+            compact
+          />
+        </div>
+      </details>
 
       <button
         type="button"
@@ -488,12 +795,15 @@ export default function SpeakPage() {
  * real money on audio nobody listens to.
  */
 function PartnerAudio({
-  sessionId,
   turnIndex,
+  getClip,
   onError,
 }: {
-  sessionId: string
   turnIndex: number
+  /** Shared with auto-speak, so a line already spoken replays for free —
+   * which is also why this component no longer needs the session id: the
+   * page owns both the cache and the fetch. */
+  getClip: (turnIndex: number, slow: boolean) => Promise<string>
   onError: () => void
 }) {
   const { t } = useTranslation()
@@ -513,7 +823,7 @@ function PartnerAudio({
     if (busy) return
     setBusy(slow ? 'slow' : 'normal')
     try {
-      const b64 = await speakPartnerLine(sessionId, turnIndex, slow)
+      const b64 = await getClip(turnIndex, slow)
       audio.current?.pause()
       const el = new Audio(`data:audio/mpeg;base64,${b64}`)
       audio.current = el
@@ -799,5 +1109,133 @@ function AddButton({
     >
       {failed ? t('speak.addRetry') : t('speak.add')}
     </button>
+  )
+}
+
+/**
+ * The four conversation switches (owner: "create options that provide users
+ * real convo situations").
+ *
+ * Four independent checkboxes rather than one hands-free mode, plus a button
+ * that sets all four at once for the people who want exactly that. They are
+ * independent because they fail differently — someone on a train wants the
+ * partner's text without its voice, and someone practising listening wants
+ * the voice without the text — and because a single mode would have to pick
+ * one of those for everybody.
+ *
+ * A switch whose prerequisite is missing is shown DISABLED with the reason,
+ * not hidden: "why can't I turn this on" is answerable, and a control that
+ * silently vanishes on some courses reads as a bug.
+ */
+function ConversationOptions({
+  value,
+  onChange,
+  canHear,
+  canListen,
+  canAutoSend,
+  compact = false,
+}: {
+  value: SpeakConversationPrefs
+  onChange: (patch: Partial<SpeakConversationPrefs>) => void
+  canHear: boolean
+  canListen: boolean
+  canAutoSend: boolean
+  compact?: boolean
+}) {
+  const { t } = useTranslation()
+
+  const rows: Array<{
+    key: keyof SpeakConversationPrefs
+    label: string
+    hint: string
+    enabled: boolean
+    blockedBecause: string
+  }> = [
+    {
+      key: 'autoSpeak',
+      label: t('speak.optAutoSpeak'),
+      hint: t('speak.optAutoSpeakHint'),
+      enabled: canHear,
+      blockedBecause: t('speak.optNoVoice'),
+    },
+    {
+      key: 'hideText',
+      label: t('speak.optHideText'),
+      hint: t('speak.optHideTextHint'),
+      enabled: canHear,
+      blockedBecause: t('speak.optNoVoice'),
+    },
+    {
+      key: 'autoListen',
+      label: t('speak.optAutoListen'),
+      hint: t('speak.optAutoListenHint'),
+      enabled: canListen,
+      blockedBecause: t('speak.optNoMic'),
+    },
+    {
+      key: 'autoSend',
+      label: t('speak.optAutoSend'),
+      hint: t('speak.optAutoSendHint'),
+      enabled: canListen && canAutoSend,
+      blockedBecause: canListen
+        ? t('speak.optNoSilenceDetection')
+        : t('speak.optNoMic'),
+    },
+  ]
+
+  const handsFreeAvailable = canHear && canListen && canAutoSend
+  const handsFreeOn =
+    value.autoSpeak && value.autoListen && value.autoSend
+
+  return (
+    <fieldset className={compact ? '' : 'mt-4'} data-testid="speak-options">
+      {!compact && (
+        <legend className="text-sm font-semibold text-gray-800">
+          {t('speak.conversationOptions')}
+        </legend>
+      )}
+      <div className="mt-2 space-y-1.5">
+        {rows.map((row) => (
+          <label
+            key={row.key}
+            data-testid={`speak-opt-${row.key}`}
+            className={`flex items-start gap-3 rounded-xl border p-2.5 ${
+              row.enabled
+                ? 'cursor-pointer border-gray-200 bg-white'
+                : 'border-gray-100 bg-gray-50 opacity-70'
+            }`}
+          >
+            <input
+              type="checkbox"
+              checked={row.enabled && value[row.key]}
+              disabled={!row.enabled}
+              onChange={(e) => onChange({ [row.key]: e.target.checked })}
+              className="mt-0.5 accent-[color:var(--lang)]"
+            />
+            <span>
+              <span className="block text-sm font-semibold text-gray-900">
+                {row.label}
+              </span>
+              <span className="block text-xs text-gray-500">
+                {row.enabled ? row.hint : row.blockedBecause}
+              </span>
+            </span>
+          </label>
+        ))}
+      </div>
+      {handsFreeAvailable && !handsFreeOn && (
+        <button
+          type="button"
+          onClick={() =>
+            onChange({ autoSpeak: true, autoListen: true, autoSend: true })
+          }
+          data-testid="speak-hands-free"
+          className="mt-2 rounded-xl border border-lang px-4 py-2 text-xs font-bold text-lang"
+          style={{ minHeight: '36px' }}
+        >
+          {t('speak.handsFree')}
+        </button>
+      )}
+    </fieldset>
   )
 }
