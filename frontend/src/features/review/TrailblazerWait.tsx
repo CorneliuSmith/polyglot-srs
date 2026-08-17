@@ -4,16 +4,12 @@ import { useTranslation } from 'react-i18next'
 import { ArrowLeft, Compass, Sparkles } from 'lucide-react'
 import { getSessionReadiness } from '../../api/review'
 import type { SessionReadiness } from '../../api/types'
+import MatchGame, { MIN_GAME_PAIRS } from './MatchGame'
 import TriviaGame from './TriviaGame'
 
-/** How many pairs the match game needs before it's worth showing. Below
- * this the screen is animation + progress only — anything else we could
- * show would be English, which is what the learner chose to wait out. */
-const MIN_GAME_PAIRS = 4
 /** No new rows in this long and the fill isn't happening — say so rather
  * than leaving someone watching a bar that will never move. */
 const STALL_AFTER_MS = 45_000
-const ROUND_SIZE = 5
 
 interface Props {
   languageId: string
@@ -36,122 +32,6 @@ interface Props {
   /** Overridable so a test can exercise the real stall path without
    * waiting 45 seconds or fighting the poll interval with fake timers. */
   stallAfterMs?: number
-}
-
-/** Deterministic-enough shuffle for a game round. */
-function shuffle<T>(arr: T[]): T[] {
-  const out = [...arr]
-  for (let i = out.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[out[i], out[j]] = [out[j], out[i]]
-  }
-  return out
-}
-
-interface Pair {
-  word: string
-  gloss: string
-}
-
-/** Tap-to-match: the words of the very session being waited for, in the
- * slice of it that has already landed in the learner's language. The pool
- * grows as the loop fills — the longer the wait, the richer the game — and
- * every match is a word the learner meets for real minutes later. */
-function MatchGame({ pool }: { pool: Pair[] }) {
-  const { t } = useTranslation()
-  const [roundPairs, setRoundPairs] = useState<Pair[]>([])
-  const [glossOrder, setGlossOrder] = useState<Pair[]>([])
-  const [matched, setMatched] = useState<Set<string>>(new Set())
-  const [pickedWord, setPickedWord] = useState<string | null>(null)
-  const [shakeWord, setShakeWord] = useState<string | null>(null)
-  const [score, setScore] = useState(0)
-
-  // New round whenever the current one is cleared (or on first pool).
-  const roundDone = roundPairs.length > 0 && matched.size >= roundPairs.length
-  useEffect(() => {
-    if (roundPairs.length > 0 && !roundDone) return
-    if (pool.length < 2) return
-    const next = shuffle(pool).slice(0, ROUND_SIZE)
-    // Let a cleared board breathe for a beat before the next one.
-    const timer = window.setTimeout(
-      () => {
-        setRoundPairs(next)
-        setGlossOrder(shuffle(next))
-        setMatched(new Set())
-        setPickedWord(null)
-      },
-      roundDone ? 600 : 0,
-    )
-    return () => window.clearTimeout(timer)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [roundDone, roundPairs.length, pool.length])
-
-  const tapGloss = (p: Pair) => {
-    if (!pickedWord || matched.has(p.word)) return
-    if (p.word === pickedWord) {
-      setMatched((prev) => new Set(prev).add(p.word))
-      setScore((n) => n + 1)
-      setPickedWord(null)
-    } else {
-      setShakeWord(pickedWord)
-      window.setTimeout(() => setShakeWord(null), 350)
-      setPickedWord(null)
-    }
-  }
-
-  const cell =
-    'w-full rounded-lg border px-3 py-2 text-sm font-medium transition-all duration-150 text-center'
-
-  return (
-    <div data-testid="match-game" className="w-full max-w-sm space-y-3">
-      <p className="text-xs text-gray-500 text-center">
-        {t('trailblazer.gameHint')}
-        {score > 0 && (
-          <span className="ms-2 text-lang font-semibold">
-            {t('trailblazer.matched', { count: score })}
-          </span>
-        )}
-      </p>
-      <div className="grid grid-cols-2 gap-2">
-        <div className="space-y-2">
-          {roundPairs.map((p) => (
-            <button
-              key={p.word}
-              type="button"
-              disabled={matched.has(p.word)}
-              onClick={() => setPickedWord(p.word)}
-              className={`${cell} ${
-                matched.has(p.word)
-                  ? 'border-green-300 bg-green-50 text-green-600 opacity-60'
-                  : pickedWord === p.word
-                    ? 'border-lang bg-lang/10 text-lang'
-                    : 'border-gray-200 bg-white text-gray-800 hover:border-lang/50'
-              } ${shakeWord === p.word ? 'animate-pulse border-red-300' : ''}`}
-            >
-              {p.word}
-            </button>
-          ))}
-        </div>
-        <div className="space-y-2">
-          {glossOrder.map((p) => (
-            <button
-              key={p.gloss + p.word}
-              type="button"
-              disabled={matched.has(p.word)}
-              onClick={() => tapGloss(p)}
-              className={`${cell} ${
-                matched.has(p.word)
-                  ? 'border-green-300 bg-green-50 text-green-600 opacity-60'
-                  : 'border-gray-200 bg-white text-gray-700 hover:border-lang/50'
-              }`}
-            >
-              {p.gloss}
-            </button>
-          ))}
-        </div>
-      </div>
-    </div>
-  )
 }
 
 /** The trailblazer wait: shown when a session's content hasn't been written

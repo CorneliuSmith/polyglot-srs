@@ -16,6 +16,8 @@ import { createPersonalCard } from '../../api/notes'
 import { getLanguages } from '../../api/profile'
 import { getUsageAllowance } from '../../api/tutor'
 import { usePrefsStore } from '../../stores/prefsStore'
+import { usePendingReadingStore } from '../../stores/pendingReadingStore'
+import ReadingWait from './ReadingWait'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { prefetchTTSMany } from '../../api/audio'
 import Annotatable from '../contribute/Annotatable'
@@ -119,17 +121,50 @@ export default function ReaderPage() {
     setFailedWords(new Set())
   }
 
-  const generateMutation = useMutation({
-    mutationFn: () =>
-      generateReading(activeLanguageId!, language!.code, topic.trim(), textOptions),
-    onSuccess: (res) => {
-      resetReadingState()
-      // TTS languages: hold the text back and offer ear-first immersion.
-      if (TTS_LANGUAGES.has(language!.code)) setStage('listen')
-      setReading({ ...res.reading, id: res.id, topic: topic.trim() } as Reading)
-      queryClient.invalidateQueries({ queryKey: ['readings'] })
-    },
-  })
+  // Generation is owned by the STORE, not by this page: the learner is
+  // invited to go play or run reviews while the text is written (#286),
+  // and a mutation dies with the component that started it — the finished
+  // text would be dropped on the floor the moment they navigated away.
+  const pendingJob = usePendingReadingStore((s) => s.pending)
+  const readyReading = usePendingReadingStore((s) => s.ready)
+  const generateFailed = usePendingReadingStore((s) => s.error)
+  const startGeneration = usePendingReadingStore((s) => s.start)
+  const claimReading = usePendingReadingStore((s) => s.claim)
+
+  const showReading = (res: {
+    id: string
+    reading: Omit<Reading, 'id' | 'topic'>
+    topic: string
+  }) => {
+    resetReadingState()
+    // TTS languages: hold the text back and offer ear-first immersion.
+    if (TTS_LANGUAGES.has(language!.code)) setStage('listen')
+    setReading({ ...res.reading, id: res.id, topic: res.topic } as Reading)
+    queryClient.invalidateQueries({ queryKey: ['readings'] })
+  }
+
+  // Claim whatever finished — whether the learner sat here the whole time
+  // or came back by the banner after a round of reviews.
+  useEffect(() => {
+    if (!readyReading || !language) return
+    const claimed = claimReading()
+    if (claimed) showReading(claimed)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [readyReading, language])
+
+  const startWriting = () => {
+    if (!activeLanguageId || !language || !topic.trim()) return
+    const asked = topic.trim()
+    startGeneration(
+      {
+        topic: asked,
+        languageId: activeLanguageId,
+        languageCode: language.code,
+        startedAt: Date.now(),
+      },
+      generateReading(activeLanguageId, language.code, asked, textOptions),
+    )
+  }
 
   const openMutation = useMutation({
     mutationFn: (id: string) => getReading(id),
@@ -309,9 +344,7 @@ export default function ReaderPage() {
             <form
               onSubmit={(e) => {
                 e.preventDefault()
-                if (topic.trim() && !generateMutation.isPending) {
-                  generateMutation.mutate()
-                }
+                if (topic.trim() && !pendingJob) startWriting()
               }}
               className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3"
             >
@@ -328,11 +361,11 @@ export default function ReaderPage() {
                 />
                 <button
                   type="submit"
-                  disabled={!topic.trim() || generateMutation.isPending}
+                  disabled={!topic.trim() || !!pendingJob}
                   className="rounded-lg bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on px-4 py-2 text-sm font-semibold"
                   style={{ minHeight: '44px' }}
                 >
-                  {generateMutation.isPending ? t('reader.writing') : t('reader.writeIt')}
+                  {pendingJob ? t('reader.writing') : t('reader.writeIt')}
                 </button>
               </div>
               {/* Shape the text: three bounded choices, one pill row each. */}
@@ -401,7 +434,7 @@ export default function ReaderPage() {
                   </div>
                 ))}
               </div>
-              {generateMutation.isError && (
+              {generateFailed && (
                 <p className="text-xs text-red-600" role="alert">
                   {t('reader.generateError')}
                 </p>
@@ -411,6 +444,16 @@ export default function ReaderPage() {
               </p>
               <UsageMeter allowance={usage?.allowance} />
             </form>
+
+            {/* The wait is no longer dead time: play the word game over
+                due words, or go run reviews — the text finds them either
+                way (components/ReadingReadyBanner). */}
+            {pendingJob && (
+              <ReadingWait
+                languageId={pendingJob.languageId}
+                topic={pendingJob.topic}
+              />
+            )}
 
             {shelf.length > 0 && (
               <div

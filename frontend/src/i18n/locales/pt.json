@@ -178,7 +178,20 @@
     "addFailed": "Não foi possível adicionar",
     "adding": "Adicionando…",
     "retry": "Tentar de novo",
-    "addToReviews": "Adicionar às revisões"
+    "addToReviews": "Adicionar às revisões",
+    "wait": {
+      "title": "Escrevendo sobre “{{topic}}”…",
+      "body": "Isto leva um minuto: seu texto é escrito, avaliado no seu nível e reescrito se não acertar.",
+      "play": "Jogue enquanto espera",
+      "review": "Revise enquanto espera",
+      "noGame": "Ainda não há nada para jogar — seu texto está a caminho.",
+      "promise": "Pode sair: avisamos assim que estiver pronto."
+    },
+    "ready": {
+      "title": "Seu texto está pronto",
+      "body": "Sobre “{{topic}}” · toque para ler",
+      "dismiss": "Dispensar"
+    }
   },
   "tutor": {
     "title": "Tutor de {{language}}",

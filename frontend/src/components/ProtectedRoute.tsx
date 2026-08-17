@@ -3,6 +3,7 @@ import { Navigate, Outlet, useNavigate } from 'react-router-dom'
 import BottomNav from './BottomNav'
 import { initNative } from '../lib/native'
 import { useAuthStore } from '../stores/authStore'
+import ReadingReadyBanner from './ReadingReadyBanner'
 import StaffBar from './StaffBar'
 
 export default function ProtectedRoute() {
@@ -51,10 +52,14 @@ export default function ProtectedRoute() {
   // BottomNav rides here for the same reason: the only shared shell. It
   // hides itself on desktop, where the header's inline nav already covers
   // the same destinations without spending vertical space.
+  // ReadingReadyBanner rides here too: a text written while the learner
+  // went off to review has to reach them wherever they went, and this is
+  // the only shell that spans every page they could be on.
   return (
     <>
       <StaffBar />
       <Outlet />
+      <ReadingReadyBanner />
       <BottomNav />
     </>
   )
