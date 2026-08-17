@@ -335,6 +335,35 @@ describe('Speak — conversation options', () => {
     ).not.toBeDisabled()
   })
 
+  it('offers conversation starters that fill the box rather than send', async () => {
+    // Owner: "add a bunch more default questions for speech". The starter
+    // is EDITABLE after the tap — it lands in the topic field, which is what
+    // gets sent, so a learner can bend it before it becomes the scenario.
+    mockStatus.mockResolvedValue({
+      available: true, allowance, sessions: [],
+      speech: { listen: true, speak: true },
+    })
+    mockStart.mockResolvedValue({
+      session_id: 's1', mode: 'flow', topic: null, opening: OPENING,
+    })
+    renderPage()
+
+    const starter = await screen.findByTestId('speak-topic-doctor')
+    fireEvent.click(starter)
+    expect(screen.getByLabelText(/what shall we talk about/i)).toHaveValue(
+      'Explaining a symptom to a doctor',
+    )
+    // Nothing has started — picking a topic is not starting a conversation.
+    expect(mockStart).not.toHaveBeenCalled()
+
+    fireEvent.click(screen.getByTestId('speak-start'))
+    await waitFor(() =>
+      expect(mockStart).toHaveBeenCalledWith(
+        'lang-es', 'es', 'Explaining a symptom to a doctor', 'flow',
+      ),
+    )
+  })
+
   it('the hands-free button turns on all three at once', async () => {
     mockStatus.mockResolvedValue({
       available: true, allowance, sessions: [],

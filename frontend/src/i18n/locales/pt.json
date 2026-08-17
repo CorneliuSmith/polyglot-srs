@@ -193,7 +193,11 @@
       "dismiss": "Dispensar"
     },
     "deleteConfirm": "Excluir “{{title}}”?\n\nSó o texto sai — as palavras que você salvou continuam nas suas revisões.",
-    "deleteAria": "Excluir “{{title}}”"
+    "deleteAria": "Excluir “{{title}}”",
+    "registerNative": "Nativo",
+    "registerAcademic": "Académico",
+    "registerLiterary": "Literário",
+    "registerHint": "Acima do C2 não há mais níveis: estes são tipos de escrita, para lá da escala."
   },
   "tutor": {
     "title": "Tutor de {{language}}",
@@ -1497,6 +1501,32 @@
     "autoSendCancel": "Não enviar — quero corrigir",
     "micListeningHandsFree": "A ouvir… pare de falar e será enviado.",
     "micStillThere": "Não ouvi nada. Toque no microfone quando estiver pronto.",
-    "autoplayBlocked": "O seu navegador não reproduziu sozinho — use o botão de ouvir."
+    "autoplayBlocked": "O seu navegador não reproduziu sozinho — use o botão de ouvir.",
+    "topicGroups": {
+      "everyday": "Dia a dia",
+      "practical": "Resolver alguma coisa",
+      "opinion": "Diga o que pensa"
+    },
+    "topics": {
+      "coffee": "Pedir um café e mudar de ideias",
+      "directions": "Perguntar o caminho e não perceber a resposta",
+      "introductions": "Conhecer alguém numa festa",
+      "clothes": "Comprar roupa que não serve",
+      "weekend": "O que fez no fim de semana",
+      "neighbour": "Conversa curta com um vizinho",
+      "doctor": "Explicar um sintoma ao médico",
+      "flat": "Ver um apartamento e perguntar pela renda",
+      "hotel": "Fazer check-in e o quarto está errado",
+      "missedTrain": "Perdeu o comboio: trate do próximo",
+      "interview": "Uma entrevista para o trabalho que faz",
+      "returnItem": "Devolver algo sem o recibo",
+      "film": "Um filme que vale a pena, e porquê",
+      "changedMind": "Algo sobre o qual mudou de ideias",
+      "cityBestWorst": "O melhor e o pior da sua cidade",
+      "explainJob": "Explique o seu trabalho a uma criança de dez anos",
+      "habit": "Um hábito que gostaria de mudar",
+      "disagree": "Discordar com educação de alguém de quem gosta"
+    },
+    "topicSuggestLabel": "Ou escolha um"
   }
 }

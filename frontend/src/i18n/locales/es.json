@@ -193,7 +193,11 @@
       "dismiss": "Descartar"
     },
     "deleteConfirm": "¿Eliminar «{{title}}»?\n\nSolo se borra el texto: las palabras que guardaste siguen en tus repasos.",
-    "deleteAria": "Eliminar «{{title}}»"
+    "deleteAria": "Eliminar «{{title}}»",
+    "registerNative": "Nativo",
+    "registerAcademic": "Académico",
+    "registerLiterary": "Literario",
+    "registerHint": "Por encima de C2 no quedan niveles: estos son tipos de escritura, más allá de la escala."
   },
   "tutor": {
     "title": "Tutor de {{language}}",
@@ -1497,6 +1501,32 @@
     "autoSendCancel": "No enviar: quiero corregirlo",
     "micListeningHandsFree": "Escuchando… deja de hablar y se envía.",
     "micStillThere": "No he oído nada. Toca el micrófono cuando estés listo.",
-    "autoplayBlocked": "Tu navegador no lo ha reproducido solo: usa el botón de escuchar."
+    "autoplayBlocked": "Tu navegador no lo ha reproducido solo: usa el botón de escuchar.",
+    "topicGroups": {
+      "everyday": "Día a día",
+      "practical": "Resolver algo",
+      "opinion": "Di lo que piensas"
+    },
+    "topics": {
+      "coffee": "Pedir un café y cambiar de opinión",
+      "directions": "Preguntar el camino y no entender la respuesta",
+      "introductions": "Conocer a alguien en una fiesta",
+      "clothes": "Comprar ropa que no te queda bien",
+      "weekend": "Lo que hiciste el fin de semana",
+      "neighbour": "Charla breve con un vecino",
+      "doctor": "Explicarle un síntoma al médico",
+      "flat": "Ver un piso y preguntar por el alquiler",
+      "hotel": "Registrarte y que la habitación esté mal",
+      "missedTrain": "Perdiste el tren: organiza el siguiente",
+      "interview": "Una entrevista para el trabajo que haces",
+      "returnItem": "Devolver algo sin el recibo",
+      "film": "Una película que vale la pena, y por qué",
+      "changedMind": "Algo sobre lo que cambiaste de opinión",
+      "cityBestWorst": "Lo mejor y lo peor de tu ciudad",
+      "explainJob": "Explica tu trabajo a un niño de diez años",
+      "habit": "Una costumbre que te gustaría cambiar",
+      "disagree": "Discrepar con educación de alguien que aprecias"
+    },
+    "topicSuggestLabel": "O elige uno"
   }
 }

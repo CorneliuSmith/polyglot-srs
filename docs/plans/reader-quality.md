@@ -93,6 +93,34 @@ a flunk exactly like `level_ok`.
   Easier / My level / Stretch. CEFR codes are level names in every
   locale — no new translation keys needed beyond the row itself.
 
+### 5. Above the ladder: three registers (added 17 Aug 2026)
+
+The owner: *"can you add more options — like a level higher than c2 — like
+university-level or academic?"*
+
+CEFR stops at C2. Inventing a C3 would be a fiction the model would
+cheerfully perform (it would write "harder-sounding" prose without any
+anchor), so the three additions are **registers** rather than rungs:
+
+| Value | Pitched at | What it asks for |
+| --- | --- | --- |
+| `native` | C2+ (unsimplified native prose) | The article as written for an educated native: idiom, allusion, nothing explained |
+| `academic` | C2+ (academic / university register) | A journal article or lecture handout: an argument, nominalisation, hedging, discourse markers |
+| `literary` | C2+ (literary prose) | A novel or personal essay: figurative language, varied rhythm, something left implied |
+
+- All three **always open the cage** — no register above C2 fits inside a
+  learner's card list, and the glosses are what make that affordable.
+- Each carries its own rule block, appended inside the open cage, so the
+  three chips cannot collapse into one behaviour. A test pins that
+  `academic` and `literary` produce different prompts.
+- `pitch_label()` stores the SHORT name ("Academic") on the reading, and
+  the shelf now shows the text's pitch rather than the learner's own level
+  — a B1 learner who asked for an academic text should not find it filed
+  under B1. Relative modes now file under where they landed (B1 + stretch
+  → "B2").
+- The grader's `level_estimate` enum stays A1–C2: a register text estimates
+  C2, which is the honest answer for "which rung is this closest to".
+
 ## Testing
 
 - Prompt tests: correctness invariant + substance rule present in BOTH

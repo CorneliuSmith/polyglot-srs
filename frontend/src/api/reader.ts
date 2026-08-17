@@ -37,6 +37,9 @@ export interface ReadingSummary {
 export interface ReadingOptions {
   length: 'short' | 'medium' | 'long'
   voice: 'any' | 'first' | 'third' | 'dialogue'
+  /** Relative, an explicit CEFR pin, or one of the registers above the
+   * ladder — CEFR stops at C2, so "harder than C2" is a kind of prose
+   * rather than a level. */
   complexity:
     | 'easier'
     | 'level'
@@ -47,6 +50,9 @@ export interface ReadingOptions {
     | 'B2'
     | 'C1'
     | 'C2'
+    | 'native'
+    | 'academic'
+    | 'literary'
 }
 
 export interface GeneratedReading {

@@ -117,6 +117,52 @@ _VOICE_RULE = {
 # from wherever they sit, including above their own chosen level.
 _COMPLEXITY_SHIFT = {"easier": -1, "level": 0, "stretch": +1}
 
+# Above C2 the CEFR scale simply stops — there is no C3, and inventing one
+# would be a lie the model would happily perform. What "harder than C2"
+# actually means is a REGISTER: the same ceilingless language, written for a
+# particular kind of adult reader. The owner asked for "a level higher than
+# C2 — like university-level or academic", and these are the three that
+# differ in kind rather than degree:
+#
+#   native    — the unsimplified article an educated native reads
+#   academic  — the journal paper or lecture handout
+#   literary  — the novel or personal essay
+#
+# All three pin the pitch above C2 and open the cage, because every one of
+# them is by definition beyond the learner's cards.
+_REGISTER_LABEL = {
+    "native": "C2+ (unsimplified native prose)",
+    "academic": "C2+ (academic / university register)",
+    "literary": "C2+ (literary prose)",
+}
+
+_REGISTER_RULE = {
+    "native": """
+- REGISTER: write this exactly as it would be written for an educated NATIVE \
+reader — quality-press or magazine prose. Nothing simplified, nothing \
+explained that a native writer would have left unexplained. Idiom, allusion, \
+cultural reference and irony are all in bounds. This is not a graded text \
+that happens to be hard; it is the real thing, with glosses attached.""",
+    "academic": """
+- REGISTER: this is university-level academic prose — a journal article or a \
+lecture handout, not journalism. Build an ARGUMENT: a claim, the evidence \
+for it, and a qualification of it. Use the register's real machinery — \
+nominalisation, hedged claims ("appears to", "largely", "on this account"), \
+the passive where the field would use it, defined technical terms, explicit \
+discourse markers (however, consequently, by contrast). Sentences run long \
+and subordinate. Assume a reader who knows nothing about the topic and \
+everything about reading.""",
+    "literary": """
+- REGISTER: literary prose — a novel or a personal essay. Figurative \
+language, varied sentence rhythm (a very short sentence after three long \
+ones), concrete sensory detail, and something left implied rather than \
+stated. Style is the point here; the information may arrive obliquely.""",
+}
+
+#: Modes that sit above the CEFR ladder. Exported for the router's validation
+#: and the frontend's chip row, so the three lists cannot drift apart.
+BEYOND_CEFR = tuple(_REGISTER_LABEL)
+
 
 def resolve_dial(level: str, mode: str) -> tuple[str, bool]:
     """The challenge dial → (target_level, open_cage).
@@ -127,12 +173,34 @@ def resolve_dial(level: str, mode: str) -> tuple[str, bool]:
     target sits ABOVE the learner, for the same reason stretch opens it:
     they asked for harder, and glosses absorb the cost. A2 chosen by a B2
     learner stays caged at A2.
+
+    A register (native/academic/literary) sits above the whole ladder: the
+    target becomes that register's label and the cage is always open, because
+    no register above C2 can be written inside a learner's card list.
     """
+    if mode in _REGISTER_LABEL:
+        return _REGISTER_LABEL[mode], True
     if level not in CEFR_ORDER:
         level = "A1"
     if mode in CEFR_ORDER:
         return mode, CEFR_ORDER.index(mode) > CEFR_ORDER.index(level)
     return shift_level(level, _COMPLEXITY_SHIFT.get(mode, 0)), mode == "stretch"
+
+
+def pitch_label(level: str, mode: str) -> str:
+    """What to store on the reading — what the text IS, not who read it.
+
+    The shelf line reads "topic · level · N new words", and the useful half
+    is the pitch: a B1 learner who asked for an academic text has a shelf
+    full of texts that are not B1. Registers get their bare name (the full
+    "C2+ (academic / university register)" belongs in the prompt, not in a
+    chip); everything else is the resolved CEFR rung, so easier/stretch show
+    where they actually landed.
+    """
+    if mode in _REGISTER_LABEL:
+        return mode.capitalize()
+    target, _ = resolve_dial(level, mode)
+    return target
 
 
 # Appended to BOTH cages. Two owner complaints live here. "The Maya build
@@ -191,7 +259,8 @@ def _placement_rule(placement: dict | None) -> str:
 
 
 def _constraint_block(
-    open_cage: bool, target_level: str, structures: str, known_words: str
+    open_cage: bool, target_level: str, structures: str, known_words: str,
+    register_rule: str = "",
 ) -> str:
     """The constraint block, written per cage — because one block for all
     the dials is how "stretch" produced the same text as "easier".
@@ -207,7 +276,7 @@ def _constraint_block(
     if open_cage:
         return f"""HARD CONSTRAINTS:
 - Pitch the text at {target_level} — genuinely at it, not beneath it. The \
-learner ASKED for harder material; do not soften it back down.
+learner ASKED for harder material; do not soften it back down.{register_rule}
 - Grammar: their learned structures ({structures or "the basics"}) are the \
 FLOOR, not the limit — use {target_level} constructions beyond them freely.
 - Vocabulary: their strongest known words are calibration only, NOT a \
@@ -246,7 +315,8 @@ def _system_prompt(
     target_level, open_cage = resolve_dial(level, mode)
     placement = _placement_rule(learner.get("placement"))
     constraints = _constraint_block(
-        open_cage, target_level, structures, known_words
+        open_cage, target_level, structures, known_words,
+        _REGISTER_RULE.get(mode, ""),
     )
     return f"""You write reading material for one specific learner inside \
 PolyglotSRS, a spaced-repetition language app. Target language: \
