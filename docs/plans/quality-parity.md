@@ -52,16 +52,84 @@ general here.
   emit, 58 in the top-500 band. The German `s` card is a stale DB row —
   current code drops it; the refeed clears it.
 
-### D2 — Sentence parity. English is fine; five languages have nothing.
+### D1b — The larger definition problem behind the screenshots (measured 17 Aug)
 
-`data/en_sentences.tsv` holds 202,772 rows, 98.8% top-500 coverage — the
-missing English sentences in the app are a **deployment gap** (the DB
-predates the `translation_locale` seeder fix, #264); the refeed fixes it.
-The real crisis: **la, id, tl, he, fa have zero sentences**; xh 21%, yo 23%,
-mi 38%, ha 46% top-500 coverage. Also: `data/mi_frequency.tsv` has zero
-macrons, so rank 23 `tona` is glossed *wart* and rank 29 `ra` as the
-Egyptian sun god. The thin/monotone problem inside covered words is already
-scoped by `docs/plans/example-diversity.md` (2,090 words, top-1000 band).
+The wrong-sense class the owner photographed is the *small* half. Sweeping
+every committed frequency TSV over the top-1000 band found **2,156 unique rows
+carrying at least one definition defect**, in six classes:
+
+| Class | Rows | Example |
+| --- | --- | --- |
+| Dictionary jargon, often with an inline romanization | 1,912 | ru `мне` → "dative/prepositional of я (ja)" |
+| Truncated — gloss ends in `:` and the senses it promised are gone | 925 | ru `от` → "from, away from, of, with (in the following senses):" |
+| Raw MediaWiki markup | 151 | **sw rank 2** `ya` → `[[Appendix:Swahili_noun_classes#N class\|n class_((IX))]] i` |
+| Wrong sense (letter name / ISO code / sound-of-letter) | 60 | fr rank 15 `ne` → "ISO 3166-2:CH code of Neuchâtel" |
+| Bracket with no definition at all | 6 | **ru rank 4** `в` → "[with prepositional]" |
+| "See X" stub | 3 | ar `الخاصة` → "See خَاصَّة (ḵāṣṣa)" |
+
+Worst languages by unique affected rows: sw 289, hi 270, nl 174, de 160,
+it 142, pt 135, ca 134, fr 128, ru 127, es 115, ro 114, el 109.
+
+Two of these are worse than they look. Swahili's rank 2 and Russian's rank 4
+are among the first words either course teaches, and both currently render as
+markup or an empty bracket. And the jargon class is where the owner's "ia for
+я" report comes from: kaikki writes cross-references as `word (romanization)`,
+so a learner meets rank 15 and is told it is the dative of something rather
+than that it means "(to) me".
+
+**Where the fix has to land.** `review_hints.py` already targets the jargon
+class (its `SUSPICIOUS` regex catches 1,912 of the 2,156), but it writes
+`translations.definition` in the DATABASE, and these definitions are seeded
+from the committed TSVs — so a re-seed silently reverts the repair. That is
+the same self-undoing trap `docs/quality/running-locally.md` §7 names for
+drills. **Definitions are therefore fixed in the committed TSVs**, where they
+are reviewable in git and a fresh environment inherits them, and
+`review_hints` is used only for what is already deployed.
+
+Two sub-classes need different treatment, which is what the checker is for:
+a row whose parser simply picked the wrong sense is fixed for free by the
+part-of-speech ranking below, on regeneration; a row whose word genuinely IS
+an inflected form (`мне` really is the dative of `я`) needs its gloss
+**written** — "(to) me, for me" — and a plausible-but-wrong case label is
+exactly the error that reads fine and teaches wrong.
+
+### D2 — Sentence parity. Two separate problems, and one is not what it looked like.
+
+**English (corrected 17 Aug — the first reading was wrong).** The sentences
+are not missing and it is not only a deployment gap. `data/en_sentences.tsv`
+holds 112,648 distinct English sentences over 9,073 headwords, 99.1% of the
+top 1,000. But **zero of its 202,772 rows carry `translation_locale='en'`** —
+every row is an English sentence translated *into* one of thirteen other
+languages. The card query (`backend/repositories/cards.py:193`) selects
+`WHERE es.translation_locale IN ($support_locale, 'en')`, so:
+
+| Learner's support language | English example sentences served |
+| --- | --- |
+| es fr de it ru tr ar el ro ca sw pt hi | 20k+ each — work after a re-seed |
+| **en** (the default when the UI is English) | **zero** |
+| ko nl th he fa yo ha xh mi jam la id tl | **zero** |
+
+That is the owner's screenshot: an English speaker's support locale resolves
+to `en`, and the English bank has no `en` rows because English is the one
+course where the target language and the metalanguage can coincide. More than
+half of the possible support locales get nothing.
+
+The fix is code, not authoring. `docs/quality/en.md` already settles the
+design question — the English course's `translation` field is *a usage note
+by design*, not a translation — so the self-pair must serve the sentence
+without requiring a translation row that should not semantically exist. The
+same change covers the other thirteen uncovered locales, whose translation
+line then fills in on demand through `auto_translate.py`.
+
+**The real authoring crisis is elsewhere.** `la, id, tl, he, fa` have zero
+sentences of any kind; xh 21%, yo 23%, mi 38%, ha 46% top-500 coverage. And
+Phase 0's measurement sharpened this: separating "no example at all" from
+"only one" shows **6,863 top-band words with no example**, against 2,745
+needing more variety. The earlier scoping treated this as a diversity problem
+(~2,090 words); it is four times that and mostly a **sourcing** problem, which
+needs a corpus or an author rather than a better prompt. Also:
+`data/mi_frequency.tsv` has zero macrons, so rank 23 `tona` is glossed *wart*
+and rank 29 `ra` as the Egyptian sun god.
 
 ### D3 — Gym. Already scoped by `docs/plans/gym-coverage.md`:
 
@@ -81,23 +149,59 @@ fr elision convention (2 drills), ar tashkeel-ungradeable drills (10),
 ru transliteration scheme mismatch (5 drills), th Thai-script stage
 directions (19) and romanization-unreachable answers (30 of 96 distinct).
 `docs/quality/ko.md` and `sw.md` are stale against the tree (~5× growth);
-`en.md` and the README lag the `agreement_feature` rule.
+`en.md` still lags the `agreement_feature` rule (the README was fixed in
+Phase 0). The baseline is 980 after Phase 0 added `wrong_sense_gloss`.
+
+Several per-language docs also report `leak_hard` net of
+`construction_quote`, while the code counts construction quotes *inside*
+`leak_hard` — ro says 2 against a real 11, pt 2 against 7, de 18 against 17,
+ar 1 against 2. That is one normalising pass over the docs, not 27 edits to
+the content, and it should happen before anyone uses those numbers to
+prioritise.
 
 ### D5 — Idle extraction assets; extractor gaps.
 
 extra-agent's emit now **merges** (sidecar ownership; existing wins on
 collision). Sitting unemitted: ~2,518 validated Russian vocabulary entries,
 19 grammar points, 218 sentences (`out/Russian.parts`); an English grammar
-book (156 vocab / 149 grammar / 32 sentences). he/fa/la/id/tl have **no
-LanguageProfile** in the extractor (Hebrew/Persian would extract with wrong
-tuning). Frequency lists are thin where sentences are thin too: tl 90 rows,
-id 581, fa 584, la 595, mi 781, he 929.
+book (156 vocab / 149 grammar / 32 sentences). Frequency lists are thin where
+sentences are thin too: tl 90 rows, id 581, fa 584, la 595, mi 781, he 929.
+
+The missing he/fa/la/id/tl `LanguageProfile`s — which had Hebrew and Persian
+extracting as left-to-right Latin — were fixed in extra-agent #8, along with
+a structural gap that generalises: a profile's `guidance` reaches only the
+extraction prompt, so an orthography rule stated there held while a document
+was read and was dropped when the fill pass wrote a new drill. Any rule that
+must hold in every emitted string now goes in the new `orthography` field,
+which is injected into the maker *and* the checker.
+
+Two residual extractor caveats to design around rather than trip over: a
+same-title grammar point silently drops the new content (existing wins on
+key collision), which is why Korean carries `ai`/`pending` duplicate pairs;
+and `ERRORS.extracted.md` is still replaced wholesale rather than merged.
 
 ---
 
 ## The plan — six phases, one PR each
 
-### Phase 0 — Instruments first (measure before touching)
+### Phase 0 — Instruments first (measure before touching) — SHIPPED (#292)
+
+Delivered: `audit_examples.py`, `audit_gym.py`, the `wrong_sense_gloss`
+fail-level rule with 60 rows baselined, the README rule-table drift fixes, and
+`LanguageProfile` entries for he/fa/la/id/tl in extra-agent (#8).
+
+What the instruments then found, which reshaped Phases 1 and 2 above:
+6,863 top-band words with no example at all; 2,156 rows with a definition
+defect; and the English locale-filing bug. `audit_gym` reconciles exactly with
+the gym plan (en 12 shown / 31 hidden, 435 forms repo-wide) and adds the 298
+drilled points in the seven languages that have no manifest at all.
+
+One known gap in the new rule, recorded rather than hidden: its letter-name
+pattern misses `а` → "The sound expressed by the letter A" (ru rank 22),
+which uses different phrasing. Phase 1 widens the pattern when it regenerates
+the Russian list.
+
+Original scope, for the record:
 
 - `backend/services/seeder/audit_examples.py` — thin/monotone/coverage
   report per language (example-diversity Stage 1, TSV-backed; DB query
@@ -112,22 +216,47 @@ id 581, fa 584, la 595, mi 781, he 929.
 - `docs/extraction-sources.md` (shipped with this plan) — the owner's
   source library mapped per language with the facts-only policy attached.
 
-### Phase 1 — Definitions (the named complaint)
+### Phase 1 — Definitions (the named complaint, and the 2,156 behind it)
 
-- `seed_english.py`: POS-aware synset selection (function words prefer
-  their function-word sense; frequency rank informs expected POS), expanded
-  curated guard for the top band, shrapnel filter. Tests.
-- `source_data.py`: kaikki sense ranking — prefer lexical POS
-  (pron/det/verb/particle/conj/prep/adv) over `name`/`symbol`/`character`;
-  keep the letter-name filters; tests pinning fr `ne`/`y`, de `ne`, tr `ve`.
-- Regenerate frequency TSVs from the local raw cache: tr, yo, sw, xh first
-  (stale rows), then the wrong-sense tail (fr, de, nl, es, ca, hi, el, ro,
-  pt, it, ko, ru).
-- Maker–checker workflow over every changed top-500 gloss; curated
-  overrides where kaikki still has nothing good (yo top-12 especially).
+Rescoped after D1b. This is no longer "fix 60 letter-name glosses"; it is the
+text under every vocabulary card in 21 languages.
+
+1. **Offline mode for the repair tool, first.** Port `review_translations`'
+   `--export` / `--apply` round-trip (about 120 lines, including the
+   one-file-round-trips stale check) to `review_hints.py`, so definitions can
+   be judged in-session at no API cost. `review_hints` is strictly simpler
+   than the pass that already has the feature — no derived-row deletes, no
+   file mirror — and the shared machinery gets lifted out rather than copied
+   a third time.
+2. **`source_data.py`: kaikki sense ranking.** Prefer lexical parts of speech
+   (pron/det/verb/particle/conj/prep/adv) over `name`/`symbol`/`character`;
+   descend into the nested sense structure rather than emitting the "in the
+   following senses:" preamble; strip MediaWiki markup; keep the letter-name
+   filters. Tests pinning fr `ne`/`y`, de `ne`, tr `ve`, sw `ya`, ru `от`.
+3. **`seed_english.py`: POS-aware synset selection** (function words prefer
+   their function-word sense; frequency rank informs expected POS), expanded
+   curated guard for the top band, shrapnel filter (`re`, `ll`, `ve`, `e`,
+   `lf`, `th`, `wh`). Write the result to a **committed** gloss file so
+   English joins `wrong_sense_gloss` and stops being the one course whose
+   definitions no audit can see.
+4. **Regenerate the frequency TSVs** from the local raw cache, worst-first:
+   sw, hi, nl, de, it, pt, ca, fr, ru, es, ro, el, then the tail.
+5. **Author what regeneration cannot fix** — the rows whose word genuinely is
+   an inflected form, and the yo top-12 where kaikki has nothing good. Maker
+   writes, an adversarial checker verifies, and the fix lands in the TSV.
+
+Definitions are fixed **in the committed TSVs, never only in the database** —
+a DB-only repair is reverted by the next re-seed.
 
 ### Phase 2 — Sentences to parity
 
+- **The English locale fix goes first**, because it is code rather than
+  authoring and it unblocks 112,648 sentences that already exist. Serve the
+  English course's own sentences to a learner whose support locale is `en`
+  (and to the thirteen locales with no translations yet) without demanding a
+  `translation_locale='en'` row that, per `docs/quality/en.md`, should not
+  exist. Regression test: an English learner with support locale `en` gets a
+  non-empty "in context" line.
 - Tatoeba builds (`source_data --sentences`) for la, id, he, fa, tl; top-ups
   where the corpus has more (th, ca, hi, ko, sw).
 - Session-generated sentences for the top-500 gaps that corpora cannot
@@ -203,3 +332,14 @@ id 581, fa 584, la 595, mi 781, he 929.
 2. Gym floor (10 drills/form, 12 for A1) — inherited from the gym plan.
 3. The thin five's frequency lists (tl 90 rows!) — Tatoeba/kaikki can grow
    id/he/fa/la substantially; tl needs a source decision.
+4. Tagalog's interlinear gloss. It has the best linguistic claim to one of
+   any unglossed language — verb-initial with a focus system, so `ang/ng/sa`
+   are hard to parse without it — but `hintLayers.ts` renders a gloss only
+   for mi/sw/yo/xh/ha, so requesting one today produces data nothing shows.
+   Enabling it is an app-side change first (`hintLayers.ts`, ROADMAP §3b,
+   `docs/quality/tl.md`), then the extractor flag. Recorded in the test that
+   pins the flag off, so it cannot be lost.
+5. Whether English's regenerated glosses should be a committed file (the
+   Phase 1 assumption, which is what lets any audit see them) or stay
+   generated at seed time. Committing 10,000 rows makes English reviewable
+   like every other language; it also puts WordNet output in git.
