@@ -78,6 +78,17 @@ export interface RecorderState {
   cancel: () => void
 }
 
+/** Can this browser record at all? Exported because the page needs the
+ * answer before it builds the recorder's options — false on anything without
+ * MediaRecorder, and on http:// origins where getUserMedia is absent. */
+export function recordingSupported(): boolean {
+  return (
+    typeof navigator !== 'undefined' &&
+    !!navigator.mediaDevices?.getUserMedia &&
+    typeof MediaRecorder !== 'undefined'
+  )
+}
+
 export interface RecorderOptions {
   /**
    * Called when the learner stops talking, instead of waiting for a second
@@ -101,10 +112,7 @@ export function useRecorder(options: RecorderOptions = {}): RecorderState {
   const autoStop = useRef(options.onAutoStop)
   autoStop.current = options.onAutoStop
 
-  const supported =
-    typeof navigator !== 'undefined' &&
-    !!navigator.mediaDevices?.getUserMedia &&
-    typeof MediaRecorder !== 'undefined'
+  const supported = recordingSupported()
 
   const release = useCallback(() => {
     stopWatching.current?.()

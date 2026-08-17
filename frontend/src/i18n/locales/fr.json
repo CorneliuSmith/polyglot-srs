@@ -1478,6 +1478,25 @@
     "transcriptLabel": "Vérifiez avant d’envoyer",
     "playPartner": "Écouter",
     "playSlower": "Répétez, plus lentement",
-    "playFailed": "Lecture impossible."
+    "playFailed": "Lecture impossible.",
+    "conversationOptions": "Comment la conversation doit se dérouler",
+    "optAutoSpeak": "Parler à voix haute",
+    "optAutoSpeakHint": "Votre partenaire dit chaque phrase dès qu’elle arrive.",
+    "optHideText": "Masquer les mots",
+    "optHideTextHint": "Écoutez d’abord — touchez pour lire la phrase si besoin.",
+    "optAutoListen": "Écouter automatiquement",
+    "optAutoListenHint": "Le micro s’ouvre dès que votre partenaire a fini.",
+    "optAutoSend": "Envoyer quand j’arrête de parler",
+    "optAutoSendHint": "Sans bouton : faites une pause et votre tour part.",
+    "optNoVoice": "Cette langue n’a pas encore de voix.",
+    "optNoMic": "Cette langue ou ce navigateur ne peut pas encore écouter.",
+    "optNoSilenceDetection": "Ce navigateur ne détecte pas quand vous arrêtez de parler.",
+    "handsFree": "Activer les trois — mains libres",
+    "showText": "Afficher les mots",
+    "autoSending": "Envoi en cours…",
+    "autoSendCancel": "Ne pas envoyer — je veux corriger",
+    "micListeningHandsFree": "À l’écoute… arrêtez de parler et ça part.",
+    "micStillThere": "Je n’ai rien entendu. Touchez le micro quand vous êtes prêt.",
+    "autoplayBlocked": "Votre navigateur n’a pas voulu le lire tout seul — utilisez le bouton d’écoute."
   }
 }

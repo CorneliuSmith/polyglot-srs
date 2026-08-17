@@ -1478,6 +1478,25 @@
     "transcriptLabel": "Check this before you send it",
     "playPartner": "Listen",
     "playSlower": "Say that again, slower",
-    "playFailed": "Couldn’t play that."
+    "playFailed": "Couldn’t play that.",
+    "conversationOptions": "How the conversation should run",
+    "optAutoSpeak": "Speak out loud",
+    "optAutoSpeakHint": "Your partner says each line as it arrives.",
+    "optHideText": "Hide the words",
+    "optHideTextHint": "Listen first — tap to read the line if you need it.",
+    "optAutoListen": "Listen automatically",
+    "optAutoListenHint": "The microphone opens as soon as your partner finishes.",
+    "optAutoSend": "Send when I stop talking",
+    "optAutoSendHint": "No buttons: pause for a moment and your turn goes.",
+    "optNoVoice": "This language has no voice yet.",
+    "optNoMic": "This language or browser can’t listen yet.",
+    "optNoSilenceDetection": "This browser can’t tell when you stop talking.",
+    "handsFree": "Turn on all three — hands free",
+    "showText": "Show the words",
+    "autoSending": "Sending this…",
+    "autoSendCancel": "Don’t send — let me fix it",
+    "micListeningHandsFree": "Listening… stop talking and it sends.",
+    "micStillThere": "I didn’t hear anything. Tap the microphone when you’re ready.",
+    "autoplayBlocked": "Your browser wouldn’t play that on its own — use the listen button."
   }
 }
