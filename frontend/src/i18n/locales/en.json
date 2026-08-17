@@ -191,7 +191,9 @@
       "title": "Your text is ready",
       "body": "About “{{topic}}” · tap to read it",
       "dismiss": "Dismiss"
-    }
+    },
+    "deleteConfirm": "Delete “{{title}}”?\n\nOnly the text goes — any words you saved from it stay in your reviews.",
+    "deleteAria": "Delete “{{title}}”"
   },
   "tutor": {
     "title": "{{language}} Tutor",

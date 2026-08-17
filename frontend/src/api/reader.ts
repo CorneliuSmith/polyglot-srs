@@ -125,6 +125,12 @@ export async function getReadings(languageId: string): Promise<ReadingSummary[]>
   return response.data.readings
 }
 
+/** Remove a finished text from the shelf. Words saved out of it are the
+ * learner's own cards and are untouched — nothing links one to the other. */
+export async function deleteReading(readingId: string): Promise<void> {
+  await apiClient.delete(`/api/reader/readings/${readingId}`)
+}
+
 export async function getReading(readingId: string): Promise<Reading> {
   const response = await apiClient.get<Reading>(
     `/api/reader/readings/${readingId}`,

@@ -118,6 +118,26 @@ async def list_readings(
     ]
 
 
+async def delete_reading(
+    conn: asyncpg.Connection, user_id: str, reading_id: str
+) -> bool:
+    """Remove one reading from the learner's shelf. False when it wasn't
+    theirs (or never existed) — the router turns that into a 404.
+
+    Words the learner saved while reading are NOT touched, and not merely
+    by politeness: a saved word becomes a user_cloze_cards row that carries
+    no reference back to the text it came from, so there is nothing for a
+    cascade to follow. That independence is the whole point of the feature
+    — tidying the shelf must never cost review history — so an integration
+    test pins it rather than trusting the schema to stay this shape.
+    """
+    result = await conn.execute(
+        "DELETE FROM readings WHERE id = $1 AND user_id = $2",
+        reading_id, user_id,
+    )
+    return result.endswith("1")
+
+
 async def get_reading(
     conn: asyncpg.Connection, user_id: str, reading_id: str
 ) -> dict | None:

@@ -191,7 +191,9 @@
       "title": "Votre texte est prêt",
       "body": "Sur « {{topic}} » · touchez pour le lire",
       "dismiss": "Fermer"
-    }
+    },
+    "deleteConfirm": "Supprimer « {{title}} » ?\n\nSeul le texte disparaît : les mots que vous avez enregistrés restent dans vos révisions.",
+    "deleteAria": "Supprimer « {{title}} »"
   },
   "tutor": {
     "title": "Tuteur de {{language}}",

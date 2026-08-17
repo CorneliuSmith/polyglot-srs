@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react'
 import { languageDisplayName } from '../../lib/languages'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { Trans, useTranslation } from 'react-i18next'
-import { Headphones } from 'lucide-react'
+import { Headphones, Trash2 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
+  deleteReading,
   explainSentence,
   generateReading,
   getReading,
@@ -165,6 +166,16 @@ export default function ReaderPage() {
       generateReading(activeLanguageId, language.code, asked, textOptions),
     )
   }
+
+  // Shelf housekeeping (owner request): drop an old text, keep every word
+  // it taught. Nothing links a saved card to its reading, so this is purely
+  // a tidy-up — the confirm dialog says as much.
+  const deleteMutation = useMutation({
+    mutationFn: (id: string) => deleteReading(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['readings'] })
+    },
+  })
 
   const openMutation = useMutation({
     mutationFn: (id: string) => getReading(id),
@@ -461,20 +472,46 @@ export default function ReaderPage() {
                 data-testid="reading-shelf"
               >
                 {shelf.map((r) => (
-                  <button
+                  <div
                     key={r.id}
-                    type="button"
-                    onClick={() => openMutation.mutate(r.id)}
-                    className="w-full text-start px-4 py-3 border-t border-gray-100 first:border-t-0 hover:bg-gray-50"
+                    className="flex items-center border-t border-gray-100 first:border-t-0 hover:bg-gray-50"
                   >
-                    <span className="text-sm font-medium text-gray-800 block">
-                      {r.title}
-                    </span>
-                    <span className="text-xs text-gray-500">
-                      {r.topic} · {r.level ?? ''} ·{' '}
-                      {t('reader.shelfNewWords', { count: r.new_word_count })}
-                    </span>
-                  </button>
+                    <button
+                      type="button"
+                      onClick={() => openMutation.mutate(r.id)}
+                      className="flex-1 text-start px-4 py-3"
+                    >
+                      <span className="text-sm font-medium text-gray-800 block">
+                        {r.title}
+                      </span>
+                      <span className="text-xs text-gray-500">
+                        {r.topic} · {r.level ?? ''} ·{' '}
+                        {t('reader.shelfNewWords', { count: r.new_word_count })}
+                      </span>
+                    </button>
+                    {/* Housekeeping only: the confirm says so out loud,
+                        because "delete" next to a text you learned words
+                        from reads like it takes the words too. It cannot —
+                        saved words are separate cards. */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (
+                          window.confirm(
+                            t('reader.deleteConfirm', { title: r.title }),
+                          )
+                        ) {
+                          deleteMutation.mutate(r.id)
+                        }
+                      }}
+                      disabled={deleteMutation.isPending}
+                      aria-label={t('reader.deleteAria', { title: r.title })}
+                      title={t('reader.deleteAria', { title: r.title })}
+                      className="me-2 shrink-0 rounded-lg p-2 text-gray-400 hover:bg-red-50 hover:text-red-600 disabled:opacity-50"
+                    >
+                      <Trash2 className="h-4 w-4" aria-hidden="true" />
+                    </button>
+                  </div>
                 ))}
               </div>
             )}

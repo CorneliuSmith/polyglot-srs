@@ -9,6 +9,7 @@ vi.mock('../api/reader', () => ({
   generateReading: vi.fn(),
   getReadings: vi.fn(() => Promise.resolve([])),
   getReading: vi.fn(),
+  deleteReading: vi.fn(),
   explainSentence: vi.fn(),
 }))
 vi.mock('../api/notes', () => ({ createPersonalCard: vi.fn() }))
@@ -27,10 +28,17 @@ vi.mock('../api/tutor', () => ({
   ),
 }))
 
-import { generateReading, explainSentence } from '../api/reader'
+import {
+  deleteReading,
+  generateReading,
+  explainSentence,
+  getReadings,
+} from '../api/reader'
 import { createPersonalCard } from '../api/notes'
 
 const mockGenerate = generateReading as ReturnType<typeof vi.fn>
+const mockDelete = deleteReading as ReturnType<typeof vi.fn>
+const mockShelf = getReadings as ReturnType<typeof vi.fn>
 const mockExplain = explainSentence as ReturnType<typeof vi.fn>
 const mockAddCard = createPersonalCard as ReturnType<typeof vi.fn>
 
@@ -125,6 +133,67 @@ describe('ReaderPage (WP21)', () => {
     fireEvent.click(screen.getByRole('button', { name: /show me the text/i }))
     expect(await screen.findByText('El gato')).toBeDefined()
     expect(usePendingReadingStore.getState().ready).toBeNull()
+  })
+
+  it('an old story can be cleared out, and says the words stay', async () => {
+    // Owner: "delete old stories if they would like, but keep cards. Just
+    // for cleaning purposes." The confirm text is load-bearing — "delete"
+    // next to a text you learned words from reads like it takes the words.
+    mockShelf.mockResolvedValue([
+      { id: 'r-old', topic: 'aztecs', title: 'The Aztecs', level: 'A1',
+        created_at: '2026-08-01T00:00:00Z', new_word_count: 7 },
+    ])
+    mockDelete.mockResolvedValue(undefined)
+    const confirmSpy = vi
+      .spyOn(window, 'confirm')
+      .mockReturnValue(true)
+
+    renderPage()
+    await screen.findByTestId('reading-shelf')
+    const trash = screen.getByRole('button', { name: /delete .*The Aztecs/i })
+    fireEvent.click(trash)
+
+    expect(confirmSpy.mock.calls[0][0]).toMatch(/words you saved from it stay/i)
+    await waitFor(() => expect(mockDelete).toHaveBeenCalledWith('r-old'))
+    // The shelf refetches so the row disappears.
+    await waitFor(() => expect(mockShelf).toHaveBeenCalledTimes(2))
+    confirmSpy.mockRestore()
+  })
+
+  it('declining the confirm deletes nothing', async () => {
+    mockShelf.mockResolvedValue([
+      { id: 'r-old', topic: 'aztecs', title: 'The Aztecs', level: 'A1',
+        created_at: '2026-08-01T00:00:00Z', new_word_count: 7 },
+    ])
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(false)
+
+    renderPage()
+    await screen.findByTestId('reading-shelf')
+    fireEvent.click(screen.getByRole('button', { name: /delete .*The Aztecs/i }))
+
+    expect(mockDelete).not.toHaveBeenCalled()
+    // The story is still on the shelf.
+    expect(screen.getByText('The Aztecs')).toBeDefined()
+    confirmSpy.mockRestore()
+  })
+
+  it('opening a story still works with the delete control beside it', async () => {
+    // The row became a flex container with two buttons; the title must
+    // still open the reading rather than the whole row being a dead zone.
+    mockShelf.mockResolvedValue([
+      { id: 'r-old', topic: 'aztecs', title: 'The Aztecs', level: 'A1',
+        created_at: '2026-08-01T00:00:00Z', new_word_count: 7 },
+    ])
+    const { getReading } = await import('../api/reader')
+    ;(getReading as ReturnType<typeof vi.fn>).mockResolvedValue({
+      ...reading, id: 'r-old', topic: 'aztecs',
+    })
+    renderPage()
+    await screen.findByTestId('reading-shelf')
+    // By its title, not by role: the delete control's aria-label carries
+    // the title too, so a role query matches both buttons in the row.
+    fireEvent.click(screen.getByText('The Aztecs'))
+    expect(await screen.findByText('El gato')).toBeDefined()
   })
 
   it('shows the usage meter next to the write-it form when AI is enabled', async () => {

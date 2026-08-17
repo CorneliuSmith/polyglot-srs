@@ -315,6 +315,53 @@ class TestGenerateEndpoint:
         assert resp.status_code == 422
 
 
+class TestDeleteReading:
+    """Shelf housekeeping (owner request): drop an old story, keep the words
+    it taught. The endpoint's only job is ownership + the 404."""
+
+    def test_requires_auth(self, client):
+        resp = client.delete(f"/api/reader/readings/{TEST_READING_ID}")
+        assert resp.status_code == 401
+
+    def test_deletes_own_reading(self, client):
+        with patch(
+            "backend.routers.reader.delete_reading",
+            new=AsyncMock(return_value=True),
+        ) as mock_delete:
+            resp = client.delete(
+                f"/api/reader/readings/{TEST_READING_ID}",
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json() == {"deleted": True}
+        # Scoped to the caller — the id alone is never enough.
+        assert mock_delete.await_args.args[1] == TEST_USER_ID
+        assert mock_delete.await_args.args[2] == TEST_READING_ID
+
+    def test_someone_elses_reading_is_a_404(self, client):
+        # The repo returns False for "not yours" AND "already gone"; both
+        # become the same 404 so the endpoint leaks nothing about which.
+        with patch(
+            "backend.routers.reader.delete_reading",
+            new=AsyncMock(return_value=False),
+        ):
+            resp = client.delete(
+                f"/api/reader/readings/{TEST_READING_ID}",
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 404
+
+    def test_a_bad_id_never_reaches_the_repo(self, client):
+        with patch(
+            "backend.routers.reader.delete_reading", new=AsyncMock(),
+        ) as mock_delete:
+            resp = client.delete(
+                "/api/reader/readings/not-a-uuid", headers=_auth_headers()
+            )
+        assert resp.status_code == 422
+        mock_delete.assert_not_awaited()
+
+
 class TestShelfEndpoints:
     def test_reading_404_when_not_owned(self, client):
         with patch(

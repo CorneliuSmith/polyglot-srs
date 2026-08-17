@@ -191,7 +191,9 @@
       "title": "Tu texto está listo",
       "body": "Sobre «{{topic}}» · toca para leerlo",
       "dismiss": "Descartar"
-    }
+    },
+    "deleteConfirm": "¿Eliminar «{{title}}»?\n\nSolo se borra el texto: las palabras que guardaste siguen en tus repasos.",
+    "deleteAria": "Eliminar «{{title}}»"
   },
   "tutor": {
     "title": "Tutor de {{language}}",
