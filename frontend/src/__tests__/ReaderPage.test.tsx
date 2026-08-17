@@ -3,6 +3,7 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { MemoryRouter } from 'react-router-dom'
 import ReaderPage from '../features/reader/ReaderPage'
+import { usePendingReadingStore } from '../stores/pendingReadingStore'
 
 vi.mock('../api/reader', () => ({
   generateReading: vi.fn(),
@@ -55,7 +56,7 @@ const reading = {
 
 function renderPage() {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } })
-  render(
+  return render(
     <QueryClientProvider client={qc}>
       <MemoryRouter initialEntries={['/read']}>
         <ReaderPage />
@@ -82,7 +83,49 @@ async function generate() {
 }
 
 describe('ReaderPage (WP21)', () => {
-  beforeEach(() => vi.clearAllMocks())
+  beforeEach(() => {
+    vi.clearAllMocks()
+    // The generation job is module state now (it has to outlive the page),
+    // so it must be cleared between tests like any other shared fixture.
+    usePendingReadingStore.setState({
+      pending: null,
+      ready: null,
+      error: false,
+    })
+  })
+
+  it('turns the wait into something to do, and never loses the text', async () => {
+    // Generation got slow enough (graded + rewritten) that the learner is
+    // invited to leave. Two halves: the wait offers a game and a review
+    // run, and a text that lands while the page is GONE is still theirs
+    // when they come back — the failure the old page-owned mutation had.
+    let finish: (v: unknown) => void = () => {}
+    mockGenerate.mockReturnValue(new Promise((res) => (finish = res)))
+
+    const first = renderPage()
+    const input = await screen.findByPlaceholderText(/street food/i)
+    fireEvent.change(input, { target: { value: 'cats' } })
+    fireEvent.click(screen.getByRole('button', { name: /write it/i }))
+
+    const wait = await screen.findByTestId('reading-wait')
+    expect(wait.textContent).toContain('cats')
+    expect(screen.getByRole('button', { name: /play while you wait/i })).toBeDefined()
+    expect(screen.getByRole('button', { name: /review while you wait/i })).toBeDefined()
+
+    // They go off to review: the Reader unmounts mid-generation.
+    first.unmount()
+    finish({ id: 'r-1', reading, level: 'A1' })
+    await waitFor(() =>
+      expect(usePendingReadingStore.getState().ready).toBeTruthy(),
+    )
+
+    // Back on the Reader, the finished text is simply there.
+    renderPage()
+    await screen.findByTestId('listen-first')
+    fireEvent.click(screen.getByRole('button', { name: /show me the text/i }))
+    expect(await screen.findByText('El gato')).toBeDefined()
+    expect(usePendingReadingStore.getState().ready).toBeNull()
+  })
 
   it('shows the usage meter next to the write-it form when AI is enabled', async () => {
     const { getUsageAllowance } = await import('../api/tutor')

@@ -178,7 +178,20 @@
     "addFailed": "Ajout impossible",
     "adding": "Ajout…",
     "retry": "Réessayer",
-    "addToReviews": "Ajouter aux révisions"
+    "addToReviews": "Ajouter aux révisions",
+    "wait": {
+      "title": "Rédaction sur « {{topic}} »…",
+      "body": "Cela prend une minute : votre texte est écrit, évalué selon votre niveau, puis réécrit s'il rate la cible.",
+      "play": "Jouez en attendant",
+      "review": "Révisez en attendant",
+      "noGame": "Rien à jouer pour l'instant — votre texte arrive.",
+      "promise": "Partez si vous voulez : nous vous préviendrons dès que c'est prêt."
+    },
+    "ready": {
+      "title": "Votre texte est prêt",
+      "body": "Sur « {{topic}} » · touchez pour le lire",
+      "dismiss": "Fermer"
+    }
   },
   "tutor": {
     "title": "Tuteur de {{language}}",

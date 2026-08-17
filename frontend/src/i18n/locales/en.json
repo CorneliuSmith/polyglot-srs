@@ -178,7 +178,20 @@
     "addFailed": "Couldn't add",
     "adding": "Adding…",
     "retry": "Retry",
-    "addToReviews": "Add to reviews"
+    "addToReviews": "Add to reviews",
+    "wait": {
+      "title": "Writing about “{{topic}}”…",
+      "body": "This takes a minute: your text is written, then graded against your level and rewritten if it misses.",
+      "play": "Play while you wait",
+      "review": "Review while you wait",
+      "noGame": "Nothing to play with just yet — your text is on its way.",
+      "promise": "Leave if you like — we'll tell you the moment it's ready."
+    },
+    "ready": {
+      "title": "Your text is ready",
+      "body": "About “{{topic}}” · tap to read it",
+      "dismiss": "Dismiss"
+    }
   },
   "tutor": {
     "title": "{{language}} Tutor",
