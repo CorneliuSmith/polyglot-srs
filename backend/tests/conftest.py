@@ -10,6 +10,41 @@ from backend.services.rate_limit import (
 )
 
 
+def _wordnet_present() -> bool:
+    """Is the WordNet corpus on this machine?
+
+    The English seeder builds its definitions from WordNet, which is data
+    rather than code: `pip install nltk` does not bring it, and the seeder
+    fetches it on first use. That download is the only network call anywhere
+    in the test suite's dependencies, and when nltk's data host has a bad
+    afternoon it takes thirteen tests down in a way that reads exactly like a
+    code regression — CI failed three separate jobs this way in one pull
+    request, on a docs-only diff.
+
+    So the corpus gets the same treatment camel-tools and the spaCy models
+    already get: absent means SKIP, not FAIL. A missing corpus is an
+    environment fact. Real breakage in the seeder still fails, because with
+    the corpus present nothing here is skipped.
+    """
+    try:
+        import nltk
+    except ImportError:
+        return False
+    try:
+        nltk.data.find("corpora/wordnet")
+    except LookupError:
+        return False
+    except Exception:  # noqa: BLE001 — a broken data dir is still "absent"
+        return False
+    return True
+
+
+requires_wordnet = pytest.mark.skipif(
+    not _wordnet_present(),
+    reason="NLTK WordNet corpus not installed (data download, not code)",
+)
+
+
 @pytest.fixture(autouse=False)
 def fixed_seed():
     random.seed(42)

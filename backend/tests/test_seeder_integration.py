@@ -5,6 +5,8 @@ import pytest
 
 from backend.services.seeder.base import BaseSeeder
 
+from .conftest import requires_wordnet
+
 VALID_LEVELS = {None, "A1", "A2", "B1", "B2", "C1", "C2"}
 REQUIRED_RECORD_KEYS = {"word", "translations", "morphology"}
 
@@ -170,6 +172,7 @@ class TestArabicTransformSchema:
         assert len(words) == len(set(words))
 
 
+@requires_wordnet
 class TestEnglishTransformSchema:
     """English seeder transform() output matches vocabulary schema."""
 

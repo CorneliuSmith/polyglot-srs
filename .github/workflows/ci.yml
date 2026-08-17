@@ -51,8 +51,34 @@ jobs:
             asyncpg PyJWT cryptography httpx python-multipart anthropic redis \
             pymorphy3 cyrtranslit \
             lemminflect nltk numpy scipy stripe sentry-sdk ruff pytest pytest-asyncio cffi
+      # The English seeder's definitions come from WordNet, which is data and
+      # not a package. Cached, because this is the suite's only network
+      # dependency and nltk's data host is the least reliable thing in the
+      # build: three jobs in one pull request failed here, on a docs-only
+      # diff, and each looked like thirteen broken tests. Retried, because a
+      # single `nltk.downloader` call exits 0 even when it fetched nothing.
+      # Not fatal, because the tests that need it skip when it's absent
+      # (backend/tests/conftest.py) rather than fail as though the seeder
+      # broke.
+      - name: Cache NLTK data
+        uses: actions/cache@v4
+        with:
+          path: ~/nltk_data
+          key: nltk-wordnet-omw-1.4-v1
       - name: Download NLTK WordNet (English seeder)
-        run: python -m nltk.downloader -q wordnet omw-1.4
+        run: |
+          for attempt in 1 2 3; do
+            if python -c "import nltk; nltk.data.find('corpora/wordnet')" 2>/dev/null; then
+              echo "WordNet present."
+              exit 0
+            fi
+            echo "WordNet missing — download attempt $attempt…"
+            python -m nltk.downloader -q wordnet omw-1.4 || true
+            sleep $((attempt * 5))
+          done
+          python -c "import nltk; nltk.data.find('corpora/wordnet')" 2>/dev/null \
+            && echo "WordNet present." \
+            || echo "::warning::WordNet unavailable — English seeder tests will skip."
       - name: Ruff
         run: ruff check backend
       - name: Pytest (unit + integration/RLS)
