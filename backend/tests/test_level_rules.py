@@ -12,6 +12,8 @@ from __future__ import annotations
 
 from unittest.mock import AsyncMock, patch
 
+import pytest
+
 from backend.repositories.level import (
     chosen_level,
     resolve,
@@ -367,6 +369,37 @@ class TestTheChecker:
             )
         check = next(c for c in calls if c["tools"][0]["name"] == "emit_check")
         assert "pitched at C1" in check["messages"][0]["content"]
+
+    async def test_a_truncated_payload_says_so_instead_of_going_opaque(self):
+        """A reading cut off at the token ceiling arrives as a half-written
+        tool call. "no structured payload" was a maddening way to report
+        "the text was too big" — the owner met it as "Couldn't write that
+        one" on a C2 text, the largest payload the app produces."""
+        from backend.services import reader as mod
+
+        class Truncated:
+            usage = None
+            stop_reason = "max_tokens"
+            content = []
+
+        async def create(**kwargs):
+            return Truncated()
+
+        with patch.object(mod, "get_settings", return_value=self._settings()), \
+             patch.object(mod, "AsyncAnthropic") as client_cls:
+            client_cls.return_value.messages.create = create
+            with pytest.raises(ValueError, match="ran past the"):
+                await mod.generate_reading(
+                    "en", "theoretical physics", {"level": "C1"},
+                    options={"complexity": "C2", "length": "long"},
+                )
+
+    def test_the_ceiling_clears_the_worst_case_payload(self):
+        # Every token ships a gloss and every sentence a translation, so a
+        # 400-word text runs past 9,000 output tokens. 8,192 cut those off.
+        from backend.services.reader import _MAX_READING_TOKENS
+
+        assert _MAX_READING_TOKENS >= 16384
 
     async def test_a_broken_grader_never_blocks_the_reading(self):
         from backend.services import reader as mod

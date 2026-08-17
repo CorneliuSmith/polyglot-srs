@@ -151,6 +151,37 @@ def client():
             yield c
 
 
+def _poll_status(client, tries: int = 100) -> dict:
+    """Ask until the write settles. Dev-mock generation is instant, so this
+    is a handful of loops in practice — the loop exists because the work is
+    a background task now, not because it is slow."""
+    for _ in range(tries):
+        resp = client.get(
+            "/api/reader/generate/status", headers=_auth_headers()
+        )
+        assert resp.status_code == 200
+        body = resp.json()
+        if not body.get("generating"):
+            return body
+        time.sleep(0.02)
+    raise AssertionError("the write never settled")
+
+
+@pytest.fixture(autouse=True)
+def _clear_writes():
+    """The in-flight write is module state (it has to outlive the request),
+    so it needs clearing between tests like any shared fixture."""
+    from backend.routers import reader as reader_router
+
+    for store in (
+        reader_router._WRITES,
+        reader_router._RESULTS,
+        reader_router._WRITE_ERRORS,
+    ):
+        store.clear()
+    yield
+
+
 class TestGenerateEndpoint:
     def test_requires_auth(self, client):
         resp = client.post(
@@ -161,6 +192,9 @@ class TestGenerateEndpoint:
         assert resp.status_code == 401
 
     def test_generates_saves_and_reports_allowance(self, client):
+        """The request starts the write and answers at once; the reading
+        arrives on the poll. Holding the connection through a graded C2
+        text is what DigitalOcean's gateway killed."""
         with patch(
             "backend.routers.reader.save_reading",
             new=AsyncMock(return_value=TEST_READING_ID),
@@ -176,8 +210,10 @@ class TestGenerateEndpoint:
                       "language_code": "es", "topic": "cats"},
                 headers=_auth_headers(),
             )
-        assert resp.status_code == 200
-        body = resp.json()
+            assert resp.status_code == 200
+            assert resp.json() == {"generating": True}
+            body = _poll_status(client)
+
         assert body["id"] == TEST_READING_ID
         assert body["reading"]["sentences"]
         assert body["reading"]["new_words"]
@@ -188,6 +224,86 @@ class TestGenerateEndpoint:
         # collector must have been fed the structure list.
         structures = mock_gaps.await_args.args[2]
         assert "[dev mock] an uncovered structure" in structures
+
+    def test_the_reading_is_served_exactly_once(self, client):
+        # Collecting clears the slot: a later poll must not re-open a text
+        # the learner has already been given (and maybe closed).
+        with patch(
+            "backend.routers.reader.save_reading",
+            new=AsyncMock(return_value=TEST_READING_ID),
+        ), patch(
+            "backend.routers.reader.log_grammar_gaps", new=AsyncMock(return_value=0),
+        ), patch(
+            "backend.routers.reader.log_tutor_usage", new=AsyncMock(),
+        ):
+            client.post(
+                "/api/reader/generate",
+                json={"language_id": TEST_LANGUAGE_ID,
+                      "language_code": "es", "topic": "cats"},
+                headers=_auth_headers(),
+            )
+            assert _poll_status(client)["id"] == TEST_READING_ID
+        again = client.get(
+            "/api/reader/generate/status", headers=_auth_headers()
+        ).json()
+        assert again == {"generating": False}
+
+    def test_a_failed_write_is_reported_not_swallowed(self, client):
+        """A background task nobody awaits fails silently — the whole point
+        of the error slot is that the page can say what went wrong instead
+        of spinning forever."""
+        with patch(
+            "backend.routers.reader.generate_reading",
+            new=AsyncMock(side_effect=ValueError("ran past the token limit")),
+        ):
+            client.post(
+                "/api/reader/generate",
+                json={"language_id": TEST_LANGUAGE_ID, "language_code": "es",
+                      "topic": "theoretical physics", "complexity": "C2"},
+                headers=_auth_headers(),
+            )
+            body = _poll_status(client)
+        assert body["generating"] is False
+        assert "Couldn't write that one" in body["error"]
+        # …and the error is served once, then cleared.
+        assert client.get(
+            "/api/reader/generate/status", headers=_auth_headers()
+        ).json() == {"generating": False}
+
+    def test_a_second_tap_joins_the_write_instead_of_doubling_it(self, client):
+        started = asyncio.Event()
+        release = asyncio.Event()
+
+        async def slow(*args, **kwargs):
+            started.set()
+            await release.wait()
+            return _mock_reading("cats"), {"input_tokens": 1, "output_tokens": 1}
+
+        with patch("backend.routers.reader.generate_reading", new=slow), patch(
+            "backend.routers.reader.save_reading",
+            new=AsyncMock(return_value=TEST_READING_ID),
+        ), patch(
+            "backend.routers.reader.log_grammar_gaps", new=AsyncMock(return_value=0),
+        ), patch(
+            "backend.routers.reader.log_tutor_usage", new=AsyncMock(),
+        ):
+            body = {"language_id": TEST_LANGUAGE_ID, "language_code": "es",
+                    "topic": "cats"}
+            first = client.post(
+                "/api/reader/generate", json=body, headers=_auth_headers()
+            )
+            second = client.post(
+                "/api/reader/generate", json=body, headers=_auth_headers()
+            )
+            assert first.json() == {"generating": True}
+            assert second.json() == {"generating": True}
+            # The impatient second tap did NOT spend a second generation.
+            status = client.get(
+                "/api/reader/generate/status", headers=_auth_headers()
+            ).json()
+            assert status == {"generating": True}
+            release.set()
+            assert _poll_status(client)["id"] == TEST_READING_ID
 
     def test_topic_length_limited(self, client):
         resp = client.post(

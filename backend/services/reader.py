@@ -25,6 +25,15 @@ logger = logging.getLogger("reader")
 
 MAX_TOPIC_CHARS = 120
 
+# A reading's payload is far bigger than the text it carries: every token
+# ships a gloss and every sentence a translation, so a 250-word C2 text
+# runs to roughly 6,000 output tokens and a 400-word one past 9,000. The
+# old 8,192 ceiling cut those off mid-JSON, and a truncated tool call
+# surfaced as the opaque "returned no structured payload" — the owner saw
+# it as "Couldn't write that one" on exactly the longest text the app can
+# produce (Theoretical Physics at C2).
+_MAX_READING_TOKENS = 16384
+
 READING_TOOL: dict[str, Any] = {
     "name": "emit_reading",
     "description": "Return the finished reading in exactly this structure.",
@@ -437,7 +446,7 @@ async def generate_reading(
     async def _one_attempt(extra: str = "") -> tuple[dict, dict]:
         response = await client.messages.create(
             model=model,
-            max_tokens=8192,
+            max_tokens=_MAX_READING_TOKENS,
             system=_system_prompt(language_code, gloss_locale, learner, options)
             + extra,
             messages=[{
@@ -457,6 +466,15 @@ async def generate_reading(
         tool_use = next(
             (b for b in response.content if b.type == "tool_use"), None
         )
+        # A payload cut off at the ceiling arrives as a half-written tool
+        # call, and "no structured payload" is a maddening way to report
+        # that the text was simply too big — name it, so the log says what
+        # to raise.
+        if getattr(response, "stop_reason", None) == "max_tokens":
+            raise ValueError(
+                f"Reading ran past the {_MAX_READING_TOKENS}-token response "
+                "limit before it finished (long text × per-token glosses)"
+            )
         if tool_use is None or not isinstance(tool_use.input, dict):
             raise ValueError("Reading generation returned no structured payload")
         return _validate_reading(tool_use.input), counts

@@ -607,7 +607,13 @@ describe('SpeakPage — speech', () => {
     const play = await screen.findByTestId('speak-play-0')
     fireEvent.click(play)
     await waitFor(() => expect(mockSay).toHaveBeenCalledWith('s1', 0, false))
-    fireEvent.click(screen.getByTestId('speak-play-slow-0'))
+    // Both replay buttons are disabled while a clip is busy, so the slower
+    // one has to wait its turn — exactly as a real learner would. Clicking
+    // it the instant the first call is observed is a no-op the test used to
+    // win by luck and lose under CI load.
+    const slower = screen.getByTestId('speak-play-slow-0')
+    await waitFor(() => expect(slower).not.toBeDisabled())
+    fireEvent.click(slower)
     await waitFor(() => expect(mockSay).toHaveBeenCalledWith('s1', 0, true))
   })
 
