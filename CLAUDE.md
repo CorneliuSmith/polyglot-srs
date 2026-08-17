@@ -29,6 +29,17 @@ the merge imply it was clean.
 
 - `test_nlp_english.py` (5) — the spaCy English model isn't installed.
 
+**16 tests SKIP when the NLTK WordNet corpus is absent** — 13 in
+`test_seeder_english.py` and 3 in `test_seeder_integration.py`. WordNet is
+data, not a package: `pip install nltk` doesn't bring it and the English
+seeder downloads it on first use, so whether it's present depends on whether
+the container's `~/nltk_data` survived and whether nltk's data host was up.
+These used to FAIL instead, which read exactly like thirteen broken tests —
+CI failed three separate jobs that way in one docs-only pull request. They
+now skip (`requires_wordnet` in `backend/tests/conftest.py`). A skip here is
+an environment fact; with the corpus present nothing in that set skips, so
+real seeder breakage still fails.
+
 Compare against this baseline before claiming a regression. When the count
 changes, find out why rather than assuming it's the same 5.
 

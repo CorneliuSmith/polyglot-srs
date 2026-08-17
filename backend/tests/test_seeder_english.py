@@ -8,6 +8,8 @@ import pytest
 
 from backend.services.seeder.seed_english import EnglishSeeder
 
+from .conftest import requires_wordnet
+
 FIXTURES_DIR = Path(__file__).parent / "fixtures"
 
 VALID_CEFR = {"A1", "A2", "B1", "B2", "C1", None}
@@ -35,6 +37,7 @@ class TestEnglishSeederLanguageCode:
 
 # ── transform with fixture data ───────────────────────────────────────────────
 
+@requires_wordnet
 class TestEnglishSeederTransform:
     async def test_returns_list_of_dicts(self, seeder):
         with fixture_patch():
