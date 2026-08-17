@@ -86,9 +86,11 @@ and reports per language. Rules, and why each exists:
 | `leak_hard` | The answer appears in its own hint as a whole word | Substring matches inside a longer word are legitimate — `trabajar, él/ella` for answer `trabaja` is the standard "infinitive, person" convention |
 | `self_answering` | Hints shaped `answer — explanation` | The single worst pattern found; it simply prints the answer |
 | `giveaway_by_gloss` | A ≤3-word hint that already appears verbatim in the drill's own translation | For closed-class answers the hint then uniquely determines the answer |
+| `agreement_feature` | A hint that is *nothing but* the agreement features the drill exists to make the learner derive (`masculine plural`) | Only fires when the hint is EXCLUSIVELY features and the point offers a choice — `the definite article — check the noun's gender` says to do the work rather than doing it |
 | `duplicate_hint` | One hint mapped to several answers inside a point | Allomorph sets are exempt (Turkish `mı/mi/mu/mü` — the sentence disambiguates) |
 | `empty` | Empty hint, translation or explanation | — |
 | `ar_register` | Dialect markers in a course that teaches MSA | Whole-word matching only |
+| `wrong_sense_gloss` | A top-1000 vocabulary word whose gloss describes a letter of the alphabet or an ISO region code instead of the word — French rank 15 `ne` (the negator) glossed as a Swiss canton, Yoruba's five commonest grammar words glossed as letters | Only the FIRST sense counts (`fedha` = "silver…; money" leads with what the learner wants), and only inside the top 1000. Words that genuinely name a letter — `herufi`, `χι`, `fi`, `알파` — all sit at rank 2417+, so the band separates the two populations with nothing on the wrong side |
 
 **Warn-level** (reported, never blocks):
 
@@ -96,8 +98,11 @@ and reports per language. Rules, and why each exists:
 answer), `vague_translation` (translation far shorter than its sentence —
 exempt for `en`, whose translation field is a usage note by design),
 `hint_language` (target-script prose left in an English hint),
-`structural` (missing grammar file, thin sentence bank, empty morphology),
-`gender_marking` (percentage of noun hints that mark gender).
+`structural` (missing grammar file, thin sentence bank, empty morphology).
+
+**Report-level** (measured and printed, never scored):
+`gender_marking` — "how often do noun hints mark gender" is a number to drive
+editorial work, not a threshold anyone can set honestly.
 
 ### The baseline ratchet
 

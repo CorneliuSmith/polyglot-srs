@@ -15,10 +15,13 @@ from __future__ import annotations
 from backend.services.quality.audit_content import (
     FAIL_RULES,
     LANGUAGES,
+    WRONG_SENSE_RANK_BAND,
     audit_all,
+    audit_language,
     audit_points,
     load_baseline,
     regressions,
+    wrong_sense_kind,
 )
 
 
@@ -299,3 +302,61 @@ class TestOtherRuleGuards:
         points = [_point(_drill("سأل {{answer}} القاضي.", "المحلّفين", "the jurors",
                                 "He asked the jurors."))]
         assert audit_points("ar", points)["ar_register"] == []
+
+
+class TestWrongSenseGloss:
+    """The kaikki parser takes the first entry carrying any gloss, with no
+    part-of-speech ranking, so a `name`/`character`/`symbol` entry can outrank
+    the real word. French rank 15 `ne` — the negator — is glossed as a Swiss
+    canton; Yoruba's five commonest grammar words are glossed as letter names.
+    """
+
+    def test_letter_name_gloss_on_a_frequent_word_flags(self):
+        assert wrong_sense_kind(1, "The name of the Latin script letter T/t.") == "letter name"
+        assert wrong_sense_kind(
+            3, "The sixteenth letter of the Yoruba alphabet, called ó."
+        ) == "letter name"
+
+    def test_region_code_gloss_flags(self):
+        assert wrong_sense_kind(15, "ISO 3166-2:CH code of Neuchâtel (canton)") == "region code"
+
+    def test_a_word_that_genuinely_names_a_letter_is_not_flagged(self):
+        """The guard the rule stands on. Swahili `herufi`, Greek `χι`, Portuguese
+        `fi` and Korean `알파` really do name letters — and every one of them sits
+        at rank 2417 or deeper, because naming a letter is not a job a language
+        gives a high-frequency word. Flagging these would be flagging correct
+        content, and a checker that does that gets switched off.
+        """
+        for rank, gloss in (
+            (2427, "letter (letter of the alphabet)"),
+            (3798, "chi, the 22nd letter in the modern Greek alphabet."),
+            (7198, "phi (name of the Greek letter Φ)"),
+            (2417, "alpha (name of the Greek, Ancient Greek letter α)"),
+        ):
+            assert wrong_sense_kind(rank, gloss) is None, gloss
+
+    def test_the_band_is_the_discriminator(self):
+        gloss = "The name of the Latin script letter T/t."
+        assert wrong_sense_kind(WRONG_SENSE_RANK_BAND, gloss) == "letter name"
+        assert wrong_sense_kind(WRONG_SENSE_RANK_BAND + 1, gloss) is None
+
+    def test_only_the_leading_sense_counts(self):
+        """A gloss that leads with the sense a learner wants is doing its job,
+        whatever it says afterwards — Swahili `fedha` is silver AND money."""
+        assert wrong_sense_kind(229, "silver (chemical element); money; finance") is None
+        assert wrong_sense_kind(
+            1, "The name of the Latin script letter T/t.; a relativizer"
+        ) == "letter name"
+
+    def test_unranked_or_empty_rows_are_ignored(self):
+        assert wrong_sense_kind(0, "The first letter of the alphabet") is None
+        assert wrong_sense_kind(-1, "The first letter of the alphabet") is None
+        assert wrong_sense_kind(5, "") is None
+
+    def test_the_rule_reads_the_committed_corpora(self):
+        """Yoruba is the worst case in the repo and the reason this rule is
+        fail-level: its commonest words are glossed as letters of the alphabet.
+        """
+        findings = audit_language("yo")["findings"]["wrong_sense_gloss"]
+        assert findings, "yo has known wrong-sense glosses in its top band"
+        assert any("'ti'" in row for row in findings)

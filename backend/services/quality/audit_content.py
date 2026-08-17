@@ -71,6 +71,7 @@ FAIL_RULES = (
     "duplicate_hint",
     "empty",
     "ar_register",
+    "wrong_sense_gloss",
 )
 WARN_RULES = ("construction_quote", "vague_translation", "hint_language", "structural")
 # Measured and printed, never scored: "how often do noun hints mark gender" is
@@ -547,6 +548,78 @@ def _audit_arabic_sentences() -> list[str]:
     return problems
 
 
+# A vocabulary gloss whose FIRST sense is one of these describes a letter or a
+# region code rather than a word. Both come from the same upstream cause: the
+# kaikki parser takes the first entry carrying any usable gloss, with no
+# part-of-speech ranking, so a `name`/`character`/`symbol` entry outranks the
+# real word. French rank 15 `ne` — the negator — is glossed as a Swiss canton.
+_LETTER_NAME_RE = re.compile(
+    r"letter of the|letter in the|name of the .{0,30}letter"
+    r"|\b\w+(?:th|st|nd|rd)\s+letter\b",
+    re.IGNORECASE,
+)
+_REGION_CODE_RE = re.compile(r"\bISO\s*\d", re.IGNORECASE)
+
+# The guard, and the whole reason this rule can be fail-level. Words that
+# genuinely NAME a letter are real vocabulary and must not be flagged — Swahili
+# `herufi` ("letter"), Greek `χι` (chi), Portuguese `fi` (phi), Korean `알파`
+# (alpha). Every one of them sits at rank 2417 or deeper, because naming a
+# letter is not something a language does with a high-frequency word. Inside the
+# first thousand the picture inverts completely: all 60 hits there are function
+# words wearing a letter's gloss — Yoruba `ti`, `ni`, `si`, `bi`, `mi` and
+# Turkish `ve` ("and"). So the band IS the discriminator, and 1000 is where the
+# two populations separate cleanly with nothing on the wrong side of the line.
+WRONG_SENSE_RANK_BAND = 1000
+
+
+def wrong_sense_kind(rank: int, gloss: str) -> str | None:
+    """"letter name" / "region code" / None for one frequency row.
+
+    Only the first sense is tested: `fedha` glossing as "silver (chemical
+    element); money; finance" leads with the sense the learner wants, whereas a
+    row that OPENS with "The name of the Latin script letter T/t" has nothing
+    else to offer.
+    """
+    if not 0 < rank <= WRONG_SENSE_RANK_BAND:
+        return None
+    first_sense = (gloss or "").split(";")[0]
+    if _LETTER_NAME_RE.search(first_sense):
+        return "letter name"
+    if _REGION_CODE_RE.search(first_sense):
+        return "region code"
+    return None
+
+
+def _audit_wrong_sense_glosses(code: str) -> list[str]:
+    """Frequency rows in the top band whose gloss describes the wrong thing.
+
+    Reads the committed TSV, so it sees what a fresh environment would seed.
+    English is absent for now because its glosses are built at seed time from
+    WordNet rather than committed (see seed_english.py) — it joins this rule
+    when that path writes a reviewable file.
+    """
+    path = DATA / f"{code}_frequency.tsv"
+    if not path.exists():
+        return []
+    problems = []
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle, delimiter="\t"):
+            gloss = (row.get("en") or "").strip()
+            if not gloss:
+                continue
+            try:
+                rank = int(row.get("rank") or 0)
+            except ValueError:
+                continue
+            kind = wrong_sense_kind(rank, gloss)
+            if kind is None:
+                continue
+            problems.append(
+                f"rank {rank} '{row.get('word')}' glossed as a {kind}: \"{gloss[:70]}\""
+            )
+    return problems
+
+
 def audit_language(code: str) -> dict:
     """Every rule for one language. Returns findings, counts and notes."""
     points = load_grammar(code)
@@ -554,6 +627,7 @@ def audit_language(code: str) -> dict:
     findings = audit_points(code, points or [])
     findings["structural"] = _audit_structure(code, points, morphology)
     findings["gender_marking"] = _audit_gender_marking(code, points or [], morphology)
+    findings["wrong_sense_gloss"] = _audit_wrong_sense_glosses(code)
     if code == "ar":
         findings["ar_register"] += _audit_arabic_sentences()
 
@@ -630,7 +704,7 @@ def print_report(reports: list[dict], examples: int = 5) -> None:
 
 def print_summary(reports: list[dict]) -> None:
     # Positional against FAIL_RULES — keep the two in step.
-    heads = ("leak", "self", "gloss", "agree", "dup", "empty", "ar_reg")
+    heads = ("leak", "self", "gloss", "agree", "dup", "empty", "ar_reg", "wrongsns")
     print("\n" + "-" * (6 + 8 * (len(FAIL_RULES) + 2)))
     print(f"{'lang':<6}" + "".join(f"{h:>8}" for h in heads) + f"{'FAIL':>8}{'warn':>8}")
     for report in reports:
