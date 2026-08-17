@@ -13,16 +13,24 @@ the same single unit from the allowance pool.**
 
 ## 1. What to charge
 
-| Plan | Price | AI pool | Median AI cost | Why |
-|---|---|---|---|---|
-| Free | $0 | 20 msg/mo | ~$0.30 | Learn/Review forever; a real taste of the tutor |
-| Single language | $8/mo · $59/yr | 100 | ~$1.10 | The downsell; exists to make all-access look right |
-| **All languages** | **$14/mo · $99/yr** | **300** | **~$1.80** | The hero plan. Breadth is the differentiator |
-| Tutor+ add-on | +$12/mo | +1,000 | ~$9–15 | Only sound *after* the two fixes below |
-| Lifetime | $249, 50 seats | 300/mo | ~$22/yr | Front-loads cash; never promise unlimited AI |
+| Plan | Price | AI pool | Reader cap | Median AI cost | Why |
+|---|---|---|---|---|---|
+| Free | $0 | 20 units/mo | 2 | ~$0.25 | Learn/Review forever; a real taste of the AI |
+| Starter | $8/mo · $59/yr | 120 | 8 | ~$1.10 | The on-ramp, and the downsell |
+| **Standard** | **$14/mo · $119/yr** | **300** | **16** | **~$2.50** | The hero plan |
+| Immersion | $24/mo · $199/yr | 600 | 25 | ~$5.50 | For the daily learner; where routing matters most |
+| Top-up pack | $6 one-off | +120 | +8 | ~$2.40 | Deliberate purchase, never surprise overage |
+| Lifetime | $249, 50 seats | 300/mo | 16 | ~$30/yr | Front-loads cash; never promise unlimited AI |
 
-Plus a **founder rate of $69/yr locked for life for the first 100
+Plus a **founder rate of $89/yr locked for life for the first 100
 subscribers** — it buys testimonials and review recruits, not just revenue.
+
+The pools are sized so median AI cost stays under 25% of price and the
+absolute cap under 70%. **The appendix at the end of this memo shows the
+whole cost stack** — per-action costs, the unit weights that make the meter
+honest, fixed costs, and what each rung contributes — and answers the
+follow-up question of how much revenue this produces at what subscriber
+count.
 
 ### The arithmetic
 
@@ -32,18 +40,19 @@ Per-action model cost, all four drawing **one** unit from the same pool
 | Action | Cost | Why |
 |---|---|---|
 | Tutor message | ~$0.009 | ~3k in / ~450 out, and the system block is already cached (`services/tutor.py`) |
-| Gym set | ~$0.05 | Uncached generation |
-| Weekly picks | ~$0.05 | One batch |
-| Reader text, typical | ~$0.10 | ~3.5k output tokens plus the contract grader |
-| Reader text, worst | ~$0.30 | Long C2: up to two full generations at the 16,384-token ceiling (#287), graded |
+| Gym set | ~$0.034 | Uncached generation, items plus chart |
+| Weekly picks | ~$0.024 | One batch |
+| Reader text, typical | ~$0.075 | ~3.5k output tokens plus the contract grader |
+| Reader text, worst | ~$0.28 | Long C2: up to two full generations at the 16,384-token ceiling (#287), graded |
 
 So 300 messages spent entirely on chat costs ~$2.80; spent entirely on long
-Reader texts it costs up to **$90 against $99 of annual revenue**. That is a
+Reader texts it costs up to **$84 against $119 of annual revenue**. That is a
 metering problem, not a pricing one:
 
-1. **Weight the draw** — a Reader text should cost 3 units and a Gym
-   generation 2. The learner still sees one honest number; the cap then
-   actually bounds cost. Small change to the counted-kinds query.
+1. **Weight the draw** — a Reader text should cost 3 units (5 for a long one)
+   and a Gym generation 2, with a visible monthly cap on Reader texts. The
+   learner still sees one honest percentage; the pool then bounds volume and
+   the sub-cap bounds shape. Small change to the counted-kinds query.
 2. **Cache the Reader and Gym prompts** the way the tutor's are, and route
    the grading pass to Haiku — a fixed-rubric yes/no judgement does not need
    the expensive model.
@@ -51,11 +60,12 @@ metering problem, not a pricing one:
 Model rates used: Opus 5 $5/$25 per MTok, Sonnet 5 $3/$15 (intro $2/$10
 through 2026-08-31), Haiku 4.5 $1/$5; cached input reads ≈ 0.1×.
 
-$99/yr sits at the top of the indie band (Bunpro/LingQ/Migaku anchor roughly
+$119/yr sits at the top of the indie band (Bunpro/LingQ/Migaku anchor roughly
 $50–155/yr). Holding the top of that band needs the bundle *and* reviewed
 content — which is why §6 comes before the Stripe switch. Sell the year, not
-the month: $99 against $168 is a 41% saving, deep enough to move buyers and
-worth twelve months of retention you'd otherwise re-earn monthly.
+the month: $119 against $168 is a 29% saving, and annual billing also cuts
+Stripe's per-charge fee from $8.52 a year to $3.75 while handing you the cash
+before you incur that year's AI cost.
 
 ## 2. When to ship native iOS/Android
 
@@ -204,11 +214,12 @@ Do not buy review for a language before it has learners.
 | Legal review of terms | $500–1,500 | §5 |
 | Developer accounts | $124 | Only once §2 says go |
 | **Cash to recover** | **$4,000–7,000** | The actual payback target |
-| Revenue per subscriber | $99/yr | Blended toward annual all-access |
-| Less AI (~22%), Stripe (~4%), hosting share | −28% | At median usage |
-| **Contribution per subscriber** | **~$71/yr** | **Break-even ≈ 70–100 subscribers, ever** |
+| Revenue per subscriber | $119/yr | Blended across the three rungs (appendix §5) |
+| Less AI, Stripe, speech | −32% | At median usage |
+| **Contribution per subscriber** | **~$81/yr** | **Break-even ≈ 50–90 subscribers, ever** |
 
-Monthly cash-flow break-even arrives far earlier, around 15–20 subscribers.
+Monthly cash-flow break-even arrives far earlier, around 10 subscribers —
+$675 of annual fixed cost against $81 of contribution each.
 Expect the cash back within the first six to twelve months of charging if any
 channel works at all.
 
@@ -271,6 +282,150 @@ answers down verbatim — the sentences learners use for their own plateau are
 the landing-page copy.
 
 ---
+
+## Appendix — the cost model, tier by tier
+
+*Added after the owner's follow-up: "The AI feature is why I switched to
+monthly percentages. Base prices plus AI addition versions plus AI with the AI
+allowance, plus maybe additional add-ons for AI. I need to know how with the
+TTS, Supabase, hosting, AI costs how to make a reasonable revenue."*
+
+The monthly-percentage meter was the right call. It just needs one fix to be
+honest, because the actions behind it differ in cost by 30×.
+
+### 1. What each action actually costs
+
+Sonnet 5 at $3/$15 per MTok, cached input read at ~0.1×, Azure Speech at
+$16/1M neural TTS characters and $0.18/hour batch STT (rates from
+`docs/plans/speak-speech.md`).
+
+| Action | Model | Speech | Total |
+|---|---|---|---|
+| Tutor turn (system block cached) | $0.0093 | — | **$0.009** |
+| Speak turn | $0.009 | STT $0.0008 + TTS $0.002 | **$0.012** |
+| Reader text, medium (generate + grade) | $0.074 | — | **$0.075** |
+| Reader text, long C2, graded + rewritten | $0.27 | — | **$0.28** |
+| Reader text read aloud (whole text) | — | $0.022 | **$0.022** |
+| Gym set (items + chart) | $0.034 | — | **$0.034** |
+| Weekly picks | $0.024 | — | **$0.024** |
+| Session summary (operator-side, not drawn) | $0.021 | — | **$0.021** |
+
+Two things fall out immediately:
+
+- **Speech is not the problem.** A whole 20-turn spoken conversation costs
+  about 6¢ of Azure and 18¢ of model. Azure's free tier (5 STT hours and
+  500K TTS characters a month) covers roughly the first 200 conversations
+  each month at zero cost. TTS is a rounding error next to text generation.
+- **The Reader is 8–30× a tutor message** and currently draws the same single
+  unit from the pool. That is the whole margin risk in one line.
+
+### 2. Make the meter weigh what it counts
+
+Keep one number and one percentage — learners understand it. Weight what
+draws it:
+
+| Action | Units | Cost per unit |
+|---|---|---|
+| Tutor or Speak turn | 1 | $0.009–0.012 |
+| Weekly picks | 2 | $0.012 |
+| Gym set | 2 | $0.017 |
+| Reader text, short/medium | 3 | $0.025 |
+| Reader text, long | 5 | $0.056 |
+
+Plan on **$0.02 per unit** for a normal mix and **$0.05** for an adversarial
+one. Weights alone don't bound the worst case, so add the second mechanic:
+
+**A visible sub-cap on Reader texts per month.** The pool bounds the volume;
+the sub-cap bounds the *shape*. Without it, a learner can spend a 300-unit
+pool entirely on long C2 texts and cost $17 against $10 of monthly revenue.
+With it, the same account cannot exceed a known number.
+
+### 3. Fixed costs
+
+| Item | Monthly | Note |
+|---|---|---|
+| Supabase Pro | $25 | List price — verify on the invoice |
+| DigitalOcean app + database | $20 | One small instance |
+| Domain, transactional email | $11 | |
+| Azure Speech | $0 | F0 free tier at current volume |
+| **Total** | **~$56** | **~$675/year** |
+
+Fixed cost per subscriber collapses with scale: $1.12/month at 50
+subscribers, $0.11 at 500. It is not what decides this business — AI COGS is.
+
+Stripe is the other fixed drag, and it argues for annual billing on its own:
+2.9% + 30¢ means a $119 annual charge costs $3.75, while twelve $14 charges
+cost $8.52. Annual billing saves nearly $5 a subscriber a year *and* hands
+you the cash before you incur the AI cost that year.
+
+### 4. The ladder
+
+Free SRS stays free — it is the top of the funnel, and its variable cost is
+capped at pennies. The paid rungs differ only in AI.
+
+| Rung | Monthly | Annual | Units/mo | Reader cap | Median AI cost | Cap AI cost |
+|---|---|---|---|---|---|---|
+| Free | $0 | — | 20 | 2 | $0.25 | $0.75 |
+| **Starter** | $8 | **$69** ($5.75/mo) | 120 | 8 | $1.10 | $3.30 |
+| **Standard** (hero) | $14 | **$119** ($9.92/mo) | 300 | 16 | $2.50 | $6.30 |
+| **Immersion** | $24 | **$199** ($16.58/mo) | 600 | 25 | $5.50 | $11.30 |
+| Top-up pack | $6 one-off | — | +120 | +8 | $2.40 | $3.30 |
+
+Design rules behind those numbers:
+
+- **Median AI cost ≤ 25% of price.** Comfortable.
+- **Absolute-cap AI cost ≤ 70% of price.** The 1–2% of accounts that max
+  their pool are near break-even, not loss-making, and a fair-use clause in
+  the terms lets you throttle a true outlier.
+- **Packs, never overage billing.** A surprise charge produces refunds and
+  chargebacks; a deliberate $6 purchase does not. Price packs at roughly
+  2.5× marginal cost.
+- **Route by need.** Put the Reader's grading pass and the session summarizer
+  on Haiku 4.5 ($1/$5) — both are fixed-rubric jobs — and about 20% of AI
+  COGS disappears without a learner noticing.
+
+### 5. What the revenue actually looks like
+
+Contribution per subscriber per year, at median usage, after Stripe, AI and
+speech:
+
+| Rung | Price | Stripe | AI + speech | **Contribution** |
+|---|---|---|---|---|
+| Starter | $69 | $2.30 | $14 | **$52** |
+| Standard | $119 | $3.75 | $32 | **$83** |
+| Immersion | $199 | $6.07 | $70 | **$123** |
+
+At a 25 / 60 / 15 mix, blended contribution is **~$81 per subscriber per
+year**. Against $675 of fixed cost:
+
+| Subscribers | Contribution | Less fixed | **Annual profit** |
+|---|---|---|---|
+| 10 | $810 | $675 | **~$135** — costs covered |
+| 100 | $8,100 | $700 | **~$7,400** |
+| 300 | $24,300 | $1,200 | **~$23,000** |
+| 1,000 | $81,000 | $3,000 | **~$78,000** |
+| 3,000 | $243,000 | $10,000 | **~$233,000** |
+
+So the answer to "how do I make reasonable revenue" is a subscriber count,
+not a price change:
+
+- **Costs covered: ~10 subscribers.**
+- **$1,000/month of side income: ~150 subscribers.**
+- **Part-time salary ($30k): ~370 subscribers.**
+- **Full-time ($80k): ~1,000 subscribers.**
+
+The pricing above is not the constraint — at $81 of contribution per
+subscriber, the business works at any of those scales. Distribution is the
+constraint, which is why §8 and §9 matter more than this appendix does.
+
+### 6. The two numbers to watch monthly
+
+1. **AI cost ÷ subscription revenue.** Target under 25%. Over 30% for two
+   months running means the pools are too generous or the mix has shifted
+   toward the Reader.
+2. **The p95 subscriber's AI cost.** The median is reassuring and useless; the
+   95th percentile is what tells you whether the caps are doing their job.
+   Both come out of `tutor_usage` with the token columns already there.
 
 ## The next thirty days
 
