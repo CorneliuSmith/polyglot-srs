@@ -4,6 +4,36 @@ import { allTipsSeen } from '../features/tips/tips'
 
 export type Theme = 'system' | 'light' | 'dark'
 
+/**
+ * How Speak should behave as a conversation (owner: "create options that
+ * provide users real convo situations").
+ *
+ * Four independent switches rather than one "hands-free" mode, because they
+ * fail differently: a learner in a quiet room may want the partner to speak
+ * without wanting the microphone armed, and someone practising listening
+ * wants the text hidden whether or not anything is automatic.
+ *
+ * Every one defaults OFF, so the conversation behaves exactly as it does
+ * today until somebody asks for more.
+ */
+export interface SpeakConversationPrefs {
+  /** Play the partner's line as it arrives instead of waiting for a tap. */
+  autoSpeak: boolean
+  /** Hide the partner's words — listen first, reveal if you need to. */
+  hideText: boolean
+  /** Start listening as soon as the partner has finished. */
+  autoListen: boolean
+  /** Send when the learner stops talking, without a tap. */
+  autoSend: boolean
+}
+
+const SPEAK_CONVERSATION_DEFAULTS: SpeakConversationPrefs = {
+  autoSpeak: false,
+  hideText: false,
+  autoListen: false,
+  autoSend: false,
+}
+
 interface PrefsState {
   activeLanguageId: string | null
   setActiveLanguageId: (id: string) => void
@@ -93,6 +123,11 @@ interface PrefsState {
   // account state.
   dashboardWidgets: string[]
   setDashboardWidgets: (ids: string[]) => void
+  // Speak's conversation options (see SpeakConversationPrefs). Device-local
+  // like listeningMode: whether your phone talks out loud in a quiet office
+  // is a fact about the room you're in, not about your account.
+  speakConversation: SpeakConversationPrefs
+  setSpeakConversation: (patch: Partial<SpeakConversationPrefs>) => void
 }
 
 export const usePrefsStore = create<PrefsState>()(
@@ -156,6 +191,18 @@ export const usePrefsStore = create<PrefsState>()(
       markFeedbackSeen: (isoTimestamp) => set({ feedbackSeenAt: isoTimestamp }),
       dashboardWidgets: [],
       setDashboardWidgets: (ids) => set({ dashboardWidgets: ids.slice(0, 2) }),
+      speakConversation: { ...SPEAK_CONVERSATION_DEFAULTS },
+      setSpeakConversation: (patch) =>
+        set((s) => ({
+          // Spread over the defaults, not just over the stored value: a
+          // profile persisted before this existed has no object at all, and
+          // an older one may be missing a switch added later.
+          speakConversation: {
+            ...SPEAK_CONVERSATION_DEFAULTS,
+            ...s.speakConversation,
+            ...patch,
+          },
+        })),
     }),
     {
       name: 'polyglot-prefs',

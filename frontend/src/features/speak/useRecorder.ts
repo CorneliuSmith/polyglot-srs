@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { watchSilence } from './silence'
+import type { AutoStopReason } from './silence'
 
 /**
  * One recorded utterance, for Speak (docs/plans/speak.md stage 2).
@@ -24,6 +26,12 @@ import { useCallback, useEffect, useRef, useState } from 'react'
  * the recording indicator on in the tab and, on mobile, the microphone
  * held against other apps. It is stopped on stop, on error, and on
  * unmount.
+ *
+ * **Hands-free is opt-in and lives beside the toggle, not instead of it.**
+ * Pass `onAutoStop` and the recorder also watches for the learner to stop
+ * talking (see silence.ts) and calls back with why it stopped. The button
+ * still works exactly as before while it does — a learner who reaches for
+ * it mid-turn is never fighting the detector.
  */
 
 const CANDIDATES = [
@@ -70,13 +78,28 @@ export interface RecorderState {
   cancel: () => void
 }
 
-export function useRecorder(): RecorderState {
+export interface RecorderOptions {
+  /**
+   * Called when the learner stops talking, instead of waiting for a second
+   * tap. Absent (the default) = no detector runs at all.
+   *
+   * Read through a ref, so a caller that rebuilds the callback every render
+   * — which every inline arrow does — cannot restart the detector under a
+   * live recording.
+   */
+  onAutoStop?: (reason: AutoStopReason) => void
+}
+
+export function useRecorder(options: RecorderOptions = {}): RecorderState {
   const [recording, setRecording] = useState(false)
   const [error, setError] = useState<'denied' | 'failed' | null>(null)
   const recorder = useRef<MediaRecorder | null>(null)
   const stream = useRef<MediaStream | null>(null)
   const chunks = useRef<Blob[]>([])
   const startedAt = useRef(0)
+  const stopWatching = useRef<(() => void) | null>(null)
+  const autoStop = useRef(options.onAutoStop)
+  autoStop.current = options.onAutoStop
 
   const supported =
     typeof navigator !== 'undefined' &&
@@ -84,6 +107,8 @@ export function useRecorder(): RecorderState {
     typeof MediaRecorder !== 'undefined'
 
   const release = useCallback(() => {
+    stopWatching.current?.()
+    stopWatching.current = null
     stream.current?.getTracks().forEach((track) => track.stop())
     stream.current = null
     recorder.current = null
@@ -121,6 +146,14 @@ export function useRecorder(): RecorderState {
       startedAt.current = Date.now()
       rec.start()
       setRecording(true)
+      if (autoStop.current) {
+        stopWatching.current = watchSilence(media, {
+          // The detector reports; the page decides. It never touches the
+          // recorder itself, so "stop and send" and "stop and discard" stay
+          // one decision in one place.
+          onStop: (reason) => autoStop.current?.(reason),
+        })
+      }
     } catch {
       media.getTracks().forEach((track) => track.stop())
       setError('failed')
