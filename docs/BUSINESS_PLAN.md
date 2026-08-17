@@ -4,6 +4,11 @@
 investment advice. Every revenue figure is a scenario with stated
 assumptions — a way to reason about the business, not a forecast.*
 
+*Companion: `pricing-and-launch.md` (2026-08) makes the specific calls this
+plan leaves open — the price points, the native-app trigger, the name, the
+review budget, the payback arithmetic and the wedge languages — with the
+per-action AI costs worked out from the code.*
+
 ---
 
 ## 1. Executive summary
