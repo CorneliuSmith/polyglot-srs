@@ -49,19 +49,72 @@ export interface ReadingOptions {
     | 'C2'
 }
 
+export interface GeneratedReading {
+  id: string
+  reading: Omit<Reading, 'id' | 'topic'>
+  level: string
+  allowance: TutorAllowance
+}
+
+interface GenerateStatus extends Partial<GeneratedReading> {
+  generating: boolean
+  error?: string
+}
+
+/** How often to ask whether the text has landed, and how long to keep
+ * asking. A graded, once-rewritten C2 text is the slow case (two full
+ * generations); past this the write is not coming back. */
+const POLL_MS = 3000
+const GIVE_UP_MS = 5 * 60 * 1000
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
+
+export async function getReadingStatus(): Promise<GenerateStatus> {
+  const response = await apiClient.get<GenerateStatus>(
+    '/api/reader/generate/status',
+  )
+  return response.data
+}
+
+/**
+ * Write a text, and don't hang up while it happens.
+ *
+ * The POST only STARTS the write now; the server hands the model call to a
+ * background task and this polls until it lands. Holding one request open
+ * through a graded-and-rewritten C2 text is what DigitalOcean's gateway
+ * killed at about a minute — the same failure recommendations hit, fixed
+ * the same way. Callers see one promise either way.
+ */
 export async function generateReading(
   languageId: string,
   languageCode: string,
   topic: string,
   options?: Partial<ReadingOptions>,
-): Promise<{ id: string; reading: Omit<Reading, 'id' | 'topic'>; level: string; allowance: TutorAllowance }> {
-  const response = await apiClient.post('/api/reader/generate', {
+): Promise<GeneratedReading> {
+  await apiClient.post('/api/reader/generate', {
     language_id: languageId,
     language_code: languageCode,
     topic,
     ...options,
   })
-  return response.data
+
+  const deadline = Date.now() + GIVE_UP_MS
+  for (;;) {
+    await sleep(POLL_MS)
+    const status = await getReadingStatus()
+    if (status.error) throw new Error(status.error)
+    if (status.id && status.reading) {
+      return status as GeneratedReading
+    }
+    // Not writing and nothing to show: the process restarted mid-write, or
+    // the result was already collected. Either way it isn't coming.
+    if (!status.generating) {
+      throw new Error('The text stopped being written — try again.')
+    }
+    if (Date.now() > deadline) {
+      throw new Error('Writing took too long — try again.')
+    }
+  }
 }
 
 export async function getReadings(languageId: string): Promise<ReadingSummary[]> {

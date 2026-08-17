@@ -7,6 +7,7 @@ admin cost panel already reads.
 
 from __future__ import annotations
 
+import asyncio
 import logging
 from uuid import UUID
 
@@ -66,12 +67,124 @@ async def _support_gloss_locale(conn, user_id: str, language_code: str) -> str:
     return await effective_support_locale(conn, user_id) or "en"
 
 
+# Readings being written right now, one per user, OUTLIVING the request
+# that started them. The synchronous shape died in production exactly the
+# way recommendations did (see routers/recommendations.py _DRAFTS):
+# DigitalOcean's gateway caps a request at about a minute, and a reading is
+# no longer one model call — #285 grades every text and rewrites one that
+# misses, so a C2 text is two full generations plus a grading pass. The
+# owner's screenshot: "Couldn't write that one" on Theoretical Physics at
+# C2, which is precisely the longest, slowest text the app can produce.
+#
+# The request now only STARTS the write; the page polls GET /generate/status
+# until it lands. Nothing about the work changed — only who holds the
+# connection while it happens.
+_WRITES: dict[str, asyncio.Task] = {}
+# The finished reading, waiting to be collected by the next poll.
+_RESULTS: dict[str, dict] = {}
+# Why the last write failed — served by the poll so the page can say what
+# went wrong instead of spinning, and admins get the exception text.
+_WRITE_ERRORS: dict[str, str] = {}
+
+
+def _writing(user_id: str) -> bool:
+    task = _WRITES.get(str(user_id))
+    return task is not None and not task.done()
+
+
+async def _write_reading(
+    user_id: str,
+    body: GenerateRequest,
+    *,
+    learner: dict,
+    gloss_locale: str,
+    model: str | None,
+    allowance: dict,
+    admin: bool,
+) -> None:
+    """The whole write, run as a background task: one model call (plus the
+    contract grader, plus at most one rewrite), then save, log usage, and
+    collect curriculum gaps. Every outcome lands somewhere the poll can see
+    it — a task nobody awaits otherwise fails silently."""
+    key = str(user_id)
+    try:
+        reading, usage = await generate_reading(
+            body.language_code, body.topic.strip(), learner,
+            gloss_locale=gloss_locale, model=model,
+            options={
+                "length": body.length,
+                "voice": body.voice,
+                "complexity": body.complexity,
+            },
+        )
+        async with rls_connection(user_id) as conn:
+            await log_tutor_usage(
+                conn, user_id, body.language_id, model, usage=usage
+            )
+            reading_id = await save_reading(
+                conn, user_id, body.language_id, body.topic.strip(),
+                reading, learner["level"],
+            )
+
+        # Curriculum-gap collection (owner request): structures the path
+        # doesn't cover get logged operator-side. Best-effort — a gap-log
+        # hiccup must never cost the learner their reading.
+        try:
+            example = (
+                reading["sentences"][0]["text"] if reading["sentences"] else None
+            )
+            async with privileged_connection() as conn:
+                logged = await log_grammar_gaps(
+                    conn, body.language_id,
+                    reading.get("structures") or [], example,
+                )
+            if logged:
+                logger.info("Reader logged %d grammar gap(s)", logged)
+        except Exception as exc:  # noqa: BLE001
+            logger.error("Grammar gap logging failed: %s", exc)
+
+        used_after = None if allowance["unlimited"] else allowance["used"] + 1
+        _RESULTS[key] = {
+            "id": reading_id,
+            "reading": reading,
+            "level": learner["level"],
+            "allowance": {
+                **allowance,
+                "used": used_after,
+                "remaining": (
+                    None if allowance["unlimited"]
+                    else max(0, allowance["limit"] - used_after)
+                ),
+            },
+        }
+        _WRITE_ERRORS.pop(key, None)
+    except anthropic.RateLimitError:
+        _WRITE_ERRORS[key] = "The writer is busy — try again in a moment."
+    except Exception as exc:  # noqa: BLE001 — surfaced by the poll, never lost
+        logger.exception(
+            "Reading generation failed for %s (%s, %s)",
+            user_id, body.language_code, body.complexity,
+        )
+        msg = "Couldn't write that one — try again, or a different topic."
+        if admin:
+            msg += f" [{type(exc).__name__}: {exc}]"
+        _WRITE_ERRORS[key] = msg
+    finally:
+        _WRITES.pop(key, None)
+
+
 @router.post("/generate")
 async def generate(
     body: GenerateRequest,
     user: dict = Depends(get_current_user),
 ):
-    """Write the learner a level-locked text on their topic."""
+    """Start writing the learner a level-locked text on their topic.
+
+    Runs the gates, then hands the model call to a background task and
+    answers immediately: holding the connection through a graded,
+    possibly-rewritten C2 text is what the gateway killed. The page polls
+    /generate/status for the result.
+    """
     allowance = await _get_allowance(user["id"], body.language_id)
     _reject_if_unavailable(allowance)
     if not await tutor_chat_limiter.allow(user["id"]):
@@ -79,6 +192,10 @@ async def generate(
             status_code=status.HTTP_429_TOO_MANY_REQUESTS,
             detail="Too many requests — slow down a moment.",
         )
+    # A write already running is joined, not doubled — an impatient second
+    # tap must never spend a second generation.
+    if _writing(user["id"]):
+        return {"generating": True}
 
     async with rls_connection(user["id"]) as conn:
         # The 'reading' assessment tier: level, known words/structures, weak
@@ -94,71 +211,34 @@ async def generate(
         )
     model = resolve_tutor_model(body.language_code, override_model)
 
-    try:
-        reading, usage = await generate_reading(
-            body.language_code, body.topic.strip(), learner,
-            gloss_locale=gloss_locale, model=model,
-            options={
-                "length": body.length,
-                "voice": body.voice,
-                "complexity": body.complexity,
-            },
+    key = str(user["id"])
+    _RESULTS.pop(key, None)
+    _WRITE_ERRORS.pop(key, None)
+    _WRITES[key] = asyncio.create_task(
+        _write_reading(
+            user["id"], body,
+            learner=learner, gloss_locale=gloss_locale, model=model,
+            allowance=allowance, admin=bool(user.get("is_admin")),
         )
-    except ValueError as exc:
-        logger.error("Reading generation invalid: %s", exc)
-        raise HTTPException(
-            status_code=status.HTTP_502_BAD_GATEWAY,
-            detail="The reading came back malformed — try again",
-        ) from exc
-    except anthropic.RateLimitError as exc:
-        raise HTTPException(
-            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
-            detail="The writer is busy — try again in a moment",
-        ) from exc
-    except anthropic.APIError as exc:
-        logger.error("Anthropic API error (%s): %s", type(exc).__name__, exc)
-        raise HTTPException(
-            status_code=status.HTTP_502_BAD_GATEWAY,
-            detail="Reading generation is temporarily unavailable",
-        ) from exc
+    )
+    return {"generating": True}
 
-    async with rls_connection(user["id"]) as conn:
-        await log_tutor_usage(
-            conn, user["id"], body.language_id, model, usage=usage
-        )
-        reading_id = await save_reading(
-            conn, user["id"], body.language_id, body.topic.strip(),
-            reading, learner["level"],
-        )
 
-    # Curriculum-gap collection (owner request): structures the path
-    # doesn't cover get logged operator-side. Best-effort — a gap-log
-    # hiccup must never cost the learner their reading.
-    try:
-        example = reading["sentences"][0]["text"] if reading["sentences"] else None
-        async with privileged_connection() as conn:
-            logged = await log_grammar_gaps(
-                conn, body.language_id, reading.get("structures") or [], example
-            )
-        if logged:
-            logger.info("Reader logged %d grammar gap(s)", logged)
-    except Exception as exc:  # noqa: BLE001
-        logger.error("Grammar gap logging failed: %s", exc)
+@router.get("/generate/status")
+async def generate_status(user: dict = Depends(get_current_user)):
+    """Has the text landed yet?
 
-    used_after = None if allowance["unlimited"] else allowance["used"] + 1
-    return {
-        "id": reading_id,
-        "reading": reading,
-        "level": learner["level"],
-        "allowance": {
-            **allowance,
-            "used": used_after,
-            "remaining": (
-                None if allowance["unlimited"]
-                else max(0, allowance["limit"] - used_after)
-            ),
-        },
-    }
+    Returns the finished reading exactly once — collecting it clears the
+    slot, so a second poll after the page has it doesn't re-open a text the
+    learner already closed.
+    """
+    key = str(user["id"])
+    if key in _RESULTS:
+        return {"generating": False, **_RESULTS.pop(key)}
+    error = _WRITE_ERRORS.pop(key, None)
+    if error:
+        return {"generating": False, "error": error}
+    return {"generating": _writing(user["id"])}
 
 
 @router.get("/readings")
