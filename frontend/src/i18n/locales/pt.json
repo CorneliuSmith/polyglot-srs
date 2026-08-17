@@ -191,7 +191,9 @@
       "title": "Seu texto está pronto",
       "body": "Sobre “{{topic}}” · toque para ler",
       "dismiss": "Dispensar"
-    }
+    },
+    "deleteConfirm": "Excluir “{{title}}”?\n\nSó o texto sai — as palavras que você salvou continuam nas suas revisões.",
+    "deleteAria": "Excluir “{{title}}”"
   },
   "tutor": {
     "title": "Tutor de {{language}}",

@@ -20,6 +20,7 @@ from backend.repositories.assessment import get_assessment_summary
 from backend.repositories.pool import privileged_connection, rls_connection
 from backend.repositories.profile import effective_support_locale
 from backend.repositories.reader import (
+    delete_reading,
     get_reading,
     list_readings,
     log_grammar_gaps,
@@ -263,6 +264,28 @@ async def one_reading(
             status_code=status.HTTP_404_NOT_FOUND, detail="No such reading"
         )
     return reading
+
+
+@router.delete("/readings/{reading_id}")
+async def remove_reading(
+    reading_id: UUID,
+    user: dict = Depends(get_current_user),
+):
+    """Drop one reading from the shelf — housekeeping, owner request.
+
+    Only the text goes. Words the learner saved out of it are their own
+    cards now and stay: nothing links a card to the reading it came from,
+    so deleting is genuinely just tidying. Idempotent from the client's
+    point of view via the 404 (already gone reads the same as never
+    yours), and RLS backs the ownership check independently.
+    """
+    async with rls_connection(user["id"]) as conn:
+        deleted = await delete_reading(conn, user["id"], str(reading_id))
+    if not deleted:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="No such reading"
+        )
+    return {"deleted": True}
 
 
 @router.post("/readings/{reading_id}/explain")
