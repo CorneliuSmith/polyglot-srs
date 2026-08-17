@@ -33,6 +33,7 @@ from backend.services.reader import (
     MAX_TOPIC_CHARS,
     explain_sentence,
     generate_reading,
+    pitch_label,
 )
 from backend.services.tutor import resolve_tutor_model
 
@@ -49,9 +50,13 @@ class GenerateRequest(BaseModel):
     voice: str = Field(default="any", pattern="^(any|first|third|dialogue)$")
     # Relative (easier/level/stretch) or an explicit CEFR pin — the owner:
     # "add a1 - c2 levels as an option".
+    # Relative (easier/stretch/level), an explicit CEFR pin — the owner:
+    # "add a1 - c2 levels as an option" — or one of the registers ABOVE the
+    # ladder ("a level higher than c2 - like university-level or academic").
     complexity: str = Field(
         default="level",
-        pattern="^(easier|level|stretch|A1|A2|B1|B2|C1|C2)$",
+        pattern="^(easier|level|stretch|A1|A2|B1|B2|C1|C2"
+                "|native|academic|literary)$",
     )
 
 
@@ -124,7 +129,9 @@ async def _write_reading(
             )
             reading_id = await save_reading(
                 conn, user_id, body.language_id, body.topic.strip(),
-                reading, learner["level"],
+                # The pitch, not the reader: a B1 learner who asked for an
+                # academic text should not find it filed under B1.
+                reading, pitch_label(learner["level"], body.complexity),
             )
 
         # Curriculum-gap collection (owner request): structures the path

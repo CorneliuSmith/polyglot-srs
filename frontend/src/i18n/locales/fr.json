@@ -193,7 +193,11 @@
       "dismiss": "Fermer"
     },
     "deleteConfirm": "Supprimer « {{title}} » ?\n\nSeul le texte disparaît : les mots que vous avez enregistrés restent dans vos révisions.",
-    "deleteAria": "Supprimer « {{title}} »"
+    "deleteAria": "Supprimer « {{title}} »",
+    "registerNative": "Natif",
+    "registerAcademic": "Universitaire",
+    "registerLiterary": "Littéraire",
+    "registerHint": "Au-delà du C2 il n’y a plus de niveaux : ce sont des types d’écriture, au-dessus de l’échelle."
   },
   "tutor": {
     "title": "Tuteur de {{language}}",
@@ -1497,6 +1501,32 @@
     "autoSendCancel": "Ne pas envoyer — je veux corriger",
     "micListeningHandsFree": "À l’écoute… arrêtez de parler et ça part.",
     "micStillThere": "Je n’ai rien entendu. Touchez le micro quand vous êtes prêt.",
-    "autoplayBlocked": "Votre navigateur n’a pas voulu le lire tout seul — utilisez le bouton d’écoute."
+    "autoplayBlocked": "Votre navigateur n’a pas voulu le lire tout seul — utilisez le bouton d’écoute.",
+    "topicGroups": {
+      "everyday": "Au quotidien",
+      "practical": "Régler un problème",
+      "opinion": "Dites ce que vous pensez"
+    },
+    "topics": {
+      "coffee": "Commander un café et changer d’avis",
+      "directions": "Demander son chemin sans comprendre la réponse",
+      "introductions": "Rencontrer quelqu’un à une soirée",
+      "clothes": "Acheter des vêtements qui ne vont pas",
+      "weekend": "Ce que vous avez fait ce week-end",
+      "neighbour": "Quelques mots avec un voisin",
+      "doctor": "Expliquer un symptôme au médecin",
+      "flat": "Visiter un appartement et parler du loyer",
+      "hotel": "Vous arrivez à l’hôtel et la chambre ne va pas",
+      "missedTrain": "Vous avez raté le train : trouvez le suivant",
+      "interview": "Un entretien pour le métier que vous faites",
+      "returnItem": "Rendre un article sans le ticket",
+      "film": "Un film à voir, et pourquoi",
+      "changedMind": "Une chose sur laquelle vous avez changé d’avis",
+      "cityBestWorst": "Le meilleur et le pire de votre ville",
+      "explainJob": "Expliquez votre métier à un enfant de dix ans",
+      "habit": "Une habitude que vous aimeriez changer",
+      "disagree": "Être poliment en désaccord avec quelqu’un que vous aimez bien"
+    },
+    "topicSuggestLabel": "Ou choisissez-en un"
   }
 }

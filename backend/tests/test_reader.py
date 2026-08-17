@@ -526,3 +526,79 @@ def test_placement_rule_stays_silent_without_evidence():
 
     assert _placement_rule(None) == ""
     assert _placement_rule({"level": "B1", "struggled_levels": []}) == ""
+
+
+def test_the_registers_sit_above_the_cefr_ladder():
+    """Owner: "add more options — like a level higher than c2 — like
+    university-level or academic".
+
+    There is no C3, so the three additions are REGISTERS: the target stops
+    being a rung and becomes a kind of prose, the cage is always open (no
+    register above C2 fits inside a learner's cards), and each carries its
+    own instruction. What this pins is that they are distinguishable — a
+    dial where academic and literary produce the same prompt would be three
+    chips and one behaviour.
+    """
+    from backend.services.reader import (
+        BEYOND_CEFR,
+        _system_prompt,
+        pitch_label,
+        resolve_dial,
+    )
+
+    assert set(BEYOND_CEFR) == {"native", "academic", "literary"}
+
+    for mode in BEYOND_CEFR:
+        target, open_cage = resolve_dial("B1", mode)
+        assert target.startswith("C2+"), target
+        # A register is above every learner by construction, so the cage
+        # opens even for a C2 learner who picked it.
+        assert open_cage is True
+        assert resolve_dial("C2", mode)[1] is True
+
+    learner = {"level": "B1"}
+    academic = _system_prompt("es", "en", learner, {"complexity": "academic"})
+    literary = _system_prompt("es", "en", learner, {"complexity": "literary"})
+    native = _system_prompt("es", "en", learner, {"complexity": "native"})
+
+    assert "university-level academic prose" in academic
+    assert "nominalisation" in academic
+    assert "literary prose" in literary and "nominalisation" not in literary
+    assert "educated NATIVE" in native
+    # The open cage still applies underneath the register.
+    assert "FLOOR, not the limit" in academic
+
+    # The shelf gets a short name, not the prompt's descriptive label.
+    assert pitch_label("B1", "academic") == "Academic"
+    assert pitch_label("B1", "stretch") == "B2"
+    assert pitch_label("B1", "C1") == "C1"
+
+
+def test_generate_accepts_a_register_above_c2(client):
+    """The router's validation and the dial agree about what exists."""
+    with patch(
+        "backend.routers.reader.save_reading",
+        new=AsyncMock(return_value=TEST_READING_ID),
+    ), patch(
+        "backend.routers.reader.log_grammar_gaps", new=AsyncMock(return_value=0),
+    ), patch(
+        "backend.routers.reader.log_tutor_usage", new=AsyncMock(),
+    ):
+        resp = client.post(
+            "/api/reader/generate",
+            json={"language_id": TEST_LANGUAGE_ID, "language_code": "es",
+                  "topic": "quantum error correction",
+                  "complexity": "academic"},
+            headers=_auth_headers(),
+        )
+    assert resp.status_code == 200
+
+    # A plausible-looking neighbour that does not exist is still a 422 —
+    # the pattern is a whitelist, not a suggestion.
+    resp = client.post(
+        "/api/reader/generate",
+        json={"language_id": TEST_LANGUAGE_ID, "language_code": "es",
+              "topic": "cats", "complexity": "C3"},
+        headers=_auth_headers(),
+    )
+    assert resp.status_code == 422

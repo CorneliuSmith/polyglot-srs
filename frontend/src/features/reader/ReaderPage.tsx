@@ -417,6 +417,12 @@ export default function ReaderPage() {
                         ['B2', 'B2'],
                         ['C1', 'C1'],
                         ['C2', 'C2'],
+                        // Above C2 the CEFR ladder stops, so these are
+                        // registers rather than levels — named, not coded,
+                        // because "C3" would be a fiction.
+                        ['native', t('reader.registerNative')],
+                        ['academic', t('reader.registerAcademic')],
+                        ['literary', t('reader.registerLiterary')],
                       ],
                     },
                   ]
@@ -444,6 +450,18 @@ export default function ReaderPage() {
                     ))}
                   </div>
                 ))}
+                {/* Said once, where the choice is made: the three chips at
+                    the end of the challenge row are not levels. */}
+                {['native', 'academic', 'literary'].includes(
+                  textOptions.complexity,
+                ) && (
+                  <p
+                    className="text-[11px] leading-snug text-gray-500"
+                    data-testid="reader-register-hint"
+                  >
+                    {t('reader.registerHint')}
+                  </p>
+                )}
               </div>
               {generateFailed && (
                 <p className="text-xs text-red-600" role="alert">

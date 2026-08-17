@@ -193,7 +193,11 @@
       "dismiss": "Dismiss"
     },
     "deleteConfirm": "Delete “{{title}}”?\n\nOnly the text goes — any words you saved from it stay in your reviews.",
-    "deleteAria": "Delete “{{title}}”"
+    "deleteAria": "Delete “{{title}}”",
+    "registerNative": "Native",
+    "registerAcademic": "Academic",
+    "registerLiterary": "Literary",
+    "registerHint": "Above C2 there are no levels left — these are kinds of writing, pitched beyond the ladder."
   },
   "tutor": {
     "title": "{{language}} Tutor",
@@ -1497,6 +1501,32 @@
     "autoSendCancel": "Don’t send — let me fix it",
     "micListeningHandsFree": "Listening… stop talking and it sends.",
     "micStillThere": "I didn’t hear anything. Tap the microphone when you’re ready.",
-    "autoplayBlocked": "Your browser wouldn’t play that on its own — use the listen button."
+    "autoplayBlocked": "Your browser wouldn’t play that on its own — use the listen button.",
+    "topicGroups": {
+      "everyday": "Everyday",
+      "practical": "Sorting things out",
+      "opinion": "Say what you think"
+    },
+    "topics": {
+      "coffee": "Ordering coffee and changing your mind",
+      "directions": "Asking the way and not understanding the answer",
+      "introductions": "Meeting someone new at a party",
+      "clothes": "Buying clothes that don’t fit",
+      "weekend": "What you did at the weekend",
+      "neighbour": "Small talk with a neighbour",
+      "doctor": "Explaining a symptom to a doctor",
+      "flat": "Viewing a flat and asking about the rent",
+      "hotel": "Checking in — and the room is wrong",
+      "missedTrain": "You missed the train; sort out the next one",
+      "interview": "A job interview for work you actually do",
+      "returnItem": "Returning something without a receipt",
+      "film": "A film worth watching, and why",
+      "changedMind": "Something you changed your mind about",
+      "cityBestWorst": "The best and worst things about your city",
+      "explainJob": "Explain your job to a ten-year-old",
+      "habit": "A habit you would like to change",
+      "disagree": "Disagreeing politely with someone you like"
+    },
+    "topicSuggestLabel": "Or pick one"
   }
 }

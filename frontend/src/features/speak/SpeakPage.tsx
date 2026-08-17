@@ -22,6 +22,7 @@ import {
 } from '../../api/speak'
 import { recordingSupported, useRecorder } from './useRecorder'
 import { canDetectSilence } from './silence'
+import { SPEAK_TOPICS } from './topics'
 import type { AutoStopReason } from './silence'
 import type { SpeakError, SpeakMode, SpeakSummary } from '../../api/speak'
 import type { TutorAllowance } from '../../api/tutor'
@@ -497,6 +498,45 @@ export default function SpeakPage() {
           className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-3 text-sm"
         />
         <p className="mt-1 text-xs text-gray-500">{t('speak.topicHint')}</p>
+
+        {/* An empty box is the hardest question in any language. Eighteen
+            starters, grouped by what the conversation demands rather than by
+            level — ordering a coffee is four words or a complaint, depending
+            on how you play it — and each one only FILLS the box, so it can
+            be edited before it becomes the topic. */}
+        <div className="mt-3 space-y-2" data-testid="speak-topic-suggestions">
+          <p className="text-[11px] uppercase tracking-wide text-gray-500">
+            {t('speak.topicSuggestLabel')}
+          </p>
+          {SPEAK_TOPICS.map(({ group, ids }) => (
+            <div key={group} className="space-y-1">
+              <p className="text-[11px] font-semibold text-gray-600">
+                {t(`speak.topicGroups.${group}`)}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {ids.map((id) => {
+                  const label = t(`speak.topics.${id}`)
+                  return (
+                    <button
+                      key={id}
+                      type="button"
+                      onClick={() => setTopic(label)}
+                      aria-pressed={topic === label}
+                      data-testid={`speak-topic-${id}`}
+                      className={`rounded-full border px-2.5 py-1 text-[11px] text-start transition-colors ${
+                        topic === label
+                          ? 'border-lang/40 bg-lang-soft text-lang font-medium'
+                          : 'border-gray-200 text-gray-600 hover:border-lang/50 hover:text-lang'
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
         {/* Said once, up front, rather than discovered as a missing
             button mid-conversation. Latin, Māori, Yoruba, Hausa, Xhosa and
             Jamaican Patois have no recognizer, and that is permanent
