@@ -175,6 +175,39 @@ at the moment the sentence is written.
 sentence selection last — because a sense-aware selector has nothing to select
 against until the card states which sense it is teaching.
 
+#### Decision: one card per word, not one per sense
+
+The owner left this open. The answer is **one card**, and the reasons are
+worth writing down because the alternative is superficially attractive.
+
+Splitting `a` into three rows — article, preposition, pronoun — would let each
+card teach one thing and carry only its own examples. It also breaks the
+natural key the entire pipeline is built on. `vocabulary` is
+`UNIQUE (language_id, word)` (migration 20260314000000); the vocabulary seeders
+upsert `ON CONFLICT (language_id, word)`, and `seed_sentences` attaches every
+example by `JOIN vocabulary v ON v.language_id = $1 AND v.word = u.word`. With
+three rows spelled `a`, that join has no way to choose, so every example would
+either fan out to all three senses or need a sense key the corpus does not
+carry. Frequency rank has the same problem: rank is measured on the surface
+form, so three cards would have to share one rank or invent three.
+
+The learner-facing argument is stronger still. These are homonyms, not just
+homographs — Portuguese `a` is pronounced the same in all three uses. Three
+cards would be identical in text AND in audio, differing only in a label, and
+a spaced-repetition queue that shows the same-looking prompt three times
+teaches the learner to answer from position rather than from meaning.
+
+So: one row, a gloss that names the senses, and examples labelled with the
+sense they show. The example label is the part that does the real work — it is
+what turns "O que ele está a fazer?" from a contradiction into an illustration
+of the preposition sense the gloss already mentions. It is also additive: a
+nullable column or an existing JSON field, which degrades to today's behaviour
+when the migration has not landed, per the repo's standing rule.
+
+One case would justify revisiting this: a true homograph with a DIFFERENT
+pronunciation, where one card cannot carry both audio clips. None of the
+1,293 words measured is that case, so it stays out of scope until one is.
+
 ### D2 — Sentence parity. Two separate problems, and one is not what it looked like.
 
 **English (corrected 17 Aug — the first reading was wrong).** The sentences
