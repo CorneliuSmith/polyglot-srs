@@ -301,19 +301,22 @@ def parse_freedict_tei(path: Path) -> dict[str, dict]:
 # rank 36 `y` — the pronoun "there" — as a letter of the alphabet. Both had the
 # right sense sitting in a later entry that was never read. Lower sorts first.
 _POS_RANK = {
-    # Function words: the top of every frequency list, and the entries most
-    # often outranked by a same-spelled glyph or abbreviation.
+    # Every genuine word class sits at ONE rank on purpose. Ordering them
+    # against each other looks reasonable and is not: ranking adverbs above
+    # numerals rewrote Turkish rank 1 `bir` from "one" to "only, solely,
+    # merely" and rank 12 `var` from "there is" to "every, all", because both
+    # carry a secondary adverbial sense. Within real words, arrival order —
+    # which is roughly Wiktionary's own sense order — already decides well.
     "pron": 0, "pronoun": 0, "det": 0, "article": 0, "particle": 0,
     "conj": 0, "prep": 0, "postp": 0, "adv": 0, "verb": 0,
-    # Ordinary content words.
-    "noun": 1, "adj": 1, "num": 1, "intj": 1, "classifier": 1, "counter": 1,
-    "phrase": 2, "proverb": 3,
+    "noun": 0, "adj": 0, "num": 0, "intj": 0, "classifier": 0, "counter": 0,
+    "phrase": 1, "proverb": 2,
     # Bound morphemes: real, but a poor definition for a standalone headword.
     "prefix": 4, "suffix": 4, "infix": 4, "interfix": 4,
-    # Not a word sense at all.
+    # Not a word sense at all. This distinction is the whole point of ranking.
     "name": 8, "character": 9, "letter": 9, "symbol": 9, "punct": 9,
 }
-_POS_RANK_DEFAULT = 5
+_POS_RANK_DEFAULT = 3
 
 # Senses that describe a glyph, a region code or a sound rather than a meaning.
 # Wider than the substring checks this replaces, which missed "a letter IN the
@@ -343,6 +346,14 @@ _WIKI_LINK = re.compile(r"\[\[(?:[^\]|]*\|)?([^\]|]*)\]\]")
 _ALT_OF_MEANING = re.compile(
     r"^(?:alternative|archaic|obsolete|dated|nonstandard|informal)\b[^(]*"
     r"[(\[]?\s*[“\"']([^”\"']{1,80})[”\"']",
+    re.IGNORECASE,
+)
+
+# The same cross-reference when it states no meaning, so only the target can
+# supply one: "alternative form of hayde" -> hayde.
+_POINTER_TARGET = re.compile(
+    r"^(?:alternative|archaic|obsolete|dated|nonstandard|informal)\b[^,;]*?"
+    r"\bof\s+([^\s,;(]+)",
     re.IGNORECASE,
 )
 
@@ -409,12 +420,22 @@ def _balance(gloss: str) -> str | None:
     return gloss or None
 
 
-def parse_kaikki_jsonl(path: Path, wanted: set[str] | None = None) -> dict[str, dict]:
+def parse_kaikki_jsonl(
+    path: Path, wanted: set[str] | None = None, *, follow_pointers: bool = True
+) -> dict[str, dict]:
     """Stream a kaikki.org Wiktionary extract -> {word: {pos, gloss, plural}}.
 
     Every entry for a word is read and the best-ranked one wins, rather than the
     first that happens to parse. Pass *wanted* to filter to a known word set and
     keep memory flat on the large dumps.
+
+    A word left holding only a cross-reference ("alternative form of hayde") is
+    then resolved by following it, because the pointer is usually worse than
+    useless: measured across the nineteen rebuilt lists, 521 of them named a
+    target that is not in the same course at all, so the learner is sent to look
+    up a word they do not have. Most are not even variants — Arabic rank 65
+    `انا` points at `أَنَا`, differing only in vocalization, and Romanian
+    `dumnezeu` at `Dumnezeu`, differing only in case.
     """
     # word -> (pos_rank, arrival_order, pos, gloss)
     best: dict[str, tuple[int, int, str | None, str]] = {}
@@ -443,32 +464,50 @@ def parse_kaikki_jsonl(path: Path, wanted: set[str] | None = None) -> dict[str, 
             # first entry (я the pronoun beats я the letter).
             content: list[str] = []
             fallback: list[str] = []
+            last_resort: list[str] = []
             for sense in obj.get("senses") or []:
                 tags = set(sense.get("tags") or [])
                 if "alt_of" in sense or tags & {"alt-of", "obsolete",
                                                 "misspelling"}:
                     # Rescue the meaning if the cross-reference states it, so a
-                    # real word is not lost to a spelling pointer.
+                    # real word is not lost to a spelling pointer. When it does
+                    # not state one, keep the pointer as a last resort rather
+                    # than dropping the word: Turkish `hadi` and `haydi` ("come
+                    # on") are ranks 53 and 199 and have no other sense at all.
                     for g in sense.get("glosses") or []:
-                        found = _ALT_OF_MEANING.match((g or "").strip())
-                        if found:
-                            recovered = _clean_gloss(found.group(1))
-                            if recovered:
-                                fallback.append(recovered)
+                        text = (g or "").strip()
+                        found = _ALT_OF_MEANING.match(text)
+                        recovered = _clean_gloss(found.group(1)) if found else None
+                        if recovered:
+                            fallback.append(recovered)
+                        elif text:
+                            last_resort.append(text)
                     continue
                 is_form = "form_of" in sense or "form-of" in tags
                 for g in sense.get("glosses") or []:
-                    low = (g or "").strip().lower()
-                    if low.startswith(("alternative ", "romanization of",
-                                       "misspelling", "obsolete ",
-                                       "archaic ", "the name of the")):
+                    text = (g or "").strip()
+                    low = text.lower()
+                    if low.startswith("the name of the") or "script letter" in low:
                         continue
-                    if "script letter" in low:
+                    if low.startswith(("alternative ", "romanization of",
+                                       "misspelling", "obsolete ", "archaic ")):
+                        # Same rescue as the tagged cross-references above, for
+                        # senses that only say so in prose. Turkish `hadi` and
+                        # `haydi` ("come on") sit at ranks 53 and 199 with no
+                        # other sense at all, so skipping these outright drops
+                        # ordinary words off the list. The pointer itself is a
+                        # weak definition, so it is kept only as a last resort.
+                        found = _ALT_OF_MEANING.match(text)
+                        recovered = _clean_gloss(found.group(1)) if found else None
+                        if recovered:
+                            fallback.append(recovered)
+                        else:
+                            last_resort.append(text)
                         continue
                     cleaned = _clean_gloss(g)
                     if cleaned:
                         (fallback if is_form else content).append(cleaned)
-            glosses = list(dict.fromkeys(content or fallback))
+            glosses = list(dict.fromkeys(content or fallback or last_resort))
             if not glosses:
                 continue
             # one clear sense; a second only when the first is terse
@@ -478,18 +517,54 @@ def parse_kaikki_jsonl(path: Path, wanted: set[str] | None = None) -> dict[str, 
 
             pos = obj.get("pos")
             rank = _POS_RANK.get((pos or "").strip().lower(), _POS_RANK_DEFAULT)
-            # A form-of sense is a last resort even from a well-ranked entry:
-            # "dative of я" is the right gloss only when nothing states a meaning.
+            # A form-of sense is a weaker answer even from a well-ranked entry:
+            # "dative of я" is the right gloss only when nothing states a
+            # meaning, and a bare spelling pointer is weaker still.
             if not content:
-                rank += 2
+                rank += 2 if fallback else 5
             candidate = (rank, order, pos, gloss)
             if word not in best or candidate < best[word]:
                 best[word] = candidate
+
+    if follow_pointers:
+        _follow_pointers(path, best)
 
     return {
         word: {"pos": pos, "gloss": gloss, "plural": None}
         for word, (_rank, _order, pos, gloss) in best.items()
     }
+
+
+def _follow_pointers(path: Path, best: dict[str, tuple[int, int, str | None, str]]) -> None:
+    """Replace a bare cross-reference gloss with the meaning it points at.
+
+    One extra pass, and only for the targets actually named — the words needing
+    this are a fraction of a percent of any list. A target that itself resolves
+    to a pointer is left alone rather than chased: two hops is already a sign
+    the entry is a spelling thicket, and a cycle would not terminate.
+    """
+    targets: dict[str, list[str]] = {}
+    for word, (_rank, _order, _pos, gloss) in best.items():
+        found = _POINTER_TARGET.match(gloss)
+        if not found:
+            continue
+        target = found.group(1).strip(".,;:\"'“”()[]").lower()
+        if target and target != word:
+            targets.setdefault(target, []).append(word)
+    if not targets:
+        return
+
+    resolved = parse_kaikki_jsonl(path, wanted=set(targets), follow_pointers=False)
+    for target, words in targets.items():
+        entry = resolved.get(target)
+        if not entry:
+            continue
+        gloss = entry["gloss"]
+        if _POINTER_TARGET.match(gloss):
+            continue
+        for word in words:
+            rank, order, pos, _old = best[word]
+            best[word] = (rank, order, pos, gloss)
 
 
 # Word tokens INCLUDING combining marks: Python's \w excludes Unicode Mn/Mc
@@ -974,6 +1049,55 @@ async def load_example_sentences(db_url: str, language_code: str, tsv_path: Path
 # CLI
 # ---------------------------------------------------------------------------
 
+GLOSS_OVERRIDES_PATH = DATA_DIR / "gloss_overrides.tsv"
+
+
+def apply_gloss_overrides(language: str, rows: list[dict]) -> list[dict]:
+    """Hand-authored definitions for words no sense-picking rule gets right.
+
+    Ranking parts of speech against each other cannot settle a word that is
+    genuinely two words. Portuguese `a` is both the feminine definite article
+    (rank 2, overwhelmingly what a learner meets) and an object pronoun; French
+    `la` and Spanish `los` are the same shape. Whichever entry Wiktionary lists
+    first wins, and for these it is the pronoun.
+
+    Preferring the PREVIOUS list's part of speech was the obvious alternative
+    and is unsafe: Turkish `ve` ("and") was filed as a `character` under the old
+    parser, so trusting that would restore the very defect this work removes.
+
+    So the top of the list gets human judgment, kept in one reviewable file
+    beside the data it corrects — the same shape as the existing
+    en_translation_overrides.tsv. Only words already present are corrected; an
+    override never invents an entry, because rank comes from the corpus.
+    """
+    if not GLOSS_OVERRIDES_PATH.exists():
+        return rows
+    overrides: dict[str, dict] = {}
+    with open(GLOSS_OVERRIDES_PATH, encoding="utf-8-sig", newline="") as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            if (row.get("language") or "").strip() != language:
+                continue
+            word = (row.get("word") or "").strip()
+            if word:
+                overrides[word] = row
+    if not overrides:
+        return rows
+    applied = 0
+    for row in rows:
+        hit = overrides.get(row["word"])
+        if not hit:
+            continue
+        gloss = (hit.get("en") or "").strip()
+        pos = (hit.get("pos") or "").strip()
+        if gloss:
+            row["gloss"] = gloss
+        if pos:
+            row["pos"] = pos
+        applied += 1
+    logger.info("Applied %d gloss override(s) for %s", applied, language)
+    return rows
+
+
 def _build_dictionary(language: str, source: str, cache_dir: Path, wanted=None) -> dict:
     if source == "kaikki":
         path = download(SOURCES[f"{language}_kaikki"], cache_dir / f"{language}_kaikki.jsonl")
@@ -1090,6 +1214,7 @@ def build_language(language: str, source: str, max_words: int, cache_dir: Path) 
     else:
         raise ValueError(f"Unsupported language: {language}")
 
+    rows = apply_gloss_overrides(language, rows)
     out_path = DATA_DIR / f"{language}_frequency.tsv"
     n = write_frequency_tsv(rows, out_path)
     logger.info("Wrote %d words to %s", n, out_path)
