@@ -109,16 +109,34 @@ class TestParseKaikki:
         assert entries["y"]["gloss"] == "there (at a place)"
         assert entries["ne"]["gloss"] == "not"
 
-    def test_a_meaning_outranks_an_inflection_pointer(self, tmp_path):
-        """"dative of X" is the right gloss only when nothing states a meaning."""
+    def test_an_inflection_is_not_demoted_below_a_rare_homograph(self, tmp_path):
+        """Penalising form-of senses across entries was tried and reverted.
+
+        These lists are built from surface forms, so the inflection is usually
+        the right answer. Demoting it handed the card to whatever rare homograph
+        happened to be a content sense: German `hast` (rank 49, "you have")
+        became "haste", `habe` became "belongings", Italian `ha` (rank 18,
+        "has") became "ah! (ironic)" and `ti` became the musical note B.
+        """
         p = tmp_path / "k.jsonl"
         p.write_text(
-            '{"word": "w", "pos": "pron",'
-            ' "senses": [{"form_of": [{"word": "x"}], "glosses": ["dative of x"]}]}\n'
-            '{"word": "w", "pos": "pron", "senses": [{"glosses": ["to me"]}]}\n',
+            '{"word": "hast", "pos": "verb", "senses": [{"form_of": [{"word": "haben"}],'
+            ' "glosses": ["second-person singular present of haben"]}]}\n'
+            '{"word": "hast", "pos": "noun", "senses": [{"glosses": ["haste"]}]}\n',
             encoding="utf-8",
         )
-        assert parse_kaikki_jsonl(p)["w"]["gloss"] == "to me"
+        assert parse_kaikki_jsonl(p)["hast"]["gloss"].startswith("second-person")
+
+    def test_a_bare_pointer_still_sinks_below_a_real_sense(self, tmp_path):
+        """The last-resort tier survives: a cross-reference stating no meaning
+        is worse than any sense that states one."""
+        p = tmp_path / "k.jsonl"
+        p.write_text(
+            '{"word": "w", "pos": "noun", "senses": [{"glosses": ["alternative form of v"]}]}\n'
+            '{"word": "w", "pos": "noun", "senses": [{"glosses": ["a real meaning"]}]}\n',
+            encoding="utf-8",
+        )
+        assert parse_kaikki_jsonl(p)["w"]["gloss"] == "a real meaning"
 
     def test_a_case_frame_is_not_a_definition(self, tmp_path):
         """Russian `в` — rank 4 — shipped as "[with prepositional]" because
