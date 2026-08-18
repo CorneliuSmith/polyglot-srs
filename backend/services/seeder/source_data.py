@@ -517,11 +517,19 @@ def parse_kaikki_jsonl(
 
             pos = obj.get("pos")
             rank = _POS_RANK.get((pos or "").strip().lower(), _POS_RANK_DEFAULT)
-            # A form-of sense is a weaker answer even from a well-ranked entry:
-            # "dative of я" is the right gloss only when nothing states a
-            # meaning, and a bare spelling pointer is weaker still.
-            if not content:
-                rank += 2 if fallback else 5
+            # A bare spelling pointer ("alternative form of hayde", no meaning
+            # given) is a last resort and sinks below everything real.
+            #
+            # A form-of sense does NOT sink. Penalising those was tried and
+            # reverted: for a frequency list built from surface forms, the
+            # inflection IS usually the right answer, and demoting it hands the
+            # card to whatever rare homograph happens to be a content sense.
+            # Measured on a full rebuild, that turned German `hast` (rank 49,
+            # "you have") into "haste", `habe` into "belongings", Italian `ha`
+            # (rank 18, "has") into "ah! (ironic)" and `ti` into the musical
+            # note B. Wiktionary's own sense order is the better guide here.
+            if not content and not fallback:
+                rank += 5
             candidate = (rank, order, pos, gloss)
             if word not in best or candidate < best[word]:
                 best[word] = candidate
