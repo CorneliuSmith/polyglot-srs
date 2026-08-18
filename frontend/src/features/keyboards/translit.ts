@@ -575,6 +575,26 @@ const KO_ASPIRATE_T: Record<string, string> = {
   'ㄱ': 'ㅋ', 'ㄷ': 'ㅌ', 'ㅂ': 'ㅍ', 'ㅈ': 'ㅊ',
 }
 
+// Seven medials are COMPOUND — two vowels sharing one syllable's middle
+// slot — and no Hangul keyboard has keys for them: every IME builds them by
+// pressing the parts (ㅗ then ㅏ → ㅘ). The composer never did, so 와 came out
+// 오아, 의 came out 으이, and the owner: "I cannot put in the diphthong
+// answers."
+//
+// ㅐ ㅔ ㅒ ㅖ are deliberately ABSENT: they look like compounds and are not.
+// The 2-set keyboard has a key for each, and treating ㅓ+ㅣ as ㅔ would make
+// 거이 unspellable.
+const KO_COMPOUND_V: Record<string, string> = {
+  'ㅗㅏ': 'ㅘ', 'ㅗㅐ': 'ㅙ', 'ㅗㅣ': 'ㅚ',
+  'ㅜㅓ': 'ㅝ', 'ㅜㅔ': 'ㅞ', 'ㅜㅣ': 'ㅟ',
+  'ㅡㅣ': 'ㅢ',
+}
+/** Read backwards, so a compound medial can give its second half back when a
+ * consonant needs re-seating — the medial twin of KO_SPLIT_T. */
+const KO_SPLIT_V: Record<string, string> = Object.fromEntries(
+  Object.entries(KO_COMPOUND_V).map(([pair, joined]) => [joined, pair]),
+)
+
 const KO_SYL_BASE = 0xac00
 const KO_SYL_LAST = 0xd7a3
 const KO_SILENT_L = KO_L.indexOf('ㅇ') // the placeholder initial for a bare vowel
@@ -801,6 +821,132 @@ function encodeKo(phon: string, finalize: boolean): string {
   return out
 }
 
+/**
+ * A real Hangul IME for the ON-SCREEN KEYBOARD path.
+ *
+ * The keyboard taps jamo straight into the field, and until now those were
+ * folded back into romanization and re-encoded — a round trip that cannot
+ * survive contact with ㅇ. A tapped ㅇ opening a syllable lands first as the
+ * previous syllable's batchim (이 + ㅇ → 잉, which is what an IME does), and
+ * the round trip then decoded that batchim to its lax spelling "ng", which
+ * re-read as ㄴ+ㄱ. So 이에요, tapped correctly, came back 인겐교; with the
+ * missing compound medials on top, the owner's screenshot read 이어이이오.
+ *
+ * Romanization is untouched — `convertTranslit` still owns the QWERTY path,
+ * where "ng" genuinely is two letters the next vowel may re-split (방 + a →
+ * 반가). This function only ever sees jamo and finished syllables, so it can
+ * do what an IME does instead of guessing:
+ *
+ *   - a consonant after a complete syllable becomes its batchim, and a
+ *     second one stacks (ㅂ+ㅅ → ㅄ), doubles (ㄱ+ㄱ → ㄲ) or aspirates;
+ *   - a vowel STEALS that batchim to open its own syllable (잉 + ㅔ → 이에,
+ *     없 + ㅏ → 업사, taking only the second half of a stacked final);
+ *   - two vowels in one slot merge when they are a real compound (ㅗ+ㅏ → ㅘ)
+ *     and otherwise start a new syllable.
+ *
+ * Anything that is not a jamo or a syllable (spaces, punctuation, Latin left
+ * over from the other path) flushes the block in progress and passes through.
+ */
+function koComposeJamo(text: string): string {
+  let out = ''
+  let L = '' // initial
+  let V = '' // medial
+  let T = '' // final
+
+  const flush = () => {
+    if (!L && !V && !T) return
+    // A lone consonant is not a syllable yet — it renders as itself until a
+    // vowel arrives, the same contract the romanized path uses.
+    out += V ? koBlock(L || KO_L[KO_SILENT_L], V, T) : L + T
+    L = ''
+    V = ''
+    T = ''
+  }
+
+  /** Every input reduced to atomic compat jamo, syllables taken apart. */
+  const stream: string[] = []
+  for (const raw of Array.from(text)) {
+    const ch = koNormalizeJamo(raw)
+    const code = ch.codePointAt(0) ?? 0
+    if (code >= KO_SYL_BASE && code <= KO_SYL_LAST) {
+      const n = code - KO_SYL_BASE
+      stream.push(KO_L[Math.floor(n / 588)])
+      const medial = KO_V[Math.floor((n % 588) / 28)]
+      // Split compounds back apart so the assembly below is the only place
+      // that decides what joins — one rule, not two.
+      for (const j of Array.from(KO_SPLIT_V[medial] ?? medial)) stream.push(j)
+      const t = KO_T[n % 28]
+      if (t) for (const j of Array.from(KO_SPLIT_T[t] ?? t)) stream.push(j)
+      continue
+    }
+    stream.push(ch)
+  }
+
+  for (const ch of stream) {
+    if (KO_V.includes(ch)) {
+      if (T) {
+        // The batchim was never this syllable's — it opens the next one.
+        // A stacked final gives up only its SECOND consonant (없 + ㅏ → 업사).
+        const split = KO_SPLIT_T[T]
+        const moved = split ? split[1] : T
+        T = split ? split[0] : ''
+        flush()
+        L = moved
+        V = ch
+        continue
+      }
+      if (V) {
+        const joined = KO_COMPOUND_V[V + ch]
+        if (joined) {
+          V = joined
+          continue
+        }
+        flush()
+        V = ch
+        continue
+      }
+      V = ch
+      continue
+    }
+
+    if (KO_L.includes(ch) || KO_T.includes(ch)) {
+      if (V) {
+        if (!T) {
+          // Provisional batchim, exactly as the romanized path commits it:
+          // 밥, never 바ㅂ. The rule above gives it back when a vowel comes.
+          if (KO_T.includes(ch)) {
+            T = ch
+            continue
+          }
+          flush()
+          L = ch
+          continue
+        }
+        const stacked =
+          KO_COMPOUND_T[T + ch] ??
+          (ch === T ? KO_TENSE_T[T] : undefined) ??
+          (ch === 'ㅎ' ? KO_ASPIRATE_T[T] : undefined)
+        if (stacked) {
+          T = stacked
+          continue
+        }
+        flush()
+        L = ch
+        continue
+      }
+      // No vowel yet: a second consonant means the first was its own unit.
+      if (L) flush()
+      L = ch
+      continue
+    }
+
+    flush()
+    out += ch
+  }
+  flush()
+  return out
+}
+
 function convertKo(text: string, finalize: boolean): string {
   // No capitals in the scheme; fold them so a phone's auto-capitalized
   // first letter still converts ("Han" typed by iOS → 한, not a stuck H).
@@ -978,7 +1124,9 @@ export function convertTranslit(code: string, text: string): string {
  * jamo that must fuse into syllable blocks (ᄒ ᅡ ᄂ → 한). Keyboard handlers
  * run their result through here; every other script is returned untouched. */
 export function composeScript(code: string, text: string): string {
-  return code === 'ko' ? convertKo(text, true) : text
+  // The jamo path gets the IME, not the romanizer: see koComposeJamo for why
+  // a round trip through romanization cannot survive a tapped ㅇ.
+  return code === 'ko' ? koComposeJamo(text) : text
 }
 
 /** Resolve anything left pending (Arabic trailing vowels, Hindi trailing

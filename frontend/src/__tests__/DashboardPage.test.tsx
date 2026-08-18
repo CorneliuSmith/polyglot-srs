@@ -116,12 +116,18 @@ vi.mock('../api/gym', () => ({
   getGymManifest: vi.fn(() => Promise.resolve({ columns: [] })),
 }))
 let mockDailyLearnGoal = 20
+/** Which edition of the tour this learner has already been shown. */
+let mockWalkthroughVersion = TOUR_VERSION
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(
     (selector: (s: Record<string, unknown>) => unknown) =>
       selector({
         activeLanguageId: 'lang-es',
         walkthroughDone: true,
+        // Seen the CURRENT edition — otherwise the refreshed tour opens over
+        // these tiles, which is exactly what it is meant to do for a real
+        // learner who has not seen Speak yet.
+        walkthroughVersion: mockWalkthroughVersion,
         dailyLearnGoal: mockDailyLearnGoal,
         installPromptDismissed: true,
         setInstallPromptDismissed: vi.fn(),
@@ -147,6 +153,7 @@ vi.mock('../api/profile', () => ({
 }))
 
 import DashboardPage, { DeckRow } from '../features/dashboard/DashboardPage'
+import { TOUR_VERSION } from '../features/onboarding/tour'
 import { setDeckSubscription, getLearnDecks } from '../api/review'
 import { getDashboardStats } from '../api/dashboard'
 
@@ -224,6 +231,7 @@ describe('Dashboard tiles', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     mockDailyLearnGoal = 20
+    mockWalkthroughVersion = TOUR_VERSION
     mockStats.mockResolvedValue({
       due_count: 99,
       due_grammar: 60,
@@ -295,8 +303,32 @@ describe('Dashboard tiles', () => {
     cleanup()
     mockDailyLearnGoal = 0
     renderDashboard()
-    expect(await screen.findByText('15')).toBeDefined()
-    expect(screen.getByText(/new items queued/)).toBeDefined()
+    // Wait for the TILE, not for a bare "15": the header renders a 15 of its
+    // own, so findByText('15') could resolve against that while the Learn
+    // tile's decks query was still in flight — and the synchronous assertion
+    // on the next line then ran against a tile that had not rendered yet.
+    // The label is unique to the goal-0 branch, so waiting on it waits for
+    // exactly the thing under test.
+    const queued = await screen.findByText(/new items queued/)
+    expect(queued.closest('button')).toHaveTextContent('15')
+  })
+
+  it('a refreshed tour is shown again even to someone who dismissed the old one', async () => {
+    // Owner: "put the necessary in the walkthrough. Force all to see the new
+    // walkthrough." Dismissal is per EDITION — walkthroughDone stays true and
+    // the tour still opens, because the edition they dismissed had no Speak
+    // slide and no level dial in it.
+    mockWalkthroughVersion = TOUR_VERSION - 1
+    renderDashboard()
+    expect(await screen.findByRole('dialog', { name: /feature tour/i }))
+      .toBeInTheDocument()
+  })
+
+  it('does not reopen the tour for someone already on this edition', async () => {
+    renderDashboard()
+    await screen.findByRole('button', { name: /learned today/i })
+    expect(screen.queryByRole('dialog', { name: /feature tour/i }))
+      .not.toBeInTheDocument()
   })
 
   it('the Learn chevron expands the deck rows without starting a session', async () => {

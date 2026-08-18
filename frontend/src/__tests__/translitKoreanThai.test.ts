@@ -260,3 +260,60 @@ describe('Korean stacked (compound) finals', () => {
     }
   })
 })
+
+describe('Korean: tapping the on-screen keyboard is a real IME', () => {
+  /** Tap keys the way the keyboard emits them — conjoining jamo, one at a
+   * time, each insert re-composed, exactly as the input handler does it. */
+  function tap(...keys: string[]): string {
+    let field = ''
+    for (const k of keys) field = composeScript('ko', field + k)
+    return field
+  }
+  const NG = 'ᄋ' // the silent initial
+  const V = {
+    a: 'ᅡ', ae: 'ᅢ', eo: 'ᅥ', e: 'ᅦ',
+    o: 'ᅩ', u: 'ᅮ', eu: 'ᅳ', i: 'ᅵ', yo: 'ᅭ',
+  }
+
+  it('builds the copula the owner could not type', () => {
+    // 이에요, tapped exactly as the keyboard lays it out. The screenshot had
+    // this coming back 이어이이오: the ㅇ opening each syllable was eaten as
+    // the previous syllable's batchim and then re-read as ㄴ+ㄱ.
+    expect(tap(NG, V.i, NG, V.e, NG, V.yo)).toBe('이에요')
+  })
+
+  it('parks the ㅇ as a batchim, then gives it back to the next vowel', () => {
+    // Both halves matter: 잉 while nothing follows (that IS what an IME
+    // shows) and 이에 the moment a vowel proves the ㅇ opened a syllable.
+    expect(tap(NG, V.i, NG)).toBe('잉')
+    expect(tap(NG, V.i, NG, V.e)).toBe('이에')
+  })
+
+  it('assembles every compound medial from its two keys', () => {
+    // No Hangul keyboard has keys for these; an IME builds them from parts.
+    expect(tap(NG, V.o, V.a)).toBe('와')
+    expect(tap(NG, V.o, V.ae)).toBe('왜')
+    expect(tap(NG, V.o, V.i)).toBe('외')
+    expect(tap(NG, V.u, V.eo)).toBe('워')
+    expect(tap(NG, V.u, V.e)).toBe('웨')
+    expect(tap(NG, V.u, V.i)).toBe('위')
+    expect(tap(NG, V.eu, V.i)).toBe('의')
+  })
+
+  it('leaves alone the vowels that only LOOK like compounds', () => {
+    // ㅔ has its own key. Treating ㅓ+ㅣ as ㅔ would make 거이 unspellable.
+    expect(tap(NG, V.eo, V.i)).toBe('어이')
+    expect(tap('ᄀ', V.eo, NG, V.i)).toBe('거이')
+  })
+
+  it('still stacks finals, and splits them for a following vowel', () => {
+    const eops = tap(NG, V.eo, 'ᆸ', 'ᆺ')
+    expect(eops).toBe('없')
+    expect(composeScript('ko', eops + V.a)).toBe('업사')
+  })
+
+  it('agrees with the romanized path on a whole word', () => {
+    expect(tap('ᄒ', V.a, 'ᆫ', 'ᄀ', V.u, 'ᆨ')).toBe('한국')
+    expect(convertTranslit('ko', 'hanguk')).toBe('한국')
+  })
+})

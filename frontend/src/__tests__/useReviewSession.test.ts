@@ -256,3 +256,65 @@ describe('useReviewSession', () => {
     })
   })
 })
+
+describe('the counter never runs past its own deck', () => {
+  /**
+   * The owner's screenshot: "Card 9 of 7". The index walks the whole deck —
+   * originals plus every re-drill — while the header divided by the original
+   * deck alone, so two misses in a seven-card session produced a ninth card
+   * out of seven and a progress bar past 100%.
+   */
+  it('counts re-drills in the total, so current never exceeds it', () => {
+    const { result } = renderHook(() => useReviewSession([card1, card2]))
+    expect(result.current.deckSize).toBe(2)
+
+    act(() => {
+      result.current.rate('wrong')
+    })
+    // The deck just grew by the card that has to come back.
+    expect(result.current.deckSize).toBe(3)
+    act(() => {
+      result.current.rate('wrong')
+    })
+    expect(result.current.deckSize).toBe(4)
+
+    // On the re-drills now: position 3 and 4 OF 4, never 3 of 2.
+    expect(result.current.currentIndex + 1).toBeLessThanOrEqual(
+      result.current.deckSize,
+    )
+    act(() => {
+      result.current.rate('correct')
+    })
+    expect(result.current.currentIndex + 1).toBeLessThanOrEqual(
+      result.current.deckSize,
+    )
+    act(() => {
+      result.current.rate('correct')
+    })
+    expect(result.current.isComplete).toBe(true)
+  })
+
+  it('says when a card is coming round again', () => {
+    const { result } = renderHook(() => useReviewSession([card1, card2]))
+    expect(result.current.isRepeat).toBe(false)
+
+    act(() => {
+      result.current.rate('wrong')
+    })
+    // Still on the originals — card 2 is a first look, not a repeat.
+    expect(result.current.isRepeat).toBe(false)
+    act(() => {
+      result.current.rate('correct')
+    })
+    // Now past the originals: this is card 1, back for another go.
+    expect(result.current.currentCard?.id).toBe('card-1')
+    expect(result.current.isRepeat).toBe(true)
+
+    act(() => {
+      result.current.rate('correct')
+    })
+    // A finished session is not "on a repeat" — there is no current card.
+    expect(result.current.isComplete).toBe(true)
+    expect(result.current.isRepeat).toBe(false)
+  })
+})

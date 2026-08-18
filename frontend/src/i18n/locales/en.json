@@ -470,7 +470,10 @@
     "translateMineWorking": "Translating…",
     "translateMineDone": "Translated {{count}} — reload to see them",
     "translateMineNone": "Nothing to translate",
-    "translateMineFailed": "Couldn't translate — try again later"
+    "translateMineFailed": "Couldn't translate — try again later",
+    "repeatCard": "Repeat",
+    "toRedo_one": "{{count}} to redo",
+    "toRedo_other": "{{count}} to redo"
   },
   "about": {
     "title": "Things to know",
@@ -551,6 +554,36 @@
         "title": "Email review reminders",
         "body": "Opt in to a daily digest of what is waiting for you — reviews due, streak status, one click back into the app.",
         "linkLabel": "Turn on reminders"
+      },
+      "speak-hands-free-2026-08": {
+        "date": "August 2026",
+        "title": "Speak can now hold a conversation hands-free",
+        "body": "Your partner can say each line out loud as it arrives, the microphone can open the moment they finish, and your turn can send itself when you stop talking — so a session runs like a real conversation instead of a series of taps. You can also hide the words and listen first, revealing the line only if you need it. Everything is off by default; turn on what you want before you start, or mid-conversation.",
+        "linkLabel": "Try a conversation"
+      },
+      "speak-starters-2026-08": {
+        "date": "August 2026",
+        "title": "Eighteen things to talk about",
+        "body": "An empty topic box is the hardest question in any language, so Speak now offers starters: everyday situations, problems to sort out, and things to have an opinion about. Tap one and it fills the box — edit it before you begin if you want a different angle.",
+        "linkLabel": "Pick a topic"
+      },
+      "read-levels-2026-08": {
+        "date": "August 2026",
+        "title": "Read at any level — including above C2",
+        "body": "The Challenge row now pins a text to an exact level from A1 to C2, instead of only easier / your level / stretch. Past C2 there are no levels left, so there are three kinds of writing instead: Native (unsimplified, as written for a native reader), Academic (a university paper, argument and all) and Literary (prose that plays with style). Every word still carries a tap-to-reveal gloss.",
+        "linkLabel": "Write me something"
+      },
+      "read-shelf-2026-08": {
+        "date": "August 2026",
+        "title": "Better stories, and a shelf you can tidy",
+        "body": "Texts are now graded before they reach you and rewritten if they miss — no more broken grammar in the name of staying simple, and every sentence has to carry real information. Long texts no longer fail on the way out, and you can read, review or play something else while one is being written. You can also delete old stories from your shelf: the words you saved from them stay in your reviews.",
+        "linkLabel": "Open your shelf"
+      },
+      "tutor-memory-2026-08": {
+        "date": "August 2026",
+        "title": "See what your tutor remembers — and delete it",
+        "body": "Settings now lists every fact the tutor has kept about you, marked as something you told it or something it guessed. A guess is treated as a guess: the tutor will check rather than assert it. Anything wrong can be deleted with one tap.",
+        "linkLabel": "Review what it remembers"
       }
     }
   },
@@ -585,7 +618,11 @@
       },
       "read": {
         "title": "Read",
-        "body": "Read short passages graded to your level and tap any word for its meaning — the fastest way to turn vocabulary into real reading."
+        "body": "Short passages written for you and graded before they reach you — tap any word for its meaning. Pick the exact level you want, A1 to C2, or go past the ladder entirely with Native, Academic or Literary. Finished texts stack on a shelf you can tidy; the words you save from them stay in your reviews."
+      },
+      "speak": {
+        "title": "Speak",
+        "body": "Have a conversation. Pick a starter or bring your own topic, then talk — by microphone or by typing. Turn on hands-free and your partner speaks each line out loud, listens as soon as it finishes, and sends your turn when you stop talking. Nothing interrupts you: everything worth fixing arrives at the end, grouped."
       },
       "ownText": {
         "title": "Bring your own text",

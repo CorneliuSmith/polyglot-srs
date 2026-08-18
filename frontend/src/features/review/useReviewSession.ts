@@ -24,6 +24,17 @@ export interface ReviewSessionState {
   results: SessionResult[]
   /** Missed cards queued for re-drill — exposed so a snapshot can park them. */
   requeued: DueCard[]
+  /**
+   * Every card this session will ask, re-drills included.
+   *
+   * The header used to divide by the ORIGINAL deck while the index counted
+   * the whole thing, so two missed cards in a seven-card session produced
+   * "Card 9 of 7" and a progress bar past 100%. The denominator has to be
+   * the deck actually being worked through.
+   */
+  deckSize: number
+  /** True while the current card is a re-drill rather than a first look. */
+  isRepeat: boolean
   isComplete: boolean
   accuracy: number
   totalTimeMs: number
@@ -56,6 +67,9 @@ export function useReviewSession(
   const deck = [...cards, ...requeued]
   const currentCard = deck[currentIndex] ?? null
   const isComplete = currentIndex >= deck.length
+  const deckSize = deck.length
+  // Past the originals means this card is coming round again.
+  const isRepeat = currentIndex >= cards.length && currentCard !== null
 
   const accuracy =
     results.length === 0
@@ -142,6 +156,8 @@ export function useReviewSession(
   return {
     currentCard,
     currentIndex,
+    deckSize,
+    isRepeat,
     phase,
     validationResult,
     results,

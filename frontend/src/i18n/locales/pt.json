@@ -470,7 +470,10 @@
     "translateMineWorking": "A traduzir…",
     "translateMineDone": "{{count}} traduzidos — recarregue para ver",
     "translateMineNone": "Nada para traduzir",
-    "translateMineFailed": "Não foi possível traduzir — tente mais tarde"
+    "translateMineFailed": "Não foi possível traduzir — tente mais tarde",
+    "repeatCard": "De novo",
+    "toRedo_one": "{{count}} por repetir",
+    "toRedo_other": "{{count}} por repetir"
   },
   "about": {
     "title": "O que saber",
@@ -551,6 +554,36 @@
         "title": "Lembretes de revisão por e-mail",
         "body": "Ative um resumo diário do que espera por você — revisões pendentes, status da sequência, um clique de volta ao app.",
         "linkLabel": "Ativar lembretes"
+      },
+      "speak-hands-free-2026-08": {
+        "date": "Agosto 2026",
+        "title": "Falar já mantém uma conversa sem usar as mãos",
+        "body": "O seu parceiro pode dizer cada frase em voz alta assim que chega, o microfone pode abrir mal ele termine, e a sua vez pode enviar-se sozinha quando parar de falar — a sessão corre como uma conversa a sério. Também pode ocultar as palavras e ouvir primeiro, mostrando a frase só se precisar. Tudo vem desligado; ligue o que quiser antes de começar, ou a meio.",
+        "linkLabel": "Experimentar uma conversa"
+      },
+      "speak-starters-2026-08": {
+        "date": "Agosto 2026",
+        "title": "Dezoito assuntos para conversar",
+        "body": "Uma caixa de tema vazia é a pergunta mais difícil em qualquer língua, por isso Falar passa a sugerir temas: situações do dia a dia, problemas para resolver e assuntos sobre os quais ter opinião. Toque num e ele preenche a caixa; edite-o antes de começar se quiser outro ângulo.",
+        "linkLabel": "Escolher um tema"
+      },
+      "read-levels-2026-08": {
+        "date": "Agosto 2026",
+        "title": "Leia em qualquer nível — incluindo acima de C2",
+        "body": "A linha Desafio fixa agora um texto num nível exato de A1 a C2, e não só mais fácil / o seu nível / exigente. Acima de C2 não há mais níveis, por isso há três tipos de escrita: Nativo (sem simplificação, como se escreve para um nativo), Académico (um artigo universitário, com argumento) e Literário (prosa com estilo). Cada palavra continua a ter a tradução ao toque.",
+        "linkLabel": "Escreve-me algo"
+      },
+      "read-shelf-2026-08": {
+        "date": "Agosto 2026",
+        "title": "Melhores histórias e uma estante que pode arrumar",
+        "body": "Os textos passam agora por uma correção antes de chegarem e são reescritos se falharem: acabou a gramática partida em nome da simplicidade, e cada frase tem de trazer informação real. Os textos longos já não falham a ser gerados, e pode ler, rever ou jogar enquanto um está a ser escrito. Também pode apagar histórias antigas: as palavras que guardou ficam nas suas revisões.",
+        "linkLabel": "Abrir a sua estante"
+      },
+      "tutor-memory-2026-08": {
+        "date": "Agosto 2026",
+        "title": "Veja o que o seu tutor guarda — e apague",
+        "body": "As definições listam agora cada facto que o tutor guardou sobre si, marcado como algo que lhe contou ou algo que ele deduziu. Um palpite é tratado como palpite: o tutor confirma em vez de afirmar. O que estiver errado apaga-se com um toque.",
+        "linkLabel": "Ver o que ele guarda"
       }
     }
   },
@@ -584,8 +617,12 @@
         "body": "<b>Prática</b> treina você no idioma e salva o que vocês cobriram no seu perfil, para as lições se apoiarem umas nas outras. <b>Consulta</b> é para uma pergunta rápida — uma resposta direta, sem exercícios e nada salvo. Use Prática para estudar, Consulta para só perguntar."
       },
       "read": {
-        "title": "Leitura",
-        "body": "Leia trechos curtos graduados para o seu nível e toque em qualquer palavra para ver o significado — o caminho mais rápido para transformar vocabulário em leitura de verdade."
+        "title": "Ler",
+        "body": "Textos curtos escritos para si e corrigidos antes de lhe chegarem — toque numa palavra para ver o significado. Escolha o nível exato, de A1 a C2, ou saia da escala com Nativo, Académico ou Literário. Os textos terminados ficam numa estante que pode arrumar; as palavras que guardar continuam nas suas revisões."
+      },
+      "speak": {
+        "title": "Falar",
+        "body": "Tenha uma conversa. Escolha um tema sugerido ou traga o seu e fale — por microfone ou a escrever. Ligue o modo mãos livres e o seu parceiro diz cada frase em voz alta, ouve assim que termina e envia a sua vez quando parar de falar. Nada o interrompe: tudo o que vale a pena corrigir chega no fim, agrupado."
       },
       "ownText": {
         "title": "Traga seu próprio texto",
