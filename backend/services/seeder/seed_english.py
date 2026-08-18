@@ -3,6 +3,7 @@ import csv
 import json
 
 from .base import DATA_DIR, BaseSeeder  # noqa: F401 — DATA_DIR re-exported so tests can patch it
+from .wordnet_sense import best_synset
 
 # Filename constant so tests can patch DATA_DIR
 FREQ_FILENAME = "en_frequency.tsv"
@@ -153,8 +154,11 @@ class EnglishSeeder(BaseSeeder):
                 if not synsets:
                     # Skip words with no synsets (unknown terms)
                     continue
-                # Use first synset for primary definition
-                primary = synsets[0]
+                # The sense people actually mean, not WordNet's first — which
+                # is a noun, and made rank 3 `be` the element beryllium. See
+                # wordnet_sense.best_synset for why the tagged-corpus counts
+                # are the right signal and a part-of-speech rule is not.
+                primary = best_synset(word, synsets)
                 definition = primary.definition()
                 wn_pos = pos_map.get(primary.pos(), None)
 
