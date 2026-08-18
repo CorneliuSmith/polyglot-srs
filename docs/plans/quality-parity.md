@@ -93,6 +93,56 @@ an inflected form (`мне` really is the dative of `я`) needs its gloss
 **written** — "(to) me, for me" — and a plausible-but-wrong case label is
 exactly the error that reads fine and teaches wrong.
 
+### D1c — Polysemy: one headword, several words (measured 18 Aug)
+
+The owner's Portuguese card is the clearest statement of the problem. It
+teaches `a`, gives one meaning, and then drills three sentences — "O que ele
+está **a** fazer?" — in which `a` is neither the article nor the pronoun but
+the **preposition** of the European progressive. The definition and the
+exercise are about different words that happen to be spelled the same.
+
+This is not the wrong-sense bug of D1. There the parser picked a bad sense
+when a good one existed. Here **every** sense is real and the card has room
+for one:
+
+| Portuguese `a` (rank 2) | |
+| --- | --- |
+| definite article | the (feminine singular) |
+| preposition | to, at — and `estar a` + infinitive, the progressive |
+| object pronoun | her, it |
+
+Three high-frequency words, one card, one gloss. Whichever is chosen, two
+thirds of the sentences the learner meets illustrate something the card did
+not teach. The same shape sits on `o`, `de`, `da`, `no`, `le`, `la` across
+every Romance course, on Russian `с`/`в`, on German `sie`.
+
+**No ranking rule resolves this**, which is worth stating because it is
+tempting to keep tuning one. Turkish `bir` needs a numeral sense to beat an
+adverb; Spanish `a` needs a preposition to beat a noun ("bishop"); French `a`
+needs a verb ("has") to beat a pronoun. Any ordering that fixes one breaks
+another — verified by building all three orderings and diffing the output.
+The signal that would settle it is *sense frequency*, and Wiktionary does not
+carry it.
+
+So polysemy is handled three ways, in this order:
+
+1. **Multi-sense glosses for the top band.** A word a learner meets in their
+   first month should show its senses, the way a dictionary does — "the
+   (feminine singular); to, at (with an infinitive); her, it". This is
+   authoring, not selection, and it lives in `data/gloss_overrides.tsv`
+   (mechanism shipped; applied in `build_language` after the merge, correcting
+   only words the corpus already ranked, never inventing entries).
+2. **A detector for under-glossed polysemy.** A top-band word whose kaikki
+   extract carries entries under three or more distinct parts of speech, but
+   whose committed gloss states one sense, is a card that will mislead. That is
+   computable from the files already on disk and belongs beside the other
+   audits.
+3. **Example-sense agreement, reported not gated.** The sentence bank matches
+   on surface form with no sense check, so a card can be illustrated entirely
+   by a different word. Full sense-tagging is out of scope; what is in scope is
+   flagging the case the owner hit — a card whose gloss names one part of
+   speech while its examples overwhelmingly use another.
+
 ### D2 — Sentence parity. Two separate problems, and one is not what it looked like.
 
 **English (corrected 17 Aug — the first reading was wrong).** The sentences
@@ -239,11 +289,19 @@ text under every vocabulary card in 21 languages.
    `lf`, `th`, `wh`). Write the result to a **committed** gloss file so
    English joins `wrong_sense_gloss` and stops being the one course whose
    definitions no audit can see.
-4. **Regenerate the frequency TSVs** from the local raw cache, worst-first:
-   sw, hi, nl, de, it, pt, ca, fr, ru, es, ro, el, then the tail.
-5. **Author what regeneration cannot fix** — the rows whose word genuinely is
-   an inflected form, and the yo top-12 where kaikki has nothing good. Maker
-   writes, an adversarial checker verifies, and the fix lands in the TSV.
+4. **Verify the top band BEFORE regenerating.** A first regeneration was built
+   and thrown away because of exactly this: it fixed 1,300 defective glosses
+   and simultaneously turned Spanish rank 4 `a` into "bishop", French rank 14
+   `a` into "she" and Romanian rank 5 `o` into "oh". Net-positive by count and
+   badly negative on the words every learner meets. So the order is: author
+   the overrides, then regenerate, then diff the top 200 of every language by
+   hand before committing — not the reverse.
+5. **Author what regeneration cannot fix** — polysemous top-band words (D1c),
+   rows whose word genuinely is an inflected form, and the yo top-12 where
+   kaikki has nothing good. Maker writes, an adversarial checker verifies, and
+   the fix lands in `data/gloss_overrides.tsv` or the TSV.
+6. **Ship the two detectors from D1c** (under-glossed polysemy; example-sense
+   disagreement) so the class cannot silently return.
 
 Definitions are fixed **in the committed TSVs, never only in the database** —
 a DB-only repair is reverted by the next re-seed.

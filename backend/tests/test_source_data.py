@@ -3,6 +3,7 @@ from collections import Counter
 
 import pytest
 
+from backend.services.seeder import source_data
 from backend.services.seeder.source_data import (
     build_sentence_rows,
     build_swahili_rows,
@@ -208,6 +209,70 @@ class TestParseKaikki:
             encoding="utf-8",
         )
         assert parse_kaikki_jsonl(p)["ouro"]["gloss"] == "gold (chemical element)"
+
+
+class TestGlossOverrides:
+    """Hand-authored definitions for words no sense-picking rule gets right.
+
+    Portuguese `a` is the feminine article, the preposition of the progressive
+    (`está a fazer`) and an object pronoun — three high-frequency words sharing
+    a spelling, and a card has room for one gloss. Ranking cannot settle that:
+    Turkish `bir` needs a numeral to beat an adverb, Spanish `a` a preposition
+    to beat a noun, French `a` a verb to beat a pronoun, and no single ordering
+    does all three.
+    """
+
+    def test_override_replaces_gloss_and_pos(self, tmp_path, monkeypatch):
+        path = tmp_path / "gloss_overrides.tsv"
+        path.write_text(
+            "language\tword\tpos\ten\npt\ta\tarticle\tthe (feminine); to, at\n",
+            encoding="utf-8",
+        )
+        monkeypatch.setattr(source_data, "GLOSS_OVERRIDES_PATH", path)
+        rows = [{"word": "a", "pos": "pron", "gloss": "her, it"}]
+        assert source_data.apply_gloss_overrides("pt", rows) == [
+            {"word": "a", "pos": "article", "gloss": "the (feminine); to, at"}
+        ]
+
+    def test_overrides_are_scoped_to_their_language(self, tmp_path, monkeypatch):
+        path = tmp_path / "gloss_overrides.tsv"
+        path.write_text(
+            "language\tword\tpos\ten\npt\ta\tarticle\tthe\n", encoding="utf-8"
+        )
+        monkeypatch.setattr(source_data, "GLOSS_OVERRIDES_PATH", path)
+        rows = [{"word": "a", "pos": "prep", "gloss": "to, at"}]
+        assert source_data.apply_gloss_overrides("es", rows)[0]["gloss"] == "to, at"
+
+    def test_an_override_never_invents_a_word(self, tmp_path, monkeypatch):
+        """Rank comes from the corpus, so an override corrects an entry that is
+        already there and cannot add one that the frequency list never saw."""
+        path = tmp_path / "gloss_overrides.tsv"
+        path.write_text(
+            "language\tword\tpos\ten\npt\tnonesuch\tnoun\tinvented\n", encoding="utf-8"
+        )
+        monkeypatch.setattr(source_data, "GLOSS_OVERRIDES_PATH", path)
+        rows = [{"word": "a", "pos": "prep", "gloss": "to, at"}]
+        assert source_data.apply_gloss_overrides("pt", rows) == rows
+
+    def test_missing_file_is_a_no_op(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(source_data, "GLOSS_OVERRIDES_PATH", tmp_path / "absent.tsv")
+        rows = [{"word": "a", "pos": "prep", "gloss": "to, at"}]
+        assert source_data.apply_gloss_overrides("pt", rows) == rows
+
+    def test_the_committed_overrides_parse(self):
+        """The shipped file is data, so a typo in it is a silent no-op."""
+        import csv as _csv
+
+        path = source_data.DATA_DIR / "gloss_overrides.tsv"
+        if not path.exists():
+            return
+        with path.open(encoding="utf-8-sig", newline="") as handle:
+            rows = list(_csv.DictReader(handle, delimiter="\t"))
+        assert rows, "gloss_overrides.tsv is empty"
+        for row in rows:
+            assert (row.get("language") or "").strip(), row
+            assert (row.get("word") or "").strip(), row
+            assert (row.get("en") or "").strip(), row
 
 
 class TestCorpusWordCounts:
