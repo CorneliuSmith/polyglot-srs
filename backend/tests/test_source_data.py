@@ -183,14 +183,34 @@ class TestParseKaikki:
         gloss = parse_kaikki_jsonl(p)["za"]["gloss"]
         assert gloss.count("(") == gloss.count(")")
 
-    def test_a_gloss_promising_senses_it_lacks_is_rejected(self, tmp_path):
+    def test_a_sense_header_keeps_its_meaning_and_drops_its_promise(self, tmp_path):
+        """kaikki writes a header with its sub-senses nested underneath, so a
+        gloss arrives as "mother:" or "from, … (in the following senses):".
+        Rejecting the whole thing cost the primary meaning of ordinary words —
+        Thai rank 28 แม่ lost "mother" and rank 15 ดี lost "good" — so the
+        header is kept and only the empty promise is stripped.
+        """
         p = tmp_path / "k.jsonl"
         p.write_text(
             '{"word": "ot", "pos": "prep", "senses": [{"glosses":'
-            ' ["from, away from, of, with (in the following senses):", "from"]}]}\n',
+            ' ["from, away from, of, with (in the following senses):", "from"]}]}\n'
+            '{"word": "mother", "pos": "noun", "senses": [{"glosses": ["mother:"]}]}\n',
             encoding="utf-8",
         )
-        assert parse_kaikki_jsonl(p)["ot"]["gloss"] == "from"
+        entries = parse_kaikki_jsonl(p)
+        assert entries["ot"]["gloss"] == "from, away from, of, with"
+        assert entries["mother"]["gloss"] == "mother"
+
+    def test_a_header_that_only_points_elsewhere_is_still_rejected(self, tmp_path):
+        """The other half: "inflection of होना:" has nothing of its own to say,
+        so stripping the colon leaves a pointer rather than a meaning."""
+        p = tmp_path / "k.jsonl"
+        p.write_text(
+            '{"word": "hai", "pos": "verb", "senses": [{"glosses":'
+            ' ["inflection of hona:", "is"]}]}\n',
+            encoding="utf-8",
+        )
+        assert parse_kaikki_jsonl(p)["hai"]["gloss"] == "is"
 
     def test_a_spelling_pointer_that_states_the_meaning_keeps_the_word(self, tmp_path):
         """Dropping cross-reference senses outright costs real vocabulary:
