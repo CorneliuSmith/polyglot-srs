@@ -59,7 +59,19 @@ export default function ReadingWait({
     const pairs: Pair[] = []
     for (const c of due) {
       const word = c.correct_answer
-      const gloss = c.gloss || c.translation
+      // `hint` is the WORD's meaning in the learner's language. The two
+      // fields this used to reach for are neither: `translation` is the
+      // example SENTENCE's translation, and `gloss` a per-sentence hint
+      // layer. Pairing against those put "dogs" beside "La mayoría de los
+      // perros son marrones y buenos." and "it" beside «И что?» — the game
+      // asking a learner to match a word to a sentence it merely appears in.
+      //
+      // Worse, `translation` is not even guaranteed to be in the learner's
+      // language: the card UI labels that mismatch rather than passing
+      // another language off as theirs (see translation_locale), and this
+      // game had no such scruple — which is how a Russian speaker was shown
+      // Spanish.
+      const gloss = c.hint
       if (!word || !gloss || seen.has(word)) continue
       seen.add(word)
       pairs.push({ word, gloss })

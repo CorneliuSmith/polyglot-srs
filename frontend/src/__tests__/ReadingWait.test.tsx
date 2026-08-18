@@ -120,11 +120,11 @@ describe('ReadingWait', () => {
 
   it('plays the match game over the learner’s own due words', async () => {
     mockDue.mockResolvedValue([
-      { correct_answer: 'gato', gloss: 'cat' },
-      { correct_answer: 'perro', gloss: 'dog' },
-      { correct_answer: 'casa', gloss: 'house' },
-      { correct_answer: 'libro', gloss: 'book' },
-      { correct_answer: 'agua', gloss: 'water' },
+      { correct_answer: 'gato', hint: 'cat' },
+      { correct_answer: 'perro', hint: 'dog' },
+      { correct_answer: 'casa', hint: 'house' },
+      { correct_answer: 'libro', hint: 'book' },
+      { correct_answer: 'agua', hint: 'water' },
     ])
     wrap(<ReadingWait languageId="lang-es" topic="cats" />)
     // Nothing is fetched until they actually ask to play.
@@ -135,6 +135,43 @@ describe('ReadingWait', () => {
     // cleared board can breathe before the next one).
     expect(await screen.findByRole('button', { name: 'gato' })).toBeDefined()
     expect(screen.getByRole('button', { name: 'cat' })).toBeDefined()
+  })
+
+  it('matches the word’s meaning, never the example sentence’s translation', async () => {
+    // What broke in the wild: a Russian speaker studying English was asked
+    // to pair "dogs" with "La mayoría de los perros son marrones y buenos."
+    // `translation` belongs to the example SENTENCE, not the word — and it
+    // is not even guaranteed to be in the learner's language (see
+    // translation_locale). `gloss` is the sentence's hint layer. Only `hint`
+    // is the word's meaning, so only `hint` may reach the board.
+    mockDue.mockResolvedValue([
+      {
+        correct_answer: 'dogs',
+        hint: 'собаки',
+        gloss: 'plural of dog',
+        translation: 'La mayoría de los perros son marrones y buenos.',
+        translation_locale: 'es',
+      },
+      { correct_answer: 'cat', hint: 'кот' },
+      { correct_answer: 'house', hint: 'дом' },
+      { correct_answer: 'water', hint: 'вода' },
+      // No meaning of its own: sitting this one out beats pairing it
+      // against a sentence it merely appears in.
+      {
+        correct_answer: 'it',
+        translation: 'И что?',
+        translation_locale: 'ru',
+      },
+    ])
+    wrap(<ReadingWait languageId="lang-en" topic="cats" />)
+    fireEvent.click(screen.getByRole('button', { name: /play while you wait/i }))
+    expect(await screen.findByTestId('match-game')).toBeDefined()
+    expect(await screen.findByRole('button', { name: 'собаки' })).toBeDefined()
+    // The sentence, its hint layer, and the word with neither: all absent.
+    expect(screen.queryByText(/La mayoría de los perros/)).toBeNull()
+    expect(screen.queryByText('plural of dog')).toBeNull()
+    expect(screen.queryByText('И что?')).toBeNull()
+    expect(screen.queryByRole('button', { name: 'it' })).toBeNull()
   })
 
   it('falls back to trivia when nothing is due to match', async () => {
