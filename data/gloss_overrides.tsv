@@ -15,10 +15,56 @@ ca	si	conj	if; whether (in indirect questions)
 ca	un	article	a, an (masculine); one (the number)
 ca	una	article	a, an (feminine); one (the number)
 de	auf	prep	on, on top of (location); onto, to (motion); in (a language)
+de	bin	verb	"am (I am); with verbs of motion or change of state it is the auxiliary where English uses ""have"""
 de	das	article	the (neuter); that, this one (pointing something out); which, that (relative)
+de	dem	article	the — masculine or neuter as indirect object, and after dative prepositions like mit, zu
+de	den	article	the (masculine direct object; also every noun in the dative plural); whom, which (relative)
+de	der	article	the (with a masculine noun as subject; also feminine dative and genitive, and genitive plural); who, which (relative pronoun)
+de	dich	pron	you (as direct object, to someone you know well); yourself (with reflexive verbs)
+de	die	article	the (with feminine nouns; also the plural of any gender as subject or direct object); who, which, that (relative pronoun)
+de	dir	pron	(to) you, for you — you as indirect object and after dative prepositions like mit, bei (to someone you know well)
 de	ein	article	a, an (masculine and neuter); one (the number)
+de	eine	article	a, an (with feminine nouns); one (counting something feminine)
+de	einen	article	a, an (with a masculine direct object); one (counting a masculine noun)
 de	es	pron	it (neuter thing or person); it, there (as in it's raining, there is)
+de	habe	verb	have (I have); also the auxiliary forming the perfect: I have seen, I have done
+de	hast	verb	have — you have (to someone you know well); also the perfect auxiliary: you have seen
+de	hat	verb	has (he, she, it); also the auxiliary forming the perfect: has done, has said
+de	ist	verb	"is (he, she, it); also the auxiliary ""has"" in the perfect of verbs of motion or change of state"
+de	mich	pron	me (as direct object or after accusative prepositions); myself (with reflexive verbs)
+de	mir	pron	(to) me, for me — me as indirect object and after dative prepositions like mit, bei
+de	nein	intj	no — the answer to a question or a refusal; negating inside a sentence is nicht instead
+de	sind	verb	are — we are, they are, and formal you are; there are
+de	uns	pron	us; to us, for us (direct and indirect object); ourselves, each other (reflexive)
+de	war	verb	was — I was, he/she/it was; the simple past of sein; there was
+de	wie	adv	how (in what way); like, as (in comparisons — as big as); what ... is like
+de	wir	pron	we — the speaker and others, as the subject of the verb; object form is uns
 de	zu	prep	to, towards (+ dative); to (before an infinitive); too (too big, too much)
+el	έχει	verb	he has, she has, it has; there is, there are (έχει κόσμο — there are people)
+el	ήταν	verb	he was, she was, it was; they were — the past of είμαι, to be
+el	αλλά	conj	but; however, yet — joins two contrasting clauses
+el	αυτό	pron	this, this one; it; that — the neuter form, for a thing or a whole idea
+el	γιατί	adv	why? (asking); because (answering) — the same word does both
+el	δεν	particle	not — comes before the verb, in front of any object pronoun (δεν το ξέρω — I don't know it)
+el	είναι	verb	he is, she is, it is; they are — the third person of είμαι, to be
+el	είσαι	verb	you are — one person, informally; είστε is the plural and the polite form
+el	εγώ	pron	I — Greek drops it unless you are stressing who (κι εγώ — me too)
+el	η	article	the — feminine, as subject (η πόρτα — the door)
+el	κι	conj	and — και shortened before a vowel (κι εγώ — and I, me too)
+el	μια	article	a, an — with feminine nouns (μια πόρτα); one, when you are counting
+el	ναι	intj	yes; yes, that's right — the everyday yes (μάλιστα is the formal one)
+el	οι	article	the — with masculine and feminine plurals, as subject (οι φίλοι, οι πόρτες)
+el	πολύ	adv	very (πολύ καλά — very well); much, a lot (μου αρέσει πολύ — I like it a lot)
+el	τα	article	the — with neuter plurals (τα παιδιά); them, before the verb (τα βλέπω)
+el	τη	article	the — feminine, as object; her — the form of την used before most consonants
+el	την	article	the — feminine, as object (την πόρτα); her, it, before the verb (την ξέρω)
+el	της	article	of the — feminine; her; to her (η φίλη της — her friend)
+el	τις	article	the — feminine plural, as object (τις πόρτες); them (τις βλέπω)
+el	το	article	the — with neuter nouns (το βιβλίο); it, as an object before the verb (το ξέρω)
+el	τον	article	the — masculine, as object (τον δρόμο); him, before the verb (τον ξέρω)
+el	του	article	of the — masculine and neuter; his, its; to him (ο φίλος του — his friend)
+el	τους	article	the — masculine plural, as object (τους δρόμους); them, to them; their (το σπίτι τους — their house)
+el	τώρα	adv	now, right now; nowadays, these days; τώρα που — now that
 el	όχι	adv	no (in reply); not (before a word or phrase — verbs take δεν)
 es	a	prep	to, at (direction, time); marks a person as object (personal a); ir a + inf.
 es	la	article	the (feminine singular); her, it (as a direct object); you (formal, to a woman)
@@ -29,24 +75,90 @@ es	se	pron	himself, herself, themselves (reflexive); one, people (impersonal); t
 es	sí	adv	yes; indeed, really (emphatic sí que); himself, herself (after a preposition)
 es	una	article	a, an (with a feminine noun); one (feminine) — la una, one o'clock
 fr	a	verb	has (he, she, it — from avoir); also the helper for the past: il a mangé
+fr	ai	verb	I have; also forms past tenses: j'ai vu = I saw (from avoir)
 fr	ce	det	this, that (before a masculine noun); it, that (in c'est — it is)
 fr	de	prep	of (belonging); from (origin); some, any (after a quantity or a negative)
+fr	des	article	some, any (plural, often untranslated in English); of the, from the (de + les)
 fr	est	verb	is (he, she, it — from être); east
+fr	et	conj	and; and then, plus (the final -t is silent and never liaised)
+fr	j'	pron	I (the form je takes before a vowel or silent h: j'ai, j'habite)
+fr	je	pron	I (subject pronoun; j' before a vowel or silent h)
 fr	la	article	the (feminine singular); her, it (object)
 fr	le	article	the (masculine singular); him, it (object)
+fr	les	article	the (plural, both genders); them (as direct object of a verb)
+fr	m'	pron	me, to me; myself (the form me takes before a vowel: il m'a dit)
+fr	n'	adv	not (the form ne takes before a vowel or silent h: je n'ai pas)
+fr	ne	adv	not (first half of negation, with pas, jamais, rien); becomes n' before a vowel
+fr	non	adv	no; not (before another word: non loin = not far); moi non plus = me neither
+fr	nous	pron	we; us, to us; ourselves (reflexive) — in speech on usually replaces nous for we
+fr	oui	adv	yes (answer si instead when contradicting a negative question)
+fr	suis	verb	I am (from être); also I follow (from suivre - same form, different verb)
+fr	t'	pron	you, to you; yourself (the form te takes before a vowel: je t'aime)
 fr	tu	pron	you (singular, informal — vous is the polite form)
 fr	un	article	a, an (masculine); one (the number)
 fr	une	article	a, an (feminine); one (the number)
+fr	y	pron	there (a place already mentioned); to it, about it; il y a = there is, there are
+he	אבל	conj	but; however, yet — marks a contrast with what was just said
+he	או	conj	or — links alternatives; doubled (או…או) it means either…or
+he	אחד	num	one (m.; the feminine is אחת) — follows its noun; also a certain one, someone
+he	איך	adv	how, in what way — asks manner, not quantity (how much/many is כמה)
+he	אם	conj	if; whether — opens a condition or an indirect question
+he	אנחנו	pron	we (men and women alike; formal writing also uses אנו)
+he	אני	pron	I (men and women alike; gender shows on the present-tense verb or adjective that follows)
+he	ה	det	the (definite article; a prefix that rides on the noun and on its adjectives)
+he	הוא	pron	"he; it (of a masculine noun); is — the linking word in ""David is a teacher"""
+he	היא	pron	"she; it (of a feminine noun); is — the linking word in ""Dana is a teacher"""
+he	ו	conj	and; and then (a prefix — it attaches to the front of the next word)
+he	יום	noun	day (m.; pl. ימים); daytime, as opposed to night; a day of the week or of the month
+he	כן	adv	"yes (in reply); so, thus — as in ""if so"", ""likewise"""
+he	למה	adv	why, what for — asks a reason; the formal written word is מדוע
+he	מי	pron	who, whom (the question word); whoever, anyone who
+he	עכשיו	adv	now, right now; at this moment — as opposed to earlier or later
+he	של	prep	of; belonging to, 's (the possessive word; takes endings — שלי my, שלך your)
+hi	अपने	pron	one's own — my, your, his, her, their own (always refers back to the subject)
+hi	इस	det	this (the form used before a postposition: इस घर में — in this house)
+hi	उसे	pron	him, her, it; to him, to her (also marks the one who needs or feels something)
 hi	एक	num	one; a, an (a certain); single, sole
 hi	और	conj	and; more, extra; other, different
+hi	करने	verb	doing, to do (infinitive before a postposition: करने के लिए — in order to do)
+hi	किया	verb	did, made (past; under ने it agrees with a masculine singular object)
+hi	की	postp	of, 's, belonging to (before a feminine noun); also did, made (past of करना)
+hi	के	postp	of, 's, belonging to (before a masculine plural or oblique noun); also starts compound postpositions: के लिए — for, के साथ — with
+hi	तुम्हें	pron	you, to you (the तुम level — friends and peers)
 hi	पर	postp	on, at (after a noun); but, however
+hi	मुझे	pron	me, to me; I, when needing or feeling something (मुझे भूख है — I am hungry)
+hi	मेरे	pron	my, mine (before plural or oblique masculine nouns: मेरे दोस्त — my friends)
+hi	रहा	verb	-ing (progressive: कर रहा है — is doing, masculine singular); stayed, remained
+hi	रहे	verb	-ing (progressive: कर रहे हैं — are doing, plural or respectful); stayed, remained
+hi	लिए	postp	for, for the sake of (in के लिए); also took, taken (past of लेना)
+hi	वे	pron	they, those; he, she (respectful, about one person)
+hi	सकते	verb	can, be able to (after a bare stem; plural or respectful subject: कर सकते हैं)
 hi	हम	pron	we, us; I (colloquial)
+hi	हाँ	particle	yes; yeah, that's right (agreeing); yes? (answering when called)
+hi	हूँ	verb	am (the form of होना used with मैं)
+hi	है	verb	is; there is (used with a singular subject; a plural subject takes हैं)
+hi	हो	verb	are (the form used with तुम); be!; may be, might be (subjunctive)
 it	a	prep	to (indirect object); at, in (a place or time); to (before an infinitive)
 it	e	conj	and
+it	ha	verb	he/she/it has; you have (formal Lei); auxiliary for the past: ha visto 'he saw'
+it	hai	verb	you have (informal); also the auxiliary for the past: hai visto 'you saw'
+it	ho	verb	I have; I've got; also the auxiliary for the past: ho visto 'I saw'
+it	i	article	the (masculine plural; gli instead before a vowel, s+consonant, or z)
+it	il	article	the (with a masculine singular noun; lo/l' instead before a vowel, s+consonant, or z)
 it	la	article	the (feminine singular); her, it (as a direct object)
+it	le	article	the (feminine plural); also them (f.), and to her / to you (formal)
 it	ma	conj	but, however; but (emphatic, starting an exclamation or question)
+it	me	pron	me (after prepositions: con me, per me); replaces mi before lo, la, li, le, ne
+it	mia	det	my, mine (with a feminine singular noun: la mia casa 'my house')
 it	no	adv	no; not (in short replies); right?, isn't it? (tag at sentence end)
+it	perche	conj	because; why (in a question) — correctly written perché, with the accent
 it	se	conj	if; whether; himself, herself, itself (si before lo, la, ne)
+it	sei	verb	you are (informal); also the number six
+it	so	verb	I know (a fact); I know how to: so nuotare 'I can swim'
+it	sono	verb	I am; they are (essere — the same form serves io and loro)
+it	sì	adv	yes (credo di sì 'I think so'; dire di sì 'to say yes') — the unaccented si is the reflexive pronoun, a different word
+it	ti	pron	you, to you (informal); yourself (with reflexive verbs: ti lavi 'you wash yourself')
+it	tutto	pron	everything (tutto bene 'all good'); all of, the whole (tutto il giorno)
 it	una	article	a, an (feminine); one (feminine)
 ko	난	pron	I, I'm (casual) — 나 with the topic marker 는, shortened
 ko	내	det	my (casual, short for 나의); I (in 내가)
@@ -100,10 +212,27 @@ ru	но	conj	but, yet
 ru	о	prep	about, of (with the prepositional); oh! (exclamation)
 ru	так	adv	so, like this, in that way; so, so much (to such a degree); so, then
 ru	это	pron	this, that; this is, that is; it
+sw	alikuwa	verb	he was, she was (past of kuwa 'to be')
 sw	basi	conj	so, then, well (opening a sentence); bus (5/6, pl. mabasi); enough!, stop!
+sw	hivyo	adv	so, thus, in that way; therefore (kwa hivyo); those (class 8 things just mentioned)
+sw	huyo	det	that person, that one (class 1 — the one just mentioned or near you)
 sw	juu	adv	up, above, on top; on top of, over (juu ya); about, concerning
 sw	kama	conj	like, as (comparison); if, whether; about, roughly (with a number)
+sw	kwa	prep	with, by, by means of (kwa basi = by bus); for, because of (asante kwa msaada = thanks for the help)
+sw	lakini	conj	but, however, yet (joining a contrast to what was just said)
+sw	mambo	noun	matters, affairs, things going on (class 5/6, sg. jambo); Mambo? = How's it going?
+sw	mmoja	num	one, a single (class 1/3/11: mtu mmoja = one person); a certain one, someone
 sw	na	conj	and; with (kuwa na, to have); by (the doer after a passive verb)
+sw	naye	pron	with him, with her; and he, and she (na + yeye, for a class 1 person)
+sw	wake	det	his, her, its (with class 1, 2, 3 and 11 nouns: mtoto wake = his child); also wives (class 1/2, sg. mke)
+sw	wale	det	those, those over there (class 2, away from both speaker and hearer)
+sw	watu	noun	people, persons; human beings (class 1/2, sg. mtu)
+sw	wote	det	all, all of (with class 2: watu wote = all the people)
+sw	ya	prep	of, belonging to (with class 4, 6, 9 nouns: nyumba ya mwalimu = the teacher's house)
+sw	yake	det	his, her, its (with class 4, 6 and 9 nouns: nyumba yake = his/her house)
+sw	yenu	det	your, yours (of you all; with class 4, 6 and 9 nouns: nyumba yenu = your house)
+sw	yule	det	that, that one over there (with class 1 nouns — a person or animal at a distance: yule mtu = that person)
+sw	za	prep	of, belonging to (with class 10 plural nouns: nyumba za watu = people's houses)
 th	ฉัน	pron	I, me (informal; used mostly by women)
 th	นี่	pron	this, this one (standing alone); here
 th	เดี๋ยว	adv	in a moment, shortly; wait, hold on; or else, otherwise (warning)
