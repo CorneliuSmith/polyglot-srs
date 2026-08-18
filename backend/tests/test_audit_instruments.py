@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import json
 
-from backend.services.seeder import audit_examples, audit_gym
+from backend.services.seeder import audit_examples, audit_gym, audit_polysemy
 
 
 class TestExampleShape:
@@ -206,6 +206,103 @@ class TestGymDepthAndCopy:
         assert audit_gym.audit_language("zz")["incomplete_copy"] == [
             {"point": "Shown", "missing": ["usage", "example"]}
         ]
+
+
+def _write_polysemy_fixture(tmp_path, freq_rows, kaikki_lines):
+    (tmp_path / "raw").mkdir(exist_ok=True)
+    (tmp_path / "zz_frequency.tsv").write_text(
+        "rank\tword\tpos\ten\n" + "".join(freq_rows), encoding="utf-8"
+    )
+    (tmp_path / "raw" / "zz_kaikki.jsonl").write_text(
+        "".join(kaikki_lines), encoding="utf-8"
+    )
+
+
+class TestPolysemy:
+    """A card has room for one gloss; Portuguese `a` is six words."""
+
+    def test_a_word_with_several_senses_and_a_single_gloss_flags(self, tmp_path, monkeypatch):
+        _write_polysemy_fixture(
+            tmp_path,
+            ["2\ta\tarticle\tthe (feminine singular)\n"],
+            [
+                '{"word": "a", "pos": "article", "senses": [{"glosses": ["the"]}]}\n',
+                '{"word": "a", "pos": "prep", "senses": [{"glosses": ["to, at"]}]}\n',
+                '{"word": "a", "pos": "pron", "senses": [{"glosses": ["her, it"]}]}\n',
+            ],
+        )
+        monkeypatch.setattr(audit_polysemy, "DATA", tmp_path)
+        monkeypatch.setattr(audit_polysemy, "RAW", tmp_path / "raw")
+        report = audit_polysemy.audit_language("zz")
+        assert [r["word"] for r in report["polysemous"]] == ["a"]
+        assert report["polysemous"][0]["named"] == 1
+        assert len(report["polysemous"][0]["senses"]) == 3
+
+    def test_a_gloss_that_names_every_sense_does_not_flag(self, tmp_path, monkeypatch):
+        """The fix for this class is a multi-sense gloss, so one must clear it."""
+        _write_polysemy_fixture(
+            tmp_path,
+            ["2\ta\tarticle\tthe (feminine); to, at; her, it\n"],
+            [
+                '{"word": "a", "pos": "article", "senses": [{"glosses": ["the"]}]}\n',
+                '{"word": "a", "pos": "prep", "senses": [{"glosses": ["to, at"]}]}\n',
+                '{"word": "a", "pos": "pron", "senses": [{"glosses": ["her, it"]}]}\n',
+            ],
+        )
+        monkeypatch.setattr(audit_polysemy, "DATA", tmp_path)
+        monkeypatch.setattr(audit_polysemy, "RAW", tmp_path / "raw")
+        assert audit_polysemy.audit_language("zz")["polysemous"] == []
+
+    def test_two_senses_are_ordinary_polysemy_and_do_not_flag(self, tmp_path, monkeypatch):
+        """One gloss can carry "bank"; it cannot carry six unrelated words."""
+        _write_polysemy_fixture(
+            tmp_path,
+            ["2\tb\tnoun\ta financial institution\n"],
+            [
+                '{"word": "b", "pos": "noun", "senses": [{"glosses": ["a bank"]}]}\n',
+                '{"word": "b", "pos": "verb", "senses": [{"glosses": ["to bank"]}]}\n',
+            ],
+        )
+        monkeypatch.setattr(audit_polysemy, "DATA", tmp_path)
+        monkeypatch.setattr(audit_polysemy, "RAW", tmp_path / "raw")
+        assert audit_polysemy.audit_language("zz")["polysemous"] == []
+
+    def test_a_glyph_entry_is_not_a_competing_sense(self, tmp_path, monkeypatch):
+        """`character` and `name` entries are the wrong-sense bug, ranked out by
+        source_data — counting them here would double-report that defect."""
+        _write_polysemy_fixture(
+            tmp_path,
+            ["2\ta\tprep\tto, at\n"],
+            [
+                '{"word": "a", "pos": "prep", "senses": [{"glosses": ["to, at"]}]}\n',
+                '{"word": "a", "pos": "character", "senses": [{"glosses": ["letter A"]}]}\n',
+                '{"word": "a", "pos": "name", "senses": [{"glosses": ["a place"]}]}\n',
+            ],
+        )
+        monkeypatch.setattr(audit_polysemy, "DATA", tmp_path)
+        monkeypatch.setattr(audit_polysemy, "RAW", tmp_path / "raw")
+        assert audit_polysemy.audit_language("zz")["polysemous"] == []
+
+    def test_a_recorded_pos_absent_from_the_extract_is_reported(self, tmp_path, monkeypatch):
+        _write_polysemy_fixture(
+            tmp_path,
+            ["2\ta\tnoun\tsomething\n"],
+            ['{"word": "a", "pos": "prep", "senses": [{"glosses": ["to, at"]}]}\n'],
+        )
+        monkeypatch.setattr(audit_polysemy, "DATA", tmp_path)
+        monkeypatch.setattr(audit_polysemy, "RAW", tmp_path / "raw")
+        assert audit_polysemy.audit_language("zz")["mismatched"][0]["pos"] == "noun"
+
+    def test_a_missing_extract_is_unknown_not_clean(self, tmp_path, monkeypatch):
+        """data/raw is a 7GB cache and deliberately uncommitted, so its absence
+        must never read as a language with no polysemy."""
+        (tmp_path / "raw").mkdir()
+        (tmp_path / "zz_frequency.tsv").write_text(
+            "rank\tword\tpos\ten\n1\ta\tprep\tto\n", encoding="utf-8"
+        )
+        monkeypatch.setattr(audit_polysemy, "DATA", tmp_path)
+        monkeypatch.setattr(audit_polysemy, "RAW", tmp_path / "raw")
+        assert audit_polysemy.audit_language("zz")["state"] == "no extract cached"
 
 
 class TestAgainstTheRealTree:

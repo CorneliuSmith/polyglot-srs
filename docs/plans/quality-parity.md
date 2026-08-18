@@ -143,6 +143,38 @@ So polysemy is handled three ways, in this order:
    flagging the case the owner hit — a card whose gloss names one part of
    speech while its examples overwhelmingly use another.
 
+**Measured 18 Aug** by `backend/services/seeder/audit_polysemy.py`: across the
+twenty cached languages, **1,293 top-band words carry three or more word-class
+senses and are glossed with fewer**, and 104 more record a part of speech the
+dictionary does not carry at all. Concentrated where the owner found it —
+pt 149, it 139, es 122, ar 108, nl 102, th 90 — and at the very top of each
+list, because a word earns rank 2 partly BY being several words.
+
+#### What this means for sentence work (the second half of the goal)
+
+Both halves have to move together. A multi-sense gloss with single-sense
+examples still teaches the wrong thing; sense-correct examples under a
+one-sense gloss are just as confusing.
+
+**Selecting** from the harvested corpus: prefer sentences whose use of the word
+agrees with the sense being taught. The per-language NLP backends already
+lemmatize and, for several languages, can distinguish a form's function, which
+is enough for the case that actually bites — `a` before an infinitive is the
+preposition, not the article. Where the language has no such signal, report
+rather than guess.
+
+**Generating** (Phase 2, where sentences are authored for uncovered words):
+sense is a required input, not an accident. For a word the polysemy audit
+flags, the generator writes one sentence per major sense and states which sense
+each carries; the adversarial checker's job is to confirm the sentence uses
+THAT sense and reject it otherwise. This is cheap to add because the prompt is
+ours, and it is the only point in the pipeline where sense is known for certain
+at the moment the sentence is written.
+
+**Ordering**: the audit ships first (done), the multi-sense glosses next, and
+sentence selection last — because a sense-aware selector has nothing to select
+against until the card states which sense it is teaching.
+
 ### D2 — Sentence parity. Two separate problems, and one is not what it looked like.
 
 **English (corrected 17 Aug — the first reading was wrong).** The sentences
