@@ -76,6 +76,14 @@ interface PrefsState {
   // it with "don't show again"; the dashboard auto-opens it once while unset.
   walkthroughDone: boolean
   setWalkthroughDone: (done: boolean) => void
+  // Which EDITION of the tour they have seen (features/onboarding/tour.ts
+  // TOUR_VERSION). "Done" only ever meant "done with the tour that existed
+  // then", so a tour that gains Speak and the level dial has to be offered
+  // again — the owner: "force all to see the new walkthrough". 0 = never
+  // seen this scheme; the dashboard reopens the tour whenever this trails
+  // the current version, and finishing writes the current one.
+  walkthroughVersion: number
+  setWalkthroughVersion: (version: number) => void
   // "Install the app" banner (PWA): once dismissed, stays gone.
   installPromptDismissed: boolean
   setInstallPromptDismissed: (done: boolean) => void
@@ -153,6 +161,8 @@ export const usePrefsStore = create<PrefsState>()(
       setAccentsOptional: (on) => set({ accentsOptional: on }),
       walkthroughDone: false,
       setWalkthroughDone: (done) => set({ walkthroughDone: done }),
+      walkthroughVersion: 0,
+      setWalkthroughVersion: (version) => set({ walkthroughVersion: version }),
       installPromptDismissed: false,
       setInstallPromptDismissed: (done) => set({ installPromptDismissed: done }),
       dailyLearnGoal: 20,

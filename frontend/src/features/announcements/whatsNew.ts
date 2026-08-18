@@ -29,6 +29,11 @@ const linked = (id: string, link: string): WhatsNewEntry => ({
 })
 
 export const WHATS_NEW: WhatsNewEntry[] = [
+  linked('speak-hands-free-2026-08', '/speak'),
+  linked('speak-starters-2026-08', '/speak'),
+  linked('read-levels-2026-08', '/read'),
+  linked('read-shelf-2026-08', '/read'),
+  linked('tutor-memory-2026-08', '/settings'),
   linked('placement-retake-2026-07', '/settings'),
   linked('language-facts-2026-07', '/about'),
   linked('gym-adaptive-2026-07', '/gym'),

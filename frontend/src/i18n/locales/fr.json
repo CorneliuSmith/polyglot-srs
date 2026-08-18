@@ -470,7 +470,10 @@
     "translateMineWorking": "Traduction…",
     "translateMineDone": "{{count}} traduites — rechargez pour les voir",
     "translateMineNone": "Rien à traduire",
-    "translateMineFailed": "Traduction impossible — réessayez plus tard"
+    "translateMineFailed": "Traduction impossible — réessayez plus tard",
+    "repeatCard": "À revoir",
+    "toRedo_one": "{{count}} à refaire",
+    "toRedo_other": "{{count}} à refaire"
   },
   "about": {
     "title": "À savoir",
@@ -551,6 +554,36 @@
         "title": "Rappels de révision par e-mail",
         "body": "Activez un récapitulatif quotidien de ce qui vous attend — révisions en attente, état de votre série, un clic pour revenir dans l’appli.",
         "linkLabel": "Activer les rappels"
+      },
+      "speak-hands-free-2026-08": {
+        "date": "Août 2026",
+        "title": "Parler peut désormais tenir une conversation mains libres",
+        "body": "Votre partenaire peut dire chaque phrase à voix haute dès son arrivée, le micro peut s’ouvrir dès qu’il a fini, et votre tour peut s’envoyer tout seul quand vous arrêtez de parler : la séance se déroule comme une vraie conversation. Vous pouvez aussi masquer les mots et écouter d’abord, en les affichant seulement si besoin. Tout est désactivé par défaut ; activez ce que vous voulez avant de commencer, ou en cours de route.",
+        "linkLabel": "Essayer une conversation"
+      },
+      "speak-starters-2026-08": {
+        "date": "Août 2026",
+        "title": "Dix-huit sujets de conversation",
+        "body": "Une case de sujet vide est la question la plus difficile dans n’importe quelle langue : Parler propose maintenant des amorces — situations du quotidien, problèmes à régler, sujets d’opinion. Touchez-en une et elle remplit la case ; modifiez-la avant de commencer si vous voulez un autre angle.",
+        "linkLabel": "Choisir un sujet"
+      },
+      "read-levels-2026-08": {
+        "date": "Août 2026",
+        "title": "Lisez à n’importe quel niveau, même au-delà du C2",
+        "body": "La ligne Défi fixe désormais un texte à un niveau précis de A1 à C2, et plus seulement plus facile / votre niveau / exigeant. Au-delà du C2 il n’y a plus de niveaux : il y a trois types d’écriture — Natif (non simplifié, tel qu’écrit pour un natif), Universitaire (un article de revue, argumentation comprise) et Littéraire (une prose qui joue avec le style). Chaque mot garde sa traduction au toucher.",
+        "linkLabel": "Écris-moi quelque chose"
+      },
+      "read-shelf-2026-08": {
+        "date": "Août 2026",
+        "title": "De meilleurs textes, et une étagère à ranger",
+        "body": "Les textes sont maintenant corrigés avant de vous parvenir et réécrits s’ils ratent : fini la grammaire cassée au nom de la simplicité, et chaque phrase doit apporter une information réelle. Les textes longs n’échouent plus à la génération, et vous pouvez lire, réviser ou jouer pendant qu’un texte s’écrit. Vous pouvez aussi supprimer d’anciens textes : les mots que vous en aviez gardés restent dans vos révisions.",
+        "linkLabel": "Ouvrir votre étagère"
+      },
+      "tutor-memory-2026-08": {
+        "date": "Août 2026",
+        "title": "Voyez ce que votre tuteur retient — et effacez-le",
+        "body": "Les réglages listent désormais chaque fait que le tuteur a retenu sur vous, marqué comme quelque chose que vous avez dit ou comme une déduction. Une déduction est traitée comme telle : le tuteur vérifie au lieu d’affirmer. Ce qui est faux s’efface en un geste.",
+        "linkLabel": "Voir ce qu’il retient"
       }
     }
   },
@@ -584,8 +617,12 @@
         "body": "<b>Pratique</b> vous entraîne sur la langue et enregistre ce que vous avez couvert dans votre profil, pour que les leçons s’enchaînent. <b>Référence</b> sert aux questions rapides — une réponse directe, pas d’exercices, rien d’enregistré. Pratique pour étudier, Référence pour simplement demander."
       },
       "read": {
-        "title": "Lecture",
-        "body": "Lisez de courts passages calibrés à votre niveau et touchez n’importe quel mot pour voir son sens — le moyen le plus rapide de transformer le vocabulaire en vraie lecture."
+        "title": "Lire",
+        "body": "Des textes courts écrits pour vous et corrigés avant de vous parvenir — touchez un mot pour son sens. Choisissez le niveau exact, de A1 à C2, ou sortez de l’échelle avec Natif, Universitaire ou Littéraire. Les textes terminés s’empilent sur une étagère que vous pouvez ranger ; les mots que vous en gardez restent dans vos révisions."
+      },
+      "speak": {
+        "title": "Parler",
+        "body": "Ayez une conversation. Choisissez une amorce ou votre propre sujet, puis parlez — au micro ou au clavier. Activez le mains libres : votre partenaire dit chaque phrase à voix haute, écoute dès qu’il a fini, et envoie votre tour quand vous vous arrêtez. Rien ne vous interrompt : tout ce qui mérite d’être corrigé arrive à la fin, regroupé."
       },
       "ownText": {
         "title": "Apportez votre propre texte",

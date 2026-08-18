@@ -17,6 +17,7 @@ import { usePrefsStore } from '../../stores/prefsStore'
 import LanguagePicker from '../../components/LanguagePicker'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import Walkthrough from '../onboarding/Walkthrough'
+import { TOUR_VERSION } from '../onboarding/tour'
 import PlacementOffer from '../onboarding/PlacementOffer'
 import ReviewPromptGate from './ReviewPromptGate'
 import WhatsNewPanel from '../announcements/WhatsNewPanel'
@@ -214,6 +215,7 @@ export default function DashboardPage() {
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const walkthroughDone = usePrefsStore((s) => s.walkthroughDone)
+  const walkthroughVersion = usePrefsStore((s) => s.walkthroughVersion)
   const dailyLearnGoal = usePrefsStore((s) => s.dailyLearnGoal)
   const [learnOpen, setLearnOpen] = useState(false)
   const [reviewOpen, setReviewOpen] = useState(false)
@@ -225,8 +227,15 @@ export default function DashboardPage() {
 
   // Open the feature tour once, for someone who hasn't dismissed it.
   useEffect(() => {
-    if (!walkthroughDone) setShowTour(true)
-  }, [walkthroughDone])
+    // "Done" is per EDITION, not forever: a learner who dismissed the
+    // original seven slides has never seen Speak or the level dial, so a
+    // bumped TOUR_VERSION offers the tour once more (owner: "force all to
+    // see the new walkthrough"). Closing it stamps the current version, so
+    // this is one showing per edition, not a nag.
+    if (!walkthroughDone || (walkthroughVersion ?? 0) < TOUR_VERSION) {
+      setShowTour(true)
+    }
+  }, [walkthroughDone, walkthroughVersion])
 
   // First-run users are routed into onboarding before they can study.
   const { data: onboarding, isLoading: onboardingLoading } = useQuery({

@@ -5,12 +5,14 @@ import {
   GraduationCap,
   Hand,
   Languages,
+  Mic,
   PenLine,
   Sprout,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { Trans, useTranslation } from 'react-i18next'
 import { usePrefsStore } from '../../stores/prefsStore'
+import { TOUR_VERSION } from './tour'
 
 interface Slide {
   icon: LucideIcon
@@ -25,6 +27,8 @@ const SLIDES: Slide[] = [
   { icon: Dumbbell, key: 'gym' },
   { icon: GraduationCap, key: 'tutor' },
   { icon: BookOpen, key: 'read' },
+  // Speak came after the first tour and was the one thing nobody found.
+  { icon: Mic, key: 'speak' },
   { icon: PenLine, key: 'ownText' },
 ]
 
@@ -33,6 +37,7 @@ const SLIDES: Slide[] = [
 export default function Walkthrough({ onClose }: { onClose: () => void }) {
   const { t } = useTranslation()
   const setWalkthroughDone = usePrefsStore((s) => s.setWalkthroughDone)
+  const setWalkthroughVersion = usePrefsStore((s) => s.setWalkthroughVersion)
   const [i, setI] = useState(0)
   const [dontShow, setDontShow] = useState(true)
   const last = i === SLIDES.length - 1
@@ -40,6 +45,9 @@ export default function Walkthrough({ onClose }: { onClose: () => void }) {
 
   const finish = () => {
     if (dontShow) setWalkthroughDone(true)
+    // Recorded whichever way they leave: closing THIS edition means it does
+    // not reopen, while a later edition still gets its one showing.
+    setWalkthroughVersion(TOUR_VERSION)
     onClose()
   }
 

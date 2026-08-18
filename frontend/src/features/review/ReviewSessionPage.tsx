@@ -899,11 +899,32 @@ function ReviewSessionInner({
 
         {/* Progress */}
         <div className="flex items-center justify-between text-sm text-gray-500">
-          <span>
-            {t('review.cardOf', {
-              current: session.currentIndex + 1,
-              total: cards.length,
-            })}
+          {/* The count runs over the deck being WORKED, re-drills included —
+              dividing by the original deck is what produced "Card 9 of 7"
+              once two cards came back. A growing total needs a reason next
+              to it, so the redo count is named rather than left to be
+              inferred, and a card on its second appearance says so. */}
+          <span className="flex items-center gap-2">
+            <span>
+              {t('review.cardOf', {
+                current: session.currentIndex + 1,
+                total: session.deckSize,
+              })}
+            </span>
+            {session.isRepeat ? (
+              <span
+                data-testid="review-repeat-chip"
+                className="text-xs rounded-full px-2 py-0.5 bg-amber-100 text-amber-900 font-semibold"
+              >
+                {t('review.repeatCard')}
+              </span>
+            ) : (
+              session.requeued.length > 0 && (
+                <span className="text-xs" data-testid="review-redo-count">
+                  {t('review.toRedo', { count: session.requeued.length })}
+                </span>
+              )
+            )}
           </span>
           {cram ? (
             <span className="text-xs rounded-full px-2 py-0.5 bg-lang-soft text-lang font-semibold">
@@ -922,7 +943,11 @@ function ReviewSessionInner({
         <div className="w-full bg-gray-200 rounded-full h-1.5">
           <div
             className="bg-lang h-1.5 rounded-full transition-all"
-            style={{ width: `${((session.currentIndex) / cards.length) * 100}%` }}
+            style={{
+              // Same denominator as the counter: a bar that fills before the
+              // re-drills are done is the same lie in another shape.
+              width: `${(session.currentIndex / Math.max(1, session.deckSize)) * 100}%`,
+            }}
           />
         </div>
 

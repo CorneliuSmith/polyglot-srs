@@ -470,7 +470,10 @@
     "translateMineWorking": "Traduciendo…",
     "translateMineDone": "{{count}} traducidas — recarga para verlas",
     "translateMineNone": "Nada que traducir",
-    "translateMineFailed": "No se pudo traducir — inténtalo más tarde"
+    "translateMineFailed": "No se pudo traducir — inténtalo más tarde",
+    "repeatCard": "De nuevo",
+    "toRedo_one": "{{count}} por repetir",
+    "toRedo_other": "{{count}} por repetir"
   },
   "about": {
     "title": "Cosas que saber",
@@ -551,6 +554,36 @@
         "title": "Recordatorios de repaso por correo",
         "body": "Actívalos para recibir un resumen diario de lo que te espera — repasos pendientes, el estado de tu racha y un clic de vuelta a la app.",
         "linkLabel": "Activar recordatorios"
+      },
+      "speak-hands-free-2026-08": {
+        "date": "Agosto 2026",
+        "title": "Hablar ya puede mantener una conversación con las manos libres",
+        "body": "Tu interlocutor puede decir cada frase en voz alta al llegar, el micrófono puede abrirse en cuanto termina, y tu turno puede enviarse solo cuando dejas de hablar: la sesión fluye como una conversación real en vez de una serie de toques. También puedes ocultar las palabras y escuchar primero, mostrando la frase solo si la necesitas. Todo viene desactivado; activa lo que quieras antes de empezar o durante la conversación.",
+        "linkLabel": "Prueba una conversación"
+      },
+      "speak-starters-2026-08": {
+        "date": "Agosto 2026",
+        "title": "Dieciocho temas de conversación",
+        "body": "Una casilla de tema vacía es la pregunta más difícil en cualquier idioma, así que Hablar ahora sugiere temas: situaciones cotidianas, problemas que resolver y cosas sobre las que opinar. Toca uno y se rellena la casilla; edítalo antes de empezar si quieres otro enfoque.",
+        "linkLabel": "Elige un tema"
+      },
+      "read-levels-2026-08": {
+        "date": "Agosto 2026",
+        "title": "Lee a cualquier nivel, incluso por encima de C2",
+        "body": "La fila de Reto ahora fija un texto a un nivel exacto de A1 a C2, y no solo más fácil / tu nivel / exigente. Por encima de C2 ya no quedan niveles, así que hay tres tipos de escritura: Nativo (sin simplificar, como se escribe para un nativo), Académico (un artículo universitario, con su argumentación) y Literario (prosa con estilo). Cada palabra sigue teniendo su glosa al tocarla.",
+        "linkLabel": "Escríbeme algo"
+      },
+      "read-shelf-2026-08": {
+        "date": "Agosto 2026",
+        "title": "Mejores historias y una estantería que puedes ordenar",
+        "body": "Los textos ahora se corrigen antes de llegarte y se reescriben si fallan: se acabó la gramática rota en nombre de la sencillez, y cada frase debe aportar información real. Los textos largos ya no fallan al generarse, y puedes leer, repasar o jugar mientras se escribe uno. También puedes borrar historias antiguas: las palabras que guardaste se quedan en tus repasos.",
+        "linkLabel": "Abre tu estantería"
+      },
+      "tutor-memory-2026-08": {
+        "date": "Agosto 2026",
+        "title": "Mira qué recuerda tu tutor y bórralo",
+        "body": "Ajustes ahora enumera cada dato que el tutor ha guardado sobre ti, marcado como algo que le contaste o algo que dedujo. Una suposición se trata como tal: el tutor la comprobará en vez de darla por hecha. Lo que esté mal se borra con un toque.",
+        "linkLabel": "Revisa lo que recuerda"
       }
     }
   },
@@ -584,8 +617,12 @@
         "body": "<b>Práctica</b> te entrena en el idioma y guarda lo que cubristeis en tu perfil, para que las lecciones se construyan una sobre otra. <b>Consulta</b> es para una pregunta rápida — una respuesta directa, sin ejercicios y sin guardar nada. Usa Práctica para estudiar y Consulta para simplemente preguntar."
       },
       "read": {
-        "title": "Lectura",
-        "body": "Lee pasajes cortos graduados a tu nivel y toca cualquier palabra para ver su significado — la forma más rápida de convertir vocabulario en lectura real."
+        "title": "Leer",
+        "body": "Textos breves escritos para ti y corregidos antes de llegarte: toca cualquier palabra para ver su significado. Elige el nivel exacto que quieras, de A1 a C2, o sal de la escala con Nativo, Académico o Literario. Los textos terminados se guardan en una estantería que puedes ordenar; las palabras que guardes seguirán en tus repasos."
+      },
+      "speak": {
+        "title": "Hablar",
+        "body": "Ten una conversación. Elige un tema sugerido o propón el tuyo y habla, por micrófono o escribiendo. Activa el modo manos libres y tu interlocutor dirá cada frase en voz alta, escuchará en cuanto termine y enviará tu turno cuando dejes de hablar. Nada te interrumpe: todo lo que conviene corregir llega al final, agrupado."
       },
       "ownText": {
         "title": "Trae tu propio texto",
