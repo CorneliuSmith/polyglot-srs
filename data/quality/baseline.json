@@ -5,12 +5,10 @@
  "ca.agreement_feature": 11,
  "ca.giveaway_by_gloss": 20,
  "ca.leak_hard": 6,
- "ca.wrong_sense_gloss": 1,
  "de.agreement_feature": 12,
  "de.duplicate_hint": 3,
  "de.giveaway_by_gloss": 17,
  "de.leak_hard": 17,
- "de.wrong_sense_gloss": 1,
  "el.agreement_feature": 18,
  "el.duplicate_hint": 1,
  "el.giveaway_by_gloss": 37,
@@ -27,7 +25,6 @@
  "fr.duplicate_hint": 1,
  "fr.giveaway_by_gloss": 24,
  "fr.leak_hard": 10,
- "fr.wrong_sense_gloss": 2,
  "ha.giveaway_by_gloss": 24,
  "he.giveaway_by_gloss": 1,
  "hi.agreement_feature": 7,
@@ -63,10 +60,8 @@
  "tl.leak_hard": 86,
  "tl.self_answering": 66,
  "tr.giveaway_by_gloss": 10,
- "tr.wrong_sense_gloss": 20,
  "xh.duplicate_hint": 2,
  "xh.giveaway_by_gloss": 5,
  "yo.duplicate_hint": 1,
- "yo.giveaway_by_gloss": 23,
- "yo.wrong_sense_gloss": 36
+ "yo.giveaway_by_gloss": 23
 }

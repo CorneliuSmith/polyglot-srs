@@ -334,6 +334,21 @@ _NOT_A_MEANING = re.compile(
 # third one. Rejecting the frame lets the meaning win.
 _BRACKET_ONLY = re.compile(r"^\s*\[[^\]]*\]\s*$")
 
+# A sense header that only points elsewhere: "inflection of होना:", "plural of
+# X:". Unlike "mother:", nothing survives stripping the colon.
+_EMPTY_PROMISE = re.compile(
+    r"\s*\((?:in the following senses?|see below|of the following)\)\s*$",
+    re.IGNORECASE,
+)
+
+_POINTER_HEADER = re.compile(
+    r"^(?:inflection|plural|feminine|masculine|singular|genitive|dative|"
+    r"accusative|vocative|nominative|oblique|comparative|superlative|"
+    r"alternative|archaic|obsolete|past|present|future)\b.*\bof\b"
+    r"|^(?:first|second|third)-person\b",
+    re.IGNORECASE,
+)
+
 # [[Appendix:Swahili_noun_classes#N class|n class_((IX))]] -> n class (IX)
 _WIKI_LINK = re.compile(r"\[\[(?:[^\]|]*\|)?([^\]|]*)\]\]")
 
@@ -395,7 +410,18 @@ def _clean_gloss(gloss: str) -> str | None:
     if _NOT_A_MEANING.search(gloss):
         return None
     if gloss.rstrip().endswith(":"):
-        return None
+        # kaikki writes a sense header with its sub-senses nested underneath, so
+        # the text arrives as "mother:" or "inflection of होना:". Rejecting both
+        # cost the primary meaning of ordinary words — Thai rank 28 แม่ lost
+        # "mother", rank 15 ดี lost "good", and สวัสดี ("hello") was left as
+        # "welfare, well-being". Keep the header when it is itself a meaning and
+        # drop it only when it is a pointer with nothing of its own to say.
+        head = gloss.rstrip().rstrip(":").strip()
+        # "…, with (in the following senses)" promises what it does not carry.
+        head = _EMPTY_PROMISE.sub("", head).strip().rstrip(",;")
+        if not head or _POINTER_HEADER.match(head):
+            return None
+        gloss = head
     if len(gloss) > 90:
         for cut in (" (", "; ", ", "):
             head = gloss.split(cut)[0].strip()

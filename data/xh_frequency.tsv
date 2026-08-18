@@ -1,9 +1,9 @@
 rank	word	pos	en
 1	na	particle	Interrogative particle; indicates a yes-no question. Placed at the end of the sentence.
-2	uthixo	name	God
-3	unyana	noun	son
+2	uthixo	name	God; a god, deity (class 1a/2a, pl. oothixo)
+3	unyana	noun	son; the Son of God in Christian texts (class 1a/2a, pl. oonyana)
 4	phakathi	adv	inside; among
-5	abantu	noun	plural of umntu (“person”).
+5	abantu	noun	people, persons; human beings (class 1/2, sg. umntu)
 6	yena	pron	he, she, him, her, it; class 1 absolute pronoun.
 7	phezu	adv	above
 8	mna	pron	I, me; first-person singular absolute pronoun.
@@ -23,28 +23,28 @@ rank	word	pos	en
 22	lo	pron	this; class 1 proximal demonstrative.
 23	igama	noun	name
 24	nina	pron	you, you all; second-person plural absolute pronoun.
-25	umthetho	noun	law
-26	amadoda	noun	plural of indoda
+25	umthetho	noun	law; rule, regulation; commandment (class 3/4, pl. imithetho)
+26	amadoda	noun	men, grown males; husbands (class 9/6, sg. indoda)
 27	apho	adv	there; distal demonstrative adverb.
 28	umntu	noun	person, human
-29	nje	adv	so, in this manner; now
+29	nje	adv	so, in this manner
 30	phantsi	adv	down; below, beneath
 31	indlu	noun	house
 32	leyo	pron	those; class 4 distal demonstrative.
 33	ilizwe	noun	land; country
-34	loo	pron	alternative form of lowo
+34	loo	det	that, those (before any noun, which drops its first vowel: loo mntu 'that person')
 35	umphefumlo	noun	breath
 36	ezo	pron	those; class 8 distal demonstrative.
 37	indoda	noun	man (male)
 38	isandla	noun	hand
 39	intliziyo	noun	heart
 40	aba	verb	to share; to distribute
-41	umoya	noun	air; wind; spirit
+41	umoya	noun	air; wind
 42	elo	pron	that; class 5 distal demonstrative.
 43	uyise	noun	his or her father
 44	musa	intj	don't
-45	amehlo	noun	plural of iliso
-46	emva	adv	locative singular of umva; behind, at the back
+45	amehlo	noun	eyes (class 5/6, sg. iliso)
+46	emva	adv	behind, at the back; after (in emva kwa- 'after, behind'; emva koko 'after that')
 47	amanzi	noun	water
 48	yona	pron	they, them; class 4 absolute pronoun.
 49	thina	pron	we, us; first-person plural absolute pronoun.
@@ -91,7 +91,7 @@ rank	word	pos	en
 90	umkhosi	noun	army
 91	kanye	adv	once
 92	inkunzi	noun	animal (male)
-93	ibandla	noun	parish; assembly; congregation
+93	ibandla	noun	parish; assembly
 94	eso	pron	that; class 7 distal demonstrative.
 95	umlilo	noun	fire
 96	umhlaba	noun	earth, ground, world
@@ -103,9 +103,9 @@ rank	word	pos	en
 102	indawo	noun	place; area
 103	iindaba	noun	plural of indaba
 104	imbewu	noun	seed
-105	hamba	verb	to go, to walk, to move; to travel
+105	hamba	verb	to go, to walk, to move
 106	indlebe	noun	ear
-107	ukuthetha	noun	infinitive of -thetha; speech
+107	ukuthetha	noun	speech
 108	njalo	adv	so, in that manner
 109	ngexesha	adv	in time
 110	ubulumko	noun	caution; wisdom
@@ -125,7 +125,7 @@ rank	word	pos	en
 124	ingubo	noun	blanket
 125	umda	noun	line, border
 126	incwadi	noun	book
-127	ukufa	noun	infinitive of -fa; death
+127	ukufa	noun	death
 128	uxolo	noun	peace; pardon
 129	ilanga	noun	sun
 130	umphathi	noun	manager
@@ -181,7 +181,7 @@ rank	word	pos	en
 180	esiya	pron	that over there, yonder; class 7 remote demonstrative.
 181	ithole	noun	calf
 182	obo	pron	that; class 14 distal demonstrative.
-183	ulwimi	noun	tongue, language; figuratively a person who reveals a truth they had no right or permission to disclose or one who speaks out of turn.; Used to describe someone who tells the truth, but without authorization to do so, it's distinct from ixoki a (liar), since the statement itself is true.
+183	ulwimi	noun	tongue, language
 184	izenzo	noun	plural of ísénzo
 185	iziqhamo	noun	plural of ísíqhamo
 186	zoba	verb	to draw
@@ -203,7 +203,7 @@ rank	word	pos	en
 202	udade	noun	sister
 203	olo	pron	that; class 11 distal demonstrative.
 204	thabatha	verb	to deduct
-205	ishumi	noun	ten; the tenth one; tenth
+205	ishumi	noun	ten; the tenth one
 206	isigxina	noun	permanent
 207	umkhuluwa	noun	elder brother
 208	iphela	noun	cockroach
@@ -217,7 +217,7 @@ rank	word	pos	en
 216	namhlanje	adv	today
 217	nyuka	verb	to go up
 218	phesheya	adv	beyond
-219	ukulwa	noun	infinitive of -lwa; fight, struggle; battle, combat
+219	ukulwa	noun	fight, struggle
 220	umkhonzazana	noun	handmaid
 221	isango	noun	gate
 222	ilifu	noun	cloud
@@ -294,7 +294,7 @@ rank	word	pos	en
 293	seza	verb	to dose
 294	ummiselo	noun	ordinance
 295	isibane	noun	lamp; light
-296	ukuphela	noun	infinitive of -phela; ending
+296	ukuphela	noun	ending
 297	ingqumbo	noun	anger
 298	kholwa	verb	to believe
 299	ubuthongo	noun	sleep
@@ -317,7 +317,7 @@ rank	word	pos	en
 316	izibhambathiso	noun	plural of isibhambathiso
 317	isiko	noun	custom
 318	umnatha	noun	mesh
-319	kho	pron	Combining stem of wena used with possessive concords.; Combining stem of khona.
+319	kho	pron	Combining stem of wena used with possessive concords.
 320	ucango	noun	door
 321	uhambo	noun	trip
 322	okuya	pron	that over there, yonder; class 15 remote demonstrative.
@@ -348,7 +348,7 @@ rank	word	pos	en
 347	inkohlakalo	noun	cruelty
 348	isilumko	noun	wise person; sage
 349	eziya	pron	those over there, yonder; class 8 remote demonstrative.
-350	ukuqala	noun	infinitive of -qala; beginning
+350	ukuqala	noun	beginning
 351	ikhaya	noun	home; household
 352	isililo	noun	lamentation
 353	isicaka	noun	servant
@@ -386,7 +386,7 @@ rank	word	pos	en
 385	ihashe	noun	horse
 386	isifo	noun	sickness, disease
 387	tyala	verb	to plant
-388	ukungcola	noun	infinitive of -ngcola; dirtiness
+388	ukungcola	noun	dirtiness
 389	leya	pron	those over there, yonder; class 4 remote demonstrative.
 390	ubugqwetha	noun	law
 391	awu	intj	oh!
@@ -420,7 +420,7 @@ rank	word	pos	en
 419	lwa	verb	to fight, to struggle
 420	ubulawu	noun	African dream root
 421	banzi	conj	wide
-422	uboya	noun	animal hair, fur; wool
+422	uboya	noun	animal hair, fur
 423	phela	verb	to end, to terminate, to finish, to come to an end
 424	bala	verb	to count
 425	iziphelo	noun	plural of ísíphêlo
@@ -457,18 +457,18 @@ rank	word	pos	en
 456	zela	verb	to represent
 457	ithokazi	noun	heifer
 458	misa	verb	to stop
-459	ukubulala	noun	infinitive of -bulala; murder, killing
+459	ukubulala	noun	murder, killing
 460	isichotho	noun	hailstorm
-461	ukutya	noun	infinitive of -tya; food
+461	ukutya	noun	food
 462	masikizi	conj	loathsome
 463	ixabiso	noun	price, value
 464	gcina	verb	to keep; to save
 465	eba	verb	to steal
 466	udumo	noun	fame
-467	lala	verb	to rest (by lying down); to sleep
+467	lala	verb	to rest (by lying down)
 468	kamnandi	adv	sweetly, pleasantly
 469	izinja	noun	plural of inja
-470	khala	verb	to wail, to cry; to ring (of a phone); to bleat (of a goat)
+470	khala	verb	to wail, to cry
 471	ncwina	verb	to groan
 472	mncinane	conj	small
 473	thumela	verb	to send to
@@ -602,7 +602,7 @@ rank	word	pos	en
 601	uhlobo	noun	kind
 602	umsesane	noun	ring
 603	izidlo	noun	plural of isidlo
-604	amafutha	noun	fat; oil; grease
+604	amafutha	noun	fat; oil
 605	ubungcwele	noun	holiness
 606	ingqongqo	noun	dry oxhide
 607	indleko	noun	expense
@@ -655,7 +655,7 @@ rank	word	pos	en
 654	njani	adv	how, in what manner
 655	imazi	noun	cow (female)
 656	irhasi	noun	barley
-657	fumana	verb	to get, to obtain; to discover
+657	fumana	verb	to get, to obtain
 658	izagwityi	noun	plural of isagwityi
 659	nuka	verb	to smell, to stink
 660	nyusa	verb	to raise
@@ -683,7 +683,7 @@ rank	word	pos	en
 682	ingqungquthela	noun	congress
 683	ibhotwe	noun	palace
 684	ubukhwele	noun	envy
-685	lima	verb	to farm, cultivate; to plough
+685	lima	verb	to farm, cultivate
 686	impendulo	noun	answer
 687	inkxwaleko	noun	hardship; accident
 688	bo	pron	Combining stem of bona.
@@ -777,10 +777,10 @@ rank	word	pos	en
 776	londoloza	verb	protect
 777	rhweba	verb	to barter, to trade
 778	lamba	verb	to become hungry
-779	ukukhetha	noun	infinitive of -khetha; election
+779	ukukhetha	noun	election
 780	thenga	verb	to buy, to purchase
 781	intlabathi	noun	sand
-782	ukuhleka	noun	infinitive of -hleka; laughter
+782	ukuhleka	noun	laughter
 783	umnandi	noun	something nice
 784	gqabhuka	verb	to burst
 785	betha	verb	to hit, to strike
@@ -844,7 +844,7 @@ rank	word	pos	en
 843	ichibi	noun	lake, pond, pool
 844	zama	verb	to try
 845	hle	adj	beautiful, handsome
-846	ukulima	noun	infinitive of -lima; cultivation
+846	ukulima	noun	cultivation
 847	ibali	noun	story
 848	thwala	verb	to carry
 849	ambatha	verb	to put on a blanket
@@ -855,7 +855,7 @@ rank	word	pos	en
 854	umbuzo	noun	question
 855	tsha	verb	to catch fire, to burn
 856	luhlaza	conj	green, blue
-857	usizi	noun	sadness; sorrow; sympathy
+857	usizi	noun	sadness; sorrow
 858	iziqendu	noun	plural of isiqendu
 859	dloba	verb	to frolic
 860	umngxuma	noun	hole
@@ -979,7 +979,7 @@ rank	word	pos	en
 978	idabi	noun	battle
 979	vuna	verb	to pick, to reap, to harvest
 980	velisa	verb	to produce
-981	othuka	verb	to get a fright; to be surprised
+981	othuka	verb	to get a fright
 982	iqhalo	noun	proverb
 983	umnyanya	noun	ancestor
 984	cebisa	verb	to suggest
@@ -1015,10 +1015,10 @@ rank	word	pos	en
 1014	amahlathi	noun	plural of ihlathi
 1015	itarhu	noun	pity, shame
 1016	qubula	verb	to raise
-1017	lahla	verb	to throw away, to discard; to abandon; to lose
+1017	lahla	verb	to throw away, to discard
 1018	boleka	verb	to lend
 1019	iphaphu	noun	lung
-1020	chitha	verb	to waste, to spill; to destroy
+1020	chitha	verb	to waste, to spill
 1021	isikhululo	noun	station
 1022	khazimla	verb	to shine
 1023	dala	adj	old
@@ -1071,7 +1071,7 @@ rank	word	pos	en
 1070	hla	verb	to descend, to go down
 1071	izichotho	noun	plural of ísíchotho
 1072	dubula	verb	to flower
-1073	rhoqo	adv	frequently, often; regularly
+1073	rhoqo	adv	frequently, often
 1074	bhula	verb	to smother
 1075	iziganeko	noun	plural of isiganeko
 1076	izilo	noun	plural of ísílo
@@ -1132,25 +1132,24 @@ rank	word	pos	en
 1131	isitrato	noun	street
 1132	umthengisi	noun	salesperson
 1133	impepho	noun	helichrysum; light breeze, fresh air
-1134	ukudada	noun	infinitive of -dada; swimming
+1134	ukudada	noun	swimming
 1135	umfuziselo	noun	model
-1136	n	character	The fourteenth letter of the Xhosa alphabet, written in the Latin script.
-1137	ubunzulu	noun	depth
-1138	anda	verb	to increase
-1139	oyisa	verb	to overcome
-1140	bonisa	verb	to make see, to show
-1141	incoko	noun	conversation
-1142	izimilo	noun	plural of isimilo
-1143	ncedisa	verb	to assist
-1144	isiganeko	noun	event
-1145	kholisa	verb	to please
-1146	inkolo	noun	head
-1147	umtshana	noun	nephew, niece
-1148	onga	verb	to heal
-1149	ubuncinane	noun	youth
-1150	impikiswano	noun	conflict
-1151	umtshato	noun	marriage, matrimony; wedding
-1152	khanuka	verb	to crave
-1153	ibhekile	noun	billycan
-1154	isilonda	noun	wound
-1155	inxila	noun	drunkard
+1136	ubunzulu	noun	depth
+1137	anda	verb	to increase
+1138	oyisa	verb	to overcome
+1139	bonisa	verb	to make see, to show
+1140	incoko	noun	conversation
+1141	izimilo	noun	plural of isimilo
+1142	ncedisa	verb	to assist
+1143	isiganeko	noun	event
+1144	kholisa	verb	to please
+1145	inkolo	noun	head
+1146	umtshana	noun	nephew, niece
+1147	onga	verb	to heal
+1148	ubuncinane	noun	youth
+1149	impikiswano	noun	conflict
+1150	umtshato	noun	marriage, matrimony
+1151	khanuka	verb	to crave
+1152	ibhekile	noun	billycan
+1153	isilonda	noun	wound
+1154	inxila	noun	drunkard
