@@ -1,19 +1,28 @@
 language	word	pos	en
 ar	أن	conj	to, that (before a verb); that (after say, think, know)
+ar	الآن	adv	now, right now; at present, at the moment; up to now (حتى الآن)
 ar	على	prep	on, on top of; against; must, have to (with a pronoun ending)
 ar	عن	prep	about, concerning; away from, off
 ar	ما	pron	what?; what, that which; not (negates a past verb)
 ar	من	prep	from, out of; some of (partitive); than (in comparisons); who?, whoever
+ar	هذه	pron	this, this one (feminine); these (with non-human plurals)
+ca	aquesta	det	this; this one (feminine — aquesta casa, this house)
 ca	de	prep	of (possession); from (origin); made of (material)
 ca	en	prep	in, at (preposition); of it, of them (pronoun); the (before a man's name)
+ca	està	verb	is; he/she/it is (from estar — a temporary state or condition, or where someone is right now: està cansat, he's tired)
+ca	ha	verb	has (auxiliary of the perfect: ha vist, he has seen); there is, there are (in hi ha)
+ca	has	verb	you have (auxiliary of the perfect: has vist, you have seen); you have to (has de)
 ca	la	article	the (feminine singular); her, it (direct object)
 ca	les	article	the (feminine plural); them (feminine, direct object)
 ca	no	adv	not (negating a verb); no (in answer to a question)
 ca	però	conj	but; however, though
 ca	que	conj	that (conjunction); that, which, who (relative); than (in comparisons)
 ca	si	conj	if; whether (in indirect questions)
+ca	tot	adj	all, whole, entire; everything, all of it; every (in the plural)
 ca	un	article	a, an (masculine); one (the number)
 ca	una	article	a, an (feminine); one (the number)
+ca	vaig	verb	I go, I'm going; with an infinitive it makes the everyday past: vaig menjar, I ate
+ca	és	verb	is; he/she/it is (from ser — identity, origin, lasting qualities, and where a thing is: el llibre és a la taula)
 de	auf	prep	on, on top of (location); onto, to (motion); in (a language)
 de	bin	verb	"am (I am); with verbs of motion or change of state it is the auxiliary where English uses ""have"""
 de	das	article	the (neuter); that, this one (pointing something out); which, that (relative)
@@ -67,13 +76,40 @@ el	τους	article	the — masculine plural, as object (τους δρόμους
 el	τώρα	adv	now, right now; nowadays, these days; τώρα που — now that
 el	όχι	adv	no (in reply); not (before a word or phrase — verbs take δεν)
 es	a	prep	to, at (direction, time); marks a person as object (personal a); ir a + inf.
+es	bien	adv	well; fine, all right (how you are); quite, really (before an adjective or adverb)
+es	es	verb	is; he/she/it is; you are (formal) — from ser, for identity and lasting traits
+es	eso	pron	that; that thing, that idea (for something unnamed or a whole situation)
+es	esta	det	this (with a feminine noun — something near the speaker); this one
+es	estoy	verb	I am (from estar — where I am, how I feel, a passing state)
+es	está	verb	is; he/she/it is; you are (formal) — from estar: location, state, mood
+es	ha	verb	has; he/she/it has, you have (formal) — helper before a past participle
+es	hay	verb	there is; there are — one invariable form, the same for one or many
 es	la	article	the (feminine singular); her, it (as a direct object); you (formal, to a woman)
 es	los	article	the (masculine plural); them (as a direct object)
+es	me	pron	me; to me, for me; myself (with reflexive verbs)
+es	mi	det	my (before a singular noun; mis before a plural)
 es	no	adv	not (before a verb); no (as an answer); ¿no? — right?, isn't it?
 es	para	prep	for (recipient); in order to, to (with an infinitive); by, for (a deadline)
 es	se	pron	himself, herself, themselves (reflexive); one, people (impersonal); to him/her
+es	su	det	his, her, its, their; your (formal) — matches the thing owned, not the owner
 es	sí	adv	yes; indeed, really (emphatic sí que); himself, herself (after a preposition)
+es	tengo	verb	I have; I have to (tengo que + verb); I am — hungry, cold, 20 years old
 es	una	article	a, an (with a feminine noun); one (feminine) — la una, one o'clock
+es	yo	pron	I (usually dropped — the verb ending already says who; used for emphasis)
+fa	است	verb	is; he is, she is, it is (formal written copula)
+fa	اما	conj	but; however, yet (opens the contrasting clause)
+fa	اگر	conj	if; supposing that (subjunctive for a hypothetical, past tense for a counterfactual)
+fa	برای	prep	for; for the sake of; in order to, so that
+fa	بله	intj	yes; yes, that's right (polite and formal); hello? when answering the phone
+fa	به	prep	to, toward; to (a recipient); by, with (means); in (a language or manner)
+fa	ما	pron	we, us (one form for subject and object); our, ours when it follows a noun
+fa	من	pron	I, me (one form for subject and object); my, mine when it follows a noun
+fa	نه	adv	no; not, negating a single word rather than a verb; neither … nor when repeated
+fa	و	conj	and; and then, and so; also links tens and units in numbers (twenty and one = 21)
+fa	چرا	adv	why?, what for?; yes it is!, contradicting a negative question
+fa	چطور	adv	how?, in what way?; what kind of? (everyday register)
+fa	چگونه	adv	how?, in what way? (formal, written); what sort of?
+fa	یا	conj	or; either … or when repeated before each choice
 fr	a	verb	has (he, she, it — from avoir); also the helper for the past: il a mangé
 fr	ai	verb	I have; also forms past tenses: j'ai vu = I saw (from avoir)
 fr	ce	det	this, that (before a masculine noun); it, that (in c'est — it is)
@@ -98,6 +134,8 @@ fr	tu	pron	you (singular, informal — vous is the polite form)
 fr	un	article	a, an (masculine); one (the number)
 fr	une	article	a, an (feminine); one (the number)
 fr	y	pron	there (a place already mentioned); to it, about it; il y a = there is, there are
+ha	amma	conj	but; however, yet (opens the contrasting clause, and can begin a sentence)
+ha	biyu	num	two (invariable for gender; na biyu m. / ta biyu f. = second, sau biyu = twice)
 he	אבל	conj	but; however, yet — marks a contrast with what was just said
 he	או	conj	or — links alternatives; doubled (או…או) it means either…or
 he	אחד	num	one (m.; the feminine is אחת) — follows its noun; also a certain one, someone
@@ -138,6 +176,15 @@ hi	हाँ	particle	yes; yeah, that's right (agreeing); yes? (answering when c
 hi	हूँ	verb	am (the form of होना used with मैं)
 hi	है	verb	is; there is (used with a singular subject; a plural subject takes हैं)
 hi	हो	verb	are (the form used with तुम); be!; may be, might be (subjunctive)
+id	atau	conj	or (joining alternatives in statements and questions)
+id	dan	conj	and (joining words, phrases, and whole clauses)
+id	jika	conj	if, in the event that (formal and written; everyday speech says kalau)
+id	kalau	conj	if; when, whenever; as for, speaking of (everyday; jika is the formal word)
+id	kamu	pron	you (singular, informal, for friends and peers; Anda is the polite form)
+id	semua	det	all (before the noun); everyone, everything (standing on its own)
+id	tapi	conj	but; however (everyday form of the more formal tetapi)
+id	untuk	prep	for, intended for; in order to, so as to (before a verb)
+id	ya	particle	yes; right?, isn't it? (tag at the end of a sentence); okay? (softening a request)
 it	a	prep	to (indirect object); at, in (a place or time); to (before an infinitive)
 it	e	conj	and
 it	ha	verb	he/she/it has; you have (formal Lei); auxiliary for the past: ha visto 'he saw'
@@ -160,57 +207,132 @@ it	sì	adv	yes (credo di sì 'I think so'; dire di sì 'to say yes') — the una
 it	ti	pron	you, to you (informal); yourself (with reflexive verbs: ti lavi 'you wash yourself')
 it	tutto	pron	everything (tutto bene 'all good'); all of, the whole (tutto il giorno)
 it	una	article	a, an (feminine); one (feminine)
+jam	i	pron	it (of things; for people use im)
+ko	거	noun	thing, one; the fact that (spoken form of 것; in 할 거예요 it marks the future)
 ko	난	pron	I, I'm (casual) — 나 with the topic marker 는, shortened
 ko	내	det	my (casual, short for 나의); I (in 내가)
+ko	너	pron	you (intimate style, for close friends and juniors; never to an elder)
 ko	네	intj	yes; your (casual, short for 너의); four (before a counter)
 ko	수	noun	can, be able to (in -(으)ㄹ 수 있다/없다); number, count
+ko	어떻게	adv	how, in what way; by what means; how come (in a surprised question)
+ko	왜	adv	"why, how come; on its own, a casual ""what is it?"" when answering someone calling you"
 ko	우리	pron	"we, us; our — often where English says ""my"" (our house, our mom)"
 ko	이	det	this (before a noun); subject marker after a consonant; tooth
+ko	있어	verb	there is, there are; to have; to stay, be in a place (있다, intimate style)
 ko	전	pron	I, I'm (polite, short for 저는); before, ago; former, ex-
 ko	제	det	my (polite, short for 저의); I (in 제가)
+ko	지금	adv	now, right now, at the moment; the present time, the current moment
+la	aut	conj	or (of alternatives that exclude each other); (doubled) either ... or ...
+la	cur	adv	why?; for what reason (in direct and indirect questions)
+la	dies	noun	day; daylight; an appointed date (dies, diei m., f. when a set date)
+la	ego	pron	I (used for emphasis or contrast; the verb ending already shows the subject)
+la	est	verb	is; he is, she is, it is; there is (3rd person singular of sum, to be)
+la	et	conj	and; also, even; (doubled) both ... and ...
+la	filius	noun	son (filius, -i m.)
+la	non	adv	not (the plain negative, placed before the word it denies); no, in a reply
+la	nos	pron	"we; us (one form for both subject and object; also ""I"" in letters)"
+la	nōn	adv	not (the plain negative, placed before the word it denies); no, in a reply
+la	sed	conj	"but; but rather, on the contrary; but also, in ""not only ... but also"""
+la	si	conj	if; supposing that (indicative for real conditions, subjunctive for unreal)
+la	sī	conj	if; supposing that (indicative for real conditions, subjunctive for unreal)
 mi	ai	particle	points back to a stated reason, time or place; marks habitual action; then
 mi	e	particle	is/are ...-ing (with ana); before numbers 2-9; O (calling someone); by (passive)
 mi	hoki	adv	also, too, as well; to return, go back
+mi	katoa	det	all, every; everyone, everything; completely, entirely (following what it modifies)
+mi	nui	adj	big, large; many, much, plentiful; great, important
+mi	o	particle	of, belonging to (the o-category: elders, body parts, feelings, houses, vehicles)
+mi	te	article	the (singular; plural is ngā); the, generically, for a whole class of things
+nl	ben	verb	am: I am; also are in ben je…? (present of zijn, to be)
 nl	dat	conj	that (introducing a clause); that, that one; that, which (after a het-word)
+nl	dit	det	this; this one (used with neuter nouns; deze with de-words)
 nl	een	article	a, an; one (the number, written één when stressed)
+nl	heb	verb	have: I have; you have in heb je / heb jij; also the auxiliary in perfect tenses
+nl	heeft	verb	has: he/she/it has; you have (polite u); also the auxiliary in perfect tenses
+nl	het	article	the (with neuter nouns); it (as subject, as object, or impersonal)
 nl	in	prep	in, inside (place); in, during (months, years); into (with motion)
+nl	is	verb	is; he/she/it is (present of zijn, to be)
+nl	ja	intj	yes; yeah, that's right (agreeing); well (softening the start of a reply)
+nl	je	pron	you (informal); your; yourself; and impersonal one, people in general
+nl	moet	verb	must, have to; need to (I/you/he must — present of moeten)
 nl	niet	adv	not (negates a verb or a whole sentence; use geen before an indefinite noun)
 nl	op	prep	on, on top of; at, in (op school, op kantoor); up; finished, all gone
 nl	te	prep	to (with an infinitive, often after om); too, excessively
 nl	van	prep	of (possession); from (origin, starting point); by (a creator)
 nl	voor	prep	for; before (in time); in front of
 nl	wat	pron	what? (question); that, which (after iets, alles, niets); some, a bit
+nl	we	pron	we (the everyday unstressed form; wij when emphasised)
+nl	ze	pron	she; they; them (everyday unstressed form; zij/hen when stressed)
 pt	a	article	the (feminine singular); to, at — also estar a + verb (is doing); her, it
 pt	as	article	the (feminine plural); them (object)
 pt	como	adv	how; like, as (comparison); I eat (from comer)
 pt	da	prep	of the, from the (de + a); also gives (dar)
 pt	e	conj	and (joining words, phrases, or clauses)
+pt	ela	pron	she; it; her (after a preposition: com ela, para ela)
+pt	ele	pron	he; it; him (after a preposition: com ele, para ele)
+pt	está	verb	is; you are (temporary states and locations — he/she/it, você)
 pt	eu	pron	I (as the subject)
+pt	foi	verb	was; went (past of both ser and ir — he/she/it, você)
+pt	há	verb	there is, there are; ago (of elapsed time: há dois anos)
 pt	mas	conj	but; but rather (after a negative)
+pt	me	pron	me; to me; myself (usually before the verb in Brazil: me ajuda)
+pt	minha	det	my; mine (with feminine nouns: minha casa, minha mãe)
 pt	no	prep	in the, on the (em + o)
 pt	o	article	the (masculine singular); him, it (as a direct object)
 pt	os	article	the (masculine plural); them (object)
 pt	que	conj	that; which, who (relative); than (comparing); what, what a (questions)
+pt	se	pron	himself, herself, itself, yourself, themselves; each other; one, people; (as a conjunction) if
+pt	sei	verb	I know (a fact or how to do something; for people use conheço)
 pt	sim	intj	yes; indeed, really (for emphasis)
+pt	tem	verb	has; you have; there is, there are (spoken Brazil: tem gente aqui)
+pt	tenho	verb	I have; I own; I have to (with que: tenho que ir)
 pt	um	article	a, an (masculine); one (the number)
 pt	uma	article	a, an (feminine); one (the number)
+pt	vai	verb	goes, is going; you go; is going to (forms the future: vai chover)
+pt	vou	verb	I go, I'm going; I'm going to (forms the future: vou fazer)
 pt	é	verb	is (he, she, it — from ser); are (with você); that's right, yeah (agreeing)
 ro	a	verb	he/she did (past auxiliary: a văzut); to (infinitive: a fi); of (a mea)
 ro	ai	verb	you have; you have done, you did (ai văzut); of (possessive: ai mei)
+ro	am	verb	I have; also the past-tense auxiliary: I have / we have (done something)
+ro	asta	pron	this, this one; that (f.; the everyday form, less formal than aceasta)
 ro	bine	adv	well; fine, all right, OK (as a reply); good, wellbeing (n.)
+ro	cum	adv	how; as, like, the way that; since, seeing that
 ro	da	intj	yes; to give (a da)
+ro	dar	conj	but, however, yet; also a noun: gift, present (n.)
 ro	de	prep	of, from (material, origin, source); to (with a verb: de făcut)
 ro	e	verb	is (everyday short form of este); eh! (surprise, annoyance)
+ro	el	pron	"he; it (of a masculine or neuter noun); him after prepositions: cu el ""with him"""
+ro	este	verb	is; he/she/it is; there is (shortened to e in speech)
+ro	eu	pron	I (used for emphasis or contrast — Romanian usually drops the subject pronoun)
+ro	lui	pron	"his; to him, him; and before a man's name it marks possession: lui Ion ""Ion's"""
+ro	mai	adv	"more, the comparative marker (mai mare ""bigger""); still, any more; again; May (m.)"
+ro	ne	pron	"us; to us; ourselves, each other (ne vedem ""we see each other"")"
 ro	o	article	a, an (feminine); her, it (object pronoun); will (in o să + verb)
+ro	pentru	prep	"for (a person, a purpose, a length of time); because of; pentru că ""because"""
+ro	sa	det	"his, her, its (with a feminine noun: casa sa ""his/her house"")"
+ro	sunt	verb	I am; they are (one form serves both)
+ro	tine	pron	"you (sg.), the stressed form used after prepositions: cu tine ""with you"""
 ru	а	conj	and, but (setting two things side by side); whereas; oh! (surprise)
+ru	в	prep	in, at (+ prepositional); into, to (+ accusative, motion); at, on (times)
 ru	все	pron	everyone, everybody; all, all of (plural)
+ru	всё	pron	everything, all of it (neuter of весь); still, all the time (as adverb)
 ru	да	particle	yes; right?, isn't it? (tag question); come on (emphatic)
+ru	для	prep	for, intended for (+ genitive); for the sake of, for the purpose of
+ru	за	prep	for, in exchange for (+ accusative); behind, beyond (+ instrumental)
+ru	знаю	verb	I know (знать, impf. — to know; no true pf. partner; cf. узнать, to find out)
 ru	и	conj	and; both ... and ... (repeated); also, even (for emphasis)
 ru	как	adv	how; like, as (in the same way as); as soon as, when
+ru	меня	pron	me (я in the genitive/accusative; у меня — I have)
+ru	мне	pron	to me, for me; me (я in the dative/prepositional — мне холодно, I'm cold)
+ru	на	prep	on, at (+ prepositional); onto, to (+ accusative, motion); for (a period)
 ru	нет	particle	no; there is no, there isn't; not have (with genitive)
 ru	но	conj	but, yet
 ru	о	prep	about, of (with the prepositional); oh! (exclamation)
+ru	он	pron	he; it (standing in for any masculine noun)
+ru	с	prep	with (+ instrumental); from, off, since (+ genitive)
 ru	так	adv	so, like this, in that way; so, so much (to such a degree); so, then
+ru	тебя	pron	you (ты in the genitive/accusative; у тебя — you have)
+ru	то	pron	that, that one (neuter of тот); then (если…, то…); the fact that (то, что)
+ru	ты	pron	you (one person, informal — friends, family; polite or plural is вы)
 ru	это	pron	this, that; this is, that is; it
 sw	alikuwa	verb	he was, she was (past of kuwa 'to be')
 sw	basi	conj	so, then, well (opening a sentence); bus (5/6, pl. mabasi); enough!, stop!
@@ -235,28 +357,67 @@ sw	yule	det	that, that one over there (with class 1 nouns — a person or animal
 sw	za	prep	of, belonging to (with class 10 plural nouns: nyumba za watu = people's houses)
 th	ฉัน	pron	I, me (informal; used mostly by women)
 th	นี่	pron	this, this one (standing alone); here
+th	หรือ	conj	or; (sentence-final yes-no question particle: …is it? / really? — spoken เหรอ, รึ)
 th	เดี๋ยว	adv	in a moment, shortly; wait, hold on; or else, otherwise (warning)
 th	แต่	conj	but, however; only, just; since, from (a time)
+th	และ	conj	and (formal/written; between nouns, speech often uses กับ instead)
 th	แล้ว	adv	already, done (sentence-final, marks completion); then, and then
 th	ใช่	verb	yes, that's right; to be so, to be the case (negated with ไม่)
 th	ไม่	adv	not (before a verb or adjective); no
+tl	at	conj	and (between words, phrases or clauses); contracts to 't after a vowel-final word (dalawampu't isa)
+tl	bakit	adv	why?; how come? (answered with kasi or dahil; kung bakit = the reason why)
+tl	kung	conj	"if (hypothetical; kapag = whenever); whether; kung sino/ano ""whoever/whatever"""
+tl	o	conj	"or; or else (o kaya); spoken sentence-opener ""so""/""here"" to get attention"
+tl	oo	intj	"yes (casual); opo is the polite form to elders; oo nga ""yes, exactly"""
+tl	paano	adv	"how?, in what way; paano kung ""what if"" (how much is magkano, not paano)"
+tl	pero	conj	but; however (conversational; ngunit and subalit are the formal equivalents)
+tl	sino	pron	who? (the ang-set question word; nino = by whom, kanino = whose, to whom)
+tr	beni	pron	me (ben as the object of a verb: beni bekle, wait for me)
+tr	benim	pron	my; mine; it's me, I am the one (as a predicate)
 tr	bir	det	a, an (before a noun); one (the number)
+tr	bunu	pron	this; this one; it (bu as the object of a verb)
 tr	de	conj	too, also; and, and then; say! (command from demek)
+tr	evet	intj	yes; yes, that's right (agreeing or confirming); right then, so (opening a turn)
 tr	hadi	interjection	come on!, let's go!
 tr	haydi	interjection	come on!, let's go!
+tr	hayır	intj	no; no, thank you (declining); as a noun (hayr-): good, benefit, charity
 tr	iyi	adj	good; well (with a verb); fine, in good health
 tr	ne	pron	what; how, what a…! (in exclamations); ne…ne… neither…nor
+tr	neden	adv	why; what for; reason, cause (as a noun)
+tr	olduğunu	verb	that (someone or something) is, or was (introduces a 'that…' clause after know, say, think)
+tr	onu	pron	him; her; it; that one (o as the object of a verb)
+tr	sana	pron	to you; for you (singular, informal; also 'you' after verbs that take the dative)
+tr	seni	pron	you (singular, informal, as the object of a verb: seni seviyorum, I love you)
+tr	senin	pron	your; yours (singular, informal)
 tr	tamam	intj	OK, all right, agreed; complete, whole; done, finished
 tr	var	adj	there is, there are; have, has (with a possessor); present, available
+tr	ve	conj	and (joining words, phrases or whole clauses)
 tr	yok	adj	there is no, there aren't; doesn't have; no (as an answer)
+xh	abantu	noun	people, persons; human beings (class 1/2, sg. umntu)
+xh	amadoda	noun	men, grown males; husbands (class 9/6, sg. indoda)
+xh	amehlo	noun	eyes (class 5/6, sg. iliso)
+xh	emva	adv	behind, at the back; after (in emva kwa- 'after, behind'; emva koko 'after that')
+xh	loo	det	that, those (before any noun, which drops its first vowel: loo mntu 'that person')
+xh	umthetho	noun	law; rule, regulation; commandment (class 3/4, pl. imithetho)
+xh	unyana	noun	son; the Son of God in Christian texts (class 1a/2a, pl. oonyana)
+xh	uthixo	name	God; a god, deity (class 1a/2a, pl. oothixo)
+yo	a	pron	we (subject pronoun); will (á before a verb); him, her, it (á, echoing a verb that ends in a)
 yo	awọn	particle	plural marker àwọn, placed before a noun; they, them (emphatic pronoun)
 yo	bi	conj	if, when (bí); like, as, how (bí); to give birth to (bí)
+yo	fi	verb	to use; with, by means of — sets up the instrument before a second verb
+yo	i	pron	"it, him, her — object pronoun after a verb ending in i; the í of kì í ""does not usually, never"""
+yo	kan	det	"a, a certain; one (after the noun: ọjọ́ kan ""one day""); kàn to touch, to concern"
 yo	ki	particle	that, should (kí, subjunctive); what? (kí ni); to greet (kí)
 yo	ko	particle	not (kò, before the verb); to gather, to pack up (kó)
 yo	lati	particle	to (láti, infinitive marker before a verb); from (a place); since (a time)
+yo	n	particle	"is/are doing — ń before a verb marks ongoing action; also ""I"" (n̄, variant of mo)"
 yo	ni	verb	is, it is (ni, copula and focus); at, in, on (ní); to have (ní)
 yo	o	pron	he, she, it (ó); you (o, subject); not (ò, short for kò); final o for emphasis
+yo	ri	verb	to see; to find, to get; to look like, to appear
 yo	si	prep	to, toward (sí, with motion); and then (sì, links clauses); there is (in kò sí)
+yo	tabi	conj	or — joins two alternatives (written tàbí in full)
 yo	ti	particle	already, have done (ti, before a verb); who, which, that (tí); of, belonging to
 yo	wọn	pron	they (wọ́n, subject); them (wọn, after a verb); their (wọn, after a noun)
+yo	yi	det	this (placed after the noun, written yìí in full); yí to turn, to change
 yo	ẹ	pron	you (plural or polite, as subject); you (singular, as object after the verb)
+yo	ọ	pron	you (one person), as the object of a verb; him, her, it after a verb ending in ọ
