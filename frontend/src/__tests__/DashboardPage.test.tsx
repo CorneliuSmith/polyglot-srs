@@ -303,8 +303,14 @@ describe('Dashboard tiles', () => {
     cleanup()
     mockDailyLearnGoal = 0
     renderDashboard()
-    expect(await screen.findByText('15')).toBeDefined()
-    expect(screen.getByText(/new items queued/)).toBeDefined()
+    // Wait for the TILE, not for a bare "15": the header renders a 15 of its
+    // own, so findByText('15') could resolve against that while the Learn
+    // tile's decks query was still in flight — and the synchronous assertion
+    // on the next line then ran against a tile that had not rendered yet.
+    // The label is unique to the goal-0 branch, so waiting on it waits for
+    // exactly the thing under test.
+    const queued = await screen.findByText(/new items queued/)
+    expect(queued.closest('button')).toHaveTextContent('15')
   })
 
   it('a refreshed tour is shown again even to someone who dismissed the old one', async () => {
