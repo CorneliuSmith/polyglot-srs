@@ -89,6 +89,126 @@ class TestParseKaikki:
         entries = parse_kaikki_jsonl(p, wanted={"ev"})
         assert entries == {"ev": {"pos": "noun", "gloss": "house; home", "plural": None}}
 
+    def test_a_word_sense_outranks_a_glyph_or_a_place(self, tmp_path):
+        """kaikki emits one entry per (word, pos) in no useful order, so taking
+        the first that parses is how French rank 15 `ne` — the negator — was
+        defined as a Swiss canton and rank 36 `y` as a letter of the alphabet.
+        Both had the right sense in a later entry that was never read."""
+        p = tmp_path / "k.jsonl"
+        p.write_text(
+            '{"word": "y", "pos": "character",'
+            ' "senses": [{"glosses": ["a letter in the French alphabet, after x"]}]}\n'
+            '{"word": "y", "pos": "pron", "senses": [{"glosses": ["there (at a place)"]}]}\n'
+            '{"word": "ne", "pos": "name",'
+            ' "senses": [{"glosses": ["ISO 3166-2:CH code of Neuchatel (canton)"]}]}\n'
+            '{"word": "ne", "pos": "particle", "senses": [{"glosses": ["not"]}]}\n',
+            encoding="utf-8",
+        )
+        entries = parse_kaikki_jsonl(p)
+        assert entries["y"]["gloss"] == "there (at a place)"
+        assert entries["ne"]["gloss"] == "not"
+
+    def test_a_meaning_outranks_an_inflection_pointer(self, tmp_path):
+        """"dative of X" is the right gloss only when nothing states a meaning."""
+        p = tmp_path / "k.jsonl"
+        p.write_text(
+            '{"word": "w", "pos": "pron",'
+            ' "senses": [{"form_of": [{"word": "x"}], "glosses": ["dative of x"]}]}\n'
+            '{"word": "w", "pos": "pron", "senses": [{"glosses": ["to me"]}]}\n',
+            encoding="utf-8",
+        )
+        assert parse_kaikki_jsonl(p)["w"]["gloss"] == "to me"
+
+    def test_a_case_frame_is_not_a_definition(self, tmp_path):
+        """Russian `в` — rank 4 — shipped as "[with prepositional]" because
+        kaikki lists case frames as senses and the meaning is the third one."""
+        p = tmp_path / "k.jsonl"
+        p.write_text(
+            '{"word": "v", "pos": "prep", "senses": [{"glosses":'
+            ' ["[with prepositional]", "[with accusative]", "in, at, on"]}]}\n',
+            encoding="utf-8",
+        )
+        assert parse_kaikki_jsonl(p)["v"]["gloss"] == "in, at, on"
+
+    def test_wiki_markup_is_unwrapped_rather_than_dropped(self, tmp_path):
+        """For Swahili's concords the markup is the ONLY sense kaikki carries,
+        so rejecting it would leave ranks 2, 14, 20 and 49 with no definition at
+        all — worse than a thin one, which at least reaches the authoring list."""
+        p = tmp_path / "k.jsonl"
+        p.write_text(
+            '{"word": "ya", "pos": "particle", "senses": [{"glosses":'
+            ' ["[[Appendix:Swahili_noun_classes#N class|n class_((IX))]] form of -a"]}]}\n',
+            encoding="utf-8",
+        )
+        assert parse_kaikki_jsonl(p)["ya"]["gloss"] == "n class (IX) form of -a"
+
+    def test_a_long_gloss_is_trimmed_not_discarded(self, tmp_path):
+        """The correct French `ne` sense is 95 characters, so the old length
+        rule threw it away and left the canton code to win."""
+        p = tmp_path / "k.jsonl"
+        p.write_text(
+            '{"word": "ne", "pos": "particle", "senses": [{"glosses": ["not (used alone'
+            ' to negate a verb, now chiefly with only a few particular verbs; see usage'
+            ' notes)"]}]}\n',
+            encoding="utf-8",
+        )
+        assert parse_kaikki_jsonl(p)["ne"]["gloss"] == "not"
+
+    def test_trimming_never_leaves_a_half_open_parenthesis(self, tmp_path):
+        p = tmp_path / "k.jsonl"
+        p.write_text(
+            '{"word": "za", "pos": "prep", "senses": [{"glosses": ["to; during (close'
+            ' to the phrase (v tecenije) used for spans of time in formal writing)"]}]}\n',
+            encoding="utf-8",
+        )
+        gloss = parse_kaikki_jsonl(p)["za"]["gloss"]
+        assert gloss.count("(") == gloss.count(")")
+
+    def test_a_gloss_promising_senses_it_lacks_is_rejected(self, tmp_path):
+        p = tmp_path / "k.jsonl"
+        p.write_text(
+            '{"word": "ot", "pos": "prep", "senses": [{"glosses":'
+            ' ["from, away from, of, with (in the following senses):", "from"]}]}\n',
+            encoding="utf-8",
+        )
+        assert parse_kaikki_jsonl(p)["ot"]["gloss"] == "from"
+
+    def test_a_spelling_pointer_that_states_the_meaning_keeps_the_word(self, tmp_path):
+        """Dropping cross-reference senses outright costs real vocabulary:
+        Yoruba `tabi` ("or") at rank 44, `joko` ("to sit"), Turkish `haydi`
+        ("come on"). Their only sense points at a standard spelling, but the
+        meaning is right there in the quotation marks."""
+        p = tmp_path / "k.jsonl"
+        p.write_text(
+            '{"word": "tabi", "pos": "conj", "senses": [{"alt_of": [{"word": "abi"}],'
+            ' "glosses": ["alternative form of \\u00e0b\\u00ed (\\u201cor\\u201d)"]}]}\n',
+            encoding="utf-8",
+        )
+        assert parse_kaikki_jsonl(p)["tabi"]["gloss"] == "or"
+
+    def test_a_bare_letter_is_still_dropped(self, tmp_path):
+        """The other half of the same split. A letter is not vocabulary — the
+        app seeds alphabet decks separately — so it should leave the frequency
+        list rather than be rescued."""
+        p = tmp_path / "k.jsonl"
+        p.write_text(
+            '{"word": "s", "pos": "character", "senses": [{"glosses":'
+            ' ["The twentieth letter of the Yoruba alphabet, called si."]}]}\n',
+            encoding="utf-8",
+        )
+        assert parse_kaikki_jsonl(p) == {}
+
+    def test_a_real_element_sense_survives(self, tmp_path):
+        """The guard. `ouro` really is gold and `fedha` really is silver — a
+        rule that flags those is a rule that gets switched off."""
+        p = tmp_path / "k.jsonl"
+        p.write_text(
+            '{"word": "ouro", "pos": "noun", "senses":'
+            ' [{"glosses": ["gold (chemical element)"]}]}\n',
+            encoding="utf-8",
+        )
+        assert parse_kaikki_jsonl(p)["ouro"]["gloss"] == "gold (chemical element)"
+
 
 class TestCorpusWordCounts:
     def test_counts_seg_tokens(self, tmp_path):
