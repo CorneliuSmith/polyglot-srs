@@ -143,6 +143,71 @@ So polysemy is handled three ways, in this order:
    flagging the case the owner hit — a card whose gloss names one part of
    speech while its examples overwhelmingly use another.
 
+**Measured 18 Aug** by `backend/services/seeder/audit_polysemy.py`: across the
+twenty cached languages, **1,293 top-band words carry three or more word-class
+senses and are glossed with fewer**, and 104 more record a part of speech the
+dictionary does not carry at all. Concentrated where the owner found it —
+pt 149, it 139, es 122, ar 108, nl 102, th 90 — and at the very top of each
+list, because a word earns rank 2 partly BY being several words.
+
+#### What this means for sentence work (the second half of the goal)
+
+Both halves have to move together. A multi-sense gloss with single-sense
+examples still teaches the wrong thing; sense-correct examples under a
+one-sense gloss are just as confusing.
+
+**Selecting** from the harvested corpus: prefer sentences whose use of the word
+agrees with the sense being taught. The per-language NLP backends already
+lemmatize and, for several languages, can distinguish a form's function, which
+is enough for the case that actually bites — `a` before an infinitive is the
+preposition, not the article. Where the language has no such signal, report
+rather than guess.
+
+**Generating** (Phase 2, where sentences are authored for uncovered words):
+sense is a required input, not an accident. For a word the polysemy audit
+flags, the generator writes one sentence per major sense and states which sense
+each carries; the adversarial checker's job is to confirm the sentence uses
+THAT sense and reject it otherwise. This is cheap to add because the prompt is
+ours, and it is the only point in the pipeline where sense is known for certain
+at the moment the sentence is written.
+
+**Ordering**: the audit ships first (done), the multi-sense glosses next, and
+sentence selection last — because a sense-aware selector has nothing to select
+against until the card states which sense it is teaching.
+
+#### Decision: one card per word, not one per sense
+
+The owner left this open. The answer is **one card**, and the reasons are
+worth writing down because the alternative is superficially attractive.
+
+Splitting `a` into three rows — article, preposition, pronoun — would let each
+card teach one thing and carry only its own examples. It also breaks the
+natural key the entire pipeline is built on. `vocabulary` is
+`UNIQUE (language_id, word)` (migration 20260314000000); the vocabulary seeders
+upsert `ON CONFLICT (language_id, word)`, and `seed_sentences` attaches every
+example by `JOIN vocabulary v ON v.language_id = $1 AND v.word = u.word`. With
+three rows spelled `a`, that join has no way to choose, so every example would
+either fan out to all three senses or need a sense key the corpus does not
+carry. Frequency rank has the same problem: rank is measured on the surface
+form, so three cards would have to share one rank or invent three.
+
+The learner-facing argument is stronger still. These are homonyms, not just
+homographs — Portuguese `a` is pronounced the same in all three uses. Three
+cards would be identical in text AND in audio, differing only in a label, and
+a spaced-repetition queue that shows the same-looking prompt three times
+teaches the learner to answer from position rather than from meaning.
+
+So: one row, a gloss that names the senses, and examples labelled with the
+sense they show. The example label is the part that does the real work — it is
+what turns "O que ele está a fazer?" from a contradiction into an illustration
+of the preposition sense the gloss already mentions. It is also additive: a
+nullable column or an existing JSON field, which degrades to today's behaviour
+when the migration has not landed, per the repo's standing rule.
+
+One case would justify revisiting this: a true homograph with a DIFFERENT
+pronunciation, where one card cannot carry both audio clips. None of the
+1,293 words measured is that case, so it stays out of scope until one is.
+
 ### D2 — Sentence parity. Two separate problems, and one is not what it looked like.
 
 **English (corrected 17 Aug — the first reading was wrong).** The sentences
