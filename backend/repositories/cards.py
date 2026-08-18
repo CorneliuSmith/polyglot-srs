@@ -1107,12 +1107,27 @@ async def session_readiness(
     # whatever slice of it has already landed in the learner's language. The
     # pool grows as the loop fills, so the game gets richer while they wait,
     # and every match is a word they meet for real minutes later.
+    # A pair is only playable if the right-hand side is a GLOSS. Some stored
+    # definitions are not: a Russian learner of English was shown "it" against
+    # "И что?", "be" against "У тебя это есть?", and "dogs" against a Spanish
+    # sentence — the wait screen faithfully displaying rows that are wrong on
+    # the card too. Fixing those rows is content work; refusing to build a
+    # matching game out of them is this query's job, because a word paired
+    # with a sentence is unplayable even after the sentence is corrected.
+    #
+    # The test is deliberately blunt — a gloss is short and does not end like
+    # a sentence — since anything subtler would need to know the language.
     out["pairs"] = [
         {"word": r["word"], "gloss": r["definition"]}
         for r in await conn.fetch(
-            """SELECT v.word, t.definition FROM vocabulary v
+            r"""SELECT v.word, t.definition FROM vocabulary v
                 JOIN translations t ON t.vocabulary_id = v.id
                 WHERE v.id = ANY($1::uuid[]) AND t.locale = $2
+                  AND btrim(t.definition) <> ''
+                  AND btrim(t.definition) !~ '[.!?…]$'
+                  AND array_length(
+                        regexp_split_to_array(btrim(t.definition), '\s+'), 1
+                      ) <= 4
                 LIMIT 12""",
             list(learn_v), locale)
         if r["definition"]
