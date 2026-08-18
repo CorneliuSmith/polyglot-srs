@@ -294,21 +294,140 @@ def parse_freedict_tei(path: Path) -> dict[str, dict]:
     return entries
 
 
+# How much a part of speech looks like a WORD rather than a glyph or a place.
+# kaikki emits one entry per (word, pos, etymology) and they arrive in no
+# useful order, so taking the first entry that happens to carry a gloss is how
+# French rank 15 `ne` — the negator — ended up defined as a Swiss canton, and
+# rank 36 `y` — the pronoun "there" — as a letter of the alphabet. Both had the
+# right sense sitting in a later entry that was never read. Lower sorts first.
+_POS_RANK = {
+    # Function words: the top of every frequency list, and the entries most
+    # often outranked by a same-spelled glyph or abbreviation.
+    "pron": 0, "pronoun": 0, "det": 0, "article": 0, "particle": 0,
+    "conj": 0, "prep": 0, "postp": 0, "adv": 0, "verb": 0,
+    # Ordinary content words.
+    "noun": 1, "adj": 1, "num": 1, "intj": 1, "classifier": 1, "counter": 1,
+    "phrase": 2, "proverb": 3,
+    # Bound morphemes: real, but a poor definition for a standalone headword.
+    "prefix": 4, "suffix": 4, "infix": 4, "interfix": 4,
+    # Not a word sense at all.
+    "name": 8, "character": 9, "letter": 9, "symbol": 9, "punct": 9,
+}
+_POS_RANK_DEFAULT = 5
+
+# Senses that describe a glyph, a region code or a sound rather than a meaning.
+# Wider than the substring checks this replaces, which missed "a letter IN the
+# French alphabet" and "The sound expressed by the letter A".
+_NOT_A_MEANING = re.compile(
+    r"letter (?:of|in) the|name of the .{0,30}letter|\b\w+(?:th|st|nd|rd) letter\b"
+    r"|sound expressed by the letter|the sound of the letter|\bISO\s*\d"
+    r"|chemical symbol (?:of|for)",
+    re.IGNORECASE,
+)
+
+# A grammatical annotation standing where a definition should be. Russian `в`
+# — rank 4 — ships as "[with prepositional]" because kaikki lists the case
+# frames as senses in their own right and the meaning ("in, at, on") is the
+# third one. Rejecting the frame lets the meaning win.
+_BRACKET_ONLY = re.compile(r"^\s*\[[^\]]*\]\s*$")
+
+# [[Appendix:Swahili_noun_classes#N class|n class_((IX))]] -> n class (IX)
+_WIKI_LINK = re.compile(r"\[\[(?:[^\]|]*\|)?([^\]|]*)\]\]")
+
+# A cross-reference sense that carries the meaning anyway:
+#   alternative form of àbí (“or”)   ->  or
+# Dropping these outright costs real vocabulary — Yoruba `tabi` ("or") at rank
+# 44, `titun` ("new"), `joko` ("to sit"), Turkish `haydi` ("come on") are all
+# ordinary words whose only Wiktionary sense points at a standard spelling. The
+# meaning is sitting in the quotation marks; take it and keep the word.
+_ALT_OF_MEANING = re.compile(
+    r"^(?:alternative|archaic|obsolete|dated|nonstandard|informal)\b[^(]*"
+    r"[(\[]?\s*[“\"']([^”\"']{1,80})[”\"']",
+    re.IGNORECASE,
+)
+
+
+def _clean_gloss(gloss: str) -> str | None:
+    """A gloss a learner can read, or None if this sense cannot supply one.
+
+    Three things happen here that the length check alone could not do:
+
+    Wiki markup is rejected outright. Swahili rank 2 currently ships as
+    "[[Appendix:Swahili_noun_classes#N class|n class_((IX))]] i" — 57 characters,
+    so every length rule passes it, and it is unreadable.
+
+    A gloss promising senses it does not carry is rejected. kaikki writes
+    "from, away from, of, with (in the following senses):" and puts the senses
+    in a nested structure; keeping the preamble gives the learner a colon and
+    nothing after it.
+
+    A long gloss is trimmed rather than discarded. The correct French `ne`
+    sense is "not (used alone to negate a verb, now chiefly with only a few
+    particular verbs; see usage notes)" — 95 characters, so the old rule threw
+    it away and left the canton code to win. Cutting the usage note leaves
+    "not", which is the definition.
+    """
+    gloss = (gloss or "").strip()
+    if not gloss:
+        return None
+    # Unwrap wiki links rather than dropping the sense: for Swahili's concords
+    # the markup IS the only sense kaikki carries, so rejecting it would leave
+    # ranks 2, 14, 20 and 49 with no definition at all — worse than a weak one.
+    # What survives is still thin and lands on the authoring list.
+    if "[[" in gloss:
+        gloss = _WIKI_LINK.sub(r"\1", gloss).replace("_", " ").strip()
+    gloss = gloss.replace("((", "(").replace("))", ")")
+    if not gloss or "[[" in gloss or "]]" in gloss:
+        return None
+    if _BRACKET_ONLY.match(gloss):
+        return None
+    if _NOT_A_MEANING.search(gloss):
+        return None
+    if gloss.rstrip().endswith(":"):
+        return None
+    if len(gloss) > 90:
+        for cut in (" (", "; ", ", "):
+            head = gloss.split(cut)[0].strip()
+            if 0 < len(head) <= 90:
+                return _balance(head)
+        return None
+    return _balance(gloss)
+
+
+def _balance(gloss: str) -> str | None:
+    """Drop a parenthetical the sense list left half-open.
+
+    kaikki nests parentheses, so cutting a long gloss at the first " (" can
+    leave an unclosed one behind: Russian `за` trimmed to "to; during (close to
+    в течение (v tečenije". Cutting back to the last balanced point is better
+    than shipping a bracket the learner has to mentally close.
+    """
+    while gloss.count("(") > gloss.count(")"):
+        gloss = gloss[: gloss.rfind("(")].strip().rstrip(",;—-").strip()
+        if not gloss:
+            return None
+    return gloss or None
+
+
 def parse_kaikki_jsonl(path: Path, wanted: set[str] | None = None) -> dict[str, dict]:
     """Stream a kaikki.org Wiktionary extract -> {word: {pos, gloss, plural}}.
 
-    Keeps the first (most common) entry per word. Pass *wanted* to filter to
-    a known word set and keep memory flat on the large dumps.
+    Every entry for a word is read and the best-ranked one wins, rather than the
+    first that happens to parse. Pass *wanted* to filter to a known word set and
+    keep memory flat on the large dumps.
     """
-    entries: dict[str, dict] = {}
+    # word -> (pos_rank, arrival_order, pos, gloss)
+    best: dict[str, tuple[int, int, str | None, str]] = {}
+    order = 0
     with open(path, encoding="utf-8") as f:
         for line in f:
+            order += 1
             try:
                 obj = json.loads(line)
             except json.JSONDecodeError:
                 continue
             word = (obj.get("word") or "").strip().lower()
-            if not word or word in entries:
+            if not word:
                 continue
             if wanted is not None and word not in wanted:
                 continue
@@ -328,20 +447,27 @@ def parse_kaikki_jsonl(path: Path, wanted: set[str] | None = None) -> dict[str, 
                 tags = set(sense.get("tags") or [])
                 if "alt_of" in sense or tags & {"alt-of", "obsolete",
                                                 "misspelling"}:
+                    # Rescue the meaning if the cross-reference states it, so a
+                    # real word is not lost to a spelling pointer.
+                    for g in sense.get("glosses") or []:
+                        found = _ALT_OF_MEANING.match((g or "").strip())
+                        if found:
+                            recovered = _clean_gloss(found.group(1))
+                            if recovered:
+                                fallback.append(recovered)
                     continue
                 is_form = "form_of" in sense or "form-of" in tags
                 for g in sense.get("glosses") or []:
-                    g = g.strip()
-                    if not g or len(g) > 90:
-                        continue
-                    low = g.lower()
+                    low = (g or "").strip().lower()
                     if low.startswith(("alternative ", "romanization of",
                                        "misspelling", "obsolete ",
                                        "archaic ", "the name of the")):
                         continue
-                    if "script letter" in low or "letter of the" in low:
+                    if "script letter" in low:
                         continue
-                    (fallback if is_form else content).append(g)
+                    cleaned = _clean_gloss(g)
+                    if cleaned:
+                        (fallback if is_form else content).append(cleaned)
             glosses = list(dict.fromkeys(content or fallback))
             if not glosses:
                 continue
@@ -349,12 +475,21 @@ def parse_kaikki_jsonl(path: Path, wanted: set[str] | None = None) -> dict[str, 
             gloss = glosses[0]
             if len(gloss) < 15 and len(glosses) > 1:
                 gloss = "; ".join(glosses[:2])
-            entries[word] = {
-                "pos": obj.get("pos"),
-                "gloss": gloss,
-                "plural": None,
-            }
-    return entries
+
+            pos = obj.get("pos")
+            rank = _POS_RANK.get((pos or "").strip().lower(), _POS_RANK_DEFAULT)
+            # A form-of sense is a last resort even from a well-ranked entry:
+            # "dative of я" is the right gloss only when nothing states a meaning.
+            if not content:
+                rank += 2
+            candidate = (rank, order, pos, gloss)
+            if word not in best or candidate < best[word]:
+                best[word] = candidate
+
+    return {
+        word: {"pos": pos, "gloss": gloss, "plural": None}
+        for word, (_rank, _order, pos, gloss) in best.items()
+    }
 
 
 # Word tokens INCLUDING combining marks: Python's \w excludes Unicode Mn/Mc
