@@ -17,7 +17,6 @@ from backend.services.quality.audit_content import (
     LANGUAGES,
     WRONG_SENSE_RANK_BAND,
     audit_all,
-    audit_language,
     audit_points,
     load_baseline,
     regressions,
@@ -353,10 +352,16 @@ class TestWrongSenseGloss:
         assert wrong_sense_kind(-1, "The first letter of the alphabet") is None
         assert wrong_sense_kind(5, "") is None
 
-    def test_the_rule_reads_the_committed_corpora(self):
-        """Yoruba is the worst case in the repo and the reason this rule is
-        fail-level: its commonest words are glossed as letters of the alphabet.
+    def test_the_committed_corpora_are_clean(self):
+        """Yoruba was the worst case in the repo and the reason this rule is
+        fail-level: its five commonest words were glossed as names of Latin
+        letters. The parser now ranks word senses above glyph entries and the
+        remainder are authored in data/gloss_overrides.tsv, so the whole corpus
+        reads clean — this holds that line rather than the old debt.
         """
-        findings = audit_language("yo")["findings"]["wrong_sense_gloss"]
-        assert findings, "yo has known wrong-sense glosses in its top band"
-        assert any("'ti'" in row for row in findings)
+        offenders = {
+            report["code"]: report["findings"]["wrong_sense_gloss"]
+            for report in audit_all(LANGUAGES)
+            if report["findings"]["wrong_sense_gloss"]
+        }
+        assert not offenders, offenders
