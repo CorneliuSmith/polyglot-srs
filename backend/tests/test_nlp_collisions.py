@@ -105,6 +105,38 @@ class TestLeniencySurvives:
         result, _ = backend(ArabicNLP, "ar").check_answer(typed, card)
         assert result is AnswerResult.CORRECT_SLOPPY
 
+    @pytest.mark.parametrize("typed,card", [
+        ("schoen", "schön"),    # the Duden substitution when no umlaut key
+        ("fuer", "für"),
+        ("gruen", "grün"),
+        ("groesser", "größer"),
+        ("strasse", "straße"),  # Swiss ss for ß
+        ("gross", "groß"),
+    ])
+    def test_german_digraphs_are_coached_not_failed(self, typed, card):
+        """A learner on an English keyboard has exactly one sanctioned way to
+        write schön, and it is schoen. It used to grade WRONG — "a different
+        word" — while `schon`, which IS a different word, was credited. The
+        typing reality and the grading were the wrong way round."""
+        from backend.services.nlp.latin_base import GermanNLP
+
+        result, _ = backend(GermanNLP, "de").check_answer(typed, card)
+        assert result is AnswerResult.CORRECT_SLOPPY
+
+    @pytest.mark.parametrize("typed,card", [
+        ("schon", "schön"),     # already vs beautiful
+        ("musste", "müsste"),   # had to vs would have to
+        ("ass", "aß"),          # ace vs ate
+    ])
+    def test_german_bare_vowel_for_umlaut_is_still_a_different_word(self, typed, card):
+        """Dropping the umlaut entirely is not the sanctioned substitution —
+        it lands on another word, and the guard must still say so."""
+        from backend.services.nlp.latin_base import GermanNLP
+
+        result, message = backend(GermanNLP, "de").check_answer(typed, card)
+        assert result is AnswerResult.WRONG_FORM
+        assert "different word" in (message or "")
+
     def test_exact_match_is_untouched(self):
         result, _ = backend(SpanishNLP, "es").check_answer("él", "él")
         assert result is AnswerResult.CORRECT
@@ -158,7 +190,7 @@ def _strip_marks(text):
 # they are why the guard exists, not debt the guard leaves.
 SLOPPY_KEY_CEILINGS = {
     "ru": 39, "ar": 200, "en": 10, "sw": 0, "tr": 122, "yo": 112, "ha": 0,
-    "xh": 0, "es": 247, "it": 54, "fr": 500, "de": 128, "ca": 125, "mi": 0,
+    "xh": 0, "es": 247, "it": 54, "fr": 500, "de": 127, "ca": 125, "mi": 0,
     "ro": 500, "el": 117, "pt": 130, "hi": 145, "jam": 0, "nl": 7, "th": 193,
     "ko": 0, "la": 3, "id": 0, "tl": 0, "he": 0, "fa": 0,
 }

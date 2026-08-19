@@ -172,12 +172,40 @@ class CatalanNLP(AccentFoldingNLP):
     leading_articles = ("el ", "la ", "els ", "les ", "un ", "una ", "uns ", "unes ", "l'")
 
 
+#: The substitution German itself prescribes when the umlaut keys are not
+#: available (Duden): ä→ae, ö→oe, ü→ue, ß→ss. NOT the same as stripping the
+#: diacritic — "schoen" is the sanctioned spelling of "schön", while "schon"
+#: is a different word entirely.
+_GERMAN_DIGRAPHS = str.maketrans({
+    "ä": "ae", "ö": "oe", "ü": "ue", "ß": "ss",
+    "Ä": "Ae", "Ö": "Oe", "Ü": "Ue",
+})
+
+
 class GermanNLP(AccentFoldingNLP):
     leading_articles = ("der ", "die ", "das ", "den ", "dem ", "ein ", "eine ", "einen ")
 
     def _fold(self, text: str) -> str:
         # ß ↔ ss is a real spelling alternation, so fold it before stripping umlauts.
         return fold_diacritics(text.replace("ß", "ss"))
+
+    def fold_lookalikes(self, text: str) -> str:
+        """Accept the digraph German uses when the umlaut keys are missing.
+
+        A learner on an English keyboard has exactly one sanctioned way to
+        write `schön`, and it is `schoen`. That failed outright — WRONG, "a
+        different word" — while `schon`, which IS a different word, was being
+        credited. The typing reality and the grading were the wrong way round.
+
+        This feeds the coaching layer, so a digraph answer is accepted and the
+        umlaut spelling is named; and because it runs there rather than in
+        normalize(), the collision guard still fails an answer that lands on
+        another card. Swiss `ss` for `ß` rides along for the same reason:
+        `docs/quality/de.md` puts it out of scope as a PRODUCTION target, which
+        is a statement about what the course teaches, not about what a learner
+        may type.
+        """
+        return text.translate(_GERMAN_DIGRAPHS)
 
 
 class MaoriNLP(AccentFoldingNLP):

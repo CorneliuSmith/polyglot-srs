@@ -6,7 +6,26 @@ Latin script, left-to-right, with `ä ö ü` and `ß`; every noun is capitalised
 the standard German of Germany** — the norm described by *grammis* (Leibniz-Institut für Deutsche Sprache),
 cited in the `references` of all 43 points in `data/grammar/de_grammar.json`. The drills commit to it: `ß` is
 taught and drilled (`größer`, `heißen`), the perfect is the spoken past (`Ich habe gegessen`) while the
-Präteritum is framed as narrative/written. **Out of scope:** Swiss orthography (`ss` for `ß`) as a *production*
+Präteritum is framed as narrative/written. **Grading (measured 20 Aug 2026).** `GermanNLP` accepts the substitution German itself
+prescribes when the umlaut keys are missing — ä→ae, ö→oe, ü→ue, ß→ss. It did not, and the
+result was backwards: `schoen`, the only sanctioned way to write `schön` on an English
+keyboard, graded **WRONG** ("a different word"), while `schon` — which really is a different
+word — was credited. The digraph is now amber, with the umlaut spelling named; dropping the
+umlaut *entirely* (`schon` for `schön`, `musste` for `müsste`, `ass` for `aß`) is failed by
+the collision guard, because it lands on another card. The fold sits in `fold_lookalikes`,
+not `normalize()`, precisely so the guard can still see it (`docs/quality/CHECKS.md` §3).
+
+Swiss `ss` rides along: out of scope as a *production* target is a statement about what the
+course teaches, not about what a learner may type. 24 rows removed to make that work — 7
+self-identified "Switzerland and Liechtenstein standard spelling of X", 6 identical-gloss
+ß/ss twins, 9 **pre-1996 spellings** (`daß`, `muß`, `bißchen`, `wußte`, `mußte`, `paß`,
+`laßt`, `mußt`, `schoß`) whose post-reform forms already sat at far better ranks, and 2
+digraph duplicates (`fuer`, `caesar`). `strasse` is in `data/vocab_exclusions.tsv`: its
+frequency is Swiss text writing *Strasse* for street, but kaikki joined it to the plural of
+*Strass* (rhinestone), so a rank-7512 jewelry term was blocking the ss spelling of rank-721
+`straße`.
+
+**Out of scope:** Swiss orthography (`ss` for `ß`) as a *production*
 target; Austrian and Swiss lexicon (`Jänner`, `Sackerl`, `Velo`, `Grüezi`); dialect morphology and clitics
 (`hab's gsehn`, `des`); the doubled perfect (`ich habe gehabt gehabt`). Recognising them in a culture note is
 fine; drilling them is not.

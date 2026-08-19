@@ -846,8 +846,8 @@ Remaining, in order:
    unmarked), `hi` nuqta variants, `de` ß/ss, `fr` 1990-reform merges (accept
    both spellings as CORRECT), `es` broken twin glosses (`creo`→creer,
    `llegue`, `pagué`, `mío`, `parís`, `dólares`).
-3. **`de` digraphs**: accept `ae/oe/ue` as the sloppy path — today `schoen`
-   fails while the different word `schon` used to pass.
+3. ~~**`de` digraphs**~~ — **DONE.** Duden substitution accepted in the
+   coaching layer; 24 junk/obsolete rows removed, `strasse` excluded.
 4. The ~900 incidental same-lemma inflection twins ride the per-language
    deep passes, not this phase.
 
