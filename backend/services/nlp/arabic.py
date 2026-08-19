@@ -40,7 +40,6 @@ try:
     from camel_tools.morphology.analyzer import Analyzer
     from camel_tools.morphology.database import MorphologyDB
     from camel_tools.utils.dediac import dediac_ar
-    from camel_tools.utils.normalize import normalize_alef_ar
 
     _db = MorphologyDB.builtin_db()
     _analyzer = Analyzer(_db, backoff="NOAN_PROP")
@@ -57,10 +56,6 @@ except Exception as exc:  # noqa: BLE001
         # Tashkeel is U+064B–U+065F, Shadda is U+0651, Sukun is U+0652, etc.
         return re.sub(r"[\u064b-\u065f]", "", text)
 
-    def normalize_alef_ar(text: str) -> str:  # type: ignore[misc]
-        """Fallback: normalize common alef variants to bare alef."""
-        # أ (U+0623), إ (U+0625), آ (U+0622), ٱ (U+0671) → ا (U+0627)
-        return text.translate(str.maketrans("\u0623\u0625\u0622\u0671", "\u0627\u0627\u0627\u0627"))
 
 
 # Tatweel character (Arabic kashida, used for elongation)
@@ -128,16 +123,31 @@ class ArabicNLP(BaseNLP):
         Steps (order matters):
           1. Strip leading/trailing whitespace
           2. Strip tashkeel (diacritics) via dediac_ar
-          3. Normalize alef variants via normalize_alef_ar
-          4. Normalize yeh variants (ى / Farsi ی → ي)
-          5. Remove tatweel (kashida, U+0640)
+          3. Normalize yeh variants (ى / Farsi ی → ي)
+          4. Remove tatweel (kashida, U+0640)
+
+        **Alef variants are deliberately NOT folded here.** They used to be,
+        and it merged 118 cards onto other cards at layer 2 — before any
+        coaching layer or the collision guard could see them, so they graded
+        full CORRECT. The damage sat at the very top of the list: rank 1 أن
+        ("to, that") was the same card as إن ("if") and آن ("time"); rank 4
+        كان ("to be") as كأن ("as if"); rank 21 هنا ("here") as هنأ ("to be
+        wholesome"); rank 33 أمر ("to order") as آمر ("to ask advice of").
+        The hamza seat is a spelling rule learners get wrong, so the fold
+        still belongs — but as COACHING, which is what fold_lookalikes is
+        for. It already carries every alef shape (_ALEF in arabic_script.py),
+        so dropping it here loses no leniency: a learner typing انا for أنا
+        still passes, now amber with the proper spelling named, and a learner
+        typing a genuinely different word is told so.
 
         Yeh sits here rather than in the coaching fold: word-final ى vs ي is
         a keyboard difference more than a knowledge difference (Egyptian
         orthography writes ي for both), and the owner's call is that typing
-        the dotless form is simply right — green, not amber. Kaf/heh
-        variants stay in fold_lookalikes, where a match is accepted but the
-        proper form is still named.
+        the dotless form is simply right — green, not amber. That call has a
+        measured cost, recorded in docs/quality/ar.md: it merges 84 further
+        cards, including rank 8 على ("on") with rank 144 علي ("to be
+        exalted"). Kaf/heh variants stay in fold_lookalikes, where a match is
+        accepted but the proper form is still named.
 
         Intentionally does NOT normalize taa marbuta (ة → ه) to avoid
         conflating semantically distinct words (research pitfall #6).
@@ -150,7 +160,6 @@ class ArabicNLP(BaseNLP):
         """
         text = text.strip()
         text = dediac_ar(text)
-        text = normalize_alef_ar(text)
         text = text.translate(_YEH_FOLD)
         text = text.replace(_TATWEEL, "")
         return text
@@ -263,6 +272,17 @@ class ArabicNLP(BaseNLP):
         """
         import unicodedata
 
+        # The alphabet deck asks for a single letter, and a phone's long-press
+        # row offers أ/إ/آ where the card shows bare ا. On a one-letter answer
+        # the hamza seat cannot be "a different word" — there is no word — so
+        # this stays fully CORRECT, as it was before the alef fold moved out
+        # of normalize() for the vocabulary's sake.
+        stripped_correct = unicodedata.normalize("NFC", correct_answer).strip()
+        if len(stripped_correct) == 1:
+            typed_one = unicodedata.normalize("NFC", user_input).strip()
+            if fold_arabic_script(typed_one) == fold_arabic_script(stripped_correct):
+                return AnswerResult.CORRECT, None
+
         # Run parent pipeline first
         base_result, base_msg = super().check_answer(user_input, correct_answer, card_context)
 
@@ -288,8 +308,13 @@ class ArabicNLP(BaseNLP):
         # So only where the author DELIBERATELY vocalized the answer, and
         # only on a form drill, a bare answer is the right word in the wrong
         # cell — which is exactly what WRONG_FORM already means here.
+        # CORRECT_SLOPPY counts too: since the alef fold moved out of
+        # normalize() into the coaching layer, a bare أعلن for a vocalized
+        # أُعلن arrives here as sloppy rather than correct. How the learner
+        # got to the right letters does not change that the vowels were the
+        # point of the drill.
         if (
-            base_result is AnswerResult.CORRECT
+            base_result in (AnswerResult.CORRECT, AnswerResult.CORRECT_SLOPPY)
             and card_context
             and card_context.get("card_type") == "grammar"
             and _TASHKEEL.search(correct)

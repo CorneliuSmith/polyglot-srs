@@ -53,6 +53,25 @@ class TestCollisionGuard:
         assert result is AnswerResult.WRONG_FORM
         assert "different word" in (message or "")
 
+    @pytest.mark.parametrize("typed,card", [
+        ("ان", "أن"),      # suffix vs "to, that" (rank 1)
+        ("إن", "أن"),      # "if" vs "to, that"
+        ("آن", "أن"),      # "time" vs "to, that"
+        ("كأن", "كان"),    # "as if" vs "to be" (rank 4)
+        ("هنأ", "هنا"),    # "to be wholesome" vs "here" (rank 21)
+        ("آمر", "أمر"),    # "to ask advice of" vs "to order" (rank 33)
+    ])
+    def test_arabic_hamza_seats_are_guarded(self, typed, card):
+        """The alef fold used to live inside ArabicNLP.normalize(), so these
+        merged at layer 2 and graded full CORRECT — beneath every coaching
+        layer and beneath this guard. rank 1 أن was the same card as إن and
+        آن. The fold now runs in fold_lookalikes, where the guard can see it."""
+        from backend.services.nlp.arabic import ArabicNLP
+
+        result, message = backend(ArabicNLP, "ar").check_answer(typed, card)
+        assert result is AnswerResult.WRONG_FORM
+        assert "different word" in (message or "")
+
     def test_the_fold_level_guard_catches_marks_nfd_cannot_strip(self):
         """ro ș/ț have no combining decomposition, so the base layer never
         sees them fold together — only the AccentFolding fold does."""
@@ -71,6 +90,19 @@ class TestLeniencySurvives:
     ])
     def test_bare_form_that_is_not_a_word_stays_sloppy(self, cls, code, typed, card):
         result, _ = backend(cls, code).check_answer(typed, card)
+        assert result is AnswerResult.CORRECT_SLOPPY
+
+    @pytest.mark.parametrize("typed,card", [
+        ("انا", "أنا"),   # bare alef for the hamza seat — a spelling slip
+        ("شي", "شيء"),    # dropped final hamza
+        ("سما", "سماء"),  # dropped final hamza
+    ])
+    def test_arabic_spelling_slips_are_still_coached(self, typed, card):
+        """Dropping the hamza seat stays amber. This is the leniency the fold
+        exists for, and moving it out of normalize() must not remove it."""
+        from backend.services.nlp.arabic import ArabicNLP
+
+        result, _ = backend(ArabicNLP, "ar").check_answer(typed, card)
         assert result is AnswerResult.CORRECT_SLOPPY
 
     def test_exact_match_is_untouched(self):
@@ -115,12 +147,17 @@ def _strip_marks(text):
 
 
 # Measured 20 Aug 2026 with each language's real backend, after the junk-twin
-# repair. A rising number means new rows collide under the grader's own fold —
+# repair. `ar` ROSE from 209 to 200-with-a-different-shape when the alef fold
+# moved out of ArabicNLP.normalize(): أ decomposes under NFD, so pairs that
+# used to merge at layer 2 (full CORRECT, invisible to everything) now merge
+# at the strip-marks key instead — i.e. inside the guard's view. A rise here
+# caused by moving a fold INTO the guard is the fix working; a rise caused by
+# new data is the thing this ratchet is for. A rising number means new rows collide under the grader's own fold —
 # fix the data or raise the ceiling deliberately, in this file, with a reason.
 # The nonzero numbers are CONTRASTIVE pairs by and large (see CHECKS.md §3):
 # they are why the guard exists, not debt the guard leaves.
 SLOPPY_KEY_CEILINGS = {
-    "ru": 39, "ar": 209, "en": 10, "sw": 0, "tr": 122, "yo": 112, "ha": 0,
+    "ru": 39, "ar": 200, "en": 10, "sw": 0, "tr": 122, "yo": 112, "ha": 0,
     "xh": 0, "es": 247, "it": 54, "fr": 500, "de": 128, "ca": 125, "mi": 0,
     "ro": 500, "el": 117, "pt": 130, "hi": 145, "jam": 0, "nl": 7, "th": 193,
     "ko": 0, "la": 3, "id": 0, "tl": 0, "he": 0, "fa": 0,

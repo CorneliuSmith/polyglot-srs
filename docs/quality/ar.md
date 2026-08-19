@@ -21,7 +21,45 @@ quality here:
    invisible to the grader.
 3. **Look-alike folding.** `fold_arabic_script` folds ى/ي/ی, ك/ک, ة/ه and all alef seats,
    maps ؤ→و and ئ→ي, drops standalone ء and tatweel, and maps Arabic-Indic digits to ASCII.
-   A drill whose only contrast is one of those cannot be failed.
+   A drill whose only contrast is one of those is **coached, not failed** — and since
+   20 Aug 2026 it is no longer *silently accepted* when the folded form is another card
+   (see 4).
+4. **The hamza seat is coached; typing a different word is not.** Until 20 Aug 2026
+   `normalize()` folded the alef seats (أ إ آ ٱ → ا) *before* comparison, so the merge
+   happened at layer 2 and graded full `CORRECT` — beneath every coaching layer. It merged
+   **118 cards onto other cards**, concentrated at the very top of the list:
+
+   | rank | word | merged with |
+   | --- | --- | --- |
+   | 1 | `أن` to, that | `إن` if · `آن` time · `ان` (suffix) |
+   | 4 | `كان` to be | `كأن` as if |
+   | 21 | `هنا` here | `هنأ` to be wholesome to |
+   | 33 | `أمر` to order | `آمر` to ask advice of |
+   | 43 | `أي` which…? | `إي` (with وَ) |
+
+   The fold now runs in `fold_lookalikes`, where the collision guard
+   (`docs/quality/CHECKS.md` §3) can see it: a learner who drops the hamza seat still
+   passes amber with the proper spelling named, and one who types a genuinely different
+   card is told so. **199 → 79** cards graded as another card. Two carve-outs are
+   deliberate: the alphabet deck (a one-letter answer has no word to be confused with —
+   `أ` for `ا` stays fully `CORRECT`), and Check 0 in `arabic.py`, which now fires on
+   `CORRECT_SLOPPY` as well, so a vocalized form drill still fails a bare answer.
+
+   **Open question for the owner — the yeh fold.** `normalize()` still folds ى/ي, which is
+   an explicit prior decision ("typing the dotless form is simply right — green, not
+   amber", Egyptian orthography writes ي for both). Measured, that call merges **84 further
+   cards**, and unlike the hamza cases these cannot be reached by the guard because they
+   merge at layer 2. The top of what it costs:
+
+   | rank | word | merged with |
+   | --- | --- | --- |
+   | 8 | `على` on, upon | 144 `علي` to be exalted, high |
+   | 119 | `أتى` to come | 3459 `أتي` (verbal noun) |
+   | 136 | `عنى` to mean | 575 `عني` to engage with |
+   | 180 | `بقي` to last | 4573 `بقى` to stay, remain |
+
+   Nine such groups sit inside the top 300. The decision stands until the owner changes
+   it; this records what it buys and what it costs.
 
 ## Hint standards
 Universal rules, once: a hint narrows the answer without containing it. Never the answer as
@@ -121,6 +159,11 @@ Corpus: `data/ar_sentences.tsv` 14671 rows, `ar_frequency.tsv` 8778, `ar_morphol
 - Gender unmarked in noun hints: **26 of 34**. The crawl says 8/30; joining drill answers
   against `ar_morphology.json` gives 34 noun answers with the same 8 marked — trust the file.
   In `ar_frequency.tsv`, 8 of 4447 noun glosses mention gender at all.
+- **Junk twin rows deleted (20 Aug 2026): 11.** Rows whose gloss was purely "alternative
+  spelling/form of X" and which fold identically to an X that is itself a card — `انا` for
+  `أنا`, `معي` for `معى`, `الإثنين`, `ابريل`. They were duplicate spellings, and with the
+  collision guard live they would have made the real card's answer read as "a different
+  word". 8,939 → 8,928 rows.
 - **Ungradeable after `normalize()`: 10 of 274.** Of 18 answers carrying tashkeel, ten lose
   the entire contrast they exist to test.
 - `ar_sentences.tsv`: 85 rows use ASCII `,` inside the Arabic, 2 use ASCII `?`, 18 write `انت`
