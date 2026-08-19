@@ -108,7 +108,7 @@ grammatically sufficient and pedagogically dead. Pitfalls:
 ## Current measured state
 
 `python -m backend.services.quality.audit_content --language en` on this tree: **43 points, 266 drills**, all
-`source: contributor`, all `reviewed: true`. Fail-level total **13**, matching `data/quality/baseline.json`
+`source: contributor`, all `reviewed: true`. Fail-level total **17** on 19 Aug 2026 (`data/quality/baseline.json` agrees; this page said 13, omitting one entry). Re-run the audit rather than trusting the figure — see `docs/quality/README.md` on frozen counts. Matching `data/quality/baseline.json`
 (`en.leak_hard 1`, `en.self_answering 3`, `en.giveaway_by_gloss 5`, `en.duplicate_hint 4`), plus one
 `structural` warn for the missing `data/en_morphology.json` (accepted — no chips to carry). Zero `empty`; zero
 `hint_language`; `vague_translation` **46 raw hits, all exempted** — the usage-note convention, correctly

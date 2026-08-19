@@ -96,7 +96,8 @@ From the crawl, re-verified by opening `data/grammar/es_grammar.json`.
   `Ella`, hint `she`, translation *She sings very well.* — answerable with no Spanish at all.
 - **Gloss + feature spec: 5** — `rojo`/`red — masculine singular`, `pequeño`/`small — masculine singular`,
   `abiertas`/`open — feminine plural`, `Los`/`the — masculine plural`, `Las`/`the — feminine plural`.
-- **Agreement-feature-only hints: 18** — 8 *Definite articles*, 2 *Indefinite articles*, 6 *Direct object
+- **Agreement-feature-only hints** — the largest leak class here. The `agreement_feature` rule reports 12 for es (19 Aug 2026); the 18 this page used to assert was a hand count on a wider definition. Breakdown below is indicative:
+  — 8 *Definite articles*, 2 *Indefinite articles*, 6 *Direct object
   pronouns*, 2 *Double object pronouns*, plus the 4 controller-gender hints above. The largest leak class here,
   and the mechanical checker sees none of it.
 - **Duplicate hints: 6 real.** A raw scan says 11, but `La`/`la`, `El`/`el`, `No`/`no`, `Les`/`les`, `Se`/`se`

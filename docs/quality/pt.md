@@ -107,7 +107,9 @@ From the crawl, re-verified by opening `data/grammar/pt_grammar.json`.
   `source: contributor`, `reviewed: true`, A1→C2 (12/12/7/6/3/2 by level). **Zero** empty hints,
   translations or explanations; zero vague translations; zero `answer — explanation` templates;
   zero duplicate hints.
-- **`leak_hard`: 2** (`ans='me' hint='me'` in *Object pronouns*, `ans='me' hint='me (before the
+- **`leak_hard`** — 7 on 19 Aug 2026 (`data/quality/baseline.json` agrees), not the 2 this page
+  used to claim; only one of the two drills named here is among them. Run `python -m backend.services.quality.audit_content --language pt` for the current figure; this page previously froze one and it drifted.
+  (`ans='me' hint='me'` in *Object pronouns*, `ans='me' hint='me (before the
   verb)'` in *Pronoun placement*). **`construction_quote` (warn): 9** — `Já` → `since (já que)`;
   `de` → `of (precisar de)`; `que` → `that (é que question)` ×2; `A` → `the (a gente = we)`;
   `a` → `at (estar a + infinitive)`; `que` → `that (que nem = just like)`; `a` → `to (responder a —

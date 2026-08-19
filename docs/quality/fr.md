@@ -101,7 +101,10 @@ From the crawl, re-verified by opening `data/grammar/fr_grammar.json`.
 - **42 points, 306 drills**, every point `source: contributor`, `reviewed: true`, A1→C2
   (12/11/8/6/3/2 by level). **Zero** empty hints, translations or explanations; zero vague
   translations; zero `answer — explanation` templates; zero multi-word answers.
-- **`leak_hard`: 0. `construction_quote` (warn): 10** — the largest in the Romance group:
+- **`leak_hard` and `construction_quote`** — the largest such class in the Romance group. The
+  same drills score under both rules, because a quoted construction containing the answer is
+  also a hard leak; the audit reported 10 and 10 on 19 Aug 2026. *This line read "`leak_hard`: 0"
+  until 19 Aug, contradicting the tool.* Run `python -m backend.services.quality.audit_content --language fr` for the current figure; this page previously froze one and it drifted.:
   - `ans='car' hint='because (car)' sent="Je reste ici {{answer}} j'attends un ami."`
   - `ans='ne' hint='(expletive ne after avant que)'` in `Partez avant qu'il {{answer}} soit trop tard.`
 - **`giveaway_by_gloss`: 24.** Worst: `ans='Elle' hint='she' trans='She sings very well.'`;

@@ -94,9 +94,12 @@ A good drill is a sentence a Korean would say, verb-last, with one blank fixed b
 
 ## Current measured state
 
-- **`data/grammar/ko_grammar.json` — verified on disk: 40 points, 240 drills**, six each; A1 12 / A2 10
-  / B1 8 / B2 6 / C1 2 / C2 2; register 217 해요체 / 12 plain / 10 합니다체 / 1 `-는데요`. **Every point
-  is `source: "ai"`, `reviewed: false`** — the whole Korean course is unreviewed generated content, the
+- **`data/grammar/ko_grammar.json` — 156 points, 1,217 drills** (measured 19 Aug 2026);
+  A1 41 / A2 68 / B1 35 / B2 7 / C1 3 / C2 2 — an A1/A2-heavy course, not a pyramid. Drills per point
+  vary; the old "six each" no longer holds. **Every point is `source: "ai"`, `reviewed: false`**
+  *This line read "verified on disk: 40 points, 240 drills, six each" until 19 Aug, understating the
+  course by a factor of five. The register split quoted below was counted against those 240 drills and
+  has not been recounted — treat it as indicative, not measured.* — the whole Korean course is unreviewed generated content, the
   largest single fact here. No empty fields, no duplicate hints, no self-answering or multi-blank drills.
 - **Hint leaks: 2** — `지` hinted `the longer negative: verb stem + 지 않아요`; `있다` hinted `있다 stays
   bare in the plain style`. **Target-script drift: 13 hints with ≥3 Hangul tokens beyond the answer**,

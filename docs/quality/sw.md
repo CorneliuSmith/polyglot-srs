@@ -92,8 +92,11 @@ viwili.` — the agreement word `viwili` fixes the class and the number before t
 
 Measured directly from `data/grammar/sw_grammar.json`, `data/sw_morphology.json` and `data/`:
 
-- **50 grammar points, 308 drills**, A1–C2. **18 of the 50 points are `reviewed: false`** — including the
+- **64 grammar points, 442 drills**, A1–C2 (A1 13 / A2 16 / B1 11 / B2 12 / C1 8 / C2 4; measured
+  19 Aug 2026). **32 of the 64 points are `reviewed: false`** — exactly half the course, including the
   B2 extension band that contains the best hints in the repo.
+  *Was recorded here as "50 points, 308 drills, 18 unreviewed" until 19 Aug; the file had grown and
+  the page had not. Re-measure rather than trusting this line.*
 - **Hint leaks (whole-word answer inside its hint): 0.** Empty hints, empty translations, empty explanations:
   **0**. Vague (under-length) translations: **0**. Duplicate hints inside a point: **0**. Answer echoed in the
   drill sentence: **0**. This matches the crawl exactly.
