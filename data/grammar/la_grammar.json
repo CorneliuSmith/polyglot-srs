@@ -58,7 +58,7 @@
         },
         {
           "sentence": "Puer {{answer}} amat.",
-          "answer": "insulam",
+          "answer": "īnsulam",
           "translation": "The boy loves the island.",
           "hint": "island, accusative",
           "display_order": 3
@@ -75,21 +75,21 @@
       "explanation": "Most first-declension nouns are feminine and end -a in the nominative singular (puella, aqua, terra, insula). The genitive singular ends -ae, which gives the whole declension its name and means \"of the ___\": puellae = \"of the girl\" / \"the girl's.\" The accusative singular ends -am: puella → puellam.",
       "drills": [
         {
-          "sentence": "{{answer}} in insula habitat.",
+          "sentence": "{{answer}} in īnsulā habitat.",
           "answer": "puella",
           "translation": "The girl lives on the island.",
           "hint": "girl, nominative subject",
           "display_order": 1
         },
         {
-          "sentence": "Nomen {{answer}} est Iulia.",
+          "sentence": "Nōmen {{answer}} est Iūlia.",
           "answer": "puellae",
           "translation": "The girl's name is Julia.",
           "hint": "girl, genitive — \"of the girl\"",
           "display_order": 2
         },
         {
-          "sentence": "Aquam et {{answer}} habeo.",
+          "sentence": "Aquam et {{answer}} habeō.",
           "answer": "terram",
           "translation": "I have water and land.",
           "hint": "land, accusative",
@@ -146,14 +146,14 @@
           "display_order": 1
         },
         {
-          "sentence": "Nos boni {{answer}}.",
+          "sentence": "Nōs bonī {{answer}}.",
           "answer": "sumus",
           "translation": "We are good.",
           "hint": "we are — 1st person plural of sum",
           "display_order": 2
         },
         {
-          "sentence": "Tu bonus {{answer}}.",
+          "sentence": "Tū bonus {{answer}}.",
           "answer": "es",
           "translation": "You are good.",
           "hint": "you are — 2nd person singular of sum",
@@ -178,15 +178,15 @@
           "display_order": 1
         },
         {
-          "sentence": "{{answer}} insulam.",
-          "answer": "amo",
+          "sentence": "{{answer}} īnsulam.",
+          "answer": "amō",
           "translation": "I love the island.",
           "hint": "I love — 1st person singular, no pronoun needed",
           "display_order": 2
         },
         {
-          "sentence": "Nos terram {{answer}}.",
-          "answer": "amamus",
+          "sentence": "Nōs terram {{answer}}.",
+          "answer": "amāmus",
           "translation": "We love the land.",
           "hint": "we love — 1st person plural",
           "display_order": 3
@@ -236,21 +236,21 @@
       "drills": [
         {
           "sentence": "Puella in {{answer}} habitat.",
-          "answer": "insula",
+          "answer": "īnsulā",
           "translation": "The girl lives on the island.",
           "hint": "island, ablative — location, no -m ending",
           "display_order": 1
         },
         {
           "sentence": "Puer in {{answer}} venit.",
-          "answer": "insulam",
+          "answer": "īnsulam",
           "translation": "The boy comes onto the island.",
           "hint": "island, accusative — motion into/onto",
           "display_order": 2
         },
         {
           "sentence": "Aqua in {{answer}} est.",
-          "answer": "terra",
+          "answer": "terrā",
           "translation": "The water is on the land.",
           "hint": "land, ablative — location, not motion",
           "display_order": 3
@@ -317,14 +317,14 @@
         },
         {
           "sentence": "Aquam {{answer}}.",
-          "answer": "habeo",
+          "answer": "habeō",
           "translation": "I have water.",
-          "hint": "I have — 1st person singular, -eo",
+          "hint": "I have — 1st person singular, -eō",
           "display_order": 2
         },
         {
-          "sentence": "Nos insulam {{answer}}.",
-          "answer": "videmus",
+          "sentence": "Nōs īnsulam {{answer}}.",
+          "answer": "vidēmus",
           "translation": "We see the island.",
           "hint": "we see — 1st person plural",
           "display_order": 3
@@ -337,8 +337,8 @@
           "display_order": 4
         },
         {
-          "sentence": "Tu terram {{answer}}.",
-          "answer": "vides",
+          "sentence": "Tū terram {{answer}}.",
+          "answer": "vidēs",
           "translation": "You see the land.",
           "hint": "you see — 2nd person singular",
           "display_order": 5
@@ -365,35 +365,35 @@
       "explanation": "Possum (\"I am able, I can\") is sum wearing a prefix: pot- + sum gives possum, potes, potest, possumus, potestis, possunt (t + s fuses to ss). Like English \"can,\" it takes an infinitive to name the action: Puella videre potest (\"The girl is able to see\"). Add non before it to say what someone cannot do: non possum (\"I cannot\").",
       "drills": [
         {
-          "sentence": "Puella aquam videre {{answer}}.",
+          "sentence": "Puella aquam vidēre {{answer}}.",
           "answer": "potest",
           "translation": "The girl can see the water.",
           "hint": "can — 3rd person singular of the 'be able' verb",
           "display_order": 1
         },
         {
-          "sentence": "Insulam videre {{answer}}.",
+          "sentence": "Īnsulam vidēre {{answer}}.",
           "answer": "possum",
           "translation": "I can see the island.",
           "hint": "I am able — 1st person singular",
           "display_order": 2
         },
         {
-          "sentence": "Nos bellum videre {{answer}}.",
+          "sentence": "Nōs bellum vidēre {{answer}}.",
           "answer": "possumus",
           "translation": "We can see the war.",
           "hint": "we can — 1st person plural",
           "display_order": 3
         },
         {
-          "sentence": "Tu puerum amare {{answer}}.",
+          "sentence": "Tū puerum amāre {{answer}}.",
           "answer": "potes",
           "translation": "You can love the boy.",
           "hint": "you can — 2nd person singular",
           "display_order": 4
         },
         {
-          "sentence": "Pueri aquam habere {{answer}}.",
+          "sentence": "Puerī aquam habēre {{answer}}.",
           "answer": "possunt",
           "translation": "The boys can have water.",
           "hint": "they can — 3rd person plural",
@@ -421,22 +421,22 @@
       "explanation": "The imperfect paints the past as ongoing, repeated, or background: amabam means \"I was loving, I used to love.\" Its signature is -ba-: amabam, amabas, amabat, amabamus, amabatis, amabant, and the same -ba- works in every conjugation (videbam, habebat). Sum has its own imperfect: eram, eras, erat, eramus, eratis, erant.",
       "drills": [
         {
-          "sentence": "Puella puerum olim {{answer}}.",
-          "answer": "amabat",
+          "sentence": "Puella puerum ōlim {{answer}}.",
+          "answer": "amābat",
           "translation": "The girl once loved the boy.",
           "hint": "used to love — imperfect 3rd singular",
           "display_order": 1
         },
         {
-          "sentence": "Aquam olim {{answer}}.",
-          "answer": "habebam",
+          "sentence": "Aquam ōlim {{answer}}.",
+          "answer": "habēbam",
           "translation": "I once had water.",
           "hint": "I used to have — imperfect 1st singular",
           "display_order": 2
         },
         {
-          "sentence": "Nos in insula {{answer}}.",
-          "answer": "habitabamus",
+          "sentence": "Nōs in īnsulā {{answer}}.",
+          "answer": "habitābāmus",
           "translation": "We used to live on the island.",
           "hint": "we were living — imperfect 1st plural",
           "display_order": 3
@@ -449,8 +449,8 @@
           "display_order": 4
         },
         {
-          "sentence": "Pueri bellum {{answer}}.",
-          "answer": "videbant",
+          "sentence": "Puerī bellum {{answer}}.",
+          "answer": "vidēbant",
           "translation": "The boys were watching the war.",
           "hint": "were seeing — imperfect 3rd plural",
           "display_order": 5
@@ -477,22 +477,22 @@
       "explanation": "First and second conjugations build the future with -b-: amabo, amabis, amabit, amabimus, amabitis, amabunt (\"I will love, you will love...\"), and likewise videbo, habebis. Third and fourth conjugations use a different set, -am, -es, -et: dicam, dices, dicet. Sum again goes its own way: ero, eris, erit, erimus, eritis, erunt.",
       "drills": [
         {
-          "sentence": "Puella puerum cras {{answer}}.",
-          "answer": "amabit",
+          "sentence": "Puella puerum crās {{answer}}.",
+          "answer": "amābit",
           "translation": "The girl will love the boy tomorrow.",
           "hint": "will love — future 3rd singular",
           "display_order": 1
         },
         {
-          "sentence": "Cras aquam {{answer}}.",
-          "answer": "habebo",
+          "sentence": "Crās aquam {{answer}}.",
+          "answer": "habēbō",
           "translation": "Tomorrow I will have water.",
           "hint": "I will have — future 1st singular",
           "display_order": 2
         },
         {
-          "sentence": "Nos insulam mox {{answer}}.",
-          "answer": "videbimus",
+          "sentence": "Nōs īnsulam mox {{answer}}.",
+          "answer": "vidēbimus",
           "translation": "We will soon see the island.",
           "hint": "we will see — future 1st plural",
           "display_order": 3
@@ -505,8 +505,8 @@
           "display_order": 4
         },
         {
-          "sentence": "Tu in terra {{answer}}.",
-          "answer": "habitabis",
+          "sentence": "Tū in terrā {{answer}}.",
+          "answer": "habitābis",
           "translation": "You will live on the land.",
           "hint": "you will live — future 2nd singular",
           "display_order": 5
@@ -534,34 +534,34 @@
       "drills": [
         {
           "sentence": "{{answer}} in urbe habitat.",
-          "answer": "Rex",
+          "answer": "Rēx",
           "translation": "The king lives in the city.",
           "hint": "king — nominative subject",
           "display_order": 1
         },
         {
           "sentence": "Puella {{answer}} in urbe videt.",
-          "answer": "regem",
+          "answer": "rēgem",
           "translation": "The girl sees the king in the city.",
           "hint": "king — accusative -em",
           "display_order": 2
         },
         {
-          "sentence": "Rex {{answer}} amat.",
+          "sentence": "Rēx {{answer}} amat.",
           "answer": "urbem",
           "translation": "The king loves the city.",
           "hint": "city — accusative",
           "display_order": 3
         },
         {
-          "sentence": "Nomen {{answer}} est Roma.",
+          "sentence": "Nōmen {{answer}} est Rōma.",
           "answer": "urbis",
           "translation": "The name of the city is Rome.",
           "hint": "city — genitive -is",
           "display_order": 4
         },
         {
-          "sentence": "In {{answer}} habitamus.",
+          "sentence": "In {{answer}} habitāmus.",
           "answer": "urbe",
           "translation": "We live in the city.",
           "hint": "city — ablative after in (location)",
@@ -589,7 +589,7 @@
       "explanation": "Third-declension neuters like corpus (\"body\"), tempus (\"time\"), and nomen (\"name\") follow the universal neuter law: nominative and accusative are identical, in both numbers. Their stems appear in the genitive — corporis, temporis, nominis — and the nominative/accusative plural ends in -a: corpora, tempora, nomina. Do not let corpus and tempus fool you: the -us is not the second declension's -us.",
       "drills": [
         {
-          "sentence": "{{answer}} pueri magnum est.",
+          "sentence": "{{answer}} puerī magnum est.",
           "answer": "Corpus",
           "translation": "The boy's body is big.",
           "hint": "body — neuter nominative",
@@ -603,8 +603,8 @@
           "display_order": 2
         },
         {
-          "sentence": "{{answer}} pueri est Marcus.",
-          "answer": "Nomen",
+          "sentence": "{{answer}} puerī est Mārcus.",
+          "answer": "Nōmen",
           "translation": "The boy's name is Marcus.",
           "hint": "name — neuter nominative",
           "display_order": 3
@@ -617,8 +617,8 @@
           "display_order": 4
         },
         {
-          "sentence": "Rex {{answer}} novum habet.",
-          "answer": "nomen",
+          "sentence": "Rēx {{answer}} novum habet.",
+          "answer": "nōmen",
           "translation": "The king has a new name.",
           "hint": "name — neuter accusative, same as the subject form",
           "display_order": 5
@@ -645,7 +645,7 @@
       "explanation": "Because verb endings already show the person, the nominative pronouns ego (\"I\"), tu (\"you\"), nos (\"we\"), vos (\"you all\") appear mainly for emphasis or contrast: Ego amo (\"I love — I, not you\"). Their object forms are me, te, nos, vos (accusative), and the datives are mihi, tibi, nobis, vobis (\"to me, to you...\"). Nos and vos look the same as subject and object — context and the verb decide.",
       "drills": [
         {
-          "sentence": "{{answer}} puellam amo.",
+          "sentence": "{{answer}} puellam amō.",
           "answer": "Ego",
           "translation": "I love the girl. (emphatic)",
           "hint": "I — nominative, used for emphasis",
@@ -653,28 +653,28 @@
         },
         {
           "sentence": "Puella {{answer}} amat.",
-          "answer": "me",
+          "answer": "mē",
           "translation": "The girl loves me.",
           "hint": "the object form of the first person",
           "display_order": 2
         },
         {
-          "sentence": "{{answer}} te videmus.",
-          "answer": "Nos",
+          "sentence": "{{answer}} tē vidēmus.",
+          "answer": "Nōs",
           "translation": "We see you.",
           "hint": "we — 1st person plural subject",
           "display_order": 3
         },
         {
-          "sentence": "Ego {{answer}} amo.",
-          "answer": "te",
+          "sentence": "Ego {{answer}} amō.",
+          "answer": "tē",
           "translation": "I love you.",
-          "hint": "you — accusative singular of tu",
+          "hint": "you — accusative singular of tū",
           "display_order": 4
         },
         {
-          "sentence": "Vos {{answer}} videtis.",
-          "answer": "nos",
+          "sentence": "Vōs {{answer}} vidētis.",
+          "answer": "nōs",
           "translation": "You all see us.",
           "hint": "us — object form, identical to the subject form",
           "display_order": 5
@@ -729,7 +729,7 @@
           "display_order": 4
         },
         {
-          "sentence": "Rex {{answer}} urbem videt.",
+          "sentence": "Rēx {{answer}} urbem videt.",
           "answer": "hanc",
           "translation": "The king sees this city.",
           "hint": "this — feminine accusative of hic",
@@ -758,35 +758,35 @@
       "drills": [
         {
           "sentence": "Puella verbum {{answer}}.",
-          "answer": "dicit",
+          "answer": "dīcit",
           "translation": "The girl says a word.",
           "hint": "says — 3rd conjugation, 3rd singular",
           "display_order": 1
         },
         {
-          "sentence": "Regem in urbe {{answer}}.",
-          "answer": "audio",
+          "sentence": "Rēgem in urbe {{answer}}.",
+          "answer": "audiō",
           "translation": "I hear the king in the city.",
           "hint": "I hear — 4th conjugation, 1st singular",
           "display_order": 2
         },
         {
-          "sentence": "Pueri dominum {{answer}}.",
+          "sentence": "Puerī dominum {{answer}}.",
           "answer": "audiunt",
           "translation": "The boys hear the master.",
           "hint": "they hear — 3rd plural in -iunt",
           "display_order": 3
         },
         {
-          "sentence": "Nos verba {{answer}}.",
-          "answer": "dicimus",
+          "sentence": "Nōs verba {{answer}}.",
+          "answer": "dīcimus",
           "translation": "We say words.",
           "hint": "we say — 1st plural with short -i-",
           "display_order": 4
         },
         {
-          "sentence": "Tu puellam {{answer}}.",
-          "answer": "audis",
+          "sentence": "Tū puellam {{answer}}.",
+          "answer": "audīs",
           "translation": "You hear the girl.",
           "hint": "you hear — 2nd singular",
           "display_order": 5
@@ -814,37 +814,37 @@
       "drills": [
         {
           "sentence": "{{answer}} aquam, puer!",
-          "answer": "Porta",
+          "answer": "Portā",
           "translation": "Carry the water, boy!",
           "hint": "carry! — singular command, first conjugation",
           "display_order": 1
         },
         {
-          "sentence": "{{answer}} regem, pueri!",
-          "answer": "Audite",
+          "sentence": "{{answer}} rēgem, puerī!",
+          "answer": "Audīte",
           "translation": "Listen to the king, boys!",
           "hint": "listen! — plural command",
           "display_order": 2
         },
         {
           "sentence": "{{answer}} mihi verbum!",
-          "answer": "Dic",
+          "answer": "Dīc",
           "translation": "Tell me the word!",
           "hint": "tell! — irregular one-syllable command",
           "display_order": 3
         },
         {
           "sentence": "{{answer}} puellam, domine!",
-          "answer": "Vide",
+          "answer": "Vidē",
           "translation": "See the girl, master!",
           "hint": "see! — singular command of the 2nd conjugation",
           "display_order": 4
         },
         {
-          "sentence": "{{answer}} in insulam, puellae!",
-          "answer": "Venite",
+          "sentence": "{{answer}} in īnsulam, puellae!",
+          "answer": "Venīte",
           "translation": "Come onto the island, girls!",
-          "hint": "come! — plural command of venire",
+          "hint": "come! — plural command of venīre",
           "display_order": 5
         }
       ]
@@ -870,7 +870,7 @@
       "drills": [
         {
           "sentence": "{{answer}} puellam?",
-          "answer": "Videsne",
+          "answer": "Vidēsne",
           "translation": "Do you see the girl?",
           "hint": "do you see? — verb + the question particle",
           "display_order": 1
@@ -883,7 +883,7 @@
           "display_order": 2
         },
         {
-          "sentence": "{{answer}} puer dicit?",
+          "sentence": "{{answer}} puer dīcit?",
           "answer": "Quid",
           "translation": "What is the boy saying?",
           "hint": "what? — asks about a thing",
@@ -932,29 +932,29 @@
           "display_order": 1
         },
         {
-          "sentence": "Filius {{answer}} bonus est.",
-          "answer": "regis",
+          "sentence": "Fīlius {{answer}} bonus est.",
+          "answer": "rēgis",
           "translation": "The king's son is good.",
           "hint": "of the king — genitive",
           "display_order": 2
         },
         {
           "sentence": "Dominus {{answer}} terram dat.",
-          "answer": "puero",
+          "answer": "puerō",
           "translation": "The master gives land to the boy.",
-          "hint": "to the boy — dative -o",
+          "hint": "to the boy — dative -ō",
           "display_order": 3
         },
         {
           "sentence": "Aqua {{answer}} bona est.",
-          "answer": "insulae",
+          "answer": "īnsulae",
           "translation": "The water of the island is good.",
           "hint": "of the island — genitive",
           "display_order": 4
         },
         {
-          "sentence": "Rex {{answer}} verba dicit.",
-          "answer": "populo",
+          "sentence": "Rēx {{answer}} verba dīcit.",
+          "answer": "populō",
           "translation": "The king speaks words to the people.",
           "hint": "to the people — dative",
           "display_order": 5
@@ -981,36 +981,36 @@
       "explanation": "The perfect states that something happened and is done: amavit — \"she loved, she has loved.\" It is built on the perfect stem, the third principal part you memorize with each verb: amo/amavi, video/vidi, dico/dixi, venio/veni. The endings are the same for every verb: -i, -isti, -it, -imus, -istis, -erunt. Sum's perfect is fui.",
       "drills": [
         {
-          "sentence": "Regina regem {{answer}}.",
-          "answer": "amavit",
+          "sentence": "Rēgīna rēgem {{answer}}.",
+          "answer": "amāvit",
           "translation": "The queen loved the king.",
           "hint": "loved — perfect 3rd singular",
           "display_order": 1
         },
         {
-          "sentence": "Heri regem {{answer}}.",
-          "answer": "vidi",
+          "sentence": "Herī rēgem {{answer}}.",
+          "answer": "vīdī",
           "translation": "Yesterday I saw the king.",
           "hint": "I saw — perfect 1st singular",
           "display_order": 2
         },
         {
           "sentence": "Verba bona {{answer}}.",
-          "answer": "diximus",
+          "answer": "dīximus",
           "translation": "We said good words.",
           "hint": "we said — perfect 1st plural",
           "display_order": 3
         },
         {
-          "sentence": "Pueri in insulam {{answer}}.",
-          "answer": "venerunt",
+          "sentence": "Puerī in īnsulam {{answer}}.",
+          "answer": "vēnērunt",
           "translation": "The boys came onto the island.",
           "hint": "they came — perfect 3rd plural",
           "display_order": 4
         },
         {
-          "sentence": "Tu semper bonus {{answer}}.",
-          "answer": "fuisti",
+          "sentence": "Tū semper bonus {{answer}}.",
+          "answer": "fuistī",
           "translation": "You have always been good.",
           "hint": "you have been — perfect of sum",
           "display_order": 5
@@ -1037,35 +1037,35 @@
       "explanation": "The pluperfect says an action was already complete before another past moment: amaveram — \"I had loved.\" The recipe is simple: perfect stem + the imperfect of sum as endings: amaveram, amaveras, amaverat, amaveramus, amaveratis, amaverant; likewise videram (\"I had seen\") and dixerat (\"he had said\").",
       "drills": [
         {
-          "sentence": "Puella puerum diu {{answer}}.",
-          "answer": "amaverat",
+          "sentence": "Puella puerum diū {{answer}}.",
+          "answer": "amāverat",
           "translation": "The girl had loved the boy for a long time.",
           "hint": "had loved — pluperfect 3rd singular",
           "display_order": 1
         },
         {
-          "sentence": "Urbem antea {{answer}}.",
-          "answer": "videram",
+          "sentence": "Urbem anteā {{answer}}.",
+          "answer": "vīderam",
           "translation": "I had seen the city before.",
           "hint": "I had seen — pluperfect 1st singular",
           "display_order": 2
         },
         {
-          "sentence": "Rex verba {{answer}}.",
-          "answer": "dixerat",
+          "sentence": "Rēx verba {{answer}}.",
+          "answer": "dīxerat",
           "translation": "The king had said the words.",
           "hint": "he had said — pluperfect",
           "display_order": 3
         },
         {
-          "sentence": "Nos in urbem {{answer}}.",
-          "answer": "veneramus",
+          "sentence": "Nōs in urbem {{answer}}.",
+          "answer": "vēnerāmus",
           "translation": "We had come into the city.",
           "hint": "we had come — pluperfect 1st plural",
           "display_order": 4
         },
         {
-          "sentence": "Pueri aquam {{answer}}.",
+          "sentence": "Puerī aquam {{answer}}.",
           "answer": "habuerant",
           "translation": "The boys had had water.",
           "hint": "they had had — pluperfect 3rd plural",
@@ -1094,7 +1094,7 @@
       "drills": [
         {
           "sentence": "{{answer}} longus est.",
-          "answer": "Dies",
+          "answer": "Diēs",
           "translation": "The day is long.",
           "hint": "day — fifth declension nominative",
           "display_order": 1
@@ -1108,21 +1108,21 @@
         },
         {
           "sentence": "{{answer}} magna est.",
-          "answer": "Res",
+          "answer": "Rēs",
           "translation": "The matter is great.",
           "hint": "thing or matter — fifth-declension nominative",
           "display_order": 3
         },
         {
-          "sentence": "Multos {{answer}} in urbe eram.",
-          "answer": "dies",
+          "sentence": "Multōs {{answer}} in urbe eram.",
+          "answer": "diēs",
           "translation": "I was in the city for many days.",
           "hint": "days — accusative of duration, looks like the nominative",
           "display_order": 4
         },
         {
           "sentence": "Puer aquam in {{answer}} habet.",
-          "answer": "manu",
+          "answer": "manū",
           "translation": "The boy has water in his hand.",
           "hint": "hand — ablative after in",
           "display_order": 5
@@ -1163,7 +1163,7 @@
           "display_order": 2
         },
         {
-          "sentence": "Rex {{answer}} est.",
+          "sentence": "Rēx {{answer}} est.",
           "answer": "fortissimus",
           "translation": "The king is very brave.",
           "hint": "very brave — superlative -issimus",
@@ -1212,14 +1212,14 @@
           "display_order": 1
         },
         {
-          "sentence": "Milites {{answer}} pugnant.",
+          "sentence": "Mīlitēs {{answer}} pugnant.",
           "answer": "fortiter",
           "translation": "The soldiers fight bravely.",
           "hint": "bravely — third-declension adverb in -iter",
           "display_order": 2
         },
         {
-          "sentence": "Puer {{answer}} dicit.",
+          "sentence": "Puer {{answer}} dīcit.",
           "answer": "male",
           "translation": "The boy speaks badly.",
           "hint": "badly — irregular adverb of malus",
@@ -1227,7 +1227,7 @@
         },
         {
           "sentence": "Puella {{answer}} habitat.",
-          "answer": "longe",
+          "answer": "longē",
           "translation": "The girl lives far away.",
           "hint": "far — adverb from longus",
           "display_order": 4
@@ -1261,36 +1261,36 @@
       "explanation": "The passive swaps the endings: -or, -ris, -tur, -mur, -mini, -ntur. Amat (\"she loves\") becomes amatur (\"she is loved\"); vident becomes videntur. The doer, if named, goes in the ablative with a/ab: Puella a puero amatur (\"The girl is loved by the boy\") — ab before vowels.",
       "drills": [
         {
-          "sentence": "Puella a puero {{answer}}.",
-          "answer": "amatur",
+          "sentence": "Puella ā puerō {{answer}}.",
+          "answer": "amātur",
           "translation": "The girl is loved by the boy.",
           "hint": "is loved — passive 3rd singular",
           "display_order": 1
         },
         {
-          "sentence": "Urbs a rege {{answer}}.",
-          "answer": "videtur",
+          "sentence": "Urbs ā rēge {{answer}}.",
+          "answer": "vidētur",
           "translation": "The city is seen by the king.",
           "hint": "is seen — passive -tur",
           "display_order": 2
         },
         {
-          "sentence": "Verba a puellis {{answer}}.",
+          "sentence": "Verba ā puellīs {{answer}}.",
           "answer": "audiuntur",
           "translation": "The words are heard by the girls.",
           "hint": "are heard — passive 3rd plural",
           "display_order": 3
         },
         {
-          "sentence": "Aqua a domino {{answer}}.",
-          "answer": "portatur",
+          "sentence": "Aqua ā dominō {{answer}}.",
+          "answer": "portātur",
           "translation": "The water is carried by the master.",
-          "hint": "is carried — passive of portare",
+          "hint": "is carried — passive of portāre",
           "display_order": 4
         },
         {
-          "sentence": "Nos a rege {{answer}}.",
-          "answer": "videmur",
+          "sentence": "Nōs ā rēge {{answer}}.",
+          "answer": "vidēmur",
           "translation": "We are seen by the king.",
           "hint": "we are seen — passive 1st plural",
           "display_order": 5
@@ -1317,8 +1317,8 @@
       "explanation": "The fourth principal part gives the perfect passive participle: amatus, -a, -um (\"loved\"), visus (\"seen\"), captus (\"captured\"), portatus (\"carried\"). With the present of sum it builds the perfect passive: Urbs capta est (\"The city was captured\"). The participle agrees with the subject like any adjective — puella amata est, verba audita sunt.",
       "drills": [
         {
-          "sentence": "Puella a puero {{answer}} est.",
-          "answer": "amata",
+          "sentence": "Puella ā puerō {{answer}} est.",
+          "answer": "amāta",
           "translation": "The girl was loved by the boy.",
           "hint": "loved — participle agreeing with a feminine subject",
           "display_order": 1
@@ -1332,21 +1332,21 @@
         },
         {
           "sentence": "Verba {{answer}} sunt.",
-          "answer": "audita",
+          "answer": "audīta",
           "translation": "The words were heard.",
           "hint": "heard — neuter plural participle",
           "display_order": 3
         },
         {
-          "sentence": "Puer a domino {{answer}} est.",
-          "answer": "visus",
+          "sentence": "Puer ā dominō {{answer}} est.",
+          "answer": "vīsus",
           "translation": "The boy was seen by the master.",
           "hint": "seen — masculine participle",
           "display_order": 4
         },
         {
-          "sentence": "Aqua a puero {{answer}} est.",
-          "answer": "portata",
+          "sentence": "Aqua ā puerō {{answer}} est.",
+          "answer": "portāta",
           "translation": "The water was carried by the boy.",
           "hint": "carried — feminine participle",
           "display_order": 5
@@ -1381,27 +1381,27 @@
         },
         {
           "sentence": "Puer, {{answer}} aquam portat, bonus est.",
-          "answer": "qui",
+          "answer": "quī",
           "translation": "The boy who carries the water is good.",
           "hint": "who — masculine nominative relative",
           "display_order": 2
         },
         {
-          "sentence": "Bellum, {{answer}} videmus, magnum est.",
+          "sentence": "Bellum, {{answer}} vidēmus, magnum est.",
           "answer": "quod",
           "translation": "The war that we see is great.",
           "hint": "which — neuter relative",
           "display_order": 3
         },
         {
-          "sentence": "Rex, {{answer}} puella amat, bonus est.",
+          "sentence": "Rēx, {{answer}} puella amat, bonus est.",
           "answer": "quem",
           "translation": "The king whom the girl loves is good.",
           "hint": "whom — masculine accusative relative",
           "display_order": 4
         },
         {
-          "sentence": "Urbs, {{answer}} rex videt, magna est.",
+          "sentence": "Urbs, {{answer}} rēx videt, magna est.",
           "answer": "quam",
           "translation": "The city that the king sees is great.",
           "hint": "which — feminine accusative relative",
@@ -1429,15 +1429,15 @@
       "explanation": "The present subjunctive swaps the conjugation's vowel — first conjugation takes -e- (amem, ames, amet: \"we shall see an -e- where amas has -a-\"), the others take -a- (videat, dicat, audiat); sum gives sim, sis, sit. The imperfect subjunctive is the easiest form in Latin: infinitive + endings — amarem, videret, essem. On its own the subjunctive expresses wishes and exhortations: Vivat rex! (\"Long live the king!\"), Amemus! (\"Let us love!\"), utinam veniat (\"if only she would come\").",
       "drills": [
         {
-          "sentence": "{{answer}} reginam!",
-          "answer": "Laudemus",
+          "sentence": "{{answer}} rēgīnam!",
+          "answer": "Laudēmus",
           "translation": "Let us praise the queen!",
           "hint": "let us praise — hortatory present subjunctive",
           "display_order": 1
         },
         {
-          "sentence": "{{answer}} rex!",
-          "answer": "Vivat",
+          "sentence": "{{answer}} rēx!",
+          "answer": "Vīvat",
           "translation": "Long live the king!",
           "hint": "may he live — present subjunctive wish",
           "display_order": 2
@@ -1457,8 +1457,8 @@
           "display_order": 4
         },
         {
-          "sentence": "{{answer}} verba regis!",
-          "answer": "Audiamus",
+          "sentence": "{{answer}} verba rēgis!",
+          "answer": "Audiāmus",
           "translation": "Let us hear the king's words!",
           "hint": "let us hear — hortatory subjunctive",
           "display_order": 5
@@ -1492,17 +1492,17 @@
           "display_order": 1
         },
         {
-          "sentence": "Rex dicit ut populus {{answer}}.",
+          "sentence": "Rēx dīcit ut populus {{answer}}.",
           "answer": "audiat",
           "translation": "The king speaks so that the people may hear.",
           "hint": "may hear — subjunctive in a purpose clause",
           "display_order": 2
         },
         {
-          "sentence": "Puella tacet ne puer {{answer}}.",
+          "sentence": "Puella tacet nē puer {{answer}}.",
           "answer": "audiat",
           "translation": "The girl is silent so that the boy may not hear.",
-          "hint": "may hear — subjunctive after negative ne",
+          "hint": "may hear — subjunctive after negative nē",
           "display_order": 3
         },
         {
@@ -1513,8 +1513,8 @@
           "display_order": 4
         },
         {
-          "sentence": "Rex dixit ut populus {{answer}}.",
-          "answer": "audiret",
+          "sentence": "Rēx dīxit ut populus {{answer}}.",
+          "answer": "audīret",
           "translation": "The king spoke so that the people might hear.",
           "hint": "might hear — imperfect subjunctive after a past main verb",
           "display_order": 5
@@ -1548,29 +1548,29 @@
           "display_order": 1
         },
         {
-          "sentence": "Bellum tam longum erat ut milites {{answer}}.",
+          "sentence": "Bellum tam longum erat ut mīlitēs {{answer}}.",
           "answer": "fugerent",
           "translation": "The war was so long that the soldiers fled.",
           "hint": "fled — imperfect subjunctive in past result",
           "display_order": 2
         },
         {
-          "sentence": "Rex tam fortis est ut urbem {{answer}}.",
+          "sentence": "Rēx tam fortis est ut urbem {{answer}}.",
           "answer": "capiat",
           "translation": "The king is so brave that he captures the city.",
           "hint": "captures — present subjunctive result",
           "display_order": 3
         },
         {
-          "sentence": "Puer tam celeriter currit ut puella eum non {{answer}}.",
+          "sentence": "Puer tam celeriter currit ut puella eum nōn {{answer}}.",
           "answer": "videat",
           "translation": "The boy runs so quickly that the girl does not see him.",
-          "hint": "sees — result clauses keep ut with non",
+          "hint": "sees — result clauses keep ut with nōn",
           "display_order": 4
         },
         {
-          "sentence": "Tanta erat urbs ut omnes eam {{answer}}.",
-          "answer": "laudarent",
+          "sentence": "Tanta erat urbs ut omnēs eam {{answer}}.",
+          "answer": "laudārent",
           "translation": "So great was the city that everyone praised it.",
           "hint": "praised — imperfect subjunctive in a past result clause",
           "display_order": 5
@@ -1597,21 +1597,21 @@
       "explanation": "With the subjunctive, cum covers three ideas the context sorts out: circumstantial \"when\" (cum rex diceret — \"when the king was speaking\"), causal \"since\" (cum urbs magna sit — \"since the city is great\"), and concessive \"although,\" usually flagged by tamen (\"nevertheless\") in the main clause. Past cum-clauses take the imperfect subjunctive for same-time action and the pluperfect for prior action: cum venisset — \"when she had come.\"",
       "drills": [
         {
-          "sentence": "Cum rex {{answer}}, populus tacebat.",
-          "answer": "diceret",
+          "sentence": "Cum rēx {{answer}}, populus tacēbat.",
+          "answer": "dīceret",
           "translation": "When the king was speaking, the people were silent.",
           "hint": "was speaking — imperfect subjunctive after cum",
           "display_order": 1
         },
         {
           "sentence": "Cum puella {{answer}}, puer laetus erat.",
-          "answer": "venisset",
+          "answer": "vēnisset",
           "translation": "When the girl had come, the boy was happy.",
           "hint": "had come — pluperfect subjunctive",
           "display_order": 2
         },
         {
-          "sentence": "Cum urbs magna {{answer}}, multi eam vident.",
+          "sentence": "Cum urbs magna {{answer}}, multī eam vident.",
           "answer": "sit",
           "translation": "Since the city is great, many people see it.",
           "hint": "is — causal cum takes the subjunctive of esse",
@@ -1625,8 +1625,8 @@
           "display_order": 4
         },
         {
-          "sentence": "Cum aquam non {{answer}}, puer tristis erat.",
-          "answer": "haberet",
+          "sentence": "Cum aquam nōn {{answer}}, puer trīstis erat.",
+          "answer": "habēret",
           "translation": "Since he had no water, the boy was sad.",
           "hint": "had — imperfect subjunctive, causal cum",
           "display_order": 5
@@ -1653,35 +1653,35 @@
       "explanation": "After verbs of saying, knowing, and thinking, Latin drops \"that\" entirely: the reported subject goes into the ACCUSATIVE and the verb becomes an INFINITIVE. Dicit puellam cantare — literally \"He says the girl to sing\" = \"He says that the girl is singing.\" The infinitive's tense is relative to the main verb: present cantare for same time, perfect portavisse for earlier time.",
       "drills": [
         {
-          "sentence": "Puer dicit puellam {{answer}}.",
-          "answer": "cantare",
+          "sentence": "Puer dīcit puellam {{answer}}.",
+          "answer": "cantāre",
           "translation": "The boy says that the girl is singing.",
           "hint": "to sing — present infinitive in reported speech",
           "display_order": 1
         },
         {
-          "sentence": "Scio regem bonum {{answer}}.",
+          "sentence": "Sciō rēgem bonum {{answer}}.",
           "answer": "esse",
           "translation": "I know that the king is good.",
           "hint": "to be — the infinitive that carries the reported claim",
           "display_order": 2
         },
         {
-          "sentence": "Puella dicit puerum aquam {{answer}}.",
-          "answer": "portavisse",
+          "sentence": "Puella dīcit puerum aquam {{answer}}.",
+          "answer": "portāvisse",
           "translation": "The girl says that the boy carried the water.",
           "hint": "to have carried — perfect infinitive",
           "display_order": 3
         },
         {
-          "sentence": "Rex dicit {{answer}} venire.",
-          "answer": "milites",
+          "sentence": "Rēx dīcit {{answer}} venīre.",
+          "answer": "mīlitēs",
           "translation": "The king says that the soldiers are coming.",
           "hint": "the soldiers — the reported subject goes accusative",
           "display_order": 4
         },
         {
-          "sentence": "Puto puellam {{answer}} esse.",
+          "sentence": "Putō puellam {{answer}} esse.",
           "answer": "bonam",
           "translation": "I think that the girl is good.",
           "hint": "good — agrees with the accusative subject",
@@ -1709,36 +1709,36 @@
       "explanation": "A noun and a participle, both in the ablative and grammatically detached from the rest of the sentence, set the scene: Urbe capta, milites venerunt (\"With the city captured / after the city was captured, the soldiers came\"). A perfect participle marks prior action (verbis dictis — \"the words having been said\"); a present participle marks simultaneous action (rege dicente — \"while the king is speaking\").",
       "drills": [
         {
-          "sentence": "Urbe {{answer}}, milites venerunt.",
-          "answer": "capta",
+          "sentence": "Urbe {{answer}}, mīlitēs vēnērunt.",
+          "answer": "captā",
           "translation": "With the city captured, the soldiers came.",
           "hint": "captured — ablative participle agreeing with the city",
           "display_order": 1
         },
         {
-          "sentence": "Rege {{answer}}, populus tacet.",
-          "answer": "dicente",
+          "sentence": "Rēge {{answer}}, populus tacet.",
+          "answer": "dīcente",
           "translation": "While the king is speaking, the people are silent.",
           "hint": "speaking — present participle in the ablative",
           "display_order": 2
         },
         {
-          "sentence": "{{answer}} portata, puer venit.",
-          "answer": "Aqua",
+          "sentence": "{{answer}} portātā, puer venit.",
+          "answer": "Aquā",
           "translation": "With the water carried, the boy comes.",
           "hint": "the water — the ablative noun of the absolute phrase",
           "display_order": 3
         },
         {
-          "sentence": "Bello {{answer}}, laeti eramus.",
-          "answer": "confecto",
+          "sentence": "Bellō {{answer}}, laetī erāmus.",
+          "answer": "cōnfectō",
           "translation": "With the war finished, we were happy.",
           "hint": "finished — perfect participle in the ablative",
           "display_order": 4
         },
         {
-          "sentence": "Verbis {{answer}}, rex tacuit.",
-          "answer": "dictis",
+          "sentence": "Verbīs {{answer}}, rēx tacuit.",
+          "answer": "dictīs",
           "translation": "With the words said, the king fell silent.",
           "hint": "said — ablative plural participle",
           "display_order": 5
@@ -1765,35 +1765,35 @@
       "explanation": "Deponent verbs \"laid aside\" their active forms: they wear passive endings but mean something active. Loquor = \"I speak\" (not \"I am spoken\"), sequor = \"I follow,\" conor = \"I try.\" Conjugate them exactly like passives — loquitur (\"she speaks\"), sequuntur (\"they follow\"), loquimur (\"we speak\") — and translate them actively, always.",
       "drills": [
         {
-          "sentence": "Puella cum puero {{answer}}.",
+          "sentence": "Puella cum puerō {{answer}}.",
           "answer": "loquitur",
           "translation": "The girl speaks with the boy.",
           "hint": "speaks — passive form, active meaning",
           "display_order": 1
         },
         {
-          "sentence": "Milites regem {{answer}}.",
+          "sentence": "Mīlitēs rēgem {{answer}}.",
           "answer": "sequuntur",
           "translation": "The soldiers follow the king.",
           "hint": "they follow — deponent 3rd plural",
           "display_order": 2
         },
         {
-          "sentence": "Puer aquam portare {{answer}}.",
-          "answer": "conatur",
+          "sentence": "Puer aquam portāre {{answer}}.",
+          "answer": "cōnātur",
           "translation": "The boy tries to carry the water.",
           "hint": "tries — deponent + infinitive",
           "display_order": 3
         },
         {
-          "sentence": "Nos in urbe {{answer}}.",
+          "sentence": "Nōs in urbe {{answer}}.",
           "answer": "loquimur",
           "translation": "We speak in the city.",
           "hint": "we speak — deponent 1st plural",
           "display_order": 4
         },
         {
-          "sentence": "Ego te {{answer}}.",
+          "sentence": "Ego tē {{answer}}.",
           "answer": "sequor",
           "translation": "I follow you.",
           "hint": "I follow — deponent 1st singular",
@@ -1821,8 +1821,8 @@
       "explanation": "The gerund is the verb's noun form (-ndum): ars amandi — \"the art of loving.\" The gerundive is its adjective twin (-ndus, -a, -um), and with sum it forms the passive periphrastic of obligation: Carthago delenda est — \"Carthage must be destroyed,\" Cato's famous refrain. The person who must act goes in the dative: nobis — \"by us.\"",
       "drills": [
         {
-          "sentence": "Carthago {{answer}} est.",
-          "answer": "delenda",
+          "sentence": "Carthāgō {{answer}} est.",
+          "answer": "dēlenda",
           "translation": "Carthage must be destroyed.",
           "hint": "must be destroyed — the famous gerundive of obligation",
           "display_order": 1
@@ -1836,20 +1836,20 @@
         },
         {
           "sentence": "Ars {{answer}} difficilis est.",
-          "answer": "amandi",
+          "answer": "amandī",
           "translation": "The art of loving is difficult.",
           "hint": "of loving — genitive gerund",
           "display_order": 3
         },
         {
           "sentence": "Puer cupidus {{answer}} est.",
-          "answer": "videndi",
+          "answer": "videndī",
           "translation": "The boy is eager to see.",
           "hint": "of seeing — gerund after an adjective that takes the genitive",
           "display_order": 4
         },
         {
-          "sentence": "Verba regis {{answer}} sunt.",
+          "sentence": "Verba rēgis {{answer}} sunt.",
           "answer": "audienda",
           "translation": "The king's words must be heard.",
           "hint": "must be heard — neuter plural gerundive",
@@ -1877,36 +1877,36 @@
       "explanation": "A question inside another verb — scio quid dicat, \"I know what she is saying\" — takes the SUBJUNCTIVE, and its tense obeys the sequence of tenses. After a primary (present/future) main verb: present subjunctive for same time (dicat), perfect for earlier (dixerit). After a secondary (past) main verb: imperfect for same time (diceret), pluperfect for earlier (cepisset).",
       "drills": [
         {
-          "sentence": "Scio quid puella {{answer}}.",
-          "answer": "dicat",
+          "sentence": "Sciō quid puella {{answer}}.",
+          "answer": "dīcat",
           "translation": "I know what the girl is saying.",
           "hint": "is saying — present subjunctive after a primary main verb",
           "display_order": 1
         },
         {
-          "sentence": "Rogo quis aquam {{answer}}.",
+          "sentence": "Rogō quis aquam {{answer}}.",
           "answer": "portet",
           "translation": "I ask who is carrying the water.",
           "hint": "is carrying — subjunctive in an indirect question",
           "display_order": 2
         },
         {
-          "sentence": "Sciebam quid rex {{answer}}.",
-          "answer": "diceret",
+          "sentence": "Sciēbam quid rēx {{answer}}.",
+          "answer": "dīceret",
           "translation": "I knew what the king was saying.",
           "hint": "was saying — imperfect subjunctive after a past main verb",
           "display_order": 3
         },
         {
-          "sentence": "Scio quid puer {{answer}}.",
-          "answer": "dixerit",
+          "sentence": "Sciō quid puer {{answer}}.",
+          "answer": "dīxerit",
           "translation": "I know what the boy said.",
           "hint": "said — perfect subjunctive for a prior action",
           "display_order": 4
         },
         {
-          "sentence": "Rogavi quis urbem {{answer}}.",
-          "answer": "cepisset",
+          "sentence": "Rogāvī quis urbem {{answer}}.",
+          "answer": "cēpisset",
           "translation": "I asked who had captured the city.",
           "hint": "had captured — pluperfect subjunctive, past before past",
           "display_order": 5
@@ -1933,36 +1933,36 @@
       "explanation": "Open conditions take the indicative: si venit, laetus sum (\"if she comes, I am happy\"). Future-less-vivid (\"should ... would\") takes the present subjunctive in both halves: si veniat, laetus sim. Contrary-to-fact conditions use the imperfect subjunctive for the present (si veniret, laetus essem — \"if she were coming, I would be happy\") and the pluperfect for the past (si venisset, laetus fuissem — \"if she had come, I would have been happy\").",
       "drills": [
         {
-          "sentence": "Si puella {{answer}}, laetus sum.",
+          "sentence": "Sī puella {{answer}}, laetus sum.",
           "answer": "venit",
           "translation": "If the girl comes, I am happy.",
           "hint": "comes — plain indicative for a real condition",
           "display_order": 1
         },
         {
-          "sentence": "Si puella {{answer}}, laetus sim.",
+          "sentence": "Sī puella {{answer}}, laetus sim.",
           "answer": "veniat",
           "translation": "If the girl should come, I would be happy.",
           "hint": "should come — present subjunctive, the should-would type",
           "display_order": 2
         },
         {
-          "sentence": "Si puella {{answer}}, laetus essem.",
-          "answer": "veniret",
+          "sentence": "Sī puella {{answer}}, laetus essem.",
+          "answer": "venīret",
           "translation": "If the girl were coming, I would be happy.",
           "hint": "were coming — imperfect subjunctive, contrary to fact now",
           "display_order": 3
         },
         {
-          "sentence": "Si puella {{answer}}, laetus fuissem.",
-          "answer": "venisset",
+          "sentence": "Sī puella {{answer}}, laetus fuissem.",
+          "answer": "vēnisset",
           "translation": "If the girl had come, I would have been happy.",
           "hint": "had come — pluperfect subjunctive, contrary to fact in the past",
           "display_order": 4
         },
         {
-          "sentence": "Si aquam {{answer}}, tibi darem.",
-          "answer": "haberem",
+          "sentence": "Sī aquam {{answer}}, tibi darem.",
+          "answer": "habērem",
           "translation": "If I had water, I would give it to you.",
           "hint": "I had — imperfect subjunctive in a present contrary-to-fact",
           "display_order": 5
@@ -1989,36 +1989,36 @@
       "explanation": "Roman historians report entire speeches without quotation marks. In sustained oratio obliqua every main statement becomes accusative + infinitive, every subordinate clause slips into the subjunctive, and the speaker refers to himself with the reflexive se: Dixit se urbem cepisse — \"He said that he (himself) had captured the city.\" Reported futures use the future participle: se portaturum (esse) — \"that he would carry.\"",
       "drills": [
         {
-          "sentence": "Caesar dixit milites fortiter {{answer}}.",
-          "answer": "pugnavisse",
+          "sentence": "Caesar dīxit mīlitēs fortiter {{answer}}.",
+          "answer": "pugnāvisse",
           "translation": "Caesar said that the soldiers had fought bravely.",
           "hint": "to have fought — perfect infinitive in reported discourse",
           "display_order": 1
         },
         {
-          "sentence": "Dixit regem, qui urbem {{answer}}, bonum esse.",
-          "answer": "teneret",
+          "sentence": "Dīxit rēgem, quī urbem {{answer}}, bonum esse.",
+          "answer": "tenēret",
           "translation": "He said that the king, who held the city, was good.",
           "hint": "held — subordinate clauses inside reported speech go subjunctive",
           "display_order": 2
         },
         {
-          "sentence": "Dixit se aquam {{answer}}.",
-          "answer": "portaturum",
+          "sentence": "Dīxit sē aquam {{answer}}.",
+          "answer": "portātūrum",
           "translation": "He said that he would carry the water.",
           "hint": "about to carry — future participle for a reported future",
           "display_order": 3
         },
         {
-          "sentence": "Rex dixit se urbem {{answer}}.",
-          "answer": "cepisse",
+          "sentence": "Rēx dīxit sē urbem {{answer}}.",
+          "answer": "cēpisse",
           "translation": "The king said that he had captured the city.",
           "hint": "to have captured — perfect infinitive of capere",
           "display_order": 4
         },
         {
-          "sentence": "Caesar dixit hostes {{answer}} esse.",
-          "answer": "victos",
+          "sentence": "Caesar dīxit hostēs {{answer}} esse.",
+          "answer": "victōs",
           "translation": "Caesar said that the enemy had been defeated.",
           "hint": "defeated — perfect passive infinitive, participle + esse",
           "display_order": 5
@@ -2045,36 +2045,36 @@
       "explanation": "Poets pull agreeing words apart (hyperbaton) and trust the endings to reunite them: in Vergil's opening, Troiae ... ab oris wraps the relative clause, and the meaning waits until the case endings click together. Reading verse means holding endings in memory until their partners arrive — the discipline the whole case system has been training. These drills use genuine lines: Vergil, Horace, Catullus, and Caesar's famous prose opening.",
       "drills": [
         {
-          "sentence": "Arma virumque {{answer}}, Troiae qui primus ab oris.",
-          "answer": "cano",
+          "sentence": "Arma virumque {{answer}}, Trōiae quī prīmus ab ōrīs.",
+          "answer": "canō",
           "translation": "Arms and the man I sing, who first from the shores of Troy... (Vergil, Aeneid 1.1)",
           "hint": "I sing — the epic's opening main verb",
           "display_order": 1
         },
         {
-          "sentence": "{{answer}} diem, quam minimum credula postero.",
+          "sentence": "{{answer}} diem, quam minimum crēdula posterō.",
           "answer": "Carpe",
           "translation": "Seize the day, trusting as little as possible in tomorrow. (Horace, Odes 1.11)",
           "hint": "seize! — singular imperative",
           "display_order": 2
         },
         {
-          "sentence": "Odi et {{answer}}. Quare id faciam, fortasse requiris.",
-          "answer": "amo",
+          "sentence": "Ōdī et {{answer}}. Quārē id faciam, fortasse requīris.",
+          "answer": "amō",
           "translation": "I hate and I love. Why do I do it, perhaps you ask. (Catullus 85)",
           "hint": "I love — 1st person present, the second verb of the line",
           "display_order": 3
         },
         {
-          "sentence": "Gallia est omnis divisa in {{answer}} tres.",
-          "answer": "partes",
+          "sentence": "Gallia est omnis dīvīsa in {{answer}} trēs.",
+          "answer": "partēs",
           "translation": "All Gaul is divided into three parts. (Caesar, Gallic War 1.1)",
           "hint": "parts — accusative plural after in",
           "display_order": 4
         },
         {
-          "sentence": "Tityre, tu patulae recubans sub tegmine {{answer}}.",
-          "answer": "fagi",
+          "sentence": "Tītyre, tū patulae recubāns sub tegmine {{answer}}.",
+          "answer": "fāgī",
           "translation": "Tityrus, you, reclining under the cover of a spreading beech... (Vergil, Eclogues 1.1)",
           "hint": "of the beech tree — genitive singular",
           "display_order": 5
@@ -2101,14 +2101,14 @@
       "explanation": "High oratory builds the period — a long, suspended sentence whose sense completes only at the final verb — and reaches for figures like the accusative of exclamation (O tempora, o mores!). Letters and comedy talk instead: short questions (Quid agis? — \"How are you?\"), fixed formulas (salutem dicit — \"sends greetings\"; si vales, bene est, ego valeo). Both registers are correct Latin; a master reader switches between them.",
       "drills": [
         {
-          "sentence": "Quousque tandem abutere, Catilina, {{answer}} nostra?",
-          "answer": "patientia",
+          "sentence": "Quōusque tandem abūtēre, Catilīna, {{answer}} nostrā?",
+          "answer": "patientiā",
           "translation": "How long, Catiline, will you abuse our patience? (Cicero, In Catilinam 1)",
-          "hint": "our patience — ablative, because uti-compounds govern the ablative",
+          "hint": "our patience — ablative, because ūtī-compounds govern the ablative",
           "display_order": 1
         },
         {
-          "sentence": "O {{answer}}, o mores!",
+          "sentence": "Ō {{answer}}, ō mōrēs!",
           "answer": "tempora",
           "translation": "O the times, o the customs! (Cicero)",
           "hint": "the times — accusative of exclamation, neuter plural",
@@ -2122,8 +2122,8 @@
           "display_order": 3
         },
         {
-          "sentence": "Cicero Attico suo salutem {{answer}}.",
-          "answer": "dicit",
+          "sentence": "Cicerō Atticō suō salūtem {{answer}}.",
+          "answer": "dīcit",
           "translation": "Cicero sends greetings to his dear Atticus. (the standard letter opening)",
           "hint": "says — the letter-opening formula",
           "display_order": 4

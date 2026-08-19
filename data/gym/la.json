@@ -9,20 +9,20 @@
         {
           "point": "First conjugation present tense (-are verbs)",
           "label": "Present (1st conj.)",
-          "usage": "The amo family now: -o, -as, -at on the a-stem.",
+          "usage": "The amō family now: -ō, -ās, -at on the a-stem.",
           "example": "Puella puerum amat. — The girl loves the boy."
         },
         {
           "point": "Second conjugation present tense (-ere verbs with -e-)",
           "label": "Present (2nd conj.)",
-          "usage": "The video/habeo family: the -e- stays visible before every ending.",
+          "usage": "The videō/habeō family: the -e- stays visible before every ending.",
           "example": "Puer puellam videt. — The boy sees the girl."
         },
         {
           "point": "Third and fourth conjugation present (dico, audio)",
           "label": "Present (3rd/4th conj.)",
-          "usage": "Short changeable vowel (dicit, dicunt) or steady -i- (audit, audiunt).",
-          "example": "Puella verbum dicit. — The girl says a word."
+          "usage": "Short changeable vowel (dīcit, dīcunt) or steady -i- (audit, audiunt).",
+          "example": "Puella verbum dīcit. — The girl says a word."
         },
         {
           "point": "sum, esse — the irregular verb \"to be\"",
@@ -34,7 +34,7 @@
           "point": "possum, posse — \"to be able\" with an infinitive",
           "label": "possum (can)",
           "usage": "pot- + sum says what someone can do, with an infinitive.",
-          "example": "Puella aquam videre potest. — The girl can see the water."
+          "example": "Puella aquam vidēre potest. — The girl can see the water."
         },
         {
           "point": "Imperfect tense (-bam): what used to happen",
@@ -45,50 +45,50 @@
         {
           "point": "Future tense (-bo/-bis and -am/-es)",
           "label": "Future",
-          "usage": "What will happen: -bo/-bis in conjugations 1-2, -am/-es in 3-4.",
+          "usage": "What will happen: -bō/-bis in conjugations 1-2, -am/-ēs in 3-4.",
           "example": "Bellum magnum erit. — The war will be great."
         },
         {
           "point": "Perfect tense: amavi, vidi, dixi",
           "label": "Perfect",
-          "usage": "Done and reported: perfect stem + -i, -isti, -it.",
-          "example": "Regina regem amavit. — The queen loved the king."
+          "usage": "Done and reported: perfect stem + -ī, -istī, -it.",
+          "example": "Rēgīna rēgem amāvit. — The queen loved the king."
         },
         {
           "point": "Pluperfect tense: amaveram \"I had loved\"",
           "label": "Pluperfect",
           "usage": "Past before the past: perfect stem + -eram.",
-          "example": "Rex verba dixerat. — The king had said the words."
+          "example": "Rēx verba dīxerat. — The king had said the words."
         },
         {
           "point": "Imperatives: giving commands",
           "label": "Commands",
-          "usage": "Bare stem for one person, -te for several: ama!, amate!",
-          "example": "Porta aquam, puer! — Carry the water, boy!"
+          "usage": "Bare stem for one person, -te for several: amā!, amāte!",
+          "example": "Portā aquam, puer! — Carry the water, boy!"
         },
         {
           "point": "Present passive: amatur \"is loved\"",
           "label": "Present passive",
-          "usage": "The subject receives the action: -tur, -ntur, agent with a/ab.",
-          "example": "Puella a puero amatur. — The girl is loved by the boy."
+          "usage": "The subject receives the action: -tur, -ntur, agent with ā/ab.",
+          "example": "Puella ā puerō amātur. — The girl is loved by the boy."
         },
         {
           "point": "Perfect passive participle and perfect passive",
           "label": "Perfect passive",
-          "usage": "Participle + est says what was done: capta est, audita sunt.",
+          "usage": "Participle + est says what was done: capta est, audīta sunt.",
           "example": "Urbs capta est. — The city was captured."
         },
         {
           "point": "The subjunctive mood: present and imperfect forms",
           "label": "Subjunctive",
           "usage": "Wishes and let-us forms: the conjugation vowel swaps (amet, videat).",
-          "example": "Vivat rex! — Long live the king!"
+          "example": "Vīvat rēx! — Long live the king!"
         },
         {
           "point": "Deponent verbs: loquor, sequor",
           "label": "Deponents",
           "usage": "Passive endings, active meaning: loquitur = she speaks.",
-          "example": "Puella cum puero loquitur. — The girl speaks with the boy.",
+          "example": "Puella cum puerō loquitur. — The girl speaks with the boy.",
           "nonstandard": true
         }
       ]
@@ -107,7 +107,7 @@
           "point": "First declension nouns: -a / -ae feminine",
           "label": "1st declension",
           "usage": "The puella pattern: -a, genitive -ae, accusative -am.",
-          "example": "Nomen puellae est Iulia. — The girl's name is Julia."
+          "example": "Nōmen puellae est Iūlia. — The girl's name is Julia."
         },
         {
           "point": "Second declension nouns: -us masculine and -um neuter",
@@ -118,26 +118,26 @@
         {
           "point": "Third declension nouns: rex, regis and urbs, urbis",
           "label": "3rd declension",
-          "usage": "Unpredictable nominatives, reliable stem endings: regem, regis, rege.",
-          "example": "Puella regem in urbe videt. — The girl sees the king in the city."
+          "usage": "Unpredictable nominatives, reliable stem endings: rēgem, rēgis, rēge.",
+          "example": "Puella rēgem in urbe videt. — The girl sees the king in the city."
         },
         {
           "point": "Third declension neuters: corpus, tempus, nomen",
           "label": "3rd decl. neuters",
-          "usage": "Corpus, tempus, nomen: subject and object match, plural in -a.",
+          "usage": "Corpus, tempus, nōmen: subject and object match, plural in -a.",
           "example": "Corpora magna sunt. — The bodies are big."
         },
         {
           "point": "Fourth and fifth declension: manus and dies",
           "label": "4th/5th declension",
-          "usage": "The small -u- and -e- families: manus, dies, res.",
-          "example": "Dies longus est. — The day is long.",
+          "usage": "The small -u- and -e- families: manus, diēs, rēs.",
+          "example": "Diēs longus est. — The day is long.",
           "nonstandard": true
         },
         {
           "point": "Genitive and dative at work",
           "label": "Genitive & dative",
-          "usage": "Whose it is (regis) and to whom it goes (puellae, puero).",
+          "usage": "Whose it is (rēgis) and to whom it goes (puellae, puerō).",
           "example": "Puer puellae aquam dat. — The boy gives water to the girl."
         },
         {
@@ -150,13 +150,13 @@
           "point": "Comparison of adjectives: altior, altissimus",
           "label": "Comparison",
           "usage": "Taller and tallest: -ior for the comparative, -issimus for the superlative.",
-          "example": "Rex fortissimus est. — The king is very brave."
+          "example": "Rēx fortissimus est. — The king is very brave."
         },
         {
           "point": "Personal pronouns: ego, tu, nos, vos",
           "label": "Pronouns",
-          "usage": "Ego and tu for emphasis; me, te, nos, vos as objects.",
-          "example": "Ego te amo. — I love you."
+          "usage": "Ego and tū for emphasis; mē, tē, nōs, vōs as objects.",
+          "example": "Ego tē amō. — I love you."
         },
         {
           "point": "Demonstratives: hic \"this\" and ille \"that\"",
@@ -174,7 +174,7 @@
           "point": "Prepositions: in + accusative vs. in + ablative",
           "label": "in + case",
           "usage": "Accusative for motion into, ablative for sitting in or on.",
-          "example": "Puella in insula habitat. — The girl lives on the island."
+          "example": "Puella in īnsulā habitat. — The girl lives on the island."
         },
         {
           "point": "Word order: Latin puts case marking to work",
@@ -186,24 +186,24 @@
           "point": "Questions: -ne, quis and quid",
           "label": "Questions",
           "usage": "Yes/no with the -ne particle; quis and quid ask who and what.",
-          "example": "Videsne puellam? — Do you see the girl?"
+          "example": "Vidēsne puellam? — Do you see the girl?"
         },
         {
           "point": "Relative clauses: qui, quae, quod",
           "label": "Relative qui",
           "usage": "Who/which clauses: gender from the noun, case from the job inside.",
-          "example": "Puer, qui aquam portat, bonus est. — The boy who carries the water is good."
+          "example": "Puer, quī aquam portat, bonus est. — The boy who carries the water is good."
         },
         {
           "point": "Adverbs: bene, fortiter, celeriter",
           "label": "Adverbs",
-          "usage": "How it is done: -e and -iter forms, plus irregular bene and male.",
-          "example": "Milites fortiter pugnant. — The soldiers fight bravely."
+          "usage": "How it is done: -ē and -iter forms, plus irregular bene and male.",
+          "example": "Mīlitēs fortiter pugnant. — The soldiers fight bravely."
         },
         {
           "point": "Purpose clauses with ut and ne",
           "label": "Purpose ut/ne",
-          "usage": "In-order-to with ut + subjunctive; ne for negative purpose.",
+          "usage": "In-order-to with ut + subjunctive; nē for negative purpose.",
           "example": "Puer venit ut puellam videat. — The boy comes to see the girl.",
           "nonstandard": true
         },
@@ -211,35 +211,35 @@
           "point": "Result clauses: tam ... ut",
           "label": "Result tam...ut",
           "usage": "So X that Y: a signal word, then ut + subjunctive.",
-          "example": "Rex tam fortis est ut urbem capiat. — The king is so brave that he captures the city.",
+          "example": "Rēx tam fortis est ut urbem capiat. — The king is so brave that he captures the city.",
           "nonstandard": true
         },
         {
           "point": "Cum-clauses: when, since, although",
           "label": "cum-clauses",
           "usage": "cum + subjunctive covers when, since, and although.",
-          "example": "Cum rex diceret, populus tacebat. — When the king was speaking, the people were silent.",
+          "example": "Cum rēx dīceret, populus tacēbat. — When the king was speaking, the people were silent.",
           "nonstandard": true
         },
         {
           "point": "Indirect statement: accusative + infinitive",
           "label": "Acc. + infinitive",
           "usage": "Reported speech with no 'that': accusative subject, infinitive verb.",
-          "example": "Scio regem bonum esse. — I know that the king is good.",
+          "example": "Sciō rēgem bonum esse. — I know that the king is good.",
           "nonstandard": true
         },
         {
           "point": "Ablative absolute",
           "label": "Ablative absolute",
-          "usage": "A detached noun + participle pair sets the scene: urbe capta.",
-          "example": "Urbe capta, milites venerunt. — With the city captured, the soldiers came.",
+          "usage": "A detached noun + participle pair sets the scene: urbe captā.",
+          "example": "Urbe captā, mīlitēs vēnērunt. — With the city captured, the soldiers came.",
           "nonstandard": true
         },
         {
           "point": "Conditionals: the three types of si-clause",
           "label": "si-clauses",
-          "usage": "Real, should-would, and contrary-to-fact conditions with si.",
-          "example": "Si aquam haberem, tibi darem. — If I had water, I would give it to you.",
+          "usage": "Real, should-would, and contrary-to-fact conditions with sī.",
+          "example": "Sī aquam habērem, tibi darem. — If I had water, I would give it to you.",
           "nonstandard": true
         }
       ]

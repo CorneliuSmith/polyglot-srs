@@ -15,13 +15,50 @@ macronised pedagogical spelling (below). Colloquial register **is** in scope, bu
 C2 register point marks it as such — `Quid agis?`, `si vales, bene est, ego valeo` are taught
 beside the Ciceronian period, labelled.
 
-**Macron policy: no macrons, anywhere, all-or-nothing.** Verified — `data/grammar/la_grammar.json`
-holds zero macron or breve characters across 41 points and 189 drills. Two reasons it must stay
-total. (1) `LatinNLP` in `backend/services/nlp/latin_base.py` is `AccentFoldingNLP` with
-`leading_articles = ()`, and its comment says why: "macrons (ā ē ī ō ū) are usually omitted in a
-learner's typed answer" — a half-macronised file grades identically to an unmacronised one, so
-the inconsistency would be invisible to every test and visible only to the learner. (2) Classical
-editions print unmacronised text. **The cost is real and is paid in the hint** — see below.
+**Macron policy: macrons everywhere, all-or-nothing** (reversed 19 Aug 2026 — see below).
+Every Latin surface carries them: `data/la_frequency.tsv` (557 rows), `data/grammar/la_grammar.json`
+(41 points, 189 drills) and `data/gym/la.json`. Vowel length is phonemic, it is what distinguishes
+`liber` from `līber` and the nominative `puella` from the ablative `puellā`, and this course has no
+other way to show it.
+
+The learner is never required to type them. `LatinNLP` in `backend/services/nlp/latin_base.py` is
+`AccentFoldingNLP`, so `puella` against a `puellā` card returns **`CORRECT_SLOPPY`** — full credit
+plus "Almost — check the accents." That is the behaviour we want: read the length, type what you
+like, get nudged.
+
+> **This page argued the opposite until 19 Aug, and the argument was faulty.** It read: "macrons
+> are usually omitted in a learner's typed answer — a half-macronised file grades identically to an
+> unmacronised one", and concluded that the content should carry none. That is an argument about
+> **input** applied to **display**. Tolerant grading already existed and already solved the input
+> problem; it never required stripping the marks a learner reads. The second argument — that
+> classical editions print unmacronised text — is true of editions and irrelevant to a teaching
+> text, which is what this is. Wheelock and Lingua Latina both print macrons.
+>
+> The policy was also simply not being followed: the frequency file sat at 285 macronised rows
+> against 310 plain, seeding 40 duplicate cards that `AccentFoldingNLP` graded identically. The
+> dedup was real work and survives; only the direction changed.
+
+**What the macrons buy, stated plainly.** Length is the only thing separating these pairs, so
+without the marks each collapses into one spelling and a single gloss has to carry both senses.
+With them, each is its own card:
+
+| | | |
+| --- | --- | --- |
+| `liber` (librī, m. 2nd) | book | rank 180 |
+| `līber` (lībera, līberum) | free — an ADJECTIVE, not a noun | rank 213 |
+| `os` (ossis, n.) | bone | rank 254 |
+| `ōs` (ōris, n.) | mouth, face | rank 246 |
+
+The same holds where only one member is in the file but a learner meets both: `hic` "this" vs
+`hīc` "here" (the highest-traffic pair); `venit` "comes" vs `vēnit` "came"; `malum` "evil" vs
+`mālum` "apple"; `latus` "side" vs `lātus` "wide"; `populus` "people" vs `pōpulus` "poplar";
+`levis` "light" vs `lēvis` "smooth". And the endings that carry the grammar: 1st-declension
+nominative `puella` against ablative `puellā`, and the `-is` syncretism below — genitive
+singular short, dative/ablative plural `-īs` long.
+
+**Still name the case in the hint.** The macron shows length; it does not tell a learner which
+case is wanted when several share a form. Naming the tense matters for the same reason: a hint
+reading "plain indicative" does not separate `venit` from `vēnit`, so write "present indicative".
 
 **Three genders (m/f/n), grammatical and unpredictable** for the third declension; `corpus`,
 `tempus`, `nomen` are neuter and nothing in the meaning says so. What dominates drill quality:
@@ -31,7 +68,7 @@ editions print unmacronised text. **The cost is real and is paid in the hint** �
    1st-declension nominative singular `aqua` is spelled exactly like the ablative `aquā`.
 2. **Free word order.** Position carries no grammatical information, so a drill cannot rely on
    the slot to disambiguate — the ending and the hint carry all of it.
-3. **Thin footprint.** 189 drills, 90 vocabulary rows, **no sentence bank at all** — every
+3. **Thin footprint.** 189 drills, 557 vocabulary rows, **no sentence bank at all** — every
    sentence the learner sees comes from the grammar file. Not in `TRANSLIT_LANGS`.
 
 ## Hint standards
@@ -87,7 +124,7 @@ the boy" would be a giveaway if the grammatical cell were dropped. Keep both hal
 ## Translation & definition standards
 
 - No bare one-word gloss for a polysemous word. `data/la_frequency.tsv` handles function words
-  well (`in | in; into`, `ad | to; toward`, `sum | to be (I am)`) but 70 of 90 rows carry no
+  well (`in | in; into; on`, `ad | to; toward; at`) but 309 of 557 rows carry no
   sense split at all. Anything with a second everyday sense must gain one: `dominus` is "master;
   owner; lord", `res` is "thing; matter; affair", `virtus` is "courage; excellence; virtue".
 - **Gender must be marked on every noun, and today none of them are.** All 38 noun rows in
@@ -104,7 +141,7 @@ the boy" would be a giveaway if the grammatical cell were dropped. Keep both hal
 
 Counted directly from `data/grammar/la_grammar.json`: **41 points, 189 drills**, every point
 `source: "ai"` and `reviewed: false` — nothing has had a human pass. Levels A1 10 / A2 10 /
-B1 8 / B2 7 / C1 3 / C2 3. Footprint: `data/la_frequency.tsv` **90 rows**, **no
+B1 8 / B2 7 / C1 3 / C2 3. Footprint: `data/la_frequency.tsv` **557 rows** (19 Aug 2026), **no
 `data/sentences/la_sentences.tsv` and no `data/la_sentences.tsv` anywhere**, no
 `data/la_morphology.json`, gym baseline present at `data/gym/la.json`.
 
@@ -112,7 +149,7 @@ B1 8 / B2 7 / C1 3 / C2 3. Footprint: `data/la_frequency.tsv` **90 rows**, **no
 | --- | --- |
 | `leak_hard`, `self_answering`, `giveaway_by_gloss`, `duplicate_hint`, `empty` | **0** |
 | `vague_translation`, one-word hints, in-word blanks, answer-in-sentence | **0** |
-| noun rows in `data/la_frequency.tsv` marking gender | **0 of 38** |
+| noun rows in `data/la_frequency.tsv` marking gender | **0 of 199** |
 | points with 3 drills instead of 5, and with no `references` | **8 of 41** |
 
 **This is the cleanest drill set in the repo** — the crawl says so and the file confirms it, on
@@ -121,7 +158,7 @@ entries are:
 
 1. **No sentence bank.** Every other course has a `_sentences.tsv`; Latin has none, so reading
    practice has nothing to draw on outside the 189 drill sentences.
-2. **90 vocabulary rows, zero gender marking.** The A1 agreement point drills `magna`/`magnus`
+2. **557 vocabulary rows, zero gender marking.** The A1 agreement point drills `magna`/`magnus`
    against `puella`/`dominus`, and the vocabulary the learner meets alongside it does not say
    which nouns are which. This is the one fail-level content gap in Latin.
 3. **The whole A1 band is thin and unsourced.** The same 8 points have both 3 drills instead of
