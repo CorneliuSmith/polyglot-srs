@@ -74,6 +74,48 @@ Two live examples, both legitimate:
 If you find a divergence with no stated reason, that is a bug in the docs —
 either bring the file back to the shared rule or write the justification.
 
+### The interlinear gloss is a shared standard, not a Māori feature
+
+A **gloss** is the word-by-word breakdown shown under a drill or example
+sentence — `PRESENT · ___ · the(pl) · book` — as distinct from the
+*translation*, which says what the sentence means. It shows how the sentence
+is **built**, which is what a learner needs when the target language's word
+order does not map onto English.
+
+`frontend/src/features/review/hintLayers.ts` already treats it as a first-class
+hint layer for nine courses: `ru, ar, el, hi` reach it after romanization, and
+`mi, sw, yo, xh, ha` **open on it** (`GLOSS_FIRST`). The content has not
+followed. Measured 18 Aug:
+
+- **374 of 8,049 drills across all 27 courses carry a gloss — 4.6%.** Māori
+  240/240, Swahili 134/442, every other course zero.
+- On the sentence side, only Swahili's curated bank has any (461 rows).
+- `write_sentences_tsv` has **no gloss column**, so no Tatoeba-built bank can
+  carry one.
+- Nothing generates them. `seed_sentences.py` and `seed_grammar.py` only read
+  the column; a gloss is hand-authored or it is absent.
+
+So seven of the nine wired courses declare a layer they cannot fill, and
+because `hintLayers.ts` silently skips absent layers, nothing looks broken.
+The sharp end: **`yo`, `xh` and `ha` are `GLOSS_FIRST` with zero glosses** —
+the ladder built for exactly those languages opens on an empty layer and drops
+them straight to the English translation.
+
+**Treat a missing gloss as debt in that course, not as a property of the
+language.** Where a course has glosses, two rules apply and they are the same
+everywhere:
+
+1. **A gloss must never spell the answer.** It is a hint layer, so it is a
+   leak surface exactly like the hint — see `giveaway_by_gloss`.
+2. **A wrong gloss teaches a wrong parse**, which is worse than no gloss.
+   `mi.md` has the worked example: glossing `kei te` as the present-tense
+   marker where it is actually locative "at the".
+
+`docs/quality/mi.md` carries the fullest statement of these rules because
+Māori is the only course that fully implements them. Read it as the standard
+the others have yet to reach. Plan: `docs/plans/quality-parity.md` D2c and
+Phase 2c.
+
 ## Layer 1 — Mechanical checks (fast, every commit)
 
 `backend/services/quality/audit_content.py` scans all in-repo learning content

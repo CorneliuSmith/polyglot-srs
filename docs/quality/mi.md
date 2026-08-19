@@ -74,11 +74,21 @@ vs `closes the progressive frame`.
 - **Exactly one blank, and the blank is a whole word.** 240/240 drills have one blank, but one
   splits a word: `Hō{{answer}} te kai ki a au.` with answer `mai`. Rewrite as
   `{{answer}} te kai ki a au.` / answer `Hōmai`.
-- **The `gloss` field is a second leak surface.** Māori is the only course with a per-drill
-  interlinear `gloss` (240/240 carry one), shown to the learner. It must never spell the answer
+- **The `gloss` field is a second leak surface.** Māori carries a per-drill interlinear
+  `gloss` on 240/240 drills, shown to the learner. It must never spell the answer
   and must be *correct*: `Kei te {{answer}} ngā pukapuka.` ("The books are on the table.") is
   glossed `PRESENT · ___ · the(pl) · book`, but `kei te` there is locative "at the", not the
   present-tense marker. A wrong gloss teaches a wrong parse.
+
+  **Māori being the only fully glossed course is not a fact about Māori.** Measured 18 Aug:
+  374 of 8,049 drills across all 27 courses carry a gloss — Māori's 240, Swahili's 134, and
+  nothing else. On the sentence side only Swahili's curated bank has any (461 rows), and the
+  Tatoeba builder has no gloss column to write at all. Meanwhile
+  `frontend/src/features/review/hintLayers.ts` gives NINE courses a gloss step, and puts
+  `mi, sw, yo, xh, ha` on `GLOSS_FIRST` — so `yo`, `xh` and `ha` open their hint ladder on a
+  layer that is empty, and drop straight to English. Treat this page's gloss rules as the
+  **standard the other courses have yet to reach**, not as a Māori peculiarity to police; see
+  `docs/plans/quality-parity.md` D2c and Phase 2c.
 - Possession drills must make the a/o choice **forced** by the sentence. `Ko tāku pukapuka
   tēnā.` works because a book is a-category; a parent or body part would demand `tōku`, and the
   hint must say which category and why. Keep `taku`/`tāku` deliberate — both are real words, so
