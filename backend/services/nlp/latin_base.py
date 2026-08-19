@@ -95,6 +95,23 @@ class AccentFoldingNLP(BaseNLP):
         treatment layers 3-4 already give a right-word-wrong-cell answer.
         """
         result, message = super().check_answer(user_input, correct_answer, card_context)
+        # For this family lemmatize IS the diacritic fold, so a CORRECT_SLOPPY
+        # from layers 3-4 is typographic, not morphological — and marks the
+        # base layer's guard cannot see (ș, ț, ñ have no combining
+        # decomposition) still merge here. Re-apply the collision guard at
+        # this level: a fold that lands on another course word is that word.
+        if result is AnswerResult.CORRECT_SLOPPY:
+            norm_user = self.normalize(user_input)
+            norm_correct = self.normalize(correct_answer)
+            if (
+                norm_user != norm_correct
+                and self._fold(norm_user) == self._fold(norm_correct)
+                and self._typed_another_card(norm_user, norm_correct, card_context)
+            ):
+                return (
+                    AnswerResult.WRONG_FORM,
+                    f"'{norm_user}' is a different word. Expected: {correct_answer}",
+                )
         if result is not AnswerResult.CORRECT or not self.leading_articles:
             return result, message
         typed = self._leading_article(user_input)

@@ -61,7 +61,10 @@ def init_nlp_backends() -> None:
             import importlib
             module = importlib.import_module(module_path)
             cls = getattr(module, class_name)
-            NLP_BACKENDS[lang_code] = cls()
+            instance = cls()
+            # The collision guard's key into data/<code>_frequency.tsv.
+            instance.language_code = lang_code
+            NLP_BACKENDS[lang_code] = instance
             logger.info("Registered NLP backend: %s (%s)", lang_code, class_name)
         except ImportError as exc:
             logger.warning(

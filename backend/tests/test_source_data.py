@@ -514,3 +514,59 @@ class TestEnglishPipeline:
             row = next(_csv.DictReader(f, delimiter="\t"))
         assert row["translation_locale"] == "es"
         assert row["translation"] == "Bebo agua."
+
+
+class TestVocabExclusions:
+    """data/vocab_exclusions.tsv: rows the corpus keeps generating that must
+    never become cards. Deleting them from the committed TSV alone is undone
+    by the next regeneration — the exclusion file is the durable form."""
+
+    def _file(self, tmp_path, rows):
+        path = tmp_path / "vocab_exclusions.tsv"
+        lines = ["language\tword\treason"] + ["\t".join(r) for r in rows]
+        path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        return path
+
+    def test_excluded_rows_are_dropped(self, tmp_path, monkeypatch):
+        path = self._file(tmp_path, [("it", "citta", "typo-mass of città")])
+        monkeypatch.setattr(source_data, "VOCAB_EXCLUSIONS_PATH", path)
+        rows = [{"word": "citta", "gloss": "girl"}, {"word": "città", "gloss": "city"}]
+        assert source_data.apply_vocab_exclusions("it", rows) == [
+            {"word": "città", "gloss": "city"}
+        ]
+
+    def test_exclusions_are_scoped_to_their_language(self, tmp_path, monkeypatch):
+        path = self._file(tmp_path, [("it", "citta", "typo-mass")])
+        monkeypatch.setattr(source_data, "VOCAB_EXCLUSIONS_PATH", path)
+        rows = [{"word": "citta", "gloss": "x"}]
+        assert source_data.apply_vocab_exclusions("fr", rows) == rows
+
+    def test_missing_file_changes_nothing(self, tmp_path, monkeypatch):
+        monkeypatch.setattr(
+            source_data, "VOCAB_EXCLUSIONS_PATH", tmp_path / "absent.tsv"
+        )
+        rows = [{"word": "citta", "gloss": "x"}]
+        assert source_data.apply_vocab_exclusions("it", rows) == rows
+
+    def test_the_committed_file_names_no_word_still_present(self):
+        """Every committed exclusion must actually be excluded — a row that
+        reappears in a frequency file means a regeneration ran without it."""
+        import csv as _csv
+        from pathlib import Path as _Path
+
+        repo = _Path(source_data.__file__).resolve().parents[3]
+        with open(repo / "data" / "vocab_exclusions.tsv", encoding="utf-8-sig",
+                  newline="") as handle:
+            excluded = [(r["language"], r["word"])
+                        for r in _csv.DictReader(handle, delimiter="\t")]
+        assert excluded, "exclusion file exists but is empty"
+        offenders = []
+        for code, word in excluded:
+            freq = repo / "data" / f"{code}_frequency.tsv"
+            if not freq.exists():
+                continue
+            with open(freq, encoding="utf-8-sig", newline="") as handle:
+                if any((r.get("word") or "").strip().casefold() == word.casefold()
+                       for r in _csv.DictReader(handle, delimiter="\t")):
+                    offenders.append(f"{code}:{word}")
+        assert not offenders, f"excluded words back in the data: {offenders}"

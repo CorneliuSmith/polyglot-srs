@@ -8,9 +8,16 @@ This module defines:
 """
 from __future__ import annotations
 
+import csv
 import unicodedata
 from abc import ABC, abstractmethod
 from enum import Enum
+from pathlib import Path
+
+# The committed course vocabularies, read (lazily, once) for the collision
+# guard below. Kept as a plain path so a missing file degrades to an empty
+# lexicon instead of an import-time failure.
+_DATA_DIR = Path(__file__).resolve().parents[3] / "data"
 
 # ---------------------------------------------------------------------------
 # AnswerResult (relocated from srs.py — LOCKED DECISION)
@@ -211,6 +218,66 @@ class BaseNLP(ABC):
     # Concrete template method: 6-layer check_answer pipeline
     # ------------------------------------------------------------------
 
+    #: Set at registration (init_nlp_backends). Enables the collision guard;
+    #: None means no lexicon and the guard never fires.
+    language_code: str | None = None
+
+    def _collision_surfaces(self) -> frozenset[str]:
+        """normalize() image of every committed headword for this language.
+
+        Loaded lazily from data/<code>_frequency.tsv and cached. Any failure
+        (no code, no file) yields an empty set — the guard simply stays off,
+        which is the pre-guard behavior.
+        """
+        cached = getattr(self, "_collision_cache", None)
+        if cached is not None:
+            return cached
+        surfaces: frozenset[str] = frozenset()
+        if self.language_code:
+            path = _DATA_DIR / f"{self.language_code}_frequency.tsv"
+            try:
+                with open(path, encoding="utf-8-sig", newline="") as handle:
+                    surfaces = frozenset(
+                        self.normalize(row["word"])
+                        for row in csv.DictReader(handle, delimiter="\t")
+                        if (row.get("word") or "").strip()
+                    )
+            except OSError:
+                surfaces = frozenset()
+        self._collision_cache = surfaces
+        return surfaces
+
+    def _typed_another_card(
+        self,
+        norm_user: str,
+        norm_correct: str,
+        card_context: dict | None,
+    ) -> bool:
+        """Is the learner's input, as typed, a DIFFERENT course word?
+
+        The collision guard: a lenient fold may excuse a mark, it must never
+        launder a word. When what was typed is itself another card's written
+        form (`el` for `él`, `все` for `всё`, `liber` for `līber`), "Almost —
+        check the accents" plus full credit is exactly backwards — the SRS
+        marks a word as known on the strength of a different word. 1,098 such
+        contrastive pairs existed across 11 languages when this was added.
+
+        The lexicon is loaded server-side from the committed vocabulary, never
+        from card_context — the /validate-answer body is client-supplied.
+        """
+        if norm_user == norm_correct:
+            return False
+        surfaces = self._collision_surfaces()
+        # BOTH forms must be course words. When the expected form is not in
+        # the vocabulary — a vocalized Hebrew rendering (בַּיִת for the stored
+        # בית), a drill's inflection — the typed bare form is that same word
+        # in its standard spelling, not a rival card, and the fold is doing
+        # the typo tolerance it was built for.
+        if norm_user not in surfaces or norm_correct not in surfaces:
+            return False
+        alternatives = (card_context or {}).get("answer_alternatives") or []
+        return all(self.normalize(a) != norm_user for a in alternatives)
+
     def check_answer(
         self,
         user_input: str,
@@ -275,6 +342,15 @@ class BaseNLP(ABC):
         if norm_user:
             bare_user = _strip_marks(norm_user)
             if bare_user and bare_user == _strip_marks(norm_correct):
+                # ...unless what they typed IS another course word: then the
+                # marks were not sloppiness, they were the difference between
+                # two words, and crediting it schedules the wrong card.
+                if self._typed_another_card(norm_user, norm_correct, card_context):
+                    return (
+                        AnswerResult.WRONG_FORM,
+                        f"'{norm_user}' is a different word. "
+                        f"Expected: {correct_answer}",
+                    )
                 return (
                     AnswerResult.CORRECT_SLOPPY,
                     f"Almost — check the accents. Expected: {correct_answer}",
@@ -291,6 +367,14 @@ class BaseNLP(ABC):
             if folded_user != norm_user or folded_correct != norm_correct:
                 bare_folded = _strip_marks(folded_user)
                 if bare_folded and bare_folded == _strip_marks(folded_correct):
+                    # Same collision guard as layer 2.5: a look-alike fold
+                    # must not credit a different course word.
+                    if self._typed_another_card(norm_user, norm_correct, card_context):
+                        return (
+                            AnswerResult.WRONG_FORM,
+                            f"'{norm_user}' is a different word. "
+                            f"Expected: {correct_answer}",
+                        )
                     return (
                         AnswerResult.CORRECT_SLOPPY,
                         "Almost — check the letter forms. "

@@ -59,45 +59,52 @@ French `ne` glossed as a Swiss canton.
 
 Two different vocabulary rows that normalise to the same string under **that
 language's own grader**, so the learner is graded on a word the card is not
-teaching.
+teaching. Found in Latin (40 pairs); measured with each real NLP class it was
+**2,122 cards across 11 languages** — `fr` 511, `ro` 502, `es` 270, `ar` 199.
+Typing `el` (the) against `él` (he) returned **`CORRECT_SLOPPY`** — full
+credit — and the SRS scheduled the card as known.
 
-Found in Latin (40 pairs, from a half-macronised file). **It is not a Latin
-problem.** Measured 19 Aug 2026 with each language's real NLP class:
+**The policy (settled by a 10-language triage, 19–20 Aug 2026): a fold may
+excuse a mark; it may never launder a word.** A match that succeeds only under
+a lenient fold earns credit only if what was typed is NOT itself another
+course word. When it is, the grader returns `WRONG_FORM` naming the collision.
+Triage: **1,098 contrastive pairs** (different words) vs 923 incidental across
+the ten; the marks are not decorative anywhere it matters — the Spanish acute
+is the *tilde diacrítica* (its only job is separating homographs), Romanian's
+five diacritics and German umlauts are letters, Greek tonos is phonemic
+stress, Arabic hamza variants are letters. Dutch is the one genuinely
+prosodic-optional mark, and the same guard is still right there: only its
+lexicalised pairs (`hé`/`hè`) trigger it.
 
-| | collisions | grader |
-| --- | --- | --- |
-| `fr` | 511 | AccentFoldingNLP |
-| `ro` | 502 | AccentFoldingNLP |
-| `es` | 270 | AccentFoldingNLP |
-| `ar` | 199 | ArabicNLP |
-| `de` | 152 | AccentFoldingNLP |
-| `pt` | 137 | AccentFoldingNLP |
-| `ca` | 126 | AccentFoldingNLP |
-| `el` | 117 | AccentFoldingNLP |
-| `it` | 60 | AccentFoldingNLP |
-| `la` | 40 | fixed — macronised |
-| `nl` | 8 | AccentFoldingNLP |
-| the other 16 | 0 | |
-| **total** | **2,122** | |
+**Status: all 27 — implemented and ratcheted.** The guard lives server-side in
+`BaseNLP` (layers 2.5/2.6) and `AccentFoldingNLP` (fold level, for marks NFD
+cannot strip: ș, ț), keyed by the committed vocabulary — never by
+client-supplied `card_context`. `test_nlp_collisions.py` freezes per-language
+ceilings so no course grows the class silently; a zero-collision course is
+asserted at zero.
 
-Spanish `el`/`él`, `se`/`sé`, `te`/`té`, `que`/`qué`; French `a`/`à`,
-`la`/`là`, `ne`/`né`; Romanian `sa`/`să`, `in`/`în`. Typing either against the
-other returns **`CORRECT_SLOPPY`** — full credit plus "Almost — check the
-accents" — so a learner shown `él` (he) who types `el` (the) is told they were
-nearly right, and the SRS schedules the card as known.
+**Follow-ups, in order:**
 
-**Status: all 27 for the measurement; parameterised for the fix.** The check
-runs everywhere including the sixteen at zero, so a new course cannot introduce
-the class silently. The *fix* differs and must be decided per language:
+1. **`ar` normalize surgery.** ArabicNLP folds hamza variants *inside
+   `normalize()`*, so its 153 contrastive pairs grade full `CORRECT` at
+   layer 2 — invisible to the guard. The fold must move into a lenient layer
+   first. (Root-aware messaging for shared-root pairs rides along.)
+2. **Data repairs the triage verified but that need human judgment:** `el`
+   twins (Greek monosyllable tonos cuts the other way — a mechanical
+   keep-the-marked rule was tried and reverted), `hi` nuqta variants, `de`
+   ß/ss duplicates, `fr` 1990-reform pairs (both spellings official — merge
+   and accept either as fully CORRECT), `es` broken twin glosses (`creo`
+   glossed as crear, `llegue` "stab", `pagué` "cinchweed", `mío` "meow").
+3. **`de` digraph acceptance:** a learner without umlauts types `schoen`,
+   which the fold does NOT match, while the different word `schon` used to
+   get credit — accept `ae/oe/ue` as the sloppy path.
 
-- **Latin** — marks are all-or-nothing policy, so the data was normalised.
-- **Spanish** — the mark is the *tilde diacrítica*, whose only job is to
-  separate homographs. Folding it destroys exactly the information it carries.
-  A data fix is wrong here; both spellings are real, distinct words.
-- Each remaining language needs its own answer, because German umlaut, Greek
-  tonos, Arabic tashkeel and French accent do not behave alike.
-
----
+**Done mechanically (103 + 4 rows):** self-identifying "misspelling of X"
+rows deleted in 8 languages; ru ё-twins and Romance accent-twins with
+identical glosses merged; four typo-mass artifacts (`citta` "Tuscan girl",
+`envoye` "slowworm", `tete`, `voila`) deleted AND recorded in
+`data/vocab_exclusions.tsv` — a TSV-only deletion is undone by the next
+regeneration, exactly the way a DB-only fix is undone by a re-seed.
 
 ## 4. Orthography policy compliance — across every file the policy covers
 
