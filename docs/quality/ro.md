@@ -118,7 +118,10 @@ From the crawl, re-verified by opening `data/grammar/ro_grammar.json`.
 - **42 points, 296 drills**, every point `source: contributor`, `reviewed: true`, A1→C2
   (12/12/7/6/3/2 by level). **Zero** empty hints, translations or explanations; zero vague
   translations; zero `answer — explanation` templates; zero duplicate hints.
-- **`leak_hard`: 2** — the lemma-equals-answer collisions `ans='auzi' hint='a auzi, tu'` and
+- **`leak_hard`** — 11 on 19 Aug 2026 (`data/quality/baseline.json` agrees): the two
+  lemma-equals-answer collisions below plus the nine `construction_quote` drills, which score
+  under both rules. *This page said 2, counting only the collisions.* Run `python -m backend.services.quality.audit_content --language ro` for the current figure; this page previously froze one and it drifted.
+  The collisions are `ans='auzi' hint='a auzi, tu'` and
   `ans='deschide' hint='a deschide, tu'`. **`construction_quote` (warn): 9** (hint rule 2); worst is
   `ans='cu' hint='(cu cât … cu atât)' sent='Cu cât citești mai mult, {{answer}} atât înveți mai
   bine.'`, which prints the answer twice.

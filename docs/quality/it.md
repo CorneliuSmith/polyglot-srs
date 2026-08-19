@@ -102,7 +102,9 @@ From the crawl, re-verified by opening `data/grammar/it_grammar.json`.
 - **42 points, 310 drills**, every point `source: contributor`, `reviewed: true`, A1→C2
   (12/14/7/6/3/2 by level). **Zero** empty hints, translations or explanations; zero vague
   translations; zero `answer — explanation` templates; zero multi-word answers.
-- **`leak_hard`: 0. `construction_quote` (warn): 3** — every mechanical leak is the parenthesis
+- **`leak_hard` and `construction_quote`** — every mechanical leak is the parenthesis
+  class, and the same drills score under both rules (3 and 3 on 19 Aug 2026). *This line read
+  "`leak_hard`: 0" until 19 Aug, contradicting the tool.* Run `python -m backend.services.quality.audit_content --language it` for the current figure; this page previously froze one and it drifted.
   class: `si` → `(si passivante)`; `Si` → `(impersonal si)`; `le` → `them (ce + le)`.
 - **`giveaway_by_gloss`: 23.** Worst offenders, all answerable with no Italian at all:
   - `ans='Lei' hint='she' trans='She sings very well.'`
@@ -111,7 +113,7 @@ From the crawl, re-verified by opening `data/grammar/it_grammar.json`.
 - **One-word hints: 26** (crawl agrees). Ten are the subject-pronoun glosses above; `singular`,
   `masculine`, `feminine`, `plural` name a feature rather than a translation and fall in the
   agreement-leak class instead.
-- **Agreement-feature-only hints: 8 in *Definite articles*, 4 in *Indefinite articles*** — the
+- **Agreement-feature-only hints** — the `agreement_feature` rule reports 11 for it (19 Aug 2026): 5 in *Definite articles*, 4 in *Indefinite articles*, 2 elsewhere. *This page said 8 and 4.* The
   largest quality problem here, and the mechanical checker sees none of it.
 - **`duplicate_hint`: 1** — `-are verbs → -ando` maps to both `giocando` and `preparando` in
   *Stare + gerundio*; only the English translation names the verb.

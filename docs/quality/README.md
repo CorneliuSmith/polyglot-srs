@@ -318,6 +318,49 @@ happened" reports are a role that lacks the affordance being described.
 
 ---
 
+## Numbers in these docs go stale, and stale numbers get acted on
+
+A claim audit on 18 Aug 2026 checked every falsifiable statement in all 27
+language files against the data it describes. **118 defects: 45 outright
+false, 52 stale, 18 true-but-misleading.** Two failure modes, and both cost
+real work:
+
+- **Undercounting live debt.** `sw.md` says "50 grammar points, 308 drills";
+  the file holds **64 points and 442 drills**. `ko.md` says "verified on disk:
+  40 points, 240 drills, six each" — it is **156 points and 1,217 drills**,
+  and "six each" stopped being true long ago. Anyone scoping a burn-down from
+  those pages plans a job a third the real size.
+- **Describing defects that are already fixed.** `el.md`, `hi.md`, `th.md`,
+  `es.md` and `ca.md` each still name specific rows or grading bugs that have
+  since been repaired. A reader who checks the cited example finds it clean,
+  concludes the page is wrong, and stops trusting the rest of it.
+
+`la.md` was the worst case and the reason this audit ran: it reported the
+macron policy "verified" against the grammar file while the vocabulary file
+sat at 48% non-compliant, seeding 40 duplicate cards.
+
+**So, three rules for writing these pages:**
+
+1. **Never freeze a count the audit already computes.** `leak_hard`,
+   `giveaway_by_gloss`, `agreement_feature`, `duplicate_hint`,
+   `wrong_sense_gloss`, `circular_gloss` — cite the RULE NAME and let
+   `python -m backend.services.quality.audit_content --language <code>` say
+   the number. Four language files currently assert `leak_hard: 0` or `2`
+   where the audit prints 10, 11, 7 and 3; the docs and the tool disagree
+   because a human typed one of them once.
+2. **A number the audit does NOT compute must carry its date and how it was
+   measured** — the command or query, not just the figure. "18 hint leaks"
+   is unfalsifiable a month later; "18 by whole-word match on 12 Aug, audit
+   says 17" can be re-run and corrected.
+3. **"Verified" must name every file the claim covers.** A policy that spans
+   the grammar file, the frequency file and the gym is not verified until all
+   three are checked, and saying so is what stops the next `la.md`.
+
+Prefer a pointer to a count. "The `agreement_feature` rule is the largest
+class here" ages well; "18 agreement-feature hints" does not.
+
+---
+
 ## Cadence
 
 | When | What |
