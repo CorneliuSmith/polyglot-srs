@@ -91,11 +91,13 @@ asserted at zero.
    the same card as `إن` ("if") and `آن` ("time"). Two carve-outs: the
    alphabet deck (a one-letter answer has no word to confuse it with) and
    Check 0, widened to fire on `CORRECT_SLOPPY` so vocalized form drills still
-   fail a bare answer. 11 junk twin rows deleted. **Still open:** the yeh fold
-   (ى/ي) stays in `normalize()` by an explicit owner decision and merges 84
-   further cards *below* the guard — rank 8 `على` ("on") with rank 144 `علي`
-   ("to be exalted"), 9 groups inside the top 300. Cost recorded in `ar.md`;
-   the decision is the owner's.
+   fail a bare answer. 11 junk twin rows deleted. The yeh fold (ى/ي) followed on the
+   owner's ruling once the cost was measured: the green ruling rested on
+   Egyptian convention, which `ar.md` puts explicitly out of scope, and in MSA
+   word-final ى is /aː/ against ي /iː/. Moved to the coaching layer as well —
+   **79 → 1**. `ArabicNLP.normalize()` now strips tashkeel and tatweel and
+   nothing else. The 1 residual is `ه` vs the kashida-written hijri
+   abbreviation `هـ` at rank 5634, left deliberately.
 2. **Data repairs the triage verified but that need human judgment:** `el`
    twins (Greek monosyllable tonos cuts the other way — a mechanical
    keep-the-marked rule was tried and reverted), `hi` nuqta variants, `de`

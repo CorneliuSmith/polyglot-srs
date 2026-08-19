@@ -31,18 +31,30 @@ def _backends():
 
 class TestArabicLookalikes:
     """إلى — one of the commonest prepositions in Arabic — ends in alef
-    maqsura ى, and phone keyboards offer ي far more readily. Which yeh a
-    learner produces is decided by their keyboard, so it grades fully
-    CORRECT (owner's call), not merely tolerated."""
+    maqsura ى, and phone keyboards offer ي far more readily.
 
-    def test_yeh_typed_for_alef_maqsura_is_fully_correct(self):
+    That used to grade fully CORRECT. It is now amber (20 Aug 2026): in MSA,
+    the variety this course teaches, word-final ى is /aː/ and ي is /iː/ —
+    different sounds, and 84 cards were merged onto other cards by folding
+    them, rank 8 على "on" with rank 144 علي "to be exalted" among them. The
+    green ruling rested on Egyptian convention, which ar.md puts explicitly
+    out of scope. The learner still passes; the proper form is now named.
+    """
+
+    def test_yeh_typed_for_alef_maqsura_is_coached(self):
         result, msg = get_nlp("ar").check_answer("إلي", "إلى")
-        assert result is AnswerResult.CORRECT
-        assert msg is None
+        assert result is AnswerResult.CORRECT_SLOPPY
+        assert "إلى" in (msg or "")
 
-    def test_farsi_yeh_from_a_persian_keyboard_is_fully_correct(self):
+    def test_farsi_yeh_from_a_persian_keyboard_is_coached(self):
         result, _ = get_nlp("ar").check_answer("إلی", "إلى")
-        assert result is AnswerResult.CORRECT
+        assert result is AnswerResult.CORRECT_SLOPPY
+
+    def test_a_yeh_slip_that_lands_on_another_card_is_wrong_form(self):
+        """The whole point of amber over green: على and علي are two words."""
+        result, msg = get_nlp("ar").check_answer("علي", "على")
+        assert result is AnswerResult.WRONG_FORM
+        assert "different word" in (msg or "")
 
     def test_hamza_over_or_under_alif_is_fully_correct(self):
         # The alphabet card is bare ا; a phone's long-press row offers أ/إ.
