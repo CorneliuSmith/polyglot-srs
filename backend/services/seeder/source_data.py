@@ -1083,7 +1083,9 @@ async def load_example_sentences(db_url: str, language_code: str, tsv_path: Path
 # CLI
 # ---------------------------------------------------------------------------
 
-GLOSS_OVERRIDES_PATH = DATA_DIR / "gloss_overrides.tsv"
+# Both live in gloss_overrides so the English seeder can reach them without
+# pulling this module's heavier imports in with them.
+from .gloss_overrides import GLOSS_OVERRIDES_PATH, load_gloss_overrides  # noqa: E402,F401
 
 
 def apply_gloss_overrides(language: str, rows: list[dict]) -> list[dict]:
@@ -1104,16 +1106,10 @@ def apply_gloss_overrides(language: str, rows: list[dict]) -> list[dict]:
     en_translation_overrides.tsv. Only words already present are corrected; an
     override never invents an entry, because rank comes from the corpus.
     """
-    if not GLOSS_OVERRIDES_PATH.exists():
-        return rows
-    overrides: dict[str, dict] = {}
-    with open(GLOSS_OVERRIDES_PATH, encoding="utf-8-sig", newline="") as f:
-        for row in csv.DictReader(f, delimiter="\t"):
-            if (row.get("language") or "").strip() != language:
-                continue
-            word = (row.get("word") or "").strip()
-            if word:
-                overrides[word] = row
+    # Module global, so a test that patches GLOSS_OVERRIDES_PATH here is heard.
+    import backend.services.seeder.source_data as _mod
+
+    overrides = load_gloss_overrides(language, _mod.GLOSS_OVERRIDES_PATH)
     if not overrides:
         return rows
     applied = 0

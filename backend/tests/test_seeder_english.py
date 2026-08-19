@@ -157,3 +157,114 @@ class TestEnglishSeederTransform:
             stack.enter_context(patch("backend.services.seeder.seed_english.FREQ_FILENAME", "nonexistent_file.tsv"))
             with pytest.raises(FileNotFoundError):
                 await seeder.transform()
+
+
+# ── hand-authored overrides ───────────────────────────────────────────────────
+
+@requires_wordnet
+class TestEnglishSeederGlossOverrides:
+    """data/gloss_overrides.tsv is the one place a bad definition gets fixed.
+
+    English used to be the only course it could not reach: its definitions come
+    from WordNet at seed time rather than from a gloss column, so nothing read
+    the file. WordNet's own senses are what defined `be` as beryllium.
+    """
+
+    async def test_override_replaces_the_wordnet_definition(self, seeder):
+        rows = {"book": {"pos": "noun", "en": "a written work bound between covers"}}
+        with fixture_patch(), patch(
+            "backend.services.seeder.seed_english.load_gloss_overrides", return_value=rows
+        ):
+            records = await seeder.transform()
+        book = next(r for r in records if r["word"] == "book")
+        assert book["translations"]["en"] == "a written work bound between covers"
+        assert book["pos"] == "noun"
+
+    async def test_override_beats_the_builtin_function_gloss(self, seeder):
+        """'the' has a hard-coded gloss; the file still wins, or it cannot fix one."""
+        rows = {"the": {"pos": "article", "en": "marks a specific, already-known thing"}}
+        with fixture_patch(), patch(
+            "backend.services.seeder.seed_english.load_gloss_overrides", return_value=rows
+        ):
+            records = await seeder.transform()
+        the = next(r for r in records if r["word"] == "the")
+        assert the["translations"]["en"] == "marks a specific, already-known thing"
+
+    async def test_blank_override_does_not_erase_the_definition(self, seeder):
+        rows = {"water": {"pos": "noun", "en": ""}}
+        with fixture_patch(), patch(
+            "backend.services.seeder.seed_english.load_gloss_overrides", return_value=rows
+        ):
+            records = await seeder.transform()
+        water = next(r for r in records if r["word"] == "water")
+        assert water["translations"]["en"].strip()
+
+    async def test_untouched_words_keep_their_wordnet_definition(self, seeder):
+        rows = {"book": {"pos": "noun", "en": "a written work bound between covers"}}
+        with fixture_patch(), patch(
+            "backend.services.seeder.seed_english.load_gloss_overrides", return_value=rows
+        ):
+            overridden = await seeder.transform()
+        with fixture_patch():
+            plain = await seeder.transform()
+        by_word = {r["word"]: r["translations"]["en"] for r in plain}
+        for r in overridden:
+            if r["word"] != "book":
+                assert r["translations"]["en"] == by_word[r["word"]]
+
+
+# ── committed definitions ─────────────────────────────────────────────────────
+
+@requires_wordnet
+class TestEnglishSeederCommittedGlosses:
+    """data/en_frequency.tsv carries `pos` and `en` like the other 26 courses.
+
+    English used to resolve its definitions from WordNet at seed time and
+    commit nothing, so no audit could see them — which is how rank 3 `be`
+    shipped defined as beryllium.
+    """
+
+    def freq_file(self, tmp_path, rows):
+        path = tmp_path / "en_freq.tsv"
+        lines = ["rank\tword\tpos\ten"]
+        lines += ["\t".join(r) for r in rows]
+        path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+        return path
+
+    def patched(self, path):
+        stack = ExitStack()
+        stack.enter_context(patch("backend.services.seeder.seed_english.DATA_DIR", path.parent))
+        stack.enter_context(patch("backend.services.seeder.seed_english.FREQ_FILENAME", path.name))
+        return stack
+
+    async def test_committed_definition_is_used(self, seeder, tmp_path):
+        path = self.freq_file(tmp_path, [("1", "book", "noun", "a thing you read")])
+        with self.patched(path):
+            records = await seeder.transform()
+        assert records[0]["translations"]["en"] == "a thing you read"
+
+    async def test_blank_column_falls_back_to_wordnet(self, seeder, tmp_path):
+        path = self.freq_file(tmp_path, [("1", "book", "", "")])
+        with self.patched(path):
+            records = await seeder.transform()
+        assert records[0]["translations"]["en"]
+        assert records[0]["translations"]["en"] != "a thing you read"
+
+    async def test_overrides_still_win_over_the_committed_column(self, seeder, tmp_path):
+        path = self.freq_file(tmp_path, [("1", "book", "noun", "a thing you read")])
+        rows = {"book": {"pos": "noun", "en": "a written work bound between covers"}}
+        with self.patched(path), patch(
+            "backend.services.seeder.seed_english.load_gloss_overrides", return_value=rows
+        ):
+            records = await seeder.transform()
+        assert records[0]["translations"]["en"] == "a written work bound between covers"
+
+    async def test_regenerating_ignores_what_is_on_disk(self, tmp_path):
+        """The emitter that writes the column must not read it back, or
+        regeneration is a no-op that silently preserves the bad gloss."""
+        from backend.services.seeder.emit_english_glosses import _Regenerating
+
+        path = self.freq_file(tmp_path, [("1", "book", "noun", "a thing you read")])
+        with self.patched(path):
+            records = await _Regenerating("postgresql://localhost/test").transform()
+        assert records[0]["translations"]["en"] != "a thing you read"

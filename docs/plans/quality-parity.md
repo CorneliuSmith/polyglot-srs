@@ -333,6 +333,39 @@ Original scope, for the record:
 
 ### Phase 1 — Definitions (the named complaint, and the 2,156 behind it)
 
+**Status: shipped, in four PRs.** Steps 2–5 landed in #296/#298/#301/#304
+(2,150 → 944 defective glosses, no word lost from any top-50) and #305
+(WordNet sense selection by tagged-corpus count). What closed it out:
+
+- **English's glosses are committed.** `data/en_frequency.tsv` now carries
+  `pos` and `en` columns like the other 26 courses, written by
+  `python -m backend.services.seeder.emit_english_glosses`, and the seeder
+  reads them. English was the one course no audit could see, which is how
+  rank 3 `be` shipped as beryllium.
+- **English reaches `data/gloss_overrides.tsv`.** It could not before: its
+  definitions are built at seed time from WordNet rather than read from a
+  gloss column, so the shared override table had no way in. 99 English rows
+  now sit in the same file as the other 26 languages'.
+- **`circular_gloss`, a new fail-level rule.** A definition that explains the
+  word with the word teaches nothing — `have` → "have or possess", `paint` →
+  "make a painting", and rank 6 `a` defined as an ångström. 80 of the first
+  1000 English definitions were circular; all 80 were rewritten maker–checker
+  and the top band is now at zero.
+
+  The rule is English-only and content-words-only, both deliberately.
+  Elsewhere the gloss is in a different language from the headword, so a
+  headword inside it is a collocation example (`na` — "and; with (kuwa na, to
+  have)") or a loanword that honestly glosses to itself (`hotel`,
+  `internet`); running it on the other 26 courses reports 500+ findings and
+  not one is a defect. And a preposition cannot be glossed without being
+  used — "in exchange for" IS the teaching.
+
+  **Remaining debt, outside the audited band:** 106 circular definitions in
+  ranks 1001–3000 and 277 in 3001–10000. The rule measures the top 1000 only,
+  matching `wrong_sense_gloss`; widening the band is a later pass, not a
+  silent gap.
+
+
 Rescoped after D1b. This is no longer "fix 60 letter-name glosses"; it is the
 text under every vocabulary card in 21 languages.
 
@@ -373,13 +406,24 @@ a DB-only repair is reverted by the next re-seed.
 
 ### Phase 2 — Sentences to parity
 
-- **The English locale fix goes first**, because it is code rather than
-  authoring and it unblocks 112,648 sentences that already exist. Serve the
-  English course's own sentences to a learner whose support locale is `en`
-  (and to the thirteen locales with no translations yet) without demanding a
-  `translation_locale='en'` row that, per `docs/quality/en.md`, should not
-  exist. Regression test: an English learner with support locale `en` gets a
-  non-empty "in context" line.
+- **The English locale fix — SHIPPED.** All four sentence-selection queries in
+  `backend/repositories/cards.py` demanded a row whose `translation_locale`
+  was the learner's or `en`. The English bank has zero `en` rows by design —
+  every one of its 202,772 rows translates English INTO another language — so
+  an `en`-locale learner of English matched nothing and saw no example
+  sentences at all. That is the default locale, so it was most of them.
+
+  A sentence already written in the language the learner reads needs no
+  translation, so the queries now also accept `es.language_id IN (SELECT id
+  FROM languages WHERE code = $locale)` and null the translation and its
+  locale for those rows — the learner gets the cloze with no translation
+  line, never a Turkish gloss under an English sentence. Covered by
+  `test_english_support_locale_localizes_cards`.
+
+  Still open: the thirteen locales *with* translations are covered, but a
+  learner in a locale outside those thirteen (ko, ja, id…) gets the sentence
+  with no translation rather than one in their language. That is the
+  `translate_english` runner's job, not this fix's.
 - Tatoeba builds (`source_data --sentences`) for la, id, he, fa, tl; top-ups
   where the corpus has more (th, ca, hi, ko, sw).
 - Session-generated sentences for the top-500 gaps that corpora cannot

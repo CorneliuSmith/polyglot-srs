@@ -1853,10 +1853,24 @@ async def test_english_support_locale_localizes_cards(pool):
         assert c["sentence"] == "a clear liquid"  # definition-mode prompt
         assert c["translation"] is None
 
-        # No support locale = today's behavior (English definitions).
+        # No support locale: the learner reads English and is studying
+        # English, so the sentence needs no translation — they get the cloze,
+        # not the fallback definition prompt. They used to get nothing,
+        # because the English bank holds no 'en' translation rows at all
+        # (every row translates English INTO another language), so the
+        # ($3, 'en') filter matched none of them. That is the default locale,
+        # so it was most learners of English.
         cards = await get_due_cards(conn, lang)
         c = next(x for x in cards if str(x["id"]) == card)
-        assert c["sentence"] == "a clear liquid"
+        assert c["sentence"] == "I drink {{answer}}."
+        # And emphatically not the Spanish row dressed up as theirs.
+        assert c["translation"] is None
+        assert c["translation_locale"] is None
+        assert c["translation_pending"] is False
+
+        detail = await get_card_detail(conn, card)
+        assert [e["sentence"] for e in detail["examples"]] == ["I drink water."]
+        assert [e["translation"] for e in detail["examples"]] == [None]
 
 
 async def test_english_drill_hints_localize(pool):

@@ -3,6 +3,7 @@ import csv
 import json
 
 from .base import DATA_DIR, BaseSeeder  # noqa: F401 — DATA_DIR re-exported so tests can patch it
+from .gloss_overrides import load_gloss_overrides
 from .wordnet_sense import best_synset
 
 # Filename constant so tests can patch DATA_DIR
@@ -11,6 +12,11 @@ FREQ_FILENAME = "en_frequency.tsv"
 
 class EnglishSeeder(BaseSeeder):
     language_code = "en"
+
+    #: Read the definitions committed in the frequency file. The emitter that
+    #: WRITES that file turns this off — otherwise the column it wrote last
+    #: time shadows WordNet and regeneration silently becomes a no-op.
+    use_committed_glosses = True
 
     async def download(self) -> None:
         """Download NLTK WordNet corpus if not present."""
@@ -41,7 +47,14 @@ class EnglishSeeder(BaseSeeder):
         noise = {"ain", "isn", "de", "mm"}
 
         # Read frequency list
+        # The file carries `pos` and `en` columns, exactly as the other 26
+        # courses' frequency files do. They were the point of parity English
+        # was missing: with the definitions committed, the content audit reads
+        # English's glosses like everyone else's, and a reviewer can see the
+        # whole course in a diff instead of having to run WordNet. WordNet
+        # still resolves anything the file leaves blank.
         freq_words = []
+        committed: dict[str, dict] = {}
         with open(freq_path, encoding="utf-8") as f:
             reader = csv.DictReader(f, delimiter="\t")
             for row in reader:
@@ -49,6 +62,11 @@ class EnglishSeeder(BaseSeeder):
                 if word.lower() in noise:
                     continue
                 freq_words.append((int(row["rank"]), word))
+                if self.use_committed_glosses and (row.get("en") or "").strip():
+                    committed[word] = {
+                        "pos": (row.get("pos") or "").strip(),
+                        "en": row["en"].strip(),
+                    }
 
         # Optional: spaCy for POS and lemmatization
         nlp = None
@@ -141,10 +159,30 @@ class EnglishSeeder(BaseSeeder):
             "may": "verb", "might": "verb",
         }
 
+        # Hand-authored definitions, in the same file the other 26 courses use.
+        # English reaches it here rather than through source_data because its
+        # glosses are built at seed time from WordNet, not read from a column.
+        overrides = load_gloss_overrides("en")
+
         records = []
         for rank, word in freq_words:
             lower = word.lower()
-            if lower in function_glosses:
+            override = overrides.get(word) or overrides.get(lower)
+            row = committed.get(word)
+            # A hand-authored POS is a decision, not a guess: spaCy reading a
+            # bare "a" calls it a determiner, which would quietly undo the
+            # override that says article.
+            pinned = lower in function_pos
+            if override and override.get("en"):
+                definition = override["en"]
+                wn_pos = (override.get("pos") or "").strip() or function_pos.get(lower)
+                pinned = pinned or bool(override.get("pos"))
+                synsets = []
+            elif row:
+                definition = row["en"]
+                wn_pos = row["pos"] or function_pos.get(lower)
+                synsets = []
+            elif lower in function_glosses:
                 definition = function_glosses[lower]
                 wn_pos = function_pos.get(lower)
                 synsets = []
@@ -166,7 +204,7 @@ class EnglishSeeder(BaseSeeder):
             # function-word POS — spaCy mislabels bare tokens)
             pos = wn_pos
             morphology = {"lemma": word}
-            if nlp and lower not in function_pos:
+            if nlp and not pinned:
                 try:
                     doc = nlp(word)
                     if doc:

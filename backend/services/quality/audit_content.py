@@ -72,6 +72,7 @@ FAIL_RULES = (
     "empty",
     "ar_register",
     "wrong_sense_gloss",
+    "circular_gloss",
 )
 WARN_RULES = ("construction_quote", "vague_translation", "hint_language", "structural")
 # Measured and printed, never scored: "how often do noun hints mark gender" is
@@ -620,6 +621,106 @@ def _audit_wrong_sense_glosses(code: str) -> list[str]:
     return problems
 
 
+
+# Forms a headword takes that still count as itself inside its own definition.
+# Only English gets this rule, so English morphology is all it needs to know.
+_IRREGULAR_FORMS = {
+    "be": {"is", "are", "was", "were", "been", "being", "am"},
+    "have": {"has", "had", "having"}, "do": {"does", "did", "done", "doing"},
+    "go": {"goes", "went", "gone", "going"}, "say": {"says", "said"},
+    "make": {"makes", "made", "making"}, "take": {"takes", "took", "taken"},
+    "come": {"comes", "came", "coming"}, "see": {"sees", "saw", "seen"},
+    "know": {"knows", "knew", "known"}, "get": {"gets", "got", "gotten"},
+    "give": {"gives", "gave", "given"}, "find": {"finds", "found"},
+    "think": {"thinks", "thought"}, "tell": {"tells", "told"},
+    "become": {"becomes", "became"}, "leave": {"leaves", "left"},
+    "feel": {"feels", "felt"}, "put": {"puts", "putting"},
+    "bring": {"brings", "brought"}, "begin": {"begins", "began", "begun"},
+    "hold": {"holds", "held"}, "write": {"writes", "wrote", "written"},
+    "stand": {"stands", "stood"}, "hear": {"hears", "heard"},
+    "let": {"lets", "letting"}, "mean": {"means", "meant"},
+    "set": {"sets", "setting"}, "meet": {"meets", "met"},
+    "run": {"runs", "ran", "running"}, "pay": {"pays", "paid"},
+    "sit": {"sits", "sat", "sitting"}, "speak": {"speaks", "spoke", "spoken"},
+    "lie": {"lies", "lay", "lain", "lying"}, "lead": {"leads", "led"},
+    "grow": {"grows", "grew", "grown"}, "lose": {"loses", "lost"},
+    "fall": {"falls", "fell", "fallen"}, "send": {"sends", "sent"},
+    "build": {"builds", "built"}, "understand": {"understands", "understood"},
+    "draw": {"draws", "drew", "drawn"}, "break": {"breaks", "broke", "broken"},
+    "spend": {"spends", "spent"}, "cut": {"cuts", "cutting"},
+    "rise": {"rises", "rose", "risen"}, "drive": {"drives", "drove", "driven"},
+    "buy": {"buys", "bought"}, "wear": {"wears", "wore", "worn"},
+    "choose": {"chooses", "chose", "chosen"}, "man": {"men"},
+    "woman": {"women"}, "child": {"children"}, "person": {"people"},
+}
+
+# Only content words. A preposition cannot be defined without being used —
+# `for` glosses as "intended for; in exchange for" and that collocation IS the
+# teaching. Flagging those would bury the real defect in false positives.
+_CIRCULAR_POS = {"noun", "verb", "adj", "adv"}
+
+
+def _word_forms(word: str) -> set[str]:
+    """Everything that reads as *word* to a learner looking at a definition."""
+    w = word.lower()
+    out = {w, w + "s", w + "es", w + "ed", w + "d", w + "ing", w + "er",
+           w + "ly", w + "est"}
+    if w.endswith("e"):
+        out |= {w[:-1] + "ing", w[:-1] + "ed", w[:-1] + "er"}
+    if w.endswith("y"):
+        out |= {w[:-1] + "ies", w[:-1] + "ied", w[:-1] + "ier"}
+    if len(w) > 2 and w[-1] not in "aeiouwxy" and w[-2] in "aeiou" and w[-3] not in "aeiou":
+        out |= {w + w[-1] + "ing", w + w[-1] + "ed"}
+    return out | _IRREGULAR_FORMS.get(w, set())
+
+
+def is_circular(word: str, pos: str, gloss: str) -> bool:
+    """Does this definition explain the word with the word?
+
+    WordNet writes for someone who already knows English: `have` glossed as
+    "have or possess", `pull` as "cause to move by pulling", `paint` as "make
+    a painting". A learner reading the card gets nothing from any of them.
+    """
+    if (pos or "").strip().lower() not in _CIRCULAR_POS:
+        return False
+    tokens = set(re.findall(r"[a-z']+", (gloss or "").lower()))
+    return bool(tokens & _word_forms(word))
+
+
+def _audit_circular_glosses(code: str) -> list[str]:
+    """English definitions inside the learner's band that quote their own word.
+
+    English only. Elsewhere the gloss is in a different language from the
+    headword, so a headword inside it is a deliberate collocation example
+    (`na` — "and; with (kuwa na, to have)") or a loanword that really does
+    gloss to itself (`hotel`, `internet`). Running this on those courses
+    reports 500+ findings, none of them defects.
+    """
+    if code != "en":
+        return []
+    path = DATA / f"{code}_frequency.tsv"
+    if not path.exists():
+        return []
+    problems = []
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle, delimiter="\t"):
+            gloss = (row.get("en") or "").strip()
+            word = (row.get("word") or "").strip()
+            if not gloss or not word:
+                continue
+            try:
+                rank = int(row.get("rank") or 0)
+            except ValueError:
+                continue
+            if not 0 < rank <= WRONG_SENSE_RANK_BAND:
+                continue
+            if is_circular(word, row.get("pos") or "", gloss):
+                problems.append(
+                    f"rank {rank} '{word}' defined with itself: \"{gloss[:70]}\""
+                )
+    return problems
+
+
 def audit_language(code: str) -> dict:
     """Every rule for one language. Returns findings, counts and notes."""
     points = load_grammar(code)
@@ -628,6 +729,7 @@ def audit_language(code: str) -> dict:
     findings["structural"] = _audit_structure(code, points, morphology)
     findings["gender_marking"] = _audit_gender_marking(code, points or [], morphology)
     findings["wrong_sense_gloss"] = _audit_wrong_sense_glosses(code)
+    findings["circular_gloss"] = _audit_circular_glosses(code)
     if code == "ar":
         findings["ar_register"] += _audit_arabic_sentences()
 
@@ -704,7 +806,8 @@ def print_report(reports: list[dict], examples: int = 5) -> None:
 
 def print_summary(reports: list[dict]) -> None:
     # Positional against FAIL_RULES — keep the two in step.
-    heads = ("leak", "self", "gloss", "agree", "dup", "empty", "ar_reg", "wrongsns")
+    heads = ("leak", "self", "gloss", "agree", "dup", "empty", "ar_reg",
+             "wrongsns", "circular")
     print("\n" + "-" * (6 + 8 * (len(FAIL_RULES) + 2)))
     print(f"{'lang':<6}" + "".join(f"{h:>8}" for h in heads) + f"{'FAIL':>8}{'warn':>8}")
     for report in reports:

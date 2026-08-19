@@ -26,17 +26,19 @@ def _wordnet_present() -> bool:
     environment fact. Real breakage in the seeder still fails, because with
     the corpus present nothing here is skipped.
     """
+    # Ask the reader the seeder uses, not nltk.data.find. find() misses a
+    # corpus that is present as corpora/wordnet.zip without an unpacked
+    # directory beside it, which is how `nltk.download('wordnet')` leaves it
+    # on macOS — so every one of these tests skipped on a machine where
+    # wn.synsets('book') returns fifteen results.
     try:
-        import nltk
-    except ImportError:
-        return False
-    try:
-        nltk.data.find("corpora/wordnet")
+        from nltk.corpus import wordnet as wn
+
+        return bool(wn.synsets("book"))
     except LookupError:
         return False
     except Exception:  # noqa: BLE001 — a broken data dir is still "absent"
         return False
-    return True
 
 
 requires_wordnet = pytest.mark.skipif(
