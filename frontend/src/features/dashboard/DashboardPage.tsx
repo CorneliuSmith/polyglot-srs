@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Clapperboard, Menu } from 'lucide-react'
 import HeaderUtilities from '../../components/HeaderUtilities'
+import { PAGE_WIDE } from '../../lib/layout'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
@@ -331,7 +332,7 @@ export default function DashboardPage() {
       {/* Narrow on a phone, wider once there is a second column to hold.
           The reading measure of the loop itself doesn't change — the extra
           width goes to the rail, not to stretching the tiles. */}
-      <div className="max-w-2xl lg:max-w-5xl mx-auto px-4 py-8 space-y-6 pb-24 md:pb-8">
+      <div className={`${PAGE_WIDE} mx-auto px-4 py-8 space-y-6 pb-24 md:pb-8`}>
         {/* Header. On phones the full row of destinations overflowed the
             viewport (the source of the "shaky", clipped layout), so the
             nav links collapse behind a menu button below md and only the
@@ -394,7 +395,7 @@ export default function DashboardPage() {
         {/* Two columns from lg up: the daily loop keeps the left, and the
             things a learner reaches for next sit beside it instead of
             behind a tab. One column below that, unchanged. */}
-        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_18rem] lg:gap-6 lg:items-start">
+        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_18rem] xl:grid-cols-[minmax(0,1fr)_22rem] lg:gap-6 lg:items-start">
         <div className="space-y-6">
         {/* The STUDY language. A deliberate, infrequent choice, and legible
             by definition — so it stays here as a labelled control rather

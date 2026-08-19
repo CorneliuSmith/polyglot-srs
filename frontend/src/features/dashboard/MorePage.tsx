@@ -9,6 +9,7 @@ import { useViewAsKey } from '../../stores/viewAsStore'
 import { usePrefsStore } from '../../stores/prefsStore'
 import DirArrow from '../../components/DirArrow'
 import SectionHeader from '../../components/SectionHeader'
+import { PAGE_WIDE } from '../../lib/layout'
 import FeedbackButton from '../feedback/FeedbackButton'
 import { lettersFor } from '../letters/lettersData'
 import { factsFor } from '../about/languageFacts'
@@ -85,60 +86,65 @@ export default function MorePage() {
 
   return (
     <div className="min-h-screen bg-gray-50 overflow-x-hidden">
-      <div className="max-w-3xl mx-auto px-4 py-6 space-y-4 pb-24 md:pb-6">
+      <div className={`${PAGE_WIDE} mx-auto px-4 py-6 space-y-4 pb-24 md:pb-6`}>
         <SectionHeader title={t('nav.more')} />
 
-        {(hasLetters || hasFacts) && (
-          <section className="space-y-2" data-testid="language-guide">
-            <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
-              {t('nav.languageGuide')}
-            </h2>
-            {hasLetters && (
-              <Row
-                icon={Languages}
-                title={t('dashboard.lettersTitle')}
-                sub={t('dashboard.lettersSub')}
-                onClick={() => navigate('/letters')}
-                testId="tile-letters"
-              />
-            )}
-            {hasFacts && (
-              <Row
-                icon={Globe2}
-                title={t('dashboard.aboutTitle')}
-                sub={t('dashboard.aboutSub')}
-                onClick={() => navigate('/about')}
-                testId="tile-about"
-              />
-            )}
-          </section>
-        )}
+        {/* Two independent lists — the guide for this language, and the
+            places to go. Side by side once there is room; the rows inside
+            keep their own column's width rather than stretching. */}
+        <div className="grid gap-4 lg:grid-cols-2 items-start">
+          {(hasLetters || hasFacts) && (
+            <section className="space-y-2" data-testid="language-guide">
+              <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+                {t('nav.languageGuide')}
+              </h2>
+              {hasLetters && (
+                <Row
+                  icon={Languages}
+                  title={t('dashboard.lettersTitle')}
+                  sub={t('dashboard.lettersSub')}
+                  onClick={() => navigate('/letters')}
+                  testId="tile-letters"
+                />
+              )}
+              {hasFacts && (
+                <Row
+                  icon={Globe2}
+                  title={t('dashboard.aboutTitle')}
+                  sub={t('dashboard.aboutSub')}
+                  onClick={() => navigate('/about')}
+                  testId="tile-about"
+                />
+              )}
+            </section>
+          )}
 
-        <section className="space-y-2">
-          <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
-            {t('nav.more')}
-          </h2>
-          {/* Icons for the destination rows too — Account especially was
-              the last text-only entry while every feature row had one. */}
-          <Row
-            icon={Layers}
-            title={t('nav.decks')}
-            onClick={() => navigate('/decks')}
-            testId="row-decks"
-          />
-          <Row
-            icon={Search}
-            title={t('nav.search')}
-            onClick={() => navigate('/search')}
-            testId="row-search"
-          />
-          <Row
-            icon={CircleUserRound}
-            title={t('nav.account')}
-            onClick={() => navigate('/account')}
-            testId="row-account"
-          />
-        </section>
+          <section className="space-y-2">
+            <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+              {t('nav.more')}
+            </h2>
+            {/* Icons for the destination rows too — Account especially was
+                the last text-only entry while every feature row had one. */}
+            <Row
+              icon={Layers}
+              title={t('nav.decks')}
+              onClick={() => navigate('/decks')}
+              testId="row-decks"
+            />
+            <Row
+              icon={Search}
+              title={t('nav.search')}
+              onClick={() => navigate('/search')}
+              testId="row-search"
+            />
+            <Row
+              icon={CircleUserRound}
+              title={t('nav.account')}
+              onClick={() => navigate('/account')}
+              testId="row-account"
+            />
+          </section>
+        </div>
 
         {/* The general feedback channel. Everything else in the app can only
             report a problem WITH A CARD, so anyone whose complaint was about

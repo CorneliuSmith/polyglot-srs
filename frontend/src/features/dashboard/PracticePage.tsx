@@ -7,6 +7,7 @@ import { getGymManifest } from '../../api/gym'
 import { usePrefsStore } from '../../stores/prefsStore'
 import DirArrow from '../../components/DirArrow'
 import SectionHeader from '../../components/SectionHeader'
+import { PAGE_WIDE } from '../../lib/layout'
 import NewPicksPrompt from '../recommendations/NewPicksPrompt'
 import PersonalDecksSection from '../decks/PersonalDecksSection'
 
@@ -99,7 +100,7 @@ export default function PracticePage() {
 
   return (
     <div className="min-h-screen bg-gray-50 overflow-x-hidden">
-      <div className="max-w-3xl mx-auto px-4 py-6 space-y-4 pb-24 md:pb-6">
+      <div className={`${PAGE_WIDE} mx-auto px-4 py-6 space-y-4 pb-24 md:pb-6`}>
         <SectionHeader title={t('nav.practice')} />
 
         {/* Speak leads, and it is the only thing on this screen wearing the
@@ -172,20 +173,25 @@ export default function PracticePage() {
           />
         </div>
 
-        <LinkRow
-          title={t('dashboard.grammarPathTitle')}
-          sub={t('dashboard.grammarPathSub')}
-          onClick={() => navigate('/grammar')}
-          disabled={!activeLanguageId}
-          testId="row-grammar"
-        />
-        <LinkRow
-          title={t('dashboard.ownTextTitle')}
-          sub={t('dashboard.ownTextSub')}
-          onClick={() => navigate('/notes')}
-          disabled={!activeLanguageId}
-          testId="row-notes"
-        />
+        {/* Two independent doors, side by side once there is room: as a
+            stacked pair they pushed the personal decks below the fold on a
+            monitor with a screen and a half of empty space beside them. */}
+        <div className="grid gap-4 lg:grid-cols-2 items-start">
+          <LinkRow
+            title={t('dashboard.grammarPathTitle')}
+            sub={t('dashboard.grammarPathSub')}
+            onClick={() => navigate('/grammar')}
+            disabled={!activeLanguageId}
+            testId="row-grammar"
+          />
+          <LinkRow
+            title={t('dashboard.ownTextTitle')}
+            sub={t('dashboard.ownTextSub')}
+            onClick={() => navigate('/notes')}
+            disabled={!activeLanguageId}
+            testId="row-notes"
+          />
+        </div>
         {/* The reco entry moved to the Study page + desktop rail (owner:
             recommendations are not practice). The new-picks nudge stays —
             it's a transient "this week's batch is in" prompt, not a

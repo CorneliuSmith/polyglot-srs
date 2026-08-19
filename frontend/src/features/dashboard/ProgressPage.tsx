@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import { getDashboardStats } from '../../api/dashboard'
 import { usePrefsStore } from '../../stores/prefsStore'
 import SectionHeader from '../../components/SectionHeader'
+import { CARD_COLUMNS, PAGE_WIDE } from '../../lib/layout'
 import ActivityChart from './ActivityChart'
 import CEFRProgress from './CEFRProgress'
 import ForecastStrip from './ForecastStrip'
@@ -48,7 +49,7 @@ export default function ProgressPage() {
 
   return (
     <div className="min-h-screen bg-gray-50 overflow-x-hidden">
-      <div className="max-w-3xl mx-auto px-4 py-6 space-y-4 pb-24 md:pb-6">
+      <div className={`${PAGE_WIDE} mx-auto px-4 py-6 space-y-4 pb-24 md:pb-6`}>
         <SectionHeader title={t('nav.progress')} />
 
         {isLoading || !stats ? (
@@ -79,15 +80,22 @@ export default function ProgressPage() {
             </p>
           </div>
         ) : (
-          <>
+          <div className={CARD_COLUMNS}>
             {stats.profile && (
               <ProfileCard profile={stats.profile} streakDays={stats.streak_days} />
             )}
             {hasForecast && <ForecastStrip forecast={stats.forecast} />}
-            {hasActivity && <ActivityChart activity={stats.activity} />}
+            {/* The two time-series cards keep the full width: a fortnight of
+                bars squeezed into half a column is the one chart here that
+                gets HARDER to read as the page gets wider. */}
+            {hasActivity && (
+              <div className="lg:col-span-2">
+                <ActivityChart activity={stats.activity} />
+              </div>
+            )}
             {hasStages && <StageTiles stages={stats.stages} />}
             {hasCefr && <CEFRProgress progress={stats.cefr_progress} />}
-          </>
+          </div>
         )}
       </div>
     </div>
