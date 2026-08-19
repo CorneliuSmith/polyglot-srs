@@ -48,7 +48,10 @@ working. Each rule exists because its absence already shipped a defect.
    courses may inform; verbatim sentences may not ship.
 9. **Never the API key.** Maker–checker runs in-session (Workflow tool).
 10. **Fixes land in committed files** (`gloss_overrides.tsv`, TSVs, JSON) —
-    a DB-only repair is undone by the next re-seed.
+    a DB-only repair is undone by the next re-seed. Same logic one level up:
+    a TSV-only deletion is undone by the next regeneration — durable
+    deletions go in `data/vocab_exclusions.tsv` (typo-mass rows like `citta`
+    "Tuscan girl", rank inherited from `città`).
 
 ## Verification
 
