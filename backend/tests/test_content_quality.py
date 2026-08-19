@@ -13,6 +13,7 @@ convention) gets switched off within a week, and then the real leaks go with it.
 from __future__ import annotations
 
 from backend.services.quality.audit_content import (
+    DATA,
     FAIL_RULES,
     LANGUAGES,
     WRONG_SENSE_RANK_BAND,
@@ -409,3 +410,83 @@ class TestCircularGloss:
     def test_empty_inputs(self):
         assert not is_circular("have", "verb", "")
         assert not is_circular("have", "", "have or possess")
+
+
+class TestLatinMacronPolicy:
+    """docs/quality/la.md: "macrons everywhere, all-or-nothing".
+
+    Latin marks vowel length because length is phonemic: it is the only thing
+    separating `liber` (book) from `līber` (free) and the nominative `puella`
+    from the ablative `puellā`. The learner is never made to type them —
+    LatinNLP is AccentFoldingNLP, so an unmacronised answer grades
+    CORRECT_SLOPPY, full credit plus a nudge.
+
+    These guards exist because the claim outran the check once already. la.md
+    reported the (then opposite) policy "verified" against
+    data/grammar/la_grammar.json alone, and nobody re-checked
+    data/la_frequency.tsv after it grew from 90 rows to 595. It had gone
+    half-macronised, colliding into 40 duplicate card pairs that graded
+    identically. Whichever direction the policy points, it has to be checked
+    on every file it covers.
+    """
+
+    COMBINING = ("̄", "̆")
+
+    def _rows(self):
+        import csv
+        with (DATA / "la_frequency.tsv").open(encoding="utf-8-sig", newline="") as handle:
+            return [r for r in csv.DictReader(handle, delimiter="\t")
+                    if (r.get("word") or "").strip()]
+
+    def _strip(self, text):
+        import unicodedata
+        return unicodedata.normalize(
+            "NFC",
+            "".join(c for c in unicodedata.normalize("NFD", text)
+                    if c not in self.COMBINING),
+        )
+
+    def test_the_frequency_file_is_macronised(self):
+        """Not every Latin word takes a macron — bonus, malus and novus have
+        no long vowel — so this asserts a healthy share, not all of them."""
+        rows = self._rows()
+        marked = [r for r in rows if self._strip(r["word"]) != r["word"]]
+        assert len(marked) > len(rows) // 4, (
+            f"only {len(marked)} of {len(rows)} headwords carry a macron; the file "
+            "looks stripped or half-converted."
+        )
+
+    def test_no_breves_anywhere(self):
+        """Length is marked by macron only; a breve is a different convention
+        and mixing the two is what 'all-or-nothing' rules out."""
+        import unicodedata
+        for path in ("la_frequency.tsv", "grammar/la_grammar.json", "gym/la.json"):
+            raw = unicodedata.normalize("NFD", (DATA / path).read_text(encoding="utf-8"))
+            assert "̆" not in raw, f"breve character in data/{path}"
+
+    def test_every_latin_surface_carries_macrons(self):
+        """all-or-nothing: vocabulary, grammar drills and gym together. The old
+        policy was 'verified' against the grammar file while the vocabulary
+        file sat 48% non-compliant."""
+        import unicodedata
+        for path in ("la_frequency.tsv", "grammar/la_grammar.json", "gym/la.json"):
+            raw = unicodedata.normalize("NFD", (DATA / path).read_text(encoding="utf-8"))
+            assert "̄" in raw, f"data/{path} carries no macrons at all"
+
+    def test_headwords_are_unique_as_written(self):
+        import collections
+        counts = collections.Counter(r["word"] for r in self._rows())
+        dupes = sorted(w for w, n in counts.items() if n > 1)
+        assert not dupes, f"duplicate headwords: {dupes[:5]}"
+
+    def test_the_macron_minimal_pairs_are_separate_cards(self):
+        """liber/līber and os/ōs are different words. Under the old stripped
+        policy they collapsed onto one spelling and one card had to gloss
+        both; the macron is what lets them be two."""
+        by_word = {r["word"]: (r.get("en") or "").lower() for r in self._rows()}
+        for written, sense in (("liber", "book"), ("līber", "free"),
+                               ("os", "bone"), ("ōs", "mouth")):
+            assert written in by_word, f"{written} missing from the frequency file"
+            assert sense in by_word[written], f"{written} should gloss as {sense}"
+        assert by_word["liber"] != by_word["līber"]
+        assert by_word["os"] != by_word["ōs"]
