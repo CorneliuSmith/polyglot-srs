@@ -1087,6 +1087,35 @@ async def load_example_sentences(db_url: str, language_code: str, tsv_path: Path
 # pulling this module's heavier imports in with them.
 from .gloss_overrides import GLOSS_OVERRIDES_PATH, load_gloss_overrides  # noqa: E402,F401
 
+VOCAB_EXCLUSIONS_PATH = DATA_DIR / "vocab_exclusions.tsv"
+
+
+def apply_vocab_exclusions(language: str, rows: list[dict]) -> list[dict]:
+    """Drop rows the corpus keeps generating that must never become cards.
+
+    A high-typo-frequency misspelling (citta, voila) inherits a real rank from
+    the word it misspells, and kaikki then supplies whatever obscure entry
+    owns that bare spelling — Tuscan "girl", "slowworm", a passé simple nobody
+    meets. Deleting the row from the committed TSV is not a fix: the next
+    regeneration re-emits it, exactly the way a DB-only fix is undone by the
+    next re-seed. This file is the durable form of that deletion.
+    """
+    if not VOCAB_EXCLUSIONS_PATH.exists():
+        return rows
+    excluded: set[str] = set()
+    with open(VOCAB_EXCLUSIONS_PATH, encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle, delimiter="\t"):
+            if (row.get("language") or "").strip() == language:
+                word = (row.get("word") or "").strip()
+                if word:
+                    excluded.add(word.casefold())
+    if not excluded:
+        return rows
+    kept = [row for row in rows if (row.get("word") or "").casefold() not in excluded]
+    if len(kept) < len(rows):
+        logger.info("Excluded %d vocabulary rows for %s", len(rows) - len(kept), language)
+    return kept
+
 
 def apply_gloss_overrides(language: str, rows: list[dict]) -> list[dict]:
     """Hand-authored definitions for words no sense-picking rule gets right.
@@ -1244,6 +1273,7 @@ def build_language(language: str, source: str, max_words: int, cache_dir: Path) 
     else:
         raise ValueError(f"Unsupported language: {language}")
 
+    rows = apply_vocab_exclusions(language, rows)
     rows = apply_gloss_overrides(language, rows)
     out_path = DATA_DIR / f"{language}_frequency.tsv"
     n = write_frequency_tsv(rows, out_path)

@@ -824,6 +824,30 @@ The test of this phase is not "is any language excellent" but **"is any
 language far behind"** — today `tl` (90 words, 152 findings) and `id` (581
 rows, 121 findings) are, and no amount of further English polish changes that.
 
+### Phase 2e — Grader collisions: shipped guard, queued repairs (from CHECKS §3)
+
+The collision guard is live: a fold-only match grades `WRONG_FORM` when what
+was typed is itself another course word (`el`/`él`, `все`/`всё`,
+`liber`/`līber`), with per-language ceilings ratcheted in
+`test_nlp_collisions.py`. 103 junk twin rows deleted mechanically; four
+typo-mass artifacts excluded durably via `data/vocab_exclusions.tsv` (new
+mechanism — a TSV deletion alone is undone by regeneration).
+
+Remaining, in order:
+
+1. **`ar` normalize surgery** — hamza folding sits inside `normalize()`, so
+   Arabic's 153 contrastive pairs grade full `CORRECT` at layer 2, invisible
+   to the guard. Move the fold into a lenient layer; add root-aware messages.
+2. **Judgment repairs** the mechanical rules could not make: `el` tonos twins
+   (keep-the-marked was tried and REVERTED — Greek monosyllables are standard
+   unmarked), `hi` nuqta variants, `de` ß/ss, `fr` 1990-reform merges (accept
+   both spellings as CORRECT), `es` broken twin glosses (`creo`→creer,
+   `llegue`, `pagué`, `mío`, `parís`, `dólares`).
+3. **`de` digraphs**: accept `ae/oe/ue` as the sloppy path — today `schoen`
+   fails while the different word `schon` used to pass.
+4. The ~900 incidental same-lemma inflection twins ride the per-language
+   deep passes, not this phase.
+
 ### Phase 3 — Grammar & hint debt burn-down
 
 - Execute the documented id/tl hint rewrite rules (≈270 findings).

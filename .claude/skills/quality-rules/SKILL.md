@@ -36,10 +36,11 @@ working. Each rule exists because its absence already shipped a defect.
    Mechanical glosses never overwrite authored ones, never serve GLOSS_FIRST
    courses. Not every sentence gets a gloss — 4,974 GLOSS_FIRST rows are the
    target, not 484k.
-7. **Normalization must not destroy contrast.** 2,122 cards grade identically
-   to another card because graders fold the very mark that separates two words
-   (`el`/`él` → CORRECT_SLOPPY). Before folding anything, ask what the mark
-   DOES in that language.
+7. **A fold may excuse a mark; it may never launder a word.** Settled and
+   shipped: a fold-only match grades WRONG_FORM when the typed string is
+   itself another course word, sloppy otherwise (`test_nlp_collisions.py`
+   ratchets per-language ceilings). Before folding anything new, ask what the
+   mark DOES in that language — and check the fold-image of the vocabulary.
 
 ## Sources & spend
 
