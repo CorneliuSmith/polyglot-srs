@@ -321,6 +321,95 @@ to police. That framing is the flaw: being the only course with a gloss is not
 a property of Māori, it is **debt in the other twenty-six**. The gloss should
 be available to most courses, and the guidelines should say so.
 
+### D2d — The scrutiny is not evenly spread, and the gap is large (19 Aug)
+
+Asked directly whether every language is getting the depth English and Latin
+got, the answer is **no**, and the asymmetry should be visible in the plan
+rather than discovered later.
+
+**Deep repair — 2 of 27 courses:**
+
+| | what it received |
+| --- | --- |
+| `en` | 99 definitions rewritten maker–checker; glosses committed so an audit can see them; new `circular_gloss` rule; the sentence-locale fix |
+| `la` | all 557 headwords + 189 drills + gym macronised; 40 duplicate cards removed; policy reversed; 5 guards |
+
+**Everything else has had three shallow passes**, all real, none deep:
+
+- the `source_data` sense-ranking rewrite, which took defective glosses from
+  2,150 to 944 across 26 languages;
+- `data/gloss_overrides.tsv` — **527 rows across 27 languages, ~20 each.** For
+  `fr`, `de`, `es`, `ru` that means roughly the top 20 words are hand-verified
+  and **the remaining 9,980 are not**;
+- diagnosis only, for the nine in D2b.
+
+**The measured gap, 19 Aug 2026:**
+
+- **920 audit findings open**, unchanged except Latin's zero — `tl` 152,
+  `id` 121, `el` 59, `ro` 51, `ar` 51, `de` 49, `fr` 46, `jam` 46.
+- **Glosses: 374 of 8,049 drills (4.6%)** — `mi` 240, `sw` 134, and
+  twenty-five courses at zero.
+- **7,243 top-band words with no example sentence**; five courses with no
+  sentence bank at all.
+- Of the 118 guideline defects in D2e, roughly 8 were applied and the rest
+  deliberately left.
+
+Two things make this worse than the table suggests. **Latin was only reachable
+at that depth because it is 557 words** — `fr` and `de` are 10,000 each, so the
+same treatment is roughly 18× the work per language. And **the deep passes keep
+finding defects the shallow passes could not see**: the four wrong macrons, the
+rank-misalignment bug, the eight richer glosses a naive dedup would have
+deleted. That is evidence the other 25 hold comparable defects nobody has
+looked for, not evidence they are clean.
+
+**How the depth was chosen so far is the problem: it was reactive.** English got
+it because a screenshot pointed there; Latin because a question did. The
+correction, in priority order:
+
+1. **Finish Phase 2a** — the nine broken word lists, since sentences *and*
+   glosses are both downstream of orthography. `mi` next (791/791 missing
+   macrons), then `yo` (1,638/1,644 missing tone).
+2. **Raise the floor everywhere before deepening anywhere else.** Extend
+   `gloss_overrides` from ~20 to the top 200 per language — the band a learner
+   actually reaches — and burn down the 920 audit findings worst-first
+   (`tl` and `id` alone are 273 of them).
+3. **Prefer rules to hand-authoring wherever a rule can carry the load.**
+   `circular_gloss` found 99 English defects in a single pass and now blocks
+   the class permanently. Rules generalise across 27 courses; authored rows do
+   not.
+
+### D2e — The guidelines assert 118 things that are not true (19 Aug)
+
+A claim audit checked every falsifiable statement in all 27
+`docs/quality/<code>.md` files against the data it describes: **118 defects —
+45 outright false, 52 stale, 18 true-but-misleading.**
+
+Two failure modes, both costly. **Undercounting live debt:** `sw.md` says "50
+grammar points, 308 drills" against a real 64 and 442; `ko.md` says "verified
+on disk: 40 points, 240 drills" against **156 points and 1,217 drills**. Anyone
+scoping from those pages plans a third of the job. **Describing defects already
+fixed:** `el.md`, `hi.md`, `th.md`, `es.md`, `ca.md` each still name rows or
+grading bugs since repaired, so a reader who checks the example finds it clean
+and stops trusting the page.
+
+Four files also contradict the tool outright — `fr.md` and `it.md` assert
+`leak_hard: 0` where the audit prints 10 and 3; `ro.md` says 2 against 11;
+`pt.md` 2 against 7; `en.md` totals 13 against 17. In every case the audit and
+`data/quality/baseline.json` agree with each other and the doc is the outlier.
+
+Shipped in the guideline-claim-audit PR: the misleading ones corrected, plus
+the rule that stops the class — **never freeze a count the audit computes**,
+cite the rule name; any other number carries its date and measurement; and
+"verified" must name every file the claim covers, which is exactly what
+`la.md` failed to do.
+
+**Deliberately not applied: the findings that did not reproduce.** The audit
+claimed `de.md` undercounts case+gender hints at 10 against 30, and `tr.md`
+harmony hints at 3 against 8; re-measuring gave 2 and 4. Three of five sampled
+figures reproduced exactly, two did not, so nothing from that class was written
+in. Replacing a wrong number with a differently wrong number is the failure
+being fixed.
+
 ### D3 — Gym. Already scoped by `docs/plans/gym-coverage.md`:
 
 411 drilled points hidden from pickers (en shows 12 of 43), 1,578-drill
@@ -573,6 +662,62 @@ a half can fill it.
 
 Sequenced after 2a because a gloss over a toneless or macronless headword is
 wrong in the same way the sentences would be.
+
+**No — a gloss will NOT exist for every sentence, and that is the design, not a
+shortfall.** Measured 19 Aug 2026:
+
+| | sentence rows | gloss policy |
+| --- | --- | --- |
+| `mi sw yo xh ha` (`GLOSS_FIRST`) | **4,974** | **every sentence a learner meets.** This is the tractable, high-value job |
+| `ru ar el hi` (`SCRIPT_FIRST`) | 63,183 | top-1000 band only — romanization is their primary scaffold, gloss is the second layer |
+| the other 18 courses | 416,597 | **none, by design.** Their ladder is `translation → hint`; no gloss layer is wired and none is wanted |
+| **total** | **484,754** | |
+
+Hand-authoring Leipzig-style glosses for 484,754 rows is not on the table and
+never was. The number that matters is **4,974** — the five courses whose hint
+ladder *opens* on the gloss, three of which (`yo`, `xh`, `ha`) currently have
+zero. That is the whole of the urgent work, and it is a few thousand rows, not
+half a million.
+
+**And it cannot be generated mechanically at the quality the authored ones
+set.** Swahili's 461 glosses are true interlinear morpheme analyses —
+`tu-ta-on-ana (1PL-FUT-see-RECIP)`, `ni-li-jaribu (1SG-PAST-try)`, noun classes
+`CL1`/`CL9`/`CL10`, `LOC`, `REL`. A dictionary lookup cannot segment
+`tutaonana` into its morphemes or name their categories.
+
+What the repo has is **not** a morphological analyser: `data/<code>_morphology.json`
+(14 languages, including `sw`, `xh`, `yo` but not `mi` or `ha`) holds *paradigm
+chips* — surface forms tagged with a label, `kuabudu` = Infinitive of `abudu`.
+That supports a reverse lookup ("this token is the infinitive of that lemma")
+and so a **weak** gloss, but not `tu-ta-on-ana (1PL-FUT-see-RECIP)`.
+
+So the rule: **a mechanical gloss may fill a gap, never overwrite an authored
+one, and never for a `GLOSS_FIRST` course**, where the gloss is the primary
+scaffold and a wrong parse is worse than no gloss at all (`mi.md`'s standing
+rule). If the weak form is used anywhere it is marked as such, so nobody reads
+a paradigm lookup as an analysis.
+
+
+### Phase 2d — Raise the floor on all 27 before deepening any further (from D2d)
+
+Two courses have been repaired to a standard the other 25 are not held to, and
+the depth was chosen reactively — a screenshot pointed at English, a question
+pointed at Latin. Before any third course gets that treatment:
+
+- **`gloss_overrides` from ~20 rows per language to the top 200.** 527 rows
+  across 27 languages today; the top 20 of a 10,000-row file is not coverage.
+  200 is the band a learner actually reaches in the first months.
+- **Burn down the 920 audit findings worst-first.** `tl` 152 and `id` 121 are
+  273 between them — nearly a third of the total in two of the smallest
+  courses.
+- **Reach for a rule before reaching for an author.** `circular_gloss` found 99
+  English defects in one pass and blocks the class permanently; that is worth
+  more than any number of hand-authored rows, and it generalises to courses
+  nobody has looked at yet.
+
+The test of this phase is not "is any language excellent" but **"is any
+language far behind"** — today `tl` (90 words, 152 findings) and `id` (581
+rows, 121 findings) are, and no amount of further English polish changes that.
 
 ### Phase 3 — Grammar & hint debt burn-down
 
