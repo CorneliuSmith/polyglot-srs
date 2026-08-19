@@ -566,7 +566,11 @@ class TestVocabExclusions:
             if not freq.exists():
                 continue
             with open(freq, encoding="utf-8-sig", newline="") as handle:
-                if any((r.get("word") or "").strip().casefold() == word.casefold()
+                # .lower(), not .casefold(): casefold expands ß to ss by
+                # design, so "straße".casefold() == "strasse" and this check
+                # reported the excluded Swiss spelling as still present when
+                # the file held only the ß form.
+                if any((r.get("word") or "").strip().lower() == word.lower()
                        for r in _csv.DictReader(handle, delimiter="\t")):
                     offenders.append(f"{code}:{word}")
         assert not offenders, f"excluded words back in the data: {offenders}"

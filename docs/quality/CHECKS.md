@@ -104,9 +104,12 @@ asserted at zero.
    ß/ss duplicates, `fr` 1990-reform pairs (both spellings official — merge
    and accept either as fully CORRECT), `es` broken twin glosses (`creo`
    glossed as crear, `llegue` "stab", `pagué` "cinchweed", `mío` "meow").
-3. **`de` digraph acceptance:** a learner without umlauts types `schoen`,
-   which the fold does NOT match, while the different word `schon` used to
-   get credit — accept `ae/oe/ue` as the sloppy path.
+3. ~~**`de` digraph acceptance.**~~ **DONE 20 Aug 2026.** `GermanNLP.fold_lookalikes`
+   now accepts the Duden substitution (ä→ae, ö→oe, ü→ue, ß→ss), so `schoen`
+   for `schön` is amber instead of WRONG, while `schon` stays failed as
+   another card. 24 rows removed (Swiss variants, identical-gloss twins, 9
+   pre-1996 spellings, 2 digraph duplicates) plus `strasse` excluded. de
+   strip-key collisions 128 → 127, fold-key 152 → 129.
 
 **Done mechanically (103 + 4 rows):** self-identifying "misspelling of X"
 rows deleted in 8 languages; ru ё-twins and Romance accent-twins with
