@@ -54,7 +54,8 @@ working. Each rule exists because its absence already shipped a defect.
 11. **Verify agent output mechanically before writing it back**: structural
     validators, spot-checks against known ground truth, and assembly by stable
     key, never by index (a rank drift once nearly filed `luna`'s gloss under
-    `stella`).
+    `stella`). After writing a TSV, eyeball it: text containing `"` gets
+    csv-escaped into `""..""` noise — reword the text instead.
 12. **Re-measure any agent-reported number before acting on it** — two of five
     sampled claim-audit figures did not reproduce.
 13. **State verification honestly**: "275 of 557 checker-verified, rest
@@ -70,3 +71,14 @@ working. Each rule exists because its absence already shipped a defect.
 16. Green = `npm run build` (not `tsc --noEmit`), `vitest`, backend pytest at
     baseline (7 known environment failures), `ruff`, audit PASS, CI green,
     then merge — standing authorization. Say plainly what was left out.
+17. **When adding words to fill a homonym gap, add only members a learner
+    meets** (`hīc`, `mālum` yes; `pōpulus` "poplar" no) and gloss each naming
+    its false twin — "here (distinct from hic: this)".
+
+## Maintaining this skill (owner directive, 19 Aug 2026)
+
+This is a living document. When new work teaches a rule, **add it here in one
+or two lines** — if it improves quality and does not bloat the digest. Keep it
+small enough to load in every content session; long rationale goes in
+`CHECKS.md` or the plan, with only the rule itself here. Prune a rule only
+when the class it guards is mechanically checked everywhere.
