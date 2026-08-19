@@ -17,14 +17,37 @@ const card = (id: string): DueCard => ({
 describe('sessionSnapshot', () => {
   beforeEach(() => sessionStorage.clear())
 
-  it('keys by the exact session URL (path + query)', () => {
-    expect(snapshotKey('/cram', '?points=a,b&count=10')).toBe(
-      'review-session:/cram?points=a,b&count=10',
+  it('keys by identity AND the exact session URL (path + query)', () => {
+    expect(snapshotKey('/cram', '?points=a,b&count=10', 'lang-es:pt')).toBe(
+      'review-session:lang-es:pt:/cram?points=a,b&count=10',
     )
   })
 
+  it('a deck parked under one language is invisible to another', () => {
+    // The Settings round-trip is exactly when languages change. Keyed by
+    // URL alone, the return trip restored the OLD language's deck into the
+    // new session — every card in the wrong language until something
+    // forced a refetch (the owner's report, verbatim symptom).
+    const russian = snapshotKey('/review', '', 'lang-ru:en')
+    saveSnapshot(russian, {
+      cards: [card('c1')], index: 0, results: [], requeued: [],
+    })
+    const latin = snapshotKey('/review', '', 'lang-la:pt')
+    expect(readSnapshot(latin)).toBeNull()
+    // …and the same identity still resumes (the feature #50 shipped).
+    expect(readSnapshot(russian)?.cards[0].id).toBe('c1')
+  })
+
+  it('a support-locale change alone is a different identity too', () => {
+    const before = snapshotKey('/review', '', 'lang-la:en')
+    saveSnapshot(before, {
+      cards: [card('c1')], index: 0, results: [], requeued: [],
+    })
+    expect(readSnapshot(snapshotKey('/review', '', 'lang-la:pt'))).toBeNull()
+  })
+
   it('round-trips a parked session', () => {
-    const key = snapshotKey('/cram', '?points=a')
+    const key = snapshotKey('/cram', '?points=a', 'lang-es:en')
     saveSnapshot(key, {
       cards: [card('c1'), card('c2')],
       index: 1,
@@ -38,7 +61,7 @@ describe('sessionSnapshot', () => {
   })
 
   it('rejects a stale snapshot (older than the parking window)', () => {
-    const key = snapshotKey('/review', '')
+    const key = snapshotKey('/review', '', 'lang-es:en')
     saveSnapshot(key, { cards: [card('c1')], index: 0, results: [], requeued: [] })
     const seven_hours = 7 * 60 * 60 * 1000
     vi.spyOn(Date, 'now').mockReturnValue(Date.now() + seven_hours)
@@ -48,13 +71,13 @@ describe('sessionSnapshot', () => {
   })
 
   it('rejects a snapshot parked past its deck (nothing to resume)', () => {
-    const key = snapshotKey('/review', '')
+    const key = snapshotKey('/review', '', 'lang-es:en')
     saveSnapshot(key, { cards: [card('c1')], index: 1, results: [], requeued: [] })
     expect(readSnapshot(key)).toBeNull()
   })
 
   it('a requeued miss extends the resumable range', () => {
-    const key = snapshotKey('/review', '')
+    const key = snapshotKey('/review', '', 'lang-es:en')
     saveSnapshot(key, {
       cards: [card('c1')], index: 1, results: [], requeued: [card('c1')],
     })
@@ -62,14 +85,14 @@ describe('sessionSnapshot', () => {
   })
 
   it('clearSnapshot removes the parking spot', () => {
-    const key = snapshotKey('/review', '')
+    const key = snapshotKey('/review', '', 'lang-es:en')
     saveSnapshot(key, { cards: [card('c1')], index: 0, results: [], requeued: [] })
     clearSnapshot(key)
     expect(readSnapshot(key)).toBeNull()
   })
 
   it('garbage in storage reads as no snapshot', () => {
-    const key = snapshotKey('/review', '')
+    const key = snapshotKey('/review', '', 'lang-es:en')
     sessionStorage.setItem(key, '{not json')
     expect(readSnapshot(key)).toBeNull()
   })

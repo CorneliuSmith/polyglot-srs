@@ -181,7 +181,11 @@ function ReviewSessionInner({
   // locale is part of the due-cards key BEFORE cards load — changing the
   // "learning English from" language then genuinely re-keys and refetches
   // the localized cards, instead of racing an invalidate + remount.
-  const { data: profile } = useQuery({ queryKey: ['profile'], queryFn: getProfile })
+  const profileQuery = useQuery({ queryKey: ['profile'], queryFn: getProfile })
+  const profile = profileQuery.data
+  // Resolved means settled, not succeeded: a failed profile fetch degrades
+  // to the 'en' default rather than stranding the session behind the gate.
+  const profileResolved = profileQuery.isSuccess || profileQuery.isError
   const supportLocale = effectiveSupportLocale(profile)
   // Trailblazer gate — reviews only. Cram draws from grammar points the
   // learner picked, not a locale-backed queue, so it never waits.
@@ -230,7 +234,19 @@ function ReviewSessionInner({
           // fetching them is read-only and cheap, so the wait screen decides
           // what to SHOW, never whether to load. (Gating the fetch stalled a
           // mid-session language switch behind the new pair's readiness.)
-          enabled: !!activeLanguageId,
+          //
+          // It IS gated on the profile having resolved. supportLocale in the
+          // key defaults to 'en' while the profile is in flight, so an
+          // ungated fetch could start under the placeholder key; the profile
+          // then landed, the key corrected itself, a second fetch fired —
+          // and the `cards === null` snapshot guard below DISCARDED it,
+          // because the racing first fetch had already filled the deck.
+          // Whichever deck won the race was the one the learner kept: the
+          // "English flashes, then the right language" report, and a wasted
+          // fetch besides. Waiting costs nothing warm (the dashboard already
+          // cached the profile) and one round-trip cold — paid before
+          // anything renders, which is the point.
+          enabled: !!activeLanguageId && profileResolved,
           // A live session must never see its deck change under it, and a
           // NEW session must never flash the previous one's cached cards:
           // fetch fresh on mount, then freeze.
@@ -244,7 +260,16 @@ function ReviewSessionInner({
   // exact URL); coming back restores deck + position instead of refetching —
   // including any background-generated Gym drills, which exist nowhere else.
   const location = useLocation()
-  const parkKey = snapshotKey(location.pathname, location.search)
+  // Identity-keyed (see sessionSnapshot): a deck parked under Russian must
+  // not resume a session opened under Latin. supportLocale can be the 'en'
+  // placeholder for a beat while the profile loads — harmless here, because
+  // the deck query below is gated on the profile too, and a snapshot saved
+  // under the placeholder key never matches a real identity's park.
+  const parkKey = snapshotKey(
+    location.pathname,
+    location.search,
+    `${activeLanguageId ?? 'none'}:${supportLocale}`,
+  )
   const [parked] = useState(() => readSnapshot(parkKey))
 
   // Snapshot the deck at session start — refetches and cache invalidations

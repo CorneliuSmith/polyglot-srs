@@ -365,6 +365,43 @@ describe('LearnPage (teach-before-quiz)', () => {
     await waitFor(() => expect(mockLearn).toHaveBeenCalled())
   })
 
+  it('switching the ACTIVE language mid-walkthrough draws a fresh batch in that language', async () => {
+    // Review learned this lesson first (the "English cards under a Swahili
+    // label" beta bug); Learn's remount key carried only the locale epoch,
+    // so a course switch that arrives WITHOUT a navigation — the
+    // profile→prefs sync, a second tab's persisted store — kept the old
+    // course's lessons on screen. Both halves of the identity key now.
+    mockReadiness.mockResolvedValue(readiness(1, true))
+    mockLearn.mockResolvedValue({
+      added: 1, items: ['uc-1'], lessons: [grammarLesson],
+    })
+    let lang = 'lang-es'
+    const mockPrefs = usePrefsStore as unknown as ReturnType<typeof vi.fn>
+    mockPrefs.mockImplementation(() => lang)
+    const queryClient = new QueryClient({
+      defaultOptions: { queries: { retry: false } },
+    })
+    // Fresh element per render: the mocked store has no subscription, so
+    // the rerender stands in for zustand's notify — and an IDENTICAL
+    // element lets React bail out of the subtree, testing nothing.
+    const makeTree = () => (
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter initialEntries={['/learn?type=grammar']}>
+          <LearnPage />
+        </MemoryRouter>
+      </QueryClientProvider>
+    )
+    const { rerender } = render(makeTree())
+    await waitFor(() =>
+      expect(mockLearn).toHaveBeenCalledWith('lang-es', 'grammar', undefined),
+    )
+    lang = 'lang-sw'
+    rerender(makeTree())
+    await waitFor(() =>
+      expect(mockLearn).toHaveBeenCalledWith('lang-sw', 'grammar', undefined),
+    )
+  })
+
   it('swaps content into the learner language mid-session, without a restart', async () => {
     // A session started under-ready re-serves its payloads as the loop lands
     // translations; the English already on screen is replaced in place.

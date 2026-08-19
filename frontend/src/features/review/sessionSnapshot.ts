@@ -24,8 +24,18 @@ export interface SessionSnapshot {
 /** A parked session older than this is stale — start fresh instead. */
 const MAX_AGE_MS = 6 * 60 * 60 * 1000
 
-export function snapshotKey(pathname: string, search: string): string {
-  return `review-session:${pathname}${search}`
+/** The language pair a deck belongs to. Part of the key on purpose: the
+ * Settings round-trip is exactly when languages change, and a key of URL
+ * alone restored the OLD language's deck into the new session — every
+ * card in the wrong language until something forced a refetch. A snapshot
+ * parked under another identity is simply invisible to this session (and
+ * ages out on its own; sessionStorage dies with the tab anyway). */
+export function snapshotKey(
+  pathname: string,
+  search: string,
+  identity: string,
+): string {
+  return `review-session:${identity}:${pathname}${search}`
 }
 
 export function saveSnapshot(

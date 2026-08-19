@@ -27,6 +27,19 @@ vi.mock('../api/review', () => ({
   ),
 }))
 
+// The deck fetch is gated on the profile having RESOLVED (the support
+// locale is part of its key — see the C3 note in ReviewSessionPage), so
+// the profile must answer deterministically here rather than by whatever
+// a jsdom network error happens to do.
+vi.mock('../api/profile', async (orig) => ({
+  ...(await orig<typeof import('../api/profile')>()),
+  getLanguages: vi.fn(() => Promise.resolve([])),
+  getProfile: vi.fn(() =>
+    Promise.resolve({ support_locale: null, ui_language: 'en' }),
+  ),
+  updateProfile: vi.fn(),
+}))
+
 vi.mock('../api/gym', () => ({
   recordGymAttempt: vi.fn(() => Promise.resolve()),
   generateGymDrills: vi.fn(),
@@ -396,19 +409,25 @@ describe('ReviewSessionPage — listening mode cue', () => {
     const queryClient = new QueryClient({
       defaultOptions: { queries: { retry: false }, mutations: { retry: false } },
     })
-    const tree = (
+    // Built FRESH per render: in the app, zustand notifies subscribers and
+    // the page re-renders itself. The mocked store has no subscription, so
+    // the rerender stands in for it — and rerendering the SAME element lets
+    // React bail out of the whole subtree, silently testing nothing. (This
+    // test used to pass only because an unmocked profile fetch errored late
+    // and forced a stray re-render at the right moment.)
+    const makeTree = () => (
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
           <ReviewSessionPage />
         </MemoryRouter>
       </QueryClientProvider>
     )
-    const { rerender } = render(tree)
+    const { rerender } = render(makeTree())
     await waitFor(() => {
       expect(mockGetDueCards.mock.calls.some((c) => c[0] === 'lang-english')).toBe(true)
     })
     lang = 'lang-swahili'
-    rerender(tree)
+    rerender(makeTree())
     await waitFor(() => {
       expect(mockGetDueCards.mock.calls.some((c) => c[0] === 'lang-swahili')).toBe(true)
     })
@@ -489,7 +508,9 @@ describe('ReviewSessionPage — Quick Cram (WP13f)', () => {
   it('restores a parked session (settings round-trip) at its exact position', async () => {
     // A snapshot parked by the ⚙ hop: two cards, the first already answered.
     sessionStorage.setItem(
-      'review-session:/cram?points=p1,p2',
+      // Identity-keyed (language:locale): a park under another identity
+      // must not resume — see 'sessionSnapshot.test.ts'. This one matches.
+      'review-session:lang-123:en:/cram?points=p1,p2',
       JSON.stringify({
         cards: [
           { ...cramCard, id: 'cram-a', sentence: 'First {{answer}}.' },
@@ -510,7 +531,7 @@ describe('ReviewSessionPage — Quick Cram (WP13f)', () => {
       expect(screen.getByText(/Second/)).toBeDefined()
       // The parking spot is single-use: consumed on restore.
       expect(
-        sessionStorage.getItem('review-session:/cram?points=p1,p2'),
+        sessionStorage.getItem('review-session:lang-123:en:/cram?points=p1,p2'),
       ).toBeNull()
     } finally {
       sessionStorage.clear()
@@ -926,6 +947,73 @@ describe('leaving the Trailblazer wait', () => {
     const input = await screen.findByRole('textbox')
     fireEvent.change(input, { target: { value: 'es' } })
     expect((input as HTMLInputElement).value).toBe('es')
+  })
+
+  it('never fetches the deck before the profile has resolved — and never twice', async () => {
+    // The support locale is part of the deck's cache key and defaults to
+    // 'en' while the profile is in flight. Ungated, the fetch raced the
+    // profile: first request under the placeholder key, a second under the
+    // corrected one — and the session kept whichever deck won. The learner
+    // saw English flash into their language, or worse, kept the English.
+    const { getProfile } = await import('../api/profile')
+    let resolveProfile: (v: unknown) => void = () => {}
+    ;(getProfile as ReturnType<typeof vi.fn>).mockReturnValue(
+      new Promise((r) => (resolveProfile = r)),
+    )
+    mockGetReadiness.mockResolvedValue({
+      locale: 'es', threshold: 0.6,
+      learn: { total: 10, ready: 10, pct: 1, cards: 5, cards_ready: 5,
+               start_cards: 3, ready_enough: true },
+      review: { total: 10, ready: 10, pct: 1, cards: 5, cards_ready: 5,
+                start_cards: 3, ready_enough: true },
+      pairs: [],
+    })
+    mockGetDueCards.mockResolvedValue([translatedCard])
+
+    renderWithProviders(<ReviewSessionPage />)
+    // Profile still pending: not one deck request may exist yet.
+    await new Promise((r) => setTimeout(r, 50))
+    expect(mockGetDueCards).not.toHaveBeenCalled()
+
+    resolveProfile({ support_locale: 'pt', ui_language: 'en' })
+    await screen.findByRole('textbox')
+    // Exactly one fetch — under the resolved identity, nothing discarded.
+    expect(mockGetDueCards).toHaveBeenCalledTimes(1)
+  })
+
+  it('a deck parked under another identity is never restored', async () => {
+    // The Settings round-trip is exactly when languages change. Keyed by
+    // URL alone, the return trip restored the OLD language's deck into the
+    // new session — the owner's "cards in the wrong language until
+    // something forces a refresh".
+    mockGetReadiness.mockResolvedValue({
+      locale: 'es', threshold: 0.6,
+      learn: { total: 10, ready: 10, pct: 1, cards: 5, cards_ready: 5,
+               start_cards: 3, ready_enough: true },
+      review: { total: 10, ready: 10, pct: 1, cards: 5, cards_ready: 5,
+                start_cards: 3, ready_enough: true },
+      pairs: [],
+    })
+    const stalePark = JSON.stringify({
+      cards: [{ ...englishCard, id: 'stale-ru',
+                sentence: 'Это СТАРАЯ колода {{answer}}.' }],
+      index: 0, results: [], requeued: [], savedAt: Date.now(),
+    })
+    // Parked under Russian; this session opens under lang-123:en. The
+    // second entry is the PRE-identity key format — the regression this
+    // pins: that key used to match every identity, including this one.
+    sessionStorage.setItem('review-session:lang-ru:en:/', stalePark)
+    sessionStorage.setItem('review-session:/', stalePark)
+    try {
+      mockGetDueCards.mockResolvedValue([translatedCard])
+      renderWithProviders(<ReviewSessionPage />)
+      await screen.findByRole('textbox')
+      // The fresh deck was fetched; the foreign park never surfaced.
+      expect(mockGetDueCards).toHaveBeenCalledTimes(1)
+      expect(screen.queryByText(/СТАРАЯ/)).toBeNull()
+    } finally {
+      sessionStorage.clear()
+    }
   })
 
   it('does not re-pull for a session that never waited', async () => {
