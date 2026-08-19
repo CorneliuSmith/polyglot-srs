@@ -321,6 +321,32 @@ to police. That framing is the flaw: being the only course with a gloss is not
 a property of Māori, it is **debt in the other twenty-six**. The gloss should
 be available to most courses, and the guidelines should say so.
 
+### D2c2 — A card's definition and its examples are fixed independently, and nothing joins them
+
+`audit_polysemy` was written for a Portuguese card: `a`, one meaning, drilled
+"O que ele está a fazer?" three times, where `a` is the progressive preposition
+and not the article the card defined. That diagnosis is in its docstring.
+
+**The gloss has since been repaired. The sentences have not.** Measured
+19 Aug 2026, rank 2 `a` now reads "the (feminine singular); to, at — also
+estar a + verb (is doing); her, it" — three senses, so the under-glossed rule
+is satisfied and `audit_polysemy` reports it clean. Its three example
+sentences are still, all of them, `está a fazer`. A learner is told the word
+means "the" and shown it working as a progressive marker three times.
+
+This is a **join** that no check performs. `audit_polysemy` measures the gloss
+against the dictionary. `audit_examples` measures how many sentences exist and
+how varied they are. Neither asks the one question that matters here: *does
+this card's example set demonstrate the sense its gloss leads with?* Repairing
+definitions (Phase 1) and sourcing sentences (Phase 2b) are separate passes on
+separate files, so a card can pass both and still teach one thing while showing
+another.
+
+It cannot be measured today because nothing records what a word is *doing* in
+its sentence — which is precisely what a gloss records. Hence the process in
+Phase 2c: glossing is where this gets caught, and the gloss is what finally
+makes the check mechanical.
+
 ### D2d — The scrutiny is not evenly spread, and the gap is large (19 Aug)
 
 Asked directly whether every language is getting the depth English and Latin
@@ -697,6 +723,57 @@ scaffold and a wrong parse is worse than no gloss at all (`mi.md`'s standing
 rule). If the weak form is used anywhere it is marked as such, so nobody reads
 a paradigm lookup as an analysis.
 
+
+**Glossing is a sense audit, and that is half its value.** Writing a
+word-by-word gloss forces you to say what each token is *doing* in that
+sentence. The moment you write it down, a card whose examples exercise a
+different sense than its definition becomes obvious — you cannot gloss
+Portuguese `a` in "está a fazer" as "the (feminine)" without noticing.
+
+This is live, measured 19 Aug 2026, and it is the owner's own example:
+
+| | |
+| --- | --- |
+| card | `a` — rank 2 — "**the (feminine singular)**; to, at — also estar a + verb (is doing); her, it" |
+| its sentences | "O que ele está **a** fazer?" / "Que está ela **a** fazer?" / "Que está ele **a** fazer?" |
+
+All three show the **third** sense. Not one shows the article the gloss leads
+with, and a learner drilling this card meets `a` as a progressive marker three
+times while being told it means "the". A sentence like *a menina é boa* would
+teach the leading sense; *vou ao mercado* would not.
+
+Note what this is NOT: the gloss is already correct and complete — it names all
+three senses, so `audit_polysemy`'s under-glossed rule is satisfied. **The
+definition was repaired and the examples were never rechecked against it.** The
+two were fixed independently and nothing joins them, which is exactly why this
+survives every existing check.
+
+**So the process, whenever a sentence is glossed:**
+
+1. Gloss the sentence, naming the target word's actual role in it.
+2. Compare that role against the sense the card's gloss leads with.
+3. On a mismatch, decide which is wrong — and it may be either:
+   - **the sentence** — swap it for one that shows the leading sense, or demote
+     it behind one that does;
+   - **the gloss order** — if the corpus really shows this sense most, the
+     gloss is leading with the wrong one and should be reordered;
+   - **the coverage** — if two senses are both common, the card needs both
+     named *and* at least one example per named sense.
+4. Record the correction where it belongs: `data/gloss_overrides.tsv` for the
+   definition, the sentence bank for the example. A fix in one is not a fix in
+   the other.
+
+**The instrument this earns.** Once a sentence carries a gloss, the comparison
+is mechanical: the gloss states the role, the frequency row states the leading
+sense, and a card whose entire example set disagrees with its own first sense
+can be reported without a human reading it. That is the "example-sense
+disagreement" detector Phase 1 step 6 listed and never built — it was not
+buildable before, because nothing recorded what a word was doing in its
+sentence. Glossing is what makes it possible.
+
+Until it exists, step 2 is done by the checker in the maker–checker pass, and
+the checker is told to reject a gloss whose sentence does not exercise the
+card's leading sense rather than silently glossing what is in front of it.
 
 ### Phase 2d — Raise the floor on all 27 before deepening any further (from D2d)
 
