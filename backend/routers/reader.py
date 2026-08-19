@@ -125,7 +125,8 @@ async def _write_reading(
         )
         async with rls_connection(user_id) as conn:
             await log_tutor_usage(
-                conn, user_id, body.language_id, model, usage=usage
+                conn, user_id, body.language_id, model,
+                usage=usage, kind="reader",
             )
             reading_id = await save_reading(
                 conn, user_id, body.language_id, body.topic.strip(),
@@ -350,6 +351,7 @@ async def explain(
 
     async with rls_connection(user["id"]) as conn:
         await log_tutor_usage(
-            conn, user["id"], str(row["language_id"]), model, usage=usage
+            conn, user["id"], str(row["language_id"]), model,
+            usage=usage, kind="reader_explain",
         )
     return {"explanation": explanation}

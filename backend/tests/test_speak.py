@@ -743,6 +743,75 @@ class TestSpeech:
         assert synth.await_args_list[0].kwargs["rate"] is None
         assert synth.await_args_list[1].kwargs["rate"] == SLOW_RATE
 
+    def test_a_spoken_line_is_billed_to_the_speech_ledger(self, client):
+        """Speak caches no audio — every partner line, and every "say that
+        again", is a fresh synthesis someone pays for. Nothing on disk
+        recorded that until this ledger, which is how the newest feature
+        managed to be the least visible line on the bill."""
+        ledger = AsyncMock()
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=_live_session())), \
+             patch("backend.routers.speak.list_turns", new=AsyncMock(
+                 return_value=[{"idx": 0, "learner_text": "hola",
+                                "partner_text": "¿Qué tal?", "audio_ms": None,
+                                "errors": []}])), \
+             patch("backend.routers.speak.synthesize",
+                   new=AsyncMock(return_value=b"ID3-mp3")), \
+             patch("backend.routers.speak.record_speech_event", ledger):
+            resp = client.post("/api/speak/say", headers=_auth_headers(), json={
+                "session_id": TEST_SESSION_ID, "turn_index": 0,
+            })
+        assert resp.status_code == 200
+        # Characters are the billing unit, and the language is the
+        # session's — the same rule the recognizer follows.
+        assert ledger.await_args.kwargs["chars"] == len("¿Qué tal?")
+        assert ledger.await_args.kwargs["kind"] == "tts"
+        assert ledger.await_args.args[1] == "es"
+
+    def test_a_recording_is_billed_by_its_duration(self, client):
+        """Speech-to-text is priced per audio second and the server only
+        ever sees bytes, which vary by codec — so the recorder sends how
+        long it ran."""
+        ledger = AsyncMock()
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=_live_session())), \
+             patch("backend.routers.speak.transcription_available",
+                   return_value=True), \
+             patch("backend.routers.speak.transcribe",
+                   new=AsyncMock(return_value="hola")), \
+             patch("backend.routers.speak.record_speech_event", ledger):
+            resp = client.post(
+                "/api/speak/transcribe",
+                headers=_auth_headers(),
+                data={"session_id": TEST_SESSION_ID, "audio_ms": "4500"},
+                files={"audio": ("t.webm", b"x", "audio/webm")},
+            )
+        assert resp.status_code == 200
+        assert ledger.await_args.kwargs["audio_ms"] == 4500
+        assert ledger.await_args.kwargs["kind"] == "stt"
+
+    def test_silence_still_costs_what_it_cost(self, client):
+        """A mis-fired recording is billed the same as a sentence. Counting
+        only the turns that produced words would quietly understate the
+        bill by exactly the amount beginners generate."""
+        ledger = AsyncMock()
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=_live_session())), \
+             patch("backend.routers.speak.transcription_available",
+                   return_value=True), \
+             patch("backend.routers.speak.transcribe",
+                   new=AsyncMock(return_value="")), \
+             patch("backend.routers.speak.record_speech_event", ledger):
+            resp = client.post(
+                "/api/speak/transcribe",
+                headers=_auth_headers(),
+                data={"session_id": TEST_SESSION_ID, "audio_ms": "2000"},
+                files={"audio": ("t.webm", b"x", "audio/webm")},
+            )
+        assert resp.status_code == 200
+        assert resp.json()["text"] == ""
+        assert ledger.await_args.kwargs["audio_ms"] == 2000
+
     def test_a_turn_that_does_not_exist_is_404(self, client):
         with patch("backend.routers.speak.get_session",
                    new=AsyncMock(return_value=_live_session())), \

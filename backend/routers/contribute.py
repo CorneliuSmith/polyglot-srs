@@ -125,6 +125,7 @@ from backend.repositories.languages import (
     set_language_visibility,
 )
 from backend.repositories.pool import privileged_connection, rls_connection
+from backend.repositories.speech import aggregate_speech_usage
 from backend.repositories.trials import (
     get_trial_request,
     list_trial_requests,
@@ -132,6 +133,7 @@ from backend.repositories.trials import (
     trials_table_present,
 )
 from backend.repositories.tutor import (
+    ALLOWANCE_KINDS,
     PLAN_TIERS,
     aggregate_tutor_usage,
     get_plan_message_limits,
@@ -163,6 +165,11 @@ from backend.services.semantic_check import (
     semantic_check_point,
     semantic_check_vocab,
 )
+from backend.services.speech_costs import (
+    FREE_TIER_STT_HOURS,
+    FREE_TIER_TTS_CHARS,
+)
+from backend.services.speech_costs import cost_usd as speech_cost_usd
 from backend.services.tutor_costs import estimate_cost_usd
 from backend.services.visibility import PUBLISH_POLICIES
 
@@ -491,25 +498,52 @@ async def update_language_tutor_model(
     return {"tutor_model": body.model}
 
 
+# Which feature a usage kind belongs to. The admin view groups by this so
+# "what does the Gym cost" is one number rather than a reading exercise —
+# a feature can spend under several kinds (the Gym makes drills AND the
+# charts for the words they exercise; Speak pays for a summary at the end).
+KIND_FEATURE: dict[str, str] = {
+    "chat": "tutor",
+    "summary": "tutor",
+    "speak": "speak",
+    "speak_summary": "speak",
+    "reader": "reader",
+    "reader_explain": "reader",
+    "gym_gen": "gym",
+    "gym_chart": "gym",
+    "recs": "recs",
+    "writing_baseline": "placement",
+    "prose": "translation",
+    "label": "translation",
+}
+
+
 @router.get("/tutor-usage")
 async def tutor_usage_overview(
     days: int = 30,
     user: dict = Depends(get_current_user),
 ):
-    """Aggregated tutor token usage + estimated cost (admin-only, WP9b).
+    """Aggregated AI cost across every feature that spends (admin-only).
 
-    Rolls up tutor_usage by (language, model, kind) over the window and
-    prices each row at list pricing — the data behind per-language model
-    choices (WP15a). Estimates only; learners are billed flat tiers.
+    Two ledgers, because they are billed in different units. tutor_usage
+    holds token spend, rolled up by (language, model, kind) and priced at
+    Anthropic list rates — the data behind per-language model choices
+    (WP15a). speech_usage holds the Gym's quiet neighbour: neural TTS by
+    the character and speech-to-text by the audio second, which no token
+    table can price and which used to appear nowhere at all.
+
+    Both are estimates. Learners are billed flat tiers, never per unit.
     """
     await _require_admin(user["id"])
     days = max(1, min(days, 365))
     since = datetime.now(UTC) - timedelta(days=days)
     async with privileged_connection() as conn:
         rows = await aggregate_tutor_usage(conn, since)
+        speech_rows = await aggregate_speech_usage(conn, since)
     priced = [
         {
             **row,
+            "feature": KIND_FEATURE.get(row["kind"], "other"),
             "est_cost_usd": estimate_cost_usd(
                 row["model"], row["input_tokens"], row["output_tokens"],
                 row["cache_write_tokens"], row["cache_read_tokens"],
@@ -517,15 +551,66 @@ async def tutor_usage_overview(
         }
         for row in rows
     ]
+    speech = [
+        {
+            **row,
+            "est_cost_usd": speech_cost_usd(
+                row["kind"], row["chars"], row["audio_ms"]
+            ),
+        }
+        for row in speech_rows
+    ]
+    # Per-feature totals over BOTH ledgers: a Speak session's real cost is
+    # its model turns plus the voice that read them out and the microphone
+    # that heard the reply, and no useful answer separates those.
+    features: dict[str, dict] = {}
+    for row in priced:
+        f = features.setdefault(
+            row["feature"],
+            {"feature": row["feature"], "events": 0, "est_cost_usd": 0.0},
+        )
+        f["events"] += row["messages"]
+        f["est_cost_usd"] += row["est_cost_usd"]
+    for row in speech:
+        f = features.setdefault(
+            row["feature"],
+            {"feature": row["feature"], "events": 0, "est_cost_usd": 0.0},
+        )
+        f["events"] += row["events"]
+        f["est_cost_usd"] += row["est_cost_usd"]
+    feature_totals = sorted(
+        ({**f, "est_cost_usd": round(f["est_cost_usd"], 4)}
+         for f in features.values()),
+        key=lambda f: f["est_cost_usd"],
+        reverse=True,
+    )
+    speech_cost = sum(r["est_cost_usd"] for r in speech)
+    token_cost = sum(r["est_cost_usd"] for r in priced)
     return {
         "days": days,
         "rows": priced,
+        "speech_rows": speech,
+        "feature_totals": feature_totals,
+        # Allowance-drawing turns — what a learner would recognize as "a
+        # message". Summaries and the translation loop are operator cost.
         "total_messages": sum(
-            r["messages"] for r in priced if r["kind"] == "chat"
+            r["messages"] for r in priced if r["kind"] in ALLOWANCE_KINDS
         ),
-        "total_est_cost_usd": round(
-            sum(r["est_cost_usd"] for r in priced), 4
+        "total_tts_chars": sum(
+            r["chars"] for r in speech if r["kind"] == "tts"
         ),
+        "total_stt_ms": sum(
+            r["audio_ms"] for r in speech if r["kind"] == "stt"
+        ),
+        "speech_est_cost_usd": round(speech_cost, 4),
+        "token_est_cost_usd": round(token_cost, 4),
+        "total_est_cost_usd": round(token_cost + speech_cost, 4),
+        # Context for the speech figures: Azure's F0 grant resets monthly
+        # and this window doesn't, so it is shown, never subtracted.
+        "speech_free_tier": {
+            "tts_chars": FREE_TIER_TTS_CHARS,
+            "stt_hours": FREE_TIER_STT_HOURS,
+        },
     }
 
 

@@ -205,7 +205,11 @@ export interface TutorUsageRow {
   language_id: string | null
   language_name: string | null
   model: string | null
-  kind: 'chat' | 'summary'
+  /** Open on purpose: kinds are added as features are (speak, reader,
+   * gym_gen, …) and an old row keeps whatever kind it was written with. */
+  kind: string
+  /** Which surface spent it — the server maps kind → feature. */
+  feature: string
   messages: number
   input_tokens: number
   output_tokens: number
@@ -214,14 +218,33 @@ export interface TutorUsageRow {
   est_cost_usd: number
 }
 
+/** Speech spend, which is billed per character (TTS) and per audio second
+ * (STT) rather than per token — so it lives in its own ledger. */
+export interface SpeechUsageRow {
+  language_code: string | null
+  kind: 'tts' | 'stt'
+  feature: string
+  events: number
+  chars: number
+  audio_ms: number
+  est_cost_usd: number
+}
+
 export interface TutorUsageSummary {
   days: number
   rows: TutorUsageRow[]
+  speech_rows: SpeechUsageRow[]
+  feature_totals: { feature: string; events: number; est_cost_usd: number }[]
   total_messages: number
+  total_tts_chars: number
+  total_stt_ms: number
+  token_est_cost_usd: number
+  speech_est_cost_usd: number
   total_est_cost_usd: number
+  speech_free_tier: { tts_chars: number; stt_hours: number }
 }
 
-/** Admin-only rollup of tutor token usage priced at list rates (WP9b). */
+/** Admin-only rollup of AI spend — tokens and speech — at list rates. */
 export async function getTutorUsage(days = 30): Promise<TutorUsageSummary> {
   const response = await apiClient.get('/api/contribute/tutor-usage', {
     params: { days },

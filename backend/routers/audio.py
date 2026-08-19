@@ -23,6 +23,7 @@ from pydantic import BaseModel, Field
 from backend.config import get_settings
 from backend.dependencies import get_current_user
 from backend.repositories.pool import privileged_connection, rls_connection
+from backend.repositories.speech import record_speech_event
 from backend.services.rate_limit import tts_limiter
 from backend.services.tts import cache_key, synthesize, voice_for
 
@@ -280,6 +281,13 @@ async def tts(
             status_code=status.HTTP_502_BAD_GATEWAY,
             detail="Audio generation failed",
         ) from exc
+
+    # Billable: the provider was called. Cache hits return above and write
+    # nothing, which is the point — this counts characters actually bought.
+    await record_speech_event(
+        user["id"], body.language_code,
+        kind="tts", feature="content", chars=len(text),
+    )
 
     # Storage is an OPTIMIZATION, not a requirement: when the service key
     # is missing or the upload fails, the learner still gets the neural

@@ -127,12 +127,17 @@ export async function startSpeakSession(
 export async function transcribeTurn(
   sessionId: string,
   audio: Blob,
+  audioMs?: number,
 ): Promise<string> {
   const form = new FormData()
   form.append('session_id', sessionId)
   // The filename matters only in that Azure reads its extension; the
   // server derives the real format from the blob's type.
   form.append('audio', audio, 'turn')
+  // Speech-to-text is billed by the second, and the server never sees the
+  // clip's duration — only its bytes, which vary by codec. The recorder
+  // already knows how long it ran, so it tells the cost ledger.
+  if (audioMs != null) form.append('audio_ms', String(Math.round(audioMs)))
   const response = await apiClient.post('/api/speak/transcribe', form)
   return response.data.text ?? ''
 }
