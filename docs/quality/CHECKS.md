@@ -85,10 +85,17 @@ asserted at zero.
 
 **Follow-ups, in order:**
 
-1. **`ar` normalize surgery.** ArabicNLP folds hamza variants *inside
-   `normalize()`*, so its 153 contrastive pairs grade full `CORRECT` at
-   layer 2 — invisible to the guard. The fold must move into a lenient layer
-   first. (Root-aware messaging for shared-root pairs rides along.)
+1. ~~**`ar` normalize surgery.**~~ **DONE 20 Aug 2026.** The alef fold moved
+   out of `ArabicNLP.normalize()` into `fold_lookalikes`, where the guard sees
+   it: **199 → 79** cards graded as another card, and rank 1 `أن` is no longer
+   the same card as `إن` ("if") and `آن` ("time"). Two carve-outs: the
+   alphabet deck (a one-letter answer has no word to confuse it with) and
+   Check 0, widened to fire on `CORRECT_SLOPPY` so vocalized form drills still
+   fail a bare answer. 11 junk twin rows deleted. **Still open:** the yeh fold
+   (ى/ي) stays in `normalize()` by an explicit owner decision and merges 84
+   further cards *below* the guard — rank 8 `على` ("on") with rank 144 `علي`
+   ("to be exalted"), 9 groups inside the top 300. Cost recorded in `ar.md`;
+   the decision is the owner's.
 2. **Data repairs the triage verified but that need human judgment:** `el`
    twins (Greek monosyllable tonos cuts the other way — a mechanical
    keep-the-marked rule was tried and reverted), `hi` nuqta variants, `de`
