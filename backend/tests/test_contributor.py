@@ -704,6 +704,92 @@ class TestTutorUsageOverview:
         assert body["total_messages"] == 40
         mock_agg.assert_awaited_once()
 
+    def test_speech_is_priced_beside_the_tokens(self, client):
+        """The Gym's quiet neighbour. Speak synthesizes every partner line
+        and caches none of it, so the voice bill used to appear nowhere."""
+        speech = [
+            {"language_code": "es", "kind": "tts", "feature": "speak",
+             "events": 120, "chars": 1_000_000, "audio_ms": 0},
+            {"language_code": "es", "kind": "stt", "feature": "speak",
+             "events": 90, "chars": 0, "audio_ms": 3_600_000},
+            {"language_code": "tr", "kind": "tts", "feature": "content",
+             "events": 40, "chars": 500_000, "audio_ms": 0},
+        ]
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.aggregate_tutor_usage",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.contribute.aggregate_speech_usage",
+                   new=AsyncMock(return_value=speech)):
+            resp = client.get(
+                "/api/contribute/tutor-usage", headers=_auth_headers()
+            )
+        body = resp.json()
+        # $16/1M chars: 16 + 8. $0.18/audio hour: 0.18.
+        assert body["speech_est_cost_usd"] == pytest.approx(24.18)
+        assert body["total_est_cost_usd"] == pytest.approx(24.18)
+        assert body["total_tts_chars"] == 1_500_000
+        assert body["total_stt_ms"] == 3_600_000
+        # An STT row must not be charged for the characters column it
+        # shares with TTS, nor a TTS row for a duration it never had.
+        by_kind = {(r["language_code"], r["kind"]): r for r in body["speech_rows"]}
+        assert by_kind[("es", "stt")]["est_cost_usd"] == pytest.approx(0.18)
+        assert by_kind[("es", "tts")]["est_cost_usd"] == pytest.approx(16.0)
+
+    def test_features_are_totalled_across_both_ledgers(self, client):
+        """What Speak costs is its model turns PLUS the voice that read them
+        out and the microphone that heard the reply — one number."""
+        rows = [
+            {"language_id": LANG, "language_name": "Spanish",
+             "model": "claude-sonnet-5", "kind": "speak", "messages": 8,
+             "input_tokens": 1_000_000, "output_tokens": 0,
+             "cache_write_tokens": 0, "cache_read_tokens": 0},
+            {"language_id": LANG, "language_name": "Spanish",
+             "model": "claude-sonnet-5", "kind": "gym_gen", "messages": 3,
+             "input_tokens": 1_000_000, "output_tokens": 0,
+             "cache_write_tokens": 0, "cache_read_tokens": 0},
+        ]
+        speech = [
+            {"language_code": "es", "kind": "tts", "feature": "speak",
+             "events": 8, "chars": 1_000_000, "audio_ms": 0},
+        ]
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.aggregate_tutor_usage",
+                   new=AsyncMock(return_value=rows)), \
+             patch("backend.routers.contribute.aggregate_speech_usage",
+                   new=AsyncMock(return_value=speech)):
+            resp = client.get(
+                "/api/contribute/tutor-usage", headers=_auth_headers()
+            )
+        body = resp.json()
+        totals = {f["feature"]: f for f in body["feature_totals"]}
+        # Speak: $3 of tokens + $16 of voice; the Gym stands alone at $3.
+        assert totals["speak"]["est_cost_usd"] == pytest.approx(19.0)
+        assert totals["speak"]["events"] == 16
+        assert totals["gym"]["est_cost_usd"] == pytest.approx(3.0)
+        # Ordered by what it costs — the expensive feature is the one the
+        # owner needs to see first.
+        assert body["feature_totals"][0]["feature"] == "speak"
+        # Both are allowance-drawing turns, so both are messages a learner
+        # spent — Speak turns used to be logged as 'chat' and counted here.
+        assert body["total_messages"] == 11
+
+    def test_a_missing_speech_migration_is_an_empty_section(self, client):
+        """The table arrives in a migration the owner applies. Until then
+        the panel shows no speech rather than a 500 on a page an admin
+        opens to find out what things cost."""
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.aggregate_tutor_usage",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.contribute.aggregate_speech_usage",
+                   new=AsyncMock(return_value=[])):
+            resp = client.get(
+                "/api/contribute/tutor-usage", headers=_auth_headers()
+            )
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["speech_rows"] == []
+        assert body["speech_est_cost_usd"] == 0
+
     def test_days_window_clamped(self, client):
         with _roles([{"language_id": None, "role": "admin"}]), \
              patch("backend.routers.contribute.aggregate_tutor_usage",

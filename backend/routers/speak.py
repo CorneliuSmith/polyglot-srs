@@ -1,9 +1,10 @@
 """Speak router — conversation practice (docs/plans/speak.md, stage 1).
 
 Costs ride the tutor allowance, the way Reader and Gym do: one turn counts
-as one message. The end-of-session summary is logged kind='summary', which
-tracks its cost without charging the learner for finishing — being shown
-what you got wrong should never be the thing you run out of.
+as one message, logged kind='speak'. The end-of-session summary is logged
+kind='speak_summary', which tracks its cost without charging the learner
+for finishing — being shown what you got wrong should never be the thing
+you run out of.
 """
 
 from __future__ import annotations
@@ -37,6 +38,7 @@ from backend.repositories.speak import (
     start_session,
     tables_ready,
 )
+from backend.repositories.speech import record_speech_event
 from backend.repositories.tutor import log_tutor_usage
 from backend.routers.tutor import _get_allowance, _reject_if_unavailable
 from backend.services.generate import generation_available
@@ -207,6 +209,10 @@ async def speak_status(
 async def transcribe_turn(
     session_id: str = Form(...),
     audio: UploadFile = File(...),
+    # How long they spoke, from the recorder. Optional: an older client
+    # that doesn't send it still transcribes fine, the event just lands in
+    # the cost ledger with no duration attached.
+    audio_ms: int | None = Form(default=None, ge=0, le=10 * 60 * 1000),
     user: dict = Depends(get_current_user),
 ):
     """Turn one recorded utterance into text. The audio is never kept.
@@ -269,6 +275,13 @@ async def transcribe_turn(
             detail="That didn't come through — try again, or type it",
         ) from exc
 
+    # Billed by the second of audio sent, whether or not it contained
+    # words — a mis-fired recording costs the same as a sentence. The
+    # duration comes from the recorder; the audio itself is already gone.
+    await record_speech_event(
+        user["id"], code, kind="stt", feature="speak", audio_ms=audio_ms or 0,
+    )
+
     # Silence is not an error. The learner pressed and released without
     # saying anything, or the microphone was muted; "" tells the page to
     # say so rather than posting an empty turn.
@@ -327,6 +340,13 @@ async def say(
             status_code=status.HTTP_502_BAD_GATEWAY,
             detail="Audio generation failed",
         ) from exc
+
+    # Every line here is a fresh synthesis — nothing is cached, so every
+    # call is billable, including a "say that again". That is precisely
+    # why it has to be recorded: this is the app's least visible spend.
+    await record_speech_event(
+        user["id"], code, kind="tts", feature="speak", chars=len(line),
+    )
     return {"audio_b64": base64.b64encode(clip).decode()}
 
 
@@ -383,7 +403,8 @@ async def start(
         )
         async with rls_connection(user["id"]) as conn:
             await log_tutor_usage(
-                conn, user["id"], body.language_id, model, usage=usage
+                conn, user["id"], body.language_id, model,
+                usage=usage, kind="speak",
             )
             # learner_text is '' — nobody spoke. list_turns keeps it, and
             # _model_messages below drops the empty half so the model sees
@@ -485,7 +506,7 @@ async def turn(
 
     async with rls_connection(user["id"]) as conn:
         await log_tutor_usage(
-            conn, user["id"], language_id, model, usage=usage
+            conn, user["id"], language_id, model, usage=usage, kind="speak",
         )
         await append_turn(
             conn, body.session_id, len(history), text,
@@ -556,7 +577,7 @@ async def end(
         if usage:
             await log_tutor_usage(
                 conn, user["id"], session["language_id"], model,
-                usage=usage, kind="summary",
+                usage=usage, kind="speak_summary",
             )
         await end_session(conn, body.session_id, summary)
     return {"summary": summary, "already_ended": False}

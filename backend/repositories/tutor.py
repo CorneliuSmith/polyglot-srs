@@ -52,26 +52,42 @@ async def set_plan_message_limit(
     return True
 
 
+# Kinds that draw a learner's monthly allowance. Every learner-triggered
+# AI turn belongs here; operator-side accounting rows ('summary', the
+# auto-translate fills) never count.
+#
+# 'speak' and 'reader'/'reader_explain' used to be logged as 'chat', which
+# both drew the allowance (correct) and made them invisible in the admin
+# cost view (not correct — a Speak turn and a Reader text cost very
+# different money from a tutor message). They now carry their own kind and
+# are listed here, so what a learner spends is unchanged to the row.
+ALLOWANCE_KINDS = (
+    "chat",            # a tutor turn
+    "speak",           # a Speak conversation turn (and its opener)
+    "reader",          # a generated reading
+    "reader_explain",  # "what does this word mean" inside a reading
+    "gym_gen",         # a Gym on-demand generation (WP41)
+    "gym_chart",       # a chart for a new word those drills exercise (WP45)
+    "recs",            # a recommendations batch (~1/week ≈ 4 a month)
+)
+
+
 async def count_tutor_messages(
     conn: asyncpg.Connection, user_id: str, since
 ) -> int:
     """Messages this user has spent from their allowance since *since*.
 
-    Counted kinds draw the pool: 'chat' (a tutor turn), 'gym_gen' (a Gym
-    on-demand generation, WP41), 'gym_chart' (a chart made for a new word
-    those drills exercise, WP45), and 'recs' (a recommendations batch —
-    owner: a Plus feature that uses some of their monthly AI; ~1/week, so
-    it costs about four messages a month). 'summary' rows are the
-    operator's cost accounting for the post-session summarizer — part of a
-    message already spent — and never count.
+    ALLOWANCE_KINDS draw the pool. 'summary' rows are the operator's cost
+    accounting for the post-session summarizer — part of a message already
+    spent — and never count.
     """
     n = await conn.fetchval(
         """
         SELECT count(*) FROM tutor_usage
         WHERE user_id = $1 AND created_at >= $2
-          AND kind IN ('chat', 'gym_gen', 'gym_chart', 'recs')
+          AND kind = ANY($3::text[])
         """,
-        user_id, since,
+        user_id, since, list(ALLOWANCE_KINDS),
     )
     return int(n or 0)
 

@@ -120,15 +120,45 @@ export function TutorModelControl({
   )
 }
 
-/** Admin-only tutor cost monitor (WP9b): token rollups across ALL languages,
- * priced at list rates — the data behind per-language model choices. Rows are
- * per (language, model, KIND) — chat vs Gym generation vs summaries — which
- * is why a language/model pair can appear more than once. */
+/** Admin-only AI cost monitor (WP9b): what every feature actually spends,
+ * across ALL languages, priced at list rates — the data behind per-language
+ * model choices.
+ *
+ * Two ledgers, because they are billed in different units. Token rows come
+ * per (language, model, KIND), which is why a language/model pair can appear
+ * more than once. Speech rows are characters synthesized and audio seconds
+ * transcribed: the Gym's quiet neighbour, and previously invisible here even
+ * though Speak pays for a voice on every single partner line. */
 const USAGE_KIND_LABEL: Record<string, string> = {
-  chat: 'Chat',
+  chat: 'Tutor chat',
+  summary: 'Tutor summaries',
+  speak: 'Speak turns',
+  speak_summary: 'Speak summaries',
+  reader: 'Reader texts',
+  reader_explain: 'Reader word help',
   gym_gen: 'Gym drills',
   gym_chart: 'Gym charts',
-  summary: 'Summaries',
+  recs: 'Recommendations',
+  writing_baseline: 'Placement writing',
+  prose: 'Translation (prose)',
+  label: 'Translation (labels)',
+}
+
+const FEATURE_LABEL: Record<string, string> = {
+  tutor: 'Tutor',
+  speak: 'Speak',
+  reader: 'Reader',
+  gym: 'Gym',
+  recs: 'Recommendations',
+  placement: 'Placement',
+  translation: 'Translation loop',
+  content: 'Content audio',
+  other: 'Other',
+}
+
+const SPEECH_KIND_LABEL: Record<string, string> = {
+  tts: 'Voice out (TTS)',
+  stt: 'Voice in (STT)',
 }
 
 export function TutorCostsPanel() {
@@ -138,59 +168,161 @@ export function TutorCostsPanel() {
     retry: false,
   })
   if (!data) return null
-  const fmtTokens = (n: number) =>
+  const fmtCount = (n: number) =>
     n >= 1_000_000 ? `${(n / 1_000_000).toFixed(1)}M` : n.toLocaleString()
+  const fmtDuration = (ms: number) =>
+    ms >= 3_600_000
+      ? `${(ms / 3_600_000).toFixed(1)} h`
+      : `${Math.round(ms / 60_000)} min`
+  // A tenth of a cent is still worth showing: a beta month of speech can
+  // total less than a cent, and "$0.00" reads as "nothing is metered".
+  const fmtUsd = (n: number) =>
+    n > 0 && n < 0.01 ? '<$0.01' : `$${n.toFixed(2)}`
+  const speech = data.speech_rows ?? []
+  const featureTotals = data.feature_totals ?? []
   return (
     <div
-      className="bg-white rounded-2xl border border-gray-100 p-4 text-sm"
+      className="bg-white rounded-2xl border border-gray-100 p-4 text-sm space-y-4"
       data-testid="tutor-costs"
     >
-      <div className="flex items-baseline justify-between">
-        <h2 className="text-sm font-semibold text-gray-800">
-          Tutor costs · last {data.days} days
-        </h2>
-        <span className="text-xs text-gray-500">
-          {data.total_messages} messages · ~${data.total_est_cost_usd.toFixed(2)}
-        </span>
+      <div>
+        <div className="flex items-baseline justify-between">
+          <h2 className="text-sm font-semibold text-gray-800">
+            AI costs · last {data.days} days
+          </h2>
+          <span className="text-xs text-gray-500">
+            {data.total_messages} messages · ~{fmtUsd(data.total_est_cost_usd)}
+          </span>
+        </div>
+        <p className="text-xs text-gray-500">
+          Estimates at list pricing — Anthropic per token (cache reads
+          discounted), Azure per character and audio second. All languages,
+          all users; learners always pay flat tiers.
+        </p>
       </div>
-      <p className="text-xs text-gray-500 mb-2">
-        Estimates at Anthropic list pricing (cache reads discounted). All
-        languages, all users — learners always pay flat tiers.
-      </p>
-      {data.rows.length === 0 ? (
-        <p className="text-xs text-gray-500">No tutor usage recorded yet.</p>
-      ) : (
-        <table className="w-full text-xs">
-          <thead>
-            <tr className="text-start text-gray-500">
-              <th className="py-1 font-medium">Language</th>
-              <th className="py-1 font-medium">Kind</th>
-              <th className="py-1 font-medium">Model</th>
-              <th className="py-1 font-medium text-end">Msgs</th>
-              <th className="py-1 font-medium text-end">Tokens in/out</th>
-              <th className="py-1 font-medium text-end">Est. cost</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.rows.map((row, i) => (
-              <tr key={i} className="border-t border-gray-50 text-gray-700">
-                <td className="py-1">{row.language_name ?? '—'}</td>
-                <td className="py-1 text-gray-500">
-                  {USAGE_KIND_LABEL[row.kind] ?? row.kind}
-                </td>
-                <td className="py-1 font-mono text-[11px]">{row.model ?? '—'}</td>
-                <td className="py-1 text-end">{row.messages}</td>
-                <td className="py-1 text-end">
-                  {fmtTokens(row.input_tokens + row.cache_write_tokens + row.cache_read_tokens)}
-                  {' / '}
-                  {fmtTokens(row.output_tokens)}
-                </td>
-                <td className="py-1 text-end">${row.est_cost_usd.toFixed(2)}</td>
-              </tr>
+
+      {featureTotals.length > 0 && (
+        <div>
+          <h3 className="text-xs font-semibold text-gray-700 mb-1">
+            By feature
+          </h3>
+          <div className="flex flex-wrap gap-2" data-testid="feature-totals">
+            {featureTotals.map((f) => (
+              <span
+                key={f.feature}
+                className="rounded-lg bg-gray-50 border border-gray-100 px-2 py-1 text-xs text-gray-700"
+              >
+                {FEATURE_LABEL[f.feature] ?? f.feature}
+                {': '}
+                <span className="font-semibold">{fmtUsd(f.est_cost_usd)}</span>
+                <span className="text-gray-400"> · {f.events}</span>
+              </span>
             ))}
-          </tbody>
-        </table>
+          </div>
+        </div>
       )}
+
+      <div>
+        <h3 className="text-xs font-semibold text-gray-700 mb-1">
+          Model turns · ~{fmtUsd(data.token_est_cost_usd)}
+        </h3>
+        {data.rows.length === 0 ? (
+          <p className="text-xs text-gray-500">No model usage recorded yet.</p>
+        ) : (
+          <table className="w-full text-xs">
+            <thead>
+              <tr className="text-start text-gray-500">
+                <th className="py-1 font-medium">Language</th>
+                <th className="py-1 font-medium">Kind</th>
+                <th className="py-1 font-medium">Model</th>
+                <th className="py-1 font-medium text-end">Msgs</th>
+                <th className="py-1 font-medium text-end">Tokens in/out</th>
+                <th className="py-1 font-medium text-end">Est. cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.rows.map((row, i) => (
+                <tr key={i} className="border-t border-gray-50 text-gray-700">
+                  <td className="py-1">{row.language_name ?? '—'}</td>
+                  <td className="py-1 text-gray-500">
+                    {USAGE_KIND_LABEL[row.kind] ?? row.kind}
+                  </td>
+                  <td className="py-1 font-mono text-[11px]">
+                    {row.model ?? '—'}
+                  </td>
+                  <td className="py-1 text-end">{row.messages}</td>
+                  <td className="py-1 text-end">
+                    {fmtCount(
+                      row.input_tokens +
+                        row.cache_write_tokens +
+                        row.cache_read_tokens,
+                    )}
+                    {' / '}
+                    {fmtCount(row.output_tokens)}
+                  </td>
+                  <td className="py-1 text-end">{fmtUsd(row.est_cost_usd)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
+
+      <div data-testid="speech-costs">
+        <h3 className="text-xs font-semibold text-gray-700 mb-1">
+          Speech · ~{fmtUsd(data.speech_est_cost_usd)}
+        </h3>
+        {speech.length === 0 ? (
+          <p className="text-xs text-gray-500">
+            No speech recorded yet. Cached playback costs nothing and is not
+            counted — only a synthesis or transcription that reached the
+            provider.
+          </p>
+        ) : (
+          <>
+            <table className="w-full text-xs">
+              <thead>
+                <tr className="text-start text-gray-500">
+                  <th className="py-1 font-medium">Language</th>
+                  <th className="py-1 font-medium">Kind</th>
+                  <th className="py-1 font-medium">Where</th>
+                  <th className="py-1 font-medium text-end">Clips</th>
+                  <th className="py-1 font-medium text-end">Chars / audio</th>
+                  <th className="py-1 font-medium text-end">Est. cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                {speech.map((row, i) => (
+                  <tr key={i} className="border-t border-gray-50 text-gray-700">
+                    <td className="py-1">{row.language_code ?? '—'}</td>
+                    <td className="py-1 text-gray-500">
+                      {SPEECH_KIND_LABEL[row.kind] ?? row.kind}
+                    </td>
+                    <td className="py-1 text-gray-500">
+                      {FEATURE_LABEL[row.feature] ?? row.feature}
+                    </td>
+                    <td className="py-1 text-end">{row.events}</td>
+                    <td className="py-1 text-end">
+                      {row.kind === 'tts'
+                        ? fmtCount(row.chars)
+                        : fmtDuration(row.audio_ms)}
+                    </td>
+                    <td className="py-1 text-end">{fmtUsd(row.est_cost_usd)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className="text-[11px] text-gray-500 mt-1">
+              {fmtCount(data.total_tts_chars)} characters synthesized ·{' '}
+              {fmtDuration(data.total_stt_ms)} transcribed. Azure's free tier
+              covers {fmtCount(data.speech_free_tier.tts_chars)} characters and{' '}
+              {data.speech_free_tier.stt_hours} audio hours a month, which this
+              figure does not deduct — it resets monthly and this window does
+              not.
+            </p>
+          </>
+        )}
+      </div>
     </div>
   )
 }

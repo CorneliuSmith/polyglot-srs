@@ -441,6 +441,52 @@ class TestTTSEndpoint:
         # …and the cache row was written.
         priv.execute.assert_awaited_once()
 
+    def test_a_synthesis_is_billed_but_a_cache_hit_is_not(self):
+        """Characters reach the provider only on a miss. Counting plays
+        instead of syntheses would bill the operator for a CDN file that
+        cost nothing — and hide the one number that does cost money."""
+        ledger = AsyncMock()
+        # Miss: the provider is called, so the ledger is.
+        priv = _conn([None])
+        rls = _conn([True])
+        ps = _client(priv, rls)
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], \
+             patch("backend.routers.audio.synthesize",
+                   new=AsyncMock(return_value=b"mp3bytes")), \
+             patch("backend.routers.audio._upload_clip",
+                   new=AsyncMock(return_value=True)), \
+             patch("backend.routers.audio.record_speech_event", ledger):
+            app = create_app()
+            with TestClient(app) as client:
+                miss = client.post(
+                    "/api/audio/tts",
+                    json={"language_code": "pt", "text": "você"},
+                    headers=_auth_headers(),
+                )
+        assert miss.status_code == 200
+        assert ledger.await_args.kwargs["chars"] == len("você")
+        assert ledger.await_args.kwargs["feature"] == "content"
+
+        # Hit: the clip already exists, nothing is synthesized, nothing is
+        # billed.
+        ledger.reset_mock()
+        cached = _conn([f"pt/{cache_key(voice_for('pt'), 'você')}.mp3"])
+        ps = _client(cached, _conn([True]))
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], \
+             patch("backend.routers.audio.synthesize",
+                   new=AsyncMock(return_value=b"mp3bytes")), \
+             patch("backend.routers.audio.record_speech_event", ledger):
+            app = create_app()
+            with TestClient(app) as client:
+                hit = client.post(
+                    "/api/audio/tts",
+                    json={"language_code": "pt", "text": "você"},
+                    headers=_auth_headers(),
+                )
+        assert hit.status_code == 200
+        assert hit.json()["cached"] is True
+        ledger.assert_not_awaited()
+
 
 class TestDurableCache:
     """Synthesize once, ever — even when the CDN upload fails.

@@ -291,7 +291,7 @@ export default function SpeakPage() {
     mutationFn: async () => {
       const recorded = await recorder.stop()
       if (!recorded) return null
-      const text = await transcribeTurn(sessionId!, recorded.blob)
+      const text = await transcribeTurn(sessionId!, recorded.blob, recorded.ms)
       return { text, ms: recorded.ms }
     },
     onSuccess: (result) => {

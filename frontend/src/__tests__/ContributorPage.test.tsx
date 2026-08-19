@@ -85,7 +85,12 @@ vi.mock('../api/contribute', () => ({
   TUTOR_MODELS: ['claude-opus-4-8', 'claude-sonnet-5'],
   getLanguageReadiness: vi.fn(() => Promise.resolve([])),
   getTutorUsage: vi.fn(() =>
-    Promise.resolve({ days: 30, rows: [], total_messages: 0, total_est_cost_usd: 0 }),
+    Promise.resolve({
+      days: 30, rows: [], speech_rows: [], feature_totals: [],
+      total_messages: 0, total_tts_chars: 0, total_stt_ms: 0,
+      token_est_cost_usd: 0, speech_est_cost_usd: 0, total_est_cost_usd: 0,
+      speech_free_tier: { tts_chars: 500_000, stt_hours: 5 },
+    }),
   ),
 }))
 // DrillsEditor is its own tested unit; stub it here to keep this test focused.
@@ -288,20 +293,27 @@ describe('ContributorPage', () => {
     })
   })
 
-  it('admin sees the tutor cost monitor with priced rows', async () => {
+  it('admin sees the cost monitor with priced rows', async () => {
     const { getTutorUsage } = await import('../api/contribute')
     const mockUsage = getTutorUsage as ReturnType<typeof vi.fn>
     mockUsage.mockResolvedValue({
       days: 30,
       rows: [{
         language_id: 'lang-tr', language_name: 'Turkish',
-        model: 'claude-sonnet-5', kind: 'chat', messages: 42,
+        model: 'claude-sonnet-5', kind: 'chat', feature: 'tutor', messages: 42,
         input_tokens: 120_000, output_tokens: 30_000,
         cache_write_tokens: 4_000, cache_read_tokens: 2_000_000,
         est_cost_usd: 1.42,
       }],
+      speech_rows: [],
+      feature_totals: [{ feature: 'tutor', events: 42, est_cost_usd: 1.42 }],
       total_messages: 42,
+      total_tts_chars: 0,
+      total_stt_ms: 0,
+      token_est_cost_usd: 1.42,
+      speech_est_cost_usd: 0,
       total_est_cost_usd: 1.42,
+      speech_free_tier: { tts_chars: 500_000, stt_hours: 5 },
     })
     mockGetGrammar.mockResolvedValue({
       is_admin: true, points: [], review_policy: 'strict', tutor_model: null,
@@ -315,6 +327,81 @@ describe('ContributorPage', () => {
     expect(panel.textContent).toContain('42 messages')
     expect(panel.textContent).toContain('$1.42')
     expect(panel.textContent).toContain('2.1M / 30,000') // cache reads included in "in"
+    // Nothing spoken yet: the section is present and says so, rather than
+    // being absent and leaving "is speech even metered?" unanswered.
+    expect(screen.getByTestId('speech-costs').textContent)
+      .toContain('No speech recorded yet')
+  })
+
+  it('the cost monitor shows the Gym and the speech bill, not just chat', async () => {
+    // Owner: "Admin prices should show gym and speech as well." Gym drills
+    // were already logged but sat unlabelled among tutor rows, and speech
+    // — billed per character and per audio second, not per token — was not
+    // recorded anywhere at all.
+    const { getTutorUsage } = await import('../api/contribute')
+    const mockUsage = getTutorUsage as ReturnType<typeof vi.fn>
+    mockUsage.mockResolvedValue({
+      days: 30,
+      rows: [
+        {
+          language_id: 'lang-es', language_name: 'Spanish',
+          model: 'claude-sonnet-5', kind: 'gym_gen', feature: 'gym',
+          messages: 12, input_tokens: 90_000, output_tokens: 20_000,
+          cache_write_tokens: 0, cache_read_tokens: 0, est_cost_usd: 0.57,
+        },
+        {
+          language_id: 'lang-es', language_name: 'Spanish',
+          model: 'claude-sonnet-5', kind: 'speak', feature: 'speak',
+          messages: 30, input_tokens: 200_000, output_tokens: 40_000,
+          cache_write_tokens: 0, cache_read_tokens: 0, est_cost_usd: 1.2,
+        },
+      ],
+      speech_rows: [
+        {
+          language_code: 'es', kind: 'tts', feature: 'speak',
+          events: 30, chars: 30_000, audio_ms: 0, est_cost_usd: 0.48,
+        },
+        {
+          language_code: 'es', kind: 'stt', feature: 'speak',
+          events: 28, chars: 0, audio_ms: 3_600_000, est_cost_usd: 0.18,
+        },
+      ],
+      feature_totals: [
+        { feature: 'speak', events: 88, est_cost_usd: 1.86 },
+        { feature: 'gym', events: 12, est_cost_usd: 0.57 },
+      ],
+      total_messages: 42,
+      total_tts_chars: 30_000,
+      total_stt_ms: 3_600_000,
+      token_est_cost_usd: 1.77,
+      speech_est_cost_usd: 0.66,
+      total_est_cost_usd: 2.43,
+      speech_free_tier: { tts_chars: 500_000, stt_hours: 5 },
+    })
+    mockGetGrammar.mockResolvedValue({
+      is_admin: true, points: [], review_policy: 'strict', tutor_model: null,
+    })
+    renderPage()
+    await openTab('Admin')
+
+    const panel = await screen.findByTestId('tutor-costs')
+    // Kinds read as features rather than as column values from the database.
+    expect(panel.textContent).toContain('Gym drills')
+    expect(panel.textContent).toContain('Speak turns')
+    // One number per feature, spanning both ledgers.
+    const totals = screen.getByTestId('feature-totals')
+    expect(totals.textContent).toContain('Speak')
+    expect(totals.textContent).toContain('$1.86')
+    expect(totals.textContent).toContain('Gym')
+    expect(totals.textContent).toContain('$0.57')
+    // Speech is priced in its own units: characters out, audio time in.
+    const speech = screen.getByTestId('speech-costs')
+    expect(speech.textContent).toContain('Voice out (TTS)')
+    expect(speech.textContent).toContain('30,000')
+    expect(speech.textContent).toContain('Voice in (STT)')
+    expect(speech.textContent).toContain('1.0 h')
+    // The headline is tokens AND speech, not tokens alone.
+    expect(panel.textContent).toContain('$2.43')
   })
 
   it('non-admins never see the cost monitor', async () => {
