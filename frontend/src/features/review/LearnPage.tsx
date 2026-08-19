@@ -59,7 +59,13 @@ export default function LearnPage() {
     }
     seenLocale.current = supportLocale
   }, [supportLocale])
-  return <LearnInner key={epoch} />
+  // Both halves of the identity in the key, exactly like ReviewSessionPage:
+  // the locale epoch alone left a course switch that arrives WITHOUT a
+  // remount — the profile→prefs sync, a second tab's persisted store — still
+  // showing the old course's lessons, because the batch key is a
+  // mount-scoped random and never refetches on its own.
+  const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
+  return <LearnInner key={`${activeLanguageId ?? 'none'}:${epoch}`} />
 }
 
 function LearnInner() {
