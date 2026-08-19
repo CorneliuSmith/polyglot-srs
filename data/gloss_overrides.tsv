@@ -12,6 +12,7 @@ ca	en	prep	in, at (preposition); of it, of them (pronoun); the (before a man's n
 ca	està	verb	is; he/she/it is (from estar — a temporary state or condition, or where someone is right now: està cansat, he's tired)
 ca	ha	verb	has (auxiliary of the perfect: ha vist, he has seen); there is, there are (in hi ha)
 ca	has	verb	you have (auxiliary of the perfect: has vist, you have seen); you have to (has de)
+ca	hi	pron	there (in hi ha — there is, there are); to it, about it
 ca	la	article	the (feminine singular); her, it (direct object)
 ca	les	article	the (feminine plural); them (feminine, direct object)
 ca	no	adv	not (negating a verb); no (in answer to a question)
@@ -40,6 +41,7 @@ de	habe	verb	have (I have); also the auxiliary forming the perfect: I have seen,
 de	hast	verb	have — you have (to someone you know well); also the perfect auxiliary: you have seen
 de	hat	verb	has (he, she, it); also the auxiliary forming the perfect: has done, has said
 de	ist	verb	"is (he, she, it); also the auxiliary ""has"" in the perfect of verbs of motion or change of state"
+de	ja	intj	yes; yeah (agreeing); as a particle inside a sentence: of course, as you know
 de	mich	pron	me (as direct object or after accusative prepositions); myself (with reflexive verbs)
 de	mir	pron	(to) me, for me — me as indirect object and after dative prepositions like mit, bei
 de	nein	intj	no — the answer to a question or a refusal; negating inside a sentence is nicht instead
@@ -75,8 +77,109 @@ el	του	article	of the — masculine and neuter; his, its; to him (ο φίλο
 el	τους	article	the — masculine plural, as object (τους δρόμους); them, to them; their (το σπίτι τους — their house)
 el	τώρα	adv	now, right now; nowadays, these days; τώρα που — now that
 el	όχι	adv	no (in reply); not (before a word or phrase — verbs take δεν)
+en	a	article	the indefinite article; used before singular nouns not already known or specified
+en	admit	verb	say that something is true, especially unwillingly
+en	america	noun	the United States, a country of 50 states lying mostly between Canada and Mexico
+en	an	article	the indefinite article 'a', used before words starting with vowel sounds
+en	any	adv	at all, even slightly (in questions and negative statements)
+en	anywhere	adv	in, at, or to any place at all
+en	apartment	noun	a set of rooms on one floor of a building, used as a home
+en	arrive	verb	get to a place at the end of a journey
+en	art	noun	paintings, sculpture, and other creative works taken as a whole
+en	as	adv	to the same degree or amount
+en	attack	verb	start using violence against a person, place, or group
+en	be	verb	have a certain quality, identity, or position; exist
+en	bet	verb	say you feel sure something is true; risk money on an outcome
+en	blame	verb	say that someone or something is responsible for something bad
+en	blood	noun	the red liquid that the heart pumps around the body
+en	buddy	noun	a close friend; a companion one does things with
+en	cat	noun	a small furry animal with whiskers and claws, often kept as a pet
+en	catch	verb	discover someone suddenly and unexpectedly, especially in the act of doing something
+en	cause	verb	make something happen; be the reason something occurs
+en	change	verb	make something different; cause a transformation
+en	choose	verb	pick one thing from several possibilities
+en	clean	adj	free from dirt, marks, or stains
+en	clothe	verb	put garments on someone; provide with something to wear
+en	coffee	noun	a dark hot drink made from roasted, ground beans of a tropical shrub
+en	cold	adj	at a low temperature; not warm
+en	college	noun	a place where people study after high school
+en	continue	verb	keep going in the same state or activity without stopping
+en	control	verb	have power over something and direct how it behaves
+en	cover	verb	put something over a thing so as to hide or protect what is underneath
+en	cry	verb	shout out suddenly and loudly; shed tears
+en	dear	adj	much loved; very precious to someone
+en	deep	adj	going far down from the top or the surface; or strongly felt
+en	deserve	verb	be worthy of something because of one's actions or qualities
+en	end	verb	come to a finish; stop at a certain point in time or space
+en	fail	verb	not succeed at something, or leave undone what you were supposed to do
+en	fall	verb	drop downward through the air because of gravity
+en	father	noun	a male parent; also a way of addressing one's own male parent
+en	fight	verb	struggle physically against someone; battle
+en	finish	verb	bring something to an end; reach the end of something
+en	george	noun	a common man's first name in English; also the name of England's patron saint
+en	gold	noun	a heavy, shiny yellow metal that is very valuable, used for jewelry and coins
+en	grunt	verb	make a short low rough sound in the throat, as a pig does
+en	hang	verb	fasten something at the top so it dangles; dangle from a support above
+en	have	verb	own or possess, in a physical or an abstract way
+en	help	verb	give assistance to someone; be of service
+en	home	adv	to or at the house where one lives; toward one's family
+en	honor	verb	show public respect for someone, often with an award or praise
+en	keep	verb	hold something in a certain state, position, or activity
+en	land	noun	ground owned as property; the solid part of the earth's surface
+en	live	verb	have one's home in a particular place; dwell somewhere
+en	lock	verb	fasten something with a key so it cannot be opened
+en	mary	noun	a common woman's first name in English; also the name of the mother of Jesus
+en	mean	verb	intend to express or convey; signify
+en	mother	noun	a female parent; a woman who has given birth to a child
+en	move	verb	change location; travel or go from one place to another
+en	ooh	verb	make a sound that shows delight or admiration
+en	open	verb	make something no longer shut, so people or things can pass through
+en	outside	adv	in the open air; not indoors
+en	paint	verb	cover a surface with color from a brush; make a picture in color
+en	partner	noun	the person you are married to, or live with as a couple
+en	place	verb	put something into a certain position or location
+en	planet	noun	a large round body that orbits a star, such as Earth or Mars
+en	please	verb	make someone feel happy or satisfied
+en	promise	verb	say firmly that you will certainly do something
+en	pull	verb	draw something toward oneself or along behind one by force
+en	put	verb	move something into a certain place or position
+en	question	noun	a sentence or phrase used to ask for information or an answer
+en	raise	verb	lift something to a higher position; increase an amount or level
+en	reach	verb	arrive at a place or point, whether physical or abstract
+en	record	verb	write down or store information so it can be kept
+en	relationship	noun	the connection between two people, and how they behave toward each other
+en	release	verb	set someone or something free; let go of
+en	remain	verb	stay in the same state or condition; continue to be
+en	same	adj	identical; being exactly the one referred to, not another
+en	save	verb	rescue someone or something from ruin, harm, or destruction
+en	serve	verb	fulfill a particular purpose, role, or function
+en	shut	verb	close something such as a door, window, or lid so that nothing can pass through
+en	sigh	verb	let out a long, deep breath, showing tiredness, relief, or sadness
+en	sing	verb	produce musical sounds with the voice, usually with words
+en	single	adj	just one, and no more; individual rather than several
+en	six	adj	amounting to one more than five; 6
+en	somewhere	adv	in, at, or to a place you cannot name exactly
+en	stand	verb	keep an upright position on the feet; get up onto the feet
+en	stay	verb	remain the same; continue in a certain state
+en	stop	verb	come to a halt; cease moving
+en	support	verb	give someone encouragement, comfort, or help
+en	surprise	verb	astonish someone by being sudden or unexpected; catch unawares
+en	talk	verb	exchange thoughts in speech; converse with someone
+en	taste	verb	have a particular flavor when you eat or drink it
+en	tea	noun	a hot drink made by soaking dried leaves of a certain plant in water
+en	test	verb	try something in order to find out how good it is or how well it works
+en	travel	verb	go from one place to another, usually over some distance
+en	vote	verb	formally choose a candidate or option in an election
+en	want	verb	feel a desire for; wish for something strongly
+en	well	adv	in a good, proper, or satisfactory way; to a high standard
+en	why	adv	for what reason or purpose
+en	wish	verb	want something to happen or be true, especially when it is unlikely
+en	witness	verb	see something happen with your own eyes
+en	worry	verb	feel anxious or troubled about something that might go wrong
 es	a	prep	to, at (direction, time); marks a person as object (personal a); ir a + inf.
+es	al	contraction	to the, at the (a + el); on, upon (al + infinitive: al llegar — on arriving)
 es	bien	adv	well; fine, all right (how you are); quite, really (before an adjective or adverb)
+es	como	adv	how; like, as (comparing); since, because (opening a clause); I eat (from comer)
 es	es	verb	is; he/she/it is; you are (formal) — from ser, for identity and lasting traits
 es	eso	pron	that; that thing, that idea (for something unnamed or a whole situation)
 es	esta	det	this (with a feminine noun — something near the speaker); this one
@@ -85,6 +188,7 @@ es	está	verb	is; he/she/it is; you are (formal) — from estar: location, state
 es	ha	verb	has; he/she/it has, you have (formal) — helper before a past participle
 es	hay	verb	there is; there are — one invariable form, the same for one or many
 es	la	article	the (feminine singular); her, it (as a direct object); you (formal, to a woman)
+es	lo	pron	him, it (as a direct object); the (before an adjective: lo bueno — the good part)
 es	los	article	the (masculine plural); them (as a direct object)
 es	me	pron	me; to me, for me; myself (with reflexive verbs)
 es	mi	det	my (before a singular noun; mis before a plural)
@@ -357,6 +461,7 @@ sw	yule	det	that, that one over there (with class 1 nouns — a person or animal
 sw	za	prep	of, belonging to (with class 10 plural nouns: nyumba za watu = people's houses)
 th	ฉัน	pron	I, me (informal; used mostly by women)
 th	นี่	pron	this, this one (standing alone); here
+th	สวัสดี	intj	hello, hi; goodbye — the all-purpose greeting, with ครับ or ค่ะ added
 th	หรือ	conj	or; (sentence-final yes-no question particle: …is it? / really? — spoken เหรอ, รึ)
 th	เดี๋ยว	adv	in a moment, shortly; wait, hold on; or else, otherwise (warning)
 th	แต่	conj	but, however; only, just; since, from (a time)
@@ -421,9 +526,3 @@ yo	wọn	pron	they (wọ́n, subject); them (wọn, after a verb); their (wọn,
 yo	yi	det	this (placed after the noun, written yìí in full); yí to turn, to change
 yo	ẹ	pron	you (plural or polite, as subject); you (singular, as object after the verb)
 yo	ọ	pron	you (one person), as the object of a verb; him, her, it after a verb ending in ọ
-de	ja	intj	yes; yeah (agreeing); as a particle inside a sentence: of course, as you know
-es	al	contraction	to the, at the (a + el); on, upon (al + infinitive: al llegar — on arriving)
-es	como	adv	how; like, as (comparing); since, because (opening a clause); I eat (from comer)
-es	lo	pron	him, it (as a direct object); the (before an adjective: lo bueno — the good part)
-ca	hi	pron	there (in hi ha — there is, there are); to it, about it
-th	สวัสดี	intj	hello, hi; goodbye — the all-purpose greeting, with ครับ or ค่ะ added

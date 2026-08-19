@@ -18,6 +18,7 @@ from backend.services.quality.audit_content import (
     WRONG_SENSE_RANK_BAND,
     audit_all,
     audit_points,
+    is_circular,
     load_baseline,
     regressions,
     wrong_sense_kind,
@@ -365,3 +366,46 @@ class TestWrongSenseGloss:
             if report["findings"]["wrong_sense_gloss"]
         }
         assert not offenders, offenders
+
+
+class TestCircularGloss:
+    """A definition that uses the word it defines teaches nothing.
+
+    WordNet writes for readers who already know English, so the English
+    course inherited "have or possess" for `have` and "make a painting" for
+    `paint` — 80 of the first 1000 words.
+    """
+
+    def test_headword_in_its_own_definition(self):
+        assert is_circular("have", "verb", "have or possess")
+        assert is_circular("mean", "verb", "mean or intend to express or convey")
+
+    def test_inflected_form_counts(self):
+        assert is_circular("paint", "verb", "make a painting")
+        assert is_circular("pull", "verb", "cause to move by pulling")
+        assert is_circular("stand", "verb", "be standing; be upright")
+        assert is_circular("be", "verb", "have the quality of being")
+        assert is_circular("buddy", "noun", "a close friend who accompanies his buddies")
+
+    def test_clean_definitions_pass(self):
+        assert not is_circular("have", "verb", "own or possess, physically or abstractly")
+        assert not is_circular("paint", "verb", "put colour on a surface with a brush")
+        assert not is_circular("book", "noun", "a written work bound between covers")
+
+    def test_function_words_are_exempt(self):
+        """A preposition cannot be glossed without being used, and the
+        collocation is the teaching — flagging these would bury the real
+        defect under false positives."""
+        assert not is_circular("for", "prep", "intended for; in exchange for")
+        assert not is_circular("of", "prep", "belonging to / part of")
+        assert not is_circular("with", "prep", "together with; using")
+        assert not is_circular("a", "article", "the indefinite article")
+
+    def test_substring_is_not_a_match(self):
+        """'cat' inside 'category' is a collision, not a circular definition."""
+        assert not is_circular("cat", "noun", "an animal in the feline category")
+        assert not is_circular("in", "adv", "inside a building")
+
+    def test_empty_inputs(self):
+        assert not is_circular("have", "verb", "")
+        assert not is_circular("have", "", "have or possess")

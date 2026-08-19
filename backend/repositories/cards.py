@@ -185,12 +185,28 @@ async def get_due_cards(
                 -- translation, fall back to the English row when no locale
                 -- rendering exists yet. Never a third, random language.
                 SELECT DISTINCT ON (es.sentence)
-                       es.sentence, es.translation, es.gloss,
+                       es.sentence,
+                       CASE WHEN es.translation_locale IN ($3, 'en')
+                            THEN es.translation END AS translation,
+                       es.gloss,
                        es.transliteration, es.difficulty_rank, es.id,
-                       es.translation_locale
+                       CASE WHEN es.translation_locale IN ($3, 'en')
+                            THEN es.translation_locale END AS translation_locale
                 FROM example_sentences es
                 WHERE es.vocabulary_id = v.id
-                  AND es.translation_locale IN ($3, 'en')
+                  AND (es.translation_locale IN ($3, 'en')
+                       -- ...or the sentence is ALREADY in the language the
+                       -- learner reads, and needs no translation at all. The
+                       -- English course is the one bank with zero 'en'
+                       -- translation rows — every row translates English INTO
+                       -- something else — so an en-locale learner of English
+                       -- matched nothing and saw no examples anywhere. That is
+                       -- the default locale, so it was most of them. Take any
+                       -- row for them; the CASE above drops the foreign
+                       -- translation, so no Turkish gloss appears under an
+                       -- English sentence.
+                       OR es.language_id IN (
+                           SELECT id FROM languages WHERE code = $3))
                   -- Learners see reviewed content; a language whose policy is
                   -- 'ai_ok' (admin toggle) also serves verified AI content
                   -- without waiting for human sign-off. (Column is historically
@@ -199,7 +215,8 @@ async def get_due_cards(
                        OR es.language_id IN (
                            SELECT id FROM languages
                             WHERE grammar_review_policy IN ('ai_ok', 'all')))
-                ORDER BY es.sentence, (es.translation_locale = $3) DESC
+                ORDER BY es.sentence, (es.translation_locale = $3) DESC,
+                         (es.translation_locale = 'en') DESC, es.id
             ) pes
         ) ex ON true
         LEFT JOIN LATERAL (
@@ -1414,15 +1431,25 @@ async def get_card_details_bulk(
                 -- Prefer the learner's-locale translation of each sentence,
                 -- falling back to the English row — never a third language.
                 SELECT DISTINCT ON (es.vocabulary_id, es.sentence)
-                       es.vocabulary_id, es.sentence, es.translation,
+                       es.vocabulary_id, es.sentence,
+                       CASE WHEN es.translation_locale IN ($2, 'en')
+                            THEN es.translation END AS translation,
                        es.gloss, es.transliteration, es.difficulty_rank
                 FROM example_sentences es
                 WHERE es.vocabulary_id = ANY($1::uuid[])
-                  AND es.translation_locale IN ($2, 'en')
+                  AND (es.translation_locale IN ($2, 'en')
+                       -- ...or the sentence already reads in the learner's own
+                       -- language and needs no translation — the English
+                       -- course, whose bank holds no 'en' rows at all. The
+                       -- translation is nulled above, so no third language is
+                       -- shown as if it were theirs.
+                       OR es.language_id IN (
+                           SELECT id FROM languages WHERE code = $2))
                   AND es.reviewed
                   {explicit}
                 ORDER BY es.vocabulary_id, es.sentence,
-                         (es.translation_locale = $2) DESC
+                         (es.translation_locale = $2) DESC,
+                         (es.translation_locale = 'en') DESC, es.id
             ) pes
             ORDER BY difficulty_rank ASC NULLS LAST
             """,
@@ -1725,13 +1752,24 @@ async def get_card_detail(
                 -- Prefer the learner's-locale translation per sentence,
                 -- falling back to the English row — never a third language.
                 SELECT DISTINCT ON (es.sentence)
-                       es.sentence, es.translation, es.difficulty_rank
+                       es.sentence,
+                       CASE WHEN es.translation_locale IN ($2, 'en')
+                            THEN es.translation END AS translation,
+                       es.difficulty_rank
                 FROM example_sentences es
                 WHERE es.vocabulary_id = $1
-                  AND es.translation_locale IN ($2, 'en')
+                  AND (es.translation_locale IN ($2, 'en')
+                       -- ...or the sentence already reads in the learner's own
+                       -- language and needs no translation — the English
+                       -- course, whose bank holds no 'en' rows at all. The
+                       -- translation is nulled above, so no third language is
+                       -- shown as if it were theirs.
+                       OR es.language_id IN (
+                           SELECT id FROM languages WHERE code = $2))
                   AND es.reviewed
                   {explicit}
-                ORDER BY es.sentence, (es.translation_locale = $2) DESC
+                ORDER BY es.sentence, (es.translation_locale = $2) DESC,
+                         (es.translation_locale = 'en') DESC, es.id
             ) pes
             ORDER BY difficulty_rank ASC NULLS LAST
             LIMIT 5
@@ -2648,13 +2686,22 @@ async def get_vocab_item(
         SELECT sentence, translation
         FROM (
             SELECT DISTINCT ON (es.sentence)
-                   es.sentence, es.translation, es.difficulty_rank
+                   es.sentence,
+                   CASE WHEN es.translation_locale IN ($2, 'en')
+                        THEN es.translation END AS translation,
+                   es.difficulty_rank
             FROM example_sentences es
             WHERE es.vocabulary_id = $1
-              AND es.translation_locale IN ($2, 'en')
+              AND (es.translation_locale IN ($2, 'en')
+                   -- ...or the sentence already reads in the learner's own
+                   -- language: the English course, whose bank has no 'en'
+                   -- rows. Translation nulled above, never substituted.
+                   OR es.language_id IN (
+                       SELECT id FROM languages WHERE code = $2))
               AND es.reviewed
               {explicit}
-            ORDER BY es.sentence, (es.translation_locale = $2) DESC
+            ORDER BY es.sentence, (es.translation_locale = $2) DESC,
+                     (es.translation_locale = 'en') DESC, es.id
         ) pes
         ORDER BY difficulty_rank ASC NULLS LAST
         LIMIT 5
