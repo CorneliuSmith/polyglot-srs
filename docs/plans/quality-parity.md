@@ -208,6 +208,34 @@ One case would justify revisiting this: a true homograph with a DIFFERENT
 pronunciation, where one card cannot carry both audio clips. None of the
 1,293 words measured is that case, so it stays out of scope until one is.
 
+### D1d — The homonym gap: one row per spelling hid whole words (19 Aug)
+
+D1c decided one card per written form, with the gloss naming the senses. The
+owner's follow-up exposed the assumption underneath: treating a spelling as one
+word doesn't only merge senses — **it dropped the other words entirely**. The
+frequency pipeline emits one row per surface form, so wherever two lemmas
+shared a spelling (or shared one because the source carried no marks), only the
+corpus-dominant lemma got a row.
+
+Measured in Latin the moment macronisation made it visible: `hic` "this" has a
+row, `hīc` "here" does not — while `ibi` and `ubi` do, so the adverb slot
+plainly exists in the course. `lātus` "wide" present, `latus` "side" absent.
+`malum`/`mālum` both absent.
+
+This scales with the orthography debt. `es`/`fr` mostly carry both members
+(`el` and `él` are separate rows) because their corpora distinguish them. But
+**toneless `yo` means every tone-distinguished set is one skeleton row** — the
+lexicon is missing the non-dominant member of every such set, and nobody can
+count how many until the tone repair happens. Same shape in `mi` pre-repair,
+and behind spelling rather than diacritics in `ar`/`he`/`fa` (unvocalised) and
+`th`.
+
+**So Phase 2a gains a rule: re-marking is not decoration.** Each unmarked row
+may stand for several words. The re-marking pass must decide which word the
+rank belonged to, and whether the others merit rows of their own — and the
+post-repair sweep for missing high-frequency members (the Latin sweep is the
+model) is part of the repair, not optional follow-up. CHECKS.md §8.
+
 ### D2 — Sentence parity. Two separate problems, and one is not what it looked like.
 
 **English (corrected 17 Aug — the first reading was wrong).** The sentences
