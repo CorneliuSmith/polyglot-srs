@@ -95,464 +95,466 @@ rank	word	pos	en
 94	herī	adv	yesterday
 95	crās	adv	tomorrow
 96	ibi	adv	there
-97	ubi	adv	where; when
-98	sīc	adv	thus; so
-99	ita	adv	thus; so
-100	valdē	adv	very; greatly
-101	satis	adv	enough
-102	bene	adv	well
-103	male	adv	badly
-104	magis	adv	more
-105	minus	adv	less
-106	meus	det	my
-107	tuus	det	your
-108	noster	det	our
-109	vester	det	your (pl)
-110	aliquis	pron	someone; something
-111	nūllus	adj	no; none
-112	alius	adj	other; another
-113	alter	adj	the other (of two)
-114	tōtus	adj	whole; entire
-115	sōlus	adj	alone; only
-116	īdem	pron	the same
-117	tantus	adj	so great; so much
-118	quālis	adj	of what kind
-119	quantus	adj	how much; how great
-120	possum	verb	I am able; I can
-121	agō	verb	I do; I drive
-122	ferō	verb	I carry; I bring
-123	dēbeō	verb	I ought; I owe
-124	putō	verb	I think
-125	teneō	verb	I hold; I keep
-126	mittō	verb	I send
-127	accipiō	verb	I receive; I accept
-128	petō	verb	I seek; I ask
-129	pōnō	verb	I put; I place
-130	capiō	verb	I take; I seize
-131	relinquō	verb	I leave; I abandon
-132	maneō	verb	I remain; I stay
-133	vīvō	verb	I live
-134	mūtō	verb	I change
-135	moveō	verb	I move
-136	rogō	verb	I ask
-137	respondeō	verb	I answer
-138	dūcō	verb	I lead
-139	gerō	verb	I carry on; I wage
-140	iaciō	verb	I throw
-141	timeō	verb	I fear
-142	spērō	verb	I hope
-143	cōgitō	verb	I think; I ponder
-144	intellegō	verb	I understand
-145	cognōscō	verb	I get to know
-146	homō	noun	human; man; person
-147	vir	noun	man
-148	puer	noun	boy; child
-149	puella	noun	girl
-150	pater	noun	father
-151	soror	noun	sister
-152	deus	noun	god
-153	dominus	noun	master; lord
-154	servus	noun	slave; servant
-155	populus	noun	people; nation
-156	urbs	noun	city
-157	oppidum	noun	town
-158	locus	noun	place
-159	terra	noun	land; earth
-160	mare	noun	sea
-161	aqua	noun	water
-162	ignis	noun	fire
-163	caelum	noun	sky; heaven
-164	sōl	noun	sun
-165	lūna	noun	moon
-166	stella	noun	star
-167	nox	noun	night
-168	tempus	noun	time
-169	annus	noun	year
-170	hōra	noun	hour
-171	manus	noun	hand; band (of men)
-172	caput	noun	head
-173	oculus	noun	eye
-174	cor	noun	heart
-175	corpus	noun	body
-176	animus	noun	mind; spirit; courage
-177	mors	noun	death
-178	bellum	noun	war
-179	verbum	noun	word
-180	liber	noun	book
-181	via	noun	road; way
-182	domus	noun	house; home
-183	pecūnia	noun	money
-184	cibus	noun	food
-185	pānis	noun	bread
-186	vīnum	noun	wine
-187	duo	num	two
-188	quattuor	num	four
-189	quīnque	num	five
-190	sex	num	six
-191	septem	num	seven
-192	octō	num	eight
-193	novem	num	nine
-194	decem	num	ten
-195	centum	num	hundred
-196	mīlle	num	thousand
-197	prīmus	num	first
-198	secundus	num	second
-199	tertius	num	third
-200	pars	noun	part; portion
-201	bonus	adj	good
-202	malus	adj	bad; evil
-203	magnus	adj	big; great
-204	parvus	adj	small; little
-205	multus	adj	much; many
-206	longus	adj	long
-207	altus	adj	high; deep
-208	novus	adj	new
-209	vetus	adj	old
-210	antīquus	adj	ancient; old
-211	pulcher	adj	beautiful; handsome
-212	fortis	adj	brave; strong
-213	līber	adj	free
-214	fēlīx	adj	happy; lucky
-215	miser	adj	wretched; unhappy
-216	similis	adj	similar; like
-217	facilis	adj	easy
-218	difficilis	adj	difficult
-219	dūrus	adj	hard; harsh
-220	mollis	adj	soft
-221	gravis	adj	heavy; serious
-222	levis	adj	light; slight
-223	clārus	adj	clear; bright; famous
-224	obscūrus	adj	dark; obscure
-225	sānctus	adj	holy; sacred
-226	sacer	adj	sacred
-227	vērus	adj	true; real
-228	falsus	adj	false
-229	plēnus	adj	full
-230	vacuus	adj	empty
-231	dīves	adj	rich
-232	pauper	adj	poor
-233	celer	adj	fast; swift
-234	tardus	adj	slow; late
-235	calidus	adj	warm; hot
-236	frīgidus	adj	cold
-237	albus	adj	white
-238	niger	adj	black
-239	ruber	adj	red
-240	viridis	adj	green
-241	aureus	adj	golden
-242	lātus	adj	wide; broad
-243	angustus	adj	narrow
-244	plūrimus	adj	most; very many
-245	faciēs	noun	face
-246	ōs	noun	mouth; face
-247	auris	noun	ear
-248	nāsus	noun	nose
-249	dēns	noun	tooth
-250	pēs	noun	foot
-251	bracchium	noun	arm
-252	digitus	noun	finger
-253	sanguis	noun	blood
-254	os	noun	bone
-255	vōx	noun	voice
-256	animal	noun	animal
-257	canis	noun	dog
-258	equus	noun	horse
-259	bōs	noun	ox; cow
-260	avis	noun	bird
-261	piscis	noun	fish
-262	leō	noun	lion
-263	lupus	noun	wolf
-264	ovis	noun	sheep
-265	mōns	noun	mountain
-266	flūmen	noun	river
-267	silva	noun	forest; woods
-268	arbor	noun	tree
-269	flōs	noun	flower
-270	lapis	noun	stone
-271	ventus	noun	wind
-272	nūbēs	noun	cloud
-273	imber	noun	rain
-274	nix	noun	snow
-275	frūmentum	noun	grain; wheat
-276	herba	noun	grass; herb
-277	cīvis	noun	citizen
-278	mīles	noun	soldier
-279	hostis	noun	enemy
-280	dux	noun	leader; general
-281	imperātor	noun	commander; emperor
-282	cōnsul	noun	consul
-283	senātus	noun	senate
-284	lēx	noun	law
-285	iūs	noun	right; law; justice
-286	imperium	noun	command; empire
-287	rēgnum	noun	kingdom; rule
-288	cīvitās	noun	state; citizenship
-289	exercitus	noun	army
-290	proelium	noun	battle
-291	victōria	noun	victory
-292	glōria	noun	glory; fame
-293	virtūs	noun	virtue; courage
-294	fidēs	noun	faith; trust
-295	spēs	noun	hope
-296	timor	noun	fear
-297	amor	noun	love
-298	īra	noun	anger
-299	gaudium	noun	joy
-300	dolor	noun	pain; grief
-301	cōnsilium	noun	plan; advice; counsel
-302	causa	noun	cause; reason; case
-303	modus	noun	way; manner; measure
-304	genus	noun	kind; race; birth
-305	labor	noun	work; toil
-306	negōtium	noun	business; task
-307	ōtium	noun	leisure
-308	officium	noun	duty; service
-309	iaceō	verb	I lie down
-310	currō	verb	I run
-311	ambulō	verb	I walk
-312	cadō	verb	I fall
-313	surgō	verb	I rise; I get up
-314	dormiō	verb	I sleep
-315	edō	verb	I eat
-316	bibō	verb	I drink
-317	emō	verb	I buy
-318	vēndō	verb	I sell
-319	labōrō	verb	I work
-320	lūdō	verb	I play
-321	dēfendō	verb	I defend
-322	oppugnō	verb	I attack
-323	vincō	verb	I conquer; I win
-324	superō	verb	I overcome; I surpass
-325	servō	verb	I save; I keep
-326	perdō	verb	I lose; I destroy
-327	inveniō	verb	I find; I discover
-328	quaerō	verb	I search; I ask
-329	incipiō	verb	I begin
-330	cōnficiō	verb	I finish; I complete
-331	quia	conj	because
-332	quoniam	conj	since; because
-333	dōnec	conj	until; while
-334	postquam	conj	after
-335	antequam	conj	before
-336	priusquam	conj	before
-337	quamquam	conj	although
-338	licet	conj	although
-339	simul	adv	at the same time; together
-340	praetereā	adv	besides; moreover
-341	dēnique	adv	finally; at last
-342	tandem	adv	at last; finally
-343	deinde	adv	then; next
-344	dein	adv	then
-345	posteā	adv	afterward
-346	anteā	adv	before; previously
-347	mox	adv	soon
-348	ōlim	adv	once; formerly
-349	nūper	adv	recently
-350	adhūc	adv	still; up to now
-351	statim	adv	immediately
-352	subitō	adv	suddenly
-353	forte	adv	by chance
-354	fortasse	adv	perhaps
-355	certē	adv	certainly; at least
-356	vērō	adv	indeed; but
-357	quidem	adv	indeed; at least
-358	scīlicet	adv	of course; namely
-359	praesertim	adv	especially
-360	procul	adv	far off
-361	prope	adv	near; nearly
-362	ūnā	adv	together
-363	frūstrā	adv	in vain
-364	paene	adv	almost
-365	vix	adv	hardly; scarcely
-366	nēmō	pron	no one
-367	nihil	pron	nothing
-368	umquam	adv	ever
-369	undique	adv	from all sides
-370	plūs	adv	more
-371	nimis	adv	too much
-372	parum	adv	too little
-373	ferē	adv	almost; generally
-374	propter	prep	because of; near
-375	apud	prep	at; among; near
-376	trāns	prep	across
-377	circā	prep	around; about
-378	secundum	prep	according to; along
-379	ergā	prep	toward (feelings)
-380	extrā	prep	outside
-381	intrā	prep	within
-382	iubeō	verb	I order; I command
-383	cupiō	verb	I desire; I want
-384	nōlō	verb	I do not want
-385	mālō	verb	I prefer
-386	fīō	verb	I become; I happen
-387	reddō	verb	I give back; I return
-388	trādō	verb	I hand over; I hand down
-389	ostendō	verb	I show
-390	moneō	verb	I warn; I advise
-391	doceō	verb	I teach
-392	discō	verb	I learn
-393	cōgō	verb	I compel; I gather
-394	permittō	verb	I allow; I entrust
-395	prohibeō	verb	I prevent; I forbid
-396	pellō	verb	I drive; I push
-397	tollō	verb	I lift; I remove
-398	premō	verb	I press
-399	tangō	verb	I touch
-400	sentiō	verb	I feel; I perceive
-401	crēdō	verb	I believe; I trust
-402	nesciō	verb	I do not know
-403	iungō	verb	I join
-404	solvō	verb	I loosen; I pay; I solve
-405	claudō	verb	I close; I shut
-406	aperiō	verb	I open
-407	appellō	verb	I call; I name
-408	loquor	verb	I speak
-409	sequor	verb	I follow
-410	ūtor	verb	I use
-411	patior	verb	I suffer; I allow
-412	morior	verb	I die
-413	nāscor	verb	I am born
-414	cōnor	verb	I try; I attempt
-415	arbitror	verb	I think; I judge
-416	templum	noun	temple
-417	mūrus	noun	wall
-418	porta	noun	gate
-419	iānua	noun	door
-420	fenestra	noun	window
-421	mēnsa	noun	table
-422	lectus	noun	bed; couch
-423	cēna	noun	dinner
-424	forum	noun	forum; marketplace
-425	hortus	noun	garden
-426	ager	noun	field; land
-427	campus	noun	field; plain
-428	īnsula	noun	island; apartment block
-429	pōns	noun	bridge
-430	iter	noun	journey; route
-431	nāvis	noun	ship
-432	portus	noun	harbor; port
-433	epistula	noun	letter
-434	littera	noun	letter (of alphabet); (pl.) literature
-435	fābula	noun	story; play
-436	carmen	noun	song; poem
-437	lingua	noun	tongue; language
-438	ōrātiō	noun	speech; oration
-439	sententia	noun	opinion; sentence
-440	memoria	noun	memory
-441	scientia	noun	knowledge
-442	sapientia	noun	wisdom
-443	ratiō	noun	reason; method; account
-444	vēritās	noun	truth
-445	nātūra	noun	nature
-446	mundus	noun	world
-447	orbis	noun	circle; world
-448	rēgīna	noun	queen
-449	mulier	noun	woman
-450	coniūnx	noun	spouse
-451	magister	noun	teacher; master
-452	discipulus	noun	student; pupil
-453	iūdex	noun	judge
-454	testis	noun	witness
-455	sapiēns	adj	wise
-456	stultus	adj	foolish
-457	iūstus	adj	just; fair
-458	aequus	adj	equal; fair; level
-459	commūnis	adj	common; shared
-460	proprius	adj	one's own; particular
-461	dexter	adj	right (side)
-462	sinister	adj	left; unlucky
-463	audeō	verb	I dare
-464	gaudeō	verb	I rejoice
-465	doleō	verb	I grieve; I hurt
-466	noceō	verb	I harm
-467	pāreō	verb	I obey
-468	placeō	verb	I please
-469	studeō	verb	I am eager; I study
-470	valeō	verb	I am strong; I am well
-471	fleō	verb	I weep
-472	rīdeō	verb	I laugh
-473	taceō	verb	I am silent
-474	lūceō	verb	I shine
-475	cōnstituō	verb	I establish; I decide
-476	statuō	verb	I decide; I set up
-477	mūniō	verb	I fortify
-478	pūniō	verb	I punish
-479	fīniō	verb	I finish; I limit
-480	dēscendō	verb	I descend; I go down
-481	ascendō	verb	I climb; I go up
-482	contendō	verb	I strive; I hasten
-483	regō	verb	I rule; I guide
-484	tegō	verb	I cover
-485	trahō	verb	I drag; I draw
-486	fluō	verb	I flow
-487	crēscō	verb	I grow; I increase
-488	cēdō	verb	I yield; I go
-489	accēdō	verb	I approach
-490	discēdō	verb	I depart; I leave
-491	colligō	verb	I gather; I collect
-492	dēligō	verb	I choose; I select
-493	vehō	verb	I carry; I convey
-494	aetās	noun	age; period of life
-495	initium	noun	beginning
-496	fīnis	noun	end; boundary; purpose
-497	exitus	noun	exit; outcome
-498	adventus	noun	arrival
-499	cāsus	noun	fall; chance; misfortune
-500	fortūna	noun	fortune; luck
-501	fātum	noun	fate; destiny
-502	dōnum	noun	gift
-503	praemium	noun	reward; prize
-504	poena	noun	penalty; punishment
-505	scelus	noun	crime; wickedness
-506	culpa	noun	fault; blame
-507	crīmen	noun	charge; crime
-508	iniūria	noun	injury; wrong
-509	beneficium	noun	favor; kindness
-510	grātia	noun	gratitude; favor; grace
-511	honor	noun	honor; public office
-512	potestās	noun	power; authority
-513	auctōritās	noun	authority; influence
-514	vīs	noun	force; violence; strength
-515	impetus	noun	attack; charge
-516	cōpia	noun	abundance; (pl.) troops
-517	multitūdō	noun	multitude; crowd
-518	turba	noun	crowd; uproar
-519	numerus	noun	number
-520	ōrdō	noun	order; rank; row
-521	legiō	noun	legion
-522	castra	noun	camp
-523	arma	noun	arms; weapons
-524	gladius	noun	sword
-525	hasta	noun	spear
-526	scūtum	noun	shield
-527	tēlum	noun	weapon; missile
-528	vulnus	noun	wound
-529	mēnsis	noun	month
-530	saeculum	noun	age; century; generation
-531	nūmen	noun	divine power; deity
-532	sacrificium	noun	sacrifice
-533	āra	noun	altar
-534	cārus	adj	dear; costly
-535	grātus	adj	pleasing; grateful
-536	tūtus	adj	safe
-537	certus	adj	certain; fixed
-538	incertus	adj	uncertain
-539	dubius	adj	doubtful
-540	aptus	adj	fit; suitable
-541	idōneus	adj	suitable
-542	necessārius	adj	necessary
-543	ūtilis	adj	useful
-544	dignus	adj	worthy
-545	indignus	adj	unworthy
-546	ferōx	adj	fierce; bold
-547	ācer	adj	sharp; keen; fierce
-548	crūdēlis	adj	cruel
-549	mītis	adj	gentle; mild
-550	summus	adj	highest; greatest
-551	īnfimus	adj	lowest
-552	medius	adj	middle
-553	extrēmus	adj	outermost; last
-554	proximus	adj	nearest; next
-555	superior	adj	upper; earlier
-556	īnferior	adj	lower
-557	ūniversus	adj	whole; entire; all
+97	hīc	adv	here (distinct from hic: this)
+98	ubi	adv	where; when
+99	sīc	adv	thus; so
+100	ita	adv	thus; so
+101	valdē	adv	very; greatly
+102	satis	adv	enough
+103	bene	adv	well
+104	male	adv	badly
+105	magis	adv	more
+106	minus	adv	less
+107	meus	det	my
+108	tuus	det	your
+109	noster	det	our
+110	vester	det	your (pl)
+111	aliquis	pron	someone; something
+112	nūllus	adj	no; none
+113	alius	adj	other; another
+114	alter	adj	the other (of two)
+115	tōtus	adj	whole; entire
+116	sōlus	adj	alone; only
+117	īdem	pron	the same
+118	tantus	adj	so great; so much
+119	quālis	adj	of what kind
+120	quantus	adj	how much; how great
+121	possum	verb	I am able; I can
+122	agō	verb	I do; I drive
+123	ferō	verb	I carry; I bring
+124	dēbeō	verb	I ought; I owe
+125	putō	verb	I think
+126	teneō	verb	I hold; I keep
+127	mittō	verb	I send
+128	accipiō	verb	I receive; I accept
+129	petō	verb	I seek; I ask
+130	pōnō	verb	I put; I place
+131	capiō	verb	I take; I seize
+132	relinquō	verb	I leave; I abandon
+133	maneō	verb	I remain; I stay
+134	vīvō	verb	I live
+135	mūtō	verb	I change
+136	moveō	verb	I move
+137	rogō	verb	I ask
+138	respondeō	verb	I answer
+139	dūcō	verb	I lead
+140	gerō	verb	I carry on; I wage
+141	iaciō	verb	I throw
+142	timeō	verb	I fear
+143	spērō	verb	I hope
+144	cōgitō	verb	I think; I ponder
+145	intellegō	verb	I understand
+146	cognōscō	verb	I get to know
+147	homō	noun	human; man; person
+148	vir	noun	man
+149	puer	noun	boy; child
+150	puella	noun	girl
+151	pater	noun	father
+152	soror	noun	sister
+153	deus	noun	god
+154	dominus	noun	master; lord
+155	servus	noun	slave; servant
+156	populus	noun	people; nation
+157	urbs	noun	city
+158	oppidum	noun	town
+159	locus	noun	place
+160	terra	noun	land; earth
+161	mare	noun	sea
+162	aqua	noun	water
+163	ignis	noun	fire
+164	caelum	noun	sky; heaven
+165	sōl	noun	sun
+166	lūna	noun	moon
+167	stella	noun	star
+168	nox	noun	night
+169	tempus	noun	time
+170	annus	noun	year
+171	hōra	noun	hour
+172	manus	noun	hand; band (of men)
+173	caput	noun	head
+174	oculus	noun	eye
+175	cor	noun	heart
+176	corpus	noun	body
+177	animus	noun	mind; spirit; courage
+178	mors	noun	death
+179	bellum	noun	war
+180	verbum	noun	word
+181	liber	noun	book
+182	via	noun	road; way
+183	domus	noun	house; home
+184	pecūnia	noun	money
+185	cibus	noun	food
+186	pānis	noun	bread
+187	mālum	noun	apple (distinct from malus: bad)
+188	vīnum	noun	wine
+189	duo	num	two
+190	quattuor	num	four
+191	quīnque	num	five
+192	sex	num	six
+193	septem	num	seven
+194	octō	num	eight
+195	novem	num	nine
+196	decem	num	ten
+197	centum	num	hundred
+198	mīlle	num	thousand
+199	prīmus	num	first
+200	secundus	num	second
+201	tertius	num	third
+202	pars	noun	part; portion
+203	bonus	adj	good
+204	malus	adj	bad; evil
+205	magnus	adj	big; great
+206	parvus	adj	small; little
+207	multus	adj	much; many
+208	longus	adj	long
+209	altus	adj	high; deep
+210	novus	adj	new
+211	vetus	adj	old
+212	antīquus	adj	ancient; old
+213	pulcher	adj	beautiful; handsome
+214	fortis	adj	brave; strong
+215	līber	adj	free
+216	fēlīx	adj	happy; lucky
+217	miser	adj	wretched; unhappy
+218	similis	adj	similar; like
+219	facilis	adj	easy
+220	difficilis	adj	difficult
+221	dūrus	adj	hard; harsh
+222	mollis	adj	soft
+223	gravis	adj	heavy; serious
+224	levis	adj	light; slight
+225	clārus	adj	clear; bright; famous
+226	obscūrus	adj	dark; obscure
+227	sānctus	adj	holy; sacred
+228	sacer	adj	sacred
+229	vērus	adj	true; real
+230	falsus	adj	false
+231	plēnus	adj	full
+232	vacuus	adj	empty
+233	dīves	adj	rich
+234	pauper	adj	poor
+235	celer	adj	fast; swift
+236	tardus	adj	slow; late
+237	calidus	adj	warm; hot
+238	frīgidus	adj	cold
+239	albus	adj	white
+240	niger	adj	black
+241	ruber	adj	red
+242	viridis	adj	green
+243	aureus	adj	golden
+244	lātus	adj	wide; broad
+245	angustus	adj	narrow
+246	plūrimus	adj	most; very many
+247	faciēs	noun	face
+248	ōs	noun	mouth; face
+249	auris	noun	ear
+250	nāsus	noun	nose
+251	dēns	noun	tooth
+252	pēs	noun	foot
+253	bracchium	noun	arm
+254	digitus	noun	finger
+255	sanguis	noun	blood
+256	os	noun	bone
+257	vōx	noun	voice
+258	animal	noun	animal
+259	canis	noun	dog
+260	equus	noun	horse
+261	bōs	noun	ox; cow
+262	avis	noun	bird
+263	piscis	noun	fish
+264	leō	noun	lion
+265	lupus	noun	wolf
+266	ovis	noun	sheep
+267	mōns	noun	mountain
+268	flūmen	noun	river
+269	silva	noun	forest; woods
+270	arbor	noun	tree
+271	flōs	noun	flower
+272	lapis	noun	stone
+273	ventus	noun	wind
+274	nūbēs	noun	cloud
+275	imber	noun	rain
+276	nix	noun	snow
+277	frūmentum	noun	grain; wheat
+278	herba	noun	grass; herb
+279	cīvis	noun	citizen
+280	mīles	noun	soldier
+281	hostis	noun	enemy
+282	dux	noun	leader; general
+283	imperātor	noun	commander; emperor
+284	cōnsul	noun	consul
+285	senātus	noun	senate
+286	lēx	noun	law
+287	iūs	noun	right; law; justice
+288	imperium	noun	command; empire
+289	rēgnum	noun	kingdom; rule
+290	cīvitās	noun	state; citizenship
+291	exercitus	noun	army
+292	proelium	noun	battle
+293	victōria	noun	victory
+294	glōria	noun	glory; fame
+295	virtūs	noun	virtue; courage
+296	fidēs	noun	faith; trust
+297	spēs	noun	hope
+298	timor	noun	fear
+299	amor	noun	love
+300	īra	noun	anger
+301	gaudium	noun	joy
+302	dolor	noun	pain; grief
+303	cōnsilium	noun	plan; advice; counsel
+304	causa	noun	cause; reason; case
+305	modus	noun	way; manner; measure
+306	genus	noun	kind; race; birth
+307	labor	noun	work; toil
+308	negōtium	noun	business; task
+309	ōtium	noun	leisure
+310	officium	noun	duty; service
+311	iaceō	verb	I lie down
+312	currō	verb	I run
+313	ambulō	verb	I walk
+314	cadō	verb	I fall
+315	surgō	verb	I rise; I get up
+316	dormiō	verb	I sleep
+317	edō	verb	I eat
+318	bibō	verb	I drink
+319	emō	verb	I buy
+320	vēndō	verb	I sell
+321	labōrō	verb	I work
+322	lūdō	verb	I play
+323	dēfendō	verb	I defend
+324	oppugnō	verb	I attack
+325	vincō	verb	I conquer; I win
+326	superō	verb	I overcome; I surpass
+327	servō	verb	I save; I keep
+328	perdō	verb	I lose; I destroy
+329	inveniō	verb	I find; I discover
+330	quaerō	verb	I search; I ask
+331	incipiō	verb	I begin
+332	cōnficiō	verb	I finish; I complete
+333	quia	conj	because
+334	quoniam	conj	since; because
+335	dōnec	conj	until; while
+336	postquam	conj	after
+337	antequam	conj	before
+338	priusquam	conj	before
+339	quamquam	conj	although
+340	licet	conj	although
+341	simul	adv	at the same time; together
+342	praetereā	adv	besides; moreover
+343	dēnique	adv	finally; at last
+344	tandem	adv	at last; finally
+345	deinde	adv	then; next
+346	dein	adv	then
+347	posteā	adv	afterward
+348	anteā	adv	before; previously
+349	mox	adv	soon
+350	ōlim	adv	once; formerly
+351	nūper	adv	recently
+352	adhūc	adv	still; up to now
+353	statim	adv	immediately
+354	subitō	adv	suddenly
+355	forte	adv	by chance
+356	fortasse	adv	perhaps
+357	certē	adv	certainly; at least
+358	vērō	adv	indeed; but
+359	quidem	adv	indeed; at least
+360	scīlicet	adv	of course; namely
+361	praesertim	adv	especially
+362	procul	adv	far off
+363	prope	adv	near; nearly
+364	ūnā	adv	together
+365	frūstrā	adv	in vain
+366	paene	adv	almost
+367	vix	adv	hardly; scarcely
+368	nēmō	pron	no one
+369	nihil	pron	nothing
+370	umquam	adv	ever
+371	undique	adv	from all sides
+372	plūs	adv	more
+373	nimis	adv	too much
+374	parum	adv	too little
+375	ferē	adv	almost; generally
+376	propter	prep	because of; near
+377	apud	prep	at; among; near
+378	trāns	prep	across
+379	circā	prep	around; about
+380	secundum	prep	according to; along
+381	ergā	prep	toward (feelings)
+382	extrā	prep	outside
+383	intrā	prep	within
+384	iubeō	verb	I order; I command
+385	cupiō	verb	I desire; I want
+386	nōlō	verb	I do not want
+387	mālō	verb	I prefer
+388	fīō	verb	I become; I happen
+389	reddō	verb	I give back; I return
+390	trādō	verb	I hand over; I hand down
+391	ostendō	verb	I show
+392	moneō	verb	I warn; I advise
+393	doceō	verb	I teach
+394	discō	verb	I learn
+395	cōgō	verb	I compel; I gather
+396	permittō	verb	I allow; I entrust
+397	prohibeō	verb	I prevent; I forbid
+398	pellō	verb	I drive; I push
+399	tollō	verb	I lift; I remove
+400	premō	verb	I press
+401	tangō	verb	I touch
+402	sentiō	verb	I feel; I perceive
+403	crēdō	verb	I believe; I trust
+404	nesciō	verb	I do not know
+405	iungō	verb	I join
+406	solvō	verb	I loosen; I pay; I solve
+407	claudō	verb	I close; I shut
+408	aperiō	verb	I open
+409	appellō	verb	I call; I name
+410	loquor	verb	I speak
+411	sequor	verb	I follow
+412	ūtor	verb	I use
+413	patior	verb	I suffer; I allow
+414	morior	verb	I die
+415	nāscor	verb	I am born
+416	cōnor	verb	I try; I attempt
+417	arbitror	verb	I think; I judge
+418	templum	noun	temple
+419	mūrus	noun	wall
+420	porta	noun	gate
+421	iānua	noun	door
+422	fenestra	noun	window
+423	mēnsa	noun	table
+424	lectus	noun	bed; couch
+425	cēna	noun	dinner
+426	forum	noun	forum; marketplace
+427	hortus	noun	garden
+428	ager	noun	field; land
+429	campus	noun	field; plain
+430	īnsula	noun	island; apartment block
+431	pōns	noun	bridge
+432	iter	noun	journey; route
+433	nāvis	noun	ship
+434	portus	noun	harbor; port
+435	epistula	noun	letter
+436	littera	noun	letter (of alphabet); (pl.) literature
+437	fābula	noun	story; play
+438	carmen	noun	song; poem
+439	lingua	noun	tongue; language
+440	ōrātiō	noun	speech; oration
+441	sententia	noun	opinion; sentence
+442	memoria	noun	memory
+443	scientia	noun	knowledge
+444	sapientia	noun	wisdom
+445	ratiō	noun	reason; method; account
+446	vēritās	noun	truth
+447	nātūra	noun	nature
+448	mundus	noun	world
+449	orbis	noun	circle; world
+450	rēgīna	noun	queen
+451	mulier	noun	woman
+452	coniūnx	noun	spouse
+453	magister	noun	teacher; master
+454	discipulus	noun	student; pupil
+455	iūdex	noun	judge
+456	testis	noun	witness
+457	sapiēns	adj	wise
+458	stultus	adj	foolish
+459	iūstus	adj	just; fair
+460	aequus	adj	equal; fair; level
+461	commūnis	adj	common; shared
+462	proprius	adj	one's own; particular
+463	dexter	adj	right (side)
+464	sinister	adj	left; unlucky
+465	audeō	verb	I dare
+466	gaudeō	verb	I rejoice
+467	doleō	verb	I grieve; I hurt
+468	noceō	verb	I harm
+469	pāreō	verb	I obey
+470	placeō	verb	I please
+471	studeō	verb	I am eager; I study
+472	valeō	verb	I am strong; I am well
+473	fleō	verb	I weep
+474	rīdeō	verb	I laugh
+475	taceō	verb	I am silent
+476	lūceō	verb	I shine
+477	cōnstituō	verb	I establish; I decide
+478	statuō	verb	I decide; I set up
+479	mūniō	verb	I fortify
+480	pūniō	verb	I punish
+481	fīniō	verb	I finish; I limit
+482	dēscendō	verb	I descend; I go down
+483	ascendō	verb	I climb; I go up
+484	contendō	verb	I strive; I hasten
+485	regō	verb	I rule; I guide
+486	tegō	verb	I cover
+487	trahō	verb	I drag; I draw
+488	fluō	verb	I flow
+489	crēscō	verb	I grow; I increase
+490	cēdō	verb	I yield; I go
+491	accēdō	verb	I approach
+492	discēdō	verb	I depart; I leave
+493	colligō	verb	I gather; I collect
+494	dēligō	verb	I choose; I select
+495	vehō	verb	I carry; I convey
+496	aetās	noun	age; period of life
+497	initium	noun	beginning
+498	fīnis	noun	end; boundary; purpose
+499	exitus	noun	exit; outcome
+500	adventus	noun	arrival
+501	cāsus	noun	fall; chance; misfortune
+502	fortūna	noun	fortune; luck
+503	fātum	noun	fate; destiny
+504	dōnum	noun	gift
+505	praemium	noun	reward; prize
+506	poena	noun	penalty; punishment
+507	scelus	noun	crime; wickedness
+508	culpa	noun	fault; blame
+509	crīmen	noun	charge; crime
+510	iniūria	noun	injury; wrong
+511	beneficium	noun	favor; kindness
+512	grātia	noun	gratitude; favor; grace
+513	honor	noun	honor; public office
+514	potestās	noun	power; authority
+515	auctōritās	noun	authority; influence
+516	vīs	noun	force; violence; strength
+517	impetus	noun	attack; charge
+518	cōpia	noun	abundance; (pl.) troops
+519	multitūdō	noun	multitude; crowd
+520	turba	noun	crowd; uproar
+521	numerus	noun	number
+522	ōrdō	noun	order; rank; row
+523	legiō	noun	legion
+524	castra	noun	camp
+525	arma	noun	arms; weapons
+526	gladius	noun	sword
+527	hasta	noun	spear
+528	scūtum	noun	shield
+529	tēlum	noun	weapon; missile
+530	vulnus	noun	wound
+531	mēnsis	noun	month
+532	saeculum	noun	age; century; generation
+533	nūmen	noun	divine power; deity
+534	sacrificium	noun	sacrifice
+535	āra	noun	altar
+536	cārus	adj	dear; costly
+537	grātus	adj	pleasing; grateful
+538	tūtus	adj	safe
+539	certus	adj	certain; fixed
+540	incertus	adj	uncertain
+541	dubius	adj	doubtful
+542	aptus	adj	fit; suitable
+543	idōneus	adj	suitable
+544	necessārius	adj	necessary
+545	ūtilis	adj	useful
+546	dignus	adj	worthy
+547	indignus	adj	unworthy
+548	ferōx	adj	fierce; bold
+549	ācer	adj	sharp; keen; fierce
+550	crūdēlis	adj	cruel
+551	mītis	adj	gentle; mild
+552	summus	adj	highest; greatest
+553	īnfimus	adj	lowest
+554	medius	adj	middle
+555	extrēmus	adj	outermost; last
+556	proximus	adj	nearest; next
+557	superior	adj	upper; earlier
+558	īnferior	adj	lower
+559	ūniversus	adj	whole; entire; all
