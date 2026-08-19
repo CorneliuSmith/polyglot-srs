@@ -837,9 +837,10 @@ Remaining, in order:
 
 1. ~~**`ar` normalize surgery**~~ — **DONE.** Alef fold moved into
    `fold_lookalikes`; 199 → 79 cards graded as another card; 11 junk twins
-   deleted. The yeh fold remains in `normalize()` per the standing owner
-   decision and still merges 84 cards below the guard (`على`/`علي` at ranks
-   8/144) — cost recorded in `ar.md`, decision open.
+   deleted. The yeh fold followed once its cost was
+   measured (84 cards, `على`/`علي` at ranks 8/144): green rested on Egyptian
+   convention that `ar.md` excludes, and MSA distinguishes /aː/ from /iː/
+   word-finally. Now amber. **199 → 1** across both moves.
 2. **Judgment repairs** the mechanical rules could not make: `el` tonos twins
    (keep-the-marked was tried and REVERTED — Greek monosyllables are standard
    unmarked), `hi` nuqta variants, `de` ß/ss, `fr` 1990-reform merges (accept

@@ -61,10 +61,6 @@ except Exception as exc:  # noqa: BLE001
 # Tatweel character (Arabic kashida, used for elongation)
 _TATWEEL = "\u0640"
 
-# Alef maqsura \u0649 (U+0649) and Farsi yeh \u06cc (U+06CC) \u2192 Arabic yeh \u064a (U+064A).
-# The same shape at the end of a word; which one a learner produces is
-# decided by their keyboard, not their knowledge.
-_YEH_FOLD = str.maketrans("\u0649\u06cc", "\u064a\u064a")
 
 # Taa marbuta → ha mapping for the secondary soft-match check
 _TAA_MARBUTA = "\u0629"  # ة
@@ -123,8 +119,7 @@ class ArabicNLP(BaseNLP):
         Steps (order matters):
           1. Strip leading/trailing whitespace
           2. Strip tashkeel (diacritics) via dediac_ar
-          3. Normalize yeh variants (ى / Farsi ی → ي)
-          4. Remove tatweel (kashida, U+0640)
+          3. Remove tatweel (kashida, U+0640)
 
         **Alef variants are deliberately NOT folded here.** They used to be,
         and it merged 118 cards onto other cards at layer 2 — before any
@@ -140,14 +135,22 @@ class ArabicNLP(BaseNLP):
         still passes, now amber with the proper spelling named, and a learner
         typing a genuinely different word is told so.
 
-        Yeh sits here rather than in the coaching fold: word-final ى vs ي is
-        a keyboard difference more than a knowledge difference (Egyptian
-        orthography writes ي for both), and the owner's call is that typing
-        the dotless form is simply right — green, not amber. That call has a
-        measured cost, recorded in docs/quality/ar.md: it merges 84 further
-        cards, including rank 8 على ("on") with rank 144 علي ("to be
-        exalted"). Kaf/heh variants stay in fold_lookalikes, where a match is
-        accepted but the proper form is still named.
+        **Yeh moved to the coaching fold on 20 Aug 2026.** It used to sit
+        here, on the grounds that word-final ى vs ي is a keyboard difference
+        and Egyptian orthography writes ي for both — so typing either graded
+        green. Two things undid that. This course's authoritative variety is
+        Modern Standard Arabic, which the quality doc says in its first
+        paragraph, and where it *also* puts Egyptian explicitly out of scope:
+        the leniency was justified by a convention the content standard
+        forbids. And in MSA the two letters are different sounds word-finally
+        — ى is /aː/ (على, إلى, معنى), ي is /iː/ (في, عربي) — so the pair is
+        not a typo class, it is a contrast. It merged 84 cards, rank 8 على
+        ("on") with rank 144 علي ("to be exalted") among them.
+
+        It is now amber, not red: a learner whose keyboard gave them the
+        wrong yeh still passes, with the proper form named, and the collision
+        guard fails only the answers that ARE another card. Kaf/heh variants
+        sit in fold_lookalikes for the same reason.
 
         Intentionally does NOT normalize taa marbuta (ة → ه) to avoid
         conflating semantically distinct words (research pitfall #6).
@@ -160,7 +163,6 @@ class ArabicNLP(BaseNLP):
         """
         text = text.strip()
         text = dediac_ar(text)
-        text = text.translate(_YEH_FOLD)
         text = text.replace(_TATWEEL, "")
         return text
 

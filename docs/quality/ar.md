@@ -18,7 +18,10 @@ quality here:
    the root rather than a flat WRONG.
 2. **Tashkeel is not graded.** `normalize()` runs `dediac_ar` first, so every short vowel,
    tanwīn and shadda is stripped before comparison. A contrast carried only by tashkeel is
-   invisible to the grader.
+   invisible to the grader — except on a vocalized form drill, where Check 0 in `arabic.py`
+   returns `WRONG_FORM` because there the vowels ARE the answer.
+   **`normalize()` now does nothing else.** Tashkeel and tatweel come off; every other
+   letter distinction survives to be judged. That is the whole of it.
 3. **Look-alike folding.** `fold_arabic_script` folds ى/ي/ی, ك/ک, ة/ه and all alef seats,
    maps ؤ→و and ئ→ي, drops standalone ء and tatweel, and maps Arabic-Indic digits to ASCII.
    A drill whose only contrast is one of those is **coached, not failed** — and since
@@ -45,21 +48,33 @@ quality here:
    `أ` for `ا` stays fully `CORRECT`), and Check 0 in `arabic.py`, which now fires on
    `CORRECT_SLOPPY` as well, so a vocalized form drill still fails a bare answer.
 
-   **Open question for the owner — the yeh fold.** `normalize()` still folds ى/ي, which is
-   an explicit prior decision ("typing the dotless form is simply right — green, not
-   amber", Egyptian orthography writes ي for both). Measured, that call merges **84 further
-   cards**, and unlike the hamza cases these cannot be reached by the guard because they
-   merge at layer 2. The top of what it costs:
+5. **The yeh is coached, not conceded — amber, not green (20 Aug 2026).** `normalize()`
+   used to fold ى/ي as well, on the grounds that word-final ى vs ي is a keyboard
+   difference and Egyptian orthography writes ي for both. Two things undid that ruling.
 
-   | rank | word | merged with |
+   **It contradicted this page.** The authoritative variety here is MSA, and Egyptian is
+   explicitly out of scope in every content field — so the grading leniency was justified
+   by a convention the content standard forbids.
+
+   **And in MSA the two are different sounds word-finally**: ى is /aː/ (`على`, `إلى`,
+   `معنى`, `حتى`), ي is /iː/ (`في`, `عربي`, `علي`). That is a contrast, not a typo class.
+   Folding it merged **84 cards**:
+
+   | rank | word | had been merged with |
    | --- | --- | --- |
    | 8 | `على` on, upon | 144 `علي` to be exalted, high |
    | 119 | `أتى` to come | 3459 `أتي` (verbal noun) |
    | 136 | `عنى` to mean | 575 `عني` to engage with |
    | 180 | `بقي` to last | 4573 `بقى` to stay, remain |
 
-   Nine such groups sit inside the top 300. The decision stands until the owner changes
-   it; this records what it buys and what it costs.
+   Nine such groups sat inside the top 300. The fold now runs in `fold_lookalikes`, so a
+   learner whose keyboard produced the wrong yeh **still passes**, amber, with the right
+   form named — and only an answer that IS another card is failed. Keyboard reality is
+   respected; the contrast is taught.
+
+   **Residual: 1 card.** `ه` (bound object pronoun, rank 2495) and `هـ` (the hijri-year
+   abbreviation, written with a kashida, rank 5634) still merge, because `normalize()`
+   strips tatweel. Left as-is: the abbreviation is real notation and the rank is low.
 
 ## Hint standards
 Universal rules, once: a hint narrows the answer without containing it. Never the answer as
