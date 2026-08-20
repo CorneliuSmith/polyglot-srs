@@ -790,7 +790,11 @@ export default function ContributorPage() {
   // Same query key as ReviewInbox, so this is the one fetch shared, not a
   // second round-trip. The counts are what let each queue panel below tell
   // "nothing waiting" from "the list came back empty but N are waiting".
-  const { data: inbox } = useReviewInbox(activeLanguageId)
+  // The queue roll-up is a reviewer's tool, not a tester's: it counts work
+  // a trial reviewer has no power to clear. Gating the QUERY, not just the
+  // render, keeps a 403 off every tester's page load.
+  const canSeeQueues = (data?.can_review ?? false) || (data?.is_admin ?? false)
+  const { data: inbox } = useReviewInbox(activeLanguageId, canSeeQueues)
   const inboxCounts = inbox?.counts
 
   // A pure trial reviewer has no Contribute tab; land them on Review instead
@@ -944,11 +948,14 @@ export default function ContributorPage() {
             {tab === 'review' && (
               <>
                 {/* One roll-up of everything awaiting review action, above the
-                    individual queue panels. */}
-                <ReviewInbox
-                  languageId={activeLanguageId}
-                  onSwitchLanguage={setActiveLanguageId}
-                />
+                    individual queue panels. Reviewers and admins only —
+                    a tester's panels below still ask them their question. */}
+                {canSeeQueues && (
+                  <ReviewInbox
+                    languageId={activeLanguageId}
+                    onSwitchLanguage={setActiveLanguageId}
+                  />
+                )}
                 {/* What the testers actually said, with their notes — the
                     channel that used to survive only as a tooltip on a row
                     the next bulk-approve would delete. */}

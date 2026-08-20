@@ -1206,8 +1206,13 @@ async def review_inbox(
     user: dict = Depends(get_current_user),
 ):
     """One roll-up of everything awaiting review action for a language — the
-    unified Review Inbox at the top of the Review workspace. Open to anyone who
-    can trial-review the language; it only counts, it doesn't act.
+    unified Review Inbox at the top of the Review workspace.
+
+    Reviewers and admins only (owner: "learners and testers should not see
+    review queues"). A trial reviewer still has their advisory panels — the
+    drills and examples they are asked to look at — but the backlog itself
+    is not theirs: it is an operational view of what the project owes, and
+    it counts queues a tester has no power to clear.
 
     `other_languages` is the cross-language strip. Every review surface is
     scoped to the viewer's working language, but a submission carries the
@@ -1218,10 +1223,10 @@ async def review_inbox(
     """
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
-    if not can_trial_review(roles, language_id):
+    if not can_review(roles, language_id):
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
-            detail="Only a reviewer or tester for this language can view the inbox",
+            detail="Only a reviewer for this language can view the inbox",
         )
     async with privileged_connection() as conn:
         counts = await review_inbox_counts(conn, language_id)
@@ -3138,9 +3143,10 @@ async def review_notifications(user: dict = Depends(get_current_user)):
     async with rls_connection(user["id"]) as conn:
         roles = await get_roles(conn, user["id"])
     admin = is_admin(roles)
-    if not admin and not any(
-        r["role"] in ("reviewer", "trial_reviewer") for r in roles
-    ):
+    # Reviewers and admins only. A trial reviewer is a tester: they answer
+    # "is this card any good?" on the items put in front of them, and the
+    # backlog of everything outstanding is not theirs to carry.
+    if not admin and not any(r["role"] == "reviewer" for r in roles):
         # Not staff: an empty, well-formed answer rather than a 403. The bell
         # asks on every page load for everyone, and a 403 per page view is a
         # log full of nothing.
@@ -3160,11 +3166,9 @@ async def review_notifications(user: dict = Depends(get_current_user)):
     ):
         languages = []
 
-    # Only the ones this person may review. can_trial_review already folds in
+    # Only the ones this person may review. can_review already folds in
     # admins and all-language grants.
-    languages = [
-        lang for lang in languages if can_trial_review(roles, lang["id"])
-    ]
+    languages = [lang for lang in languages if can_review(roles, lang["id"])]
 
     feedback: list[dict] = []
     if admin:
