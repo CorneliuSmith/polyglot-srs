@@ -1027,10 +1027,17 @@ function koComposeJamo(text: string): string {
           L = ch
           continue
         }
-        const stacked =
-          KO_COMPOUND_T[T + ch] ??
-          (ch === T ? KO_TENSE_T[T] : undefined) ??
-          (ch === 'ㅎ' ? KO_ASPIRATE_T[T] : undefined)
+        // ONLY a genuine 겹받침 stacks here. On a jamo keyboard every tense
+        // and aspirate letter has a key of its own — ㄲ ㄸ ㅃ ㅆ ㅉ on shift,
+        // ㅋ ㅌ ㅊ ㅍ unshifted — so two taps of ㄱ can only ever mean a ㄱ
+        // 받침 and then a ㄱ opening the next block. Owner's rule, and every
+        // real IME's: 학교, not 하꾜; 악화, not 앜와.
+        //
+        // The romanized path keeps its tense/aspirate stacking, because
+        // there "kk" and "k"+"h" ARE how those letters are spelled. That
+        // asymmetry is the whole difference between a keyboard and a
+        // transcription.
+        const stacked = KO_COMPOUND_T[T + ch]
         if (stacked) {
           T = stacked
           continue
