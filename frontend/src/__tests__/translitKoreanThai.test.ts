@@ -35,6 +35,71 @@ describe('Korean (Hangul) transliteration', () => {
     expect(typeWord('ko', 'nara')).toBe('나라')
   })
 
+  it('x opens a syllable on the silent ㅇ — the past tense needs it', () => {
+    // The owner, mid-lesson: "There needs to be an option for ㅇ initial
+    // because double consonant finals cannot work properly for cases like
+    // this." Exactly right. 갔어요 needs the ㅆ to STAY as 갔's batchim
+    // while 어 opens the next syllable; but a vowel always claims the
+    // consonant before it (the rule that gives 밥 + a → 바바), so there
+    // was no way to type any 았/었/했 form at all.
+    expect(typeWord('ko', 'gassxeoyo')).toBe('갔어요')
+    expect(typeWord('ko', 'meogxeossxeoyo')).toBe('먹었어요')
+    expect(typeWord('ko', 'haessxeoyo')).toBe('했어요')
+    expect(typeWord('ko', 'bwassxeoyo')).toBe('봤어요')
+    // A compound batchim keeps its second jamo too (ㄺ, not ㄹ + 거).
+    expect(typeWord('ko', 'ilgxeossxeoyo')).toBe('읽었어요')
+    expect(typeWord('ko', 'salxassxeoyo')).toBe('살았어요')
+  })
+
+  it('without x the batchim is stolen, which is what the report was', () => {
+    // Kept as a fact about the scheme, not a wish: the romanization is
+    // genuinely ambiguous here, and this is the reading it takes.
+    expect(typeWord('ko', 'gasseoyo')).toBe('가써요')
+  })
+
+  it('x never closes a syllable — only ng does', () => {
+    // Letting it stand as a provisional batchim the way a typed consonant
+    // does put it on the syllable BEFORE it: 학교 + x became 학굥, which
+    // then re-read as 학굔게 when the vowel landed.
+    expect(typeWord('ko', 'hak-gyoxe')).toBe('학교에')
+    // x forces the boundary; without it the ㄴ is claimed by the vowel.
+    // 안아 (hug) and 아나 are the same letters and differ only in where
+    // the syllable breaks, which is precisely what x is for.
+    expect(typeWord('ko', 'xanxa')).toBe('안아')
+    expect(typeWord('ko', 'xana')).toBe('아나')
+    // The final ㅇ keeps its own spelling, so nothing is lost by refusing.
+    expect(typeWord('ko', 'sarang')).toBe('사랑')
+  })
+
+  it('types the sentences from the past-tense lesson', () => {
+    // The three examples on the card the owner was looking at.
+    expect(typeWord('ko', 'xeoje hak-gyoxe gassxeoyo'))
+      .toBe('어제 학교에 갔어요')
+    expect(typeWord('ko', 'xachimxe babxeul meogxeossxeoyo'))
+      .toBe('아침에 밥을 먹었어요')
+    expect(typeWord('ko', 'jumalxe yeonghwaleul bwassxeoyo'))
+      .toBe('주말에 영화를 봤어요')
+  })
+
+  it('the hyphen separates a batchim from the same consonant next door', () => {
+    // A SEPARATE ambiguity from the one above, and one the scheme cannot
+    // resolve on its own: 학 + 교 and 밖 are the same letters in the same
+    // order. The hyphen is how the learner says which they meant.
+    expect(typeWord('ko', 'hak-gyo')).toBe('학교')
+    expect(typeWord('ko', 'chuk-gu')).toBe('축구')
+    expect(typeWord('ko', 'gak-gak')).toBe('각각')
+    // …and without it, the tense reading wins, so a tense batchim still
+    // types the short way.
+    expect(typeWord('ko', 'bakk')).toBe('밖')
+    expect(typeWord('ko', 'bakk-e')).toBe('밖에')
+  })
+
+  it('the guide shows the silent initial', () => {
+    const rows = translitGuide('ko')
+    expect(rows.some((r) => r.keys === 'x' && r.out === 'ㅇ')).toBe(true)
+    expect(rows.some((r) => r.out === '먹었어요')).toBe(true)
+  })
+
   it('reads "ng" as the final only when no vowel follows it', () => {
     // sarang: ng closes the word. hanguk: the n closes 한 and g opens 국.
     expect(typeWord('ko', 'sarang')).toBe('사랑')

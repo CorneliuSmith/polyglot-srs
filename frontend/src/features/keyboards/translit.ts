@@ -634,6 +634,8 @@ const KO_CONS: [string, string][] = [
   ['g','ㄱ'], ['n','ㄴ'], ['d','ㄷ'], ['r','ㄹ'], ['l','ㄹ'], ['m','ㅁ'],
   ['b','ㅂ'], ['s','ㅅ'], ['j','ㅈ'], ['k','ㅋ'], ['t','ㅌ'], ['p','ㅍ'],
   ['h','ㅎ'],
+  // 'x' opens a syllable on the silent ㅇ. INITIAL only — see KO_INITIAL_ONLY.
+  ['x','ㅇ'],
 ]
 const KO_VOW: [string, string][] = [
   ['yeo','ㅕ'], ['yae','ㅒ'], ['wae','ㅙ'],
@@ -643,6 +645,28 @@ const KO_VOW: [string, string][] = [
   ['a','ㅏ'], ['e','ㅔ'], ['i','ㅣ'], ['o','ㅗ'], ['u','ㅜ'],
 ]
 const KO_VOWEL_START = /[aeiouwy]/
+
+/**
+ * Letters that may only ever open a syllable, never close one.
+ *
+ * 'x' is the silent initial ㅇ, and without it the past tense is untypable
+ * — which is most of the language. 갔어요 needs the ㅆ to STAY as 갔's
+ * batchim while 어 opens a new syllable on a silent ㅇ; but a vowel always
+ * claims the consonant before it as its own initial (the rule that makes
+ * 밥 + a → 바바), so "gasseoyo" can only ever produce 가써요. Every 았/었/했
+ * form hits this, and so does every compound batchim: "ilgxeossxeoyo" →
+ * 읽었어요.
+ *
+ * It has to be initial-ONLY. Let it stand as a provisional batchim the way
+ * a typed consonant does and it lands on the syllable before it instead —
+ * "hak-gyoxe" became 학굥, then re-read as 학굔게. The final ㅇ keeps its
+ * own spelling ('ng', 사랑), so nothing is lost by refusing this one.
+ *
+ * A letter rather than punctuation because it is needed constantly, and
+ * the hyphen is three taps behind the 123 layer on a phone. 'x' spells no
+ * Korean sound in any romanization, so it collides with nothing.
+ */
+const KO_INITIAL_ONLY = new Set(['x'])
 
 // Romanization is ASYMMETRIC by position: the lax stops are voiced as an
 // initial (g d b) and voiceless as a final (k t p) — "hanguk" ends in ㄱ, not
@@ -787,7 +811,7 @@ function encodeKo(phon: string, finalize: boolean): string {
     // initial of the next one (i.e. no vowel comes after it).
     let final = ''
     const c1 = toks[i]
-    if (c1 && c1.t === 'c') {
+    if (c1 && c1.t === 'c' && !KO_INITIAL_ONLY.has(c1.lat)) {
       const asFinal = c1.committed ? c1.jamo : KO_FINAL[c1.lat] ?? c1.jamo
       const c2 = toks[i + 1]
       if (KO_T.includes(asFinal) && (!c2 || c2.t !== 'v')) {
@@ -803,7 +827,10 @@ function encodeKo(phon: string, finalize: boolean): string {
         // own initial instead (없 + ㅏ is 업사, not 없아).
         const d1 = toks[i]
         const d2 = toks[i + 1]
-        if (d1 && d1.t === 'c' && (!d2 || d2.t !== 'v')) {
+        if (
+          d1 && d1.t === 'c' && (!d2 || d2.t !== 'v') &&
+          !KO_INITIAL_ONLY.has(d1.lat)
+        ) {
           const stackWith = d1.committed ? d1.jamo : KO_FINAL[d1.lat] ?? d1.jamo
           const stacked =
             KO_COMPOUND_T[final + stackWith] ??
@@ -1292,10 +1319,13 @@ export function translitGuide(code: string): GuideRow[] {
         { keys: 'ae e ya yeo yo yu', out: 'ㅐ ㅔ ㅑ ㅕ ㅛ ㅠ' },
         { keys: 'wa wo wi oe ui', out: 'ㅘ ㅝ ㅟ ㅚ ㅢ' },
         { keys: 'ng', out: 'ㅇ', note: 'the final ㅇ (sarang → 사랑); a word-initial vowel gets it free' },
+        { keys: 'x', out: 'ㅇ', note: 'the SILENT ㅇ that opens a syllable — gassxeoyo → 갔어요' },
         { keys: 'hanguk', out: '한국', note: 'letters stack into blocks by themselves' },
         { keys: 'an', out: '안', note: 'a bare vowel is seated on ㅇ automatically' },
         { keys: 'bap', out: '밥', note: 'a trailing consonant becomes the 받침 at once; a vowel after it re-opens the block (bapa → 바바)' },
+        { keys: 'meogxeossxeoyo', out: '먹었어요', note: 'every past tense needs x: without it the 받침 ㅆ is stolen by the next vowel (가써요, not 갔어요)' },
         { keys: 'han-a', out: '한아', note: '- splits syllables (hana → 하나); it disappears on submit' },
+        { keys: 'hak-gyo', out: '학교', note: 'and it separates a 받침 from the same consonant starting the next block (hakgyo alone → 하꾜)' },
       ]
     default:
       return []
