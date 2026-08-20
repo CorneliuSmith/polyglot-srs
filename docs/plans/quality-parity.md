@@ -651,7 +651,7 @@ order below is the order the work must happen in, per language.
 | | fix | kind |
 | --- | --- | --- |
 | la | strip macrons per la.md's all-or-nothing policy; merge the 40 collision groups | mechanical — no authoring, the policy decides |
-| mi | add macrons to 791 headwords | authoring; `mi.md` calls this "the single largest debt" |
+| mi | **not a macron pass** — restore the missing high-frequency words, re-gloss the bare-homograph rows, then mark | measured 20 Aug: `tēnei`, `kāore`, `mātou`, `whānau`, `kōrero` are all ABSENT; a macronisation pass was authored and discarded (see `mi.md`) |
 | yo | add tone marks to 1,638 headwords | authoring; held pending *verified* tone sources |
 | xh | replace the Bible-corpus frequency list, or author a core over it | sourcing |
 | ha | add the missing grammatical spine | authoring |

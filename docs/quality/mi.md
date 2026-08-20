@@ -15,6 +15,39 @@ k for ng, Taranaki/Whanganui h-dropping), Cook Islands Māori, 19th-century miss
 orthography (double vowels `aa`/`ee` for length — mixing it with macrons is an error), Māori
 English.
 
+**The word list is macron-STRIPPED at source, and that is a bigger problem than missing
+macrons (measured 20 Aug 2026).** A macronisation pass over all 791 headwords was authored,
+adversarially checked, and then **discarded**; what it turned up matters more than what it
+proposed.
+
+1. **The commonest macronised words are not in the file at all.** `tēnei`, `tēnā`, `tērā`,
+   `kāore`, `mātou`, `rātou`, `tātou`, `whānau`, `kōrero`, `mōhio`, `pēhea`, `āpōpō` — every
+   one absent. A 791-row course missing "this", "not", "we", "family" and "speak" is missing
+   its spine, and no macron pass can add them because there is no row to mark.
+2. **Where a macronised word survived, it survived as its own misspelling.** Rank 7 read
+   `nga`, glossed *"macronless spelling of ngā"* — the plural article present only as a
+   pointer to a word the file did not contain. Fixed; it is now `ngā` with a real gloss.
+3. **Glosses were assigned from whichever bare homograph the dictionary had.** Rank 24
+   `tona` is glossed "wart, corn, nodule" and rank 30 `ra` as "Ra (Egyptian god of the Sun)"
+   — both already named on this page. They are not wrong spellings, they are the wrong
+   WORDS: the ranks belong to `tōna` "his/her" and `rā` "day, sun".
+
+**So macronising in place is the wrong repair, and the discarded pass proves it.** Roughly
+half its proposals put a macron on a row whose gloss describes the BARE word — `tōna`
+glossed "wart", `kāinga` glossed "the refuse of a meal". That second one is the exact
+minimal pair this page cites (`kainga` "eaten" vs `kāinga` "home"), inverted. Marking the
+spelling without repairing the gloss produces a card that is wrong in a new way.
+
+**The repair Māori actually needs, in order:** (a) restore the missing high-frequency
+macronised words as their own rows; (b) re-gloss the rows whose meaning came from a bare
+homograph; (c) only then mark the remainder. Plan D1d already states the governing rule —
+re-marking is not decoration, and an unmarked row may stand for several words.
+
+The discarded pass produced one thing worth keeping: a list of ~60 rows where the bare
+spelling demonstrably covers more than one word, including the macron-only plurals
+(`tangata`/`tāngata`, `wahine`/`wāhine`, `matua`/`mātua`, `teina`/`tēina`,
+`tuakana`/`tuākana`, `whaea`/`whāea`). Each needs its own row, not a macron on the singular.
+
 **No gender and no noun class.** What replaces them, and what dominates drill quality:
 
 1. **Macrons.** The grader cannot help. `MaoriNLP` in `backend/services/nlp/latin_base.py` is
