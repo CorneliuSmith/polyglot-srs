@@ -7,6 +7,10 @@ import ContributorPage from '../features/contribute/ContributorPage'
 vi.mock('../api/profile', () => ({ getLanguages: vi.fn() }))
 vi.mock('../api/contribute', () => ({
   getAnalyticsTimeseries: vi.fn(() => Promise.resolve([])),
+  // The rollouts panel sits on the Admin tab.
+  getExperiments: vi.fn(() => Promise.resolve([])),
+  updateExperiment: vi.fn(),
+  assignExperiment: vi.fn(),
   getAnalyticsCohorts: vi.fn(() => Promise.resolve([])),
   listAccounts: vi.fn(() => Promise.resolve([])),
   deleteAccount: vi.fn(),

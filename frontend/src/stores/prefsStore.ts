@@ -41,6 +41,12 @@ interface PrefsState {
   // (and pre-applied by the inline script in index.html to avoid a flash).
   theme: Theme
   setTheme: (theme: Theme) => void
+  // Which visual direction this account was served, cached from the last
+  // profile load. The SERVER decides (see lib/uiSkin.ts) — this copy exists
+  // only so the inline script in index.html can paint the first frame in
+  // the right skin instead of flashing Classic and swapping.
+  uiSkin: string | null
+  setUiSkin: (variant: string | null) => void
   // How many cards a review session pulls (the server clamps to 1–100).
   sessionSize: number
   setSessionSize: (n: number) => void
@@ -145,6 +151,8 @@ export const usePrefsStore = create<PrefsState>()(
       setActiveLanguageId: (id) => set({ activeLanguageId: id }),
       theme: 'system' as Theme,
       setTheme: (theme) => set({ theme }),
+      uiSkin: null,
+      setUiSkin: (uiSkin) => set({ uiSkin }),
       sessionSize: 20,
       setSessionSize: (n) => set({ sessionSize: n }),
       // 9 = "everything this card has" (clamped to the card's layer count).

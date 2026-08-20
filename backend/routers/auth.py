@@ -11,9 +11,16 @@ from pydantic import BaseModel, Field
 from backend.config import get_settings
 from backend.dependencies import get_current_user
 from backend.repositories.cards import pretranslate_upcoming
+from backend.repositories.experiments import (
+    assign_variant,
+    clear_assignment,
+    get_experiment,
+    list_experiments,
+)
 from backend.repositories.pool import privileged_connection, rls_connection
 from backend.repositories.trials import add_trial_request, trials_table_present
 from backend.services.email import send_email
+from backend.services.experiments import resolve_variants
 from backend.services.rate_limit import RateLimiter
 
 router = APIRouter()
@@ -203,7 +210,92 @@ async def get_profile(user: dict = Depends(get_current_user)):
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Profile not found",
         )
-    return dict(row)
+    # Which rollouts this account is in, resolved fresh on every load so an
+    # admin flipping a switch reaches everyone on their next page rather
+    # than whenever a cache happens to expire. resolve_variants swallows
+    # everything it can hit, including the table not existing yet — this
+    # endpoint renders the whole app and must not be the thing an
+    # experiment can break.
+    async with rls_connection(user["id"]) as conn:
+        variants = await resolve_variants(conn, user["id"])
+    return {**dict(row), "experiments": variants}
+
+
+@router.get("/experiments")
+async def my_experiments(user: dict = Depends(get_current_user)):
+    """The rollouts this person is allowed to switch themselves between.
+
+    Only running experiments an admin has opened to learner choice, so the
+    Settings page never offers a switch the server would refuse — and never
+    reveals an experiment that is still being decided internally.
+    """
+    async with rls_connection(user["id"]) as conn:
+        experiments = await list_experiments(conn)
+        resolved = await resolve_variants(conn, user["id"])
+    return {
+        "experiments": [
+            {
+                "key": e["key"],
+                "name": e["name"],
+                "description": e["description"],
+                "variants": e["variants"],
+                "current": resolved.get(e["key"], e["default_variant"]),
+            }
+            for e in experiments
+            if e.get("enabled") and e.get("learner_choice")
+        ]
+    }
+
+
+class ExperimentChoice(BaseModel):
+    key: str
+    # None puts them back under whatever the rollout says — "give me
+    # whatever everyone else is getting" is a real answer, and without it
+    # a learner who tried the new look could never stop overriding.
+    variant: str | None = None
+
+
+@router.post("/experiment")
+async def choose_experiment_variant(
+    body: ExperimentChoice,
+    user: dict = Depends(get_current_user),
+):
+    """A learner switching themselves between variants.
+
+    Only for experiments an admin has marked as the learner's to choose, and
+    only while the experiment is running: a switch that outlived its kill
+    switch would leave people on a look that had been withdrawn, which is
+    the one state a rollout must never produce.
+
+    Someone who can leave gives better feedback than someone who is stuck.
+    That is the whole reason this endpoint exists rather than admin
+    assignment alone.
+    """
+    async with rls_connection(user["id"]) as conn:
+        experiment = await get_experiment(conn, body.key)
+    if experiment is None:
+        raise HTTPException(status_code=404, detail="Unknown experiment")
+    if not experiment.get("learner_choice") or not experiment.get("enabled"):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="That isn't yours to switch",
+        )
+    async with privileged_connection() as conn:
+        if body.variant is None:
+            await clear_assignment(conn, user["id"], body.key)
+            resolved = None
+        else:
+            known = {v["key"] for v in experiment["variants"]}
+            if body.variant not in known:
+                raise HTTPException(
+                    status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                    detail=f"Unknown variant: {body.variant}",
+                )
+            await assign_variant(
+                conn, user["id"], body.key, body.variant, source="self",
+            )
+            resolved = body.variant
+    return {"key": body.key, "variant": resolved}
 
 
 @router.post("/profile")

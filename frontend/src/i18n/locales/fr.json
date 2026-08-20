@@ -1118,6 +1118,12 @@
       "resetAllConfirm": "Réinitialiser vos études pour TOUTES les langues ? Cela supprime définitivement toutes les cartes et tout l’historique de révision, toutes langues confondues. Vos notes et phrases personnelles sont conservées.",
       "resetDone_one": "Progression réinitialisée ({{count}} carte supprimée).",
       "resetDone_other": "Progression réinitialisée ({{count}} cartes supprimées)."
+    },
+    "trial": {
+      "title": "Vous testez une nouveauté",
+      "desc": "Certains comptes voient un changement en cours de test. Vous pouvez revenir en arrière quand vous voulez.",
+      "saveError": "Impossible de changer pour le moment.",
+      "feedback": "Dites-nous ce que vous en pensez via le bouton ? en haut de n'importe quelle page — votre message indique quelle version vous aviez."
     }
   },
   "feedback": {

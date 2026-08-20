@@ -21,6 +21,7 @@ from backend.repositories.feedback import (
     submit_feedback,
 )
 from backend.repositories.pool import privileged_connection, rls_connection
+from backend.services.experiments import resolve_variants
 
 router = APIRouter()
 
@@ -76,6 +77,11 @@ async def create_feedback(
             detail=f"category must be one of {', '.join(CATEGORIES)}",
         )
     async with rls_connection(user["id"]) as conn:
+        # Resolved here rather than accepted from the client: the server
+        # already knows which rollouts this account is in, and a tab left
+        # open across a change would otherwise label the report with a
+        # variant the person stopped seeing an hour ago.
+        variants = await resolve_variants(conn, user["id"])
         feedback_id = await submit_feedback(
             conn,
             user["id"],
@@ -83,6 +89,7 @@ async def create_feedback(
             message=body.message,
             language_id=body.language_id,
             page=body.page,
+            variants=variants,
         )
     if feedback_id is None:
         raise HTTPException(

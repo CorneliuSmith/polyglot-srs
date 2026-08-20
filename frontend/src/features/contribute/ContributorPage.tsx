@@ -33,6 +33,7 @@ import TrialRequestsPanel from './TrialRequestsPanel'
 import AnalyticsPanel from './AnalyticsPanel'
 import EngagementPanel from './EngagementPanel'
 import LanguageVisibilityPanel from './LanguageVisibilityPanel'
+import ExperimentsPanel from './ExperimentsPanel'
 import GeneratedDrillsPanel from './GeneratedDrillsPanel'
 import ReviewInbox, { useReviewInbox } from './ReviewInbox'
 import TesterRecommendationsPanel from './TesterRecommendationsPanel'
@@ -915,6 +916,7 @@ export default function ContributorPage() {
                 <AnalyticsPanel />
                 <EngagementPanel />
                 <LanguageVisibilityPanel />
+                <ExperimentsPanel />
                 <SuggestionMetricsPanel />
                 <GenerationPanel />
                 <TrialRequestsPanel />

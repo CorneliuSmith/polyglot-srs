@@ -16,6 +16,10 @@ vi.mock('react-router-dom', async (orig) => ({
 vi.mock('../api/profile', () => ({
   getProfile: vi.fn(),
   updateProfile: vi.fn(),
+  // The rollout switch renders inside Settings; an account in no rollout
+  // gets an empty list and the section never appears.
+  getMyExperiments: vi.fn(() => Promise.resolve([])),
+  chooseExperimentVariant: vi.fn(),
   getLanguages: vi.fn(() =>
     Promise.resolve([
       { id: 'lang-es', code: 'es', name: 'Spanish', rtl: false },

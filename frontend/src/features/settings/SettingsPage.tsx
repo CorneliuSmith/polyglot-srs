@@ -18,6 +18,7 @@ import { getTutorStatus } from '../../api/tutor'
 import UsageMeter from '../../components/UsageMeter'
 import { usePrefsStore } from '../../stores/prefsStore'
 import type { Theme } from '../../stores/prefsStore'
+import AppearanceTrial from './AppearanceTrial'
 import { hasTranslit } from '../keyboards/translit'
 import RecoSettings from '../recommendations/RecoSettings'
 import TutorMemoryPanel from './TutorMemoryPanel'
@@ -1129,6 +1130,10 @@ export default function SettingsPage() {
               ))}
             </div>
           </section>
+
+          {/* Only renders when this account is in a rollout that was opened
+              to learner choice — invisible on a normal account. */}
+          <AppearanceTrial />
 
           <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
             <h2 className="font-semibold text-gray-800 mb-3">{t('settings.progress.title')}</h2>

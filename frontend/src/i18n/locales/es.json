@@ -1118,6 +1118,12 @@
       "resetAllConfirm": "¿Restablecer tus estudios de TODOS los idiomas? Esto elimina permanentemente todas las tarjetas y todo el historial de repaso en todos los idiomas. Tus notas y frases personales se conservan.",
       "resetDone_one": "Progreso restablecido ({{count}} tarjeta eliminada).",
       "resetDone_other": "Progreso restablecido ({{count}} tarjetas eliminadas)."
+    },
+    "trial": {
+      "title": "Estás probando algo nuevo",
+      "desc": "Algunas cuentas ven un cambio que estamos probando. Puedes volver atrás cuando quieras.",
+      "saveError": "No se pudo cambiar ahora mismo.",
+      "feedback": "Cuéntanos qué tal desde el botón ? de cualquier página: tu mensaje registra qué versión estabas viendo."
     }
   },
   "feedback": {

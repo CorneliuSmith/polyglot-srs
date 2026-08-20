@@ -28,6 +28,12 @@
           (theme === 'system' &&
             window.matchMedia('(prefers-color-scheme: dark)').matches)
         if (dark) document.documentElement.classList.add('dark')
+        // Same reason, for the visual direction: the server's answer arrives
+        // with the profile, one round trip after first paint, so an account
+        // on a non-default skin would render Classic and then swap.
+        var skin = prefs.state && prefs.state.uiSkin
+        if (skin && skin !== 'classic')
+          document.documentElement.setAttribute('data-ui', skin)
       } catch (e) {}
     </script>
     <div id="root"></div>
