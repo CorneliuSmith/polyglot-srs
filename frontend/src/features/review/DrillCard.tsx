@@ -20,6 +20,13 @@ interface DrillCardProps {
   /** Listening mode (WP19a): hide the sentence — the learner types the
    * missing word from the AUDIO, and the text reveals after grading. */
   hideSentence?: boolean
+  /** Whether the blank takes focus on mount. True in a review session,
+   * where the card IS the question and typing is the only thing to do.
+   * False in a LESSON, where the drill sits under the teaching material:
+   * focusing it there scrolls the browser straight past the explanation
+   * the learner opened the card to read — and on a phone throws the
+   * keyboard over what is left. */
+  autoFocus?: boolean
 }
 
 // The graded answer stays visible IN the blank: green = right,
@@ -105,6 +112,7 @@ export default function DrillCard({
   inputRef,
   result,
   hideSentence = false,
+  autoFocus = true,
 }: DrillCardProps) {
   const { t } = useTranslation()
   const translit = useTranslit(languageCode)
@@ -183,7 +191,7 @@ export default function DrillCard({
           <input
             ref={inputRef}
             type="text"
-            autoFocus
+            autoFocus={autoFocus}
             autoCapitalize="none"
             autoCorrect="off"
             autoComplete="off"
@@ -257,7 +265,7 @@ export default function DrillCard({
         <input
           ref={inputRef}
           type="text"
-          autoFocus
+          autoFocus={autoFocus}
           autoCapitalize="none"
           autoCorrect="off"
           autoComplete="off"
@@ -284,7 +292,7 @@ export default function DrillCard({
           <input
             ref={inputRef}
             type="text"
-            autoFocus
+            autoFocus={autoFocus}
             autoCapitalize="none"
             autoCorrect="off"
             autoComplete="off"

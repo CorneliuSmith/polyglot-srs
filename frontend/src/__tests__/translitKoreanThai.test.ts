@@ -35,6 +35,103 @@ describe('Korean (Hangul) transliteration', () => {
     expect(typeWord('ko', 'nara')).toBe('나라')
   })
 
+  it('x opens a syllable on the silent ㅇ — the past tense needs it', () => {
+    // The owner, mid-lesson: "There needs to be an option for ㅇ initial
+    // because double consonant finals cannot work properly for cases like
+    // this." Exactly right. 갔어요 needs the ㅆ to STAY as 갔's batchim
+    // while 어 opens the next syllable; but a vowel always claims the
+    // consonant before it (the rule that gives 밥 + a → 바바), so there
+    // was no way to type any 았/었/했 form at all.
+    expect(typeWord('ko', 'gassxeoyo')).toBe('갔어요')
+    expect(typeWord('ko', 'meogxeossxeoyo')).toBe('먹었어요')
+    expect(typeWord('ko', 'haessxeoyo')).toBe('했어요')
+    expect(typeWord('ko', 'bwassxeoyo')).toBe('봤어요')
+    // A compound batchim keeps its second jamo too (ㄺ, not ㄹ + 거).
+    expect(typeWord('ko', 'ilgxeossxeoyo')).toBe('읽었어요')
+    expect(typeWord('ko', 'salxassxeoyo')).toBe('살았어요')
+  })
+
+  it('without x the batchim is stolen, which is what the report was', () => {
+    // Kept as a fact about the scheme, not a wish: the romanization is
+    // genuinely ambiguous here, and this is the reading it takes.
+    expect(typeWord('ko', 'gasseoyo')).toBe('가써요')
+  })
+
+  it('x never closes a syllable — only ng does', () => {
+    // Letting it stand as a provisional batchim the way a typed consonant
+    // does put it on the syllable BEFORE it: 학교 + x became 학굥, which
+    // then re-read as 학굔게 when the vowel landed.
+    expect(typeWord('ko', 'hakgyoxe')).toBe('학교에')
+    // x forces the boundary; without it the ㄴ is claimed by the vowel.
+    // 안아 (hug) and 아나 are the same letters and differ only in where
+    // the syllable breaks, which is precisely what x is for.
+    expect(typeWord('ko', 'xanxa')).toBe('안아')
+    expect(typeWord('ko', 'xana')).toBe('아나')
+    // The final ㅇ keeps its own spelling, so nothing is lost by refusing.
+    expect(typeWord('ko', 'sarang')).toBe('사랑')
+  })
+
+  it('types the sentences from the past-tense lesson', () => {
+    // The three examples on the card the owner was looking at.
+    expect(typeWord('ko', 'xeoje hakgyoxe gassxeoyo'))
+      .toBe('어제 학교에 갔어요')
+    expect(typeWord('ko', 'xachimxe babxeul meogxeossxeoyo'))
+      .toBe('아침에 밥을 먹었어요')
+    expect(typeWord('ko', 'jumalxe yeonghwaleul bwassxeoyo'))
+      .toBe('주말에 영화를 봤어요')
+  })
+
+  it('a 받침 keeps its consonant; the next block gets its own', () => {
+    // Owner: "you should allow for double consonants at the end but double
+    // consonants do not exist at the beginning. So therefore the second ㄱ
+    // must be the beginning." Exactly — 학교, not 하꾜, and no hyphen.
+    expect(typeWord('ko', 'hakgyo')).toBe('학교')
+    expect(typeWord('ko', 'chukgu')).toBe('축구')
+    expect(typeWord('ko', 'gakgak')).toBe('각각')
+    expect(typeWord('ko', 'hakgi')).toBe('학기')
+    expect(typeWord('ko', 'daehakgyo')).toBe('대학교')
+    expect(typeWord('ko', 'gukga')).toBe('국가')
+    // ㄷ and ㅂ read the same way — the rule is the series, not one letter.
+    expect(typeWord('ko', 'badda')).toBe('받다')
+    expect(typeWord('ko', 'ipgu')).toBe('입구')
+  })
+
+  it('a tense 받침 still doubles, because it has its own spelling', () => {
+    // The doubled LAX letter now opens a syllable, so ㄲ is reached by
+    // "kk" — which is what the guide always said. Nothing lost.
+    expect(typeWord('ko', 'bakk')).toBe('밖')
+    expect(typeWord('ko', 'bakkxe')).toBe('밖에')
+    // ㅆ has no other spelling and IS a real 받침, so 's' after a ㅅ 받침
+    // has to keep doubling — the exception the rule derives for itself.
+    expect(typeWord('ko', 'issxeoyo')).toBe('있어요')
+    expect(typeWord('ko', 'gassxeoyo')).toBe('갔어요')
+  })
+
+  it('a tense consonant still opens a syllable', () => {
+    // The other half of the trade, and the reason the rule is about the
+    // doubled LAX spelling rather than about doubling in general.
+    expect(typeWord('ko', 'bakkuda')).toBe('바꾸다')
+    expect(typeWord('ko', 'tokki')).toBe('토끼')
+    expect(typeWord('ko', 'xeokkae')).toBe('어깨')
+    expect(typeWord('ko', 'xajeossi')).toBe('아저씨')
+    expect(typeWord('ko', 'nunkkeophul')).toBe('눈꺼풀')
+    // ㅃ/ㄸ/ㅉ can never be a 받침, so after an open syllable they need the
+    // hyphen to say "this opens a block" — unchanged by any of this.
+    expect(typeWord('ko', 'xa-ppa')).toBe('아빠')
+  })
+
+  it('the hyphen still forces a break wherever one is wanted', () => {
+    expect(typeWord('ko', 'hak-gyo')).toBe('학교')
+    expect(typeWord('ko', 'bakk-e')).toBe('밖에')
+  })
+
+  it('the guide shows the silent initial', () => {
+    const rows = translitGuide('ko')
+    expect(rows.some((r) => r.keys === 'x' && r.out === 'ㅇ')).toBe(true)
+    expect(rows.some((r) => r.out === '먹었어요')).toBe(true)
+    expect(rows.some((r) => r.keys === 'hakgyo' && r.out === '학교')).toBe(true)
+  })
+
   it('reads "ng" as the final only when no vowel follows it', () => {
     // sarang: ng closes the word. hanguk: the n closes 한 and g opens 국.
     expect(typeWord('ko', 'sarang')).toBe('사랑')

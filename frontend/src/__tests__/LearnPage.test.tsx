@@ -286,6 +286,49 @@ describe('LearnPage (teach-before-quiz)', () => {
     expect(alert.textContent).toContain(grammarLesson.quiz.answer)
   })
 
+  it('each lesson starts at the top of the page', async () => {
+    // Owner: "when a user goes to the next lesson card it should start at
+    // the top of the page so they can read the lesson easily." A grammar
+    // explanation runs well past a phone screen, and the learner was
+    // landing wherever the last card had left them.
+    mockLearn.mockResolvedValue({
+      added: 2,
+      items: ['uc-1', 'uc-2'],
+      lessons: [grammarLesson, vocabLesson],
+    })
+    const scrollTo = vi.fn()
+    vi.stubGlobal('scrollTo', scrollTo)
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(true)
+    renderPage()
+    await screen.findByText(/1 of 2/)
+
+    scrollTo.mockClear()
+    fireEvent.click(screen.getByRole('button', { name: /already know this/i }))
+    await waitFor(() => expect(mockKnown).toHaveBeenCalled())
+    fireEvent.click(screen.getByRole('button', { name: /next/i }))
+
+    await screen.findByText(/2 of 2/)
+    expect(scrollTo).toHaveBeenCalledWith(
+      expect.objectContaining({ top: 0 }),
+    )
+    confirmSpy.mockRestore()
+    vi.unstubAllGlobals()
+  })
+
+  it('the drill does not steal focus from the lesson', async () => {
+    // What made the scroll necessary in the first place: the blank sits
+    // UNDER the teaching material and autofocused on mount, so the browser
+    // scrolled straight past the explanation — and on a phone threw the
+    // keyboard over what was left. A review session still autofocuses;
+    // there the card IS the question.
+    mockLearn.mockResolvedValue({
+      added: 1, items: ['uc-1'], lessons: [grammarLesson],
+    })
+    renderPage()
+    await screen.findByRole('textbox')
+    expect(document.activeElement).not.toBe(screen.getByRole('textbox'))
+  })
+
   it('"I already know this" retires the card without a quiz answer (owner request)', async () => {
     mockLearn.mockResolvedValue({
       added: 2,

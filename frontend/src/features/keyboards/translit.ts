@@ -571,6 +571,13 @@ const KO_SPLIT_T: Record<string, string> = Object.fromEntries(
 // letters that can sit in the final slot. Needed because the first
 // keystroke already committed the plain batchim.
 const KO_TENSE_T: Record<string, string> = { 'ㄱ': 'ㄲ', 'ㅅ': 'ㅆ' }
+
+/** The full tense series (plain → tense). Wider than KO_TENSE_T, which is
+ * only the two that can STACK in a 받침 — ㄸ, ㅃ and ㅉ never sit there —
+ * because the spelling rules below are about the whole series. */
+const KO_TENSE_SERIES: Record<string, string> = {
+  'ㄱ': 'ㄲ', 'ㄷ': 'ㄸ', 'ㅂ': 'ㅃ', 'ㅅ': 'ㅆ', 'ㅈ': 'ㅉ',
+}
 const KO_ASPIRATE_T: Record<string, string> = {
   'ㄱ': 'ㅋ', 'ㄷ': 'ㅌ', 'ㅂ': 'ㅍ', 'ㅈ': 'ㅊ',
 }
@@ -634,6 +641,8 @@ const KO_CONS: [string, string][] = [
   ['g','ㄱ'], ['n','ㄴ'], ['d','ㄷ'], ['r','ㄹ'], ['l','ㄹ'], ['m','ㅁ'],
   ['b','ㅂ'], ['s','ㅅ'], ['j','ㅈ'], ['k','ㅋ'], ['t','ㅌ'], ['p','ㅍ'],
   ['h','ㅎ'],
+  // 'x' opens a syllable on the silent ㅇ. INITIAL only — see KO_INITIAL_ONLY.
+  ['x','ㅇ'],
 ]
 const KO_VOW: [string, string][] = [
   ['yeo','ㅕ'], ['yae','ㅒ'], ['wae','ㅙ'],
@@ -643,6 +652,28 @@ const KO_VOW: [string, string][] = [
   ['a','ㅏ'], ['e','ㅔ'], ['i','ㅣ'], ['o','ㅗ'], ['u','ㅜ'],
 ]
 const KO_VOWEL_START = /[aeiouwy]/
+
+/**
+ * Letters that may only ever open a syllable, never close one.
+ *
+ * 'x' is the silent initial ㅇ, and without it the past tense is untypable
+ * — which is most of the language. 갔어요 needs the ㅆ to STAY as 갔's
+ * batchim while 어 opens a new syllable on a silent ㅇ; but a vowel always
+ * claims the consonant before it as its own initial (the rule that makes
+ * 밥 + a → 바바), so "gasseoyo" can only ever produce 가써요. Every 았/었/했
+ * form hits this, and so does every compound batchim: "ilgxeossxeoyo" →
+ * 읽었어요.
+ *
+ * It has to be initial-ONLY. Let it stand as a provisional batchim the way
+ * a typed consonant does and it lands on the syllable before it instead —
+ * "hak-gyoxe" became 학굥, then re-read as 학굔게. The final ㅇ keeps its
+ * own spelling ('ng', 사랑), so nothing is lost by refusing this one.
+ *
+ * A letter rather than punctuation because it is needed constantly, and
+ * the hyphen is three taps behind the 123 layer on a phone. 'x' spells no
+ * Korean sound in any romanization, so it collides with nothing.
+ */
+const KO_INITIAL_ONLY = new Set(['x'])
 
 // Romanization is ASYMMETRIC by position: the lax stops are voiced as an
 // initial (g d b) and voiceless as a final (k t p) — "hanguk" ends in ㄱ, not
@@ -658,6 +689,64 @@ const KO_CONS_REV: Record<string, string> = {}
 for (const [lat, jamo] of KO_CONS) if (!(jamo in KO_CONS_REV)) KO_CONS_REV[jamo] = lat
 const KO_VOW_REV: Record<string, string> = {}
 for (const [lat, jamo] of KO_VOW) if (!(jamo in KO_VOW_REV)) KO_VOW_REV[jamo] = lat
+
+/**
+ * 받침 whose LAX letter, typed again, opens a new syllable instead of
+ * doubling into the tense pair.
+ *
+ * Owner's rule, and it is Korean's: a syllable can end in two consonants
+ * but cannot begin with a cluster, "so therefore the second ㄱ must be the
+ * beginning". 학 + g + yo is 학교 — every 학교 / 축구 / 각각 / 학기 was
+ * coming out 하꾜 / 추꾸 / 가깍 / 하끼.
+ *
+ * It applies where the tense letter has a spelling of its OWN, so nothing
+ * becomes untypable: ㄲ is still "kk" (밖), and now 'g' after a ㄱ 받침 is
+ * the next syllable's ㄱ. ㅆ has only "ss", so a ㅅ 받침 followed by 's'
+ * must keep doubling (있) — derived here rather than hardcoded, so a new
+ * tense pair in the tables lands on the right side by itself.
+ */
+/**
+ * Doubled-LAX spellings of the tense letters — "gg", "dd", "bb" — which
+ * the tokenizer refuses so they can be read as 받침 + next syllable.
+ *
+ * Each of those tense letters has a spelling of its own ("kk", "tt",
+ * "pp"), so nothing becomes untypable; the doubled-lax alias is simply
+ * worth less than the reading it was blocking. "ss" is deliberately NOT
+ * in the set: ㅆ has no other spelling and it is a real 받침 (있), so 's'
+ * after a ㅅ 받침 has to keep doubling.
+ *
+ * Derived from the tables rather than listed, so a spelling added later
+ * lands on the right side by itself.
+ */
+const KO_LAX_DIGRAPHS = new Set<string>()
+for (const [plain, tense] of Object.entries(KO_TENSE_SERIES)) {
+  const lax = KO_CONS_REV[plain] // ㄱ → 'g'
+  if (!lax) continue
+  // Refuse the doubled LAX spelling only where the tense letter can still
+  // be written another way: "kk" for ㄲ, "tt" for ㄸ, "pp" for ㅃ. ㅆ and
+  // ㅉ have only "ss"/"jj", so those keep doubling.
+  const hasOwnSpelling = KO_CONS.some(
+    ([seq, jamo]) => jamo === tense && seq[0] !== lax,
+  )
+  if (hasOwnSpelling) KO_LAX_DIGRAPHS.add(lax + lax)
+}
+
+/**
+ * 받침 whose LAX letter, typed again, opens a new syllable instead of
+ * doubling into the tense pair — the stacking half of the same rule.
+ *
+ * Only ㄱ and ㅅ can stack tense at all (KO_TENSE_T), and only ㄱ has a
+ * separate tense spelling, so this comes out as ㄱ: 학 + g is 학교, while
+ * 밖 keeps its "kk".
+ */
+const KO_LAX_OPENS_SYLLABLE: Record<string, string> = {}
+for (const [plain, tense] of Object.entries(KO_TENSE_T)) {
+  const lax = KO_CONS_REV[plain]
+  const tenseSpelling = KO_CONS_REV[tense]
+  if (lax && tenseSpelling && !tenseSpelling.startsWith(lax)) {
+    KO_LAX_OPENS_SYLLABLE[plain] = lax
+  }
+}
 
 /** Hangul → the string the encoder re-assembles.
  *
@@ -721,6 +810,12 @@ function tokenizeKo(phon: string): KoTok[] {
       // "ng" is the final ㅇ — but in "hanguk" the n ends one syllable and the
       // g opens the next, so refuse the digraph when a vowel follows it.
       if (seq === 'ng' && KO_VOWEL_START.test(phon[i + 2] ?? '')) continue
+      // The doubled-LAX spelling of a tense letter ("gg" for ㄲ) would fuse
+      // 학 + g into 핚 before the encoder could rule on it, and the vowel
+      // then took the whole ㄲ: 하꾜. The tense letters keep their own
+      // spellings ("kk"), so nothing here becomes untypable — see
+      // KO_LAX_OPENS_SYLLABLE.
+      if (KO_LAX_DIGRAPHS.has(seq)) continue
       toks.push({ t: 'c', lat: seq, jamo })
       i += seq.length
       matched = true
@@ -787,7 +882,7 @@ function encodeKo(phon: string, finalize: boolean): string {
     // initial of the next one (i.e. no vowel comes after it).
     let final = ''
     const c1 = toks[i]
-    if (c1 && c1.t === 'c') {
+    if (c1 && c1.t === 'c' && !KO_INITIAL_ONLY.has(c1.lat)) {
       const asFinal = c1.committed ? c1.jamo : KO_FINAL[c1.lat] ?? c1.jamo
       const c2 = toks[i + 1]
       if (KO_T.includes(asFinal) && (!c2 || c2.t !== 'v')) {
@@ -803,11 +898,21 @@ function encodeKo(phon: string, finalize: boolean): string {
         // own initial instead (없 + ㅏ is 업사, not 없아).
         const d1 = toks[i]
         const d2 = toks[i + 1]
-        if (d1 && d1.t === 'c' && (!d2 || d2.t !== 'v')) {
+        if (
+          d1 && d1.t === 'c' && (!d2 || d2.t !== 'v') &&
+          !KO_INITIAL_ONLY.has(d1.lat)
+        ) {
           const stackWith = d1.committed ? d1.jamo : KO_FINAL[d1.lat] ?? d1.jamo
+          // A lax letter typed after its own 받침 opens the next syllable
+          // rather than doubling it (KO_LAX_OPENS_SYLLABLE): 학 + g is 학교,
+          // and ㄲ keeps its own spelling for 밖 ("bakk").
+          const laxRepeat =
+            !d1.committed && KO_LAX_OPENS_SYLLABLE[final] === d1.lat
           const stacked =
             KO_COMPOUND_T[final + stackWith] ??
-            (stackWith === final ? KO_TENSE_T[final] : undefined) ??
+            (stackWith === final && !laxRepeat
+              ? KO_TENSE_T[final]
+              : undefined) ??
             (!d1.committed && d1.lat === 'h' ? KO_ASPIRATE_T[final] : undefined)
           if (stacked) {
             final = stacked
@@ -1292,10 +1397,14 @@ export function translitGuide(code: string): GuideRow[] {
         { keys: 'ae e ya yeo yo yu', out: 'ㅐ ㅔ ㅑ ㅕ ㅛ ㅠ' },
         { keys: 'wa wo wi oe ui', out: 'ㅘ ㅝ ㅟ ㅚ ㅢ' },
         { keys: 'ng', out: 'ㅇ', note: 'the final ㅇ (sarang → 사랑); a word-initial vowel gets it free' },
+        { keys: 'x', out: 'ㅇ', note: 'the SILENT ㅇ that opens a syllable — gassxeoyo → 갔어요' },
         { keys: 'hanguk', out: '한국', note: 'letters stack into blocks by themselves' },
         { keys: 'an', out: '안', note: 'a bare vowel is seated on ㅇ automatically' },
         { keys: 'bap', out: '밥', note: 'a trailing consonant becomes the 받침 at once; a vowel after it re-opens the block (bapa → 바바)' },
+        { keys: 'meogxeossxeoyo', out: '먹었어요', note: 'every past tense needs x: without it the 받침 ㅆ is stolen by the next vowel (가써요, not 갔어요)' },
         { keys: 'han-a', out: '한아', note: '- splits syllables (hana → 하나); it disappears on submit' },
+        { keys: 'hakgyo', out: '학교', note: 'a 받침 keeps its consonant and the next block gets its own — no cluster ever opens a syllable' },
+        { keys: 'ba-kkuda', out: '바꾸다', note: '- when a TENSE consonant opens a block after another one (bakkuda works too)' },
       ]
     default:
       return []
