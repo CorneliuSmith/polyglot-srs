@@ -497,6 +497,12 @@
     "newBadge": "nuevo",
     "tryIt": "Pruébalo",
     "entries": {
+      "speak-translation-2026-08": {
+        "date": "Agosto de 2026",
+        "title": "Pregunta qué acaba de decir tu compañero",
+        "body": "Cada frase que dice tu compañero de Speak viene ahora con su significado en tu idioma, listo antes de que lo pidas. Toca «¿Qué significa eso?» debajo de cualquier respuesta y se abre al instante: nada que cargar, nada que esperar. Intenta entenderla primero; la respuesta está ahí cuando la quieras.",
+        "linkLabel": "Míralo en acción"
+      },
       "placement-retake-2026-07": {
         "date": "julio de 2026",
         "title": "Sitúa tu nivel en cualquier idioma — y de nuevo más adelante",
@@ -1564,6 +1570,8 @@
       "habit": "Una costumbre que te gustaría cambiar",
       "disagree": "Discrepar con educación de alguien que aprecias"
     },
-    "topicSuggestLabel": "O elige uno"
+    "topicSuggestLabel": "O elige uno",
+    "showTranslation": "¿Qué significa eso?",
+    "hideTranslation": "Ocultar el significado"
   }
 }

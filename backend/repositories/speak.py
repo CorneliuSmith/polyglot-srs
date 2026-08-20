@@ -79,26 +79,63 @@ async def get_session(
     return data
 
 
+_SELECT_TURNS = """
+    SELECT idx, learner_text, partner_text, audio_ms, errors,
+           partner_translation
+      FROM speak_turns
+     WHERE session_id = $1
+     ORDER BY idx
+"""
+
+_SELECT_TURNS_LEGACY = """
+    SELECT idx, learner_text, partner_text, audio_ms, errors
+      FROM speak_turns
+     WHERE session_id = $1
+     ORDER BY idx
+"""
+
+_INSERT_TURN = """
+    INSERT INTO speak_turns
+        (session_id, idx, learner_text, partner_text, errors, audio_ms,
+         partner_translation)
+    VALUES ($1, $2, $3, $4, $5::jsonb, $6, $7)
+    ON CONFLICT (session_id, idx) DO NOTHING
+"""
+
+_INSERT_TURN_LEGACY = """
+    INSERT INTO speak_turns
+        (session_id, idx, learner_text, partner_text, errors, audio_ms)
+    VALUES ($1, $2, $3, $4, $5::jsonb, $6)
+    ON CONFLICT (session_id, idx) DO NOTHING
+"""
+
+_BUMP_TURN_COUNT = """
+    UPDATE speak_sessions
+       SET turn_count = (SELECT count(*) FROM speak_turns
+                          WHERE session_id = $1)
+     WHERE id = $1
+"""
+
+
 async def list_turns(
     conn: asyncpg.Connection, session_id: str
 ) -> list[dict]:
     """Every turn of one session, oldest first — the model's context and the
     summary's input."""
     try:
-        rows = await conn.fetch(
-            """
-            SELECT idx, learner_text, partner_text, audio_ms, errors
-              FROM speak_turns
-             WHERE session_id = $1
-             ORDER BY idx
-            """,
-            session_id,
-        )
+        try:
+            rows = await conn.fetch(_SELECT_TURNS, session_id)
+        except asyncpg.exceptions.UndefinedColumnError:
+            # 20260929000000 hasn't been applied. The transcript is worth
+            # more than the reveal, so read it without the translation
+            # rather than failing the session.
+            rows = await conn.fetch(_SELECT_TURNS_LEGACY, session_id)
     except asyncpg.exceptions.UndefinedTableError as exc:
         raise SpeakUnavailableError from exc
     turns = []
     for row in rows:
         turn = dict(row)
+        turn.setdefault("partner_translation", None)
         errors = turn.get("errors")
         turn["errors"] = json.loads(errors) if isinstance(errors, str) else (
             errors or []
@@ -115,6 +152,7 @@ async def append_turn(
     partner_text: str,
     errors: list[dict],
     audio_ms: int | None = None,
+    partner_translation: str | None = None,
 ) -> None:
     """Record one exchange and bump the session's counter.
 
@@ -126,29 +164,31 @@ async def append_turn(
     is the only real measurement in the summary's "you spoke 61% of the
     time" — a typed turn contributes nothing to it rather than being
     guessed at from its character count.
+
+    *partner_translation* is the reply in the learner's own language, which
+    the same model call already produced. It is written when the column is
+    there and dropped when it isn't: a turn that happened must be recorded
+    even on a server where 20260929000000 hasn't been applied yet, and the
+    only thing lost is a reveal.
     """
+    payload = json.dumps(errors, ensure_ascii=False)
     try:
-        async with conn.transaction():
-            await conn.execute(
-                """
-                INSERT INTO speak_turns
-                    (session_id, idx, learner_text, partner_text, errors,
-                     audio_ms)
-                VALUES ($1, $2, $3, $4, $5::jsonb, $6)
-                ON CONFLICT (session_id, idx) DO NOTHING
-                """,
-                session_id, idx, learner_text, partner_text,
-                json.dumps(errors, ensure_ascii=False), audio_ms,
-            )
-            await conn.execute(
-                """
-                UPDATE speak_sessions
-                   SET turn_count = (SELECT count(*) FROM speak_turns
-                                      WHERE session_id = $1)
-                 WHERE id = $1
-                """,
-                session_id,
-            )
+        try:
+            async with conn.transaction():
+                await conn.execute(
+                    _INSERT_TURN, session_id, idx, learner_text, partner_text,
+                    payload, audio_ms, partner_translation,
+                )
+                await conn.execute(_BUMP_TURN_COUNT, session_id)
+        except asyncpg.exceptions.UndefinedColumnError:
+            # The transaction above rolled back on the way out, so this is a
+            # clean retry rather than a second statement on a dead one.
+            async with conn.transaction():
+                await conn.execute(
+                    _INSERT_TURN_LEGACY, session_id, idx, learner_text,
+                    partner_text, payload, audio_ms,
+                )
+                await conn.execute(_BUMP_TURN_COUNT, session_id)
     except asyncpg.exceptions.UndefinedTableError as exc:
         raise SpeakUnavailableError from exc
 

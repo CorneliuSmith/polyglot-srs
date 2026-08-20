@@ -102,6 +102,9 @@ export async function startSpeakSession(
    * asked it to start. Null when they named a topic, or when the opener
    * could not be generated and they should start instead. */
   opening: string | null
+  /** That same line in the learner's own language, produced by the same
+   * call. Null when there is no opener, or when the model gave none. */
+  opening_translation: string | null
 }> {
   const response = await apiClient.post('/api/speak/start', {
     language_id: languageId,
@@ -165,6 +168,11 @@ export async function sendSpeakTurn(
   audioMs?: number,
 ): Promise<{
   reply: string
+  /** What the reply means, in the learner's own language — sent WITH the
+   * reply, never fetched on demand. "What did that mean?" has to be a tap
+   * on something already here, not a second wait. Null when the model
+   * gave none. */
+  reply_translation: string | null
   turn_index: number
   allowance: TutorAllowance
   /** Coach mode only, and at most one — never a list. Absent in flow mode,
