@@ -10,16 +10,23 @@ import json
 import time
 from unittest.mock import AsyncMock, patch
 
+import asyncpg
 import jwt as pyjwt
 import pytest
 from fastapi.testclient import TestClient
 
 from backend.main import create_app
+from backend.repositories.speak import (
+    SpeakUnavailableError,
+    append_turn,
+    list_turns,
+)
 from backend.services.speak import (
     _fallback_groups,
     _mock_turn,
     _system_prompt,
     _usable_card,
+    speak_opening,
     speak_turn,
     summarize_speak_session,
 )
@@ -940,3 +947,256 @@ class TestNoSelfAnsweringNudges:
         # conversational scale: a nudge to try a form must not contain it.
         prompt = _system_prompt("Spanish", "A2", None, None)
         assert "never include the answer in the same message" in prompt
+
+
+# ---------------------------------------------------------------------------
+# "What did that mean?" — the partner's line in the learner's own language
+# ---------------------------------------------------------------------------
+
+
+class _FakeTx:
+    """asyncpg's transaction context manager, minus the database."""
+
+    def __init__(self, conn):
+        self.conn = conn
+
+    async def __aenter__(self):
+        return self
+
+    async def __aexit__(self, *exc):
+        return False
+
+
+class _FakeConn:
+    """A connection that answers a scripted list of outcomes per statement.
+
+    *fail_on* is a substring: any statement containing it raises
+    UndefinedColumnError, which is exactly what a server that hasn't run
+    20260929000000 does.
+    """
+
+    def __init__(self, fail_on: str | None = None, rows: list | None = None):
+        self.fail_on = fail_on
+        self.rows = rows or []
+        self.executed: list[str] = []
+        self.fetched: list[str] = []
+
+    def transaction(self):
+        return _FakeTx(self)
+
+    async def execute(self, sql, *args):
+        if self.fail_on and self.fail_on in sql:
+            raise asyncpg.exceptions.UndefinedColumnError(
+                "column \"partner_translation\" does not exist"
+            )
+        self.executed.append(sql)
+        return "OK"
+
+    async def fetch(self, sql, *args):
+        if self.fail_on and self.fail_on in sql:
+            raise asyncpg.exceptions.UndefinedColumnError(
+                "column \"partner_translation\" does not exist"
+            )
+        self.fetched.append(sql)
+        return self.rows
+
+
+class TestTranslationRidesAlong:
+    """It has to arrive with the reply. A translation fetched on demand puts
+    a spinner between the learner and the one sentence they didn't follow —
+    which is the moment they give up on the conversation."""
+
+    async def test_the_turn_carries_the_translation(self):
+        class FakeResponse:
+            content = [type("B", (), {
+                "type": "tool_use",
+                "input": {
+                    "reply": "¿Con leche?",
+                    "reply_translation": "With milk?",
+                    "errors": [],
+                },
+            })()]
+            usage = None
+
+        settings = FakeSettings()
+        settings.tutor_dev_mock = False
+        settings.anthropic_api_key = "sk-test"
+        with patch("backend.services.speak.get_settings", return_value=settings), \
+             patch("backend.services.speak.AsyncAnthropic") as client_cls:
+            client_cls.return_value.messages.create = AsyncMock(
+                return_value=FakeResponse()
+            )
+            result, _ = await speak_turn("Spanish", "A2", [], "Un café")
+        assert result["reply"] == "¿Con leche?"
+        assert result["reply_translation"] == "With milk?"
+
+    async def test_a_missing_translation_is_empty_not_fatal(self):
+        """The reply is the feature; the translation is the extra. A model
+        that skips the field costs the learner a reveal, not the turn."""
+
+        class FakeResponse:
+            content = [type("B", (), {
+                "type": "tool_use",
+                "input": {"reply": "Vale.", "errors": []},
+            })()]
+            usage = None
+
+        settings = FakeSettings()
+        settings.tutor_dev_mock = False
+        settings.anthropic_api_key = "sk-test"
+        with patch("backend.services.speak.get_settings", return_value=settings), \
+             patch("backend.services.speak.AsyncAnthropic") as client_cls:
+            client_cls.return_value.messages.create = AsyncMock(
+                return_value=FakeResponse()
+            )
+            result, _ = await speak_turn("Spanish", "A2", [], "Un café")
+        assert result["reply"] == "Vale."
+        assert result["reply_translation"] == ""
+
+    async def test_the_opener_is_translated_in_its_own_call_too(self):
+        """The first line is the one a beginner is most likely to stall on."""
+        captured = {}
+
+        class FakeResponse:
+            content = [type("B", (), {
+                "type": "tool_use",
+                "input": {
+                    "opening": "¿Qué tal el día?",
+                    "opening_translation": "How's your day going?",
+                },
+            })()]
+            usage = None
+
+        async def fake_create(**kwargs):
+            captured.update(kwargs)
+            return FakeResponse()
+
+        settings = FakeSettings()
+        settings.tutor_dev_mock = False
+        settings.anthropic_api_key = "sk-test"
+        with patch("backend.services.speak.get_settings", return_value=settings), \
+             patch("backend.services.speak.AsyncAnthropic") as client_cls:
+            client_cls.return_value.messages.create = fake_create
+            result, _ = await speak_opening(
+                "Spanish", "A2", support_language="French",
+            )
+        assert result["opening"] == "¿Qué tal el día?"
+        assert result["opening_translation"] == "How's your day going?"
+        # …and it was asked for in the learner's own language, not English.
+        assert "French" in captured["system"]
+
+    async def test_an_empty_opener_is_still_rejected(self):
+        class FakeResponse:
+            content = [type("B", (), {
+                "type": "tool_use",
+                "input": {"opening": "  ", "opening_translation": "hi"},
+            })()]
+            usage = None
+
+        settings = FakeSettings()
+        settings.tutor_dev_mock = False
+        settings.anthropic_api_key = "sk-test"
+        with patch("backend.services.speak.get_settings", return_value=settings), \
+             patch("backend.services.speak.AsyncAnthropic") as client_cls:
+            client_cls.return_value.messages.create = AsyncMock(
+                return_value=FakeResponse()
+            )
+            with pytest.raises(ValueError, match="empty"):
+                await speak_opening("Spanish", "A2")
+
+
+class TestTranslationEndpoints:
+    def test_the_turn_response_carries_the_translation(self, client):
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=_live_session())), \
+             patch("backend.routers.speak.list_turns",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.speak.append_turn",
+                   new=AsyncMock()) as appended:
+            resp = client.post("/api/speak/turn", headers=_auth_headers(), json={
+                "session_id": TEST_SESSION_ID, "text": "Yo quiero un café",
+            })
+        assert resp.status_code == 200
+        assert resp.json()["reply_translation"]
+        # Stored with the turn, so a transcript read back later still has it.
+        assert appended.await_args.kwargs["partner_translation"]
+
+    def test_the_opening_response_carries_its_translation(self, client):
+        with patch("backend.routers.speak.start_session",
+                   new=AsyncMock(return_value=TEST_SESSION_ID)), \
+             patch("backend.routers.speak.append_turn",
+                   new=AsyncMock()) as appended:
+            resp = client.post("/api/speak/start", headers=_auth_headers(), json={
+                "language_id": TEST_LANGUAGE_ID, "language_code": "es",
+            })
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["opening"]
+        assert body["opening_translation"]
+        assert appended.await_args.kwargs["partner_translation"]
+
+    def test_a_named_topic_answers_with_no_opener_and_no_translation(self, client):
+        """The learner starts, so there is nothing to translate — and the key
+        is present rather than missing, so the client never has to guess."""
+        with patch("backend.routers.speak.start_session",
+                   new=AsyncMock(return_value=TEST_SESSION_ID)):
+            resp = client.post("/api/speak/start", headers=_auth_headers(), json={
+                "language_id": TEST_LANGUAGE_ID, "language_code": "es",
+                "topic": "Ordering a coffee",
+            })
+        assert resp.json()["opening"] is None
+        assert resp.json()["opening_translation"] is None
+
+
+class TestTranslationSurvivesAMissingMigration:
+    """20260929000000 is applied by hand. Until it lands, a turn that
+    happened must still be recorded — the reveal is what's lost, not the
+    conversation."""
+
+    async def test_the_turn_is_still_written_without_the_column(self):
+        conn = _FakeConn(fail_on="partner_translation")
+        await append_turn(
+            conn, TEST_SESSION_ID, 0, "Hola", "¡Hola!", [],
+            partner_translation="Hello!",
+        )
+        inserts = [s for s in conn.executed if "INSERT INTO speak_turns" in s]
+        assert len(inserts) == 1
+        assert "partner_translation" not in inserts[0]
+        # And the session's counter still moved: a turn nobody counted is a
+        # transcript that disagrees with itself.
+        assert any("UPDATE speak_sessions" in s for s in conn.executed)
+
+    async def test_the_column_is_used_when_it_is_there(self):
+        conn = _FakeConn()
+        await append_turn(
+            conn, TEST_SESSION_ID, 0, "Hola", "¡Hola!", [],
+            partner_translation="Hello!",
+        )
+        inserts = [s for s in conn.executed if "INSERT INTO speak_turns" in s]
+        assert "partner_translation" in inserts[0]
+
+    async def test_a_missing_table_is_still_unavailable_not_a_500(self):
+        class _Gone(_FakeConn):
+            async def execute(self, sql, *args):
+                raise asyncpg.exceptions.UndefinedTableError("no speak_turns")
+
+        with pytest.raises(SpeakUnavailableError):
+            await append_turn(_Gone(), TEST_SESSION_ID, 0, "a", "b", [])
+
+    async def test_reading_back_degrades_to_no_translation(self):
+        conn = _FakeConn(fail_on="partner_translation", rows=[{
+            "idx": 0, "learner_text": "Hola", "partner_text": "¡Hola!",
+            "audio_ms": None, "errors": "[]",
+        }])
+        turns = await list_turns(conn, TEST_SESSION_ID)
+        assert turns[0]["partner_translation"] is None
+        assert turns[0]["errors"] == []
+
+    async def test_reading_back_returns_the_translation_when_stored(self):
+        conn = _FakeConn(rows=[{
+            "idx": 0, "learner_text": "Hola", "partner_text": "¡Hola!",
+            "audio_ms": None, "errors": "[]",
+            "partner_translation": "Hello!",
+        }])
+        turns = await list_turns(conn, TEST_SESSION_ID)
+        assert turns[0]["partner_translation"] == "Hello!"

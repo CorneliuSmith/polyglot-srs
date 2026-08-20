@@ -497,6 +497,12 @@
     "newBadge": "new",
     "tryIt": "Try it",
     "entries": {
+      "speak-translation-2026-08": {
+        "date": "August 2026",
+        "title": "Ask what your partner just said",
+        "body": "Every line your Speak partner says now comes with its meaning in your own language, ready before you ask. Tap “What does that mean?” under any reply and it opens straight away — nothing to load, nothing to wait for. Try the sentence first; the answer is there when you want it.",
+        "linkLabel": "See how it works"
+      },
       "placement-retake-2026-07": {
         "date": "July 2026",
         "title": "Place yourself in any language — and again later",
@@ -1564,6 +1570,8 @@
       "habit": "A habit you would like to change",
       "disagree": "Disagreeing politely with someone you like"
     },
-    "topicSuggestLabel": "Or pick one"
+    "topicSuggestLabel": "Or pick one",
+    "showTranslation": "What does that mean?",
+    "hideTranslation": "Hide the meaning"
   }
 }

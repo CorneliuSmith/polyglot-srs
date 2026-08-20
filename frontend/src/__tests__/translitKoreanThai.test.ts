@@ -233,6 +233,48 @@ describe('composeScript — on-screen keyboard jamo', () => {
     expect(composeScript('ko', 'ㅎㅏㄴ')).toBe('한')
   })
 
+  it('two taps of the same key are a 받침 and the next block, not one tense letter', () => {
+    // Owner: "double consonants do not exist at the beginning. So therefore
+    // the second ㄱ must be the beginning." On THIS path there is not even
+    // an ambiguity to weigh: every tense letter has its own key (ㄲㄸㅃㅆㅉ
+    // on shift) and every aspirate has one unshifted, so two ㄱ taps can
+    // only mean 받침 + onset. It was building ㄲ and giving 하꾜.
+    const tap = (jamo: string[]) => {
+      let field = ''
+      for (const j of jamo) field = composeScript('ko', field + j)
+      return field
+    }
+    expect(tap(['ᄒ', 'ᅡ', 'ᄀ', 'ᄀ', 'ᅭ'])).toBe('학교')
+    expect(tap(['ᄎ', 'ᅮ', 'ᄀ', 'ᄀ', 'ᅮ'])).toBe('축구')
+    // …and the aspirate stack was wrong the same way: ㅎ has its own key.
+    expect(tap(['ᄋ', 'ᅡ', 'ᄀ', 'ᄒ', 'ᅪ'])).toBe('악화')
+  })
+
+  it('the tense KEYS still do what they say', () => {
+    const tap = (jamo: string[]) => {
+      let field = ''
+      for (const j of jamo) field = composeScript('ko', field + j)
+      return field
+    }
+    // Shift+ㄱ is ㄲ, and it behaves as one letter in either slot.
+    expect(tap(['ᄇ', 'ᅡ', 'ᄁ'])).toBe('밖')
+    expect(tap(['ᄇ', 'ᅡ', 'ᄁ', 'ᅮ', 'ᄃ', 'ᅡ'])).toBe('바꾸다')
+    expect(tap(['ᄀ', 'ᅡ', 'ᄊ', 'ᄋ', 'ᅥ', 'ᄋ', 'ᅭ'])).toBe('갔어요')
+  })
+
+  it('a real 겹받침 still stacks — that is what two DIFFERENT keys mean', () => {
+    const tap = (jamo: string[]) => {
+      let field = ''
+      for (const j of jamo) field = composeScript('ko', field + j)
+      return field
+    }
+    expect(tap(['ᄋ', 'ᅥ', 'ᄇ', 'ᄉ', 'ᄃ', 'ᅡ'])).toBe('없다')
+    expect(tap(['ᄋ', 'ᅡ', 'ᄂ', 'ᄌ', 'ᄃ', 'ᅡ'])).toBe('앉다')
+    expect(tap(['ᄋ', 'ᅵ', 'ᄅ', 'ᄀ', 'ᄃ', 'ᅡ'])).toBe('읽다')
+    // …and gives up only its SECOND jamo when a vowel comes.
+    expect(tap(['ᄋ', 'ᅵ', 'ᄅ', 'ᄀ', 'ᄋ', 'ᅥ'])).toBe('읽어')
+  })
+
   it('leaves every other script untouched', () => {
     expect(composeScript('ru', 'привет')).toBe('привет')
     expect(composeScript('th', 'มา')).toBe('มา')

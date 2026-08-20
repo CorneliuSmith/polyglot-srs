@@ -167,6 +167,7 @@ async function startTalking(
   })
   mockStart.mockResolvedValue({
     session_id: 's1', mode: 'flow', topic: null, opening: OPENING,
+    opening_translation: 'How are things?',
   })
   mockSay.mockResolvedValue('BASE64AUDIO')
   renderPage()
@@ -206,6 +207,20 @@ describe('Speak — conversation options', () => {
 
     fireEvent.click(await screen.findByTestId('speak-reveal-0'))
     expect(screen.getByText(OPENING)).toBeInTheDocument()
+  })
+
+  it('does not offer the meaning while the words are hidden', async () => {
+    // Hidden text is a listening exercise. Handing over the translation
+    // while the line is still masked answers the question the exercise is
+    // asking — so "Show the words" comes first, and the meaning after.
+    await startTalking({ autoSpeak: true, hideText: true })
+    expect(screen.queryByTestId('speak-translate-0')).not.toBeInTheDocument()
+
+    fireEvent.click(await screen.findByTestId('speak-reveal-0'))
+    fireEvent.click(screen.getByTestId('speak-translate-0'))
+    expect(screen.getByTestId('speak-translation-0')).toHaveTextContent(
+      'How are things?',
+    )
   })
 
   it('opens the microphone only after the partner has finished speaking', async () => {

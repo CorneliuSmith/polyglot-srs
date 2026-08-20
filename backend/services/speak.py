@@ -58,6 +58,15 @@ _TURN_TOOL = {
                     "that gives them something to say back."
                 ),
             },
+            "reply_translation": {
+                "type": "string",
+                "description": (
+                    "Your reply, in the learner's support language. Natural "
+                    "and complete — what a person would actually say, not a "
+                    "word-for-word gloss. It is shown only when the learner "
+                    "asks for it, so it never has to be short."
+                ),
+            },
             "errors": {
                 "type": "array",
                 "description": (
@@ -94,7 +103,7 @@ _TURN_TOOL = {
                 },
             },
         },
-        "required": ["reply", "errors"],
+        "required": ["reply", "reply_translation", "errors"],
         "additionalProperties": False,
     },
 }
@@ -295,6 +304,7 @@ def _mock_turn(learner_text: str) -> dict:
     return {
         "reply": f"[dev mock] Interesting — tell me more about that. "
                  f"({len(learner_text)} characters)",
+        "reply_translation": "[dev mock] Interesting — tell me more about that.",
         "errors": errors,
     }
 
@@ -351,7 +361,14 @@ async def speak_turn(
         e for e in (block.input.get("errors") or [])
         if isinstance(e, dict) and e.get("learner_said") and e.get("should_be")
     ]
-    return {"reply": reply, "errors": errors}, counts
+    # The translation rides along in the SAME call — the reason this feature
+    # costs nothing at read time. A second request per line would put a
+    # spinner between the learner and the one thing they didn't understand.
+    return {
+        "reply": reply,
+        "reply_translation": (block.input.get("reply_translation") or "").strip(),
+        "errors": errors,
+    }, counts
 
 
 def _fallback_groups(errors: list[dict]) -> list[dict]:
@@ -512,12 +529,41 @@ async def summarize_speak_session(
     }, counts
 
 
+_OPENING_TOOL = {
+    "name": "emit_opening",
+    "description": "The partner's first line, plus what it means.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "opening": {
+                "type": "string",
+                "description": (
+                    "The opening line, in the language being learned. ONE "
+                    "short sentence ending in a question they can answer at "
+                    "their level."
+                ),
+            },
+            "opening_translation": {
+                "type": "string",
+                "description": (
+                    "The same line in the learner's support language. Shown "
+                    "only if they ask for it."
+                ),
+            },
+        },
+        "required": ["opening", "opening_translation"],
+        "additionalProperties": False,
+    },
+}
+
+
 async def speak_opening(
     language_name: str,
     level: str,
     topic: str | None = None,
     model: str | None = None,
-) -> tuple[str, dict[str, int]]:
+    support_language: str | None = None,
+) -> tuple[dict, dict[str, int]]:
     """The partner's first line, when the learner asked it to start.
 
     "Leave it blank and your partner will start" was a promise the code did
@@ -529,12 +575,21 @@ async def speak_opening(
     grade, so the turn tool's whole error-extraction half would be dead
     weight and the model would be invited to invent mistakes in a message
     nobody sent.
+
+    Returns ({"opening": str, "opening_translation": str}, token counts).
+    The translation comes back in this same call for the same reason the
+    reply's does: the first line is the one a beginner is most likely to
+    stall on, and a reveal must not cost a round trip.
     """
     settings = get_settings()
     model = model or settings.tutor_model
+    support = support_language or "English"
 
     if getattr(settings, "tutor_dev_mock", False):
-        return f"[dev mock] ¿{topic or 'Qué tal'}?", {
+        return {
+            "opening": f"[dev mock] ¿{topic or 'Qué tal'}?",
+            "opening_translation": f"[dev mock] {topic or 'How are things'}?",
+        }, {
             "input_tokens": 4, "output_tokens": 12,
             "cache_write_tokens": 0, "cache_read_tokens": 0,
         }
@@ -547,19 +602,30 @@ async def speak_opening(
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     response = await client.messages.create(
         model=model,
-        max_tokens=256,
+        max_tokens=512,
         system=(
             f"You are a friendly {language_name} conversation partner for a "
             f"learner at CEFR level {level}.\n\n{about}\n\n"
-            f"Reply ONLY in {language_name}, in ONE short sentence ending in "
-            "a question they can answer at their level. No greeting-plus-"
-            "question pile-up, no English, no explanation of what you are "
-            "doing — just the opening line."
+            f"The opening line itself must be ONLY {language_name}, ONE "
+            "short sentence ending in a question they can answer at their "
+            "level. No greeting-plus-question pile-up, no explanation of "
+            "what you are doing.\n\n"
+            f"Write its translation in {support}."
         ),
         messages=[{"role": "user", "content": "Start the conversation."}],
+        tools=[_OPENING_TOOL],
+        tool_choice={"type": "tool", "name": "emit_opening"},
     )
     counts = _usage(response)
-    text = next((b.text for b in response.content if b.type == "text"), "").strip()
+    block = next((b for b in response.content if b.type == "tool_use"), None)
+    if block is None or not isinstance(block.input, dict):
+        raise ValueError("Speak opening returned no structured payload")
+    text = (block.input.get("opening") or "").strip()
     if not text:
         raise ValueError("Speak opening came back empty")
-    return text, counts
+    return {
+        "opening": text,
+        "opening_translation": (
+            block.input.get("opening_translation") or ""
+        ).strip(),
+    }, counts

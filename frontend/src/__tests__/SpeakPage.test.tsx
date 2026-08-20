@@ -146,6 +146,77 @@ describe('SpeakPage', () => {
     expect(screen.queryByText(/Quiero/)).not.toBeInTheDocument()
   })
 
+  it('keeps the meaning one tap away, and asks the server for nothing', async () => {
+    // The translation came back WITH the reply. If the reveal cost a
+    // request, the learner would be waiting on a spinner at exactly the
+    // moment they stopped understanding the conversation.
+    await startTalking()
+    mockTurn.mockResolvedValue({
+      reply: '¿Para tomar aquí o para llevar?',
+      reply_translation: 'To have here or to take away?',
+      turn_index: 0,
+      allowance,
+    })
+
+    fireEvent.change(screen.getByTestId('speak-input'), {
+      target: { value: 'Yo quiero un café' },
+    })
+    fireEvent.click(screen.getByTestId('speak-send'))
+    await screen.findByText('¿Para tomar aquí o para llevar?')
+
+    // Not shown until asked — the point of the exercise is to try first.
+    expect(screen.queryByTestId('speak-translation-0')).not.toBeInTheDocument()
+
+    fireEvent.click(screen.getByTestId('speak-translate-0'))
+    expect(screen.getByTestId('speak-translation-0')).toHaveTextContent(
+      'To have here or to take away?',
+    )
+    expect(mockTurn).toHaveBeenCalledTimes(1)
+
+    // …and it folds away again.
+    fireEvent.click(screen.getByTestId('speak-translate-0'))
+    expect(screen.queryByTestId('speak-translation-0')).not.toBeInTheDocument()
+  })
+
+  it('offers nothing to open when there is no translation', async () => {
+    // A button that opens an empty box reads as a broken feature.
+    await startTalking()
+    mockTurn.mockResolvedValue({
+      reply: '¿Con leche?',
+      reply_translation: null,
+      turn_index: 0,
+      allowance,
+    })
+
+    fireEvent.change(screen.getByTestId('speak-input'), {
+      target: { value: 'Un café' },
+    })
+    fireEvent.click(screen.getByTestId('speak-send'))
+    await screen.findByText('¿Con leche?')
+
+    expect(screen.queryByTestId('speak-translate-0')).not.toBeInTheDocument()
+  })
+
+  it('the partner’s opening line can be understood too', async () => {
+    // The first line is the one a beginner is most likely to stall on.
+    mockStatus.mockResolvedValue({
+      available: true, allowance, sessions: [], speech: NO_SPEECH,
+    })
+    mockStart.mockResolvedValue({
+      session_id: 's1', mode: 'flow', topic: null,
+      opening: '¿Qué tal el día?',
+      opening_translation: 'How’s your day going?',
+    })
+    renderPage()
+    fireEvent.click(await screen.findByTestId('speak-start'))
+    await screen.findByText('¿Qué tal el día?')
+
+    fireEvent.click(screen.getByTestId('speak-translate-0'))
+    expect(screen.getByTestId('speak-translation-0')).toHaveTextContent(
+      'How’s your day going?',
+    )
+  })
+
   it('gives the message back when sending fails', async () => {
     // Losing what someone just typed is the fastest way to end a session.
     await startTalking()

@@ -384,7 +384,8 @@ async def start(
 
     if topic:
         return {"session_id": session_id, "mode": body.mode,
-                "topic": topic, "opening": None}
+                "topic": topic, "opening": None,
+                "opening_translation": None}
 
     # Best-effort: a partner who cannot think of an opener is a worse
     # session, not a broken one. Fall back to the learner starting rather
@@ -397,10 +398,14 @@ async def start(
             learner = await get_assessment_summary(
                 conn, user["id"], body.language_id, depth="reading"
             )
+            support_language = await _support_language(conn, user["id"])
         model = resolve_tutor_model(code, override_model)
-        opening, usage = await speak_opening(
+        result, usage = await speak_opening(
             language_name, learner["level"], None, model=model,
+            support_language=support_language,
         )
+        opening = result["opening"]
+        opening_translation = result["opening_translation"]
         async with rls_connection(user["id"]) as conn:
             await log_tutor_usage(
                 conn, user["id"], body.language_id, model,
@@ -409,13 +414,18 @@ async def start(
             # learner_text is '' — nobody spoke. list_turns keeps it, and
             # _model_messages below drops the empty half so the model sees
             # an assistant-first conversation rather than a blank user turn.
-            await append_turn(conn, session_id, 0, "", opening, [])
+            await append_turn(
+                conn, session_id, 0, "", opening, [],
+                partner_translation=opening_translation or None,
+            )
     except Exception as exc:  # noqa: BLE001 — an opener is not worth a 500
         logger.warning("Speak opener failed, learner starts instead: %s", exc)
         opening = None
+        opening_translation = None
 
     return {"session_id": session_id, "mode": body.mode,
-            "topic": topic, "opening": opening}
+            "topic": topic, "opening": opening,
+            "opening_translation": opening_translation or None}
 
 
 @router.post("/turn")
@@ -511,12 +521,16 @@ async def turn(
         await append_turn(
             conn, body.session_id, len(history), text,
             result["reply"], result["errors"], audio_ms=body.audio_ms,
+            partner_translation=result.get("reply_translation") or None,
         )
 
     errors = result["errors"]
     used_after = None if allowance["unlimited"] else (allowance["used"] or 0) + 1
     return {
         "reply": result["reply"],
+        # Sent with the reply, never fetched separately: "what did that
+        # mean?" is a tap on something already on the client, not a wait.
+        "reply_translation": result.get("reply_translation") or None,
         "turn_index": len(history),
         # Present (possibly null) only in coach mode. Flow sends no key at
         # all, so a client cannot render what it was never given.

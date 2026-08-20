@@ -5,6 +5,7 @@ import { useMutation, useQuery } from '@tanstack/react-query'
 import {
   Check,
   Eye,
+  Languages,
   Loader2,
   Mic,
   Send,
@@ -38,6 +39,12 @@ interface Exchange {
   /** Empty for the partner's opening line — nobody spoke before it. */
   learner: string
   partner: string
+  /** What the partner's line means, in the learner's own language. It
+   * arrives with the line and sits here unread until they ask for it —
+   * the whole point is that asking costs nothing. Null when the model
+   * gave none, and the button is then not offered rather than opening on
+   * an empty box. */
+  translation?: string | null
   /** Coach mode only, and at most one. */
   correction?: SpeakError | null
 }
@@ -131,6 +138,10 @@ export default function SpeakPage() {
   // Which partner lines the learner has asked to read, in a hidden-text
   // session. Reset with each conversation.
   const [revealed, setRevealed] = useState<Record<number, boolean>>({})
+  // Which partner lines the learner has asked to understand. Separate from
+  // `revealed`: hiding the words is a listening exercise, asking what they
+  // meant is not, and someone reading the text can still be stuck on it.
+  const [translated, setTranslated] = useState<Record<number, boolean>>({})
   // A transcript waiting out its grace window before it sends itself.
   const [pending, setPending] = useState<{ text: string; ms: number } | null>(
     null,
@@ -172,7 +183,13 @@ export default function SpeakPage() {
       // "Leave it blank and your partner will start" — so when it did, the
       // conversation opens with its line rather than an empty screen.
       setExchanges(
-        data.opening ? [{ learner: '', partner: data.opening }] : [],
+        data.opening
+          ? [{
+              learner: '',
+              partner: data.opening,
+              translation: data.opening_translation,
+            }]
+          : [],
       )
       setSummary(null)
       setError(null)
@@ -181,6 +198,7 @@ export default function SpeakPage() {
       announced.current = 0
       clips.current.clear()
       setRevealed({})
+      setTranslated({})
       setPending(null)
       setAutoplayBlocked(false)
     },
@@ -324,7 +342,12 @@ export default function SpeakPage() {
     onSuccess: (data, { text }) => {
       setExchanges((prev) => [
         ...prev,
-        { learner: text, partner: data.reply, correction: data.correction },
+        {
+          learner: text,
+          partner: data.reply,
+          translation: data.reply_translation,
+          correction: data.correction,
+        },
       ])
       setAllowance(data.allowance)
       setError(null)
@@ -638,6 +661,40 @@ export default function SpeakPage() {
                   {x.partner}
                 </p>
               </LanguageWrapper>
+            )}
+            {/* "What did that mean?" — already downloaded, so it opens
+                instantly. It came back with the line itself; a second
+                request per line would put a spinner between the learner
+                and the one sentence they didn't follow, which is the
+                moment a conversation gets abandoned. Offered only once the
+                words are on screen: while they're hidden the exercise is
+                listening, and "Show the words" is the button for that. */}
+            {x.translation && (!maskText || revealed[i]) && (
+              <div className="w-fit max-w-[85%]">
+                <button
+                  type="button"
+                  onClick={() =>
+                    setTranslated((prev) => ({ ...prev, [i]: !prev[i] }))
+                  }
+                  data-testid={`speak-translate-${i}`}
+                  aria-expanded={!!translated[i]}
+                  className="flex items-center gap-1.5 text-xs text-gray-500 underline-offset-2 hover:underline"
+                  style={{ minHeight: '32px' }}
+                >
+                  <Languages aria-hidden className="h-3.5 w-3.5" />
+                  {translated[i]
+                    ? t('speak.hideTranslation')
+                    : t('speak.showTranslation')}
+                </button>
+                {translated[i] && (
+                  <p
+                    data-testid={`speak-translation-${i}`}
+                    className="mt-1 rounded-2xl border border-dashed border-gray-200 px-4 py-2 text-sm text-gray-600"
+                  >
+                    {x.translation}
+                  </p>
+                )}
+              </div>
             )}
             {canHear && sessionId && (
               <PartnerAudio

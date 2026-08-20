@@ -497,6 +497,12 @@
     "newBadge": "nouveau",
     "tryIt": "Essayer",
     "entries": {
+      "speak-translation-2026-08": {
+        "date": "Août 2026",
+        "title": "Demandez ce que votre partenaire vient de dire",
+        "body": "Chaque phrase de votre partenaire dans Speak arrive désormais avec sa traduction dans votre langue, prête avant même que vous la demandiez. Touchez « Qu'est-ce que ça veut dire ? » sous n'importe quelle réponse et elle s'ouvre aussitôt : rien à charger, rien à attendre. Essayez d'abord de comprendre ; la réponse vous attend.",
+        "linkLabel": "Voir comment ça marche"
+      },
       "placement-retake-2026-07": {
         "date": "juillet 2026",
         "title": "Évaluez votre niveau dans chaque langue — et refaites le test plus tard",
@@ -1564,6 +1570,8 @@
       "habit": "Une habitude que vous aimeriez changer",
       "disagree": "Être poliment en désaccord avec quelqu’un que vous aimez bien"
     },
-    "topicSuggestLabel": "Ou choisissez-en un"
+    "topicSuggestLabel": "Ou choisissez-en un",
+    "showTranslation": "Qu'est-ce que ça veut dire ?",
+    "hideTranslation": "Masquer la traduction"
   }
 }
