@@ -189,9 +189,9 @@ def _strip_marks(text):
 # The nonzero numbers are CONTRASTIVE pairs by and large (see CHECKS.md §3):
 # they are why the guard exists, not debt the guard leaves.
 SLOPPY_KEY_CEILINGS = {
-    "ru": 39, "ar": 200, "en": 10, "sw": 0, "tr": 122, "yo": 112, "ha": 0,
-    "xh": 0, "es": 247, "it": 54, "fr": 500, "de": 127, "ca": 125, "mi": 0,
-    "ro": 500, "el": 117, "pt": 130, "hi": 145, "jam": 0, "nl": 7, "th": 193,
+    "ru": 39, "ar": 116, "en": 10, "sw": 0, "tr": 122, "yo": 112, "ha": 0,
+    "xh": 0, "es": 230, "it": 54, "fr": 491, "de": 127, "ca": 122, "mi": 0,
+    "ro": 491, "el": 114, "pt": 108, "hi": 145, "jam": 0, "nl": 7, "th": 193,
     "ko": 0, "la": 3, "id": 0, "tl": 0, "he": 0, "fa": 0,
 }
 
