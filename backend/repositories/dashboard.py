@@ -257,20 +257,47 @@ async def get_dashboard_stats(
     ]
 
     # -- Learned today (daily goal) ------------------------------------------
-    # New cards started since the learner's LOCAL midnight — the Learn
-    # tile shows progress toward a small daily goal instead of the whole
-    # queue count, and resets when their day actually ends.
-    learned_today = await conn.fetchval(
-        """
-        SELECT COUNT(*) FROM user_cards
-        WHERE user_id = $1
-          AND language_id = $2
-          AND created_at AT TIME ZONE $3 >= DATE(now() AT TIME ZONE $3)
-        """,
-        user_id,
-        language_id,
-        tzname,
-    )
+    # Cards that ENTERED THE REVIEW QUEUE since the learner's LOCAL midnight
+    # — the Learn tile shows progress toward a small daily goal instead of
+    # the whole queue count, and resets when their day actually ends.
+    #
+    # Queue entry, not row creation. created_at answers "when was this card
+    # first offered", and the two come apart in both directions: an
+    # unfinished walkthrough is re-taught from the same row days later (so
+    # finishing five lessons could score one), while a card offered today
+    # and abandoned scored one for nothing. learned_at is stamped by
+    # confirm_learn_batch; COALESCE covers the paths that create a card
+    # already active — a grammar point added from the path browser, a
+    # personal cloze — where created_at IS the moment it entered the queue.
+    try:
+        learned_today = await conn.fetchval(
+            """
+            SELECT COUNT(*) FROM user_cards
+            WHERE user_id = $1
+              AND language_id = $2
+              AND NOT is_suspended
+              AND COALESCE(learned_at, created_at) AT TIME ZONE $3
+                  >= DATE(now() AT TIME ZONE $3)
+            """,
+            user_id,
+            language_id,
+            tzname,
+        )
+    except asyncpg.exceptions.UndefinedColumnError:
+        # Migration 20260928 hasn't landed. Fall back to the old measure —
+        # wrong in the ways described above, but it is what this deploy has
+        # always shown, and the tile is on the page every learner opens.
+        learned_today = await conn.fetchval(
+            """
+            SELECT COUNT(*) FROM user_cards
+            WHERE user_id = $1
+              AND language_id = $2
+              AND created_at AT TIME ZONE $3 >= DATE(now() AT TIME ZONE $3)
+            """,
+            user_id,
+            language_id,
+            tzname,
+        )
 
     return {
         "due_count": due_count,
