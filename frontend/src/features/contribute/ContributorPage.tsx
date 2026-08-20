@@ -35,6 +35,7 @@ import EngagementPanel from './EngagementPanel'
 import LanguageVisibilityPanel from './LanguageVisibilityPanel'
 import LanguageScopePicker from '../../components/LanguageScopePicker'
 import ExperimentsPanel from './ExperimentsPanel'
+import FeedbackQueuePanel from './FeedbackQueuePanel'
 import GeneratedDrillsPanel from './GeneratedDrillsPanel'
 import ReviewInbox, { useReviewInbox } from './ReviewInbox'
 import TesterRecommendationsPanel from './TesterRecommendationsPanel'
@@ -1011,6 +1012,17 @@ export default function ContributorPage() {
                       awaiting={inboxCounts?.feedback}
                     />
                   </>
+                )}
+                {/* General app feedback — the fourth stream, finally
+                    triageable where the other three live, scoped by the
+                    same picker (docs/plans/review-visibility.md C4). The
+                    bell's "Open the feedback queue" lands here. */}
+                {data.is_admin && (
+                  <FeedbackQueuePanel
+                    canTriage
+                    languageId={activeLanguageId}
+                    languageName={language?.name}
+                  />
                 )}
               </>
             )}

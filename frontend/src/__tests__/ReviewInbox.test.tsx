@@ -14,7 +14,7 @@ const ZERO = {
   grammar_pending: 0, pending_drills: 0, flagged_drills: 0, pending_examples: 0,
   flagged_examples: 0, translation_suggestions: 0, ai_levels: 0,
   change_requests: 0, suggestions: 0, notes: 0, feedback: 0, overlaps: 0,
-  ai_translations: 0, tester_recommendations: 0,
+  ai_translations: 0, tester_recommendations: 0, app_feedback: 0,
 }
 
 function renderInbox(onSwitchLanguage?: (id: string) => void) {
@@ -55,7 +55,12 @@ describe('ReviewInbox', () => {
     renderInbox()
     expect(await screen.findByTestId('review-inbox')).toBeDefined()
     expect(screen.getByText('AI translations')).toBeDefined()
-    expect(screen.getByText('AI generated · awaiting review')).toBeDefined()
+    // The taxonomy answers all three of the owner's questions on the tile:
+    // its origin section, who sees it, and where it is acted on.
+    expect(screen.getByTestId('inbox-origin-ai')).toBeDefined()
+    expect(screen.getByTestId('queue-audience-ai_translations'))
+      .toHaveTextContent(/admins only/i)
+    expect(screen.getByText('AI translations panel · Review tab')).toBeDefined()
     expect(screen.getByText(/4 awaiting/)).toBeDefined()
   })
 
@@ -160,5 +165,58 @@ describe('ReviewInbox — other languages', () => {
     renderInbox()
     expect(await screen.findByTestId('review-inbox')).toBeDefined()
     expect(screen.queryByTestId('inbox-other-languages')).toBeNull()
+  })
+})
+
+
+describe('the four streams, visible as themselves', () => {
+  it('groups the tiles by origin with subtotals', async () => {
+    mockGet.mockResolvedValue({
+      counts: {
+        ...ZERO,
+        notes: 2,                 // a report from a person
+        pending_drills: 3,        // AI awaiting a human
+        grammar_pending: 1,       // a contribution awaiting approval
+        app_feedback: 4,          // general feedback
+      },
+      can_publish: true,
+      is_admin: true,
+    })
+    renderInbox()
+    await screen.findByTestId('review-inbox')
+    for (const origin of ['reports', 'general', 'ai', 'contributions']) {
+      expect(screen.getByTestId(`inbox-origin-${origin}`)).toBeDefined()
+    }
+    // The general-feedback tile names where it is acted on.
+    expect(screen.getByText('General feedback queue · Review tab')).toBeDefined()
+  })
+
+  it('keeps the general-feedback tile away from a non-admin reviewer', async () => {
+    // The panel behind it refuses non-admins; a tile with no panel behind
+    // it reads as a broken inbox.
+    mockGet.mockResolvedValue({
+      counts: { ...ZERO, app_feedback: 4, notes: 1 },
+      can_publish: true,
+      is_admin: false,
+    })
+    renderInbox()
+    await screen.findByTestId('review-inbox')
+    expect(screen.queryByTestId('inbox-origin-general')).toBeNull()
+    expect(screen.queryByText('App feedback')).toBeNull()
+    // …and the header total counts only what this viewer can act on.
+    expect(screen.getByText('1 awaiting')).toBeDefined()
+  })
+
+  it('a quiet origin contributes no empty section', async () => {
+    mockGet.mockResolvedValue({
+      counts: { ...ZERO, notes: 2 },
+      can_publish: true,
+      is_admin: true,
+    })
+    renderInbox()
+    await screen.findByTestId('review-inbox')
+    expect(screen.getByTestId('inbox-origin-reports')).toBeDefined()
+    expect(screen.queryByTestId('inbox-origin-ai')).toBeNull()
+    expect(screen.queryByTestId('inbox-origin-contributions')).toBeNull()
   })
 })

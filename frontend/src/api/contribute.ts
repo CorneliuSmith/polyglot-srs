@@ -1259,6 +1259,10 @@ export interface ReviewInboxCounts {
   /** Advisory approve/reject votes from testers on items still pending —
    * the testers' main deliverable, previously counted nowhere. */
   tester_recommendations: number
+  /** Open general app feedback filed against this language — the home-page
+   * button's reports. Admin-only tile; reports naming no language surface
+   * in the bell's own bucket instead. */
+  app_feedback: number
 }
 
 /** One other language with work waiting on a reviewer. The whole point of

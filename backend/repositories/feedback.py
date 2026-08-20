@@ -92,23 +92,29 @@ async def list_feedback(
     *,
     status: str | None = None,
     language_id: str | None = None,
+    unassigned: bool = False,
     limit: int = 100,
 ) -> list[dict]:
     """The triage list (privileged; router checks the role first).
 
     Joins the reporter's email so staff can follow up — feedback you cannot
     reply to is a suggestion box nailed shut.
+
+    *unassigned* narrows to rows that name NO language — the reports about
+    the app as a whole, which are their own scope in the queue panel rather
+    than an accident of whatever course the sender had open.
     """
     try:
         rows = await conn.fetch(
             _TRIAGE_SQL.format(variants="f.variants,"),
-            status, language_id, limit,
+            status, language_id, limit, unassigned,
         )
     except asyncpg.exceptions.UndefinedColumnError:
         # 20260930 not applied: triage without the variant label rather than
         # no triage at all.
         rows = await conn.fetch(
-            _TRIAGE_SQL.format(variants=""), status, language_id, limit,
+            _TRIAGE_SQL.format(variants=""),
+            status, language_id, limit, unassigned,
         )
     except _MISSING:
         return []
@@ -134,6 +140,7 @@ _TRIAGE_SQL = """
       LEFT JOIN languages  l ON l.id = f.language_id
      WHERE ($1::text IS NULL OR f.status = $1)
        AND ($2::uuid IS NULL OR f.language_id = $2::uuid)
+       AND (NOT $4 OR f.language_id IS NULL)
      ORDER BY
          -- Open first: a triage list sorted purely by date buries the
          -- thing that still needs doing under everything already done.

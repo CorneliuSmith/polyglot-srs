@@ -4,52 +4,13 @@ import {
   type ReviewInbox as ReviewInboxData,
   type ReviewInboxCounts,
 } from '../../api/contribute'
-
-/** Who can actually OPEN the panel behind a tile.
- *  - 'all'     — anyone who can see the inbox at all, which is now
- *                reviewers and admins: testers do not get the roll-up
- *  - 'publish' — full reviewers/admins (`can_publish`)
- *  - 'admin'   — admins only
- * A tile whose panel the viewer can't open is a phantom: they scroll for
- * something that 403'd silently and report the inbox as broken (gap G7). */
-type Audience = 'all' | 'publish' | 'admin'
-
-/** Each queue's label, a hint of where it's acted on, who can open that
- * panel, and — where the panel caps its own list — that cap, so a count of
- * 150 against a panel that shows 100 says "showing first 100 of 150"
- * instead of quietly disagreeing with itself. Keys line up with the
- * backend's ReviewInboxCounts, which is generated from one definition
- * shared with the other-languages roll-up. */
-const QUEUES: {
-  key: keyof ReviewInboxCounts
-  label: string
-  hint: string
-  audience: Audience
-  limit?: number
-}[] = [
-  { key: 'grammar_pending', label: 'Grammar points', hint: 'Contribute · pending review', audience: 'all' },
-  { key: 'pending_drills', label: 'Generated drills', hint: 'Generated drills panel', audience: 'all' },
-  { key: 'flagged_drills', label: 'Flagged drills', hint: 'Point drills · flagged', audience: 'all' },
-  { key: 'pending_examples', label: 'Generated examples', hint: 'Word examples', audience: 'all' },
-  { key: 'flagged_examples', label: 'Flagged examples', hint: 'Vocab · needs attention', audience: 'all' },
-  { key: 'translation_suggestions', label: 'Translation fixes', hint: 'Vocab · needs attention', audience: 'all' },
-  {
-    key: 'tester_recommendations',
-    label: 'Tester recommendations',
-    hint: 'Tester recommendations panel',
-    audience: 'all',
-    limit: 200,
-  },
-  // Admin-only: GET /translation-reviews refuses everyone else, so the
-  // panel below would render nothing for them.
-  { key: 'ai_translations', label: 'AI translations', hint: 'AI generated · awaiting review', audience: 'admin' },
-  { key: 'ai_levels', label: 'AI vocab levels', hint: 'AI levels panel', audience: 'all' },
-  { key: 'change_requests', label: 'Change requests', hint: 'Change requests board', audience: 'all' },
-  { key: 'suggestions', label: 'Content suggestions', hint: 'Suggestions panel', audience: 'publish', limit: 100 },
-  { key: 'notes', label: 'Review notes', hint: 'Point review notes', audience: 'publish', limit: 200 },
-  { key: 'feedback', label: 'Learner feedback', hint: 'Feedback panel', audience: 'publish', limit: 100 },
-  { key: 'overlaps', label: 'Overlapping points', hint: 'Overlaps panel', audience: 'all' },
-]
+import {
+  ORIGIN_LABELS,
+  ORIGIN_ORDER,
+  QUEUE_META,
+  queueVisible,
+  type QueueMeta,
+} from '../../lib/reviewTaxonomy'
 
 /** The inbox query, shared by key with every panel that wants to know how
  * many items its own queue is supposed to be holding. One fetch, one cache
@@ -80,11 +41,11 @@ export function useQueueCount(
 }
 
 function visibleQueues(data: ReviewInboxData) {
-  const isAdmin = data.is_admin ?? false
-  const canPublish = data.can_publish ?? false
-  return QUEUES.filter((q) =>
-    q.audience === 'admin' ? isAdmin : q.audience === 'publish' ? canPublish : true,
-  )
+  const viewer = {
+    isAdmin: data.is_admin ?? false,
+    canPublish: data.can_publish ?? false,
+  }
+  return QUEUE_META.filter((q) => queueVisible(q, viewer))
 }
 
 /**
@@ -141,35 +102,32 @@ export default function ReviewInbox({
           Nothing is waiting on a reviewer for this language right now.
         </p>
       ) : (
-        <ul className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
-          {active.map((q) => {
-            const n = counts[q.key] ?? 0
-            const capped = q.limit != null && n > q.limit
+        /* Grouped by ORIGIN — the owner's own four categories: reports from
+           people, general feedback, AI awaiting a human, contributions
+           awaiting approval. Fourteen flat tiles answered "how much"; the
+           question that kept being asked was "how much of WHAT". */
+        <div className="mt-3 space-y-3">
+          {ORIGIN_ORDER.map((origin) => {
+            const group = active.filter((q) => q.origin === origin)
+            if (group.length === 0) return null
+            const subtotal = group.reduce(
+              (sum, q) => sum + (counts[q.key] ?? 0), 0,
+            )
             return (
-              <li
-                key={q.key}
-                className="rounded-lg border border-gray-100 bg-gray-50 px-3 py-2"
-              >
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs font-medium text-gray-700">{q.label}</span>
-                  <span className="rounded-full bg-lang/10 text-lang px-2 py-0.5 text-xs font-semibold">
-                    {n}
-                  </span>
-                </div>
-                <span className="mt-0.5 block text-[10px] uppercase tracking-wide text-gray-500">
-                  {q.hint}
-                </span>
-                {/* The panel below caps its own list; say so rather than
-                    let the tile and the panel disagree in silence. */}
-                {capped && (
-                  <span className="mt-0.5 block text-[10px] text-amber-600">
-                    showing first {q.limit} of {n}
-                  </span>
-                )}
-              </li>
+              <section key={origin} data-testid={`inbox-origin-${origin}`}>
+                <p className="flex items-baseline justify-between text-[11px] uppercase tracking-wide text-gray-500">
+                  <span>{ORIGIN_LABELS[origin]}</span>
+                  <span className="font-semibold tabular-nums">{subtotal}</span>
+                </p>
+                <ul className="mt-1.5 grid grid-cols-2 gap-2 sm:grid-cols-3">
+                  {group.map((q) => (
+                    <QueueTile key={q.key} meta={q} count={counts[q.key] ?? 0} />
+                  ))}
+                </ul>
+              </section>
             )
           })}
-        </ul>
+        </div>
       )}
 
       {elsewhere.length > 0 && (
@@ -206,5 +164,38 @@ export default function ReviewInbox({
         </div>
       )}
     </section>
+  )
+}
+
+function QueueTile({ meta, count }: { meta: QueueMeta; count: number }) {
+  const capped = meta.limit != null && count > meta.limit
+  return (
+    <li className="rounded-lg border border-gray-100 bg-gray-50 px-3 py-2">
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-xs font-medium text-gray-700">{meta.label}</span>
+        <span className="rounded-full bg-lang/10 text-lang px-2 py-0.5 text-xs font-semibold">
+          {count}
+        </span>
+      </div>
+      {/* WHERE it is acted on, then WHO sees it — the two questions the
+          owner asked of every tile. The chip is worth its pixels only when
+          the audience is narrower than "everyone reading this inbox". */}
+      <span className="mt-0.5 block text-[10px] uppercase tracking-wide text-gray-500">
+        {meta.hint}
+      </span>
+      {meta.audience === 'admin' && (
+        <span
+          data-testid={`queue-audience-${meta.key}`}
+          className="mt-1 inline-block rounded-full border border-gray-200 bg-white px-1.5 py-0.5 text-[10px] font-medium text-gray-500"
+        >
+          admins only
+        </span>
+      )}
+      {capped && (
+        <span className="mt-0.5 block text-[10px] text-amber-600">
+          showing first {meta.limit} of {count}
+        </span>
+      )}
+    </li>
   )
 }

@@ -733,7 +733,24 @@ _INBOX_QUEUES: tuple[tuple[str, str, tuple[str, ...]], ...] = (
                    SELECT 1 FROM example_sentences es
                     WHERE es.id = rr.target_id AND es.reviewed = false)))
      """, ("review_recommendations",)),
+    # General app feedback — the home-page "tell us what you think" button.
+    # It was the one stream with no place on the per-language map: reports
+    # arrived, were counted nowhere a reviewer looks, and were triaged on a
+    # page the workspace never links to. Rows that name no language belong
+    # to no course and are deliberately NOT here — they surface in the
+    # notifications endpoint's own bucket instead of being mis-filed.
+    ("app_feedback", """
+        SELECT count(*) FROM app_feedback af
+         WHERE af.language_id = {lang} AND af.status = 'open'
+     """, ("app_feedback",)),
 )
+
+# Queues only an admin can open a panel for. Their counts must be REMOVED
+# from anything a non-admin is shown, not merely hidden client-side: a
+# reviewer told "9 waiting" when 3 of those are admin-only is being handed
+# a number they can never bring to zero, and the badge stops being
+# trustworthy the first time they notice.
+ADMIN_ONLY_QUEUES = ("ai_translations", "app_feedback")
 
 # Everything the queue set can need, so one probe covers the whole roll-up.
 _INBOX_TABLES = tuple(sorted({
@@ -747,6 +764,28 @@ _INBOX_COLUMNS = tuple(sorted({
 # strip. Deliberately every queue: an admin whose selector sits on Arabic must
 # see that Hebrew has traffic, whatever KIND of traffic it is.
 INBOX_QUEUE_KEYS = tuple(k for k, _, _ in _INBOX_QUEUES)
+
+
+def strip_admin_queues(languages: list[dict]) -> list[dict]:
+    """The same per-language rows, minus the queues only an admin can open.
+
+    For everything a non-admin is shown in aggregate — the inbox's
+    other-languages strip, the bell's per-language rows. Counts are zeroed,
+    totals recomputed, and a row whose total falls to zero drops out
+    entirely: a language holding only admin-only work has nothing for this
+    viewer, and listing it would send them somewhere with an empty page.
+    """
+    out = []
+    for lang in languages:
+        counts = {
+            k: (0 if k in ADMIN_ONLY_QUEUES else v)
+            for k, v in lang["counts"].items()
+        }
+        total = sum(counts.values())
+        if total == 0:
+            continue
+        out.append({**lang, "counts": counts, "total": total})
+    return out
 
 
 def _inbox_selects(present: set[str], lang_sql: str) -> str:

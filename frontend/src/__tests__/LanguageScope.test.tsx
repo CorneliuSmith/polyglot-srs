@@ -160,11 +160,11 @@ describe('what is waiting, per language', () => {
     expect(mockNavigate).toHaveBeenCalledWith('/contribute')
   })
 
-  it('names the biggest queue, not just the total', async () => {
-    // "8 waiting" says there is work; "8 waiting · generated drills" says
-    // whether it is yours to do.
+  it('describes each language by the kind of work, not a bare total', async () => {
+    // "7 AI · 2 reports" answers "how much of WHAT" — the owner's four
+    // categories, from the shared taxonomy the inbox also renders.
     renderWithQuery(<StaffNotifications onClose={vi.fn()} />)
-    expect(await screen.findByText(/7 generated drills/)).toBeInTheDocument()
+    expect(await screen.findByText(/2 reports · 7 AI/)).toBeInTheDocument()
   })
 
   it('leaves out the languages with nothing in them', async () => {

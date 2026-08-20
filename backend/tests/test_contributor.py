@@ -2885,7 +2885,8 @@ class TestReviewNotifications:
 
     def test_a_reviewer_is_only_told_about_their_own_languages(self, client):
         """A badge you cannot clear is worse than no badge: a Spanish
-        reviewer must not be shown Hebrew's queue."""
+        reviewer must not be shown Hebrew's queue — and within their own
+        language, not the queues only an admin can open."""
         spanish = "11111111-1111-1111-1111-111111111111"
         hebrew = "22222222-2222-2222-2222-222222222222"
         with patch("backend.routers.contribute.get_roles",
@@ -2895,16 +2896,39 @@ class TestReviewNotifications:
              patch("backend.routers.contribute.review_inbox_by_language",
                    new=AsyncMock(return_value=[
                        {"id": hebrew, "code": "he", "name": "Hebrew",
-                        "is_visible": True, "total": 9, "counts": {}},
+                        "is_visible": True, "total": 9,
+                        "counts": {"notes": 9}},
                        {"id": spanish, "code": "es", "name": "Spanish",
-                        "is_visible": True, "total": 4, "counts": {}},
+                        "is_visible": True, "total": 4,
+                        # 3 the reviewer can act on + 1 that is admin-only:
+                        # the badge must say 3, not 4.
+                        "counts": {"notes": 3, "ai_translations": 1}},
                    ])):
             resp = client.get("/api/contribute/notifications",
                               headers=_auth_headers())
         assert resp.status_code == 200
         body = resp.json()
         assert [lang["code"] for lang in body["languages"]] == ["es"]
-        assert body["review_total"] == 4
+        assert body["review_total"] == 3
+
+    def test_a_language_with_only_admin_work_vanishes_for_a_reviewer(self, client):
+        """Zeroing the counts is not enough — the row itself must go, or the
+        reviewer is sent to a language whose page is empty for them."""
+        spanish = "11111111-1111-1111-1111-111111111111"
+        with patch("backend.routers.contribute.get_roles",
+                   new=AsyncMock(return_value=[
+                       {"language_id": None, "role": "reviewer"},
+                   ])), \
+             patch("backend.routers.contribute.review_inbox_by_language",
+                   new=AsyncMock(return_value=[
+                       {"id": spanish, "code": "es", "name": "Spanish",
+                        "is_visible": True, "total": 5,
+                        "counts": {"ai_translations": 2, "app_feedback": 3}},
+                   ])):
+            resp = client.get("/api/contribute/notifications",
+                              headers=_auth_headers())
+        assert resp.json()["languages"] == []
+        assert resp.json()["review_total"] == 0
 
     def test_a_reviewer_is_sent_no_feedback_rows_at_all(self, client):
         """The general feedback channel is the admin's. Not hidden in the
@@ -2942,19 +2966,22 @@ class TestReviewNotifications:
                    ])), \
              patch("backend.routers.contribute.open_feedback_by_language",
                    new=AsyncMock(return_value=[
+                       # Per-language feedback rides inside each language
+                       # row's app_feedback count now; listing it here too
+                       # would count it twice in the badge.
                        {"language_id": spanish, "language_name": "Spanish",
                         "count": 2},
                        # Feedback about the app as a whole belongs to no
-                       # course; it must survive the round trip rather than
-                       # being dropped for having no language.
+                       # course; this bucket is exactly what a per-language
+                       # map would otherwise lose.
                        {"language_id": None, "language_name": None, "count": 1},
                    ])):
             resp = client.get("/api/contribute/notifications",
                               headers=_auth_headers())
         body = resp.json()
         assert body["review_total"] == 13
-        assert body["feedback_total"] == 3
-        assert any(f["language_id"] is None for f in body["feedback"])
+        assert body["feedback_total"] == 1
+        assert [f["language_id"] for f in body["feedback"]] == [None]
         assert body["is_admin"] is True
 
     def test_a_missing_table_answers_quiet_rather_than_500(self, client):
@@ -3082,3 +3109,31 @@ class TestAmbassadorsDoNotSeeQueues:
                 headers=_auth_headers(),
             )
         assert resp.status_code == 200
+
+
+class TestGeneralFeedbackOnTheMap:
+    """docs/plans/review-visibility.md C1: general app feedback was the one
+    stream with no place on the per-language map."""
+
+    def test_app_feedback_is_a_queue_like_any_other(self):
+        from backend.repositories.contributor import (
+            ADMIN_ONLY_QUEUES,
+            INBOX_QUEUE_KEYS,
+        )
+        assert "app_feedback" in INBOX_QUEUE_KEYS
+        # …and an admin-only one: the triage panel refuses everyone else,
+        # and a tile with no panel behind it reads as a broken inbox.
+        assert "app_feedback" in ADMIN_ONLY_QUEUES
+
+    def test_stripping_recomputes_rather_than_hides(self):
+        from backend.repositories.contributor import strip_admin_queues
+        rows = strip_admin_queues([
+            {"id": "a", "total": 7,
+             "counts": {"notes": 4, "app_feedback": 2, "ai_translations": 1}},
+            {"id": "b", "total": 3,
+             "counts": {"app_feedback": 3}},
+        ])
+        assert rows == [
+            {"id": "a", "total": 4,
+             "counts": {"notes": 4, "app_feedback": 0, "ai_translations": 0}},
+        ]

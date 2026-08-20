@@ -191,3 +191,27 @@ async def test_triaging_something_that_is_gone_is_a_404():
                 "gone", FeedbackTriage(status="closed"), user=USER
             )
     assert exc.value.status_code == 404
+
+
+class TestUnassignedScope:
+    """"Not about one language" is a scope of its own in the triage panel —
+    the reports about the app as a whole, not the course the sender
+    happened to have open."""
+
+    async def test_the_filter_reaches_the_sql(self):
+        from backend.repositories.feedback import list_feedback
+
+        conn = AsyncMock()
+        conn.fetch = AsyncMock(return_value=[])
+        await list_feedback(conn, unassigned=True)
+        sql, *args = conn.fetch.await_args.args
+        assert "language_id IS NULL" in sql
+        assert args[-1] is True
+
+    async def test_off_by_default_so_existing_callers_see_everything(self):
+        from backend.repositories.feedback import list_feedback
+
+        conn = AsyncMock()
+        conn.fetch = AsyncMock(return_value=[])
+        await list_feedback(conn)
+        assert conn.fetch.await_args.args[-1] is False
