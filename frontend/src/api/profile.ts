@@ -37,3 +37,30 @@ export async function getLanguages(): Promise<Language[]> {
   const response = await apiClient.get<Language[]>('/api/languages/')
   return response.data
 }
+
+/** Switch yourself between variants of an experiment the admin has opened
+ *  to learner choice. `variant: null` gives you back whatever the rollout
+ *  says — "whatever everyone else is getting" is a real answer. */
+export async function chooseExperimentVariant(
+  key: string,
+  variant: string | null,
+): Promise<{ key: string; variant: string | null }> {
+  const response = await apiClient.post('/api/auth/experiment', { key, variant })
+  return response.data
+}
+
+/** Rollouts this account may switch itself between — only the ones an admin
+ *  has opened to learner choice, so the page can never offer a switch the
+ *  server would refuse. */
+export interface ChoosableExperiment {
+  key: string
+  name: string
+  description: string | null
+  variants: { key: string; label: string }[]
+  current: string
+}
+
+export async function getMyExperiments(): Promise<ChoosableExperiment[]> {
+  const response = await apiClient.get('/api/auth/experiments')
+  return response.data.experiments
+}

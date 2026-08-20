@@ -37,10 +37,23 @@ const SPEAK_CONVERSATION_DEFAULTS: SpeakConversationPrefs = {
 interface PrefsState {
   activeLanguageId: string | null
   setActiveLanguageId: (id: string) => void
+  // Which language the STAFF surfaces (Contribute / Review / Admin) are
+  // scoped to. Deliberately not activeLanguageId: reviewing Hebrew used to
+  // mean changing the language you were studying, and changing it back was
+  // the "bunch of clicks" the owner complained about. Null = follow the
+  // study language, which is what a reviewer who only works on one wants.
+  workspaceLanguageId: string | null
+  setWorkspaceLanguageId: (id: string | null) => void
   // Theme switcher (WP13h): 'system' follows the OS. Applied by ThemeApplier
   // (and pre-applied by the inline script in index.html to avoid a flash).
   theme: Theme
   setTheme: (theme: Theme) => void
+  // Which visual direction this account was served, cached from the last
+  // profile load. The SERVER decides (see lib/uiSkin.ts) — this copy exists
+  // only so the inline script in index.html can paint the first frame in
+  // the right skin instead of flashing Classic and swapping.
+  uiSkin: string | null
+  setUiSkin: (variant: string | null) => void
   // How many cards a review session pulls (the server clamps to 1–100).
   sessionSize: number
   setSessionSize: (n: number) => void
@@ -143,8 +156,13 @@ export const usePrefsStore = create<PrefsState>()(
     (set) => ({
       activeLanguageId: null,
       setActiveLanguageId: (id) => set({ activeLanguageId: id }),
+      workspaceLanguageId: null,
+      setWorkspaceLanguageId: (workspaceLanguageId) =>
+        set({ workspaceLanguageId }),
       theme: 'system' as Theme,
       setTheme: (theme) => set({ theme }),
+      uiSkin: null,
+      setUiSkin: (uiSkin) => set({ uiSkin }),
       sessionSize: 20,
       setSessionSize: (n) => set({ sessionSize: n }),
       // 9 = "everything this card has" (clamped to the card's layer count).

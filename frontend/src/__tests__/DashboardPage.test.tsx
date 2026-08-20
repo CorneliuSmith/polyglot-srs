@@ -106,6 +106,14 @@ vi.mock('../api/review', () => ({
 }))
 vi.mock('../api/dashboard', () => ({ getDashboardStats: vi.fn() }))
 vi.mock('../api/contribute', () => ({
+  // The staff inbox circle asks on every page load; an ordinary learner
+  // gets an empty, well-formed answer.
+  getReviewNotifications: vi.fn(() =>
+    Promise.resolve({
+      languages: [], review_total: 0, feedback: [], feedback_total: 0,
+      is_admin: false, is_staff: false,
+    }),
+  ),
   getMyRoles: vi.fn(() => Promise.resolve({ roles: [] })),
   getReviewPrompt: vi.fn(() => Promise.resolve({ due: false })),
 }))

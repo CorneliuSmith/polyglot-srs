@@ -105,6 +105,7 @@ from backend.repositories.contributor import (
     review_drill,
     review_example,
     review_examples_bulk,
+    review_inbox_by_language,
     review_inbox_counts,
     review_inbox_other_languages,
     revoke_role,
@@ -120,6 +121,16 @@ from backend.repositories.contributor import (
     trial_reviewer_activity,
     update_drill,
 )
+from backend.repositories.experiments import (
+    assign_variant,
+    assigned_users,
+    assignment_counts,
+    clear_assignment,
+    get_experiment,
+    list_experiments,
+    update_experiment,
+)
+from backend.repositories.feedback import open_feedback_by_language
 from backend.repositories.languages import (
     set_language_auto_translate,
     set_language_visibility,
@@ -2962,3 +2973,218 @@ async def revoke_contributor_role(
     async with privileged_connection() as conn:
         removed = await revoke_role(conn, target, body.language_id, body.role)
     return {"revoked": removed, "user_id": target}
+
+
+# ---------------------------------------------------------------------------
+# Experiments — rolling a change out to some people and hearing back
+# ---------------------------------------------------------------------------
+
+
+@router.get("/experiments")
+async def list_experiments_endpoint(user: dict = Depends(get_current_user)):
+    """Every experiment, with who is pinned where (admin-only).
+
+    The counts cover EXPLICIT assignments only. Bucketed users are computed
+    from their id and never stored, so there is no row to count — the
+    rollout percentages are returned alongside, which is the honest way to
+    show "25% of everyone else" without inventing a number.
+    """
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        experiments = await list_experiments(conn)
+        for experiment in experiments:
+            experiment["counts"] = await assignment_counts(
+                conn, experiment["key"]
+            )
+            experiment["assigned"] = await assigned_users(
+                conn, experiment["key"]
+            )
+    return {"experiments": experiments}
+
+
+class ExperimentUpdate(BaseModel):
+    key: str
+    enabled: bool | None = None
+    default_variant: str | None = None
+    rollout: dict[str, int] | None = None
+    learner_choice: bool | None = None
+
+
+@router.post("/experiment")
+async def update_experiment_endpoint(
+    body: ExperimentUpdate,
+    user: dict = Depends(get_current_user),
+):
+    """Turn an experiment on or off, move its percentages, change what
+    everyone else gets (admin-only).
+
+    Percentages are validated here rather than in the database: a rollout
+    that adds up to more than 100 would silently starve the last variant,
+    and the admin would see a number that does not mean what it says.
+    """
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        experiment = await get_experiment(conn, body.key)
+        if experiment is None:
+            raise HTTPException(
+                status_code=503 if body.key == "ui_skin" else 404,
+                detail=(
+                    "Experiments need migration 20260930 applied — "
+                    "run `supabase db push` (check /api/health/schema)"
+                    if body.key == "ui_skin" else "Unknown experiment"
+                ),
+            )
+        known = {v["key"] for v in experiment["variants"]}
+        if body.default_variant is not None and body.default_variant not in known:
+            raise HTTPException(
+                status_code=422,
+                detail=f"Unknown variant: {body.default_variant}",
+            )
+        if body.rollout is not None:
+            unknown = set(body.rollout) - known
+            if unknown:
+                raise HTTPException(
+                    status_code=422,
+                    detail=f"Unknown variant: {sorted(unknown)[0]}",
+                )
+            if any(v < 0 for v in body.rollout.values()):
+                raise HTTPException(
+                    status_code=422, detail="A share cannot be negative"
+                )
+            if sum(body.rollout.values()) > 100:
+                raise HTTPException(
+                    status_code=422,
+                    detail="Those shares add up to more than 100%",
+                )
+        await update_experiment(
+            conn, body.key,
+            enabled=body.enabled,
+            default_variant=body.default_variant,
+            rollout=body.rollout,
+            learner_choice=body.learner_choice,
+        )
+        return {"experiment": await get_experiment(conn, body.key)}
+
+
+class ExperimentAssignment(BaseModel):
+    key: str
+    email: str
+    # None clears the pin and puts them back under the rollout rule.
+    variant: str | None = None
+    note: str | None = None
+
+
+@router.post("/experiment-assign")
+async def assign_experiment_endpoint(
+    body: ExperimentAssignment,
+    user: dict = Depends(get_current_user),
+):
+    """Put one named person on one variant, or take them off it (admin-only).
+
+    By email, because that is who the admin is thinking of. An explicit
+    assignment outranks the percentage and never expires: someone giving
+    feedback about the new look must not be moved off it halfway through.
+    """
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        experiment = await get_experiment(conn, body.key)
+        if experiment is None:
+            raise HTTPException(
+                status_code=503,
+                detail=(
+                    "Experiments need migration 20260930 applied — "
+                    "run `supabase db push` (check /api/health/schema)"
+                ),
+            )
+        target = await find_user_by_email(conn, body.email)
+        if target is None:
+            raise HTTPException(status_code=404, detail="No account with that email")
+        if body.variant is None:
+            await clear_assignment(conn, target["id"], body.key)
+            return {"user_id": target["id"], "variant": None}
+        known = {v["key"] for v in experiment["variants"]}
+        if body.variant not in known:
+            raise HTTPException(
+                status_code=422, detail=f"Unknown variant: {body.variant}"
+            )
+        await assign_variant(
+            conn, target["id"], body.key, body.variant,
+            source="admin", note=body.note,
+        )
+    return {"user_id": target["id"], "email": target["email"],
+            "variant": body.variant}
+
+
+@router.get("/notifications")
+async def review_notifications(user: dict = Depends(get_current_user)):
+    """What is waiting for this reviewer, in every language at once.
+
+    Owner: "there should be some notifications assigned to the language.
+    Same for general feedback for admins."
+
+    The problem it solves is the number of clicks between noticing there is
+    work and doing it. Until now the only way to find out whether Hebrew had
+    anything waiting was to switch the whole workspace to Hebrew and look —
+    per language, one at a time. This answers for all of them in one query,
+    so the bell can say "11 waiting, in 3 languages" and each row can drop
+    the reviewer straight into that language's queue.
+
+    Scoped to what the viewer can actually act on: a Spanish reviewer is not
+    told about Hebrew, because a badge you cannot clear is worse than no
+    badge. Admins see everything, including the general feedback channel —
+    which belongs to no course, so its language-less rows come back too
+    rather than being quietly dropped.
+    """
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    admin = is_admin(roles)
+    if not admin and not any(
+        r["role"] in ("reviewer", "trial_reviewer") for r in roles
+    ):
+        # Not staff: an empty, well-formed answer rather than a 403. The bell
+        # asks on every page load for everyone, and a 403 per page view is a
+        # log full of nothing.
+        return {
+            "languages": [], "review_total": 0,
+            "feedback": [], "feedback_total": 0,
+            "is_admin": False, "is_staff": False,
+        }
+
+    languages: list[dict] = []
+    try:
+        async with privileged_connection() as conn:
+            languages = await review_inbox_by_language(conn, include_empty=True)
+    except (
+        asyncpg.exceptions.UndefinedTableError,
+        asyncpg.exceptions.UndefinedColumnError,
+    ):
+        languages = []
+
+    # Only the ones this person may review. can_trial_review already folds in
+    # admins and all-language grants.
+    languages = [
+        lang for lang in languages if can_trial_review(roles, lang["id"])
+    ]
+
+    feedback: list[dict] = []
+    if admin:
+        # Separate connection: privileged_connection wraps a transaction, so
+        # a feedback table this deploy is ahead of must not abort the review
+        # counts alongside it.
+        try:
+            async with privileged_connection() as conn:
+                feedback = await open_feedback_by_language(conn)
+        except (
+            asyncpg.exceptions.UndefinedTableError,
+            asyncpg.exceptions.UndefinedColumnError,
+        ):
+            feedback = []
+
+    return {
+        "languages": languages,
+        "review_total": sum(lang["total"] for lang in languages),
+        "feedback": feedback,
+        "feedback_total": sum(f["count"] for f in feedback),
+        "is_admin": admin,
+        "is_staff": True,
+    }

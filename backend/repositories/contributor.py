@@ -779,10 +779,53 @@ async def review_inbox_counts(
     return {k: int(row[k]) for k in row.keys()}
 
 
+async def review_inbox_by_language(
+    conn: asyncpg.Connection, *, exclude: str | None = None,
+    include_empty: bool = False,
+) -> list[dict]:
+    """Every queue, counted for every language, in ONE query.
+
+    This is the shape the cross-language surfaces want: a reviewer picking
+    which language to work on next needs the counts for ALL of them at once,
+    not one endpoint call per language. Sorted noisiest first, so "where is
+    the work" is answered by reading the top of the list.
+
+    *include_empty* keeps the quiet languages in, which the language picker
+    wants (it lists everything, badge or no badge) and the alert strip does
+    not (it exists only to say "there is traffic over there").
+    """
+    present = await _present(conn, _INBOX_TABLES, _INBOX_COLUMNS)
+    rows = await conn.fetch(
+        f"""
+        SELECT l.id, l.code, l.name, l.is_visible,
+          {_inbox_selects(present, "l.id")}
+        FROM languages l
+        WHERE ($1::uuid IS NULL OR l.id <> $1::uuid)
+        """,
+        exclude,
+    )
+    out = []
+    for r in rows:
+        counts = {k: int(r[k]) for k in INBOX_QUEUE_KEYS}
+        total = sum(counts.values())
+        if total == 0 and not include_empty:
+            continue
+        out.append({
+            "id": str(r["id"]),
+            "code": r["code"],
+            "name": r["name"],
+            "is_visible": r["is_visible"],
+            "total": total,
+            "counts": counts,
+        })
+    out.sort(key=lambda d: (-d["total"], d["name"]))
+    return out
+
+
 async def review_inbox_other_languages(
     conn: asyncpg.Connection, language_id: str
 ) -> list[dict]:
-    """The same queues, counted for every OTHER language, in ONE query.
+    """The same queues, counted for every OTHER language.
 
     The bug this exists for: every review surface is scoped to the admin's
     working language, but a submission carries the language the TESTER was
@@ -790,34 +833,10 @@ async def review_inbox_other_languages(
     made the inbox read "All clear" — the single biggest cause of "they say
     they're sending reviews and I'm not seeing them".
 
-    Only languages with a non-zero total come back, newest-noisiest first, so
-    the strip is empty exactly when there is genuinely nothing elsewhere.
+    Only languages with a non-zero total come back, noisiest first, so the
+    strip is empty exactly when there is genuinely nothing elsewhere.
     """
-    present = await _present(conn, _INBOX_TABLES, _INBOX_COLUMNS)
-    rows = await conn.fetch(
-        f"""
-        SELECT l.id, l.code, l.name,
-          {_inbox_selects(present, "l.id")}
-        FROM languages l
-        WHERE l.id <> $1
-        """,
-        language_id,
-    )
-    out = []
-    for r in rows:
-        counts = {k: int(r[k]) for k in INBOX_QUEUE_KEYS}
-        total = sum(counts.values())
-        if total == 0:
-            continue
-        out.append({
-            "id": str(r["id"]),
-            "code": r["code"],
-            "name": r["name"],
-            "total": total,
-            "counts": counts,
-        })
-    out.sort(key=lambda d: (-d["total"], d["name"]))
-    return out
+    return await review_inbox_by_language(conn, exclude=language_id)
 
 
 async def language_release_readiness(conn: asyncpg.Connection) -> list[dict]:

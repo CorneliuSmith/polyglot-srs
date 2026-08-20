@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { MessageSquarePlus, X } from 'lucide-react'
 import {
   FEEDBACK_CATEGORIES,
   sendFeedback,
   type FeedbackCategory,
 } from '../../api/feedback'
+import { getLanguages } from '../../api/profile'
+import { visibleLanguages } from '../../lib/languages'
 import { usePrefsStore } from '../../stores/prefsStore'
 
 /**
@@ -35,10 +37,20 @@ export default function FeedbackButton({ page }: { page: string }) {
   const [category, setCategory] = useState<FeedbackCategory>('bug')
   const [message, setMessage] = useState('')
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
+  // Defaults to what they're studying — the common case is feedback about
+  // the course in front of them, and that must cost no clicks at all.
+  // '' means "not about one language".
+  const [languageId, setLanguageId] = useState<string | null>(activeLanguageId)
+  const { data: languages = [] } = useQuery({
+    queryKey: ['languages'],
+    queryFn: getLanguages,
+    staleTime: Infinity,
+    retry: false,
+  })
+  const choices = visibleLanguages(languages, activeLanguageId)
 
   const mutation = useMutation({
-    mutationFn: () =>
-      sendFeedback({ category, message, languageId: activeLanguageId, page }),
+    mutationFn: () => sendFeedback({ category, message, languageId, page }),
   })
 
   const close = () => {
@@ -48,6 +60,7 @@ export default function FeedbackButton({ page }: { page: string }) {
     if (mutation.isSuccess) {
       setMessage('')
       setCategory('bug')
+      setLanguageId(activeLanguageId)
       mutation.reset()
     }
   }
@@ -120,6 +133,27 @@ export default function FeedbackButton({ page }: { page: string }) {
               </button>
             ))}
           </div>
+
+          {/* One control, in place. A report about the app as a whole now
+              has somewhere to go other than the course the sender happened
+              to have open — which is what makes the admin's per-language
+              feedback counts mean anything. */}
+          <label className="flex flex-wrap items-center gap-2 text-xs text-gray-600">
+            {t('feedback.aboutLabel')}
+            <select
+              value={languageId ?? ''}
+              onChange={(e) => setLanguageId(e.target.value || null)}
+              data-testid="feedback-language"
+              className="rounded-lg border border-gray-300 px-2 py-1 text-xs text-gray-800"
+            >
+              {choices.map((l) => (
+                <option key={l.id} value={l.id}>
+                  {l.name}
+                </option>
+              ))}
+              <option value="">{t('feedback.notALanguage')}</option>
+            </select>
+          </label>
 
           <textarea
             value={message}

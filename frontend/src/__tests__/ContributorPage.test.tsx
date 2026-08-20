@@ -6,7 +6,19 @@ import ContributorPage from '../features/contribute/ContributorPage'
 
 vi.mock('../api/profile', () => ({ getLanguages: vi.fn() }))
 vi.mock('../api/contribute', () => ({
+  // The staff inbox circle asks on every page load; an ordinary learner
+  // gets an empty, well-formed answer.
+  getReviewNotifications: vi.fn(() =>
+    Promise.resolve({
+      languages: [], review_total: 0, feedback: [], feedback_total: 0,
+      is_admin: false, is_staff: false,
+    }),
+  ),
   getAnalyticsTimeseries: vi.fn(() => Promise.resolve([])),
+  // The rollouts panel sits on the Admin tab.
+  getExperiments: vi.fn(() => Promise.resolve([])),
+  updateExperiment: vi.fn(),
+  assignExperiment: vi.fn(),
   getAnalyticsCohorts: vi.fn(() => Promise.resolve([])),
   listAccounts: vi.fn(() => Promise.resolve([])),
   deleteAccount: vi.fn(),
@@ -98,12 +110,16 @@ vi.mock('../features/contribute/DrillsEditor', () => ({ default: () => null }))
 const { mockSetActiveLanguage } = vi.hoisted(() => ({
   mockSetActiveLanguage: vi.fn(),
 }))
+const mockSetWorkspaceLanguage = vi.fn()
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(
     (selector: (s: Record<string, unknown>) => unknown) =>
       selector({
         activeLanguageId: 'lang-tr',
         setActiveLanguageId: mockSetActiveLanguage,
+        // The workspace scopes itself, independently of what you study.
+        workspaceLanguageId: null,
+        setWorkspaceLanguageId: mockSetWorkspaceLanguage,
       }),
   ),
 }))
@@ -179,7 +195,26 @@ describe('ContributorPage', () => {
     expect(select.value).toBe('lang-tr')
 
     fireEvent.change(select, { target: { value: 'lang-ca' } })
-    expect(mockSetActiveLanguage).toHaveBeenCalledWith('lang-ca')
+    // The WORKSPACE moves; the language you are studying does not. Reviewing
+    // Catalan used to change what you were learning, and putting it back was
+    // the extra pair of clicks the owner objected to.
+    expect(mockSetWorkspaceLanguage).toHaveBeenCalledWith('lang-ca')
+    expect(mockSetActiveLanguage).not.toHaveBeenCalled()
+  })
+
+  it('steps to the next language without opening the menu', async () => {
+    // "Cycle through reviews for each language" — one tap per course.
+    mockGetLanguages.mockResolvedValue([
+      { id: 'lang-tr', code: 'tr', name: 'Turkish', rtl: false, is_visible: true },
+      { id: 'lang-ca', code: 'ca', name: 'Catalan', rtl: false, is_visible: false },
+    ])
+    mockGetGrammar.mockResolvedValue({
+      is_admin: true, points: [], review_policy: 'strict',
+    })
+    renderPage()
+
+    fireEvent.click(await screen.findByTestId('scope-next'))
+    expect(mockSetWorkspaceLanguage).toHaveBeenCalledWith('lang-ca')
   })
 
   it('lists editable grammar points and saves an edit', async () => {

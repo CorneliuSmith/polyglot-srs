@@ -6,6 +6,7 @@ import time
 from contextlib import asynccontextmanager
 from unittest.mock import AsyncMock, patch
 
+import asyncpg
 import jwt as pyjwt
 import pytest
 from fastapi.testclient import TestClient
@@ -2858,3 +2859,119 @@ class TestAmbassadorEndpoints:
         with _roles([{"language_id": LANG, "role": "contributor"}]):
             resp = client.get("/api/contribute/roles", headers=_auth_headers())
         assert resp.json()["can_add_accounts"] is False
+
+
+class TestReviewNotifications:
+    """Per-language notifications for reviewers and admins.
+
+    Owner: "there should be some notifications assigned to the language.
+    Same for general feedback for admins." The point is the click count —
+    finding out whether Hebrew had work used to mean switching the whole
+    workspace to Hebrew and looking, one language at a time.
+    """
+
+    def test_a_learner_gets_an_empty_answer_not_a_403(self, client):
+        """The bell asks on every page load for everyone. A 403 per page
+        view is a log full of nothing, and a badge that errors reads as a
+        broken app rather than an empty queue."""
+        with patch("backend.routers.contribute.get_roles",
+                   new=AsyncMock(return_value=[])):
+            resp = client.get("/api/contribute/notifications",
+                              headers=_auth_headers())
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["is_staff"] is False
+        assert body["languages"] == []
+        assert body["review_total"] == 0
+
+    def test_a_reviewer_is_only_told_about_their_own_languages(self, client):
+        """A badge you cannot clear is worse than no badge: a Spanish
+        reviewer must not be shown Hebrew's queue."""
+        spanish = "11111111-1111-1111-1111-111111111111"
+        hebrew = "22222222-2222-2222-2222-222222222222"
+        with patch("backend.routers.contribute.get_roles",
+                   new=AsyncMock(return_value=[
+                       {"language_id": spanish, "role": "reviewer"},
+                   ])), \
+             patch("backend.routers.contribute.review_inbox_by_language",
+                   new=AsyncMock(return_value=[
+                       {"id": hebrew, "code": "he", "name": "Hebrew",
+                        "is_visible": True, "total": 9, "counts": {}},
+                       {"id": spanish, "code": "es", "name": "Spanish",
+                        "is_visible": True, "total": 4, "counts": {}},
+                   ])):
+            resp = client.get("/api/contribute/notifications",
+                              headers=_auth_headers())
+        assert resp.status_code == 200
+        body = resp.json()
+        assert [lang["code"] for lang in body["languages"]] == ["es"]
+        assert body["review_total"] == 4
+
+    def test_a_reviewer_is_sent_no_feedback_rows_at_all(self, client):
+        """The general feedback channel is the admin's. Not hidden in the
+        client — never sent."""
+        spanish = "11111111-1111-1111-1111-111111111111"
+        with patch("backend.routers.contribute.get_roles",
+                   new=AsyncMock(return_value=[
+                       {"language_id": spanish, "role": "reviewer"},
+                   ])), \
+             patch("backend.routers.contribute.review_inbox_by_language",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.contribute.open_feedback_by_language",
+                   new=AsyncMock(return_value=[
+                       {"language_id": None, "language_name": None, "count": 3},
+                   ])) as feedback:
+            resp = client.get("/api/contribute/notifications",
+                              headers=_auth_headers())
+        assert resp.json()["feedback"] == []
+        assert resp.json()["feedback_total"] == 0
+        feedback.assert_not_awaited()
+
+    def test_an_admin_sees_every_language_and_the_feedback_channel(self, client):
+        spanish = "11111111-1111-1111-1111-111111111111"
+        hebrew = "22222222-2222-2222-2222-222222222222"
+        with patch("backend.routers.contribute.get_roles",
+                   new=AsyncMock(return_value=[
+                       {"language_id": None, "role": "admin"},
+                   ])), \
+             patch("backend.routers.contribute.review_inbox_by_language",
+                   new=AsyncMock(return_value=[
+                       {"id": hebrew, "code": "he", "name": "Hebrew",
+                        "is_visible": True, "total": 9, "counts": {}},
+                       {"id": spanish, "code": "es", "name": "Spanish",
+                        "is_visible": True, "total": 4, "counts": {}},
+                   ])), \
+             patch("backend.routers.contribute.open_feedback_by_language",
+                   new=AsyncMock(return_value=[
+                       {"language_id": spanish, "language_name": "Spanish",
+                        "count": 2},
+                       # Feedback about the app as a whole belongs to no
+                       # course; it must survive the round trip rather than
+                       # being dropped for having no language.
+                       {"language_id": None, "language_name": None, "count": 1},
+                   ])):
+            resp = client.get("/api/contribute/notifications",
+                              headers=_auth_headers())
+        body = resp.json()
+        assert body["review_total"] == 13
+        assert body["feedback_total"] == 3
+        assert any(f["language_id"] is None for f in body["feedback"])
+        assert body["is_admin"] is True
+
+    def test_a_missing_table_answers_quiet_rather_than_500(self, client):
+        """This runs behind a bell on every page. A deploy ahead of its
+        schema must not take the header down."""
+        with patch("backend.routers.contribute.get_roles",
+                   new=AsyncMock(return_value=[
+                       {"language_id": None, "role": "admin"},
+                   ])), \
+             patch("backend.routers.contribute.review_inbox_by_language",
+                   new=AsyncMock(side_effect=(
+                       asyncpg.exceptions.UndefinedTableError("no table")
+                   ))), \
+             patch("backend.routers.contribute.open_feedback_by_language",
+                   new=AsyncMock(return_value=[])):
+            resp = client.get("/api/contribute/notifications",
+                              headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json()["review_total"] == 0

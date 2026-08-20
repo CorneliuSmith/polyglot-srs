@@ -47,6 +47,17 @@ vi.mock('../stores/prefsStore', () => ({
     s({ activeLanguageId: 'lang-es' }),
   ),
 }))
+vi.mock('../api/contribute', async (orig) => ({
+  ...(await orig<typeof import('../api/contribute')>()),
+  // The header's staff inbox circle asks whether this account has review
+  // work waiting. A learner gets an empty answer, so no circle renders.
+  getReviewNotifications: vi.fn(() =>
+    Promise.resolve({
+      languages: [], review_total: 0, feedback: [], feedback_total: 0,
+      is_admin: false, is_staff: false,
+    }),
+  ),
+}))
 vi.mock('../stores/viewAsStore', () => ({ useViewAsKey: () => 'self' }))
 vi.mock('../api/dashboard', () => ({ getDashboardStats: vi.fn() }))
 

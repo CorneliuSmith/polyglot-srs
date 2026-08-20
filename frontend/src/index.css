@@ -220,3 +220,51 @@ body {
 .learn-retry-toast {
   animation: learn-retry-toast 3.5s ease forwards;
 }
+
+/* ── Visual direction: "flat" (experiment ui_skin) ─────────────────────────
+   The Ink Grid sample from the direction review: no elevation, square
+   corners, borders that are actually visible. Assigned per account by the
+   rollout mechanism (backend/services/experiments.py) and applied as
+   <html data-ui="flat"> by lib/uiSkin.ts.
+
+   Every rule here is a TOKEN override or a utility restyle — no component
+   knows which skin it is in, so deleting this block returns the whole app
+   to Classic with no other edit. That property is the point: a rollout you
+   cannot withdraw in one commit is not a rollout, it is a rewrite.
+
+   `rounded-full` is untouched on purpose (it resolves to a literal, not to
+   a --radius-* token), so avatars, flags and pills stay round while cards
+   and buttons square off. */
+[data-ui="flat"] {
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+  --radius-2xl: 2px;
+  --radius-3xl: 3px;
+}
+
+/* Elevation, removed. shadow-* sets --tw-shadow to a literal rather than
+   reading a token, so this has to out-specify the utility rather than
+   redefine a variable. */
+[data-ui="flat"] .shadow-sm,
+[data-ui="flat"] .shadow,
+[data-ui="flat"] .shadow-md,
+[data-ui="flat"] .shadow-lg {
+  --tw-shadow: 0 0 #0000;
+}
+
+/* What the shadow was doing, a border now does. gray-100 is the card
+   hairline throughout the app and is nearly invisible against white in
+   light mode and against the card in dark — which is fine while an
+   elevation separates them and useless once it doesn't. */
+[data-ui="flat"] .border-gray-100 {
+  border-color: var(--color-gray-300);
+}
+
+/* A paper ground rather than the blue-grey default, so a white card reads
+   as a sheet on a desk instead of a panel floating on a panel. Light only:
+   the dark ramp is already a deliberate set and remapping gray-50 there
+   would fight it. */
+html[data-ui="flat"]:not(.dark) {
+  --color-gray-50: #efefea;
+}

@@ -33,6 +33,8 @@ import TrialRequestsPanel from './TrialRequestsPanel'
 import AnalyticsPanel from './AnalyticsPanel'
 import EngagementPanel from './EngagementPanel'
 import LanguageVisibilityPanel from './LanguageVisibilityPanel'
+import LanguageScopePicker from '../../components/LanguageScopePicker'
+import ExperimentsPanel from './ExperimentsPanel'
 import GeneratedDrillsPanel from './GeneratedDrillsPanel'
 import ReviewInbox, { useReviewInbox } from './ReviewInbox'
 import TesterRecommendationsPanel from './TesterRecommendationsPanel'
@@ -756,8 +758,16 @@ export default function ContributorPage() {
   const selfId = useAuthStore((s) => s.session?.user?.id ?? null)
   const navigate = useNavigate()
   const queryClient = useQueryClient()
-  const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
-  const setActiveLanguageId = usePrefsStore((s) => s.setActiveLanguageId)
+  // The workspace's own scope, NOT the language being studied. Falls back
+  // to the study language so a reviewer who only works on one course never
+  // has to set it — but once set, reviewing another language leaves what
+  // they are learning alone. Changing it back was the "bunch of clicks"
+  // the owner complained about.
+  const studyLanguageId = usePrefsStore((s) => s.activeLanguageId)
+  const workspaceLanguageId = usePrefsStore((s) => s.workspaceLanguageId)
+  const setWorkspaceLanguageId = usePrefsStore((s) => s.setWorkspaceLanguageId)
+  const activeLanguageId = workspaceLanguageId ?? studyLanguageId
+  const setActiveLanguageId = setWorkspaceLanguageId
   const [tab, setTab] = useState<WorkspaceTab>('contribute')
   // Grammar points have a full authoring surface; vocab is browse + votable
   // suggestions (WP32). The toggle scopes the Contribute/Review content list.
@@ -801,24 +811,17 @@ export default function ContributorPage() {
           <h1 className="flex min-w-0 items-center gap-2 text-2xl font-bold text-gray-900">
             <span className="shrink-0">Contribute ·</span>
             {/* The whole workspace — every tab, queue, and setting below —
-                is scoped to ONE language, and reaching another used to mean
-                changing your own study language somewhere else first. The
-                switch lives here now, where the scope it changes is. Lists
-                hidden languages too: this page is how they get built. */}
-            <select
-              value={activeLanguageId ?? ''}
-              onChange={(e) => setActiveLanguageId(e.target.value)}
-              aria-label="Working language"
-              title="Everything on this page applies to this language"
-              className="min-w-0 rounded-lg border border-gray-200 bg-white px-2 py-1 text-lg font-semibold text-gray-900"
-            >
-              {languages.map((l) => (
-                <option key={l.id} value={l.id}>
-                  {l.name}
-                  {l.is_visible ? '' : ' (hidden)'}
-                </option>
-              ))}
-            </select>
+                is scoped to ONE language. The picker carries each language's
+                waiting count and arrows to step between them, so working
+                through every course is a repeated single tap. It writes the
+                workspace scope only: your study language is untouched.
+                Hidden languages are listed too — this page is how they get
+                built. */}
+            <LanguageScopePicker
+              languages={languages}
+              value={activeLanguageId}
+              onChange={setActiveLanguageId}
+            />
           </h1>
           <button
             type="button"
@@ -915,6 +918,7 @@ export default function ContributorPage() {
                 <AnalyticsPanel />
                 <EngagementPanel />
                 <LanguageVisibilityPanel />
+                <ExperimentsPanel />
                 <SuggestionMetricsPanel />
                 <GenerationPanel />
                 <TrialRequestsPanel />

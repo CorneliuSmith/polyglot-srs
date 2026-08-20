@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import { Bell, CircleUserRound } from 'lucide-react'
+import { Bell, CircleUserRound, Inbox } from 'lucide-react'
 import { usePrefsStore } from '../stores/prefsStore'
 import { TOUR_VERSION } from '../features/onboarding/tour'
 import Walkthrough from '../features/onboarding/Walkthrough'
 import WhatsNewPanel from '../features/announcements/WhatsNewPanel'
 import { unseenWhatsNew } from '../features/announcements/whatsNew'
 import UiLanguageSwitcher from './UiLanguageSwitcher'
+import StaffNotifications from '../features/contribute/StaffNotifications'
+import { useReviewNotifications } from './LanguageScopePicker'
 
 /**
  * The four utility circles — account, interface language, what's new, and
@@ -38,6 +40,13 @@ export default function HeaderUtilities({
   const unseenCount = unseenWhatsNew(whatsNewSeen).length
   const [showTour, setShowTour] = useState(false)
   const [showWhatsNew, setShowWhatsNew] = useState(false)
+  const [showStaff, setShowStaff] = useState(false)
+  // Staff only, and decided by the server: the endpoint answers a learner
+  // with an empty set, so this circle simply never appears for them. The
+  // four learner circles are untouched — this is a fifth, not a
+  // replacement.
+  const { data: staff } = useReviewNotifications()
+  const staffWaiting = (staff?.review_total ?? 0) + (staff?.feedback_total ?? 0)
 
   // Open the feature tour once, for someone who hasn't dismissed it.
   // "Done" is per EDITION, not forever: a learner who dismissed the
@@ -85,6 +94,26 @@ export default function HeaderUtilities({
           </span>
         )}
       </button>
+      {staff?.is_staff && (
+        <button
+          type="button"
+          onClick={() => setShowStaff(true)}
+          data-testid="header-staff-inbox"
+          aria-label="Waiting for review"
+          title="What's waiting for you, in every language"
+          className="relative w-9 h-9 md:w-7 md:h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:text-lang hover:border-lang/40"
+        >
+          <Inbox aria-hidden className="h-4 w-4 md:h-3.5 md:w-3.5" />
+          {staffWaiting > 0 && (
+            <span
+              data-testid="staff-inbox-badge"
+              className="absolute -top-1.5 -end-1.5 min-w-4 h-4 rounded-full bg-amber-500 text-white text-[10px] font-bold leading-4 text-center px-0.5"
+            >
+              {staffWaiting}
+            </span>
+          )}
+        </button>
+      )}
       <button
         type="button"
         onClick={() => setShowTour(true)}
@@ -96,6 +125,7 @@ export default function HeaderUtilities({
       </button>
       {showTour && <Walkthrough onClose={() => setShowTour(false)} />}
       {showWhatsNew && <WhatsNewPanel onClose={() => setShowWhatsNew(false)} />}
+      {showStaff && <StaffNotifications onClose={() => setShowStaff(false)} />}
     </>
   )
 }

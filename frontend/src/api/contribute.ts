@@ -1555,3 +1555,95 @@ export async function runAiCheckBatch(
   })
   return response.data
 }
+
+/** One rollout — a change some accounts are getting and others aren't. */
+export interface ExperimentVariant {
+  key: string
+  label: string
+}
+
+export interface ExperimentAssignedUser {
+  user_id: string
+  email: string | null
+  variant: string
+  source: 'admin' | 'self' | 'rollout'
+  note: string | null
+  assigned_at: string
+}
+
+export interface Experiment {
+  key: string
+  name: string
+  description: string | null
+  variants: ExperimentVariant[]
+  default_variant: string
+  /** {variant: percent} — of everyone WITHOUT an explicit assignment. */
+  rollout: Record<string, number>
+  enabled: boolean
+  learner_choice: boolean
+  counts?: { variant: string; source: string; count: number }[]
+  assigned?: ExperimentAssignedUser[]
+}
+
+export async function getExperiments(): Promise<Experiment[]> {
+  const response = await apiClient.get('/api/contribute/experiments')
+  return response.data.experiments
+}
+
+export async function updateExperiment(patch: {
+  key: string
+  enabled?: boolean
+  default_variant?: string
+  rollout?: Record<string, number>
+  learner_choice?: boolean
+}): Promise<Experiment> {
+  const response = await apiClient.post('/api/contribute/experiment', patch)
+  return response.data.experiment
+}
+
+/** Pin one named account to one variant, or (variant: null) release it back
+ *  to whatever the rollout says. */
+export async function assignExperiment(body: {
+  key: string
+  email: string
+  variant: string | null
+  note?: string
+}): Promise<{ user_id: string; variant: string | null }> {
+  const response = await apiClient.post('/api/contribute/experiment-assign', body)
+  return response.data
+}
+
+/** What is waiting for this reviewer, per language, in one call. */
+export interface ReviewNotificationLanguage {
+  id: string
+  code: string
+  name: string
+  is_visible: boolean
+  total: number
+  counts: Record<string, number>
+}
+
+export interface FeedbackNotification {
+  /** Null for feedback about the app as a whole, which belongs to no course. */
+  language_id: string | null
+  language_name: string | null
+  count: number
+}
+
+export interface ReviewNotifications {
+  languages: ReviewNotificationLanguage[]
+  review_total: number
+  feedback: FeedbackNotification[]
+  feedback_total: number
+  is_admin: boolean
+  /** False for ordinary learners — the endpoint answers them with an empty
+   *  set rather than a 403, so the bell can ask on every page load. */
+  is_staff: boolean
+}
+
+export async function getReviewNotifications(): Promise<ReviewNotifications> {
+  const response = await apiClient.get<ReviewNotifications>(
+    '/api/contribute/notifications',
+  )
+  return response.data
+}

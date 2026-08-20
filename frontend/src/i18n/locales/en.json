@@ -1118,6 +1118,12 @@
       "resetAllConfirm": "Reset your studies for EVERY language? This permanently deletes all cards and all review history across all languages. Your notes and personal sentences are kept.",
       "resetDone_one": "Progress reset ({{count}} card removed).",
       "resetDone_other": "Progress reset ({{count}} cards removed)."
+    },
+    "trial": {
+      "title": "You're trying something new",
+      "desc": "Some accounts are seeing a change we're testing. You can switch back whenever you like.",
+      "saveError": "Couldn't switch that just now.",
+      "feedback": "Tell us how it's going from the ? button at the top of any page — your note records which version you were on."
     }
   },
   "feedback": {
@@ -1147,7 +1153,9 @@
         "triaged": "Being worked on",
         "closed": "Dealt with"
       }
-    }
+    },
+    "aboutLabel": "This is about",
+    "notALanguage": "Not about one language"
   },
   "recoSettings": {
     "title": "Recommendations",

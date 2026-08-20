@@ -11,6 +11,7 @@ import ErrorScreen from './components/ErrorScreen'
 import ProtectedRoute from './components/ProtectedRoute'
 import ThemeApplier from './components/ThemeApplier'
 import LanguageThemeApplier from './components/LanguageThemeApplier'
+import UiSkinApplier from './components/UiSkinApplier'
 
 // Route code-splitting (mobile perf): each page becomes its own chunk that
 // loads on demand, so landing on the Dashboard no longer downloads the
@@ -171,6 +172,7 @@ function AppInner() {
     <>
       <ThemeApplier />
       <LanguageThemeApplier />
+      <UiSkinApplier />
       <Suspense fallback={<RouteFallback />}>
         <RouterProvider router={router} />
       </Suspense>

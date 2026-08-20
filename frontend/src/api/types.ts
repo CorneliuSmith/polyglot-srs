@@ -278,6 +278,10 @@ export interface UserProfile {
    *  Off by default: the frequency lists come from subtitle corpora and
    *  put Spanish *puta* at rank 505, so it reached a beginner unasked. */
   allow_explicit_content: boolean
+  /** Which rollouts this account is in, {experiment_key: variant}. Absent
+   *  when the server has no experiments running (or hasn't been migrated),
+   *  which every reader must treat as "the default", never as "unknown". */
+  experiments?: Record<string, string>
   created_at: string
   updated_at: string
 }

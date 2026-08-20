@@ -7,6 +7,15 @@ vi.mock('../api/feedback', async () => {
     await vi.importActual<typeof import('../api/feedback')>('../api/feedback')
   return { ...actual, sendFeedback: vi.fn() }
 })
+vi.mock('../api/profile', async (orig) => ({
+  ...(await orig<typeof import('../api/profile')>()),
+  getLanguages: vi.fn(() =>
+    Promise.resolve([
+      { id: 'lang-ar', code: 'ar', name: 'Arabic', rtl: true, is_visible: true },
+      { id: 'lang-ko', code: 'ko', name: 'Korean', rtl: false, is_visible: true },
+    ]),
+  ),
+}))
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(
     (selector: (s: Record<string, unknown>) => unknown) =>
@@ -115,5 +124,61 @@ describe('FeedbackButton', () => {
     expect(
       (screen.getByLabelText('Your feedback') as HTMLTextAreaElement).value,
     ).toBe('Long and carefully written report')
+  })
+})
+
+
+describe('which language the report is about', () => {
+  beforeEach(() => vi.clearAllMocks())
+
+  it('defaults to the course in front of them, costing no clicks', async () => {
+    mockSend.mockResolvedValue({ id: 'f1' })
+    renderButton()
+    openForm()
+    type('The keyboard is clipped')
+    fireEvent.click(screen.getByText('Send'))
+    await waitFor(() =>
+      expect(mockSend).toHaveBeenCalledWith(
+        expect.objectContaining({ languageId: 'lang-ar' }),
+      ),
+    )
+  })
+
+  it('lets them say it is not about a language at all', async () => {
+    // Reports about the app itself used to be filed under whichever course
+    // the sender happened to have open, which is what made a per-language
+    // feedback count meaningless for an admin.
+    mockSend.mockResolvedValue({ id: 'f1' })
+    renderButton()
+    openForm()
+    fireEvent.change(await screen.findByTestId('feedback-language'), {
+      target: { value: '' },
+    })
+    type('I cannot find the Gym')
+    fireEvent.click(screen.getByText('Send'))
+    await waitFor(() =>
+      expect(mockSend).toHaveBeenCalledWith(
+        expect.objectContaining({ languageId: null }),
+      ),
+    )
+  })
+
+  it('changes language in place, without leaving the form', async () => {
+    mockSend.mockResolvedValue({ id: 'f1' })
+    renderButton()
+    openForm()
+    // Wait for the options themselves: setting a value a <select> does not
+    // have yet is a no-op, and the test would then be asserting the default.
+    await screen.findByRole('option', { name: 'Korean' })
+    fireEvent.change(screen.getByTestId('feedback-language'), {
+      target: { value: 'lang-ko' },
+    })
+    type('The Hangul keyboard stacks the wrong jamo')
+    fireEvent.click(screen.getByText('Send'))
+    await waitFor(() =>
+      expect(mockSend).toHaveBeenCalledWith(
+        expect.objectContaining({ languageId: 'lang-ko' }),
+      ),
+    )
   })
 })
