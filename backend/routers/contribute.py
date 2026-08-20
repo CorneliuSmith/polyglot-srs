@@ -105,6 +105,7 @@ from backend.repositories.contributor import (
     review_drill,
     review_example,
     review_examples_bulk,
+    review_inbox_by_language,
     review_inbox_counts,
     review_inbox_other_languages,
     revoke_role,
@@ -129,6 +130,7 @@ from backend.repositories.experiments import (
     list_experiments,
     update_experiment,
 )
+from backend.repositories.feedback import open_feedback_by_language
 from backend.repositories.languages import (
     set_language_auto_translate,
     set_language_visibility,
@@ -3111,3 +3113,78 @@ async def assign_experiment_endpoint(
         )
     return {"user_id": target["id"], "email": target["email"],
             "variant": body.variant}
+
+
+@router.get("/notifications")
+async def review_notifications(user: dict = Depends(get_current_user)):
+    """What is waiting for this reviewer, in every language at once.
+
+    Owner: "there should be some notifications assigned to the language.
+    Same for general feedback for admins."
+
+    The problem it solves is the number of clicks between noticing there is
+    work and doing it. Until now the only way to find out whether Hebrew had
+    anything waiting was to switch the whole workspace to Hebrew and look —
+    per language, one at a time. This answers for all of them in one query,
+    so the bell can say "11 waiting, in 3 languages" and each row can drop
+    the reviewer straight into that language's queue.
+
+    Scoped to what the viewer can actually act on: a Spanish reviewer is not
+    told about Hebrew, because a badge you cannot clear is worse than no
+    badge. Admins see everything, including the general feedback channel —
+    which belongs to no course, so its language-less rows come back too
+    rather than being quietly dropped.
+    """
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    admin = is_admin(roles)
+    if not admin and not any(
+        r["role"] in ("reviewer", "trial_reviewer") for r in roles
+    ):
+        # Not staff: an empty, well-formed answer rather than a 403. The bell
+        # asks on every page load for everyone, and a 403 per page view is a
+        # log full of nothing.
+        return {
+            "languages": [], "review_total": 0,
+            "feedback": [], "feedback_total": 0,
+            "is_admin": False, "is_staff": False,
+        }
+
+    languages: list[dict] = []
+    try:
+        async with privileged_connection() as conn:
+            languages = await review_inbox_by_language(conn, include_empty=True)
+    except (
+        asyncpg.exceptions.UndefinedTableError,
+        asyncpg.exceptions.UndefinedColumnError,
+    ):
+        languages = []
+
+    # Only the ones this person may review. can_trial_review already folds in
+    # admins and all-language grants.
+    languages = [
+        lang for lang in languages if can_trial_review(roles, lang["id"])
+    ]
+
+    feedback: list[dict] = []
+    if admin:
+        # Separate connection: privileged_connection wraps a transaction, so
+        # a feedback table this deploy is ahead of must not abort the review
+        # counts alongside it.
+        try:
+            async with privileged_connection() as conn:
+                feedback = await open_feedback_by_language(conn)
+        except (
+            asyncpg.exceptions.UndefinedTableError,
+            asyncpg.exceptions.UndefinedColumnError,
+        ):
+            feedback = []
+
+    return {
+        "languages": languages,
+        "review_total": sum(lang["total"] for lang in languages),
+        "feedback": feedback,
+        "feedback_total": sum(f["count"] for f in feedback),
+        "is_admin": admin,
+        "is_staff": True,
+    }

@@ -1612,3 +1612,38 @@ export async function assignExperiment(body: {
   const response = await apiClient.post('/api/contribute/experiment-assign', body)
   return response.data
 }
+
+/** What is waiting for this reviewer, per language, in one call. */
+export interface ReviewNotificationLanguage {
+  id: string
+  code: string
+  name: string
+  is_visible: boolean
+  total: number
+  counts: Record<string, number>
+}
+
+export interface FeedbackNotification {
+  /** Null for feedback about the app as a whole, which belongs to no course. */
+  language_id: string | null
+  language_name: string | null
+  count: number
+}
+
+export interface ReviewNotifications {
+  languages: ReviewNotificationLanguage[]
+  review_total: number
+  feedback: FeedbackNotification[]
+  feedback_total: number
+  is_admin: boolean
+  /** False for ordinary learners — the endpoint answers them with an empty
+   *  set rather than a 403, so the bell can ask on every page load. */
+  is_staff: boolean
+}
+
+export async function getReviewNotifications(): Promise<ReviewNotifications> {
+  const response = await apiClient.get<ReviewNotifications>(
+    '/api/contribute/notifications',
+  )
+  return response.data
+}

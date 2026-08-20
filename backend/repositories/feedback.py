@@ -204,3 +204,41 @@ async def set_feedback_status(
     except _MISSING:
         return False
     return result.endswith("1")
+
+
+async def open_feedback_by_language(conn: asyncpg.Connection) -> list[dict]:
+    """Open general feedback, counted per language (privileged; the router
+    checks the role first).
+
+    Owner: "Same for general feedback for admins" — the per-language
+    notification an admin gets for review queues has to cover this channel
+    too, or the one place people write "the keyboard is cut off on my phone"
+    stays the one place nobody is told about.
+
+    `language_id` is nullable here — feedback about the app as a whole
+    belongs to no course — so those rows come back under a null id rather
+    than being dropped. An admin who only ever saw the per-language rows
+    would never see them at all.
+    """
+    try:
+        rows = await conn.fetch(
+            """
+            SELECT f.language_id, l.name AS language_name, count(*) AS n
+              FROM app_feedback f
+              LEFT JOIN languages l ON l.id = f.language_id
+             WHERE f.status = 'open'
+             GROUP BY f.language_id, l.name
+            """
+        )
+    except _MISSING:
+        return []
+    out = [
+        {
+            "language_id": str(r["language_id"]) if r["language_id"] else None,
+            "language_name": r["language_name"],
+            "count": int(r["n"]),
+        }
+        for r in rows
+    ]
+    out.sort(key=lambda d: (-d["count"], d["language_name"] or ""))
+    return out
