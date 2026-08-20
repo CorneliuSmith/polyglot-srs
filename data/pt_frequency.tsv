@@ -141,7 +141,7 @@ rank	word	pos	en
 140	homem	noun	male (human of masculine gender)
 141	pessoas	noun	plural of pessoa
 142	algo	pron	something (unspecified object)
-143	pelo	noun	hair; hair; fur (an animal’s hair as a whole)
+143	pelo	contraction	by the, through the, for the (por + o); (as a noun, m.) body hair, fur
 144	ficar	verb	to become; to get; to end up
 145	boa	adj	feminine singular of bom
 146	sabe	verb	third-person singular present indicative
@@ -284,7 +284,7 @@ rank	word	pos	en
 283	momento	noun	moment (very brief period of time)
 284	tal	det	such
 285	tenha	verb	first/third-person singular present subjunctive
-286	ia	noun	AI (artificial intelligence)
+286	ia	verb	was going, used to go (first/third-person singular imperfect indicative of ir)
 287	pronto	adj	ready, finished
 288	fiz	verb	first-person singular preterite indicative of fazer
 289	foram	verb	third-person plural preterite/pluperfect indicative of ir
@@ -604,7 +604,7 @@ rank	word	pos	en
 603	ligar	verb	to link; to connect; to join (to put things together so they work together)
 604	porra	noun	club (heavy stick used as a weapon)
 605	minuto	noun	minute (60 seconds)
-606	irá	noun	meliponine
+606	irá	verb	will go (third-person singular future indicative of ir)
 607	sentido	noun	sense (animals’ means of gathering data)
 608	atenção	noun	attention; thoughtfulness
 609	vim	verb	first-person singular preterite indicative of vir
@@ -9113,7 +9113,7 @@ rank	word	pos	en
 9112	punhos	noun	plural of punho
 9113	apertada	adj	feminine singular of apertado
 9114	tentasse	verb	first/third-person singular imperfect subjunctive of tentar
-9115	demônio	noun	Brazilian Portuguese standard spelling of demónio
+9115	demônio	noun	(m.) demon; devil; (figuratively) a wicked or unruly person
 9116	rabino	noun	rabbi (Jewish spiritual teacher)
 9117	mudará	verb	third-person singular future indicative of mudar
 9118	apoiado	verb	past participle of apoiar

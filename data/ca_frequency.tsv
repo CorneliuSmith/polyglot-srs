@@ -922,7 +922,7 @@ rank	word	pos	en
 921	corre	verb	third-person singular present indicative
 922	llegir	verb	to read
 923	través	noun	width
-924	soc	noun	stump (of a tree)
+924	soc	verb	I am (first-person singular present indicative of ser / ésser); also (m.) log, tree stump
 925	tren	noun	train
 926	arriba	verb	third-person singular present indicative
 927	pres	verb	past participle of prendre
@@ -2505,7 +2505,7 @@ rank	word	pos	en
 2504	segui	verb	first/third-person singular present subjunctive
 2505	mina	noun	mine (excavation from which ore is taken)
 2506	necessitarem	verb	first-person plural future indicative of necessitar
-2507	mamà	verb	third-person singular preterite indicative of mamar
+2507	mamà	noun	mum, mummy (f.) — informal for mother
 2508	instruccions	noun	plural of instrucció
 2509	medicina	noun	medicine
 2510	surten	verb	third-person plural present indicative of sortir
@@ -2975,7 +2975,7 @@ rank	word	pos	en
 2974	rostre	noun	face (the front part of the head)
 2975	mundial	adj	global
 2976	vinguin	verb	third-person plural present subjunctive
-2977	papà	verb	third-person singular preterite indicative of papar
+2977	papà	noun	dad, daddy (m.) — informal for father
 2978	informat	verb	past participle of informar
 2979	coneixen	verb	third-person plural present indicative of conèixer
 2980	marques	noun	plural of marca

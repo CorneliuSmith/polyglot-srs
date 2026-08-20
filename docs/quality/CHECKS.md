@@ -118,6 +118,55 @@ identical glosses merged; four typo-mass artifacts (`citta` "Tuscan girl",
 `data/vocab_exclusions.tsv` — a TSV-only deletion is undone by the next
 regeneration, exactly the way a DB-only fix is undone by a re-seed.
 
+## 3b. Wrong-lexeme glosses — the frequency is one word, the gloss is another
+
+A row's rank is carried by a form of one word while its gloss was taken from a
+different word that happens to share the spelling. The same failure that made
+English rank 3 `be` the element beryllium, arriving through accent collisions.
+
+Confirmed across nine accent-carrying courses (20 Aug 2026), 19 rows reglossed:
+
+| | rank | said | is |
+| --- | --- | --- | --- |
+| `pt` | 286 | `ia` — "AI (artificial intelligence)" | imperfect of *ir* |
+| `pt` | 143 | `pelo` — "hair; fur" | the contraction *por + o* |
+| `pt` | 606 | `irá` — "meliponine" (a stingless bee) | "will go" |
+| `ca` | 924 | `soc` — "stump (of a tree)" | **"I am"** |
+| `fr` | 235 | `dû` — "what is owed" | past participle of *devoir* |
+| `fr` | 1099 | `fut` — "post-1990 spelling of fût" (a cask) | passé simple of *être* |
+| `it` | 3033 | `dì` — "day; daytime" | the *tu* imperative of *dire* |
+| `es` | 2810 | `mato` — "bushes" | "I kill" |
+
+**Catalan had no correct card for "I am."** `soc` (rank 924, the post-2016 IEC
+standard spelling) read "stump of a tree", while `sóc` at rank 63 carried only
+a pointer calling itself superseded. Both cards, neither meaning.
+
+**The detection is judgment, not a heuristic — two mechanical detectors were
+built and both discarded.** Ranking a frequent surface against a rarer stated
+lemma flags 530 rows across 27 courses, almost all correct (`puedo` really is
+"of *poder*"; an inflected form outranking its infinitive is normal). Flagging
+accent-twins whose glosses share no vocabulary gives 367, almost all
+legitimate contrastive pairs (`de`/`dé`, `schon`/`schön`) that the collision
+guard exists to protect. What actually separates the classes is asking
+**"would anyone write this word this often, meaning that?"** — cinchweed at
+rank 5192, a stingless bee at 606 — and that is a maker–checker question.
+
+**The card's own sentences are the strongest evidence, and they are free.**
+`es mato` was glossed "bushes" above three attached sentences all reading
+*"I'll kill you"*; `it dì` was glossed "day" above three that all mean
+*"say/tell"*. This is the D2c2 join (definition against examples) paying off
+before the mechanical detector for it exists.
+
+**Status: all 27 for the sweep; 9 done.** The nine accent-carrying courses are
+triaged. `ru`, `ar`, `hi`, `th`, `ko` and the rest have not been swept for this
+class — their collisions are in other scripts and need the same pass.
+
+**Deliberately deferred: 70 proposed row exclusions.** The same triage proposed
+deleting 70 unaccented/obsolete twins. Deletion is riskier than reglossing and
+several are contested — `el μία` is a real spelling of "one", `ro in` is
+genuinely flax, `pt pára` is the pre-Acordo spelling of a live word. They need
+per-item verification rather than a bulk apply, and are not in this pass.
+
 ## 4. Orthography policy compliance — across every file the policy covers
 
 `la.md` declared "no macrons, anywhere, all-or-nothing" **verified**, having

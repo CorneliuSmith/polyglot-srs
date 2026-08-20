@@ -29,6 +29,9 @@ clusters** — `c'è`, `l'ho`, `glielo`, `me lo`, `ce le` — which make "exactl
 keep honest; (3) **the three `si`** (riflessivo, passivante, impersonale), where all of Italian's
 hint leaks live.
 
+
+**Wrong-lexeme gloss corrected 20 Aug 2026** (`CHECKS.md` §3b): rank 3033 `dì` was glossed “day; daytime”, the poetic noun, while its three attached sentences all mean “say/tell” — the rank is the *tu* imperative of *dire*. Standard Italian writes that imperative `di'` with an apostrophe, which the corrected gloss states.
+
 ## Hint standards
 
 A hint narrows the answer without containing it: never the answer as a whole word; never a gloss

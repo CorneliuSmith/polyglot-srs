@@ -233,7 +233,7 @@ rank	word	pos	en
 232	trois	num	three
 233	assez	adv	to a sufficient or moderate degree; enough; sufficiently
 234	famille	noun	family (group of related people)
-235	dû	noun	what is owed, what is due, money's worth
+235	dû	verb	past participle of devoir — had to, must have; (as adj.) owed, due; dû à = due to
 236	eh	intj	signifying indifference or surprise
 237	toutes	adv	feminine plural of tout
 238	plaît	verb	third-person singular present indicative of plaire
@@ -781,7 +781,7 @@ rank	word	pos	en
 780	retourner	verb	to turn over, turn upside-down; (in cooking) to turn
 781	sale	adj	dirty; bad, unpleasant
 782	libre	adj	free, at liberty
-783	bouge	noun	hovel; dive; bulge, protuberance
+783	bouge	verb	first/third-person singular present indicative/subjunctive and singular imperative of bouger — move; 'bouge pas' = don't move
 784	contrôle	noun	control (all senses)
 785	rappelle	verb	first/third-person singular present indicative/subjunctive
 786	arrêté	verb	past participle of arrêter
@@ -1097,7 +1097,7 @@ rank	word	pos	en
 1096	félicitations	noun	plural of félicitation
 1097	opération	noun	operation (method by which a device performs its function)
 1098	prévu	adj	planned, expected
-1099	fut	noun	post-1990 spelling of fût
+1099	fut	verb	third-person singular past historic (passé simple) of être — was (literary/narrative tense)
 1100	tenez	verb	second-person plural present indicative
 1101	livres	noun	plural of livre
 1102	répondre	verb	to reply, to answer
@@ -4926,7 +4926,7 @@ rank	word	pos	en
 4925	recherché	verb	past participle of rechercher
 4926	singes	noun	plural of singe
 4927	finisse	verb	first/third-person singular present subjunctive
-4928	téléphoné	adj	Made known, revealed, given away (perhaps unintentionally)
+4928	téléphoné	verb	past participle of téléphoner — phoned, called
 4929	sonnerie	noun	ringing (sound of a bell)
 4930	çà	adv	hither
 4931	mouche	noun	fly (insect); bullseye (center of a target)
@@ -6993,7 +6993,7 @@ rank	word	pos	en
 6992	convenu	verb	past participle of convenir
 6993	richesse	noun	wealth; richness
 6994	égard	noun	consideration
-6995	chassé	noun	a chassé
+6995	chassé	verb	past participle of chasser — hunted, chased; driven out, thrown out
 6996	aident	verb	third-person plural present indicative/subjunctive of aider
 6997	bilan	noun	balance sheet; appraisal, assessment
 6998	adieux	noun	plural of adieu
@@ -8362,7 +8362,7 @@ rank	word	pos	en
 8361	cadet	adj	younger, youngest
 8362	coffre-fort	noun	safe (a box, usually made of metal, in which valuables can be locked for safekeeping)
 8363	experte	noun	female equivalent of expert
-8364	doublé	noun	double, brace, pair
+8364	doublé	verb	past participle of doubler — doubled; dubbed (a film); overtaken, double-crossed; (as noun, m.) a brace, two goals
 8365	approbation	noun	approval (permission)
 8366	google	verb	first/third-person singular present indicative/subjunctive
 8367	mystères	noun	plural of mystère

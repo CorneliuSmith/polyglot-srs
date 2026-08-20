@@ -25,6 +25,9 @@ including the past participle after a preceding direct object (`les photos que j
 (3) **the clitic zoo** — `le/la/les`, `lui/leur`, `y`, `en`, two-pronoun order — where the hint is
 permanently tempted to quote the pattern it is testing.
 
+
+**Wrong-lexeme glosses corrected 20 Aug 2026** (`CHECKS.md` §3b): rank 235 `dû` was glossed as the noun “what is owed” rather than the past participle of *devoir*; rank 1099 `fut` as “post-1990 spelling of fût” (a cask) rather than the passé simple of *être* — the file's own rank 4682 `furent` proves the lemma. Also `bouge`, `téléphoné`, `chassé`, `doublé`, each glossed from a rare noun sense.
+
 ## Hint standards
 
 A hint narrows the answer without containing it: never the answer as a whole word; never a gloss
