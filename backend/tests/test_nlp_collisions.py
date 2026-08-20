@@ -178,6 +178,9 @@ def _strip_marks(text):
     )
 
 
+# Regenerate with:
+#   python -m backend.services.quality.audit_collisions --ceilings
+#
 # Measured 20 Aug 2026 with each language's real backend, after the junk-twin
 # repair. `ar` ROSE from 209 to 200-with-a-different-shape when the alef fold
 # moved out of ArabicNLP.normalize(): أ decomposes under NFD, so pairs that

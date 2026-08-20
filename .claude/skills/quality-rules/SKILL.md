@@ -86,6 +86,14 @@ working. Each rule exists because its absence already shipped a defect.
 18. **When adding words to fill a homonym gap, add only members a learner
     meets** (`hīc`, `mālum` yes; `pōpulus` "poplar" no) and gloss each naming
     its false twin — "here (distinct from hic: this)".
+19. **Nothing of value stays only on this machine** (owner directive, 20 Aug
+    2026). After every merge — and before any long-running job — fast-forward
+    `feat/phases` to the current head and push it:
+    `git branch -f feat/phases HEAD && git push origin feat/phases`.
+    This is a multi-week project on hardware that has already slept mid-run
+    and killed a workflow; remote is the only durable copy. Workflow outputs
+    and analysis scripts live in the session scratchpad under `/private/tmp`
+    and do NOT survive — promote anything worth keeping into the repo.
 
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
