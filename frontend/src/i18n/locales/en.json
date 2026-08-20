@@ -1153,7 +1153,9 @@
         "triaged": "Being worked on",
         "closed": "Dealt with"
       }
-    }
+    },
+    "aboutLabel": "This is about",
+    "notALanguage": "Not about one language"
   },
   "recoSettings": {
     "title": "Recommendations",

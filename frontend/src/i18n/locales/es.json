@@ -1153,7 +1153,9 @@
         "triaged": "En curso",
         "closed": "Resuelto"
       }
-    }
+    },
+    "aboutLabel": "Esto es sobre",
+    "notALanguage": "No es sobre un idioma"
   },
   "recoSettings": {
     "title": "Recomendaciones",

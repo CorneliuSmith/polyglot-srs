@@ -1197,7 +1197,9 @@
         "triaged": "В работе",
         "closed": "Решено"
       }
-    }
+    },
+    "aboutLabel": "Это о",
+    "notALanguage": "Не о конкретном языке"
   },
   "recoSettings": {
     "title": "Рекомендации",

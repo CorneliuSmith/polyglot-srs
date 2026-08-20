@@ -1220,7 +1220,9 @@
         "triaged": "قيد المعالجة",
         "closed": "عولجت"
       }
-    }
+    },
+    "aboutLabel": "هذا بخصوص",
+    "notALanguage": "ليس عن لغة بعينها"
   },
   "recoSettings": {
     "title": "الاقتراحات",

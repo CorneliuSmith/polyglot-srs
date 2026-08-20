@@ -1153,7 +1153,9 @@
         "triaged": "En cours de traitement",
         "closed": "Traité"
       }
-    }
+    },
+    "aboutLabel": "Ceci concerne",
+    "notALanguage": "Pas une langue en particulier"
   },
   "recoSettings": {
     "title": "Recommandations",
