@@ -169,6 +169,30 @@ gate on).
 
 ---
 
+## Who sees what, where — the four streams
+
+Every piece of review work belongs to one of four streams (the owner's own
+categories), each parsed by language. The taxonomy lives in ONE place —
+`frontend/src/lib/reviewTaxonomy.ts` — and the Review Inbox, the staff
+notification bell, and this table all describe the same thing.
+
+| Stream | Queues | Who sees it | Where it is acted on |
+|---|---|---|---|
+| Reports from learners & testers | card feedback, review notes, tester recommendations | Reviewers + admins (testers see their own advisory panels, never the backlog) | Review tab panels |
+| General feedback | `app_feedback` (the home-page button), per language | Admins | General feedback queue, Review tab (also `/feedback`); reports naming **no** language have their own scope there and their own bucket in the bell |
+| AI awaiting review | generated drills/examples, audit flags, AI translations, AI levels, translation fixes, overlaps | Reviewers + admins; AI translations admins only | Review tab panels |
+| Contributions awaiting approval | pending grammar points, content suggestions, change requests | Reviewers + admins | Contribute + Review tabs |
+
+Two rules keep the numbers honest:
+
+- **Counts are stripped, not hidden.** Any aggregate a non-admin receives
+  (the inbox's other-languages strip, the bell) has admin-only queues
+  removed server-side and totals recomputed — nobody is shown work they
+  cannot clear.
+- **"No language" is never mis-filed.** Feedback about the app as a whole
+  is its own bucket everywhere it appears, instead of being charged to
+  whatever course the sender had open.
+
 ## The unified Review Inbox
 
 Reviewers used to hunt across ~10 scattered panels to find what needed

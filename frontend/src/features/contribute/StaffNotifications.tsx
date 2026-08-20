@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { Inbox, MessageSquareWarning, X } from 'lucide-react'
 import { useReviewNotifications } from '../../components/LanguageScopePicker'
+import { originSummary } from '../../lib/reviewTaxonomy'
 import { usePrefsStore } from '../../stores/prefsStore'
 
 /**
@@ -90,11 +91,11 @@ export default function StaffNotifications({ onClose }: { onClose: () => void })
                         {l.name}
                         {l.is_visible ? '' : ' (hidden)'}
                       </span>
-                      {/* The biggest queue by name: "8 waiting" tells you
-                          there is work, "8 waiting · generated drills" tells
-                          you whether it is yours to do. */}
+                      {/* The kind of work, in the owner's four categories:
+                          "3 reports · 4 AI" answers "how much of WHAT" —
+                          the question a bare total never did. */}
                       <span className="block text-[11px] text-gray-500">
-                        {biggestQueue(l.counts)}
+                        {originSummary(l.counts)}
                       </span>
                     </span>
                     <span className="shrink-0 rounded-full bg-lang/10 px-2 py-0.5 text-xs font-semibold text-lang">
@@ -107,13 +108,15 @@ export default function StaffNotifications({ onClose }: { onClose: () => void })
           </>
         )}
 
-        {/* Admin-only, and the endpoint enforces that — a reviewer is sent
-            no feedback rows at all, so there is nothing here to hide. */}
+        {/* Admin-only, and now ONLY the reports that name no language —
+            per-language feedback rides inside each language row above (the
+            app_feedback queue), so this bucket is exactly what a
+            per-language map would otherwise lose. */}
         {feedback.length > 0 && (
           <>
             <p className="mt-4 flex items-center gap-1.5 text-xs uppercase tracking-wide text-gray-500">
               <MessageSquareWarning aria-hidden className="h-3.5 w-3.5" />
-              Learner feedback
+              Feedback about the app as a whole
             </p>
             <ul className="mt-1.5 space-y-1">
               {feedback.map((f) => (
@@ -149,32 +152,4 @@ export default function StaffNotifications({ onClose }: { onClose: () => void })
       </div>
     </div>
   )
-}
-
-/** Human label for the queue with the most in it. */
-const QUEUE_LABELS: Record<string, string> = {
-  grammar_pending: 'grammar points',
-  pending_drills: 'generated drills',
-  flagged_drills: 'flagged drills',
-  pending_examples: 'generated examples',
-  flagged_examples: 'flagged examples',
-  translation_suggestions: 'translation fixes',
-  tester_recommendations: 'tester recommendations',
-  ai_translations: 'AI translations',
-  ai_levels: 'AI vocab levels',
-  change_requests: 'change requests',
-  suggestions: 'content suggestions',
-  notes: 'review notes',
-  feedback: 'card feedback',
-  overlaps: 'overlapping points',
-}
-
-function biggestQueue(counts: Record<string, number>): string {
-  const entries = Object.entries(counts).filter(([, n]) => n > 0)
-  if (entries.length === 0) return ''
-  entries.sort((a, b) => b[1] - a[1])
-  const [key, n] = entries[0]
-  const label = QUEUE_LABELS[key] ?? key.replace(/_/g, ' ')
-  const rest = entries.length - 1
-  return `${n} ${label}${rest > 0 ? ` · ${rest} more ${rest === 1 ? 'queue' : 'queues'}` : ''}`
 }

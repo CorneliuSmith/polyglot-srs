@@ -125,9 +125,15 @@ async def feedback_badge(user: dict = Depends(get_current_user)):
 async def all_feedback(
     status_filter: str | None = None,
     language_id: str | None = None,
+    unassigned: bool = False,
     user: dict = Depends(get_current_user),
 ):
-    """The triage queue (staff)."""
+    """The triage queue (staff).
+
+    *unassigned* selects the reports that name no language — a scope of its
+    own in the panel, because "the app is broken" is not about the course
+    the sender happened to have open.
+    """
     await _require_staff(user["id"])
     if status_filter is not None and status_filter not in STATUSES:
         raise HTTPException(
@@ -136,7 +142,8 @@ async def all_feedback(
         )
     async with privileged_connection() as conn:
         items = await list_feedback(
-            conn, status=status_filter, language_id=language_id
+            conn, status=status_filter, language_id=language_id,
+            unassigned=unassigned,
         )
         open_count = await count_open_feedback(conn)
     return {"feedback": items, "open_count": open_count}

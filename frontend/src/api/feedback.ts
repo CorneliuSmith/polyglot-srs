@@ -62,11 +62,15 @@ export async function getMyFeedback(): Promise<MyFeedback[]> {
 export async function getFeedbackQueue(params?: {
   status?: FeedbackStatus
   languageId?: string | null
+  /** Only the reports that name no language — "the app is broken" is not
+   * about the course the sender happened to have open. */
+  unassigned?: boolean
 }): Promise<{ feedback: FeedbackItem[]; open_count: number }> {
   const response = await apiClient.get('/api/feedback', {
     params: {
       status_filter: params?.status,
       language_id: params?.languageId ?? undefined,
+      unassigned: params?.unassigned || undefined,
     },
   })
   return {

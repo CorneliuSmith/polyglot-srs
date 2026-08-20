@@ -116,6 +116,7 @@ from backend.repositories.contributor import (
     set_all_languages_tutor_model,
     set_language_policy,
     set_language_tutor_model,
+    strip_admin_queues,
     submit_suggestion,
     trial_prompt_due,
     trial_reviewer_activity,
@@ -1243,6 +1244,11 @@ async def review_inbox(
         asyncpg.exceptions.UndefinedColumnError,
     ):
         other = []
+    if not is_admin(roles):
+        # A reviewer's strip must not count queues only an admin can open —
+        # "9 waiting in Hebrew" with 3 they can never clear is a badge that
+        # lies (docs/plans/review-visibility.md, C3).
+        other = strip_admin_queues(other)
     return {
         "counts": counts,
         "other_languages": other,
@@ -3169,6 +3175,10 @@ async def review_notifications(user: dict = Depends(get_current_user)):
     # Only the ones this person may review. can_review already folds in
     # admins and all-language grants.
     languages = [lang for lang in languages if can_review(roles, lang["id"])]
+    if not admin:
+        # Same honesty rule as the inbox strip: a reviewer's totals must not
+        # include admin-only queues they cannot act on.
+        languages = strip_admin_queues(languages)
 
     feedback: list[dict] = []
     if admin:
@@ -3183,6 +3193,12 @@ async def review_notifications(user: dict = Depends(get_current_user)):
             asyncpg.exceptions.UndefinedColumnError,
         ):
             feedback = []
+        # Per-language feedback now rides inside each language row's counts
+        # (the app_feedback queue), so this list carries ONLY the rows that
+        # name no language — the reports about the app as a whole, which a
+        # per-language map would otherwise lose. Repeating the per-language
+        # rows here would count them twice in the badge.
+        feedback = [f for f in feedback if f["language_id"] is None]
 
     return {
         "languages": languages,

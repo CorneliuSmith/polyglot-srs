@@ -110,17 +110,43 @@ function FeedbackRow({
   )
 }
 
+/** The three ways to slice the queue when a workspace language is in
+ * scope. "Not about one language" is a real scope, not an absence: the
+ * reports about the app as a whole are exactly the ones a per-language
+ * view loses, and they used to be findable only by scrolling everything. */
+type FeedbackScope = 'language' | 'none' | 'all'
+
 export default function FeedbackQueuePanel({
   canTriage,
+  languageId,
+  languageName,
 }: {
   canTriage: boolean
+  /** When set (the Review workspace), the panel scopes itself to the same
+   * language as every other panel on the page, with scope chips to widen.
+   * Absent (the standalone /feedback page, Settings), it shows everything
+   * exactly as before. */
+  languageId?: string | null
+  languageName?: string
 }) {
   const queryClient = useQueryClient()
   const [showClosed, setShowClosed] = useState(false)
+  const [scope, setScope] = useState<FeedbackScope>(
+    languageId ? 'language' : 'all',
+  )
 
+  const effectiveScope: FeedbackScope = languageId ? scope : 'all'
   const { data, isLoading, isError } = useQuery({
-    queryKey: ['feedback-queue'],
-    queryFn: () => getFeedbackQueue(),
+    queryKey: ['feedback-queue', effectiveScope,
+               effectiveScope === 'language' ? languageId : null],
+    queryFn: () =>
+      getFeedbackQueue(
+        effectiveScope === 'language'
+          ? { languageId }
+          : effectiveScope === 'none'
+            ? { unassigned: true }
+            : undefined,
+      ),
     retry: false,
   })
 
@@ -158,6 +184,34 @@ export default function FeedbackQueuePanel({
           {showClosed ? 'Hide closed' : 'Show closed'}
         </button>
       </div>
+
+      {languageId && (
+        <div className="flex flex-wrap gap-2" data-testid="feedback-scope">
+          {(
+            [
+              ['language', languageName ?? 'This language'],
+              ['none', 'Not about one language'],
+              ['all', 'All'],
+            ] as [FeedbackScope, string][]
+          ).map(([value, label]) => (
+            <button
+              key={value}
+              type="button"
+              onClick={() => setScope(value)}
+              aria-pressed={scope === value}
+              data-testid={`feedback-scope-${value}`}
+              className={
+                'rounded-full border px-3 py-1 text-xs font-medium ' +
+                (scope === value
+                  ? 'border-lang bg-lang text-lang-on'
+                  : 'border-gray-300 bg-white text-gray-600 hover:bg-gray-50')
+              }
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      )}
 
       {isLoading && <p className="text-xs text-gray-500">Loading…</p>}
       {isError && (
