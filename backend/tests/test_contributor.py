@@ -2488,22 +2488,21 @@ class TestTesterGates:
         assert resp.status_code == 200
         assert resp.json()["notes"][0]["entity_label"] == "chai"
 
-    def test_tester_reads_the_review_inbox(self, client):
-        """Their own output is counted there, so refusing them the roll-up
-        leaves them unable to tell a filed review from a lost one."""
-        with self._tester(), \
-             patch("backend.routers.contribute.review_inbox_counts",
-                   new=AsyncMock(return_value={"tester_recommendations": 2})), \
-             patch("backend.routers.contribute.review_inbox_other_languages",
-                   new=AsyncMock(return_value=[])):
+    def test_tester_does_not_read_the_review_inbox(self, client):
+        """Owner: "learners and testers should not see review queues."
+
+        This used to be allowed, on the reasoning that a tester whose own
+        output is counted there needs it to tell a filed review from a lost
+        one. That question is answered by the recommendations panel below —
+        which shows what they actually said, not a backlog total — so the
+        roll-up is not the thing standing between them and it.
+        """
+        with self._tester():
             resp = client.get(
                 "/api/contribute/review/inbox",
                 params={"language_id": LANG}, headers=_auth_headers(),
             )
-        assert resp.status_code == 200
-        assert resp.json()["counts"]["tester_recommendations"] == 2
-        # Reading the count is not permission to act on it.
-        assert resp.json()["can_publish"] is False
+        assert resp.status_code == 403
 
     def test_tester_recommends_with_their_note_recorded(self, client):
         """The advisory verdict itself — for most testers the only thing they
@@ -2975,3 +2974,111 @@ class TestReviewNotifications:
                               headers=_auth_headers())
         assert resp.status_code == 200
         assert resp.json()["review_total"] == 0
+
+
+class TestTestersDoNotSeeQueues:
+    """Owner: "learners and testers should not see review queues."
+
+    A trial reviewer answers "is this card any good?" about items put in
+    front of them. The backlog of everything the project still owes is an
+    operational view, and it counts queues a tester has no power to clear.
+    """
+
+    def test_a_tester_cannot_open_the_review_inbox(self, client):
+        language = "11111111-1111-1111-1111-111111111111"
+        with patch("backend.routers.contribute.get_roles",
+                   new=AsyncMock(return_value=[
+                       {"language_id": language, "role": "trial_reviewer"},
+                   ])):
+            resp = client.get(
+                "/api/contribute/review/inbox",
+                params={"language_id": language},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_a_reviewer_still_can(self, client):
+        language = "11111111-1111-1111-1111-111111111111"
+        with patch("backend.routers.contribute.get_roles",
+                   new=AsyncMock(return_value=[
+                       {"language_id": language, "role": "reviewer"},
+                   ])), \
+             patch("backend.routers.contribute.review_inbox_counts",
+                   new=AsyncMock(return_value={"notes": 2})), \
+             patch("backend.routers.contribute.review_inbox_other_languages",
+                   new=AsyncMock(return_value=[])):
+            resp = client.get(
+                "/api/contribute/review/inbox",
+                params={"language_id": language},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["counts"] == {"notes": 2}
+
+    def test_a_tester_gets_no_notification_badge(self, client):
+        """The bell is the same queue in a smaller box."""
+        language = "11111111-1111-1111-1111-111111111111"
+        with patch("backend.routers.contribute.get_roles",
+                   new=AsyncMock(return_value=[
+                       {"language_id": language, "role": "trial_reviewer"},
+                   ])):
+            resp = client.get("/api/contribute/notifications",
+                              headers=_auth_headers())
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["is_staff"] is False
+        assert body["languages"] == []
+        assert body["review_total"] == 0
+
+
+class TestAmbassadorsDoNotSeeQueues:
+    """Owner: "ambassadors should not see that queue either."
+
+    An ambassador's power is creating accounts — deliberately the ONLY
+    thing that role grants (see can_add_accounts). It has never implied a
+    say over content, and the review backlog is content work.
+    """
+
+    def test_an_ambassador_cannot_open_the_review_inbox(self, client):
+        language = "11111111-1111-1111-1111-111111111111"
+        with patch("backend.routers.contribute.get_roles",
+                   new=AsyncMock(return_value=[
+                       {"language_id": None, "role": "ambassador"},
+                   ])):
+            resp = client.get(
+                "/api/contribute/review/inbox",
+                params={"language_id": language},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_an_ambassador_gets_no_notification_badge(self, client):
+        with patch("backend.routers.contribute.get_roles",
+                   new=AsyncMock(return_value=[
+                       {"language_id": None, "role": "ambassador"},
+                   ])):
+            resp = client.get("/api/contribute/notifications",
+                              headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json()["is_staff"] is False
+        assert resp.json()["review_total"] == 0
+
+    def test_an_ambassador_who_is_also_a_reviewer_keeps_the_queue(self, client):
+        """The restriction is on the ambassador ROLE, not on the person. A
+        second grant is a second grant."""
+        language = "11111111-1111-1111-1111-111111111111"
+        with patch("backend.routers.contribute.get_roles",
+                   new=AsyncMock(return_value=[
+                       {"language_id": None, "role": "ambassador"},
+                       {"language_id": language, "role": "reviewer"},
+                   ])), \
+             patch("backend.routers.contribute.review_inbox_counts",
+                   new=AsyncMock(return_value={"notes": 1})), \
+             patch("backend.routers.contribute.review_inbox_other_languages",
+                   new=AsyncMock(return_value=[])):
+            resp = client.get(
+                "/api/contribute/review/inbox",
+                params={"language_id": language},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200

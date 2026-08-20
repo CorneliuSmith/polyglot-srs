@@ -307,6 +307,28 @@ describe('ContributorPage', () => {
     )
   })
 
+  it('keeps the review queues away from a tester', async () => {
+    // Owner: "learners and testers should not see review queues." A tester
+    // answers "is this card any good?" about what is put in front of them;
+    // the backlog of everything outstanding is not theirs to carry, and
+    // most of it counts work they have no power to clear.
+    const { getReviewInbox } = await import('../api/contribute')
+    const mockInbox = getReviewInbox as ReturnType<typeof vi.fn>
+    mockGetGrammar.mockResolvedValue({
+      is_admin: false, can_review: false, can_contribute: false,
+      can_trial_review: true, points: [basePoint], review_policy: 'strict',
+    })
+    renderPage()
+
+    await screen.findByRole('tab', { name: 'Review' })
+    fireEvent.click(screen.getByRole('tab', { name: 'Review' }))
+
+    expect(screen.queryByTestId('review-inbox')).toBeNull()
+    // And not merely hidden: never asked for, so a tester's page load does
+    // not carry a 403 the server has to refuse.
+    await waitFor(() => expect(mockInbox).not.toHaveBeenCalled())
+  })
+
   it('admin sets a per-language tutor model', async () => {
     const { setLanguageTutorModel } = await import('../api/contribute')
     const mockSetModel = setLanguageTutorModel as ReturnType<typeof vi.fn>

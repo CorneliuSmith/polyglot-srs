@@ -6,7 +6,8 @@ import {
 } from '../../api/contribute'
 
 /** Who can actually OPEN the panel behind a tile.
- *  - 'all'     — anyone who can see the inbox at all (testers included)
+ *  - 'all'     — anyone who can see the inbox at all, which is now
+ *                reviewers and admins: testers do not get the roll-up
  *  - 'publish' — full reviewers/admins (`can_publish`)
  *  - 'admin'   — admins only
  * A tile whose panel the viewer can't open is a phantom: they scroll for
@@ -53,11 +54,16 @@ const QUEUES: {
 /** The inbox query, shared by key with every panel that wants to know how
  * many items its own queue is supposed to be holding. One fetch, one cache
  * entry — the panels don't each hit the endpoint. */
-export function useReviewInbox(languageId: string | null | undefined) {
+export function useReviewInbox(
+  languageId: string | null | undefined,
+  /** Reviewers and admins only — the endpoint refuses everyone else, and
+   * asking anyway would put a 403 on every tester's page load. */
+  allowed = true,
+) {
   return useQuery({
     queryKey: ['review-inbox', languageId],
     queryFn: () => getReviewInbox(languageId!),
-    enabled: !!languageId,
+    enabled: !!languageId && allowed,
     retry: false,
   })
 }
@@ -86,6 +92,10 @@ function visibleQueues(data: ReviewInboxData) {
  * review action, sitting above the individual queue panels so a reviewer
  * knows what needs attention before scrolling. Counts only — each tile
  * points to the panel below that acts on it.
+ *
+ * Reviewers and admins, never testers (owner: "learners and testers should
+ * not see review queues"). A tester keeps the panels that ask them a
+ * question; the backlog of what the project still owes is not one of them.
  *
  * The strip underneath is the fix for the complaint that started this work
  * ("testers say they're sending reviews and I'm not seeing them"): every
