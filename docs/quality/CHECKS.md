@@ -161,11 +161,38 @@ before the mechanical detector for it exists.
 triaged. `ru`, `ar`, `hi`, `th`, `ko` and the rest have not been swept for this
 class — their collisions are in other scripts and need the same pass.
 
-**Deliberately deferred: 70 proposed row exclusions.** The same triage proposed
-deleting 70 unaccented/obsolete twins. Deletion is riskier than reglossing and
-several are contested — `el μία` is a real spelling of "one", `ro in` is
-genuinely flax, `pt pára` is the pre-Acordo spelling of a live word. They need
-per-item verification rather than a bulk apply, and are not in this pass.
+**61 of the 70 proposed row exclusions applied; 9 vetoed.** Each was read
+against its accented twin before the call, not taken from the triage summary.
+What went:
+
+- **13 pointer glosses** — the row names another spelling and carries no
+  meaning of its own (`pt idéia` "pre-reform spelling", `el οχι` "misspelling
+  of όχι", `ca cóm` "superseded spelling of com").
+- **38 rank-impossible rows** — the meaning is real but cannot carry the rank,
+  because the frequency is unaccented typing of the twin. `es tenia`
+  "tapeworm" at rank 2118 against `tenía` at 174; `pt nao` "carrack" at 504
+  against `não` at 4; `ro inca` "Inca" at 585 against `încă` at 130.
+- **7 post-1990 French rectification spellings** (`boite`, `maitre`,
+  `connaitre`…) — official variants of the same word, so one card, not two.
+  **The grading nicety is still open:** both spellings are fully correct
+  French, so typing `boite` for `boîte` should be `CORRECT`, and today it is
+  amber. That needs an alternatives mechanism, not a row deletion.
+- **3 voseo forms** (`callate`, `mirá`, `sabés`) — `es.md` makes the course
+  peninsular.
+
+**Vetoed, because deleting a real word is worse than leaving an odd one:**
+`el μία` (the full spelling of "one", and its gloss is correct), `el τί/τίς/δέ/ά`
+(polytonic and abbreviation rows that need an `el.md` ruling rather than a bulk
+delete), `de scheiss`, `nl client`, `pt pa`, `ro pă`.
+
+**Three exclusions genuinely lose a sense**, recorded in
+`data/vocab_exclusions.tsv` so they can return at a rank their meaning
+justifies: `ro in` (flax), `es paris` (the Trojan prince), `pt nao` (a carrack).
+
+Ceilings retightened after the deletions — `ar` 200 → 116 (the yeh move),
+`pt` 130 → 108, `es` 247 → 230, `fr`/`ro` 500 → 491.
+
+
 
 ## 4. Orthography policy compliance — across every file the policy covers
 
