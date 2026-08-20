@@ -86,6 +86,19 @@ function LearnInner() {
   const showTashkeel = usePrefsStore((s) => s.showTashkeel)
   const [lessonIndex, setLessonIndex] = useState(0)
 
+  // Start each lesson at the top (owner: "when a user goes to the next
+  // lesson card it should start at the top of the page so they can read
+  // the lesson easily").
+  //
+  // Keyed on the INDEX rather than hung off the Next button, because there
+  // are two ways forward — the button and the document-level Enter handler
+  // — and a third would forget. Instant, not smooth: this is a page turn,
+  // and animating a scroll from the bottom of a long grammar explanation
+  // is a second of nothing happening.
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
+  }, [lessonIndex])
+
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
   const language = languages.find((l) => l.id === activeLanguageId)
 
@@ -617,6 +630,9 @@ function LearnInner() {
                 </span>
                 <DrillCard
                   key={lesson.card_id}
+                  // The lesson above is what the learner opened this card
+                  // for. Stealing focus down here scrolls past it.
+                  autoFocus={false}
                   sentence={lesson.quiz.sentence}
                   value={quizInput}
                   onChange={(v) => {
