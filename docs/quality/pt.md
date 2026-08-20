@@ -26,6 +26,9 @@ a blank before a noun tests the fusion, not the preposition; (2) **crase**, an a
 meaning and that the grader forgives by design; (3) **clitic placement** — próclise, ênclise,
 mesóclise — where the answer is sometimes a bound form (`-me`) rather than a word.
 
+
+**Wrong-lexeme glosses corrected 20 Aug 2026** (`CHECKS.md` §3b): rank 286 `ia` read “AI (artificial intelligence)” where it is the imperfect of *ir*; rank 143 `pelo` read “hair; fur” where it is the contraction *por + o* this page teaches; rank 606 `irá` read “meliponine”, a stingless bee. Also `demônio` — the Brazilian spelling this page makes authoritative — carried a pointer to the European `demónio`, which held the actual meaning; the authoritative spelling now carries it.
+
 ## Hint standards
 
 A hint narrows the answer without containing it: never the answer as a whole word; never a gloss

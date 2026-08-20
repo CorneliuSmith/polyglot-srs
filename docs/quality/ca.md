@@ -25,6 +25,9 @@ article, noun, adjective and the weak pronouns `el/la/els/les` all line up;
 *passat perifràstic* (`vaig anar`), the default spoken past, vs the *passat
 simple* (`anà`), C1 literary only.
 
+
+**The course had no correct card for “I am” until 20 Aug 2026.** `soc` (rank 924) — the post-2016 IEC standard spelling — was glossed “stump (of a tree)”, while the deprecated `sóc` at rank 63 carried only a pointer describing itself as superseded. Reglossed; see `docs/quality/CHECKS.md` §3b. `mamà` and `papà` were likewise glossed as the passat simple of *mamar* and *papar* (a tense this page restricts to C1 literary narrative) rather than as “mum” and “dad”.
+
 ## Hint standards
 
 A hint narrows the answer without containing it: never the answer as a whole word;

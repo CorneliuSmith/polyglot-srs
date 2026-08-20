@@ -650,7 +650,7 @@ rank	word	pos	en
 649	liber	adj	free, at liberty
 650	într-adevăr	adv	indeed (modal: truly; in fact; actually; really)
 651	uit	verb	first-person singular present indicative/subjunctive of uita
-652	regula	verb	to arrange, set in order, put in order
+652	regula	noun	definite nominative/accusative singular of regulă: the rule
 653	lasă	verb	third-person singular/plural present indicative
 654	băiat	noun	boy
 655	săptămâni	noun	plural; genitive/dative singular
@@ -5484,7 +5484,7 @@ rank	word	pos	en
 5483	admite	verb	to admit; to allow, permit
 5484	turma	noun	definite nominative/accusative singular of turmă (“herd”)
 5485	diagnostic	noun	diagnosis; diagnostic
-5486	discută	noun	debate
+5486	discută	verb	third-person singular/plural present indicative of discuta: he/she discusses, they discuss
 5487	localiza	verb	to locate
 5488	guma	verb	to gum
 5489	circuit	noun	circuit
