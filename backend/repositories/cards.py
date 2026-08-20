@@ -1231,21 +1231,44 @@ async def confirm_learn_batch(
     Cards are created suspended by the learn batch; this flips them into the
     review queue, due immediately. Only never-reviewed cards qualify — a card
     with history can't be re-activated through the learn flow.
+
+    This is also the moment the card was LEARNED, so it is stamped here.
+    created_at cannot answer that question: a walkthrough left unfinished is
+    re-taught from the same row weeks later, and the row remembers the day it
+    was first offered. A learner who finished five lessons, four of them
+    re-taught, was credited with one.
     """
     if not card_ids:
         return 0
-    result = await conn.execute(
-        """
-        UPDATE user_cards
-        SET is_suspended = false, next_review = now()
-        WHERE id = ANY($1::uuid[])
-          AND user_id = $2
-          AND is_suspended
-          AND repetitions = 0
-        """,
-        card_ids,
-        user_id,
-    )
+    try:
+        result = await conn.execute(
+            """
+            UPDATE user_cards
+            SET is_suspended = false, next_review = now(), learned_at = now()
+            WHERE id = ANY($1::uuid[])
+              AND user_id = $2
+              AND is_suspended
+              AND repetitions = 0
+            """,
+            card_ids,
+            user_id,
+        )
+    except asyncpg.exceptions.UndefinedColumnError:
+        # Migration 20260928 hasn't landed. Activate the cards anyway — the
+        # daily counter falls back to created_at (see get_dashboard_stats),
+        # which is the behaviour this replaces, not a broken one.
+        result = await conn.execute(
+            """
+            UPDATE user_cards
+            SET is_suspended = false, next_review = now()
+            WHERE id = ANY($1::uuid[])
+              AND user_id = $2
+              AND is_suspended
+              AND repetitions = 0
+            """,
+            card_ids,
+            user_id,
+        )
     return int(result.split(" ")[-1])
 
 
