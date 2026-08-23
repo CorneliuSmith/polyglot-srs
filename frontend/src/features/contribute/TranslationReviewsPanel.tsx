@@ -65,8 +65,11 @@ export default function TranslationReviewsPanel({
         </span>
       </div>
       <p className="text-xs text-gray-500 mb-3">
-        The maker–checker wasn’t confident enough to apply these. Approve to
-        put the proposed text on the card; reject to dismiss.
+        The maker–checker wasn’t confident enough to apply these. Approve
+        puts the proposed text on the card. Reject or Dismiss clears the row
+        — the card keeps what it shows now, nothing else changes. Rows where
+        the checker saw a problem but had no fix offer only Dismiss; if the
+        current text really is wrong, fix the card itself in the editor.
       </p>
       <ul className="divide-y divide-gray-50">
         {reviews.map((r) => (
@@ -101,27 +104,44 @@ export default function TranslationReviewsPanel({
               )}
             </div>
             <div className="flex gap-1 shrink-0">
-              <button
-                type="button"
-                onClick={() => approve.mutate(r.id)}
-                disabled={!r.proposed || approve.isPending || reject.isPending}
-                title={
-                  r.proposed
-                    ? 'Put the proposed text on the card'
-                    : 'Nothing to apply — this row has no proposal'
-                }
-                className="rounded-lg bg-lang px-2.5 py-1 text-xs font-semibold text-lang-on disabled:opacity-40"
-              >
-                Approve
-              </button>
-              <button
-                type="button"
-                onClick={() => reject.mutate(r.id)}
-                disabled={approve.isPending || reject.isPending}
-                className="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-500 hover:text-red-600 disabled:opacity-50"
-              >
-                Reject
-              </button>
+              {/* A row with no proposal used to show a DISABLED Approve
+                  next to Reject — which read as "the only thing I can do
+                  is reject", with no hint of what rejecting did (owner).
+                  There is genuinely one action on such a row, so show one
+                  button, named for what it does. */}
+              {r.proposed ? (
+                <>
+                  <button
+                    type="button"
+                    onClick={() => approve.mutate(r.id)}
+                    disabled={approve.isPending || reject.isPending}
+                    title="Put the proposed text on the card"
+                    className="rounded-lg bg-lang px-2.5 py-1 text-xs font-semibold text-lang-on disabled:opacity-40"
+                  >
+                    Approve
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => reject.mutate(r.id)}
+                    disabled={approve.isPending || reject.isPending}
+                    title="Clear this row; the card keeps what it shows now"
+                    className="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-500 hover:text-red-600 disabled:opacity-50"
+                  >
+                    Reject
+                  </button>
+                </>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => reject.mutate(r.id)}
+                  disabled={approve.isPending || reject.isPending}
+                  title="Clear this row; the card keeps what it shows now"
+                  data-testid={`dismiss-review-${r.id}`}
+                  className="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-500 hover:text-red-600 disabled:opacity-50"
+                >
+                  Dismiss
+                </button>
+              )}
             </div>
           </li>
         ))}
