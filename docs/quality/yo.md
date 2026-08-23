@@ -15,6 +15,38 @@ Lucumí — culture-note material at most.
 
 Three features dominate drill quality:
 
+**The course carries its own tone evidence, and the vocabulary file does not use it
+(measured 20 Aug 2026).** This was recorded as blocked pending a verified external tone
+source. Two in-repo sources exist:
+
+| | tone-marked |
+| --- | --- |
+| `data/grammar/yo_grammar.json` drills | **182 of 279 word types (65%)** |
+| `data/yo_frequency.tsv` headwords | **6 of 1,644 (0.4%)** |
+
+The dot-below survived at 40% (`ẹ ọ ṣ` on 661 rows), so this is not diacritic loss in
+general — **tone specifically was stripped** while the dots came through. That is the
+signature of a corpus that normalised tone, not of an unmarked source.
+
+- **130 untoned rows have exactly one tone-marked form attested in the drills**, and they
+  are the ranks that matter: 1 `ti`→`tí`, 2 `ni`→`ní`, 3 `o`→`ó`, 4 `a`→`á`, 7 `ko`→`kò`,
+  8 `awọn`→`àwọn`, 12 `bi`→`bí`, 15 `lati`→`láti`.
+- **17 rows state their own tone in the gloss** — the file already knows: rank 34 reads
+  "a, a certain; one (after the noun: ọjọ́ kan …)" while its headword is bare `kan`.
+- **Three rows are D1d homonym sets stated outright.** Rank 3 `o` is glossed "he, she, it
+  (ó); you (o, subject); not (ò, short for kò)" — three words on one card, and the file
+  says so. Same at rank 7 (`kò`/`kó`) and rank 9 (`sì`/`sí`).
+
+**What this does and does not unblock.** The top band is repairable from evidence the
+repo already contains, which is a stronger basis than the Māori pass had. The remaining
+~1,491 rows have no in-repo attestation and still need an external source.
+
+**And the attested form does not settle the row.** Rank 20 `to` is attested as `tó` in the
+drills, but its gloss reads "to arrange, to line up" — which is `tò`, a different word. The
+drills supply *candidates*; the gloss decides which word the rank belongs to. Applying the
+attested tone mechanically is precisely the mistake that got the Māori macron pass
+discarded (see `docs/quality/mi.md`), and it must not be repeated here.
+
 1. **Tone is the answer, and the grader cannot see it.** `check_answer` layer 2.5 folds all combining marks
    before the strict-form gate, so `ọkọ` typed for `ọkọ̀` returns `CORRECT_SLOPPY` — FSRS *Hard*, a pass — with
    the message "Almost — check the accents", **even on a grammar card**. 179 of the 246 drill answers (73%)

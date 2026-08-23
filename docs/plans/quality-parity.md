@@ -652,7 +652,7 @@ order below is the order the work must happen in, per language.
 | --- | --- | --- |
 | la | strip macrons per la.md's all-or-nothing policy; merge the 40 collision groups | mechanical — no authoring, the policy decides |
 | mi | **not a macron pass** — restore the missing high-frequency words, re-gloss the bare-homograph rows, then mark | measured 20 Aug: `tēnei`, `kāore`, `mātou`, `whānau`, `kōrero` are all ABSENT; a macronisation pass was authored and discarded (see `mi.md`) |
-| yo | add tone marks to 1,638 headwords | authoring; held pending *verified* tone sources |
+| yo | top band from in-repo evidence, tail still needs a source | **partly unblocked** 20 Aug: the drills are 65% tone-marked against the vocabulary's 0.4%, giving 130 attested top-band forms + 17 rows that state their own tone. The tail (~1,491) still needs an external source. Attested ≠ correct for the row — see `yo.md` |
 | xh | replace the Bible-corpus frequency list, or author a core over it | sourcing |
 | ha | add the missing grammatical spine | authoring |
 | he, fa, id | rebuild `rank` as a frequency ranking; dedupe | sourcing + mechanical |
