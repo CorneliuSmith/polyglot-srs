@@ -5,7 +5,11 @@ import LanguageVisibilityPanel from '../features/contribute/LanguageVisibilityPa
 
 const { mockSetActive } = vi.hoisted(() => ({ mockSetActive: vi.fn() }))
 
-vi.mock('../api/profile', () => ({ getLanguages: vi.fn() }))
+vi.mock('../api/profile', () => ({
+  getLanguages: vi.fn(),
+  // lib/activeLanguage writes every switch to the account now.
+  updateProfile: vi.fn(() => Promise.resolve({})),
+}))
 vi.mock('../api/contribute', () => ({
   setLanguageVisibility: vi.fn(),
   setLanguageAutoTranslate: vi.fn(),
@@ -32,15 +36,21 @@ vi.mock('../api/contribute', () => ({
     }),
   ),
 }))
-vi.mock('../stores/prefsStore', () => ({
-  usePrefsStore: vi.fn(
-    (selector: (s: Record<string, unknown>) => unknown) =>
-      selector({
-        setActiveLanguageId: mockSetActive,
-        activeLanguageId: 'lang-es',
-      }),
-  ),
-}))
+vi.mock('../stores/prefsStore', () => {
+  const state = () => ({
+    setActiveLanguageId: mockSetActive,
+    activeLanguageId: 'lang-es',
+  })
+  // getState too: the panel's switch goes through lib/activeLanguage,
+  // which writes the store from outside React.
+  const usePrefsStore = Object.assign(
+    vi.fn((selector: (s: Record<string, unknown>) => unknown) =>
+      selector(state()),
+    ),
+    { getState: state },
+  )
+  return { usePrefsStore }
+})
 
 import { getLanguages } from '../api/profile'
 import {

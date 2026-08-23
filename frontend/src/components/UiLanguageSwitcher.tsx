@@ -8,6 +8,7 @@ import {
   applyUiLanguage,
   syncUiLanguageFromProfile,
 } from '../i18n'
+import { syncActiveLanguageFromProfile } from '../lib/activeLanguage'
 import { useAuthStore } from '../stores/authStore'
 
 /** The "flag at the top" — deliberately a globe, not a flag: which flag is
@@ -40,7 +41,12 @@ function ProfileLanguageSync() {
     staleTime: 30_000,
   })
   useEffect(() => {
-    if (profile) syncUiLanguageFromProfile(profile.ui_language)
+    if (!profile) return
+    syncUiLanguageFromProfile(profile.ui_language)
+    // The STUDY language rides the same heartbeat: switch course on the
+    // phone, and an open laptop tab is on it within the minute (or the
+    // moment it regains focus).
+    syncActiveLanguageFromProfile(profile.active_language_id)
   }, [profile])
   return null
 }

@@ -8,6 +8,8 @@ import i18n, {
   detectUiLanguage,
   syncUiLanguageFromProfile,
 } from '../i18n'
+import { __resetActiveLanguageSyncForTests } from '../lib/activeLanguage'
+import { usePrefsStore } from '../stores/prefsStore'
 
 const { mockAuthed } = vi.hoisted(() => ({ mockAuthed: { value: false } }))
 
@@ -290,5 +292,29 @@ describe('two open devices converging', () => {
     )
     // …and this tab follows without anyone touching it.
     await vi.waitFor(() => expect(i18n.language).toBe('ru'))
+  })
+
+  it('the STUDY language rides the same heartbeat across devices', async () => {
+    // Owner: "What the user is studying and the language should follow
+    // once the device reloads the page." Course switches always wrote the
+    // account; this is the read side — the same profile heartbeat carries
+    // active_language_id, so a course switched on the phone reaches an
+    // open laptop tab too.
+    __resetActiveLanguageSyncForTests()
+    usePrefsStore.setState({ activeLanguageId: 'lang-old' })
+    vi.useFakeTimers()
+    mockGetProfile.mockResolvedValue({
+      ui_language: 'en', support_locale: null, active_language_id: 'lang-old',
+    })
+    renderSwitcher()
+    await vi.waitFor(() => expect(mockGetProfile).toHaveBeenCalledTimes(1))
+
+    mockGetProfile.mockResolvedValue({
+      ui_language: 'en', support_locale: null, active_language_id: 'lang-new',
+    })
+    await vi.advanceTimersByTimeAsync(61_000)
+    await vi.waitFor(() =>
+      expect(usePrefsStore.getState().activeLanguageId).toBe('lang-new'),
+    )
   })
 })

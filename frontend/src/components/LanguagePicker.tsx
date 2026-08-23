@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ChevronDown } from 'lucide-react'
 import { useQuery } from '@tanstack/react-query'
-import { getLanguages, getProfile, updateProfile } from '../api/profile'
+import { getLanguages, getProfile } from '../api/profile'
+import { chooseActiveLanguage } from '../lib/activeLanguage'
 import { usePrefsStore } from '../stores/prefsStore'
 import { languageTheme } from '../lib/languageColors'
 import { visibleLanguages, languageDisplayName } from '../lib/languages'
@@ -77,10 +78,9 @@ export default function LanguagePicker() {
     setOpen(false)
     buttonRef.current?.focus()
     if (id === activeLanguageId) return
-    setActiveLanguageId(id)
-    updateProfile({ active_language_id: id }).catch(() => {
-      // Non-fatal
-    })
+    // Device + account together, with the grace window that stops the next
+    // profile heartbeat from bouncing this choice (lib/activeLanguage.ts).
+    chooseActiveLanguage(id)
   }
 
   function openList() {

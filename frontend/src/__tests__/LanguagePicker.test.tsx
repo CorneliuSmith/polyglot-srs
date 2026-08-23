@@ -11,15 +11,21 @@ vi.mock('../api/profile', () => ({
   getProfile: vi.fn(),
   updateProfile: vi.fn(() => Promise.resolve({})),
 }))
-vi.mock('../stores/prefsStore', () => ({
-  usePrefsStore: vi.fn(
-    (selector: (s: Record<string, unknown>) => unknown) =>
-      selector({
-        activeLanguageId: mockActiveId,
-        setActiveLanguageId: mockSetActive,
-      }),
-  ),
-}))
+vi.mock('../stores/prefsStore', () => {
+  const state = () => ({
+    activeLanguageId: mockActiveId,
+    setActiveLanguageId: mockSetActive,
+  })
+  // Both entry points into the store: the hook (component renders) and
+  // getState (lib/activeLanguage writes from outside React).
+  const usePrefsStore = Object.assign(
+    vi.fn((selector: (s: Record<string, unknown>) => unknown) =>
+      selector(state()),
+    ),
+    { getState: state },
+  )
+  return { usePrefsStore }
+})
 
 import { getLanguages, getProfile, updateProfile } from '../api/profile'
 
