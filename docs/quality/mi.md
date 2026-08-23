@@ -38,10 +38,29 @@ glossed "wart", `kāinga` glossed "the refuse of a meal". That second one is the
 minimal pair this page cites (`kainga` "eaten" vs `kāinga` "home"), inverted. Marking the
 spelling without repairing the gloss produces a card that is wrong in a new way.
 
-**The repair Māori actually needs, in order:** (a) restore the missing high-frequency
-macronised words as their own rows; (b) re-gloss the rows whose meaning came from a bare
-homograph; (c) only then mark the remainder. Plan D1d already states the governing rule —
-re-marking is not decoration, and an unmarked row may stand for several words.
+**Step (a) is done — 169 rows added, 791 → 960 (20 Aug 2026).** Every one is a word the
+course's own drills or curated sentences already use, glossed from those sentences and
+their English translations rather than from a dictionary, then adversarially checked.
+`kāore`, `tēnei`, `rātou`, `mātou`, `tōku`, `tāngata`, `kāinga`, `tēnā`, `tērā`, `pēhea`,
+`kōrero`, `āpōpō` all now exist as cards.
+
+**Macron-only plurals are separate cards, not macrons on the singular.** `tangata` "person"
+keeps rank 23; `tāngata` "people" is its own row glossed *"plural of tangata; the macron is
+the only mark of the plural"*. Same for `kāinga` "home" beside `kainga` "eaten" — the pair
+this page names. **Every added row whose bare twin already had a card must say how it
+differs**, and five proposals were refused for failing exactly that (`āhua`, `kā`, `tāra`,
+`tamāhine`, `māra`): the word may be right, but a card that does not distinguish itself
+from the twin the learner already has teaches a collision.
+
+Six more were refused by the checker as genuine same-lexeme duplicates — `māmae` and
+`māori` among them — with the correct repair named instead: fix the existing row in place,
+the way rank 7 `nga` → `ngā` was fixed. Adding those would have recreated the accent-twin
+class that had 61 rows deleted in `c96749a`.
+
+**Still to do:** (b) re-gloss the rows whose meaning came from a bare homograph — `tona`
+"wart" and `ra` "Egyptian god" still hold ranks belonging to `tōna` and `rā`; (c) the
+remaining unmarked rows. Plan D1d states the governing rule — re-marking is not decoration,
+and an unmarked row may stand for several words.
 
 The discarded pass produced one thing worth keeping: a list of ~60 rows where the bare
 spelling demonstrably covers more than one word, including the macron-only plurals
