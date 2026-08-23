@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { sendFeedback } from '../../api/feedback'
 import {
   chooseExperimentVariant,
   getMyExperiments,
@@ -25,6 +27,22 @@ import {
 export default function AppearanceTrial() {
   const { t } = useTranslation()
   const qc = useQueryClient()
+  const [note, setNote] = useState('')
+
+  // The reason the trial exists is the sentence, so the sentence is asked
+  // for HERE — not via a button on another page. Sent with no language
+  // (this is about the app, not a course) and the server stamps which
+  // variant the sender was on, so "I like C" arrives already meaning
+  // something. Category 'other': it is an opinion, not a bug report.
+  const send = useMutation({
+    mutationFn: () =>
+      sendFeedback({
+        category: 'other',
+        message: note,
+        languageId: null,
+        page: 'appearance-trial',
+      }),
+  })
 
   const { data: experiments = [] } = useQuery({
     queryKey: ['my-experiments'],
@@ -93,7 +111,46 @@ export default function AppearanceTrial() {
           {t('settings.trial.saveError')}
         </p>
       )}
-      <p className="text-xs text-gray-500">{t('settings.trial.feedback')}</p>
+      {send.isSuccess ? (
+        <p
+          className="rounded-xl bg-emerald-50 px-3 py-2 text-sm text-emerald-800"
+          data-testid="trial-feedback-sent"
+        >
+          {t('settings.trial.sent')}
+        </p>
+      ) : (
+        <div className="space-y-2">
+          <p className="text-xs text-gray-500">{t('settings.trial.feedback')}</p>
+          <textarea
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+            rows={2}
+            maxLength={4000}
+            aria-label={t('settings.trial.feedback')}
+            placeholder={t('settings.trial.placeholder')}
+            data-testid="trial-feedback-note"
+            className="w-full rounded-xl border border-gray-300 p-3 text-sm"
+          />
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => send.mutate()}
+              disabled={note.trim().length < 3 || send.isPending}
+              data-testid="trial-feedback-send"
+              className="rounded-lg bg-lang px-4 py-2 text-sm font-semibold text-lang-on hover:bg-lang-dark disabled:opacity-50"
+            >
+              {send.isPending
+                ? t('settings.trial.sending')
+                : t('settings.trial.send')}
+            </button>
+            {send.isError && (
+              <p className="text-xs text-red-500" data-testid="trial-feedback-error">
+                {t('settings.trial.sendError')}
+              </p>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   )
 }

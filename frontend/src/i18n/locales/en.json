@@ -1123,7 +1123,12 @@
       "title": "You're trying something new",
       "desc": "Some accounts are seeing a change we're testing. You can switch back whenever you like.",
       "saveError": "Couldn't switch that just now.",
-      "feedback": "Tell us how it's going from the ? button at the top of any page — your note records which version you were on."
+      "feedback": "What do you think of this version? A sentence here goes straight to us, labeled with the version you were on.",
+      "placeholder": "What works, what doesn't…",
+      "send": "Send",
+      "sending": "Sending…",
+      "sent": "Sent — thank you. Your note arrived labeled with the version you were on.",
+      "sendError": "Couldn't send that — try again."
     },
     "sentenceAudio": {
       "title": "Hear the sentence when you're right",

@@ -12,6 +12,10 @@ vi.mock('../api/profile', async (orig) => ({
   getMyExperiments: vi.fn(),
   chooseExperimentVariant: vi.fn(),
 }))
+vi.mock('../api/feedback', async (orig) => ({
+  ...(await orig<typeof import('../api/feedback')>()),
+  sendFeedback: vi.fn(),
+}))
 vi.mock('../api/contribute', async (orig) => ({
   ...(await orig<typeof import('../api/contribute')>()),
   getExperiments: vi.fn(),
@@ -29,6 +33,7 @@ import {
   getExperiments,
   updateExperiment,
 } from '../api/contribute'
+import { sendFeedback } from '../api/feedback'
 
 const mockProfile = getProfile as ReturnType<typeof vi.fn>
 const mockMine = getMyExperiments as ReturnType<typeof vi.fn>
@@ -230,5 +235,93 @@ describe('the learner’s own switch', () => {
       'aria-pressed',
       'false',
     )
+  })
+})
+
+
+describe('the A/B/C/D lineup', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+    document.documentElement.removeAttribute('data-ui')
+    document.getElementById('ui-skin-editorial-font')?.remove()
+  })
+
+  it('the admin panel offers a rollout share for every non-default variant', async () => {
+    // The panel is generic over the server's variant list — adding C and D
+    // in the migration must surface controls with no frontend change.
+    mockList.mockResolvedValue([{
+      ...EXPERIMENT,
+      variants: [
+        { key: 'classic', label: 'Classic' },
+        { key: 'editorial', label: 'A · Editorial (serif, paper)' },
+        { key: 'flat', label: 'B · Ink Grid (square, no shadows)' },
+        { key: 'ground', label: 'C · Language as Ground (flag-tinted page)' },
+        { key: 'focus', label: 'D · One Thing at a Time (bigger drills)' },
+      ],
+      rollout: {},
+    }])
+    renderWithQuery(<ExperimentsPanel />)
+    await screen.findByText('Visual direction')
+    for (const key of ['editorial', 'flat', 'ground', 'focus']) {
+      expect(
+        screen.getByTestId(`experiment-rollout-ui_skin-${key}`),
+      ).toBeInTheDocument()
+    }
+    // …and each is assignable to a named account by its letter.
+    const assign = screen.getByTestId(
+      'experiment-assign-variant-ui_skin',
+    ) as HTMLSelectElement
+    expect(
+      Array.from(assign.options).map((o) => o.value),
+    ).toEqual(['classic', 'editorial', 'flat', 'ground', 'focus'])
+  })
+
+  it('the editorial skin fetches its serif only when worn', () => {
+    applyUiSkin('flat')
+    expect(document.getElementById('ui-skin-editorial-font')).toBeNull()
+    applyUiSkin('editorial')
+    const link = document.getElementById('ui-skin-editorial-font')
+    expect(link).not.toBeNull()
+    expect(link?.getAttribute('href')).toContain('Literata')
+    // Idempotent — reapplying must not stack a second stylesheet.
+    applyUiSkin('editorial')
+    expect(
+      document.querySelectorAll('#ui-skin-editorial-font').length,
+    ).toBe(1)
+  })
+})
+
+
+describe('feedback from inside the trial', () => {
+  const mockSend = sendFeedback as ReturnType<typeof vi.fn>
+
+  beforeEach(() => vi.clearAllMocks())
+
+  it('a sentence typed where they switched arrives with no course attached', async () => {
+    // The server stamps which variant the sender was on; the client's job
+    // is only to not mis-file it under a language.
+    mockMine.mockResolvedValue([{ ...EXPERIMENT, current: 'ground' }])
+    mockSend.mockResolvedValue({ id: 'f1' })
+    renderWithQuery(<AppearanceTrial />)
+    fireEvent.change(await screen.findByTestId('trial-feedback-note'), {
+      target: { value: 'C makes Korean feel like Korean' },
+    })
+    fireEvent.click(screen.getByTestId('trial-feedback-send'))
+    await waitFor(() =>
+      expect(mockSend).toHaveBeenCalledWith({
+        category: 'other',
+        message: 'C makes Korean feel like Korean',
+        languageId: null,
+        page: 'appearance-trial',
+      }),
+    )
+    expect(await screen.findByTestId('trial-feedback-sent')).toBeInTheDocument()
+  })
+
+  it('an empty note cannot be sent', async () => {
+    mockMine.mockResolvedValue([{ ...EXPERIMENT, current: 'flat' }])
+    renderWithQuery(<AppearanceTrial />)
+    expect(await screen.findByTestId('trial-feedback-send')).toBeDisabled()
+    expect(mockSend).not.toHaveBeenCalled()
   })
 })

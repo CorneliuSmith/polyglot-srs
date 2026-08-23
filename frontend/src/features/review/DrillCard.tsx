@@ -183,7 +183,7 @@ export default function DrillCard({
         className="flex flex-col items-center gap-6"
       >
         <LanguageWrapper languageCode={languageCode}>
-          <p className="text-xl leading-loose text-center text-gray-700">
+          <p className="drill-sentence text-xl leading-loose text-center text-gray-700">
             {sentence}
           </p>
         </LanguageWrapper>
@@ -287,7 +287,7 @@ export default function DrillCard({
   return (
     <form onSubmit={handleFormSubmit}>
       <LanguageWrapper languageCode={languageCode}>
-        <p className="text-xl leading-loose text-center">
+        <p className="drill-sentence text-xl leading-loose text-center">
           {before}
           <input
             ref={inputRef}
