@@ -803,6 +803,41 @@ Until it exists, step 2 is done by the checker in the maker–checker pass, and
 the checker is told to reject a gloss whose sentence does not exercise the
 card's leading sense rather than silently glossing what is in front of it.
 
+### Phase 2 — the running order (owner decision, 20 Aug 2026)
+
+Asked which courses had actually been reviewed, the measured answer was that
+the well-resourced ones have had **broad** repair — the collision guard,
+junk-twin removal, wrong-lexeme reglosses, 60+ row exclusions across `pt`,
+`fr`, `es`, `ro`, `ca`, `el` — while only `en`, `la` and `mi` have had the
+**deep** pass. Five courses had had nothing at all: `jam`, `id`, `tl`, `he`,
+`fa`. Two of those, `id` (121) and `tl` (152), hold **273 of the 920**
+remaining audit findings between them.
+
+**The owner's decision on sequencing, and it is not "biggest first":**
+
+1. **Finish the low-frequency courses — clean AND populate.** `mi` step (c),
+   then `ha`, `xh`, `yo`, `jam`, `id`, `tl`, `he`, `fa`. These are the courses
+   that are *far behind*, and several are not yet real courses: `tl` has 90
+   rows, `jam` 384, `la` 559. Populating is part of the job, not just
+   repairing what is there.
+2. **Then the deep pass on the well-resourced courses**, to the standard `en`
+   and `la` received — definitions verified against the corpus, homonym gaps
+   filled, glosses committed and audited.
+3. **Then sentences for everyone at once** (Phase 2b), which is the owner's
+   standing instruction: no course reaches the sentence stage ahead of the
+   others.
+
+**A prediction worth recording, because it is testable.** The owner expects
+step 2 to be *lighter* than `en` and `la` were, on the grounds that the
+well-resourced courses have better source data. That is plausible — their
+corpora are larger and their kaikki entries richer. But it is a prediction,
+not a finding, and this program has already seen the opposite twice: `es` had
+`creo` at rank 79 glossed as the wrong verb, and `ca` had **no correct card
+for "I am"**, both in 10,000-row courses with good data. **If the deep pass on
+Spanish or French turns up defects at English's rate, say so plainly** — that
+result is more valuable than the phase completing quietly, and it would mean
+row count is not a proxy for quality.
+
 ### Phase 2d — Raise the floor on all 27 before deepening any further (from D2d)
 
 Two courses have been repaired to a standard the other 25 are not held to, and

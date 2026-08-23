@@ -27,6 +27,20 @@ working. Each rule exists because its absence already shipped a defect.
    fold merging 84 cards), write the price into the doc and leave the decision
    alone — surfacing it is the job, overruling it is not.
 
+## Order of work (owner decision, 20 Aug 2026)
+
+**Low-frequency courses first — clean AND populate** (`mi` step c, `ha`, `xh`,
+`yo`, `jam`, `id`, `tl`, `he`, `fa`). Several are not yet real courses: `tl`
+has 90 rows, `jam` 384. **Then** the deep pass on the well-resourced courses
+to `en`/`la` standard. **Then** sentences, for all 27 at once — no course
+reaches the sentence stage ahead of the others.
+
+The expectation is that the deep pass will be lighter on the big courses
+because their data is better. Treat that as a prediction to test, not a fact:
+`ca` had no correct card for "I am" with 9,996 rows, and `es` had rank 79
+`creo` glossed as the wrong verb. If the deep pass finds defects at English's
+rate, say so — that result matters more than the phase closing quietly.
+
 ## Content
 
 4. **One card per written form; the gloss names the senses** (D1c) — but where
