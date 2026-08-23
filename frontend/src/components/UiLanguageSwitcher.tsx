@@ -26,6 +26,18 @@ function ProfileLanguageSync() {
   const { data: profile } = useQuery({
     queryKey: ['profile'],
     queryFn: getProfile,
+    // The app default is refetchOnWindowFocus: false with a 60s staleTime,
+    // which quietly reduced "the account's language follows you across
+    // devices" to "…if you hard-reload". Owner, after the fix shipped:
+    // "They are still both different" — both devices were sitting on
+    // long-lived tabs that never re-read the profile. This one query
+    // opts back in: coming back to a tab re-syncs immediately, and an
+    // open tab converges within a minute. (Shared cache: the ui-skin
+    // applier reads the same key, so an assigned A/B/C/D variant reaches
+    // open tabs on the same heartbeat.)
+    refetchOnWindowFocus: true,
+    refetchInterval: 60_000,
+    staleTime: 30_000,
   })
   useEffect(() => {
     if (profile) syncUiLanguageFromProfile(profile.ui_language)

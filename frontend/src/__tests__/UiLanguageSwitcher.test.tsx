@@ -256,3 +256,39 @@ describe('the globe and an explicitly chosen translations language', () => {
     expect(sent.ui_language).toBe('es')
   })
 })
+
+
+describe('two open devices converging', () => {
+  beforeEach(async () => {
+    vi.clearAllMocks()
+    await reset()
+    mockAuthed.value = true
+  })
+  afterEach(async () => {
+    vi.useRealTimers()
+    mockAuthed.value = false
+    await reset()
+  })
+
+  it('an open tab re-reads the profile on a heartbeat, not only on reload', async () => {
+    // The owner's report after the account-wins fix shipped: "They are
+    // still both different." Both devices were long-lived tabs, and the
+    // app-wide refetchOnWindowFocus:false meant the profile — and with it
+    // the account's language — was read exactly once per hard reload.
+    // The sync query opts back in: an open tab converges within a minute
+    // of the other device's globe tap.
+    vi.useFakeTimers()
+    mockGetProfile.mockResolvedValue({ ui_language: 'en', support_locale: null })
+    renderSwitcher()
+    await vi.waitFor(() => expect(mockGetProfile).toHaveBeenCalledTimes(1))
+
+    // The other device switches the account to Russian…
+    mockGetProfile.mockResolvedValue({ ui_language: 'ru', support_locale: null })
+    await vi.advanceTimersByTimeAsync(61_000)
+    await vi.waitFor(() =>
+      expect(mockGetProfile.mock.calls.length).toBeGreaterThanOrEqual(2),
+    )
+    // …and this tab follows without anyone touching it.
+    await vi.waitFor(() => expect(i18n.language).toBe('ru'))
+  })
+})
