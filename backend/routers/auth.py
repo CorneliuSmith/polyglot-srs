@@ -103,12 +103,17 @@ _DIGEST_DEFAULTS = {"weekly_digest_opt_in": False, "weekly_digest_dow": 0}
 # quietly stops degrading.
 _EXPLICIT_DEFAULTS = {"allow_explicit_content": False}
 
+# Migration 20261001 (sentence audio on a correct answer). ON by default —
+# the feature is the default, the toggle is the escape.
+_AUDIO_DEFAULTS = {"sentence_audio_on_correct": True}
+
 #: Optional column groups, widest first. Each entry is
 #: (select fragment, defaults to substitute when the columns are absent).
 #: Tried in order, dropping one group at a time.
 _OPTIONAL_PROFILE_COLUMNS = (
     (", weekly_digest_opt_in, weekly_digest_dow", _DIGEST_DEFAULTS),
     (", allow_explicit_content", _EXPLICIT_DEFAULTS),
+    (", sentence_audio_on_correct", _AUDIO_DEFAULTS),
 )
 
 _UPSERT_SQL = """
@@ -166,6 +171,11 @@ class ProfileUpdate(BaseModel):
     # subtitle corpora and put Spanish *puta* at rank 505, so a beginner met
     # it without anyone choosing to teach it.
     allow_explicit_content: bool | None = None
+    # Play the full sentence out loud when an answer grades correct — the
+    # moment the learner can listen without still hunting for the answer.
+    # Account-level on purpose: settings that live on the account behave
+    # the same everywhere the account is opened.
+    sentence_audio_on_correct: bool | None = None
 
 
 @router.get("/me")
@@ -365,6 +375,15 @@ async def upsert_profile(
         ),
         "ret": ", allow_explicit_content",
     }
+    audio_frag = {
+        "cols": ", sentence_audio_on_correct",
+        "vals": ", COALESCE($11, true)",
+        "sets": (
+            "sentence_audio_on_correct = "
+            "COALESCE($11, user_profiles.sentence_audio_on_correct),"
+        ),
+        "ret": ", sentence_audio_on_correct",
+    }
 
     def _merge(*parts: dict) -> dict:
         return {k: "".join(p.get(k, "") for p in parts) for k in
@@ -375,16 +394,20 @@ async def upsert_profile(
     # either order or neither, so a settings write must not fail wholesale
     # because one of them hasn't landed — the rest of the form still saves.
     attempts = (
+        (_merge(digest_frag, explicit_frag, audio_frag),
+         (*base_args, body.weekly_digest_opt_in, body.weekly_digest_dow,
+          body.allow_explicit_content, body.sentence_audio_on_correct),
+         {}),
         (_merge(digest_frag, explicit_frag),
          (*base_args, body.weekly_digest_opt_in, body.weekly_digest_dow,
           body.allow_explicit_content),
-         {}),
+         _AUDIO_DEFAULTS),
         (_merge(digest_frag),
          (*base_args, body.weekly_digest_opt_in, body.weekly_digest_dow),
-         _EXPLICIT_DEFAULTS),
+         {**_EXPLICIT_DEFAULTS, **_AUDIO_DEFAULTS}),
         (_merge(),
          base_args,
-         {**_DIGEST_DEFAULTS, **_EXPLICIT_DEFAULTS}),
+         {**_DIGEST_DEFAULTS, **_EXPLICIT_DEFAULTS, **_AUDIO_DEFAULTS}),
     )
     async with rls_connection(user["id"]) as conn:
         for fragments, args, defaults in attempts:

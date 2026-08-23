@@ -3,6 +3,8 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import UiLanguageSwitcher from '../components/UiLanguageSwitcher'
 import i18n, {
+  __resetUiLanguageSyncForTests,
+  applyUiLanguage,
   detectUiLanguage,
   syncUiLanguageFromProfile,
 } from '../i18n'
@@ -37,6 +39,7 @@ function renderSwitcher() {
 }
 
 async function reset() {
+  __resetUiLanguageSyncForTests()
   localStorage.clear()
   await i18n.changeLanguage('en')
   document.documentElement.dir = 'ltr'
@@ -157,17 +160,33 @@ describe('detection order', () => {
     expect(detectUiLanguage()).toBe('en')
   })
 
-  it('the account language applies only when this device has no choice', async () => {
+  it('the account language wins, even over an old device choice', async () => {
+    // This used to be the other way round — a stored device choice beat
+    // the account forever, which is how a phone ran in Russian while the
+    // computer ran in English AND the server (which follows the account)
+    // translated review cards for the language the screen wasn't showing.
+    // One authority: the account, last change anywhere wins.
     syncUiLanguageFromProfile('ar')
     expect(i18n.language).toBe('ar')
-    // But it is not a device-level override…
-    expect(localStorage.getItem('polyglot-ui-language')).toBeNull()
+    // The cache follows, so the next first paint here is already right.
+    expect(localStorage.getItem('polyglot-ui-language')).toBe('ar')
 
-    // …and an existing device choice always wins over the account.
     await reset()
     localStorage.setItem('polyglot-ui-language', 'es')
     await i18n.changeLanguage('es')
     syncUiLanguageFromProfile('ar')
+    expect(i18n.language).toBe('ar')
+    expect(localStorage.getItem('polyglot-ui-language')).toBe('ar')
+  })
+
+  it('a globe tap made seconds ago is not bounced by a stale profile read', async () => {
+    // The tap saves to the profile asynchronously; a profile response from
+    // BEFORE the tap can land after it. For a short grace window the
+    // device's fresh decision holds — then the tap's own save makes the
+    // account and the device agree everywhere.
+    applyUiLanguage('es')
+    expect(i18n.language).toBe('es')
+    syncUiLanguageFromProfile('ru')
     expect(i18n.language).toBe('es')
   })
 })

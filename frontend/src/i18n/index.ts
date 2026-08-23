@@ -1,14 +1,20 @@
 /** Site-chrome internationalization (the UI's own language, NOT learning
  * content — that has its own locale system, `support_locale`).
  *
- * Detection order, first match wins:
- *   1. the user's explicit choice on this device (localStorage)
- *   2. the account's saved `ui_language` (synced when the profile loads,
- *      so a choice follows the user across devices)
- *   3. the browser's preferred languages (navigator.languages — the signal
- *      Wikipedia/Google use; IP geolocation answers "what country", not
- *      "what language", so we deliberately don't use it)
- *   4. English.
+ * ONE rule for signed-in accounts: the account's `ui_language` is the
+ * language, on every device, and the last change anywhere wins. It used to
+ * be "an explicit choice on this device wins forever", which is how the
+ * owner's phone ran in Russian while their computer ran in English — and
+ * the SERVER, which follows the account, translated review cards into
+ * Russian for the English screen. A device may only outrank the account
+ * for the few seconds after the user taps the globe there, while that tap
+ * is still being saved.
+ *
+ * localStorage is a first-paint cache and the signed-out preference, not
+ * an override. Before the profile arrives (and on the login page) the
+ * order is: cached value → the browser's preferred languages
+ * (navigator.languages — the signal Wikipedia/Google use; IP geolocation
+ * answers "what country", not "what language") → English.
  *
  * Arabic flips the whole document to RTL (`dir` on <html>), the way a
  * native Arabic site reads. i18next (rather than hand-rolled lookup)
@@ -66,31 +72,59 @@ function applyDocumentAttrs(code: string) {
   document.documentElement.dir = code === 'ar' ? 'rtl' : 'ltr'
 }
 
-/** Switch the UI language now. persistLocal=false is for profile sync,
- * where the account value must NOT become a device-level override. */
+/** When the user last changed the language ON THIS DEVICE. For the few
+ * seconds it takes their tap to reach the profile, a profile read from
+ * before the tap may still land here — and must not bounce them back. */
+let lastExplicitChangeAt = 0
+const EXPLICIT_GRACE_MS = 15_000
+
+/** Test-only: module state survives between tests, and a globe tap in one
+ * test must not hold the grace window open for the next. */
+export function __resetUiLanguageSyncForTests() {
+  lastExplicitChangeAt = 0
+}
+
+/** Switch the UI language now. `explicit` marks a user decision (the
+ * globe) as opposed to the profile sync following the account. */
 export function applyUiLanguage(
   code: string,
-  { persistLocal = true }: { persistLocal?: boolean } = {},
+  { explicit = true }: { explicit?: boolean } = {},
 ) {
   if (!SUPPORTED.has(code)) return
-  if (persistLocal) {
-    try {
-      localStorage.setItem(STORAGE_KEY, code)
-    } catch {
-      // Private-mode storage failures never block the switch itself.
-    }
+  if (explicit) lastExplicitChangeAt = Date.now()
+  try {
+    localStorage.setItem(STORAGE_KEY, code)
+  } catch {
+    // Private-mode storage failures never block the switch itself.
   }
   void i18n.changeLanguage(code)
   applyDocumentAttrs(code)
 }
 
-/** Called when the signed-in profile arrives: an explicit choice on THIS
- * device wins; otherwise the account's saved language follows the user
- * here. Unknown/absent values are ignored (older backend, 'en' default). */
+/** Called when the signed-in profile arrives: the ACCOUNT wins.
+ *
+ * This used to defer to any stored device choice, which split accounts
+ * across devices permanently — and worse, split the device from the
+ * server: the backend derives the help language for review cards from
+ * ui_language, so the server was translating for the account's language
+ * while the screen showed the device's. One authority ends both.
+ *
+ * The cache is updated too, so the next first paint on this device is
+ * already right. Unknown/absent values are ignored (older backend).
+ */
 export function syncUiLanguageFromProfile(uiLanguage: string | null | undefined) {
-  if (storedChoice()) return
-  if (uiLanguage && SUPPORTED.has(uiLanguage) && uiLanguage !== i18n.language) {
-    applyUiLanguage(uiLanguage, { persistLocal: false })
+  if (!uiLanguage || !SUPPORTED.has(uiLanguage)) return
+  // A globe tap made seconds ago on THIS device outranks a profile read
+  // that may predate it; the tap's own save then makes the two agree.
+  if (Date.now() - lastExplicitChangeAt < EXPLICIT_GRACE_MS) return
+  if (uiLanguage !== i18n.language) {
+    applyUiLanguage(uiLanguage, { explicit: false })
+  } else {
+    try {
+      localStorage.setItem(STORAGE_KEY, uiLanguage)
+    } catch {
+      // cache only
+    }
   }
 }
 

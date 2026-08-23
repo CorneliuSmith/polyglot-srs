@@ -3137,3 +3137,27 @@ class TestGeneralFeedbackOnTheMap:
             {"id": "a", "total": 4,
              "counts": {"notes": 4, "app_feedback": 0, "ai_translations": 0}},
         ]
+
+
+class TestPromptRotation:
+    """Beta report, verbatim: "Every time it's been the exact same thing."
+
+    "Can't tell" records no recommendation, so ORDER BY created_at re-served
+    the oldest pending item to a confused tester at every check-in — while
+    the done screen promised a different card next time. The pick now
+    shuffles per (user, hour) instead of sorting by age.
+    """
+
+    async def test_the_pick_shuffles_instead_of_sorting_by_age(self):
+        from backend.repositories.contributor import pick_review_prompt
+
+        conn = AsyncMock()
+        conn.fetchrow = AsyncMock(return_value=None)
+        await pick_review_prompt(
+            conn, "u1", all_languages=True, language_ids=[],
+        )
+        for call in conn.fetchrow.await_args_list:
+            sql = call.args[0]
+            assert "md5(" in sql
+            assert "ORDER BY ds.created_at" not in sql
+            assert "ORDER BY es.created_at" not in sql

@@ -14,11 +14,14 @@ to the Tutor, Reader, and (via level-seated decks) the Gym.
 from __future__ import annotations
 
 import json
+import logging
 
-from anthropic import AsyncAnthropic
+from anthropic import AsyncAnthropic, BadRequestError
 
 from backend.config import get_settings
 from backend.services.models import resolve_model
+
+logger = logging.getLogger(__name__)
 
 # A paragraph, not a sentence or two. 500 chars capped the sample below the
 # length at which real complexity shows up — subordination, tense contrast,
@@ -87,30 +90,58 @@ async def assess_writing(
         }
 
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
-    resp = await client.messages.create(
-        model=model or resolve_model("semantic_check", language_code),
-        max_tokens=512,
-        system=(
-            f"You place ONE free-writing sample by a learner of "
-            f"{language_name}. Judge only what the sample demonstrates: the "
-            f"CEFR level of their strongest CORRECT production (not their "
-            f"mistakes — a B1 writer with typos is still B1), one "
-            f"encouraging English sentence about what they can already do, "
-            f"and up to 3 structures to focus on next.\n\n"
-            f"Judge COMPLEXITY, not just correctness: subordination, tense "
-            f"and aspect contrast, discourse connectives, register control "
-            f"and idiom are what separate B2 from C1 and above. A learner "
-            f"who writes several clause types accurately across a paragraph "
-            f"is showing more than one who writes ten flawless simple "
-            f"sentences.\n\n"
-            f"Cap honestly at what the sample SHOWS. A sentence or two "
-            f"cannot demonstrate above B2 however clean it is — say so in "
-            f"the notes rather than inferring. A full paragraph that "
-            f"genuinely sustains complex structure may reach C1 or C2."
-        ),
-        messages=[{"role": "user", "content": text}],
-        output_config={"format": {"type": "json_schema", "schema": _SCHEMA}},
+    call_model = model or resolve_model("semantic_check", language_code)
+    system = (
+        f"You place ONE free-writing sample by a learner of "
+        f"{language_name}. Judge only what the sample demonstrates: the "
+        f"CEFR level of their strongest CORRECT production (not their "
+        f"mistakes — a B1 writer with typos is still B1), one "
+        f"encouraging English sentence about what they can already do, "
+        f"and up to 3 structures to focus on next.\n\n"
+        f"Judge COMPLEXITY, not just correctness: subordination, tense "
+        f"and aspect contrast, discourse connectives, register control "
+        f"and idiom are what separate B2 from C1 and above. A learner "
+        f"who writes several clause types accurately across a paragraph "
+        f"is showing more than one who writes ten flawless simple "
+        f"sentences.\n\n"
+        f"Cap honestly at what the sample SHOWS. A sentence or two "
+        f"cannot demonstrate above B2 however clean it is — say so in "
+        f"the notes rather than inferring. A full paragraph that "
+        f"genuinely sustains complex structure may reach C1 or C2."
     )
+
+    async def _ask(structured: bool):
+        kwargs: dict = {
+            "model": call_model,
+            "max_tokens": 512,
+            "system": system if structured else (
+                system + "\n\nReply with ONLY a JSON object, no prose and "
+                'no code fences: {"level": one of '
+                f"{CEFR_LEVELS}"
+                ', "notes": string, "focus": [up to 3 strings]}'
+            ),
+            "messages": [{"role": "user", "content": text}],
+        }
+        if structured:
+            kwargs["output_config"] = {
+                "format": {"type": "json_schema", "schema": _SCHEMA}
+            }
+        return await client.messages.create(**kwargs)
+
+    try:
+        resp = await _ask(structured=True)
+    except BadRequestError:
+        # The task-#115 lesson, relearned here: a model tier that doesn't
+        # accept output_config 400s BEFORE it ever reads the sample, so
+        # every real submission died on "Couldn't assess that" while the
+        # dev-mock unit tests stayed green. Structured output is an
+        # optimization, never a dependency — the same judgement retries as
+        # plain JSON.
+        logger.warning(
+            "writing baseline: structured output rejected, retrying as "
+            "plain JSON (model=%s)", call_model, exc_info=True,
+        )
+        resp = await _ask(structured=False)
     usage = getattr(resp, "usage", None)
     counts = {
         "input_tokens": getattr(usage, "input_tokens", 0) or 0,
@@ -118,7 +149,10 @@ async def assess_writing(
         "cache_write_tokens": getattr(usage, "cache_creation_input_tokens", 0) or 0,
         "cache_read_tokens": getattr(usage, "cache_read_input_tokens", 0) or 0,
     }
-    raw = next((b.text for b in resp.content if b.type == "text"), "{}")
+    raw = next((b.text for b in resp.content if b.type == "text"), "{}").strip()
+    # The plain-JSON path sometimes arrives fenced despite instructions.
+    if raw.startswith("```") and "{" in raw and "}" in raw:
+        raw = raw[raw.index("{"): raw.rindex("}") + 1]
     try:
         parsed = json.loads(raw)
     except (json.JSONDecodeError, TypeError):

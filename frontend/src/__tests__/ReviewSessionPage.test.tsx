@@ -31,6 +31,13 @@ vi.mock('../api/review', () => ({
 // locale is part of its key — see the C3 note in ReviewSessionPage), so
 // the profile must answer deterministically here rather than by whatever
 // a jsdom network error happens to do.
+vi.mock('../api/audio', async (orig) => ({
+  ...(await orig<typeof import('../api/audio')>()),
+  // prefetch warms a cache; getTTSUrl is what the on-correct autoplay
+  // actually fetches — mocked apart so the tests can tell them apart.
+  prefetchTTS: vi.fn(),
+  getTTSUrl: vi.fn(() => Promise.resolve(null)),
+}))
 vi.mock('../api/profile', async (orig) => ({
   ...(await orig<typeof import('../api/profile')>()),
   getLanguages: vi.fn(() => Promise.resolve([])),
@@ -63,6 +70,8 @@ import {
   submitReview,
 } from '../api/review'
 import { generateGymDrills } from '../api/gym'
+import { getTTSUrl } from '../api/audio'
+import { getProfile } from '../api/profile'
 import { usePrefsStore } from '../stores/prefsStore'
 
 const mockGenerateGymDrills = generateGymDrills as ReturnType<typeof vi.fn>
@@ -1033,5 +1042,68 @@ describe('leaving the Trailblazer wait', () => {
 
     await screen.findByRole('textbox')
     expect(mockGetDueCards).toHaveBeenCalledTimes(1)
+  })
+})
+
+
+describe('sentence audio on a correct answer', () => {
+  const mockTTS = getTTSUrl as ReturnType<typeof vi.fn>
+  const mockGetProfile = getProfile as ReturnType<typeof vi.fn>
+
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockUsePrefsStore.mockImplementation(
+      (selector: (s: { activeLanguageId: string }) => unknown) =>
+        selector({ activeLanguageId: 'lang-123' }),
+    )
+    mockGetDueCards.mockResolvedValue([testCard])
+    mockValidateAnswer.mockResolvedValue(mockValidateResponse)
+    mockSubmitReview.mockResolvedValue(mockSubmitResponse)
+    mockTTS.mockResolvedValue(null)
+    // clearAllMocks clears calls, not implementations — without this, one
+    // test's off-profile would leak into the next.
+    mockGetProfile.mockResolvedValue({ support_locale: null, ui_language: 'en' })
+  })
+
+  async function submit(value = 'goes') {
+    renderWithProviders(<ReviewSessionPage />)
+    await waitFor(() => screen.getByRole('textbox'))
+    const input = screen.getByRole('textbox')
+    fireEvent.change(input, { target: { value } })
+    fireEvent.keyDown(input, { key: 'Enter' })
+    await waitFor(() => expect(mockValidateAnswer).toHaveBeenCalled())
+  }
+
+  it('reads the FULL sentence, blank filled in, when the answer is right', async () => {
+    await submit()
+    await waitFor(() =>
+      expect(mockTTS).toHaveBeenCalledWith('en', 'She goes to the market.'),
+    )
+  })
+
+  it('stays quiet on a wrong answer — that screen is a correction to read', async () => {
+    mockValidateAnswer.mockResolvedValue({
+      answer_result: 'wrong',
+      feedback: null,
+    })
+    await submit('go')
+    expect(mockTTS).not.toHaveBeenCalled()
+  })
+
+  it('the account can turn it off, and off means no fetch at all', async () => {
+    mockGetProfile.mockResolvedValue({
+      support_locale: null,
+      ui_language: 'en',
+      sentence_audio_on_correct: false,
+    })
+    await submit()
+    expect(mockTTS).not.toHaveBeenCalled()
+  })
+
+  it('an older backend that lacks the setting reads as on', async () => {
+    // The feature is the default, the toggle is the escape — and migration
+    // 20261001 not being applied must not silently disable it.
+    await submit()
+    await waitFor(() => expect(mockTTS).toHaveBeenCalled())
   })
 })

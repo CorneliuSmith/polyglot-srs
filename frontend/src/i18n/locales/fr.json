@@ -1124,6 +1124,10 @@
       "desc": "Certains comptes voient un changement en cours de test. Vous pouvez revenir en arrière quand vous voulez.",
       "saveError": "Impossible de changer pour le moment.",
       "feedback": "Dites-nous ce que vous en pensez via le bouton ? en haut de n'importe quelle page — votre message indique quelle version vous aviez."
+    },
+    "sentenceAudio": {
+      "title": "Écoutez la phrase quand vous avez juste",
+      "desc": "Après une bonne réponse, la phrase complète est lue à voix haute pour que vous l'entendiez en entier. S'applique sur tous vos appareils."
     }
   },
   "feedback": {

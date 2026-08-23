@@ -250,6 +250,7 @@ export default function SettingsPage() {
       weekly_digest_opt_in?: boolean
       weekly_digest_dow?: number
       allow_explicit_content?: boolean
+      sentence_audio_on_correct?: boolean
     }) => updateProfile(patch),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['profile'] }),
   })
@@ -824,6 +825,54 @@ export default function SettingsPage() {
                   className={
                     'inline-block h-5 w-5 transform rounded-full bg-white transition-transform ' +
                     (profile?.allow_explicit_content
+                      ? 'translate-x-5'
+                      : 'translate-x-1')
+                  }
+                />
+              </button>
+            </div>
+          </section>
+
+          {/* Sentence audio on a correct answer (owner request). Account-
+              level so every device behaves the same; on by default, this is
+              the off switch. */}
+          <section
+            className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3"
+            data-testid="sentence-audio"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h2 className="font-semibold text-gray-800">
+                  {t('settings.sentenceAudio.title')}
+                </h2>
+                <p className="text-xs text-gray-500">
+                  {t('settings.sentenceAudio.desc')}
+                </p>
+              </div>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={profile?.sentence_audio_on_correct ?? true}
+                aria-label={t('settings.sentenceAudio.title')}
+                disabled={reminderMutation.isPending}
+                onClick={() =>
+                  reminderMutation.mutate({
+                    sentence_audio_on_correct: !(
+                      profile?.sentence_audio_on_correct ?? true
+                    ),
+                  })
+                }
+                className={
+                  'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
+                  ((profile?.sentence_audio_on_correct ?? true)
+                    ? 'bg-lang'
+                    : 'bg-gray-300')
+                }
+              >
+                <span
+                  className={
+                    'inline-block h-5 w-5 transform rounded-full bg-white transition-transform ' +
+                    ((profile?.sentence_audio_on_correct ?? true)
                       ? 'translate-x-5'
                       : 'translate-x-1')
                   }

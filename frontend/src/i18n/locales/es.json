@@ -1124,6 +1124,10 @@
       "desc": "Algunas cuentas ven un cambio que estamos probando. Puedes volver atrás cuando quieras.",
       "saveError": "No se pudo cambiar ahora mismo.",
       "feedback": "Cuéntanos qué tal desde el botón ? de cualquier página: tu mensaje registra qué versión estabas viendo."
+    },
+    "sentenceAudio": {
+      "title": "Escucha la frase cuando aciertas",
+      "desc": "Tras una respuesta correcta, la frase completa se lee en voz alta para que la oigas entera. Se aplica en todos tus dispositivos."
     }
   },
   "feedback": {
