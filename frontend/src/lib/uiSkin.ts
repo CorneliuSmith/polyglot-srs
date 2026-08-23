@@ -19,12 +19,29 @@
 /** The skin that needs no attribute — what the app has always looked like. */
 export const DEFAULT_SKIN = 'classic'
 
+const EDITORIAL_FONT_ID = 'ui-skin-editorial-font'
+
+/** The Editorial (A) skin's serif, fetched only when someone is actually
+ * wearing it — a CSS @import would make every Classic user pay for a font
+ * they never see. Idempotent; left in place on switch-away (it's cached,
+ * and removing it would flash anyone toggling back and forth). */
+function ensureEditorialFont(): void {
+  if (document.getElementById(EDITORIAL_FONT_ID)) return
+  const link = document.createElement('link')
+  link.id = EDITORIAL_FONT_ID
+  link.rel = 'stylesheet'
+  link.href =
+    'https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600;7..72,700&display=swap'
+  document.head.appendChild(link)
+}
+
 export function applyUiSkin(variant: string | null | undefined): void {
   const root = document.documentElement
   if (!variant || variant === DEFAULT_SKIN) {
     root.removeAttribute('data-ui')
     return
   }
+  if (variant === 'editorial') ensureEditorialFont()
   root.setAttribute('data-ui', variant)
 }
 

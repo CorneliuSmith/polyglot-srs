@@ -58,6 +58,9 @@ export interface ChoosableExperiment {
   description: string | null
   variants: { key: string; label: string }[]
   current: string
+  /** False when the admin chooses for the account: the section still shows
+   *  what this account is on, with the feedback box — just no switch. */
+  learner_choice: boolean
 }
 
 export async function getMyExperiments(): Promise<ChoosableExperiment[]> {

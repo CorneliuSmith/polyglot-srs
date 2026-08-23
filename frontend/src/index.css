@@ -268,3 +268,108 @@ body {
 html[data-ui="flat"]:not(.dark) {
   --color-gray-50: #efefea;
 }
+
+/* ── Visual direction: "editorial" (experiment ui_skin) ────────────────────
+   The Editorial Grammar sample from the direction review: the character
+   lives in the TYPE. One token — --font-sans feeds --default-font-family,
+   which faces the whole page — turns the app into a book about a language;
+   shadows go (a text face does the work elevation was doing), borders stay
+   visible, and the light ground warms to paper. Same removability contract
+   as "flat": delete this block and the app is back to Classic.
+
+   Literata itself is injected as a <link> by lib/uiSkin.ts ONLY when this
+   skin is applied — a CSS @import here would make every Classic user pay
+   for a font they never see. The stack ends in Georgia/serif so the skin
+   still reads as itself while the webfont loads, or if it never does. */
+[data-ui="editorial"] {
+  --font-sans: Literata, Georgia, 'Times New Roman', serif;
+  --radius-2xl: 0.75rem;
+}
+
+[data-ui="editorial"] .shadow-sm,
+[data-ui="editorial"] .shadow,
+[data-ui="editorial"] .shadow-md,
+[data-ui="editorial"] .shadow-lg {
+  --tw-shadow: 0 0 #0000;
+}
+
+[data-ui="editorial"] .border-gray-100 {
+  border-color: var(--color-gray-200);
+}
+
+/* Paper, not blue-grey — the ground a serif page expects. Light only, for
+   the same reason as "flat": the dark ramp is a deliberate set. */
+html[data-ui="editorial"]:not(.dark) {
+  --color-gray-50: #fcfbf7;
+}
+
+/* ── Visual direction: "editorial" (A — experiment ui_skin) ────────────────
+   The Editorial Grammar sample from the direction review: the character
+   lives in the TYPE. One token — --font-sans feeds --default-font-family,
+   which faces the whole page — turns the app into a book about a language;
+   shadows go (a text face does the work elevation was doing) and the light
+   ground warms to paper. Same removability contract as "flat": delete this
+   block and the app is back to Classic.
+
+   Literata itself is injected as a <link> by lib/uiSkin.ts ONLY when this
+   skin is applied — a CSS @import here would make every Classic user pay
+   for a font they never see. The stack ends in Georgia/serif so the skin
+   still reads as itself while the webfont loads, or if it never does. */
+[data-ui="editorial"] {
+  --font-sans: Literata, Georgia, 'Times New Roman', serif;
+  --radius-2xl: 0.75rem;
+}
+
+[data-ui="editorial"] .shadow-sm,
+[data-ui="editorial"] .shadow,
+[data-ui="editorial"] .shadow-md,
+[data-ui="editorial"] .shadow-lg {
+  --tw-shadow: 0 0 #0000;
+}
+
+[data-ui="editorial"] .border-gray-100 {
+  border-color: var(--color-gray-200);
+}
+
+/* Paper, not blue-grey — the ground a serif page expects. Light only, for
+   the same reason as "flat": the dark ramp is a deliberate set. */
+html[data-ui="editorial"]:not(.dark) {
+  --color-gray-50: #fcfbf7;
+}
+
+/* ── Visual direction: "ground" (C — experiment ui_skin) ───────────────────
+   Language as Ground: the app already computes a palette from every
+   course's flag and spends it on chips — this skin spends it on the ROOM.
+   The page ground takes the active language's color (mixed far toward the
+   page so Catalan yellow and Spanish indigo are both quiet), and the white
+   cards float on it. Studying Korean and studying Portuguese FEEL
+   different, from something the app already has.
+
+   The mix ratio is the safety: 10% of the strongest flag hue into white
+   stays a tint every gray text tone passes contrast on, and the dark mix
+   leans on the same dark ground the ramp was designed around. */
+html[data-ui="ground"]:not(.dark) {
+  --color-gray-50: color-mix(in srgb, var(--lang-primary) 10%, #ffffff);
+  --color-gray-100: color-mix(in srgb, var(--lang-primary) 14%, #f3f4f6);
+}
+html.dark[data-ui="ground"] {
+  --color-gray-50: color-mix(in srgb, var(--lang-primary) 16%, #111623);
+}
+
+/* ── Visual direction: "focus" (D — experiment ui_skin) ────────────────────
+   One Thing at a Time, scoped to where "one thing" exists: study sessions.
+   The sentence being drilled gets markedly larger and everything around
+   it goes quiet (no elevation anywhere, softer chrome). The dashboards are
+   deliberately untouched — the full D from the direction review is a
+   layout decision, and this skin is its honest token-level slice. */
+[data-ui="focus"] .drill-sentence {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+
+[data-ui="focus"] .shadow-sm,
+[data-ui="focus"] .shadow,
+[data-ui="focus"] .shadow-md,
+[data-ui="focus"] .shadow-lg {
+  --tw-shadow: 0 0 #0000;
+}

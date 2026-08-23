@@ -1123,7 +1123,12 @@
       "title": "Estás probando algo nuevo",
       "desc": "Algunas cuentas ven un cambio que estamos probando. Puedes volver atrás cuando quieras.",
       "saveError": "No se pudo cambiar ahora mismo.",
-      "feedback": "Cuéntanos qué tal desde el botón ? de cualquier página: tu mensaje registra qué versión estabas viendo."
+      "feedback": "¿Qué te parece esta versión? Una frase aquí nos llega directamente, etiquetada con la versión que estabas viendo.",
+      "placeholder": "Qué funciona, qué no…",
+      "send": "Enviar",
+      "sending": "Enviando…",
+      "sent": "Enviado — gracias. Tu nota llegó etiquetada con la versión que estabas viendo.",
+      "sendError": "No se pudo enviar — inténtalo de nuevo."
     },
     "sentenceAudio": {
       "title": "Escucha la frase cuando aciertas",
