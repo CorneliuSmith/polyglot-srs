@@ -3123,23 +3123,28 @@ async def assign_experiment_endpoint(
                     "run `supabase db push` (check /api/health/schema)"
                 ),
             )
-        target = await find_user_by_email(conn, body.email)
-        if target is None:
+        # find_user_by_email returns the bare id string (see the roles
+        # endpoint above, its other caller). This used to index into it
+        # like a dict — TypeError, an unhandled 500, and the owner's very
+        # first assignment attempt failed with "Could not assign that."
+        # The test had mocked the lookup with a dict, so it agreed with
+        # the bug instead of catching it.
+        target_id = await find_user_by_email(conn, body.email)
+        if target_id is None:
             raise HTTPException(status_code=404, detail="No account with that email")
         if body.variant is None:
-            await clear_assignment(conn, target["id"], body.key)
-            return {"user_id": target["id"], "variant": None}
+            await clear_assignment(conn, target_id, body.key)
+            return {"user_id": target_id, "variant": None}
         known = {v["key"] for v in experiment["variants"]}
         if body.variant not in known:
             raise HTTPException(
                 status_code=422, detail=f"Unknown variant: {body.variant}"
             )
         await assign_variant(
-            conn, target["id"], body.key, body.variant,
+            conn, target_id, body.key, body.variant,
             source="admin", note=body.note,
         )
-    return {"user_id": target["id"], "email": target["email"],
-            "variant": body.variant}
+    return {"user_id": target_id, "email": body.email, "variant": body.variant}
 
 
 @router.get("/notifications")
