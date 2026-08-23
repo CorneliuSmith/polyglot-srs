@@ -15,6 +15,7 @@ vi.mock('../api/contribute', () => ({
     }),
   ),
   getAnalyticsTimeseries: vi.fn(() => Promise.resolve([])),
+  getFeaturePopularity: vi.fn(() => Promise.resolve([])),
   // The rollouts panel sits on the Admin tab.
   getExperiments: vi.fn(() => Promise.resolve([])),
   updateExperiment: vi.fn(),
@@ -151,6 +152,15 @@ const basePoint = {
 }
 
 async function openTab(name: 'Contribute' | 'Review' | 'Admin') {
+  fireEvent.click(await screen.findByRole('tab', { name }))
+}
+
+/** The Admin tab shows one section at a time (Insights by default) — most
+ * admin panels need their section pill clicked first. */
+async function openAdminSection(
+  name: 'Insights' | 'Languages' | 'Content' | 'People' | 'Rollouts' | 'Costs',
+) {
+  await openTab('Admin')
   fireEvent.click(await screen.findByRole('tab', { name }))
 }
 
@@ -336,7 +346,7 @@ describe('ContributorPage', () => {
       is_admin: true, points: [], review_policy: 'strict', tutor_model: null,
     })
     renderPage()
-    await openTab('Admin')
+    await openAdminSection('Languages')
 
     const select = (await screen.findByLabelText('Tutor model')) as HTMLSelectElement
     expect(select.value).toBe('') // default (server setting)
@@ -348,6 +358,28 @@ describe('ContributorPage', () => {
         'lang-tr', 'claude-sonnet-5', undefined,
       )
     })
+  })
+
+  it('the Admin tab is sectioned — one panel group at a time, Insights first', async () => {
+    // Owner: "the admin page needs to be organized". Eleven stacked panels
+    // became six pills; what's not in the open section isn't rendered.
+    mockGetGrammar.mockResolvedValue({
+      is_admin: true, points: [], review_policy: 'strict', tutor_model: null,
+    })
+    renderPage()
+    await openTab('Admin')
+    // Insights is the landing section: charts up, controls elsewhere.
+    expect(await screen.findByTestId('analytics')).toBeDefined()
+    expect(screen.queryByRole('button', { name: /manage accounts/i })).toBeNull()
+    expect(screen.queryByText(/nothing set up yet/i)).toBeNull()
+
+    fireEvent.click(screen.getByRole('tab', { name: 'People' }))
+    expect(await screen.findByRole('button', { name: /manage accounts/i })).toBeDefined()
+    expect(screen.queryByTestId('analytics')).toBeNull()
+
+    fireEvent.click(screen.getByRole('tab', { name: 'Rollouts' }))
+    expect(await screen.findByText(/nothing set up yet/i)).toBeDefined()
+    expect(screen.queryByRole('button', { name: /manage accounts/i })).toBeNull()
   })
 
   it('admin sees the cost monitor with priced rows', async () => {
@@ -376,7 +408,7 @@ describe('ContributorPage', () => {
       is_admin: true, points: [], review_policy: 'strict', tutor_model: null,
     })
     renderPage()
-    await openTab('Admin')
+    await openAdminSection('Costs')
 
     const panel = await screen.findByTestId('tutor-costs')
     expect(panel.textContent).toContain('Turkish')
@@ -439,7 +471,7 @@ describe('ContributorPage', () => {
       is_admin: true, points: [], review_policy: 'strict', tutor_model: null,
     })
     renderPage()
-    await openTab('Admin')
+    await openAdminSection('Costs')
 
     const panel = await screen.findByTestId('tutor-costs')
     // Kinds read as features rather than as column values from the database.
@@ -494,7 +526,7 @@ describe('ContributorPage', () => {
     mockGrant.mockResolvedValue(undefined)
     mockRevoke.mockResolvedValue(undefined)
     renderPage()
-    await openTab('Admin')
+    await openAdminSection('People')
 
     fireEvent.click(await screen.findByRole('button', { name: /manage accounts/i }))
     const table = await screen.findByTestId('accounts-table')
@@ -546,7 +578,7 @@ describe('ContributorPage', () => {
       is_admin: true, points: [], review_policy: 'strict', tutor_model: null,
     })
     renderPage()
-    await openTab('Admin')
+    await openAdminSection('People')
 
     fireEvent.click(await screen.findByRole('button', { name: /manage accounts/i }))
     // Current state renders: enabled + its cap.
@@ -594,7 +626,7 @@ describe('ContributorPage', () => {
     })
     try {
       renderPage()
-    await openTab('Admin')
+      await openAdminSection('People')
       fireEvent.click(
         await screen.findByRole('button', { name: /manage accounts/i }),
       )

@@ -42,6 +42,7 @@ from backend.repositories.contributor import (
     admin_engagement,
     admin_engagement_user_detail,
     admin_engagement_users,
+    admin_feature_popularity,
     admin_timeseries,
     approve_explanation,
     approve_suggestion,
@@ -1794,6 +1795,21 @@ async def analytics_cohorts(
     await _require_admin(user["id"])
     async with privileged_connection() as conn:
         return {"cohorts": await admin_cohorts(conn, 8)}
+
+
+@router.get("/analytics/features")
+async def analytics_features(
+    days: int = 30,
+    user: dict = Depends(get_current_user),
+):
+    """Feature popularity (admin): distinct users and event counts per
+    feature in the window — which features are actually pulling their
+    weight, on one comparable scale."""
+    await _require_admin(user["id"])
+    days = max(1, min(days, 365))
+    async with privileged_connection() as conn:
+        return {"days": days,
+                "features": await admin_feature_popularity(conn, days)}
 
 
 @router.get("/engagement/users/{user_id}")

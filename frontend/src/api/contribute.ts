@@ -262,7 +262,9 @@ export interface Engagement {
   tutor_messages: number
   readings: number
   cards_started: number
-  feature_users: { review: number; tutor: number; reader: number }
+  speak_sessions: number
+  speak_turns: number
+  feature_users: { review: number; tutor: number; reader: number; speak: number }
   top_languages: { code: string; name: string; learners: number; cards: number }[]
 }
 
@@ -277,6 +279,7 @@ export interface EngagementUser {
   readings: number
   cards_started: number
   cards_total: number
+  speak_sessions: number
   languages: string[]
 }
 
@@ -318,6 +321,26 @@ export async function getAnalyticsCohorts(): Promise<RetentionCohort[]> {
   return response.data.cohorts
 }
 
+export interface FeaturePopularity {
+  key: string
+  label: string
+  /** What one event IS ("messages", "conversations") — rendered next to the
+   * count so the panel never says "1,204 events" about anything. */
+  unit: string
+  users: number
+  events: number
+}
+
+export async function getFeaturePopularity(
+  days = 30,
+): Promise<FeaturePopularity[]> {
+  const response = await apiClient.get<{
+    days: number
+    features: FeaturePopularity[]
+  }>('/api/contribute/analytics/features', { params: { days } })
+  return response.data.features
+}
+
 export interface EngagementUserLanguage {
   code: string
   name: string
@@ -326,6 +349,7 @@ export interface EngagementUserLanguage {
   review_minutes: number
   tutor_messages: number
   readings: number
+  speak_sessions: number
   last_review: string | null
 }
 
