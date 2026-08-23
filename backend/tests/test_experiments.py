@@ -292,6 +292,38 @@ class TestLearnerEndpoints:
         offered = resp.json()["experiments"]
         assert [e["key"] for e in offered] == ["ui_skin"]
         assert offered[0]["current"] == "flat"
+        assert offered[0]["learner_choice"] is True
+
+    def test_an_assigned_account_is_told_what_it_is_on(self, client):
+        """The owner's mode — "I as admin choose for the account". No
+        switch is offered, but an account placed on a non-default version
+        must still see WHICH one, and have somewhere to say what they
+        think; a tester restyled overnight with no explanation anywhere
+        reports it as a bug."""
+        with patch("backend.routers.auth.list_experiments",
+                   new=AsyncMock(return_value=[
+                       _experiment(learner_choice=False),
+                   ])), \
+             patch("backend.routers.auth.resolve_variants",
+                   new=AsyncMock(return_value={"ui_skin": "flat"})):
+            resp = client.get("/api/auth/experiments", headers=_auth_headers())
+        offered = resp.json()["experiments"]
+        assert [e["key"] for e in offered] == ["ui_skin"]
+        assert offered[0]["current"] == "flat"
+        assert offered[0]["learner_choice"] is False
+
+    def test_an_assigned_experiment_stays_invisible_on_the_default(self, client):
+        """Admin-chosen mode, account on Classic: nothing new to tell them
+        about, so nothing renders — the section must not announce an
+        experiment to the people it doesn't affect."""
+        with patch("backend.routers.auth.list_experiments",
+                   new=AsyncMock(return_value=[
+                       _experiment(learner_choice=False),
+                   ])), \
+             patch("backend.routers.auth.resolve_variants",
+                   new=AsyncMock(return_value={"ui_skin": "classic"})):
+            resp = client.get("/api/auth/experiments", headers=_auth_headers())
+        assert resp.json()["experiments"] == []
 
     def test_choosing_a_variant_records_it_as_their_own_choice(self, client):
         with patch("backend.routers.auth.get_experiment",

@@ -292,6 +292,35 @@ describe('the A/B/C/D lineup', () => {
 })
 
 
+describe('the admin chooses for the account', () => {
+  beforeEach(() => vi.clearAllMocks())
+
+  it('shows what the account is on, offers no switch, keeps the feedback box', async () => {
+    mockMine.mockResolvedValue([
+      { ...EXPERIMENT, learner_choice: false, current: 'flat' },
+    ])
+    renderWithQuery(<AppearanceTrial />)
+    expect(
+      await screen.findByTestId('trial-assigned-ui_skin'),
+    ).toHaveTextContent('Flat (ink borders)')
+    // No switch buttons the server would refuse anyway…
+    expect(screen.queryByTestId('trial-ui_skin-classic')).toBeNull()
+    expect(screen.queryByTestId('trial-ui_skin-flat')).toBeNull()
+    // …but the sentence is still asked for right here.
+    expect(screen.getByTestId('trial-feedback-note')).toBeInTheDocument()
+  })
+
+  it('still offers the switch when the admin opened it to choice', async () => {
+    mockMine.mockResolvedValue([
+      { ...EXPERIMENT, learner_choice: true, current: 'flat' },
+    ])
+    renderWithQuery(<AppearanceTrial />)
+    expect(await screen.findByTestId('trial-ui_skin-classic')).toBeInTheDocument()
+    expect(screen.queryByTestId('trial-assigned-ui_skin')).toBeNull()
+  })
+})
+
+
 describe('feedback from inside the trial', () => {
   const mockSend = sendFeedback as ReturnType<typeof vi.fn>
 

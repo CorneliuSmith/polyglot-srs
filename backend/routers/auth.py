@@ -233,28 +233,40 @@ async def get_profile(user: dict = Depends(get_current_user)):
 
 @router.get("/experiments")
 async def my_experiments(user: dict = Depends(get_current_user)):
-    """The rollouts this person is allowed to switch themselves between.
+    """The rollouts this person should see in Settings.
 
-    Only running experiments an admin has opened to learner choice, so the
-    Settings page never offers a switch the server would refuse — and never
-    reveals an experiment that is still being decided internally.
+    Two ways in, matching the two ways an experiment is run:
+      - learner_choice on: the admin opened it to self-service, so it shows
+        with switch buttons whether or not this account is on the default.
+      - learner_choice off (the admin chooses for the account — the owner's
+        stated mode): it shows ONLY when this account is actually on a
+        non-default variant. They should know they're on a test version and
+        have somewhere to say what they think of it, without being offered
+        a switch the server would refuse — and an account on the default
+        sees nothing, because there is nothing new to tell them about.
+
+    Either way an experiment still being decided internally (enabled=false)
+    is never revealed.
     """
     async with rls_connection(user["id"]) as conn:
         experiments = await list_experiments(conn)
         resolved = await resolve_variants(conn, user["id"])
-    return {
-        "experiments": [
-            {
-                "key": e["key"],
-                "name": e["name"],
-                "description": e["description"],
-                "variants": e["variants"],
-                "current": resolved.get(e["key"], e["default_variant"]),
-            }
-            for e in experiments
-            if e.get("enabled") and e.get("learner_choice")
-        ]
-    }
+    out = []
+    for e in experiments:
+        if not e.get("enabled"):
+            continue
+        current = resolved.get(e["key"], e["default_variant"])
+        if not e.get("learner_choice") and current == e["default_variant"]:
+            continue
+        out.append({
+            "key": e["key"],
+            "name": e["name"],
+            "description": e["description"],
+            "variants": e["variants"],
+            "current": current,
+            "learner_choice": bool(e.get("learner_choice")),
+        })
+    return {"experiments": out}
 
 
 class ExperimentChoice(BaseModel):

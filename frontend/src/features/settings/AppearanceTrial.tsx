@@ -10,14 +10,16 @@ import {
 /**
  * "You're trying something new" — the learner's side of a rollout.
  *
- * Only appears when an admin has both switched an experiment on AND opened
- * it to learner choice, so it is invisible on a normal account and cannot
- * leak a rollout that is still being decided internally.
+ * Appears in two modes, decided by the server (see /api/auth/experiments):
+ * with switch buttons when the admin opened the experiment to learner
+ * choice, and WITHOUT them when the admin chooses for the account (the
+ * owner's mode: "I as admin choose for the account") — then it renders
+ * only for accounts actually placed on a non-default version, telling
+ * them what they're on and asking what they think. Invisible on a normal
+ * account either way; an experiment still being decided never leaks.
  *
- * It exists for the feedback, not for the choice. Someone who can leave
- * says "I switched back because the borders were too heavy"; someone who is
- * stuck says nothing, or says it to a review page. The escape hatch is what
- * makes the answers usable.
+ * Either mode exists for the feedback: the box below sends the sentence
+ * from right here, and the server stamps which version the sender was on.
  *
  * The experiment's own name and its variant labels come from the database
  * and are not in the i18n catalogs — everything around them is. That is the
@@ -81,29 +83,41 @@ export default function AppearanceTrial() {
           {experiment.description && (
             <p className="text-xs text-gray-500">{experiment.description}</p>
           )}
-          <div className="flex flex-wrap gap-2">
-            {experiment.variants.map((variant) => (
-              <button
-                key={variant.key}
-                type="button"
-                disabled={choose.isPending}
-                aria-pressed={experiment.current === variant.key}
-                data-testid={`trial-${experiment.key}-${variant.key}`}
-                onClick={() =>
-                  choose.mutate({ key: experiment.key, variant: variant.key })
-                }
-                className={
-                  'rounded-lg px-4 py-2 text-sm font-medium border ' +
-                  (experiment.current === variant.key
-                    ? 'bg-lang text-white border-lang'
-                    : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50')
-                }
-                style={{ minHeight: '44px' }}
-              >
-                {variant.label}
-              </button>
-            ))}
-          </div>
+          {experiment.learner_choice ? (
+            <div className="flex flex-wrap gap-2">
+              {experiment.variants.map((variant) => (
+                <button
+                  key={variant.key}
+                  type="button"
+                  disabled={choose.isPending}
+                  aria-pressed={experiment.current === variant.key}
+                  data-testid={`trial-${experiment.key}-${variant.key}`}
+                  onClick={() =>
+                    choose.mutate({ key: experiment.key, variant: variant.key })
+                  }
+                  className={
+                    'rounded-lg px-4 py-2 text-sm font-medium border ' +
+                    (experiment.current === variant.key
+                      ? 'bg-lang text-white border-lang'
+                      : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50')
+                  }
+                  style={{ minHeight: '44px' }}
+                >
+                  {variant.label}
+                </button>
+              ))}
+            </div>
+          ) : (
+            /* The admin chose for this account: say which version, offer
+               no switch the server would refuse anyway. */
+            <p
+              className="w-fit rounded-lg border border-lang bg-lang-soft/50 px-4 py-2 text-sm font-medium text-gray-800"
+              data-testid={`trial-assigned-${experiment.key}`}
+            >
+              {experiment.variants.find((v) => v.key === experiment.current)
+                ?.label ?? experiment.current}
+            </p>
+          )}
         </div>
       ))}
       {choose.isError && (
