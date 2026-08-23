@@ -1124,6 +1124,10 @@
       "desc": "Algumas contas estão vendo uma mudança que estamos testando. Você pode voltar quando quiser.",
       "saveError": "Não foi possível mudar agora.",
       "feedback": "Conte como está indo pelo botão ? no topo de qualquer página — sua mensagem registra qual versão você estava vendo."
+    },
+    "sentenceAudio": {
+      "title": "Ouça a frase quando você acerta",
+      "desc": "Após uma resposta correta, a frase completa é lida em voz alta para você ouvi-la inteira. Vale em todos os seus dispositivos."
     }
   },
   "feedback": {

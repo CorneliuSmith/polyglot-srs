@@ -36,7 +36,7 @@ import { hintLayersFor, safePrompt } from './hintLayers'
 import TranslateMyCards from './TranslateMyCards'
 import SpeakButton from '../../components/SpeakButton'
 import FormsPanel from '../../components/FormsPanel'
-import { TTS_LANGUAGES, prefetchTTS } from '../../api/audio'
+import { TTS_LANGUAGES, getTTSUrl, prefetchTTS } from '../../api/audio'
 import LearningTip from '../tips/LearningTip'
 import { hasKeyboardLayout } from '../keyboards/OnScreenKeyboard'
 import type { KeyboardLanguage } from '../keyboards/OnScreenKeyboard'
@@ -182,6 +182,13 @@ function ReviewSessionInner({
   // "learning English from" language then genuinely re-keys and refetches
   // the localized cards, instead of racing an invalidate + remount.
   const profileQuery = useQuery({ queryKey: ['profile'], queryFn: getProfile })
+  // Account setting (owner: "read the full sentence audio when users get
+  // the answer correct. Accounts should be able to turn this off."), so it
+  // behaves the same on every device the account is opened on. Absent —
+  // older backend, migration 20261001 not applied — reads as ON: the
+  // feature is the default, the toggle is the escape.
+  const sentenceAudioOnCorrect =
+    profileQuery.data?.sentence_audio_on_correct ?? true
   const profile = profileQuery.data
   // Resolved means settled, not succeeded: a failed profile fetch degrades
   // to the 'en' default rather than stranding the session behind the gate.
@@ -494,6 +501,28 @@ function ReviewSessionInner({
       setLastInput(variables.user_input)
       session.setValidationResult(result)
       setUserInput('')
+      // Read the whole sentence aloud on a fully correct answer — the one
+      // moment the learner can just listen, no longer hunting for the
+      // word. The clip was prefetched while they typed, so this is a cache
+      // hit; a browser that refuses the autoplay stays quiet and the play
+      // button on the feedback screen still works. 'correct' only: an
+      // amber "almost" screen is still a correction to read.
+      const said = session.currentCard
+      if (
+        sentenceAudioOnCorrect &&
+        result.answer_result === 'correct' &&
+        said &&
+        TTS_LANGUAGES.has(said.language_code)
+      ) {
+        const full = said.sentence.includes('{{answer}}')
+          ? said.sentence.replace('{{answer}}', said.correct_answer)
+          : said.correct_answer
+        void getTTSUrl(said.language_code, full)
+          .then((url) => {
+            if (url) void new Audio(url).play().catch(() => {})
+          })
+          .catch(() => {})
+      }
       // Gym only: fold this answer into the learner's per-drill history so
       // selection can adapt. Fire-and-forget; ungraded, never blocks the UI.
       // used_hint reflects whether optional help was on when they answered

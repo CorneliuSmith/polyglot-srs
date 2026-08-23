@@ -661,6 +661,48 @@ class TestPlacementTransparency:
         validator.assert_not_called()
 
 
+class TestWritingFailureIsExplainedNotA500:
+    """"I was not able to submit my write-up": the model call used to be
+    bare, so an API-side failure became an unhandled 500 and the learner
+    saw only the generic error over a Skip button."""
+
+    def test_a_model_failure_is_a_502_with_a_way_forward(self, client):
+        import anthropic
+
+        with patch("backend.routers.onboarding.get_settings",
+                   return_value=_WritingSettings(dev_mock=True)), \
+             patch("backend.routers.onboarding.assess_writing",
+                   new=AsyncMock(side_effect=anthropic.APIConnectionError(
+                       request=None,
+                   ))):
+            resp = client.post("/api/onboarding/writing-sample", json={
+                "language_id": LANG, "language_code": "es",
+                "text": "Estoy de acuerdo con la idea",
+            }, headers=_auth_headers())
+        assert resp.status_code == 502
+        assert "skip" in resp.json()["detail"].lower()
+
+    def test_a_rate_limited_model_is_a_429(self, client):
+        import types as _types
+
+        import anthropic
+
+        with patch("backend.routers.onboarding.get_settings",
+                   return_value=_WritingSettings(dev_mock=True)), \
+             patch("backend.routers.onboarding.assess_writing",
+                   new=AsyncMock(side_effect=anthropic.RateLimitError(
+                       message="busy",
+                       response=_types.SimpleNamespace(
+                           status_code=429, headers={}, request=None),
+                       body=None,
+                   ))):
+            resp = client.post("/api/onboarding/writing-sample", json={
+                "language_id": LANG, "language_code": "es",
+                "text": "Estoy de acuerdo con la idea",
+            }, headers=_auth_headers())
+        assert resp.status_code == 429
+
+
 class TestWritingBlend:
     """Owner: the writing sample "is the best way to determine placement" —
     taken as the final question it decides the level, within one band."""

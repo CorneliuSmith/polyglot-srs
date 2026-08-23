@@ -82,7 +82,8 @@ function PromptModal({ prompt }: { prompt: ReviewPrompt }) {
             </p>
             <p className="text-xs text-gray-500">
               {done.voted
-                ? 'Your call goes to the reviewers weighing this card. '
+                ? 'Your call is now in the review queue for this language — ' +
+                  'reviewers see it next to the card when they decide. '
                 : "We'll pick a different card next time. "}
               We'll check back <b>{untilPhrase(done.next)}</b>
               {done.voted ? ' — the more you help, the less often we ask.' : '.'}
@@ -99,12 +100,23 @@ function PromptModal({ prompt }: { prompt: ReviewPrompt }) {
           <>
             <div>
               <p className="text-xs uppercase tracking-wide text-lang font-semibold">
-                Quick reviewer check-in
+                Quick tester check-in
+              </p>
+              {/* Say what this IS before asking anything. The old copy led
+                  with the question and testers answered "I don't understand
+                  what it's asking me for other than is this helpful or not"
+                  — which is exactly what it was asking, but nothing said
+                  so, or said why, or said where the answer went. */}
+              <p className="mt-1 text-sm text-gray-700">
+                The AI drafted this practice card and{' '}
+                <b>no human has checked it yet</b>. You're one of our testers,
+                so: would it be good enough to show a learner?
               </p>
               <p className="mt-0.5 text-sm text-gray-700">{prompt.question}</p>
-              <p className="mt-0.5 text-[11px] text-gray-500">
-                One card before you dive in. The more you help, the less often
-                we'll ask.
+              <p className="mt-1 text-[11px] text-gray-500">
+                Your vote and note go straight to the review team — they
+                decide, you advise. One card before you dive in; the more you
+                help, the less often we ask.
               </p>
             </div>
 

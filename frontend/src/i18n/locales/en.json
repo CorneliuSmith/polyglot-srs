@@ -1124,6 +1124,10 @@
       "desc": "Some accounts are seeing a change we're testing. You can switch back whenever you like.",
       "saveError": "Couldn't switch that just now.",
       "feedback": "Tell us how it's going from the ? button at the top of any page — your note records which version you were on."
+    },
+    "sentenceAudio": {
+      "title": "Hear the sentence when you're right",
+      "desc": "After a correct answer, the full sentence is read aloud so you hear it whole. Applies on every device you use."
     }
   },
   "feedback": {

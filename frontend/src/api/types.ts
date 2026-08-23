@@ -278,6 +278,10 @@ export interface UserProfile {
    *  Off by default: the frequency lists come from subtitle corpora and
    *  put Spanish *puta* at rank 505, so it reached a beginner unasked. */
   allow_explicit_content: boolean
+  /** Read the full sentence aloud when an answer grades correct. Account-
+   *  level so every device behaves the same; absent (migration 20261001
+   *  not applied) reads as on. */
+  sentence_audio_on_correct?: boolean
   /** Which rollouts this account is in, {experiment_key: variant}. Absent
    *  when the server has no experiments running (or hasn't been migrated),
    *  which every reader must treat as "the default", never as "unknown". */

@@ -1740,7 +1740,16 @@ async def pick_review_prompt(
             SELECT 1 FROM review_recommendations rr
              WHERE rr.recommender_id = $1
                AND rr.target_type = 'drill' AND rr.target_id = ds.id)
-        ORDER BY ds.created_at
+        -- Rotate, don't repeat. ORDER BY created_at re-served the OLDEST
+        -- pending item to anyone whose answer recorded nothing — and
+        -- "can't tell" records nothing — so a confused tester met the
+        -- exact same card at every check-in, forever, while the done
+        -- screen promised "a different card next time" (beta report,
+        -- verbatim: "Every time it's been the exact same thing"). Hashing
+        -- on (item, user, hour) is a per-user shuffle that reshuffles by
+        -- the next check-in, with no state to store or migrate.
+        ORDER BY md5(ds.id::text || $1::text
+                     || to_char(now(), 'YYYY-MM-DD-HH24'))
         LIMIT 1
         """,
         user_id, lang_ids,
@@ -1770,7 +1779,9 @@ async def pick_review_prompt(
             SELECT 1 FROM review_recommendations rr
              WHERE rr.recommender_id = $1
                AND rr.target_type = 'example' AND rr.target_id = es.id)
-        ORDER BY es.created_at
+        -- Same rotation as the drill pick above, same reason.
+        ORDER BY md5(es.id::text || $1::text
+                     || to_char(now(), 'YYYY-MM-DD-HH24'))
         LIMIT 1
         """,
         user_id, lang_ids,

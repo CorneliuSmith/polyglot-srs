@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+import logging
+
+import anthropic
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
 
@@ -35,6 +38,8 @@ from backend.services.nlp.base import AnswerResult
 from backend.services.placement_grade import blend_levels, shares_a_sense
 from backend.services.rate_limit import tutor_chat_limiter
 from backend.services.writing_baseline import MAX_SAMPLE_CHARS, assess_writing
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter()
 
@@ -443,9 +448,28 @@ async def writing_sample(
             detail="Too many requests — slow down a moment.",
         )
 
-    result, usage = await assess_writing(
-        body.language_code, language_name, body.text
-    )
+    # A model failure has to come back as a clean, explained error. This
+    # call used to be bare, so any API-side problem became an unhandled 500
+    # and the learner saw only "Couldn't assess that" — with a Skip button
+    # underneath, which meant the app's best placement signal silently
+    # stopped existing (owner: "I was not able to submit my write-up").
+    try:
+        result, usage = await assess_writing(
+            body.language_code, language_name, body.text
+        )
+    except anthropic.RateLimitError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="The assessor is busy — try again in a moment.",
+        ) from exc
+    except anthropic.APIError as exc:
+        logger.error("Writing assessment failed (%s): %s",
+                     type(exc).__name__, exc)
+        raise HTTPException(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            detail="The assessor is unavailable right now — try again, or "
+                   "skip and keep the quiz result.",
+        ) from exc
 
     async with rls_connection(user["id"]) as conn:
         lang = await get_language_profile(conn, user["id"], body.language_id)
