@@ -82,6 +82,26 @@ export function languageTheme(code: string | undefined | null): LanguageTheme {
   return (code && THEMES[code]) || FALLBACK
 }
 
+// ── Ground glyph ────────────────────────────────────────────────────────
+// The "Language as Ground" skin (C) puts one enormous character from the
+// course's script behind the page. Each is the language's own letter — a
+// character distinctive TO that language, not just its script, where one
+// exists (ES Ñ, DE ß, AR ض — "the language of ḍād" is what Arabic calls
+// itself). Latin-script courses without a signature letter fall back to
+// the code's first letter, which at 36rem and 8% opacity reads as texture,
+// not text.
+const GROUND_GLYPHS: Record<string, string> = {
+  es: 'Ñ', fr: 'Ç', de: 'ß', it: 'È', pt: 'Ã', ca: 'Ŀ', ro: 'Ă',
+  el: 'Ω', ru: 'Я', tr: 'Ğ', ar: 'ض', en: 'Æ', sw: 'J', yo: 'Ẹ',
+  ha: 'Ƙ', xh: 'X', mi: 'Ā', hi: 'अ', jam: 'J', nl: 'Ĳ', th: 'ก',
+  ko: '한', he: 'א', la: 'Æ', fa: 'پ', id: 'I', tl: 'K',
+}
+
+export function groundGlyph(code: string | undefined | null): string {
+  if (code && GROUND_GLYPHS[code]) return GROUND_GLYPHS[code]
+  return (code || 'a').charAt(0).toUpperCase()
+}
+
 // ── Stage ramp ──────────────────────────────────────────────────────────
 // The five SRS stages walk THROUGH the flag palette (the Māori sample:
 // grey → fern green → red → dark red → black): beginner is a neutral grey
@@ -136,6 +156,8 @@ export function applyLanguageTheme(code: string | undefined | null): void {
   root.setProperty('--lang-accent', t.accent)
   root.setProperty('--lang-soft', t.soft)
   root.setProperty('--lang-on-primary', t.on)
+  // CSS `content:` needs a quoted string — the quotes are part of the value.
+  root.setProperty('--lang-glyph', JSON.stringify(groundGlyph(code)))
   stageRamp(code).forEach((s, i) => {
     root.setProperty(`--lang-stage-${i + 1}`, s.bg)
     root.setProperty(`--lang-stage-${i + 1}-on`, s.text)

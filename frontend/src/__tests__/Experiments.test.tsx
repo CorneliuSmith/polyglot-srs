@@ -243,7 +243,9 @@ describe('the A/B/C/D lineup', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     document.documentElement.removeAttribute('data-ui')
-    document.getElementById('ui-skin-editorial-font')?.remove()
+    document
+      .querySelectorAll('[id^="ui-skin-font-"]')
+      .forEach((el) => el.remove())
   })
 
   it('the admin panel offers a rollout share for every non-default variant', async () => {
@@ -276,17 +278,23 @@ describe('the A/B/C/D lineup', () => {
     ).toEqual(['classic', 'editorial', 'flat', 'ground', 'focus'])
   })
 
-  it('the editorial skin fetches its serif only when worn', () => {
-    applyUiSkin('flat')
-    expect(document.getElementById('ui-skin-editorial-font')).toBeNull()
+  it('each skin fetches its own typefaces, only when worn', () => {
+    // No fonts load for a skin nobody is wearing…
+    expect(document.getElementById('ui-skin-font-editorial')).toBeNull()
+    // …the editorial skin brings its book face + mono…
     applyUiSkin('editorial')
-    const link = document.getElementById('ui-skin-editorial-font')
-    expect(link).not.toBeNull()
-    expect(link?.getAttribute('href')).toContain('Literata')
-    // Idempotent — reapplying must not stack a second stylesheet.
+    const serif = document.getElementById('ui-skin-font-editorial')
+    expect(serif?.getAttribute('href')).toContain('Literata')
+    expect(serif?.getAttribute('href')).toContain('IBM+Plex+Mono')
+    // …the Ink Grid brings Archivo…
+    applyUiSkin('flat')
+    expect(
+      document.getElementById('ui-skin-font-flat')?.getAttribute('href'),
+    ).toContain('Archivo')
+    // …and reapplying is idempotent — no stacked stylesheets.
     applyUiSkin('editorial')
     expect(
-      document.querySelectorAll('#ui-skin-editorial-font').length,
+      document.querySelectorAll('#ui-skin-font-editorial').length,
     ).toBe(1)
   })
 })
