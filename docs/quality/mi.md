@@ -57,9 +57,23 @@ Six more were refused by the checker as genuine same-lexeme duplicates — `mām
 the way rank 7 `nga` → `ngā` was fixed. Adding those would have recreated the accent-twin
 class that had 61 rows deleted in `c96749a`.
 
-**Still to do:** (b) re-gloss the rows whose meaning came from a bare homograph — `tona`
-"wart" and `ra` "Egyptian god" still hold ranks belonging to `tōna` and `rā`; (c) the
-remaining unmarked rows. Plan D1d states the governing rule — re-marking is not decoration,
+**Step (b) is done too (20 Aug 2026).** Five bare rows carried a gloss that belonged to
+their macronised twin or to an obscure homograph, and the course's own sentences settled
+each one:
+
+| | was | is | evidence |
+| --- | --- | --- | --- |
+| `ana` r17 | "his, her of more than one thing" — that is `āna` | the ongoing-action particle closing the `e … ana` frame | 53 uses, all progressive: *E noho ana ia* |
+| `ata` r148 | "form, shape, image" | **morning**, with the other senses after | *Ka timata te akoranga ā te ata* = in the morning |
+| `taku` `tana` `aku` | bare "my" / "his, her" | named as the **neutral** form, against a-category `tāku`/`tāna`/`āku` | mi.md requires the category be named |
+
+`tona` "wart, corn, nodule" (rank 30, used **0 times** by the course) and `ra` "Ra, Egyptian
+god of the Sun" (rank 37) were excluded — both ranks belong to words the course actually
+uses. `rā` "day; the sun" is added in its place, used 20 times.
+
+**Still to do:** (c) the remaining unmarked rows, which need the same gloss-first treatment
+— an unmarked row may stand for several words, and marking it without settling which word
+owns the rank is what got the first macron pass discarded. Plan D1d states the governing rule — re-marking is not decoration,
 and an unmarked row may stand for several words.
 
 The discarded pass produced one thing worth keeping: a list of ~60 rows where the bare
