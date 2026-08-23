@@ -18,6 +18,7 @@ import {
   PUBLISH_POLICIES,
 } from '../../lib/publishPolicy'
 import CircleFlag from '../../components/CircleFlag'
+import { chooseActiveLanguage } from '../../lib/activeLanguage'
 import { usePrefsStore } from '../../stores/prefsStore'
 import TranslationStatusPanel from './TranslationStatusPanel'
 
@@ -39,7 +40,10 @@ function extractDetail(err: unknown): string | undefined {
  * — a reviewer calling the endpoint gets a 403. */
 export default function LanguageVisibilityPanel() {
   const qc = useQueryClient()
-  const setActiveLanguageId = usePrefsStore((s) => s.setActiveLanguageId)
+  // Through chooseActiveLanguage, not the bare store setter: the profile is
+  // the authority on the study language now, and a device-only switch would
+  // be bounced back by the next profile heartbeat.
+  const setActiveLanguageId = chooseActiveLanguage
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   // One row's settings drawer open at a time keeps the list readable while
   // cycling; "Edit all settings" opens every drawer for a sweep across the

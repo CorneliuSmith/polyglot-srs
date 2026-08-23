@@ -11,6 +11,7 @@ import {
   placementNext,
 } from '../../api/onboarding'
 import type { PlacementItem, WritingAssessment } from '../../api/onboarding'
+import { chooseActiveLanguage } from '../../lib/activeLanguage'
 import { usePrefsStore } from '../../stores/prefsStore'
 import DirArrow from '../../components/DirArrow'
 import LanguageWrapper from '../../components/LanguageWrapper'
@@ -37,7 +38,6 @@ const STAGES = 4
 export default function OnboardingPage() {
   const navigate = useNavigate()
   const { t, i18n } = useTranslation()
-  const setActiveLanguageId = usePrefsStore((s) => s.setActiveLanguageId)
   const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
   const dismissPlacementOffer = usePrefsStore((s) => s.dismissPlacementOffer)
 
@@ -136,7 +136,11 @@ export default function OnboardingPage() {
     mutationFn: () =>
       completeOnboarding({ languageId: language!.id, level, planScope }),
     onSuccess: () => {
-      setActiveLanguageId(language!.id)
+      // completeOnboarding already wrote the course to the account; this
+      // sets the device AND opens the grace window, so a profile read that
+      // started before the write can't bounce an existing user who just
+      // onboarded a second course back to their old one.
+      chooseActiveLanguage(language!.id)
       // Land on the toolkit walkthrough, not the bare dashboard — new
       // accounts had no idea the tutor/reader/letters existed.
       navigate('/welcome', { replace: true })

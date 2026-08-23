@@ -9,7 +9,12 @@ vi.mock('react-router-dom', async (orig) => ({
   ...(await orig<typeof import('react-router-dom')>()),
   useNavigate: () => mockNavigate,
 }))
-vi.mock('../api/profile', () => ({ getLanguages: vi.fn() }))
+vi.mock('../api/profile', () => ({
+  getLanguages: vi.fn(),
+  // lib/activeLanguage saves the finished onboarding's course to the
+  // account (redundantly with completeOnboarding, harmlessly).
+  updateProfile: vi.fn(() => Promise.resolve({})),
+}))
 vi.mock('../api/billing', async (orig) => ({
   ...(await orig<typeof import('../api/billing')>()),
   getPlanPrices: vi.fn(() => Promise.resolve({ single: null, all: null })),
@@ -23,7 +28,12 @@ vi.mock('../api/onboarding', () => ({
 }))
 const mockSetActive = vi.fn()
 vi.mock('../stores/prefsStore', () => ({
-  usePrefsStore: vi.fn(() => mockSetActive),
+  // The hook serves every selector with the same fn (the page only reads
+  // callbacks through it); getState serves lib/activeLanguage, which sets
+  // the finished course from outside React.
+  usePrefsStore: Object.assign(vi.fn(() => mockSetActive), {
+    getState: () => ({ setActiveLanguageId: mockSetActive }),
+  }),
 }))
 
 import { getLanguages } from '../api/profile'
