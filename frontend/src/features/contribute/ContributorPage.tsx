@@ -842,7 +842,12 @@ export default function ContributorPage() {
       <div className="max-w-2xl mx-auto px-4 py-8 space-y-4">
         <div className="flex items-center justify-between gap-3">
           <h1 className="flex min-w-0 items-center gap-2 text-2xl font-bold text-gray-900">
-            <span className="shrink-0">Contribute ·</span>
+            {/* "Workspace", not "Contribute": this page is the whole staff
+                console — drafting, review queues, admin — and the old name
+                promised only the first of those (owner: "I don't understand
+                that flow then for contributor. Change the name."). The
+                /contribute route stays put so old links keep working. */}
+            <span className="shrink-0">Workspace ·</span>
             {/* The whole workspace — every tab, queue, and setting below —
                 is scoped to ONE language. The picker carries each language's
                 waiting count and arrows to step between them, so working

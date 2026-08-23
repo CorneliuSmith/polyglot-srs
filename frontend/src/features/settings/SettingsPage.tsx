@@ -427,16 +427,20 @@ export default function SettingsPage() {
           <RoleGuide role="contribute" />
           <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
             <h2 className="font-semibold text-gray-800">Contribute</h2>
+            {/* "Open the workspace", not "Open grammar editor": the door
+                leads to the whole staff console (drafting, review queues,
+                admin), and naming it after one tab inside was exactly the
+                flow the owner said they didn't understand. */}
             <p className="text-xs text-gray-500">
-              Draft and edit grammar points for the active language in the
-              full editor.
+              Draft grammar and vocabulary, and work the review queues, in
+              the staff workspace.
             </p>
             <button
               type="button"
               onClick={() => navigate('/contribute')}
               className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on font-semibold px-4 py-2 text-sm"
             >
-              Open grammar editor
+              Open the workspace
             </button>
           </section>
           </>
