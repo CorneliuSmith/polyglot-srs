@@ -903,8 +903,10 @@ function ReviewSessionInner({
             {t('review.saveErrorLive', { count: saveErrorCount })}
           </div>
         )}
-        {/* Session utility bar (Bunpro-style: exit, path, tutor, settings) */}
-        <div className="flex items-center justify-between">
+        {/* Session utility bar (Bunpro-style: exit, path, tutor, settings).
+            session-quiet: under the "focus" skin (One Thing at a Time) this
+            chrome recedes until pointed at — see index.css. Inert elsewhere. */}
+        <div className="session-quiet flex items-center justify-between">
           <button
             type="button"
             onClick={() => {
@@ -951,8 +953,10 @@ function ReviewSessionInner({
           </div>
         </div>
 
-        {/* Progress */}
-        <div className="flex items-center justify-between text-sm text-gray-500">
+        {/* Progress (the BAR below stays at full strength under the focus
+            skin — it is D's "single line" of progress; this counter row is
+            the part that recedes) */}
+        <div className="session-quiet flex items-center justify-between text-sm text-gray-500">
           {/* The count runs over the deck being WORKED, re-drills included —
               dividing by the original deck is what produced "Card 9 of 7"
               once two cards came back. A growing total needs a reason next

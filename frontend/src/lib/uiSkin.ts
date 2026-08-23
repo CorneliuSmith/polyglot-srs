@@ -19,19 +19,33 @@
 /** The skin that needs no attribute — what the app has always looked like. */
 export const DEFAULT_SKIN = 'classic'
 
-const EDITORIAL_FONT_ID = 'ui-skin-editorial-font'
+/** Each direction's typefaces, from the direction review's own specimens:
+ * A sets Literata (the book face) with Plex Mono for the apparatus; B and D
+ * set Archivo with Plex Mono; C sets Archivo alone. Fetched only when
+ * someone is actually WEARING the skin — a CSS @import would make every
+ * Classic user pay for fonts they never see. */
+const SKIN_FONT_URLS: Record<string, string> = {
+  editorial:
+    'https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600;7..72,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap',
+  flat:
+    'https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap',
+  ground:
+    'https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&display=swap',
+  focus:
+    'https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap',
+}
 
-/** The Editorial (A) skin's serif, fetched only when someone is actually
- * wearing it — a CSS @import would make every Classic user pay for a font
- * they never see. Idempotent; left in place on switch-away (it's cached,
- * and removing it would flash anyone toggling back and forth). */
-function ensureEditorialFont(): void {
-  if (document.getElementById(EDITORIAL_FONT_ID)) return
+/** Idempotent; left in place on switch-away (the CSS is cached, and
+ * removing it would flash anyone toggling back and forth). */
+function ensureSkinFonts(variant: string): void {
+  const url = SKIN_FONT_URLS[variant]
+  if (!url) return
+  const id = `ui-skin-font-${variant}`
+  if (document.getElementById(id)) return
   const link = document.createElement('link')
-  link.id = EDITORIAL_FONT_ID
+  link.id = id
   link.rel = 'stylesheet'
-  link.href =
-    'https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600;7..72,700&display=swap'
+  link.href = url
   document.head.appendChild(link)
 }
 
@@ -41,7 +55,7 @@ export function applyUiSkin(variant: string | null | undefined): void {
     root.removeAttribute('data-ui')
     return
   }
-  if (variant === 'editorial') ensureEditorialFont()
+  ensureSkinFonts(variant)
   root.setAttribute('data-ui', variant)
 }
 

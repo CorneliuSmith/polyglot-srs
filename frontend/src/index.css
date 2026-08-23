@@ -221,27 +221,39 @@ body {
   animation: learn-retry-toast 3.5s ease forwards;
 }
 
-/* ── Visual direction: "flat" (experiment ui_skin) ─────────────────────────
-   The Ink Grid sample from the direction review: no elevation, square
-   corners, borders that are actually visible. Assigned per account by the
-   rollout mechanism (backend/services/experiments.py) and applied as
-   <html data-ui="flat"> by lib/uiSkin.ts.
+/* ═══ Visual directions (experiment ui_skin) ═══════════════════════════════
+   The four specimens from the direction review ("Four Ways Out of Default"),
+   at full strength — the owner's brief moved from "token-level test" to
+   "the full ui versions that we made". Assigned per account by the rollout
+   mechanism (backend/services/experiments.py), applied as <html data-ui="…">
+   by lib/uiSkin.ts, which also injects each skin's typefaces.
 
-   Every rule here is a TOKEN override or a utility restyle — no component
-   knows which skin it is in, so deleting this block returns the whole app
-   to Classic with no other edit. That property is the point: a rollout you
-   cannot withdraw in one commit is not a rollout, it is a rewrite.
+   The removability contract still holds for every block below: no component
+   knows which skin it is in — everything is token overrides and restyles of
+   utility classes that already exist in the markup — so deleting a block
+   returns the app to Classic with no other edit. A rollout you cannot
+   withdraw in one commit is not a rollout, it is a rewrite.
 
-   `rounded-full` is untouched on purpose (it resolves to a literal, not to
-   a --radius-* token), so avatars, flags and pills stay round while cards
-   and buttons square off. */
+   `rounded-full` is untouched everywhere on purpose (it resolves to a
+   literal, not a --radius-* token), so avatars, flags and pills stay round
+   whatever the cards do. */
+
+/* ── B · "flat" — Ink Grid ─────────────────────────────────────────────────
+   "Delete elevation. No shadows, no soft radii — 1px INK borders, square
+   corners, a paper-grey ground." Archivo carries the voice; the small
+   uppercase labels set in Plex Mono are the grid's apparatus. */
 [data-ui="flat"] {
+  --font-sans: Archivo, system-ui, -apple-system, sans-serif;
   --radius-md: 2px;
   --radius-lg: 2px;
   --radius-xl: 2px;
   --radius-2xl: 2px;
   --radius-3xl: 3px;
+  /* The ink the borders are drawn in — dark enough to be a drawn line,
+     not a hairline suggestion. */
+  --ui-ink: #14181c;
 }
+html.dark[data-ui="flat"] { --ui-ink: #4b5563; }
 
 /* Elevation, removed. shadow-* sets --tw-shadow to a literal rather than
    reading a token, so this has to out-specify the utility rather than
@@ -253,38 +265,51 @@ body {
   --tw-shadow: 0 0 #0000;
 }
 
-/* What the shadow was doing, a border now does. gray-100 is the card
-   hairline throughout the app and is nearly invisible against white in
-   light mode and against the card in dark — which is fine while an
-   elevation separates them and useless once it doesn't. */
-[data-ui="flat"] .border-gray-100 {
-  border-color: var(--color-gray-300);
+/* What the shadow was doing, an ink line does. gray-100 is the card
+   hairline throughout the app; gray-200/300 are its slightly-darker
+   siblings on inputs and menus. All of them become the same drawn line,
+   which is what makes the page read as ONE ruled sheet. */
+[data-ui="flat"] .border-gray-100,
+[data-ui="flat"] .border-gray-200,
+[data-ui="flat"] .border-gray-300 {
+  border-color: var(--ui-ink);
+}
+
+/* The grid's apparatus: small uppercase labels in the mono, per the
+   specimen ("Archivo · Plex Mono"). */
+[data-ui="flat"] .uppercase {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.12em;
 }
 
 /* A paper ground rather than the blue-grey default, so a white card reads
    as a sheet on a desk instead of a panel floating on a panel. Light only:
-   the dark ramp is already a deliberate set and remapping gray-50 there
-   would fight it. */
+   the dark ramp is already a deliberate set. */
 html[data-ui="flat"]:not(.dark) {
   --color-gray-50: #efefea;
 }
 
-/* ── Visual direction: "editorial" (experiment ui_skin) ────────────────────
-   The Editorial Grammar sample from the direction review: the character
-   lives in the TYPE. One token — --font-sans feeds --default-font-family,
-   which faces the whole page — turns the app into a book about a language;
-   shadows go (a text face does the work elevation was doing), borders stay
-   visible, and the light ground warms to paper. Same removability contract
-   as "flat": delete this block and the app is back to Classic.
+/* ── A · "editorial" — Editorial Grammar ───────────────────────────────────
+   "Treat the app as a BOOK about a language, not a dashboard about a user.
+   Cards dissolve into rules and columns; the shadow goes; a proper text
+   face does the work the borders were doing."
 
-   Literata itself is injected as a <link> by lib/uiSkin.ts ONLY when this
-   skin is applied — a CSS @import here would make every Classic user pay
-   for a font they never see. The stack ends in Georgia/serif so the skin
-   still reads as itself while the webfont loads, or if it never does. */
+   The dissolve is two moves: card surfaces take the paper color (so a card
+   and the page become one sheet — done with an opaque color, never
+   transparency, so dropdown menus and modals stay readable over content),
+   and the card's box border collapses to a single RULE above it, the way a
+   reference work separates entries. Small uppercase labels set in Plex
+   Mono are the book's apparatus. Literata + Plex Mono are injected by
+   lib/uiSkin.ts only when this skin is worn. */
 [data-ui="editorial"] {
   --font-sans: Literata, Georgia, 'Times New Roman', serif;
-  --radius-2xl: 0.75rem;
+  --radius-2xl: 0;
+  --radius-xl: 0;
+  /* The paper everything sits on. One token so the card dissolve below and
+     the page ground can never disagree. */
+  --ui-paper: #fcfbf7;
 }
+html.dark[data-ui="editorial"] { --ui-paper: #171b21; }
 
 [data-ui="editorial"] .shadow-sm,
 [data-ui="editorial"] .shadow,
@@ -293,78 +318,84 @@ html[data-ui="flat"]:not(.dark) {
   --tw-shadow: 0 0 #0000;
 }
 
-[data-ui="editorial"] .border-gray-100 {
-  border-color: var(--color-gray-200);
+/* Cards dissolve: same surface as the page, box border off, one rule on
+   top. Scoped to the bg-white panel idiom the app's cards all share. */
+[data-ui="editorial"] .bg-white.rounded-2xl {
+  background-color: var(--ui-paper);
+  border-color: transparent;
+  border-top: 1px solid var(--color-gray-300);
 }
 
-/* Paper, not blue-grey — the ground a serif page expects. Light only, for
-   the same reason as "flat": the dark ramp is a deliberate set. */
+/* The reference-work apparatus: labels in the mono, numbers as figures. */
+[data-ui="editorial"] .uppercase {
+  font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.12em;
+}
+
 html[data-ui="editorial"]:not(.dark) {
   --color-gray-50: #fcfbf7;
+  --color-gray-100: #f3f1ea;
 }
 
-/* ── Visual direction: "editorial" (A — experiment ui_skin) ────────────────
-   The Editorial Grammar sample from the direction review: the character
-   lives in the TYPE. One token — --font-sans feeds --default-font-family,
-   which faces the whole page — turns the app into a book about a language;
-   shadows go (a text face does the work elevation was doing) and the light
-   ground warms to paper. Same removability contract as "flat": delete this
-   block and the app is back to Classic.
+/* ── C · "ground" — Language as Ground ─────────────────────────────────────
+   "The page ground becomes the language; content floats on it in white; a
+   single enormous glyph from the script sits behind everything. Studying
+   Korean and studying Portuguese would FEEL different."
 
-   Literata itself is injected as a <link> by lib/uiSkin.ts ONLY when this
-   skin is applied — a CSS @import here would make every Classic user pay
-   for a font they never see. The stack ends in Georgia/serif so the skin
-   still reads as itself while the webfont loads, or if it never does. */
-[data-ui="editorial"] {
-  --font-sans: Literata, Georgia, 'Times New Roman', serif;
-  --radius-2xl: 0.75rem;
-}
-
-[data-ui="editorial"] .shadow-sm,
-[data-ui="editorial"] .shadow,
-[data-ui="editorial"] .shadow-md,
-[data-ui="editorial"] .shadow-lg {
-  --tw-shadow: 0 0 #0000;
-}
-
-[data-ui="editorial"] .border-gray-100 {
-  border-color: var(--color-gray-200);
-}
-
-/* Paper, not blue-grey — the ground a serif page expects. Light only, for
-   the same reason as "flat": the dark ramp is a deliberate set. */
-html[data-ui="editorial"]:not(.dark) {
-  --color-gray-50: #fcfbf7;
-}
-
-/* ── Visual direction: "ground" (C — experiment ui_skin) ───────────────────
-   Language as Ground: the app already computes a palette from every
-   course's flag and spends it on chips — this skin spends it on the ROOM.
-   The page ground takes the active language's color (mixed far toward the
-   page so Catalan yellow and Spanish indigo are both quiet), and the white
-   cards float on it. Studying Korean and studying Portuguese FEEL
-   different, from something the app already has.
-
-   The mix ratio is the safety: 10% of the strongest flag hue into white
-   stays a tint every gray text tone passes contrast on, and the dark mix
-   leans on the same dark ground the ramp was designed around. */
+   The mix ratios keep every flag hue quiet enough for the gray text ramp
+   to pass contrast (the tint never exceeds ~a quarter of the hue), and the
+   white cards deliberately KEEP their elevation — they are what floats.
+   The glyph comes from --lang-glyph, written per active language by
+   lib/languageColors.ts alongside the palette. */
 html[data-ui="ground"]:not(.dark) {
-  --color-gray-50: color-mix(in srgb, var(--lang-primary) 10%, #ffffff);
-  --color-gray-100: color-mix(in srgb, var(--lang-primary) 14%, #f3f4f6);
+  --color-gray-50: color-mix(in srgb, var(--lang-primary) 22%, #ffffff);
+  --color-gray-100: color-mix(in srgb, var(--lang-primary) 26%, #f3f4f6);
 }
 html.dark[data-ui="ground"] {
-  --color-gray-50: color-mix(in srgb, var(--lang-primary) 16%, #111623);
+  --color-gray-50: color-mix(in srgb, var(--lang-primary) 24%, #111623);
 }
 
-/* ── Visual direction: "focus" (D — experiment ui_skin) ────────────────────
-   One Thing at a Time, scoped to where "one thing" exists: study sessions.
-   The sentence being drilled gets markedly larger and everything around
-   it goes quiet (no elevation anywhere, softer chrome). The dashboards are
-   deliberately untouched — the full D from the direction review is a
-   layout decision, and this skin is its honest token-level slice. */
+/* The enormous glyph. Pages paint their own .bg-gray-50 ground, so that
+   layer goes transparent and <html> carries the ground color instead —
+   which lets a body::before at z-index -1 sit BETWEEN the ground and the
+   content: behind every card, in front of nothing. */
+html[data-ui="ground"] {
+  background-color: var(--color-gray-50);
+}
+html[data-ui="ground"] body,
+html[data-ui="ground"] .min-h-screen.bg-gray-50 {
+  background-color: transparent;
+}
+html[data-ui="ground"] body::before {
+  content: var(--lang-glyph, '');
+  position: fixed;
+  z-index: -1;
+  top: -0.08em;
+  inset-inline-end: -0.06em;
+  font-size: min(58vw, 36rem);
+  line-height: 1;
+  font-weight: 800;
+  color: var(--lang-primary);
+  opacity: 0.08;
+  pointer-events: none;
+  user-select: none;
+}
+html.dark[data-ui="ground"] body::before { opacity: 0.12; }
+
+/* ── D · "focus" — One Thing at a Time ─────────────────────────────────────
+   "During a session the screen holds ONE THING, very large, and everything
+   else recedes to a hairline." Scoped to study sessions, as the review
+   itself recommended ("best introduced as a session treatment first,
+   leaving the dashboard alone"): the drilled sentence gets big, elevation
+   goes quiet everywhere, and the session chrome marked .session-quiet by
+   ReviewSessionPage fades until pointed at. */
+[data-ui="focus"] {
+  --font-sans: Archivo, system-ui, -apple-system, sans-serif;
+}
+
 [data-ui="focus"] .drill-sentence {
-  font-size: 1.6rem;
-  line-height: 2.6rem;
+  font-size: 2rem;
+  line-height: 1.55;
 }
 
 [data-ui="focus"] .shadow-sm,
@@ -372,4 +403,15 @@ html.dark[data-ui="ground"] {
 [data-ui="focus"] .shadow-md,
 [data-ui="focus"] .shadow-lg {
   --tw-shadow: 0 0 #0000;
+}
+
+/* The recede: visible enough to find, quiet enough to ignore. Keyboard
+   users get it back the moment focus lands inside. */
+[data-ui="focus"] .session-quiet {
+  opacity: 0.35;
+  transition: opacity 0.2s ease;
+}
+[data-ui="focus"] .session-quiet:hover,
+[data-ui="focus"] .session-quiet:focus-within {
+  opacity: 1;
 }

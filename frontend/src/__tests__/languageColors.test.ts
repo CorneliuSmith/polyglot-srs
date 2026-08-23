@@ -45,3 +45,28 @@ describe('stageRamp', () => {
     }
   })
 })
+
+describe('groundGlyph', () => {
+  it("is the language's own letter where one exists", async () => {
+    const { groundGlyph } = await import('../lib/languageColors')
+    expect(groundGlyph('ko')).toBe('한')
+    expect(groundGlyph('ar')).toBe('ض')
+    expect(groundGlyph('es')).toBe('Ñ')
+    expect(groundGlyph('ru')).toBe('Я')
+  })
+
+  it('falls back to a plain capital rather than nothing', async () => {
+    const { groundGlyph } = await import('../lib/languageColors')
+    expect(groundGlyph('zz')).toBe('Z')
+    expect(groundGlyph(null)).toBe('A')
+  })
+
+  it('applyLanguageTheme writes the glyph as a quoted CSS string', async () => {
+    // content: var(--lang-glyph) needs the quotes to be part of the value.
+    const { applyLanguageTheme } = await import('../lib/languageColors')
+    applyLanguageTheme('ko')
+    expect(
+      document.documentElement.style.getPropertyValue('--lang-glyph'),
+    ).toBe('"한"')
+  })
+})
