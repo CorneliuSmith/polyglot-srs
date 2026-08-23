@@ -8,7 +8,12 @@ import {
 import type { EngagementUser } from '../../api/contribute'
 
 type ActiveWindow = 'd1' | 'd7' | 'd30'
-type MetricKey = 'reviews' | 'tutor_messages' | 'readings' | 'cards_started'
+type MetricKey =
+  | 'reviews'
+  | 'tutor_messages'
+  | 'readings'
+  | 'speak_sessions'
+  | 'cards_started'
 
 /** Which users a tapped tile shows. Window tiles filter by recency,
  * metric tiles by who actually used that feature, language rows by who
@@ -111,9 +116,9 @@ export default function EngagementPanel() {
         Engagement · last {data.days} days
       </h2>
       <p className="text-xs text-gray-500 mb-3">
-        All users, all languages — from review, tutor, reader, and learning
-        activity. No extra tracking. Tap any tile or language for the users
-        behind it; tap a user for their per-language detail.
+        All users, all languages — from review, tutor, reader, Speak, and
+        learning activity. No extra tracking. Tap any tile or language for
+        the users behind it; tap a user for their per-language detail.
       </p>
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
@@ -124,13 +129,18 @@ export default function EngagementPanel() {
               'including never-active')}
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-3">
         {tile({ kind: 'metric', m: 'reviews' }, 'reviews',
               data.reviews.toLocaleString(), `${data.review_hours} h studying`)}
         {tile({ kind: 'metric', m: 'tutor_messages' }, 'tutor messages',
               data.tutor_messages.toLocaleString(), `${data.feature_users.tutor} users`)}
         {tile({ kind: 'metric', m: 'readings' }, 'reader sessions',
               data.readings.toLocaleString(), `${data.feature_users.reader} users`)}
+        {/* speak_sessions/speak_turns arrive as 0 from a backend predating
+            Speak, so this tile degrades to zeros, never a crash. */}
+        {tile({ kind: 'metric', m: 'speak_sessions' }, 'speak conversations',
+              (data.speak_sessions ?? 0).toLocaleString(),
+              `${data.feature_users.speak ?? 0} users · ${(data.speak_turns ?? 0).toLocaleString()} turns`)}
         {tile({ kind: 'metric', m: 'cards_started' }, 'cards started',
               data.cards_started.toLocaleString(), `+${data.new_users} new users`)}
       </div>
@@ -145,6 +155,7 @@ export default function EngagementPanel() {
                 <th className="py-1 pe-2 text-end">Reviews</th>
                 <th className="py-1 pe-2 text-end">Tutor</th>
                 <th className="py-1 pe-2 text-end">Reads</th>
+                <th className="py-1 pe-2 text-end">Speak</th>
                 <th className="py-1 pe-2 text-end">Cards</th>
                 <th className="py-1">Langs</th>
               </tr>
@@ -169,12 +180,15 @@ export default function EngagementPanel() {
                     </td>
                     <td className="py-1 pe-2 text-end tabular-nums">{u.tutor_messages}</td>
                     <td className="py-1 pe-2 text-end tabular-nums">{u.readings}</td>
+                    <td className="py-1 pe-2 text-end tabular-nums">
+                      {u.speak_sessions ?? 0}
+                    </td>
                     <td className="py-1 pe-2 text-end tabular-nums">{u.cards_total}</td>
                     <td className="py-1 text-gray-500">{u.languages.join(' ')}</td>
                   </tr>
                   {expandedUser === u.id && (
                     <tr data-testid="engagement-user-detail">
-                      <td colSpan={7} className="py-1 ps-4 bg-gray-50/60">
+                      <td colSpan={8} className="py-1 ps-4 bg-gray-50/60">
                         {!userLangs ? (
                           <span className="text-gray-500">Loading…</span>
                         ) : userLangs.length === 0 ? (
@@ -198,6 +212,9 @@ export default function EngagementPanel() {
                                   <td className="py-0.5 pe-2 text-end tabular-nums">
                                     {l.readings} reads
                                   </td>
+                                  <td className="py-0.5 pe-2 text-end tabular-nums">
+                                    {l.speak_sessions ?? 0} speak
+                                  </td>
                                   <td className="py-0.5 text-end text-gray-500">
                                     last review {relativeDay(l.last_review)}
                                   </td>
@@ -213,7 +230,7 @@ export default function EngagementPanel() {
               ))}
               {users && shownUsers.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="py-2 text-gray-500">
+                  <td colSpan={8} className="py-2 text-gray-500">
                     No users match this tile.
                   </td>
                 </tr>

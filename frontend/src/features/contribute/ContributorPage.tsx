@@ -32,6 +32,7 @@ import AccountsPanel from './AccountsPanel'
 import TrialRequestsPanel from './TrialRequestsPanel'
 import AnalyticsPanel from './AnalyticsPanel'
 import EngagementPanel from './EngagementPanel'
+import FeaturePopularityPanel from './FeaturePopularityPanel'
 import LanguageVisibilityPanel from './LanguageVisibilityPanel'
 import LanguageScopePicker from '../../components/LanguageScopePicker'
 import ExperimentsPanel from './ExperimentsPanel'
@@ -753,6 +754,28 @@ function orderedPoints<T extends { id: string }>(
 
 type WorkspaceTab = 'contribute' | 'review' | 'admin'
 
+/** The Admin tab's sub-sections. Grouped by the question being answered,
+ * not by when each panel was built: how is the app doing (insights), the
+ * per-language switches (languages), content generation (content), who
+ * has an account and what can they do (people), what's being tried on
+ * whom (rollouts), what it all costs (costs). */
+type AdminSection =
+  | 'insights'
+  | 'languages'
+  | 'content'
+  | 'people'
+  | 'rollouts'
+  | 'costs'
+
+const ADMIN_SECTIONS: [AdminSection, string][] = [
+  ['insights', 'Insights'],
+  ['languages', 'Languages'],
+  ['content', 'Content'],
+  ['people', 'People'],
+  ['rollouts', 'Rollouts'],
+  ['costs', 'Costs'],
+]
+
 export default function ContributorPage() {
   const [searchParams] = useSearchParams()
   const focusPointId = searchParams.get('point')
@@ -773,6 +796,11 @@ export default function ContributorPage() {
   // Grammar points have a full authoring surface; vocab is browse + votable
   // suggestions (WP32). The toggle scopes the Contribute/Review content list.
   const [contentKind, setContentKind] = useState<'grammar' | 'vocab'>('grammar')
+  // The Admin tab had become one scroll of eleven stacked panels — finding
+  // the language switches meant scrolling past every chart (owner: "the
+  // admin page needs to be organized"). One panel group on screen at a
+  // time; the pills are the map.
+  const [adminSection, setAdminSection] = useState<AdminSection>('insights')
 
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
   const language = languages.find((l) => l.id === activeLanguageId)
@@ -920,30 +948,75 @@ export default function ContributorPage() {
 
             {tab === 'admin' && data.is_admin && (
               <>
-                <AnalyticsPanel />
-                <EngagementPanel />
-                <LanguageVisibilityPanel />
-                <ExperimentsPanel />
-                <SuggestionMetricsPanel />
-                <GenerationPanel />
-                <TrialRequestsPanel />
-                <AccountsPanel languages={languages} selfId={selfId} />
-                <RolesPanel languages={languages} />
-                <ReviewPolicyControl
-                  languageId={activeLanguageId}
-                  languageName={language?.name}
-                  policy={data.review_policy}
-                  uncheckedPoints={data.unchecked_points ?? 0}
-                  onChanged={refresh}
-                />
-                <TutorModelControl
-                  languageId={activeLanguageId}
-                  languageName={language?.name}
-                  current={data.tutor_model ?? null}
-                  defaultModel={data.default_tutor_model}
-                  onChanged={refresh}
-                />
-                <TutorCostsPanel />
+                <div
+                  className="flex flex-wrap gap-1 rounded-xl border border-gray-200 bg-white p-1 text-sm"
+                  role="tablist"
+                  aria-label="Admin sections"
+                >
+                  {ADMIN_SECTIONS.map(([key, label]) => (
+                    <button
+                      key={key}
+                      type="button"
+                      role="tab"
+                      aria-selected={adminSection === key}
+                      onClick={() => setAdminSection(key)}
+                      className={`rounded-lg px-3 py-1.5 font-medium transition-colors ${
+                        adminSection === key
+                          ? 'bg-lang text-lang-on'
+                          : 'text-gray-500 hover:bg-gray-50'
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+                {adminSection === 'insights' && (
+                  <>
+                    <AnalyticsPanel />
+                    <FeaturePopularityPanel />
+                    <EngagementPanel />
+                  </>
+                )}
+                {adminSection === 'languages' && (
+                  <>
+                    <LanguageVisibilityPanel />
+                    <ReviewPolicyControl
+                      languageId={activeLanguageId}
+                      languageName={language?.name}
+                      policy={data.review_policy}
+                      uncheckedPoints={data.unchecked_points ?? 0}
+                      onChanged={refresh}
+                    />
+                    <TutorModelControl
+                      languageId={activeLanguageId}
+                      languageName={language?.name}
+                      current={data.tutor_model ?? null}
+                      defaultModel={data.default_tutor_model}
+                      onChanged={refresh}
+                    />
+                  </>
+                )}
+                {adminSection === 'content' && (
+                  <>
+                    {/* Review QUEUES stay on the Review tab — this section
+                        is where new content gets generated and audited. */}
+                    <GenerationPanel />
+                  </>
+                )}
+                {adminSection === 'people' && (
+                  <>
+                    <TrialRequestsPanel />
+                    <AccountsPanel languages={languages} selfId={selfId} />
+                    <RolesPanel languages={languages} />
+                  </>
+                )}
+                {adminSection === 'rollouts' && <ExperimentsPanel />}
+                {adminSection === 'costs' && (
+                  <>
+                    <TutorCostsPanel />
+                    <SuggestionMetricsPanel />
+                  </>
+                )}
               </>
             )}
             {tab === 'review' && (

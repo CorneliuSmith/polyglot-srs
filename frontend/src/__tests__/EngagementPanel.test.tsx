@@ -156,6 +156,39 @@ describe('EngagementPanel', () => {
     expect(screen.queryByText('reader@x.co')).toBeNull()
   })
 
+  it('Speak has its own tile and drills into the users who talked', async () => {
+    // Owner: "I also need to see 'Speaking'" — conversations were invisible
+    // in a table that counted every other feature.
+    mockGet.mockResolvedValue({
+      days: 30, total_users: 2, new_users: 0,
+      active_users: { d1: 2, d7: 2, d30: 2 },
+      reviews: 50, review_hours: 0.5, tutor_messages: 0,
+      readings: 7, cards_started: 3,
+      speak_sessions: 5, speak_turns: 42,
+      feature_users: { review: 1, tutor: 0, reader: 1, speak: 1 },
+      top_languages: [],
+    })
+    const now = new Date().toISOString()
+    mockGetUsers.mockResolvedValue([
+      { id: 'u1', email: 'talker@x.co', joined: null, last_active: now,
+        reviews: 0, review_minutes: 0, tutor_messages: 0, readings: 0,
+        cards_started: 0, cards_total: 12, speak_sessions: 5,
+        languages: ['es'] },
+      { id: 'u2', email: 'silent@x.co', joined: null, last_active: now,
+        reviews: 50, review_minutes: 30, tutor_messages: 0, readings: 0,
+        cards_started: 3, cards_total: 80, speak_sessions: 0,
+        languages: ['ru'] },
+    ])
+    renderPanel()
+    await waitFor(() => expect(screen.getByTestId('engagement')).toBeDefined())
+    const tile = screen.getByRole('button', { name: /speak conversations/ })
+    expect(tile.textContent).toContain('5')
+    expect(tile.textContent).toContain('1 users · 42 turns')
+    fireEvent.click(tile)
+    await waitFor(() => expect(screen.getByText('talker@x.co')).toBeDefined())
+    expect(screen.queryByText('silent@x.co')).toBeNull()
+  })
+
   it('language rows drill into that language\'s learners', async () => {
     mockGet.mockResolvedValue({
       days: 30, total_users: 2, new_users: 0,

@@ -3124,11 +3124,15 @@ async def admin_engagement_users(
               AND uc.created_at > now() - make_interval(days => $1)) AS cards_started,
           (SELECT count(*) FROM user_cards uc
             WHERE uc.user_id = u.id) AS cards_total,
+          (SELECT count(*) FROM speak_sessions ss
+            WHERE ss.user_id = u.id
+              AND ss.started_at > now() - make_interval(days => $1)) AS speak_sessions,
           (SELECT max(t) FROM (
               SELECT max(created_at) AS t FROM review_log WHERE user_id = u.id
               UNION ALL SELECT max(created_at) FROM tutor_usage WHERE user_id = u.id
               UNION ALL SELECT max(created_at) FROM readings WHERE user_id = u.id
               UNION ALL SELECT max(created_at) FROM user_cards WHERE user_id = u.id
+              UNION ALL SELECT max(started_at) FROM speak_sessions WHERE user_id = u.id
           ) acts) AS last_active,
           (SELECT COALESCE(array_agg(DISTINCT l.code), '{}') FROM user_cards uc
             JOIN languages l ON uc.language_id = l.id
@@ -3152,6 +3156,7 @@ async def admin_engagement_users(
             "readings": r["readings"],
             "cards_started": r["cards_started"],
             "cards_total": r["cards_total"],
+            "speak_sessions": r["speak_sessions"],
             "languages": list(r["languages"] or []),
         }
         for r in rows
@@ -3177,6 +3182,8 @@ async def admin_timeseries(conn: asyncpg.Connection, days: int = 30) -> list[dic
                WHERE (created_at AT TIME ZONE 'UTC')::date = day
               UNION SELECT user_id FROM user_cards
                WHERE (created_at AT TIME ZONE 'UTC')::date = day
+              UNION SELECT user_id FROM speak_sessions
+               WHERE (started_at AT TIME ZONE 'UTC')::date = day
           ) acts) AS active_users,
           (SELECT count(*) FROM review_log
             WHERE (created_at AT TIME ZONE 'UTC')::date = day) AS reviews,
@@ -3253,6 +3260,7 @@ async def admin_cohorts(conn: asyncpg.Connection, weeks: int = 8) -> list[dict]:
             UNION ALL SELECT user_id, created_at FROM tutor_usage
             UNION ALL SELECT user_id, created_at FROM readings
             UNION ALL SELECT user_id, created_at FROM user_cards
+            UNION ALL SELECT user_id, started_at FROM speak_sessions
         ) acts
         WHERE created_at > now() - make_interval(weeks => $1)
         """,
@@ -3289,6 +3297,9 @@ async def admin_engagement_user_detail(
           (SELECT count(*) FROM readings r
             WHERE r.user_id = $1 AND r.language_id = l.id
               AND r.created_at > now() - make_interval(days => $2)) AS readings,
+          (SELECT count(*) FROM speak_sessions ss
+            WHERE ss.user_id = $1 AND ss.language_id = l.id
+              AND ss.started_at > now() - make_interval(days => $2)) AS speak_sessions,
           (SELECT max(uc3.last_review) FROM user_cards uc3
             WHERE uc3.user_id = $1 AND uc3.language_id = l.id) AS last_review
         FROM languages l
@@ -3298,6 +3309,8 @@ async def admin_engagement_user_detail(
                        WHERE tu0.user_id = $1 AND tu0.language_id = l.id)
            OR EXISTS (SELECT 1 FROM readings r0
                        WHERE r0.user_id = $1 AND r0.language_id = l.id)
+           OR EXISTS (SELECT 1 FROM speak_sessions ss0
+                       WHERE ss0.user_id = $1 AND ss0.language_id = l.id)
         ORDER BY cards_total DESC
         """,
         user_id, days,
@@ -3311,6 +3324,7 @@ async def admin_engagement_user_detail(
             "review_minutes": round((r["review_ms"] or 0) / 60_000),
             "tutor_messages": r["tutor_messages"],
             "readings": r["readings"],
+            "speak_sessions": r["speak_sessions"],
             "last_review": r["last_review"].isoformat() if r["last_review"] else None,
         }
         for r in rows
@@ -3504,8 +3518,9 @@ async def admin_engagement(conn: asyncpg.Connection, days: int = 30) -> dict:
     Answers "who is using the app, doing what, for how long" from the
     activity tables already written by normal use — review_log (reviews +
     per-answer time), tutor_usage (tutor messages), readings (Reader
-    sessions), user_cards (cards started). No new tracking: this is a read
-    over existing data. All users, all languages.
+    sessions), user_cards (cards started), speak_sessions/speak_turns
+    (Speak conversations). No new tracking: this is a read over existing
+    data. All users, all languages.
     """
     since_expr = f"now() - interval '{int(days)} days'"
 
@@ -3524,7 +3539,11 @@ async def admin_engagement(conn: asyncpg.Connection, days: int = 30) -> dict:
           (SELECT count(*) FROM readings
              WHERE created_at > {since_expr}) AS readings,
           (SELECT count(*) FROM user_cards
-             WHERE created_at > {since_expr}) AS cards_started
+             WHERE created_at > {since_expr}) AS cards_started,
+          (SELECT count(*) FROM speak_sessions
+             WHERE started_at > {since_expr}) AS speak_sessions,
+          (SELECT count(*) FROM speak_turns
+             WHERE created_at > {since_expr}) AS speak_turns
         """
     )
 
@@ -3541,6 +3560,7 @@ async def admin_engagement(conn: asyncpg.Connection, days: int = 30) -> dict:
           UNION ALL SELECT user_id, created_at FROM tutor_usage
           UNION ALL SELECT user_id, created_at FROM readings
           UNION ALL SELECT user_id, created_at FROM user_cards
+          UNION ALL SELECT user_id, started_at FROM speak_sessions
         ) acts
         """
     )
@@ -3555,7 +3575,9 @@ async def admin_engagement(conn: asyncpg.Connection, days: int = 30) -> dict:
           (SELECT count(DISTINCT user_id) FROM tutor_usage
              WHERE created_at > {since_expr}) AS tutor_users,
           (SELECT count(DISTINCT user_id) FROM readings
-             WHERE created_at > {since_expr}) AS reader_users
+             WHERE created_at > {since_expr}) AS reader_users,
+          (SELECT count(DISTINCT user_id) FROM speak_sessions
+             WHERE started_at > {since_expr}) AS speak_users
         """
     )
 
@@ -3584,10 +3606,13 @@ async def admin_engagement(conn: asyncpg.Connection, days: int = 30) -> dict:
         "tutor_messages": totals["tutor_messages"],
         "readings": totals["readings"],
         "cards_started": totals["cards_started"],
+        "speak_sessions": totals["speak_sessions"],
+        "speak_turns": totals["speak_turns"],
         "feature_users": {
             "review": feature_users["review_users"],
             "tutor": feature_users["tutor_users"],
             "reader": feature_users["reader_users"],
+            "speak": feature_users["speak_users"],
         },
         "top_languages": [
             {"code": r["code"], "name": r["name"],
@@ -3595,6 +3620,82 @@ async def admin_engagement(conn: asyncpg.Connection, days: int = 30) -> dict:
             for r in top_langs
         ],
     }
+
+
+async def admin_feature_popularity(
+    conn: asyncpg.Connection, days: int = 30
+) -> list[dict]:
+    """Which features people actually use (privileged conn) — the owner's
+    "what's popular" question, answered per feature: distinct users and
+    event counts inside the window, every feature on one comparable scale.
+
+    Each row reads the table that feature already writes; nothing new is
+    tracked. Gym is the one approximation: gym_progress keeps one row per
+    (user, drill) with a last_seen_at rather than an event log, so its
+    "events" are drills touched in the window, not attempts.
+    """
+    row = await conn.fetchrow(
+        """
+        SELECT
+          (SELECT count(DISTINCT user_id) FROM review_log
+             WHERE created_at > now() - make_interval(days => $1)) AS review_u,
+          (SELECT count(*) FROM review_log
+             WHERE created_at > now() - make_interval(days => $1)) AS review_e,
+          (SELECT count(DISTINCT user_id) FROM tutor_usage
+             WHERE created_at > now() - make_interval(days => $1)) AS tutor_u,
+          (SELECT count(*) FROM tutor_usage
+             WHERE created_at > now() - make_interval(days => $1)) AS tutor_e,
+          (SELECT count(DISTINCT user_id) FROM readings
+             WHERE created_at > now() - make_interval(days => $1)) AS reader_u,
+          (SELECT count(*) FROM readings
+             WHERE created_at > now() - make_interval(days => $1)) AS reader_e,
+          (SELECT count(DISTINCT user_id) FROM speak_sessions
+             WHERE started_at > now() - make_interval(days => $1)) AS speak_u,
+          (SELECT count(*) FROM speak_sessions
+             WHERE started_at > now() - make_interval(days => $1)) AS speak_e,
+          (SELECT count(DISTINCT user_id) FROM gym_progress
+             WHERE last_seen_at > now() - make_interval(days => $1)) AS gym_u,
+          (SELECT count(*) FROM gym_progress
+             WHERE last_seen_at > now() - make_interval(days => $1)) AS gym_e,
+          (SELECT count(DISTINCT user_id) FROM user_cards
+             WHERE created_at > now() - make_interval(days => $1)) AS cards_u,
+          (SELECT count(*) FROM user_cards
+             WHERE created_at > now() - make_interval(days => $1)) AS cards_e,
+          (SELECT count(DISTINCT user_id) FROM user_notes
+             WHERE created_at > now() - make_interval(days => $1)) AS notes_u,
+          (SELECT count(*) FROM user_notes
+             WHERE created_at > now() - make_interval(days => $1)) AS notes_e,
+          (SELECT count(DISTINCT user_id) FROM personal_decks
+             WHERE created_at > now() - make_interval(days => $1)) AS decks_u,
+          (SELECT count(*) FROM personal_decks
+             WHERE created_at > now() - make_interval(days => $1)) AS decks_e,
+          (SELECT count(DISTINCT user_id) FROM placement_attempts
+             WHERE created_at > now() - make_interval(days => $1)) AS place_u,
+          (SELECT count(*) FROM placement_attempts
+             WHERE created_at > now() - make_interval(days => $1)) AS place_e
+        """,
+        days,
+    )
+    # (key, label, unit) — the unit names what one event IS, so the panel
+    # never says "1,204 events" about anything.
+    features = [
+        ("review", "Reviews", "reviews", row["review_u"], row["review_e"]),
+        ("tutor", "Tutor", "messages", row["tutor_u"], row["tutor_e"]),
+        ("reader", "Reader", "sessions", row["reader_u"], row["reader_e"]),
+        ("speak", "Speak", "conversations", row["speak_u"], row["speak_e"]),
+        ("gym", "Gym", "drills touched", row["gym_u"], row["gym_e"]),
+        ("cards", "New cards", "cards started", row["cards_u"], row["cards_e"]),
+        ("notes", "Notes", "notes", row["notes_u"], row["notes_e"]),
+        ("decks", "Decks", "decks created", row["decks_u"], row["decks_e"]),
+        ("placement", "Placement", "tests", row["place_u"], row["place_e"]),
+    ]
+    out = [
+        {"key": k, "label": label, "unit": unit,
+         "users": int(u or 0), "events": int(e or 0)}
+        for k, label, unit, u, e in features
+    ]
+    out.sort(key=lambda f: (f["users"], f["events"]), reverse=True)
+    return out
 
 
 # ---------------------------------------------------------------------------

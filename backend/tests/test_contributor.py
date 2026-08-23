@@ -1307,6 +1307,30 @@ class TestAnalytics:
         assert resp.status_code == 200
         assert resp.json() == {"cohorts": grid}
 
+    def test_features_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.get("/api/contribute/analytics/features",
+                              headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_features_endpoint(self, client):
+        # Sorted by users server-side, each row carrying its own unit —
+        # the panel prints "N conversations", never "N events".
+        features = [
+            {"key": "review", "label": "Reviews", "unit": "reviews",
+             "users": 9, "events": 480},
+            {"key": "speak", "label": "Speak", "unit": "conversations",
+             "users": 3, "events": 17},
+        ]
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.admin_feature_popularity",
+                   new=AsyncMock(return_value=features)) as mock_fp:
+            resp = client.get("/api/contribute/analytics/features",
+                              params={"days": 9999}, headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"days": 365, "features": features}
+        assert mock_fp.await_args.args[1] == 365  # days clamped
+
     def test_cohort_grid_math(self):
         from backend.repositories.contributor import compute_cohort_grid
 
