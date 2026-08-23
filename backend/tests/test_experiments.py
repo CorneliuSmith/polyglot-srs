@@ -446,14 +446,18 @@ class TestAdminEndpoints:
         assert resp.status_code == 404
 
     def test_an_admin_pins_someone_by_email(self, client):
+        # find_user_by_email is mocked with a BARE ID STRING because that is
+        # what the real function returns. It was once mocked as a dict, which
+        # agreed with a router bug (target["id"] on a string → TypeError) and
+        # let every production assignment 500 with "Could not assign that."
+        # The integration test drives the real seam; this mock must match it.
         with patch("backend.routers.contribute.get_roles",
                    new=AsyncMock(return_value=[{"role": "admin"}])), \
              patch("backend.routers.contribute.is_admin", return_value=True), \
              patch("backend.routers.contribute.get_experiment",
                    new=AsyncMock(return_value=_experiment())), \
              patch("backend.routers.contribute.find_user_by_email",
-                   new=AsyncMock(return_value={"id": TEST_USER_ID,
-                                               "email": "kate@example.com"})), \
+                   new=AsyncMock(return_value=TEST_USER_ID)), \
              patch("backend.routers.contribute.assign_variant",
                    new=AsyncMock(return_value=True)) as assigned:
             resp = client.post("/api/contribute/experiment-assign",
