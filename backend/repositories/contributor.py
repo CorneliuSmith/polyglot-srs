@@ -648,90 +648,91 @@ async def _present(
     return {r["name"] for r in rows}
 
 
-# Every queue the Review Inbox rolls up, as (key, SQL predicate over a
-# language id placeholder `%(lang)s`), plus what schema each one needs. One
-# definition, used for BOTH the current-language counts and the
-# cross-language roll-up, so the two can never drift apart (a breakdown that
-# counted different things than the tiles would be worse than none).
-_INBOX_QUEUES: tuple[tuple[str, str, tuple[str, ...]], ...] = (
-    ("grammar_pending", """
-        SELECT count(*) FROM grammar_points gp
-         WHERE gp.language_id = {lang} AND gp.reviewed = false
-           AND COALESCE(gp.explanation, '') <> ''
+# Every queue the Review Inbox rolls up, as (key, language expression,
+# FROM/WHERE clause, schema it needs). One definition renders BOTH shapes —
+# the single-language count and the all-languages roll-up — so the two can
+# never drift apart (a breakdown that counted different things than the
+# tiles would be worse than none).
+#
+# The two-shape split exists for a production outage: the roll-up used to
+# render these as correlated subqueries — 15 queues × every language, each
+# one re-scanning its tables — and on real corpus sizes the single statement
+# outran the database's statement timeout. QueryCanceledError isn't
+# UndefinedTable/Column, so it sailed past every degrade guard and 500'd the
+# staff bell on every page load. Grouped, each table is scanned ONCE.
+_INBOX_QUEUES: tuple[tuple[str, str, str, tuple[str, ...]], ...] = (
+    ("grammar_pending", "gp.language_id", """
+        FROM grammar_points gp
+        WHERE gp.reviewed = false AND COALESCE(gp.explanation, '') <> ''
      """, ()),
-    ("pending_drills", """
-        SELECT count(*) FROM drill_sentences ds
-          JOIN grammar_points gp ON ds.grammar_point_id = gp.id
-         WHERE gp.language_id = {lang} AND ds.source = 'ai'
-           AND ds.reviewed = false
+    ("pending_drills", "gp.language_id", """
+        FROM drill_sentences ds
+        JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+        WHERE ds.source = 'ai' AND ds.reviewed = false
      """, ()),
-    ("flagged_drills", """
-        SELECT count(*) FROM drill_sentences ds
-          JOIN grammar_points gp ON ds.grammar_point_id = gp.id
-         WHERE gp.language_id = {lang} AND ds.flagged = true
+    ("flagged_drills", "gp.language_id", """
+        FROM drill_sentences ds
+        JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+        WHERE ds.flagged = true
      """, ("drill_sentences.flagged",)),
-    ("pending_examples", """
-        SELECT count(*) FROM example_sentences es
-          JOIN vocabulary v ON es.vocabulary_id = v.id
-         WHERE v.language_id = {lang} AND es.source = 'ai'
-           AND es.reviewed = false
+    ("pending_examples", "v.language_id", """
+        FROM example_sentences es
+        JOIN vocabulary v ON es.vocabulary_id = v.id
+        WHERE es.source = 'ai' AND es.reviewed = false
      """, ()),
-    ("flagged_examples", """
-        SELECT count(*) FROM example_sentences es
-          JOIN vocabulary v ON es.vocabulary_id = v.id
-         WHERE v.language_id = {lang} AND es.flagged = true
+    ("flagged_examples", "v.language_id", """
+        FROM example_sentences es
+        JOIN vocabulary v ON es.vocabulary_id = v.id
+        WHERE es.flagged = true
      """, ("example_sentences.flagged",)),
-    ("translation_suggestions", """
-        SELECT count(*) FROM example_sentences es
-          JOIN vocabulary v ON es.vocabulary_id = v.id
-         WHERE v.language_id = {lang}
-           AND es.suggested_translation IS NOT NULL
+    ("translation_suggestions", "v.language_id", """
+        FROM example_sentences es
+        JOIN vocabulary v ON es.vocabulary_id = v.id
+        WHERE es.suggested_translation IS NOT NULL
      """, ("example_sentences.suggested_translation",)),
-    ("ai_levels", """
-        SELECT count(*) FROM vocabulary v
-         WHERE v.language_id = {lang} AND v.level_source = 'ai'
+    ("ai_levels", "v.language_id", """
+        FROM vocabulary v
+        WHERE v.level_source = 'ai'
      """, ("vocabulary.level_source",)),
-    ("change_requests", """
-        SELECT count(*) FROM card_change_requests ccr
-         WHERE ccr.language_id = {lang} AND ccr.status = 'open'
+    ("change_requests", "ccr.language_id", """
+        FROM card_change_requests ccr
+        WHERE ccr.status = 'open'
      """, ("card_change_requests",)),
-    ("suggestions", """
-        SELECT count(*) FROM content_suggestions cs
-         WHERE cs.language_id = {lang} AND cs.status = 'pending'
+    ("suggestions", "cs.language_id", """
+        FROM content_suggestions cs
+        WHERE cs.status = 'pending'
      """, ("content_suggestions",)),
-    ("notes", """
-        SELECT count(*) FROM point_review_notes n
-          LEFT JOIN grammar_points gp ON n.grammar_point_id = gp.id
-          LEFT JOIN vocabulary v ON n.vocabulary_id = v.id
-         WHERE COALESCE(gp.language_id, v.language_id) = {lang}
-           AND n.status = 'open'
+    ("notes", "COALESCE(gp.language_id, v.language_id)", """
+        FROM point_review_notes n
+        LEFT JOIN grammar_points gp ON n.grammar_point_id = gp.id
+        LEFT JOIN vocabulary v ON n.vocabulary_id = v.id
+        WHERE n.status = 'open'
      """, ("point_review_notes",)),
-    ("feedback", """
-        SELECT count(*) FROM card_feedback f
-         WHERE f.language_id = {lang} AND f.status = 'open'
+    ("feedback", "f.language_id", """
+        FROM card_feedback f
+        WHERE f.status = 'open'
      """, ("card_feedback",)),
-    ("overlaps", """
-        SELECT count(*) FROM grammar_point_overlaps o
-         WHERE o.language_id = {lang} AND o.status = 'open'
+    ("overlaps", "o.language_id", """
+        FROM grammar_point_overlaps o
+        WHERE o.status = 'open'
      """, ("grammar_point_overlaps",)),
-    ("ai_translations", """
-        SELECT count(*) FROM translation_reviews r
-          JOIN vocabulary v ON r.vocabulary_id = v.id
-         WHERE v.language_id = {lang} AND r.status = 'pending'
+    ("ai_translations", "v.language_id", """
+        FROM translation_reviews r
+        JOIN vocabulary v ON r.vocabulary_id = v.id
+        WHERE r.status = 'pending'
      """, ("translation_reviews",)),
     # A tester's advisory ✓/✗ counts as a queue in its own right: it is the
     # only output most trial reviewers produce, and until now it appeared
     # nowhere the admin looks. Scoped to targets that are STILL PENDING —
     # once a reviewer publishes or rejects the item the advice is spent.
-    ("tester_recommendations", """
-        SELECT count(*) FROM review_recommendations rr
-         WHERE rr.language_id = {lang}
-           AND ((rr.target_type = 'drill' AND EXISTS (
-                   SELECT 1 FROM drill_sentences ds
-                    WHERE ds.id = rr.target_id AND ds.reviewed = false))
-             OR (rr.target_type = 'example' AND EXISTS (
-                   SELECT 1 FROM example_sentences es
-                    WHERE es.id = rr.target_id AND es.reviewed = false)))
+    ("tester_recommendations", "rr.language_id", """
+        FROM review_recommendations rr
+        WHERE ((rr.target_type = 'drill' AND EXISTS (
+                  SELECT 1 FROM drill_sentences ds
+                   WHERE ds.id = rr.target_id AND ds.reviewed = false))
+            OR (rr.target_type = 'example' AND EXISTS (
+                  SELECT 1 FROM example_sentences es
+                   WHERE es.id = rr.target_id AND es.reviewed = false)))
      """, ("review_recommendations",)),
     # General app feedback — the home-page "tell us what you think" button.
     # It was the one stream with no place on the per-language map: reports
@@ -739,9 +740,9 @@ _INBOX_QUEUES: tuple[tuple[str, str, tuple[str, ...]], ...] = (
     # page the workspace never links to. Rows that name no language belong
     # to no course and are deliberately NOT here — they surface in the
     # notifications endpoint's own bucket instead of being mis-filed.
-    ("app_feedback", """
-        SELECT count(*) FROM app_feedback af
-         WHERE af.language_id = {lang} AND af.status = 'open'
+    ("app_feedback", "af.language_id", """
+        FROM app_feedback af
+        WHERE af.status = 'open'
      """, ("app_feedback",)),
 )
 
@@ -754,16 +755,16 @@ ADMIN_ONLY_QUEUES = ("ai_translations", "app_feedback")
 
 # Everything the queue set can need, so one probe covers the whole roll-up.
 _INBOX_TABLES = tuple(sorted({
-    n for _, _, needs in _INBOX_QUEUES for n in needs if "." not in n
+    n for _, _, _, needs in _INBOX_QUEUES for n in needs if "." not in n
 }))
 _INBOX_COLUMNS = tuple(sorted({
-    n for _, _, needs in _INBOX_QUEUES for n in needs if "." in n
+    n for _, _, _, needs in _INBOX_QUEUES for n in needs if "." in n
 }))
 
 # Queues that add up to "this language needs attention" in the cross-language
 # strip. Deliberately every queue: an admin whose selector sits on Arabic must
 # see that Hebrew has traffic, whatever KIND of traffic it is.
-INBOX_QUEUE_KEYS = tuple(k for k, _, _ in _INBOX_QUEUES)
+INBOX_QUEUE_KEYS = tuple(k for k, _, _, _ in _INBOX_QUEUES)
 
 
 def strip_admin_queues(languages: list[dict]) -> list[dict]:
@@ -789,16 +790,41 @@ def strip_admin_queues(languages: list[dict]) -> list[dict]:
 
 
 def _inbox_selects(present: set[str], lang_sql: str) -> str:
-    """The queue subqueries, with any whose table/column is missing replaced
-    by a literal 0 (so a pre-migration deploy reads 'nothing here' instead of
-    500ing the Review workspace)."""
+    """The queue counts for ONE language, as scalar subqueries — fine at
+    N=1. Any queue whose table/column is missing renders as a literal 0 (so
+    a pre-migration deploy reads 'nothing here' instead of 500ing the
+    Review workspace)."""
     parts = []
-    for key, sql, needs in _INBOX_QUEUES:
+    for key, lang_expr, from_where, needs in _INBOX_QUEUES:
         if all(n in present for n in needs):
-            parts.append(f"({sql.format(lang=lang_sql)}) AS {key}")
+            parts.append(
+                f"(SELECT count(*) {from_where} AND {lang_expr} = {lang_sql})"
+                f" AS {key}"
+            )
         else:
             parts.append(f"0::bigint AS {key}")
     return ",\n          ".join(parts)
+
+
+def _inbox_grouped(present: set[str]) -> tuple[str, str]:
+    """The queue counts for EVERY language at once: each queue becomes one
+    grouped scan LEFT JOINed to `languages l` — the whole roll-up touches
+    each table once, however many languages exist. (Correlated subqueries
+    here re-scanned every table per language and timed out on production
+    corpus sizes — see _INBOX_QUEUES.) Returns (select columns, joins);
+    missing queues render as 0 with no join, same degrade as _inbox_selects.
+    """
+    cols, joins = [], []
+    for key, lang_expr, from_where, needs in _INBOX_QUEUES:
+        if all(n in present for n in needs):
+            cols.append(f"COALESCE(q_{key}.n, 0) AS {key}")
+            joins.append(
+                f"LEFT JOIN (SELECT {lang_expr} AS lid, count(*) AS n"
+                f" {from_where} GROUP BY 1) q_{key} ON q_{key}.lid = l.id"
+            )
+        else:
+            cols.append(f"0::bigint AS {key}")
+    return ",\n          ".join(cols), "\n        ".join(joins)
 
 
 async def review_inbox_counts(
@@ -834,11 +860,13 @@ async def review_inbox_by_language(
     not (it exists only to say "there is traffic over there").
     """
     present = await _present(conn, _INBOX_TABLES, _INBOX_COLUMNS)
+    cols, joins = _inbox_grouped(present)
     rows = await conn.fetch(
         f"""
         SELECT l.id, l.code, l.name, l.is_visible,
-          {_inbox_selects(present, "l.id")}
+          {cols}
         FROM languages l
+        {joins}
         WHERE ($1::uuid IS NULL OR l.id <> $1::uuid)
         """,
         exclude,
@@ -892,32 +920,50 @@ async def language_release_readiness(conn: asyncpg.Connection) -> list[dict]:
     counted separately because it doesn't gate a first release the way
     unreviewed content does.
     """
+    # Grouped scans, not correlated subqueries — same outage class as the
+    # inbox roll-up (see _INBOX_QUEUES): per-language re-scans of the content
+    # tables outran the statement timeout on production corpus sizes.
     rows = await conn.fetch(
         """
         SELECT l.id, l.code, l.name, l.is_visible,
           l.grammar_review_policy, l.tutor_model,
-          (SELECT count(*) FROM grammar_points gp
-            WHERE gp.language_id = l.id AND gp.reviewed = false
-              AND COALESCE(gp.explanation, '') <> '') AS draft_points,
-          (SELECT count(*) FROM drill_sentences ds
-             JOIN grammar_points gp ON ds.grammar_point_id = gp.id
-            WHERE gp.language_id = l.id AND ds.source = 'ai'
-              AND ds.reviewed = false) AS pending_drills,
-          (SELECT count(*) FROM example_sentences es
-             JOIN vocabulary v ON es.vocabulary_id = v.id
-            WHERE v.language_id = l.id AND es.source = 'ai'
-              AND es.reviewed = false) AS pending_examples,
-          (SELECT count(*) FROM point_review_notes n
-             LEFT JOIN grammar_points gp ON n.grammar_point_id = gp.id
-             LEFT JOIN vocabulary v ON n.vocabulary_id = v.id
-            WHERE COALESCE(gp.language_id, v.language_id) = l.id
-              AND n.status = 'open') AS open_notes,
-          (SELECT count(*) FROM card_change_requests cr
-            WHERE cr.language_id = l.id AND cr.status = 'open')
-            AS open_change_requests,
-          (SELECT count(*) FROM card_feedback f
-            WHERE f.language_id = l.id AND f.status = 'open') AS open_feedback
+          COALESCE(dp.n, 0) AS draft_points,
+          COALESCE(pd.n, 0) AS pending_drills,
+          COALESCE(pe.n, 0) AS pending_examples,
+          COALESCE(nt.n, 0) AS open_notes,
+          COALESCE(cr.n, 0) AS open_change_requests,
+          COALESCE(fb.n, 0) AS open_feedback
         FROM languages l
+        LEFT JOIN (SELECT gp.language_id AS lid, count(*) AS n
+                     FROM grammar_points gp
+                    WHERE gp.reviewed = false
+                      AND COALESCE(gp.explanation, '') <> ''
+                    GROUP BY 1) dp ON dp.lid = l.id
+        LEFT JOIN (SELECT gp.language_id AS lid, count(*) AS n
+                     FROM drill_sentences ds
+                     JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+                    WHERE ds.source = 'ai' AND ds.reviewed = false
+                    GROUP BY 1) pd ON pd.lid = l.id
+        LEFT JOIN (SELECT v.language_id AS lid, count(*) AS n
+                     FROM example_sentences es
+                     JOIN vocabulary v ON es.vocabulary_id = v.id
+                    WHERE es.source = 'ai' AND es.reviewed = false
+                    GROUP BY 1) pe ON pe.lid = l.id
+        LEFT JOIN (SELECT COALESCE(gp.language_id, v.language_id) AS lid,
+                          count(*) AS n
+                     FROM point_review_notes n
+                     LEFT JOIN grammar_points gp ON n.grammar_point_id = gp.id
+                     LEFT JOIN vocabulary v ON n.vocabulary_id = v.id
+                    WHERE n.status = 'open'
+                    GROUP BY 1) nt ON nt.lid = l.id
+        LEFT JOIN (SELECT cr.language_id AS lid, count(*) AS n
+                     FROM card_change_requests cr
+                    WHERE cr.status = 'open'
+                    GROUP BY 1) cr ON cr.lid = l.id
+        LEFT JOIN (SELECT f.language_id AS lid, count(*) AS n
+                     FROM card_feedback f
+                    WHERE f.status = 'open'
+                    GROUP BY 1) fb ON fb.lid = l.id
         ORDER BY l.name
         """
     )
@@ -956,35 +1002,49 @@ async def generation_coverage(conn: asyncpg.Connection) -> list[dict]:
     """Per-language content coverage for the admin generation panel: how many
     words/points exist, how many still have NO example/drill, and how much
     'ai'-sourced content is already in the pool. One row per language."""
+    # Grouped scans, not correlated subqueries — same outage class as the
+    # inbox roll-up (see _INBOX_QUEUES): this panel's per-language re-scans
+    # of vocabulary and example_sentences were among the statements that
+    # outran the statement timeout in production.
     rows = await conn.fetch(
         """
         SELECT l.id, l.code, l.name,
-          (SELECT count(*) FROM vocabulary v WHERE v.language_id = l.id)
-            AS vocab_total,
-          (SELECT count(*) FROM vocabulary v WHERE v.language_id = l.id
-             AND NOT EXISTS (SELECT 1 FROM example_sentences es
-                              WHERE es.vocabulary_id = v.id))
-            AS vocab_no_examples,
-          (SELECT count(*) FROM grammar_points gp WHERE gp.language_id = l.id)
-            AS grammar_total,
-          (SELECT count(*) FROM grammar_points gp WHERE gp.language_id = l.id
-             AND NOT EXISTS (SELECT 1 FROM drill_sentences ds
-                              WHERE ds.grammar_point_id = gp.id))
-            AS grammar_no_drills,
-          (SELECT count(*) FROM example_sentences es
-             JOIN vocabulary v ON es.vocabulary_id = v.id
-            WHERE v.language_id = l.id AND es.source = 'ai')
-            AS ai_examples,
-          (SELECT count(*) FROM example_sentences es
-             JOIN vocabulary v ON es.vocabulary_id = v.id
-            WHERE v.language_id = l.id AND es.source = 'ai'
-              AND es.reviewed = false)
-            AS pending_examples,
-          (SELECT count(*) FROM drill_sentences ds
-             JOIN grammar_points gp ON ds.grammar_point_id = gp.id
-            WHERE gp.language_id = l.id AND ds.source = 'ai')
-            AS ai_drills
+          COALESCE(vt.total, 0)      AS vocab_total,
+          COALESCE(vt.no_ex, 0)      AS vocab_no_examples,
+          COALESCE(gt.total, 0)      AS grammar_total,
+          COALESCE(gt.no_drills, 0)  AS grammar_no_drills,
+          COALESCE(ae.total, 0)      AS ai_examples,
+          COALESCE(ae.pending, 0)    AS pending_examples,
+          COALESCE(ad.n, 0)          AS ai_drills
         FROM languages l
+        LEFT JOIN (SELECT v.language_id AS lid, count(*) AS total,
+                          count(*) FILTER (WHERE ex.vocabulary_id IS NULL)
+                            AS no_ex
+                     FROM vocabulary v
+                     LEFT JOIN (SELECT DISTINCT vocabulary_id
+                                  FROM example_sentences) ex
+                       ON ex.vocabulary_id = v.id
+                    GROUP BY 1) vt ON vt.lid = l.id
+        LEFT JOIN (SELECT gp.language_id AS lid, count(*) AS total,
+                          count(*) FILTER (WHERE dr.grammar_point_id IS NULL)
+                            AS no_drills
+                     FROM grammar_points gp
+                     LEFT JOIN (SELECT DISTINCT grammar_point_id
+                                  FROM drill_sentences) dr
+                       ON dr.grammar_point_id = gp.id
+                    GROUP BY 1) gt ON gt.lid = l.id
+        LEFT JOIN (SELECT v.language_id AS lid, count(*) AS total,
+                          count(*) FILTER (WHERE es.reviewed = false)
+                            AS pending
+                     FROM example_sentences es
+                     JOIN vocabulary v ON es.vocabulary_id = v.id
+                    WHERE es.source = 'ai'
+                    GROUP BY 1) ae ON ae.lid = l.id
+        LEFT JOIN (SELECT gp.language_id AS lid, count(*) AS n
+                     FROM drill_sentences ds
+                     JOIN grammar_points gp ON ds.grammar_point_id = gp.id
+                    WHERE ds.source = 'ai'
+                    GROUP BY 1) ad ON ad.lid = l.id
         ORDER BY l.name
         """
     )
