@@ -574,3 +574,67 @@ class TestVocabExclusions:
                        for r in _csv.DictReader(handle, delimiter="\t")):
                     offenders.append(f"{code}:{word}")
         assert not offenders, f"excluded words back in the data: {offenders}"
+
+
+class TestReconcile:
+    """The reconciler must never delete, and must always be reversible.
+
+    load_vocabulary inserts ON CONFLICT DO NOTHING, so a corrected gloss never
+    reaches a learner. This closes that gap — but user_cards.card_id is a
+    polymorphic reference with no foreign key, so deleting vocabulary would
+    orphan learner cards rather than cascade.
+    """
+
+    def test_it_contains_no_delete_against_vocabulary(self):
+        """The one thing this tool must never do."""
+        from pathlib import Path
+
+        import backend.services.seeder.reconcile as rec
+
+        src = Path(rec.__file__).read_text(encoding="utf-8")
+        body = src.split('"""', 2)[-1]           # skip the module docstring
+        lowered = body.lower()
+        assert "delete from vocabulary" not in lowered
+        assert "drop table" not in lowered
+        # Deleting a translation row IS allowed — that is how a rollback undoes
+        # an inserted definition — but only ever from `translations`.
+        for idx in range(len(lowered)):
+            if lowered.startswith("delete from ", idx):
+                target = lowered[idx + len("delete from "):].split()[0]
+                assert target.startswith("translations"), target
+
+    def test_rollback_sql_restores_every_prior_value(self, tmp_path, monkeypatch):
+        import backend.services.seeder.reconcile as rec
+
+        monkeypatch.setattr(rec, "ROLLBACK_DIR", tmp_path)
+        reports = [{
+            "code": "mi",
+            "gloss_changes": [{"id": "11111111-1111-1111-1111-111111111111",
+                               "word": "ana", "old": "his, her", "new": "the particle"}],
+            "missing_translation": [{"id": "22222222-2222-2222-2222-222222222222",
+                                     "word": "kāore", "new": "not"}],
+            "pos_changes": [{"id": "33333333-3333-3333-3333-333333333333",
+                             "word": "ata", "old": None, "new": "noun"}],
+        }]
+        path = rec.write_rollback(reports, "TEST")
+        sql = path.read_text(encoding="utf-8")
+        assert sql.startswith("-- Rollback")
+        assert "BEGIN;" in sql and sql.rstrip().endswith("COMMIT;")
+        # the changed gloss goes back to its old value, not to the new one
+        assert "definition = 'his, her'" in sql
+        # a translation that did not exist before is removed, not blanked
+        assert "DELETE FROM translations" in sql
+        # a NULL part of speech is restored as NULL, not as the empty string
+        assert "part_of_speech = NULL" in sql
+
+    def test_rollback_quotes_apostrophes(self, tmp_path, monkeypatch):
+        """A gloss like "I'll kill you" must not break the rollback file."""
+        import backend.services.seeder.reconcile as rec
+
+        monkeypatch.setattr(rec, "ROLLBACK_DIR", tmp_path)
+        reports = [{"code": "es", "gloss_changes": [
+            {"id": "44444444-4444-4444-4444-444444444444",
+             "word": "mato", "old": "I'll kill you", "new": "I kill"}],
+            "missing_translation": [], "pos_changes": []}]
+        sql = rec.write_rollback(reports, "TEST2").read_text(encoding="utf-8")
+        assert "'I''ll kill you'" in sql
