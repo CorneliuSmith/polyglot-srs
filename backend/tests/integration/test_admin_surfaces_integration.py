@@ -23,6 +23,7 @@ from backend.repositories.contributor import (
     admin_timeseries,
     find_user_by_email,
     generation_coverage,
+    language_release_readiness,
     pick_review_prompt,
     review_inbox_by_language,
 )
@@ -105,6 +106,9 @@ async def test_every_admin_read_surface_executes(pool):
         # The router reads these exact keys to attach model overrides.
         assert all("language_id" in r and "language_code" in r for r in coverage)
 
+        readiness = await language_release_readiness(conn)
+        assert any(r["id"] == lang for r in readiness)
+
         snapshot = await admin_engagement(conn, 30)
         assert snapshot["total_users"] >= 1
         assert "speak" in snapshot["feature_users"]
@@ -119,6 +123,49 @@ async def test_every_admin_read_surface_executes(pool):
 
         popularity = await admin_feature_popularity(conn, 30)
         assert {f["key"] for f in popularity} >= {"review", "speak", "gym"}
+
+
+async def test_grouped_rollups_count_into_the_right_language(pool):
+    """The roll-ups were rewritten from per-language correlated subqueries
+    (which outran the statement timeout on production corpus sizes and
+    500'd the staff bell) to single grouped scans. Grouping bugs are
+    silent — a count landing on the wrong language still returns 200 —
+    so seed real queue rows and check they surface where they belong."""
+    lang, uid = await _seed_account(pool, "rollup-seed@example.com")
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "INSERT INTO grammar_points (language_id, title, explanation, "
+            "reviewed) VALUES ($1, 'Case endings', 'A draft worth reading', "
+            "false)",
+            lang,
+        )
+        await conn.execute(
+            "INSERT INTO app_feedback (user_id, language_id, category, "
+            "message) VALUES ($1, $2, 'bug', 'the keyboard is cut off')",
+            uid, lang,
+        )
+
+        inbox = await review_inbox_by_language(conn, include_empty=True)
+        mine = next(row for row in inbox if row["id"] == lang)
+        assert mine["counts"]["grammar_pending"] == 1
+        assert mine["counts"]["app_feedback"] == 1
+        assert mine["total"] >= 2
+        # …and nothing leaked onto other languages' rows.
+        for row in inbox:
+            if row["id"] != lang:
+                assert row["counts"]["grammar_pending"] == 0
+
+        coverage = await generation_coverage(conn)
+        cov = next(r for r in coverage if r["language_id"] == lang)
+        assert cov["grammar_total"] == 1
+        assert cov["grammar_no_drills"] == 1
+
+        # Clean up so the other tests' "empty" expectations hold whatever
+        # order the file runs in.
+        await conn.execute(
+            "DELETE FROM grammar_points WHERE language_id = $1", lang)
+        await conn.execute(
+            "DELETE FROM app_feedback WHERE user_id = $1", uid)
 
 
 async def test_review_prompt_query_executes(pool):

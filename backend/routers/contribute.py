@@ -3190,6 +3190,12 @@ async def review_notifications(user: dict = Depends(get_current_user)):
     except (
         asyncpg.exceptions.UndefinedTableError,
         asyncpg.exceptions.UndefinedColumnError,
+        # A statement the database cancelled (statement_timeout). The bell
+        # asks on EVERY staff page load — before the roll-up was rewritten
+        # to grouped scans this fired constantly in production, and a 500
+        # here broke the console on every navigation. An empty bell for one
+        # load beats that; the next load asks again.
+        asyncpg.exceptions.QueryCanceledError,
     ):
         languages = []
 
@@ -3212,6 +3218,7 @@ async def review_notifications(user: dict = Depends(get_current_user)):
         except (
             asyncpg.exceptions.UndefinedTableError,
             asyncpg.exceptions.UndefinedColumnError,
+            asyncpg.exceptions.QueryCanceledError,
         ):
             feedback = []
         # Per-language feedback now rides inside each language row's counts
