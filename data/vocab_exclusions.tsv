@@ -70,3 +70,4 @@ ro	neagra	the stated meaning cannot carry this rank; the frequency is the unacce
 ro	lânga	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: lângă r445)
 mi	tona	wart, corn, nodule at rank 30 — used 0 times by the course; the rank belongs to tōna "his/her", which now has its own row. SENSE LOST: tona "wart" is real but is not rank-30 vocabulary
 mi	ra	"Ra (Egyptian god of the Sun)" at rank 37 — a kaikki artifact; the rank belongs to rā "day", which the course uses 20 times and which this pass adds
+tl	ii	name of the Baybayin letter ᜁ — a script-name entry, not a word. Rank 424 comes from Wikipedia prose about the Baybayin script, which the tgl_wikipedia corpus is full of; the audit's wrong_sense_gloss rule caught it.
