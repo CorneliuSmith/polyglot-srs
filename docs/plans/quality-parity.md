@@ -654,7 +654,7 @@ order below is the order the work must happen in, per language.
 | mi | **not a macron pass** — restore the missing high-frequency words, re-gloss the bare-homograph rows, then mark | measured 20 Aug: `tēnei`, `kāore`, `mātou`, `whānau`, `kōrero` are all ABSENT; a macronisation pass was authored and discarded (see `mi.md`) |
 | yo | top band from in-repo evidence, tail still needs a source | **partly unblocked** 20 Aug: the drills are 65% tone-marked against the vocabulary's 0.4%, giving 130 attested top-band forms + 17 rows that state their own tone. The tail (~1,491) still needs an external source. Attested ≠ correct for the row — see `yo.md` |
 | xh | replace the Bible-corpus frequency list, or author a core over it | sourcing |
-| ha | add the missing grammatical spine | authoring |
+| ha | **spine added 20 Aug (1,188 → 1,473)**; hooked-letter conflicts in the sentence bank remain | 885 nouns / 171 names / 44 verbs / 11 pronouns, no copula. See `ha.md` |
 | he, fa, id | rebuild `rank` as a frequency ranking; dedupe | sourcing + mechanical |
 | tl | grow 90 rows into a course | sourcing |
 
