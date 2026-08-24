@@ -26,6 +26,45 @@ Three features dominate drill quality:
 3. **Prefix allomorphy across class 9/10** (`izin-`, `iin-`, `iim-`, `izim-`) is the one place where the
    learner must compute a shape, and it is where the file's hint conventions currently disagree with themselves.
 
+**The word list was Bible-derived, and a Leipzig corpus now supplements it (24 Aug 2026).**
+`data/xh_frequency.tsv` was built from `data/raw/xh_bible.xml`, the only Xhosa corpus the
+repo had. That is why rank 2 is `uThixo` "God" and rank 3 `unyana` is glossed "the Son of
+God in Christian texts", while `okanye` "or", `kwaye` "and", `kodwa` "but" and `kufuneka`
+"must" had **no cards at all**.
+
+`xho_community_2017` (Leipzig Corpora, CC-BY, 23,993 sentences) is now registered in
+`source_data.py` as `xh_leipzig`. The register difference is the whole point:
+
+| | top words |
+| --- | --- |
+| bible | `na, uThixo, unyana, phakathi, abantu, yena, phezu, mna` |
+| Leipzig | `ukuba, ke, okanye, kunye, kwaye, xa, kuba, na, le, abantu` |
+
+**837 of Leipzig's top 1,000 were absent from the course.** 62 have been added — the
+conjunctions and discourse particles first, each glossed from the course's own translated
+drills where they exist and from Leipzig sentences otherwise.
+
+**A corpus cannot supply the teaching core, and this is worth stating plainly.** In
+Leipzig, `molo` "hello" ranks **#58,883** and `enkosi` "thank you" **#42,478**, because
+greetings are spoken far more than they are written. No web corpus will ever rank them.
+A course therefore needs an authored courtesy core *on top of* a good frequency list;
+neither substitutes for the other. That core is still outstanding — 43 everyday words
+(`enkosi`, `kunjani`, `ndicela`, `uxolo`) have neither a card nor a Wiktionary entry.
+
+**Surface forms are not headwords.** 169 of the 247 candidates were skipped for this, and
+the reasoning is the one this page should enforce: `zabo`, `yakhe`, `wakhe` are possessive
+concord cells; `kule`, `kulo`, `kweli` are locative-plus-demonstrative contractions;
+`ziya`, `iya`, `baya`, `uya` are subject concord plus tense marker. **Teach the concord
+table, not its 15 × 6 output.** Only forms that have lexicalised — `ukuba`, `ukuze`,
+`kufuneka` — earn a card.
+
+Three more were rejected for a defect this page should also carry: `ukufunda` and
+`ukuqinisekisa` were carded as verbs with the `uku-` infinitive prefix, but **all 279 verbs
+in this file are bare stems** (`hamba`, `thetha`, `khangela`) and every one of the 14
+`uku-` headwords is tagged `noun`. A deck that grades exact-match cannot leave the learner
+guessing which shape to type. Two real gaps surfaced in the process: **`funda` "read,
+learn" is absent entirely**, and so is the singular lemma `isikolo` "school".
+
 ## Hint standards
 
 A hint narrows the answer without containing it: never the answer as a whole word; never a gloss already

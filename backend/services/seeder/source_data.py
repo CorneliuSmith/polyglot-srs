@@ -149,9 +149,19 @@ SOURCES = {
         "master/content/2018/{code}/{code}_50k.txt"
     ),
     "yo_corpus_repo": "https://github.com/Niger-Volta-LTI/yoruba-text.git",
-    # Public-domain bible corpus — frequency bootstrap for Xhosa (no
-    # OpenSubtitles list exists). Prefer a CC-BY Leipzig/Wikipedia list for
-    # production register coverage.
+    # Xhosa: Leipzig Corpora community corpus (CC-BY), 23,993 sentences of
+    # real web register. This replaced the bible bootstrap on 24 Aug 2026 —
+    # the comment below had recommended exactly this swap, and the bible list
+    # is what made rank 2 uThixo "God" and rank 3 unyana "the Son of God in
+    # Christian texts" while okanye "or", kwaye "and" and kodwa "but" had no
+    # cards at all. Verified reachable 24 Aug 2026.
+    "xh_leipzig": (
+        "https://downloads.wortschatz-leipzig.de/corpora/"
+        "xho_community_2017.tar.gz"
+    ),
+    # Kept: the bible corpus is still the only source for Māori, and Xhosa's
+    # existing ranks were derived from it, so it stays reachable for
+    # comparison and for any rebuild that wants both.
     "xh_corpus": (
         "https://raw.githubusercontent.com/christos-c/bible-corpus/"
         "master/bibles/Xhosa.xml"
