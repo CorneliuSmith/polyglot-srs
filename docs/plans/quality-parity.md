@@ -655,7 +655,7 @@ order below is the order the work must happen in, per language.
 | yo | top band from in-repo evidence, tail still needs a source | **partly unblocked** 20 Aug: the drills are 65% tone-marked against the vocabulary's 0.4%, giving 130 attested top-band forms + 17 rows that state their own tone. The tail (~1,491) still needs an external source. Attested ≠ correct for the row — see `yo.md` |
 | xh | **corpus swapped**, 62 core words added; authored courtesy core still open | Leipzig `xho_community_2017` (CC-BY) registered 24 Aug; 837 of its top 1,000 were absent. But `molo` ranks #58,883 and `enkosi` #42,478 there — greetings need authoring, no corpus will rank them |
 | ha | **spine added 20 Aug (1,188 → 1,473)**; hooked-letter conflicts in the sentence bank remain | 885 nouns / 171 names / 44 verbs / 11 pronouns, no copula. See `ha.md` |
-| he, fa, id | rebuild `rank` as a frequency ranking; dedupe | sourcing + mechanical |
+| he, fa, id | **done 24 Aug** — he 929→3,000, fa 584→2,996, id 581→3,000, all from Leipzig Wikipedia + kaikki through the repo's own parser | the `rank` column was never the defect; these four courses simply never had a pipeline (commit `2d7ce7f`) |
 | tl | **done 24 Aug — 90 → 2,999.** Leipzig `tgl_wikipedia_2021_100K` + Tagalog kaikki, through the repo's own parser; 360 proper nouns and 7 wrong-sense rows filtered | the same route is now open for `he`, `fa`, `id`: all three were hand-added by `2d7ce7f`, all three have Leipzig and kaikki available |
 
 Latin is first because its quality doc makes it deterministic: "no macrons,

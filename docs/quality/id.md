@@ -30,6 +30,10 @@ Grading: `IndonesianNLP` in `backend/services/nlp/latin_base.py` is `AccentFoldi
 is **exact match after lowercasing**: `buku buku` for `buku-buku` grades WRONG. Not in
 `TRANSLIT_LANGS`.
 
+**581 → 3,000 rows (24 Aug 2026).** `id` was hand-added by commit `2d7ce7f` and never went through the corpus pipeline — no kaikki extract, no build path. It now has both: `ind_wikipedia_2021_100K` (Leipzig, CC-BY) for frequency and the Indonesian kaikki extract for glosses, run through `source_data.parse_kaikki_jsonl` so the sense ranking and letter-name rejection apply. The 581 curated rows are kept and win. 91 proper nouns and 3 pointer-only glosses were dropped. First additions are the spine the list lacked: `menjadi`, `tersebut`, `memiliki`, `dapat`, `telah`, `merupakan`, `sebuah`.
+
+The 121 audit findings are all in the grammar drills, not the vocabulary, and predate this work.
+
 ## Hint standards
 
 Universal rules, once: a hint **narrows** the answer without containing it. Never the answer

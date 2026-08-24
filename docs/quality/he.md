@@ -26,6 +26,10 @@ class. Three things dominate drill quality:
    stripped, so `בית` for `הבית` grades `WRONG`. The ה־ / ש־ / כש־ / ל־ points are
    genuinely gradeable; don't weaken them by blanking a bare stem.
 
+**929 → 3,000 rows (24 Aug 2026).** Same story as `id`, `fa` and `tl`: hand-added by `2d7ce7f`, no pipeline. Now built from `heb_wikipedia_2021_100K` (Leipzig, CC-BY) plus the Hebrew kaikki extract, through the repo's own parser. 134 proper nouns dropped — a Wikipedia corpus is full of them. First additions: `לאחר`, `אך`, `זו`, `אשר`, `כאשר`, and the past-tense forms of `היה`.
+
+Note for whoever works this next: the vocabulary is stored **unvocalized**, which is correct and matches how Hebrew is written — the collision guard already has a test for it (`test_a_vocalized_rendering_of_the_stored_word_stays_sloppy`).
+
 ## Hint standards
 Universal rules, once: a hint narrows the answer without containing it. Never the answer as
 a whole word; never a gloss that already sits in the drill's own `translation`; never the

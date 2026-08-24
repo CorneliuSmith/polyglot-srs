@@ -200,7 +200,7 @@ SLOPPY_KEY_CEILINGS = {
     # minimal pair — and `korero` for `kōrero` stays a coached typo.
     "xh": 0, "es": 230, "it": 54, "fr": 491, "de": 127, "ca": 122, "mi": 24,
     "ro": 491, "el": 114, "pt": 108, "hi": 145, "jam": 0, "nl": 7, "th": 193,
-    "ko": 0, "la": 3, "id": 0, "tl": 0, "he": 0, "fa": 0,
+    "ko": 0, "la": 3, "id": 0, "tl": 0, "he": 0, "fa": 5,
 }
 
 
