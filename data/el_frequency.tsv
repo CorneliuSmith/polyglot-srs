@@ -716,7 +716,7 @@ rank	word	pos	en
 715	σκάφος	noun	craft, ship; hull
 716	πόλεμο	noun	accusative singular of πόλεμος (pólemos)
 717	σκέφτεσαι	verb	second-person singular present of σκέφτομαι (skéftomai)
-718	κάποτε	adv	sometime; formerly, once
+718	κάποτε	adv	sometime; formerly, once; doubled κάποτε … κάποτε — sometimes …, at other times …
 719	τιμή	noun	price, value (of something, asset, fare, etc)
 720	σκάσε	verb	second-person singular perfective imperative of σκάω (skáo) and σκάζω (skázo)
 721	καθώς	conj	as, while; since, seeing as, because
@@ -794,11 +794,11 @@ rank	word	pos	en
 793	μυστικό	noun	secret; mystery
 794	ίδιος	adj	own; myself, yourself, himself, herself, itself, themselves
 795	μιλήσεις	verb	second-person singular dependent active of μιλάω (miláo) and μιλώ (miló)
-796	άντε	intj	go!; go on
+796	άντε	intj	go on; come on, c'mon (urging promptness)
 797	πρώην	adj	former, ex, onetime, sometime
 798	παραπάνω	adv	above, over, higher up (at or to a higher point)
 799	εξαιτίας	prep	because of, on account of (implies something negative)
-800	λιγότερο	adj	accusative masculine singular of λιγότερος
+800	λιγότερο	adj	accusative masculine singular of λιγότερος (ligóteros), the comparative degree of λίγος (lígos); nominative/accusative/vocative neuter singular of λιγότερος (ligóteros), the comparative degree of λίγος (lígos)
 801	επίθεση	noun	attack, offensive (in warfare)
 802	σκοτώσεις	verb	second-person singular dependent of σκοτώνω (skotóno)
 803	πλοίο	noun	ship, large boat
@@ -974,7 +974,7 @@ rank	word	pos	en
 973	βλέπει	verb	"third-person singular present of βλέπω (vlépo): ""he/she/it sees"""
 974	πάρετε	verb	second-person plural dependent of παίρνω (paírno)
 975	ντέιβιντ	name	a transliteration of the English male given name David
-976	μεγαλύτερο	adj	accusative masculine singular of μεγαλύτερος
+976	μεγαλύτερο	adj	bigger, larger, greater — accusative masculine singular and nominative/accusative/vocative neuter singular of μεγαλύτερος, the comparative of μεγάλος
 977	γνώρισα	verb	first-person singular simple past of γνωρίζω (gnorízo)
 978	φαντάζομαι	verb	to imagine; to form an opinion, assume, expect
 979	κουτί	noun	packet, carton; can, canister
@@ -1022,13 +1022,13 @@ rank	word	pos	en
 1021	φτάνει	verb	"""it suffices, it is enough"""
 1022	τσάι	noun	tea (drink and leaves)
 1023	αδερφό	noun	accusative singular of αδερφός (aderfós)
-1024	αμερική	name	America, the Americas
+1024	αμερική	name	America, the Americas; the United States
 1025	λατρεύω	verb	to worship, adore
 1026	βίντεο	noun	video (TV recording: method, instrument and process)
 1027	θάλασσα	noun	sea; sea (all the seas and oceans)
 1028	μίλησα	verb	first-person singular simple past of μιλώ (miló)
 1029	αρχεία	noun	nominative/accusative/vocative plural of αρχείο (archeío)
-1030	μεγαλύτερη	adj	nominative/accusative/vocative feminine singular of μεγαλύτερος
+1030	μεγαλύτερη	adj	bigger, larger, greater — nominative/accusative/vocative feminine singular of μεγαλύτερος, the comparative of μεγάλος
 1031	υπήρχαν	verb	third-person singular imperfect of υπάρχω (ypárcho)
 1032	πλάτη	noun	back; chairback
 1033	όμορφα	adj	nominative/accusative/vocative neuter plural of όμορφος (ómorfos)
@@ -1058,7 +1058,7 @@ rank	word	pos	en
 1057	αρχηγός	noun	leader; boss
 1058	βγάλε	verb	second-person singular perfective imperative of βγάζω (vgázo)
 1059	γλυκό	noun	sweet, pudding, dessert
-1060	αχ	intj	An expression of relaxation
+1060	αχ	intj	oh, whoa — an exclamation
 1061	ανησυχώ	verb	to worry, be worried, be concerned
 1062	μπλε	adj	blue
 1063	μέρη	noun	nominative plural of μέρος (méros)
@@ -2006,7 +2006,7 @@ rank	word	pos	en
 2005	σοβαρή	adj	nominative feminine singular of σοβαρός (sovarós)
 2006	συναντήσεις	noun	nominative/accusative/vocative plural of συνάντηση (synántisi)
 2007	μεγαλύτερος	adj	comparative degree of μεγάλος (megálos) (larger, bigger, greater)
-2008	σύνορα	noun	nominative/accusative/vocative plural of σύνορο
+2008	σύνορα	noun	borders, boundaries, limits; frontier — plural of το σύνορο
 2009	καθένα	pron	nominative neuter of καθένας (kathénas)
 2010	χρήση	noun	use, application, usage
 2011	υπερβολικά	adv	excessively
@@ -2750,7 +2750,7 @@ rank	word	pos	en
 2749	μάζεψε	verb	third-person singular simple past of μαζεύω (mazévo)
 2750	προ	prep	before
 2751	αηδία	noun	disgust, revulsion, distaste
-2752	επρόκειτο	verb	"""was about, concerned"""
+2752	επρόκειτο	verb	was about, concerned — third-person singular imperfect of πρόκειται
 2753	κάλυψη	noun	coverage; support, protection
 2754	γουστάρω	verb	to want, desire
 2755	πυροβόλησαν	verb	third-person plural simple past of πυροβολώ (pyrovoló)
@@ -2849,7 +2849,7 @@ rank	word	pos	en
 2848	επίπεδα	noun	nominative plural of επίπεδο (epípedo)
 2849	πλήθος	noun	a lot, large number, masses
 2850	άμεση	adj	nominative/accusative/vocative feminine singular of άμεσος (ámesos)
-2851	συντομότερο	adj	accusative masculine singular of συντομότερος
+2851	συντομότερο	adj	accusative masculine singular of συντομότερος (syntomóteros), the comparative degree of σύντομος (sýntomos); nominative/accusative/vocative neuter singular of συντομότερος (syntomóteros), the comparative degree of σύντομος (sýntomos)
 2852	επιθεωρητής	noun	inspector (a person employed to inspect something)
 2853	ανάγκης	noun	genitive singular of ανάγκη (anágki)
 2854	ατμόσφαιρα	noun	atmosphere (planetary)
@@ -3199,7 +3199,7 @@ rank	word	pos	en
 3198	άλλωστε	adv	besides, after all, furthermore, moreover, and beyond that
 3199	καταστάσεις	noun	nominative/accusative/vocative plural of κατάσταση (katástasi)
 3200	πέρασμα	noun	passage, passing (of time, weather, illness, events)
-3201	μεγαλύτερα	adj	nominative neuter plural of μεγαλύτερος
+3201	μεγαλύτερα	adj	bigger, larger, greater — nominative/accusative/vocative neuter plural of μεγαλύτερος, the comparative of μεγάλος
 3202	βράδια	noun	nominative plural of βράδυ (vrády)
 3203	ρωσία	name	Russia (a transcontinental country in Eastern Europe and North Asia)
 3204	τακτοποιήσω	verb	first-person singular dependent active of τακτοποιώ (taktopoió)
@@ -3229,7 +3229,7 @@ rank	word	pos	en
 3228	ρόι	name	a transliteration of the English male given name Roy
 3229	τέτοιου	pron	genitive masculine/neuter singular of τέτοιος (tétoios)
 3230	μέτωπο	noun	forehead; front (weather front)
-3231	ξανασυμβεί	verb	active nonfinite form of ξανασυμβαίνω
+3231	ξανασυμβεί	verb	happen again, reoccur, recur — active nonfinite form of ξανασυμβαίνω
 3232	έκλεισα	verb	first-person singular simple past of κλείνω (kleíno)
 3233	άστο	contraction	alternative form of άσ’ το (ás’ to, “leave it”), contraction of άσε (áse) + το (to)
 3234	ναό	noun	accusative singular of ναός (naós)
@@ -4034,7 +4034,7 @@ rank	word	pos	en
 4033	μνήμης	noun	genitive singular of μνήμη (mními)
 4034	έγγραφο	noun	document
 4035	ελέγχεις	verb	second-person singular present active indicative of ελέγχω (eléncho)
-4036	παιδάκι	noun	a small child
+4036	παιδάκι	noun	a small child — diminutive of το παιδί
 4037	παίκτες	noun	nominative/accusative/vocative plural of παίκτης (paíktis)
 4038	κατασκευή	noun	construction, constructing
 4039	ανάπτυξη	noun	growth, development, improvement
@@ -4090,7 +4090,7 @@ rank	word	pos	en
 4089	νικήσω	verb	first-person singular dependent of νικάω (nikáo) and νικώ (nikó)
 4090	χρονιάς	noun	genitive singular of χρονιά (chroniá)
 4091	ανέβηκε	verb	third-person singular simple past of ανεβαίνω (anevaíno)
-4092	συλληφθεί	verb	third-person singular dependent passive
+4092	συλληφθεί	verb	third-person singular dependent passive of συλλαμβάνομαι, the passive of συλλαμβάνω
 4093	επιθυμίες	noun	nominative/accusative/vocative plural of επιθυμία (epithymía)
 4094	πετρέλαιο	noun	petroleum, oil
 4095	μουσικής	adj	genitive feminine singular of μουσικός (mousikós)
@@ -4155,7 +4155,7 @@ rank	word	pos	en
 4154	πέτυχα	verb	first-person singular simple past of πετυχαίνω (petychaíno)
 4155	πείνας	noun	genitive singular of πείνα (peína)
 4156	διάβασμα	noun	reading (the process of interpreting written language)
-4157	μεγαλύτερες	adj	nominative feminine plural of μεγαλύτερος
+4157	μεγαλύτερες	adj	bigger, larger, greater — nominative/accusative/vocative feminine plural of μεγαλύτερος, the comparative of μεγάλος
 4158	αποκλειστικά	adv	exclusively
 4159	συμβάν	noun	event, incident, occurrence (instance of something happening)
 4160	συγχώρεσε	verb	second-person singular perfective imperative of συγχωρώ (synchoró, “to forgive”)
@@ -4165,7 +4165,7 @@ rank	word	pos	en
 4164	ελευθερίας	noun	genitive singular of ελευθερία (elefthería)
 4165	λάστιχο	noun	rubber; tyre (UK), tire (US)
 4166	άνθρωπε	noun	vocative singular of άνθρωπος (ánthropos)
-4167	καλωσήρθατε	intj	well, all right, alright
+4167	καλωσήρθατε	intj	welcome — one-word spelling of καλώς ήρθατε
 4168	σύσκεψη	noun	conference, meeting
 4169	χάσατε	verb	second-person plural simple past of χάνω (cháno)
 4170	γιαγιάς	noun	genitive singular of γιαγιά (giagiá)
@@ -4978,7 +4978,7 @@ rank	word	pos	en
 4977	πολιτισμό	noun	accusative singular of πολιτισμός (politismós)
 4978	αντρών	noun	genitive plural of άντρας (ántras)
 4979	μαρτύρων	noun	genitive plural of μάρτυρας (mártyras)
-4980	καλωσήρθες	intj	well, all right, alright
+4980	καλωσήρθες	intj	welcome — one-word spelling of καλώς ήρθες
 4981	καημένος	adj	poor (expressing sympathy etc)
 4982	βίκυ	name	a female given name from Βικτωρία
 4983	θηλυκό	noun	woman, female
@@ -5214,7 +5214,7 @@ rank	word	pos	en
 5213	αυτόματα	adv	automatically
 5214	ματς	noun	match (usually football match)
 5215	ενθουσιασμό	noun	accusative singular of ενθουσιασμός (enthousiasmós)
-5216	οίκος	noun	settlement, tent, temple, dwelling, home
+5216	οίκος	noun	family (a dynasty with its ancestors and descendants, especially a royal or noble one)
 5217	κατέστρεψα	verb	first-person singular simple past of καταστρέφω (katastréfo)
 5218	καθηγητές	noun	nominative/accusative/vocative plural of καθηγητής (kathigitís)
 5219	αξιωματικοί	adj	nominative/vocative masculine plural of αξιωματικός (axiomatikós)
@@ -5628,7 +5628,7 @@ rank	word	pos	en
 5627	ερευνών	noun	genitive plural of έρευνα (érevna)
 5628	μουσικός	adj	musical, pertaining to music
 5629	καπάκι	noun	lid, top, cap, closure (of container)
-5630	ξεφορτωθεί	verb	third-person singular dependent passive
+5630	ξεφορτωθεί	verb	third-person singular dependent passive of ξεφορτώνομαι, the passive of ξεφορτώνω
 5631	διασυνδέσεις	noun	nominative/accusative/vocative plural of διασύνδεση (diasýndesi)
 5632	βαγόνι	noun	carriage, wagon, goods wagon, freight car on a railway
 5633	έγκυο	noun	accusative singular of έγκυος (égkyos)
@@ -5753,7 +5753,7 @@ rank	word	pos	en
 5752	ύψη	noun	nominative plural of ύψος (ýpsos)
 5753	κανονικός	adj	regular, usual; regular (as in regular verb)
 5754	μόνιμα	adv	permanently
-5755	μέγιστη	adj	nominative feminine singular of μέγιστος
+5755	μέγιστη	adj	greatest, highest, maximum — nominative/accusative/vocative feminine singular of μέγιστος, the absolute superlative of μεγάλος
 5756	μισοί	adj	nominative masculine plural of μισός (misós)
 5757	μαζεύω	verb	to collect, gather, get in, harvest
 5758	ελέφαντα	noun	genitive singular of ελέφαντας (eléfantas)
@@ -5791,7 +5791,7 @@ rank	word	pos	en
 5790	μαλακά	adv	gently
 5791	γονιός	noun	parent, a term for a mother or a father
 5792	σώπα	verb	oh, really?
-5793	πανηγύρι	noun	saint's day, feast day
+5793	πανηγύρι	noun	village fair, fete — a saint's day festival with food, song and dancing
 5794	αποτελεσματικό	adj	accusative masculine singular of αποτελεσματικός (apotelesmatikós)
 5795	άσχημες	adj	nominative feminine plural of άσχημος (áschimos)
 5796	αργή	adj	nominative feminine singular of αργός (argós)
@@ -5871,7 +5871,7 @@ rank	word	pos	en
 5870	ρώμης	name	genitive singular of Ρώμη (Rómi)
 5871	δημιούργησα	verb	first-person singular simple past of δημιουργώ (dimiourgó)
 5872	γερό	adj	accusative masculine singular of γερός (gerós)
-5873	μεγαλύτερους	adj	accusative masculine plural of μεγαλύτερος
+5873	μεγαλύτερους	adj	accusative masculine plural of μεγαλύτερος (megalýteros), the comparative degree of μεγάλος (megálos), (larger, bigger, greater)
 5874	εξυπνάδα	noun	intelligence, wit
 5875	απάντησα	verb	first-person singular simple past of απαντάω (apantáo) and απαντώ (apantó)
 5876	ιρλανδία	name	Ireland (a country in northwestern Europe)
@@ -6140,7 +6140,7 @@ rank	word	pos	en
 6139	τρίο	noun	trio, group of three, triad, troika
 6140	εγχειρίδιο	noun	dagger; manual, companion, handbook
 6141	υπολογίζω	verb	to calculate, compute
-6142	υπόστεγο	noun	an awning shelter
+6142	υπόστεγο	noun	an awning shelter, shed, gazebo, or other structure with a roof and at least two sides open (without walls)
 6143	φτυάρι	noun	garden spade, shovel
 6144	θάμνους	noun	accusative plural of θάμνος (thámnos)
 6145	πραγματικές	adj	nominative feminine plural of πραγματικός (pragmatikós)
@@ -6353,7 +6353,7 @@ rank	word	pos	en
 6352	σκοπιά	noun	watchtower, sentry
 6353	καθίκια	noun	nominative plural of καθίκι (kathíki)
 6354	ενόρκων	noun	genitive plural of ένορκος (énorkos)
-6355	ταραγμένος	verb	passive perfect participle of ταράζω
+6355	ταραγμένος	verb	passive perfect participle of ταράζω (tarázo): agitated, disturbed, rattled, troubled, shaken
 6356	σουτ	intj	shh, hush, shush (requesting silence)
 6357	αδυναμίες	noun	nominative plural of αδυναμία (adynamía)
 6358	απλοί	adj	nominative masculine plural of απλός (aplós)
@@ -6707,7 +6707,7 @@ rank	word	pos	en
 6706	χιλιάδων	noun	genitive plural of χιλιάδα (chiliáda)
 6707	γυμνασίου	noun	genitive singular of γυμνάσιο (gymnásio)
 6708	εκδηλώσεις	noun	nominative/accusative/vocative plural of εκδήλωση (ekdílosi)
-6709	ειδικότητα	noun	speciality
+6709	ειδικότητα	noun	speciality (UK), specialty (US), specialism (that in which one specializes; a chosen expertise or talent)
 6710	ταύρος	noun	bull; Taurus
 6711	μοιράζομαι	verb	to share; to divide (between people)
 6712	φορείο	noun	stretcher, litter (to carry the sick and injured)
@@ -6932,7 +6932,7 @@ rank	word	pos	en
 6931	σκεπή	noun	roof (of building)
 6932	δήθεν	adj	so-called, supposed, alleged
 6933	ισχύς	noun	power, might, strength
-6934	νεότερο	adj	accusative masculine singular of νεότερος
+6934	νεότερο	adj	younger, newer — accusative masculine singular and neuter singular of νεότερος, the comparative of νέος
 6935	πρίζα	noun	wall socket (for an electrical plug)
 6936	στόχου	noun	genitive singular of στόχος (stóchos)
 6937	διαδρόμους	noun	accusative plural of διάδρομος (diádromos)
@@ -7060,7 +7060,7 @@ rank	word	pos	en
 7059	φρουράς	noun	genitive singular of φρουρά (frourá)
 7060	γενναιόδωρο	adj	accusative masculine singular of γενναιόδωρος (gennaiódoros)
 7061	προμήθεια	noun	procurement, purveyance, supply
-7062	μέγιστο	adj	accusative masculine singular of μέγιστος
+7062	μέγιστο	adj	accusative masculine singular of μέγιστος (mégistos), the absolute superlative degree of μεγάλος (megálos) (greatest, highest, maximum); nominative neuter singular of μέγιστος (mégistos), the absolute superlative degree of μεγάλος (megálos); accusative neuter singular of μέγιστος (mégistos), the absolute superlative degree of μεγάλος (megálos)
 7063	χριστιανός	noun	Christian; guy (person)
 7064	κλαδί	noun	branch
 7065	γενιάς	noun	genitive singular of γενιά (geniá)
@@ -7199,7 +7199,7 @@ rank	word	pos	en
 7198	αρραβωνιαστικό	noun	accusative singular of αρραβωνιαστικός (arravoniastikós)
 7199	απαγωγής	noun	genitive singular of απαγωγή (apagogí)
 7200	κάποιων	pron	genitive masculine plural of κάποιος (kápoios)
-7201	μεγαλύτεροι	adj	nominative masculine plural of μεγαλύτερος
+7201	μεγαλύτεροι	adj	nominative masculine plural of μεγαλύτερος (megalýteros), the comparative degree of μεγάλος (megálos), (larger, bigger, greater); vocative masculine plural of μεγαλύτερος (megalýteros), the comparative degree of μεγάλος (megálos)
 7202	θησαυρού	noun	genitive singular of θησαυρός (thisavrós)
 7203	αντικαταστάτη	noun	genitive singular of αντικαταστάτης (antikatastátis)
 7204	αντιπερισπασμό	noun	accusative singular of αντιπερισπασμός (antiperispasmós)
@@ -7211,7 +7211,7 @@ rank	word	pos	en
 7210	μεθυσμένοι	adj	nominative masculine plural of μεθυσμένος (methysménos)
 7211	σεούλ	name	Seoul (the capital city of South Korea)
 7212	κρύπτη	noun	hidden secret place
-7213	μάγκας	noun	tough guy, macho man
+7213	μάγκας	noun	tough guy, macho man; also as a friendly term of address: mate, dude
 7214	ανώνυμο	adj	accusative masculine singular of ανώνυμος (anónymos)
 7215	μέλλοντος	noun	genitive singular of μέλλον (méllon)
 7216	μπαίνετε	verb	second-person plural present of μπαίνω (baíno)
@@ -7280,7 +7280,7 @@ rank	word	pos	en
 7279	επιγραφή	noun	inscription (especially carved in stone)
 7280	μείγμα	noun	mixture, a combination of materials
 7281	λευκών	adj	genitive masculine/feminine/neuter plural of λευκός (lefkós)
-7282	νεότερη	adj	nominative feminine singular of νεότερος
+7282	νεότερη	adj	younger, newer — nominative and accusative feminine singular of νεότερος, the comparative of νέος
 7283	αξιοπιστία	noun	credibility, reliability, trustworthiness
 7284	άνεργος	adj	unemployed, jobless
 7285	χιλιοστών	adj	genitive masculine plural of χιλιοστός (chiliostós)
@@ -7514,7 +7514,7 @@ rank	word	pos	en
 7513	εκδίκησης	noun	genitive singular of εκδίκηση (ekdíkisi)
 7514	μαραφέτι	noun	widget, doodah; gizmo, contraption (clever or complicated mechanism)
 7515	μαέστρο	noun	accusative/vocative singular of μαέστρος (maéstros)
-7516	βα	adj	NE, initialism of βορειοανατολικός
+7516	βα	adj	NE, initialism of βορειοανατολικός (voreioanatolikós, “northeast, northeastern, northeasterly”)
 7517	κυνηγό	noun	accusative singular of κυνηγός (kynigós)
 7518	νόμιμος	adj	legal (allowed by law)
 7519	άντεξε	verb	third-person singular simple past
@@ -7554,7 +7554,7 @@ rank	word	pos	en
 7553	νυχτερίδα	noun	bat (small flying mammal)
 7554	χορτοφάγος	adj	herbivorous, plant-eating
 7555	καναπές	noun	sofa, couch, settee
-7556	καταγραφεί	verb	third-person singular dependent passive
+7556	καταγραφεί	verb	be recorded, be registered — third-person singular dependent passive of καταγράφομαι, the passive of καταγράφω
 7557	ίδιας	adj	feminine genitive singular of ίδιος (ídios)
 7558	πιρούνι	noun	fork
 7559	σκύλων	noun	genitive plural of σκύλος (skýlos)
@@ -7622,7 +7622,7 @@ rank	word	pos	en
 7621	ερευνώ	verb	to search, investigate
 7622	λαγουδάκι	noun	diminutive of λαγός (lagós), leveret, baby hare, bunny
 7623	κέρματα	noun	nominative/accusative/vocative plural of κέρμα (kérma)
-7624	απομακρυνθεί	verb	third-person singular dependent passive
+7624	απομακρυνθεί	verb	move away, withdraw; be removed — third-person singular dependent passive of απομακρύνομαι, the passive of απομακρύνω
 7625	παιχνιδιών	noun	genitive plural of παιχνίδι (paichnídi)
 7626	πωλήσεων	noun	genitive plural of πώληση (pólisi)
 7627	χριστουγεννιάτικα	adj	nominative/accusative/vocative neuter plural of χριστουγεννιάτικος (christougenniátikos)
@@ -7656,7 +7656,7 @@ rank	word	pos	en
 7655	εντωμεταξύ	adv	meanwhile, in the meantime
 7656	καρναβάλι	noun	carnival
 7657	αγαπημένοι	verb	nominative/vocative masculine plural of αγαπημένος (agapiménos)
-7658	περίθαλψη	noun	care
+7658	περίθαλψη	noun	care (the treatment of those in need (especially as a profession))
 7659	επανέλαβε	verb	third-person singular simple past active of επαναλαμβάνω (epanalamváno)
 7660	σιωπηλή	adj	nominative feminine singular of σιωπηλός (siopilós)
 7661	εκτελεστή	noun	genitive/accusative/vocative singular of εκτελεστής (ektelestís)
@@ -8708,7 +8708,7 @@ rank	word	pos	en
 8707	κάστρου	noun	genitive singular of κάστρο (kástro)
 8708	τοι	pron	they (3rd person masculine plural, nominative)
 8709	γέφυρας	noun	genitive singular of γέφυρα (géfyra)
-8710	ιδιότητα	noun	property, quality, characteristic
+8710	ιδιότητα	noun	property, quality, characteristic; also capacity, status — the role from which someone's rights or authority derive
 8711	πένθος	noun	mourning, grief, bereavement (personal)
 8712	επισκέπτομαι	verb	to visit (to go and meet or see)
 8713	μαγιονέζα	noun	mayonnaise
@@ -8851,12 +8851,12 @@ rank	word	pos	en
 8850	ασήμαντος	adj	unimportant, trivial, negligible, insignificant
 8851	πεθαμένη	verb	nominative/accusative/vocative feminine singular of πεθαμένος (pethaménos)
 8852	διακόπτουμε	verb	first-person plural present of διακόπτω (diakópto)
-8853	πανέμορφος	adj	intensive form of όμορφος
+8853	πανέμορφος	adj	intensive form of όμορφος (ómorfos): gorgeous, stunning, exquisite (exceptionally beautiful)
 8854	γρίφο	noun	accusative singular of γρίφος (grífos)
 8855	φυσικές	adj	nominative feminine plural of φυσικός (fysikós)
 8856	ογδόντα	num	eighty
 8857	τέκνο	noun	offspring, son or daughter
-8858	χωρισμός	noun	separation, parting
+8858	χωρισμός	noun	separation, parting; breakup of a relationship
 8859	γραφομηχανή	noun	typewriter (the machine)
 8860	λάτρης	noun	male worshipper
 8861	διψάς	verb	second-person singular present of διψώ (dipsó)
@@ -9095,7 +9095,7 @@ rank	word	pos	en
 9094	βλάβες	noun	nominative/accusative/vocative plural of βλάβη (vlávi)
 9095	συνθηκών	noun	genitive plural of συνθήκη (synthíki)
 9096	ιταλική	adj	nominative/accusative/vocative feminine singular of ιταλικός (italikós)
-9097	τοποθετηθεί	verb	passive nonfinite form of τοποθετούμαι
+9097	τοποθετηθεί	verb	be placed, be positioned — third-person singular dependent passive of τοποθετούμαι, the passive of τοποθετώ
 9098	υποστηρίξεις	noun	nominative/accusative/vocative plural of υποστήριξη (ypostírixi)
 9099	φυσιολογικές	adj	nominative feminine plural of φυσιολογικός (fysiologikós)
 9100	ξανθό	adj	accusative masculine singular of ξανθός (xanthós)
@@ -9141,7 +9141,7 @@ rank	word	pos	en
 9140	γατάκια	noun	nominative/accusative/vocative plural of γατάκι (gatáki)
 9141	τετραγωνικά	adj	nominative neuter plural of τετραγωνικός (tetragonikós)
 9142	ηθοποιία	noun	acting (the profession)
-9143	μεγαλύτερου	adj	genitive masculine singular of μεγαλύτερος
+9143	μεγαλύτερου	adj	genitive masculine singular of μεγαλύτερος (megalýteros), the comparative degree of μεγάλος (megálos), (larger, bigger, greater); genitive neuter singular of μεγαλύτερος (megalýteros), the comparative degree of μεγάλος (megálos)
 9144	γραμματοκιβώτιο	noun	letterbox, mailbox
 9145	τορόντο	name	Toronto (the capital city of Ontario, Canada and largest city Canada)
 9146	διευθυντές	noun	nominative/accusative/vocative plural of διευθυντής (diefthyntís)
@@ -9309,7 +9309,7 @@ rank	word	pos	en
 9308	κυριλέ	adj	posh, affected, chic
 9309	άψογο	adj	accusative masculine singular of άψογος (ápsogos)
 9310	μάξγουελ	noun	maxwell (A unit of magnetic flux)
-9311	ήρα	noun	ryegrass, darnel
+9311	ήρα	noun	Hera — the goddess, known to the Romans as Juno; as a common noun η ήρα, darnel or ryegrass
 9312	επικοινώνησα	verb	first-person singular simple past of επικοινωνώ (epikoinonó)
 9313	ψήφισε	verb	third-person singular simple past of ψηφίζω (psifízo)
 9314	βεβαιώνω	verb	to confirm, assure
@@ -9322,7 +9322,7 @@ rank	word	pos	en
 9321	τράβηγμα	noun	pulling (the act by which something is pulled)
 9322	μπουκέτο	noun	bunch of flowers, bouquet
 9323	ισότητα	noun	equality, parity
-9324	ιωάννης	name	a male given name
+9324	ιωάννης	name	a male given name, equivalent to English John
 9325	καταχώρηση	noun	registration (the action of making a record)
 9326	ούρων	noun	genitive plural of ούρο (oúro)
 9327	ταραχή	noun	agitation; disturbance, unrest, turmoil
@@ -9536,7 +9536,7 @@ rank	word	pos	en
 9535	κουνιάδος	noun	brother-in-law, specifically spouse's brother
 9536	πυροβόλο	noun	gun, cannon, artillery
 9537	μήλου	noun	genitive singular of μήλο (mílo)
-9538	νεότερα	adj	nominative neuter plural of νεότερος
+9538	νεότερα	adj	younger, newer — nominative and accusative neuter plural of νεότερος, the comparative of νέος
 9539	χλωμή	adj	nominative feminine singular of χλωμός (chlomós)
 9540	αλκοολική	noun	alcoholic, an abuser of alcohol
 9541	είπανε	verb	"third-person plural simple past of λέω (léo): ""they said"""
@@ -9800,7 +9800,7 @@ rank	word	pos	en
 9799	μέριλαντ	name	Maryland
 9800	έλκος	noun	ulcer; peptic ulcer
 9801	πλοίων	noun	genitive plural of πλοίο (ploío)
-9802	γεωργία	noun	agriculture
+9802	γεωργία	noun	agriculture; capitalised Γεωργία, a female given name equivalent to English Georgia
 9803	βατόμουρα	noun	nominative/accusative/vocative plural of βατόμουρο (vatómouro)
 9804	παγάκια	noun	nominative plural of παγάκι (pagáki)
 9805	απλούς	adj	formal form of απλός (aplós), in the fashion of Ancient Greek ὁ ἁπλοῦς, ἡ ἁπλῆ, τὸ ἁπλοῦν

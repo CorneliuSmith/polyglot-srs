@@ -60,8 +60,8 @@ rank	word	pos	en
 59	ìwé	noun	book; paper; document, letter
 60	ọkọ	noun	hoe
 61	fẹ	verb	to want, to desire
-62	ilẹ	noun	land, earth, soil
-63	da	verb	to pour (down or into)
+62	ilẹ	noun	land, earth, soil; country, homeland
+63	da	verb	to pour (down or into); to overturn, to capsize
 64	ju	verb	to throw
 65	kà	verb	to count; to read
 66	igba	noun	calabash (Lagenaria siceraria)
@@ -105,12 +105,12 @@ rank	word	pos	en
 104	inú	noun	inside, interior; stomach, belly
 105	oṣu	noun	moon; (in particular) new moon
 106	ounjẹ	noun	food
-107	olori	noun	the official designated wife of a monarch
+107	olori	noun	the official designated wife of a monarch; usually the most senior wife of a king; queen consort
 108	e	pron	him, her, it
 109	lẹhin	verb	to have a legacy
 110	lórí	adv	atop; on top of
 111	omi	noun	water; river
-112	ogun	noun	war, battle (physical or mental)
+112	ogun	noun	war, battle (physical or mental); Ògún, the òrìṣà of war, iron and metalwork, patron of warriors, hunters and blacksmiths
 113	oni	noun	today
 114	ẹru	noun	fear
 115	mi	pron	me
@@ -133,7 +133,7 @@ rank	word	pos	en
 132	itan	noun	history, story; family history, genealogy, lineage
 133	ta	verb	to sell something
 134	wọnyi	det	these
-135	ọwọ	noun	broom
+135	ọwọ	noun	broom; Ọwọ (a city and historical kingdom in Nigeria)
 136	ẹgbẹ	noun	dehydration, dryness; that which is dry or dried
 137	jà	verb	to fight, to wrestle, to struggle
 138	ẹkọ	noun	lesson; education
@@ -142,7 +142,7 @@ rank	word	pos	en
 141	njẹ	particle	Placed before a sentence to make it a yes-no question.
 142	ẹrọ	noun	machine, technology, device
 143	padà	verb	to return to turn back
-144	enia	noun	human being
+144	enia	noun	human being (archaic spelling of ènìyàn)
 145	iku	noun	death
 146	asiko	noun	time, occasion, season
 147	obi	noun	parent
@@ -173,7 +173,7 @@ rank	word	pos	en
 172	dára	verb	to be good, fine, fair
 173	ọrẹ	noun	friend; friendship
 174	olè	noun	thief
-175	pẹ	verb	to be late or delayed
+175	pẹ	verb	to be late or delayed; to take a long time, to last; to live long
 176	agbaye	noun	international, worldwide
 177	keji	adj	second
 178	erin	noun	elephant; a nickname for a mighty person, in comparison to an elephant
@@ -187,8 +187,8 @@ rank	word	pos	en
 186	ero	name	Ero (an Ekiti Yoruba town in Ifedore, Ondo, Nigeria)
 187	tuntun	noun	someone or something that is new
 188	apẹrẹ	noun	basket
-189	ifẹ	noun	love
-190	ọdọ	noun	young child or animal
+189	ifẹ	noun	love; Ifẹ (a city and kingdom in Nigeria, the mythological origin place of the Yoruba people)
+190	ọdọ	noun	young child or animal; adolescent, teenager, youth
 191	ṣí	verb	to open
 192	an	pron	him, her, it
 193	ẹran	noun	meat; animal
@@ -231,7 +231,7 @@ rank	word	pos	en
 230	igi	noun	tree; stick, wood, cane
 231	ọlọrun	name	Olorun, a nickname for the supreme divinity of the Yoruba religion, Olódùmarè
 232	mẹta	adj	three
-233	kekere	noun	small entity or quantity
+233	kekere	noun	small entity or quantity; minor; young age, adolescence
 234	rọbi	verb	to labour; to be in the pains of childbirth
 235	ikan	noun	termite
 236	olú	noun	leader, head, chief; prominent one, hero
@@ -243,7 +243,7 @@ rank	word	pos	en
 242	agbegbe	noun	region, area; vicinity, locale
 243	wọlé	verb	to enter into a location; to pass
 244	ọbọ	noun	a plant used to ritually catch a witch
-245	ọrun	noun	the place of origin for all humans where souls
+245	ọrun	noun	sky, heaven; in Yoruba belief, the spiritual origin place where each person's orí is created and to which they return after death
 246	ọdẹ	noun	stupid person, idiot
 247	alaye	noun	explanation
 248	gun	verb	to be long (usually along a horizontal axis)
@@ -254,7 +254,7 @@ rank	word	pos	en
 253	gomina	noun	governor
 254	rìn	verb	to walk; to associate with
 255	olowo	noun	rich person; a person with money
-256	aworan	noun	the act of observing or watching to ponder
+256	aworan	noun	picture, image, drawing, diagram; (literally) the act of observing or watching to ponder
 257	ọlọrọ	noun	speaker at an event
 258	ọga	noun	boss, chief, master
 259	ijẹbu	noun	A drum played during funerals and weddings by the Èkìtì people
@@ -274,7 +274,7 @@ rank	word	pos	en
 273	pọn	verb	to flatter, to compliment, to praise
 274	iyan	noun	pounded yam
 275	mẹfa	adj	six
-276	dani	verb	to own something in ones own right
+276	dani	verb	to own something in one's own right; to take hold of something
 277	nnkan	noun	object, thing, something
 278	oku	noun	corpse, deceased
 279	ẹsẹ	noun	foot, leg; foot (measurement)
@@ -307,7 +307,7 @@ rank	word	pos	en
 306	ewu	noun	gray hair
 307	wu	verb	to please; to attract, appeal, desire
 308	ire	noun	good fortune, good luck
-309	oogun	noun	medicine, herbal medicine, drug
+309	oogun	noun	medicine, herbal medicine, drug; ritual medicine, supernatural charms or spells, juju; sometimes used to inflict harm or death; cure, remedy
 310	waye	verb	to come into existence; to come about; to occur
 311	tọju	verb	to care for, to protect
 312	ana	noun	yesterday; deceased, late
@@ -362,10 +362,10 @@ rank	word	pos	en
 361	ajọdun	noun	anniversary
 362	yara	noun	room
 363	imọ	noun	knowledge
-364	ẹhin	noun	back
+364	ẹhin	noun	back (archaic spelling of ẹ̀yìn)
 365	ekeji	adj	second; other
 366	adugbo	noun	neighbourhood; locality
-367	akin	noun	bravery, valor, courage
+367	akin	noun	bravery, valor, courage; brave person; warrior; A prefix used in male Yoruba given names, (ex. Akíndélé).
 368	agbado	noun	maize, corn
 369	isinku	noun	burial ceremony, funeral
 370	ye	noun	mother; a term of endearment or respect for an older woman or female relative
@@ -392,7 +392,7 @@ rank	word	pos	en
 391	oro	noun	venom, poison, sting
 392	ijo	noun	the act of dancing; a dance
 393	adé	noun	crown; royalty
-394	imọran	noun	understanding of facts
+394	imọran	noun	counsel, advice, suggestion; understanding of the facts
 395	eewọ	noun	taboo, cultural or religious prohibition.
 396	akẹkọọ	noun	student, learner
 397	gbangba	adv	outside, an open space
@@ -441,7 +441,7 @@ rank	word	pos	en
 440	wura	noun	gold, (chemical element, Au, atomical number 79)
 441	ewura	noun	purple yam; Dioscorea alata or Dioscorea smilacifolia
 442	jíjẹ	noun	eating; the act of eating
-443	ọyọ	name	A Yoruba subethnic group who speaks the Ọ̀yọ́ dialect
+443	ọyọ	name	the Ọ̀yọ́, a Yoruba subgroup, and their dialect, which is the basis of modern Standard Yoruba (Yorùbá Àjùmọ̀lò); Ọ̀yọ́ (a city in Nigeria)
 444	gbigba	noun	accepting
 445	ga	verb	to set up a collapsible device; to open out; to spread out
 446	ṣòro	verb	to be difficult
@@ -453,7 +453,7 @@ rank	word	pos	en
 452	ifa	noun	function
 453	gbagbọ	verb	to believe, to have faith
 454	boya	adv	perhaps, maybe
-455	eṣu	noun	locust; devil; demon; evil spirit
+455	eṣu	noun	the òrìṣà of judgement, trickery and the crossroads, messenger of Olódùmarè; (in Christian usage) the Devil, Satan; (eṣú) locust
 456	mejeeji	adj	both, all two
 457	irin	noun	metal (in particular) iron
 458	ita	noun	outside; crossroad
@@ -462,7 +462,7 @@ rank	word	pos	en
 461	agbọn	noun	wasp; petulant person
 462	ológbò	noun	cat
 463	ike	noun	ivory; plastic, bioplastic, plasticine
-464	ẹiyẹ	noun	bird
+464	ẹiyẹ	noun	bird (archaic spelling of ẹyẹ)
 465	gbẹ	verb	to plant; to sow
 466	naira	noun	naira (currency of Nigeria)
 467	ibanujẹ	noun	sadness, depression
@@ -479,18 +479,18 @@ rank	word	pos	en
 478	ojiji	noun	shadow, shade
 479	ẹwa	num	ten
 480	ibẹrẹ	noun	introduction; start; beginning
-481	abiku	noun	In Yoruba tradition
+481	abiku	noun	in Yoruba tradition, a spirit that causes a child to die young, often several children in turn, and is addressed through ritual; also the phenomenon of such repeated infant death
 482	méje	adj	seven
 483	kéré	verb	to be small
 484	fìlà	noun	hat, cap (in particular) the traditional Yoruba caps worn by males.
-485	fo	verb	to jump, or leap in an upwards direction
+485	fo	verb	to jump, or leap in an upwards direction; to fly; to miss, to escape one's attention, to forget
 486	owu	noun	anvil
 487	iye	noun	mother, a title of respect for an older woman
 488	agbo	noun	ram
 489	oo	noun	business, trade
 490	ọmọniyan	noun	humanity
 491	iyọ	noun	salt
-492	balẹ	verb	to feel reassured
+492	balẹ	verb	to feel reassured; to be calm; to hold oneself together; to land
 493	ẹtẹ	noun	leprosy
 494	ondo	name	Ondo (a city in Ondo State, Nigeria)
 495	ewedu	noun	Jute mallow, the Corchorus olitorius plant
@@ -500,11 +500,11 @@ rank	word	pos	en
 499	ajọyọ	noun	celebration
 500	ẹri	noun	river, stream
 501	okeere	noun	far away distance
-502	ng	pron	I
+502	ng	pron	I (archaic spelling of n̄)
 503	wẹ	verb	to bathe, to shower
 504	atimọle	noun	prison, detention centre, solitary confinement
 505	ayọ	noun	joy
-506	ọka	noun	millet, sorghum
+506	ọka	noun	millet, sorghum; corn, maize, grain
 507	bàtà	noun	shoe
 508	iwo	noun	horn
 509	ẹka	noun	corn, maize
@@ -527,7 +527,7 @@ rank	word	pos	en
 526	okete	noun	Gambian pouched rat
 527	agbẹjọro	noun	lawyer, advocate, barrister, counsel, solicitor
 528	ileṣa	name	Ilesa (a city in Nigeria), the capital city of the Ijesha people.
-529	oriki	noun	A form of Yoruba oral praise poetry,
+529	oriki	noun	a form of Yoruba oral praise poetry (ewì) that praises a person, family, town, animal or òrìṣà by their traits and deeds; also a short praise-name or nickname of that kind (oríkì ṣókí)
 530	alọ	noun	riddle, quiz; folktale, fable
 531	báyìí	adv	like this, like so
 532	ọlọpaa	noun	police; law enforcer
@@ -588,7 +588,7 @@ rank	word	pos	en
 587	ọfọ	noun	incantation, spell, curse
 588	apejẹ	noun	feast; banquet; party (with food)
 589	akurẹ	name	Akure (a city in Nigeria)
-590	ṣango	name	Shango,
+590	ṣango	name	Shango, the òrìṣà of thunder and lightning, justice, energy and force; held to have been the fourth Aláàfin of Ọ̀yọ́ and the husband of Ọ̀ṣun, Ọya and Ọbà
 591	eke	noun	lie, falsehood; liar
 592	ọkẹrẹ	noun	A squirrel of any species
 593	ẹbọ	noun	ritual sacrifice or offering to a deity or divinity
@@ -601,7 +601,7 @@ rank	word	pos	en
 600	ireti	noun	hope, expectation
 601	iro	noun	a cloth wrapped around a woman's lower body, usually made with six yards of fabric
 602	abuja	name	Abuja (the capital city of Nigeria)
-603	aiye	noun	life, world
+603	aiye	noun	life, world (archaic spelling of ayé)
 604	ọra	noun	body
 605	asin	noun	shrew; (in particular) Nigerian shrew
 606	guusu	noun	south
@@ -623,7 +623,7 @@ rank	word	pos	en
 622	idagbasoke	noun	growth, development
 623	jiya	verb	to suffer
 624	orisun	noun	spring (a natural source of water)
-625	igbesẹ	noun	the act of taking steps
+625	igbesẹ	noun	the act of taking steps; stride; order of operation, process, step
 626	yangan	noun	maize, corn
 627	ẹgbaa	num	two thousand
 628	jin	verb	to be far
@@ -639,7 +639,7 @@ rank	word	pos	en
 638	ọkẹ	num	twenty thousand
 639	afojudi	noun	the act of behaving contemptuously or defiantly to someone
 640	ọta	noun	enemy
-641	elubọ	noun	a parboiled and dried crop processed into flour;
+641	elubọ	noun	flour made from parboiled, dried yam, plantain or cassava, used for dishes like àmàlà
 642	ododo	noun	flower
 643	okuta	noun	rock, stone; grinding stone
 644	igo	noun	bottle
@@ -647,7 +647,7 @@ rank	word	pos	en
 646	akisa	noun	rags, ragged
 647	burundi	name	Burundi (a country in East Africa)
 648	ọ̀	character	The letter ⟨ọ⟩ with low tone
-649	dẹ	verb	to be soft or tender in texture
+649	dẹ	verb	to be soft or tender; to be dull or foolish (literally, to have a soft head); to become weaker or less intense
 650	ọṣun	name	Oshun
 651	gbọmọgbọmọ	noun	kidnapper, child abductor
 652	ete	noun	lip
@@ -658,7 +658,7 @@ rank	word	pos	en
 657	ẹdun	noun	colobus monkey (Colobus vellerosus), known for its deep cultural association with twins
 658	kii	noun	key
 659	gbera	verb	to take off; to depart; to leave
-660	egungun	noun	A Yoruba masked or costumed figure
+660	egungun	noun	a masked, costumed figure embodying the spirit of an ancestor, regarded as an òrìṣà (often mistranslated as 'masquerade'); a costumed performer who entertains
 661	ikede	noun	announcement, declaration
 662	ha	intj	what a pity; an interjection used to denote displeasure or disappointment
 663	abẹrẹ	noun	needle
@@ -668,12 +668,12 @@ rank	word	pos	en
 667	jesu	name	Jesus; a common prefix in names used by Christians
 668	ofi	noun	A traditional loom
 669	odi	noun	opposite or converse of something; negative
-670	ọsanyin	name	Ọsanyìn
+670	ọsanyin	name	Ọsanyìn (god of plants, herbs, healing, medicine, and magic). He is closely associated with divination and the orisha Ọ̀rúnmìlà.
 671	ikọkọrẹ	noun	ikokore (a pottage made from purple yam (ewùrà) by the Ìjẹ̀bú people)
 672	ọlọ	noun	grinding stone; (in particular) large grinding stone
 673	ilera	noun	health
 674	eso	noun	fruit; banana
-675	ajayi	name	a unisex given name meaning “One we fight to turn”
+675	ajayi	name	a unisex given name meaning 'one we fight to turn', an orúkọ àmútọ̀runwá given to a child born facing downwards; also a surname
 676	ada	noun	machete, cutlass
 677	ojoojumọ	noun	every day
 678	joko	verb	to sit (down)
@@ -693,7 +693,7 @@ rank	word	pos	en
 692	osun	noun	mushroom, fungi
 693	india	name	India (a country in South Asia)
 694	wara	noun	milk; a kind of Fulani cheese, similar to cottage cheese
-695	orogbo	noun	Garcinia kola
+695	orogbo	noun	bitter kola nut (Garcinia kola), important in òrìṣà worship, especially that of Ṣàngó
 696	iṣile	noun	house warming ceremony
 697	too	intj	okay, well
 698	oyun	noun	pregnancy
@@ -713,7 +713,7 @@ rank	word	pos	en
 712	yẹn	det	that
 713	ẹrẹna	name	March, the tenth month in the Yoruba calendar, the Kọ́jọ́dá
 714	ẹtu	noun	Any duiker; Maxwell's duiker (Philantomba maxwellii)
-715	oduduwa	name	The legendary ruler
+715	oduduwa	name	the legendary Ọọ̀ni (ruler) of Ifẹ̀, regarded as the father of the Yoruba people through the descendants who founded its towns; an ancestral deity associated with creation
 716	nwọn	pron	they (third-person plural or honorific personal pronoun)
 717	ibeji	noun	twins
 718	papa	noun	field, plain
@@ -725,9 +725,9 @@ rank	word	pos	en
 724	eebu	noun	insult, verbal abuse
 725	imale	noun	Muslim
 726	aluko	noun	any of a species of red winged turacos, such as the Yellow-billed turaco
-727	baalẹ	noun	In pre-colonial Yoruba society
+727	baalẹ	noun	In pre-colonial Yoruba society, the head or ruler of a small village or a town. In modern day Nigeria, most baálẹ̀ have been recognized as a king of their own respective village.
 728	alantakun	noun	spider
-729	amunisin	noun	exploiter, taskmaster
+729	amunisin	noun	exploiter, taskmaster; colonialism, imperialism; colonizer, imperialist
 730	gbajumọ	noun	popularity, fame
 731	aago	noun	clock, watch; o'clock
 732	idowu	name	a unisex given name
@@ -738,7 +738,7 @@ rank	word	pos	en
 737	aṣakẹ	name	"A female oríkì name, meaning ""One chosen to be cared for""."
 738	aparo	noun	partridge; (in particular) double-spurred spurfowl (Pternistis bicalcaratus)
 739	wàhálà	noun	trouble, problem, difficulty
-740	ayo	noun	Any of a variety of plants including Guilandina bonduc and Corchorus olitorius (ewédú)
+740	ayo	noun	any of several plants, including Guilandina bonduc and Corchorus olitorius (ewédú); the seeds of the ayò plant; the board game ayò, a mancala variety played with those seeds
 741	erele	name	February, the ninth month in the traditional Yoruba calendar, the Kọ́jọ́dá
 742	iṣelu	noun	politics
 743	sunwọn	verb	to be good; to be favorable
@@ -783,7 +783,7 @@ rank	word	pos	en
 782	kanga	noun	water well, a shallow well
 783	abi	conj	or
 784	yala	conj	either, whether
-785	ira	noun	native, indigene
+785	ira	noun	native, indigene; member of a society, group, club, or family; family, relative, friend, acquaintance
 786	ọkin	noun	African paradise flycatcher, especially the white morph form with white tail feathers
 787	daji	noun	jungle
 788	ẹgẹ	noun	cassava, manioc
@@ -792,11 +792,11 @@ rank	word	pos	en
 791	ogongo	noun	ostrich
 792	lojiji	adv	suddenly
 793	etutu	noun	propitiation, atonement
-794	ilara	name	an ancient town is believed to be the ancestral origin of towns named Ilara
+794	ilara	name	Ilara, the name of several Yoruba towns, distinguished by suffixes (e.g. Ìlárá-Mọ̀kín); the ancient town held to be their common ancestral origin
 795	anfaani	noun	advantage, privilege, benefit
 796	arọ	noun	catfish
 797	isa	noun	burrow; grave
-798	ẹgba	noun	the Egba people
+798	ẹgba	noun	the Ẹ̀gbá, a Yoruba subgroup centred on Abẹ́òkúta; the dialect of Yoruba they speak
 799	rogbodiyan	noun	unrest, chaos, instability, conflict
 800	imado	noun	warthog, wild boar (Giant forest hog)
 801	dinku	verb	to reduce the quantity or scale of something, to decrease
@@ -820,7 +820,7 @@ rank	word	pos	en
 819	ojulumọ	noun	friend, acquaintance, someone who is well-known to a person
 820	ariyanjiyan	noun	controversy, debate, argument
 821	gbẹgiri	noun	A type of stew or soup made from grounded and cooked beans. When combined with ewédú soup
-822	yẹra	verb	to turn the body sideways
+822	yẹra	verb	to turn the body sideways; to give way, to move out of the way for someone, to allow someone to be excused
 823	pẹpẹ	noun	shelf; altar
 824	ferese	noun	window
 825	iṣẹju	noun	minute; blink, wink
@@ -847,7 +847,7 @@ rank	word	pos	en
 846	aran	noun	velvet
 847	fulani	noun	Fula (person); Fula (language)
 848	dáadáa	adv	well; gladly
-849	ogboni	noun	a respected older male; gentleman, fellow colleague
+849	ogboni	noun	a respected older man; gentleman, fellow colleague; (Ògbóni) the precolonial society of chiefs holding religious, judicial and legislative authority in a Yoruba town
 850	ọkọọkan	adv	one by one, singly
 851	niwaju	prep_phrase	in front
 852	akọbulọọgu	noun	blogger
@@ -855,7 +855,7 @@ rank	word	pos	en
 854	idije	noun	tournament, contest, competition
 855	ṣigun	noun	papaya
 856	koo	verb	to leave; to go away
-857	tuka	verb	to disperse, to dissolve
+857	tuka	verb	to disperse, to dissolve; to scatter; to be cheerful, to cheer up
 858	ṣibi	noun	spoon
 859	kaabọ	intj	welcome
 860	koriko	noun	spotted hyena; in modern usage, wolf
@@ -913,7 +913,7 @@ rank	word	pos	en
 912	mooru	verb	to be hot or humid (in terms of weather)
 913	jagunjagun	noun	warrior, soldier
 914	ẹlẹja	noun	fish vendor; fishmonger
-915	m	pron	standard spelling of n̄ (“I”)
+915	m	pron	I — the first-person singular pronoun n̄, of which m is the standard spelling; also the fourteenth letter of the Yoruba alphabet, called mí
 916	kita	noun	dog
 917	laakaye	noun	common sense, understanding, mental faculty
 918	kakiri	verb	to go or wonder all over some place or everywhere
@@ -939,8 +939,8 @@ rank	word	pos	en
 938	ọṣọ	noun	jewelry, ornament
 939	burẹdi	noun	bread
 940	okunfa	noun	factor; cause
-941	dada	noun	dreadlocks
-942	agbajọ	noun	the act of raking or sweeping of things together
+941	dada	noun	dreadlocks, matted curly hair; (Dàda) a child born with such hair
+942	agbajọ	noun	a gathering, collective, community; the act of raking or sweeping things together, and what is swept together
 943	ireke	noun	sugarcane
 944	aaye	noun	the act of being alive, living
 945	ifọwọsowọpọ	noun	cooperation; teamwork
@@ -956,7 +956,7 @@ rank	word	pos	en
 955	ijakadi	noun	traditional Yoruba sport of wrestling
 956	ijanu	noun	bridle; harness (rope for tying down animals)
 957	pẹpẹyẹ	noun	duck
-958	dakun	intj	excuse me, please
+958	dakun	intj	excuse me, please; hold on, stop; accept my apology, sorry
 959	ẹsan	num	nine
 960	patapata	adv	completely
 961	ifura	noun	suspicion
@@ -968,7 +968,7 @@ rank	word	pos	en
 967	eefin	noun	smoke
 968	talaka	noun	poor person, pauper
 969	kùtùkùtù	adj	early
-970	ajao	noun	rodents known as anomalures,
+970	ajao	noun	an anomalure or scaly-tailed flying squirrel (Anomalurus beecrofti, A. derbianus), not a true squirrel
 971	are	noun	vindication, justification; justice
 972	ewi	noun	poetry, poem; The Yoruba art of oral poetry and chanting for religious or entertainment purposes
 973	abuda	noun	characteristic, trait, genetics
@@ -1003,9 +1003,9 @@ rank	word	pos	en
 1002	oniṣango	noun	A devotee or worshipper of the orisha Shango
 1003	araba	noun	the kapok tree, Ceiba pentandra
 1004	ao	contraction	we will, we shall — contraction of a (we) + ó (future), written solid; also a + ò, we will not, we do not (distinct from àó: a slap)
-1005	lafun	noun	a type of flour made from cassava
+1005	lafun	noun	cassava flour; the àmàlà made from it
 1006	oromọdiyẹ	noun	chick
-1007	atan	name	a female river deity worshipped by several mainly Eastern Yorùbá speaking towns
+1007	atan	name	a female river deity worshipped in several eastern Yoruba towns; Atan (a river in Nigeria)
 1008	aibikita	noun	carelessness; negligence; indifference; neglect
 1009	ọsun	name	Oshun
 1010	igbalẹ	noun	broom
@@ -1023,7 +1023,7 @@ rank	word	pos	en
 1022	agan	noun	childlessness; A barren woman, a childless woman
 1023	kura	noun	An irredeemable person, unrepentant, hopeless, rogue
 1024	oṣomaalo	name	an Ìjẹ̀ṣà person (in particular) a trader
-1025	agbanrere	noun	a species of large antelope (in particular) roan antelope
+1025	agbanrere	noun	rhinoceros; (originally) the roan antelope
 1026	erékùṣù	noun	island, islet
 1027	ọgan	noun	spur, spike
 1028	bukata	noun	personal business, obligation
@@ -1039,7 +1039,7 @@ rank	word	pos	en
 1038	atupa	noun	lamp, lantern
 1039	ikarahun	noun	snailshell
 1040	aha	noun	drinking calabash
-1041	akoso	noun	the act of coordinating or organizing activities
+1041	akoso	noun	the act of coordinating or organizing activities; activities being coordinated or organized; coordination, administration, management, control
 1042	orirun	noun	smell
 1043	akewi	noun	poet, bard
 1044	ife	noun	cup
@@ -1050,7 +1050,7 @@ rank	word	pos	en
 1049	alapa	noun	something armed, with arms
 1050	okobo	noun	eunuch (castrated human male)
 1051	ọdọfin	name	A senior traditional chieftaincy title in Yorubaland
-1052	atari	noun	crown of the head
+1052	atari	noun	crown of the head; max, climax; basis
 1053	irọlẹ	noun	afternoon, evening (4pm to 7pm)
 1054	wuwo	verb	to be heavy
 1055	pinnu	verb	to decide, to resolve, to conclude
@@ -1071,7 +1071,7 @@ rank	word	pos	en
 1070	oṣere	noun	actor; performer
 1071	dana	verb	to cook; to start a fire
 1072	ifọrọwanilẹnuwo	noun	interview, interrogation, cross-examination
-1073	bun	verb	to dash, to donate, to give away
+1073	bun	verb	to dash, to donate, to give away; to gift, bless, or endow someone; to be gifted, endowed, or blessed with something
 1074	aditi	noun	deaf person
 1075	iṣin	noun	ackee fruit
 1076	asinwin	noun	lunatic, demented person, insane person
@@ -1102,15 +1102,15 @@ rank	word	pos	en
 1101	amọtẹkun	noun	cheetah
 1102	afara	noun	afara, limba (Terminalia superba)
 1103	ẹlẹmu	noun	palm wine seller
-1104	yemọja	name	A powerful river orisha of creation
+1104	yemọja	name	a river orisha of creation, water, fertility and motherhood, identified with the Ògùn river
 1105	mọinmọin	noun	moimoi
 1106	adagun	noun	pond, lake, pool, any stagnant body of water
-1107	akalamagbo	noun	a large beaked
+1107	akalamagbo	noun	a large beaked, scavenging-bird with a goitre, usually associated with the ground hornbill or marabou stork
 1108	irẹlẹ	noun	humility
 1109	ọyaya	noun	cheerfulness, outgoingness, high spirits, enthusiasm
 1110	jere	verb	to earn, to receive a reward
 1111	iboji	noun	shade
-1112	ogbe	noun	cockscomb
+1112	ogbe	noun	The first principal sign of the Ifa divination system.; The first of the àpólà or sixteen categories in the Odù Ifá, consisting of the first principal chapter, (Èjì Ogbè) and the other fifteen chapters of Ogbè.; The first and most important chapter of the Odù Ifá
 1113	imo	name	a state of Nigeria in the South East geopolitical zone; capital and largest city: Owerri
 1114	agidi	noun	stubbornness
 1115	gogoro	noun	tall; towering
@@ -1134,7 +1134,7 @@ rank	word	pos	en
 1133	kare	verb	to deserve or earn appreciation for satisfactory performance
 1134	igunpa	noun	elbow
 1135	rago	noun	a species of brown goat or ram native to Hausaland
-1136	magun	noun	a supernatural charm placed on a woman by her husband
+1136	magun	noun	a supernatural charm placed on a woman by her husband (or for a young girl, by her parents), to prevent her from being raped and dissuade adultery.
 1137	irukẹrẹ	noun	a white
 1138	kabiyesi	noun	A term of address for royalty and kings
 1139	ikunlẹ	noun	kneeling
@@ -1152,7 +1152,7 @@ rank	word	pos	en
 1151	ayeraye	noun	eternity
 1152	afin	noun	albinism; an albino person
 1153	gb	character	alternative letter-case form of Gb (“The eighth letter of the Yoruba alphabet”)
-1154	kaakiri	verb	to go or wonder all over some place or everywhere
+1154	kaakiri	verb	to go or wander all over a place, to roam everywhere; to be everywhere
 1155	isinmi	noun	rest, relaxation
 1156	olugbeja	noun	ally; defender
 1157	ibọwọ	noun	the act of giving or showing respect
@@ -1208,15 +1208,15 @@ rank	word	pos	en
 1207	ọmu	noun	breast; breast milk
 1208	eegbọn	noun	tick, specifically a hard tick of the genus Amblyomma
 1209	ayinrin	noun	light blue color
-1210	ore	noun	the plants Cyperus articulatus and Cyperus esculentus
+1210	ore	noun	the sedges Cyperus articulatus and Cyperus esculentus, used for weaving mats; a straw sleeping mat made from them
 1211	ọfọn	noun	throat
 1212	otolo	noun	waterbuck
 1213	eyin	noun	tooth; teeth
 1214	ogunna	noun	ember, hot charcoal
 1215	ibomii	noun	another place, somewhere else
 1216	aina	name	a female given name, an orúkọ àmútọ̀runwá
-1217	taiwo	name	a unisex given name
-1218	kẹhinde	name	a unisex given name
+1217	taiwo	name	a unisex given name (orúkọ àmútọ̀runwá) given to the first-born of twins; also a surname
+1218	kẹhinde	name	a unisex given name (orúkọ àmútọ̀runwá) given to the second-born of twins; also a surname
 1219	gana	name	Ghana (a country in West Africa)
 1220	mọmi	noun	mother, mommy
 1221	iṣọla	name	"A male oríkì name, meaning ""He who creates honor""."
@@ -1238,7 +1238,7 @@ rank	word	pos	en
 1237	gbẹrun	verb	to argue
 1238	abajọ	intj	no wonder
 1239	imọle	noun	Muslim
-1240	olokun	name	A primordial imọlẹ̀ of the Yoruba religion
+1240	olokun	name	a primordial androgynous divinity (imọlẹ̀) of the ocean and the seas
 1241	ajilẹ	noun	fertilizer, compost
 1242	alufaa	noun	imam; priest, pastor
 1243	adisa	name	"A male oríkì name, meaning ""One who is bound and displayed""."
@@ -1261,7 +1261,7 @@ rank	word	pos	en
 1260	ṣiyemeji	verb	to doubt
 1261	togo	name	Togo (a country in West Africa)
 1262	isẹ	noun	a species of small antelope; (in particular) Water chevrotain
-1263	saro	name	The Saro people
+1263	saro	name	the Saro, formerly enslaved returnees from Sierra Leone and Liberia, largely of Yoruba descent; Sierra Leonean; Sierra Leone (a country in Africa)
 1264	ayọka	name	"A female oríkì name, meaning ""One for whom everyone around them rejoices""."
 1265	kẹkọọ	verb	to study; to learn
 1266	ọmọba	noun	prince, princess
@@ -1277,8 +1277,8 @@ rank	word	pos	en
 1276	inaki	noun	A large ape or monkey of any species, including a gorilla, baboon, or chimpanzee
 1277	erinmi	noun	hippopotamus; obese person
 1278	lọpọlọpọ	verb	to have or possess many things
-1279	buba	noun	blouse or outer garment worn by women
-1280	balogun	name	A traditional chieftaincy and military title in many Yoruba towns
+1279	buba	noun	blouse or outer garment worn by women; top or outer garment worn by men; inner garment worn by men typically under an agbada
+1280	balogun	name	a Yoruba chieftaincy title, historically the commander of a town's troops; also a surname
 1281	yeye	noun	mother, a title of respect for an older woman or a priestess of the orisha
 1282	alade	noun	onion
 1283	aladelusi	name	a male given name meaning “The king has honor”
@@ -1307,7 +1307,7 @@ rank	word	pos	en
 1306	fu	verb	to suspect, to have a second thought on a person, to be vigilant
 1307	kọsẹ	verb	to honor, pay homage, venerate
 1308	mita	noun	meter, metre (unit of measurement, 100 cm)
-1309	gẹdu	noun	the tree Baillonella
+1309	gẹdu	noun	African mahogany and related timber trees (Khaya grandifoliola, Khaya ivorensis, Baillonella); timber, lumber
 1310	ajeji	noun	stranger, foreigner
 1311	igbọnwọ	noun	elbow
 1312	lọya	noun	lawyer, barrister
@@ -1340,12 +1340,12 @@ rank	word	pos	en
 1339	ige	name	a male given name, an orúkọ àmútọ̀runwá given to a child who is born via a breech birth
 1340	adubi	name	"A female oríkì name, meaning ""One we struggled to give birth to""."
 1341	gọgọ	noun	mane (of a lion or horse)
-1342	ilọrin	name	Ilorin (a city in Nigeria)
+1342	ilọrin	name	Ilorin (a city in Nigeria); A Yoruba subethnic group; A Yoruba dialect spoken by the Ìlọrin people
 1343	oji	noun	a fine paid by a man who has an affair with a married woman
 1344	alapata	noun	butcher
 1345	ṣẹgi	noun	blue glass coral beads, primarily used as jewelry (ìlẹ̀kẹ̀) for royalty
 1346	fitila	noun	lamp
-1347	olongo	noun	orange-cheeked waxbill (Estrilda melpoda)
+1347	olongo	noun	orange-cheeked waxbill (Estrilda melpoda); red-billed firefinch (Lagonosticta senegala); robin
 1348	orita	noun	The tree Lannea welwitschii
 1349	awoko	noun	The nightingale bird, known in Yoruba proverbs for its beautiful singing
 1350	abata	noun	marshy or swampy area; swamp
@@ -1377,7 +1377,7 @@ rank	word	pos	en
 1376	sọrọsọrọ	noun	speaker at an event
 1377	waasu	verb	to preach, to give a sermon
 1378	tata	noun	grasshopper
-1379	aroko	noun	In traditional Yoruba society
+1379	aroko	noun	a symbolic message sent between two parties, its meaning understood only by them; symbol, sign
 1380	ẹgbado	name	the Egbado people, a subgroup of the Yoruba
 1381	yunifasiti	noun	university
 1382	ooya	noun	comb
@@ -1393,7 +1393,7 @@ rank	word	pos	en
 1392	parọwa	verb	to entreat; to urge; to request
 1393	ominu	noun	reservation, doubt
 1394	aafin	noun	palace
-1395	ijẹlu	name	Ijelu-Ekiti
+1395	ijẹlu	name	Ijelu-Ekiti (a Yoruba town in Ekiti, Nigeria), associated with the deity Èṣù
 1396	ọbaala	name	A senior chieftaincy title in the royal council of many Eaatern Yoruba kingdoms
 1397	ẹrẹja	noun	market square
 1398	raye	verb	to buy a particular amount of something
@@ -1404,7 +1404,7 @@ rank	word	pos	en
 1403	agbẹgilere	noun	woodcarver
 1404	ṣanpọnna	noun	smallpox
 1405	irẹpọ	noun	friendship, concord
-1406	sokoto	name	the Sokoto Caliphate
+1406	sokoto	name	Sokoto (a state and its capital city in north-western Nigeria); the Sokoto Caliphate
 1407	laini	adv	without having
 1408	pokunso	verb	to commit suicide by hanging
 1409	oyi	noun	gas
@@ -1440,7 +1440,7 @@ rank	word	pos	en
 1439	faranse	name	French
 1440	bojuboju	noun	hide and seek
 1441	ipọn	noun	wooden spoon or ladle
-1442	akoto	noun	a type of deep calabash
+1442	akoto	noun	a deep calabash; a snail shell
 1443	origun	name	a high-ranking primordial spirit
 1444	mẹrẹẹrin	adj	all four
 1445	taye	name	a unisex given name, an orúkọ àmútọ̀runwá given to the first child in a set of twins
@@ -1455,7 +1455,7 @@ rank	word	pos	en
 1454	eroja	noun	ingredients, required items for specific use
 1455	igbaradi	noun	preparation
 1456	aayo	noun	favorite, chosen
-1457	aapọn	noun	the fruit of the tree Irvingia gabonensis
+1457	aapọn	noun	the fruit of the tree Irvingia gabonensis, whose seeds are ogbono; the mucilaginous soup made from those seeds, similar to ewédú
 1458	nita	adv	outside; out
 1459	mọlẹbi	noun	extended family, clan, kinship
 1460	loorekoore	adv	often; periodically; regularly
@@ -1495,7 +1495,7 @@ rank	word	pos	en
 1494	gbede	verb	to understand a language
 1495	iloro	noun	porch, front of a house
 1496	egbodo	noun	freshly harvested yam
-1497	ọyan	noun	breast
+1497	ọyan	noun	breast; Oyan (a river and a town in Nigeria)
 1498	ọrangun	name	The sixteenth principal sign of the Ifa divination system
 1499	nipọn	verb	to be thick
 1500	ẹna	noun	code; Yoruba language game or wordplay
@@ -1564,7 +1564,7 @@ rank	word	pos	en
 1563	abidi	noun	alphabet; letter
 1564	ipẹta	noun	rust, rustiness, corrosion
 1565	akiti	noun	a species of monkey; perhaps the Chlorocebus tantalus
-1566	ogurọ	noun	any raffia palm tree
+1566	ogurọ	noun	any raffia palm (Raphia vinifera, R. farinifera, R. hookeri, R. sudanica); the palm wine made from it
 1567	aawẹ	noun	religious fast
 1568	ogbogbo	noun	mucus; snot
 1569	ajako	noun	jackal, wild dog
@@ -1613,7 +1613,7 @@ rank	word	pos	en
 1612	ojugba	noun	peer, agemate
 1613	olomele	noun	omele drummer
 1614	onibata	noun	someone who sells bata drums
-1615	kunle	name	a male given name meaning “(One that) fills the house”
+1615	kunle	name	a male given name meaning “(one that) fills the house”, short for longer names such as Adékúnlé and Ọlákúnlé
 1616	ọṣin	noun	king, leader; the first person to a location
 1617	ṣago	noun	a large glass bottle; (in particular) a demijohn
 1618	ṣaki	noun	tripe

@@ -27,7 +27,7 @@ rank	word	pos	en
 26	eine	article	a, an (with feminine nouns); one (counting something feminine)
 27	so	adv	so, such, that; as (followed by an adjective or adverb plus wie in a statement of equality)
 28	hat	verb	has (he, she, it); also the auxiliary forming the perfect: has done, has said
-29	hier	adv	here; there
+29	hier	adv	here (in this place, or within this context)
 30	haben	verb	forms the perfect aspect (have)
 31	für	prep	for (indicating recipient, purpose or benefit); in exchange for, in return for
 32	sind	verb	are — we are, they are, and formal you are; there are
@@ -91,7 +91,7 @@ rank	word	pos	en
 90	hab	verb	singular imperative of haben
 91	warum	adv	why; for what reason
 92	vor	prep	in front of, ahead of (relative location in space)
-93	los	adj	loose
+93	los	adj	rid of, free of
 94	können	verb	to be able (to do or be something), to have the possibility of, can.
 95	wieder	adv	again; indicates that the action taking place has happened before
 96	sagen	verb	to say (to pronounce; communicate verbally)
@@ -689,7 +689,7 @@ rank	word	pos	en
 688	völlig	adj	complete, total, utter
 689	kleines	adj	strong/mixed nominative/accusative neuter singular of klein
 690	könnt	verb	second-person plural present of können
-691	stelle	noun	location, spot; spot
+691	stelle	noun	location, spot; point (a stage reached in a process)
 692	kumpel	noun	miner; buddy, mate, pal, friend, homeboy
 693	fand	verb	first/third-person singular preterite of finden
 694	verlieren	verb	to lose (something, or a game)
@@ -927,7 +927,7 @@ rank	word	pos	en
 926	geschickt	verb	past participle of schicken
 927	jedem	pron	masculine dative singular of jeder
 928	obwohl	conj	although, though, while
-929	sieben	num	seven
+929	sieben	num	seven; (as a verb) to sift, to sieve
 930	komisch	adj	comedic, comic, pertaining to comedy
 931	gewinnen	verb	to win; to be victorious
 932	ihres	det	genitive masculine/neuter singular of ihr: her, its, their
@@ -1192,7 +1192,7 @@ rank	word	pos	en
 1191	verändert	verb	past participle of verändern
 1192	sonne	pron	Ungrammatical synonym of solch in plural.
 1193	lieb	adj	lovable; dear; darling; sweet; good-hearted; kind
-1194	nämlich	adj	(the) very same, selfsame
+1194	nämlich	adj	(the) very same, selfsame (as was mentioned or described previously)
 1195	letztes	adj	strong/mixed nominative/accusative neuter singular of letzte
 1196	bekam	verb	first/third-person singular preterite of bekommen
 1197	ruft	verb	third-person singular present
@@ -1380,7 +1380,7 @@ rank	word	pos	en
 1379	drinnen	adv	inside (a room)
 1380	zuvor	adv	before, previously
 1381	freue	verb	first-person singular present
-1382	amerika	name	America, the Americas
+1382	amerika	name	America, the Americas; America, the United States
 1383	übrig	adj	rest of, remaining
 1384	falschen	adj	Inflected form of falsch
 1385	melden	verb	to report, to inform (about an incident or condition)
@@ -1445,7 +1445,7 @@ rank	word	pos	en
 1444	worüber	adv	generally corresponding to über was; mainly
 1445	stimmen	verb	to be right, to be correct, to be proper, to be true
 1446	nehmt	verb	second-person plural present
-1447	m	noun	abbreviation of Mark der DDR
+1447	m	noun	The thirteenth letter of the German alphabet, written in the Latin script.
 1448	witze	noun	"nominative/accusative/genitive plural of Witz ""jokes"""
 1449	beine	noun	nominative/accusative/genitive plural of Bein
 1450	verbrechen	noun	a felony, indictable offence
@@ -1479,7 +1479,7 @@ rank	word	pos	en
 1478	schaut	verb	third-person singular present
 1479	hielt	verb	first/third-person singular preterite of halten
 1480	falle	noun	trap, snare; spring latch
-1481	drink	noun	an alcoholic drink
+1481	drink	noun	an alcoholic drink, especially a cocktail or mixed drink
 1482	insel	noun	an island, an isle
 1483	dauern	verb	to last, to continue, to persist (for a period of time)
 1484	daher	adv	from there, thence
@@ -1737,7 +1737,7 @@ rank	word	pos	en
 1736	stein	noun	stone, rock; any stone-like material such as brick or concrete
 1737	atmen	verb	to breathe
 1738	hose	noun	trousers
-1739	weiße	noun	one of a variety of beers
+1739	weiße	noun	female equivalent of Weißer: white female, Caucasian female
 1740	sprichst	verb	second-person singular present of sprechen
 1741	größer	adj	comparative degree of groß
 1742	schickt	verb	third-person singular present
@@ -1747,7 +1747,7 @@ rank	word	pos	en
 1746	tote	adj	strong/mixed nominative/accusative feminine singular
 1747	überlegen	adj	superior (higher in quality)
 1748	karten	noun	plural of Karte (cards)
-1749	d	noun	abbreviation of Dame (“queen”): Q
+1749	d	noun	The fourth letter of the German alphabet, called de and written in the Latin script.
 1750	restaurant	noun	restaurant
 1751	welchem	pron	dative masculine/neuter singular of welcher
 1752	natur	noun	nature (the natural world)
@@ -1782,7 +1782,7 @@ rank	word	pos	en
 1781	vollkommen	adj	perfect (fitting its definition precisely)
 1782	gelogen	verb	past participle of lügen
 1783	verfolgt	verb	past participle of verfolgen
-1784	college	noun	a college
+1784	college	noun	a college (an institution in an English-speaking country, not a German one)
 1785	weiteren	adj	strong genitive masculine/neuter singular comparative degree
 1786	louis	name	a male given name, variant of Ludwig
 1787	eh	conj	before
@@ -2260,7 +2260,7 @@ rank	word	pos	en
 2259	samstag	noun	Saturday
 2260	amen	intj	amen
 2261	motor	noun	engine (mechanical device)
-2262	marie	noun	money
+2262	marie	noun	a female given name
 2263	iss	verb	singular imperative of essen
 2264	abhauen	verb	to cut off (with a cutting weapon)
 2265	chaos	noun	chaos
@@ -2636,7 +2636,7 @@ rank	word	pos	en
 2635	feld	noun	field (plot of open land, especially one used to grow crops)
 2636	mexiko	name	Mexico
 2637	erschaffen	verb	to create; to produce; to make
-2638	information	noun	a piece of information;
+2638	information	noun	information; a piece of information
 2639	hergekommen	verb	past participle of herkommen
 2640	beweg	verb	singular imperative of bewegen
 2641	stärke	noun	strength; thickness
@@ -2940,7 +2940,7 @@ rank	word	pos	en
 2939	gewiss	adj	certain
 2940	bereich	noun	area, realm, range, scope
 2941	meinetwegen	adv	because of me; for my sake
-2942	senator	noun	senator
+2942	senator	noun	senator (member of a senate; in Berlin, Bremen and Hamburg, also a member of the city government)
 2943	ausziehen	verb	to move out, to vacate
 2944	verzweifelt	verb	past participle of verzweifeln
 2945	anteil	noun	share, portion
@@ -3188,7 +3188,7 @@ rank	word	pos	en
 3187	nächster	adj	next, following
 3188	hörten	verb	first/third-person plural preterite
 3189	trafen	verb	first/third-person plural preterite of treffen
-3190	ungern	adv	unwillingly
+3190	ungern	adv	unwillingly; usually expressed in English through verb phrases such as “doesn't like”, “don't want”, etc.
 3191	abgelehnt	verb	past participle of ablehnen
 3192	erstens	adv	first, firstly, in the first place
 3193	abmachung	noun	deal, bargain, agreement, arrangement
@@ -3273,7 +3273,7 @@ rank	word	pos	en
 3272	christus	name	Christ (Jesus seen as the messiah)
 3273	bezahle	verb	first-person singular present
 3274	böses	adj	strong/mixed nominative/accusative neuter singular of böse
-3275	dummkopf	noun	airhead
+3275	dummkopf	noun	fool, blockhead, airhead
 3276	gerüchte	noun	nominative/accusative/genitive plural of Gerücht
 3277	eingestellt	verb	past participle of einstellen
 3278	m.	prep	abbreviation of mit (“with”)
@@ -3416,7 +3416,7 @@ rank	word	pos	en
 3415	einzig	adj	only, sole; unique
 3416	stirbst	verb	second-person singular present of sterben
 3417	spielchen	noun	diminutive of Spiel
-3418	girl	noun	girl; young woman
+3418	girl	noun	girl; young woman (usually implying physical attractiveness, often in the context of show or entertainment)
 3419	fahrrad	noun	bicycle
 3420	nutte	noun	whore; prostitute
 3421	wilde	adj	strong/mixed nominative/accusative feminine singular
@@ -3425,7 +3425,7 @@ rank	word	pos	en
 3424	rauch	verb	singular imperative of rauchen
 3425	verschiedenen	adj	strong genitive masculine/neuter singular
 3426	kamst	verb	second-person singular preterite of kommen
-3427	l	noun	abbreviation of Liter
+3427	l	noun	the twelfth letter of the German alphabet; abbreviation of Liter (litre)
 3428	pool	noun	pool
 3429	hubschrauber	noun	helicopter
 3430	wüssten	verb	first/third-person plural subjunctive II of wissen
@@ -3697,7 +3697,7 @@ rank	word	pos	en
 3696	kontrolliert	verb	past participle of kontrollieren
 3697	treffer	noun	hit (A blow, punch, strike hitting a target.)
 3698	abnehmen	verb	to take off (to remove something that is attached to something or on top of it)
-3699	ratten	noun	plural of Ratte
+3699	ratten	noun	rats (plural of Ratte)
 3700	anwälte	noun	nominative/accusative/genitive plural of Anwalt
 3701	tempel	noun	temple (edifice dedicated to one or multiple deities)
 3702	vergiftet	verb	past participle of vergiften
@@ -3996,7 +3996,7 @@ rank	word	pos	en
 3995	baut	verb	third-person singular present
 3996	chinesen	noun	plural of Chinese
 3997	gesichert	verb	past participle of sichern
-3998	michel	noun	the average German
+3998	michel	noun	a male given name, variant of Michael; (in der deutsche Michel) the average German
 3999	ruth	name	Ruth (biblical character).
 4000	block	verb	singular imperative of blocken
 4001	belogen	verb	past participle of belügen
@@ -4103,7 +4103,7 @@ rank	word	pos	en
 4102	unterschrift	noun	signature; caption (text placed and relating to an image or table)
 4103	rosen	noun	plural of Rose
 4104	persönliches	adj	strong/mixed nominative/accusative neuter singular of persönlich
-4105	queen	noun	The Queen of England
+4105	queen	noun	the Queen (of England); (colloquial) a woman who is the centre of attention in a particular scene
 4106	fortschritte	noun	nominative/accusative/genitive plural of Fortschritt
 4107	eingang	noun	entrance (doorway or passageway into a building or other enclosed space)
 4108	zugehört	verb	past participle of zuhören
@@ -4355,12 +4355,12 @@ rank	word	pos	en
 4354	regisseur	noun	director (male or of unspecified gender)
 4355	vielmals	adv	very much, a lot
 4356	bestand	verb	first/third-person singular preterite of bestehen
-4357	k	noun	abbreviation of König (“king”)
+4357	k	noun	The eleventh letter of the German alphabet, written in the Latin script.
 4358	erbe	noun	inheritance; heritage; legacy; bequest (property that is bequeathed and inherited)
 4359	weggelaufen	verb	past participle of weglaufen
 4360	noah	name	Noah (biblical character)
 4361	leichte	adj	strong/mixed nominative/accusative feminine singular
-4362	zuständig	adj	competent, cognizant
+4362	zuständig	adj	responsible, in charge (having the responsibility of leading or overseeing)
 4363	losgehen	verb	to leave; to start
 4364	hustet	verb	third-person singular present
 4365	brutal	adj	brutal
@@ -4880,7 +4880,7 @@ rank	word	pos	en
 4879	halloween	noun	Halloween (October 31st)
 4880	abgesagt	verb	past participle of absagen
 4881	down	adj	down, depressed
-4882	quasi	adv	as it were, so to speak, effectively, essentially
+4882	quasi	adv	as it were, so to speak; as good as, virtually, more or less
 4883	kocht	verb	third-person singular present
 4884	reingekommen	verb	past participle of reinkommen
 4885	hupen	verb	to honk, to sound the horn
@@ -4945,7 +4945,7 @@ rank	word	pos	en
 4944	verhindert	verb	past participle of verhindern
 4945	ausrede	noun	excuse
 4946	tüte	noun	a small to medium-sized bag, usually of paper or plastic
-4947	manhattan	noun	Manhattan (cocktail)
+4947	manhattan	noun	Manhattan (a borough and island of New York City, New York, United States)
 4948	operiert	verb	past participle of operieren
 4949	unfassbar	adj	incomprehensible, inconceivable
 4950	herrin	noun	lady (female equivalent of a lord)
@@ -5061,7 +5061,7 @@ rank	word	pos	en
 5060	kater	noun	tomcat, tom, male cat
 5061	wundern	verb	to surprise, to astonish (of sights, behaviors, outcomes)
 5062	französischen	adj	strong genitive masculine/neuter singular
-5063	habs	contraction	habe es.
+5063	habs	contraction	I have it (contraction of habe es)
 5064	beeinflussen	verb	to influence
 5065	heult	verb	third-person singular present
 5066	hinfahren	verb	to give a ride [auxiliary haben] (to drive for someone else to reach a destination)
@@ -5151,7 +5151,7 @@ rank	word	pos	en
 5150	sektor	noun	sector
 5151	blockiert	verb	past participle of blockieren
 5152	öffentliche	adj	strong/mixed nominative/accusative feminine singular
-5153	schweden	noun	plural of Schwede
+5153	schweden	noun	Sweden (a country in Scandinavia in Northern Europe)
 5154	gates	noun	genitive singular of Gate
 5155	häuptling	noun	chief (leader or co-leader of a tribe)
 5156	märz	noun	March
@@ -5226,7 +5226,7 @@ rank	word	pos	en
 5225	abschließen	verb	to end, to finish or complete (one's studies, a task)
 5226	angehalten	verb	past participle of anhalten
 5227	assistent	noun	assistant
-5228	ketten	noun	plural of Kette
+5228	ketten	noun	chains (plural of Kette)
 5229	reist	verb	second/third-person singular present
 5230	merkst	verb	second-person singular present of merken
 5231	bot	verb	first/third-person singular preterite of bieten
@@ -5356,7 +5356,7 @@ rank	word	pos	en
 5355	stattfinden	verb	to take place, to happen
 5356	fortschritt	noun	progress, advancement
 5357	gelingt	verb	third-person singular present
-5358	feierabend	noun	Quitting time, hometime
+5358	feierabend	noun	quitting time, hometime; the end of the workday and the evening that follows, used for relaxation
 5359	feste	adj	strong/mixed nominative/accusative feminine singular
 5360	burger	noun	A burger; a hamburger, cheeseburger, or similar American-style sandwich.
 5361	spannend	verb	present participle of spannen
@@ -5481,7 +5481,7 @@ rank	word	pos	en
 5480	tafel	noun	panel, board (e.g., wooden panel)
 5481	kacke	noun	crap (something of poor quality; feces)
 5482	versammelt	verb	past participle of versammeln
-5483	sandra	name	a female given name from Italian
+5483	sandra	name	a female given name from Italian, equivalent to English Sandra
 5484	regelmäßig	adj	regular; according to the rule; expected; not forming an exception
 5485	geschrei	noun	yelling, hue, clamor
 5486	ruder	noun	oar; rudder
@@ -5575,7 +5575,7 @@ rank	word	pos	en
 5574	fetten	adj	strong genitive masculine/neuter singular
 5575	hai	noun	shark
 5576	binden	verb	to bind, to tie, to fasten something by means of a string etc.
-5577	erpressung	noun	blackmail; coercion
+5577	erpressung	noun	blackmail, extortion; coercion (forcing someone to act by means of a threat)
 5578	derzeit	adv	currently, at present (implying that this state is likely temporary)
 5579	getäuscht	verb	past participle of täuschen
 5580	keines	pron	masculine/neuter genitive of kein
@@ -5586,7 +5586,7 @@ rank	word	pos	en
 5585	ergreifen	verb	to seize, capture
 5586	frohes	adj	strong/mixed nominative/accusative neuter singular of froh
 5587	hänge	noun	nominative/accusative/genitive plural of Hang
-5588	bewohner	noun	agent noun of bewohnen: inhabitant
+5588	bewohner	noun	inhabitant (someone who lives in a place, especially a house or institution)
 5589	entschied	verb	first/third-person singular preterite of entscheiden
 5590	supermarkt	noun	supermarket
 5591	offiziere	noun	nominative/accusative/genitive plural of Offizier
@@ -5633,7 +5633,7 @@ rank	word	pos	en
 5632	ausgezogen	verb	past participle of ausziehen
 5633	versichern	verb	to insure (to provide for compensation if some specified risk occurs)
 5634	gewinnst	verb	second-person singular present of gewinnen
-5635	schmidt	noun	smith
+5635	schmidt	noun	a common surname originating as an occupation, equivalent to English Smith
 5636	beschloss	verb	first/third-person singular preterite of beschließen
 5637	kapierst	verb	second-person singular present of kapieren
 5638	scheibe	noun	flat piece or surface
@@ -5657,7 +5657,7 @@ rank	word	pos	en
 5656	weinst	verb	second-person singular present of weinen
 5657	bäumen	noun	dative plural of Baum
 5658	datenbank	noun	database
-5659	suchten	verb	to binge
+5659	suchten	verb	searched, looked for (first/third-person plural preterite of suchen)
 5660	gesegnet	verb	past participle of segnen
 5661	teilnehmen	verb	to participate (in)
 5662	umbringt	verb	third-person singular dependent present
@@ -6302,7 +6302,7 @@ rank	word	pos	en
 6301	beitrag	noun	contribution (something given or offered that adds to a larger whole)
 6302	picknick	noun	picnic
 6303	argument	noun	proof, reason, point
-6304	reiner	adj	comparative degree of rein
+6304	reiner	adj	purer (comparative of rein); also Reiner, a male surname
 6305	flüstern	verb	to whisper
 6306	dummheiten	noun	plural of Dummheit
 6307	meile	noun	mile (unit of distance)
@@ -6640,7 +6640,7 @@ rank	word	pos	en
 6639	regieren	verb	to govern
 6640	barkeeper	noun	barman, barkeeper, bartender
 6641	ausgemacht	verb	past participle of ausmachen
-6642	fritz	noun	a Fritz, a German
+6642	fritz	noun	a diminutive of the male given name Friedrich
 6643	dateien	noun	plural of Datei
 6644	gegründet	verb	past participle of gründen
 6645	wolke	noun	cloud (a visible mass of water droplets suspended in the air)
@@ -6735,7 +6735,7 @@ rank	word	pos	en
 6734	reinste	adj	strong/mixed nominative/accusative feminine singular superlative degree
 6735	news	noun	news
 6736	aspirin	noun	aspirin
-6737	andre	pron	inflection of anderer
+6737	andre	pron	other (contracted form of andere); also Andre, a male given name, variant of Andreas
 6738	früchte	noun	nominative/accusative/genitive plural of Frucht
 6739	gewähren	verb	to grant, to allow
 6740	prophezeiung	noun	prophecy
@@ -6745,7 +6745,7 @@ rank	word	pos	en
 6744	maßnahmen	noun	plural of Maßnahme
 6745	ermittelt	verb	past participle of ermitteln: determined, ascertained
 6746	stufen	noun	"plural of Stufe ""steps"""
-6747	w	noun	abbreviation of West (“west”)
+6747	w	noun	the twenty-third letter of the German alphabet; also an abbreviation of West (west)
 6748	lüg	verb	singular imperative of lügen
 6749	student	noun	student (person attending lectures at a university; male or of unspecified sex)
 6750	absetzen	verb	to set down; to drop off
@@ -7007,7 +7007,7 @@ rank	word	pos	en
 7006	aufgefunden	verb	past participle of auffinden
 7007	unfähig	adj	incapable, unable, inept
 7008	stellten	verb	first/third-person plural preterite
-7009	mi	noun	Wednesday
+7009	mi	noun	Wed. — abbreviation of Mittwoch (Wednesday)
 7010	ursprünglich	adj	original, initial, first
 7011	distanz	noun	distance
 7012	verheimlichen	verb	to keep secret, to conceal, to hide
@@ -7206,7 +7206,7 @@ rank	word	pos	en
 7205	turnier	noun	tournament
 7206	gebacken	verb	past participle of backen
 7207	rauszufinden	verb	zu-infinitive of rausfinden
-7208	adele	verb	first-person singular present
+7208	adele	verb	a female given name from French, equivalent to English Adele or Adela
 7209	taube	noun	pigeon, dove (male or female bird of the Columba genus)
 7210	mais	noun	maize; corn (US)
 7211	nüsse	noun	nominative/accusative/genitive plural of Nuss
@@ -7317,7 +7317,7 @@ rank	word	pos	en
 7316	eingenommen	verb	past participle of einnehmen
 7317	mochten	verb	first/third-person plural preterite of mögen
 7318	köchin	noun	cook, a cooker (female)
-7319	willi	noun	willy, penis
+7319	willi	noun	a male given name, variant of Willy
 7320	beichte	noun	confession (sacramental disclosure of one's sins)
 7321	marina	name	a female given name, equivalent to English Marina
 7322	ausliefern	verb	to deliver, to distribute
@@ -7375,7 +7375,7 @@ rank	word	pos	en
 7374	erstatten	verb	to pay back [with accusative ‘something’ and dative ‘to someone’]
 7375	verarbeiten	verb	to process, to handle, to manufacture
 7376	verfügbar	adj	available; disposable
-7377	autobahn	noun	motorway
+7377	autobahn	noun	motorway, freeway, highway (controlled-access highway)
 7378	mandant	noun	client (of a lawyer)
 7379	clubs	noun	genitive singular of Club
 7380	lukas	name	Luke (biblical character).
@@ -7454,7 +7454,7 @@ rank	word	pos	en
 7453	christen	noun	genitive/dative/accusative singular
 7454	überqueren	verb	to cross, to traverse
 7455	kreuzung	noun	crossing, intersection
-7456	häusern	noun	dative plural of Haus
+7456	häusern	noun	houses (dative plural of Haus)
 7457	weiche	noun	railway switch, points
 7458	punkten	verb	to score
 7459	verpasse	verb	first-person singular present
@@ -7903,7 +7903,7 @@ rank	word	pos	en
 7902	japanisch	adj	Japanese (of or relating to Japan, the Japanese people, or the Japanese language)
 7903	archiv	noun	archive
 7904	einholen	verb	to catch up (a person, vehicle, competitor etc. ahead of you)
-7905	raushalten	verb	to hold
+7905	raushalten	verb	clipping of heraushalten; to hold (something) out (of something) (either in direction towards or away from the speaker)
 7906	verheimlicht	verb	past participle of verheimlichen
 7907	hacker	noun	agent noun of hacken, particularly a worker who loosens the soil on a vineyard
 7908	hingabe	noun	devotion; dedication, commitment
@@ -7995,7 +7995,7 @@ rank	word	pos	en
 7994	portal	noun	portal
 7995	gesetzes	noun	genitive singular of Gesetz
 7996	großeltern	noun	grandparents
-7997	mo	noun	Monday
+7997	mo	noun	Mon. — abbreviation of Montag (Monday)
 7998	investition	noun	investment
 7999	schweiß	noun	sweat; blood of the game
 8000	selbstvertrauen	noun	self-confidence
@@ -8198,7 +8198,7 @@ rank	word	pos	en
 8197	lilly	name	a diminutive of the female given name Elisabeth
 8198	tarzan	name	Tarzan
 8199	klingel	noun	bell
-8200	jens	name	a male given name from Low German or Danish
+8200	jens	name	a male given name from Low German or Danish, equivalent to English John
 8201	flirten	verb	to flirt
 8202	spanier	noun	Spaniard; Spanish restaurant
 8203	taxifahrer	noun	taxi driver, cabdriver, cabbie (male or of unspecified sex)
@@ -8261,7 +8261,7 @@ rank	word	pos	en
 8260	werke	noun	nominative/accusative/genitive plural of Werk
 8261	verfolgung	noun	persecution; pursuit, pursuance
 8262	männlichen	adj	strong genitive masculine/neuter singular
-8263	exemplar	noun	exemplar; specimen; copy
+8263	exemplar	noun	exemplar; specimen; copy (e.g. of a book)
 8264	bedauerlich	adj	regrettable
 8265	blinden	adj	strong genitive masculine/neuter singular
 8266	jage	verb	first-person singular present
@@ -8389,7 +8389,7 @@ rank	word	pos	en
 8388	rechtsanwalt	noun	lawyer
 8389	geritten	verb	past participle of reiten
 8390	romantik	noun	romanticism
-8391	net	adv	not
+8391	net	adv	alternative form of nicht (“not”)
 8392	räder	noun	nominative/accusative/genitive plural of Rad
 8393	erklärungen	noun	plural of Erklärung
 8394	gütig	adj	kind, gracious, benign, benevolent
@@ -8535,7 +8535,7 @@ rank	word	pos	en
 8534	anhand	prep	by means of, with (the help of)
 8535	schlagzeilen	noun	plural of Schlagzeile
 8536	auslöser	noun	trigger (event that initiates others, or incites a response)
-8537	kündigung	noun	a declaration of will ending a continuing obligation
+8537	kündigung	noun	termination, dismissal, resignation, notice (a declaration of will ending a continuing obligation)
 8538	atlantis	name	Atlantis
 8539	entzug	noun	revoking; withdrawal
 8540	server	noun	server (a computer or software that provides services to other programs or users)
@@ -8791,7 +8791,7 @@ rank	word	pos	en
 8790	unterschätzen	verb	to underestimate
 8791	hausfrau	noun	housewife; hostess
 8792	hannes	name	a diminutive of the male given name Johannes
-8793	errichten	verb	to build, to erect
+8793	errichten	verb	to build, to erect; to establish, to form (a regime or system)
 8794	stapel	noun	stack, batch (also computing)
 8795	reparatur	noun	repair, mending
 8796	pike	noun	pike; the tip of the foot or shoe
@@ -8831,7 +8831,7 @@ rank	word	pos	en
 8830	ohnmacht	noun	faint, fainting
 8831	autoschlüssel	noun	car key, ignition key
 8832	erfährst	verb	second-person singular present of erfahren
-8833	image	noun	image
+8833	image	noun	image, public image (how a person or company is perceived by others)
 8834	unheilvolle	adj	strong/mixed nominative/accusative feminine singular
 8835	kapieren	verb	to understand intellectually; to get; to grasp
 8836	zigarren	noun	plural of Zigarre
@@ -9362,7 +9362,7 @@ rank	word	pos	en
 9361	fix	adj	fixed (costs, salary)
 9362	schwur	noun	oath
 9363	bewaffneten	adj	strong genitive masculine/neuter singular
-9364	höchstpersönlich	adv	Of an important or famous person,
+9364	höchstpersönlich	adv	in person, personally (of an important person, or jocularly of anyone)
 9365	anrufer	noun	caller
 9366	rutsch	noun	trip; slip
 9367	blutbad	noun	bloodbath
@@ -9465,7 +9465,7 @@ rank	word	pos	en
 9464	jerusalem	name	Jerusalem
 9465	immun	adj	immune
 9466	temperament	noun	temperament
-9467	boulevard	noun	boulevard, avenue, broad street
+9467	boulevard	noun	boulevard, avenue, broad street; the tabloid press (short for Boulevardpresse)
 9468	umhang	noun	cloak, cape
 9469	zugeteilt	verb	past participle of zuteilen
 9470	alarmanlage	noun	burglar alarm, alarm system
@@ -9619,7 +9619,7 @@ rank	word	pos	en
 9618	diskutiert	verb	past participle of diskutieren
 9619	kratzt	verb	second/third-person singular present
 9620	typische	adj	strong/mixed nominative/accusative feminine singular
-9621	abdruck	noun	imprint, impression
+9621	abdruck	noun	imprint, impression (the mark left by pressing); print (as of a finger)
 9622	gelaunt	adj	in a certain mood (specified by adverbs ranging from good to bad)
 9623	bins	contraction	contraction of bin + es
 9624	einnahmen	verb	first/third-person plural dependent preterite of einnehmen
@@ -9665,7 +9665,7 @@ rank	word	pos	en
 9664	spitzen	verb	to point (to make pointy), to sharpen (a pencil)
 9665	poltern	verb	to rumble; to rant (To speak or shout at length in an uncontrollable anger.)
 9666	erfreuen	verb	to please; to make happy
-9667	lunch	noun	an English-style morning to midday meal in some cases
+9667	lunch	noun	an English-style midday meal, generally smaller than the German Mittagessen
 9668	tattoos	noun	plural of Tattoo
 9669	bordell	noun	bordello, brothel
 9670	unterdrücken	verb	to suppress, to oppress
@@ -9732,7 +9732,7 @@ rank	word	pos	en
 9731	löste	verb	first/third-person singular preterite
 9732	apachen	noun	genitive/dative/accusative singular
 9733	spezialisten	noun	genitive singular of Spezialist
-9734	nazi	noun	a member or; a general
+9734	nazi	noun	a Nazi, a member of the National Socialist party
 9735	tapferkeit	noun	bravery (being brave)
 9736	zutaten	noun	plural of Zutat
 9737	unsichtbare	adj	strong/mixed nominative/accusative feminine singular
