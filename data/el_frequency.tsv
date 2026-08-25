@@ -52,7 +52,7 @@ rank	word	pos	en
 51	ξέρω	verb	to know of, be familiar with (a fact, a person or a language)
 52	τις	article	the — feminine plural, as object (τις πόρτες); them (τις βλέπω)
 53	έχω	verb	to have/hold, in the sense of holding
-54	δε	conj	on the other hand used together with μεν (men)
+54	δε	particle	not — a very common shortened form of δεν before a consonant (Δε θέλω — I don't want to); in formal Greek also μεν … δε — on the other hand
 55	μην	particle	not; non
 56	έτσι	adv	thus; like this; like that
 57	εσύ	pron	you, thou
@@ -66,7 +66,7 @@ rank	word	pos	en
 65	ξέρεις	verb	θα ξέρεις: second-person singular imperfective future of ξέρω (xéro)
 66	έχεις	verb	"second-person singular present of έχω (écho): ""you have"""
 67	κάνεις	verb	θα κάνεις: second-person singular perfective future of κάνω (káno)
-68	μόνο	adv	only; just
+68	μόνο	adv	only, just; with a weak pronoun: alone, by oneself (μόνο του — by himself)
 69	μαζί	adv	together, with (takes the genitive case)
 70	εκεί	adv	there
 71	σαν	prep	like, as, as if
@@ -108,7 +108,7 @@ rank	word	pos	en
 107	μετά	adv	afterwards, later
 108	νομίζω	verb	to think, consider, opine
 109	είμαστε	verb	first-person plural present of είμαι (eímai)
-110	πάντα	adv	always
+110	πάντα	adv	always; τα πάντα — everything, all things (ξέρω τα πάντα — I know everything)
 111	πω	verb	first-person singular dependent of λέω (léo)
 112	πίσω	adv	behind, back
 113	γεια	intj	hi, hello; bye
@@ -125,8 +125,8 @@ rank	word	pos	en
 124	ας	particle	added before the dependent or present verb forms to form the hortative and jussive moods
 125	έναν	article	accusative masculine of ένας (énas) (a, an)
 126	λες	verb	"second-person singular present of λέω (léo): ""you say"""
-127	παιδιά	noun	childish play, fun, sport, game
-128	άλλο	adv	any more, anymore
+127	παιδιά	noun	children — plural of το παιδί (τα παιδιά μας — our children); also as an address to a group: guys, folks
+128	άλλο	pron	other, another; else (τίποτα άλλο — nothing else); more (κι άλλο χρόνο — more time); after a negative: any more
 129	θέλεις	verb	second-person singular present of θέλω (thélo)
 130	ζωή	noun	life; lifetime
 131	κάνουμε	verb	first-person plural present of κάνω (káno)
@@ -191,7 +191,7 @@ rank	word	pos	en
 190	μέρος	noun	part (a fraction of a whole)
 191	συμβαίνει	verb	to happen, to occur, to take place
 192	έγινε	verb	third-person singular simple past of γίνομαι (gínomai)
-193	πας	det	every, any; whole, all
+193	πας	verb	you go — 2nd person singular of πάω (Πού πας; — where are you going?); an identical archaic πας — every, all — survives only in frozen formal phrases
 194	εμένα	pron	me (1st person singular, accusative)
 195	πεις	verb	second-person singular dependent of λέω (léo)
 196	πολλά	adj	nominative neuter plural of πολύς (polýs)
@@ -220,7 +220,7 @@ rank	word	pos	en
 219	άλλη	pron	nominative/accusative/vocative feminine singular of άλλος (állos)
 220	έκανες	verb	second-person singular imperfect of κάνω (káno)
 221	όλο	adv	always, constantly, nonstop
-222	χρειάζεται	verb	also as (impersonal): it is needed
+222	χρειάζεται	verb	it is needed, one needs to (δε χρειάζεται να — there is no need to); also, as the 3rd singular of χρειάζομαι, he, she or it needs (το ρολόι μου χρειάζεται επισκευή — my watch needs repair)
 223	βλέπω	verb	to see, watch, look at
 224	μητέρα	noun	mother; mother (the first example of something)
 225	υπάρχουν	verb	third-person plural present of υπάρχω (ypárcho)
@@ -243,7 +243,7 @@ rank	word	pos	en
 242	λεφτά	noun	money, cash; wealth, financial estate
 243	γίνεται	verb	third-person singular present
 244	νέα	adj	nominative/accusative/vocative feminine singular of νέος (néos)
-245	δει	verb	active nonfinite form of βλέπω (vlépo)
+245	δει	verb	seen — the nonfinite form of βλέπω, after έχω (δεν τον έχω δει — I have not seen him) and after να or θα (να δει — for him to see)
 246	λέω	verb	to say, tell; to discuss, converse
 247	ξέρει	verb	third-person singular present of ξέρω (xéro)
 248	πήγαινε	verb	third-person singular imperfect of πηγαίνω
@@ -278,7 +278,7 @@ rank	word	pos	en
 277	μπορείτε	verb	second-person plural present of μπορώ (boró, “to be able to”)
 278	μόνος	adj	solitary, alone
 279	αυτές	det	nominative/accusative/vocative feminine plural of αυτός (aftós, “these”)
-280	πει	verb	active nonfinite form of λέω (léo)
+280	πει	verb	said, told — the nonfinite form of λέω, after έχω (δεν έχουμε πει ναι — we have not said yes) and after να or θα (να πει — for him to say)
 281	νόμιζα	verb	"first-person singular imperfect of νομίζω (nomízo): ""I was thinking"""
 282	αγάπη	noun	love (affection, liking, attraction)
 283	πρόκειται	verb	it's about, it concerns

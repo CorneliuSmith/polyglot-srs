@@ -61,9 +61,9 @@ rank	word	pos	en
 60	ona	pron	dative singular of o: to him/her/it
 61	olan	verb	subject non-past participle of olmak
 62	lütfen	adv	please; unwillingly, halfheartedly
-63	işte	intj	"""lo! there it is"", ta-da, presto, voilà"
+63	işte	intj	there it is, here you go, that is just it; you see, well (discourse marker); also the locative of iş: at work, in a job or matter
 64	onun	pron	genitive singular of o
-65	bile	adv	together, with
+65	bile	adv	even, so much as; (after a verb) already; archaic variant of ile: with, together with
 66	kim	pron	who
 67	çünkü	conj	because
 68	peki	intj	okay; well
@@ -115,7 +115,7 @@ rank	word	pos	en
 114	kötü	adj	bad; bad, evil
 115	şeyler	noun	plural of şey
 116	gece	noun	night
-117	et	noun	The muscle and fat tissue in humans and animals; meat, flesh.
+117	et	verb	second-person singular imperative of etmek: do it!, make it! (in light verbs: yardım et — help!, dikkat et — be careful!); also meat, flesh
 118	harika	adj	great, marvellous, fantastic, wonderful
 119	gerek	adj	necessary, required
 120	ilk	adj	first; pristine (pertaining to the earliest state of something)
@@ -126,7 +126,7 @@ rank	word	pos	en
 125	bütün	det	entire, complete
 126	kendi	pron	self, oneself; own
 127	yol	noun	path, road, way
-128	diye	adv	someone who is named ..., something which is called ...
+128	diye	adv	quotative converb of demek: saying, that (marks reported speech and thought); called, named (X diye bir şey: a thing called X); so that, in order to
 129	yıl	noun	year; time unit equal to twelve months
 130	hemen	adv	immediately, without delay
 131	bayan	noun	(uncommon outside of certain contexts) Ms., Mrs., miss
@@ -172,7 +172,7 @@ rank	word	pos	en
 171	önemli	adj	important (having relevant and crucial value)
 172	git	verb	second-person singular imperative of gitmek
 173	yoksa	conj	Used other than figuratively or idiomatically: see yok, -sa or ise.
-174	hala	noun	paternal aunt (father’s sister)
+174	hala	adv	still, yet (the circumflex of hâlâ is routinely dropped in writing); paternal aunt, father's sister
 175	oh	intj	exclamation of relief, joy, admiration, liking, etc.
 176	mısın	particle	second-person singular simple of mı
 177	yine	adv	again, still, yet
@@ -180,7 +180,7 @@ rank	word	pos	en
 179	şekilde	noun	locative singular of şekil
 180	bugün	adv	today
 181	üç	num	three
-182	al	adj	blood red; dark red
+182	al	verb	second-person singular imperative of almak: take!, get!, buy! (onu al — pick it up); also (poetic) blood red, scarlet, as in al bayrak, the Turkish flag
 183	söyle	verb	second-person singular imperative of söylemek
 184	para	noun	money
 185	birlikte	adv	together
@@ -252,7 +252,7 @@ rank	word	pos	en
 251	polis	noun	police (an organisation that enforces the law)
 252	dinle	verb	second-person singular imperative of dinlemek
 253	bunlar	pron	nominative plural of bu
-254	hayatım	noun	sweetheart, sweetie
+254	hayatım	noun	first-person singular possessive of hayat: my life; as a term of address: darling, sweetheart
 255	kabul	noun	acceptation; acceptance
 256	gereken	adj	necessary
 257	niye	adv	why
@@ -312,7 +312,7 @@ rank	word	pos	en
 311	geçen	verb	present participle of geçmek
 312	pekâlâ	adv	all right
 313	yeter	verb	third-person singular indicative aorist of yetmek
-314	etme	noun	verbal noun of etmek
+314	etme	verb	second-person singular negative imperative of etmek: do not do, do not (merak etme — do not worry, rahatsız etme — do not disturb); also the verbal noun of etmek: doing, making
 315	beş	num	five
 316	sakin	adj	calm
 317	adım	noun	first-person singular possessive singular possession of ad

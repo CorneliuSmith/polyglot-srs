@@ -39,15 +39,15 @@ rank	word	pos	en
 38	tu	pron	you (singular); thou
 39	solo	adj	alone, by oneself, unattended, unaccompanied, lonely, lone, lonesome
 40	mio	det	my; of mine (used attributively)
-41	al	prep	with (an ingredient)
+41	al	contraction	contraction of a + il; to the, at the — al lavoro 'at work', andare al mare 'to go to the sea'; also with (an ingredient): pasta al pomodoro
 42	me	pron	me (after prepositions: con me, per me); replaces mi before lo, la, li, le, ne
 43	tutto	pron	everything (tutto bene 'all good'); all of, the whole (tutto il giorno)
 44	c'	adv	apocopic form of ci
-45	te	pron	you, thee; you, thou
-46	era	noun	age, epoch, period
+45	te	pron	you (after prepositions: con te, per te; and in comparisons: come te); replaces ti before lo, la, li, le, ne: te lo dico 'I'm telling you'
+46	era	verb	third-person singular imperfect indicative of essere; he/she/it was: era solo 'he was alone', non c'era 'he wasn't there'; also a noun: era, age, epoch
 47	della	contraction	contraction of di la; of the, from the
 48	mia	det	my, mine (with a feminine singular noun: la mia casa 'my house')
-49	fatto	adj	done, made; fit, right, made
+49	fatto	verb	done, made (past participle of fare): l'ho fatto 'I did it'; also a noun: fact, event — il fatto è che 'the fact is that'
 50	fare	verb	to do; to make
 51	essere	verb	Used as a copula. to be
 52	so	verb	I know (a fact); I know how to: so nuotare 'I can swim'
@@ -56,7 +56,7 @@ rank	word	pos	en
 55	ora	noun	hour; time (of day); hour
 56	lei	pron	she; her
 57	gli	article	form of the article i
-58	ne	adv	from there
+58	ne	pron	of it, of them, about it (partitive): ne ho una 'I have one of them', non ne so nulla 'I know nothing about it'; from there, away: me ne vado 'I'm off'
 59	oh	intj	oh
 60	questa	det	feminine singular of questo
 61	detto	verb	past participle of dire
@@ -65,10 +65,10 @@ rank	word	pos	en
 64	perche	conj	because; why (in a question) — correctly written perché, with the accent
 65	quello	det	that, those
 66	mai	adv	never; ever, always
-67	alla	prep	-style, à la
+67	alla	contraction	contraction of a + la; to the, at the — alla stazione 'to the station', alla fine 'in the end'; also in the style of, à la: pollo alla cacciatora
 68	o	conj	or
 69	anche	adv	also, too, as well, besides
-70	stato	noun	state (physical property of matter as solid, liquid, gas or plasma)
+70	stato	verb	been (past participle of essere): sono stato a Roma 'I have been to Rome'; stayed (past participle of stare); also a noun: state, country, condition
 71	abbiamo	verb	first-person plural present indicative/subjunctive
 72	tutti	pron	all; everybody, everyone
 73	dei	noun	plural of dio
@@ -76,7 +76,7 @@ rank	word	pos	en
 75	chi	pron	who, whom; whoever
 76	sta	verb	third-person singular present indicative of stare
 77	molto	adv	much, very much, a lot (with verbs)
-78	più	adv	anymore, any longer
+78	più	adv	more, most (comparative of molto): più grande 'bigger', il più veloce 'the fastest'; with non, no longer, anymore: non è più solo 'he isn't alone anymore'; plus (in arithmetic)
 79	voglio	verb	first-person singular present indicative of volere
 80	perché	conj	because, why; so, so that, in order that
 81	tuo	det	your (informal)
@@ -168,7 +168,7 @@ rank	word	pos	en
 167	via	noun	street, path; way, route
 168	cos'	pron	apocopic form of cosa (what)
 169	fai	verb	second-person singular present
-170	signore	noun	lord (ruler); master
+170	signore	noun	sir, gentleman; Mr (as a title): grazie, signore 'thank you, sir'; ladies (plural of signora): prima le signore 'ladies first'; the Lord, God (il Signore); lord, master (a ruler)
 171	meglio	adj	better, (the) best
 172	cazzo	noun	dick, cock, prick
 173	dai	verb	second-person singular present indicative
@@ -260,25 +260,25 @@ rank	word	pos	en
 259	nome	noun	name; first name
 260	avuto	verb	past participle of avere
 261	problema	noun	problem; glitch, bug
-262	altri	pron	someone else, another
+262	altri	pron	others, other people; other (masculine plural of altro): gli altri ragazzi 'the other boys', dove sono gli altri? 'where are the others?'; as a literary singular pronoun, someone else
 263	aver	verb	apocopic form of avere
 264	mondo	noun	world; people; society
 265	tutta	adj	feminine singular of tutto
-266	preso	adj	busy, taken up, preoccupied (of person)
+266	preso	verb	taken, got, caught (past participle of prendere): dove l'hai preso? 'where did you get it?'; taken, occupied (of a seat); busy, preoccupied (of a person)
 267	nulla	det	feminine singular of nullo
 268	nostra	pron	feminine singular of nostro
 269	donna	noun	woman; lady
 270	stare	verb	to stay, remain
 271	basta	verb	third-person singular present indicative
 272	insieme	adv	together; at the same time
-273	faccia	noun	face (of a person or an animal)
+273	faccia	noun	face (of a person or an animal): lavati la faccia 'wash your face', faccia a faccia 'face to face'; also from fare — the singular present subjunctive (voglio che tu faccia 'I want you to do') and the formal Lei imperative: faccia pure 'go right ahead'
 274	ragazza	noun	girl, young woman
 275	subito	adv	at once, immediately, as soon as possible, shortly
 276	famiglia	noun	family; household
 277	ragazzo	noun	boy, young man; boyfriend
 278	volevo	verb	first-person singular imperfect indicative of volere
 279	okay	intj	okay!
-280	sentito	adj	sincere; influential, trusted, or listened-to in a certain academic or vocational field
+280	sentito	verb	heard; felt (past participle of sentire): non ho sentito 'I didn't hear'; as an adjective, heartfelt, sincere: un sentito grazie
 281	ah	intj	ah! (usually ironic or sarcastic)
 282	stesso	det	same, equal; -self, myself, yourself, himself, itself, myself
 283	ragione	noun	reason, intellect
@@ -296,7 +296,7 @@ rank	word	pos	en
 295	sara	name	a female given name from Hebrew, equivalent to English Sarah
 296	dato	verb	past participle of dare
 297	stiamo	verb	first-person plural present indicative/subjunctive
-298	bella	noun	beauty, belle (beautiful woman)
+298	bella	adj	beautiful, lovely (feminine singular of bello): la vita è bella 'life is beautiful'; also a noun: a beauty, a belle; the decider (deciding match)
 299	scusa	noun	apology, excuse
 300	erano	verb	third-person plural imperfect indicative of essere
 301	pensavo	verb	first-person singular imperfect indicative of pensare
@@ -329,7 +329,7 @@ rank	word	pos	en
 328	fino	prep	till, until, as far as
 329	dico	verb	first-person singular present indicative of dire
 330	amici	adj	masculine plural of amico
-331	fine	adj	thin; fine
+331	fine	noun	end (la fine): alla fine 'in the end', la fine del film; in the compound il fine settimana, weekend; purpose, aim (il fine): il fine giustifica i mezzi; as an adjective, thin, fine, refined
 332	aiuto	noun	help, assistance, aid
 333	paura	noun	fear; worry, anxiety
 334	fratello	noun	brother, sibling
@@ -369,7 +369,7 @@ rank	word	pos	en
 368	giro	noun	turn, twist, rotation, revolution
 369	morte	noun	death
 370	qua	adv	here
-371	pensato	adj	well thought-out or considered
+371	pensato	verb	thought (past participle of pensare): ci ho pensato molto 'I thought about it a lot'; as an adjective, well thought-out: ben pensato
 372	buon	adj	apocopic form of buono
 373	anno	noun	year (all senses)
 374	mie	pron	feminine plural of mio
@@ -384,7 +384,7 @@ rank	word	pos	en
 383	felice	adj	happy (contented)
 384	colpa	noun	fault; blame
 385	punto	noun	point (all senses), jot, iota
-386	andata	noun	outward journey, journey there
+386	andata	verb	gone, went (feminine singular past participle of andare): è andata a casa 'she went home', se n'è andata 'she left'; also a noun: the outward journey — andata e ritorno 'round trip'
 387	dovrebbe	verb	third-person singular conditional of dovere
 388	vedi	verb	second-person singular present indicative
 389	quale	det	what?; which?
@@ -415,7 +415,7 @@ rank	word	pos	en
 414	settimana	noun	week
 415	perso	verb	past participle of perdere
 416	uscire	verb	to go out, leave, exit
-417	parlato	adj	spoken; with sound or with a soundtrack
+417	parlato	verb	spoken, talked (past participle of parlare): hai parlato con lei? 'did you speak with her?'; as a noun, the spoken language; as an adjective, with sound (of a film)
 418	papà	noun	dad, papa
 419	stasera	adv	this evening, tonight
 420	scusi	intj	excuse me, pardon me
@@ -444,7 +444,7 @@ rank	word	pos	en
 443	cuore	noun	heart; muscular organ that pumps blood
 444	marito	noun	husband
 445	viene	verb	third-person singular present indicative of venire
-446	venuto	adj	coming
+446	venuto	verb	come (past participle of venire): è venuto ieri 'he came yesterday', non è venuto nessuno 'nobody came'; as a noun, a newcomer: il nuovo venuto
 447	ieri	adv	yesterday
 448	spero	verb	first-person singular present indicative of sperare
 449	ricordi	noun	plural of ricordo
@@ -497,7 +497,7 @@ rank	word	pos	en
 496	vicino	adj	near, close
 497	quest'	det	apocopic form of questo(a)
 498	sacco	noun	sack, bag; sack, sackful, bag, bagful (the contents of one full bag)
-499	stia	noun	hutch, coop (for small animals or birds)
+499	stia	verb	first/second/third-person singular present subjunctive of stare: spero che tu stia bene 'I hope you are well'; also the formal Lei imperative: stia calmo 'stay calm'; a rare noun, hutch, coop
 500	capire	verb	to understand; to fit, to be contained
 501	potuto	verb	past participle of potere
 502	cinque	num	five

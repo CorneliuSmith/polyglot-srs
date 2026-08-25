@@ -37,7 +37,7 @@ rank	word	pos	en
 36	me	pron	me (direct object)
 37	bien	adj	good, all right, great
 38	si	conj	if, whether; if (assuming that)
-39	du	article	Forms the partitive article.
+39	du	article	some, any (du pain = some bread); of the, from the (de + le: la fin du film)
 40	y	pron	there (a place already mentioned); to it, about it; il y a = there is, there are
 41	suis	verb	I am (from être); also I follow (from suivre - same form, different verb)
 42	non	adv	no; not (before another word: non loin = not far); moi non plus = me neither
@@ -49,13 +49,13 @@ rank	word	pos	en
 48	m'	pron	me, to me; myself (the form me takes before a vowel: il m'a dit)
 49	te	pron	you; yourself
 50	au	contraction	contraction of à + le, literally “to the, for the, at the”
-51	fait	noun	fact
+51	fait	verb	past participle of faire — done, made (c'est bien fait); also third-person singular present: il fait = he does, he makes, it is (weather); (as noun, m.) a fact, en fait = in fact
 52	moi	pron	me (first-person singular disjunctive pronoun)
 53	s'	conj	Elision of si (“if”) before il or ils.
 54	oui	adv	yes (answer si instead when contradicting a negative question)
-55	va	noun	"""version anglaise"" — English-language version (EV); a film dubbed in English"
+55	va	verb	third-person singular present of aller — goes (ça va = it's fine, how are you?); il va + infinitive = he is going to (on va voir = we'll see); also the singular imperative: va = go!
 56	était	verb	third-person singular imperfect indicative of être
-57	as	noun	ace (card of value 1)
+57	as	verb	second-person singular present of avoir — you have (tu as); also the helper for the past: tu as mangé = you ate; (as noun, m.) an ace, a card of value 1
 58	faire	verb	to do; to make
 59	ils	pron	they (male or mixed group)
 60	sur	prep	on, upon; on top of
@@ -68,7 +68,7 @@ rank	word	pos	en
 67	ici	adv	here
 68	ma	det	feminine singular of mon
 69	toi	pron	you (informal second-person singular personal pronoun, disjunctive)
-70	dit	noun	a sentence, saying or maxim
+70	dit	verb	third-person singular present and past participle of dire — says, said (dit-il = he said; j'ai tout dit = I've said everything); (as adj.) known as, alias
 71	lui	pron	him, he, it
 72	votre	det	your, belonging to you (plural or formal)
 73	es	verb	second-person singular present indicative of être
@@ -170,7 +170,7 @@ rank	word	pos	en
 169	vos	det	plural of votre; your (plural or formal you)
 170	bonne	adj	feminine singular of bon
 171	mort	verb	past participle of mourir
-172	mieux	adv	more, -er.
+172	mieux	adv	better (comparative of bien); le mieux = the best; faire de son mieux = to do one's best; il vaut mieux = it is better to
 173	vas	verb	second-person singular present indicative of aller
 174	sera	verb	third-person singular future indicative of être
 175	mère	noun	mother
@@ -186,7 +186,7 @@ rank	word	pos	en
 185	avons	verb	first-person plural present indicative of avoir
 186	petit	adj	small; little
 187	maison	noun	house
-188	soit	verb	let be
+188	soit	verb	third-person singular present subjunctive of être — (that it) be: il faut que ce soit fait = it has to be done; quoi que ce soit = anything at all; soit A soit B = either A or B
 189	cela	pron	that
 190	autres	adj	plural of autre
 191	toute	adv	feminine singular of tout
@@ -205,10 +205,10 @@ rank	word	pos	en
 204	bonjour	noun	greetings; hello (general salutation)
 205	nuit	noun	night
 206	raison	noun	reason (cause); reason (mental faculties)
-207	moins	adv	minus; negative
+207	moins	adv	less, fewer (comparative of peu); le moins = the least; au moins = at least; à moins que = unless; also minus (in sums and clock times)
 208	arrive	verb	first/third-person singular present indicative/subjunctive
 209	maman	noun	mummy, mommy, mom, mum
-210	reste	noun	rest, remainder
+210	reste	verb	stays, remains — from rester (je reste, il reste; reste ici = stay here); il reste beaucoup à faire = much remains to be done; (as noun, m.) the rest, the remainder
 211	moment	noun	moment (point in time)
 212	voulais	verb	first/second-person singular imperfect indicative of vouloir
 213	seul	adj	lonely; alone
@@ -216,7 +216,7 @@ rank	word	pos	en
 215	air	noun	air (gases of the atmosphere)
 216	entre	prep	between; among
 217	papa	noun	papa, a child's father; also as form of address: dad, daddy
-218	passe	noun	pass (the act of passing)
+218	passe	verb	passes, pass — from passer (je passe, il passe; passe-moi le sel = pass me the salt); que se passe-t-il = what is going on; (as noun, f.) a pass, mot de passe = password
 219	aurais	verb	first/second-person singular conditional of avoir
 220	problème	noun	problem; trouble
 221	ah	intj	ah
@@ -240,7 +240,7 @@ rank	word	pos	en
 239	pourrait	verb	third-person singular conditional of pouvoir
 240	travail	noun	work; labor; job
 241	pu	verb	past participle of pouvoir
-242	pris	adj	taken; occupied
+242	pris	verb	past participle of prendre — took, taken (j'ai pris = I took); (as adj.) taken, occupied (la place est prise)
 243	tête	noun	head (part of the body)
 244	quelle	adj	which?; What a ...!
 245	sait	verb	third-person singular present indicative of savoir
@@ -263,7 +263,7 @@ rank	word	pos	en
 262	chance	noun	chance; luck
 263	parle	verb	inflection of parler
 264	aurait	verb	third-person singular conditional of avoir
-265	part	noun	share; portion, part, slice
+265	part	noun	(f.) share, portion, slice; de ma part = from me, on my behalf; quelque part = somewhere; à part = apart from; also il/elle part = he/she leaves (from partir)
 266	elles	pron	they (female)
 267	jours	noun	plural of jour (“day”)
 268	grand	adj	big; tall
@@ -308,12 +308,12 @@ rank	word	pos	en
 307	hommes	noun	plural of homme
 308	tué	verb	past participle of tuer
 309	question	noun	question (interrogation by torture)
-310	partie	noun	part (portion, amount)
+310	partie	noun	(f.) part, portion (en partie = partly, faire partie de = to be part of); a game, a match (une partie de cartes); also elle est partie = she has left (feminine past participle of partir)
 311	histoire	noun	story; history
 312	devrais	verb	first/second-person singular conditional of devoir
 313	aide	noun	help, support; assist
 314	dernière	adj	feminine singular of dernier
-315	demande	noun	request (act of requesting)
+315	demande	verb	asks, ask — from demander (il demande, demande-lui = ask him); se demander = to wonder (je me demande = I wonder); (as noun, f.) a request, demand
 316	chercher	verb	to look for, to seek
 317	pensais	verb	first/second-person singular imperfect indicative of penser
 318	genre	noun	kind; style, look, type
@@ -326,7 +326,7 @@ rank	word	pos	en
 325	aucun	det	no, none, not any
 326	mettre	verb	to put; to place
 327	eux	pron	disjunctive form of ils; them
-328	laisse	noun	leash, lead; foreshore
+328	laisse	verb	leave, let — from laisser (il laisse; laisse-moi = let me, leave me alone); laisse tomber = forget it; (as noun, f.) a leash
 329	chaque	adj	each; every
 330	ville	noun	town, city
 331	arrivé	verb	past participle of arriver
@@ -391,7 +391,7 @@ rank	word	pos	en
 390	attendez	verb	second-person plural present indicative
 391	chambre	noun	a chamber in its various senses, including
 392	droit	noun	right (entitlement)
-393	parti	adj	divided into two equal parts vertically, per pale; said of an escutcheon
+393	parti	verb	past participle of partir — gone, left (il est parti = he left); (as noun, m.) a political party; parti pris = a bias
 394	mis	verb	first/second-person singular past historic of mettre
 395	eau	noun	water; In particular, rain
 396	compte	noun	account (bank or user account)
@@ -406,7 +406,7 @@ rank	word	pos	en
 405	fin	noun	end, close, finish
 406	croire	verb	to believe (someone)
 407	mme	noun	abbreviation of Madame
-408	aura	noun	aura
+408	aura	verb	third-person singular future of avoir — will have (il aura = he will have; il y aura = there will be); (as noun, f.) an aura
 409	gros	adj	big, thick, fat
 410	boulot	noun	work; job
 411	plutôt	adv	rather, instead (indicating preference)

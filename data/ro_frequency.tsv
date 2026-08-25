@@ -27,7 +27,7 @@ rank	word	pos	en
 26	dar	conj	but, however, yet; also a noun: gift, present (n.)
 27	se	pron	oneself, himself, herself, itself, themselves
 28	din	prep	on, on top of; from, out of
-29	fost	adj	former
+29	fost	verb	been (past participle of a fi: a fost “it was”, am fost “I have been”); former, ex- (fostul primar)
 30	care	det	which
 31	fi	verb	to be; to feel (to experience a certain condition)
 32	mă	pron	me (accusative)
@@ -50,8 +50,8 @@ rank	word	pos	en
 49	ei	pron	they (used for an all-male or mixed-sex group)
 50	ne	pron	"us; to us; ourselves, each other (ne vedem ""we see each other"")"
 51	mine	pron	me
-52	poate	adv	maybe, possibly
-53	pot	noun	pot
+52	poate	verb	he/she/it can, is able to (a putea: nu poate veni “he can't come”); maybe, perhaps (as an adverb: poate da, poate nu)
+53	pot	verb	I can; they can (a putea: nu pot “I can't”, pot să vin “I can come”); rarely a noun: the pot, the stakes in a card game (neuter)
 54	voi	pron	you (group being addressed)
 55	face	verb	to do, act; to make (construct, build, prepare, create, transform)
 56	cred	verb	first-person singular present indicative of crede
@@ -139,7 +139,7 @@ rank	word	pos	en
 138	avut	verb	past participle of avea
 139	m-am	contraction	contraction of mă (“me”, first person singular accusative or reflexive pronoun) + am (“have”, first person singular auxiliary verb forming the compund perfect)
 140	lucru	noun	thing; object; work, problem, action
-141	văzut	noun	seeing
+141	văzut	verb	seen (past participle of a vedea: am văzut “I saw”, nu l-am văzut “I didn't see him”); as a noun: sight, seeing (neuter)
 142	fata	noun	definite nominative/accusative singular of fată
 143	fel	noun	sort, type, kind
 144	să-i	contraction	contraction of să + îi
@@ -175,7 +175,7 @@ rank	word	pos	en
 174	naiba	noun	devil, deuce
 175	nou	adj	new
 176	oameni	noun	plural of om; people
-177	ia	noun	AI (artificial intelligence)
+177	ia	verb	takes; take! (3rd person singular and imperative of a lua: ia loc “have a seat”, ia-mă cu tine “take me with you”); as an interjection: hey, look here
 178	facem	verb	first-person plural present indicative/subjunctive of face
 179	zi	noun	day
 180	acasă	adv	at home (as a location)
@@ -191,14 +191,14 @@ rank	word	pos	en
 190	oamenii	noun	definite nominative/accusative plural of om
 191	auzit	verb	past participle of auzi
 192	doi	num	two
-193	luat	noun	taking
+193	luat	verb	taken (past participle of a lua: l-am luat “I took it”, a luat-o “she took it / she went”); as a noun: taking (neuter)
 194	fiecare	det	every, each
 195	vrut	verb	past participle of vrea
 196	înapoi	adv	back; backwards
 197	astea	det	nominative/accusative feminine/neuter plural of ăsta
 198	într-o	contraction	contraction of în + o: in a; into a
 199	aia	det	nominative/accusative feminine singular of ăla
-200	fiu	noun	son
+200	fiu	verb	(that) I be — first-person singular subjunctive of a fi (vreau să fiu “I want to be”, să fiu sincer “to be honest”); son (m.)
 201	dintre	prep	among
 202	merge	verb	to walk; to move
 203	lor	pron	their
@@ -206,8 +206,8 @@ rank	word	pos	en
 205	numele	noun	definite nominative singular of nume: the name
 206	om	noun	man (male); human
 207	cea	det	feminine singular of cel: the (one that is)
-208	găsit	noun	finding
-209	cei	noun	electronic identity card
+208	găsit	verb	found (past participle of a găsi: am găsit “I found”, cum m-ai găsit? “how did you find me?”); as a noun: finding (neuter)
+209	cei	det	the ones, those (masculine plural of cel); forms the superlative: cei mai buni “the best”
 210	doamne	noun	vocative of Domn
 211	i	conj	and
 212	mele	pron	feminine/neuter plural
@@ -215,7 +215,7 @@ rank	word	pos	en
 214	aceasta	det	nominative/accusative feminine singular of acesta
 215	du-te	contraction	contraction of du + te
 216	deja	adv	already, yet
-217	ziua	adv	during the daytime
+217	ziua	noun	the day (definite form of zi, f.: bună ziua “good day”, ziua ta “your birthday”); as an adverb: during the day, by day
 218	duc	verb	first-person singular present indicative/subjunctive
 219	dată	noun	an instance, occasion, time
 220	parte	noun	part; side
@@ -238,7 +238,7 @@ rank	word	pos	en
 237	noastră	det	feminine singular of nostru; our
 238	într-un	contraction	contraction of în + un: in a; into a
 239	una	num	feminine of unu: one
-240	vin	noun	wine
+240	vin	verb	I come; they come (a veni: vin acum “I'm coming”, ei vin “they're coming”); wine (neuter)
 241	m-a	contraction	contraction of mă + a
 242	eram	verb	first-person singular/plural imperfect indicative of fi (“be”): I was; we were
 243	acesta	det	this
@@ -291,7 +291,7 @@ rank	word	pos	en
 290	departe	adv	far (distant in space or degree)
 291	aceste	det	nominative feminine plural of acest (“these”)
 292	terminat	adj	finished
-293	început	noun	beginning, start
+293	început	verb	begun, started (past participle of a începe: a început să plouă “it started to rain”); a beginning, a start (neuter noun)
 294	trebuia	verb	imperfect indicative of trebui; it was necessary
 295	iubesc	verb	first-person singular present indicative of iubi: I love
 296	m-ai	contraction	contraction of mă + ai
@@ -324,7 +324,7 @@ rank	word	pos	en
 323	tipul	noun	definite nominative/accusative singular of tip
 324	desigur	adv	of course; certainly
 325	drumul	noun	definite nominative/accusative singular of drum
-326	dus	noun	departure
+326	dus	verb	taken, carried; gone (past participle of a duce: s-a dus acasă “he went home”); as an adjective: departed, absent-minded
 327	ultima	adj	definite nominative/accusative feminine singular of ultim
 328	minute	noun	plural of minut
 329	dracu	noun	definite nominative/accusative singular of drac
@@ -343,7 +343,7 @@ rank	word	pos	en
 342	primul	adj	definite nominative/accusative masculine/neuter singular of prim
 343	aceea	det	nominative/accusative feminine singular of acela
 344	pus	verb	past participle of pune
-345	data	verb	to date
+345	data	noun	the time, the occasion (definite form of dată, f.: data viitoare “next time”, de data asta “this time”); the date, the calendar date; also a verb: a data “to date from”
 346	sper	verb	first-person singular present indicative/subjunctive of spera
 347	noastre	adj	feminine plural of nostru; our
 348	merg	verb	first-person singular present indicative/subjunctive
@@ -356,7 +356,7 @@ rank	word	pos	en
 355	lua	verb	to take; synonym of cumpăra (“to buy”)
 356	urmă	noun	footprint, track
 357	tare	adj	hard, tough, solid
-358	griji	verb	to take care
+358	griji	noun	worries, cares (plural of grijă, f.); a-și face griji “to worry”: nu-ți face griji “don't worry”
 359	problema	noun	definite nominative/accusative singular of problemă
 360	cazul	noun	definite nominative/accusative singular of caz
 361	vreo	det	nominative/accusative feminine of vreun
@@ -369,7 +369,7 @@ rank	word	pos	en
 368	camera	noun	definite nominative/accusative singular of cameră
 369	ajutor	intj	help!
 370	mort	adj	dead
-371	noaptea	adv	at night
+371	noaptea	noun	the night (definite form of noapte, f.: noaptea trecută “last night”, în noaptea aceea “that night”); as an adverb: at night, by night
 372	vorbim	verb	first-person plural present indicative of vorbi: we speak
 373	asta-i	contraction	contraction of asta + e
 374	corect	adj	correct (all senses)
@@ -427,7 +427,7 @@ rank	word	pos	en
 426	veni	verb	to come
 427	patru	num	four
 428	iei	verb	second-person singular present indicative/subjunctive of lua
-429	lăsat	noun	letting, allowing
+429	lăsat	verb	left, let (past participle of a lăsa: m-a lăsat să plec “he let me go”, lăsat singur “left alone”); abandoned, dropped
 430	telefon	noun	telephone
 431	prins	verb	past participle of prinde
 432	fratele	noun	definite nominative/accusative singular of frate
@@ -476,7 +476,7 @@ rank	word	pos	en
 475	las	verb	first-person singular present indicative/subjunctive
 476	alt	det	other, another
 477	începe	verb	to begin, to commence
-478	nouă	num	nine
+478	nouă	adj	new (feminine singular of nou: o casă nouă “a new house”, o nouă zi “a new day”); nine; (to) us (stressed dative of noi: nouă ne place “we like it”)
 479	singura	adj	definite nominative/accusative feminine singular of singur
 480	de-a	contraction	contraction of de + a
 481	gând	noun	thought, idea; imagination, inspiration

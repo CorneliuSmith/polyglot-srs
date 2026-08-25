@@ -20,7 +20,7 @@ rank	word	pos	en
 19	так	adv	so, like this, in that way; so, so much (to such a degree); so, then
 20	но	conj	but, yet
 21	а	conj	and, but (setting two things side by side); whereas; oh! (surprise)
-22	его	pron	his; its
+22	его	pron	him, of him (он in the genitive/accusative; его нет — he's not here); his, its (one invariable possessive form for every gender)
 23	все	pron	everyone, everybody; all, all of (plural)
 24	она	pron	she, it (third-person feminine singular pronoun)
 25	тебя	pron	you (ты in the genitive/accusative; у тебя — you have)
@@ -32,7 +32,7 @@ rank	word	pos	en
 31	они	pron	they
 32	чтобы	conj	that...should (indicates the subjunctive)
 33	же	conj	and, but; on the other hand, whereas, as for, as to
-34	есть	verb	to eat
+34	есть	verb	there is, there are; у меня есть — I have (the one surviving present form of быть, dropped elsewhere); to eat (impf.; pf. съесть)
 35	просто	adv	simply, plainly, just
 36	из	prep	from; out of
 37	к	prep	to, toward; by, for (of time)
@@ -70,7 +70,7 @@ rank	word	pos	en
 69	нужно	adj	it is necessary, one must
 70	сейчас	adv	now (presently, at present, at the moment)
 71	где	adv	where; now (sometimes; occasionally)
-72	чем	conj	than; instead of, rather
+72	чем	conj	than; instead of, rather (лучше, чем ничего — better than nothing); what, with what — что in the instrumental (Чем ты занимаешься? — What do you do?; Чем могу помочь? — How can I help?)
 73	хочу	verb	first-person singular present indicative imperfective of хоте́ть (xotétʹ)
 74	ничего	pron	genitive of ничто́ (ništó)
 75	этого	det	masculine/neuter genitive singular
@@ -135,7 +135,7 @@ rank	word	pos	en
 134	без	prep	without, aside from, except, minus, free of/from (signifying absence)
 135	найти	verb	to find; to think, to consider
 136	день	noun	day, daytime; afternoon, early evening
-137	том	noun	volume (of a book, magazine or disk)
+137	том	pron	that, it — тот/то in the prepositional (о том, что… — about the fact that…; дело в том, что… — the thing is…; в том доме — in that house); a volume, tome (m.) of a book
 138	буду	verb	I will have, I would like
 139	делать	verb	to make, to do
 140	хотел	verb	masculine singular past indicative imperfective of хоте́ть (xotétʹ)

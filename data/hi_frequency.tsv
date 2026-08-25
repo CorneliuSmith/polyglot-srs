@@ -16,7 +16,7 @@ rank	word	pos	en
 15	कि	conj	that
 16	तुम	pron	you, ye (mid-level formality and grammatically plural)
 17	हो	verb	are (the form used with तुम); be!; may be, might be (subjunctive)
-18	कर	noun	hand; arm; tax
+18	कर	verb	do — the stem of करना, standing before रहा, सकना and the vector verbs (कर रहे हैं — are doing, कर सकते हो — you can do); also the conjunctive participle -कर, having done; and, as a literary noun, hand, arm (m.); tax (m.)
 19	मुझे	pron	me, to me; I, when needing or feeling something (मुझे भूख है — I am hungry)
 20	को	postp	marks the accusative case in certain contexts, i.e. the Theme of an action
 21	हम	pron	we, us; I (colloquial)
@@ -55,14 +55,14 @@ rank	word	pos	en
 54	सकता	noun	apoplexy; an apoplectic or fainting fit, swooning
 55	जाओ	verb	second-person familiar future subjunctive
 56	ही	particle	an emphatic particle
-57	दिया	noun	light, lamp
+57	दिया	verb	gave — masculine singular perfective of देना (मैंने कुछ नहीं दिया — I gave nothing); as a completive vector after a stem it says the act was carried through: कर दिया — went and did it, छोड़ दिया — dropped it; also an oil lamp (m.), also spelled दीया
 58	करना	verb	to do (to perform or execute, to commit)
 59	जा	verb	stem; second-person singular present imperative
 60	मेरी	pron	feminine singular of मेरा (merā)
 61	सब	det	all; every
 62	बारे	noun	oblique/vocative singular
 63	लगता	verb	masculine singular habitual participle
-64	कहा	noun	word, advice; claim
+64	कहा	verb	said — masculine singular perfective of कहना (उसने कहा — he said; तुमने क्या कहा? — what did you say?); also a noun (m.): someone's word or bidding, as in कहा मानना — to do as one is told
 65	जो	pron	the relative pronoun
 66	वहाँ	adv	there
 67	जब	adv	when (relative)
@@ -75,7 +75,7 @@ rank	word	pos	en
 74	अपनी	pron	feminine direct/oblique/vocative singular/plural of अपना (apnā)
 75	थे	verb	masculine plural imperfect indicative of होना (honā)
 76	चलो	noun	vocative plural of चल (cal)
-77	दो	num	two (2)
+77	दो	num	two (2); also give! — the तुम imperative of देना, and the same form as a completive vector: दे दो — hand it over, छोड़ दो — let it go, कर दो — just do it
 78	ले	verb	stem; second/third-person singular present subjunctive
 79	किसी	det	oblique of कोई (koī): some, a certain, a given
 80	फिर	adv	then, afterwards; so
@@ -136,7 +136,7 @@ rank	word	pos	en
 135	कौन	pron	who?
 136	हर	det	each; every
 137	पास	adv	near, nearby
-138	दे	noun	De (member of the De caste)
+138	दे	verb	give — the stem of देना, standing before सकना, रहा and the vector verbs (नहीं दे सकता — I can't give, दे दो — give it here); also second/third-person singular present subjunctive: may give
 139	नीचे	adv	down, under, below
 140	देखा	verb	masculine singular perfective participle
 141	जाता	verb	masculine singular habitual participle
@@ -159,7 +159,7 @@ rank	word	pos	en
 158	जाने	verb	oblique infinitive
 159	अधिक	adj	much; many
 160	यही	pron	this very – emphatic form of यह (yah, “this”)
-161	होता	noun	hotr
+161	होता	verb	is, happens, tends to be — masculine singular habitual participle of होना (ऐसा होता है — that is how it is; कुछ नहीं होता — nothing happens); also the counterfactual, होता तो — had it been so
 162	सर	noun	head; top, tip, point
 163	मदद	noun	help, assistance, aid, relief
 164	रात	noun	night
@@ -234,7 +234,7 @@ rank	word	pos	en
 233	चलते	verb	masculine plural habitual participle
 234	कार	noun	tax
 235	रहो	verb	second-person familiar future subjunctive
-236	दी	noun	elder sister
+236	दी	verb	gave — feminine singular perfective of देना, agreeing with a feminine object under ने (उसने चेतावनी दी — he gave a warning); most often the completive vector taking that same agreement: नौकरी छोड़ दी — quit the job; also short for दीदी, elder sister (f.)
 237	मिलता	verb	direct masculine singular habitual participle
 238	बेहतर	adj	better, improved
 239	बकवास	noun	nonsense, idiocy
@@ -243,7 +243,7 @@ rank	word	pos	en
 242	मुझसे	pron	instrumental of मैं (ma͠i); by me, through me; to me; using me
 243	हाथ	noun	hand
 244	विश्वास	noun	belief, faith; trust
-245	पूरी	noun	puri, poori (type of Indian bread similar to roti)
+245	पूरी	adj	whole, complete, full — feminine of पूरा, agreeing with a feminine noun (पूरी रात — all night, पूरी तरह से — completely); also a puri (f.), the small deep-fried bread
 246	ना	particle	not; don't; do not (subjunctive negation)
 247	महिला	noun	lady, female, woman
 248	लड़की	noun	girl; daughter
