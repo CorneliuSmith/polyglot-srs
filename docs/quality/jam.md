@@ -96,14 +96,48 @@ word sits inside a quoted Patois phrase.
   headword stays Cassidy. Register: Iyaric (`I-an-I`, `Iditation`, `downpressor`) and proverbs
   must be labelled, so Rasta vocabulary is never deployed as neutral Patois.
 
+## Vocabulary: 384 → 485 rows (25 Aug 2026)
+
+**The evidence problem, stated plainly.** Leipzig has no `jam` corpus and kaikki has no
+Jamaican Creole extract — both checked, both 404 — and Wiktionary coverage of the gap list
+was zero for all of it. So unlike every other course in this repo, the vocabulary here
+cannot be grown from an external source at all. The only evidence is the course's own
+drills and curated sentences, and the one thing that makes them usable is that they carry
+English translations: `Wi a nyam dina inna di iivnin` / "We eat dinner in the evening"
+fixes `inna` without a dictionary.
+
+**What was done.** 208 words that the course's own sentences use but had no card were
+glossed from those sentences by a maker pass and reviewed against the same sentences by a
+separate adversarial checker.
+
+**Verification, honestly.** 31 were skipped by the makers (proper names, English
+metalanguage quoted inside register drills). Of the 207 glossed, **the checkers rejected 61
+— 35%** — and the apply gate dropped 4 more as already-carded alts. **101 rows landed, all
+of them checker-reviewed; none is maker-only.** The rejections were not rubber-stamping:
+the checkers caught the maker inverting `hab`/`av` (the course teaches `av` — it titles a
+B2 point — while `hab` appears only in curated sentences), and refused `it` as a weather
+dummy subject because the B2 explanation teaches the opposite, that weather runs on verbs
+*without* it (`Rien a faal`).
+
+**A mechanical Cassidy–JLU gate now runs at apply time**, because the words were harvested
+from sentences that are themselves known to drift: without it, `neiba`, `granny`, `lack`
+and `riddim` would have been promoted from a grammar-file defect into headwords. It refused
+`getti` (doubled consonant, from the proverb `Wanti wanti kyaan getti`). It is necessary but
+**not sufficient** — `friend` passes every letter rule and is still English.
+
+Two conventions were normalised on the way in: backticks were stripped from the new glosses
+(no `jam` gloss has ever carried one, 0 of 384, and nothing markdown-renders a gloss —
+`ReactMarkdown` is confined to the tutor — so a backtick prints literally on the card), and
+where two batches glossed the same word the richer entry was kept, not the earlier one.
+
 ## Current measured state
 
-Counted directly from `data/grammar/jam_grammar.json`: **32 points, 192 drills** — the fewest
+Counted 20 Aug 2026 from `data/grammar/jam_grammar.json`: **32 points, 192 drills** — the fewest
 points of any course — and **every point is `source: "ai"`, `reviewed: false`**. Nothing has
 been through a JLU-connected reviewer, which the NLP module itself flags as pending. Levels
 A1 10 / A2 8 / B1 6 / B2 4 / C1 2 / C2 2. Footprint: `data/jam_sentences.tsv` has only **15
 rows** while curated `data/sentences/jam_sentences.tsv` has **356** — inverted versus every
-other language; `data/jam_frequency.tsv` 384 rows; no `data/jam_morphology.json`; **no
+other language; `data/jam_frequency.tsv` 384 rows at that date, **485 now** (see above); no `data/jam_morphology.json`; **no
 `data/gym/jam.json`**; `seed_jamaican.py` present.
 
 | Rule | Count | Share |
