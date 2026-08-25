@@ -854,16 +854,26 @@ and populated:
    is why check §4 exists. **Assume any policy without a test is being violated** — that
    is now two for two.
 
-**A prediction worth recording, because it is testable.** The owner expects
-step 2 to be *lighter* than `en` and `la` were, on the grounds that the
-well-resourced courses have better source data. That is plausible — their
-corpora are larger and their kaikki entries richer. But it is a prediction,
-not a finding, and this program has already seen the opposite twice: `es` had
-`creo` at rank 79 glossed as the wrong verb, and `ca` had **no correct card
-for "I am"**, both in 10,000-row courses with good data. **If the deep pass on
-Spanish or French turns up defects at English's rate, say so plainly** — that
-result is more valuable than the phase completing quietly, and it would mean
-row count is not a proxy for quality.
+**PREDICTION TESTED, AND IT DID NOT HOLD (25 Aug 2026).** The owner expected
+step 2 to be lighter because the well-resourced courses have better source
+data. Measured: **351 wrong-lexeme candidates in the top 500 alone, 248 real,
+130 of them fatal** — the card named a genuinely different word. That is not
+lighter than `en`/`la`; the rate is comparable and the blast radius is larger,
+because these rows sit in the top 500 of the biggest courses.
+
+**Catalan is the clearest case and it went further than the plan recorded.**
+This document already noted `ca` had no correct card for "I am" at rank 924
+`soc`. The sweep found `estic` (r66) glossed "hockey stick", `som` (r210)
+"shallow", `sou` (r381) "salary, wage" — the whole core present tense of
+*ser*/*estar*, plus `vas`, `va`, `fa`, `pot`, `tens`, `dic`, `faig`, `fem`.
+French r55 `va` was glossed "version anglaise", a film-dubbing abbreviation.
+
+**Why bigger corpora were not safer, which is the transferable lesson.** A rank
+is earned by whatever string appeared in running text. Where a spelling is both
+an inflection of a common verb and a separate dictionary word, the sense-picker
+could take the dictionary word — and a larger corpus supplies MORE obscure
+homographs to lose to. **Row count is not a proxy for quality, and better
+source data is not the same as better sense selection.**
 
 ### Phase 2d — Raise the floor on all 27 before deepening any further (from D2d)
 

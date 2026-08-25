@@ -155,3 +155,34 @@ A human reviewer pulls 10 random drills (`--sample 10`) and asks, in order:
 5. **Is the register standard Central Catalan?** Any `sóc`, `meua`, `es/sa`, or a
    *passat simple* below C1 is out of scope and fails. And does the blank straddle
    an elision or contraction without the hint saying so?
+
+## Wrong-lexeme sweep, top 500 (25 Aug 2026)
+
+**33 rows reglossed**, of which **23 were fatal** — the card named a
+genuinely different word, not merely an incomplete one. Found by
+`audit_wrong_lexeme` and decided by a maker–checker pass against each row's full
+kaikki sense inventory and the course's own sentences.
+
+The cause is structural, not clerical: a rank is earned by whatever string appeared in
+running text, and where a spelling is both an inflection of a common verb and a separate
+dictionary word, the sense-picker could take the dictionary word. See
+`docs/quality/CHECKS.md` §3b.
+
+The worst of them, by rank:
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 18 | `va` | did (third-person singular present indicative of anar; with an infinitive it |
+| 60 | `era` | I/he/she/it was (first/third-person singular imperfect indicative of ser); a |
+| 66 | `estic` | I am (first-person singular present indicative of estar — state, location, o |
+| 81 | `fa` | he/she/it does, makes (third-person singular present indicative of fer); ago |
+| 83 | `vas` | you go (second-person singular present indicative of anar; with an infinitiv |
+| 94 | `pot` | he/she/it can, is able to (third-person singular present indicative of poder |
+| 102 | `tens` | you have (second-person singular present indicative of tenir); also tense, t |
+| 111 | `dit` | said, told (past participle of dir); also (m.) finger, toe |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/ca_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit would be undone by the next seed.
+
+Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang ca --band 500` — remaining candidates are rows a reviewer
+deliberately kept, plus anything added since.

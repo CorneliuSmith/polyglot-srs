@@ -151,3 +151,34 @@ drills (`--sample 10`) and asks, in order:
    fine, a loose jamo in the answer field is not.
 6. **Honorific drill — is the respect pointed the right way?** 시/께서 on the respected subject,
    드리다/뵙다 on your own action; never 시 on the learner's own verb.
+
+## Wrong-lexeme sweep, top 500 (25 Aug 2026)
+
+**11 rows reglossed**, of which **9 were fatal** — the card named a
+genuinely different word, not merely an incomplete one. Found by
+`audit_wrong_lexeme` and decided by a maker–checker pass against each row's full
+kaikki sense inventory and the course's own sentences.
+
+The cause is structural, not clerical: a rank is earned by whatever string appeared in
+running text, and where a spelling is both an inflection of a common verb and a separate
+dictionary word, the sense-picker could take the dictionary word. See
+`docs/quality/CHECKS.md` §3b.
+
+The worst of them, by rank:
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 14 | `좀` | a little, a bit (short for 조금); also the softener in a request or command, r |
+| 37 | `게` | the fact that, the one that — 것이 contracted (거 plus the subject marker 이), a |
+| 40 | `해` | do, does, do it — 하다 in the intimate style (다시 해, do it again), and the base |
+| 51 | `걸` | the fact that, the one that, as object — 것을 contracted (거 plus the object ma |
+| 164 | `와` | come, come here — 오다 in the intimate style; and, with (the particle after a  |
+| 211 | `하면` | if one does, when one does — 하다 with the conditional -(으)면 (어떻게 하면, how can  |
+| 252 | `본` | seen, that one saw — 보다 in the past determiner form; also the -아/어 본 적 있다 pa |
+| 264 | `볼` | will see, to see — 보다 in the -(으)ㄹ determiner form (볼 수 있어요, can see); a che |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/ko_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit would be undone by the next seed.
+
+Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang ko --band 500` — remaining candidates are rows a reviewer
+deliberately kept, plus anything added since.

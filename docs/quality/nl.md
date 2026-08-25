@@ -78,9 +78,13 @@ and a translation of the *completed* Dutch. Pitfalls:
   the grammar-point hints and vocab glosses are the only place a learner can meet the fact, so write
   `huis (het) — house`, `bank (de) — bench; sofa; bank`. This is the top data gap for Dutch.
 - **No bare one-word gloss for a polysemous word.** `data/nl_frequency.tsv` has **904** single-word noun
-  glosses. Wrong by omission today: `meer` → *lake* (also the everyday *more*), `wil` → *will* (also *he/she
-  wants*), `geef` → *gift* (it is the verb form *give*, mis-tagged `noun`), `bank` → *bench; couch, sofa*
-  (misses the financial *bank*, same article, same spelling).
+  glosses. **Three of these are FIXED (25 Aug 2026, see the wrong-lexeme sweep below), and
+  all three had been recorded here and left unexecuted:** `meer` read *lake* where it is the
+  everyday *more*; `wil` read *will*, which an English learner takes as the future auxiliary —
+  a function the Dutch word does not have — where it is *I want*; `geef` read *gift*, mis-tagged
+  `noun`, where it is *I give* / *give!*. **Still open:** `bank` → *bench; couch, sofa* misses
+  the financial *bank* (same article, same spelling) — a missing SENSE rather than a wrong
+  lexeme, so the sweep did not catch it.
 - **Circular glosses are not definitions:** `meisje` → *diminutive of meid* tells an English speaker nothing —
   `meisje (het) — girl` does.
 - **Register:** the `u`/`je` split is itself a C1 point, so keep one register inside a point; Flemish lexicon
@@ -135,3 +139,34 @@ does not apply. A human reviewer pulls 10 random drills (`--sample 10`) and asks
 5. **Is the sentence pure Dutch, no metalinguistic preamble?** Two C2 Flanders drills fail.
 6. **Would a Fleming and a Dutchman both accept this as standard?** Anything below C2 must be northern standard.
 7. **Is this point reviewed by a human yet?** Today the honest answer is no for all 42 — say so when reporting.
+
+## Wrong-lexeme sweep, top 500 (25 Aug 2026)
+
+**43 rows reglossed**, of which **23 were fatal** — the card named a
+genuinely different word, not merely an incomplete one. Found by
+`audit_wrong_lexeme` and decided by a maker–checker pass against each row's full
+kaikki sense inventory and the course's own sentences.
+
+The cause is structural, not clerical: a rank is earned by whatever string appeared in
+running text, and where a spelling is both an inflection of a common verb and a separate
+dictionary word, the sense-picker could take the dictionary word. See
+`docs/quality/CHECKS.md` §3b.
+
+The worst of them, by rank:
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 37 | `weet` | know: I know; you know in weet je; he/she/it knows (present of weten); as a  |
+| 41 | `kan` | can, to be able to: I can; he/she/it can; you can in kan je (present of kunn |
+| 49 | `wil` | want: I want; he/she/it wants; you want in wil je (present of willen); also  |
+| 78 | `kom` | come: I come; come! (present and imperative of komen); also a noun, bowl, ba |
+| 80 | `meer` | more (comparative of veel); niet meer — not anymore, no longer; also a noun, |
+| 133 | `zit` | sit; be (located, contained): I sit; he/she/it sits (present of zitten); as  |
+| 136 | `hou` | keep, hold: I keep, I hold (present of houden); ik hou van je — I love you ( |
+| 138 | `kijk` | look, watch: I look; look! (present and imperative of kijken); also a noun,  |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/nl_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit would be undone by the next seed.
+
+Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang nl --band 500` — remaining candidates are rows a reviewer
+deliberately kept, plus anything added since.

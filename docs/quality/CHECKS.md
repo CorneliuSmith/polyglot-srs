@@ -157,9 +157,62 @@ rank 5192, a stingless bee at 606 — and that is a maker–checker question.
 *"say/tell"*. This is the D2c2 join (definition against examples) paying off
 before the mechanical detector for it exists.
 
-**Status: all 27 for the sweep; 9 done.** The nine accent-carrying courses are
-triaged. `ru`, `ar`, `hi`, `th`, `ko` and the rest have not been swept for this
-class — their collisions are in other scripts and need the same pass.
+### A mechanical screen now exists, and it changed the size of this problem
+
+The paragraph above said detection was judgment, not a heuristic, after two
+detectors were built and discarded. A third works, and the reason it works is
+one condition the earlier two lacked.
+
+kaikki marks the distinction itself: an inflection carries `form-of` in its
+sense tags plus a `form_of` lemma; contractions and abbreviations carry their
+own. A candidate is a row where kaikki lists **both** a grammatical and a
+lexical sense, the committed gloss matches the lexical one, **and the
+grammatical sense points at a lemma this course also teaches**. That last
+condition is load-bearing: without it the query returns 1,227 rows of mostly
+noise (Xhosa `uku-` infinitives really are nouns; Indonesian `api` is "fire"
+whatever else kaikki lists). With it, 351.
+
+`backend/services/quality/audit_wrong_lexeme.py`. It needs
+`data/raw/<code>_kaikki.jsonl`, which is gitignored — 8 GB of extracts — so it
+is a **local maintenance tool, not a CI check**, and it screens rather than
+judges. About 70% of its candidates were real.
+
+**Swept the top 500 of all 16 well-resourced courses (25 Aug 2026): 351
+candidates, 248 repaired, 87 correctly kept, 2 rejected by reviewers. 130
+fatal** — meaning the card named a genuinely different word.
+
+| | rank | said | is |
+| --- | --- | --- | --- |
+| `ca` | 66 | `estic` — "hockey stick" | **"I am"** |
+| `ca` | 210 | `som` — "shallow" | **"we are"** |
+| `ca` | 381 | `sou` — "salary, wage" | **"you are"** |
+| `fr` | 55 | `va` — "version anglaise", a film-dubbing term | "goes" |
+| `fr` | 57 | `as` — "ace (card of value 1)" | "you have" |
+| `nl` | 41 | `kan` — "jug; pot" | "can" |
+| `nl` | 78 | `kom` — "bowl; basin" | "come" |
+| `pt` | 37 | `estou` — "hello (answering the telephone)" | **"I am"** |
+| `it` | 46 | `era` — "age, epoch, period" | "was" |
+| `ro` | 53 | `pot` — "pot" | "I can" |
+| `ru` | 34 | `есть` — "to eat" | "there is; I have" |
+
+**Catalan's whole core present tense was affected**, not one row: `estic`,
+`som`, `sou`, `vas`, `va`, `fa`, `pot`, `tens`, `dic`, `faig`, `fem`. The
+`soc` case recorded above was not an outlier, it was a sample.
+
+**Two of the Dutch rows were already named in `nl.md`** — "`wil` → will (also
+he/she wants)", "`meer` → lake (also the everyday more)" — and nothing had
+acted on them. A finding recorded and not executed is not a finding; see the
+`la` macron policy and the `jam` Cassidy policy for the same shape.
+
+**Status: all 27 for the sweep. Nine accent-carrying courses done by hand;
+the top 500 of all 16 well-resourced courses done by screen + review.** The
+nine accent-carrying courses were triaged by hand; `ru`, `ar`, `hi`, `th`,
+`ko`, `tr` and `nl` were swept by the screen on 25 Aug and reviewed. All 16
+well-resourced courses are now covered **to rank 500**.
+
+Two gaps, stated so they are not mistaken for coverage: **below rank 500 is
+not swept**, and **`jam` cannot be** — it is the one course with no kaikki
+extract (verified 25 Aug; every other course has one).
 
 **61 of the 70 proposed row exclusions applied; 9 vetoed.** Each was read
 against its accented twin before the call, not taken from the triage summary.

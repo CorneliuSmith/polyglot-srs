@@ -157,3 +157,34 @@ and asks:
    is out of scope and fails.
 6. **Does a contraction blank test the contraction, not the preposition?** A blank before a
    masculine noun forces `no`/`do`/`pelo`, never bare `em`/`de`/`por`.
+
+## Wrong-lexeme sweep, top 500 (25 Aug 2026)
+
+**28 rows reglossed**, of which **14 were fatal** — the card named a
+genuinely different word, not merely an incomplete one. Found by
+`audit_wrong_lexeme` and decided by a maker–checker pass against each row's full
+kaikki sense inventory and the course's own sentences.
+
+The cause is structural, not clerical: a rank is earned by whatever string appeared in
+running text, and where a spelling is both an inflection of a common verb and a separate
+dictionary word, the sense-picker could take the dictionary word. See
+`docs/quality/CHECKS.md` §3b.
+
+The worst of them, by rank:
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 37 | `estou` | I am (temporary states, feelings and locations — from estar); (European, ans |
+| 43 | `à` | to the, at the (a + a, feminine singular — the crase à: à noite, à casa dela |
+| 63 | `era` | was, used to be (I, he, she, it, você — imperfect of ser); (as a noun, f.) e |
+| 70 | `são` | they are; you are (plural — from ser); it's (telling the time: são 9h15); al |
+| 136 | `tinha` | had; used to have (I, he, she, it, você — imperfect of ter); tinha que = had |
+| 155 | `lhe` | (to) him, (to) her, (to) you (indirect object of the verb: eu lhe disse = I  |
+| 167 | `vão` | they go, they're going; you (plural) go (from ir); they're going to (forms t |
+| 194 | `olha` | look!, look at (olha isso = look at this); look, hey (opening a remark in sp |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/pt_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit would be undone by the next seed.
+
+Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang pt --band 500` — remaining candidates are rows a reviewer
+deliberately kept, plus anything added since.

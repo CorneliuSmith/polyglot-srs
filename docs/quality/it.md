@@ -156,3 +156,34 @@ instead that accents survive the answer box. A human reviewer pulls 10 random dr
 6. **Would the accentless spelling be a different real word?** Five `è` drills accept `e` amber.
 7. **Is the register standard Italian?** Dialect forms, courtesy `voi`, or a *passato remoto* used
    as an ordinary past below C1 are out of scope and fail.
+
+## Wrong-lexeme sweep, top 500 (25 Aug 2026)
+
+**20 rows reglossed**, of which **11 were fatal** — the card named a
+genuinely different word, not merely an incomplete one. Found by
+`audit_wrong_lexeme` and decided by a maker–checker pass against each row's full
+kaikki sense inventory and the course's own sentences.
+
+The cause is structural, not clerical: a rank is earned by whatever string appeared in
+running text, and where a spelling is both an inflection of a common verb and a separate
+dictionary word, the sense-picker could take the dictionary word. See
+`docs/quality/CHECKS.md` §3b.
+
+The worst of them, by rank:
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 41 | `al` | contraction of a + il; to the, at the — al lavoro 'at work', andare al mare  |
+| 46 | `era` | third-person singular imperfect indicative of essere; he/she/it was: era sol |
+| 67 | `alla` | contraction of a + la; to the, at the — alla stazione 'to the station', alla |
+| 70 | `stato` | been (past participle of essere): sono stato a Roma 'I have been to Rome'; s |
+| 262 | `altri` | others, other people; other (masculine plural of altro): gli altri ragazzi ' |
+| 266 | `preso` | taken, got, caught (past participle of prendere): dove l'hai preso? 'where d |
+| 280 | `sentito` | heard; felt (past participle of sentire): non ho sentito 'I didn't hear'; as |
+| 298 | `bella` | beautiful, lovely (feminine singular of bello): la vita è bella 'life is bea |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/it_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit would be undone by the next seed.
+
+Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang it --band 500` — remaining candidates are rows a reviewer
+deliberately kept, plus anything added since.

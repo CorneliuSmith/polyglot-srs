@@ -148,3 +148,29 @@ pulls 10 random drills (`--sample 10`) and asks:
 6. **Would the answer typed without the dots and cedillas be the same string?** If yes (`mü`, `sütü`, `gölü`),
    the drill grades amber and cannot teach its own contrast.
 7. **Is the sentence standard Turkey Turkish, not a spoken reduction?** `geliyom`, `gidiyoz` fail.
+
+## Wrong-lexeme sweep, top 500 (25 Aug 2026)
+
+**8 rows reglossed**, of which **3 were fatal** — the card named a
+genuinely different word, not merely an incomplete one. Found by
+`audit_wrong_lexeme` and decided by a maker–checker pass against each row's full
+kaikki sense inventory and the course's own sentences.
+
+The cause is structural, not clerical: a rank is earned by whatever string appeared in
+running text, and where a spelling is both an inflection of a common verb and a separate
+dictionary word, the sense-picker could take the dictionary word. See
+`docs/quality/CHECKS.md` §3b.
+
+The worst of them, by rank:
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 65 | `bile` | even, so much as; (after a verb) already; archaic variant of ile: with, toge |
+| 174 | `hala` | still, yet (the circumflex of hâlâ is routinely dropped in writing); paterna |
+| 182 | `al` | second-person singular imperative of almak: take!, get!, buy! (onu al — pick |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/tr_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit would be undone by the next seed.
+
+Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang tr --band 500` — remaining candidates are rows a reviewer
+deliberately kept, plus anything added since.

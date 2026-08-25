@@ -148,3 +148,33 @@ A human reviewer pulls 10 random drills and asks, in order:
 6. **Postposition drill:** is the noun before it in the oblique (कमरे, लड़के, बच्चों), and does the hint say
    something the English preposition does not?
 7. **Nukta and danda:** ज़/फ़/ड़/क़ written where they belong, sentence ends in ।, no Latin `I` or `|`.
+
+## Wrong-lexeme sweep, top 500 (25 Aug 2026)
+
+**8 rows reglossed**, of which **7 were fatal** — the card named a
+genuinely different word, not merely an incomplete one. Found by
+`audit_wrong_lexeme` and decided by a maker–checker pass against each row's full
+kaikki sense inventory and the course's own sentences.
+
+The cause is structural, not clerical: a rank is earned by whatever string appeared in
+running text, and where a spelling is both an inflection of a common verb and a separate
+dictionary word, the sense-picker could take the dictionary word. See
+`docs/quality/CHECKS.md` §3b.
+
+The worst of them, by rank:
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 18 | `कर` | do — the stem of करना, standing before रहा, सकना and the vector verbs (कर रह |
+| 57 | `दिया` | gave — masculine singular perfective of देना (मैंने कुछ नहीं दिया — I gave n |
+| 64 | `कहा` | said — masculine singular perfective of कहना (उसने कहा — he said; तुमने क्या |
+| 138 | `दे` | give — the stem of देना, standing before सकना, रहा and the vector verbs (नही |
+| 161 | `होता` | is, happens, tends to be — masculine singular habitual participle of होना (ऐ |
+| 236 | `दी` | gave — feminine singular perfective of देना, agreeing with a feminine object |
+| 245 | `पूरी` | whole, complete, full — feminine of पूरा, agreeing with a feminine noun (पूर |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/hi_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit would be undone by the next seed.
+
+Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang hi --band 500` — remaining candidates are rows a reviewer
+deliberately kept, plus anything added since.

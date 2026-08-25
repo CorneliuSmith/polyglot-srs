@@ -148,3 +148,29 @@ What a human reviewer spot-checks — 10 random drills, asking of each:
    does the English translate the whole completed sentence, in British English?
 7. Is every accent present, capitals included, and does the transliteration match the answer?
 8. Does the drill hinge on the tonos or on σ/ς? Then it is ungradeable — rewrite it.
+
+## Wrong-lexeme sweep, top 500 (25 Aug 2026)
+
+**9 rows reglossed**, of which **3 were fatal** — the card named a
+genuinely different word, not merely an incomplete one. Found by
+`audit_wrong_lexeme` and decided by a maker–checker pass against each row's full
+kaikki sense inventory and the course's own sentences.
+
+The cause is structural, not clerical: a rank is earned by whatever string appeared in
+running text, and where a spelling is both an inflection of a common verb and a separate
+dictionary word, the sense-picker could take the dictionary word. See
+`docs/quality/CHECKS.md` §3b.
+
+The worst of them, by rank:
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 54 | `δε` | not — a very common shortened form of δεν before a consonant (Δε θέλω — I do |
+| 127 | `παιδιά` | children — plural of το παιδί (τα παιδιά μας — our children); also as an add |
+| 193 | `πας` | you go — 2nd person singular of πάω (Πού πας; — where are you going?); an id |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/el_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit would be undone by the next seed.
+
+Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang el --band 500` — remaining candidates are rows a reviewer
+deliberately kept, plus anything added since.

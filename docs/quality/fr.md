@@ -156,3 +156,34 @@ and asks:
    fail the first.
 7. **Is the register standard metropolitan French?** `septante`, Québécois forms, or a *passé
    simple* below C1 are out of scope and fail.
+
+## Wrong-lexeme sweep, top 500 (25 Aug 2026)
+
+**17 rows reglossed**, of which **9 were fatal** — the card named a
+genuinely different word, not merely an incomplete one. Found by
+`audit_wrong_lexeme` and decided by a maker–checker pass against each row's full
+kaikki sense inventory and the course's own sentences.
+
+The cause is structural, not clerical: a rank is earned by whatever string appeared in
+running text, and where a spelling is both an inflection of a common verb and a separate
+dictionary word, the sense-picker could take the dictionary word. See
+`docs/quality/CHECKS.md` §3b.
+
+The worst of them, by rank:
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 51 | `fait` | past participle of faire — done, made (c'est bien fait); also third-person s |
+| 55 | `va` | third-person singular present of aller — goes (ça va = it's fine, how are yo |
+| 57 | `as` | second-person singular present of avoir — you have (tu as); also the helper  |
+| 70 | `dit` | third-person singular present and past participle of dire — says, said (dit- |
+| 172 | `mieux` | better (comparative of bien); le mieux = the best; faire de son mieux = to d |
+| 207 | `moins` | less, fewer (comparative of peu); le moins = the least; au moins = at least; |
+| 328 | `laisse` | leave, let — from laisser (il laisse; laisse-moi = let me, leave me alone);  |
+| 393 | `parti` | past participle of partir — gone, left (il est parti = he left); (as noun, m |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/fr_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit would be undone by the next seed.
+
+Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang fr --band 500` — remaining candidates are rows a reviewer
+deliberately kept, plus anything added since.
