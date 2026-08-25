@@ -27,12 +27,12 @@ rank	word	pos	en
 26	مع	prep	with, together with, accompanied by, in the company of
 27	ليس	verb	not to be; except
 28	ب	prep	denotes an instrument or tool, with, by (a means)
-29	حسن	verb	to be or become good, to better, to improve
+29	حسن	adj	good, fine, handsome (adj. حَسَن, f. حسنة); also the Form II verb حسَّن to improve, to make better (حسّن معرفته he improved his knowledge); and the noun حُسْن goodness, beauty — حسن الحظ good luck
 30	لدى	prep	at, near; on, upon (something occurring or someone doing something)
-31	أمكن	verb	to enable (someone مِن (min) something)
+31	أمكن	verb	to be possible for (someone), can, may — almost always impersonal: يمكن أن it is possible that, يمكنك you can (يمكنك أن تفعلها — you can do it); also to enable (someone مِن to do something)
 32	هذه	pron	this, this one (feminine); these (with non-human plurals)
-33	أمر	verb	to order, to command, to bid, to instruct
-34	نعم	verb	to live in comfort, to be pleased
+33	أمر	noun	matter, affair, business (m.; pl. أمور) — ما الأمر؟ what's the matter?; order, command (m.; pl. أوامر); also the verb أمَرَ to order, to command, to instruct
+34	نعم	adv	yes; yes indeed, certainly (answering a question, and answering when called — نعم؟ yes?); also نَعَم livestock, cattle (m.) and the verb نَعِمَ to live in comfort
 35	لكن	conj	but, however
 36	هناك	adv	there; Used to indicate the existence of something.
 37	قال	verb	to say; to call (by name)
@@ -44,42 +44,41 @@ rank	word	pos	en
 43	أي	pron	which ...? what ...? what kind of ...?
 44	فقط	adv	only, no more; altogether, total
 45	الآن	adv	now, right now; at present, at the moment; up to now (حتى الآن)
-46	رجل	verb	to go on foot, to walk
+46	رجل	noun	man (m.; pl. رِجال); also رِجْل leg, foot (f.; pl. أرجُل); rarely the verb رَجِلَ to go on foot
 47	لن	adv	not (future)
 48	وجب	verb	to be necessary, have to be; must: followed by عَلَى
 49	ذهب	verb	to go, to travel
-50	عمل	verb	to work, perform
+50	عمل	noun	work, job, labour (m.; pl. أعمال); deed, act, action; also the verb عَمِلَ to work, to do, to make (يعمل he works, أعمل I work)
 51	كيف	adv	how; however (in whatever way or state)
 52	لك	noun	varnish, lacquer
 53	راوند	noun	rhubarb
 54	وقت	noun	time (as an abstract concept)
 55	عرف	verb	to be familiar with
 56	نحن	pron	we (subject pronoun)
-57	قام	verb	to stand up (to rise from lying or sitting position); to get up
+57	قام	verb	to carry out, to do, to undertake — قام بـ + verbal noun is the ordinary way to say 'do' (قام بزيارة he paid a visit); to stand up, to rise, to get up
 58	سوف	particle	added to an imperfect (present) verb form to express future tense: will
 59	سيد	noun	master, lord, prince
 60	بدا	verb	to appear; to become evident, clear
 61	حسنا	adv	well, fine, okay, good
-62	بعد	verb	to be distant, afar, to become distant, go away (مِنْ (min) or عَنْ (ʕan) from)
+62	بعد	prep	after (prep.) — بعد ذلك after that, بعد أن after (+ verb); afterwards, yet, still (بعد الآن any more, لم … بعد not yet); also the noun بُعْد distance, dimension (m.) and the verb بَعُدَ to be far
 63	هي	pron	she (subject pronoun).
 64	بعض	noun	some, part; In reduplication, expresses English each other
-65	قد	verb	to cut into strips
+65	قد	particle	(particle) before a past verb: already, indeed, has just — قد رأيته I have seen him (emphatic لقد); before a present verb: may, might, sometimes — قد يكون he may be; also the verb قَدَّ to cut into strips and the noun قَدّ stature, size
 66	أخبر	verb	to notify, to advise, to apprise, to inform
-67	لي	verb	"Noun; Noun
-Hose ليّ"
-68	شخص	verb	to rise, to tower up
+67	لي	prep_phrase	to me; for me; mine — the preposition لِـ with the 1st-person suffix (قال لي he told me; لي صديق I have a friend)
+68	شخص	noun	person, individual (m.; pl. أشخاص) — أي شخص anyone, شخص ما someone; also the verb شخَّص to diagnose, to identify
 69	حتى	prep	until, as far as, to the point of, even up to
 70	أحد	noun	one; one of
 71	لماذا	adv	why
 72	أو	conj	indicates an inclusive disjunction
 73	عندما	conj	when, while; as, as long as
 74	جيد	adj	of good quality, excellent, approvable
-75	حق	verb	to be true, to be confirmed
-76	نفس	verb	to be priceless, to be precious, to be valuable
+75	حق	noun	right, entitlement (m.; pl. حقوق) — يحق لـ to have the right to; truth, what is right (الحق معك you are right); حقًّا really, truly; also the verb حَقَّ to be true, to be due
+76	نفس	noun	self (f.; pl. أنفُس, نفوس) — the reflexive: نفسي myself, بنفسه by himself; the same (الوقت نفسه the same time); soul, psyche; also نَفَس breath (m.)
 77	ربما	adv	perhaps, maybe
 78	أين	adv	where, at which place, whence
-79	قبل	verb	to accept; to receive kindly, to give a friendly reception
-80	وجد	verb	to find, to hit upon, to come across
+79	قبل	prep	before, prior to (prep.) — قبل أن before (+ verb), من قبل before, previously; ago (قبل سنة a year ago); also the verb قَبِلَ to accept, to agree to
+80	وجد	verb	to find, to come across; to get, to obtain; يوجد / لا يوجد there is / there is no (the impersonal passive — لا يوجد شيء هناك there's nothing there)
 81	نظر	verb	to look, to gaze, to glance
 82	تحدث	verb	to speak, to talk
 83	حدث	verb	to happen, to take place
@@ -88,14 +87,14 @@ Hose ليّ"
 86	كذلك	adv	Used other than figuratively or idiomatically: see كَـ (ka-), ذَٰلِكَ (ḏālika).
 87	أخذ	verb	to take; to take along
 88	آخر	adj	last, ultimate, utmost, extreme
-89	مثل	verb	to resemble, to look like
+89	مثل	prep	like, similar to (مِثْل + noun or pronoun — أنا مثله I am like him); such as, for example (مثلًا for example); مَثَل proverb, example (m.; pl. أمثال); also the verb مثَّل to represent, to act (a role)
 90	علم	verb	to know, to have knowledge, to be cognizant, to be aware
 91	ولكن	conj	but, however
 92	التي	pron	feminine singular of اَلَّذِي (allaḏī, “who, that, which”)
 93	بدأ	verb	to begin
-94	جد	verb	to be new
+94	جد	adv	grandfather (جَدّ, m.; pl. أجداد); seriousness, earnestness (جِدّ) — بجدّ hard, in earnest (عمل بجد he worked hard), على محمل الجد seriously; also جِدّ 'very' before an adjective, though ordinary 'very' comes after the adjective and is spelled جدًّا, which is its own card
 95	جميع	adj	whole, entire, all
-96	حصل	verb	to be educed, to be taken forth, to be extracted
+96	حصل	verb	to happen, to occur, to take place; (with على) to get, to obtain, to receive
 97	قتل	verb	to kill, to slay, to murder
 98	لو	conj	if (contrary to fact)
 99	شكر	verb	to thank, to be thankful, to be grateful
@@ -114,7 +113,7 @@ Hose ليّ"
 112	كثير	adj	many, much, numerous
 113	أيها	particle	vocative particle preceding a noun used in direct address
 114	عليك	prep	first-person singular masculine of عَلَى (ʕalā)
-115	جعل	verb	to make: to create
+115	جعل	verb	to make (someone do something), to cause; to put, to place, to set; (before a non-past verb) to begin to
 116	أيض	noun	return; metabolism
 117	حياة	noun	life
 118	أتى	verb	to come; to bring
@@ -127,42 +126,42 @@ Hose ليّ"
 125	أخرى	adj	feminine singular of آخَر (ʔāḵar)
 126	غير	noun	other than, different from, unlike
 127	واحد	num	one
-128	أعلم	verb	to inform, to notify
+128	أعلم	verb	I know — 1st sg. of عَلِمَ (ʕalima); also أَعْلَمَ (ʔaʕlama) to inform, to notify; and the elative أَعْلَم more knowledgeable, best-informed (الله أعلم “God knows best”)
 129	يوم	noun	day, period from sunrise to sunset
 130	طفل	noun	child (a minor)
 131	صديق	noun	friend
 132	أفضل	adj	elative degree of فَضِيل (faḍīl)
 133	كما	conj	like, as
-134	تعرف	verb	to become acquainted, with, to meet
+134	تعرف	verb	you know, do you know; she knows — imperfect of عَرَفَ (ʕarafa), 2nd sg. m. and 3rd sg. f.; also تَعَرَّفَ (taʕarrafa) to get to know, to meet, to become acquainted with (على), to recognize
 135	عنى	verb	to mean, to signify
 136	أم	noun	mother; origin
-137	أوه	verb	to moan, sigh
-138	تم	verb	to be fulfilled, to be completed
+137	أوه	intj	oh!, ugh — exclamation of surprise, dismay or pain; rarely the verb أَوَّهَ (ʔawwaha) to moan, to sigh
+138	تم	verb	to be done, to be carried out — before a verbal noun it forms the passive (تم بناؤه “it was built”, تم فصلي “I was fired”); on its own to be completed, to be finished
 139	حاول	verb	to try; to seek
 140	عند	prep	near, with, at the house of
-141	تكون	verb	to be established, to be created, to be formed, come into existence, be constituted
+141	تكون	verb	you are, she is; (after أن) to be — imperfect of كَانَ (kāna); also تَكَوَّنَ (takawwana) to be formed, to consist of (من)
 142	ألا	conj	negate a verb if the following verb is in subjunctive
-143	علي	verb	to be exalted, high
+143	علي	prep	on me; I have to, I must (على + ـي); also Ali (male given name) and عَلِيّ high, lofty, exalted (adj.)
 144	رائع	adj	great, wonderful
 145	اليوم	adv	today
 146	وضع	verb	to put; to lay; to place; to set; to position; to install; to implant
 147	أليس	adj	brave
 148	منذ	prep	denotes the time at which an occurrence started
-149	تعلم	verb	to learn (something)
+149	تعلم	verb	to learn (something); also you know, do you know — 2nd sg. m. of عَلِمَ (ʕalima)
 150	سيارة	noun	automobile, car, motorcar
 151	عليه	prep	third-person singular masculine of عَلَى (ʕalā)
-152	زال	verb	to go away, withdraw
-153	حال	verb	to change, to be transformed
+152	زال	verb	(with ما or لا) to still be, to still be doing — ما زال / لا يزال “he is still …”; on its own to go away, to disappear, to cease
+153	حال	noun	condition, state, situation (m./f., pl. أحوال); حالًا right away, immediately; على أية حال / على كل حال anyway, in any case; في حال (أن) in case, in the event that; also the verb حَالَ to intervene, to prevent (دون)
 154	والد	noun	father; parent
-155	ودع	verb	to lay down, to place, to leave
+155	ودع	verb	to let, to allow, to leave alone — chiefly the imperative دَعْ (daʕ): دعني أرى “let me see”; also وَدَّعَ (waddaʕa) to say goodbye to, to bid farewell, to see off
 156	ناس	noun	people, humans
 157	توقف	verb	to stop, to come to a stop; to come to an end
-158	شعر	verb	to know, to have knowledge, to be cognizant
-159	سبب	verb	to cause, to effect, to trigger, to generate
+158	شعر	verb	to feel, to sense (بـ something); to notice, to realize; also the nouns شَعْر hair (m.) and شِعْر poetry (m.)
+159	سبب	noun	cause, reason, motive (m., pl. أسباب); بسبب because of, on account of; also the verb سبَّب (sabbaba) to cause, to bring about
 160	له	prep	third-person singular masculine of لِـ (li-)
 161	سمع	verb	to hear; to hear of, to hear about
-162	أصبح	verb	to enter upon morning
-163	أسف	verb	to regret
+162	أصبح	verb	to become, to come to be (one of kāna's sisters, with an accusative predicate); literally to enter upon the morning, to wake up
+163	أسف	verb	to regret, to be sorry (for, على); as a noun أَسَف regret, sorrow (m.) — للأسف, مع الأسف “unfortunately”
 164	سيدة	noun	female equivalent of سَيِّد (sayyid, “master, sir”)
 165	فتاة	noun	female adolescent, youth, juvenile; young girl
 166	بين	prep	between (“in the position or interval that separates two things”)
@@ -175,36 +174,36 @@ Hose ليّ"
 173	إذن	noun	permission, authorization
 174	بحث	verb	to search; to look for, to search for, to seek (عَن (ʕan) something)
 175	مشكلة	noun	problem, difficulty
-176	فضل	verb	to remain, to be left over
+176	فضل	noun	favor, kindness, merit (m.), as in مِن فضلك “please”; also faḍḍala, to prefer, to favor one over another; and (rare) faḍala, to remain, to be left over
 177	مساعدة	noun	help
 178	ثم	conj	then, afterward, subsequently
-179	بقي	verb	to last, to endure
+179	بقي	verb	to stay, to remain, to be left; to last, to endure, to continue to exist
 180	أعطى	verb	to give
 181	جديد	adj	new
-182	حسب	verb	to calculate, to compute
+182	حسب	prep	according to, in accordance with (prep., also بحسب); فحسب / وحسب — only, merely, just; also ḥasaba, to calculate, to count, to reckon, and ḥasiba, to think, to suppose, to consider
 183	آسف	adj	sorry
 184	ط	symbol	The ninth numeral symbol of the Arabic alphabet
 185	كم	adv	how many?, how much?
 186	خارج	adj	active participle of خَرَجَ (ḵaraja)
 187	جدا	adv	very; extremely
-188	طبع	verb	to print, imprint, stamp
+188	طبع	verb	nature, disposition, character (m., pl. طِباع); بالطبع / طبعًا — of course, naturally; also ṭabaʕa, to print, to stamp, to imprint, to type (طباعة printing, مطبعة press)
 189	صغير	adj	small; young (for a person)
 190	عالم	noun	world; universe, cosmos, existence
 191	مال	noun	property, possessions, chattels, goods
-192	شكل	verb	to hobble (an animal)
+192	شكل	noun	shape, form, figure (m., pl. أشكال); kind, sort; بشكل — in a … way, as in بشكل عام “generally”; also šakkala, to form, to shape, to constitute
 193	ساعد	verb	to help, to assist
 194	عام	noun	year; a period of twelve lunar months; lunar year
 195	رؤية	noun	sight; vision (ability to see)
 196	حول	noun	power, might; strength
 197	عزيز	adj	powerful, mighty
-198	نوع	verb	to diversify
+198	نوع	noun	kind, type, sort (m., pl. أنواع); species, variety; as in أي نوع من “what kind of”; also nawwaʕa, to diversify, to vary
 199	طريقة	noun	manner, mode, means
 200	واحدة	adj	feminine singular of وَاحِد (wāḥid)
 201	ولا	conj	For non-idiomatic uses, see وَ (wa) and لَا (lā).
 202	كبير	adj	big, large; great, great importance
 203	يد	noun	an appendage of a body (as of an animal)
 204	قليل	adj	few, little; scarce
-205	رجا	verb	to hope (“to want something to happen”)
+205	رجا	verb	to request, to ask politely, as in أرجوك “please” and يُرجى / الرجاء “kindly, please”; to hope for, to wish for
 206	ذهاب	noun	going; going away, disappearing
 207	غرفة	noun	room, compartment, cell, chamber
 208	حين	noun	time, moment; opportunity
@@ -214,12 +213,12 @@ Hose ليّ"
 212	وحيد	adj	alone; single
 213	أبي	noun	genitive construct state of أَب (ʔab, “father”)
 214	ساعة	noun	hour (unit of time)
-215	لها	verb	to divert oneself, to fool around, to putz around
+215	لها	prep	to her, for her; she has — the preposition لِ with the suffix ‑ها; also (rare) lahā, to divert oneself, to fool around
 216	فهم	verb	to understand; to learn
 217	هكذا	adv	so, thus, this way, like this
-218	خرج	verb	to move [with مِنْ
+218	خرج	verb	to go out, to leave, to exit (with مِن “out of”); to come out, to emerge; to go forth, to depart
 219	عائلة	noun	family
-220	طلب	verb	to search, to look
+220	طلب	verb	to ask for, to request; to order (food, goods); to demand, to require; to seek, to look for; also the noun ṭalab, request, application, order (m., pl. طلبات)
 221	حاجة	noun	need, necessity (act of needing something)
 222	قصد	verb	to mean, to intend
 223	ملك	noun	angel
@@ -230,11 +229,11 @@ Hose ليّ"
 228	شرطة	noun	police; policemen
 229	أمي	adj	maternal
 230	لذلك	adv	therefore
-231	داخل	verb	to befall, to seize, to come over
+231	داخل	prep	inside, within (prep.); the inside, the interior (n., m.), as in في الداخل “indoors”; also the active participle of دخل, entering, incoming; and (rare) dāḵala, to befall, to come over
 232	لعنة	noun	curse, anathema, an instance of malediction
 233	تذكر	verb	to remember, to bear in mind
 234	صباح	noun	the time from sunrise to noon, morning
-235	قدم	verb	to precede
+235	قدم	verb	to present, to offer, to submit; to introduce (someone); also the noun qadam, foot (f., pl. أقدام), as in كرة القدم “football”; and qadima, to arrive, to come forward, to precede
 236	مجرد	adj	abstract, absolute
 237	خلال	prep	during, in the course of
 238	خاص	adj	special; particular
@@ -242,7 +241,7 @@ Hose ليّ"
 240	حقا	adv	truly, verily, in truth
 241	جميل	adj	beautiful; pretty
 242	رئيس	noun	boss, chief, leader
-243	وصل	verb	to unite, to join, to combine
+243	وصل	verb	to arrive, to reach, to get to (إلى somewhere); to connect, to join, to link up; to deliver, to convey
 244	أب	noun	father; ancestor, forefather
 245	نسبة	noun	relationship, affiliation
 246	ليلة	noun	a night; soiree
@@ -251,7 +250,7 @@ Hose ليّ"
 249	زوجة	noun	wife
 250	لحظة	noun	moment, instant
 251	سنة	noun	year
-252	حب	verb	to love, to like
+252	حب	noun	love, affection (m.), as in الحب; also ʔaḥabba / yuḥibb, to love, to like; and ḥabb, grains, seeds, ḥabba, a grain, a pill
 253	لنا	prep_phrase	to us; for us
 254	دفع	verb	to pay; to push, to push away, to drive away
 255	ها	particle	behold, look, lo!
@@ -264,7 +263,7 @@ Hose ليّ"
 262	ال	article	the
 263	عليها	prep	first-person singular feminine of عَلَى (ʕalā)
 264	أقل	adj	elative degree of قَلِيل (qalīl)
-265	ألم	verb	to be in pain, to ache
+265	ألم	noun	pain, ache (m., pl. آلام); also أ + لم, “didn't …?”, the question hamza on the negative لم, as in ألم أقل لك؟ “Didn't I tell you?”; and ʔalima, to be in pain, to ache
 266	نسي	verb	to forget
 267	دائم	adj	lasting, enduring
 268	متى	adv	when (at what time?)
@@ -285,14 +284,14 @@ Hose ليّ"
 283	حصول	noun	happening
 284	تمام	noun	completeness, wholeness, entirety
 285	سرعة	noun	speed
-286	وجه	verb	to be a man of distinction, to be notable
-287	تحرك	verb	to depart, to leave
+286	وجه	noun	face (m., pl. وجوه); side, aspect, as in وجهة نظر “point of view”; also waǧǧaha, to direct, to aim, to address (a question, a charge), to send
+287	تحرك	verb	to move, to be in motion; to set off, to depart
 288	نهاية	noun	end (“extreme part of something”)
 289	مني	noun	conceptive fluid or discharge
 290	سؤال	noun	question; request
 291	عظيم	adj	magnificent, grandiose
 292	فرصة	noun	chance, occasion, opportunity
-293	أذهب	verb	to cause to go away, to make disappear, to remove, to eliminate, to take away
+293	أذهب	verb	I go, I am going — 1st person singular imperfect of ذهب “to go”; also (rare, form IV) ʔaḏhaba, to make disappear, to remove, to take away
 294	مجددا	adv	again
 295	جحيم	noun	inferno, large fire
 296	متأكد	adj	certain, sure

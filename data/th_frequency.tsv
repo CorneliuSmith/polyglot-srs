@@ -1,7 +1,7 @@
 rank	word	pos	en
 1	ใช่	verb	yes, that's right; to be so, to be the case (negated with ไม่)
 2	ไม่	adv	not (before a verb or adjective); no
-3	โอเค	verb	to be in good condition, quality, health, etc.
+3	โอเค	verb	OK, all right, fine (as a reply, and predicatively — ฉันโอเค, “I'm OK”); to be fine, to be in good condition; to agree, to give the OK
 4	ครับ	particle	employed by males to express affirmation or assent, or to politely end any expression.
 5	นี่	pron	this, this one (standing alone); here
 6	อืม	adv	yes, yep
@@ -16,7 +16,7 @@ rank	word	pos	en
 15	ดี	adj	good; nice; fine; excellent; satisfactory; agreeable; pleasant; favourable
 16	แล้ว	adv	already, done (sentence-final, marks completion); then, and then
 17	ทำไม	pron	why? what? for what? for what purpose, reason, or cause?
-18	ได้	verb	to get; to obtain; to receive
+18	ได้	verb	can, to be able to (after the verb: ทำได้ — can do it); (before the verb) did, got to (a past, completed action); to get, to obtain, to receive
 19	ไม่เป็นไร	intj	used to express refusal: I'm good; no thank you; etc.
 20	ไป	verb	to go; to move (away from the speaker); to leave; to depart
 21	ที่รัก	noun	used as an affectionate term of address: darling, dear, honey, sweetheart, etc.
@@ -41,7 +41,7 @@ rank	word	pos	en
 40	เหรอ	particle	or
 41	นะ	particle	isn't it?.
 42	หรือ	conj	or; (sentence-final yes-no question particle: …is it? / really? — spoken เหรอ, รึ)
-43	เยี่ยม	verb	to visit (a person).
+43	เยี่ยม	adj	excellent, great, terrific (เยี่ยม! — “Great!”); (verb) to visit, to call on (someone)
 44	คน	noun	person; people; human being (Classifiers: คน or หัว or ราย or นาย or ท่าน)
 45	ไง	pron	how; what; in what way.
 46	ไม่ใช่	adv	no; not.
@@ -50,11 +50,11 @@ rank	word	pos	en
 49	หยุด	verb	to stop; to take a break; to be on vacation; to be off (as from work)
 50	ั	character	A Thai vowel letter traditionally named ไม้หันอากาศ, ไม้ผัด, or หางกังหัน.
 51	ขอบใจ	intj	thank you
-52	ขอโทษ	verb	to apologise; to express apology (to, for, etc.)
+52	ขอโทษ	verb	sorry; excuse me, pardon me (the everyday apology, usually with ครับ/ค่ะ); to apologise (to someone), to say sorry
 53	นาที	noun	minute.
 54	อา	noun	younger sibling of one's father.
 55	อย่า	adv	don't, do not
-56	อ้า	verb	to open.; to be opened.
+56	อ้า	intj	ah, aah (drawn-out exclamation of realisation or hesitation, frequent in subtitled speech); (verb) to open wide, to open (the mouth): อ้าปาก
 57	ก็	conj	used to indicate a consequence or result: so, thus, then, next, accordingly, etc.
 58	นั่น	pron	that; those
 59	เธอ	pron	a second-person pronoun used to address a person of equal or lower status
@@ -65,7 +65,7 @@ rank	word	pos	en
 64	หา	intj	used to express surprise, bewilderment, disbelief, contempt, or interrogation
 65	พวก	noun	group; party (of people, animals)
 66	โ	character	A Thai vowel letter traditionally named ไม้โอ
-67	แซม	verb	to insert; to intermix.
+67	แซม	name	Sam (man's given name, as transliterated in dubbed film and TV); (verb) to insert among, to intersperse (as grey hairs among black)
 68	ทุกคน	pron	everyone, everybody
 69	มัน	noun	fat; grease; oil; tallow
 70	พี่	noun	elder brother; elder sister
@@ -122,8 +122,8 @@ rank	word	pos	en
 121	ครับผม	particle	synonym of ครับ (kráp)
 122	ที่ไหน	pron	where?
 123	ด้วย	conj	because; as; since
-124	ยัง	verb	to be, have; to exist; to be alive; to be living; to survive
-125	ว่า	verb	to say, to speak, to tell; to utter, to pronounce
+124	ยัง	adv	still, yet (before the verb: ยังไม่ — not yet; ยัง alone answers “not yet”); also, too; (literary) to sustain, to keep going
+125	ว่า	verb	that (opens a reported clause after say, think, know, be named: คิดว่า — think that); to say, to tell; to scold, to tell off
 126	ทอม	noun	tomboy.
 127	เหรียญ	noun	coin; dollar
 128	เพราะ	adj	melodious; pleasing to the ear
@@ -141,7 +141,7 @@ rank	word	pos	en
 140	ขวบ	noun	year
 141	ณ	prep	at; in; on.; of; from.
 142	เอิ่ม	intj	um; uh.
-143	เบน	verb	to turn around; to turn away; to shift.
+143	เบน	name	Ben (man's given name, as transliterated in dubbed film and TV); (verb) to turn aside, to swerve, to divert (เบนเข็ม — to change course)
 144	อาจจะ	verb	may, might.
 145	ตรงนี้	adv	here; this place; right here
 146	หรอ	particle	or
@@ -157,7 +157,7 @@ rank	word	pos	en
 156	แดน	noun	sphere; area; zone; region; territory; district.
 157	พรุ่งนี้	noun	tomorrow
 158	ไมล์	noun	mile.
-159	ถึง	verb	to arrive (at, in, on, etc); to reach; to attain
+159	ถึง	verb	to arrive (at), to reach, to get to; to, up to, until (จาก … ถึง …); (after ทำไม, before the verb) how come, why is it that — ทำไมคุณถึงไม่มา
 160	ยินดีต้อนรับ	intj	welcome, you are welcome, glad to welcome you
 161	ตาย	verb	to die (to cease to live; to cease to function; to cease to move)
 162	ล่ะ	particle	to narrate; to tell
@@ -167,7 +167,7 @@ rank	word	pos	en
 166	ชื่อ	noun	name; title (Classifier: ชื่อ)
 167	ไม่รู้	adj	ignorant; unknowing
 168	อื้อ	adj	deafening; blaring
-169	ประมาณ	verb	to measure, to determine; to approximate, to estimate.
+169	ประมาณ	adv	about, approximately, roughly (before a number: ประมาณ 50 — about 50); (verb) to estimate, to gauge, to size up
 170	อีกครั้ง	adv	again
 171	อย่างน้อย	adv	at least, at worst
 172	อะ	noun	(สระ~) the vowel /a/, represented by –ั–, –ะ, –รร, or –รร–.
@@ -188,7 +188,7 @@ rank	word	pos	en
 187	ฉันรักคุณ	phrase	I love you
 188	เงียบ	adj	lacking sound; quiet: saying little
 189	เด็กน้อย	noun	baby; small child
-190	เหมือนกัน	verb	to be similar, alike, the same
+190	เหมือนกัน	adv	too, as well, likewise (sentence-final: ฉันด้วยเหมือนกัน — me too); the same, alike, similar (มีปัญหาเหมือนกัน — have the same problem)
 191	เจ้าหน้าที่	noun	one who is charged with a function or functions: functionary, official, officer, etc.
 192	ข้า	noun	citizen; attendant; retainer; servant
 193	เช่น	noun	example, sample.
@@ -222,8 +222,8 @@ rank	word	pos	en
 221	โกหก	adj	cheating; deceitful; fake; false; fraudulent
 222	ตัว	noun	self; person; body; physique
 223	ไหน	pron	which; where; who (for question)
-224	วอน	verb	to beg; to plead; to ask for.
-225	อยู่	verb	to be (at, in, on some place, some condition, etc.)
+224	วอน	verb	to beg, to plead, to keep asking (for); won — the Korean currency (frequent in subtitled Korean film and TV)
+225	อยู่	verb	to be (at, in), to be located; to live, to stay, to remain; (after the verb) marks an action in progress — เขากินอยู่, “he is eating”
 226	โดย	prep	by; with; by means of
 227	ลิลลี่	noun	lily.
 228	เหมือน	adj	same, similar
@@ -240,11 +240,11 @@ rank	word	pos	en
 239	กัน	adv	together; jointly; altogether
 240	ขวา	noun	right side (opposite of left)
 241	ไหม	particle	or not?
-242	เคลียร์	verb	to clear: to empty
+242	เคลียร์	verb	to clear — to empty, to free of obstruction (เคลียร์ทาง); to clear up, to sort out, to settle (a misunderstanding, a debt, a backlog)
 243	ใต้เท้า	noun	a term of respect used as a title for or term of address to a dignitary.
 244	ใ	character	A Thai vowel letter traditionally named ไม้ม้วน
 245	ด้วยความยินดี	phrase	my pleasure; you're welcome
-246	ตอน	verb	to castrate
+246	ตอน	noun	when, at, during (before a time expression: ตอนนี้ — now, ตอนเช้า — in the morning); part, section; episode (of a series); (verb) to castrate; to graft
 247	สี่	num	4
 248	กรุณา	noun	compassion; (พระ~) favour; kindness; grace
 249	สบายดี	verb	to be well (in health), happy, contented
@@ -258,7 +258,7 @@ rank	word	pos	en
 257	ตื่น	verb	to wake up; to be alert; to be alarmed
 258	ลา	noun	donkey
 259	ปอนด์	noun	pound (measure of weight or currency)
-260	เชิญ	verb	to invite; to request
+260	เชิญ	verb	to invite (someone to something); (before a verb, or standing alone) please, go ahead, do — เชิญนั่ง, “please have a seat”
 261	รอ	verb	to wait
 262	นายอำเภอ	noun	chief public officer in charge of the administration of a district.
 263	อาทิตย์	noun	Sunday Abbreviation: อา. (aa) (Classifier: วัน)
@@ -281,16 +281,16 @@ rank	word	pos	en
 280	ศาสตราจารย์	noun	professor. Abbreviation: ศ. (sɔ̌ɔ)
 281	ทั้ง	adj	all; entire; whole; total
 282	เจ	noun	vegetarianism with some prohibited vegetables as practiced by some Chinese vegetarians.
-283	เอียน	verb	to be bored; to be fed up with.
+283	เอียน	name	Ian (man's given name, as transliterated in dubbed film and TV); (verb) to be cloyed, to be sick of (rich or repetitive food)
 284	ต่อ	noun	wasp
 285	พวกคุณ	pron	you; you all; you guys (plural).
 286	พะยะค่ะ	particle	misspelling of พ่ะย่ะค่ะ (pâ-yâ-kâ)
 287	ดอลลาร์	noun	dollar
-288	ให้	verb	to give; to grant
+288	ให้	verb	to give, to hand over; (before a clause) to let, to have someone do, so that — ทอมให้ผมรอ, “Tom kept me waiting”; for, to (benefactive)
 289	บ้าน	noun	house; place of habitation; residence
 290	ครอบครัว	noun	family
 291	จะ	verb	used to indicate a future tense: will
-292	จอง	verb	to secure; to fasten; to bind; to tie.
+292	จอง	verb	to reserve, to book (a room, a seat, a table); (older usage) to fasten, to bind, to secure — as in จองจำ, to put in irons
 293	ความรัก	noun	abstract noun of รัก (rák)
 294	นิดหน่อย	adv	a little, a bit, a little bit, just a little, a tiny bit.\
 295	หรือเปล่า	particle	..or not?
