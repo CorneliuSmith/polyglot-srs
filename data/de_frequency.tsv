@@ -29,13 +29,13 @@ rank	word	pos	en
 28	hat	verb	has (he, she, it); also the auxiliary forming the perfect: has done, has said
 29	hier	adv	here; there
 30	haben	verb	forms the perfect aspect (have)
-31	für	prep	describes an abstract directionality towards a person or matter
+31	für	prep	for (indicating recipient, purpose or benefit); in exchange for, in return for
 32	sind	verb	are — we are, they are, and formal you are; there are
 33	war	verb	was — I was, he/she/it was; the simple past of sein; there was
 34	von	prep	from; of, belonging to (often replacing genitive; see usage note below)
 35	wenn	conj	when, whenever; if (on the condition that)
 36	dich	pron	you (as direct object, to someone you know well); yourself (with reflexive verbs)
-37	ihr	pron	you, ye (plural, familiar)
+37	ihr	pron	her, their, your (polite Ihr) — possessive: ihr Vater, her/their father; (to) her — dative of sie; you (plural, familiar) — subject pronoun
 38	nein	intj	no — the answer to a question or a refusal; negating inside a sentence is nicht instead
 39	habe	verb	have (I have); also the auxiliary forming the perfect: I have seen, I have done
 40	an	prep	on, upon, at, in, against
@@ -54,10 +54,10 @@ rank	word	pos	en
 53	auch	adv	also, too, as well (in addition to whatever or whoever has previously been listed)
 54	schon	adv	already (happening rather early, continuing rather long)
 55	als	conj	at (approximately) the same moment, when, while, as
-56	sein	verb	forms the present perfect and past perfect tenses of certain verbs
-57	mal	adv	times (indicating multiplication of two numbers)
+56	sein	verb	to be (copula); (auxiliary) forms the perfect and past perfect of verbs of motion and change; his, its (possessive)
+57	mal	adv	softening particle in requests and commands (Komm mal her — come here a sec); once, at some time (short for einmal); Mal (das) — time, occasion (das erste Mal — the first time); times (in multiplication)
 58	jetzt	adv	now (at this moment, right now)
-59	ihn	pron	(obsolete) dative of sie; them (indirect object).
+59	ihn	pron	accusative of er; him, it (direct object)
 60	dann	adv	then, after that
 61	aus	adv	out; ago
 62	meine	pron	feminine singular
@@ -68,7 +68,7 @@ rank	word	pos	en
 67	bist	verb	second-person singular present of sein
 68	doch	particle	yes; surely; really; on the contrary
 69	alles	pron	everything; all
-70	weiß	adj	white
+70	weiß	verb	I know; he/she/it knows (first/third-person singular present of wissen); (adjective) white
 71	keine	pron	feminine nominative/accusative of kein
 72	oder	conj	or
 73	nach	prep	after, past (later in time)
@@ -83,7 +83,7 @@ rank	word	pos	en
 82	wo	adv	where (at what place)
 83	etwas	pron	something
 84	oh	intj	oh
-85	mehr	pron	something more
+85	mehr	pron	more (comparative of viel); nicht mehr — no longer, not anymore
 86	bei	prep	by, near; at
 87	also	conj	so, therefore
 88	bitte	adv	please, if you please (used to make a polite request or affirm an offer)
@@ -120,16 +120,16 @@ rank	word	pos	en
 119	wissen	verb	to know; to be aware of (a fact)
 120	deine	pron	feminine singular
 121	müssen	verb	to have to; to have to do something implied; must; to be obliged.
-122	soll	noun	debit
+122	soll	verb	should, is to, is supposed to (first/third-person singular present of sollen); Soll (das) — debit, target figure
 123	werde	verb	first-person singular present
 124	nie	adv	never, never at all (referring to an indefinite period of time)
 125	wirklich	adj	real
 126	kein	pron	no; not a(n); not one; not any
 127	viel	pron	much, a lot
 128	weg	adv	away; gone, not there
-129	würde	noun	dignity
+129	würde	verb	would (first/third-person singular Konjunktiv II of werden, forming the conditional); Würde (die) — dignity
 130	tut	verb	third-person singular present of tun
-131	am	particle	Precedes the superlative in adverbial and predicate use.
+131	am	contraction	contraction of an + dem: at the, on the, in the (dative); before a superlative — the most (am besten, best); am + nominalised infinitive — in the middle of
 132	des	article	genitive masculine/neuter singular of der: the
 133	einfach	adj	easy; simple, plain, straightforward
 134	leben	verb	to live, to be alive
@@ -142,7 +142,7 @@ rank	word	pos	en
 141	heute	adv	today
 142	kommt	verb	third-person singular
 143	wollen	adj	wool; woolen, woollen
-144	damit	adv	therefore, as a result
+144	damit	adv	with it, with that, by that (pronominal adverb of mit); so that, in order that (conjunction); thereby, therefore
 145	ganz	adj	entire, whole, complete
 146	wäre	verb	first/third-person singular subjunctive II of sein
 147	wollte	verb	first/third-person singular preterite
@@ -176,7 +176,7 @@ rank	word	pos	en
 175	leute	noun	people
 176	vater	noun	father
 177	schön	adj	beautiful, lovely, pretty, handsome
-178	glaube	noun	belief, faith; faith, creed
+178	glaube	verb	I believe (first-person singular present of glauben); Glaube (der) — belief, faith
 179	ab	prep	beginning at that time or location; from
 180	gerade	adj	even
 181	tag	verb	singular imperative of tagen
@@ -210,7 +210,7 @@ rank	word	pos	en
 209	hör	verb	singular imperative of hören
 210	her	adv	hither, to this place, to here, to me/us
 211	sag	verb	singular imperative of sagen
-212	meiner	pron	mine (substantival possessive)
+212	meiner	det	my — dative/genitive feminine singular and genitive plural of mein; mine (standing alone)
 213	anderen	adj	strong genitive masculine/neuter singular
 214	helfen	verb	to help (someone); to assist; to aid
 215	nacht	noun	night; darkness
@@ -257,7 +257,7 @@ rank	word	pos	en
 256	freund	noun	friend; boyfriend
 257	guten	adj	strong genitive masculine/neuter singular
 258	unser	pron	genitive of wir
-259	warte	noun	lookout, guarding post
+259	warte	verb	I wait; wait! (first-person singular present and imperative of warten); Warte (die) — lookout, vantage point
 260	machst	verb	second-person singular present of machen
 261	menschen	noun	accusative/dative/genitive singular of Mensch
 262	essen	verb	to eat; to eat; to dine
@@ -293,7 +293,7 @@ rank	word	pos	en
 292	arbeit	noun	toil; job, task, assignment
 293	seid	verb	second-person plural present of sein
 294	ihrer	pron	genitive of sie: of her
-295	fragen	verb	to ask; to ask for, to ask after
+295	fragen	verb	to ask; to ask for, to ask after; to wonder (sich fragen); Fragen (die) — questions, plural of Frage
 296	herr	noun	man, gentleman; sir, lord; address of subservient respect
 297	dabei	adv	with one, on one
 298	heißt	verb	second/third-person singular present
@@ -344,13 +344,13 @@ rank	word	pos	en
 343	würden	noun	plural of Würde
 344	lieber	adj	comparative degree of lieb
 345	fall	verb	singular imperative of fallen
-346	deiner	pron	yours, thine (substantival possessive)
+346	deiner	det	your — dative/genitive feminine singular and genitive plural of dein; yours (standing alone)
 347	sehe	verb	first-person singular present
 348	egal	adj	all the same, unimportant
 349	kennen	verb	to know; to be acquainted with; to be familiar with
 350	deinem	det	dative masculine/neuter singular of dein
 351	vergessen	verb	to forget (lose remembrance of)
-352	frage	noun	question (interrogative sentence or phrase)
+352	frage	noun	question, issue (die Frage); (ich) frage — first-person singular present of fragen
 353	mache	verb	first-person singular present
 354	komme	verb	first-person singular present
 355	sage	verb	first-person singular present
@@ -393,7 +393,7 @@ rank	word	pos	en
 392	bereit	adj	ready
 393	weit	adj	wide; large
 394	ahnung	noun	anticipation, inkling
-395	seiner	pron	his (substantival possessive)
+395	seiner	det	his, its — dative/genitive feminine singular and genitive plural of sein; his (standing alone)
 396	bisschen	adv	(a) bit; (a) little
 397	tür	noun	door (rigid plane on a hinge)
 398	auto	noun	car
@@ -410,8 +410,8 @@ rank	word	pos	en
 409	runter	adv	down, down here, downstairs (towards the speaker)
 410	vorbei	adj	over, past, up (of time)
 411	treffen	verb	to meet; to encounter
-412	gerne	intj	don't mention it, not at all, you're welcome
-413	dran	adv	to be in a particular situation
+412	gerne	adv	gladly, willingly, with pleasure (alternative form of gern; ich hätte gerne — I would like); Gerne! — you're welcome
+413	dran	adv	on it, at it, of it (short for daran); dran sein — to be someone's turn; gut/schlecht dran sein — to be well/badly off
 414	wurden	verb	first/third-person plural preterite of werden
 415	arbeiten	verb	to work (to do a specific task by employing physical or mental powers)
 416	mom	intj	gimme a sec, hold on

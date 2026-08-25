@@ -35,11 +35,11 @@ rank	word	pos	en
 34	dan	adv	then, at that time (in the future)
 35	n	noun	abbreviation of noord; north
 36	naar	prep	to, towards in time, space, consequence, purpose etc.
-37	weet	noun	awareness, knowledge
+37	weet	verb	know: I know; you know in weet je; he/she/it knows (present of weten); as a noun, awareness (geen weet hebben van)
 38	hier	adv	here
 39	zo	adv	so, thus, like that/this
 40	jij	pron	you; second-person singular subjective personal pronoun
-41	kan	noun	jug; pot (for tea, coffee, etc.)
+41	kan	verb	can, to be able to: I can; he/she/it can; you can in kan je (present of kunnen); also a noun, jug, pot
 42	geen	det	no, not a, not an, not any
 43	nog	adv	still, as before
 44	ja	intj	yes; yeah, that's right (agreeing); well (softening the start of a reply)
@@ -47,14 +47,14 @@ rank	word	pos	en
 46	heeft	verb	has: he/she/it has; you have (polite u); also the auxiliary in perfect tenses
 47	wel	adv	the opposite of not
 48	moet	verb	must, have to; need to (I/you/he must — present of moeten)
-49	wil	noun	will
+49	wil	verb	want: I want; he/she/it wants; you want in wil je (present of willen); also a noun, will, willpower
 50	hebben	verb	to have, to possess, own, hold
 51	goed	adj	good (not bad); correct, right (factually or morally)
 52	haar	pron	her; third-person singular feminine objective personal pronoun
 53	nee	intj	no
 54	hoe	adv	how
 55	nu	adv	now, at the present moment
-56	waar	adv	where, in which place
+56	waar	adv	where, in which place (waar is hij?); true (dat is niet waar — that's not true); where, the place that
 57	over	adv	over, above; over (implying motion)
 58	ook	adv	also, too, moreover
 59	doen	verb	to do; to put
@@ -76,13 +76,13 @@ rank	word	pos	en
 75	zal	verb	first/second/third-person singular present indicative of zullen
 76	m	pron	nonstandard form of 'm
 77	hebt	verb	second-person singular present indicative
-78	kom	noun	bowl; basin
+78	kom	verb	come: I come; come! (present and imperative of komen); also a noun, bowl, basin
 79	waarom	adv	why, because of what
-80	meer	noun	lake
+80	meer	det	more (comparative of veel); niet meer — not anymore, no longer; also a noun, lake
 81	deze	det	this; referring to a thing or a person closer by.
 82	moeten	verb	to be necessary, to be required
 83	t	pron	nonstandard form of 't
-84	laat	adj	late (not early)
+84	laat	adj	late (not early); also let, leave: I let; let…! (present and imperative of laten — laat maar, laat zien)
 85	kunnen	verb	can, to be able to
 86	dus	adv	so, therefore, thus, ergo
 87	jou	pron	you; second-person singular objective personal pronoun
@@ -96,10 +96,10 @@ rank	word	pos	en
 95	toch	adv	still, nevertheless, anyway
 96	zien	verb	to see
 97	weg	noun	way, road; manner, way (figuratively)
-98	eens	adv	once, one time; sometime, at an unspecified time
+98	eens	adv	once, one time; sometime; a softening particle in requests and imperatives (kijk eens, wacht eens even); nog eens — again; het eens zijn met — to agree with
 99	man	noun	man, human male, either adult or age-irrespective
 100	misschien	adv	perhaps, maybe
-101	laten	verb	to leave, to cause to remain in the same position or state
+101	laten	verb	to let, to allow; to have something done (ik laat het zien — I'll show it); laten we… — let's…; to leave (as it is)
 102	nooit	adv	never
 103	nou	adv	come on; modal particle expressing a certain contrast or disjuncture
 104	zei	verb	singular past indicative of zeggen
@@ -131,12 +131,12 @@ rank	word	pos	en
 130	uw	det	your; second-person singular and plural possessive determiner
 131	zeg	verb	first-person singular present indicative
 132	omdat	conj	because
-133	zit	noun	the act of sitting
+133	zit	verb	sit; be (located, contained): I sit; he/she/it sits (present of zitten); as a noun, a sitting
 134	wordt	verb	second/third-person singular present indicative
 135	z	adv	abbreviation of zuid; south
-136	hou	adj	friendly, of a favourable disposition
+136	hou	verb	keep, hold: I keep, I hold (present of houden); ik hou van je — I love you (houden van); hou op! — stop it!
 137	heel	adj	complete, full, whole
-138	kijk	noun	view, opinion (way of understanding or looking at something)
+138	kijk	verb	look, watch: I look; look! (present and imperative of kijken); also a noun, view, outlook (kijk op iets)
 139	wij	pron	we; first-person plural subjective personal pronoun
 140	altijd	adv	always
 141	mag	verb	first/second/third-person singular present indicative
@@ -155,17 +155,17 @@ rank	word	pos	en
 154	doet	verb	second/third-person singular present indicative
 155	vader	noun	father, male parent
 156	kunt	verb	second-person singular present indicative
-157	wacht	noun	the function, duty of standing guard; a watch or vigil
+157	wacht	verb	wait: wait! (imperative of wachten); I wait, he/she/it waits; also a noun, guard duty, watch
 158	zie	verb	first-person singular present indicative
 159	vrouw	noun	woman; wife
 160	keer	noun	time (occasion, instance)
 161	andere	adj	masculine/feminine singular attributive
 162	zoals	conj	like, such as; as, just like, just as, the way that
-163	zij	pron	she; third-person singular feminine subjective personal pronoun
+163	zij	pron	she; they (the stressed forms, used for emphasis or contrast; ze when unstressed)
 164	dank	noun	gratitude, thanks
 165	anders	adj	predicative of ander
-166	geef	noun	gift
-167	waren	verb	to wander, to roam
+166	geef	verb	give: I give; give! (present and imperative of geven)
+167	waren	verb	were: we/you/they were (plural past of zijn); as a noun, goods, wares (plural of waar)
 168	willen	verb	to want, desire
 169	zich	pron	Third person singular and plural reflexive pronoun
 170	bedankt	intj	thanks
@@ -179,12 +179,12 @@ rank	word	pos	en
 178	werk	noun	work, labor; profession, job, employment, line of work
 179	oh	intj	oh
 180	iedereen	pron	everyone
-181	beter	adj	not sick anymore; recovered (from a disease)
+181	beter	adj	better (comparative of goed); well again, recovered from illness (ik ben weer beter)
 182	werd	verb	singular past indicative of worden
 183	moeder	noun	mother, female parent
 184	niemand	pron	nobody, no one
 185	vinden	verb	to find (after searching)
-186	staat	noun	state (political entity)
+186	staat	verb	stands: he/she/it stands, you stand (jij staat); is located, is situated (present of staan); also a noun: state, condition (in staat zijn — to be able to), and the State
 187	gezien	verb	past participle of zien
 188	niks	pron	nothing
 189	binnen	adv	inside, indoors
@@ -212,12 +212,12 @@ rank	word	pos	en
 211	kwam	verb	singular past indicative of komen
 212	graag	adv	willingly, gladly (meaning that the subject enjoys doing the action of the verb)
 213	hé	intj	hey
-214	toe	adv	due for, ready for, in need of
+214	toe	adv	to, towards — the form tot takes in ertoe, waartoe and in separable verbs (toegeven, toedoen); aan iets toe zijn — to be ready for, due for; shut, closed (de deur is toe); toe maar! — go on!
 215	drie	num	three
 216	zegt	verb	second/third-person singular present indicative
 217	bedoel	verb	first-person singular present indicative
 218	deed	verb	singular past indicative of doen
-219	dingen	verb	to solicit
+219	dingen	noun	things (plural of ding); rarely a verb, dingen naar — to vie for, compete for
 220	maakt	verb	second/third-person singular present indicative
 221	alsjeblieft	adv	please; here you are
 222	eerste	adj	first
@@ -238,7 +238,7 @@ rank	word	pos	en
 237	onder	adv	under, downwards
 238	kijken	verb	to look; to watch (e.g. a film), to observe
 239	zag	verb	singular past indicative of zien
-240	goede	noun	good person; the good guys
+240	goede	adj	good — the -e form of goed (een goede vader, het goede boek); het goede — what is good, the good
 241	naam	noun	name; reputation
 242	moest	verb	singular past indicative of moeten
 243	blijf	verb	first-person singular present indicative
@@ -256,13 +256,13 @@ rank	word	pos	en
 255	meneer	noun	sir, mister
 256	nieuwe	adj	masculine/feminine singular attributive
 257	gebeurd	verb	past participle of gebeuren
-258	zorgen	verb	to make sure, to ensure
+258	zorgen	noun	worries, cares (plural of zorg — maak je geen zorgen, don't worry); to look after, take care of (zorgen voor); to see to it, make sure (zorgen dat)
 259	vriend	noun	friend; boyfriend (romantic partner)
 260	beetje	adv	a bit, a little bit, somewhat
 261	kinderen	noun	plural of kind
 262	gek	adj	crazy, mad; ludicrous, farcical
 263	hand	noun	a hand of a human, other simian or other animal with fingers
-264	vraag	noun	question, query
+264	vraag	noun	question, query; demand (for goods); also I ask / ask! from vragen — ik vraag me af, I wonder
 265	laatste	adj	masculine/feminine singular attributive
 266	geweldig	adj	tremendous, enormous
 267	hadden	verb	plural past indicative
@@ -274,7 +274,7 @@ rank	word	pos	en
 273	eten	verb	to eat
 274	o	intj	oh
 275	zelf	adv	oneself; oneself, by oneself, alone
-276	hoor	intj	modal particle indicating reassurance or confidence from the speaker: certainly
+276	hoor	verb	I hear (ik hoor iets; hoor je mij? — from horen); ik hoor te … — I am supposed to, I ought to; also the softening particle: sure, all right (ja hoor, nee hoor)
 277	geleden	adv	ago
 278	staan	verb	to stand, to be upright
 279	gevonden	verb	past participle of vinden
@@ -300,7 +300,7 @@ rank	word	pos	en
 299	meisje	noun	diminutive of meid
 300	probleem	noun	problem
 301	alsof	conj	as if
-302	geloof	noun	belief, conviction
+302	geloof	verb	I believe, I think (ik geloof van wel); believe! (from geloven — geloof me); as a noun: belief, faith, religion
 303	halen	verb	to fetch, to get
 304	familie	noun	relatives (extended kin)
 305	elke	det	indefinite masculine/feminine singular attributive
@@ -315,7 +315,7 @@ rank	word	pos	en
 314	verdomme	intj	dammit; clipping of godverdomme (“goddammit”)
 315	horen	verb	to hear; to belong
 316	manier	noun	way, manner; manner, good behaviour
-317	zat	adj	having had enough, having had it up to here, fed up
+317	zat	verb	sat, was sitting (past singular of zitten — ze zat naast me, she sat next to me; ik zat vast, I was stuck); fed up with, sick of (iets zat zijn); drunk (informal)
 318	vrienden	noun	plural of vriend
 319	precies	adj	exact, precise; accurate, careful
 320	kind	noun	child, kid, non-adult human
@@ -327,20 +327,20 @@ rank	word	pos	en
 326	orde	noun	order; state of being ordered, arranged, in line with rules
 327	houdt	verb	second/third-person singular present indicative
 328	verder	adj	comparative degree of ver
-329	vroeg	adj	early
-330	stop	noun	an action of stopping, cessation
+329	vroeg	verb	asked (past singular of vragen — ik vroeg hem naar zijn naam); early (te vroeg; vroeg of laat, sooner or later)
+330	stop	verb	stop!, quit! (imperative of stoppen, usually stop met … — stop met praten); I stop; as a noun: a plug, a stopper; a fuse
 331	wachten	verb	to wait
 332	rustig	adj	calm, tranquil, quiet
 333	hoofd	noun	head; head (of an organisation), chief, boss
-334	krijg	noun	war
+334	krijg	verb	I get, I receive (ik krijg wat ik wil); get! (imperative of krijgen); (archaic) war
 335	daarom	adv	therefore, so, that's why
 336	gebeurt	verb	second/third-person singular present indicative
 337	soms	adv	sometimes; maybe, perhaps
 338	volgens	prep	according to
-339	dagen	verb	to dawn; to light, illuminate, color by lighting
+339	dagen	noun	days (plural of dag — drie dagen geleden); to show up, turn up (op komen dagen); to summon to court
 340	vond	verb	singular past indicative of vinden
 341	krijgt	verb	second/third-person singular present indicative
-342	gemaakt	adj	artificial, unnatural
+342	gemaakt	verb	made, done (past participle of maken — ik heb het zelf gemaakt; van hout gemaakt, made of wood); as an adjective: artificial, affected
 343	kant	noun	side, face (of an object)
 344	werkt	verb	second/third-person singular present indicative
 345	open	adj	open, not closed
@@ -349,16 +349,16 @@ rank	word	pos	en
 348	zaak	noun	a thing, matter (general term with for a concept other than animate beings)
 349	blij	adj	happy; momentarily. For generally in life, see gelukkig.
 350	volgende	adj	masculine/feminine singular attributive
-351	zoek	adj	lost, missing, gone
+351	zoek	verb	I look for, I am searching (ik zoek mijn vrienden); look for!, seek! (from zoeken — zoek dekking, take cover); op zoek naar — in search of, looking for; as an adjective: lost, missing
 352	kans	noun	chance; opportunity
 353	vanavond	adv	tonight, this evening, the evening of the current day (in the future or past)
-354	bel	noun	bell
+354	bel	verb	I call, I phone (ik bel je later terug); call! (imperative of bellen — bel de politie); as a noun: bell, doorbell
 355	probeer	verb	first-person singular present indicative
 356	zoeken	verb	to search; to look for, to seek
 357	oude	adj	masculine/feminine singular attributive
 358	ding	noun	matter, thing; thing (popular assembly or judicial council in early Germanic society)
 359	moment	noun	moment (very brief period of time)
-360	best	adj	fine, okay; dear, venerable (in a polite address)
+360	best	adj	best (superlative of goed — je best doen, to do one's best); quite, rather (het is best koud vandaag); dear (beste …, in an address)
 361	tussen	prep	between; among, amidst
 362	plaats	noun	place, position
 363	pas	adv	just, recently; hardly
@@ -374,12 +374,12 @@ rank	word	pos	en
 373	pijn	noun	pain, ache (physical)
 374	slecht	adj	bad; ordinary, simple, common, mean
 375	geloven	verb	to believe, to hold a belief
-376	eruit	adv	out! get out!
+376	eruit	adv	out of it, out of there (er + uit — haal de stekker eruit); eruitzien: to look, to appear (hoe ziet zij eruit?); as a shout: out! get out!
 377	minuten	noun	plural of minuut
 378	school	noun	a school; a thematic educational institute within a larger one
 379	plan	noun	a set of intended actions, through which one expects to achieve a goal: plan, plot, scheme
 380	broer	noun	brother (male sibling)
-381	pak	noun	package; suit (set of clothes)
+381	pak	noun	pack, package; suit (set of clothes); also grab!, take! (imperative of pakken — pak je spullen, pak 'm)
 382	jezelf	pron	yourself
 383	hoeveel	det	how much, how many
 384	kamer	noun	a room, physical chamber in a building
@@ -398,9 +398,9 @@ rank	word	pos	en
 397	proberen	verb	to try, to attempt
 398	dokter	noun	doctor (physician, medical doctor)
 399	agent	noun	a police officer
-400	help	intj	help!
+400	help	verb	I help; help me!, help out! (imperative of helpen — help me deze lading uit te laden); also the cry help!
 401	voordat	conj	before
-402	later	adj	having to do with or occurring in the future
+402	later	adv	later, afterwards (comparative of laat — ik bel je later terug; drie uur later); when I'm grown up (als ik later groot ben); as an adjective: later, subsequent
 403	ogen	verb	to look, to appear
 404	vrij	adj	free; not imprisoned or enslaved.
 405	klopt	verb	second/third-person singular present indicative
@@ -415,14 +415,14 @@ rank	word	pos	en
 414	kent	verb	second/third-person singular present indicative
 415	week	noun	week, period of seven days
 416	beginnen	verb	to begin
-417	praat	noun	talk, talking
+417	praat	verb	talk, speak — the present tense of praten (je praat te veel; praat niet zo tegen hem); as a noun: talk, chatter
 418	eerder	adj	earlier, former
 419	mis	noun	mass (service in a Catholic church)
 420	handen	noun	plural of hand
 421	deur	noun	door
 422	baby	noun	baby (infant)
 423	echte	adj	masculine/feminine singular attributive
-424	bellen	verb	to ring, like using a bell
+424	bellen	verb	to call, to phone (ik moet bellen — I have to make a call); to ring (a bell)
 425	boven	adv	above; upstairs
 426	groot	adj	big, large, great
 427	hoeft	verb	second/third-person singular present indicative
@@ -454,7 +454,7 @@ rank	word	pos	en
 453	mogelijk	adj	possible
 454	mooie	adj	masculine/feminine singular attributive
 455	bloed	noun	blood; a grave consequence, a high price
-456	wees	noun	an orphan, person or animal having survived both parents
+456	wees	verb	be! (imperative of zijn — wees niet bang, don't be afraid; wees voorzichtig, be careful); pointed, turned down (past of wijzen); as a noun: an orphan
 457	nacht	noun	night
 458	nieuws	noun	news
 459	bed	noun	bed (furniture for sleeping)
@@ -468,13 +468,13 @@ rank	word	pos	en
 467	klinkt	verb	second/third-person singular present indicative
 468	maanden	noun	plural of maand
 469	vermoorden	verb	to murder
-470	zorg	noun	care; concern; worry
+470	zorg	verb	make sure!, see to it! (zorg dat …, zorg ervoor dat …); take care of! (zorg voor …, from zorgen); as a noun: care, concern; healthcare
 471	dollar	noun	dollar (currency, especially the US dollar)
 472	bezig	adj	busy, occupied; in progress, on
 473	voorbij	adv	past; just beyond
 474	terwijl	conj	while, during the same time that
 475	sta	verb	first-person singular present indicative
-476	zaken	noun	business; affairs, a field of management, such as a political portfolio
+476	zaken	noun	things, matters, affairs (plural of zaak — dat soort zaken, stand van zaken); business (zaken doen; bemoei je met je eigen zaken); Affairs, in ministry names (Buitenlandse Zaken)
 477	avond	noun	evening, night
 478	tien	num	ten
 479	schuld	noun	debt, account payable

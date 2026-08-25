@@ -36,7 +36,7 @@ rank	word	pos	en
 35	al	contraction	to the, at the (a + el); on, upon (al + infinitive: al llegar — on arriving)
 36	más	adv	more; -er (used to make comparisons)
 37	le	pron	to him, for him; dative of él
-38	esto	pron	substitutes a noun one can't remember or can't remember the name of
+38	esto	pron	this; this thing, this idea (for something unnamed or a whole situation) - neuter, never used before a noun
 39	todo	det	all; every; each; every
 40	ya	adv	now (often as opposed to before), anymore, no longer
 41	estoy	verb	I am (from estar — where I am, how I feel, a passing state)
@@ -45,7 +45,7 @@ rank	word	pos	en
 44	ha	verb	has; he/she/it has, you have (formal) — helper before a past participle
 45	esta	det	this (with a feminine noun — something near the speaker); this one
 46	así	adv	like this; like that; as such; thus; so; thereby; this way, that way
-47	vamos	intj	let's go!; come on! (expression of encouragement)
+47	vamos	verb	we go, we are going (from ir); vamos a + inf. - we are going to; let's go!, come on!
 48	algo	pron	something, anything
 49	hay	verb	there is; there are — one invariable form, the same for one or many
 50	bueno	adj	good; tasty, yummy, good (of food)
@@ -60,7 +60,7 @@ rank	word	pos	en
 59	cómo	adv	how?
 60	este	det	this
 61	o	conj	or
-62	he	adv	here is; behold (+ aquí)
+62	he	verb	I have (from haber - the helper before a past participle: he visto, I have seen); he aqui - here is, behold
 63	ser	verb	to be (essentially or identified as)
 64	tiene	verb	third-person singular present indicative of tener
 65	puedo	verb	first-person singular present indicative of poder
@@ -75,13 +75,13 @@ rank	word	pos	en
 74	sólo	adv	superseded spelling of solo
 75	todos	det	masculine plural of todo
 76	porque	conj	because
-77	son	noun	tone (pleasant sound)
+77	son	verb	they are; you are (ustedes) - from ser, for identity and lasting traits; son las dos - it's two o'clock; also el son, an Afro-Cuban musical form
 78	tienes	verb	second-person singular present indicative of tener
 79	creo	verb	I believe; I think (from creer)
 80	voy	verb	first-person singular present indicative of ir
-81	sabes	intj	you know? (rhetorical question)
+81	sabes	verb	you know (from saber - facts, information, how to do something); sabes? - you know?, right? (as a tag)
 82	estaba	verb	first/third-person singular imperfect indicative of estar
-83	puede	intj	it's possible; could be
+83	puede	verb	he/she/it can, is able to; you can (formal) - from poder; puede que + subjunctive - maybe, it could be
 84	eres	verb	second-person singular present indicative of ser; you are
 85	ese	det	that
 86	usted	pron	second person formal; you (singular)
@@ -92,7 +92,7 @@ rank	word	pos	en
 91	casa	noun	house
 92	tan	adv	so, as; very
 93	quién	pron	who?, whom?; (with “de”) whose?
-94	sus	det	your (with plural possessee)
+94	sus	det	his, her, its, their; your (formal) - with a plural noun: sus amigos, his friends
 95	tiempo	noun	time; a while, period of time, long time, length of time, indeterminate amount of time
 96	dos	num	two
 97	esa	det	feminine singular of ese
@@ -140,7 +140,7 @@ rank	word	pos	en
 139	estamos	verb	first-person plural present indicative of estar
 140	otra	det	feminine singular of otro
 141	acuerdo	noun	agreement; compromise
-142	trabajo	noun	work, job; work
+142	trabajo	noun	work, job; a school assignment; also I work - first person of trabajar (yo no trabajo, I do not work)
 143	nosotros	pron	we (masculine plural)
 144	parece	verb	third-person singular present indicative
 145	gente	noun	people; guys, lads (used to address a group of people)
@@ -157,8 +157,8 @@ rank	word	pos	en
 156	ellos	pron	plural of él (“they, them”)
 157	sr.	noun	abbreviation of Señor (“Mister”); Mr.
 158	tal	adj	such
-159	pasa	noun	raisin
-160	fuera	adv	outside
+159	pasa	verb	happens, is going on (que pasa? - what's happening?); he/she/it passes, comes by - from pasar; pasa - come in!, go ahead (imperative); also la pasa, a raisin
+160	fuera	adv	outside, out; fuera de — outside of, away from; I/he/she were, I/he went — imperfect subjunctive of ser and ir (si yo fuera tú — if I were you); ¡fuera! — get out!
 161	después	adv	later, afterwards, afterward, post
 162	han	verb	third-person plural present indicative of haber
 163	desde	prep	since (from a specified time in the past)
@@ -168,9 +168,9 @@ rank	word	pos	en
 167	momento	noun	moment, instant
 168	les	pron	dative of ellos and ellas; to them, for them
 169	tener	verb	to have; to possess
-170	estado	noun	country, land (any broad area or territory)
+170	estado	verb	been - past participle of estar (he estado aqui, I have been here); also el estado: state (a condition), the State (a country)
 171	otro	det	other, another
-172	había	verb	makes pluperfect to verbs as part of the auxiliary verb haber.
+172	había	verb	there was, there were - the past of hay; I/he/she had (done) - imperfect of haber before a past participle
 173	mañana	adv	tomorrow; soon, shortly
 174	tenía	verb	first/third-person singular imperfect indicative of tener
 175	madre	noun	mother; mother (source or origin)
@@ -203,7 +203,7 @@ rank	word	pos	en
 202	tres	num	three
 203	buena	adj	feminine singular of bueno
 204	necesito	verb	first-person singular present indicative of necesitar
-205	dije	noun	adorns, locket; amulet, charm
+205	dije	verb	I said, I told - preterite of decir (ya dije que no, I already said no); also el dije, a charm or locket
 206	oye	intj	hey! listen! (call to attract attention of a single person)
 207	gusta	verb	third-person singular present indicative
 208	quería	verb	first/third-person singular imperfect indicative of querer
@@ -236,7 +236,7 @@ rank	word	pos	en
 235	tanto	det	so much; as much; that much
 236	saber	verb	to know, to understand (a fact)
 237	hizo	verb	third-person singular preterite indicative of hacer
-238	veces	prep	by, times (multiplication)
+238	veces	noun	times, instances - plural of vez; a veces - sometimes; muchas veces - often; tres veces - three times
 239	serio	adj	serious, earnest, sober, solemn (without humor)
 240	ven	verb	second-person singular imperative of venir
 241	idea	noun	idea
@@ -245,19 +245,19 @@ rank	word	pos	en
 244	problema	noun	problem, issue, challenge (a difficulty or obstacle that has to be dealt with)
 245	hora	noun	hour (a time period of sixty minutes)
 246	cierto	adj	true
-247	dicho	adj	mentioned, said, aforementioned
+247	dicho	adj	said, told - past participle of decir (que has dicho? - what did you say?); mentioned, aforementioned; also el dicho, a saying or proverb
 248	quien	pron	who; whom
 249	demasiado	adj	too much, too many, excessive
 250	amor	noun	love; love affair
 251	ve	verb	third-person singular present indicative
 252	entre	prep	between; among, amongst, from
-253	pasado	adj	past; former
+253	pasado	adj	happened, passed - past participle of pasar (que ha pasado? - what happened?); past, last (el ano pasado - last year); el pasado - the past
 254	familia	noun	family (group of people related to each other)
 255	estos	det	masculine plural of este
 256	policía	noun	Civility, polity, public order, police, fineness, neatness, urbanity
 257	debería	verb	first/third-person singular conditional of deber
 258	ustedes	pron	you (plural), you guys, y'all, yous, yinz, ye
-259	chica	noun	gal, chick; A spice made from the Sobralia orchid.
+259	chica	noun	girl, young woman — the female of chico
 260	esos	det	plural of ese; those
 261	chicos	adj	masculine plural of chico
 262	cuenta	noun	count, tally; operation
@@ -265,7 +265,7 @@ rank	word	pos	en
 264	todavía	adv	still, yet; even, still
 265	salir	verb	to go out, to leave, to depart, to head out
 266	algún	det	apocopic form of alguno; some, any
-267	vaya	intj	expresses surprise: wow!, why, oh!, whoa!, well!, man!, boy!
+267	vaya	verb	may go, that I/he/she go - present subjunctive of ir (que te vaya bien, may it go well for you); go! (formal imperative); vaya! - wow!, well!, oh dear!
 268	unos	article	masculine plural of un
 269	veo	verb	first-person singular present indicative of ver
 270	amigos	noun	plural of amigo
@@ -276,9 +276,9 @@ rank	word	pos	en
 275	ah	intj	ah (expression of relief, realization, awe)
 276	cariño	noun	affection, fondness
 277	digo	intj	I mean; used to explain or correct a previous utterance
-278	van	noun	van (vehicle)
+278	van	verb	they go, they are going; you (ustedes) go - from ir; van a + inf. - they are going to; como van las cosas? - how are things going?
 279	hombres	noun	plural of hombre
-280	buenas	intj	hello, good morning, good afternoon, good evening (greeting used irrespective of the time)
+280	buenas	adj	good (feminine plural - cosas buenas, good things); buenas noches, buenas tardes - good night, good afternoon; buenas! - hi there (a greeting at any time)
 281	somos	verb	first-person plural present indicative of ser
 282	cualquier	det	apocopic form of cualquiera; any; whatever; whichever
 283	forma	noun	shape; form; figure
@@ -289,7 +289,7 @@ rank	word	pos	en
 288	caso	noun	case (situation or fact)
 289	pueden	verb	third-person plural present indicative of poder
 290	pasó	verb	third-person singular preterite indicative of pasar
-291	primera	noun	first gear (lowest gear in a motor vehicle)
+291	primera	adj	first (feminine - la primera vez, the first time); also la primera: first gear, first class
 292	genial	adj	ingenious, genius
 293	chico	adj	small
 294	supuesto	adj	supposed, self-styled, alleged
@@ -315,7 +315,7 @@ rank	word	pos	en
 314	historia	noun	history (the aggregate of past events)
 315	iba	verb	first/third-person singular imperfect indicative of ir
 316	supongo	verb	first-person singular present indicative of suponer
-317	nueva	noun	news, novelty
+317	nueva	adj	new (feminine - una casa nueva, a new house); brand new; also la nueva, a piece of news
 318	entiendo	verb	first-person singular present indicative of entender
 319	dentro	adv	inside (for space)
 320	casi	adv	almost
@@ -348,7 +348,7 @@ rank	word	pos	en
 347	muerte	noun	death (the cessation of life)
 348	dejar	verb	to leave (to place)
 349	realidad	noun	reality; commodity
-350	deja	noun	rest (that remaining after cutting textiles)
+350	deja	verb	leaves, lets, allows - from dejar; deja - leave it!, stop! (imperative); deja de + inf. - stop doing something
 351	da	verb	third-person singular present indicative
 352	problemas	noun	plural of problema
 353	importante	adj	important, that cares, that matters.
@@ -366,7 +366,7 @@ rank	word	pos	en
 365	manos	noun	plural of mano
 366	debes	verb	second-person singular present indicative of deber
 367	viene	verb	third-person singular present indicative of venir
-368	venga	intj	A cheer or expression of support, encouragement, etc.; come on, attaboy
+368	venga	verb	may come, that he/she come - present subjunctive of venir (espero que venga, I hope he comes); come in! (formal imperative); venga! - come on!, all right! (peninsular)
 369	nuestros	det	masculine plural of nuestro
 370	ojos	noun	plural of ojo
 371	adelante	adv	forward (toward the front)
@@ -393,7 +393,7 @@ rank	word	pos	en
 392	suficiente	adj	sufficient, enough
 393	punto	noun	point (specific spot, location, or place)
 394	sigue	verb	third-person singular present indicative
-395	haya	noun	beech, beech tree
+395	haya	verb	has done, may have done — present subjunctive of haber, the helper after puede que and no creo que (puede que lo haya visto — he may have seen it); there is, there are (subjunctive of hay: puede que haya otros); also la haya, a beech tree
 396	equipo	noun	team; equipment, kit, hardware
 397	grande	adj	big, large; great, grand
 398	necesita	verb	third-person singular present indicative
@@ -413,7 +413,7 @@ rank	word	pos	en
 412	dices	verb	second-person singular present indicative of decir
 413	pequeño	adj	small; little
 414	llama	noun	flame
-415	toma	noun	conquest, capture, taking, takeover
+415	toma	verb	he/she/it takes, drinks - from tomar; toma! - here, take this! (imperative); also la toma: a take or shot, an intake, a capture
 416	hiciste	verb	second-person singular preterite indicative of hacer
 417	allá	adv	there, over there, thither, yonder (in a direction away from the speaker and the listener)
 418	última	adj	feminine singular of último
@@ -461,10 +461,10 @@ rank	word	pos	en
 460	culpa	noun	fault; guilt
 461	abajo	adv	down, downwards
 462	escuela	noun	school (an institution dedicated to teaching and learning)
-463	ido	adj	away with the fairies; absent-minded
+463	ido	verb	gone - past participle of ir (se ha ido, he has gone); also ido: out of it, absent-minded
 464	fuerte	adj	strong; loud
 465	diciendo	verb	gerund of decir
-466	habla	noun	speech (faculty of speech)
+466	habla	verb	he/she/it speaks, talks; you speak (formal) - from hablar; habla! - speak! (imperative); also el habla: speech, the faculty of speech
 467	esté	verb	first/third-person singular present subjunctive
 468	ello	pron	it, neuter third-person subject and disjunctive pronoun
 469	pregunta	noun	question (sentence that asks for information)
@@ -487,7 +487,7 @@ rank	word	pos	en
 486	fácil	adj	easy, facile, simple (requiring little effort)
 487	comer	verb	to eat; to have lunch
 488	vino	noun	wine
-489	lista	noun	list, roll; stripe
+489	lista	noun	list, roll; ready, clever - feminine of listo (ya estoy lista, I'm ready); stripe
 490	haga	verb	first/third-person singular present subjunctive
 491	necesitas	verb	second-person singular present indicative of necesitar
 492	hijos	noun	plural of hijo (“sons, children”)

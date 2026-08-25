@@ -7,7 +7,7 @@ rank	word	pos	en
 6	é	verb	is (he, she, it — from ser); are (with você); that's right, yeah (agreeing)
 7	e	conj	and (joining words, phrases, or clauses)
 8	um	article	a, an (masculine); one (the number)
-9	para	prep	for (directed at, intended to belong to or to be appropriate for)
+9	para	prep	to; for; in order to (destination, recipient, purpose: vou para casa, para você, para fazer); also stop!, stops (from parar)
 10	eu	pron	I (as the subject)
 11	uma	article	a, an (feminine); one (the number)
 12	está	verb	is; you are (temporary states and locations — he/she/it, você)
@@ -35,13 +35,13 @@ rank	word	pos	en
 34	foi	verb	was; went (past of both ser and ir — he/she/it, você)
 35	ela	pron	she; it; her (after a preposition: com ela, para ela)
 36	isto	pron	this (the thing here)
-37	estou	intj	hello (a greeting used when answering the telephone)
+37	estou	verb	I am (temporary states, feelings and locations — from estar); (European, answering the telephone) hello
 38	fazer	verb	to make; to create; to produce
-39	vamos	verb	forms the analytic first-person plural imperative; let's
+39	vamos	verb	let's (vamos ver = let's see, vamos lá = let's go); we're going to (forms the future: vamos fazer); we go, we are going (from ir)
 40	já	adv	already (indicating that something has happened before)
 41	ser	verb	to be; to be (to be an example or type of, or the same as)
 42	vai	verb	goes, is going; you go; is going to (forms the future: vai chover)
-43	à	prep	"forms adverbs meaning ""in a manner related or resembling"""
+43	à	contraction	to the, at the (a + a, feminine singular — the crase à: à noite, à casa dela); in set phrases, in the manner of (à moda de)
 44	minha	det	my; mine (with feminine nouns: minha casa, minha mãe)
 45	só	adj	only; just (alone in a category)
 46	ao	contraction	contraction of a (“to”) + o m sg (“the”)
@@ -61,14 +61,14 @@ rank	word	pos	en
 60	lá	adv	there (in that place, far from both the speaker and the audience)
 61	então	adv	then (at that time)
 62	ter	verb	to have; to own; to possess; to have; to have got
-63	era	noun	era (time period of indeterminate length, generally more than one year)
+63	era	verb	was, used to be (I, he, she, it, você — imperfect of ser); (as a noun, f.) era, age
 64	quem	pron	who; whom (which person?)
 65	onde	adv	where; wherever (in or at what place; in or at a/any/the place that, in what situation)
 66	nada	pron	nothing (not any thing; no thing)
 67	ou	conj	or; or (connects two equivalent names)
 68	coisa	noun	thing (a physical object, entity, or situation)
 69	dizer	verb	to say; to speak; to pronounce; to utter; to say
-70	são	adj	forms the titles of male saints whose names begin with a consonant
+70	são	verb	they are; you are (plural — from ser); it's (telling the time: são 9h15); also Saint (before a man's name), and (adj.) sound, healthy
 71	quero	verb	first-person singular present indicative of querer
 72	estava	verb	first/third-person singular imperfect indicative of estar
 73	sou	verb	first-person singular present indicative of ser
@@ -134,7 +134,7 @@ rank	word	pos	en
 133	sem	prep	-less; without (not having, containing, characteristic of, etc.)
 134	vais	verb	second-person singular present indicative of ir
 135	das	contraction	contraction of de (“of/from”) + as f pl (“the”): feminine plural of do
-136	tinha	noun	ringworm; some other skin diseases of man and other animals
+136	tinha	verb	had; used to have (I, he, she, it, você — imperfect of ter); tinha que = had to; (as a noun, f.) ringworm
 137	estar	verb	to be (indicates location in space)
 138	queres	verb	second-person singular present indicative of querer
 139	coisas	noun	plural of coisa
@@ -153,19 +153,19 @@ rank	word	pos	en
 152	preciso	adj	precise; accurate (in exact or careful conformity with the truth)
 153	antes	adv	before (at an earlier time)
 154	senhor	noun	a man (an adult male human)
-155	lhe	pron	equivalent to a third- or second-person possessive pronoun
+155	lhe	pron	(to) him, (to) her, (to) you (indirect object of the verb: eu lhe disse = I told him); his, her, your (with body parts and belongings: lavei-lhe as mãos)
 156	podes	verb	second-person singular present indicative of poder
 157	apenas	adv	only; just; merely (no more than)
 158	sr.	noun	alternative form of Sr.
 159	faz	verb	third-person singular present indicative
 160	vocês	pron	you (second-person plural personal pronoun)
 161	ninguém	pron	no one; nobody (not one person)
-162	trabalho	noun	job (economic role for which a person is paid)
+162	trabalho	noun	work; job (m.); I work (from trabalhar)
 163	outra	det	feminine singular of outro
-164	espera	noun	wait (time spent waiting)
+164	espera	verb	waits; hopes; expects (he, she, você — from esperar); wait! (as a command); (as a noun, f.) wait (sala de espera = waiting room)
 165	saber	verb	to know; to be aware, to know
 166	comigo	adv	prepositional form with com of eu: with me
-167	vão	adj	vain; pretentious, overambitious (excessively proud of oneself)
+167	vão	verb	they go, they're going; you (plural) go (from ir); they're going to (forms the future: vão chegar); (as an adjective) vain, futile (em vão = in vain)
 168	dinheiro	noun	money (means of exchange and measure of value)
 169	aí	adv	there; towards the second person
 170	podemos	verb	first-person plural present indicative of poder
@@ -192,7 +192,7 @@ rank	word	pos	en
 191	seja	verb	first/third-person singular present subjunctive
 192	meus	det	masculine plural of meu
 193	nosso	det	our; our (belonging to, associated with, related to, or in the possession of people in general)
-194	olha	noun	a stew prepared with meat, chickpeas, peas and other vegetables
+194	olha	verb	look!, look at (olha isso = look at this); look, hey (opening a remark in speech); he, she looks (from olhar)
 195	vá	verb	first/third-person singular present subjunctive
 196	daqui	contraction	contraction of de + aqui, literally “from here”
 197	sério	adj	serious; solemn (without humor or expression of happiness)
@@ -211,7 +211,7 @@ rank	word	pos	en
 210	quanto	prep	as (to the same extent or degree that)
 211	pensar	verb	to think (communicate to oneself in one’s mind)
 212	mal	adv	badly (in a faulty, dysfunctional or incorrect manner)
-213	volta	noun	return (act of returning)
+213	volta	noun	return (f.); back (de volta: quero meu dinheiro de volta); a walk, a spin (dar uma volta); also comes back, returns (from voltar)
 214	aconteceu	verb	third-person singular preterite indicative of acontecer
 215	consigo	adv	third-person singular reflexive prepositional pronoun with com
 216	três	num	three (cardinal number 3)
@@ -235,7 +235,7 @@ rank	word	pos	en
 234	parte	noun	part; section; portion
 235	todas	det	feminine plural of todo
 236	aos	contraction	contraction of a + os, literally “to the (masculine plural)”: masculine plural of ao
-237	obrigada	intj	thank you
+237	obrigada	intj	thank you (said by a woman; a man says obrigado); (as a participle, f.) obliged, forced (foi obrigada a = she was made to)
 238	primeiro	adj	first
 239	será	verb	third-person singular future indicative of ser
 240	lugar	noun	place (a location or position)
@@ -252,7 +252,7 @@ rank	word	pos	en
 251	aquele	det	that (far from the speaker and listener)
 252	fui	verb	first-person singular preterite indicative of ir
 253	sabia	verb	first/third-person singular imperfect indicative of saber
-254	anda	noun	stilt (a pole with footrests used by entertainers)
+254	anda	verb	walks; goes (he, she, você — from andar); come on!, get moving! (as a command)
 255	querida	adj	feminine singular of querido
 256	duas	num	feminine of dois
 257	ideia	noun	idea (that which comes to mind)
@@ -261,7 +261,7 @@ rank	word	pos	en
 260	polícia	noun	police
 261	podem	verb	third-person plural present indicative of poder
 262	forma	noun	form; shape (the visible structure of a thing)
-263	entre	prep	among (denotes a mingling or intermixing with distinct or separable objects)
+263	entre	prep	between; among (entre nós = between us, entre as duas cidades); also come in! (from entrar)
 264	caso	conj	if (introduces a condition)
 265	gosto	noun	taste (one of the five senses)
 266	atrás	adv	behind (at the back)
@@ -303,7 +303,7 @@ rank	word	pos	en
 302	outros	det	masculine plural of outro
 303	entrar	verb	to enter; to go into
 304	chegar	verb	to arrive (at); to reach (to conclude moving to a destination)
-305	nova	noun	news; nova
+305	nova	adj	new (feminine of novo: uma casa nova); young, younger (ela é mais nova que ele)
 306	trabalhar	verb	to work (to do a specific task)
 307	quase	adv	almost (very close to)
 308	desculpe	verb	first/third-person singular present subjunctive
@@ -319,9 +319,9 @@ rank	word	pos	en
 318	suas	det	feminine plural of seu
 319	enquanto	conj	as; while (at the same time as)
 320	alguns	pron	masculine plural of algum
-321	ajuda	noun	help, assistance, aid
+321	ajuda	noun	help, aid (f.); helps (he, she, você — from ajudar)
 322	precisa	adj	feminine singular of preciso
-323	morto	adj	dead (no longer living)
+323	morto	adj	dead (ele está morto); killed (foi morto = he was killed — past participle of matar as well as of morrer)
 324	primeira	adj	feminine singular of primeiro
 325	porta	noun	door; entrance
 326	minhas	det	feminine plural of meu
@@ -356,12 +356,12 @@ rank	word	pos	en
 355	acha	noun	billet (piece of wood used as firewood)
 356	teus	det	masculine plural of teu
 357	levar	verb	to take (to move something to a destination)
-358	conta	noun	operation, calculation
+358	conta	noun	bill, check (f.: a conta, por favor); account (bank or online); sum, calculation; tomar conta de = to look after; also tells, counts (from contar)
 359	arma	noun	weapon
 360	pessoal	adj	personal
 361	quarto	adj	fourth
 362	olhos	noun	plural of olho
-363	senhora	noun	lady; mistress
+363	senhora	noun	ma'am, madam (f.); a senhora = you (polite, to a woman — takes he/she verb forms); lady
 364	adeus	intj	goodbye (farewell)
 365	cara	noun	face; heads (side of coin)
 366	disto	verb	first-person singular present indicative of distar
@@ -398,7 +398,7 @@ rank	word	pos	en
 397	chefe	noun	chief, head, head man, boss
 398	jogo	noun	play; game; sport
 399	guerra	noun	war (organised, large-scale armed conflict)
-400	fala	noun	speech (the ability to speak)
+400	fala	verb	speaks, talks (he, she, você — from falar: você fala inglês?); (as a noun, f.) speech
 401	procura	noun	search (an attempt to find something)
 402	dr.	noun	abbreviation of doutor; Dr.
 403	sabemos	verb	first-person plural present indicative of saber
@@ -428,7 +428,7 @@ rank	word	pos	en
 427	coração	noun	heart (organ of the body)
 428	segurança	noun	security; safety (condition of not being threatened)
 429	viver	verb	to live; to have life
-430	estado	noun	state (subdivision of a nation)
+430	estado	noun	state (m.: of a country — cada estado tem seu governo); condition (em mau estado, estado civil); been (tem estado = has been — past participle of estar)
 431	parar	verb	to stop (to no longer move)
 432	teve	verb	third-person singular preterite indicative of ter
 433	segundo	adj	second (ordinal numeral for 2)
@@ -436,7 +436,7 @@ rank	word	pos	en
 435	quatro	num	four
 436	mão	noun	hand; forefoot (either of the front feet of a quadruped)
 437	baixo	adj	low; short
-438	maior	adj	major, greater; major
+438	maior	adj	bigger, larger, taller (comparative of grande); biggest, greatest (o maior); a maior parte = most of
 439	meio	adj	half
 440	meses	noun	plural of mês
 441	mau	adj	bad; evil, wicked
@@ -470,7 +470,7 @@ rank	word	pos	en
 469	esperar	verb	to wait; to wait (for); to await
 470	viu	verb	third-person singular preterite indicative of ver
 471	irmã	noun	sister
-472	chega	noun	an ox fight
+472	chega	verb	arrives, gets there (he, she, você — from chegar); já chega! = that's enough!
 473	possível	adj	possible; potential
 474	devias	verb	second-person singular imperfect indicative of dever
 475	sai	verb	third-person singular present indicative
@@ -489,15 +489,15 @@ rank	word	pos	en
 488	mil	adj	one thousand; a thousand; 1000
 489	longe	adv	far, a long way
 490	faça	verb	first/third-person singular present subjunctive
-491	penso	noun	band-aid; sanitary towel
+491	penso	verb	I think (from pensar: penso que = I think that); (European, as a noun, m.) a dressing, a band-aid
 492	tivesse	verb	first/third-person singular imperfect subjunctive of ter
 493	tuas	det	feminine plural of teu
 494	pedir	verb	to ask for; to request (to express the need or desire for something)
 495	estranho	adj	odd; strange (not normal)
 496	importa	verb	third-person singular present indicative
 497	fácil	adj	easy (requiring little skill or effort)
-498	muita	pron	synonym of muito
-499	veio	noun	vein (stripe or streak of a different colour or composition)
+498	muita	det	much, a lot of; many (feminine of muito: muita gente = a lot of people)
+499	veio	verb	came (he, she, você — preterite of vir); (as a noun, m.) vein, seam (of ore)
 500	brincar	verb	"to play, as in child's play or ""playing around"""
 501	bebé	noun	baby
 502	plano	adj	flat; level (having the same height at all places)
