@@ -530,7 +530,7 @@ rank	word	pos	en
 529	deloc	adv	(not) at all
 530	motiv	noun	motive; reason, ground
 531	dna	noun	Direcția Națională Anticorupție.
-532	pui	noun	chicken; chick
+532	pui	noun	chicken; chick, young of an animal (m.) — pui de somn “a nap”; also you put, you place (2nd person singular of a pune: de ce pui asta aici? “why are you putting that here?”, te rog să pui asta la loc “please put this back”)
 533	minte	noun	mind; sense, judgement, wisdom
 534	întreb	verb	first-person singular present indicative/subjunctive of întreba
 535	oră	noun	hour; class
@@ -550,20 +550,20 @@ rank	word	pos	en
 549	sora	noun	definite nominative/accusative singular of soră
 550	fă	verb	second-person singular imperative of face
 551	gândesc	verb	first-person singular present indicative/subjunctive
-552	rămas	noun	the result of remaining; remainder, remnant
+552	rămas	verb	remained, stayed; left over (past participle of a rămâne: a mai rămas doar o zi “there's only one day left”, am rămas fără bani “I ran out of money”); rămas-bun “farewell”
 553	fericit	adj	happy (enjoying peace, comfort, etc; contented, joyous)
 554	amintesc	verb	first-person singular present indicative/subjunctive
-555	plac	noun	liking
+555	plac	verb	I like (you, him); they please, they are liked (a plăcea, normally with a dative for “to like”: îmi plac câinii “I like dogs”, nu te mai plac “I don't like you anymore”); as a noun: liking (pe plac “to one's liking”)
 556	sigură	adj	nominative/accusative feminine singular of sigur
 557	revedere	noun	seeing again
 558	mică	adj	nominative/accusative feminine singular of mic (“small”)
 559	fiindcă	conj	because (literally, “being that”)
 560	prost	adj	simple, simple-minded
-561	urma	verb	to follow (go where someone else goes, not in pursuit)
-562	vină	noun	guilt, fault
+561	urma	verb	to follow (a urma: te voi urma “I will follow you”, a urma un curs “to take a course”); also the definite form of urmă (f.) “the trace, the track”: în urma ta “behind you”, în urma accidentului “following the accident”
+562	vină	verb	(that) he/she/they come — third-person subjunctive of a veni (vreau să vină “I want him to come”, i-am cerut să vină “I asked him to come”); as a noun: guilt, fault, blame (f.) — e de vină “he is to blame”
 563	tara	noun	definite nominative/accusative singular of tară
 564	nebun	adj	crazy, insane
-565	arma	verb	to prepare a weapon for firing
+565	arma	noun	the weapon, the gun (definite form of armă, f.: pune arma jos “put the gun down”, nu s-a tras cu arma “the gun wasn't fired”); as a verb: a arma “to arm, to cock a weapon”
 566	buni	adj	nominative/accusative masculine plural of bun
 567	aduc	verb	first-person singular present indicative/subjunctive
 568	jumătate	noun	half
@@ -602,7 +602,7 @@ rank	word	pos	en
 601	vrem	verb	first-person plural present indicative/subjunctive of vrea
 602	ultimul	adj	definite nominative/accusative masculine/neuter singular of ultim
 603	moartea	noun	definite nominative singular of moarte
-604	echipa	verb	to equip
+604	echipa	noun	the team (definite form of echipă, f.: echipa noastră “our team”, echipa are nevoie de mine “the team needs me”); as a verb: a echipa “to equip”
 605	întâi	adj	first
 606	care-i	contraction	contraction of care + îi
 607	genul	noun	definite nominative/accusative singular of gen
@@ -610,7 +610,7 @@ rank	word	pos	en
 609	dă	verb	inflection of da
 610	uneori	adv	sometimes, occasionally
 611	altfel	adv	otherwise; differently
-612	stat	noun	state, government
+612	stat	verb	stayed, stood, sat (past participle of a sta: cât ai stat? “how long did you stay?”, am stat acasă “I stayed at home”); as a noun: state, country (n.) — om de stat “statesman”
 613	unele	pron	nominative/accusative plural feminine/neuter of unul
 614	arat	verb	past participle of ara
 615	acela	det	that
@@ -660,7 +660,7 @@ rank	word	pos	en
 659	închisoare	noun	prison, jail; prison sentence, prison time
 660	v-am	contraction	contraction of vă + am
 661	pat	noun	bed
-662	întâlnit	noun	meeting
+662	întâlnit	verb	met (past participle of a întâlni: l-am întâlnit de multe ori “I've met him many times”, m-am întâlnit cu ea “I met up with her”); as a noun: an encounter (n.) — the ordinary word for a meeting is întâlnire
 663	muri	verb	to die
 664	amuzant	adj	funny
 665	zice	verb	to say, tell; to call by a name
@@ -668,7 +668,7 @@ rank	word	pos	en
 667	draga	verb	to dredge
 668	alea	det	nominative/accusative feminine/neuter plural of ăla: those
 669	jurul	noun	definite nominative/accusative singular of jur
-670	lovit	noun	hitting
+670	lovit	verb	hit, struck (past participle of a lovi: de ce m-ai lovit? “why did you hit me?”, a fost lovit de o mașină “he was hit by a car”); as a noun: the hitting, the striking (n.) — the ordinary word for a blow is lovitură
 671	spună	verb	third-person singular/plural present subjunctive of spune
 672	suficient	adj	sufficient
 673	trage	verb	to pull, draw, drag
@@ -730,7 +730,7 @@ rank	word	pos	en
 729	gândeam	verb	first-person singular/plural imperfect indicative of gândi
 730	deoarece	conj	since, because
 731	lucrez	verb	first-person singular present indicative of lucra
-732	luptă	noun	fight, fighting
+732	luptă	noun	fight, battle, struggle (f.) — o luptă grea “a hard fight”, am ieșit din luptă “I got out of the fight”; also he/she fights and the imperative fight! (a lupta: Luptă! “Fight!”, Ridică-te și luptă “Get up and fight”)
 733	cat	noun	floor (storey)
 734	film	noun	movie, film
 735	întrebat	verb	past participle of întreba
@@ -838,18 +838,18 @@ rank	word	pos	en
 837	cartea	noun	definite nominative/accusative singular of carte
 838	alături	adv	by, next to; side by side
 839	lumina	noun	definite nominative/accusative singular of lumină
-840	masa	verb	to massage
+840	masa	noun	the table; the meal (definite form of masă, f.: pune masa “set the table”, a lua masa “to have a meal”); as a verb: a masa “to massage”
 841	că-i	contraction	contraction of că + îi
 842	echipă	noun	team
 843	arme	noun	plural; genitive/dative singular
 844	ocupat	adj	occupied; busy
-845	cina	verb	to dine, sup, have dinner
+845	cina	noun	dinner, supper — the definite form of cină, f. (am pregătit cina “I made dinner”, a lua cina “to have dinner”, cina va fi gata “dinner will be ready”); as a verb: a cina “to dine”
 846	gură	noun	mouth; mouthful
 847	droguri	noun	plural of drog drugs
 848	baie	noun	bathroom; bath (act of bathing), bathtub
 849	cuvânt	noun	word
 850	oară	noun	a time, instance
-851	stea	noun	star (celestial body)
+851	stea	verb	(that) he/she/they stay, stand, sit — third-person subjunctive of a sta (spune-i să stea “tell him to stay”, las-o să stea aici “let her stay here”); as a noun: star (f.) — Venus nu este o stea “Venus is not a star”
 852	deschis	adj	open, opened
 853	arunca	verb	throw (to cause an object to move rapidly through the air), cast, hurl
 854	dormi	verb	to sleep
@@ -874,11 +874,11 @@ rank	word	pos	en
 873	tati	noun	diminutive of tată
 874	fericită	noun	female equivalent of fericit
 875	lună	noun	moon; month
-876	fugit	adj	fleeing
+876	fugit	verb	ran, ran away, fled (past participle of a fugi: calul meu a fugit “my horse ran away”, am fugit ca să ajung la timp “I ran to get there on time”, a fugit de acasă “he ran away from home”)
 877	cealaltă	det	nominative/accusative feminine singular of celălalt
 878	decis	adj	determined
 879	continua	verb	to continue
-880	modul	noun	module (component)
+880	modul	noun	the way, the manner (definite form of mod, n.: modul în care vorbește “the way he speaks”, în modul acesta “in this way”); also: the module, the unit; the modulus
 881	încep	verb	first-person singular present indicative/subjunctive
 882	interesant	adj	interesting
 883	crăciun	name	Christmas
@@ -903,7 +903,7 @@ rank	word	pos	en
 902	promis	adj	promised
 903	regele	noun	definite nominative/accusative singular of rege
 904	conduce	verb	to rule, lead (be a leader)
-905	scăpat	adj	saved (from danger)
+905	scăpat	verb	escaped, got away; got rid of — a scăpa de (past participle of a scăpa: am scăpat de pericol “we escaped the danger”, n-am idee cum a scăpat “I have no idea how he got away”); also dropped, let slip (i-a scăpat paharul “he dropped the glass”); transitively: got someone out of it, saved (m-a scăpat de o amendă “he got me out of a fine”)
 906	acestui	det	genitive/dative masculine/neuter singular of acest
 907	sens	noun	sense, meaning; reason, logic
 908	vorbească	verb	third-person singular/plural present subjunctive of vorbi
@@ -911,7 +911,7 @@ rank	word	pos	en
 910	cină	noun	dinner, supper (evening meal)
 911	chestii	noun	plural of chestie — things
 912	ajutat	noun	helped, assisted
-913	vede	noun	Vedas (Hindu religious texts)
+913	vede	verb	he/she/it sees (third-person singular of a vedea: el vede prost “he sees badly”, nu te vede nimeni “nobody sees you”); se vede “it shows, one can see”
 914	băiete	noun	vocative singular of băiat
 915	imposibil	adj	impossible
 916	diferit	adj	different, dissimilar, distinct
@@ -930,7 +930,7 @@ rank	word	pos	en
 929	serviciu	noun	employment, work
 930	persoana	noun	definite nominative/accusative singular of persoană
 931	v-a	contraction	contraction of vă + a
-932	merită	verb	third-person singular present indicative
+932	merită	verb	it is worth it; he/she/it deserves (third-person singular of a merita: merită “it's worth it”, nu merită “it's not worth it”, merită văzut “it's worth seeing”)
 933	rămân	verb	first-person singular present indicative/subjunctive
 934	cuvinte	noun	plural of cuvânt (“words”)
 935	hotel	noun	hotel
@@ -951,17 +951,17 @@ rank	word	pos	en
 950	aflu	verb	first-person singular present indicative/subjunctive of afla
 951	viitor	adj	future; next
 952	părea	verb	to look (to appear, to seem)
-953	par	noun	stake; club, bat
+953	par	verb	I seem; they seem (a părea: îți par bătrân? “do I seem old to you?”, ei par mișcați “they seem moved”, mi se par prea mari “they seem too big to me”); as an adjective: even, divisible by two (număr par); as a noun: stake, pole (m.)
 954	propria	adj	definite nominative/accusative feminine singular of propriu
-955	moară	noun	mill (building where grain is processed)
+955	moară	verb	(that) he/she/they die — third-person subjunctive of a muri (s-ar putea să moară “they could die”, nu vrem să mai moară oameni “we don't want more people to die”); as a noun: mill (f.) — moară de vânt “windmill”
 956	afacere	noun	business; affair
 957	care-l	contraction	contraction of care + îl
-958	aruncat	adj	castoff
+958	aruncat	verb	thrown, thrown away (past participle of a arunca: am aruncat-o “I threw it away”, a aruncat o piatră “he threw a stone”, am aruncat o privire “I took a look”); as an adjective: discarded, castoff
 959	ascuns	adj	hidden
 960	trec	verb	first-person singular present indicative/subjunctive
 961	doctorul	noun	definite nominative/accusative singular of doctor
 962	încet	adj	slow; dull
-963	baza	verb	to be based on (be grounded in)
+963	baza	verb	to rely on, to count on — a se baza pe (nu te poți baza pe Tom “you can't rely on Tom”, un om pe care te poți baza “a man you can count on”); to be based on, to rest on; also the definite form of bază (f.) “the base, the basis” — baza de date “the database”
 964	aur	noun	gold
 965	apărut	verb	past participle of apărea
 966	folosesc	verb	first-person singular present indicative/subjunctive
@@ -1039,7 +1039,7 @@ rank	word	pos	en
 1038	fund	noun	bottom; backside; buttocks
 1039	companie	noun	company
 1040	descoperit	adj	found, discovered
-1041	poartă	noun	gate; goal
+1041	poartă	noun	wears, carries; behaves (a purta — third-person singular and imperative: poartă ochelari “he wears glasses”, poartă-te frumos “behave nicely”); as a noun: gate; (football) goal (f.) — lângă poartă “by the gate”
 1042	lungă	adj	indefinite feminine nominative/accusative singular of lung
 1043	stânga	noun	left (direction; left hand side)
 1044	urgenta	verb	to expedite
@@ -1073,7 +1073,7 @@ rank	word	pos	en
 1072	prezenta	verb	to present
 1073	arestat	adj	arrested
 1074	viitorul	noun	definite nominative/accusative singular of viitor
-1075	port	noun	port (town with port)
+1075	port	verb	I wear; I carry (first-person singular of a purta: port ochelari de soare “I'm wearing sunglasses”, ce să port diseară? “what should I wear tonight?”); also a noun: port, harbour (neuter)
 1076	căpitanul	noun	definite nominative/accusative singular of căpitan
 1077	tina	name	a village in Livezi, Vâlcea County, Romania
 1078	capăt	noun	termination, end
@@ -1081,7 +1081,7 @@ rank	word	pos	en
 1080	detectiv	noun	detective
 1081	singuri	adj	masculine plural of singur
 1082	rupt	adj	torn, rended, broken
-1083	joacă	noun	play
+1083	joacă	verb	plays; play! (third-person singular and imperative of a juca: Tom nu joacă “Tom doesn't play”, joacă fotbal “he plays football”); as a noun: play, playing (f.) — o joacă de copil “child's play”
 1084	grup	noun	a group
 1085	conduc	verb	first-person singular present indicative/subjunctive
 1086	primesc	verb	first-person singular present indicative/subjunctive
@@ -1132,12 +1132,12 @@ rank	word	pos	en
 1131	marea	adj	definite nominative/accusative feminine singular of mare
 1132	surpriză	noun	surprise
 1133	trag	verb	first/third-person singular present indicative
-1134	jucat	noun	playing
+1134	jucat	verb	played (past participle of a juca: am jucat fotbal ieri “I played soccer yesterday”, m-am jucat cu fratele meu “I played with my brother”); as a noun: playing (neuter)
 1135	frumoase	adj	feminine/neuter plural
 1136	prietenă	noun	friend; girlfriend
 1137	chestie	noun	thing, thingy; business, affair
 1138	făcea	verb	third-person singular imperfect indicative of face
-1139	ni	intj	lo!, look!, behold!
+1139	ni	pron	to us, us — the dative clitic ne in the form it takes before another clitic (ni se pare “it seems to us”, ni se va permite “we'll be allowed”, ni le-am imaginat “we imagined them”)
 1140	glumă	noun	joke, jest; prank
 1141	purta	verb	to carry, bear; to wear
 1142	misiune	noun	mission; delegation, part, role
@@ -1183,7 +1183,7 @@ rank	word	pos	en
 1182	apare	verb	third-person singular present indicative of apărea
 1183	dorm	verb	first-person singular indicative/subjunctive present
 1184	baltă	noun	puddle, pond, pool (especially muddy); also swamp
-1185	placă	noun	plaque; plate
+1185	placă	verb	(that) one likes it, that it pleases — third-person subjunctive of a plăcea (sper c-o să-ți placă “I hope you'll like it”, ar trebui să-ți placă “you should enjoy this”); as a noun: plate, sheet; record (f.)
 1186	gândi	verb	to think (use one’s faculty of thought)
 1187	londra	name	London (the capital city of the United Kingdom; the capital city of England)
 1188	zonă	noun	zone
@@ -1260,7 +1260,7 @@ rank	word	pos	en
 1259	norocos	adj	lucky, fortunate
 1260	energie	noun	energy (impetus behind activity)
 1261	milion	noun	million
-1262	dormit	noun	sleep, sleeping
+1262	dormit	verb	slept (past participle of a dormi: ai dormit bine? “did you sleep well?”, n-am dormit de trei zile “I haven't slept for three days”); as a noun: sleep, sleeping (neuter)
 1263	acei	det	nominative/accusative masculine plural of acel
 1264	excelent	adj	excellent
 1265	pună	verb	third-person singular/plural subjunctive present of pune (“to put”)
@@ -1309,12 +1309,12 @@ rank	word	pos	en
 1308	profesor	noun	professor; teacher
 1309	listă	noun	list
 1310	extrem	adj	extreme
-1311	bei	noun	bey
+1311	bei	verb	you drink (second-person singular of a bea: bei cafea? “do you drink coffee?”, ce vrei să bei? “what would you like to drink?”); rarely a noun: bey, an Ottoman title (m.)
 1312	muzică	noun	music
 1313	bază	noun	base; foundation
 1314	păr	noun	hair
 1315	prânz	noun	lunch; noon, midday
-1316	moare	noun	a type of brine used for pickling
+1316	moare	verb	dies, is dying (third-person singular of a muri: e păcat când moare cineva “it's a pity when somebody dies”, moare de foame “he's starving”); rarely a noun: brine for pickling (f.)
 1317	martin	noun	bird of either the starling family, or of the kingfisher family.
 1318	fierbinte	adj	hot; scorching; burning
 1319	pete	noun	indefinite genitive/dative singular
@@ -1334,14 +1334,14 @@ rank	word	pos	en
 1333	permis	noun	license, permit
 1334	oprim	verb	first-person plural present indicative/subjunctive of opri
 1335	existat	verb	past participle of exista
-1336	atacat	noun	phthisic
+1336	atacat	verb	attacked (past participle of a ataca: am fost atacat “I was attacked”, a fost atacat de un urs “he was attacked by a bear”); as an adjective: afflicted, consumptive
 1337	corp	noun	body
 1338	practic	adj	practical (relating to practise)
 1339	vinde	verb	to sell
 1340	est	noun	east
 1341	a-l	contraction	contraction of a + îl
 1342	creste	noun	indefinite plural
-1343	ridicat	noun	lifting, elevating, raising, hoisting, suspending
+1343	ridicat	verb	raised, lifted; picked up (past participle of a ridica: și-a ridicat pălăria “he raised his hat”, ne-am ridicat “we stood up”); as an adjective: raised, high, rolled up; as a noun: lifting, raising (neuter)
 1344	neagră	adj	indefinite feminine nominative/accusative singular of negru
 1345	perioadă	noun	period, age (of time)
 1346	puțin	det	a little (not much)
@@ -1367,13 +1367,13 @@ rank	word	pos	en
 1366	lovitură	noun	a hit, blow, kick
 1367	or	verb	might
 1368	c-o	contraction	contraction of cu + o
-1369	trăiască	intj	long live...!
+1369	trăiască	verb	long live …! (Trăiască Republica! “Long live the Republic!”); it is the third-person subjunctive of a trăi “to live”: e liber să-și trăiască viața “he's free to live his life”
 1370	tragi	verb	second-person singular present indicative/subjunctive of trage
 1371	mesajul	noun	definite nominative/accusative singular of mesaj
 1372	pregătită	adj	feminine singular of pregătit
 1373	poată	verb	third-person singular present subjunctive of putea
 1374	frig	noun	cold, frigidity
-1375	părut	adj	apparent, seeming (not necessarily real)
+1375	părut	verb	seemed, appeared (past participle of a părea: mi s-a părut “it seemed to me”, mi-a părut rău “I was sorry”); as an adjective: apparent, seeming (not necessarily real)
 1376	vârstă	noun	age
 1377	mi-o	contraction	contraction of îmi + o
 1378	liceu	noun	secondary school
@@ -1499,7 +1499,7 @@ rank	word	pos	en
 1498	program	noun	program
 1499	terminam	verb	first-person singular/plural imperfect indicative of termina
 1500	l-ar	contraction	contraction of îl + ar
-1501	poza	verb	to pose (have one’s portrait made or taken)
+1501	poza	noun	the photo, the picture (definite form of poză, f.: uită-te la poza de pe birou “look at that picture on the desk”, i-a arătat poza mea “she showed him my picture”); also a verb: a poza “to pose; to photograph”
 1502	conduci	verb	second-person singular present indicative/subjunctive of conduce
 1503	mile	noun	plural of milă
 1504	laborator	noun	laboratory
@@ -1520,7 +1520,7 @@ rank	word	pos	en
 1519	fotbal	noun	football (UK); soccer (US, Australia)
 1520	ucid	verb	first-person singular present indicative/subjunctive
 1521	chem	verb	first-person singular present indicative/subjunctive of chema
-1522	pară	noun	pear
+1522	pară	verb	(that it) seem, appear — third-person subjunctive of a părea (bărbații vor să pară masculini “men like to look masculine”, ca să pară mai tânăr “so as to look younger”); as a noun: pear (f.); flame
 1523	niciunul	pron	none; no-one, nobody
 1524	devina	verb	to guess
 1525	bancă	noun	bench
@@ -1529,7 +1529,7 @@ rank	word	pos	en
 1528	aranjat	adj	arranged
 1529	adânc	adj	deep; profound
 1530	realitate	noun	reality
-1531	discutat	adj	debated, disputed
+1531	discutat	verb	discussed, talked over (past participle of a discuta: am discutat problema “we discussed the matter”, despre ce ați discutat ieri? “what did you discuss yesterday?”); as an adjective: debated, disputed
 1532	lipsit	adj	missing, lacking
 1533	puteți	verb	second-person plural present indicative/subjunctive of putea
 1534	însărcinată	adj	nominative/accusative feminine singular of însărcinat
@@ -1565,14 +1565,14 @@ rank	word	pos	en
 1564	fiului	noun	definite dative/genitive singular of fiu
 1565	curs	verb	past participle of curge
 1566	eliberat	adj	freed, emancipated
-1567	râs	noun	laughter, laugh
+1567	râs	verb	laughed (past participle of a râde: toți au râs “everybody laughed”, Tom a râs din toată inima “Tom laughed wholeheartedly”); as a noun: laughter, laugh (neuter) — nu mă puteam opri din râs “I couldn't stop laughing”; also lynx (m.)
 1568	fals	adj	false (untrue, not factual, wrong)
 1569	pereche	noun	pair; couple
 1570	slab	adj	weak; thin, skinny
 1571	răspund	verb	first-person singular present indicative/subjunctive
 1572	încolo	adv	thither, away, that way
 1573	refuzat	adj	refused
-1574	acceptat	noun	accept
+1574	acceptat	verb	accepted (past participle of a accepta: mi-a acceptat ideea “he accepted my idea”, au acceptat “they accepted”); as an adjective: accepted, agreed — un punct de vedere general acceptat “a commonly accepted view”
 1575	taie	verb	third-person singular/plural present indicative/subjunctive
 1576	miezul	noun	definite nominative/accusative singular of miez
 1577	purtat	adj	worn
@@ -1587,7 +1587,7 @@ rank	word	pos	en
 1586	deoparte	adv	aside; to the side
 1587	aveți	verb	second-person plural present indicative/subjunctive
 1588	ascultat	verb	past participle of asculta
-1589	accept	noun	acceptance
+1589	accept	verb	I accept (first-person singular of a accepta: accept propunerea lui “I accept his proposal”, eu nu accept invitația “I don't accept the invitation”); rarely a noun: acceptance (neuter)
 1590	dispari	verb	second-person singular present indicative/subjunctive of dispărea
 1591	altele	pron	nominative/accusative feminine/neuter plural of altul
 1592	urcă	verb	third-person singular/plural indicative present
@@ -1602,11 +1602,11 @@ rank	word	pos	en
 1601	scaun	noun	chair, seat; stool
 1602	recent	adj	recent
 1603	spart	verb	past participle of sparge
-1604	suport	noun	support
+1604	suport	verb	I bear it, I put up with it; I can stand (first-person singular of a suporta: nu-l suport pe omul ăla! “I can't stand that man!”, nu mai suport! “I can't take it anymore!”); also a noun: support, stand, holder (neuter)
 1605	iubitul	noun	definite nominative/accusative singular of iubit
 1606	discuta	verb	to discuss; to speak
 1607	târfă	noun	whore, tramp, tart, slut, prostitute
-1608	descurcat	adj	untangled
+1608	descurcat	verb	managed, coped, did well (past participle of a se descurca: cum te-ai descurcat la test? “how did you do on the test?”, Tom s-a descurcat bine “Tom did well”); literally untangled, unravelled (a descurca)
 1609	imagina	verb	to imagine
 1610	arde	verb	to burn; to burn (destroy with fire)
 1611	închid	verb	first-person singular present indicative/subjunctive
@@ -1648,7 +1648,7 @@ rank	word	pos	en
 1647	directorul	noun	definite nominative/accusative singular of director
 1648	cai	noun	plural of cal
 1649	stabilit	adj	established
-1650	forma	verb	to form; to create; to make
+1650	forma	noun	the form, the shape (definite form of formă, f.: sub forma unui cerc “in the shape of a circle”, în formă “in shape, on form”); also the infinitive a forma “to form, to create, to make up”
 1651	calul	noun	definite nominative/accusative singular of cal
 1652	post	noun	fast (a period of abstaining from or eating very little food), fasting
 1653	contra	prep	against, versus
@@ -1718,7 +1718,7 @@ rank	word	pos	en
 1717	pantofi	noun	plural of pantof
 1718	planetă	noun	planet (rocky or gaseous spherical bodies orbiting the Sun)
 1719	suporta	verb	to endure, to bear
-1720	fugă	noun	run (the act of running)
+1720	fugă	noun	run, flight, escape (f.): în fugă “in a hurry”, a lua la fugă “to take flight”, am pus unul pe fugă “I put one to flight”; also the third-person subjunctive of a fugi “to run, flee”: nu-l lăsa să fugă “don't let him run”; fugue (music)
 1721	ticălos	adj	wicked, wretched, vile, abject, base
 1722	citi	verb	to read
 1723	ghici	verb	to guess; to predict, foresee, divine
@@ -1751,7 +1751,7 @@ rank	word	pos	en
 1750	van	adj	vain; futile
 1751	ceas	noun	hour; clock, watch
 1752	pantaloni	noun	plural of pantalon
-1753	nebuni	verb	to go crazy, go mad
+1753	nebuni	adj	crazy, mad — masculine plural of nebun (toți sunteți nebuni “you're all crazy”); as a noun: madmen, lunatics (un cuib de nebuni “a den of crazies”); rarely a verb: a nebuni “to go mad, to drive mad”
 1754	cinste	noun	honor, integrity, honesty
 1755	înceapă	verb	third-person singular/plural present subjunctive of începe
 1756	râde	verb	to laugh
@@ -1825,9 +1825,9 @@ rank	word	pos	en
 1824	apar	noun	water-vendor
 1825	ho	intj	Used to calm or stop a domestic animal, especially horses; whoa.
 1826	oferta	verb	to offer
-1827	amintit	adj	aforementioned, mentioned
+1827	amintit	verb	remembered; mentioned, brought up (past participle of a-și aminti / a aminti: mi-am amintit totul “I remembered everything”, a amintit de boala ta “he mentioned your illness”); as an adjective: aforementioned
 1828	genunchi	noun	knee
-1829	celui	verb	to deceive, cheat
+1829	celui	det	of the one, to the one — genitive-dative masculine/neuter singular of cel (mâna celui care te hrănește “the hand of the one who feeds you”); carries the superlative: vârsta celui mai în vârstă “the age of the oldest”
 1830	chestiune	noun	matter, concern, question, problem, issue
 1831	amin	intj	amen
 1832	ocazie	noun	occasion
@@ -1989,7 +1989,7 @@ rank	word	pos	en
 1988	folosească	verb	third-person singular/plural present subjunctive of folosi
 1989	magie	noun	magic
 1990	sală	noun	room; hall
-1991	mut	adj	dumb, mute
+1991	mut	verb	I move, I move house (first-person singular of a muta / a se muta: o să mă mut în Paris “I'm going to move to Paris”, nu eram în stare să mut biroul “I couldn't move the desk by myself”); as an adjective: mute, dumb, speechless — a rămas mut “he was left speechless”, film mut “silent film”
 1992	căci	conj	for, because
 1993	priceput	adj	skilled
 1994	suc	noun	juice; soda (sweet bottled drink)

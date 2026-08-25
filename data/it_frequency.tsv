@@ -523,7 +523,7 @@ rank	word	pos	en
 522	verso	noun	verse; song
 523	mesi	noun	plural of mese
 524	farti	verb	compound of the infinitive fare with ti
-525	unica	noun	only thing
+525	unica	adj	only, sole, single; unique (feminine singular of unico): ero l'unica donna 'I was the only woman', una storia unica 'a unique story'; as a noun (f.), the only one — è l'unica 'she's the only one'
 526	morire	noun	death
 527	signorina	noun	young lady; miss, young lady (ladies is used for the plural) (used to address a woman)
 528	vecchio	adj	old, outworn; old-fashioned, out-of-date
@@ -535,12 +535,12 @@ rank	word	pos	en
 534	qual	det	apocopic form of quale
 535	vivere	verb	to live; to be alive
 536	vista	verb	feminine singular of visto
-537	prova	noun	trial, test, experiment
-538	nuova	noun	news
-539	ricordo	noun	memory, recollection, remembrance
+537	prova	verb	try! (tu imperative of provare); tries, is trying (third-person singular present): prova ancora 'try again'; as a noun (f.), test, trial; proof, evidence; rehearsal
+538	nuova	adj	new (feminine singular of nuovo): la macchina è nuova 'the car is new'; as a noun (f.), a piece of news — nessuna nuova, buona nuova 'no news is good news'
+539	ricordo	verb	I remember (first-person singular present indicative of ricordare): ora ricordo 'now I remember'; as a noun (m.), memory, recollection; souvenir, keepsake
 540	divertente	adj	funny, amusing, entertaining, fun
 541	avessi	verb	first/second-person singular imperfect subjunctive of avere
-542	sicura	noun	safety catch; safety lock
+542	sicura	adj	sure, certain; safe (feminine singular of sicuro): sono sicura 'I'm sure' (woman speaking); as a noun (f.), the safety catch of a firearm
 543	paio	noun	pair
 544	conto	noun	calculation; account (at a bank, etc.)
 545	perdere	verb	to lose; to waste
@@ -563,7 +563,7 @@ rank	word	pos	en
 562	sopra	prep	over; more than
 563	motivo	noun	reason, ground; motive
 564	avevi	verb	second-person singular imperfect indicative of avere
-565	cavolo	noun	cabbage
+565	cavolo	noun	cabbage (m.): amo il cavolo 'I love cabbage'; far more often a mild expletive standing in for cazzo — che cavolo è questo? 'what the heck is this?', cavolo! 'damn!'
 566	capitano	noun	captain
 567	finita	adj	feminine singular of finito
 568	volete	verb	second-person plural present indicative of volere
@@ -574,7 +574,7 @@ rank	word	pos	en
 573	be	noun	alternative form of bi
 574	mente	noun	mind
 575	mangiare	verb	to eat; to tuck in, to start to eat
-576	resto	noun	rest, remainder, balance
+576	resto	noun	rest, remainder (m.); change (money) — ecco il resto 'here's your change', del resto 'besides, after all'; also first-person singular present of restare, I stay, I'm staying — resto qui 'I'm staying here'
 577	credere	verb	to believe; to think
 578	fortuna	noun	luck; fortune
 579	tratta	noun	act of pulling; strong blow with a rope, whipping
@@ -610,10 +610,10 @@ rank	word	pos	en
 609	pistola	noun	pistol, handgun
 610	potremmo	verb	first-person plural conditional of potere
 611	re	noun	king (male monarch)
-612	mandato	noun	mandate, charge, commission, task
+612	mandato	verb	sent (past participle of mandare): chi ti ha mandato qui? 'who sent you here?'; as a noun (m.), mandate, term of office; warrant, writ — mandato d'arresto 'arrest warrant'
 613	puttana	noun	whore, slut, hooker, harlot, tart (British)
 614	negli	contraction	contraction of in gli; in the
-615	inizio	noun	beginning, start, inception
+615	inizio	noun	beginning, start (m.): all'inizio 'at the beginning'; also first-person singular present of iniziare, I begin, I'm starting — inizio stasera 'I'm starting tonight'
 616	saranno	verb	third-person plural future of essere
 617	causa	noun	cause; lawsuit
 618	voglia	noun	wish, will, desire, longing
@@ -627,12 +627,12 @@ rank	word	pos	en
 626	sesso	noun	sex (quality of being male or female)
 627	potete	verb	second-person plural present indicative of potere
 628	ricevuto	verb	past participle of ricevere
-629	vivo	adj	alive, live; brisk, animate, vivacious
+629	vivo	adj	alive, live; brisk, lively; vivid, intense: è ancora vivo 'he's still alive'; also first-person singular present of vivere, I live — vivo con i miei genitori 'I live with my parents'
 630	presidente	noun	chairman, chairperson, chair, chief
 631	città	noun	town, city
 632	succedendo	verb	gerund of succedere
 633	ospedale	noun	hospital
-634	fu	adj	deceased, late
+634	fu	verb	was (third-person singular passato remoto of essere): fu amore a prima vista 'it was love at first sight' — the literary past, C1; also invariable before a name, the late — il fu Mattia Pascal 'the late Mattia Pascal'
 635	agli	noun	plural of aglio
 636	scritto	verb	past participle of scrivere
 637	smettila	verb	Compound of imperative (tu form) of smettere and la.
@@ -648,12 +648,12 @@ rank	word	pos	en
 647	cura	noun	care; accuracy
 648	durante	prep	during
 649	provato	adj	exhausted; proven, established
-650	parole	noun	lyrics, words
+650	parole	noun	words (plural of parola, f.): sono senza parole 'I'm speechless'; of a song, the lyrics
 651	lasciare	verb	to leave (to leave something behind)
 652	dicono	verb	third-person plural present indicative of dire
 653	prossima	adj	feminine singular of prossimo
 654	nostre	pron	feminine plural of nostro
-655	arrivato	adj	successful
+655	arrivato	verb	arrived (past participle of arrivare): non è ancora arrivato 'he hasn't arrived yet'; as an adjective of a person, successful, one who has made it
 656	paese	noun	country (nation)
 657	sull'	contraction	contraction of su l'; on the
 658	andate	noun	plural of andata
@@ -666,7 +666,7 @@ rank	word	pos	en
 665	oddio	intj	oh God; oh my God; God!
 666	libro	noun	book; phloem; foliage
 667	eravamo	verb	first-person plural imperfect indicative of essere
-668	amica	noun	girlfriend
+668	amica	noun	friend (f.), female friend (feminine of amico): sei la mia migliore amica 'you're my best friend' — a romantic partner is la ragazza or la fidanzata
 669	diventare	verb	to become (rich, dry, a doctor, etc.), to go (crazy, etc.), to turn (red, blue, etc.)
 670	sui	contraction	contraction of su i; on the
 671	sbagliato	adj	wrong, mistaken, erroneous, incorrect
@@ -681,7 +681,7 @@ rank	word	pos	en
 680	molte	det	feminine plural of molto
 681	chiedo	verb	first-person singular present indicative of chiedere
 682	torna	verb	third-person singular present indicative
-683	scoperto	noun	overdraft
+683	scoperto	verb	discovered, found out; uncovered (past participle of scoprire): hai scoperto qualcosa di nuovo? 'did you find out anything new?'; as an adjective, uncovered, bare; as a noun (m.), a bank overdraft — allo scoperto 'in the red'
 684	fatti	adj	masculine plural of fatto
 685	settimane	noun	plural of settimana
 686	dirlo	verb	compound of the infinitive dire with lo
@@ -731,13 +731,13 @@ rank	word	pos	en
 730	lontano	adj	distant
 731	gruppo	noun	group, cluster, party, team, covey
 732	continua	adj	feminine singular of continuo
-733	arrivo	noun	arrival; finish, finish line
+733	arrivo	verb	I'm coming, I arrive (first-person singular present indicative of arrivare): arrivo subito 'I'll be right there'; as a noun (m.), arrival; the finish line
 734	gran	adj	apocopic form of grande m or f by sense
-735	cerca	noun	search
-736	passo	noun	footstep (sound)
+735	cerca	verb	looks for, is looking for (third-person singular present of cercare); also the tu imperative, look for, try to — cerca di non fare tardi 'try not to be late'; as a noun (f.) only in in cerca di 'in search of'
+736	passo	noun	step, pace; footstep (m.): ho fatto il primo passo 'I took the first step'; passage (of a text); also first-person singular present of passare, I pass, I come by — ti passo a prendere 'I'll come pick you up'
 737	domande	noun	plural of domanda
 738	insomma	adv	in short, in sum, in a word, in conclusion
-739	bambina	noun	babe
+739	bambina	noun	little girl, child (f.) (feminine of bambino): quando ero bambina 'when I was a little girl'; as an affectionate form of address, baby
 740	pensando	verb	gerund of pensare
 741	capelli	noun	plural of capello (“single hair”); head hair
 742	trova	verb	third-person singular present indicative
@@ -768,14 +768,14 @@ rank	word	pos	en
 767	intenzione	noun	intention, intent, purpose, mind, wish
 768	speciale	adj	special; particular, peculiar
 769	cambiare	verb	to exchange; to change
-770	vera	noun	wedding ring, wedding band
+770	vera	adj	true, real (feminine singular of vero): la sua storia è vera 'his story is true'; as a noun (f.), a wedding ring
 771	camera	noun	room; chamber (all senses)
 772	oltre	adv	farther, further, past, by, on
 773	semplice	adj	simple; easy
 774	dirti	verb	compound of the infinitive dire with ti
 775	riguardo	noun	respect, connection, regard
 776	finche	noun	plural of finca
-777	aspetto	noun	look (act of looking)
+777	aspetto	verb	I wait, I'm waiting; I expect (first-person singular present indicative of aspettare): aspetto da ore 'I've been waiting for hours'; as a noun (m.), appearance, look; aspect, side, point of view
 778	viaggio	noun	journey, trip, tour, voyage
 779	chiaro	adj	bright, shiny; clear
 780	chiamata	verb	feminine singular of chiamato
@@ -801,7 +801,7 @@ rank	word	pos	en
 800	sistema	noun	system; method, process
 801	york	name	York (a city in England)
 802	fondo	adj	deep
-803	resta	noun	awn, ear (of grain)
+803	resta	verb	stays, remains (third-person singular present of restare); also the tu imperative, stay — resta qui con noi 'stay here with us', non ti resta che aspettare 'all you can do is wait'; as a noun (f.), the awn of an ear of grain
 804	devono	verb	third-person plural present indicative of dovere
 805	prossimo	adj	very near, near, close
 806	pronti	adj	masculine plural of pronto
@@ -828,7 +828,7 @@ rank	word	pos	en
 827	grado	noun	degree; level
 828	vanno	verb	third-person plural present indicative of andare
 829	nave	noun	ship
-830	iniziato	adj	initiated
+830	iniziato	verb	started, begun (past participle of iniziare): il film è già iniziato? 'has the film already started?'; as an adjective, initiated; as a noun (m.), an initiate
 831	informazioni	noun	plural of informazione
 832	libero	adj	free (not imprisoned or enslaved)
 833	stronzo	noun	turd; asshole, shit, son of a bitch, a generally despicable person
@@ -838,7 +838,7 @@ rank	word	pos	en
 837	colpo	noun	blow, knock, shock
 838	faceva	verb	third-person singular imperfect indicative of fare
 839	piacciono	verb	third-person plural present indicative of piacere
-840	porto	noun	port, harbour/harbor
+840	porto	verb	I bring, I take, I carry; I wear (first-person singular present indicative of portare): ti porto a casa 'I'll take you home', porto le lenti a contatto 'I wear contact lenses'; as a noun (m.), port, harbour; port (the fortified wine)
 841	oppure	conj	or; otherwise, or else
 842	completamente	adv	completely, fully
 843	vederti	verb	compound of the infinitive vedere with ti
@@ -851,7 +851,7 @@ rank	word	pos	en
 850	ormai	adv	by now, by this time, now, at this point, by then
 851	interessa	verb	third-person singular present indicative
 852	generale	adj	general
-853	giusta	prep	according to, in accordance with
+853	giusta	adj	right, correct; fair, just (feminine singular of giusto): sei sulla strada giusta 'you're on the right track', la vita non è giusta 'life isn't fair'; rare and formal as a preposition, in accordance with
 854	tenere	verb	to hold; to set aside; to conserve
 855	pazzo	adj	crazy, insane, mad
 856	vittima	noun	victim
@@ -874,7 +874,7 @@ rank	word	pos	en
 873	incredibile	adj	incredible, unbelievable
 874	sole	noun	sun; star
 875	glielo	pron	it to him, her or them
-876	legge	noun	law
+876	legge	noun	law (f.): è la legge 'it's the law'; also third-person singular present of leggere, reads — lui legge prima di dormire 'he reads before bed'
 877	spesso	adj	thick; dense
 878	guardate	verb	second-person plural present indicative
 879	cambiato	verb	past participle of cambiare
@@ -885,7 +885,7 @@ rank	word	pos	en
 884	rispetto	noun	respect, deference
 885	ve	pron	to you
 886	zitto	adj	quiet, silent
-887	incontro	adv	towards
+887	incontro	verb	I meet, I run into (first-person singular present indicative of incontrare): lo incontro spesso 'I often run into him'; as a noun (m.), meeting, encounter; match, bout — l'incontro è domani 'the meeting is tomorrow'; in andare/venire incontro a, towards, to meet
 888	farà	verb	third-person singular future of fare
 889	servono	verb	third-person plural present indicative of servire
 890	rapporto	noun	report, statement, account
@@ -898,7 +898,7 @@ rank	word	pos	en
 897	presa	adj	feminine singular of preso
 898	servizio	noun	service, serve; facility, feature, utility, setting
 899	medico	adj	medical
-900	usato	adj	usual, customary, habitual
+900	usato	verb	used (past participle of usare): l'ho usato una volta sola 'I've only used it once'; as an adjective, used, second-hand — un'auto usata 'a used car'; as a noun (m.), second-hand goods
 901	caro	adj	dear (beloved, or in the salutation of a letter), sweetheart
 902	schifo	noun	disgust, nausea, loathing
 903	avrai	verb	second-person singular future of avere
@@ -955,7 +955,7 @@ rank	word	pos	en
 954	stessi	det	masculine plural of stesso
 955	arma	noun	weapon, arms; arm, force
 956	conosce	verb	third-person singular present indicative
-957	uscita	noun	exit, way out; loophole
+957	uscita	noun	exit, way out (f.): dov'è l'uscita? 'where's the exit?'; a release, an outing; also feminine past participle of uscire — è uscita 'she went out'
 958	fin	noun	apocopic form of fine
 959	quante	det	feminine plural of quanto
 960	disse	verb	third-person singular past historic of dire
@@ -1000,7 +1000,7 @@ rank	word	pos	en
 999	pranzo	noun	lunch or dinner (depending on context)
 1000	saremo	verb	first-person plural future of essere
 1001	denaro	noun	money; denier
-1002	riuscito	adj	that has had a certain outcome or result
+1002	riuscito	verb	managed to, succeeded (past participle of riuscire): sono riuscito a entrare 'I managed to get in'; as an adjective, successful, well turned out — un dolce ben riuscito 'a cake that came out well'
 1003	continuare	verb	to continue, to keep on doing (an action)
 1004	serata	noun	evening, night
 1005	nero	adj	black (color/colour)
@@ -1058,7 +1058,7 @@ rank	word	pos	en
 1057	vengono	verb	third-person plural present indicative of venire
 1058	pubblico	adj	public
 1059	senta	verb	first/second/third-person singular present subjunctive
-1060	corso	noun	course (of a river, of a university, etc.)
+1060	corso	noun	course (m.) — of a river, of a university; avenue; in corso 'under way, in progress'; also past participle of correre, run — sono corso via 'I ran away', ha corso così veloce 'he ran so fast'
 1061	regalo	noun	present, gift
 1062	sentite	adj	feminine plural of sentito
 1063	rimasto	verb	past participle of rimanere
@@ -1129,10 +1129,10 @@ rank	word	pos	en
 1128	cellulare	adj	cellular
 1129	necessario	adj	necessary; indispensable
 1130	avremo	verb	first-person plural future of avere
-1131	ferma	noun	service, draft; pointing
+1131	ferma	verb	(he/she) stops; stop! (third-person singular present indicative and informal imperative of fermare): ferma la macchina 'stop the car'; also feminine singular of fermo, still, motionless; as a noun (f.) a term of military service, a hunting dog's pointing
 1132	borsa	noun	bag, handbag, purse, briefcase
 1133	prometto	verb	first-person singular present indicative of promettere
-1134	palle	noun	courage, bravery
+1134	palle	noun	balls (plural of palla, f.): hai due palle 'you have two balls'; vulgar, testicles — and figuratively guts, courage: avere le palle
 1135	nonno	noun	grandfather; grandparents
 1136	piena	adj	feminine singular of pieno
 1137	attacco	noun	attack, assault
@@ -1157,7 +1157,7 @@ rank	word	pos	en
 1156	andrà	verb	third-person singular future of andare
 1157	chiesa	noun	church
 1158	effetti	noun	plural of effetto
-1159	tenente	adj	tenacious; resistant
+1159	tenente	noun	lieutenant (m.) — army or police rank: il tenente Rossi; rarely, present participle of tenere, holding, and an archaic adjective meaning tenacious, resistant
 1160	sapevi	verb	second-person singular imperfect indicative of sapere
 1161	scrivere	verb	to write; to spell
 1162	scommetto	verb	first-person singular present indicative of scommettere
@@ -1186,7 +1186,7 @@ rank	word	pos	en
 1185	classe	noun	class (all senses)
 1186	ehm	intj	um, er expressing hesitation
 1187	cambio	noun	exchange; change
-1188	scorsa	noun	a glance (quick look)
+1188	scorsa	adj	last, past (feminine singular of scorso): la scorsa notte 'last night', la scorsa settimana 'last week'; as a noun (f.) a quick glance, a skim — dare una scorsa
 1189	farla	verb	to make a fool of
 1190	bianco	adj	white (bright and colourless/colorless)
 1191	tavolo	noun	table, board, desk
@@ -1217,7 +1217,7 @@ rank	word	pos	en
 1216	maggiore	adj	bigger, greater
 1217	farsi	verb	to become; to make oneself
 1218	uniti	verb	masculine plural of unito
-1219	trovata	noun	solution or quick fix used to get out of a difficult situation; expedient
+1219	trovata	verb	found (feminine singular past participle of trovare): l'ho trovata 'I found her/it', dove l'hai trovata? 'where did you find it?'; as a noun (f.) a bright idea, gimmick, gag
 1220	eccolo	adv	compound of ecco with lo
 1221	carne	noun	meat, flesh
 1222	lavorato	verb	past participle of lavorare
@@ -1237,7 +1237,7 @@ rank	word	pos	en
 1236	temo	verb	first-person singular present indicative of temere
 1237	leggere	verb	to read
 1238	comandante	noun	commander, commandant
-1239	cerco	adj	looked for; past participle of cercare
+1239	cerco	verb	(I) look for, I am looking for (first-person singular present indicative of cercare): cerco lavoro 'I'm looking for work'; also an archaic past participle of cercare, looked for — modern Italian uses cercato
 1240	avrebbero	verb	third-person plural conditional of avere
 1241	pomeriggio	noun	afternoon
 1242	documenti	noun	plural of documento
@@ -1264,7 +1264,7 @@ rank	word	pos	en
 1263	vederlo	verb	compound of the infinitive vedere with lo
 1264	lezione	noun	lesson; class, lecture
 1265	intero	adj	whole, entire; intact
-1266	dia	noun	day
+1266	dia	verb	give (present subjunctive of dare, and the formal Lei imperative): mi dia qualcosa da mangiare 'give me something to eat' (formal), hai bisogno che ti dia dei soldi 'do you need me to give you some money?'; the noun senses ('goddess', obsolete 'day') are archaic and poetic
 1267	partire	verb	to depart; to leave; to set forth
 1268	venuti	adj	masculine plural of venuto
 1269	sogni	verb	second-person singular present indicative
@@ -1275,7 +1275,7 @@ rank	word	pos	en
 1274	parlarti	verb	compound of the infinitive parlare with ti
 1275	perciò	conj	so, therefore, consequently, thus
 1276	congratulazioni	noun	plural of congratulazione
-1277	data	noun	date (“calendar date”)
+1277	data	noun	date (f.) — a calendar date: che data è oggi? 'what's the date today?'; also given (feminine singular past participle of dare): me l'ha data 'he gave it to me', data la situazione 'given the situation'
 1278	sposato	adj	married, wedded
 1279	gliel'	pron	apocopic form of glielo and gliela
 1280	sembrare	verb	to seem, to look (like), to appear
@@ -1298,7 +1298,7 @@ rank	word	pos	en
 1297	belle	adj	feminine plural of bello
 1298	m'	pron	apocopic form of mi
 1299	pochi	det	masculine plural of poco
-1300	san	noun	san (Greek letter)
+1300	san	noun	Saint (apocopic form of santo, used before a masculine name beginning with a consonant): San Diego, San Marco, San Pietro; also the archaic Greek letter san
 1301	clienti	noun	plural of cliente
 1302	periodo	noun	period, time, span, run
 1303	energia	noun	energy
@@ -1318,7 +1318,7 @@ rank	word	pos	en
 1317	rosso	adj	red; ginger, red (of hair)
 1318	soprattutto	adv	above all, most, most of all
 1319	combattere	verb	to fight; to combat
-1320	tocca	noun	type of sacred trimming, like a chevron, woven with metallic foil and hemp
+1320	tocca	verb	touches; it's (someone's) turn (third-person singular present indicative of toccare, and the informal imperative touch!): ora tocca a te 'now it's your turn'; as a noun (f.) an obsolete touchstone for testing gold and the metallic cloth woven with it
 1321	operazione	noun	operation (in all senses)
 1322	zia	noun	aunt
 1323	sexy	adj	sexy
@@ -1339,7 +1339,7 @@ rank	word	pos	en
 1338	sarebbero	verb	third-person plural conditional of essere
 1339	offerta	noun	offer; tender
 1340	ami	verb	second-person singular present indicative
-1341	vite	noun	screw
+1341	vite	noun	lives (plural of vita, f.): le nostre vite 'our lives', ci sono vite in gioco 'there are lives at stake'; also a separate noun (f.) screw, and vine, grapevine
 1342	scherzo	noun	joke, jest, trick, hoax, frolic
 1343	qualcos'	pron	apocopic form of qualcosa
 1344	finta	adj	feminine singular of finto
@@ -1369,12 +1369,12 @@ rank	word	pos	en
 1368	pianeta	noun	planet
 1369	darti	verb	compound of the infinitive dare with ti
 1370	inoltre	adv	moreover, also, besides, in addition, furthermore
-1371	serie	noun	series; set, row, range
+1371	serie	noun	series (f., invariable); set, row, range; league, division — la Serie A: una serie di errori 'a series of mistakes'; also feminine plural of serio, serious, sensible: cose serie 'serious matters'
 1372	esci	verb	second-person singular present indicative
 1373	vittime	noun	plural of vittima
 1374	diversi	adj	feminine plural of diverso
 1375	porca	noun	the ridge between two furrows; balk
-1376	guida	noun	guide; driving
+1376	guida	noun	guide (f.) — a person or a handbook; driving, steering — alla guida 'at the wheel': una guida turistica 'a tourist guide'; also (he/she) drives (third-person singular present of guidare, and the informal imperative drive!): mio padre guida molto bene 'my father drives very well'
 1377	prezzo	noun	price; cost
 1378	strana	adj	feminine singular of strano
 1379	arrabbiato	adj	mad, rabid (of an animal)
@@ -1463,10 +1463,10 @@ rank	word	pos	en
 1462	evitare	verb	to avoid, shy away from
 1463	spirito	noun	spirit, mind; sparkle, wit, esprit
 1464	seduto	adj	sitting, seated
-1465	bianca	noun	cue ball (more fully bilia bianca)
+1465	bianca	adj	white (feminine singular of bianco): la carta è bianca 'the paper is white', è tutta bianca 'it's all white'; as a noun (f.) a white woman, the cue ball in billiards, and the given name Bianca
 1466	lingua	noun	tongue; language
 1467	dipartimento	noun	department, district
-1468	controllato	adj	controlled; self-controlled, restrained
+1468	controllato	verb	checked; controlled (past participle of controllare): l'ho controllato due volte 'I checked it twice'; as an adjective, controlled, self-controlled, restrained
 1469	massimo	adj	maximum; chief; principal
 1470	praticamente	adv	practically (all senses)
 1471	riunione	noun	meeting, assembly, conference
@@ -1538,7 +1538,7 @@ rank	word	pos	en
 1537	prendiamo	verb	first-person plural present indicative/subjunctive
 1538	colore	noun	color/colour; hue
 1539	basso	adj	low; short (in height)
-1540	uso	adj	used, accustomed
+1540	uso	verb	(I) use (first-person singular present indicative of usare): uso il computer 'I use the computer', lo uso 'I use it'; as a noun (m.) use, usage, custom — fuori uso 'out of order'; as a literary adjective, accustomed to
 1541	don	noun	Father (a title given to priests)
 1542	anzi	conj	on the contrary
 1543	storie	noun	plural of storia
@@ -1601,11 +1601,11 @@ rank	word	pos	en
 1600	alzati	verb	masculine plural of alzato
 1601	accettare	verb	to accept, to admit
 1602	metà	noun	half; centre, mid-
-1603	continuo	adj	continuous
+1603	continuo	adj	continuous, unbroken; continually — di continuo: un rumore continuo 'a continuous noise'; also (I) continue, I keep on (first-person singular present indicative of continuare): continuo a pensarci 'I keep thinking about it'
 1604	peso	noun	weight
 1605	piaciuto	verb	past participle of piacere
 1606	stile	noun	style; class
-1607	corsa	noun	run, running; race, racing
+1607	corsa	noun	run, running (f.); race — ha vinto la corsa 'he won the race'; trip, ride: quanto è lunga la corsa? 'how long is the ride?'; also feminine of corso, ran (past participle of correre): la bambina è corsa in casa 'the child ran into the house'
 1608	entrata	noun	the act of entering; entry, entrance, arrival, admission
 1609	soluzione	noun	solution; liquor
 1610	fanculo	intj	fuck you!, fuck off!
@@ -1641,7 +1641,7 @@ rank	word	pos	en
 1640	azione	noun	action, deed; share (finance)
 1641	sii	verb	second-person singular imperative of essere
 1642	cadavere	noun	corpse, body, cadaver
-1643	chiusa	noun	enclosure (in a field etc.)
+1643	chiusa	adj	closed, shut (feminine singular of chiuso, past participle of chiudere): tieni la porta chiusa 'keep the door closed', la strada era chiusa 'the road was closed'; as a noun (f.) a sluice or canal lock, an enclosure, the closing lines of a text
 1644	fede	noun	faith, belief; creed, convictions
 1645	nipote	noun	grandchild, grandson, granddaughter
 1646	andro	name	Andros (an island of Greece)
@@ -1649,7 +1649,7 @@ rank	word	pos	en
 1648	conti	noun	plural of conto
 1649	finisce	verb	third-person singular present indicative of finire
 1650	stavano	verb	third-person plural imperfect indicative of stare
-1651	riuscita	noun	result, outcome
+1651	riuscita	verb	managed to, succeeded in (feminine singular past participle of riuscire): sono riuscita a prendere l'ultimo treno 'I managed to catch the last train', non sono riuscita a dormire 'I couldn't sleep'; as a noun (f.) outcome, result, success
 1652	troveremo	verb	first-person plural future of trovare
 1653	stampa	noun	press (device, or printed media)
 1654	assistente	noun	assistant, helper
@@ -1672,7 +1672,7 @@ rank	word	pos	en
 1671	sottotitoli	noun	plural of sottotitolo
 1672	creare	verb	to create; to appoint
 1673	peggiore	adj	worse; the worst
-1674	bevuto	adj	drunk, drunken
+1674	bevuto	verb	drunk, drank (past participle of bere): ho bevuto troppo 'I drank too much', hai bevuto troppo poco 'you drank too little'; as a colloquial adjective, tipsy, drunk
 1675	rimasta	verb	feminine singular of rimasto
 1676	angolo	noun	angle, corner
 1677	latte	noun	milk
@@ -1695,8 +1695,8 @@ rank	word	pos	en
 1694	reso	verb	past participle of rendere
 1695	campagna	noun	rural area: country, countryside
 1696	andrai	verb	second-person singular future of andare
-1697	tenuto	adj	obliged, indebted, grateful, bound to someone
-1698	paga	noun	pay; wages
+1697	tenuto	verb	held, kept (past participle of tenere): l'ho tenuto con me 'I kept it with me', era tenuto in grande riguardo 'he was held in high regard'; as an adjective, obliged, bound — essere tenuto a fare qualcosa 'to be required to do something'
+1698	paga	noun	pay, wages (f.): il giorno di paga 'payday'; also (he/she/it) pays (third-person singular present of pagare, and the informal imperative pay!): il crimine non paga 'crime doesn't pay'
 1699	seguire	verb	to follow, to pursue
 1700	cerchiamo	verb	first-person plural present indicative/subjunctive
 1701	coglione	noun	testicle
@@ -1711,7 +1711,7 @@ rank	word	pos	en
 1710	importanti	adj	plural of importante
 1711	particolare	adj	particular, private, personal (antonym of general)
 1712	stanco	adj	tired; bored
-1713	piani	noun	plans (arrangements)
+1713	piani	noun	plans, arrangements; floors, storeys of a building (plural of piano, m.): non sapevo niente di questi piani 'I knew nothing about those plans', quanti piani ha questo edificio? 'how many floors does this building have?'; also masculine plural of the adjective piano, flat, level
 1714	mantenere	verb	to maintain, to keep
 1715	piaceva	verb	third-person singular imperfect indicative of piacere
 1716	richiesta	noun	request, demand, claim, call
@@ -1729,7 +1729,7 @@ rank	word	pos	en
 1728	rovinato	verb	past participle of rovinare
 1729	campione	noun	champion, ace, master
 1730	buonasera	intj	good evening; good afternoon
-1731	braccia	noun	brace (measure of length representing a person's outstretched arms)
+1731	braccia	noun	arms (irregular feminine plural of braccio, m.): tra le mie braccia 'in my arms', gli è morta tra le braccia 'she died in his arms'; also an old unit of length, roughly a person's outstretched arms
 1732	decisamente	adv	decidedly, definitely, positively, strongly, indeed
 1733	washington	name	Washington, Washington State
 1734	usando	verb	gerund of usare
@@ -1781,7 +1781,7 @@ rank	word	pos	en
 1780	accettato	verb	past participle of accettare
 1781	indagine	noun	investigation, inquiry, probe, enquiry
 1782	pensava	verb	third-person singular imperfect indicative of pensare
-1783	passata	noun	glance, look; tomato purée, pureed tomatoes
+1783	passata	verb	passed, gone by (feminine singular past participle of passare): è passata una macchina 'a car went by', l'estate è passata troppo in fretta 'the summer went by too fast'; as a noun (f.) tomato purée — passata di pomodoro — and a quick glance or once-over
 1784	super	adj	super
 1785	eppure	conj	and yet, but, all the same, still
 1786	fottuto	adj	bloody, fucking
@@ -1833,7 +1833,7 @@ rank	word	pos	en
 1832	voler	verb	apocopic form of volere
 1833	cento	num	hundred, one hundred
 1834	fidanzata	verb	feminine singular of fidanzato
-1835	andarmene	verb	compound of the infinitive andare with me (the conjunctive variant of mi) and ne
+1835	andarmene	verb	to leave, to go away (first-person form of andarsene, from andare + me + ne): voglio andarmene 'I want to leave', voglio soltanto andarmene a casa 'I just want to go home'
 1836	seriamente	adv	seriously; really
 1837	pista	noun	track, trail, scent, clue
 1838	terza	adj	feminine singular of terzo
@@ -1850,7 +1850,7 @@ rank	word	pos	en
 1849	vince	verb	third-person singular present indicative of vincere
 1850	infermiera	noun	female nurse
 1851	altezza	noun	height, altitude, tallness
-1852	seduta	noun	session, meeting, sitting
+1852	seduta	adj	seated, sitting (feminine singular of seduto, past participle of sedersi): la bambina seduta al piano 'the girl sitting at the piano', si è seduta di fianco a me 'she sat down next to me'; as a noun (f.) a session, meeting, sitting — seduta di allenamento 'training session'
 1853	minaccia	noun	threat, menace
 1854	età	noun	age (number of years in someone's life)
 1855	controlla	verb	third-person singular present indicative
@@ -1908,7 +1908,7 @@ rank	word	pos	en
 1907	pollo	noun	chicken
 1908	spiaggia	noun	beach
 1909	ordinato	adj	ordered; orderly, methodical
-1910	rotta	noun	course, route, lane
+1910	rotta	adj	broken (feminine singular of rotto, past participle of rompere): la radio è rotta 'the radio is broken', mi sono rotta la gamba 'I broke my leg'; as a noun (f.) a course or route of a ship or plane — fare rotta per 'to head for' — and a rout, defeat
 1911	dovesse	verb	third-person singular imperfect subjunctive of dovere
 1912	telefonata	noun	a phone call
 1913	completo	adj	complete, entire, full, whole
@@ -1916,11 +1916,11 @@ rank	word	pos	en
 1915	entri	verb	second-person singular present indicative
 1916	liceo	noun	a type of Italian secondary school/high school focused on the study of humanistic subjects
 1917	rosa	noun	rose (plant of the genus Rosa)
-1918	mezza	noun	half-hour; half past (an hour), especially 12:30 (lunchtime)
+1918	mezza	adj	half (feminine singular of mezzo): mezza luna 'half moon', mezza bottiglia 'half a bottle'; in telling the time, half past — sono le tre e mezza 'it's half past three'
 1919	innamorato	adj	in love, loving, smitten
 1920	doccia	noun	shower; drainpipe
 1921	guardato	verb	past participle of guardare
-1922	stanca	noun	standstill, deadlock, grind
+1922	stanca	adj	tired (feminine singular of stanco): sono stanca 'I'm tired', ero stanca 'I was tired'; also (he/she) tires, wears out (third-person singular present of stancare); as a noun (f.) a standstill, slack water
 1923	arrestato	verb	past participle of arrestare
 1924	esce	verb	third-person singular present indicative of uscire
 1925	date	noun	plural of data
@@ -1984,7 +1984,7 @@ rank	word	pos	en
 1983	coinvolto	verb	past participle of coinvolgere
 1984	immagini	noun	plural of immagine
 1985	figo	adj	fig (fresh fruit and tree)
-1986	grossa	noun	gross (12 dozen)
+1986	grossa	adj	big, large; fat (feminine singular of grosso): è quella grossa 'it's the big one', sono più grossa di te 'I'm bigger than you'; as a noun (f.) a gross, twelve dozen
 1987	umana	adj	feminine singular of umano
 1988	amiche	adj	feminine plural of amico
 1989	girare	verb	to turn, stir, turn over
