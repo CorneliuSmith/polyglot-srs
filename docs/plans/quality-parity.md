@@ -854,6 +854,27 @@ and populated:
    is why check §4 exists. **Assume any policy without a test is being violated** — that
    is now two for two.
 
+**STEP 2 STATUS (25 Aug 2026): the definition half is done to rank 2000.**
+911 rows repaired across 23 courses, 485 fatal, 664 candidates examined and
+correctly kept. Every course with a kaikki extract is covered to rank 2000;
+`en`, `la` and `jam` have none and were not screenable this way.
+
+What step 2 asked for, and where each part stands:
+
+| | state |
+| --- | --- |
+| definitions verified against the corpus | **done to rank 2000**; 72% of rows sit below it and are unswept |
+| homonym gaps filled | **measured, and largely a verified negative** — the accent-keeping courses distinguish their pairs already (`ro` has zero legacy-cedilla rows; `ru`'s 18 `ё`/`е` pairs are genuine distinct words). The real gap was `yo`, fixed in step 1 |
+| glosses committed | **done** — `data/gloss_overrides.tsv`, 1,440 rows, so a re-seed replays every fix |
+| audited | **done** — `audit_content` PASS at baseline throughout |
+
+**Known open, so it is not mistaken for finished:** the 72% below rank 2000;
+English's 1,400 rows with no committed gloss (including `what`, `how`, `when`,
+`where` in the top 100 — whether they get cards at all depends on WordNet
+coverage that could not be checked in this container); `nl` `bank` missing its
+financial sense, which is a missing SENSE and invisible to this screen; and 30
+candidates that were generated but never returned by an agent.
+
 **PREDICTION TESTED, AND IT DID NOT HOLD (25 Aug 2026).** The owner expected
 step 2 to be lighter because the well-resourced courses have better source
 data. Measured over the top 2000 of all 16: **1,247 candidates generated, 1,217
