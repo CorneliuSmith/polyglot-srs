@@ -106,7 +106,7 @@ def test_jamaican_headwords_are_cassidy_jlu():
 def test_no_alt_spelling_is_another_words_headword():
     """The alt column is deliberate leniency — typing `him` for `im` passes.
     But when the alt is another row's HEADWORD it stops excusing a spelling
-    and starts laundering a word (rule 8), and the collision ratchet cannot
+    and starts laundering a word (the fold rule), and the collision ratchet cannot
     see it: _collision_surfaces() reads only the `word` column. `di` (the)
     claimed `de` (to be at); `nuo` (know) claimed `no` (the negator)."""
     rows = _rows("jam")

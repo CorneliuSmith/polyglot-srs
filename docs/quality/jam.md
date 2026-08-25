@@ -166,7 +166,7 @@ is undone by the next regeneration.
 ### The `alt` column was laundering words, not excusing spellings
 
 Five `alt` entries were **another row's headword**, which turns deliberate leniency into a
-rule-8 violation — the fold may excuse a mark, never launder a word:
+violation of the fold rule — "a fold may excuse a mark, never launder a word" — the fold may excuse a mark, never launder a word:
 
 | row | claimed as its own variant | but that is | fixed by |
 | --- | --- | --- | --- |

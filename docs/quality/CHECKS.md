@@ -233,7 +233,7 @@ really `ng` + `g`. A gate proposes; a reviewer disposes.
 Only `jam` has an `alt` column (347 of 384 rows). It is deliberate leniency — a learner
 typing `him` for `im` should pass. But **5 entries listed another row's HEADWORD** as a
 variant: `di` (the) claimed `de` (to be at), `nuo` (know) claimed `no` (the negator), `wi`
-claimed `we` (where). That is rule 8 inverted — the leniency stops excusing a spelling and
+claimed `we` (where). That is the fold rule ("a fold may excuse a mark; it may never launder a word") inverted — the leniency stops excusing a spelling and
 starts laundering a word, on some of the commonest words in the language.
 
 **The collision ratchet cannot see this**: `_collision_surfaces()` reads only the `word`

@@ -827,6 +827,33 @@ remaining audit findings between them.
    standing instruction: no course reaches the sentence stage ahead of the
    others.
 
+**Step 1 is COMPLETE (25 Aug 2026).** All nine low-frequency courses are cleaned
+and populated:
+
+| | rows before | rows now | what the pass did |
+| --- | --- | --- | --- |
+| `tl` | 90 | **2,999** | not a course before; now one |
+| `id` | — | **3,000** | pipeline built; its top ranks were already right |
+| `he` | — | **3,000** | pipeline built |
+| `fa` | — | **2,996** | pipeline built |
+| `yo` | 1,644 | **1,650** | top band tone-marked, 0.4% → 7.3%; 6 D1d splits |
+| `xh` | — | **1,233** | incl. the 17-word courtesy core no corpus ranks |
+| `ha` | — | 1,473 | spine filled |
+| `mi` | — | 965 | macronised; step (c) done |
+| `jam` | 384 | **483** | +101 glossed from the course itself; orthography enforced |
+
+**Two results from this step that matter more than the counts:**
+
+1. **`jam` is the one course that cannot be grown from outside.** No Leipzig corpus, no
+   kaikki extract, zero Wiktionary coverage — all checked. 483 rows is the honest ceiling
+   of what the course's own drills and sentences can support, and further growth needs
+   authored content, not a pipeline. It is still the smallest course in the repo.
+2. **A declared standard that nothing checks is not a standard.** Cassidy–JLU was stated
+   in `jam.md` and in `JamaicanNLP`'s docstring, and 12 headwords broke it, three of them
+   words the doc names as drift by name. `la.md`'s macron policy failed the same way and
+   is why check §4 exists. **Assume any policy without a test is being violated** — that
+   is now two for two.
+
 **A prediction worth recording, because it is testable.** The owner expects
 step 2 to be *lighter* than `en` and `la` were, on the grounds that the
 well-resourced courses have better source data. That is plausible — their
