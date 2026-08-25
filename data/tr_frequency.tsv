@@ -3,7 +3,7 @@ rank	word	pos	en
 2	bu	pron	this
 3	ne	pron	what; how, what a…! (in exclamations); ne…ne… neither…nor
 4	ve	conj	and (joining words, phrases or whole clauses)
-5	için	postp	with the aim of, as a result of, for
+5	için	postp	for, with the aim of, on account of; so as to, in order to
 6	mi	particle	Used to form interrogatives.
 7	de	conj	too, also; and, and then; say! (command from demek)
 8	o	pron	he, she, it
@@ -20,7 +20,7 @@ rank	word	pos	en
 19	hayır	intj	no; no, thank you (declining); as a noun (hayr-): good, benefit, charity
 20	daha	adv	forms the comparative of the following adjective
 21	sen	pron	you (singular, informal), thou
-22	kadar	postp	Equal in amount or quantity; as much as.
+22	kadar	postp	as much as, as ... as (equal in amount or degree); up to, till, until (a time or place)
 23	bana	pron	me, to me, for me (dative of ben)
 24	yok	adj	there is no, there aren't; doesn't have; no (as an answer)
 25	tamam	intj	OK, all right, agreed; complete, whole; done, finished
@@ -34,7 +34,7 @@ rank	word	pos	en
 33	benim	pron	my; mine; it's me, I am the one (as a predicate)
 34	sana	pron	to you; for you (singular, informal; also 'you' after verbs that take the dative)
 35	ki	conj	so that, so; that
-36	ya	intj	Expression of surprise or confusion.
+36	ya	intj	Expression of surprise or confusion.; aw (Used to express affection.); Expresses frustration.
 37	neden	adv	why; what for; reason, cause (as a noun)
 38	sadece	adv	only, just
 39	senin	pron	your; yours (singular, informal)
@@ -83,7 +83,7 @@ rank	word	pos	en
 82	doğru	adj	true; right (correct)
 83	bay	noun	gentleman; Mr.
 84	olacak	verb	third-person singular indicative future of olmak
-85	büyük	adj	big, grand, large
+85	büyük	adj	big, large, grand; old, elder; important, significant
 86	olur	verb	third-person singular indicative aorist of olmak
 87	yardım	noun	help
 88	adam	noun	human; man (adult male human)
@@ -123,7 +123,7 @@ rank	word	pos	en
 122	tam	adv	exactly; right when, right while
 123	siz	pron	you (plural subject pronoun: the group being addressed); you guys, y'all
 124	herkes	pron	everybody
-125	bütün	det	entire, complete
+125	bütün	det	all, whole; entire, complete
 126	kendi	pron	self, oneself; own
 127	yol	noun	path, road, way
 128	diye	adv	quotative converb of demek: saying, that (marks reported speech and thought); called, named (X diye bir şey: a thing called X); so that, in order to
@@ -141,7 +141,7 @@ rank	word	pos	en
 140	tabii	adj	natural, usual, ordinary
 141	onları	pron	definite accusative plural of o
 142	izin	noun	permission; leave of absence
-143	yer	noun	place, location
+143	yer	noun	place, location; the ground, the earth, floor
 144	hayat	noun	life; an open, gated courtyard
 145	devam	noun	continuation
 146	az	det	few, little
@@ -154,7 +154,7 @@ rank	word	pos	en
 153	gerçek	adj	true, real; rightful, truthful
 154	buna	pron	dative singular of bu
 155	içinde	postp	in, within, inside
-156	olmak	verb	to become, come to exist, come into being
+156	olmak	verb	to be; to become, come into being; to happen, occur, take place
 157	vardı	verb	third-person singular indicative simple past of varmak
 158	bizim	pron	genitive of biz (“our, ours”)
 159	geldi	verb	third-person singular indicative simple past of gelmek
@@ -163,7 +163,7 @@ rank	word	pos	en
 162	değilim	verb	I am not
 163	mü	prep	Used to form interrogatives.
 164	kimse	pron	somebody, anybody
-165	göre	postp	according to, per
+165	göre	postp	according to, per; than (in comparisons)
 166	asla	adv	never (as a matter of principle or intent; compare hiç)
 167	özür	noun	apology; disability
 168	durum	noun	situation; status, condition
@@ -188,7 +188,7 @@ rank	word	pos	en
 187	uzun	adj	tall; long
 188	lazım	adj	necessary, required
 189	geliyor	verb	third-person singular present continuous of gelmek
-190	saat	noun	time; clock, watch
+190	saat	noun	time (the time read from a clock, unlike zaman); clock, watch; hour
 191	dostum	noun	first-person singular possessive of dost
 192	zaten	adv	already; in any case
 193	ister	verb	third-person singular indicative aorist of istemek
@@ -305,7 +305,7 @@ rank	word	pos	en
 304	yalnız	adj	alone, lonely
 305	gördüm	verb	first-person singular indicative simple past of görmek
 306	fark	noun	difference
-307	taraf	noun	side; one half; side
+307	taraf	noun	side, one half (left or right, front or back); side, faction (a family's side, a team's supporters); party (to a contract or a legal action)
 308	la	intj	ulan
 309	görüşürüz	phrase	see you
 310	musunuz	particle	second-person plural of mu
@@ -348,7 +348,7 @@ rank	word	pos	en
 347	işin	noun	genitive singular
 348	boyunca	adv	along; during
 349	kendine	pron	dative singular of kendi
-350	boş	adj	empty, unoccupied, blank
+350	boş	adj	empty, unoccupied, blank; vacant, available, free
 351	tarafından	noun	ablative singular second-person single-possession of taraf
 352	genç	adj	young
 353	arkadaş	noun	friend; comrade
@@ -377,7 +377,7 @@ rank	word	pos	en
 376	dolar	verb	third-person singular indicative aorist of dolmak
 377	baban	noun	second-person singular possessive of baba
 378	aç	noun	hunger; hungry person
-379	almak	verb	to take; to buy
+379	almak	verb	to take; to buy; to get, to obtain, to receive
 380	baş	noun	head; leader of a group, chief
 381	dedi	verb	third-person singular indicative simple past of demek
 382	suç	noun	crime, offense; fault
@@ -385,11 +385,11 @@ rank	word	pos	en
 384	ise	conj	if; whereas, while
 385	ara	noun	singular dative of ar
 386	yanında	postp	beside, next to
-387	herif	noun	A term of unspecific contempt for a generally
+387	herif	noun	oaf, contemptible fellow (of a man, usually an unfamiliar one); man of the house, husband
 388	adamı	noun	singular definite accusative of adam
 389	bende	pron	locative of ben
 390	geldim	verb	first-person singular indicative simple past of gelmek
-391	bazen	adv	every now and then
+391	bazen	adv	sometimes, occasionally, every now and then
 392	başına	verb	second-person singular simple present possessive dative of baş
 393	yardımcı	noun	helper
 394	söylemek	verb	to say, to tell
@@ -406,7 +406,7 @@ rank	word	pos	en
 405	kan	noun	blood; kitchen
 406	ad	noun	name, first name, last name
 407	konusunda	noun	third-person singular single-possession possessive locative of konu
-408	ta	adv	Used with postpositions like dek
+408	ta	adv	Used with postpositions like dek, değin, kadar, beri etc. to emphasize the beginning or the end of a thing with regards to time or distance.
 409	takip	noun	follow-up; chase; pursuit
 410	on	num	ten
 411	öyleyse	adv	then, in that case
@@ -440,7 +440,7 @@ rank	word	pos	en
 439	halde	noun	locative singular of hal
 440	fikir	noun	thought, idea; opinion
 441	şeyin	noun	second-person singular single-possession of şey
-442	garip	adj	desolate, miserable, dejected
+442	garip	adj	strange, bizarre, weird; desolate, miserable, dejected; away from home, foreign
 443	çıktı	noun	output; output (production; quantity produced, created, or completed)
 444	kardeş	noun	sibling (brother or sister)
 445	sakın	intj	eschew!, mind!
@@ -470,7 +470,7 @@ rank	word	pos	en
 469	yapmam	noun	first-person singular possessive of yapma
 470	cinayet	noun	murder, homicide
 471	adamım	noun	first-person singular predicative of adam
-472	oyun	noun	game, amusement, entertainment
+472	oyun	noun	game, amusement, entertainment; play, drama (a theatrical piece)
 473	bölüm	noun	part; department, section
 474	hatta	noun	locative singular of hat
 475	geldin	verb	second-person singular indicative simple past of gelmek
@@ -487,7 +487,7 @@ rank	word	pos	en
 486	ney	noun	An endblown flute made by hollowing out and tempering a giant reed
 487	çocuğu	noun	singular definite accusative of çocuk
 488	böylece	adv	in this way, thus, thence, so, like this, in this manner
-489	acaba	adv	Used to add a meaning of curiosity
+489	acaba	adv	I wonder (if/whether); by any chance — adds curiosity, indecision or doubt, and sometimes courtesy
 490	sürekli	adj	continuous (without break, cessation, or interruption in time)
 491	kiş	noun	quiche
 492	edecek	verb	third-person singular indicative future of etmek
@@ -541,7 +541,7 @@ rank	word	pos	en
 540	korkunç	adj	scary, frightening
 541	rahatsız	adj	uneasy, uncomfortable
 542	kat	noun	floor, storey, level
-543	hak	noun	justice, fairness
+543	hak	noun	right, legal entitlement, claim; justice, fairness (stem hakk-)
 544	içer	verb	third-person singular indicative aorist of içmek
 545	yaşlı	adj	old (for people, animals etc.)
 546	normal	adj	normal; regular
@@ -600,7 +600,7 @@ rank	word	pos	en
 599	millet	noun	nation
 600	ana	noun	dative singular of an
 601	hata	noun	error, fault, mistake
-602	üst	noun	something's face or side looking upwards or towards the sky
+602	üst	noun	top, the upper side or highest point of something; excess money, change
 603	yan	noun	side; aspect
 604	nefes	noun	breath
 605	olup	adv	to be [something] and, to become [something] and
@@ -652,7 +652,7 @@ rank	word	pos	en
 651	koca	adj	large, big; huge, enormous, whole
 652	patron	noun	boss
 653	yeterli	adj	adequate; proficient
-654	görünüş	noun	appearance, looks
+654	görünüş	noun	appearance, looks; view, landscape, scenery
 655	müzik	noun	music
 656	bunların	pron	genitive plural of bu
 657	karım	noun	first-person singular possessive of kar
@@ -665,7 +665,7 @@ rank	word	pos	en
 664	ufak	adj	Not large, not having great dimensions; small, little.
 665	kapı	noun	door; gate
 666	tehlikeli	adj	dangerous
-667	amerika	name	America, the Americas
+667	amerika	name	America, the United States of America; the Americas (North, Central and South America together)
 668	parti	noun	party (social gathering)
 669	dalga	noun	wave, a moving disturbance in the level of a body of liquid
 670	vakit	noun	time (quantity of availability in time)
@@ -760,17 +760,17 @@ rank	word	pos	en
 759	güvenli	adj	safe, secure
 760	tebrik	noun	congratulation
 761	geldiniz	verb	second-person plural indicative simple past of gelmek
-762	sayın	adj	A formal honorific title used when talking about someone in a formal context
+762	sayın	adj	dear, esteemed, honourable — the formal title used in addressing someone or referring to them
 763	çoğu	det	most
-764	canlı	adj	living, animate, not dead
+764	canlı	adj	living, animate, alive; lively, vivid, energetic
 765	alır	verb	third-person singular indicative aorist of almak
 766	kral	noun	king (head of a country)
-767	çoktan	adv	a long time ago
+767	çoktan	adv	already, long since; a long time ago
 768	dürüst	adj	honest
 769	adamlar	noun	nominative plural of adam
 770	eskiden	adv	in the past, once
 771	arkadaşı	noun	singular definite accusative of arkadaş
-772	kayıt	noun	record, recording
+772	kayıt	noun	record, recording; registration, registry (stem kayd-)
 773	davet	noun	invitation; summons
 774	dolayı	postp	[with ablative] because of, for, due to
 775	sonu	noun	accusative singular of son
@@ -786,7 +786,7 @@ rank	word	pos	en
 785	seviyor	verb	third-person singular present continuous of sevmek
 786	verir	verb	third-person singular indicative aorist of vermek
 787	bağlı	adj	[+dative] connected (to), related (to)
-788	kalmak	verb	to remain, be left; to be left over
+788	kalmak	verb	to remain, be left over; to stay, camp (somewhere); to come to a halt
 789	onlardan	pron	ablative plural of o
 790	memur	noun	civil servant; Anybody assigned to a job or responsibility
 791	bizden	pron	ablative of biz
@@ -837,7 +837,7 @@ rank	word	pos	en
 836	kara	adj	black, dark (kara bulutlar — dark clouds, kara delik — black hole, kara tahta — blackboard); dark-skinned, brunette; grim, hard; evil (kara gün — a hard time, a rainy day; kara sevda — hopeless love, lovesickness); also as a noun: land, dry land, the mainland (kara mayını — landmine, kara hayvanı — land animal)
 837	yaz	noun	summer; spring, springtime
 838	otel	noun	hotel
-839	oy	noun	vote
+839	oy	noun	vote; opinion, thought, vision
 840	kıç	noun	butt; stern
 841	arka	adj	back
 842	mesela	adv	for example
@@ -1010,7 +1010,7 @@ rank	word	pos	en
 1009	derin	adj	deep
 1010	söyler	verb	third-person singular indicative aorist of söylemek
 1011	içim	noun	first-person singular possessive of iç: my inside, my insides, my heart (içim rahat — I'm at ease, içimden geçti — it crossed my mind); also a sip, a draught (bir içim su — a mouthful of water)
-1012	ileri	adj	forward (at the front)
+1012	ileri	adj	forward, ahead (at the front); advanced (of a level)
 1013	kahraman	noun	hero; protagonist
 1014	kuzey	noun	north (compass point)
 1015	yüzbaşı	noun	captain (army rank)
@@ -1020,9 +1020,9 @@ rank	word	pos	en
 1019	buz	noun	ice
 1020	sarhoş	adj	drunk
 1021	domuz	noun	pig, swine; a pig, swine, a contemptible, mean, extremely disagreeable person
-1022	bayağı	adj	vulgar, low, base
+1022	bayağı	adj	vulgar, low, base, coarse; common, ordinary, plain
 1023	çalışmak	verb	to work; to study (lessons)
-1024	peder	noun	clergyman, priest
+1024	peder	noun	father, papa; clergyman, priest
 1025	eş	adv	as, like, kind of
 1026	türlü	adj	varied, various, assorted, miscellaneous
 1027	gerekli	adj	necessary
@@ -1045,7 +1045,7 @@ rank	word	pos	en
 1044	insanın	noun	genitive singular of insan
 1045	işaret	noun	sign (visible indication)
 1046	hapis	noun	prison, jail; imprisonment, confinement
-1047	dakik	adj	precise; rigorous
+1047	dakik	adj	punctual (acting or happening at the appointed time); precise (chiefly of timekeeping devices); rigorous
 1048	haline	noun	second-person singular (“your”) possessive form of hal in the dative case.
 1049	majeste	noun	majesty
 1050	sistem	noun	system
@@ -1055,11 +1055,11 @@ rank	word	pos	en
 1054	güney	noun	south; A sunny side of a place.
 1055	baştan	noun	singular ablative of baş
 1056	yem	noun	feed, fodder; bait (substance used to allure animals)
-1057	çıkış	noun	act or way of going out of, getting out of, or leaving
+1057	çıkış	noun	exit, egress, way out; the act of going out or leaving (a place); ascent, climb
 1058	yüzüm	noun	first-person singular possessive of yüz
 1059	kaza	noun	accident; subprovince
 1060	sıradan	adj	ordinary, mediocre, normal
-1061	geleni	noun	suslik
+1061	geleni	noun	ground squirrel, suslik (any of the genus Spermophilus)
 1062	paris	name	Paris (the capital and largest city of France)
 1063	bob	name	a male given name from English
 1064	birinci	adj	first
@@ -1185,7 +1185,7 @@ rank	word	pos	en
 1184	cep	noun	pocket; mobile phone
 1185	arıyorsun	verb	second-person singular present continuous of aramak
 1186	abi	noun	colloquial form of ağabey: elder brother
-1187	of	intj	oof (often expressing that some task requires great effort)
+1187	of	intj	oof (often expressing that some task requires great effort); ouch (used both for literally and emotionally painful situations); ugh (expressing disgust or strong dismay)
 1188	yeşil	noun	green; the green light in traffic lights
 1189	şanslar	noun	nominative plural of şans
 1190	idare	noun	administration, management
@@ -1225,12 +1225,12 @@ rank	word	pos	en
 1224	ünlü	adj	famous
 1225	göstermek	verb	to show, to display
 1226	gemi	noun	ship
-1227	adil	adj	fair, just,
+1227	adil	adj	fair, just
 1228	don	noun	underpants; jogging pants
 1229	meşgul	adj	busy
 1230	aklım	noun	first-person singular possessive of akıl
 1231	beyin	noun	brain (organ); mind; brains, intelligence
-1232	resmen	adv	officially; formally (in form)
+1232	resmen	adv	officially; formally (in form); seriously, in earnest (common in informal speech, sometimes ironic)
 1233	çin	name	China
 1234	dokuz	num	nine
 1235	yapayım	verb	first-person singular optative of yapmak
@@ -1240,7 +1240,7 @@ rank	word	pos	en
 1239	huzur	noun	peace (state of mind)
 1240	ün	noun	reputation, fame
 1241	sıkıcı	adj	boring, dull, tedious
-1242	kızgın	adj	very hot, red-hot, heated
+1242	kızgın	adj	angry, furious, enraged; very hot, red-hot, heated; in heat (of an animal)
 1243	nihayet	adv	To finish (with); last, lastly, finally.
 1244	öğle	noun	noon
 1245	yağmur	noun	rain
@@ -1264,7 +1264,7 @@ rank	word	pos	en
 1263	evim	noun	first-person singular possessive of ev
 1264	yat	noun	yacht
 1265	başı	noun	accusative singular
-1266	tutmak	verb	to hold; to take hold of; to grip; to grab
+1266	tutmak	verb	to hold, take hold of, grip, grab; to catch, hunt; to rent, hire, take on, employ
 1267	kaz	noun	goose
 1268	açın	noun	genitive singular of aç
 1269	kart	adj	hoary, old
@@ -1287,14 +1287,14 @@ rank	word	pos	en
 1286	verdik	verb	first-person plural indicative simple past of vermek
 1287	kör	adj	blind; blunt, not sharp
 1288	annenin	noun	genitive singular
-1289	girmek	verb	to enter, to go in
+1289	girmek	verb	to enter, to go in; to go in for, to take (an exam); (of a season or time) to arrive
 1290	ayakkabı	noun	shoe
 1291	kağıt	noun	paper
 1292	sorumlu	adj	responsible
 1293	akıl	noun	mind; reason, intelligence, intellect
 1294	yarı	postp	half
 1295	suyu	noun	accusative singular of su
-1296	ayrı	adj	Placed apart from each other, separate, several.
+1296	ayrı	adj	separate, placed apart from each other; different, of another kind
 1297	izi	noun	definite accusative singular
 1298	mutluyum	adj	first-person singular predicative of mutlu
 1299	ekip	noun	crew; team
@@ -1307,7 +1307,7 @@ rank	word	pos	en
 1306	verdiği	verb	third-person past participle of vermek
 1307	ihanet	noun	betrayal; treason
 1308	program	noun	program; computer program
-1309	derken	adv	and then; while
+1309	derken	adv	and then (used for instantaneous actions that occur during the course of a longer action in recounting a past event); while (used for unintended, often unwanted, actions that happen while doing something else); what I mean by …
 1310	surat	noun	face; surliness
 1311	konusu	noun	third-person singular possessive of konu
 1312	tuvalet	noun	toilet, lavatory, privy, w.c., a (bath)room containing a toilet
@@ -1317,7 +1317,7 @@ rank	word	pos	en
 1316	binlerce	adj	thousands of
 1317	gördük	verb	first-person plural indicative simple past of görmek
 1318	gönder	noun	goad, prod; shaft, stale
-1319	oynamak	verb	to play, amuse oneself, fool around
+1319	oynamak	verb	to play, amuse oneself, fool around; to dance; (of a film) to be on, be playing
 1320	umut	noun	hope (belief that something hoped for can happen), wish
 1321	kıyafet	noun	outfit, clothing, clothes
 1322	bol	adj	loose; abundant
@@ -1369,7 +1369,7 @@ rank	word	pos	en
 1368	söylerim	verb	first-person singular indicative aorist of söylemek
 1369	yara	noun	wound, injury; breach, crack
 1370	maalesef	adv	unfortunately
-1371	bırakmak	verb	to let go, release, relinquish
+1371	bırakmak	verb	to leave, abandon; to let go, release, relinquish
 1372	fikrin	noun	genitive singular of fikir
 1373	sağlık	noun	health (state of being free of physical or psychological disease, illness, or malfunction)
 1374	operasyon	noun	operation
@@ -1379,7 +1379,7 @@ rank	word	pos	en
 1378	yolculuk	noun	voyage
 1379	yapılan	verb	present participle of yapılmak
 1380	doğu	noun	east
-1381	and	noun	oath
+1381	and	noun	oath (archaic form of ant)
 1382	mücadele	noun	challenge; [with ile] struggle, fight
 1383	tanık	noun	witness; Someone who serves as a witness in court
 1384	görüşmek	verb	to meet; to talk, to chat
@@ -1397,11 +1397,11 @@ rank	word	pos	en
 1396	hangisi	pron	which one
 1397	anlaşılan	verb	present participle of anlaşılmak
 1398	korum	noun	first-person singular possessive of kor
-1399	hesap	noun	calculation; account
+1399	hesap	noun	account (in a bank or on a digital platform); bill (in a restaurant); calculation
 1400	sayılır	verb	third-person singular indicative aorist of sayılmak
 1401	yasal	adj	lawful, legal; about the law
 1402	göğüs	noun	chest; breast
-1403	kazanmak	verb	to win, gain, acquire
+1403	kazanmak	verb	to win, gain, acquire; to earn, get, achieve, obtain
 1404	etmen	noun	factor
 1405	aşkım	noun	first-person singular possessive of aşk
 1406	okulda	noun	locative singular of okul
@@ -1454,7 +1454,7 @@ rank	word	pos	en
 1453	tanışmak	verb	to meet (for the first time)
 1454	bizde	pron	locative of biz
 1455	çıkın	verb	second-person plural (polite) imperative of çıkmak: get out!, go out!, leave! (buradan çıkın — get out of here); rare as a noun: a small cloth bundle, a bindle
-1456	kullanmak	verb	to use, to utilize, to employ
+1456	kullanmak	verb	to use, to utilize, to employ; to drive, to operate; to exploit, to take advantage of
 1457	çıkarmak	verb	to remove; to subtract
 1458	nazik	adj	polite, kind; delicate, tender, soft
 1459	korku	noun	fear, horror, scare, dread, trepidation
@@ -1463,7 +1463,7 @@ rank	word	pos	en
 1462	binbaşı	noun	major (army rank)
 1463	baktım	verb	first-person singular indicative simple past of bakmak
 1464	doğrusu	adv	as a matter of fact, in fact, to tell the truth
-1465	temel	noun	fundament, basics
+1465	temel	noun	foundation, ground; basics, fundamentals
 1466	prenses	noun	princess
 1467	batı	noun	west
 1468	arabada	noun	locative singular of araba
@@ -1498,7 +1498,7 @@ rank	word	pos	en
 1497	delik	adj	punctured, pierced
 1498	kredi	noun	credit
 1499	sezon	noun	season (of a series/show)
-1500	görüntü	noun	View, sight, scenery.
+1500	görüntü	noun	image, picture (on a screen); view, sight, scenery; apparition, vision
 1501	üstelik	adv	besides, on top of that, also, again
 1502	arayacağım	verb	first-person singular indicative future of aramak
 1503	umur	noun	affairs, matters
@@ -1522,7 +1522,7 @@ rank	word	pos	en
 1521	yumurta	noun	egg
 1522	fransa	name	France (a country located primarily in Western Europe)
 1523	ala	adj	multicolored, pied, variegated
-1524	roma	name	Rome; Rome (a metropolitan city of Lazio, Italy)
+1524	roma	name	Rome (the capital of Italy)
 1525	sevimli	adj	cute, lovely; charming, pleasant
 1526	mezar	noun	grave; mausoleum
 1527	sahil	noun	coast, shore
@@ -1535,7 +1535,7 @@ rank	word	pos	en
 1534	duş	noun	shower
 1535	yalancı	noun	liar, deceiver, fabricator, fibber
 1536	emri	noun	accusative singular of emir
-1537	içmek	verb	to drink, to swallow a liquid
+1537	içmek	verb	to drink, to swallow a liquid; to consume alcohol; to smoke, to inhale
 1538	mutlaka	adv	definitely, absolutely, unconditionally
 1539	radyo	noun	radio
 1540	çekmek	verb	to pull; to draw, haul, drag, tug
@@ -1553,7 +1553,7 @@ rank	word	pos	en
 1552	eli	noun	definite accusative singular
 1553	gecenin	noun	genitive singular
 1554	sevgi	noun	love (strong affection)
-1555	düşük	adj	Low in height, drooping, fallen.
+1555	düşük	adj	low, little, small (in amount or degree); drooping, fallen (in height); deposed, toppled (from power)
 1556	yolun	noun	genitive singular of yol
 1557	evime	noun	first-person singular simple present possessive dative of ev
 1558	çözüm	noun	solution; recipe
@@ -1575,7 +1575,7 @@ rank	word	pos	en
 1574	günlük	adj	daily; of the (same) day, fresh
 1575	durma	noun	verbal noun of durmak
 1576	örnek	noun	example, model; likeness, copy
-1577	yoğun	adj	intense, intensive
+1577	yoğun	adj	intense, intensive; dense, thick; busy
 1578	fahişe	noun	prostitute, hooker, whore
 1579	tep	verb	second-person singular imperative of tepmek
 1580	prens	noun	prince (son of a king, male ruler or head of a principality)
@@ -1626,7 +1626,7 @@ rank	word	pos	en
 1625	ilan	noun	announcement, notice
 1626	anahtarı	noun	definite accusative singular of anahtar
 1627	şüphe	noun	doubt; suspicion
-1628	pes	intj	"Used when accepting defeat; ""I yield!"" or ""Uncle!"""
+1628	pes	intj	Used when accepting defeat; “I yield!” or “Uncle!”; Used when at a loss for words at someone's extraordinary behavior or action; “I don't even know what to say!”, “This is too much!” or “This takes the cake!”
 1629	havuz	noun	pool, swimming pool
 1630	he	particle	yes; yeah
 1631	efendi	noun	master, sir; effendi
@@ -1636,7 +1636,7 @@ rank	word	pos	en
 1635	karşılık	noun	response; reaction; reply
 1636	etkileyici	adj	impressive; fascinating, enchanting
 1637	önümüzdeki	adj	next, upcoming
-1638	göt	noun	arse, ass (buttocks)
+1638	göt	noun	arse, ass (buttocks); courage, balls; motherfucker, dickhead, asshole (generic strong insult)
 1639	sürer	verb	third-person singular indicative aorist of sürmek
 1640	kraliçe	noun	queen (female monarch)
 1641	tören	noun	ceremony
@@ -1697,11 +1697,11 @@ rank	word	pos	en
 1696	ölümü	noun	first-person singular simple present possessive accusative of ölü
 1697	kaynak	noun	spring (water source)
 1698	geliyorsun	verb	second-person singular present continuous of gelmek
-1699	şiddet	noun	strength, intensity, the degree of a power, force, or motion
+1699	şiddet	noun	violence, brute force; severity, vehemence, harshness; strength, intensity (the degree of a force or motion)
 1700	saray	noun	palace; court
 1701	ortalık	noun	things, surroundings, the world around
 1702	eksik	adv	poorly, incompletely, defectively
-1703	aşağılık	adj	In the position of being low.
+1703	aşağılık	adj	immoral, lacking morality; of lesser worth, inferior; low in position
 1704	restoran	noun	restaurant
 1705	bari	adv	at least; for once
 1706	veda	noun	farewell, goodbye
@@ -1724,7 +1724,7 @@ rank	word	pos	en
 1723	yahu	intj	hey, over here; Draws attention.
 1724	neresi	pron	third-person singular single-possession possessive of nere
 1725	görüş	noun	opinion, view; concept
-1726	dinlemek	verb	to listen, hear
+1726	dinlemek	verb	to listen, hear; to pay attention to; to obey, conform to
 1727	olağanüstü	adj	extraordinary; supernatural
 1728	yazı	noun	writing (handwriting, typewriting, etc.)
 1729	yerim	noun	inflection of yer
@@ -1757,7 +1757,7 @@ rank	word	pos	en
 1756	derim	noun	first-person singular possessive of deri
 1757	temas	noun	contact
 1758	tarafında	noun	second-person singular/third-person single-possession locative of taraf
-1759	beklemek	verb	To wait for, to await.
+1759	beklemek	verb	To wait for, to await.; To expect, to anticipate; To watch over something or someone; to guard, to keep an eye on.
 1760	bölümü	noun	definite accusative singular of bölüm
 1761	yardımcısı	noun	third-person singular possessive of yardımcı
 1762	sarı	adj	yellow; blond
@@ -1788,7 +1788,7 @@ rank	word	pos	en
 1787	ipucu	noun	clue; hint
 1788	talep	noun	demand; request
 1789	eviniz	noun	second-person plural single-possession possessive of ev
-1790	bozuk	adj	Broken, damaged, faulty, out of order.
+1790	bozuk	adj	Broken, damaged, faulty, out of order.; Gone bad, spoilt, rotten.; Bummed out, out of sorts, in bad mood.
 1791	reklam	noun	advertisement
 1792	oğlan	noun	boy, male child
 1793	doğrudan	adv	directly, straight, right (doğrudan eve geliyorum — I'm coming straight home; doğrudan doğruya — directly, outright); as a modifier: direct (doğrudan ilişki — a direct connection) — literally the ablative of doğru
@@ -1798,7 +1798,7 @@ rank	word	pos	en
 1797	alanı	noun	accusative singular of alan
 1798	çıkıyorum	verb	first-person singular present continuous of çıkmak
 1799	karşısında	noun	third-person singular single-possession locative of karşı
-1800	katı	adj	rigid, hard, tough
+1800	katı	adj	rigid, hard, tough; strict (exact; accurate; precise; governed or governing by exact rules); solid (in the solid state)
 1801	bakacağım	verb	first-person singular indicative future of bakmak
 1802	göze	noun	dative singular of göz
 1803	gözleri	noun	definite accusative plural of göz
@@ -1820,14 +1820,14 @@ rank	word	pos	en
 1819	yetişkin	adj	adult, grown
 1820	ekmek	noun	bread; one's source of money
 1821	hastane	noun	hospital
-1822	takdir	noun	assessment, evaluation
+1822	takdir	noun	assessment, evaluation; appreciation; fate, destiny, predetermination
 1823	afedersin	intj	I'm sorry, pardon me
 1824	birliği	noun	definite accusative singular of birlik
 1825	alkol	noun	alcohol; a drink containing alcohol
 1826	seven	adj	loving, affectionate
 1827	sizler	pron	Formal version of siz (“you”)
 1828	birlik	noun	unity; union
-1829	kanal	noun	canal (waterway used for transportation of vessels)
+1829	kanal	noun	channel (a television or radio channel); canal (a waterway used by vessels); channel (a narrow body of water, such as the English Channel)
 1830	bunlara	pron	dative plural of bu
 1831	borç	noun	debt
 1832	niyet	noun	intention, aim
@@ -1841,10 +1841,10 @@ rank	word	pos	en
 1840	komutan	noun	commander
 1841	pilot	adj	pilot
 1842	geçer	verb	third-person singular indicative aorist of geçmek
-1843	çekim	noun	the act of pulling
+1843	çekim	noun	the act of pulling; conjugation; the pulling power between an object and another object, traction
 1844	anlamak	verb	To understand, to comprehend, to get.
 1845	koyun	noun	sheep (bir sürü koyun — a flock of sheep); figuratively a docile follower; also koymak + second-person plural (polite) imperative: put!, place! (şeker koyun — put in sugar); as a separate noun (koyn-): the bosom, the embrace
-1846	kişilik	adj	divided by a certain number of people
+1846	kişilik	adj	made for or consisting of a certain number of people (iki kişilik masa — a table for two)
 1847	başlamak	verb	to begin, to start
 1848	sohbet	noun	conversation
 1849	günden	noun	ablative singular of gün
@@ -2063,7 +2063,7 @@ rank	word	pos	en
 2062	güne	noun	dative singular of gün
 2063	ab	noun	the blood type AB
 2064	acıyor	verb	third-person singular present continuous of acımak
-2065	sıfır	adj	nonexistent, no
+2065	sıfır	adj	nonexistent, no; unsuccessful, unfruitful; firsthand, unused
 2066	arabadan	noun	ablative singular of araba
 2067	hâlde	noun	locative singular of hâl
 2068	manyak	noun	maniac
@@ -2079,7 +2079,7 @@ rank	word	pos	en
 2078	rahibe	noun	nun
 2079	öylesine	adv	exceedingly, so much so
 2080	seri	noun	series
-2081	sıkıntı	noun	Mental exhaustion, boredom, tedium.
+2081	sıkıntı	noun	trouble, problem; distress, hardship (economic or emotional); boredom, tedium
 2082	minik	adj	tiny, little and pretty
 2083	tesadüf	noun	coincidence, chance, accident
 2084	madde	noun	article (section of a legal document)
@@ -2120,7 +2120,7 @@ rank	word	pos	en
 2119	melek	noun	angel; cherub
 2120	benzin	noun	gasoline
 2121	ali	name	a male given name from Arabic
-2122	kurtulmak	verb	to be rescued, be saved, be freed; to escape
+2122	kurtulmak	verb	to be rescued, be saved, be freed; to escape; to get rid of, be rid of (something or someone unpleasant), be relieved; to get loose, break loose
 2123	posta	noun	mail, post
 2124	eşcinsel	adj	homosexual
 2125	öldürme	noun	verbal noun of öldürmek
@@ -2129,7 +2129,7 @@ rank	word	pos	en
 2128	kira	noun	rent, tenancy
 2129	amaç	noun	purpose, aim, goal
 2130	sırası	noun	third singular possessive of sıra
-2131	daire	noun	the inner part of a full circle
+2131	daire	noun	apartment, flat (short for apartman dairesi); office, department; the inner part of a circle
 2132	sevmiyorum	verb	first-person singular negative present continuous of sevmek
 2133	tarif	noun	definition; description
 2134	bağ	noun	connection; lace
@@ -2281,7 +2281,7 @@ rank	word	pos	en
 2280	bahar	noun	spring, springtime
 2281	hastalığı	noun	definite accusative singular of hastalık
 2282	ilham	noun	inspiration
-2283	üvey	adj	step-
+2283	üvey	adj	step- (Used in the words starting in English with the syllable step-, such as üvey kız (stepdaughter).)
 2284	salon	noun	living room; shop, store
 2285	mezun	adj	graduated; permitted; authorized, licensed
 2286	gelişme	noun	advancement, development, happenings
@@ -2384,7 +2384,7 @@ rank	word	pos	en
 2383	güvenilir	adj	reliable, trustworthy
 2384	lise	noun	high school
 2385	uluslararası	adj	international
-2386	baya	noun	dative singular of bay
+2386	baya	noun	really, quite, pretty (colloquial spelling of bayağı: baya iyi — pretty good)
 2387	bayılırım	verb	first-person singular indicative aorist of bayılmak
 2388	yapsın	verb	third-person singular imperative of yapmak
 2389	isteyeceğim	verb	first-person singular indicative future of istemek
@@ -2466,7 +2466,7 @@ rank	word	pos	en
 2465	bıçağı	noun	definite accusative singular
 2466	eğlenceler	noun	nominative plural of eğlence
 2467	ok	noun	arrow
-2468	değişik	adj	Changed, substituted.
+2468	değişik	adj	different, unusual, out of the ordinary; varied, diverse; changed, substituted
 2469	gereksiz	adj	unnecessary
 2470	stres	noun	stress (emotional pressure)
 2471	uslu	adv	calmly, obediently
@@ -2478,7 +2478,7 @@ rank	word	pos	en
 2477	adlı	adj	named
 2478	arabasını	noun	third-person singular simple present possessive accusative of araba
 2479	bulunduğu	verb	third-person past participle of bulunmak
-2480	ifa	noun	paying, delivering
+2480	ifa	noun	paying, delivering; fulfillment, discharge; payment
 2481	anlayış	noun	understanding
 2482	mola	noun	rest, break, pause
 2483	bisiklet	noun	bicycle; cycling
@@ -2488,7 +2488,7 @@ rank	word	pos	en
 2487	sapık	adj	Whose behaviour is against the social norms and conventions; perverted, deviant.
 2488	koru	noun	grove
 2489	gücüm	noun	first-person singular possessive of güç
-2490	kut	noun	Mandate of Heaven
+2490	kut	noun	luck, good fortune; the Mandate of Heaven (in Turkic tradition)
 2491	görürsün	verb	second-person singular indicative aorist of görmek
 2492	incil	noun	gospel
 2493	gök	noun	sky; blue
@@ -2531,7 +2531,7 @@ rank	word	pos	en
 2530	örümcek	noun	spider; spiderweb
 2531	bitirmek	verb	causative of bitmek: to finish, to complete
 2532	bağış	noun	donation; grant
-2533	dar	adj	narrow; scant
+2533	dar	adj	narrow; tight, close-fitting (of clothes); scant
 2534	gürültü	noun	noise
 2535	boyun	noun	neck
 2536	dana	noun	calf (young of cattle)
@@ -2562,7 +2562,7 @@ rank	word	pos	en
 2561	sınıfta	noun	locative of sınıf
 2562	devrim	noun	revolution; reform, reformation
 2563	tuzağa	noun	dative singular of tuzak
-2564	yas	noun	mourning
+2564	yas	noun	mourning, grieving, lamentation, the act of expressing or feeling sorrow in response to a loss
 2565	sesli	noun	vowel
 2566	sorunlar	noun	nominative plural of sorun
 2567	tünel	noun	tunnel
@@ -2580,7 +2580,7 @@ rank	word	pos	en
 2579	kadınlara	noun	dative plural of kadın
 2580	tin	noun	soul, spirit
 2581	yüze	noun	dative singular of yüz
-2582	yoldaş	noun	fellow traveller
+2582	yoldaş	noun	companion, fellow traveller; comrade (as a form of address, especially in Communist usage)
 2583	vatandaş	noun	citizen; countryman
 2584	piyano	noun	piano
 2585	borcum	noun	first-person singular possessive of borç
@@ -2591,7 +2591,7 @@ rank	word	pos	en
 2590	sinirli	adj	angry; with nerves
 2591	amma	adv	yet
 2592	atar	verb	third-person singular indicative aorist of atmak
-2593	uyanık	adj	Not sleeping; awake, awoken from sleep.
+2593	uyanık	adj	Not sleeping; awake, awoken from sleep.; Smart, cunning, sly, clever.; Attentive, vigilant, watchful.
 2594	sessizce	adv	quietly, without making noise
 2595	kokain	noun	cocaine (the drug)
 2596	herhâlde	adv	presumably, supposedly, likely, possibly, probably
@@ -2617,7 +2617,7 @@ rank	word	pos	en
 2616	aklı	noun	accusative singular of akıl
 2617	eylül	noun	September
 2618	şahit	noun	witness
-2619	müsait	adj	suitable, convenient
+2619	müsait	adj	suitable, convenient; available (to pay attention to a visitor, having a conversation, etc.)
 2620	yolcu	noun	passenger
 2621	gözlerin	noun	definite genitive plural of göz
 2622	sözler	noun	nominative plural of söz
@@ -2646,7 +2646,7 @@ rank	word	pos	en
 2645	olumlu	adj	positive
 2646	kardeşler	noun	nominative plural of kardeş
 2647	şekli	noun	definite accusative of şekil
-2648	iniş	noun	landing (a coming to a surface, as of an airplane)
+2648	iniş	noun	landing (a coming to a surface, as of an airplane); fall, downfall (loss of greatness or status)
 2649	istediler	verb	third-person plural indicative simple past of istemek
 2650	açılış	noun	opening (an act or instance of making or becoming open)
 2651	uz	adj	good, nice; able, skilled
@@ -2694,7 +2694,7 @@ rank	word	pos	en
 2693	yavrum	noun	first-person singular possessive of yavru
 2694	sesin	noun	genitive singular of ses
 2695	tanış	adj	familiar, known to somebody
-2696	özellik	noun	specialness, exceptionality
+2696	özellik	noun	characteristic, property, attribute; peculiarity; specialness, exceptionality
 2697	damar	noun	vein, blood vessel
 2698	giysi	noun	piece of clothing, clothing, clothes
 2699	bozucu	adj	disruptive
@@ -2739,7 +2739,7 @@ rank	word	pos	en
 2738	istek	noun	wish, desire (a wish)
 2739	bahane	noun	An excuse, a made-up reason to hide the real one.
 2740	paylaşmak	verb	to share
-2741	rehin	noun	pledge
+2741	rehin	noun	pledge; an asset temporarily handed over to guarantee the fulfilment of something promised, under threat of permanent loss of the thing handed over
 2742	kutlu	adj	fortunate, lucky, prosperous
 2743	işçi	noun	worker
 2744	casus	noun	spy
@@ -2804,7 +2804,7 @@ rank	word	pos	en
 2803	başlama	noun	beginning; start, initiation, inception
 2804	dansı	noun	definite accusative singular
 2805	papa	noun	pope
-2806	altyazı	noun	bottom; under
+2806	altyazı	noun	alternative spelling of alt yazı
 2807	belirsiz	adj	ambiguous (open to multiple interpretations)
 2808	ikiz	noun	twin
 2809	yönetici	noun	executive, director, manager
@@ -2845,7 +2845,7 @@ rank	word	pos	en
 2844	burun	noun	nose; cape
 2845	gez	noun	notch of an arrow
 2846	sör	noun	sir (all senses)
-2847	iade	noun	refund (amount of money returned)
+2847	iade	noun	refund (amount of money returned); return (item that is returned, e.g. due to a defect, or the act of returning it)
 2848	varlık	noun	existence; wealth
 2849	sokağa	noun	dative singular of sokak (street, road).
 2850	azıcık	adv	a little bit
@@ -2874,10 +2874,10 @@ rank	word	pos	en
 2873	anlatacak	verb	third-person singular indicative future of anlatmak
 2874	bire	noun	dative singular of bir
 2875	sesim	noun	first-person singular possessive of ses
-2876	istemek	verb	to want, desire, wish
+2876	istemek	verb	to want, desire, wish; to ask for, seek, demand; to ask for (a woman) in marriage
 2877	subay	noun	officer
 2878	defter	noun	notebook; inventory; books
-2879	ibne	noun	faggot (homosexual)
+2879	ibne	noun	faggot (homosexual); arsehole; scoundrel, bastard
 2880	kont	noun	count
 2881	kutusu	noun	third-person singular possessive of kutu
 2882	kuvvetleri	noun	definite accusative plural of kuvvet
@@ -3042,9 +3042,9 @@ rank	word	pos	en
 3041	birdenbire	adv	all of a sudden, suddenly, abruptly, instantly
 3042	muayene	noun	examination; inspection (reviewing, researching, polling, checking)
 3043	sovyet	adj	Soviet
-3044	saklamak	verb	to hide; to put
+3044	saklamak	verb	to hide, put out of sight; to keep, store, save; to protect, preserve
 3045	biyolojik	adj	biological
-3046	tanımak	verb	to know (someone)
+3046	tanımak	verb	to know (someone); to recognise
 3047	internette	noun	locative singular of internet
 3048	hazine	noun	treasure
 3049	ayrıntı	noun	detail
@@ -3168,7 +3168,7 @@ rank	word	pos	en
 3167	yüzey	noun	surface
 3168	şayet	conj	if (supposing that)
 3169	beklenmedik	adj	unexpected
-3170	çözmek	verb	to untie, unfasten, unbutton
+3170	çözmek	verb	to solve, resolve, decipher, figure out; to untie, unfasten, unbutton; to unravel, disentangle, undo
 3171	ava	noun	dative singular of av
 3172	evsiz	noun	a homeless person
 3173	motoru	noun	definite accusative singular of motor
@@ -3388,15 +3388,15 @@ rank	word	pos	en
 3387	tanım	noun	description (account in words)
 3388	saklı	adj	secret, hidden
 3389	keyifli	adj	delighted, blissful, joyous, cheerful
-3390	bitmek	verb	to end, to finish
+3390	bitmek	verb	to end, to finish; to grow, to sprout; to cease
 3391	anlatıyor	verb	third-person singular present continuous of anlatmak
 3392	taşımak	verb	to carry, carry away, transport from one place to another
 3393	vaka	noun	event, case (chiefly in medical, psychological and judicial contexts)
 3394	amber	noun	Ambergris, the waxy product of the sperm whale.
 3395	toplu	adj	collective; tidied up
 3396	resimler	noun	nominative plural of resim
-3397	füze	noun	rocket (vehicle)
-3398	kaldırmak	verb	to lift up, raise, elevate
+3397	füze	noun	rocket (weapon); rocket (vehicle)
+3398	kaldırmak	verb	to lift up, raise, elevate; to remove, take away, put something out of reach
 3399	hah	intj	aha
 3400	atıyorum	verb	first-person singular present continuous of atmak
 3401	veririz	verb	first-person plural indicative aorist of vermek
@@ -3439,7 +3439,7 @@ rank	word	pos	en
 3438	atacağım	verb	first-person singular indicative future of atmak
 3439	öd	noun	gall
 3440	adamlardan	noun	ablative plural of adam
-3441	tahrik	noun	An act of arousing sexual desire; excitation, stimulation.
+3441	tahrik	noun	provocation, instigation, incitement; arousal, excitation, stimulation
 3442	kitabım	noun	first-person singular possessive singular of kitap
 3443	sorumluluğu	noun	accusative singular of sorumluluk
 3444	öğrenciler	noun	definite plural of öğrenci
@@ -3544,7 +3544,7 @@ rank	word	pos	en
 3543	rekabet	noun	competition, rivalry
 3544	benzeri	noun	accusative singular of benzer
 3545	papel	noun	money; buck, bill
-3546	karavan	noun	caravan
+3546	karavan	noun	caravan (a furnished vehicle towed behind a car, etc., and used as a dwelling when stationary)
 3547	anneler	noun	definite plural of anne
 3548	duruşma	noun	The stage of a trial when both parties are present before a judge; a hearing.
 3549	portakal	noun	orange (tree and fruit)
@@ -3558,10 +3558,10 @@ rank	word	pos	en
 3557	türü	noun	accusative singular of tür
 3558	tavır	noun	manner, acting or speaking way
 3559	güzeller	noun	nominative plural of güzel
-3560	yanık	adj	Something that is burnt or burning.
+3560	yanık	adj	Something that is burnt or burning.; Darkened in tone; tanned skin.; In distress, sad.
 3561	isteriz	verb	first-person plural indicative aorist of istemek
 3562	kaplı	adj	covered
-3563	eğlenmek	verb	to have fun, to enjoy
+3563	eğlenmek	verb	to have fun, to enjoy; to make fun of
 3564	gitar	noun	guitar
 3565	açıklar	noun	nominative plural of açık
 3566	incitmek	verb	causative of incimek: to hurt
@@ -3609,16 +3609,16 @@ rank	word	pos	en
 3608	cd	noun	CD, compact disc
 3609	muz	noun	banana
 3610	gelecekler	verb	third-person plural indicative future of gelmek
-3611	albüm	noun	book (convenient collection of small paper items, such as stamps)
+3611	albüm	noun	album (a collection of small paper items, such as stamps); album (a group of audio recordings)
 3612	motel	noun	motel
 3613	arz	noun	earth
 3614	cesedin	noun	definite genitive singular of ceset
 3615	gezegenin	noun	genitive singular
 3616	bahçede	noun	singular locative of bahçe
 3617	donanma	noun	fleet
-3618	isabet	noun	Hitting or reaching the target.
+3618	isabet	noun	Hitting or reaching the target.; Winning in a game of chance such as the lottery.; Being apt, appropriate, spot on.
 3619	yurt	noun	A piece of land on which a nation resides and which forms its culture; homeland.
-3620	rakip	noun	rival
+3620	rakip	noun	rival, competitor, opponent
 3621	kutlamak	verb	to congratulate
 3622	şarj	noun	charge
 3623	saygın	adj	respected, esteemed
@@ -3637,7 +3637,7 @@ rank	word	pos	en
 3636	bez	noun	cloth
 3637	iltifat	noun	compliment; attention
 3638	minibüs	noun	minibus
-3639	açacak	noun	key
+3639	açacak	noun	opener (device that opens something); can opener
 3640	imkân	noun	possibility; opportunity, potential (chance for advancement, progress or profit)
 3641	vücudun	noun	definite genitive singular of vücut
 3642	unutmak	verb	to forget
@@ -3685,7 +3685,7 @@ rank	word	pos	en
 3684	tembel	adj	lazy
 3685	evladım	noun	first-person singular possessive of evlat
 3686	pay	noun	portion; numerator
-3687	rahatsızlık	noun	uncomfortableness
+3687	rahatsızlık	noun	uncomfortableness; ailment, illness, disease
 3688	yoksun	adj	deprived, bereft
 3689	zarif	adj	elegant (exhibiting elegance)
 3690	istemedin	verb	second-person singular indicative negative simple past of istemek
@@ -3792,7 +3792,7 @@ rank	word	pos	en
 3791	egzersiz	noun	exercise
 3792	ii	adj	abbreviation of iyi
 3793	bitmez	adj	infinite
-3794	sürmek	verb	To operate a wheeled vehicle; to drive, to ride.
+3794	sürmek	verb	to drive, to ride (to operate a wheeled vehicle); to continue, to go on, to last, to take a certain amount of time
 3795	arabaları	noun	definite accusative plural
 3796	getirme	noun	verbal noun of getirmek
 3797	hikayeler	noun	nominative plural of hikaye
@@ -3986,13 +3986,13 @@ rank	word	pos	en
 3985	küfür	noun	blasphemy; cursing or swearing of any kind
 3986	kıyamet	noun	judgement day, apocalypse
 3987	diken	noun	thorn (sharp protective spine of a plant)
-3988	saygıdeğer	adj	worthy to be respected, respectworthy
+3988	saygıdeğer	adj	worthy to be respected, respectworthy; (as a formal address opening a speech or letter) honorable, dear
 3989	zihinsel	adj	Of or related to the mind; mental.
 3990	yüzüstü	adv	face-down; incompletely
 3991	kanalı	noun	definite accusative singular
 3992	ak	adj	white; clean
 3993	telgraf	noun	telegraph, telegram
-3994	kalıntı	noun	Something that remains; remainder, residue.
+3994	kalıntı	noun	something that remains; remainder, residue; remnant of an ancient city or structure; relic, ruin
 3995	kapağı	noun	accusative singular of kapak
 3996	çatışma	noun	verbal noun of çatışmak (“to clash, collide, etc.”)
 3997	yolculuklar	noun	nominative plural of yolculuk
@@ -4004,7 +4004,7 @@ rank	word	pos	en
 4003	ila	postp	to, up to, until, between
 4004	kültür	noun	culture
 4005	ipi	noun	third-person singular single-possession of ip
-4006	muamele	noun	treatment, conduct, behavior.
+4006	muamele	noun	treatment, conduct, behavior.; the processing (of a petition or application).; doing business with, trading, buying and selling.
 4007	aradan	noun	ablative singular of ara
 4008	mağara	noun	cave
 4009	kule	noun	tower; turret
@@ -4053,7 +4053,7 @@ rank	word	pos	en
 4052	dvd	noun	DVD (optical disc)
 4053	payı	noun	accusative singular of pay
 4054	kısaca	adj	pretty short, fairly short
-4055	çürük	adj	Rotten, spoilt, decaying.
+4055	çürük	adj	rotten, spoilt, decaying; not firm and durable; flimsy, weak
 4056	illa	adv	no matter what, in any case, under any circumstances
 4057	yalanlar	noun	nominative plural of yalan
 4058	tetik	adj	vigilant, watchful
@@ -4123,7 +4123,7 @@ rank	word	pos	en
 4122	bağırsak	noun	intestine, bowel (alimentary canal)
 4123	tokat	noun	slap (a blow)
 4124	girişi	noun	definite accusative singular
-4125	perişan	adj	scattered, dispersed
+4125	perişan	adj	miserable, wretched, poor; scattered, dispersed
 4126	kullanım	noun	use
 4127	sorguya	noun	dative singular of sorgu
 4128	sis	noun	fog
@@ -4133,14 +4133,14 @@ rank	word	pos	en
 4132	yıldırım	noun	lightning strike, thunderbolt
 4133	sinek	noun	fly (insect); playing card marked with the symbol ♣, clubs
 4134	bambaşka	adj	intensive form of başka (“different”)
-4135	muhbir	noun	Someone who brings news.
+4135	muhbir	noun	informant, whistle-blower (someone who reports a problem or violation to the authorities); someone who brings news
 4136	ölç	verb	second-person singular imperative of ölçmek
 4137	çevirmen	noun	interpreter; translator
 4138	yuvarlak	adj	round (circular or cylindrical)
 4139	ölümsüz	adj	immortal
 4140	şekerim	noun	first-person singular possessive of şeker
 4141	saatinde	noun	second/third-person singular single-possession possessive locative of saat
-4142	tırnak	noun	nail (on fingers and toes)
+4142	tırnak	noun	nail (on fingers and toes); claw, hoof; quote, quotation mark
 4143	civarı	noun	definite singular accusative of civar
 4144	sonbahar	noun	autumn, fall
 4145	açacağım	verb	first-person singular indicative future of açmak
@@ -4195,7 +4195,7 @@ rank	word	pos	en
 4194	büyüklük	noun	enormity, vastness
 4195	açıl	name	a male given name
 4196	kapatma	noun	verbal noun of kapatmak: closure, closing
-4197	dokunmak	verb	to touch, contact
+4197	dokunmak	verb	to touch, contact; to meddle with; to upset, affect adversely
 4198	sakız	noun	chewing gum; gum, resin
 4199	soluk	adj	Having lost color; pale, faded, pasty.
 4200	detaylı	adj	detailed
@@ -4206,7 +4206,7 @@ rank	word	pos	en
 4205	yalnızlık	noun	loneliness
 4206	gav	noun	clay soil
 4207	görüntüler	noun	nominative plural of görüntü
-4208	türk	noun	Turk (ethnically Turkish person)
+4208	türk	noun	Turk (an ethnically Turkish person, or a citizen of Turkey)
 4209	acemi	adj	inexperienced
 4210	çuval	noun	sack
 4211	gizlilik	noun	secrecy, clandestinity
@@ -4282,7 +4282,7 @@ rank	word	pos	en
 4281	itibar	noun	consideration, regard, esteem
 4282	şarkıcı	noun	singer
 4283	tilki	noun	fox (Vulpes vulpes)
-4284	seçmek	verb	to choose, select
+4284	seçmek	verb	to choose, select; to elect
 4285	kaplumbağa	noun	turtle, tortoise, Testudines
 4286	böbrek	noun	kidney (an organ in the body)
 4287	geliyorsunuz	verb	second-person plural present continuous of gelmek
@@ -4292,7 +4292,7 @@ rank	word	pos	en
 4291	kömür	noun	coal; charcoal
 4292	torba	noun	bag, sack
 4293	havaalanı	noun	aerodrome
-4294	suikast	noun	malice aforethought
+4294	suikast	noun	assassination, attempt at murder; plot, conspiracy
 4295	yarasa	noun	bat (winged mammal)
 4296	gözyaşı	noun	tear
 4297	kalça	noun	butt, hip
@@ -4312,7 +4312,7 @@ rank	word	pos	en
 4311	eylem	noun	act, action; action made to deprecate, protest something
 4312	kabalık	noun	rudeness
 4313	battaniye	noun	blanket
-4314	göbek	noun	navel, umbilicus
+4314	göbek	noun	navel, umbilicus; paunch, potbelly, belly; middle, core, center, heart
 4315	basına	noun	dative singular of basın
 4316	güzelliği	noun	singular definite accusative of güzellik
 4317	belle	verb	second-person singular imperative of bellemek
@@ -4355,9 +4355,9 @@ rank	word	pos	en
 4354	parçayı	noun	accusative singular of parça
 4355	halletmek	verb	to sort out, to fix
 4356	şirk	noun	shirk
-4357	kazık	noun	A strong wooden or iron shaft
+4357	kazık	noun	stake, pole, post (a strong wooden or iron shaft, pointed at one end, driven into the ground); deception, cheat, rip-off
 4358	kıskançlık	noun	jealousy; state of being jealous
-4359	atılgan	adj	aggressive, fiery
+4359	atılgan	adj	bold, enterprising, adventuresome; aggressive, fiery
 4360	kolye	noun	necklace
 4361	ulus	noun	nation
 4362	köyde	noun	locative singular of köy
@@ -4408,13 +4408,13 @@ rank	word	pos	en
 4407	zırh	noun	armor
 4408	aşama	noun	degree, grade
 4409	verimli	adj	efficient
-4410	tir	noun	vehicle displaying a TIR plate
+4410	tir	noun	semi truck, tractor-trailer (a vehicle displaying a TIR plate)
 4411	vicdan	noun	conscience; scruple (with regard to the morality or propriety of a course of action)
 4412	müzisyen	noun	musician
 4413	sak	name	Saky (a city in Crimea, Ukraine)
 4414	ahlaksız	noun	unscrupulous, vicious, immoral, reprobate
 4415	sular	noun	nominative plural of su
-4416	tuş	noun	button
+4416	tuş	noun	button (mechanical device meant to be pressed with a finger in order to open or close an electric circuit or to activate a mechanism)
 4417	kumanda	noun	order, command; remote control
 4418	masayı	noun	singular definite accusative of masa
 4419	yudum	noun	sip
@@ -4447,10 +4447,10 @@ rank	word	pos	en
 4446	irtibat	noun	The act of connecting, connection.
 4447	kare	noun	"square; ""#"" symbol on a telephone, hash, octothorpe, pound"
 4448	tanı	noun	diagnosis
-4449	belirgin	adj	distinct
+4449	belirgin	adj	distinct, clear, evident, pronounced
 4450	köstebek	noun	mole
 4451	tutuklu	adj	captive; arrested, held
-4452	düşmek	verb	to fall, fall down
+4452	düşmek	verb	to fall, fall down; to drop, go down, decrease; to subtract, deduct
 4453	kafatası	noun	skull (cranium)
 4454	hediyeler	noun	nominative plural of hediye
 4455	pakistan	name	Pakistan (a country in South Asia)
@@ -4459,9 +4459,9 @@ rank	word	pos	en
 4458	mühendis	noun	engineer
 4459	neşe	noun	bliss; cheer
 4460	tuzlu	adj	briny, salty; expensive
-4461	çıkartmak	verb	to take off (clothes)
+4461	çıkartmak	verb	to take off (clothes); to remove, take out; to unplug
 4462	hastayı	noun	accusative singular of hasta
-4463	azgın	adj	angry, furious fierce
+4463	azgın	adj	wild, out of control; angry, furious, fierce; horny
 4464	kukla	noun	puppet (string puppet)
 4465	beceriksiz	adj	inept, untalented
 4466	kot	noun	denim; jeans
@@ -4519,7 +4519,7 @@ rank	word	pos	en
 4518	seviyorlar	verb	third-person plural present continuous of sevmek
 4519	kampüs	noun	campus
 4520	derisi	noun	third-person singular possessive of deri
-4521	apaçık	adj	intensive form of açık (“clear”)
+4521	apaçık	adj	obvious, explicit, absolutely clear (intensive form of açık, “clear”)
 4522	böcekler	noun	nominative plural of böcek
 4523	yersin	verb	second-person singular indicative aorist of yemek
 4524	müsade	noun	permission
@@ -4549,7 +4549,7 @@ rank	word	pos	en
 4548	poz	noun	pose
 4549	geçenlerde	adv	recently, the other day, lately
 4550	sayım	noun	enumeration; tally
-4551	inmek	verb	to go down, come down, descend
+4551	inmek	verb	to go down, come down, descend; to get off (a bus, train, plane), to get out of (a car); to land
 4552	soyad	noun	surname
 4553	gideceksiniz	verb	second-person plural indicative future of gitmek
 4554	nesne	noun	object
@@ -4609,7 +4609,7 @@ rank	word	pos	en
 4608	komşular	noun	nominative plural of komşu
 4609	şekeri	noun	accusative singular of şeker
 4610	kuşları	noun	definite accusative plural of kuş
-4611	tem	noun	abbreviation of Temmuz (“July”)
+4611	tem	noun	abbreviation of Temmuz (“July”); initialism of Terörle Mücadele, the counter-terrorism police department
 4612	yetkisi	noun	third-person singular possessive of yetki
 4613	sabır	noun	patience; forbearance
 4614	moruk	noun	geezer, old man
@@ -4621,7 +4621,7 @@ rank	word	pos	en
 4620	bozmak	verb	to blemish, to blight, to spoil or ruin
 4621	dimi	intj	contraction of değil + mi
 4622	acıklı	adj	Causing sadness; tragic, touching, depressing.
-4623	düşünceli	adj	thoughtful, kind
+4623	düşünceli	adj	thoughtful, kind; worried, lost in thought, pensive
 4624	sendromu	noun	definite singular accusative of sendrom
 4625	tazminat	noun	damages; indemnity
 4626	konuşuyorlar	verb	third-person plural present continuous of konuşmak
@@ -4641,7 +4641,7 @@ rank	word	pos	en
 4640	numaralar	noun	nominative plural of numara
 4641	savunmak	verb	to defend; to protect
 4642	ciğer	noun	general name of lung and liver
-4643	kardinal	noun	cardinal
+4643	kardinal	noun	cardinal, one of the officials appointed by the pope in the Roman Catholic Church, ranking only below him
 4644	yazma	noun	act of writing; manuscript
 4645	balıkçı	noun	fisherman; fishmonger
 4646	buhar	noun	steam
@@ -4676,7 +4676,7 @@ rank	word	pos	en
 4675	akşamdan	noun	ablative singular of akşam
 4676	sonları	noun	definite accusative plural of son
 4677	manken	noun	mannequin; model
-4678	dayı	noun	maternal uncle, one's mother's brother
+4678	dayı	noun	maternal uncle, one's mother's brother; (as a term of address) any older man
 4679	istila	noun	invasion, swarming
 4680	hoca	noun	master; professor
 4681	sultan	noun	A monarchic title for Sunni Muslim monarchs.
@@ -4752,7 +4752,7 @@ rank	word	pos	en
 4751	arkadaşa	noun	singular dative of arkadaş
 4752	giderdim	verb	first-person singular indicative simple past of gidermek
 4753	farklılık	noun	difference
-4754	oylama	noun	election
+4754	oylama	noun	an act of voting, a vote
 4755	çiğ	adj	raw, uncooked; harsh (of light or sound)
 4756	kaşık	noun	spoon
 4757	kulağına	noun	second-person singular simple present possessive dative of kulak
@@ -4783,7 +4783,7 @@ rank	word	pos	en
 4782	rota	noun	route, course, heading
 4783	etkiler	noun	nominative plural of etki
 4784	gururlu	adj	proud
-4785	klan	noun	tribal community
+4785	klan	noun	clan; tribal community (a group descended from a common ancestor, sharing a territory and a single chieftain)
 4786	sabun	noun	soap, a detergent substance used for cleaning
 4787	asi	adj	rebellious; unruly
 4788	payını	noun	second-person singular possessive definite accusative singular
@@ -4839,7 +4839,7 @@ rank	word	pos	en
 4838	bulaşıcı	adj	contagious (of a disease, easily transmitted to others)
 4839	nan	noun	bread; food
 4840	oyunculuk	noun	profession of a player
-4841	elbet	adv	of course, surely
+4841	elbet	adv	of course, surely (variant of elbette)
 4842	üzüntü	noun	sadness, sorrow, grief
 4843	aydınlık	adj	light, lightened
 4844	salakça	adj	idiotic
@@ -4859,14 +4859,14 @@ rank	word	pos	en
 4858	gördüler	verb	third-person plural indicative simple past of görmek
 4859	sahipler	noun	nominative plural of sahip
 4860	okyanusun	noun	definite genitive singular of okyanus
-4861	yabani	adj	related to the wilderness or outdoors
+4861	yabani	adj	wild, not domesticated; of the wilderness or outdoors; (of a person) uncivilized, boorish
 4862	etsek	verb	first-person plural conditional of etmek
 4863	kesim	noun	part; slaughter, slaughtering
 4864	gezegene	noun	dative singular of gezegen
 4865	konseyi	noun	accusative singular of konsey
 4866	saatimiz	noun	first-person plural single-possession possessive of saat
 4867	bor	noun	boron
-4868	takmak	verb	to wear, put on
+4868	takmak	verb	to wear, put on; to attach, fasten, affix, put something on; to pin something to; to hang something on; to give (a name) to
 4869	ailede	noun	singular locative of aile
 4870	prezervatif	noun	condom
 4871	değişmez	noun	constant
@@ -4890,7 +4890,7 @@ rank	word	pos	en
 4889	kabil	adj	possible, doable
 4890	etik	adj	ethical
 4891	kasırga	noun	cyclone, hurricane
-4892	dağıtmak	verb	to scatter; to disperse; to dispel; to dissipate
+4892	dağıtmak	verb	to scatter, disperse; to distribute, hand out, deal out; to mess up, put into disarray
 4893	avukatlar	noun	nominative plural of avukat
 4894	bre	intj	hey; yo (slang)
 4895	zarf	noun	envelope; adverb
@@ -4941,7 +4941,7 @@ rank	word	pos	en
 4940	özü	noun	accusative singular of öz
 4941	okyanusu	noun	third-person singular possessed nominative singular of okyanus (“ocean”)
 4942	çiş	noun	urine, piss
-4943	cins	noun	sort (kind, type)
+4943	cins	noun	sort (kind, type); sex, gender; genus
 4944	noktayı	noun	accusative singular of nokta
 4945	odaları	noun	definite accusative plural of oda
 4946	tanıma	noun	first-person singular simple present possessive dative of tan
@@ -4968,7 +4968,7 @@ rank	word	pos	en
 4967	kaydını	noun	second-person singular possessive of kayıt
 4968	havalandırma	noun	verbal noun of havalandırmak; an act of ventilating, airing out, ventilation
 4969	bahçeye	noun	singular dative of bahçe
-4970	ayrılık	noun	separation, severance
+4970	ayrılık	noun	separation, severance; breakup; difference, especially in opinions
 4971	mürekkep	noun	ink
 4972	unu	noun	accusative singular of un
 4973	teşkil	noun	forming, organizing; formation, organization
@@ -4999,7 +4999,7 @@ rank	word	pos	en
 4998	bağlılık	noun	connection, dependency
 4999	denge	noun	balance
 5000	kalemi	noun	definite accusative singular
-5001	bit	noun	louse belonging to genus Pediculus
+5001	bit	noun	louse (the parasitic insect; also of aphids on plants)
 5002	meleği	noun	singular definite accusative of melek
 5003	tekila	noun	tequila
 5004	gösteriş	noun	display; showing off
@@ -5024,7 +5024,7 @@ rank	word	pos	en
 5023	çocukça	adj	childish, childlike
 5024	mama	noun	baby food; pet food
 5025	galip	adj	victorious; dominant; in the majority; usual
-5026	demiryolu	noun	iron
+5026	demiryolu	noun	railway, railroad (also written demir yolu)
 5027	başrol	noun	lead (the actor who plays the main role; lead actor)
 5028	uğraşma	noun	verbal noun of uğraşmak
 5029	dokunaklı	adj	touching, provoking sadness and pity
@@ -5035,7 +5035,7 @@ rank	word	pos	en
 5034	komite	noun	committee
 5035	post	noun	fur, hide, pelt
 5036	kova	noun	bucket
-5037	alıştırma	noun	exercise
+5037	alıştırma	noun	exercise; accustoming, making someone accustomed (verbal noun of alıştırmak)
 5038	koşmak	verb	to run
 5039	işçiler	noun	nominative plural of işçi
 5040	halat	noun	rope
@@ -5052,9 +5052,9 @@ rank	word	pos	en
 5051	saatim	noun	first-person singular single-possession possessive of saat
 5052	hortum	noun	snout, proboscis
 5053	doldurmak	verb	to fill; to fuel
-5054	oluşturmak	verb	to give rise to, to create
+5054	oluşturmak	verb	to give rise to, to create; to form, to constitute, to comprise
 5055	gecikme	noun	delay, wait
-5056	muhafaza	noun	defending, protecting
+5056	muhafaza	noun	protecting, protection; conservation, preservation
 5057	umudu	noun	definite accusative singular of umut
 5058	balayı	noun	honeymoon
 5059	yükseklik	noun	height; altitude
@@ -5079,7 +5079,7 @@ rank	word	pos	en
 5078	ilişkinin	noun	genitive singular of ilişki
 5079	ürpertici	adj	eerie, creepy
 5080	devletleri	noun	definite accusative plural of devlet
-5081	metin	noun	text (a written passage)
+5081	metin	noun	text (a written passage); also Metin, a male given name
 5082	kıyı	noun	beach; coast, shore
 5083	açarım	verb	first-person singular indicative aorist of açmak
 5084	uzaklaşmak	verb	to go away (from), to exit
@@ -5101,7 +5101,7 @@ rank	word	pos	en
 5100	yığını	noun	definite accusative singular
 5101	baygın	adj	fainted, unconscious
 5102	yardımcım	noun	first-person singular possessive of yardımcı
-5103	seyretmek	verb	To observe the state or development of something.
+5103	seyretmek	verb	to watch (for entertainment, education, etc.); to observe the state or development of something; to watch without getting involved
 5104	dolandırıcı	noun	scammer, fraud; swindler
 5105	sihirbaz	noun	magician (practitioner of allegedly supernatural magic)
 5106	evladı	noun	accusative singular of evlat
@@ -5233,7 +5233,7 @@ rank	word	pos	en
 5232	düşkün	adj	fond, keen, enamored
 5233	havuç	noun	carrot, a root vegetable of the species Daucus carota, usually orange in color
 5234	acımasızca	adv	mercilessly, ruthlessly, in cold blood
-5235	sürgün	noun	banishment, exile
+5235	sürgün	noun	banishment, exile; sprout, bud (of a plant)
 5236	narkotik	noun	narcotic
 5237	bilme	noun	verbal noun of bilmek
 5238	dostça	adj	friendly, befitting a friend
@@ -5271,7 +5271,7 @@ rank	word	pos	en
 5270	öğretmek	verb	to teach
 5271	halüsinasyon	noun	hallucination (sensory perception of something that does not exist)
 5272	derhâl	adv	immediately, at once
-5273	mani	noun	obstacle
+5273	mani	noun	obstacle (also written mâni)
 5274	güvenme	noun	verbal noun of güvenmek
 5275	asma	noun	verbal noun of asmak
 5276	agresif	adj	aggressive
@@ -5312,7 +5312,7 @@ rank	word	pos	en
 5311	tayin	noun	appointment, designation
 5312	bölük	noun	A piece broken off from the whole; section, part, component.
 5313	bağlar	noun	nominative plural of bağ
-5314	çakal	noun	jackal; jackal, a person who behaves in an opportunistic way, a wily and deceptive man
+5314	çakal	noun	jackal (the animal); (of a person) opportunistic, wily and deceptive; a scoundrel
 5315	sunu	noun	introduction to a writing
 5316	uyarmak	verb	to warn, alert, awake to
 5317	krallığı	noun	definite accusative singular of krallık
@@ -5351,7 +5351,7 @@ rank	word	pos	en
 5350	güneşe	noun	singular dative of güneş
 5351	sandalyede	noun	locative singular of sandalye
 5352	kucak	noun	embrace; lap, bosom
-5353	itici	adj	What pushes or repels.
+5353	itici	adj	repulsive, off-putting, unlikable; that pushes or repels
 5354	anneleri	noun	definite accusative plural
 5355	iple	noun	with the rope or thread, using the rope or thread
 5356	neticede	adv	as a result
@@ -5419,7 +5419,7 @@ rank	word	pos	en
 5418	firma	noun	firm
 5419	veteriner	noun	veterinarian
 5420	doktorların	noun	genitive plural
-5421	kabuk	noun	The hard layer over or around something naturally formed to protect it
+5421	kabuk	noun	shell, bark, rind, husk (the hard protective outer layer); crust (of bread); scab (over a wound)
 5422	züppe	adj	snob, swell, pup, fop, dandy, buck
 5423	sızıntı	noun	A leak, leakage, seepage.
 5424	tarım	noun	agriculture
@@ -5438,7 +5438,7 @@ rank	word	pos	en
 5437	sebepsiz	adj	unprovoked, for no reason
 5438	aldırma	noun	verbal noun of aldırmak
 5439	ajansı	noun	third-person single-possession of ajans
-5440	siper	noun	cover, shelter, refuge
+5440	siper	noun	cover, shelter, refuge; visor, brim; trench, dugout
 5441	latince	name	Latin (language)
 5442	otu	noun	accusative singular of ot
 5443	endüstri	noun	industry (businesses that produce goods)
@@ -5465,7 +5465,7 @@ rank	word	pos	en
 5464	daireyi	noun	accusative singular of daire
 5465	lor	noun	A whey cheese similar to ricotta.
 5466	sevk	noun	The act of sending, consignment, dispatch.
-5467	sıkıntılı	adj	distressed, troubled
+5467	sıkıntılı	adj	distressed, troubled; onerous, burdensome, troubling
 5468	centilmen	adj	gentlemanly; polite, respectful (of a male person)
 5469	çakmak	noun	lighter (fire-making device)
 5470	tecrübeli	adj	experienced, practiced
@@ -5580,7 +5580,7 @@ rank	word	pos	en
 5579	likör	noun	liqueur (alcoholic beverage)
 5580	öneri	noun	suggestion; offer, proposal
 5581	düşmanlar	noun	nominative plural of düşman
-5582	çarşaf	noun	bedsheet (short form of yatak çarşafı)
+5582	çarşaf	noun	bedsheet (short form of yatak çarşafı); a large veil covering the whole body
 5583	öncelik	noun	priority
 5584	hemfikir	adj	like-minded
 5585	karanlıktan	noun	singular ablative of karanlık
@@ -5616,7 +5616,7 @@ rank	word	pos	en
 5615	pul	noun	stamp; scale (an overlapping arrangement of many small and flat pieces, or a part or piece of it)
 5616	esrarengiz	adj	mysterious
 5617	st	noun	abbreviation of story
-5618	ağa	noun	a respectful title for an influential man in a society; lord, master
+5618	ağa	noun	a respectful title for an influential man in a society; lord, master; wealthy, influential landowner; landlord, squire, chieftain; elder brother
 5619	piyade	noun	infantryman, foot soldier
 5620	baykuş	noun	owl, any of various birds of prey of the order Strigiformes
 5621	devir	noun	age; cycle
@@ -5637,7 +5637,7 @@ rank	word	pos	en
 5636	alışkın	adj	accustomed
 5637	denizaltı	noun	submarine
 5638	kahveyi	noun	accusative singular of kahve
-5639	hor	adj	contemptible, low
+5639	hor	adj	contemptible, low; contemptuous, scornful
 5640	cüzdanı	noun	definite singular accusative of cüzdan
 5641	yüzmek	verb	to swim; to float
 5642	balta	noun	axe, hatchet; battle axe, hatchet
@@ -5676,7 +5676,7 @@ rank	word	pos	en
 5675	kardeşleri	noun	definite accusative plural of kardeş
 5676	liseli	noun	high schooler
 5677	tatsız	adj	tasteless, flavorless
-5678	yatılı	noun	boarder
+5678	yatılı	noun	boarder (a student who stays at a boarding school or in the dorm of a school providing dorm service)
 5679	gezmek	verb	to travel; to wander
 5680	keşfetmek	verb	to discover
 5681	aylak	adj	lazy, idle
@@ -5715,7 +5715,7 @@ rank	word	pos	en
 5714	birlikler	noun	nominative plural of birlik
 5715	arayı	noun	accusative singular of ara
 5716	kulağın	noun	genitive singular of kulak
-5717	soya	noun	soy
+5717	soya	noun	soy, soybean
 5718	kaybolduk	verb	first-person plural indicative simple past of kaybolmak
 5719	iskele	noun	wharf, pier, quay, dock, jetty, any artificial landing place for ships on a shore or bank
 5720	tehdidi	noun	definite accusative singular of tehdit
@@ -5725,8 +5725,8 @@ rank	word	pos	en
 5724	sözlerin	noun	definite genitive plural of söz
 5725	üzmek	verb	to distress, upset, worry; to sadden
 5726	görülmemiş	adj	unprecedented
-5727	karıştırmak	verb	causative of karışmak
-5728	tatbikat	noun	drill
+5727	karıştırmak	verb	to mix, to stir (causative of karışmak); to confuse, to mistake one thing for another
+5728	tatbikat	noun	drill (an activity done as an exercise or practice, particularly in preparation for some possible future event or occurrence)
 5729	gündem	noun	agenda
 5730	temizlikçi	noun	cleaner
 5731	karışmak	verb	to interfere; to blend, to slip in
@@ -5778,7 +5778,7 @@ rank	word	pos	en
 5777	öldürmez	verb	third-person singular indicative negative aorist of öldürmek
 5778	kremalı	adj	cream-filled
 5779	zorlamak	verb	to force, constrain, coerce, compel.
-5780	vasiyet	noun	will
+5780	vasiyet	noun	will (a legal document that states who is to receive a person’s estate and assets after their death)
 5781	değişmek	verb	to change
 5782	bilimin	noun	genitive singular of bilim
 5783	uzayın	noun	genitive singular of uzay
@@ -5809,7 +5809,7 @@ rank	word	pos	en
 5808	veba	noun	plague (disease caused by Yersinia pestis; any outbreak of pestilence)
 5809	meditasyon	noun	meditation
 5810	yıkama	noun	verbal noun of yıkamak: washing
-5811	mühr	noun	seal
+5811	mühr	noun	seal (stem form of mühür)
 5812	küpe	noun	earring, earbob
 5813	inekler	noun	nominative plural of inek
 5814	çam	noun	pine (tree of the genus Pinus)
@@ -5828,19 +5828,19 @@ rank	word	pos	en
 5827	hastaneyi	noun	accusative singular of hastane
 5828	açgözlü	adj	greedy, gluttonous
 5829	nev	noun	kind, type, variety
-5830	tanıtım	noun	introduction, presentation
+5830	tanıtım	noun	introduction, presentation; publicity; promotion, advertising
 5831	kılavuz	noun	a guide, in the plain general or abstract sense
-5832	sıkmak	verb	to squeeze; to shoot with a gun
+5832	sıkmak	verb	to squeeze; to shoot with a gun; to irritate, to annoy, to bother
 5833	akıllısın	adj	second-person singular predicative of akıllı
 5834	denetim	noun	inspection, oversight, check, audit
 5835	mayo	noun	swimsuit
 5836	konseri	noun	accusative singular of konser
-5837	kitle	noun	mass (quantity of matter cohering together to make one body)
+5837	kitle	noun	a body of people, a crowd, an audience; mass (a quantity of matter cohering into one body); (medical) a mass, a lump
 5838	cüzdan	noun	wallet (a flat case, often made of leather, for keeping money)
 5839	masajı	noun	singular definite accusative of masaj
 5840	kadim	adj	ancient
-5841	koordinatları	noun	third-person singular (“his/her/its”) possessive form of koordinat in the nominative case.
-5842	kaçamak	noun	An undesirable act done in secrecy, chiefly an extramarital affair.
+5841	koordinatları	noun	its or their coordinates (koordinat, coordinate, with the plural and third-person possessive; also the accusative plural)
+5842	kaçamak	noun	An undesirable act done in secrecy, chiefly an extramarital affair.; The act or attempt of doing something unnoticed.; A route or place of escape, shelter, refuge.
 5843	akademi	noun	academy
 5844	kanunlar	noun	nominative plural of kanun
 5845	atacaksın	verb	second-person singular indicative future of atmak
@@ -5903,7 +5903,7 @@ rank	word	pos	en
 5902	mont	noun	coat
 5903	şiiri	noun	accusative singular of şiir
 5904	darmadağın	adj	very messy
-5905	şaşkın	adj	suprised, amazed, taken aback, astonished
+5905	şaşkın	adj	surprised, amazed, taken aback, astonished; confused, bewildered, baffled, puzzled
 5906	haz	noun	joy, pleasure
 5907	mors	noun	walrus
 5908	çoban	noun	shepherd; herder, herdsman
@@ -5920,13 +5920,13 @@ rank	word	pos	en
 5919	yağmuru	noun	accusative singular of yağmur
 5920	yarayı	noun	definite accusative singular of yara
 5921	hasan	name	a male given name from Arabic
-5922	etli	adj	fleshed, containing flesh or meat
+5922	etli	adj	containing meat or flesh, meaty; (of a person) fleshy, plump, chubby
 5923	başarısızlık	noun	unsuccessfulness
 5924	gidecekler	verb	third-person plural indicative future of gitmek
 5925	moron	adj	fool, stupid, idiot, moronic
 5926	nota	noun	note; diplomatic note
 5927	deneyimli	adj	experienced
-5928	kalkmak	verb	to go up, rise; become erect
+5928	kalkmak	verb	to stand up, to rise to one's feet; to get up, to wake up, to get out of bed; to go up, to rise
 5929	kurtarıcı	noun	rescuer, savior, liberator
 5930	noldu	phrase	pronunciation spelling of ne oldu?; what happened?
 5931	dersler	noun	nominative plural of ders
@@ -5994,7 +5994,7 @@ rank	word	pos	en
 5993	saman	noun	hay, straw
 5994	karlı	adj	snowy (all senses)
 5995	politikacı	noun	politician
-5996	büyütmek	verb	causative of büyümek
+5996	büyütmek	verb	to enlarge, to blow up, to make bigger (causative of büyümek)
 5997	erkeksi	adj	virile, manly, masculine
 5998	ayrıcalık	noun	privilege
 5999	kırarım	verb	first-person singular indicative aorist of kırmak
@@ -6026,7 +6026,7 @@ rank	word	pos	en
 6025	tabir	noun	expression, phrase
 6026	maaşı	noun	definite accusative singular
 6027	nankör	adj	ungrateful
-6028	basmak	verb	to step on, to stand on
+6028	basmak	verb	to step on, to stand on; (of toddlers) to stand; to press (e.g. on a pedal, button, key)
 6029	saatine	noun	second/third-person singular single-possession possessive dative of saat
 6030	dolabın	noun	genitive singular of dolap
 6031	çalışmaz	verb	third-person singular indicative negative aorist of çalışmak
@@ -6080,7 +6080,7 @@ rank	word	pos	en
 6079	geceleyin	adv	at night
 6080	boksör	noun	boxer (participant in a boxing match)
 6081	itin	noun	definite genitive singular of it
-6082	kararsız	adj	Not having; Having difficulty deciding, torn, indecisive, wavering, hesitant.
+6082	kararsız	adj	undecided, uncertain, inconclusive; indecisive, hesitant, wavering, torn; unstable, fickle
 6083	felsefe	noun	philosophy
 6084	hamur	noun	dough; origin, source
 6085	galaksi	noun	galaxy
@@ -6090,8 +6090,8 @@ rank	word	pos	en
 6089	şefkat	noun	compassion, kindness, affection
 6090	altmış	num	sixty
 6091	oto	noun	clipping of otomobil (auto, car)
-6092	ampul	noun	ampoule, light bulb
-6093	basamak	noun	A step or rung of stairs or a ladder.
+6092	ampul	noun	light bulb; ampoule
+6093	basamak	noun	A step or rung of stairs or a ladder.; stage, phase; A person, place or a circumstance utilized in order to reach a goal; a stepping stone.
 6094	parmakları	noun	third-person plural possessive singular
 6095	stratejik	adj	strategic, strategical
 6096	gizemi	noun	definite singular accusative of gizem
@@ -6103,7 +6103,7 @@ rank	word	pos	en
 6102	mala	noun	trowel, a plasterer's tool used in spreading and dressing mortar
 6103	mütevazı	adj	humble, modest
 6104	emrim	noun	first-person singular possessive of emir
-6105	katar	noun	caravan; convoy
+6105	katar	noun	caravan, convoy, a train of vehicles; also Katar, Qatar (the country)
 6106	panda	noun	panda
 6107	gar	noun	station (railway)
 6108	israf	noun	waste, squandering, extravagance
@@ -6119,8 +6119,8 @@ rank	word	pos	en
 6118	çubuğu	noun	accusative singular
 6119	tecrit	noun	insularity; divestment
 6120	beyan	noun	declaration, announcement
-6121	büyümek	verb	To grow, to increase in size, to expand.
-6122	açıklık	noun	abstract noun of açık
+6121	büyümek	verb	To grow, to increase in size, to expand.; To grow up, to be brought up.; To grow in age, to age.
+6122	açıklık	noun	open space; opening, aperture, span (abstract noun of açık)
 6123	makinenin	noun	genitive singular of makine
 6124	kanca	noun	hook
 6125	kızartma	noun	verbal noun of kızartmak
@@ -6139,7 +6139,7 @@ rank	word	pos	en
 6138	çap	noun	diameter; caliber
 6139	sevecen	adj	affectionate, tender, caring
 6140	haham	noun	rabbi
-6141	sergi	noun	A display platform for a variety of products, an array, a stall.
+6141	sergi	noun	an exhibition, a gallery (of works on display); a display platform or stall for goods; an exposition, a fair
 6142	çince	adj	That which is written in the Chinese language.
 6143	övgü	noun	compliment, praise, tout, laudation
 6144	yılanlar	noun	nominative plural of yılan
@@ -6189,7 +6189,7 @@ rank	word	pos	en
 6188	spagetti	noun	spaghetti
 6189	veliaht	noun	crown prince, heir apparent, heir to the throne
 6190	lira	noun	lira (currency of Turkey)
-6191	kırma	noun	A crease, pleat.
+6191	kırma	noun	a crease, a pleat; cracked, crushed into small pieces (verbal noun of kırmak)
 6192	tabur	noun	battalion
 6193	vaiz	noun	preacher
 6194	sürme	noun	kohl, mascara; latch (of a door)
@@ -6220,7 +6220,7 @@ rank	word	pos	en
 6219	iğneyi	noun	definite accusative singular of iğne
 6220	okuduk	verb	first-person plural indicative simple past of okumak
 6221	sürdürmek	verb	to continue, to maintain
-6222	uymak	verb	to go with, to match, look good with, harmonize with
+6222	uymak	verb	to go with, to match, look good with, harmonize with; to suit, fit, be the right size and shape for; to follow, conform to, comply with; to conform to (someone's) wishes, fall in line with, fall in with
 6223	kurtulma	noun	verbal noun of kurtulmak
 6224	reaksiyon	noun	reaction (action in response to an event)
 6225	reçete	noun	recipe; prescription
@@ -6318,7 +6318,7 @@ rank	word	pos	en
 6317	rüzgarı	noun	definite accusative singular of rüzgar
 6318	emniyeti	noun	accusative singular of emniyet
 6319	kırsal	adj	rural
-6320	panel	noun	A panel that contains personal information
+6320	panel	noun	A panel that contains personal information (such as Turkish Identification Number, name and surname, place of residence and family tree) of the residents of Türkiye.
 6321	şefin	noun	definite genitive singular of şef
 6322	bağımsızlık	noun	independence
 6323	aşina	adj	familiar (with)
@@ -6347,7 +6347,7 @@ rank	word	pos	en
 6346	direktör	noun	director
 6347	yüzyıllar	noun	nominative plural of yüzyıl
 6348	kedinin	noun	genitive singular of kedi
-6349	uğursuz	adj	unlucky, unfortunate, hapless, marked by misfortune
+6349	uğursuz	adj	unlucky, unfortunate, hapless, marked by misfortune; inauspicious, ill-omened, foreboding, dire, foretelling of difficulty
 6350	siyaset	noun	politics
 6351	boğazı	noun	accusative singular of boğaz
 6352	alarma	noun	dative singular of alarm
@@ -6366,7 +6366,7 @@ rank	word	pos	en
 6365	anlaşılabilir	adj	understandable, comprehensible, intelligible
 6366	jöle	noun	gel, a semi-solid, intended for a particular cosmetic use, such as for styling the hair.
 6367	tüneli	noun	singular definite accusative of tünel
-6368	yüzeysel	adj	superficial, not deep
+6368	yüzeysel	adj	superficial, not deep; cursory, not thorough, slapdash
 6369	dumanı	noun	definite accusative singular
 6370	delikler	noun	nominative plural of delik
 6371	arkadaşça	adv	as a friend, in a friendlike manner
@@ -6449,11 +6449,11 @@ rank	word	pos	en
 6448	maddeler	noun	nominative plural of madde
 6449	joker	noun	joker; joker, trump card, something kept in reserve that can be used to gain an advantage
 6450	meçhul	adj	unknown, obscure, unknowable
-6451	dökmek	verb	to pour, pour out
+6451	dökmek	verb	to pour, pour out; to spill, shed; to throw out, empty (a container)
 6452	türkçe	name	Turkish (language)
 6453	zorbalık	noun	tyranny; bullying
 6454	kriket	noun	cricket (sport)
-6455	hırs	noun	fervour, passion
+6455	hırs	noun	insatiable desire, greed, ambition; fervour, passion; anger, rage
 6456	maddeyi	noun	definite singular accusative of madde
 6457	lokanta	noun	restaurant, joint, diner
 6458	sıkça	adv	frequently
@@ -6472,12 +6472,12 @@ rank	word	pos	en
 6471	kandırmak	verb	causative of kanmak: to deceive, trick, fool
 6472	cesetlerin	noun	definite genitive plural of ceset
 6473	kulağını	noun	second-person singular simple present possessive accusative of kulak
-6474	susuz	adj	anhydrous, containing no water
+6474	susuz	adj	waterless, without water; arid, dry, dehydrated; (chemistry) anhydrous
 6475	cezasına	noun	third-person singular dative single-possession of ceza
 6476	sorumsuz	adj	irresponsible
 6477	kaleyi	noun	definite accusative singular of kale
 6478	mistik	adj	mystic, mystical
-6479	avrupalı	adj	European
+6479	avrupalı	adj	European (person)
 6480	dengeli	adj	balanced
 6481	yıkamak	verb	to wash
 6482	çük	noun	small penis
@@ -6529,7 +6529,7 @@ rank	word	pos	en
 6528	mao	name	Mao
 6529	kulağım	noun	first-person singular possessive of kulak
 6530	içgüdü	noun	instinct
-6531	mangal	noun	An open-top fireplace
+6531	mangal	noun	a brazier, a barbecue; an open-top metal fireplace used for heat or cooking
 6532	suikastçı	noun	assassin
 6533	şanssız	adj	unlucky
 6534	rahmetli	adj	deceased; late
@@ -6556,7 +6556,7 @@ rank	word	pos	en
 6555	cansız	adj	inanimate (not alive)
 6556	cephe	noun	façade; front
 6557	kızdırmak	verb	causative of kızmak: to anger; to annoy; to bug
-6558	aşmak	verb	to cross, traverse (a mountain, a river, a sea); to go through; to traverse
+6558	aşmak	verb	to cross, to traverse (a mountain, a river, a sea); to overcome, to surmount, to get over; to exceed, to surpass, to be more than
 6559	uyanmak	verb	to wake, wake up, awaken, waken
 6560	dilde	noun	locative singular of dil
 6561	tezahürat	noun	public display, ceremony, ovation, celebration
@@ -6600,7 +6600,7 @@ rank	word	pos	en
 6599	hileli	adj	Fraudalent, unjust, rigged.
 6600	sınırın	noun	genitive singular of sınır
 6601	kuğu	noun	swan
-6602	bulaşmak	verb	to become dirty, stained
+6602	bulaşmak	verb	to become dirty, stained; (of a disease) to infect
 6603	kalım	noun	survival
 6604	görecekler	verb	third-person plural indicative future of görmek
 6605	tanınmış	verb	past participle of tanınmak
@@ -6632,7 +6632,7 @@ rank	word	pos	en
 6631	yetmiş	num	seventy
 6632	acıma	noun	verbal noun of acımak (“pity”)
 6633	vurgun	noun	barotrauma; illegally, effortlessly, and easily earned profit: profiteering.
-6634	ilave	noun	addition (joining something to something else)
+6634	ilave	noun	addition (joining something to something else); attachment, appendix
 6635	afyon	noun	opium
 6636	ganimet	noun	loot, booty, plunder, spoils
 6637	tulum	noun	overalls, boiler suit, coveralls, dungarees
@@ -6646,7 +6646,7 @@ rank	word	pos	en
 6645	seçenekler	noun	nominative plural of seçenek
 6646	köken	noun	origin, root; origin, etymology (of a word)
 6647	süs	noun	frippery, garnish
-6648	akım	noun	streamflow; current
+6648	akım	noun	current; streamflow; a trend or movement (in the arts, politics, etc.)
 6649	kubbe	noun	dome; cupola
 6650	okudunuz	verb	second-person plural indicative simple past of okumak
 6651	gövde	noun	torso, trunk; stem, trunk (of a tree)
@@ -6687,7 +6687,7 @@ rank	word	pos	en
 6686	us	noun	mind; reason
 6687	minnet	noun	gratitude, thankfulness
 6688	vakfı	noun	definite accusative singular
-6689	kaplama	noun	covering, wrapper
+6689	kaplama	noun	covering, wrapper; veneer
 6690	çarpık	adj	warped, bent; crooked, askew, not straight or perpendicular, inclined, slanting, awry
 6691	evlere	noun	dative plural of ev
 6692	değin	postp	till, until
@@ -6704,7 +6704,7 @@ rank	word	pos	en
 6703	bebeklerin	noun	definite genitive plural of bebek
 6704	gözlüklü	noun	A person who wears spectacles
 6705	aşıyor	verb	third-person singular present continuous of aşmak
-6706	terbiyesiz	adj	uneducated, ignorant
+6706	terbiyesiz	adj	rude, ill-mannered; uneducated, ignorant
 6707	armut	noun	pear; pear tree
 6708	yenik	adj	defeated
 6709	korunmak	verb	to be protected
@@ -6716,7 +6716,7 @@ rank	word	pos	en
 6715	karıncalar	noun	nominative plural of karınca
 6716	dörtlü	adj	with four parts; quadripartite
 6717	arabaların	noun	genitive plural
-6718	akıntı	noun	The act of flowing.
+6718	akıntı	noun	current, stream; the act of flowing
 6719	slogan	noun	slogan
 6720	haftayı	noun	accusative singular of hafta
 6721	süsü	noun	accusative singular of süs
@@ -6753,12 +6753,12 @@ rank	word	pos	en
 6752	salt	adv	exclusively, only, just, absolute
 6753	panama	name	Panama (a country in Central America)
 6754	lâkin	conj	but, however
-6755	iyileştirmek	verb	causative of iyileşmek
+6755	iyileştirmek	verb	causative of iyileşmek: to make something better, to amend
 6756	çalacağım	verb	first-person singular indicative future of çalmak
 6757	itham	noun	The act of accusing; accusation, allegation.
 6758	söze	noun	singular dative of söz
 6759	birayı	noun	accusative singular of bira
-6760	çizmek	verb	to draw (a line)
+6760	çizmek	verb	to draw (a line), to sketch; to scratch
 6761	dizinin	noun	genitive singular of dizi
 6762	doktorları	noun	definite accusative plural
 6763	konferansı	noun	accusative singular of konferans
@@ -6830,7 +6830,7 @@ rank	word	pos	en
 6829	kayıtsız	adj	unconditional; unregistered
 6830	onayı	noun	definite accusative singular
 6831	gelinlik	noun	The state of being a bride.
-6832	tüyo	noun	tip
+6832	tüyo	noun	tip (a piece of private or secret information, especially from someone with expert knowledge)
 6833	vatansever	adj	patriot
 6834	çiçeklerin	noun	definite genitive plural of çiçek
 6835	ishal	noun	diarrhea
@@ -6916,7 +6916,7 @@ rank	word	pos	en
 6915	bitirme	noun	verbal noun of bitirmek
 6916	tahminen	adv	approximately, presumably, more or less
 6917	hayvana	noun	dative singular of hayvan
-6918	sarsıntı	noun	A sudden shake, jerk.
+6918	sarsıntı	noun	a sudden shake, jerk; a tremor, quake; a shock, concussion
 6919	anası	noun	third-person singular possessive of ana
 6920	avantajı	noun	singular definite accusative of avantaj
 6921	makina	noun	machine
@@ -6932,7 +6932,7 @@ rank	word	pos	en
 6931	unvan	noun	superseded spelling of ünvan (“title”)
 6932	davacı	noun	prosecutor; plaintiff, claimant
 6933	gelsinler	verb	third-person plural imperative of gelmek
-6934	uğramak	verb	to swing by, drop by
+6934	uğramak	verb	to swing by, drop by; to be subjected to, to endure
 6935	bulundurmak	verb	causative of bulunmak
 6936	örnekler	noun	nominative plural of örnek
 6937	üniversiteli	noun	university student
@@ -6974,7 +6974,7 @@ rank	word	pos	en
 6973	tesisat	noun	plant, installation
 6974	sarımsak	noun	garlic
 6975	ödemiş	name	a city in İzmir Province, Turkey
-6976	börek	noun	burek
+6976	börek	noun	burek (a type of baked or fried filled pastry)
 6977	yahudilerin	noun	definite genitive plural of Yahudi
 6978	ahmed	name	a male given name from Arabic, equivalent to English Ahmad
 6979	seçici	adj	choosing; selective
@@ -6987,7 +6987,7 @@ rank	word	pos	en
 6986	akın	noun	influx, inflow, flow
 6987	ziyaretçiler	noun	nominative plural of ziyaretçi
 6988	şekle	noun	singular dative of şekil
-6989	bulunma	noun	verbal noun of bulunmak
+6989	bulunma	noun	verbal noun of bulunmak: being present, being somewhere
 6990	ağızdan	adv	verbally, as opposed to in writing
 6991	kiralamak	verb	to rent
 6992	unsur	noun	element (one of the simplest or essential parts or principles)
@@ -7119,7 +7119,7 @@ rank	word	pos	en
 7118	güneşte	noun	singular locative of güneş
 7119	bakanım	noun	first-person singular possessive of bakan
 7120	yetkin	adj	competent, skilled, proficient
-7121	incelik	noun	The state of being thin.
+7121	incelik	noun	politeness, courtesy; a fine detail; the state of being thin
 7122	sonum	noun	first-person singular predicative of the singular of son
 7123	sandal	noun	boat (water craft)
 7124	özgürlüğe	noun	singular dative of özgürlük
@@ -7193,7 +7193,7 @@ rank	word	pos	en
 7192	yazlık	noun	summerhouse
 7193	kaltağı	noun	definite accusative singular of kaltak
 7194	yağmurun	noun	genitive singular of yağmur
-7195	esasen	adv	from the beginning, from the foundation
+7195	esasen	adv	actually, in fact; already, anyway, after all; from the beginning
 7196	mekiği	noun	accusative singular of mekik
 7197	yarak	noun	penis; dickhead
 7198	devleti	noun	definite accusative singular of devlet
@@ -7201,7 +7201,7 @@ rank	word	pos	en
 7200	seksin	noun	singular genitive of seks
 7201	pirzola	noun	cutlet, chop (a cut of meat with a piece of bone attached)
 7202	güneydoğu	noun	southeast (compass point)
-7203	takıntı	noun	An unresolved issue or a thought that persists in one's mind.
+7203	takıntı	noun	an unresolved issue or a thought that persists in one's mind; obsession
 7204	nuh	name	Noah; a male given name from Arabic
 7205	düşes	noun	female equivalent of dük: duchess
 7206	ikincil	adj	secondary
@@ -7238,7 +7238,7 @@ rank	word	pos	en
 7237	öpüşmek	verb	reciprocal of öpmek, to kiss each other, to make out (used with ile)
 7238	labirent	noun	labyrinth
 7239	lambayı	noun	definite accusative singular of lamba
-7240	icra	noun	Converting musical notations into sound; playing or operating a musical instrument.
+7240	icra	noun	performance (playing an instrument, turning musical notation into sound); collection of a debt through the courts, foreclosure
 7241	boz	adj	grizzle; dun
 7242	refah	noun	welfare, prosperity
 7243	mekke	name	Mecca (a city in Saudi Arabia)
@@ -7286,7 +7286,7 @@ rank	word	pos	en
 7285	kabahat	noun	fault, offense; sin
 7286	gevrek	adj	crisp, crispy
 7287	binaları	noun	definite accusative plural of bina
-7288	aldatma	noun	cheating on one's significant other, adultery
+7288	aldatma	noun	tricking or betraying someone, trickery; cheating on one's significant other, adultery
 7289	tibet	name	Tibet (a geographic region in Central Asia, the homeland of the Tibetan people)
 7290	tırmanmak	verb	to cling with the claws or fingertips
 7291	seçmen	noun	voter
@@ -7365,7 +7365,7 @@ rank	word	pos	en
 7364	heyeti	noun	accusative singular of heyet
 7365	özet	noun	summary (a condensed presentation)
 7366	haraç	noun	tax; poll tax; tribute
-7367	atlatmak	verb	causative of atlamak
+7367	atlatmak	verb	causative of atlamak; to overcome, to get over
 7368	emlakçı	noun	real estate agent
 7369	hedefler	noun	nominative plural of hedef
 7370	sosyalist	adj	socialist
@@ -7374,7 +7374,7 @@ rank	word	pos	en
 7373	izleyici	noun	spectator, viewer, observer
 7374	obje	noun	object
 7375	önlük	noun	apron; school uniform
-7376	kemal	noun	perfection
+7376	kemal	noun	a male given name from Arabic; (as a common noun) perfection
 7377	dinlemez	verb	third-person singular indicative negative aorist of dinlemek
 7378	tempo	noun	tempo
 7379	arkadaşlara	noun	dative plural of arkadaş
@@ -7385,7 +7385,7 @@ rank	word	pos	en
 7384	telefonlara	noun	dative plural of telefon
 7385	edo	noun	MVP
 7386	telif	noun	composition; reconciliation
-7387	mesut	adj	happy
+7387	mesut	adj	a male given name from Arabic, 'the happy one'; (as an adjective) happy
 7388	diler	verb	third-person singular indicative aorist of dilemek
 7389	anlayacağız	verb	first-person plural indicative future of anlamak
 7390	sera	noun	greenhouse
@@ -7445,7 +7445,7 @@ rank	word	pos	en
 7444	çektirmek	verb	to distress, to put someone in hardship
 7445	yargılamak	verb	to judge
 7446	hazırlama	noun	verbal noun of hazırlamak
-7447	çevrimiçi	adj	cycle; network
+7447	çevrimiçi	adj	alternative spelling of çevrim içi
 7448	ücretli	adj	salaried, paid
 7449	milyarder	noun	billionaire
 7450	senet	noun	bill; bond
@@ -7519,7 +7519,7 @@ rank	word	pos	en
 7518	çocuklu	adj	Having children.
 7519	destansı	adj	epic
 7520	testine	noun	second-person singular simple present possessive dative of test
-7521	erdemli	adj	virtuous
+7521	erdemli	adj	virtuous; also a town and district of Mersin Province, Turkey
 7522	saga	noun	Old Norse (Icelandic) saga
 7523	koridoru	noun	definite singular accusative of koridor
 7524	yapmacık	adj	counterfeit, unauthentic, ingenuine, stilted
@@ -7545,8 +7545,8 @@ rank	word	pos	en
 7544	sıçanlar	noun	nominative plural of sıçan
 7545	lokantası	noun	third-person singular single-possession possessive nominative of lokanta
 7546	uygulaması	noun	third-person singular possessive of uygulama
-7547	midilli	noun	pony
-7548	ithal	noun	An act of letting in, causing to enter.
+7547	midilli	noun	pony; also the Greek island of Lesbos
+7548	ithal	noun	importing, bringing goods in from abroad; an imported product, an import; an act of letting in
 7549	hatunlar	noun	nominative plural of hatun
 7550	korkutma	noun	verbal noun of korkutmak
 7551	dönüştürmek	verb	[with accusative and dative] to convert
@@ -7564,7 +7564,7 @@ rank	word	pos	en
 7563	uğrayacak	verb	third-person singular indicative future of uğramak
 7564	bozulma	noun	verbal noun of bozulmak
 7565	düpedüz	adv	utterly, downright, blatantly, sheerly
-7566	dolgun	adj	Having a full, round shape.
+7566	dolgun	adj	having a full, round shape; plump, chubby, full-figured; high, satisfactory
 7567	uymaz	adj	unsuitable
 7568	basını	noun	second-person singular possessive of bas
 7569	nasihat	noun	advice, counsel
@@ -7577,8 +7577,8 @@ rank	word	pos	en
 7576	ünlüler	noun	plural of ünlü
 7577	nörolojik	adj	neurological
 7578	düşmanlık	noun	enmity, hostility, animosity
-7579	yiğit	adj	heroic
-7580	şerit	noun	tape, strip, band, ribbon, any thin and flat material produced in the form of a roll
+7579	yiğit	adj	heroic; also a male given name
+7580	şerit	noun	tape, strip, band, ribbon (any thin, flat material in a roll); lane (of a roadway)
 7581	azimli	adj	zealous, resolute, determined
 7582	pire	noun	flea, any small, parasitic insect in the order Siphonaptera
 7583	tahsis	noun	appropriation, allocation
@@ -7617,7 +7617,7 @@ rank	word	pos	en
 7616	eldiveni	noun	definite accusative singular of eldiven
 7617	tweet	noun	tweet (Twitter post)
 7618	futbolcu	noun	footballer (British); football player (Britain), soccer player (US, Canada, Australia)
-7619	danışma	noun	information desk
+7619	danışma	noun	verbal noun of danışmak: consultation; an information desk
 7620	yapıcam	verb	Spoken variant of yapacağım, first-person singular future of yapmak
 7621	odak	noun	focus, focal point
 7622	ölçü	noun	measurement
@@ -7636,7 +7636,7 @@ rank	word	pos	en
 7635	uğratmak	verb	to cause
 7636	osman	name	a male given name which refers to Osman Bey, the founder of the Ottoman Empire
 7637	iştah	noun	appetite
-7638	cılız	adj	skinny, slim, thin
+7638	cılız	adj	skinny, slim, thin; weak, feeble, frail
 7639	sabırsız	adj	impatient
 7640	şehvetli	adj	lustful
 7641	ızdırap	noun	agony, anguish, suffering, torment
@@ -7682,7 +7682,7 @@ rank	word	pos	en
 7681	miyav	noun	meow
 7682	donör	noun	donor
 7683	kalibre	noun	calibre (diameter of the bore of a firearm)
-7684	muamma	noun	A riddle in verse in Aşık tradition.
+7684	muamma	noun	a riddle; something incomprehensible or unknown, an enigma; (in the Aşık tradition) a riddle in verse
 7685	şakacı	adj	joker, kidder
 7686	şebeke	noun	net; reticulation; latticework
 7687	anneanne	noun	grandmother (one's mother's mother)
@@ -7694,7 +7694,7 @@ rank	word	pos	en
 7693	dışım	noun	first-person singular possessive of dış
 7694	kitaplarım	noun	first-person singular possessive plural of kitap
 7695	umutsuzluk	noun	despair, hopelessness
-7696	kadir	noun	worth, value; magnitude
+7696	kadir	noun	a male given name from Arabic meaning 'powerful, mighty', also one of the names of God; (as a common noun) worth, value
 7697	nedime	noun	bridesmaid
 7698	şoku	noun	definite accusative singular of şok
 7699	çizginin	noun	genitive singular of çizgi
@@ -7839,7 +7839,7 @@ rank	word	pos	en
 7838	tartışmalı	adj	contentious, disputed
 7839	kibir	noun	greatening, pride, vain-greatness, arrogance
 7840	adaylar	noun	nominative plural of aday
-7841	kapama	noun	Lamb or chicken cooked with rice
+7841	kapama	noun	verbal noun of kapamak; lamb or chicken cooked with rice, lettuce and other ingredients in a roasting pan
 7842	siyanür	noun	cyanide
 7843	hür	adj	free (unconstrained)
 7844	sözcüsü	noun	third-person singular possessive of sözcü
@@ -7883,7 +7883,7 @@ rank	word	pos	en
 7882	harfler	noun	plural of harf
 7883	gemimiz	noun	first-person plural single-possession possessive of gemi
 7884	otlar	noun	nominative plural of ot
-7885	makam	noun	Melodic mode. The makam system sets complex rules for cins
+7885	makam	noun	melodic mode in Turkish classical music, closely related to the Arabic maqām; tune, music; mode, way, manner
 7886	cihazın	noun	genitive singular of cihaz
 7887	uyuyun	verb	second-person plural imperative of uyumak
 7888	uyuyorlar	verb	third-person plural indicative present imperfective of uymak
@@ -7906,7 +7906,7 @@ rank	word	pos	en
 7905	ikiyüzlü	adj	two-faced, double-faced, hypocritical
 7906	matkap	noun	borer, drill, gimlet, auger, any instrument used for drilling
 7907	bitkileri	noun	definite accusative plural
-7908	azat	adj	free
+7908	azat	adj	free; also a male given name from Persian
 7909	sedye	noun	litter, stretcher, a mobile bed or couch transported upon human shoulders or animal backs
 7910	kurar	verb	third-person singular indicative aorist of kurmak
 7911	kamuflaj	noun	camouflage
@@ -7925,7 +7925,7 @@ rank	word	pos	en
 7924	prensesin	noun	genitive singular
 7925	güz	noun	autumn, fall
 7926	çığlığı	noun	accusative singular of çığlık
-7927	çarpı	noun	multiplication sign
+7927	çarpı	noun	multiplication sign; times, multiplied by
 7928	naylon	noun	nylon; plastic bag
 7929	unutursun	verb	second-person singular indicative aorist of unutmak
 7930	sözcüğü	noun	accusative singular of sözcük
@@ -7993,7 +7993,7 @@ rank	word	pos	en
 7992	parçanın	noun	genitive singular of parça
 7993	zaferin	noun	singular definite genitive of zafer
 7994	uçuşa	noun	dative singular of uçuş
-7995	kip	noun	mood
+7995	kip	noun	mood (in grammar); form, example
 7996	mensup	adj	related to, connected with, belonging to
 7997	mahalleyi	noun	definite singular accusative of mahalle
 7998	hatunu	noun	definite accusative singular of hatun
@@ -8010,7 +8010,7 @@ rank	word	pos	en
 8009	şub	noun	abbreviation of Şubat (“February”)
 8010	anket	noun	survey; questionnaire
 8011	dümeni	noun	definite accusative singular of dümen
-8012	yenileme	noun	restoration
+8012	yenileme	noun	renewing, renewal; restoration
 8013	barışın	noun	singular definite genitive of barış
 8014	giyinmek	verb	to get dressed; to put on (clothing, etc.)
 8015	uranyum	noun	uranium (element)
@@ -8025,7 +8025,7 @@ rank	word	pos	en
 8024	okulumuz	noun	first-person plural single-possession possessive of okul
 8025	sosyete	noun	society; high society; the upper classes
 8026	tayfa	noun	ship crew; hangers-on, fawning followers.
-8027	muş	noun	A sightseeing boat.
+8027	muş	noun	Muş (a province in eastern Turkey and the city that is its capital)
 8028	kapatırım	verb	first-person singular indicative aorist of kapatmak
 8029	sürsün	verb	third-person singular imperative of sürmek
 8030	sahneler	noun	nominative plural of sahne
@@ -8034,7 +8034,7 @@ rank	word	pos	en
 8033	karıştıran	adj	confusing; mixing
 8034	artırmak	verb	causative of artmak: to increase, to gain
 8035	kırar	verb	third-person singular indicative aorist of kırmak
-8036	yüksel	name	a male given name
+8036	yüksel	name	a male given name; a female given name; a surname
 8037	pizzayı	noun	definite accusative singular of pizza
 8038	soğutma	noun	verbal noun of soğutmak
 8039	atacaklar	verb	third-person plural indicative future of atmak
@@ -8097,11 +8097,11 @@ rank	word	pos	en
 8096	ulaşma	noun	verbal noun of ulaşmak
 8097	tarayıcı	noun	scanner (device which scans documents)
 8098	salam	noun	salami
-8099	vasat	adj	mediocre, indifferent
+8099	vasat	adj	mediocre, indifferent; average, middle
 8100	tükenmez	noun	ballpoint pen
 8101	alemi	noun	accusative singular of alem
 8102	ihtiyatlı	adj	cautious, prudent
-8103	kongo	name	Democratic Republic of the Congo
+8103	kongo	name	the Congo (either the Democratic Republic of the Congo or the Republic of the Congo, in Central Africa); the Congo River
 8104	evlerde	noun	locative plural of ev
 8105	damak	noun	palate
 8106	vs.	noun	abbreviation of vesaire
@@ -8141,7 +8141,7 @@ rank	word	pos	en
 8140	nezle	noun	common cold
 8141	hattan	noun	ablative singular of hat (“line; writing”)
 8142	yankı	noun	echo
-8143	bastırmak	verb	To prevent a harmful situation, to extinguish.
+8143	bastırmak	verb	causative of basmak: to suppress, to subdue, to take under control; to prevent a harmful situation, to extinguish
 8144	yükseltme	noun	verbal noun of yükseltmek
 8145	musluk	noun	faucet, tap; sink
 8146	tahtı	noun	accusative singular of taht
@@ -8151,7 +8151,7 @@ rank	word	pos	en
 8150	haşin	adj	rude, crude, harsh, rough, ill-tempered, offensive
 8151	arısı	noun	third-person singular single-possession possessive nominative of arı
 8152	süpermarket	noun	supermarket
-8153	ankara	name	Ankara (the capital city of Turkey and the capital of Ankara Province)
+8153	ankara	name	Ankara (the capital city of Turkey and of Ankara Province); by metonymy, the Turkish government
 8154	suna	noun	drake
 8155	vampire	noun	dative singular of vampir
 8156	gam	noun	sorrow
@@ -8199,7 +8199,7 @@ rank	word	pos	en
 8198	demode	adj	old-fashioned, outdated
 8199	acıktın	verb	second-person singular indicative simple past of acıkmak
 8200	grubum	noun	first-person singular possessive of grup
-8201	ezmek	verb	to crush, squash, knead, press
+8201	ezmek	verb	to crush, squash, knead, press; to oppress, grind down, trample on
 8202	ineği	noun	accusative singular of inek
 8203	çevik	adj	quick, fast
 8204	kıt	adj	insufficient, not enough
@@ -8275,10 +8275,10 @@ rank	word	pos	en
 8274	gıpta	noun	The desire to have the good qualities or things someone else has without envy
 8275	incel	verb	second-person singular imperative of incelmek
 8276	iletmek	verb	to hand in, convey, deliver
-8277	geçinmek	verb	to provide for one's survival
+8277	geçinmek	verb	to provide for one's survival, to get by, to make ends meet; to get along, to get on well (with someone)
 8278	açmaz	verb	third-person singular indicative negative aorist of açmak
 8279	enişte	noun	brother-in-law; uncle-in-law (aunt's husband)
-8280	duyurmak	verb	to make oneself heard
+8280	duyurmak	verb	to announce, to make known; to make oneself heard
 8281	çanak	noun	bowl, earthenware pot, a container used to hold, mix or present food
 8282	merhem	noun	ointment
 8283	sıkıntılar	noun	nominative plural of sıkıntı
@@ -8311,7 +8311,7 @@ rank	word	pos	en
 8310	cayır	noun	The sound that something burning or tearing makes; cracking, crackling.
 8311	mantarı	noun	accusative singular
 8312	devirmek	verb	to topple; to take down
-8313	esen	adj	healthy, sound
+8313	esen	adj	healthy, sound; also a male and female given name
 8314	başlamaz	verb	third-person singular indicative negative aorist of başlamak
 8315	pınar	noun	spring, fountain, fount
 8316	uluslar	noun	nominative plural of ulus
@@ -8346,7 +8346,7 @@ rank	word	pos	en
 8345	kanaat	noun	opinion; conviction
 8346	atıyorsunuz	verb	second-person plural present continuous of atmak
 8347	arayacaklar	verb	third-person plural indicative future of aramak
-8348	istakoz	noun	lobster
+8348	istakoz	noun	lobster (also spelled ıstakoz)
 8349	karaciğeri	noun	definite singular accusative of karaciğer
 8350	rütbe	noun	rank
 8351	ermeni	name	Armenian (person)
@@ -8377,7 +8377,7 @@ rank	word	pos	en
 8376	derinin	noun	genitive singular of deri
 8377	inden	noun	ablative singular of in
 8378	ciğeri	noun	singular definite accusative of ciğer
-8379	yalın	adj	plain; unadorned
+8379	yalın	adj	plain, unadorned; also a male and female given name
 8380	kaykay	noun	skateboard
 8381	çamurlu	adj	muddy
 8382	inandırmak	verb	to convince, make believe, persuade
@@ -8389,7 +8389,7 @@ rank	word	pos	en
 8388	uçtum	verb	first-person singular indicative simple past of uçmak
 8389	selim	name	a male given name from Arabic
 8390	psikiyatr	noun	psychiatrist
-8391	şarapnel	noun	shrapnel (anti-personnel artillery shell used in World War I)
+8391	şarapnel	noun	shrapnel, the fragments thrown out by an exploding shell or bomb; originally the anti-personnel artillery shell of the First World War
 8392	yanma	noun	verbal noun of yanmak
 8393	üzme	noun	affliction; disgruntlement
 8394	tüneller	noun	nominative plural of tünel
@@ -8414,7 +8414,7 @@ rank	word	pos	en
 8413	nah	intj	lo!, there it is!
 8414	üyelik	noun	membership; state of being member
 8415	mücadeleyi	noun	definite accusative singular of mücadele
-8416	bereketli	adj	blessed, benedicted
+8416	bereketli	adj	fertile, plentiful, abundant; blessed
 8417	kefaret	noun	redemption; An act of charity or fasting with the hope that a sin is forgiven.
 8418	dayanacak	verb	third-person singular indicative future of dayanmak
 8419	matematiği	noun	accusative singular of matematik
@@ -8435,8 +8435,8 @@ rank	word	pos	en
 8434	galaktik	adj	galactic
 8435	nonoş	noun	little darling, sweet thing (term of endearment)
 8436	kaynar	verb	third-person singular indicative aorist of kaynamak
-8437	ezici	adj	That which does the act of crushing, pressing.
-8438	aydın	adj	bright, illuminated
+8437	ezici	adj	(of a majority, a victory, etc.) overwhelming, sweeping; crushing, pressing; tiring, exhausting, distressful
+8438	aydın	adj	bright, illuminated; also a male and female given name, and Aydın, a province in southwestern Turkey
 8439	kutum	noun	first-person singular possessive of kutu
 8440	karbondioksit	noun	carbon dioxide
 8441	kıpkırmızı	adj	"A more intense version of kırmızı (""red"")"
@@ -8509,9 +8509,9 @@ rank	word	pos	en
 8508	yabancıları	adj	definite accusative plural
 8509	marangoz	noun	carpenter
 8510	dalgalı	adj	wavy
-8511	sahipsiz	adj	derelict; forlorn
+8511	sahipsiz	adj	ownerless, unowned, masterless; derelict, forlorn
 8512	hatırlatan	adj	reminiscent
-8513	köklü	adj	rooted, having roots
+8513	köklü	adj	rooted, having roots; deep-rooted, established, deep-seated, fundamental; radical
 8514	döven	verb	present participle of dövmek
 8515	batarya	noun	battery
 8516	özeti	noun	accusative singular of özet
@@ -8554,7 +8554,7 @@ rank	word	pos	en
 8553	küplere	noun	plural dative of küp
 8554	yönetimin	noun	genitive singular of yönetim
 8555	kasetler	noun	nominative plural of kaset
-8556	uyumsuz	adj	disharmonic, not harmonic
+8556	uyumsuz	adj	incompatible, incongruous; disharmonic, not in harmony; unsynchronized
 8557	aktarma	noun	verbal noun of aktarmak
 8558	yatakları	noun	definite accusative plural
 8559	işadamı	noun	work, task, deed
@@ -8573,7 +8573,7 @@ rank	word	pos	en
 8572	çantalar	noun	nominative plural of çanta
 8573	gemini	noun	second-person singular simple present possessive accusative of gemi
 8574	frengi	noun	syphilis
-8575	musevi	noun	Jew, adherent of Judaism.
+8575	musevi	noun	Jew, adherent of Judaism; (as an adjective) Jewish, relating to Jews, their religion or their culture
 8576	banyodan	noun	ablative singular of banyo
 8577	annelerin	noun	genitive plural
 8578	amansız	adj	merciless, pitiless
@@ -8621,9 +8621,9 @@ rank	word	pos	en
 8620	palmiye	noun	palm tree
 8621	başlamayı	noun	accusative singular of başlama
 8622	muhalefet	noun	opposition (action, political)
-8623	göçebe	adj	migratory
+8623	göçebe	adj	nomad, nomadic — continuously migrating with the climate and the seasons, living without permanent buildings; migratory
 8624	bebeklere	noun	dative plural of bebek
-8625	vurulmak	verb	to fall in love (with)
+8625	vurulmak	verb	passive of vurmak: to be hit, struck, shot, etc.; to fall in love (with)
 8626	senatörü	noun	definite accusative singular
 8627	halıyı	noun	definite singular accusative of halı
 8628	pak	adj	pure; clean
@@ -8647,7 +8647,7 @@ rank	word	pos	en
 8646	aktörler	noun	nominative plural of aktris
 8647	diploma	noun	diploma
 8648	bunaltıcı	adj	overwhelming, depressing, oppressive, mind-bending
-8649	dayanak	noun	something to lean on
+8649	dayanak	noun	support, base, basis; something to lean on
 8650	istifade	noun	benefiting, profiting, gaining
 8651	cesaretli	adj	brave, courageous
 8652	dişiler	noun	nominative plural of dişi
@@ -8681,14 +8681,14 @@ rank	word	pos	en
 8680	hasret	noun	longing (melancholic desire)
 8681	susam	noun	sesame, a tropical, Asian plant of the species Sesamum indicum
 8682	acıyacak	verb	third-person singular indicative future of acımak
-8683	muhafazakar	noun	conservative
+8683	muhafazakar	noun	conservative (also spelled muhafazakâr)
 8684	gemimi	noun	first-person singular single-possession possessive definite accusative of gemi
 8685	sandalyeler	noun	nominative plural of sandalye
 8686	renge	noun	dative singular of renk
 8687	içermek	verb	to include
 8688	vücutları	noun	definite accusative plural of vücut
 8689	doğayı	noun	singular definite accusative of doğa
-8690	erdem	noun	virtue, morals
+8690	erdem	noun	virtue, morals; also a male given name from Old Turkic
 8691	röntgeni	noun	accusative singular of röntgen
 8692	parmaklık	noun	any set of metal or wooden bar, railing, fence
 8693	organizma	noun	organism (living thing)
@@ -8735,7 +8735,7 @@ rank	word	pos	en
 8734	yapışık	adj	adherente, adhesive
 8735	sevmezler	verb	third-person plural indicative negative aorist of sevmek
 8736	alçakça	adj	pretty low, fairly low
-8737	önder	noun	leader
+8737	önder	noun	leader; also a male and female given name
 8738	alelade	adj	ordinary
 8739	bulutlu	adj	cloudy, overcast
 8740	gözetlemek	verb	to watch secretly, to spy on, to peep, to observe covertly, to keep an eye on
@@ -8794,8 +8794,8 @@ rank	word	pos	en
 8793	çizmeyi	noun	definite accusative singular of çizme
 8794	köpeğimiz	noun	first-person plural single-possession possessive of köpek
 8795	koyunlar	noun	nominative plural of koyun
-8796	fire	noun	wastage; outage
-8797	dikmek	verb	to erect, to plant
+8796	fire	noun	wastage, shrinkage, loss in weight, decrease; outage
+8797	dikmek	verb	to erect, to plant (plants only; for seeds see ekmek); to chug
 8798	araf	noun	A'raf; purgatory
 8799	öğretmenlerin	noun	definite genitive plural of öğretmen
 8800	sandalyenin	noun	genitive singular
@@ -8831,7 +8831,7 @@ rank	word	pos	en
 8830	demirci	noun	ironmonger; smith, blacksmith
 8831	özdemir	name	a male given name
 8832	uyuyordun	verb	second-person singular indicative past imperfective of uymak
-8833	begüm	noun	begum
+8833	begüm	noun	begum; also a female given name
 8834	bluz	noun	blouse
 8835	anahtarlarım	noun	first-person singular multiple-possession possessive
 8836	sapığın	noun	definite genitive singular of sapık
@@ -8845,7 +8845,7 @@ rank	word	pos	en
 8844	fatma	name	a female given name from Arabic
 8845	benekli	adj	mottled; pinto
 8846	tutkal	noun	glue
-8847	divan	noun	divan, a council of state held between the viziers of the Ottoman Empire and the sultan
+8847	divan	noun	divan, a couch (synonym of sedir); a collection of poems, especially one by an author writing in Arabic or Persian; the Ottoman council of state held between the viziers and the sultan
 8848	halıya	noun	dative singular of halı
 8849	ferah	noun	State of inner peace, serenity, contentment.
 8850	mineral	noun	mineral
@@ -8885,7 +8885,7 @@ rank	word	pos	en
 8884	samimiyet	noun	sincerity, cordiality
 8885	eserler	noun	nominative plural of eser
 8886	mahrem	adj	secret
-8887	tuna	name	a female given name
+8887	tuna	name	Danube (a river in Europe); also a female and male given name
 8888	gemilerine	noun	second/third-person singular multiple-possession possessive dative
 8889	aygıt	noun	device
 8890	bakanlar	noun	plural of bakan
@@ -8910,7 +8910,7 @@ rank	word	pos	en
 8909	azami	adj	greatest, maximum
 8910	sarmaşık	noun	ivy; any climbing or trailing evergreen plants of the genus Hedera
 8911	tiz	adj	high-pitched; sharp
-8912	yoklama	noun	roll call
+8912	yoklama	noun	roll call; examination, test
 8913	aşağılamak	verb	to humiliate, to look down on, to demean
 8914	fani	adj	mortal
 8915	dolaşma	noun	a stroll; the act of walking around leisurely, wandering
@@ -8965,7 +8965,7 @@ rank	word	pos	en
 8964	yeteneksiz	adj	skilless, talentless, unskilled, inept, incompetent, uncompetent
 8965	garsonu	noun	definite singular accusative of garson
 8966	ablanın	noun	genitive singular of abla
-8967	sallamak	verb	To move regularly in the same direction; to swing, to rock, to shake.
+8967	sallamak	verb	to swing, to rock, to shake; to jerk, to jolt; to make up, to fabricate, to take a stab in the dark
 8968	tablolar	noun	plural of tablo
 8969	değiştiririm	verb	first-person singular indicative aorist of değiştirmek
 8970	öğretmenleri	noun	definite accusative plural of öğretmen
@@ -8989,7 +8989,7 @@ rank	word	pos	en
 8988	dağıtımı	noun	accusative singular of dağıtım
 8989	ferdinand	name	Ferdinand
 8990	büyükleri	noun	definite accusative plural of büyük
-8991	yavan	adj	made with little or no oil or butter
+8991	yavan	adj	flavourless, insipid, tasteless — made with little or no oil or butter; meaningless, empty
 8992	madalyayı	noun	singular definite accusative of madalya
 8993	kötüyü	noun	accusative singular of kötü
 8994	yama	noun	birthmark; patch
@@ -9022,7 +9022,7 @@ rank	word	pos	en
 9021	gösterime	noun	dative singular of gösterim
 9022	mühendisliği	noun	definite accusative singular of mühendislik
 9023	paydos	noun	recess, respite
-9024	kapanık	adj	shut, closed, covered
+9024	kapanık	adj	shut, closed, covered; confined; shut off, closed off; overcast, cloudy
 9025	terapiste	noun	dative singular of terapist
 9026	akü	noun	clipping of akümülatör
 9027	vücutta	noun	locative singular of vücut
@@ -9034,13 +9034,13 @@ rank	word	pos	en
 9033	klip	noun	music video
 9034	bilgilendirmek	verb	to inform, to let know (to act as an informer)
 9035	akvaryum	noun	aquarium
-9036	ciro	noun	endorsement; turnover
+9036	ciro	noun	endorsement (signing a cheque or bill over to someone else); turnover
 9037	çalacaksın	verb	second-person singular indicative future of çalmak
 9038	kavgacı	noun	agressive, quarrelsome person
 9039	titanyum	noun	titanium
-9040	fildişi	adj	Having the color of ivory.
+9040	fildişi	adj	ivory, the creamy off-white color (short for fildişi rengi)
 9041	nebze	noun	ounce, modicum, smidgen (a very small quantity or amount)
-9042	metres	noun	mistress
+9042	metres	noun	mistress; a female partner in an extramarital relationship, generally including sexual relations.
 9043	halil	name	a male given name from Arabic
 9044	nasip	noun	That which falls on one's share; lot, fortune.
 9045	yalanların	noun	definite genitive plural of yalan
@@ -9153,7 +9153,7 @@ rank	word	pos	en
 9152	tay	noun	colt (horse)
 9153	mecburi	adj	mandatory, compulsory, obligatory
 9154	botanik	noun	botany
-9155	tanımlamak	verb	To define, to specify the meaning of a word or phrase.
+9155	tanımlamak	verb	To define, to specify the meaning of a word or phrase.; To identify, to recognize and be able to name.; To describe, to give a detailed account or picture of a situation, event, pattern or process.
 9156	ironi	noun	irony (statement that may mean the opposite of what is written literally)
 9157	sarkık	adj	Hanging loosely, sagging or drooping.
 9158	götveren	noun	queer, fag, faggot
@@ -9256,7 +9256,7 @@ rank	word	pos	en
 9255	puck	name	Puck
 9256	dekor	noun	decor; set, location
 9257	platform	noun	platform
-9258	tükenmek	verb	to be exhausted
+9258	tükenmek	verb	to be used up, to run out, to be consumed away; to be exhausted; to die out
 9259	tsunami	noun	a tsunami
 9260	madagaskar	name	Madagascar (an island and country off the east coast of Africa)
 9261	damadı	noun	definite accusative singular
@@ -9319,11 +9319,11 @@ rank	word	pos	en
 9318	marşı	noun	definite accusative singular
 9319	ördeği	noun	singular definite accusative of ördek
 9320	lavanta	noun	lavender, any flowering plant of the genus Lavandula
-9321	zımba	noun	punch; stapler
+9321	zımba	noun	hole punch (a device for making holes in thin material); stapler
 9322	bakacaklar	verb	third-person plural indicative future of bakmak
 9323	derginin	noun	genitive singular
 9324	bitişik	adj	Things that are adjacent, touching each other, contiguous.
-9325	balmumu	noun	honey
+9325	balmumu	noun	alternative spelling of bal mumu
 9326	buzlar	noun	nominative plural of buz
 9327	zampara	adj	womanizer, excessively fond of women
 9328	senfoni	noun	symphony
@@ -9372,8 +9372,8 @@ rank	word	pos	en
 9371	yetkiyi	noun	accusative singular of yetki
 9372	asacağım	verb	first-person singular indicative future of asmak
 9373	gösterici	noun	demonstrator, rioter
-9374	sonlandırmak	verb	causative of sonlanmak;
-9375	taban	noun	sole (of a foot)
+9374	sonlandırmak	verb	causative of sonlanmak: to end, to bring to an end
+9375	taban	noun	sole (of a foot); sole of a shoe; floor
 9376	zeynep	noun	precious gemstone
 9377	içindekiler	noun	table of contents
 9378	havasız	adj	stuffy; airless
@@ -9440,9 +9440,9 @@ rank	word	pos	en
 9439	gemin	noun	second-person singular single-possession possessive of gemi
 9440	buket	noun	bouquet
 9441	teni	noun	accusative singular of ten
-9442	göktaşı	noun	sky; blue
+9442	göktaşı	noun	alternative spelling of gök taşı
 9443	doğrulama	noun	verbal noun of doğrulamak
-9444	levha	noun	inscription hung on a wall, signboard
+9444	levha	noun	inscription hung on a wall, signboard; painting, picture; large metal plate made of lead, zinc or other material
 9445	menüyü	noun	accusative singular of menü
 9446	kuveyt	name	Kuwait (a country in West Asia in the Middle East)
 9447	terhis	noun	authorization, permission
@@ -9470,7 +9470,7 @@ rank	word	pos	en
 9469	hamuru	noun	accusative singular of hamur
 9470	ağaçlarda	noun	locative plural of ağaç
 9471	ailelerden	noun	ablative plural of aile
-9472	örtülü	adj	Having a cover, a veil.
+9472	örtülü	adj	covered, veiled, wrapped with something; covert, secret, clandestine
 9473	kapağında	noun	second/third-person singular single-possession possessive locative of kapak
 9474	kancayı	noun	definite accusative singular of kanca
 9475	itmek	verb	to push
@@ -9493,17 +9493,17 @@ rank	word	pos	en
 9492	celp	noun	attraction; summons
 9493	satışlar	noun	nominative plural of satış
 9494	biralar	noun	nominative plural of bira
-9495	sızmak	verb	to percolate, leak, ooze
+9495	sızmak	verb	to percolate, leak, ooze; (for a secret) to leak out, become known; to infiltrate, enter (a place) unobtrusively
 9496	çiftçilik	noun	farming; agriculture
 9497	oslo	name	Oslo (a county and municipality, the capital city of Norway)
 9498	basmakalıp	adj	cliché, stereotypical, stock
 9499	sevdiniz	verb	second-person plural indicative simple past of sevmek
-9500	plato	noun	stage, a surface upon which show performances or other events are given
+9500	plato	noun	(film and TV) set, the artificial scenery and the stage it stands on; plateau, tableland (synonym of yayla)
 9501	sistematik	adj	systematic
 9502	ceylan	noun	antelope (any of several African mammals of the family Bovidae)
 9503	evre	noun	stage; phase
 9504	kebap	noun	kebab
-9505	patırtı	noun	A thudding or banging noise; clatter, clamor.
+9505	patırtı	noun	a thudding or banging noise; clatter, clamour; a noisy disturbance, a quarrel, a row
 9506	mantarlar	noun	nominative plural of mantar
 9507	hendek	noun	ditch; moat
 9508	sikiş	noun	A fuck.
@@ -9528,7 +9528,7 @@ rank	word	pos	en
 9527	amonyak	noun	ammonia
 9528	çürüme	noun	verbal noun of çürümek
 9529	çığ	noun	avalanche
-9530	otuzbir	noun	thirty
+9530	otuzbir	noun	alternative spelling of otuz bir
 9531	iğneler	noun	nominative plural of iğne
 9532	sıklet	noun	weight
 9533	aklama	noun	verbal noun of aklamak
@@ -9544,7 +9544,7 @@ rank	word	pos	en
 9543	hilal	noun	crescent moon
 9544	uyumaz	verb	third-person singular indicative negative aorist of uyumak
 9545	eşofman	noun	tracksuit
-9546	sürüklemek	verb	to drag (pull along the ground)
+9546	sürüklemek	verb	to drag (pull along the ground); to carry, transport, take away; to drag (bring a reluctant person along)
 9547	hürmet	noun	veneration, piety, deference, respect
 9548	anarşist	adj	anarchistic
 9549	kardeşe	noun	singular dative of kardeş
@@ -9604,11 +9604,11 @@ rank	word	pos	en
 9603	müdire	noun	female equivalent of müdür (“schoolmaster, director, principal”)
 9604	süveter	noun	sweater
 9605	kireç	noun	lime, inorganic material containing calcium
-9606	ekin	noun	crop; culture
+9606	ekin	noun	crop; culture; also a unisex given name and a surname
 9607	kesesi	noun	third-person singular possessive of kese
 9608	avare	adj	vagabond, vagrant, hobo
 9609	eşcinseller	noun	nominative plural of eşcinsel
-9610	genişletmek	verb	causative of genişlemek
+9610	genişletmek	verb	causative of genişlemek: to broaden, to extend, to widen
 9611	kayar	verb	third-person singular indicative aorist of kaymak
 9612	turizm	noun	tourism
 9613	elmalar	noun	nominative plural of elma
@@ -9649,7 +9649,7 @@ rank	word	pos	en
 9648	robotun	noun	genitive singular
 9649	karanlıklar	noun	nominative plural of karanlık
 9650	sözlere	noun	dative plural of söz
-9651	kürklü	adj	Who has or wears fur.
+9651	kürklü	adj	covered with fur, furry; wearing fur; decorated with fur
 9652	goblin	noun	goblin
 9653	civciv	noun	chick (young chicken)
 9654	gözükmek	verb	to seem, to look, to appear
@@ -9709,7 +9709,7 @@ rank	word	pos	en
 9708	kabini	noun	definite accusative singular of kabin
 9709	çöpçü	noun	garbage man, garbage collector
 9710	öğrenciye	noun	dative singular of öğrenci
-9711	güncelleme	noun	verbal noun of güncellemek
+9711	güncelleme	noun	update, a change to a more recent version (verbal noun of güncellemek)
 9712	akustik	noun	acoustics
 9713	doğulu	adj	eastern
 9714	uzayı	noun	accusative singular of uzay
@@ -9746,7 +9746,7 @@ rank	word	pos	en
 9745	depozito	noun	deposit
 9746	sikici	noun	fucker
 9747	uyduları	noun	accusative plural
-9748	volta	noun	A single act of wrapping a rope aroun a bollard.
+9748	volta	noun	continually walking back and forth, especially of prisoners in a prison yard; a single turn of a rope around a bollard; the act of zigzagging to dodge a headwind
 9749	varsayımsal	adj	assumptive, hypothetical, suppositional, suppositive
 9750	üzümlü	adj	Made with grapes or raisins.
 9751	ödeşmek	verb	to get even, to avenge oneself
@@ -9764,11 +9764,11 @@ rank	word	pos	en
 9763	cıva	noun	mercury, quicksilver
 9764	bitap	adj	feeble
 9765	zimmet	noun	debt; duty, obligation, responsibility
-9766	dilli	adj	having a tongue
+9766	dilli	adj	having a tongue; talkative in an amiable manner; gossipy
 9767	çıldırmak	verb	to go mad, go crazy, go insane, lose one's mind
 9768	tasdik	noun	synonym of doğrulama
 9769	özenli	adj	try hard; rigorous
-9770	kamış	noun	Phragmites australis
+9770	kamış	noun	reed (Phragmites australis); drinking straw
 9771	kapasitede	adv	with the capacity, capable of
 9772	zayiat	noun	losses; casualties
 9773	saten	noun	satin
@@ -9829,7 +9829,7 @@ rank	word	pos	en
 9828	darp	noun	beating; multiplication
 9829	ailece	adv	with the whole family, as a family, en famille
 9830	uygulamayı	noun	accusative singular of uygulama
-9831	berk	adj	strong, hard, robust, violent
+9831	berk	adj	strong, hard, robust, violent; also a male given name
 9832	bankacılık	noun	banking
 9833	mahşer	noun	The place where humanity will assemble on the day of judgement
 9834	çizikler	noun	nominative plural of çizik
@@ -9843,7 +9843,7 @@ rank	word	pos	en
 9842	guatemala	name	Guatemala (a country in northern Central America)
 9843	adliye	noun	court of law (court presided over by a judge)
 9844	paylaşım	noun	A share (act of sharing)
-9845	kızmak	verb	to get hot, become hot, heat
+9845	kızmak	verb	to get angry, to be angry with, to lose one's temper; to get hot, to become hot
 9846	kulağımı	noun	first-person singular simple present possessive accusative of kulak
 9847	cesetlerden	noun	ablative plural of ceset
 9848	donanımı	noun	accusative singular of donanım
@@ -9919,11 +9919,11 @@ rank	word	pos	en
 9918	kolaylık	noun	easiness
 9919	hass	intj	abbreviation of hassiktir
 9920	ağam	noun	first-person singular possessive of ağa
-9921	alevi	noun	accusative singular of alev
+9921	alevi	noun	Alevi, Alevite (a supporter of Alevism, a liberal Shia religious movement); also the accusative singular of alev
 9922	atmaca	noun	hawk, especially species of Accipiter (sparrow hawks).
 9923	algoritma	noun	algorithm (well-defined procedure)
 9924	belleği	noun	accusative singular of bellek
-9925	tapu	noun	deed (document)
+9925	tapu	noun	deed (document); deed office, for example the registrar of landownership
 9926	seferber	adj	mobilized
 9927	faydaları	noun	definite accusative plural
 9928	eşe	noun	dative singular of eş

@@ -103,7 +103,7 @@ rank	word	pos	en
 102	very	adv	used as intensifiers; `real' is sometimes used informally for `really'; `rattling' is informal
 103	never	adv	not ever; at no time in the past or future
 104	people	noun	(plural) any group of human beings (men or women or children) collectively
-105	only	adv	and nothing more
+105	only	adv	and nothing more; also: being the single one of its kind
 106	over	adv	at or to a point across intervening space etc.
 107	because		
 108	guy	noun	an informal term for a youth or man
@@ -211,7 +211,7 @@ rank	word	pos	en
 210	world	noun	everything that exists anywhere
 211	enough	adv	as much as necessary; ; (`plenty' is nonstandard)
 212	own	adj	belonging to or on behalf of a specified person (especially yourself); preceded by a possessive
-213	care	verb	feel concern or interest
+213	care	verb	feel concern or interest; also the work of looking after someone or something
 214	may	verb	it is possible or permitted
 215	wrong	adj	not correct; not in conformity with fact or truth
 216	three	adj	being one more than two
@@ -235,7 +235,7 @@ rank	word	pos	en
 234	family	noun	a social unit living together
 235	open	verb	make something no longer shut, so people or things can pass through
 236	many	adj	a quantifier that can be used with count nouns and is often preceded by `as' or `too' or `so' or `that'; amounting to a large but indefinite number
-237	break	verb	terminate
+237	break	verb	bring or come to an end; also a pause that interrupts an activity
 238	worry	verb	feel anxious or troubled about something that might go wrong
 239	wasn		
 240	baby	noun	a very young child (birth to 1 year) who has not yet begun to walk or talk
@@ -262,7 +262,7 @@ rank	word	pos	en
 261	wouldn		
 262	already	adv	prior to a specified or implied time
 263	door	noun	a swinging or sliding barrier that will close the entrance to a room or building or vehicle
-264	most	adv	used to form the superlative
+264	most	adv	used to form the superlative; also: the greatest in number or amount
 265	send	verb	cause to go somewhere
 266	matter	noun	a vaguely specified concern
 267	actually	adv	in actual fact
@@ -322,7 +322,7 @@ rank	word	pos	en
 321	fucking	noun	slang for sexual intercourse
 322	lady	noun	a polite name for any woman
 323	buy	verb	obtain by purchase; acquire by means of a financial transaction
-324	sound	verb	appear in a certain way
+324	sound	verb	what you hear, a noise; also (verb): to seem a certain way to the ear
 325	far	adv	to a considerable degree; very much
 326	ago	adv	in the past
 327	excuse	noun	a defense of some offensive behavior or some failure to keep a promise etc.
@@ -464,7 +464,7 @@ rank	word	pos	en
 463	country	noun	a politically organized body of people under a single government
 464	figure	noun	a diagram or picture illustrating textual material
 465	front	noun	the side that is forward or prominent
-466	bear	verb	have
+466	bear	verb	the large heavy wild animal; also, as a verb, to have
 467	whoa		
 468	sing	verb	produce musical sounds with the voice, usually with words
 469	bye	noun	you advance to the next round in a tournament without playing an opponent
@@ -499,7 +499,7 @@ rank	word	pos	en
 498	captain	noun	an officer holding a rank below a major but above a lieutenant
 499	chuckle	verb	laugh quietly or with restraint
 500	scar	noun	a mark left (usually on the skin) by the healing of injured tissue
-501	human	adj	characteristic of humanity
+501	human	adj	a person, as distinct from an animal or machine; also: of or typical of people
 502	em	noun	a quad with a square body
 503	safe	adj	free from danger or the risk of harm
 504	six	adj	amounting to one more than five; 6
@@ -532,7 +532,7 @@ rank	word	pos	en
 531	ma	noun	informal terms for a mother
 532	gentleman	noun	a man of refinement
 533	perfect	adj	being complete of its kind and without defect or blemish
-534	record	verb	write down or store information so it can be kept
+534	record	verb	write down or store information; also (noun) a written account of past events, or a disc of music
 535	continue	verb	keep going in the same state or activity without stopping
 536	anybody		
 537	secret	adj	not open or public; kept private or not revealed
@@ -581,7 +581,7 @@ rank	word	pos	en
 580	luck	noun	your overall circumstances or condition in life (including everything that happens to you)
 581	daddy	noun	an informal term for a father; probably derived from baby talk
 582	sense	noun	a general conscious awareness
-583	cold	adj	at a low temperature; not warm
+583	cold	adj	at a low temperature; not warm; also (noun) a mild illness of the nose and throat
 584	cheer	noun	a cry or shout of approval
 585	key	noun	metal device shaped in such a way that when it is inserted into the appropriate lock the lock's mechanism can be rotated
 586	finally	adv	after an unspecified period of time or an especially long delay
@@ -612,7 +612,7 @@ rank	word	pos	en
 611	count	verb	determine the number or amount of
 612	less	adv	used to form the comparative of some adjectives and adverbs
 613	enjoy	verb	derive or receive pleasure from; get enjoyment from; take pleasure in
-614	knock	verb	deliver a sharp blow or push :
+614	knock	verb	hit something sharply, especially a door
 615	jesus	noun	a teacher and prophet born in Bethlehem and active in Nazareth; his life and sermons form the basis for Christianity (circa 4 BC - AD 29)
 616	coffee	noun	a dark hot drink made from roasted, ground beans of a tropical shrub
 617	test	verb	try something in order to find out how good it is or how well it works
@@ -628,7 +628,7 @@ rank	word	pos	en
 627	rock	noun	a lump or mass of hard consolidated mineral matter
 628	fault	noun	a wrong action attributable to bad judgment or ignorance or inattention
 629	calm	adj	not agitated; without losing self-possession
-630	mark	verb	attach a tag or label to
+630	mark	verb	attach a tag or label to; also (noun) a score given for schoolwork
 631	dude	noun	an informal form of address for a man
 632	hide	verb	prevent from being seen or discovered
 633	offer	verb	make available or accessible, provide or furnish
@@ -648,9 +648,9 @@ rank	word	pos	en
 647	imagine	verb	form a mental image of something that is not present or that is not the case
 648	wonderful	adj	extraordinarily good or great ; used especially as intensifiers
 649	smell	verb	inhale the odor of; perceive by the olfactory sense
-650	push	verb	move with force,
+650	push	verb	apply force to move something away from you
 651	absolutely	adv	completely and without qualification; used informally as intensifiers
-652	handle	verb	be in charge of, act on, or dispose of
+652	handle	verb	be in charge of, deal with; also (noun) the part of an object made to be held
 653	drug	noun	a substance that is used as a medicine or narcotic
 654	present	adj	temporal sense; intermediate between past and future; now existing or happening or in consideration
 655	yesterday	noun	the day immediately before today
@@ -699,7 +699,7 @@ rank	word	pos	en
 698	tired	adj	depleted of strength or energy
 699	bastard	noun	insulting terms of address for people who are stupid or irritating or ridiculous
 700	service	noun	work done by one person or group that benefits another
-701	judge	verb	determine the result of (a competition)
+701	judge	verb	a public official who decides cases in a court; also (verb) to decide the result of a contest
 702	thousand	noun	the cardinal number that is the product of 10 and 100
 703	ground	noun	the solid part of the earth's surface
 704	near	adj	not far distant in time or space or degree or circumstances
@@ -841,7 +841,7 @@ rank	word	pos	en
 840	mike	noun	device for converting sound waves into electrical energy
 841	enemy	noun	an opposing military force
 842	memory	noun	something that is remembered
-843	concern	verb	be relevant to
+843	concern	verb	be relevant to; also (noun) a matter that is important to you or affects you
 844	travel	verb	go from one place to another, usually over some distance
 845	teacher	noun	a person whose occupation is teaching
 846	position	noun	the particular portion of space occupied by something
@@ -894,7 +894,7 @@ rank	word	pos	en
 893	owe	verb	be obliged to pay or repay
 894	risk	verb	expose to a chance of loss or damage
 895	peter	noun	disciple of Jesus and leader of the Apostles; regarded by Catholics as the vicar of Christ on earth and first Pope
-896	tie	verb	fasten or secure with a rope, string, or cord
+896	tie	verb	fasten or secure with a rope, string, or cord; also (noun) the strip of cloth worn round the neck with a shirt
 897	paul	noun	United States feminist (1885-1977)
 898	spot	noun	a point located with respect to surface features of some region
 899	note	verb	make mention of
@@ -918,7 +918,7 @@ rank	word	pos	en
 917	dollar	noun	the basic monetary unit in many countries; equal to 100 cents
 918	blame	verb	say that someone or something is responsible for something bad
 919	screw	noun	someone who guards prisoners
-920	base	verb	use as a basis for; found on
+920	base	verb	use as the foundation for; also (noun) a military installation
 921	pop	verb	bulge outward
 922	wind	noun	air moving (sometimes with considerable force) from an area of high pressure to an area of low pressure
 923	boyfriend	noun	a man who is the lover of a girl or young woman
@@ -937,7 +937,7 @@ rank	word	pos	en
 936	photo	noun	a representation of a person or scene in the form of a print or transparent slide; recorded by a camera on light-sensitive material
 937	fail	verb	not succeed at something, or leave undone what you were supposed to do
 938	action	noun	something done (usually as opposed to something said)
-939	english	adj	of or relating to or characteristic of England or its culture or people
+939	english	adj	the language spoken in Britain, the US and much of the world; also: of or relating to England
 940	private	adj	confined to particular persons or groups or providing privacy
 941	truck	noun	an automotive vehicle suitable for hauling
 942	hungry	adj	feeling hunger; feeling a need or desire to eat food
@@ -1069,7 +1069,7 @@ rank	word	pos	en
 1068	sky	noun	the atmosphere and outer space as viewed from the earth
 1069	aah	verb	express admiration and pleasure by uttering `ooh' or `aah'
 1070	grand	adj	of behavior that is impressive and ambitious in scale or scope
-1071	challenge	verb	take exception to
+1071	challenge	verb	a demanding or difficult situation; also (verb) to take exception to something
 1072	video	noun	the visible part of a television transmission
 1073	detail	noun	an isolated fact that is considered separately from the whole
 1074	low	adj	less than normal in degree or intensity or amount
@@ -1102,7 +1102,7 @@ rank	word	pos	en
 1101	paris	noun	the capital and largest city of France; and international center of culture and commerce
 1102	innocent	adj	free from evil or guilt
 1103	department	noun	a specialized division of a large organization
-1104	accord	verb	go together
+1104	accord	verb	harmony of people's opinions or actions or characters
 1105	favorite	noun	something regarded with special favor or liking
 1106	correct	verb	make right or correct
 1107	danny		
@@ -1217,7 +1217,7 @@ rank	word	pos	en
 1216	cake	noun	a block of solid substance (such as soap or wax)
 1217	project	noun	any piece of work that is undertaken or attempted
 1218	bottom	noun	the lower side of anything
-1219	damage	verb	inflict damage upon
+1219	damage	verb	harm or loss caused to something; also (verb) to cause such harm
 1220	sarah	noun	(Old Testament) the wife of Abraham and mother of Isaac
 1221	bite	verb	to grip, cut off, or tear with or as if with the teeth or jaws
 1222	approach	verb	move towards
@@ -1311,7 +1311,7 @@ rank	word	pos	en
 1310	threaten	verb	pose a threat to; present a danger to
 1311	investigation	noun	an inquiry into unfamiliar or questionable activities
 1312	national	adj	of or relating to or belonging to a nation or country
-1313	several	adj	considered individually
+1313	several	adj	(used with count nouns) of an indefinite number more than 2 or 3 but not many
 1314	process	noun	a particular course of action intended to achieve a result
 1315	milk	noun	a white nutritious liquid secreted by mammals and used as food by human beings
 1316	grandma	noun	the mother of your father or mother
@@ -1367,7 +1367,7 @@ rank	word	pos	en
 1366	print	verb	put into print
 1367	among		
 1368	chris		
-1369	switch	verb	change over, change around, as to a new order or sequence
+1369	switch	verb	a device for making, breaking or changing an electrical connection; to change over to something else
 1370	bro		
 1371	sword	noun	a cutting or thrusting weapon that has a long metal blade and a hilt with a hand guard
 1372	pocket	noun	a small pouch inside a garment for carrying small articles
@@ -1416,7 +1416,7 @@ rank	word	pos	en
 1415	property	noun	something owned; any tangible or intangible possession that is owned by someone
 1416	contract	noun	a binding agreement between two or more persons that is enforceable by law
 1417	charles	noun	King of France from 1560 to 1574 whose reign was dominated by his mother Catherine de Medicis (1550-1574)
-1418	chinese	adj	of or pertaining to China or its peoples or cultures
+1418	chinese	adj	of or relating to China, its people or its culture; the language of China
 1419	sweetie	noun	a person loved by another person
 1420	truly	adv	in accordance with truth or fact or reality
 1421	honestly	adv	(used as intensives reflecting the speaker's attitude) it is sincerely the case that
@@ -1483,7 +1483,7 @@ rank	word	pos	en
 1482	lay	verb	put into a certain place or abstract location
 1483	pair	noun	a set of two similar things considered as a unit
 1484	usual	adj	occurring or encountered or experienced or observed frequently or in accordance with regular practice or procedure
-1485	attempt	verb	make an effort or attempt
+1485	attempt	verb	make an effort to do or accomplish something
 1486	horn	noun	a noisemaker (as at parties or games) that makes a loud noise when you blow through it
 1487	cigarette	noun	finely ground tobacco wrapped in paper; for smoking
 1488	aware	adj	(sometimes followed by `of') having or showing knowledge or understanding or realization or perception
@@ -1541,7 +1541,7 @@ rank	word	pos	en
 1540	soft	adj	yielding readily to pressure or weight
 1541	meal	noun	the food served and eaten at one time
 1542	priest	noun	a clergyman in Christian churches who has the authority to perform or administer various religious rites; one of the Holy Orders
-1543	sacrifice	verb	endure the loss of
+1543	sacrifice	verb	give up or surrender something of value; endure the loss of it
 1544	forest	noun	the trees and other plants in a large densely wooded area
 1545	daniel	noun	(Old Testament) a youth who was taken into the court of Nebuchadnezzar and given divine protection when thrown into a den of lions (6th century BC)
 1546	statement	noun	a message that is stated or declared; a communication (oral or written) setting forth particulars or facts etc
@@ -1575,7 +1575,7 @@ rank	word	pos	en
 1574	kinda	adv	to some (great or small) extent
 1575	official	noun	a worker who holds or is invested with an office
 1576	growl	verb	to utter or emit low dull rumbling sounds
-1577	freeze	verb	stop moving or become immobilized
+1577	freeze	verb	change from liquid to solid by loss of heat; also stop moving suddenly
 1578	lower	verb	move something or somebody to a lower position
 1579	struggle	noun	an energetic attempt to achieve something
 1580	square	noun	(geometry) a plane rectangle with four equal sides and four right angles; a four-sided regular polygon
@@ -1608,7 +1608,7 @@ rank	word	pos	en
 1607	abandon	verb	forsake, leave behind
 1608	degree	noun	a position on a scale of intensity or amount or quality
 1609	shoulder	noun	the part of the body between the neck and the upper arm
-1610	spare	verb	refrain from harming
+1610	spare	verb	extra, kept in reserve; to refrain from harming
 1611	liar	noun	a person who has lied or who lies repeatedly
 1612	easily	adv	with ease (`easy' is sometimes used informally for `easily')
 1613	rescue	verb	free from harm or evil
@@ -1788,8 +1788,8 @@ rank	word	pos	en
 1787	dragon	noun	a creature of Teutonic mythology; usually represented as breathing fire and having a reptilian body and sometimes wings
 1788	particular	adj	unique or specific to a person or thing or category
 1789	appointment	noun	the act of putting a person into a non-elective position
-1790	silver	adj	made from or largely consisting of silver
-1791	march	verb	march in a procession
+1790	silver	adj	a soft white precious metal used in coins and jewellery; made of silver
+1791	march	verb	the month after February; to walk with regular measured steps, as in a procession
 1792	madame	noun	title used for a married Frenchwoman
 1793	complicated	adj	difficult to analyze or understand
 1794	iron	noun	a heavy ductile magnetic metallic element; is silver-white in pure form but readily rusts; used in construction and tools and armament; plays a role in the transport of oxygen by the blood
@@ -1824,7 +1824,7 @@ rank	word	pos	en
 1823	impress	verb	have an emotional or cognitive impact upon
 1824	scary	adj	provoking fear terror
 1825	tail	noun	the posterior part of the body of a vertebrate especially when elongated and extending beyond the trunk or main part of the body
-1826	sink	verb	fall or descend to a lower place or level
+1826	sink	verb	to fall or descend to a lower level; a basin with a drainpipe fixed to a wall or floor
 1827	china	noun	a communist nation that covers a vast territory in eastern Asia; the most populous country in the world
 1828	fry	verb	be excessively hot
 1829	pilot	noun	someone who is licensed to operate an aircraft in flight
@@ -1840,7 +1840,7 @@ rank	word	pos	en
 1839	boot	noun	footwear that covers the whole foot and lower leg
 1840	debt	noun	the state of owing something (especially money)
 1841	knowledge	noun	the psychological result of perception and learning and reasoning
-1842	guarantee	verb	give surety or assume responsibility
+1842	guarantee	verb	give a firm assurance that something will be done; a written assurance of this
 1843	eventually	adv	after an unspecified period of time or an especially long delay
 1844	positive	adj	characterized by or displaying affirmation or acceptance or certainty etc.
 1845	ashame		
@@ -1862,7 +1862,7 @@ rank	word	pos	en
 1861	vacation	noun	leisure time away from work devoted to rest or pleasure
 1862	butt	verb	lie adjacent to another or share a boundary
 1863	siren	noun	a sea nymph (part woman and part bird) supposed to lure sailors to destruction on the rocks where the nymphs lived
-1864	mail	verb	send via the postal service
+1864	mail	verb	letters and packages carried by the postal service; to send something this way
 1865	victory	noun	a successful ending of a struggle or contest
 1866	treatment	noun	care provided to improve a situation (especially medical procedures or applications that are intended to relieve illness or injury)
 1867	useless	adj	having no beneficial use or incapable of functioning usefully
@@ -1874,7 +1874,7 @@ rank	word	pos	en
 1873	exchange	noun	chemical process in which one atom or ion or group changes places with another
 1874	identify	verb	recognize as being; establish the identity of someone or something
 1875	television	noun	broadcasting visual images of stationary or moving objects; ;  - Ernie Kovacs
-1876	duck	verb	to move (the head or body) quickly downwards or away
+1876	duck	verb	a broad-billed web-footed swimming bird; to move the head or body quickly downwards
 1877	nightmare	noun	a situation resembling a terrifying dream
 1878	grave	noun	death of a person
 1879	movement	noun	a change of position that does not entail a change of location
@@ -1902,7 +1902,7 @@ rank	word	pos	en
 1901	golden	adj	having the deep slightly brownish color of gold
 1902	mercy	noun	leniency and compassion shown toward offenders by a person or agency charged with administering justice
 1903	reward	noun	a recompense for worthy acts or retribution for wrongdoing
-1904	gain	verb	obtain
+1904	gain	verb	obtain or get; an increase in amount
 1905	soup	noun	liquid food especially of meat or fish or vegetable stock often containing pieces of solid food
 1906	realise	verb	earn on some commercial or business transaction; earn as salary or wages
 1907	photograph	noun	a representation of a person or scene in the form of a print or transparent slide; recorded by a camera on light-sensitive material
@@ -1934,7 +1934,7 @@ rank	word	pos	en
 1933	healthy	adj	having or indicating good health in body or mind; free from infirmity or disease
 1934	interrupt	verb	make a break in
 1935	zero	noun	a quantity of no importance
-1936	scratch	verb	cause friction
+1936	scratch	verb	an abraded area where the skin is torn or worn off
 1937	servant	noun	a person working in the service of another (especially in the household)
 1938	determine	verb	establish after a calculation, investigation, experiment, survey, or study
 1939	courage	noun	a quality of spirit that enables you to face danger or pain without showing fear
@@ -2044,7 +2044,7 @@ rank	word	pos	en
 2043	cough	verb	exhale abruptly, as when one has a chest cold or congestion
 2044	stink	verb	be extremely bad in quality or in one's performance
 2045	flash	verb	gleam or glow intermittently
-2046	subtitle	verb	supply (a movie) with subtitles
+2046	subtitle	verb	translation of foreign dialogue of a movie or TV program; usually displayed at the bottom of the screen
 2047	prize	noun	something given for victory or superiority in a contest or competition or for winning a lottery
 2048	susan		
 2049	juice	noun	the liquid part that can be extracted from plant or animal tissue by squeezing or cooking
@@ -2102,7 +2102,7 @@ rank	word	pos	en
 2101	occur	verb	come to pass
 2102	monsieur	noun	used as a French courtesy title; equivalent to English `Mr'
 2103	elevator	noun	lifting device consisting of a platform or cage that is raised and lowered mechanically in a vertical shaft in order to move people from one floor to another in a building
-2104	skip	verb	bypass
+2104	skip	verb	leave out or bypass; to move along with alternating steps and hops
 2105	therefore	adv	(used to introduce a logical conclusion) from that fact or reason or as a result
 2106	sand	noun	a loose material consisting of grains of rock or coral
 2107	activity	noun	any specific behavior
@@ -2225,7 +2225,7 @@ rank	word	pos	en
 2224	senator	noun	a member of a senate
 2225	closing	adj	final or ending
 2226	rape	verb	force (someone) to have sex against their will
-2227	bat	verb	strike with, or as if with a baseball bat
+2227	bat	verb	a nocturnal flying mammal with membranous wings; to strike with a bat in a game
 2228	mexico	noun	a republic in southern North America; became independent from Spain in 1810
 2229	colour	adj	having or capable of producing colors
 2230	greg		
@@ -2273,7 +2273,7 @@ rank	word	pos	en
 2272	legend	noun	a story about mythical or supernatural beings or events
 2273	package	noun	a collection of things wrapped or boxed together
 2274	surrender	verb	give up or agree to forgo to the power or possession of another
-2275	trail	verb	to lag or linger behind
+2275	trail	verb	a track or mark left by something that has passed; to lag or linger behind
 2276	maggie		
 2277	disaster	noun	a state of extreme (usually irremediable) ruin and misfortune
 2278	explanation	noun	a statement that makes something comprehensible by describing the relevant structure or operation or circumstances etc.
@@ -2295,8 +2295,8 @@ rank	word	pos	en
 2294	exit	noun	an opening that permits escape or release
 2295	singer	noun	a person who sings
 2296	prevent	verb	keep from happening or arising; make impossible
-2297	joint	adj	united or combined
-2298	opposite	adj	being directly across from each other; facing; - Longfellow
+2297	joint	adj	the point of connection between two bones or parts; united or combined
+2298	opposite	adj	being directly across from; facing; a word or thing of contrary meaning
 2299	announce	verb	make known; make an announcement
 2300	le	noun	a chronic inflammatory collagen disease affecting connective tissue (skin or joints)
 2301	pet	noun	a domesticated animal kept for companionship or amusement
@@ -2304,12 +2304,12 @@ rank	word	pos	en
 2303	ton	noun	a United States unit of weight equivalent to 2000 pounds
 2304	award	noun	a grant made by a law court
 2305	leak	noun	an accidental hole that allows something (fluid or light etc.) to enter or escape
-2306	volunteer	verb	tell voluntarily
+2306	volunteer	verb	someone who freely offers to serve or help; to offer or tell something freely
 2307	previously	adv	at an earlier time or formerly
 2308	ash	noun	the residue that remains when something is burned
 2309	hitler	noun	German Nazi dictator during World War II (1889-1945)
 2310	network	noun	an interconnected system of things or people
-2311	gear	verb	set the level or character of
+2311	gear	verb	a toothed wheel that engages another to change speed or direction; to set the level or character of something
 2312	district	noun	a region marked off for administrative or other purposes
 2313	industry	noun	the people or companies engaged in a particular kind of commercial enterprise
 2314	thee		
@@ -2342,7 +2342,7 @@ rank	word	pos	en
 2341	invent	verb	come up with (an idea, plan, explanation, theory, or principle) after a mental effort
 2342	actual	adj	presently existing in fact and not merely potential or possible
 2343	proceed	verb	continue talking;  he continued,
-2344	recall	verb	recall knowledge from memory; have a recollection
+2344	recall	verb	bring something back to mind; have a recollection of
 2345	muscle	noun	one of the contractile organs of the body
 2346	mental	adj	involving the mind or an intellectual process
 2347	orange	adj	of the color between red and yellow; similar to the color of a ripe orange
@@ -2426,7 +2426,7 @@ rank	word	pos	en
 2425	impressive	adj	making a strong or vivid impression
 2426	crystal	noun	a solid formed by the solidification of a chemical and having a highly regular atomic structure
 2427	bee	noun	any of numerous hairy-bodied insects including social and solitary species
-2428	pitch	verb	throw or toss with a light motion
+2428	pitch	verb	to throw or toss with a light motion; the highness or lowness of a sound
 2429	pussy	noun	obscene terms for female genitals
 2430	deck	noun	any of various platforms built into a vessel
 2431	adventure	noun	a wild and exciting undertaking (not necessarily lawful)
@@ -2461,7 +2461,7 @@ rank	word	pos	en
 2460	punishment	noun	the act of punishing
 2461	doug		
 2462	basement	noun	the lowermost portion of a structure partly or wholly below ground level; often used for storage
-2463	whip	verb	beat severely with a whip or rod
+2463	whip	verb	an instrument with a handle and a flexible lash; to beat with one
 2464	urgent	adj	compelling immediate action
 2465	profit	noun	the excess of revenues over outlays in a given period of time (including depreciation and other non-cash expenses)
 2466	recommend	verb	push for something
@@ -2519,7 +2519,7 @@ rank	word	pos	en
 2518	roman	noun	a resident of modern Rome
 2519	passenger	noun	a traveler riding in a vehicle (a boat or bus or car or plane or train etc) who is not operating it
 2520	sweep	verb	sweep across or over
-2521	exhaust	verb	wear out completely
+2521	exhaust	verb	to wear out completely; the waste gases ejected from an engine
 2522	producer	noun	someone who manufactures something
 2523	division	noun	an army unit large enough to sustain combat
 2524	refer	verb	make reference to
@@ -2534,7 +2534,7 @@ rank	word	pos	en
 2533	element	noun	an abstract part of something
 2534	whimper	verb	cry weakly or softly
 2535	bruce	noun	Australian physician and bacteriologist who described the bacterium that causes undulant fever or brucellosis (1855-1931)
-2536	sail	verb	traverse or travel on (a body of water)
+2536	sail	verb	to travel on water in a boat; the large piece of fabric by which the wind drives it
 2537	mobile	adj	migratory
 2538	katie		
 2539	sensitive	adj	responsive to physical stimuli
@@ -2613,7 +2613,7 @@ rank	word	pos	en
 2612	grass	noun	narrow-leaved green herbage: grown as lawns; used as pasture for grazing animals; cut and dried as hay
 2613	italy	noun	a republic in southern Europe on the Italian Peninsula; was the core of the Roman Republic and the Roman Empire between the 4th century BC and the 5th century AD
 2614	battery	noun	group of guns or missile launchers operated together at one place
-2615	permit	verb	consent to, give permission
+2615	permit	verb	to consent to or give permission for; an official document granting permission
 2616	height	noun	the vertical dimension of extension; distance from the base of something to the top
 2617	nuclear	adj	(weapons) deriving destructive energy from the release of atomic energy
 2618	praise	verb	express approval of
@@ -2637,9 +2637,9 @@ rank	word	pos	en
 2636	candle	noun	stick of wax with a wick in the middle
 2637	bible	noun	the sacred writings of the Christian religions
 2638	turkey	noun	large gallinaceous bird with fan-shaped tail; widely domesticated for food
-2639	escort	verb	accompany as an escort
+2639	escort	verb	accompany someone in order to protect or guide them
 2640	fifth	adj	coming next after the fourth and just before the sixth in position
-2641	hail	verb	praise vociferously
+2641	hail	verb	ice pellets that fall as precipitation; to praise loudly
 2642	angle	noun	the space between two lines or planes that intersect; the inclination of one line to another; measured in degrees or radians
 2643	sauce	noun	flavorful relish or dressing or topping served as an accompaniment to food
 2644	branch	noun	a division of some larger or more complex organization
@@ -2676,7 +2676,7 @@ rank	word	pos	en
 2675	routine	noun	an unvarying or habitual method or procedure
 2676	mistress	noun	an adulterous woman; a woman who has an ongoing extramarital sexual relationship with a man
 2677	instruction	noun	a message describing how something is to be done
-2678	scan	verb	examine minutely or intensely
+2678	scan	verb	examine something systematically or intensely
 2679	poem	noun	a composition written in metrical feet forming rhythmical lines
 2680	pole	noun	a long (usually round) rod of wood or metal or plastic
 2681	texas	noun	the second largest state; located in southwestern United States on the Gulf of Mexico
@@ -2804,7 +2804,7 @@ rank	word	pos	en
 2803	surveillance	noun	close observation of a person or group (usually by the police)
 2804	carlos	noun	Venezuelan master terrorist raised by a Marxist-Leninist father; trained and worked with many terrorist groups (born in 1949)
 2805	attach	verb	cause to be attached
-2806	shed	verb	get rid of
+2806	shed	verb	a small single-storey outbuilding used for storage or shelter; to get rid of something
 2807	michelle		
 2808	tag	noun	a label written or printed on paper, cardboard, or plastic that is attached to something to indicate its owner, nature, price, etc.
 2809	booth	noun	a table (in a restaurant or bar) surrounded by two high-backed benches
@@ -2989,7 +2989,7 @@ rank	word	pos	en
 2988	ron	noun	a Chadic language spoken in northern Nigeria
 2989	lousy	adj	very bad
 2990	existence	noun	the state or fact of existing
-2991	fifty	adj	being ten more than forty
+2991	fifty	adj	the number 50; ten more than forty
 2992	chew	verb	chew (food); to bite and grind with the teeth
 2993	strategy	noun	an elaborate and systematic plan of action
 2994	spider	noun	predatory arachnid with eight legs, two poison fangs, two feelers, and usually two silk-spinning organs at the back end of the body; they spin silk to make cocoons for eggs or traps for prey
@@ -3039,7 +3039,7 @@ rank	word	pos	en
 3038	beam	noun	a signal transmitted along a narrow path; guides airplane pilots in darkness or bad weather
 3039	bounce	verb	spring back; spring away from an impact
 3040	belief	noun	any cognitive content held as true
-3041	thirty	adj	being ten more than twenty
+3041	thirty	adj	the number 30; ten more than twenty
 3042	matthew	noun	(New Testament) disciple of Jesus; traditionally considered to be the author of the first Gospel
 3043	auntie	noun	the sister of your father or mother; the wife of your uncle
 3044	francis		
@@ -3125,7 +3125,7 @@ rank	word	pos	en
 3124	absolute	adj	perfect or complete or pure
 3125	decade	noun	a period of 10 years
 3126	instrument	noun	a device that requires skill for proper use
-3127	pose	verb	introduce
+3127	pose	verb	to put forward or introduce, as a question; an affected manner intended to impress
 3128	civilian	adj	associated with civil life or performed by persons who are not active members of the military
 3129	ideal	adj	conforming to an ultimate standard of perfection or excellence; embodying an ideal
 3130	academy	noun	a secondary school (usually private)
@@ -3222,11 +3222,11 @@ rank	word	pos	en
 3221	lamb	noun	young sheep
 3222	medication	noun	(medicine) something that treats or prevents or alleviates the symptoms of disease
 3223	discussion	noun	an extended communication (often interactive) dealing with some particular topic
-3224	remote	adj	located far away spatially
+3224	remote	adj	located far away; also a handheld device for controlling a machine from a distance
 3225	medal	noun	an award for winning a championship or commemorating some other event
 3226	latin	noun	any dialect of the language of ancient Rome
 3227	ace	noun	the smallest whole number or a numeral representing this number
-3228	rot	verb	break down
+3228	rot	verb	decay and break down, usually with an offensive smell
 3229	toby	noun	a drinking mug in the shape of a stout man wearing a three-cornered hat
 3230	sandy	adj	of hair color; pale yellowish to yellowish brown
 3231	guardian	noun	a person who cares for persons or property
@@ -3299,7 +3299,7 @@ rank	word	pos	en
 3298	baker	noun	someone who bakes commercially
 3299	twist	verb	to move in a twisting or contorted motion, (especially when struggling)
 3300	marshal	noun	a law officer having duties similar to those of a sheriff in carrying out the judgments of a court of law
-3301	puzzle	verb	be a mystery or bewildering to
+3301	puzzle	verb	a baffling problem that has a correct solution; also to bewilder someone
 3302	divine	adj	emanating from God; ; ; -Saturday Review
 3303	seize	verb	take hold of; grab
 3304	opera	noun	a drama set to music; consists of singing with orchestral accompaniment and an orchestral overture and interludes
@@ -3319,7 +3319,7 @@ rank	word	pos	en
 3318	fabulous	adj	extremely pleasing
 3319	ln		
 3320	motel	noun	a motor hotel
-3321	vow	verb	make a vow; promise
+3321	vow	verb	promise solemnly; also a solemn pledge to do something or behave in a certain way
 3322	plug	noun	blockage consisting of an object designed to fill a hole tightly
 3323	ruth	noun	United States professional baseball player famous for hitting home runs (1895-1948)
 3324	naughty	adj	suggestive of sexual impropriety
@@ -3404,7 +3404,7 @@ rank	word	pos	en
 3403	disguise	noun	an outward semblance that misrepresents the true nature of something
 3404	sum	noun	a quantity of money
 3405	fridge	noun	a refrigerator in which the coolant is pumped around by an electric motor
-3406	reply	verb	react verbally
+3406	reply	verb	answer a question, request, or criticism; also the answer itself
 3407	cooky	noun	the cook on a ranch or at a camp
 3408	designer	noun	a person who specializes in designing architectural interiors and their furnishings
 3409	awfully	adv	used as intensifiers
@@ -3478,9 +3478,9 @@ rank	word	pos	en
 3477	niece	noun	a daughter of your brother or sister
 3478	strain	verb	to exert much effort or energy
 3479	cruise	verb	drive around aimlessly but ostentatiously and at leisure
-3480	pepper	verb	add pepper to
+3480	pepper	verb	a spice made from the dried berries (peppercorns) of a tropical climbing plant; also to add pepper to food
 3481	sober	adj	not affected by a chemical substance (especially alcohol)
-3482	roast	verb	cook with dry heat, usually in an oven
+3482	roast	verb	cook with dry heat, usually in an oven; also a piece of meat cooked this way
 3483	thud	noun	a heavy dull sound (as made by impact of heavy objects)
 3484	natalie		
 3485	baron	noun	a nobleman (in various countries) of varying rank
@@ -3494,7 +3494,7 @@ rank	word	pos	en
 3493	sew	verb	fasten by sewing; do needlework
 3494	connor		
 3495	coughs	noun	a sudden noisy expulsion of air from the lungs that clears the air passages; a common symptom of upper respiratory infection or bronchitis or pneumonia or tuberculosis
-3496	fleet	adj	moving very fast
+3496	fleet	adj	group of aircraft operating together under the same ownership
 3497	gossip	noun	light informal conversation for social occasions
 3498	resign	verb	leave (a job, post, or position) voluntarily
 3499	photographer	noun	someone who takes photographs professionally
@@ -3648,7 +3648,7 @@ rank	word	pos	en
 3647	brandon		
 3648	cocktail	noun	a short mixed drink
 3649	colin		
-3650	foul	verb	hit a foul ball
+3650	foul	verb	an act that violates the rules of a sport
 3651	holme		
 3652	bait	noun	anything that serves as an enticement
 3653	sniffle	noun	the act of breathing heavily through the nose (as when the nose is congested)
@@ -3746,7 +3746,7 @@ rank	word	pos	en
 3745	adore	verb	love intensely
 3746	feast	noun	a ceremonial dinner party for many people
 3747	cabinet	noun	a piece of furniture resembling a cupboard with doors and shelves and drawers; for storage or display
-3748	sire	verb	make children
+3748	sire	verb	a title of address formerly used for a man of rank; also (of a male) to father offspring
 3749	immunity	noun	the state of not being susceptible
 3750	tin	noun	a silvery malleable metallic element that resists corrosion; used in many alloys and to coat other metals to prevent corrosion; obtained chiefly from cassiterite where it occurs as tin oxide
 3751	cricket	noun	leaping insect; male makes chirping noises by rubbing the forewings together
@@ -3787,7 +3787,7 @@ rank	word	pos	en
 3786	sarge		
 3787	bloom	verb	produce or yield flowers
 3788	creation	noun	the human act of creating
-3789	envy	verb	feel envious towards; admire enviously
+3789	envy	verb	a feeling of grudging admiration and desire to have something that is possessed by another
 3790	glow	verb	emit a steady even light without flames
 3791	ronnie		
 3792	gina		
@@ -3849,7 +3849,7 @@ rank	word	pos	en
 3848	lodge	verb	be a lodger; stay temporarily
 3849	sketch	noun	preliminary drawing for later elaboration
 3850	clothing	noun	a covering designed to be worn on a person's body
-3851	plague	verb	cause to suffer a blight
+3851	plague	verb	a serious infectious disease of rodents passed to people by flea bites; also to afflict or trouble persistently
 3852	torch	noun	a light usually carried in the hand; consists of some flammable substance
 3853	prior	adj	earlier in time
 3854	alike	adj	having the same or similar characteristics
@@ -3890,7 +3890,7 @@ rank	word	pos	en
 3889	heroin	noun	a narcotic that is considered a hard drug; a highly addictive morphine derivative; intravenous injection provides the fastest and most intense rush
 3890	tracy	noun	United States film actor who appeared in many films with Katharine Hepburn (1900-1967)
 3891	rex	noun	a male sovereign; ruler of a kingdom
-3892	fracture	verb	violate or abuse
+3892	fracture	verb	breaking of hard tissue such as bone
 3893	inn	noun	a hotel providing overnight lodging for travelers
 3894	armor	noun	protective covering made of metal and used in combat
 3895	poke	verb	poke or thrust abruptly
@@ -3964,7 +3964,7 @@ rank	word	pos	en
 3963	apologise	verb	defend, explain, clear away, or make excuses for by reasoning
 3964	exception	noun	a deliberate act of omission
 3965	singh		
-3966	sponsor	verb	assume sponsorship of
+3966	sponsor	verb	someone who supports or champions something
 3967	leon	noun	a historical area and former kingdom in northwestern Spain
 3968	businessman	noun	a person engaged in commercial or industrial business (especially an owner or executive)
 3969	haul	verb	draw slowly or heavily
@@ -4094,7 +4094,7 @@ rank	word	pos	en
 4093	waitress	noun	a woman waiter
 4094	auction	noun	a variety of bridge in which tricks made in excess of the contract are scored toward game; now generally superseded by contract bridge
 4095	knot	noun	a tight cluster of people or things
-4096	forge	verb	create by hammering
+4096	forge	verb	create by hammering; also a hearth or furnace where metal is heated for shaping
 4097	dining	noun	the act of eating dinner
 4098	ms	noun	a chronic progressive nervous disorder involving loss of myelin sheath around certain nerve fibers
 4099	condemn	verb	express strong disapproval of
@@ -4317,7 +4317,7 @@ rank	word	pos	en
 4316	verdict	noun	(law) the findings of a jury on issues of fact submitted to it for decision; can be used in formulating a judgment
 4317	val		
 4318	nikki		
-4319	rally	verb	gather
+4319	rally	verb	a large gathering of people intended to arouse enthusiasm
 4320	buyer	noun	a person who buys
 4321	min	noun	a unit of time equal to 60 seconds or 1/60th of an hour
 4322	bare	adj	completely unclothed
@@ -4476,7 +4476,7 @@ rank	word	pos	en
 4475	retirement	noun	the state of being retired from one's business or occupation
 4476	claus		
 4477	erica	noun	any plant of the genus Erica
-4478	salute	verb	propose a toast to
+4478	salute	verb	an act of honor or courteous recognition
 4479	wig	noun	hairpiece covering the head and made of real or synthetic hair
 4480	shriek	noun	sharp piercing cry
 4481	settlement	noun	a body of people who settle far from home but maintain ties with their homeland; inhabitants remain nationals of their home state but are not literally under the home state's system of government
@@ -4527,7 +4527,7 @@ rank	word	pos	en
 4526	naomi	noun	the mother-in-law of Ruth whose story is told in the Book of Ruth in the Old Testament
 4527	deceased	adj	dead
 4528	sleepy	adj	ready to fall asleep
-4529	static	adj	not in physical motion
+4529	static	adj	not in physical motion; also a crackling or hissing noise caused by electrical interference
 4530	bugger	noun	someone who engages in anal copulation (especially a male who engages in anal copulation with another male)
 4531	hawaii	noun	a state in the United States in the central Pacific on the Hawaiian Islands
 4532	almighty	noun	terms referring to the Judeo-Christian God
@@ -4672,7 +4672,7 @@ rank	word	pos	en
 4671	clarence	noun	a closed carriage with four wheels and seats for four passengers
 4672	madison	noun	4th President of the United States; member of the Continental Congress and rapporteur at the Constitutional Convention in 1776; helped frame the Bill of Rights (1751-1836)
 4673	landlord	noun	a landowner who leases to others
-4674	ache	verb	feel physical pain
+4674	ache	verb	feel a dull, persistent pain; also such a pain
 4675	calendar	noun	a system of timekeeping that defines the beginning and length and divisions of the year
 4676	labour	noun	a social class comprising those who do manual labor or work for wages
 4677	triumph	noun	a successful ending of a struggle or contest
@@ -4800,7 +4800,7 @@ rank	word	pos	en
 4799	beware	verb	be on one's guard; be cautious or wary about; be alert to
 4800	cottage	noun	a small house with a single story
 4801	stephanie		
-4802	spear	verb	pierce with a spear
+4802	spear	verb	a long pointed rod used as a tool or weapon
 4803	cassie	noun	tropical American thorny shrub or small tree; fragrant yellow flowers used in making perfumery
 4804	assemble	verb	create by putting components or members together
 4805	snort	verb	indicate contempt by breathing noisily and forcefully through the nose
@@ -4840,14 +4840,14 @@ rank	word	pos	en
 4839	whew		
 4840	countess	noun	female equivalent of a count or earl
 4841	immortal	adj	not subject to death
-4842	decline	verb	grow worse
+4842	decline	verb	change toward something smaller or lower
 4843	font	noun	a specific size and style of type within a type family
 4844	lease	verb	let for money
 4845	blair	noun	British statesman who became prime minister in 1997 (born in 1953)
 4846	venture	verb	proceed somewhere despite the risk of possible dangers
 4847	abduct	verb	take away to an undisclosed location against their will and usually in order to extract a ransom
 4848	headline	noun	the heading or caption of a newspaper article
-4849	mop	verb	to wash or wipe with or as if with a mop
+4849	mop	verb	wash or wipe a floor with a mop, an implement of absorbent material fastened to a handle
 4850	jeffrey		
 4851	rhyme	noun	correspondence in the sounds of two or more lines (especially final sounds)
 4852	pod	noun	the vessel that contains the seeds of a plant (not the seeds themselves)
@@ -4947,7 +4947,7 @@ rank	word	pos	en
 4946	contribute	verb	bestow a quality on
 4947	elderman		
 4948	rumour	noun	gossip (usually a mixture of truth and untruth) passed around by word of mouth
-4949	transplant	verb	lift and reset in another soil or situation
+4949	transplant	verb	tissue or an organ moved from a donor to a recipient; also to lift and reset in another soil or situation
 4950	equally	adv	to the same degree (often followed by `as')
 4951	gil		
 4952	flaw	noun	an imperfection in an object or machine
@@ -4989,7 +4989,7 @@ rank	word	pos	en
 4988	hal		
 4989	injection	noun	the forceful insertion of a substance under pressure
 4990	horny	adj	feeling great sexual desire
-4991	grasp	verb	hold firmly
+4991	grasp	verb	hold firmly; also to understand something
 4992	valerie		
 4993	nigel		
 4994	theo		
@@ -5001,11 +5001,11 @@ rank	word	pos	en
 5000	pumpkin	noun	a coarse vine widely cultivated for its large pulpy round orange fruit with firm orange skin and numerous seeds; subspecies of Cucurbita pepo include the summer squashes and a few autumn squashes
 5001	squirrel	noun	a kind of arboreal rodent having a long bushy tail
 5002	puff	verb	smoke and exhale strongly
-5003	brag	verb	show off
+5003	brag	verb	talk boastfully; show off
 5004	kneel	verb	rest one's weight on one's knees
 5005	intimidate	verb	make timid or fearful
 5006	harmony	noun	compatibility in opinion and action
-5007	cardinal	adj	serving as an essential component
+5007	cardinal	adj	a senior bishop of the Roman Catholic Church, one of those who advise and elect the Pope; also serving as an essential component
 5008	trading	noun	buying or selling securities or commodities
 5009	strongly	adv	with strength or in a strong manner
 5010	fluid	noun	a substance that is fluid at room temperature and pressure
@@ -5238,7 +5238,7 @@ rank	word	pos	en
 5237	kira		
 5238	sneeze	noun	a symptom consisting of the involuntary expulsion of air from the nose
 5239	scoop	noun	the quantity a scoop will hold
-5240	found	verb	set up or found
+5240	found	verb	set up or establish an institution
 5241	massacre	verb	kill a large number of people indiscriminately
 5242	cope	verb	come to terms with
 5243	delightful	adj	greatly pleasing or entertaining
@@ -5394,7 +5394,7 @@ rank	word	pos	en
 5393	pint	noun	a British imperial capacity measure (liquid or dry) equal to 4 gills or 568.26 cubic centimeters
 5394	pasta	noun	a dish that contains pasta as its main ingredient
 5395	delta	noun	a low triangular area of alluvial deposits where a river divides before entering a larger body of water
-5396	itch	verb	scrape or rub as if to relieve itching
+5396	itch	verb	an irritating sensation on the skin that scratching relieves; to feel such a sensation
 5397	clink	verb	make a high sound typical of glass
 5398	instantly	adv	without delay or hesitation; with no time intervening
 5399	vivian		
@@ -5452,7 +5452,7 @@ rank	word	pos	en
 5451	google	noun	a widely used search engine that uses text-matching techniques to find web pages that are important and relevant to a user's search
 5452	frightening	adj	causing fear or dread or terror
 5453	glance	verb	throw a glance at; take a brief look at
-5454	rustle	verb	make a dry crackling sound
+5454	rustle	verb	a light noise, like the noise of silk clothing or leaves blowing in the wind
 5455	premise	noun	a statement that is assumed to be true and from which a conclusion can be drawn
 5456	wally	noun	a silly and inept person; someone who is regarded as stupid
 5457	whereas		
@@ -5562,7 +5562,7 @@ rank	word	pos	en
 5561	formation	noun	an arrangement of people or things acting as a unit
 5562	ping	verb	hit with a pinging noise
 5563	courtney		
-5564	remark	verb	make mention of
+5564	remark	verb	a statement that expresses a personal opinion or belief or adds information
 5565	fax	noun	duplicator that transmits the copy by wire or radio
 5566	incoming	adj	arriving at a place or position
 5567	reid	noun	Scottish philosopher of common sense who opposed the ideas of David Hume (1710-1796)
@@ -5616,7 +5616,7 @@ rank	word	pos	en
 5615	batter	verb	strike against forcefully
 5616	asylum	noun	a shelter from danger or hardship
 5617	blunt	verb	make less intense
-5618	thump	verb	move rhythmically
+5618	thump	verb	a heavy dull sound (as made by impact of heavy objects)
 5619	battlefield	noun	a region where a battle is being (or has been) fought
 5620	nevertheless	adv	despite anything to the contrary (usually following a concession)
 5621	carnival	noun	a festival marked by merrymaking and processions
@@ -5743,7 +5743,7 @@ rank	word	pos	en
 5742	confine	verb	place limits on (extent or access)
 5743	precaution	noun	a precautionary measure warding off impending danger or damage or injury etc.
 5744	barbie		
-5745	ferry	verb	transport from one place to another
+5745	ferry	verb	a boat that transports people or vehicles across a body of water and operates on a regular schedule
 5746	battalion	noun	an army unit usually consisting of a headquarters and three or more companies
 5747	til		
 5748	urine	noun	liquid excretory product
@@ -5777,7 +5777,7 @@ rank	word	pos	en
 5776	skipper	noun	a student who fails to attend classes
 5777	overall	adj	involving only main features
 5778	tate	noun	United States poet and critic (1899-1979)
-5779	caution	verb	warn strongly; put on guard
+5779	caution	verb	care to avoid possible danger; also to warn strongly
 5780	reconsider	verb	consider again; give new consideration to; usually with a view to changing
 5781	sweden	noun	a Scandinavian kingdom in the eastern part of the Scandinavian Peninsula
 5782	martini	noun	a cocktail made of gin (or vodka) with dry vermouth
@@ -5834,7 +5834,7 @@ rank	word	pos	en
 5833	jang		
 5834	haley	noun	United States rock singer who was one of the first to popularize rock'n'roll music (1925-1981)
 5835	usa	noun	North American republic containing 50 states - 48 conterminous states in North America plus Alaska in northwest North America and the Hawaiian Islands in the Pacific Ocean; achieved independence in 1776
-5836	lace	verb	spin,wind, or twist together
+5836	lace	verb	a cord that is drawn through eyelets or around hooks in order to draw together two edges (as of a shoe or garment)
 5837	timmy		
 5838	dominate	verb	be larger in number, quantity, power, status or importance
 5839	misfortune	noun	unnecessary and unforeseen trouble resulting from an unfortunate event
@@ -5893,7 +5893,7 @@ rank	word	pos	en
 5892	flyer	noun	an advertisement (usually printed on a page or in a leaflet) intended for wide distribution
 5893	pakistan	noun	a Muslim republic that occupies the heartland of ancient south Asian civilization in the Indus River valley; formerly part of India; achieved independence from the United Kingdom in 1947
 5894	oughta		
-5895	dye	verb	color with dye
+5895	dye	verb	a usually soluble substance for staining or coloring e.g. fabrics or hair
 5896	sadie		
 5897	alongside	adv	side by side
 5898	magistrate	noun	a lay judge or civil authority who administers the law (especially one who conducts a court dealing with minor offenses)
@@ -6010,7 +6010,7 @@ rank	word	pos	en
 6009	sherry	noun	dry to sweet amber wine from the Jerez region of southern Spain or similar wines produced elsewhere; usually drunk as an aperitif
 6010	tutor	noun	a person who gives private instruction (as in singing, acting, etc.)
 6011	antoine		
-6012	outlaw	verb	declare illegal; outlaw
+6012	outlaw	verb	someone who has committed a crime or has been legally convicted of a crime
 6013	terrace	noun	usually paved outdoor area adjoining a residence
 6014	burglar	noun	a thief who enters a building with intent to steal
 6015	calculation	noun	the procedure of calculating; determining something by mathematical or logical methods
@@ -6077,7 +6077,7 @@ rank	word	pos	en
 6076	virtually	adv	in essence or effect but not in fact
 6077	titan	noun	a person of exceptional importance and reputation
 6078	tequila	noun	Mexican liquor made from fermented juices of an agave plant
-6079	paddle	verb	propel with a paddle
+6079	paddle	verb	a short oar used to move a small boat; also a small flat bat for hitting balls
 6080	consultant	noun	an expert who gives advice
 6081	unemployed	adj	not engaged in a gainful occupation
 6082	masterpiece	noun	the most outstanding work of a creative artist or craftsman
@@ -6122,7 +6122,7 @@ rank	word	pos	en
 6121	hyun		
 6122	barrack	noun	a building or group of buildings used to house military personnel
 6123	agony	noun	intense feelings of suffering; acute mental or physical pain
-6124	clank	verb	make a clank
+6124	clank	verb	make a loud, resonant, repeating noise; such a noise
 6125	awaken	verb	cause to become awake or conscious
 6126	karate	noun	a traditional Japanese system of unarmed combat; sharp blows and kicks are given to pressure-sensitive points on the body of the opponent
 6127	highlight	verb	move into the foreground to make more visible or prominent
@@ -6149,16 +6149,16 @@ rank	word	pos	en
 6148	dome	noun	a concave shape whose distinguishing characteristic is that the concavity faces downward
 6149	establishment	noun	the act of forming or establishing something
 6150	dixon		
-6151	pioneer	verb	open up an area or prepare a way
+6151	pioneer	verb	someone who helps to open up a new line of research or technology or art
 6152	holt		
 6153	mannix		
 6154	peterson		
 6155	dental	adj	of or relating to the teeth
 6156	obama		
-6157	sixty	adj	being ten more than fifty
+6157	sixty	adj	the number 60
 6158	commence	verb	take the first step or steps in carrying out an action
 6159	matthews	noun	(New Testament) disciple of Jesus; traditionally considered to be the author of the first Gospel
-6160	peer	verb	look searchingly
+6160	peer	verb	a person who is of equal standing with another in a group
 6161	seo		
 6162	russ	noun	the medieval Russian state established by Scandinavian traders in the 9th century; the capital was first in Novgorod and then in Kiev
 6163	whitney	noun	United States inventor of the mechanical cotton gin (1765-1825)
@@ -6249,7 +6249,7 @@ rank	word	pos	en
 6248	reel	noun	a roll of photographic film holding a series of frames to be projected by a movie projector
 6249	tha		
 6250	canvas	noun	a heavy, closely woven fabric (used for clothing or chairs or sails or tents)
-6251	sponge	verb	wipe with a sponge, so as to clean or moisten
+6251	sponge	verb	a soft, porous material that soaks up water, used for washing or cleaning; originally the skeleton of a marine animal, now often rubber or cellulose
 6252	refuge	noun	a safe place
 6253	righteous	adj	characterized by or proceeding from accepted standards of morality or justice; - James 5:16
 6254	squadron	noun	a cavalry unit consisting of two or more troops and headquarters and supporting arms
@@ -6296,7 +6296,7 @@ rank	word	pos	en
 6295	infant	noun	a very young child (birth to 1 year) who has not yet begun to walk or talk
 6296	trim	verb	remove the edges from and cut down to the desired size
 6297	traveler	noun	a person who changes location
-6298	thirteen	adj	being one more than twelve
+6298	thirteen	adj	the number 13
 6299	tattoos	noun	a drumbeat or bugle call that signals the military to return to their quarters
 6300	mustard	noun	any of several cruciferous plants of the genus Brassica
 6301	mash	verb	to compress with violence, out of natural shape or condition
@@ -6375,7 +6375,7 @@ rank	word	pos	en
 6374	lent	noun	a period of 40 weekdays from Ash Wednesday to Holy Saturday
 6375	disobey	verb	refuse to go along with; refuse to follow; be disobedient
 6376	sander	noun	a power tool used for sanding wood; an endless loop of sandpaper is moved at high speed by an electric motor
-6377	relay	verb	pass along
+6377	relay	verb	the act of passing something along from one person or group to another
 6378	tango	noun	a ballroom dance of Latin-American origin
 6379	regime	noun	the organization that is the governing authority of a political unit
 6380	permanently	adv	for a long time without essential change
@@ -6417,7 +6417,7 @@ rank	word	pos	en
 6416	overboard	adv	to extremes
 6417	licence	noun	excessive freedom; lack of due restraint; - Will Durant; - Edmund Burke
 6418	philosopher	noun	a specialist in philosophy
-6419	stutter	verb	speak haltingly
+6419	stutter	verb	a speech disorder involving hesitations and involuntary repetitions of certain sounds
 6420	ai	noun	an agency of the United States Army responsible for providing timely and relevant and accurate and synchronized intelligence to tactical and operational and strategic level commanders
 6421	juvenile	adj	of or relating to or characteristic of or appropriate for children or young people
 6422	clinton	noun	wife of President Clinton and later a woman member of the United States Senate (1947-)
@@ -6437,12 +6437,12 @@ rank	word	pos	en
 6436	colby		
 6437	maneuver	noun	a military training exercise
 6438	whilst		
-6439	elaborate	adj	marked by complexity and richness of detail
+6439	elaborate	adj	add details, as to an account or idea; clarify the meaning of and discourse in a learned way, usually in writing
 6440	unleash	verb	release or vent
 6441	maestro	noun	an artist of consummate skill
 6442	flute	noun	a high-pitched woodwind instrument; a slender tube closed at one end with finger holes on one end and an opening near the closed end across which the breath is blown
 6443	idle	adj	not in action or at work
-6444	bankrupt	verb	reduce to bankruptcy
+6444	bankrupt	verb	someone who has insufficient assets to cover their debts
 6445	confiscate	verb	take temporary possession of as a security, by legal authority
 6446	tile	noun	a flat thin rectangular slab (as of fired clay or rubber or linoleum) used to cover surfaces
 6447	involvement	noun	the act of sharing in the activities of a group
@@ -6497,7 +6497,7 @@ rank	word	pos	en
 6496	compensation	noun	something (such as money) given or received as payment or reparation (as for a service or loss or injury)
 6497	yawn	verb	utter a yawn, as from lack of oxygen or when one is tired
 6498	raja	noun	a prince or king in India
-6499	arch	verb	form an arch or curve
+6499	arch	verb	a curved shape in the vertical plane that spans an opening
 6500	diver	noun	someone who works underwater
 6501	environmental	adj	of or relating to the external conditions or surroundings
 6502	mam	noun	a member of a Mayan people of southwestern Guatemala
@@ -6599,7 +6599,7 @@ rank	word	pos	en
 6598	govern	verb	bring into conformity with rules or principles or usage; impose regulations
 6599	vile	adj	morally reprehensible
 6600	gotham		
-6601	imaginary	adj	not based on fact; unreal; - F.D.Roosevelt
+6601	imaginary	adj	not based on fact; unreal
 6602	mosque	noun	(Islam) a Muslim place of worship that usually has a minaret
 6603	artillery	noun	large but transportable armament
 6604	hypocrite	noun	a person who professes beliefs and opinions that he or she does not hold in order to conceal his or her real feelings or motives
@@ -6753,7 +6753,7 @@ rank	word	pos	en
 6752	cater	verb	give what is desired or needed, especially support, food or sustenance
 6753	mississippi	noun	a major North American river and the chief river of the United States; rises in northern Minnesota and flows southward into the Gulf of Mexico
 6754	civilized	adj	having a high state of culture and development both social and technological
-6755	undress	verb	get undressed
+6755	undress	verb	take off your clothes
 6756	margarita	noun	a cocktail made of tequila and triple sec with lime and lemon juice
 6757	buffy		
 6758	distribution	noun	(statistics) an arrangement of values of a variable showing their observed or theoretical frequency of occurrence
@@ -6818,7 +6818,7 @@ rank	word	pos	en
 6817	devotion	noun	feelings of ardent love
 6818	recycle	verb	cause to repeat a cycle
 6819	convenience	noun	the state of being suitable or opportune
-6820	plum	adv	exactly
+6820	plum	adv	an edible oval fruit with smooth skin and a single hard stone; also the tree that bears it
 6821	ox	noun	an adult castrated bull of the genus Bos; especially Bos taurus
 6822	vase	noun	an open jar of glass or porcelain used as an ornament or to hold flowers
 6823	collective	adj	done by or characteristic of individuals acting together
@@ -6835,10 +6835,10 @@ rank	word	pos	en
 6834	historic	adj	belonging to the past; of what is important or famous in the past
 6835	jorge		
 6836	naple		
-6837	lash	verb	beat severely with a whip or rod
+6837	lash	verb	beat hard with a whip or rod; also one of the hairs growing on the edge of the eyelid
 6838	mic		
 6839	francine		
-6840	antibiotic	adj	of or relating to antibiotic drugs
+6840	antibiotic	adj	a chemical substance derivable from a mold or bacterium that can kill microorganisms and cure bacterial infections
 6841	loaf	noun	a shaped mass of baked bread that is usually sliced before eating
 6842	valid	adj	well grounded in logic or truth or having legal force
 6843	portuguese	noun	the Romance language spoken in Portugal and Brazil
@@ -6953,7 +6953,7 @@ rank	word	pos	en
 6952	ollie		
 6953	bakery	noun	a workplace where baked goods (breads and cakes and pastries) are produced or sold
 6954	faculty	noun	one of the inherent cognitive or perceptual powers of the mind
-6955	dent	verb	make a depression into
+6955	dent	verb	a hollow mark pressed or knocked into a surface; to make such a mark
 6956	fiddle	noun	bowed stringed instrument that is the highest member of the violin family; this instrument has four strings and a hollow body and an unfretted fingerboard and is played with a bow
 6957	modify	verb	make less severe or harsh or extreme
 6958	ecstasy	noun	a state of being carried away by overwhelming emotion; - Charles Dickens
@@ -6978,7 +6978,7 @@ rank	word	pos	en
 6977	empress	noun	a woman emperor or the wife of an emperor
 6978	finale	noun	the closing section of a musical composition
 6979	tarzan	noun	(sometimes used ironically) a man of great strength and agility (after the hero of a series of novels by Edgar Rice Burroughs)
-6980	remedy	verb	set straight or right
+6980	remedy	verb	act of correcting an error or a fault or an evil
 6981	slick	noun	a slippery smoothness
 6982	unarmed	adj	(used of persons or the military) not having or using arms
 6983	technician	noun	someone whose occupation involves training in a specific technical process
@@ -7029,7 +7029,7 @@ rank	word	pos	en
 7028	conductor	noun	the person who leads a musical group
 7029	headmaster	noun	presiding officer of a school
 7030	tenth	adj	coming next after the ninth and just before the eleventh in position
-7031	bypass	verb	avoid something unpleasant or laborious
+7031	bypass	verb	a road built around a town so traffic need not pass through it; also to go around or avoid something
 7032	peyton		
 7033	quantity	noun	how much there is or how many there are of something that you can quantify
 7034	backstage	noun	a stage area out of sight of the audience
@@ -7192,7 +7192,7 @@ rank	word	pos	en
 7191	karaoke	noun	singing popular songs accompanied by a recording of an orchestra (usually in bars or nightclubs)
 7192	alberto		
 7193	corey		
-7194	recess	verb	put into a recess
+7194	recess	verb	a state of abeyance or suspended business
 7195	drummer	noun	someone who plays a drum
 7196	adjustment	noun	making or becoming suitable; adjusting to circumstances
 7197	parson	noun	a person authorized to conduct religious worship
@@ -7207,7 +7207,7 @@ rank	word	pos	en
 7206	kindergarten	noun	a preschool for children age 4 to 6 to prepare them for primary school
 7207	ander		
 7208	dwell	verb	think moodily or anxiously about something
-7209	subpoena	verb	serve or summon with a subpoena
+7209	subpoena	verb	a writ issued by court authority to compel the attendance of a witness at a judicial proceeding; disobedience may be punishable as a contempt of court
 7210	porsche		
 7211	hangover	noun	disagreeable aftereffects from the use of drugs (especially alcohol)
 7212	characteristic	adj	typical or distinctive
@@ -7409,7 +7409,7 @@ rank	word	pos	en
 7408	matrix	noun	(mathematics) a rectangular array of quantities or expressions set out by rows and columns; treated as a single element and manipulated according to rules
 7409	firmly	adv	with resolute determination
 7410	prettiest	adj	pleasing by delicacy or grace; not imposing
-7411	boast	verb	show off
+7411	boast	verb	speaking of yourself in superlatives
 7412	starboard	noun	the right side of a ship or aircraft to someone who is aboard and facing the bow or nose
 7413	decay	verb	lose a stored charge, magnetic flux, or current
 7414	chauffeur	noun	a man paid to drive a privately owned car
@@ -7417,7 +7417,7 @@ rank	word	pos	en
 7416	inconvenience	noun	an inconvenient discomfort
 7417	withdrawal	noun	a retraction of a previously held position
 7418	garrison	noun	a fortified military post where troops are stationed
-7419	glitter	verb	be shiny, as if wet
+7419	glitter	verb	the quality of shining with a bright reflected light
 7420	saloon	noun	a room or establishment where alcoholic drinks are served over a counter
 7421	chord	noun	a straight line connecting two points on a curve
 7422	hillary	noun	New Zealand mountaineer who in 1953 first attained the summit of Mount Everest with his Sherpa guide Tenzing Norgay (born in 1919)
@@ -7444,7 +7444,7 @@ rank	word	pos	en
 7443	badger	verb	annoy persistently
 7444	montgomery	noun	Canadian novelist (1874-1942)
 7445	che		
-7446	pharmaceutical	adj	of or relating to pharmacy or pharmacists
+7446	pharmaceutical	adj	drug or medicine that is prepared or dispensed in pharmacies and used in medical treatment
 7447	michelangelo	noun	Florentine sculptor and painter and architect; one of the outstanding figures of the Renaissance (1475-1564)
 7448	elimination	noun	the act of removing or getting rid of something
 7449	cutie		
@@ -7551,7 +7551,7 @@ rank	word	pos	en
 7550	refine	verb	improve or perfect by pruning or polishing
 7551	overdo	verb	do something to an excessive degree
 7552	warfare	noun	the waging of armed conflict against an enemy
-7553	sterling	adj	highest in quality
+7553	sterling	adj	British money; especially the pound sterling as the basic monetary unit of the UK
 7554	gran	noun	the mother of your father or mother
 7555	juror	noun	someone who serves (or waits to be called to serve) on a jury
 7556	chet		
@@ -7890,7 +7890,7 @@ rank	word	pos	en
 7889	pear	noun	sweet juicy gritty-textured fruit available in many varieties
 7890	tsk	verb	utter `tsk,' `tut,' or `tut-tut,' as in disapproval
 7891	finding	noun	the act of determining the properties of something, usually by research or calculation
-7892	clamp	verb	fasten or fix with a clamp
+7892	clamp	verb	a device (generally used by carpenters) that holds things firmly together
 7893	seagull	noun	mostly white aquatic bird having long pointed wings and short legs
 7894	toronto	noun	the provincial capital and largest city in Ontario (and the largest city in Canada)
 7895	boar	noun	Old World wild swine having a narrow body and prominent tusks from which most domestic swine come; introduced in United States
@@ -7914,7 +7914,7 @@ rank	word	pos	en
 7913	morton	noun	United States jazz musician who moved from ragtime to New Orleans jazz (1885-1941)
 7914	precision	noun	the quality of being reproducible in amount or performance
 7915	titanic	adj	of great force or power
-7916	export	verb	sell or transfer abroad
+7916	export	verb	commodities (goods or services) sold to a foreign country
 7917	peacock	noun	European butterfly having reddish-brown wings each marked with a purple eyespot
 7918	porno	noun	creative activity (writing or pictures or films etc.) of no literary or artistic value other than to stimulate sexual desire
 7919	cheung		
@@ -7960,7 +7960,7 @@ rank	word	pos	en
 7959	premiere	noun	the first public performance of a play or movie
 7960	kathleen		
 7961	salvage	verb	save from ruin, destruction, or harm
-7962	marvel	verb	be amazed at
+7962	marvel	verb	something that causes feelings of wonder
 7963	della		
 7964	cain	noun	(Old Testament) Cain and Abel were the first children of Adam and Eve born after the Fall of Man; Cain killed Abel out of jealousy and was exiled by God
 7965	loo	noun	a toilet in Britain
@@ -7982,7 +7982,7 @@ rank	word	pos	en
 7981	michele		
 7982	superstition	noun	an irrational belief arising from ignorance or fear
 7983	cruiser	noun	a car in which policemen cruise the streets; equipped with radiotelephonic communications to headquarters
-7984	tug	verb	pull hard
+7984	tug	verb	a sudden abrupt pull
 7985	macho	noun	a male exhibiting or characterized by machismo
 7986	homie		
 7987	accidental	noun	a musical notation that makes a note sharp or flat or natural although that is not part of the key signature
@@ -8138,7 +8138,7 @@ rank	word	pos	en
 8137	coaster	noun	a resident of a coastal area
 8138	unemployment	noun	the state of being unemployed or not having a job
 8139	vike		
-8140	eighty	adj	being ten more than seventy
+8140	eighty	adj	the number 80
 8141	munich	noun	the capital and largest city of Bavaria in southwestern Germany
 8142	install	verb	set up for use
 8143	arrogance	noun	overbearing pride evidenced by a superior manner toward inferiors
@@ -8337,7 +8337,7 @@ rank	word	pos	en
 8336	couid		
 8337	darius		
 8338	nobel	noun	Swedish chemist remembered for his invention of dynamite and for the bequest that created the Nobel prizes (1833-1896)
-8339	southeast	adv	to, toward, or in the southeast
+8339	southeast	adv	the compass point midway between south and east; at 135 degrees
 8340	resemblance	noun	similarity in appearance or external or superficial details
 8341	flavour	noun	the general atmosphere of a place or situation and the effect that it has on people
 8342	suicidal	adj	dangerous to yourself or your interests
@@ -8367,7 +8367,7 @@ rank	word	pos	en
 8366	heater	noun	device that heats water or supplies warmth to a room
 8367	murdock		
 8368	yin	noun	the dark negative feminine principle in Chinese dualistic cosmology
-8369	hijack	verb	take arbitrarily or by force
+8369	hijack	verb	seizure of a vehicle in transit either to rob it or divert it to an alternate destination
 8370	motorbike	noun	small motorcycle with a low frame and small wheels and elevated handlebars
 8371	delusional	adj	suffering from or characterized by delusions
 8372	allegiance	noun	the act of binding yourself (intellectually or emotionally) to a course of action
@@ -8520,7 +8520,7 @@ rank	word	pos	en
 8519	luc		
 8520	whitey	noun	(slang) offensive names for a White man
 8521	cadillac		
-8522	swab	verb	wash with a swab or a mop
+8522	swab	verb	implement consisting of a small piece of cotton that is used to apply medication or cleanse a wound or obtain a specimen of a secretion
 8523	yun		
 8524	beak	noun	beaklike mouth of animals other than birds (e.g., turtles)
 8525	ro	noun	an artificial language for international use that rejects all existing words and is based instead on an abstract analysis of ideas
@@ -8733,7 +8733,7 @@ rank	word	pos	en
 8732	oman	noun	a strategically located monarchy on the southern and eastern coasts of the Arabian Peninsula; the economy is dominated by oil
 8733	hubby	noun	a married man; a woman's partner in marriage
 8734	representation	noun	a presentation to the mind in the form of an idea or image
-8735	attribute	verb	attribute or credit to
+8735	attribute	verb	credit something to a person or cause; also a quality or feature that distinguishes someone or something
 8736	intestine	noun	the part of the alimentary canal between the stomach and the anus
 8737	gabi		
 8738	hurrah	noun	a victory cheer
@@ -8808,7 +8808,7 @@ rank	word	pos	en
 8807	bao		
 8808	bleat	noun	the sound of sheep or goats (or any sound resembling this)
 8809	windy	adj	abounding in or exposed to the wind or breezes
-8810	sap	verb	deplete
+8810	sap	verb	a watery solution of sugars, salts, and minerals that circulates through the vascular system of a plant
 8811	interruption	noun	an act of delaying or interrupting the continuity
 8812	profitable	adj	yielding material gain or profit
 8813	ryder		
@@ -8847,7 +8847,7 @@ rank	word	pos	en
 8846	gi	noun	a unit of magnetomotive force equal to 0.7958 ampere-turns
 8847	amulet	noun	a trinket or piece of jewelry usually hung about the neck and thought to be a magical protection against evil or disease
 8848	chestnut	adj	(of hair or feathers) of a golden brown to reddish brown color
-8849	coil	verb	to wind or move in a spiral course
+8849	coil	verb	a structure consisting of something wound in a continuous series of loops
 8850	cannibal	noun	a person who eats human flesh
 8851	webb	noun	English writer and a central member of the Fabian Society (1858-1943)
 8852	inventor	noun	someone who is the first to think of or make something
@@ -8856,7 +8856,7 @@ rank	word	pos	en
 8855	golly		
 8856	copenhagen	noun	the capital and largest city of Denmark; located on the island of Zealand
 8857	hiv	noun	infection by the human immunodeficiency virus
-8858	seventy	adj	being ten more than sixty
+8858	seventy	adj	the number 70
 8859	dandy	noun	a man who is much concerned with his dress and appearance
 8860	desperation	noun	a state in which all hope is lost or absent
 8861	roach	noun	a roll of hair brushed back from the forehead
@@ -8909,7 +8909,7 @@ rank	word	pos	en
 8908	freshen	verb	make (to feel) fresh
 8909	vigilante	noun	member of a vigilance committee
 8910	seeker	noun	someone making a search or inquiry
-8911	latch	verb	fasten with a latch
+8911	latch	verb	spring-loaded doorlock that can only be opened from the outside with a key
 8912	renaissance	noun	the period of European history at the close of the Middle Ages and the rise of the modern world; a cultural rebirth from the 14th through the middle of the 17th centuries
 8913	klein	noun	German mathematician who created the Klein bottle (1849-1925)
 8914	module	noun	one of the inherent cognitive or perceptual powers of the mind
@@ -9116,7 +9116,7 @@ rank	word	pos	en
 9115	overrule	verb	rule against
 9116	brochure	noun	a small book usually having a paper cover
 9117	racer	noun	someone who drives racing cars at high speeds
-9118	drape	verb	arrange in a particular way
+9118	drape	verb	hanging cloth used as a blind (especially for a window)
 9119	das	noun	any of several small ungulate mammals of Africa and Asia with rodent-like incisors and feet with hooflike toes
 9120	backward	adv	at or to or toward the back or rear
 9121	hai		
@@ -9170,7 +9170,7 @@ rank	word	pos	en
 9169	omelet	noun	beaten eggs or an egg mixture cooked until just set; may be folded around e.g. ham or cheese or jelly
 9170	eruption	noun	the sudden occurrence of a violent discharge of steam and volcanic material
 9171	transit	noun	a surveying instrument for measuring horizontal and vertical angles, consisting of a small telescope mounted on a tripod
-9172	forecast	verb	predict in advance
+9172	forecast	verb	a prediction about how something (as the weather) will develop
 9173	whiz	verb	make a soft swishing sound
 9174	thingy		
 9175	vial	noun	a small bottle that contains a drug (especially a sealed sterile container for injection by needle)
@@ -9212,7 +9212,7 @@ rank	word	pos	en
 9211	sloane		
 9212	bentley		
 9213	opener	noun	the first event in a series
-9214	ninety	adj	being ten more than eighty
+9214	ninety	adj	the number 90
 9215	vivid	adj	evoking lifelike images within the mind
 9216	remarry	verb	marry, not for the first time
 9217	jenning		
@@ -9225,7 +9225,7 @@ rank	word	pos	en
 9224	lorna		
 9225	axel		
 9226	doggie	noun	informal terms for dogs
-9227	sprain	verb	twist suddenly so as to sprain
+9227	sprain	verb	a painful injury to a joint caused by a sudden wrenching of its ligaments
 9228	portray	verb	portray in words
 9229	dum		
 9230	unicorn	noun	an imaginary creature represented as a white horse with a long horn growing from its forehead
@@ -9320,7 +9320,7 @@ rank	word	pos	en
 9319	slime	verb	cover or stain with slime
 9320	oddly	adv	in a manner differing from the usual or expected
 9321	oversee	verb	watch and direct
-9322	blister	verb	get blistered
+9322	blister	verb	a flaw on a surface resulting when an applied substance does not adhere (as an air bubble in a coat of paint)
 9323	luigi		
 9324	attaboy		
 9325	interpreter	noun	someone who mediates between speakers of different languages
@@ -9434,7 +9434,7 @@ rank	word	pos	en
 9433	ascend	verb	travel up,
 9434	dirk	noun	a relatively long dagger with a straight blade
 9435	supervision	noun	management by overseeing the performance or operation of a person or group
-9436	tack	verb	fasten with tacks
+9436	tack	verb	a short nail or pin with a flat head, used to fasten something in place; to fasten with these
 9437	siberia	noun	a vast Asian region of Russia; famous for long cold winters
 9438	intensity	noun	the amount of energy transmitted (as by acoustic or electromagnetic radiation)
 9439	francois		
@@ -9832,7 +9832,7 @@ rank	word	pos	en
 9831	icu	noun	a hospital unit staffed and equipped to provide intensive care
 9832	suzy		
 9833	pong	noun	an unpleasant smell
-9834	rethink	verb	change one's mind
+9834	rethink	verb	thinking again about a choice previously made
 9835	molest	verb	harass or assault sexually; make indecent advances to
 9836	alphabet	noun	a character set that includes letters and is used to write a language
 9837	accordingly	adv	(sentence connectors) because of the reason given
@@ -9842,7 +9842,7 @@ rank	word	pos	en
 9841	morty		
 9842	unwell	adj	somewhat ill or prone to illness
 9843	nellie		
-9844	temporal	adj	not eternal; - F.D.Roosevelt
+9844	temporal	adj	relating to time; lasting only for a time, not eternal
 9845	mohamme		
 9846	medallion	noun	any of various large ancient Greek coins
 9847	catcher	noun	(baseball) the person who plays the position of catcher
