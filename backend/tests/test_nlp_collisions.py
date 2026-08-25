@@ -192,7 +192,17 @@ def _strip_marks(text):
 # The nonzero numbers are CONTRASTIVE pairs by and large (see CHECKS.md §3):
 # they are why the guard exists, not debt the guard leaves.
 SLOPPY_KEY_CEILINGS = {
-    "ru": 39, "ar": 116, "en": 10, "sw": 0, "tr": 122, "yo": 112, "ha": 0,
+    # yo ROSE 112 -> 118 when the top band was tone-marked (25 Aug 2026). Six
+    # rows are new: rank 3 `o` was ONE card glossed "he, she, it (ó); you (o,
+    # subject); not (ò, short for kò)" — three words the file named outright —
+    # and it is now three. Splitting a conflated row necessarily raises this
+    # number, because the members it separates fold back together under the
+    # grader's mark-strip. That is the guard GAINING something to protect: a
+    # rise from re-marking is the fix, a rise from new data is the debt this
+    # ratchet exists to catch. Before the split, `o` typed for `ó` graded
+    # CORRECT_SLOPPY — FSRS Hard, a pass — which yo.md calls the single worst
+    # defect in the course. It now grades WRONG_FORM.
+    "ru": 39, "ar": 116, "en": 10, "sw": 0, "tr": 122, "yo": 118, "ha": 0,
     # mi ROSE 0 -> 19 when 169 macronised words the course teaches gained
     # cards. Before, Māori had no macronised headwords at all, so it had no
     # pairs to protect and the zero meant "nothing to see", not "clean". Now

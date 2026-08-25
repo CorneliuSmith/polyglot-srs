@@ -22,7 +22,7 @@ source. Two in-repo sources exist:
 | | tone-marked |
 | --- | --- |
 | `data/grammar/yo_grammar.json` drills | **182 of 279 word types (65%)** |
-| `data/yo_frequency.tsv` headwords | **6 of 1,644 (0.4%)** |
+| `data/yo_frequency.tsv` headwords | **6 of 1,644 (0.4%)** — repaired since; see "The top band is tone-marked" below |
 
 The dot-below survived at 40% (`ẹ ọ ṣ` on 661 rows), so this is not diacritic loss in
 general — **tone specifically was stripped** while the dots came through. That is the
@@ -114,6 +114,57 @@ completed sentence. Pitfalls specific to Yoruba:
 - **Register consistency:** neutral modern Standard Yoruba. The respect register (`ẹ`, `ẹ̀yin`, plural for
   elders) is a C2 point, and its politeness should not leak into A1 sentences where the singular is expected.
 
+## The top band is tone-marked (25 Aug 2026)
+
+**Done.** 153 untoned rows had a tone-marked form attested in the course's own drills. Each
+was decided by a maker against the row's own gloss and reviewed by an adversarial checker;
+**120 rows gained their tone** and **6 new rows** came out of D1d splits. Tone-marked
+headwords went from **6 of 1,644 (0.4%) to 120 of 1,650 (7.3%)** — the top band, which is
+the band that matters.
+
+**The gloss decided the row, not the attested form**, and that rule earned its keep. Rank 17
+`pe` is attested 11 times as `pé` (the complementiser) and twice as `pè` — but the row's
+gloss reads "to call, to pronounce, to summon", which is `pè`. Taking the more frequent form
+would have been exactly the mistake that got the Māori macron pass discarded. The checker
+took `pè` and flagged `pé` as a missing top-band row for the D1d sweep.
+
+**This fixes the defect this doc calls the worst in the course, for vocabulary.** Rank 3 `o`
+was ONE card glossed "he, she, it (ó); you (o, subject); not (ò, short for kò)" — three words
+the file named outright and still shipped on one row. It is now three rows, so both forms are
+course words and the collision guard can see them:
+
+| typed | card | before | after |
+| --- | --- | --- | --- |
+| `o` | `ó` | CORRECT_SLOPPY — FSRS *Hard*, a pass | **WRONG_FORM** — "a different word" |
+| `ti` | `tí` | CORRECT_SLOPPY | **WRONG_FORM** |
+| `ile` | `ilé` | CORRECT_SLOPPY | CORRECT_SLOPPY — correct, `ile` is no longer a word |
+
+The collision ceiling rose 112 → 118 and was raised deliberately in
+`test_nlp_collisions.py` with that reason. **Splitting a conflated row necessarily raises
+that number**, because the members it separates fold back together under the grader's
+mark-strip; a rise from re-marking is the fix working, a rise from new data is debt. The
+**grammar** drills are untouched — the five tone-collapse points listed below are still
+ungradable as free text.
+
+### The drills under-mark, and that caps what this evidence can do
+
+The 65% figure below counts word types carrying *any* tone mark. It does not mean those
+marks are complete. **15 rows were held back by the evidence gate**, in two classes:
+
+- **10 where the maker proposed more marks than the drill carries** — the drill writes
+  `púpọ`, the maker `púpọ̀`; also `kaabọ`→`káàbọ̀`, `kaaarọ`→`káàárọ̀`, `olukọ`→`olùkọ́`.
+  The maker and checker agree and these are standard forms, but nothing in the repo can
+  confirm them, so they are the **highest-value targets for the first external tone source**.
+- **5 where the drill actively CONTRADICTS the proposal.** Rank 406 `apo` was proposed as
+  `apó` while the only attestation is `àpò` — a different word. Also `ala` (`àlà` vs `àlá`),
+  `kii` (`kíì` vs `kìí`), `sibi` (`sìbí` vs `síbí`/`síbi`), and split-add `kó` where only
+  `kò` is attested.
+
+Neither class is safe to ship: the maker's form is unverifiable here, and applying the
+drill's form instead would assert a mid tone on a syllable that may be low. **A wrong tone
+teaches a different word and nothing mechanical catches it**, so both stay untoned and
+listed. The ~1,491-row tail is unchanged and still needs an external source.
+
 ## Current measured state
 
 Measured directly from `data/grammar/yo_grammar.json`, `data/yo_morphology.json` and `data/`:
@@ -134,7 +185,7 @@ Measured directly from `data/grammar/yo_grammar.json`, `data/yo_morphology.json`
 - **`data/yo_morphology.json` is an empty object — 3 bytes, 0 entries.** The gym has nothing to show, and there
   is no `data/gym/yo.json` manifest either.
 - **The sentence bank is the thinnest of the original languages: 109 rows** in `data/yo_sentences.tsv` (plus 63
-  curated), against 1,469 words in `data/yo_frequency.tsv`. Roughly one example sentence for every 13 words.
+  curated), against 1,650 words in `data/yo_frequency.tsv`. Roughly one example sentence for every 15 words.
 
 ## Testing checklist
 
