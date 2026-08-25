@@ -29,6 +29,12 @@ hints do — keep it that way). Three things dominate drill quality:
    tatweel, Arabic-Indic digits. A learner on an iOS Arabic keyboard gets `CORRECT_SLOPPY`,
    so a drill whose only contrast is ک↔ك, ی↔ي or ه↔ۀ cannot be failed.
 
+**584 → 2,996 rows (24 Aug 2026).** Hand-added by `2d7ce7f`, no pipeline; now built from `pes_wikipedia_2021_100K` (Leipzig, CC-BY) plus the Persian kaikki extract. 152 proper nouns dropped.
+
+**Two high-frequency rows were resolved to the wrong lexeme and are corrected**: rank 586 `کرد` came back glossed simply **"Kurd"**, when at that frequency it is the past stem of `کردن` "to do" — the commonest verb in the language. Rank 585 `شد` was a bare form-of pointer. Both now name the verb and keep the secondary sense. Same class as English `be`/beryllium and Tagalog `isang`/Isabel.
+
+**Four rows removed**, recorded in `data/vocab_exclusions.tsv`: `مثلاً` and `سؤال` are tanwin- and hamza-seat spellings of `مثلا` and `سوال`, the same words twice; `راس` was a pointer carrying no meaning; and `ابی` was glossed with a slur by Wiktionary when at rank 2951 in a Wikipedia corpus it is the unpointed form of `آبی` "blue". The collision ratchet is 5 — all genuine contrastive pairs (`آن`/`ان`, `آبی`/`ابی`, `رأی`/`رای`).
+
 ## Hint standards
 Universal rules, once: a hint narrows the answer without containing it. Never the answer as a
 whole word; never a gloss that already sits in the drill's own `translation`; never the
@@ -146,3 +152,23 @@ field including `transliteration`? Does the drill claim to test the ezafe while 
 pronoun — or rest on `خانهٔ` vs `خانه`, which can only grade amber? Is `را` blanked three
 times with the same hint? Are the ZWNJs present where standard spelling wants them? Any "yes"
 to the first five, or "no" to the last, fails the drill.
+
+## Wrong-lexeme sweep, top 2000 (25 Aug 2026)
+
+**18 rows reglossed, 9 of them fatal** — the card named a genuinely
+different word. This course was not in the first sweep of the 16 well-resourced courses; it
+was screened afterwards so that every course with a kaikki extract is covered. Found by
+`audit_wrong_lexeme`, decided by a maker–checker pass against each row's full kaikki sense
+inventory and the course's own sentences. See `docs/quality/CHECKS.md` §3b.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 607 | `داد` | gave — past stem of دادن (انجام داد "he carried out", نشان داد "he showe |
+| 617 | `گرفت` | took, seized — third-person singular past of گرفتن (قرار گرفت "was situa |
+| 676 | `رسید` | arrived, reached — third-person singular past of رسیدن (به قدرت رسید "ca |
+| 771 | `دیده` | seen — past participle of دیدن (دیده می‌شود "is seen", آسیب‌دیده "damage |
+| 790 | `رو` | face, surface; side — the short form of روی (رو به "facing, toward", روب |
+| 905 | `بدست` | by, at the hands of (کشف شده بدست… "discovered by…"); by hand, into the  |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/fa_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit is undone by the next seed.

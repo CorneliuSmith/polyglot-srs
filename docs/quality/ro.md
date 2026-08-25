@@ -166,3 +166,50 @@ A reviewer pulls 10 random drills (`--sample 10`) and asks:
 6. **Is the register standard literary Romanian?** `sînt`, Cyrillic, or a *perfectul simplu* used as
    an everyday past below C2 is out of scope and fails. **Does the morphology agree?** A missing
    `Gender` chip in `data/ro_morphology.json` is not evidence of anything — the neuter is unencoded.
+
+## Wrong-lexeme sweep, top 500 (25 Aug 2026)
+
+**18 rows reglossed**, of which **5 were fatal** — the card named a
+genuinely different word, not merely an incomplete one. Found by
+`audit_wrong_lexeme` and decided by a maker–checker pass against each row's full
+kaikki sense inventory and the course's own sentences.
+
+The cause is structural, not clerical: a rank is earned by whatever string appeared in
+running text, and where a spelling is both an inflection of a common verb and a separate
+dictionary word, the sense-picker could take the dictionary word. See
+`docs/quality/CHECKS.md` §3b.
+
+The worst of them, by rank:
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 53 | `pot` | I can; they can (a putea: nu pot "I can't", pot să vin "I can come"); rarely |
+| 177 | `ia` | takes; take! (3rd person singular and imperative of a lua: ia loc "have a se |
+| 209 | `cei` | the ones, those (masculine plural of cel); forms the superlative: cei mai bu |
+| 345 | `data` | the time, the occasion (definite form of dată, f.: data viitoare "next time" |
+| 358 | `griji` | worries, cares (plural of grijă, f.); a-și face griji "to worry": nu-ți face |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/ro_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit would be undone by the next seed.
+
+Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang ro --band 500` — remaining candidates are rows a reviewer
+deliberately kept, plus anything added since.
+
+### Extended to rank 2000 (25 Aug 2026)
+
+The sweep above covered the top 500. Ranks 501-2000 added **50 rows, 26 fatal**, so the
+course total is **68 repaired (31 fatal) through rank 2000**.
+
+The keep rate rose with rank — roughly 30% of candidates were kept in the top 500 against
+about 50% below it — which is the expected shape and a check on the pass: deeper in a
+frequency list the lexical sense genuinely is more often right, and an over-eager rewrite
+would replace a correct gloss with a wrong one.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 552 | `rămas` | remained, stayed; left over (past participle of a rămâne: a mai rămas do |
+| 555 | `plac` | I like (you, him); they please, they are liked (a plăcea, normally with  |
+| 562 | `vină` | (that) he/she/they come — third-person subjunctive of a veni (vreau să v |
+| 565 | `arma` | the weapon, the gun (definite form of armă, f.: pune arma jos “put the g |
+| 604 | `echipa` | the team (definite form of echipă, f.: echipa noastră “our team”, echipa |
+| 612 | `stat` | stayed, stood, sat (past participle of a sta: cât ai stat? “how long did |

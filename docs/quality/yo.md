@@ -15,6 +15,38 @@ Lucumí — culture-note material at most.
 
 Three features dominate drill quality:
 
+**The course carries its own tone evidence, and the vocabulary file does not use it
+(measured 20 Aug 2026).** This was recorded as blocked pending a verified external tone
+source. Two in-repo sources exist:
+
+| | tone-marked |
+| --- | --- |
+| `data/grammar/yo_grammar.json` drills | **182 of 279 word types (65%)** |
+| `data/yo_frequency.tsv` headwords | **6 of 1,644 (0.4%)** — repaired since; see "The top band is tone-marked" below |
+
+The dot-below survived at 40% (`ẹ ọ ṣ` on 661 rows), so this is not diacritic loss in
+general — **tone specifically was stripped** while the dots came through. That is the
+signature of a corpus that normalised tone, not of an unmarked source.
+
+- **130 untoned rows have exactly one tone-marked form attested in the drills**, and they
+  are the ranks that matter: 1 `ti`→`tí`, 2 `ni`→`ní`, 3 `o`→`ó`, 4 `a`→`á`, 7 `ko`→`kò`,
+  8 `awọn`→`àwọn`, 12 `bi`→`bí`, 15 `lati`→`láti`.
+- **17 rows state their own tone in the gloss** — the file already knows: rank 34 reads
+  "a, a certain; one (after the noun: ọjọ́ kan …)" while its headword is bare `kan`.
+- **Three rows are D1d homonym sets stated outright.** Rank 3 `o` is glossed "he, she, it
+  (ó); you (o, subject); not (ò, short for kò)" — three words on one card, and the file
+  says so. Same at rank 7 (`kò`/`kó`) and rank 9 (`sì`/`sí`).
+
+**What this does and does not unblock.** The top band is repairable from evidence the
+repo already contains, which is a stronger basis than the Māori pass had. The remaining
+~1,491 rows have no in-repo attestation and still need an external source.
+
+**And the attested form does not settle the row.** Rank 20 `to` is attested as `tó` in the
+drills, but its gloss reads "to arrange, to line up" — which is `tò`, a different word. The
+drills supply *candidates*; the gloss decides which word the rank belongs to. Applying the
+attested tone mechanically is precisely the mistake that got the Māori macron pass
+discarded (see `docs/quality/mi.md`), and it must not be repeated here.
+
 1. **Tone is the answer, and the grader cannot see it.** `check_answer` layer 2.5 folds all combining marks
    before the strict-form gate, so `ọkọ` typed for `ọkọ̀` returns `CORRECT_SLOPPY` — FSRS *Hard*, a pass — with
    the message "Almost — check the accents", **even on a grammar card**. 179 of the 246 drill answers (73%)
@@ -82,6 +114,57 @@ completed sentence. Pitfalls specific to Yoruba:
 - **Register consistency:** neutral modern Standard Yoruba. The respect register (`ẹ`, `ẹ̀yin`, plural for
   elders) is a C2 point, and its politeness should not leak into A1 sentences where the singular is expected.
 
+## The top band is tone-marked (25 Aug 2026)
+
+**Done.** 153 untoned rows had a tone-marked form attested in the course's own drills. Each
+was decided by a maker against the row's own gloss and reviewed by an adversarial checker;
+**120 rows gained their tone** and **6 new rows** came out of D1d splits. Tone-marked
+headwords went from **6 of 1,644 (0.4%) to 120 of 1,650 (7.3%)** — the top band, which is
+the band that matters.
+
+**The gloss decided the row, not the attested form**, and that rule earned its keep. Rank 17
+`pe` is attested 11 times as `pé` (the complementiser) and twice as `pè` — but the row's
+gloss reads "to call, to pronounce, to summon", which is `pè`. Taking the more frequent form
+would have been exactly the mistake that got the Māori macron pass discarded. The checker
+took `pè` and flagged `pé` as a missing top-band row for the D1d sweep.
+
+**This fixes the defect this doc calls the worst in the course, for vocabulary.** Rank 3 `o`
+was ONE card glossed "he, she, it (ó); you (o, subject); not (ò, short for kò)" — three words
+the file named outright and still shipped on one row. It is now three rows, so both forms are
+course words and the collision guard can see them:
+
+| typed | card | before | after |
+| --- | --- | --- | --- |
+| `o` | `ó` | CORRECT_SLOPPY — FSRS *Hard*, a pass | **WRONG_FORM** — "a different word" |
+| `ti` | `tí` | CORRECT_SLOPPY | **WRONG_FORM** |
+| `ile` | `ilé` | CORRECT_SLOPPY | CORRECT_SLOPPY — correct, `ile` is no longer a word |
+
+The collision ceiling rose 112 → 118 and was raised deliberately in
+`test_nlp_collisions.py` with that reason. **Splitting a conflated row necessarily raises
+that number**, because the members it separates fold back together under the grader's
+mark-strip; a rise from re-marking is the fix working, a rise from new data is debt. The
+**grammar** drills are untouched — the five tone-collapse points listed below are still
+ungradable as free text.
+
+### The drills under-mark, and that caps what this evidence can do
+
+The 65% figure below counts word types carrying *any* tone mark. It does not mean those
+marks are complete. **15 rows were held back by the evidence gate**, in two classes:
+
+- **10 where the maker proposed more marks than the drill carries** — the drill writes
+  `púpọ`, the maker `púpọ̀`; also `kaabọ`→`káàbọ̀`, `kaaarọ`→`káàárọ̀`, `olukọ`→`olùkọ́`.
+  The maker and checker agree and these are standard forms, but nothing in the repo can
+  confirm them, so they are the **highest-value targets for the first external tone source**.
+- **5 where the drill actively CONTRADICTS the proposal.** Rank 406 `apo` was proposed as
+  `apó` while the only attestation is `àpò` — a different word. Also `ala` (`àlà` vs `àlá`),
+  `kii` (`kíì` vs `kìí`), `sibi` (`sìbí` vs `síbí`/`síbi`), and split-add `kó` where only
+  `kò` is attested.
+
+Neither class is safe to ship: the maker's form is unverifiable here, and applying the
+drill's form instead would assert a mid tone on a syllable that may be low. **A wrong tone
+teaches a different word and nothing mechanical catches it**, so both stay untoned and
+listed. The ~1,491-row tail is unchanged and still needs an external source.
+
 ## Current measured state
 
 Measured directly from `data/grammar/yo_grammar.json`, `data/yo_morphology.json` and `data/`:
@@ -102,7 +185,7 @@ Measured directly from `data/grammar/yo_grammar.json`, `data/yo_morphology.json`
 - **`data/yo_morphology.json` is an empty object — 3 bytes, 0 entries.** The gym has nothing to show, and there
   is no `data/gym/yo.json` manifest either.
 - **The sentence bank is the thinnest of the original languages: 109 rows** in `data/yo_sentences.tsv` (plus 63
-  curated), against 1,469 words in `data/yo_frequency.tsv`. Roughly one example sentence for every 13 words.
+  curated), against 1,650 words in `data/yo_frequency.tsv`. Roughly one example sentence for every 15 words.
 
 ## Testing checklist
 
@@ -128,3 +211,20 @@ A human reviewer pulls 10 random drills and asks:
 5. **Is the answer printed in the sentence or the translation?** `o` in *Goodbye o!* fails.
 6. **Is every Yoruba word on the card fully dotted and toned, in NFC?**
 7. **Is this Standard Yoruba, not a dialect form or an untoned shortcut?**
+
+## Wrong-lexeme sweep, top 2000 (25 Aug 2026)
+
+**4 rows reglossed, 3 of them fatal** — the card named a genuinely
+different word. This course was not in the first sweep of the 16 well-resourced courses; it
+was screened afterwards so that every course with a kaikki extract is covered. Found by
+`audit_wrong_lexeme`, decided by a maker–checker pass against each row's full kaikki sense
+inventory and the course's own sentences. See `docs/quality/CHECKS.md` §3b.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 49 | `di` | to become, to turn into (Ó di ọlọ́rọ̀: he became rich); until, up to (tí |
+| 262 | `igbo` | forest, bush, grove (igbó); the Igbo people or their language (Ìgbò); al |
+| 1004 | `ao` | we will, we shall — contraction of a (we) + ó (future), written solid; a |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/yo_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit is undone by the next seed.

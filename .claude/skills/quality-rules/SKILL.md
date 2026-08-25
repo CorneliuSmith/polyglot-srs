@@ -27,6 +27,20 @@ working. Each rule exists because its absence already shipped a defect.
    fold merging 84 cards), write the price into the doc and leave the decision
    alone — surfacing it is the job, overruling it is not.
 
+## Order of work (owner decision, 20 Aug 2026)
+
+**Low-frequency courses first — clean AND populate** (`mi` step c, `ha`, `xh`,
+`yo`, `jam`, `id`, `tl`, `he`, `fa`). Several are not yet real courses: `tl`
+has 90 rows, `jam` 384. **Then** the deep pass on the well-resourced courses
+to `en`/`la` standard. **Then** sentences, for all 27 at once — no course
+reaches the sentence stage ahead of the others.
+
+The expectation is that the deep pass will be lighter on the big courses
+because their data is better. Treat that as a prediction to test, not a fact:
+`ca` had no correct card for "I am" with 9,996 rows, and `es` had rank 79
+`creo` glossed as the wrong verb. If the deep pass finds defects at English's
+rate, say so — that result matters more than the phase closing quietly.
+
 ## Content
 
 4. **One card per written form; the gloss names the senses** (D1c) — but where
@@ -44,7 +58,13 @@ working. Each rule exists because its absence already shipped a defect.
    Mechanical glosses never overwrite authored ones, never serve GLOSS_FIRST
    courses. Not every sentence gets a gloss — 4,974 GLOSS_FIRST rows are the
    target, not 484k.
-8. **A fold may excuse a mark; it may never launder a word.** Settled and
+8. **A declared policy that nothing checks is being violated — two for two.**
+   `la.md` asserted "macrons everywhere, verified" while `la_frequency.tsv`
+   was 48% non-compliant; `jam.md` asserted Cassidy–JLU while 12 headwords
+   broke it, three of them words the doc names as drift itself. Express the
+   policy as a character set and test it (`test_orthography.py`). Necessary,
+   not sufficient: `friend` breaks no Cassidy letter rule and is still English.
+9. **A fold may excuse a mark; it may never launder a word.** Settled and
    shipped: a fold-only match grades WRONG_FORM when the typed string is
    itself another course word, sloppy otherwise (`test_nlp_collisions.py`
    ratchets per-language ceilings). Before folding anything new, ask what the
@@ -52,10 +72,10 @@ working. Each rule exists because its absence already shipped a defect.
 
 ## Sources & spend
 
-9. **Facts yes, sentences regenerated** — paradigms/vocab from licensed
+10. **Facts yes, sentences regenerated** — paradigms/vocab from licensed
    courses may inform; verbatim sentences may not ship.
-10. **Never the API key.** Maker–checker runs in-session (Workflow tool).
-11. **Fixes land in committed files** (`gloss_overrides.tsv`, TSVs, JSON) —
+11. **Never the API key.** Maker–checker runs in-session (Workflow tool).
+12. **Fixes land in committed files** (`gloss_overrides.tsv`, TSVs, JSON) —
     a DB-only repair is undone by the next re-seed. Same logic one level up:
     a TSV-only deletion is undone by the next regeneration — durable
     deletions go in `data/vocab_exclusions.tsv` (typo-mass rows like `citta`
@@ -63,29 +83,37 @@ working. Each rule exists because its absence already shipped a defect.
 
 ## Verification
 
-12. **Verify agent output mechanically before writing it back**: structural
+13. **Verify agent output mechanically before writing it back**: structural
     validators, spot-checks against known ground truth, and assembly by stable
     key, never by index (a rank drift once nearly filed `luna`'s gloss under
     `stella`). After writing a TSV, eyeball it: text containing `"` gets
     csv-escaped into `""..""` noise — reword the text instead.
-13. **Re-measure any agent-reported number before acting on it** — two of five
+14. **Re-measure any agent-reported number before acting on it** — two of five
     sampled claim-audit figures did not reproduce.
-14. **State verification honestly**: "275 of 557 checker-verified, rest
+15. **State verification honestly**: "275 of 557 checker-verified, rest
     maker-only" — never round up to "verified".
-15. **Never freeze a count the audit computes** — cite the rule name; the tool
+16. **Never freeze a count the audit computes** — cite the rule name; the tool
     says the number. Hand counts carry date + method. "Verified" names every
     file the claim covers.
-16. **Baseline ratchet**: equal is fine, worse needs `--update-baseline` and a
+17. **Baseline ratchet**: equal is fine, worse needs `--update-baseline` and a
     written reason. Run `audit_content` before pushing content.
 
 ## Ship
 
-17. Green = `npm run build` (not `tsc --noEmit`), `vitest`, backend pytest at
+18. Green = `npm run build` (not `tsc --noEmit`), `vitest`, backend pytest at
     baseline (7 known environment failures), `ruff`, audit PASS, CI green,
     then merge — standing authorization. Say plainly what was left out.
-18. **When adding words to fill a homonym gap, add only members a learner
+19. **When adding words to fill a homonym gap, add only members a learner
     meets** (`hīc`, `mālum` yes; `pōpulus` "poplar" no) and gloss each naming
     its false twin — "here (distinct from hic: this)".
+20. **Nothing of value stays only on this machine** (owner directive, 20 Aug
+    2026). After every merge — and before any long-running job — fast-forward
+    `feat/phases` to the current head and push it:
+    `git branch -f feat/phases HEAD && git push origin feat/phases`.
+    This is a multi-week project on hardware that has already slept mid-run
+    and killed a workflow; remote is the only durable copy. Workflow outputs
+    and analysis scripts live in the session scratchpad under `/private/tmp`
+    and do NOT survive — promote anything worth keeping into the repo.
 
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 

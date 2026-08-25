@@ -157,9 +157,93 @@ rank 5192, a stingless bee at 606 — and that is a maker–checker question.
 *"say/tell"*. This is the D2c2 join (definition against examples) paying off
 before the mechanical detector for it exists.
 
-**Status: all 27 for the sweep; 9 done.** The nine accent-carrying courses are
-triaged. `ru`, `ar`, `hi`, `th`, `ko` and the rest have not been swept for this
-class — their collisions are in other scripts and need the same pass.
+### A mechanical screen now exists, and it changed the size of this problem
+
+The paragraph above said detection was judgment, not a heuristic, after two
+detectors were built and discarded. A third works, and the reason it works is
+one condition the earlier two lacked.
+
+kaikki marks the distinction itself: an inflection carries `form-of` in its
+sense tags plus a `form_of` lemma; contractions and abbreviations carry their
+own. A candidate is a row where kaikki lists **both** a grammatical and a
+lexical sense, the committed gloss matches the lexical one, **and the
+grammatical sense points at a lemma this course also teaches**. That last
+condition is load-bearing: without it the query returns 1,227 rows of mostly
+noise (Xhosa `uku-` infinitives really are nouns; Indonesian `api` is "fire"
+whatever else kaikki lists). With it, 351.
+
+`backend/services/quality/audit_wrong_lexeme.py`. It needs
+`data/raw/<code>_kaikki.jsonl`, which is gitignored — 8 GB of extracts — so it
+is a **local maintenance tool, not a CI check**, and it screens rather than
+judges. About 70% of its candidates were real.
+
+**Swept the top 2000 of all 16 well-resourced courses (25 Aug 2026): 1,247
+candidates generated, 1,217 decided, 781 repaired, 420 correctly kept, 16
+rejected by reviewers. 425 fatal** — meaning the card named a genuinely
+different word. (30 candidates were generated but not returned by an agent;
+they are unreviewed, not cleared.)
+Split by band: the top 500 gave 351 candidates and 248 repairs (130 fatal);
+ranks 501-2000 gave 896 candidates and 533 repairs (295 fatal).
+
+**The keep rate rises with rank, and that is the check on the pass**: roughly
+30% of candidates were kept in the top 500 against about 50% below it. Deeper
+in a frequency list the lexical sense genuinely is more often the right one, so
+a pass that kept rewriting at the same rate would be rewriting on sight.
+
+| | rank | said | is |
+| --- | --- | --- | --- |
+| `ca` | 66 | `estic` — "hockey stick" | **"I am"** |
+| `ca` | 210 | `som` — "shallow" | **"we are"** |
+| `ca` | 381 | `sou` — "salary, wage" | **"you are"** |
+| `fr` | 55 | `va` — "version anglaise", a film-dubbing term | "goes" |
+| `fr` | 57 | `as` — "ace (card of value 1)" | "you have" |
+| `nl` | 41 | `kan` — "jug; pot" | "can" |
+| `nl` | 78 | `kom` — "bowl; basin" | "come" |
+| `pt` | 37 | `estou` — "hello (answering the telephone)" | **"I am"** |
+| `it` | 46 | `era` — "age, epoch, period" | "was" |
+| `ro` | 53 | `pot` — "pot" | "I can" |
+| `ru` | 34 | `есть` — "to eat" | "there is; I have" |
+
+**Catalan's whole core present tense was affected**, not one row: `estic`,
+`som`, `sou`, `vas`, `va`, `fa`, `pot`, `tens`, `dic`, `faig`, `fem`. The
+`soc` case recorded above was not an outlier, it was a sample.
+
+**Two of the Dutch rows were already named in `nl.md`** — "`wil` → will (also
+he/she wants)", "`meer` → lake (also the everyday more)" — and nothing had
+acted on them. A finding recorded and not executed is not a finding; see the
+`la` macron policy and the `jam` Cassidy policy for the same shape.
+
+**Status: all 27 for the sweep. Nine accent-carrying courses done by hand;
+the top 500 of all 16 well-resourced courses done by screen + review.** The
+nine accent-carrying courses were triaged by hand; `ru`, `ar`, `hi`, `th`,
+`ko`, `tr` and `nl` were swept by the screen on 25 Aug and reviewed. All 16
+well-resourced courses are now covered **to rank 500**.
+
+**Final state of the sweep (25 Aug 2026): 911 rows repaired across 23 courses,
+485 fatal, from 1,594 decided candidates (664 kept, 19 rejected).** Every
+course with a kaikki extract is covered to rank 2000.
+
+Three gaps, stated so they are not mistaken for coverage:
+
+1. **Below rank 2000 is not swept.** That band is 48,363 of 170,948 rows — so
+   **72% of all vocabulary has never been checked for this class.**
+2. **`en`, `la` and `jam` cannot be screened this way** — they have no kaikki
+   extract. `jam` has none at all; `en` builds its glosses from WordNet at seed
+   time and `la` from its own source.
+3. **30 candidates were generated but never returned by an agent** — unreviewed,
+   not cleared.
+
+**Arabic needed a different filter entirely, and this is the transferable
+lesson.** In an unvocalised or unspaced script a written string is not one word
+inflected — it is several DIFFERENT words sharing a skeleton, so nothing carries
+a `form_of` tag and this screen sees nothing. Arabic scored 1 candidate in the
+top 500 and was in fact carrying `نعم` "yes" glossed "to live in comfort",
+`رجل` "man" glossed "to go on foot", and `بعد` "after" glossed "to be distant".
+The filter that worked there was the defect's own signature: a row tagged
+`verb` whose gloss opens "to …". It found 51 Arabic repairs — and, importantly,
+**0 in Hebrew from 45 candidates and 0 in Persian from 56**, because every `ל-`
+infinitive and `می-` present form really is "to …". A filter that had produced
+fixes in those two would have been the tell that it was manufacturing them.
 
 **61 of the 70 proposed row exclusions applied; 9 vetoed.** Each was read
 against its accented twin before the call, not taken from the triage summary.
@@ -210,10 +294,37 @@ Known policies and their state:
 | | policy | state |
 | --- | --- | --- |
 | `la` | macrons everywhere, all-or-nothing | **compliant**, 5 guards |
-| `mi` | macrons are the 16th letter, non-negotiable | **0 of 791 headwords** carry one |
-| `yo` | tone is phonemic, Standard Yoruba fully marked | **1,638 of 1,644** carry none |
+| `mi` | macrons are the 16th letter, non-negotiable | **compliant** — 0 out-of-inventory chars (25 Aug) |
+| `yo` | tone is phonemic, Standard Yoruba fully marked | **top band done** — 120 of 1,650 marked, was 6 of 1,644; tail blocked on an external source |
+| `jam` | Cassidy–JLU, declared here and in `JamaicanNLP` | **12 → 2 non-compliant headwords** (25 Aug); the 2 are deliberate keeps |
+| `xh` | Latin basic, no diacritics | **compliant** — 0 out-of-inventory chars (25 Aug) |
+| `ha` | Boko incl. hooked `ɓ ɗ ƙ ƴ` | compliant for grading — 2 rows use U+02BC, which `HausaNLP.normalize` folds |
 | `ar` `he` `fa` | vocalisation marks | not yet stated as a testable policy |
 | others | — | **UNDECIDED — needs a policy statement before it can be checked** |
+
+**A letter-inventory gate is the cheap half of this and it generalises**: express the
+policy as a character set and the violations fall out. Measured 25 Aug across the five
+courses with a tight declarable inventory — `mi` 0, `xh` 0, `yo` 0, `ha` cosmetic-only,
+`jam` 6. So the class is real but currently **Jamaican-scoped**, which is a measured
+decision rather than an omission.
+
+It is **necessary, not sufficient**: `friend` breaks no Cassidy letter rule and is still
+the English spelling, and `mangguus` trips a doubled-consonant regex where the `gg` is
+really `ng` + `g`. A gate proposes; a reviewer disposes.
+
+### 4b. `alt`-column laundering — a variant that is another word's headword
+
+Only `jam` has an `alt` column (347 of 384 rows). It is deliberate leniency — a learner
+typing `him` for `im` should pass. But **5 entries listed another row's HEADWORD** as a
+variant: `di` (the) claimed `de` (to be at), `nuo` (know) claimed `no` (the negator), `wi`
+claimed `we` (where). That is the fold rule ("a fold may excuse a mark; it may never launder a word") inverted — the leniency stops excusing a spelling and
+starts laundering a word, on some of the commonest words in the language.
+
+**The collision ratchet cannot see this**: `_collision_surfaces()` reads only the `word`
+column. Checked separately; **0 clashes remain** (25 Aug).
+
+**Status: scoped — `jam` only, because no other course has an `alt` column.** Any course
+that gains one inherits this check.
 
 ---
 

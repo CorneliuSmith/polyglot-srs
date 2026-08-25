@@ -68,3 +68,12 @@ ro	il	the stated meaning cannot carry this rank; the frequency is the unaccented
 ro	ii	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: îi r124)
 ro	neagra	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: neagră r1351)
 ro	lânga	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: lângă r445)
+mi	tona	wart, corn, nodule at rank 30 — used 0 times by the course; the rank belongs to tōna "his/her", which now has its own row. SENSE LOST: tona "wart" is real but is not rank-30 vocabulary
+mi	ra	"Ra (Egyptian god of the Sun)" at rank 37 — a kaikki artifact; the rank belongs to rā "day", which the course uses 20 times and which this pass adds
+tl	ii	name of the Baybayin letter ᜁ — a script-name entry, not a word. Rank 424 comes from Wikipedia prose about the Baybayin script, which the tgl_wikipedia corpus is full of; the audit's wrong_sense_gloss rule caught it.
+fa	مثلاً	tanwin spelling of مثلا "for example" (r343) — same word, and modern Persian typing omits the tanwin
+fa	سؤال	hamza-seat spelling of سوال "question" (r517) — same word; سوال is the common modern spelling
+fa	راس	pointer row: glossed only "colloquial form of راست", carries no meaning of its own
+fa	ابی	Wiktionary glosses this as a slur; at rank 2951 in a Wikipedia corpus it is the unpointed form of آبی "blue" (r201), not a word this course should teach
+jam	vex	merged into beks: one lexeme, basilect b- against acrolect v-. The corpus has both in the same stative frame (No get bex wid mi / Im vex wid mi), and the only transitive use sits on the row labelled adj while the verb row is stative-only, so the split was backwards.
+jam	friend	merged into fren: both rows glossed exactly friend and each listed the other as its alt. fren is the Cassidy spelling; friend is English and in Cassidy the ie digraph does not even read as this word.

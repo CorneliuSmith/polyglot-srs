@@ -12,7 +12,7 @@ rank	word	pos	en
 11	네	intj	yes; your (casual, short for 너의); four (before a counter)
 12	그래	adv	like this, like that
 13	거야	noun	last night, yesterday evening
-14	좀	adv	little while, short time
+14	좀	adv	a little, a bit (short for 조금); also the softener in a request or command, roughly just or please
 15	제	det	my (polite, short for 저의); I (in 제가)
 16	것	noun	thing; an object belonging to an owner
 17	있어	verb	there is, there are; to have; to stay, be in a place (있다, intimate style)
@@ -35,10 +35,10 @@ rank	word	pos	en
 34	그럼	adv	then, in that case
 35	그냥	adv	simply; just like that; just as it is.
 36	말	noun	speech; language
-37	게	noun	crab
+37	게	noun	the fact that, the one that — 것이 contracted (거 plus the subject marker 이), after a -는/-은/-을 form: 가는 게 좋아요; a crab
 38	거	noun	thing, one; the fact that (spoken form of 것; in 할 거예요 it marks the future)
 39	없다	adj	to have none; (to be) lacking; (to be) nonexistent
-40	해	noun	the Sun; sunlight; sunbeam
+40	해	verb	do, does, do it — 하다 in the intimate style (다시 해, do it again), and the base of 해요/했어요; the sun, sunlight
 41	건	verb	past determinative of 걸다
 42	저	det	that (distal determiner)
 43	너	pron	you (intimate style, for close friends and juniors; never to an elder)
@@ -49,7 +49,7 @@ rank	word	pos	en
 48	엄마	noun	mum, mummy
 49	때	noun	time; occasion; opportunity
 50	그게	pron	that thing (as the subject of the sentence or clause)
-51	걸	noun	3 points in Yut game
+51	걸	noun	the fact that, the one that, as object — 것을 contracted (거 plus the object marker 를); also the guess ending -(으)ㄹ걸, I bet, probably; 3 points in the game of yut
 52	일	noun	work (activity done for compensation or reward)
 53	네가	pron	allomorph of 너 (neo, “(informal) you”) before -가 (-ga, “nominative case marker”)
 54	돼	verb	infinitive of 되다 (doeda)
@@ -162,7 +162,7 @@ rank	word	pos	en
 161	죽	noun	in a manner arranged in a row; while arranging in a row
 162	그것	pron	that (thing near the listener)
 163	씨	noun	seed, kernel; sperm
-164	와	noun	wa (the name of the Hangul jamo “ㅘ”, a vowel that combines the sounds of ㅗ and ㅏ)
+164	와	verb	come, come here — 오다 in the intimate style; and, with (the particle after a vowel: 커피와 빵); wow (exclamation)
 165	아무도	pron	anything; nothing (in a negative sentence)
 166	둘	num	two
 167	그만	adv	this much only; no more. often used in imperatives.
@@ -209,7 +209,7 @@ rank	word	pos	en
 208	대한	noun	great khan (the emperor of the Mongol people)
 209	가족	noun	household; family
 210	참	adv	truly, really
-211	하면	noun	bottom surface
+211	하면	verb	if one does, when one does — 하다 with the conditional -(으)면 (어떻게 하면, how can I…); rarely, the underside, bottom surface
 212	갈	noun	common reed
 213	가지고	noun	with; by; by means of
 214	사랑	noun	love; affection (emotion)
@@ -250,19 +250,19 @@ rank	word	pos	en
 249	그렇다	adj	to be thus, in that way; to be correct
 250	이것	pron	this
 251	완전	adv	absolutely, completely, totally
-252	본	noun	root, basis; essence, nature, true self
+252	본	verb	seen, that one saw — 보다 in the past determiner form; also the -아/어 본 적 있다 pattern, to have ever done something; as a prefix (本), main, original
 253	놈	noun	bastard; kid, boy (from an older perspective)
 254	가지	noun	kind, sort; variety
 255	여러분	noun	ladies and gentlemen; everyone (present)
 256	적	noun	enemy; opponent; adversary
 257	얼굴	noun	face; visage
 258	상황	noun	conditions, the situation
-259	새	noun	bird (in general)
+259	새	det	new, fresh (before a noun: 새 차, a new car); a bird
 260	부인	noun	(another person's) wife
 261	되	noun	A unit of volume equivalent to about 1.8 L.
 262	대체	noun	main principle; outline
 263	애	noun	guy, person (usually rather young)
-264	볼	noun	cheek
+264	볼	verb	will see, to see — 보다 in the -(으)ㄹ determiner form (볼 수 있어요, can see); a cheek; a ball
 265	언제	pron	when
 266	뒤	noun	back, latter, rear
 267	정도	noun	degree, extent; an approximate amount
@@ -290,7 +290,7 @@ rank	word	pos	en
 289	어머니	noun	mother
 290	너는	pron	topic-marked form of 너 (neo): see -은 (-eun)
 291	해서	noun	regular script
-292	알	noun	egg, roe (of fish)
+292	알	verb	will know, to know — 알다 in the -(으)ㄹ determiner form (알 것 같아요, I think I know; 알 바 아니다, none of my business); an egg, fish roe; a counter for small round things (계란 두 알)
 293	되다	verb	to become; to come, to arrive
 294	주	noun	week (unit of time)
 295	속	noun	the interior or inside, especially that which is underneath or within a covering
@@ -470,7 +470,7 @@ rank	word	pos	en
 469	목숨	noun	life
 470	고통	noun	pain
 471	부모님	noun	honorific of 부모 (bumo, “parents”)
-472	들	noun	meadow, field, plain
+472	들	verb	will lift, hold, enter, or cost — 들다 in the -(으)ㄹ determiner form (돈이 들 거야, it will cost money; 예를 들 수 있어요, can give an example); also the plural marker -들 (사람들); a field, a plain
 473	칼	noun	knife, sword
 474	애가	noun	mournful song, elegy
 475	이상한	det	strange, abnormal
@@ -635,9 +635,9 @@ rank	word	pos	en
 634	마크	noun	mark
 635	저리	adv	so, like that; to that place, in that direction, there (direction)
 636	최근	noun	the latest, the most recent
-637	타	noun	others, other people
+637	타	verb	get in, get on, ride — 타다 in the intimate style (차에 타, get in the car; 모두 타, all aboard); 타다 also covers to burn, to mix into a drink (커피에 우유를 타다), and to win a prize; separately 타 (他) is a prefix meaning other, another (타 지역, other regions)
 638	확인	noun	check; confirmation; verification; affirmation
-639	보기	noun	example
+639	보기	noun	seeing, looking, the sight of something — 보다 nominalized with -기 (보기 좋아요, it looks good; 보기 싫어, I can't stand the sight of it; 보기보다 힘들다, it's harder than it looks); also an example, or the answer choices given in a test question
 640	호텔	noun	hotel (establishment providing accommodation)
 641	우주	noun	space; outer space
 642	어젯밤	noun	last night
@@ -1147,7 +1147,7 @@ rank	word	pos	en
 1146	재판	noun	trial
 1147	맘대로	adv	contraction of 마음대로 (ma'eumdaero): as one pleases/likes
 1148	영어	noun	the English language
-1149	드릴	noun	drill
+1149	드릴	verb	to give, to offer (humble, to someone senior) — 드리다 in the -(으)ㄹ determiner form (드릴 말씀이 있어요, I have something to tell you; 도와 드릴 수 있어요, I can help you); 드리다 is the humble counterpart of 주다; also a drill, the power tool
 1150	매번	adv	all the time
 1151	글	noun	a piece of writing; a written work such as a book or article
 1152	동시	noun	the same time; concurrently
@@ -1197,7 +1197,7 @@ rank	word	pos	en
 1196	도망	noun	escape, decampment
 1197	충격	noun	A blow or impact, especially from an object or event.
 1198	보고서	noun	report, paper
-1199	질	noun	quality; nature, disposition
+1199	질	verb	to set, to go down; to lose; to fall (of blossom) — 지다 in the -(으)ㄹ determiner form (해가 질 거야, the sun will set; 질 수 없어, I can't lose); also 질 (質), quality or a person's nature; and -질, the suffix for a repeated action (가위질, cutting with scissors)
 1200	앤	adv	Gyeongsang form of 아니 (ani, “no, not”)
 1201	자살	noun	suicide
 1202	차량	noun	vehicle
@@ -1350,7 +1350,7 @@ rank	word	pos	en
 1349	절반	noun	half; waza-ari
 1350	비록	adv	even if; although
 1351	주제	noun	topic; main idea
-1352	마실	noun	casually leaving home (to have a look around, to visit a neighbor, etc.)
+1352	마실	verb	to drink, (something) to drink — 마시다 in the -(으)ㄹ determiner form, always standing before a noun (마실 것 좀 주세요, please give me something to drink; 뭐 마실 거야?, what are you going to drink?); rarely, a country word for popping out to visit a neighbour, and a dialect form of 마을, village
 1353	실제	adv	practically; in fact
 1354	브라이언	name	Bryan
 1355	기	noun	energy, spirit (of a person)

@@ -27,6 +27,50 @@ Three features dominate drill quality:
    the normalised surface form, and `lemmatize` does nothing: there is no safe stemmer. Every irregular plural
    a drill should accept has to be in the card's `alternatives`.
 
+**The course had 885 nouns and no copula (fixed 20 Aug 2026).** `data/ha_frequency.tsv`
+held 1,188 rows of which **885 were nouns and 171 proper names — 89% of the course** —
+against 44 verbs and 11 pronouns. The grammatical spine was simply absent: the drills use
+`ne` and `ce` (the masculine and feminine copulas) 43 and 44 times with no card for either,
+`da` 98 times, and `ya`/`yana`/`na`/`ta`/`ba`/`yi` likewise. A Hausa course without its
+copulas cannot form a sentence.
+
+**285 rows added**, each a word the course's own drills already use, glossed from those
+sentences and their English translations, then adversarially checked. 1,188 → 1,473. TAM
+markers name person, number **and** aspect, because English cannot separate them:
+`ya` "he (3sg m.), completive" against `yana` "he (3sg m.), continuous".
+
+**Wiktionary was the wrong source here and the course was the right one.** kaikki has an
+entry for only 6 of the 316 gaps, and where it has one it can mislead: it glosses `a` as
+*"the first letter of the Hausa alphabet"* while every course sentence uses it as the
+locative preposition (*Akwai ruwa **a** gida*). That is the `wrong_sense_gloss` trap, and
+the repair used course usage over the dictionary wherever they disagreed.
+
+### Hooked letters: the source files contradict each other
+
+`ɓ ɗ ƙ ƴ` are hard-graded — this page forbids writing them as `b d k y`, because a card
+headed `kasa` drills a misspelling of the `ƙasa` the course already teaches. Measured
+20 Aug, **eight words are spelled both ways across the course's own files**:
+
+| | spellings | where |
+| --- | --- | --- |
+| `kuɗin` / `kudin` | 1 / 3 | grammar file hooks it, `ha_sentences.tsv` does not |
+| `ƙafa` / `kafa` | 4 / 3 | grammar hooks it, the sentence bank does both |
+| `baƙi` / `baki` | 2 / 9 | grammar hooks it, the sentence bank does not |
+| `ƴan` / `yan`, `zaƙi` / `zaki`, `ɗari` / `dari`, `ƙabila` / `kabila`, `ɗa` / `da` | | mixed |
+
+Four vocabulary rows are the plain twin of another row (`kafa`, `baki`, `dari`, `kabila`).
+
+**Not all of these are errors** — `da` "with, and" and `ɗa` "son" are different words, as are
+`dari` "cold" and `ɗari` "hundred". What is an error is a card whose own gloss names a
+different standard spelling; three proposals were refused for exactly that (`kudi` →
+`kuɗi`, `daya` → `ɗaya`, `karfi` → `ƙarfi`), and the checker separately refused `kasa`,
+`kudin`, `tuntube` and `kadawa` on the same ground, each time naming the source row to
+repair.
+
+**Outstanding, and it must precede any sentence work:** repair the sentence bank's
+unhooked spellings so the files agree, then re-run the gap pass — several words have no
+card only because the two files disagree about how to spell them.
+
 ## Hint standards
 
 A hint narrows the answer without containing it: never the answer as a whole word; never a gloss already
@@ -135,3 +179,18 @@ A human reviewer pulls 10 random drills and asks:
 6. **Does the drill depend on unwritten tone or vowel length?** If yes it is unanswerable and must be rewritten.
 7. **Are the irregular plurals this drill should accept actually listed in `alternatives`?** Nothing else will
    accept them.
+
+## Wrong-lexeme sweep, top 2000 (25 Aug 2026)
+
+**3 rows reglossed, 1 of them fatal** — the card named a genuinely
+different word. This course was not in the first sweep of the 16 well-resourced courses; it
+was screened afterwards so that every course with a kaikki extract is covered. Found by
+`audit_wrong_lexeme`, decided by a maker–checker pass against each row's full kaikki sense
+inventory and the course's own sentences. See `docs/quality/CHECKS.md` §3b.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 22 | `wata` | some, a certain, another (f.) — the feminine of wani, before a feminine  |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/ha_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit is undone by the next seed.

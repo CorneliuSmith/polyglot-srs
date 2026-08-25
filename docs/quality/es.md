@@ -149,3 +149,53 @@ accented characters survive the answer box. A human reviewer pulls 10 random dri
 6. **Does each hint in the point pick exactly one answer?** Six do not.
 7. **Is the variety consistent?** `vos sos`, `carro`, `celular` are out of scope; `vosotros`/`ustedes` must not
    swap mid-point.
+
+## Wrong-lexeme sweep, top 500 (25 Aug 2026)
+
+**29 rows reglossed**, of which **14 were fatal** — the card named a
+genuinely different word, not merely an incomplete one. Found by
+`audit_wrong_lexeme` and decided by a maker–checker pass against each row's full
+kaikki sense inventory and the course's own sentences.
+
+The cause is structural, not clerical: a rank is earned by whatever string appeared in
+running text, and where a spelling is both an inflection of a common verb and a separate
+dictionary word, the sense-picker could take the dictionary word. See
+`docs/quality/CHECKS.md` §3b.
+
+The worst of them, by rank:
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 38 | `esto` | this; this thing, this idea (for something unnamed or a whole situation) - n |
+| 62 | `he` | I have (from haber - the helper before a past participle: he visto, I have s |
+| 77 | `son` | they are; you are (ustedes) - from ser, for identity and lasting traits; son |
+| 159 | `pasa` | happens, is going on (que pasa? - what's happening?); he/she/it passes, come |
+| 170 | `estado` | been - past participle of estar (he estado aqui, I have been here); also el  |
+| 205 | `dije` | I said, I told - preterite of decir (ya dije que no, I already said no); als |
+| 278 | `van` | they go, they are going; you (ustedes) go - from ir; van a + inf. - they are |
+| 291 | `primera` | first (feminine - la primera vez, the first time); also la primera: first ge |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/es_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit would be undone by the next seed.
+
+Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang es --band 500` — remaining candidates are rows a reviewer
+deliberately kept, plus anything added since.
+
+### Extended to rank 2000 (25 Aug 2026)
+
+The sweep above covered the top 500. Ranks 501-2000 added **72 rows, 48 fatal**, so the
+course total is **101 repaired (62 fatal) through rank 2000**.
+
+The keep rate rose with rank — roughly 30% of candidates were kept in the top 500 against
+about 50% below it — which is the expected shape and a check on the pass: deeper in a
+frequency list the lexical sense genuinely is more often right, and an over-eager rewrite
+would replace a correct gloss with a wrong one.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 518 | `sentido` | sense, meaning (no tiene sentido - that makes no sense; en cierto sentid |
+| 536 | `queda` | remains, is left - from quedar (casi no queda vino, there's hardly any w |
+| 543 | `oído` | heard - past participle of oir (he oido hablar de ti, I have heard about |
+| 547 | `recuerdo` | I remember (from recordar - lo recuerdo bien, I remember it well; recuer |
+| 566 | `dado` | given - past participle of dar (me has dado tanto, you have given me so  |
+| 576 | `diga` | may say, that he/she say - present subjunctive of decir (no me importa l |

@@ -1153,3 +1153,82 @@ rank	word	pos	en
 1152	ibhekile	noun	billycan
 1153	isilonda	noun	wound
 1154	inxila	noun	drunkard
+1155	ke	particle	discourse particle: then, so; ties a clause to what was just said
+1156	okanye	conj	or (linking words or clauses)
+1157	kunye	adv	together; together with (kunye na- + noun)
+1158	kwaye	conj	and (joins clauses; nouns are joined with na-)
+1159	kuba	conj	because, since
+1160	ukuze	conj	so that, in order that (purpose)
+1161	kufuneka	verb	must, have to; it is necessary that (impersonal ku- + funeka 'be needed'; the following clause takes the subjunctive)
+1162	zonke	det	all; class 8/10 form of -onke (zonke izinto 'all things')
+1163	yaye	conj	and, and also (joins clauses; near-synonym of kwaye)
+1164	bonke	det	all; class 2/14 form of -onke (bonke abantu 'all the people')
+1165	abafundi	noun	students, learners (class 1/2, sg. umfundi)
+1166	izikolo	noun	schools (class 7/8, sg. isikolo)
+1167	kuphela	adv	only, just
+1168	izinto	noun	things, matters (class 9/10, sg. into)
+1169	ootitshala	noun	teachers (class 1a/2a, sg. utitshala)
+1170	ngenxa	adv	because of, on account of (ngenxa ya- + noun)
+1171	kwakhona	adv	again; also, furthermore
+1172	ukuya	adv	up to, until (ukususela ... ukuya ku- 'from ... up to'; nge-6 ukuya kwi-19 'from the 6th to the 19th'); literally the infinitive of -ya 'go'
+1173	nokuba	conj	even if, even though; whether (in an indirect question) (na- + ukuba)
+1174	phambi	adv	in front of; before (phambi kwa- + noun)
+1175	njengoko	conj	as, just as; since (introduces a clause)
+1176	malunga	adv	about, concerning (malunga na- + noun)
+1177	yonke	det	all, the whole; class 4/9 form of -onke (yonke imihla 'every day')
+1178	kukho	verb	there is, there are (negative akukho 'there is no')
+1179	ngamnye	det	each, every one; class 1/3 form (umntu ngamnye 'each person', ngonyaka ngamnye 'each year')
+1180	sele	adv	already (marks something as done: sele kuqalile 'it has already begun')
+1181	kakuhle	adv	well, nicely, properly
+1182	omnye	adj	one; another (class 1/3 form of -nye: umntu omnye 'one person')
+1183	isikolo	noun	school (class 7/8, pl. izikolo)
+1184	ukususela	adv	from, starting from (ukususela ku-/nge- ... ukuya ku- 'from ... to')
+1185	khona	adv	there, in that place; resumptive in apho ... khona 'where'
+1186	onke	adj	all, the whole of; class 6 form of the quantitative stem -onke, standing before ama- nouns (onke amaziko, all the institutions) — other classes take wonke, bonke, zonke, yonke, konke
+1187	kwakunye	conj	together with, along with; used with na-, as in kwakunye ne-
+1188	ngokuba	conj	as, in the naming construction ukubizwa / ukuthathwa ngokuba, to be called or regarded as; also because, since, for (causal)
+1189	ubomi	noun	life, existence; way of living (class 14, no plural)
+1190	iinqununu	noun	school principals, headteachers (class 9/10, sg. inqununu)
+1191	akukho	particle	there is no, there are none; negative existential (of kukho, there is) — the noun after it drops its initial vowel: akukho sikolo, there is no school
+1192	inkqubo	noun	programme; process, procedure (class 9/10, pl. iinkqubo)
+1193	abaviwa	noun	examination candidates, examinees (class 1/2, sg. umviwa)
+1194	phambili	adv	in front, ahead; forward, as in qhubela phambili, to carry on
+1195	inxaxheba	noun	part, share, portion; thatha inxaxheba, to take part (class 9/10, pl. iinxaxheba)
+1196	ngokupheleleyo	adv	completely, fully, entirely
+1197	kum	pron	to me, for me (ku- + 1st person; cf. kuwe, kuye)
+1198	inkxaso	noun	inkxaso (9/10, pl. iinkxaso) support, backing
+1199	ngethuba	conj	during, at the time when (ngethuba le-)
+1200	ingqalelo	noun	ingqalelo (9/10, pl. iingqalelo) attention, careful consideration
+1201	ekubeni	conj	that, the fact that — opens a complement clause after a verb (gqiba ekubeni 'decide that', qala ekubeni 'start with'); also since, seeing that
+1202	ngokukhawuleza	adv	promptly, without delay, as soon as possible
+1203	ingaba	particle	opens a question, clause-initial — usually yes/no, but also before a question word (na does the same job clause-finally)
+1204	de	conj	until, up to the point that — not the adjective stem -de 'long, tall'
+1205	ingcaciso	noun	ingcaciso (9/10, pl. iingcaciso) explanation, clarification
+1206	kuqala	adv	first, at first, beforehand (adverbial; the same string is also 'it begins', ku- + -qala)
+1207	iinkcukacha	noun	iinkcukacha (9/10, sg. inkcukacha) details, particulars, information
+1208	ngokuthi	conj	by (doing something) — nga- + ukuthi, with a following verb; also 'saying that, to the effect that', introducing a quoted name or a reported clause
+1209	inani	noun	number, amount, quantity (class 5/6, pl. amanani)
+1210	ngaphezu	adv	more than, over (of quantity or position); takes kwa-: ngaphezu kwezigidi ezilithoba, 'more than nine million'
+1211	imeko	noun	situation, condition, circumstances (class 9/10, pl. iimeko)
+1212	ulwazi	noun	knowledge, information (class 11, no plural)
+1213	ingakumbi	adv	especially, particularly, above all
+1214	utitshala	noun	teacher (class 1a/2a, pl. ootitshala)
+1215	kude	adv	far away, at a distance; in the frame kude kube / kude kuse / kude kuye, 'until'
+1216	matshi	name	March (the month); full form uMatshi, class 1a, bare Matshi in dates: nge-23 Matshi 2012
+1217	molo	intj	hello — said to ONE person; molweni to more than one
+1218	molweni	intj	hello — said to MORE THAN ONE person; molo to one
+1219	enkosi	intj	thank you; enkosi kakhulu, thank you very much
+1220	kunjani	intj	how are things? — impersonal ku-, about the situation
+1221	unjani	intj	how are you? — to ONE person, class-1 u-; kunjani asks about things
+1222	ndicela	verb	"please — literally ""I request""; the ordinary polite way to ask"
+1223	ngubani	pron	who? — ngubani igama lakho, what is your name
+1224	nini	adv	when?
+1225	yintoni	pron	what? — yintoni le, what is this
+1226	utata	noun	father (1a/2a, pl. ootata); also used to address an older man
+1227	umama	noun	mother (1a/2a, pl. oomama); also used to address an older woman
+1228	ikofu	noun	coffee (9/10, pl. iikofu)
+1229	iti	noun	tea (9/10, pl. iiti)
+1230	funda	verb	to read; to learn, to study
+1231	nceda	verb	to help
+1232	dlala	verb	to play
+1233	va	verb	to hear; to feel

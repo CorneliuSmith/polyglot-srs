@@ -61,9 +61,9 @@ rank	word	pos	en
 60	ona	pron	dative singular of o: to him/her/it
 61	olan	verb	subject non-past participle of olmak
 62	lütfen	adv	please; unwillingly, halfheartedly
-63	işte	intj	"""lo! there it is"", ta-da, presto, voilà"
+63	işte	intj	there it is, here you go, that is just it; you see, well (discourse marker); also the locative of iş: at work, in a job or matter
 64	onun	pron	genitive singular of o
-65	bile	adv	together, with
+65	bile	adv	even, so much as; (after a verb) already; archaic variant of ile: with, together with
 66	kim	pron	who
 67	çünkü	conj	because
 68	peki	intj	okay; well
@@ -115,7 +115,7 @@ rank	word	pos	en
 114	kötü	adj	bad; bad, evil
 115	şeyler	noun	plural of şey
 116	gece	noun	night
-117	et	noun	The muscle and fat tissue in humans and animals; meat, flesh.
+117	et	verb	second-person singular imperative of etmek: do it!, make it! (in light verbs: yardım et — help!, dikkat et — be careful!); also meat, flesh
 118	harika	adj	great, marvellous, fantastic, wonderful
 119	gerek	adj	necessary, required
 120	ilk	adj	first; pristine (pertaining to the earliest state of something)
@@ -126,7 +126,7 @@ rank	word	pos	en
 125	bütün	det	entire, complete
 126	kendi	pron	self, oneself; own
 127	yol	noun	path, road, way
-128	diye	adv	someone who is named ..., something which is called ...
+128	diye	adv	quotative converb of demek: saying, that (marks reported speech and thought); called, named (X diye bir şey: a thing called X); so that, in order to
 129	yıl	noun	year; time unit equal to twelve months
 130	hemen	adv	immediately, without delay
 131	bayan	noun	(uncommon outside of certain contexts) Ms., Mrs., miss
@@ -172,7 +172,7 @@ rank	word	pos	en
 171	önemli	adj	important (having relevant and crucial value)
 172	git	verb	second-person singular imperative of gitmek
 173	yoksa	conj	Used other than figuratively or idiomatically: see yok, -sa or ise.
-174	hala	noun	paternal aunt (father’s sister)
+174	hala	adv	still, yet (the circumflex of hâlâ is routinely dropped in writing); paternal aunt, father's sister
 175	oh	intj	exclamation of relief, joy, admiration, liking, etc.
 176	mısın	particle	second-person singular simple of mı
 177	yine	adv	again, still, yet
@@ -180,7 +180,7 @@ rank	word	pos	en
 179	şekilde	noun	locative singular of şekil
 180	bugün	adv	today
 181	üç	num	three
-182	al	adj	blood red; dark red
+182	al	verb	second-person singular imperative of almak: take!, get!, buy! (onu al — pick it up); also (poetic) blood red, scarlet, as in al bayrak, the Turkish flag
 183	söyle	verb	second-person singular imperative of söylemek
 184	para	noun	money
 185	birlikte	adv	together
@@ -252,7 +252,7 @@ rank	word	pos	en
 251	polis	noun	police (an organisation that enforces the law)
 252	dinle	verb	second-person singular imperative of dinlemek
 253	bunlar	pron	nominative plural of bu
-254	hayatım	noun	sweetheart, sweetie
+254	hayatım	noun	first-person singular possessive of hayat: my life; as a term of address: darling, sweetheart
 255	kabul	noun	acceptation; acceptance
 256	gereken	adj	necessary
 257	niye	adv	why
@@ -312,7 +312,7 @@ rank	word	pos	en
 311	geçen	verb	present participle of geçmek
 312	pekâlâ	adv	all right
 313	yeter	verb	third-person singular indicative aorist of yetmek
-314	etme	noun	verbal noun of etmek
+314	etme	verb	second-person singular negative imperative of etmek: do not do, do not (merak etme — do not worry, rahatsız etme — do not disturb); also the verbal noun of etmek: doing, making
 315	beş	num	five
 316	sakin	adj	calm
 317	adım	noun	first-person singular possessive singular possession of ad
@@ -520,7 +520,7 @@ rank	word	pos	en
 519	diyor	verb	third-person singular present continuous definite indicative of demek
 520	uygun	adj	available; suitable
 521	tuhaf	adj	strange (not normal)
-522	çek	noun	check, cheque
+522	çek	verb	second-person singular imperative of çekmek: pull!, draw!, take! (kenara çek — pull over, fişi çek — pull the plug, para çek — withdraw money); also a cheque, a check (çek defteri — chequebook); Çek: Czech, a Czech
 523	günaydın	intj	good morning; said to someone who has come to a belated realization
 524	kapıyı	noun	accusative singular of kapı
 525	şehir	noun	city (large settlement)
@@ -550,8 +550,8 @@ rank	word	pos	en
 549	aldı	verb	third-person singular indicative simple past of almak
 550	kere	noun	time, occasion (an instance or occurrence)
 551	yaşam	noun	life
-552	gelin	noun	A woman dressed up and prepared for her own wedding or who has just married; a bride.
-553	acı	adj	bitter, acrid; hot, spicy
+552	gelin	verb	second-person plural imperative of gelmek: come!, come in! (polite or plural: lütfen gelin — please come, geri gelin — come back); also a bride; a daughter-in-law or sister-in-law
+553	acı	noun	pain, suffering, ache; grief, sorrow (acı çekmek — to suffer, acı vermek — to hurt); as an adjective: bitter, acrid; hot, spicy (acı biber — hot pepper); painful, tragic
 554	veriyorum	verb	first-person singular present continuous of vermek
 555	aşk	noun	love (romantic feelings)
 556	mümkün	adj	possible
@@ -586,7 +586,7 @@ rank	word	pos	en
 585	doğum	noun	birth
 586	geliyorum	verb	first-person singular present continuous of gelmek
 587	ajan	noun	agent (someone who works for an intelligence agency)
-588	at	noun	horse; knight
+588	at	noun	horse (at nalı — horseshoe); knight (in chess); also the second-person singular imperative of atmak: throw!, toss! (topu at — throw the ball, göz at — take a look, imza at — sign)
 589	lan	intj	Said to get someone's attention in a rude or colloquial manner.
 590	ruh	noun	soul, spirit
 591	dikkatli	adj	careful; cautious
@@ -648,7 +648,7 @@ rank	word	pos	en
 647	alıp	noun	Title of nobles serving in military of Göktürk and Khazar qaghanates
 648	teklif	noun	suggestion; offer, proposal
 649	konu	noun	topic, subject, issue
-650	bakma	noun	verbal noun of bakmak
+650	bakma	verb	second-person singular negative imperative of bakmak: don't look!, don't look at (bana bakma — don't look at me, kusura bakma — sorry, no offence); also the verbal noun of bakmak: looking, looking after
 651	koca	adj	large, big; huge, enormous, whole
 652	patron	noun	boss
 653	yeterli	adj	adequate; proficient
@@ -690,7 +690,7 @@ rank	word	pos	en
 689	alt	noun	bottom; under
 690	olduğun	verb	second-person singular past participle of olmak
 691	kızın	noun	genitive singular
-692	konuşma	noun	speech (vocal communication)
+692	konuşma	noun	speech, talk; conversation (konuşma yaptı — he made a speech, konuşma şekli — his way of speaking); also the second-person singular negative imperative of konuşmak: don't talk!, don't speak! (çok hızlı konuşma — don't speak so fast)
 693	yıldır	name	a male given name
 694	oda	noun	room, chamber
 695	haklı	adj	right, correct, just, deserved
@@ -718,14 +718,14 @@ rank	word	pos	en
 717	merkez	noun	center (point on a line midway between the ends)
 718	istemiyor	verb	third-person negative present imperfect of istemek
 719	sol	adj	left (side)
-720	yedi	num	seven
+720	yedi	num	seven (saat yedi — seven o'clock, on yedi — seventeen); just as often the third-person singular past of yemek: ate, had (ekmek yedi — he ate bread, kafayı yedi — he went crazy, dayak yedi — he got a beating)
 721	özellikle	adv	in particular; especially
 722	pislik	noun	the state or quality of being dirty: dirtiness
 723	zamanlar	noun	nominative plural of zaman
 724	yaptığı	verb	third-person past participle of yapmak
 725	yaparım	verb	first-person singular indicative aorist of yapmak
 726	sokak	noun	street, alley
-727	birden	adv	all of a sudden
+727	birden	adv	all of a sudden, suddenly (birden ünlü oldu — she suddenly became famous); also the ablative of bir: from one (birden ona kadar — from one to ten), and in birden fazla / birden çok — more than one
 728	eğlenceli	adj	entertaining, amusing
 729	od	noun	fire
 730	kayıp	adj	lost
@@ -750,7 +750,7 @@ rank	word	pos	en
 749	biriyle	particle	with somebody/someone
 750	üstünde	postp	on
 751	anlat	verb	second-person singular imperative of anlatmak
-752	alın	noun	forehead
+752	alın	verb	second-person plural imperative of almak: take!, get!, have! (polite or plural: lütfen birini alın — please take one, nefes alın — take a breath); also a forehead, brow (alın yazısı — fate, destiny)
 753	dava	noun	suit, action
 754	yerini	noun	second/third-person singular possessive accusative singular of yer
 755	defa	noun	time; instance
@@ -834,7 +834,7 @@ rank	word	pos	en
 833	altına	noun	dative singular second-person single-possession of alt
 834	çocuğun	noun	definite genitive singular of çocuk
 835	kulak	noun	ear; lug, earlobe
-836	kara	adj	black, dark; brunette
+836	kara	adj	black, dark (kara bulutlar — dark clouds, kara delik — black hole, kara tahta — blackboard); dark-skinned, brunette; grim, hard; evil (kara gün — a hard time, a rainy day; kara sevda — hopeless love, lovesickness); also as a noun: land, dry land, the mainland (kara mayını — landmine, kara hayvanı — land animal)
 837	yaz	noun	summer; spring, springtime
 838	otel	noun	hotel
 839	oy	noun	vote
@@ -882,8 +882,8 @@ rank	word	pos	en
 881	yapmayı	noun	accusative singular of yapma
 882	defol	verb	second-person singular imperative of defolmak
 883	resmi	adj	official
-884	kalın	adj	thick; viscous
-885	gider	noun	expense; expenditure
+884	kalın	verb	second-person plural imperative of kalmak: stay!, remain!, keep (polite or plural: evde kalın — stay at home, hatta kalın — hold the line); also thick, viscous; (of a voice) deep; (of a vowel) back — kalın ünlü, a back vowel
+885	gider	verb	third-person singular aorist of gitmek: goes, he/she/it goes (habitually) (işe gider — goes to work, gelir ve gider — comes and goes); also an expense, expenditure; a drain
 886	kadınlar	noun	nominative plural of kadın
 887	ihtiyaç	noun	need
 888	başıma	verb	first-person singular simple present possessive dative of baş
@@ -899,9 +899,9 @@ rank	word	pos	en
 898	hediye	noun	gift, present
 899	yiyecek	noun	food
 900	bira	noun	beer
-901	dünyada	adv	never, no way, in no way, shape, or form
+901	dünyada	noun	locative of dünya: in the world, on earth (dünyada kaç ülke var — how many countries are there in the world); as an emphatic with a negative: never, not for anything (dünyada olmaz — no way)
 902	orospu	noun	whore, bitch, hoe, slut
-903	gitme	noun	go, going
+903	gitme	noun	verbal noun of gitmek: going, the act of going (gitme zamanı — time to go); also the second-person singular negative imperative of gitmek: don't go!, don't leave!
 904	günün	noun	genitive singular of gün
 905	yaşamak	verb	to live; to live, to reside
 906	emir	noun	command; order
@@ -917,12 +917,12 @@ rank	word	pos	en
 916	sona	noun	dative singular of son
 917	mal	noun	cattle; goods, property
 918	ortak	noun	each of those who work together and are associated with one another by a common interest
-919	çalışma	noun	exercise; labour
+919	çalışma	noun	work, working; study, research (çalışma saatleri — working hours, çalışma alanı — field of study, Çalışma Bakanlığı — Ministry of Labour); also the second-person singular negative imperative of çalışmak: don't work!, don't try! (çok sıkı çalışma — don't work too hard)
 920	üçüncü	adj	third
 921	hedef	noun	target; goal, objective
 922	dua	noun	prayer (practice of communicating with one's God)
 923	hayatı	noun	accusative singular of hayat
-924	bayanlar	noun	mesdames
+924	bayanlar	noun	plural of bayan: women, ladies (bayanlar tuvaleti — the ladies' room); in address: ladies (bayanlar ve baylar — ladies and gentlemen)
 925	parmak	noun	finger, toe, digit
 926	yıllar	noun	nominative plural of yıl
 927	ark	noun	abbreviation of arkadaş
@@ -940,7 +940,7 @@ rank	word	pos	en
 939	şükür	noun	thankfulness, gratitude
 940	okula	noun	dative singular of okul
 941	verecek	verb	third-person singular indicative future of vermek
-942	alacak	noun	credit, money owed
+942	alacak	verb	third-person singular future of almak: will take, will get, will buy (zaman alacak — it will take time, satın alacak mısın — are you going to buy it); also a receivable, money owed, credit; a claim
 943	etmez	verb	third-person singular indicative negative aorist of etmek
 944	alıyor	verb	third-person singular present continuous of almak
 945	resim	noun	picture; painting
@@ -991,7 +991,7 @@ rank	word	pos	en
 990	salak	adj	foolish, stupidish
 991	inan	verb	second-person singular imperative of inanmak
 992	sağlam	adj	firm; strong; hard
-993	arama	noun	search
+993	arama	noun	search (arama ve kurtarma — search and rescue, arama izni — a search warrant); a (phone) call (arama yapmak — to make a call); also the second-person singular negative imperative of aramak: don't call!, don't look for! (beni arama — don't call me)
 994	mektup	noun	letter (written message)
 995	hani	adv	where; actually, to tell the truth
 996	erkekler	noun	nominative plural of erkek
@@ -1009,7 +1009,7 @@ rank	word	pos	en
 1008	ödül	noun	prize, reward
 1009	derin	adj	deep
 1010	söyler	verb	third-person singular indicative aorist of söylemek
-1011	içim	noun	nip, suck, eating (soup)
+1011	içim	noun	first-person singular possessive of iç: my inside, my insides, my heart (içim rahat — I'm at ease, içimden geçti — it crossed my mind); also a sip, a draught (bir içim su — a mouthful of water)
 1012	ileri	adj	forward (at the front)
 1013	kahraman	noun	hero; protagonist
 1014	kuzey	noun	north (compass point)
@@ -1040,7 +1040,7 @@ rank	word	pos	en
 1039	diş	noun	tooth; a sharp projection on the blade of a saw or similar implement
 1040	televizyon	noun	television
 1041	iptal	noun	cancellation
-1042	anlamadım	phrase	I don't understand.
+1042	anlamadım	verb	first-person singular negative past of anlamak: I didn't understand, I didn't catch that (soyadınızı anlamadım — I didn't catch your last name); on its own, as a set phrase: I don't understand, sorry?
 1043	şanslı	adj	lucky
 1044	insanın	noun	genitive singular of insan
 1045	işaret	noun	sign (visible indication)
@@ -1174,7 +1174,7 @@ rank	word	pos	en
 1173	sayılmaz	verb	third-person singular indicative negative aorist of sayılmak
 1174	kader	noun	destiny, fate
 1175	yada	conj	misspelling of ya da
-1176	girdi	noun	input (something fed into a process)
+1176	girdi	noun	third-person singular past of girmek: entered, went in, got in (eve girdi — he went into the house, sınava girdi — she sat the exam, depresyona girdi — he got depressed); also, in computing: an input, an entry
 1177	yarış	noun	race
 1178	sus	intj	Used to show agreement, that the addressee need not say any more
 1179	daima	adv	always
@@ -1348,7 +1348,7 @@ rank	word	pos	en
 1347	havaya	noun	dative singular of hava
 1348	yarar	noun	benefit; gain
 1349	bakış	noun	glance, look, view
-1350	karın	noun	abdomen (belly)
+1350	karın	noun	belly, abdomen, stomach (stem karn-: karnım ağrıyor — my stomach hurts); womb; also karı + second-person possessive: your wife (karın nasıl? — how's your wife?), and kar + genitive/possessive: of the snow, your snow
 1351	hariç	postp	except
 1352	polise	noun	dative singular of polis
 1353	nerde	adv	where, in what place
@@ -1429,7 +1429,7 @@ rank	word	pos	en
 1428	heyecan	noun	excitement, thrill
 1429	filan	adj	"the ""you-know-"" part in you-know-who or you-know-what"
 1430	teknik	adj	technical
-1431	anı	noun	memory,; memoir, remembrance
+1431	anı	noun	memory, recollection; memoir, reminiscence (anılarım — my memoirs); also an + accusative or third-person possessive: the moment, that moment (o anı yaşamak — to live in the moment)
 1432	ettiler	verb	third-person plural indicative simple past of etmek
 1433	tavuk	noun	hen; chicken (meat)
 1434	bilirim	verb	first-person singular indicative aorist of bilmek
@@ -1453,7 +1453,7 @@ rank	word	pos	en
 1452	baskı	noun	printing; edition
 1453	tanışmak	verb	to meet (for the first time)
 1454	bizde	pron	locative of biz
-1455	çıkın	noun	A small cloth bundle; a bindle.
+1455	çıkın	verb	second-person plural (polite) imperative of çıkmak: get out!, go out!, leave! (buradan çıkın — get out of here); rare as a noun: a small cloth bundle, a bindle
 1456	kullanmak	verb	to use, to utilize, to employ
 1457	çıkarmak	verb	to remove; to subtract
 1458	nazik	adj	polite, kind; delicate, tender, soft
@@ -1472,7 +1472,7 @@ rank	word	pos	en
 1471	kork	verb	second-person singular imperative of korkmak
 1472	boktan	noun	ablative singular of bok
 1473	genel	adj	general, broad, universal
-1474	geçirmek	verb	To take or carry something from one place or side to another
+1474	geçirmek	verb	to spend or pass (time) (zaman geçirmek — to spend time); to go through, to undergo (kaza geçirmek — to have an accident); to take or carry something across, to pass something through; to see someone out; to slip on (clothing) — causative of geçmek
 1475	çan	noun	bell (metallic resonating object)
 1476	ceza	noun	punishment, penalty, sentence
 1477	yaratık	noun	creature
@@ -1611,11 +1611,11 @@ rank	word	pos	en
 1610	şehrin	noun	genitive singular of şehir
 1611	kanser	noun	cancer (disease of uncontrolled cellular proliferation)
 1612	profesyonel	adj	professional
-1613	çıkma	noun	verbal noun of çıkmak
+1613	çıkma	verb	don't go out!, don't leave! — second-person singular negative imperative of çıkmak (dışarı çıkma — don't go outside); also the verbal noun of çıkmak: going out, leaving (çıkma teklif etmek — to ask someone out); a projecting balcony or bay window; secondhand, salvaged (part)
 1614	tanesi	noun	third-person singular possessive of tane
 1615	geliyorlar	verb	third-person plural present continuous of gelmek
 1616	taksi	noun	taxi
-1617	sorum	noun	responsibility
+1617	sorum	noun	soru + first-person singular possessive: my question (bir sorum var — I have a question); rare as a noun in its own right: responsibility
 1618	bacak	noun	leg (lower limb from groin to ankle)
 1619	müsaade	noun	permission
 1620	boyu	noun	accusative singular of boy
@@ -1656,7 +1656,7 @@ rank	word	pos	en
 1655	lord	noun	English lord or nobleman
 1656	sürtük	noun	slut, bitch
 1657	bıçak	noun	knife
-1658	ayı	noun	bear; a rude primitive person
+1658	ayı	noun	bear (kutup ayısı — polar bear); figuratively a boor, a rude oaf; also ay + accusative or third-person possessive: the month, his month (altı ayı var — he has six months)
 1659	tuzak	noun	trap, snare
 1660	süt	noun	milk
 1661	öncelikle	adv	first of all; Used other than figuratively or idiomatically: see öncelik, -le.: with priority
@@ -1743,7 +1743,7 @@ rank	word	pos	en
 1742	olmazsa	conj	if it doesn't happen
 1743	kok	noun	coke (coal product)
 1744	girmiş	verb	past participle of girmek
-1745	karı	noun	wife; trull
+1745	karı	noun	wife (karı koca — husband and wife); coarse slang for a woman; also kar + accusative or third-person possessive: the snow, its snow (karı severim — I love snow)
 1746	biter	verb	third-person singular indicative aorist of bitmek
 1747	şart	noun	condition
 1748	kararı	noun	definite accusative singular
@@ -1752,7 +1752,7 @@ rank	word	pos	en
 1751	hafif	adj	Having little weight; light, not heavy.
 1752	uyku	noun	sleep, nap; sleepiness
 1753	kimlik	noun	identity
-1754	kanı	noun	opinion, belief
+1754	kanı	noun	kan + accusative or third-person possessive: the blood, his/her blood (masum kanı — innocent blood; onun kanı kaynıyor — his blood is boiling); also a noun in its own right: opinion, conviction
 1755	afrika	name	Africa (the continent south of Europe and between the Atlantic and Indian Oceans)
 1756	derim	noun	first-person singular possessive of deri
 1757	temas	noun	contact
@@ -1791,7 +1791,7 @@ rank	word	pos	en
 1790	bozuk	adj	Broken, damaged, faulty, out of order.
 1791	reklam	noun	advertisement
 1792	oğlan	noun	boy, male child
-1793	doğrudan	adj	direct
+1793	doğrudan	adv	directly, straight, right (doğrudan eve geliyorum — I'm coming straight home; doğrudan doğruya — directly, outright); as a modifier: direct (doğrudan ilişki — a direct connection) — literally the ablative of doğru
 1794	geçici	adj	temporary; synonym of bulaşıcı
 1795	değişim	noun	change
 1796	meksika	name	Mexico (a country in North America)
@@ -1809,7 +1809,7 @@ rank	word	pos	en
 1808	şerefsiz	noun	scoundrel
 1809	kariyer	noun	career
 1810	alacağız	verb	first-person plural indicative future of almak
-1811	basın	noun	media, press
+1811	basın	noun	the press, the media (basın toplantısı — press conference); also basmak + second-person plural (polite) imperative: press!, push! (bir tuşa basın — press any key)
 1812	bakarım	verb	first-person singular indicative aorist of bakmak
 1813	randevu	noun	date (pre-arranged social meeting), rendezvous
 1814	etsin	verb	third-person singular imperative of etmek
@@ -1843,7 +1843,7 @@ rank	word	pos	en
 1842	geçer	verb	third-person singular indicative aorist of geçmek
 1843	çekim	noun	the act of pulling
 1844	anlamak	verb	To understand, to comprehend, to get.
-1845	koyun	noun	sheep; A person who tends to be led by others easily, specifically AKP voters.
+1845	koyun	noun	sheep (bir sürü koyun — a flock of sheep); figuratively a docile follower; also koymak + second-person plural (polite) imperative: put!, place! (şeker koyun — put in sugar); as a separate noun (koyn-): the bosom, the embrace
 1846	kişilik	adj	divided by a certain number of people
 1847	başlamak	verb	to begin, to start
 1848	sohbet	noun	conversation
@@ -1929,7 +1929,7 @@ rank	word	pos	en
 1928	tanıdık	adj	familiar
 1929	yaşasın	intj	viva, long live
 1930	kadeh	noun	glass, goblet
-1931	doktora	noun	doctorate
+1931	doktora	noun	doktor + dative: to the doctor (doktora gittim — I went to the doctor; daha fazla doktora ihtiyaç var — there is a need for more doctors); also a noun in its own right: doctorate, PhD (doktora yapmak — to do a doctorate)
 1932	başkası	pron	someone, something, anyone or anything else
 1933	yatakta	noun	locative singular of yatak
 1934	pazartesi	noun	Monday

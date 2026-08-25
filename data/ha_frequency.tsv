@@ -20,7 +20,7 @@ rank	word	pos	en
 19	yanzu	adv	now, at present
 20	bayan	prep	behind, after
 21	saboda	prep	because, because of
-22	wata	noun	moon; month
+22	wata	pron	some, a certain, another (f.) — the feminine of wani, before a feminine noun: wata rana 'one day', wata hanya 'another way'; also the separate masculine noun wata 'moon, month' (pl. watanni)
 23	ci	verb	to eat, to eat soft things
 24	zama	noun	sitting, dwelling, existence
 25	ita	pron	she (3rd person singular pronoun)
@@ -29,7 +29,7 @@ rank	word	pos	en
 28	duniya	noun	world, Earth
 29	biyu	num	two (invariable for gender; na biyu m. / ta biyu f. = second, sau biyu = twice)
 30	sin	name	China (a country in Asia)
-31	mata	noun	woman; wife
+31	mata	noun	women — plural of mace 'woman': Mata suna da gaskiya 'women are sincere'; also mata (f.) 'a man's wife'; and 'to her, for her', the 3sg f. indirect-object pronoun, after the verb: Ya rubuta mata sako 'he wrote her a message'
 32	mutum	noun	person; man, male
 33	fara	noun	locust, grasshopper
 34	nuna	verb	to show, point out, indicate
@@ -405,7 +405,7 @@ rank	word	pos	en
 404	dukiya	noun	wealth, assets
 405	ingila	name	England (a constituent country of the United Kingdom)
 406	alkali	noun	judge; qadi
-407	ɗan	noun	Used to indicate a person's origin, profession, or activity.
+407	ɗan	noun	son of — construct form of ɗa (m.) 'son' (f. ʼyar, pl. ʼyan): ɗan Musa 'Musa's son'; before a place, trade or activity it names a person of it: ɗan Nijeriya 'a Nigerian', ɗan kasuwa 'trader'; also a diminutive, ɗan ƙaramin gida 'a smallish house', and 'a little, just' before a verb: ɗan tsaya 'wait a bit'
 408	haihu	verb	to give birth, have a child
 409	fanni	noun	genre, type; branch of knowledge
 410	asiya	name	Asia (the largest continent, located between Europe and the Pacific Ocean)
@@ -1187,3 +1187,288 @@ rank	word	pos	en
 1186	mulukiya	noun	monarchy
 1187	tukuf	noun	very old
 1188	alhudahuda	noun	hoopoe
+1189	da	prep	with, and; have (ina da…); that/which (relative); da yamma 'in the evening'
+1190	ya	pron	he/it (3sg m.), completive — the action is done: ya zo 'he came'
+1191	a	prep	at, in, on — the locative preposition (a gida 'at home'); also the impersonal subjunctive subject: kada a sha… 'let no one drink…', a biya 'let it be paid'
+1192	yana	pron	he/it (3sg m.), continuous — ongoing: yana aiki 'he is working'; yana da = has
+1193	na	pron	I (1sg), completive — the action is done: na ci 'I ate'; also 'of' (m. linker)
+1194	ce	particle	is, are — feminine singular copula, clause-final (m. and pl. use ne); also the verb ce 'to say': ya ce cewa zai zo 'he said he would come'
+1195	ne	particle	is, are — masculine and plural copula, clause-final (f. sg. uses ce)
+1196	zo	verb	to come, to arrive (imperative zo! 'come!')
+1197	ina	pron	I (1sg), continuous: ina cin abinci 'I am eating'; also 'where?'; ina da = I have
+1198	ta	pron	she (3sg f.), completive — ta tafi 'she went'; also the f. sg. relative completive (rigar da ta saya 'the gown she bought') and the subject after za (za ta dawo 'she will return'); also 'of' (f. linker)
+1199	ba	particle	not — negation wrapping the clause as ba … ba: Ba ta zo ba 'she did not come'
+1200	yi	verb	to do, to make; builds verbs from nouns: yi aiki 'to work', ya yi kyau 'it is good'
+1201	nan	adv	here, this place; after a noun 'this': rigar nan 'this gown'
+1202	za	particle	will — future marker placed before the pronoun: za ta dawo 'she will return'
+1203	sun	pron	they (3pl), completive — the action is done: sun zo 'they came'
+1204	abinci	noun	(m.) food, a meal
+1205	tafi	verb	to go, to go away, to leave
+1206	sai	conj	until; then, only then; only; except; sai gobe 'see you tomorrow'
+1207	zan	pron	I will — 1sg future (za + ni): zan tafi 'I will go'
+1208	muna	pron	we (1pl), continuous — ongoing: muna aiki 'we are working'; muna da = we have
+1209	mun	pron	we (1pl), completive — the action is done: mun sayi 'we bought'
+1210	son	noun	liking, love, wanting — so (m.) with the masculine linker; ina son… 'I like…'
+1211	dafa	verb	to cook (food)
+1212	yara	noun	children (pl. of yaro (m.) 'boy' / yarinya (f.) 'girl')
+1213	zai	pron	he/it will — 3sg m. future (za + ya): zai zo 'he will come'
+1214	akwai	particle	there is, there are — existential; its negative is babu
+1215	fi	verb	to exceed, surpass — makes comparatives: ya fi ni tsayi 'he is taller than me'
+1216	kowane	adj	every, each — with a masculine noun (feminine kowace)
+1217	sayi	verb	to buy — the form used before an object: ya sayi mota 'he bought a car'
+1218	sabuwa	adj	new — feminine singular (masculine sabo, plural sababbi)
+1219	jiya	adv	yesterday
+1220	so	verb	to want, to like, to love (as a noun, so (m.) 'love, liking')
+1221	sosai	adv	very much, greatly, thoroughly — follows the word it intensifies
+1222	gobe	adv	tomorrow
+1223	gan	verb	see, saw — the form of gani used before a pronoun object: na gan shi 'I saw him'
+1224	bari	verb	let, allow; with the subjunctive 'let's': bari mu je 'let's go'
+1225	sami	verb	to get, obtain, receive — the form of samu used before an object
+1226	ana	pron	impersonal continuous: 'one is …ing', passive — ana kiran ka 'you are being called'
+1227	haka	adv	so, thus, like that; ko ba haka ba? 'isn't that so?'
+1228	cewa	conj	that — complementiser after verbs of saying or hearing (from ce 'to say')
+1229	ko	conj	or; whether; even; the tag 'isn't it?'; ko'ina 'everywhere'
+1230	kana	pron	you (2sg m.), continuous: kana aiki 'you are working'; kana da = you have
+1231	dawo	verb	to come back, to return (motion towards the speaker)
+1232	babu	particle	there is no, there are no; none — the negative of akwai
+1233	me	pron	what? — question word; don me? 'why?'
+1234	suka	pron	they (3pl), relative completive — used inside relative clauses: mutanen da suka zo 'the people who came'
+1235	zaune	adj	seated; living, resident — stative of zauna: ina kake zaune? 'where do you live?'
+1236	gina	verb	to build, to construct
+1237	an	pron	impersonal completive: 'someone has…', passive — an gina 'it has been built'
+1238	don	prep	for, because of; in order to (+ subjunctive); don Allah 'please'
+1239	kishiyar	noun	opposite of, counterpart of — kishiya (f.) 'rival, co-wife' + feminine linker
+1240	ɗalibai	noun	students (pl. of ɗalibi (m.) / ɗaliba (f.))
+1241	aikin	noun	the work; work-of — aiki (m., pl. ayyuka) 'work, job' with the masculine linker -n
+1242	mutane	noun	people, persons (pl. of mutum (m.) 'person')
+1243	ban	pron	I did not — 1sg negative completive, closed by ba: ban ci abinci ba
+1244	nawa	pron	how much? how many?; also 'my, mine' with a masculine noun: littafi nawa
+1245	kira	verb	to call, to summon; to phone someone
+1246	dare	noun	(m., pl. darare) night, night-time
+1247	in	conj	if, when (= idan); also 'I' in the subjunctive: bari in gani 'let me see'
+1248	daban	adj	different, separate, apart; daban-daban 'various, all different'
+1249	buƙatar	noun	need of, requiring — buƙata (f.) 'need, want' with the feminine linker -r
+1250	yayi	verb	he/it did, made; it is, it became — ya (3sg m., completive) plus yi run together; the standard spelling is two words, ya yi: yayi kyau 'it looks good', lokaci yayi 'the time has come'
+1251	tamkar	prep	like, just like, as though: kai kam tamkar shi 'you are just like him'
+1252	littafin	noun	the book; book-of — littafi (m., pl. littattafai) with the masculine linker -n
+1253	motar	noun	the car; car-of — mota (f., pl. motoci) 'car' with the feminine linker -r
+1254	rigar	noun	the gown; gown-of — riga (f., pl. riguna) 'gown, robe' with the feminine linker -r
+1255	manoma	noun	farmers (pl. of manomi (m.) 'farmer')
+1256	kowace	adj	every, each — with a feminine noun (masculine kowane)
+1257	gani	verb	to see; sight, seeing (before a pronoun object the form is gan)
+1258	mutanen	noun	the people; people-of — mutane 'people' with the plural linker -n
+1259	abin	noun	the thing; abin da 'what, the thing that' — abu (m., pl. abubuwa) + masculine linker -n
+1260	gama	verb	to finish, to complete; to join together
+1261	wancan	pron	that, that one over there — masculine; stands alone or before the noun: wancan gida 'that house' (feminine waccan, plural waɗancan)
+1262	gidan	noun	the house; house-of — gida (m., pl. gidaje) with the masculine linker -n
+1263	kawo	verb	to bring (towards the speaker): kawo mini ruwa 'bring me water'
+1264	yaran	noun	the children; children-of — yara 'children' with the plural linker -n
+1265	sayar	verb	to sell — always with da before the object: sayar da mota 'sell a car'
+1266	wasiƙa	noun	(f., pl. wasiƙu) letter, written message
+1267	ma	particle	too, also, even — follows the word it emphasises: ni ma 'me too'
+1268	mini	pron	to me, for me — 1sg indirect-object pronoun, placed after the verb
+1269	musu	pron	to them, for them — 3pl indirect-object pronoun, after the verb
+1270	dai	particle	as for, just, though — the hedging particle, placed after the word it softens: ni dai 'as for me'; also in Gafara dai! 'Excuse me!'
+1271	mana	particle	the urging particle — zo mana! 'do come!'; also 'to us, for us', the 1pl indirect-object pronoun after the verb
+1272	tsaftace	verb	to clean, wipe clean — tsaftace datti 'clean off the dirt'
+1273	tsaya	verb	to stop, stand still; to stay, wait
+1274	ɗayanka	pron	the whole of you, your entire self (addressing a man) — ɗaya 'one' + linker -n + -ka 'your'; met in baki ɗayanka 'you entirely'
+1275	manomi	noun	(m., pl. manoma) farmer
+1276	kin	pron	you (2sg f.), completive — kin dafa 'you (f.) cooked'
+1277	barci	noun	(m.) sleep — yi barci 'to sleep'
+1278	yaron	noun	the boy — yaro (m., pl. yara) + the masculine linker/definite -n
+1279	wa	pron	who? (interrogative); also wa (m.) 'elder brother'
+1280	littattafai	noun	books — irregular plural of littafi (m.) 'book'
+1281	ku	pron	you (2pl) — independent and object pronoun; also 2pl subjunctive subject
+1282	motarsa	noun	his car — mota (f.) 'car' + feminine linker -r + -sa 'his'
+1283	nakan	pron	I (1sg), habitual — nakan sha shayi 'I usually drink tea'
+1284	je	verb	to go (to) — after aspect markers: mu je kasuwa 'let's go to the market'
+1285	sukan	pron	they (3pl), habitual — sukan yi aiki 'they usually work'
+1286	kake	pron	you (2sg m.), relative continuous — after a fronted wh-word: me kake yi?
+1287	waccan	pron	that (f.) over there — far demonstrative before a feminine noun; m. wancan
+1288	kaɗan	adj	a little, a few; slightly — follows the noun: lokaci kaɗan 'a little time'
+1289	masu	adj	having, possessing; those with — plural of the attributive mai 'one having' (not mai 'oil'), after the noun it describes: mutane masu arziki 'rich people'
+1290	tuƙuru	adv	hard, strenuously — with aiki: aiki tuƙuru 'hard work, to work hard'
+1291	muka	pron	we (1pl), relative completive — after da: da muka dafa 'that we cooked'
+1292	abincin	noun	the food — abinci (m.) 'food' + the masculine linker/definite -n
+1293	kuka	pron	you (2pl), relative completive — da kuka saya 'that you (pl.) bought'
+1294	aka	pron	one, someone (impersonal), relative completive — da aka gina 'that was built'
+1295	murna	noun	(f.) joy, rejoicing — yi murna 'to rejoice'
+1296	rera	verb	to sing — rera waƙa 'sing a song'; of singing, not of playing music
+1297	waƙar	noun	the song — waƙa (f., pl. waƙoƙi) 'song, poem' + the feminine linker/definite -r: waƙar da aka rera 'the song that was sung'
+1298	sabon	adj	new (m.) — form of sabo before a masculine noun; feminine sabuwar
+1299	ɓarawo	noun	(m., pl. ɓarayi) thief, robber
+1300	kama	verb	to catch, seize, arrest; with da, to resemble (yana kama da 'it is like')
+1301	ƙarfi	noun	(m.) strength, power, force — ya fi … ƙarfi 'is stronger than …'
+1302	jin	verb	hearing, feeling — the form of ji 'hear, feel, understand' before an object
+1303	ruwan	noun	water of — ruwa (m.) 'water' + the linker -n; ruwan sama 'rain'
+1304	kyauta	noun	(f., pl. kyaututtuka) gift, present
+1305	tashi	verb	to get up, rise; to fly up; to set off, depart
+1306	komai	pron	everything, anything; whatever, however much: komai nisa 'however far'
+1307	taimake	verb	to help — the form of taimaka used before a pronoun: taimake mu 'help us'
+1308	aika	verb	to send (a thing or a message): aika wasiƙa 'send a letter'
+1309	masa	pron	to him, for him — 3sg m. indirect-object pronoun, after the verb
+1310	ʼyan	noun	members of, people of — plural of ɗan: ʼyan sanda 'police'
+1311	yaya	adv	how? — interrogative: yaya aikinka? 'how is your work?'; also yaya (f.) 'elder sister', used as a term of address
+1312	aikinka	noun	your (m.) work — aiki (m.) 'work' + masculine linker -n + -ka 'your'
+1313	jira	verb	to wait, wait for — na jira awa ɗaya 'I waited an hour'
+1314	sanye	adj	wearing, dressed in — stative, always with da: sanye da riga
+1315	muhimmanci	noun	(m.) importance — yana da muhimmanci 'it is important'
+1316	kyakkyawan	adj	good, fine, beautiful (m.) — before a masculine noun; feminine kyakkyawar
+1317	yin	verb	doing, making — the verbal noun of yi before an object: yin salla 'praying'
+1318	samun	verb	getting, obtaining — verbal noun of samu before an object: samun aiki
+1319	taɓa	verb	before another verb, 'ever': ka taɓa zuwa Paris? 'have you ever been to Paris?'; as a plain verb, to touch
+1320	can	adv	there, over there (far from both speakers); contrast nan 'here'
+1321	ƙarancin	noun	shortage of, lack of — ƙaranci (m.) 'scarcity' + the linker -n
+1322	tattara	verb	to gather, collect, bring together in one place
+1323	katin	noun	the card of — kati (m.) 'card', an English loan, + the linker -n
+1324	sasanta	verb	to settle, reconcile, make peace between parties
+1325	tsoron	noun	fear of — tsoro (m.) 'fear' + the linker -n: tsoron kowa 'fear of anyone'
+1326	zaka	pron	you (2sg m.), future — za + ka: zaka faɗa 'you are going to tell'
+1327	bada	verb	to give — ba da 'give (something)'; usually written as two words
+1328	masomin	noun	the beginning of — masomi (m.) 'start, origin' + the linker -n
+1329	ƙoƙarin	noun	trying to — ƙoƙari (m.) 'effort' + the linker -n; yi ƙoƙari 'to try'
+1330	ɗalibi	noun	(m., pl. ɗalibai) student, pupil (secondary school or above)
+1331	bai	pron	he (3sg m.), negative completive — bai zo ba 'he didn't come'
+1332	sunan	noun	the name of — suna (m., pl. sunaye) 'name' + the masculine linker -n
+1333	gidanka	noun	your (m.) house — gida (m.) 'house, home' + linker -n + -ka 'your'
+1334	yaushe	adv	when? — interrogative: yaushe za ka tafi? 'when will you go?'
+1335	kuɗin	noun	money, cost (kuɗi, m.) + masculine linker -n: 'the price of'
+1336	motoci	noun	cars (irregular pl. of mota, f.)
+1337	littafina	noun	my book (littafi, m.; 1sg possessive -na after a masculine noun, -ta after f.)
+1338	motata	noun	my car (mota, f.; 1sg possessive is -ta after a feminine noun, -na after m.)
+1339	ɗansa	noun	his son (ɗa, m. 'son' + 3sg m. possessive -sa)
+1340	yaranmu	noun	our children (yara, pl. of yaro, m. + 1pl possessive -mu)
+1341	rigarki	noun	your gown (riga, f. + -ki, the possessive for a female addressee)
+1342	tsohuwa	adj	old (feminine form; m. tsoho, pl. tsofaffi)
+1343	manta	verb	to forget
+1344	yakan	particle	he (3sg m.), habitual — does it regularly, as a rule
+1345	takan	particle	she (3sg f.), habitual — does it regularly, as a rule
+1346	mukan	particle	we (1pl), habitual — do it regularly, as a rule
+1347	kakan	particle	you (2sg m.), habitual — does it regularly, as a rule; not kakan 'the grandfather' (kaka + masculine linker)
+1348	kamata	verb	be fitting; ya kamata + subjunctive = 'should, ought to'
+1349	mutumin	noun	the man (mutum, m., pl. mutane + masculine linker -n)
+1350	wanda	pron	the one who/which — m. sg. relative pronoun (f. wadda, pl. waɗanda)
+1351	wadda	pron	the one who/which — f. sg. relative pronoun (m. wanda, pl. waɗanda)
+1352	waɗanda	pron	those who/which — pl. relative pronoun (m. sg. wanda, f. sg. wadda)
+1353	yarinyar	noun	the girl (yarinya, f., pl. ʼyan mata + feminine linker -r)
+1354	nake	particle	I (1sg), continuous — relative form, after a relative or focused phrase
+1355	kike	particle	you (2sg f.), continuous — relative form, after a relative or question word
+1356	inda	conj	where — the relative 'the place where', not the question word ina
+1357	muke	particle	we (1pl), continuous — relative form, after a relative or question word
+1358	nema	verb	to seek, look for
+1359	suke	particle	they (3pl), continuous — relative form, after a relative or question word
+1360	gaya	verb	to tell (someone something): gaya wa + person
+1361	likitoci	noun	doctors (pl. of likita, m.)
+1362	asibitin	noun	the hospital (asibiti, m. + masculine linker -n)
+1363	zaƙi	noun	sweetness (m.); mai zaƙi = sweet — distinct from zaki: lion
+1364	daɗi	noun	pleasantness, good taste (m.); da daɗi = nice, delicious
+1365	kayan	noun	the goods, things (kaya, m. + masculine linker -n)
+1366	shahara	verb	to become famous, be widely known
+1367	kawai	adv	only, just — placed after what it limits
+1368	kuke	particle	you (2pl), continuous — relative form, after a relative or question word
+1369	kiran	noun	calling (kira, m.) — verbal noun linked to its object with the masculine linker -n
+1370	jiran	noun	waiting for (jira, m.) — verbal noun linked to its object with the masculine linker -n
+1371	noman	noun	farming, growing (noma, m.) — verbal noun linked to its object with the masculine linker -n
+1372	tsayi	noun	height, tallness (m.); fi … tsayi = be taller than
+1373	huta	verb	to rest, take a break
+1374	dakata	verb	to wait, pause, hold on
+1375	shan	noun	drinking (sha, m.) — verbal noun linked to its object with the masculine linker -n
+1376	yunwa	noun	hunger (f.); jin yunwa = to be hungry
+1377	ɗanta	noun	her son (ɗa, m. 'son' + 3sg f. possessive -ta)
+1378	kashe	verb	to switch off, put out (a light or fire); to kill
+1379	wanke	verb	to wash (something)
+1380	canja	verb	to change, alter — both 'change it' and 'it changed'
+1381	kuma	conj	and also, moreover — joins clauses, where da joins nouns
+1382	madara	noun	milk (f.)
+1383	iya	verb	can, be able to; know how — takes a verbal noun after it
+1384	bincika	verb	to investigate, examine, look into
+1385	lamarin	noun	the matter, affair (lamari, m. + masculine linker -n)
+1386	riguna	noun	gowns, robes (irregular pl. of riga, f.)
+1387	launin	noun	the colour of (launi, m., pl. launuka + masculine linker -n)
+1388	kaya	noun	goods, things, a load (m.)
+1389	sabuwar	adj	new — feminine form, linked to a following noun (m. sabon)
+1390	wasiƙar	noun	the letter (wasiƙa, f. + feminine linker -r)
+1391	yau	adv	today
+1392	rigarsa	noun	his gown (riga, f. + 3sg m. possessive -sa)
+1393	ƙirin	adv	pitch-, jet- — ideophone used only with baƙi 'black'
+1394	gashinta	noun	her hair (gashi, m. + 3sg f. possessive -ta)
+1395	fuskarsa	noun	his face (fuska, f. + 3sg m. possessive -sa)
+1396	wur	adv	blazing, bright — ideophone used only with ja 'red'
+1397	ful	adv	brand- — ideophone used only with sabo/sabuwa 'new'
+1398	fal	adv	right up, completely — ideophone used only with cika 'be full'
+1399	ɗakin	noun	the room (ɗaki, m., pl. ɗakuna + masculine linker -n)
+1400	cika	verb	to be full; to fill, complete
+1401	tsohuwar	adj	old — feminine form, linked to a following noun (m. tsohon)
+1402	koyar	verb	to teach — always koyar da + what is taught
+1403	shinkafar	noun	the rice (shinkafa, f. + feminine linker -r)
+1404	dafu	verb	to come out cooked — intransitive counterpart of dafa 'to cook'
+1405	sauri	noun	speed, haste (m.); da sauri = quickly
+1406	ginu	verb	to get built — intransitive counterpart of gina 'to build'
+1407	koyon	noun	learning (koyo, m.) — verbal noun linked to its object with the masculine linker -n
+1408	ʼyar	noun	daughter of; f. 'one of' prefix (m. ɗan): ʼyar makaranta = schoolgirl
+1409	filin	noun	the field, open ground (fili, m., pl. filaye + masculine linker -n)
+1410	ƙwallo	noun	(m.) ball; ‘filin ƙwallo’ = football field
+1411	ƙaramin	adj	small, little — m. linked form of ƙarami, used before a noun
+1412	hana	verb	to prevent, stop, forbid (someone from doing something)
+1413	haƙuri	noun	(m.) patience, endurance; ‘yi haƙuri’ = be patient
+1414	maganin	noun	medicine, remedy (magani, m.) + masculine linker: ‘the cure for’
+1415	nisan	noun	distance, farness (nisa, m.) + masculine linker: ‘the distance of’
+1416	jifa	noun	(f.) a throw, act of throwing (esp. of stones)
+1417	faɗo	verb	to fall down, come falling (ventive of faɗi ‘fall’)
+1418	banza	noun	(f.) worthlessness; used adverbially ‘for nothing, in vain’
+1419	rigakafi	noun	(m.) prevention; also vaccination, immunisation
+1420	daɗe	verb	to last long, be a long time — in the greeting ‘Ranka ya daɗe’
+1421	ranka	noun	your (2sg m.) life — rai (m.) ‘life’ + possessive; ‘Ranka ya daɗe’
+1422	safiya	noun	(f.) morning; ‘barka da safiya’ = good morning
+1423	gode	verb	to thank; ‘na gode’ = thank you
+1424	baƙonmu	noun	our guest — baƙo (m.) ‘guest, stranger’ + 1pl possessive
+1425	madalla	intj	interjection of approval: splendid!, well done!, bravo!
+1426	fa	particle	emphatic particle after a topic: ‘and as for…’, ‘indeed’
+1427	ashe	particle	particle of surprise: ‘so it turns out that…’, ‘why, it was…!’
+1428	yarda	verb	to agree, consent; to believe in, trust (yarda da)
+1429	kuwa	particle	emphatic particle: ‘indeed, certainly’; also ‘as for’ after a topic
+1430	san	verb	to know — the form of sani used before an object
+1431	wayoyi	noun	phones; wires (pl. of waya, f.)
+1432	fito	verb	to come out, emerge, appear (ventive of fita ‘go out’)
+1433	ga	verb	to see (short form of gani before an object); also prep. ‘to, at, here is’
+1434	motsa	verb	to move, shift (something); ‘motsa jiki’ = physical exercise
+1435	kamshi	noun	(m.) pleasant smell, aroma; standard spelling ƙamshi
+1436	fada	noun	(f.) the emir’s palace, royal court
+1437	bukatar	noun	need, requirement (buƙata, f.) + feminine linker: ‘need for’
+1438	kula	verb	to look after, take care of, pay attention to (kula da)
+1439	samu	verb	to get, obtain, receive; to manage to
+1440	bambanta	verb	to be different, differ; to distinguish between
+1441	shawara	noun	(f.) advice, counsel; ‘yanke shawara’ = to make a decision
+1442	yanke	verb	to cut, cut off; ‘yanke shawara’ = to decide
+1443	fadi	noun	(m.) width, breadth; standard spelling faɗi
+1444	bakin	adj	black (m. linked form, baƙin); ‘baƙin ciki’ = sadness
+1445	cikin	prep	in, inside (ciki ‘belly, inside’ + masculine linker)
+1446	fitowa	noun	(f.) coming out, emergence; of the sun, rising — verbal noun of fito
+1447	kiwon	noun	herding, grazing (kiwo, m.) + masculine linker: ‘the herding of’
+1448	kokarin	noun	effort (ƙoƙari, m.) + masculine linker; before a verb = ‘trying to’
+1449	mene	pron	what — in ‘mene ne?’, the masculine ‘what is it?’ frame
+1450	mamata	noun	my mother — mama (f.) ‘mother’ + 1sg possessive
+1451	kash	intj	interjection of dismay or regret: alas!, damn!
+1452	ikon	noun	power, authority (iko, m.) + linker; ‘ikon Allah’ = God’s power
+1453	ari	verb	to borrow (something); cf. the verbal noun aro (m.) ‘a loan’
+1454	gaisuwa	noun	(f.) greeting, greetings, salutation
+1455	sonka	noun	loving/wanting you (2sg m.) — so (m.) ‘love’ + linker + object
+1456	shirya	verb	to prepare, arrange, get ready, put in order
+1457	harbi	noun	(m.) shooting, a shot; also a sting or bite
+1458	kazamin	adj	dirty, filthy — m. linked form of ƙazami; standard spelling ƙazamin
+1459	tuƙa	verb	to drive, steer, ride (a vehicle); to paddle
+1460	ninka	verb	to double, multiply; to fold over
+1461	raba	verb	to divide, split; to share out, distribute
+1462	numfashi	noun	(m.) breath, breathing
+1463	wayyo	intj	cry of alarm or distress: oh dear!, help! (‘wayyo Allah!’)
+1464	zamuyi	verb	we will do — future za + mu (1pl) + yi ‘do’; solid for za mu yi
+1465	banƙyama	noun	(m.) disgust, loathsomeness; ‘mai banƙyama’ = disgusting
+1466	kun	pron	you (2pl), completive aspect: ‘you (pl.) did / have done’
+1467	kwamfutan	noun	the computer — kwamfuta (f.); standard definite form kwamfutar
+1468	kaisu	verb	take them — kai ‘take, convey’ + 3pl object su
+1469	gano	verb	to find, discover, spot (ventive of gani ‘see’)
+1470	karshen	noun	end (ƙarshe, m.) + masculine linker; ‘ƙarshen mako’ = weekend
+1471	basa	pron	they (3pl), negative continuous: ‘they are not / do not’ (ba sa)
+1472	ƙazami	adj	dirty, filthy (m.); as an insult, ‘filthy one, scum’
+1473	kunnena	noun	my ear — kunne (m.) ‘ear’ + 1sg possessive

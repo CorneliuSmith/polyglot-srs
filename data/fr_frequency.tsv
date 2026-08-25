@@ -37,7 +37,7 @@ rank	word	pos	en
 36	me	pron	me (direct object)
 37	bien	adj	good, all right, great
 38	si	conj	if, whether; if (assuming that)
-39	du	article	Forms the partitive article.
+39	du	article	some, any (du pain = some bread); of the, from the (de + le: la fin du film)
 40	y	pron	there (a place already mentioned); to it, about it; il y a = there is, there are
 41	suis	verb	I am (from être); also I follow (from suivre - same form, different verb)
 42	non	adv	no; not (before another word: non loin = not far); moi non plus = me neither
@@ -49,13 +49,13 @@ rank	word	pos	en
 48	m'	pron	me, to me; myself (the form me takes before a vowel: il m'a dit)
 49	te	pron	you; yourself
 50	au	contraction	contraction of à + le, literally “to the, for the, at the”
-51	fait	noun	fact
+51	fait	verb	past participle of faire — done, made (c'est bien fait); also third-person singular present: il fait = he does, he makes, it is (weather); (as noun, m.) a fact, en fait = in fact
 52	moi	pron	me (first-person singular disjunctive pronoun)
 53	s'	conj	Elision of si (“if”) before il or ils.
 54	oui	adv	yes (answer si instead when contradicting a negative question)
-55	va	noun	"""version anglaise"" — English-language version (EV); a film dubbed in English"
+55	va	verb	third-person singular present of aller — goes (ça va = it's fine, how are you?); il va + infinitive = he is going to (on va voir = we'll see); also the singular imperative: va = go!
 56	était	verb	third-person singular imperfect indicative of être
-57	as	noun	ace (card of value 1)
+57	as	verb	second-person singular present of avoir — you have (tu as); also the helper for the past: tu as mangé = you ate; (as noun, m.) an ace, a card of value 1
 58	faire	verb	to do; to make
 59	ils	pron	they (male or mixed group)
 60	sur	prep	on, upon; on top of
@@ -68,7 +68,7 @@ rank	word	pos	en
 67	ici	adv	here
 68	ma	det	feminine singular of mon
 69	toi	pron	you (informal second-person singular personal pronoun, disjunctive)
-70	dit	noun	a sentence, saying or maxim
+70	dit	verb	third-person singular present and past participle of dire — says, said (dit-il = he said; j'ai tout dit = I've said everything); (as adj.) known as, alias
 71	lui	pron	him, he, it
 72	votre	det	your, belonging to you (plural or formal)
 73	es	verb	second-person singular present indicative of être
@@ -170,7 +170,7 @@ rank	word	pos	en
 169	vos	det	plural of votre; your (plural or formal you)
 170	bonne	adj	feminine singular of bon
 171	mort	verb	past participle of mourir
-172	mieux	adv	more, -er.
+172	mieux	adv	better (comparative of bien); le mieux = the best; faire de son mieux = to do one's best; il vaut mieux = it is better to
 173	vas	verb	second-person singular present indicative of aller
 174	sera	verb	third-person singular future indicative of être
 175	mère	noun	mother
@@ -186,7 +186,7 @@ rank	word	pos	en
 185	avons	verb	first-person plural present indicative of avoir
 186	petit	adj	small; little
 187	maison	noun	house
-188	soit	verb	let be
+188	soit	verb	third-person singular present subjunctive of être — (that it) be: il faut que ce soit fait = it has to be done; quoi que ce soit = anything at all; soit A soit B = either A or B
 189	cela	pron	that
 190	autres	adj	plural of autre
 191	toute	adv	feminine singular of tout
@@ -205,10 +205,10 @@ rank	word	pos	en
 204	bonjour	noun	greetings; hello (general salutation)
 205	nuit	noun	night
 206	raison	noun	reason (cause); reason (mental faculties)
-207	moins	adv	minus; negative
+207	moins	adv	less, fewer (comparative of peu); le moins = the least; au moins = at least; à moins que = unless; also minus (in sums and clock times)
 208	arrive	verb	first/third-person singular present indicative/subjunctive
 209	maman	noun	mummy, mommy, mom, mum
-210	reste	noun	rest, remainder
+210	reste	verb	stays, remains — from rester (je reste, il reste; reste ici = stay here); il reste beaucoup à faire = much remains to be done; (as noun, m.) the rest, the remainder
 211	moment	noun	moment (point in time)
 212	voulais	verb	first/second-person singular imperfect indicative of vouloir
 213	seul	adj	lonely; alone
@@ -216,7 +216,7 @@ rank	word	pos	en
 215	air	noun	air (gases of the atmosphere)
 216	entre	prep	between; among
 217	papa	noun	papa, a child's father; also as form of address: dad, daddy
-218	passe	noun	pass (the act of passing)
+218	passe	verb	passes, pass — from passer (je passe, il passe; passe-moi le sel = pass me the salt); que se passe-t-il = what is going on; (as noun, f.) a pass, mot de passe = password
 219	aurais	verb	first/second-person singular conditional of avoir
 220	problème	noun	problem; trouble
 221	ah	intj	ah
@@ -240,7 +240,7 @@ rank	word	pos	en
 239	pourrait	verb	third-person singular conditional of pouvoir
 240	travail	noun	work; labor; job
 241	pu	verb	past participle of pouvoir
-242	pris	adj	taken; occupied
+242	pris	verb	past participle of prendre — took, taken (j'ai pris = I took); (as adj.) taken, occupied (la place est prise)
 243	tête	noun	head (part of the body)
 244	quelle	adj	which?; What a ...!
 245	sait	verb	third-person singular present indicative of savoir
@@ -263,7 +263,7 @@ rank	word	pos	en
 262	chance	noun	chance; luck
 263	parle	verb	inflection of parler
 264	aurait	verb	third-person singular conditional of avoir
-265	part	noun	share; portion, part, slice
+265	part	noun	(f.) share, portion, slice; de ma part = from me, on my behalf; quelque part = somewhere; à part = apart from; also il/elle part = he/she leaves (from partir)
 266	elles	pron	they (female)
 267	jours	noun	plural of jour (“day”)
 268	grand	adj	big; tall
@@ -308,12 +308,12 @@ rank	word	pos	en
 307	hommes	noun	plural of homme
 308	tué	verb	past participle of tuer
 309	question	noun	question (interrogation by torture)
-310	partie	noun	part (portion, amount)
+310	partie	noun	(f.) part, portion (en partie = partly, faire partie de = to be part of); a game, a match (une partie de cartes); also elle est partie = she has left (feminine past participle of partir)
 311	histoire	noun	story; history
 312	devrais	verb	first/second-person singular conditional of devoir
 313	aide	noun	help, support; assist
 314	dernière	adj	feminine singular of dernier
-315	demande	noun	request (act of requesting)
+315	demande	verb	asks, ask — from demander (il demande, demande-lui = ask him); se demander = to wonder (je me demande = I wonder); (as noun, f.) a request, demand
 316	chercher	verb	to look for, to seek
 317	pensais	verb	first/second-person singular imperfect indicative of penser
 318	genre	noun	kind; style, look, type
@@ -326,7 +326,7 @@ rank	word	pos	en
 325	aucun	det	no, none, not any
 326	mettre	verb	to put; to place
 327	eux	pron	disjunctive form of ils; them
-328	laisse	noun	leash, lead; foreshore
+328	laisse	verb	leave, let — from laisser (il laisse; laisse-moi = let me, leave me alone); laisse tomber = forget it; (as noun, f.) a leash
 329	chaque	adj	each; every
 330	ville	noun	town, city
 331	arrivé	verb	past participle of arriver
@@ -391,7 +391,7 @@ rank	word	pos	en
 390	attendez	verb	second-person plural present indicative
 391	chambre	noun	a chamber in its various senses, including
 392	droit	noun	right (entitlement)
-393	parti	adj	divided into two equal parts vertically, per pale; said of an escutcheon
+393	parti	verb	past participle of partir — gone, left (il est parti = he left); (as noun, m.) a political party; parti pris = a bias
 394	mis	verb	first/second-person singular past historic of mettre
 395	eau	noun	water; In particular, rain
 396	compte	noun	account (bank or user account)
@@ -406,7 +406,7 @@ rank	word	pos	en
 405	fin	noun	end, close, finish
 406	croire	verb	to believe (someone)
 407	mme	noun	abbreviation of Madame
-408	aura	noun	aura
+408	aura	verb	third-person singular future of avoir — will have (il aura = he will have; il y aura = there will be); (as noun, f.) an aura
 409	gros	adj	big, thick, fat
 410	boulot	noun	work; job
 411	plutôt	adv	rather, instead (indicating preference)
@@ -541,7 +541,7 @@ rank	word	pos	en
 540	garder	verb	to keep; to retain; to store; to save
 541	agent	noun	agent
 542	allait	verb	third-person singular imperfect indicative of aller
-543	lit	noun	bed; layer
+543	lit	noun	(m.) bed (au lit = to bed, in bed; se mettre au lit = to go to bed); a bed, a layer (le lit d'une rivière = a river bed); also il/elle lit = he/she reads (from lire)
 544	travaille	verb	first/third-person singular present indicative/subjunctive
 545	adore	verb	first/third-person singular present indicative/subjunctive
 546	amie	noun	friend
@@ -564,7 +564,7 @@ rank	word	pos	en
 563	état	noun	state, condition
 564	ceci	pron	this
 565	impossible	adj	impossible; unbearable
-566	sorte	noun	sort, kind, type
+566	sorte	noun	(f.) sort, kind, type (une sorte de = a sort of; toutes sortes de = all kinds of); en quelque sorte = in a way; de sorte que, faire en sorte que = so that, to see to it that; also que je/il sorte = that I/he go out (subjunctive of sortir)
 567	perdre	verb	to lose (be unable to find)
 568	dollars	noun	plural of dollar
 569	voulu	verb	past participle of vouloir
@@ -572,7 +572,7 @@ rank	word	pos	en
 571	ira	verb	third-person singular future of aller
 572	faisait	verb	third-person singular imperfect indicative of faire
 573	bizarre	adj	bizarre, odd, strange, funny
-574	oublié	adj	forgotten
+574	oublié	verb	past participle of oublier — forgot, forgotten (j'ai oublié = I forgot; j'ai oublié ton nom = I've forgotten your name); (as adj.) forgotten, left behind
 575	arrêtez	verb	second-person plural present indicative
 576	ferai	verb	first-person singular future of faire
 577	serais	verb	first/second-person singular conditional of être
@@ -593,7 +593,7 @@ rank	word	pos	en
 592	montrer	verb	to show; to point to
 593	parles	verb	second-person singular present indicative/subjunctive of parler
 594	photo	noun	photo
-595	ferme	adj	firm
+595	ferme	verb	close, shut — from fermer (il ferme, je ferme; ferme la porte = close the door; ça ferme à six heures = it closes at six); ferme-la = shut up (rude); (as noun, f.) a farm; (as adj.) firm, steady (une main ferme)
 596	problèmes	noun	plural of problème
 597	cœur	noun	heart (organ); heart (shape)
 598	sûrement	adv	surely, certainly
@@ -621,7 +621,7 @@ rank	word	pos	en
 620	esprit	noun	immaterial or incorporeal substance
 621	cool	adj	cool (only its informal senses, mainly fashionable)
 622	mlle	noun	abbreviation of Mademoiselle
-623	marché	noun	market; deal, contract
+623	marché	noun	(m.) market (aller au marché = to go to the market; le marché du travail); bon marché = cheap, a bargain; a deal (conclure un marché = to strike a deal); also past participle of marcher — walked, worked (j'ai marché = I walked; ça a marché = it worked)
 624	fous	adj	masculine plural of fou
 625	haut	adj	high; tall
 626	salle	noun	hall; room (in a house)
@@ -665,7 +665,7 @@ rank	word	pos	en
 664	soyez	verb	inflection of être
 665	président	noun	president; chairperson
 666	plait	verb	post-1990 spelling of plaît (third-person singular present indicative of plaire)
-667	bois	noun	wood (substance making up the central part of the trunk and branches of a tree)
+667	bois	noun	(m.) wood, the material (une table en bois = a wooden table); a wood, the woods (dans les bois); also je/tu bois, bois ! = I/you drink, drink! (from boire)
 668	sinon	conj	except, apart from
 669	erreur	noun	error; error (the condition of one who has made and maintains such incorrect conclusions)
 670	mr	noun	(dated) abbreviation of Monsieur
@@ -673,21 +673,21 @@ rank	word	pos	en
 672	rendez-vous	noun	date; rendezvous
 673	devait	verb	third-person singular imperfect indicative of devoir
 674	revenir	verb	to come back, to return
-675	joue	noun	cheek
+675	joue	verb	plays, play — from jouer (il joue dehors = he's playing outside; joue avec moi = play with me); jouer à = to play (a game), jouer de = to play (an instrument); (as noun, f.) a cheek
 676	pauvre	adj	poor (financially deprived)
 677	devenir	noun	future
 678	s	noun	abbreviation of sud; south
 679	rencontrer	verb	to meet; to come across
-680	sort	noun	fate, destiny (consequences or effects predetermined by past events or a divine will)
+680	sort	verb	third-person singular present of sortir — goes out, comes out (il sort ce soir = he's going out tonight; ça sort d'où ? = where does that come from?); (as noun, m.) fate, destiny; a spell (jeter un sort = to cast a spell)
 681	commencer	verb	to begin, commence
 682	pouvait	verb	third-person singular imperfect indicative of pouvoir
 683	occupe	verb	first/third-person singular present indicative/subjunctive
 684	entends	verb	first/second-person singular present indicative
 685	souvent	adv	often
 686	pièce	noun	room in a house, etc.
-687	reçu	adj	accomplished
+687	reçu	verb	past participle of recevoir — received, got (j'ai reçu ta lettre = I got your letter; bien reçu = message received); (as noun, m.) a receipt; (as adj.) accepted, widely held (une idée reçue = a conventional idea, received wisdom)
 688	grave	adj	serious; solemn
-689	mets	noun	dish
+689	mets	verb	put, place — from mettre (je mets, tu mets; mets-le là = put it there; mets ton manteau = put your coat on); (as noun, m.) a dish, a prepared food (formal)
 690	intérieur	adj	interior
 691	honneur	noun	honor; face card
 692	dormir	verb	to sleep
@@ -699,7 +699,7 @@ rank	word	pos	en
 698	carte	noun	card; chart; map
 699	aviez	verb	second-person plural imperfect indicative of avoir
 700	appel	noun	call; appeal
-701	manque	noun	lack, absence; stress due to drug withdrawal
+701	manque	verb	is missing, lack — from manquer (il manque un livre = a book is missing; je manque d'argent = I'm short of money); elle me manque = I miss her (the person missed is the subject); (as noun, m.) a lack, a shortage; être en manque = to be in withdrawal
 702	envoyé	verb	past participle of envoyer
 703	début	noun	start, beginning
 704	puisse	verb	first/third-person singular present subjunctive of pouvoir
@@ -707,7 +707,7 @@ rank	word	pos	en
 706	bonsoir	intj	good evening
 707	content	adj	content, satisfied, pleased
 708	secret	adj	secret
-709	venue	noun	coming, arrival
+709	venue	verb	feminine past participle of venir — came, come (elle est venue = she came; une idée m'est venue = an idea came to me); (as noun, f.) a coming, an arrival (la venue du printemps)
 710	cher	noun	dear, honey, hon
 711	effet	noun	effect; spin, bend, curl
 712	voyons	verb	first-person plural present indicative of voir
@@ -743,7 +743,7 @@ rank	word	pos	en
 742	bout	noun	end, extremity, tip (of a physical object)
 743	ordre	noun	order (way in which things are arranged)
 744	armes	verb	second-person singular present indicative/subjunctive of armer
-745	cru	adj	raw (uncooked, unprocessed)
+745	cru	verb	past participle of croire — thought, believed (j'ai cru = I thought, I believed; je n'en ai pas cru mes yeux = I couldn't believe my eyes); (as adj.) raw, uncooked (viande crue); (as noun, m.) a vintage, a vineyard (un grand cru)
 746	déteste	verb	first/third-person singular present indicative/subjunctive
 747	retrouver	verb	to find (again); to rediscover
 748	millions	num	plural of million
@@ -856,7 +856,7 @@ rank	word	pos	en
 855	lumière	noun	light; lumen
 856	pieds	noun	plural of pied
 857	pote	noun	mate (UK), buddy (US)
-858	montre	noun	watch, wristwatch
+858	montre	verb	shows, show — from montrer (montre-moi = show me; il montre du doigt = he points at); se montrer = to show up, to appear; (as noun, f.) a watch, a wristwatch
 859	pied	noun	foot; leg, foot (projection on the bottom of a piece of equipment to support it)
 860	marcher	verb	to walk; to travel; to move; to march
 861	auras	verb	second-person singular future of avoir
@@ -874,7 +874,7 @@ rank	word	pos	en
 873	moitié	noun	half; significant other
 874	selon	prep	according to; whichever applies; depending on
 875	tenir	verb	to have; to hold
-876	grosse	adj	pregnant
+876	grosse	adj	feminine of gros — big, fat, thick (une grosse voiture = a big car; une grosse voix = a deep, booming voice; une grosse erreur = a big mistake); (archaic) pregnant
 877	vouloir	verb	to want, wish, desire
 878	michael	name	a male given name from English of modern usage
 879	vieille	adj	feminine singular of vieux
@@ -915,10 +915,10 @@ rank	word	pos	en
 914	dangereux	adj	dangerous
 915	folle	adj	feminine singular of fou
 916	jure	verb	first/third-person singular present indicative/subjunctive
-917	tiré	noun	down bow
+917	tiré	verb	past participle of tirer — pulled, drawn, shot (il a tiré trois fois = he fired three shots; tiré par les cheveux = far-fetched); être tiré d'affaire = to be out of trouble, off the hook
 918	essaye	verb	first/third-person singular present indicative/subjunctive
 919	bonnes	adj	feminine plural of bon
-920	offre	noun	offer; bid
+920	offre	verb	offers, offer — from offrir (je t'offre un verre = I'll buy you a drink; on te l'offre = it's on us); (as noun, f.) an offer, a bid; l'offre et la demande = supply and demand
 921	but	noun	aim; goal (result one is attempting to achieve)
 922	froid	adj	cold (temperature)
 923	prêts	adj	masculine plural of prêt
@@ -944,18 +944,18 @@ rank	word	pos	en
 943	vivant	adj	alive; living
 944	ciel	noun	sky; heaven
 945	lu	verb	past participle of lire
-946	touche	noun	touch; key (on keyboard), button
+946	touche	verb	touches, touch — from toucher (ne touche pas à ça = don't touch that; ça me touche = that moves me); (as noun, f.) a key, a button (on a keyboard); a touch, a stroke; en touche = out of play
 947	aimer	verb	to love (usually of a person, otherwise the meaning is closer to English like)
 948	télé	noun	TV, telly
 949	met	verb	third-person singular present indicative of mettre
 950	écouter	verb	to listen; to listen to
 951	serez	verb	second-person plural future indicative of être
 952	pourtant	adv	however, yet
-953	change	noun	exchange
+953	change	verb	changes, change — from changer (il change d'avis = he changes his mind; ne change pas = don't change); changer de = to change one thing for another; (as noun, m.) currency exchange (bureau de change)
 954	triste	adj	sad
 955	droite	adj	feminine singular of droit
 956	gueule	noun	gullet, snout, face (of an animal)
-957	tombe	noun	grave; tomb (small building or vault)
+957	tombe	verb	falls, fall — from tomber (il tombe = he falls; la nuit tombe = night is falling; ça tombe bien = that's good timing); tomber amoureux = to fall in love; (as noun, f.) a grave, a tomb
 958	sentir	verb	to smell (to have a certain odor)
 959	ouvrir	verb	to open; to begin, to initiate
 960	travers	noun	outside (the external part of)
@@ -1032,7 +1032,7 @@ rank	word	pos	en
 1031	voie	noun	way, track; lane (of a highway)
 1032	réunion	noun	meeting; set union
 1033	connu	adj	known; famous
-1034	allée	noun	path, lane, allée
+1034	allée	verb	feminine past participle of aller — went, gone (elle est allée = she went; elles sont allées); (as noun, f.) a path, a lane, a driveway; allées et venues = comings and goings
 1035	intérêt	noun	interest (great attention and concern from someone)
 1036	cheval	noun	horse; horse, H (narcotic)
 1037	combat	noun	combat (hostile interaction)
@@ -1054,7 +1054,7 @@ rank	word	pos	en
 1053	paul	name	Paul (biblical figure)
 1054	n	noun	abbreviation of nord
 1055	tient	verb	third-person singular present indicative of tenir
-1056	prise	noun	socket, wall socket (also prise électrique)
+1056	prise	verb	feminine past participle of prendre — took, taken (je l'ai prise = I took it, I took her; la place est prise = the seat is taken); (as noun, f.) a socket, a power point (prise électrique); a grip, a hold; prise de sang = blood test
 1057	gouvernement	noun	government
 1058	dirai	verb	first-person singular future of dire
 1059	client	noun	client, retainer, follower (person who is under the patronage of someone else)
@@ -1082,7 +1082,7 @@ rank	word	pos	en
 1081	sept	num	seven
 1082	pourriez	verb	second-person plural conditional of pouvoir
 1083	savent	verb	third-person plural present indicative of savoir
-1084	ouvert	adj	open; switched on
+1084	ouvert	verb	past participle of ouvrir — opened (j'ai ouvert la porte = I opened the door); (as adj.) open, unlocked (c'est ouvert = it's open; à bras ouverts = with open arms); ouvert d'esprit = open-minded
 1085	héros	noun	hero
 1086	menti	verb	past participle of mentir
 1087	mer	noun	sea (large body of water)
@@ -1103,7 +1103,7 @@ rank	word	pos	en
 1102	répondre	verb	to reply, to answer
 1103	seuls	adj	masculine plural of seul
 1104	pute	noun	whore, slut (prostitute)
-1105	entrée	noun	entry, act of entering
+1105	entrée	noun	(f.) an entrance, a way in (à l'entrée du bâtiment); an entry, admission (entrée libre = free admission); a starter, an appetizer (in a meal); also elle est entrée = she came in (feminine past participle of entrer)
 1106	vol	noun	flight; stealing, theft, robbery
 1107	horrible	adj	horrible (causing horror)
 1108	vin	noun	wine
@@ -1126,12 +1126,12 @@ rank	word	pos	en
 1125	dirais	verb	first/second-person singular conditional of dire
 1126	directeur	noun	director; school principal
 1127	intéressant	adj	interesting
-1128	excuse	noun	excuse
+1128	excuse	verb	excuse, forgive — from excuser (excuse-moi = excuse me, sorry; je m'excuse = I'm sorry); (as noun, f.) an excuse (une bonne excuse); mes excuses = my apologies
 1129	environ	adv	about, close to, around
 1130	t	noun	abbreviation of tour (“rook”)
 1131	inutile	adj	useless, unnecessary, pointless
 1132	terrible	adj	terrible; great, excellent
-1133	danse	noun	dance
+1133	danse	verb	dances, dance — from danser (il danse bien = he dances well; danse avec moi = dance with me); (as noun, f.) dance, dancing (la danse classique = ballet)
 1134	position	noun	position
 1135	humain	noun	human
 1136	apparemment	adv	apparently (seemingly)
@@ -1166,7 +1166,7 @@ rank	word	pos	en
 1165	partez	verb	second-person plural present indicative
 1166	utilisé	adj	used, in use
 1167	mur	noun	wall
-1168	pose	noun	installation, the act of laying, putting down (e.g. a building element)
+1168	pose	verb	puts, put down — from poser (pose-le ici = put it down here; ne pose pas tes livres sur la table = don't put your books on the table); ça ne pose aucun problème = that's no problem; poser une question = to ask a question; (as noun, f.) a pose, a posture; the laying, fitting of something
 1169	revenu	verb	past participle of revenir
 1170	deuxième	adj	second
 1171	bande	noun	band, strip; stripe
@@ -1244,7 +1244,7 @@ rank	word	pos	en
 1243	rapide	adj	fast, rapid
 1244	lorsque	conj	when (at a time when)
 1245	assurer	verb	to assure, to ensure, to make sure
-1246	rendu	noun	an instance of rendering, a render
+1246	rendu	verb	past participle of rendre — gave back, returned (je lui ai rendu son livre = I gave him back his book); made (j'ai rendu John heureux = I made John happy); rendre visite à = to pay a visit to; (as noun, m.) a render, the finished look of something
 1247	mignon	adj	cute (of a baby, an animal, etc.)
 1248	tourne	verb	first/third-person singular present indicative/subjunctive
 1249	danser	verb	to dance
@@ -1283,7 +1283,7 @@ rank	word	pos	en
 1282	rose	noun	rose (flower); rose window
 1283	touché	verb	past participle of toucher
 1284	mangé	verb	past participle of manger
-1285	vis	noun	screw (metal fastener)
+1285	vis	verb	first- and second-person singular present of vivre — I live, you live (je vis ici depuis dix ans = I've lived here for ten years; c'est là que tu vis = that's where you live); also the past historic of voir: je vis = I saw (literary); (as noun, f.) a screw
 1286	parole	noun	speech, language
 1287	rencontre	noun	encounter; meeting
 1288	apprécie	verb	first/third-person singular present indicative/subjunctive
@@ -1323,7 +1323,7 @@ rank	word	pos	en
 1322	portable	adj	portable
 1323	préparer	verb	to prepare; to prepare for
 1324	nécessaire	adj	necessary
-1325	court	adj	short
+1325	court	adj	short (c'est trop court = that's too short); à court de = short of (à court d'idées = out of ideas, à court d'argent = short of money); also runs — third-person singular present of courir (ce chien court très vite = that dog runs very fast); (as noun, m.) a tennis court
 1326	offrir	verb	to offer; to provide
 1327	envers	noun	reverse; inverse
 1328	bain	noun	bath
@@ -1413,7 +1413,7 @@ rank	word	pos	en
 1412	étant	verb	present participle of être
 1413	couple	noun	two partners in a romantic or sexual relationship
 1414	aiment	verb	third-person plural present indicative/subjunctive of aimer
-1415	permis	noun	permit, licence
+1415	permis	noun	(m.) a permit, a licence — le permis de conduire = driving licence (as-tu le permis ? = have you got your licence?); also the past participle of permettre: allowed, permitted (est-il permis de prendre des photos ? = are we allowed to take photos here?; cela m'a permis de = that allowed me to)
 1416	différence	noun	difference
 1417	faudrait	verb	third-person singular conditional of falloir
 1418	course	noun	run, running; race
@@ -1440,7 +1440,7 @@ rank	word	pos	en
 1439	dernières	adj	feminine plural of dernier
 1440	puisque	conj	since, because
 1441	blanche	adj	feminine singular of blanc
-1442	coupe	noun	goblet, cup; cup (award; prize)
+1442	coupe	verb	cuts, cut — from couper (coupe-le en deux = cut it in half); (as noun, f.) a cut, a haircut (une coupe de cheveux); a cup, a trophy (la Coupe du monde = the World Cup); a goblet
 1443	secrets	noun	plural of secret
 1444	prince	noun	prince
 1445	marrant	adj	funny, amusing
@@ -1460,7 +1460,7 @@ rank	word	pos	en
 1459	voudrait	verb	third-person singular conditional of vouloir
 1460	fil	noun	yarn, thread, wire
 1461	rends	verb	first/second-person singular present indicative
-1462	quitte	adj	quits; play quitte, play even, play without winning or losing, a draw
+1462	quitte	verb	leaves, leave — from quitter (il quitte la société = he's leaving the company; ne me quitte pas ! = don't leave me!; je te quitte demain = I'm leaving you tomorrow); (as adj.) quits, square — être quitte envers quelqu'un = to be even with someone; quitte à = even if it means
 1463	couché	verb	past participle of coucher
 1464	disons	verb	first-person plural present indicative
 1465	totalement	adv	totally
@@ -1489,7 +1489,7 @@ rank	word	pos	en
 1488	soldats	noun	plural of soldat
 1489	amuser	verb	to amuse, to entertain
 1490	points	noun	plural of point
-1491	suivi	noun	following; follow-up
+1491	suivi	verb	past participle of suivre — followed (je l'ai suivi dans sa chambre = I followed him into his room); took (il a suivi mon conseil = he took my advice; suivre un cours = to take a course); (as noun, m.) follow-up, monitoring, tracking
 1492	oubliez	verb	second-person plural present indicative
 1493	langue	noun	tongue; language (system of communication using written or spoken words)
 1494	direction	noun	direction; government
@@ -1540,7 +1540,7 @@ rank	word	pos	en
 1539	marre	noun	a sort of hoe (gardening tool)
 1540	français	adj	French; Franco-American or Francophone
 1541	princesse	noun	princess
-1542	paie	noun	pay, salary
+1542	paie	verb	pays, pay — from payer (ce travail ne paie pas = this work doesn't pay; paie l'addition = pay the bill); tout se paie = everything has its price; also spelled paye; (as noun, f.) pay, wages
 1543	foi	noun	Faith.; A depiction of a handshake.
 1544	chier	verb	to shit, defecate
 1545	présence	noun	presence
@@ -1561,7 +1561,7 @@ rank	word	pos	en
 1560	moindre	adj	comparative degree of petit; lower; less; lesser
 1561	quels	adj	masculine plural of quel
 1562	amener	verb	to bring (a person), take, fetch, give a lift, give a ride
-1563	amène	adj	pleasant
+1563	amène	verb	brings, bring along — from amener (je t'amène = I'll give you a lift; l'argent n'amène pas toujours le bonheur = money doesn't always bring happiness; je vous l'amène demain = I'll bring it to you tomorrow); (as adj., literary) pleasant, affable
 1564	enfoiré	noun	dickhead, fuckhead, shithead
 1565	recherches	noun	plural of recherche
 1566	discours	noun	speech; speech, address, talk, oral presentation
@@ -1593,7 +1593,7 @@ rank	word	pos	en
 1592	mark	noun	mark (currency)
 1593	morceau	noun	piece, slice, bit, morsel
 1594	os	noun	bone; snag, hitch
-1595	lettres	noun	humanities/arts
+1595	lettres	noun	(f. pl.) letters — plural of lettre: written letters (j'ai écrit trois lettres hier soir = I wrote three letters last night) and letters of the alphabet; les lettres = literature, the humanities (une fac de lettres = an arts faculty)
 1596	nombre	noun	number
 1597	intelligent	adj	intelligent
 1598	gâteau	noun	a sponge cake, i.e. a cake made with a chemical leavening agent
@@ -1683,7 +1683,7 @@ rank	word	pos	en
 1682	pourraient	verb	third-person plural conditional of pouvoir
 1683	prendra	verb	third-person singular future of prendre
 1684	surpris	adj	surprised
-1685	jeté	noun	jete; yarnover
+1685	jeté	verb	past participle of jeter — threw, thrown (qui a jeté une pierre à mon chien ? = who threw a stone at my dog?; il devrait être jeté en prison = he should be thrown in prison); jeter un coup d'œil = to take a look; (as noun, m.) a jeté (ballet leap); a table runner
 1686	également	adv	equally; too; also
 1687	fac	noun	university
 1688	apporter	verb	to bring (something)
@@ -1717,7 +1717,7 @@ rank	word	pos	en
 1716	van	noun	a winnowing basket
 1717	membre	noun	member (of a group or organization)
 1718	prévenir	verb	to prevent, to avert, to guard against
-1719	cache	noun	cache, hiding place for later retrieval
+1719	cache	verb	hides, hide — from cacher (je me demande où il se cache = I wonder where he's hiding; ne te cache pas sous le lit = don't hide under the bed); je ne te cache rien = I'm keeping nothing from you; (as noun, f.) a hiding place, a cache; (m.) a cover, a mask
 1720	inquiéter	verb	to worry; to be worried, to worry
 1721	hasard	noun	(random) chance
 1722	concerne	verb	first/third-person singular present indicative/subjunctive
@@ -1728,7 +1728,7 @@ rank	word	pos	en
 1727	jardin	noun	garden
 1728	saison	noun	season; season (a certain time of the year, when something in particular happens)
 1729	montré	verb	past participle of montrer
-1730	frappe	noun	hit; strike, striking, kick
+1730	frappe	verb	knocks, hits — from frapper (on frappe à la porte = someone's knocking at the door; frappe-moi ! = hit me!; la mort frappe tous les hommes = death comes to all men); (as noun, f.) a strike, a shot, a keystroke
 1731	enchanté	adj	enchanted, delighted
 1732	gosses	noun	plural of gosse
 1733	abandonner	verb	to give up; to abandon, forsake
@@ -1762,7 +1762,7 @@ rank	word	pos	en
 1761	compliqué	adj	complicated, intricate, convoluted
 1762	bal	noun	dance party, ball
 1763	page	noun	page (of a book, etc.)
-1764	conduit	noun	conduit (connecting pipe/channel)
+1764	conduit	verb	third-person singular present of conduire — drives, leads (mon père conduit très bien = my father drives very well; il conduit la voiture de son père = he drives his father's car); also its past participle: driven, led (nous avons conduit tour à tour = we took turns driving); (as noun, m.) a duct, a pipe
 1765	passage	noun	the act of going through a place or event
 1766	piège	noun	trap, snare, booby trap
 1767	kevin	noun	A boorish lower-class person of low intellect
@@ -1797,7 +1797,7 @@ rank	word	pos	en
 1796	bâtiment	noun	building, edifice
 1797	devrions	verb	first-person plural conditional of devoir
 1798	embrasser	verb	to hug, embrace (to affectionately wrap one's arms around another)
-1799	tombée	noun	fall (act of falling)
+1799	tombée	verb	feminine past participle of tomber — fell, fallen (une pièce est tombée de sa poche = a coin fell out of his pocket; elle est tombée amoureuse = she fell in love; Paris est tombée en 1940 = Paris fell in 1940); (as noun, f.) à la tombée de la nuit = at nightfall
 1800	manquer	verb	to lack, to be lacking in
 1801	entré	verb	past participle of entrer
 1802	san	noun	san (Greek letter)
@@ -1812,7 +1812,7 @@ rank	word	pos	en
 1811	rachel	name	Rachel (biblical figure)
 1812	paradis	noun	paradise (somewhere perfect)
 1813	émission	noun	emission; programme, show
-1814	lance	noun	a spear, lance; a lancer (a soldier armed with a lance)
+1814	lance	verb	throws, throw — from lancer (le garçon lance une pierre = the boy throws a stone; lance-moi la balle = throw me the ball); launches, starts (lancer un projet = to launch a project); (as noun, f.) a spear, a lance; a fire hose
 1815	nettoyer	verb	to clean; to wipe clean
 1816	file	noun	a line of objects placed one after the other
 1817	dimanche	noun	Sunday
@@ -1846,7 +1846,7 @@ rank	word	pos	en
 1845	brian	name	a male given name
 1846	droits	adj	masculine plural of droit
 1847	nerveux	adj	nerve; nervous; nervous, anxious
-1848	coupé	adj	divided into two equal parts horizontally, per fess; said of an escutcheon
+1848	coupé	verb	past participle of couper — cut (as-tu coupé le papier ? = did you cut the paper?; il a coupé un arbre = he cut down a tree); couper à travers = to cut across, take a shortcut; (as noun, m.) a coupé (two-door car); (heraldry) party per fess
 1849	patients	adj	masculine plural of patient
 1850	invités	noun	plural of invité
 1851	arrivés	verb	masculine plural of arrivé
@@ -1911,7 +1911,7 @@ rank	word	pos	en
 1910	jason	name	a male given name, equivalent to English Jason
 1911	supporter	verb	to support; to bear
 1912	milliers	noun	plural of millier; thousands
-1913	heu	noun	hoy (small coaster vessel)
+1913	heu	intj	er, um — hesitation filler, also spelled euh (heu... un nez... très grand = er... a very big nose); (as noun, m., rare) a hoy, a small coastal vessel
 1914	infirmière	noun	nurse
 1915	métier	noun	job, profession, trade
 1916	crétin	noun	cretin (someone affected by cretinism)
@@ -1955,7 +1955,7 @@ rank	word	pos	en
 1954	gardez	verb	second-person plural present indicative
 1955	feras	verb	second-person singular future of faire
 1956	lisa	name	a diminutive of the female given name Élisabeth
-1957	lis	noun	lily
+1957	lis	verb	first- and second-person singular present and the imperative of lire — read (je lis l'anglais = I read English; prends un livre et lis-le ! = take a book and read it!; lis après moi = read after me); (as noun, m.) a lily — la fleur de lis
 1958	station	noun	station
 1959	mandat	noun	mandate; postal order, money order
 1960	assassin	noun	an assassin or other murderer

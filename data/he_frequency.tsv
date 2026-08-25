@@ -97,7 +97,7 @@ rank	word	pos	en
 96	היה	verb	was; had
 97	אמא	noun	mom; mother
 98	אבא	noun	dad; father
-99	חבר	noun	friend (m); boyfriend
+99	חבר	noun	friend (m.); member of a body or party (חבר כנסת = a Knesset member, היה חבר ב־ = was a member of); boyfriend; in construct, the body itself — חבר המושבעים the jury, חבר העמים the Commonwealth; also the verb חָבַר, joined, teamed up with (ל־)
 100	משפחה	noun	family
 101	ילדה	noun	girl
 102	בן	noun	son
@@ -928,3 +928,2074 @@ rank	word	pos	en
 927	בקלות	adv	easily
 928	בכוונה	adv	on purpose; deliberately
 929	במקרה	adv	by chance; accidentally
+930	לאחר	prep	After, at a later time than.
+931	ידי	noun	plural construct state form of יָד (yád)
+932	אך	adv	Only.; Now, just, hardly.
+933	זו	det	This.
+934	הייתה	verb	Third-person feminine singular past (suffix conjugation) of היה (hayá).
+935	היו	verb	Third-person plural past (suffix conjugation) of היה (hayá)
+936	אשר	conj	that, which — the relative pronoun; the formal counterpart of ש־, introducing a subordinate clause
+937	ביותר	adv	Most.; Quite, most.
+938	שלו	prep	Form of שֶׁל (shel) including third-person masculine singular personal pronoun as object.
+939	כאשר	conj	when, as, at the time that
+940	בו	prep	Form of בְּ־ (b-) including third-person masculine singular personal pronoun as object.
+941	הראשון	adj	masculine singular definite form of רִאשׁוֹן (rishón)
+942	לו	conj	if (used in forming counterfactual conditionals)
+943	רבים	noun	many people; public
+944	במהלך	prep	In the course of, during.
+945	במקום	prep	Instead of, in lieu of, in place of.
+946	שנים	noun	plural indefinite form of שָׁנָה: years
+947	העיר	verb	To wake, awaken, wake up.
+948	הברית	noun	singular definite form of בְּרִית (b'rit)
+949	פי	noun	singular construct state form of פֶּה (pe).
+950	מכן	prep	Form of מ־ (mi-) including second-person feminine plural personal pronoun as object.
+951	בשם	noun	defective spelling of בושם
+952	אחת	num	feminine of אֶחָד (ekhád)
+953	ניתן	verb	to be given; to be allowed, possible
+954	שלה	prep	Form of שֶׁל (shel) including third-person feminine singular personal pronoun as object.
+955	אלו	pron	these; which
+956	ולא	conj	or else
+957	כלל	noun	A rule, a norm: a normative specification of desirable behavior.
+958	החל	verb	to begin, to start
+959	ללא	prep	without
+960	לה	prep	Form of ל־ (l'-) including third-person feminine singular personal pronoun as object.
+961	עבור	prep	because of, for, for the sake of, in order to
+962	העולם	noun	the world: singular definite form of עוֹלָם (olám).
+963	אלה	det	masculine/feminine plural of זה (ze)
+964	אולם	conj	But.
+965	רבות	adj	feminine plural indefinite form of רַב (rav)
+966	אחרים	noun	plural indefinite form of אחר m (akhér)
+967	במשך	prep	during
+968	זכה	verb	to win (a prize)
+969	בני	noun	plural construct state form of בֵּן (ben)
+970	תוך	noun	inside
+971	השיר	verb	shed leaves (of trees)
+972	בשל	prep	Because of, for.
+973	בהם	prep	Form of בְּ־ (b'-) including third-person masculine plural personal pronoun as object.
+974	אדם	noun	man, human
+975	מתוך	prep	From, out of.
+976	מטר	noun	rain
+977	שתי	num	feminine construct state of שניים \ שְׁנַיִם
+978	אלא	conj	but, except
+979	בלבד	adv	only
+980	תחת	prep	below; underneath
+981	רב	adj	Many, much.; Great.
+982	וכן	adv	likewise
+983	להם	prep	Form of לְ־ (l'-) including third-person masculine plural personal pronoun as object.
+984	לפי	prep	According to, per.
+985	נוסף	verb	to be added
+986	לעיתים	adv	sometimes, from time to time
+987	אינו	particle	third-person masculine singular personal pronoun-including form of אֵין (ein)
+988	שונות	noun	variance, diversity, variation
+989	בעיר	adj	flammable
+990	שבו	noun	agate
+991	כיום	adv	nowadays, currently, at present
+992	כולל	adj	including, inclusive of (כולל מע“מ = 'VAT included'); comprehensive, overall (ביטוח כולל); includes — m. sg. present of כלל
+993	כתב	verb	to write
+994	יצא	verb	To go out (of, from), come out (of, from), exit (from), leave, depart, get out (of, from).
+995	הגיע	verb	to arrive, to get, to reach
+996	דקות	adj	feminine plural indefinite form of דַּק (dak)
+997	מחדש	adv	anew
+998	מאז	prep	Since, ever since.
+999	עליו	prep	Form of על
+1000	לאור	prep	In light of: given, considering.
+1001	יהודים	noun	plural indefinite form of יְהוּדִי (y'hudí)
+1002	ילדים	noun	plural indefinite form of יֶלֶד
+1003	מערכת	noun	set (a group of things that go together)
+1004	שנות	noun	plural construct state form of שָׁנָה (shaná)
+1005	שלושה	num	three
+1006	בזמן	adv	on time (punctually)
+1007	הפך	noun	The opposite, contrary.
+1008	עקב	prep	following, because of, due to
+1009	שימוש	noun	use, utilization, using, making use (of)
+1010	ארצות	noun	plural indefinite form of אֶרֶץ (érets)
+1011	נשים	noun	women; an order of the Mishnah
+1012	הממשלה	noun	singular definite form of מֶמְשָׁלָה (memshalá).
+1013	שהם	noun	defective spelling of שוהם
+1014	הארץ	noun	singular definite form of אֶרֶץ ('érets)
+1015	בעוד	conj	As, while: at the same time as.
+1016	קיבל	verb	To receive, to get.
+1017	שמו	noun	singular form of שֵׁם
+1018	נולד	verb	to be born
+1019	פעולה	noun	an action, a move
+1020	המאה	noun	singular definite form of מֵאָה (mé'a)
+1021	ממנו	prep	Form of מִ־ (mi-) including first-person plural personal pronoun as object.
+1022	פעם	noun	A time: an instance, an occurrence.
+1023	אנשי	noun	plural construct state form of אִישׁ ('ish)
+1024	מאוחר	adj	late, belated
+1025	רבה	verb	to increase, to multiply
+1026	מול	prep	Opposite, against, facing.
+1027	אביו	noun	singular form of אב
+1028	תקופה	noun	An era, age, epoch, period.
+1029	אחרות	noun	indefinite feminine plural form of אחר
+1030	עבר	verb	to pass, to cross
+1031	כוחות	noun	plural indefinite form of כוח (kóakh)
+1032	בתי	noun	plural construct state form of בַּיִת
+1033	למעשה	adv	in fact, actually
+1034	ימים	noun	plural indefinite form of יוֹם (yom)
+1035	מדי	adv	"each, every (denoting frequency, as in ""every day"")"
+1036	נמצא	verb	to be found; to be discovered
+1037	שבה	verb	to capture (took captive).
+1038	אינה	particle	third-person feminine singular personal pronoun-including form of אֵין (ein)
+1039	נקודות	noun	plural indefinite form of נקודה / נְקֻדָּה (n'kudá)
+1040	אליו	prep	Form of אֶל (el) including third-person masculine singular personal pronoun as object.
+1041	ועד	noun	council
+1042	דולר	noun	dollar
+1043	ערך	noun	value; set, order
+1044	כפי	prep	according to; in the manner of, as
+1045	השם	noun	singular definite form of שֵׁם (shém)
+1046	בהן	noun	defective spelling of בוהן
+1047	הצליח	verb	Succeed; be successful.
+1048	כלי	noun	armory; tool; utensil; instrument
+1049	מונה	noun	numerator the number or expression written above the line in a fraction
+1050	פני	noun	plural construct state form of פָּנִים (paním)
+1051	בלתי	adv	not, except, without, unless, besides, because not, until, etc.
+1052	מכיוון	conj	since, because
+1053	לרוב	adv	mostly, usually
+1054	מדינות	noun	plural indefinite form of מְדִינָה (m'diná)
+1055	נבחר	verb	to be chosen, to be selected
+1056	לעומת	prep	As opposed to; compared to; compared with; versus; by contrast.
+1057	יהיה	verb	Third-person masculine singular future (prefix conjugation) of הָיָה (hayá).
+1058	אינם	particle	third-person masculine plural personal pronoun-including form of אֵין (ein)
+1059	האם	particle	Interrogative particle: starts a yes-or-no question.
+1060	שימש	verb	to serve, be used
+1061	בפני	prep	in the presence of, before
+1062	והיה	verb	Third-person masculine singular vav-consecutive perfect
+1063	חזר	verb	to return (to come back after some period of time, or at regular intervals)
+1064	מעבר	noun	A passage, passing-place, crossing, crosswalk.
+1065	הבית	noun	singular definite form of בַּיִת m (báyit).
+1066	תפקיד	noun	function, role, job
+1067	פחות	det	Less, fewer.
+1068	סיים	verb	to finish, to complete
+1069	מידע	noun	Information, data.
+1070	קבוצת	noun	singular construct state form of קְבוּצָה (k'vutzá)
+1071	חודשים	noun	plural indefinite form of חודש / חֹדֶשׁ (khódesh)
+1072	מכל	noun	container, bin
+1073	מלחמת	noun	singular construct state form of מִלְחָמָה (milkhamá).
+1074	חדשים	adj	masculine plural indefinite form of חָדָשׁ (khadásh)
+1075	שנת	noun	singular construct state form of שנה (shaná)
+1076	נקרא	verb	to be read; to be called
+1077	קבוצות	noun	plural indefinite form of קְבוּצָה (k'vutsá)
+1078	יחסית	adv	relatively, comparatively
+1079	במקביל	adv	in parallel
+1080	לשם	noun	A kind of stone
+1081	לבסוף	adv	finally
+1082	נחשב	verb	to be considered (assigned some quality)
+1083	קשר	verb	to tie, link together
+1084	שיחק	verb	to play; to act
+1085	ארבעה	num	four
+1086	משום	conj	because
+1087	לגבי	prep	About, regarding, in connection with, with respect to.
+1088	אחרת	adj	other, another — f. sg. of אחר (שפה אחרת = 'another language'); also, as an adverb, otherwise, differently
+1089	יהודי	adj	Jewish: being a Jew, or relating to Jews or Judaism.
+1090	נעשה	verb	to be done, performed, executed
+1091	שניות	noun	plural indefinite form of שנייה / שְׁנִיָּה (sh'niyá)
+1092	כלפי	prep	To, toward: proceeding toward, in the direction of.
+1093	נראה	verb	be seen; seem, appear, be thought of or viewed (a certain way)
+1094	בנו	prep	Form of ב־ (b'-) including first-person plural personal pronoun as object.
+1095	במאי	noun	a director
+1096	אי	noun	an island
+1097	חיל	noun	corps; army
+1098	שירים	noun	plural indefinite form of שִׁיר (shír)
+1099	מצב	noun	a shape, a situation, a state
+1100	ארגון	noun	purple
+1101	המשיך	verb	To continue, to still do.
+1102	בסיס	noun	a base
+1103	מפני	prep	Against: preventing or repelling, or intended to prevent or repel.
+1104	סוף	noun	An end, a finish.
+1105	קיים	adj	existing; enduring
+1106	חייו	noun	form of חַיִּים
+1107	מסוים	adj	Certain, specific, particular.
+1108	חזרה	noun	A return, returning, going back.
+1109	עליה	prep	Form of עַל (al) including third-person feminine singular personal pronoun as object.
+1110	ביחד	adv	together
+1111	רבי	noun	rabbi, spiritual teacher
+1112	הופיע	verb	to appear
+1113	לקראת	prep	to meet; toward: moving in the direction of
+1114	ראשי	adj	main, principal
+1115	המקום	noun	singular definite form of מָקוֹם m (makóm)
+1116	הפכה	noun	destruction, upheaval
+1117	משחקים	noun	plural indefinite form of מִשְׂחָק
+1118	הדבר	noun	singular definite form of דָּבָר (davár).
+1119	בעלות	noun	ownership, possession
+1120	הללו	verb	Masculine plural imperative of הילל / הִלֵּל.
+1121	זהו	particle	that is, this is, it is
+1122	פעילות	adj	feminine plural indefinite form of פָּעִיל (pa'íl)
+1123	אור	noun	light, visible light: electromagnetic radiation of a frequency perceptible to the eye
+1124	יכולה	verb	Feminine singular present participle and present tense of יָכוֹל (yakhól).
+1125	צוות	noun	crew, squad, team; staff
+1126	קרב	verb	to approach.
+1127	חברות	noun	plural indefinite form of חֲבֵרָה (khaverá)
+1128	חדשה	adj	feminine singular indefinite form of חָדָשׁ (khadásh, “new”).
+1129	שטח	noun	territory, land, area, plot, lot
+1130	שעות	noun	plural indefinite form of שָׁעָה (sha'á)
+1131	העם	noun	singular definite form of עַם (am): the nation, the people.
+1132	ספרים	noun	plural indefinite form of סֵפֶר (séfer)
+1133	תהליך	noun	process (a series of events leading to a result or product)
+1134	אשתו	noun	singular form of אישה / אִשָּׁה
+1135	תל	noun	tell; heap, pile
+1136	אזור	noun	a girdle; an area, region, zone
+1137	סדרת	noun	singular construct state form of סִדְרָה (sidrá)
+1138	לפחות	prep	at least
+1139	קבע	verb	to determine, to decide, to rule (בית המשפט קבע = 'the court ruled'); to set (a date, a record); also the noun kéva (m.), permanence or permanent status — צבא קבע, the career army
+1140	צבא	noun	a military (armed forces)
+1141	ברית	noun	covenant, alliance
+1142	חמישה	num	five
+1143	לשעבר	adj	Former, past, previous, erstwhile, sometime.
+1144	מבנה	noun	structure, building
+1145	חיילים	noun	plural indefinite form of חייל / חַיָּל (khayál)
+1146	קרובות	adj	feminine plural indefinite form of קָרוֹב (karóv)
+1147	שאר	noun	A remnant, a remainder, a rest.
+1148	לי	prep	Form of ל־ (l'-) including first-person singular personal pronoun as object: me
+1149	השתתף	verb	to participate (in) [with בְּ־ (+ activity)], to partner (with)
+1150	מאות	num	plural of מֵאָה
+1151	עת	noun	A time.; A period of time, a season, an era.
+1152	אפשר	adj	Possible: being a possibility; not impossible.
+1153	עבד	noun	A slave, a serf.
+1154	יכולת	noun	Ability, capability, power: the ability to do something.
+1155	מאחר	verb	masculine singular present participle and present tense of אִחֵר (ikhér)
+1156	עמד	verb	to stand (to support oneself on the feet in an erect position)
+1157	פרסם	verb	To advertise, publicize: to give public notice of; to announce publicly.
+1158	אותן	prep	Form of את
+1159	החליט	verb	To opt, choose, decide.
+1160	ממשלת	noun	singular construct state form of מֶמְשָׁלָה (memshalá)
+1161	מחקר	noun	material; study, piece of research
+1162	אחיו	noun	plural form of אח
+1163	ביקורת	noun	criticism, critique, critical opinion, judgmental review about a subject.
+1164	שיא	noun	A record, a peak: the most extreme known value of a given measure.
+1165	מערכות	noun	plural indefinite form of מַעֲרֶכֶת (ma'aréchet)
+1166	מקור	noun	A source, an origin, a root.
+1167	אליה	prep	Form of אֶל (él) including third-person feminine singular personal pronoun as object.
+1168	נפטר	verb	to pass away, to pass on: a polite way to refer to a death by natural causes.
+1169	חופשי	adj	free (not imprisoned)
+1170	במהירות	adv	Quickly, rapidly, fast.
+1171	הקים	verb	To erect, establish.
+1172	שמה	adv	there
+1173	אלבום	noun	An album: a group of music recordings, especially songs, published as a single unit.
+1174	קבוע	adj	fixed, permanent
+1175	הוציא	verb	to take or bring out or forth
+1176	מפקד	noun	A (male) commander, a (male) commanding officer.
+1177	נושא	noun	A subject, a topic, an issue: that which is under discussion, or which is being handled.
+1178	סיום	noun	completion, finishing
+1179	הישראלי	adj	masculine singular definite form of יִשְׂרְאֵלִי (yisr'elí).
+1180	לעולם	adv	eternally, forever
+1181	בזכות	prep	thanks to; in favor of
+1182	חוסר	noun	lack, absence, deficiency, in-
+1183	משמש	noun	apricot
+1184	גיל	noun	age, period; joy, happiness
+1185	שר	verb	to sing
+1186	חברים	noun	plural indefinite form of חָבֵר (khavér)
+1187	עברה	noun	anger, wrath
+1188	רשת	noun	a net (a mesh of string or the like)
+1189	הוקם	verb	to be built, established, founded
+1190	מגלה	verb	masculine singular present participle and present tense of גילה
+1191	הצטרף	verb	join
+1192	מעמד	noun	position, status
+1193	הנשים	verb	To cause artificial respiration, to resuscitate.
+1194	למען	prep	For the sake (benefit or regard) of (a person or thing).
+1195	בניו	noun	plural form of בֵּן
+1196	למד	verb	to learn, to study
+1197	ניצח	verb	To win (in a game, an election, or the like).
+1198	דין	noun	judgement; law (a written or understood rule)
+1199	מזון	noun	food, nourishment
+1200	מרכזי	adj	central
+1201	היישוב	noun	singular definite form of יישוב / יִשּׁוּב (yishúv).
+1202	כבש	noun	sheep (an ovine animal)
+1203	מעולם	adv	since always
+1204	שנתיים	noun	dual indefinite form of שנה (shaná)
+1205	אישי	adj	personal, private
+1206	גורם	noun	A cause; An element, a body, a source, a factor.
+1207	מלך	noun	king
+1208	משפחת	noun	singular construct state form of משפחה (mishpakhá)
+1209	עשרה	num	ten
+1210	רשמי	adj	official; formal
+1211	שבועות	noun	plural indefinite form of שָׁבוּעַ (shavúa'): weeks
+1212	הסכם	noun	An agreement, contract, accord.
+1213	ניסה	verb	to try, to attempt
+1214	טען	verb	to load (a vehicle or beast of burden)
+1215	מדובר	verb	Masculine singular present participle and present tense of דובר / דֻּבַּר
+1216	צבאי	adj	Military: of or relating to a military.
+1217	ראה	verb	To see, to have vision; figuratively, to perceive.
+1218	כיצד	adv	how; how, the way how, the manner in which
+1219	מחוז	noun	a district, a prefecture
+1220	שער	noun	gateway (entrance)
+1221	הבא	noun	He who or that which is arriving: singular definite form of בָּא (bá).
+1222	ימי	noun	plural construct state form of יוֹם (yom): days of
+1223	כללי	adj	general
+1224	סוג	noun	sort (kind, type)
+1225	פיתוח	noun	developing, development
+1226	גברים	noun	plural indefinite form of גֶּבֶר (géver)
+1227	הפעם	adv	this time
+1228	כולו	pron	form of כָּל
+1229	מבלי	prep	without
+1230	מת	adj	Dead, having died.
+1231	תהיה	verb	Second-person masculine singular future (prefix conjugation) of הָיָה (hayá).
+1232	אפילו	prep	even (emphasizing comparison or extreme example)
+1233	הגנה	noun	defense, protection
+1234	נקבע	verb	To be decided, determined, agreed.
+1235	שישה	num	six
+1236	גרם	noun	gram
+1237	לתוך	prep	into, inside
+1238	בנות	noun	plural indefinite form of בַּת (bat)
+1239	תקופת	noun	singular construct state form of תְּקוּפָה (t'kufá).
+1240	הוביל	verb	To lead; To lead (a group), to conduct (a ceremony): to be a leader of or in.
+1241	משנה	verb	changes, alters — m./f. sg. present of שינה (לא משנה = 'it makes no difference'); as the second word of a compound, sub-, secondary, deputy — ועדת משנה a sub-committee, קבלן משנה a subcontractor, כותרת משנה a subtitle, אלוף משנה a colonel; also the Mishnah, the core text of the Talmud, though that is normally written המשנה
+1242	פתח	verb	to open (something)
+1243	עשרות	noun	tens
+1244	שכל	noun	intelligence, mind
+1245	הודיע	verb	to inform, to announce, to make known
+1246	יחידות	noun	singleness, uniqueness, oneness, individuality the state of being one
+1247	נכתב	verb	to be written: to get written, to undergo writing, to come into written existence
+1248	פרס	verb	to slice, to cut
+1249	שיתוף	noun	cooperation
+1250	הישראלית	adj	feminine singular definite form of יִשְׂרְאֵלִי (yisr'elí).
+1251	פעיל	adj	active.; active, active voice.
+1252	אלפי	noun	plural construct state form of אֶלֶף (élef)
+1253	הקהל	verb	Masculine singular imperative of הִקְהִיל (hik-híl)
+1254	הרי	noun	plural construct state form of הַר (har)
+1255	טובה	adj	good — f. sg. of טוב (עבודה טובה = 'good work'); also, as a noun (f.), a favour, a kindness
+1256	כיהן	verb	to hold a senior position
+1257	חיי	noun	construct state form of חַיִּים (khayím)
+1258	טיפול	noun	care, medical care, treatment.
+1259	יתר	noun	remainder, rest, residue
+1260	כה	adv	thus, in this way
+1261	מלבד	prep	except, but, apart from
+1262	משמעותי	adj	meaningful, significant, important
+1263	עשוי	adj	made of; likely to; may, might
+1264	שב	verb	to return (to go back to a place or person)
+1265	פרק	verb	to unload
+1266	מין	noun	kind; species
+1267	אמו	noun	singular form of אֵם
+1268	יהודית	adj	feminine singular indefinite form of יְהוּדִי (y'hudí).
+1269	ליגה	noun	A league: an organization of competing sports teams.
+1270	שמות	noun	plural indefinite form of שֵׁם: names
+1271	תחילה	adv	at first
+1272	משמעות	noun	meaning; intent
+1273	עזב	verb	to leave, leave behind, depart
+1274	דמות	noun	An image, a picture, a likeness.
+1275	הוחלט	verb	To be decided.
+1276	עברו	verb	Third-person plural past (suffix conjugation) of עָבַר (avár).
+1277	פעמיים	adv	twice
+1278	שלב	noun	level, phase, stage
+1279	איתו	prep	Form of אֶת (ét) including third-person masculine singular personal pronoun as object.
+1280	חשיבות	noun	value, importance
+1281	מדיניות	noun	a policy
+1282	מדינת	noun	singular construct state form of מְדִינָה (m'diná)
+1283	בתו	noun	singular form of בַּת
+1284	גישה	noun	access; approach
+1285	השפעה	noun	influence
+1286	מזה	prep	from this; than this (in comparative contexts)
+1287	משפחות	noun	plural indefinite form of מִשְׁפָּחָה (mishpakhá)
+1288	הביא	verb	To bring.; to quote, to cite
+1289	לעבר	prep	toward
+1290	עסק	noun	business, enterprise; deal
+1291	ביטוי	noun	A pronunciation, an accent.
+1292	בעלה	noun	mistress (female master or owner)
+1293	מיליארד	num	A
+1294	משפט	noun	A trial: a legal proceeding before a court.
+1295	פרש	noun	horseman, cavalier, dragoon
+1296	בעצמו	prep	Form of בעצם
+1297	טלוויזיה	noun	television
+1298	גרסה	noun	version, variant, reading
+1299	מס	noun	tax
+1300	שירות	noun	a service
+1301	גדל	verb	to grow, to grow up (נולד וגדל בחיפה = 'born and raised in Haifa'); to become big, to increase
+1302	דרום	noun	south
+1303	ידע	noun	knowledge (m.) — what is known, expertise; also the past-tense verb ידע, 'he knew' (from לדעת)
+1304	מכונה	noun	pedestal, stand
+1305	צפון	noun	north
+1306	ארד	noun	bronze
+1307	האחרים	noun	definite masculine plural form of אחר
+1308	אכן	adv	indeed, truly, certainly, yes
+1309	מגוון	noun	variety, assortment
+1310	נשוי	adj	married
+1311	נשיא	noun	A president: a head of state in various forms of government.
+1312	נשק	noun	arms, weaponry
+1313	רכב	noun	vehicle, chariot
+1314	אנו	pron	we (first-person plural nominative pronoun)
+1315	היטב	adv	well
+1316	כתבה	noun	A news article, a report.
+1317	נתן	verb	to give; to allow, permit, let
+1318	שדה	noun	field (wide space for crops)
+1319	אליהם	prep	Form of אֶל (el) including third-person masculine plural personal pronoun as object.
+1320	אפשרות	noun	Possibility: the quality of being possible.
+1321	מאת	noun	singular construct state form of מֵאָה (me'á)
+1322	סדר	noun	Order, the state of being well-arranged, in the sense of putting things in order.
+1323	ועדת	noun	singular construct state form of ועדה (v'adá)
+1324	כעת	adv	now, for the time being, at this point in time, as of now
+1325	פרטי	adj	private, personal — רכב פרטי 'a private car', באופן פרטי 'privately'; also the construct plural of פרט: details of, items of — פרטי התוכנית 'the details of the plan', פרטי לבוש 'items of clothing'
+1326	רקע	verb	to stomp
+1327	אמה	noun	forearm; Hebrew cubit, usually 44.3 cm (17½ in) but sometimes 51.8 cm (20.4 in)
+1328	נבחרת	noun	select team
+1329	נוצר	verb	to be created, to be made
+1330	סירב	verb	to decline, refuse, turn down (such as an offer)
+1331	נודע	verb	To be known.; To be made known, to be announced.
+1332	די	adv	enough, sufficient, adequate
+1333	חוזה	noun	seer (prophet); visionary
+1334	חסר	adj	absent, missing
+1335	כלשהו	pron	any, whatsoever
+1336	מורכב	adj	assembled, installed
+1337	משחקי	noun	plural construct state form of מִשְׂחָק
+1338	שלמה	adj	feminine singular indefinite form of שָׁלֵם (shalém).
+1339	מקומות	noun	plural indefinite form of מָקוֹם (makóm)
+1340	נישא	verb	to be raised, lifted up, carried away
+1341	בהרבה	adv	much more
+1342	מעורב	adj	mixed
+1343	נבנה	verb	to be built
+1344	כאחד	adv	together, as one
+1345	מצליח	verb	succeeds, manages to (m. sg. present of הצליח; normally followed by an infinitive) — מצליח להימלט 'manages to escape', אינו מצליח 'does not manage'; as an adjective: successful, thriving
+1346	קרן	noun	horn; ray, beam (beam of light or radiation)
+1347	שלושת	num	masculine construct state of שְׁלוֹשָׁה (sh'loshá, “three”)
+1348	שרה	noun	lady, princess, queen
+1349	מילים	noun	plural indefinite form of מילה / מִלָּה
+1350	מצרים	noun	plural indefinite form of מִצְרִי
+1351	ניכר	adj	recognisable, evident
+1352	פרקים	noun	plural indefinite form of פֶּרֶק (pérek)
+1353	המשך	noun	continuation, sequel, continuance, resumption
+1354	מסע	noun	journey, trip, voyage
+1355	נותר	verb	to be left, to remain
+1356	חוקי	noun	laws of — construct plural of חוק (law, m.): חוקי הטבע 'the laws of nature', חוקי המדינה 'the laws of the state', חוקי היסוד 'the Basic Laws'; also an adjective: legal, lawful, permitted by law — בלתי חוקי 'illegal'
+1357	הלילה	adv	tonight
+1358	עמו	prep	Form of עִם
+1359	פגיעה	noun	a blow, a strike, a hit
+1360	תנאי	noun	a condition; a condition (to an agreement): a proviso, a requirement, a prerequisite
+1361	תנועה	noun	movement, move, motion (physical motion).
+1362	בר	noun	grain
+1363	חלקי	adj	partial
+1364	לגלות	verb	to-infinitive of גִּלָּה (gilá).
+1365	מאחורי	prep	behind, in back of
+1366	מראש	adv	in advance, ahead
+1367	גילה	verb	to discover; to reveal
+1368	מתאר	verb	describes, depicts (m. sg. present of תיאר) — הספר מתאר את 'the book describes'; as a noun (m.): an outline, a contour — תוכנית מתאר 'a master plan', קווי מתאר 'contour lines'
+1369	שליטה	noun	control
+1370	תחום	adj	delimited (setting limits)
+1371	תחנת	noun	singular construct state form of תַּחֲנָה (tachaná).
+1372	לחץ	noun	pressure
+1373	פרטים	noun	plural indefinite form of פְּרָט
+1374	אוויר	noun	air
+1375	בנה	verb	to build, to construct, to raise, to erect (a building, structure, or the like)
+1376	רצח	verb	to murder (to kill deliberately)
+1377	שווה	adj	equal, identical (the same in all respects, having the same value)
+1378	שנייה	noun	A second: a short period of time, one-sixtieth of a minute.
+1379	יעקב	verb	defective spelling of יעקוב
+1380	יצחק	verb	Third-person masculine singular future (prefix conjugation) of צָחַק (tsakhák), to laugh.
+1381	סגן	noun	A (male) deputy, a (male) second-in-command.
+1382	קבלת	noun	singular construct state form of קַבָּלָה (kabalá)
+1383	ביצוע	noun	implementation, execution, performance
+1384	בצורת	noun	drought
+1385	חוץ	noun	Outside (of)
+1386	ניצחון	noun	victory, triumph
+1387	קהל	noun	assembly; audience
+1388	בראשית	adv	at first, firstly, initially; in the beginning
+1389	זהה	adj	identical
+1390	מראה	noun	sight, appearance
+1391	משתנה	adj	variable (mathematics: having no fixed quantitative value)
+1392	סגנון	noun	A style.
+1393	עניין	noun	interest, something one finds interesting
+1394	פעל	verb	to do; to make
+1395	שחקנים	noun	plural indefinite form of שַׂחְקָן (sakhkán): actors, players
+1396	הכי	adv	Most, the most.
+1397	יצר	verb	created, made, formed (3rd m. sg. past of יצר) — יצר קשר 'made contact', יצר את 'created the…'; as a noun (m.): instinct, urge, drive — יצר הרע 'the evil inclination'
+1398	למחרת	adv	the next day
+1399	סמוך	adj	adjacent, close
+1400	חיפה	verb	to cover, to protect
+1401	קולות	noun	plural indefinite form of קוֹל (kol)
+1402	שירה	noun	singing (the act, practice, or skill of singing)
+1403	שלטון	noun	reign, rule, rulership
+1404	אמנם	adv	truly
+1405	ביקש	verb	to ask for, request
+1406	כולה	pron	form of כָּל
+1407	מיני	adj	sexual
+1408	נפרד	verb	to separate or become separated from; to break up with
+1409	שינה	noun	sleep: a state or period of being asleep
+1410	מכיל	noun	container
+1411	כנסת	noun	A coming together, a congregating, an assembly, a meeting.
+1412	מזרח	noun	east
+1413	צריכה	adj	needs to, has to, must (f. sg. of צריך; before an infinitive) — היא צריכה להיות 'she has to be', הייתה צריכה 'she had to'; as a noun (f.): consumption, demand — מוצרי צריכה 'consumer goods'
+1414	שכתב	verb	to rewrite, to revise
+1415	ברציפות	adv	consecutively, in a row
+1416	בתים	noun	plural indefinite form of בַּיִת (báyit)
+1417	להן	prep	Form of ל־ (l-) including third-person feminine plural personal pronoun as object.
+1418	מבצע	noun	An operation, an action.
+1419	מעין	noun	defective spelling of מעיין
+1420	מקובל	adj	Accepted, normal, usual.
+1421	חייהם	noun	form of חַיִּים (khayím) with third-person masculine plural personal pronoun as possessor.
+1422	יחיד	adj	alone, one, only
+1423	כהן	noun	defective spelling of כוהן
+1424	נזק	noun	Damage, detriment.
+1425	נתונים	noun	plural indefinite form of נָתוּן (natún)
+1426	שניים	num	two
+1427	אליפות	noun	championship
+1428	דברים	noun	plural indefinite form of דָּבָר (davár)
+1429	דוגמה	noun	an example, a sample, a specimen
+1430	דווקא	adv	unexpectedly; just to spite
+1431	חיות	noun	animals (f. pl. of חיה) — חיות בר 'wild animals', חיות מחמד 'pets', גן חיות 'a zoo'; also the f. pl. of חי: live, living — הופעות חיות 'live performances'
+1432	טבעי	adj	natural (of or relating to nature)
+1433	תמיכה	noun	support, assistance, backing
+1434	אוסף	noun	a collection
+1435	אחראי	adj	responsible
+1436	למעט	prep	excluding, except for
+1437	סדרה	noun	series, sequence
+1438	פרט	noun	a detail; an individual
+1439	רצה	verb	To want.; accept, choose
+1440	שום	verb	bare infinitive of שָׂם (sam)
+1441	אופי	noun	character (complex of marking psychological traits)
+1442	הפנים	verb	To absorb, to assimilate mentally: to incorporate knowledge or information into the mind.
+1443	טרם	adv	before; not yet
+1444	מועדון	noun	club (association of members)
+1445	פורסם	verb	to be publicized, advertised, posted, published
+1446	שאף	verb	to inhale; to aspire
+1447	אינן	particle	third-person feminine plural personal pronoun-including form of אֵין (ein)
+1448	ההר	noun	singular definite form of הַר (har)
+1449	הציע	verb	Spread.; Suggest, propose, recommend, offer.
+1450	נהוג	adj	customary
+1451	שותף	noun	partner, affiliate, copartner
+1452	גן	noun	A garden.
+1453	כאמור	adv	as previously mentioned
+1454	מקומי	adj	Local: of, from, or in a given place.
+1455	נהרג	verb	To be killed; to die suddenly or violently.
+1456	עשויה	adj	feminine singular indefinite form of עָשׂוּי (asúy)
+1457	תום	noun	innocence, simplicity
+1458	חיה	adj	feminine singular indefinite form of חַי (kháy)
+1459	מטה	noun	headquarters, (military) staff (m.) — ראש מטה 'chief of staff', קצין מטה 'a staff officer', מטה הבחירות 'campaign HQ'; and as an adverb: down, downwards — כלפי מטה 'downward'; the staff/rod sense is biblical
+1460	משתמש	verb	uses, makes use of (m. sg. present of השתמש, always with ב־) — משתמש במחשב 'uses a computer', אינו משתמש ב 'does not use'; as a noun (m.): a user — ממשק משתמש 'user interface'
+1461	החלטה	noun	A decision: an act of deciding, or the result thereof.
+1462	לכאורה	adv	seemingly, apparently
+1463	מעלה	noun	advantage; degree
+1464	מעשה	noun	deed, action, act
+1465	מצפון	noun	conscience (the moral sense)
+1466	נפתח	verb	To open, be opened: to be made open.
+1467	תלמידים	noun	plural of תַּלְמִיד
+1468	איתה	prep	Form of אֶת (ét) including third-person feminine singular personal pronoun as object.
+1469	הציג	verb	to perform; to show, to present, to display
+1470	לפיכך	adv	Therefore, hence, thereby.
+1471	מצא	verb	to find
+1472	טענה	noun	proposition, claim, argument
+1473	לקח	noun	lesson, moral; honeycake, lekach
+1474	מחקרים	noun	plural indefinite form of מֶחְקָר (mekhkár): studies
+1475	נע	verb	to move
+1476	סכום	noun	sum (quantity obtained by addition or aggregation)
+1477	שבעה	num	seven
+1478	תורה	noun	instruction, teaching
+1479	בנים	noun	plural indefinite form of בֵּן (bén)
+1480	דרכים	noun	plural indefinite form of דֶּרֶךְ f (dérekh)
+1481	משותף	adj	shared, joint, common
+1482	נוער	noun	youth
+1483	תלוי	adj	Hanging, suspended, or hung (on or from something).
+1484	הטובים	adj	masculine plural definite form of טוֹב (tóv)
+1485	חייב	adj	obligated, required, bound, must
+1486	לנו	prep	Form of ל־ (l-) including first-person plural personal pronoun as object.
+1487	מינים	noun	plural of מִין
+1488	מפעל	noun	factory, plant, manufacturing plant
+1489	שבט	noun	tribe; a wand, a staff; a swatting rod. cattle prod or a shepherd's crook.
+1490	אישית	adv	personally
+1491	בינתיים	adv	Meanwhile, in the meantime.
+1492	גמר	verb	to finish, complete
+1493	הבקיע	verb	to force one's way
+1494	התנהגות	noun	Behavior: the ways that an organism behaves.
+1495	זוהי	particle	that is, this is, it is
+1496	לימוד	noun	the process of learning, studying, or getting instructed
+1497	קרא	verb	to read; to call
+1498	שיטה	noun	acacia, shittah (a tree of the genus Vachellia or Faidherbia)
+1499	דעת	noun	mind; understanding
+1500	השתמש	verb	to use, to make use of
+1501	רחבה	adj	feminine singular indefinite form of רָחָב (rakháv)
+1502	העניק	verb	to award
+1503	מהלך	noun	course, path, trip
+1504	משך	verb	to pull; to stretch, to extend
+1505	סיבוב	noun	The act of turning, rotating, or revolving.
+1506	תוצאה	noun	A result, an outcome, an effect
+1507	אמור	adj	supposed to, meant to, should, believed
+1508	בהצלחה	intj	A phrase said to wish fortune on someone or as encouragement.
+1509	זהות	noun	identity
+1510	חזקה	adj	feminine singular indefinite form of חָזָק (khazák).
+1511	חתם	verb	to sign, to affix a seal
+1512	מסוגל	adj	Able, capable.
+1513	נשלח	verb	To be sent.
+1514	נתון	adj	given, granted, placed
+1515	פוליטי	adj	political
+1516	פיטר	verb	to fire, lay off, terminate, terminate the employment of
+1517	תקשורת	noun	communication; the media
+1518	אירוע	noun	event; function (official or social occasion)
+1519	התחיל	verb	to start, to begin
+1520	נשא	verb	married (a woman) — נשא לאישה / נשא את X לאישה, the commonest use by far in biographical prose: הוא נשא לאישה את בת דודתו 'he married his cousin'; also to carry, to bear, to lift; נשא נאום 'delivered a speech', נשא בתואר 'held the title'
+1521	ספרות	noun	literature; the craft of the scribe
+1522	עזרה	noun	help
+1523	פועל	noun	verb; deed; act
+1524	אחוז	adj	held, grasped; held in place, fastened, fixed
+1525	בלילה	noun	mixture, mash; mixing
+1526	במה	noun	high place, highland
+1527	גל	noun	mound, heap; wave (of water, energy, or figuratively anything else)
+1528	דו	prefix	Double-, two-, bi-, di-, ambi-, amphi-.
+1529	דופן	noun	wall, side
+1530	השואה	noun	defective spelling of השוואה.
+1531	מוקדם	adj	early
+1532	סמל	noun	symbol; emblem
+1533	ראשית	noun	the first, in place, time, order or rank
+1534	תיאר	verb	to describe, to outline
+1535	בפרט	adv	in particular
+1536	הגן	verb	to protect, to defend — הגן על 'defended, stood up for'; also simply ה־ + גן: the garden, the park, the kindergarten — הגן הלאומי 'the national park' — and in biology the gene — הגן עם המוטציה 'the gene carrying the mutation'
+1537	חוקים	noun	plural indefinite form of חוק
+1538	חייה	noun	form of חַיִּים (khayím) with third-person feminine singular personal pronoun as possessor
+1539	לאומי	adj	National: of a nation, or of nations.
+1540	לזהות	verb	to-infinitive of זיהה / זִהָה (zihá).
+1541	מאיר	verb	Masculine singular present participle and present tense of הֵאִיר (he'ir, “to light up”).
+1542	פרסי	adj	Persian: of or pertaining to Persia, its people, or their language.
+1543	לבנים	adj	underwear
+1544	מאסר	noun	Incarceration, imprisonment: confinement as a punishment for a crime.
+1545	מקרה	noun	A case, an instance, an occurrence, an event.
+1546	הכריז	verb	to announce, declare, proclaim
+1547	הסתיים	verb	To finish, to be completed.
+1548	התנגדות	noun	Opposition: the action, state, or quality of opposing or of being in conflict.
+1549	התקבל	verb	To be received, to be accepted.
+1550	טווח	noun	range (extent, reach, distance), term (terminus, timespan)
+1551	ישראלים	noun	plural indefinite form of יִשְׂרְאֵלִי
+1552	לחיים	noun	dual indefinite form of לֶחִי (lékhi).
+1553	נפש	noun	a soul, psyche (spirit of a person or animal)
+1554	ערים	noun	plural indefinite form of עִיר ('ír)
+1555	אחריות	noun	responsibility (for) [with על (al) ‘on’].
+1556	באה	verb	Third-person feminine singular past (suffix conjugation) of בָּא (ba)
+1557	ביצע	verb	to implement; to carry out, to perform, to execute
+1558	הלא	particle	Negative interrogative particle: starts a negative yes-or-no question.
+1559	וכדומה	phrase	et cetera, and the like
+1560	טקס	noun	ritual, ceremony
+1561	ידו	noun	singular form of יד
+1562	יוצר	noun	potter; creator, author
+1563	מסלול	noun	path (a trail for the use of, or worn by, pedestrians)
+1564	מעורבות	noun	Interference, intervention, meddling: the act of interfering or intervening
+1565	עלי	prep	Form of עַל including first-person singular personal pronoun as object
+1566	קיום	noun	existence; subsistence
+1567	רשות	noun	permission, authorization
+1568	ביטחון	noun	feeling of certainty or confidence in the existence of something
+1569	בכיר	adj	Senior: having greater rank, dignity, office, or similar.
+1570	ישיר	adj	direct
+1571	מערב	noun	west
+1572	מצוי	adj	regular, found; common
+1573	ספק	noun	doubt, uncertainty.
+1574	עלייה	noun	ascent, ascending, going up
+1575	עמדה	noun	a stance, a viewpoint, an approach
+1576	ציין	verb	to mark, indicate, point out
+1577	שלח	verb	to send (someone or something): cause to go
+1578	אגודת	noun	singular construct state form of אגודה / אֲגֻדָּה (agudá)
+1579	גבר	noun	man (an adult male human being)
+1580	דן	verb	To discuss [with עַל (al) ‘on’].
+1581	הלך	noun	traveler, nomad, wayfarer
+1582	ישראלי	adj	Israeli: of or pertaining to the State of Israel.
+1583	מתן	noun	gift,; giving
+1584	עורך	noun	an editor
+1585	אחדות	noun	unity
+1586	בהכרח	adv	Necessarily, of necessity.
+1587	בהתאמה	adv	Respectively: in that order.
+1588	בחירות	noun	plural indefinite form of בְּחִירָה (b'khirá), elections
+1589	האחרות	noun	plural definite form of אחר (achér)
+1590	חלה	noun	challah; a cake
+1591	חשש	noun	fear; concern, worry
+1592	לשוב	verb	to-infinitive of שָׁב (sháv).
+1593	מגורים	noun	residence, dwelling
+1594	מוות	noun	death
+1595	נמשך	verb	To continue, to last, to go on
+1596	פרסום	noun	advertising, publicising
+1597	תנועות	noun	plural of תְּנוּעָה
+1598	בנייה	noun	building, construction
+1599	הלכה	noun	Halacha (Jewish law, taken as a whole)
+1600	חד	adj	sharp; clear, exact
+1601	ייסד	verb	To establish, to found.
+1602	מועמד	noun	A candidate or nominee, such as for a job or a political office.
+1603	מות	noun	singular construct state form of מוות / מָוֶת
+1604	נועד	verb	to meet up, as a pair or as a group
+1605	סימן	noun	mark (sign for reference or measurement)
+1606	אב	noun	father; ancestor
+1607	באש	verb	to stink, have a foul smell
+1608	גביע	noun	goblet, chalice
+1609	יוצאת	verb	Feminine singular present participle and present tense of יָצָא (yatsá).
+1610	כאילו	conj	as if, as though
+1611	כלים	noun	plural indefinite form of כְּלִי
+1612	מידה	noun	measurement, size, ratio
+1613	עיקר	noun	essence, main part, gist, crux
+1614	פסק	verb	to cease, to stop; to desist
+1615	רדיו	noun	radio
+1616	באמת	adv	really, in truth
+1617	בולט	adj	protruding; conspicuous
+1618	חברתי	adj	social
+1619	שירת	verb	to serve; provide a service
+1620	חשמל	noun	The meaning of this term is uncertain. Possibilities include: electrum, amber
+1621	יוני	noun	plural construct state form of יוֹנָה (yoná): doves of
+1622	כלכלי	adj	Economic: of or relating to economics or the economy.
+1623	מבט	noun	glance, look (the act of looking)
+1624	מנוע	noun	engine: machine that converts energy to mechanical work
+1625	מתאים	adj	suitable, compatible
+1626	פול	noun	broad bean, fava bean, fava (Vicia faba)
+1627	קטע	verb	to cut off
+1628	שוחרר	verb	To be released, to be let go.
+1629	תעופה	noun	Flight, flying.
+1630	אחוזים	adj	masculine plural indefinite form of אָחוּז (akhúz)
+1631	בחר	verb	to choose, to opt, to select.
+1632	דגם	noun	a model (of a product)
+1633	הקימו	verb	Third-person plural past (suffix conjugation) of הֵקִים (heikím).
+1634	ירד	verb	To go down, descend.
+1635	נמל	noun	port
+1636	עובדה	noun	fact
+1637	ציבור	noun	A public, a community.
+1638	קהילה	noun	A community; a congregation.
+1639	אחדים	det	a few, some
+1640	איכות	noun	quality
+1641	האור	noun	singular definite form of אוֹר (ór).
+1642	הועבר	verb	To be handed over, transmitted, brought or taken across, transferred, passed.
+1643	לימים	adv	in time, eventually
+1644	מכבי	noun	a Maccabee
+1645	סיפר	verb	to tell (a story), to narrate, to recount
+1646	פועלת	noun	a (female) worker
+1647	שכר	verb	to hire, rent
+1648	אנרגיה	noun	energy
+1649	ביתו	noun	singular form of בַּיִת
+1650	הודו	noun	turkey (a bird in the genus Meleagris with a fan-shaped tail and wattled neck)
+1651	הכרה	noun	cognition, consciousness, cognizance, recognition
+1652	יחדיו	adv	together
+1653	סעיף	noun	a paragraph; a clause
+1654	ציבורי	adj	Public: pertaining to the public; or concerning an entire country or community.
+1655	צילום	noun	action or process
+1656	אופן	noun	way, manner
+1657	אזרחי	adj	civilian, nonmilitary: not of, or not related to, the military.
+1658	אנגליה	noun	Defective spelling of אנגלייה (“an Englishwoman”)
+1659	אנה	adv	whither, to where
+1660	באשר	prep	with regard to, in re, as to, as regards, concerning, with respect to, regarding
+1661	בזה	verb	Feminine singular present participle and present tense of בָּז (báz).
+1662	הכיר	verb	To know (someone), to recognize, to be familiar with (someone or something), to meet.
+1663	יחידה	noun	A unit; A unit: one of a group of similar items.
+1664	לחימה	noun	fighting
+1665	מאי	pron	what
+1666	סבל	verb	To suffer, to be suffering [with מִ־ (mi-)].
+1667	ציור	noun	A painting or drawing.
+1668	תיאור	noun	description
+1669	הוראה	noun	teaching, instruction (occupation, profession, or work)
+1670	הזדמנות	noun	An opportunity, a chance.
+1671	חל	verb	to occur, to take place, to set in (of a change or trend) — חל שינוי 'a change occurred', חל שיפור 'an improvement took place'; also: to apply, to be in force (of a law or ban) — החוק חל על 'the law applies to'; and to fall on (of a date)
+1672	מודל	noun	model
+1673	ניהל	verb	to manage
+1674	סנט	noun	cent; cent (a hundredth of a semitone or half step)
+1675	עיריית	noun	singular construct state form of עירייה (iriyá).
+1676	עצים	noun	plural indefinite form of עֵץ (éts)
+1677	פרסמה	verb	Third-person feminine singular past (suffix conjugation) of פִּרְסֵם (pirsém).
+1678	קצין	noun	commissioned officer
+1679	שחורים	noun	plural indefinite form of שחור (shakhór)
+1680	תוכן	noun	contents; content
+1681	תחרות	noun	contest, competition, fray
+1682	אות	noun	a sign, an omen
+1683	לוי	noun	Levite
+1684	מכר	verb	to sell
+1685	סופי	adj	Final, terminal, ending: of or pertaining to an end.
+1686	פתוח	adj	Open: ajar, standing open, not closed; unlocked, closed but not locked.
+1687	רומן	noun	romance, a novel (of any genre)
+1688	איתם	prep	Form of אֶת (ét) including third-person masculine plural personal pronoun as object.
+1689	אסור	adj	forbidden; incarcerated
+1690	גידול	noun	growing, growth
+1691	הקשה	verb	to stiffen
+1692	לתמוך	verb	To-infinitive of תָּמַךְ (tamákh), excessive spelling
+1693	מוחלט	adj	absolute, total — רוב מוחלט 'an absolute majority', באופן מוחלט 'absolutely', כישלון מוחלט 'a total failure'; also: definitive, decided
+1694	ממלכת	noun	singular construct state form of מַמְלָכָה
+1695	מנהיג	noun	A leader: one who leads.
+1696	מסורת	noun	tradition
+1697	נאמר	verb	to be said
+1698	סחר	verb	to traverse, to pass
+1699	צו	noun	decree, court order, injunction
+1700	קולנוע	noun	Cinema, film: movies taken collectively.
+1701	קרקע	noun	earth, soil; ground, land
+1702	שלנו	prep	Form of שֶׁל (shel) including first-person plural personal pronoun as object.
+1703	שעבר	adj	last, past, latest: the most recent.
+1704	שפות	noun	plural indefinite form of שָׂפָה (safá)
+1705	תא	noun	cell, cubicle, locker, stall
+1706	בודד	adj	lonely; alone, isolated
+1707	זמני	adj	temporal; temporary
+1708	חיבור	noun	a thing connecting things, a joining in a concrete or abstract sense
+1709	ייחודי	adj	unique
+1710	יסוד	noun	element; base, foundation
+1711	מחלוקת	noun	dispute, disagreement, argument
+1712	מערך	noun	array; formation (An arrangement of players designed to facilitate certain plays)
+1713	נפצע	verb	To be injured, to get hurt: to receive an injury, to become injured.
+1714	סך	noun	sum, total
+1715	ראוי	adj	good, fitting, appropriate, desirable, suitable, worthy
+1716	תאי	noun	plural construct state form of תָּא (ta)
+1717	אלוהים	noun	a god; a godlike figure, someone with godlike power or authority (like rulers or judges)
+1718	ברק	noun	lightning (atmospheric flash of light)
+1719	דברי	noun	plural construct state form of דָּבָר (davár)
+1720	הסטודנטים	noun	plural definite form of סְטוּדֶנְט (studént)
+1721	התחתן	verb	To marry, to get married, to wed: to become a spouse or spouses.
+1722	ירידה	noun	A descent, descending, going down.
+1723	לימודים	noun	classes, lessons, studies
+1724	מועד	noun	appointed or agreed-upon time
+1725	תשלום	noun	payment
+1726	אלימות	noun	violence, terror
+1727	הרומית	adj	feminine singular definite form of רומי (romi)
+1728	יעיל	adj	Effective, efficacious, good: having, or tending to have, the desired effect.
+1729	מדוע	adv	why
+1730	מוביל	verb	leads, leads to (m. sg. present of הוביל) — הדבר מוביל ל 'this leads to', מוביל את הקבוצה 'leads the team'; as an adjective: leading, foremost — חוקר מוביל 'a leading researcher'; as a noun (m.): a carrier, conduit — המוביל הארצי 'the National Water Carrier'
+1731	מסוגלים	adj	masculine plural indefinite form of מסוגל / מְסֻגָּל (m'sugál)
+1732	מספרים	noun	plural indefinite form of מִסְפָּר (mispár)
+1733	נכנסה	verb	Third-person feminine singular past (suffix conjugation) of נִכְנַס (nikhnás).
+1734	עלול	adj	might (indicating an action which is possible from the speaker's point of view)
+1735	צבי	noun	gazelle; deer (Cervidae)
+1736	צעד	noun	step, pace
+1737	רשימת	noun	singular construct state form of רְשִׁימָה (r'shimá)
+1738	אחים	noun	plural indefinite form of אָח m (akh): brothers; nurses
+1739	ביקר	verb	to visit; to inspect
+1740	והיו	verb	Third-person plural vav-consecutive perfect (hence future tense) of הָיָה (hayá).
+1741	חלל	noun	space, void (empty volume)
+1742	מכונות	noun	plural indefinite form of מְכוֹנָה (mekhoná)
+1743	מנהלת	noun	a (female) boss
+1744	סביר	adj	logical, reasonable
+1745	עולים	verb	Masculine plural present participle and present tense of עלה (alá)
+1746	עמודים	noun	plural indefinite form of עַמּוּד (amúd)
+1747	פנה	verb	to turn to, to approach, to appeal to — פנה אל 'turned to, addressed'; to turn, to head (in a direction); to take up (a field) — פנה להוראה 'went into teaching'
+1748	פרופסור	noun	A professor, a college professor, a university professor.
+1749	שרק	verb	to whistle
+1750	תיכון	adj	middle, central
+1751	אבי	noun	singular construct state form of אָב (áv): father of.
+1752	אזורי	adj	areal, regional, relating to a region or area
+1753	בינלאומי	adj	International: between, among, or regardless of nations.
+1754	השראה	noun	an inspiration; induction (generation of an electric current by a varying magnetic field)
+1755	נחל	noun	a stream (small river)
+1756	נפגע	verb	To be injured or wounded: to become injured or wounded, to receive a wound or injury.
+1757	פופולרי	adj	popular
+1758	קצב	noun	tempo, rhythm, rate, pace
+1759	ראשונה	noun	beginning
+1760	שילוב	noun	integration; combination
+1761	שיפור	noun	Improvement.; An improvement.
+1762	איסור	noun	prohibition, ban
+1763	ארבעת	num	masculine construct state of אַרְבָּעָה (arba'á, “four”)
+1764	ביים	verb	to stage, to produce
+1765	בסדר	adj	all right, okay, O.K., fine
+1766	הוצאה	noun	expense, expenditure
+1767	הקיץ	verb	To wake up, to awaken, to wake.
+1768	השיא	verb	to marry off; to officiate at a wedding
+1769	זרם	noun	a stream; a religious or ideological movement
+1770	משבר	noun	a crisis; vagina
+1771	נכלל	verb	To be included (in a group).
+1772	עיניים	noun	dual indefinite form of עַיִן (áyin)
+1773	עסקה	noun	transaction, bargain, dealing
+1774	עתה	adv	now
+1775	קובע	noun	helmet
+1776	איחוד	noun	Union.
+1777	אמרה	verb	Third-person feminine singular past (suffix conjugation) of אָמַר (amár).
+1778	בדיקה	noun	An examination, check-up, test, trial.
+1779	גבולות	noun	plural indefinite form of גְּבוּל (g'vúl)
+1780	יציבות	noun	stability
+1781	מאבק	noun	fight (occasion of fighting), battle.
+1782	מסחר	noun	trade; commerce (large scale trade)
+1783	נעצר	verb	to be stopped, to stop
+1784	רגשות	noun	plural indefinite form of רֶגֶשׁ (régesh)
+1785	רשם	verb	To inscribe, to write down, to note, to make a note.
+1786	שטחי	adj	superficial
+1787	איבד	verb	to lose; to drop from memory, to forget
+1788	דגל	noun	flag
+1789	דיון	noun	Discussion, the act of discussing.
+1790	העביר	verb	To hand over, transmit, bring or take across, transfer, pass.
+1791	השיג	verb	To obtain, procure, come by.
+1792	טון	noun	tone
+1793	לכבוד	prep	In honor of (a person or occasion), for.
+1794	למדה	verb	Third-person feminine singular past
+1795	משלחת	noun	A delegation: a group of people that is sent to represent some entity
+1796	שירותים	noun	bathroom, toilet, water closet
+1797	תורת	noun	singular construct state form of תּוֹרָה (torá)
+1798	איום	adj	threatening, frightening, terrifying
+1799	גבול	noun	A border; The area within a set of borders.
+1800	דתי	adj	religious
+1801	הון	noun	capital, wealth, fortune
+1802	הוסיף	verb	To add (something) to (something else).
+1803	הרס	noun	destruction (the act of destroying)
+1804	כיבוש	noun	conquest, occupation
+1805	מאמר	noun	article (relatively short written theoretical work)
+1806	משטח	noun	surface
+1807	נכשל	verb	to fail
+1808	נתפס	verb	To be caught.; To be perceived (a particular way).
+1809	סדרות	noun	plural indefinite form of סִדְרָה (sidrá)
+1810	סיכון	noun	danger, risk, hazard, peril
+1811	רצף	noun	sequence; continuum
+1812	שיהיה	intj	yeah right, whatever; oh, please
+1813	שפת	noun	singular construct state form of שָׂפָה (safá).
+1814	אמריקאי	adj	American: of, from, or pertaining to America.
+1815	במהרה	adv	quickly, speedily, soon, shortly
+1816	העלה	verb	to raise, lift; to bring from a low place to a high place
+1817	חיבר	verb	To connect, attach, join (two things, or one thing to another).
+1818	טיסה	noun	flight (act of flying)
+1819	יהודיים	adj	masculine plural indefinite form of יהודי (yehudí)
+1820	לשפר	verb	to-infinitive of שיפר / שִׁפֵּר (shipér).
+1821	מחנה	noun	camp; army base
+1822	מסביב	adv	all around
+1823	הטיל	verb	to toss, throw; to pour
+1824	היקף	noun	perimeter
+1825	הסכים	verb	to agree
+1826	התנגד	verb	To oppose, to be opposed (to)
+1827	התפטר	verb	to quit, resign (from a job)
+1828	חיובי	adj	Positive: good, not bad.
+1829	חקר	verb	to investigate, to research, to study
+1830	מזכיר	noun	A (male) secretary, a man tasked with keeping records and handling clerical work.
+1831	מכון	noun	institute, institution
+1832	מסדר	noun	parade, formation
+1833	עשו	verb	third-person plural past (suffix conjugation) of עָשָׂה (asá)
+1834	ציר	noun	axis (m.) — סביב ציר 'around an axis', ציר הזמן 'the timeline', ציר הסימטריה 'the axis of symmetry'; a route, thoroughfare — ציר ז'בוטינסקי; also: a pivot, a hinge; a delegate, envoy
+1835	קורס	noun	A course, class, especially at the university level or in the military.
+1836	גז	noun	gas; gas (fuel for stoves and burners)
+1837	ואמר	verb	First-person singular vav-consecutive imperfect (hence past tense) of אָמַר (amár).
+1838	מדעי	adj	scientific
+1839	מענה	noun	response, answer, reply
+1840	עדות	noun	testimony, report (of a witness)
+1841	שאת	verb	bare infinitive (infinitive construct or gerund) of נָשָׂא (nasá)
+1842	תקף	verb	to attack
+1843	בעד	prep	for, in favor of, supporting
+1844	גרמנית	noun	German
+1845	התגורר	verb	to dwell, to reside
+1846	התגלה	verb	to be discovered, to emerge
+1847	התפרסם	verb	to become famous, to become known
+1848	יחס	noun	a relation, an association, a connection
+1849	כספי	adj	silvery, metallic
+1850	כפול	adj	Double, dual: having two parts instead of one.
+1851	כתיבה	noun	writing (the process of representing a language with symbols or letters).
+1852	מימון	noun	financing, funding
+1853	מכתבים	noun	plural indefinite form of מכתב (mikhtáv)
+1854	מפגש	noun	A gathering
+1855	משמשים	noun	plural indefinite form of מִשְׁמֵשׁ
+1856	סמכות	noun	authority; power of attorney
+1857	עיצוב	noun	design
+1858	ערוץ	noun	A channel in the geographic sense, being a stream bed formed by the flow of water
+1859	פונה	verb	To be cleared or evacuated.
+1860	צייר	verb	to draw; to depict
+1861	צפוי	adj	Expected.
+1862	רחובות	noun	plural indefinite form of רְחוֹב m (rekhóv)
+1863	אלפים	num	plural of אֶלֶף
+1864	גג	noun	roof; circumflex
+1865	גדוד	noun	a troop, a band, a unit
+1866	התפתח	verb	to develop
+1867	חלקית	adv	partly, partially
+1868	חמשת	num	masculine construct state of חֲמִישָּׁה (khamishá, “five”)
+1869	כינה	noun	louse
+1870	מוגבל	adj	Limited, restricted, bounded, finite: subject to limits or limitations.
+1871	מחזור	noun	cycle (process)
+1872	מינה	verb	to appoint
+1873	ממוצע	noun	An average.; A mean.
+1874	רפואי	adj	medical (of or pertaining to medicine)
+1875	שמירה	noun	Keeping, maintaining, guarding, maintenance.
+1876	ששת	num	masculine construct state of שִׁישָּׁה (shishá, “six”)
+1877	ארצה	noun	singular form of אֶרֶץ
+1878	דגים	noun	plural indefinite form of דָּג (dág)
+1879	דיווח	noun	A news report; an act of news reporting.
+1880	החוצה	adv	outside (direction), outwards
+1881	היווה	verb	to constitute
+1882	טרור	noun	Terror, terrorism.
+1883	לרבות	prep	including
+1884	מגזין	noun	magazine, periodical
+1885	מסר	verb	to give, deliver, transmit, relay, pass on
+1886	מצוות	noun	plural indefinite form of מצווה / מִצְוָה (mitsvá)
+1887	משל	noun	allegory, morality play, fable, parable
+1888	נמכר	verb	to be sold, to be transferred in exchange for money
+1889	סמך	verb	to trust, rely on
+1890	ספרה	noun	her book — ספר (book, m.) with the 3rd f. sg. possessive suffix: ספרה הראשון 'her first book', את ספרה 'her book'; as a noun in its own right (f.): a digit, a single numeral; rarely: a sphere, a domain
+1891	קלה	adj	feminine singular indefinite form of קל (kal).
+1892	קרה	verb	To happen, occur, go on.
+1893	קרח	noun	ice
+1894	שלט	noun	sign (flat object bearing a short message)
+1895	ביטול	noun	cancellation
+1896	גופים	noun	plural indefinite form of גּוּף (guf)
+1897	דל	adj	weak, poor
+1898	החליף	verb	to swap, exchange, change; to replace one thing with another
+1899	ויצא	verb	(he/it) exited, left: third-person masculine singular vav-consecutive imperfect
+1900	חוף	noun	beach, shore, coast
+1901	חיצוני	adj	External.
+1902	ישראלית	adj	feminine singular indefinite form of יִשְׂרְאֵלִי (yisr'elí).
+1903	מימי	noun	plural construct state form of מַיִם (máyim)
+1904	מרחב	noun	space, area
+1905	מתכת	noun	metal
+1906	נמנע	verb	To refrain, avoid, abstain (from an action).
+1907	עברית	noun	Hebrew (language)
+1908	ענף	noun	branch
+1909	פרויקטים	noun	plural indefinite form of פרויקט (proyékt)
+1910	קשת	noun	rainbow; bow
+1911	שורה	noun	A row (of objects); for example, a line of text.
+1912	תאים	noun	plural indefinite form of תָּא (ta)
+1913	תופעה	noun	phenomenon
+1914	תמך	verb	supported, backed (3rd m. sg. past of תמך; with ב־) — תמך במועמד 'backed a candidate', לא תמך ב 'did not support'; also: to hold up, to prop up; as a noun (m.): a prop, a structural support
+1915	יזם	verb	to take the initiative
+1916	כוונה	noun	intent, intention
+1917	מאמץ	noun	effort, strain, exertion
+1918	מושג	noun	A concept; A notion
+1919	מקרי	adj	accidental; coincidental; by happenstance
+1920	משא	noun	a burden
+1921	נישואים	noun	marriage, wedding
+1922	נתקל	verb	to bump into, run into, encounter, come across
+1923	סופית	adj	feminine singular indefinite form of סוֹפִי (sofí)
+1924	רישום	noun	registry, registration
+1925	רכש	verb	to acquire
+1926	אישר	verb	to approve, allow
+1927	אלי	noun	singular form of אֵל (él) with first-person singular personal pronoun as possessor.
+1928	אספקה	noun	supply
+1929	גיוס	noun	enlistment
+1930	דור	noun	generation (a stage in genealogical succession)
+1931	התקפה	noun	An attack.; attack (an attempt to exploit a vulnerability in a computer system)
+1932	ועדה	noun	A committee.
+1933	חמור	noun	jackass, donkey (a domestic animal, Equus asinus asinus, similar to a horse)
+1934	ירי	noun	shooting, firing
+1935	לימד	verb	To teach.
+1936	מגן	noun	shield; shield (he who or that which protects)
+1937	מוסד	noun	An institute, institution, association.
+1938	מיעוט	noun	minority
+1939	מנחם	verb	Masculine singular present participle and present tense of ניחם / נִחֵם (nikhém)
+1940	נמלט	verb	to flee, escape; be a fugitive
+1941	נסע	verb	To travel.; To drive.
+1942	נפגש	verb	To meet (with someone), to have a meeting with, to meet (intentionally).
+1943	עזר	verb	to help, to assist
+1944	עתיד	adj	will, shall
+1945	פרץ	verb	to breach: to break open a gap in an enclosure or the like.
+1946	קילומטר	noun	A kilometre: a unit of length or distance equaling one thousand metres.
+1947	קליפ	noun	A music video.
+1948	ראשוני	adj	Initial, primary, first, starting.
+1949	רגע	noun	a moment (brief, unspecified amount of time)
+1950	שהה	verb	to stay, spend (time)
+1951	שלבים	noun	plural indefinite form of שְׁלָב / שָׁלָב
+1952	אמצע	noun	middle, center
+1953	בטעות	adv	Accidentally, by mistake.
+1954	דון	verb	Bare infinitive (infinitive construct or gerund) of דן (dan)
+1955	דלק	noun	fuel
+1956	דרש	verb	demand; require, need
+1957	הבין	verb	To understand, to have understanding, to be one who understands.
+1958	התקדמות	noun	progress; advancement
+1959	זיהוי	noun	an identification
+1960	חזית	noun	front, facade; foreground
+1961	חירום	noun	emergency; often used attributively
+1962	חלוקה	noun	partition, division, distribution
+1963	כניסה	noun	An entrance, an entry: the act of entering
+1964	מתו	verb	Third-person plural past (suffix conjugation) of מֵת (mét).
+1965	עבדים	noun	plural indefinite form of עֶבֶד ('éved)
+1966	ענק	noun	giant; necklace
+1967	פגש	verb	To meet.; To meet for the first time.
+1968	פיתח	verb	to develop
+1969	רכוש	noun	possession, substance
+1970	שידור	noun	broadcast, transmission (through electromagnetic device)
+1971	שייך	adj	belonging (to), owned (by)
+1972	תרגום	noun	translation (the result of an act of translating)
+1973	תשעה	num	nine
+1974	הביתה	adv	Home, homeward, to one's home.
+1975	החזיק	verb	to hold, to grab
+1976	הלאה	adv	along, forward, onward, next
+1977	המראה	noun	A takeoff, a departure (of an aircraft).
+1978	הפסיד	verb	to lose (a game, competition, or money)
+1979	חזה	noun	chest, thorax
+1980	חיפוש	noun	searching, search
+1981	לשחרר	verb	To-infinitive of שחרר (shikhrér)
+1982	מגדל	noun	tower
+1983	מילא	verb	To fill (something) up, to make (something) full.
+1984	משטר	noun	a regime
+1985	עמק	noun	valley
+1986	פוטר	verb	to be fired, laid off, terminated
+1987	צבר	noun	prickly pear cactus
+1988	ריכוז	noun	concentration, focus.
+1989	רישיון	noun	license
+1990	שיכול	noun	transposition, placing crosswise, crossing one's limbs
+1991	שריון	noun	armour, armor; tortoise shell
+1992	תוקף	noun	validity; power
+1993	אגם	noun	lake, pool; swamp, marsh
+1994	בשורה	noun	tidings, news; gospel
+1995	דחה	verb	to push away, push aside
+1996	הערב	noun	This evening, tonight.
+1997	העתיק	verb	to copy, duplicate, make a copy
+1998	השלים	verb	to complete, finish, fill out
+1999	ילדי	noun	plural construct state form of יֶלֶד (yéled)
+2000	מסורתי	adj	traditional
+2001	מרץ	noun	energy, vigour, forcefulness, liveliness
+2002	משימה	noun	a task, a mission
+2003	מתח	verb	to stretch; to excite, to stir
+2004	עבדה	noun	a staff of servants
+2005	עצמאות	noun	independence
+2006	פירוש	noun	interpretation, gloss
+2007	הצהיר	verb	to declare formally
+2008	חכמים	adj	masculine plural indefinite form of חָכָם (khakhám)
+2009	ישיבת	noun	singular construct state form of יְשִׁיבָה (y'shivá).
+2010	מותר	adj	permissible, permitted, allowed
+2011	מנגנון	noun	mechanism, apparatus
+2012	מסמכים	noun	plural of מִסְמָךְ
+2013	מרד	noun	a rebellion, insurrection, mutiny, an uprising
+2014	מרוץ	noun	A race: a contest of speed, such as a footrace or a car race; also used figuratively.
+2015	פירוק	noun	dissolution, breakdown
+2016	רצו	verb	third-person plural past (suffix conjugation) of רצה (ratsá)
+2017	שחרור	noun	Release, a release, an act of releasing.
+2018	אותי	prep	Form of אֵת (et) including first-person singular personal pronoun as object
+2019	גברת	noun	lady, madam
+2020	הנחה	noun	assumption, hypothesis
+2021	השיב	verb	return (something)
+2022	יציב	adj	stable
+2023	מרכיב	noun	ingredient, component, constituent
+2024	נטל	verb	to load (something on someone), cause someone to bear (something)
+2025	ניצב	verb	to stand, position oneself
+2026	צעירה	adj	feminine singular indefinite form of צָעִיר (tza'ír)
+2027	קוד	noun	code
+2028	רוק	noun	saliva
+2029	רשימה	noun	list
+2030	שחורה	adj	feminine singular indefinite form of שחור / שָׁחֹר (shakhór)
+2031	תרם	verb	To donate; To contribute
+2032	אלבומים	noun	plural indefinite form of אַלְבּוֹם (albóm)
+2033	בוגר	noun	mature, having the quality of adulthood
+2034	דונם	noun	a dunam (a historical Turkish unit)
+2035	הבנה	noun	an understanding, comprehension
+2036	הוכחה	noun	proof, confirmation
+2037	המס	verb	to dissolve
+2038	השתנה	verb	to change, become different
+2039	כשל	noun	failure
+2040	לשון	noun	tongue; language
+2041	מכשיר	noun	device, tool, implement
+2042	ממשל	noun	administration, government
+2043	נפט	noun	petroleum
+2044	נרצח	verb	To be murdered.
+2045	סוסים	noun	plural indefinite form of סוּס
+2046	סייע	verb	to help, aid, assist
+2047	עמוד	noun	pillar, column, post
+2048	צבעים	noun	plural indefinite form of צֶבַע (tséva)
+2049	שמע	noun	audio
+2050	גזע	noun	trunk, stock (of a tree)
+2051	גילוי	noun	revelation; discovery
+2052	דגש	noun	dagesh; emphasis
+2053	הודה	verb	to admit, acknowledge, confess
+2054	הכנסה	noun	A bringing in; income, revenue
+2055	הראה	verb	to show
+2056	חופשית	adj	feminine singular indefinite form of חָפְשִׁי (khofshí).
+2057	חטיבה	noun	division, department, bureau
+2058	חנויות	noun	plural indefinite form of חֲנוּת (khanút)
+2059	יתרון	noun	An advantage, a benefit.
+2060	כשר	adj	fit, proper, legitimate
+2061	מזג	verb	to pour
+2062	מצבה	noun	A standing stone or pillar used in ancient times
+2063	משמר	noun	guard
+2064	מתחם	noun	zone, scope, domain
+2065	עקרון	noun	Defective spelling of עיקרון
+2066	שבועיים	noun	dual indefinite form of שָׁבוּעַ (shavúa', “a week”), thus, a fortnight or two weeks.
+2067	שבר	noun	break (a location where something has been broken)
+2068	שומר	verb	to be preserved, to be conserved
+2069	שימור	noun	preservation, conservation
+2070	שרפה	noun	defective spelling of שריפה
+2071	תיקון	noun	improvement; repair
+2072	תקציב	noun	A budget.
+2073	אגף	noun	department; wing of a building
+2074	אויב	noun	enemy
+2075	אוכלוסייה	noun	population
+2076	אישיות	noun	A person's personality.
+2077	בזמנו	prep_phrase	at the time; at that time; in someone's time
+2078	האמין	verb	to believe
+2079	היסטורי	adj	Historical: of or pertaining to history or to the past.
+2080	הפסד	noun	loss
+2081	הצעה	noun	suggestion; offer, proposal
+2082	התאים	verb	to adapt, to fit, to adjust
+2083	התייחס	verb	To treat, to act (toward): to act toward someone or something in a certain way.
+2084	התעלה	verb	To outdo, to exceed
+2085	חקיקה	noun	Legislation, a piece of legislation: the act, process, or result of legislating.
+2086	חקירה	noun	An investigation, an inquiry: a methodical activity to gather or analyze data.
+2087	יהודיות	adj	feminine plural indefinite form of יְהוּדִי (yehudí)
+2088	כיסוי	noun	covering; cover
+2089	מוסר	noun	moral, ethics
+2090	מושל	noun	governor
+2091	מסגרת	noun	structure, framework (set of rules defining behaviour)
+2092	מסחרי	adj	commercial (relating to commerce)
+2093	מקיף	adj	comprehensive; thoroughly detailed
+2094	נוף	noun	view, landscape, scenery
+2095	סגל	noun	personnel (employees, office staff)
+2096	עברי	adj	Hebrew
+2097	עיקרי	adj	Main: principal, primary.
+2098	עלות	noun	cost
+2099	קיסר	noun	an epithet applied to Roman emperors, Caesar
+2100	קיר	noun	wall
+2101	רגליים	noun	dual indefinite form of רֶגֶל (régel)
+2102	שורות	noun	plural indefinite form of שׁוּרָה (shurá)
+2103	אושר	noun	happiness
+2104	אירו	noun	euro
+2105	אלון	noun	oak
+2106	באר	noun	well (hole sunk into the ground)
+2107	בי	prep	Form of ב־ (b-) including first-person singular personal pronoun as object.
+2108	בל	particle	Expresses a warning not to do something: don't, let's not
+2109	בלא	prep	without
+2110	בשונה	adv	unlike
+2111	גיבור	noun	“mighty man” (military chief, sometimes God himself)
+2112	גרמני	noun	German (a native or inhabitant of Germany; a person of German citizenship or nationality)
+2113	הסביר	verb	to explain; to clarify
+2114	הסכמה	noun	a consent, an agreement
+2115	התמודד	verb	to compete or contend (with)
+2116	זכר	noun	man, male; masculine
+2117	חבל	noun	rope; clothesline
+2118	חווה	noun	farm
+2119	חן	noun	charm, grace, likeability
+2120	יישוב	noun	Settlement: the action or state of settling.
+2121	כתוב	adj	written
+2122	לאחור	adv	backwards, astern
+2123	לך	prep	Form of ל־ (l'-) including second-person masculine singular personal pronoun as object.
+2124	מונח	noun	term, specific word
+2125	מכה	noun	an attack, an assault, a hit, a wound
+2126	משרת	noun	servant
+2127	מתקדם	adj	Advanced: having reached an advanced stage.
+2128	נהרס	verb	to be ruined, destroyed: to be damaged beyond use or repair.
+2129	נוסד	verb	to be founded or established
+2130	ניצל	verb	to utilize; to exploit, abuse
+2131	סבר	noun	countenance, expression
+2132	סוד	noun	secret
+2133	עליון	adj	topmost, upper, uppermost (the most high)
+2134	ערכה	noun	kit, box
+2135	פגע	noun	a wound, an injury
+2136	פסל	noun	A statue, a sculpture
+2137	פרצה	noun	loophole; breach, opening
+2138	צליל	noun	tone, sound
+2139	קריאה	noun	reading (the process of interpreting written language)
+2140	תוספת	noun	increment, supplement
+2141	תיעוד	noun	documentation
+2142	תפילה	noun	intercession, deprecation
+2143	אורי	verb	Feminine singular imperative of אוֹר ('ór)
+2144	אמריקאית	adj	feminine singular indefinite form of אָמֶרִיקָאִי (amerikái)
+2145	בגדים	noun	plural indefinite form of בֶּגֶד (béged): garments
+2146	דפוס	noun	pattern; printing
+2147	הורים	noun	plural indefinite form of הוֹרֶה (horé): parents
+2148	הותיר	verb	to leave behind
+2149	הלכת	verb	Second-person masculine singular past (suffix conjugation) of הָלַךְ (halách).
+2150	המוני	adj	mass, wide-scale
+2151	הרים	noun	plural indefinite form of הַר (har): mountains
+2152	חצר	noun	yard, courtyard
+2153	חקלאי	adj	agricultural (of or pertaining to agriculture)
+2154	לפרוץ	verb	to-infinitive of פרץ (paráts).
+2155	מדריך	noun	guide; mentor, counselor (particularly of youth); leader; instructor; advisor; trainer
+2156	מודרנית	adj	feminine singular indefinite form of מוֹדֶרְנִי (modérni).
+2157	מועצה	noun	a council
+2158	מחסור	noun	shortage
+2159	מחצית	noun	Half, one half: one of two equal parts.
+2160	מטען	noun	cargo, luggage; charge (of munitions)
+2161	נדחתה	verb	Third-person feminine singular past (suffix conjugation) of נִדְחָה (nidkhá).
+2162	נוכחות	noun	presence, attendance
+2163	סוחר	noun	A trader.
+2164	עורר	verb	to wake up; to rouse
+2165	צלב	verb	to crucify
+2166	קושי	noun	Hardness (as opposed to softness).
+2167	רווח	noun	space, gap, blank
+2168	שחורות	adj	feminine plural indefinite form of שחור / שָׁחֹר (shakhór)
+2169	שחרורו	noun	singular form of שִׁחְרוּר
+2170	תגובה	noun	response, reaction, reply
+2171	אוהבת	verb	Feminine singular present participle and present tense of אָהַב (aháv).
+2172	אומרים	verb	Masculine plural present participle and present tense of אמר (amár).
+2173	איי	noun	plural construct state form of אִי (í)
+2174	דיוק	noun	accuracy, precision
+2175	הבנות	noun	plural indefinite form of הֲבָנָה (havaná)
+2176	הגיש	verb	To submit (something), to hand (something) in.
+2177	השכלה	noun	education, knowledge
+2178	מורים	noun	plural indefinite form of מוֹרֶה (moré)
+2179	מחאה	noun	protest
+2180	מיידי	adj	Immediate, instant, without delay.
+2181	מייסד	noun	A (male) founder.
+2182	משפטי	adj	legal, judicial (related to law or the legal system)
+2183	ספינה	noun	ship, boat; nave (of a church)
+2184	עבדו	noun	singular form of עֶבֶד
+2185	עוצמה	noun	strength, power, intensity
+2186	ציד	noun	a hunt (the act of hunting, shooting)
+2187	רוצים	verb	masculine plural present participle and present tense of רצה (ratsá)
+2188	רמה	noun	highlands, high regions
+2189	שנית	adj	feminine singular of שֵׁנִי (shení)
+2190	בחירה	noun	a choice, a pick, a selection
+2191	בייחוד	adv	especially
+2192	גנרל	noun	a general.
+2193	הייתי	verb	First-person singular past (suffix conjugation) of היה (hayá)
+2194	העצים	verb	to strengthen, to make numerous
+2195	הרגל	noun	habit
+2196	הרע	verb	to worsen, make worse
+2197	חודשי	adj	monthly
+2198	חרב	noun	sword; sabre
+2199	יורה	noun	A (male) shooter.
+2200	כח	noun	defective spelling of כוח
+2201	מודעות	noun	awareness, consciousness
+2202	מעוניין	adj	interested
+2203	משפטים	noun	law (the discipline)
+2204	ניסוי	noun	an experiment
+2205	סניפים	noun	plural indefinite form of סניף (snif)
+2206	עודד	verb	to encourage; to console, to cheer up
+2207	פסטיבל	noun	A festival
+2208	קדם	noun	front; east (the direction of the earth's rotation, specifically 90°)
+2209	קלות	noun	ease; softness, lightness
+2210	רות	intj	roger
+2211	שחקנית	noun	A female player: a woman who plays or is playing a given game or sport.
+2212	תחבורה	noun	Transport, transit, transportation: the movement of people and goods from place to place.
+2213	תיבות	noun	plural indefinite form of תֵּיבָה (tevá)
+2214	תיירות	noun	Tourism.
+2215	תפיסה	noun	grabbing, holding tightly
+2216	אחיד	adj	uniform
+2217	אנוש	noun	human, man, person, mortal
+2218	באו	verb	Third-person plural past (suffix conjugation) of בָּא.
+2219	בוטל	verb	To be canceled, to get canceled.
+2220	ביטל	verb	to cancel (plans, a schedule, an event, or the like)
+2221	הבוקר	adv	this morning
+2222	הגדרה	noun	definition; a setting on a mechanical or electronic device
+2223	החיל	verb	to enforce (a law, etc.); to implement
+2224	הסבר	noun	explanation
+2225	הצבעה	noun	A voting, a vote.
+2226	חוקר	noun	researcher, scientist
+2227	חלונות	noun	plural indefinite form of חַלּוֹן (khalón): windows
+2228	טעם	noun	taste (sense); taste, flavour (objective quality of a substance as perceived by the sense of taste)
+2229	יובל	noun	A tributary: a stream or river that empties into another stream or river.
+2230	יעילות	noun	Effectiveness, efficacy.
+2231	ירש	verb	to inherit; to take possession of
+2232	לבקש	verb	to-infinitive of ביקש / בִּקֵּשׁ (bikésh).
+2233	לפיו	prep	Form of לפי (l'fí) including third-person masculine singular personal pronoun as object.
+2234	מאגר	noun	a reserve, a stockpile, a reservoir
+2235	מודע	adj	conscious, aware
+2236	מחוזות	noun	plural indefinite form of מָחוֹז
+2237	מחשש	prep	for fear of; in case
+2238	מסכים	verb	Masculine singular present participle and present tense of הסכים (hiskhím).
+2239	מעקב	noun	surveillance; follow-up
+2240	מפלגה	noun	political party
+2241	מצור	noun	siege
+2242	מקדש	noun	temple; sanctuary
+2243	נוכח	verb	realize, find out
+2244	נפל	verb	To fall: to be pulled downward by gravity.
+2245	ספג	verb	"to absorb (""to suck up or drink in"")."
+2246	עצום	adj	enormous, colossal: of very great size or quantity; also used figuratively
+2247	פרשה	noun	parashah; matter, issue
+2248	צומת	noun	An intersection, a crossroads.
+2249	ציורי	adj	graphic; picturesque
+2250	קלע	noun	slingshot; scene
+2251	תקופות	noun	plural indefinite form of תְּקוּפָה (t'kufá)
+2252	אובדן	noun	ruin, destruction
+2253	איתן	adj	strong, firm, enduring, permanent
+2254	אלים	adj	violent: of, pertaining to, or committing violence
+2255	דורות	noun	plural indefinite form of דּוֹר (dor): generations
+2256	הישג	noun	An achievement, an accomplishment, an attainment, a success.
+2257	הרג	verb	to kill (put to death).
+2258	התרחש	verb	to occur, happen, take place
+2259	יצור	noun	organism, creature
+2260	כפולה	adj	feminine singular indefinite form of כפול (kafúl).
+2261	לבנה	noun	moon
+2262	מבקר	noun	visitor; controller, inspector
+2263	מופע	noun	show (exhibition)
+2264	מוצלחת	adj	feminine singular indefinite form of מוצלח / מֻצְלָח (mutslákh)
+2265	מחבר	noun	author
+2266	מפרץ	noun	bay, gulf (a body of water, extending from the sea, that is mostly surrounded by land)
+2267	ניצול	noun	utilization; exploitation, abuse
+2268	נפח	verb	to blow, exhale
+2269	סוכנות	noun	agency
+2270	סינגל	noun	single
+2271	סלע	noun	rock
+2272	פרשנות	noun	interpretation
+2273	פשע	noun	felony, transgression
+2274	קבר	noun	grave, gravesite
+2275	קובץ	noun	file
+2276	רוסית	adj	feminine singular indefinite form of רוּסִי (rusí)
+2277	שליט	noun	ruler, leader
+2278	שמר	verb	to guard; to keep
+2279	תוכנה	noun	excessive spelling of תׇּכְנָה (tokhná)
+2280	תרומה	noun	heave offering; contribution
+2281	איים	verb	to threaten
+2282	אסף	verb	To gather, to collect: to bring a group of things together.
+2283	אפקט	noun	effect (outcome of a cause)
+2284	אצלו	prep	Form of אֵצֶל
+2285	ביקור	noun	A visit: an act of visiting.
+2286	בריטי	adj	British
+2287	גרעין	noun	nucleus, core, pit (central part of something)
+2288	דאג	verb	To worry (about something), to be concerned (about something).
+2289	דוקטור	noun	doctor
+2290	הפסקה	noun	A break, an intermission, an interval.
+2291	הקליט	verb	To record, to tape: to make an audio or video record of.
+2292	חפץ	noun	object (thing); desire
+2293	לוין	noun	defective spelling of לוויין
+2294	מגע	noun	contact, touch
+2295	מוצר	noun	product, ware, merchandise
+2296	מור	noun	myrrh
+2297	מצווה	noun	commandment; mitzvah
+2298	משולש	noun	triangle
+2299	מתקדמים	verb	Masculine singular present participle and present tense of הִתְקַדֵּם (hitkadém).
+2300	נוח	adj	comfortable, easy
+2301	נציג	noun	representative, delegate
+2302	סר	verb	to turn, to turn aside
+2303	עונש	noun	punishment; fine
+2304	עידן	noun	eon, era; eon
+2305	ערבית	noun	Maariv (a Jewish prayer service held in the evening or at night)
+2306	צי	noun	a navy; a fleet
+2307	קנה	verb	to buy, to purchase
+2308	רחל	noun	ewe
+2309	שמירת	noun	singular construct state form of שמירה (sh'mirá)
+2310	תפס	verb	to catch (something)
+2311	בונה	noun	beaver
+2312	בילה	verb	to hang out, to spend time
+2313	בלה	verb	to wear out
+2314	הביע	verb	to express, to convey (an idea, emotion, opinion, etc.)
+2315	היכן	adv	Where: at what place
+2316	הפסיק	verb	To stop, to cease, to desist, to terminate. (See usage note below.)
+2317	הפרדה	noun	Separation: the act of separating things (or people) from each other.
+2318	חוג	noun	group, circle of people
+2319	חשיבה	noun	thinking
+2320	חשמלי	adj	Electric, electrical: of or pertaining to electricity.
+2321	לאשר	verb	to-infinitive of אישר / אִשֵּׁר (ishér).
+2322	ליל	noun	night
+2323	מיסים	noun	plural indefinite form of מַס
+2324	מנהג	noun	custom (traditional practice)
+2325	מנצח	noun	conductor; winner, victor
+2326	מצעד	noun	march (political rally or parade)
+2327	נאמנות	noun	loyalty, faithfulness, devotion
+2328	סימנים	noun	plural of סִימָן
+2329	עירוני	adj	municipal, urban, civic
+2330	עמוק	adj	deep
+2331	פיו	noun	singular form of פֶּה
+2332	פלטינה	noun	platinum
+2333	צמח	verb	To sprout, grow; to bring forth
+2334	ראייה	noun	sight
+2335	רון	noun	joy, elation
+2336	רחוקות	adj	feminine plural indefinite form of רחוק (rakhók)
+2337	שלילי	adj	Negative: bad, not good.
+2338	תועלת	noun	benefit, utility
+2339	בסיסי	adj	basic: fundamental; simple; elementary
+2340	הפיק	verb	to produce, obtain
+2341	זווית	noun	angle; point of view
+2342	חסות	noun	protection
+2343	כבישים	noun	plural indefinite form of כְּבִישׁ (k'vísh)
+2344	כרך	noun	large city, metropolis
+2345	לבסס	verb	To-infinitive of ביסס (bisés)
+2346	לוחם	noun	combatant, fighter
+2347	מדד	verb	To measure: to determine the size of.
+2348	מחולק	adj	divided
+2349	מסביר	verb	Masculine singular present participle and present tense of הִסְבִּיר (hisbír).
+2350	מסקנות	noun	plural indefinite form of מַסְקָנָה (maskaná)
+2351	משטרה	noun	police
+2352	משק	noun	farm
+2353	נטייה	noun	A tendency, an inclination.
+2354	נערים	noun	plural indefinite form of נַעַר m
+2355	סף	noun	threshold, verge
+2356	פיקד	verb	to command, to oversee
+2357	פקודה	noun	order, command
+2358	פרחים	noun	plural indefinite form of פֶּרַח (pérakh)
+2359	קץ	noun	An end, a finish.
+2360	קרובה	adj	feminine singular indefinite form of קָרוֹב (karóv)
+2361	רצוי	adj	Desired, desirable, wanted.
+2362	שיחה	noun	conversation; talk, chat
+2363	שליחות	noun	plural indefinite form of שליחה (sh'likhá)
+2364	שקל	verb	to weigh, weigh in
+2365	תקין	adj	normal
+2366	תרבותי	adj	cultural
+2367	אזרח	noun	a native-born Israelite
+2368	אזרחות	noun	citizenship; The period in life of a soldier after he or she is released from an army.
+2369	אימה	noun	terror
+2370	אלוף	noun	major general; A champion (someone who has been winner in a contest).
+2371	ארגן	verb	to organize
+2372	ביער	verb	to destroy, remove
+2373	בקשה	noun	a request, an application
+2374	גנים	noun	plural indefinite form of גַּן (gan)
+2375	היינו	conj	that is, which means, in other words
+2376	הליכה	noun	Walking, the act of walking.
+2377	התחרה	verb	to compete
+2378	ויתר	verb	To give up (on)
+2379	זכרים	noun	plural indefinite form of זָכָר (zachár): males
+2380	חיצוניים	adj	masculine plural indefinite form of חיצוני (khitzoní)
+2381	חנה	verb	to camp; to park
+2382	חש	verb	to sense, to feel: to have a sense, to experience a sensation
+2383	טהור	adj	pure; clean; innocent
+2384	טכנולוגיה	noun	technology
+2385	ידיעה	noun	notice, news; information
+2386	יישום	noun	application (the act of applying)
+2387	כביכול	adv	as it were, so to speak
+2388	לבוש	noun	clothing
+2389	מערכה	noun	An act of a play.
+2390	נאום	noun	speech, pitch, sermon
+2391	נגרם	verb	To be caused.
+2392	נהנה	verb	To enjoy, to experience enjoyment (from something) [with מִן (mín) or מִ־ (mí-)].
+2393	נוסח	noun	text, wording; version
+2394	סיפק	verb	to provide, to supply
+2395	עימות	noun	confrontation, conflict
+2396	צמד	noun	a couple, pair, team
+2397	קצה	noun	tip, end
+2398	שאל	verb	to ask (a question), to query
+2399	שופטים	noun	plural indefinite form of שׁוֹפֵט (shofét)
+2400	שקלים	noun	plural indefinite form of שֶׁקֶל (shékel)
+2401	תחושה	noun	feeling, sensation (physical, not cognitive/emotional)
+2402	תכונה	noun	attribute, characteristic, property
+2403	תכנן	verb	to plan, to intend
+2404	אותיות	noun	plural indefinite form of אוֹת (ót)
+2405	ארמון	noun	palace
+2406	ברוך	adj	blessed
+2407	דובר	verb	to be spoken
+2408	הבדל	noun	difference
+2409	הבטיח	verb	To promise.
+2410	השעה	verb	To be delayed or deferred to a later time.
+2411	השפיע	verb	to influence; to affect
+2412	חדרים	noun	plural indefinite form of חֶדֶר (khéder)
+2413	טל	noun	dew
+2414	כיכב	verb	to star (appear as a featured performer)
+2415	לוחות	noun	plural indefinite form of לוּחַ (lúakh)
+2416	למידה	noun	learning, studying
+2417	לפניו	prep	Form of לִפְנֵי
+2418	מאחור	adv	behind; from behind
+2419	מהדורה	noun	edition, issue
+2420	מושלם	adj	perfect, flawless
+2421	מחלקה	noun	A department; A platoon.
+2422	מכוסה	adj	covered
+2423	משתתף	noun	participant, partaker
+2424	נישואין	noun	marriage, wedding
+2425	נלחם	verb	to fight, wage war
+2426	נסגר	verb	To close, to be closed: to become closed.
+2427	נעלם	verb	to disappear
+2428	נשבר	verb	To break, to be broken, to get broken.
+2429	נשמר	verb	to be guarded by someone, to be protected
+2430	סגור	adj	closed
+2431	סיני	adj	Chinese (relating to China, its languages, or people)
+2432	סיפורו	noun	singular form of סיפור / סִפּוּר
+2433	סקר	verb	to investigate, to examine
+2434	פולחן	noun	cult (devotion to a saint)
+2435	רבנים	noun	plural of רב (rav)
+2436	רפואה	noun	healing, becoming healthy
+2437	רצועת	noun	singular construct state form of רְצוּעָה
+2438	רשימות	noun	plural indefinite form of רְשִׁימָה (r'shimá)
+2439	שרשרת	noun	A chain.; A necklace.
+2440	תקיפה	noun	An assault, a battery: a violent attack, either literal or figurative.
+2441	אילו	pron	which? (plural referent of either grammatical gender)
+2442	איסוף	noun	gathering, collection
+2443	אצטדיון	noun	stadium
+2444	בקר	noun	bovine, cattle; beef
+2445	גרעיני	adj	nuclear: of nuclei, atomic energy, atomic bombs, and so on
+2446	דוכס	noun	duke
+2447	דיבר	verb	to speak (say words)
+2448	דמיון	noun	imagination; resemblance, similarity
+2449	הובס	verb	to be defeated
+2450	הוכיח	verb	To reprove, rebuke
+2451	הוצא	verb	to be removed, taken out
+2452	הזמין	verb	To invite.; To order: to request a product or service.
+2453	החג	noun	singular definite form of חַג (ḥág).
+2454	הכיל	verb	To contain.
+2455	הפעיל	verb	to activate, turn on, enable
+2456	הצלה	noun	A rescue, a saving (the action of the verb to save).
+2457	הקדיש	verb	to devote, to dedicate, to allocate
+2458	השלמת	verb	Second-person masculine singular past (suffix conjugation) of הִשְׁלִים (hishlím)
+2459	חקלאות	noun	agriculture
+2460	חשד	noun	suspicion
+2461	טיס	noun	flight, flying, aviation
+2462	יבוא	verb	Third-person masculine singular future (prefix conjugation) of בָּא (ba).
+2463	ידיים	noun	dual indefinite form of יָד (yád)
+2464	יכלה	verb	was able, could: third-person feminine singular past of יָכַל (yachál)
+2465	יעל	noun	ibex
+2466	כנסיית	noun	singular construct state form of כנסייה / כְּנֵסִיָּה (knesiá)
+2467	ליש	noun	lion
+2468	מבוגר	noun	An adult.
+2469	מכיר	adj	saleable, marketable
+2470	מעגל	noun	a circle
+2471	משיכה	noun	gravity, attraction
+2472	נערה	noun	young woman servant, maid
+2473	סבור	adj	of the opinion
+2474	פרטיות	noun	privacy
+2475	צבאות	noun	epithet of the God of Israel (Sabaoth)
+2476	קולה	noun	A Coke, a Coca-Cola drink.
+2477	רגלים	noun	plural indefinite form of רֶגֶל (régel)
+2478	רובה	noun	gun, rifle
+2479	רוחות	noun	plural indefinite form of רוּחַ
+2480	שרים	verb	sing: masculine plural present of שָׁר
+2481	אומנות	noun	craft, skill; handicraft
+2482	אוצר	noun	A treasure (collection of valuables).
+2483	איזה	det	What, which; used in forming questions.
+2484	אימץ	verb	to adopt; to strain
+2485	אנושי	adj	human: of or relating to human beings or humankind
+2486	אצולה	noun	nobility, aristocracy
+2487	אקדח	noun	a handgun, pistol, revolver
+2488	בול	noun	Cheshvan or Marcheshvan, the eighth month of the year
+2489	בחוץ	adv	outside
+2490	בטון	noun	concrete
+2491	גרף	verb	to rake; to sweep away
+2492	דאז	prep_phrase	Then
+2493	דיין	noun	judge, jurist
+2494	דרמה	noun	Drama: plays, taken collectively, and other literature meant to be performed.
+2495	הגיב	verb	to react; to respond
+2496	החיה	verb	To revive, to resuscitate, to revitalize, to quicken
+2497	הספק	noun	yield; output; power
+2498	העמיד	verb	to erect, stand, raise (to place in an upright or standing position)
+2499	הפעלה	noun	implementation, operation, activation
+2500	הפרעה	noun	disturbance; interruption; disorder
+2501	השאיר	verb	to leave over, to spare, to leave behind
+2502	זרוע	noun	arm; tentacle
+2503	חידוש	noun	An innovation; a new idea or interpretation.
+2504	טבעת	noun	ring
+2505	ייצג	verb	to represent
+2506	יסודי	adj	fundamental, basic
+2507	יעד	noun	A destination, as of a voyage or a flight.
+2508	כדורי	adj	spherical
+2509	לבריאות	intj	bless you, gesundheit
+2510	מאפיין	noun	characteristic, feature, property, trait
+2511	מונע	adj	preventative
+2512	מכסה	noun	quota
+2513	מכרה	noun	mine
+2514	מספרי	adj	Numeric: of, pertaining to, or being a number.
+2515	מקלט	noun	An asylum, a refuge, a shelter.
+2516	משרה	noun	career, profession
+2517	מתים	noun	men (especially few in number)
+2518	נאמן	verb	to be true or reliable
+2519	נתיב	noun	lane, path, route
+2520	סניף	noun	branch (one location of an organization)
+2521	עצומה	noun	petition
+2522	ערבי	adj	Arab, Arabic: of or pertaining to Arabs, Arab culture, or the Arabic language
+2523	פינוי	noun	Clearing out, evacuation: the act of clearing someone or something from an area.
+2524	ציוני	adj	Zionist, Zionistic
+2525	צמוד	adj	attached, linked
+2526	קסם	noun	a spell, enchantment, magic
+2527	שארית	noun	residue, remainder
+2528	שיעורים	noun	plural indefinite form of שיעור / שִׁעוּר (shi'úr)
+2529	שלל	verb	to negate; to revoke
+2530	שרי	noun	plural construct state form of שַׂר (sár)
+2531	אבות	noun	plural indefinite form of אב m (av)
+2532	אחיות	noun	plural indefinite form of אָחוֹת (akhót): sisters; nurses
+2533	אט	adv	slowly
+2534	אליהן	prep	Form of אֶל (el) including third-person feminine plural personal pronoun as object.
+2535	אמנותי	adj	Artistic: relating to art or artists.
+2536	בינה	noun	understanding; fine observation, intelligent derivation, insight
+2537	גוש	noun	lump, chunk; group or area of houses or settlements
+2538	הספיק	verb	To be enough, to suffice.
+2539	ויכוח	noun	An argument
+2540	זיהה	verb	to identify; to recognize
+2541	טקסט	noun	text (a written passage)
+2542	ישות	noun	a being, an entity, something which has an independent existence
+2543	כינוי	noun	alias, nickname
+2544	כלא	noun	prison, jail
+2545	להקה	noun	band (a group of musicians)
+2546	מגרש	noun	plot (of land), lot
+2547	מוזיקת	noun	singular construct state form of מוּזִיקָה (múzika)
+2548	מוניטין	noun	reputation, renown, fame
+2549	מחודש	adj	renewed
+2550	ממושך	adj	Prolonged, protracted, lengthy (in duration), extended.
+2551	ממשלות	noun	plural indefinite form of מֶמְשָׁלָה (memshalá): governments
+2552	מנחה	noun	an offering; Mincha (the afternoon prayer service)
+2553	נפשות	noun	plural indefinite form of נֶפֶשׁ (néfesh)
+2554	נקבר	verb	to be buried, interred
+2555	סרטן	noun	cancer; crab
+2556	עיון	noun	investigation
+2557	צדקה	noun	charity; tzedakah
+2558	קבלה	noun	receipt (being received)
+2559	קיבוץ	noun	The meaning of this term is uncertain. Possibilities include
+2560	ריבוי	noun	increase; extension of scope, widening qualification, amplification
+2561	רפורמה	noun	Reform.; A reform.
+2562	שיתף	verb	to collaborate; to include something
+2563	תינוקות	noun	plural indefinite form of תִּינוֹק (tinók)
+2564	תמורה	noun	compensation, reward
+2565	תסמונת	noun	syndrome
+2566	תצפית	noun	observation
+2567	אופייני	adj	characteristic
+2568	אשת	noun	singular construct state form of אישה / אִשָּׁה (ishá)
+2569	ביטוח	noun	insurance
+2570	ביצים	noun	testicles (either referring to anatomy or bravery); having balls, courage, cojones
+2571	ביתה	noun	singular form of בַּיִת
+2572	בקיצור	adv	briefly, in short, in brief
+2573	הדר	noun	splendor, majesty, glory
+2574	הדרכה	noun	guidance, direction
+2575	הוכתר	verb	To be crowned: to be formally declare king.
+2576	הושלם	verb	to be completed
+2577	העדה	verb	to adorn, to bring an ornament upon
+2578	העדר	noun	lack, absence
+2579	הפוך	adj	flipped, inverted, upside down, inside out, backward(s), reversed
+2580	חדרי	noun	plural construct state form of חֶדֶר
+2581	חומה	noun	a wall, a structure built for defense around a city, castle, etc.
+2582	חרף	verb	to hibernate, to winter (verb)
+2583	חשב	verb	to think
+2584	טייס	noun	pilot (a person who is in charge of the controls of an aircraft)
+2585	טיסות	noun	plural indefinite form of טִיסָה (tisá)
+2586	כתובת	noun	address, postal address, e-mail address.
+2587	מכירה	noun	Sale, a sale: the act of selling.
+2588	מנהלי	adj	administrative
+2589	נסיך	noun	prince; jack
+2590	עולמי	adj	world (adjective); global
+2591	פס	noun	band, bar, stripe
+2592	קיצוני	adj	Extreme: far, intense, abnormal.
+2593	קשתות	noun	plural indefinite form of קֶשֶׁת (keshét)
+2594	רמז	verb	to hint, allude, clue
+2595	רצתה	verb	third-person feminine singular past (suffix conjugation) of רצה (ratsá)
+2596	שאול	adj	borrowed
+2597	שרת	noun	janitor; server (computer)
+2598	תקדים	noun	A precedent: a past act which may be used as an example for future acts.
+2599	אוטו	noun	car
+2600	אומץ	noun	courage, bravery, valor, guts
+2601	אסר	verb	to bind, tie, join
+2602	אפליה	noun	discrimination (distinct treatment of an individual or group to their disadvantage)
+2603	ארצי	adj	National: of or pertaining to a land or country, especially Israel.
+2604	בחינם	adv	gratis (free, without charge)
+2605	בינוני	adj	Middling, middle, medium, average, intermediate, between: average in quantity or quality
+2606	בעלים	noun	plural indefinite form of בַּעַל (bá'al)
+2607	בקשת	noun	singular construct state form of בַּקָּשָׁה (bakashá)
+2608	גופה	noun	corpse (a dead body, especially that of a human as opposed to an animal)
+2609	דואר	noun	post
+2610	הוצע	verb	To be proposed, to be suggested.
+2611	הכנס	verb	Bare infinitive (infinitive construct or gerund) of נִכְנַס (nikhnás)
+2612	הררי	adj	mountainous
+2613	התכוון	verb	to mean, intend
+2614	התקדם	verb	to advance, to proceed, to progress, to make progress, to move forward
+2615	זעם	noun	fury
+2616	חזון	noun	vision (goal or ideal toward which one aspires)
+2617	חיפש	verb	to look for, search for, seek
+2618	טיפוס	noun	climbing
+2619	יערות	noun	plural indefinite form of יַעַר
+2620	כתר	noun	a crown (royal headdress)
+2621	ליבה	noun	core
+2622	מושב	noun	seat; settlement
+2623	מטבע	noun	coin; currency
+2624	מילואים	noun	addenda; reserve duty
+2625	מסה	noun	mass, bulk
+2626	מפת	noun	singular construct state form of מַפָּה (mapá)
+2627	מציאות	noun	reality
+2628	מרצה	noun	lecturer
+2629	נהגה	verb	to be pronounced
+2630	ניגן	verb	To play (music), to play music.
+2631	סכסוך	noun	A conflict: a state of rivalry or disagreement between two or more parties.
+2632	פיזי	adj	Physical: tangible, concrete; involving bodily force or contact.
+2633	פלדה	noun	The meaning of this term is uncertain. Possibilities include: related to steel
+2634	פן	conj	lest, in order] that … not, for otherwise; used in constructing warnings.
+2635	צירוף	noun	phrase
+2636	קיצור	noun	shortening, making shorter
+2637	רם	adj	high, important
+2638	רצועות	noun	plural indefinite form of רְצוּעָה
+2639	שורש	noun	root; root (i.e. source, basis)
+2640	שחר	noun	dawn (time)
+2641	שכונות	noun	plural indefinite form of שְׁכוּנָה (sh'khuná)
+2642	שכונת	noun	singular construct state form of שְׁכוּנָה (sh'khuná)
+2643	שליש	noun	A third: one of three equal parts.
+2644	תעשייה	noun	industry
+2645	אטום	noun	an atom
+2646	אילת	noun	Defective spelling of איילת
+2647	אימוץ	noun	adoption
+2648	בליל	noun	clutter, mix
+2649	בפנים	adv	inside
+2650	ברח	verb	to run away
+2651	ברירה	noun	a choice
+2652	גור	noun	A cub, pup, kit, calf, puppy, kitten, or similar: a juvenile of any mammal species.
+2653	גזר	noun	carrot
+2654	גלגלים	noun	plural indefinite form of גַּלְגַּל (gálgal)
+2655	דיונים	noun	plural indefinite form of דִּיּוּן (diyún)
+2656	דר	verb	to dwell
+2657	הכרחי	adj	necessary
+2658	העסקה	noun	A bargain, a deal.
+2659	הפרש	noun	difference
+2660	הקלה	noun	A lightening, an easing, a relief.
+2661	השליט	verb	to impose (of rules, order, etc.)
+2662	התאמה	noun	matching, compatibility
+2663	זנב	noun	tail
+2664	חוב	noun	debt; obligation
+2665	חישוב	noun	calculation
+2666	חסידי	adj	Hasidic, Hassidic
+2667	חרקים	noun	plural indefinite form of חֶרֶק (khérek)
+2668	חשיפה	noun	exposure
+2669	טיפולים	noun	plural indefinite form of טיפול / טִפּוּל (tipúl)
+2670	ישב	verb	to sit, to be in a position with the torso upright and the legs supported
+2671	כפייה	noun	coercion, duress
+2672	מוצלח	adj	successful (beneficial; worthwhile)
+2673	מזמן	adv	Long ago, a long time ago.
+2674	מלכים	noun	plural indefinite form of מֶלֶךְ (mélekh)
+2675	מלכת	noun	singular construct state form of מַלְכָּה (malká)
+2676	מסעדות	noun	plural indefinite form of מִסְעָדָה (mis'adá)
+2677	מעצר	noun	Arrest, detainment (of a person, such as by the police).
+2678	מקדם	noun	coefficient
+2679	משפחתי	adj	family, familial: of or pertaining to a family, or to families
+2680	נורה	noun	A light bulb: an incandescent light bulb
+2681	נלקח	verb	To be taken.
+2682	עילית	adj	feminine singular indefinite form of עילי / עִלִּי (ilí, “upper”)
+2683	ענה	verb	to answer, to reply
+2684	עשרת	noun	group of ten
+2685	פונקציה	noun	function (relation where one thing is dependent on another)
+2686	פרד	noun	mule, hinny (crossbreed of a horse and a donkey)
+2687	צור	noun	cliff, rock
+2688	צפיפות	noun	density; crowding
+2689	רגיש	adj	sensitive; allergic
+2690	רגישות	noun	sensitivity
+2691	רוסי	adj	Russian: of or pertaining to Russia.
+2692	רושם	noun	impression
+2693	שנתי	adj	Annual, yearly: occurring every year, or once a year.
+2694	אותות	noun	plural indefinite form of אוֹת (ót)
+2695	אימן	verb	to train
+2696	אסון	noun	A catastrophe, a disaster.
+2697	בוש	verb	to feel embarrassed, be ashamed
+2698	בקרה	noun	control, supervision, inspection
+2699	גבעת	noun	singular construct state form of גִּבְעָה
+2700	גופני	adj	physical
+2701	גיטרה	noun	guitar
+2702	דיבור	noun	Speech, speaking.
+2703	דיגיטלי	adj	Digital.
+2704	האזרח	noun	singular definite form of אֶזְרָח (ezrákh).
+2705	השוואה	noun	Comparison: the act of comparing, or a specific instance of such.
+2706	וו	noun	hook
+2707	חמים	adj	warm
+2708	חנוך	noun	defective spelling of חינוך.
+2709	חריג	adj	exceptional, unusual
+2710	טור	noun	column, line, row
+2711	יונה	noun	pigeon, dove; dove (pacifist)
+2712	יורדת	verb	Feminine singular present participle and present tense of יָרַד (yarád).
+2713	ירה	verb	To flow as water (that is, to rain).
+2714	ישיבות	noun	plural indefinite form of יְשִׁיבָה (y'shivá)
+2715	כלבים	noun	plural indefinite form of כֶּלֶב (kélev)
+2716	כנס	noun	a conference; a congress
+2717	כנסייה	noun	gathering, union
+2718	לידה	noun	birth, childbirth, delivery
+2719	לילי	adj	Nightly: occurring at night, especially regularly.
+2720	מבצעי	adj	operational (relating to operations)
+2721	מדרגה	noun	step; stairs, stairway.
+2722	מנע	verb	to withhold; to prevent
+2723	מפות	noun	plural indefinite form of מַפָּה (mapá)
+2724	מקל	noun	stick, staff, rod
+2725	משכנע	adj	Convincing, persuasive.
+2726	מתקן	noun	facility, installation
+2727	נוזל	noun	liquid, fluid
+2728	נידון	verb	to be sentenced
+2729	סערה	noun	storm; outrage
+2730	עולמית	adj	feminine singular indefinite form of עוֹלָמִי (olamí).
+2731	פוטנציאל	noun	Potential: a capacity or possibility of causing something.
+2732	קוטר	noun	diameter
+2733	קלי	noun	toast; parched grain
+2734	רגליו	noun	plural form of רֶגֶל
+2735	ריח	noun	odor, scent, smell
+2736	שיפוץ	noun	renovation
+2737	שעבד	verb	to enslave, to subjugate
+2738	תאגיד	noun	corporation
+2739	תביעה	noun	demand, claim; lawsuit
+2740	תבנית	noun	form, pattern, template
+2741	תוצר	noun	product, goods
+2742	תותח	noun	A cannon: an artillery gun.
+2743	תחמושת	noun	ammunition
+2744	אורן	noun	pine tree
+2745	אלפא	noun	primary, first
+2746	אקלים	noun	Climate, a climate: long-term atmospheric conditions in a region.
+2747	בהירות	noun	brightness; clarity, clearness, lucidity
+2748	בטיחות	noun	safety
+2749	בניינים	noun	plural indefinite form of בניין / בִּנְיָן (binyɔn, binyán)
+2750	דחף	noun	impulse, urge, compulsion, desire
+2751	דיו	noun	ink (a pigment (or dye)-based fluid used for writing, printing etc)
+2752	הלכות	noun	plural indefinite form of הֲלָכָה (halakhá)
+2753	התנהל	verb	To be conducted, carried out, underway.
+2754	התעללות	noun	abuse (physical maltreatment)
+2755	זמין	adj	available
+2756	חיוני	adj	vital, critical
+2757	חתימת	noun	singular construct state form of חֲתִימָה (khatimá)
+2758	טס	verb	to fly (travel through the air on, or as, an airplane or the like, not by one's own power)
+2759	ילדות	noun	childhood
+2760	כדורים	noun	plural indefinite form of כַּדּוּר (kadúr)
+2761	כיס	noun	pouch, bag, purse
+2762	לגנוב	verb	to-infinitive of גנב (ganáv).
+2763	לגשת	verb	To-infinitive of ניגש / נִגַּשׁ (nigásh, niggaš).
+2764	לדרוש	verb	to-infinitive of דָּרַשׁ (darásh).
+2765	להט	noun	A blaze; also (from the idea of enwrapping) magic (as covert): – flaming, enchantment.
+2766	ליווי	noun	accompaniment, escort
+2767	מדברים	verb	Masculine plural present participle and present tense of דיבר / דִּבֵּר (dibér)
+2768	מוסרי	adj	ethical
+2769	מוציא	verb	Masculine singular present participle and present tense of הוציא (hotzí).
+2770	מוקף	adj	surrounded; enclosed
+2771	מיכל	noun	container, tank
+2772	מימן	noun	hydrogen; hydrogen (molecular and atomic)
+2773	מלכי	noun	plural construct state form of מֶלֶךְ
+2774	מנוחה	noun	rest; respite
+2775	מסתורי	adj	mystical, mysterious
+2776	מקביל	adj	parallel (to): having the same direction (as)
+2777	מתקפה	noun	An offensive, a military offensive: an invasion, an aggressive attack.
+2778	נגינה	noun	playing
+2779	נח	verb	to rest
+2780	נענה	verb	To be answered.
+2781	סידור	noun	order, arrangement, layout
+2782	ספציפית	adv	specifically
+2783	עבירה	noun	crime, violation
+2784	עתידי	adj	Future: taking place in the future; not yet existing.
+2785	פלוגה	noun	a company; The meaning of this term is uncertain. Possibilities include: a group of people
+2786	צרפתי	adj	French
+2787	קבורה	noun	burial
+2788	קודש	verb	to be sanctified
+2789	קום	verb	Bare infinitive (infinitive construct or gerund) of קם (kam)
+2790	קמפיין	noun	A campaign: a marketing campaign, ad campaign, political campaign, or similar.
+2791	רוצח	noun	a killer, a murderer
+2792	שבעת	num	masculine construct state of שִׁבְעָה (shiv'á, “seven”)
+2793	שלמות	noun	completeness
+2794	שלמים	adj	masculine plural indefinite form of שלם (shalém)
+2795	שמיר	noun	dill; some kind of plant
+2796	שרד	verb	to survive (live past a life-threatening event)
+2797	תור	noun	A turn: one's opportunity to do something that not everyone can do at the same time.
+2798	תיקו	noun	tie, draw
+2799	אדמת	noun	rubella
+2800	אייל	noun	deer, stag
+2801	אילן	noun	tree (plant)
+2802	אכילה	noun	eating
+2803	בחור	noun	guy, boy; youth (countable), young man
+2804	ביי	intj	bye
+2805	ברכת	noun	singular construct state form of בְּרָכָה (brakhá)
+2806	גאון	noun	pride; Gaon (a title usually given to heads of Talmudic academies in Babylon)
+2807	גוון	noun	hue, shade
+2808	האשמה	noun	accusation
+2809	הגדה	noun	a telling; a story told to someone else
+2810	הדגיש	verb	To emphasize
+2811	העדיף	verb	to prefer
+2812	העלים	verb	to make (something) disappear, vanish; to hide, conceal (something)
+2813	זיהום	noun	infection; pollution, contamination
+2814	חור	noun	hole; hole (a dump, an out-of-the-way place)
+2815	טבעות	noun	plural indefinite form of טַבַּעַת (tabá'at)
+2816	טרף	noun	prey; food
+2817	יקום	noun	nature; universe, the world
+2818	להפך	adv	on the contrary, vice versa, contrariwise, au contraire
+2819	מודה	verb	Masculine singular present participle and present tense of הוֹדָה (hodá).
+2820	מזרחי	adj	Eastern, oriental: of the east.
+2821	מחזה	noun	a sight, a spectacle
+2822	מיזוג	noun	merging; air conditioning
+2823	מימוש	noun	Implementation, the act of implementing.
+2824	ממשלתי	adj	Governmental; of or pertaining to a government.
+2825	מנזר	noun	monastery (a residence for monks or others who have taken religious vows); convent, abbey
+2826	מסורות	noun	plural indefinite form of מסורת / מָסֹרֶת (masóret)
+2827	מפורט	adj	detailed
+2828	מקורי	adj	original
+2829	מרובע	adj	quadrilateral (having four sides)
+2830	נבע	verb	to gush, to well up
+2831	נכונות	noun	correctness
+2832	נשמע	verb	to sound, to be heard
+2833	סיפון	noun	deck of a ship
+2834	סל	noun	basket
+2835	עדים	noun	plural indefinite form of עֵד (éd)
+2836	עדן	noun	defective spelling of עידן
+2837	עמים	noun	plural indefinite form of עַם (am)
+2838	עשור	noun	A period of ten days.
+2839	פרו	verb	Third-person plural past (suffix conjugation) of פָּרָה (pará)
+2840	קמרון	noun	vault
+2841	שביעי	adj	seventh
+2842	שופט	noun	judge; A judge: an ad hoc leader in ancient Israel.
+2843	שורת	noun	singular construct state form of שׁוּרָה (shurá)
+2844	שיח	noun	A bush, a shrub.
+2845	שמים	noun	sky, skies, heavens, heaven
+2846	תזמורת	noun	orchestra (large group of musicians who play together on various instruments)
+2847	תלות	noun	dependence
+2848	תעסוקה	noun	employment
+2849	אבטחה	noun	The act of protecting from danger; protection, security.
+2850	אבק	noun	dust; hint of (something)
+2851	אגן	noun	basin, bowl; basin (a low area geographically)
+2852	אדון	noun	lord; Mr.
+2853	אולימפי	adj	Olympic
+2854	אופנה	noun	fashion, style
+2855	אחיזה	noun	A hold, grip; traction
+2856	אלמנט	noun	An element.
+2857	באים	verb	masculine plural present of בָּא
+2858	בהירה	adj	feminine singular indefinite form of בָּהִיר (bahír)
+2859	בס	noun	bass
+2860	גדות	noun	plural indefinite form of גָּדָה (gadá): banks (ex: riverbanks)
+2861	גלגל	noun	wheel
+2862	גרוע	adj	bad, of poor quality
+2863	דוחה	verb	Masculine singular present participle and present tense of דָּחָה (dakhá)
+2864	דיכוי	noun	oppression
+2865	דלתות	noun	plural indefinite form of דֶּלֶת (délet)
+2866	האשים	verb	to accuse, to blame
+2867	הגדיר	verb	to define (to determine)
+2868	הוכר	verb	to be recognized
+2869	החווה	verb	to demonstrate, to indicate
+2870	הכרזה	noun	an announcement
+2871	הניח	verb	To suppose, to assume [with ש־ (sh')].
+2872	העריך	verb	to value, esteem, regard, respect, prize
+2873	השווה	verb	to compare; to equalize, to make equal
+2874	זרעים	noun	plural indefinite form of זֶרַע (zera')
+2875	חוברת	noun	brochure, pamphlet, booklet
+2876	חינוכי	adj	educational, scholastic (of or pertaining to education; serving to educate)
+2877	חרס	noun	pottery, earthenware; clay, ceramics
+2878	חשמלית	adj	feminine singular indefinite form of חַשְׁמַלִּי (khashmalí)
+2879	יבשה	noun	dry ground, dry land
+2880	ידה	verb	to throw, cast; to worship
+2881	יומן	noun	diary
+2882	יעשה	verb	third-person masculine singular future of עָשָׂה
+2883	כיפה	noun	kippah, yarmulke
+2884	כס	noun	throne
+2885	למכירה	prep_phrase	for sale
+2886	מהפכה	noun	revolution (removal and replacement of a governing body)
+2887	מומחה	adj	Expert: being an expert; having expertise.
+2888	מילוי	noun	fill, filling; refill
+2889	מכונת	noun	singular construct state form of מְכוֹנָה (m'khoná)
+2890	מסמך	noun	document
+2891	מתמשך	adj	continuous, chronic
+2892	נדחה	verb	to be postponed, to be delayed, to be put off
+2893	נדפס	verb	to be printed
+2894	סבב	verb	to surround, encircle
+2895	עדיף	adj	better, preferable
+2896	עומס	noun	load, burden
+2897	פטור	adj	exempt
+2898	פינה	noun	corner
+2899	פסנתר	noun	piano
+2900	פרידה	noun	separation, breakup
+2901	פרלמנט	noun	A parliament: the legislative body in a parliamentary political system.
+2902	צמחייה	noun	vegetation
+2903	קבצים	noun	plural indefinite form of קובץ / קֹבֶץ (kóvets)
+2904	קדוש	adj	holy
+2905	קורבן	noun	a ritual sacrifice, as of an animal
+2906	רכס	noun	ridge, crest
+2907	שוטף	adj	continuous; fluent
+2908	שור	noun	ox
+2909	שנוי	noun	defective spelling of שינוי.
+2910	תארים	noun	plural indefinite form of תואר / תֹּאַר (tó'ar)
+2911	תימן	noun	south
+2912	תסריט	noun	script, scenario
+2913	תערוכה	noun	exhibition
+2914	איור	noun	illustration (picture designed to decorate)
+2915	אישום	noun	count, indictment
+2916	אשכול	noun	cluster (of small fruits or flowers)
+2917	אתגר	noun	a challenge
+2918	בוודאות	prep_phrase	For certain, with certainty.
+2919	בוחן	noun	an examiner, a tester.
+2920	בישול	noun	cooking
+2921	בכורה	noun	birthright of the firstborn son, primogeniture
+2922	בלעדי	prep	without, in the absence of
+2923	ברכה	noun	blessing, congratulation
+2924	גורל	noun	A lot; One's allotted portion, the result of drawing lots
+2925	דב	noun	defective spelling of דוב
+2926	דלקת	noun	inflammation; Any instance of redness, even one that is not due to an immune response.
+2927	הולדת	noun	birth
+2928	הושפע	verb	To be influenced, to be affected.
+2929	החזיר	verb	to return, restore (a thing) (to a person or place)
+2930	הטיס	verb	To fly (someone).
+2931	הלהיט	verb	To heat, to arouse, to excite (sexually)
+2932	המחשבה	noun	singular definite form of מחשבה (makhshavá)
+2933	הסברה	noun	public relations to defend abroad the point of view and policies of the State of Israel.
+2934	הפרה	noun	infringement, breach, violation
+2935	הציל	verb	To save, to rescue.
+2936	הרגיש	verb	feel, sense
+2937	הרץ	noun	hertz
+2938	התמודדות	noun	Dealing
+2939	התנהגויות	noun	plural indefinite form of הִתְנַהֲגוּת (hitnahagút)
+2940	זקוק	adj	in need (of)
+2941	חרדה	noun	anxiety
+2942	חרושת	noun	industry, production
+2943	טכני	adj	technical
+2944	טעויות	noun	plural indefinite form of טָעוּת (ta'út)
+2945	ידידות	noun	friendship (state of being friends)
+2946	יועץ	noun	An adviser or advisor (one who gives advice).
+2947	יושבת	noun	inhabitant
+2948	יציאה	noun	exit (a place to exit)
+2949	מהו	phrase	what is ...?
+2950	מוח	noun	mind; brain
+2951	מוט	noun	pole, rod, bar
+2952	מוצק	adj	solid (in the solid state)
+2953	מיועד	adj	designated
+2954	מייד	adv	immediately
+2955	מיניות	noun	sexuality
+2956	מישור	noun	flatland, plain
+2957	מכלול	noun	a whole, entirety
+2958	מכני	adj	mechanical
+2959	מלאי	noun	stock, inventory
+2960	מעבדה	noun	laboratory
+2961	מעשים	noun	plural indefinite form of מַעֲשֶׂה
+2962	מצרי	adj	Egyptian
+2963	מראות	noun	plural indefinite form of מַרְאָה (mar'á)
+2964	משלים	verb	Masculine singular present participle and present tense of הִשְׁלִים (hishlím)
+2965	מתוכנן	adj	planned
+2966	נגמר	verb	to end, to be over
+2967	נהיה	verb	to become, come to be
+2968	נוצרי	noun	Christian; Nazarene (a resident of Nazareth)
+2969	נזכר	verb	To remember suddenly; to remember after having forgotten.
+2970	נטש	verb	to abandon
+2971	סוכן	noun	An agent: one who acts on behalf of an organization.
+2972	סטודנט	noun	A (male) student (in a college, university, or other institute of higher education).
+2973	ספורטאי	noun	sportsman, sportsperson (someone who plays sport)
+2974	סרטון	noun	video, short film
+2975	עדה	noun	a group (as in ethnic group)
+2976	עושר	noun	richness, wealth
+2977	עמית	noun	colleague; association member
+2978	עפר	noun	earth, dirt; dust
+2979	פנימה	adv	inwards, inside
+2980	פער	noun	gap (notionally), difference
+2981	פצצה	noun	bomb; a bombshell (something that is very surprising, shocking, amazing or sensational)
+2982	פרווה	noun	fur; fur garment
+2983	קלט	verb	to know; to comprehend
+2984	קלף	verb	to peel, skin, pare
+2985	רווחה	noun	welfare; relief
+2986	רמון	noun	defective spelling of רימון
+2987	רעש	noun	noise, noisiness
+2988	שדרות	noun	plural indefinite form of שְׂדֵרָה f
+2989	שולי	adj	marginal
+2990	שומרים	noun	plural indefinite form of שׁוֹמֵר (shomér)
+2991	שחמט	noun	chess
+2992	שיתופי	adj	cooperative, collaborative
+2993	שכנע	verb	defective spelling of שיכנע
+2994	שלחו	verb	Third-person masculine singular past
+2995	תדיר	adv	frequently
+2996	תקן	noun	a standard
+2997	אביר	adj	mighty, valiant
+2998	אדיר	adj	mighty, powerful
+2999	אזהרה	noun	warning; a type of didactic liturgical poem
+3000	אסטרטגיה	noun	A strategy.

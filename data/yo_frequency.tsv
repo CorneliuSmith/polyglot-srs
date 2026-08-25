@@ -1,29 +1,29 @@
 rank	word	pos	en
 1	ti	particle	already, have done (ti, before a verb); who, which, that (tí); of, belonging to
 2	ni	verb	is, it is (ni, copula and focus); at, in, on (ní); to have (ní)
-3	o	pron	he, she, it (ó); you (o, subject); not (ò, short for kò); final o for emphasis
+3	ó	pron	he, she, it — third-person singular subject pronoun, before the verb (distinct from o: you, and ò: not)
 4	a	pron	we (subject pronoun); will (á before a verb); him, her, it (á, echoing a verb that ends in a)
 5	wọn	pron	they (wọ́n, subject); them (wọn, after a verb); their (wọn, after a noun)
-6	ki	particle	that, should (kí, subjunctive); what? (kí ni); to greet (kí)
-7	ko	particle	not (kò, before the verb); to gather, to pack up (kó)
-8	awọn	particle	plural marker àwọn, placed before a noun; they, them (emphatic pronoun)
-9	si	prep	to, toward (sí, with motion); and then (sì, links clauses); there is (in kò sí)
+6	kí	particle	that, should — subjunctive complementiser before a clause; what? — question word before the focus marker; to greet (distinct from kì, the habitual negator in kì í)
+7	kò	particle	not — negator placed before the verb (distinct from kó: to gather, to pack up)
+8	àwọn	particle	plural marker, placed before a noun; they, them — emphatic plural pronoun
+9	sí	prep	to, toward — with a verb of motion; there is, there exists — in the negative existential (distinct from sì: and then)
 10	ati	noun	intent; intention; purpose
-11	ṣe	particle	Placed before a sentence to make it a yes-no question.
-12	bi	conj	if, when (bí); like, as, how (bí); to give birth to (bí)
-13	fun	verb	give; choke, squeeze, strangle, throttle
+11	ṣé	particle	yes-no question particle, placed before a sentence (distinct from ṣe: to do, to make)
+12	bí	conj	if, when — conditional, paired with the pre-verbal bá; like, as, how; to give birth to
+13	fún	verb	to give; for, to — benefactive, after the verb; to squeeze, to strangle
 14	ba	verb	to ferment; to carry out the process of fermentation on seeds or plants
-15	lati	particle	to (láti, infinitive marker before a verb); from (a place); since (a time)
+15	láti	particle	to — infinitive marker before a verb; from — a place; since — a time
 16	fi	verb	to use; with, by means of — sets up the instrument before a second verb
-17	pe	verb	to call, to pronounce, to summon, to invoke (an orisha)
+17	pè	verb	to call, to summon, to invoke; to pronounce (distinct from pé: that, the complementiser)
 18	jẹ	verb	to be
 19	ilu	noun	city state; kingdom
 20	to	verb	to arrange, to line up
-21	le	verb	to be able, can, to be possible
+21	lè	verb	to be able, can — pre-verbal modal; to be possible
 22	ọmọ	noun	child; offspring
 23	ohun	noun	thing
-24	ile	noun	home, house, abode
-25	yoruba	name	Yoruba (people or ethnicity)
+24	ilé	noun	home, house, building (distinct from ilẹ̀: ground, land, floor)
+25	yorùbá	name	Yoruba — the people, the language and the ethnicity
 26	ẹni	noun	person, one
 27	wa	det	our (first-person plural possessive pronoun)
 28	rẹ	det	your (second-person singular possessive pronoun)
@@ -36,150 +36,150 @@ rank	word	pos	en
 35	tabi	conj	or — joins two alternatives (written tàbí in full)
 36	ọdun	noun	The plant Discoglypremna caloneura
 37	yi	det	this (placed after the noun, written yìí in full); yí to turn, to change
-38	ri	verb	to see; to find, to get; to look like, to appear
-39	owo	noun	money, cash; cowrie
+38	rí	verb	to see; to find, to get; to look like, to appear
+39	owó	noun	money, cash; cowrie shell as currency (distinct from ọwọ́: hand)
 40	mọ	verb	to know
 41	iṣẹ	noun	work
 42	ninu	prep	inside, within; among
-43	n	particle	"is/are doing — ń before a verb marks ongoing action; also ""I"" (n̄, variant of mo)"
+43	ń	particle	is/are doing — progressive marker before the verb, for action going on now
 44	gba	verb	to rescue, to save, to deliver
 45	gbogbo	noun	all, everything, everyone
 46	ọjọ	noun	day
-47	gbe	verb	to carry; to lift
+47	gbé	verb	to carry, to lift; to live, to dwell in a place
 48	sọ	verb	to say, to speak
-49	di	verb	to become opaque
-50	eyi	pron	this thing/person
+49	di	verb	to become, to turn into (Ó di ọlọ́rọ̀: he became rich); until, up to (títí di …) (distinct from dí: to block, to obstruct, to make opaque; and dì: to tie, to bind)
+50	èyí	pron	this one, this thing, this person — demonstrative pronoun
 51	mu	verb	to drink; to suck
-52	aye	noun	world; life
-53	ede	noun	language; corpus, data
+52	ayé	noun	world; life
+53	èdè	noun	language, tongue; the speech of a people
 54	kọ	verb	to refuse, reject
 55	ijọba	noun	government, kingdom
-56	naa	det	of a particular or previously mentioned entity; that, the
+56	náà	det	that, the — definite determiner after a noun already mentioned
 57	ṣugbọn	conj	but, however
 58	ọrọ	noun	word, phrase, uttering
-59	iwe	noun	paper; document, letter
+59	ìwé	noun	book; paper; document, letter
 60	ọkọ	noun	hoe
 61	fẹ	verb	to want, to desire
 62	ilẹ	noun	land, earth, soil
 63	da	verb	to pour (down or into)
 64	ju	verb	to throw
-65	ka	verb	to count; to read
+65	kà	verb	to count; to read
 66	igba	noun	calabash (Lagenaria siceraria)
 67	ẹ	pron	you (plural or polite, as subject); you (singular, as object after the verb)
 68	ku	verb	to die
-69	iyawo	noun	junior wife; (the other wives in a polygamous marriage not the senior wife)
-70	obinrin	noun	woman, female; wife
-71	baba	noun	father, dad; A term of respect or endearment for an older man, male relative, or a higher ranking man.
+69	ìyàwó	noun	wife; bride; in a polygamous household, a junior wife
+70	obìnrin	noun	woman, female person; wife
+71	bàbá	noun	father, dad; a term of respect or endearment for an older or higher-ranking man
 72	oju	noun	eye; face, surface
 73	pẹlu	conj	with; and
 74	pa	verb	to kill; to murder
 75	iwa	noun	character, behavior
 76	ẹbi	noun	family; relative, next of kin
 77	de	verb	to tie down, to constrain
-78	iya	noun	mother, mom; A term of respect for an elder or a woman of higher rank or importance.
+78	ìyá	noun	mother, mum; a term of respect for an elder or a woman of higher rank
 79	ọpọlọpọ	noun	several or numerous in quantity
 80	eniyan	noun	person, people, human being
 81	la	verb	to dream
-82	agba	noun	adult, elder; senior institution or entity
-83	maa	particle	Marks the anticipative aspect
+82	àgbà	noun	elder, senior adult; a senior institution or body
+83	máa	particle	will — future marker placed before the verb
 84	bẹrẹ	verb	to start, to commence, to begin
 85	oṣelu	noun	politics; politician
 86	ẹ̀	character	The letter ⟨ẹ⟩ with low tone
 87	ibi	noun	pushing, rolling, swaying of something
-88	pataki	noun	importance
-89	oun	pron	he/she/it (emphatic third-person singular personal pronoun)
+88	pàtàkì	noun	importance; being important
+89	òun	pron	he, she, it — emphatic and reported-speech third-person singular pronoun
 90	yio	verb	will
 91	pọ	verb	to be much; to be plenty
 92	bẹ	verb	to beg; to plead; to implore
 93	ọba	noun	king, queen, monarch
 94	oke	noun	mountain, hill; north
 95	wi	verb	to say
-96	ori	noun	head; top, leader
+96	orí	noun	head; top, upper surface; leader
 97	wo	det	which; what
 98	okun	noun	strength, power, energy
 99	ọna	noun	art, craft, artistry, craftsmanship
 100	iru	noun	type, kind, sort
 101	aṣa	noun	A general name for the hawk or kite, but (in particular) the Black-winged kite
-102	owe	noun	proverb, adage, saying
-103	ọkunrin	noun	man, male; manliness, bravery
-104	inu	noun	stomach, abdomen
+102	òwe	noun	proverb, adage, saying
+103	ọkùnrin	noun	man, male person; manliness, bravery
+104	inú	noun	inside, interior; stomach, belly
 105	oṣu	noun	moon; (in particular) new moon
 106	ounjẹ	noun	food
 107	olori	noun	the official designated wife of a monarch
 108	e	pron	him, her, it
 109	lẹhin	verb	to have a legacy
-110	lori	adv	atop; on top of
+110	lórí	adv	atop; on top of
 111	omi	noun	water; river
 112	ogun	noun	war, battle (physical or mental)
 113	oni	noun	today
 114	ẹru	noun	fear
 115	mi	pron	me
-116	eko	name	Lagos (a city in Nigeria)
-117	orukọ	noun	name
-118	jade	verb	to go out
+116	èkó	name	Lagos (a city in Nigeria)
+117	orúkọ	noun	name
+118	jáde	verb	to go out
 119	naijiria	name	Nigeria (a country in West Africa)
 120	titi	adv	for a long time
 121	orilẹ	noun	clan, lineage group
-122	yii	det	this
+122	yìí	det	this
 123	ọpọ	noun	plentifulness, abundance
-124	ina	noun	fire, light
+124	iná	noun	fire, light
 125	aṣọ	noun	any cloth, fabric, textile
 126	un	pron	him, her, it
-127	dudu	adj	black; dark; deep green; deep blue
+127	dúdú	adj	black; dark; deep green; deep blue
 128	ode	noun	outside; town
 129	epo	noun	oil, palm oil, grease
-130	fa	verb	to pull; to suck
+130	fà	verb	to pull; to suck
 131	oko	noun	farm, field
 132	itan	noun	history, story; family history, genealogy, lineage
 133	ta	verb	to sell something
 134	wọnyi	det	these
 135	ọwọ	noun	broom
 136	ẹgbẹ	noun	dehydration, dryness; that which is dry or dried
-137	ja	verb	to fight, to wrestle, to struggle
+137	jà	verb	to fight, to wrestle, to struggle
 138	ẹkọ	noun	lesson; education
 139	igbeyawo	noun	the act of being married
 140	ra	det	our, ours, us
 141	njẹ	particle	Placed before a sentence to make it a yes-no question.
 142	ẹrọ	noun	machine, technology, device
-143	pada	verb	to return to turn back
+143	padà	verb	to return to turn back
 144	enia	noun	human being
 145	iku	noun	death
 146	asiko	noun	time, occasion, season
 147	obi	noun	parent
-148	ọmọde	noun	child; childhood
+148	ọmọdé	noun	child; childhood
 149	nla	adj	big, large
 150	han	verb	to appear, show; to be visible
 151	wọ	verb	to become strained under a heavy weight
 152	idi	noun	eagle, usually referring to African species of the genera Aquila and Haliaeetus,
 153	kuro	verb	to leave; to go away
-154	dun	verb	to be sweet, to be pleasant
-155	na	verb	to beat; to hit; to smack
-156	ro	verb	to think
+154	dùn	verb	to be sweet, to be pleasant
+155	nà	verb	to beat; to hit; to smack
+156	rò	verb	to think
 157	ofin	noun	law; rule
-158	duro	verb	to wait; to stay
+158	dúró	verb	to wait; to stay
 159	bọ	verb	to return, to come here, to arrive
 160	gbọ	verb	to hear; to obey, listen, to respond
 161	ọgbọn	num	thirty
-162	iroyin	noun	news, news report, storytelling
-163	sun	verb	to sleep
+162	ìròyìn	noun	news, news report, storytelling
+163	sùn	verb	to sleep
 164	yo	verb	to become saturated with food or drinks; to become full (after eating)
 165	pupọ	noun	large quantity; numerous ones
-166	ji	particle	to wake up; to wake somebody up
+166	jí	particle	to wake up; to wake somebody up
 167	jọ	verb	to sieve; to filter
-168	ọja	noun	market; market commodities, merchandise; products
+168	ọjà	noun	market; market commodities, merchandise; products
 169	bẹẹ	adv	like that
 170	ọbẹ	noun	knife, blade
 171	ẹkun	noun	leopard; big cat; tiger
-172	dara	verb	to be good, fine, fair
+172	dára	verb	to be good, fine, fair
 173	ọrẹ	noun	friend; friendship
-174	ole	noun	thief
+174	olè	noun	thief
 175	pẹ	verb	to be late or delayed
 176	agbaye	noun	international, worldwide
 177	keji	adj	second
 178	erin	noun	elephant; a nickname for a mighty person, in comparison to an elephant
 179	ologun	noun	warrior, soldier
 180	ija	noun	the act of fighting
-181	meji	adj	two
+181	méjì	adj	two
 182	ẹranko	noun	wild animal
 183	mo	pron	I (first-person singular personal pronoun)
 184	atijọ	noun	ancient times; ancient, prehistorical
@@ -189,15 +189,15 @@ rank	word	pos	en
 188	apẹrẹ	noun	basket
 189	ifẹ	noun	love
 190	ọdọ	noun	young child or animal
-191	ṣi	verb	to open
+191	ṣí	verb	to open
 192	an	pron	him, her, it
 193	ẹran	noun	meat; animal
 194	ẹyẹ	noun	bird
 195	ọ́	character	The letter ⟨ọ⟩ with high tone
 196	ipinlẹ	noun	state
 197	alejo	noun	visitor; guest; stranger
-198	ojo	noun	rain
-199	yoo	verb	will, shall; marks the intentional aspect
+198	òjò	noun	rain
+199	yóò	verb	will, shall; marks the intentional aspect
 200	idile	noun	family, clan
 201	din	verb	to fry in oil
 202	ẹ́	character	The letter ⟨Ẹ⟩ with high tone
@@ -208,7 +208,7 @@ rank	word	pos	en
 207	u	pron	him, her, it
 208	ominira	noun	freedom, independence, liberty
 209	agbẹ	noun	farmer
-210	se	verb	to cook; to boil
+210	sè	verb	to cook; to boil
 211	diẹ	noun	a little bit, few
 212	tẹ	verb	to be flat; to be level
 213	ẹsin	noun	religion, organized religion
@@ -227,21 +227,21 @@ rank	word	pos	en
 226	san	verb	to pay
 227	ayẹyẹ	noun	celebration, festival, party, ceremony
 228	nikan	verb	to be alone in something
-229	oye	noun	honor, respect, a title given to a chieftain or chief
+229	oye	noun	honor, respect, a title given to a chieftain or chief (oyè); amount, number, quantity (oye); wisdom, understanding (òye)
 230	igi	noun	tree; stick, wood, cane
 231	ọlọrun	name	Olorun, a nickname for the supreme divinity of the Yoruba religion, Olódùmarè
 232	mẹta	adj	three
 233	kekere	noun	small entity or quantity
 234	rọbi	verb	to labour; to be in the pains of childbirth
 235	ikan	noun	termite
-236	olu	noun	leader, head, chief; prominent one, hero
+236	olú	noun	leader, head, chief; prominent one, hero
 237	adiẹ	noun	chicken
 238	kọja	verb	to go or pass beyond time, place, or people; to cross
 239	oloye	noun	Yoruba traditional chief
 240	tọ	verb	to urinate
-241	eeyan	noun	person, people, human being
+241	èèyàn	noun	person, people, human being
 242	agbegbe	noun	region, area; vicinity, locale
-243	wọle	verb	to enter into a location; to pass
+243	wọlé	verb	to enter into a location; to pass
 244	ọbọ	noun	a plant used to ritually catch a witch
 245	ọrun	noun	the place of origin for all humans where souls
 246	ọdẹ	noun	stupid person, idiot
@@ -252,7 +252,7 @@ rank	word	pos	en
 251	funfun	verb	to be white
 252	oyinbo	noun	white person, European
 253	gomina	noun	governor
-254	rin	verb	to walk; to associate with
+254	rìn	verb	to walk; to associate with
 255	olowo	noun	rich person; a person with money
 256	aworan	noun	the act of observing or watching to ponder
 257	ọlọrọ	noun	speaker at an event
@@ -260,12 +260,12 @@ rank	word	pos	en
 259	ijẹbu	noun	A drum played during funerals and weddings by the Èkìtì people
 260	lẹyin	verb	to last for a long time; to have a legacy
 261	sọrọ	verb	to talk; to insult
-262	igbo	noun	headbutt
+262	igbo	noun	forest, bush, grove (igbó); the Igbo people or their language (Ìgbò); also, in slang, hemp or marijuana (distinct from ìgbò: a headbutt)
 263	fọ	verb	to say
 264	ọla	noun	honor, prestige, wealth
 265	iṣẹlẹ	noun	event; happening; occurrence
 266	miiran	det	another, other
-267	sa	noun	Sir
+267	sà	noun	Sir
 268	apa	noun	wastefulness, prodigality, a wasteful person, prodigal
 269	tẹlẹ	adv	before
 270	akara	noun	a deep-fried ball made of beans
@@ -300,7 +300,7 @@ rank	word	pos	en
 299	ẹlẹdẹ	noun	pig, swine; dirty person
 300	eegun	noun	bone; strength
 301	ajo	noun	turmeric
-302	iwaju	noun	front
+302	iwájú	noun	front
 303	ṣẹlẹ	verb	to happen; to occur
 304	onile	noun	landlord
 305	aṣẹ	noun	offender
@@ -315,7 +315,7 @@ rank	word	pos	en
 314	abẹtẹlẹ	noun	bribe; corruption
 315	aisan	noun	sickness, disease
 316	ibọn	noun	gun, pistol, rifle
-317	agbalagba	noun	adult; elderly person, elder, senior citizen
+317	àgbàlagbà	noun	adult; elderly person, elder, senior citizen
 318	ṣiṣẹ	verb	to work, to do work
 319	kiniun	noun	lion
 320	ikun	noun	murmur, grumble, grumbling, growl
@@ -324,7 +324,7 @@ rank	word	pos	en
 323	ikoko	noun	pot, multipurpose pot traditionally made of clay.
 324	arugbo	noun	old age, elderliness
 325	iṣe	noun	action; practice, tradition
-326	ọti	noun	alcohol, liquor
+326	ọtí	noun	alcohol, liquor
 327	jẹun	verb	to eat food; to make a living
 328	ata	noun	pepper, spice
 329	sinu	adv	into; in
@@ -343,7 +343,7 @@ rank	word	pos	en
 342	awọ	noun	skin; hide, leather
 343	ọpẹ	noun	gratitude; thanks
 344	igbin	noun	upright open-ended log drums with single leather heads fastened and tuned by wooden pegs
-345	gbagbe	verb	to forget
+345	gbàgbé	verb	to forget
 346	gbiyanju	verb	to persevere, to try, to make a serious effort
 347	nile	prep_phrase	at home
 348	iṣoro	noun	difficulty; problem
@@ -357,7 +357,7 @@ rank	word	pos	en
 356	ijọ	noun	church; congregation
 357	ọya	noun	cane rat, grasscutter
 358	jo	verb	to dance
-359	yin	det	your (second-person plural or honorific possessive pronoun)
+359	yín	det	your (second-person plural or honorific possessive pronoun)
 360	ṣoṣo	noun	only
 361	ajọdun	noun	anniversary
 362	yara	noun	room
@@ -374,7 +374,7 @@ rank	word	pos	en
 373	ika	noun	finger, toe
 374	gẹẹsi	name	English people, British people
 375	sin	verb	to worship a deity; to revere
-376	pari	verb	to finish, to end
+376	parí	verb	to finish, to end
 377	alaini	noun	a person lacking something
 378	akoko	noun	woodpecker, specifically the African grey woodpecker
 379	ọwọn	particle	Precedes a noun to mark it as plural.
@@ -391,7 +391,7 @@ rank	word	pos	en
 390	agogo	noun	bell, gong; clock, timepiece
 391	oro	noun	venom, poison, sting
 392	ijo	noun	the act of dancing; a dance
-393	ade	noun	crown; royalty
+393	adé	noun	crown; royalty
 394	imọran	noun	understanding of facts
 395	eewọ	noun	taboo, cultural or religious prohibition.
 396	akẹkọọ	noun	student, learner
@@ -414,7 +414,7 @@ rank	word	pos	en
 413	kini	verb	to greet someone
 414	mẹrin	adj	four
 415	awo	noun	mystery, secret
-416	ejo	noun	snake
+416	ejò	noun	snake
 417	ẹfọn	noun	buffalo
 418	soke	adv	up
 419	ẹbun	noun	gift, blessing
@@ -425,7 +425,7 @@ rank	word	pos	en
 424	aadọta	num	fifty
 425	otitọ	noun	truth, honesty
 426	aṣiri	noun	secret
-427	ṣere	verb	to do a game, to play
+427	ṣeré	verb	to do a game, to play
 428	gbin	verb	to moan; to groan
 429	kẹtẹkẹtẹ	noun	ass, donkey
 430	ẹja	noun	fish; marijuana
@@ -440,13 +440,13 @@ rank	word	pos	en
 439	akọ	noun	sheath, scabbard
 440	wura	noun	gold, (chemical element, Au, atomical number 79)
 441	ewura	noun	purple yam; Dioscorea alata or Dioscorea smilacifolia
-442	jijẹ	noun	eating; the act of eating
+442	jíjẹ	noun	eating; the act of eating
 443	ọyọ	name	A Yoruba subethnic group who speaks the Ọ̀yọ́ dialect
 444	gbigba	noun	accepting
 445	ga	verb	to set up a collapsible device; to open out; to spread out
-446	ṣoro	verb	to be difficult
+446	ṣòro	verb	to be difficult
 447	eti	noun	ear; edge, side
-448	tobi	verb	to be big, to be large; to enlarge
+448	tóbi	verb	to be big, to be large; to enlarge
 449	abule	noun	village, hut, cottage
 450	kaka	prep	rather than, instead of
 451	esi	noun	warthog, hog; (in particular) red river hog
@@ -460,7 +460,7 @@ rank	word	pos	en
 459	ke	verb	to cry; to shout; to scream
 460	oyin	noun	bee; honey
 461	agbọn	noun	wasp; petulant person
-462	ologbo	noun	cat
+462	ológbò	noun	cat
 463	ike	noun	ivory; plastic, bioplastic, plasticine
 464	ẹiyẹ	noun	bird
 465	gbẹ	verb	to plant; to sow
@@ -475,14 +475,14 @@ rank	word	pos	en
 474	aro	noun	cymbal
 475	oniṣowo	noun	business owner, business person
 476	agbe	noun	great blue turaco (Corythaeola cristata)
-477	sare	verb	to run
+477	sáré	verb	to run
 478	ojiji	noun	shadow, shade
 479	ẹwa	num	ten
 480	ibẹrẹ	noun	introduction; start; beginning
 481	abiku	noun	In Yoruba tradition
-482	meje	adj	seven
-483	kere	verb	to be small
-484	fila	noun	hat, cap (in particular) the traditional Yoruba caps worn by males.
+482	méje	adj	seven
+483	kéré	verb	to be small
+484	fìlà	noun	hat, cap (in particular) the traditional Yoruba caps worn by males.
 485	fo	verb	to jump, or leap in an upwards direction
 486	owu	noun	anvil
 487	iye	noun	mother, a title of respect for an older woman
@@ -505,13 +505,13 @@ rank	word	pos	en
 504	atimọle	noun	prison, detention centre, solitary confinement
 505	ayọ	noun	joy
 506	ọka	noun	millet, sorghum
-507	bata	noun	shoe
+507	bàtà	noun	shoe
 508	iwo	noun	horn
 509	ẹka	noun	corn, maize
 510	igberaga	noun	pride, arrogance
 511	kokoro	noun	insect, bug; penis
 512	ariwa	noun	north
-513	tutu	verb	to be cold or cool
+513	tutù	verb	to be cold or cool
 514	ale	noun	concubine, side chick
 515	sẹ	verb	to condense
 516	nta	adv	outside; out
@@ -520,7 +520,7 @@ rank	word	pos	en
 519	ọwa	noun	the parlor or inner courtyard of a home
 520	ileeṣẹ	noun	company; firm; factory; workshop
 521	iwọde	noun	protest; demonstration; procession
-522	gbo	verb	to bark (like a dog)
+522	gbó	verb	to bark (like a dog)
 523	agọ	noun	tent, shed, encampment
 524	alakara	noun	akara seller
 525	iho	noun	hole
@@ -529,7 +529,7 @@ rank	word	pos	en
 528	ileṣa	name	Ilesa (a city in Nigeria), the capital city of the Ijesha people.
 529	oriki	noun	A form of Yoruba oral praise poetry,
 530	alọ	noun	riddle, quiz; folktale, fable
-531	bayii	adv	like this, like so
+531	báyìí	adv	like this, like so
 532	ọlọpaa	noun	police; law enforcer
 533	kẹjọ	adj	eighth
 534	osi	noun	left; the third-in-command of the king in some towns
@@ -547,17 +547,17 @@ rank	word	pos	en
 546	ọpọlọ	noun	toad, frog, known for being inedible
 547	apẹẹrẹ	name	example, illustration, sign, model
 548	iyẹn	pron	that thing/person
-549	ge	verb	to cut something; especially using a tool
+549	gé	verb	to cut something; especially using a tool
 550	ọtun	noun	right; the second-in-command of the king or a ruler
 551	olukọ	noun	teacher, professor, instructor
-552	ṣubu	verb	to fall, to fall down
+552	ṣubú	verb	to fall, to fall down
 553	owurọ	noun	morning, origin, beginning
 554	gbadun	verb	to enjoy
-555	bawo	adv	how
+555	báwo	adv	how
 556	bara	name	the royal burial site of the Aláàfin of the Ọ̀yọ́ empire in the capital city of Ọ̀yọ́-Ilé
 557	ilọsiwaju	noun	progression, progress
 558	pariwo	verb	to make noise
-559	gbona	noun	to be hot or heated (in temperature)
+559	gbóná	noun	to be hot or heated (in temperature)
 560	ẹnikẹni	noun	anyone
 561	ọjọgbọn	noun	wise person, scholar, professor
 562	gan	verb	to disparage, criticize, belittle
@@ -570,7 +570,7 @@ rank	word	pos	en
 569	aanu	noun	mercy, compassion, pity
 570	ijinlẹ	noun	considerable depth (of a hole or burrow)
 571	ileri	noun	promise
-572	ṣokoto	noun	pants, trousers
+572	ṣòkòtò	noun	pants, trousers
 573	ofurufu	noun	sky, atmosphere
 574	nle	prep_phrase	at home
 575	du	verb	to scramble for, to compete
@@ -606,10 +606,10 @@ rank	word	pos	en
 605	asin	noun	shrew; (in particular) Nigerian shrew
 606	guusu	noun	south
 607	ajanaku	noun	elephant
-608	jokoo	verb	to sit (down)
+608	jókòó	verb	to sit (down)
 609	ikọ	noun	cough
 610	kọkọrọ	noun	key
-611	meloo	det	how many
+611	mélòó	det	how many
 612	sori	adv	atop; to the top
 613	gbongbo	noun	to be protruding, large, and heavy
 614	buburu	adj	bad, evil, wicked
@@ -707,9 +707,9 @@ rank	word	pos	en
 706	alagbẹdẹ	noun	blacksmith
 707	họ	verb	to gouge or scoop out of something
 708	mẹwaa	adj	ten
-709	ibeere	noun	question, query, demand
+709	ìbéèrè	noun	question, query, demand
 710	isalẹ	noun	bottom; lower part
-711	jinna	verb	to be far
+711	jìnnà	verb	to be far
 712	yẹn	det	that
 713	ẹrẹna	name	March, the tenth month in the Yoruba calendar, the Kọ́jọ́dá
 714	ẹtu	noun	Any duiker; Maxwell's duiker (Philantomba maxwellii)
@@ -734,10 +734,10 @@ rank	word	pos	en
 733	ọtẹlẹmuyẹ	noun	one who tip-toes
 734	ọlọja	noun	king, monarch; head or leader of a market
 735	abiyamọ	noun	mother, motherhood
-736	gbolohun	noun	simple statement
+736	gbólóhùn	noun	simple statement
 737	aṣakẹ	name	"A female oríkì name, meaning ""One chosen to be cared for""."
 738	aparo	noun	partridge; (in particular) double-spurred spurfowl (Pternistis bicalcaratus)
-739	wahala	noun	trouble, problem, difficulty
+739	wàhálà	noun	trouble, problem, difficulty
 740	ayo	noun	Any of a variety of plants including Guilandina bonduc and Corchorus olitorius (ewédú)
 741	erele	name	February, the ninth month in the traditional Yoruba calendar, the Kọ́jọ́dá
 742	iṣelu	noun	politics
@@ -765,7 +765,7 @@ rank	word	pos	en
 764	afẹfẹ	noun	air, wind, breeze
 765	afọju	noun	blind person
 766	ogiri	noun	wall, barrier
-767	emi	pron	I (emphatic first-person singular personal pronoun)
+767	èmi	pron	I (emphatic first-person singular personal pronoun)
 768	alaafia	noun	good health, peace (often used in salutations)
 769	saa	noun	period, season, era, semester
 770	oloṣelu	noun	politician
@@ -846,7 +846,7 @@ rank	word	pos	en
 845	run	verb	to smell; to stink
 846	aran	noun	velvet
 847	fulani	noun	Fula (person); Fula (language)
-848	daadaa	adv	well; gladly
+848	dáadáa	adv	well; gladly
 849	ogboni	noun	a respected older male; gentleman, fellow colleague
 850	ọkọọkan	adv	one by one, singly
 851	niwaju	prep_phrase	in front
@@ -884,11 +884,11 @@ rank	word	pos	en
 883	belu	name	November, the sixth month of the traditional Yoruba calendar, the Kọ́jọ́dá
 884	afikun	noun	an addition
 885	iyara	noun	room, bedroom
-886	nibo	pron	where
+886	níbo	pron	where
 887	roro	verb	to be bitter
 888	ekute	noun	rat, specifically the black rat
 889	jaye	verb	to enjoy life; to vibe
-890	waa	contraction	contraction of ìwọ + á, literally “you'll”
+890	wàá	contraction	contraction of ìwọ + á, literally “you'll”
 891	difa	verb	to practice or engage in Ifa divination
 892	ase	noun	banquet; feast; party
 893	ipalara	noun	injury; negative side effect
@@ -898,7 +898,7 @@ rank	word	pos	en
 897	polowo	verb	to advertise
 898	ẹfun	noun	chalk
 899	ejigbo	name	Ejigbo (a town in Nigeria)
-900	gbadura	verb	to pray
+900	gbàdúrà	verb	to pray
 901	ororo	noun	vegetable oil; (in particular) peanut oil
 902	ọda	noun	drought, famine
 903	aboyun	noun	pregnant woman
@@ -927,7 +927,7 @@ rank	word	pos	en
 926	apilẹkọ	noun	article, written piece
 927	pere	noun	being luxuriant or lush
 928	ogundele	name	a male given name meaning “Ògún has arrived home”
-929	lonii	adv	today
+929	lónìí	adv	today
 930	ogbo	noun	a name for several species of small wild cat, similar to the civet
 931	idanimọ	noun	recognition; identification
 932	ifun	noun	intestine, guts
@@ -967,7 +967,7 @@ rank	word	pos	en
 966	ọdalẹ	noun	traitor
 967	eefin	noun	smoke
 968	talaka	noun	poor person, pauper
-969	kutukutu	adj	early
+969	kùtùkùtù	adj	early
 970	ajao	noun	rodents known as anomalures,
 971	are	noun	vindication, justification; justice
 972	ewi	noun	poetry, poem; The Yoruba art of oral poetry and chanting for religious or entertainment purposes
@@ -1002,7 +1002,7 @@ rank	word	pos	en
 1001	ipakọ	noun	occiput
 1002	oniṣango	noun	A devotee or worshipper of the orisha Shango
 1003	araba	noun	the kapok tree, Ceiba pentandra
-1004	ao	noun	slap
+1004	ao	contraction	we will, we shall — contraction of a (we) + ó (future), written solid; also a + ò, we will not, we do not (distinct from àó: a slap)
 1005	lafun	noun	a type of flour made from cassava
 1006	oromọdiyẹ	noun	chick
 1007	atan	name	a female river deity worshipped by several mainly Eastern Yorùbá speaking towns
@@ -1024,7 +1024,7 @@ rank	word	pos	en
 1023	kura	noun	An irredeemable person, unrepentant, hopeless, rogue
 1024	oṣomaalo	name	an Ìjẹ̀ṣà person (in particular) a trader
 1025	agbanrere	noun	a species of large antelope (in particular) roan antelope
-1026	erekuṣu	noun	island, islet
+1026	erékùṣù	noun	island, islet
 1027	ọgan	noun	spur, spike
 1028	bukata	noun	personal business, obligation
 1029	lapalapa	noun	ringworm
@@ -1055,7 +1055,7 @@ rank	word	pos	en
 1054	wuwo	verb	to be heavy
 1055	pinnu	verb	to decide, to resolve, to conclude
 1056	okudu	name	June, the first month of the traditional Yoruba calendar, the Kọ́jọ́dá
-1057	ṣalaye	verb	to explain
+1057	ṣàlàyé	verb	to explain
 1058	ọfiisi	noun	office
 1059	awuyewuye	noun	controversy, crisis
 1060	opopona	noun	streetway
@@ -1302,7 +1302,7 @@ rank	word	pos	en
 1301	ipilẹṣẹ	noun	foundation, origin, source
 1302	ariya	noun	joy, merriment, party, festival
 1303	gaga	noun	eyeglasses, goggles, sunshade
-1304	dokita	noun	doctor
+1304	dókítà	noun	doctor
 1305	ẹbọra	noun	god, deity, divinity; earth spirit
 1306	fu	verb	to suspect, to have a second thought on a person, to be vigilant
 1307	kọsẹ	verb	to honor, pay homage, venerate
@@ -1329,7 +1329,7 @@ rank	word	pos	en
 1328	oyo	noun	Mona monkey, often mistaken with the monkey known as ìjímèrè
 1329	onigbajamọ	noun	barber
 1330	oorẹ	noun	porcupine, specifically African brush-tailed porcupine
-1331	lanaa	adv	yesterday
+1331	lánàá	adv	yesterday
 1332	akurọ	noun	fertile, swampy, irrigated river bank, fadama, paddy
 1333	dundun	noun	dun dun drum; a type of talking drum
 1334	ọkun	noun	millipede
@@ -1643,3 +1643,9 @@ rank	word	pos	en
 1642	suya	noun	suya
 1643	obeje	noun	dolphin
 1644	aṣipa	name	A senior traditional chieftaincy title in Ọ̀yọ́, a member of the Ọ̀yọ́mèsì
+1645	tí	particle	who, which, that: relative-clause marker after a noun (distinct from ti: the perfect marker and 'of')
+1646	ní	verb	at, in, on: locative preposition before a noun; also to have, to possess (distinct from ni: the copula and focus marker)
+1647	o	pron	you: second-person singular subject pronoun before the verb; also the sentence-final particle of warmth or emphasis (distinct from ó: he, she, it)
+1648	ò	pron	not: negator before the verb, the short form of kò (distinct from ó: he, she, it)
+1649	á	pron	will: future marker before the verb; also him, her, it as the object pronoun echoing a verb whose vowel is a (distinct from a: we)
+1650	sì	prep	and then, and so: links a following clause, standing after the subject pronoun (distinct from sí: to, toward)

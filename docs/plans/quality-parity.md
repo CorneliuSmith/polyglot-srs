@@ -651,12 +651,12 @@ order below is the order the work must happen in, per language.
 | | fix | kind |
 | --- | --- | --- |
 | la | strip macrons per la.md's all-or-nothing policy; merge the 40 collision groups | mechanical — no authoring, the policy decides |
-| mi | add macrons to 791 headwords | authoring; `mi.md` calls this "the single largest debt" |
-| yo | add tone marks to 1,638 headwords | authoring; held pending *verified* tone sources |
-| xh | replace the Bible-corpus frequency list, or author a core over it | sourcing |
-| ha | add the missing grammatical spine | authoring |
-| he, fa, id | rebuild `rank` as a frequency ranking; dedupe | sourcing + mechanical |
-| tl | grow 90 rows into a course | sourcing |
+| mi | **not a macron pass** — restore the missing high-frequency words, re-gloss the bare-homograph rows, then mark | measured 20 Aug: `tēnei`, `kāore`, `mātou`, `whānau`, `kōrero` are all ABSENT; a macronisation pass was authored and discarded (see `mi.md`) |
+| yo | top band from in-repo evidence, tail still needs a source | **partly unblocked** 20 Aug: the drills are 65% tone-marked against the vocabulary's 0.4%, giving 130 attested top-band forms + 17 rows that state their own tone. The tail (~1,491) still needs an external source. Attested ≠ correct for the row — see `yo.md` |
+| xh | **corpus swapped**, 62 core words added; authored courtesy core still open | Leipzig `xho_community_2017` (CC-BY) registered 24 Aug; 837 of its top 1,000 were absent. But `molo` ranks #58,883 and `enkosi` #42,478 there — greetings need authoring, no corpus will rank them |
+| ha | **spine added 20 Aug (1,188 → 1,473)**; hooked-letter conflicts in the sentence bank remain | 885 nouns / 171 names / 44 verbs / 11 pronouns, no copula. See `ha.md` |
+| he, fa, id | **done 24 Aug** — he 929→3,000, fa 584→2,996, id 581→3,000, all from Leipzig Wikipedia + kaikki through the repo's own parser | the `rank` column was never the defect; these four courses simply never had a pipeline (commit `2d7ce7f`) |
+| tl | **done 24 Aug — 90 → 2,999.** Leipzig `tgl_wikipedia_2021_100K` + Tagalog kaikki, through the repo's own parser; 360 proper nouns and 7 wrong-sense rows filtered | the same route is now open for `he`, `fa`, `id`: all three were hand-added by `2d7ce7f`, all three have Leipzig and kaikki available |
 
 Latin is first because its quality doc makes it deterministic: "no macrons,
 anywhere, all-or-nothing" decides every case, so nothing needs authoring — but
@@ -802,6 +802,105 @@ sentence. Glossing is what makes it possible.
 Until it exists, step 2 is done by the checker in the maker–checker pass, and
 the checker is told to reject a gloss whose sentence does not exercise the
 card's leading sense rather than silently glossing what is in front of it.
+
+### Phase 2 — the running order (owner decision, 20 Aug 2026)
+
+Asked which courses had actually been reviewed, the measured answer was that
+the well-resourced ones have had **broad** repair — the collision guard,
+junk-twin removal, wrong-lexeme reglosses, 60+ row exclusions across `pt`,
+`fr`, `es`, `ro`, `ca`, `el` — while only `en`, `la` and `mi` have had the
+**deep** pass. Five courses had had nothing at all: `jam`, `id`, `tl`, `he`,
+`fa`. Two of those, `id` (121) and `tl` (152), hold **273 of the 920**
+remaining audit findings between them.
+
+**The owner's decision on sequencing, and it is not "biggest first":**
+
+1. **Finish the low-frequency courses — clean AND populate.** `mi` step (c),
+   then `ha`, `xh`, `yo`, `jam`, `id`, `tl`, `he`, `fa`. These are the courses
+   that are *far behind*, and several are not yet real courses: `tl` has 90
+   rows, `jam` 384, `la` 559. Populating is part of the job, not just
+   repairing what is there.
+2. **Then the deep pass on the well-resourced courses**, to the standard `en`
+   and `la` received — definitions verified against the corpus, homonym gaps
+   filled, glosses committed and audited.
+3. **Then sentences for everyone at once** (Phase 2b), which is the owner's
+   standing instruction: no course reaches the sentence stage ahead of the
+   others.
+
+**Step 1 is COMPLETE (25 Aug 2026).** All nine low-frequency courses are cleaned
+and populated:
+
+| | rows before | rows now | what the pass did |
+| --- | --- | --- | --- |
+| `tl` | 90 | **2,999** | not a course before; now one |
+| `id` | — | **3,000** | pipeline built; its top ranks were already right |
+| `he` | — | **3,000** | pipeline built |
+| `fa` | — | **2,996** | pipeline built |
+| `yo` | 1,644 | **1,650** | top band tone-marked, 0.4% → 7.3%; 6 D1d splits |
+| `xh` | — | **1,233** | incl. the 17-word courtesy core no corpus ranks |
+| `ha` | — | 1,473 | spine filled |
+| `mi` | — | 965 | macronised; step (c) done |
+| `jam` | 384 | **483** | +101 glossed from the course itself; orthography enforced |
+
+**Two results from this step that matter more than the counts:**
+
+1. **`jam` is the one course that cannot be grown from outside.** No Leipzig corpus, no
+   kaikki extract, zero Wiktionary coverage — all checked. 483 rows is the honest ceiling
+   of what the course's own drills and sentences can support, and further growth needs
+   authored content, not a pipeline. It is still the smallest course in the repo.
+2. **A declared standard that nothing checks is not a standard.** Cassidy–JLU was stated
+   in `jam.md` and in `JamaicanNLP`'s docstring, and 12 headwords broke it, three of them
+   words the doc names as drift by name. `la.md`'s macron policy failed the same way and
+   is why check §4 exists. **Assume any policy without a test is being violated** — that
+   is now two for two.
+
+**STEP 2 STATUS (25 Aug 2026): the definition half is done to rank 2000.**
+911 rows repaired across 23 courses, 485 fatal, 664 candidates examined and
+correctly kept. Every course with a kaikki extract is covered to rank 2000;
+`en`, `la` and `jam` have none and were not screenable this way.
+
+What step 2 asked for, and where each part stands:
+
+| | state |
+| --- | --- |
+| definitions verified against the corpus | **done to rank 2000**; 72% of rows sit below it and are unswept |
+| homonym gaps filled | **measured, and largely a verified negative** — the accent-keeping courses distinguish their pairs already (`ro` has zero legacy-cedilla rows; `ru`'s 18 `ё`/`е` pairs are genuine distinct words). The real gap was `yo`, fixed in step 1 |
+| glosses committed | **done** — `data/gloss_overrides.tsv`, 1,440 rows, so a re-seed replays every fix |
+| audited | **done** — `audit_content` PASS at baseline throughout |
+
+**Known open, so it is not mistaken for finished:** the 72% below rank 2000;
+English's 1,400 rows with no committed gloss (including `what`, `how`, `when`,
+`where` in the top 100 — whether they get cards at all depends on WordNet
+coverage that could not be checked in this container); `nl` `bank` missing its
+financial sense, which is a missing SENSE and invisible to this screen; and 30
+candidates that were generated but never returned by an agent.
+
+**PREDICTION TESTED, AND IT DID NOT HOLD (25 Aug 2026).** The owner expected
+step 2 to be lighter because the well-resourced courses have better source
+data. Measured over the top 2000 of all 16: **1,247 candidates generated, 1,217
+decided, 781 real, 425 of them fatal** — the card named a genuinely different word. That is not
+lighter than `en`/`la`; the rate is comparable and the blast radius is larger,
+because the worst of them sit in the top 500 of the biggest courses.
+
+Per course, repaired / of which fatal, through rank 2000:
+`nl` 127/62, `es` 101/62, `ca` 89/61, `it` 83/46, `pt` 72/40, `ro` 68/31,
+`fr` 63/37, `de` 55/23, `tr` 42/17, `el` 22/10, `hi` 17/14, `ko` 16/13,
+`ru` 13/4, `sw` 8/4, `th` 4/1, `ar` 1/0. Arabic reads as clean here only
+because its defects are a DIFFERENT class this screen cannot see — see below.
+
+**Catalan is the clearest case and it went further than the plan recorded.**
+This document already noted `ca` had no correct card for "I am" at rank 924
+`soc`. The sweep found `estic` (r66) glossed "hockey stick", `som` (r210)
+"shallow", `sou` (r381) "salary, wage" — the whole core present tense of
+*ser*/*estar*, plus `vas`, `va`, `fa`, `pot`, `tens`, `dic`, `faig`, `fem`.
+French r55 `va` was glossed "version anglaise", a film-dubbing abbreviation.
+
+**Why bigger corpora were not safer, which is the transferable lesson.** A rank
+is earned by whatever string appeared in running text. Where a spelling is both
+an inflection of a common verb and a separate dictionary word, the sense-picker
+could take the dictionary word — and a larger corpus supplies MORE obscure
+homographs to lose to. **Row count is not a proxy for quality, and better
+source data is not the same as better sense selection.**
 
 ### Phase 2d — Raise the floor on all 27 before deepening any further (from D2d)
 

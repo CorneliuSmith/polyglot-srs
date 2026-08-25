@@ -29,13 +29,13 @@ rank	word	pos	en
 28	hat	verb	has (he, she, it); also the auxiliary forming the perfect: has done, has said
 29	hier	adv	here; there
 30	haben	verb	forms the perfect aspect (have)
-31	für	prep	describes an abstract directionality towards a person or matter
+31	für	prep	for (indicating recipient, purpose or benefit); in exchange for, in return for
 32	sind	verb	are — we are, they are, and formal you are; there are
 33	war	verb	was — I was, he/she/it was; the simple past of sein; there was
 34	von	prep	from; of, belonging to (often replacing genitive; see usage note below)
 35	wenn	conj	when, whenever; if (on the condition that)
 36	dich	pron	you (as direct object, to someone you know well); yourself (with reflexive verbs)
-37	ihr	pron	you, ye (plural, familiar)
+37	ihr	pron	her, their, your (polite Ihr) — possessive: ihr Vater, her/their father; (to) her — dative of sie; you (plural, familiar) — subject pronoun
 38	nein	intj	no — the answer to a question or a refusal; negating inside a sentence is nicht instead
 39	habe	verb	have (I have); also the auxiliary forming the perfect: I have seen, I have done
 40	an	prep	on, upon, at, in, against
@@ -54,10 +54,10 @@ rank	word	pos	en
 53	auch	adv	also, too, as well (in addition to whatever or whoever has previously been listed)
 54	schon	adv	already (happening rather early, continuing rather long)
 55	als	conj	at (approximately) the same moment, when, while, as
-56	sein	verb	forms the present perfect and past perfect tenses of certain verbs
-57	mal	adv	times (indicating multiplication of two numbers)
+56	sein	verb	to be (copula); (auxiliary) forms the perfect and past perfect of verbs of motion and change; his, its (possessive)
+57	mal	adv	softening particle in requests and commands (Komm mal her — come here a sec); once, at some time (short for einmal); Mal (das) — time, occasion (das erste Mal — the first time); times (in multiplication)
 58	jetzt	adv	now (at this moment, right now)
-59	ihn	pron	(obsolete) dative of sie; them (indirect object).
+59	ihn	pron	accusative of er; him, it (direct object)
 60	dann	adv	then, after that
 61	aus	adv	out; ago
 62	meine	pron	feminine singular
@@ -68,7 +68,7 @@ rank	word	pos	en
 67	bist	verb	second-person singular present of sein
 68	doch	particle	yes; surely; really; on the contrary
 69	alles	pron	everything; all
-70	weiß	adj	white
+70	weiß	verb	I know; he/she/it knows (first/third-person singular present of wissen); (adjective) white
 71	keine	pron	feminine nominative/accusative of kein
 72	oder	conj	or
 73	nach	prep	after, past (later in time)
@@ -83,7 +83,7 @@ rank	word	pos	en
 82	wo	adv	where (at what place)
 83	etwas	pron	something
 84	oh	intj	oh
-85	mehr	pron	something more
+85	mehr	pron	more (comparative of viel); nicht mehr — no longer, not anymore
 86	bei	prep	by, near; at
 87	also	conj	so, therefore
 88	bitte	adv	please, if you please (used to make a polite request or affirm an offer)
@@ -120,16 +120,16 @@ rank	word	pos	en
 119	wissen	verb	to know; to be aware of (a fact)
 120	deine	pron	feminine singular
 121	müssen	verb	to have to; to have to do something implied; must; to be obliged.
-122	soll	noun	debit
+122	soll	verb	should, is to, is supposed to (first/third-person singular present of sollen); Soll (das) — debit, target figure
 123	werde	verb	first-person singular present
 124	nie	adv	never, never at all (referring to an indefinite period of time)
 125	wirklich	adj	real
 126	kein	pron	no; not a(n); not one; not any
 127	viel	pron	much, a lot
 128	weg	adv	away; gone, not there
-129	würde	noun	dignity
+129	würde	verb	would (first/third-person singular Konjunktiv II of werden, forming the conditional); Würde (die) — dignity
 130	tut	verb	third-person singular present of tun
-131	am	particle	Precedes the superlative in adverbial and predicate use.
+131	am	contraction	contraction of an + dem: at the, on the, in the (dative); before a superlative — the most (am besten, best); am + nominalised infinitive — in the middle of
 132	des	article	genitive masculine/neuter singular of der: the
 133	einfach	adj	easy; simple, plain, straightforward
 134	leben	verb	to live, to be alive
@@ -142,7 +142,7 @@ rank	word	pos	en
 141	heute	adv	today
 142	kommt	verb	third-person singular
 143	wollen	adj	wool; woolen, woollen
-144	damit	adv	therefore, as a result
+144	damit	adv	with it, with that, by that (pronominal adverb of mit); so that, in order that (conjunction); thereby, therefore
 145	ganz	adj	entire, whole, complete
 146	wäre	verb	first/third-person singular subjunctive II of sein
 147	wollte	verb	first/third-person singular preterite
@@ -176,7 +176,7 @@ rank	word	pos	en
 175	leute	noun	people
 176	vater	noun	father
 177	schön	adj	beautiful, lovely, pretty, handsome
-178	glaube	noun	belief, faith; faith, creed
+178	glaube	verb	I believe (first-person singular present of glauben); Glaube (der) — belief, faith
 179	ab	prep	beginning at that time or location; from
 180	gerade	adj	even
 181	tag	verb	singular imperative of tagen
@@ -210,7 +210,7 @@ rank	word	pos	en
 209	hör	verb	singular imperative of hören
 210	her	adv	hither, to this place, to here, to me/us
 211	sag	verb	singular imperative of sagen
-212	meiner	pron	mine (substantival possessive)
+212	meiner	det	my — dative/genitive feminine singular and genitive plural of mein; mine (standing alone)
 213	anderen	adj	strong genitive masculine/neuter singular
 214	helfen	verb	to help (someone); to assist; to aid
 215	nacht	noun	night; darkness
@@ -257,7 +257,7 @@ rank	word	pos	en
 256	freund	noun	friend; boyfriend
 257	guten	adj	strong genitive masculine/neuter singular
 258	unser	pron	genitive of wir
-259	warte	noun	lookout, guarding post
+259	warte	verb	I wait; wait! (first-person singular present and imperative of warten); Warte (die) — lookout, vantage point
 260	machst	verb	second-person singular present of machen
 261	menschen	noun	accusative/dative/genitive singular of Mensch
 262	essen	verb	to eat; to eat; to dine
@@ -293,7 +293,7 @@ rank	word	pos	en
 292	arbeit	noun	toil; job, task, assignment
 293	seid	verb	second-person plural present of sein
 294	ihrer	pron	genitive of sie: of her
-295	fragen	verb	to ask; to ask for, to ask after
+295	fragen	verb	to ask; to ask for, to ask after; to wonder (sich fragen); Fragen (die) — questions, plural of Frage
 296	herr	noun	man, gentleman; sir, lord; address of subservient respect
 297	dabei	adv	with one, on one
 298	heißt	verb	second/third-person singular present
@@ -344,13 +344,13 @@ rank	word	pos	en
 343	würden	noun	plural of Würde
 344	lieber	adj	comparative degree of lieb
 345	fall	verb	singular imperative of fallen
-346	deiner	pron	yours, thine (substantival possessive)
+346	deiner	det	your — dative/genitive feminine singular and genitive plural of dein; yours (standing alone)
 347	sehe	verb	first-person singular present
 348	egal	adj	all the same, unimportant
 349	kennen	verb	to know; to be acquainted with; to be familiar with
 350	deinem	det	dative masculine/neuter singular of dein
 351	vergessen	verb	to forget (lose remembrance of)
-352	frage	noun	question (interrogative sentence or phrase)
+352	frage	noun	question, issue (die Frage); (ich) frage — first-person singular present of fragen
 353	mache	verb	first-person singular present
 354	komme	verb	first-person singular present
 355	sage	verb	first-person singular present
@@ -393,7 +393,7 @@ rank	word	pos	en
 392	bereit	adj	ready
 393	weit	adj	wide; large
 394	ahnung	noun	anticipation, inkling
-395	seiner	pron	his (substantival possessive)
+395	seiner	det	his, its — dative/genitive feminine singular and genitive plural of sein; his (standing alone)
 396	bisschen	adv	(a) bit; (a) little
 397	tür	noun	door (rigid plane on a hinge)
 398	auto	noun	car
@@ -410,8 +410,8 @@ rank	word	pos	en
 409	runter	adv	down, down here, downstairs (towards the speaker)
 410	vorbei	adj	over, past, up (of time)
 411	treffen	verb	to meet; to encounter
-412	gerne	intj	don't mention it, not at all, you're welcome
-413	dran	adv	to be in a particular situation
+412	gerne	adv	gladly, willingly, with pleasure (alternative form of gern; ich hätte gerne — I would like); Gerne! — you're welcome
+413	dran	adv	on it, at it, of it (short for daran); dran sein — to be someone's turn; gut/schlecht dran sein — to be well/badly off
 414	wurden	verb	first/third-person plural preterite of werden
 415	arbeiten	verb	to work (to do a specific task by employing physical or mental powers)
 416	mom	intj	gimme a sec, hold on
@@ -504,7 +504,7 @@ rank	word	pos	en
 503	hoch	adj	high, tall; high, great, immense
 504	alter	adj	strong/mixed nominative masculine singular
 505	sagst	verb	second-person singular present of sagen
-506	schau	noun	show
+506	schau	verb	look!, have a look (singular imperative of schauen; schau mal — take a look); Schau (die) — show, display, exhibition
 507	ah	intj	expressing understanding
 508	land	noun	country (territory of a nation)
 509	zimmer	noun	room (separate part of a building, enclosed by walls, a floor and a ceiling)
@@ -593,7 +593,7 @@ rank	word	pos	en
 592	wiedersehen	noun	reunion; seeing again; instance of seeing someone or each other again
 593	frei	adj	free; unenslaved; unimprisoned
 594	wen	pron	accusative of wer: whom (direct object).
-595	drauf	adv	high
+595	drauf	adv	on it, on that, of it (colloquial form of darauf; es kommt drauf an — it depends; ich freu mich drauf — I'm looking forward to it); (slang) drauf sein — to be high
 596	möglich	adj	possible (what can be done or achieved)
 597	irgendwie	adv	somehow (in some unknown or unspecific manner)
 598	reicht	verb	third-person singular present
@@ -616,7 +616,7 @@ rank	word	pos	en
 615	wohin	adv	where to, whither
 616	außer	prep	except; besides; apart from
 617	früh	adj	early
-618	setzen	verb	to sit down; to settle (precipitate)
+618	setzen	verb	to put, to place, to set (causative of sitzen; unter Druck setzen — to put under pressure; ein Komma setzen — to place a comma); sich setzen — to sit down; to settle, to precipitate; to bet, to wager (auf + acc.)
 619	zuerst	adv	first, firstly; at first
 620	wahrscheinlich	adj	likely, probable, plausible
 621	dürfen	verb	to be allowed (to do something); to be permitted (to do something); may
@@ -653,7 +653,7 @@ rank	word	pos	en
 652	nächsten	adj	superlative degree of nah
 653	gebe	verb	first-person singular present
 654	wochen	noun	plural of Woche
-655	ruf	noun	call, shout, cry
+655	ruf	verb	call!, call (singular imperative of rufen; ruf mich an — call me); Ruf (der) — reputation; call, shout, cry
 656	schaffen	verb	to create, to call into being
 657	leider	adv	unfortunately
 658	scheiß	noun	shit (feces); nonsense, bullshit, horseshit
@@ -706,7 +706,7 @@ rank	word	pos	en
 705	eigenen	adj	strong genitive masculine/neuter singular
 706	richtige	adj	strong/mixed nominative/accusative feminine singular
 707	unserem	pron	dative masculine/neuter singular of unser
-708	suche	noun	search
+708	suche	verb	I look for, I am looking for; look for! (first-person singular present and imperative of suchen; ich suche Arbeit — I'm looking for work); Suche (die) — search
 709	zwar	adv	Signals a following contrary clause, which is usually introduced with aber
 710	groß	adj	big, large, large-scale
 711	hol	verb	singular imperative of holen
@@ -724,7 +724,7 @@ rank	word	pos	en
 723	heiraten	verb	to marry; to get married
 724	super	adj	super, great, awesome
 725	lebt	verb	third-person singular simple present of leben
-726	gutes	noun	nominalization of gut: something good
+726	gutes	adj	good (strong/mixed nominative/accusative neuter singular of gut; ein gutes Buch — a good book; gutes Wetter — good weather); Gutes — something good, good things (nominalised: nichts Gutes im Schilde führen)
 727	lasse	verb	first-person singular present
 728	onkel	noun	uncle
 729	total	adj	total, absolute, complete, utter (not used in the sense of “entire”)
@@ -735,7 +735,7 @@ rank	word	pos	en
 734	wahl	noun	choice, selection
 735	vertrauen	noun	gerund of vertrauen; trust (confidence in or reliance on some person or quality)
 736	damals	adv	at that time (in the past); at the time, then
-737	tagen	verb	to meet; to dawn
+737	tagen	noun	days (dative plural of Tag; vor drei Tagen — three days ago; in diesen Tagen — these days); tagen (verb) — to meet, to convene; to dawn
 738	leicht	adj	light (not heavy)
 739	nachdem	conj	after (that); given that, being that
 740	gegangen	verb	past participle of gehen
@@ -773,7 +773,7 @@ rank	word	pos	en
 772	schlüssel	noun	a key
 773	rest	noun	rest, remainder, remnant
 774	passieren	verb	to happen; to move beyond; pass
-775	eher	adv	rather; fairly, relatively, somewhat; expresses a weakened degree
+775	eher	adv	rather (eher … als — rather … than; eher niedlich als schön); fairly, relatively, somewhat (weakened degree); sooner, earlier (comparative of bald/früh; je eher, desto besser — the sooner the better; nicht eher … bis — not until)
 776	gefragt	verb	past participle of fragen (“to ask”)
 777	gefängnis	noun	prison, jail (building)
 778	opfer	noun	sacrifice; victim
@@ -784,7 +784,7 @@ rank	word	pos	en
 783	schreiben	verb	to write, to write out (use letters to make words and texts)
 784	böse	adj	evil; malicious; wicked
 785	gesprochen	verb	past participle of sprechen
-786	versuch	noun	attempt; experiment; test, trial
+786	versuch	verb	try! (singular imperative of versuchen; versuch es noch einmal — give it another try); Versuch (der) — attempt, try; experiment, test, trial
 787	vorstellen	verb	to introduce (someone), to present
 788	wovon	adv	about what, what ... about
 789	sobald	conj	as soon as, by the time
@@ -846,7 +846,7 @@ rank	word	pos	en
 845	lustig	adj	funny, humorous
 846	umbringen	verb	to kill, to murder, to do away with
 847	sollst	verb	second-person singular present of sollen
-848	hasse	noun	synonym of Burenwurst
+848	hasse	verb	I hate (first-person singular present of hassen; ich hasse Kaffee — I hate coffee); Hasse (die) — (Austrian, colloquial) Burenwurst, a grilled sausage
 849	schlimm	adj	bad, terrible, serious (seriously bad), dire, horrible, awful
 850	o	intj	O
 851	unglaublich	adj	unbelievable, incredible
@@ -980,7 +980,7 @@ rank	word	pos	en
 979	welcher	det	which; what; which
 980	zahlen	verb	to pay; to pay, to atone
 981	anfang	noun	start, beginning, origin (spatially or temporally)
-982	legen	verb	to lie down; to castrate
+982	legen	verb	to lay, to put, to place (causative of liegen; legen Sie die Hände auf den Kopf — put your hands on your head; eine Falle legen — to set a trap; ein Komma legen/setzen); sich legen — to lie down; to subside, to die down
 983	erinnerst	verb	second-person singular present of erinnern
 984	anwalt	noun	attorney, lawyer
 985	fahr	verb	singular imperative of fahren
@@ -1064,7 +1064,7 @@ rank	word	pos	en
 1063	harry	name	a male given name
 1064	brief	noun	letter (written message)
 1065	gelernt	verb	past participle of lernen
-1066	sucht	noun	addiction; exaggerated or morbid desire; greed
+1066	sucht	verb	he/she/it looks for, searches; you (pl.) look for (third-person singular and second-person plural present of suchen; wer sucht, der findet — seek and you shall find); Sucht (die) — addiction, craving
 1067	bekannt	verb	past participle of bekennen
 1068	weitere	adj	strong/mixed nominative/accusative feminine singular comparative degree
 1069	unfall	noun	accident
@@ -1097,11 +1097,11 @@ rank	word	pos	en
 1096	sowieso	adv	anyway, anyhow, in any case
 1097	kraft	noun	power, force, strength
 1098	normal	adj	ordinary, normal
-1099	lauf	noun	run, race; leg of certain animals
+1099	lauf	verb	run!, go! (singular imperative of laufen; lauf nicht so schnell — don't run so fast); Lauf (der) — run, race; course (im Lauf der Dinge — in the course of things); barrel (of a gun)
 1100	ehre	noun	honour; credit
 1101	stell	verb	singular imperative of stellen
 1102	geschenk	noun	present, gift
-1103	bar	adj	bare
+1103	bar	adj	cash, in cash (bar bezahlen — to pay cash; in bar — in cash); Bar (die) — bar (for drinks); (literary, + genitive) devoid of, without (bar jeder Vernunft)
 1104	tasche	noun	bag; pocket
 1105	gelesen	verb	past participle of lesen
 1106	gekauft	verb	past participle of kaufen
@@ -1124,7 +1124,7 @@ rank	word	pos	en
 1123	neben	prep	next to, beside, alongside, adjacent to, near, near to
 1124	gesucht	verb	past participle of suchen
 1125	firma	noun	A company, a business.
-1126	süße	noun	sweetness; sweetener
+1126	süße	adj	sweet, cute (inflected form of süß; süße Träume — sweet dreams; der süße Junge — the cute boy); Süße (die) — sweetness; sweetener; sweetie, darling (of a woman)
 1127	rücken	noun	back
 1128	schrecklich	adj	awful, terrible, horrible
 1129	letzter	adj	strong/mixed nominative masculine singular
@@ -1144,7 +1144,7 @@ rank	word	pos	en
 1143	wunder	noun	miracle; wonder
 1144	sauer	adj	sour; acid; acidic
 1145	vermutlich	adj	suspected, presumable, assumed
-1146	näher	adj	further, more precise or detailed
+1146	näher	adj	nearer, closer (comparative of nah; er kommt näher — he's coming closer; der Termin rückt näher); (attributive) further, more precise, more detailed (nähere Angaben — further details)
 1147	major	noun	major
 1148	jung	adj	young
 1149	majestät	noun	majesty
@@ -1286,7 +1286,7 @@ rank	word	pos	en
 1285	sauber	adj	clean; neat, tidy
 1286	hau	verb	singular imperative of hauen
 1287	mark	noun	mark (any of various European monetary units)
-1288	schlag	noun	blow, hit; beat (pulse on the beat level)
+1288	schlag	verb	hit!, strike! (singular imperative of schlagen; schlag ein — high five, schlag nach — look it up); Schlag (der) — blow, hit; beat, stroke; type, sort
 1289	sheriff	noun	sheriff
 1290	untertitel	noun	subheading; subtitle
 1291	setzt	verb	second/third-person singular present
@@ -1337,7 +1337,7 @@ rank	word	pos	en
 1336	gebeten	verb	past participle of bitten
 1337	kamera	noun	camera (device for taking photographs or filming)
 1338	achtung	noun	attention; esteem
-1339	ganzes	noun	whole
+1339	ganzes	adj	whole, entire (strong/mixed nominative/accusative neuter singular of ganz; sein ganzes Geld — all his money); Ganzes (das) — a whole
 1340	jesus	name	Jesus
 1341	schuhe	noun	"nominative/accusative/genitive plural of Schuh ""shoes"""
 1342	sarah	name	Sarah; a female given name from Biblical Hebrew
@@ -1398,7 +1398,7 @@ rank	word	pos	en
 1397	entschieden	verb	past participle of entscheiden
 1398	mission	noun	mission (set of tasks)
 1399	verdammten	verb	first/third-person plural preterite
-1400	brauch	noun	custom
+1400	brauch	verb	I need (colloquial first-person singular present of brauchen, for brauche; ich brauch deine Hilfe — I need your help); Brauch (der) — custom, tradition
 1401	gewusst	verb	past participle of wissen
 1402	vorne	adv	at the front; in front
 1403	stopp	noun	stop, stoppage (interruption or halt of anything)
@@ -1458,7 +1458,7 @@ rank	word	pos	en
 1457	klingelt	verb	third-person singular present
 1458	position	noun	position, location
 1459	echte	adj	strong/mixed nominative/accusative feminine singular
-1460	gleichen	verb	to be like, to equal to, to resemble
+1460	gleichen	adj	same, alike (inflected form of gleich; die gleichen Probleme — the same problems); gleichen (verb) — to resemble, to be like
 1461	fernsehen	noun	television
 1462	wünsche	verb	first-person singular present
 1463	schließlich	adv	in the end, finally, eventually
@@ -1536,7 +1536,7 @@ rank	word	pos	en
 1535	fleisch	noun	flesh; meat
 1536	besonderes	adj	strong/mixed nominative/accusative neuter singular of besondere
 1537	besteht	verb	third-person singular present
-1538	reichen	verb	to reach (extend a certain distance)
+1538	reichen	verb	to be enough, to suffice; to pass, to hand; to reach, to extend (verb reichen; das Geld wird reichen — the money will be enough); also the inflected adjective reich — rich (einer reichen Familie — of a wealthy family; die Reichen — the rich)
 1539	robert	name	a male given name from Frankish, feminine equivalent Roberta, equivalent to English Robert
 1540	zeitung	noun	newspaper; tidings, news
 1541	worum	adv	about what; around what
@@ -1598,7 +1598,7 @@ rank	word	pos	en
 1597	angetan	verb	"past participle of antun: ""done"""
 1598	beeil	verb	singular imperative of beeilen
 1599	brechen	verb	to break; to refract
-1600	brüder	noun	brethren
+1600	brüder	noun	brothers (nominative/accusative/genitive plural of Bruder — der Bruder; er hat drei Brüder — he has three brothers); brethren (religious or archaic use)
 1601	zeitpunkt	noun	moment (instant of time), point in time, a timepoint
 1602	keinem	pron	dative masculine/neuter of kein
 1603	ecke	noun	corner, edge; a roughly triangular or quadrangular piece of something
@@ -1612,7 +1612,7 @@ rank	word	pos	en
 1611	auftrag	noun	assignment, job, mission
 1612	leer	adj	empty
 1613	entkommen	verb	to escape
-1614	weißen	verb	to whiten
+1614	weißen	adj	white (inflected form of the adjective weiß; einen weißen Hund — a white dog); Weißen — white people (inflection of Weiße); weißen (verb) — to whitewash, to whiten
 1615	lösung	noun	solution (answer to a riddle or problem)
 1616	wart	verb	second-person plural preterite of sein
 1617	pause	noun	pause, break
@@ -1626,11 +1626,11 @@ rank	word	pos	en
 1625	fragt	verb	third-person singular present
 1626	maul	noun	mouth of an animal
 1627	verantwortung	noun	responsibility
-1628	schloss	noun	lock, padlock (something used for fastening)
+1628	schloss	verb	closed, shut (first/third-person singular preterite of schließen; er schloss die Tür — he closed the door); Schloss (das) — castle, palace; lock, padlock
 1629	hut	noun	hat; head, top
 1630	lächeln	verb	to smile
 1631	red	verb	singular imperative of reden
-1632	grad	noun	degree
+1632	grad	adv	just now, right now (colloquial short form of gerade; Tom macht grad Tee — Tom is making tea right now); Grad (der) — degree (of temperature, of an angle, academic)
 1633	zweiten	num	strong genitive masculine/neuter singular
 1634	hinaus	adv	out (away from the speaker)
 1635	mitkommen	verb	to come with, to join and come along with (another person)
@@ -1650,10 +1650,10 @@ rank	word	pos	en
 1649	fragte	verb	first/third-person singular preterite
 1650	operation	noun	operation
 1651	befehle	noun	nominative/accusative/genitive plural of Befehl
-1652	schmerzen	verb	to cause pain, to be painful, to ache or hurt
-1653	erklärt	adj	declared, avowed, professed
+1652	schmerzen	noun	pains, aches (plural of Schmerz — der Schmerz; ich habe Schmerzen — I'm in pain); schmerzen (verb) — to hurt, to ache, to be painful
+1653	erklärt	verb	explains; explained (third-person singular present and past participle of erklären; das erklärt alles — that explains everything); declared, pronounced (er wurde für tot erklärt — he was declared dead); erklärt (adj.) — avowed, professed
 1654	dach	noun	roof; circumflex
-1655	folge	noun	sequence; consequence
+1655	folge	verb	follow! (singular imperative of folgen; folge mir — follow me); I follow (first-person singular present); Folge (die) — consequence; sequence; episode
 1656	gelaufen	verb	past participle of laufen
 1657	schwarze	noun	female equivalent of Schwarzer: black woman
 1658	dankbar	adj	grateful, thankful
@@ -1678,7 +1678,7 @@ rank	word	pos	en
 1677	gehalten	verb	past participle of halten
 1678	dorthin	adv	there (to that place), thither
 1679	urlaub	noun	holiday, vacation
-1680	steig	noun	climb (steep upward path)
+1680	steig	verb	get on!, get in!, climb! (singular imperative of steigen; steig ein — get in, steig auf das Pferd — get on the horse); Steig (der) — steep path, footpath
 1681	vorwärts	adv	forwards, forward; onwards, onward
 1682	überprüfen	verb	to check, to verify
 1683	besseres	adj	strong/mixed nominative/accusative neuter singular comparative degree of gut
@@ -1710,7 +1710,7 @@ rank	word	pos	en
 1709	nachdenken	verb	to think, to reflect, to ponder
 1710	tor	noun	gate, archway (passageway covered by an arch, particularly one made of masonry)
 1711	erfahrung	noun	experience (event through which empirical knowledge is gained)
-1712	pläne	noun	synonym of Ebene (“level surface, plain, flatland”)
+1712	pläne	noun	plans (nominative/accusative/genitive plural of Plan — der Plan; ich musste meine Pläne ändern — I had to change my plans)
 1713	jagen	verb	to hunt (game); to chase, chase after (to follow at speed)
 1714	katze	noun	house cat, Felis silvestris catus
 1715	runde	noun	round (of drinks)
@@ -1778,7 +1778,7 @@ rank	word	pos	en
 1777	einiges	adj	strong/mixed nominative/accusative neuter singular of einig
 1778	entdeckt	verb	past participle of entdecken
 1779	morgens	adv	in the morning, a.m.
-1780	schlechter	adv	worse
+1780	schlechter	adj	bad (inflected form of schlecht; ein schlechter Anfang — a bad start); worse (comparative of schlecht; es wird schlechter — it's getting worse)
 1781	vollkommen	adj	perfect (fitting its definition precisely)
 1782	gelogen	verb	past participle of lügen
 1783	verfolgt	verb	past participle of verfolgen
@@ -1810,7 +1810,7 @@ rank	word	pos	en
 1809	erwähnt	verb	past participle of erwähnen (“mentioned”)
 1810	farbe	noun	colour; paint
 1811	van	noun	van
-1812	einigen	verb	to unite or unify (for example a group of people)
+1812	einigen	adj	some, a few (dative plural of einige; in einigen Tagen — in a few days); sich einigen — to agree, to come to an agreement; einigen — to unite, to unify
 1813	zufall	noun	chance, coincidence, randomness
 1814	garten	noun	garden, yard (grounds at the front or back of a house)
 1815	junger	adj	strong/mixed nominative masculine singular
@@ -1866,9 +1866,9 @@ rank	word	pos	en
 1865	geschah	verb	first/third-person singular preterite of geschehen
 1866	reisen	verb	to travel
 1867	termin	noun	date (day on which a certain event takes place)
-1868	gang	noun	motion, movement, progress, way, going
+1868	gang	noun	Gang (der) — corridor, hallway; aisle (Fenster oder Gang? — window or aisle?); gear (of a car); course (of a meal); gait, way of walking; motion, progress, the way things go (etwas in Gang setzen — to set something in motion; der Gang der Welt — the way of the world)
 1869	stehlen	verb	to steal; to skulk, to move secretly
-1870	rechte	noun	right (right hand or side)
+1870	rechte	noun	rights (plural of Recht — das Recht; ich kenne meine Rechte — I know my rights); right (inflected form of the adjective recht; das rechte Bein — the right leg); Rechte (die) — the right hand; the political right
 1871	rache	noun	revenge; vengeance
 1872	bemerkt	verb	past participle of bemerken
 1873	frankreich	name	France (a country located primarily in Western Europe)
@@ -1921,7 +1921,7 @@ rank	word	pos	en
 1920	bösen	adj	strong genitive masculine/neuter singular
 1921	schaffe	verb	first-person singular present
 1922	pflicht	noun	duty
-1923	wache	noun	wake, vigil; watch, sentry, guard duty
+1923	wache	verb	I keep watch; I wake up (first-person singular present of wachen / aufwachen; ich wache früh auf — I wake up early); Wache (die) — guard duty, sentry duty; guard post; vigil, wake
 1924	neulich	adv	recently (in the recent past)
 1925	beeilen	verb	to hurry, to hasten, to rush
 1926	knie	noun	knee

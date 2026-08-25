@@ -33,6 +33,41 @@ Grading: `TagalogNLP` in `backend/services/nlp/latin_base.py` is `AccentFoldingN
 articles like Spanish 'el' — stripping them would eat a real word". Acceptance is exact match
 after lowercasing and accent folding. Not in `TRANSLIT_LANGS`.
 
+**The course was 90 rows until 24 Aug 2026; it is now 2,999.**
+
+`tl` was hand-added by commit `2d7ce7f` along with `he`, `fa`, `id` and `la`, and never went
+through the corpus pipeline the other 22 courses use — no kaikki extract, no build path in
+`source_data.py`, 90 rows. The 90 were a sound closed-class core (`ako`, `ang`, `ng`, `sa`,
+`na`, `at`) but a 90-word list is not a course.
+
+Both pieces now exist: `tgl_wikipedia_2021_100K` (Leipzig, CC-BY) for frequency and the
+Tagalog kaikki extract for glosses, run through `source_data.parse_kaikki_jsonl` so every
+gloss gets the same sense-ranking the other courses get. **The original 90 are kept and win
+over anything the corpus proposes** — they were authored.
+
+What the build adds first is the closed-class spine the 90 lacked: `ay` (the inversion
+marker), `si`, `ni`, `para`, `mula`, `nito`, `upang`, `niya`, `nang`, `rin`.
+
+**Two filters, both earned by what the raw build produced:**
+
+- **Proper nouns are dropped (360 rows).** The corpus is Wikipedia, so names are heavily
+  over-represented, and kaikki resolves ordinary words to name entries. `isang` — `isa`
+  "one" plus the linker `-ng` — came back glossed *"a diminutive of the female given name
+  Isabel"* at the **second-highest frequency in the language**. That is the failure that
+  made English rank 3 `be` beryllium, arriving through a different door. `isang` and `pang`
+  are corrected explicitly rather than dropped, being genuinely frequent.
+- **Pointer-only glosses are dropped (6 rows)** — "alternative spelling of X" carries no
+  meaning of its own.
+
+**One row the audit caught after the build**: rank 424 `ii`, glossed *"name of the Baybayin
+letter ᜁ"*. The `wrong_sense_gloss` rule flagged it as a letter name and the ratchet refused
+the build until it was excluded. Its rank comes from Wikipedia prose *about* the Baybayin
+script, which this corpus is full of — a register artifact, not a word. It is in
+`data/vocab_exclusions.tsv` so a rebuild cannot bring it back.
+
+**Still outstanding:** the 152 audit findings (86 `leak_hard`, 66 `self_answering`) are all
+in the grammar drills, not the vocabulary, and predate this work.
+
 ## Hint standards
 
 Universal rules, once: a hint **narrows** the answer without containing it. Never the answer
@@ -148,3 +183,19 @@ forces the choice; give a linker drill no phonological condition; store an in-wo
 `answer` doesn't match the characters in the gap; label a Taglish or literary form as ordinary
 Tagalog, or an ordinary form as polite; or gloss a pronoun without saying which of the ang/ng/sa
 sets it belongs to.
+
+## Wrong-lexeme sweep, top 2000 (25 Aug 2026)
+
+**4 rows reglossed, 2 of them fatal** — the card named a genuinely
+different word. This course was not in the first sweep of the 16 well-resourced courses; it
+was screened afterwards so that every course with a kaikki extract is covered. Found by
+`audit_wrong_lexeme`, decided by a maker–checker pass against each row's full kaikki sense
+inventory and the course's own sentences. See `docs/quality/CHECKS.md` §3b.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 945 | `me` | informal/texting spelling of may: there is/are; to have — ordinary writi |
+| 1536 | `rating` | rating; audience or review score (English loan, standard in Filipino med |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/tl_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit is undone by the next seed.

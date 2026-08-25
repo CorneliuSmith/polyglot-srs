@@ -20,7 +20,7 @@ rank	word	pos	en
 19	так	adv	so, like this, in that way; so, so much (to such a degree); so, then
 20	но	conj	but, yet
 21	а	conj	and, but (setting two things side by side); whereas; oh! (surprise)
-22	его	pron	his; its
+22	его	pron	him, of him (он in the genitive/accusative; его нет — he's not here); his, its (one invariable possessive form for every gender)
 23	все	pron	everyone, everybody; all, all of (plural)
 24	она	pron	she, it (third-person feminine singular pronoun)
 25	тебя	pron	you (ты in the genitive/accusative; у тебя — you have)
@@ -32,7 +32,7 @@ rank	word	pos	en
 31	они	pron	they
 32	чтобы	conj	that...should (indicates the subjunctive)
 33	же	conj	and, but; on the other hand, whereas, as for, as to
-34	есть	verb	to eat
+34	есть	verb	there is, there are; у меня есть — I have (the one surviving present form of быть, dropped elsewhere); to eat (impf.; pf. съесть)
 35	просто	adv	simply, plainly, just
 36	из	prep	from; out of
 37	к	prep	to, toward; by, for (of time)
@@ -70,7 +70,7 @@ rank	word	pos	en
 69	нужно	adj	it is necessary, one must
 70	сейчас	adv	now (presently, at present, at the moment)
 71	где	adv	where; now (sometimes; occasionally)
-72	чем	conj	than; instead of, rather
+72	чем	conj	than; instead of, rather (лучше, чем ничего — better than nothing); what, with what — что in the instrumental (Чем ты занимаешься? — What do you do?; Чем могу помочь? — How can I help?)
 73	хочу	verb	first-person singular present indicative imperfective of хоте́ть (xotétʹ)
 74	ничего	pron	genitive of ничто́ (ništó)
 75	этого	det	masculine/neuter genitive singular
@@ -135,7 +135,7 @@ rank	word	pos	en
 134	без	prep	without, aside from, except, minus, free of/from (signifying absence)
 135	найти	verb	to find; to think, to consider
 136	день	noun	day, daytime; afternoon, early evening
-137	том	noun	volume (of a book, magazine or disk)
+137	том	pron	that, it — тот/то in the prepositional (о том, что… — about the fact that…; дело в том, что… — the thing is…; в том доме — in that house); a volume, tome (m.) of a book
 138	буду	verb	I will have, I would like
 139	делать	verb	to make, to do
 140	хотел	verb	masculine singular past indicative imperfective of хоте́ть (xotétʹ)
@@ -647,7 +647,7 @@ rank	word	pos	en
 646	говорили	verb	plural past indicative imperfective of говори́ть (govorítʹ)
 647	пришла	verb	feminine singular past indicative perfective of прийти́ (prijtí)
 648	безопасности	noun	genitive/dative/prepositional singular of безопа́сность (bezopásnostʹ)
-649	рада	noun	rada, Rada (a parliamentary body in a number of Slavic countries)
+649	рада	adj	glad, pleased, happy — feminine short form of рад, said by or about a woman (Я рада вас видеть — I'm glad to see you; рада за тебя — happy for you); also the Rada, a Slavic parliamentary council (Верховная Рада)
 650	когда-нибудь	adv	sometime (or other), one day
 651	город	noun	city, town; a bigger part of a city, including the downtown and inner city areas
 652	внимание	noun	attention; care, heed
@@ -841,7 +841,7 @@ rank	word	pos	en
 840	детка	noun	baby, honey (term of endearment)
 841	недели	noun	inflection of неде́ля (nedélja)
 842	меньше	adj	comparative degree of ма́ленький
-843	легко	adv	lightly; easily, slightly
+843	легко	adv	easily (Она легко это сделала — she did it easily); it is easy to, easy for someone (Его легко найти — he's easy to find); lightly, slightly (Ты легко одет — you're lightly dressed) — short neuter of лёгкий
 844	девочка	noun	girl, little girl (before the age of puberty)
 845	придётся	verb	third-person singular future indicative perfective of прийти́сь (prijtísʹ)
 846	мало	adv	little, few; too little, too few
@@ -1012,7 +1012,7 @@ rank	word	pos	en
 1011	намного	adv	by far, much (in comparisons)
 1012	мистера	noun	genitive/accusative singular of ми́стер (místɛr, míster)
 1013	женщин	noun	genitive/accusative plural of же́нщина (žénščina)
-1014	тяжело	adv	heavily, heftily
+1014	тяжело	adv	hard, difficult; it is hard for someone (С ним тяжело иметь дело — he's hard to deal with; мне тяжело — I'm having a hard time); heavily (тяжело дышать — to breathe heavily); seriously, gravely (тяжело болен — seriously ill) — short neuter of тяжёлый
 1015	попасть	verb	to hit (a target)
 1016	ух	intj	ooh!, gosh!, oof!
 1017	предложение	noun	offer; suggestion, proposal (also: marriage proposal), proposition
@@ -1081,7 +1081,7 @@ rank	word	pos	en
 1080	полицию	noun	accusative singular of поли́ция (polícija)
 1081	решили	verb	plural past indicative perfective of реши́ть (rešítʹ)
 1082	подождать	verb	to wait
-1083	семью	adv	7×, seven times as much
+1083	семью	noun	family — семья (f.) in the accusative (защитить свою семью — to protect one's family; иметь большую семью — to have a large family); seven — семь in the instrumental (между шестью и семью — between six and seven); 7× in the multiplication table (семью семь — seven sevens)
 1084	король	noun	king; king (Russian abbreviation: Кр)
 1085	зайти	verb	to go (to see), to come in (to see, etc.), to call, to drop in
 1086	свидание	noun	appointment; date
@@ -1199,7 +1199,7 @@ rank	word	pos	en
 1198	друзьями	noun	instrumental plural of друг (drug)
 1199	вашем	pron	prepositional masculine/neuter singular of ваш (vaš)
 1200	новая	adj	feminine nominative singular of но́вый (nóvyj)
-1201	черта	noun	line; boundary, precinct
+1201	черта	noun	trait, feature, characteristic (f.) (общая черта — a shared trait; семейная черта — a family trait); line, stroke; boundary, limit (черта города — the city limits; за чертой бедности — below the poverty line); distinct from чёрта, the genitive of чёрт, devil (какого чёрта — what the hell), which keeps its ё
 1202	замечательный	adj	remarkable, outstanding, marvellous, wonderful
 1203	всё-таки	particle	still, all the same, nevertheless, for all that (with a tone of regret)
 1204	страшно	adv	terrifyingly; very, badly
@@ -1330,21 +1330,21 @@ rank	word	pos	en
 1329	убью	verb	first-person singular future indicative perfective of уби́ть (ubítʹ)
 1330	правильный	adj	right, correct; regular
 1331	свободный	adj	free (not subject to limitations, not subject to rigid control)
-1332	годы	noun	An unusually long time.
+1332	годы	noun	years — год (m.) in the nominative/accusative plural (те годы — those years; спустя годы — years later; лучшие годы моей жизни — the best years of my life); years, ages, a long stretch of time (на это уходят годы — it takes years)
 1333	забыть	verb	to forget; to neglect
 1334	правила	noun	genitive singular
 1335	сожалению	noun	dative singular of сожале́ние (sožalénije)
 1336	какие-то	pron	nominative plural
 1337	слов	noun	genitive plural of сло́во (slóvo)
 1338	джимми	name	a transliteration of the English male given name Jimmy
-1339	дни	noun	life
+1339	дни	noun	days — день (m.) in the nominative/accusative plural (в наши дни — these days, nowadays; в те дни — in those days; в ближайшие дни — in the next few days); one's days, one's life (его дни сочтены — his days are numbered)
 1340	дала	verb	feminine singular past indicative perfective of дать (datʹ)
 1341	жизнью	noun	instrumental singular of жизнь (žiznʹ)
 1342	совет	noun	advice; counsel
 1343	занят	adj	short masculine singular of за́нятый (zánjatyj)
 1344	кем-то	pron	instrumental of кто́-то (któ-to)
 1345	попробуй	verb	second-person singular imperative perfective of попро́бовать (popróbovatʹ)
-1346	подруга	noun	girlfriend
+1346	подруга	noun	female friend (f.) — the female counterpart of друг (Элис — лучшая подруга Марии — Alice is Maria's best friend; Мы подруги — we're friends); girlfriend, in the romantic sense (у тебя новая подруга — you've got a new girlfriend)
 1347	расскажу	verb	first-person singular future indicative perfective of рассказа́ть (rasskazátʹ)
 1348	целый	adj	whole, entire; intact, safe
 1349	красивая	adj	nominative feminine singular of краси́вый (krasívyj)
@@ -1868,7 +1868,7 @@ rank	word	pos	en
 1867	стрелять	verb	to shoot, to fire
 1868	старые	adj	nominative plural
 1869	звук	noun	sound
-1870	частью	adv	partly, in part, partially
+1870	частью	noun	part — часть (f.) in the instrumental (быть частью чего-то — to be part of something; голова является частью тела — the head is a part of the body); mostly, for the most part (большей частью); partly, in part (as an adverb)
 1871	приехала	verb	feminine singular past indicative perfective of прие́хать (prijéxatʹ)
 1872	нет-нет	particle	no; as a rule, no
 1873	даст	verb	third-person singular future indicative perfective of дать (datʹ)

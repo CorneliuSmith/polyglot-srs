@@ -15,6 +15,72 @@ k for ng, Taranaki/Whanganui h-dropping), Cook Islands Māori, 19th-century miss
 orthography (double vowels `aa`/`ee` for length — mixing it with macrons is an error), Māori
 English.
 
+**The word list is macron-STRIPPED at source, and that is a bigger problem than missing
+macrons (measured 20 Aug 2026).** A macronisation pass over all 791 headwords was authored,
+adversarially checked, and then **discarded**; what it turned up matters more than what it
+proposed.
+
+1. **The commonest macronised words are not in the file at all.** `tēnei`, `tēnā`, `tērā`,
+   `kāore`, `mātou`, `rātou`, `tātou`, `whānau`, `kōrero`, `mōhio`, `pēhea`, `āpōpō` — every
+   one absent. A 791-row course missing "this", "not", "we", "family" and "speak" is missing
+   its spine, and no macron pass can add them because there is no row to mark.
+2. **Where a macronised word survived, it survived as its own misspelling.** Rank 7 read
+   `nga`, glossed *"macronless spelling of ngā"* — the plural article present only as a
+   pointer to a word the file did not contain. Fixed; it is now `ngā` with a real gloss.
+3. **Glosses were assigned from whichever bare homograph the dictionary had.** Rank 24
+   `tona` is glossed "wart, corn, nodule" and rank 30 `ra` as "Ra (Egyptian god of the Sun)"
+   — both already named on this page. They are not wrong spellings, they are the wrong
+   WORDS: the ranks belong to `tōna` "his/her" and `rā` "day, sun".
+
+**So macronising in place is the wrong repair, and the discarded pass proves it.** Roughly
+half its proposals put a macron on a row whose gloss describes the BARE word — `tōna`
+glossed "wart", `kāinga` glossed "the refuse of a meal". That second one is the exact
+minimal pair this page cites (`kainga` "eaten" vs `kāinga` "home"), inverted. Marking the
+spelling without repairing the gloss produces a card that is wrong in a new way.
+
+**Step (a) is done — 169 rows added, 791 → 960 (20 Aug 2026).** Every one is a word the
+course's own drills or curated sentences already use, glossed from those sentences and
+their English translations rather than from a dictionary, then adversarially checked.
+`kāore`, `tēnei`, `rātou`, `mātou`, `tōku`, `tāngata`, `kāinga`, `tēnā`, `tērā`, `pēhea`,
+`kōrero`, `āpōpō` all now exist as cards.
+
+**Macron-only plurals are separate cards, not macrons on the singular.** `tangata` "person"
+keeps rank 23; `tāngata` "people" is its own row glossed *"plural of tangata; the macron is
+the only mark of the plural"*. Same for `kāinga` "home" beside `kainga` "eaten" — the pair
+this page names. **Every added row whose bare twin already had a card must say how it
+differs**, and five proposals were refused for failing exactly that (`āhua`, `kā`, `tāra`,
+`tamāhine`, `māra`): the word may be right, but a card that does not distinguish itself
+from the twin the learner already has teaches a collision.
+
+Six more were refused by the checker as genuine same-lexeme duplicates — `māmae` and
+`māori` among them — with the correct repair named instead: fix the existing row in place,
+the way rank 7 `nga` → `ngā` was fixed. Adding those would have recreated the accent-twin
+class that had 61 rows deleted in `c96749a`.
+
+**Step (b) is done too (20 Aug 2026).** Five bare rows carried a gloss that belonged to
+their macronised twin or to an obscure homograph, and the course's own sentences settled
+each one:
+
+| | was | is | evidence |
+| --- | --- | --- | --- |
+| `ana` r17 | "his, her of more than one thing" — that is `āna` | the ongoing-action particle closing the `e … ana` frame | 53 uses, all progressive: *E noho ana ia* |
+| `ata` r148 | "form, shape, image" | **morning**, with the other senses after | *Ka timata te akoranga ā te ata* = in the morning |
+| `taku` `tana` `aku` | bare "my" / "his, her" | named as the **neutral** form, against a-category `tāku`/`tāna`/`āku` | mi.md requires the category be named |
+
+`tona` "wart, corn, nodule" (rank 30, used **0 times** by the course) and `ra` "Ra, Egyptian
+god of the Sun" (rank 37) were excluded — both ranks belong to words the course actually
+uses. `rā` "day; the sun" is added in its place, used 20 times.
+
+**Still to do:** (c) the remaining unmarked rows, which need the same gloss-first treatment
+— an unmarked row may stand for several words, and marking it without settling which word
+owns the rank is what got the first macron pass discarded. Plan D1d states the governing rule — re-marking is not decoration,
+and an unmarked row may stand for several words.
+
+The discarded pass produced one thing worth keeping: a list of ~60 rows where the bare
+spelling demonstrably covers more than one word, including the macron-only plurals
+(`tangata`/`tāngata`, `wahine`/`wāhine`, `matua`/`mātua`, `teina`/`tēina`,
+`tuakana`/`tuākana`, `whaea`/`whāea`). Each needs its own row, not a macron on the singular.
+
 **No gender and no noun class.** What replaces them, and what dominates drill quality:
 
 1. **Macrons.** The grader cannot help. `MaoriNLP` in `backend/services/nlp/latin_base.py` is
@@ -158,3 +224,14 @@ blank part of a word; carry a `gloss` that mislabels a particle or spells the an
 macron-contrastive form with no hint separating it from its pair; ask for an a/o possessive the
 sentence does not force; or — the one no command catches — drop a macron anywhere. Then check
 five vocabulary rows against Te Aka; today that fails on the first row needing a macron.
+
+## Wrong-lexeme sweep, top 2000 (25 Aug 2026)
+
+**1 rows reglossed, 0 of them fatal** — the card named a genuinely
+different word. This course was not in the first sweep of the 16 well-resourced courses; it
+was screened afterwards so that every course with a kaikki extract is covered. Found by
+`audit_wrong_lexeme`, decided by a maker–checker pass against each row's full kaikki sense
+inventory and the course's own sentences. See `docs/quality/CHECKS.md` §3b.
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/mi_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit is undone by the next seed.

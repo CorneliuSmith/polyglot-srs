@@ -135,7 +135,7 @@
           "display_order": 1
         },
         {
-          "sentence": "Im {{answer}} mi neiba.",
+          "sentence": "Im {{answer}} mi neba.",
           "answer": "a",
           "translation": "He is my neighbour.",
           "hint": "is",
@@ -560,7 +560,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 9,
-      "explanation": "Yes/no questions keep statement order and just rise in pitch: Yu a kom? (are you coming?). No do-support, no inversion. Question words: wa (what), we (where — also 'which/that' as a relative), uu (who), wen (when), ou (how), umoch (how much/many), wa mek (why — literally 'what makes'). They sit at the front: We yu a go? (where are you going?), Wa mek yu bex? (why are you angry?).",
+      "explanation": "Yes/no questions keep statement order and just rise in pitch: Yu a kom? (are you coming?). No do-support, no inversion. Question words: wa (what), we (where — also 'which/that' as a relative), uu (who), wen (when), ou (how), umoch (how much/many), wa mek (why — literally 'what makes'). They sit at the front: We yu a go? (where are you going?), Wa mek yu beks? (why are you angry?).",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -1112,7 +1112,7 @@
           "display_order": 5
         },
         {
-          "sentence": "Mi {{answer}} miin fi bex yu.",
+          "sentence": "Mi {{answer}} miin fi beks yu.",
           "answer": "neva",
           "translation": "I didn't mean to upset you.",
           "hint": "plain 'didn't', not 'never ever'",
@@ -1565,7 +1565,7 @@
           "display_order": 5
         },
         {
-          "sentence": "Im waak {{answer}} di ous vex vex.",
+          "sentence": "Im waak {{answer}} di ous beks beks.",
           "answer": "outa",
           "translation": "He walked out of the house very angry.",
           "hint": "out of",
@@ -2008,7 +2008,7 @@
           "display_order": 5
         },
         {
-          "sentence": "Wi a huol wan {{answer}} pan di riddim.",
+          "sentence": "Wi a huol wan {{answer}} pan di ridim.",
           "answer": "Iditation",
           "translation": "We're holding a meditation on the riddim.",
           "hint": "I- + meditation",

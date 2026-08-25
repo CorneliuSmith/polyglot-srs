@@ -677,7 +677,7 @@ rank	word	pos	en
 676	jirani	noun	neighbour
 677	kutana	verb	Reciprocal form of -kuta: to meet one another
 678	bure	adj	free (obtainable without payment)
-679	wadogo	adj	wa class (II) inflected form of -dogo
+679	wadogo	adj	small, young — class 2 (wa-) form of -dogo, agreeing with plural people and animals; on its own, the little ones, the younger ones (sg. mdogo, a younger sibling)
 680	mashaka	noun	trouble, difficulty, distress, hardship
 681	ubishi	noun	disagreement, dispute, argument
 682	wananchi	noun	plural of mwananchi
@@ -737,7 +737,7 @@ rank	word	pos	en
 736	acha	verb	to leave; to abandon
 737	mlimani	noun	locative of mlima
 738	jicho	noun	eye (organ of vision)
-739	waovu	adj	wa class (II) inflected form of -ovu
+739	waovu	adj	wicked, evil — class 2 (wa-) form of -ovu, agreeing with plural people; on its own, the wicked, evildoers (sg. mwovu, a wicked person)
 740	fanana	verb	to resemble, to look like
 741	hana	verb	third-person singular present negative of -wa na
 742	miji	noun	plural of mji
@@ -746,7 +746,7 @@ rank	word	pos	en
 745	kutumia	verb	infinitive of -tumia
 746	maajabu	noun	plural of ajabu
 747	huohuo	adj	m class (III)/u class (XI) inflected form of hiyohiyo
-748	kuta	verb	to come upon; find
+748	kuta	noun	walls — plural of ukuta (class 11/10), as in kuta za nyumba (the walls of the house); also the verb -kuta, to come upon, find, and to satisfy
 749	punda	noun	donkey
 750	vibaya	adj	vi class (VIII) inflected form and adverbial form of -baya
 751	tambua	verb	to recognize; to perceive
@@ -936,7 +936,7 @@ rank	word	pos	en
 935	makubwa	adj	ma class (VI) inflected form of -kubwa
 936	mwingi	adj	m class (I)/m class (III)/u class (XI) inflected form of -ingi
 937	anasa	noun	pleasure
-938	pande	noun	large piece, chunk
+938	pande	noun	sides, directions — plural of upande (class 11/10), as in pande zote mbili (both sides); a separate noun pande is a large piece, a chunk (5/6, pl. mapande)
 939	utajiri	noun	wealth (riches; valuable material possessions)
 940	zungumza	verb	to talk
 941	mawili	adj	ma class (VI) inflected form of -wili
@@ -1166,7 +1166,7 @@ rank	word	pos	en
 1165	silaha	noun	weapon
 1166	kushiriki	verb	infinitive of -shiriki
 1167	kushuhudia	verb	infinitive of -shuhudia
-1168	wakubwa	adj	wa class (II) inflected form of -kubwa
+1168	wakubwa	adj	big, large, great — class 2 (wa-) form of -kubwa, agreeing with plural people and animals (nyoka wakubwa, big snakes); on its own, elders, seniors, bosses (sg. mkubwa)
 1169	chanzo	noun	source, origin, start, foundation; basis, reason
 1170	maumbile	noun	plural of umbile
 1171	hiari	noun	choice, discretion; option
@@ -1413,7 +1413,7 @@ rank	word	pos	en
 1412	ajabu	noun	wonder, amazement
 1413	kupewa	verb	infinitive of -pewa
 1414	zenye	particle	n class (X) inflected form of -enye
-1415	makaburi	noun	cemetery, graveyard
+1415	makaburi	noun	graves, tombs — plural of kaburi (class 5/6); collectively a cemetery, graveyard (locative makaburini, at the cemetery)
 1416	watano	adj	wa class (II) inflected form of -tano
 1417	manane	adj	ma class (VI) inflected form of -nane
 1418	mbuzi	noun	goat
@@ -1580,7 +1580,7 @@ rank	word	pos	en
 1579	mtego	noun	trap (device designed to catch or kill animals)
 1580	inama	verb	to bend down, to sag, to lean
 1581	umbwa	verb	Passive form of -umba
-1582	jana	adj	last (most recent time)
+1582	jana	adv	yesterday (nilikuja jana, I came yesterday); in time phrases, last — usiku wa jana, last night; an unrelated jana is a larva or grub
 1583	fundishwa	verb	Passive form of -fundisha: to be taught
 1584	kuthibitisha	verb	infinitive of -thibitisha
 1585	nitakuwa	verb	first-person singular future of -wa
@@ -1835,7 +1835,7 @@ rank	word	pos	en
 1834	kukesha	verb	infinitive of -kesha
 1835	shikamoo	intj	Used by an inferior to greet a superior.
 1836	mfinyanzi	noun	potter (a person who shapes pottery and bakes it in a kiln)
-1837	panga	noun	machete, panga (broad knife)
+1837	panga	verb	to arrange, organise, plan, set up; also to rent (a room), and to live together; the homograph panga is machetes, plural of upanga (class 11/10)
 1838	fuvu	noun	a skull (bone of human head)
 1839	jidai	verb	reflexive form of -dai
 1840	mtaka	noun	one who asks for something

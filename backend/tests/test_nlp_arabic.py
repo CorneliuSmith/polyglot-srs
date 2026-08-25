@@ -37,20 +37,31 @@ class TestArabicNormalization:
         result = nlp.normalize("كَتَبَ")
         assert result == "كتب"
 
-    def test_normalize_handles_alef_with_hamza_above(self, nlp):
-        """normalize() converts أ (alef with hamza above) to ا (bare alef)."""
-        result = nlp.normalize("أكتب")
-        assert result == "اكتب"
+    # These three tests asserted the OPPOSITE until 25 Aug 2026, and the
+    # behavior they asserted was the bug. normalize() folded the alef seats,
+    # which merged 118 cards at layer 2 — beneath every coaching layer and
+    # beneath the collision guard, so they graded full CORRECT. rank 1 أن
+    # ("to, that") was the same card as إن ("if") and آن ("time"). The fold
+    # moved to fold_lookalikes() in #315, where the guard can see it; the
+    # tests were not moved with it. Do not "restore" these.
 
-    def test_normalize_handles_alef_with_hamza_below(self, nlp):
-        """normalize() converts إ (alef with hamza below) to ا (bare alef)."""
-        result = nlp.normalize("إبراهيم")
-        assert "ابراهيم" == result
+    def test_normalize_does_not_fold_alef_with_hamza_above(self, nlp):
+        """normalize() leaves أ alone — the seat is part of the word."""
+        assert nlp.normalize("أكتب") == "أكتب"
 
-    def test_normalize_handles_alef_with_madda(self, nlp):
-        """normalize() converts آ (alef with madda) to ا (bare alef)."""
-        result = nlp.normalize("آسيا")
-        assert "اسيا" == result
+    def test_normalize_does_not_fold_alef_with_hamza_below(self, nlp):
+        """normalize() leaves إ alone; إن "if" is not أن "to, that"."""
+        assert nlp.normalize("إبراهيم") == "إبراهيم"
+
+    def test_normalize_does_not_fold_alef_with_madda(self, nlp):
+        """normalize() leaves آ alone; آن "time" is not أن "to, that"."""
+        assert nlp.normalize("آسيا") == "آسيا"
+
+    def test_the_alef_fold_still_exists_one_layer_up(self, nlp):
+        """It was moved, not deleted: fold_lookalikes still merges the seats,
+        so a dropped hamza is still forgiven — see the CORRECT_SLOPPY test
+        below and test_nlp_collisions.py."""
+        assert nlp.fold_lookalikes("أكتب") == nlp.fold_lookalikes("اكتب")
 
     def test_normalize_strips_tatweel(self, nlp):
         """normalize() strips tatweel (Arabic elongation character U+0640)."""
@@ -88,10 +99,14 @@ class TestDiacriticInvariance:
         result, msg = nlp.check_answer("كَتَبَ", "كتب")
         assert result == AnswerResult.CORRECT
 
-    def test_alef_variant_matches_bare_alef(self, nlp):
-        """أ variant matches bare ا in answer comparison → CORRECT."""
+    def test_alef_variant_is_coached_not_silently_accepted(self, nlp):
+        """Typing bare ا for أ is a real spelling slip, so it is amber, not
+        green. It graded CORRECT until #315, which is what let rank 1 أن be
+        the same card as إن and آن. test_nlp_collisions.py holds the other
+        half of this contract: when the bare form is ITSELF another course
+        word, the same input grades WRONG_FORM."""
         result, msg = nlp.check_answer("اكتب", "أكتب")
-        assert result == AnswerResult.CORRECT
+        assert result == AnswerResult.CORRECT_SLOPPY
 
     def test_exact_match_with_diacritics_is_correct(self, nlp):
         """Exact match including tashkeel → CORRECT."""

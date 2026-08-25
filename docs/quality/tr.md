@@ -148,3 +148,48 @@ pulls 10 random drills (`--sample 10`) and asks:
 6. **Would the answer typed without the dots and cedillas be the same string?** If yes (`mü`, `sütü`, `gölü`),
    the drill grades amber and cannot teach its own contrast.
 7. **Is the sentence standard Turkey Turkish, not a spoken reduction?** `geliyom`, `gidiyoz` fail.
+
+## Wrong-lexeme sweep, top 500 (25 Aug 2026)
+
+**8 rows reglossed**, of which **3 were fatal** — the card named a
+genuinely different word, not merely an incomplete one. Found by
+`audit_wrong_lexeme` and decided by a maker–checker pass against each row's full
+kaikki sense inventory and the course's own sentences.
+
+The cause is structural, not clerical: a rank is earned by whatever string appeared in
+running text, and where a spelling is both an inflection of a common verb and a separate
+dictionary word, the sense-picker could take the dictionary word. See
+`docs/quality/CHECKS.md` §3b.
+
+The worst of them, by rank:
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 65 | `bile` | even, so much as; (after a verb) already; archaic variant of ile: with, toge |
+| 174 | `hala` | still, yet (the circumflex of hâlâ is routinely dropped in writing); paterna |
+| 182 | `al` | second-person singular imperative of almak: take!, get!, buy! (onu al — pick |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/tr_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit would be undone by the next seed.
+
+Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang tr --band 500` — remaining candidates are rows a reviewer
+deliberately kept, plus anything added since.
+
+### Extended to rank 2000 (25 Aug 2026)
+
+The sweep above covered the top 500. Ranks 501-2000 added **34 rows, 14 fatal**, so the
+course total is **42 repaired (17 fatal) through rank 2000**.
+
+The keep rate rose with rank — roughly 30% of candidates were kept in the top 500 against
+about 50% below it — which is the expected shape and a check on the pass: deeper in a
+frequency list the lexical sense genuinely is more often right, and an over-eager rewrite
+would replace a correct gloss with a wrong one.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 522 | `çek` | second-person singular imperative of çekmek: pull!, draw!, take! (kenara |
+| 552 | `gelin` | second-person plural imperative of gelmek: come!, come in! (polite or pl |
+| 650 | `bakma` | second-person singular negative imperative of bakmak: don't look!, don't |
+| 752 | `alın` | second-person plural imperative of almak: take!, get!, have! (polite or  |
+| 884 | `kalın` | second-person plural imperative of kalmak: stay!, remain!, keep (polite  |
+| 885 | `gider` | third-person singular aorist of gitmek: goes, he/she/it goes (habitually |

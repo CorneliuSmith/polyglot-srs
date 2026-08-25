@@ -2,791 +2,965 @@ rank	word	pos	en
 1	te	article	the (singular; plural is ngā); the, generically, for a whole class of things
 2	i	particle	from; past-tense verbal particle
 3	a	particle	of; used before place names and location words when they act as subject of a phrase
-4	ki	particle	to, toward.
-5	e	particle	is/are ...-ing (with ana); before numbers 2-9; O (calling someone); by (passive)
-6	o	particle	of, belonging to (the o-category: elders, body parts, feelings, houses, vehicles)
-7	nga	article	macronless spelling of ngā
-8	ka	particle	Marks an event as occurring at some time or as existing
-9	ko	particle	Placed at the beginning of nominative phrases to signify that they are declarative
-10	ia	pron	he / she / it (third person singular pronoun)
-11	mea	noun	thing; a so-and-so (something, someone, or a place the speaker does not know)
-12	he	article	a, an, some: indefinite article
-13	ana	det	his, her of more than one thing
-14	hoki	adv	also, too, as well; to return, go back
-15	ahau	pron	I (personal pronoun)
-16	ai	particle	points back to a stated reason, time or place; marks habitual action; then
-17	kia	particle	when; until (used for a future time)
-18	koutou	pron	you (plural; three or more people)
-19	me	particle	Conjunctive; and (joins two noun phrases)
-20	koe	pron	you (singular)
-21	atu	adv	away
-22	katoa	det	all, every; everyone, everything; completely, entirely (following what it modifies)
-23	tangata	noun	human being, person, man
-24	tona	noun	wart, corn, nodule
-25	mai	adv	hither; to, from
-26	hei	particle	Future locative particle
-27	nei	particle	; marks spatial or temporal nearness to event in discourse
-28	kua	particle	aspect marker, marks actions as recently initiated, in progress, or completed
-29	tama	noun	child regardless of sex
-30	ra	name	Ra (Egyptian god of the Sun)
-31	haere	verb	go; come
-32	atua	noun	god (deity)
-33	roto	noun	interior; lake
-34	ake	particle	up, upward
-35	kei	particle	at, in (present locative particle)
-36	whenua	noun	land; country
-37	runga	adv	upwards, up
-38	kore	adj	without (not having)
-39	iwi	noun	bone; strength
-40	whare	noun	house; any building
-41	tana	det	his, her of one thing
-42	hunga	noun	people; slave
-43	tau	noun	year (time it takes for the Earth to complete one revolution of the Sun)
-44	mahi	verb	to work, do, perform, make, accomplish, practise, raise (money)
-45	kupu	noun	word, vocabulary
-46	nui	adj	big, large; many, much, plentiful; great, important
-47	noa	particle	merely, suddenly, unintentionally, etc. Denotes an absence of limitations or conditions.
-48	tonu	adv	still, yet; nonetheless, all the same
-49	rite	verb	to resemble; to be like, similar, alike
-50	pai	adj	good; excellent
-51	ringa	noun	hand; arm
-52	tekau	num	twenty, score (20).
-53	noho	verb	to sit; to reside, dwell
-54	taku	pron	my
-55	ara	noun	path (a trail for the use of, or worn by, pedestrians)
-56	kino	adj	bad; gory
-57	ariki	noun	paramount chief of a tribe, the most senior by descent of the rangatira
-58	mate	noun	death; sickness, illness, disease
-59	rawa	adj	many, numerous
-60	wahine	noun	woman
-61	kotahi	noun	unit
-62	rua	num	two
-63	puta	verb	to come out or come forth from some location
-64	aroaro	noun	presence; front of a person
-65	wai	noun	water (clear liquid H₂O)
-66	tika	verb	straight, direct
-67	kite	verb	to see; to find, to perceive
-68	hanga	verb	to make; to create
-69	ora	verb	to exist; to be alive, well, safe, cured, recovered, healthy
-70	whakaaro	verb	to think, plan, consider, decide
-71	ingoa	noun	name
-72	tae	noun	excrement, filth
-73	wairua	noun	a soul or spirit of a person
-74	nana	intj	lo, look, see, behold (imperative).
-75	taha	noun	side, edge; shore, bank
-76	tapu	adj	holy, sacred, consecrated
-77	kai	verb	to eat (to consume food)
-78	rangatira	noun	chief, chieftain, chieftainess, though of lesser rank than an ariki (paramount chief)
-79	aha	pron	what (interrogative pronoun)
-80	mano	num	thousand
-81	rongo	verb	to hear; to perceive, to sense, to feel
-82	whai	noun	stingray; skate (fish of family Rajidae)
-83	tohunga	noun	A skilled person, an expert
-84	hara	verb	to be in violation of a tapu
-85	muri	adv	behind, rear; after
-86	ihu	noun	nose (organ of the face)
-87	matua	noun	parent; father
-88	kaha	noun	strength, power, energy
-89	papa	noun	board, plank; chart
-90	hura	verb	to put or raise a hand up
-91	aroha	noun	love
-92	rangi	noun	sky, heaven; weather
-93	au	pron	I (personal pronoun)
-94	mua	adv	front, forward; to the future
-95	mohi	name	a male given name, equivalent to English Moses
-96	matau	noun	fishhook; hookgrass
-97	toru	num	three
-98	oti	adj	finished; completed
-99	teina	noun	younger sibling regardless of gender
-100	tikanga	noun	custom, convention, correct manner of doing things
-101	pera	noun	blubber
-102	pono	noun	truth, non-fiction, validity
-103	mana	noun	power; mana
-104	tahi	num	one, single
-105	hoa	noun	friend, companion, mate, partner, spouse, ally
-106	kanohi	noun	face; view, sight, vision
-107	rau	noun	leaf; sheet of paper
-108	wehi	noun	dread, fear
-109	reo	noun	voice; speech, utterance
-110	whitu	num	seven
-111	marama	noun	moon; month
-112	raro	noun	the underworld; bottom
-113	tamariki	noun	plural of tamaiti
-114	kau	verb	tree; wood; stick
-115	kitea	verb	passive of kite
-116	whawhai	verb	fight
-117	whakarongo	verb	to hear, to listen
-118	aku	pron	my (when talking of more than one thing)
-119	kainga	noun	The refuse of a meal.
-120	riri	verb	to be angry, to rage
-121	tino	noun	essence, essential, substance
-122	maunga	noun	mountain
-123	aua	noun	yellow-eye mullet, (Aldrichetta forsteri)
-124	taonga	noun	anything treasured or highly prized
-125	utu	noun	pay; payment; salary
-126	rima	num	five
-127	tinana	noun	body
-128	ture	noun	law
-129	tamahine	noun	girl, female child
-130	rere	verb	to fly; to flee, escape
-131	hua	noun	fruit; product, outcome
-132	maha	noun	abundance, bounty, majority
-133	ahi	noun	fire (oxidation reaction)
-134	ata	noun	form, shape, image
-135	hipi	noun	sheep
-136	koura	noun	gold
-137	tangi	noun	weeping, mourning, lament
-138	toto	noun	blood
-139	inoi	noun	a prayer
-140	hoari	noun	sword
-141	ahakoa	conj	although, notwithstanding, even though, nevertheless
-142	hoariri	noun	enemy
-143	whakahoki	verb	to turn back, to make something return
-144	mahara	verb	to think about; to recollect, to remember
-145	mata	noun	eye (organ of sight)
-146	moana	noun	ocean, sea
-147	taro	noun	taro; bread
-148	waewae	noun	foot; leg
-149	kikokiko	noun	flesh, meat
-150	patu	verb	to strike, to beat, to kill
-151	teka	noun	rung or step of a ladder
-152	ao	noun	daytime
-153	poke	adj	grimy
-154	mou	noun	island, islet, alternative form of motu
-155	ngaro	verb	to be hidden, out of sight, covered, disappeared, absent
-156	tupu	verb	to grow, to increase
-157	whakaora	verb	to revive, to resuscitate
-158	toa	adj	brave, courageous.
-159	tuakana	noun	older brother of a male
-160	hari	verb	to dance
-161	mara	adj	preserved esp. by prolonged steeping under running water until softened
-162	anake	adj	alone, only
-163	ono	num	six
-164	hiriwa	noun	silver
-165	pukapuka	noun	Brachyglottis repanda, shrub with soft leaves with white undersides.
-166	awa	noun	river, creek, stream
-167	anga	noun	shell, husk; structure, framework
-168	tatau	verb	to squeeze or wring out liquid
-169	taka	verb	to turn or wind round, to pivot
-170	whaea	noun	mother; aunt
-171	whakahokia	verb	passive of whakahoki
-172	roa	adj	long; tall
-173	maka	verb	throw, fling, cast, pass (with the hands)
-174	tuku	verb	to slacken, to let go
-175	anahera	noun	angel
-176	moe	verb	to sleep, to nap
-177	haerenga	noun	journey; departure
-178	tauiwi	noun	foreigner, European, non-Māori, colonist
-179	hinga	verb	to fall, to tumble
-180	inu	noun	liquid, drink
-181	whakaatu	verb	to show, reveal, display, exhibit
-182	ahua	verb	passive of ahu
-183	kitenga	noun	sight
-184	tini	noun	multitude, host, a very large amount
-185	kawe	verb	to carry, to bring, to bear
-186	taringa	noun	ear; several types of jelly fungi
-187	kaimahi	noun	worker, employee
-188	hinu	noun	fat, grease; lard
-189	tahu	noun	husband, lover; near relative
-190	uri	adj	dark, deep (of colour)
-191	mutu	verb	to cut, to chop
-192	tuatahi	num	first
-193	hakari	noun	roe, yolk – also alternative form of hākari
-194	heke	verb	to descend, to fall
-195	puru	noun	plug; caulk
-196	hiahia	noun	desire, wish, want
-197	kanga	verb	to curse, to swear
-198	tomo	verb	to enter
-199	tamaiti	noun	child
-200	tiketike	verb	to be high, to be lofty
-201	hea	verb	grieve
-202	pou	noun	post, stake, pillar
-203	ako	verb	to learn, to study
-204	moni	noun	money, cash
-205	waiata	noun	song
-206	rangatiratanga	noun	chieftainship; right to exercise authority
-207	hou	verb	to bind or lash together
-208	mamae	noun	pain; bullroarer
-209	manaaki	verb	to support, take care of, look out for
-210	whiwhi	verb	to wind round, to fasten
-211	putanga	noun	any exit, outlet or vent
-212	reme	noun	lamb
-213	kaitiaki	noun	guardian, trustee
-214	pito	noun	navel; end, extremity
-215	waru	num	eight
-216	rama	noun	torch; light
-217	upoko	noun	head; paragraph
-218	tonga	noun	south
-219	kapua	noun	cloud
-220	pita	name	a male given name, equivalent to English Peter
-221	rongonga	noun	hearing (sense)
-222	hau	noun	essence; ceremonial offering of food to an atua
-223	karakia	verb	to recite ritual chants or a prayer, to say grace, to pray
-224	temepara	noun	temple
-225	marae	noun	The courtyard of a wharenui or meeting-house and the buildings around it.
-226	ahiahi	noun	evening (time of day)
-227	atawhai	noun	kindness, generosity
-228	tiaki	verb	to guard or keep
-229	piki	noun	fig tree; fig
-230	mutunga	noun	end; finish; conclusion
-231	whiti	verb	to be alarmed
-232	manu	noun	bird (animal); kite
-233	ua	noun	rain (condensed water from a cloud)
-234	whakaaturia	verb	passive of whakaatu
-235	raki	noun	north; drought
-236	peka	noun	bat (the flying mammal)
-237	raiona	noun	lion (big cat)
-238	herehere	verb	to tie up (a number of times), bind, tie, shackle, hobble.
-239	puku	noun	swelling, lump; stomach, belly
-240	whiu	verb	toss, throw, fling
-241	whiriwhiri	verb	to negotiate
-242	mura	verb	to burn (of firewood), to blaze
-243	hoko	verb	to barter, exchange, trade
-244	kakara	adj	aromatic, fragrant, sweet-smelling
-245	hoani	name	John (biblical)
-246	horoi	verb	wash, clean
-247	ngutu	noun	lip; beak, bill
-248	reka	adj	nice, pleasant; sweet (of taste)
-249	whakangaromia	verb	passive of whakangaro
-250	moenga	noun	a bed
-251	puehu	noun	pollen; dust
-252	kapu	noun	scoop, ladle; palm of one's hand
-253	arero	noun	tongue
-254	piri	name	a male given name, equivalent to English Bill
-255	uru	verb	to enter, go in
-256	utua	verb	passive of utu
-257	manaakitia	verb	passive of manaaki
-258	hapa	noun	tea (meal)
-259	iwa	num	nine
-260	wareware	noun	forgetfulness
-261	hepara	noun	shepherd; herdsman
-262	waha	noun	mouth; any opening or entrance
-263	piko	noun	bend, curve; corner
-264	puna	noun	spring of water; well; pool
-265	aru	noun	chase; pursuit
-266	hae	verb	to tear, to scratch, to lacerate
-267	whakangaro	noun	destruction, obliteration, ruin, annihilation, devastation.
-268	rahi	verb	to be big, many, plentiful, numerous
-269	tokotoko	noun	walking stick, cane
-270	rino	noun	iron; metal
-271	morehu	noun	Followers of the Ratana Church, remnants of tribes, survivors.
-272	eke	verb	to climb, to ascend, to rise
-273	taimaha	adj	heavy; expensive, costly, pricey
-274	haereere	verb	stroll about
-275	whakawahi	verb	to anoint, crown
-276	take	verb	to originate, derive
-277	kari	verb	to dig; to cleave
-278	kiri	noun	skin; peel, bark, rind
-279	tuahine	noun	sister (of a man)
-280	tiki	noun	figurine, carved figure
-281	wiri	verb	to bore, twist, drill
-282	manako	verb	to long for, to yearn
-283	hira	verb	to be great, important, widespread, of consequence
-284	manawa	noun	belly, stomach; heart (of a person)
-285	pea	noun	bear
-286	haurangi	adj	drunk
-287	hera	name	a female given name, equivalent to English Sarah
-288	pani	verb	to smear, to spread across
-289	pere	noun	karapapa (Alseuosmia macrophylla)
-290	horo	verb	to run; to flee, to escape
-291	whakataka	verb	to drop, toss off, cause to fall, throw down, depose, overthrow, abdicate
-292	manga	noun	branch; stream, creek
-293	motu	noun	cut, wound; anything separated or isolated
-294	kati	verb	to bite, to nip
-295	amo	verb	to charge, to attack
-296	pihi	verb	to spring up; to start growing, to sprout
-297	haimona	name	a male given name, Simon
-298	hiria	name	Syria (a country in West Asia in the Middle East)
-299	neke	verb	to shift, to move slightly
-300	hopa	name	a male given name, equivalent to English Job
-301	pirau	adj	rotten
-302	mataku	adj	afraid
-303	heperona	name	Hebron (a city in the West Bank, Palestine; holy in both Judaism and Islam)
-304	oma	verb	run, race, flee, escape, move quickly, run away
-305	maori	name	normal, usual, natural, common, ordinary
-306	riria	name	a female given name
-307	aho	noun	fishing line; string
-308	nohopuku	noun	fasting (abstention of eating for religious purposes)
-309	meri	name	Mary (biblical)
-310	hope	noun	waist; hip (ringa hope)
-311	repanona	name	Lebanon (a country in Asia)
-312	ika	noun	fish; slain warrior, victim
-313	huruhuru	noun	feather; coarse hair or fur
-314	tao	noun	spear
-315	wehe	verb	to separate
-316	hopu	verb	to seize, catch, snatch
-317	whanaunga	noun	familial relative
-318	kawa	adj	sour
-319	merekara	noun	miracle
-320	keke	noun	cake
-321	uaua	noun	blood vessel; vein; artery
-322	kupenga	noun	net
-323	heriko	name	Jericho (a city in the West Bank, Palestine)
-324	uma	noun	chest
-325	whakatangi	verb	to make something or someone cry
-326	ha	intj	hey!
-327	whakanui	verb	to enlarge, to magnify
-328	whero	noun	red (orangish or brownish)
-329	horoia	verb	passive of horoi
-330	turi	adj	deaf (not hearing)
-331	aranga	verb	to arise, to emerge, to appear
-332	takoha	noun	pledge
-333	kapi	verb	to close; to cover, to shut
-334	niho	noun	tooth; sharp edge
-335	haruru	noun	rumble, roar
-336	hemo	verb	to die
-337	hemokai	noun	hunger
-338	aonga	noun	dawn
-339	hui	verb	to gather, congregate, assemble, meet
-340	ahatia	verb	passive of aha
-341	peterehema	name	Bethlehem (a city in the West Bank, Palestine, believed to be the birthplace of Jesus)
-342	awatea	noun	daylight
-343	runanga	noun	assembly, council
-344	whakahaere	noun	operation; organization
-345	makawe	noun	hair; ringlet; a lock of it
-346	pakiaka	noun	root (of a tree)
-347	ware	adj	distracted; careless
-348	inumia	verb	passive of inu
-349	himiona	name	a male given name, Simeon
-350	hiri	name	Chile (a country in South America)
-351	whatu	noun	stone; hailstone
-352	whakamahara	verb	to remind; to commemorate
-353	ahu	verb	to care for, to foster
-354	epa	noun	wall post
-355	pakanga	noun	war; battle
-356	tua	noun	back, rear of the body
-357	wera	verb	to burn; to be burnt; to be hot
-358	awaawa	noun	groove; gully, gorge
-359	koko	noun	scoop, ladle; shovel
-360	haunga	noun	stench, stink
-361	tote	verb	to salt, add salt
-362	pukupuku	verb	to be lumpy, to be swollen
-363	whanga	noun	bay, gulf; stretch of water
-364	kete	noun	basket
-365	hai	noun	ace
-366	oki	noun	rest
-367	aitua	noun	accident, bad luck
-368	tupuna	noun	A grandparent, or any ancestor more remote than one's parents.
-369	huri	verb	to turn round, to revolve
-370	hono	verb	add; join
-371	mahaki	adj	sick, ill, invalid
-372	piripi	name	a male given name, equivalent to English Philip
-373	whakamataku	noun	fright, fear
-374	tanu	verb	to plant (trees, seeds etc into the ground)
-375	paingia	verb	passive of pai
-376	uira	noun	lightning; electricity
-377	tuanui	noun	roof
-378	takai	verb	to wrap up, wrap round
-379	aro	verb	to turn toward something or someone
-380	pata	noun	drop, drip
-381	tangihanga	noun	funeral
-382	kopa	noun	space in front of a house
-383	kakau	verb	to swim
-384	wiki	verb	to form circular ripples on the surface of a fluid
-385	rore	verb	to trap, to ensnare
-386	whakaari	verb	to expose, to display
-387	hore	noun	scrofula
-388	nahareta	name	Nazareth (a city in northern Israel)
-389	maihao	noun	finger
-390	ipu	noun	cup; any small receptacle
-391	ngaru	noun	wave
-392	whakaahua	noun	photograph, picture, shot
-393	hama	noun	hammer; malleus (hammer ear bone)
-394	ruru	noun	morepork (Ninox novaeseelandiae)
-395	kaiwhakahaere	noun	administrator, boss, director, organizer, manager
-396	whakapapa	verb	To lie or lay flat.
-397	tira	noun	travelling party, company of travelers
-398	raumati	noun	summer
-399	pakari	verb	to mature, to ripen
-400	puke	noun	hill
-401	taru	noun	weed, grass; small vegetation
-402	tauira	noun	illustration; formula
-403	pene	noun	pen; pencil
-404	piringa	noun	refuge, haven, hiding place
-405	keri	verb	to dig (to move hard-packed earth out of the way)
-406	rae	noun	forehead (part of face above eyebrows)
-407	tangihia	verb	passive of tangi
-408	paheke	verb	to slip, to skid
-409	atawhaitia	verb	passive of atawhai
-410	hema	noun	genitalia
-411	mahana	adj	warm (of temperature)
-412	koi	adj	sharp
-413	iro	noun	maggot
-414	oka	verb	to stab, to pierce
-415	taikaha	adj	strict, severe; violent
-416	whakawhiti	verb	to transfer, to convey
-417	whiunga	noun	punishment
-418	taura	noun	rope
-419	tapahi	verb	to cut, to chop
-420	huru	noun	hair of human heads
-421	toro	verb	to stretch out, to extend
-422	whaki	noun	to pluck, to pick (of fruit)
-423	poaka	noun	pig; pork
-424	mangu	adj	black
-425	rewa	verb	to get under way, to depart, to set off
-426	uhi	noun	yam (Dioscorea)
-427	rutu	name	Ruth (biblical).
-428	pae	noun	shelf; horizon
-429	tuhi	verb	to point at
-430	etiopia	name	Ethiopia (a country in East Africa)
-431	maaka	name	a male given name, equivalent to English Mark: obsolete spelling of Māka
-432	pania	verb	passive of pani
-433	uta	noun	interior (the inside regions of a country or island)
-434	kahu	noun	cloak, cape; garment, clothing
-435	waro	noun	pit, chasm, abyss
-436	wikitoria	name	a female given name, equivalent to English Victoria
-437	kiko	noun	meat of any animal
-438	matomato	adj	lush, verdant
-439	whakamahia	verb	passive of whakamahi
-440	utaina	verb	passive of uta
-441	whawhati	verb	to fracture; to snap off, pick (e.g. fruit)
-442	unu	noun	withdrawal, extraction
-443	kauri	noun	A conifer of the genus Agathis, family Araucariaceae, found in Australasia and Melanesia.
-444	manaakitanga	noun	Showing kindness, generosity, respect to others.
-445	marangai	adj	north; north wind
-446	heu	verb	to separate, to pull apart or asunder
-447	aronga	noun	definition
-448	aharoro	name	Ashdod (a city and seaport in Israel, on the Mediterranean Sea)
-449	piro	adj	rotten, putrid; smelly
-450	tapa	verb	to cut, to chop
-451	rato	adj	spread, distributed
-452	hinganga	noun	fall, defeat, demise
-453	whakaaria	verb	passive of whakaari
-454	manuhiri	noun	guest, visitor
-455	urunga	noun	pillow
-456	hia	det	many; several
-457	turakina	verb	passive of turaki
-458	turaki	verb	to push over; to oppose
-459	kaho	noun	crossbar; crossbeam
-460	koromatua	noun	chief, mayor; thumb
-461	mamao	adj	far, distant, remote
-462	wharau	verb	to travel (particularly by sea)
-463	hana	noun	heat, warmth; radiance, glow, flame
-464	ahurewa	noun	oracle, shrine, sacred place
-465	rapunga	noun	search; investigation
-466	pikitia	noun	picture, image
-467	wuruhi	noun	wolf (Canis lupus)
-468	toki	noun	axe
-469	whiri	verb	to twist; to weave
-470	kaperenauma	name	Capernaum (an ancient town in Galilee, Israel, a biblical and archaeological site)
-471	apa	verb	to heap; layer; stack
-472	hiku	noun	tail; rear, end
-473	miriama	name	a female given name, equivalent to English Miriam
-474	ate	noun	liver (organ of the body)
-475	whakarangona	verb	passive of whakarongo; to be listened to
-476	pouaka	noun	box (cuboid space; container)
-477	tatauranga	noun	statistics (mathematical science)
-478	rengarenga	noun	Arthropodium cirratum, a herbaceous perennial plant endemic to New Zealand.
-479	taunga	noun	anchorage, resting place, landing
-480	uku	noun	clay; pottery
-481	tunu	verb	to broil, roast, bake, cook
-482	huia	noun	huia (†Heteralocha acutirostris)
-483	matimati	noun	finger, toe
-484	hina	adj	pale; grey-haired
-485	kaipatu	noun	beater, striker, attacker
-486	ira	noun	dot, freckle, speck, mole
-487	pounamu	adj	dark green
-488	hiahiatia	verb	passive of hiahia
-489	maramara	adj	miscellaneous
-490	kikorangi	noun	light blue; sky blue
-491	rara	verb	to spread out, to scatter
-492	huaki	verb	to open (of doors, lids)
-493	whenu	verb	to spin, to twist
-494	nganga	noun	hail; stone of a fruit
-495	tukituki	verb	to batter, to pound, to pulverize, to ram
-496	pepeha	noun	an introductory speech detailing one's ancestry
-497	anaterope	noun	antelope
-498	topa	verb	to soar, to fly high
-499	akiri	noun	rejection, disposal, discarding
-500	pari	noun	cliff
-501	whakaririka	adj	impassive
-502	pua	noun	flower
-503	anuanu	adj	cold; offensive, disgusting
-504	peara	noun	pearl
-505	kuihi	noun	goose; Canada goose
-506	one	noun	sand; mud
-507	tara	noun	spike, point; thorn of a plant
-508	whakaahuatia	verb	passive of whakaahua
-509	onika	noun	onyx
-510	arame	name	Aram
-511	akiaki	noun	red-billed gull (Chroicocephalus novaehollandiae scopulinus)
-512	aramona	noun	almond
-513	roha	verb	to spread out, to extend out, to stretch out
-514	kaokao	noun	side, flank (of the body, hills and mountains, canoes, etc.)
-515	hamu	verb	glean
-516	paraire	noun	Friday
-517	tai	noun	nearshore waters
-518	kohu	noun	fog
-519	huhu	noun	huhu grub, the larval form of Prionoplus reticularis
-520	waka	noun	boat, canoe; vehicle or any mode of transport
-521	poroporo	noun	The plant Solanum aviculare.
-522	takatakahi	verb	to trample; to disobey
-523	poti	noun	cat (Felis silvestris catus)
-524	unahi	noun	scale, small fragment covering skin of a fish
-525	rironga	noun	asset, receipt, acquisition
-526	kongakonga	noun	shrapnel, crumb
-527	momo	noun	a type, a kind, a species, a breed, a variety, a race, a genre
-528	kuru	noun	breadfruit
-529	rata	adj	tame; quiet
-530	kutikuti	noun	scissors, shears, clippers
-531	huka	noun	snow, foam, froth, any white form of precipitation
-532	namu	noun	sandfly of the genus Austrosimulium.
-533	pare	noun	headband, wreath
-534	kuku	noun	pincers, tweezers, any tool or item that nips or pinches
-535	angiangi	verb	to be thin, fine
-536	poro	verb	to break, to cut off
-537	pereti	noun	plate, platter
-538	whakamahi	verb	to employ, use, utilise, put to work, operate, put to use
-539	kamo	noun	eyelid; eyelash
-540	tauhou	noun	silvereye, wax-eye, waxeye
-541	ahunga	noun	bearing, heading
-542	ketekete	verb	to chirp, chatter, cackle
-543	kutu	noun	louse (insect)
-544	toko	noun	pole; sprit of a canoe's sail
-545	tuki	verb	to ram, to pound, to pestle
-546	kapiti	verb	to bring close together
-547	wae	noun	leg; foot
-548	kato	noun	flow; current
-549	kokoru	noun	bay (gulf)
-550	oro	noun	sound; echo
-551	porotaka	noun	globe; spherical model of Earth
-552	marino	adj	calm
-553	karaihe	noun	glass (substance)
-554	waikura	noun	rust
-555	hongi	noun	The Maori greeting of touching noses.
-556	whakaata	verb	to reflect; to exhibit, display
-557	kiore	noun	rat; mouse (input device)
-558	hiki	verb	to carry (in the arms)
-559	hopi	noun	soap
-560	kakano	noun	texture, grain (of wood)
-561	raihi	noun	rice
-562	hue	noun	bottle gourd, Lagenaria siceraria
-563	otinga	noun	result, product, quotient
-564	whakananu	verb	to contaminate; to confuse, to make something incoherent or unintelligible
-565	akoranga	noun	learning, lesson
-566	nama	noun	number, numeral
-567	oni	verb	to wriggle; to move, shift or slip from a previous position
-568	kape	noun	tongs; any wooden kitchen tool (spoon, stirrer etc)
-569	tiro	verb	to observe, to view
-570	hahani	verb	disparage
-571	whakararo	adj	bottom; lower; northern, northerly
-572	angaanga	noun	shell; skull
-573	apakura	noun	lament, dirge
-574	huatau	adj	elegant, graceful
-575	whao	noun	chisel; any iron tool
-576	haka	noun	A war dance; a haka.
-577	wawao	verb	referee, umpire
-578	punga	noun	coral; any silicate or calcite material
-579	hauraro	noun	north wind
-580	hiainu	noun	thirst
-581	kirikiri	noun	gravel; sand
-582	ruaki	verb	to vomit
-583	rawe	verb	to wrap around, to coil around (of clothing, cords, ropes etc.)
-584	hoana	name	a female given name, equivalent to English Joan and Joanna
-585	hoe	noun	oar; paddle
-586	kaihao	noun	fisher, fisherman (using a net)
-587	kipa	noun	spur (horse prod attached to heel)
-588	toroa	noun	an albatross, especially the royal albatross or wandering albatross
-589	hamumu	verb	speak softly
-590	whano	verb	to proceed, to go towards
-591	hangarau	adj	technological
-592	utuutu	noun	repayments
-593	konatu	verb	to stir, to mix, to blend
-594	poki	verb	to turn over, to hang or place concave objects (like boats) upside down
-595	maki	verb	to afflict (of an illness)
-596	turu	noun	post, pole, pillar
-597	erata	name	Eilat (a city in southern Israel)
-598	kiripaka	noun	flint, quartz; asbestos
-599	makere	verb	to fall, to descend
-600	paea	noun	swordfish (Xiphias gladius)
-601	ranga	verb	to raise up from the ground
-602	moa	noun	moa (†Dinornis)
-603	atanga	noun	interface
-604	taumarumaru	verb	to overshadow
-605	ngahuru	noun	autumn
-606	tinei	verb	to extinguish, to put out (of a fire, light)
-607	matiu	name	Somes Island, an island in Wellington Harbour
-608	taurekareka	noun	slave or prisoner of war
-609	riki	adj	small, little; few
-610	arawhata	noun	stairs; ladder
-611	motumotu	verb	divided, broken up, cut
-612	kaka	noun	fibre (in general)
-613	maikuku	noun	fingernail, toenail
-614	whatura	noun	vulture
-615	kawau	noun	cormorant, shag
-616	rongona	verb	passive of rongo (“to hear”)
-617	tia	noun	abdomen, stomach
-618	korana	name	Golan Heights (a region of Syria)
-619	tahua	noun	field, enclosure, courtyard
-620	tauraki	verb	to dry (by exposure to the sun), to dehydrate
-621	aka	noun	root (of plant)
-622	pipiri	name	The first month of the maramataka
-623	kaiwawao	noun	referee, umpire
-624	whakahaerea	verb	passive of whakahaere
-625	kumikumi	noun	beard, moustache, whiskers
-626	toi	noun	tip, point; finger
-627	ura	noun	krill (small marine crustacean)
-628	awakeri	noun	drain, ditch
-629	pepe	noun	any lepidopterans including butterflies and moths
-630	raka	verb	to step on something
-631	reti	verb	to slide; to skate
-632	matuku	noun	bittern
-633	whakahirahira	verb	to extol
-634	atarau	noun	moonlight
-635	kaupapa	noun	level surface, floor, stage, platform, layer
-636	karakiatia	verb	passive of karakia
-637	taihoa	intj	wait, don't (do something) yet
-638	pirihira	name	a female given name, equivalent to English Priscilla
-639	more	noun	taproot
-640	puia	noun	volcano; geyser, hot spring
-641	ama	noun	outrigger (of a canoe)
-642	nuku	verb	to move, to shift
-643	hake	verb	to be hunched, crooked, bent
-644	miha	noun	a whale calf
-645	haki	noun	flag
-646	kumete	noun	bowl
-647	rai	noun	rye
-648	hakiri	verb	hear
-649	whara	noun	Any of the several plants in the families Asteliaceae and Xanthorrhoeaceae.
-650	pekapeka	noun	bat (animal) – especially the species Mystacina tuberculata
-651	pupuru	adj	pulpy; almost liquid/solid, curdled
-652	hare	name	a male given name, Harry
-653	pikinga	noun	ascent (act of ascending)
-654	whakaarohia	verb	passive of whakaaro
-655	whana	verb	to spring back, to recoil, to kick backwards
-656	whakawhitinga	noun	transfer; transition
-657	mauri	noun	life; life force or principle; metaphorical soul; source of life
-658	tari	noun	plaiting of several strands
-659	kapa	noun	team, group; row, line
-660	tina	verb	be firm, hard, steadfast
-661	piu	verb	to cast, to throw, to fling (of rope, line etc)
-662	repo	noun	swamp
-663	matariki	name	The season; The Pleiades star cluster
-664	tuitui	verb	to sew
-665	wawata	verb	to desire earnestly, long for, yearn for, daydream
-666	nekeneke	verb	to move gradually, to edge, to manoeuvre
-667	umere	noun	song, chant; praise, applause
-668	hiko	noun	flash, twinkle; lightning
-669	whakaruru	verb	to shelter, protect
-670	rimu	noun	moss (plants of the division Bryophyta)
-671	horonga	name	avalanche
-672	heihei	adj	to be related to a chicken
-673	piupiu	verb	to swing or sway to-and-fro, to oscillate
-674	aronui	noun	armspan, fathom
-675	takitaki	noun	fence, palisade, barricade, stockade
-676	wani	noun	swan
-677	mokomoko	noun	gecko; lizard
-678	hakihaki	noun	scabies, itch, rash
-679	whakawahine	noun	a person assigned male at birth who lives and behaves as a female socially
-680	taina	noun	younger sibling regardless of gender
-681	tioro	verb	to squawk, to screech, to shriek
-682	taumata	noun	pinnacle (highest point)
-683	tea	adj	white; light-coloured
-684	makimaki	noun	monkey; ape
-685	maata	name	a female given name, equivalent to English Martha
-686	haramai	noun	welcome
-687	toke	noun	worm
-688	tauranga	noun	anchorage
-689	pipi	noun	The edible saltwater clam Paphies australis
-690	mokopuna	noun	grandchild
-691	kareni	noun	crane, a bird of the family Gruidae
-692	karo	verb	to pick out or scoop something out of a hole
-693	hihi	noun	feeler, antenna
-694	mei	name	May (month)
-695	paki	verb	to hit, to smack
-696	matikuku	noun	nail (of the fingers and toes)
-697	tui	verb	to thread, to string together
-698	whakataurekareka	verb	To treat with contempt.
-699	huringa	noun	rotation, revolution
-700	waimarie	adj	lucky; fortuitous
-701	peraha	noun	Perth (the capital of Western Australia, Australia)
-702	atiti	noun	acid
-703	tuhinga	noun	writing, document, text, script
-704	purupuru	noun	caulk
-705	taimona	noun	a male given name, equivalent to English Simon
-706	hahae	verb	to slit, to slash
-707	tuatara	noun	tuatara
-708	moeone	noun	stone bass, wreckfish
-709	tukemata	noun	eyebrow; scowl
-710	mikaere	name	a male given name, equivalent to English Michael
-711	erana	name	a female given name, equivalent to English Ellen
-712	hako	noun	monkey; clown
-713	hanahana	noun	garment
-714	nekepe	name	Negev (a desert region in southern Israel)
-715	miti	verb	to lick; to lap
-716	konene	adj	wandering, nomadic
-717	auahi	adj	smoky
-718	taika	noun	tiger (Panthera tigris)
-719	parai	verb	to fry
-720	anahe	adj	alone, only
-721	koru	noun	coil, loop
-722	raku	verb	to scratch; to strum
-723	arata	noun	lettuce
-724	koutu	noun	promontory, point (of land)
-725	ahoroa	noun	moon; bright moonlight
-726	maitai	adj	good, beautiful, agreeable
-727	ani	adj	echoing, resounding (i.e. bounces sound waves)
-728	kini	verb	to pinch, to nip (with fingers, claws etc)
-729	haukoti	verb	intercept; abort
-730	hukapapa	noun	frost; ice
-731	tio	noun	ice; rock oyster (Saccostrea spp.)
-732	tuahiwi	noun	ridge of a hill
-733	hauhau	noun	whip
-734	taupatupatu	verb	to beat or hit one another
-735	moutere	noun	island
-736	whitia	verb	passive of whiti (“to transfer”)
-737	moehewa	verb	to dream; to delude oneself
-738	takea	verb	passive of take
-739	puka	noun	cabbage; Meryta sinclairii
-740	auau	noun	bark (of a dog)
-741	penapena	verb	to save up (accumulate money for a specific purpose)
-742	hapanga	noun	default
-743	hape	adj	club-footed, having clubfoot i.e. a foot that twists inward
-744	parauri	adj	dark (of skin colour)
-745	amana	noun	almond
-746	karu	noun	spongy matter (pulp around the seeds of a bottle gourd, brains, clotted blood etc)
-747	kauhoe	verb	to swim
-748	hemorere	adj	sudden
-749	kope	verb	to wrap something in leaves etc
-750	moto	verb	to strike with the fist, to punch, to box
-751	pewa	noun	eyebrow
-752	koata	noun	quart (unit of measure)
-753	wharangi	noun	Melicope ternata
-754	rarau	noun	root
-755	keringa	noun	mine (place where people dig metals)
-756	tuke	noun	elbow; bend, angle
-757	kekeno	noun	New Zealand fur seal (Arctocephalus forsteri)
-758	tute	noun	masculine equivalent of tūī
-759	pahu	noun	drum (slotted or skinned)
-760	roanga	noun	continuation
-761	mane	noun	Monday
-762	koro	noun	grandfather; term of address to an elderly man
-763	tupua	adj	strange
-764	hanumi	verb	merge; be swallowed up
-765	anahere	noun	angel, archangel
-766	totea	verb	passive of tote
-767	ari	verb	clear, evident, visible
-768	whakapakaru	noun	falsetto
-769	taera	noun	sexual desire
-770	tepe	verb	to congeal, to coagulate
-771	haika	noun	anchor
-772	makariri	verb	cold
-773	rongonui	adj	famous; well-known; renowned
-774	pona	noun	node or knot of grass stalks etc
-775	moroko	name	Morocco (a country in North Africa)
-776	kura	adj	red
-777	aikiha	noun	handkerchief
-778	hewa	adj	mistaken
-779	rekareka	verb	to be pleasant, enjoyable, fun
-780	haratau	adj	suitable, fit
-781	mihi	noun	A welcome; A speech made to welcome somebody
-782	rangitahi	adj	momentary, ephemeral, transient, short-lived, brief
-783	haku	noun	yellowtail amberjack (Seriola lalandi)
-784	muhumuhu	adj	discontented (experiencing discontent, dissatisfaction)
-785	korukoru	noun	wrinkle; nook, cavity
-786	akau	noun	reef; coast (of seas), bank (of rivers)
-787	heahea	adj	crazy, stupid, inane
-788	karapu	noun	glove (item of clothing)
-789	pango	noun	black (colour/color)
-790	ruku	verb	to dive; to sink
-791	pepa	noun	paper
+4	ā	particle	at, in — before a coming time (ā te ata, in the morning); also a-category 'of'
+5	ki	particle	to, toward.
+6	kī	verb	say, tell; also full, filled; and the loanword kī 'key' — not ki 'to, towards'
+7	e	particle	is/are ...-ing (with ana); before numbers 2-9; O (calling someone); by (passive)
+8	o	particle	of, belonging to (the o-category: elders, body parts, feelings, houses, vehicles)
+9	ō	det	"your — o-category, more than one thing; also the plural of ""o"""
+10	ngā	article	the (plural); the, for a whole class of things (singular is te)
+11	ka	particle	Marks an event as occurring at some time or as existing
+12	kā	particle	to burn, be alight, be lit: Kei te kā te ahi, the fire is burning; the base of whakakā. Not ka, the tense particle.
+13	ko	particle	Placed at the beginning of nominative phrases to signify that they are declarative
+14	ia	pron	he / she / it (third person singular pronoun)
+15	mea	noun	thing; a so-and-so (something, someone, or a place the speaker does not know)
+16	he	article	a, an, some: indefinite article
+17	hē	adj	wrong, mistaken, in error; a mistake (not he: a, an)
+18	ana	particle	the ongoing-action particle, closing the e … ana frame: E noho ana ia, he is living
+19	āna	det	his, her (more than one thing) — a-category; the o-category form is ōna
+20	hoki	adv	also, too, as well; to return, go back
+21	ahau	pron	I (personal pronoun)
+22	ai	particle	points back to a stated reason, time or place; marks habitual action; then
+23	kia	particle	when; until (used for a future time)
+24	koutou	pron	you (plural; three or more people)
+25	me	particle	Conjunctive; and (joins two noun phrases)
+26	koe	pron	you (singular)
+27	atu	adv	away
+28	katoa	det	all, every; everyone, everything; completely, entirely (following what it modifies)
+29	tangata	noun	human being, person, man
+30	tāngata	noun	people, persons — plural of tangata; the macron is the only mark of the plural
+31	tōna	det	his, her (one thing) — o-category: kin, body parts, houses; a-category is tāna
+32	mai	adv	hither; to, from
+33	hei	particle	Future locative particle
+34	nei	particle	; marks spatial or temporal nearness to event in discourse
+35	kua	particle	aspect marker, marks actions as recently initiated, in progress, or completed
+36	tama	noun	child regardless of sex
+37	rā	noun	"day; the sun — he rā ātaahua, a beautiful day; also the distal particle ""yonder"""
+38	haere	verb	go; come
+39	atua	noun	god (deity)
+40	roto	noun	interior; lake
+41	ake	particle	up, upward
+42	kei	particle	at, in (present locative particle)
+43	whenua	noun	land; country
+44	runga	adv	upwards, up
+45	kore	adj	without (not having)
+46	iwi	noun	bone; strength
+47	whare	noun	house; any building
+48	tana	det	his, her (one thing) — the neutral form; tāna marks a-category, tōna o-category
+49	tāna	det	his, her (one thing) — a-category possessive; tana is the unstressed form
+50	hunga	noun	people; slave
+51	tau	noun	year (time it takes for the Earth to complete one revolution of the Sun)
+52	tāu	det	your (one thing) — a-category: things you control, like food or work; o is tōu/tō
+53	mahi	verb	to work, do, perform, make, accomplish, practise, raise (money)
+54	kupu	noun	word, vocabulary
+55	nui	adj	big, large; many, much, plentiful; great, important
+56	noa	particle	merely, suddenly, unintentionally, etc. Denotes an absence of limitations or conditions.
+57	tonu	adv	still, yet; nonetheless, all the same
+58	rite	verb	to resemble; to be like, similar, alike
+59	pai	adj	good; excellent
+60	ringa	noun	hand; arm
+61	tekau	num	twenty, score (20).
+62	noho	verb	to sit; to reside, dwell
+63	taku	det	my (one thing) — the neutral form; tāku marks a-category, tōku o-category
+64	tāku	det	my (one thing) — a-category: food, work, books; the o-category form is tōku
+65	ara	noun	path (a trail for the use of, or worn by, pedestrians)
+66	kino	adj	bad; gory
+67	ariki	noun	paramount chief of a tribe, the most senior by descent of the rangatira
+68	mate	noun	death; sickness, illness, disease
+69	rawa	adj	many, numerous
+70	wahine	noun	woman
+71	wāhine	noun	women; the plural of wahine, marked only by the macron (te wahine, ngā wāhine)
+72	kotahi	noun	unit
+73	rua	num	two
+74	puta	verb	to come out or come forth from some location
+75	aroaro	noun	presence; front of a person
+76	wai	noun	water (clear liquid H₂O)
+77	tika	verb	straight, direct
+78	kite	verb	to see; to find, to perceive
+79	hanga	verb	to make; to create
+80	ora	verb	to exist; to be alive, well, safe, cured, recovered, healthy
+81	whakaaro	verb	to think, plan, consider, decide
+82	ingoa	noun	name
+83	tae	noun	excrement, filth
+84	wairua	noun	a soul or spirit of a person
+85	nana	intj	lo, look, see, behold (imperative).
+86	taha	noun	side, edge; shore, bank
+87	tapu	adj	holy, sacred, consecrated
+88	kai	verb	to eat (to consume food)
+89	rangatira	noun	chief, chieftain, chieftainess, though of lesser rank than an ariki (paramount chief)
+90	aha	pron	what (interrogative pronoun)
+91	mano	num	thousand
+92	rongo	verb	to hear; to perceive, to sense, to feel
+93	whai	noun	stingray; skate (fish of family Rajidae)
+94	tohunga	noun	A skilled person, an expert
+95	hara	verb	to be in violation of a tapu
+96	muri	adv	behind, rear; after
+97	ihu	noun	nose (organ of the face)
+98	matua	noun	parent; father
+99	kaha	noun	strength, power, energy
+100	papa	noun	board, plank; chart
+101	hura	verb	to put or raise a hand up
+102	aroha	noun	love
+103	rangi	noun	sky, heaven; weather
+104	au	pron	I (personal pronoun)
+105	āu	det	your (more than one thing) — a-category; the o-category form is ōu
+106	mua	adv	front, forward; to the future
+107	mohi	name	a male given name, equivalent to English Moses
+108	matau	noun	fishhook; hookgrass
+109	toru	num	three
+110	oti	adj	finished; completed
+111	teina	noun	younger sibling regardless of gender
+112	tikanga	noun	custom, convention, correct manner of doing things
+113	pera	noun	blubber
+114	pono	noun	truth, non-fiction, validity
+115	mana	noun	power; mana
+116	tahi	num	one, single
+117	hoa	noun	friend, companion, mate, partner, spouse, ally
+118	kanohi	noun	face; view, sight, vision
+119	rau	noun	leaf; sheet of paper
+120	wehi	noun	dread, fear
+121	reo	noun	voice; speech, utterance
+122	whitu	num	seven
+123	marama	noun	moon; month
+124	mārama	verb	to understand; to be clear, plain, light (not marama: moon, month)
+125	raro	noun	the underworld; bottom
+126	tamariki	noun	plural of tamaiti
+127	kau	verb	tree; wood; stick
+128	kitea	verb	passive of kite
+129	whawhai	verb	fight
+130	whakarongo	verb	to hear, to listen
+131	aku	det	my (more than one thing) — the neutral form; āku marks a-category
+132	āku	det	my (more than one thing) — a-category; the o-category form is ōku
+133	kainga	noun	The refuse of a meal.
+134	kāinga	noun	home; village, settlement — distinct from kainga 'eaten', the passive of kai
+135	riri	verb	to be angry, to rage
+136	tino	noun	essence, essential, substance
+137	maunga	noun	mountain
+138	aua	noun	yellow-eye mullet, (Aldrichetta forsteri)
+139	taonga	noun	anything treasured or highly prized
+140	utu	noun	pay; payment; salary
+141	rima	num	five
+142	tinana	noun	body
+143	ture	noun	law
+144	tamahine	noun	girl, female child
+145	rere	verb	to fly; to flee, escape
+146	hua	noun	fruit; product, outcome
+147	maha	noun	abundance, bounty, majority
+148	ahi	noun	fire (oxidation reaction)
+149	ata	noun	"morning; also form, shape, reflection — not āta ""carefully"""
+150	āta	particle	carefully, deliberately, gently — sits before the verb (not ata: morning)
+151	hipi	noun	sheep
+152	koura	noun	gold
+153	tangi	noun	weeping, mourning, lament
+154	toto	noun	blood
+155	inoi	noun	a prayer
+156	hoari	noun	sword
+157	ahakoa	conj	although, notwithstanding, even though, nevertheless
+158	hoariri	noun	enemy
+159	whakahoki	verb	to turn back, to make something return
+160	mahara	verb	to think about; to recollect, to remember
+161	mata	noun	eye (organ of sight)
+162	moana	noun	ocean, sea
+163	taro	noun	taro; bread
+164	waewae	noun	foot; leg
+165	kikokiko	noun	flesh, meat
+166	patu	verb	to strike, to beat, to kill
+167	teka	noun	rung or step of a ladder
+168	ao	noun	daytime
+169	poke	adj	grimy
+170	mou	noun	island, islet, alternative form of motu
+171	ngaro	verb	to be hidden, out of sight, covered, disappeared, absent
+172	tupu	verb	to grow, to increase
+173	whakaora	verb	to revive, to resuscitate
+174	toa	adj	brave, courageous.
+175	tuakana	noun	older brother of a male
+176	tuākana	noun	older siblings of the same sex; the plural of tuakana, marked only by the macron
+177	hari	verb	to dance
+178	mara	adj	preserved esp. by prolonged steeping under running water until softened
+179	anake	adj	alone, only
+180	ono	num	six
+181	hiriwa	noun	silver
+182	pukapuka	noun	Brachyglottis repanda, shrub with soft leaves with white undersides.
+183	awa	noun	river, creek, stream
+184	anga	noun	shell, husk; structure, framework
+185	tatau	verb	to squeeze or wring out liquid
+186	taka	verb	to turn or wind round, to pivot
+187	whaea	noun	mother; aunt
+188	whakahokia	verb	passive of whakahoki
+189	roa	adj	long; tall
+190	maka	verb	throw, fling, cast, pass (with the hands)
+191	tuku	verb	to slacken, to let go
+192	anahera	noun	angel
+193	moe	verb	to sleep, to nap
+194	haerenga	noun	journey; departure
+195	tauiwi	noun	foreigner, European, non-Māori, colonist
+196	hinga	verb	to fall, to tumble
+197	inu	noun	liquid, drink
+198	whakaatu	verb	to show, reveal, display, exhibit
+199	ahua	verb	passive of ahu
+200	āhua	verb	appearance, form, shape; sort, kind; (adverb) somewhat, rather — te āhua nei, it seems. Not ahua, the passive of ahu.
+201	kitenga	noun	sight
+202	tini	noun	multitude, host, a very large amount
+203	kawe	verb	to carry, to bring, to bear
+204	taringa	noun	ear; several types of jelly fungi
+205	kaimahi	noun	worker, employee
+206	hinu	noun	fat, grease; lard
+207	tahu	noun	husband, lover; near relative
+208	uri	adj	dark, deep (of colour)
+209	mutu	verb	to cut, to chop
+210	tuatahi	num	first
+211	hākari	noun	feast, banquet — a spread of food laid on for a special occasion; also a gift, and (separately) fish roe
+212	heke	verb	to descend, to fall
+213	puru	noun	plug; caulk
+214	hiahia	noun	desire, wish, want
+215	kanga	verb	to curse, to swear
+216	tomo	verb	to enter
+217	tamaiti	noun	child
+218	tiketike	verb	to be high, to be lofty
+219	hea	verb	grieve
+220	pou	noun	post, stake, pillar
+221	ako	verb	to learn, to study
+222	moni	noun	money, cash
+223	waiata	noun	song
+224	rangatiratanga	noun	chieftainship; right to exercise authority
+225	hou	verb	to bind or lash together
+226	mamae	noun	pain; bullroarer
+227	manaaki	verb	to support, take care of, look out for
+228	whiwhi	verb	to wind round, to fasten
+229	putanga	noun	any exit, outlet or vent
+230	reme	noun	lamb
+231	kaitiaki	noun	guardian, trustee
+232	pito	noun	navel; end, extremity
+233	waru	num	eight
+234	rama	noun	torch; light
+235	upoko	noun	head; paragraph
+236	tonga	noun	south
+237	tōnga	noun	setting, sinking — te tōnga o te rā, sunset (not tonga: south)
+238	kapua	noun	cloud
+239	pita	name	a male given name, equivalent to English Peter
+240	rongonga	noun	hearing (sense)
+241	hau	noun	essence; ceremonial offering of food to an atua
+242	karakia	verb	to recite ritual chants or a prayer, to say grace, to pray
+243	temepara	noun	temple
+244	marae	noun	The courtyard of a wharenui or meeting-house and the buildings around it.
+245	ahiahi	noun	evening (time of day)
+246	atawhai	noun	kindness, generosity
+247	tiaki	verb	to guard or keep
+248	piki	noun	fig tree; fig
+249	mutunga	noun	end; finish; conclusion
+250	whiti	verb	to be alarmed
+251	manu	noun	bird (animal); kite
+252	ua	noun	rain (condensed water from a cloud)
+253	whakaaturia	verb	passive of whakaatu
+254	raki	noun	north; drought
+255	peka	noun	bat (the flying mammal)
+256	raiona	noun	lion (big cat)
+257	herehere	verb	to tie up (a number of times), bind, tie, shackle, hobble.
+258	puku	noun	swelling, lump; stomach, belly
+259	whiu	verb	toss, throw, fling
+260	whiriwhiri	verb	to negotiate
+261	mura	verb	to burn (of firewood), to blaze
+262	hoko	verb	to barter, exchange, trade
+263	kakara	adj	aromatic, fragrant, sweet-smelling
+264	hoani	name	John (biblical)
+265	horoi	verb	wash, clean
+266	ngutu	noun	lip; beak, bill
+267	reka	adj	nice, pleasant; sweet (of taste)
+268	whakangaromia	verb	passive of whakangaro
+269	moenga	noun	a bed
+270	puehu	noun	pollen; dust
+271	kapu	noun	scoop, ladle; palm of one's hand
+272	arero	noun	tongue
+273	piri	name	a male given name, equivalent to English Bill
+274	uru	verb	to enter, go in
+275	utua	verb	passive of utu
+276	manaakitia	verb	passive of manaaki
+277	hapa	noun	tea (meal)
+278	iwa	num	nine
+279	wareware	noun	forgetfulness
+280	hepara	noun	shepherd; herdsman
+281	waha	noun	mouth; any opening or entrance
+282	piko	noun	bend, curve; corner
+283	puna	noun	spring of water; well; pool
+284	aru	noun	chase; pursuit
+285	hae	verb	to tear, to scratch, to lacerate
+286	whakangaro	noun	destruction, obliteration, ruin, annihilation, devastation.
+287	rahi	verb	to be big, many, plentiful, numerous
+288	tokotoko	noun	walking stick, cane
+289	rino	noun	iron; metal
+290	mōrehu	noun	survivor, remnant — those left after a loss; capitalised Mōrehu, a follower of the Rātana faith
+291	eke	verb	to climb, to ascend, to rise
+292	taimaha	adj	heavy; expensive, costly, pricey
+293	haereere	verb	stroll about
+294	whakawahi	verb	to anoint, crown
+295	take	verb	to originate, derive
+296	kari	verb	to dig; to cleave
+297	kiri	noun	skin; peel, bark, rind
+298	tuahine	noun	sister (of a man)
+299	tuāhine	noun	sisters (of a man); the plural of tuahine, marked only by the macron
+300	tiki	noun	figurine, carved figure
+301	wiri	verb	to bore, twist, drill
+302	manako	verb	to long for, to yearn
+303	hira	verb	to be great, important, widespread, of consequence
+304	manawa	noun	belly, stomach; heart (of a person)
+305	pea	noun	bear
+306	haurangi	adj	drunk
+307	hera	name	a female given name, equivalent to English Sarah
+308	pani	verb	to smear, to spread across
+309	pere	noun	karapapa (Alseuosmia macrophylla)
+310	horo	verb	to run; to flee, to escape
+311	whakataka	verb	to drop, toss off, cause to fall, throw down, depose, overthrow, abdicate
+312	manga	noun	branch; stream, creek
+313	motu	noun	cut, wound; anything separated or isolated
+314	kati	verb	to bite, to nip
+315	amo	verb	to charge, to attack
+316	pihi	verb	to spring up; to start growing, to sprout
+317	haimona	name	a male given name, Simon
+318	hiria	name	Syria (a country in West Asia in the Middle East)
+319	neke	verb	to shift, to move slightly
+320	hopa	name	a male given name, equivalent to English Job
+321	pirau	adj	rotten
+322	mataku	adj	afraid
+323	heperona	name	Hebron (a city in the West Bank, Palestine; holy in both Judaism and Islam)
+324	oma	verb	run, race, flee, escape, move quickly, run away
+325	māori	name	normal, usual, ordinary, natural; native, indigenous — capitalised Māori is the people and the language
+326	riria	name	a female given name
+327	aho	noun	fishing line; string
+328	nohopuku	noun	fasting (abstention of eating for religious purposes)
+329	meri	name	Mary (biblical)
+330	hope	noun	waist; hip (ringa hope)
+331	repanona	name	Lebanon (a country in Asia)
+332	ika	noun	fish; slain warrior, victim
+333	huruhuru	noun	feather; coarse hair or fur
+334	tao	noun	spear
+335	wehe	verb	to separate
+336	hopu	verb	to seize, catch, snatch
+337	whanaunga	noun	familial relative
+338	kawa	adj	sour
+339	merekara	noun	miracle
+340	keke	noun	cake
+341	uaua	noun	blood vessel; vein; artery
+342	kupenga	noun	net
+343	heriko	name	Jericho (a city in the West Bank, Palestine)
+344	uma	noun	chest
+345	whakatangi	verb	to make something or someone cry
+346	hā	intj	breath, breathing; the breath of life, essence, spirit — also an exclamation: ha!, hey!
+347	whakanui	verb	to enlarge, to magnify
+348	whero	noun	red (orangish or brownish)
+349	horoia	verb	passive of horoi
+350	turi	adj	deaf (not hearing)
+351	aranga	verb	to arise, to emerge, to appear
+352	takoha	noun	pledge
+353	kapi	verb	to close; to cover, to shut
+354	niho	noun	tooth; sharp edge
+355	haruru	noun	rumble, roar
+356	hemo	verb	to die
+357	hemokai	noun	hunger
+358	aonga	noun	dawn
+359	hui	verb	to gather, congregate, assemble, meet
+360	ahatia	verb	passive of aha
+361	peterehema	name	Bethlehem (a city in the West Bank, Palestine, believed to be the birthplace of Jesus)
+362	awatea	noun	daylight
+363	runanga	noun	assembly, council
+364	whakahaere	noun	operation; organization
+365	makawe	noun	hair; ringlet; a lock of it
+366	pakiaka	noun	root (of a tree)
+367	ware	adj	distracted; careless
+368	inumia	verb	passive of inu
+369	himiona	name	a male given name, Simeon
+370	hiri	name	Chile (a country in South America)
+371	whatu	noun	stone; hailstone
+372	whakamahara	verb	to remind; to commemorate
+373	ahu	verb	to care for, to foster
+374	epa	noun	wall post
+375	pakanga	noun	war; battle
+376	tua	noun	back, rear of the body
+377	wera	verb	to burn; to be burnt; to be hot
+378	awaawa	noun	groove; gully, gorge
+379	koko	noun	scoop, ladle; shovel
+380	haunga	noun	stench, stink
+381	tote	verb	to salt, add salt
+382	pukupuku	verb	to be lumpy, to be swollen
+383	whanga	noun	bay, gulf; stretch of water
+384	kete	noun	basket
+385	hai	noun	ace
+386	oki	noun	rest
+387	aitua	noun	accident, bad luck
+388	tupuna	noun	A grandparent, or any ancestor more remote than one's parents.
+389	tūpuna	noun	ancestors, grandparents — plural of tupuna, marked only by vowel length
+390	huri	verb	to turn round, to revolve
+391	hono	verb	add; join
+392	mahaki	adj	sick, ill, invalid
+393	piripi	name	a male given name, equivalent to English Philip
+394	whakamataku	noun	fright, fear
+395	tanu	verb	to plant (trees, seeds etc into the ground)
+396	paingia	verb	passive of pai
+397	uira	noun	lightning; electricity
+398	tuanui	noun	roof
+399	takai	verb	to wrap up, wrap round
+400	aro	verb	to turn toward something or someone
+401	pata	noun	drop, drip
+402	tangihanga	noun	funeral
+403	kopa	noun	space in front of a house
+404	kakau	verb	to swim
+405	wiki	verb	to form circular ripples on the surface of a fluid
+406	rore	verb	to trap, to ensnare
+407	whakaari	verb	to expose, to display
+408	hore	noun	scrofula
+409	nahareta	name	Nazareth (a city in northern Israel)
+410	maihao	noun	finger
+411	ipu	noun	cup; any small receptacle
+412	ngaru	noun	wave
+413	whakaahua	noun	photograph, picture, shot
+414	hama	noun	hammer; malleus (hammer ear bone)
+415	ruru	noun	morepork (Ninox novaeseelandiae)
+416	kaiwhakahaere	noun	administrator, boss, director, organizer, manager
+417	whakapapa	verb	To lie or lay flat.
+418	tira	noun	travelling party, company of travelers
+419	raumati	noun	summer
+420	pakari	verb	to mature, to ripen
+421	puke	noun	hill
+422	taru	noun	weed, grass; small vegetation
+423	tauira	noun	illustration; formula
+424	pene	noun	pen; pencil
+425	piringa	noun	refuge, haven, hiding place
+426	keri	verb	to dig (to move hard-packed earth out of the way)
+427	rae	noun	forehead (part of face above eyebrows)
+428	tangihia	verb	passive of tangi
+429	paheke	verb	to slip, to skid
+430	atawhaitia	verb	passive of atawhai
+431	hema	noun	genitalia
+432	mahana	adj	warm (of temperature)
+433	koi	adj	sharp
+434	iro	noun	maggot
+435	oka	verb	to stab, to pierce
+436	taikaha	adj	strict, severe; violent
+437	whakawhiti	verb	to cross, to cross over (a river, a road); to take across, to ferry across; to transfer, to shift; to exchange, to swap
+438	whiunga	noun	punishment
+439	taura	noun	rope
+440	tapahi	verb	to cut, to chop
+441	huru	noun	hair of human heads
+442	toro	verb	to stretch out, to extend
+443	whaki	noun	to pluck, to pick (of fruit)
+444	poaka	noun	pig; pork
+445	mangu	adj	black
+446	rewa	verb	to get under way, to depart, to set off
+447	uhi	noun	yam (Dioscorea)
+448	rutu	name	Ruth (biblical).
+449	pae	noun	shelf; horizon
+450	tuhi	verb	to point at
+451	etiopia	name	Ethiopia (a country in East Africa)
+452	maaka	name	a male given name, equivalent to English Mark: obsolete spelling of Māka
+453	pania	verb	passive of pani
+454	uta	noun	interior (the inside regions of a country or island)
+455	kahu	noun	cloak, cape; garment, clothing
+456	waro	noun	pit, chasm, abyss
+457	wikitōria	name	a female given name, equivalent to English Victoria
+458	kiko	noun	meat of any animal
+459	matomato	adj	lush, verdant
+460	whakamahia	verb	passive of whakamahi
+461	utaina	verb	passive of uta
+462	whawhati	verb	to fracture; to snap off, pick (e.g. fruit)
+463	unu	noun	withdrawal, extraction
+464	kauri	noun	A conifer of the genus Agathis, family Araucariaceae, found in Australasia and Melanesia.
+465	manaakitanga	noun	Showing kindness, generosity, respect to others.
+466	marangai	adj	north; north wind
+467	heu	verb	to separate, to pull apart or asunder
+468	aronga	noun	definition
+469	aharoro	name	Ashdod (a city and seaport in Israel, on the Mediterranean Sea)
+470	piro	adj	rotten, putrid; smelly
+471	tapa	verb	to cut, to chop
+472	rato	adj	spread, distributed
+473	hinganga	noun	fall, defeat, demise
+474	whakaaria	verb	passive of whakaari
+475	manuhiri	noun	guest, visitor
+476	urunga	noun	pillow
+477	hia	det	many; several
+478	turakina	verb	passive of turaki
+479	turaki	verb	to push over; to oppose
+480	kaho	noun	crossbar; crossbeam
+481	koromatua	noun	chief, mayor; thumb
+482	mamao	adj	far, distant, remote
+483	wharau	verb	to travel (particularly by sea)
+484	hana	noun	heat, warmth; radiance, glow, flame
+485	ahurewa	noun	oracle, shrine, sacred place
+486	rapunga	noun	search; investigation
+487	pikitia	noun	picture, image
+488	wuruhi	noun	wolf (Canis lupus)
+489	toki	noun	axe
+490	whiri	verb	to twist; to weave
+491	kaperenauma	name	Capernaum (an ancient town in Galilee, Israel, a biblical and archaeological site)
+492	apa	verb	to heap; layer; stack
+493	hiku	noun	tail; rear, end
+494	miriama	name	a female given name, equivalent to English Miriam
+495	ate	noun	liver (organ of the body)
+496	whakarangona	verb	passive of whakarongo; to be listened to
+497	pouaka	noun	box (cuboid space; container)
+498	tatauranga	noun	statistics (mathematical science)
+499	rengarenga	noun	Arthropodium cirratum, a herbaceous perennial plant endemic to New Zealand.
+500	taunga	noun	anchorage, resting place, landing
+501	uku	noun	clay; pottery
+502	tunu	verb	to broil, roast, bake, cook
+503	huia	noun	huia (†Heteralocha acutirostris)
+504	matimati	noun	finger, toe
+505	hina	adj	pale; grey-haired
+506	kaipatu	noun	beater, striker, attacker
+507	ira	noun	dot, freckle, speck, mole
+508	pounamu	adj	dark green
+509	hiahiatia	verb	passive of hiahia
+510	maramara	adj	miscellaneous
+511	kikorangi	noun	light blue; sky blue
+512	rara	verb	to spread out, to scatter
+513	huaki	verb	to open (of doors, lids)
+514	whenu	verb	to spin, to twist
+515	nganga	noun	hail; stone of a fruit
+516	tukituki	verb	to batter, to pound, to pulverize, to ram
+517	pepeha	noun	an introductory speech detailing one's ancestry
+518	anaterope	noun	antelope
+519	topa	verb	to soar, to fly high
+520	akiri	noun	rejection, disposal, discarding
+521	pari	noun	cliff
+522	whakaririka	adj	impassive
+523	pua	noun	flower
+524	anuanu	adj	cold; offensive, disgusting
+525	peara	noun	pearl
+526	kuihi	noun	goose; Canada goose
+527	one	noun	sand; mud
+528	tara	noun	spike, point; thorn of a plant
+529	tāra	noun	dollar: e rua tāra, two dollars. A loanword; not tara 'spike, point'.
+530	whakaahuatia	verb	passive of whakaahua
+531	onika	noun	onyx
+532	arame	name	Aram
+533	akiaki	noun	red-billed gull (Chroicocephalus novaehollandiae scopulinus)
+534	aramona	noun	almond
+535	roha	verb	to spread out, to extend out, to stretch out
+536	kaokao	noun	side, flank (of the body, hills and mountains, canoes, etc.)
+537	hamu	verb	glean
+538	paraire	noun	Friday
+539	tai	noun	nearshore waters
+540	kohu	noun	fog
+541	huhu	noun	huhu grub, the larval form of Prionoplus reticularis
+542	waka	noun	boat, canoe; vehicle or any mode of transport
+543	poroporo	noun	The plant Solanum aviculare.
+544	takatakahi	verb	to trample; to disobey
+545	poti	noun	cat (Felis silvestris catus)
+546	unahi	noun	scale, small fragment covering skin of a fish
+547	rironga	noun	asset, receipt, acquisition
+548	kongakonga	noun	shrapnel, crumb
+549	momo	noun	a type, a kind, a species, a breed, a variety, a race, a genre
+550	kuru	noun	breadfruit
+551	rata	adj	tame; quiet
+552	kutikuti	noun	scissors, shears, clippers
+553	huka	noun	snow, foam, froth, any white form of precipitation
+554	namu	noun	sandfly of the genus Austrosimulium.
+555	pare	noun	headband, wreath
+556	kuku	noun	pincers, tweezers, any tool or item that nips or pinches
+557	angiangi	verb	to be thin, fine
+558	poro	verb	to break, to cut off
+559	pereti	noun	plate, platter
+560	whakamahi	verb	to employ, use, utilise, put to work, operate, put to use
+561	kamo	noun	eyelid; eyelash
+562	tauhou	noun	silvereye, wax-eye, waxeye
+563	ahunga	noun	bearing, heading
+564	ketekete	verb	to chirp, chatter, cackle
+565	kutu	noun	louse (insect)
+566	toko	noun	pole; sprit of a canoe's sail
+567	tuki	verb	to ram, to pound, to pestle
+568	kapiti	verb	to bring close together
+569	wae	noun	leg; foot
+570	kato	noun	flow; current
+571	kokoru	noun	bay (gulf)
+572	oro	noun	sound; echo
+573	porotaka	noun	globe; spherical model of Earth
+574	marino	adj	calm
+575	karaihe	noun	glass (substance)
+576	waikura	noun	rust
+577	hongi	noun	The Maori greeting of touching noses.
+578	whakaata	verb	to reflect; to exhibit, display
+579	kiore	noun	rat; mouse (input device)
+580	hiki	verb	to carry (in the arms)
+581	hopi	noun	soap
+582	kakano	noun	texture, grain (of wood)
+583	raihi	noun	rice
+584	hue	noun	bottle gourd, Lagenaria siceraria
+585	otinga	noun	result, product, quotient
+586	whakananu	verb	to contaminate; to confuse, to make something incoherent or unintelligible
+587	akoranga	noun	learning, lesson
+588	nama	noun	number, numeral
+589	oni	verb	to wriggle; to move, shift or slip from a previous position
+590	kape	noun	tongs; any wooden kitchen tool (spoon, stirrer etc)
+591	tiro	verb	to observe, to view
+592	hahani	verb	disparage
+593	whakararo	adj	bottom; lower; northern, northerly
+594	angaanga	noun	shell; skull
+595	apakura	noun	lament, dirge
+596	huatau	adj	elegant, graceful
+597	whao	noun	chisel; any iron tool
+598	haka	noun	A war dance; a haka.
+599	wawao	verb	referee, umpire
+600	punga	noun	coral; any silicate or calcite material
+601	hauraro	noun	north wind
+602	hiainu	noun	thirst
+603	kirikiri	noun	gravel; sand
+604	ruaki	verb	to vomit
+605	rawe	verb	to wrap around, to coil around (of clothing, cords, ropes etc.)
+606	hoana	name	a female given name, equivalent to English Joan and Joanna
+607	hoe	noun	oar; paddle
+608	kaihao	noun	fisher, fisherman (using a net)
+609	kipa	noun	spur (horse prod attached to heel)
+610	toroa	noun	an albatross, especially the royal albatross or wandering albatross
+611	hamumu	verb	speak softly
+612	whano	verb	to proceed, to go towards
+613	hangarau	adj	technological
+614	utuutu	noun	repayments
+615	konatu	verb	to stir, to mix, to blend
+616	poki	verb	to turn over, to hang or place concave objects (like boats) upside down
+617	maki	verb	to afflict (of an illness)
+618	turu	noun	post, pole, pillar
+619	erata	name	Eilat (a city in southern Israel)
+620	kiripaka	noun	flint, quartz; asbestos
+621	makere	verb	to fall, to descend
+622	paea	noun	swordfish (Xiphias gladius)
+623	ranga	verb	to raise up from the ground
+624	moa	noun	moa (†Dinornis)
+625	atanga	noun	interface
+626	taumarumaru	verb	to overshadow
+627	ngahuru	noun	autumn
+628	tinei	verb	to extinguish, to put out (of a fire, light)
+629	matiu	name	Somes Island, an island in Wellington Harbour
+630	taurekareka	noun	slave or prisoner of war
+631	riki	adj	small, little; few
+632	arawhata	noun	stairs; ladder
+633	motumotu	verb	divided, broken up, cut
+634	kaka	noun	fibre (in general)
+635	maikuku	noun	fingernail, toenail
+636	whatura	noun	vulture
+637	kawau	noun	cormorant, shag
+638	rongona	verb	passive of rongo (“to hear”)
+639	tia	noun	abdomen, stomach
+640	korana	name	Golan Heights (a region of Syria)
+641	tahua	noun	field, enclosure, courtyard
+642	tauraki	verb	to dry (by exposure to the sun), to dehydrate
+643	aka	noun	root (of plant)
+644	pipiri	name	The first month of the maramataka
+645	kaiwawao	noun	referee, umpire
+646	whakahaerea	verb	passive of whakahaere
+647	kumikumi	noun	beard, moustache, whiskers
+648	toi	noun	tip, point; finger
+649	ura	noun	krill (small marine crustacean)
+650	awakeri	noun	drain, ditch
+651	pepe	noun	any lepidopterans including butterflies and moths
+652	raka	verb	to step on something
+653	reti	verb	to slide; to skate
+654	matuku	noun	bittern
+655	whakahirahira	verb	to extol
+656	atarau	noun	moonlight
+657	kaupapa	noun	level surface, floor, stage, platform, layer
+658	karakiatia	verb	passive of karakia
+659	taihoa	intj	wait, don't (do something) yet
+660	pirihira	name	a female given name, equivalent to English Priscilla
+661	more	noun	taproot
+662	puia	noun	volcano; geyser, hot spring
+663	ama	noun	outrigger (of a canoe)
+664	nuku	verb	to move, to shift
+665	hake	verb	to be hunched, crooked, bent
+666	miha	noun	a whale calf
+667	haki	noun	flag
+668	kumete	noun	bowl
+669	rai	noun	rye
+670	hakiri	verb	hear
+671	whara	noun	Any of the several plants in the families Asteliaceae and Xanthorrhoeaceae.
+672	pekapeka	noun	bat (animal) – especially the species Mystacina tuberculata
+673	pupuru	adj	pulpy; almost liquid/solid, curdled
+674	hare	name	a male given name, Harry
+675	pikinga	noun	ascent (act of ascending)
+676	whakaarohia	verb	passive of whakaaro
+677	whana	verb	to spring back, to recoil, to kick backwards
+678	whakawhitinga	noun	transfer; transition
+679	mauri	noun	life; life force or principle; metaphorical soul; source of life
+680	tari	noun	plaiting of several strands
+681	kapa	noun	team, group; row, line
+682	tina	verb	be firm, hard, steadfast
+683	piu	verb	to cast, to throw, to fling (of rope, line etc)
+684	repo	noun	swamp
+685	matariki	name	The season; The Pleiades star cluster
+686	tuitui	verb	to sew
+687	wawata	verb	to desire earnestly, long for, yearn for, daydream
+688	nekeneke	verb	to move gradually, to edge, to manoeuvre
+689	umere	noun	song, chant; praise, applause
+690	hiko	noun	flash, twinkle; lightning
+691	whakaruru	verb	to shelter, protect
+692	rimu	noun	moss (plants of the division Bryophyta)
+693	horonga	name	avalanche
+694	heihei	adj	to be related to a chicken
+695	piupiu	verb	to swing or sway to-and-fro, to oscillate
+696	aronui	noun	armspan, fathom
+697	takitaki	noun	fence, palisade, barricade, stockade
+698	wani	noun	swan
+699	mokomoko	noun	gecko; lizard
+700	hakihaki	noun	scabies, itch, rash
+701	whakawahine	noun	a person assigned male at birth who lives and behaves as a female socially
+702	taina	noun	younger sibling regardless of gender
+703	tioro	verb	to squawk, to screech, to shriek
+704	taumata	noun	pinnacle (highest point)
+705	tea	adj	white; light-coloured
+706	makimaki	noun	monkey; ape
+707	maata	name	a female given name, equivalent to English Martha
+708	haramai	noun	welcome
+709	toke	noun	worm
+710	tauranga	noun	anchorage
+711	pipi	noun	The edible saltwater clam Paphies australis
+712	mokopuna	noun	grandchild
+713	kareni	noun	crane, a bird of the family Gruidae
+714	karo	verb	to pick out or scoop something out of a hole
+715	hihi	noun	feeler, antenna
+716	mei	name	May (month)
+717	paki	verb	to hit, to smack
+718	matikuku	noun	nail (of the fingers and toes)
+719	tui	verb	to thread, to string together
+720	whakataurekareka	verb	To treat with contempt.
+721	huringa	noun	rotation, revolution
+722	waimarie	adj	lucky; fortuitous
+723	peraha	noun	Perth (the capital of Western Australia, Australia)
+724	atiti	noun	acid
+725	tuhinga	noun	writing, document, text, script
+726	purupuru	noun	caulk
+727	taimona	noun	a male given name, equivalent to English Simon
+728	hahae	verb	to slit, to slash
+729	tuatara	noun	tuatara
+730	moeone	noun	stone bass, wreckfish
+731	tukemata	noun	eyebrow; scowl
+732	mikaere	name	a male given name, equivalent to English Michael
+733	erana	name	a female given name, equivalent to English Ellen
+734	hako	noun	monkey; clown
+735	hanahana	noun	garment
+736	nekepe	name	Negev (a desert region in southern Israel)
+737	miti	verb	to lick; to lap
+738	mīti	noun	meat — loanword from English (not miti: to lick)
+739	konene	adj	wandering, nomadic
+740	auahi	adj	smoky
+741	taika	noun	tiger (Panthera tigris)
+742	parai	verb	to fry
+743	anahe	adj	alone, only
+744	koru	noun	coil, loop
+745	raku	verb	to scratch; to strum
+746	arata	noun	lettuce
+747	koutu	noun	promontory, point (of land)
+748	ahoroa	noun	moon; bright moonlight
+749	maitai	adj	good, beautiful, agreeable
+750	ani	adj	echoing, resounding (i.e. bounces sound waves)
+751	kini	verb	to pinch, to nip (with fingers, claws etc)
+752	haukoti	verb	intercept; abort
+753	hukapapa	noun	frost; ice
+754	tio	noun	ice; rock oyster (Saccostrea spp.)
+755	tuahiwi	noun	ridge of a hill
+756	hauhau	noun	whip
+757	taupatupatu	verb	to beat or hit one another
+758	moutere	noun	island
+759	whitia	verb	passive of whiti (“to transfer”)
+760	moehewa	verb	to dream; to delude oneself
+761	takea	verb	passive of take
+762	puka	noun	cabbage; Meryta sinclairii
+763	auau	noun	bark (of a dog)
+764	penapena	verb	to save up (accumulate money for a specific purpose)
+765	hapanga	noun	default
+766	hape	adj	club-footed, having clubfoot i.e. a foot that twists inward
+767	parauri	adj	dark (of skin colour)
+768	amana	noun	almond
+769	karu	noun	spongy matter (pulp around the seeds of a bottle gourd, brains, clotted blood etc)
+770	kauhoe	verb	to swim
+771	hemorere	adj	sudden
+772	kope	verb	to wrap something in leaves etc
+773	moto	verb	to strike with the fist, to punch, to box
+774	pewa	noun	eyebrow
+775	koata	noun	quart (unit of measure)
+776	wharangi	noun	Melicope ternata
+777	rarau	noun	root
+778	keringa	noun	mine (place where people dig metals)
+779	tuke	noun	elbow; bend, angle
+780	kekeno	noun	New Zealand fur seal (Arctocephalus forsteri)
+781	tute	noun	masculine equivalent of tūī
+782	pahū	noun	drum — the slotted or skinned instrument; also (verb) to burst, explode, and (noun) a bang or boom
+783	roanga	noun	continuation
+784	mane	noun	Monday
+785	koro	noun	grandfather; term of address to an elderly man
+786	tupua	adj	strange
+787	hanumi	verb	merge; be swallowed up
+788	anahere	noun	angel, archangel
+789	totea	verb	passive of tote
+790	ari	verb	clear, evident, visible
+791	whakapakaru	noun	falsetto
+792	taera	noun	sexual desire
+793	tepe	verb	to congeal, to coagulate
+794	haika	noun	anchor
+795	makariri	verb	cold
+796	rongonui	adj	famous; well-known; renowned
+797	pona	noun	node or knot of grass stalks etc
+798	moroko	name	Morocco (a country in North Africa)
+799	kura	adj	red
+800	aikiha	noun	handkerchief
+801	hewa	adj	mistaken
+802	rekareka	verb	to be pleasant, enjoyable, fun
+803	haratau	adj	suitable, fit
+804	mihi	noun	A welcome; A speech made to welcome somebody
+805	rangitahi	adj	momentary, ephemeral, transient, short-lived, brief
+806	haku	noun	yellowtail amberjack (Seriola lalandi)
+807	muhumuhu	adj	discontented (experiencing discontent, dissatisfaction)
+808	korukoru	noun	wrinkle; nook, cavity
+809	ākau	noun	reef; coast (of seas), bank (of rivers)
+810	heahea	adj	crazy, stupid, inane
+811	karapu	noun	glove (item of clothing)
+812	pango	noun	black (colour/color)
+813	ruku	verb	to dive; to sink
+814	pepa	noun	paper
+815	kāore	particle	not, no — the negator that opens a negative statement; kāore … i te for the present
+816	tēnei	det	this — near the speaker (tēnā is near you, tērā is over there)
+817	rātou	pron	they, them — three or more people; the dual, just two, is rāua
+818	mātou	pron	we, us — three or more, EXCLUDING the person spoken to; tātou includes them
+819	tōku	det	my (one thing) — o-category: kin, body parts, houses; the a-category form is tāku
+820	tō	det	your (one thing) — o-category/neutral, short for tōu; the a-category form is tāu
+821	anō	particle	again; also, besides; after kāore it makes 'not yet'
+822	tēnā	det	that — near the person you are speaking to; also greets, as in tēnā koe
+823	taea	verb	can, be able — passive of tae; ka taea e [doer] te [verb] = the doer can do it
+824	pēhea	adv	how, in what way; what sort of
+825	tākaro	verb	play; also a game or sport
+826	tērā	det	that — away from both of us, over there; tēnei is by me, tēnā by you
+827	nā	particle	belongs to (a-category); marks who did a past action; mā is its future counterpart
+828	konei	adv	here, this place — by the speaker; konā is by you, korā over there
+829	whā	num	four; counted as e whā, and tokowhā when counting people
+830	ātaahua	adj	beautiful, handsome; lovely
+831	mō	particle	for, about, concerning — the o-category counterpart of mā
+832	kaiako	noun	teacher (kai-, the doer prefix, on ako 'learn, teach')
+833	inanahi	adv	yesterday
+834	āpōpō	adv	tomorrow
+835	kōrero	verb	speak, talk, say; a talk, story, news
+836	rerekē	adj	different, unlike; changed, altered
+837	ōna	det	his, her (more than one thing) — o-category: kin, body parts, feelings; a is āna
+838	kurī	noun	dog
+839	tēpu	noun	table — a loanword from English
+840	tātou	pron	we, us — three or more, INCLUDING the person spoken to; mātou leaves them out
+841	mōhio	verb	know, understand; be aware of; knowledgeable
+842	kaua	particle	don't — the negative command; always followed by e before the verb
+843	tāua	pron	we two — dual INCLUSIVE: you and I (māua leaves you out)
+844	kōrua	pron	you two — second person dual; for three or more it is koutou
+845	māua	pron	we two — dual EXCLUSIVE: she/he and I, not you (tāua includes you)
+846	āwhina	verb	help, assist, support; assistance
+847	ōku	det	my (more than one thing) — o-category: kin, body parts, feelings; a is āku
+848	tāhoe	verb	swim
+849	wā	noun	"time, period, interval; season — ""i te wā o"" = during, at the time of"
+850	kārearea	noun	New Zealand falcon
+851	tūtaki	verb	meet, encounter; also to close, shut, block up
+852	ngeru	noun	cat
+853	engari	conj	but, however; rather, instead
+854	homai	verb	"give here — give to me/us; ho- + mai ""towards the speaker"""
+855	hoatu	verb	"give — to someone other than the speaker (to you, to them); ho- + atu ""away from the speaker"""
+856	waho	noun	outside, the outside — a location word used after kei, ki or i
+857	iti	adj	small, little; few, a small amount
+858	haumanu	noun	"healing, therapy; to revive — ""whare haumanu"" is a clinic"
+859	paku	adj	"small, slight; in ""whare paku"", the toilet"
+860	tāmaki	name	Tāmaki — Auckland; in full Tāmaki Makaurau
+861	kē	particle	"already, instead, actually — a particle after the verb; also ""different"""
+862	parāoa	noun	bread; flour — also the sperm whale, a separate sense
+863	whānau	noun	family, extended family; (verb) to be born, give birth
+864	pō	noun	"night; darkness — contrasts with ao ""day, daylight"""
+865	rongoā	noun	medicine, remedy; (verb) to treat, cure
+866	pānui	verb	read; announce — also (noun) a notice, announcement
+867	tū	verb	stand, stand up; be set in place, be established
+868	pōtae	noun	hat, cap
+869	tīkina	verb	fetch, go and get — passive of tiki, often used as a command
+870	hiakai	adj	hungry; (noun) hunger, appetite
+871	riro	verb	"be taken, got, won — with ""i a X"" it means obtained by X"
+872	hangaia	verb	"be built — passive of hanga ""to build"""
+873	tokorua	num	two people — toko- counts persons, never things
+874	ngahere	noun	forest, bush
+875	whakaako	verb	"teach, instruct — whaka- causative of ako ""learn"""
+876	mehemea	conj	if, supposing; as if — opens a conditional clause
+877	reira	noun	"there, that place already mentioned; ""nō reira"" — therefore, so"
+878	mau	verb	"take hold of, grasp, carry, wear — not māu ""for you"""
+879	miraka	noun	"milk — ""miraka tepe"" is yoghurt"
+880	oranga	noun	"life, health, livelihood, welfare — noun from ora ""be well, alive"""
+881	peita	noun	paint; to paint (loanword)
+882	tiakarete	noun	chocolate (loanword)
+883	arapoka	noun	"tunnel — ara ""way"" + poka ""bore through"""
+884	pōneke	name	Pōneke — the Māori name for Wellington
+885	āporo	noun	apple (loanword)
+886	tāone	noun	"town, city (loanword from ""town"")"
+887	ākarana	name	Ākarana — Auckland; the traditional name is Tāmaki Makaurau
+888	mātao	adj	cold — of water, food or weather that has gone cold
+889	pēpi	noun	baby, infant — loanword from English
+890	tōu	det	your (one thing, one owner) — o-category; the a-category form is tāu
+891	pānuitia	verb	be read, be read out; be announced — passive of pānui, with the agent after e
+892	āwhinatia	verb	be helped, be assisted — passive of āwhina 'to help'
+893	ngāti	noun	tribe of, descendants of — prefix on iwi names, as in Ngāti Porou
+894	ēnei	det	these — plural of tēnei; near the speaker
+895	ināianei	adv	now, right now, at this moment
+896	kaumātua	noun	elder — a senior person holding standing in the community
+897	tūpato	adj	careful, cautious, wary
+898	rāua	pron	they two, those two — third person DUAL; for three or more use rātou
+899	whakakī	verb	to fill — causative whaka- on kī 'full'
+900	whakamōhio	verb	to inform, notify, let someone know — causative whaka- on mōhio 'know'
+901	whakakā	verb	to light, ignite, switch on — causative whaka- on kā 'burn'
+902	pōuri	adj	sad, sorrowful, grieving; also dark, gloomy
+903	pākehā	noun	New Zealander of European descent; English, the language (te reo Pākehā)
+904	rīhi	noun	dish, plate — loanword from English 'dish'
+905	inapō	adv	last night
+906	māu	pron	for you, yours (one person) — a-category; the o-category form is mōu
+907	kūaha	noun	door, doorway, entrance
+908	ētahi	det	some, certain ones — plural of tētahi; ētahi atu, others
+909	māmā	noun	mum, mother; also light in weight, easy to do
+910	whāia	verb	pursue it, follow it — passive of whai used as a command
+911	ōu	det	your (several things, one owner) — o-category; the a-category form is āu
+912	tāne	noun	man, male; husband — capitalised, Tāne is the atua of the forest
+913	tētahi	det	a certain, one particular — the specific 'a'; plural ētahi
+914	rākau	noun	tree; wood, timber, stick
+915	kēmu	noun	game — loanword from English
+916	parāikete	noun	blanket — loanword from English
+917	mōkai	noun	pet, tame animal; in older use a captive or servant
+918	hōhonu	adj	deep — of water, sleep or thought
+919	ākene	adv	perhaps, maybe — usually paired with pea: ākene pea
+920	pūngāwerewere	noun	spider
+921	tokowhā	num	four people — toko- counts persons, never things
+922	pīkau	noun	backpack, pack; to carry on one's back
+923	tāhae	verb	to steal; a thief, a theft
+924	parakuihi	noun	breakfast — loanword from English
+925	wharepaku	noun	toilet, lavatory — whare 'house' + paku 'small'
+926	putiputi	noun	flower, bloom
+927	ngenge	verb	to be tired, weary; tiredness, fatigue
+928	tohu	noun	award, prize; qualification, degree; sign, mark, symbol
+929	ehara	particle	is not, are not — the negator for equative and possessive sentences
+930	waiatatia	verb	was sung — the passive of waiata 'to sing'
+931	kapahaka	noun	Māori performing group; its song-and-dance performance (usually kapa haka)
+932	waiatanga	noun	the singing (of) — noun formed from waiata 'to sing'
+933	timata	verb	to begin, start — spelt tīmata in standard te reo
+934	taenga	noun	arrival, the arriving — noun formed from tae 'to arrive'
+935	whakarite	verb	to prepare, arrange, organise; to make alike, compare
+936	hanganga	noun	the making, building; structure, construction
+937	koha	noun	gift, donation — the customary offering made to hosts
+938	pahure	verb	to pass, elapse, go by — te tau kua pahure = the year just gone
+939	tokohia	num	how many? — asked only of people (toko- counts persons)
+940	tatari	verb	to wait, wait for — not tātari 'to filter, analyse'
+941	huarahi	noun	road, path; way, means, method
+942	reta	noun	letter — one you write and post; also a letter of the alphabet
+943	whakapai	verb	to tidy, clean up; to make good, improve; to bless
+944	anei	particle	here is, here are — presents something beside the speaker (cf. anā, arā)
+945	tuhia	verb	was written — the passive of tuhi 'to write'
+946	mahia	verb	was done, was made — the passive of mahi 'to do, make'
+947	titiro	verb	to look, look at, watch
+948	iho	particle	the directional 'downwards, from above'; opposite of ake 'upwards'
+949	whakatika	verb	to fix, repair, put right; also to stand up, set off
+950	naihi	noun	knife (borrowed from English; the older word is māripi)
+951	katia	verb	shut it! — passive of kati 'to close', used as the command form
+952	tango	verb	to take, take hold of; to remove, take away
+953	marara	noun	umbrella — the course's spelling; standard te reo is hāmarara, and marara on its own means 'scattered, dispersed'
+954	whakaoti	verb	to finish, complete — causative of oti 'to be finished'
+955	aotearoa	name	Aotearoa, New Zealand — literally 'long white cloud'
+956	hine	name	Hine (a female given name), as the course uses it; also hine 'girl, young woman', used in address as e hine
+957	tito	verb	to compose (a song or chant); to make up, invent
+958	nau	verb	in 'Nau mai' — welcome!, come here!; not nāu 'yours' (a-category)
+959	kahurangi	adj	precious, treasured; a treasure — te iti kahurangi (whakataukī)
+960	teitei	adj	high, tall, lofty; height, summit
+961	tarutaru	noun	grass, weeds, herbage
+962	tokotoru	num	three people — toko- counts persons; for things use e toru
+963	mare	verb	to cough; a cough
+964	hokona	verb	was bought, was sold — the passive of hoko 'to buy, sell'
+965	kaipuke	noun	ship — a large sea-going vessel (a waka is a canoe)

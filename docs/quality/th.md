@@ -148,3 +148,17 @@ sentence and the difficulty scorer. A human reviewer pulls 10 random drills and 
 6. **Can the answer be typed?** If it contains ค, ฉ, ถ, ผ, ญ, ใ, ็, ึ, ฯ, ๆ or a Thai digit, the
    romanization path cannot reach it — confirm the on-screen keyboard is the intended route.
 7. **Does the point drill every form its title promises?** อัน, หรือเปล่า and หรอก currently do not.
+
+### Extended to rank 2000 (25 Aug 2026)
+
+The sweep above covered the top 500. Ranks 501-2000 added **4 rows, 1 fatal**, so the
+course total is **4 repaired (1 fatal) through rank 2000**.
+
+The keep rate rose with rank — roughly 30% of candidates were kept in the top 500 against
+about 50% below it — which is the expected shape and a check on the pass: deeper in a
+frequency list the lexical sense genuinely is more often right, and an over-eager rewrite
+would replace a correct gloss with a wrong one.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 1679 | `กันยา` | September — the clipped everyday form of กันยายน, ordinary in speech and |
