@@ -48,8 +48,16 @@ drills where they exist and from Leipzig sentences otherwise.
 Leipzig, `molo` "hello" ranks **#58,883** and `enkosi` "thank you" **#42,478**, because
 greetings are spoken far more than they are written. No web corpus will ever rank them.
 A course therefore needs an authored courtesy core *on top of* a good frequency list;
-neither substitutes for the other. That core is still outstanding — 43 everyday words
-(`enkosi`, `kunjani`, `ndicela`, `uxolo`) have neither a card nor a Wiktionary entry.
+neither substitutes for the other. That core is now added — 17 rows: the greetings
+`molo`/`molweni` (distinguished by how many people you are addressing), `enkosi`,
+`kunjani`/`unjani`, `ndicela`, the question words `ngubani`/`nini`/`yintoni`, `utata`,
+`umama`, and the verb stems `funda`, `nceda`, `dlala`, `va` that the file lacked.
+
+**Ten carry a Wiktionary gloss; seven are authored and have NOT been through a checker** —
+`enkosi`, `kunjani`, `unjani`, `ndicela`, `ngubani`, `nini`, `yintoni`. They are among the
+best-documented words in the language, but the verification that every other batch got did
+not happen here (the checking pass failed repeatedly on an environment fault), and that is
+recorded rather than implied away. A reviewer should read those seven first.
 
 **Surface forms are not headwords.** 169 of the 247 candidates were skipped for this, and
 the reasoning is the one this page should enforce: `zabo`, `yakhe`, `wakhe` are possessive
