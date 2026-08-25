@@ -636,7 +636,7 @@ rank	word	pos	en
 635	δρ	noun	abbreviation of δραχμή (drachmí)
 636	δίπλα	adv	next, next to, beside
 637	άλλοι	pron	nominative/vocative masculine plural of άλλος (állos) (others)
-638	αυτού	adv	there
+638	αυτού	pron	of this, of that — genitive singular of αυτός/αυτό, and so also 'his, its' (η αξία αυτού του σπιτιού — the value of that house; εκτός αυτού — besides that); a separate colloquial, regional adverb αυτού means 'there', but it is not what earns this rank.
 639	φίλη	noun	female friend; girlfriend
 640	κάπως	adv	somewhat, kind of, a bit
 641	ξέρουν	verb	third-person plural present of ξέρω (xéro)
@@ -668,7 +668,7 @@ rank	word	pos	en
 667	δες	verb	second-person singular perfective imperative of βλέπω (vlépo)
 668	πλευρά	noun	side (especially a surface or an area)
 669	εντελώς	adv	intensifier: all, completely, totally
-670	δώσει	verb	active nonfinite form of δίδω (dído)
+670	δώσει	verb	give — the perfective form of δίνω (díno): 3rd person singular after θα/να and the nonfinite with έχω (να μου δώσει μια εξήγηση — for him to give me an explanation); δίδω is the learned Katharévousa variant of the same verb, not the modern lemma.
 671	γίνω	verb	first-person singular dependent of γίνομαι (gínomai)
 672	δέκα	num	ten
 673	κομμάτι	noun	potsherd, shard
@@ -913,7 +913,7 @@ rank	word	pos	en
 912	γεγονός	noun	event, fact, occurrence
 913	έκπληξη	noun	surprise
 914	βάλει	verb	active nonfinite form of βάζω (vázo)
-915	δις	adv	twice
+915	δις	noun	Miss, Ms — the written abbreviation Δις for δεσποινίς (Δις Τζόουνς — Miss Jones); as a word in its own right δις is the learned adverb 'twice' (formal — everyday Greek says δύο φορές), and in news writing δις abbreviates δισεκατομμύριο, 'billion'.
 916	κόσμου	noun	genitive singular of κόσμος (kósmos)
 917	δεξιά	adv	right
 918	μαλακίες	noun	nominative plural of μαλακία (malakía)
@@ -960,7 +960,7 @@ rank	word	pos	en
 959	βόλτα	noun	turn; walk, stroll, drive, ride
 960	δικαστήριο	noun	court
 961	πράγματι	adv	indeed, really, actually
-962	δυνάμεις	noun	powers (level of angels)
+962	δυνάμεις	noun	strengths, forces — plural of η δύναμη, power/strength (Ο Τομ έχει πολλές δυνάμεις — Tom has many strengths; με όλες μας τις δυνάμεις — with all our might); also armed forces, and in church usage the Powers, an order of angels.
 963	δύσκολη	adj	nominative feminine singular of δύσκολος (dýskolos)
 964	όνειρο	noun	dream (imaginary events seen while sleeping)
 965	πρωινό	noun	morning; breakfast, breakfast time
@@ -1230,7 +1230,7 @@ rank	word	pos	en
 1229	απόλυτα	adv	absolutely, completely, altogether
 1230	δικέ	pron	vocative masculine singular of δικός (dikós)
 1231	χένρι	name	a transliteration of the English male given name and surname Henry
-1232	μυστικά	adv	secretly
+1232	μυστικά	noun	secrets — plural of το μυστικό (Όλοι έχουν μυστικά — everyone has secrets; είμαι καλός στο να κρατάω μυστικά — I'm good at keeping secrets); also the neuter plural of μυστικός 'secret', and as an adverb 'secretly'.
 1233	είπαμε	verb	"first-person plural simple past of λέω (léo): ""we said"""
 1234	ήρθαμε	verb	first-person plural simple past of έρχομαι (érchomai)
 1235	λέξεις	noun	nominative plural of λέξη (léxi)
@@ -1251,7 +1251,7 @@ rank	word	pos	en
 1250	άσχημο	adj	accusative masculine singular of άσχημος (áschimos)
 1251	ταξί	noun	taxi
 1252	κοιμηθώ	verb	first-person singular dependent of κοιμάμαι (koimámai)
-1253	ηλίθια	adv	stupidly, foolishly
+1253	ηλίθια	adj	stupid, idiotic — feminine singular of ηλίθιος, also its neuter plural (Είσαι απίστευτα ηλίθια — you're unbelievably stupid; μια αρκετά ηλίθια ερώτηση — a pretty stupid question); the same form is the adverb 'stupidly, foolishly'.
 1254	πίεση	noun	pressure; pressure, stress (mental)
 1255	στρατιώτες	noun	nominative/accusative/vocative plural of στρατιώτης (stratiótis)
 1256	έργο	noun	work, project; film, stage play, etc
@@ -1393,7 +1393,7 @@ rank	word	pos	en
 1392	μπουκάλι	noun	bottle; the contents of a bottle
 1393	έρωτα	noun	accusative singular of Έρως (Éros)
 1394	δολοφονία	noun	premediated murder, homicide, assassination
-1395	μαλάκας	noun	wanker, tosser (person who is masturbating, a masturbator)
+1395	μαλάκας	noun	wanker, arsehole, idiot — ο μαλάκας, the everyday term of abuse for a man and one of the most common words in spoken Greek; the vocative μαλάκα cuts both ways: a real insult in anger (Γαμημένε μαλάκα! — fucking asshole!) and a friendly 'mate, dude' between friends. The literal sense 'masturbator' is rarely the point. Vulgar.
 1396	επιτυχία	noun	success
 1397	ρόλο	noun	accusative singular of ρόλος (rólos)
 1398	εξετάσεις	noun	nominative/accusative/vocative plural of εξέταση (exétasi)
@@ -1476,7 +1476,7 @@ rank	word	pos	en
 1475	κρίση	noun	judgment, opinion, verdict
 1476	στόχο	noun	accusative singular of στόχος (stóchos)
 1477	έλεγαν	verb	"third-person plural imperfect of λέω (léo): ""they were saying"""
-1478	αστεία	adv	in a funny way
+1478	αστεία	noun	jokes — plural of το αστείο (Ο Τομ μας είπε μερικά αστεία — Tom told us some jokes; δεν σηκώνω αστεία — I can't take jokes); also the feminine singular and neuter plural of αστείος 'funny', and as an adverb 'in a funny way'.
 1479	δαχτυλίδι	noun	ring for the finger
 1480	βάζω	verb	to put (put on, put in, put forth), place
 1481	δολοφόνο	noun	accusative singular of δολοφόνος (dolofónos)
@@ -1657,7 +1657,7 @@ rank	word	pos	en
 1656	γενέθλια	noun	birthday
 1657	επιτρέπεται	verb	it is allowed
 1658	ουίσκι	noun	whisky (UK), whiskey (US, Irish)
-1659	ελεύθερο	noun	freestyle (swimming event)
+1659	ελεύθερο	adj	free — accusative masculine singular and neuter singular of ελεύθερος (πολύ ελεύθερο χρόνο — a lot of free time; άφησε ελεύθερο το πουλί — let the bird loose); as a neuter noun, το ελεύθερο is freestyle swimming, or permission to do something.
 1660	ζήσεις	verb	second-person singular dependent of ζω (zo)
 1661	ένιωσα	verb	first-person singular simple past of νιώθω (niótho)
 1662	ελήφθη	verb	third-person singular simple past of λαμβάνομαι
@@ -1765,7 +1765,7 @@ rank	word	pos	en
 1764	ζούμε	verb	first-person plural present of ζω (zo)
 1765	τρόπους	noun	accusative plural of τρόπος (trópos)
 1766	προηγούμενα	adv	previously, beforehand
-1767	ήλιο	noun	helium
+1767	ήλιο	noun	sun — accusative of ο ήλιος (Λατρεύω τον ήλιο — I love the sun; έχει ήλιο και κάνει ζέστη — it's sunny and hot); the identical neuter noun το ήλιο is the chemical element helium.
 1768	πλάσμα	noun	blood plasma; plasma (ionised gaseous phase)
 1769	δευτέρα	noun	Monday (day of the week)
 1770	μάρτυρας	noun	witness (the person)
@@ -1845,7 +1845,7 @@ rank	word	pos	en
 1844	υπόγειο	noun	basement, cellar
 1845	μηνύματα	noun	nominative/accusative/vocative plural of μήνυμα (mínyma)
 1846	παντρεμένος	noun	husband, spouse
-1847	θείο	noun	sulphur (UK), sulfur (US) (used in chemical discourse)
+1847	θείο	noun	uncle — accusative of ο θείος (Έμεινα με το θείο μου — I stayed with my uncle; θα επισκεφθεί τον θείο του — he will visit his uncle); the neuter το θείο is sulphur in chemistry, and 'the divine' in religious writing.
 1848	όροφο	noun	accusative singular of όροφος (órofos)
 1849	αυλή	noun	courtyard; back garden, backyard
 1850	οποιονδήποτε	pron	accusative masculine singular of οποιοσδήποτε (opoiosdípote)
@@ -1866,7 +1866,7 @@ rank	word	pos	en
 1865	σμιθ	name	a transliteration of the English surname Smith
 1866	δράση	noun	action (of person or object)
 1867	μπήκα	verb	first-person singular simple past of μπαίνω (baíno)
-1868	αληθινά	adv	truly
+1868	αληθινά	adj	real, true — neuter plural of αληθινός (Αυτά τα διαμάντια δεν είναι αληθινά — these diamonds aren't real; τα όνειρα να γίνουν αληθινά — for dreams to come true); the same form is the adverb 'truly, really'.
 1869	υγεία	noun	health
 1870	διευθυντή	noun	genitive/accusative/vocative singular of διευθυντής (diefthyntís)
 1871	ειδήσεις	noun	nominative/accusative/vocative plural of είδηση (eídisi, “news”)
@@ -1883,7 +1883,7 @@ rank	word	pos	en
 1882	σκληρός	adj	hard; fierce, rough, cruel, harsh
 1883	πεινάω	verb	to be hungry, be famished
 1884	δώρα	noun	nominative plural of δώρο (dóro)
-1885	γλυκά	adv	sweetly; gently
+1885	γλυκά	adj	sweet — neuter plural of γλυκός (Όνειρα γλυκά! — sweet dreams!); as a noun, τα γλυκά are sweets, cakes and desserts (Όλα μου τα γλυκά είναι νόστιμα — all my sweets are delicious); as an adverb, 'sweetly, gently'.
 1886	κράτησε	verb	third-person singular simple past of κρατάω (kratáo) and κρατώ (krató)
 1887	κακά	adv	badly
 1888	σκέφτεται	verb	third-person singular present of σκέφτομαι (skéftomai)

@@ -523,7 +523,7 @@ rank	word	pos	en
 522	alstublieft	intj	please; here you are (when handing something to someone else)
 523	deel	noun	part, piece; volume (of a book or album)
 524	liggen	verb	to lie; to be lying down
-525	erop	adv	following, next
+525	erop	adv	on it, on top of it (the pronominal adverb er + op — het lijkt erop dat, it seems that; hij staat erop, he insists on it; duw erop, push it); also following, next in de dag erop — the day after
 526	vaak	adv	often
 527	vallen	verb	to fall, to tumble
 528	belangrijk	adj	important
@@ -562,12 +562,12 @@ rank	word	pos	en
 561	vertrouwen	verb	to trust
 562	rust	noun	rest, calm, peace
 563	mond	noun	mouth; any mouthlike opening
-564	weken	verb	to soften; to soak
+564	weken	noun	weeks (plural of week — drie weken geleden, three weeks ago; de deadline is over drie weken, the deadline is three weeks from now); rarely a verb, to soak, to soften
 565	elk	det	each; every
 566	betalen	verb	to pay; to pay for, suffer the consequences of
 567	anderen	noun	plural of ander; others
 568	neemt	verb	second/third-person singular present indicative
-569	recht	adj	straight
+569	recht	noun	a right, entitlement (het recht om te zwijgen — the right to remain silent; recht hebben op, to be entitled to); law, justice; also straight, upright (zit recht — sit up straight; recht vooruit, straight ahead)
 570	nam	verb	singular past indicative of nemen
 571	jack	noun	jacket
 572	kantoor	noun	office; cabinet
@@ -632,7 +632,7 @@ rank	word	pos	en
 631	persoon	noun	person, individual
 632	konden	verb	plural past indicative
 633	beschermen	verb	to protect
-634	slechte	noun	bad person; the bad guys
+634	slechte	adj	bad, poor — the -e form of slecht (het slechte nieuws, the bad news; slechte vrienden; een slechte vertaling); as a noun, de slechte — the bad one, the bad guys
 635	ziekenhuis	noun	a hospital, medical care facility
 636	gevoel	noun	feeling, emotion
 637	gegaan	verb	past participle of gaan
@@ -693,7 +693,7 @@ rank	word	pos	en
 692	spel	noun	game; playing (e.g. of a musical instrument)
 693	bedoelt	verb	second/third-person singular present indicative
 694	perfect	adj	perfect
-695	stellen	verb	to position; place
+695	stellen	verb	to ask, to pose: een vraag stellen — to ask a question; to state, to put forward (wij stellen dat, we hold that); to position, to place; also plural of stel — couples, sets
 696	juiste	adj	masculine/feminine singular attributive
 697	koning	noun	a king, monarch
 698	beloof	verb	first-person singular present indicative
@@ -701,7 +701,7 @@ rank	word	pos	en
 700	waard	noun	an innkeeper, a publican
 701	winnen	verb	to win, to triumph, to be victorious (in)
 702	nadat	conj	after, after which
-703	gebruik	noun	use; custom, practice
+703	gebruik	verb	use: I use; use! (present and imperative of gebruiken — gebruik je hersenen, use your brain; ik gebruik geen drugs); as a noun, use, custom, practice (buiten gebruik — out of order; gebruik maken van, to make use of)
 704	naartoe	circumpos	to, towards (an end point or destination)
 705	begrijpen	verb	to understand (concepts, ideas), to comprehend, to grasp
 706	veranderd	verb	past participle of veranderen
@@ -709,11 +709,11 @@ rank	word	pos	en
 708	gingen	verb	plural past indicative
 709	kwamen	verb	plural past indicative
 710	leeft	verb	second/third-person singular present indicative
-711	leg	noun	The act or process of laying something, particularly eggs.
+711	leg	verb	put, lay: I put, I lay; put!, lay! (present and imperative of leggen — leg dat boek neer, put that book down; leg het uit, explain it); also a noun, the laying of eggs
 712	gekregen	verb	past participle of krijgen
 713	langer	adj	comparative degree of lang
 714	verliezen	verb	to lose (possession)
-715	vroeger	adj	having to do with or occurring in the past
+715	vroeger	adv	formerly, in the past, in the old days — used to (vroeger was alles beter, everything used to be better; Tom was vroeger een slaaf, Tom used to be a slave; net als vroeger, just like before); also earlier (comparative of vroeg) and former, of former times (in vroeger dagen, in days gone by)
 716	lucht	noun	air (mixture of gases)
 717	wapens	noun	plural of wapen
 718	verlaten	verb	to leave; to abandon
@@ -725,7 +725,7 @@ rank	word	pos	en
 724	behalve	prep	except
 725	slim	adj	intelligent, bright
 726	meest	det	most; superlative degree of veel
-727	stuur	noun	a steering device, notably a steering wheel in a vehicle or handlebars on a bicycle
+727	stuur	verb	send: I send; send! (present and imperative of sturen — stuur mij een foto, send me a photo; stuur versterking, send reinforcements); also I steer, I drive; as a noun, het stuur — steering wheel, handlebars
 728	leger	noun	army, armed forces
 729	woorden	noun	plural of woord
 730	zeven	num	seven
@@ -757,22 +757,22 @@ rank	word	pos	en
 756	lief	adj	nice, sweet, lovely
 757	nietwaar	intj	Used to form tag questions
 758	relatie	noun	relation; relationship
-759	trek	noun	appetite; journey, migration
+759	trek	noun	appetite, hunger (ik heb geen trek — I'm not hungry; trek hebben in, to fancy); also I pull; pull! (present and imperative of trekken — trek de stekker eruit, unplug it); a migration, a trek; a feature, a trait
 760	afgelopen	adj	last, past; finished, ended
-761	val	noun	a fall (act or event of falling)
+761	val	verb	fall: I fall; fall! (present and imperative of vallen — val dood, drop dead; val aan, attack; val me niet lastig, don't bother me); as a noun, a trap, a snare (het is een val — it's a trap), and a fall
 762	volgen	verb	to follow (go after)
 763	ter	contraction	for, for the (followed by a feminine singular noun, e.g., one ending in -ing)
 764	voelde	verb	singular past indicative
 765	bekend	adj	known; familiar, trusted
 766	bewijzen	verb	to prove; to confer (a favor)
-767	hoef	noun	hoof
+767	hoef	verb	need, have to: I need; you need in hoef je (present of hoeven, used mainly with niet — ik hoef niet met je te praten, I don't need to talk to you; je hoeft niet te komen); also a noun, hoof
 768	via	prep	via, through, by way of
 769	oom	noun	uncle
 770	eentje	noun	diminutive of een
-771	loop	noun	course, duration
+771	loop	verb	walk, run: I walk; walk! (present and imperative of lopen — loop niet zo snel, don't walk so fast; loop jij naar school?); also a noun, course, duration (in de loop van de dag — in the course of the day), and the barrel of a gun
 772	belde	verb	singular past indicative
 773	lijken	verb	to seem, appear
-774	sturen	verb	to steer, guide
+774	sturen	verb	to send (het boek naar mij te sturen — to send me the book; kun je dat per e-mail sturen?); also to steer, to drive, to guide
 775	men	pron	one, you, they, everyone; humanity, (the) people, the public opinion
 776	slachtoffer	noun	victim; sacrificial victim, usually an animal
 777	genomen	verb	past participle of nemen
@@ -785,7 +785,7 @@ rank	word	pos	en
 784	dienst	noun	service; draft
 785	erover	adv	pronominal adverb form of over + het
 786	feest	noun	party; feast
-787	leek	noun	layman, non-clergyman
+787	leek	verb	seemed, looked (like): I/he/she/it seemed (singular past of lijken — ze leek niet blij, she did not seem happy; het leek erop dat, it seemed that; leek hij op een dokter?, did he look like a doctor?); also a noun, layman, non-expert
 788	vreselijk	adj	terrible
 789	gevaar	noun	danger, peril
 790	wonen	verb	to live (in a certain place)
@@ -853,7 +853,7 @@ rank	word	pos	en
 852	droom	noun	dream
 853	verliefd	adj	in love
 854	jammer	intj	too bad, unfortunately
-855	gedacht	noun	opinion
+855	gedacht	verb	thought (past participle of denken): dat had ik nooit gedacht — I'd never have thought that; ik heb erover gedacht — I've thought about it; also a rare noun, opinion
 856	let	verb	first/second/third-person singular present indicative
 857	rug	noun	back, backside; ridge
 858	vertaling	noun	translation
@@ -895,8 +895,8 @@ rank	word	pos	en
 894	vonden	verb	plural past indicative
 895	vliegtuig	noun	aeroplane, winged aircraft
 896	onderweg	adv	en route, on the way
-897	delen	verb	to divide, to split up
-898	geleerd	adj	learned; educated
+897	delen	verb	to share: je werk met anderen delen — to share your work with others; also to divide, to split up (delen door — to divide by); and the plural of deel — parts
+898	geleerd	verb	learned, studied (past participle of leren): ik heb veel van je geleerd — I learned a lot from you; jong geleerd is oud gedaan; also an adjective, erudite, scholarly, educated
 899	stomme	adj	masculine/feminine singular attributive
 900	bestaat	verb	second/third-person singular present indicative
 901	vertrouw	verb	first-person singular present indicative
@@ -927,7 +927,7 @@ rank	word	pos	en
 926	reis	noun	travel; trip, tour
 927	partner	noun	partner, love interest, romantic and/or sexual companion
 928	leuke	adj	masculine/feminine singular attributive
-929	raad	noun	an advice, counsel
+929	raad	noun	advice, counsel (de raad): hij vroeg om mijn raad — he asked for my advice; also a council, board (gemeenteraad — town council); and I advise; guess! (present and imperative of raden) — raad eens, guess what
 930	honger	noun	hunger
 931	geraakt	verb	second/third-person singular present indicative
 932	gebouw	noun	building, structure, construction
@@ -959,7 +959,7 @@ rank	word	pos	en
 958	red	verb	first-person singular present indicative
 959	gefeliciteerd	verb	past participle of feliciteren
 960	koud	adj	cold (temperature)
-961	regelen	verb	to regulate, to control
+961	regelen	verb	to arrange, to sort out, to see to: dat zal ik voor je regelen — I'll arrange that for you; also to regulate, to control
 962	bericht	noun	message; news
 963	vlucht	noun	flight (the act of flying, an instance thereof)
 964	moeite	noun	effort; difficulty
@@ -995,10 +995,10 @@ rank	word	pos	en
 994	gebroken	verb	past participle of breken
 995	uiteindelijk	adj	eventual; final
 996	verdwenen	verb	plural past indicative
-997	kaart	noun	card (rectangular hard flat object)
+997	kaart	noun	map (of an area): ik heb een kaart van de wereld — I have a map of the world; also a card — playing card, postcard, bank card; and a menu (of a restaurant)
 998	kerk	noun	church, house of Christian worship
 999	mijne	pron	non-attributive form of mijn; mine
-1000	dode	noun	a deceased person
+1000	dode	adj	dead (inflected form of the adjective dood): een dode vogel — a dead bird; ik zie dode mensen — I see dead people; as a noun, de dode — a dead person, a fatality
 1001	brand	noun	destructive, catastrophic fire (such as a house fire)
 1002	max	name	a male given name
 1003	betrokken	adj	involved; clouded
@@ -1018,18 +1018,18 @@ rank	word	pos	en
 1017	zwanger	adj	pregnant; expecting a baby together
 1018	club	noun	club; club (an implement to hit the ball in certain ball games, such as golf)
 1019	respect	noun	respect
-1020	steek	noun	a prick (insect bite), a stab, a thrust
+1020	steek	verb	I stab, I stick; stab!, stick!, put! (present and imperative of steken): steek je hand op — raise your hand; steek de straat over — cross the street; also a noun, de steek — a sting, a stab, a stitch, as in iemand in de steek laten, to let someone down
 1021	waarvoor	adv	what for
 1022	missie	noun	mission, task; mission (proselytisation)
 1023	cool	adj	cool, fashionable
 1024	amerika	name	America, the Americas
 1025	zon	noun	sun, Sun
-1026	kost	noun	cost, expenses; board, livelihood, meals and lodgings
+1026	kost	verb	costs: it costs; he/she/it costs (present of kosten) — hoeveel kost het? how much does it cost?; also a noun, de kost — board, keep, livelihood, as in de kost verdienen, to earn a living
 1027	paard	noun	horse (Equus caballus or Equus ferus)
-1028	waarop	adv	after which
+1028	waarop	adv	on which, to which (relative): de manier waarop hij praat — the way he talks; een vraag waarop er geen antwoord is — a question there's no answer to; what … on/for (question) — waarop wacht je? what are you waiting for?; also whereupon, after which
 1029	maat	noun	measure, size; measure, bar
 1030	brief	noun	letter (written message)
-1031	raak	adj	hitting; to the point
+1031	raak	verb	I hit, I touch; hit!, touch! (present and imperative of raken): raak dit niet aan — don't touch this; also an adjective, on target, well-aimed — een rake opmerking, a telling remark
 1032	rijk	adj	rich; wealthy
 1033	rij	noun	row, line; row (entries in a table going left to right)
 1034	risico	noun	risk
@@ -1038,7 +1038,7 @@ rank	word	pos	en
 1037	getuige	noun	a witness, person who observed
 1038	kwalijk	adj	bad, undesirable
 1039	rechercheur	noun	police detective, police investigator
-1040	a	noun	a stream or water
+1040	a	noun	the first letter of the Dutch alphabet: wie a zegt, moet ook b zeggen — in for a penny, in for a pound; also in abbreviations such as a.u.b. (alstublieft) — please; and a rare noun, de a — a small stream, chiefly in place names like de Aa
 1041	schoenen	noun	plural of schoen
 1042	bar	noun	a bar, counter, drink cabinet
 1043	hoeven	verb	to be necessary
@@ -1046,7 +1046,7 @@ rank	word	pos	en
 1045	hopelijk	adv	hopefully
 1046	lijn	noun	a line; any line or curve
 1047	eer	noun	honour
-1048	gezet	adj	fixed, set, determined (said of mortgage terms, timeframe of a plan, etc)
+1048	gezet	verb	put, placed, set (past participle of zetten): ik heb het in uw kamer gezet — I put it in your room; also an adjective, stout, stocky, and (of a term or date) fixed, set
 1049	zuster	noun	sister (female sibling)
 1050	bal	noun	a ball or any object with such a shape
 1051	sprak	verb	singular past indicative of spreken
@@ -1082,7 +1082,7 @@ rank	word	pos	en
 1081	gelezen	verb	past participle of lezen
 1082	uitleggen	verb	to explain; to interpret
 1083	beloofd	verb	past participle of beloven
-1084	laatst	adj	latest, most recent, newest
+1084	laatst	adj	last, most recent (superlative of laat): voor het laatst — for the last time; as an adverb, recently, the other day — laatst dacht ik aan je, the other day I thought of you
 1085	winkel	noun	shop, store (establishment that sells goods to the public)
 1086	zul	verb	second-person singular present indicative of zullen
 1087	wagen	noun	a wagon, carriage
@@ -1103,7 +1103,7 @@ rank	word	pos	en
 1102	park	noun	park
 1103	zulke	det	masculine/feminine singular attributive
 1104	heerlijk	adj	wonderful (when referring to a sensation), great
-1105	gevallen	verb	to happen, to occur
+1105	gevallen	verb	fallen (past participle of vallen): ik ben in het water gevallen — I fell into the water; in slaap gevallen — fallen asleep; also the plural of geval — cases, instances
 1106	zaten	verb	plural past indicative
 1107	rennen	verb	to run, to move fast
 1108	gewond	verb	past participle of wonden
@@ -1117,7 +1117,7 @@ rank	word	pos	en
 1116	verdient	verb	second/third-person singular present indicative
 1117	onderzoeken	verb	to investigate; to (do) research
 1118	haast	noun	hurry, haste
-1119	dromen	verb	to dream
+1119	dromen	verb	to dream; also the plural of droom — dreams: het meisje van mijn dromen, the girl of my dreams
 1120	systeem	noun	system
 1121	meester	noun	a master, boss, superior
 1122	kont	noun	butt, bum, arse
@@ -1141,7 +1141,7 @@ rank	word	pos	en
 1140	speciale	adj	masculine/feminine singular attributive
 1141	verrassing	noun	surprise
 1142	vreemde	adj	masculine/feminine singular attributive
-1143	sla	noun	lettuce; salad
+1143	sla	verb	I hit, I strike; hit!, strike! (present and imperative of slaan): sla me niet — don't hit me; sla linksaf, sla rechtsaf — turn left, turn right; also a noun, de sla — lettuce, salad
 1144	geschiedenis	noun	history; history, historical science (the scientific study thereof)
 1145	erachter	adv	pronominal adverb form of achter + het
 1146	lul	noun	cock, prick (slang for penis)
@@ -1149,7 +1149,7 @@ rank	word	pos	en
 1148	hoogte	noun	height
 1149	vrede	noun	peace; peace treaty
 1150	meegenomen	verb	past participle of meenemen
-1151	zagen	verb	to saw; to nag, to speak in an annoying tone, to repeat oneself ad nauseam
+1151	zagen	verb	we/they saw (past plural of zien): we zagen hem nergens — we didn't see him anywhere; also a verb, to saw, and colloquially to nag, to go on
 1152	liegt	verb	second/third-person singular present indicative
 1153	bus	noun	bus, omnibus (vehicle)
 1154	belachelijk	adj	ridiculous, risible
@@ -1170,7 +1170,7 @@ rank	word	pos	en
 1169	gehaald	verb	past participle of halen
 1170	spoor	noun	track; railway track
 1171	held	noun	hero
-1172	benen	adj	made of bone
+1172	benen	noun	legs (plural of het been): hij heeft lange benen — he has long legs; also bones, since been is both leg and bone; as an adjective, made of bone
 1173	dachten	verb	plural past indicative
 1174	waarvan	adv	pronominal adverb form of van + wat; of which
 1175	tas	noun	bag
@@ -1183,7 +1183,7 @@ rank	word	pos	en
 1182	bestaan	verb	to exist, to be
 1183	ongelooflijk	adj	unbelievable
 1184	slachtoffers	noun	plural of slachtoffer
-1185	drink	noun	a social event were beverages are served, with or without snacks, e.g. as a celebration
+1185	drink	verb	drink: I drink; drink! (present and imperative of drinken): Ik drink geen koffie — I don't drink coffee; also a noun, a drink, a beverage, and in Belgium a drinks reception
 1186	ring	noun	ring, hollow circular object
 1187	donker	adj	dark
 1188	links	adv	on the left; to the left
@@ -1195,7 +1195,7 @@ rank	word	pos	en
 1194	verschil	noun	difference
 1195	collega	noun	colleague
 1196	spul	noun	stuff; junk
-1197	boeken	verb	to book, to reserve
+1197	boeken	noun	books (plural of boek); also a verb, to book, to reserve, to record; vooruitgang boeken — to make progress
 1198	slaat	verb	second/third-person singular present indicative
 1199	alweer	adv	once again, once more
 1200	rekening	noun	a calculation; a mathematically consistent set of data in accounting
@@ -1216,7 +1216,7 @@ rank	word	pos	en
 1215	trein	noun	train (railway vehicle)
 1216	monster	noun	a monster, terrifying and dangerous creature
 1217	raakte	verb	singular past indicative
-1218	sporen	verb	to spur
+1218	sporen	noun	tracks, traces; railway tracks (plural of spoor): Steek de sporen niet over — don't cross the tracks; also a verb, to spur; to travel by train; to be consistent, to add up
 1219	opa	noun	granddad, grandpa, pops
 1220	zingen	verb	to sing; to sing, to blab to the police, to confess under interrogation
 1221	voeten	noun	plural of voet
@@ -1232,13 +1232,13 @@ rank	word	pos	en
 1231	boord	noun	border, boundary
 1232	bedoelde	verb	singular past indicative
 1233	gepakt	verb	past participle of pakken
-1234	draai	noun	rotation, spin, turn
+1234	draai	verb	turn: I turn; turn! (present and imperative of draaien); draai je om — turn around; also a noun, a turn, a bend, a rotation
 1235	vannacht	adv	tonight, this night, the night at the end of the current day
 1236	ijs	noun	ice (frozen liquid, notably water)
 1237	enorme	adj	masculine/feminine singular attributive
 1238	reed	verb	singular past indicative of rijden
 1239	beurt	noun	turn (a chance to use (something) shared in sequence with others)
-1240	koop	noun	a purchase, bought acquisition
+1240	koop	verb	buy: I buy; buy! (present and imperative of kopen); as a noun, a purchase, a deal; te koop — for sale
 1241	appartement	noun	an apartment
 1242	cel	noun	cell (a compartment)
 1243	d	noun	abbreviation of dame (“queen”)
@@ -1250,8 +1250,8 @@ rank	word	pos	en
 1249	keuken	noun	kitchen; cuisine
 1250	energie	noun	energy
 1251	vernietigen	verb	to destroy
-1252	geregeld	adj	regular; controlled
-1253	plaatsen	verb	to place; to qualify (become eligible for some position, usually in sports)
+1252	geregeld	verb	arranged, sorted out, taken care of (past participle of regelen); also an adjective and adverb, regular, regularly
+1253	plaatsen	noun	places, spots, seats (plural of plaats); also a verb, to place, to put; to qualify (in sports)
 1254	gevoelens	noun	plural of gevoel
 1255	last	noun	load, weight; burden
 1256	la	noun	drawer
@@ -1326,7 +1326,7 @@ rank	word	pos	en
 1325	totaal	adv	totally
 1326	gratis	adj	free, without charge
 1327	overleden	adj	deceased
-1328	moorden	verb	to murder, to kill
+1328	moorden	noun	murders (plural of moord); also a verb, to kill, to murder — the everyday transitive verb is vermoorden
 1329	eiland	noun	island
 1330	beeld	noun	image; statue, sculpture
 1331	passen	verb	to fit (have the right size)
@@ -1344,7 +1344,7 @@ rank	word	pos	en
 1343	schoon	adj	beautiful; clean; cleansed
 1344	controleren	verb	to check; to control
 1345	gearresteerd	verb	past participle of arresteren
-1346	schoot	noun	the act(ivity) of shooting
+1346	schoot	verb	shot: I/he/she shot (singular past of schieten); iets schoot me te binnen — something came to mind; also a noun, the lap (op schoot — on someone's lap)
 1347	eraf	adv	pronominal adverb form of af + het
 1348	achteruit	adv	backwards
 1349	belangrijke	adj	masculine/feminine singular attributive
@@ -1371,9 +1371,9 @@ rank	word	pos	en
 1370	vermist	adj	missing, lost
 1371	zorgt	verb	second/third-person singular present indicative
 1372	gat	noun	gap, hole; godforsaken place, hamlet
-1373	ouder	noun	parent, father or mother; by extension a substitute caregiver
+1373	ouder	adj	older (comparative of oud): drie jaar ouder dan ik — three years older than me; ouder worden — to grow older; also a noun, a parent (usually plural, ouders)
 1374	schrijf	verb	first-person singular present indicative
-1375	schreef	noun	line, stroke of the pen
+1375	schreef	verb	wrote: I/he/she wrote (singular past of schrijven): Wie schreef dit boek? — Who wrote this book?; also a noun, a line, a stroke of the pen; a serif; over de schreef gaan — to go too far
 1376	wens	noun	wish
 1377	geslagen	verb	past participle of slaan
 1378	parijs	adj	Parisian
@@ -1381,7 +1381,7 @@ rank	word	pos	en
 1380	leiding	noun	lead (act of leading), control
 1381	edelachtbare	noun	honourable one, Your Honour
 1382	bouwen	verb	to build, to construct
-1383	geweten	noun	conscience
+1383	geweten	verb	known (past participle of weten): had ik dat geweten — had I known that; also a noun, conscience (het geweten)
 1384	heilige	adj	masculine/feminine singular attributive
 1385	restaurant	noun	restaurant
 1386	sterft	verb	second/third-person singular present indicative
@@ -1402,7 +1402,7 @@ rank	word	pos	en
 1401	levens	noun	plural of leven
 1402	geniet	verb	first/second/third-person singular present indicative
 1403	draaien	verb	to turn, to turn round
-1404	vertrek	noun	departure (the act of departing)
+1404	vertrek	verb	leave, depart: I leave; leave! (present and imperative of vertrekken): Ik vertrek morgen — I leave tomorrow; also a noun, departure, and a room, quarters
 1405	betreft	verb	second/third-person singular present indicative
 1406	slot	noun	lock (something used for fastening)
 1407	verpest	verb	first/second/third-person singular present indicative
@@ -1413,11 +1413,11 @@ rank	word	pos	en
 1412	leider	noun	leader, head, chief
 1413	actie	noun	action, activity, movement; especially (without article) a fast-paced activity
 1414	waardoor	adv	pronominal adverb form of door + wat
-1415	antwoorden	verb	to answer, reply
+1415	antwoorden	noun	answers (plural of antwoord); also a verb, to answer, to reply
 1416	gezeten	verb	past participle of zitten
 1417	bruiloft	noun	wedding reception, wedding feast
 1418	vorm	noun	a form, shape; a format
-1419	woon	noun	domicile, residence, home, abode (place of living)
+1419	woon	verb	live, reside: I live, you live (present of wonen): Ik woon hier — I live here; Waar woon je? — Where do you live?; as a noun only inside compounds (woonplaats — place of residence)
 1420	directeur	noun	director, manager
 1421	cliënt	noun	client, customer (of a service provider)
 1422	goedenavond	intj	good evening
@@ -1440,9 +1440,9 @@ rank	word	pos	en
 1439	klas	noun	a school class; a classroom
 1440	krant	noun	newspaper
 1441	langzaam	adj	slow
-1442	kosten	verb	to cost; take, require (time, effort, etc.)
+1442	kosten	verb	to cost; to take, require (time, effort); also the plural of kost — costs, expenses
 1443	procent	noun	percent
-1444	mist	noun	fog, mist
+1444	mist	noun	fog, mist (de mist); also he/she/it misses, is missing (present of missen): Tom mist een tand — Tom is missing a tooth
 1445	pad	noun	path (narrow road, usually unpaved)
 1446	vrijheid	noun	freedom
 1447	verdwijnen	verb	to disappear; to dwindle
@@ -1458,7 +1458,7 @@ rank	word	pos	en
 1457	waarover	adv	pronominal adverb form of over + wat
 1458	rood	adj	red; left, socialist, labor
 1459	hersenen	noun	brain
-1460	der	adv	there
+1460	der	det	of the (genitive of de, surviving in fixed and formal phrases): de koning der dieren — the king of the animals; de loop der tijd — the course of time; de som der delen — the sum of the parts
 1461	verloor	verb	singular past indicative of verliezen
 1462	taxi	noun	a taxi
 1463	voorkomen	verb	to exist, to occur
@@ -1486,7 +1486,7 @@ rank	word	pos	en
 1485	lol	noun	fun
 1486	honden	noun	plural of hond
 1487	ontvangen	verb	to receive
-1488	verhalen	verb	to narrate; to make someone pay the costs for something
+1488	verhalen	noun	stories, tales (plural of verhaal); also a verb, to recount, and to recover (costs) from someone
 1489	rivier	noun	a river
 1490	twaalf	num	twelve
 1491	voedsel	noun	food; nutrient
@@ -1494,7 +1494,7 @@ rank	word	pos	en
 1493	volgt	verb	second/third-person singular present indicative
 1494	vaker	adv	more often (comparative degree of vaak)
 1495	adam	name	Adam (Biblical character, mythological first man)
-1496	keren	verb	to turn around, to turn around an axis
+1496	keren	noun	times, occasions (plural of keer): verschillende keren — several times; meerdere keren — several times over; also a verb, to turn, to turn over, and terugkeren — to return
 1497	klanten	noun	plural of klant
 1498	chef	noun	a boss, chief, head, leader
 1499	wint	verb	second/third-person singular present indicative
@@ -1506,12 +1506,12 @@ rank	word	pos	en
 1505	geweld	noun	violence; strong or violent force; ferocity
 1506	akkoord	noun	chord; agreement, accord
 1507	tonen	verb	to show, to demonstrate
-1508	genoemd	adj	said, given
+1508	genoemd	verb	called, named (past participle of noemen): hij wordt Tom genoemd — he is called Tom; genoemd naar — named after; as an adjective, aforementioned, said
 1509	gewone	adj	masculine/feminine singular attributive
 1510	papieren	adj	paper (made of paper)
 1511	verband	noun	a bandage; a link or relation
 1512	hoopte	verb	singular past indicative
-1513	rare	noun	weird person
+1513	rare	adj	strange, weird, odd (inflected form of raar): een rare vraag — a strange question; rare streken — funny business; as a noun, de rare — the odd one, the weirdo
 1514	brug	noun	bridge (construction)
 1515	jas	noun	a coat (outer garment)
 1516	bloemen	noun	plural of bloem
@@ -1519,7 +1519,7 @@ rank	word	pos	en
 1518	trap	noun	stairs, staircase
 1519	mijnheer	noun	sir, mister
 1520	aanvallen	verb	to attack
-1521	leer	noun	leather
+1521	leer	verb	learn, teach: I learn; learn! (present and imperative of leren): Leer deze namen uit het hoofd — learn these names by heart; also a noun, leather (het leer), and doctrine, teachings (de leer)
 1522	opnemen	verb	to pick up, to raise
 1523	robert	name	a male given name
 1524	schade	noun	damage, detrimental effect
@@ -1527,7 +1527,7 @@ rank	word	pos	en
 1526	bijzonder	adj	special; unusual
 1527	huid	noun	skin; hide
 1528	krachten	noun	plural of kracht
-1529	zakken	verb	to fall, to drop, to sink
+1529	zakken	noun	bags, pockets, sacks (plural of zak): Maak je zakken leeg — empty your pockets; also a verb, to sink, to drop, to lower, and to fail (an exam)
 1530	openen	verb	to open
 1531	arts	noun	physician, doctor
 1532	hoer	noun	whore, prostitute
@@ -1556,12 +1556,12 @@ rank	word	pos	en
 1555	sexy	adj	sexy
 1556	burgemeester	noun	mayor, burgomaster (head of a city or municipality)
 1557	officier	noun	officer
-1558	kussen	verb	to kiss, to give a kiss to
+1558	kussen	verb	to kiss (ik zou je graag kussen — I'd like to kiss you); as a noun, het kussen — pillow, cushion (ik ben geen kussen!, I'm not a pillow); also kisses, the plural of kus
 1559	date	noun	a date (romantic outing)
 1560	ster	noun	star (celestial body)
-1561	gezocht	adj	searched for, wanted
-1562	wezen	verb	synonym of zijn
-1563	roep	noun	call, shout, cry
+1561	gezocht	verb	searched, looked for — past participle of zoeken (ik heb overal gezocht, I've looked everywhere; het boek waar ik naar heb gezocht); as an adjective: wanted, sought-after (een gezochte crimineel)
+1562	wezen	verb	het wezen — a being, creature (elk levend wezen bestaat uit cellen; een buitenaards wezen, an alien); in wezen — essentially, in essence (de oorlog is in wezen voorbij, the war is essentially over); to be — an older, informal infinitive of zijn (dat kan wel wezen, that may well be), and ben wezen + infinitive: went and did something (ik ben bloed wezen geven, I went to give blood); also orphans (plural of wees)
+1563	roep	verb	call!, shout! — imperative of roepen (roep de politie!, call the police; roep me om zes uur, call me at six); I call, I shout; as a noun, de roep — a call, a cry; a call for, a demand (de roep om verandering, the call for change); reputation, renown
 1564	details	noun	plural of detail
 1565	zomer	noun	summer
 1566	dikke	adj	masculine/feminine singular attributive
@@ -1600,7 +1600,7 @@ rank	word	pos	en
 1599	afdeling	noun	department, branch
 1600	honderd	num	hundred
 1601	vorig	adj	previous
-1602	rook	noun	smoke
+1602	rook	noun	de rook — smoke (waar rook is, is vuur, no smoke without fire); also I smoke (ik rook niet, present of roken) and smelled (past of ruiken — ik rook gas)
 1603	boel	noun	a lot, bunch; mess, disorderly heap
 1604	vecht	verb	first/second/third-person singular present indicative
 1605	strand	noun	beach, strand
@@ -1610,7 +1610,7 @@ rank	word	pos	en
 1609	rusten	verb	to rest; to lie, be supported (by something)
 1610	droeg	verb	singular past indicative of dragen
 1611	wellicht	adv	possibly, perhaps
-1612	beelden	verb	to give an impression of something
+1612	beelden	noun	images, pictures; footage (plural of het beeld — Sami zette de beelden op het internet, Sami posted the pictures online); also statues, sculptures
 1613	genaamd	adj	named
 1614	terugkomen	verb	to come back, to return
 1615	voeren	verb	to guide, lead; to wage (war)
@@ -1624,7 +1624,7 @@ rank	word	pos	en
 1623	overkomen	verb	to come across, seem
 1624	speelde	verb	singular past indicative
 1625	pond	noun	unit of mass, often broadly similar to 500 grams
-1626	ballen	verb	to play with a ball
+1626	ballen	noun	balls (plural of de bal — ballen zijn rond); balls, testicles (informal); also a verb: to clench into a fist (de vuisten ballen), to play ball
 1627	duizenden	noun	plural of duizend
 1628	gedoe	noun	fuss, ado, hassle
 1629	nerveus	adj	nervous, anxious, jumpy
@@ -1636,14 +1636,14 @@ rank	word	pos	en
 1635	twintig	num	twenty
 1636	klant	noun	customer, client
 1637	kerels	noun	plural of kerel
-1638	loog	noun	lye (an alkaline)
+1638	loog	verb	lied: I/he/she lied — past singular of liegen (hij loog tegen ons, he lied to us; je loog tegen me!, you lied to me!); also a noun: lye, caustic solution
 1639	post	noun	mail; a mail office, a post office
 1640	aangevallen	verb	past participle of aanvallen
 1641	oren	noun	plural of oor
 1642	emma	name	a female given name
 1643	springen	verb	to jump, to leap
 1644	gevolgd	verb	past participle of volgen
-1645	lach	noun	smile; laugh
+1645	lach	verb	laugh: I laugh; laugh! — present and imperative of lachen (lach me niet uit, don't laugh at me; wat lach je nou?, what are you laughing at?); as a noun, de lach — a laugh, a smile
 1646	ontmoette	verb	singular past indicative
 1647	zwak	adj	weak; shabby
 1648	engeland	name	England (a constituent country of the United Kingdom)
@@ -1663,7 +1663,7 @@ rank	word	pos	en
 1662	veroorzaakt	verb	second/third-person singular present indicative
 1663	duizend	num	thousand
 1664	wow	intj	wow (exclaims surprise or amazement)
-1665	aangedaan	adj	touched, moved
+1665	aangedaan	verb	turned on, switched on; done to someone — past participle of aandoen (zij heeft het licht aangedaan, she turned the light on; wie heeft je dit aangedaan?, who did this to you?); as an adjective: moved, touched (emotionally)
 1666	jury	noun	jury
 1667	verslaan	verb	to defeat; to report on, cover
 1668	vangen	verb	to catch
@@ -1673,7 +1673,7 @@ rank	word	pos	en
 1672	paniek	noun	panic
 1673	nogmaals	adv	once again
 1674	telefoontje	noun	diminutive of telefoon
-1675	steken	verb	to prick, sting
+1675	steken	verb	to sting, prick, stab (een wesp steekt, a wasp stings); to put, stick, insert (dingen in een doos steken, to put things in a box); oversteken — to cross (de straat oversteken); as a noun, stitches, stabs (plural of de steek)
 1676	jesse	name	a male given name
 1677	ontsnapt	verb	second/third-person singular present indicative
 1678	herinnert	verb	second/third-person singular present indicative
@@ -1682,7 +1682,7 @@ rank	word	pos	en
 1681	theorie	noun	theory
 1682	kleur	noun	a color, colour
 1683	prins	noun	prince
-1684	vissen	verb	to fish, to try to catch fish
+1684	vissen	noun	fish (plural of de vis — vissen leven in het water, fish live in the water); also a verb: to fish, to angle; to fish for information
 1685	bron	noun	source; spring (in fountain)
 1686	lid	noun	member (of a group)
 1687	drank	noun	beverage, drink
@@ -1695,12 +1695,12 @@ rank	word	pos	en
 1694	signaal	noun	signal (sign made to give notice)
 1695	geslapen	verb	past participle of slapen
 1696	lijden	verb	to undergo, endure, suffer
-1697	stappen	verb	to march; to step
+1697	stappen	verb	to step, to walk (te moe om verder te stappen, too tired to walk any further); to go out on the town (we gaan stappen); also steps (plural of de stap — de eerste stappen); to march
 1698	eeuwig	adj	eternal
 1699	vreselijke	adj	masculine/feminine singular attributive
 1700	doodde	verb	singular past indicative
 1701	dik	adj	thick; fat
-1702	verkoop	noun	sale (exchange of goods)
+1702	verkoop	verb	I sell — present of verkopen (ik verkoop bloemen, I sell flowers; ik verkoop mijn auto met verlies); as a noun, de verkoop — sale, sales (de verkoop van het huis)
 1703	rechtbank	noun	court of first instance
 1704	harde	noun	a hard one, e.g. a hard hit, a tough guy
 1705	genezen	verb	to heal
@@ -1709,7 +1709,7 @@ rank	word	pos	en
 1708	straf	noun	a punishment, penalty, sanction
 1709	uitgenodigd	verb	past participle of uitnodigen
 1710	laag	adj	low
-1711	kies	noun	molar; certain resembling objects
+1711	kies	verb	choose!, pick! — imperative of kiezen (kies één persoon, choose one person); I choose; also to elect (een president kiezen); as a noun, de kies — a molar (tooth)
 1712	wiens	det	whose
 1713	schattig	adj	cute, adorable
 1714	dr.	noun	abbreviation of doctor (“doctor”)
@@ -1723,7 +1723,7 @@ rank	word	pos	en
 1722	taart	noun	a pie, large cake, or cobbler
 1723	domme	adj	masculine/feminine singular attributive
 1724	flat	noun	flat, apartment
-1725	manieren	noun	manners (proper conduct)
+1725	manieren	noun	ways, methods (plural of de manier — op verschillende manieren, in different ways); manners, good behaviour (waar zijn je manieren?)
 1726	afmaken	verb	to finish; to kill, to finish off
 1727	vriendelijk	adj	friendly, kind
 1728	san	noun	san (archaic Greek letter)
@@ -1748,7 +1748,7 @@ rank	word	pos	en
 1747	gezond	adj	healthy, being in good health
 1748	jouwe	pron	non-attributive form of jouw; yours
 1749	vingers	noun	plural of vinger
-1750	las	noun	joint, weld
+1750	las	verb	read: I/he/she read — past singular of lezen (gisteren las ik een interessant verhaal, yesterday I read an interesting story); also I weld (present of lassen), and a noun, de las — a weld, a joint
 1751	arresteren	verb	to arrest
 1752	tuin	noun	a garden, yard; an enclosure, fence or hedge
 1753	ideeën	noun	plural of idee
@@ -1793,10 +1793,10 @@ rank	word	pos	en
 1792	moed	noun	courage, bravery, daring
 1793	vergissing	noun	mistake
 1794	patiënten	noun	plural of patiënt
-1795	toon	noun	tone
+1795	toon	verb	show!, show me — imperative of tonen (toon me je papieren!, show me your papers); I show; as a noun, de toon — tone, note (op een boze toon; de toon zetten)
 1796	normale	adj	masculine/feminine singular attributive
 1797	broeder	noun	brother, male sibling
-1798	kaarten	verb	to play card games
+1798	kaarten	noun	cards; tickets; maps (plural of de kaart — ik heb kaarten voor rij 15, I have tickets for row 15; de kaarten delen, to deal the cards); also a verb: to play cards
 1799	films	noun	plural of film
 1800	reizen	verb	to travel
 1801	ruim	adj	spacious, roomy
@@ -1847,7 +1847,7 @@ rank	word	pos	en
 1846	hoger	adj	comparative degree of hoog
 1847	blanke	noun	a white person, someone with a light skin colour
 1848	redenen	noun	plural of reden
-1849	harder	noun	a mullet, fish of the family Mugilidae
+1849	harder	adj	harder; louder; faster — comparative of hard (zet de radio harder, turn the radio up; ik zou harder leren, I'd study harder); also a noun: a mullet, the fish
 1850	ontvoerd	verb	past participle of ontvoeren
 1851	vasthouden	verb	to hold (onto), to retain
 1852	behandelen	verb	to handle, to treat
@@ -1856,7 +1856,7 @@ rank	word	pos	en
 1855	opgeven	verb	to give up, relinquish
 1856	bepaald	adj	certain; specific
 1857	spelletje	noun	diminutive of spel
-1858	maatje	noun	maatjesharing, a young herring
+1858	maatje	noun	buddy, mate, pal — het maatje (Tom is mijn maatje, Tom is my buddy); a size, a notch (een maatje groter, a size bigger); also maatjesharing, young salted herring
 1859	daardoor	adv	pronominal adverb form of door + dat
 1860	omstandigheden	noun	plural of omstandigheid
 1861	opgelost	verb	past participle of oplossen
@@ -1882,7 +1882,7 @@ rank	word	pos	en
 1881	kanker	noun	cancer; cancer, something harmful that festers and spreads elsewhere
 1882	aangezien	conj	since, because, seeing as
 1883	beslissen	verb	to decide, to determine
-1884	des	noun	D-flat
+1884	des	det	des te + comparative — all the more, the …er (hoe eerder, des te beter, the sooner the better); the old genitive of de/dat, 'of the' (de heer des huizes, the master of the house; des avonds, in the evening); also D-flat in music
 1885	cadeau	noun	present; gift
 1886	mexico	name	Mexico (a country in North America)
 1887	kerst	noun	Christmas, the major Christian feast commemorating the birth of Jesus Christ
@@ -1920,7 +1920,7 @@ rank	word	pos	en
 1919	leugen	noun	a lie
 1920	ambulance	noun	ambulance (emergency vehicle)
 1921	opgenomen	verb	past participle of opnemen
-1922	beslist	adv	definitely, absolutely
+1922	beslist	verb	decides; decided — present and past participle of beslissen (wanneer je beslist, when you decide; hij heeft beslist dat hij gaat, he has decided he's going); as an adverb: definitely, absolutely (dat is beslist waar; beslist niet)
 1923	pizza	noun	pizza (Italian dish)
 1924	verdween	verb	singular past indicative of verdwijnen
 1925	ontdekken	verb	to discover
@@ -1977,13 +1977,13 @@ rank	word	pos	en
 1976	ha	intj	ha
 1977	gebouwd	verb	past participle of bouwen
 1978	aankomen	verb	to arrive; to depend
-1979	trok	noun	current of air, draft
+1979	trok	verb	pulled, drew: I/he/she pulled — past singular of trekken (ze trok de deur open, she pulled the door open); wegtrekken — to drain away, to fade (alle kleur trok weg uit zijn gezicht)
 1980	verhuizen	verb	to move house (to move from one residence to another)
 1981	waarde	noun	value, monetary or figurative worth
 1982	troep	noun	group of people or animals (such as a pride of lions or a herd of cows)
-1983	kust	noun	the shoreline; the coast, seaside
+1983	kust	noun	de kust — coast, shoreline, seaside (drie kilometer naar de kust; we gaan naar de kust); also you kiss, he/she kisses (present of kussen — ik wil dat je me kust)
 1984	graf	noun	grave
-1985	dans	noun	dance
+1985	dans	verb	I dance; dance! — present and imperative of dansen (ik dans graag, I love to dance; dans met haar!, dance with her); as a noun, de dans — a dance (de dans ontspringen, to have a narrow escape)
 1986	verdediging	noun	defense, defence
 1987	bleek	adj	pale; bleak
 1988	taal	noun	language (form of communication consisting of vocabulary and grammar)
