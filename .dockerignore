@@ -5,11 +5,21 @@
 .venv
 node_modules
 frontend
-# Exclude the seed corpora but KEEP data/gym — the API serves the Gym
-# manifests from disk at runtime, so they must be in the image. (Excluding
-# all of data/ silently made COPY data/gym a no-op: the Gym shipped empty.)
+# Exclude the seed corpora but KEEP what the API reads from disk at runtime.
+# Two things qualify, and BOTH were learned the same painful way — an
+# exclusion here silently turns a feature off instead of failing a build:
+#   data/gym         — Gym manifests. Excluding all of data/ made COPY
+#                      data/gym a no-op and the Gym shipped empty.
+#   *_frequency.tsv  — the collision guard. NLPBackend._collision_surfaces()
+#                      reads data/<code>_frequency.tsv to decide whether a
+#                      fold-only match landed on ANOTHER course word. Missing
+#                      file -> except OSError -> empty set -> guard silently
+#                      OFF, so `el` for `él` graded CORRECT_SLOPPY in
+#                      production while 37 local tests passed. 8.6 MB.
+# backend/tests/test_runtime_data_ships.py fails if this drifts again.
 data/*
 !data/gym
+!data/*_frequency.tsv
 docs
 scripts
 supabase

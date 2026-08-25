@@ -25,10 +25,14 @@ WORKDIR /app
 # when pyproject.toml changes, not on every code edit.
 COPY pyproject.toml README.md ./
 COPY backend ./backend
-# Runtime data the API serves from disk (NOT the seed corpora): the Gym
-# manifests. Without this the deployed app had no /app/data at all and
-# every language's Gym showed the "no forms to train" empty state.
+# Runtime data the API reads from disk (NOT the seed corpora):
+#  - Gym manifests. Without this the deployed app had no /app/data at all
+#    and every language's Gym showed the "no forms to train" empty state.
+#  - Frequency lists, for the collision guard: _collision_surfaces() reads
+#    data/<code>_frequency.tsv, and a missing file makes the guard degrade
+#    silently to off rather than error. See .dockerignore.
 COPY data/gym ./data/gym
+COPY data/*_frequency.tsv ./data/
 RUN pip install --no-cache-dir .
 
 # Model/data downloads the app expects at runtime:
