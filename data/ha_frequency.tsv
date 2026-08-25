@@ -20,7 +20,7 @@ rank	word	pos	en
 19	yanzu	adv	now, at present
 20	bayan	prep	behind, after
 21	saboda	prep	because, because of
-22	wata	noun	moon; month
+22	wata	pron	some, a certain, another (f.) — the feminine of wani, before a feminine noun: wata rana 'one day', wata hanya 'another way'; also the separate masculine noun wata 'moon, month' (pl. watanni)
 23	ci	verb	to eat, to eat soft things
 24	zama	noun	sitting, dwelling, existence
 25	ita	pron	she (3rd person singular pronoun)
@@ -29,7 +29,7 @@ rank	word	pos	en
 28	duniya	noun	world, Earth
 29	biyu	num	two (invariable for gender; na biyu m. / ta biyu f. = second, sau biyu = twice)
 30	sin	name	China (a country in Asia)
-31	mata	noun	woman; wife
+31	mata	noun	women — plural of mace 'woman': Mata suna da gaskiya 'women are sincere'; also mata (f.) 'a man's wife'; and 'to her, for her', the 3sg f. indirect-object pronoun, after the verb: Ya rubuta mata sako 'he wrote her a message'
 32	mutum	noun	person; man, male
 33	fara	noun	locust, grasshopper
 34	nuna	verb	to show, point out, indicate
@@ -405,7 +405,7 @@ rank	word	pos	en
 404	dukiya	noun	wealth, assets
 405	ingila	name	England (a constituent country of the United Kingdom)
 406	alkali	noun	judge; qadi
-407	ɗan	noun	Used to indicate a person's origin, profession, or activity.
+407	ɗan	noun	son of — construct form of ɗa (m.) 'son' (f. ʼyar, pl. ʼyan): ɗan Musa 'Musa's son'; before a place, trade or activity it names a person of it: ɗan Nijeriya 'a Nigerian', ɗan kasuwa 'trader'; also a diminutive, ɗan ƙaramin gida 'a smallish house', and 'a little, just' before a verb: ɗan tsaya 'wait a bit'
 408	haihu	verb	to give birth, have a child
 409	fanni	noun	genre, type; branch of knowledge
 410	asiya	name	Asia (the largest continent, located between Europe and the Pacific Ocean)

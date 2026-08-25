@@ -144,3 +144,23 @@ final-form-only contrast be the thing under test (it can only grade amber)? Is a
 form present outside the two register points? Does the transliteration read as Hebrew rather
 than as an English word (`hair` → `ha-ir`)? Any "yes" to the first five, or "no" to the last,
 fails the drill.
+
+## Wrong-lexeme sweep, top 2000 (25 Aug 2026)
+
+**27 rows reglossed, 8 of them fatal** — the card named a genuinely
+different word. This course was not in the first sweep of the 16 well-resourced courses; it
+was screened afterwards so that every course with a kaikki extract is covered. Found by
+`audit_wrong_lexeme`, decided by a maker–checker pass against each row's full kaikki sense
+inventory and the course's own sentences. See `docs/quality/CHECKS.md` §3b.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 1255 | `טובה` | good — f. sg. of טוב (עבודה טובה = 'good work'); also, as a noun (f.), a |
+| 1368 | `מתאר` | describes, depicts (m. sg. present of תיאר) — הספר מתאר את 'the book des |
+| 1397 | `יצר` | created, made, formed (3rd m. sg. past of יצר) — יצר קשר 'made contact', |
+| 1413 | `צריכה` | needs to, has to, must (f. sg. of צריך; before an infinitive) — היא צריכ |
+| 1431 | `חיות` | animals (f. pl. of חיה) — חיות בר 'wild animals', חיות מחמד 'pets', גן ח |
+| 1459 | `מטה` | headquarters, (military) staff (m.) — ראש מטה 'chief of staff', קצין מטה |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/he_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit is undone by the next seed.

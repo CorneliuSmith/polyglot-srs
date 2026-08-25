@@ -179,3 +179,18 @@ A human reviewer pulls 10 random drills and asks:
 6. **Does the drill depend on unwritten tone or vowel length?** If yes it is unanswerable and must be rewritten.
 7. **Are the irregular plurals this drill should accept actually listed in `alternatives`?** Nothing else will
    accept them.
+
+## Wrong-lexeme sweep, top 2000 (25 Aug 2026)
+
+**3 rows reglossed, 1 of them fatal** — the card named a genuinely
+different word. This course was not in the first sweep of the 16 well-resourced courses; it
+was screened afterwards so that every course with a kaikki extract is covered. Found by
+`audit_wrong_lexeme`, decided by a maker–checker pass against each row's full kaikki sense
+inventory and the course's own sentences. See `docs/quality/CHECKS.md` §3b.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 22 | `wata` | some, a certain, another (f.) — the feminine of wani, before a feminine  |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/ha_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit is undone by the next seed.

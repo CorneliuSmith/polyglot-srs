@@ -152,3 +152,23 @@ field including `transliteration`? Does the drill claim to test the ezafe while 
 pronoun — or rest on `خانهٔ` vs `خانه`, which can only grade amber? Is `را` blanked three
 times with the same hint? Are the ZWNJs present where standard spelling wants them? Any "yes"
 to the first five, or "no" to the last, fails the drill.
+
+## Wrong-lexeme sweep, top 2000 (25 Aug 2026)
+
+**18 rows reglossed, 9 of them fatal** — the card named a genuinely
+different word. This course was not in the first sweep of the 16 well-resourced courses; it
+was screened afterwards so that every course with a kaikki extract is covered. Found by
+`audit_wrong_lexeme`, decided by a maker–checker pass against each row's full kaikki sense
+inventory and the course's own sentences. See `docs/quality/CHECKS.md` §3b.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 607 | `داد` | gave — past stem of دادن (انجام داد "he carried out", نشان داد "he showe |
+| 617 | `گرفت` | took, seized — third-person singular past of گرفتن (قرار گرفت "was situa |
+| 676 | `رسید` | arrived, reached — third-person singular past of رسیدن (به قدرت رسید "ca |
+| 771 | `دیده` | seen — past participle of دیدن (دیده می‌شود "is seen", آسیب‌دیده "damage |
+| 790 | `رو` | face, surface; side — the short form of روی (رو به "facing, toward", روب |
+| 905 | `بدست` | by, at the hands of (کشف شده بدست… "discovered by…"); by hand, into the  |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/fa_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit is undone by the next seed.

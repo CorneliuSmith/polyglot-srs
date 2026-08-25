@@ -148,3 +148,14 @@ reduplicate without the hyphen in `answer`, or put a hyphen into a bound-affix a
 registers, or show `lu`/`udah` without a register label outside the C1–C2 points; or drop a
 formality or inclusivity distinction the drill is testing (`anda` vs `kamu`, `kita` vs
 `kami`) from the translation.
+
+## Wrong-lexeme sweep, top 2000 (25 Aug 2026)
+
+**2 rows reglossed, 0 of them fatal** — the card named a genuinely
+different word. This course was not in the first sweep of the 16 well-resourced courses; it
+was screened afterwards so that every course with a kaikki extract is covered. Found by
+`audit_wrong_lexeme`, decided by a maker–checker pass against each row's full kaikki sense
+inventory and the course's own sentences. See `docs/quality/CHECKS.md` §3b.
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/id_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit is undone by the next seed.

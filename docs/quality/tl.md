@@ -183,3 +183,19 @@ forces the choice; give a linker drill no phonological condition; store an in-wo
 `answer` doesn't match the characters in the gap; label a Taglish or literary form as ordinary
 Tagalog, or an ordinary form as polite; or gloss a pronoun without saying which of the ang/ng/sa
 sets it belongs to.
+
+## Wrong-lexeme sweep, top 2000 (25 Aug 2026)
+
+**4 rows reglossed, 2 of them fatal** — the card named a genuinely
+different word. This course was not in the first sweep of the 16 well-resourced courses; it
+was screened afterwards so that every course with a kaikki extract is covered. Found by
+`audit_wrong_lexeme`, decided by a maker–checker pass against each row's full kaikki sense
+inventory and the course's own sentences. See `docs/quality/CHECKS.md` §3b.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 945 | `me` | informal/texting spelling of may: there is/are; to have — ordinary writi |
+| 1536 | `rating` | rating; audience or review score (English loan, standard in Filipino med |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/tl_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit is undone by the next seed.

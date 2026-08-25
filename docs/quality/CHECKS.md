@@ -219,9 +219,31 @@ nine accent-carrying courses were triaged by hand; `ru`, `ar`, `hi`, `th`,
 `ko`, `tr` and `nl` were swept by the screen on 25 Aug and reviewed. All 16
 well-resourced courses are now covered **to rank 500**.
 
-Two gaps, stated so they are not mistaken for coverage: **below rank 500 is
-not swept**, and **`jam` cannot be** — it is the one course with no kaikki
-extract (verified 25 Aug; every other course has one).
+**Final state of the sweep (25 Aug 2026): 911 rows repaired across 23 courses,
+485 fatal, from 1,594 decided candidates (664 kept, 19 rejected).** Every
+course with a kaikki extract is covered to rank 2000.
+
+Three gaps, stated so they are not mistaken for coverage:
+
+1. **Below rank 2000 is not swept.** That band is 48,363 of 170,948 rows — so
+   **72% of all vocabulary has never been checked for this class.**
+2. **`en`, `la` and `jam` cannot be screened this way** — they have no kaikki
+   extract. `jam` has none at all; `en` builds its glosses from WordNet at seed
+   time and `la` from its own source.
+3. **30 candidates were generated but never returned by an agent** — unreviewed,
+   not cleared.
+
+**Arabic needed a different filter entirely, and this is the transferable
+lesson.** In an unvocalised or unspaced script a written string is not one word
+inflected — it is several DIFFERENT words sharing a skeleton, so nothing carries
+a `form_of` tag and this screen sees nothing. Arabic scored 1 candidate in the
+top 500 and was in fact carrying `نعم` "yes" glossed "to live in comfort",
+`رجل` "man" glossed "to go on foot", and `بعد` "after" glossed "to be distant".
+The filter that worked there was the defect's own signature: a row tagged
+`verb` whose gloss opens "to …". It found 51 Arabic repairs — and, importantly,
+**0 in Hebrew from 45 candidates and 0 in Persian from 56**, because every `ל-`
+infinitive and `می-` present form really is "to …". A filter that had produced
+fixes in those two would have been the tell that it was manufacturing them.
 
 **61 of the 70 proposed row exclusions applied; 9 vetoed.** Each was read
 against its accented twin before the call, not taken from the triage summary.

@@ -99,7 +99,7 @@ rank	word	pos	en
 98	nito	det	of this; its
 99	upang	conj	so that; in order that
 100	niya	det	3rd person singular possessive pronoun: his; her; ~ of his; ~ of hers
-101	nang	conj	when, at the time of (referring to past events)
+101	nang	conj	when, at the time of (past events); so that, in order to; the linker joining a verb to an adverb of manner or degree (kumain nang mabilis “ate quickly”); also na + the linker -ng, “already/no longer” (wala nang pera “no money left”) — none of these is the marker ng, which is a separate word
 102	rin	adv	too; also; finally; at last
 103	naging	verb	complete aspect of maging
 104	din	adv	too; also; finally; at last
@@ -943,7 +943,7 @@ rank	word	pos	en
 942	magsasaka	noun	farmer
 943	luklukan	noun	throne; seat of honor
 944	palapag	noun	story (US)/storey (UK); floor (of a building)
-945	me	noun	maa (bleat cry of a goat or sheep)
+945	me	particle	informal/texting spelling of may: there is/are; to have — ordinary writing uses may; separately, maa, the bleat of a goat or sheep
 946	diwa	noun	consciousness; sense; meaning
 947	mahigpit	adj	tight; strict
 948	ibinibigay	verb	progressive aspect of ibigay
@@ -990,7 +990,7 @@ rank	word	pos	en
 989	kristo	noun	bet collector in cockfighting; agent for bettors in cockfighting
 990	karangalan	noun	pride; dignity
 991	lansangan	noun	road; street
-992	malaya	adj	free (to choose)
+992	malaya	adj	free; independent (of a country, from foreign rule); free of or free from something (malaya sa kahirapan “free of poverty”); at liberty, not confined; free to choose or to move
 993	kasulatan	noun	document; contract; written agreement
 994	produksyon	noun	superseded, pre-2007 spelling of produksiyon
 995	kotse	noun	car; automobile
@@ -1534,7 +1534,7 @@ rank	word	pos	en
 1533	molekula	noun	molecule
 1534	okasyon	noun	occasion; event; celebration
 1535	panauhin	adj	invited; performing by invitation
-1536	rating	verb	imperative mood of rumating
+1536	rating	noun	rating; audience or review score (English loan, standard in Filipino media writing); also a variant spelling of dating (arrival)
 1537	tsart	noun	chart (non-narrative presentation of data)
 1538	kalooban	noun	way of thinking
 1539	kapansanan	noun	impediment; disability (absence of physical, intellectual, or moral fitness)

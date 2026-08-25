@@ -211,3 +211,20 @@ A human reviewer pulls 10 random drills and asks:
 5. **Is the answer printed in the sentence or the translation?** `o` in *Goodbye o!* fails.
 6. **Is every Yoruba word on the card fully dotted and toned, in NFC?**
 7. **Is this Standard Yoruba, not a dialect form or an untoned shortcut?**
+
+## Wrong-lexeme sweep, top 2000 (25 Aug 2026)
+
+**4 rows reglossed, 3 of them fatal** — the card named a genuinely
+different word. This course was not in the first sweep of the 16 well-resourced courses; it
+was screened afterwards so that every course with a kaikki extract is covered. Found by
+`audit_wrong_lexeme`, decided by a maker–checker pass against each row's full kaikki sense
+inventory and the course's own sentences. See `docs/quality/CHECKS.md` §3b.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 49 | `di` | to become, to turn into (Ó di ọlọ́rọ̀: he became rich); until, up to (tí |
+| 262 | `igbo` | forest, bush, grove (igbó); the Igbo people or their language (Ìgbò); al |
+| 1004 | `ao` | we will, we shall — contraction of a (we) + ó (future), written solid; a |
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/yo_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit is undone by the next seed.

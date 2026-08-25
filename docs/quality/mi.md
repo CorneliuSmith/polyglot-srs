@@ -224,3 +224,14 @@ blank part of a word; carry a `gloss` that mislabels a particle or spells the an
 macron-contrastive form with no hint separating it from its pair; ask for an a/o possessive the
 sentence does not force; or — the one no command catches — drop a macron anywhere. Then check
 five vocabulary rows against Te Aka; today that fails on the first row needing a macron.
+
+## Wrong-lexeme sweep, top 2000 (25 Aug 2026)
+
+**1 rows reglossed, 0 of them fatal** — the card named a genuinely
+different word. This course was not in the first sweep of the 16 well-resourced courses; it
+was screened afterwards so that every course with a kaikki extract is covered. Found by
+`audit_wrong_lexeme`, decided by a maker–checker pass against each row's full kaikki sense
+inventory and the course's own sentences. See `docs/quality/CHECKS.md` §3b.
+
+Fixes are in `data/gloss_overrides.tsv` as well as `data/mi_frequency.tsv`, because
+glosses regenerate from kaikki and a TSV-only edit is undone by the next seed.

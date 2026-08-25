@@ -605,7 +605,7 @@ rank	word	pos	en
 604	همچنین	adv	also, as well; thus, in this manner, likewise
 605	می	noun	wine; alcoholic beverage
 606	داشت	verb	third-person singular preterite indicative
-607	داد	noun	justice, equity
+607	داد	verb	gave — past stem of دادن (انجام داد “he carried out”, نشان داد “he showed”); also (noun) justice, equity; a cry, outcry
 608	متر	noun	metre
 609	انجام	noun	end, conclusion
 610	طول	noun	length (of space)
@@ -615,7 +615,7 @@ rank	word	pos	en
 614	داده	noun	piece of data, datum
 615	بودند	verb	third-person plural past indicative of بودن (budan)
 616	مساحت	noun	area
-617	گرفت	noun	eclipse
+617	گرفت	verb	took, seized — third-person singular past of گرفتن (قرار گرفت “was situated, was placed”, صورت گرفت “took place”); also (noun) an eclipse
 618	دارند	verb	third-person plural present indicative of داشتن (dâštan)
 619	کردند	verb	third-person plural past indicative of کردن (kardan)
 620	تولید	noun	production; generation
@@ -638,7 +638,7 @@ rank	word	pos	en
 637	داشته	verb	past participle of داشتن (“to have”)
 638	کنند	verb	third-person plural present subjunctive and present indicative form of کردن
 639	ای	adv	that is to say
-640	حدود	noun	neighborhood, vicinity
+640	حدود	noun	about, approximately (حدود ۵۰۰ نفر “about 500 people”, حدود سال ۱۹۹۰ “around 1990”); bounds, limits — plural of حد “limit”; hence the environs, vicinity of a place
 641	شکل	noun	shape, form; manner, method; way
 642	تغییر	noun	change, modification
 643	بیش	adv	more
@@ -674,7 +674,7 @@ rank	word	pos	en
 673	وارد	adj	entered, arrived
 674	پیدا	adj	evident, visible, apparent
 675	تبدیل	noun	transformation, conversion
-676	رسید	noun	receipt
+676	رسید	verb	arrived, reached — third-person singular past of رسیدن (به قدرت رسید “came to power”, به پایان رسید “came to an end”); also (noun) a receipt
 677	حضور	noun	presence
 678	نخستین	adv	originally, foremost, very first, earliest
 679	اشاره	noun	sign, gesture, hint, signal
@@ -769,9 +769,9 @@ rank	word	pos	en
 768	حزب	noun	party
 769	اجتماعی	adj	social; companionable, sociable
 770	جنوب	noun	the south; southern Iran
-771	دیده	noun	eye
+771	دیده	verb	seen — past participle of دیدن (دیده می‌شود “is seen”, آسیب‌دیده “damaged”); also (noun, literary) the eye
 772	بنا	noun	building
-773	نوشته	noun	writing; post, entry (for example, on a blog)
+773	نوشته	verb	written — past participle of نوشتن (نوشته شده است “has been written”); as a noun, a piece of writing, a text, a post (نوشتهٔ او “his writing, written by him”)
 774	استان	noun	province
 775	عمومی	adj	public; general
 776	اغلب	adv	often; mostly, most of the time
@@ -788,7 +788,7 @@ rank	word	pos	en
 787	منابع	noun	plural of منبع (manba')
 788	عضو	noun	member; body organ
 789	فارسی	adj	Persian, Persic
-790	رو	noun	sigh, groan
+790	رو	noun	face, surface; side — the short form of روی (رو به “facing, toward”, روبه‌رو “opposite, face to face”, از این رو “hence, therefore”); also “go!”, the imperative of رفتن; spoken only: the object marker for را
 791	مقدار	noun	amount, quantity
 792	انرژی	noun	energy
 793	انتشار	noun	publication; diffusion
@@ -876,7 +876,7 @@ rank	word	pos	en
 875	میدان	noun	plaza, square (of a town etc.)
 876	تصمیم	noun	decision, determination
 877	درون	noun	interior, inside, inner, inward, bowels, core, heart
-878	حقوق	noun	law
+878	حقوق	noun	rights — plural of حق (حقوق بشر “human rights”); also law, jurisprudence (as a field of study); and salary, pay
 879	جان	noun	soul; life; life-force
 880	فشار	verb	present stem form of فشردن (fešordan, “to press, to squeeze”)
 881	مرحله	noun	stage, phase; level
@@ -903,7 +903,7 @@ rank	word	pos	en
 902	کشف	noun	discovery; disclosure, revelation, revealing
 903	ترجمه	noun	translation
 904	رخ	noun	face, cheek; countenance
-905	بدست	noun	span (measure)
+905	بدست	phrase	by, at the hands of (کشف شده بدست… “discovered by…”); by hand, into the hand — a run-together spelling of به دست, which standard written Persian separates (بدست آوردن “to obtain, to gain”, بدست آمد “was obtained”)
 906	تصویب	noun	approval; acceptance; ratification
 907	امکان	noun	possibility
 908	ساختار	noun	structure
@@ -1034,7 +1034,7 @@ rank	word	pos	en
 1033	مطالعه	noun	research, study
 1034	نقل	noun	quote, quoting; transmitting, conveying, transmission
 1035	شماره	noun	number (position of something in a sequence)
-1036	اعمال	noun	use, application, imposition, exertion
+1036	اعمال	noun	application, imposition, exertion (اعمال کردن “to apply, to impose”, اعمال فشار “to bring pressure to bear”); also, as the plural of عمل, deeds, acts; operations
 1037	تغییرات	noun	broken plural of تغییر (taġyīr /taġyir)
 1038	رهبری	noun	leadership; guidance
 1039	صنعت	noun	industry; art
@@ -1073,7 +1073,7 @@ rank	word	pos	en
 1072	قصد	noun	intention, desire, objective
 1073	وزن	noun	weight; meter
 1074	تجربه	noun	experience; experiment
-1075	توان	noun	power, stamina; ability, competence
+1075	توان	noun	power, strength; ability, competence; (mathematics) a power, exponent — also the present stem of توانستن “to be able”, as in می‌توان “one can” and نمی‌توان “one cannot”
 1076	جز	prep	except
 1077	جمع	noun	crowd; addition
 1078	وسیله	noun	means, medium; method, tool
@@ -1085,7 +1085,7 @@ rank	word	pos	en
 1084	جایگاه	noun	place, location, station
 1085	جایگزین	noun	surrogate, substitute, replacement
 1086	چهارم	adj	fourth; fourth, one-fourth, quarter
-1087	برده	noun	slave; captive
+1087	برده	verb	taken, carried; won — past participle of بردن (به کار برده می‌شود “is used”, نام برده “the aforementioned”); also (noun) a slave, a captive
 1088	عبور	noun	crossing, passing
 1089	مشابه	adj	similar
 1090	اساسی	noun	fundamental; basic
@@ -1116,7 +1116,7 @@ rank	word	pos	en
 1115	جا	noun	place; space
 1116	شمار	verb	present stem form of شمردن (šomordan)
 1117	منبع	noun	source, spring; origin, source, root, parent
-1118	مه	noun	fog, mist
+1118	مه	noun	fog, mist; May, the Gregorian month, as written in Persian dates (۱۵ مه ۲۰۲۰); literary: the moon, month (= ماه)
 1119	واکنش	noun	reaction
 1120	کنید	verb	second-person plural present subjunctive and present indicative form of کردن
 1121	جزیره	noun	island
@@ -1206,7 +1206,7 @@ rank	word	pos	en
 1205	دانشکده	noun	college; faculty
 1206	مصر	adj	insistent
 1207	منصوب	adj	appointed, installed, nominated
-1208	دار	noun	tree; gallows
+1208	دار	noun	‑dâr “having, holding” — the present stem of داشتن, used as the second element of compounds (سرمایه‌دار “capitalist”, خبردار “aware”, دنباله‌دار “comet”); as a free noun, a gallows (بر دار کردن “to hang”), archaically a tree, wood
 1209	مسائل	noun	affairs
 1210	گذاشت	verb	third-person singular preterite indicative of گذاشتن (gozâštan)
 1211	اتحادیه	noun	union (something formed by a combination or coalition of parts or members)
@@ -1252,7 +1252,7 @@ rank	word	pos	en
 1251	دعوت	noun	invitation, call (to somewhere, a religion, etc.)
 1252	تجارت	noun	commerce, trade
 1253	پیشرفت	noun	progress
-1254	گاه	noun	a word for time
+1254	گاه	noun	time, occasion; at times, sometimes (گاه… گاه… “now… now…”, هر گاه “whenever”); also the suffix ‑گاه “place of” (دانشگاه “university”, فرودگاه “airport”)
 1255	جنبش	noun	movement
 1256	حکم	noun	order, decree, edict
 1257	متوسط	adj	medium, middle; average
@@ -1364,7 +1364,7 @@ rank	word	pos	en
 1363	ورزشی	adj	athletic
 1364	باستان	adj	ancient
 1365	تماس	noun	contact; call
-1366	زنی	noun	womanhood
+1366	زنی	noun	a woman — زن with the indefinite ‑ی (زنی که… “a woman who…”); also (abstract noun) womanhood, and “you strike”, second-person singular of زدن
 1367	زیردریایی	noun	submarine
 1368	عمده	adj	main, chief, principal
 1369	قمری	adj	lunar
@@ -1424,7 +1424,7 @@ rank	word	pos	en
 1423	رها	adj	free; liberated
 1424	سلول	noun	cell (the basic unit of a living organism)
 1425	معاصر	adj	contemporary
-1426	پای	noun	pie
+1426	پای	noun	foot, leg — the form پا takes before an ezafe or a suffix (پای چپ “the left foot”, پای کوه “the foot of the mountain”, زیر پای “underfoot”); also, as an English loanword, pie
 1427	اثبات	noun	proof
 1428	تکرار	noun	repetition
 1429	درگیر	adj	involved (in a situation)
@@ -1517,7 +1517,7 @@ rank	word	pos	en
 1516	جغرافیایی	adj	geographic
 1517	رادیو	noun	radio
 1518	عین	noun	the thing itself
-1519	مردی	noun	manhood, virility, manliness
+1519	مردی	noun	a man — مرد with the indefinite ‑ی (مردی که… “a man who…”); also (abstract noun) manhood, manliness
 1520	میزبان	noun	host
 1521	هنرمند	noun	artist; musician
 1522	ایرانیان	noun	plural of ایرانی (ērānī /irâni)

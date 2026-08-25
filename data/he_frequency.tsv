@@ -97,7 +97,7 @@ rank	word	pos	en
 96	היה	verb	was; had
 97	אמא	noun	mom; mother
 98	אבא	noun	dad; father
-99	חבר	noun	friend (m); boyfriend
+99	חבר	noun	friend (m.); member of a body or party (חבר כנסת = a Knesset member, היה חבר ב־ = was a member of); boyfriend; in construct, the body itself — חבר המושבעים the jury, חבר העמים the Commonwealth; also the verb חָבַר, joined, teamed up with (ל־)
 100	משפחה	noun	family
 101	ילדה	noun	girl
 102	בן	noun	son
@@ -934,7 +934,7 @@ rank	word	pos	en
 933	זו	det	This.
 934	הייתה	verb	Third-person feminine singular past (suffix conjugation) of היה (hayá).
 935	היו	verb	Third-person plural past (suffix conjugation) of היה (hayá)
-936	אשר	conj	Introduces a subordinate clause.
+936	אשר	conj	that, which — the relative pronoun; the formal counterpart of ש־, introducing a subordinate clause
 937	ביותר	adv	Most.; Quite, most.
 938	שלו	prep	Form of שֶׁל (shel) including third-person masculine singular personal pronoun as object.
 939	כאשר	conj	when, as, at the time that
@@ -990,7 +990,7 @@ rank	word	pos	en
 989	בעיר	adj	flammable
 990	שבו	noun	agate
 991	כיום	adv	nowadays, currently, at present
-992	כולל	adj	Inclusive.; Compound: having multiple clauses.
+992	כולל	adj	including, inclusive of (כולל מע“מ = 'VAT included'); comprehensive, overall (ביטוח כולל); includes — m. sg. present of כלל
 993	כתב	verb	to write
 994	יצא	verb	To go out (of, from), come out (of, from), exit (from), leave, depart, get out (of, from).
 995	הגיע	verb	to arrive, to get, to reach
@@ -1086,7 +1086,7 @@ rank	word	pos	en
 1085	ארבעה	num	four
 1086	משום	conj	because
 1087	לגבי	prep	About, regarding, in connection with, with respect to.
-1088	אחרת	adv	differently; otherwise
+1088	אחרת	adj	other, another — f. sg. of אחר (שפה אחרת = 'another language'); also, as an adverb, otherwise, differently
 1089	יהודי	adj	Jewish: being a Jew, or relating to Jews or Judaism.
 1090	נעשה	verb	to be done, performed, executed
 1091	שניות	noun	plural indefinite form of שנייה / שְׁנִיָּה (sh'niyá)
@@ -1137,7 +1137,7 @@ rank	word	pos	en
 1136	אזור	noun	a girdle; an area, region, zone
 1137	סדרת	noun	singular construct state form of סִדְרָה (sidrá)
 1138	לפחות	prep	at least
-1139	קבע	noun	permanence, regularity, permanent
+1139	קבע	verb	to determine, to decide, to rule (בית המשפט קבע = 'the court ruled'); to set (a date, a record); also the noun kéva (m.), permanence or permanent status — צבא קבע, the career army
 1140	צבא	noun	a military (armed forces)
 1141	ברית	noun	covenant, alliance
 1142	חמישה	num	five
@@ -1239,7 +1239,7 @@ rank	word	pos	en
 1238	בנות	noun	plural indefinite form of בַּת (bat)
 1239	תקופת	noun	singular construct state form of תְּקוּפָה (t'kufá).
 1240	הוביל	verb	To lead; To lead (a group), to conduct (a ceremony): to be a leader of or in.
-1241	משנה	noun	deputy
+1241	משנה	verb	changes, alters — m./f. sg. present of שינה (לא משנה = 'it makes no difference'); as the second word of a compound, sub-, secondary, deputy — ועדת משנה a sub-committee, קבלן משנה a subcontractor, כותרת משנה a subtitle, אלוף משנה a colonel; also the Mishnah, the core text of the Talmud, though that is normally written המשנה
 1242	פתח	verb	to open (something)
 1243	עשרות	noun	tens
 1244	שכל	noun	intelligence, mind
@@ -1253,7 +1253,7 @@ rank	word	pos	en
 1252	אלפי	noun	plural construct state form of אֶלֶף (élef)
 1253	הקהל	verb	Masculine singular imperative of הִקְהִיל (hik-híl)
 1254	הרי	noun	plural construct state form of הַר (har)
-1255	טובה	noun	a favor; benefit, (someone's) favor
+1255	טובה	adj	good — f. sg. of טוב (עבודה טובה = 'good work'); also, as a noun (f.), a favour, a kindness
 1256	כיהן	verb	to hold a senior position
 1257	חיי	noun	construct state form of חַיִּים (khayím)
 1258	טיפול	noun	care, medical care, treatment.
@@ -1299,9 +1299,9 @@ rank	word	pos	en
 1298	גרסה	noun	version, variant, reading
 1299	מס	noun	tax
 1300	שירות	noun	a service
-1301	גדל	verb	to be big, large, great
+1301	גדל	verb	to grow, to grow up (נולד וגדל בחיפה = 'born and raised in Haifa'); to become big, to increase
 1302	דרום	noun	south
-1303	ידע	noun	Knowledge: that which is known (to a given knower).
+1303	ידע	noun	knowledge (m.) — what is known, expertise; also the past-tense verb ידע, 'he knew' (from לדעת)
 1304	מכונה	noun	pedestal, stand
 1305	צפון	noun	north
 1306	ארד	noun	bronze
@@ -1323,7 +1323,7 @@ rank	word	pos	en
 1322	סדר	noun	Order, the state of being well-arranged, in the sense of putting things in order.
 1323	ועדת	noun	singular construct state form of ועדה (v'adá)
 1324	כעת	adv	now, for the time being, at this point in time, as of now
-1325	פרטי	adj	private, personal
+1325	פרטי	adj	private, personal — רכב פרטי 'a private car', באופן פרטי 'privately'; also the construct plural of פרט: details of, items of — פרטי התוכנית 'the details of the plan', פרטי לבוש 'items of clothing'
 1326	רקע	verb	to stomp
 1327	אמה	noun	forearm; Hebrew cubit, usually 44.3 cm (17½ in) but sometimes 51.8 cm (20.4 in)
 1328	נבחרת	noun	select team
@@ -1343,7 +1343,7 @@ rank	word	pos	en
 1342	מעורב	adj	mixed
 1343	נבנה	verb	to be built
 1344	כאחד	adv	together, as one
-1345	מצליח	adj	Successful.
+1345	מצליח	verb	succeeds, manages to (m. sg. present of הצליח; normally followed by an infinitive) — מצליח להימלט 'manages to escape', אינו מצליח 'does not manage'; as an adjective: successful, thriving
 1346	קרן	noun	horn; ray, beam (beam of light or radiation)
 1347	שלושת	num	masculine construct state of שְׁלוֹשָׁה (sh'loshá, “three”)
 1348	שרה	noun	lady, princess, queen
@@ -1354,7 +1354,7 @@ rank	word	pos	en
 1353	המשך	noun	continuation, sequel, continuance, resumption
 1354	מסע	noun	journey, trip, voyage
 1355	נותר	verb	to be left, to remain
-1356	חוקי	adj	legal, lawful: of, pertaining to, or permitted by law
+1356	חוקי	noun	laws of — construct plural of חוק (law, m.): חוקי הטבע 'the laws of nature', חוקי המדינה 'the laws of the state', חוקי היסוד 'the Basic Laws'; also an adjective: legal, lawful, permitted by law — בלתי חוקי 'illegal'
 1357	הלילה	adv	tonight
 1358	עמו	prep	Form of עִם
 1359	פגיעה	noun	a blow, a strike, a hit
@@ -1366,7 +1366,7 @@ rank	word	pos	en
 1365	מאחורי	prep	behind, in back of
 1366	מראש	adv	in advance, ahead
 1367	גילה	verb	to discover; to reveal
-1368	מתאר	noun	outline
+1368	מתאר	verb	describes, depicts (m. sg. present of תיאר) — הספר מתאר את 'the book describes'; as a noun (m.): an outline, a contour — תוכנית מתאר 'a master plan', קווי מתאר 'contour lines'
 1369	שליטה	noun	control
 1370	תחום	adj	delimited (setting limits)
 1371	תחנת	noun	singular construct state form of תַּחֲנָה (tachaná).
@@ -1395,7 +1395,7 @@ rank	word	pos	en
 1394	פעל	verb	to do; to make
 1395	שחקנים	noun	plural indefinite form of שַׂחְקָן (sakhkán): actors, players
 1396	הכי	adv	Most, the most.
-1397	יצר	noun	instinct, impulse, nature, urge
+1397	יצר	verb	created, made, formed (3rd m. sg. past of יצר) — יצר קשר 'made contact', יצר את 'created the…'; as a noun (m.): instinct, urge, drive — יצר הרע 'the evil inclination'
 1398	למחרת	adv	the next day
 1399	סמוך	adj	adjacent, close
 1400	חיפה	verb	to cover, to protect
@@ -1411,7 +1411,7 @@ rank	word	pos	en
 1410	מכיל	noun	container
 1411	כנסת	noun	A coming together, a congregating, an assembly, a meeting.
 1412	מזרח	noun	east
-1413	צריכה	noun	Consumption, demand.
+1413	צריכה	adj	needs to, has to, must (f. sg. of צריך; before an infinitive) — היא צריכה להיות 'she has to be', הייתה צריכה 'she had to'; as a noun (f.): consumption, demand — מוצרי צריכה 'consumer goods'
 1414	שכתב	verb	to rewrite, to revise
 1415	ברציפות	adv	consecutively, in a row
 1416	בתים	noun	plural indefinite form of בַּיִת (báyit)
@@ -1429,7 +1429,7 @@ rank	word	pos	en
 1428	דברים	noun	plural indefinite form of דָּבָר (davár)
 1429	דוגמה	noun	an example, a sample, a specimen
 1430	דווקא	adv	unexpectedly; just to spite
-1431	חיות	noun	life, lifespan; vitality, livelihood
+1431	חיות	noun	animals (f. pl. of חיה) — חיות בר 'wild animals', חיות מחמד 'pets', גן חיות 'a zoo'; also the f. pl. of חי: live, living — הופעות חיות 'live performances'
 1432	טבעי	adj	natural (of or relating to nature)
 1433	תמיכה	noun	support, assistance, backing
 1434	אוסף	noun	a collection
@@ -1457,8 +1457,8 @@ rank	word	pos	en
 1456	עשויה	adj	feminine singular indefinite form of עָשׂוּי (asúy)
 1457	תום	noun	innocence, simplicity
 1458	חיה	adj	feminine singular indefinite form of חַי (kháy)
-1459	מטה	noun	stick, staff, wand
-1460	משתמש	noun	One who uses; a user.
+1459	מטה	noun	headquarters, (military) staff (m.) — ראש מטה 'chief of staff', קצין מטה 'a staff officer', מטה הבחירות 'campaign HQ'; and as an adverb: down, downwards — כלפי מטה 'downward'; the staff/rod sense is biblical
+1460	משתמש	verb	uses, makes use of (m. sg. present of השתמש, always with ב־) — משתמש במחשב 'uses a computer', אינו משתמש ב 'does not use'; as a noun (m.): a user — ממשק משתמש 'user interface'
 1461	החלטה	noun	A decision: an act of deciding, or the result thereof.
 1462	לכאורה	adv	seemingly, apparently
 1463	מעלה	noun	advantage; degree
@@ -1518,7 +1518,7 @@ rank	word	pos	en
 1517	תקשורת	noun	communication; the media
 1518	אירוע	noun	event; function (official or social occasion)
 1519	התחיל	verb	to start, to begin
-1520	נשא	verb	to lift; to bear, carry, support
+1520	נשא	verb	married (a woman) — נשא לאישה / נשא את X לאישה, the commonest use by far in biographical prose: הוא נשא לאישה את בת דודתו 'he married his cousin'; also to carry, to bear, to lift; נשא נאום 'delivered a speech', נשא בתואר 'held the title'
 1521	ספרות	noun	literature; the craft of the scribe
 1522	עזרה	noun	help
 1523	פועל	noun	verb; deed; act
@@ -1534,7 +1534,7 @@ rank	word	pos	en
 1533	ראשית	noun	the first, in place, time, order or rank
 1534	תיאר	verb	to describe, to outline
 1535	בפרט	adv	in particular
-1536	הגן	verb	to protect, to defend
+1536	הגן	verb	to protect, to defend — הגן על 'defended, stood up for'; also simply ה־ + גן: the garden, the park, the kindergarten — הגן הלאומי 'the national park' — and in biology the gene — הגן עם המוטציה 'the gene carrying the mutation'
 1537	חוקים	noun	plural indefinite form of חוק
 1538	חייה	noun	form of חַיִּים (khayím) with third-person feminine singular personal pronoun as possessor
 1539	לאומי	adj	National: of a nation, or of nations.
@@ -1669,7 +1669,7 @@ rank	word	pos	en
 1668	תיאור	noun	description
 1669	הוראה	noun	teaching, instruction (occupation, profession, or work)
 1670	הזדמנות	noun	An opportunity, a chance.
-1671	חל	verb	to apply (of a law, method, etc.)
+1671	חל	verb	to occur, to take place, to set in (of a change or trend) — חל שינוי 'a change occurred', חל שיפור 'an improvement took place'; also: to apply, to be in force (of a law or ban) — החוק חל על 'the law applies to'; and to fall on (of a date)
 1672	מודל	noun	model
 1673	ניהל	verb	to manage
 1674	סנט	noun	cent; cent (a hundredth of a semitone or half step)
@@ -1691,7 +1691,7 @@ rank	word	pos	en
 1690	גידול	noun	growing, growth
 1691	הקשה	verb	to stiffen
 1692	לתמוך	verb	To-infinitive of תָּמַךְ (tamákh), excessive spelling
-1693	מוחלט	adj	Decisive, definite, definitive, decided.
+1693	מוחלט	adj	absolute, total — רוב מוחלט 'an absolute majority', באופן מוחלט 'absolutely', כישלון מוחלט 'a total failure'; also: definitive, decided
 1694	ממלכת	noun	singular construct state form of מַמְלָכָה
 1695	מנהיג	noun	A leader: one who leads.
 1696	מסורת	noun	tradition
@@ -1728,7 +1728,7 @@ rank	word	pos	en
 1727	הרומית	adj	feminine singular definite form of רומי (romi)
 1728	יעיל	adj	Effective, efficacious, good: having, or tending to have, the desired effect.
 1729	מדוע	adv	why
-1730	מוביל	adj	leading (person in a contest)
+1730	מוביל	verb	leads, leads to (m. sg. present of הוביל) — הדבר מוביל ל 'this leads to', מוביל את הקבוצה 'leads the team'; as an adjective: leading, foremost — חוקר מוביל 'a leading researcher'; as a noun (m.): a carrier, conduit — המוביל הארצי 'the National Water Carrier'
 1731	מסוגלים	adj	masculine plural indefinite form of מסוגל / מְסֻגָּל (m'sugál)
 1732	מספרים	noun	plural indefinite form of מִסְפָּר (mispár)
 1733	נכנסה	verb	Third-person feminine singular past (suffix conjugation) of נִכְנַס (nikhnás).
@@ -1745,7 +1745,7 @@ rank	word	pos	en
 1744	סביר	adj	logical, reasonable
 1745	עולים	verb	Masculine plural present participle and present tense of עלה (alá)
 1746	עמודים	noun	plural indefinite form of עַמּוּד (amúd)
-1747	פנה	verb	to face; to turn
+1747	פנה	verb	to turn to, to approach, to appeal to — פנה אל 'turned to, addressed'; to turn, to head (in a direction); to take up (a field) — פנה להוראה 'went into teaching'
 1748	פרופסור	noun	A professor, a college professor, a university professor.
 1749	שרק	verb	to whistle
 1750	תיכון	adj	middle, central
@@ -1832,7 +1832,7 @@ rank	word	pos	en
 1831	מכון	noun	institute, institution
 1832	מסדר	noun	parade, formation
 1833	עשו	verb	third-person plural past (suffix conjugation) of עָשָׂה (asá)
-1834	ציר	noun	hinge, pivot, axis
+1834	ציר	noun	axis (m.) — סביב ציר 'around an axis', ציר הזמן 'the timeline', ציר הסימטריה 'the axis of symmetry'; a route, thoroughfare — ציר ז'בוטינסקי; also: a pivot, a hinge; a delegate, envoy
 1835	קורס	noun	A course, class, especially at the university level or in the military.
 1836	גז	noun	gas; gas (fuel for stoves and burners)
 1837	ואמר	verb	First-person singular vav-consecutive imperfect (hence past tense) of אָמַר (amár).
@@ -1888,7 +1888,7 @@ rank	word	pos	en
 1887	משל	noun	allegory, morality play, fable, parable
 1888	נמכר	verb	to be sold, to be transferred in exchange for money
 1889	סמך	verb	to trust, rely on
-1890	ספרה	noun	a sphere (region in which something or someone is active)
+1890	ספרה	noun	her book — ספר (book, m.) with the 3rd f. sg. possessive suffix: ספרה הראשון 'her first book', את ספרה 'her book'; as a noun in its own right (f.): a digit, a single numeral; rarely: a sphere, a domain
 1891	קלה	adj	feminine singular indefinite form of קל (kal).
 1892	קרה	verb	To happen, occur, go on.
 1893	קרח	noun	ice
@@ -1912,7 +1912,7 @@ rank	word	pos	en
 1911	שורה	noun	A row (of objects); for example, a line of text.
 1912	תאים	noun	plural indefinite form of תָּא (ta)
 1913	תופעה	noun	phenomenon
-1914	תמך	noun	structural support, prop
+1914	תמך	verb	supported, backed (3rd m. sg. past of תמך; with ב־) — תמך במועמד 'backed a candidate', לא תמך ב 'did not support'; also: to hold up, to prop up; as a noun (m.): a prop, a structural support
 1915	יזם	verb	to take the initiative
 1916	כוונה	noun	intent, intention
 1917	מאמץ	noun	effort, strain, exertion
