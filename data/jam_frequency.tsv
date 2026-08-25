@@ -2,13 +2,13 @@ rank	word	pos	en	alt
 1	mi	pron	I; me; my	me
 2	yu	pron	you; your	you;yuh
 3	im	pron	he; she; him; her; his	him;he
-4	wi	pron	we; us; our; will (future marker)	we;will
+4	wi	pron	we; us; our; will (future marker)	will
 5	dem	pron	they; them; (plural marker after noun)	them
 6	unu	pron	you all (plural you)	oonu;unnu
 7	i	pron	it	it
 8	a	particle	is/are (equative); (progressive marker); to/at	
 9	de	verb	to be (at a place); there	deh
-10	di	article	the	de;the
+10	di	article	the	the
 11	wan	article	a; one	one
 12	no	particle	not; don't (negator)	nuh
 13	neva	adv	didn't; never (past negator)	never
@@ -26,7 +26,7 @@ rank	word	pos	en	alt
 25	gi	verb	to give	give;gie
 26	mek	verb	to make; to let; to allow; why (we mek = why); so that	make
 27	waan	verb	to want	want;wah
-28	nuo	verb	to know	know;no
+28	nuo	verb	to know	know
 29	tink	verb	to think	think;tenk
 30	taak	verb	to talk; to speak	talk
 31	se	verb	to say; that (after tell/know)	seh;say
@@ -108,7 +108,7 @@ rank	word	pos	en	alt
 107	nais	adj	nice	nice
 108	priti	adj	pretty	pretty;pretti
 109	ogli	adj	ugly	ugly
-110	bex	adj	angry; vexed	vex;vexed
+110	beks	adj	angry, vexed; to anger, upset (stative and transitive)	bex;vex;veks;vexed
 111	api	adj	happy	happy
 112	sad	adj	sad	
 113	taiyad	adj	tired	tired;tiyad
@@ -160,7 +160,7 @@ rank	word	pos	en	alt
 159	plies	noun	place	place
 160	bos	noun	bus	bus
 161	kyaar	noun	car	car;cyar
-162	taxi	noun	taxi (route taxi)	
+162	taksi	noun	taxi (route taxi)	taxi
 163	baisikl	noun	bicycle	bicycle
 164	ous	noun	house	house;ouse
 165	ruum	noun	room	room
@@ -182,305 +182,303 @@ rank	word	pos	en	alt
 181	polis	noun	police	police
 182	faama	noun	farmer	farmer
 183	fishaman	noun	fisherman	fisherman
-184	friend	noun	friend	fren
-185	neiba	noun	neighbour	neighbour;neighba
-186	famili	noun	family	family
-187	mada	noun	mother	mother;madda
-188	faada	noun	father	father;fadda
-189	breda	noun	brother	brother;bredda
-190	sista	noun	sister	sister
-191	aanti	noun	aunt	auntie;aunty
-192	onkl	noun	uncle	uncle
-193	granmada	noun	grandmother	grandmother;granny
-194	granfaada	noun	grandfather	grandfather;granpa
-195	biebi	noun	baby	baby
-196	badi	noun	body; person	body
-197	ed	noun	head	head;aid
-198	ies	noun	eyes	eyes;yeye
-199	nuoz	noun	nose	nose
-200	mout	noun	mouth	mouth;mowt
-201	ier	noun	ear; hair; to hear	ear;hair;hear
-202	an	noun	hand; arm	hand;han;and
-203	fut	noun	foot; leg	foot;foot
-204	beli	noun	belly; stomach	belly
-205	aat	noun	heart	heart;awt
-206	dag	noun	dog	dog;dawg
-207	pus	noun	cat	puss
-208	kou	noun	cow	cow
-209	guot	noun	goat	goat
-210	fowl	noun	chicken (live); fowl	
-211	bod	noun	bird	bird;bud
-212	laiyan	noun	lion	lion
-213	mangguus	noun	mongoose	mongoose
-214	krab	noun	crab	crab
-215	waas	noun	wasp	wasp
-216	maskita	noun	mosquito	mosquito
-217	jankro	noun	vulture (John Crow)	john crow
-218	liad	noun	liar	liar
-219	tiif	noun	thief; to steal	thief;teef
-220	jraiv	verb	to drive	drive
-221	ried	verb	to read	read
-222	rait	verb	to write; right; correct	write;right
-223	lisn	verb	to listen	listen
-224	sing	verb	to sing	
-225	daans	verb	to dance	dance
-226	laaf	verb	to laugh	laugh;laff
-227	krai	verb	to cry	cry
-228	smail	verb	to smile	smile
-229	uop	verb	to hope	hope
-230	lov	verb	to love; love	love;luv
-231	iet	verb	to hate; eight	hate;eight
-232	fried	adj	afraid; scared	afraid;fraid
-233	shuor	adj	sure	sure
-234	riil	adj	real	real
-235	chuu	adj	true; through	true;tru
-236	rang	adj	wrong	wrong
-237	lef	verb	to leave; left (side)	left;lef'
-238	stie	verb	to stay	stay
-239	liv	verb	to live	live
-240	ded	verb	to die; dead	dead
-241	baan	verb	born	born
-242	grou	verb	to grow	grow
-243	laan	verb	to learn; to teach	learn
-244	tiich	verb	to teach	teach
-245	memba	verb	to remember	member;remember
-246	figet	verb	to forget	forget;fuget
-247	andastan	verb	to understand	understand;overstand
-248	biliiv	verb	to believe	believe
-249	chrai	verb	to try	try
-250	staat	verb	to start	start
-251	stap	verb	to stop	stop
-252	finish	verb	to finish	
-253	elp	verb	to help	help
-254	gud-op	intj	well done	good up
-255	tank	verb	to thank; thanks	thank;tenk
-256	beg	verb	to beg; please (mi a beg yu)	
-257	sari	adj	sorry	sorry
-258	waari	verb	to worry	worry
-259	vex	verb	to anger; annoyed	
-260	kil	verb	to kill	kill
-261	fait	verb	to fight	fight
-262	kech	verb	to catch	catch;ketch
-263	trow	verb	to throw	throw
-264	pul	verb	to pull	pull
-265	push	verb	to push	
-266	put	verb	to put	
-267	kot	verb	to cut	cut
-268	wash	verb	to wash	
-269	kliin	verb	to clean; clean	clean
-270	doti	adj	dirty; earth/ground	dutty
-271	wies	verb	to waste	waste
-272	yuuz	verb	to use	use
-273	niid	verb	to need	need
-274	laik	verb	to like; like (similar)	like
-275	pik	verb	to pick; to choose	pick
-276	chuuz	verb	to choose	choose
-277	shier	verb	to share	share
-278	open	verb	to open	
-279	shet	verb	to shut; to close	shut
-280	wier	verb	to wear	wear
-281	swim	verb	to swim	
-282	jomp	verb	to jump	jump
-283	tan	verb	to stand; to stay	stan
-284	sidong	verb	to sit down	siddung;sit down
-285	geddop	verb	to get up	get up;geddup
-286	wiek	verb	to wake	wake
-287	bied	verb	to bathe	bathe;bade
-288	marid	verb	to marry; married	married
-289	uona	noun	owner	owner
-290	biznis	noun	business	business;bizniz
-291	prablem	noun	problem	problem
-292	ansa	noun	answer	answer;ansah
-293	kwestyan	noun	question	question
-294	wod	noun	word	word
-295	niem	noun	name	name
-296	sang	noun	song	song
-297	myuuzik	noun	music	music
-298	riddim	noun	rhythm; riddim (music)	rhythm
-299	dansaal	noun	dancehall	dancehall
-300	rege	noun	reggae	reggae
-301	stori	noun	story	story
-302	nyuuz	noun	news	news
-303	chrut	noun	truth	truth;troot
-304	lai	noun	lie; to lie	lie
-305	joke	noun	joke	
-306	pati	noun	party	party
-307	fren	noun	friend	friend
-308	enimi	noun	enemy	enemy
-309	piipl	noun	people	people;peeple
-310	smadi	noun	somebody; person	somebody;smaddy
-311	notn	pron	nothing	nothing;nutten
-312	sinting	noun	something; thing	something;sitten
-313	evriting	pron	everything	everything
-314	evribadi	pron	everybody	everybody
-315	nobadi	pron	nobody	nobody
-316	wan-wan	adv	one by one; a few	one one
-317	tuu	num	two; too; also	two;too
-318	chrii	num	three	three;tree
-319	fuor	num	four	four
-320	faiv	num	five	five
-321	six	num	six	
-322	sevn	num	seven	seven
-323	nain	num	nine	nine
-324	ten	num	ten	
-325	onjred	num	hundred	hundred;undred
-326	touzn	num	thousand	thousand
-327	fos	adj	first	first;fuss
-328	las	adj	last	last;laas
-329	nex	adj	next	next
-330	oda	adj	other	other;odda
-331	siem	adj	same	same
-332	difrant	adj	different	different
-333	onggl	adv	only	only;ongly
-334	agen	adv	again	again
-335	aalwiez	adv	always	always
-336	somtaim	adv	sometimes	sometime;sometimes
-337	nowe	adv	nowhere	nowhere
-338	evriwe	adv	everywhere	everywhere
-339	muor	adj	more	more
-340	muos	adj	most	most
-341	beta	adj	better	better
-342	bes	adj	best	best
-343	wosa	adj	worse	worser;worse
-344	wos	adj	worst	worst
-345	dan	conj	than	than
-346	bot	conj	but	but
-347	ar	conj	or	or
-348	bikaa	conj	because	because;bicaa;cah
-349	ef	conj	if	if
-350	aldo	conj	although	although
-351	suo	conj	so	so
-352	yes	intj	yes	
-353	iiya	intj	hey; hi	iya
-354	waa-gwaan	intj	what's up? (greeting)	wah gwaan;whagwan
-355	mi-de-ya	intj	I'm here; I'm fine (reply)	mi deh yah
-356	laata	adv	later	later;lata
-357	suun	adv	soon	soon
-358	aredi	adv	already	already
-359	stil	adv	still	still
-360	yaso	adv	right here	ya so;yah so
-361	baxide	intj	wow! (mild expletive)	backside
-362	raatid	intj	wow!; my goodness (mild)	rahtid
-363	blesd	adj	blessed	blessed;bless
-364	jah	noun	God (Rastafari)	Jah
-365	ital	adj	natural; pure (Rasta food)	
-366	ganja	noun	cannabis	ganjah
-367	dopi	noun	ghost; spirit (duppy)	duppy
-368	obiya	noun	obeah (folk magic)	obeah
-369	anansi	noun	Anansi (trickster spider of folklore)	Anancy
-370	labrish	noun	gossip; chat	
-371	chil	verb	to relax; chill	chill
-372	smaal-op	verb	to make room; squeeze up	small up
-373	bly	noun	a chance; a break (gi mi a bly)	
-374	faava	verb	to resemble (favour)	favour;fava
-375	mash-op	verb	to destroy; wreck	mash up
-376	nyam-op	verb	to eat up; devour	nyam up
-377	griit	verb	to greet	greet
-378	respek	noun	respect (also greeting)	respect
-379	bigop	verb	to praise; shout out	big up
-380	linkop	verb	to meet up; connect	link up
-381	chek	verb	to check; to visit	check
-382	waan-taim	adv	once; one time	one time
-383	tuu-taim	adv	twice	two time
-384	uoltaim	adv	always; all the time	all the time
-385	chrik	verb	trick, fool someone — /tr/ is affricated in Patois and written chr-, as in chrai, chrut: Duon mek dem chrik yu, don't let them trick you	
-386	ting	noun	thing, object, matter — the everyday form; raising the register restores the English th: 'ting' bikom 'thing', 'ting' becomes 'thing'	
-387	fuul	adj	foolish, silly: Dem tink se wi fuul, they think we're foolish; also to fool someone: Duon mek dem fuul yu, don't let them fool you	
-388	wudn	verb	wouldn't — the negated modal, positive wuda: Ef yu did lisn, yu wudn ina problem, if you had listened you wouldn't be in trouble	
-389	kudn	verb	couldn't — the negated modal; the course's positive form is kuda: Mi did waan kom bot mi kudn, I wanted to come but I couldn't	
-390	lait	noun	the light, and by extension the electricity supply: wen di lait gaan, when the power went	
-391	kier	noun	care — chiefly in tek kier, to take care: Tek kier a yuself, take care of yourself	
-392	yet	adv	yet, so far; goes with the negator no: di shap no open yet, the shop isn't open yet	
-393	matimatiks	noun	mathematics, maths as a school subject: shi a tiich matimatiks, she teaches maths	
-394	dis	pron	this (the near one); demonstrative: Dis a di bes mango, this is the best mango	
-395	du	verb	do; one bare form for every person and tense: Wa yu a du?, what are you doing?	
-396	eldas	noun	elders, the older people you owe respect: respek yu eldas, respect your elders	
-397	wanti	noun	one who wants; proverb only: Wanti wanti kyaan getti, those who want can't get	
-398	kaal	verb	call — shout for, or telephone: No figet fi kaal mi, don't forget to call me	
-399	patwa	noun	Patois, the Jamaican language: Mi waan fi laan Patwa, I want to learn Patois	
-400	fram	prep	from, marking origin: rege myuuzik kom fram Jamieka, reggae comes from Jamaica	
-401	tu	prep	to, before the person: Lisn tu mi gud, listen to me well; also spelled to	
-402	tingk	verb	to think; Patois has no 'th' sound: mi laik ou yu tingk, I like how you think	
-403	naa	particle	negative progressive, no + a before the verb: Mi naa go, I'm not going	
-404	ova	prep	over: jomp ova di fens, jump over the fence; kom ova, come over to visit	
-405	maanin	noun	morning: Mi drink ti evri maanin, I drink tea every morning; also mawnin	
-406	kuul	verb	in kuul dong, to calm down, take it easy: Kuul dong, man, calm down, man	
-407	sen	verb	send: Sen di pikni go kaal di dakta, send the child to go call the doctor	
-408	flai	verb	to fly; a flai = is flying, a marking the progressive: di jankro a flai hai	
-409	wort	adj	worth, of a value; no 'is' needed: it wort wan touzn dala, it's worth $1000	
-410	gruo	verb	to grow; verbs take no -s: ganja gruo inna di ils, ganja grows in the hills	
-411	fraitn	verb	frighten, scare: Dopi nuo uu fi fraitn, the ghost knows whom to frighten	
-412	taala	adj	taller, comparative of taal; no 'am': mi taala dan yu, I'm taller than you	
-413	finga	noun	finger; no -s plural after a number: mi hab ten finga, I have ten fingers	
-414	dina	noun	dinner, the evening meal: Wi a nyam dina nou, we are eating dinner now	
-415	faal	verb	fall; the ordinary verb for rain: Rien a faal tide, it's raining today	
-416	sting	verb	to sting; bare verb carries the past: wan waas sting mi, a wasp stung me	
-417	baal	noun	ball, the thing you throw or kick: trow di baal gi mi, throw me the ball	
-418	ful	adj/verb	full: Mi beli ful, my belly is full; as a verb, to fill: ful baskit	
-419	iihn	particle	tag question at sentence end: eh? right? — Di konsert did gud, iihn?	
-420	duon	particle	don't; negator opening a command: Duon tach dat!, don't touch that!	
-421	baka	prep	preposition: behind, at the back of — baka di bush, behind the bush	
-422	dat	pron	that (the far one); demonstrative: Duon tach dat, don't touch that	
-423	eg	noun	egg; the plural takes no ending: Bai wan dazn eg, buy a dozen eggs	
-424	pat	noun	pot for cooking: Put di pat pan di faiya, put the pot on the fire	
-425	shuo	noun	show, performance: Di shuo a go staat, the show is going to start	
-426	daag	noun	dog; plural with dem: Di daag dem a baak, the dogs are barking	
-427	aad	adj	hard, difficult — no copula needed: Di tes aad, the test is hard	
-428	miin	verb	mean, intend: Mi neva miin fi bex yu, I didn't mean to upset you	
-429	soso	adj	nothing but, plain, only: soso rais, plain rice and nothing else	
-430	futbaal	noun	football, soccer: Dem a plie futbaal, they are playing football	
-431	haad	adj	hard, with effort: Wi wok haad evri die, we work hard every day	
-432	baak	verb	bark, what a dog does: Di daag dem a baak, the dogs are barking	
-433	bikom	verb	become, turn into: 'ting' bikom 'thing', 'ting' becomes 'thing'	
-434	miitn	noun	meeting: Im neva kom a di miitn, he didn't come to the meeting	
-435	rejista	noun	register, level of speech: Raiz di rejista, raise the register	
-436	huol	adj	whole, entire: di huol pat, the whole pot; as a verb, to hold	
-437	aarait	adj	alright, fine: Evriting aarait nou, everything is alright now	
-438	liet	adj	late: Yu a mek mi liet fi wok, you're making me late for work	
-439	win	verb	win — no past ending: ef yu win di moni, if you won the money	
-440	orli	adv	early: A tide di bos kom orli, it's today the bus comes early	
-441	ton	verb	to turn; ton op = turn up: ton op di myuuzik, turn the music up	
-442	swiit	adj	sweet, tasty; doubled as swiit-swiit it means 'really sweet'	
-443	yaa	particle	sentence-final softener, 'you hear?': Tek kier a yuself, yaa	
-444	baskit	noun	basket: Wan wan koko ful baskit, one by one fills the basket	
-445	fens	noun	fence: di daag jomp ova di fens, the dog jumped over the fence	
-446	aklak	noun	o'clock, used in telling the hour: a six aklak, at six o'clock	
-447	sondi	noun	Sunday: Wi go a chorch pan Sondi, we go to church on Sunday	
-448	glaas	noun	glass, a drinking glass: wan glaas a wata, a glass of water	
-449	pikcha	noun	picture, photo: Mek mi si di pikcha, let me see the picture	
-450	meri	adj	merry, in high spirits: Chikin meri, haak de nier (proverb)	
-451	haak	noun	hawk, the bird of prey: Chikin meri, haak de nier (proverb)	
-452	giet	noun	gate, the one in a yard or fence: shet di giet, shut the gate	
-453	koko	noun	cocoyam, a starchy root: Wan wan koko ful baskit (proverb)	
-454	evri	det	every, each; before a singular noun: evri die, every day	
-455	pliet	noun	plate: pluralised with dem — di pliet dem, the plates	
-456	bout	prep	about, concerning: Wi taak bout it, we talked about it	
-457	chail	noun	child — the high-register form; deep Patois says pikni	
-458	bizi	adj	busy; adjectives need no 'is' or 'am': mi bizi, I'm busy	
-459	kii	noun	key; keys (no -s; plural comes from dem or the context)	
-460	iditation	noun	meditation (Iyaric/Rasta register, not neutral Patois)	
-461	wiik	noun	week: Sevn die inna wan wiik, seven days in a week	
-462	res	verb	rest, take a break: Mi niid fi res, I need to rest	
-463	riich	verb	arrive, reach: Mi riich a nain, I arrived at nine	
-464	hapn	verb	happen, take place: wen it hapn, when it happened	
-465	strait	adv	straight, upright: tan op strait, stand up straight	
-466	riedi	adj	ready: Wi riedi fi go nou, we're ready to go now	
-467	kwik	adj	quick; quickly (one form for both — no -ly ending)	
-468	smel	verb	smell: Di fuud smel gud, the food smells good	
-469	kaas	verb	cost: Umoch it kaas?, how much does it cost?	
-470	tes	noun	test, exam: Di tes aad, the test is hard	
-471	satdi	noun	Saturday — evri satdi, every Saturday	
-472	pas	verb	to pass, to hand (something to someone)	
-473	hai	adv	high, up high	
-474	lain	noun	line, queue	
-475	nak	verb	to knock	
-476	nashanal	adj	national	
-477	plaant	verb	to plant	
-478	konsert	noun	concert	
-479	len	verb	to lend	
-480	muuv	verb	to move	
-481	natral	adj	natural	
-482	jongl	noun	jungle	
-483	kloud	noun	cloud	
-484	kwaia	noun	choir	
-485	king	noun	king	
+184	neba	noun	neighbour	neiba;neighbour;neighba;nieba
+185	famili	noun	family	family
+186	mada	noun	mother	mother;madda
+187	faada	noun	father	father;fadda
+188	breda	noun	brother	brother;bredda
+189	sista	noun	sister	sister
+190	aanti	noun	aunt	auntie;aunty
+191	onkl	noun	uncle	uncle
+192	granmada	noun	grandmother	grandmother;granny
+193	granfaada	noun	grandfather	grandfather;granpa
+194	biebi	noun	baby	baby
+195	badi	noun	body; person	body
+196	ed	noun	head	head;aid
+197	ies	noun	eyes	eyes;yeye
+198	nuoz	noun	nose	nose
+199	mout	noun	mouth	mouth;mowt
+200	ier	noun	ear; hair; to hear	ear;hair;hear
+201	an	noun	hand; arm	hand;han;and
+202	fut	noun	foot; leg	foot;foot
+203	beli	noun	belly; stomach	belly
+204	aat	noun	heart	heart;awt
+205	dag	noun	dog	dog;dawg
+206	pus	noun	cat	puss
+207	kou	noun	cow	cow
+208	guot	noun	goat	goat
+209	fowl	noun	chicken (live); fowl	
+210	bod	noun	bird	bird;bud
+211	laiyan	noun	lion	lion
+212	mangguus	noun	mongoose	mongoose
+213	krab	noun	crab	crab
+214	waas	noun	wasp	wasp
+215	maskita	noun	mosquito	mosquito
+216	jankro	noun	vulture (John Crow)	john crow
+217	liad	noun	liar	liar
+218	tiif	noun	thief; to steal	thief;teef
+219	jraiv	verb	to drive	drive
+220	ried	verb	to read	read
+221	rait	verb	to write; right; correct	write;right
+222	lisn	verb	to listen	listen
+223	sing	verb	to sing	
+224	daans	verb	to dance	dance
+225	laaf	verb	to laugh	laugh;laff
+226	krai	verb	to cry	cry
+227	smail	verb	to smile	smile
+228	uop	verb	to hope	hope
+229	lov	verb	to love; love	love;luv
+230	iet	verb	to hate; eight	hate;eight
+231	fried	adj	afraid; scared	afraid;fraid
+232	shuor	adj	sure	sure
+233	riil	adj	real	real
+234	chuu	adj	true; through	true;tru
+235	rang	adj	wrong	wrong
+236	lef	verb	to leave; left (side)	left;lef'
+237	stie	verb	to stay	stay
+238	liv	verb	to live	live
+239	ded	verb	to die; dead	dead
+240	baan	verb	born	born
+241	grou	verb	to grow	grow
+242	laan	verb	to learn; to teach	learn
+243	tiich	verb	to teach	teach
+244	memba	verb	to remember	member;remember
+245	figet	verb	to forget	forget;fuget
+246	andastan	verb	to understand	understand;overstand
+247	biliiv	verb	to believe	believe
+248	chrai	verb	to try	try
+249	staat	verb	to start	start
+250	stap	verb	to stop	stop
+251	finish	verb	to finish	
+252	elp	verb	to help	help
+253	gud-op	intj	well done	good up
+254	tank	verb	to thank; thanks	thank;tenk
+255	beg	verb	to beg; please (mi a beg yu)	
+256	sari	adj	sorry	sorry
+257	waari	verb	to worry	worry
+258	kil	verb	to kill	kill
+259	fait	verb	to fight	fight
+260	kech	verb	to catch	catch;ketch
+261	trow	verb	to throw	throw
+262	pul	verb	to pull	pull
+263	push	verb	to push	
+264	put	verb	to put	
+265	kot	verb	to cut	cut
+266	wash	verb	to wash	
+267	kliin	verb	to clean; clean	clean
+268	doti	adj	dirty; earth/ground	dutty
+269	wies	verb	to waste	waste
+270	yuuz	verb	to use	use
+271	niid	verb	to need	need
+272	laik	verb	to like; like (similar)	like
+273	pik	verb	to pick; to choose	pick
+274	chuuz	verb	to choose	choose
+275	shier	verb	to share	share
+276	open	verb	to open	
+277	shet	verb	to shut; to close	shut
+278	wier	verb	to wear	wear
+279	swim	verb	to swim	
+280	jomp	verb	to jump	jump
+281	tan	verb	to stand; to stay	stan
+282	sidong	verb	to sit down	siddung;sit down
+283	gedop	verb	to get up	geddop;get up;geddup
+284	wiek	verb	to wake	wake
+285	bied	verb	to bathe	bathe;bade
+286	marid	verb	to marry; married	married
+287	uona	noun	owner	owner
+288	biznis	noun	business	business;bizniz
+289	prablem	noun	problem	problem
+290	ansa	noun	answer	answer;ansah
+291	kwestyan	noun	question	question
+292	wod	noun	word	word
+293	niem	noun	name	name
+294	sang	noun	song	song
+295	myuuzik	noun	music	music
+296	ridim	noun	rhythm; riddim (music)	riddim;rhythm
+297	dansaal	noun	dancehall	dancehall
+298	rege	noun	reggae	reggae
+299	stori	noun	story	story
+300	nyuuz	noun	news	news
+301	chrut	noun	truth	truth;troot
+302	lai	noun	lie; to lie	lie
+303	joke	noun	joke	
+304	pati	noun	party	party
+305	fren	noun	friend	friend
+306	enimi	noun	enemy	enemy
+307	piipl	noun	people	people;peeple
+308	smadi	noun	somebody; person	somebody;smaddy
+309	notn	pron	nothing	nothing;nutten
+310	sinting	noun	something; thing	something;sitten
+311	evriting	pron	everything	everything
+312	evribadi	pron	everybody	everybody
+313	nobadi	pron	nobody	nobody
+314	wan-wan	adv	one by one; a few	one one
+315	tuu	num	two; too; also	two;too
+316	chrii	num	three	three;tree
+317	fuor	num	four	four
+318	faiv	num	five	five
+319	siks	num	six	six
+320	sevn	num	seven	seven
+321	nain	num	nine	nine
+322	ten	num	ten	
+323	onjred	num	hundred	hundred;undred
+324	touzn	num	thousand	thousand
+325	fos	adj	first	first;fuss
+326	las	adj	last	last;laas
+327	neks	adj	next	nex;next
+328	oda	adj	other	other;odda
+329	siem	adj	same	same
+330	difrant	adj	different	different
+331	onggl	adv	only	only;ongly
+332	agen	adv	again	again
+333	aalwiez	adv	always	always
+334	somtaim	adv	sometimes	sometime;sometimes
+335	nowe	adv	nowhere	nowhere
+336	evriwe	adv	everywhere	everywhere
+337	muor	adj	more	more
+338	muos	adj	most	most
+339	beta	adj	better	better
+340	bes	adj	best	best
+341	wosa	adj	worse	worser;worse
+342	wos	adj	worst	worst
+343	dan	conj	than	than
+344	bot	conj	but	but
+345	ar	conj	or	or
+346	bikaa	conj	because	because;bicaa;cah
+347	ef	conj	if	if
+348	aldo	conj	although	although
+349	suo	conj	so	so
+350	yes	intj	yes	
+351	iiya	intj	hey; hi	iya
+352	waa-gwaan	intj	what's up? (greeting)	wah gwaan;whagwan
+353	mi-de-ya	intj	I'm here; I'm fine (reply)	mi deh yah
+354	laata	adv	later	later;lata
+355	suun	adv	soon	soon
+356	aredi	adv	already	already
+357	stil	adv	still	still
+358	yaso	adv	right here	ya so;yah so
+359	baksaid	intj	wow! (mild expletive)	baxide;backside
+360	raatid	intj	wow!; my goodness (mild)	rahtid
+361	blesd	adj	blessed	blessed;bless
+362	jah	noun	God (Rastafari)	Jah
+363	ital	adj	natural; pure (Rasta food)	
+364	ganja	noun	cannabis	ganjah
+365	dopi	noun	ghost; spirit (duppy)	duppy
+366	obiya	noun	obeah (folk magic)	obeah
+367	anansi	noun	Anansi (trickster spider of folklore)	Anancy
+368	labrish	noun	gossip; chat	
+369	chil	verb	to relax; chill	chill
+370	smaal-op	verb	to make room; squeeze up	small up
+371	blai	noun	a chance; a break (gi mi a bly)	bly
+372	faava	verb	to resemble (favour)	favour;fava
+373	mash-op	verb	to destroy; wreck	mash up
+374	nyam-op	verb	to eat up; devour	nyam up
+375	griit	verb	to greet	greet
+376	respek	noun	respect (also greeting)	respect
+377	bigop	verb	to praise; shout out	big up
+378	linkop	verb	to meet up; connect	link up
+379	chek	verb	to check; to visit	check
+380	waan-taim	adv	once; one time	one time
+381	tuu-taim	adv	twice	two time
+382	uoltaim	adv	always; all the time	all the time
+383	chrik	verb	trick, fool someone — /tr/ is affricated in Patois and written chr-, as in chrai, chrut: Duon mek dem chrik yu, don't let them trick you	
+384	ting	noun	thing, object, matter — the everyday form; raising the register restores the English th: 'ting' bikom 'thing', 'ting' becomes 'thing'	
+385	fuul	adj	foolish, silly: Dem tink se wi fuul, they think we're foolish; also to fool someone: Duon mek dem fuul yu, don't let them fool you	
+386	wudn	verb	wouldn't — the negated modal, positive wuda: Ef yu did lisn, yu wudn ina problem, if you had listened you wouldn't be in trouble	
+387	kudn	verb	couldn't — the negated modal; the course's positive form is kuda: Mi did waan kom bot mi kudn, I wanted to come but I couldn't	
+388	lait	noun	the light, and by extension the electricity supply: wen di lait gaan, when the power went	
+389	kier	noun	care — chiefly in tek kier, to take care: Tek kier a yuself, take care of yourself	
+390	yet	adv	yet, so far; goes with the negator no: di shap no open yet, the shop isn't open yet	
+391	matimatiks	noun	mathematics, maths as a school subject: shi a tiich matimatiks, she teaches maths	
+392	dis	pron	this (the near one); demonstrative: Dis a di bes mango, this is the best mango	
+393	du	verb	do; one bare form for every person and tense: Wa yu a du?, what are you doing?	
+394	eldas	noun	elders, the older people you owe respect: respek yu eldas, respect your elders	
+395	wanti	noun	one who wants; proverb only: Wanti wanti kyaan getti, those who want can't get	
+396	kaal	verb	call — shout for, or telephone: No figet fi kaal mi, don't forget to call me	
+397	patwa	noun	Patois, the Jamaican language: Mi waan fi laan Patwa, I want to learn Patois	
+398	fram	prep	from, marking origin: rege myuuzik kom fram Jamieka, reggae comes from Jamaica	
+399	tu	prep	to, before the person: Lisn tu mi gud, listen to me well; also spelled to	
+400	tingk	verb	to think; Patois has no 'th' sound: mi laik ou yu tingk, I like how you think	
+401	naa	particle	negative progressive, no + a before the verb: Mi naa go, I'm not going	
+402	ova	prep	over: jomp ova di fens, jump over the fence; kom ova, come over to visit	
+403	maanin	noun	morning: Mi drink ti evri maanin, I drink tea every morning; also mawnin	
+404	kuul	verb	in kuul dong, to calm down, take it easy: Kuul dong, man, calm down, man	
+405	sen	verb	send: Sen di pikni go kaal di dakta, send the child to go call the doctor	
+406	flai	verb	to fly; a flai = is flying, a marking the progressive: di jankro a flai hai	
+407	wort	adj	worth, of a value; no 'is' needed: it wort wan touzn dala, it's worth $1000	
+408	gruo	verb	to grow; verbs take no -s: ganja gruo inna di ils, ganja grows in the hills	
+409	fraitn	verb	frighten, scare: Dopi nuo uu fi fraitn, the ghost knows whom to frighten	
+410	taala	adj	taller, comparative of taal; no 'am': mi taala dan yu, I'm taller than you	
+411	finga	noun	finger; no -s plural after a number: mi hab ten finga, I have ten fingers	
+412	dina	noun	dinner, the evening meal: Wi a nyam dina nou, we are eating dinner now	
+413	faal	verb	fall; the ordinary verb for rain: Rien a faal tide, it's raining today	
+414	sting	verb	to sting; bare verb carries the past: wan waas sting mi, a wasp stung me	
+415	baal	noun	ball, the thing you throw or kick: trow di baal gi mi, throw me the ball	
+416	ful	adj/verb	full: Mi beli ful, my belly is full; as a verb, to fill: ful baskit	
+417	iihn	particle	tag question at sentence end: eh? right? — Di konsert did gud, iihn?	
+418	duon	particle	don't; negator opening a command: Duon tach dat!, don't touch that!	
+419	baka	prep	preposition: behind, at the back of — baka di bush, behind the bush	
+420	dat	pron	that (the far one); demonstrative: Duon tach dat, don't touch that	
+421	eg	noun	egg; the plural takes no ending: Bai wan dazn eg, buy a dozen eggs	
+422	pat	noun	pot for cooking: Put di pat pan di faiya, put the pot on the fire	
+423	shuo	noun	show, performance: Di shuo a go staat, the show is going to start	
+424	daag	noun	dog; plural with dem: Di daag dem a baak, the dogs are barking	
+425	aad	adj	hard, difficult — no copula needed: Di tes aad, the test is hard	
+426	miin	verb	mean, intend: Mi neva miin fi bex yu, I didn't mean to upset you	
+427	soso	adj	nothing but, plain, only: soso rais, plain rice and nothing else	
+428	futbaal	noun	football, soccer: Dem a plie futbaal, they are playing football	
+429	haad	adj	hard, with effort: Wi wok haad evri die, we work hard every day	
+430	baak	verb	bark, what a dog does: Di daag dem a baak, the dogs are barking	
+431	bikom	verb	become, turn into: 'ting' bikom 'thing', 'ting' becomes 'thing'	
+432	miitn	noun	meeting: Im neva kom a di miitn, he didn't come to the meeting	
+433	rejista	noun	register, level of speech: Raiz di rejista, raise the register	
+434	huol	adj	whole, entire: di huol pat, the whole pot; as a verb, to hold	
+435	aarait	adj	alright, fine: Evriting aarait nou, everything is alright now	
+436	liet	adj	late: Yu a mek mi liet fi wok, you're making me late for work	
+437	win	verb	win — no past ending: ef yu win di moni, if you won the money	
+438	orli	adv	early: A tide di bos kom orli, it's today the bus comes early	
+439	ton	verb	to turn; ton op = turn up: ton op di myuuzik, turn the music up	
+440	swiit	adj	sweet, tasty; doubled as swiit-swiit it means 'really sweet'	
+441	yaa	particle	sentence-final softener, 'you hear?': Tek kier a yuself, yaa	
+442	baskit	noun	basket: Wan wan koko ful baskit, one by one fills the basket	
+443	fens	noun	fence: di daag jomp ova di fens, the dog jumped over the fence	
+444	aklak	noun	o'clock, used in telling the hour: a six aklak, at six o'clock	
+445	sondi	noun	Sunday: Wi go a chorch pan Sondi, we go to church on Sunday	
+446	glaas	noun	glass, a drinking glass: wan glaas a wata, a glass of water	
+447	pikcha	noun	picture, photo: Mek mi si di pikcha, let me see the picture	
+448	meri	adj	merry, in high spirits: Chikin meri, haak de nier (proverb)	
+449	haak	noun	hawk, the bird of prey: Chikin meri, haak de nier (proverb)	
+450	giet	noun	gate, the one in a yard or fence: shet di giet, shut the gate	
+451	koko	noun	cocoyam, a starchy root: Wan wan koko ful baskit (proverb)	
+452	evri	det	every, each; before a singular noun: evri die, every day	
+453	pliet	noun	plate: pluralised with dem — di pliet dem, the plates	
+454	bout	prep	about, concerning: Wi taak bout it, we talked about it	
+455	chail	noun	child — the high-register form; deep Patois says pikni	
+456	bizi	adj	busy; adjectives need no 'is' or 'am': mi bizi, I'm busy	
+457	kii	noun	key; keys (no -s; plural comes from dem or the context)	
+458	iditation	noun	meditation (Iyaric/Rasta register, not neutral Patois)	
+459	wiik	noun	week: Sevn die inna wan wiik, seven days in a week	
+460	res	verb	rest, take a break: Mi niid fi res, I need to rest	
+461	riich	verb	arrive, reach: Mi riich a nain, I arrived at nine	
+462	hapn	verb	happen, take place: wen it hapn, when it happened	
+463	strait	adv	straight, upright: tan op strait, stand up straight	
+464	riedi	adj	ready: Wi riedi fi go nou, we're ready to go now	
+465	kwik	adj	quick; quickly (one form for both — no -ly ending)	
+466	smel	verb	smell: Di fuud smel gud, the food smells good	
+467	kaas	verb	cost: Umoch it kaas?, how much does it cost?	
+468	tes	noun	test, exam: Di tes aad, the test is hard	
+469	satdi	noun	Saturday — evri satdi, every Saturday	
+470	pas	verb	to pass, to hand (something to someone)	
+471	hai	adv	high, up high	
+472	lain	noun	line, queue	
+473	nak	verb	to knock	
+474	nashanal	adj	national	
+475	plaant	verb	to plant	
+476	konsert	noun	concert	
+477	len	verb	to lend	
+478	muuv	verb	to move	
+479	natral	adj	natural	
+480	jongl	noun	jungle	
+481	kloud	noun	cloud	
+482	kwaia	noun	choir	
+483	king	noun	king	

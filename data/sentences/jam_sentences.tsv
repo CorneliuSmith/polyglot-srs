@@ -57,7 +57,7 @@ nou	Mi a lef rait nou.	I'm leaving right now.	75
 ina	Di pus de ina di ous.	The cat is in the house.	80
 pan	Put di pat pan di faiya.	Put the pot on the fire.	81
 wid	Kom wid mi, nuh?	Come with me, won't you?	84
-ya	Di taxi de ya aredi.	The taxi is here already.	89
+ya	Di taksi de ya aredi.	The taxi is here already.	89
 we	We yu a go so faas?	Where are you going so fast?	91
 wa	Wa yu a du later?	What are you doing later?	92
 uu	A uu dat a di duo?	Who is that at the door?	93
@@ -66,7 +66,7 @@ likl	Di likl gyal kyan riid aredi.	The little girl can read already.	101
 gud	Di mango dem taste gud.	The mangoes taste good.	103
 bad	Dat man de drive bad.	That man drives badly.	104
 nais	Yu fren dem nais, man.	Your friends are nice.	107
-bex	No get bex wid mi.	Don't get angry with me.	110
+beks	No get beks wid mi.	Don't get angry with me.	110
 ongri	Di biebi ongri an a krai.	The baby is hungry and crying.	114
 irie	Evriting irie, mi fren.	Everything is good, my friend.	118
 brok	Di chier brok laas wiik.	The chair broke last week.	120
@@ -174,7 +174,7 @@ kontri	Mi lov mi kontri.	I love my country.	158
 plies	Dis a wan nais plies.	This is a nice place.	159
 bos	Di bos lieta tide.	The bus is late today.	160
 kyaar	Im draiv im kyaar a wok.	He drives his car to work.	161
-taxi	Wi tek wan taxi go a toun.	We took a taxi to town.	162
+taksi	Wi tek wan taksi go a toun.	We took a taxi to town.	162
 baisikl	Di bwai raid im baisikl.	The boy rides his bicycle.	163
 ous	Dem bild wan nyuu ous.	They built a new house.	164
 ruum	Mi ruum kliin.	My room is clean.	165
@@ -196,8 +196,8 @@ nors	Di nors elp di sik piipl.	The nurse helps the sick people.	180
 polis	Di polis kom kwik.	The police came quickly.	181
 faama	Di faama plaant yam.	The farmer plants yam.	182
 fishaman	Di fishaman gaan a sii.	The fisherman went to sea.	183
-friend	Im a mi bes friend.	He is my best friend.	184
-neiba	Mi neiba nais tu mi.	My neighbour is nice to me.	185
+fren	Im a mi bes fren.	He is my best friend.	184
+neba	Mi neba nais tu mi.	My neighbour is nice to me.	185
 famili	Mi lov mi famili.	I love my family.	186
 aanti	Mi aanti kom fi vizit.	My aunt came to visit.	191
 onkl	Mi onkl liv a farin.	My uncle lives abroad.	192
@@ -264,7 +264,7 @@ tank	Mi tank yu fi di gif.	I thank you for the gift.	255
 beg	Mi a beg yu, kom.	I'm begging you, come.	256
 sari	Mi sari fi weh mi du.	I'm sorry for what I did.	257
 waari	No waari yuself.	Don't worry yourself.	258
-vex	Im vex wid mi.	He is angry with me.	259
+beks	Im beks wid mi.	He is angry with me.	259
 kil	Di haat a kil mi.	The heat is killing me.	260
 fait	No fait wid yu breda.	Don't fight with your brother.	261
 kech	Mi kyaan kech di bos.	I can't catch the bus.	262
@@ -290,7 +290,7 @@ swim	Di pikni laan fi swim.	The children learned to swim.	281
 jomp	Di daag jomp ova di fens.	The dog jumped over the fence.	282
 tan	Tan op strait.	Stand up straight.	283
 sidong	Sidong an res likl.	Sit down and rest a bit.	284
-geddop	Geddop, a maanin.	Get up, it's morning.	285
+gedop	Gedop, a maanin.	Get up, it's morning.	285
 wiek	No wiek di biebi.	Don't wake the baby.	286
 bied	Mi a go bied.	I'm going to bathe.	287
 marid	Dem get marid laas iiya.	They got married last year.	288
@@ -303,7 +303,7 @@ wod	Mi no se wan wod.	I didn't say a word.	294
 niem	Weh yu niem?	What is your name?	295
 sang	Mi laik dis sang.	I like this song.	296
 myuuzik	Ton op di myuuzik.	Turn up the music.	297
-riddim	Di riddim swiit.	The riddim is sweet.	298
+ridim	Di ridim swiit.	The riddim is sweet.	298
 dansaal	Wi a go a di dansaal.	We are going to the dancehall.	299
 rege	Rege myuuzik kom fram Jamieka.	Reggae music comes from Jamaica.	300
 stori	Tel mi wan stori.	Tell me a story.	301
@@ -322,7 +322,7 @@ tuu	Mi hab tuu breda.	I have two brothers.	317
 chrii	Chrii pikni de a skuul.	Three children are at school.	318
 fuor	Gi mi fuor a dem.	Give me four of them.	319
 faiv	It kaas faiv dala.	It costs five dollars.	320
-six	Mi wiek op a six aklak.	I wake up at six o'clock.	321
+siks	Mi wiek op a siks aklak.	I wake up at six o'clock.	321
 sevn	Sevn die inna wan wiik.	Seven days in a week.	322
 nain	Mi riich a nain.	I arrived at nine.	323
 ten	Mi hab ten finga.	I have ten fingers.	324
@@ -330,7 +330,7 @@ onjred	Wan onjred piipl kom.	One hundred people came.	325
 touzn	It wort wan touzn dala.	It's worth a thousand dollars.	326
 fos	Mi kom fos.	I came first.	327
 las	Dis a di las wan.	This is the last one.	328
-nex	Si yu nex wiik.	See you next week.	329
+neks	Si yu neks wiik.	See you next week.	329
 oda	Gi mi di oda wan.	Give me the other one.	330
 siem	Wi de a di siem plies.	We are at the same place.	331
 difrant	Dis wan difrant.	This one is different.	332
@@ -341,7 +341,7 @@ somtaim	Somtaim mi fget.	Sometimes I forget.	336
 muor	Mi waan muor fuud.	I want more food.	339
 muos	Muos a dem gaan.	Most of them are gone.	340
 beta	Dis wan beta dan dat.	This one is better than that.	341
-bes	Yu a mi bes friend.	You are my best friend.	342
+bes	Yu a mi bes fren.	You are my best friend.	342
 dan	Mi taala dan yu.	I'm taller than you.	345
 bot	Mi waan kom, bot mi bizi.	I want to come, but I'm busy.	346
 bikaa	Mi lef bikaa mi taiyad.	I left because I was tired.	348

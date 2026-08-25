@@ -130,6 +130,73 @@ Two conventions were normalised on the way in: backticks were stripped from the 
 `ReactMarkdown` is confined to the tutor — so a backtick prints literally on the card), and
 where two batches glossed the same word the richer entry was kept, not the earlier one.
 
+## Cassidy–JLU, enforced rather than declared (25 Aug 2026)
+
+The orthography was stated in two places — this doc and the `JamaicanNLP` docstring — and
+**checked in neither**. Encoding jam.md's own letter rules as a gate and running it over the
+vocabulary found **12 headwords that break them**, all predating this pass. Three are ones
+this doc already names as drift (`neiba`, `riddim`, and the `vex`/`veks` example) and nothing
+had acted on them.
+
+**8 respelled**, old spelling kept first in `alt` so nobody loses credit:
+`taxi`→`taksi`, `neiba`→`neba`, `geddop`→`gedop`, `riddim`→`ridim`, `six`→`siks`,
+`nex`→`neks`, `baxide`→`baksaid`, `bly`→`blai`.
+
+**2 kept, deliberately.** `mangguus` and `onggl` were flagged by the doubled-consonant rule
+and the flag is a regex artifact: that `gg` is `ng` + `g`, the /ŋ/+/ɡ/ of [maŋɡuus] — two
+sounds — where the rule and all three of its worked examples (`likkle`, `granny`, `riddim`)
+target geminates spelling ONE sound. Noted honestly: the corpus is inconsistent about /ŋɡ/
+(`finga`, `ongri`, `jongl` use one `g`; `mangguus`, `onggl` use `ngg`). This doc states no
+rule on it, so settling it across all five words is a JLU-reviewer question, not something
+to extrapolate today at the cost of two orphaned cards.
+
+**2 merged**, because they were one word on two rows:
+
+- **`bex` + `vex` → `beks`.** The corpus settles it: `No get bex wid mi.` and `Im vex wid
+  mi.` are the same stative frame, and the only transitive use (`Mi neva miin fi bex yu.`)
+  sits on the row labelled `adj` while the `verb` row appears only statively — **the
+  part-of-speech split was backwards**. Basilect b- against acrolect v-, one lexeme.
+- **`friend` + `fren` → `fren`.** Both glossed exactly "friend" and each listed the other as
+  its `alt`. `fren` survives as the Cassidy spelling; in Cassidy `ie` is the /ie/ diphthong,
+  so `friend` does not even read as this word. `fren` keeps its card and review history.
+
+Both losers are recorded in `data/vocab_exclusions.tsv`, because deleting from the TSV alone
+is undone by the next regeneration.
+
+### The `alt` column was laundering words, not excusing spellings
+
+Five `alt` entries were **another row's headword**, which turns deliberate leniency into a
+rule-8 violation — the fold may excuse a mark, never launder a word:
+
+| row | claimed as its own variant | but that is | fixed by |
+| --- | --- | --- | --- |
+| `wi` (we, us, our, will) | `we` | r91 `we` — where, which, who | dropped |
+| `di` (the) | `de` | r9 `de` — to be at, there | dropped |
+| `nuo` (know) | `no` | r12 `no` — not, the negator | dropped |
+| `bex` | `vex` | r259 `vex` | merged |
+| `friend` | `fren` | r307 `fren` | merged |
+
+`di`/`de` and `nuo`/`no` are among the commonest words in the language, and a learner
+confusing them was being told they were right. **Zero clashes remain.** The collision
+ratchet cannot see this class — `_collision_surfaces()` reads only the `word` column — so it
+is checked separately.
+
+**This class is Jamaican-scoped, and that was measured, not assumed.** Out-of-inventory
+characters: `mi` 0, `xh` 0, `yo` 0, `jam` 6. Hausa's two U+02BC apostrophes are folded by
+`HausaNLP.normalize`, so the grader already sees one word. Only `jam` carries an `alt`
+column at all.
+
+**The corpus was re-spelled to match** — 26 replacements across the two sentence banks and
+`jam_grammar.json`, Patois side only. English translations keep English spelling ("The taxi
+is here already" is correct English and stays). Drill `answer` fields moved with their
+sentences. No sentence-bank word is left without a card.
+
+> **Re-seed reconciliation.** A re-spelled headword is NOT a rename: the seeder uses
+> `ON CONFLICT DO NOTHING` on `(language_id, word)`, so it inserts a NEW card and leaves the
+> old one, with the learner's review history attached to the old spelling. The old spelling
+> is first in `alt`, so typing it still grades correct. The rows needing reconciliation are
+> the 8 respells plus `vex`→`beks` and `friend`→`fren` (rows deleted).
+
 ## Current measured state
 
 Counted 20 Aug 2026 from `data/grammar/jam_grammar.json`: **32 points, 192 drills** — the fewest
@@ -137,7 +204,7 @@ points of any course — and **every point is `source: "ai"`, `reviewed: false`*
 been through a JLU-connected reviewer, which the NLP module itself flags as pending. Levels
 A1 10 / A2 8 / B1 6 / B2 4 / C1 2 / C2 2. Footprint: `data/jam_sentences.tsv` has only **15
 rows** while curated `data/sentences/jam_sentences.tsv` has **356** — inverted versus every
-other language; `data/jam_frequency.tsv` 384 rows at that date, **485 now** (see above); no `data/jam_morphology.json`; **no
+other language; `data/jam_frequency.tsv` 384 rows at that date, **483 now** (see above); no `data/jam_morphology.json`; **no
 `data/gym/jam.json`**; `seed_jamaican.py` present.
 
 | Rule | Count | Share |
@@ -146,6 +213,7 @@ other language; `data/jam_frequency.tsv` 384 rows at that date, **485 now** (see
 | `leak_hard` — answer whole-word in its own hint | **4** | 2% |
 | answer also printed in its own sentence (not a crawl rule) | **16** | 8% |
 | orthography drift from Cassidy–JLU (see below) | **12 word types** | — |
+| headwords outside Cassidy–JLU | **12 → 2**, both deliberate keeps (25 Aug) | — |
 | one-word hints (warn); `duplicate_hint`/`empty`/`vague_translation` all 0 | 48 | 25% |
 
 **Corrections to the crawl.** It reports "one-word hints 38"; the file has **48 occurrences**

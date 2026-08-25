@@ -210,10 +210,37 @@ Known policies and their state:
 | | policy | state |
 | --- | --- | --- |
 | `la` | macrons everywhere, all-or-nothing | **compliant**, 5 guards |
-| `mi` | macrons are the 16th letter, non-negotiable | **0 of 791 headwords** carry one |
-| `yo` | tone is phonemic, Standard Yoruba fully marked | **1,638 of 1,644** carry none |
+| `mi` | macrons are the 16th letter, non-negotiable | **compliant** — 0 out-of-inventory chars (25 Aug) |
+| `yo` | tone is phonemic, Standard Yoruba fully marked | **top band done** — 120 of 1,650 marked, was 6 of 1,644; tail blocked on an external source |
+| `jam` | Cassidy–JLU, declared here and in `JamaicanNLP` | **12 → 2 non-compliant headwords** (25 Aug); the 2 are deliberate keeps |
+| `xh` | Latin basic, no diacritics | **compliant** — 0 out-of-inventory chars (25 Aug) |
+| `ha` | Boko incl. hooked `ɓ ɗ ƙ ƴ` | compliant for grading — 2 rows use U+02BC, which `HausaNLP.normalize` folds |
 | `ar` `he` `fa` | vocalisation marks | not yet stated as a testable policy |
 | others | — | **UNDECIDED — needs a policy statement before it can be checked** |
+
+**A letter-inventory gate is the cheap half of this and it generalises**: express the
+policy as a character set and the violations fall out. Measured 25 Aug across the five
+courses with a tight declarable inventory — `mi` 0, `xh` 0, `yo` 0, `ha` cosmetic-only,
+`jam` 6. So the class is real but currently **Jamaican-scoped**, which is a measured
+decision rather than an omission.
+
+It is **necessary, not sufficient**: `friend` breaks no Cassidy letter rule and is still
+the English spelling, and `mangguus` trips a doubled-consonant regex where the `gg` is
+really `ng` + `g`. A gate proposes; a reviewer disposes.
+
+### 4b. `alt`-column laundering — a variant that is another word's headword
+
+Only `jam` has an `alt` column (347 of 384 rows). It is deliberate leniency — a learner
+typing `him` for `im` should pass. But **5 entries listed another row's HEADWORD** as a
+variant: `di` (the) claimed `de` (to be at), `nuo` (know) claimed `no` (the negator), `wi`
+claimed `we` (where). That is rule 8 inverted — the leniency stops excusing a spelling and
+starts laundering a word, on some of the commonest words in the language.
+
+**The collision ratchet cannot see this**: `_collision_surfaces()` reads only the `word`
+column. Checked separately; **0 clashes remain** (25 Aug).
+
+**Status: scoped — `jam` only, because no other course has an `alt` column.** Any course
+that gains one inherits this check.
 
 ---
 
