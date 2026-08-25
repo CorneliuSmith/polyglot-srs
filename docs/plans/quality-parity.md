@@ -803,6 +803,40 @@ Until it exists, step 2 is done by the checker in the maker–checker pass, and
 the checker is told to reject a gloss whose sentence does not exercise the
 card's leading sense rather than silently glossing what is in front of it.
 
+### Sequencing and the production push (owner decision, 25 Aug 2026)
+
+**Order: finish the definition reconcile → sentences for the 8 courses that need
+them → then phases 3–6 across a stable corpus.** Not interleaved. The reason is
+rework: new vocabulary landing before its sentences, interlinear glosses and
+hints exist means every later phase re-touches the same cards, and phase 3's
+hint work would be redone the moment phase 2's sentences arrive.
+
+**Nothing is pushed to production until all of it is done.** The database is
+therefore expected to lag the files for the duration — that is deliberate, not
+drift. Everything ships in one reconcile + seed at the end.
+
+**What that defers, so it is not mistaken for done:** as of 25 Aug production
+holds 861 of the 911 repaired definitions in their OLD form, 294 definitions
+still showing raw MediaWiki markup, and 90-row stubs for `id`, `tl`, `he` and
+`fa` whose files carry ~3,000 each.
+
+### The corpus is NOT uniformly healthy (measured against production, 25 Aug)
+
+Measured from the database, not the files — the two disagree, and only the
+database describes what a learner has:
+
+| verdict | courses |
+| --- | --- |
+| **no sentences at all** | `la` `id` `tl` `he` `fa` — and 90 vocabulary rows each in production against 559–3,000 in the files |
+| thin sentence bank | `ha` 665, `yo` 342, `xh` 280 |
+| tiny word list | `mi` 965/790, `jam` 483/384 |
+| fewer sentences than words | `ro` `ca` `el` `ko` |
+| ok | 13 of 27 |
+
+**14 of 27 courses have a real gap.** Most of it for `id`/`tl`/`he`/`fa` is a
+seeder run away rather than authoring — the words exist in the files. The real
+authoring gap is SENTENCES, and that is what phase 2 still owes.
+
 ### Phase 2 — the running order (owner decision, 20 Aug 2026)
 
 Asked which courses had actually been reviewed, the measured answer was that
