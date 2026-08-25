@@ -505,12 +505,12 @@ rank	word	pos	en
 504	prazer	noun	pleasure
 505	velho	adj	old; ancient (having existed for a long period of time)
 506	conseguir	verb	to get, obtain; to achieve
-507	passado	adj	past (of the past)
+507	passado	adj	last, previous (ano passado = last year, semana passada = last week, mes passado = last month); (as a noun, m.) the past (nao existe futuro sem o passado = there's no future without the past); passed, been through — past participle of passar (ter passado por isso = to have been through it)
 508	tomar	verb	to take (to get something into one’s possession or control)
 509	além	adv	there, over there
 510	jantar	noun	dinner (evening meal)
 511	depressa	adv	quickly
-512	pergunta	noun	question
+512	pergunta	noun	question (f.) (tenho uma pergunta = I have a question; boa pergunta = good question); (he/she/you) ask, asks — from perguntar (por que pergunta? = why do you ask?)
 513	tirar	verb	to take, take out, take away
 514	pequeno	adj	small
 515	descobrir	verb	to discover (to find something for the first time)
@@ -523,9 +523,9 @@ rank	word	pos	en
 522	vos	pron	objective of vós
 523	exactamente	adv	pre-reform spelling
 524	possa	verb	first/third-person singular present subjunctive
-525	deixa	noun	cue (action or event that is a signal to do something)
+525	deixa	verb	let, leave — imperative and he/she/you form of deixar (deixa isso aí = leave that there; me deixa sair = let me out; deixa pra lá = forget it); (as a noun, f.) cue (in theatre)
 526	errado	adj	not correct; wrong; incorrect
-527	vivo	adj	alive (having life; not dead)
+527	vivo	adj	alive, living (está vivo = he's alive; ao vivo = live, of a broadcast); lively, vivid (cores vivas = bright colours); I live — first person of viver (vivo aqui desde 1990 = I've lived here since 1990)
 528	menina	noun	girl (female child)
 529	john	name	a male given name from English, variant of João; variant form Jhon
 530	casamento	noun	wedding (marriage ceremony)
@@ -603,7 +603,7 @@ rank	word	pos	en
 602	porra	noun	club (heavy stick used as a weapon)
 603	minuto	noun	minute (60 seconds)
 604	irá	verb	will go (third-person singular future indicative of ir)
-605	sentido	noun	sense (animals’ means of gathering data)
+605	sentido	noun	sense, meaning (faz sentido = it makes sense; não tem sentido = it's meaningless); direction, way (sentido único = one way); sense (sight, hearing and the rest); felt — past participle of sentir (tenho sentido = I have felt)
 606	atenção	noun	attention; thoughtfulness
 607	vim	verb	first-person singular preterite indicative of vir
 608	quis	verb	first/third-person singular preterite indicative of querer
@@ -611,7 +611,7 @@ rank	word	pos	en
 610	direito	noun	law (body of rules and standards to be applied by courts)
 611	café	noun	coffee (beverage)
 612	venha	verb	first/third-person singular present subjunctive
-613	visto	noun	visa (permit to enter and leave a country)
+613	visto	verb	seen — past participle of ver (eu tinha visto = I had seen; ser visto = to be seen); visto que = given that, since; (as a noun, m.) visa
 614	criança	noun	child (young person)
 615	luz	noun	light (medium within which vision is possible)
 616	filme	noun	film; movie; motion picture
@@ -690,7 +690,7 @@ rank	word	pos	en
 689	própria	adj	feminine singular of próprio
 690	deves	verb	second-person singular present indicative of dever
 691	grandes	adj	masculine/feminine plural of grande
-692	chamada	noun	call (telephone conversation)
+692	chamada	noun	call (f.) — a phone call (fazer uma chamada = to make a call); called, named — feminine of chamado (uma mulher chamada Ana = a woman called Ana); roll call, attendance (fazer a chamada)
 693	finalmente	adv	eventually; at last, finally (after a long time)
 694	novamente	adv	again (having already happened before)
 695	futuro	adj	future
@@ -740,7 +740,7 @@ rank	word	pos	en
 739	dito	noun	saying; proverb (phrase expressing a basic truth)
 740	respeito	noun	respect (admiration for a person or entity because of perceived merit)
 741	completamente	adv	completely; fully; totally (to a complete extent or degree)
-742	vista	noun	eye; eyeball; sight
+742	vista	noun	view (f.) (a vista é tão linda = the view is so beautiful; vista para o mar = sea view); sight, eyesight (ponto de vista = point of view; à vista = in cash, on sight); seen — feminine of visto (ela foi vista = she was seen)
 743	breve	adj	brief, short; summarized
 744	melhores	verb	second-person singular present subjunctive of melhorar
 745	á	noun	wing
@@ -759,7 +759,7 @@ rank	word	pos	en
 758	emprego	noun	job (economic role for which a person is paid)
 759	achei	verb	first-person singular preterite indicative of achar
 760	faças	verb	second-person singular present subjunctive of fazer
-761	chama	noun	flame (visible part of fire)
+761	chama	verb	calls; you call — from chamar (como você se chama? = what's your name?; ele me chama = he calls me); call! (imperative); (as a noun, f.) flame
 762	linha	noun	line (a string, a thread)
 763	dizes	verb	second-person singular present indicative of dizer
 764	real	adj	true, real; that has physical existence; real
@@ -771,7 +771,7 @@ rank	word	pos	en
 770	frank	name	a male given name from English, equivalent to English Frank
 771	ai	intj	ouch (expression of physical pain)
 772	graças	noun	plural of graça
-773	escolha	noun	choice (opportunity to choose or select something)
+773	escolha	noun	choice (f.) (não temos escolha = we have no choice; essa é a minha escolha = this is my choice); choose! — imperative and subjunctive of escolher (escolha entre estes dois = choose between these two)
 774	ordem	noun	order (arrangement, disposition)
 775	viva	adj	feminine singular of vivo
 776	fundo	adj	deep (having its bottom far down)
@@ -798,7 +798,7 @@ rank	word	pos	en
 797	fizeram	verb	third-person plural preterite/pluperfect indicative of fazer
 798	fantástico	adj	fantastic (wonderful; marvelous)
 799	morta	adj	feminine singular of morto
-800	leva	noun	wave (sudden unusually large amount of something)
+800	leva	verb	takes, carries, takes (time) — from levar (quanto tempo leva? = how long does it take?; ele leva as mulheres a sério = he takes women seriously); take it! (imperative); (as a noun, f.) a batch, a wave of people
 801	percebo	verb	first-person singular present indicative of perceber
 802	pensas	verb	second-person singular present indicative of pensar
 803	advogado	noun	lawyer; advocate
@@ -812,11 +812,11 @@ rank	word	pos	en
 811	louco	adj	crazy, mad, insane (of unsound mind)
 812	bons	adj	masculine plural of bom
 813	conhecer	verb	to know (be acquainted or familiar with)
-814	nele	noun	An ancient French coin.
+814	nele	prep	in him, in it; on him, on it — contraction of em + ele (pensei nele = I thought about him; havia algo nele = there was something in it); feminine nela, plurals neles, nelas
 815	lindo	adj	beautiful; gorgeous;
 816	informação	noun	information
 817	abrir	verb	to open; to deal (a card)
-818	mente	noun	mind (ability for rational thought)
+818	mente	noun	mind (f.) (ter em mente = to bear in mind; mente aberta = an open mind); (he/she/you) lie, lies — from mentir (ele mente = he's lying; ele nunca mente = he never lies)
 819	perceber	verb	to understand; to realize, to notice
 820	amo-te	phrase	I love you
 821	programa	noun	program; computer instructions
@@ -857,7 +857,7 @@ rank	word	pos	en
 856	hipótese	noun	hypothesis (tentative conjecture in science)
 857	telemóvel	noun	mobile, mobile phone, cellphone
 858	reunião	noun	meeting, reunion
-859	prova	noun	examination; test
+859	prova	noun	test, exam (f.) (a prova é às 16h00 = the test is at 4 p.m.; como foi a prova? = how did the exam go?); proof, evidence (não há prova = there's no proof); race, sporting event; (he/she/you) taste, try on, prove — from provar
 860	s	noun	abbreviation of segundo
 861	percebi	verb	first-person singular preterite indicative of perceber
 862	casar	verb	to marry; to get married
@@ -865,7 +865,7 @@ rank	word	pos	en
 864	volto	verb	"first-person singular present indicative of voltar; ""I go back, I return"""
 865	trazer	verb	bring (to transport toward somebody/somewhere)
 866	olho	noun	eye; eye, center (of a storm, etc.)
-867	chamado	noun	calling
+867	chamado	verb	called, named — past participle of chamar (um homem chamado Tom = a man called Tom; foi chamado = he was called); (as a noun, m.) a call, a calling
 868	conseguiu	verb	third-person singular preterite indicative of conseguir
 869	exército	noun	army
 870	através	adv	through, across (from one side to the other)
@@ -940,7 +940,7 @@ rank	word	pos	en
 939	levou	verb	third-person singular preterite indicative of levar
 940	passada	adj	feminine singular of passado
 941	guarda	noun	guard (person who protects or watches over something or someone)
-942	controlo	noun	control (influence or authority over something)
+942	controlo	noun	control (m.) — European spelling; Brazilian Portuguese writes controle (fora de controlo = out of control); I control — first person of controlar (controlo meus pensamentos = I control my thoughts)
 943	daí	contraction	then, afterwards, thus
 944	apartamento	noun	flat, apartment
 945	segredo	noun	secret
@@ -991,7 +991,7 @@ rank	word	pos	en
 990	quente	adj	hot, warm
 991	querias	verb	second-person singular imperfect indicative of querer
 992	prometo	verb	first-person singular present indicative of prometer
-993	saia	noun	a woman's skirt
+993	saia	verb	get out!, leave! — imperative and subjunctive of sair (saia daqui = get out of here; que ele saia = that he leave); (as a noun, f.) skirt
 994	padre	noun	ecclesiastical priest (Christian clergyman who performs masses)
 995	detective	noun	pre-reform spelling
 996	ouro	noun	gold (chemical element)
@@ -1076,7 +1076,7 @@ rank	word	pos	en
 1075	esperança	noun	hope; katydid (any insect in the family Tettigoniidae)
 1076	iorque	name	York (a city in North Yorkshire, England)
 1077	sente	verb	first/third-person singular present subjunctive
-1078	falo	noun	phallus
+1078	falo	verb	I speak, I talk — first person of falar (falo português = I speak Portuguese; falo sério = I'm serious; com quem eu falo? = who am I speaking to?); (as a noun, m., technical) phallus
 1079	acaso	adv	by chance; maybe
 1080	saúde	noun	health (state of being free from disease)
 1081	trata	verb	third-person singular present indicative
@@ -1117,7 +1117,7 @@ rank	word	pos	en
 1116	mestre	noun	master; mentor
 1117	conselho	noun	advice; council
 1118	perdeu	verb	third-person singular preterite indicative of perder
-1119	serão	noun	evening; overtime
+1119	serão	verb	they will be; you (plural) will be — future of ser (todos serão felizes = everyone will be happy; meninos serão meninos = boys will be boys); (as a noun, m., rare) evening work, overtime
 1120	apesar	adv	despite, notwithstanding
 1121	computador	adj	computing (which performs computations)
 1122	alvo	adj	white; pure
@@ -1161,12 +1161,12 @@ rank	word	pos	en
 1160	vossas	det	feminine plural of vosso
 1161	foto	noun	photo; photograph
 1162	humanos	adj	masculine plural of humano
-1163	tira	noun	strip (long, thin piece of a bigger item)
+1163	tira	verb	takes off, takes out, removes — from tirar (tira as mãos = hands off; tira uma foto = take a photo); take it off! (imperative); (as a noun, f.) strip, comic strip; (slang) cop
 1164	meninas	noun	plural of menina
 1165	verificar	verb	to verify; to observe, to occur
 1166	terrível	adj	terrible
 1167	monte	noun	mount; a mountain or large hill
-1168	pedido	adj	requested
+1168	pedido	noun	order, request (m.) (fazer um pedido = to place an order; seu pedido está pronto = your order is ready); asked for, requested — past participle of pedir (ter pedido = to have asked for)
 1169	ficas	verb	second-person singular present indicative of ficar
 1170	chorar	verb	to cry; to weep (to shed tears from the eyes)
 1171	céus	noun	plural of céu
@@ -1180,7 +1180,7 @@ rank	word	pos	en
 1179	parecem	verb	third-person plural present indicative of parecer
 1180	exemplo	noun	example (all senses)
 1181	rio	noun	river; a large amount of anything
-1182	liga	noun	alloy (metal combined of more elements)
+1182	liga	verb	calls, phones; turns on — from ligar (me liga = call me; liga a TV = turn on the TV; não liga = never mind, don't take any notice); (as a noun, f.) league (sports); alloy
 1183	jeito	noun	way, manner, fashion (how something is done)
 1184	põe	verb	third-person singular present indicative
 1185	oficial	adj	official
@@ -1228,7 +1228,7 @@ rank	word	pos	en
 1227	par	noun	pair; partner
 1228	perdido	adj	lost; hopeless
 1229	agentes	noun	plural of agente
-1230	dado	noun	a die
+1230	dado	verb	given — past participle of dar (isto me foi dado = this was given to me; dado que = given that; em um dado momento = at a given moment); (as a noun, m.) a piece of data (plural dados = data); a die, dice
 1231	imenso	adj	immense
 1232	nomes	noun	plural of nome
 1233	defesa	noun	defence (the act of defending)
@@ -1247,7 +1247,7 @@ rank	word	pos	en
 1246	tony	name	a male given name from English
 1247	terminar	verb	to finish; to complete (to reach the end of an activity)
 1248	acesso	noun	access (a way or means of approaching)
-1249	fato	noun	a set of clothing traditionally worn together, such as a uniform or national costume
+1249	fato	noun	fact (m.) — Brazilian spelling of facto (o fato é que = the fact is that; de fato = in fact); (European) suit, outfit
 1250	braço	noun	arm (upper limb)
 1251	saco	noun	bag; sack; balls, nuts (the scrotum)
 1252	lembrar	verb	to remember; to remind
@@ -1265,7 +1265,7 @@ rank	word	pos	en
 1264	sonhos	noun	plural of sonho
 1265	traz	verb	third-person singular present indicative
 1266	pernas	noun	plural of perna
-1267	ido	noun	Ido (artificial language reformed from Esperanto)
+1267	ido	verb	gone — past participle of ir (tinha ido = had gone; não deveria ter ido = I shouldn't have gone); (as a noun, m.) Ido, a constructed language reformed from Esperanto
 1268	pedi	verb	first-person singular preterite indicative
 1269	discutir	verb	to discuss; to argue, to quarrel
 1270	livros	noun	plural of livro
@@ -1276,7 +1276,7 @@ rank	word	pos	en
 1275	rádio	noun	radium (chemical element)
 1276	destruir	verb	to ruin, devastate (proceed with the destruction of, cause the destruction of)
 1277	silêncio	noun	silence (the lack of any sound)
-1278	peça	noun	piece (part of a larger whole)
+1278	peça	noun	piece, part (f.) (uma peça do carro = a car part); play (theatre) (peça de teatro); ask (for)! — imperative and subjunctive of pedir (peça para ele me ligar = ask him to call me; o que quer que me peça = whatever you ask of me)
 1279	bob	noun	curler (small cylindrical tube)
 1280	senti	verb	first-person singular preterite indicative
 1281	escolher	verb	to choose
@@ -1304,7 +1304,7 @@ rank	word	pos	en
 1303	costumava	verb	first/third-person singular imperfect indicative of costumar
 1304	mala	noun	suitcase; luggage
 1305	foder	verb	to fuck; to sexually penetrate someone
-1306	leve	adj	light (of low weight; not heavy)
+1306	leve	verb	take, carry (leve isto = take this — imperative and present subjunctive of levar); (as an adjective) light, not heavy; gentle, light (of little force)
 1307	daquela	contraction	contraction of de + aquela, literally “of/from that (feminine)”: feminine singular of daquele
 1308	memória	noun	memory (all senses)
 1309	rabo	noun	tail; butt, buttocks
@@ -1335,7 +1335,7 @@ rank	word	pos	en
 1334	igual	adj	equal
 1335	prestes	adj	ready, prepared
 1336	paris	verb	second-person plural present indicative of parir
-1337	corre	noun	strife, fight (hard work)
+1337	corre	verb	runs; run!, hurry! (he, she, você — present of correr: ele corre rápido = he runs fast; corre! = run!, hurry!); (as a noun, m., Brazilian slang) o corre = hustle, a side job or gig
 1338	h	noun	abbreviation of hora
 1339	inteiro	adj	whole; entire; in full (with nothing missing)
 1340	branca	adj	feminine singular of branco
@@ -1389,7 +1389,7 @@ rank	word	pos	en
 1388	mentira	noun	lie (intentionally untrue statement)
 1389	férias	noun	vacation (period taken off work or education)
 1390	emergência	noun	emergency; emergence
-1391	toca	noun	den, burrow; refuge, hiding place
+1391	toca	verb	plays (an instrument); touches; rings (he, she, você — from tocar: ele toca muito bem = he plays very well; o telefone toca = the phone is ringing); toca aqui! = high five!; (as a noun, f.) den, burrow; hideout
 1392	americano	adj	American (of the United States of America)
 1393	coragem	noun	courage; boldness; guts (the quality of not being scared easily)
 1394	encontrado	verb	past participle of encontrar
@@ -1515,7 +1515,7 @@ rank	word	pos	en
 1514	peixe	noun	fish
 1515	encontramos	verb	first-person plural present indicative
 1516	gozar	verb	to enjoy; to enjoy oneself
-1517	partido	noun	party (political group)
+1517	partido	adj	broken, split, cracked (past participle of partir: coração partido = broken heart); departed, gone (já terei partido = I'll already have left); (as a noun, m.) party (political group)
 1518	daniel	name	a male given name from Hebrew, equivalent to English Daniel
 1519	voo	noun	flight
 1520	louca	adj	feminine singular of louco
@@ -1541,7 +1541,7 @@ rank	word	pos	en
 1540	lugares	noun	plural of lugar
 1541	obviamente	adv	obviously, evidently, clearly
 1542	corrida	noun	run (the act of running)
-1543	deixado	adj	abandoned; indifferent, disinterested
+1543	deixado	adj	left, left behind; dumped (past participle of deixar: eu fui deixado para trás = I was left behind; ele foi deixado pela namorada = he was dumped by his girlfriend); allowed, let; (as an adjective) abandoned, neglected; indifferent
 1544	rapidamente	adv	rapidly, quickly
 1545	central	adj	central
 1546	notícia	noun	news (a single news item)
@@ -1561,7 +1561,7 @@ rank	word	pos	en
 1560	fará	verb	third-person singular future indicative of fazer
 1561	tantas	det	feminine plural of tanto
 1562	correcto	adj	pre-reform spelling
-1563	ligado	adj	connected, linked
+1563	ligado	adj	turned on, switched on (o rádio está ligado = the radio is on — past participle of ligar); connected, linked; attached to, close to (ele é ligado a ela); (colloquial) alert, switched on, aware
 1564	poderes	verb	second-person singular personal infinitive of poder
 1565	relógio	noun	clock (instrument to measure or keep track of time)
 1566	entanto	noun	only used in no entanto
@@ -1569,12 +1569,12 @@ rank	word	pos	en
 1568	braços	noun	plural of braço
 1569	marca	noun	mark; trace (visible impression or sign)
 1570	regressar	verb	to return, revert, regress
-1571	baixa	noun	downtown; medical discharge
+1571	baixa	adj	low; short (feminine of baixo: eu sou mais baixa que ele = I'm shorter than him; a cadeira é baixa = the chair is low); lowers, downloads (he, she, você — from baixar: Tom baixa filmes = Tom downloads movies); (as a noun, f.) discharge, sick leave; (European) a Baixa = downtown
 1572	andava	verb	first/third-person singular imperfect indicative of andar
 1573	números	noun	plural of número
 1574	forças	noun	plural of força
 1575	verde	adj	green (color/colour)
-1576	pega	noun	magpie (bird of the genus Pica)
+1576	pega	verb	take, grab, catch (pega a outra cadeira! = take the other chair! — imperative and 3rd person of pegar); pega leve = take it easy; (as a noun, f.) magpie
 1577	floresta	noun	forest (dense collection of trees)
 1578	total	adj	complete; entire (to the greatest extent)
 1579	ponte	noun	bridge (construction or natural feature that spans a divide)
@@ -1590,7 +1590,7 @@ rank	word	pos	en
 1589	tiveram	verb	third-person plural preterite/pluperfect indicative of ter
 1590	língua	noun	tongue; language
 1591	descansar	verb	to rest
-1592	presa	noun	prey (that which may be seized by animals)
+1592	presa	adj	arrested; imprisoned; stuck, trapped (feminine of preso: eu estou presa = I'm trapped; você já foi presa? = have you been arrested?); (as a noun, f.) prey; fang, tusk; female prisoner
 1593	investigar	verb	to research; to investigate
 1594	meter	verb	to put in; to insert into
 1595	oi	intj	hey
@@ -1605,7 +1605,7 @@ rank	word	pos	en
 1604	ficamos	verb	first-person plural present indicative
 1605	cabrão	noun	billy goat; masculine equivalent of cabra (“goat”)
 1606	busca	noun	searching; quest
-1607	ouvido	noun	hearing; ear, especially the inner part of the ear
+1607	ouvido	verb	heard (past participle of ouvir: não havia som a ser ouvido = no sound was to be heard; você terá ouvido as notícias = you'll have heard the news); (as a noun, m.) ear, the inner ear; hearing (ter ouvido para música = to have an ear for music)
 1608	receio	noun	fear, awe; concern, apprehension, trepidation
 1609	cristo	name	Christ (title given to Jesus as the Messiah)
 1610	atirar	verb	to throw; to fire (shoot a gun)
@@ -1672,7 +1672,7 @@ rank	word	pos	en
 1671	profissional	adj	professional
 1672	decidir	verb	to decide; to determine
 1673	anel	noun	ring (round piece of metal worn around the finger)
-1674	pago	adj	paid (having been paid for)
+1674	pago	adj	paid (past participle of pagar: eu sou pago por dia = I'm paid by the day; o dinheiro não vai ser pago = the money won't be paid); I pay, I'll pay (eu te pago o almoço = I'll buy you lunch — present of pagar)
 1675	esperto	adj	smart, intelligent
 1676	inteira	adj	feminine singular of inteiro
 1677	idiotas	adj	masculine/feminine plural of idiota
@@ -1688,7 +1688,7 @@ rank	word	pos	en
 1687	agradeço	verb	first-person singular present indicative of agradecer
 1688	podiam	verb	third-person plural imperfect indicative of poder
 1689	estúpida	adj	feminine singular of estúpido
-1690	aberta	noun	a sunny spell (the period of time between rain showers)
+1690	aberta	adj	open (feminine of aberto: a porta está aberta = the door is open; não deixe a porta aberta = don't leave the door open); (as a noun, f.) a break in the rain, sunny spell; clearing, glade
 1691	caro	adj	greatly valued; dear; loved; lovable
 1692	leite	noun	milk (white liquid produced by the mammary glands)
 1693	mercado	noun	market; marketplace (open area in a town housing a public market)
@@ -1708,7 +1708,7 @@ rank	word	pos	en
 1707	levantar	verb	to stand up; to get up (to rise from a lying, sitting or fallen position)
 1708	crescer	verb	to grow (become bigger or taller)
 1709	continue	verb	first/third-person singular present subjunctive
-1710	via	noun	a way; a path; gauge (distance between the rails of a railway)
+1710	via	verb	saw; used to see, used to watch (I, he, she, você — imperfect of ver: eu não via muita televisão = I didn't use to watch much television; ela já não o via = she hadn't seen him in a long time); (as a noun, f.) way, road, route; segunda via = duplicate copy of a document; (as a preposition) via, by way of
 1711	ouçam	verb	third-person plural present subjunctive
 1712	imprensa	noun	the press (collective term for printed media)
 1713	uso	noun	use; usage, habit
@@ -1829,7 +1829,7 @@ rank	word	pos	en
 1828	serviços	noun	plural of serviço
 1829	universo	noun	universe
 1830	frança	name	France
-1831	bocadinho	noun	modicum; mite
+1831	bocadinho	noun	a little bit, a tiny bit (m., diminutive of bocado “a bit, a mouthful”: um bocadinho mais = a little bit more); chiefly European Portuguese — Brazilian Portuguese prefers um pouquinho
 1832	daqueles	contraction	contraction of de + aqueles, literally “of/from those (masculine plural)”: masculine plural of daquele
 1833	próprios	adj	masculine plural of próprio
 1834	al	noun	initialism of alojamento local
@@ -1870,17 +1870,17 @@ rank	word	pos	en
 1869	vivos	adj	masculine plural of vivo
 1870	gás	noun	gas (material in an intermediate state between liquid and plasma)
 1871	sociedade	noun	society (group of people sharing culture)
-1872	mata	noun	woods, forest (collection of trees)
+1872	mata	verb	kills (he, she, você — from matar: enquanto você mata o tempo, o tempo mata você = while you kill time, time kills you); mata! = kill it! (mata com fogo! = kill it with fire!); (as a noun, f.) woods, forest (a Mata Atlântica = the Atlantic Forest)
 1873	lar	noun	home (place or building where one dwells)
 1874	direitos	noun	plural of direito
 1875	instante	adj	imminent; urgent
-1876	leste	noun	east (compass point)
+1876	leste	noun	east (m., compass point: o leste = the east, a leste de = east of); (European) you read (tu, preterite of ler: já leste o livro? = have you read the book yet?)
 1877	usado	adj	used; worn, worn-out
 1878	ultimamente	adv	lately, recently, of late
 1879	mantém	verb	third-person singular present indicative
 1880	original	adj	original (relating to the origin or beginning)
 1881	zangado	verb	past participle of zangar
-1882	vinha	noun	vineyard; grapevine
+1882	vinha	verb	was coming, used to come (I, he, she, você — imperfect of vir: minha filha vinha me ver = my daughter used to come see me; achei que vinha hoje = I thought you were coming today); (as a noun, f.) vineyard; grapevine
 1883	familiar	adj	familiar (known to one)
 1884	parecido	adj	similar
 1885	imagino	verb	"first-person singular present indicative of imaginar; ""I imagine"""
@@ -1971,7 +1971,7 @@ rank	word	pos	en
 1970	falso	adj	false; untrue; not factual; wrong
 1971	loucos	noun	plural of louco
 1972	vencer	verb	to win; to defeat, overcome
-1973	paga	noun	payback
+1973	paga	adj	paid (feminine of pago: a conta deve ser paga hoje = the bill must be paid today); pays (he, she, você — from pagar: quanto ele paga? = how much does he pay?); (as a noun, f.) payback, comeuppance
 1974	neve	noun	snow
 1975	protecção	noun	pre-reform spelling
 1976	adorava	verb	first/third-person singular imperfect indicative of adorar

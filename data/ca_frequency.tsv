@@ -505,11 +505,11 @@ rank	word	pos	en
 504	difícil	adj	difficult
 505	agent	noun	agent
 506	fàcil	adj	easy; likely
-507	pregunta	noun	question
+507	pregunta	noun	question (f.); also he/she/it asks (third-person singular present indicative of preguntar); ask! (second-person singular imperative): pregunta-li, ask him
 508	açò	pron	this, it
-509	creu	noun	cross; withers
+509	creu	verb	he/she/it believes, thinks (third-person singular present indicative of creure): creu que sí, he thinks so; believe! (second-person singular imperative): creu-me, believe me; also (f.) cross
 510	agafar	verb	to take, hold; to pick up
-511	segons	prep	according to; in accordance with
+511	segons	prep	according to: segons ell, according to him; in accordance with; also seconds (m. plural of segon): seixanta segons, sixty seconds; second (ordinal), plural
 512	treballar	verb	to suffer, exert oneself
 513	lluny	adv	far
 514	gairebé	adv	almost, nearly
@@ -519,7 +519,7 @@ rank	word	pos	en
 518	mama	noun	mom; mamma
 519	deia	verb	first/third-person singular imperfect indicative of dir
 520	acaba	verb	third-person singular present indicative
-521	sola	noun	sole (the bottom of a shoe or boot)
+521	sola	adj	alone, on her own (feminine of sol): visc sola, I live alone; single, one single: ni una sola paraula, not a single word; also (f.) sole (of a shoe)
 522	pogut	verb	past participle of poder
 523	morts	adj	masculine plural of mort
 524	sopar	verb	to dine, have dinner (have one's evening meal)
@@ -528,10 +528,10 @@ rank	word	pos	en
 527	última	adj	feminine singular of últim
 528	feia	verb	first/third-person singular imperfect indicative of fer
 529	vós	pron	you
-530	tret	noun	trait; shot (with a gun)
+530	tret	verb	taken out, removed (past participle of treure): m'ho han tret, they've taken it from me; except, apart from; unless (tret de, tret que): tret que plogui, unless it rains; also (m.) trait, feature; shot (from a gun)
 531	allò	pron	that, that over there, it
 532	esperar	verb	to wait, wait for, await
-533	assassinat	noun	assassination
+533	assassinat	noun	murder, killing (m.); assassination; also murdered, killed (past participle of assassinar): va ser assassinat, he was murdered
 534	pensat	verb	past participle of pensar
 535	feliç	adj	happy
 536	ordre	noun	order, organization, discipline
@@ -545,7 +545,7 @@ rank	word	pos	en
 544	arma	noun	weapon
 545	diré	verb	first-person singular future indicative of dir
 546	petita	adj	feminine singular of petit
-547	passant	adj	passing; passant
+547	passant	verb	happening, going on; passing (gerund of passar): què està passant?, what's happening?; also (m., f.) passer-by
 548	son	det	his, her, its; their
 549	faria	verb	first/third-person singular conditional of fer
 550	portes	noun	plural of porta
@@ -591,7 +591,7 @@ rank	word	pos	en
 590	aniré	verb	first-person singular future indicative of anar
 591	descomptat	verb	past participle of descomptar
 592	país	noun	country, land (a set region of land having particular human occupation or agreed limits)
-593	posa	noun	pose (especially of an artist's model)
+593	posa	verb	he/she/it puts, places (third-person singular present indicative of posar); put! (second-person singular imperative): posa la cadira aquí, put the chair here; also (f.) pose
 594	entens	verb	second-person singular present indicative of entendre
 595	pares	noun	parents
 596	pitjor	adj	worst; worse
@@ -610,7 +610,7 @@ rank	word	pos	en
 609	estaves	verb	second-person singular imperfect indicative of estar
 610	exèrcit	noun	army
 611	parlat	verb	past participle of parlar
-612	surt	noun	start, fright
+612	surt	verb	he/she/it goes out, leaves, comes out (third-person singular present indicative of sortir): surt a treballar a les set, he leaves for work at seven; get out!, come out! (second-person singular imperative)
 613	coneixes	verb	second-person singular present indicative of conèixer
 614	estimada	verb	feminine singular of estimat
 615	sisplau	adv	contraction of si us plau; please
@@ -629,7 +629,7 @@ rank	word	pos	en
 628	matat	verb	past participle of matar
 629	sabeu	verb	second-person plural present indicative of saber
 630	pressa	noun	hurry, haste
-631	troba	noun	find, discovery
+631	troba	verb	he/she/it finds (third-person singular present indicative of trobar); es troba, he/she feels, is located: es troba bé, he feels well; find! (second-person singular imperative); also (f.) a find, discovery
 632	vaixell	noun	vessel, boat, ship
 633	calla	verb	third-person singular present indicative
 634	gos	noun	dog; a lazy man
@@ -637,7 +637,7 @@ rank	word	pos	en
 636	vagi	verb	inflection of anar
 637	armes	noun	plural of arma
 638	senyoreta	noun	girl; young lady
-639	feu	noun	fiefdom, fee
+639	feu	verb	you (plural) do, make (second-person plural present indicative of fer): què feu?, what are you doing?; do!, make! (second-person plural imperative): feu servir, use; in literary narrative also he/she/it did, made (passat simple of fer); also (m.) fief, fiefdom
 640	sinó	conj	but (on the contrary)
 641	parles	noun	plural of parla
 642	au	intj	now (as an incitement to action or to a decision)
@@ -647,7 +647,7 @@ rank	word	pos	en
 646	tracta	verb	third-person singular present indicative
 647	morta	adj	feminine singular of mort
 648	siguis	verb	second-person singular present subjunctive of ser
-649	roba	noun	fabric, textile
+649	roba	noun	clothes, clothing (f.): la roba bruta, the dirty laundry; cloth, fabric; also he/she/it steals (third-person singular present indicative of robar)
 650	estarà	verb	third-person singular future indicative of estar
 651	tingui	verb	first/third-person singular present subjunctive
 652	comprar	verb	to buy; to buy off, to win over
@@ -664,9 +664,9 @@ rank	word	pos	en
 663	perfecte	adj	perfect; complete, finished
 664	bastant	adj	enough, sufficient
 665	para	verb	third-person singular present indicative
-666	posat	noun	air, attitude, expression
+666	posat	verb	put, placed, set (past participle of posar): hem posat un nou sostre, we've put on a new roof; also (m.) air, look, demeanour
 667	enviar	verb	to send; to swallow
-668	prova	noun	exam; test
+668	prova	noun	test, exam (f.); proof, evidence: no tenim cap prova, we have no proof; also he/she/it tries, tastes (third-person singular present indicative of provar); try it! (second-person singular imperative): prova-ho, try it
 669	broma	noun	joke, practical joke
 670	companyia	noun	company (social visitors and companions)
 671	carrer	noun	street; road
@@ -723,9 +723,9 @@ rank	word	pos	en
 722	real	adj	real
 723	mar	noun	sea
 724	canviat	verb	past participle of canviar
-725	conegut	adj	known; well-known
+725	conegut	verb	known, met (past participle of conèixer): he conegut la seva germana, I've met his sister; well-known, famous; also (m., f.) acquaintance
 726	acabo	verb	first-person singular present indicative of acabar
-727	mala	noun	mailbag
+727	mala	adj	bad (feminine of mal, used before the noun): mala sort, bad luck; mala notícia, bad news; No et facis mala sang, don't torment yourself; also (f.) mailbag
 728	almenys	adv	at least
 729	entendre	verb	to understand
 730	tenies	verb	second-person singular imperfect indicative of tenir
@@ -745,7 +745,7 @@ rank	word	pos	en
 744	professor	noun	professor; teacher
 745	york	name	York (a city in England)
 746	objectiu	adj	objective (not influenced by emotions or prejudices)
-747	vista	noun	sight, vision (the ability to see)
+747	vista	noun	sight, eyesight (f.): va perdre la vista, he lost his sight; view: punt de vista, point of view; a primera vista, at first sight; also seen (feminine of vist, past participle of veure): l'has vista?, have you seen her?
 748	dimonis	noun	plural of dimoni
 749	foto	noun	photograph
 750	funciona	verb	third-person singular present indicative
@@ -759,7 +759,7 @@ rank	word	pos	en
 758	pena	noun	punishment; penalty
 759	idiota	adj	idiotic
 760	agraden	verb	third-person plural present indicative of agradar
-761	sa	adj	healthy
+761	sa	adj	healthy, wholesome: menjar sa, healthy food; sa i estalvi, safe and sound; also his, her (unstressed possessive, before a kinship noun): sa mare, his mother; and, in Balearic, the feminine article 'the'
 762	avió	noun	aeroplane, airplane, plane
 763	ordres	noun	plural of ordre
 764	vi	noun	wine (alcoholic beverage)
@@ -821,12 +821,12 @@ rank	word	pos	en
 820	accident	noun	accident (a chance occurrence)
 821	minut	noun	minute (unit of time)
 822	seguida	verb	feminine singular of seguit
-823	tracte	noun	tract; manner, behaviour
+823	tracte	noun	deal, agreement (m.): fer un tracte, to make a deal; tracte fet, it's a deal; treatment, the way someone is treated: bon tracte; dealings, contact; also tract (in anatomy or of land)
 824	havien	verb	third-person plural imperfect indicative of haver
-825	rebut	noun	receipt (acknowledgement that something has been received)
+825	rebut	verb	received (past participle of rebre): he rebut la teva carta, I've received your letter; also (m.) receipt
 826	fons	noun	bottom (lowest part)
 827	coll	noun	neck; throat
-828	riu	noun	river
+828	riu	noun	river (m.): l'aigua d'aquest riu, this river's water; also he/she/it laughs (third-person singular present indicative of riure): qui riu últim, riu millor, he who laughs last laughs best
 829	edifici	noun	building
 830	reunió	noun	meeting, gathering (formal assembly of people)
 831	company	noun	companion, colleague
@@ -842,11 +842,11 @@ rank	word	pos	en
 841	pròpia	adj	feminine singular of propi
 842	estaven	verb	third-person plural imperfect indicative of estar
 843	preguntar	verb	to ask; to ask oneself, to wonder
-844	truca	noun	exchange, swap; shooter (large marble)
+844	truca	verb	he/she/it calls, phones; knocks (third-person singular present indicative of trucar); call!, knock! (second-person singular imperative): truca'm si necessites ajuda, call me if you need help; also (f.) swap; shooter (large marble)
 845	enviat	verb	past participle of enviar
 846	juro	verb	first-person singular present indicative of jurar
-847	baixa	noun	drop, fall, decrease
-848	marxa	noun	walk (act of walking)
+847	baixa	verb	he/she/it goes down, comes down; lowers, turns down (third-person singular present indicative of baixar); go down!, turn it down! (second-person singular imperative): baixa el volum, turn the volume down; low, short (feminine of baix); also (f.) drop, fall; sick leave: estar de baixa
+848	marxa	verb	he/she/it leaves, goes away (third-person singular present indicative of marxar); leave!, go away! (second-person singular imperative); also (f.) march; motion, running: un tren en marxa, a moving train; posar en marxa, to start up; gear (of a vehicle)
 849	volies	verb	second-person singular imperfect indicative of voler
 850	confiar	verb	to entrust; to tell (a secret)
 851	cent	num	hundred
@@ -864,7 +864,7 @@ rank	word	pos	en
 863	peus	noun	plural of peu
 864	robar	verb	to rob, steal
 865	edat	noun	age (duration of being alive)
-866	coi	noun	a type of hammock made of sailcloth used as a makeshift bunk
+866	coi	intj	the hell, on earth (euphemistic intensifier, a softened cony): què coi vols?, what the hell do you want?; damn!, blast! (mild exclamation); also (m.) a sailcloth hammock
 867	vostès	pron	you (formal, plural)
 868	miri	verb	first/third-person singular present subjunctive
 869	germans	noun	plural of germà
@@ -907,7 +907,7 @@ rank	word	pos	en
 906	segona	adj	feminine singular of segon
 907	hagis	verb	second-person singular present subjunctive of haver
 908	batalla	noun	battle (a fight between two armed forces)
-909	ment	noun	the mind; the spirit
+909	ment	noun	mind (f.): tenir en ment, to bear in mind; the spirit; also he/she/it lies, is lying (third-person singular present indicative of mentir)
 910	seran	verb	third-person plural future indicative of ser
 911	donaré	verb	first-person singular future indicative of donar
 912	arreu	adv	successively; immediately
@@ -943,7 +943,7 @@ rank	word	pos	en
 942	banc	noun	bench; bank (for money)
 943	hauré	verb	first-person singular future indicative of haver
 944	contacte	noun	contact
-945	lluita	noun	wrestling; fight
+945	lluita	noun	fight, struggle (f.): la lluita per la llibertat, the struggle for freedom; wrestling (the sport); also he/she/it fights, struggles (third-person singular present indicative of lluitar)
 946	empresa	noun	enterprise, undertaking
 947	castell	noun	castle (fortified structure)
 948	pont	noun	a bridge (construction)
@@ -979,7 +979,7 @@ rank	word	pos	en
 978	terrible	adj	terrible (causing fear)
 979	causa	noun	cause (the source of, the reason for)
 980	víctima	noun	victim
-981	mata	noun	bush, shrub; mastic (tree)
+981	mata	verb	he/she/it kills (third-person singular present indicative of matar); kill! (second-person singular imperative): això em mata, this is killing me; also (f.) bush, shrub
 982	estúpid	adj	stupid
 983	escapar	verb	to escape
 984	interessant	adj	interesting
@@ -1012,7 +1012,7 @@ rank	word	pos	en
 1011	fugir	verb	to flee; to run away
 1012	fotos	noun	plural of foto
 1013	deixis	verb	second-person singular present subjunctive of deixar
-1014	plena	noun	in a castell with three or five castellers per level
+1014	plena	adj	full (feminine of ple): l'ampolla està plena, the bottle is full; full, complete: plena confiança, full confidence; also (f.) in castells, the column to the right of the rengla
 1015	pistola	noun	pistol; gun
 1016	experiència	noun	experience
 1017	mon	det	my
@@ -1056,7 +1056,7 @@ rank	word	pos	en
 1055	diferents	adj	plural of diferent
 1056	viva	adj	feminine singular of viu
 1057	quasi	adv	almost, nearly, quasi
-1058	ves	noun	panel, row
+1058	ves	verb	go! (second-person singular imperative of anar; written vés before the 2016 reform): ves a dormir, go to sleep; ves a saber, who knows; ves per on, would you believe it; also a panel or row (rare)
 1059	totalment	adv	totally
 1060	podrien	verb	third-person plural conditional of poder
 1061	parlo	verb	first-person singular present indicative of parlar
@@ -1098,8 +1098,8 @@ rank	word	pos	en
 1097	tenien	verb	third-person plural imperfect indicative of tenir
 1098	forta	noun	female equivalent of fort
 1099	estiguis	verb	second-person singular present subjunctive of estar
-1100	mitja	noun	stocking
-1101	corrent	adj	running, flowing
+1100	mitja	adj	half (feminine of mig): mitja hora, half an hour; les tres i mitja, half past three; la mitja part, halftime; also (f.) stocking; knitting: fer mitja, to knit
+1101	corrent	verb	running (gerund of córrer): està corrent, he's running; also (m.) current, flow: corrent elèctric, electric current; estar al corrent, to be up to date; and ordinary, everyday: una cosa corrent
 1102	seua	pron	feminine singular of seu
 1103	horrible	adj	horrible
 1104	seriosament	adv	seriously (in a serious way)
@@ -1122,7 +1122,7 @@ rank	word	pos	en
 1121	exacte	adj	exact
 1122	esperem	verb	first-person plural present indicative/subjunctive
 1123	avi	noun	grandfather; grandparents
-1124	tanca	noun	fence; hurdle
+1124	tanca	verb	he/she/it closes, shuts; locks (third-person singular present indicative of tancar); close!, shut! (second-person singular imperative): tanca la porta, close the door; also (f.) fence, enclosure; hurdle
 1125	malalt	adj	sick, ill
 1126	faran	verb	third-person plural future indicative of fer
 1127	codi	noun	code
@@ -1261,7 +1261,7 @@ rank	word	pos	en
 1260	sembles	verb	second-person singular present indicative of semblar
 1261	construir	verb	to build; to construct
 1262	agents	noun	plural of agent
-1263	mostra	noun	sample; sign
+1263	mostra	verb	he/she/it shows (third-person singular present indicative of mostrar); show! (second-person singular imperative): mostra'm com es fa, show me how it's done; also (f.) sample, specimen; sign, display
 1264	recerca	noun	research
 1265	saga	noun	saga; series
 1266	enemics	noun	plural of enemic
@@ -1300,8 +1300,8 @@ rank	word	pos	en
 1299	damunt	adv	on top; before
 1300	oferta	noun	offer (a proposal that has been made)
 1301	semblar	verb	to seem, look; to look like, resemble
-1302	fou	noun	a narrow cove; a narrow passage, a ravine
-1303	partit	adj	per pale
+1302	fou	verb	he/she/it was (third-person singular preterite indicative of ser and ésser — the literary passat simple: fou nomenat president, he was appointed president; everyday Catalan says va ser); also (m.) a narrow gorge, a ravine
+1303	partit	noun	match, game (m.): un partit de beisbol, a baseball game; also (m.) party, political party; split, divided (past participle of partir); per pale, in heraldry
 1304	direcció	noun	direction
 1305	responsable	adj	responsible
 1306	històries	noun	plural of història
@@ -1325,7 +1325,7 @@ rank	word	pos	en
 1324	combat	noun	combat
 1325	partir	verb	to divide, to split
 1326	caminar	verb	to walk
-1327	busca	noun	a thin branch, straw, spill, etc.
+1327	busca	verb	he/she/it looks for, searches for (third-person singular present indicative of buscar): busca feina, he's looking for work; look for!, search! (second-person singular imperative); also (f.) hand of a clock, pointer; a thin twig or straw
 1328	mataré	verb	first-person singular future indicative of matar
 1329	fets	verb	masculine plural of fet
 1330	mòbil	adj	mobile; movable
@@ -1355,7 +1355,7 @@ rank	word	pos	en
 1354	tindré	verb	first-person singular future indicative of tenir
 1355	ocupat	verb	past participle of ocupar
 1356	sentiments	noun	plural of sentiment
-1357	passada	noun	large step; passing, crossing
+1357	passada	adj	last, past (feminine singular of passat): la setmana passada, last week; also (f.) a pass, a going-over; una passada, colloquially, something amazing
 1358	anomenat	adj	so-called
 1359	puguem	verb	first-person plural present subjunctive
 1360	acceptar	verb	to accept
@@ -1387,7 +1387,7 @@ rank	word	pos	en
 1386	ós	noun	superseded spelling of os (“bear”), deprecated in the 2016 orthographic reform by the Institute of Catalan Studies
 1387	foscor	noun	darkness
 1388	apartament	noun	separation, removal, distancing
-1389	promesa	noun	promise
+1389	promesa	noun	promise (f.): has de mantenir la teva promesa, you must keep your promise; also fiancée, betrothed woman (feminine of promès)
 1390	robat	verb	past participle of robar
 1391	maco	adj	beautiful, pretty
 1392	vent	noun	wind (movement of air)
@@ -1413,7 +1413,7 @@ rank	word	pos	en
 1412	xicota	noun	female equivalent of xicot
 1413	efecte	noun	effect
 1414	alerta	verb	third-person singular present indicative
-1415	obert	adj	open (not hidden)
+1415	obert	adj	open, not closed: el supermercat és obert, the supermarket is open; opened (past participle of obrir): he obert la porta, I've opened the door; also open in the sense of frank, not hidden
 1416	vermell	adj	red, vermilion (blood red)
 1417	detalls	noun	plural of detall
 1418	esbrinar	verb	to husk (remove the husks from)
@@ -1430,7 +1430,7 @@ rank	word	pos	en
 1429	muntanya	noun	mountain
 1430	assumpte	adj	assumed (miraculously taken into heaven)
 1431	envia	verb	third-person singular present indicative
-1432	crida	noun	call; request
+1432	crida	verb	he/she/it calls, shouts (third-person singular present indicative of cridar); call!, shout! (second-person singular imperative): crida la policia, call the police; also (f.) call, appeal, public summons
 1433	serem	verb	first-person plural future indicative of ser
 1434	tindria	verb	first/third-person singular conditional of tenir
 1435	acabem	verb	first-person plural present indicative/subjunctive
@@ -1484,7 +1484,7 @@ rank	word	pos	en
 1483	riure	noun	laugh
 1484	carretera	noun	road
 1485	llengua	noun	tongue; language
-1486	clara	noun	white (the albumen of bird eggs)
+1486	clara	adj	clear, bright, light-coloured (feminine singular of clar): l'elecció està clara, the choice is clear; also (f.) white of an egg
 1487	secrets	adj	masculine plural of secret
 1488	cadàver	noun	cadaver
 1489	jutge	noun	judge
@@ -1523,7 +1523,7 @@ rank	word	pos	en
 1522	créixer	verb	to grow
 1523	gràcia	noun	grace (elegance in manner or movement)
 1524	acaben	verb	third-person plural present indicative of acabar
-1525	menja	noun	dish (part of a meal) (especially a tasty or fancy one)
+1525	menja	verb	he/she/it eats (third-person singular present indicative of menjar): ell no menja carn, he doesn't eat meat; eat! (second-person singular imperative): menja menjar ràpid, eat fast food; also (f.) dish, a tasty or fancy one
 1526	braços	noun	plural of braç
 1527	accés	noun	access (way of approaching or entering)
 1528	nacional	adj	national
@@ -1552,7 +1552,7 @@ rank	word	pos	en
 1551	gira	noun	tour; turn-up, cuff (of trousers)
 1552	petó	noun	kiss
 1553	dolenta	adj	feminine singular of dolent
-1554	treu	noun	a type of sail
+1554	treu	verb	he/she/it takes out, removes, gets out (third-person singular present indicative of treure): qui treu les escombraries, the one who takes out the rubbish; take out! (second-person singular imperative); also (m.) treu, a square sail
 1555	pocs	det	masculine plural of poc
 1556	faries	verb	second-person singular conditional of fer
 1557	convertit	verb	past participle of convertir
@@ -1584,14 +1584,14 @@ rank	word	pos	en
 1583	mentides	noun	plural of mentida
 1584	criminal	adj	criminal (against the law)
 1585	penseu	verb	second-person plural present indicative/subjunctive
-1586	puja	noun	ascent, rise, gain
+1586	puja	verb	he/she/it goes up, climbs, rises; raises, puts up (third-person singular present indicative of pujar); get in!, go up! (second-person singular imperative): puja al cotxe, get in the car; also (f.) rise, increase
 1587	esperit	noun	spirit; mind, intellect
 1588	anglès	noun	Englishman; creditor
 1589	casat	adj	married
 1590	porc	noun	pig, swine; pork
 1591	diguem	verb	first-person plural present subjunctive
 1592	paga	verb	third-person singular present indicative
-1593	feta	noun	fact
+1593	feta	verb	done, made (feminine singular of fet, past participle of fer): la feina està feta, the work is done; also (f.) deed, notable event
 1594	enfadat	adj	annoyed
 1595	sospitós	adj	suspicious
 1596	total	adj	total
@@ -1655,7 +1655,7 @@ rank	word	pos	en
 1654	parts	noun	plural of part (birthing)
 1655	militar	adj	military
 1656	familiar	adj	familiar; familial
-1657	seguit	adj	consecutive, continuous
+1657	seguit	verb	followed (past participle of seguir): quin carrer has seguit?, which street did you follow?; also consecutive, in a row: tres dies seguits, three days in a row; de seguit, right away
 1658	anell	noun	ring (circular shape)
 1659	corona	noun	crown (decorative headgear)
 1660	targeta	noun	card (rectangular piece of hard material)
@@ -1698,8 +1698,8 @@ rank	word	pos	en
 1697	pal	noun	stake; pole
 1698	milió	noun	million (10⁶)
 1699	calent	adj	hot, warm; horny (sexually excited)
-1700	promès	noun	fiancé
-1701	donant	noun	donor; giver
+1700	promès	verb	promised (past participle of prometre): t'ho he promès, I promised you; also (m.) fiancé, betrothed
+1701	donant	verb	giving (gerund of donar): estava donant un discurs, she was giving a speech; also (m., f.) donor, giver
 1702	bojos	adj	masculine plural of boig
 1703	ridícul	adj	ridiculous; absurd; farcical
 1704	alemanys	adj	masculine plural of alemany
@@ -1748,7 +1748,7 @@ rank	word	pos	en
 1747	preparada	verb	feminine singular of preparat
 1748	podies	verb	second-person singular imperfect indicative of poder
 1749	dubto	verb	first-person singular present indicative of dubtar
-1750	tancada	noun	sit-in (protest)
+1750	tancada	adj	closed, shut (feminine singular of tancat, past participle of tancar): la porta és tancada, the door is closed; also (f.) sit-in, occupation protest
 1751	pudor	noun	shame; modesty
 1752	espectacle	noun	spectacle, show
 1753	tercera	noun	third
@@ -1760,7 +1760,7 @@ rank	word	pos	en
 1759	doble	adj	double
 1760	controlar	verb	to control; to monitor
 1761	bebè	noun	baby
-1762	ajudant	noun	helper; assistant
+1762	ajudant	verb	helping (gerund of ajudar): ella m'està ajudant molt, she's helping me a lot; also (m., f.) helper, assistant
 1763	verd	adj	green
 1764	mercat	noun	market
 1765	assegut	verb	past participle of asseure
@@ -1820,7 +1820,7 @@ rank	word	pos	en
 1819	capital	adj	capital
 1820	llums	noun	plural of llum
 1821	útil	adj	useful, helpful, handy
-1822	begut	adj	drunk, intoxicated
+1822	begut	verb	drunk, having drunk (past participle of beure): he begut massa cafè, I've drunk too much coffee; also drunk, tipsy, intoxicated
 1823	malparit	noun	moron, jerk
 1824	tripulació	noun	crew (of a ship)
 1825	pròxima	adj	feminine singular of pròxim
@@ -1910,7 +1910,7 @@ rank	word	pos	en
 1909	americà	adj	American
 1910	meuca	noun	barn owl; prostitute, whore, slut
 1911	miracle	noun	miracle
-1912	talla	noun	size
+1912	talla	verb	he/she/it cuts (third-person singular present indicative of tallar): aquest ganivet no talla, this knife doesn't cut; cut! (second-person singular imperative); also (f.) size, of clothing; a carving
 1913	membres	noun	plural of membre
 1914	pensen	verb	third-person plural present indicative of pensar
 1915	troben	verb	third-person plural present indicative of trobar
@@ -1922,18 +1922,18 @@ rank	word	pos	en
 1921	conscient	adj	conscious; aware
 1922	llevat	verb	past participle of llevar
 1923	condicions	noun	plural of condició
-1924	tractat	noun	treaty; treatise
+1924	tractat	verb	treated, dealt with (past participle of tractar): per ser tractat com un covard, for being treated like a coward; also (m.) treaty; treatise
 1925	traducció	noun	translation
 1926	amos	noun	plural of amo
 1927	pompeu	name	a male given name from Latin
-1928	crema	noun	crema catalana (a Catalan dessert)
+1928	crema	verb	he/she/it burns (third-person singular present indicative of cremar): la casa es crema, the house is burning; burn! (second-person singular imperative); also (f.) cream, both the dairy kind and a skin cream; crema catalana, the custard dessert
 1929	sal	noun	salt
 1930	estigues	verb	second-person singular imperative of estar
 1931	eixa	det	feminine singular of eixe
 1932	dispara	verb	third-person singular present indicative
 1933	ajudarà	verb	third-person singular future indicative of ajudar
 1934	parlarem	verb	first-person plural future indicative of parlar
-1935	caminant	noun	walker, wayfarer
+1935	caminant	verb	walking, on foot (gerund of caminar): m'aniré caminant, I'll go on foot; also (m., f.) walker, wayfarer
 1936	quedes	verb	second-person singular present indicative of quedar
 1937	pensaves	verb	second-person singular imperfect indicative of pensar
 1938	autoritat	noun	authority
