@@ -235,3 +235,48 @@ inventory and the course's own sentences. See `docs/quality/CHECKS.md` §3b.
 
 Fixes are in `data/gloss_overrides.tsv` as well as `data/mi_frequency.tsv`, because
 glosses regenerate from kaikki and a TSV-only edit is undone by the next seed.
+
+## The interlinear gloss, realigned (25 Aug 2026)
+
+The `gloss` field on a drill is the **word-by-word line printed under the sentence** — not
+the card's English definition. Cell N is read as the meaning of token N, so a missing cell
+shifts the whole line and every position teaches the wrong word.
+
+36 drills had a token/cell mismatch. **19 were legitimate and were kept**: `Kei te` is one
+tense marker, so two tokens taking one `PRESENT` cell is correct. **15 were real**, in three
+classes:
+
+1. **Shifted (1).** The case the owner reported: `E noho ana ___ ki Pōneke` glossed
+   `living · CONT · ___ · to · Wellington` — five cells for six tokens, so the bare particle
+   `E` got "living", `noho` (the verb meaning *live*) got "CONT", and the blank sat under
+   `ana` instead of the answer. `e … ana` is a discontinuous circumfix and cannot be one
+   cell. Now `CONT · living · CONT · ___ · to · Wellington`.
+2. **Truncated (9).** The line simply stops mid-sentence with an ellipsis and the remaining
+   tokens get no cell — and the `...` is glued onto the last cell, so `toa` read as meaning
+   "shop...". `___ · two · the(pl.) · dogs...` for `___ rua ngā kurī i te whare`.
+3. **Wrong unit (5).** Including two in *Kei — where things are*, where `kei te` is locative
+   "at the", not the present marker — **the defect this document already names** ("a wrong
+   gloss teaches a wrong parse") and which had never been executed on.
+
+**A positional check cannot police this, and that limit is in the code.** A rule that cells
+must match tokens 1:1 rejects the legitimate collapses; a rule about where the blank sits
+would have *accepted* the broken `E noho ana` line. `test_orthography.py` therefore gates
+only the mechanical faults — invented cells, wrong blank count, truncation — and leaves
+alignment to review.
+
+**One cell took an adversarial pass to settle.** `{{answer}} ia i te pai i tēnei rā` had TWO
+`___` cells against one blank in the sentence, a copy-paste artifact from the sibling drills
+where `i` *is* the answer. The proposal was `pres`; it was **rejected** and replaced with
+`T/A`, on grounds worth keeping: within `kāore … i` (past) versus `kāore … i te` (present)
+the `i` is the **invariant** and `te` is the pivot, so `pres` puts the tense value on the
+constant — the same wrong-parse class as glossing locative `kei te` as PRESENT. `T/A` is
+already this file's label for a TAM particle whose value is not being pinned (12 drills,
+including the `kāore` clause `Kāore e ___ e ia te oma` → `not · T/A · ___ · by · him · the ·
+run`). It says the true thing and stops.
+
+**Open, and confirmed while settling that cell:** the point *Negation with kāore* glosses
+this same frame particle `PAST/OBJ` three times (`___ · I · PAST/OBJ · the · know`;
+`NOT · ___ · PAST/OBJ · the · hungry`; and once where the `i` is genuinely locative and
+wants `at`). Same defect, larger scale, needs its own pass. Also open: `sw` writes its
+interlinear line as `u-ta-rudi (2SG-FUT-return) lini (when)` rather than dot-separated
+cells, so the two courses use incompatible formats under one "Word by word" label.
