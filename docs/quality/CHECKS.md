@@ -410,12 +410,23 @@ interlinear gloss, and — for non-Roman scripts — the romanisation. Plus the
 definition, which is the layer the wrong-lexeme sweep repaired. A course is not
 "done" because one layer is.
 
-**Name them precisely.** "Gloss" was used for two different layers for weeks —
-the **interlinear gloss** (the word-by-word line printed UNDER a sentence) and
-the **definition** (a card's English meaning, `translations.definition`,
-`gloss_overrides.tsv`). That ambiguity is exactly how Māori's shifted
-word-by-word line survived an entire deep pass on definitions: the pass was
-never looking at that layer.
+**Name them precisely — "gloss" means THREE things in this repo:**
+
+| written as | actually means |
+| --- | --- |
+| `data/gloss_overrides.tsv` | **definitions** (`ar أن → "to, that…"`) |
+| a drill's `gloss` field | the **interlinear** word-by-word line (`a · student · ___`) |
+| audit rule `giveaway_by_gloss` | a **hint** that repeats its own translation |
+
+**What that cost, stated accurately.** It did not cause the Māori
+interlinear defect — that line was wrong in `mi_grammar.json` regardless, and a
+definitions pass reads different files and would never have looked at it. What
+the ambiguity did was make the REPORTING wrong: "911 gloss fixes" reads as
+though the word-by-word layer had been repaired when nothing had touched it,
+and the owner found the defect from a screenshot rather than from any status
+this program produced. The failure is a claim that overstated its own coverage,
+which is the same failure as "audit PASS" reading as though it described
+production.
 
 Measured 25 Aug 2026:
 

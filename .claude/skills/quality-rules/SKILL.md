@@ -52,10 +52,12 @@ rate, say so — that result matters more than the phase closing quietly.
    (owner directive, 25 Aug 2026). **hint** (narrows the answer) · **sentence**
    (the example) · **translation** (its English) · **interlinear gloss** (the
    word-by-word line UNDER the sentence) · **romanisation** (non-Roman scripts
-   only) · **definition** (the card's English meaning). "Gloss" named two of
-   these for weeks — the interlinear line AND the definition — which is how
-   `mi`'s shifted word-by-word survived an entire deep pass on definitions.
-   Say which layer you mean; a fix to one is not a fix to another. Measured
+   only) · **definition** (the card's English meaning). **"Gloss" names THREE
+   of these in this repo** — `gloss_overrides.tsv` holds definitions, a drill's
+   `gloss` is the interlinear line, `giveaway_by_gloss` is about hints. The cost
+   is overstated REPORTING, not a missed pass: "911 gloss fixes" reads as though
+   the word-by-word layer was repaired when nothing had touched it. Say which
+   layer you mean; a fix to one is not a fix to another. Measured
    25 Aug: interlinear gloss is 100% on `mi` drills, 30% on `sw`, **0%
    everywhere else**; romanisation is absent from `hi` and `th` ENTIRELY, and
    from the `ru`/`ar`/`hi`/`th` sentence banks (see `CHECKS.md` §9).
