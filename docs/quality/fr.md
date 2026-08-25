@@ -187,3 +187,22 @@ glosses regenerate from kaikki and a TSV-only edit would be undone by the next s
 
 Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang fr --band 500` — remaining candidates are rows a reviewer
 deliberately kept, plus anything added since.
+
+### Extended to rank 2000 (25 Aug 2026)
+
+The sweep above covered the top 500. Ranks 501-2000 added **46 rows, 28 fatal**, so the
+course total is **63 repaired (37 fatal) through rank 2000**.
+
+The keep rate rose with rank — roughly 30% of candidates were kept in the top 500 against
+about 50% below it — which is the expected shape and a check on the pass: deeper in a
+frequency list the lexical sense genuinely is more often right, and an over-eager rewrite
+would replace a correct gloss with a wrong one.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 595 | `ferme` | close, shut — from fermer (il ferme, je ferme; ferme la porte = close th |
+| 675 | `joue` | plays, play — from jouer (il joue dehors = he's playing outside; joue av |
+| 680 | `sort` | third-person singular present of sortir — goes out, comes out (il sort c |
+| 687 | `reçu` | past participle of recevoir — received, got (j'ai reçu ta lettre = I got |
+| 689 | `mets` | put, place — from mettre (je mets, tu mets; mets-le là = put it there; m |
+| 701 | `manque` | is missing, lack — from manquer (il manque un livre = a book is missing; |

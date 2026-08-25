@@ -186,3 +186,22 @@ glosses regenerate from kaikki and a TSV-only edit would be undone by the next s
 
 Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang ca --band 500` — remaining candidates are rows a reviewer
 deliberately kept, plus anything added since.
+
+### Extended to rank 2000 (25 Aug 2026)
+
+The sweep above covered the top 500. Ranks 501-2000 added **56 rows, 38 fatal**, so the
+course total is **89 repaired (61 fatal) through rank 2000**.
+
+The keep rate rose with rank — roughly 30% of candidates were kept in the top 500 against
+about 50% below it — which is the expected shape and a check on the pass: deeper in a
+frequency list the lexical sense genuinely is more often right, and an over-eager rewrite
+would replace a correct gloss with a wrong one.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 509 | `creu` | he/she/it believes, thinks (third-person singular present indicative of  |
+| 521 | `sola` | alone, on her own (feminine of sol): visc sola, I live alone; single, on |
+| 593 | `posa` | he/she/it puts, places (third-person singular present indicative of posa |
+| 612 | `surt` | he/she/it goes out, leaves, comes out (third-person singular present ind |
+| 631 | `troba` | he/she/it finds (third-person singular present indicative of trobar); es |
+| 639 | `feu` | you (plural) do, make (second-person plural present indicative of fer):  |

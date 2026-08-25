@@ -182,3 +182,20 @@ glosses regenerate from kaikki and a TSV-only edit would be undone by the next s
 
 Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang ko --band 500` — remaining candidates are rows a reviewer
 deliberately kept, plus anything added since.
+
+### Extended to rank 2000 (25 Aug 2026)
+
+The sweep above covered the top 500. Ranks 501-2000 added **5 rows, 4 fatal**, so the
+course total is **16 repaired (13 fatal) through rank 2000**.
+
+The keep rate rose with rank — roughly 30% of candidates were kept in the top 500 against
+about 50% below it — which is the expected shape and a check on the pass: deeper in a
+frequency list the lexical sense genuinely is more often right, and an over-eager rewrite
+would replace a correct gloss with a wrong one.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 637 | `타` | get in, get on, ride — 타다 in the intimate style (차에 타, get in the car; 모 |
+| 639 | `보기` | seeing, looking, the sight of something — 보다 nominalized with -기 (보기 좋아요 |
+| 1149 | `드릴` | to give, to offer (humble, to someone senior) — 드리다 in the -(으)ㄹ determi |
+| 1352 | `마실` | to drink, (something) to drink — 마시다 in the -(으)ㄹ determiner form, alway |

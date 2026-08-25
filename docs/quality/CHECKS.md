@@ -177,9 +177,18 @@ whatever else kaikki lists). With it, 351.
 is a **local maintenance tool, not a CI check**, and it screens rather than
 judges. About 70% of its candidates were real.
 
-**Swept the top 500 of all 16 well-resourced courses (25 Aug 2026): 351
-candidates, 248 repaired, 87 correctly kept, 2 rejected by reviewers. 130
-fatal** — meaning the card named a genuinely different word.
+**Swept the top 2000 of all 16 well-resourced courses (25 Aug 2026): 1,247
+candidates generated, 1,217 decided, 781 repaired, 420 correctly kept, 16
+rejected by reviewers. 425 fatal** — meaning the card named a genuinely
+different word. (30 candidates were generated but not returned by an agent;
+they are unreviewed, not cleared.)
+Split by band: the top 500 gave 351 candidates and 248 repairs (130 fatal);
+ranks 501-2000 gave 896 candidates and 533 repairs (295 fatal).
+
+**The keep rate rises with rank, and that is the check on the pass**: roughly
+30% of candidates were kept in the top 500 against about 50% below it. Deeper
+in a frequency list the lexical sense genuinely is more often the right one, so
+a pass that kept rewriting at the same rate would be rewriting on sight.
 
 | | rank | said | is |
 | --- | --- | --- | --- |

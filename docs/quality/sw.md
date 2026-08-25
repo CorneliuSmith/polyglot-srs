@@ -135,3 +135,20 @@ A human reviewer pulls 10 random drills and asks:
 6. **Do two drills in this point share an answer lemma, and does the grammar card type still fail the wrong
    one?** It should — check the point is not being used as a vocabulary card.
 7. **Is this Standard Swahili, not Sheng or a coastal dialect form?**
+
+### Extended to rank 2000 (25 Aug 2026)
+
+The sweep above covered the top 500. Ranks 501-2000 added **8 rows, 4 fatal**, so the
+course total is **8 repaired (4 fatal) through rank 2000**.
+
+The keep rate rose with rank — roughly 30% of candidates were kept in the top 500 against
+about 50% below it — which is the expected shape and a check on the pass: deeper in a
+frequency list the lexical sense genuinely is more often right, and an over-eager rewrite
+would replace a correct gloss with a wrong one.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 748 | `kuta` | walls — plural of ukuta (class 11/10), as in kuta za nyumba (the walls o |
+| 938 | `pande` | sides, directions — plural of upande (class 11/10), as in pande zote mbi |
+| 1582 | `jana` | yesterday (nilikuja jana, I came yesterday); in time phrases, last — usi |
+| 1837 | `panga` | to arrange, organise, plan, set up; also to rent (a room), and to live t |

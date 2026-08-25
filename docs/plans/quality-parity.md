@@ -856,10 +856,16 @@ and populated:
 
 **PREDICTION TESTED, AND IT DID NOT HOLD (25 Aug 2026).** The owner expected
 step 2 to be lighter because the well-resourced courses have better source
-data. Measured: **351 wrong-lexeme candidates in the top 500 alone, 248 real,
-130 of them fatal** — the card named a genuinely different word. That is not
+data. Measured over the top 2000 of all 16: **1,247 candidates generated, 1,217
+decided, 781 real, 425 of them fatal** — the card named a genuinely different word. That is not
 lighter than `en`/`la`; the rate is comparable and the blast radius is larger,
-because these rows sit in the top 500 of the biggest courses.
+because the worst of them sit in the top 500 of the biggest courses.
+
+Per course, repaired / of which fatal, through rank 2000:
+`nl` 127/62, `es` 101/62, `ca` 89/61, `it` 83/46, `pt` 72/40, `ro` 68/31,
+`fr` 63/37, `de` 55/23, `tr` 42/17, `el` 22/10, `hi` 17/14, `ko` 16/13,
+`ru` 13/4, `sw` 8/4, `th` 4/1, `ar` 1/0. Arabic reads as clean here only
+because its defects are a DIFFERENT class this screen cannot see — see below.
 
 **Catalan is the clearest case and it went further than the plan recorded.**
 This document already noted `ca` had no correct card for "I am" at rank 924

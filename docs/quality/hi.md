@@ -178,3 +178,22 @@ glosses regenerate from kaikki and a TSV-only edit would be undone by the next s
 
 Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang hi --band 500` — remaining candidates are rows a reviewer
 deliberately kept, plus anything added since.
+
+### Extended to rank 2000 (25 Aug 2026)
+
+The sweep above covered the top 500. Ranks 501-2000 added **9 rows, 7 fatal**, so the
+course total is **17 repaired (14 fatal) through rank 2000**.
+
+The keep rate rose with rank — roughly 30% of candidates were kept in the top 500 against
+about 50% below it — which is the expected shape and a check on the pass: deeper in a
+frequency list the lexical sense genuinely is more often right, and an over-eager rewrite
+would replace a correct gloss with a wrong one.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 505 | `पाया` | got, obtained; was able to — masculine singular perfective of पाना, and  |
+| 522 | `सो` | sleep — the stem of सोना, before जाना, रहा and in the imperative (सो जाओ |
+| 564 | `खाता` | eats, eat — masculine singular habitual participle of खाना, with हूँ/है  |
+| 686 | `नई` | new — feminine singular of नया, agreeing with a feminine noun (मेरी नई ग |
+| 1216 | `मान` | accept, agree, believe, obey — the stem of मानना, before लेना and जाना a |
+| 1826 | `सीख` | learn — the stem of सीखना, standing before रहा, लेना and the vector verb |

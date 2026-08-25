@@ -170,3 +170,22 @@ glosses regenerate from kaikki and a TSV-only edit would be undone by the next s
 
 Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang nl --band 500` — remaining candidates are rows a reviewer
 deliberately kept, plus anything added since.
+
+### Extended to rank 2000 (25 Aug 2026)
+
+The sweep above covered the top 500. Ranks 501-2000 added **84 rows, 39 fatal**, so the
+course total is **127 repaired (62 fatal) through rank 2000**.
+
+The keep rate rose with rank — roughly 30% of candidates were kept in the top 500 against
+about 50% below it — which is the expected shape and a check on the pass: deeper in a
+frequency list the lexical sense genuinely is more often right, and an over-eager rewrite
+would replace a correct gloss with a wrong one.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 525 | `erop` | on it, on top of it (the pronominal adverb er + op — het lijkt erop dat, |
+| 711 | `leg` | put, lay: I put, I lay; put!, lay! (present and imperative of leggen — l |
+| 727 | `stuur` | send: I send; send! (present and imperative of sturen — stuur mij een fo |
+| 767 | `hoef` | need, have to: I need; you need in hoef je (present of hoeven, used main |
+| 771 | `loop` | walk, run: I walk; walk! (present and imperative of lopen — loop niet zo |
+| 787 | `leek` | seemed, looked (like): I/he/she/it seemed (singular past of lijken — ze  |

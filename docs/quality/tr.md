@@ -174,3 +174,22 @@ glosses regenerate from kaikki and a TSV-only edit would be undone by the next s
 
 Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang tr --band 500` — remaining candidates are rows a reviewer
 deliberately kept, plus anything added since.
+
+### Extended to rank 2000 (25 Aug 2026)
+
+The sweep above covered the top 500. Ranks 501-2000 added **34 rows, 14 fatal**, so the
+course total is **42 repaired (17 fatal) through rank 2000**.
+
+The keep rate rose with rank — roughly 30% of candidates were kept in the top 500 against
+about 50% below it — which is the expected shape and a check on the pass: deeper in a
+frequency list the lexical sense genuinely is more often right, and an over-eager rewrite
+would replace a correct gloss with a wrong one.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 522 | `çek` | second-person singular imperative of çekmek: pull!, draw!, take! (kenara |
+| 552 | `gelin` | second-person plural imperative of gelmek: come!, come in! (polite or pl |
+| 650 | `bakma` | second-person singular negative imperative of bakmak: don't look!, don't |
+| 752 | `alın` | second-person plural imperative of almak: take!, get!, have! (polite or  |
+| 884 | `kalın` | second-person plural imperative of kalmak: stay!, remain!, keep (polite  |
+| 885 | `gider` | third-person singular aorist of gitmek: goes, he/she/it goes (habitually |

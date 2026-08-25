@@ -180,3 +180,22 @@ glosses regenerate from kaikki and a TSV-only edit would be undone by the next s
 
 Re-run with `python -m backend.services.quality.audit_wrong_lexeme --lang es --band 500` — remaining candidates are rows a reviewer
 deliberately kept, plus anything added since.
+
+### Extended to rank 2000 (25 Aug 2026)
+
+The sweep above covered the top 500. Ranks 501-2000 added **72 rows, 48 fatal**, so the
+course total is **101 repaired (62 fatal) through rank 2000**.
+
+The keep rate rose with rank — roughly 30% of candidates were kept in the top 500 against
+about 50% below it — which is the expected shape and a check on the pass: deeper in a
+frequency list the lexical sense genuinely is more often right, and an over-eager rewrite
+would replace a correct gloss with a wrong one.
+
+| rank | word | now reads |
+| --- | --- | --- |
+| 518 | `sentido` | sense, meaning (no tiene sentido - that makes no sense; en cierto sentid |
+| 536 | `queda` | remains, is left - from quedar (casi no queda vino, there's hardly any w |
+| 543 | `oído` | heard - past participle of oir (he oido hablar de ti, I have heard about |
+| 547 | `recuerdo` | I remember (from recordar - lo recuerdo bien, I remember it well; recuer |
+| 566 | `dado` | given - past participle of dar (me has dado tanto, you have given me so  |
+| 576 | `diga` | may say, that he/she say - present subjunctive of decir (no me importa l |
