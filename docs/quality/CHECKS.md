@@ -403,6 +403,53 @@ in unmarked-script courses (`th`, no spaces; `ar`/`he`/`fa`, unvocalised) the
 same gap hides behind spelling rather than diacritics and needs the
 dictionary's homograph entries checked against the file.
 
+## 9. The six layers of a card — measured per layer, not per course
+
+**Owner directive, 25 Aug 2026:** check hint, sentence, translation,
+interlinear gloss, and — for non-Roman scripts — the romanisation. Plus the
+definition, which is the layer the wrong-lexeme sweep repaired. A course is not
+"done" because one layer is.
+
+**Name them precisely.** "Gloss" was used for two different layers for weeks —
+the **interlinear gloss** (the word-by-word line printed UNDER a sentence) and
+the **definition** (a card's English meaning, `translations.definition`,
+`gloss_overrides.tsv`). That ambiguity is exactly how Māori's shifted
+word-by-word line survived an entire deep pass on definitions: the pass was
+never looking at that layer.
+
+Measured 25 Aug 2026:
+
+| layer | state |
+| --- | --- |
+| hint | present on 100% of drills in all 27 — but presence is not quality; `audit_content` still carries 920 hint findings (`id` 121, `tl` 152) |
+| sentence | present for 22; **`la`, `id`, `tl`, `he`, `fa` have ZERO**. Range 63 (`yo`) to 202,772 (`en`) |
+| translation | 100% wherever a sentence exists |
+| interlinear gloss | **`mi` 100% of drills, `sw` 30% of drills / 91% of bank, every other course 0%** — this is D2c, "built for nine courses, filled for one" |
+| romanisation | see below |
+
+### Romanisation is the worst-covered layer, and two courses have none at all
+
+Only the eight non-Roman courses need it. Splitting drills from sentence banks,
+because they are filled independently:
+
+| | drills | sentence bank |
+| --- | --- | --- |
+| `ar` `el` `fa` `he` `ru` | 100% | `el` 100%; `ru` 0%, `ar` 0%; `he`/`fa` have no bank |
+| `ko` | 78% (949/1217) | 18% |
+| **`hi`** | **0%** | **0%** (8,130 sentences) |
+| **`th`** | **0%** | **0%** (4,037 sentences) |
+
+**`hi` and `th` have no romanisation anywhere.** Devanagari and Thai are the two
+scripts in this repo a beginner is least able to decode cold — Thai has no
+spaces between words — and both ship with none. `ru` and `ar` have romanised
+drills but 348 and 14,671 unromanised sentences respectively.
+
+**Status: all 27 for the check; per-layer for the fix.** The sentence-bank
+columns are themselves inconsistent (`ru` has no `transliteration` column at
+all, `ko` does), so filling this starts with agreeing the schema.
+
+---
+
 ## Adding a check
 
 1. Measure it on the language that surfaced it.

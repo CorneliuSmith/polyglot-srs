@@ -48,23 +48,34 @@ rate, say so — that result matters more than the phase closing quietly.
    distinct rows. **Re-marking is not decoration**: an unmarked row may stand
    for several words; decide which owns the rank, add rows for the rest, sweep
    for missing members after (D1d, CHECKS §8).
-5. **Examples must exercise the sense the gloss leads with** (D2c2). Definition
+5. **A card has SIX layers; check every one, and name them precisely**
+   (owner directive, 25 Aug 2026). **hint** (narrows the answer) · **sentence**
+   (the example) · **translation** (its English) · **interlinear gloss** (the
+   word-by-word line UNDER the sentence) · **romanisation** (non-Roman scripts
+   only) · **definition** (the card's English meaning). "Gloss" named two of
+   these for weeks — the interlinear line AND the definition — which is how
+   `mi`'s shifted word-by-word survived an entire deep pass on definitions.
+   Say which layer you mean; a fix to one is not a fix to another. Measured
+   25 Aug: interlinear gloss is 100% on `mi` drills, 30% on `sw`, **0%
+   everywhere else**; romanisation is absent from `hi` and `th` ENTIRELY, and
+   from the `ru`/`ar`/`hi`/`th` sentence banks (see `CHECKS.md` §9).
+6. **Examples must exercise the sense the gloss leads with** (D2c2). Definition
    and sentences are fixed in different files by different passes — a fix in
    one is not a fix in the other. On mismatch: fix the sentence, the gloss
    ORDER, or the coverage — decide which.
-6. **Orthography and word list before sentences; sentences before glosses.**
+7. **Orthography and word list before sentences; sentences before glosses.**
    Everything downstream of a toneless headword is wrong at birth.
-7. **A gloss never spells the answer; a wrong gloss is worse than none.**
+8. **A gloss never spells the answer; a wrong gloss is worse than none.**
    Mechanical glosses never overwrite authored ones, never serve GLOSS_FIRST
    courses. Not every sentence gets a gloss — 4,974 GLOSS_FIRST rows are the
    target, not 484k.
-8. **A declared policy that nothing checks is being violated — two for two.**
+9. **A declared policy that nothing checks is being violated — two for two.**
    `la.md` asserted "macrons everywhere, verified" while `la_frequency.tsv`
    was 48% non-compliant; `jam.md` asserted Cassidy–JLU while 12 headwords
    broke it, three of them words the doc names as drift itself. Express the
    policy as a character set and test it (`test_orthography.py`). Necessary,
    not sufficient: `friend` breaks no Cassidy letter rule and is still English.
-9. **A fold may excuse a mark; it may never launder a word.** Settled and
+10. **A fold may excuse a mark; it may never launder a word.** Settled and
    shipped: a fold-only match grades WRONG_FORM when the typed string is
    itself another course word, sloppy otherwise (`test_nlp_collisions.py`
    ratchets per-language ceilings). Before folding anything new, ask what the
@@ -72,10 +83,10 @@ rate, say so — that result matters more than the phase closing quietly.
 
 ## Sources & spend
 
-10. **Facts yes, sentences regenerated** — paradigms/vocab from licensed
+11. **Facts yes, sentences regenerated** — paradigms/vocab from licensed
    courses may inform; verbatim sentences may not ship.
-11. **Never the API key.** Maker–checker runs in-session (Workflow tool).
-12. **Fixes land in committed files** (`gloss_overrides.tsv`, TSVs, JSON) —
+12. **Never the API key.** Maker–checker runs in-session (Workflow tool).
+13. **Fixes land in committed files** (`gloss_overrides.tsv`, TSVs, JSON) —
     a DB-only repair is undone by the next re-seed. Same logic one level up:
     a TSV-only deletion is undone by the next regeneration — durable
     deletions go in `data/vocab_exclusions.tsv` (typo-mass rows like `citta`
@@ -83,30 +94,30 @@ rate, say so — that result matters more than the phase closing quietly.
 
 ## Verification
 
-13. **Verify agent output mechanically before writing it back**: structural
+14. **Verify agent output mechanically before writing it back**: structural
     validators, spot-checks against known ground truth, and assembly by stable
     key, never by index (a rank drift once nearly filed `luna`'s gloss under
     `stella`). After writing a TSV, eyeball it: text containing `"` gets
     csv-escaped into `""..""` noise — reword the text instead.
-14. **Re-measure any agent-reported number before acting on it** — two of five
+15. **Re-measure any agent-reported number before acting on it** — two of five
     sampled claim-audit figures did not reproduce.
-15. **State verification honestly**: "275 of 557 checker-verified, rest
+16. **State verification honestly**: "275 of 557 checker-verified, rest
     maker-only" — never round up to "verified".
-16. **Never freeze a count the audit computes** — cite the rule name; the tool
+17. **Never freeze a count the audit computes** — cite the rule name; the tool
     says the number. Hand counts carry date + method. "Verified" names every
     file the claim covers.
-17. **Baseline ratchet**: equal is fine, worse needs `--update-baseline` and a
+18. **Baseline ratchet**: equal is fine, worse needs `--update-baseline` and a
     written reason. Run `audit_content` before pushing content.
 
 ## Ship
 
-18. Green = `npm run build` (not `tsc --noEmit`), `vitest`, backend pytest at
+19. Green = `npm run build` (not `tsc --noEmit`), `vitest`, backend pytest at
     baseline (7 known environment failures), `ruff`, audit PASS, CI green,
     then merge — standing authorization. Say plainly what was left out.
-19. **When adding words to fill a homonym gap, add only members a learner
+20. **When adding words to fill a homonym gap, add only members a learner
     meets** (`hīc`, `mālum` yes; `pōpulus` "poplar" no) and gloss each naming
     its false twin — "here (distinct from hic: this)".
-20. **Nothing of value stays only on this machine** (owner directive, 20 Aug
+21. **Nothing of value stays only on this machine** (owner directive, 20 Aug
     2026). After every merge — and before any long-running job — fast-forward
     `feat/phases` to the current head and push it:
     `git branch -f feat/phases HEAD && git push origin feat/phases`.
