@@ -892,7 +892,7 @@ rank	word	pos	en
 891	หลักฐาน	noun	evidence
 892	ผี	noun	(classifier ตน) deity; god.
 893	คู่	noun	pair; even number
-894	กะ	verb	to measure; to estimate
+894	กะ	verb	to estimate, to reckon, to gauge (กะว่า — “I reckon…”, “I was planning to…”); a work shift, a rotation (เข้ากะ); also the casual spoken spelling of กับ (with, and) and of แก่ (to, for)
 895	ทุกสิ่งทุกอย่าง	pron	everything, all things
 896	แถว	noun	area; locality; vicinity
 897	ไรเดอร์	noun	motorcycle courier.
@@ -935,7 +935,7 @@ rank	word	pos	en
 934	ทางขวา	adj	right
 935	พันเอก	noun	colonel
 936	า	character	A Thai vowel letter traditionally named ลากข้าง. It can be informally called สระอา.
-937	ม้า	noun	(Classifier: ตัว)
+937	ม้า	noun	horse (classifier: ตัว); also a low bench or stool, and the knight in chess
 938	ตายห่า	verb	to die in a great number at the same time, especially because of an epidemic.
 939	เครื่องบิน	noun	airplane
 940	พาย	noun	paddle; oar
@@ -1677,7 +1677,7 @@ rank	word	pos	en
 1676	เทวดา	noun	god; deity; divine being; celestial being; immortal being
 1677	ขอตัว	verb	to excuse oneself, beg off
 1678	ชิง	verb	to contend, to contest, to compete; to strive, to struggle
-1679	กันยา	noun	girl.
+1679	กันยา	name	September — the clipped everyday form of กันยายน, ordinary in speech and in on-screen dates (ปลายเดือนกันยา, 5 กันยา); also, in literary and poetic Thai, a girl or maiden
 1680	เปียโน	noun	piano
 1681	ทิ้ง	verb	to dispose, to discard
 1682	สุสาน	noun	place for burial or cremation of the dead: burial ground, cremation ground, etc.
@@ -1967,7 +1967,7 @@ rank	word	pos	en
 1966	เจ้าสาว	noun	bride.
 1967	ออกอากาศ	verb	to air; to broadcast
 1968	เจ้าบ่าว	noun	bridegroom.
-1969	แลง	noun	laterite.
+1969	แลง	noun	laterite, the reddish tropical rock used for building (ศิลาแลง); in Northern and Isan speech, evening (มื้อแลง); also seen as a casual spelling of แมลง (insect)
 1970	ชก	verb	to punch, to hit.
 1971	แอร์	noun	air conditioner.
 1972	ปลาหมึก	noun	squid

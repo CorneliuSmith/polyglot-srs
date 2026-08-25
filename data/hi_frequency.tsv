@@ -503,7 +503,7 @@ rank	word	pos	en
 502	कब	adv	when (interrogative)
 503	यात्रा	noun	journey, voyage
 504	रक्षा	noun	protection; safety
-505	पाया	noun	foot or leg of an object
+505	पाया	verb	got, obtained; was able to — masculine singular perfective of पाना, and after a bare stem the “managed to, could” construction (वह मदद नहीं कर पाया — he couldn't help; मैं उसे समझा पाया — I managed to make him understand); also a noun: the leg or foot of a piece of furniture (m.)
 506	जल्द	noun	haste, speed, swiftness
 507	पति	noun	husband; master, lord
 508	गयी	verb	feminine singular perfective participle
@@ -520,7 +520,7 @@ rank	word	pos	en
 519	जय	noun	victory, triumph
 520	अकेला	adj	alone; singular, unique
 521	सामान	noun	luggage, baggage
-522	सो	pron	used in constructions with जो (jo, “whoever”)
+522	सो	verb	sleep — the stem of सोना, before जाना, रहा and in the imperative (सो जाओ — go to sleep; वह सो रहा है — he is sleeping); also the correlative pronoun answering जो: that one, so, therefore (जो हुआ सो हुआ — what is done is done)
 523	रख	verb	stem; second-person singular intimate present imperative
 524	शामिल	adj	included, present, incorporated
 525	मिलने	verb	oblique infinitive
@@ -562,7 +562,7 @@ rank	word	pos	en
 561	सोना	noun	gold
 562	पालन	noun	care, upbringing
 563	यहीं	adv	right here
-564	खाता	noun	account (such as a bank account, etc.)
+564	खाता	verb	eats, eat — masculine singular habitual participle of खाना, with हूँ/है (मैं चीज़ खाता हूँ — I eat cheese); also a noun: account, ledger (m.), as in a bank account (खाता खोलो — open an account)
 565	क्षेत्र	noun	field, area of study
 566	भर	adv	all, every; whole, entire
 567	मामले	noun	direct plural; oblique/vocative singular
@@ -684,7 +684,7 @@ rank	word	pos	en
 683	जादू	noun	jadoo; magic; witchcraft
 684	चिल्लाना	verb	to cry out; to shout loudly
 685	जानकारी	noun	information, knowledge, data
-686	नई	noun	river
+686	नई	adj	new — feminine singular of नया, agreeing with a feminine noun (मेरी नई गाड़ी — my new car; कुछ नई बात? — anything new?)
 687	इसमें	pron	inessive singular of यह (yah)
 688	सुनिश्चित	adj	sure, definite
 689	बुरी	adj	direct/oblique/vocative feminine singular/plural of बुरा (burā)
@@ -1214,7 +1214,7 @@ rank	word	pos	en
 1213	पड़	verb	stem; second-person singular intimate present imperative
 1214	शिकायत	noun	a complaint, objection, criticism
 1215	मछली	noun	fish
-1216	मान	noun	measuring, measurement
+1216	मान	verb	accept, agree, believe, obey — the stem of मानना, before लेना and जाना and in the imperative (मान लो — suppose, assume; हार मत मानो — don't give up; वह मान गया — he relented); also a noun: respect, honour; pride (m.), and in technical use a measure or value
 1217	भीख	noun	begging, alms
 1218	पुष्टि	noun	nourishment, thriving
 1219	खयाल	noun	nuqtaless form of ख़याल (xayāl)
@@ -1394,7 +1394,7 @@ rank	word	pos	en
 1393	देखता	verb	masculine singular habitual participle
 1394	अनुरोध	noun	request, entreaty
 1395	क्षण	noun	instant, blink of an eye (a short amount of time)
-1396	भले	adv	it may be that...
+1396	भले	adj	good, well — oblique/plural masculine of भला (तुम्हारे भले के लिये — for your own good; भले लोग — good people); and in भले (ही), the concessive: even if, even though, granted that
 1397	वानर	noun	monkey, ape, primate
 1398	निवेश	noun	entering, accessing
 1399	प्रेमिका	noun	a female lover
@@ -1824,7 +1824,7 @@ rank	word	pos	en
 1823	सर्वश्रेष्ठ	adj	best, finest, chief
 1824	वेल्स	name	Wales (a constituent country of the United Kingdom)
 1825	रात्रि	noun	night
-1826	सीख	noun	instruction, a lesson
+1826	सीख	verb	learn — the stem of सीखना, standing before रहा, लेना and the vector verbs (वह क्या सीख रहा है? — what is he learning?; मैंने बजाना सीख लिया — I learned to play); also a noun: a lesson, a moral, a piece of advice (f.)
 1827	त्वरित	adj	fast, speedy, quick
 1828	द्वार	noun	door; gate, opening; any means of entrance
 1829	आधी	adj	direct/oblique/vocative feminine singular/plural of आधा (ādhā)
@@ -1838,7 +1838,7 @@ rank	word	pos	en
 1837	ज़िंदगी	noun	life (as in the state of being alive)
 1838	केंद्रित	adj	centred, fixed, focused
 1839	खूब	adj	nuqtaless form of ख़ूब (xūb)
-1840	दांत	adj	dental (relating to the teeth)
+1840	दांत	noun	tooth (m.) — the anusvāra spelling of दाँत (गला हुआ दांत — the decayed tooth; दाँत साफ़ करना — to brush one's teeth); separately, a Sanskritic adjective: dental; restrained, subdued
 1841	आज्ञा	noun	order, command; an order or commandment of a spiritual master or guru to a disciple
 1842	स्नान	noun	the act of bathing, ablution
 1843	तू	pron	you, thou (informal, grammatically singular)
@@ -1920,7 +1920,7 @@ rank	word	pos	en
 1919	गांवों	noun	oblique plural of गांव (gāmv)
 1920	रेखा	noun	line; mark; sign
 1921	विचारों	noun	oblique plural of विचार (vicār)
-1922	मरा	adj	dead
+1922	मरा	verb	died; dead — masculine singular perfective of मरना (उसका बेटा कैसे मरा? — how did his son die?; मैं अभी तक मरा नहीं हूँ — I'm not dead yet; मरा हुआ — dead, deceased); also in मरा जा रहा हूँ — I'm dying of (hunger, thirst)
 1923	यादों	noun	oblique plural of याद (yād)
 1924	जोकर	noun	joker, clown; joker
 1925	सलाम	intj	hello, greetings!
