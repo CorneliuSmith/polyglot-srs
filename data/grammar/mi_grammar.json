@@ -661,7 +661,7 @@
           "translation": "I don't know.",
           "hint": "the negator",
           "display_order": 1,
-          "gloss": "___ · I · PAST/OBJ · the · know"
+          "gloss": "___ · I · T/A · the · know"
         },
         {
           "sentence": "Kāore {{answer}} i te hiakai.",
@@ -669,7 +669,7 @@
           "translation": "He is not hungry.",
           "hint": "he/she — moves forward in negatives",
           "display_order": 2,
-          "gloss": "NOT · ___ · PAST/OBJ · the · hungry"
+          "gloss": "NOT · ___ · T/A · the · hungry"
         },
         {
           "sentence": "{{answer}} mātou e haere āpōpō.",
@@ -693,7 +693,7 @@
           "translation": "There is no food in the house.",
           "hint": "the negator",
           "display_order": 5,
-          "gloss": "___ · a · eat/food · PAST/OBJ · the · house"
+          "gloss": "___ · a · eat/food · at · the · house"
         },
         {
           "sentence": "Kāore ia {{answer}} haere mai inanahi.",

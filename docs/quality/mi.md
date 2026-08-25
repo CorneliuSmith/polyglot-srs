@@ -274,9 +274,21 @@ already this file's label for a TAM particle whose value is not being pinned (12
 including the `kāore` clause `Kāore e ___ e ia te oma` → `not · T/A · ___ · by · him · the ·
 run`). It says the true thing and stops.
 
-**Open, and confirmed while settling that cell:** the point *Negation with kāore* glosses
-this same frame particle `PAST/OBJ` three times (`___ · I · PAST/OBJ · the · know`;
-`NOT · ___ · PAST/OBJ · the · hungry`; and once where the `i` is genuinely locative and
-wants `at`). Same defect, larger scale, needs its own pass. Also open: `sw` writes its
+**The `PAST/OBJ` follow-up is now done.** All three cells in *Negation with kāore* were
+settled by a three-lens pass, and the split is the point: drills 0 and 1 are the negated
+present `kāore … i te`, so their `i` is the frame particle → `T/A`; drill 4 is
+`Kāore he kai i te whare`, where the existential is complete at `kai` and `i te whare` is a
+separate locative phrase → `at`. Deciding all three alike would have put a tense label on a
+preposition, which is the same wrong-parse class this point keeps falling into. The
+precedents were verified before applying: point 20 drill 0 glosses the identical string
+`i te whare` as `at · the · house`, and point 23 drill 3 now carries both values in one
+line (`___ · she · T/A · the · good · at · this · day`).
+
+**Still open — the label vocabulary is not normalised.** `PAST/OBJ` survives on 9 cells in
+other points; `NOT` (3) competes with `not` (15) and `PERS` (1) with `pers` (3); and the
+present/progressive slot has three rival names (`PRESENT` 8, `prog` 23, `CONT` 2), as does
+the TAM slot (`T/A` 16, `PART` 2). 302 distinct labels in all. Normalising is a separate,
+deliberate pass — the reviewer declined to touch casing mid-decision on the grounds that it
+would be an uncontrolled edit, which is right. Also open: `sw` writes its
 interlinear line as `u-ta-rudi (2SG-FUT-return) lini (when)` rather than dot-separated
 cells, so the two courses use incompatible formats under one "Word by word" label.
