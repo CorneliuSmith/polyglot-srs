@@ -24,7 +24,7 @@ from backend.services.extract import ANSWER_MARKER, make_cloze
 from backend.services.gym_manifest import nonstandard_point_titles
 from backend.services.gym_weight import drill_weight
 from backend.services.locale_guard import mark_locale_mismatches
-from backend.services.readings import sentence_reading
+from backend.services.readings import sentence_phonetics, sentence_reading
 from backend.services.references import clean_references
 from backend.services.srs_stages import stage_for
 
@@ -544,6 +544,7 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
             ))
     sentence, translation, hint = (r["definition"] or word), None, None
     gloss, transliteration, translation_locale = None, None, None
+    phonetics = None
     if candidates:
         idx = _pick_index(
             [c[0] for c in candidates], r["last_prompt"], stats, _rotation_key(r)
@@ -561,6 +562,9 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
         # answer leak that put 926 rows on the board (CHECKS.md §11).
         if not (transliteration or "").strip():
             transliteration = sentence_reading(sentence, r["language_code"])
+        # ...and the pronunciation line beneath it, from the CLOZE for the same
+        # reason: phonetics of the raw sentence would spell the hidden word.
+        phonetics = sentence_phonetics(sentence, r["language_code"])
     return {
         **_srs_fields(r),
         "sentence": sentence,
@@ -579,6 +583,7 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
         ),
         "gloss": gloss,
         "transliteration": transliteration,
+        "phonetics": phonetics,
         "morphology": r["morphology"],
         "alternatives": r["alternatives"],
         # 'letter' marks an alphabet-deck card; the input surfaces switch to

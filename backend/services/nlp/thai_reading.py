@@ -34,13 +34,17 @@ nothing to install. pythainlp is an optional extra, needed only to regenerate.
 entry, this returns "" rather than a partial line. A reading with a hole in it
 is read as a whole by someone who cannot see the hole.
 
-**Tone is still missing, and that is the standard's limit, not a gap in the
-data.** RTGS carries no tone: คำ and ค่ำ are both *kham*. Thai is tonal, so
-this tells a learner how to approximate a word, never how to say it. The
-Wiktionary rows carry a Paiboon tone-marked form too and it is kept in the
-third column of the table against a future tone layer — but 34% of Paiboon
-entries use IPA letters (`gɔɔ-rá-nii`) that a learner cannot read, so turning
-that into a shippable notation is its own piece of work.
+**Tone lives in a second column, and a second layer.** RTGS carries no tone —
+คำ and ค่ำ are both *kham* — and Thai is tonal, so the romanisation alone tells
+a learner how to approximate a word rather than how to say it. Paiboon has the
+tone but writes 32% of its entries with IPA letters (`gɔɔ-rá-nii`) no learner
+reads. Neither is usable by itself.
+
+So the table carries a fourth column, `phonetics`: the RTGS spelling with
+Paiboon's tone marks transferred onto it, syllable by syllable — `kot-mai` and
+`gòt-mǎai` give `kòt-mǎi`. Every one of the 4,045 rows aligns one-to-one, so
+the transfer is positional and exact. `thai_to_roman(text, "phonetics")`
+returns that line; the card shows it beneath the romanisation.
 """
 from __future__ import annotations
 
@@ -59,27 +63,31 @@ def _is_thai(ch: str) -> bool:
     return THAI_START <= ch <= THAI_END
 
 
-@lru_cache(maxsize=1)
-def _readings() -> tuple[dict[str, str], int]:
-    """(word -> RTGS, longest key) — loaded once."""
+@lru_cache(maxsize=2)
+def _readings(column: str = "rtgs") -> tuple[dict[str, str], int]:
+    """(word -> reading, longest key) — loaded once per column.
+
+    `rtgs` is the romanisation; `phonetics` is the same spelling carrying
+    Paiboon's tone marks, which is what the phonetics layer shows beneath it.
+    """
     table: dict[str, str] = {}
     try:
         with READINGS_TSV.open(encoding="utf-8-sig", newline="") as handle:
             for row in csv.DictReader(handle, delimiter="\t"):
                 word = (row.get("word") or "").strip()
-                rtgs = (row.get("rtgs") or "").strip()
-                if word and rtgs:
-                    table[word] = rtgs
+                value = (row.get(column) or "").strip()
+                if word and value:
+                    table[word] = value
     except OSError as exc:  # noqa: BLE001 — a missing table must never 500
         logger.warning("thai readings table unavailable: %s", exc)
         return {}, 0
     return table, max((len(w) for w in table), default=0)
 
 
-def _segment(run: str) -> list[str] | None:
+def _segment(run: str, column: str = "rtgs") -> list[str] | None:
     """Longest-match over the reading table. None when any part is unknown —
     the caller then emits no reading at all rather than a partial one."""
-    table, longest = _readings()
+    table, longest = _readings(column)
     if not table:
         return None
     out: list[str] = []
@@ -96,7 +104,7 @@ def _segment(run: str) -> list[str] | None:
     return out
 
 
-def thai_to_roman(text: str) -> str:
+def thai_to_roman(text: str, column: str = "rtgs") -> str:
     """An RTGS reading of *text*, word-segmented, or "" when the dictionary
     does not cover it. Non-Thai runs pass through verbatim, which is what
     keeps a cloze blank a blank — romanising the raw sentence instead would
@@ -124,7 +132,7 @@ def thai_to_roman(text: str) -> str:
             else:
                 out.append(chunk)
             continue
-        words = _segment(chunk)
+        words = _segment(chunk, column)
         if words is None:
             return ""
         out.append(" ".join(words))

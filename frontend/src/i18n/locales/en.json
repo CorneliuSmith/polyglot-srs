@@ -381,6 +381,7 @@
     "layerPrompt": "Prompt",
     "layerBase": "Base form",
     "layerReading": "Reading",
+    "layerPhonetics": "Pronunciation",
     "layerGloss": "Word by word",
     "layerTranslation": "Translation",
     "layerHint": "Hint",

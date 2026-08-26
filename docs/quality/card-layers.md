@@ -1,4 +1,4 @@
-# The six layers of a card — the spec
+# The layers of a card — the spec
 
 Owner directive, 25 Aug 2026: check **hint · sentence · translation ·
 interlinear gloss · romanisation · definition** — every one, on every course.
@@ -145,6 +145,36 @@ validator raised were its own false positives — `top` (of the table) and
 `pass` (an exam) are lexical glosses that collide with the Leipzig category
 NAMES TOP and PASS, so ordinary English words came out of the validator's
 grammatical set.
+
+---
+
+## 1b. Phonetics — how to say it, under how to spell it
+
+A romanisation says which letters; **phonetics says how to say them**. They are
+different layers and the second only exists where the first cannot carry the
+whole pronunciation.
+
+**Thai is the case that forced it.** RTGS carries no tone at all, and Thai is
+tonal — คำ and ค่ำ are both *kham* — so the reading tells a learner how to
+approximate a word rather than how to pronounce it. Wiktionary's Paiboon form
+has the tone, but 32% of its entries use IPA letters (`gɔɔ-rá-nii`) no learner
+reads. Neither is usable alone.
+
+The layer is the RTGS spelling **with Paiboon's tone marks transferred onto
+it**, syllable by syllable: `kot-mai` + `gòt-mǎai` → `kòt-mǎi`. Both forms are
+hyphenated by syllable and all 4,045 rows align one-to-one, so the transfer is
+positional and exact. It lives in a fourth column of `data/th_readings.tsv`.
+
+**Built general, not as a Thai special case** (owner decision, 26 Aug 2026 —
+other courses are expected to follow). `PHONETICS_LANGS` in
+`backend/services/readings.py` is the roster; `hintLayersFor` places the layer
+directly beneath the reading, and a course without one skips it rather than
+rendering a blank.
+
+Candidates when it rolls out: Mandarin-style tone languages obviously, but
+also **stress** — Russian and Greek both write no stress mark and both have
+unpredictable stress, which is exactly the class of information a romanisation
+drops silently.
 
 ---
 

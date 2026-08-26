@@ -381,6 +381,7 @@
     "layerPrompt": "Enunciado",
     "layerBase": "Forma base",
     "layerReading": "Lectura",
+    "layerPhonetics": "Pronunciación",
     "layerGloss": "Palabra por palabra",
     "layerTranslation": "Traducción",
     "layerHint": "Pista",

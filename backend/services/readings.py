@@ -40,6 +40,14 @@ logger = logging.getLogger(__name__)
 
 READING_LANGS = ("hi", "ru", "el", "ko", "th", "ar", "he", "fa")
 
+# Courses that additionally carry a PHONETICS line beneath the romanisation.
+# A romanisation says which letters; phonetics says how to say them. Thai needs
+# it because RTGS drops tone entirely and Thai is tonal — คำ and ค่ำ are both
+# "kham" — so the reading alone tells a learner how to approximate a word
+# rather than how to pronounce it. Owner decision 26 Aug 2026; the layer is
+# built general because other courses are expected to follow.
+PHONETICS_LANGS = ("th",)
+
 
 def sentence_reading(text: str | None, language_code: str) -> str | None:
     """A romanized reading for *text*, or None when unavailable/not needed."""
@@ -72,3 +80,21 @@ def sentence_reading(text: str | None, language_code: str) -> str | None:
     reading = (reading or "").strip()
     # Nothing romanizable (already Latin, punctuation only) → no reading line.
     return reading or None
+
+
+def sentence_phonetics(text: str | None, language_code: str) -> str | None:
+    """A pronunciation line for *text* — the romanisation's letters carrying
+    the marks the romanisation itself cannot express. None when the course has
+    no phonetics layer, or the text is not covered."""
+    if not text or not text.strip() or language_code not in PHONETICS_LANGS:
+        return None
+    try:
+        if language_code == "th":
+            from backend.services.nlp.thai_reading import thai_to_roman
+            out = (thai_to_roman(text, "phonetics") or "").strip()
+        else:
+            return None
+    except Exception as exc:  # noqa: BLE001 — a hint must never 500
+        logger.warning("phonetics failed for %s: %s", language_code, exc)
+        return None
+    return out or None

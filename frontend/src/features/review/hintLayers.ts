@@ -21,7 +21,7 @@
  * actually available.
  */
 
-export type HintLayerField = 'base' | 'transliteration' | 'gloss' | 'translation' | 'hint'
+export type HintLayerField = 'base' | 'transliteration' | 'phonetics' | 'gloss' | 'translation' | 'hint'
 
 // The disclosure order is the same everywhere: reading, then word-by-word,
 // then the sentence translation, then the word's own meaning. Each step is a
@@ -39,7 +39,11 @@ export type HintLayerField = 'base' | 'transliteration' | 'gloss' | 'translation
 // deliberately excluded rather than accidentally missing, which is how it
 // survived: authoring for those courses was ruled out on the strength of a
 // bug.
-const WITH_READING: HintLayerField[] = ['transliteration', 'gloss', 'translation', 'hint']
+// `phonetics` sits directly beneath the reading: the romanisation says which
+// letters, phonetics says how to say them. Only Thai carries it today — RTGS
+// drops tone entirely and Thai is tonal — and courses without one skip the
+// layer, so this order is safe for all eight.
+const WITH_READING: HintLayerField[] = ['transliteration', 'phonetics', 'gloss', 'translation', 'hint']
 const NO_READING: HintLayerField[] = ['gloss', 'translation', 'hint']
 
 // Courses whose script a learner cannot sound out cold. Everything else falls
@@ -50,6 +54,8 @@ export interface HintLayerSource {
   /** Dictionary/lemma form the drill exercises — Gym cards only. */
   base?: string | null
   transliteration?: string | null
+  /** Pronunciation beneath the reading — tone marks Thai's RTGS cannot carry. */
+  phonetics?: string | null
   gloss?: string | null
   translation?: string | null
   hint?: string | null
@@ -84,6 +90,7 @@ import i18n from '../../i18n'
 const LABELS: Record<HintLayerField, string> = {
   base: 'review.layerBase',
   transliteration: 'review.layerReading',
+  phonetics: 'review.layerPhonetics',
   gloss: 'review.layerGloss',
   translation: 'review.layerTranslation',
   hint: 'review.layerHint',

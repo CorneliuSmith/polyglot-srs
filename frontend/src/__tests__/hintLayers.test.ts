@@ -194,3 +194,35 @@ describe('every course shows the word-by-word line', () => {
     }).map((l) => l.field)).toEqual(['gloss', 'translation', 'hint'])
   })
 })
+
+describe('the phonetics layer sits under the reading', () => {
+  // A romanisation says which letters; phonetics says how to say them. Thai
+  // needs both because RTGS carries no tone at all and Thai is tonal — คำ and
+  // ค่ำ are both "kham" — so the reading alone tells a learner how to
+  // approximate a word rather than how to pronounce it.
+  it('shows reading then phonetics then the rest', () => {
+    expect(hintLayersFor('th', {
+      transliteration: 'khao pen khon thai',
+      phonetics: 'khǎo pen khon thai',
+      gloss: 'a · gloss', translation: 'the sentence', hint: 'the meaning',
+      correct_answer: 'zzz',
+    }).map((l) => l.field)).toEqual(
+      ['transliteration', 'phonetics', 'gloss', 'translation', 'hint'])
+  })
+
+  it('a course without one skips the layer rather than showing a blank', () => {
+    const fields = hintLayersFor('ru', {
+      transliteration: 'Ya zhivu', gloss: 'a · gloss',
+      translation: 'the sentence', hint: 'the meaning', correct_answer: 'zzz',
+    }).map((l) => l.field)
+    expect(fields).not.toContain('phonetics')
+    expect(fields[0]).toBe('transliteration')
+  })
+
+  it('a Latin-script course is unaffected', () => {
+    expect(hintLayersFor('es', {
+      gloss: 'a · gloss', translation: 'the sentence', hint: 'the meaning',
+      correct_answer: 'zzz',
+    }).map((l) => l.field)).toEqual(['gloss', 'translation', 'hint'])
+  })
+})

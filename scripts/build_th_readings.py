@@ -30,6 +30,7 @@ from __future__ import annotations
 import csv
 import json
 import sys
+import unicodedata
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
@@ -73,6 +74,42 @@ def _legal_codas(reading: str) -> str:
                 break
         out.append(syllable)
     return "-".join(out)
+
+
+TONE_MARKS = "\u0300\u0301\u0302\u030C"   # low, high, falling, rising
+
+
+def _tone_of(syllable: str) -> str:
+    for ch in unicodedata.normalize("NFD", syllable):
+        if ch in TONE_MARKS:
+            return ch
+    return ""
+
+
+def _with_tone(syllable: str, mark: str) -> str:
+    """Put *mark* on the syllable's first vowel."""
+    if not mark:
+        return syllable
+    d = unicodedata.normalize("NFD", syllable)
+    for i, ch in enumerate(d):
+        if ch in "aeiou":
+            return unicodedata.normalize("NFC", d[:i + 1] + mark + d[i + 1:])
+    return syllable
+
+
+def phonetics(rtgs: str, paiboon: str) -> str:
+    """RTGS spelling carrying Paiboon's tone marks.
+
+    RTGS is readable and toneless; Paiboon has the tone and 32% of it uses IPA
+    letters (gɔɔ-rá-nii) a learner cannot read. Neither is usable alone. Both
+    are hyphenated by syllable and every one of the 4,045 rows aligns
+    one-to-one, so the tone transfers by position: kot-mai + gòt-mǎai gives
+    kòt-mǎi — the letters the learner already reads, with the tone Thai needs.
+    """
+    left, right = rtgs.split("-"), paiboon.split("-")
+    if len(left) != len(right):
+        return ""
+    return "-".join(_with_tone(a, _tone_of(b)) for a, b in zip(left, right))
 
 
 def main() -> int:
@@ -130,9 +167,10 @@ def main() -> int:
         rtgs[word] = _legal_codas(rtgs[word])
     with OUT.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.writer(handle, delimiter="\t", lineterminator="\n")
-        writer.writerow(["word", "rtgs", "tone"])
+        writer.writerow(["word", "rtgs", "tone", "phonetics"])
         for word in covered:
-            writer.writerow([word, rtgs[word], tone.get(word, "")])
+            t = tone.get(word, "")
+            writer.writerow([word, rtgs[word], t, phonetics(rtgs[word], t) if t else ""])
     print(f"{len(covered)}/{len(need)} tokens covered ({100 * len(covered) / len(need):.1f}%)")
     print(f"wrote {OUT}")
     return 0

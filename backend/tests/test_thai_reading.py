@@ -166,3 +166,33 @@ def test_the_unresolved_loanwords_get_no_reading_rather_than_a_guess():
     Where the evidence splits, the layer withholds."""
     assert thai_to_roman("ออสเตรเลีย") == ""
     assert thai_to_roman("คุณไปเที่ยวที่ไหนในออสเตรเลีย") == ""
+
+
+def test_the_phonetics_layer_carries_the_tone_the_reading_cannot():
+    """RTGS drops tone and Thai is tonal, so the reading alone tells a learner
+    how to approximate a word rather than how to say it. Paiboon has the tone
+    but writes 32% of its entries in IPA letters no learner reads. The
+    phonetics line is the RTGS spelling with Paiboon's marks moved onto it,
+    syllable by syllable — readable letters, real tone."""
+    from backend.services.readings import sentence_phonetics
+    assert thai_to_roman("กฎหมาย") == "kot-mai"
+    assert thai_to_roman("กฎหมาย", "phonetics") == "kòt-mǎi"
+    assert sentence_phonetics("เขาเป็นคนไทย ใช่ไหม?", "th") == \
+        "khǎo pen khon thai châi mǎi?"
+
+
+def test_only_thai_has_phonetics_today():
+    from backend.services.readings import PHONETICS_LANGS, sentence_phonetics
+    assert PHONETICS_LANGS == ("th",)
+    assert sentence_phonetics("Я живу в Москве.", "ru") is None
+
+
+def test_every_row_has_a_phonetics_form():
+    """The transfer is positional, so it only works while the RTGS and Paiboon
+    forms agree on syllable count. All 4,045 rows do; a regenerated table that
+    did not would silently drop the layer for those words."""
+    with READINGS_TSV.open(encoding="utf-8-sig", newline="") as handle:
+        rows = list(csv.DictReader(handle, delimiter="\t"))
+    assert all("phonetics" in r for r in rows)
+    filled = [r for r in rows if (r.get("phonetics") or "").strip()]
+    assert len(filled) == len(rows), f"{len(rows) - len(filled)} rows lost the tone"
