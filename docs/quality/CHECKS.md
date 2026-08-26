@@ -597,3 +597,39 @@ is not built.**
 3. Decide the status: all / parameterised / scoped — and if scoped, state why,
    with the measurement that justifies the limit.
 4. Add a row here. A check absent from this file does not exist.
+
+---
+
+## §13 A green assertion can be a crash — check the path ran
+
+`test_generates_and_draws_one_message` asserted the Gym charges one message
+per form topped up. It was green in CI and red on a developer machine, which
+reads like flake and is not.
+
+WP45 (`672ecb2`) added a second charge — one message per new word charted —
+so the honest answer became 3. The test kept reading 1 because it left
+`generate_chart` unpatched: with `TUTOR_DEV_MOCK` unset, `make_chart` builds
+a live Anthropic client, the keyless call raises, and the router's
+`except: break` skips both chart charges. **CI passes because the feature
+crashes.** Turn the dev mock on — i.e. make the code actually work — and the
+test fails.
+
+Three things this establishes, all now enforced rather than remembered:
+
+1. **Check the path RAN before trusting a green assertion.** Any assertion
+   about a code path that calls outward can be satisfied by that call
+   failing. Assert the call happened (`mock.assert_not_awaited()` /
+   `await_count`), not only the number that came out the end.
+2. **No test may construct a live model client.** `never_reach_a_live_model`
+   (autouse, `backend/tests/conftest.py`) raises on any `AsyncAnthropic`
+   construction with a message naming the fix. With a key present the old
+   behaviour would have SPENT it — two calls per run of one test — against a
+   standing owner directive not to. The full suite passes with the guard in
+   place, so nothing else was reaching out.
+3. **When CI and local disagree, find out which one is executing the real
+   path.** Here the greener environment was the broken one. Run both
+   (`TUTOR_DEV_MOCK=false .venv/bin/pytest …` reproduces CI) before deciding
+   which result to believe.
+
+Verified 26 Aug: 2,162 pass with the mock ON and 2,162 with it OFF — the
+suite no longer depends on the setting.

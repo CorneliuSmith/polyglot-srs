@@ -15,6 +15,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from backend.main import create_app
+from backend.repositories.cards import _form_key
 
 TEST_SECRET = "test-jwt-secret-for-unit-tests-32bytes"
 TEST_USER_ID = "550e8400-e29b-41d4-a716-446655440000"
@@ -175,9 +176,25 @@ class TestGymGenerateEndpoint:
         ).status_code == 401
 
     def test_generates_and_draws_one_message(self, client):
+        # The chart path is pinned shut so this test measures what its name
+        # says: one form topped up draws one message. Left unpatched it did
+        # not measure that at all — WP45 charges a message per new word, so
+        # the real answer is 3, and the only reason this ever read 1 was that
+        # `make_chart` CRASHED. With TUTOR_DEV_MOCK unset (which is how CI
+        # runs — no workflow sets it) it builds a live Anthropic client, the
+        # call raises, and the router's `except: break` skips both charges.
+        # So CI passed on an exception while a developer with dev-mock on saw
+        # the honest 3 and a red test. An assertion satisfied by a crash is
+        # not a passing assertion.
         p = _patch_gym_gen()
+        charted = {_form_key("dayim"): "okul", _form_key("desin"): "bahçe"}
         with p[0], p[1], p[2], p[3], p[4] as mock_add, \
-             p[5] as mock_log, p[6], p[7], p[8], p[9]:
+             p[5] as mock_log, p[6], p[7], p[8], p[9], \
+             patch("backend.routers.review._chart_form_index",
+                   new=AsyncMock(return_value=charted)), \
+             patch("backend.routers.review._reset_chart_form_index"), \
+             patch("backend.routers.review.generate_chart",
+                   new=AsyncMock()) as mock_chart:
             resp = client.post(
                 "/api/review/gym/generate",
                 json={"point_ids": [POINT_A]},
@@ -193,6 +210,9 @@ class TestGymGenerateEndpoint:
         # the added drills are tagged 'ai' and DON'T de-certify the form
         assert mock_add.await_args.kwargs["source"] == "ai"
         assert mock_add.await_args.kwargs["decertify"] is False
+        # Never the live generator: with no key this test was passing because
+        # the call threw, and with a key it would have SPENT one.
+        mock_chart.assert_not_awaited()
         # one message per FORM (here a single form), not per drill
         mock_log.assert_awaited_once()
         assert mock_log.await_args.kwargs["kind"] == "gym_gen"
@@ -302,7 +322,6 @@ class TestGymGenerateEndpoint:
     def test_already_charted_answers_spend_nothing_extra(self, client):
         # Both answers resolve in the reverse form index -> no chart calls,
         # no extra charges.
-        from backend.repositories.cards import _form_key
         index = {_form_key("dayim"): "okul", _form_key("desin"): "bahçe"}
         p = _patch_gym_gen()
         with p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7], p[8], p[9], \

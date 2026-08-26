@@ -102,10 +102,29 @@ rate, say so — that result matters more than the phase closing quietly.
     end to end: file → loader → column → renderer. Same class as the collision
     guard shipping with `data/*` gitignored, which silently graded every fold
     as a pass.
-14. **Facts yes, sentences regenerated** — paradigms/vocab from licensed
+14. **A test that passes because something CRASHED is not a passing test.**
+    Before trusting a green assertion on a path that calls out to anything,
+    check that the path actually RAN. The gym top-up test asserted
+    `charged == 1` and was green in CI for two releases because `make_chart`
+    built a keyless client, threw, and the router's `except: break` skipped
+    the two charges WP45 had added. The honest answer was 3. It failed only
+    on a machine with `TUTOR_DEV_MOCK` on — so the environment where the code
+    worked was the environment that looked broken.
+15. **A test must not reach a live model.** Owner directive: this program
+    does not spend the API key, and a unit test is the easiest place to break
+    that by accident. Patch the generator, or patch `get_settings` for the
+    dev-mock path. `never_reach_a_live_model` in `backend/tests/conftest.py`
+    now fails loudly on any client construction. Absent a key it is worse
+    than a spend — it silently exercises the exception branch instead of the
+    behaviour, which is how rule 14 happened.
+16. **When local and CI disagree, the failing one is usually right.** Green
+    CI is not evidence the code works; it can equally mean CI is missing the
+    setting that makes the code run at all. Reproduce both, and find out
+    WHICH environment is exercising the real path before believing either.
+17. **Facts yes, sentences regenerated** — paradigms/vocab from licensed
    courses may inform; verbatim sentences may not ship.
-15. **Never the API key.** Maker–checker runs in-session (Workflow tool).
-16. **Fixes land in committed files** (`gloss_overrides.tsv`, TSVs, JSON) —
+18. **Never the API key.** Maker–checker runs in-session (Workflow tool).
+19. **Fixes land in committed files** (`gloss_overrides.tsv`, TSVs, JSON) —
     a DB-only repair is undone by the next re-seed. Same logic one level up:
     a TSV-only deletion is undone by the next regeneration — durable
     deletions go in `data/vocab_exclusions.tsv` (typo-mass rows like `citta`
@@ -113,30 +132,30 @@ rate, say so — that result matters more than the phase closing quietly.
 
 ## Verification
 
-17. **Verify agent output mechanically before writing it back**: structural
+20. **Verify agent output mechanically before writing it back**: structural
     validators, spot-checks against known ground truth, and assembly by stable
     key, never by index (a rank drift once nearly filed `luna`'s gloss under
     `stella`). After writing a TSV, eyeball it: text containing `"` gets
     csv-escaped into `""..""` noise — reword the text instead.
-18. **Re-measure any agent-reported number before acting on it** — two of five
+21. **Re-measure any agent-reported number before acting on it** — two of five
     sampled claim-audit figures did not reproduce.
-19. **State verification honestly**: "275 of 557 checker-verified, rest
+22. **State verification honestly**: "275 of 557 checker-verified, rest
     maker-only" — never round up to "verified".
-20. **Never freeze a count the audit computes** — cite the rule name; the tool
+23. **Never freeze a count the audit computes** — cite the rule name; the tool
     says the number. Hand counts carry date + method. "Verified" names every
     file the claim covers.
-21. **Baseline ratchet**: equal is fine, worse needs `--update-baseline` and a
+24. **Baseline ratchet**: equal is fine, worse needs `--update-baseline` and a
     written reason. Run `audit_content` before pushing content.
 
 ## Ship
 
-22. Green = `npm run build` (not `tsc --noEmit`), `vitest`, backend pytest at
+25. Green = `npm run build` (not `tsc --noEmit`), `vitest`, backend pytest at
     baseline (7 known environment failures), `ruff`, audit PASS, CI green,
     then merge — standing authorization. Say plainly what was left out.
-23. **When adding words to fill a homonym gap, add only members a learner
+26. **When adding words to fill a homonym gap, add only members a learner
     meets** (`hīc`, `mālum` yes; `pōpulus` "poplar" no) and gloss each naming
     its false twin — "here (distinct from hic: this)".
-24. **Nothing of value stays only on this machine** (owner directive, 20 Aug
+27. **Nothing of value stays only on this machine** (owner directive, 20 Aug
     2026). After every merge — and before any long-running job — fast-forward
     `feat/phases` to the current head and push it:
     `git branch -f feat/phases HEAD && git push origin feat/phases`.

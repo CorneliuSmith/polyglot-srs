@@ -73,3 +73,35 @@ def _reset_rate_limiters():
     tts_limiter.reset()
     stt_limiter.reset()
     yield
+
+
+@pytest.fixture(autouse=True)
+def never_reach_a_live_model(monkeypatch):
+    """No test may construct a real Anthropic client.
+
+    The owner's standing rule is that this program does not spend the API key,
+    and a unit test is the easiest place to break it by accident: leave one
+    generator unpatched and the call goes out for real the moment a key is
+    present. It also hides bugs when the key is ABSENT — the gym top-up test
+    asserted `charged == 1` and passed in CI for two releases only because
+    `make_chart` crashed on a keyless client, so the router's `except: break`
+    skipped the two charges WP45 had added. The honest answer was 3. An
+    assertion satisfied by a crash is not a passing assertion, and the crash
+    is invisible precisely where CI is greenest.
+
+    Tests that exercise generation patch the function they are testing (or
+    `get_settings`, for the dev-mock path). Anything that reaches this guard
+    is calling a live model it did not mean to call.
+    """
+    import backend.services.generate as gen
+
+    def _refuse(*_a, **_kw):
+        raise AssertionError(
+            "This test constructed a live Anthropic client. Patch the "
+            "generator you are exercising (e.g. "
+            "patch('backend.routers.review.generate_chart')), or patch "
+            "backend.services.generate.get_settings to a dev-mock settings "
+            "object. Never let a test reach the real API."
+        )
+
+    monkeypatch.setattr(gen, "AsyncAnthropic", _refuse, raising=False)
