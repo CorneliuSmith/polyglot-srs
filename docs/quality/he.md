@@ -164,3 +164,39 @@ inventory and the course's own sentences. See `docs/quality/CHECKS.md` §3b.
 
 Fixes are in `data/gloss_overrides.tsv` as well as `data/he_frequency.tsv`, because
 glosses regenerate from kaikki and a TSV-only edit is undone by the next seed.
+
+## Romanisation convention (25 Aug 2026)
+
+Taken from the owner's licensed A1 material (*Hebrew For Beginners*, consulted
+under the standing rule: **facts yes, sentences regenerated** — its vocabulary
+and conventions may inform, its example sentences may not ship).
+
+**Learner-facing, not academic.** No `ḥ`, `ḫ`, `ʾ` or macrons; an English
+speaker must be able to read it cold:
+
+| | | |
+| --- | --- | --- |
+| אֲנִי | `Ani` | I |
+| אֲנַחְנוּ | `Anac'hnu` | we |
+| אַתָּה / אַתְּ | `Ata` / `At` | you (m / f) |
+| הוּא / הִיא | `Hoo` / `Hee` | he / she |
+| הֵם / הֵן | `Hem` / `Hen` | they (m / f) |
+| אֵיפֹה | `eyfo` | where |
+| הֵיכָן | `heyc'han` | where |
+| אֵיךְ | `eyc'h` | how |
+| מָתַי | `matay` | when |
+| כַּמָּה | `kama` | how many |
+
+**The apostrophe marks ח and כ (kh)**, as in `Anac'hnu`, `heyc'han`, `eyc'h` —
+not a glottal stop. `ey` for the tsere-yod diphthong, `oo` for shuruk.
+
+Two facts that shape every authored sentence, from the same source:
+
+1. **Hebrew has no present-tense copula** — no *am/is/are*. `אני מורה` is
+   "I (am a) teacher", and a translation that inserts "is" teaches a word the
+   sentence does not contain.
+2. **No indefinite article.** "a boy" is just `ילד`.
+
+Gender is marked in the 2nd and 3rd person but not the 1st, and a mixed group
+takes the masculine — so an authored sentence must fix its addressee's gender
+or the pronoun cannot be graded.
