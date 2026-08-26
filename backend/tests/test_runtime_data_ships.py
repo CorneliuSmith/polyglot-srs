@@ -33,6 +33,9 @@ RUNTIME_DATA = [
     # walk over the same file. Absent, `th` readings are empty and nothing
     # errors, which is indistinguishable from the layer never being built.
     ("data/th_readings.tsv", "every Thai reading is silently empty"),
+    ("data/ar_readings.tsv", "every Arabic reading is silently empty"),
+    ("data/he_readings.tsv", "every Hebrew reading is silently empty"),
+    ("data/fa_readings.tsv", "every Persian reading is silently empty"),
 ]
 
 

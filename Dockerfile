@@ -36,7 +36,9 @@ COPY data/*_frequency.tsv ./data/
 #  - Thai readings. The whole `th` romanisation layer is this lookup table;
 #    a missing file degrades to no reading, which looks exactly like the
 #    layer never having been built.
-COPY data/th_readings.tsv ./data/
+#    One glob for every course: th, ar, he and fa today, and whatever comes
+#    next without needing this line edited again.
+COPY data/*_readings.tsv ./data/
 RUN pip install --no-cache-dir .
 
 # Model/data downloads the app expects at runtime:

@@ -20,11 +20,11 @@ frontend
 data/*
 !data/gym
 !data/*_frequency.tsv
-#   data/th_readings.tsv — the ENTIRE Thai reading layer. Looked up at request
-#                      time from this table (segmentation is a longest-match
-#                      walk over it), so without it Thai readings are silently
-#                      empty and nothing errors.
-!data/th_readings.tsv
+#   data/*_readings.tsv — the ENTIRE reading layer for th, ar, he and fa. Each
+#                      is looked up at request time from its table, so without
+#                      them those readings are silently empty and nothing
+#                      errors — indistinguishable from never having built it.
+!data/*_readings.tsv
 docs
 scripts
 supabase

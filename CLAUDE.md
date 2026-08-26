@@ -79,6 +79,19 @@ Postgres in this container gets reaped periodically. If a run produces a
 flood of connection errors, restart it and re-run — don't report the flood
 as a result.
 
+## Production pushes are GATED (owner decision, 26 Aug 2026)
+
+**Do not run the production sequence, and do not propose running it, until
+BOTH of these are complete:**
+
+1. the Gym level, and
+2. a review of the grammar concepts — which must be **comprehensive**, not
+   just defect-free.
+
+The owner has already heard the argument that the deployed app is worse than
+the repository and decided the release waits. Do not re-open it each session.
+Full detail and the three commands: `docs/decisions/2026-08-26-owner-decisions.md`.
+
 ## Migrations
 
 Migrations are applied by the owner (`supabase db push`), not by this agent.

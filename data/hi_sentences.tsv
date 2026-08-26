@@ -93,7 +93,7 @@ word	sentence	translation	difficulty_rank
 होगा	कुछ नहीं होगा।	Nothing'll happen.	51
 उसे	उसे कुछ नहीं होगा।	Nothing will happen to him.	51
 होगा	उसे कुछ नहीं होगा।	Nothing will happen to him.	51
-बहुत	बहुत !	Very!	52
+बहुत	बहुत!	Very!	52
 हम	हम बात कर सकते हैं क्या?	Can we have a talk?	53
 बात	हम बात कर सकते हैं क्या?	Can we have a talk?	53
 सकते	हम बात कर सकते हैं क्या?	Can we have a talk?	53
@@ -353,8 +353,8 @@ word	sentence	translation	difficulty_rank
 जानते	हम उसे नहीं जानते हैं।	We don't know him.	148
 जानते	तुम उसे कैसे जानते थे?	How did you come to know her?	148
 जानते	लगता है वे हमें जानते हैं।	He seems to know us.	148
-को	तुम मेरी को कैसे जानते हो ?	How do you know Mary?	148
-मेरी	तुम मेरी को कैसे जानते हो ?	How do you know Mary?	148
+को	तुम मेरी को कैसे जानते हो?	How do you know Mary?	148
+मेरी	तुम मेरी को कैसे जानते हो?	How do you know Mary?	148
 आदमी	क्या तुम उस आदमी को जानते हो?	Do you know that man?	148
 को	क्या तुम उस आदमी को जानते हो?	Do you know that man?	148
 उस	क्या तुम उस आदमी को जानते हो?	Do you know that man?	148
@@ -729,7 +729,7 @@ word	sentence	translation	difficulty_rank
 बेटा	यह लड़का उसका बेटा है।	This boy is his son.	291
 इस	मुझे इस समस्या के बारे में कुछ नहीं कहना है।	I have nothing to say with regard to that problem.	292
 समस्या	मुझे इस समस्या के बारे में कुछ नहीं कहना है।	I have nothing to say with regard to that problem.	292
-समस्या	आज क्या समस्या है ?	What seems to be the problem today?	292
+समस्या	आज क्या समस्या है?	What seems to be the problem today?	292
 समस्या	समस्या क्या है?	What is the problem?	292
 बुरा	मुझे लगता है कि वह एक बुरा आदमी है ।	I think he's a bad person.	293
 बुरा	मुझे बुरा लगा।	I felt bad.	293
@@ -2016,8 +2016,8 @@ word	sentence	translation	difficulty_rank
 चाहेंगे	आप रात में खाने के लिए क्या खाना चाहेंगे?	What would you like for supper?	1028
 चाहेंगे	क्या आप कुछ खाना चाहेंगे?	Would you like to eat something?	1028
 चाहेंगे	क्या आप मुझसे और कुछ पूछना चाहेंगे?	Would you like to ask me something else?	1028
-मौजूद	बैठक मैं कितने लोग मौजूद थे ?	How many people were present at the meeting?	1031
-बैठक	बैठक मैं कितने लोग मौजूद थे ?	How many people were present at the meeting?	1031
+मौजूद	बैठक मैं कितने लोग मौजूद थे?	How many people were present at the meeting?	1031
+बैठक	बैठक मैं कितने लोग मौजूद थे?	How many people were present at the meeting?	1031
 सलाह	मैं तुम्हें एक बात की सलाह देता हूँ।	Let me give you a piece of advice.	1041
 सलाह	बढ़िया सलाह थी।	It was great advice.	1041
 खान	यह सोने की खान है।	This is a gold mine.	1043
@@ -2268,7 +2268,7 @@ word	sentence	translation	difficulty_rank
 कमी	क्योंकि पानी की कोई भी कमी नहीं थी...	Because there was plenty of water...	1208
 इधर	अभी इधर आओ।	Get over here now.	1211
 कहेंगे	तब आप क्या कहेंगे?	What will you say then?	1218
-कहेंगे	आप क्या कहेंगे ?	What would you say?	1218
+कहेंगे	आप क्या कहेंगे?	What would you say?	1218
 कहती	वह कहती है की तुम झूठ बोल रहे हो।	She says you're lying.	1222
 कहती	वह कहती है की तुम झूठ बोल रही हो।	She says you're lying.	1222
 कहती	वह कहती है की आप झूठ बोल रहे हैं।	She says you're lying.	1222
@@ -2745,8 +2745,8 @@ word	sentence	translation	difficulty_rank
 विषय	हम इस विषय पर सहमत हैं।	We are in agreement on this subject.	1550
 विषय	विषय किसने बदला?	Who changed the subject?	1550
 बदला	विषय किसने बदला?	Who changed the subject?	1550
-अनुमान	क्या तुम्हें कोई अनुमान है कि मैं किस विषय के बारे में बात कर रहा हूँ ?	Have you got any idea what I'm talking about?	1550
-अनुमान	क्या तुम्हें कोई अनुमान है कि मैं किस विषय के बारे में बात कर रही हूँ ?	Have you got any idea what I'm talking about?	1550
+अनुमान	क्या तुम्हें कोई अनुमान है कि मैं किस विषय के बारे में बात कर रहा हूँ?	Have you got any idea what I'm talking about?	1550
+अनुमान	क्या तुम्हें कोई अनुमान है कि मैं किस विषय के बारे में बात कर रही हूँ?	Have you got any idea what I'm talking about?	1550
 हटाना	मैं अपने काम से ध्यान हटाना चाहता हूँ।	I want to get my mind off work.	1564
 हटाना	मैं अपने काम से ध्यान हटाना चाहता था।	I wanted to get my mind off work.	1564
 जल	घर जल रहा है।	The house is burning.	1565
@@ -2801,7 +2801,7 @@ word	sentence	translation	difficulty_rank
 दिलचस्प	तुम कोई दिलचस्प किताब पढ़ रहे हो क्या?	Are you reading an interesting book?	1617
 दिलचस्प	तुम कोई दिलचस्प किताब पढ़ रही हो क्या?	Are you reading an interesting book?	1617
 दोबारा	उसने अपना नाम दोबारा धीरे से बोला।	He repeated his name slowly.	1619
-दोबारा	दोबारा !	Repeat!	1619
+दोबारा	दोबारा!	Repeat!	1619
 न्यूयॉर्क	जॉन न्यूयॉर्क में रहता है।	John lives in New York.	1621
 न्यूयॉर्क	न्यूयॉर्क दुनिया का सबसे बड़ा शहर है।	New York is the world's biggest city.	1621
 बाथरूम	मुझे बाथरूम जाना है।	I have to go to the bathroom.	1624
@@ -3391,8 +3391,8 @@ word	sentence	translation	difficulty_rank
 हिल	मैं हिल नहीं सकता।	I can't move.	2067
 हिल	वे हिल नहीं रहे।	They're not moving.	2067
 तेरा	मुझे तेरा सामान नहीं चाहिए।	I don't want your stuff.	2068
-दुश्मन	तेरा दुश्मन कौन है ?	Who is your enemy?	2068
-तेरा	तेरा दुश्मन कौन है ?	Who is your enemy?	2068
+दुश्मन	तेरा दुश्मन कौन है?	Who is your enemy?	2068
+तेरा	तेरा दुश्मन कौन है?	Who is your enemy?	2068
 तेरा	तेरा दिल बीमार है.	Your heart is sick.	2068
 बचाओ	बचाओ!	Help!	2069
 रोका	मैंने रोका।	I stopped it.	2071
@@ -3661,7 +3661,7 @@ word	sentence	translation	difficulty_rank
 आम	अधिकारियों ने सच्चाई को आम जनता से छिपा कर रखा हुआ है।	The authorities have been hiding the facts from the public.	2377
 सच्चाई	अधिकारियों ने सच्चाई को आम जनता से छिपा कर रखा हुआ है।	The authorities have been hiding the facts from the public.	2377
 छिपा	अधिकारियों ने सच्चाई को आम जनता से छिपा कर रखा हुआ है।	The authorities have been hiding the facts from the public.	2377
-जनता	कौन जनता है कहाँ ?	Who knows where?	2377
+जनता	कौन जनता है कहाँ?	Who knows where?	2377
 बू	तुमसे सिगरेट की बू आ रही है।	You stink of cigarettes.	2378
 ढंग	सुबह-शाम को ठंड हो जाती है, इसलिए मैं ढंग से कपड़े पहनना चाहती हूँ।	It gets cold in the mornings and evenings, so I want to take care how I dress.	2381
 पहनना	सुबह-शाम को ठंड हो जाती है, इसलिए मैं ढंग से कपड़े पहनना चाहती हूँ।	It gets cold in the mornings and evenings, so I want to take care how I dress.	2381
@@ -4546,7 +4546,7 @@ word	sentence	translation	difficulty_rank
 फ़ोटो	यह हवाई अड्डे का फ़ोटो है।	This is a photograph of the airport.	3507
 अड्डा	यह हवाई अड्डे का फ़ोटो है।	This is a photograph of the airport.	3507
 फ़ोटो	वह फ़ोटो मुझे दिखाओ।	Show me that photo.	3507
-तीनों	क्या आप तीनों भाई हैं ?	Are you all three brothers?	3509
+तीनों	क्या आप तीनों भाई हैं?	Are you all three brothers?	3509
 बनते	मक्खन और पनीर दूध से बनते हैं।	Butter and cheese are made from milk.	3511
 पनीर	मक्खन और पनीर दूध से बनते हैं।	Butter and cheese are made from milk.	3511
 मक्खन	मक्खन और पनीर दूध से बनते हैं।	Butter and cheese are made from milk.	3511
@@ -5266,7 +5266,7 @@ word	sentence	translation	difficulty_rank
 आयु	उसकी आयु तीस साल से कम नहीं है।	She is not less than thirty.	4680
 आयु	ब्रह्मांड की आयु लगभग १३.७५ अरब साल हैं।	The age of the universe is about 13.75 billion years.	4680
 ब्रह्मांड	ब्रह्मांड की आयु लगभग १३.७५ अरब साल हैं।	The age of the universe is about 13.75 billion years.	4680
-आयु	आपकी आयु क्या है ?	What is your age?	4680
+आयु	आपकी आयु क्या है?	What is your age?	4680
 ईरान	मैं ईरान गया।	I went to Iran.	4684
 ईरान	मैं ईरान गयी।	I went to Iran.	4684
 ईरान	ईरान में कौन है?	Who is in Iran?	4684
@@ -5276,7 +5276,7 @@ word	sentence	translation	difficulty_rank
 छत	छत पर जो चिड़िया बैठी है वह एक कौआ है।	The bird on the roof is a crow.	4686
 कौआ	छत पर जो चिड़िया बैठी है वह एक कौआ है।	The bird on the roof is a crow.	4686
 कौआ	कौआ उड़ गया।	The crow flew away.	4686
-सोए	तुम अभी तक क्यों नहीं सोए ?	Why are you still not sleeping?	4694
+सोए	तुम अभी तक क्यों नहीं सोए?	Why are you still not sleeping?	4694
 लायक़	वह किताब पढ़ने लायक़ है।	That book is worth reading.	4696
 ख़याल	तुम्हारे ख़याल से वह कौन है?	Who do you think he is?	4698
 ख़याल	अपना अच्छे से ख़याल रखना।	Take good care of yourself.	4698
@@ -5576,8 +5576,8 @@ word	sentence	translation	difficulty_rank
 प्यासा	मैं बहुत प्यासा थी।	I was very thirsty.	5353
 मात	शह और मात।	Checkmate.	5355
 शह	शह और मात।	Checkmate.	5355
-मात	शह और मात !	Check and mate!	5355
-शह	शह और मात !	Check and mate!	5355
+मात	शह और मात!	Check and mate!	5355
+शह	शह और मात!	Check and mate!	5355
 हित	जंग हमारे हित में जा रहा है।	The war is going in our favor.	5380
 हित	आप इसके हित में हैं या नहीं?	Are you for or against this?	5380
 परसों	परसों से बारिश रुक रुक के हो रही है।	It has been raining on and off since the day before yesterday.	5381
@@ -5748,7 +5748,7 @@ word	sentence	translation	difficulty_rank
 नासमझ	नासमझ!	Fool!	5681
 ख़ाली	ख़ाली है।	It's empty.	5690
 चुम्मा	एक चुम्मा या दो?	One kiss or two?	5691
-चुम्मा	चुम्मा !	Kisses!	5691
+चुम्मा	चुम्मा!	Kisses!	5691
 उच्चारण	इस शब्द का इतालवी उच्चारण क्या है?	What's the Italian pronunciation of this word?	5695
 सहना	तुम्हें दर्द सहना ही पड़ेगा।	You must endure the pain.	5712
 सहना	आपको दर्द सहना ही पड़ेगा।	You must endure the pain.	5712
@@ -6469,7 +6469,7 @@ word	sentence	translation	difficulty_rank
 शेरों	वे आदमी शेरों का शिकार करने निकले।	The men went hunting for lions.	8398
 शिकार	वे आदमी शेरों का शिकार करने निकले।	The men went hunting for lions.	8398
 निकले	वे आदमी शेरों का शिकार करने निकले।	The men went hunting for lions.	8398
-ऐनक	क्या यह वह ऐनक है जिसे आप ढूँढ रहे थे ?	Are these the glasses you were looking for?	8426
+ऐनक	क्या यह वह ऐनक है जिसे आप ढूँढ रहे थे?	Are these the glasses you were looking for?	8426
 उतरेगा	कल वह चाँद पर उतरेगा।	Tomorrow, he will land on the moon.	8448
 समझोगी	तुम नहीं समझोगी।	You wouldn't understand.	8476
 समझोगी	तुम बाद में समझोगी।	You'll understand later.	8476

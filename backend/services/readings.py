@@ -19,8 +19,11 @@ Only languages with reliable tooling are covered:
   - el: ELOT 743, the scheme printed in Greek passports — regular mapping,
     a closed set of digraphs, and the <αυ/ευ> voicing rule that makes «αυτό»
     read *afto*
-Arabic is deliberately absent — unvocalized script drops the short vowels a
-romanization would need, so a computed reading would mislead.
+Arabic, Hebrew and Persian cannot be romanized by RULE at all — the scripts
+write consonants and leave the short vowels to the reader — so their readings
+are looked up from Wiktionary, with the clitics peeled. See
+`backend/services/nlp/semitic_reading.py`, and `scripts/build_semitic_readings.py`
+for the standard each one follows.
 
 Thai took two attempts. Computing it failed adversarial verification on
 ordinary words, so it is LOOKED UP instead, from a committed table built out
@@ -35,7 +38,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-READING_LANGS = ("hi", "ru", "el", "ko", "th")
+READING_LANGS = ("hi", "ru", "el", "ko", "th", "ar", "he", "fa")
 
 
 def sentence_reading(text: str | None, language_code: str) -> str | None:
@@ -49,6 +52,9 @@ def sentence_reading(text: str | None, language_code: str) -> str | None:
         elif language_code == "ru":
             import cyrtranslit
             reading = cyrtranslit.to_latin(text, "ru")
+        elif language_code in ("ar", "he", "fa"):
+            from backend.services.nlp.semitic_reading import semitic_reading
+            reading = semitic_reading(text, language_code)
         elif language_code == "th":
             from backend.services.nlp.thai_reading import thai_to_roman
             reading = thai_to_roman(text)

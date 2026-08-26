@@ -15,9 +15,12 @@ class TestSentenceReading:
     def test_latin_language_gets_no_reading(self):
         assert sentence_reading("Yo voy a casa.", "es") is None
 
-    def test_arabic_deliberately_unsupported(self):
-        # unvocalized Arabic would need short vowels a romanization lacks
-        assert sentence_reading("أنا ذاهب إلى البيت.", "ar") is None
+    def test_arabic_is_looked_up_now_not_excluded(self):
+        # This asserted Arabic was "deliberately unsupported" because
+        # unvocalized script lacks the short vowels a romanization needs. True,
+        # and it does not follow: it cannot be COMPUTED is not it cannot be
+        # DONE. Owner decision 26 Aug 2026 — see semitic_reading.py.
+        assert sentence_reading("كتاب", "ar") == "kitāb"
 
     def test_empty_and_none_safe(self):
         assert sentence_reading("", "ru") is None
@@ -162,9 +165,9 @@ class TestTheVocabularyReadingIsComputedOnTheGenericPath:
         from backend.services.seeder.csv_importer import _computed_reading
         assert _computed_reading("casa", "es") is None
 
-    def test_arabic_stays_deliberately_unread(self):
+    def test_arabic_is_read_from_the_lookup_table(self):
         from backend.services.seeder.csv_importer import _computed_reading
-        assert _computed_reading("كتاب", "ar") is None
+        assert _computed_reading("كتاب", "ar") == "kitāb"
 
 
 class TestKoreanReading:

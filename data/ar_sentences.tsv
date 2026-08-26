@@ -272,7 +272,7 @@ word	sentence	translation	difficulty_rank
 مكان	لم نره في أي مكان.	We didn't see him anywhere.	83
 كذلك	سيذهب كذلك.	He will also go.	85
 كذلك	فليكن الأمر كذلك!	So be it!	85
-كذلك	فلتكن كذلك !	May it be so!	85
+كذلك	فلتكن كذلك!	May it be so!	85
 أخذ	سآخذ هذا.	I'll take this one.	86
 أخذ	خذني معك.	Take me with you.	86
 أخذ	سآخذه معي.	I'll take him.	86
@@ -470,7 +470,7 @@ word	sentence	translation	difficulty_rank
 ناس	كثير من الناس يقومون بذلك.	A lot of people do that.	156
 توقف	توقف في الحال.	Stop immediately.	157
 توقف	توقف الآن.	Stop right now.	157
-توقف	توقف !	Stop!	157
+توقف	توقف!	Stop!	157
 شعر	كيف تشعر الآن؟	How do you feel now?	158
 شعر	ستشعر أنك أفضل	You'll feel better.	158
 شعر	هل تشعر بذلك؟	Do you feel that way?	158
@@ -637,7 +637,7 @@ word	sentence	translation	difficulty_rank
 خرج	سأخرج بعد ساعة.	I'm going out in an hour.	216
 خرج	اخرج من هنا!	Get out!	216
 عائلة	هل هذه عائلتك؟	Is this your family?	217
-عائلة	من فضلك ، حدثنا عن عائلتك .	Please tell us about your family.	217
+عائلة	من فضلك ، حدثنا عن عائلتك.	Please tell us about your family.	217
 عائلة	تحبني كل عائلتي.	I am loved by all my family.	217
 طلب	طلبت منه المساعدة.	She asked him for help.	218
 طلب	طلب منا أن نساعده.	He asked us to help him.	218
@@ -1146,7 +1146,7 @@ word	sentence	translation	difficulty_rank
 انتظر	أنت هناك! انتظر من فضلك.	Hey you! Please wait.	399
 ذكر	هل تذكرني؟	Do you remember me?	400
 ذكر	أنت تذكرني بأخيك.	You remind me of your brother.	400
-ذكر	كل شيء حولي يذكرني بك .	Everything around me reminds me of you.	400
+ذكر	كل شيء حولي يذكرني بك.	Everything around me reminds me of you.	400
 للغاية	هو رجل ذكوري للغاية.	He's a very masculine man.	400
 ود	ظننت أنك قد تود الذهاب معي.	I thought you might want to come along.	401
 إ	لَمْ يَأْتِ رَجُلٌ قَطُّ بِمِثْلِ مَا جِئْتَ بِهِ إِلَّا عُودِيَ.	Any man who came with something similar to what you have brought was treated with hostility.	401
@@ -1426,7 +1426,7 @@ word	sentence	translation	difficulty_rank
 أحمق	أخي أحمق.	My brother is an idiot.	501
 ضد	نحن ضد الحرب.	We are against war.	502
 ضد	إذا لم تكن معنا فأنت ضدنا.	If you're not with us then you're against us.	502
-ضد	إن لم تكن معي فأنت ضدي .	You're either with me or against me.	502
+ضد	إن لم تكن معي فأنت ضدي.	You're either with me or against me.	502
 دور	إنه دورك.	It's your turn.	503
 دور	لديه دور في ذلك الفيلم.	He has a part in that movie.	503
 دور	ماذا سيحدث إن توقفت الأرض عن الدوران؟	What would happen if the earth stopped spinning?	503
@@ -1518,7 +1518,7 @@ word	sentence	translation	difficulty_rank
 أعجب	لا يعجبني ذلك أيضاً.	I don't like it, either.	538
 عرض	يعجبني عرضك.	I like your offer.	538
 لعبة	لم تعجبه هذه اللعبة.	He didn't like this game.	538
-بداية	بداية جميلة .	Beautiful start.	539
+بداية	بداية جميلة.	Beautiful start.	539
 بداية	لم يصدقني أحد في البداية	No one believed me at first.	539
 بداية	لا شيء يحدث إن لم يكن حلما في البداية.	Nothing happens unless it is preceded by a dream.	539
 كامل	أخبرني بالقصة كاملة، من البداية.	Tell me the whole story and start from the beginning.	539
@@ -1607,7 +1607,7 @@ word	sentence	translation	difficulty_rank
 عني	هل هذا عني؟	Is this about me?	567
 جحيم	لأجل الجحيم، ابق بعيدا عني!	Stay the hell away from me!	567
 مناسب	لا أظنه مناسبا لهذا العمل.	I don't think he is fit for the job.	568
-مناسب	من الجميل أن أكون في المكان المناسب .	It's nice to be in the right place.	568
+مناسب	من الجميل أن أكون في المكان المناسب.	It's nice to be in the right place.	568
 مناسب	لا يبدو الوقت مناسبا للحديث عن ذلك. أليس كذلك؟	It's not a convenient time to speak about that, is it?	568
 حالك	كيف حالك؟	How are you doing?	569
 حالك	مرحباً جون ، كيف حالك؟	Hello, John! How are you?	569
@@ -2072,7 +2072,7 @@ word	sentence	translation	difficulty_rank
 محقق	كان يريد أن يصبح محققا.	He wanted to be a detective.	743
 محقق	هو محقق جيد.	He's a pretty good detective.	743
 مباشرة	كانت أسئلتك مباشرة جداً.	Your questions were too direct.	744
-مباشرة	أنا خلفه مباشرة .	I'm right behind him.	744
+مباشرة	أنا خلفه مباشرة.	I'm right behind him.	744
 مباشرة	عرفته مباشرة.	I recognized him immediately.	744
 ولا	هل تقسم أن تقول الحقيقة،الحقيقة كاملة، ولا شيء غير الحقيقة؟	Do you swear to tell the truth, the whole truth, and nothing but the truth?	745
 أقسم	هل تقسم أن تقول الحقيقة،الحقيقة كاملة، ولا شيء غير الحقيقة؟	Do you swear to tell the truth, the whole truth, and nothing but the truth?	745
@@ -2224,7 +2224,7 @@ word	sentence	translation	difficulty_rank
 فيما	فكر فيما قلته لك.	Think about what I said to you.	803
 عقد	إني أمضي عقدي.	I am signing my contract.	804
 نام	نمت لساعتين فقط.	I slept only two hours.	805
-نام	نمت مباشرة بعد عودتي إلي البيت .	I slept soon when I came home.	805
+نام	نمت مباشرة بعد عودتي إلي البيت.	I slept soon when I came home.	805
 نام	لقد ناموا حقا على الأرض.	They really slept on the floor.	805
 بلدة	نمت البلدة و أصبحت مدينة.	The town grew into a city.	805
 شرطي	اسأل شرطيًّا!	Ask a policeman!	806
@@ -2250,7 +2250,7 @@ word	sentence	translation	difficulty_rank
 أنهى	انتظر حتى أنهي الأكل.	Wait until I'm done eating.	812
 مبنى	ما هذا المبنى؟	What's that building?	813
 مبنى	ما ذلك المبنى الطويل؟	What's that tall building?	813
-مبنى	لا يعيش في هذا المبنى أحد .	No man lives in the building.	813
+مبنى	لا يعيش في هذا المبنى أحد.	No man lives in the building.	813
 معروف	أنا حقّا بحاجة لأطلب منك معروفا.	I really need to ask you a favor.	814
 معروف	هو معروف للبلد بأكمله.	He is known to the entire country.	814
 معروف	هو معروف لدى الجميع.	He is known to everyone.	814
@@ -3077,7 +3077,7 @@ word	sentence	translation	difficulty_rank
 محاولة	لا فائدة من محاولة حل هذه المسألة.	It is no use trying to solve this problem.	1144
 فائدة	لا فائدة من عذر كهذا.	It is no use making an excuse like that.	1144
 عذر	لا فائدة من عذر كهذا.	It is no use making an excuse like that.	1144
-مؤخر	تكلم بصوت اعلى لفائدة الذين في المؤخرة .	Speak louder for the benefit of those in the rear.	1144
+مؤخر	تكلم بصوت اعلى لفائدة الذين في المؤخرة.	Speak louder for the benefit of those in the rear.	1144
 بارد	الجو بارد.	It's cold.	1146
 بارد	الجو بارد اليوم!	It's cold today!	1146
 بارد	الجو بارد جداً.	It's very cold.	1146
@@ -3267,7 +3267,7 @@ word	sentence	translation	difficulty_rank
 أثار	بدأ ياني يثير الشكوك.	Yanni hit a red flag.	1215
 رياضي	لم أدرس مادة الرياضيات على الإطلاق.	I didn't study math at all.	1216
 رياضي	أنا أدرس الرياضيات.	I study mathematics.	1216
-رياضي	في الرياضيات , هو رائع جدا.	In mathematics, he is an ace.	1216
+رياضي	في الرياضيات, هو رائع جدا.	In mathematics, he is an ace.	1216
 اثنين	صديق في اليد خير من اثنين على الشجرة!	A friend in hand is worth two in the bush!	1217
 اثنين	لقد طلبت اثنين شاي وثلاثة قهوة.	I've ordered two teas and three coffees.	1217
 شبح	هل تؤمن بوجود الأشباح؟	Do you believe in the existence of ghosts?	1218
@@ -3296,7 +3296,7 @@ word	sentence	translation	difficulty_rank
 ربح	من الذي ربح؟	Who won?	1229
 شاء	يمكنك الذهاب إلى أين تشاء.	You may go anywhere.	1231
 شاء	علينا الذهاب إلى هناك شئنا أم أبينا.	We must go there whether we like it or not.	1231
-شاء	إن شاء الله ...	God willing...	1231
+شاء	إن شاء الله...	God willing...	1231
 ابتعد	ابتعد عني.	Get away from me!	1232
 ابتعد	ابتعد من هنا.	Move your ass away.	1232
 ابتعد	ابتعد عني	Stay away.	1232
@@ -3505,7 +3505,7 @@ word	sentence	translation	difficulty_rank
 دراجة	ها هي دراجتي.	Here is my bicycle.	1320
 ملف	ما الذي في الملف؟	What's in the file?	1321
 جبل	أفكر في الذهاب إلى الجبال.	I am thinking of going to the mountains.	1322
-جبل	كنت في الجبال .	I was in the mountains.	1322
+جبل	كنت في الجبال.	I was in the mountains.	1322
 جبل	كنت في الجبال.	I was in the mountains.	1322
 خنزير	جميعهم أكلوا الخنزير.	They all ate pork.	1323
 خنزير	ابتعد عني أيها الخنزير الصغير!	Get off me, you little pig!	1323
@@ -3547,7 +3547,7 @@ word	sentence	translation	difficulty_rank
 قرية	العالم قرية صغيرة.	It's a small world.	1341
 قرية	و أخيراً وصلنا إلى القرية.	At last, we arrived at the village.	1341
 قرية	هذه هي القرية التي أخبرتك عنها.	This is the town I told you about.	1341
-جوار	عليك ان لا تقول هذا النوع من الكلام عندما يكون الاطفال في الجوار .	You shouldn't say that kind of thing when children are around.	1342
+جوار	عليك ان لا تقول هذا النوع من الكلام عندما يكون الاطفال في الجوار.	You shouldn't say that kind of thing when children are around.	1342
 جوار	عندي معرفة بهذا الجوار.	I am familiar with this neighborhood.	1342
 سطح	رأيت بيتاً سطحه أحمر.	I saw a house whose roof was red.	1344
 ضروري	ليس من الضروري أن تذهب.	You don't have to go there.	1345
@@ -3560,11 +3560,11 @@ word	sentence	translation	difficulty_rank
 هادئ	ابقَ هادئاً من فضلك.	Please be quiet.	1347
 هادئ	بقي الأولاد هادئين.	The boys kept quiet.	1347
 قومي	قومي بزيارتنا غداً.	Visit us tomorrow.	1348
-خلفي	راقب الجزء الخلفي .	Watch the rear.	1350
+خلفي	راقب الجزء الخلفي.	Watch the rear.	1350
 خلفي	تركت خلفي حياتي كلّها.	I left behind my entire life.	1350
 خلفي	اذهب خلفي.	Get behind me.	1350
 ري	إذا أردت, يمكنني أن أُريك كيف تفعل ذلك.	If you want, I can show you how to do that.	1351
-ري	لا يمكن ان اُرى معك .	I can't be seen with you.	1351
+ري	لا يمكن ان اُرى معك.	I can't be seen with you.	1351
 مجنونة	صديقته مجنونة.	His girlfriend is crazy.	1352
 مجنونة	كأنها مجنونة.	She's crazy.	1352
 مجنونة	أنت مجنونة.	You're crazy.	1352
@@ -3646,8 +3646,8 @@ word	sentence	translation	difficulty_rank
 غلطة	انها ليست غلطتي!	It's not my fault!	1393
 غلطة	إنها غلطتي.	That was my mistake.	1393
 غلطة	هذه غلطتي.	That's my fault.	1393
-ساق	انه يسوق سيارة .أليس كذالك؟	He drives a car, doesn't he?	1395
-ذال	انه يسوق سيارة .أليس كذالك؟	He drives a car, doesn't he?	1395
+ساق	انه يسوق سيارة.أليس كذالك؟	He drives a car, doesn't he?	1395
+ذال	انه يسوق سيارة.أليس كذالك؟	He drives a car, doesn't he?	1395
 ساق	انه يسوق سيارة.اليس كذالك	He drives a car, doesn't he?	1395
 ذال	انه يسوق سيارة.اليس كذالك	He drives a car, doesn't he?	1395
 ساق	هو يسوق بسرعة.	He drives fast.	1395
@@ -3823,7 +3823,7 @@ word	sentence	translation	difficulty_rank
 صيف	سأذهب إلى لندن في الصيف.	I'm going to London this summer.	1468
 صيف	كنت في لندن معظم الصيف.	I was in London most of the summer.	1468
 صيف	انتهى الصيف.	Summer has ended.	1468
-جولة	لانها كانت عطلة صيفية ، فقد قمت بجولة .	Because it was summer vacation, I took a trip.	1468
+جولة	لانها كانت عطلة صيفية ، فقد قمت بجولة.	Because it was summer vacation, I took a trip.	1468
 مدرب	كان ياني مدربا.	Yanni was trained.	1471
 نصل	لن نصل إلى أي مكان.	We're not getting anywhere.	1472
 نصل	متى نصل؟	When do we arrive?	1472
@@ -3911,7 +3911,7 @@ word	sentence	translation	difficulty_rank
 غاز	واصلوا القتال ضد الغازين سنة بعد سنة.	They continued fighting against the invaders year after year.	1510
 قتال	واصلوا القتال ضد الغازين سنة بعد سنة.	They continued fighting against the invaders year after year.	1510
 وطن	رجال و نساء قاتلوا للدفاع عن وطنهم.	Young men and women fought to defend their country.	1511
-وطن	قاتلوا من أجل وطنهم .	They fought for their homeland.	1511
+وطن	قاتلوا من أجل وطنهم.	They fought for their homeland.	1511
 نصيحة	لو كنت مكانك لأخذت بنصيحته.	If I were you, I'd follow his advice.	1512
 نصيحة	من دون نصائحك لكنت فشلت.	Without your advice, I would have failed.	1512
 نصيحة	لا تعمل بهذه النصيحة رجاءً.	Please don't follow this advice.	1512
@@ -3922,8 +3922,8 @@ word	sentence	translation	difficulty_rank
 وزن	ما وزنك؟	How much do you weigh?	1515
 وزن	أظنّ أنّه من الأفضل أن تفقد بعض الوزن.	Maybe you should lose some extra weight.	1515
 وزن	اعتقد أنّه من الأفضل أن تفقد بعض الوزن.	Maybe you should lose some extra weight.	1515
-نفذ	لقد نفذ ما لدينا من الغاز .	We have run out of gas.	1516
-غاز	لقد نفذ ما لدينا من الغاز .	We have run out of gas.	1516
+نفذ	لقد نفذ ما لدينا من الغاز.	We have run out of gas.	1516
+غاز	لقد نفذ ما لدينا من الغاز.	We have run out of gas.	1516
 نفذ	نفذ منا شيء ما.	We're short of something.	1516
 نفذ	سرقْتُ حقيبتك لأنني نفذتُ من النقود	I stole your bag because I ran out of money.	1516
 هجوم	لم يكن واضحا من الذين نفذوا الهجوم	It was unclear who carried out the attack.	1516
@@ -3970,7 +3970,7 @@ word	sentence	translation	difficulty_rank
 طيران	هل سبق لك أن حلمت بالطيران في السماء؟	Do you ever dream about flying through the sky?	1535
 طيران	مرحباً! شكراً على الطيران معنا. كيف حالكم اليوم؟	Hi! Thanks for flying with us. How are you today?	1535
 لله	شكراً لله.	Thank God.	1536
-لله	الْحَمْدُ لله !	Praise be to Allah!	1536
+لله	الْحَمْدُ لله!	Praise be to Allah!	1536
 لله	"الحق هو أهم اسم ""لله""."	"Truth is the most important name of ""God."""	1536
 أزعج	لا تزعجها.	Do not disturb her.	1538
 أزعج	ألا يزعجك ذلك؟	Doesn't that bother you?	1538
@@ -4200,7 +4200,7 @@ word	sentence	translation	difficulty_rank
 دم	عاد مصاص الدماء ذاك إلى الحياة.	The vampire sprang back to life.	1641
 مصاص	عاد مصاص الدماء ذاك إلى الحياة.	The vampire sprang back to life.	1641
 طائر	هذا الطائر لا يمكنه الطيران.	This bird cannot fly.	1643
-طائر	لا أحد يعلم حقاً كيف يبدو الطبق الطائر .	No one really knows what a UFO looks like.	1643
+طائر	لا أحد يعلم حقاً كيف يبدو الطبق الطائر.	No one really knows what a UFO looks like.	1643
 طائر	ما اسم هذا الطائر؟	What's that bird called?	1643
 عالي	طائرٌ حلّق عالياً في السماء.	A bird flew high up in the sky.	1643
 عقلي	كان هناك شخص مريض عقليا يعيش في تلك الغابة.	A seriously deranged person lived in that forest.	1644
@@ -4305,7 +4305,7 @@ word	sentence	translation	difficulty_rank
 رأى	رأى الغرفة.	He saw the room.	1695
 رأى	رأى ياني منزلا.	Yanni saw a house.	1695
 عنق	سيكسر عنقك الصغير.	He's gonna break your little neck.	1698
-عنف	يجب علينا أن نتخلص من العنف .	We must do away with violence.	1699
+عنف	يجب علينا أن نتخلص من العنف.	We must do away with violence.	1699
 عنف	هو يكره العنف.	He abhors violence.	1699
 نادى	نناديه مايك.	We call him Mike.	1700
 نادى	أناديه مايك.	I call him Mike.	1700
@@ -4323,7 +4323,7 @@ word	sentence	translation	difficulty_rank
 إغلاق	الرجاء إغلاق الباب عند الخروج.	Please will you close the door when you go out.	1703
 هاجم	هاجم الجميع رأيي.	Everyone attacked my opinion.	1704
 هاجم	هاجم الكلب الولد الصغير.	The dog attacked the little boy.	1704
-هاجم	هاجمني من الخلف .	He attacked me from the rear.	1704
+هاجم	هاجمني من الخلف.	He attacked me from the rear.	1704
 ركض	ظل يركض.	He ran on and on.	1705
 ركض	ذلك الولد يركض.	That boy is running.	1705
 ركض	عليك أن لا تركض داخل مبنى المدرسة.	You must not run in the school buildings.	1705
@@ -4382,7 +4382,7 @@ word	sentence	translation	difficulty_rank
 قمامة	تُجمع القمامة ثلاثة مرات في الأسبوع.	Our garbage is collected three times a week.	1728
 قمامة	هناك الكثير من القمامة هنا.	There is so much trash here.	1728
 قمامة	سيارة ياني قمامة.	Yanni's car is a piece of crap.	1728
-مظهر	مظهرك أفضل من مظهري .	You're in better shape than I am.	1729
+مظهر	مظهرك أفضل من مظهري.	You're in better shape than I am.	1729
 مظهر	يجب أن لا تحكم على الآخرين من مظهرهم.	You shouldn't judge others on how they look.	1729
 مظهر	يجب عليكَ أن لا تحكم علىَ شخص من مظهرهُ.	You shouldn't judge a person by his appearance.	1729
 تجاري	ذهب إلى المحل التجاري.	He went to the shop.	1732
@@ -4581,7 +4581,7 @@ word	sentence	translation	difficulty_rank
 أسهل	ظننت أنه سيكون أداءك أسهل.	I supposed you could do better.	1824
 بارك	باركت له على نجاحه.	I congratulated him on his success.	1825
 بارك	يُباركك.	Bless you.	1825
-بارك	باركك الله .	God bless you!	1825
+بارك	باركك الله.	God bless you!	1825
 بقر	أفضل لحم البقر.	I have a predilection for beef.	1826
 بقر	ذهبت البقرة.	The cow left.	1826
 أبناء	لديه ثلاثة أبناء.	He has three sons.	1827
@@ -4883,7 +4883,7 @@ word	sentence	translation	difficulty_rank
 واشنطن	ولد جورج واشنطن عام 1732.	George Washington was born in 1732.	1969
 سياسة	القانون والسياسة هما شيئان مختلفان.	Law and politics are two different things.	1971
 سياسة	أكره السياسة.	I hate politics.	1971
-سياسة	الصدق أفضل سياسة .	Honesty is the best policy.	1971
+سياسة	الصدق أفضل سياسة.	Honesty is the best policy.	1971
 شباب	شباب بلدنا غير مهتمين بالسياسة.	The youth of our land are not interested in politics.	1971
 تسليم	هل بإمكاني تسليم الصّك له؟	Can I give him the check?	1972
 منتج	أريد أن أرى منتجاتكم.	I would like to see your products.	1973
@@ -4901,7 +4901,7 @@ word	sentence	translation	difficulty_rank
 برد	أشعر بالبرد.	I feel cold.	1978
 برد	ألا تشعر بالبرد؟	Don't you feel cold?	1978
 بذل	كل ما عليك فعله هو بذل جهدك.	All you have to do is try your best.	1979
-بذل	ابذل وسعك في كل شيء .	Do your best in everything.	1979
+بذل	ابذل وسعك في كل شيء.	Do your best in everything.	1979
 بذل	سأبذل جهدي ألا أزعجك وأنت تدرس.	I'll try not to disturb you while you're studying.	1979
 إيقاف	سنبذل ما بوسعنا لإيقافه.	We'll do our best to stop it.	1979
 تخبر	لا تخبر أحداً بذلك.	Don't tell anyone this.	1980
@@ -5294,7 +5294,7 @@ word	sentence	translation	difficulty_rank
 غطى	غطى ياني أذنيه.	Yanni covered his ears.	2171
 شاشة	كنا خلف شاشة حاسوب.	We were behind a computer screen.	2172
 تدرب	هل تدربت على عزف البيانو هذا الصباح؟	Did you practice the piano this morning?	2173
-تدرب	هي تتدرب على البيانو كل يوم .	She practises the piano every day.	2173
+تدرب	هي تتدرب على البيانو كل يوم.	She practises the piano every day.	2173
 فارغ	كان مارك يقضي أغلب أوقاته الفارغة و هو يتدرب.	Mark spent all his free time practicing.	2173
 تدرب	كان مارك يقضي أغلب أوقاته الفارغة و هو يتدرب.	Mark spent all his free time practicing.	2173
 ركوب	أمي لا يمكنها ركوب الدراجة.	My mother can't ride a bicycle.	2175
@@ -5522,7 +5522,7 @@ word	sentence	translation	difficulty_rank
 نور	لقد تركت أنوارك مفتوحة.	You left your lights on.	2293
 مفتوحة	لا تنم والنوافذ مفتوحة.	Don't sleep with the windows open.	2293
 بوابة	البوابة مفتوحة الآن.	The gate is open now.	2293
-خلفية	كانت البوابة الخلفية مفتوحة .	The rear gate was open.	2293
+خلفية	كانت البوابة الخلفية مفتوحة.	The rear gate was open.	2293
 منظر	كان المنظر من قمة هذا المبنى رائعا.	The view from the top of that building was magnificent.	2295
 قمة	كان المنظر من قمة هذا المبنى رائعا.	The view from the top of that building was magnificent.	2295
 منظر	منظر رائع، أليس كذلك؟	A wonderful view, isn't it?	2295
@@ -5694,7 +5694,7 @@ word	sentence	translation	difficulty_rank
 أرنب	للأرنب أذنان طويلتان.	A rabbit has long ears.	2385
 أرنب	الأرنب لديه أذنان طويلتان.	A rabbit has long ears.	2385
 أرنب	هرب كأرنب خائف.	He ran like a scared rabbit.	2385
-طيار	أريد أن أكون طيارا في المستقبل .	I want to be a pilot in the future.	2386
+طيار	أريد أن أكون طيارا في المستقبل.	I want to be a pilot in the future.	2386
 طيار	لم توجه أبدا تهمة القيادة غير المسؤولة للطيار.	The pilot was never charged for his reckless flying.	2386
 توجه	لم توجه أبدا تهمة القيادة غير المسؤولة للطيار.	The pilot was never charged for his reckless flying.	2386
 أغرب	ما أغرب الحياة!	How strange life is!	2387
@@ -5819,8 +5819,8 @@ word	sentence	translation	difficulty_rank
 مئات	خبر عاجل: الناس قبل بضع مئات من السنين لم يتكلموا كما نتكلم الآن.	Newsflash: People a couple of hundred years ago didn't speak the same as we do.	2461
 بضع	خبر عاجل: الناس قبل بضع مئات من السنين لم يتكلموا كما نتكلم الآن.	Newsflash: People a couple of hundred years ago didn't speak the same as we do.	2461
 صفة	ما هي صفاته؟	What is he like?	2462
-شعري	انا لم اغسل شعري .	I haven't washed my hair.	2464
-شعري	لا يتكلم احداً بالابيات الشعرية في الحياة اليومية .	In everyday life no one speaks in verse.	2464
+شعري	انا لم اغسل شعري.	I haven't washed my hair.	2464
+شعري	لا يتكلم احداً بالابيات الشعرية في الحياة اليومية.	In everyday life no one speaks in verse.	2464
 شعري	أنظر إلى شعري. إنّه فظيع.	Look at my hair. It's just terrible.	2464
 مريح	السرير الذي نمت عليه بالأمس لم يكن مريحاً.	The bed I slept in last night wasn't very comfortable.	2466
 مريح	الفندق الذي نزلنا به مريح جداً.	The hotel at which we stayed was very comfortable.	2466
@@ -6122,7 +6122,7 @@ word	sentence	translation	difficulty_rank
 أيد	إذا لم تكن تؤيدنا فأنت عدونا.	If you're not with us then you're against us.	2624
 بغض	سأذهب بغض النظر عن مجيئه.	Whether he comes or not, I'll go.	2629
 بغض	تبغضه لأنه فقير فحسب.	She despises him only because he is poor.	2629
-بغض	بغض النظر عما اذا كان هذا كذب او حقيقة , انا لن اصدقك.	Regardless whether it's a lie or the truth, I won't believe you.	2629
+بغض	بغض النظر عما اذا كان هذا كذب او حقيقة, انا لن اصدقك.	Regardless whether it's a lie or the truth, I won't believe you.	2629
 طفولة	أمضت طفولة سعيدة.	She had a happy childhood.	2630
 طفولة	إذا رجعت إلى فترة طفولتك، ماذا تذكر من تجاربك في بداية قراءاتك؟	Looking back at your childhood, what do you remember as your first reading experiences?	2630
 طفولة	هذه هي القرية التي عشت فيها طفولتي.	This is the village where I spent my childhood.	2630
@@ -6186,7 +6186,7 @@ word	sentence	translation	difficulty_rank
 حزينة	أنا حزينة جدا اليوم.	I am very sad today.	2667
 حزينة	هل أنتِ حزينة؟	Are you sad?	2667
 حزينة	تبدين حزينة. ما الأمر؟	You look sad. What's wrong?	2667
-أجاد	لا أجيد ممارسة الرياضة .	I'm bad at sports.	2668
+أجاد	لا أجيد ممارسة الرياضة.	I'm bad at sports.	2668
 ند	كان دان يساعد ليندا في المكتبة.	Dan assisted Linda at the library.	2669
 ند	لو تزوجت ليندا من دان، لما قتلت هي أيضا.	If Linda married Dan, she would have been killed as well.	2669
 ند	لم يكتب دان حتى رسالة إلى ليندا.	Dan didn't even write a letter to Linda.	2669
@@ -6257,8 +6257,8 @@ word	sentence	translation	difficulty_rank
 لولا	لولا حزام الأمان لما كنت حية الآن.	If it hadn't been for the seatbelt, I wouldn't be alive today.	2699
 تمرين	أقوم ببعض التمارين الخفيفة كل صباح.	I take light exercise every morning.	2701
 خفيف	أقوم ببعض التمارين الخفيفة كل صباح.	I take light exercise every morning.	2701
-شجار	لقد دار بيننا شجار خفيف .	We had a little tiff.	2701
-خفيف	لقد دار بيننا شجار خفيف .	We had a little tiff.	2701
+شجار	لقد دار بيننا شجار خفيف.	We had a little tiff.	2701
+خفيف	لقد دار بيننا شجار خفيف.	We had a little tiff.	2701
 خفيف	ما هو أفضل طعامك الخفيف؟	What's your favorite snack food?	2701
 خال	أين يسكن خالك؟	Where does your uncle live?	2703
 خال	ما مجال عمل خالتك؟	What does your aunt do?	2703
@@ -6302,7 +6302,7 @@ word	sentence	translation	difficulty_rank
 بث	كَم لبثت؟	How long did you stay?	2725
 بث	لبث يانّي مكانه.	Yanni froze.	2725
 بث	لبثت مكانها.	She kept still.	2725
-جذب	لقد جذبتني من النظرة الأولى .	She attracted me at first sight.	2726
+جذب	لقد جذبتني من النظرة الأولى.	She attracted me at first sight.	2726
 هندي	تجذب الأفلام الهندية الملايين من المشاهدين عالميا.	Indian movies are attracting millions globally.	2726
 جذب	تجذب الأفلام الهندية الملايين من المشاهدين عالميا.	Indian movies are attracting millions globally.	2726
 ألعاب	بعض الأطفال يلعبون ألعاب الفيديو في جميع الأوقات.	Some children play video games all the time.	2727
@@ -6480,7 +6480,7 @@ word	sentence	translation	difficulty_rank
 توجه	توجه سامي إلى منزله بسيارته من نوع فورد.	Sami headed for home in his Ford.	2746
 حيوانات	كل الخيول حيوانات، لكن ليس كل الحيوانات خيول.	All horses are animals, but not all animals are horses.	2747
 حيوانات	الكلاب والقطط والخيول حيوانات.	The dogs, the cats, and the horses are animals.	2747
-حيوانات	في رأي ،الخيول حيوانات ذكية جدا .	In my opinion, horses are very intelligent animals.	2747
+حيوانات	في رأي ،الخيول حيوانات ذكية جدا.	In my opinion, horses are very intelligent animals.	2747
 تضمن	هي تضمن ذلك.	She guarantees it.	2748
 نقاش	لنتوقف عن النقاش في ذلك.	Let's not discuss it.	2750
 نقاش	جميع هذه الأمور بحاجة لنقاش.	All of these things need to be discussed.	2750
@@ -6748,8 +6748,8 @@ word	sentence	translation	difficulty_rank
 هبط	هبطت المروحية.	The helicopter landed.	2858
 رسول	لا إله إلا الله محمد رسول الله.	There is no god but God, and Muhammad is the messenger of God.	2859
 محمد	لا إله إلا الله محمد رسول الله.	There is no god but God, and Muhammad is the messenger of God.	2859
-رسول	لا اله الا الله .محمد رسول الله	There is no god but God. Muhammad is the messenger of God.	2859
-محمد	لا اله الا الله .محمد رسول الله	There is no god but God. Muhammad is the messenger of God.	2859
+رسول	لا اله الا الله.محمد رسول الله	There is no god but God. Muhammad is the messenger of God.	2859
+محمد	لا اله الا الله.محمد رسول الله	There is no god but God. Muhammad is the messenger of God.	2859
 رسول	محمد رسول الله.	Muhammad is God's messenger.	2859
 ملل	يبدو عليك الملل.	You look bored.	2860
 ملل	أنا أشعر بالملل.	I am bored.	2860
@@ -6760,7 +6760,7 @@ word	sentence	translation	difficulty_rank
 حمراء	كانت الإشارة حمراء.	The signal was red.	2866
 إشارة	كانت الإشارة حمراء.	The signal was red.	2866
 حمراء	لدي سيارة حمراء جديدة.	I have a new red car.	2866
-شفة	ان شفتيك حمراء .	Your lips are red.	2866
+شفة	ان شفتيك حمراء.	Your lips are red.	2866
 عنيد	هو عنيد.	He's stubborn.	2867
 عنيد	كم هي عنيدة.	She's very arrogant.	2867
 فائق	مر القطار السريعة بسرعة فائقة بالكاد رأيناه.	The express train went by so fast we hardly saw it.	2868
@@ -6813,7 +6813,7 @@ word	sentence	translation	difficulty_rank
 شحن	أعمل لدى شركة شحن.	I work for a shipping company.	2894
 شحن	أعاد ياني شحن مسدسه.	Yanni reloaded his gun.	2894
 شحن	أعاد ياني شحن سلاحه الناري.	Yanni reloaded his gun.	2894
-أفعى	الافعى رفعت راسها .	The snake reared its head.	2895
+أفعى	الافعى رفعت راسها.	The snake reared its head.	2895
 أفعى	هو يريد أن يقتل الأفعى.	He wants to kill the viper.	2895
 رجوع	ها هي تذكرتي للرجوع.	Here's my return ticket.	2898
 طبيبة	زوجتي طبيبة.	My wife is a doctor.	2900
@@ -6965,7 +6965,7 @@ word	sentence	translation	difficulty_rank
 حارس	حرس الحارس الليل بطوله.	The guard was on duty all night.	2983
 حرس	كان لدى سامي حرس شخصي.	Sami had bodyguards.	2983
 حرس	كان سامي يحرس الأطفال.	Layla was babysitting.	2983
-إنجاز	لا إنجاز بلا جهد .	Nothing is achieved without effort.	2984
+إنجاز	لا إنجاز بلا جهد.	Nothing is achieved without effort.	2984
 إنجاز	هي فخورة بإنجازاتها العديدة.	She prides herself on her many accomplishments.	2984
 إنجاز	لم نكمل ما علينا إنجازه بعد.	We haven't finished what we have to do yet.	2984
 مواصلة	ليس لدينا أي خيار آخر غير المواصلة.	We have no choice but to carry on.	2986
@@ -7000,7 +7000,7 @@ word	sentence	translation	difficulty_rank
 تنس	لا تنس التذكرة.	Don't forget the ticket.	3003
 تنس	لا تنس تذكرة الدخول.	Don't forget the ticket.	3003
 تنس	لا تنس أن لدينا واجباً.	Don't forget that we have homework.	3003
-هيئة	لقد هيأت نفسها للعبة التنس بالتدريب لساعات كل يوم .	She prepared herself for the tennis match by practicing for hours every day.	3003
+هيئة	لقد هيأت نفسها للعبة التنس بالتدريب لساعات كل يوم.	She prepared herself for the tennis match by practicing for hours every day.	3003
 إخراج	لا تنس إخراج القمامة.	Don't forget to take out the garbage.	3003
 كاميرا	لا تنس أن تأخذ كاميرا معك.	Don't forget to take a camera with you.	3003
 برنامج	لا تنس أن تضيف ذلك لبرنامجك.	Don't forget to put it on your schedule.	3003
@@ -7091,7 +7091,7 @@ word	sentence	translation	difficulty_rank
 مكسور	كان جورج مكسور الخاطر.	George was broken-hearted.	3058
 مكسور	المكتب مكسور.	This desk is broken.	3058
 شبكة	هذا الشباك مكسور.	This window is broken.	3058
-واسع	بحثت في حقيبتها الواسعة .	She rummaged in her capacious handbag.	3060
+واسع	بحثت في حقيبتها الواسعة.	She rummaged in her capacious handbag.	3060
 واسع	الطريق واسع بما يكفي كي تمر فيه الحافلة.	The road is wide enough for the bus to pass.	3060
 واسع	كنا بحاجة لمكان واسع.	We needed space.	3060
 رقمي	مئة هو رقمي المفضل.	One hundred is my favorite number.	3061
@@ -7121,10 +7121,10 @@ word	sentence	translation	difficulty_rank
 أسابيع	استيقظ سامي بعد غيبوبة دامت ستّ أسابيع.	Sami woke up after a six-week coma.	3073
 آباء	للآباء الحق الأول في اختيار نوع تربية أولادهم.	Parents have a prior right to choose the kind of education that shall be given to their children.	3074
 تربية	للآباء الحق الأول في اختيار نوع تربية أولادهم.	Parents have a prior right to choose the kind of education that shall be given to their children.	3074
-أساس	الدكاترة ليسوا قاعدة اساسية في التدريب لتربية الاطفال .	Doctors are not, as a rule, trained in child rearing.	3074
-تربية	الدكاترة ليسوا قاعدة اساسية في التدريب لتربية الاطفال .	Doctors are not, as a rule, trained in child rearing.	3074
-دكتور	الدكاترة ليسوا قاعدة اساسية في التدريب لتربية الاطفال .	Doctors are not, as a rule, trained in child rearing.	3074
-قاعدة	الدكاترة ليسوا قاعدة اساسية في التدريب لتربية الاطفال .	Doctors are not, as a rule, trained in child rearing.	3074
+أساس	الدكاترة ليسوا قاعدة اساسية في التدريب لتربية الاطفال.	Doctors are not, as a rule, trained in child rearing.	3074
+تربية	الدكاترة ليسوا قاعدة اساسية في التدريب لتربية الاطفال.	Doctors are not, as a rule, trained in child rearing.	3074
+دكتور	الدكاترة ليسوا قاعدة اساسية في التدريب لتربية الاطفال.	Doctors are not, as a rule, trained in child rearing.	3074
+قاعدة	الدكاترة ليسوا قاعدة اساسية في التدريب لتربية الاطفال.	Doctors are not, as a rule, trained in child rearing.	3074
 عاشق	كان سامي عاشقا للكلاب.	Sami was a dog lover.	3075
 أحمد	اسمي أحمد.	My name is Ahmad.	3076
 أحمد	احمد الله.	Praise God.	3076
@@ -7415,14 +7415,14 @@ word	sentence	translation	difficulty_rank
 ضئيل	فرصتنا في الفوز ضئيلة.	We have little chance of winning.	3248
 كمية	يعيش سامي بكميات ضئيلة من الخبز و الماء.	Sami survives off meager portions of bread and water.	3248
 ضئيل	يعيش سامي بكميات ضئيلة من الخبز و الماء.	Sami survives off meager portions of bread and water.	3248
-أجدى	إن ما قاله لا يجدي نفعاً .	What he said counts for nothing.	3250
+أجدى	إن ما قاله لا يجدي نفعاً.	What he said counts for nothing.	3250
 مجيد	كلا سامي و مجيد مثليّان.	Sami and Majid were both gay.	3252
 مجيد	ميلاد مجيد.	Merry Christmas!	3252
 قاطع	هل لي أن أقاطع؟	May I interrupt?	3253
 ردة	ردة فعلك سريعة جدا.	You react very quickly.	3254
 سريعة	ردة فعلك سريعة جدا.	You react very quickly.	3254
-وقد	وقد أرسل الله ملائكته لحماية معك أينما ذهبت .	God has sent his angels to protect you wherever you go.	3255
-ملأك	وقد أرسل الله ملائكته لحماية معك أينما ذهبت .	God has sent his angels to protect you wherever you go.	3255
+وقد	وقد أرسل الله ملائكته لحماية معك أينما ذهبت.	God has sent his angels to protect you wherever you go.	3255
+ملأك	وقد أرسل الله ملائكته لحماية معك أينما ذهبت.	God has sent his angels to protect you wherever you go.	3255
 كاذب	أيها الكاذب الجبان!	You lying coward!	3257
 جب	أيها الكاذب الجبان!	You lying coward!	3257
 راكب	رأيتك راكباً سيارتك الجديدة.	I saw you driving your new car.	3262
@@ -7446,7 +7446,7 @@ word	sentence	translation	difficulty_rank
 تبديل	لم يكن سامي ينوي قطّ تبديل دينه.	Sami had no plan to change his religion at all.	3273
 برق	الحقيقة أني أخاف البرق	I'm really scared of thunderstorms.	3275
 برق	أرسلت لي برقيّة عاجلة للغاية.	She sent me a most urgent telegram.	3275
-انتباه	انتباه !	Attention!	3278
+انتباه	انتباه!	Attention!	3278
 انتباه	جذبت ليلى انتباه سامي.	Layla attracted Sami's attention.	3278
 لفت	لفتت ليلى انتباه سامي.	Layla caught Sami's eye.	3278
 انتباه	لفتت ليلى انتباه سامي.	Layla caught Sami's eye.	3278
@@ -7479,9 +7479,9 @@ word	sentence	translation	difficulty_rank
 نازي	ماذا تعرف عن النازيين؟	What do you know about the Nazis?	3294
 تنصت	إنك لا تنصت مطلقاً. من الأفضل لي أن أتحدث إلى الجدار.	You never listen. I might as well talk to the wall.	3295
 تنصت	أنت لا تنصت	You aren't listening.	3295
-تفحص	تتفحص البنت مؤخرة دراجتها الهوائية .	The girl is checking out the rear of the bicycle.	3297
-هوائي	تتفحص البنت مؤخرة دراجتها الهوائية .	The girl is checking out the rear of the bicycle.	3297
-مؤخرة	تتفحص البنت مؤخرة دراجتها الهوائية .	The girl is checking out the rear of the bicycle.	3297
+تفحص	تتفحص البنت مؤخرة دراجتها الهوائية.	The girl is checking out the rear of the bicycle.	3297
+هوائي	تتفحص البنت مؤخرة دراجتها الهوائية.	The girl is checking out the rear of the bicycle.	3297
+مؤخرة	تتفحص البنت مؤخرة دراجتها الهوائية.	The girl is checking out the rear of the bicycle.	3297
 مقاطعة	يوجد هناك خمسون مقاطعة في الولايات المتحدة.	There are fifty states in the union.	3298
 خمسون	يوجد هناك خمسون مقاطعة في الولايات المتحدة.	There are fifty states in the union.	3298
 خمسون	الولايات المتحدة تتكون من خمسون ولاية	The United States comprises 50 states.	3298
@@ -7744,7 +7744,7 @@ word	sentence	translation	difficulty_rank
 قاع	النباتات البحرية تنمو في قاع البحر.	Marine plants grow on the sea bed.	3443
 نبات	النباتات البحرية تنمو في قاع البحر.	Marine plants grow on the sea bed.	3443
 بحرية	النباتات البحرية تنمو في قاع البحر.	Marine plants grow on the sea bed.	3443
-قاع	الى القاع .	Bottoms up!	3443
+قاع	الى القاع.	Bottoms up!	3443
 أبدي	لكي لا يهلك كل من يؤمن به بل تكون له الحياة الأبدية.	That every one who believes in him may have eternal life.	3445
 هال	لكي لا يهلك كل من يؤمن به بل تكون له الحياة الأبدية.	That every one who believes in him may have eternal life.	3445
 أبدي	الله أبدي.	God is ever-living.	3445
@@ -7973,7 +7973,7 @@ word	sentence	translation	difficulty_rank
 فيزياء	الفيزياء هي مادتي المفضلة.	Physics is my favorite subject.	3589
 سياج	بنوا سياجاً حول المزرعة.	They built a fence around the farm.	3590
 سياج	هناك سياج حول المنزل.	There is a fence around the house.	3590
-سياج	يوجد سياج حول المنزل .	There is a fence about the house.	3590
+سياج	يوجد سياج حول المنزل.	There is a fence about the house.	3590
 خالة	لدي ثلاث أولاد خالة.	I have three cousins on my mother's side.	3591
 خالة	هذه الدمية هدية من خالتي.	This doll is a gift from my aunt.	3591
 خالة	أودّ أن أمضي المزيد من الوقت مع خالتي.	I would like to spend more time with my aunt.	3591
@@ -8070,14 +8070,14 @@ word	sentence	translation	difficulty_rank
 قرابة	عشت هنا قرابة الستين عاماً.	I have lived here a little over 60 years.	3651
 قرابة	لم تكن هناك قرابة بين سامي و ليلى.	Sami and Layla weren't related.	3651
 قرابة	لم تكن هناك علاقة قرابة بين سامي و ليلى.	Sami and Layla weren't related.	3651
-وحيدا	لن تصير وحيداً أبداً .	You'll never be alone.	3652
+وحيدا	لن تصير وحيداً أبداً.	You'll never be alone.	3652
 وحيدا	أريدُ أن أكونَ وحيداً!	I want to be alone!	3652
 وحيدا	أنتَ ربما ترغب في أن تكون وحيداً.	You probably want to be alone.	3652
 رفيق	هل تريد رفيقا بالسكن؟ لا افضل السكن وحيدا	"""Do you want a roommate?"" ""No, I prefer to live alone."""	3652
 غيري	غيري العلم، لو سمحت.	Change the flag, please.	3653
 غيري	بكيت لأن الجميع غيري بكى.	I just cried because all the others did.	3653
 نزال	لا نزال نتذكر.	We still remember.	3658
-مؤثر	البيت الشعري القادم مؤثر اكثر .	The next verse is even more touching.	3660
+مؤثر	البيت الشعري القادم مؤثر اكثر.	The next verse is even more touching.	3660
 مملة	قالت أن حياتها مملة جدا. لا غَرْوَ لأن كل ما تفعله هو مشاهدة التلفاز طول اليوم.	She said that her life was so boring. It figures because all she did was watch TV all day.	3661
 مملة	كل هذه الافلام مملة	All these movies are boring.	3661
 مملة	الحياة في قرية صغيرة مملة.	Life in a small town is boring.	3661
@@ -8222,10 +8222,10 @@ word	sentence	translation	difficulty_rank
 أكتوبر	يوم ميلادي في العشرين من أكتوبر.	My birthday is October twentieth.	3763
 برلين	في أكتوبر سوف نذهب الى برلين	In October, we'll go to Berlin.	3763
 أكتوبر	في أكتوبر سوف نذهب الى برلين	In October, we'll go to Berlin.	3763
-تربية	استغرق الامر اجيالاً لتسوية جميع مشاكل الحمل البشري و تربية الطفل خارج الارض .	It took generations to iron out all the problems of human pregnancy and child rearing outside of Terra.	3765
-استغرق	استغرق الامر اجيالاً لتسوية جميع مشاكل الحمل البشري و تربية الطفل خارج الارض .	It took generations to iron out all the problems of human pregnancy and child rearing outside of Terra.	3765
-تسوية	استغرق الامر اجيالاً لتسوية جميع مشاكل الحمل البشري و تربية الطفل خارج الارض .	It took generations to iron out all the problems of human pregnancy and child rearing outside of Terra.	3765
-جيل	استغرق الامر اجيالاً لتسوية جميع مشاكل الحمل البشري و تربية الطفل خارج الارض .	It took generations to iron out all the problems of human pregnancy and child rearing outside of Terra.	3765
+تربية	استغرق الامر اجيالاً لتسوية جميع مشاكل الحمل البشري و تربية الطفل خارج الارض.	It took generations to iron out all the problems of human pregnancy and child rearing outside of Terra.	3765
+استغرق	استغرق الامر اجيالاً لتسوية جميع مشاكل الحمل البشري و تربية الطفل خارج الارض.	It took generations to iron out all the problems of human pregnancy and child rearing outside of Terra.	3765
+تسوية	استغرق الامر اجيالاً لتسوية جميع مشاكل الحمل البشري و تربية الطفل خارج الارض.	It took generations to iron out all the problems of human pregnancy and child rearing outside of Terra.	3765
+جيل	استغرق الامر اجيالاً لتسوية جميع مشاكل الحمل البشري و تربية الطفل خارج الارض.	It took generations to iron out all the problems of human pregnancy and child rearing outside of Terra.	3765
 استغرق	استغرق البحث أربعة أيام.	The search lasted for four days.	3765
 عرضي	رفض عرضي.	He declined my proposal.	3766
 عرضي	رفضت عرضي.	She turned down my proposal.	3766
@@ -8330,10 +8330,10 @@ word	sentence	translation	difficulty_rank
 عبقري	أنا عبقري مستقر جدا عقليا.	I'm a very stable genius.	3839
 مستقر	أنا عبقري مستقر جدا عقليا.	I'm a very stable genius.	3839
 أغير	حاولت أن أغير الموضوع.	I tried to change the subject.	3840
-هوائي	في اكثر الاحيان تكون المنطقة المخصصة للدراجات الهوائية في مؤخرة القطار .	The dedicated bike zone is most often at the rear of the train.	3842
-مؤخرة	في اكثر الاحيان تكون المنطقة المخصصة للدراجات الهوائية في مؤخرة القطار .	The dedicated bike zone is most often at the rear of the train.	3842
-مخصص	في اكثر الاحيان تكون المنطقة المخصصة للدراجات الهوائية في مؤخرة القطار .	The dedicated bike zone is most often at the rear of the train.	3842
-مخصص	مرَ الوقت المخصص بسرعة .	The allotted time ticked away quickly.	3842
+هوائي	في اكثر الاحيان تكون المنطقة المخصصة للدراجات الهوائية في مؤخرة القطار.	The dedicated bike zone is most often at the rear of the train.	3842
+مؤخرة	في اكثر الاحيان تكون المنطقة المخصصة للدراجات الهوائية في مؤخرة القطار.	The dedicated bike zone is most often at the rear of the train.	3842
+مخصص	في اكثر الاحيان تكون المنطقة المخصصة للدراجات الهوائية في مؤخرة القطار.	The dedicated bike zone is most often at the rear of the train.	3842
+مخصص	مرَ الوقت المخصص بسرعة.	The allotted time ticked away quickly.	3842
 صالحة	هذه المياه غير صالحة للشرب.	This isn't drinking water.	3843
 صالحة	هذه الأرض غير صالحة للزراعة.	This land is not suitable for agriculture.	3843
 زراعة	هذه الأرض غير صالحة للزراعة.	This land is not suitable for agriculture.	3843
@@ -8348,7 +8348,7 @@ word	sentence	translation	difficulty_rank
 تحويل	تم تحويل إلياس إلى مدرسة أخرى.	Elias was transferred to another school.	3849
 حرك	إلياس سيحرك الجبال.	Elias will move mountains.	3849
 مزارع	ليسوا مزارعين	They aren't farmers.	3850
-راهب	انا راهب .	I am a monk.	3851
+راهب	انا راهب.	I am a monk.	3851
 راهب	أصبح أخي راهبا	My brother has become a priest.	3851
 الأسد	الأسد ملك الغابة.	The lion is the king of the jungle.	3852
 الأسد	الأسد حيوان.	A lion is an animal.	3852
@@ -8615,7 +8615,7 @@ word	sentence	translation	difficulty_rank
 أيل	نشأ إيلان بابيه في إسرائيل.	Ilan Pappe grew up in Israel.	4025
 عصابة	نصب سامي و أصدقاؤه كمينا لعصابة فريد.	Sami and his friends ambushed Farid's gang.	4026
 كمين	نصب سامي و أصدقاؤه كمينا لعصابة فريد.	Sami and his friends ambushed Farid's gang.	4026
-طوارئ	هنالك مخرج طوارئ في الخلف .	There's an emergency exit in the rear.	4027
+طوارئ	هنالك مخرج طوارئ في الخلف.	There's an emergency exit in the rear.	4027
 لوز	أحب حليب اللوز.	I like almond milk.	4031
 طازج	الخبز ليس طازجاً.	The bread is not fresh.	4033
 طازج	الخبز طازج.	The bread is fresh.	4033
@@ -8708,10 +8708,10 @@ word	sentence	translation	difficulty_rank
 جروح	شفيت جروح مصاص الدماء في الحين.	The vampire's wounds healed instantly.	4087
 تركيز	لا يمكنه التركيز على عمله الأكاديمي.	He is unable to concentrate on his academic work.	4088
 أكاديمي	لا يمكنه التركيز على عمله الأكاديمي.	He is unable to concentrate on his academic work.	4088
-جنى	انه يجني من المال ثلاثة اضعاف ما اجنيه انا .	He makes three times more money than I do.	4089
-إضعاف	انه يجني من المال ثلاثة اضعاف ما اجنيه انا .	He makes three times more money than I do.	4089
-إضعاف	انه يكسب ثلاثة أضعاف أكثر مني .	He earns three times more than me.	4089
-إضعاف	انه يكسب ثلاثة أضعاف أكثر مما افعل انا .	He earns three times more than I do.	4089
+جنى	انه يجني من المال ثلاثة اضعاف ما اجنيه انا.	He makes three times more money than I do.	4089
+إضعاف	انه يجني من المال ثلاثة اضعاف ما اجنيه انا.	He makes three times more money than I do.	4089
+إضعاف	انه يكسب ثلاثة أضعاف أكثر مني.	He earns three times more than me.	4089
+إضعاف	انه يكسب ثلاثة أضعاف أكثر مما افعل انا.	He earns three times more than I do.	4089
 صريحة	أريد فقط إجابة صريحة، لا أكثر.	I just want a straight answer. Nothing more.	4090
 كوني	كوني دائمًا صريحةً.	Always be frank.	4090
 صريحة	كوني دائمًا صريحةً.	Always be frank.	4090
@@ -8766,8 +8766,8 @@ word	sentence	translation	difficulty_rank
 بنية	لدى ذلك الفريق لاعبون أقوياء البنية.	That team has strong players.	4130
 أقوياء	لدى ذلك الفريق لاعبون أقوياء البنية.	That team has strong players.	4130
 مرآة	نظف المرايا.	Clean the mirror.	4131
-مرآة	وقعت مرآة الرؤية الخلفية .	The rear-view mirror fell off.	4131
-خلفية	وقعت مرآة الرؤية الخلفية .	The rear-view mirror fell off.	4131
+مرآة	وقعت مرآة الرؤية الخلفية.	The rear-view mirror fell off.	4131
+خلفية	وقعت مرآة الرؤية الخلفية.	The rear-view mirror fell off.	4131
 نوح	هل تعرف سفينة نوح؟	Do you know Noah's ark?	4132
 نوح	هل تعرفين سفينة نوح؟	Do you know Noah's ark?	4132
 نوح	هل تعرفون سفينة نوح؟	Do you know Noah's ark?	4132
@@ -8892,7 +8892,7 @@ word	sentence	translation	difficulty_rank
 بطانية	انا حساس جدا من البرد. ممكن اعطائي بطانية أخرى	I'm very sensitive to cold. May I have another blanket?	4228
 حساس	انا حساس جدا من البرد. ممكن اعطائي بطانية أخرى	I'm very sensitive to cold. May I have another blanket?	4228
 شبيه	مشكلتك شبيهة بمشكلتي.	Your problem is similar to mine.	4229
-صيفي	انا مسرور للذهاب الى مزرعته خلال العطلة الصيفية .	I delighted in going to his farm during the summer vacation.	4230
+صيفي	انا مسرور للذهاب الى مزرعته خلال العطلة الصيفية.	I delighted in going to his farm during the summer vacation.	4230
 شقراء	كان سامي يلاحق امرأة شقراء أخرى.	Sami was following another blond-haired woman.	4231
 شقراء	هي شقراء.	She's a blonde.	4231
 صاخب	الضوضاء الصاخبه في الليل اخافته.	A loud noise in the night scared him.	4232
@@ -9431,9 +9431,9 @@ word	sentence	translation	difficulty_rank
 خروف	أنت ذئب في ثياب خروف.	You are a wolf in sheep's clothing.	4774
 ثياب	أنت ذئب في ثياب خروف.	You are a wolf in sheep's clothing.	4774
 خبأ	أين خبأتهم؟	Where did you hide them?	4776
-صيغة	بعد هذا ،غالباً ما استخدم صيغة خاصة من الشعر الحر .	After this he often used a personal form of free verse.	4780
-استخدم	بعد هذا ،غالباً ما استخدم صيغة خاصة من الشعر الحر .	After this he often used a personal form of free verse.	4780
-خاصة	بعد هذا ،غالباً ما استخدم صيغة خاصة من الشعر الحر .	After this he often used a personal form of free verse.	4780
+صيغة	بعد هذا ،غالباً ما استخدم صيغة خاصة من الشعر الحر.	After this he often used a personal form of free verse.	4780
+استخدم	بعد هذا ،غالباً ما استخدم صيغة خاصة من الشعر الحر.	After this he often used a personal form of free verse.	4780
+خاصة	بعد هذا ،غالباً ما استخدم صيغة خاصة من الشعر الحر.	After this he often used a personal form of free verse.	4780
 تدافع	لا تدافع عن القتلة!	Don’t defend the murderers!	4781
 مادي	كم هي ماديّة وسطحية التفكير.	She's materialistic and shallow.	4782
 سطحي	كم هي ماديّة وسطحية التفكير.	She's materialistic and shallow.	4782
@@ -9496,9 +9496,9 @@ word	sentence	translation	difficulty_rank
 فرنسية	والدتي اخذت دروس فرنسية من عدة سنوات	My mother has been taking French lessons for several years.	4834
 أنتن	أنتن تأكلنَ اللحم.	You guys eat meat.	4836
 مصروف	مصروفات الدراسة بكليتي غالية جداً.	My college tuition is too expensive.	4837
-إرضاء	أنا لا أعرف مفتاح النجاح، لكن مفتاح الفشل هو محاولة ارضاء الجميع .	I don't know the key to success, but the key to failure is trying to please everybody.	4840
-محاولة	أنا لا أعرف مفتاح النجاح، لكن مفتاح الفشل هو محاولة ارضاء الجميع .	I don't know the key to success, but the key to failure is trying to please everybody.	4840
-إرضاء	سوف يُفتَن اصحاب الذوق الصعب الارضاء بمثل هذه الابيات الشعرية .	Fastidious tastes will be most charmed with such verses as these.	4840
+إرضاء	أنا لا أعرف مفتاح النجاح، لكن مفتاح الفشل هو محاولة ارضاء الجميع.	I don't know the key to success, but the key to failure is trying to please everybody.	4840
+محاولة	أنا لا أعرف مفتاح النجاح، لكن مفتاح الفشل هو محاولة ارضاء الجميع.	I don't know the key to success, but the key to failure is trying to please everybody.	4840
+إرضاء	سوف يُفتَن اصحاب الذوق الصعب الارضاء بمثل هذه الابيات الشعرية.	Fastidious tastes will be most charmed with such verses as these.	4840
 إرضاء	أنت مثل الكلب الذي يريد ارضاء صاحبه الذي يسيء إليه.	You're like a dog that wants to please the master that abuses it.	4840
 صيدلية	أين أقرب صيدلية؟	Where's the nearest drugstore?	4841
 صيدلية	أين هي أقرب صيدلية؟	Where's the nearest drugstore?	4841
@@ -9689,8 +9689,8 @@ word	sentence	translation	difficulty_rank
 فاح	كانت ليلى تفوح منها رائحة الكحول.	Layla was reeking of alcohol.	4989
 فاح	كان نفس سامي تفوح منه رائحة الكحول.	Sami's breath reeked of alcohol.	4989
 فاح	كانت تفوح من ليلى رائحة كالبول.	Layla smelt like urine.	4989
-ربى	انا اربي الماشية .	I rear cattle.	4991
-ماشية	انا اربي الماشية .	I rear cattle.	4991
+ربى	انا اربي الماشية.	I rear cattle.	4991
+ماشية	انا اربي الماشية.	I rear cattle.	4991
 ربى	ربى ثلاثة اطفال بمفرده.	He reared three children by himself.	4991
 ربى	إنه يربي قطان، أحدهما أسود والآخر أبيض.	He keeps two cats: one is black, and the other white.	4991
 ناسا	رأى ياني ناسا آخرين.	Yanni saw other people.	4992
@@ -9732,8 +9732,8 @@ word	sentence	translation	difficulty_rank
 حامض	هذه التفاحة طعمها حامض.	This apple tastes sour.	5040
 حامض	الليمون حامض.	Lemons are sour.	5040
 ليمون	الليمون حامض.	Lemons are sour.	5040
-مشاجرة	لقد توقعت ان يعود , لقد كانت مشاجرة خفيفة .	I expected him to come back. It was just a slight tiff.	5044
-خفيفة	لقد توقعت ان يعود , لقد كانت مشاجرة خفيفة .	I expected him to come back. It was just a slight tiff.	5044
+مشاجرة	لقد توقعت ان يعود, لقد كانت مشاجرة خفيفة.	I expected him to come back. It was just a slight tiff.	5044
+خفيفة	لقد توقعت ان يعود, لقد كانت مشاجرة خفيفة.	I expected him to come back. It was just a slight tiff.	5044
 مشاجرة	ماذا لو كانت فقط مشاجرة بسيطة بين صديقين اثنين؟	What if it was just a tiff between two friends?	5044
 أنابيب	تكسرت أنابيب المياه.	The water pipes broke.	5045
 تكسر	تكسرت أنابيب المياه.	The water pipes broke.	5045
@@ -9754,7 +9754,7 @@ word	sentence	translation	difficulty_rank
 متوقف	كانت سيارة شرطة متوقفة ليس بعيدا عنا.	A police car was parked not too far from us.	5073
 قفازات	لا أعرف أين توجد قفازات التزلج الخاصة بي.	I don't know where my ski gloves are.	5074
 متواصل	النجاح في الحياة يتطلب جهودًا متواصلة.	Success in life calls for constant efforts.	5077
-فيتامين	البرتقال غني بفيتامين سي .	Oranges are rich in vitamin C.	5084
+فيتامين	البرتقال غني بفيتامين سي.	Oranges are rich in vitamin C.	5084
 تأليف	سامي هنا من أجل تأليف كتاب.	Sami is here to write a book.	5086
 تفلت	لن أتركك تفلت بهذه السهولة.	I won't let you slip away so easily.	5090
 تسويق	إنها تعمل في مجال التسويق.	She works in marketing.	5091
@@ -9862,8 +9862,8 @@ word	sentence	translation	difficulty_rank
 داكن	جميع اليابانيين تقريبا لديهم شعر داكن اللون.	Nearly all Japanese have dark hair.	5235
 مدخن	إنه ليس مدخنا.	He does not smoke.	5236
 مدخن	هل أنت مدخن؟	Are you a smoker?	5236
-خلفية	طُلِبَ من المدخنين ان يشغلوا المقاعد الخلفية .	Smokers are asked to occupy the rear seats.	5236
-مدخن	طُلِبَ من المدخنين ان يشغلوا المقاعد الخلفية .	Smokers are asked to occupy the rear seats.	5236
+خلفية	طُلِبَ من المدخنين ان يشغلوا المقاعد الخلفية.	Smokers are asked to occupy the rear seats.	5236
+مدخن	طُلِبَ من المدخنين ان يشغلوا المقاعد الخلفية.	Smokers are asked to occupy the rear seats.	5236
 معماري	أصبح مهندسا معماريا.	He became an architect.	5237
 معماري	هو مهندس معماري.	He's an architect.	5237
 معماري	أصبحت مهندسة معمارية.	She became an architect.	5237
@@ -9982,7 +9982,7 @@ word	sentence	translation	difficulty_rank
 هواية	هوايتها الوحيدة هي جمع الطوابع.	Her only hobby is collecting stamps.	5353
 هواية	هوايتي هي جمع الحشرات.	My hobby is collecting insects.	5353
 هواية	هوايتي جمع اللعب القديمة.	My hobby is collecting old toys.	5353
-رشفة	برشفة واحدة .	Bottoms up!	5354
+رشفة	برشفة واحدة.	Bottoms up!	5354
 اقتحم	اقتحم المنزل.	He broke into a house.	5357
 تفويض	أمضى سامي تفويضا يمنح فيه الحقّ ليلى كي تسحب المال من حساباته.	Sami signed over power of attorney to Layla, allowing her to withdraw money from his accounts.	5367
 فضلات	مشى سامي على فضلات كلب.	Sami stepped on dog excrement.	5369
@@ -10166,29 +10166,29 @@ word	sentence	translation	difficulty_rank
 فلك	علم الفلك ليس جديدا على الإطلاق.	Astronomy is by no means a new science.	5562
 سائح	أنا سائح.	I am a tourist.	5563
 سائح	أنا أيضا سائح.	I'm a tourist, too!	5563
-سائح	جميعهم سياح .	They're all tourists.	5563
-دفعة	وصلت دفعة اخرى من السياح .	Another lot of tourists arrived.	5563
-تجول	تجول السياح حول المحلات التجارية .	The tourists wandered around the stores.	5563
+سائح	جميعهم سياح.	They're all tourists.	5563
+دفعة	وصلت دفعة اخرى من السياح.	Another lot of tourists arrived.	5563
+تجول	تجول السياح حول المحلات التجارية.	The tourists wandered around the stores.	5563
 معبد	كم عدد السياح الذين يزورون هذا المعبد ؟	How many tourists visit this temple?	5563
-صفة	انا هنا بصفتي سائح .	I'm here as a tourist.	5563
+صفة	انا هنا بصفتي سائح.	I'm here as a tourist.	5563
 صاخب	هؤلاء السياح اصواتهم صاخبة وفظين.	These tourists are loud and rude.	5563
 فظ	هؤلاء السياح اصواتهم صاخبة وفظين.	These tourists are loud and rude.	5563
 فظ	لماذا السياح الصينيون فظين لدرجة ؟	Why are Chinese tourists so rude?	5563
-محلي	المتاجر المحلية تقوم بمتاجرة جيدة مع السياح .	Local shops do good business with tourists.	5563
-دب	البلدة دائما ما تدب بالسياح .	The town is always crawling with tourists.	5563
-خصوص	سال السائح بخصوص المكوث لهذه الليلة .	The tourist asked for lodging for the night.	5563
-مكوث	سال السائح بخصوص المكوث لهذه الليلة .	The tourist asked for lodging for the night.	5563
+محلي	المتاجر المحلية تقوم بمتاجرة جيدة مع السياح.	Local shops do good business with tourists.	5563
+دب	البلدة دائما ما تدب بالسياح.	The town is always crawling with tourists.	5563
+خصوص	سال السائح بخصوص المكوث لهذه الليلة.	The tourist asked for lodging for the night.	5563
+مكوث	سال السائح بخصوص المكوث لهذه الليلة.	The tourist asked for lodging for the night.	5563
 جوال	الشخص الجوال هو عندما يسمى الغني سائحاً.	The vagabond, when rich, is called a tourist.	5563
-مزدحم	لقد وجدت الفندق مزدحم بالسياح الاجانب .	I found the hotel crowded with foreign tourists.	5563
-مقصد	انها مقصد مشهور للسياح .	It is a very popular destination for tourists.	5563
-عطل	هنالك العديد من السياح في المدينة في العطل .	There are many tourists in the city on holidays.	5563
+مزدحم	لقد وجدت الفندق مزدحم بالسياح الاجانب.	I found the hotel crowded with foreign tourists.	5563
+مقصد	انها مقصد مشهور للسياح.	It is a very popular destination for tourists.	5563
+عطل	هنالك العديد من السياح في المدينة في العطل.	There are many tourists in the city on holidays.	5563
 صادف	غالباً ما نصادف سياح يابانيين في هذه المنطقة.	We often come across Japanese tourists in this area.	5563
-فجر	وجب على السياح مغادرة البلدة قبل حلول الفجر .	The tourists had to leave the town before dawn.	5563
-لبس	طريقة لبس السياح تخالف اداب المجتمع المحلية .	The way tourists dress offends local standards of propriety.	5563
-مؤسسة	هذه المؤسسة تجذب عملاء من كلا السياح و رجال الاعمال .	This establishment attracts a clientele of both tourists and businessmen.	5563
-عميل	هذه المؤسسة تجذب عملاء من كلا السياح و رجال الاعمال .	This establishment attracts a clientele of both tourists and businessmen.	5563
+فجر	وجب على السياح مغادرة البلدة قبل حلول الفجر.	The tourists had to leave the town before dawn.	5563
+لبس	طريقة لبس السياح تخالف اداب المجتمع المحلية.	The way tourists dress offends local standards of propriety.	5563
+مؤسسة	هذه المؤسسة تجذب عملاء من كلا السياح و رجال الاعمال.	This establishment attracts a clientele of both tourists and businessmen.	5563
+عميل	هذه المؤسسة تجذب عملاء من كلا السياح و رجال الاعمال.	This establishment attracts a clientele of both tourists and businessmen.	5563
 مقصد	هل صحيح ان بوسطن مقصد شهير للسياح ؟	Is it true that Boston is a popular destination for tourists?	5563
-تجول	منذ عدة اعوام مضت تجولت لفترة في مرتفعات غير معروفة تماماً من قبل السياح .	Many years ago I wandered for a while on highlands completely unknown to tourists.	5563
+تجول	منذ عدة اعوام مضت تجولت لفترة في مرتفعات غير معروفة تماماً من قبل السياح.	Many years ago I wandered for a while on highlands completely unknown to tourists.	5563
 سنوي	حوالي 30 سائحا يأتون إلى البندقية سنويا.	About 30 million tourists come to Venice each year.	5563
 خطوات	الثلج أضعف قدرة مصطفى عن سماع خطوات أي شخص.	The snow impaired Mustafa’s ability to hear anyone’s footsteps.	5565
 مصطفى	الثلج أضعف قدرة مصطفى عن سماع خطوات أي شخص.	The snow impaired Mustafa’s ability to hear anyone’s footsteps.	5565
@@ -10210,8 +10210,8 @@ word	sentence	translation	difficulty_rank
 قشر	أحب الماء بقشور البرتقال.	I like water with orange peel.	5578
 انخفاض	انخفاض درجة الحرارة يحول الماء إلى جليد.	Low temperatures turn water into ice.	5580
 اغتيال	سمعت ليلى سامي يتحدّث عن اغتيال مدير المدرسة.	Layla heard Sami talking about killing the principal.	5583
-مئات	لقد كان هناك مئات من القِرْدان في فروِهِ .	There were hundreds of ticks in its fur.	5587
-فرو	لقد كان هناك مئات من القِرْدان في فروِهِ .	There were hundreds of ticks in its fur.	5587
+مئات	لقد كان هناك مئات من القِرْدان في فروِهِ.	There were hundreds of ticks in its fur.	5587
+فرو	لقد كان هناك مئات من القِرْدان في فروِهِ.	There were hundreds of ticks in its fur.	5587
 فضلة	يطرح كلب سامي فضلاته في غرفة الغسيل.	Sami's dog poops in the laundry room.	5589
 غسيل	يطرح كلب سامي فضلاته في غرفة الغسيل.	Sami's dog poops in the laundry room.	5589
 فضلة	لا تأكل الفضلات أبدا.	Never eat poop.	5589
@@ -10224,9 +10224,9 @@ word	sentence	translation	difficulty_rank
 جيمس	هناك السيد جيمس الذي يقولون أنه أغنى رجل في القرية.	There is Mr James who they say is the richest man in the village.	5600
 أغنى	هناك السيد جيمس الذي يقولون أنه أغنى رجل في القرية.	There is Mr James who they say is the richest man in the village.	5600
 انهار	فجأة انهار المبنى.	The building fell down suddenly.	5603
-مرآة	رأيت ضوء احمر وامض في مرآة الرؤية الخلفية و انهار قلبي .	I saw flashing red lights in my rear-view mirror and my heart sank.	5603
-انهار	رأيت ضوء احمر وامض في مرآة الرؤية الخلفية و انهار قلبي .	I saw flashing red lights in my rear-view mirror and my heart sank.	5603
-احمر	رأيت ضوء احمر وامض في مرآة الرؤية الخلفية و انهار قلبي .	I saw flashing red lights in my rear-view mirror and my heart sank.	5603
+مرآة	رأيت ضوء احمر وامض في مرآة الرؤية الخلفية و انهار قلبي.	I saw flashing red lights in my rear-view mirror and my heart sank.	5603
+انهار	رأيت ضوء احمر وامض في مرآة الرؤية الخلفية و انهار قلبي.	I saw flashing red lights in my rear-view mirror and my heart sank.	5603
+احمر	رأيت ضوء احمر وامض في مرآة الرؤية الخلفية و انهار قلبي.	I saw flashing red lights in my rear-view mirror and my heart sank.	5603
 انهار	انهار المنزل.	The house collapsed.	5603
 عمد	هل تظنه أخطأ عمدًا؟	Do you think he made that mistake on purpose?	5604
 عمد	لقد فعلت ذلك عن عمد!	You did this intentionally!	5604
@@ -10313,7 +10313,7 @@ word	sentence	translation	difficulty_rank
 أسكن	أسكن في قطر.	I live in Qatar.	5684
 أسكن	أريد أن أسكن في المدينة.	I want to live in the city.	5684
 مقام	هذا المقام حلو، ولكني لا أريد ان أسكن في هنا.	This is a nice place, but I don't want to live here.	5684
-ارتفع	ارتفع عدد السياح بشكل كبير في السنوات الاخيرة .	The number of tourists has increased greatly in recent years.	5686
+ارتفع	ارتفع عدد السياح بشكل كبير في السنوات الاخيرة.	The number of tourists has increased greatly in recent years.	5686
 تايلند	أنا تايلاندي.	I am Thai.	5687
 ارتكاب	وجهت الشرطة إليه تهمة ارتكاب جريمة قتل.	The police accused him of murder.	5689
 ارتكاب	كثير من الشباب يميلون إلى ارتكاب الأخطاء نفسها.	Many young men tend to commit the same errors.	5689
@@ -10448,7 +10448,7 @@ word	sentence	translation	difficulty_rank
 حقيقيون	هؤلاء الأشخاص خبراء حقيقيون في تزوير الأشياء غير القانونية.	Those people are true experts in the counterfeit of illegal things.	5862
 خبراء	هؤلاء الأشخاص خبراء حقيقيون في تزوير الأشياء غير القانونية.	Those people are true experts in the counterfeit of illegal things.	5862
 تزوير	هؤلاء الأشخاص خبراء حقيقيون في تزوير الأشياء غير القانونية.	Those people are true experts in the counterfeit of illegal things.	5862
-فقراء	إنهم فقراء جدا .	They're very poor.	5864
+فقراء	إنهم فقراء جدا.	They're very poor.	5864
 بساط	هناك ثلاث كلاب نائمون على بساط أمي.	There are three dogs sleeping on mum's carpet.	5866
 بساط	على قدر بساطك مدّ رجليك.	Stretch your legs according to your coverlet.	5866
 ملاكم	يُعدّ محمد علي أحد أعظم الملاكمين على الإطلاق.	Muhammad Ali is considered one of the greatest boxers of all time.	5867
@@ -10482,8 +10482,8 @@ word	sentence	translation	difficulty_rank
 خلا	كان سامي عالقا في الدّاخل.	Sami was trapped inside.	5904
 خلا	أسرع سامي إلى الدّاخل.	Sami rushed inside.	5904
 خلا	حجز سامي الكلب بالدّاخل.	Sami locked the dog inside.	5904
-إهمال	سوف نغني تلك الاغنية ، باهمال اخر مقطعين .	We'll sing that song, omitting the last two verses.	5906
-مقطع	سوف نغني تلك الاغنية ، باهمال اخر مقطعين .	We'll sing that song, omitting the last two verses.	5906
+إهمال	سوف نغني تلك الاغنية ، باهمال اخر مقطعين.	We'll sing that song, omitting the last two verses.	5906
+مقطع	سوف نغني تلك الاغنية ، باهمال اخر مقطعين.	We'll sing that song, omitting the last two verses.	5906
 إهمال	لقد حدث هذا الحادث بسبب إهماله.	The accident happened because he wasn't careful.	5906
 إهمال	كان إهمالا منها أن تنسى.	It was careless of her to forget it.	5906
 عينان	لديها عينان جميلتان.	She has beautiful eyes.	5915
@@ -10638,8 +10638,8 @@ word	sentence	translation	difficulty_rank
 مقلق	اكتشف سامي شيئا مقلقا.	Sami made an alarming discovery.	6085
 نباح	فجأةً بدأ كلبٌ بالنباح.	All of a sudden, a dog began barking.	6086
 نباح	استيقظ سامي بنباح كلبه.	Sami woke up to his dog's barking.	6086
-سرب	الصنبور يسرب .	The faucet is leaking.	6088
-صنبور	الصنبور يسرب .	The faucet is leaking.	6088
+سرب	الصنبور يسرب.	The faucet is leaking.	6088
+صنبور	الصنبور يسرب.	The faucet is leaking.	6088
 صنبور	فتحت ليلى صنبور الماء.	Layla turned the water on.	6088
 صنبور	أقفلت ليلى صنبور الماء.	Layla turned the water off.	6088
 نظريات	نحن نبحث عن نظريات ذات أساس علمي.	We are looking for theories with scientific grounds.	6099
@@ -10692,7 +10692,7 @@ word	sentence	translation	difficulty_rank
 بولندي	إنها تتحدث البولندية.	She speaks Polish.	6157
 بولندي	لغتي الأم البولندية.	My mother tongue is Polish.	6157
 مكلف	إنه مكلف للغاية.	It's too expensive.	6160
-مصيدة	انها مصيدة سياح .	It's a tourist trap.	6162
+مصيدة	انها مصيدة سياح.	It's a tourist trap.	6162
 نادرا	أراها نادراً	I see it rarely.	6166
 نادرا	نادراً ما أراها.	I see it rarely.	6166
 نادرا	نادراً ما تخرج أيام الأحد.	She rarely goes out on Sundays.	6166
@@ -10937,8 +10937,8 @@ word	sentence	translation	difficulty_rank
 دكان	ذهب إلى الدكان.	He went to the shop.	6439
 دكان	اذهب إلى الدكان.	Go to the store.	6439
 نباتات	ليست معك حيوانات أو نباتات، صحيح؟	You don't have any plants or animals, right?	6442
-ميتة	لا تذهب لطبيب نباتات مكتبه ميتة .	Never go to a doctor whose office plants have died.	6442
-نباتات	لا تذهب لطبيب نباتات مكتبه ميتة .	Never go to a doctor whose office plants have died.	6442
+ميتة	لا تذهب لطبيب نباتات مكتبه ميتة.	Never go to a doctor whose office plants have died.	6442
+نباتات	لا تذهب لطبيب نباتات مكتبه ميتة.	Never go to a doctor whose office plants have died.	6442
 تر	لم تر طبيباً؟	Why not see the doctor?	6443
 تر	أنت لم تر قط ألماسا حقيقيا.	You've never seen a genuine diamond.	6443
 أملأ	املئها.	Fill it up.	6445
@@ -11025,8 +11025,8 @@ word	sentence	translation	difficulty_rank
 حكة	أشعر بحكة قوية.	I'm so itchy.	6571
 حكة	أشعر بالحكة.	I feel itchy.	6571
 بكين	بكين هي عاصمة الصين.	Beijing is the capital of China.	6573
-أعظم	يقولون ان في كل سنة اعداد السياح في تشرين الأول تكون الاعظم .	They say that every year the number of tourists is greatest in October.	6574
-تشرين	يقولون ان في كل سنة اعداد السياح في تشرين الأول تكون الاعظم .	They say that every year the number of tourists is greatest in October.	6574
+أعظم	يقولون ان في كل سنة اعداد السياح في تشرين الأول تكون الاعظم.	They say that every year the number of tourists is greatest in October.	6574
+تشرين	يقولون ان في كل سنة اعداد السياح في تشرين الأول تكون الاعظم.	They say that every year the number of tourists is greatest in October.	6574
 مسائل	ما درسّت طالبا يحل مسائل الحساب كسرعتك قط.	I've never had any student who can solve math problems as fast as you can.	6575
 آمال	لم أكن أرغب أن أخيّب آمال سامي.	I didn't want to disappoint Sami.	6579
 المغرب	أنا أعيش في المغرب.	I live in Morocco.	6583
@@ -11164,8 +11164,8 @@ word	sentence	translation	difficulty_rank
 منتبه	ابقى منتبها لترصد الحلول.	Keep your ears open for solutions.	6779
 منتبه	لم يكن ياني منتبها.	Yanni didn't pay attention.	6779
 مزدحمة	كانت الحافلة مزدحمة جداً. تمنيت لو اخذت سيارة الأجرة.	The bus was very crowded. I wish I had taken a taxi.	6783
-قديس	دائماً ما تكون ساحة القديس مارك في البندقية مزدحمة بالسياح في الصيف .	St Mark's Square in Venice is always swarming with tourists in the summer.	6783
-مزدحمة	دائماً ما تكون ساحة القديس مارك في البندقية مزدحمة بالسياح في الصيف .	St Mark's Square in Venice is always swarming with tourists in the summer.	6783
+قديس	دائماً ما تكون ساحة القديس مارك في البندقية مزدحمة بالسياح في الصيف.	St Mark's Square in Venice is always swarming with tourists in the summer.	6783
+مزدحمة	دائماً ما تكون ساحة القديس مارك في البندقية مزدحمة بالسياح في الصيف.	St Mark's Square in Venice is always swarming with tourists in the summer.	6783
 مرتبكة	كانت ليلى غاضبة و مرتبكة.	Layla was angry and confused.	6787
 خادع	بإمكاني أن أعلمك كيف تخادع الناس.	I can teach you how to fool people.	6788
 خادع	كيف تعلم من يدفع و من يخادع؟	How do you keep track of who paid and who is cheating?	6788
@@ -11223,7 +11223,7 @@ word	sentence	translation	difficulty_rank
 إنكلترا	يعيش أخي في إنكلترا منذ أزيد من ثلاثين سنة.	My brother has lived in England for more than thirty years.	6875
 أزيد	يعيش أخي في إنكلترا منذ أزيد من ثلاثين سنة.	My brother has lived in England for more than thirty years.	6875
 تك	ماذا علمَتك؟	What did she teach you?	6877
-تك	تكت الساعة .	The clock ticked.	6877
+تك	تكت الساعة.	The clock ticked.	6877
 تك	لا تنس مطرّيتك.	Don't forget your umbrella.	6877
 رومانيا	أنا من رومانيا.	I'm from Romania.	6883
 خالق	الله هو الخالق الذي يتحكم في الحياة	God is the creator that controls life.	6885
@@ -11494,8 +11494,8 @@ word	sentence	translation	difficulty_rank
 أقلام	لديك ثلاثة أقلام.	You have three pens.	7058
 أقلام	هل لديك أي أقلام رصاص؟	Do you have any pencils?	7058
 تشجع	تشجع!	You can do it.	7061
-موسم	اعطاني معلومات دقيقة عن كيفية اجتياز الدببة لموسم الشتاء .	He gave me chapter and verse on how bears pass the winter.	7062
-اجتياز	اعطاني معلومات دقيقة عن كيفية اجتياز الدببة لموسم الشتاء .	He gave me chapter and verse on how bears pass the winter.	7062
+موسم	اعطاني معلومات دقيقة عن كيفية اجتياز الدببة لموسم الشتاء.	He gave me chapter and verse on how bears pass the winter.	7062
+اجتياز	اعطاني معلومات دقيقة عن كيفية اجتياز الدببة لموسم الشتاء.	He gave me chapter and verse on how bears pass the winter.	7062
 تشكيل	التشكيل يساعد على فهم النصوص بشكل أدق.	Tashkil helps in understanding texts more precisely.	7071
 أدق	التشكيل يساعد على فهم النصوص بشكل أدق.	Tashkil helps in understanding texts more precisely.	7071
 حسم	سيحسم الله الأمور.	God will decide.	7075
@@ -11536,12 +11536,12 @@ word	sentence	translation	difficulty_rank
 قلي	قليت واحدة.	I fried one.	7146
 هراء	لقد مللت من هرائك الذي يسبب الإسهال.	I'm tired of your diarrheal logorrhoea.	7156
 إسهال	لقد مللت من هرائك الذي يسبب الإسهال.	I'm tired of your diarrheal logorrhoea.	7156
-سياحي	اسبانيا بلد سياحي .	Spain is a tourist country.	7160
+سياحي	اسبانيا بلد سياحي.	Spain is a tourist country.	7160
 سياحي	أين هو مكتب المعلومات السياحية؟	Where is the tourist information office?	7160
-منتجع	هاواي هي منتجع سياحي مشهور .	Hawaii is a popular tourist resort.	7160
-سياحي	هاواي هي منتجع سياحي مشهور .	Hawaii is a popular tourist resort.	7160
+منتجع	هاواي هي منتجع سياحي مشهور.	Hawaii is a popular tourist resort.	7160
+سياحي	هاواي هي منتجع سياحي مشهور.	Hawaii is a popular tourist resort.	7160
 مقصد	انهُ مقصد سياحي مشهور.	It's a popular tourist destination.	7160
-استشارة	يرجى استشارة مكتب المعلومات السياحية .	Please refer to the tourist information office.	7160
+استشارة	يرجى استشارة مكتب المعلومات السياحية.	Please refer to the tourist information office.	7160
 دسم	يجب عليك ان تقلل من الأطعمة الدسمة التي تأكلها.	You should cut down on the amount of fattening food that you eat.	7162
 مدفأ	مدفأتنا الكهربائية لا تعمل جيدا.	Our electric heater does not work well.	7167
 عنن	سوف يكون عندهم أسئلة أكثر كثيرا عننا.	They're going to have a lot more questions than we do.	7169
@@ -11613,13 +11613,13 @@ word	sentence	translation	difficulty_rank
 عينا	الحفلة التي دُعينا إليها ستكون غدا، ليس اليوم.	The party that we've been invited to is tomorrow, not today.	7280
 سحلية	كانت عينا ذلك المخلوق كعيني سحلية.	The creature had lizard-like eyes.	7280
 عينا	كانت عينا ذلك المخلوق كعيني سحلية.	The creature had lizard-like eyes.	7280
-شباك	للطيور اعشاش ، وللعناكب شباك ، وللناس الصداقات .	Birds have nests, spiders have webs and people have friendships.	7285
-عش	للطيور اعشاش ، وللعناكب شباك ، وللناس الصداقات .	Birds have nests, spiders have webs and people have friendships.	7285
+شباك	للطيور اعشاش ، وللعناكب شباك ، وللناس الصداقات.	Birds have nests, spiders have webs and people have friendships.	7285
+عش	للطيور اعشاش ، وللعناكب شباك ، وللناس الصداقات.	Birds have nests, spiders have webs and people have friendships.	7285
 تهدف	تهدف الشركة إلى فتح فروع في الصين.	The company aims to branch out into China.	7289
 فروع	تهدف الشركة إلى فتح فروع في الصين.	The company aims to branch out into China.	7289
-ازرق	علم البرازيل فيه اربعه الوان : اخضر و اصفر و ازرق و ابيض.	The flag of Brazil has four colors: green, yellow, blue and white.	7291
-ابيض	علم البرازيل فيه اربعه الوان : اخضر و اصفر و ازرق و ابيض.	The flag of Brazil has four colors: green, yellow, blue and white.	7291
-اخضر	علم البرازيل فيه اربعه الوان : اخضر و اصفر و ازرق و ابيض.	The flag of Brazil has four colors: green, yellow, blue and white.	7291
+ازرق	علم البرازيل فيه اربعه الوان: اخضر و اصفر و ازرق و ابيض.	The flag of Brazil has four colors: green, yellow, blue and white.	7291
+ابيض	علم البرازيل فيه اربعه الوان: اخضر و اصفر و ازرق و ابيض.	The flag of Brazil has four colors: green, yellow, blue and white.	7291
+اخضر	علم البرازيل فيه اربعه الوان: اخضر و اصفر و ازرق و ابيض.	The flag of Brazil has four colors: green, yellow, blue and white.	7291
 خصوبة	كان سامي يعمل في عيادة للخصوبة.	Sami worked at a fertility clinic.	7295
 لئلا	لا يوجد سبب لئلا أفعله.	There is no reason why I shouldn't do it.	7301
 المصري	سامي يحبّ الأكل المصري.	Sami likes Egyptian food.	7303
@@ -11722,12 +11722,12 @@ word	sentence	translation	difficulty_rank
 جن	تزوّجنا لأنّنا نحبّ بعضنا البعض.	We got married because we love each other.	7441
 زوى	تزوّج سامي من ليلى.	Sami married Layla.	7441
 زوى	تزوّج سامي.	Sami got married.	7441
-تأشيرة	انا املك تأشيرة سياحية .	I have a tourist visa.	7442
-سياحية	انا املك تأشيرة سياحية .	I have a tourist visa.	7442
-سياحية	انها منطقة سياحية .	It's a tourist area.	7442
-سياحية	انا اعمل في وكالة سياحية .	I work in a tourist agency.	7442
-وكالة	انا اعمل في وكالة سياحية .	I work in a tourist agency.	7442
-تأشيرة	اود الحصول على تأشيرة سياحية .	I would like a tourist visa.	7442
+تأشيرة	انا املك تأشيرة سياحية.	I have a tourist visa.	7442
+سياحية	انا املك تأشيرة سياحية.	I have a tourist visa.	7442
+سياحية	انها منطقة سياحية.	It's a tourist area.	7442
+سياحية	انا اعمل في وكالة سياحية.	I work in a tourist agency.	7442
+وكالة	انا اعمل في وكالة سياحية.	I work in a tourist agency.	7442
+تأشيرة	اود الحصول على تأشيرة سياحية.	I would like a tourist visa.	7442
 أبجدية	أنا قد تعلمت أن أكتب بالأبجدية.	I have already learned to write the Abjad.	7447
 أبجدية	سنتعلم الأبجدية في هذا الدرس.	We will learn the Abjad in this lesson.	7447
 أبجدية	الألِف هو الحرف الأول للأبجدية العربية.	Aliph is the first letter of the Arabic alphabet.	7447
@@ -11808,8 +11808,8 @@ word	sentence	translation	difficulty_rank
 قعر	وضع سامي جثة ليلى في قعر القارب	Sami placed Layla's body on the bottom of the boat.	7599
 عانق	لقد عانقني.	He hugged me.	7606
 عانق	عانق سامي ليلى.	Sami gave Layla a hug.	7606
-قصائد	قصائد الشاعر ليست بالضرورة تجب ان تعكس صفاته .	A poet's verses do not have to reflect his character.	7607
-صفة	قصائد الشاعر ليست بالضرورة تجب ان تعكس صفاته .	A poet's verses do not have to reflect his character.	7607
+قصائد	قصائد الشاعر ليست بالضرورة تجب ان تعكس صفاته.	A poet's verses do not have to reflect his character.	7607
+صفة	قصائد الشاعر ليست بالضرورة تجب ان تعكس صفاته.	A poet's verses do not have to reflect his character.	7607
 مشبوه	شوهِدَت ليلى في عربة مشبوهة بالقرب من القاهرة.	Sami was spotted in a suspicious van near Cairo.	7608
 شوه	شوهِدَت ليلى في عربة مشبوهة بالقرب من القاهرة.	Sami was spotted in a suspicious van near Cairo.	7608
 شوه	شوهِد سامي و هو يتناول أقراصا.	Sami was seen swallowing pills.	7608
@@ -11906,7 +11906,7 @@ word	sentence	translation	difficulty_rank
 آلاف	نُشر هذا الخبر الكاذب آلاف المرات على فيسبوك.	This fake news story was shared over a million times on Facebook.	7776
 أحزن	أحزن كثيرًا على سامي.	I really feel sorry for Tom.	7778
 لطخة	كانت هناك لطخات دم في كلّ مكان من الغرفة.	There was blood spatter everywhere in the room.	7780
-بقاع	البحر الميت على قيد الحياة ، انه يجذب السياح من جميع بقاع العالم .	The Dead Sea lives: it attracts tourists from all corners of the world.	7791
+بقاع	البحر الميت على قيد الحياة ، انه يجذب السياح من جميع بقاع العالم.	The Dead Sea lives: it attracts tourists from all corners of the world.	7791
 ضحل	بيني وبينك، طريقة تفكيره ضحلة.	Between you and me, he has a shallow way of thinking.	7793
 متفوقة	كانت طالبة متفوقة.	She was an excellent student.	7796
 ربطات	أتعرف كيف تربط ربطات حذائك؟	Do you know how to tie your shoes?	7798
@@ -11942,10 +11942,10 @@ word	sentence	translation	difficulty_rank
 امتحان	تم قبوله في الجامعة بعد أن رسب في امتحان القبول مرتين.	He entered the university after failing the examination twice.	7880
 أثلج	أثلجت بشدة الأمس.	It snowed hard yesterday.	7881
 أثلج	من الممكن أن تثلج غداً.	Perhaps it will snow tomorrow.	7881
-أثلج	لقد اثلجت لعدة ايام متصلة .	It snowed for many days together.	7881
-متصل	لقد اثلجت لعدة ايام متصلة .	It snowed for many days together.	7881
-صحا	من العسير علي أن أصحو باكراً في الايام الباردة .	I find it hard to get up early on cold mornings.	7882
-عسير	من العسير علي أن أصحو باكراً في الايام الباردة .	I find it hard to get up early on cold mornings.	7882
+أثلج	لقد اثلجت لعدة ايام متصلة.	It snowed for many days together.	7881
+متصل	لقد اثلجت لعدة ايام متصلة.	It snowed for many days together.	7881
+صحا	من العسير علي أن أصحو باكراً في الايام الباردة.	I find it hard to get up early on cold mornings.	7882
+عسير	من العسير علي أن أصحو باكراً في الايام الباردة.	I find it hard to get up early on cold mornings.	7882
 ازدحام	لقد علقت في ازدحام مروري.	I was caught in a traffic jam.	7885
 مطفأة	الأنوار مطفاة.	The lights turned off.	7893
 نسبيا	إنها تتحدث بسرعة نسبياً.	She speaks relatively fast.	7898
@@ -12026,15 +12026,15 @@ word	sentence	translation	difficulty_rank
 متظاهر	قام المتظاهرون بضرب العديد من رجال الشرطة حتى الموت.	The rioters beat many policemen to death.	8047
 متزايد	كان سامي يمضي وقتا متزايدا مع ليلى.	Sami was spending more and more time with Layla.	8050
 موضوعي	التاريخ الياباني هو موضوعي المفضل.	Japanese history is my favorite subject.	8051
-دغدغ	انفاسه دغدغت شعري .	His breath tickled my hair.	8064
+دغدغ	انفاسه دغدغت شعري.	His breath tickled my hair.	8064
 دغدغ	دغدغنا نوجة.	We tickled Nuja.	8064
-موسم	في موسم السياحة ، ترفع العديد من الفنادق اسعارها .	In the tourist season, many hotels raise prices.	8066
-ترفع	في موسم السياحة ، ترفع العديد من الفنادق اسعارها .	In the tourist season, many hotels raise prices.	8066
-سياحة	في موسم السياحة ، ترفع العديد من الفنادق اسعارها .	In the tourist season, many hotels raise prices.	8066
+موسم	في موسم السياحة ، ترفع العديد من الفنادق اسعارها.	In the tourist season, many hotels raise prices.	8066
+ترفع	في موسم السياحة ، ترفع العديد من الفنادق اسعارها.	In the tourist season, many hotels raise prices.	8066
+سياحة	في موسم السياحة ، ترفع العديد من الفنادق اسعارها.	In the tourist season, many hotels raise prices.	8066
 سياحة	أين هو مكتب السياحة؟	Where can I find the tourist's office?	8066
 صبيان	لديها سبعة صبيان.	She has seven sons.	8069
 حاجب	رفع حواجبه.	He raised his eyebrows.	8070
-عقرب	تحرك عقرب الثواني الخاص بالساعة .	The clock ticked.	8072
+عقرب	تحرك عقرب الثواني الخاص بالساعة.	The clock ticked.	8072
 معاطف	نسى سامي أن يضع معاطف المطر في الأمتعة.	Sami forgot to pack the raincoats.	8076
 حكمة	"""الفلسفة"" كلمة يونانية تعني حبّ الحكمة."	"""Philosophy"" is a Greek word meaning love of wisdom."	8082
 يونانية	"""الفلسفة"" كلمة يونانية تعني حبّ الحكمة."	"""Philosophy"" is a Greek word meaning love of wisdom."	8082
@@ -12337,7 +12337,7 @@ word	sentence	translation	difficulty_rank
 تلقيح	خلية واحدة من النحل بإمكانها تلقيح ثلاثة ملايين زهرة يوميا.	A hive of bees can pollinate up to three million flowers in a single day.	8655
 زكام	لدي زكام.	I have a cold.	8657
 زكام	أصبت بالزكام.	I have a cold.	8657
-زكام	لقد بقيت في المنزل لأنني كنت مصاباً بالزكام .	Because I had a cold, I stayed at home.	8657
+زكام	لقد بقيت في المنزل لأنني كنت مصاباً بالزكام.	Because I had a cold, I stayed at home.	8657
 أسبرين	شرب قرصين من الأسبرين كي يتخلص من زكامه.	He took two tablets of aspirin to get rid of his cold.	8657
 ثوم	الثوم و البصل علاجين فعالين للزكام العادي.	Garlic and onion are good remedies against the common cold.	8657
 بصل	الثوم و البصل علاجين فعالين للزكام العادي.	Garlic and onion are good remedies against the common cold.	8657
@@ -12366,7 +12366,7 @@ word	sentence	translation	difficulty_rank
 سمعي	تُعرف تلك الأصوات بهلوسات سمعيّة.	Those voices are known as auditory hallucinations.	8718
 هلوسة	تُعرف تلك الأصوات بهلوسات سمعيّة.	Those voices are known as auditory hallucinations.	8718
 سمعي	أنا أفقد سمعي.	My hearing is going.	8718
-مزدهرة	بغض النظر عن الاماكن السياحية ،انا اعتقد انها ليست مزدهرة جداً .	Aside from the tourist spots, it's not very prosperous, I think.	8720
+مزدهرة	بغض النظر عن الاماكن السياحية ،انا اعتقد انها ليست مزدهرة جداً.	Aside from the tourist spots, it's not very prosperous, I think.	8720
 يابان	ماذا سيحصل لليابان؟	What will become of Japan?	8722
 ولع	لا أفهم سبب ولعه بكرة القدم.	I can't understand his obsession with soccer.	8726
 بكرة	لا أفهم سبب ولعه بكرة القدم.	I can't understand his obsession with soccer.	8726
@@ -12856,9 +12856,9 @@ word	sentence	translation	difficulty_rank
 برج	برج خليفة يعد حالياً أطول ناطحة سحاب في العالم.	Burj Khalifa is currently the tallest skyscraper in the world.	19999
 سحاب	برج خليفة يعد حالياً أطول ناطحة سحاب في العالم.	Burj Khalifa is currently the tallest skyscraper in the world.	19999
 خليفة	برج خليفة يعد حالياً أطول ناطحة سحاب في العالم.	Burj Khalifa is currently the tallest skyscraper in the world.	19999
-متعلق	هناك دوما بعض المهام المتعلقة بامور المنزل التي ينبغي القيام بها .	There are always some chores to be done about the house.	19999
-الطب	التطورات الحديثة في الطب مذهلة .	The recent advances in medicine are remarkable.	19999
-مشقة	انت تعمل بمشقة كبيرة . استرح لبعض الوقت .	You're working too hard. Take it easy for a while.	19999
+متعلق	هناك دوما بعض المهام المتعلقة بامور المنزل التي ينبغي القيام بها.	There are always some chores to be done about the house.	19999
+الطب	التطورات الحديثة في الطب مذهلة.	The recent advances in medicine are remarkable.	19999
+مشقة	انت تعمل بمشقة كبيرة. استرح لبعض الوقت.	You're working too hard. Take it easy for a while.	19999
 طابور	كان الكثير من الناس ينتظرون في الطابور.	Many people were waiting in line.	19999
 بورصة	ضيع مبلغا معتبرا في سوق البورصة.	He lost a fortune in the stock market.	19999
 ضيع	ضيع مبلغا معتبرا في سوق البورصة.	He lost a fortune in the stock market.	19999
@@ -12937,7 +12937,7 @@ word	sentence	translation	difficulty_rank
 غرام	بالعين أو باليدين بدأنا بالسلام, لكن لا أتذكر يومها من ابتدأ بالكلام, لكن اتذكر عيني لما جرت إليك, و وجدت قلبي في ثواني مليء بغرامك.	With eyes or with hands, we greeted each other. I don't remember who started the talking that day, but I do remember my eyes being drawn toward him, and within seconds, I found my heart full of affection for him.	19999
 مسكينة	يا لها من زهرة مسكينة.	What a poor flower!	19999
 حسد	الكره لا يظهر بكل بساطة من فراغ. إنه بالعادة يبدأ من الحسد أو الخوف.	Hatred doesn't just appear out of thin air; it usually starts from envy or fear.	19999
-حمار	إن كلامي كالمرآة فإذا قرأهُ حمارٌ فلا تتوقع أن يرى وجه ملاك .	My words are like a mirror; if a jackass read them, then don't expect he'd see an angel's face.	19999
+حمار	إن كلامي كالمرآة فإذا قرأهُ حمارٌ فلا تتوقع أن يرى وجه ملاك.	My words are like a mirror; if a jackass read them, then don't expect he'd see an angel's face.	19999
 ناحية	السيارة آتيه من ناحية اليمين.	The car comes from the right.	19999
 متاح	نأسف, ولكن هذا الفيديو ليس متاحاً.	We're sorry but this video is no longer available.	19999
 شواء	بالأمس كان لدينا أُمسيةً رائعة مع إخوتي والأصدقاء, وشواء رائع جداً.	Yesterday we had a good evening with my brothers and friends, and a very nice barbecue.	19999
@@ -13094,12 +13094,12 @@ word	sentence	translation	difficulty_rank
 يونيو	ستتزوج ابنتي في يونيو	My daughter is getting married in June.	19999
 عون	يجب أن تدرك بأننا لن نستطيع تقديم يد العون.	You must realize that I can't help you.	19999
 أقارب	"أريد قائمة بجميع أقارب ""توم""."	I want a list of all Tom's relatives.	19999
-شرف	إنه لشرف لي أن ألتقي بك .	I am honored to meet you.	19999
-اختصار	"""WHO"" هو اختصار لمنظمة الصحة العالمية ."	WHO is the abbreviation for World Health Organization.	19999
+شرف	إنه لشرف لي أن ألتقي بك.	I am honored to meet you.	19999
+اختصار	"""WHO"" هو اختصار لمنظمة الصحة العالمية."	WHO is the abbreviation for World Health Organization.	19999
 لقمة	هل تعلم ما يعمله توم لكسب لقمة العيش؟	Do you know what Tom does for a living?	19999
 لتر	عند توم علبة أربعة لتر من الخمر الرخيص في ثلاجته	Tom has a four-liter box of cheap wine in his fridge.	19999
 سلف	سلفت توم السيارة	I lent Tom the car.	19999
-تصميم	يا له من تصميمٍ جميل !	What a beautiful design!	19999
+تصميم	يا له من تصميمٍ جميل!	What a beautiful design!	19999
 أحرز	أحرز توم هدفًا.	Tom scored a goal.	19999
 تول	أيمكنك تولّي أمره؟	Can you deal with it?	19999
 أمهل	سأمهلك حتّى الغدّ.	I'm giving you time until tomorrow.	19999
@@ -13129,10 +13129,10 @@ word	sentence	translation	difficulty_rank
 معارف	سبعة الاف لغة ينطق بها بكل انحاء العالم ، اخذت مع بعض ، هم شكلوا اكبر مجموعة من معارف الانسان الموجودة على الاطلاق	Seven thousand languages are spoken all over the world, and taken together, they comprise the largest collection of human knowledge that has ever existed.	19999
 طبعة	مكتبتها تشمل ثلاثة الاف و خمسمئة و تتضمن عدة طبعات اولى	Her library comprises 3500 and includes many first editions.	19999
 رش	الاطفال يحبون اللعب بمسدسات رش الماء في الصيف ليبقوا منتعشين	Children love playing with squirt guns in the summer to stay cool.	19999
-مضاد	وضعت مضاد للتعرق على كل جسمي . اذ بدء العرق بالبخ من اعلى راسي ، انت تعرف السبب.	I put roll-on antiperspirant all over my body. If sweat starts squirting out the top of my head, you know why.	19999
-تعرق	وضعت مضاد للتعرق على كل جسمي . اذ بدء العرق بالبخ من اعلى راسي ، انت تعرف السبب.	I put roll-on antiperspirant all over my body. If sweat starts squirting out the top of my head, you know why.	19999
-عرق	وضعت مضاد للتعرق على كل جسمي . اذ بدء العرق بالبخ من اعلى راسي ، انت تعرف السبب.	I put roll-on antiperspirant all over my body. If sweat starts squirting out the top of my head, you know why.	19999
-جسمي	وضعت مضاد للتعرق على كل جسمي . اذ بدء العرق بالبخ من اعلى راسي ، انت تعرف السبب.	I put roll-on antiperspirant all over my body. If sweat starts squirting out the top of my head, you know why.	19999
+مضاد	وضعت مضاد للتعرق على كل جسمي. اذ بدء العرق بالبخ من اعلى راسي ، انت تعرف السبب.	I put roll-on antiperspirant all over my body. If sweat starts squirting out the top of my head, you know why.	19999
+تعرق	وضعت مضاد للتعرق على كل جسمي. اذ بدء العرق بالبخ من اعلى راسي ، انت تعرف السبب.	I put roll-on antiperspirant all over my body. If sweat starts squirting out the top of my head, you know why.	19999
+عرق	وضعت مضاد للتعرق على كل جسمي. اذ بدء العرق بالبخ من اعلى راسي ، انت تعرف السبب.	I put roll-on antiperspirant all over my body. If sweat starts squirting out the top of my head, you know why.	19999
+جسمي	وضعت مضاد للتعرق على كل جسمي. اذ بدء العرق بالبخ من اعلى راسي ، انت تعرف السبب.	I put roll-on antiperspirant all over my body. If sweat starts squirting out the top of my head, you know why.	19999
 ملعقة	هو غمس ملعقته في الحساء.	He dipped his spoon into the soup.	19999
 يود	يودّ توم شراء منزلًا.	Tom would like to buy a house.	19999
 رمح	راس الرمح كان مغموساً في سمْ قاتل.	The tip of the spear was dipped in a deadly poison.	19999
@@ -13154,40 +13154,40 @@ word	sentence	translation	difficulty_rank
 إسكتلندا	"النشيد الاسكتلندي يسمى "" وردة أسكتلندا ""."	"Scotland's anthem is called ""The Flower of Scotland""."	19999
 جورجيا	تم قبول النشيد الوطني الحالي لجورجيا في ٢٠٠٤ ، عندما جاء ساكاشفيلي الى السلطة.	The current national anthem of Georgia was accepted in 2004, when Saakashvili came to power.	19999
 قرين	غيّرَت كلاً من ايران و افغانستان نشيدهما الوطني عدة مرات خلال القرين العشرين.	Afghanistan and Iran both changed their national anthems several times in the course of the 20th century.	19999
-نسبي	يمكن ان تبدو النظريات النسبية غامضة حتى على الناس الضليعين في العلوم .	The theories of relativity can seem recondite even for people who are well versed in the sciences.	19999
-هندسة	هو ضليعُ في علم الهندسة .	He is well versed in geometry.	19999
-داخلي	هذا السياسي ضليع في الحالات الداخلية و الخارجية .	That politician is well versed in internal and external conditions.	19999
-مثلما	مثلما يمكن توقعه من خبير ، هو ضليع في المجال .	As may be expected of an expert, he's well versed in the field.	19999
-رقبة	غالباً ما تسبب الاصطدامات الخلفية اصابة في الرقبة .	Rear end collisions often cause whiplash.	19999
+نسبي	يمكن ان تبدو النظريات النسبية غامضة حتى على الناس الضليعين في العلوم.	The theories of relativity can seem recondite even for people who are well versed in the sciences.	19999
+هندسة	هو ضليعُ في علم الهندسة.	He is well versed in geometry.	19999
+داخلي	هذا السياسي ضليع في الحالات الداخلية و الخارجية.	That politician is well versed in internal and external conditions.	19999
+مثلما	مثلما يمكن توقعه من خبير ، هو ضليع في المجال.	As may be expected of an expert, he's well versed in the field.	19999
+رقبة	غالباً ما تسبب الاصطدامات الخلفية اصابة في الرقبة.	Rear end collisions often cause whiplash.	19999
 شق	الكثير من الناس شقوا طريقهم باتجاه المخرج الخلفي.	Many people pushed their way toward the rear exit.	19999
-متحدث	لا يستطيع الناس في الجزء الخلفي من الغرفة سماع المتحدث .	The people in the rear of the room could not hear the speaker.	19999
-ريثما	يجب ان تستخدم الباب الخلفي ريثما يجري صبغ البيت .	You'll have to use the rear door while the house is being painted.	19999
-صبغ	يجب ان تستخدم الباب الخلفي ريثما يجري صبغ البيت .	You'll have to use the rear door while the house is being painted.	19999
-تصاعد	منذ ان استلمت النساء المزيد من المسؤوليات في العمل و في المجتمع ، يقال ان عدد النساء الذين يعانون من الاجهاد من تربية الاطفال و العمل اخذ بالتصاعد .	Since women are taking on more responsibilities at work and in the community, it is said that the number of women with stress from both child-rearing and work is increasing.	19999
-مسموع	كان الصوت الوحيد المسموع هو تكتكة الساعة .	The only sound to be heard was the ticking of the clock.	19999
-مهلا	مهلاً ، تجنب المدير اليوم ، يبدو حقاً منزعج من شيء ما .	Hey, steer clear of the boss today, he seems really ticked off about something.	19999
+متحدث	لا يستطيع الناس في الجزء الخلفي من الغرفة سماع المتحدث.	The people in the rear of the room could not hear the speaker.	19999
+ريثما	يجب ان تستخدم الباب الخلفي ريثما يجري صبغ البيت.	You'll have to use the rear door while the house is being painted.	19999
+صبغ	يجب ان تستخدم الباب الخلفي ريثما يجري صبغ البيت.	You'll have to use the rear door while the house is being painted.	19999
+تصاعد	منذ ان استلمت النساء المزيد من المسؤوليات في العمل و في المجتمع ، يقال ان عدد النساء الذين يعانون من الاجهاد من تربية الاطفال و العمل اخذ بالتصاعد.	Since women are taking on more responsibilities at work and in the community, it is said that the number of women with stress from both child-rearing and work is increasing.	19999
+مسموع	كان الصوت الوحيد المسموع هو تكتكة الساعة.	The only sound to be heard was the ticking of the clock.	19999
+مهلا	مهلاً ، تجنب المدير اليوم ، يبدو حقاً منزعج من شيء ما.	Hey, steer clear of the boss today, he seems really ticked off about something.	19999
 محرر	وجد محرر بطاقات التذكرة حقيبة وضعت تحت مقعد في القاعة ، و صوت التكتكة بداخلها جعله قلقاً.	The ticket clerk found baggage placed under a bench in the hall, and the ticking sound inside it made him worried.	19999
 بطاقات	وجد محرر بطاقات التذكرة حقيبة وضعت تحت مقعد في القاعة ، و صوت التكتكة بداخلها جعله قلقاً.	The ticket clerk found baggage placed under a bench in the hall, and the ticking sound inside it made him worried.	19999
-عقارب	العناكب و العقارب و القِرْدان هم من الحيوانات العنكبوتية .	Spiders, scorpions, and ticks are arachnids.	19999
-جيوب	انني ارتدي سترة ذات جيوب واسعة .	I'm wearing a jacket with capacious pockets.	19999
+عقارب	العناكب و العقارب و القِرْدان هم من الحيوانات العنكبوتية.	Spiders, scorpions, and ticks are arachnids.	19999
+جيوب	انني ارتدي سترة ذات جيوب واسعة.	I'm wearing a jacket with capacious pockets.	19999
 مأساة	كَم مالاً حَصَلتَ عَلى لِلماسِ؟	How much money did you get for the diamond?	19999
 تقدر	هل تقدر أن تعرني القليل من الفلوس؟	Can you lend me a little money?	19999
 تاكسي	لم أملك فلوساً كافيَّا لِتاكسيٍ.	I don't have enough money for a taxi.	19999
 فكاهي	لا أقدّر فكاهية توم.	I don't appreciate Tom's humor.	19999
-جريح	كانت المرأة الجريحة سائحة برازيلية .	The wounded woman was a Brazilian tourist.	19999
-نموذجي	توم يبدو وكأنه سائح امريكي نموذجي .	Tom looks like a typical American tourist.	19999
-مرشد	عمل توم ذات مرة كمرشد سياحي .	Tom once worked as a tour guide.	19999
-شلالات	ان شلالات نياغارا مشهورة كمنتجع سياحي رائد في العالم .	The Niagara Falls are famous as a world leading tourist resort.	19999
-منتجع	ان شلالات نياغارا مشهورة كمنتجع سياحي رائد في العالم .	The Niagara Falls are famous as a world leading tourist resort.	19999
-حسبان	يجب على السياح ان ياخذو بالحسبان احترام الثقافات المحلية عندما يسافرون .	Tourists should take care to respect local cultures when they are travelling.	19999
-نشاط	السياح اخافوا الحيوانات و زعزعوا انماط نشاطاتهم الطبيعية .	The tourists scare away the animals and disrupt their natural activity patterns.	19999
-عنصري	سُجِنَ رجل بتهمة العنصرية ، حيث تحدث بشكل معنف ضد المرأة مع سائح فرنسي .	A man has been jailed for a racist, misogynist tirade against a French tourist.	19999
-مناطق	وصف لجيرانه الذين لم يذهبو خارج البلد ابداً مناطق الجذب السياحي .	He described to his neighbour, who has never gone abroad, the tourist attractions.	19999
-برج	في منتصف الليل ، قال هذا السائح المجري : انه الوقت المناسب لزيارة برج ايفل .	Midnight! -- says this Hungarian tourist. It's time to visit the Eiffel Tower.	19999
-أوصى	انا ايضاً اوصي بزيارة مدينة واحدة على الاقل من المدن التي عادةً لا تزار من قبل السياح .	I also recommend to visit at least one city which is usually not visited by tourists.	19999
+جريح	كانت المرأة الجريحة سائحة برازيلية.	The wounded woman was a Brazilian tourist.	19999
+نموذجي	توم يبدو وكأنه سائح امريكي نموذجي.	Tom looks like a typical American tourist.	19999
+مرشد	عمل توم ذات مرة كمرشد سياحي.	Tom once worked as a tour guide.	19999
+شلالات	ان شلالات نياغارا مشهورة كمنتجع سياحي رائد في العالم.	The Niagara Falls are famous as a world leading tourist resort.	19999
+منتجع	ان شلالات نياغارا مشهورة كمنتجع سياحي رائد في العالم.	The Niagara Falls are famous as a world leading tourist resort.	19999
+حسبان	يجب على السياح ان ياخذو بالحسبان احترام الثقافات المحلية عندما يسافرون.	Tourists should take care to respect local cultures when they are travelling.	19999
+نشاط	السياح اخافوا الحيوانات و زعزعوا انماط نشاطاتهم الطبيعية.	The tourists scare away the animals and disrupt their natural activity patterns.	19999
+عنصري	سُجِنَ رجل بتهمة العنصرية ، حيث تحدث بشكل معنف ضد المرأة مع سائح فرنسي.	A man has been jailed for a racist, misogynist tirade against a French tourist.	19999
+مناطق	وصف لجيرانه الذين لم يذهبو خارج البلد ابداً مناطق الجذب السياحي.	He described to his neighbour, who has never gone abroad, the tourist attractions.	19999
+برج	في منتصف الليل ، قال هذا السائح المجري: انه الوقت المناسب لزيارة برج ايفل.	Midnight! -- says this Hungarian tourist. It's time to visit the Eiffel Tower.	19999
+أوصى	انا ايضاً اوصي بزيارة مدينة واحدة على الاقل من المدن التي عادةً لا تزار من قبل السياح.	I also recommend to visit at least one city which is usually not visited by tourists.	19999
 هبة	أعطيت أبي دفاً كهبة.	I gave my dad a tambourine as a gift.	19999
-اتجاه	كراهيتي اتجاه المسوقين عبر الهاتف قوية جداً بحيث غالباً أكون فظاً معهم .	My antipathy toward telemarketers is so strong that I am often rude to them.	19999
-فظ	كراهيتي اتجاه المسوقين عبر الهاتف قوية جداً بحيث غالباً أكون فظاً معهم .	My antipathy toward telemarketers is so strong that I am often rude to them.	19999
+اتجاه	كراهيتي اتجاه المسوقين عبر الهاتف قوية جداً بحيث غالباً أكون فظاً معهم.	My antipathy toward telemarketers is so strong that I am often rude to them.	19999
+فظ	كراهيتي اتجاه المسوقين عبر الهاتف قوية جداً بحيث غالباً أكون فظاً معهم.	My antipathy toward telemarketers is so strong that I am often rude to them.	19999
 براعة	لم أكن أعلم بأنك تستطيع الطبخ بهذه البراعة.	I did not know that you could cook so well.	19999
 متعددة	استمر في التعلم وستصبح متقنًا للغات متعددة.	Keep learning and become a polyglot.	19999
 غرف	لا يحتاج الأطفال غرفًا خاصة بهم.	Children don't need their own rooms.	19999
@@ -13209,9 +13209,9 @@ word	sentence	translation	difficulty_rank
 ثلاثاء	يوما الإثنين والثلاثاء القادمين عطلة.	Next Monday and Tuesday are holidays.	19999
 إلكترونية	لم يأتني أي رسالة إلكترونية من ماري اليوم.	I didn't receive any e-mail from Mary today.	19999
 مرنة	لهذا الحاسوب مشغّل أقراص مرنة.	This computer has a floppy disk drive.	19999
-وقد	هذا البريد الالكتروني سري وقد يحتوي أيضاً على معلومات ذات امتياز .	This e-mail is confidential and may also contain privileged information.	19999
-امتياز	هذا البريد الالكتروني سري وقد يحتوي أيضاً على معلومات ذات امتياز .	This e-mail is confidential and may also contain privileged information.	19999
-سري	هذا البريد الالكتروني سري وقد يحتوي أيضاً على معلومات ذات امتياز .	This e-mail is confidential and may also contain privileged information.	19999
+وقد	هذا البريد الالكتروني سري وقد يحتوي أيضاً على معلومات ذات امتياز.	This e-mail is confidential and may also contain privileged information.	19999
+امتياز	هذا البريد الالكتروني سري وقد يحتوي أيضاً على معلومات ذات امتياز.	This e-mail is confidential and may also contain privileged information.	19999
+سري	هذا البريد الالكتروني سري وقد يحتوي أيضاً على معلومات ذات امتياز.	This e-mail is confidential and may also contain privileged information.	19999
 أبكم	توم أصم و أبكم.	Tom is deaf and mute.	19999
 سرور	سآتي بسرور.	I will be glad to come.	19999
 بائع	خُدِعتُ من قبل البائع.	I was taken in by the salesman.	19999
@@ -13306,7 +13306,7 @@ word	sentence	translation	difficulty_rank
 أصبر	اصبر فقد أوشكنا على الانتهاء.	Hang on; we're almost there.	19999
 جل	جلّ ما يفعله توم هو التذمر.	All Tom does is complain.	19999
 تذمر	جلّ ما يفعله توم هو التذمر.	All Tom does is complain.	19999
-جديرة	هذه محاولة جديرة بالاهتمام .	This is a worthwhile endeavor.	19999
+جديرة	هذه محاولة جديرة بالاهتمام.	This is a worthwhile endeavor.	19999
 عزيز	اذهب للنوم يا عزيزي.	Go to sleep, sweetheart.	19999
 ناد	نادِني هاري من فضلك.	Call me Harry, if you don't mind.	19999
 ناد	نادني هاري رجاء.	Call me Harry, if you don't mind.	19999
