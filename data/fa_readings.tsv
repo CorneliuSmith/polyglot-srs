@@ -45,6 +45,7 @@ word	reading
 آفتاب	âftâb
 آفتابی	âftâbi
 آفریقا	âfrīqâ
+آفرینش	âfarīniš
 آقا	âqâ
 آل	âl
 آلبوم	âlbom
@@ -140,6 +141,7 @@ word	reading
 اختصاص	ixtisâs
 اختلاف	ixtilâf
 اختلال	ixtilâl
+اخته	axta
 اختیار	ixtiyâr
 اخذ	axz
 اخراج	exrâj
@@ -177,6 +179,7 @@ word	reading
 ارمغان	armaġân
 ارمنی	armanī
 ارمنیان	armaniyân
+اره	arre
 ارواح	arvâh
 اروپا	orupâ
 اروپایی	orupâyi
@@ -236,6 +239,7 @@ word	reading
 اصالت	asâlat
 اصرار	isrâr
 اصطلاح	istilâh
+اصفهان	isfahân
 اصفهانی	isfahânī
 اصل	asl
 اصلا	aslan
@@ -523,6 +527,7 @@ word	reading
 بردار	bordâr
 برداشت	bardâšt
 برداشتن	bardâštan
+بردم	bordam
 بردن	burdan
 بردند	bordand
 برده	barda
@@ -556,6 +561,7 @@ word	reading
 بزرگی	buzurgī
 بزن	bezan
 بزند	bezanad
+بزنم	bezanam
 بستر	bastar
 بستری	bastari
 بستن	bastan
@@ -618,6 +624,7 @@ word	reading
 بومی	bumi
 بوی	buy
 بچه	bačča
+بچهها	bačče-hâ
 بک	bak
 بکار	bekâr
 بکشد	bekošad
@@ -628,11 +635,13 @@ word	reading
 بگیرد	begirad
 بگیرم	begiram
 بگیرند	begirand
+بگیرید	begirid
 بی	bi
 بیا	biyâ
 بیان	bayân
 بیانیه	bayâniya
 بیاید	biyâyd
+بیایم	biyâyam
 بیایید	biyâyid
 بیت	bayt
 بیدار	bidâr
@@ -750,6 +759,7 @@ word	reading
 تسهیل	tashil
 تشخیص	tašxīs
 تشدید	tašdīd
+تشریف	tašrīf
 تشنه	tišna
 تشکر	tašakkur
 تشکر کردن	tašakkor kardan
@@ -1072,6 +1082,7 @@ word	reading
 خاندان	xândân
 خانم	xânum
 خانه	xâna
+خانهای	xâne-i
 خانواده	xânawâda
 خانوادگی	xânawâdagī
 خانگی	xânegi
@@ -1141,6 +1152,8 @@ word	reading
 خوانندگان	xânandegân
 خواهان	xâhân
 خواهر	xwâhar
+خواهش	xwâhiš
+خواهشمند	xâhešmand
 خوب	xūb
 خوبی	xûbi
 خود	xwad
@@ -1201,6 +1214,7 @@ word	reading
 داغ	dâġ
 دام	dâm
 دامنه	dâmane
+دانا	dânâ
 دانستن	dânistan
 دانسته	dâneste
 دانش	dâniš
@@ -1281,6 +1295,7 @@ word	reading
 دل	dil
 دلار	dolâr
 دلشاد	delšâd
+دلم	dolom
 دلیل	dalil
 دم	dum
 دما	damâ
@@ -1403,6 +1418,7 @@ word	reading
 رشد	rušd
 رضا	rizâ
 رضایت	rizâyat
+رضایی	rizâyī
 رطوبت	rutūbat
 رعایت	ri'âyat
 رف	raf
@@ -1479,6 +1495,7 @@ word	reading
 ریسک	risk
 ریشه	riše
 ریو	rêw
+ز	ze
 زاده	zâde
 زاویه	zâwiya
 زبان	zabân
@@ -1826,6 +1843,7 @@ word	reading
 صاف	sâf
 صبح	subh
 صبحانه	sobhâne
+صبر	sabr
 صبور	sabur
 صحبت	suhbat
 صحبت کردن	sohbat kardan
@@ -2555,6 +2573,7 @@ word	reading
 مهره	muhra
 مهم	mohemm
 مهمان	mihmân
+مهمانها	mehmân-hâ
 مهمانی	mihmânī
 مهندس	muhandis
 مهندسان	mohandesân
@@ -2603,6 +2622,7 @@ word	reading
 مگ	mag
 مگر	magar
 می	may
+میآمد	mi-âmad
 میان	miyân
 میانگین	miyângīn
 میخ	mix
@@ -2611,6 +2631,7 @@ word	reading
 میر	mīr
 میراث	mirâs
 میرزا	mīrzâ
+میروی	mi-ravi
 میز	mêz
 میزان	mīzân
 میزبان	mêzbân
@@ -2619,6 +2640,9 @@ word	reading
 میلادی	mīlâdī
 میلیون	milyun
 میوه	mêwa
+میکند	mi-konad
+میکنم	mi-konam
+میکنی	mi-koni
 میگو	meygu
 می‌آید	mi-âyad
 می‌آیم	mi-âyam
@@ -2649,6 +2673,8 @@ word	reading
 نامزد	nâmzad
 نامزدی	nâmzadī
 نامه	nâma
+نامهاش	nâme-aš
+نامهها	nâme-hâ
 ناموفق	nâ-movaffaq
 نامی	nâmi
 نامید	nâmid
@@ -2969,6 +2995,7 @@ word	reading
 پرست	parast
 پرستار	parastâr
 پرسش	pursiš
+پرسید	porsid
 پرسیدن	pursīdan
 پرفروش	por-foruš
 پرنده	paranda
@@ -2989,6 +3016,7 @@ word	reading
 پسوند	paswand
 پشت	pušt
 پشتیبانی	puštībânī
+پشیمان	pašimân
 پل	pul
 پلاستیک	pelâstik
 پله	pilla
@@ -3307,6 +3335,7 @@ word	reading
 یاد دادن	yâd dâdan
 یاد گرفتن	yâd giriftan
 یادبود	yâdbud
+یادداشت	yâddâšt
 یادگیری	yâdgīrī
 یاری	yârī
 یازده	yâzdah

@@ -117,6 +117,26 @@ def main() -> int:
                 w = (row.get("word") or "").strip()
                 if w:
                     need.add(bare(w))
+        # ...and every token the GRAMMAR DRILLS use. Harvesting only the
+        # frequency list and the sentence bank left the drills at 89% (he) and
+        # 78% (fa) once new ones were authored, under the orthography guard's
+        # 95% floor — the drills draw on vocabulary the sentence bank does not.
+        grammar = DATA / "grammar" / f"{code}_grammar.json"
+        if grammar.exists():
+            data = json.loads(grammar.read_text(encoding="utf-8"))
+            points = data if isinstance(data, list) else (
+                data.get("points") or data.get("grammar_points") or [])
+            for point in points:
+                for drill in point.get("drills") or []:
+                    for tok in (drill.get("sentence") or "").split():
+                        tok = re.sub(r"[^؀-ۿ֐-׿]", "", tok)
+                        if tok:
+                            need.add(bare(tok))
+                            for pre in ("ال", "وال", "بال", "فال", "لل", "و", "ف",
+                                        "ب", "ل", "ك", "س", "ה", "ו", "ב", "ל",
+                                        "כ", "ש", "מ"):
+                                if tok.startswith(pre) and len(tok) > len(pre) + 1:
+                                    need.add(bare(tok[len(pre):]))
         with (DATA / f"{code}_sentences.tsv").open(encoding="utf-8-sig", newline="") as fh:
             for row in csv.DictReader(fh, delimiter="\t"):
                 for tok in (row.get("sentence") or "").split():

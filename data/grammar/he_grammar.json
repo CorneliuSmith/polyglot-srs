@@ -65,6 +65,30 @@
           "hint": "you — masculine singular, contrasts with feminine את",
           "transliteration": "___ holekh habayta?",
           "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} גרה בתל אביב?",
+          "answer": "את",
+          "translation": "Do you (f.) live in Tel Aviv?",
+          "hint": "you — one person, and that person is a woman; the pronoun for addressing a man is a longer word",
+          "display_order": 4,
+          "transliteration": "{{answer}} gerá be-tél avív?"
+        },
+        {
+          "sentence": "{{answer}} גרות בחיפה.",
+          "answer": "הן",
+          "translation": "They (f.) live in Haifa.",
+          "hint": "they — a group made up of women only; a group with any man in it takes a different pronoun",
+          "display_order": 5,
+          "transliteration": "{{answer}} gerút be-khipá."
+        },
+        {
+          "sentence": "{{answer}} רוצים לאכול?",
+          "answer": "אתם",
+          "translation": "Do you (m. pl.) want to eat?",
+          "hint": "you — more than one person being addressed, a group that includes men; second person plural",
+          "display_order": 6,
+          "transliteration": "{{answer}} rotsím le'ekhól?"
         }
       ]
     },
@@ -100,6 +124,38 @@
           "hint": "small — the predicate follows the subject directly",
           "transliteration": "hayeled ___.",
           "display_order": 3
+        },
+        {
+          "sentence": "הילדים {{answer}}.",
+          "answer": "רעבים",
+          "translation": "The children are hungry.",
+          "hint": "hungry — masculine plural, matching the subject; the two words stand side by side with nothing between them",
+          "display_order": 4,
+          "transliteration": "ha-y'ladím {{answer}}."
+        },
+        {
+          "sentence": "אני {{answer}} עכשיו.",
+          "answer": "עסוקה",
+          "translation": "I (f.) am busy right now.",
+          "hint": "busy — a woman speaking about herself; the description follows the pronoun directly, with no linking word",
+          "display_order": 5,
+          "transliteration": "aní {{answer}} akhsháv."
+        },
+        {
+          "sentence": "למה אתה {{answer}}?",
+          "answer": "עייף",
+          "translation": "Why are you (m.) tired?",
+          "hint": "tired — masculine singular; a question supplies no extra verb either, so the description simply follows the pronoun",
+          "display_order": 6,
+          "transliteration": "láma atá {{answer}}?"
+        },
+        {
+          "sentence": "דני {{answer}} טוב.",
+          "answer": "סטודנט",
+          "translation": "Danny is a good student.",
+          "hint": "a student, male — a noun on its own can be the predicate here, joined to the subject by nothing at all",
+          "display_order": 7,
+          "transliteration": "dáni {{answer}} tov."
         }
       ]
     },
@@ -116,7 +172,7 @@
           "sentence": "האישה {{answer}}.",
           "answer": "טובה",
           "translation": "The woman is good.",
-          "hint": "good, feminine — add ה־ to טוב",
+          "hint": "good — the subject is a woman, so the feminine singular form, which carries an ending the masculine one lacks",
           "transliteration": "haisha ___.",
           "display_order": 1
         },
@@ -132,9 +188,41 @@
           "sentence": "הילדה {{answer}}.",
           "answer": "קטנה",
           "translation": "The girl is small.",
-          "hint": "small, feminine — add ה־ to קטן",
+          "hint": "small — agrees with a feminine noun; the feminine singular is the masculine form plus an ending",
           "transliteration": "hayalda ___.",
           "display_order": 3
+        },
+        {
+          "sentence": "אני קורא ספר {{answer}}.",
+          "answer": "חדש",
+          "translation": "I (m.) am reading a new book.",
+          "hint": "new — it follows the noun it describes, and that noun is masculine, so the adjective needs no ending",
+          "display_order": 4,
+          "transliteration": "aní koré séfer {{answer}}."
+        },
+        {
+          "sentence": "היא גרה בעיר {{answer}}.",
+          "answer": "גדולה",
+          "translation": "She lives in a big city.",
+          "hint": "big — 'city' is feminine in Hebrew although nothing in it looks feminine, and the adjective has to follow suit",
+          "display_order": 5,
+          "transliteration": "hi gerá ba'ír {{answer}}."
+        },
+        {
+          "sentence": "הלילה {{answer}}.",
+          "answer": "ארוך",
+          "translation": "The night is long.",
+          "hint": "long — 'night' ends in the letter that usually signals feminine but counts as masculine anyway, so the adjective stays plain",
+          "display_order": 6,
+          "transliteration": "haláyla {{answer}}."
+        },
+        {
+          "sentence": "המכונית לא {{answer}}.",
+          "answer": "חדשה",
+          "translation": "The car isn't new.",
+          "hint": "new — a car is feminine in Hebrew, so the adjective takes the feminine singular ending",
+          "display_order": 7,
+          "transliteration": "ha-m'khonít lo {{answer}}."
         }
       ]
     },
@@ -151,7 +239,7 @@
           "sentence": "{{answer}} גדול.",
           "answer": "הבית",
           "translation": "The house is big.",
-          "hint": "the house — ה־ prefixed directly onto בית",
+          "hint": "the house — definite; the article is one letter riding on the front of the noun, not a word of its own",
           "transliteration": "___ gadol.",
           "display_order": 1
         },
@@ -159,7 +247,7 @@
           "sentence": "{{answer}} טוב.",
           "answer": "הספר",
           "translation": "The book is good.",
-          "hint": "the book — ה־ prefixed onto ספר",
+          "hint": "the book — one particular one, so the noun is written with its definite marker in front",
           "transliteration": "___ tov.",
           "display_order": 2
         },
@@ -167,9 +255,41 @@
           "sentence": "{{answer}} יפה.",
           "answer": "העיר",
           "translation": "The city is beautiful.",
-          "hint": "the city — ה־ prefixed onto עיר",
+          "hint": "the city — definite; attach the article to the noun instead of writing a separate word",
           "transliteration": "___ yafa.",
           "display_order": 3
+        },
+        {
+          "sentence": "אנחנו גרים ליד {{answer}}.",
+          "answer": "הים",
+          "translation": "We live near the sea.",
+          "hint": "the sea — definite; the marker is a single letter written onto the front of the noun, never a separate word",
+          "display_order": 4,
+          "transliteration": "anákhnu gerim l'yád- {{answer}}."
+        },
+        {
+          "sentence": "איפה {{answer}}?",
+          "answer": "המפתח",
+          "translation": "Where is the key?",
+          "hint": "the key — one particular one, so the noun is written with the definite marker attached in front",
+          "display_order": 5,
+          "transliteration": "efó {{answer}}?"
+        },
+        {
+          "sentence": "{{answer}} משחקים בחוץ.",
+          "answer": "הילדים",
+          "translation": "The children are playing outside.",
+          "hint": "the children — plural and definite; the article attaches the same way whatever the number",
+          "display_order": 6,
+          "transliteration": "{{answer}} mis'khaqím bakhúts."
+        },
+        {
+          "sentence": "הבית {{answer}} יפה.",
+          "answer": "הישן",
+          "translation": "The old house is beautiful.",
+          "hint": "old — when a description follows a definite noun, it repeats the same front marker the noun carries",
+          "display_order": 7,
+          "transliteration": "habáyit {{answer}} yafé."
         }
       ]
     },
@@ -186,7 +306,7 @@
           "sentence": "היא {{answer}} הביתה.",
           "answer": "הולכת",
           "translation": "She is going home.",
-          "hint": "goes — feminine singular, add ת to הולך",
+          "hint": "going — one woman, so the feminine singular, which adds an ending to the masculine form",
           "transliteration": "hi ___ habayta.",
           "display_order": 1
         },
@@ -205,6 +325,38 @@
           "hint": "go — feminine plural, add ות",
           "transliteration": "hen ___ habayta.",
           "display_order": 3
+        },
+        {
+          "sentence": "מה אתה {{answer}}?",
+          "answer": "אוכל",
+          "translation": "What are you (m.) eating?",
+          "hint": "eating — masculine singular, the plain present form with nothing added",
+          "display_order": 4,
+          "transliteration": "ma atá {{answer}}?"
+        },
+        {
+          "sentence": "אנחנו {{answer}} עברית.",
+          "answer": "לומדות",
+          "translation": "We (f.) are studying Hebrew.",
+          "hint": "studying — the speakers are all women, so the feminine plural ending",
+          "display_order": 5,
+          "transliteration": "anákhnu {{answer}} ivrít."
+        },
+        {
+          "sentence": "היא לא {{answer}} היום.",
+          "answer": "עובדת",
+          "translation": "She isn't working today.",
+          "hint": "working — one woman; the feminine singular takes an ending the masculine form does not have",
+          "display_order": 6,
+          "transliteration": "hi lo {{answer}} hayóm."
+        },
+        {
+          "sentence": "הבנים {{answer}} כדורגל.",
+          "answer": "משחקים",
+          "translation": "The boys are playing soccer.",
+          "hint": "playing — more than one boy, which calls for the masculine plural ending",
+          "display_order": 7,
+          "transliteration": "ha-baním {{answer}} kadurégel."
         }
       ]
     },
@@ -240,6 +392,30 @@
           "hint": "not — before an adjective works the same way",
           "transliteration": "habayit ___ katan.",
           "display_order": 3
+        },
+        {
+          "sentence": "הם {{answer}} ילדים.",
+          "answer": "לא",
+          "translation": "They (m.) aren't children.",
+          "hint": "the negation lands in front of a noun predicate here; Hebrew still needs only this one word where English adds 'are'",
+          "display_order": 4,
+          "transliteration": "hem {{answer}} y'ladím."
+        },
+        {
+          "sentence": "אנחנו {{answer}} בבית.",
+          "answer": "לא",
+          "translation": "We aren't at home.",
+          "hint": "the same word goes in front of a place phrase; there is no verb anywhere in the sentence for it to attach to",
+          "display_order": 5,
+          "transliteration": "anákhnu {{answer}} be-báyit."
+        },
+        {
+          "sentence": "הספר הזה {{answer}} שלי.",
+          "answer": "לא",
+          "translation": "This book isn't mine.",
+          "hint": "before a possessive phrase the negation is unchanged — one word placed in front of whatever is being denied",
+          "display_order": 6,
+          "transliteration": "ha-séfer hazé {{answer}} shelí."
         }
       ]
     },
@@ -275,6 +451,38 @@
           "hint": "there isn't — the negative of יש",
           "transliteration": "___ zman.",
           "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} כאן בית קפה?",
+          "answer": "יש",
+          "translation": "Is there a café here?",
+          "hint": "asks whether something exists — a yes/no question uses the same word as a statement, only the voice rises",
+          "display_order": 4,
+          "transliteration": "{{answer}} kán báyit kafé?"
+        },
+        {
+          "sentence": "{{answer}} הרבה אנשים ברחוב.",
+          "answer": "יש",
+          "translation": "There are a lot of people in the street.",
+          "hint": "the existence word standing before a plural — it has no plural of its own, so nothing about it changes",
+          "display_order": 5,
+          "transliteration": "{{answer}} harbé anashím be-rekhóv."
+        },
+        {
+          "sentence": "{{answer}} חלב במקרר.",
+          "answer": "אין",
+          "translation": "There is no milk in the fridge.",
+          "hint": "the word for absence — it does the work of both the missing verb and the word for not",
+          "display_order": 6,
+          "transliteration": "{{answer}} chaláv be-m'karér."
+        },
+        {
+          "sentence": "למה {{answer}} כאן כיסאות?",
+          "answer": "אין",
+          "translation": "Why aren't there any chairs here?",
+          "hint": "absence again, this time inside a question — the question word in front changes nothing",
+          "display_order": 7,
+          "transliteration": "láma {{answer}} kán kis'ót?"
         }
       ]
     },
@@ -310,6 +518,30 @@
           "hint": "of / belonging to",
           "transliteration": "hair ___ hamishpacha.",
           "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} מי התיק הזה?",
+          "answer": "של",
+          "translation": "Whose bag is this?",
+          "hint": "the ownership word — put in front of the who-word, it asks who something belongs to",
+          "display_order": 4,
+          "transliteration": "{{answer}} mí ha-tik hazé?"
+        },
+        {
+          "sentence": "איפה הטלפון {{answer}}?",
+          "answer": "שלי",
+          "translation": "Where is my phone?",
+          "hint": "the ownership word carrying a first person singular ending — one form whether a man or a woman is speaking",
+          "display_order": 5,
+          "transliteration": "efó ha-télefon {{answer}}?"
+        },
+        {
+          "sentence": "המורה {{answer}} מדבר אנגלית.",
+          "answer": "שלנו",
+          "translation": "Our teacher speaks English.",
+          "hint": "the ownership word with a first person plural ending — one form for any group",
+          "display_order": 6,
+          "transliteration": "ha-moré {{answer}} midbár ang'lít."
         }
       ]
     },
@@ -361,6 +593,22 @@
           "hint": "to read — the second verb after can stays in its base form",
           "transliteration": "hu yakhol ___ et hasefer.",
           "display_order": 5
+        },
+        {
+          "sentence": "היא לא יכולה {{answer}} מחר.",
+          "answer": "לבוא",
+          "translation": "She can't come tomorrow.",
+          "hint": "to come — the base form; the negative word goes with the first verb and leaves this one untouched",
+          "display_order": 6,
+          "transliteration": "hi lo y'kholá {{answer}} makhár."
+        },
+        {
+          "sentence": "אתם רוצים {{answer}} משהו?",
+          "answer": "לאכול",
+          "translation": "Do you (pl.) want to eat something?",
+          "hint": "to eat — the base form stays as it is in a question too; only the first verb shows the plural subject",
+          "display_order": 7,
+          "transliteration": "atém rotsím {{answer}} máshehu?"
         }
       ]
     },
@@ -420,6 +668,14 @@
           "hint": "who — asks about a person",
           "transliteration": "___ medaber ivrit?",
           "display_order": 6
+        },
+        {
+          "sentence": "{{answer}} אומרים את זה בעברית?",
+          "answer": "איך",
+          "translation": "How do you say this in Hebrew?",
+          "hint": "how — asks about the manner or the means of doing something",
+          "display_order": 7,
+          "transliteration": "{{answer}} omrím et ze be-ivrít?"
         }
       ]
     },
@@ -471,6 +727,22 @@
           "hint": "I heard — first person singular past",
           "transliteration": "ani ___ et hashir baradio.",
           "display_order": 5
+        },
+        {
+          "sentence": "אני לא {{answer}} אתמול.",
+          "answer": "עבדתי",
+          "translation": "I didn't work yesterday.",
+          "hint": "I worked — first person singular past; the negative word before it leaves the ending exactly as it is",
+          "display_order": 6,
+          "transliteration": "aní lo {{answer}} etmól."
+        },
+        {
+          "sentence": "מתי היא {{answer}} מהעבודה?",
+          "answer": "חזרה",
+          "translation": "When did she get back from work?",
+          "hint": "she returned — third person feminine singular; the person is shown by an ending on the verb, never by a prefix",
+          "display_order": 7,
+          "transliteration": "matái hi {{answer}} mi-ha-avodá?"
         }
       ]
     },
@@ -522,6 +794,22 @@
           "hint": "we saw — first person plural of a verb whose root ends in a weak letter",
           "transliteration": "anachnu ___ et haseret etmol.",
           "display_order": 5
+        },
+        {
+          "sentence": "ההורים שלי {{answer}} לתל אביב בשבת.",
+          "answer": "נסעו",
+          "translation": "My parents travelled to Tel Aviv on Saturday.",
+          "hint": "they travelled — third person plural past; a plural noun subject takes exactly the ending a plural pronoun would",
+          "display_order": 6,
+          "transliteration": "ha-horím shelí {{answer}} le-tél avív be-shabát."
+        },
+        {
+          "sentence": "אנחנו לא {{answer}} את המפתחות.",
+          "answer": "מצאנו",
+          "translation": "We didn't find the keys.",
+          "hint": "we found — first person plural past, here in a negative sentence, where the ending is unaffected",
+          "display_order": 7,
+          "transliteration": "anákhnu lo {{answer}} et hamaftekhót."
         }
       ]
     },
@@ -573,6 +861,22 @@
           "hint": "they will come — third person plural future",
           "transliteration": "hem ___ machar baboker.",
           "display_order": 5
+        },
+        {
+          "sentence": "דוד, מתי {{answer}} מהעבודה?",
+          "answer": "תחזור",
+          "translation": "David, when will you get back from work?",
+          "hint": "you will come back — second person masculine singular; the ת prefix serves 'you' as well as 'she', and the masculine singular adds nothing at the end",
+          "display_order": 6,
+          "transliteration": "dod, matái {{answer}} mi-ha-avodá?"
+        },
+        {
+          "sentence": "היא לא {{answer}} מחר כי היא חולה.",
+          "answer": "תעבוד",
+          "translation": "She will not work tomorrow because she is sick.",
+          "hint": "she will work — third person feminine singular takes the same ת prefix as the masculine 'you'; the negative word in front leaves the verb itself untouched",
+          "display_order": 7,
+          "transliteration": "hi lo {{answer}} makhár ki hi kholé."
         }
       ]
     },
@@ -624,6 +928,22 @@
           "hint": "to you — masculine singular ending",
           "transliteration": "ani mechake ___ baknisa.",
           "display_order": 5
+        },
+        {
+          "sentence": "אתה רוצה לשתות קפה {{answer}}?",
+          "answer": "איתי",
+          "translation": "Do you (m.) want to have coffee with me?",
+          "hint": "with me — the preposition of accompaniment, not the one meaning at someone's place; it switches to a different base before endings, then takes the ordinary first person ending",
+          "display_order": 6,
+          "transliteration": "atá rotsé lishtót kafé {{answer}}?"
+        },
+        {
+          "sentence": "אני חושב {{answer}} כל הזמן.",
+          "answer": "עליהם",
+          "translation": "I think about them all the time.",
+          "hint": "about them — the preposition meaning on/about, which this verb requires, carrying the third person plural ending",
+          "display_order": 7,
+          "transliteration": "aní khusháv {{answer}} kól ha-zmán."
         }
       ]
     },
@@ -675,6 +995,14 @@
           "hint": "the object flag, used with plural definites too",
           "transliteration": "hi lakcha ___ hamaftechot.",
           "display_order": 5
+        },
+        {
+          "sentence": "פגשתי {{answer}} אחותי בעיר.",
+          "answer": "את",
+          "translation": "I met my sister in town.",
+          "hint": "the object flag — a noun carrying a possessive ending is definite, so it is needed even with no article in sight",
+          "display_order": 6,
+          "transliteration": "pagáshti {{answer}} akhotí ba'ír."
         }
       ]
     },
@@ -734,6 +1062,14 @@
           "hint": "five, feminine — minutes is a feminine noun",
           "transliteration": "yesh lanu ___ dakot.",
           "display_order": 6
+        },
+        {
+          "sentence": "שאלתי {{answer}} שאלות בשיעור.",
+          "answer": "שתי",
+          "translation": "I asked two questions in the lesson.",
+          "hint": "two, feminine — standing directly before the noun it counts, so the numeral appears in its shortened form rather than the standalone counting word",
+          "display_order": 7,
+          "transliteration": "sha'álti {{answer}} she'elót bashi'úr."
         }
       ]
     },
@@ -785,6 +1121,14 @@
           "hint": "to them — third person plural",
           "transliteration": "yesh ___ bayit betel aviv.",
           "display_order": 5
+        },
+        {
+          "sentence": "היא רוצה כלב, אבל אין {{answer}} מקום בדירה.",
+          "answer": "לה",
+          "translation": "She wants a dog, but she doesn't have room in the apartment.",
+          "hint": "to her — third person feminine; going negative swaps the first word of the pair, while this ending stays exactly as it is",
+          "display_order": 6,
+          "transliteration": "hi rotsé kélev, avál en {{answer}} makóm be-dirá."
         }
       ]
     },
@@ -836,6 +1180,14 @@
           "hint": "big — the noun looks feminine in the plural but is masculine",
           "transliteration": "hashulchanot ___.",
           "display_order": 5
+        },
+        {
+          "sentence": "המילים האלה {{answer}} מדי.",
+          "answer": "ארוכות",
+          "translation": "These words are too long.",
+          "hint": "long — feminine plural; the noun's plural wears the ending you would expect on a masculine word, but its gender has not changed, so the adjective must not follow the ending",
+          "display_order": 6,
+          "transliteration": "ha-milím ha-éle {{answer}} midéi."
         }
       ]
     },
@@ -887,6 +1239,22 @@
           "hint": "request — masculine singular",
           "transliteration": "ani ___ ezra.",
           "display_order": 5
+        },
+        {
+          "sentence": "הבנות {{answer}} בפארק.",
+          "answer": "משחקות",
+          "translation": "The girls are playing in the park.",
+          "hint": "play — feminine plural; this pattern's present keeps the same prefix in all four forms and lets the ending do the agreeing",
+          "display_order": 6,
+          "transliteration": "habanót {{answer}} bapárk."
+        },
+        {
+          "sentence": "מה אתה {{answer}}?",
+          "answer": "מחפש",
+          "translation": "What are you looking for? (said to a man)",
+          "hint": "look for, search — masculine singular, addressed to a man; a question uses the same present form as a statement",
+          "display_order": 7,
+          "transliteration": "ma atá {{answer}}?"
         }
       ]
     },
@@ -938,6 +1306,22 @@
           "hint": "order — masculine plural",
           "transliteration": "anachnu ___ pitsa.",
           "display_order": 5
+        },
+        {
+          "sentence": "הן לא {{answer}} את השכן החדש.",
+          "answer": "מכירות",
+          "translation": "They (f.) don't know the new neighbor.",
+          "hint": "know a person, be acquainted with — feminine plural of this pattern, not the everyday verb for knowing a fact; the negative word in front leaves the form untouched",
+          "display_order": 6,
+          "transliteration": "hen lo {{answer}} et ha-shakhán ha-khadásh."
+        },
+        {
+          "sentence": "מתי אתם {{answer}} ללמוד למבחן?",
+          "answer": "מתחילים",
+          "translation": "When are you (m. pl.) starting to study for the test?",
+          "hint": "begin — masculine plural, addressed to a group; the i-vowel of this pattern sits before the last root letter",
+          "display_order": 7,
+          "transliteration": "matái atém {{answer}} lilmód le-mivkhán?"
         }
       ]
     },
@@ -989,6 +1373,22 @@
           "hint": "studies — the plain pattern of that same root",
           "transliteration": "hatalmid ___ ivrit.",
           "display_order": 5
+        },
+        {
+          "sentence": "אני {{answer}} לו שיש פגישה מחר.",
+          "answer": "מזכיר",
+          "translation": "I'm reminding him that there's a meeting tomorrow. (said by a man)",
+          "hint": "remind, make someone remember — the causative pattern of the root for remembering, masculine singular",
+          "display_order": 6,
+          "transliteration": "aní {{answer}} lu she-yésh p'gishá makhár."
+        },
+        {
+          "sentence": "היא לא {{answer}} את השם שלי.",
+          "answer": "זוכרת",
+          "translation": "She doesn't remember my name.",
+          "hint": "remember — the plain pattern of the root whose causative means 'remind', feminine singular",
+          "display_order": 7,
+          "transliteration": "hi lo {{answer}} et hashém shelí."
         }
       ]
     },
@@ -1040,6 +1440,22 @@
           "hint": "told — third person plural past",
           "transliteration": "hem ___ lanu al hatiyul.",
           "display_order": 5
+        },
+        {
+          "sentence": "מתי היא {{answer}} על הכרטיסים?",
+          "answer": "תשלם",
+          "translation": "When will she pay for the tickets?",
+          "hint": "she will pay — third person feminine singular future; the future takes the ordinary prefix, never the מ of the present",
+          "display_order": 6,
+          "transliteration": "matáy hi {{answer}} al hakartisím?"
+        },
+        {
+          "sentence": "אחרי השיעור {{answer}} מהמורה עוד זמן.",
+          "answer": "ביקשנו",
+          "translation": "After the lesson we asked the teacher for more time.",
+          "hint": "we asked for — first person plural past; this pattern's past puts the person ending straight onto the stem, with nothing in front",
+          "display_order": 7,
+          "transliteration": "akharéi ha-shi'úr {{answer}} mi-ha-moré od zmán."
         }
       ]
     },
@@ -1091,6 +1507,22 @@
           "hint": "they will give back — third person plural future",
           "transliteration": "hem ___ et hakesef machar.",
           "display_order": 5
+        },
+        {
+          "sentence": "למה לא {{answer}} אותנו למסיבה?",
+          "answer": "הזמנת",
+          "translation": "Why didn't you invite us to the party? (said to a man)",
+          "hint": "you invited — second person singular past; in the first and second person past this pattern's long i-vowel drops out of the stem",
+          "display_order": 6,
+          "transliteration": "láma lo {{answer}} otánu le-m'sibá?"
+        },
+        {
+          "sentence": "אנחנו {{answer}} מחר מה לעשות.",
+          "answer": "נחליט",
+          "translation": "We'll decide tomorrow what to do.",
+          "hint": "we will decide — first person plural future; the letter this pattern puts in front of its past forms is gone in the future",
+          "display_order": 7,
+          "transliteration": "anákhnu {{answer}} makhár ma la'asót."
         }
       ]
     },
@@ -1142,6 +1574,22 @@
           "hint": "woke up — past, third person plural",
           "transliteration": "hem ___ mukdam.",
           "display_order": 5
+        },
+        {
+          "sentence": "הם {{answer}} בקיץ.",
+          "answer": "מתחתנים",
+          "translation": "They (m.) are getting married in the summer.",
+          "hint": "get married — third person masculine plural present; the reciprocal side of this pattern, an action two people do with each other",
+          "display_order": 6,
+          "transliteration": "hem {{answer}} be-káyits."
+        },
+        {
+          "sentence": "למה לא {{answer}} אתמול בערב?",
+          "answer": "התקשרת",
+          "translation": "Why didn't you call yesterday evening? (said to a man)",
+          "hint": "you phoned — second person singular past; this pattern's past prefix goes in front and the ordinary past ending at the back",
+          "display_order": 7,
+          "transliteration": "láma lo {{answer}} etmól be-érev?"
         }
       ]
     },
@@ -1193,6 +1641,22 @@
           "hint": "juice — the first noun of the compound; many masculine nouns look unchanged",
           "transliteration": "shatiti ___ tapuzim.",
           "display_order": 5
+        },
+        {
+          "sentence": "איפה {{answer}} הרכבת?",
+          "answer": "תחנת",
+          "translation": "Where is the train station?",
+          "hint": "station of — a feminine noun heading a compound trades its ending for ת",
+          "display_order": 6,
+          "transliteration": "efó {{answer}} ha-rakévet?"
+        },
+        {
+          "sentence": "יש שני {{answer}} קפה ברחוב הזה.",
+          "answer": "בתי",
+          "translation": "There are two cafés on this street.",
+          "hint": "houses of — a compound forms its plural on the first noun, with the ending shortened",
+          "display_order": 7,
+          "transliteration": "yésh shnei {{answer}} kafé be-rekhóv hazé."
         }
       ]
     },
@@ -1244,6 +1708,22 @@
           "hint": "speaking, as a noun — the pi'el action-noun shape",
           "transliteration": "___ beivrit kashe li.",
           "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} בבוקר לוקחת לי עשר דקות.",
+          "answer": "ההתלבשות",
+          "translation": "Getting dressed in the morning takes me ten minutes.",
+          "hint": "getting dressed, as a noun with the article — the action noun of the reflexive pattern, feminine",
+          "display_order": 6,
+          "transliteration": "{{answer}} babóker lokákhat li éser dakót."
+        },
+        {
+          "sentence": "אנחנו אוהבים {{answer}} ארוכים בטבע.",
+          "answer": "טיולים",
+          "translation": "We love long trips in nature.",
+          "hint": "outings — the plural of the pi'el action noun; these words inflect like any other noun",
+          "display_order": 7,
+          "transliteration": "anákhnu ohavím {{answer}} arukím batéva."
         }
       ]
     },
@@ -1295,6 +1775,22 @@
           "hint": "if — the ordinary word for a real condition",
           "transliteration": "___ lo tavo, nitkasher elekha.",
           "display_order": 5
+        },
+        {
+          "sentence": "אם {{answer}} מוקדם, נלך לסרט?",
+          "answer": "תסיימי",
+          "translation": "If you (f.) finish early, shall we go to a movie?",
+          "hint": "you (f. sg.) will finish — the if-clause takes the future where English uses the present",
+          "display_order": 6,
+          "transliteration": "im {{answer}} mukdám, nelékh laséret?"
+        },
+        {
+          "sentence": "אם אין חלב בבית, אני {{answer}} לחנות.",
+          "answer": "הולך",
+          "translation": "If there is no milk at home, I (m.) go to the store.",
+          "hint": "I go, present tense — a standing habit keeps both halves in the present",
+          "display_order": 7,
+          "transliteration": "em en chaláv be-báyit, aní {{answer}} le-khanút."
         }
       ]
     },
@@ -1346,6 +1842,22 @@
           "hint": "that I grew up — with the preposition echoed at the end",
           "transliteration": "ze habayit ___ bo.",
           "display_order": 5
+        },
+        {
+          "sentence": "האנשים {{answer}} מחר הם חברים שלי.",
+          "answer": "שיבואו",
+          "translation": "The people who will come tomorrow are my friends.",
+          "hint": "who will come — the relative prefix on a third-person plural future",
+          "display_order": 6,
+          "transliteration": "ha-anashím {{answer}} makhár hem khaverím shelí."
+        },
+        {
+          "sentence": "זה הסרט {{answer}} לי עליו?",
+          "answer": "שסיפרת",
+          "translation": "Is this the movie you (m.) told me about?",
+          "hint": "that you (m. sg.) told — the relative prefix on a second-person past verb",
+          "display_order": 7,
+          "transliteration": "ze ha-séret {{answer}} li aláv?"
         }
       ]
     },
@@ -1397,6 +1909,22 @@
           "hint": "less — the opposite of the comparative word",
           "transliteration": "ze ___ yakar.",
           "display_order": 5
+        },
+        {
+          "sentence": "אתה באמת מבוגר {{answer}}?",
+          "answer": "ממני",
+          "translation": "Are you (m.) really older than me?",
+          "hint": "than me — the word for than fused with a first-person singular ending",
+          "display_order": 6,
+          "transliteration": "atá be'emét mevugár {{answer}}?"
+        },
+        {
+          "sentence": "זה הבניין הגבוה {{answer}} בעיר.",
+          "answer": "ביותר",
+          "translation": "This is the tallest building in the city.",
+          "hint": "most — the formal written superlative, placed after the adjective",
+          "display_order": 7,
+          "transliteration": "ze ha-binyɔn ha-gavóah {{answer}} ba'ír."
         }
       ]
     },
@@ -1448,6 +1976,22 @@
           "hint": "are located — present, masculine plural, matching a masculine noun",
           "transliteration": "hamaftechot ___ al hashulchan.",
           "display_order": 5
+        },
+        {
+          "sentence": "אני מעדיף {{answer}} בבית הערב.",
+          "answer": "להישאר",
+          "translation": "I (m.) prefer to stay home this evening.",
+          "hint": "to remain — the infinitive of this pattern, where a ה appears right after the ל",
+          "display_order": 6,
+          "transliteration": "aní mi-adíf {{answer}} be-báyit ha'érev."
+        },
+        {
+          "sentence": "מתי {{answer}} המוזיאון החדש?",
+          "answer": "ייפתח",
+          "translation": "When will the new museum open?",
+          "hint": "will open, m. sg. — the future of this pattern, written with a doubled yod at the front",
+          "display_order": 7,
+          "transliteration": "matái {{answer}} ha-muze'ón ha-khadásh?"
         }
       ]
     },
@@ -1499,6 +2043,22 @@
           "hint": "were explained — past, plural, passive of the causative pattern",
           "transliteration": "haklalim ___ bashiur.",
           "display_order": 5
+        },
+        {
+          "sentence": "המחשב {{answer}} על ידי הטכנאי.",
+          "answer": "תוקן",
+          "translation": "The computer was repaired by the technician.",
+          "hint": "was repaired — past, masculine singular; the intensive pattern turned passive, and the doer arrives in a by-phrase",
+          "display_order": 6,
+          "transliteration": "hamakhshév {{answer}} al yedéi hatekhnái."
+        },
+        {
+          "sentence": "האם כבר {{answer}} לדחות את הטיול?",
+          "answer": "הוחלט",
+          "translation": "Has it already been decided to postpone the trip?",
+          "hint": "it was decided — past, masculine singular of the passive belonging to the causative pattern; impersonal, with nobody named as deciding",
+          "display_order": 7,
+          "transliteration": "ha'ím kvar {{answer}} lidkhót et hatiyúl?"
         }
       ]
     },
@@ -1550,6 +2110,22 @@
           "hint": "the shorter counterfactual conjunction, common in writing",
           "transliteration": "___ hayiti ashir, hayiti metayel baolam.",
           "display_order": 5
+        },
+        {
+          "sentence": "בכל קיץ היינו {{answer}} לים עם המשפחה.",
+          "answer": "נוסעים",
+          "translation": "Every summer we used to travel to the sea with the family.",
+          "hint": "travelling, by car or bus — the present participle, masculine plural; behind the past of to be it reads as a habit rather than a condition",
+          "display_order": 6,
+          "transliteration": "be-kól káyits háy'nu {{answer}} le-yam am ha-mishpakhá."
+        },
+        {
+          "sentence": "אילו {{answer}} מקשיבים לי, המצב היה אחר.",
+          "answer": "היו",
+          "translation": "If they had listened to me, the situation would have been different.",
+          "hint": "they were — third person plural of the past of to be, opening a clause that is contrary to fact",
+          "display_order": 7,
+          "transliteration": "ilú {{answer}} makshivím li, hamatsáv hayá akhér."
         }
       ]
     },
@@ -1601,6 +2177,22 @@
           "hint": "when I — the when-prefix attached straight to the pronoun",
           "transliteration": "___ ayef, ani shote kafe.",
           "display_order": 5
+        },
+        {
+          "sentence": "נדבר {{answer}} הפגישה, לא אחריה.",
+          "answer": "לפני",
+          "translation": "We'll talk before the meeting, not after it.",
+          "hint": "before — the time word standing straight in front of a plain noun, so it carries no linking letter",
+          "display_order": 6,
+          "transliteration": "nedabér {{answer}} hapgishá, lo akharéha."
+        },
+        {
+          "sentence": "מה תעשי {{answer}} את הלימודים?",
+          "answer": "כשתסיימי",
+          "translation": "What will you (f.) do when you finish your studies?",
+          "hint": "when you finish — the when-prefix riding on a future verb, second person feminine singular",
+          "display_order": 7,
+          "transliteration": "ma ta'así {{answer}} et ha-limudím?"
         }
       ]
     },
@@ -1652,6 +2244,22 @@
           "hint": "that not — the conjunction plus the negation word",
           "transliteration": "hem amru ___ yodim.",
           "display_order": 5
+        },
+        {
+          "sentence": "הבטחנו להם {{answer}} בזמן.",
+          "answer": "שנגיע",
+          "translation": "We promised them that we would arrive on time.",
+          "hint": "that we will arrive — the linking conjunction on a first person plural future verb; English may drop its that, Hebrew never does",
+          "display_order": 6,
+          "transliteration": "hivtákhnu lahém {{answer}} bi-zmán."
+        },
+        {
+          "sentence": "הוא סיפר {{answer}} את הדירה לפני שנה.",
+          "answer": "שקנה",
+          "translation": "He said he had bought the apartment a year ago.",
+          "hint": "that he bought — the conjunction on a plain past verb, third person masculine; Hebrew does not shift the tense backwards the way English does",
+          "display_order": 7,
+          "transliteration": "hu sipér {{answer}} et ha-dirá lif'néi shaná."
         }
       ]
     },
@@ -1703,6 +2311,22 @@
           "hint": "you — the object form of the second person",
           "transliteration": "hi ohevet ___.",
           "display_order": 5
+        },
+        {
+          "sentence": "למה לא הזמנת {{answer}} למסיבה?",
+          "answer": "אותנו",
+          "translation": "Why didn't you invite us to the party?",
+          "hint": "us — the everyday object form for a first person plural, built on the object marker",
+          "display_order": 6,
+          "transliteration": "láma lo hizmánta {{answer}} la-mesibá?"
+        },
+        {
+          "sentence": "{{answer}} מדברת בטלפון, אך לא הפרעתי.",
+          "answer": "שמעתיה",
+          "translation": "I heard her speaking on the phone, but I did not interrupt.",
+          "hint": "I heard her, folded into one word — literary style hangs a third person feminine object on the verb ending, where speech would keep two words",
+          "display_order": 7,
+          "transliteration": "{{answer}} medabéret ba-télefon, akh lo hifráti."
         }
       ]
     },
@@ -1754,6 +2378,22 @@
           "hint": "that he promised — the clause form after the formal word for although",
           "transliteration": "hu lo higia, af ___.",
           "display_order": 5
+        },
+        {
+          "sentence": "הסטודנטיות {{answer}} בקבוצות קטנות בסמסטר הבא.",
+          "answer": "תלמדנה",
+          "translation": "The students (f.) will study in small groups next semester.",
+          "hint": "will study, feminine plural — the future ending careful writing keeps, where speech reaches for the masculine plural instead",
+          "display_order": 6,
+          "transliteration": "ha-studéntiot {{answer}} bi-kvutsót ktanót ba-seméster ha-bá."
+        },
+        {
+          "sentence": "הבקשה {{answer}} נענתה.",
+          "answer": "טרם",
+          "translation": "The request has not yet been answered.",
+          "hint": "not yet — a single word of official prose; speech needs two words to say the same thing",
+          "display_order": 7,
+          "transliteration": "ha-bakashá {{answer}} na'antá."
         }
       ]
     },
@@ -1805,6 +2445,22 @@
           "hint": "which — the formal relative, here inside a news sentence",
           "transliteration": "hahachlata ___ hitkabla emesh pursema hayom.",
           "display_order": 5
+        },
+        {
+          "sentence": "זה הסרט {{answer}} עליו אתמול.",
+          "answer": "שדיברנו",
+          "translation": "This is the film we talked about yesterday.",
+          "hint": "that we talked — speech never uses the free-standing relative here: it glues the relative straight onto the verb and leaves the preposition standing at the end.",
+          "display_order": 6,
+          "transliteration": "ze ha-séret {{answer}} aláv etmól."
+        },
+        {
+          "sentence": "הוא עשה את כל {{answer}} ביקשנו ממנו.",
+          "answer": "אשר",
+          "translation": "He did everything we asked of him.",
+          "hint": "that — the separate written relative, here with no noun in front of it, leaning only on the word for 'all'.",
+          "display_order": 7,
+          "transliteration": "hu asá et kol {{answer}} bikáshnu miménu."
         }
       ]
     },
@@ -1907,6 +2563,22 @@
           "hint": "let it be — the same frozen form, here inside a modern idiom",
           "transliteration": "namshikh bedarkenu, ___ ma.",
           "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} שניהם יחדיו.",
+          "answer": "וילכו",
+          "translation": "And the two of them walked on together.",
+          "hint": "and they went — a plural narrative form from the quoted register: the prefixed vav makes a future-shaped verb tell a past story.",
+          "display_order": 6,
+          "transliteration": "{{answer}} shneihém yakhdáv."
+        },
+        {
+          "sentence": "{{answer}} בנים לגבולם.",
+          "answer": "ושבו",
+          "translation": "And the children will return to their own land.",
+          "hint": "and they will return — a plural past-shaped verb with the prefixed vav, pointing forward in a prophetic line.",
+          "display_order": 7,
+          "transliteration": "{{answer}} vaním li-gvulám."
         }
       ]
     },
@@ -1958,6 +2630,22 @@
           "hint": "to the rehearsal — a noun built on that same root",
           "transliteration": "hasachkanim bau ___.",
           "display_order": 5
+        },
+        {
+          "sentence": "הוא {{answer}} אחריה שנה שלמה.",
+          "answer": "חיזר",
+          "translation": "He courted her for a whole year.",
+          "hint": "courted, wooed — the intensive pattern of the root that plainly means coming back; past tense, masculine singular subject, and it governs the preposition 'after'.",
+          "display_order": 6,
+          "transliteration": "hu {{answer}} akharéha shaná shlemá."
+        },
+        {
+          "sentence": "העניין לא {{answer}} מעצמו.",
+          "answer": "הסתדר",
+          "translation": "The matter did not sort itself out on its own.",
+          "hint": "worked out, came right — the reflexive pattern of the root for arranging; past tense, masculine singular subject.",
+          "display_order": 7,
+          "transliteration": "ha-inyán lo {{answer}} me-atsmó."
         }
       ]
     },
@@ -2009,6 +2697,22 @@
           "hint": "because of — the everyday causal preposition",
           "transliteration": "lo banu ___ hageshem.",
           "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} שהתקבלה ההחלטה, נשלחה הודעה לעיתונות.",
+          "answer": "לאחר",
+          "translation": "After the decision was taken, a notice was sent to the press.",
+          "hint": "after — the written-register counterpart of the everyday word for 'after'; the clause it opens still keeps its linking particle, already printed here.",
+          "display_order": 6,
+          "transliteration": "{{answer}} she-hitkablá ha-hakhlatá, nishlekhá hoda'á la-itonút."
+        },
+        {
+          "sentence": "למה הוא לא בא? {{answer}} הוא היה חולה.",
+          "answer": "כי",
+          "translation": "Why didn't he come? Because he was ill.",
+          "hint": "because — the short spoken conjunction that heads a whole clause; the formal register would reach for a heavier phrase in this slot.",
+          "display_order": 7,
+          "transliteration": "láma hu lo ba? {{answer}} hu hayá kholé."
         }
       ]
     }

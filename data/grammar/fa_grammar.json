@@ -65,6 +65,38 @@
           "hint": "are — 1st person plural of \"to be\"",
           "display_order": 3,
           "transliteration": "ma ___."
+        },
+        {
+          "sentence": "او معلم {{answer}}.",
+          "answer": "است",
+          "translation": "He/she is a teacher.",
+          "hint": "'to be' in the third person singular — the full written form used in books and news, not the ending that attaches to the previous word in speech.",
+          "display_order": 4,
+          "transliteration": "u mu'allim {{answer}}."
+        },
+        {
+          "sentence": "شما کجا {{answer}}؟",
+          "answer": "هستید",
+          "translation": "Where are you?",
+          "hint": "'to be' in the second person plural — also the polite form for one person you address respectfully.",
+          "display_order": 5,
+          "transliteration": "šumâ kojâ {{answer}}؟"
+        },
+        {
+          "sentence": "آنها دانشجو {{answer}}.",
+          "answer": "هستند",
+          "translation": "They are students.",
+          "hint": "'to be' with a third-person plural subject — the noun after the subject stays singular in Persian, so the verb is what shows the plural.",
+          "display_order": 6,
+          "transliteration": "ân-hâ dânišjô {{answer}}."
+        },
+        {
+          "sentence": "من خسته {{answer}}.",
+          "answer": "نیستم",
+          "translation": "I am not tired.",
+          "hint": "the negative of 'to be', first person singular — one word does the whole job; no separate word for 'not' is added.",
+          "display_order": 7,
+          "transliteration": "man xaste {{answer}}."
         }
       ]
     },
@@ -100,6 +132,38 @@
           "hint": "eat — verb at the very end",
           "display_order": 3,
           "transliteration": "man nan ___."
+        },
+        {
+          "sentence": "پدرم روزنامه {{answer}}.",
+          "answer": "می‌خواند",
+          "translation": "My father reads the newspaper.",
+          "hint": "'to read', third person singular present — English puts it right after the subject; Persian holds it until after the object.",
+          "display_order": 4,
+          "transliteration": "pedaram ruznâme {{answer}}."
+        },
+        {
+          "sentence": "شما امشب کجا شام {{answer}}؟",
+          "answer": "می‌خورید",
+          "translation": "Where are you eating dinner tonight?",
+          "hint": "'to eat', second person plural present — a question word in the middle does not pull the verb forward.",
+          "display_order": 5,
+          "transliteration": "šumâ imšab kojâ šâm {{answer}}؟"
+        },
+        {
+          "sentence": "ما امروز به کلاس {{answer}}.",
+          "answer": "نمی‌رویم",
+          "translation": "We are not going to class today.",
+          "hint": "'to go', first person plural, negative — a time word and a destination both come before it, and it still closes the sentence.",
+          "display_order": 6,
+          "transliteration": "mâ imrôz ba kelâs {{answer}}."
+        },
+        {
+          "sentence": "بچه‌ها در پارک {{answer}}.",
+          "answer": "می‌دوند",
+          "translation": "The children are running in the park.",
+          "hint": "'to run', third person plural present — the place phrase comes before it, where English would put it after.",
+          "display_order": 7,
+          "transliteration": "be-če-hâ dar pârk {{answer}}."
         }
       ]
     },
@@ -135,6 +199,38 @@
           "hint": "go — 1st person singular, -م ending",
           "display_order": 3,
           "transliteration": "man ___."
+        },
+        {
+          "sentence": "ما هر روز فارسی {{answer}}.",
+          "answer": "می‌خوانیم",
+          "translation": "We study Persian every day.",
+          "hint": "'to read, to study', first person plural — the present stem with the -یم ending.",
+          "display_order": 4,
+          "transliteration": "mâ har rôz fârsī {{answer}}."
+        },
+        {
+          "sentence": "شما کجا کار {{answer}}؟",
+          "answer": "می‌کنید",
+          "translation": "Where do you work?",
+          "hint": "'to do', second person plural — the verbal half of this two-word idiom, carrying the -ید ending.",
+          "display_order": 5,
+          "transliteration": "šumâ kojâ -kâr {{answer}}؟"
+        },
+        {
+          "sentence": "آنها زود {{answer}}.",
+          "answer": "می‌خوابند",
+          "translation": "They go to bed early.",
+          "hint": "'to sleep', third person plural — the -ند ending, the plural partner of the third-person singular one.",
+          "display_order": 6,
+          "transliteration": "ân-hâ zūd {{answer}}."
+        },
+        {
+          "sentence": "مادرم هر شب چای {{answer}}.",
+          "answer": "می‌خورد",
+          "translation": "My mother drinks tea every night.",
+          "hint": "'to eat, to drink', third person singular — the same -د ending as on 'he/she goes', on a different stem.",
+          "display_order": 7,
+          "transliteration": "mâdaram har šab čây {{answer}}."
         }
       ]
     },
@@ -170,6 +266,38 @@
           "hint": "don't see — نمی‌ prefixed onto می‌بینم",
           "display_order": 3,
           "transliteration": "man ___."
+        },
+        {
+          "sentence": "تو چرا غذا {{answer}}؟",
+          "answer": "نمی‌خوری",
+          "translation": "Why are you not eating?",
+          "hint": "'to eat', second person singular, negative — the negative goes on the very front, ahead of the present-tense marker; the person ending stays at the back.",
+          "display_order": 4,
+          "transliteration": "to čarâ ġizâ {{answer}}؟"
+        },
+        {
+          "sentence": "ما امروز کلاس {{answer}}.",
+          "answer": "نداریم",
+          "translation": "We do not have class today.",
+          "hint": "'to have', first person plural, negative — this verb takes no present-tense marker at all, so the negative attaches straight to the stem.",
+          "display_order": 5,
+          "transliteration": "mâ imrôz kelâs {{answer}}."
+        },
+        {
+          "sentence": "آنها امشب به مهمانی {{answer}}.",
+          "answer": "نمی‌آیند",
+          "translation": "They are not coming to the party tonight.",
+          "hint": "'to come', third person plural, negative — the negative sits at the front and the plural ending at the back, with the verb wrapped between them.",
+          "display_order": 6,
+          "transliteration": "ân-hâ imšab ba mihmânī {{answer}}."
+        },
+        {
+          "sentence": "او دیگر اینجا زندگی {{answer}}.",
+          "answer": "نمی‌کند",
+          "translation": "He/she does not live here anymore.",
+          "hint": "'to do', third person singular, negative — in a two-part verb the negative attaches to the half that carries the person ending, never to the noun in front of it.",
+          "display_order": 7,
+          "transliteration": "u dīgar injâ zindagī {{answer}}."
         }
       ]
     },
@@ -205,6 +333,38 @@
           "hint": "big — adjective follows the noun",
           "display_order": 3,
           "transliteration": "mard-e ___."
+        },
+        {
+          "sentence": "من یک ماشین {{answer}} دارم.",
+          "answer": "قرمز",
+          "translation": "I have a red car.",
+          "hint": "red — the describing word follows the noun, so it lands between the noun and the verb at the end.",
+          "display_order": 4,
+          "transliteration": "man yak mâšīn {{answer}} dâram."
+        },
+        {
+          "sentence": "تو آب {{answer}} می‌خواهی؟",
+          "answer": "سرد",
+          "translation": "Do you want cold water?",
+          "hint": "cold — it comes after the thing it describes, and the verb still holds the last place.",
+          "display_order": 5,
+          "transliteration": "to âb-e {{answer}} mixâhi?"
+        },
+        {
+          "sentence": "او یک معلم {{answer}} است.",
+          "answer": "جدید",
+          "translation": "He/she is a new teacher.",
+          "hint": "new — even with 'a' in front of the noun, the describing word goes after the noun and before 'is'.",
+          "display_order": 6,
+          "transliteration": "u yak mu'allim {{answer}} ast."
+        },
+        {
+          "sentence": "من غذای {{answer}} دوست ندارم.",
+          "answer": "شیرین",
+          "translation": "I do not like sweet food.",
+          "hint": "sweet — the noun in front already carries the ی that links the two words after a vowel, and the description follows that link.",
+          "display_order": 7,
+          "transliteration": "man ġazâ-ye {{answer}} dust nadâram."
         }
       ]
     },
@@ -240,6 +400,38 @@
           "hint": "are — \"to be,\" unchanged in form; only the ؟ makes it a question",
           "display_order": 3,
           "transliteration": "to khub ___?"
+        },
+        {
+          "sentence": "شما فارسی {{answer}}؟",
+          "answer": "می‌دانید",
+          "translation": "Do you know Persian?",
+          "hint": "'to know', second person plural present — written exactly as it would be in a statement; only the final mark differs.",
+          "display_order": 4,
+          "transliteration": "šumâ fârsī {{answer}}؟"
+        },
+        {
+          "sentence": "آنها فردا {{answer}}؟",
+          "answer": "می‌آیند",
+          "translation": "Are they coming tomorrow?",
+          "hint": "'to come', third person plural present — nothing is added in front and nothing changes places to make a question.",
+          "display_order": 5,
+          "transliteration": "ân-hâ fardâ {{answer}}؟"
+        },
+        {
+          "sentence": "تو گرسنه {{answer}}؟",
+          "answer": "نیستی",
+          "translation": "Are you not hungry?",
+          "hint": "the negative of 'to be', second person singular — a negative question is just the negative statement, with the mark at the end doing the asking.",
+          "display_order": 6,
+          "transliteration": "to gurusna {{answer}}؟"
+        },
+        {
+          "sentence": "امروز کلاس {{answer}}؟",
+          "answer": "داریم",
+          "translation": "Do we have class today?",
+          "hint": "'to have', first person plural — the pronoun is left out because the ending already names the subject, and the question needs no extra word.",
+          "display_order": 7,
+          "transliteration": "imrôz kelâs {{answer}}؟"
         }
       ]
     },
@@ -275,6 +467,38 @@
           "hint": "plural — same suffix",
           "display_order": 3,
           "transliteration": "dust___."
+        },
+        {
+          "sentence": "{{answer}} در خانه هستند.",
+          "answer": "بچه‌ها",
+          "translation": "The children are at home.",
+          "hint": "children — the word for one child plus the general plural ending, joined on with a thin connector after its silent final letter.",
+          "display_order": 4,
+          "transliteration": "{{answer}} dar xâna hastand."
+        },
+        {
+          "sentence": "من سه {{answer}} دارم.",
+          "answer": "کتاب",
+          "translation": "I have three books.",
+          "hint": "book — after a number Persian leaves the noun bare, so nothing is added to it here even though English counts more than one.",
+          "display_order": 5,
+          "transliteration": "man si {{answer}} dâram."
+        },
+        {
+          "sentence": "{{answer}} کجا هستند؟",
+          "answer": "کلیدها",
+          "translation": "Where are the keys?",
+          "hint": "keys — the plural of the small metal thing that opens a door; on this noun the ending is written straight onto the word.",
+          "display_order": 6,
+          "transliteration": "{{answer}} kojâ hastand؟"
+        },
+        {
+          "sentence": "این {{answer}} گران نیستند.",
+          "answer": "سیب‌ها",
+          "translation": "These apples are not expensive.",
+          "hint": "apples — the fruit, made plural; the demonstrative in front does not spare the noun its plural ending.",
+          "display_order": 7,
+          "transliteration": "in {{answer}} gerân nistand."
         }
       ]
     },
@@ -310,6 +534,30 @@
           "hint": "the definite object marker, standing after the noun",
           "display_order": 3,
           "transliteration": "ghaza ___ mikhoram."
+        },
+        {
+          "sentence": "من او {{answer}} می‌شناسم.",
+          "answer": "را",
+          "translation": "I know him/her.",
+          "hint": "the postposition that marks a definite object — a pronoun standing as the object is specific by its nature, so it is never left unmarked.",
+          "display_order": 4,
+          "transliteration": "man u {{answer}} mišenâsam."
+        },
+        {
+          "sentence": "چرا این کتاب {{answer}} نمی‌خوانی؟",
+          "answer": "را",
+          "translation": "Why aren't you reading this book?",
+          "hint": "the marker a definite object needs — one particular book is meant, and neither the question nor the negative excuses leaving it out.",
+          "display_order": 5,
+          "transliteration": "čerâ in ketâb {{answer}} nemixâni?"
+        },
+        {
+          "sentence": "من {{answer}} می‌فروشم.",
+          "answer": "ماشین را",
+          "translation": "I'm selling the car.",
+          "hint": "the car and the marker a definite object carries — both words go in the blank, and the marker comes second.",
+          "display_order": 6,
+          "transliteration": "man {{answer}} miforušam."
         }
       ]
     },
@@ -361,6 +609,14 @@
           "hint": "teacher — the owner can be a noun, not just a pronoun",
           "transliteration": "in daftar-e ___ ast.",
           "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} علی معلم است.",
+          "answer": "برادر",
+          "translation": "Ali's brother is a teacher.",
+          "hint": "brother — the thing possessed is named first and the owner's name follows straight after it, with nothing written between the two.",
+          "display_order": 6,
+          "transliteration": "{{answer}} 'alâ mu'allim ast."
         }
       ]
     },
@@ -412,6 +668,22 @@
           "hint": "my friend — noun plus the -am ending",
           "transliteration": "___ dar Tehran zendegi mikonad.",
           "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} از اینجا خیلی دور است.",
+          "answer": "شهرمان",
+          "translation": "Our city is very far from here.",
+          "hint": "our city — the noun takes the ending that means \"our\" and the two are written as a single word.",
+          "display_order": 6,
+          "transliteration": "{{answer}} az injâ xaylê dur ast."
+        },
+        {
+          "sentence": "چرا {{answer}} امروز اینجا نیست؟",
+          "answer": "معلمشان",
+          "translation": "Why isn't their teacher here today?",
+          "hint": "their teacher — rather than a separate pronoun after the noun, the 3rd person plural ending goes on the end of it.",
+          "display_order": 7,
+          "transliteration": "čarâ {{answer}} imrôz injâ nêst؟"
         }
       ]
     },
@@ -463,6 +735,22 @@
           "hint": "don't have — the negative prefix ن, not نمی, on this verb",
           "transliteration": "man pul ___.",
           "display_order": 5
+        },
+        {
+          "sentence": "شما سوالی {{answer}}؟",
+          "answer": "دارید",
+          "translation": "Do you have a question?",
+          "hint": "have — 2nd person plural, agreeing with the polite subject of the question; this verb still takes no present-tense prefix.",
+          "display_order": 6,
+          "transliteration": "šomâ so'âli {{answer}}?"
+        },
+        {
+          "sentence": "آنها امروز کلاس {{answer}}.",
+          "answer": "ندارند",
+          "translation": "They don't have class today.",
+          "hint": "don't have — 3rd person plural; this verb is negated with the single letter that ordinary verbs combine with the present prefix.",
+          "display_order": 7,
+          "transliteration": "ân-hâ imrôz kelâs {{answer}}."
         }
       ]
     },
@@ -514,6 +802,22 @@
           "hint": "ate — past stem of خوردن plus the 1st person singular ending",
           "transliteration": "man ghaza ___.",
           "display_order": 5
+        },
+        {
+          "sentence": "شما این کتاب را {{answer}}؟",
+          "answer": "خواندید",
+          "translation": "Did you read this book?",
+          "hint": "read — the past stem of the verb meaning \"to read\", plus the 2nd person plural ending that matches the polite subject.",
+          "display_order": 6,
+          "transliteration": "šumâ ên kitâb râ {{answer}}؟"
+        },
+        {
+          "sentence": "مهمان‌ها دیر {{answer}}.",
+          "answer": "آمدند",
+          "translation": "The guests arrived late.",
+          "hint": "arrived — the past stem of the verb meaning \"to come\", plus the 3rd person plural ending.",
+          "display_order": 7,
+          "transliteration": "mihmân-hâ dêr {{answer}}."
         }
       ]
     },
@@ -565,6 +869,14 @@
           "hint": "read — the past stem of the same verb",
           "transliteration": "dishab ketab ___.",
           "display_order": 5
+        },
+        {
+          "sentence": "شما فردا کجا {{answer}}؟",
+          "answer": "می‌روید",
+          "translation": "Where are you going tomorrow?",
+          "hint": "are going — the present stem of رفتن shares almost no letters with its past stem; that stem takes می in front and the 2nd person plural ending after",
+          "display_order": 6,
+          "transliteration": "šumâ fardâ kojâ {{answer}}؟"
         }
       ]
     },
@@ -718,6 +1030,22 @@
           "hint": "biggest — superlative suffix, and it comes before the noun",
           "transliteration": "in ___ shahr-e Iran ast.",
           "display_order": 5
+        },
+        {
+          "sentence": "او از من {{answer}} می‌دود.",
+          "answer": "سریع‌تر",
+          "translation": "He runs faster than I do.",
+          "hint": "faster — the comparative suffix on the adjective for \"quick\"; it does this next to a verb just as it does before است",
+          "display_order": 6,
+          "transliteration": "u az man {{answer}} midavad."
+        },
+        {
+          "sentence": "من {{answer}} کتاب این کتابخانه را خواندم.",
+          "answer": "قدیمی‌ترین",
+          "translation": "I read the oldest book in this library.",
+          "hint": "oldest — the superlative suffix on the adjective for old-of-things (not old-of-people), and remember which side of the noun a superlative sits on",
+          "display_order": 7,
+          "transliteration": "man {{answer}} ketâb-e in ketâbxâne râ xândam."
         }
       ]
     },
@@ -761,6 +1089,22 @@
           "hint": "we saw him — 1st person plural verb plus the object clitic",
           "transliteration": "ma ___.",
           "display_order": 4
+        },
+        {
+          "sentence": "من هر روز در دانشگاه {{answer}}.",
+          "answer": "می‌بینمش",
+          "translation": "I see him every day at the university.",
+          "hint": "I see him — the present of دیدن, 1st person singular, with the 3rd person object riding on the end instead of standing as a separate word",
+          "display_order": 5,
+          "transliteration": "man har rôz dar dânišgâh {{answer}}."
+        },
+        {
+          "sentence": "او دیروز در خیابان {{answer}}.",
+          "answer": "دیدت",
+          "translation": "He saw you in the street yesterday.",
+          "hint": "he saw you — 3rd person singular past, which carries no personal ending of its own, and then the 2nd person object clitic",
+          "display_order": 6,
+          "transliteration": "u dīrôz dar xiyâbân {{answer}}."
         }
       ]
     },
@@ -812,6 +1156,22 @@
           "hint": "how — asking after someone's state",
           "transliteration": "hal-e shoma ___ ast?",
           "display_order": 5
+        },
+        {
+          "sentence": "شما {{answer}} کتابی می‌خوانید؟",
+          "answer": "چه",
+          "translation": "What book are you reading?",
+          "hint": "what — the written form, standing right in front of the noun it asks about, where English would move it to the front of the question",
+          "display_order": 6,
+          "transliteration": "šomâ {{answer}} ketâbi mixânid?"
+        },
+        {
+          "sentence": "تو {{answer}} به ایران رفتی؟",
+          "answer": "کی",
+          "translation": "When did you go to Iran?",
+          "hint": "when — the same one-syllable word that also asks \"who\"; it stays in the middle, and the verb still comes last",
+          "display_order": 7,
+          "transliteration": "to {{answer}} be Irân rafti?"
         }
       ]
     },
@@ -863,6 +1223,22 @@
           "hint": "didn't know — the negative of this tense, on the past of شناختن",
           "transliteration": "man anja kasi ra ___.",
           "display_order": 5
+        },
+        {
+          "sentence": "شما در دبیرستان چه کتاب‌هایی {{answer}}؟",
+          "answer": "می‌خواندید",
+          "translation": "What books did you use to read in high school?",
+          "hint": "used to read — the habitual past, 2nd person plural (also the polite way of addressing one person)",
+          "display_order": 6,
+          "transliteration": "šomâ dar dabirestân če ketâb-hâyi {{answer}}?"
+        },
+        {
+          "sentence": "آن‌ها هرگز به ما چیزی {{answer}}.",
+          "answer": "نمی‌گفتند",
+          "translation": "They never used to tell us anything.",
+          "hint": "didn't tell — the negative of this same tense, 3rd person plural; the ن goes in front of what is already there",
+          "display_order": 7,
+          "transliteration": "ân-hâ hargez ba mâ čizê {{answer}}."
         }
       ]
     },
@@ -914,6 +1290,22 @@
           "hint": "the fixed noun half of the compound meaning \"to work\"",
           "transliteration": "to kheyli ___ mikoni.",
           "display_order": 5
+        },
+        {
+          "sentence": "چرا دیروز به من تلفن {{answer}}؟",
+          "answer": "نکردی",
+          "translation": "Why didn't you call me yesterday?",
+          "hint": "didn't do — the light verb of \"to phone\" carries the past tense and the negation on its own, 2nd person singular; the noun half stays put",
+          "display_order": 6,
+          "transliteration": "čarâ dīrôz ba man telefon {{answer}}؟"
+        },
+        {
+          "sentence": "بعد از آن سفر ما با هم دوست {{answer}}.",
+          "answer": "شدیم",
+          "translation": "After that trip we became friends.",
+          "hint": "became — the light verb that pairs with a noun or adjective for \"to become\", past tense, 1st person plural",
+          "display_order": 7,
+          "transliteration": "ba'd az ân safar mâ -bâ ham dôst {{answer}}."
         }
       ]
     },
@@ -965,6 +1357,22 @@
           "hint": "two — the noun after it is not pluralized",
           "transliteration": "man ___ khahar daram.",
           "display_order": 5
+        },
+        {
+          "sentence": "شما چند {{answer}} بچه دارید؟",
+          "answer": "تا",
+          "translation": "How many children do you have?",
+          "hint": "the counter word — in a question it follows چند \"how many\" exactly as it follows a number",
+          "display_order": 6,
+          "transliteration": "šumâ čand {{answer}} bačča dârid؟"
+        },
+        {
+          "sentence": "این خانه شش {{answer}} دارد.",
+          "answer": "اتاق",
+          "translation": "This house has six rooms.",
+          "hint": "room — after a number the Persian noun keeps its singular shape, so no plural suffix on it",
+          "display_order": 7,
+          "transliteration": "ên xâna šeš {{answer}} dârad."
         }
       ]
     },
@@ -1016,6 +1424,22 @@
           "hint": "read — subjunctive of خواندن after باید",
           "transliteration": "bayad in ketab ra ___.",
           "display_order": 5
+        },
+        {
+          "sentence": "به او بگو که نگران {{answer}}.",
+          "answer": "نباشد",
+          "translation": "Tell him not to worry.",
+          "hint": "be — the negative subjunctive of \"to be\", 3rd person singular; this verb's subjunctive carries no بـ of its own, so only the negation shows",
+          "display_order": 6,
+          "transliteration": "ba u be-gu ki negarân {{answer}}."
+        },
+        {
+          "sentence": "لازم است این نامه را امروز {{answer}}.",
+          "answer": "بنویسیم",
+          "translation": "We need to write this letter today.",
+          "hint": "write — the subjunctive of نوشتن after \"it is necessary\", 1st person plural; the present stem is not the one the infinitive shows",
+          "display_order": 7,
+          "transliteration": "lâzem ast ên nâma râ imrôz {{answer}}."
         }
       ]
     },
@@ -1067,6 +1491,22 @@
           "hint": "see — bare past stem, person is already on the auxiliary",
           "transliteration": "man farda to ra khaham ___.",
           "display_order": 5
+        },
+        {
+          "sentence": "من هرگز این کار را {{answer}} کرد.",
+          "answer": "نخواهم",
+          "translation": "I will never do this.",
+          "hint": "will not — the future auxiliary with its negative prefix, 1st person singular; the verb after it stays bare",
+          "display_order": 6,
+          "transliteration": "man hargez ên -kâr râ {{answer}} kord."
+        },
+        {
+          "sentence": "آن‌ها هفتهٔ آینده جواب را به ما {{answer}} داد.",
+          "answer": "خواهند",
+          "translation": "They will give us the answer next week.",
+          "hint": "will — the auxiliary for a 3rd person plural subject; person is marked here and nowhere else in the verb phrase",
+          "display_order": 7,
+          "transliteration": "ân-hâ hafte-ye âyande javâb râ be mâ {{answer}} dâd."
         }
       ]
     },
@@ -1118,6 +1558,22 @@
           "hint": "can — subjunctive of توانستن, 1st person singular",
           "transliteration": "agar ___, miayam.",
           "display_order": 5
+        },
+        {
+          "sentence": "اگر فردا بیایی، خیلی خوشحال {{answer}}.",
+          "answer": "می‌شوم",
+          "translation": "If you come tomorrow, I'll be very happy.",
+          "hint": "become — the result half of the condition stays in the ordinary present tense, not the subjunctive, 1st person singular",
+          "display_order": 6,
+          "transliteration": "agar fardâ biyâyi, xeyli xošhâl {{answer}}."
+        },
+        {
+          "sentence": "اگر امشب زود {{answer}}، فردا صبح به کلاس نمی‌رسیم.",
+          "answer": "نخوابیم",
+          "translation": "If we don't go to bed early tonight, we won't make it to class tomorrow morning.",
+          "hint": "don't sleep — in the اگر clause the negative prefix takes the place of the subjunctive بـ, 1st person plural",
+          "display_order": 7,
+          "transliteration": "agar emšab zud {{answer}}, fardâ sobh be kelâs nemi-resim."
         }
       ]
     },
@@ -1169,6 +1625,22 @@
           "hint": "the relative linker; the noun before it carries the indefinite ـی",
           "transliteration": "in haman ketabi ast ___ mikhastam.",
           "display_order": 5
+        },
+        {
+          "sentence": "فیلمی که دیشب {{answer}} چطور بود؟",
+          "answer": "دیدیم",
+          "translation": "How was the film we saw last night?",
+          "hint": "we saw — the relative clause's own verb, 1st person plural past; it closes the clause before the main verb of the question arrives",
+          "display_order": 6,
+          "transliteration": "filmi ki dīšab {{answer}} četowr bud؟"
+        },
+        {
+          "sentence": "{{answer}} که با من کار می‌کند اهل اصفهان است.",
+          "answer": "مردی",
+          "translation": "The man who works with me is from Isfahan.",
+          "hint": "man — the noun the clause describes; standing in front of the linker it picks up the indefinite ending that a relative clause calls for",
+          "display_order": 7,
+          "transliteration": "{{answer}} ki -bâ man -kâr mi-kond ahl isfahân ast."
         }
       ]
     },
@@ -1220,6 +1692,22 @@
           "hint": "have read — the perfect, again unshifted",
           "transliteration": "goftam ke ketab ra ___.",
           "display_order": 5
+        },
+        {
+          "sentence": "معلم به ما گفت که هفتهٔ آینده امتحان {{answer}}.",
+          "answer": "داریم",
+          "translation": "The teacher told us we had a test next week.",
+          "hint": "we have — reported speech keeps the tense the speaker actually used, so this one stays present, 1st person plural",
+          "display_order": 6,
+          "transliteration": "mo'allem be mâ goft ke hafte-ye âyande emtehân {{answer}}."
+        },
+        {
+          "sentence": "او در نامه‌اش نوشت که دیگر آنجا زندگی {{answer}}.",
+          "answer": "نمی‌کند",
+          "translation": "He wrote in his letter that he no longer lived there.",
+          "hint": "does not live — the light verb of \"to live somewhere\" in the negative present, 3rd person singular; the report keeps the tense the writer used rather than shifting it back as English does",
+          "display_order": 7,
+          "transliteration": "u dar nâma-aš nevešt ki dīgar ânjâ zindagī {{answer}}."
         }
       ]
     },
@@ -1271,6 +1759,14 @@
           "hint": "door — the middle link between \"colour\" and \"house\"",
           "transliteration": "rang-e ___ khane sefid ast.",
           "display_order": 5
+        },
+        {
+          "sentence": "دفتر {{answer}} رضایی در طبقهٔ دوم است.",
+          "answer": "آقای",
+          "translation": "Mr Rezaei's office is on the second floor.",
+          "hint": "Mr — the courtesy title sitting between the office and the family name; a title that ends in a long vowel spells its link out instead of leaving it silent",
+          "display_order": 6,
+          "transliteration": "daftar {{answer}} rizâyī dar tabaqa duwum ast."
         }
       ]
     },
@@ -1322,6 +1818,22 @@
           "hint": "reading — an infinitive can even take را as an object",
           "transliteration": "u ___ ra dust darad.",
           "display_order": 5
+        },
+        {
+          "sentence": "قبل از {{answer}} همیشه کمی کتاب می‌خوانم.",
+          "answer": "خوابیدن",
+          "translation": "Before going to sleep I always read a little.",
+          "hint": "going to sleep — the dictionary form of the verb, doing duty as a noun after a time preposition",
+          "display_order": 6,
+          "transliteration": "ġabl az {{answer}} hamiše kami ketâb mi-xânam."
+        },
+        {
+          "sentence": "برای {{answer}} نان به نانوایی رفتم.",
+          "answer": "خریدن",
+          "translation": "I went to the bakery to buy bread.",
+          "hint": "buying — the dictionary form of the verb; after a purpose preposition it behaves like any noun and links to its own object",
+          "display_order": 7,
+          "transliteration": "barâye {{answer}} nân be nânvâyi raftam."
         }
       ]
     },
@@ -1373,6 +1885,22 @@
           "hint": "couldn't — the negative past of this verb",
           "transliteration": "diruz ___ biayam.",
           "display_order": 5
+        },
+        {
+          "sentence": "{{answer}} در را ببندید؟",
+          "answer": "می‌توانید",
+          "translation": "Can you close the door?",
+          "hint": "can — 2nd person plural, the form used for politeness as well as for several people; the request verb after it stays subjunctive",
+          "display_order": 6,
+          "transliteration": "{{answer}} dar râ bebandid?"
+        },
+        {
+          "sentence": "من امشب نمی‌توانم {{answer}}.",
+          "answer": "بخوابم",
+          "translation": "I can't sleep tonight.",
+          "hint": "sleep — the second verb keeps the subjunctive and repeats the person, 1st person singular; the negation belongs to the first verb alone",
+          "display_order": 7,
+          "transliteration": "man emšab nemi-tavânam {{answer}}."
         }
       ]
     },
@@ -1424,6 +1952,22 @@
           "hint": "had — 3rd person plural of بودن",
           "transliteration": "anha ghaza ra khorde ___.",
           "display_order": 5
+        },
+        {
+          "sentence": "تا دیروز هیچ‌کس این خبر را {{answer}} بود.",
+          "answer": "نشنیده",
+          "translation": "Until yesterday nobody had heard this news.",
+          "hint": "heard — the participle, and the one carrying the negation, since the word after it stays plain",
+          "display_order": 6,
+          "transliteration": "tâ diruz hič-kas in xabar râ {{answer}} bud."
+        },
+        {
+          "sentence": "ما تا آن سال هرگز به شیراز نرفته {{answer}}.",
+          "answer": "بودیم",
+          "translation": "Until that year we had never been to Shiraz.",
+          "hint": "had — the past tense of \"to be\", 1st person plural; it stays plain because the participle in front of it already carries the negative",
+          "display_order": 7,
+          "transliteration": "mâ tâ ân sâl hargez be Širâz narafte {{answer}}."
         }
       ]
     },
@@ -1475,6 +2019,22 @@
           "hint": "would have told — habitual past of گفتن",
           "transliteration": "agar midanestam, be to ___.",
           "display_order": 5
+        },
+        {
+          "sentence": "اگر جای من بودی، چه کار {{answer}}؟",
+          "answer": "می‌کردی",
+          "translation": "If you were in my place, what would you do?",
+          "hint": "would do — habitual past of کردن, 2nd person singular, inside a question",
+          "display_order": 6,
+          "transliteration": "agar jâ-ye man budi, če kâr {{answer}}?"
+        },
+        {
+          "sentence": "اگر دیشب زود می‌خوابیدم، حالا خسته {{answer}}.",
+          "answer": "نبودم",
+          "translation": "If I had gone to bed early last night, I wouldn't be tired now.",
+          "hint": "would not be — the negated past of بودن, 1st person singular; this verb takes no می",
+          "display_order": 7,
+          "transliteration": "agar dišab zud mixâbidam, hâlâ xaste {{answer}}."
         }
       ]
     },
@@ -1526,6 +2086,22 @@
           "hint": "sent — participle of فرستادن",
           "transliteration": "nameha ___ shodand.",
           "display_order": 5
+        },
+        {
+          "sentence": "میوه‌ها در بازار ارزان‌تر فروخته {{answer}}.",
+          "answer": "می‌شوند",
+          "translation": "Fruit is sold more cheaply at the market.",
+          "hint": "are becoming — the passive auxiliary in the present, agreeing with a plural subject",
+          "display_order": 6,
+          "transliteration": "mivehâ dar bâzâr arzântar foruxte {{answer}}."
+        },
+        {
+          "sentence": "حرف من در آن جلسه شنیده {{answer}}.",
+          "answer": "نشد",
+          "translation": "What I said was not heard at that meeting.",
+          "hint": "did not become — the passive auxiliary in the past, negated",
+          "display_order": 7,
+          "transliteration": "harf-e man dar ân jalase šenide {{answer}}."
         }
       ]
     },
@@ -1577,6 +2153,22 @@
           "hint": "deliver — the causative of رسیدن, 1st person present",
           "transliteration": "man to ra be khane ___.",
           "display_order": 5
+        },
+        {
+          "sentence": "چرا بچه را {{answer}}؟",
+          "answer": "می‌ترسانی",
+          "translation": "Why are you frightening the child?",
+          "hint": "frighten — the causative of ترسیدن, 2nd person singular present, in a question",
+          "display_order": 6,
+          "transliteration": "čarâ bačča râ {{answer}}؟"
+        },
+        {
+          "sentence": "می‌خواهم بچه‌ها را زودتر {{answer}}.",
+          "answer": "بخوابانم",
+          "translation": "I want to put the children to bed earlier.",
+          "hint": "put to sleep — the causative of خوابیدن, subjunctive, 1st person singular",
+          "display_order": 7,
+          "transliteration": "mixâham bačehâ râ zudtar {{answer}}."
         }
       ]
     },
@@ -1628,6 +2220,14 @@
           "hint": "so that — again followed by a subjunctive",
           "transliteration": "zud bia ___ ba ham beravim.",
           "display_order": 5
+        },
+        {
+          "sentence": "چراغ را روشن کردم تا او بهتر {{answer}}.",
+          "answer": "ببیند",
+          "translation": "I turned on the light so that he could see better.",
+          "hint": "see — subjunctive of دیدن, 3rd person singular, after the purpose linker",
+          "display_order": 6,
+          "transliteration": "čirâġ râ rawšan kardam tâ u behtar {{answer}}."
         }
       ]
     },
@@ -1679,6 +2279,14 @@
           "hint": "the written standard for what is said \"mige\"",
           "transliteration": "u be ma ___.",
           "display_order": 5
+        },
+        {
+          "sentence": "بچه‌ها به زودی {{answer}}.",
+          "answer": "می‌آیند",
+          "translation": "The children will come soon.",
+          "hint": "the written standard, 3rd person plural of آمدن, for what is said 'miyan'",
+          "display_order": 6,
+          "transliteration": "bačehâ be zudi {{answer}}."
         }
       ]
     },
@@ -1730,6 +2338,22 @@
           "hint": "for — the formal preposition that replaces برای",
           "transliteration": "___ ettelaat-e bishtar ba ma tamas begirid.",
           "display_order": 5
+        },
+        {
+          "sentence": "ایشان در این باره چه {{answer}}؟",
+          "answer": "فرمودند",
+          "translation": "What did he/she say about this?",
+          "hint": "said — the deferential verb that stands in for گفتن, past, plural for one respected person",
+          "display_order": 6,
+          "transliteration": "išân dar ên bâre če {{answer}}؟"
+        },
+        {
+          "sentence": "این مدرک معتبر {{answer}}.",
+          "answer": "نمی‌باشد",
+          "translation": "This document is not valid.",
+          "hint": "is not — the negative of the bureaucratic stand-in for است",
+          "display_order": 7,
+          "transliteration": "ên madrak mo'tabar {{answer}}."
         }
       ]
     },
@@ -1781,6 +2405,22 @@
           "hint": "members — the Arabic plural of عضو, carrying an ezafe",
           "transliteration": "___ in khanevade kam hastand.",
           "display_order": 5
+        },
+        {
+          "sentence": "آیا {{answer}} مهم این درس را یادداشت کردید؟",
+          "answer": "نکات",
+          "translation": "Did you note down the important points of this lesson?",
+          "hint": "points, remarks — the broken plural of نکته, the shape formal writing prefers",
+          "display_order": 6,
+          "transliteration": "âyâ {{answer}} mohemm ên dars râ yâddâšt kardid؟"
+        },
+        {
+          "sentence": "این {{answer}} را نمی‌شناسم.",
+          "answer": "اشخاص",
+          "translation": "I don't know these people.",
+          "hint": "persons — the broken plural of شخص, preferred to the suffixed plural in formal prose",
+          "display_order": 7,
+          "transliteration": "in {{answer}} râ nemišenâsam."
         }
       ]
     },
@@ -1832,6 +2472,14 @@
           "hint": "the old continuous particle that modern Persian writes as a prefix",
           "transliteration": "u ___ raft.",
           "display_order": 5
+        },
+        {
+          "sentence": "مردم این سخن را {{answer}} و خاموش شدند.",
+          "answer": "بشنیدند",
+          "translation": "The people heard this speech and fell silent.",
+          "hint": "heard — the past of the verb for hearing as older narrative prose writes it, third person plural",
+          "display_order": 6,
+          "transliteration": "mardom in soxan râ {{answer}} va xâmuš šodand."
         }
       ]
     },
@@ -1883,6 +2531,22 @@
           "hint": "is — read bovad in verse, where prose would use است",
           "transliteration": "u dana ___.",
           "display_order": 5
+        },
+        {
+          "sentence": "بسی رنج بردم در این سال {{answer}}.",
+          "answer": "سی",
+          "translation": "I have suffered much toil in these thirty years. (Ferdowsi)",
+          "hint": "thirty — the numeral, which verse lets follow its noun instead of standing before it",
+          "display_order": 6,
+          "transliteration": "be-si ranj bordam dar ên sâl {{answer}}."
+        },
+        {
+          "sentence": "ز دانش دل پیر {{answer}} بود.",
+          "answer": "برنا",
+          "translation": "Through knowledge the old heart grows young. (Ferdowsi)",
+          "hint": "young — the verse word for it, where prose would say جوان",
+          "display_order": 7,
+          "transliteration": "ze dâniš dil pir {{answer}} bud."
         }
       ]
     },
@@ -1934,6 +2598,22 @@
           "hint": "hand — the fixed noun in the idiom for setting to work",
           "transliteration": "u ___ be kar shod.",
           "display_order": 5
+        },
+        {
+          "sentence": "اگر این وعده را باور {{answer}}، پشیمان می‌شوی.",
+          "answer": "کنی",
+          "translation": "If you believe this promise, you'll be sorry.",
+          "hint": "do — the light verb of the idiom for believing, in the subjunctive a conditional calls for, second person singular",
+          "display_order": 6,
+          "transliteration": "agar in va'de râ bâvar {{answer}}, pašimân mišavi."
+        },
+        {
+          "sentence": "تو از کار او سر در {{answer}}؟",
+          "answer": "می‌آوری",
+          "translation": "Do you make sense of what he is doing?",
+          "hint": "bring — the light verb that completes the idiom for figuring something out, present tense, second person singular",
+          "display_order": 7,
+          "transliteration": "to az -kâr u sar dar {{answer}}؟"
         }
       ]
     },
@@ -1985,6 +2665,22 @@
           "hint": "go — singular verb, the intimate register",
           "transliteration": "to koja ___?",
           "display_order": 5
+        },
+        {
+          "sentence": "ایشان دیروز به دفتر ما تشریف {{answer}}.",
+          "answer": "آوردند",
+          "translation": "He/she came to our office yesterday. (deferential)",
+          "hint": "brought — the verb that completes the polite phrase for arriving, in the plural deference requires",
+          "display_order": 6,
+          "transliteration": "išân dīrôz ba daftar mâ tašrīf {{answer}}."
+        },
+        {
+          "sentence": "چرا دیروز به من زنگ {{answer}}؟",
+          "answer": "نزدی",
+          "translation": "Why didn't you call me yesterday? (intimate)",
+          "hint": "the negated past of the light verb that pairs with زنگ, second person singular — the intimate register",
+          "display_order": 7,
+          "transliteration": "čarâ dīrôz ba man zang {{answer}}؟"
         }
       ]
     }

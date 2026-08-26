@@ -50,7 +50,13 @@ MARKS = re.compile(
     "[\\u064B-\\u065F\\u0670\\u06D6-\\u06ED\\u0640"
     "\\u0591-\\u05BD\\u05BF\\u05C1-\\u05C2\\u05C4-\\u05C5\\u05C7]"
 )
-SCRIPT = re.compile(r"[^؀-ۿ֐-׿]")
+# Letters only. The Arabic block contains its own PUNCTUATION — ، ؛ ؟ ٪ ۔ —
+# and a range-based test swallows them, so `؟` was looked up as if it were a
+# word and failed 18 Persian drills on its own.
+SCRIPT = re.compile(
+    "[^\u0620-\u064A\u066E-\u06D3\u06D5\u06E5-\u06EF\u06FA-\u06FF"
+    "\u0620-\u063F\u0641-\u064A\u05D0-\u05EA\u05EF-\u05F4]"
+)
 
 # (prefix, what it contributes to the reading). Longest first at match time.
 CLITICS = {
@@ -58,12 +64,25 @@ CLITICS = {
            ("كال", "ka-al-"), ("لل", "li-l-"), ("ال", "al-"),
            ("و", "wa-"), ("ف", "fa-"), ("ب", "bi-"), ("ل", "li-"),
            ("ك", "ka-"), ("س", "sa-")],
-    # Hebrew's one-letter particles: the definite ה, and ו ב ל כ ש מ.
-    "he": [("ה", "ha-"), ("ו", "ve-"), ("ב", "be-"), ("ל", "le-"),
-           ("כ", "ke-"), ("ש", "she-"), ("מ", "mi-")],
-    # Persian keeps most particles separate; the productive bound ones are the
-    # verbal مى/نمى and the conjunction و.
-    "fa": [("نمی", "nemi-"), ("می", "mi-"), ("و", "va-"), ("ب", "be-")],
+    # HEBREW AND PERSIAN PEEL NOTHING. Both lists were removed on 26 Aug 2026
+    # after a verification pass judged 22 of 108 Hebrew peeled forms wrong and
+    # 10 of 11 Persian ones — and the errors were not near-misses:
+    #
+    #   מחברות  peeled to mi-ḥaverót, "from friends". It is makhbarót,
+    #           notebooks. A different word entirely.
+    #   הילדות  peeled to ha-yaldút, "childhood". It is ha-yeladót, the girls.
+    #   בבית    peeled to be-báyit. Hebrew FUSES the preposition with the
+    #           definite article — ba-báyit — and a peeler cannot see an
+    #           article that is no longer written.
+    #   بچهها   peeled to be-če-hâ by stripping a ب that is part of the stem;
+    #           بچه is one word, bačče.
+    #
+    # Unvocalised Hebrew is genuinely ambiguous and its prefixes change the
+    # vowel of what follows, so a mechanical split is guessing. Arabic keeps
+    # its list: ال is a clean, unambiguous prefix that does not reshape the
+    # stem, and its peeled forms verified sound.
+    "he": [],
+    "fa": [],
 }
 
 
@@ -87,6 +106,44 @@ def _table(code: str) -> dict[str, str]:
     return table
 
 
+# Persian marks the plural and the possessive with SUFFIXES, which no prefix
+# peeler can reach: بچه‌ها is بچه + ها. Hebrew stacks its prefixes instead —
+# מהעבודה is מ + ה + עבודה — so that side needs a second pass, not a longer list.
+SUFFIXES = {
+    "fa": [("ها", "-hâ"), ("های", "-hâ-ye"), ("ان", "-ân"),
+           ("ام", "-am"), ("ات", "-at"), ("اش", "-aš")],
+}
+
+
+def _peel(t: str, code: str, table: dict[str, str], depth: int = 0) -> str | None:
+    """Strip one clitic and look the rest up; recurse so stacked prefixes work."""
+    if depth > 2:
+        return None
+    for prefix, latin in CLITICS.get(code, []):
+        # A one-letter prefix needs a real word behind it. Without this,
+        # بچه (child) peels its ب and matches چه, giving be-če-hâ for بچه‌ها
+        # where the answer is bače-hâ — a false reading, which is worse than
+        # none because the learner cannot tell.
+        if t.startswith(prefix) and len(t) - len(prefix) >= 3:
+            rest = t[len(prefix):]
+            if rest in table:
+                return latin + table[rest]
+            deeper = _peel(rest, code, table, depth + 1)
+            if deeper:
+                return latin + deeper
+    for suffix, latin in SUFFIXES.get(code, []):
+        if t.endswith(suffix) and len(t) > len(suffix) + 1:
+            stem = t[: -len(suffix)]
+            if stem in table:
+                return table[stem] + latin
+            # Persian writes the plural with a zero-width non-joiner as often
+            # as not, and the stem may still carry its own prefix.
+            deeper = _peel(stem, code, table, depth + 1)
+            if deeper:
+                return deeper + latin
+    return None
+
+
 def _one(token: str, code: str) -> str | None:
     table = _table(code)
     if not table:
@@ -94,13 +151,12 @@ def _one(token: str, code: str) -> str | None:
     t = bare(SCRIPT.sub("", token))
     if not t:
         return None
+    t = t.replace("\u200c", "")          # Persian zero-width non-joiner
     if t in table:
         return table[t]
-    for prefix, latin in CLITICS.get(code, []):
-        if t.startswith(prefix) and len(t) > len(prefix) + 1:
-            rest = table.get(t[len(prefix):])
-            if rest:
-                return latin + rest
+    peeled = _peel(t, code, table)
+    if peeled:
+        return peeled
     # Arabic ta marbuta alternates with ha in the headword.
     if t.endswith("ة") and (t[:-1] + "ه") in table:
         return table[t[:-1] + "ه"]

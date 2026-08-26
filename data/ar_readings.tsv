@@ -1,4 +1,5 @@
 word	reading
+	S
 ء	ʼ
 آ	ʾalif maddah
 آب	ʼāb
@@ -562,6 +563,7 @@ word	reading
 أشقر	ʼašqar
 أشك	ʼašukku
 أشكال	ʼaškāl
+أشكو	ʼaškū
 أشل	ʼašalla
 أشلاء	ʼašlāʼ
 أشم	ʼašamm
@@ -1073,6 +1075,7 @@ word	reading
 أهدأ	ʼahdaʼ
 أهداف	ʼahdāf
 أهدر	ʼahdara
+أهرام	ʼahrām
 أهزم	ʼahzimu
 أهل	ʼahl
 أهلا	ʼahlan
@@ -1505,6 +1508,7 @@ word	reading
 اجتماعي	ijtimāʻiyy
 اجتماعية	ijtimāʻiyya
 اجتمع	ijtamaʻa
+اجتهدت	ijtahadtu
 اجتياز	ijtiyāz
 اجعل	ijʻal
 اجلس	ijlis
@@ -3277,6 +3281,7 @@ word	reading
 تفصح	tafaṣṣaḥa
 تفصيل	tafṣīl
 تفضل	tafaḍḍala
+تفضلي	tufaḍḍilī
 تفعل	tafʻalu
 تفعلي	tafʻalī
 تفعلين	tafʻalīna
@@ -3987,6 +3992,7 @@ word	reading
 جوزاء	al-jawzāʼ
 جوزة	jawza
 جوع	jūʻ
+جوعان	jawʻān
 جوعى	jawʻā
 جوف	jawf
 جوفي	jawfiyy
@@ -5259,6 +5265,7 @@ word	reading
 زرع	zaraʻa
 زرعت	zaraʻtu
 زرقاء	zarqāʼ
+زرنا	zurnā
 زعم	zaʻama
 زعماء	zuʻamāʼ
 زعموا	zaʻamū
@@ -8478,6 +8485,7 @@ word	reading
 مجتمع	mujtamaʻ
 مجتمعات	mujtamaʻāt
 مجتهد	mujtahid
+مجتهدون	mujtahidūn
 مجد	majada
 مجددا	mujaddadan
 مجر	majara
@@ -9821,6 +9829,7 @@ word	reading
 نجح	najaḥa
 نجحت	najaḥtu
 نجحنا	najaḥnā
+نجحوا	najaḥū
 نجد	najd
 نجدة	najda
 نجرب	nujarribu
@@ -10000,6 +10009,7 @@ word	reading
 نظيف	naẓīf
 نظيفة	naẓīfa
 نعاس	nuʻās
+نعبد	naʻbudu
 نعبر	naʻburu
 نعجة	naʻja
 نعد	naʻud
@@ -10929,7 +10939,10 @@ word	reading
 يعقوب	yaʻqūb
 يعلم	yaʻlamu
 يعلن	yuʻlinu
+يعلو	yaʻlū
+يعلى	yaʻlā
 يعمل	yaʻmalu
+يعملن	yaʻmalna
 يعملون	yaʻmalūna
 يعني	yaʻnī
 يعود	yaʻūdu

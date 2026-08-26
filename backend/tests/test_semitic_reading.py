@@ -84,12 +84,24 @@ def test_the_cloze_blank_survives():
     assert "{{answer}}" in out
 
 
-@pytest.mark.parametrize("code,floor", [("ar", 0.30), ("he", 0.75), ("fa", 0.45)])
+@pytest.mark.parametrize("code,floor", [("ar", 0.35), ("he", 0.60), ("fa", 0.60)])
 def test_coverage_has_not_silently_dropped(code, floor):
-    """A ratchet. Arabic's floor is much lower than the others because its
-    sentences are full of inflected verb forms that are not headwords — the
-    vocabulary is at 100% and the sentences are not, and that gap is real
-    rather than a bug to be fixed by loosening the table."""
+    """A ratchet. Arabic's floor is lower than the others because its sentences
+    are full of inflected verb forms that are not headwords — the vocabulary is
+    at 100% and the sentences are not, and that gap is real rather than a bug
+    to be fixed by loosening the table.
+
+    HEBREW'S FLOOR WENT DOWN ON PURPOSE, from 0.75 to 0.60. Clitic peeling was
+    covering those sentences and a verification pass judged 22 of 108 peeled
+    Hebrew forms wrong — not near-misses but different words: מחברות read as
+    "from friends" when it is "notebooks", הילדות as "childhood" when it is
+    "the girls", and every ב- prefix given as be- where Hebrew fuses the
+    article and says ba-. Persian was worse, 10 of 11. Peeling is off for both
+    now, and the coverage it was inflating went with it.
+
+    A number moving down because the wrong answers were removed is the ratchet
+    working, not failing. Do not restore the old floor by re-enabling the
+    peeler."""
     with (DATA / f"{code}_sentences.tsv").open(encoding="utf-8-sig", newline="") as fh:
         rows = [(r.get("sentence") or "").strip() for r in csv.DictReader(fh, delimiter="\t")]
     rows = [s for s in rows if s]
