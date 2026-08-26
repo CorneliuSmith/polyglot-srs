@@ -9,6 +9,10 @@ the review hint layers already use.
 Only languages with reliable tooling are covered:
   - hi: the Hunterian-style romanizer used for vocabulary readings
   - ru: cyrtranslit (already a dependency for Latin→Cyrillic answer input)
+  - ko: Revised Romanization, with the assimilation rules that make 신라
+    read *Silla* rather than *sinla* — Hangul spells morphemes and pronounces
+    something else, so a syllable-by-syllable mapping is wrong in a way a
+    learner cannot detect
   - el: ELOT 743, the scheme printed in Greek passports — regular mapping,
     a closed set of digraphs, and the <αυ/ευ> voicing rule that makes «αυτό»
     read *afto*
@@ -21,7 +25,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-READING_LANGS = ("hi", "ru", "el")
+READING_LANGS = ("hi", "ru", "el", "ko")
 
 
 def sentence_reading(text: str | None, language_code: str) -> str | None:
@@ -35,6 +39,9 @@ def sentence_reading(text: str | None, language_code: str) -> str | None:
         elif language_code == "ru":
             import cyrtranslit
             reading = cyrtranslit.to_latin(text, "ru")
+        elif language_code == "ko":
+            from backend.services.nlp.korean_reading import korean_to_roman
+            reading = korean_to_roman(text)
         elif language_code == "el":
             from backend.services.nlp.greek_reading import greek_to_roman
             reading = greek_to_roman(text)

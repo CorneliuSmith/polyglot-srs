@@ -165,3 +165,79 @@ class TestTheVocabularyReadingIsComputedOnTheGenericPath:
     def test_arabic_stays_deliberately_unread(self):
         from backend.services.seeder.csv_importer import _computed_reading
         assert _computed_reading("كتاب", "ar") is None
+
+
+class TestKoreanReading:
+    """Hangul is the one script here a learner cannot guess at, and `ko`
+    shipped 7,214 words and 3,897 sentences with no reading. The seeder had
+    deferred it — "Revised-Romanization can be generated later if native
+    reviewers want it" — and the deferral outlived the reason.
+    """
+
+    def test_the_plain_cases(self):
+        assert sentence_reading("한국", "ko") == "hanguk"
+        assert sentence_reading("서울", "ko") == "seoul"
+        assert sentence_reading("김치", "ko") == "gimchi"
+        assert sentence_reading("한글", "ko") == "hangeul"
+
+    def test_assimilation_is_the_whole_point(self):
+        """Korean spells morphemes and pronounces something else. A perfect
+        letter table gets 신라 as *sinla*, which is wrong in exactly the way a
+        learner cannot detect — they have no way to know the spelling lies."""
+        assert sentence_reading("신라", "ko") == "silla"
+        assert sentence_reading("설날", "ko") == "seollal"
+        assert sentence_reading("학년", "ko") == "hangnyeon"
+        assert sentence_reading("종로", "ko") == "jongno"
+        assert sentence_reading("백리", "ko") == "baengni"
+        assert sentence_reading("입니다", "ko") == "imnida"
+
+    def test_liaison_restores_the_underlying_consonant(self):
+        """옷 alone ends in a t-sound, but 옷이 is *osi* — the coda re-links
+        as what it underlyingly is, not as what it neutralises to."""
+        assert sentence_reading("옷이", "ko") == "osi"
+        assert sentence_reading("한국어", "ko") == "hangugeo"
+        assert sentence_reading("읽어", "ko") == "ilgeo"   # cluster splits
+        assert sentence_reading("없어요", "ko") == "eopseoyo"
+
+    def test_h_never_survives(self):
+        """It aspirates a neighbouring stop or it vanishes before a vowel —
+        and the clusters containing it behave the same way. Handling only the
+        bare ㅎ gave 많다 *manda* for *manta* and 많은 *manheun* for *maneun*."""
+        assert sentence_reading("좋다", "ko") == "jota"
+        assert sentence_reading("축하", "ko") == "chuka"
+        assert sentence_reading("좋아요", "ko") == "joayo"
+        assert sentence_reading("많다", "ko") == "manta"
+        assert sentence_reading("많은", "ko") == "maneun"
+        assert sentence_reading("싫어", "ko") == "sireo"
+        assert sentence_reading("괜찮아요", "ko") == "gwaenchanayo"
+
+    def test_the_geminate_the_standard_names_by_hand(self):
+        """ㄹ+ㄹ is `ll`. Two lenses over 60 corpus sentences found this six
+        times and every refuter confirmed it: having the two rules that
+        assimilate INTO this geminate (ㄴ+ㄹ, ㄹ+ㄴ) without the geminate itself
+        emitted `lr`, a sequence RR can never produce. All six below are real
+        rows from data/ko_sentences.tsv."""
+        assert sentence_reading("텔레비전", "ko") == "tellebijeon"
+        assert sentence_reading("불립니다", "ko") == "bullimnida"
+        assert sentence_reading("선물로", "ko") == "seonmullo"
+        assert sentence_reading("정말로", "ko") == "jeongmallo"
+        assert sentence_reading("몰라", "ko") == "molla"
+        assert sentence_reading("달러", "ko") == "dalleo"
+        # The standard's own examples, which any ㄹㄹ rule has to reproduce.
+        assert sentence_reading("울릉도", "ko") == "ulleungdo"
+        assert sentence_reading("물론", "ko") == "mullon"
+
+    def test_palatalisation(self):
+        assert sentence_reading("같이", "ko") == "gachi"
+        assert sentence_reading("해돋이", "ko") == "haedoji"
+        assert sentence_reading("굳히다", "ko") == "guchida"
+
+    def test_no_syllable_is_emitted_twice(self):
+        """The boundary writes the next syllable's onset, so the next syllable
+        must not write it again — 감사합니다 came out *gamsahhamnidda*."""
+        assert sentence_reading("감사합니다", "ko") == "gamsahamnida"
+        assert sentence_reading("안녕하세요", "ko") == "annyeonghaseyo"
+
+    def test_the_cloze_blank_survives(self):
+        r = sentence_reading("저는 {{answer}} 갑니다.", "ko")
+        assert "{{answer}}" in r

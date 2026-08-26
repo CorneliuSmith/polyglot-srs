@@ -7,12 +7,24 @@ words in dictionary-speak ("이: nominative case marker used after a
 consonant…"), which is useless on a flashcard. Curated entries keep the
 plain-language house style.
 
-Readings: Hangul is phonetic — no romanization column, same reasoning as
-Thai deferring its tone-marked romanization. Revised-Romanization can be
-generated later if native reviewers want it.
+Readings: Revised Romanization, computed from the Hangul (26 Aug 2026). This
+was originally deferred — "can be generated later if native reviewers want
+it" — on the reasoning that Hangul is phonetic. It is, but only to someone
+who can already read it, and the course was shipping 7,214 words with no
+reading at all.
+
+The romanizer lives in `backend/services/nlp/korean_reading.py` and applies
+the sound changes RR specifies, because Korean spells morphemes and says
+something else: 신라 is spelled sin-la and read *Silla*. It does NOT cover the
+parts that need morphology or a lexicon — optional hyphenation, the sai-siot,
+compound boundaries that block assimilation — and those still want a native
+reviewer. Two adversarial passes over 120 corpus sentences found one
+systematic defect (ㄹ+ㄹ, now fixed and pinned in test_readings.py).
 """
 import csv
 import json
+
+from backend.services.nlp.korean_reading import korean_to_roman
 
 from .base import DATA_DIR, BaseSeeder  # noqa: F401 — re-exported so tests can patch it
 
@@ -165,7 +177,12 @@ class KoreanSeeder(BaseSeeder):
                 rank = int(row["rank"])
                 records.append({
                     "word": word,
-                    "reading": None,
+                    # Revised Romanization, computed. This was deferred at
+                    # seed time — see the module docstring — and the deferral
+                    # outlived its reason: the course shipped 7,214 words with
+                    # nothing a learner could sound out, in the one script here
+                    # they cannot even guess at.
+                    "reading": korean_to_roman(word) or None,
                     "pos": (row.get("pos") or "").strip() or None,
                     "level": self.rank_to_level(rank),
                     "frequency_rank": rank,

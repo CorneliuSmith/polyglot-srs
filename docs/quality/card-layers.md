@@ -88,12 +88,39 @@ filling them or the work lands where half the courses cannot hold it.
 
 ### Computed vs authored — the layer does not have to be written by hand
 
-Three of the eight have a deterministic romanizer, so their reading costs no
+Four of the eight have a deterministic romanizer, so their reading costs no
 authoring and no storage: `hi` (Hunterian), `ru` (cyrtranslit) and, since
-26 Aug, `el` (ELOT 743, `backend/services/nlp/greek_reading.py`). The other
-five need authoring, and `ar` is deliberately excluded even from that —
-unvocalized script drops the short vowels a romanization would need, so a
-computed Arabic reading would invent sounds.
+26 Aug, `el` (ELOT 743, `greek_reading.py`) and `ko` (Revised Romanization,
+`korean_reading.py`). That leaves `he`, `fa` and `th` needing authoring, and
+`ar` deliberately excluded even from that — unvocalized script drops the
+short vowels a romanization would need, so a computed Arabic reading would
+invent sounds.
+
+**Transcription, not transliteration — this is the whole difficulty.** Both
+new romanizers write how a word SOUNDS, not how it is spelled, because in both
+languages the spelling lies. Greek «αυτό» is *afto*, not *auto*. Korean 신라 is
+spelled sin-la and said *Silla*. A letter table alone gets both wrong in the
+way a learner cannot detect: they have no way to know the spelling is not the
+pronunciation. That is also why `ko`'s scope stops where it does — RR's
+optional hyphenation, the sai-siot, and compound boundaries that block
+assimilation need morphology or a lexicon, and still want a native reviewer.
+
+**Both were verified the same way, and both needed it.** Two lenses (standard
+conformance, and "would a learner reading this aloud be understood") over 60
+high-risk corpus sentences, every claimed defect then put to independent
+refuters, then a second round on 60 fresh sentences to confirm the fix and
+look for more. Each language returned exactly one systematic defect in round
+one and zero in round two:
+
+| | found | why it survived my own testing |
+| --- | --- | --- |
+| `el` | `γκ` missing from the digraph table | right word-initially by accident (γκρίζος *gkrizos*), wrong everywhere else (έγκυος *egkyos* for *engyos*) |
+| `ko` | `ㄹ`+`ㄹ` → `ll` missing | I had both rules that assimilate INTO that geminate (ㄴ+ㄹ, ㄹ+ㄴ) but not the geminate itself, so it emitted `lr` — a string RR can never produce |
+
+Both are the same shape: a table with the neighbours of a rule filled in and
+the rule itself absent, passing every example I happened to pick. Hand-chosen
+smoke tests cannot find that; a sample drawn from the corpus and biased toward
+the risky construct can.
 
 Two lessons already paid for here:
 
