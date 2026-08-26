@@ -1,260 +1,646 @@
 word	sentence	translation	difficulty_rank
-nui	He nui te whare.	The house is big.	45
-te	He nui te whare.	The house is big.	45
-whare	He nui te whare.	The house is big.	45
-he	He nui te whare.	The house is big.	45
-kino	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	55
-ki	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	55
-kia	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	55
-hunga	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	55
-e	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	55
-a	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	55
-mahi	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	55
-pai	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	55
-ana	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	55
-te	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	55
-koutou	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	55
-kai	Kei te kai koe.	You're eating.	76
-kei	Kei te kai koe.	You're eating.	76
-koe	Kei te kai koe.	You're eating.	76
-te	Kei te kai koe.	You're eating.	76
-aha	Kei te aha koe?	What are you doing?	78
-kei	Kei te aha koe?	What are you doing?	78
-koe	Kei te aha koe?	What are you doing?	78
-au	He wahine au.	I am a woman.	92
-he	He wahine au.	I am a woman.	92
-wahine	He wahine au.	I am a woman.	92
-he	He pai ki a au.	I like it.	92
-ki	He pai ki a au.	I like it.	92
-a	He pai ki a au.	I like it.	92
-au	He pai ki a au.	I like it.	92
-pai	He pai ki a au.	I like it.	92
-ki	Kei te aroha au ki a koe.	I love you.	92
-aroha	Kei te aroha au ki a koe.	I love you.	92
-a	Kei te aroha au ki a koe.	I love you.	92
-au	Kei te aroha au ki a koe.	I love you.	92
-kei	Kei te aroha au ki a koe.	I love you.	92
-koe	Kei te aroha au ki a koe.	I love you.	92
-e	E rua tekau āna tamariki.	She has twenty children.	112
-tamariki	E rua tekau āna tamariki.	She has twenty children.	112
-rua	E rua tekau āna tamariki.	She has twenty children.	112
-tekau	E rua tekau āna tamariki.	She has twenty children.	112
-rawa	He nui rawa te utu!	It's too expensive!	124
-nui	He nui rawa te utu!	It's too expensive!	124
-utu	He nui rawa te utu!	It's too expensive!	124
-ao	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	151
-maha	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	151
-e	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	151
-kitea	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	151
-mea	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	151
-ia	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	151
-o	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	151
-kua	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	151
-kore	Kua rua ngā rā kua kore au e moe.	I haven't slept for two days.	175
-moe	Kua rua ngā rā kua kore au e moe.	I haven't slept for two days.	175
-rua	Kua rua ngā rā kua kore au e moe.	I haven't slept for two days.	175
-rā	Kua rua ngā rā kua kore au e moe.	I haven't slept for two days.	175
-kua	Kua rua ngā rā kua kore au e moe.	I haven't slept for two days.	175
-kore	He aha i kore ai koe e tuku i a ia kia whiriwhiri?	Why don't you let him decide?	240
-i	He aha i kore ai koe e tuku i a ia kia whiriwhiri?	Why don't you let him decide?	240
-tuku	He aha i kore ai koe e tuku i a ia kia whiriwhiri?	Why don't you let him decide?	240
-kia	He aha i kore ai koe e tuku i a ia kia whiriwhiri?	Why don't you let him decide?	240
-aha	He aha i kore ai koe e tuku i a ia kia whiriwhiri?	Why don't you let him decide?	240
-ia	He aha i kore ai koe e tuku i a ia kia whiriwhiri?	Why don't you let him decide?	240
-ai	He aha i kore ai koe e tuku i a ia kia whiriwhiri?	Why don't you let him decide?	240
-whiriwhiri	He aha i kore ai koe e tuku i a ia kia whiriwhiri?	Why don't you let him decide?	240
-reka	He tino reka te wai.	The water's really nice.	247
-tino	He tino reka te wai.	The water's really nice.	247
-wai	He tino reka te wai.	The water's really nice.	247
-i	I paingia e koe taku whakaahua?	Did you like my picture?	389
-paingia	I paingia e koe taku whakaahua?	Did you like my picture?	389
-whakaahua	I paingia e koe taku whakaahua?	Did you like my picture?	389
-taku	I paingia e koe taku whakaahua?	Did you like my picture?	389
-tauira	He tauira au.	I'm a student.	399
-ia	He tauira ia.	She's a student.	399
-tauira	He tauira ia.	She's a student.	399
-nei	Kei hea te pene nei ?	Where was this pen?	400
-hea	Kei hea te pene nei ?	Where was this pen?	400
-pene	Kei hea te pene nei ?	Where was this pen?	400
-pene	He pai tāku pene.	My pen is good.	400
-pai	He pai tāku pene.	My pen is good.	400
-urunga	Kotahi anake te urunga.	There is only one pillow.	452
-anake	Kotahi anake te urunga.	There is only one pillow.	452
-kotahi	Kotahi anake te urunga.	There is only one pillow.	452
-kapu	E hia ngā pereti, e hia ngā kapu?	How many plates and cups are there?	532
-pereti	E hia ngā pereti, e hia ngā kapu?	How many plates and cups are there?	532
-hia	E hia ngā pereti, e hia ngā kapu?	How many plates and cups are there?	532
-akoranga	He pai te mahi akoranga ki a koe?	Do you enjoy studying?	560
-mahi	He pai te mahi akoranga ki a koe?	Do you enjoy studying?	560
-nama	Me utu e koe āu nama.	You should pay back your debts.	561
-me	Me utu e koe āu nama.	You should pay back your debts.	561
-utu	Me utu e koe āu nama.	You should pay back your debts.	561
-taihoa	Taihoa ake.	Hang on a sec.	631
-ake	Taihoa ake.	Hang on a sec.	631
-atu	E hiahia noa ana au ki te tuku mihi atu ki a koe.	I just want to thank you.	772
-tuku	E hiahia noa ana au ki te tuku mihi atu ki a koe.	I just want to thank you.	772
-noa	E hiahia noa ana au ki te tuku mihi atu ki a koe.	I just want to thank you.	772
-hiahia	E hiahia noa ana au ki te tuku mihi atu ki a koe.	I just want to thank you.	772
-ana	E hiahia noa ana au ki te tuku mihi atu ki a koe.	I just want to thank you.	772
-mihi	E hiahia noa ana au ki te tuku mihi atu ki a koe.	I just want to thank you.	772
-whakaaro	He whakaaro tōku.	I have an idea.	19999
-makariri	He tino makariri tēnei rangi.	It's really cold today.	19999
-rangi	He tino makariri tēnei rangi.	It's really cold today.	19999
-tino	He tino makariri tēnei rangi.	It's really cold today.	19999
-i	Kei te tāhoe au i roto ki te moana.	I'm swimming in the ocean.	19999
-roto	Kei te tāhoe au i roto ki te moana.	I'm swimming in the ocean.	19999
-moana	Kei te tāhoe au i roto ki te moana.	I'm swimming in the ocean.	19999
-rua	E rua aku ngeru.	I have two cats.	19999
-aku	E rua aku ngeru.	I have two cats.	19999
-taro	Kāore te taro i te hou.	The bread is not fresh.	19999
-hou	Kāore te taro i te hou.	The bread is not fresh.	19999
-kai	Kei te kai ahau.	I'm eating.	19999
-kai	I kai au i te miraka tepe.	I ate the yoghurt.	19999
-tepe	I kai au i te miraka tepe.	I ate the yoghurt.	19999
-haere	I haere anō ia.	He went again.	19999
-kura	Kāore au e hiahia ana ki te haere ki te kura.	I don't want to go to school.	19999
-hiahia	Kāore au e hiahia ana ki te haere ki te kura.	I don't want to go to school.	19999
-haere	Kāore au e hiahia ana ki te haere ki te kura.	I don't want to go to school.	19999
-tamariki	Tokotoru āu tamariki?	Have you got three children?	19999
-whitu	E whitu ngā parāikete?	Are there seven blankets?	19999
-kiore	He kiore te mōkai a tāku tamāhine.	My daughter's pet is a rat.	19999
-pukapuka	E rua tāra te utu mō te pukapuka.	The price of the book was $5.	19999
-utu	E rua tāra te utu mō te pukapuka.	The price of the book was $5.	19999
-tika	Kāore i te tika.	It's not ethical.	19999
-uru	I pēhea koe i uru mai ai? He kī tāu?	How did you get in? Do you have a key?	19999
-mai	I pēhea koe i uru mai ai? He kī tāu?	How did you get in? Do you have a key?	19999
-ai	I pēhea koe i uru mai ai? He kī tāu?	How did you get in? Do you have a key?	19999
-o	I te wā o te haerenga, i whakaaro au ki a koe.	During the entire trip my thoughts were of you.	19999
-haerenga	I te wā o te haerenga, i whakaaro au ki a koe.	During the entire trip my thoughts were of you.	19999
-whakaaro	I te wā o te haerenga, i whakaaro au ki a koe.	During the entire trip my thoughts were of you.	19999
-kore	E kore e taea e au te tiaki i a ia.	I can't protect her.	19999
-tiaki	E kore e taea e au te tiaki i a ia.	I can't protect her.	19999
-moe	I te moe hōhonu ia.	He was fast asleep.	19999
-roa	I roa tana oranga.	She lived a long life.	19999
-tana	I roa tana oranga.	She lived a long life.	19999
-whare	Kei hea tana whare haumanu?	Where is his clinic situated?	19999
-tana	Kei hea tana whare haumanu?	Where is his clinic situated?	19999
-hea	Kei hea tana whare haumanu?	Where is his clinic situated?	19999
-auahi	I mare ia i te auahi.	She coughed from smoking.	19999
+te	He nui te whare.	The house is big.	55
+nui	He nui te whare.	The house is big.	55
+he	He nui te whare.	The house is big.	55
+whare	He nui te whare.	The house is big.	55
+e	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	66
+te	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	66
+kia	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	66
+hunga	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	66
+pai	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	66
+ana	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	66
+koutou	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	66
+ki	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	66
+mahi	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	66
+kino	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	66
+a	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	66
+te	I te taha noa atu ahau.	I was just passing by.	86
+taha	I te taha noa atu ahau.	I was just passing by.	86
+noa	I te taha noa atu ahau.	I was just passing by.	86
+i	I te taha noa atu ahau.	I was just passing by.	86
+ahau	I te taha noa atu ahau.	I was just passing by.	86
+atu	I te taha noa atu ahau.	I was just passing by.	86
+ahau	Kei te kai ahau.	I'm eating.	88
+kai	Kei te kai ahau.	I'm eating.	88
+kei	Kei te kai ahau.	I'm eating.	88
+kai	Kei te kai koe.	You're eating.	88
+koe	Kei te kai koe.	You're eating.	88
+kei	Kei te kai koe.	You're eating.	88
+koe	Kei te aha koe?	What are you doing?	90
+aha	Kei te aha koe?	What are you doing?	90
+kei	Kei te aha koe?	What are you doing?	90
+e	E aroha ana ahau ki tāku wahine.	I love my wife.	102
+aroha	E aroha ana ahau ki tāku wahine.	I love my wife.	102
+ana	E aroha ana ahau ki tāku wahine.	I love my wife.	102
+tāku	E aroha ana ahau ki tāku wahine.	I love my wife.	102
+ki	E aroha ana ahau ki tāku wahine.	I love my wife.	102
+ahau	E aroha ana ahau ki tāku wahine.	I love my wife.	102
+wahine	E aroha ana ahau ki tāku wahine.	I love my wife.	102
+au	He wahine au.	I am a woman.	104
+wahine	He wahine au.	I am a woman.	104
+he	He wahine au.	I am a woman.	104
+au	He pai ki a au.	I like it.	104
+pai	He pai ki a au.	I like it.	104
+he	He pai ki a au.	I like it.	104
+ki	He pai ki a au.	I like it.	104
+a	He pai ki a au.	I like it.	104
+au	Kei te aroha au ki a koe.	I love you.	104
+aroha	Kei te aroha au ki a koe.	I love you.	104
+koe	Kei te aroha au ki a koe.	I love you.	104
+a	Kei te aroha au ki a koe.	I love you.	104
+e	E rua tekau āna tamariki.	She has twenty children.	126
+āna	E rua tekau āna tamariki.	She has twenty children.	126
+tamariki	E rua tekau āna tamariki.	She has twenty children.	126
+rua	E rua tekau āna tamariki.	She has twenty children.	126
+tekau	E rua tekau āna tamariki.	She has twenty children.	126
+nui	He nui rawa te utu!	It's too expensive!	140
+rawa	He nui rawa te utu!	It's too expensive!	140
+utu	He nui rawa te utu!	It's too expensive!	140
+kua	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	168
+o	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	168
+ao	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	168
+mea	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	168
+ngā	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	168
+kitea	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	168
+ia	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	168
+maha	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	168
+kua	Kua rua ngā rā kua kore au e moe.	I haven't slept for two days.	193
+moe	Kua rua ngā rā kua kore au e moe.	I haven't slept for two days.	193
+rua	Kua rua ngā rā kua kore au e moe.	I haven't slept for two days.	193
+ngā	Kua rua ngā rā kua kore au e moe.	I haven't slept for two days.	193
+kore	Kua rua ngā rā kua kore au e moe.	I haven't slept for two days.	193
+rā	Kua rua ngā rā kua kore au e moe.	I haven't slept for two days.	193
+ana	E hiahia ana ahau ki te hoki atu.	I want to go back.	214
+hoki	E hiahia ana ahau ki te hoki atu.	I want to go back.	214
+hiahia	E hiahia ana ahau ki te hoki atu.	I want to go back.	214
+atu	E hiahia ana ahau ki te hoki atu.	I want to go back.	214
+ai	He aha i kore ai koe e tuku i a ia kia whiriwhiri?	Why don't you let him decide?	260
+kia	He aha i kore ai koe e tuku i a ia kia whiriwhiri?	Why don't you let him decide?	260
+whiriwhiri	He aha i kore ai koe e tuku i a ia kia whiriwhiri?	Why don't you let him decide?	260
+kore	He aha i kore ai koe e tuku i a ia kia whiriwhiri?	Why don't you let him decide?	260
+aha	He aha i kore ai koe e tuku i a ia kia whiriwhiri?	Why don't you let him decide?	260
+i	He aha i kore ai koe e tuku i a ia kia whiriwhiri?	Why don't you let him decide?	260
+ia	He aha i kore ai koe e tuku i a ia kia whiriwhiri?	Why don't you let him decide?	260
+tuku	He aha i kore ai koe e tuku i a ia kia whiriwhiri?	Why don't you let him decide?	260
+wai	He tino reka te wai.	The water's really nice.	267
+reka	He tino reka te wai.	The water's really nice.	267
+tino	He tino reka te wai.	The water's really nice.	267
+hapa	I kai hapa ahau i a ia.	I had dinner with him.	277
+i	I kai hapa ahau i a ia.	I had dinner with him.	277
+ia	I kai hapa ahau i a ia.	I had dinner with him.	277
+kai	I kai hapa ahau i a ia.	I had dinner with him.	277
+whakaahua	I paingia e koe taku whakaahua?	Did you like my picture?	410
+paingia	I paingia e koe taku whakaahua?	Did you like my picture?	410
+taku	I paingia e koe taku whakaahua?	Did you like my picture?	410
+tauira	He tauira au.	I'm a student.	420
+tauira	He tauira ia.	She's a student.	420
+pene	Kei hea te pene nei ?	Where was this pen?	421
+nei	Kei hea te pene nei ?	Where was this pen?	421
+hea	Kei hea te pene nei ?	Where was this pen?	421
+tāku	He pai tāku pene.	My pen is good.	421
+pene	He pai tāku pene.	My pen is good.	421
+pai	He pai tāku pene.	My pen is good.	421
+anake	Kotahi anake te urunga.	There is only one pillow.	473
+urunga	Kotahi anake te urunga.	There is only one pillow.	473
+kotahi	Kotahi anake te urunga.	There is only one pillow.	473
+pereti	E hia ngā pereti, e hia ngā kapu?	How many plates and cups are there?	556
+hia	E hia ngā pereti, e hia ngā kapu?	How many plates and cups are there?	556
+kapu	E hia ngā pereti, e hia ngā kapu?	How many plates and cups are there?	556
+ngā	E hia ngā pereti, e hia ngā kapu?	How many plates and cups are there?	556
+akoranga	He pai te mahi akoranga ki a koe?	Do you enjoy studying?	584
+mahi	He pai te mahi akoranga ki a koe?	Do you enjoy studying?	584
+me	Me utu e koe āu nama.	You should pay back your debts.	585
+āu	Me utu e koe āu nama.	You should pay back your debts.	585
+nama	Me utu e koe āu nama.	You should pay back your debts.	585
+utu	Me utu e koe āu nama.	You should pay back your debts.	585
+taihoa	Taihoa ake.	Hang on a sec.	656
+ake	Taihoa ake.	Hang on a sec.	656
+hiahia	E hiahia noa ana au ki te tuku mihi atu ki a koe.	I just want to thank you.	800
+mihi	E hiahia noa ana au ki te tuku mihi atu ki a koe.	I just want to thank you.	800
+noa	E hiahia noa ana au ki te tuku mihi atu ki a koe.	I just want to thank you.	800
+tuku	E hiahia noa ana au ki te tuku mihi atu ki a koe.	I just want to thank you.	800
+atu	E hiahia noa ana au ki te tuku mihi atu ki a koe.	I just want to thank you.	800
+hou	Kāore te taro i te hou.	The bread is not fresh.	811
+kāore	Kāore te taro i te hou.	The bread is not fresh.	811
+taro	Kāore te taro i te hou.	The bread is not fresh.	811
+hiahia	Kāore au e hiahia ana ki te haere ki te kura.	I don't want to go to school.	811
+kāore	Kāore au e hiahia ana ki te haere ki te kura.	I don't want to go to school.	811
+kura	Kāore au e hiahia ana ki te haere ki te kura.	I don't want to go to school.	811
+haere	Kāore au e hiahia ana ki te haere ki te kura.	I don't want to go to school.	811
+tika	Kāore i te tika.	It's not ethical.	811
+kāore	Kāore i te tika.	It's not ethical.	811
+paingia	Kāore e paingia ana e au te kai parai.	I don't like fried food.	811
+parai	Kāore e paingia ana e au te kai parai.	I don't like fried food.	811
+uaua	Kāore i uaua.	It wasn't difficult.	811
+noho	Kāore koe i hiahia ki noho ki a au?	Don't you want to sit with me?	811
+rangi	He tino makariri tēnei rangi.	It's really cold today.	812
+tēnei	He tino makariri tēnei rangi.	It's really cold today.	812
+makariri	He tino makariri tēnei rangi.	It's really cold today.	812
+tino	He tino makariri tēnei rangi.	It's really cold today.	812
+kua	Kua wera te āhua o te rangi i tēnei marama, hāunga tēnei rā.	It's been hot this month, but today's an exception.	812
+marama	Kua wera te āhua o te rangi i tēnei marama, hāunga tēnei rā.	It's been hot this month, but today's an exception.	812
+āhua	Kua wera te āhua o te rangi i tēnei marama, hāunga tēnei rā.	It's been hot this month, but today's an exception.	812
+wera	Kua wera te āhua o te rangi i tēnei marama, hāunga tēnei rā.	It's been hot this month, but today's an exception.	812
+rangi	Kua wera te āhua o te rangi i tēnei marama, hāunga tēnei rā.	It's been hot this month, but today's an exception.	812
+o	Kua wera te āhua o te rangi i tēnei marama, hāunga tēnei rā.	It's been hot this month, but today's an exception.	812
+tēnei	Kua wera te āhua o te rangi i tēnei marama, hāunga tēnei rā.	It's been hot this month, but today's an exception.	812
+rā	Kua wera te āhua o te rangi i tēnei marama, hāunga tēnei rā.	It's been hot this month, but today's an exception.	812
+kura	He aha koe i ako i te kura i tēnei rā?	What did you learn at school today?	812
+tēnei	He aha koe i ako i te kura i tēnei rā?	What did you learn at school today?	812
+rā	He aha koe i ako i te kura i tēnei rā?	What did you learn at school today?	812
+aha	He aha koe i ako i te kura i tēnei rā?	What did you learn at school today?	812
+ako	He aha koe i ako i te kura i tēnei rā?	What did you learn at school today?	812
+kī	Kī atu ki a rātou he mea nui.	Please tell them it's important.	813
+mea	Kī atu ki a rātou he mea nui.	Please tell them it's important.	813
+nui	Kī atu ki a rātou he mea nui.	Please tell them it's important.	813
+rātou	Kī atu ki a rātou he mea nui.	Please tell them it's important.	813
+mahi	He aha rātou e mahi ana?	What are the others doing?	813
+rātou	He aha rātou e mahi ana?	What are the others doing?	813
+runga	Kei runga noa atu rātou.	They are awesome.	813
+noa	Kei runga noa atu rātou.	They are awesome.	813
+rātou	Kei runga noa atu rātou.	They are awesome.	813
+ai	He aha i kore ai koe e rata mai ki a mātou?	What didn't you like about us?	814
+mai	He aha i kore ai koe e rata mai ki a mātou?	What didn't you like about us?	814
+mātou	He aha i kore ai koe e rata mai ki a mātou?	What didn't you like about us?	814
+kore	He aha i kore ai koe e rata mai ki a mātou?	What didn't you like about us?	814
+rata	He aha i kore ai koe e rata mai ki a mātou?	What didn't you like about us?	814
+whawhai	Kāore mātou i whawhai.	We didn't have a fight.	814
+mātou	Kāore mātou i whawhai.	We didn't have a fight.	814
+tōku	He whakaaro tōku.	I have an idea.	815
+whakaaro	He whakaaro tōku.	I have an idea.	815
+puku	Kei te mamae tōku puku.	My stomach hurts.	815
+mamae	Kei te mamae tōku puku.	My stomach hurts.	815
+tōku	Kei te mamae tōku puku.	My stomach hurts.	815
+tō	He aha tō tino pepeha?	What's your favorite saying?	816
+pepeha	He aha tō tino pepeha?	What's your favorite saying?	816
+tino	He aha tō tino pepeha?	What's your favorite saying?	816
+anō	I haere anō ia.	He went again.	817
+haere	I haere anō ia.	He went again.	817
+mea	Kāore he mea anō?	Isn't there something else?	817
+anō	Kāore he mea anō?	Isn't there something else?	817
+anō	Kāore au e kai i te mīti i a au anō.	I don't eat meat myself.	817
+mīti	Kāore au e kai i te mīti i a au anō.	I don't eat meat myself.	817
+tēnā	He kaupapa pai tēnā.	That's a good plan.	818
+kaupapa	He kaupapa pai tēnā.	That's a good plan.	818
+tiaki	E kore e taea e au te tiaki i a ia.	I can't protect her.	819
+taea	E kore e taea e au te tiaki i a ia.	I can't protect her.	819
+whakamahi	Ka taea e koe te whakamahi i tāku.	You can use mine.	819
+taea	Ka taea e koe te whakamahi i tāku.	You can use mine.	819
+tāku	Ka taea e koe te whakamahi i tāku.	You can use mine.	819
+ka	Ka taea e koe te whakamahi i tāku.	You can use mine.	819
+pēhea	I pēhea koe i uru mai ai? He kī tāu?	How did you get in? Do you have a key?	820
+ai	I pēhea koe i uru mai ai? He kī tāu?	How did you get in? Do you have a key?	820
+kī	I pēhea koe i uru mai ai? He kī tāu?	How did you get in? Do you have a key?	820
+mai	I pēhea koe i uru mai ai? He kī tāu?	How did you get in? Do you have a key?	820
+uru	I pēhea koe i uru mai ai? He kī tāu?	How did you get in? Do you have a key?	820
+tāu	I pēhea koe i uru mai ai? He kī tāu?	How did you get in? Do you have a key?	820
+pēhea	Me pēhea koe e utu ai i āu nama?	How will you pay your debts?	820
+me	Me pēhea koe e utu ai i āu nama?	How will you pay your debts?	820
+āu	Me pēhea koe e utu ai i āu nama?	How will you pay your debts?	820
+nama	Me pēhea koe e utu ai i āu nama?	How will you pay your debts?	820
+utu	Me pēhea koe e utu ai i āu nama?	How will you pay your debts?	820
+ko	Ko te rere huka taku tino tākaro.	Skiing is my favorite sport.	821
+rere	Ko te rere huka taku tino tākaro.	Skiing is my favorite sport.	821
+huka	Ko te rere huka taku tino tākaro.	Skiing is my favorite sport.	821
+taku	Ko te rere huka taku tino tākaro.	Skiing is my favorite sport.	821
+tākaro	Ko te rere huka taku tino tākaro.	Skiing is my favorite sport.	821
+tērā	Kāore tērā i te pai ki a au.	I don't like the sound of that.	822
+tērā	Te haunga hoki o tērā!	That smells bad!	822
+hoki	Te haunga hoki o tērā!	That smells bad!	822
+haunga	Te haunga hoki o tērā!	That smells bad!	822
+o	Te haunga hoki o tērā!	That smells bad!	822
+tērā	I kitea ia e au e mahi ana i tērā mahi.	I saw him do it.	822
+kitea	I kitea ia e au e mahi ana i tērā mahi.	I saw him do it.	822
+nā	Nā te mea kāore ia i haere mai, kāore hoki au i haere atu.	Since he didn't come, I didn't go either.	823
+hoki	Nā te mea kāore ia i haere mai, kāore hoki au i haere atu.	Since he didn't come, I didn't go either.	823
+mai	Nā te mea kāore ia i haere mai, kāore hoki au i haere atu.	Since he didn't come, I didn't go either.	823
+haere	Nā te mea kāore ia i haere mai, kāore hoki au i haere atu.	Since he didn't come, I didn't go either.	823
+rata	E rata ana ngā tāngata katoa o konei ki a koe.	Everyone here likes you.	824
+tāngata	E rata ana ngā tāngata katoa o konei ki a koe.	Everyone here likes you.	824
+konei	E rata ana ngā tāngata katoa o konei ki a koe.	Everyone here likes you.	824
+katoa	E rata ana ngā tāngata katoa o konei ki a koe.	Everyone here likes you.	824
+iwa	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	825
+whā	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	825
+waru	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	825
+toru	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	825
+tahi	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	825
+ono	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	825
+whitu	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	825
+rua	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	825
+rima	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	825
+tekau	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	825
+ao	Kei te ātaahua te ao.	The earth is beautiful.	826
+ātaahua	Kei te ātaahua te ao.	The earth is beautiful.	826
+mō	E rua tāra te utu mō te pukapuka.	The price of the book was $5.	827
+tāra	E rua tāra te utu mō te pukapuka.	The price of the book was $5.	827
+pukapuka	E rua tāra te utu mō te pukapuka.	The price of the book was $5.	827
+aroha	Ka aroha ahau ki a koe mō āke tonu	I'll love you forever.	827
+tonu	Ka aroha ahau ki a koe mō āke tonu	I'll love you forever.	827
+mō	Ka aroha ahau ki a koe mō āke tonu	I'll love you forever.	827
+ka	Ka aroha ahau ki a koe mō āke tonu	I'll love you forever.	827
+kaha	Kāore tōku matua i te tino kaha ki te kōrero.	My father doesn't really talk much.	831
+matua	Kāore tōku matua i te tino kaha ki te kōrero.	My father doesn't really talk much.	831
+tōku	Kāore tōku matua i te tino kaha ki te kōrero.	My father doesn't really talk much.	831
+kōrero	Kāore tōku matua i te tino kaha ki te kōrero.	My father doesn't really talk much.	831
+ko	He mārama ki a au ko tēnei te kōrero pono.	It's quite clear to me that this is the truth.	831
+mārama	He mārama ki a au ko tēnei te kōrero pono.	It's quite clear to me that this is the truth.	831
+pono	He mārama ki a au ko tēnei te kōrero pono.	It's quite clear to me that this is the truth.	831
+kōrero	He mārama ki a au ko tēnei te kōrero pono.	It's quite clear to me that this is the truth.	831
+taha	Kua tino rerekē te papa kāinga i ngā tau tekau kua taha atu.	That village has changed a lot from how it was 10 years ago.	832
+tau	Kua tino rerekē te papa kāinga i ngā tau tekau kua taha atu.	That village has changed a lot from how it was 10 years ago.	832
+rerekē	Kua tino rerekē te papa kāinga i ngā tau tekau kua taha atu.	That village has changed a lot from how it was 10 years ago.	832
+kāinga	Kua tino rerekē te papa kāinga i ngā tau tekau kua taha atu.	That village has changed a lot from how it was 10 years ago.	832
+papa	Kua tino rerekē te papa kāinga i ngā tau tekau kua taha atu.	That village has changed a lot from how it was 10 years ago.	832
+tekau	Kua tino rerekē te papa kāinga i ngā tau tekau kua taha atu.	That village has changed a lot from how it was 10 years ago.	832
+tau	E 15 ōna tau, i oma atu ia i te kāinga.	When he was 15, he ran away from home.	833
+ōna	E 15 ōna tau, i oma atu ia i te kāinga.	When he was 15, he ran away from home.	833
+kāinga	E 15 ōna tau, i oma atu ia i te kāinga.	When he was 15, he ran away from home.	833
+oma	E 15 ōna tau, i oma atu ia i te kāinga.	When he was 15, he ran away from home.	833
+kikorangi	He makawe kikorangi ōna.	Her hair is blue.	833
+makawe	He makawe kikorangi ōna.	Her hair is blue.	833
+ōna	He makawe kikorangi ōna.	Her hair is blue.	833
+makawe	I tapahi ōna makawe.	She cut her hair.	833
+tapahi	I tapahi ōna makawe.	She cut her hair.	833
+ōna	I tapahi ōna makawe.	She cut her hair.	833
+kurī	Ko tāku kurī tēnei.	This is my dog.	834
+ko	Ko tāku kurī tēnei.	This is my dog.	834
+auau	I auau ngā kurī.	The dogs barked.	834
+kurī	I auau ngā kurī.	The dogs barked.	834
+horoia	Horoia te kurī.	Wash the dog.	834
+kurī	Horoia te kurī.	Wash the dog.	834
+wai	E hiahia ana ahau ki te mōhio nā wai tērā mahi.	I want to know who did that.	837
+nā	E hiahia ana ahau ki te mōhio nā wai tērā mahi.	I want to know who did that.	837
+mōhio	E hiahia ana ahau ki te mōhio nā wai tērā mahi.	I want to know who did that.	837
+tātou	E mōhio ana tātou he nui ake te rā i te Ao nei.	We know that the sun is bigger than the earth.	837
+nei	E mōhio ana tātou he nui ake te rā i te Ao nei.	We know that the sun is bigger than the earth.	837
+ao	E mōhio ana tātou he nui ake te rā i te Ao nei.	We know that the sun is bigger than the earth.	837
+mōhio	E mōhio ana tātou he nui ake te rā i te Ao nei.	We know that the sun is bigger than the earth.	837
+ake	E mōhio ana tātou he nui ake te rā i te Ao nei.	We know that the sun is bigger than the earth.	837
+rangatira	E mōhio ana ahau ki te rangatira.	I know the owner.	837
+mōhio	E mōhio ana ahau ki te rangatira.	I know the owner.	837
+mātou	Kāore i wareware i a māua/mātou	We didn't forget.	841
+wareware	Kāore i wareware i a māua/mātou	We didn't forget.	841
+māua	Kāore i wareware i a māua/mātou	We didn't forget.	841
+rata	He aha i kore ai koe e rata mai ki a māua?	What didn't you like about us?	841
+māua	He aha i kore ai koe e rata mai ki a māua?	What didn't you like about us?	841
+whawhai	Kāore māua i whawhai.	We didn't have a fight.	841
+māua	Kāore māua i whawhai.	We didn't have a fight.	841
+moana	Kei te tāhoe au i roto ki te moana.	I'm swimming in the ocean.	844
+tāhoe	Kei te tāhoe au i roto ki te moana.	I'm swimming in the ocean.	844
+roto	Kei te tāhoe au i roto ki te moana.	I'm swimming in the ocean.	844
+whakaaro	I te wā o te haerenga, i whakaaro au ki a koe.	During the entire trip my thoughts were of you.	845
+haerenga	I te wā o te haerenga, i whakaaro au ki a koe.	During the entire trip my thoughts were of you.	845
+wā	I te wā o te haerenga, i whakaaro au ki a koe.	During the entire trip my thoughts were of you.	845
+karu	He koi ngā karu o te kārearea.	The falcon has keen eyes.	846
+kārearea	He koi ngā karu o te kārearea.	The falcon has keen eyes.	846
+koi	He koi ngā karu o te kārearea.	The falcon has keen eyes.	846
+tūtaki	Te āhua nei i karo ia i te tūtaki mai ki a au.	I felt as if he shrank from meeting me.	847
+nei	Te āhua nei i karo ia i te tūtaki mai ki a au.	I felt as if he shrank from meeting me.	847
+āhua	Te āhua nei i karo ia i te tūtaki mai ki a au.	I felt as if he shrank from meeting me.	847
+karo	Te āhua nei i karo ia i te tūtaki mai ki a au.	I felt as if he shrank from meeting me.	847
+aku	E rua aku ngeru.	I have two cats.	848
+ngeru	E rua aku ngeru.	I have two cats.	848
+ngeru	He ngeru au.	I am a cat.	848
+kitea	Ko tēnei te ngeru tino nui kua kitea e au.	This is the biggest cat that I've ever seen.	848
+ngeru	Ko tēnei te ngeru tino nui kua kitea e au.	This is the biggest cat that I've ever seen.	848
+me	Aroha mai, engari me haere koe.	I'm sorry, but you've got to go.	849
+engari	Aroha mai, engari me haere koe.	I'm sorry, but you've got to go.	849
+tauira	Ka hoatu au ki a koe he tauira.	I'll give you some examples.	851
+ka	Ka hoatu au ki a koe he tauira.	I'll give you some examples.	851
+hoatu	Ka hoatu au ki a koe he tauira.	I'll give you some examples.	851
+waewae	He waewae iti ōna.	She has small feet.	853
+iti	He waewae iti ōna.	She has small feet.	853
+tāu	He iti tāu māra.	Your garden really is little.	853
+iti	He iti tāu māra.	Your garden really is little.	853
+tāu	He iti tāu māra nei !	Your garden really is little.	853
+iti	He iti tāu māra nei !	Your garden really is little.	853
+haumanu	Kei hea tana whare haumanu?	Where is his clinic situated?	854
+hea	Kei hea tana whare haumanu?	Where is his clinic situated?	854
+tana	Kei hea tana whare haumanu?	Where is his clinic situated?	854
+whare	Kei hea tana whare haumanu?	Where is his clinic situated?	854
+whare	Me haere au ki te whare paku.	I have to use the restroom.	855
+paku	Me haere au ki te whare paku.	I have to use the restroom.	855
+kē	I hea kē koe i tērā pō ?	Where the fuck were you last night?	860
+hea	I hea kē koe i tērā pō ?	Where the fuck were you last night?	860
+pō	I hea kē koe i tērā pō ?	Where the fuck were you last night?	860
+tāngata	E pānui ana ngā tāngata katoa.	Everyone's reading.	862
+pānui	E pānui ana ngā tāngata katoa.	Everyone's reading.	862
+katoa	E pānui ana ngā tāngata katoa.	Everyone's reading.	862
+tū	E tū ana au kei mua i a koe	I'm standing here before you.	863
+mua	E tū ana au kei mua i a koe	I'm standing here before you.	863
+pōtae	He pōtae tēnei.	This is a hat.	864
+whero	He whero te pōtae.	A red hat.	864
+pōtae	He whero te pōtae.	A red hat.	864
+tīkina	Tīkina ia hei roto.	Bring her in.	865
+roto	Tīkina ia hei roto.	Bring her in.	865
+hei	Tīkina ia hei roto.	Bring her in.	865
+tokorua	Tokorua ōku tuākana.	I have two older sisters.	869
+tuākana	Tokorua ōku tuākana.	I have two older sisters.	869
+ōku	Tokorua ōku tuākana.	I have two older sisters.	869
+tokorua	Tokorua āku tamāhine.	I have two daughters.	869
+āku	Tokorua āku tamāhine.	I have two daughters.	869
+tokorua	Tokorua āku tama.	I have two sons.	869
+tama	Tokorua āku tama.	I have two sons.	869
+āku	Tokorua āku tama.	I have two sons.	869
+pōtae	Kāore ia i te mau pōtae.	He doesn't have a hat on.	874
+mau	Kāore ia i te mau pōtae.	He doesn't have a hat on.	874
+tepe	I kai au i te miraka tepe.	I ate the yoghurt.	875
+miraka	I kai au i te miraka tepe.	I ate the yoghurt.	875
+tana	I roa tana oranga.	She lived a long life.	876
+oranga	I roa tana oranga.	She lived a long life.	876
+roa	I roa tana oranga.	She lived a long life.	876
+hiahiatia	He peita kikorangi e hiahiatia ana e au.	I need some blue paint.	877
+kikorangi	He peita kikorangi e hiahiatia ana e au.	I need some blue paint.	877
+peita	He peita kikorangi e hiahiatia ana e au.	I need some blue paint.	877
+tiakarete	Kāore e pai ki a au te tiakarete.	I don't like chocolate.	878
+hoko	E hia ngā tiakarete i hoko koe?	How much chocolate did you buy?	878
+hia	E hia ngā tiakarete i hoko koe?	How much chocolate did you buy?	878
+tiakarete	E hia ngā tiakarete i hoko koe?	How much chocolate did you buy?	878
+tomo	I tomo ia i te arapoka.	He entered the tunnel.	879
+arapoka	I tomo ia i te arapoka.	He entered the tunnel.	879
+arapoka	I haere ia i roto i te arapoka.	He went into the tunnel.	879
+roto	I haere ia i roto i te arapoka.	He went into the tunnel.	879
+āporo	I kai ahau i tērā āporo.	I ate that apple.	881
+tōu	Kua kore ahau i tōu kaiako.	I'm not your teacher anymore.	886
+kaiako	Kua kore ahau i tōu kaiako.	I'm not your teacher anymore.	886
+tama	I āwhinatia te tama e ahau.	The boy was helped by me.	888
+āwhinatia	I āwhinatia te tama e ahau.	The boy was helped by me.	888
+ēnei	He tino nui ēnei āporo.	These apples are very big.	890
+āporo	He tino nui ēnei āporo.	These apples are very big.	890
+ēnei	He pōtae ēnei.	These are hats.	890
+ināianei	Haere mai i a au ināianei.	Come with me now.	891
+kī	Kī atu ki a rāua he mea nui.	Please tell them it's important.	894
+rāua	Kī atu ki a rāua he mea nui.	Please tell them it's important.	894
+kia	Kia ora mō tō whakamōhio mai i a au.	Thanks for the heads-up.	896
+tō	Kia ora mō tō whakamōhio mai i a au.	Thanks for the heads-up.	896
+mō	Kia ora mō tō whakamōhio mai i a au.	Thanks for the heads-up.	896
+whakamōhio	Kia ora mō tō whakamōhio mai i a au.	Thanks for the heads-up.	896
+ora	Kia ora mō tō whakamōhio mai i a au.	Thanks for the heads-up.	896
+tāua	He aha te wā me whakamōhio atu tāua ki a ia?	When should we tell him?	896
+whakamōhio	He aha te wā me whakamōhio atu tāua ki a ia?	When should we tell him?	896
+wā	He aha te wā me whakamōhio atu tāua ki a ia?	When should we tell him?	896
+ngutu	Kei te aroha ahau i ōu ngutu	I love your lips.	907
+ōu	Kei te aroha ahau i ōu ngutu	I love your lips.	907
+āhua	He ātaahua i āhua ōu makawe.	Your hair looks beautiful.	907
+makawe	He ātaahua i āhua ōu makawe.	Your hair looks beautiful.	907
+ōu	He ātaahua i āhua ōu makawe.	Your hair looks beautiful.	907
+ātaahua	He ātaahua i āhua ōu makawe.	Your hair looks beautiful.	907
+wā	I hāmūmū mō tētahi wā.	There was silence for a moment.	909
+tētahi	I hāmūmū mō tētahi wā.	There was silence for a moment.	909
+riri	Kāore kau ahau i kite i tētahi tangata pērā rawa te riri i tōku oranga.	I've never seen anyone look so angry like that in my life.	909
+oranga	Kāore kau ahau i kite i tētahi tangata pērā rawa te riri i tōku oranga.	I've never seen anyone look so angry like that in my life.	909
+kite	Kāore kau ahau i kite i tētahi tangata pērā rawa te riri i tōku oranga.	I've never seen anyone look so angry like that in my life.	909
+kau	Kāore kau ahau i kite i tētahi tangata pērā rawa te riri i tōku oranga.	I've never seen anyone look so angry like that in my life.	909
+tētahi	Kāore kau ahau i kite i tētahi tangata pērā rawa te riri i tōku oranga.	I've never seen anyone look so angry like that in my life.	909
+tangata	Kāore kau ahau i kite i tētahi tangata pērā rawa te riri i tōku oranga.	I've never seen anyone look so angry like that in my life.	909
+rawa	Kāore kau ahau i kite i tētahi tangata pērā rawa te riri i tōku oranga.	I've never seen anyone look so angry like that in my life.	909
+konei	Kei hea tētahi whare kai pai i konei?	Where's a good restaurant around here?	909
+tētahi	Kei hea tētahi whare kai pai i konei?	Where's a good restaurant around here?	909
+hē	I mea ahau i tētahi mea hē?	Did I say something I shouldn't have?	909
+hoko	He aha kē tāu e hoko ana i tētahi whare pērā rawa te nui o te utu?	What are you doing buying a house that expensive?	909
+kē	He aha kē tāu e hoko ana i tētahi whare pērā rawa te nui o te utu?	What are you doing buying a house that expensive?	909
+rawa	He aha kē tāu e hoko ana i tētahi whare pērā rawa te nui o te utu?	What are you doing buying a house that expensive?	909
+wai	Ko wai te ingoa o tēnei rākau?	What is the name of that tree?	910
+ingoa	Ko wai te ingoa o tēnei rākau?	What is the name of that tree?	910
+rākau	Ko wai te ingoa o tēnei rākau?	What is the name of that tree?	910
+parāikete	E whitu ngā parāikete?	Are there seven blankets?	912
+whitu	E whitu ngā parāikete?	Are there seven blankets?	912
+ōu	E whitu ōu parāikete.	You have seven blankets.	912
+parāikete	E whitu ōu parāikete.	You have seven blankets.	912
+whitu	E whitu ōu parāikete.	You have seven blankets.	912
+mōkai	He kiore te mōkai a tāku tamāhine.	My daughter's pet is a rat.	913
+kiore	He kiore te mōkai a tāku tamāhine.	My daughter's pet is a rat.	913
+moe	I te moe hōhonu ia.	He was fast asleep.	914
+hōhonu	I te moe hōhonu ia.	He was fast asleep.	914
+ākene	Ākene pea kei te hē koe.	You are probably wrong.	915
+pea	Ākene pea kei te hē koe.	You are probably wrong.	915
+hē	Ākene pea kei te hē koe.	You are probably wrong.	915
+pūngāwerewere	He whakamataku te pūngāwerewere ki a au.	Spiders scare me.	916
+whakamataku	He whakamataku te pūngāwerewere ki a au.	Spiders scare me.	916
+tamariki	Tokowhā āku tamariki.	I have four children.	917
+āku	Tokowhā āku tamariki.	I have four children.	917
+tokowhā	Tokowhā āku tamariki.	I have four children.	917
+pīkau	I te pīkau rātou.	They were backpacking.	918
+pīkau	I te pīkau ia.	She was backpacking.	918
+pīkau	I wareware koe i tāku pīkau.	You forgot your backpack.	918
+wareware	I wareware koe i tāku pīkau.	You forgot your backpack.	918
+tīkina	Tīkina tāku pīkau.	Go grab your backpack.	918
+homai	Homai te pīkau.	Give me the backpack.	918
+tāhae	I tāhae ia tāku pene.	He stole my pen.	919
+pene	I tāhae ia tāku pene.	He stole my pen.	919
+ngenge	Kei te ngenge ahau!	I'm sleepy!	923
+kaiako	Ehara ahau i tōu kaiako.	I'm not your teacher.	925
+tōu	Ehara ahau i tōu kaiako.	I'm not your teacher.	925
+ehara	Ehara ahau i tōu kaiako.	I'm not your teacher.	925
+ehara	Ehara ahau i te rata.	I'm not a doctor.	925
+ehara	Ehara tēnei i te pōtae.	This is not a hat.	925
+kaua	Kaua e katia te kūaha.	Don't close the door.	947
+katia	Kaua e katia te kūaha.	Don't close the door.	947
+kūaha	Kaua e katia te kūaha.	Don't close the door.	947
+tamariki	Tokotoru āu tamariki?	Have you got three children?	958
+āu	Tokotoru āu tamariki?	Have you got three children?	958
+tokotoru	Tokotoru āu tamariki?	Have you got three children?	958
+auahi	I mare ia i te auahi.	She coughed from smoking.	959
+mare	I mare ia i te auahi.	She coughed from smoking.	959
+pukapuka	I hokona e au te pukapuka.	I bought the book.	960
+hokona	I hokona e au te pukapuka.	I bought the book.	960
+uta	I te haere atu te kaipuke ki uta.	The ship made for the shore.	961
+kaipuke	I te haere atu te kaipuke ki uta.	The ship made for the shore.	961
+āpōpō	Kei te wātea koe āpōpō?	Are you free tomorrow?	19999
+kaua	Kaua e wareware ki te tīketi.	Don't forget the ticket.	19999
+wareware	Kaua e wareware ki te tīketi.	Don't forget the ticket.	19999
+āporo	He āporo māku.	I would like an apple.	19999
+tāne	He tāne mārena ahau.	I am a married man.	19999
+ā	Tokohia ā koutou ākonga?	How many students have you?	19999
+tokohia	Tokohia ā koutou ākonga?	How many students have you?	19999
+koutou	Tokohia ā koutou ākonga?	How many students have you?	19999
+marae	Kotahi rau ngā marae o tēnei rohe.	There are one hundred marae in this area.	19999
+kotahi	Kotahi rau ngā marae o tēnei rohe.	There are one hundred marae in this area.	19999
+rau	Kotahi rau ngā marae o tēnei rohe.	There are one hundred marae in this area.	19999
+tātou	E whā tekau mā whā ō tātou manuhiri.	We have forty-four guests.	19999
+whā	E whā tekau mā whā ō tātou manuhiri.	We have forty-four guests.	19999
+ō	E whā tekau mā whā ō tātou manuhiri.	We have forty-four guests.	19999
+manuhiri	E whā tekau mā whā ō tātou manuhiri.	We have forty-four guests.	19999
+waru	Tekau mā waru rātou.	There are eighteen of them.	19999
+kotahi	Kotahi tōku tungāne.	I have one brother.	19999
+kuihi	Ka kite mātou i tāna kāhui kuihi.	We saw his flock of geese.	19999
+kite	Ka kite mātou i tāna kāhui kuihi.	We saw his flock of geese.	19999
+tāna	Ka kite mātou i tāna kāhui kuihi.	We saw his flock of geese.	19999
+ēnei	Na wai ēnei kūkū?	Whose mussels are these?	19999
+moenga	Whakapaitia tō moenga.	Make your bed.	19999
+tō	Whakapaitia tō moenga.	Make your bed.	19999
+kaua	Kaua e whakararuraru i a au!	Don't disturb me!	19999
+mahia	I mahia e māua/mātou he panikeke mō te parakuihi.	We made pancakes for breakfast.	19999
+parakuihi	I mahia e māua/mātou he panikeke mō te parakuihi.	We made pancakes for breakfast.	19999
+tēnā	Ka tuarihia tēnā e koe?	Are you going to share that?	19999
+pākehā	I haere ia ki Rānana ako ai i te reo Pākehā.	He went to London to learn English.	19999
+reo	I haere ia ki Rānana ako ai i te reo Pākehā.	He went to London to learn English.	19999
+ako	I haere ia ki Rānana ako ai i te reo Pākehā.	He went to London to learn English.	19999
+oranga	He rerekē ngā āhuatanga o te oranga.	Life is strange.	19999
+rerekē	He rerekē ngā āhuatanga o te oranga.	Life is strange.	19999
+pōuri	Pōuri atu, kei pūhia koe e au.	Out of my way or I shoot you.	19999
+tika	E tika ana kia whakatutukia tēnei mahi ā te āpōpō.	The work must be completed by tomorrow.	19999
+ā	E tika ana kia whakatutukia tēnei mahi ā te āpōpō.	The work must be completed by tomorrow.	19999
+āpōpō	E tika ana kia whakatutukia tēnei mahi ā te āpōpō.	The work must be completed by tomorrow.	19999
+kōrero	Kia tūturu tō kōrero.	Speak plain truth.	19999
+hia	E hia anō ngā whare ā Tom?	How many other houses does Tom own?	19999
+ā	E hia anō ngā whare ā Tom?	How many other houses does Tom own?	19999
+kiri	He kiri māia ahau ia rā, ia rā.	I am an adventurer each day.	19999
+noho	Tuhia tana wāhi noho.	Write down his address.	19999
+tuhia	Tuhia tana wāhi noho.	Write down his address.	19999
+tana	Tuhia tana wāhi noho.	Write down his address.	19999
 nama	E 3,000 yen e nama ana au ki a koe.	I owe you 3,000 yen.	19999
+runga	He mea tāhae nā rāua/rātou tana kopa i runga i te tereina.	They stole his wallet on the train.	19999
+tāhae	He mea tāhae nā rāua/rātou tana kopa i runga i te tereina.	They stole his wallet on the train.	19999
+kopa	He mea tāhae nā rāua/rātou tana kopa i runga i te tereina.	They stole his wallet on the train.	19999
+nā	He mea tāhae nā rāua/rātou tana kopa i runga i te tereina.	They stole his wallet on the train.	19999
+rāua	He mea tāhae nā rāua/rātou tana kopa i runga i te tereina.	They stole his wallet on the train.	19999
+mate	Kotahi rau e rima tekau hoki ngā tāngata i mate i te rū whenua.	This earthquake took a hundred and fifty lives, as well.	19999
+tāngata	Kotahi rau e rima tekau hoki ngā tāngata i mate i te rū whenua.	This earthquake took a hundred and fifty lives, as well.	19999
+whenua	Kotahi rau e rima tekau hoki ngā tāngata i mate i te rū whenua.	This earthquake took a hundred and fifty lives, as well.	19999
+rima	Kotahi rau e rima tekau hoki ngā tāngata i mate i te rū whenua.	This earthquake took a hundred and fifty lives, as well.	19999
+rau	Kotahi rau e rima tekau hoki ngā tāngata i mate i te rū whenua.	This earthquake took a hundred and fifty lives, as well.	19999
+āpōpō	Maharatia ki te kite i a ia āpōpō.	Remember to see him tomorrow.	19999
+kite	Maharatia ki te kite i a ia āpōpō.	Remember to see him tomorrow.	19999
+ināianei	Kāore he kōwhiringa kē atu. Me mahi au i tēnei ināianei.	I don't have a choice. I have to do this now.	19999
+kē	Kāore he kōwhiringa kē atu. Me mahi au i tēnei ināianei.	I don't have a choice. I have to do this now.	19999
+whaea	Kāore au i te hiahia kia āwangawanga tōku whaea.	I don't want my mother to worry.	19999
+whakamōhio	Ka mahue pea taku whakamōhio atu ki a ia.	Maybe I should've told her.	19999
+taku	Ka mahue pea taku whakamōhio atu ki a ia.	Maybe I should've told her.	19999
+pea	Ka mahue pea taku whakamōhio atu ki a ia.	Maybe I should've told her.	19999
+tonu	He uaua tonu te hanga i tētahi wati.	It is rather difficult to assemble a watch.	19999
+uaua	He uaua tonu te hanga i tētahi wati.	It is rather difficult to assemble a watch.	19999
+hanga	He uaua tonu te hanga i tētahi wati.	It is rather difficult to assemble a watch.	19999
+tao	I okaina ia e ia ki tētahi tao kōura.	She stabbed him with a golden trident.	19999
+ngaro	I te ngaro au mō te rima mēneti.	I was away for five minutes.	19999
+rima	I te ngaro au mō te rima mēneti.	I was away for five minutes.	19999
+pēhea	I pēhea rāua i whakamatea ai?	How were they killed?	19999
+rāua	I pēhea rāua i whakamatea ai?	How were they killed?	19999
+katoa	Kātahi anō a ia ka kai. E kai ana au i ngā wā katoa.	He just ate. I'm always eating.	19999
+ngaro	I ngaro i a Tom ngā mea katoa.	Tom lost everything.	19999
+hoa	He tokomaha ōku hoa hei āwhina mai i ahau.	I have a lot of friends to help me.	19999
+hei	He tokomaha ōku hoa hei āwhina mai i ahau.	I have a lot of friends to help me.	19999
+ōku	He tokomaha ōku hoa hei āwhina mai i ahau.	I have a lot of friends to help me.	19999
+āwhina	He tokomaha ōku hoa hei āwhina mai i ahau.	I have a lot of friends to help me.	19999
+whakamahi	Whakamahi ai au i te Firefox.	I use Firefox.	19999
+ētahi	I ētahi wā, he pai ki a au te eke hōiho.	I like to ride a horse now and then.	19999
+eke	I ētahi wā, he pai ki a au te eke hōiho.	I like to ride a horse now and then.	19999
+ara	Ko te ara o te whaiāipo tēnei.	This is the lover's lane.	19999
+hoko	Kāore ahau i hoko i ērā mea.	I didn't buy them.	19999
+tae	Ka tata ahau te haere, ka tae mai koe.	I was about to leave when you came in.	19999
+rongo	I rongo kōrero koe mō te ahi o nanahi?	Did you hear about yesterday's fire?	19999
+ahi	I rongo kōrero koe mō te ahi o nanahi?	Did you hear about yesterday's fire?	19999
+noho	He pai kē ki a au te noho ki te kāinga i te haere ki te hī ika.	I would rather stay at home than go fishing.	19999
+ika	He pai kē ki a au te noho ki te kāinga i te haere ki te hī ika.	I would rather stay at home than go fishing.	19999
+kāinga	He pai kē ki a au te noho ki te kāinga i te haere ki te hī ika.	I would rather stay at home than go fishing.	19999
+tuhia	Kua tuhia e au tana nama waea.	I have written down his phone number.	19999
+puta	I te noho noa a Tom i reira, kāore he aha i puta i tōna waha.	Tom just sat there and didn't say anything.	19999
+tōna	I te noho noa a Tom i reira, kāore he aha i puta i tōna waha.	Tom just sat there and didn't say anything.	19999
+waha	I te noho noa a Tom i reira, kāore he aha i puta i tōna waha.	Tom just sat there and didn't say anything.	19999
+reira	I te noho noa a Tom i reira, kāore he aha i puta i tōna waha.	Tom just sat there and didn't say anything.	19999
+rawe	He tino rawe a Tom.	Tom is fabulous.	19999
+ō	He whakaaro tino pai ō Tom.	Tom has some very good ideas.	19999
+whakaaro	He whakaaro tino pai ō Tom.	Tom has some very good ideas.	19999
+ngaro	I uru atu ia ki te ngahere ki te kimi i tana tamariki e ngaro ana.	She went into the woods in search of her lost child.	19999
+uru	I uru atu ia ki te ngahere ki te kimi i tana tamariki e ngaro ana.	She went into the woods in search of her lost child.	19999
+ngahere	I uru atu ia ki te ngahere ki te kimi i tana tamariki e ngaro ana.	She went into the woods in search of her lost child.	19999
+taea	Ka whakamaioha ahau ki te taea e koe te mahi i tērā mahi.	I'd appreciate it if you could do that.	19999
+paingia	E paingia ana a Bob ki te kura.	Bob is popular at school.	19999
+kura	E paingia ana a Bob ki te kura.	Bob is popular at school.	19999
+rīhi	Ehara nā Tom ngā rīhi i horoi.	Tom didn't do the dishes.	19999
+horoi	Ehara nā Tom ngā rīhi i horoi.	Tom didn't do the dishes.	19999
+mua	I kitea e koe te whitinga o te rā i mua nei? I tino ātaahua.	Did you see the sunrise earlier? It was really beautiful.	19999
+ātaahua	I kitea e koe te whitinga o te rā i mua nei? I tino ātaahua.	Did you see the sunrise earlier? It was really beautiful.	19999
+tuakana	I te tuatahi, i pōhēhē ahau ko koe tō tuakana.	At first, I mistook you for your brother.	19999
+tuatahi	I te tuatahi, i pōhēhē ahau ko koe tō tuakana.	At first, I mistook you for your brother.	19999
+teina	I te tuatahi, i pōhēhē ahau ko koe tō teina.	At first, I mistook you for your brother.	19999
+tuatahi	I te tuatahi, i pōhēhē ahau ko koe tō teina.	At first, I mistook you for your brother.	19999
+toru	Kua toru ngā rā a Tom e ngaro ana i te kura.	Tom has been absent from school for three days.	19999
+roa	Kua roa ahau e tatari ana ki a Tom.	I've been waiting for Tom for a long time.	19999
+tatari	Kua roa ahau e tatari ana ki a Tom.	I've been waiting for Tom for a long time.	19999
+tātou	Tuatahi, kia kōrero tātou mō ngā mahi i mahia e Tom.	First, let's talk about what Tom did.	19999
+tuatahi	Tuatahi, kia kōrero tātou mō ngā mahi i mahia e Tom.	First, let's talk about what Tom did.	19999
+mahia	Tuatahi, kia kōrero tātou mō ngā mahi i mahia e Tom.	First, let's talk about what Tom did.	19999
+roa	I tatari ahau ki a Tom mō te wā roa.	I waited for Tom for a long time.	19999
+tatari	I tatari ahau ki a Tom mō te wā roa.	I waited for Tom for a long time.	19999
+mahia	I mahia e Tom ngā mea katoa i taea e ia te mahi.	Tom did everything he could.	19999
+hoa	Ko koe te hoa kotahi o Tom i mua.	You were Tom's only friend.	19999
+mua	Ko koe te hoa kotahi o Tom i mua.	You were Tom's only friend.	19999
+ora	Ka roa te wā kia ora rā anō ahau i tēnei rewharewha.	It'll take me a long time to get over this cold.	19999
+hua	E hua ana ahau me aha ahau ki te kimi i tētahi mahi.	I wonder what I need to do to find a job.	19999
+māu	"""He kaputī anō māu?"" ""Kāore."""	"""Would you like some more tea?"" ""No, thanks."""	19999
+waiata	E whakahāwea ana tēnei waiata i te wahine.	This song is degrading to women.	19999
+wahine	E whakahāwea ana tēnei waiata i te wahine.	This song is degrading to women.	19999
+taha	Ka mahue taku noho i reira, i tō taha.	I should've been there with you.	19999
+reira	Ka mahue taku noho i reira, i tō taha.	I should've been there with you.	19999
+pono	Kia pono taku kōrero, he tawhito rawa tō āhua whakaaro.	Frankly speaking, your way of thinking is out of date.	19999
+ngenge	Kāore koe i te ngenge, nē?	You're not sleepy, are you?	19999
+konei	Nō reira kāore ahau i konei.	I wasn't here then.	19999
+reira	Nō reira kāore ahau i konei.	I wasn't here then.	19999
+nau	Nau mai ki Tatoeba!	Welcome to Tatoeba!	19999
+tāhae	I ngana ngā makimaki ki te tāhae i ā mātou kai.	The monkeys tried to steal our food.	19999
+makimaki	I ngana ngā makimaki ki te tāhae i ā mātou kai.	The monkeys tried to steal our food.	19999
+ingoa	Ko Emiri tōku ingoa.	My name is Emily.	19999
+whānau	Āhea tō rā whānau?	When is your birthday?	19999
+katia	Katia tā kōrua waha	Shut up, both of you.	19999
+waha	Katia tā kōrua waha	Shut up, both of you.	19999
+kōrua	Katia tā kōrua waha	Shut up, both of you.	19999
+ētahi	Kei te hiahia a Yanni ētahi wā e mahi ana.	Yanni needs some time to do this work.	19999
+mate	He mate kē a Tom pea.	Tom may already be dead.	19999
+pea	He mate kē a Tom pea.	Tom may already be dead.	19999
+toro	I toro a Tom i tētahi hoa.	Tom visited a friend.	19999
+hoa	I toro a Tom i tētahi hoa.	Tom visited a friend.	19999
+kari	I tīmata a Yanni ki kari.	Yanni began to dig.	19999
+engari	He pai te wāhi engari kāore au i hiahia ki noho ki kōnei.	This is a nice place, but I don't want to live here.	19999
+tāna	Kei te whakamomori au i tāna āwhina.	I desperately need his help.	19999
+āwhina	Kei te whakamomori au i tāna āwhina.	I desperately need his help.	19999
+whakaari	I mārena ia ki tētahi kaiako o whakaari.	She was married to a drama teacher.	19999
+kaiako	I mārena ia ki tētahi kaiako o whakaari.	She was married to a drama teacher.	19999
+tikanga	Tōna tikanga kia tūtaki ia ki a ia ki ngā kiriata.	He was supposed to meet her at the movies.	19999
+tūtaki	Tōna tikanga kia tūtaki ia ki a ia ki ngā kiriata.	He was supposed to meet her at the movies.	19999
+tōna	Tōna tikanga kia tūtaki ia ki a ia ki ngā kiriata.	He was supposed to meet her at the movies.	19999
+tiakarete	E hia ngā tiakarete i kai a Tom?	How much chocolate did Tom eat?	19999
+arapoka	I tanuku te arapoka.	The tunnel collapsed.	19999
+ōku	Paraihetia ōku makawe.	Brush your hair.	19999
+āna	Kei te mōhio i āna rārangi	He knows his lines.	19999
+riri	E hia ngā whakawai riri nāu?	How many push-ups did you do?	19999
+ata	Ka aha a Jane ā te ata ?	What is Jane going to do tomorrow morning?	19999
+pukapuka	He tokomaha ngā tāngata i te whare pukapuka i ngā wā katoa.	There are always many people in the library.	19999
+karu	He pai tōku karu inaianei.	My eye is fine now.	19999
+waewae	He pai tōku waewae inaianei.	My leg is fine now.	19999
+te	Kei te kai koe.	You're eating.	76
+ki	Kei te aroha au ki a koe.	I love you.	92
+kei	Kei te aroha au ki a koe.	I love you.	92
+e	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	151
+i	I paingia e koe taku whakaahua?	Did you like my picture?	389
+ia	He tauira ia.	She's a student.	399
+ana	E hiahia noa ana au ki te tuku mihi atu ki a koe.	I just want to thank you.	772
+i	Kei te tāhoe au i roto ki te moana.	I'm swimming in the ocean.	19999
+rua	E rua aku ngeru.	I have two cats.	19999
+kai	I kai au i te miraka tepe.	I ate the yoghurt.	19999
+utu	E rua tāra te utu mō te pukapuka.	The price of the book was $5.	19999
+o	I te wā o te haerenga, i whakaaro au ki a koe.	During the entire trip my thoughts were of you.	19999
+kore	E kore e taea e au te tiaki i a ia.	I can't protect her.	19999
 me	Me haere au ki te whare paku.	I have to use the restroom.	19999
 haere	Me haere au ki te whare paku.	I have to use the restroom.	19999
-whare	Me haere au ki te whare paku.	I have to use the restroom.	19999
 mai	Haere mai ki Tatoeba!	Welcome to Tatoeba!	19999
-rau	Kotahi rau e rima tekau hoki ngā tāngata i mate i te rū whenua.	This earthquake took a hundred and fifty lives, as well.	19999
-rima	Kotahi rau e rima tekau hoki ngā tāngata i mate i te rū whenua.	This earthquake took a hundred and fifty lives, as well.	19999
-whenua	Kotahi rau e rima tekau hoki ngā tāngata i mate i te rū whenua.	This earthquake took a hundred and fifty lives, as well.	19999
 tekau	Kotahi rau e rima tekau hoki ngā tāngata i mate i te rū whenua.	This earthquake took a hundred and fifty lives, as well.	19999
 hoki	Kotahi rau e rima tekau hoki ngā tāngata i mate i te rū whenua.	This earthquake took a hundred and fifty lives, as well.	19999
-mate	Kotahi rau e rima tekau hoki ngā tāngata i mate i te rū whenua.	This earthquake took a hundred and fifty lives, as well.	19999
 kotahi	Kotahi rau e rima tekau hoki ngā tāngata i mate i te rū whenua.	This earthquake took a hundred and fifty lives, as well.	19999
 o	He koi ngā karu o te kārearea.	The falcon has keen eyes.	19999
-karu	He koi ngā karu o te kārearea.	The falcon has keen eyes.	19999
-koi	He koi ngā karu o te kārearea.	The falcon has keen eyes.	19999
-pea	Ākene pea kei te hē koe.	You are probably wrong.	19999
-nei	Te āhua nei i karo ia i te tūtaki mai ki a au.	I felt as if he shrank from meeting me.	19999
 mai	Te āhua nei i karo ia i te tūtaki mai ki a au.	I felt as if he shrank from meeting me.	19999
-karo	Te āhua nei i karo ia i te tūtaki mai ki a au.	I felt as if he shrank from meeting me.	19999
 aha	He aha tō tino pepeha?	What's your favorite saying?	19999
-pepeha	He aha tō tino pepeha?	What's your favorite saying?	19999
-tino	He aha tō tino pepeha?	What's your favorite saying?	19999
-hoki	Te haunga hoki o tērā!	That smells bad!	19999
-haunga	Te haunga hoki o tērā!	That smells bad!	19999
-paingia	Kāore e paingia ana e au te kai parai.	I don't like fried food.	19999
-parai	Kāore e paingia ana e au te kai parai.	I don't like fried food.	19999
-katoa	E pānui ana ngā tāngata katoa.	Everyone's reading.	19999
-taha	Kua tino rerekē te papa kāinga i ngā tau tekau kua taha atu.	That village has changed a lot from how it was 10 years ago.	19999
 atu	Kua tino rerekē te papa kāinga i ngā tau tekau kua taha atu.	That village has changed a lot from how it was 10 years ago.	19999
-papa	Kua tino rerekē te papa kāinga i ngā tau tekau kua taha atu.	That village has changed a lot from how it was 10 years ago.	19999
-tekau	Kua tino rerekē te papa kāinga i ngā tau tekau kua taha atu.	That village has changed a lot from how it was 10 years ago.	19999
-tau	Kua tino rerekē te papa kāinga i ngā tau tekau kua taha atu.	That village has changed a lot from how it was 10 years ago.	19999
 kua	Kua tino rerekē te papa kāinga i ngā tau tekau kua taha atu.	That village has changed a lot from how it was 10 years ago.	19999
-huka	Ko te rere huka taku tino tākaro.	Skiing is my favorite sport.	19999
-rere	Ko te rere huka taku tino tākaro.	Skiing is my favorite sport.	19999
-ko	Ko te rere huka taku tino tākaro.	Skiing is my favorite sport.	19999
-ngaro	I ngaro i a Tom ngā mea katoa.	Tom lost everything.	19999
 katoa	I ngaro i a Tom ngā mea katoa.	Tom lost everything.	19999
 mea	I ngaro i a Tom ngā mea katoa.	Tom lost everything.	19999
-rata	He aha i kore ai koe e rata mai ki a mātou?	What didn't you like about us?	19999
-ai	He aha i kore ai koe e rata mai ki a mātou?	What didn't you like about us?	19999
-rata	He aha i kore ai koe e rata mai ki a māua?	What didn't you like about us?	19999
-whakamahi	Whakamahi ai au i te Firefox.	I use Firefox.	19999
-taha	I te taha noa atu ahau.	I was just passing by.	19999
-atu	I te taha noa atu ahau.	I was just passing by.	19999
-noa	I te taha noa atu ahau.	I was just passing by.	19999
-kaupapa	He kaupapa pai tēnā.	That's a good plan.	19999
-pukapuka	I hokona e au te pukapuka.	I bought the book.	19999
-ka	Ka hoatu au ki a koe he tauira.	I'll give you some examples.	19999
-tauira	Ka hoatu au ki a koe he tauira.	I'll give you some examples.	19999
-nama	Me pēhea koe e utu ai i āu nama?	How will you pay your debts?	19999
-me	Me pēhea koe e utu ai i āu nama?	How will you pay your debts?	19999
-uaua	Kāore i uaua.	It wasn't difficult.	19999
 aroha	Aroha mai, engari me haere koe.	I'm sorry, but you've got to go.	19999
-rawe	He tino rawe a Tom.	Tom is fabulous.	19999
-whakamataku	He whakamataku te pūngāwerewere ki a au.	Spiders scare me.	19999
-whakaaro	He whakaaro tino pai ō Tom.	Tom has some very good ideas.	19999
-hoki	E hiahia ana ahau ki te hoki atu.	I want to go back.	19999
-hiahia	E hiahia ana ahau ki te hoki atu.	I want to go back.	19999
-katoa	E rata ana ngā tāngata katoa o konei ki a koe.	Everyone here likes you.	19999
-rata	E rata ana ngā tāngata katoa o konei ki a koe.	Everyone here likes you.	19999
-kura	E paingia ana a Bob ki te kura.	Bob is popular at school.	19999
-paingia	E paingia ana a Bob ki te kura.	Bob is popular at school.	19999
-kitea	I kitea ia e au e mahi ana i tērā mahi.	I saw him do it.	19999
 mahi	I kitea ia e au e mahi ana i tērā mahi.	I saw him do it.	19999
-uta	I te haere atu te kaipuke ki uta.	The ship made for the shore.	19999
 ngaro	Kua toru ngā rā a Tom e ngaro ana i te kura.	Tom has been absent from school for three days.	19999
-toru	Kua toru ngā rā a Tom e ngaro ana i te kura.	Tom has been absent from school for three days.	19999
 kura	Kua toru ngā rā a Tom e ngaro ana i te kura.	Tom has been absent from school for three days.	19999
 rā	Kua toru ngā rā a Tom e ngaro ana i te kura.	Tom has been absent from school for three days.	19999
-hoa	Ko koe te hoa kotahi o Tom i mua.	You were Tom's only friend.	19999
 ko	Ko koe te hoa kotahi o Tom i mua.	You were Tom's only friend.	19999
-mua	Ko koe te hoa kotahi o Tom i mua.	You were Tom's only friend.	19999
 kotahi	Ko koe te hoa kotahi o Tom i mua.	You were Tom's only friend.	19999
-hapa	I kai hapa ahau i a ia.	I had dinner with him.	19999
-ka	Ka taea e koe te whakamahi i tāku.	You can use mine.	19999
-whakamahi	Ka taea e koe te whakamahi i tāku.	You can use mine.	19999
-oma	E 15 ōna tau, i oma atu ia i te kāinga.	When he was 15, he ran away from home.	19999
-tau	E 15 ōna tau, i oma atu ia i te kāinga.	When he was 15, he ran away from home.	19999
-mea	Kī atu ki a rātou he mea nui.	Please tell them it's important.	19999
-nui	Kī atu ki a rātou he mea nui.	Please tell them it's important.	19999
-hiahiatia	He peita kikorangi e hiahiatia ana e au.	I need some blue paint.	19999
-kikorangi	He peita kikorangi e hiahiatia ana e au.	I need some blue paint.	19999
-ono	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	19999
-rima	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	19999
-toru	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	19999
-iwa	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	19999
-waru	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	19999
-whitu	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	19999
-tahi	Tahi, rua, toru, whā, rima, ono, whitu, waru, iwa, tekau.	One, two, three, four, five, six, seven, eight, nine, ten.	19999
-tamariki	Tokowhā āku tamariki.	I have four children.	19999
-aroha	E aroha ana ahau ki tāku wahine.	I love my wife.	19999
-wahine	E aroha ana ahau ki tāku wahine.	I love my wife.	19999
-ao	Kei te ātaahua te ao.	The earth is beautiful.	19999
-tama	Tokorua āku tama.	I have two sons.	19999
-ako	He aha koe i ako i te kura i tēnei rā?	What did you learn at school today?	19999
-rā	He aha koe i ako i te kura i tēnei rā?	What did you learn at school today?	19999
-puku	Kei te mamae tōku puku.	My stomach hurts.	19999
-mamae	Kei te mamae tōku puku.	My stomach hurts.	19999
-whero	He whero te pōtae.	A red hat.	19999
-runga	Kei runga noa atu rātou.	They are awesome.	19999
-noa	Kei runga noa atu rātou.	They are awesome.	19999
-hia	E hia ngā tiakarete i hoko koe?	How much chocolate did you buy?	19999
-hoko	E hia ngā tiakarete i hoko koe?	How much chocolate did you buy?	19999
-auau	I auau ngā kurī.	The dogs barked.	19999
-horoia	Horoia te kurī.	Wash the dog.	19999
-wareware	I wareware koe i tāku pīkau.	You forgot your backpack.	19999
-tomo	I tomo ia i te arapoka.	He entered the tunnel.	19999
-roto	I haere ia i roto i te arapoka.	He went into the tunnel.	19999
 makawe	He makawe weriweri	What ugly hair.	19999
-makawe	He makawe kikorangi ōna.	Her hair is blue.	19999
-kikorangi	He makawe kikorangi ōna.	Her hair is blue.	19999
-tapahi	I tapahi ōna makawe.	She cut her hair.	19999
-makawe	I tapahi ōna makawe.	She cut her hair.	19999
-pene	I tāhae ia tāku pene.	He stole my pen.	19999
 nei	He iti tāu māra nei !	Your garden really is little.	19999
-mua	E tū ana au kei mua i a koe	I'm standing here before you.	19999
-roto	Tīkina ia hei roto.	Bring her in.	19999
-hei	Tīkina ia hei roto.	Bring her in.	19999
-noho	Kāore koe i hiahia ki noho ki a au?	Don't you want to sit with me?	19999
 ka	Ka aha a Jane ā te ata ?	What is Jane going to do tomorrow morning?	19999
-ata	Ka aha a Jane ā te ata ?	What is Jane going to do tomorrow morning?	19999

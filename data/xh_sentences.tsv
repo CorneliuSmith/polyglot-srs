@@ -8,31 +8,48 @@ baleka	Uyabaleka.	He is running.	653
 cima	Cima isibane.	Turn off the light.	771
 isibane	Cima isibane.	Turn off the light.	771
 ndiyakuthanda	Ndiyakuthanda!	I love you.	801
-ifestile	Uxolo! Ndingavula ifestile na?	Excuse me! May I open the window?	19999
+enkosi	Enkosi!	Thank you!	1218
+uxolo	Uxolo, ngubani ixesha?	Excuse me, what time is it?	1222
+ixesha	Uxolo, ngubani ixesha?	Excuse me, what time is it?	1222
+ngubani	Uxolo, ngubani ixesha?	Excuse me, what time is it?	1222
+ixesha	Ngubani ixesha?	What is the time?	1222
+ngubani	Ngubani ixesha?	What is the time?	1222
+nceda	Nceda!	Help!	1230
 uxolo	Uxolo! Ndingavula ifestile na?	Excuse me! May I open the window?	19999
 na	Uxolo! Ndingavula ifestile na?	Excuse me! May I open the window?	19999
+ifestile	Uxolo! Ndingavula ifestile na?	Excuse me! May I open the window?	19999
+igama	Ngubani igama lakho?	What is your name?	19999
+ngubani	Ngubani igama lakho?	What is your name?	19999
+ngoku	Kufuneka ndiye ngoku.	I must go now.	19999
+kufuneka	Kufuneka ndiye ngoku.	I must go now.	19999
 vuya	Ndiyavuya ukukwazi.	I'm pleased to meet you.	19999
 umsebenzi	Ndifuna umsebenzi.	I'm looking for work.	19999
-namhlanje	Uziva njani namhlanje?	How do you feel today?	19999
 njani	Uziva njani namhlanje?	How do you feel today?	19999
-uxolo	Uxolo, ngubani ixesha?	Excuse me, what time is it?	19999
-ixesha	Uxolo, ngubani ixesha?	Excuse me, what time is it?	19999
+namhlanje	Uziva njani namhlanje?	How do you feel today?	19999
+kufuneka	Kufuneka uhambe.	You must leave.	19999
+ixesha	"""Ngubani ixesha?"" ""Ngu 10.30."""	"""What time is it?"" ""It is ten-thirty."""	19999
+ngoku	"""Ngubani ixesha ngoku?"" ""Ngu 10."""	"""What time is it now?"" ""It's ten o'clock."""	19999
+ifestile	Nceda uvale ifestile.	Please close the window.	19999
+nceda	Nceda uvale ifestile.	Please close the window.	19999
 ifestile	Khawuvale ifestile.	Please close the window.	19999
-ixesha	Ixesha liyabaleka.	Time flies.	19999
 incwadi	Ndithatha incwadi.	I'm taking a book.	19999
 abantwana	Abantwana balele.	The kids are asleep.	19999
 umsebenzi	Ukhangela umsebenzi.	He is looking for a job.	19999
 umlomo	Vula umlomo wakho!	Open your mouth!	19999
 vula	Vula umlomo wakho!	Open your mouth!	19999
-ixesha	Ngubani ixesha?	What is the time?	19999
 imvula	Imvula iyekile.	The rain has stopped.	19999
+ndicela	Ndicela enye ikofu.	More coffee, please.	19999
+ikofu	Ndicela enye ikofu.	More coffee, please.	19999
 lo	Ayingomqholo lo.	This is not a sentence.	19999
 ukuthetha	Andifuni ukuthetha.	I don't want to talk.	19999
 hayi	Hayi, andifuni.	No, I don't want to.	19999
-ngoku	Uphi ngoku?	Where is it now?	19999
 imali	Ndifuna imali	I want money.	19999
 hlala	Hlala ekhaya.	Stay home.	19999
 ngomso	Sobonana ngomso.	See you tomorrow.	19999
+kufuneka	Kufuneka ndihambe.	I have to go.	19999
+khona	Masidibane khona.	Let's meet there.	19999
+izihlangu	Abaya bafana bathengisa izihlangu.	Those guys over there sell shoes.	19999
 abaya	Abaya bafana bathengisa izihlangu.	Those guys over there sell shoes.	19999
 bafana	Abaya bafana bathengisa izihlangu.	Those guys over there sell shoes.	19999
-izihlangu	Abaya bafana bathengisa izihlangu.	Those guys over there sell shoes.	19999
+ixesha	Ixesha liyabaleka.	Time flies.	19999
+ngoku	Uphi ngoku?	Where is it now?	19999
