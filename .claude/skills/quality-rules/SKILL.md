@@ -85,10 +85,27 @@ rate, say so — that result matters more than the phase closing quietly.
 
 ## Sources & spend
 
-11. **Facts yes, sentences regenerated** — paradigms/vocab from licensed
+11. **Check the PIPELINE before concluding a resource does not exist.** `la`,
+    `id`, `tl`, `he` and `fa` were each queued for authoring "from nothing"
+    while Tatoeba had an export for all five — they were simply missing from
+    `TATOEBA_ISO3`. Five courses, one dict. Before authoring a corpus, curl the
+    source and read the language map. (26 Aug 2026)
+12. **A rebuild is not a replacement — merge.** `build_sentences` overwrote a
+    committed bank with a smaller one twice in one day, destroying 393 authored
+    rows the second time. Committed files carry hand-added content a generator
+    cannot reproduce, so a rebuild that SHRINKS a file is a bug even when every
+    row it writes is correct. Rebuild, then union with what was there.
+13. **A layer with no WRITE PATH cannot ship, however well authored.**
+    `load_example_sentences` silently dropped `transliteration` and `gloss`, so
+    `ko`'s TSV carried romanisation production never saw and the interlinear
+    gloss read 0% in production for all 27. Before filling a layer, follow it
+    end to end: file → loader → column → renderer. Same class as the collision
+    guard shipping with `data/*` gitignored, which silently graded every fold
+    as a pass.
+14. **Facts yes, sentences regenerated** — paradigms/vocab from licensed
    courses may inform; verbatim sentences may not ship.
-12. **Never the API key.** Maker–checker runs in-session (Workflow tool).
-13. **Fixes land in committed files** (`gloss_overrides.tsv`, TSVs, JSON) —
+15. **Never the API key.** Maker–checker runs in-session (Workflow tool).
+16. **Fixes land in committed files** (`gloss_overrides.tsv`, TSVs, JSON) —
     a DB-only repair is undone by the next re-seed. Same logic one level up:
     a TSV-only deletion is undone by the next regeneration — durable
     deletions go in `data/vocab_exclusions.tsv` (typo-mass rows like `citta`
@@ -96,30 +113,30 @@ rate, say so — that result matters more than the phase closing quietly.
 
 ## Verification
 
-14. **Verify agent output mechanically before writing it back**: structural
+17. **Verify agent output mechanically before writing it back**: structural
     validators, spot-checks against known ground truth, and assembly by stable
     key, never by index (a rank drift once nearly filed `luna`'s gloss under
     `stella`). After writing a TSV, eyeball it: text containing `"` gets
     csv-escaped into `""..""` noise — reword the text instead.
-15. **Re-measure any agent-reported number before acting on it** — two of five
+18. **Re-measure any agent-reported number before acting on it** — two of five
     sampled claim-audit figures did not reproduce.
-16. **State verification honestly**: "275 of 557 checker-verified, rest
+19. **State verification honestly**: "275 of 557 checker-verified, rest
     maker-only" — never round up to "verified".
-17. **Never freeze a count the audit computes** — cite the rule name; the tool
+20. **Never freeze a count the audit computes** — cite the rule name; the tool
     says the number. Hand counts carry date + method. "Verified" names every
     file the claim covers.
-18. **Baseline ratchet**: equal is fine, worse needs `--update-baseline` and a
+21. **Baseline ratchet**: equal is fine, worse needs `--update-baseline` and a
     written reason. Run `audit_content` before pushing content.
 
 ## Ship
 
-19. Green = `npm run build` (not `tsc --noEmit`), `vitest`, backend pytest at
+22. Green = `npm run build` (not `tsc --noEmit`), `vitest`, backend pytest at
     baseline (7 known environment failures), `ruff`, audit PASS, CI green,
     then merge — standing authorization. Say plainly what was left out.
-20. **When adding words to fill a homonym gap, add only members a learner
+23. **When adding words to fill a homonym gap, add only members a learner
     meets** (`hīc`, `mālum` yes; `pōpulus` "poplar" no) and gloss each naming
     its false twin — "here (distinct from hic: this)".
-21. **Nothing of value stays only on this machine** (owner directive, 20 Aug
+24. **Nothing of value stays only on this machine** (owner directive, 20 Aug
     2026). After every merge — and before any long-running job — fast-forward
     `feat/phases` to the current head and push it:
     `git branch -f feat/phases HEAD && git push origin feat/phases`.

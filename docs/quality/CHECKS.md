@@ -529,6 +529,67 @@ regeneration.
 
 ---
 
+## 11. Romanisation must mark the blank, not spell it
+
+**Measured 26 Aug 2026: 926 romanisations handed the learner the answer.**
+`hintLayers.ts` reveals romanisation FIRST for non-Latin scripts — before the
+gloss, before the translation — so a romanisation of the COMPLETE sentence is
+an answer key on the first hint press.
+
+| | leaking, before | after |
+| --- | --- | --- |
+| `he` | **191 of 191** — every drill | 0 |
+| `fa` | **188 of 188** — every drill | 0 |
+| `ko` | 547 of 1,213 | 0 |
+| `hi` `th` `ru` `ar` `el` | 0 | 0 |
+
+    {{answer}} איש טוב.   answer הוא   ->  "hu ish tov."
+
+**Two blank conventions are in use and both are accepted.** `ru`, `ar`, `el`,
+`he`, `fa` write `___`; `ko` writes `{{answer}}`, which it needs because its
+blanks sit INSIDE a word (`저{{answer}}` — a bare `___` would not show the
+particle attaching). `hi` and `th` were filled following `ko`'s form.
+**Settling on one is undone**, and deliberately not forced by the test:
+churning 750 rows over a cosmetic choice is not the same as fixing a defect.
+
+672 rows were repaired mechanically (whole-token blank, aligned token counts),
+252 by review, and **2 by hand because no rule could place them** — Korean time
+expressions where the answer's romanisation occurs twice:
+
+    12 시 50 분은 {{answer}} 오십 분이에요.   answer 열두 시
+      yeoldu si osip buneun yeoldu si osip bunieyo.
+      -> the SECOND occurrence is the blank; the first romanises the literal 12 시
+
+**Status: all 8 non-Latin courses, enforced.**
+`test_the_romanisation_keeps_the_blank` in `test_orthography.py`.
+
+---
+
+## 12. A layer needs a write path, and three did not have one
+
+Three separate times this programme filled something that could not reach a
+learner. The class is worth naming because it is invisible to every content
+check: the DATA is right, the PIPE is missing.
+
+| what | how it failed | found |
+| --- | --- | --- |
+| `transliteration`, `gloss` | `load_example_sentences` never wrote the columns. `ko`'s TSV carried romanisation since it was built; production read 18%. Interlinear gloss read 0% in production for **all 27**. | 25 Aug |
+| collision guard | `.dockerignore` excluded `data/*`, so `_collision_surfaces()` caught `OSError` and returned an empty set — the guard was OFF in production while 37 tests passed locally | 25 Aug |
+| macron policy | the guard listed the frequency, grammar and gym files but **not** the sentence bank, so 504 unmacronised rows would have passed | 26 Aug |
+
+**The check that generalises: follow a layer end to end before filling it** —
+file → loader → column → renderer — and write a test at the weakest joint.
+`test_runtime_data_ships.py` does this for the image; the loader now carries
+both columns; the macron guard now lists the sentence bank.
+
+**Still open, and it blocks the romanisation work from ever being seen:**
+`load_example_sentences` uses `ON CONFLICT ... DO NOTHING`, so an EXISTING row
+does not gain the new columns on a re-run. The ~28,000 sentences harvested on
+25–26 Aug are already-written rows. **Backfilling them is reconciler work and
+is not built.**
+
+---
+
 ## Adding a check
 
 1. Measure it on the language that surfaced it.
