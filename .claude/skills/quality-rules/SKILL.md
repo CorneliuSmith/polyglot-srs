@@ -121,10 +121,32 @@ rate, say so — that result matters more than the phase closing quietly.
     CI is not evidence the code works; it can equally mean CI is missing the
     setting that makes the code run at all. Reproduce both, and find out
     WHICH environment is exercising the real path before believing either.
-17. **Facts yes, sentences regenerated** — paradigms/vocab from licensed
+17. **Every support layer gets the answer-leak test BEFORE it gets content.**
+    Three times now a layer that exists to help has spelled out the word the
+    card is testing: romanisation on 926 rows, the Hebrew hint on 191 of 191,
+    the Swahili gloss on 134 of 134. The layer's whole audience is people who
+    cannot check it, so nobody reports it. Write the guard first.
+18. **Search the FOLDED form, not the written one.** A leak audit that
+    respects the writing hid 62 of Swahili's 134: the gloss head is `i-ko`
+    and the answer is `iko`, so a word-boundary regex misses it while a
+    learner reads it off instantly. Normalise away hyphens, spaces and case
+    before comparing, and check multi-token answers too — one more hid by
+    spanning two cells.
+19. **Compare TOKENS, not substrings, or you will report phantoms.** The
+    same audit with substring matching flagged 32 clean lines: `na` sits
+    inside `ni-na`, and Māori `I` is also the English gloss of `au`. Verify
+    every hit before it becomes a number in a report — see rule 10.
+20. **The adversarial pass is what tells buildable from not. You cannot
+    predict it.** Greek and Korean looked risky (assimilation, digraphs) and
+    each returned exactly ONE systematic defect. Thai looked buildable once a
+    segmenter existed and returned 38 across seven classes, missing ordinary
+    words like "health" and "France". Build the thing, measure it on the real
+    corpus, and let the number decide whether it ships — reading about the
+    script decides nothing.
+21. **Facts yes, sentences regenerated** — paradigms/vocab from licensed
    courses may inform; verbatim sentences may not ship.
-18. **Never the API key.** Maker–checker runs in-session (Workflow tool).
-19. **Fixes land in committed files** (`gloss_overrides.tsv`, TSVs, JSON) —
+22. **Never the API key.** Maker–checker runs in-session (Workflow tool).
+23. **Fixes land in committed files** (`gloss_overrides.tsv`, TSVs, JSON) —
     a DB-only repair is undone by the next re-seed. Same logic one level up:
     a TSV-only deletion is undone by the next regeneration — durable
     deletions go in `data/vocab_exclusions.tsv` (typo-mass rows like `citta`
@@ -132,30 +154,30 @@ rate, say so — that result matters more than the phase closing quietly.
 
 ## Verification
 
-20. **Verify agent output mechanically before writing it back**: structural
+24. **Verify agent output mechanically before writing it back**: structural
     validators, spot-checks against known ground truth, and assembly by stable
     key, never by index (a rank drift once nearly filed `luna`'s gloss under
     `stella`). After writing a TSV, eyeball it: text containing `"` gets
     csv-escaped into `""..""` noise — reword the text instead.
-21. **Re-measure any agent-reported number before acting on it** — two of five
+25. **Re-measure any agent-reported number before acting on it** — two of five
     sampled claim-audit figures did not reproduce.
-22. **State verification honestly**: "275 of 557 checker-verified, rest
+26. **State verification honestly**: "275 of 557 checker-verified, rest
     maker-only" — never round up to "verified".
-23. **Never freeze a count the audit computes** — cite the rule name; the tool
+27. **Never freeze a count the audit computes** — cite the rule name; the tool
     says the number. Hand counts carry date + method. "Verified" names every
     file the claim covers.
-24. **Baseline ratchet**: equal is fine, worse needs `--update-baseline` and a
+28. **Baseline ratchet**: equal is fine, worse needs `--update-baseline` and a
     written reason. Run `audit_content` before pushing content.
 
 ## Ship
 
-25. Green = `npm run build` (not `tsc --noEmit`), `vitest`, backend pytest at
+29. Green = `npm run build` (not `tsc --noEmit`), `vitest`, backend pytest at
     baseline (7 known environment failures), `ruff`, audit PASS, CI green,
     then merge — standing authorization. Say plainly what was left out.
-26. **When adding words to fill a homonym gap, add only members a learner
+30. **When adding words to fill a homonym gap, add only members a learner
     meets** (`hīc`, `mālum` yes; `pōpulus` "poplar" no) and gloss each naming
     its false twin — "here (distinct from hic: this)".
-27. **Nothing of value stays only on this machine** (owner directive, 20 Aug
+31. **Nothing of value stays only on this machine** (owner directive, 20 Aug
     2026). After every merge — and before any long-running job — fast-forward
     `feat/phases` to the current head and push it:
     `git branch -f feat/phases HEAD && git push origin feat/phases`.

@@ -633,3 +633,63 @@ Three things this establishes, all now enforced rather than remembered:
 
 Verified 26 Aug: 2,162 pass with the mock ON and 2,162 with it OFF — the
 suite no longer depends on the setting.
+
+---
+
+## §14 The answer-leak class, third instance — and how it hides
+
+A support layer exists to help the learner recall the answer. Three times now
+one has printed the answer instead:
+
+| layer | scale | how it looked |
+| --- | --- | --- |
+| romanisation | 926 rows (`he` 191/191, `fa` 188/188) | the reading spelled the blank |
+| Hebrew hint | 191 of 191 drills | the hint was the answer |
+| interlinear gloss | **134 of 134 Swahili drills** | `Utarudi {{answer}} ...` glossed `... lini (when) ...` where `lini` IS the answer |
+
+Nobody reports these, because the only people who read a support layer are
+the people who cannot check it. `backend/tests/test_gloss_layer.py` and the
+romanisation guards now run over every course. **A new layer gets its leak
+test before it gets content.**
+
+### Two audit mistakes this cost, both worth not repeating
+
+**Search the folded form.** The first Swahili audit found 71 and reported
+them. It missed 62 more — nearly half — because the gloss writes the head
+with morpheme boundaries (`i-ko`) while the answer is written without them
+(`iko`). A word-boundary regex sees two different strings; a learner sees the
+answer. Normalise hyphens, spaces and case away before comparing. A third
+form hid again by spanning two cells (`ku-to-kata tamaa`).
+
+**Compare tokens, not substrings.** Loosening to a substring match to catch
+the above then flagged 32 clean lines: `na` occurs inside `ni-na`, and Māori
+`I` is both the past-tense marker and the English gloss of `au`. Every one was
+a phantom. The leak test is therefore scoped to the self-labelling format —
+the only one whose gloss line carries target-language words at all — because
+a positional gloss (`CONT · live · ___ · to · Wellington`) holds nothing but
+English and category labels, so there is no target word in it to leak.
+
+## §15 Build it and measure it; do not predict it
+
+Three romanizers went through identical adversarial verification — two
+lenses over 60 corpus sentences biased toward the risky construct, every
+claimed defect put to independent refuters, then a second round on 60 fresh
+sentences.
+
+| | prediction | result |
+| --- | --- | --- |
+| `el` | risky — digraphs, voicing | **1** systematic defect (`γκ`), round two clean → shipped |
+| `ko` | risky — assimilation across every boundary | **1** systematic defect (`ㄹ`+`ㄹ`), round two clean → shipped |
+| `th` | buildable, once a segmenter exists | **38** defects in 7 classes; 6/18 on the confirmed set → **not shipped** |
+
+Both defects that shipped were the same shape: a table with a rule's
+neighbours filled in and the rule itself absent, passing every example I
+chose by hand. Thai's were spread across silent leading consonants, dropped
+linking syllables in Pali compounds, mid-word segmentation, and a repetition
+mark the engine hallucinated a syllable from — and they land on ordinary
+words (`สุขภาพ` health, `ฝรั่งเศส` France, `ไหม` the question particle).
+
+The ranking was not predictable from what the scripts look like. Build the
+romanizer, run it over the real corpus, and let the number decide. Recording
+a rejection is a result: `test_thai_reading_is_not_ready.py` pins each known
+failure so the day one starts passing is visible.
