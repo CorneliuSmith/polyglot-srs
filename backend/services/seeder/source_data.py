@@ -215,12 +215,16 @@ TATOEBA_ISO3 = {
     "ro": "ron", "el": "ell", "ru": "rus", "ar": "ara", "pt": "por",
     "hi": "hin", "jam": "jam", "mi": "mri", "nl": "nld", "th": "tha",
     "ko": "kor",
-    # Latin was missing here, and the omission cost the course its whole
-    # sentence bank: `la` had ZERO examples and was queued for authoring from
-    # nothing, while Tatoeba has had a `lat` export the entire time. Its text
-    # is UNMACRONISED, which la.md's all-or-nothing macron policy does not
-    # allow to ship as-is — harvest, then macronise.
-    "la": "lat",
+    # These five were missing here, and the omission cost each course its
+    # whole sentence bank: la, id, tl, he and fa had ZERO examples and were
+    # queued for authoring from nothing, while Tatoeba has had an export for
+    # every one of them the entire time. Checked 26 Aug 2026: all five return
+    # HTTP 200 for both the sentence and the eng-links file.
+    #
+    # `la` needs one extra step the others do not: Tatoeba's Latin is largely
+    # UNMACRONISED, and la.md's all-or-nothing macron policy does not allow
+    # that to ship — harvest, then macronise.
+    "la": "lat", "id": "ind", "tl": "tgl", "he": "heb", "fa": "pes",
 }
 
 # Hausa has no reachable public-domain corpus in this pipeline; the user drops
@@ -1627,12 +1631,20 @@ def build_sentences(language: str, cache_dir: Path, per_word: int = 3) -> Path:
             for form in nlp.get_morphological_family(word):
                 rank_by_word.setdefault(form, rank)
     from backend.services.nlp.jamaican import JamaicanNLP
-    from backend.services.nlp.latin_base import LatinNLP
+    from backend.services.nlp.latin_base import (
+        HebrewNLP,
+        IndonesianNLP,
+        LatinNLP,
+        PersianNLP,
+        TagalogNLP,
+    )
 
     nlp_by_lang = {
         "tr": TurkishNLP, "sw": SwahiliNLP, "yo": YorubaNLP,
         "xh": XhosaNLP, "ha": HausaNLP, "ru": RussianNLP,
         "jam": JamaicanNLP, "th": ThaiNLP, "la": LatinNLP,
+        "id": IndonesianNLP, "tl": TagalogNLP, "he": HebrewNLP,
+        "fa": PersianNLP,
         **FREQ_NLP,
     }
     lemmatize = nlp_by_lang[language]().lemmatize
