@@ -1882,7 +1882,7 @@
           "translation": "We love the beauty of this country.",
           "hint": "beauty — class 14 abstract",
           "display_order": 5,
-          "gloss": "1PL.PRES.love · ___ · CL14.POSS.this · CL5.country"
+          "gloss": "1PL.PRES.love · ___ · CL14.POSS.CL5.this · CL5.country"
         },
         {
           "sentence": "Uluvo {{answer}} lubalulekile.",

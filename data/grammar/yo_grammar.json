@@ -1696,7 +1696,7 @@
      "translation": "Although I was tired, I finished the work.",
      "hint": "the closing word of the frame",
      "display_order": 3,
-     "gloss": "if · 3SG · CONCESS · COP · ___ · 3SG · tire · 1SG.OBJ · 1SG · finish · work"
+     "gloss": "if · 3SG · even · COP · ___ · 3SG · tire · 1SG.OBJ · 1SG · finish · work"
     },
     {
      "sentence": "Bí ó {{answer}} jẹ́ pé kò sí owó, a rí oúnjẹ.",
@@ -1720,7 +1720,7 @@
      "translation": "Although the house is far, we walked.",
      "hint": "the copula inside the frame",
      "display_order": 6,
-     "gloss": "if · 3SG · CONCESS · ___ · COMP · house · be.far · 1PL · walk"
+     "gloss": "if · 3SG · even · ___ · COMP · house · be.far · 1PL · walk"
     }
    ]
   },

@@ -66,7 +66,7 @@
      "translation": "She is here.",
      "hint": "the 'she' pronoun",
      "display_order": 2,
-     "gloss": "___ · 3SG.F.CONT · here"
+     "gloss": "___ · 3SG.F.PROG · here"
     },
     {
      "sentence": "{{answer}} ɗalibi ne.",
@@ -82,7 +82,7 @@
      "translation": "We are here.",
      "hint": "we — emphatic",
      "display_order": 4,
-     "gloss": "___ · 1PL.CONT · here"
+     "gloss": "___ · 1PL.PROG · here"
     },
     {
      "sentence": "{{answer}} malama ce.",
@@ -98,7 +98,7 @@
      "translation": "You (masculine) are working.",
      "hint": "you (m) — emphatic",
      "display_order": 6,
-     "gloss": "___ · 2SG.M.CONT · work"
+     "gloss": "___ · 2SG.M.PROG · work"
     }
    ]
   },
@@ -564,7 +564,7 @@
      "translation": "Audu's son came.",
      "hint": "son + masculine linker",
      "display_order": 3,
-     "gloss": "___ · Audu · 3SG.M.COMPL · come"
+     "gloss": "___ · Audu · 3SG.M.PFV · come"
     },
     {
      "sentence": "Sunan {{answer}} Audu ne.",
@@ -588,7 +588,7 @@
      "translation": "The work is good.",
      "hint": "work + masculine linker",
      "display_order": 6,
-     "gloss": "___ · 3SG.M.COMPL · do · goodness"
+     "gloss": "___ · 3SG.M.PFV · do · goodness"
     }
    ]
   },
@@ -618,7 +618,7 @@
      "translation": "What did you eat?",
      "hint": "'what'",
      "display_order": 1,
-     "gloss": "___ · 2SG.M.COMPL · eat"
+     "gloss": "___ · 2SG.M.PFV · eat"
     },
     {
      "sentence": "{{answer}} ya zo?",
@@ -626,7 +626,7 @@
      "translation": "Who came?",
      "hint": "'who'",
      "display_order": 2,
-     "gloss": "___ · 3SG.M.COMPL · come"
+     "gloss": "___ · 3SG.M.PFV · come"
     },
     {
      "sentence": "{{answer}} gidanka?",
@@ -658,7 +658,7 @@
      "translation": "Who cooked the food?",
      "hint": "who",
      "display_order": 6,
-     "gloss": "___ · 3SG.M.COMPL · cook · food"
+     "gloss": "___ · 3SG.M.PFV · cook · food"
     }
    ]
   },
@@ -688,7 +688,7 @@
      "translation": "I have two cars.",
      "hint": "plural of mota",
      "display_order": 1,
-     "gloss": "1SG.CONT · with · ___ · two"
+     "gloss": "1SG.PROG · with · ___ · two"
     },
     {
      "sentence": "{{answer}} suna wasa.",
@@ -696,7 +696,7 @@
      "translation": "The children are playing.",
      "hint": "plural of yaro",
      "display_order": 2,
-     "gloss": "___ · 3PL.CONT · play"
+     "gloss": "___ · 3PL.PROG · play"
     },
     {
      "sentence": "{{answer}} suna karatu.",
@@ -704,7 +704,7 @@
      "translation": "The students are studying.",
      "hint": "ɗalibi → plural",
      "display_order": 3,
-     "gloss": "___ · 3PL.CONT · study"
+     "gloss": "___ · 3PL.PROG · study"
     },
     {
      "sentence": "Ina da {{answer}} uku.",
@@ -712,7 +712,7 @@
      "translation": "I have three books.",
      "hint": "littafi → plural",
      "display_order": 4,
-     "gloss": "1SG.CONT · with · ___ · three"
+     "gloss": "1SG.PROG · with · ___ · three"
     },
     {
      "sentence": "{{answer}} suna kasuwa.",
@@ -720,7 +720,7 @@
      "translation": "The women are at the market.",
      "hint": "mace → plural",
      "display_order": 5,
-     "gloss": "___ · 3PL.CONT · market"
+     "gloss": "___ · 3PL.PROG · market"
     },
     {
      "sentence": "{{answer}} sun tafi gona.",
@@ -728,7 +728,7 @@
      "translation": "The farmers went to the farm.",
      "hint": "manomi → plural",
      "display_order": 6,
-     "gloss": "___ · 3PL.COMPL · go · farm"
+     "gloss": "___ · 3PL.PFV · go · farm"
     }
    ]
   },
@@ -758,7 +758,7 @@
      "translation": "I saw him at the market.",
      "hint": "'him' after the verb",
      "display_order": 1,
-     "gloss": "1SG.COMPL · see · ___ · at · market"
+     "gloss": "1SG.PFV · see · ___ · at · market"
     },
     {
      "sentence": "Sun ji {{answer}}.",
@@ -766,7 +766,7 @@
      "translation": "They heard us.",
      "hint": "'us' after the verb",
      "display_order": 2,
-     "gloss": "3PL.COMPL · hear · ___"
+     "gloss": "3PL.PFV · hear · ___"
     },
     {
      "sentence": "Na gan {{answer}} jiya.",
@@ -774,7 +774,7 @@
      "translation": "I saw her yesterday.",
      "hint": "her",
      "display_order": 3,
-     "gloss": "1SG.COMPL · see · ___ · yesterday"
+     "gloss": "1SG.PFV · see · ___ · yesterday"
     },
     {
      "sentence": "Sun kira {{answer}}.",
@@ -782,7 +782,7 @@
      "translation": "They called me.",
      "hint": "me",
      "display_order": 4,
-     "gloss": "3PL.COMPL · call · ___"
+     "gloss": "3PL.PFV · call · ___"
     },
     {
      "sentence": "Ta taimaki {{answer}}.",
@@ -790,7 +790,7 @@
      "translation": "She helped them.",
      "hint": "them",
      "display_order": 5,
-     "gloss": "3SG.F.COMPL · help · ___"
+     "gloss": "3SG.F.PFV · help · ___"
     },
     {
      "sentence": "Za mu gan {{answer}} gobe.",
@@ -1621,7 +1621,7 @@
      "hint": "impersonal + relative completive",
      "cell": "impersonal",
      "display_order": 4,
-     "gloss": "house.DEF.M · REL · ___ · build · 3SG.M.CONT · with · goodness"
+     "gloss": "house.DEF.M · REL · ___ · build · 3SG.M.PROG · with · goodness"
     },
     {
      "sentence": "Yaron da {{answer}} ci jarrabawa yana murna.",
@@ -1630,7 +1630,7 @@
      "hint": "he + relative completive",
      "cell": "3sg.m",
      "display_order": 5,
-     "gloss": "boy.DEF.M · REL · ___ · pass · exam · 3SG.M.CONT · rejoicing"
+     "gloss": "boy.DEF.M · REL · ___ · pass · exam · 3SG.M.PROG · rejoicing"
     },
     {
      "sentence": "Ina son waƙar da {{answer}} rera.",
@@ -1639,7 +1639,7 @@
      "hint": "she + relative completive",
      "cell": "3sg.f",
      "display_order": 6,
-     "gloss": "1SG.CONT · like.GEN · song.DEF.F · REL · ___ · sing"
+     "gloss": "1SG.PROG · like.GEN · song.DEF.F · REL · ___ · sing"
     },
     {
      "sentence": "Aikin da {{answer}} yi yana da kyau.",
@@ -1648,7 +1648,7 @@
      "hint": "we + relative completive",
      "cell": "1pl",
      "display_order": 7,
-     "gloss": "work.DEF.M · REL · ___ · do · 3SG.M.CONT · with · goodness"
+     "gloss": "work.DEF.M · REL · ___ · do · 3SG.M.PROG · with · goodness"
     },
     {
      "sentence": "Kayan da {{answer}} kawo suna nan.",
@@ -1657,7 +1657,7 @@
      "hint": "you (plural) + relative completive",
      "cell": "2pl",
      "display_order": 8,
-     "gloss": "goods.DEF · REL · ___ · bring · 3PL.CONT · here"
+     "gloss": "goods.DEF · REL · ___ · bring · 3PL.PROG · here"
     },
     {
      "sentence": "Yaran da {{answer}} zo suna wasa.",
@@ -1666,7 +1666,7 @@
      "hint": "they + relative completive",
      "cell": "3pl",
      "display_order": 9,
-     "gloss": "children.DEF · REL · ___ · come · 3PL.CONT · play"
+     "gloss": "children.DEF · REL · ___ · come · 3PL.PROG · play"
     },
     {
      "sentence": "Waƙar da {{answer}} rera jiya ta shahara.",
@@ -1675,7 +1675,7 @@
      "hint": "impersonal + relative completive",
      "cell": "impersonal",
      "display_order": 10,
-     "gloss": "song.DEF.F · REL · ___ · sing · yesterday · 3SG.F.COMPL · become.famous"
+     "gloss": "song.DEF.F · REL · ___ · sing · yesterday · 3SG.F.PFV · become.famous"
     },
     {
      "sentence": "Littafin da {{answer}} rubuta yana da kyau.",
@@ -1684,7 +1684,7 @@
      "hint": "he + relative completive",
      "cell": "3sg.m",
      "display_order": 11,
-     "gloss": "book.DEF.M · REL · ___ · write · 3SG.M.CONT · with · goodness"
+     "gloss": "book.DEF.M · REL · ___ · write · 3SG.M.PROG · with · goodness"
     },
     {
      "sentence": "Rigar da {{answer}} saya sabuwa ce.",
@@ -1735,7 +1735,7 @@
      "translation": "I have two children.",
      "hint": "two (after the noun)",
      "display_order": 1,
-     "gloss": "1SG.CONT · with · children · ___"
+     "gloss": "1SG.PROG · with · children · ___"
     },
     {
      "sentence": "Mota {{answer}} ce kawai a gidan.",
@@ -1759,7 +1759,7 @@
      "translation": "How many books do you have?",
      "hint": "how many (after the noun)",
      "display_order": 4,
-     "gloss": "books · ___ · 2PL.CONT.REL · with · 3PL"
+     "gloss": "books · ___ · 2PL.PROG.REL · with · 3PL"
     },
     {
      "sentence": "Ya sayi awaki {{answer}}.",
@@ -1767,7 +1767,7 @@
      "translation": "He bought three goats.",
      "hint": "three (after the noun)",
      "display_order": 5,
-     "gloss": "3SG.M.COMPL · buy · goats · ___"
+     "gloss": "3SG.M.PFV · buy · goats · ___"
     },
     {
      "sentence": "{{answer}} ne wannan riga?",
@@ -1837,7 +1837,7 @@
      "translation": "I want you to come here.",
      "hint": "come — subjunctive after wanting",
      "display_order": 5,
-     "gloss": "1SG.CONT · want · 2SG.M.SBJV · ___ · here"
+     "gloss": "1SG.PROG · want · 2SG.M.SBJV · ___ · here"
     },
     {
      "sentence": "Yara {{answer}} wasa a nan kowace Asabar.",
@@ -2944,7 +2944,7 @@
      "translation": "Going slowly does not prevent arriving.",
      "hint": "arriving — the verbal noun of going/coming",
      "display_order": 1,
-     "gloss": "slowly · NEG · 3SG.F.IPFV · prevent · ___"
+     "gloss": "slowly · NEG · 3SG.F.PFV · prevent · ___"
     },
     {
      "sentence": "Haƙuri maganin {{answer}}.",
@@ -2968,7 +2968,7 @@
      "translation": "Water doesn't turn sour for nothing.",
      "hint": "for-nothing / without cause",
      "display_order": 4,
-     "gloss": "water · NEG · 3SG.M.IPFV · turn.sour · ___"
+     "gloss": "water · NEG · 3SG.M.PFV · turn.sour · ___"
     },
     {
      "sentence": "Gani ya fi {{answer}}.",
@@ -3034,7 +3034,7 @@
      "translation": "Excuse me! I would like to come in.",
      "hint": "the pardon/announcing word",
      "display_order": 3,
-     "gloss": "___ · EMPH · 1SG.IPFV · want.GEN · enter"
+     "gloss": "___ · EMPH · 1SG.PROG · want.GEN · enter"
     },
     {
      "sentence": "Na {{answer}} sosai, yaya.",
@@ -3166,7 +3166,7 @@
      "translation": "Do you want tea or coffee?",
      "hint": "the or word",
      "display_order": 1,
-     "gloss": "2SG.M.IPFV · want.GEN · tea · ___ · coffee"
+     "gloss": "2SG.M.PROG · want.GEN · tea · ___ · coffee"
     },
     {
      "sentence": "Ban sani ba {{answer}} zai zo.",
@@ -3198,7 +3198,7 @@
      "translation": "I don't want even a little.",
      "hint": "the even word before 'a little'",
      "display_order": 5,
-     "gloss": "NEG · 1SG.CONT · want.GEN · ___ · little"
+     "gloss": "NEG · 1SG.PFV · want.GEN · ___ · little"
     },
     {
      "sentence": "{{answer}} akwai wayoyi yanzu.",
