@@ -65,42 +65,48 @@
           "answer": "ni",
           "translation": "I am a teacher.",
           "hint": "the invariable 'to be'",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · CL1.teacher"
         },
         {
           "sentence": "Yeye {{answer}} daktari.",
           "answer": "si",
           "translation": "He/she is not a doctor.",
           "hint": "negative of ni",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · CL5.doctor"
         },
         {
           "sentence": "Wewe {{answer}} mwanafunzi.",
           "answer": "ni",
           "translation": "You are a student.",
           "hint": "to be — affirmative",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "2SG · ___ · CL1.student"
         },
         {
           "sentence": "Mimi {{answer}} daktari, mimi ni mwalimu.",
           "answer": "si",
           "translation": "I am not a doctor, I am a teacher.",
           "hint": "to be — negative",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · ___ · CL5.doctor · 1SG · COP · CL1.teacher"
         },
         {
           "sentence": "Wao {{answer}} wakulima.",
           "answer": "ni",
           "translation": "They are farmers.",
           "hint": "to be — affirmative",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3PL · ___ · CL2.farmer"
         },
         {
           "sentence": "Juma {{answer}} daktari.",
           "answer": "ni",
           "translation": "Juma is a doctor.",
           "hint": "to be — affirmative",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL1.Juma · ___ · CL5.doctor"
         }
       ]
     },
@@ -133,42 +139,48 @@
           "answer": "Ni",
           "translation": "I am reading a book.",
           "hint": "the 'I' prefix + -na-",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___.PRES.read · CL7.book"
         },
         {
           "sentence": "{{answer}}nasoma sana.",
           "answer": "Wa",
           "translation": "They study a lot.",
           "hint": "the 'they' prefix",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___.PRES.study · much"
         },
         {
           "sentence": "{{answer}}nakunywa chai.",
           "answer": "A",
           "translation": "He/she is drinking tea.",
           "hint": "he/she prefix",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___.PRES.drink · CL9.tea"
         },
         {
           "sentence": "{{answer}}nacheza mpira.",
           "answer": "Tu",
           "translation": "We are playing football.",
           "hint": "we prefix",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___.PRES.play · CL3.ball"
         },
         {
           "sentence": "{{answer}}nafanya kazi?",
           "answer": "U",
           "translation": "Are you working?",
           "hint": "you (singular) prefix",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___.PRES.do · CL9.work"
         },
         {
           "sentence": "{{answer}}napika chakula.",
           "answer": "M",
           "translation": "You (plural) are cooking food.",
           "hint": "you (plural) prefix",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___.PRES.cook · CL7.food"
         }
       ]
     },
@@ -205,42 +217,48 @@
           "answer": "anakunywa",
           "translation": "She is drinking tea.",
           "hint": "to drink + present (he/she)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG · ___ · CL9.tea"
         },
         {
           "sentence": "Sisi {{answer}} Kiswahili.",
           "answer": "tunajifunza",
           "translation": "We are learning Swahili.",
           "hint": "to learn + present (we)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1PL · ___ · CL7.Swahili"
         },
         {
           "sentence": "Mimi {{answer}} kitabu.",
           "answer": "ninasoma",
           "translation": "I am reading a book.",
           "hint": "soma, mimi",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · ___ · CL7.book"
         },
         {
           "sentence": "Watoto {{answer}} mpira.",
           "answer": "wanacheza",
           "translation": "The children are playing football.",
           "hint": "cheza, wao",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL2.child · ___ · CL3.ball"
         },
         {
           "sentence": "Baba {{answer}} kazi.",
           "answer": "anafanya",
           "translation": "Father is working.",
           "hint": "fanya, yeye",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL1.father · ___ · CL9.work"
         },
         {
           "sentence": "Nyinyi {{answer}} chai.",
           "answer": "mnakunywa",
           "translation": "You (plural) are drinking tea.",
           "hint": "kunywa, nyinyi",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "2PL · ___ · CL9.tea"
         }
       ]
     },
@@ -277,42 +295,48 @@
           "answer": "watoto",
           "translation": "One child, two children.",
           "hint": "plural of mtoto",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL1.child · CL1.one · ___ · CL2.two"
         },
         {
           "sentence": "{{answer}} anasoma.",
           "answer": "Mwalimu",
           "translation": "The teacher is reading.",
           "hint": "singular, m-/mw- class",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · CL1.PRES.read"
         },
         {
           "sentence": "Mtu mmoja, {{answer}} wengi.",
           "answer": "watu",
           "translation": "One person, many people.",
           "hint": "mtu → plural",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL1.person · CL1.one · ___ · CL2.many"
         },
         {
           "sentence": "{{answer}} wanafanya kazi shambani.",
           "answer": "Wakulima",
           "translation": "The farmers are working in the field.",
           "hint": "mkulima → plural",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · CL2.PRES.do · CL9.work · CL5.field.LOC"
         },
         {
           "sentence": "Mwanafunzi mmoja, {{answer}} watano.",
           "answer": "wanafunzi",
           "translation": "One student, five students.",
           "hint": "student → plural (people class)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL1.student · CL1.one · ___ · CL2.five"
         },
         {
           "sentence": "{{answer}} analima shamba.",
           "answer": "Mkulima",
           "translation": "The farmer farms the field.",
           "hint": "person prefix M-",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · CL1.PRES.cultivate · CL5.field"
         }
       ]
     },
@@ -345,42 +369,48 @@
           "answer": "vitabu",
           "translation": "One book, two books.",
           "hint": "plural of kitabu",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL7.book · CL7.one · ___ · CL8.two"
         },
         {
           "sentence": "{{answer}} kiko mezani.",
           "answer": "Kitabu",
           "translation": "The book is on the table.",
           "hint": "ki- class noun",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · CL7.COP.LOC · CL9.table.LOC"
         },
         {
           "sentence": "Kiti kimoja, {{answer}} vitatu.",
           "answer": "viti",
           "translation": "One chair, three chairs.",
           "hint": "kiti → plural",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL7.chair · CL7.one · ___ · CL8.three"
         },
         {
           "sentence": "{{answer}} kimoja kiko mezani.",
           "answer": "Kiti",
           "translation": "One chair is at the table.",
           "hint": "thing prefix Ki-",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · CL7.one · CL7.COP.LOC · CL9.table.LOC"
         },
         {
           "sentence": "{{answer}} viwili viko mezani.",
           "answer": "Vitabu",
           "translation": "Two books are on the table.",
           "hint": "kitabu → plural",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · CL8.two · CL8.COP.LOC · CL9.table.LOC"
         },
         {
           "sentence": "Kisu kimoja, {{answer}} vinne.",
           "answer": "visu",
           "translation": "One knife, four knives.",
           "hint": "kisu → plural",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL7.knife · CL7.one · ___ · CL8.four"
         }
       ]
     },
@@ -413,42 +443,48 @@
           "answer": "sili",
           "translation": "I don't eat meat.",
           "hint": "si- + -la with final -i",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · CL9.meat"
         },
         {
           "sentence": "Yeye {{answer}} kahawa.",
           "answer": "hanywi",
           "translation": "He doesn't drink coffee.",
           "hint": "ha- + -nywa + -i",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · CL9.coffee"
         },
         {
           "sentence": "Sisi {{answer}} kahawa.",
           "answer": "hatunywi",
           "translation": "We don't drink coffee.",
           "hint": "to drink + present negative, we (final vowel changes)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · CL9.coffee"
         },
         {
           "sentence": "Wewe {{answer}} nyama?",
           "answer": "huli",
           "translation": "Don't you eat meat?",
           "hint": "to eat + present negative (you)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "2SG · ___ · CL9.meat"
         },
         {
           "sentence": "Wao {{answer}} Kiingereza.",
           "answer": "hawasemi",
           "translation": "They don't speak English.",
           "hint": "to speak + present negative (they)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3PL · ___ · CL7.English"
         },
         {
           "sentence": "Mtoto {{answer}} shule leo.",
           "answer": "haendi",
           "translation": "The child is not going to school today.",
           "hint": "ha + a + end + i",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL1.child · ___ · CL9.school · today"
         }
       ]
     },
@@ -481,42 +517,48 @@
           "answer": "nilienda",
           "translation": "Yesterday I went to the market.",
           "hint": "to go + past (I)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "yesterday · ___ · CL5.market.LOC"
         },
         {
           "sentence": "Wao {{answer}} chakula.",
           "answer": "walipika",
           "translation": "They cooked food.",
           "hint": "to cook + past (they)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3PL · ___ · CL7.food"
         },
         {
           "sentence": "Sisi {{answer}} Kiswahili mwaka jana.",
           "answer": "tulijifunza",
           "translation": "We learned Swahili last year.",
           "hint": "jifunza, sisi + -li-",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · CL7.Swahili · CL3.year · yesterday"
         },
         {
           "sentence": "Yeye {{answer}} barua jana.",
           "answer": "aliandika",
           "translation": "She wrote a letter yesterday.",
           "hint": "andika, yeye + -li-",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG · ___ · CL9.letter · yesterday"
         },
         {
           "sentence": "Mimi {{answer}} chai asubuhi.",
           "answer": "nilikunywa",
           "translation": "I drank tea in the morning.",
           "hint": "kunywa, mimi + -li-",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · ___ · CL9.tea · CL9.morning"
         },
         {
           "sentence": "Watoto {{answer}} mpira jana.",
           "answer": "walicheza",
           "translation": "The children played football yesterday.",
           "hint": "cheza, wao + -li-",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL2.child · ___ · CL3.ball · yesterday"
         }
       ]
     },
@@ -549,42 +591,48 @@
           "answer": "nitaenda",
           "translation": "Tomorrow I will go to school.",
           "hint": "to go + future (I)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "tomorrow · ___ · CL9.school"
         },
         {
           "sentence": "Wao {{answer}} kesho.",
           "answer": "watafika",
           "translation": "They will arrive tomorrow.",
           "hint": "to arrive + future (they)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3PL · ___ · tomorrow"
         },
         {
           "sentence": "Sisi {{answer}} sokoni kesho.",
           "answer": "tutaenda",
           "translation": "We will go to the market tomorrow.",
           "hint": "enda, sisi + -ta-",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · CL5.market.LOC · tomorrow"
         },
         {
           "sentence": "Mimi {{answer}} ugali jioni.",
           "answer": "nitapika",
           "translation": "I will cook ugali in the evening.",
           "hint": "pika, mimi + -ta-",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · ___ · CL11.ugali · CL9.evening"
         },
         {
           "sentence": "Yeye {{answer}} barua kesho.",
           "answer": "ataandika",
           "translation": "He will write a letter tomorrow.",
           "hint": "andika, yeye + -ta-",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG · ___ · CL9.letter · tomorrow"
         },
         {
           "sentence": "Wewe {{answer}} kazi kesho?",
           "answer": "utafanya",
           "translation": "Will you work tomorrow?",
           "hint": "fanya, wewe + -ta-",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "2SG · ___ · CL9.work · tomorrow"
         }
       ]
     },
@@ -617,56 +665,64 @@
           "answer": "nini",
           "translation": "What are you reading?",
           "hint": "asking 'what'",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "2SG.PRES.read · ___"
         },
         {
           "sentence": "Unaenda {{answer}}?",
           "answer": "wapi",
           "translation": "Where are you going?",
           "hint": "asking 'where'",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "2SG.PRES.go · ___"
         },
         {
           "sentence": "{{answer}} anakuja?",
           "answer": "Nani",
           "translation": "Who is coming?",
           "hint": "who",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · CL1.PRES.come"
         },
         {
           "sentence": "Jina lako ni {{answer}}?",
           "answer": "nani",
           "translation": "What is your name?",
           "hint": "names ask 'who' in Swahili",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL5.name · CL5.2SG.POSS · COP · ___"
         },
         {
           "sentence": "Utafika {{answer}}?",
           "answer": "lini",
           "translation": "When will you arrive?",
           "hint": "when",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG.FUT.arrive · ___"
         },
         {
           "sentence": "Unapenda kitabu {{answer}}?",
           "answer": "gani",
           "translation": "Which book do you like?",
           "hint": "which",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "2SG.PRES.like · CL7.book · ___"
         },
         {
           "sentence": "{{answer}} unajifunza Kiswahili?",
           "answer": "Kwa nini",
           "translation": "Why are you learning Swahili?",
           "hint": "why — asking for a reason (two words)",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · 2SG.PRES.learn · CL7.Swahili"
         },
         {
           "sentence": "Una miaka {{answer}}?",
           "answer": "mingapi",
           "translation": "How old are you?",
           "hint": "how many — agrees with the noun class (miaka → mi-)",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG.have · CL4.year · ___"
         }
       ]
     },
@@ -699,42 +755,48 @@
           "answer": "wazuri",
           "translation": "The good children are playing.",
           "hint": "-zuri with wa- agreement",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL2.child · ___ · CL2.PRES.play"
         },
         {
           "sentence": "Kitabu {{answer}} kiko hapa.",
           "answer": "kikubwa",
           "translation": "The big book is here.",
           "hint": "-kubwa with ki- agreement",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL7.book · ___ · CL7.be.at · CL16.here"
         },
         {
           "sentence": "Nyumba {{answer}} iko mjini.",
           "answer": "kubwa",
           "translation": "The big house is in town.",
           "hint": "N class — no prefix change",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL9.house · ___ · CL9.be.at · CL3.town.LOC"
         },
         {
           "sentence": "Mtoto {{answer}} analala.",
           "answer": "mdogo",
           "translation": "The small child is sleeping.",
           "hint": "M- class singular",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL1.child · ___ · CL1.PRES.sleep"
         },
         {
           "sentence": "Vitabu {{answer}} viko mezani.",
           "answer": "vizuri",
           "translation": "The good books are on the table.",
           "hint": "Vi- class plural",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL8.book · ___ · CL8.be.at · CL9.table.LOC"
         },
         {
           "sentence": "Watu {{answer}} wanafanya kazi.",
           "answer": "wengi",
           "translation": "Many people are working.",
           "hint": "Wa- class plural",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL2.person · ___ · CL2.PRES.do · CL9.work"
         }
       ]
     },
@@ -767,42 +829,48 @@
           "answer": "Nimekula",
           "translation": "I have eaten.",
           "hint": "to eat + perfect (I)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · CL7.food"
         },
         {
           "sentence": "Mgeni {{answer}}.",
           "answer": "amefika",
           "translation": "The guest has arrived.",
           "hint": "to arrive + perfect (he/she)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL1.guest · ___"
         },
         {
           "sentence": "Watoto {{answer}} shuleni.",
           "answer": "wamefika",
           "translation": "The children have arrived at school.",
           "hint": "fika, wao + -me-",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL2.child · ___ · CL9.school.LOC"
         },
         {
           "sentence": "Sisi {{answer}} kazi.",
           "answer": "tumemaliza",
           "translation": "We have finished the work.",
           "hint": "maliza, sisi + -me-",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · ___ · CL9.work"
         },
         {
           "sentence": "Yeye {{answer}} barua.",
           "answer": "ameandika",
           "translation": "She has written the letter.",
           "hint": "andika, yeye + -me-",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG · ___ · CL9.letter"
         },
         {
           "sentence": "Mimi {{answer}} chai tayari.",
           "answer": "nimekunywa",
           "translation": "I have already drunk tea.",
           "hint": "kunywa, mimi + -me-",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · ___ · CL9.tea · already"
         }
       ]
     },
@@ -835,42 +903,48 @@
           "answer": "ninakupenda",
           "translation": "I love you.",
           "hint": "object -ku- 'you' inside the verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___"
         },
         {
           "sentence": "Yeye {{answer}} jana.",
           "answer": "aliniona",
           "translation": "He saw me yesterday.",
           "hint": "object -ni- 'me' inside the verb",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · yesterday"
         },
         {
           "sentence": "Mimi {{answer}} jana.",
           "answer": "nilikuona",
           "translation": "I saw you yesterday.",
           "hint": "-ku- = you",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · ___ · yesterday"
         },
         {
           "sentence": "Yeye {{answer}} kila siku.",
           "answer": "anawasaidia",
           "translation": "He helps them every day.",
           "hint": "-wa- = them",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG · ___ · every · CL9.day"
         },
         {
           "sentence": "Wao {{answer}} sasa.",
           "answer": "wanatuita",
           "translation": "They are calling us now.",
           "hint": "-tu- = us",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3PL · ___ · now"
         },
         {
           "sentence": "Mama {{answer}} asubuhi.",
           "answer": "alimwona",
           "translation": "Mother saw him in the morning.",
           "hint": "-mw- = him/her",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL1.mother · ___ · CL9.morning"
         }
       ]
     },
@@ -903,42 +977,48 @@
           "answer": "majina",
           "translation": "One name, many names.",
           "hint": "ma- plural of jina",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL5.name · CL5.one · ___ · CL6.many"
         },
         {
           "sentence": "Gari {{answer}}.",
           "answer": "limefika",
           "translation": "The car has arrived.",
           "hint": "li- agreement + -me-",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL5.car · ___"
         },
         {
           "sentence": "Tunda moja, {{answer}} mengi.",
           "answer": "matunda",
           "translation": "One fruit, many fruits.",
           "hint": "tunda → plural",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL5.fruit · CL5.one · ___ · CL6.many"
         },
         {
           "sentence": "Yai moja, {{answer}} matano.",
           "answer": "mayai",
           "translation": "One egg, five eggs.",
           "hint": "yai → plural",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL5.egg · CL5.one · ___ · CL6.five"
         },
         {
           "sentence": "Gari {{answer}} barabarani.",
           "answer": "liko",
           "translation": "The car is on the road.",
           "hint": "li- concord + -ko",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL5.car · ___ · CL9.road.LOC"
         },
         {
           "sentence": "Magari {{answer}} hapa.",
           "answer": "yako",
           "translation": "The cars are here.",
           "hint": "ya- concord + -ko",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL6.car · ___ · CL16.here"
         }
       ]
     },
@@ -971,42 +1051,48 @@
           "answer": "hii",
           "translation": "This house is big.",
           "hint": "class 9 'this'",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL9.house · ___ · COP · CL9.big"
         },
         {
           "sentence": "Nyumba {{answer}} mbili ni kubwa.",
           "answer": "hizi",
           "translation": "These two houses are big.",
           "hint": "class 10 'these'",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL10.house · ___ · CL10.two · COP · CL10.big"
         },
         {
           "sentence": "Ndizi {{answer}} ni tamu.",
           "answer": "hizi",
           "translation": "These bananas are sweet.",
           "hint": "N class plural — these",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL10.banana · ___ · COP · CL10.sweet"
         },
         {
           "sentence": "Barua {{answer}} imefika leo.",
           "answer": "hii",
           "translation": "This letter arrived today.",
           "hint": "N class singular — this",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL9.letter · ___ · CL9.PERF.arrive · today"
         },
         {
           "sentence": "Nyumba yangu {{answer}} karibu na soko.",
           "answer": "iko",
           "translation": "My house is near the market.",
           "hint": "i- concord + -ko",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL9.house · CL9.1SG.POSS · ___ · near · with · CL5.market"
         },
         {
           "sentence": "Nguo {{answer}} sana.",
           "answer": "zinapendeza",
           "translation": "The clothes are very attractive.",
           "hint": "zi- concord, plural",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL10.clothes · ___ · very"
         }
       ]
     },
@@ -1039,42 +1125,48 @@
           "answer": "changu",
           "translation": "My book is here.",
           "hint": "-angu with ki- class",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL7.book · ___ · CL7.be.at · CL16.here"
         },
         {
           "sentence": "Nyumba {{answer}} ni ndogo.",
           "answer": "yangu",
           "translation": "My house is small.",
           "hint": "-angu with N-class",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL9.house · ___ · COP · CL9.small"
         },
         {
           "sentence": "Watoto {{answer}} wako shuleni.",
           "answer": "wangu",
           "translation": "My children are at school.",
           "hint": "Wa- class + my",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL2.child · ___ · CL2.be.at · CL9.school.LOC"
         },
         {
           "sentence": "Kitabu {{answer}} kiko wapi?",
           "answer": "chako",
           "translation": "Where is your book?",
           "hint": "Ki- class + your",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL7.book · ___ · CL7.be.at · where"
         },
         {
           "sentence": "Nyumba {{answer}} iko mbali.",
           "answer": "yake",
           "translation": "His/her house is far away.",
           "hint": "N class + his/her",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL9.house · ___ · CL9.be.at · far"
         },
         {
           "sentence": "Gari {{answer}} limefika.",
           "answer": "lake",
           "translation": "His/her car has arrived.",
           "hint": "Ma- class singular + his/her",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL5.car · ___ · CL5.PERF.arrive"
         }
       ]
     },
@@ -1107,42 +1199,48 @@
           "answer": "cha",
           "translation": "The child's book is here.",
           "hint": "'of' agreeing with kitabu",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL7.book · ___ · CL1.child · CL7.be.at · CL16.here"
         },
         {
           "sentence": "Nyumba {{answer}} Juma ni kubwa.",
           "answer": "ya",
           "translation": "Juma's house is big.",
           "hint": "'of' agreeing with nyumba",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL9.house · ___ · Juma · COP · CL9.big"
         },
         {
           "sentence": "Watoto {{answer}} mwalimu wako hapa.",
           "answer": "wa",
           "translation": "The teacher's children are here.",
           "hint": "people-class 'of'",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL2.child · ___ · CL1.teacher · CL2.be.at · CL16.here"
         },
         {
           "sentence": "Jina {{answer}} mtoto ni Juma.",
           "answer": "la",
           "translation": "The child's name is Juma.",
           "hint": "Ma-class singular 'of'",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL5.name · ___ · CL1.child · COP · Juma"
         },
         {
           "sentence": "Vitabu {{answer}} wanafunzi viko mezani.",
           "answer": "vya",
           "translation": "The students' books are on the table.",
           "hint": "Vi- class plural",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL8.book · ___ · CL2.student · CL8.be.at · CL9.table.LOC"
         },
         {
           "sentence": "Nguo {{answer}} mama ziko hapa.",
           "answer": "za",
           "translation": "Mother's clothes are here.",
           "hint": "N class plural",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL10.clothes · ___ · CL1.mother · CL10.be.at · CL16.here"
         }
       ]
     },
@@ -1175,42 +1273,48 @@
           "answer": "Nina",
           "translation": "I have a good book.",
           "hint": "'I' + 'have' fused",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · CL7.book · CL7.good"
         },
         {
           "sentence": "Yeye {{answer}} watoto watatu.",
           "answer": "ana",
           "translation": "She has three children.",
           "hint": "'he/she' + 'have' fused",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · CL2.child · CL2.three"
         },
         {
           "sentence": "Sisi {{answer}} nyumba kubwa.",
           "answer": "tuna",
           "translation": "We have a big house.",
           "hint": "sisi + -na",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · CL9.house · CL9.big"
         },
         {
           "sentence": "Wewe {{answer}} kalamu?",
           "answer": "una",
           "translation": "Do you have a pen?",
           "hint": "wewe + -na",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "2SG · ___ · CL9.pen"
         },
         {
           "sentence": "Wao {{answer}} shamba.",
           "answer": "wana",
           "translation": "They have a farm.",
           "hint": "wao + -na",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3PL · ___ · CL5.farm"
         },
         {
           "sentence": "Mimi {{answer}} pesa, samahani.",
           "answer": "sina",
           "translation": "I don't have money, sorry.",
           "hint": "'I' negative + 'have' fused",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · ___ · CL10.money · sorry"
         }
       ]
     },
@@ -1243,42 +1347,48 @@
           "answer": "Soma",
           "translation": "Read this book!",
           "hint": "bare stem command",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · CL7.book · CL7.this"
         },
         {
           "sentence": "{{answer}} kelele!",
           "answer": "Usipige",
           "translation": "Don't make noise!",
           "hint": "negative command — 'don't make (noise)'",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · CL10.noise"
         },
         {
           "sentence": "{{answer}} hapa, tafadhali.",
           "answer": "Njoo",
           "translation": "Come here, please.",
           "hint": "kuja — irregular imperative",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · CL16.here · please"
         },
         {
           "sentence": "{{answer}} mlango!",
           "answer": "Funga",
           "translation": "Close the door!",
           "hint": "to close — plain imperative",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · CL3.door"
         },
         {
           "sentence": "{{answer}} maji mengi.",
           "answer": "Kunywa",
           "translation": "Drink a lot of water.",
           "hint": "to drink — plain imperative",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · CL6.water · CL6.much"
         },
         {
           "sentence": "{{answer}} shuleni!",
           "answer": "Usichelewe",
           "translation": "Don't be late to school!",
           "hint": "negative: u-si-…-e",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · CL9.school.LOC"
         }
       ]
     },
@@ -1311,42 +1421,48 @@
           "answer": "usome",
           "translation": "I want you to read this book.",
           "hint": "u- + soma + -e",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.PRES.want · ___ · CL7.book · CL7.this"
         },
         {
           "sentence": "Twende sokoni {{answer}} matunda.",
           "answer": "tununue",
           "translation": "Let's go to the market to buy fruit.",
           "hint": "purpose: tu- + nunua + -e",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1PL.SBJV.go · CL5.market.LOC · ___ · CL6.fruit"
         },
         {
           "sentence": "Nataka {{answer}} nyumbani mapema.",
           "answer": "urudi",
           "translation": "I want you to return home early.",
           "hint": "rudi keeps -i (Arabic-origin verb), wewe → u-",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG.PRES.want · ___ · CL9.house.LOC · early"
         },
         {
           "sentence": "Ni muhimu {{answer}} kila siku.",
           "answer": "tusome",
           "translation": "It is important that we study every day.",
           "hint": "soma, sisi → -e",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "COP · important · ___ · every · CL9.day"
         },
         {
           "sentence": "Mwambie {{answer}} hapa.",
           "answer": "aje",
           "translation": "Tell him to come here.",
           "hint": "kuja, yeye → -e",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL1.OBJ.tell.IMP · ___ · CL16.here"
         },
         {
           "sentence": "{{answer}} nini sasa?",
           "answer": "Nifanye",
           "translation": "What should I do now?",
           "hint": "fanya, mimi → -e",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · what · now"
         }
       ]
     },
@@ -1379,42 +1495,48 @@
           "answer": "sikufanya",
           "translation": "Yesterday I didn't do work.",
           "hint": "to do + past negative (I)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "yesterday · ___ · CL9.work"
         },
         {
           "sentence": "Yeye {{answer}} kesho.",
           "answer": "hatakuja",
           "translation": "She will not come tomorrow.",
           "hint": "to come + future negative (he)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · tomorrow"
         },
         {
           "sentence": "Sisi {{answer}} jana.",
           "answer": "hatukuenda",
           "translation": "We didn't go yesterday.",
           "hint": "to go + past negative (we)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · yesterday"
         },
         {
           "sentence": "Mimi {{answer}} kesho.",
           "answer": "sitakuja",
           "translation": "I won't come tomorrow.",
           "hint": "to come + future negative (I)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · ___ · tomorrow"
         },
         {
           "sentence": "Wao {{answer}} chakula.",
           "answer": "hawakupika",
           "translation": "They didn't cook food.",
           "hint": "to cook + past negative (they)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3PL · ___ · CL7.food"
         },
         {
           "sentence": "Wewe {{answer}} kazi kesho?",
           "answer": "hutafanya",
           "translation": "Won't you work tomorrow?",
           "hint": "to work + future negative (you)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "2SG · ___ · CL9.work · tomorrow"
         }
       ]
     },
@@ -1447,42 +1569,48 @@
           "answer": "ambaye",
           "translation": "The person who is reading is a teacher.",
           "hint": "relative 'who' — person class",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL1.person · ___ · CL1.PRES.read · COP · CL1.teacher"
         },
         {
           "sentence": "Kitabu {{answer}} nilinunua ni kizuri.",
           "answer": "ambacho",
           "translation": "The book that I bought is good.",
           "hint": "relative 'which' — Ki class",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL7.book · ___ · 1SG.PAST.buy · COP · CL7.good"
         },
         {
           "sentence": "Nyumba {{answer}} tulinunua ni kubwa.",
           "answer": "ambayo",
           "translation": "The house that we bought is big.",
           "hint": "N class singular",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL9.house · ___ · 1PL.PAST.buy · COP · CL9.big"
         },
         {
           "sentence": "Watu {{answer}} wanafanya kazi hapa ni wazuri.",
           "answer": "ambao",
           "translation": "The people who work here are good.",
           "hint": "Wa- class plural",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL2.person · ___ · CL2.PRES.do · CL9.work · CL16.here · COP · CL2.good"
         },
         {
           "sentence": "Mtu {{answer}} jana ni mgeni.",
           "answer": "aliyefika",
           "translation": "The person who arrived yesterday is a guest.",
           "hint": "to arrive + past with the relative infix (he)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL1.person · ___ · yesterday · COP · CL1.guest"
         },
         {
           "sentence": "Gari {{answer}} nililinunua ni zuri.",
           "answer": "ambalo",
           "translation": "The car that I bought is good.",
           "hint": "Ma- class singular",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL5.car · ___ · 1SG.PAST.CL5.OBJ.buy · COP · CL5.good"
         }
       ]
     },
@@ -1515,42 +1643,48 @@
           "answer": "shuleni",
           "translation": "The children are at school.",
           "hint": "school + locative ending",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL2.child · CL2.be.at · ___"
         },
         {
           "sentence": "{{answer}} chakula mezani?",
           "answer": "Kuna",
           "translation": "Is there food on the table?",
           "hint": "existence 'there is'",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · CL7.food · CL9.table.LOC"
         },
         {
           "sentence": "Chakula kiko {{answer}}.",
           "answer": "mezani",
           "translation": "The food is on the table.",
           "hint": "table + locative ending",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL7.food · CL7.be.at · ___"
         },
         {
           "sentence": "{{answer}} maji ndani ya chupa?",
           "answer": "Mna",
           "translation": "Is there water inside the bottle?",
           "hint": "interior locative",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · CL6.water · CL9.inside · CL9.of · CL9.bottle"
         },
         {
           "sentence": "Wazazi wangu wako {{answer}}.",
           "answer": "nyumbani",
           "translation": "My parents are at home.",
           "hint": "home + locative ending",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL2.parent · CL2.1SG.POSS · CL2.be.at · ___"
         },
         {
           "sentence": "Vitabu viko {{answer}}.",
           "answer": "mfukoni",
           "translation": "The books are in the bag.",
           "hint": "bag + locative ending",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL8.book · CL8.be.at · ___"
         }
       ]
     },
@@ -1583,42 +1717,48 @@
           "answer": "husoma",
           "translation": "She reads every day.",
           "hint": "to read + habitual prefix",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG · ___ · every · CL9.day"
         },
         {
           "sentence": "Watu {{answer}} chai asubuhi.",
           "answer": "hunywa",
           "translation": "People drink tea in the morning.",
           "hint": "to drink + habitual prefix",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL2.person · ___ · CL9.tea · CL9.morning"
         },
         {
           "sentence": "Yeye {{answer}} mapema kila siku.",
           "answer": "huamka",
           "translation": "She habitually wakes up early every day.",
           "hint": "to wake up + habitual prefix",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG · ___ · early · every · CL9.day"
         },
         {
           "sentence": "Wakulima {{answer}} asubuhi.",
           "answer": "hulima",
           "translation": "Farmers till the land in the morning.",
           "hint": "to till + habitual prefix",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL2.farmer · ___ · CL9.morning"
         },
         {
           "sentence": "Sisi {{answer}} sokoni kila wiki.",
           "answer": "huenda",
           "translation": "We go to the market every week.",
           "hint": "to go + habitual prefix",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL · ___ · CL5.market.LOC · every · CL9.week"
         },
         {
           "sentence": "Watoto {{answer}} mpira jioni.",
           "answer": "hucheza",
           "translation": "Children play football in the evening.",
           "hint": "to play + habitual prefix",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL2.child · ___ · CL3.ball · CL9.evening"
         }
       ]
     },
@@ -1651,42 +1791,48 @@
           "answer": "alikuwa",
           "translation": "He was a teacher long ago.",
           "hint": "'to be' + past (he/she)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG · ___ · CL1.teacher · long.ago"
         },
         {
           "sentence": "Mimi {{answer}} daktari.",
           "answer": "nitakuwa",
           "translation": "I will be a doctor.",
           "hint": "'to be' + future (I)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · ___ · CL5.doctor"
         },
         {
           "sentence": "Sisi {{answer}} shuleni jana.",
           "answer": "tulikuwa",
           "translation": "We were at school yesterday.",
           "hint": "kuwa, sisi + -li-",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · CL9.school.LOC · yesterday"
         },
         {
           "sentence": "Wao {{answer}} hapa kesho.",
           "answer": "watakuwa",
           "translation": "They will be here tomorrow.",
           "hint": "kuwa, wao + -ta-",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3PL · ___ · CL16.here · tomorrow"
         },
         {
           "sentence": "Wewe {{answer}} wapi jana?",
           "answer": "ulikuwa",
           "translation": "Where were you yesterday?",
           "hint": "kuwa, wewe + -li-",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · ___ · where · yesterday"
         },
         {
           "sentence": "Hali ya hewa {{answer}} nzuri kesho.",
           "answer": "itakuwa",
           "translation": "The weather will be good tomorrow.",
           "hint": "kuwa, N class i- + -ta-",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL9.condition · CL9.of · CL9.air · ___ · CL9.good · tomorrow"
         }
       ]
     },
@@ -1723,42 +1869,48 @@
           "answer": "kimepikwa",
           "translation": "The food has been cooked.",
           "hint": "to cook + passive + perfect (Ki class)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL7.food · ___"
         },
         {
           "sentence": "Barua {{answer}} jana.",
           "answer": "iliandikwa",
           "translation": "The letter was written yesterday.",
           "hint": "to write + passive + past (N class)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL9.letter · ___ · yesterday"
         },
         {
           "sentence": "Mlango {{answer}}.",
           "answer": "umefungwa",
           "translation": "The door has been closed.",
           "hint": "funga → fungwa, u- class",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL3.door · ___"
         },
         {
           "sentence": "Chakula {{answer}} na mama.",
           "answer": "kilipikwa",
           "translation": "The food was cooked by mother.",
           "hint": "pika → pikwa, ki- class",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL7.food · ___ · by · CL1.mother"
         },
         {
           "sentence": "Kazi hii {{answer}} kesho.",
           "answer": "itafanywa",
           "translation": "This work will be done tomorrow.",
           "hint": "fanya → fanywa, N class",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL9.work · CL9.this · ___ · tomorrow"
         },
         {
           "sentence": "Wezi {{answer}} jana.",
           "answer": "walikamatwa",
           "translation": "The thieves were caught yesterday.",
           "hint": "kamata → kamatwa",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL2.thief · ___ · yesterday"
         }
       ]
     },
@@ -1791,42 +1943,48 @@
           "answer": "anawasomesha",
           "translation": "The teacher teaches the children.",
           "hint": "causative of -soma + object wa-",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL1.teacher · ___ · CL2.child"
         },
         {
           "sentence": "Tafadhali {{answer}} kitabu changu.",
           "answer": "rudisha",
           "translation": "Please return my book.",
           "hint": "causative of -rudi",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "please · ___ · CL7.book · CL7.1SG.POSS"
         },
         {
           "sentence": "Mama {{answer}} mtoto chakula.",
           "answer": "analisha",
           "translation": "Mother feeds the child food.",
           "hint": "kula → lisha",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL1.mother · ___ · CL1.child · CL7.food"
         },
         {
           "sentence": "Habari hii {{answer}} watu.",
           "answer": "itafurahisha",
           "translation": "This news will make people happy.",
           "hint": "furahi → furahisha",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL9.news · CL9.this · ___ · CL2.person"
         },
         {
           "sentence": "Juma {{answer}} maji.",
           "answer": "alichemsha",
           "translation": "Juma boiled the water.",
           "hint": "chemka → chemsha",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "Juma · ___ · CL6.water"
         },
         {
           "sentence": "Tafadhali {{answer}} gari.",
           "answer": "simamisha",
           "translation": "Please stop the car.",
           "hint": "to stand → causative 'bring to a stop'",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "please · ___ · CL5.car"
         }
       ]
     },
@@ -1859,42 +2017,48 @@
           "answer": "anawapikia",
           "translation": "Mother is cooking food for the children.",
           "hint": "applicative -ia + object wa-",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL1.mother · ___ · CL2.child · CL7.food"
         },
         {
           "sentence": "Nita{{answer}} barua.",
           "answer": "kuandikia",
           "translation": "I will write you a letter.",
           "hint": "applicative of -andika + -ku-",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG.FUT.___ · CL9.letter"
         },
         {
           "sentence": "Baba {{answer}} watoto zawadi.",
           "answer": "aliwanunulia",
           "translation": "Father bought the children presents.",
           "hint": "nunua → nunulia + -wa-",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL1.father · ___ · CL2.child · CL10.present"
         },
         {
           "sentence": "Tafadhali {{answer}} mlango.",
           "answer": "nifungulie",
           "translation": "Please open the door for me.",
           "hint": "fungua → fungulia, subjunctive",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "please · ___ · CL3.door"
         },
         {
           "sentence": "Mama {{answer}} mgeni chai.",
           "answer": "atamletea",
           "translation": "Mother will bring the guest tea.",
           "hint": "leta → letea + -m-",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL1.mother · ___ · CL1.guest · CL9.tea"
         },
         {
           "sentence": "Rafiki yangu {{answer}} barua.",
           "answer": "aliniandikia",
           "translation": "My friend wrote me a letter.",
           "hint": "andika → andikia + -ni-",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL9.friend · CL9.1SG.POSS · ___ · CL9.letter"
         }
       ]
     },
@@ -1927,42 +2091,48 @@
           "answer": "kimevunjika",
           "translation": "The cup has broken / is broken.",
           "hint": "stative of -vunja",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL7.cup · ___"
         },
         {
           "sentence": "Kazi hii {{answer}} leo.",
           "answer": "inafanyika",
           "translation": "This work is getting done today.",
           "hint": "stative of -fanya",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL9.work · CL9.this · ___ · today"
         },
         {
           "sentence": "Mlango huu {{answer}} kwa urahisi.",
           "answer": "unafunguka",
           "translation": "This door opens easily.",
           "hint": "fungua → funguka",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL3.door · CL3.this · ___ · with · CL11.ease"
         },
         {
           "sentence": "Chakula hiki {{answer}}.",
           "answer": "kimeharibika",
           "translation": "This food has gone bad.",
           "hint": "haribu → haribika",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL7.food · CL7.this · ___"
         },
         {
           "sentence": "Maneno yake {{answer}}.",
           "answer": "yanaeleweka",
           "translation": "His words are understandable.",
           "hint": "elewa → eleweka",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL6.word · CL6.3SG.POSS · ___"
         },
         {
           "sentence": "Glasi {{answer}} jana.",
           "answer": "ilivunjika",
           "translation": "The glass broke yesterday.",
           "hint": "vunja → vunjika",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL9.glass · ___ · yesterday"
         }
       ]
     },
@@ -1995,42 +2165,48 @@
           "answer": "wanapendana",
           "translation": "They love each other very much.",
           "hint": "reciprocal of -penda",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3PL · ___ · very"
         },
         {
           "sentence": "{{answer}} kesho!",
           "answer": "Tutaonana",
           "translation": "See you tomorrow! (we will see each other)",
           "hint": "reciprocal of -ona, future",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · tomorrow"
         },
         {
           "sentence": "Marafiki {{answer}} kila siku.",
           "answer": "wanasaidiana",
           "translation": "The friends help each other every day.",
           "hint": "saidia → saidiana",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL2.friend · ___ · every · CL9.day"
         },
         {
           "sentence": "Sisi {{answer}} sokoni jana.",
           "answer": "tulikutana",
           "translation": "We met each other at the market yesterday.",
           "hint": "kuta → kutana",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · ___ · CL5.market.LOC · yesterday"
         },
         {
           "sentence": "Ndugu wawili {{answer}} sana.",
           "answer": "wanafanana",
           "translation": "The two siblings look very much alike.",
           "hint": "fanana — resemble each other",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL2.sibling · CL2.two · ___ · very"
         },
         {
           "sentence": "Watu hawa {{answer}} vizuri.",
           "answer": "wanaelewana",
           "translation": "These people understand each other well.",
           "hint": "elewa → elewana",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL2.person · CL2.this · ___ · CL8.well"
         }
       ]
     },
@@ -2063,42 +2239,48 @@
           "answer": "Ukisoma",
           "translation": "If you study hard, you will succeed.",
           "hint": "to study + 'if' (you)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · with · CL9.diligence · 2SG.FUT.succeed"
         },
         {
           "sentence": "Mvua {{answer}}, tutabaki nyumbani.",
           "answer": "ikinyesha",
           "translation": "If it rains, we will stay home.",
           "hint": "to rain + 'if' (N class)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL9.rain · ___ · 1PL.FUT.remain · CL9.house.LOC"
         },
         {
           "sentence": "{{answer}} mapema, tutaondoka.",
           "answer": "Ukifika",
           "translation": "If you arrive early, we will leave.",
           "hint": "fika, wewe + -ki-",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · early · 1PL.FUT.depart"
         },
         {
           "sentence": "{{answer}} pesa, nitanunua gari.",
           "answer": "Nikipata",
           "translation": "If I get money, I will buy a car.",
           "hint": "pata, mimi + -ki-",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · CL10.money · 1SG.FUT.buy · CL5.car"
         },
         {
           "sentence": "Watoto {{answer}} kwa bidii, watafaulu.",
           "answer": "wakisoma",
           "translation": "If the children study hard, they will succeed.",
           "hint": "soma, wao + -ki-",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL2.child · ___ · with · CL9.diligence · CL2.FUT.succeed"
         },
         {
           "sentence": "{{answer}} chakula, tutakula pamoja.",
           "answer": "Akipika",
           "translation": "If she cooks food, we will eat together.",
           "hint": "pika, yeye + -ki-",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · CL7.food · 1PL.FUT.eat · together"
         }
       ]
     },
@@ -2131,42 +2313,48 @@
           "answer": "Ningekuwa",
           "translation": "If I had money, I would travel.",
           "hint": "'to be' + hypothetical (I)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · with · CL10.money · 1SG.HYP.travel"
         },
         {
           "sentence": "{{answer}}, ungalifaulu.",
           "answer": "Ungalisoma",
           "translation": "Had you studied, you would have passed.",
           "hint": "to study + past hypothetical (you)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 2SG.HYP.PAST.succeed"
         },
         {
           "sentence": "{{answer}} mapema, tungewahi basi.",
           "answer": "Tungeamka",
           "translation": "If we woke up early, we would catch the bus.",
           "hint": "amka, sisi + -nge-",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · early · 1PL.HYP.catch · CL5.bus"
         },
         {
           "sentence": "Yeye {{answer}} kama angejua.",
           "answer": "angekuja",
           "translation": "He would come if he knew.",
           "hint": "kuja, yeye + -nge-",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL1 · ___ · if · CL1.HYP.know"
         },
         {
           "sentence": "Kama ungejua, {{answer}} nini?",
           "answer": "ungefanya",
           "translation": "If you knew, what would you do?",
           "hint": "fanya, wewe + -nge-",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · 2SG.HYP.know · ___ · what"
         },
         {
           "sentence": "{{answer}} mvua, tungalibaki nyumbani.",
           "answer": "Ingalinyesha",
           "translation": "Had it rained, we would have stayed home.",
           "hint": "nyesha, N class + -ngali-",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · CL9.rain · 1PL.HYP.PAST.remain · CL9.house.LOC"
         }
       ]
     },
@@ -2199,42 +2387,48 @@
           "answer": "akanunua",
           "translation": "He went to the market and (then) bought bananas.",
           "hint": "to buy + narrative 'and then' (he/she)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL1.PAST.go · CL5.market.LOC · ___ · CL10.banana"
         },
         {
           "sentence": "Nilifika nyumbani, {{answer}} chakula.",
           "answer": "nikapika",
           "translation": "I got home and then cooked food.",
           "hint": "to cook + narrative 'and then' (I)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG.PAST.arrive · CL9.house.LOC · ___ · CL7.food"
         },
         {
           "sentence": "Tulienda mjini, {{answer}} rafiki zetu.",
           "answer": "tukaona",
           "translation": "We went to town and saw our friends.",
           "hint": "ona, sisi + -ka-",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL.PAST.go · CL3.town.LOC · ___ · CL10.friend · CL10.1PL.POSS"
         },
         {
           "sentence": "Aliamka mapema, {{answer}} chai.",
           "answer": "akanywa",
           "translation": "He woke up early and drank tea.",
           "hint": "kunywa, yeye + -ka-",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL1.PAST.wake · early · ___ · CL9.tea"
         },
         {
           "sentence": "Walifika nyumbani, {{answer}} chakula.",
           "answer": "wakala",
           "translation": "They arrived home and ate food.",
           "hint": "kula, wao + -ka-",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL2.PAST.arrive · CL9.house.LOC · ___ · CL7.food"
         },
         {
           "sentence": "Nilinunua kitabu, {{answer}} kusoma.",
           "answer": "nikaanza",
           "translation": "I bought a book and began to read.",
           "hint": "anza, mimi + -ka-",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG.PAST.buy · CL7.book · ___ · INF.read"
         }
       ]
     },
@@ -2271,42 +2465,48 @@
           "answer": "Uhuru",
           "translation": "Independence was gained in 1961.",
           "hint": "freedom / independence — a U-class abstract",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · CL11.PAST.be_obtained · CL3.year · 1961"
         },
         {
           "sentence": "Ukuta {{answer}} jana usiku.",
           "answer": "ulianguka",
           "translation": "The wall fell last night.",
           "hint": "to fall + past, U-class subject",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL11.wall · ___ · yesterday · CL11.night"
         },
         {
           "sentence": "Nimepoteza {{answer}} wa nyumba.",
           "answer": "ufunguo",
           "translation": "I have lost the house key.",
           "hint": "key — U-class noun",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG.PERF.lose · ___ · CL11.of · CL9.house"
         },
         {
           "sentence": "{{answer}} wa mama ni mkubwa.",
           "answer": "Upendo",
           "translation": "A mother's love is great.",
           "hint": "love — U-class abstract",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · CL11.of · CL9.mother · COP · CL11.big"
         },
         {
           "sentence": "Sema {{answer}} kila wakati.",
           "answer": "ukweli",
           "translation": "Tell the truth at all times.",
           "hint": "truth — U-class abstract",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "say.IMP · ___ · every · CL11.time"
         },
         {
           "sentence": "Funguo {{answer}} mezani.",
           "answer": "ziko",
           "translation": "The keys are on the table.",
           "hint": "to be (location) with the N-class plural subject",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL10.key · ___ · CL9.table.LOC"
         }
       ]
     },
@@ -2343,42 +2543,48 @@
           "answer": "kwake",
           "translation": "Her singing pleases me.",
           "hint": "possessive 'his/her' with a class-15 action",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL15.sing · ___ · CL15.PRES.1SG.OBJ.please"
         },
         {
           "sentence": "{{answer}} kunahitaji mazoezi mengi.",
           "answer": "Kuogelea",
           "translation": "Swimming needs a lot of practice.",
           "hint": "to swim — the action as a noun",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · CL15.PRES.need · CL6.practice · CL6.many"
         },
         {
           "sentence": "Kufanya kazi kwa bidii {{answer}} mafanikio.",
           "answer": "kunaleta",
           "translation": "Working hard brings success.",
           "hint": "to bring + present, class-15 subject",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL15.do · CL9.work · with · CL9.diligence · ___ · CL6.success"
         },
         {
           "sentence": "Kucheza {{answer}} watoto ni muhimu.",
           "answer": "kwa",
           "translation": "Children's playing is important.",
           "hint": "the -a of association for class 15",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL15.play · ___ · CL2.child · COP · important"
         },
         {
           "sentence": "Kutembea kila siku {{answer}} afya.",
           "answer": "kunasaidia",
           "translation": "Walking every day helps your health.",
           "hint": "to help + present, class-15 subject",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL15.walk · every · CL9.day · ___ · CL9.health"
         },
         {
           "sentence": "Kuishi mjini {{answer}} gharama zake.",
           "answer": "kuna",
           "translation": "Living in town has its costs.",
           "hint": "class-15 subject + 'to have'",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL15.live · CL3.town.LOC · ___ · CL10.cost · CL10.3SG.POSS"
         }
       ]
     },
@@ -2415,42 +2621,48 @@
           "answer": "hapa",
           "translation": "This place is suitable for a picnic.",
           "hint": "this (definite place)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL16.place · ___ · CL16.PRES.be.suitable · for · CL9.picnic"
         },
         {
           "sentence": "Tulikaa mahali {{answer}}.",
           "answer": "pazuri",
           "translation": "We sat in a nice spot.",
           "hint": "nice + pa-class agreement",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1PL.PAST.sit · CL16.place · ___"
         },
         {
           "sentence": "{{answer}} kwetu kuna amani.",
           "answer": "Huko",
           "translation": "Back home there is peace.",
           "hint": "there (general place)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · CL17.1PL.POSS · CL17.there.is · CL9.peace"
         },
         {
           "sentence": "Chumbani {{answer}} mna giza.",
           "answer": "humo",
           "translation": "In there it is dark.",
           "hint": "in there (inside place)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL7.room.LOC · ___ · CL18.there.is · CL5.darkness"
         },
         {
           "sentence": "Nyumbani {{answer}} ni mahali pazuri.",
           "answer": "kwetu",
           "translation": "Our home is a good place.",
           "hint": "our + ku-class place",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL9.house.LOC · ___ · COP · CL16.place · CL16.good"
         },
         {
           "sentence": "Shambani {{answer}} palikuwa na mti mkubwa.",
           "answer": "pale",
           "translation": "There at the farm there was a big tree.",
           "hint": "that (definite place, far)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL5.farm.LOC · ___ · CL16.PAST.be · with · CL3.tree · CL3.big"
         }
       ]
     },
@@ -2488,7 +2700,8 @@
           "translation": "This child studies well.",
           "hint": "this — person class (M-/Wa-)",
           "cell": "cl.1",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL1.child · ___ · CL1.PRES.read · CL8.well"
         },
         {
           "sentence": "Watu {{answer}} wanatoka Kenya.",
@@ -2496,7 +2709,8 @@
           "translation": "Those people come from Kenya.",
           "hint": "those — people class plural",
           "cell": "cl.2",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL2.person · ___ · CL2.PRES.come.from · Kenya"
         },
         {
           "sentence": "Kitabu {{answer}} ni changu.",
@@ -2504,7 +2718,8 @@
           "translation": "This book is mine.",
           "hint": "this — Ki- class",
           "cell": "cl.7",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL7.book · ___ · COP · CL7.1SG.POSS"
         },
         {
           "sentence": "Nyumba {{answer}} ni kubwa sana.",
@@ -2512,7 +2727,8 @@
           "translation": "This house is very big.",
           "hint": "this — N- class",
           "cell": "cl.9",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL9.house · ___ · COP · CL9.big · very"
         },
         {
           "sentence": "Gari {{answer}} ni jipya.",
@@ -2520,7 +2736,8 @@
           "translation": "This car is new.",
           "hint": "this — Ma- class (5)",
           "cell": "cl.5",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL5.car · ___ · COP · CL5.new"
         },
         {
           "sentence": "Viatu {{answer}} ni vyako.",
@@ -2528,7 +2745,8 @@
           "translation": "These shoes are yours.",
           "hint": "these — Vi- class",
           "cell": "cl.8",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL8.shoe · ___ · COP · CL8.2SG.POSS"
         },
         {
           "sentence": "Mwalimu {{answer}} anafundisha Kiswahili.",
@@ -2536,7 +2754,8 @@
           "translation": "This teacher teaches Swahili.",
           "hint": "this — person class",
           "cell": "cl.1",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "CL1.teacher · ___ · CL1.PRES.teach · CL7.Swahili"
         },
         {
           "sentence": "Wageni {{answer}} wanatoka Tanzania.",
@@ -2544,7 +2763,8 @@
           "translation": "Those guests come from Tanzania.",
           "hint": "those — people class plural",
           "cell": "cl.2",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "CL2.guest · ___ · CL2.PRES.come.from · Tanzania"
         },
         {
           "sentence": "Yai {{answer}} ni bichi.",
@@ -2552,7 +2772,8 @@
           "translation": "This egg is raw.",
           "hint": "this — Ma- class (5)",
           "cell": "cl.5",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "CL5.egg · ___ · COP · CL5.raw"
         },
         {
           "sentence": "Chumba {{answer}} ni kidogo.",
@@ -2560,7 +2781,8 @@
           "translation": "This room is small.",
           "hint": "this — Ki- class",
           "cell": "cl.7",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "CL7.room · ___ · COP · CL7.small"
         },
         {
           "sentence": "Vitabu {{answer}} ni vipya.",
@@ -2568,7 +2790,8 @@
           "translation": "These books are new.",
           "hint": "these — Vi- class",
           "cell": "cl.8",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "CL8.book · ___ · COP · CL8.new"
         },
         {
           "sentence": "Kalamu {{answer}} ni yangu.",
@@ -2576,7 +2799,8 @@
           "translation": "This pen is mine.",
           "hint": "this — N- class",
           "cell": "cl.9",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "CL9.pen · ___ · COP · CL9.1SG.POSS"
         }
       ],
       "paradigm": [
@@ -2621,42 +2845,48 @@
           "answer": "kuliko",
           "translation": "Mount Kilimanjaro is taller than Mount Kenya.",
           "hint": "than — the comparison pivot",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL3.mountain · Kilimanjaro · COP · CL3.tall · ___ · CL3.mountain · Kenya"
         },
         {
           "sentence": "Chai hii ni tamu {{answer}} ile.",
           "answer": "kuliko",
           "translation": "This tea is sweeter than that one.",
           "hint": "than — the comparison pivot",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL9.tea · CL9.this · COP · CL9.sweet · ___ · CL9.that"
         },
         {
           "sentence": "Anapenda kahawa {{answer}} ya chai.",
           "answer": "zaidi",
           "translation": "She likes coffee more than tea.",
           "hint": "more (than)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL1.PRES.like · CL9.coffee · ___ · CL9.of · CL9.tea"
         },
         {
           "sentence": "Mwanafunzi huyu ni mwerevu kuliko {{answer}}.",
           "answer": "wote",
           "translation": "This student is the cleverest of all.",
           "hint": "all (people) — makes the superlative",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL1.student · CL1.this · COP · CL1.clever · than · ___"
         },
         {
           "sentence": "Yeye ni mrefu {{answer}} baba yake.",
           "answer": "kama",
           "translation": "He is as tall as his father.",
           "hint": "as / like",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG · COP · CL1.tall · ___ · CL9.father · CL9.3SG.POSS"
         },
         {
           "sentence": "Leo kuna joto {{answer}} kuliko jana.",
           "answer": "zaidi",
           "translation": "Today it is hotter than yesterday.",
           "hint": "more (than)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "today · CL17.there.is · CL5.heat · ___ · than · yesterday"
         }
       ]
     },
@@ -2693,42 +2923,48 @@
           "answer": "Nilipofika",
           "translation": "When I arrived home, the rain began.",
           "hint": "to arrive + past + when-marker (I)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · CL9.house.LOC · CL9.rain · CL9.PAST.begin"
         },
         {
           "sentence": "{{answer}} kazi, nipigie simu.",
           "answer": "Utakapomaliza",
           "translation": "When you finish the work, call me.",
           "hint": "to finish + future when-marker (you)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · CL9.work · 1SG.OBJ.hit.APPL.SBJV · CL9.phone"
         },
         {
           "sentence": "{{answer}} mtoto, aliishi Mombasa.",
           "answer": "Alipokuwa",
           "translation": "When he was a child, he lived in Mombasa.",
           "hint": "to be + past + when-marker (he)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · CL1.child · CL1.PAST.live · Mombasa"
         },
         {
           "sentence": "Tutaondoka jua {{answer}}.",
           "answer": "litakapochomoza",
           "translation": "We will leave when the sun rises.",
           "hint": "to rise + future when-marker, class-5 subject",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL.FUT.leave · CL5.sun · ___"
         },
         {
           "sentence": "Kila {{answer}}, tunazungumza mengi.",
           "answer": "tunapokutana",
           "translation": "Every time we meet, we talk a lot.",
           "hint": "to meet + present when-marker (we)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "every · ___ · 1PL.PRES.talk · CL6.many"
         },
         {
           "sentence": "Mara {{answer}} hatari, alikimbia.",
           "answer": "alipoona",
           "translation": "The moment he saw danger, he ran.",
           "hint": "to see + past when-marker (he)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL9.time · ___ · CL9.danger · CL1.PAST.run"
         }
       ]
     },
@@ -2765,42 +3001,48 @@
           "answer": "unavyojua",
           "translation": "As you know, life is not easy.",
           "hint": "to know + present + how-marker (you)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "as · ___ · CL6.life · NEG.COP · easy"
         },
         {
           "sentence": "Fanya {{answer}}.",
           "answer": "upendavyo",
           "translation": "Do as you like.",
           "hint": "to like + tenseless how-suffix (you)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "do.IMP · ___"
         },
         {
           "sentence": "Sielewi jinsi {{answer}}.",
           "answer": "anavyofikiri",
           "translation": "I don't understand how he thinks.",
           "hint": "to think + present + how-marker (he)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG.NEG.understand.NEG · how · ___"
         },
         {
           "sentence": "Andika barua kama {{answer}}.",
           "answer": "nilivyokuonyesha",
           "translation": "Write the letter the way I showed you.",
           "hint": "to show + past + how-marker, I…you",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "write.IMP · CL9.letter · as · ___"
         },
         {
           "sentence": "Mambo hayakwenda kama {{answer}}.",
           "answer": "tulivyopanga",
           "translation": "Things didn't go the way we planned.",
           "hint": "to plan + past + how-marker (we)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL6.matter · NEG.CL6.PAST.go · as · ___"
         },
         {
           "sentence": "Eleza mambo {{answer}}.",
           "answer": "yalivyotokea",
           "translation": "Explain things as they happened.",
           "hint": "to happen + past + how-marker, class-6 subject",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "explain.IMP · CL6.matter · ___"
         }
       ]
     },
@@ -2837,42 +3079,48 @@
           "answer": "kwamba",
           "translation": "He said that he will return tomorrow.",
           "hint": "that — introduces reported speech",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL1.PAST.say · ___ · CL1.FUT.return · tomorrow"
         },
         {
           "sentence": "Waliniambia {{answer}} mkutano umeahirishwa.",
           "answer": "kuwa",
           "translation": "They told me that the meeting has been postponed.",
           "hint": "that — reported-speech linker",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL2.PAST.1SG.OBJ.tell · ___ · CL3.meeting · CL3.PERF.postpone.PASS"
         },
         {
           "sentence": "{{answer}} mwalimu hakuja leo!",
           "answer": "Eti",
           "translation": "Apparently the teacher didn't come today!",
           "hint": "hearsay marker — 'they say / supposedly'",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · CL1.teacher · CL1.NEG.PAST.come · today"
         },
         {
           "sentence": "Aliniambia {{answer}} mapema.",
           "answer": "nije",
           "translation": "She told me to come early.",
           "hint": "to come + subjunctive, I — reported command",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL1.PAST.1SG.OBJ.tell · ___ · early"
         },
         {
           "sentence": "Gazeti linasema {{answer}} bei zitapanda.",
           "answer": "kwamba",
           "translation": "The newspaper says that prices will rise.",
           "hint": "that — introduces reported speech",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL5.newspaper · CL5.PRES.say · ___ · CL10.price · CL10.FUT.rise"
         },
         {
           "sentence": "Alijibu {{answer}} hajui chochote.",
           "answer": "kuwa",
           "translation": "He replied that he knows nothing.",
           "hint": "that — reported-speech linker",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL1.PAST.reply · ___ · CL1.NEG.PRES.know · CL7.anything"
         }
       ]
     },
@@ -2909,42 +3157,48 @@
           "answer": "wamelala",
           "translation": "When I arrived, the children had fallen asleep.",
           "hint": "to sleep + perfect, they — inside a past frame",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.PAST.CL16.REL.arrive · CL2.child · CL2.PAST.be · ___"
         },
         {
           "sentence": "Jana saa hii, tulikuwa {{answer}} chakula.",
           "answer": "tukipika",
           "translation": "This time yesterday, we were cooking food.",
           "hint": "to cook + ongoing -ki- (we)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "yesterday · CL9.hour · CL9.this · 1PL.PAST.be · ___ · CL7.food"
         },
         {
           "sentence": "Kesho saa hii, {{answer}} tumewasili.",
           "answer": "tutakuwa",
           "translation": "This time tomorrow, we will have arrived.",
           "hint": "to be + future — the outer tense carrier",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "tomorrow · CL9.hour · CL9.this · ___ · 1PL.PERF.arrive"
         },
         {
           "sentence": "Alipoingia, mama alikuwa {{answer}} barua.",
           "answer": "akisoma",
           "translation": "When he came in, mother was reading a letter.",
           "hint": "to read + ongoing -ki- (she)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL1.PAST.CL16.REL.enter · CL1.mother · CL1.PAST.be · ___ · CL9.letter"
         },
         {
           "sentence": "Mwaka jana, walikuwa {{answer}} Ulaya.",
           "answer": "wakiishi",
           "translation": "Last year, they were living in Europe.",
           "hint": "to live + ongoing -ki- (they)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL3.year · yesterday · CL2.PAST.be · ___ · Europe"
         },
         {
           "sentence": "Kufikia Juni, nitakuwa {{answer}} kozi.",
           "answer": "nimemaliza",
           "translation": "By June, I will have finished the course.",
           "hint": "to finish + perfect, I — inside a future frame",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "INF.reach · June · 1SG.FUT.be · ___ · CL9.course"
         }
       ]
     },
@@ -2981,42 +3235,48 @@
           "answer": "fungua",
           "translation": "Please open the door.",
           "hint": "to close + reversive = its opposite (command)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "please · ___ · CL3.door"
         },
         {
           "sentence": "Alipofika nyumbani, {{answer}} viatu.",
           "answer": "alivua",
           "translation": "When he got home, he took off his shoes.",
           "hint": "to wear + reversive + past (he)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL1.PAST.CL16.REL.arrive · CL9.house.LOC · ___ · CL8.shoe"
         },
         {
           "sentence": "Mwandishi wa habari {{answer}} siri kubwa.",
           "answer": "alifichua",
           "translation": "The journalist revealed a big secret.",
           "hint": "to hide + reversive + past (he)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL1.writer · CL1.of · CL9.news · ___ · CL9.secret · CL9.big"
         },
         {
           "sentence": "Baada ya sherehe, {{answer}} meza.",
           "answer": "tulipangua",
           "translation": "After the party, we cleared away the tables.",
           "hint": "to arrange + reversive + past (we)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "after · of · CL9.party · ___ · CL10.table"
         },
         {
           "sentence": "Mtoto {{answer}} mtego kwa fimbo.",
           "answer": "alitegua",
           "translation": "The child sprang the trap with a stick.",
           "hint": "to set (a trap) + reversive + past (he)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL1.child · ___ · CL3.trap · with · CL9.stick"
         },
         {
           "sentence": "{{answer}} zawadi yako sasa!",
           "answer": "Funua",
           "translation": "Unwrap your present now!",
           "hint": "to cover + reversive = its opposite (command)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · CL9.gift · CL9.2SG.POSS · now"
         }
       ]
     },
@@ -3053,42 +3313,48 @@
           "answer": "Ingawa",
           "translation": "Although it rained, we travelled.",
           "hint": "although",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · CL9.rain · CL9.PAST.fall · 1PL.PAST.travel"
         },
         {
           "sentence": "{{answer}} ya jitihada zake, alishindwa.",
           "answer": "Licha",
           "translation": "Despite his efforts, he failed.",
           "hint": "despite (pairs with 'ya')",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · of · CL10.effort · CL10.3SG.POSS · CL1.PAST.defeat.PASS"
         },
         {
           "sentence": "Alienda kazini {{answer}} alikuwa mgonjwa.",
           "answer": "ijapokuwa",
           "translation": "He went to work although he was ill.",
           "hint": "although — the fuller form",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL1.PAST.go · CL9.work.LOC · ___ · CL1.PAST.be · CL1.sick.person"
         },
         {
           "sentence": "Ni maskini; hata {{answer}}, ni mkarimu.",
           "answer": "hivyo",
           "translation": "He is poor; even so, he is generous.",
           "hint": "completes 'even so'",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "COP · poor · even · ___ · COP · CL1.generous"
         },
         {
           "sentence": "Hata {{answer}} sana, hafaulu.",
           "answer": "akijaribu",
           "translation": "Even if he tries hard, he doesn't succeed.",
           "hint": "to try + -ki- after 'even' = even if (he)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "even · ___ · very · NEG.CL1.succeed"
         },
         {
           "sentence": "Tutaendelea {{answer}} kuna vikwazo.",
           "answer": "japo",
           "translation": "We will continue even though there are obstacles.",
           "hint": "although — the short standalone form",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL.FUT.continue · ___ · CL17.there.are · CL8.obstacle"
         }
       ]
     },
@@ -3125,42 +3391,48 @@
           "answer": "ndiye",
           "translation": "HE is the one who stole the money.",
           "hint": "emphatic identity — person (singular)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "he · ___ · CL1.PAST.CL1.REL.steal · CL10.money"
         },
         {
           "sentence": "Hapa {{answer}} tulipokutana kwa mara ya kwanza.",
           "answer": "ndipo",
           "translation": "This is exactly where we met for the first time.",
           "hint": "emphatic identity — place/time",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL16.here · ___ · 1PL.PAST.CL16.REL.meet · for · CL9.time · CL9.of · first"
         },
         {
           "sentence": "{{answer}} maisha yalivyo.",
           "answer": "Ndivyo",
           "translation": "That is just how life is.",
           "hint": "emphatic identity — manner",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · CL6.life · CL6.be.CL8.REL"
         },
         {
           "sentence": "Kitabu hiki {{answer}} ninachokitafuta.",
           "answer": "ndicho",
           "translation": "This book is exactly the one I'm looking for.",
           "hint": "emphatic identity — Ki- class",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL7.book · CL7.this · ___ · 1SG.PRES.CL7.REL.CL7.OBJ.seek"
         },
         {
           "sentence": "Wao {{answer}} waliotusaidia.",
           "answer": "ndio",
           "translation": "THEY are the ones who helped us.",
           "hint": "emphatic identity — people (plural)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "they · ___ · CL2.PAST.CL2.REL.1PL.OBJ.help"
         },
         {
           "sentence": "Leo {{answer}} siku ya maamuzi.",
           "answer": "ndiyo",
           "translation": "Today is THE day of decision.",
           "hint": "emphatic identity — N- class",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "today · ___ · CL9.day · CL9.of · CL6.decision"
         }
       ]
     },
@@ -3197,42 +3469,48 @@
           "answer": "Usipofanya",
           "translation": "Unless you work, you won't be paid.",
           "hint": "to do + unless-marker (you)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · CL9.work · NEG.2SG.FUT.be.paid"
         },
         {
           "sentence": "{{answer}} sasa, tutachelewa.",
           "answer": "Tusipoondoka",
           "translation": "If we don't leave now, we'll be late.",
           "hint": "to leave + unless-marker (we)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · now · 1PL.FUT.be.late"
         },
         {
           "sentence": "{{answer}} mvua, mavuno yatakuwa mabaya.",
           "answer": "Isiponyesha",
           "translation": "If it doesn't rain, the harvest will be bad.",
           "hint": "to rain + unless-marker, class-9 subject",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · CL9.rain · CL6.harvest · CL6.FUT.be · CL6.bad"
         },
         {
           "sentence": "Asipokuja kesho, {{answer}} bila yeye.",
           "answer": "tutaanza",
           "translation": "If he doesn't come tomorrow, we'll start without him.",
           "hint": "to start + future (we)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL1.NEG.COND.come · tomorrow · ___ · without · he"
         },
         {
           "sentence": "Usipojifunza kutoka makosa, {{answer}} kuyarudia.",
           "answer": "utaendelea",
           "translation": "If you don't learn from mistakes, you will keep repeating them.",
           "hint": "to continue + future (you)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG.NEG.COND.learn · from · CL6.mistake · ___ · INF.CL6.OBJ.repeat"
         },
         {
           "sentence": "Wasiposikiliza, {{answer}} kuelewa.",
           "answer": "hawataweza",
           "translation": "If they don't listen, they won't be able to understand.",
           "hint": "to be able + negative future (they)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL2.NEG.COND.listen · ___ · INF.understand"
         }
       ]
     },
@@ -3269,42 +3547,48 @@
           "answer": "ili",
           "translation": "I study hard so that I pass the exam.",
           "hint": "so that — the purpose linker",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.PRES.study · with · CL9.diligence · ___ · 1SG.pass.SBJV · CL3.exam"
         },
         {
           "sentence": "Alinunua simu ili {{answer}} na familia yake.",
           "answer": "awasiliane",
           "translation": "He bought a phone in order to communicate with his family.",
           "hint": "to communicate + subjunctive (he)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL1.PAST.buy · CL9.phone · so.that · ___ · with · CL9.family · CL9.3SG.POSS"
         },
         {
           "sentence": "Tuliondoka mapema ili {{answer}} foleni.",
           "answer": "tuepuke",
           "translation": "We left early in order to avoid the traffic.",
           "hint": "to avoid + subjunctive (we)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL.PAST.leave · early · so.that · ___ · CL9.traffic.jam"
         },
         {
           "sentence": "Kula matunda {{answer}} uwe na afya njema.",
           "answer": "ili",
           "translation": "Eat fruit so that you have good health.",
           "hint": "so that — the purpose linker",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "eat.IMP · CL6.fruit · ___ · 2SG.be.SBJV · with · CL9.health · CL9.good"
         },
         {
           "sentence": "Walipanda miti ili mazingira {{answer}}.",
           "answer": "yahifadhiwe",
           "translation": "They planted trees so that the environment be conserved.",
           "hint": "to conserve + passive subjunctive, class-6 subject",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL2.PAST.plant · CL4.tree · so.that · CL6.environment · ___"
         },
         {
           "sentence": "Fungua dirisha ili hewa {{answer}}.",
           "answer": "iingie",
           "translation": "Open the window so that air comes in.",
           "hint": "to enter + subjunctive, class-9 subject",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "open.IMP · CL5.window · so.that · CL9.air · ___"
         }
       ]
     },
@@ -3341,42 +3625,48 @@
           "answer": "wakiimba",
           "translation": "They left singing.",
           "hint": "to sing + simultaneous -ki- (they)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL2.PAST.leave · ___"
         },
         {
           "sentence": "Nilimwona {{answer}} barabarani.",
           "answer": "akitembea",
           "translation": "I saw him walking on the road.",
           "hint": "to walk + simultaneous -ki- (he)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG.PAST.CL1.OBJ.see · ___ · CL9.road.LOC"
         },
         {
           "sentence": "Alikaa kimya, {{answer}} dirishani.",
           "answer": "akitazama",
           "translation": "He sat quietly, gazing out of the window.",
           "hint": "to gaze + simultaneous -ki- (he)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL1.PAST.sit · quietly · ___ · CL5.window.LOC"
         },
         {
           "sentence": "Tulivuka mto {{answer}}.",
           "answer": "tukiogelea",
           "translation": "We crossed the river swimming.",
           "hint": "to swim + simultaneous -ki- (we)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL.PAST.cross · CL3.river · ___"
         },
         {
           "sentence": "Mama alirudi nyumbani {{answer}} mizigo.",
           "answer": "akibeba",
           "translation": "Mother came home carrying the luggage.",
           "hint": "to carry + simultaneous -ki- (she)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL1.mother · CL1.PAST.return · CL9.house.LOC · ___ · CL4.luggage"
         },
         {
           "sentence": "Usile {{answer}}.",
           "answer": "ukitembea",
           "translation": "Don't eat while walking.",
           "hint": "to walk + simultaneous -ki- (you)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "2SG.NEG.eat.SBJV · ___"
         }
       ]
     },
@@ -3413,42 +3703,48 @@
           "answer": "simu",
           "translation": "I will call you tomorrow morning.",
           "hint": "phone — the 'hit' idiom for calling",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.FUT.2SG.OBJ.hit.APPL · ___ · tomorrow · CL9.morning"
         },
         {
           "sentence": "Watalii walipiga {{answer}} nyingi mbugani.",
           "answer": "picha",
           "translation": "The tourists took many photos in the park.",
           "hint": "photo — the 'hit' idiom for photographing",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL2.tourist · CL2.PAST.hit · ___ · CL10.many · CL9.park.LOC"
         },
         {
           "sentence": "Watoto wanapiga {{answer}}; siwezi kusoma.",
           "answer": "kelele",
           "translation": "The children are making noise; I can't read.",
           "hint": "noise — the 'hit' idiom for racket",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL2.child · CL2.PRES.hit · ___ · 1SG.NEG.be.able · INF.read"
         },
         {
           "sentence": "Mgeni alipiga {{answer}} mlangoni.",
           "answer": "hodi",
           "translation": "The visitor called 'hodi' at the door.",
           "hint": "the word you 'hit' to announce yourself",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL1.visitor · CL1.PAST.hit · ___ · CL3.door.LOC"
         },
         {
           "sentence": "Anapiga {{answer}} kila asubuhi ufukweni.",
           "answer": "mbio",
           "translation": "He runs every morning on the beach.",
           "hint": "running — the 'hit' idiom for a run",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL1.PRES.hit · ___ · every · CL9.morning · CL11.beach.LOC"
         },
         {
           "sentence": "Nguo hizi zinahitaji kupigwa {{answer}}.",
           "answer": "pasi",
           "translation": "These clothes need ironing.",
           "hint": "iron — the 'hit' idiom for pressing",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "CL10.clothes · CL10.these · CL10.PRES.need · INF.hit.PASS · ___"
         }
       ]
     },
@@ -3485,42 +3781,48 @@
           "answer": "baraka",
           "translation": "Haste, haste has no blessing.",
           "hint": "blessing — rhymes with the haste",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL9.haste · CL9.haste · NEG.CL9.have · ___"
         },
         {
           "sentence": "Haba na haba, hujaza {{answer}}.",
           "answer": "kibaba",
           "translation": "Little by little fills the measure.",
           "hint": "the small grain measure",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "little · and · little · HABITUAL.fill · ___"
         },
         {
           "sentence": "Asiyefunzwa na mamaye, hufunzwa na {{answer}}.",
           "answer": "ulimwengu",
           "translation": "One not taught by their mother is taught by the world.",
           "hint": "the world — the harsher teacher",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CL1.NEG.CL1.REL.teach.PASS · by · CL1.mother.3SG.POSS · HABITUAL.teach.PASS · by · ___"
         },
         {
           "sentence": "Kidole kimoja hakivunji {{answer}}.",
           "answer": "chawa",
           "translation": "One finger cannot crush a louse.",
           "hint": "the louse — teamwork's tiny enemy",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL7.finger · CL7.one · NEG.CL7.PRES.break · ___"
         },
         {
           "sentence": "Umoja ni nguvu, utengano ni {{answer}}.",
           "answer": "udhaifu",
           "translation": "Unity is strength, division is weakness.",
           "hint": "weakness — U-class abstract",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL11.unity · COP · CL9.strength · CL11.division · COP · ___"
         },
         {
           "sentence": "Polepole {{answer}} mwendo.",
           "answer": "ndiyo",
           "translation": "Slowly is indeed the way to go.",
           "hint": "the emphatic 'is indeed' (N- class)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "slowly · ___ · CL3.pace"
         }
       ]
     },
@@ -3557,42 +3859,48 @@
           "answer": "Shikamoo",
           "translation": "The child greeted grandmother: 'Shikamoo!'",
           "hint": "the greeting TO an elder",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "CL1.child · CL1.PAST.CL1.OBJ.greet.APPL · CL1.grandmother · ___"
         },
         {
           "sentence": "Bibi alijibu: '{{answer}}, mwanangu.'",
           "answer": "Marahaba",
           "translation": "Grandmother replied: 'Marahaba, my child.'",
           "hint": "the elder's reply to shikamoo",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "CL1.grandmother · CL1.PAST.answer · ___ · CL1.child.1SG.POSS"
         },
         {
           "sentence": "{{answer}}, naomba kuuliza swali.",
           "answer": "Samahani",
           "translation": "Excuse me, may I ask a question.",
           "hint": "the polite 'excuse me'",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 1SG.PRES.request · INF.ask · CL5.question"
         },
         {
           "sentence": "Wageni! {{answer}} nyumbani kwetu.",
           "answer": "Karibuni",
           "translation": "Guests! Welcome (all of you) to our home.",
           "hint": "welcome + plural",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL2.guest · ___ · CL9.house.LOC · CL17.1PL.POSS"
         },
         {
           "sentence": "Mzee {{answer}} sasa hivi.",
           "answer": "wamefika",
           "translation": "The elder has (respectfully) just arrived.",
           "hint": "to arrive + perfect with the honorific PLURAL concord",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "CL1.elder · ___ · now · CL8.like.this"
         },
         {
           "sentence": "Naomba {{answer}} maji, tafadhali.",
           "answer": "unipe",
           "translation": "May you please give me some water.",
           "hint": "to give + subjunctive, you…me — softened request",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG.PRES.request · ___ · CL6.water · please"
         }
       ]
     },
@@ -3623,7 +3931,7 @@
           "answer": "lini",
           "translation": "When will you return from the trip?",
           "hint": "the interrogative asking at what point in time",
-          "gloss": "u-ta-rudi (2SG-FUT-return) ___ kutoka (from) safari (CL9-journey)",
+          "gloss": "2SG.FUT.return · ___ · from · CL9.journey",
           "transliteration": null,
           "cell": "lini (when)",
           "display_order": 1
@@ -3633,7 +3941,7 @@
           "answer": "lini",
           "translation": "When did the meeting begin?",
           "hint": "the interrogative asking at what point in time",
-          "gloss": "mkutano (CL3-meeting) u-li-anza (CL3-PAST-begin) ___",
+          "gloss": "CL3.meeting · CL3.PAST.begin · ___",
           "transliteration": null,
           "cell": "lini (when)",
           "display_order": 2
@@ -3643,7 +3951,7 @@
           "answer": "vipi",
           "translation": "How did you get here without a car?",
           "hint": "the interrogative asking in what manner",
-          "gloss": "u-me-fika (2SG-PERF-arrive) ___ bila (without) gari (CL5-car)",
+          "gloss": "2SG.PERF.arrive · ___ · without · CL5.car",
           "transliteration": null,
           "cell": "vipi (how)",
           "display_order": 3
@@ -3655,14 +3963,15 @@
           "hint": "the interrogative asking in what manner, used alone as a casual greeting",
           "transliteration": null,
           "cell": "vipi (how)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "CL10.news · CL10.of · today · ___"
         },
         {
           "sentence": "Unataka chai {{answer}}?",
           "answer": "gani",
           "translation": "What kind of tea do you want?",
           "hint": "the invariable interrogative placed after a noun",
-          "gloss": "u-na-taka (2SG-PRES-want) chai (CL9-tea) ___",
+          "gloss": "2SG.PRES.want · CL9.tea · ___",
           "transliteration": null,
           "cell": "gani (what kind)",
           "display_order": 5
@@ -3672,7 +3981,7 @@
           "answer": "gani",
           "translation": "Which book are you reading now?",
           "hint": "the invariable interrogative placed after a noun",
-          "gloss": "kitabu (CL7-book) ___ u-na-soma (2SG-PRES-read) sasa (now)",
+          "gloss": "CL7.book · ___ · 2SG.PRES.read · now",
           "transliteration": null,
           "cell": "gani (what kind)",
           "display_order": 6
@@ -3682,7 +3991,7 @@
           "answer": "Mbona",
           "translation": "How come you haven't answered my message?",
           "hint": "the sentence-initial interrogative carrying mild reproach",
-          "gloss": "___ hu-ja-ni-jibu (2SG.NEG-not.yet-1SG.OBJ-answer) ujumbe (CL11-message) w-angu (CL11-my)",
+          "gloss": "___ · 2SG.NEG.not.yet.1SG.OBJ.answer · CL11.message · CL11.my",
           "transliteration": null,
           "cell": "mbona (how come)",
           "display_order": 7
@@ -3692,7 +4001,7 @@
           "answer": "Mbona",
           "translation": "How come you woke up so early?",
           "hint": "the sentence-initial interrogative carrying surprise",
-          "gloss": "___ u-me-amka (2SG-PERF-wake) mapema (early) hivyo (CL8-like.that)",
+          "gloss": "___ · 2SG.PERF.wake · early · CL8.like.that",
           "transliteration": null,
           "cell": "mbona (how come)",
           "display_order": 8
@@ -3702,7 +4011,7 @@
           "answer": "gani",
           "translation": "How old are you?",
           "hint": "the invariable interrogative placed after a noun",
-          "gloss": "u-na (2SG-have) umri (CL11-age) ___",
+          "gloss": "2SG.have · CL11.age · ___",
           "transliteration": null,
           "cell": "gani (what kind)",
           "display_order": 1
@@ -3712,7 +4021,7 @@
           "answer": "lini",
           "translation": "When shall we see each other?",
           "hint": "the interrogative asking at what point in time",
-          "gloss": "tu-ta-on-ana (1PL-FUT-see-RECIP) ___",
+          "gloss": "1PL.FUT.see.RECIP · ___",
           "transliteration": null,
           "cell": "lini (when)",
           "display_order": 2
@@ -3752,7 +4061,7 @@
           "answer": "iko",
           "translation": "Where is the station?",
           "hint": "the class 9 locative copula",
-          "gloss": "stesheni (CL9-station) ___ wapi (where)",
+          "gloss": "CL9.station · ___ · where",
           "transliteration": null,
           "cell": "asking where",
           "display_order": 1
@@ -3762,7 +4071,7 @@
           "answer": "liko",
           "translation": "Where is the shop?",
           "hint": "the class 5 locative copula",
-          "gloss": "duka (CL5-shop) ___ wapi (where)",
+          "gloss": "CL5.shop · ___ · where",
           "transliteration": null,
           "cell": "asking where",
           "display_order": 2
@@ -3772,7 +4081,7 @@
           "answer": "kulia",
           "translation": "The hotel is on the right-hand side.",
           "hint": "the side opposite the left",
-          "gloss": "hoteli (CL9-hotel) i-ko (CL9-be.at) upande (CL11-side) wa (CL11-of) ___",
+          "gloss": "CL9.hotel · CL9.be.at · CL11.side · CL11.of · ___",
           "transliteration": null,
           "cell": "left and right",
           "display_order": 3
@@ -3782,7 +4091,7 @@
           "answer": "kushoto",
           "translation": "The bank is on the left-hand side.",
           "hint": "the side opposite the right",
-          "gloss": "benki (CL9-bank) i-ko (CL9-be.at) upande (CL11-side) wa (CL11-of) ___",
+          "gloss": "CL9.bank · CL9.be.at · CL11.side · CL11.of · ___",
           "transliteration": null,
           "cell": "left and right",
           "display_order": 4
@@ -3792,7 +4101,7 @@
           "answer": "moja kwa moja",
           "translation": "Go straight on as far as the traffic lights.",
           "hint": "the three-word phrase literally meaning one by one",
-          "gloss": "nenda (go.IMP) ___ hadi (until) taa (CL10-light) za (CL10-of) barabara-ni (CL9-road-LOC)",
+          "gloss": "go.IMP · ___ · until · CL10.light · CL10.of · CL9.road.LOC",
           "transliteration": null,
           "cell": "straight on and distance",
           "display_order": 5
@@ -3802,7 +4111,7 @@
           "answer": "karibu",
           "translation": "The market is near here.",
           "hint": "the word meaning close by, also used to welcome",
-          "gloss": "soko (CL5-market) li-ko (CL5-be.at) ___ hapa (CL16-here)",
+          "gloss": "CL5.market · CL5.be.at · ___ · with · CL16.here",
           "transliteration": null,
           "cell": "straight on and distance",
           "display_order": 6
@@ -3812,7 +4121,7 @@
           "answer": "Geuka",
           "translation": "Turn left after the bridge.",
           "hint": "the imperative meaning change direction",
-          "gloss": "___ kushoto (CL17-left) baada ya (after) daraja (CL5-bridge)",
+          "gloss": "___ · CL17.left · after · of · CL5.bridge",
           "transliteration": null,
           "cell": "imperative instructions",
           "display_order": 7
@@ -3822,7 +4131,7 @@
           "answer": "Fuata",
           "translation": "Follow this road to the end.",
           "hint": "the imperative meaning go along after",
-          "gloss": "___ njia (CL9-road) hii (CL9-this) hadi (until) mwisho (CL3-end)",
+          "gloss": "___ · CL9.road · CL9.this · until · CL3.end",
           "transliteration": null,
           "cell": "imperative instructions",
           "display_order": 8
@@ -3832,7 +4141,7 @@
           "answer": "uko",
           "translation": "Where is the mosque?",
           "hint": "the class 3 locative copula",
-          "gloss": "msikiti (CL3-mosque) ___ wapi (where)",
+          "gloss": "CL3.mosque · ___ · where",
           "transliteration": null,
           "cell": "asking where",
           "display_order": 1
@@ -3842,7 +4151,7 @@
           "answer": "mbali",
           "translation": "The airport is far from the town.",
           "hint": "the opposite of near",
-          "gloss": "uwanja (CL11-field) wa (CL11-of) ndege (CL9-plane) u-ko (CL11-be.at) ___ mji (CL3-town)",
+          "gloss": "CL11.field · CL11.of · CL9.plane · CL11.be.at · ___ · with · CL3.town",
           "transliteration": null,
           "cell": "straight on and distance",
           "display_order": 2
@@ -3885,7 +4194,7 @@
           "answer": "na",
           "translation": "I am seventeen years old.",
           "hint": "the linker joining ten to the unit",
-          "gloss": "ni-na (1SG-have) mi-aka (CL4-year) kumi (ten) ___ saba (seven)",
+          "gloss": "1SG.have · CL4.year · ten · ___ · seven",
           "transliteration": null,
           "cell": "teens with na",
           "display_order": 1
@@ -3895,7 +4204,7 @@
           "answer": "na",
           "translation": "The class has nineteen students.",
           "hint": "the linker joining ten to the unit",
-          "gloss": "darasa (CL5-class) li-na (CL5-have) wa-nafunzi (CL2-student) kumi (ten) ___ tisa (nine)",
+          "gloss": "CL5.class · CL5.have · CL2.student · ten · ___ · nine",
           "transliteration": null,
           "cell": "teens with na",
           "display_order": 2
@@ -3905,7 +4214,7 @@
           "answer": "hamsini",
           "translation": "The fare is fifty-five shillings.",
           "hint": "the ten-multiple that is half of a hundred",
-          "gloss": "nauli (CL9-fare) ni (is) shilingi (CL10-shilling) ___ na (and) tano (five)",
+          "gloss": "CL9.fare · is · CL10.shilling · ___ · and · five",
           "transliteration": null,
           "cell": "the tens",
           "display_order": 3
@@ -3915,7 +4224,7 @@
           "answer": "ishirini",
           "translation": "The book is sold for twenty-six shillings.",
           "hint": "the ten-multiple that is twice ten",
-          "gloss": "kitabu (CL7-book) ki-na-uzwa (CL7-PRES-be.sold) shilingi (CL10-shilling) ___ na (and) sita (six)",
+          "gloss": "CL7.book · CL7.PRES.be.sold · CL10.shilling · ___ · and · six",
           "transliteration": null,
           "cell": "the tens",
           "display_order": 4
@@ -3925,7 +4234,7 @@
           "answer": "viwili",
           "translation": "I have bought two books.",
           "hint": "the numeral two carrying the class 8 concord",
-          "gloss": "ni-me-nunua (1SG-PERF-buy) vi-tabu (CL8-book) ___",
+          "gloss": "1SG.PERF.buy · CL8.book · ___",
           "transliteration": null,
           "cell": "concord on the low numerals",
           "display_order": 5
@@ -3935,7 +4244,7 @@
           "answer": "watatu",
           "translation": "There are three people at the door.",
           "hint": "the numeral three carrying the class 2 concord",
-          "gloss": "kuna (CL17-there.are) wa-tu (CL2-person) ___ mlango-ni (CL3-door-LOC)",
+          "gloss": "CL17.there.are · CL2.person · ___ · CL3.door.LOC",
           "transliteration": null,
           "cell": "concord on the low numerals",
           "display_order": 6
@@ -3945,7 +4254,7 @@
           "answer": "ngapi",
           "translation": "How much is this?",
           "hint": "the how-many stem with the class 10 concord",
-          "gloss": "hii (CL9-this) ni (is) pesa (CL10-money) ___",
+          "gloss": "CL9.this · is · CL10.money · ___",
           "transliteration": null,
           "cell": "asking a price",
           "display_order": 7
@@ -3955,7 +4264,7 @@
           "answer": "gani",
           "translation": "What price is this garment?",
           "hint": "the invariable interrogative placed after a noun",
-          "gloss": "nguo (CL9-garment) hii (CL9-this) ni (is) bei (CL9-price) ___",
+          "gloss": "CL9.garment · CL9.this · is · CL9.price · ___",
           "transliteration": null,
           "cell": "asking a price",
           "display_order": 8
@@ -3965,7 +4274,7 @@
           "answer": "manne",
           "translation": "I bought four oranges at the market.",
           "hint": "the numeral four carrying the class 6 concord",
-          "gloss": "ni-li-nunua (1SG-PAST-buy) ma-chungwa (CL6-orange) ___ soko-ni (CL5-market-LOC)",
+          "gloss": "1SG.PAST.buy · CL6.orange · ___ · CL5.market.LOC",
           "transliteration": null,
           "cell": "concord on the low numerals",
           "display_order": 1
@@ -3975,7 +4284,7 @@
           "answer": "mia",
           "translation": "Its price is one hundred shillings.",
           "hint": "the numeral for ten tens",
-          "gloss": "bei (CL9-price) y-ake (CL9-its) ni (is) shilingi (CL10-shilling) ___ moja (one)",
+          "gloss": "CL9.price · CL9.its · is · CL10.shilling · ___ · one",
           "transliteration": null,
           "cell": "the tens",
           "display_order": 2
@@ -4018,7 +4327,7 @@
           "answer": "kutosema",
           "translation": "He was blamed for not telling the truth.",
           "hint": "the negative infinitive of the verb meaning to say",
-          "gloss": "a-li-laumiwa (CL1-PAST-be.blamed) kwa (for) ___ ukweli (CL11-truth)",
+          "gloss": "CL1.PAST.be.blamed · for · ___ · CL11.truth",
           "transliteration": null,
           "cell": "ku- + -to- + stem",
           "display_order": 1
@@ -4028,7 +4337,7 @@
           "answer": "Kutojua",
           "translation": "Not knowing is not your fault.",
           "hint": "the negative infinitive of the verb meaning to know",
-          "gloss": "___ sio (is.not) kosa (CL5-fault) l-ako (CL5-your)",
+          "gloss": "___ · is.not · CL5.fault · CL5.your",
           "transliteration": null,
           "cell": "ku- + -to- + stem",
           "display_order": 2
@@ -4038,7 +4347,7 @@
           "answer": "kutokata tamaa",
           "translation": "He succeeded by not giving up.",
           "hint": "the negative infinitive of the phrase meaning to lose hope",
-          "gloss": "a-li-fanikiwa (CL1-PAST-succeed) kwa (by) ___",
+          "gloss": "CL1.PAST.succeed · by · ___",
           "transliteration": null,
           "cell": "after a preposition",
           "display_order": 3
@@ -4048,7 +4357,7 @@
           "answer": "kutoaminika",
           "translation": "That news seemed unbelievable.",
           "hint": "the negative infinitive of the verb meaning to be credible",
-          "gloss": "habari (CL10-news) zile (CL10-those) zi-li-onekana (CL10-PAST-seem) ___",
+          "gloss": "CL10.news · CL10.those · CL10.PAST.seem · ___",
           "transliteration": null,
           "cell": "after a preposition",
           "display_order": 4
@@ -4058,7 +4367,7 @@
           "answer": "Kutokuwa",
           "translation": "Not being careful can cause an accident.",
           "hint": "the negative infinitive of the verb meaning to be",
-          "gloss": "___ makini (careful) ku-na-weza (CL15-PRES-be.able) ku-sababisha (INF-cause) ajali (CL9-accident)",
+          "gloss": "___ · careful · CL15.PRES.be.able · INF.cause · CL9.accident",
           "transliteration": null,
           "cell": "kutokuwa and kutokuwepo",
           "display_order": 5
@@ -4068,7 +4377,7 @@
           "answer": "Kutokuwepo",
           "translation": "His absence saddened everyone.",
           "hint": "the negative infinitive meaning failing to be present",
-          "gloss": "___ kw-ake (CL15-his) ku-li-sikitisha (CL15-PAST-sadden) w-ote (CL2-all)",
+          "gloss": "___ · CL15.his · CL15.PAST.sadden · CL2.all",
           "transliteration": null,
           "cell": "kutokuwa and kutokuwepo",
           "display_order": 6
@@ -4078,7 +4387,7 @@
           "answer": "Usiende",
           "translation": "Don't go alone at night.",
           "hint": "the second person negative subjunctive of the verb meaning to go",
-          "gloss": "___ peke y-ako (alone your) usiku (CL11-night)",
+          "gloss": "___ · CL9.alone · CL9.2SG.POSS · CL11.night",
           "transliteration": null,
           "cell": "contrast: negative subjunctive -si-",
           "display_order": 7
@@ -4088,7 +4397,7 @@
           "answer": "asichelewe",
           "translation": "He ran so that he would not be late.",
           "hint": "the class 1 negative subjunctive of the verb meaning to be late",
-          "gloss": "a-li-kimbia (CL1-PAST-run) ili (so.that) ___",
+          "gloss": "CL1.PAST.run · so.that · ___",
           "transliteration": null,
           "cell": "contrast: negative subjunctive -si-",
           "display_order": 8
@@ -4098,7 +4407,7 @@
           "answer": "kutofika",
           "translation": "I regret not arriving early.",
           "hint": "the negative infinitive of the verb meaning to arrive",
-          "gloss": "ni-na-juta (1SG-PRES-regret) kwa (for) ___ mapema (early)",
+          "gloss": "1SG.PRES.regret · for · ___ · early",
           "transliteration": null,
           "cell": "after a preposition",
           "display_order": 1
@@ -4108,7 +4417,7 @@
           "answer": "Kutolipa",
           "translation": "Not paying on time caused problems.",
           "hint": "the negative infinitive of the verb meaning to pay",
-          "gloss": "___ kwa (in) wakati (CL11-time) ku-li-sababisha (CL15-PAST-cause) ma-tatizo (CL6-problem)",
+          "gloss": "___ · in · CL11.time · CL15.PAST.cause · CL6.problem",
           "transliteration": null,
           "cell": "ku- + -to- + stem",
           "display_order": 2
@@ -4151,7 +4460,7 @@
           "answer": "wenye",
           "translation": "People with disabilities deserve equal opportunities.",
           "hint": "the class 2 form of the having-stem",
-          "gloss": "wa-tu (CL2-person) ___ ulemavu (CL11-disability) wa-na-stahili (CL2-PRES-deserve) fursa (CL10-opportunity) sawa (equal)",
+          "gloss": "CL2.person · ___ · CL11.disability · CL2.PRES.deserve · CL10.opportunity · equal",
           "transliteration": null,
           "cell": "class 1/2: mwenye, wenye",
           "display_order": 1
@@ -4161,7 +4470,7 @@
           "answer": "mwenye",
           "translation": "He is a person with a good heart.",
           "hint": "the class 1 form of the having-stem",
-          "gloss": "ni (is) mtu (CL1-person) ___ moyo (CL3-heart) m-wema (CL3-good)",
+          "gloss": "is · CL1.person · ___ · CL3.heart · CL3.good",
           "transliteration": null,
           "cell": "class 1/2: mwenye, wenye",
           "display_order": 2
@@ -4171,7 +4480,7 @@
           "answer": "yenye",
           "translation": "We are looking for a house with a garden.",
           "hint": "the class 9 form of the having-stem",
-          "gloss": "tu-na-tafuta (1PL-PRES-seek) nyumba (CL9-house) ___ bustani (CL9-garden)",
+          "gloss": "1PL.PRES.seek · CL9.house · ___ · CL9.garden",
           "transliteration": null,
           "cell": "class 9/10: yenye, zenye",
           "display_order": 3
@@ -4181,7 +4490,7 @@
           "answer": "zenye",
           "translation": "She bought clothes with bright colours.",
           "hint": "the class 10 form of the having-stem",
-          "gloss": "a-li-nunua (CL1-PAST-buy) nguo (CL10-clothes) ___ rangi (CL10-colour) angavu (bright)",
+          "gloss": "CL1.PAST.buy · CL10.clothes · ___ · CL10.colour · bright",
           "transliteration": null,
           "cell": "class 9/10: yenye, zenye",
           "display_order": 4
@@ -4191,7 +4500,7 @@
           "answer": "lenye",
           "translation": "It is an area with great fertility.",
           "hint": "the class 5 form of the having-stem",
-          "gloss": "ni (is) eneo (CL5-area) ___ rutuba (CL9-fertility) nyingi (CL9-much)",
+          "gloss": "is · CL5.area · ___ · CL9.fertility · CL9.much",
           "transliteration": null,
           "cell": "class 5/7: lenye, chenye",
           "display_order": 5
@@ -4201,7 +4510,7 @@
           "answer": "chenye",
           "translation": "We stayed in a room with large windows.",
           "hint": "the class 7 form of the having-stem",
-          "gloss": "tu-li-kaa (1PL-PAST-stay) chumba (CL7-room) ___ ma-dirisha (CL6-window) ma-kubwa (CL6-big)",
+          "gloss": "1PL.PAST.stay · CL7.room · ___ · CL6.window · CL6.big",
           "transliteration": null,
           "cell": "class 5/7: lenye, chenye",
           "display_order": 6
@@ -4211,7 +4520,7 @@
           "answer": "asiye",
           "translation": "He is a person without any worry.",
           "hint": "the class 1 negative relative form, used before 'na'",
-          "gloss": "ni (is) mtu (CL1-person) ___ na (with) wasiwasi (CL11-worry) wo-wote (CL11-any)",
+          "gloss": "is · CL1.person · ___ · with · CL11.worry · CL11.any",
           "transliteration": null,
           "cell": "negative: -sio na",
           "display_order": 7
@@ -4221,7 +4530,7 @@
           "answer": "kisicho",
           "translation": "A room without windows is dark.",
           "hint": "the class 7 negative relative form, used before 'na'",
-          "gloss": "chumba (CL7-room) ___ na (with) ma-dirisha (CL6-window) ni (is) giza (CL5-darkness)",
+          "gloss": "CL7.room · ___ · with · CL6.window · is · CL5.darkness",
           "transliteration": null,
           "cell": "negative: -sio na",
           "display_order": 8
@@ -4231,7 +4540,7 @@
           "answer": "wenye",
           "translation": "It is a town with a long history.",
           "hint": "the class 3 form of the having-stem",
-          "gloss": "ni (is) mji (CL3-town) ___ historia (CL9-history) ndefu (CL9-long)",
+          "gloss": "is · CL3.town · ___ · CL9.history · CL9.long",
           "transliteration": null,
           "cell": "class 1/2: mwenye, wenye",
           "display_order": 1
@@ -4241,7 +4550,7 @@
           "answer": "wenye",
           "translation": "Students with diligence usually pass.",
           "hint": "the class 2 form of the having-stem",
-          "gloss": "wa-nafunzi (CL2-student) ___ bidii (CL9-diligence) hu-faulu (HABITUAL-succeed)",
+          "gloss": "CL2.student · ___ · CL9.diligence · HABITUAL.succeed",
           "transliteration": null,
           "cell": "class 1/2: mwenye, wenye",
           "display_order": 2
@@ -4284,7 +4593,7 @@
           "answer": "yako",
           "translation": "How are you, Juma?",
           "hint": "the class 9 possessive addressed to one person",
-          "gloss": "habari (CL9-news) ___",
+          "gloss": "CL9.news · ___ · Juma",
           "transliteration": null,
           "cell": "one person",
           "display_order": 1
@@ -4294,7 +4603,7 @@
           "answer": "yako",
           "translation": "Respectful greetings, grandmother, how are you?",
           "hint": "the class 9 possessive addressed to one person",
-          "gloss": "shikamoo (respect greeting) bibi (CL9-grandmother) habari (CL9-news) ___",
+          "gloss": "respect greeting · CL9.grandmother · CL9.news · ___",
           "transliteration": null,
           "cell": "one person",
           "display_order": 2
@@ -4304,7 +4613,7 @@
           "answer": "yenu",
           "translation": "How are you all?",
           "hint": "the class 9 possessive addressed to several people",
-          "gloss": "habari (CL9-news) ___ nyote (CL2-all.of.you)",
+          "gloss": "CL9.news · ___ · CL2.all.of.you",
           "transliteration": null,
           "cell": "more than one person",
           "display_order": 3
@@ -4314,7 +4623,7 @@
           "answer": "yenu",
           "translation": "Welcome, how are you, guests?",
           "hint": "the class 9 possessive addressed to several people",
-          "gloss": "karibu-ni (welcome-PL) habari (CL9-news) ___ wa-geni (CL2-guest)",
+          "gloss": "welcome.PL · CL9.news · ___ · CL2.guest",
           "transliteration": null,
           "cell": "more than one person",
           "display_order": 4
@@ -4324,7 +4633,7 @@
           "answer": "ya",
           "translation": "Good morning.",
           "hint": "the class 9 associative linker before a noun",
-          "gloss": "habari (CL9-news) ___ asubuhi (CL9-morning)",
+          "gloss": "CL9.news · ___ · CL9.morning",
           "transliteration": null,
           "cell": "a thing, time or place",
           "display_order": 5
@@ -4334,7 +4643,7 @@
           "answer": "ya",
           "translation": "How is your new job?",
           "hint": "the class 9 associative linker before a noun",
-          "gloss": "habari (CL9-news) ___ kazi (CL9-work) y-ako (CL9-your)",
+          "gloss": "CL9.news · ___ · CL9.work · CL9.2SG.POSS · CL9.new",
           "transliteration": null,
           "cell": "a thing, time or place",
           "display_order": 6
@@ -4344,7 +4653,7 @@
           "answer": "Mzuri",
           "translation": "Good evening. Very well.",
           "hint": "the standard one-word reply meaning fine",
-          "gloss": "___ sana (very)",
+          "gloss": "CL9.news · CL9.of · CL9.evening · ___ · very",
           "transliteration": null,
           "cell": "a thing, time or place",
           "display_order": 1
@@ -4354,7 +4663,7 @@
           "answer": "adhuhuri",
           "translation": "Good afternoon. Very well.",
           "hint": "the noun for the middle of the day",
-          "gloss": "habari (CL9-news) ya (CL9-of) ___",
+          "gloss": "CL9.news · CL9.of · ___ · CL1.good · very",
           "transliteration": null,
           "cell": "a thing, time or place",
           "display_order": 2
@@ -4395,14 +4704,15 @@
           "hint": "first person present of the verb meaning be called",
           "transliteration": null,
           "cell": "verb: naitwa",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · Fatuma · Ali"
         },
         {
           "sentence": "{{answer}} Musa, mimi ni mwalimu.",
           "answer": "Naitwa",
           "translation": "I am called Musa; I am a teacher.",
           "hint": "first person present of the verb meaning be called",
-          "gloss": "___ Musa mimi (I) ni (am) mwalimu (CL1-teacher)",
+          "gloss": "___ · Musa · 1SG · COP · CL1.teacher",
           "transliteration": null,
           "cell": "verb: naitwa",
           "display_order": 2
@@ -4412,7 +4722,7 @@
           "answer": "unaitwa",
           "translation": "What are you called?",
           "hint": "second person present of the verb meaning be called",
-          "gloss": "wewe (you) ___ nani (who)",
+          "gloss": "you · ___ · who",
           "transliteration": null,
           "cell": "question: unaitwa nani",
           "display_order": 3
@@ -4422,7 +4732,7 @@
           "answer": "anaitwa",
           "translation": "What is your friend called?",
           "hint": "class 1 present of the verb meaning be called",
-          "gloss": "rafiki (CL9-friend) y-ako (CL9-your) ___ nani (who)",
+          "gloss": "CL9.friend · CL9.your · ___ · who",
           "transliteration": null,
           "cell": "question: unaitwa nani",
           "display_order": 4
@@ -4432,7 +4742,7 @@
           "answer": "langu",
           "translation": "My name is Rehema.",
           "hint": "the class 5 possessive meaning belonging to me",
-          "gloss": "jina (CL5-name) ___ ni (is) Rehema",
+          "gloss": "CL5.name · ___ · COP · Rehema",
           "transliteration": null,
           "cell": "noun: jina langu",
           "display_order": 5
@@ -4442,7 +4752,7 @@
           "answer": "lako",
           "translation": "What is your name?",
           "hint": "the class 5 possessive meaning belonging to you",
-          "gloss": "jina (CL5-name) ___ ni (is) nani (who)",
+          "gloss": "CL5.name · ___ · is · who",
           "transliteration": null,
           "cell": "noun: jina langu",
           "display_order": 6
@@ -4452,7 +4762,7 @@
           "answer": "kukujua",
           "translation": "I am pleased to know you.",
           "hint": "the infinitive carrying a second person object infix, meaning to be acquainted with you",
-          "gloss": "ni-me-furahia (1SG-PERF-be.pleased) ___",
+          "gloss": "1SG.PERF.be.pleased · ___",
           "transliteration": null,
           "cell": "verb: naitwa",
           "display_order": 1
@@ -4462,7 +4772,7 @@
           "answer": "Majina",
           "translation": "My names are Njoroge.",
           "hint": "the class 6 plural of the word for name",
-          "gloss": "___ y-angu (CL6-my) ni (are) Njoroge",
+          "gloss": "___ · CL6.1SG.POSS · COP · Njoroge",
           "transliteration": null,
           "cell": "noun: jina langu",
           "display_order": 2
@@ -4504,7 +4814,7 @@
           "answer": "ngapi",
           "translation": "What time is it now?",
           "hint": "the how-many stem carrying the class 9 concord",
-          "gloss": "ni (is) saa (CL9-hour) ___ sasa (now)",
+          "gloss": "is · CL9.hour · ___ · now",
           "transliteration": null,
           "cell": "asking the time",
           "display_order": 1
@@ -4514,7 +4824,7 @@
           "answer": "ngapi",
           "translation": "At what time will we leave?",
           "hint": "the how-many stem carrying the class 9 concord",
-          "gloss": "saa (CL9-hour) ___ tu-ta-ondoka (1PL-FUT-depart)",
+          "gloss": "CL9.hour · ___ · 1PL.FUT.depart",
           "transliteration": null,
           "cell": "asking the time",
           "display_order": 2
@@ -4524,7 +4834,7 @@
           "answer": "moja",
           "translation": "I get up at seven in the morning.",
           "hint": "the numeral for a single unit, giving seven o'clock",
-          "gloss": "ni-na-amka (1SG-PRES-wake) saa (CL9-hour) ___ asubuhi (CL9-morning)",
+          "gloss": "1SG.PRES.wake · CL9.hour · ___ · CL9.morning · namely · CL10.hour · seven · CL10.of · CL11.night · CL11.of · CL6.midnight · CL10.COND.finish",
           "transliteration": null,
           "cell": "morning hours",
           "display_order": 3
@@ -4534,7 +4844,7 @@
           "answer": "tatu",
           "translation": "The class begins at nine in the morning.",
           "hint": "the numeral between two and four, giving nine o'clock",
-          "gloss": "darasa (CL5-class) li-na-anza (CL5-PRES-begin) saa (CL9-hour) ___ asubuhi (CL9-morning)",
+          "gloss": "CL5.class · CL5.PRES.begin · CL9.hour · ___ · CL9.morning",
           "transliteration": null,
           "cell": "morning hours",
           "display_order": 4
@@ -4544,7 +4854,7 @@
           "answer": "saba",
           "translation": "We eat lunch at one o'clock.",
           "hint": "the numeral one less than eight, giving one in the afternoon",
-          "gloss": "tu-na-kula (1PL-PRES-eat) chakula (CL7-food) cha (CL7-of) mchana (CL3-daytime) saa (CL9-hour) ___",
+          "gloss": "1PL.PRES.eat · CL7.food · CL7.of · CL3.daytime · CL9.hour · ___",
           "transliteration": null,
           "cell": "afternoon and evening hours",
           "display_order": 5
@@ -4554,7 +4864,7 @@
           "answer": "kumi",
           "translation": "The shop closes at four in the afternoon.",
           "hint": "the numeral for a full set of fingers, giving four o'clock",
-          "gloss": "duka (CL5-shop) hu-fungwa (HABITUAL-be.closed) saa (CL9-hour) ___ jioni (CL9-evening)",
+          "gloss": "CL5.shop · HABITUAL.be.closed · CL9.hour · ___ · CL9.evening",
           "transliteration": null,
           "cell": "afternoon and evening hours",
           "display_order": 6
@@ -4564,7 +4874,7 @@
           "answer": "mchana",
           "translation": "Saa sita in the daytime is twelve noon by the international clock.",
           "hint": "the period word for the middle of the day",
-          "gloss": "saa (CL9-hour) sita (six) ___",
+          "gloss": "CL9.hour · six · ___ · COP · CL10.hour · ten · and · two · CL10.of · CL3.daytime · by · CL10.hour · CL10.of · CL7.international",
           "transliteration": null,
           "cell": "afternoon and evening hours",
           "display_order": 1
@@ -4574,7 +4884,7 @@
           "answer": "usiku",
           "translation": "The plane will leave at eight at night.",
           "hint": "the period word for the hours of darkness",
-          "gloss": "ndege (CL9-plane) i-ta-ondoka (CL9-FUT-depart) saa (CL9-hour) mbili (two) ___",
+          "gloss": "CL9.plane · CL9.FUT.depart · CL9.hour · two · ___",
           "transliteration": null,
           "cell": "afternoon and evening hours",
           "display_order": 2
@@ -4613,7 +4923,7 @@
           "answer": "Asante",
           "translation": "Thank you very much for your help.",
           "hint": "the word of gratitude, singular addressee",
-          "gloss": "___ sana (very) kwa (for) msaada (CL3-help) w-ako (CL3-your)",
+          "gloss": "___ · very · for · CL3.help · CL3.your",
           "transliteration": null,
           "cell": "thanking",
           "display_order": 1
@@ -4623,7 +4933,7 @@
           "answer": "Asanteni",
           "translation": "Thank you all for coming today.",
           "hint": "the word of gratitude with the plural addressee suffix",
-          "gloss": "___ nyote (CL2-all.of.you) kwa (for) ku-ja (INF-come) leo (today)",
+          "gloss": "___ · CL2.all.of.you · for · INF.come · today",
           "transliteration": null,
           "cell": "thanking",
           "display_order": 2
@@ -4633,7 +4943,7 @@
           "answer": "Tafadhali",
           "translation": "Please close the door.",
           "hint": "the word that softens a command into a request",
-          "gloss": "___ funga (close.IMP) mlango (CL3-door)",
+          "gloss": "___ · close.IMP · CL3.door",
           "transliteration": null,
           "cell": "requesting",
           "display_order": 3
@@ -4643,7 +4953,7 @@
           "answer": "tafadhali",
           "translation": "Bring me water, please.",
           "hint": "the word that softens a command into a request",
-          "gloss": "ni-let-ee (1SG.OBJ-bring-APPL.SUBJ) maji (CL6-water) ___",
+          "gloss": "1SG.OBJ.bring.APPL.SUBJ · CL6.water · ___",
           "transliteration": null,
           "cell": "requesting",
           "display_order": 4
@@ -4653,7 +4963,7 @@
           "answer": "Samahani",
           "translation": "Sorry, I am late.",
           "hint": "the apology used when you are at fault",
-          "gloss": "___ ni-me-chelewa (1SG-PERF-be.late)",
+          "gloss": "___ · 1SG.PERF.be.late",
           "transliteration": null,
           "cell": "apologising",
           "display_order": 5
@@ -4663,7 +4973,7 @@
           "answer": "Samahani",
           "translation": "Excuse me, which is the way to the station?",
           "hint": "the apology word used to open a question to a stranger",
-          "gloss": "___ njia (CL9-road) ya (CL9-of) stesheni (CL9-station) ni (is) ipi (CL9-which)",
+          "gloss": "___ · CL9.road · CL9.of · CL9.station · is · CL9.which",
           "transliteration": null,
           "cell": "apologising",
           "display_order": 6
@@ -4673,7 +4983,7 @@
           "answer": "Pole",
           "translation": "I am so sorry about your illness.",
           "hint": "the word offering sympathy for another's misfortune",
-          "gloss": "___ sana (very) kwa (for) ugonjwa (CL11-illness) w-ako (CL11-your)",
+          "gloss": "___ · very · for · CL11.illness · CL11.your",
           "transliteration": null,
           "cell": "sympathising",
           "display_order": 7
@@ -4683,7 +4993,7 @@
           "answer": "Pole",
           "translation": "You fell? Oh dear!",
           "hint": "the word offering sympathy for another's misfortune",
-          "gloss": "u-me-anguka (2SG-PERF-fall) ___",
+          "gloss": "2SG.PERF.fall · ___",
           "transliteration": null,
           "cell": "sympathising",
           "display_order": 8
@@ -4693,7 +5003,7 @@
           "answer": "Karibu",
           "translation": "Welcome to our home.",
           "hint": "the welcoming word, one addressee",
-          "gloss": "___ nyumba-ni (CL9-house-LOC) kw-etu (CL17-our)",
+          "gloss": "___ · CL9.house.LOC · CL17.our",
           "transliteration": null,
           "cell": "welcoming",
           "display_order": 9
@@ -4703,7 +5013,7 @@
           "answer": "Karibuni",
           "translation": "Welcome, all guests.",
           "hint": "the welcoming word with the plural addressee suffix",
-          "gloss": "___ wa-geni (CL2-guest) wote (CL2-all)",
+          "gloss": "___ · CL2.guest · CL2.all",
           "transliteration": null,
           "cell": "welcoming",
           "display_order": 10
@@ -4715,14 +5025,15 @@
           "hint": "the standard reply to thanks, identical to the welcoming word",
           "transliteration": null,
           "cell": "welcoming",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "thanks · for · CL7.food · ___"
         },
         {
           "sentence": "Nimekanyaga mguu wako, {{answer}}.",
           "answer": "samahani",
           "translation": "I have stepped on your foot, sorry.",
           "hint": "the apology used when you are at fault",
-          "gloss": "ni-me-kanyaga (1SG-PERF-tread.on) mguu (CL3-foot) w-ako (CL3-your) ___",
+          "gloss": "1SG.PERF.tread.on · CL3.foot · CL3.your · ___",
           "transliteration": null,
           "cell": "apologising",
           "display_order": 2
@@ -4763,7 +5074,7 @@
           "answer": "kichwa",
           "translation": "I have had a headache since morning.",
           "hint": "the class 7 body part that sits on the shoulders",
-          "gloss": "ni-na-umwa (1SG-PRES-be.hurt) na (by) ___ tangu (since) asubuhi (CL9-morning)",
+          "gloss": "1SG.PRES.be.hurt · by · ___ · since · CL9.morning",
           "transliteration": null,
           "cell": "passive: ninaumwa na",
           "display_order": 1
@@ -4773,7 +5084,7 @@
           "answer": "mguu",
           "translation": "His leg hurts after running.",
           "hint": "the class 3 body part you walk on",
-          "gloss": "a-na-umwa (CL1-PRES-be.hurt) na (by) ___ baada ya (after) ku-kimbia (INF-run)",
+          "gloss": "CL1.PRES.be.hurt · by · ___ · after · of · INF.run",
           "transliteration": null,
           "cell": "passive: ninaumwa na",
           "display_order": 2
@@ -4783,7 +5094,7 @@
           "answer": "unaniuma",
           "translation": "My back hurts me when I sit a long time.",
           "hint": "class 3 subject, first person object, present tense of the hurt verb",
-          "gloss": "mgongo (CL3-back) w-angu (CL3-my) ___",
+          "gloss": "CL3.back · CL3.1SG.POSS · ___ · 1SG.COND.sit · CL3.time · CL3.long",
           "transliteration": null,
           "cell": "active: inaniuma",
           "display_order": 3
@@ -4793,7 +5104,7 @@
           "answer": "yanamuuma",
           "translation": "Her eyes hurt her because of the dust.",
           "hint": "class 6 subject, class 1 object, present tense of the hurt verb",
-          "gloss": "macho (CL6-eye) y-ake (CL6-her) ___ kwa sababu ya (because.of) vumbi (CL5-dust)",
+          "gloss": "CL6.eye · CL6.3SG.POSS · ___ · for · CL9.reason · CL9.of · CL5.dust",
           "transliteration": null,
           "cell": "active: inaniuma",
           "display_order": 4
@@ -4803,7 +5114,7 @@
           "answer": "mgonjwa",
           "translation": "My child is ill today.",
           "hint": "the class 1 noun for somebody who is ill",
-          "gloss": "m-toto (CL1-child) w-angu (CL1-my) ni (is) ___ leo (today)",
+          "gloss": "CL1.child · CL1.my · is · ___ · today",
           "transliteration": null,
           "cell": "being unwell in general",
           "display_order": 5
@@ -4813,7 +5124,7 @@
           "answer": "Sijisikii",
           "translation": "I have not been feeling well since yesterday.",
           "hint": "first person negative reflexive of the verb meaning to feel",
-          "gloss": "___ vizuri (CL8-well) tangu (since) jana (yesterday)",
+          "gloss": "___ · CL8.well · since · yesterday",
           "transliteration": null,
           "cell": "being unwell in general",
           "display_order": 6
@@ -4823,7 +5134,7 @@
           "answer": "nini",
           "translation": "The doctor asked, what is hurting you?",
           "hint": "the interrogative asking about a thing",
-          "gloss": "daktari (CL5-doctor) a-li-uliza (CL1-PAST-ask) u-na-umwa (2SG-PRES-be.hurt) na (by) ___",
+          "gloss": "CL5.doctor · CL1.PAST.ask · 2SG.PRES.be.hurt · by · ___",
           "transliteration": null,
           "cell": "passive: ninaumwa na",
           "display_order": 1
@@ -4833,7 +5144,7 @@
           "answer": "linaniuma",
           "translation": "My stomach has hurt since I ate the fish.",
           "hint": "class 5 subject, first person object, present tense of the hurt verb",
-          "gloss": "tumbo (CL5-stomach) ___ tangu (since) ni-li-po-kula (1SG-PAST-CL16.REL-eat) samaki (CL9-fish)",
+          "gloss": "CL5.stomach · ___ · since · 1SG.PAST.CL16.REL.eat · CL9.fish",
           "transliteration": null,
           "cell": "active: inaniuma",
           "display_order": 2
@@ -4875,7 +5186,7 @@
           "answer": "wa",
           "translation": "He is the first child.",
           "hint": "the class 1 associative linker",
-          "gloss": "yeye (he) ndiye (CL1-is.indeed) m-toto (CL1-child) ___ kwanza (first)",
+          "gloss": "he · CL1.is.indeed · CL1.child · ___ · first",
           "transliteration": null,
           "cell": "class 1/2: wa",
           "display_order": 1
@@ -4885,7 +5196,7 @@
           "answer": "wa",
           "translation": "The second guest has arrived.",
           "hint": "the class 1 associative linker",
-          "gloss": "m-geni (CL1-guest) ___ pili (second) a-me-fika (CL1-PERF-arrive)",
+          "gloss": "CL1.guest · ___ · second · CL1.PERF.arrive",
           "transliteration": null,
           "cell": "class 1/2: wa",
           "display_order": 2
@@ -4895,7 +5206,7 @@
           "answer": "ya",
           "translation": "On the third day we travelled to Mombasa.",
           "hint": "the class 9 associative linker",
-          "gloss": "siku (CL9-day) ___ tatu (three) tu-li-safiri (1PL-PAST-travel) kw-enda (INF-go) Mombasa",
+          "gloss": "CL9.day · ___ · three · 1PL.PAST.travel · INF.go · Mombasa",
           "transliteration": null,
           "cell": "class 9/10: ya",
           "display_order": 3
@@ -4905,7 +5216,7 @@
           "answer": "ya",
           "translation": "Our room is on the fourth floor.",
           "hint": "the class 9 associative linker",
-          "gloss": "chumba (CL7-room) ch-etu (CL7-our) ki-ko (CL7-be.at) ghorofa (CL9-floor) ___ nne (four)",
+          "gloss": "CL7.room · CL7.our · CL7.be.at · CL9.floor · ___ · four",
           "transliteration": null,
           "cell": "class 9/10: ya",
           "display_order": 4
@@ -4915,7 +5226,7 @@
           "answer": "cha",
           "translation": "The second book is harder.",
           "hint": "the class 7 associative linker",
-          "gloss": "kitabu (CL7-book) ___ pili (second) ni (is) ki-gumu (CL7-hard) zaidi (more)",
+          "gloss": "CL7.book · ___ · second · is · CL7.hard · more",
           "transliteration": null,
           "cell": "class 7/8: cha",
           "display_order": 5
@@ -4925,7 +5236,7 @@
           "answer": "cha",
           "translation": "The first session was long.",
           "hint": "the class 7 associative linker",
-          "gloss": "kipindi (CL7-session) ___ kwanza (first) ki-li-kuwa (CL7-PAST-be) ki-refu (CL7-long)",
+          "gloss": "CL7.session · ___ · first · CL7.PAST.be · CL7.long",
           "transliteration": null,
           "cell": "class 7/8: cha",
           "display_order": 6
@@ -4935,7 +5246,7 @@
           "answer": "la",
           "translation": "The third car is mine.",
           "hint": "the class 5 associative linker",
-          "gloss": "gari (CL5-car) ___ tatu (three) ndi-lo (CL5-is.indeed) l-angu (CL5-my)",
+          "gloss": "CL5.car · ___ · three · CL5.is.indeed · CL5.my",
           "transliteration": null,
           "cell": "class 5/6: la and ya",
           "display_order": 7
@@ -4945,7 +5256,7 @@
           "answer": "la",
           "translation": "The first lesson starts at eight.",
           "hint": "the class 5 associative linker",
-          "gloss": "somo (CL5-lesson) ___ kwanza (first) li-na-anza (CL5-PRES-begin) saa (CL9-hour) mbili (two)",
+          "gloss": "CL5.lesson · ___ · first · CL5.PRES.begin · CL9.hour · two",
           "transliteration": null,
           "cell": "class 5/6: la and ya",
           "display_order": 8
@@ -4955,7 +5266,7 @@
           "answer": "kwanza",
           "translation": "The first month is January.",
           "hint": "the special word for the ordinal one, not the cardinal",
-          "gloss": "mwezi (CL3-month) wa (CL3-of) ___ ni (is) Januari (January)",
+          "gloss": "CL3.month · CL3.of · ___ · is · January",
           "transliteration": null,
           "cell": "class 1/2: wa",
           "display_order": 1
@@ -4965,7 +5276,7 @@
           "answer": "pili",
           "translation": "This is the second time visiting Kenya.",
           "hint": "the ordinal for two, which differs from the cardinal mbili",
-          "gloss": "hii (CL9-this) ni (is) mara (CL9-time) ya (CL9-of) ___ ku-tembelea (INF-visit) Kenya",
+          "gloss": "CL9.this · COP · CL9.time · CL9.of · ___ · INF.visit · Kenya",
           "transliteration": null,
           "cell": "class 9/10: ya",
           "display_order": 2
@@ -5008,7 +5319,7 @@
           "answer": "Inanibidi",
           "translation": "I have to go to hospital today.",
           "hint": "impersonal present with a first person object infix, from the oblige verb",
-          "gloss": "___ ni-end-e (1SG-go-SUBJ) hospitali (CL9-hospital) leo (today)",
+          "gloss": "___ · 1SG.go.SUBJ · CL9.hospital · today",
           "transliteration": null,
           "cell": "inabidi (obligation)",
           "display_order": 1
@@ -5018,7 +5329,7 @@
           "answer": "Inawabidi",
           "translation": "They have to come back tomorrow morning.",
           "hint": "impersonal present with a class 2 object infix, from the oblige verb",
-          "gloss": "___ wa-rud-i (CL2-return-SUBJ) kesho (tomorrow) asubuhi (CL9-morning)",
+          "gloss": "___ · CL2.return.SUBJ · tomorrow · CL9.morning",
           "transliteration": null,
           "cell": "inabidi (obligation)",
           "display_order": 2
@@ -5028,7 +5339,7 @@
           "answer": "Inafaa",
           "translation": "It is advisable that we arrive early tomorrow.",
           "hint": "impersonal present of the verb meaning to be suitable",
-          "gloss": "___ tu-fik-e (1PL-arrive-SUBJ) mapema (early) kesho (tomorrow)",
+          "gloss": "___ · 1PL.arrive.SUBJ · early · tomorrow",
           "transliteration": null,
           "cell": "inafaa (advisability)",
           "display_order": 3
@@ -5038,7 +5349,7 @@
           "answer": "Inafaa",
           "translation": "It is advisable to drink plenty of water in hot weather.",
           "hint": "impersonal present of the verb meaning to be suitable",
-          "gloss": "___ ku-nywa (INF-drink) maji (CL6-water) m-engi (CL6-much) wakati (CL11-time) wa (CL11-of) joto (CL5-heat)",
+          "gloss": "___ · INF.drink · CL6.water · CL6.much · CL11.time · CL11.of · CL5.heat",
           "transliteration": null,
           "cell": "inafaa (advisability)",
           "display_order": 4
@@ -5048,7 +5359,7 @@
           "answer": "Inawezekana",
           "translation": "It is possible that it may rain in the evening.",
           "hint": "impersonal present of the verb meaning to be possible",
-          "gloss": "___ mvua (CL9-rain) i-ka-nyesha (CL9-CONSEC-fall) jioni (CL9-evening)",
+          "gloss": "___ · CL9.rain · CL9.CONSEC.fall · CL9.evening",
           "transliteration": null,
           "cell": "inawezekana (possibility)",
           "display_order": 5
@@ -5058,7 +5369,7 @@
           "answer": "Inawezekana",
           "translation": "Is it possible to get there by bus?",
           "hint": "impersonal present of the verb meaning to be possible",
-          "gloss": "___ ku-fika (INF-arrive) huko (CL17-there) kwa (by) basi (CL5-bus)",
+          "gloss": "___ · INF.arrive · CL17.there · by · CL5.bus",
           "transliteration": null,
           "cell": "inawezekana (possibility)",
           "display_order": 6
@@ -5068,7 +5379,7 @@
           "answer": "Haifai",
           "translation": "It is not appropriate to smoke here.",
           "hint": "impersonal negative of the verb meaning to be suitable",
-          "gloss": "___ ku-vuta (INF-pull) sigara (CL9-cigarette) hapa (CL16-here)",
+          "gloss": "___ · INF.pull · CL9.cigarette · CL16.here",
           "transliteration": null,
           "cell": "negative and lazima",
           "display_order": 7
@@ -5078,7 +5389,7 @@
           "answer": "Lazima",
           "translation": "You must go right now.",
           "hint": "the noun meaning necessity, used before a subjunctive",
-          "gloss": "___ u-end-e (2SG-go-SUBJ) sasa hivi (right.now)",
+          "gloss": "___ · 2SG.go.SBJV · now · CL8.like.this",
           "transliteration": null,
           "cell": "negative and lazima",
           "display_order": 8
@@ -5088,7 +5399,7 @@
           "answer": "niondoke",
           "translation": "I had to leave work early yesterday.",
           "hint": "first person subjunctive of the verb meaning to depart",
-          "gloss": "i-li-ni-bidi (CL9-PAST-1SG.OBJ-oblige) ___ kazi (CL9-work) mapema (early) jana (yesterday)",
+          "gloss": "CL9.PAST.1SG.OBJ.oblige · ___ · CL9.work · early · yesterday",
           "transliteration": null,
           "cell": "inabidi (obligation)",
           "display_order": 1
@@ -5098,7 +5409,7 @@
           "answer": "Ilibidi",
           "translation": "It was necessary to postpone the journey because of the storm.",
           "hint": "impersonal past of the oblige verb, with no object infix",
-          "gloss": "___ ku-ahirisha (INF-postpone) safari (CL9-journey) kwa sababu ya (because.of) dhoruba (CL9-storm)",
+          "gloss": "___ · INF.postpone · CL9.journey · for · CL9.reason · CL9.of · CL9.storm",
           "transliteration": null,
           "cell": "inabidi (obligation)",
           "display_order": 2
@@ -5141,7 +5452,7 @@
           "answer": "tarehe",
           "translation": "I was born on the thirteenth of June.",
           "hint": "the noun meaning calendar date",
-          "gloss": "ni-li-zaliwa (1SG-PAST-be.born) ___ kumi na tatu (thirteen) Juni (June)",
+          "gloss": "1SG.PAST.be.born · ___ · ten · and · three · June",
           "transliteration": null,
           "cell": "tarehe + number + month",
           "display_order": 1
@@ -5151,7 +5462,7 @@
           "answer": "tarehe",
           "translation": "The meeting is on the first of December.",
           "hint": "the noun meaning calendar date",
-          "gloss": "mkutano (CL3-meeting) ni (is) ___ moja (one) Desemba (December)",
+          "gloss": "CL3.meeting · is · ___ · one · December",
           "transliteration": null,
           "cell": "tarehe + number + month",
           "display_order": 2
@@ -5161,7 +5472,7 @@
           "answer": "Desemba",
           "translation": "The holiday begins in December.",
           "hint": "the last month of the year",
-          "gloss": "likizo (CL9-holiday) hu-anza (HABITUAL-begin) mwezi (CL3-month) wa (CL3-of) ___",
+          "gloss": "CL9.holiday · HABITUAL.begin · CL3.month · CL3.of · ___",
           "transliteration": null,
           "cell": "month by name",
           "display_order": 3
@@ -5171,7 +5482,7 @@
           "answer": "Januari",
           "translation": "School opens in January.",
           "hint": "the first month of the year",
-          "gloss": "shule (CL9-school) hu-funguliwa (HABITUAL-be.opened) ___",
+          "gloss": "CL9.school · HABITUAL.be.opened · ___",
           "transliteration": null,
           "cell": "month by name",
           "display_order": 4
@@ -5181,7 +5492,7 @@
           "answer": "wa",
           "translation": "I will travel in the fourth month.",
           "hint": "the class 3 associative linker",
-          "gloss": "ni-ta-safiri (1SG-FUT-travel) mwezi (CL3-month) ___ nne (four)",
+          "gloss": "1SG.FUT.travel · CL3.month · ___ · four",
           "transliteration": null,
           "cell": "month by number",
           "display_order": 5
@@ -5191,7 +5502,7 @@
           "answer": "wa",
           "translation": "He arrived in the eighth month.",
           "hint": "the class 3 associative linker",
-          "gloss": "a-li-fika (CL1-PAST-arrive) mwezi (CL3-month) ___ nane (eight)",
+          "gloss": "CL1.PAST.arrive · CL3.month · ___ · eight",
           "transliteration": null,
           "cell": "month by number",
           "display_order": 6
@@ -5201,7 +5512,7 @@
           "answer": "kuzaliwa",
           "translation": "When is your birthday?",
           "hint": "the passive infinitive meaning to come into the world",
-          "gloss": "siku (CL9-day) y-ako (CL9-your) ya (CL9-of) ___ ni (is) lini (when)",
+          "gloss": "CL9.day · CL9.your · CL9.of · ___ · is · when",
           "transliteration": null,
           "cell": "birthday",
           "display_order": 7
@@ -5211,7 +5522,7 @@
           "answer": "kuzaliwa",
           "translation": "We will celebrate her birthday on Saturday.",
           "hint": "the passive infinitive meaning to come into the world",
-          "gloss": "tu-ta-sherehekea (1PL-FUT-celebrate) siku (CL9-day) y-ake (CL9-her) ya (CL9-of) ___ Jumamosi (CL9-Saturday)",
+          "gloss": "1PL.FUT.celebrate · CL9.day · CL9.her · CL9.of · ___ · CL9.Saturday",
           "transliteration": null,
           "cell": "birthday",
           "display_order": 8
@@ -5221,7 +5532,7 @@
           "answer": "mbili",
           "translation": "She was born on the twenty-second of August.",
           "hint": "the numeral for a pair, with no concord after tarehe",
-          "gloss": "a-li-zaliwa (CL1-PAST-be.born) tarehe (CL9-date) ishirini (twenty) na (and) ___ Agosti (August)",
+          "gloss": "CL1.PAST.be.born · CL9.date · twenty · and · ___ · August",
           "transliteration": null,
           "cell": "tarehe + number + month",
           "display_order": 1
@@ -5231,7 +5542,7 @@
           "answer": "Januari",
           "translation": "The first month of the year is January.",
           "hint": "the month that opens the calendar",
-          "gloss": "mwezi (CL3-month) wa (CL3-of) kwanza (first) wa (CL3-of) mwaka (CL3-year) ni (is) ___",
+          "gloss": "CL3.month · CL3.of · first · CL3.of · CL3.year · is · ___",
           "transliteration": null,
           "cell": "month by name",
           "display_order": 2
@@ -5274,7 +5585,7 @@
           "answer": "Nina",
           "translation": "I am hungry; let's go and eat.",
           "hint": "first person singular of the have-construction",
-          "gloss": "___ njaa (CL9-hunger)",
+          "gloss": "___ · CL9.hunger · 1PL.go.SBJV · 1PL.CONSEC.eat.SBJV",
           "transliteration": null,
           "cell": "affirmative",
           "display_order": 1
@@ -5284,7 +5595,7 @@
           "answer": "ana",
           "translation": "The child has had a fever since yesterday.",
           "hint": "class 1 form of the have-construction",
-          "gloss": "m-toto (CL1-child) ___ homa (CL9-fever) tangu (since) jana (yesterday)",
+          "gloss": "CL1.child · ___ · CL9.fever · since · yesterday",
           "transliteration": null,
           "cell": "affirmative",
           "display_order": 2
@@ -5294,7 +5605,7 @@
           "answer": "Una",
           "translation": "Are you thirsty? Shall I bring you water?",
           "hint": "second person singular of the have-construction",
-          "gloss": "___ kiu (CL9-thirst) ni-ku-let-ee (1SG-2SG.OBJ-bring-APPL.SUBJ) maji (CL6-water)",
+          "gloss": "___ · CL9.thirst · 1SG.2SG.OBJ.bring.APPL.SUBJ · CL6.water",
           "transliteration": null,
           "cell": "question",
           "display_order": 3
@@ -5304,7 +5615,7 @@
           "answer": "Una",
           "translation": "Are you worried about the journey?",
           "hint": "second person singular of the have-construction",
-          "gloss": "___ wasiwasi (CL11-worry) kuhusu (about) safari (CL9-journey)",
+          "gloss": "___ · CL11.worry · about · CL9.journey",
           "transliteration": null,
           "cell": "question",
           "display_order": 4
@@ -5314,7 +5625,7 @@
           "answer": "Sina",
           "translation": "I am not hungry; I have already eaten.",
           "hint": "first person singular negative of the have-construction",
-          "gloss": "___ njaa (CL9-hunger) ni-me-sha-kula (1SG-PERF-already-eat)",
+          "gloss": "___ · CL9.hunger · 1SG.PERF.already.eat",
           "transliteration": null,
           "cell": "negative",
           "display_order": 5
@@ -5324,7 +5635,7 @@
           "answer": "Sina",
           "translation": "I am not sad, only tired.",
           "hint": "first person singular negative of the have-construction",
-          "gloss": "___ huzuni (CL9-sadness) ni (is) uchovu (CL11-tiredness) tu (only)",
+          "gloss": "___ · CL9.sadness · is · CL11.tiredness · only",
           "transliteration": null,
           "cell": "negative",
           "display_order": 6
@@ -5334,7 +5645,7 @@
           "answer": "Kuna",
           "translation": "It is cold outside today.",
           "hint": "the class 17 existential meaning there is",
-          "gloss": "___ baridi (CL9-cold) nje (outside) leo (today)",
+          "gloss": "___ · CL9.cold · outside · today",
           "transliteration": null,
           "cell": "weather with kuna",
           "display_order": 7
@@ -5344,7 +5655,7 @@
           "answer": "Kuna",
           "translation": "There is fierce heat this afternoon.",
           "hint": "the class 17 existential meaning there is",
-          "gloss": "___ joto (CL5-heat) kali (CL5-fierce) mchana (CL3-afternoon) huu (CL3-this)",
+          "gloss": "___ · CL5.heat · CL5.fierce · CL3.afternoon · CL3.this",
           "transliteration": null,
           "cell": "weather with kuna",
           "display_order": 8
@@ -5354,7 +5665,7 @@
           "answer": "kiu",
           "translation": "After walking far, we were very thirsty.",
           "hint": "the state noun meaning a need to drink",
-          "gloss": "baada ya (after) ku-tembea (INF-walk) mbali (far) tu-li-kuwa na (1PL-PAST-be with) ___ sana (very)",
+          "gloss": "after · CL9.of · INF.walk · far · 1PL.PAST.be · with · ___ · very",
           "transliteration": null,
           "cell": "affirmative",
           "display_order": 1
@@ -5364,7 +5675,7 @@
           "answer": "huzuni",
           "translation": "She is sad because she has lost her job.",
           "hint": "the state noun meaning sorrow",
-          "gloss": "a-na (CL1-have) ___ kwa sababu (because) a-me-poteza (CL1-PERF-lose) kazi (CL9-work)",
+          "gloss": "CL1.have · ___ · for · CL9.reason · CL1.PERF.lose · CL9.work",
           "transliteration": null,
           "cell": "affirmative",
           "display_order": 2

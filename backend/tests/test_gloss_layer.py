@@ -118,9 +118,19 @@ def test_a_gloss_never_invents_a_cell(path):
 
 
 # Courses whose glosses were authored to the strict positional contract: one
-# cell per whitespace token, no multi-word cells. mi predates it and legitimately
-# uses multi-word cells (`Kei te` is one tense marker), so it is not listed.
-STRICTLY_ALIGNED = ["yo_grammar.json", "xh_grammar.json", "ha_grammar.json"]
+# cell per whitespace token, no multi-word cells. mi predates it and uses
+# multi-word cells (`Kei te` is one tense marker), so it is not listed yet.
+#
+# `sw` converted TO this contract on 26 Aug. Its old self-labelling form
+# (`u-ta-rudi (2SG-FUT-return)`) carried the morpheme split, which positional
+# cells cannot show — but the gloss renders as FLAT TEXT, where
+# `u-ta-rudi (2SG-FUT-return) ___ kutoka (from)` is markedly harder to read
+# than `2SG.FUT.return · ___ · from`, and xh proves the positional form works
+# for a Bantu language with the same noun-class machinery. 107 of the 131
+# converted mechanically; the other 24 had multi-word cells and were
+# re-authored along with the 311 that had no gloss at all.
+STRICTLY_ALIGNED = ["yo_grammar.json", "xh_grammar.json", "ha_grammar.json",
+                    "sw_grammar.json"]
 
 
 @pytest.mark.parametrize("name", STRICTLY_ALIGNED)
