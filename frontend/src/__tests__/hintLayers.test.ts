@@ -92,3 +92,41 @@ describe('hintLayersFor — the leak guard covers every surface, not just the Gy
     expect(withLeak).toHaveLength(withoutLeak.length - 1)
   })
 })
+
+describe('every non-Latin course leads with its reading', () => {
+  // A learner cannot recall a word they cannot sound out, which is the whole
+  // premise of SCRIPT_FIRST. Four courses were missing from that table while
+  // carrying a romanisation: ko and th gained computed readings on 26 Aug,
+  // he and fa have had authored ones for longer. All four were ordered
+  // translation-first, so the layer existed and never led — the same shape as
+  // the review card that ignored `sentence_reading` for months.
+  const SCRIPT_COURSES = ['ru', 'ar', 'el', 'hi', 'ko', 'th', 'he', 'fa']
+
+  it.each(SCRIPT_COURSES)('%s shows the reading first', (code) => {
+    const layers = hintLayersFor(code, {
+      transliteration: 'READING',
+      gloss: 'a · gloss',
+      translation: 'the translation',
+      correct_answer: 'zzz',
+    })
+    expect(layers[0]?.field).toBe('transliteration')
+  })
+
+  it('a course with no reading skips the layer rather than showing a blank', () => {
+    const layers = hintLayersFor('ko', {
+      transliteration: null,
+      translation: 'the translation',
+      correct_answer: 'zzz',
+    })
+    expect(layers.map((l) => l.field)).not.toContain('transliteration')
+    expect(layers[0]?.field).toBe('translation')
+  })
+
+  it('a Latin-script course is unaffected', () => {
+    const layers = hintLayersFor('es', {
+      translation: 'the translation',
+      correct_answer: 'zzz',
+    })
+    expect(layers[0]?.field).toBe('translation')
+  })
+})

@@ -27,11 +27,20 @@ const SCRIPT_FIRST: HintLayerField[] = ['transliteration', 'gloss', 'translation
 const GLOSS_FIRST: HintLayerField[] = ['gloss', 'translation', 'hint']
 const DEFAULT_ORDER: HintLayerField[] = ['translation', 'hint']
 
+// Every course whose script a learner cannot sound out cold. Keeping this in
+// step with the reading layer is not optional: ko and th gained readings on
+// 26 Aug and he/fa have had authored ones for longer, and all four were still
+// ordered translation-first — so the romanisation existed and never led. A
+// layer nothing routes to is a layer that did not ship (CHECKS.md §12).
 const LAYER_ORDER: Record<string, HintLayerField[]> = {
   ru: SCRIPT_FIRST,
   ar: SCRIPT_FIRST,
   el: SCRIPT_FIRST,
   hi: SCRIPT_FIRST,
+  ko: SCRIPT_FIRST,
+  th: SCRIPT_FIRST,
+  he: SCRIPT_FIRST,
+  fa: SCRIPT_FIRST,
   mi: GLOSS_FIRST,
   sw: GLOSS_FIRST,
   yo: GLOSS_FIRST,
