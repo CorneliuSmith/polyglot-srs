@@ -52,8 +52,39 @@ carry risk that self-labelling ones do not.
 | --- | --- | --- |
 | `mi` | 240/240, positional | settle the label casing per Rule 3 — `past` 24, `prog` 23, `obj` 14, `not` 15 are grammatical categories written lowercase. Only TWO true case collisions (`NOT`/`not`, `PERS`/`pers`), not the label mess this table once claimed |
 | `yo` `xh` `ha` | **761/761, authored 26 Aug** | done — see below |
-| `sw` | 131/442, self-labelling `u-ta-rudi (2SG-FUT-return)` | 311 to author. **Keep the self-labelling form**: positional cells cannot show WHERE the morphemes fall inside an unsegmented written word, and for an agglutinative language that is the information the layer exists to carry |
+| `sw` | **442/442, converted to positional 26 Aug** | done. The earlier "keep the self-labelling form" call was WRONG: the gloss renders as flat text, where `u-ta-rudi (2SG-FUT-return) ___ kutoka (from)` reads worse than `2SG.FUT.return · ___ · from`, and `xh` had already proved the positional form works for a Bantu language with the same noun-class machinery. 107 of 131 converted mechanically; 24 multi-word cells and 311 blanks were authored |
 | every other course | **0%** | author with this spec |
+
+### Where the remaining gloss work is — and where it is NOT
+
+The gloss is only shown to courses whose `LAYER_ORDER` includes it
+(`frontend/src/features/review/hintLayers.ts`). `DEFAULT_ORDER` is
+`['translation', 'hint']` — **no gloss slot at all**. So of the 6,610 drills
+still unglossed:
+
+| | drills | is the layer reachable? |
+| --- | --- | --- |
+| `ko` `ru` `el` `ar` `hi` `th` `he` `fa` | **3,001** | yes — SCRIPT_FIRST, gloss is layer 2 after the reading |
+| `es` `it` `ca` `fr` `de` `ro` `tr` `pt` `en` `nl` `jam` `la` `id` `tl` | 3,609 | **no — never shown** |
+
+Author the 3,001 first, largest first (`ko` alone is 1,217 drills, and Korean
+word order and particles are exactly what a word-by-word line explains).
+Authoring any of the other 3,609 writes content into a route that does not
+exist — the same defect as a layer with no write path (CHECKS.md §12), just
+approached from the other end.
+
+**Two of those 14 look mis-assigned rather than deliberately excluded, and
+that is a separate decision to make before writing anything:**
+
+- **`tr` is agglutinative** — Turkish stacks suffixes the way Swahili stacks
+  prefixes, and `sw` is GLOSS_FIRST for exactly that reason.
+- **`la` has free word order and carries its syntax in case endings**, which is
+  the canonical argument for an interlinear line.
+
+The Romance and Germanic courses are a defensible exclusion: their word order
+tracks English closely enough that the translation carries the same
+information. `jam` is English-lexified, so likewise. But `tr` and `la` sitting
+in the same bucket looks like an oversight, not a judgement.
 
 ### What authoring 761 of them settled
 
