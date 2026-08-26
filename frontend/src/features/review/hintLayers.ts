@@ -23,30 +23,28 @@
 
 export type HintLayerField = 'base' | 'transliteration' | 'gloss' | 'translation' | 'hint'
 
-const SCRIPT_FIRST: HintLayerField[] = ['transliteration', 'gloss', 'translation', 'hint']
-const GLOSS_FIRST: HintLayerField[] = ['gloss', 'translation', 'hint']
-const DEFAULT_ORDER: HintLayerField[] = ['translation', 'hint']
+// The disclosure order is the same everywhere: reading, then word-by-word,
+// then the sentence translation, then the word's own meaning. Each step is a
+// bigger concession than the last.
+//
+// There is exactly one axis of variation — whether the course has a script the
+// learner cannot sound out. A Latin-script course has no reading to show, so
+// it starts at the gloss.
+//
+// It used to have three orders, and the third silently dropped the gloss:
+// DEFAULT_ORDER was ['translation', 'hint']. That removed the word-by-word
+// line from FOURTEEN courses — every Romance and Germanic course, plus tr, la,
+// id, tl, jam and en — so 3,609 example sentences and 3,459 drills in those
+// courses had no route to a learner at all. It also made the layer look
+// deliberately excluded rather than accidentally missing, which is how it
+// survived: authoring for those courses was ruled out on the strength of a
+// bug.
+const WITH_READING: HintLayerField[] = ['transliteration', 'gloss', 'translation', 'hint']
+const NO_READING: HintLayerField[] = ['gloss', 'translation', 'hint']
 
-// Every course whose script a learner cannot sound out cold. Keeping this in
-// step with the reading layer is not optional: ko and th gained readings on
-// 26 Aug and he/fa have had authored ones for longer, and all four were still
-// ordered translation-first — so the romanisation existed and never led. A
-// layer nothing routes to is a layer that did not ship (CHECKS.md §12).
-const LAYER_ORDER: Record<string, HintLayerField[]> = {
-  ru: SCRIPT_FIRST,
-  ar: SCRIPT_FIRST,
-  el: SCRIPT_FIRST,
-  hi: SCRIPT_FIRST,
-  ko: SCRIPT_FIRST,
-  th: SCRIPT_FIRST,
-  he: SCRIPT_FIRST,
-  fa: SCRIPT_FIRST,
-  mi: GLOSS_FIRST,
-  sw: GLOSS_FIRST,
-  yo: GLOSS_FIRST,
-  xh: GLOSS_FIRST,
-  ha: GLOSS_FIRST,
-}
+// Courses whose script a learner cannot sound out cold. Everything else falls
+// through to NO_READING and still shows the gloss.
+const SCRIPT_COURSES = new Set(['ru', 'ar', 'el', 'hi', 'ko', 'th', 'he', 'fa'])
 
 export interface HintLayerSource {
   /** Dictionary/lemma form the drill exercises — Gym cards only. */
@@ -134,7 +132,10 @@ export function safePrompt(text: string, answer: string | null | undefined): str
 /** The ordered hint layers this card can actually reveal. Base form (when the
  * card carries one — i.e. in the Gym) always leads. */
 export function hintLayersFor(languageCode: string, card: HintLayerSource): HintLayer[] {
-  const order: HintLayerField[] = ['base', ...(LAYER_ORDER[languageCode] ?? DEFAULT_ORDER)]
+  const order: HintLayerField[] = [
+    'base',
+    ...(SCRIPT_COURSES.has(languageCode) ? WITH_READING : NO_READING),
+  ]
   // A field the server flagged is shown, but never under a label that
   // claims it is the learner's language: an Arabic speaker was told
   // "الترجمة" over an English sentence. Withholding it instead would

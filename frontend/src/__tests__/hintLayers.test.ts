@@ -158,3 +158,39 @@ describe('safePrompt tokenising — the scripts it silently failed on', () => {
     expect(safePrompt('(impersonal se-passive)', 'se')).toBe('')
   })
 })
+
+describe('every course shows the word-by-word line', () => {
+  // The order is the same everywhere — reading, word-by-word, sentence
+  // translation, word meaning — with one axis of variation: whether the course
+  // has a script the learner cannot sound out.
+  //
+  // A third order used to exist and it silently dropped the gloss:
+  // DEFAULT_ORDER was ['translation', 'hint']. Fourteen courses lost the layer
+  // entirely, and because the omission looked deliberate, authoring for them
+  // was ruled out on the strength of a bug.
+  const ALL = ['ru', 'ar', 'el', 'hi', 'ko', 'th', 'he', 'fa', 'mi', 'sw', 'yo',
+    'xh', 'ha', 'es', 'fr', 'de', 'it', 'pt', 'ca', 'ro', 'nl', 'en', 'tr',
+    'la', 'id', 'tl', 'jam']
+
+  it.each(ALL)('%s includes the gloss layer', (code) => {
+    const layers = hintLayersFor(code, {
+      transliteration: 'READING', gloss: 'a · gloss',
+      translation: 'the sentence', hint: 'the meaning', correct_answer: 'zzz',
+    })
+    expect(layers.map((l) => l.field)).toContain('gloss')
+  })
+
+  it('orders them reading, word-by-word, sentence, meaning', () => {
+    expect(hintLayersFor('ru', {
+      transliteration: 'READING', gloss: 'a · gloss',
+      translation: 'the sentence', hint: 'the meaning', correct_answer: 'zzz',
+    }).map((l) => l.field)).toEqual(['transliteration', 'gloss', 'translation', 'hint'])
+  })
+
+  it('a Latin-script course starts at the gloss, having no reading to show', () => {
+    expect(hintLayersFor('es', {
+      gloss: 'a · gloss', translation: 'the sentence', hint: 'the meaning',
+      correct_answer: 'zzz',
+    }).map((l) => l.field)).toEqual(['gloss', 'translation', 'hint'])
+  })
+})
