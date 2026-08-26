@@ -465,13 +465,64 @@ class TestLatinMacronPolicy:
             assert "̆" not in raw, f"breve character in data/{path}"
 
     def test_every_latin_surface_carries_macrons(self):
-        """all-or-nothing: vocabulary, grammar drills and gym together. The old
-        policy was 'verified' against the grammar file while the vocabulary
-        file sat 48% non-compliant."""
+        """all-or-nothing: vocabulary, grammar drills, gym AND the sentence
+        bank. The old policy was 'verified' against the grammar file while the
+        vocabulary file sat 48% non-compliant — and the sentence bank was
+        missing from this list entirely until 25 Aug 2026, so 504 unmacronised
+        sentences harvested from Tatoeba would have passed every test here."""
         import unicodedata
-        for path in ("la_frequency.tsv", "grammar/la_grammar.json", "gym/la.json"):
+        for path in ("la_frequency.tsv", "grammar/la_grammar.json", "gym/la.json",
+                     "la_sentences.tsv"):
             raw = unicodedata.normalize("NFD", (DATA / path).read_text(encoding="utf-8"))
             assert "̄" in raw, f"data/{path} carries no macrons at all"
+
+    def test_the_latin_sentence_bank_does_not_contradict_the_vocabulary(self):
+        """A sentence token whose ONLY committed spelling is macronised must
+        carry the macron. Where an unmacronised twin also exists the choice is
+        semantic — `liber` (book) against `līber` (free), `hic` (this) against
+        `hīc` (here) — and belongs to a reviewer, not to this assertion."""
+        import csv
+        import re
+        import unicodedata
+
+        macrons = set("āēīōūĀĒĪŌŪ")
+
+        # An INFLECTION of one headword can share a skeleton with a different
+        # headword. `malum` in "Bellum malum est" is the neuter nominative of
+        # `malus` (bad, r204), which is a committed headword spelled without a
+        # macron — it is not `mālum` (apple, r187), and marking it would teach
+        # a false quantity. The check compares headwords, so it cannot see the
+        # inflection; this names the collisions instead of loosening the rule.
+        inflection_of_a_bare_headword = {"malum"}
+
+        def skeleton(text):
+            return "".join(
+                c for c in unicodedata.normalize("NFD", text)
+                if not unicodedata.combining(c)
+            ).lower()
+
+        by_skeleton: dict[str, set[str]] = {}
+        with (DATA / "la_frequency.tsv").open(encoding="utf-8-sig", newline="") as handle:
+            for row in csv.DictReader(handle, delimiter="\t"):
+                by_skeleton.setdefault(skeleton(row["word"]), set()).add(row["word"])
+
+        offenders = []
+        with (DATA / "la_sentences.tsv").open(encoding="utf-8-sig", newline="") as handle:
+            for row in csv.DictReader(handle, delimiter="\t"):
+                for token in re.findall(r"[A-Za-zĀ-ſ]+", row["sentence"]):
+                    forms = by_skeleton.get(skeleton(token))
+                    if not forms:
+                        continue
+                    marked = {f for f in forms if any(c in macrons for c in f)}
+                    bare = forms - marked
+                    if (marked and not bare
+                            and token.lower() not in inflection_of_a_bare_headword
+                            and not any(c in macrons for c in token)):
+                        offenders.append(f"{token!r} in {row['sentence']!r} -> {sorted(marked)[0]}")
+        assert not offenders, (
+            "la sentence bank contradicts the macronised vocabulary: "
+            + "; ".join(sorted(set(offenders))[:5])
+        )
 
     def test_headwords_are_unique_as_written(self):
         import collections

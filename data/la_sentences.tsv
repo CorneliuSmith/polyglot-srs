@@ -1,0 +1,583 @@
+word	sentence	translation	difficulty_rank
+tū	Et tū?	You as well?	8
+et	Et tū?	You as well?	8
+est	Est quod est.	It is what it is.	18
+quod	Est quod est.	It is what it is.	18
+sum	Sum ego.	That's me.	22
+ego	Sum ego.	That's me.	22
+sum	Ego sum.	It's me.	22
+ego	Ego sum.	It's me.	22
+sum	Ego sum ego.	I am me.	22
+ego	Ego sum ego.	I am me.	22
+quis	Quis sum?	Who am I?	27
+quis	Quis sum ego?	Who am I?	27
+quis	Quis hic?	Who's this?	27
+hic	Quis hic?	Who's this?	27
+est	Quis est hic?	Who is this?	27
+hic	Quis est hic?	Who is this?	27
+est	Quis est ille?	Who is that?	27
+ille	Quis est ille?	Who is that?	27
+māter	Māter sum.	I'm a mother.	28
+etiam	Etiam.	Yes.	41
+etiam	Etiam hīc sum.	I'm here again.	41
+hic	Etiam hīc sum.	I'm here again.	41
+quoque	Ego quoque.	Me, too.	75
+nunc	Et nunc?	And now?	87
+et	Et nunc?	And now?	87
+nunc	Hīc et nunc.	Here and now.	87
+et	Hīc et nunc.	Here and now.	87
+nunc	Ī nunc.	Go now.	87
+semper	Semper.	Always.	89
+numquam	Numquam.	Never.	90
+hodiē	Nōn hodiē!	Not today!	93
+nōn	Nōn hodiē!	Not today!	93
+ibi	ibi sum.	I'm there.	96
+ubi	Ubi nunc est?	Where is he now?	98
+ubi	Ubi?	Where?	98
+ita	Ita.	That's it.	100
+ita	Ita est.	That's it.	100
+semper	Semper ita est?	Is it always this way?	100
+ita	Semper ita est?	Is it always this way?	100
+satis	Satis est.	That's enough.	102
+satis	Satis!	Enough!	102
+satis	Iam satis est!	Enough already!	102
+iam	Iam satis est!	Enough already!	102
+bene	Bene.	Good.	103
+bene	Bene!	Cool!	103
+ubi	Alter ubi est?	Where is the other one?	114
+alter	Alter ubi est?	Where is the other one?	114
+teneō	Teneō.	I understand.	126
+timeō	Timeō.	I'm afraid.	142
+intellegō	Bene; intellegō.	Right; I understand.	145
+bene	Bene; intellegō.	Right; I understand.	145
+vir	Ego vir sum.	I am a man.	148
+vir	Iam is vir est.	He's a man now.	148
+iam	Iam is vir est.	He's a man now.	148
+is	Iam is vir est.	He's a man now.	148
+vir	Vir sum.	I am a man.	148
+puer	Puer sum.	I am a boy.	149
+puer	Ubi puer est?	Where is the boy?	149
+puer	Ego puer sum.	I am a boy.	149
+ibi	Puer ibi est.	The boy is there.	149
+puella	Ego puella sum.	I am a girl.	150
+puella	Puella sum.	I am a girl.	150
+puella	Puella est.	She is a girl.	150
+tuus	Ubi est pater tuus?	Where is your father?	151
+pater	Ubi est pater tuus?	Where is your father?	151
+meus	Ubi pater meus est?	Where is my dad?	151
+pater	Ubi pater meus est?	Where is my dad?	151
+pater	Ille pater noster est.	That is our father.	151
+noster	Ille pater noster est.	That is our father.	151
+ille	Ille pater noster est.	That is our father.	151
+meus	Pater meus est.	He is my father.	151
+tuus	Ego pater tuus sum.	I am your father.	151
+tuus	Pater tuus sum.	I am your father.	151
+meus	Ubi est pater meus?	Where is my father?	151
+is	Is est pater.	He's a father.	151
+noster	Hic est pater noster.	This is our father.	151
+quoque	Ego quoque pater sum.	I'm a father, too.	151
+quoque	Pater quoque sum.	I'm a father, too.	151
+noster	Pater noster est.	He's our father.	151
+iam	Ubi pater tuus iam est?	Where's your father right now?	151
+deus	Deus est.	God is.	153
+deus	Ubi est nunc deus tuus?	Where is your God now?	153
+deus	Deus sum.	I'm God.	153
+dominus	Quis est dominus tuus?	Who's your master?	154
+nōn	Nōn sum servus tuus.	I'm not your slave.	155
+servus	Nōn sum servus tuus.	I'm not your slave.	155
+servus	Servus sum.	I'm a slave.	155
+servus	Tuus sum servus.	I am your servant.	155
+aqua	Aqua est.	It's water.	162
+liber	Liber meus est.	This is my book.	181
+liber	Is liber meus est.	This book is mine.	181
+is	Is liber meus est.	This book is mine.	181
+liber	Liber meus est. Ubi est tuus?	This book is mine. Where is yours?	181
+quālis	Quālis est liber?	What sort of book is it?	181
+ille	Ille liber tuus est.	That's your book.	181
+mare	Via ad mare est.	This is the passage to the sea.	182
+ad	Via ad mare est.	This is the passage to the sea.	182
+via	Via ad mare est.	This is the passage to the sea.	182
+ibi	Domus ibi est.	The house is there.	183
+domus	Domus ibi est.	The house is there.	183
+bonus	Pater est bonus.	Father is a good person.	203
+bonus	Quis bonus est?	Which one is good?	203
+bonus	Deus bonus est.	God is good.	203
+semper	Deus semper bonus est.	God is good all the time.	203
+malus	Deus malus est.	God is bad.	204
+magnus	Liber magnus est.	The book is big.	205
+magnus	Deus magnus est.	God is great.	205
+magnus	Quam magnus est!	How big he is!	205
+quam	Quam magnus est!	How big he is!	205
+parvus	Hic liber parvus est.	This book is small.	206
+parvus	Parvus liber est.	This is a small book.	206
+parvus	Liber parvus est.	The book is small.	206
+quam	Hic liber est tam parvus quam ille.	This book is as small as that one.	206
+tam	Hic liber est tam parvus quam ille.	This book is as small as that one.	206
+quam	Quam longus est?	How long is this?	208
+longus	Quam longus est?	How long is this?	208
+altus	Alter est altus, alter parvus.	One is tall and the other is short.	209
+alter	Alter est altus, alter parvus.	One is tall and the other is short.	209
+altus	Quam altus est?	How high is it?	209
+novus	Hic liber novus est.	This book is new.	210
+novus	Ille liber novus est.	That book is a new book.	210
+vetus	Hic liber vetus est.	This book is old.	211
+novus	Alter novus, alter vetus est.	One is new, the other is old.	211
+vetus	Alter novus, alter vetus est.	One is new, the other is old.	211
+alter	Alter novus, alter vetus est.	One is new, the other is old.	211
+pulcher	Quam pulcher est!	How beautiful!	213
+pulcher	Hic locus pulcher est.	This place is beautiful.	213
+locus	Hic locus pulcher est.	This place is beautiful.	213
+pulcher	Locus pulcher est.	The place is beautiful.	213
+locus	Locus pulcher est.	The place is beautiful.	213
+fortis	Is fortis est.	He's strong.	214
+fortis	Fortis sum.	I'm strong.	214
+fortis	Fortis est.	He is strong.	214
+facilis	Liber facilis est.	The book is easy.	219
+gravis	Hic liber gravis est.	This book is heavy.	223
+gravis	Gravis sum.	I'm being serious.	223
+levis	Levis est.	He is light.	224
+sacer	Hic locus sacer est.	This place is sacred.	228
+locus	Hic locus sacer est.	This place is sacred.	228
+vacuus	Hic vacuus est.	This one is empty.	232
+tardus	Tardus est.	He is late.	236
+calidus	Quam calidus est?	How hot is it?	237
+ignis	Ignis calidus est.	Fire is hot.	237
+calidus	Ignis calidus est.	Fire is hot.	237
+albus	Liber albus est.	The book is white.	239
+albus	Alter est ruber, alter albus.	One is red and the other is white.	241
+ruber	Alter est ruber, alter albus.	One is red and the other is white.	241
+ruber	Liber ruber est.	The book is red.	241
+viridis	Viridis est.	It's green.	242
+sanguis	Sanguis tuus ruber est.	Your blood is red.	255
+ruber	Sanguis tuus ruber est.	Your blood is red.	255
+sanguis	Sanguis ruber est.	Blood is red.	255
+animal	Animal est.	He's an animal.	258
+animal	Animal sum.	I'm an animal.	258
+albus	Canis albus est.	This dog is white.	259
+canis	Canis albus est.	This dog is white.	259
+canis	Canis meus albus est.	My dog is white.	259
+canis	Canis tuus est. Ubi est meus?	This dog is yours. Where is mine?	259
+celer	Canis meus celer est.	My dog is fast.	259
+equus	Equus meus est.	This is my horse.	260
+equus	Equus est.	This is a horse.	260
+animal	Equus animal est.	A horse is an animal.	260
+equus	Equus animal est.	A horse is an animal.	260
+niger	Equus meus niger est.	My horse is black.	260
+piscis	Hic piscis magnus est.	This fish is big.	263
+piscis	Piscis sum.	I'm a fish.	263
+piscis	Piscis parvus est.	The fish is small.	263
+lupus	Lupus sum.	I'm a wolf.	265
+silva	Silva viridis est.	The forest is green.	269
+viridis	Silva viridis est.	The forest is green.	269
+arbor	Ubi est arbor?	Where is the tree?	270
+gravis	Lapis gravis est.	The stone is heavy.	272
+lapis	Lapis gravis est.	The stone is heavy.	272
+viridis	Herba viridis est.	The grass is green.	278
+herba	Herba viridis est.	The grass is green.	278
+amor	Amor tuus est falsus.	Your love is fake.	299
+falsus	Amor tuus est falsus.	Your love is fake.	299
+falsus	Falsus est amor tuus.	Your love is fake.	299
+amor	Falsus est amor tuus.	Your love is fake.	299
+labor	Magnus labor est.	It's a big job.	307
+vīnum	Vīnum bibō.	I drink wine.	318
+bibō	Vīnum bibō.	I drink wine.	318
+nōn	Nōn licet.	It's not allowed.	340
+licet	Nōn licet.	It's not allowed.	340
+tandem	Tandem!	Finally!	344
+fortasse	Fortasse.	Maybe.	356
+procul	Procul est.	She's far away.	362
+nihil	Nihil sum.	I am nothing.	369
+nimis	Nimis parvus est.	He is too small.	373
+nimis	Nimis tardus est.	He's too slow.	373
+tardus	Nimis tardus est.	He's too slow.	373
+nimis	Nimis tardus sum.	I'm too slow.	373
+tardus	Nimis tardus sum.	I'm too slow.	373
+loquor	Nimis loquor.	I talk too much.	410
+templum	Ubi templum est?	Where's the temple?	418
+hortus	Hic hortus pulcher est.	This garden is beautiful.	427
+hortus	Hortus meus parvus est.	My garden is small.	427
+hortus	Hortus tuus pulcher est.	Your garden is beautiful.	427
+portus	Ubi est portus?	Where is the harbour?	434
+mundus	Mundus parvus est.	It's a small world.	448
+mundus	Mundus pulcher est.	The world is beautiful.	448
+alius	Hic est mundus alius.	This is another world.	448
+magister	Magister sum.	I am a teacher.	453
+magister	Pater meus magister est.	My father is a teacher.	453
+magister	Quis magister tuus est?	Who is your teacher?	453
+discipulus	Discipulus sum.	I am a student.	454
+discipulus	Discipulus novus sum.	I am a new student.	454
+testis	Testis sum.	I am a witness.	456
+stultus	Quam stultus est!	How stupid he is!	458
+stultus	Quam stultus!	How foolish!	458
+stultus	Quis est ille stultus?	Who is that crazy person?	458
+numerus	"""Centum"" quoque numerus est."	One hundred is also a number.	521
+centum	"""Centum"" quoque numerus est."	One hundred is also a number.	521
+ad	Ad arma!	To arms!	525
+arma	Ad arma!	To arms!	525
+gladius	Ubi est gladius tuus?	Where is your sword?	526
+incertus	Pater semper incertus est.	The father is always uncertain.	540
+proximus	Quis proximus est?	Who is next?	556
+tempus	Tempus fugit.	Time flies.	19999
+nihil	Post mortem nihil est.	After death there is nothing.	19999
+post	Post mortem nihil est.	After death there is nothing.	19999
+lupus	Lupus in fābulā.	Speak of the devil and he is sure to appear.	19999
+in	Lupus in fābulā.	Speak of the devil and he is sure to appear.	19999
+nihil	Ex nihilō nihil.	Nothing comes from nothing.	19999
+ex	Ex nihilō nihil.	Nothing comes from nothing.	19999
+manus	Lavō manūs.	I wash my hands.	19999
+nox	Nox appetit.	Night draws nigh.	19999
+sed	Magister nōn est, sed discipulus est.	He is not a teacher but a student.	19999
+discipulus	Magister nōn est, sed discipulus est.	He is not a teacher but a student.	19999
+domus	Domus est frīgida.	The house is cold.	19999
+ut	Ut valēs?	How are you doing?	19999
+in	Pater meus in hortō est.	My father's in the garden.	19999
+bellum	Sum contrā bellum.	I'm against the war.	19999
+exitus	Exitus nōn est.	There is no escape.	19999
+super	Liber super mēnsam est.	There is a book on the table.	19999
+sub	Canis sub mēnsā est.	There is a dog under the table.	19999
+caelum	Caelum caeruleum est.	The sky is blue.	19999
+via	Via ūmida est.	The street is wet.	19999
+aqua	Aqua ūmida est.	Water is wet.	19999
+in	In balneō est.	She is in the bathroom.	19999
+manus	Manūs lavant.	They wash their hands.	19999
+male	Hic piscis male olet.	This fish smells bad.	19999
+male	Piscis male olet.	The fish smells bad.	19999
+ut	Ut pater tuus valet?	How is your dad?	19999
+prope	Domus eius prope mare est.	Her house is near the sea.	19999
+mare	Domus eius prope mare est.	Her house is near the sea.	19999
+domus	Domus eius prope mare est.	Her house is near the sea.	19999
+prope	Puer prope iānuam est.	There is a boy near the door.	19999
+cibus	Cibus noster vīlis est.	Our food is cheap.	19999
+celer	Equus fuscus celer est.	The brown horse is fast.	19999
+fenestra	Fenestra aperta est.	The window is open.	19999
+ante	Hortus ante domum est.	The garden is in front of the house.	19999
+ante	Ante iānuam est.	He is in front of the door.	19999
+ante	Ante monumentum est.	It is in front of the monument.	19999
+sub	Sub sellā est.	It is under the chair.	19999
+procul	Equus procul ā domō est.	The horse is far from the house.	19999
+habeō	Diplōma habeō.	I have my passport.	19999
+volō	Emere volō.	I want to buy.	19999
+possum	Natāre possum.	I'm able to swim.	19999
+saepe	Saepe errō.	I often err.	19999
+valeō	Sine tē nōn valeō.	Without you, I am not well.	19999
+sine	Sine tē nōn valeō.	Without you, I am not well.	19999
+caelum	Caelum nūbilum est.	It's cloudy.	19999
+gaudium	Vīta gaudium est.	Life is fun.	19999
+epistula	Epistula in involūcrō est.	The letter is inside the envelope.	19999
+via	Via longa est.	The road is long.	19999
+herba	Herba viridis in agrō est.	There is green grass on the field.	19999
+possum	Loquī possum.	I'm able to speak.	19999
+manus	Lāvistīne manūs?	Did you wash your hands?	19999
+genus	Genus pānis est.	This is a kind of bread.	19999
+valeō	Sī valēs, valeō.	If you are strong, I am strong.	19999
+sī	Sī valēs, valeō.	If you are strong, I am strong.	19999
+procul	Procul ā domō est.	He is away from home.	19999
+genus	Genus cibī est.	This is a kind of food.	19999
+sed	Hic liber bonus est, sed ille melior est.	This is a good book, but that one is better.	19999
+saepe	Saepe ambulō.	I usually walk.	19999
+possum	Nōn possum.	I can't.	19999
+aqua	Estne aqua?	Is there water?	19999
+vacuus	Saccus meus vacuus est.	My bag is empty.	19999
+prope	Aliquis prope iānuam est.	Someone is at the door.	19999
+aliquis	Aliquis prope iānuam est.	Someone is at the door.	19999
+mox	Mox pluet.	It is going to rain soon.	19999
+caelum	Caelum clārum est.	The sky is clear.	19999
+cibus	Cibus frīgidus est.	The food is cold.	19999
+vetus	Clavichordum vetus est.	It's an old piano.	19999
+mare	Mare timet.	He's afraid of the sea.	19999
+cum	Cum Didymō loquor.	I am talking with Tom.	19999
+loquor	Cum Didymō loquor.	I am talking with Tom.	19999
+ut	Ut valētis?	How are you all?	19999
+malus	Malus puer es.	You are a bad boy.	19999
+super	Canis super sellam est.	The dog is on the chair.	19999
+terra	Cārissima est terra.	The most expensive thing is land.	19999
+tempus	Tempus est īre.	It's time to go.	19999
+quandō	Quandō advēnistī?	When did you arrive?	19999
+aliquis	Aliquis edit.	Somebody is eating.	19999
+altus	Quam altus ille lacus est?	How deep is that lake?	19999
+ventus	Ventus flat.	The wind is blowing.	19999
+silva	In silvā ā viā aberrāvī.	I lost my way in the woods.	19999
+terra	In Terrā habitāmus.	We live on the earth.	19999
+aureus	Didymus puer aureus est.	Tom is a golden boy.	19999
+pauper	Pauper est, sed laeta.	She is poor, but happy.	19999
+sed	Pauper est, sed laeta.	She is poor, but happy.	19999
+vērus	Vērus est, is dīves est, sed avārus est.	It is true he is rich, but he is a miser.	19999
+dīves	Vērus est, is dīves est, sed avārus est.	It is true he is rich, but he is a miser.	19999
+terra	Terra rotat.	The earth rotates.	19999
+oppidum	Oppidum pulchrum est.	The town is beautiful.	19999
+iter	Saepe iter faciō.	I travel often.	19999
+saepe	Saepe iter faciō.	I travel often.	19999
+pauper	Didymus pauper est.	Tom is poor.	19999
+ventus	Ventus spīrat.	The wind is blowing.	19999
+cor	Cor dolet.	My heart is hurting.	19999
+sine	Sine tē nihil sum.	Without you, I am nothing.	19999
+dum	Auscultā, dum loquor.	Listen while I talk.	19999
+sententia	Ubi sententia mea est?	Where is my sentence?	19999
+soror	Ubi soror tua est?	Where is your sister?	19999
+longus	Quam longus hic pōns est?	How long is this bridge?	19999
+carmen	Carmen ā puellā scrīptum est.	The poem was written by a girl.	19999
+sciō	Sciō quis sīs.	I know who you are.	19999
+videō	Rosam videō.	I see the rose.	19999
+niger	Estne equus niger?	Is the horse black?	19999
+causa	Hīc negōtiī causā sum.	I am here on business.	19999
+soror	Soror tua sum.	I'm your sister.	19999
+bellum	Bellum malum est.	War is evil.	19999
+niger	Nōnne niger est?	Is it not black?	19999
+causa	Quae est causa?	What's the cause?	19999
+scientia	Ex lūnā, scientia.	From the Moon, knowledge.	19999
+ex	Ex lūnā, scientia.	From the Moon, knowledge.	19999
+scientia	Ex astrīs, scientia.	From the stars, knowledge.	19999
+ex	Ex astrīs, scientia.	From the stars, knowledge.	19999
+longus	Fluvius longus est.	The river is long.	19999
+male	Male olet.	It smells bad.	19999
+vester	Ecce liber vester.	Here is your book.	19999
+similis	Similis est frātris.	He looks like his brother.	19999
+edō	Pānem edō.	I eat bread.	19999
+cor	Mihi est cor.	I have a heart.	19999
+nisi	Nisi nunc, quandō igitur?	If not now, then when?	19999
+igitur	Nisi nunc, quandō igitur?	If not now, then when?	19999
+aureus	Nummus aureus est.	There is a gold coin.	19999
+nēmō	nēmō in viā vidēbātur.	No one was to be seen in the street.	19999
+proelium	proelium ad flūmen pugnātum est.	The battle was fought by the river.	19999
+flūmen	proelium ad flūmen pugnātum est.	The battle was fought by the river.	19999
+ad	proelium ad flūmen pugnātum est.	The battle was fought by the river.	19999
+discō	Sēricē discō.	I'm learning Chinese.	19999
+urbs	Est urbs pulchra.	It is a beautiful city.	19999
+dux	Quis est dux gregis?	Who is the group leader?	19999
+stella	Sōl est stēlla.	The sun is a star.	19999
+mors	Mors similis est somnō.	Death is similar to sleep.	19999
+similis	Mors similis est somnō.	Death is similar to sleep.	19999
+avis	Avis in caelo est.	The bird is in the sky.	19999
+causa	Deus est omnium causa.	God is the cause of all things.	19999
+pōns	pōns est in flūmine.	There is a bridge across the river.	19999
+post	"""Post"" mendācium est."	"""Later"" is a lie."	19999
+nisi	Nisi nunc, quandō?	If not now, when?	19999
+verbum	Domus verbum facile est.	House is an easy word.	19999
+malus	Calamus tuus malus est.	Your pen is bad.	19999
+homō	Homō tantum sum.	I'm only human.	19999
+mox	Mox reveniam.	I'll come back soon.	19999
+mors	Amor potentior est quam mors.	Love is more powerful than death.	19999
+lectus	Lectus meus commodior est quam tuus.	My bed is more comfortable than yours.	19999
+minus	Minus intelligēns est quam ego.	He is less intelligent than me.	19999
+minus	Minus sevērus est quam magister noster.	He is less strict than our teacher.	19999
+tam	Nihil tam pretiōsum quam amor.	Nothing is as precious as love.	19999
+tam	Tam prōcērus est quam pater.	He is as tall as his father.	19999
+atque	Hic liber est aequē parvus atque ille.	This book is as small as that one.	19999
+ignis	Ignis perīculōsissimus est.	Fire is very dangerous.	19999
+silva	Silva crassissima est.	The forest is very thick.	19999
+lectus	Ille lectus commodissimus est.	That bed is very comfortable.	19999
+lectus	Lectus commodissimus est.	The bed is very comfortable.	19999
+urbs	Urbs relicta est.	The city was abandoned.	19999
+quandō	Quandō coepistī?	When did you start?	19999
+rēgīna	Rēgīna pīrātārum est.	She's the pirate queen.	19999
+nēmō	Nēmō rīsit.	No one laughed.	19999
+sanguis	Erat sanguis.	There was blood.	19999
+leō	Leō fremit.	The lion is roaring.	19999
+iterum	Turba iterum fremuit.	The crowd roared again.	19999
+turba	Turba iterum fremuit.	The crowd roared again.	19999
+lūna	Lūna lūcet.	The moon is shining.	19999
+sōl	Sōl lūcēbat.	The sun was shining.	19999
+praemium	Praemium accēpit.	She received the prize.	19999
+decem	Sex et quattuor sunt decem.	Six and four are ten.	19999
+sex	Sex et quattuor sunt decem.	Six and four are ten.	19999
+quattuor	Sex et quattuor sunt decem.	Six and four are ten.	19999
+animus	Animus immortālis est.	The soul is immortal.	19999
+etiam	Etiam in templum ībāmus.	We also went to the temple.	19999
+templum	Etiam in templum ībāmus.	We also went to the temple.	19999
+lupus	Lupus ululat.	The wolf howls.	19999
+nēmō	Nēmō rīdet.	No one is laughing.	19999
+cūr	Cūr tibi crēdō?	Why do I believe you?	19999
+crēdō	Cūr tibi crēdō?	Why do I believe you?	19999
+cūr	Cūr vōbīs crēdō?	Why do I believe you?	19999
+crēdō	Cūr vōbīs crēdō?	Why do I believe you?	19999
+vīs	Quot vīs?	How many do you want?	19999
+cūr	Cūr nōs dēcēpistī?	Why have you deceived us?	19999
+nōs	Cūr nōs dēcēpistī?	Why have you deceived us?	19999
+nōs	Cūr nōs dēcēpistis?	Why have you deceived us?	19999
+proelium	Quis proelium iniit?	Who started the battle?	19999
+sententia	In sententiā manēbō.	I won't change my mind.	19999
+epistula	Epistula scrīpta est.	The letter was written.	19999
+mors	Amor fortior est quam mors.	Love is stronger than death.	19999
+facilis	Labor meus nōn tam facilis est quam tuus.	My work is not as easy as yours.	19999
+labor	Labor meus nōn tam facilis est quam tuus.	My work is not as easy as yours.	19999
+mox	Mox discēdam.	I will depart soon.	19999
+autem	Equus tuus celer est, meus autem celerior.	Your horse is fast, but mine is faster.	19999
+difficilis	Labor tuus nōn tam difficilis est quam meus.	Your work is not as difficult as mine.	19999
+labor	Labor tuus nōn tam difficilis est quam meus.	Your work is not as difficult as mine.	19999
+avis	Avis vulnerāta est.	The bird was injured.	19999
+ventus	Furit ventus.	The wind is raging.	19999
+nox	Media nox est.	It's midnight.	19999
+nox	Nox frīgida est.	The night is cold.	19999
+anima	Anima immortālis est.	The soul is immortal.	19999
+iterum	Iterum ningit.	It's snowing again.	19999
+quandō	Quandō vēnistī?	When did you come?	19999
+pauper	Marīa pauper est.	Mary is poor.	19999
+arbor	Arbor flōret.	The tree is flowering.	19999
+diēs	hodiē est prīmus diēs vēris.	Today is the first day of spring.	19999
+hodiē	hodiē est prīmus diēs vēris.	Today is the first day of spring.	19999
+prīmus	hodiē est prīmus diēs vēris.	Today is the first day of spring.	19999
+diēs	hodiē est prīmus diēs autumnī.	Today is the first day of fall.	19999
+hodiē	hodiē est prīmus diēs autumnī.	Today is the first day of fall.	19999
+prīmus	hodiē est prīmus diēs autumnī.	Today is the first day of fall.	19999
+timeō	Timeō cadere.	I'm afraid to fall.	19999
+timeō	Terraemōtūs timeō.	I'm afraid of earthquakes.	19999
+habeō	Equum habeō.	I have a horse.	19999
+facilis	Victōria facilis est.	It's an easy victory.	19999
+cum	Cum praepositō loquor.	I'm speaking with the director.	19999
+iterum	Fac iterum.	Do it again.	19999
+initium	Bonum initium est.	It's a good start.	19999
+mulier	Mulier legit.	The woman reads.	19999
+aliquis	Estne aliquis?	Is somebody there?	19999
+modus	Est modus in rēbus.	Moderation in all things.	19999
+urbs	Urbs pulchra est.	The city is beautiful.	19999
+pars	Haec est pars difficilis.	This is the hard part.	19999
+difficilis	Haec est pars difficilis.	This is the hard part.	19999
+statim	Statim exībimus.	We'll be right out.	19999
+domina	Domina est soror mihi.	The lady is my sister.	19999
+scelus	Diffāmātiō scelus est.	Slander is a crime.	19999
+parum	Id parum est.	That is not a lot.	19999
+testis	Testis es.	You are a witness.	19999
+quidem	Sānē quidem.	Yes.	19999
+quidem	Nōn quidem.	No.	19999
+statim	Statim venīmus.	We are coming at once.	19999
+mālum	Mālum lavabis.	You will wash the apple.	19999
+incertus	Bellī exitus incertus.	The outcome of war is uncertain.	19999
+exitus	Bellī exitus incertus.	The outcome of war is uncertain.	19999
+nix	Nix est alba.	The snow is white.	19999
+ager	Hic ager numquam arātus est.	This field has never been plowed.	19999
+numquam	Hic ager numquam arātus est.	This field has never been plowed.	19999
+super	Liber est super mēnsam.	The book is on the table.	19999
+nisi	Nihil nisi amīcus sum.	I'm just a friend.	19999
+mālum	Mālum lavabo.	I'll wash the apple.	19999
+alius	Alius error hīc est.	There is another mistake here...	19999
+modus	Lingua modus est commūnicātiōnis.	Language is a means of communication.	19999
+lingua	Lingua modus est commūnicātiōnis.	Language is a means of communication.	19999
+verbum	"""Quod verbum?"" Quaerēbam."	"""Which word?"" I asked."	19999
+difficilis	Vīta difficilis est.	Life is difficult.	19999
+memoria	In memoriā habeō.	I didn't forget it.	19999
+carmen	Carmen recitāvit.	She read the poem aloud.	19999
+stella	Sōl stella est.	The sun is a star.	19999
+vix	Vix ambulāre possum.	I can barely walk.	19999
+vix	Vix stāre possum.	I can barely stand.	19999
+vix	Vix legere possum.	I can barely read.	19999
+sententia	Sententiā dēstitī.	My opinion has changed.	19999
+culpa	Ā culpā abest.	She is not to blame.	19999
+culpa	Ā culpā absum.	I'm not to blame.	19999
+miser	Valdē miser sum.	I am very unhappy.	19999
+miser	Hīc valdē miser sum.	I'm very unhappy here.	19999
+miser	Nunc valdē miser sum.	I'm very unhappy just now.	19999
+quālis	Quālis est lūdus?	What sort of play is it?	19999
+quālis	Quālis domus tibi est?	What sort of house do you have?	19999
+nōs	Cūr nōn apud nōs mānsistī?	Why didn't you stay with us?	19999
+apud	Cūr nōn apud nōs mānsistī?	Why didn't you stay with us?	19999
+carmen	Carmen ad verbum didicit.	He learned the poem by heart.	19999
+verbum	Carmen ad verbum didicit.	He learned the poem by heart.	19999
+lingua	Lingua Graeca difficilis est.	The Greek language is difficult.	19999
+vacuus	Saccus vacuus est.	The bag is empty.	19999
+poena	Thōmās poenā dignus est.	Tom deserves punishment.	19999
+dignus	Thōmās poenā dignus est.	Tom deserves punishment.	19999
+mālum	Ecce mālum.	Here is an apple.	19999
+numquam	Numquam cēde.	Never give up!	19999
+imperium	Ubi est imperium Rōmānum?	Where is the Roman Empire?	19999
+rēx	Rēx regit.	A king rules.	19999
+fortasse	Fortasse posteā.	Maybe later.	19999
+paene	Paene complētum est.	It's almost over.	19999
+arbor	Arbor cecidit.	The tree fell down.	19999
+oppidum	Oppidum parvum est.	The city is small.	19999
+oppidum	Oppidum magnum est.	The city is big.	19999
+statim	Venī statim.	Come immediately.	19999
+os	Lupus os ēdit.	The wolf ate the bone.	19999
+porta	Porta iam aperta est.	The door is now open.	19999
+licet	Bibere licet.	Drinking is permitted.	19999
+templum	Vidēsne templum?	Do you see a temple?	19999
+virtūs	Passiō virtūs nōn est.	Suffering is not a virtue.	19999
+incertus	Adhūc incertus sum.	I'm still uncertain.	19999
+paene	Paene captus sum.	I almost got caught.	19999
+mulier	Mulier es.	You are a woman.	19999
+fēmina	Fēmina iuvenis est.	The woman is young.	19999
+iter	Iter impedītum est.	This road is impassable.	19999
+amīcus	Amīcus meus nōn es.	You're not my friend.	19999
+memoria	Bene memoriā teneō.	I remember it well.	19999
+dum	Tacē dum loquor.	Be quiet while I am speaking.	19999
+mulier	Mulier pulchra est.	She's a beautiful woman.	19999
+apud	Apud medicum sum.	I'm at the doctor's.	19999
+os	Opprime ōs.	Shut your mouth.	19999
+per	Per vim!	By force!	19999
+frāter	Ūnus frāter mihi est.	I have one brother.	19999
+ūnus	Ūnus frāter mihi est.	I have one brother.	19999
+plūs	« Intellēxistī? » « Plūs minus. »	"""Did you understand?"" ""More or less."""	19999
+tandem	Iam intellegisne tandem?	Do you finally understand?	19999
+tandem	Tenēsne tandem?	Do you finally understand?	19999
+iter	Longum est iter.	It is a long journey.	19999
+forum	Ad forum eō.	I go to the market.	19999
+proximus	Liber stilō proximus est.	The book is next to the pen.	19999
+dolor	Dolor abiit.	The pain has gone.	19999
+legō	Legō ut discam.	I read in order to learn.	19999
+legō	Legō ad discendum.	I read in order to learn.	19999
+duo	"""Īnfantēs?"" ""Duo."""	"""Kids?"" ""Two."""	19999
+dīves	Dīves fierī volō.	I want to become rich.	19999
+volō	Dīves fierī volō.	I want to become rich.	19999
+homō	Homō dīves fierī volō.	I want to become a rich person.	19999
+dīves	Homō dīves fierī volō.	I want to become a rich person.	19999
+volō	Homō dīves fierī volō.	I want to become a rich person.	19999
+sciō	Canere sciō.	I can sing.	19999
+amō	Canere amō.	I love singing.	19999
+nesciō	Canere nesciō.	I can't sing.	19999
+hōra	Venit hōra.	Time comes.	19999
+hīc	Hīc lūdēbam.	I was playing here.	19999
+lūna	Iam fulget lūna.	The moon is already shining.	19999
+iānua	Iānua patēbit.	The door will be open.	19999
+hīc	Hīc ēducātus est.	He was brought up here.	19999
+hīc	Hīc ēducāta est.	She was brought up here.	19999
+ab	Ab eō ēducāta est.	She was brought up by him.	19999
+eō	Ab eō ēducāta est.	She was brought up by him.	19999
+tū	Tū hīc manē.	You stay here.	19999
+vōs	Sciō vōs intellegere.	I know that you understand.	19999
+sciō	Sciō vōs intellegere.	I know that you understand.	19999
+vōs	Sciō vōs ēsse.	I know that you eat.	19999
+ignis	Ignis sub ponte est.	There is fire under the bridge.	19999
+sub	Ignis sub ponte est.	There is fire under the bridge.	19999
+sōlus	Timeō sōlus īre.	I'm afraid to go alone.	19999
+faciēs	Ubi id faciēs?	Where are you going to do that?	19999
+herī	Ubi herī natāvistī?	Where did you swim yesterday?	19999
+herī	Ubi herī natāvit?	Where did she swim yesterday?	19999
+amīcus	Uter amīcus tuus est?	Which of the two is your friend?	19999
+initium	Quandō initium fēcistī?	When did you start?	19999
+initium	Quandō initium fēcistis?	When did you start?	19999
+eō	Quandō eō pervēnistī?	When did you get there?	19999
+eō	Quandō eō pervēnistis?	When did you get there?	19999
+quī	Quī vīcus est?	What village is this?	19999
+veniō	Ē vīcō veniō.	I come from a village.	19999
+apud	Cūr nōn apud nōs mānsistis?	Why didn't you stay with us?	19999
+dīcō	Nōn sine causā id dīcō.	I don't say it without reason.	19999
+fenestra	Fenestra clausa est.	The window is closed.	19999
+alius	Ubi est frāter alius tuus?	Where is your other brother?	19999
+solvō	Cui solvō?	Who do I pay?	19999
+vester	Ubi frāter vester est?	Where's your brother?	19999
+tunc	Ita, tunc flēvī.	Yes, I cried then.	19999
+gladius	Gladius ācer est.	The sword is sharp.	19999
+certus	Certus es.	You're reliable.	19999
+aut	Aut Caesar, aut nihil.	Either emperor, or nothing.	19999
+dolor	Numquam ēvānēscit dolor.	The pain never goes away.	19999
+fortasse	Fortasse ita, fortasse aliter.	Maybe yes, maybe not.	19999
+moneō	Moneō ut festīnēmus.	I suggest we hurry.	19999
+lingua	Hebraica lingua difficilis est.	Hebrew is a difficult language.	19999
+dominus	Dominus ūnus est.	The Lord is one.	19999
+simul	Simul cēnāmus.	We have dinner together.	19999
+patior	Patior propter tē.	I suffer because of you.	19999
+propter	Patior propter tē.	I suffer because of you.	19999
+legō	Litterās legō.	I read a letter.	19999
+cor	Cantus bonus est ad cor.	Singing is good for the heart.	19999
+sapientia	Sapientia est potentia.	Wisdom is power.	19999
+ipse	"""Quis es?"" ""Ego ipse sum."""	"""Who are you?"" ""I'm myself."""	19999
+vester	Liber vester est sordidus.	Your book is dirty.	19999
+indignus	Hōc indignus sum.	I am not worthy of this.	19999
+anima	Lingua est anima litterārum.	Language is the soul of literature.	19999
+quidem	Īnsānit hic quidem.	He's crazy for sure.	19999
+corpus	Corpus rōbustum est.	The body is strong.	19999
+amō	Piscēs amō.	I love fish.	19999
+mīles	Mīles currit.	The soldier runs.	19999
+summus	Summus mōns est.	It is the highest mountain.	19999
+impetus	Impetus coepit!	The attack has begun!	19999
+licet	Licet īnsānīre.	It's OK to be crazy.	19999
+tamen	Tamen suspicax sum.	I'm still paranoid.	19999
