@@ -493,9 +493,34 @@ with an unrelated COMMON noun — `it svizzera` "hamburger" for Switzerland,
 `it roma` "a type of rice" for Rome, `pt charles` "rabona". Those ARE §3b and
 are being repaired by the db-vs-file pass.
 
-**Status: all 27, measured; unrepaired.** The screen is one line — `pos = name`
-and the definition matching `^(a )?(male|female)? ?(given name|surname)` — but
-the fix is a judgement per row and is not started.
+### Resolved (owner decision, 25 Aug 2026): 645 retired, the rest kept
+
+**A card asks the learner to PRODUCE a word from its definition.** Nobody can
+produce `Abubakar` from "a male given name", and dozens of rows in one course
+carry that identical prompt — so those are not hard cards, they are impossible
+ones, and frequency does not rescue them (`ha abubakar` is rank 119).
+
+But the class is not uniform, and only one third of it is unanswerable:
+
+| | | |
+| --- | --- | --- |
+| **645** | "a male given name" with NO English equivalent named | **retired** |
+| 189 | names an equivalent AND the form differs — `ca isabel` → Elizabeth, `júlia` → Julia, `antoni` → Anthony | kept: answerable, and it teaches the difference |
+| 160 | names an equivalent, form identical — `ca robert` = Robert | kept |
+| 822 | **place names** | kept **even when identical to English** |
+
+**Place names stay whatever the spelling**, on the owner's reasoning: a learner
+studying several languages needs to recognise that the word is the same but
+*said* differently. That is delivered — `ReviewSessionPage.tsx:517` falls back
+to speaking `correct_answer` on a correct answer for non-cloze cards, so a
+Spanish card for `Sydney` plays the Spanish pronunciation. 17 courses have TTS.
+
+Retired rows are removed from the TSV **and** recorded in
+`data/vocab_exclusions.tsv` (78 → 723 rows), which is the convention the
+existing exclusions follow — a TSV-only deletion is undone by the next
+regeneration.
+
+**Status: all 27, measured and resolved.**
 
 ---
 
