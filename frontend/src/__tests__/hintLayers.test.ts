@@ -130,3 +130,31 @@ describe('every non-Latin course leads with its reading', () => {
     expect(layers[0]?.field).toBe('translation')
   })
 })
+
+describe('safePrompt tokenising — the scripts it silently failed on', () => {
+  // The guard matched tokens with /\p{L}+/, letters only. That excludes
+  // COMBINING MARKS, so every abugida and abjad was weakened: Devanagari
+  // रही is र + ह + the vowel sign ी (category Mn), which tokenised as रह and
+  // never matched its own answer. Three of the 8,049 authored hints reached a
+  // learner with the answer in them because of it.
+  it('an answer carrying a combining mark is caught', () => {
+    expect(safePrompt('feminine (respect plural takes रही + हैं)', 'रही')).toBe('')
+    expect(safePrompt('बात करना takes ने; की agrees with बात (fem.)', 'की')).toBe('')
+  })
+
+  it('an answer that begins with an apostrophe is caught', () => {
+    expect(safePrompt("'y — contraction after a vowel", "'y")).toBe('')
+  })
+
+  it('a hyphenated answer is caught', () => {
+    expect(safePrompt('books — plural of buku is buku-buku', 'buku-buku')).toBe('')
+  })
+
+  it('...and a bare answer inside a hyphenated word still is', () => {
+    // Regression: treating hyphens as word-internal made `man-passive` one
+    // token, which stopped matching the answer `Man`. Both granularities are
+    // needed, not either one.
+    expect(safePrompt('one/you (man-passive)', 'Man')).toBe('')
+    expect(safePrompt('(impersonal se-passive)', 'se')).toBe('')
+  })
+})

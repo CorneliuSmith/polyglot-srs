@@ -111,8 +111,22 @@ export function safePrompt(text: string, answer: string | null | undefined): str
   if (split && RECIPE_TAIL.test(split[2])) base = split[1].trim()
   const ans = (answer ?? '').trim().toLowerCase()
   if (ans) {
-    const tokens: string[] = base.toLowerCase().match(/\p{L}+/gu) ?? []
-    if (tokens.includes(ans)) return ''
+    // Letters, COMBINING MARKS, and the apostrophes/hyphens that sit inside a
+    // word. \p{L}+ alone silently weakened this for every abugida and abjad:
+    // Devanagari रही is र + ह + the combining vowel sign ी, which is category
+    // Mn, so it tokenised as रह and never matched its own answer. Same for
+    // Tagalog 'y, where the word begins with an apostrophe. Three of the 8,049
+    // authored hints reached a learner with the answer in them because of it.
+    // BOTH granularities. Whole words so a hyphenated answer like Indonesian
+    // `buku-buku` matches, and the pieces so German `Man` still matches inside
+    // `man-passive` — taking only the joined form regressed exactly that.
+    const lower = base.toLowerCase()
+    const joined: string[] = lower.match(/[\p{L}\p{M}]+(?:['’\u002d][\p{L}\p{M}]+)*/gu) ?? []
+    const parts: string[] = lower.match(/[\p{L}\p{M}]+/gu) ?? []
+    if (joined.includes(ans) || parts.includes(ans)) return ''
+    // ...and the answer may itself lead with a mark or apostrophe, which no
+    // token boundary will ever start on.
+    if (/^[^\p{L}\p{M}]/u.test(ans) && base.toLowerCase().includes(ans)) return ''
   }
   return base
 }
