@@ -45,7 +45,7 @@ rank	word	pos	en
 44	ja	intj	yes; yeah, that's right (agreeing); well (softening the start of a reply)
 45	hem	pron	him; third-person singular masculine objective personal pronoun
 46	heeft	verb	has: he/she/it has; you have (polite u); also the auxiliary in perfect tenses
-47	wel	adv	the opposite of not
+47	wel	adv	the opposite of not (indeed; I do; it is so); also no less than, as much as (expressing amazement)
 48	moet	verb	must, have to; need to (I/you/he must — present of moeten)
 49	wil	verb	want: I want; he/she/it wants; you want in wil je (present of willen); also a noun, will, willpower
 50	hebben	verb	to have, to possess, own, hold
@@ -286,7 +286,7 @@ rank	word	pos	en
 285	gezegd	verb	past participle of zeggen
 286	thuis	adv	at home (at one's dwelling or in one's home area)
 287	wereld	noun	world
-288	jongens	noun	guys
+288	jongens	noun	boys (plural of jongen); as a form of address, guys
 289	heen	adv	away; to, towards
 290	ken	verb	first-person singular present indicative
 291	eerst	adv	first, at first, before something else
@@ -839,7 +839,7 @@ rank	word	pos	en
 838	geest	noun	ghost, spirit, immaterial being
 839	david	name	David; a male given name from Hebrew, equivalent to English David
 840	vuur	noun	fire; heater
-841	peter	noun	a godfather
+841	peter	noun	a male given name, equivalent to English Peter
 842	verkeerde	adj	masculine/feminine singular attributive
 843	moesten	verb	plural past indicative
 844	lieve	adj	masculine/feminine singular attributive
@@ -1355,7 +1355,7 @@ rank	word	pos	en
 1354	geluid	noun	sound
 1355	homo	noun	gay, homosexual
 1356	verschrikkelijk	adj	awful, terrible
-1357	stelt	noun	stilt
+1357	stelt	noun	put, set, pose: you/he/she/it puts (present of stellen); also a noun, stilt
 1358	slaapt	verb	second/third-person singular present indicative
 1359	bier	noun	beer (alcoholic drink brewed from grains or other starch material)
 1360	dna	noun	initialism of desoxyribonucleïnezuur (“deoxyribonucleic acid”)
@@ -1372,7 +1372,7 @@ rank	word	pos	en
 1371	schreef	verb	wrote: I/he/she wrote (singular past of schrijven): Wie schreef dit boek? — Who wrote this book?; also a noun, a line, a stroke of the pen; a serif; over de schreef gaan — to go too far
 1372	wens	noun	wish
 1373	geslagen	verb	past participle of slaan
-1374	parijs	adj	Parisian
+1374	parijs	adj	Paris (the capital and largest city of France)
 1375	toevallig	adj	by chance, accidental, coincidental, fortuitous
 1376	leiding	noun	lead (act of leading), control
 1377	edelachtbare	noun	honourable one, Your Honour
@@ -2991,7 +2991,7 @@ rank	word	pos	en
 2990	koninkrijk	noun	kingdom; relating to the quasi-federal structure of the Kingdom of the Netherlands
 2991	aanwijzing	noun	indication, sign (something that indicates)
 2992	breek	verb	first-person singular present indicative
-2993	chinees	adj	Chinese
+2993	chinees	adj	Chinese (the adjective, and the language)
 2994	uitvoeren	verb	to execute, carry out; perform
 2995	haatte	verb	singular past indicative
 2996	vrachtwagen	noun	truck, lorry; freightwagon, cart for transporting loads
@@ -4017,7 +4017,7 @@ rank	word	pos	en
 4016	ontploft	verb	second/third-person singular present indicative
 4017	contacten	noun	plural of contact
 4018	operaties	noun	plural of operatie
-4019	manhattan	noun	Manhattan (cocktail)
+4019	manhattan	noun	Manhattan (a borough and island of New York City, New York, United States)
 4020	raketten	noun	plural of raket
 4021	prioriteit	noun	priority
 4022	special	noun	a special broadcast episode
@@ -4716,7 +4716,7 @@ rank	word	pos	en
 4715	andersom	adv	the other way around
 4716	bedrog	noun	deception, fraud
 4717	sociaal	adj	social
-4718	pijpen	verb	to fellate, to blow, to suck
+4718	pijpen	verb	(vulgar) to fellate, to suck; also to whistle, to hum, to blow (as in playing a wind instrument)
 4719	haaien	noun	plural of haai
 4720	glorie	noun	glory, great beauty, renown or splendour
 4721	ouderwets	adj	old-fashioned
@@ -4863,7 +4863,7 @@ rank	word	pos	en
 4862	schatten	verb	to estimate; to appraise
 4863	schrok	verb	singular past indicative of schrikken
 4864	ironisch	adj	ironic, ironical
-4865	polen	noun	plural of pool
+4865	polen	noun	Poland (a country in Central Europe)
 4866	fooi	noun	a gift of money (often for people such as artists and beggars in places like city centers)
 4867	afgezet	verb	past participle of afzetten
 4868	verdrinken	verb	to drown (to (cause to) die of suffocation while submerged)
@@ -5163,7 +5163,7 @@ rank	word	pos	en
 5162	vergis	verb	first-person singular present indicative
 5163	hoever	adv	proscribed univerbation of hoe ver
 5164	inspiratie	noun	inspiration
-5165	stevens	noun	plural of steven
+5165	stevens	noun	a surname originating as a patronymic
 5166	vuurwerk	noun	fireworks; military ordnance, in particular explosives and projectiles
 5167	beveel	verb	first-person singular present indicative
 5168	oost	adv	east; eastwards
@@ -5272,14 +5272,14 @@ rank	word	pos	en
 5271	formule	noun	formula; phrase, formulation
 5272	onverwacht	adj	unexpected
 5273	heuvels	noun	plural of heuvel
-5274	griet	noun	godwit
+5274	griet	noun	girl, (young or any) female, often derogatory: broad
 5275	griep	noun	influenza, flu
 5276	juridische	adj	masculine/feminine singular attributive
 5277	gemarteld	verb	past participle of martelen
 5278	runnen	verb	to run (a business or household)
 5279	religieuze	adj	masculine/feminine singular attributive
 5280	platteland	noun	country, countryside
-5281	mulder	noun	a miller
+5281	mulder	noun	a surname, Mulder, originating as an occupation, equivalent to English Miller
 5282	duik	noun	dive, the act of diving into the water
 5283	afpakken	verb	to snatch, grab, take away
 5284	gediend	verb	past participle of dienen
@@ -5335,7 +5335,7 @@ rank	word	pos	en
 5334	duivels	adj	devilish
 5335	diepte	noun	depth (quality of being deep)
 5336	meldt	verb	second/third-person singular present indicative
-5337	portefeuille	noun	wallet, billfold
+5337	portefeuille	noun	wallet, billfold; also portfolio (a post, a set of responsibilities)
 5338	achteraf	adv	afterwards, in hindsight
 5339	meubels	noun	plural of meubel
 5340	slagveld	noun	battlefield; carnage, disaster area
@@ -5824,7 +5824,7 @@ rank	word	pos	en
 5823	lesbisch	adj	lesbian (female homosexual)
 5824	klaagt	verb	second/third-person singular present indicative
 5825	daalt	verb	second/third-person singular present indicative
-5826	paste	noun	paste
+5826	paste	noun	fitted, suited: I/he/she/it fitted (singular past of passen)
 5827	neergestoken	verb	past participle of neersteken
 5828	massage	noun	physical massage
 5829	bovenaan	prep	at the top of
@@ -5898,7 +5898,7 @@ rank	word	pos	en
 5897	nieuwjaar	name	New Year (celebration at 1 January)
 5898	inkt	noun	ink (coloured fluid used for writing, painting etc.)
 5899	genen	noun	plural of gen
-5900	limonade	noun	sweetened drink
+5900	limonade	noun	soft drink, fizzy drink, soda (carbonated sweet drink based on processed fruit juice)
 5901	zoontje	noun	diminutive of zoon
 5902	gescheurd	verb	past participle of scheuren
 5903	garde	noun	a whisk, a beater
@@ -6598,7 +6598,7 @@ rank	word	pos	en
 6597	schildpad	noun	tortoise, turtle; reptile of the order Testudines
 6598	ierland	name	Ireland (a country in northwestern Europe)
 6599	treinen	verb	to travel by train
-6600	zweden	noun	plural of Zweed
+6600	zweden	noun	Sweden (a country in Scandinavia in Northern Europe)
 6601	scheer	noun	skerry (small rocky island)
 6602	moer	noun	mother; sediment formed in various alcoholic drinks and vinegar
 6603	kermis	noun	a funfair; a fair (e.g. outdoor fair, village fair, county fair)
@@ -6731,7 +6731,7 @@ rank	word	pos	en
 6730	deelde	verb	singular past indicative
 6731	gedrukt	verb	past participle of drukken
 6732	redelijke	adj	masculine/feminine singular attributive
-6733	mate	noun	measure
+6733	mate	noun	degree, extent; measure (dative singular of maat)
 6734	genezing	noun	healing, recovery
 6735	overdracht	noun	transfer; transference
 6736	cocktail	noun	cocktail
@@ -7148,7 +7148,7 @@ rank	word	pos	en
 7147	geheimpje	noun	diminutive of geheim
 7148	voelden	verb	plural past indicative
 7149	vermoeiend	verb	present participle of vermoeien
-7150	eden	noun	plural of eed
+7150	eden	noun	Eden (mythological garden in Genesis)
 7151	verdoving	noun	anesthesia
 7152	geconfronteerd	verb	past participle of confronteren
 7153	wijven	noun	plural of wijf
@@ -9378,7 +9378,7 @@ rank	word	pos	en
 9377	hoefden	verb	plural past indicative
 9378	aanrichten	verb	to cause, to inflict, to wreak
 9379	bruut	adj	brutish, rough; brutal, fierce
-9380	afsluiting	noun	closing off, closure
+9380	afsluiting	noun	closing off, closure; also a seal (something designed to prevent leakage)
 9381	mietjes	noun	plural of mietje
 9382	mi	noun	mi
 9383	zakenpartner	noun	a business partner

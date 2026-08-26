@@ -200,15 +200,15 @@ es	sí	adv	yes; indeed, really (emphatic sí que); himself, herself (after a pre
 es	tengo	verb	I have; I have to (tengo que + verb); I am — hungry, cold, 20 years old
 es	una	article	a, an (with a feminine noun); one (feminine) — la una, one o'clock
 es	yo	pron	I (usually dropped — the verb ending already says who; used for emphasis)
-fa	است	verb	is; he is, she is, it is (formal written copula)
+fa	است	verb	is; third-person singular present of “to be”
 fa	اما	conj	but; however, yet (opens the contrasting clause)
 fa	اگر	conj	if; supposing that (subjunctive for a hypothetical, past tense for a counterfactual)
 fa	برای	prep	for; for the sake of; in order to, so that
 fa	بله	intj	yes; yes, that's right (polite and formal); hello? when answering the phone
-fa	به	prep	to, toward; to (a recipient); by, with (means); in (a language or manner)
+fa	به	prep	to; toward
 fa	ما	pron	we, us (one form for subject and object); our, ours when it follows a noun
 fa	من	pron	I, me (one form for subject and object); my, mine when it follows a noun
-fa	نه	adv	no; not, negating a single word rather than a verb; neither … nor when repeated
+fa	نه	adv	no — also (numeral) nine, the same spelling
 fa	و	conj	and; and then, and so; also links tens and units in numbers (twenty and one = 21)
 fa	چرا	adv	why?, what for?; yes it is!, contradicting a negative question
 fa	چطور	adv	how?, in what way?; what kind of? (everyday register)
@@ -250,7 +250,7 @@ he	אם	conj	if; whether — opens a condition or an indirect question
 he	אנחנו	pron	we (men and women alike; formal writing also uses אנו)
 he	אני	pron	I (men and women alike; gender shows on the present-tense verb or adjective that follows)
 he	ה	det	the (definite article; a prefix that rides on the noun and on its adjectives)
-he	הוא	pron	"he; it (of a masculine noun); is — the linking word in ""David is a teacher"""
+he	הוא	pron	he; also used as present-tense copula “is” (masculine)
 he	היא	pron	"she; it (of a feminine noun); is — the linking word in ""Dana is a teacher"""
 he	ו	conj	and; and then (a prefix — it attaches to the front of the next word)
 he	יום	noun	day (m.; pl. ימים); daytime, as opposed to night; a day of the week or of the month
@@ -258,7 +258,7 @@ he	כן	adv	"yes (in reply); so, thus — as in ""if so"", ""likewise"""
 he	למה	adv	why, what for — asks a reason; the formal written word is מדוע
 he	מי	pron	who, whom (the question word); whoever, anyone who
 he	עכשיו	adv	now, right now; at this moment — as opposed to earlier or later
-he	של	prep	of; belonging to, 's (the possessive word; takes endings — שלי my, שלך your)
+he	של	prep	of; belonging to
 hi	अपने	pron	one's own — my, your, his, her, their own (always refers back to the subject)
 hi	इस	det	this (the form used before a postposition: इस घर में — in this house)
 hi	उसे	pron	him, her, it; to him, to her (also marks the one who needs or feels something)
@@ -2430,3 +2430,205 @@ ro	pescari	noun	fishermen (plural of pescar “fisherman”)
 ro	domenii	noun	fields, domains (plural of domeniu “field, domain”)
 ro	boboci	noun	buds; ducklings (plural of boboc)
 ro	săteni	noun	villagers (plural of sătean “villager”)
+ar	ترى	intj	say..., I wonder... (precedes a yes-or-no question, sometimes follows يَا (yā))
+ar	أهان	verb	to slight, to disrespect, to insult, to abuse; to slur; to offend, to affront
+ar	آب	verb	August (eighth month of the Gregorian and Julian calendars)
+ar	ليلى	noun	a female given name, Leila, Laila, or Layla
+ar	هود	noun	Hud, a prophet of Islam, sometimes identified with Eber in the Bible
+ar	وا	particle	Forms past-tense third-person plural masculine conjugations of verbs.
+ar	فاس	noun	Fez (the capital city of the region of Fez-Meknes, Morocco)
+ar	المخلص	phrase	yours sincerely, kind regards (a polite formula used to end letters, preceding the signature)
+ar	تشيلي	adj	Chile (a country in South America)
+ar	بتصرف	prep_phrase	used after quotes, translations, etc, to indicate that the original text was modified and is not transferred exactly as it appears in the original material i.e. paraphrased.
+ar	يا	particle	O; hey (vocative particle placed before a noun in direct address)
+ar	تو	noun	instantaneousness, immediacy
+ar	أقلق	verb	to worry, to disturb, to trouble; to alarm, to unsettle
+ar	المدينة	noun	the city (definite of مَدِينَة); Medina (the holy city in Saudi Arabia)
+ar	قميص	noun	shirt (a sleeved upper-body garment)
+ar	جنرال	noun	general (a military officer)
+ar	هيه	pron	it (feminine subject pronoun)
+ar	سامي	adj	Semitic; Sami (a male given name)
+ar	عليا	adj	higher, highest, upper (feminine of أَعْلَى)
+ar	جرين	noun	a surface where grain sheaves or dates are collected, a heap of harvest (Ḥijāzi and Yemenite form of جُرْن)
+ar	نيس	name	Nice (a city in southeast France)
+ar	أتبع	verb	to add, to append, to annex; to cause to be followed by
+ar	رباط	noun	a tie, a thing with which one ties; a ribat (a frontier post where travellers and soldiers could stay)
+ar	احتفال	noun	celebration, ceremony, festival (verbal noun of اِحْتَفَلَ, form VIII)
+ar	محنة	noun	affliction, adversity, tribulation; distress
+ar	خفت	verb	to die out, to grow faint; to become low in volume or inaudible
+ar	ملائكة	noun	angels (plural of مَلْأَك / مَلَك)
+ar	ء	character	hamza — the sign for the glottal stop /ʔ/
+ar	هجم	verb	to attack (used with على)
+ar	كابول	noun	Kabul (the capital city of Afghanistan; alternative spelling of كَابُل)
+ar	الكونغو	name	the Congo — the Democratic Republic of the Congo, or the Republic of the Congo
+ar	تجاوب	verb	to show interest in, to be receptive; to reply to, to echo
+ar	ابتكر	verb	to invent, to devise, to originate, to innovate
+ar	سبورة	noun	blackboard, whiteboard; slate
+ar	وبش	noun	rabble, riffraff; (singulative) a vagabond, a person with no fixed abode or standing
+ar	مشيمة	noun	placenta; the sac enclosing the fetus during gestation
+ar	ماجور	noun	vat, wide-bellied bowl, trough
+ar	أفلس	verb	to go bankrupt, to become insolvent, to fail financially
+ar	ثريا	noun	chandelier; the Pleiades
+ca	y	conj	The twenty-fifth letter of the Catalan alphabet, called i grega and written in the Latin script.
+ca	tàrraco	name	Tarraco (an ancient city in Hispania Tarraconensis in the Roman Empire, in modern Spain; modern Tarragona)
+ca	holanda	noun	Holland (a historical province of the Netherlands)
+ca	suïssa	adj	Switzerland (a country in Western Europe and Central Europe)
+ca	mercè	noun	a female given name
+ca	oliver	noun	Oliver (a male given name); also (m.) olive tree
+ca	sant	noun	(m.) saint (as in Sant Jordi); also holy, saintly
+ca	sens	prep	without (archaic form of the preposition sense)
+ca	vindre	verb	to come (alternative form of venir)
+ca	salvador	noun	Salvador (a male given name); also (m.) savior
+ca	pacífic	adj	peaceful, pacific; (el Pacífic) the Pacific Ocean
+ca	refredat	noun	a cold (m.), the illness
+ca	è	character	the letter e with a grave accent, marking stress and the open pronunciation /ɛ/
+ca	marta	noun	Marta (a female given name, equivalent to English Martha); also (f.) marten
+ca	huit	num	eight (alternative form of vuit)
+fa	تو	pron	you (singular, informal)
+fa	شما	pron	you (plural, or formal singular)
+fa	قدیمی	adj	old (of things)
+he	ישן	adj	old (of things)
+he	הולך	verb	go; walk (m. sg. present — 'is going', 'is walking')
+hi	उर्दू	noun	Urdu (language)
+hi	कांग्रेस	noun	the Indian National Congress
+hi	वास्तव	noun	reality; real, actual
+hi	जगदीश	noun	God; also a male given name, Jagdish
+hi	विकृत	adj	changed, especially for the worse — damaged, impaired; mutilated, maimed
+hi	हल्के	adj	light (in weight) — masculine plural or oblique of हल्का (halkā)
+hi	सेन	noun	a surname, Sen; also falcon
+ko	이것	pron	this (thing)
+ko	명	noun	(counter for people)
+ko	에서	name	at; in; from (action location)
+ko	임마	noun	“Hey you!”; “Bro!” (sometimes, when referring to a socially equal or inferior friend)
+ko	론	noun	theory; hypothesis, claim, argument
+ko	가나	noun	Ghana (a country in Africa)
+ko	친	syllable	by blood; of the paternal side of the family
+ko	홍콩	noun	Hong Kong (a city, island and special administrative region in southeastern China)
+ko	최	det	a surname, usually romanized as “Choi”.
+ko	권	counter	(counter for books)
+ko	대전	noun	Daejeon (a city in South Korea)
+ko	오호	intj	alas! (usually used with —라 (-ra), in the form of 오호라 (ohora))
+ko	락	syllable	落: fall; 樂: to enjoy; happiness; pleasure
+ko	피지	noun	Fiji (a country in Oceania)
+ko	미수	noun	misu (a drink made from 미숫가루 (misutgaru, “grain powder”, literally “misu powder”))
+ko	건	verb	the thing that, the fact that, as topic — 것은 contracted (거 plus the topic marker 은); also rich, fertile — 걸다 in the determiner form
+ko	지구	noun	Earth, the planet; also a district, zone, region
+ko	닉	noun	nickname — short for 닉네임
+ko	은	noun	topic particle, after a consonant; also silver
+ko	워싱턴	name	Washington — the US capital city, and the US state
+ko	엄니	noun	mother — a colloquial, regional form of 어머니
+ko	캐릭터	noun	a fictional character, in a story, film or game; also a person's distinctive persona
+nl	peter	noun	a male given name, equivalent to English Peter
+nl	parijs	adj	Paris (the capital and largest city of France)
+nl	manhattan	noun	Manhattan (a borough and island of New York City, New York, United States)
+nl	polen	noun	Poland (a country in Central Europe)
+nl	stevens	noun	a surname originating as a patronymic
+nl	griet	noun	girl, (young or any) female, often derogatory: broad
+nl	mulder	noun	a surname, Mulder, originating as an occupation, equivalent to English Miller
+nl	limonade	noun	soft drink, fizzy drink, soda (carbonated sweet drink based on processed fruit juice)
+nl	zweden	noun	Sweden (a country in Scandinavia in Northern Europe)
+nl	eden	noun	Eden (mythological garden in Genesis)
+nl	wel	adv	the opposite of not (indeed; I do; it is so); also no less than, as much as (expressing amazement)
+nl	jongens	noun	boys (plural of jongen); as a form of address, guys
+nl	stelt	noun	put, set, pose: you/he/she/it puts (present of stellen); also a noun, stilt
+nl	chinees	adj	Chinese (the adjective, and the language)
+nl	pijpen	verb	(vulgar) to fellate, to suck; also to whistle, to hum, to blow (as in playing a wind instrument)
+nl	portefeuille	noun	wallet, billfold; also portfolio (a post, a set of responsibilities)
+nl	paste	noun	fitted, suited: I/he/she/it fitted (singular past of passen)
+nl	mate	noun	degree, extent; measure (dative singular of maat)
+nl	afsluiting	noun	closing off, closure; also a seal (something designed to prevent leakage)
+sw	mara	noun	time (used to form adverbial numbers, as in “one time” (i.e. once))
+sw	chini	adv	below (in a lower place); down (from a high to a low position, downwards)
+sw	tazama	verb	to look, to watch; to inspect, investigate, examine
+sw	chukua	verb	to take (into possession); to carry, bring, take along
+sw	acha	verb	to leave; to abandon; to stop, cease, quit
+sw	shika	verb	to hold, possess; to arrest; to stick, adhere
+sw	kiungo	noun	spice (plant matter used to season or flavour food); junction or joint, esp. a part of the body where bones join; body part, organ
+sw	fuata	verb	to follow (to come after); to imitate; to abide by (to comply with)
+sw	fungua	verb	Conversive form of -funga: to open, to unfasten; to give birth
+sw	gari	noun	car (automobile); vehicle (any vehicle, including wagons and trains)
+sw	hitilafu	noun	difference, discord; discrepancy, defect, blemish
+sw	sikitika	verb	to be disappointed; to be sorry; to grieve
+sw	fifia	verb	to lose strength; to dwindle, fade, disappear
+sw	kaza	verb	Causative form of -kaa: to persist, intensify; to tighten
+sw	fungu	noun	a bunch (a group of a number of similar things); a portion or slice of something; a collection of writing: a sentence, paragraph, or article
+sw	vuruga	verb	to mix, to stir; to disarrange, to disturb, to agitate
+sw	wepesi	noun	lightness (low weight); agility, quickness; ease, easiness (freedom from effort)
+sw	bisha	verb	to knock (on a door); to defy, to disobey; to disagree
+sw	pima	verb	to test, examine; to measure, weigh, estimate; to criticise
+sw	urembo	noun	a beautiful thing; an ornamentation or decoration, especially on the body
+sw	mungu	noun	God (the single deity of monotheism); also a god, a deity
+sw	mwana	noun	child (a son or daughter); in compounds, someone who does or is connected with something
+sw	ambao	pron	who, which, that — the amba- relative form for the Wa class, the M class (class 3) and the U class
+sw	ambayo	pron	which, that — the amba- relative form for the Mi class, the Ma class and the N class (class 9, singular)
+sw	jamaa	noun	relative, family member; the family as a whole; (colloquially) dude, guy, bloke, used of someone you don't know
+sw	fufuka	verb	to be resurrected, to come back to life, to rise from the dead (stative form of -fufua)
+sw	sifa	noun	character, quality, trait (moral strength or an attribute); praise, commendation
+sw	onekana	verb	to be visible, to be apparent; to seem
+sw	roma	name	Rome (the capital city of Italy); also ancient Rome and its empire
+sw	msalaba	noun	cross — the Christian cross; also a cross-shaped post, or the cross shape itself
+sw	solomoni	name	Solomon (the biblical king); also the Solomon Islands
+sw	geuka	verb	to turn (toward a direction); to be changed, to turn into (stative form of -geua)
+sw	matumizi	noun	use, usage; expenses, expenditure (money that has been spent)
+sw	taarifa	noun	report, notice, communiqué (a piece of information); also the headline or title of an article
+sw	jukumu	noun	responsibility, duty (an obligation to do something); a guarantee, an assurance
+sw	tawi	noun	branch (of a tree; also of an organisation or company)
+sw	kashfa	noun	scandal (an incident that brings disgrace); slander, libel, insult; also an uncovering, an exposing
+sw	kufurahi	verb	to be happy, to be glad, to rejoice (infinitive of -furahi)
+sw	kuanza	verb	to begin, to start (infinitive of -anza)
+sw	maafa	noun	disaster, catastrophe, calamity; misfortune, mishap, bad luck
+sw	jidai	verb	to boast, to show off, to brag (reflexive form of -dai)
+sw	patikana	verb	to be available; to be obtainable, to be found
+sw	takataka	noun	rubbish, garbage, trash, refuse; dirt
+sw	pato	noun	income, earnings, revenue; a gain, an acquisition
+sw	shamu	name	Syria (the modern country); historically Greater Syria, the Levant
+sw	umwa	verb	to be in pain, to ache; to be sick (passive form of -uma)
+sw	kuza	verb	to enlarge, to inflate, to develop (causative form of -kua); also to glorify, to praise
+sw	waamuzi	noun	judges, arbitrators, referees (plural of mwamuzi); also Waamuzi, the book of Judges in the Old Testament
+sw	shusha	verb	to lower, to bring down (causative form of -shua)
+sw	mazingira	noun	environment (the natural world); surroundings
+sw	ingiza	verb	to admit, to let in; to bring in, to import, to introduce (causative form of -ingia)
+th	ผม	noun	I (male); hair (of the head)
+th	นะ	particle	(softening particle) okay?
+th	ถูก	adj	cheap; correct; (passive marker for misfortunes)
+th	ไหม	particle	(yes/no question particle)
+th	ขอ	noun	may I have; to ask for
+th	อัน	noun	(classifier for small things)
+th	ฉ	adj	ch — 'ch' with a puff (high class)
+th	บ	adv	b — 'b' as in boy (mid class)
+th	ไล่ออก	noun	to expel, especially as a penalty
+th	ทรมาน	verb	to torture or be tortured; to subject or be subjected to suffering.
+th	โรม	verb	Rome (a metropolitan city of Lazio, Italy)
+th	เวียดนาม	adj	Vietnam (a country in Southeast Asia)
+th	อวสาน	verb	absolute end; complete termination; complete finish.
+th	โอ	noun	pomelo (a large citrus fruit)
+th	สอง	num	2 (Thai numeral: ๒)
+th	สาม	num	3 (Thai numeral: ๓)
+th	สี่	num	4 (Thai numeral: ๔)
+th	รัก	verb	to love, to have affection; love, affection
+th	ห้า	num	5 (Thai numeral: ๕)
+th	หก	num	6 (Thai numeral: ๖)
+th	เจ็ด	num	7 (Thai numeral: ๗)
+th	แปด	num	8 (Thai numeral: ๘)
+th	เก้า	num	9 (Thai numeral: ๙)
+th	ฉิบหาย	verb	to go to ruin, to be destroyed; ruin, disaster
+th	สิบ	num	10 (Thai numeral: ๑๐)
+th	ยาย	noun	maternal grandmother; (also a familiar term of address for a woman)
+th	ศูนย์	num	0 (Thai numeral: ๐)
+th	หมื่น	num	ten thousand (Thai numeral: ๑๐๐๐๐)
+th	ยี่สิบ	num	twenty, 20 (Thai numeral: ๒๐)
+th	สิบสอง	num	12 (Thai numeral: ๑๒)
+th	แจ้ง	adj	to inform, to notify, to tell; to state, to declare
+th	สามสิบ	num	30 (Thai numeral: ๓๐)
+th	สิบห้า	num	15 (Thai numeral: ๑๕)
+th	ห้าสิบ	num	50 (Thai numeral: ๕๐)
+th	สิบเอ็ด	num	11 (Thai numeral: ๑๑)
+th	สี่สิบ	num	40 (Thai numeral: ๔๐)
+th	สิบสาม	num	13 (Thai numeral: ๑๓)
+th	ชั่ว	adj	bad, evil, wicked; (in compounds) a period of time, duration
+th	สิบสี่	num	14 (Thai numeral: ๑๔)
+th	จาม	verb	to sneeze; Cham (the Cham people or language)
+th	สิบเจ็ด	num	17 (Thai numeral: ๑๗)
+th	สิบหก	num	16 (Thai numeral: ๑๖)
+th	สิบเก้า	num	19 (Thai numeral: ๑๙)
+th	สิบแปด	num	18 (Thai numeral: ๑๘)

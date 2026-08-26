@@ -14,7 +14,7 @@ rank	word	pos	en
 13	أنت	pron	you, thou (masculine singular subject pronoun)
 14	و	conj	and; yet, but; a versatile conjunction determined by context
 15	إلى	prep	to, towards; till, until
-16	يا	particle	O
+16	يا	particle	O; hey (vocative particle placed before a noun in direct address)
 17	لقد	particle	emphatic particle
 18	لم	particle	not (negating past tense)
 19	شيء	noun	thing; little, some
@@ -369,7 +369,7 @@ rank	word	pos	en
 368	فقد	verb	to lose, to misplace, to miss
 369	كفى	verb	to be enough for (someone)
 370	أمام	prep	before, in front of, in the presence of
-371	تو	noun	instantaneousness
+371	تو	noun	instantaneousness, immediacy
 372	أمل	verb	to hope for
 373	قضية	noun	case, lawsuit; judgment, sentence, decision
 374	رغب	verb	to desire, to seek
@@ -390,7 +390,7 @@ rank	word	pos	en
 389	النار	noun	definite singular of نَار (nār, “fire”)
 390	عمر	verb	to live long, to be long-lived
 391	الله	name	God
-392	أقلق	verb	to perturb
+392	أقلق	verb	to worry, to disturb, to trouble; to alarm, to unsettle
 393	أعد	verb	to prepare, make ready, equip
 394	قاتل	verb	to combat, to battle, to fight
 395	لطيف	adj	thin, fine, delicate, dainty
@@ -453,7 +453,7 @@ rank	word	pos	en
 452	حظ	verb	to be fortunate, lucky
 453	حرب	verb	to be enraged, to be furious, to be angry
 454	تناول	verb	to reach one's hand to a thing, to touch or make contact
-455	المدينة	noun	definite singular of مَدِينَة (madīna)
+455	المدينة	noun	the city (definite of مَدِينَة); Medina (the holy city in Saudi Arabia)
 456	أسفل	adj	elative degree of سَافِل (sāfil)
 457	محق	verb	to efface, to blot out, to destroy, to annihilate, to ruin
 458	الأرض	name	Earth
@@ -495,7 +495,7 @@ rank	word	pos	en
 494	أسرع	verb	to be fast; to hurry, to rush
 495	مجنون	adj	mad, crazy, insane, possessed
 496	جلس	verb	to sit
-497	ترى	intj	say..., I wonder...
+497	ترى	intj	say..., I wonder... (precedes a yes-or-no question, sometimes follows يَا (yā))
 498	لعبة	noun	toy, plaything; game
 499	تفهم	verb	to understand gradually, to grasp, to comprehend
 500	شعور	noun	feeling, sensation, emotion
@@ -1252,7 +1252,7 @@ rank	word	pos	en
 1251	تلفاز	noun	television (medium or device for receiving television signals)
 1252	ست	num	masculine of سِتَّة (sitta, “six”)
 1253	شكا	verb	to complain
-1254	قميص	noun	a short and usually form-fitting upper-body outer garment; a sleeved top; a shirt
+1254	قميص	noun	shirt (a sleeved upper-body garment)
 1255	إحضار	noun	bringing, fetching, getting, sending for
 1256	شمال	noun	left hand; left side
 1257	انتم	pron	you, ye (masculine plural subject pronoun)
@@ -1406,7 +1406,7 @@ rank	word	pos	en
 1405	أوان	noun	particular time, timeframe, occasion, time that has come or is due
 1406	محلي	adj	local, regional, native, national
 1407	تدمير	noun	destruction
-1408	جنرال	noun	general
+1408	جنرال	noun	general (a military officer)
 1409	طاب	verb	to seem suitable, to remit, to do well
 1410	عكس	verb	to overturn; to invert
 1411	منطقي	adj	logical, rational, reasonable
@@ -1691,7 +1691,7 @@ rank	word	pos	en
 1690	خمر	verb	to cover, to hide, to conceal; to veil, to screen, to shroud
 1691	دوري	adj	cyclical, periodic
 1692	عجب	verb	to wonder, to marvel, to be astonished, to be amazed
-1693	هيه	pron	it
+1693	هيه	pron	it (feminine subject pronoun)
 1694	جيب	noun	opening in a garment
 1695	تصور	verb	to be or become formed
 1696	قليلة	adj	feminine singular of قَلِيل (qalīl)
@@ -1932,7 +1932,7 @@ rank	word	pos	en
 1931	سكن	verb	to be still, to be tranquil, to be peaceful
 1932	عفو	noun	pardon, forgiveness, remission of sins, amnesty, absolution
 1933	سلوك	noun	march, journey, travel
-1934	أهان	verb	to lower; to bring
+1934	أهان	verb	to slight, to disrespect, to insult, to abuse; to slur; to offend, to affront
 1935	خلية	noun	cell (all senses)
 1936	إثارة	noun	verbal noun of أَثَارَ (ʔaṯāra) (form IV)
 1937	ابنة	noun	daughter
@@ -2415,7 +2415,7 @@ rank	word	pos	en
 2414	أرنب	noun	rabbit (mammal)
 2415	طيار	noun	flyer (person who flies)
 2416	أغرب	noun	plural of غُرَاب (ḡurāb)
-2417	آب	verb	to return, to come back
+2417	آب	verb	August (eighth month of the Gregorian and Julian calendars)
 2418	هزيمة	noun	debacle, defeat
 2419	كرر	verb	to repeat, reiterate, redo
 2420	تعاون	verb	to cooperate, to work together, to help each other
@@ -2775,7 +2775,7 @@ rank	word	pos	en
 2774	أوشك	verb	to be near to doing something
 2775	أعال	verb	to support, to sustain, to provide for (a family, a person)
 2776	قصص	noun	narrative; storytelling
-2777	سامي	adj	Semitic
+2777	سامي	adj	Semitic; Sami (a male given name)
 2778	حيوانات	noun	plural of حَيَوَان (ḥayawān)
 2779	تضمن	verb	to comprise, to contain, to include
 2780	روي	verb	to be well-watered (of a plant)
@@ -2815,7 +2815,7 @@ rank	word	pos	en
 2814	معبد	noun	place of worship, temple
 2815	ضبط	verb	to do something accurately
 2816	البحيرة	name	Beheira (a governorate of Egypt)
-2817	ليلى	noun	ecstasy of wine
+2817	ليلى	noun	a female given name, Leila, Laila, or Layla
 2818	ثور	noun	bull, steer, ox
 2819	قضائي	adj	judicial
 2820	زائد	adj	increasing, growing
@@ -3823,7 +3823,7 @@ rank	word	pos	en
 3822	كونت	noun	count
 3823	قطيع	noun	herd
 3824	زقاق	noun	alley, lane, corridor
-3825	عليا	adj	feminine singular of أَعْلَى
+3825	عليا	adj	higher, highest, upper (feminine of أَعْلَى)
 3826	خدش	verb	to scratch
 3827	سيرة	noun	biography, chronicle, romance
 3828	منحدر	noun	slope, inclination
@@ -4114,7 +4114,7 @@ rank	word	pos	en
 4113	شوارع	noun	plural of شَارِع (šāriʕ)
 4114	سالم	verb	to make peace with, to treat peaceably, to make up with
 4115	ربي	noun	many a man
-4116	جرين	noun	Ḥijāzi and Yemenite form of جُرْن
+4116	جرين	noun	a surface where grain sheaves or dates are collected, a heap of harvest (Ḥijāzi and Yemenite form of جُرْن)
 4117	سلالة	noun	descendancy, lineage, pedigree (seen to both directions)
 4118	فائت	adj	past, former
 4119	واجهة	noun	face, front; facade
@@ -4153,7 +4153,7 @@ rank	word	pos	en
 4152	زائدة	noun	anything excessive or superfluous, appendix, excess, redundancy, nodule, polyp
 4153	الثور	noun	definite singular of ثور
 4154	رتبة	noun	step; grade, degree, condition
-4155	نيس	name	Nice
+4155	نيس	name	Nice (a city in southeast France)
 4156	نصح	verb	to give sincere advice, to counsel
 4157	شروط	noun	plural of شَرْط (šarṭ)
 4158	أوب	verb	to return, to come back, to come home
@@ -4535,7 +4535,7 @@ rank	word	pos	en
 4534	لعق	verb	to lick; to scrape off the dish
 4535	زملاء	noun	plural of زَمِيل (zamīl)
 4536	صمم	verb	to deafen (someone)
-4537	هود	noun	Jews
+4537	هود	noun	Hud, a prophet of Islam, sometimes identified with Eber in the Bible
 4538	يوميا	adv	daily
 4539	توب	noun	verbal noun of تَابَ (tāba) (form I)
 4540	رين	noun	sin, vice; dirt
@@ -4676,7 +4676,7 @@ rank	word	pos	en
 4675	مكشوف	adj	exposed, bared, bare
 4676	حرر	verb	to free, to liberate, to emancipate
 4677	مأوى	noun	shelter, refuge
-4678	أتبع	verb	to add
+4678	أتبع	verb	to add, to append, to annex; to cause to be followed by
 4679	يدى	verb	to touch, hit, injure, hurt on the hand
 4680	ثلاثية	noun	trilogy
 4681	روية	noun	deliberation, advice
@@ -4872,7 +4872,7 @@ rank	word	pos	en
 4871	راغب	adj	wishing, desiring, wanting
 4872	أغنياء	adj	masculine plural of غَنِيّ (ḡaniyy)
 4873	محور	noun	axis, pivot; core, heart, center
-4874	رباط	noun	A thing with which one ties
+4874	رباط	noun	a tie, a thing with which one ties; a ribat (a frontier post where travellers and soldiers could stay)
 4875	أبحر	verb	to sail, to travel by sea
 4876	طاعون	noun	epidemic disease, plague, pestilence, pest
 4877	مقص	noun	scissors; a clipping tool
@@ -4894,7 +4894,7 @@ rank	word	pos	en
 4893	خطئ	verb	to sin
 4894	نيزك	noun	meteor, shooting star
 4895	اعتراف	noun	confession
-4896	احتفال	noun	verbal noun of اِحْتَفَلَ
+4896	احتفال	noun	celebration, ceremony, festival (verbal noun of اِحْتَفَلَ, form VIII)
 4897	فرنسية	adj	feminine singular of فَرَنْسِيّ (faransiyy, “French”)
 4898	وجوه	noun	plural of وَجْه (wajh)
 4899	أنتن	pron	you, ye (feminine plural subject pronoun)
@@ -4959,7 +4959,7 @@ rank	word	pos	en
 4958	لتر	noun	litre
 4959	غول	noun	ghoul, desert demon
 4960	تجار	verb	to be neighbors, to be adjacent
-4961	وا	particle	oh, woe
+4961	وا	particle	Forms past-tense third-person plural masculine conjugations of verbs.
 4962	مشكل	adj	mixed, made of different assembled contents or parts
 4963	رديء	adj	bad, evil, wicked, corrupt, depraved
 4964	مستعار	adj	borrowed
@@ -4993,7 +4993,7 @@ rank	word	pos	en
 4992	خلود	noun	eternity; immortality
 4993	استحق	verb	to be worthy, to deserve, to merit
 4994	مستقل	adj	independent; autonomous
-4995	محنة	noun	catastrophe
+4995	محنة	noun	affliction, adversity, tribulation; distress
 4996	تنافس	verb	to compete, to contend, to vie
 4997	آ	character	Alif maddah. A double-alif used to write the sequence /ʔaː/.
 4998	آتى	verb	to compensate, to recompense, to reimburse (someone)
@@ -5152,7 +5152,7 @@ rank	word	pos	en
 5151	شغف	verb	to affect the pericardium
 5152	تأليف	noun	a work of literature or art
 5153	نصائح	noun	plural of نَصِيحَة (naṣīḥa)
-5154	فاس	noun	fez, tarboosh
+5154	فاس	noun	Fez (the capital city of the region of Fez-Meknes, Morocco)
 5155	نيفادا	name	Nevada (a state in the western United States)
 5156	تفلت	verb	to slip away from
 5157	تسويق	noun	marketing; cattle-driving
@@ -5553,7 +5553,7 @@ rank	word	pos	en
 5552	سقيفة	noun	pergola, arbour, arcade, bower
 5553	منعزل	adj	isolated, separated
 5554	لجوء	noun	verbal noun of لَجَأَ (lajaʔa): refuge, political asylum
-5555	خفت	verb	to die out; to die
+5555	خفت	verb	to die out, to grow faint; to become low in volume or inaudible
 5556	حضن	verb	to hug, to embrace
 5557	سياق	noun	context; consequence, logical connection
 5558	لجأ	verb	to take shelter, to take refuge; to seek asylum
@@ -5708,7 +5708,7 @@ rank	word	pos	en
 5707	مدارس	noun	plural of مَدْرَسَة (madrasa)
 5708	مؤمنة	adj	feminine singular of مُؤْمِن (muʔmin)
 5709	ثبت	noun	proof; list, index
-5710	المخلص	phrase	yours sincerely, kind regards
+5710	المخلص	phrase	yours sincerely, kind regards (a polite formula used to end letters, preceding the signature)
 5711	اختراع	noun	invention
 5712	تعالج	verb	to receive medical treatment, therapy
 5713	صفوف	noun	plural of صَفّ (ṣaff)
@@ -6092,7 +6092,7 @@ rank	word	pos	en
 6091	بورصة	noun	stock market, stock exchange, bourse
 6092	متتالية	noun	sequence, progression
 6093	جزيء	noun	molecule
-6094	ملائكة	noun	plural of مَلْأَك
+6094	ملائكة	noun	angels (plural of مَلْأَك / مَلَك)
 6095	إباحية	noun	libertinism; licentiousness
 6096	نذير	noun	bringer of bad news, herald, legate, apostle, warner
 6097	مأجور	adj	hired; rewarded
@@ -6161,7 +6161,7 @@ rank	word	pos	en
 6160	موحد	verb	active participle of وَحَّدَ (waḥḥada)
 6161	مشاة	noun	plural of مَاشٍ (māšin)
 6162	عنصرية	noun	racism
-6163	ء	character	Hamza
+6163	ء	character	hamza — the sign for the glottal stop /ʔ/
 6164	ثرية	noun	chandelier
 6165	إجمالي	adj	comprehensive, general, total
 6166	مبادلة	noun	verbal noun of بَادَلَ (bādala) (form III)
@@ -6604,7 +6604,7 @@ rank	word	pos	en
 6603	أحرج	verb	to narrow, straiten, confine, cramp. hamper, impede, restrict
 6604	سبات	noun	stupor, lethargy, ailment of excessive sleep
 6605	ماسح	adj	active participle of مَسَحَ (masaḥa).
-6606	تشيلي	adj	Chilean
+6606	تشيلي	adj	Chile (a country in South America)
 6607	موعود	adj	promised
 6608	هيدروجين	noun	hydrogen
 6609	تايلاند	name	alternative form of تَايْلَنْد (tāyland): Thailand (a country in Southeast Asia)
@@ -6921,7 +6921,7 @@ rank	word	pos	en
 6920	مواضيع	noun	plural of مَوْضُوع (mawḍūʕ)
 6921	ألياف	noun	plural of لِيف (līf)
 6922	قوام	adj	literally one who stands up for
-6923	هجم	verb	to attack
+6923	هجم	verb	to attack (used with على)
 6924	أغطية	noun	plural of غِطَاء (ḡiṭāʔ)
 6925	استكشاف	noun	verbal noun of اِسْتَكْشَفَ (istakšafa) (form X)
 6926	ألاباما	name	Alabama (a state of the United States)
@@ -7294,7 +7294,7 @@ rank	word	pos	en
 7293	هوتة	noun	depression
 7294	أبدية	noun	eternity
 7295	العالمين	noun	definite accusative plural of عَالَم (ʕālam, “world”)
-7296	كابول	noun	snare or net of a hunter
+7296	كابول	noun	Kabul (the capital city of Afghanistan; alternative spelling of كَابُل)
 7297	توحيد	noun	oneness; unity
 7298	فيف	noun	waste plain, wide wilderness
 7299	قصور	noun	shortcoming, deficiency, inadequacy
@@ -7567,7 +7567,7 @@ rank	word	pos	en
 7566	بتر	verb	to cut off, to amputate, to mutilate
 7567	قاطعة	noun	incisor
 7568	ماريلاند	name	Maryland
-7569	الكونغو	name	Democratic Republic of the Congo
+7569	الكونغو	name	the Congo — the Democratic Republic of the Congo, or the Republic of the Congo
 7570	شواطئ	noun	plural of شَاطِئ (šāṭiʔ)
 7571	عبرة	noun	example, lesson, warning
 7572	فاصلة	noun	separation, partition
@@ -7906,7 +7906,7 @@ rank	word	pos	en
 7905	حصى	noun	pebble, gravel
 7906	بقاع	noun	plural of بُقْعَة (buqʕa)
 7907	تزعم	verb	to lead
-7908	تجاوب	verb	to show interest in
+7908	تجاوب	verb	to show interest in, to be receptive; to reply to, to echo
 7909	ضحل	adj	shallow; trivial, superficial
 7910	تصارع	verb	to wrestle, grapple, tussle
 7911	أميركي	adj	American
@@ -8067,7 +8067,7 @@ rank	word	pos	en
 8066	أركان	noun	plural of رُكْن (rukn)
 8067	تلامس	verb	to be touching each other
 8068	استرجع	verb	to retrieve, to take back, to recover, to regain
-8069	بتصرف	prep_phrase	used after quotes
+8069	بتصرف	prep_phrase	used after quotes, translations, etc, to indicate that the original text was modified and is not transferred exactly as it appears in the original material i.e. paraphrased.
 8070	كفء	noun	equal
 8071	أبكم	adj	mute
 8072	وراثة	noun	inheritance; heredity, heritability
@@ -8606,7 +8606,7 @@ rank	word	pos	en
 8605	استهداف	noun	verbal noun of اِسْتَهْدَفَ (istahdafa) (form X)
 8606	أصلى	verb	to heat, to warm, to make hot
 8607	مجادلة	noun	argument
-8608	ابتكر	verb	to innovate
+8608	ابتكر	verb	to invent, to devise, to originate, to innovate
 8609	صفاء	noun	serenity
 8610	نابض	adj	active participle of نَبَضَ (nabaḍa, “to pulsate, to spring”)
 8611	هيليوم	noun	helium
@@ -8640,7 +8640,7 @@ rank	word	pos	en
 8639	حشر	verb	to gather, to assemble, to unite (transitive)
 8640	نزلة	noun	instance noun of نَزَلَ (nazala), stopping, landing
 8641	نيجيريا	name	Nigeria (a country in Africa)
-8642	سبورة	noun	slate
+8642	سبورة	noun	blackboard, whiteboard; slate
 8643	بلال	name	a male given name, Bilal
 8644	بليغ	adj	eloquent; intense, deep (impression)
 8645	رشاد	noun	entering on the right road
@@ -8663,7 +8663,7 @@ rank	word	pos	en
 8662	آوى	verb	to seek shelter, to seek refuge
 8663	جرع	verb	to swallow, gulp, devour
 8664	إرشاد	noun	guidance; direction in the right way
-8665	وبش	noun	rabble, riffraff
+8665	وبش	noun	rabble, riffraff; (singulative) a vagabond, a person with no fixed abode or standing
 8666	قرارة	noun	bottom, low ground, depression
 8667	فكاهي	adj	humorous, funny, amusing
 8668	شيأ	verb	to objectify
@@ -8692,7 +8692,7 @@ rank	word	pos	en
 8691	استجاب	verb	to respond; to hear, to answer (to prayer), to grant (a request)
 8692	آيوا	name	Iowa (a state in the Midwestern region of the United States)
 8693	يل	verb	to have short, clustered, inwards-pointing teeth
-8694	مشيمة	noun	a sac that encloses the embryo or the fetus during gestation
+8694	مشيمة	noun	placenta; the sac enclosing the fetus during gestation
 8695	ورن	noun	alternative form of وَرَل (waral)
 8696	وخم	verb	to suffer indigestion, to be troubled with glut
 8697	صيدلي	noun	pharmacist, apothecary
@@ -8745,7 +8745,7 @@ rank	word	pos	en
 8744	نبتون	name	Neptune (planet)
 8745	ندا	verb	to call; to invite
 8746	خلاط	noun	verbal noun of خَالَطَ (ḵālaṭa) (form III)
-8747	ماجور	noun	vat
+8747	ماجور	noun	vat, wide-bellied bowl, trough
 8748	انتقم	verb	to take revenge
 8749	تونس	name	Tunisia (a country in North Africa)
 8750	دس	verb	to hide, to abscond, to secrete, to conceal, to bury
@@ -8790,7 +8790,7 @@ rank	word	pos	en
 8789	متابع	adj	active participle of تَابَعَ (tābaʕa)
 8790	طوعا	adv	willingly, voluntarily
 8791	مزج	verb	to mix, to blend (بِـ (bi-) with)
-8792	أفلس	verb	to fail financially
+8792	أفلس	verb	to go bankrupt, to become insolvent, to fail financially
 8793	سميرة	adj	feminine singular of سَمِير (samīr)
 8794	التفاف	noun	verbal noun of اِلْتَفَّ (iltaffa) (form VIII)
 8795	سكك	noun	plural of سِكَّة (sikka)
@@ -8855,7 +8855,7 @@ rank	word	pos	en
 8854	اطرد	verb	to run on continuously
 8855	غواتيمالا	name	Guatemala (a country in northern Central America)
 8856	السلفادور	name	El Salvador (a country in Central America)
-8857	ثريا	noun	chandelier
+8857	ثريا	noun	chandelier; the Pleiades
 8858	أخطار	noun	plural of خَطَر (ḵaṭar)
 8859	سامية	adj	feminine singular of سَامٍ (sāmin, “high, elevated”)
 8860	مواسم	noun	plural of مَوْسِم (mawsim)

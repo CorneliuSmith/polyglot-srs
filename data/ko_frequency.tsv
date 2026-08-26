@@ -39,7 +39,7 @@ rank	word	pos	en
 38	거	noun	thing, one; the fact that (spoken form of 것; in 할 거예요 it marks the future)
 39	없다	adj	to have none; (to be) lacking; (to be) nonexistent
 40	해	verb	do, does, do it — 하다 in the intimate style (다시 해, do it again), and the base of 해요/했어요; the sun, sunlight
-41	건	verb	past determinative of 걸다
+41	건	verb	the thing that, the fact that, as topic — 것은 contracted (거 plus the topic marker 은); also rich, fertile — 걸다 in the determiner form
 42	저	det	that (distal determiner)
 43	너	pron	you (intimate style, for close friends and juniors; never to an elder)
 44	날	noun	day (twenty-four hours, a thirtieth of the month)
@@ -248,7 +248,7 @@ rank	word	pos	en
 247	경찰	noun	police; policing
 248	짓	noun	a physical act or movement
 249	그렇다	adj	to be thus, in that way; to be correct
-250	이것	pron	this
+250	이것	pron	this (thing)
 251	완전	adv	absolutely, completely, totally
 252	본	verb	seen, that one saw — 보다 in the past determiner form; also the -아/어 본 적 있다 pattern, to have ever done something; as a prefix (本), main, original
 253	놈	noun	bastard; kid, boy (from an older perspective)
@@ -457,7 +457,7 @@ rank	word	pos	en
 456	사고	noun	an accident
 457	말씀	noun	word or speech
 458	신	noun	god, deity; God
-459	명	noun	name
+459	명	noun	(counter for people)
 460	자식	noun	one's children, offspring
 461	결과	adv	as a result of
 462	게임	noun	game, especially computer games.
@@ -642,7 +642,7 @@ rank	word	pos	en
 641	우주	noun	space; outer space
 642	어젯밤	noun	last night
 643	이래	adj	"Infinitive of 이렇다 (ireota), thus often ""like this."""
-644	지구	noun	district, zone, region
+644	지구	noun	Earth, the planet; also a district, zone, region
 645	샘	noun	spring, fountain (source of water)
 646	달러	noun	dollar
 647	선택	noun	selection; choice; option
@@ -850,7 +850,7 @@ rank	word	pos	en
 849	적은	adj	present determiner of 적다 (jeokda)
 850	오케이	noun	good
 851	수업	noun	a class
-852	닉	noun	a shortening of 닉네임 (ningneim).
+852	닉	noun	nickname — short for 닉네임
 853	범죄	noun	crime
 854	버스	noun	bus
 855	보스	noun	boss (criminal organization)
@@ -949,7 +949,7 @@ rank	word	pos	en
 948	경기	noun	a sporting or athletic competition or match
 949	변화	noun	change; variation
 950	주님	name	The Lord, the God of Abraham and the Hebrew Tanakh;
-951	에서	name	Esau
+951	에서	name	at; in; from (action location)
 952	인턴	noun	intern (student working to gain experience in a field)
 953	가만	adv	quietly; without moving or speaking
 954	러시아	name	Russia (a transcontinental country in Eastern Europe and North Asia)
@@ -971,7 +971,7 @@ rank	word	pos	en
 970	독일	name	Germany (a country in Central Europe)
 971	최소한	adv	at least
 972	쓰레기	noun	trash, garbage
-973	임마	noun	this person
+973	임마	noun	“Hey you!”; “Bro!” (sometimes, when referring to a socially equal or inferior friend)
 974	그만하다	verb	to stop; to quit
 975	우	noun	right side; right wing
 976	공	noun	ball
@@ -1044,7 +1044,7 @@ rank	word	pos	en
 1043	주말	noun	weekend
 1044	우리들	pron	we, us
 1045	원치	noun	winch (machine)
-1046	은	noun	silver
+1046	은	noun	topic particle, after a consonant; also silver
 1047	엔진	noun	engine
 1048	선수	noun	athlete; sportsman; a person who participates in a sport
 1049	표정	noun	an expression of feeling, especially a facial expression
@@ -1388,7 +1388,7 @@ rank	word	pos	en
 1387	사인	noun	signature; autograph
 1388	및	adv	and, additionally
 1389	라디오	noun	radio
-1390	워싱턴	name	[~주(州)] Washington, Washington State
+1390	워싱턴	name	Washington — the US capital city, and the US state
 1391	직원	noun	employee
 1392	천사	noun	angel; emissary of the emperor
 1393	아예	adv	Altogether; entirely.
@@ -1648,7 +1648,7 @@ rank	word	pos	en
 1647	특별히	adv	especially, in particular, special, specially
 1648	사망	noun	death
 1649	맞고	verb	a conjunctive form of 맞다 (matda)
-1650	론	noun	loan
+1650	론	noun	theory; hypothesis, claim, argument
 1651	빼	verb	Infinitive form of 빼다 (ppaeda, “to remove”)
 1652	관리	noun	administration, management, supervision
 1653	복부	noun	abdomen, stomach, belly
@@ -1992,7 +1992,7 @@ rank	word	pos	en
 1991	무조건	adv	unconditionally
 1992	찬	det	conjugative form of 차다 (chada, “cold”)
 1993	출처	noun	source, origin
-1994	가나	noun	kana
+1994	가나	noun	Ghana (a country in Africa)
 1995	주사	noun	injection; shot
 1996	부자	noun	a rich person
 1997	문신	noun	tattoo (image made in the skin with ink and a needle)
@@ -2169,7 +2169,7 @@ rank	word	pos	en
 2168	살인범	noun	murderer, killer
 2169	부위	noun	region; site; location; position; place
 2170	입구	noun	entrance
-2171	친	syllable	More information
+2171	친	syllable	by blood; of the paternal side of the family
 2172	비상	noun	emergency
 2173	감사드리다	verb	to be thankful; to feel or express a desire to repay
 2174	양은	noun	nickel silver
@@ -3009,7 +3009,7 @@ rank	word	pos	en
 3008	염려	noun	concern, worry, apprehension, anxiety
 3009	싸게	adv	quickly
 3010	바른	adj	realis adnominal of 바르다
-3011	엄니	noun	a long
+3011	엄니	noun	mother — a colloquial, regional form of 어머니
 3012	유다	name	Judah (first son of Jacob)
 3013	분만	noun	childbirth
 3014	레이저	noun	laser
@@ -3037,7 +3037,7 @@ rank	word	pos	en
 3036	블록	noun	blocks of cement or stone
 3037	끈	noun	string
 3038	팬	noun	fan
-3039	홍콩	noun	orgasm (sexual climax)
+3039	홍콩	noun	Hong Kong (a city, island and special administrative region in southeastern China)
 3040	정면	noun	front, façade
 3041	기념	noun	commemoration, memory
 3042	나가다	verb	to go out; (contextually) to leave
@@ -3163,7 +3163,7 @@ rank	word	pos	en
 3162	봄	noun	spring, springtime
 3163	확보	noun	guarantee
 3164	전방	noun	front side; frontline
-3165	캐릭터	noun	fictional character
+3165	캐릭터	noun	a fictional character, in a story, film or game; also a person's distinctive persona
 3166	전염병	noun	an infectious disease
 3167	노출	noun	exposure; disclosure
 3168	부품	noun	part, component
@@ -4013,7 +4013,7 @@ rank	word	pos	en
 4012	어느정도	adv	to some degree, somewhat
 4013	면도	noun	shave, shaving
 4014	잉	noun	Conveys the buzzing of small flying insects.
-4015	최	det	Finite or limit
+4015	최	det	a surname, usually romanized as “Choi”.
 4016	마주	adv	face to face; mutually
 4017	타격	noun	blow; strike; damage
 4018	학기	noun	semester, trimester, term
@@ -4303,7 +4303,7 @@ rank	word	pos	en
 4302	행	noun	movement; going
 4303	누난	noun	topic-marked of 누나 (nuna)
 4304	재빨리	adv	quickly, rapidly, nimbly
-4305	권	counter	volumes
+4305	권	counter	(counter for books)
 4306	걸음	noun	A step or steps.
 4307	자꾸만	adv	repeatedly; incessantly
 4308	기독교	noun	Christianity, especially Protestantism
@@ -4484,7 +4484,7 @@ rank	word	pos	en
 4483	서클	noun	club, society, group, circle
 4484	멍	noun	bruise; the state of feeling tired after eating a lot; dopiness
 4485	오하이오	name	[~주(州)] Ohio (a state of the United States)
-4486	대전	noun	electrification
+4486	대전	noun	Daejeon (a city in South Korea)
 4487	양파	noun	onion
 4488	파스타	noun	pasta
 4489	취하다	verb	to get drunk, to become intoxicated
@@ -4550,7 +4550,7 @@ rank	word	pos	en
 4549	골동품	noun	curio; antique
 4550	실로	adv	really, truly, indeed, surely
 4551	서고	noun	library (institution which holds books etc.)
-4552	오호	intj	alas!
+4552	오호	intj	alas! (usually used with —라 (-ra), in the form of 오호라 (ohora))
 4553	해산	noun	childbirth
 4554	칭	noun	tune of the fifth sting to the left of a yanggeum
 4555	다중	noun	multiple
@@ -4971,7 +4971,7 @@ rank	word	pos	en
 4970	항공기	noun	aircraft
 4971	유전	noun	genetic; genetics
 4972	전망	noun	Prospect: physical view or future outlook.
-4973	락	syllable	More information
+4973	락	syllable	落: fall; 樂: to enjoy; happiness; pleasure
 4974	장애인	noun	the disabled
 4975	얼만큼	pron	misspelling of 얼마큼 (eolmakeum)
 4976	이를테면	adv	for example; so to speak; marks a figure of speech or a summary of what has been previously said.
@@ -6150,7 +6150,7 @@ rank	word	pos	en
 6149	인스타그램	noun	Instagram
 6150	늦잠	noun	oversleep
 6151	종소리	noun	sound/peal of a bell
-6152	피지	noun	sebum
+6152	피지	noun	Fiji (a country in Oceania)
 6153	이주	noun	immigration
 6154	건초	noun	hay; dry grass
 6155	스푼	noun	spoon
@@ -6180,7 +6180,7 @@ rank	word	pos	en
 6179	입찰	noun	bid, tender (in an auction, etc.)
 6180	컨설팅	noun	consulting
 6181	변수	noun	variable
-6182	미수	noun	misu
+6182	미수	noun	misu (a drink made from 미숫가루 (misutgaru, “grain powder”, literally “misu powder”))
 6183	이혼하다	verb	to get a divorce
 6184	첨단	noun	cutting-edge; state of the art
 6185	블라우스	noun	blouse (an outer garment, usually loose, that is similar to a shirt)

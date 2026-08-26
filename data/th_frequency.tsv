@@ -21,7 +21,7 @@ rank	word	pos	en
 20	ไป	verb	to go; to move (away from the speaker); to leave; to depart
 21	ที่รัก	noun	used as an affectionate term of address: darling, dear, honey, sweetheart, etc.
 22	งั้น	adv	then, in that case, or else.
-23	โอ	noun	a type of lacquerware
+23	โอ	noun	pomelo (a large citrus fruit)
 24	คุณ	noun	attribute; characteristic; property
 25	เดี๋ยว	adv	in a moment, shortly; wait, hold on; or else, otherwise (warning)
 26	ตอนนี้	adv	now, at the moment
@@ -33,13 +33,13 @@ rank	word	pos	en
 32	เปล่า	adj	containing nothing, being nothing: empty, blank, vacant, etc.
 33	ดังนั้น	adv	like that; as such; thus; therefore.
 34	คือ	verb	to be; to be as follows
-35	ผม	noun	headhair.
+35	ผม	noun	I (male); hair (of the head)
 36	หวัดดี	intj	welfare, well-being
 37	เพื่อน	pron	a third person pronoun: he, she, it, they, etc.
 38	ตกลง	verb	to agree (to something)
 39	อ้อ	noun	reed (grass).
 40	เหรอ	particle	or
-41	นะ	particle	isn't it?.
+41	นะ	particle	(softening particle) okay?
 42	หรือ	conj	or; (sentence-final yes-no question particle: …is it? / really? — spoken เหรอ, รึ)
 43	เยี่ยม	adj	excellent, great, terrific (เยี่ยม! — “Great!”); (verb) to visit, to call on (someone)
 44	คน	noun	person; people; human being (Classifiers: คน or หัว or ราย or นาย or ท่าน)
@@ -97,7 +97,7 @@ rank	word	pos	en
 96	ปีเตอร์	noun	cockroach.
 97	เรา	pron	a second person pronoun employed when addressing a person of lower status; you
 98	ใจเย็น	adj	calm; serene; unruffled; composed; cool
-99	สอง	num	2
+99	สอง	num	2 (Thai numeral: ๒)
 100	มี	verb	to have; to own; to possess
 101	คะ	intj	used to express doubt, interrogation, suggestion.
 102	หุบปาก	intj	be quiet; be silent; silence; shut up.
@@ -116,7 +116,7 @@ rank	word	pos	en
 115	ราตรีสวัสดิ์	intj	good night
 116	ครั้ง	noun	time; instance, occurrence; occasion
 117	ของ	noun	thing; item; article; stuff; matter
-118	สาม	num	3
+118	สาม	num	3 (Thai numeral: ๓)
 119	จาก	noun	nipa, a palm tree of the species Nypa fruticans
 120	แก	pron	a second person pronoun used to address a person of equal or lower status out of contempt
 121	ครับผม	particle	synonym of ครับ (kráp)
@@ -197,7 +197,7 @@ rank	word	pos	en
 196	ล้าน	adj	bald
 197	เพลง	noun	song; music
 198	ดื่ม	verb	to drink; to drink an alcoholic beverage
-199	ถูก	adj	cheap; inexpensive; low
+199	ถูก	adj	cheap; correct; (passive marker for misfortunes)
 200	บางครั้ง	adv	sometimes.
 201	ผู้หญิง	noun	female; woman
 202	รุ่นพี่	noun	senior: person older than another.
@@ -239,13 +239,13 @@ rank	word	pos	en
 238	แบบ	noun	form; pattern; design; model; template
 239	กัน	adv	together; jointly; altogether
 240	ขวา	noun	right side (opposite of left)
-241	ไหม	particle	or not?
+241	ไหม	particle	(yes/no question particle)
 242	เคลียร์	verb	to clear — to empty, to free of obstruction (เคลียร์ทาง); to clear up, to sort out, to settle (a misunderstanding, a debt, a backlog)
 243	ใต้เท้า	noun	a term of respect used as a title for or term of address to a dignitary.
 244	ใ	character	A Thai vowel letter traditionally named ไม้ม้วน
 245	ด้วยความยินดี	phrase	my pleasure; you're welcome
 246	ตอน	noun	when, at, during (before a time expression: ตอนนี้ — now, ตอนเช้า — in the morning); part, section; episode (of a series); (verb) to castrate; to graft
-247	สี่	num	4
+247	สี่	num	4 (Thai numeral: ๔)
 248	กรุณา	noun	compassion; (พระ~) favour; kindness; grace
 249	สบายดี	verb	to be well (in health), happy, contented
 250	เกี่ยวกับ	prep	about; regarding; concerning.
@@ -267,10 +267,10 @@ rank	word	pos	en
 266	น้องชาย	noun	younger brother
 267	สุขสันต์วันเกิด	phrase	happy birthday.
 268	คิดว่า	verb	to think that
-269	รัก	verb	to love, to have affection
+269	รัก	verb	to love, to have affection; love, affection
 270	ชิน	noun	lead-tin alloy for making amulet.
 271	ผู้ชาย	noun	man; adult male
-272	ห้า	num	5
+272	ห้า	num	5 (Thai numeral: ๕)
 273	บ้า	adj	mad; insane; crazy
 274	แจ๋ว	adj	clear; limpid; transparent.
 275	คู่หู	noun	chum; comrade; buddy; bosom buddy.
@@ -335,7 +335,7 @@ rank	word	pos	en
 334	แวน	noun	(รถ~) van
 335	เท่านั้น	adv	only, just, no more than
 336	เข้า	verb	to move in or inwards: to come in, to go in, to enter, etc; to cause to do so
-337	ขอ	noun	hook
+337	ขอ	noun	may I have; to ask for
 338	ก่อน	adv	before; early
 339	จอร์แดน	name	Jordan (a country in West Asia in the Middle East)
 340	เอา	verb	to bring; to take
@@ -370,7 +370,7 @@ rank	word	pos	en
 369	โค้ช	noun	coach; instructor.
 370	ดอลล่าร์	noun	misspelling of ดอลลาร์ (dɔn-lâa)
 371	ดอน	noun	area of land lying above the level where water flows or where flooding occurs
-372	หก	num	6
+372	หก	num	6 (Thai numeral: ๖)
 373	ฝันดี	noun	good dream; favourable dream.
 374	หลังจาก	conj	after.
 375	น่ารัก	adj	adorable; cute; lovely; pretty
@@ -424,7 +424,7 @@ rank	word	pos	en
 423	เซอร์	noun	Sir; title of respect for some Western notable personage.
 424	ไว้	verb	to place; to locate
 425	แม้ว่า	conj	even if; even though.
-426	อัน	noun	item; piece
+426	อัน	noun	(classifier for small things)
 427	ลิสบอน	name	Lisbon
 428	ไฟ	noun	fire; flame; light; light source
 429	ควีน	noun	queen (royal person)
@@ -432,7 +432,7 @@ rank	word	pos	en
 431	ะ	character	A vowel letter traditionally named วิสรรชนีย์
 432	อร่อย	adj	delicious; tasty
 433	ชีวิต	noun	life
-434	เจ็ด	num	7
+434	เจ็ด	num	7 (Thai numeral: ๗)
 435	ทุกท่าน	pron	(all) of you, everybody
 436	ผ่าน	verb	to pass: to move or proceed (from one to another, past, over, beyond, across, or through)
 437	ลงไป	verb	to go down, go downward
@@ -553,7 +553,7 @@ rank	word	pos	en
 552	กิโล	noun	kilometer.; kilogram.
 553	ชาย	noun	male; man
 554	โรงเรียน	noun	school
-555	แปด	num	8
+555	แปด	num	8 (Thai numeral: ๘)
 556	นานมาแล้ว	noun	long ago.
 557	ต้องการ	verb	to need; to want; to wish; to desire; to yearn; to crave
 558	มีนาคม	name	March (the third month of the year under the Gregorian calendar)
@@ -597,7 +597,7 @@ rank	word	pos	en
 596	กลับ	verb	to return; to come back
 597	เพจ	noun	clipping of เพจเจอร์ (pèet-jə̂ə, “pager: message notifying device”)
 598	เดี่ยว	adj	alone; single; sole
-599	เก้า	num	9
+599	เก้า	num	9 (Thai numeral: ๙)
 600	ราชินี	noun	queen; female monarch
 601	เตรียมตัว	verb	to prepare
 602	เกือบ	adv	almost, nearly
@@ -614,7 +614,7 @@ rank	word	pos	en
 613	ปู่	noun	paternal grandfather.
 614	จนกว่า	conj	right up until, till
 615	จอร์เจีย	name	Georgia; Georgia (a state in the Southern United States)
-616	ฉ	adj	sixth.
+616	ฉ	adj	ch — 'ch' with a puff (high class)
 617	ช้า	adj	slow, not quick
 618	กันยายน	name	September (the ninth month of the year under the Gregorian calendar)
 619	รับ	verb	to greet; to receive; to welcome
@@ -671,7 +671,7 @@ rank	word	pos	en
 670	ดัน	verb	to push; to press
 671	รองเท้า	noun	shoe
 672	นางฟ้า	noun	celestial woman, as angel, goddess, etc
-673	บ	adv	no; not.
+673	บ	adv	b — 'b' as in boy (mid class)
 674	ดอม	noun	row, line; belt
 675	ข้างนอก	adj	outside; outdoors
 676	หลบ	verb	to avoid; to evade; to dodge
@@ -687,7 +687,7 @@ rank	word	pos	en
 686	ปัญหา	noun	problem; trouble; difficulty
 687	อาวุธ	noun	weapon; arm; eating utensil; cutlery
 688	พฤศจิกายน	name	November (the eleventh month of the year under the Gregorian calendar)
-689	ฉิบหาย	verb	to go to wrack and ruin
+689	ฉิบหาย	verb	to go to ruin, to be destroyed; ruin, disaster
 690	ห้องน้ำ	noun	bathroom: room for taking a bath or shower
 691	แต้ม	noun	score; mark; point
 692	เจอ	verb	to discover, to meet, to find
@@ -765,7 +765,7 @@ rank	word	pos	en
 764	ข้างบน	adj	above; upstairs; on the upper side.
 765	โอลีฟ	noun	olive
 766	เรือ	noun	watercraft: boat; ship; etc. (Classifier: ลำ)
-767	สิบ	num	10
+767	สิบ	num	10 (Thai numeral: ๑๐)
 768	คณบดี	noun	dean: chief of a faculty or equivalent body in a higher education institution
 769	หมดเวลา	verb	to run out of time
 770	ลักพาตัว	verb	to kidnap
@@ -790,7 +790,7 @@ rank	word	pos	en
 789	สวรรค์	noun	sky; heaven; abode of gods.
 790	เซ	verb	stagger, to sway from one side to the other as if about to fall in standing or walking.
 791	พิซซ่า	noun	pizza
-792	ยาย	noun	maternal grandmother
+792	ยาย	noun	maternal grandmother; (also a familiar term of address for a woman)
 793	มอง	verb	to watch; to look
 794	ผู้คน	noun	people
 795	เจ้าค่ะ	particle	particle used by female speakers at the end of sentences to make them more polite
@@ -816,7 +816,7 @@ rank	word	pos	en
 815	หัวใจ	noun	heart (Classifier: ดวง)
 816	ซึง	noun	sueng, a lute of Northern Thailand
 817	ไก่	noun	fowl; domesticated fowl, as chicken, turkey, etc.
-818	ศูนย์	num	0
+818	ศูนย์	num	0 (Thai numeral: ๐)
 819	วาว	adj	sparkling; flashing
 820	เขต	noun	limit; boundary
 821	คลับ	noun	club, association.
@@ -1104,7 +1104,7 @@ rank	word	pos	en
 1103	สัตว์ประหลาด	noun	monster
 1104	ชัยชนะ	noun	victory
 1105	ปัดโธ่	intj	used to express frustration
-1106	หมื่น	num	ten thousand
+1106	หมื่น	num	ten thousand (Thai numeral: ๑๐๐๐๐)
 1107	ปฏิเสธ	verb	to deny; to refute
 1108	ทุกครั้ง	adv	every time; always, at all times, all the time
 1109	รัสเซีย	name	Russia (a transcontinental country in Eastern Europe and North Asia)
@@ -1290,7 +1290,7 @@ rank	word	pos	en
 1289	วิสกี้	noun	whiskey, whisky.
 1290	กล้าหาญ	adj	brave, courageous
 1291	การต่อสู้	noun	abstract noun of ต่อสู้ (dtɔ̀ɔ-sûu): fight
-1292	ไล่ออก	noun	expulsion
+1292	ไล่ออก	noun	to expel, especially as a penalty
 1293	โพ	noun	sacred fig
 1294	บก	noun	dry land; land
 1295	ร่วมกัน	adv	mutual, common; together, accompanied with
@@ -1366,7 +1366,7 @@ rank	word	pos	en
 1365	สำคัญ	adj	distinct; notable; noteworthy; special; remarkable
 1366	หมายเหตุ	noun	notation; note, footnote
 1367	ดิน	noun	earth; ground; soil; land
-1368	ทรมาน	verb	to conquer, subdue, or suppress
+1368	ทรมาน	verb	to torture or be tortured; to subject or be subjected to suffering.
 1369	หาย	verb	to disappear; to vanish
 1370	ความสัมพันธ์	noun	relationship
 1371	ใกล้เคียง	adj	near; close; adjacent; proximate; approximate
@@ -1587,7 +1587,7 @@ rank	word	pos	en
 1586	บัง	verb	to cover: to shade
 1587	ทำงานหนัก	verb	to work hard, work strenuously
 1588	ปลอดภัยไว้ก่อน	phrase	safety first.
-1589	โรม	verb	to attack, fight
+1589	โรม	verb	Rome (a metropolitan city of Lazio, Italy)
 1590	ครูใหญ่	noun	headmaster; principal.
 1591	โสด	adj	single; unmarried
 1592	ยานอวกาศ	noun	spaceship, spacecraft
@@ -1833,7 +1833,7 @@ rank	word	pos	en
 1832	ชั่วคราว	adj	temporary; interim; transitory; impermanent
 1833	เซฟ	noun	(ตู้~) safe (strongbox).
 1834	สร้อยคอ	noun	necklace.
-1835	ยี่สิบ	num	twenty (20)
+1835	ยี่สิบ	num	twenty, 20 (Thai numeral: ๒๐)
 1836	ราช	noun	king: male monarch or sovereign
 1837	รวย	adj	rich; wealthy.
 1838	เพนกวิน	noun	penguin.
@@ -1900,7 +1900,7 @@ rank	word	pos	en
 1899	ว๊าย	intj	misspelling of ว้าย (wáai)
 1900	โดน	verb	to bump against, to hit
 1901	แถวตรง	noun	attention.
-1902	สิบสอง	num	12
+1902	สิบสอง	num	12 (Thai numeral: ๑๒)
 1903	นักการเมือง	noun	politician
 1904	เหล็ก	noun	iron; metal tool
 1905	โป๊ป	noun	pope.
@@ -1909,7 +1909,7 @@ rank	word	pos	en
 1908	เพื่อนร่วมห้อง	noun	roommate.
 1909	เก็บ	adj	kept; stored
 1910	เพล	noun	lunch; lunchtime.
-1911	แจ้ง	adj	free from darkness
+1911	แจ้ง	adj	to inform, to notify, to tell; to state, to declare
 1912	ร้านกาแฟ	noun	coffee shop, café
 1913	พื้นที่	noun	area.
 1914	อิจฉา	verb	to envy, to be jealous.
@@ -2047,7 +2047,7 @@ rank	word	pos	en
 2046	รอคอย	verb	to wait; to wait for.
 2047	ตัวประกัน	noun	hostage
 2048	ปฏิบัติ	verb	to conduct; to do; to perform; to carry out.
-2049	สามสิบ	num	30
+2049	สามสิบ	num	30 (Thai numeral: ๓๐)
 2050	หวัง	verb	to hope.
 2051	ด่า	verb	to scold; to revile
 2052	วัย	noun	years (of person's age)
@@ -2061,7 +2061,7 @@ rank	word	pos	en
 2060	ไร	adv	how; what; which; when; why
 2061	นักดนตรี	noun	musician
 2062	เล่าเรื่อง	verb	to tell a story
-2063	สิบห้า	num	15
+2063	สิบห้า	num	15 (Thai numeral: ๑๕)
 2064	ดวงอาทิตย์	noun	sun.
 2065	อาคาร	noun	building, dwelling, establishment
 2066	แพทย์	noun	medical practitioner; physician; doctor
@@ -2151,7 +2151,7 @@ rank	word	pos	en
 2150	ไม่ว่าง	adj	busy, not free, pressed for time
 2151	ขุด	verb	to dig; to excavate
 2152	เครียด	adj	stressed; serious; tense
-2153	ห้าสิบ	num	50
+2153	ห้าสิบ	num	50 (Thai numeral: ๕๐)
 2154	ตับ	noun	liver.
 2155	มิถุนา	noun	clipping of มิถุนายน (mí-tù-naa-yon)
 2156	อมตะ	adj	not subject to death or decay: deathless, immortal, undying, imperishable, etc.
@@ -2212,7 +2212,7 @@ rank	word	pos	en
 2211	เดินทาง	verb	to travel; to go on a trip
 2212	นามสกุล	noun	synonym of ชื่อสกุล (chʉ̂ʉ-sà-gun, “family name, surname”)
 2213	ถุงเท้า	noun	sock (foot garment)
-2214	สิบเอ็ด	num	11
+2214	สิบเอ็ด	num	11 (Thai numeral: ๑๑)
 2215	สาวเสิร์ฟ	noun	waitress.
 2216	ครบรอบ	verb	to mark or be the recurrence (as of the date of a past event).
 2217	อาดัม	name	Adam.
@@ -2471,7 +2471,7 @@ rank	word	pos	en
 2470	ท่อ	noun	pipe; tube
 2471	พับ	verb	to fold
 2472	สมุนไพร	noun	herb; medicinal plant.
-2473	สี่สิบ	num	40
+2473	สี่สิบ	num	40 (Thai numeral: ๔๐)
 2474	คิดถึง	verb	to miss; to long for
 2475	แฟ้ม	noun	a kind of dried-food container.
 2476	วาด	verb	to draw; to paint (e.g. a picture)
@@ -2501,7 +2501,7 @@ rank	word	pos	en
 2500	การตัดสินใจ	noun	abstract noun of ตัดสินใจ (dtàt-sǐn-jai)
 2501	วานร	noun	monkey.
 2502	เกียวโต	name	Kyoto (a prefecture on the island of Honshu, Japan)
-2503	สิบสาม	num	13
+2503	สิบสาม	num	13 (Thai numeral: ๑๓)
 2504	เวียนนา	name	Vienna (the capital city of Austria)
 2505	ให้อภัย	verb	to forgive.
 2506	สำส่อน	adj	promiscuous, undiscriminating, indiscriminate.
@@ -2740,7 +2740,7 @@ rank	word	pos	en
 2739	เชื้อเพลิง	noun	fuel (combustible substance)
 2740	ทานให้อร่อยนะ	phrase	bon appétit!, enjoy your meal!
 2741	กระเจี๊ยว	noun	penis.
-2742	เวียดนาม	adj	Vietnamese.
+2742	เวียดนาม	adj	Vietnam (a country in Southeast Asia)
 2743	แชร์	verb	to share (to post or repost)
 2744	เชื้อชาติ	noun	race, nationality
 2745	โยคะ	noun	yoga
@@ -2919,7 +2919,7 @@ rank	word	pos	en
 2918	สถาบัน	noun	institute; institution; establishment.
 2919	หอคอย	noun	watchtower.
 2920	มายองเนส	noun	mayonnaise.
-2921	อวสาน	verb	to absolutely end
+2921	อวสาน	verb	absolute end; complete termination; complete finish.
 2922	ขี้โม้	adj	boastful; pompous
 2923	บรรยากาศ	noun	atmosphere.
 2924	ผู้แปล	noun	translator: person who translates something.
@@ -2973,7 +2973,7 @@ rank	word	pos	en
 2972	เติบโต	verb	to grow
 2973	การดื่ม	noun	abstract noun of ดื่ม (dʉ̀ʉm): drinking
 2974	ขน	noun	body hair; fur; wool
-2975	ชั่ว	adj	bad, evil, wicked
+2975	ชั่ว	adj	bad, evil, wicked; (in compounds) a period of time, duration
 2976	เย็นชา	adj	cold; heartless, inconsiderate, merciless; apathetic, indifferent.
 2977	รอยเท้า	noun	footprint.
 2978	ล้างแค้น	verb	to avenge
@@ -2989,7 +2989,7 @@ rank	word	pos	en
 2988	แลกเปลี่ยน	noun	a contract by which both parties transfer the ownership of a property to each other
 2989	ช่างภาพ	noun	photographer
 2990	แจง	verb	to divide or separate into parts: to distribute, to analyse, to apportion, etc.
-2991	สิบสี่	num	14
+2991	สิบสี่	num	14 (Thai numeral: ๑๔)
 2992	น้ำมะนาว	noun	limeade; lime juice
 2993	ควัน	noun	smoke.
 2994	วานิลลา	noun	vanilla
@@ -3023,7 +3023,7 @@ rank	word	pos	en
 3022	จุ	verb	to contain; to hold; to have a capacity (for)
 3023	ผิวปาก	verb	to whistle
 3024	ช่วยตัวเอง	verb	to help oneself
-3025	จาม	verb	to sneeze
+3025	จาม	verb	to sneeze; Cham (the Cham people or language)
 3026	ความสงบสุข	noun	peacefulness; peace and content.
 3027	ประสิทธิภาพ	noun	efficiency; capability.
 3028	ปืนใหญ่	noun	cannon
@@ -3045,7 +3045,7 @@ rank	word	pos	en
 3044	นักมวย	noun	boxer (fighter)
 3045	เมืองหลวง	noun	capital city; capital
 3046	ไอซ์แลนด์	name	Iceland (an island and country in the North Atlantic Ocean in Europe)
-3047	สิบเจ็ด	num	17
+3047	สิบเจ็ด	num	17 (Thai numeral: ๑๗)
 3048	การเต้นรำ	noun	abstract noun of เต้นรำ (dtên-ram)
 3049	คนงาน	noun	worker; workman
 3050	ขี้เมา	adj	alcoholic
@@ -3074,7 +3074,7 @@ rank	word	pos	en
 3073	นวด	verb	to massage; to knead
 3074	ขี้อาย	adj	shy
 3075	รุ่นน้อง	noun	junior: person younger than another.
-3076	สิบหก	num	16
+3076	สิบหก	num	16 (Thai numeral: ๑๖)
 3077	เอเชีย	adj	Asian (of, from or relating to Asia)
 3078	ตุ๊ด	noun	effeminate man.
 3079	สารวัตรทหาร	noun	military police
@@ -3109,7 +3109,7 @@ rank	word	pos	en
 3108	ไปเรื่อย	adv	aimlessly; purposelessly; idly; nonspecifically.
 3109	ไขมัน	noun	fat, lard
 3110	จำลอง	verb	to duplicate; to imitate
-3111	สิบเก้า	num	19
+3111	สิบเก้า	num	19 (Thai numeral: ๑๙)
 3112	ทหารเรือ	noun	sailor, mariner, member of the navy
 3113	ลมหายใจ	noun	breath.
 3114	เร้าใจ	verb	to arouse; to incite; to encourage.
@@ -3281,7 +3281,7 @@ rank	word	pos	en
 3280	ยาชา	noun	local anaesthetic.
 3281	ทิชชู่	noun	misspelling of ทิชชู (tít-chûu, “tissue paper”)
 3282	ปราก	name	Prague (the capital city of the Czech Republic)
-3283	สิบแปด	num	18
+3283	สิบแปด	num	18 (Thai numeral: ๑๘)
 3284	ประหม่า	verb	to be nervous; to be struck with fear
 3285	อสรพิษ	noun	snake.; wily, treacherous, or malicious person.
 3286	ใบเสร็จ	noun	receipt.

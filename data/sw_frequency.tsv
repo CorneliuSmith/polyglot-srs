@@ -3,7 +3,7 @@ rank	word	pos	en
 2	ya	prep	of, belonging to (with class 4, 6, 9 nouns: nyumba ya mwalimu = the teacher's house)
 3	kwa	prep	with, by, by means of (kwa basi = by bus); for, because of (asante kwa msaada = thanks for the help)
 4	wa	verb	to be; to become
-5	mungu	noun	god (deity)
+5	mungu	noun	God (the single deity of monotheism); also a god, a deity
 6	yesu	name	Jesus (the Christian Messiah)
 7	watu	noun	people, persons; human beings (class 1/2, sg. mtu)
 8	ni	particle	focus marker
@@ -59,7 +59,7 @@ rank	word	pos	en
 58	hapo	adj	pa class (XVI) inflected form of hiyo
 59	hayo	adj	ma class (VI) inflected form of hiyo
 60	yangu	adj	mi class (IV) inflected form of -angu
-61	mwana	noun	child (a son or daughter)
+61	mwana	noun	child (a son or daughter); in compounds, someone who does or is connected with something
 62	ajili	noun	cause, reason, sake
 63	kisha	adv	then, subsequently, afterwards
 64	nao	prep_phrase	m class (III)/u class (XI) inflected form of na; and it, with it
@@ -91,7 +91,7 @@ rank	word	pos	en
 90	yeyote	adj	m class (I)/m class (III) inflected form of -o-ote (Class I)
 91	wangu	adj	m class (I)/m class (III)/u class (XI) inflected form of -angu
 92	wayahudi	noun	plural of Myahudi
-93	mara	noun	time
+93	mara	noun	time (used to form adverbial numbers, as in “one time” (i.e. once))
 94	mkuu	adj	m class (I)/m class (III)/u class (XI) inflected form of -kuu
 95	kwenda	verb	infinitive of -enda: to go (to), going (to)
 96	moja	num	one
@@ -113,7 +113,7 @@ rank	word	pos	en
 112	mwenye	noun	owner, possessor
 113	huyu	adj	m class (I) inflected form of hii
 114	mahali	noun	place (location, position)
-115	ambao	pron	Wa class form of amba-.
+115	ambao	pron	who, which, that — the amba- relative form for the Wa class, the M class (class 3) and the U class
 116	yetu	adj	mi class (IV) inflected form of -etu
 117	sauti	noun	voice; sound
 118	mwili	noun	body (physical structure of a human or animal)
@@ -165,7 +165,7 @@ rank	word	pos	en
 164	kumi	num	ten
 165	mtakatifu	noun	saint
 166	toka	adv	from
-167	chini	adv	below (in a lower place)
+167	chini	adv	below (in a lower place); down (from a high to a low position, downwards)
 168	ufalme	noun	kingdom; kingship
 169	chochote	adj	ki class (VII) inflected form of -o-ote
 170	simama	verb	to stand; to be steady, be still
@@ -187,7 +187,7 @@ rank	word	pos	en
 186	nyumbani	noun	locative of nyumba: at home, home
 187	kufanya	verb	infinitive of -fanya
 188	mtumishi	noun	servant
-189	ambayo	pron	Mi class form of amba-
+189	ambayo	pron	which, that — the amba- relative form for the Mi class, the Ma class and the N class (class 9, singular)
 190	paswa	verb	Passive form of -pasa: to be obliged; should
 191	kabisa	adv	wholly, entirely, completely, absolutely, utterly
 192	fika	verb	to arrive
@@ -356,7 +356,7 @@ rank	word	pos	en
 355	wapate	noun	plural of Mpate
 356	pewa	verb	Passive form of -pa: to be given
 357	langu	adj	ji class (V) inflected form of -angu
-358	tazama	verb	to look, to watch
+358	tazama	verb	to look, to watch; to inspect, investigate, examine
 359	piga	verb	to hit, to strike
 360	mwema	adj	m class (I)/m class (III)/u class (XI) inflected form of -ema
 361	hicho	adj	ki class (VII) inflected form of hiyo
@@ -420,12 +420,12 @@ rank	word	pos	en
 419	wazi	adj	open or clear; obvious (evident)
 420	kitabu	noun	book
 421	ahadi	noun	promise, pledge, commitment
-422	chukua	verb	to take (into possession)
+422	chukua	verb	to take (into possession); to carry, bring, take along
 423	wapi	adv	where
 424	viongozi	noun	plural of kiongozi
 425	mkubwa	adj	m class (I)/m class (III)/u class (XI) inflected form of -kubwa
 426	divai	noun	wine (alcoholic beverage made from grapes)
-427	jamaa	noun	relative; family member
+427	jamaa	noun	relative, family member; the family as a whole; (colloquially) dude, guy, bloke, used of someone you don't know
 428	kutenda	verb	infinitive of -tenda
 429	mwaminifu	noun	confidant, trusted person, faithful person
 430	lugha	noun	language
@@ -467,7 +467,7 @@ rank	word	pos	en
 466	huzuni	noun	sadness, grief, sorrow
 467	mabaya	adj	ma class (VI) inflected form of -baya
 468	dhabihu	noun	sacrifice; abattoir
-469	fufuka	verb	Stative form of -fufua: be to resurrected
+469	fufuka	verb	to be resurrected, to come back to life, to rise from the dead (stative form of -fufua)
 470	hofu	noun	fear
 471	sawa	adj	equal
 472	kukaa	verb	infinitive of -kaa
@@ -537,7 +537,7 @@ rank	word	pos	en
 536	wafalme	noun	plural of mfalme
 537	kikombe	noun	cup (vessel for drinking)
 538	anasema	verb	third-person singular present
-539	sifa	noun	character (moral strength)
+539	sifa	noun	character, quality, trait (moral strength or an attribute); praise, commendation
 540	nguvuni	noun	locative of nguvu
 541	nne	num	four
 542	pasaka	noun	Easter
@@ -685,7 +685,7 @@ rank	word	pos	en
 684	mjane	noun	widow, widower
 685	hasira	noun	anger, rage
 686	ukoo	noun	clan, kinship
-687	onekana	verb	to seem
+687	onekana	verb	to be visible, to be apparent; to seem
 688	mdogo	adj	m class (I)/m class (III)/u class (XI) inflected form of -dogo
 689	amka	verb	to wake up, to get up
 690	isaya	name	Isaiah (book of the Old Testament of the Bible)
@@ -734,7 +734,7 @@ rank	word	pos	en
 733	hasa	adv	exactly; especially
 734	mbatizaji	noun	baptizer
 735	vyake	adj	vi class (VIII) inflected form of -ake
-736	acha	verb	to leave; to abandon
+736	acha	verb	to leave; to abandon; to stop, cease, quit
 737	mlimani	noun	locative of mlima
 738	jicho	noun	eye (organ of vision)
 739	waovu	adj	wicked, evil — class 2 (wa-) form of -ovu, agreeing with plural people; on its own, the wicked, evildoers (sg. mwovu, a wicked person)
@@ -757,7 +757,7 @@ rank	word	pos	en
 756	mwaka	noun	year
 757	pekee	adj	alone (by oneself)
 758	asia	name	Asia (the largest continent, located between Europe and the Pacific Ocean)
-759	roma	name	Rome; Rome (a metropolitan city of Lazio, Italy)
+759	roma	name	Rome (the capital city of Italy); also ancient Rome and its empire
 760	mapendo	noun	plural of upendo or pendo
 761	mumewe	noun	contraction of mume + wake: her husband
 762	makini	noun	attention (mental focus)
@@ -800,7 +800,7 @@ rank	word	pos	en
 799	okolewa	verb	Passive form of -okoa: to be rescued, to be preserved
 800	nywele	noun	plural of unywele: many pieces of hair, a head of hair
 801	vichwa	noun	plural of kichwa
-802	msalaba	noun	cross (geometrical figure)
+802	msalaba	noun	cross — the Christian cross; also a cross-shaped post, or the cross shape itself
 803	mifano	noun	plural of mfano
 804	labda	adv	perhaps
 805	yenyewe	adj	ma class (VI) inflected form of -enyewe
@@ -968,14 +968,14 @@ rank	word	pos	en
 967	ujuzi	noun	knowledge; experience
 968	tuwe	verb	first-person plural subjunctive affirmative of -wa
 969	theluthi	noun	one-third
-970	solomoni	name	Solomon Islands
+970	solomoni	name	Solomon (the biblical king); also the Solomon Islands
 971	kiume	noun	masculinity (degree or property of being masculine, manliness)
 972	kuzaliwa	verb	infinitive of -zaliwa
 973	viatu	noun	plural of kiatu
-974	shika	verb	to hold, possess
+974	shika	verb	to hold, possess; to arrest; to stick, adhere
 975	kupiga	verb	infinitive of -piga
 976	mzigo	noun	load, burden; luggage
-977	geuka	verb	to turn (toward a direction)
+977	geuka	verb	to turn (toward a direction); to be changed, to turn into (stative form of -geua)
 978	mawimbi	noun	plural of wimbi
 979	kukawa	verb	infinitive of -kawa
 980	kuogopa	verb	infinitive of -ogopa
@@ -1020,7 +1020,7 @@ rank	word	pos	en
 1019	funga	verb	to close, fasten, lock up
 1020	kupa	verb	-ku- (second-person singular object concord) with indicative of -pa (“to give to you”)
 1021	wafanya	noun	plural of mfanya
-1022	kiungo	noun	spice (plant matter used to season or flavour food)
+1022	kiungo	noun	spice (plant matter used to season or flavour food); junction or joint, esp. a part of the body where bones join; body part, organ
 1023	fikiri	verb	to think, ponder
 1024	bubu	noun	dumb person; mute person
 1025	majina	noun	plural of jina
@@ -1088,7 +1088,7 @@ rank	word	pos	en
 1087	pigana	verb	Reciprocal form of -piga: to fight
 1088	wateule	noun	plural of mteule
 1089	mwizi	noun	thief (one who carries out theft)
-1090	matumizi	noun	usage (account of using)
+1090	matumizi	noun	use, usage; expenses, expenditure (money that has been spent)
 1091	mgeni	noun	foreigner; stranger
 1092	shuhudia	verb	to witness
 1093	tuna	verb	to swell, inflate, bloat
@@ -1157,7 +1157,7 @@ rank	word	pos	en
 1156	sikio	noun	ear
 1157	sijui	intj	I don't know
 1158	sanda	noun	sanda (white calico shroud)
-1159	taarifa	noun	headline (heading or title of an article)
+1159	taarifa	noun	report, notice, communiqué (a piece of information); also the headline or title of an article
 1160	udanganyifu	noun	deception, cheating
 1161	mtupu	adj	m class (I)/m class (III)/u class (XI) inflected form of -tupu
 1162	mzaliwa	noun	native
@@ -1172,7 +1172,7 @@ rank	word	pos	en
 1171	hiari	noun	choice, discretion; option
 1172	kuabudu	verb	infinitive of -abudu
 1173	utakatifu	noun	holiness
-1174	jukumu	noun	a guarantee (assurance of something)
+1174	jukumu	noun	responsibility, duty (an obligation to do something); a guarantee, an assurance
 1175	kusaidia	verb	infinitive of -saidia
 1176	chuma	noun	iron; ironware (something made of iron)
 1177	ushindi	noun	victory (the condition of having won a competition or battle)
@@ -1354,8 +1354,8 @@ rank	word	pos	en
 1353	washtaki	noun	plural of mshtaki
 1354	haina	verb	m-mi class subject inflected plural present negative
 1355	mwongo	noun	liar, cheat
-1356	tawi	noun	branch (of a tree)
-1357	fuata	verb	to follow (to come after)
+1356	tawi	noun	branch (of a tree; also of an organisation or company)
+1357	fuata	verb	to follow (to come after); to imitate; to abide by (to comply with)
 1358	ina	adv	certainly, truly
 1359	wakristo	noun	plural of Mkristo
 1360	karibuni	intj	plural of karibu: welcome! (to multiple people)
@@ -1518,7 +1518,7 @@ rank	word	pos	en
 1517	kusababisha	verb	infinitive of -sababisha
 1518	jumla	noun	sum, total; wholesale
 1519	pendelea	verb	to prefer, favor (to be in favor of)
-1520	kashfa	noun	uncovering, unveiling, exposing
+1520	kashfa	noun	scandal (an incident that brings disgrace); slander, libel, insult; also an uncovering, an exposing
 1521	kunawa	verb	infinitive of -nawa
 1522	jeupe	adj	ji class (V) inflected form of -eupe
 1523	zaka	noun	zakat, almsgiving
@@ -1569,7 +1569,7 @@ rank	word	pos	en
 1568	angalia	verb	to look, observe, watch
 1569	kupenda	verb	infinitive of -penda
 1570	maelfu	noun	plural of elfu
-1571	kufurahi	verb	infinitive of -furahi
+1571	kufurahi	verb	to be happy, to be glad, to rejoice (infinitive of -furahi)
 1572	ziwe	verb	n class subject inflected plural subjunctive affirmative
 1573	laiti	particle	if only
 1574	tambiko	noun	ritual; taboo
@@ -1628,7 +1628,7 @@ rank	word	pos	en
 1627	mja	noun	comer, one who comes, visitor
 1628	bikira	noun	virgin (person who has never had sexual intercourse)
 1629	faraghani	noun	locative of faragha
-1630	fungua	verb	to give birth
+1630	fungua	verb	Conversive form of -funga: to open, to unfasten; to give birth
 1631	nzige	noun	locust (type of grasshopper)
 1632	mwituni	noun	locative of mwitu
 1633	kubeba	verb	infinitive of -beba
@@ -1659,7 +1659,7 @@ rank	word	pos	en
 1658	kikuu	adj	ki class (VII) inflected form of -kuu
 1659	shauriana	verb	Reciprocal form of -shauri
 1660	kupanda	verb	infinitive of -panda
-1661	kuanza	verb	first
+1661	kuanza	verb	to begin, to start (infinitive of -anza)
 1662	haradali	noun	mustard (condiment)
 1663	chagua	verb	to choose; to elect
 1664	kijijini	noun	locative of kijiji
@@ -1757,7 +1757,7 @@ rank	word	pos	en
 1756	nilikwenda	verb	past first-person singular of -enda
 1757	uzito	noun	weight; seriousness, importance, gravity
 1758	ubinadamu	noun	humanity
-1759	maafa	noun	threats, menaces
+1759	maafa	noun	disaster, catastrophe, calamity; misfortune, mishap, bad luck
 1760	kutawaliwa	verb	infinitive of -tawaliwa
 1761	mtindo	noun	style, fashion; a way of doing things
 1762	mikutano	noun	plural of mkutano
@@ -1837,7 +1837,7 @@ rank	word	pos	en
 1836	mfinyanzi	noun	potter (a person who shapes pottery and bakes it in a kiln)
 1837	panga	verb	to arrange, organise, plan, set up; also to rent (a room), and to live together; the homograph panga is machetes, plural of upanga (class 11/10)
 1838	fuvu	noun	a skull (bone of human head)
-1839	jidai	verb	reflexive form of -dai
+1839	jidai	verb	to boast, to show off, to brag (reflexive form of -dai)
 1840	mtaka	noun	one who asks for something
 1841	mkanda	noun	belt (strap worn around the waist)
 1842	kufungua	verb	infinitive of -fungua
@@ -1879,7 +1879,7 @@ rank	word	pos	en
 1878	hodi	intj	may I come in? (said to request entrance, as a verbal form of knocking on a door)
 1879	kuchuma	verb	infinitive of -chuma
 1880	wima	adj	upright, standing
-1881	patikana	verb	to be available
+1881	patikana	verb	to be available; to be obtainable, to be found
 1882	inua	verb	to lift, elevate, raise
 1883	juma	noun	week
 1884	kifalme	noun	royalty (rank, status, etc. of a monarch)
@@ -1922,7 +1922,7 @@ rank	word	pos	en
 1921	mkombozi	noun	liberator, emancipator
 1922	lazimika	verb	Stative form of -lazimu: to be necessary, be forced
 1923	kuwekewa	verb	infinitive of -soma
-1924	gari	noun	car (automobile)
+1924	gari	noun	car (automobile); vehicle (any vehicle, including wagons and trains)
 1925	wazima	adj	wa class (II) inflected form of -zima
 1926	wasili	verb	to arrive (to get to a certain place)
 1927	msimamizi	noun	overseer, supervisor, foreman
@@ -2224,7 +2224,7 @@ rank	word	pos	en
 2223	jivuna	verb	to be proud
 2224	viwe	verb	ki-vi class subject inflected plural subjunctive affirmative of -wa
 2225	kuongozwa	verb	infinitive of -ongozwa
-2226	hitilafu	noun	difference, discord
+2226	hitilafu	noun	difference, discord; discrepancy, defect, blemish
 2227	azimia	verb	Applicative form of -azima
 2228	kudanganywa	verb	infinitive of -danganywa
 2229	kifuani	noun	locative of kifua
@@ -2296,7 +2296,7 @@ rank	word	pos	en
 2295	tupo	verb	first-person plural positive degree present of -wapo (“we are (specifically there)”)
 2296	kutayarisha	verb	infinitive of -tayarisha
 2297	kukagua	verb	infinitive of -kagua
-2298	sikitika	verb	to be disappointed
+2298	sikitika	verb	to be disappointed; to be sorry; to grieve
 2299	mtunza	noun	keeper, carer
 2300	anzia	verb	Applicative form of -anza: to emanate, to start at some place
 2301	kumalizia	verb	infinitive of -malizia
@@ -2315,7 +2315,7 @@ rank	word	pos	en
 2314	kuku	noun	chicken, fowl
 2315	vifaranga	noun	plural of kifaranga
 2316	danganywa	verb	Passive form of -danganya: to be lied to, to be falsified
-2317	fifia	verb	to lose strength
+2317	fifia	verb	to lose strength; to dwindle, fade, disappear
 2318	msomaji	noun	reader (one who habitually reads)
 2319	kukimbia	verb	infinitive of -kimbia
 2320	mzoga	noun	carcass (dead animal)
@@ -2352,7 +2352,7 @@ rank	word	pos	en
 2351	masikioni	noun	locative of masikio
 2352	tema	verb	to slash, to cut with a panga
 2353	makapu	noun	plural of kapu
-2354	kaza	verb	to tighten
+2354	kaza	verb	Causative form of -kaa: to persist, intensify; to tighten
 2355	kudharauliwa	verb	infinitive of -dharauliwa
 2356	muujiza	noun	miracle
 2357	agiza	verb	to (place an) order
@@ -2401,7 +2401,7 @@ rank	word	pos	en
 2400	kumwagwa	verb	infinitive of -mwagwa
 2401	bomoa	verb	to demolish, destroy, ruin, wreck
 2402	kulewa	verb	infinitive of -lewa
-2403	fungu	noun	a bunch (a group of a number of similar things)
+2403	fungu	noun	a bunch (a group of a number of similar things); a portion or slice of something; a collection of writing: a sentence, paragraph, or article
 2404	utengano	noun	separation
 2405	kusi	noun	south monsoon wind
 2406	chinja	verb	to slaughter
@@ -2422,11 +2422,11 @@ rank	word	pos	en
 2421	daiwa	verb	Passive form of -dai: to be claimed or demanded of
 2422	zeituni	noun	olive
 2423	magunia	noun	plural of gunia
-2424	takataka	noun	dirt (soil or earth)
+2424	takataka	noun	rubbish, garbage, trash, refuse; dirt
 2425	vidonda	noun	plural of kidonda
 2426	mkuyu	noun	sycomore fig, wild fig tree, Ficus sycomorus.
 2427	paza	verb	Causative form of -paa: to raise (one's voice)
-2428	pato	noun	acquisition; achievement
+2428	pato	noun	income, earnings, revenue; a gain, an acquisition
 2429	fichwa	verb	Passive form of -ficha
 2430	mashuhuri	adj	famous, renowned
 2431	kufanywa	verb	infinitive of -fanywa
@@ -2502,7 +2502,7 @@ rank	word	pos	en
 2501	wamisri	noun	plural of Mmisri
 2502	msukuma	noun	a member of the Sukuma people
 2503	vyako	adj	vi class (VIII) inflected form of -ako
-2504	shamu	name	Greater Syria, the Levant
+2504	shamu	name	Syria (the modern country); historically Greater Syria, the Levant
 2505	utambulisho	noun	identity; identifier
 2506	vurugika	verb	Stative form of -vuruga: to be mixed up, to be confused, to be in disarray
 2507	kapu	noun	augmentative of kikapu: large basket
@@ -2527,7 +2527,7 @@ rank	word	pos	en
 2526	kupigwa	verb	infinitive of -pigwa
 2527	nguzo	noun	prop, pillar (an object placed against or under another, to support it)
 2528	misingi	noun	plural of msingi
-2529	vuruga	verb	to mix, to stir
+2529	vuruga	verb	to mix, to stir; to disarrange, to disturb, to agitate
 2530	pitapita	verb	Reduplicative form of -pita: to come and go, to pass by
 2531	kicheko	noun	laughter
 2532	mafundi	noun	plural of fundi
@@ -2604,7 +2604,7 @@ rank	word	pos	en
 2603	kataliwa	verb	Passive form of -kataa: to get refused, to get denied, to get rejected
 2604	hongera	noun	congratulation (act of congratulating)
 2605	tawaliwa	verb	Passive form of -tawala: to be ruled
-2606	wepesi	noun	lightness (low weight)
+2606	wepesi	noun	lightness (low weight); agility, quickness; ease, easiness (freedom from effort)
 2607	mgambo	noun	guard
 2608	kueleweka	verb	infinitive of -eleweka
 2609	kuumiza	verb	infinitive of -umiza
@@ -2716,7 +2716,7 @@ rank	word	pos	en
 2715	unafunga	verb	second-person singular present affirmative of -funga
 2716	mpana	adj	m class (I)/m class (III)/u class (XI) inflected form of -pana
 2717	kupooza	verb	infinitive of -pooza
-2718	umwa	verb	to be sick
+2718	umwa	verb	to be in pain, to ache; to be sick (passive form of -uma)
 2719	chungwa	noun	orange (fruit)
 2720	hoi	adj	helpless, exhausted, critically ill
 2721	shambuliwa	verb	Passive form of -shambulia
@@ -2834,7 +2834,7 @@ rank	word	pos	en
 2833	malizia	verb	Applicative form of -maliza: to finish with
 2834	kopa	noun	"heart (card of a ""hearts"" suit)"
 2835	madeni	noun	plural of deni
-2836	kuza	verb	to glorify, to praise
+2836	kuza	verb	to enlarge, to inflate, to develop (causative form of -kua); also to glorify, to praise
 2837	asilimia	noun	percent
 2838	kimbizwa	verb	Passive form of -kimbiza
 2839	hisi	verb	to feel, sense
@@ -3001,13 +3001,13 @@ rank	word	pos	en
 3000	ndiko	verb	ku class (XVII) object of ndi-; it is about there
 3001	vikundi	noun	plural of kikundi
 3002	kituo	noun	station, camp, port
-3003	bisha	verb	to knock (on a door)
+3003	bisha	verb	to knock (on a door); to defy, to disobey; to disagree
 3004	roda	noun	pulley; winch
 3005	msako	noun	chase, hunt, search
 3006	kasirishwa	verb	Passive form of -kasirisha
 3007	liwa	verb	to be edible
 3008	ongoka	verb	Stative form of -ongoa: to be converted
-3009	waamuzi	noun	plural of mwamuzi
+3009	waamuzi	noun	judges, arbitrators, referees (plural of mwamuzi); also Waamuzi, the book of Judges in the Old Testament
 3010	kuzikwa	verb	infinitive of -zikwa
 3011	oza	verb	to go bad, to rot, to decay
 3012	kuteua	verb	infinitive of -teua
@@ -3091,10 +3091,10 @@ rank	word	pos	en
 3090	rasi	noun	head; cape, headland, promontory
 3091	fanikiwa	verb	to succeed (to prosper, to achieve)
 3092	kaskazi	noun	north monsoon wind
-3093	shusha	verb	to ejaculate
+3093	shusha	verb	to lower, to bring down (causative form of -shua)
 3094	vifaa	noun	plural of kifaa
 3095	kufadhili	verb	infinitive of -fadhili
-3096	pima	verb	to test, examine
+3096	pima	verb	to test, examine; to measure, weigh, estimate; to criticise
 3097	teremsha	verb	Causative form of -teremka: to make disembark
 3098	ghuba	noun	gulf, bay
 3099	tanga	noun	sail
@@ -3294,7 +3294,7 @@ rank	word	pos	en
 3293	wafiraji	noun	plural of mfiraji
 3294	mkosefu	noun	offender, culprit, wrongdoer, sinner
 3295	dua	noun	incantation, supplication, prayer
-3296	urembo	noun	a beautiful thing
+3296	urembo	noun	a beautiful thing; an ornamentation or decoration, especially on the body
 3297	matata	noun	problems; troubles
 3298	laumiwa	verb	Passive form of -laumu: to be blamed
 3299	wanywaji	noun	plural of mnywaji
@@ -3403,7 +3403,7 @@ rank	word	pos	en
 3402	lindwa	verb	Passive form of -linda: to get protected
 3403	peleleza	verb	to investigate, probe, inquire
 3404	uchunguzi	noun	examination, investigation
-3405	mazingira	noun	environment (state of nature)
+3405	mazingira	noun	environment (the natural world); surroundings
 3406	teule	adj	chosen, selected
 3407	tukano	noun	abuse, insult
 3408	tisho	noun	threat (expression of intent to injure or punish another)
@@ -3411,7 +3411,7 @@ rank	word	pos	en
 3410	uliopita	verb	form of -pita
 3411	mawindo	noun	plural of windo
 3412	watendaji	noun	plural of mtendaji
-3413	ingiza	verb	to cause; to fill
+3413	ingiza	verb	to admit, to let in; to bring in, to import, to introduce (causative form of -ingia)
 3414	adhibu	verb	to punish
 3415	sikitishwa	verb	Passive form of -sikitisha
 3416	kupuuza	verb	infinitive of -puuza

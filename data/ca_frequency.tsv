@@ -499,7 +499,7 @@ rank	word	pos	en
 498	llum	noun	light
 499	mesos	noun	plural of mes (“month”)
 500	teves	pron	feminine plural of teu
-501	oliver	noun	olive tree
+501	oliver	noun	Oliver (a male given name); also (m.) olive tree
 502	haig	verb	first-person singular present indicative of haver
 503	perdona	verb	third-person singular present indicative
 504	difícil	adj	difficult
@@ -1495,7 +1495,7 @@ rank	word	pos	en
 1494	local	adj	local
 1495	hivern	noun	winter
 1496	normalment	adv	usually
-1497	sant	noun	saint
+1497	sant	noun	(m.) saint (as in Sant Jordi); also holy, saintly
 1498	intenció	noun	intention
 1499	propòsit	noun	proposition; intention, purpose
 1500	peix	noun	fish
@@ -1967,7 +1967,7 @@ rank	word	pos	en
 1966	paciència	noun	patience
 1967	internet	noun	internet
 1968	responsabilitat	noun	responsibility
-1969	sens	prep	without
+1969	sens	prep	without (archaic form of the preposition sense)
 1970	naturalment	adv	naturally (in a natural way)
 1971	ensenya	verb	third-person singular present indicative
 1972	freda	adj	feminine singular of fred
@@ -2636,7 +2636,7 @@ rank	word	pos	en
 2635	relaxa	verb	third-person singular present indicative
 2636	científics	adj	masculine plural of científic
 2637	arriben	verb	third-person plural present indicative of arribar
-2638	vindre	verb	to come
+2638	vindre	verb	to come (alternative form of venir)
 2639	éssers	noun	plural of ésser
 2640	truqui	verb	first/third-person singular present subjunctive
 2641	expliqui	verb	first/third-person singular present subjunctive
@@ -2732,7 +2732,7 @@ rank	word	pos	en
 2731	japonès	adj	Japanese (pertaining to Japan, the Japanese people, or the Japanese language)
 2732	mortal	adj	mortal; deadly, lethal
 2733	enterrar	verb	to bury; to inter
-2734	y	conj	and
+2734	y	conj	The twenty-fifth letter of the Catalan alphabet, called i grega and written in the Latin script.
 2735	lavabo	noun	lavabo, washbasin, sink
 2736	job	name	Job; Job (book of the Bible)
 2737	naixement	noun	birth
@@ -4050,7 +4050,7 @@ rank	word	pos	en
 4049	creació	noun	creation
 4050	torturar	verb	to torture
 4051	tracto	verb	first-person singular present indicative of tractar
-4052	salvador	noun	savior
+4052	salvador	noun	Salvador (a male given name); also (m.) savior
 4053	comiat	noun	leave (permission to be absent)
 4054	experts	adj	masculine plural of expert
 4055	possessió	noun	Ownership; taking, holding, keeping something as one's own
@@ -4313,7 +4313,7 @@ rank	word	pos	en
 4312	estimen	verb	third-person plural present indicative of estimar
 4313	usa	verb	third-person singular present indicative
 4314	entenen	verb	third-person plural present indicative of entendre
-4315	tàrraco	name	Tarraco
+4315	tàrraco	name	Tarraco (an ancient city in Hispania Tarraconensis in the Roman Empire, in modern Spain; modern Tarragona)
 4316	lluites	noun	plural of lluita
 4317	rumor	noun	rumor
 4318	morim	verb	first-person plural present indicative/subjunctive
@@ -4900,7 +4900,7 @@ rank	word	pos	en
 4899	cirurgia	noun	surgery
 4900	calçotets	noun	underpants; pants (for males)
 4901	full	noun	sheet of paper
-4902	pacífic	adj	peaceful, pacific
+4902	pacífic	adj	peaceful, pacific; (el Pacífic) the Pacific Ocean
 4903	honesta	adj	feminine singular of honest
 4904	dea	noun	goddess
 4905	diguessis	verb	second-person singular imperfect subjunctive of dir
@@ -5302,7 +5302,7 @@ rank	word	pos	en
 5301	ibers	noun	plural of iber
 5302	informa	verb	third-person singular present indicative
 5303	mètode	noun	method
-5304	holanda	noun	holland (linen cloth)
+5304	holanda	noun	Holland (a historical province of the Netherlands)
 5305	nocturna	adj	feminine singular of nocturn
 5306	tardis	verb	second-person singular present subjunctive of tardar
 5307	ajudo	verb	first-person singular present indicative of ajudar
@@ -6634,7 +6634,7 @@ rank	word	pos	en
 6633	materials	adj	plural of material
 6634	descobreixi	verb	first/third-person singular present subjunctive
 6635	coseta	noun	diminutive of cosa; small thing
-6636	refredat	noun	cold
+6636	refredat	noun	a cold (m.), the illness
 6637	pobresa	noun	poverty; poorness
 6638	sonava	verb	first/third-person singular imperfect indicative of sonar
 6639	costes	noun	plural of costa (“coast; slope; rib”)
@@ -8468,7 +8468,7 @@ rank	word	pos	en
 8467	reconstrucció	noun	reconstruction
 8468	alcaldessa	noun	mayor's wife
 8469	blocs	noun	plural of bloc
-8470	è	character	the letter e with grave accent
+8470	è	character	the letter e with a grave accent, marking stress and the open pronunciation /ɛ/
 8471	callada	adj	feminine singular of callat
 8472	casolà	adj	homemade; home-reared
 8473	casarà	verb	third-person singular future indicative of casar
@@ -8938,7 +8938,7 @@ rank	word	pos	en
 8937	desesperats	adj	masculine plural of desesperat
 8938	bajanada	noun	bullshit, nonsense
 8939	roman	verb	third-person singular present indicative
-8940	suïssa	adj	feminine singular of suís
+8940	suïssa	adj	Switzerland (a country in Western Europe and Central Europe)
 8941	defensant	verb	gerund of defensar
 8942	canvies	verb	second-person singular present indicative of canviar
 8943	camarades	noun	plural of camarada
@@ -8989,7 +8989,7 @@ rank	word	pos	en
 8988	conqueridor	adj	that conquers; winning
 8989	ahí	adv	there
 8990	escup	verb	third-person singular present indicative
-8991	marta	noun	marten
+8991	marta	noun	Marta (a female given name, equivalent to English Martha); also (f.) marten
 8992	atrapem	verb	first-person plural present indicative/subjunctive
 8993	reuneixi	verb	first/third-person singular present subjunctive
 8994	allau	noun	avalanche (large mass or body of snow and ice sliding swiftly down a mountain side)
@@ -9209,7 +9209,7 @@ rank	word	pos	en
 9208	granades	adj	feminine plural of granat
 9209	demòcrata	noun	democrat; Democrat
 9210	oliva	noun	olive (fruit)
-9211	mercè	noun	thanks
+9211	mercè	noun	a female given name
 9212	cerebrals	adj	plural of cerebral
 9213	crònica	adj	feminine singular of crònic
 9214	comparteix	verb	third-person singular present indicative
@@ -9851,7 +9851,7 @@ rank	word	pos	en
 9850	esguerrat	verb	past participle of esguerrar
 9851	coneixien	verb	third-person plural imperfect indicative of conèixer
 9852	juvenil	adj	youthful, juvenile
-9853	huit	num	eight
+9853	huit	num	eight (alternative form of vuit)
 9854	comandes	noun	plural of comanda
 9855	necessitaran	verb	third-person plural future indicative of necessitar
 9856	capitans	noun	plural of capità

@@ -1,7 +1,7 @@
 rank	word	pos	en
 1	و	conj	and
 2	در	prep	in; at
-3	به	prep	to
+3	به	prep	to; toward
 4	از	prep	from; of
 5	که	conj	that; which; who
 6	را	particle	(direct-object marker)
@@ -22,22 +22,22 @@ rank	word	pos	en
 21	می‌دهم	verb	to give; I give
 22	چی	pron	what (colloquial)
 23	با	prep	with
-24	است	verb	is
+24	است	verb	is; third-person singular present of “to be”
 25	برای	prep	for
 26	آن	det	that
 27	چه وقت	adv	when
 28	یک	num	one; a
 29	من	pron	I
-30	تو	pron	you (sg)
+30	تو	pron	you (singular, informal)
 31	او	pron	he; she
 32	ما	pron	we
-33	شما	pron	you (pl/formal)
+33	شما	pron	you (plural, or formal singular)
 34	آنها	pron	they
 35	هم	adv	also; too
 36	اما	conj	but
 37	یا	conj	or
 38	اگر	conj	if
-39	نه	adv	no
+39	نه	adv	no — also (numeral) nine, the same spelling
 40	بله	adv	yes
 41	خیلی	adv	very; a lot
 42	بسیار	adv	very; much
@@ -75,7 +75,7 @@ rank	word	pos	en
 74	زیاد	adj	much; a lot
 75	کم	adj	little; few
 76	تازه	adj	new; fresh
-77	قدیمی	adj	old
+77	قدیمی	adj	old (of things)
 78	زیبا	adj	beautiful
 79	خوشحال	adj	happy
 80	ناراحت	adj	upset; sad

@@ -184,7 +184,7 @@ rank	word	pos	en
 183	होने	verb	oblique infinitive
 184	फोन	noun	nuqtaless form of फ़ोन (fon)
 185	भाई	noun	brother; used to refer to any male person
-186	वास्तव	noun	reality
+186	वास्तव	noun	reality; real, actual
 187	शुरू	noun	beginning; commencement
 188	उसकी	pron	feminine singular/plural of उसका (uskā)
 189	मिला	verb	direct masculine singular perfective participle
@@ -1038,7 +1038,7 @@ rank	word	pos	en
 1037	हंसी	noun	laugh, laughter
 1038	श्रीमती	noun	madam, Mrs, Smt.
 1039	चुरा	verb	stem; second-person singular intimate present imperative
-1040	जगदीश	noun	god
+1040	जगदीश	noun	God; also a male given name, Jagdish
 1041	सराहना	noun	praise, commendation
 1042	दौरा	noun	tour, visit; circuit
 1043	अंधेरा	adj	dark; dismal, depressing, gloomy
@@ -3231,7 +3231,7 @@ rank	word	pos	en
 3230	ठंडी	adj	direct/oblique/vocative feminine singular/plural of ठंडा (ṭhaṇḍā)
 3231	एशियाई	adj	Asian
 3232	फाटक	noun	gate, door, wicket
-3233	उर्दू	noun	camp
+3233	उर्दू	noun	Urdu (language)
 3234	आयेगी	verb	second-person singular intimate feminine future indicative
 3235	लाती	verb	feminine singular habitual participle
 3236	थके	verb	masculine plural perfective participle
@@ -3258,7 +3258,7 @@ rank	word	pos	en
 3257	अवगत	adj	informed, made aware
 3258	इनाम	noun	reward; prize
 3259	गिटार	noun	guitar
-3260	विकृत	adj	changed; mutilated, maimed
+3260	विकृत	adj	changed, especially for the worse — damaged, impaired; mutilated, maimed
 3261	चश्मा	noun	spectacles, glasses
 3262	भेजे	noun	oblique/vocative singular
 3263	प्रेत	noun	the spirit of a dead person
@@ -3500,7 +3500,7 @@ rank	word	pos	en
 3499	केंद्रीय	adj	central
 3500	फ्रांस	name	nuqtaless form of फ़्रांस (frāns)
 3501	उत्सर्जन	noun	emission, release, discharge
-3502	हल्के	adj	direct masculine plural
+3502	हल्के	adj	light (in weight) — masculine plural or oblique of हल्का (halkā)
 3503	नकार	noun	the letter or the sound of न (na)
 3504	मंदी	noun	recession; depression; economic downturn
 3505	लापरवाह	adj	indifferent, uncaring
@@ -3900,7 +3900,7 @@ rank	word	pos	en
 3899	आरोपों	noun	oblique plural of आरोप (ārop)
 3900	विष	noun	poison, venom
 3901	कमल	noun	Nelumbo nucifera; lotus
-3902	कांग्रेस	noun	congress
+3902	कांग्रेस	noun	the Indian National Congress
 3903	उठता	verb	direct masculine singular habitual participle
 3904	चीज़ों	noun	oblique plural of चीज़ (cīz)
 3905	फ़िक्र	noun	concern, worry
@@ -7183,7 +7183,7 @@ rank	word	pos	en
 7182	ग्रामर	noun	grammar
 7183	अंगोला	name	Angola (a country in Southern Africa)
 7184	गाछ	noun	tree
-7185	सेन	noun	falcon
+7185	सेन	noun	a surname, Sen; also falcon
 7186	मचाना	verb	to cause, wreak, raise
 7187	मोक्ष	noun	moksha (liberation from the cycle of reincarnation)
 7188	झाड़ने	verb	oblique infinitive

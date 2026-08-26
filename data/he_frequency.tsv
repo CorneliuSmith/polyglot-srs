@@ -1,5 +1,5 @@
 rank	word	pos	en
-1	של	prep	of
+1	של	prep	of; belonging to
 2	את	particle	(direct-object marker); you (f)
 3	ל	prep	to; for
 4	ה	det	the
@@ -10,7 +10,7 @@ rank	word	pos	en
 9	הן	pron	they; feminine plural pronoun
 10	זה	pron	this; it
 11	על	prep	on; about
-12	הוא	pron	he
+12	הוא	pron	he; also used as present-tense copula “is” (masculine)
 13	מה	pron	what
 14	עם	prep	with
 15	אתה	pron	you (m)
@@ -88,7 +88,7 @@ rank	word	pos	en
 87	רואה	verb	see
 88	שומע	verb	hear
 89	בא	verb	come
-90	הולך	verb	go; walk
+90	הולך	verb	go; walk (m. sg. present — 'is going', 'is walking')
 91	נותן	verb	give
 92	לוקח	verb	take
 93	אוכל	verb	eat; food
@@ -111,7 +111,7 @@ rank	word	pos	en
 110	גדול	adj	big; large
 111	קטן	adj	small; little
 112	חדש	adj	new
-113	ישן	adj	old
+113	ישן	adj	old (of things)
 114	יפה	adj	beautiful; nice
 115	רע	adj	bad
 116	קשה	adj	hard; difficult
