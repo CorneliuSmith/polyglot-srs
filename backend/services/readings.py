@@ -18,6 +18,11 @@ Only languages with reliable tooling are covered:
     read *afto*
 Arabic is deliberately absent — unvocalized script drops the short vowels a
 romanization would need, so a computed reading would mislead.
+
+Thai is absent too, and that one was MEASURED rather than assumed. The
+romanizer exists (`backend/services/nlp/thai_reading.py`) and is deliberately
+not wired here: both available engines fail on ordinary words. See that
+module's docstring and `test_thai_reading_is_not_ready.py` for the numbers.
 """
 from __future__ import annotations
 

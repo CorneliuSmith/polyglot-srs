@@ -35,6 +35,12 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+# Thai romanization, OPTIONAL because the layer does not ship: neither
+# pythainlp engine is accurate enough (see backend/services/nlp/thai_reading.py
+# for the measurement). ~144 MB, offline, no runtime download. Install with
+# pip install -e '.[thai]' to work on closing the gap.
+thai = ["pythainlp>=5.0", "onnxruntime>=1.17"]
+
 # Arabic full morphology. OPTIONAL because camel-tools drags in torch +
 # transformers (~4 GB installed) — enough to blow PaaS build-machine disk
 # (DigitalOcean terminated the image build on it). Without this extra,

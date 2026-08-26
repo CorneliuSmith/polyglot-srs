@@ -149,7 +149,7 @@ discard the only reviewed romanisation in the corpus.
 | `ko` | 7,214 | 3,897 | computed, all |
 | `he` | 3,000 | 7,483 | authored, 194 sentences (3%) |
 | `fa` | 2,996 | 4,003 | authored, 199 sentences (5%) |
-| `th` | 3,754 | 4,376 | **none** |
+| `th` | 3,754 | 4,376 | **none** — built, measured, rejected |
 | `ar` | 8,928 | 14,671 | none, by design |
 
 Four of eight are covered end to end — 51,881 sentences and 36,558 words —
@@ -159,15 +159,28 @@ not one backlog:
 - **`he` and `fa` need authoring.** Both scripts drop vowels the reader has
   to supply, so no romanizer can be written; 393 rows are hand-done and the
   rest is work.
-- **`th` needs a decision, and its deferral is the one that still holds.**
-  Unlike Korean's ("Hangul is phonetic", true only for someone who can
-  already read it), the Thai seeder's reasoning is sound: RTGS is not a
-  character mapping. Thai writes vowels before, above, below and after their
-  consonant, leaves some implicit, marks no word boundaries, and RTGS drops
-  the tones a learner needs anyway. Doing it properly means a real Thai
-  segmenter (`pythainlp` has one) — a dependency decision — or a native
-  reviewer. **Attempting it by hand is how a layer ships wrong**, and wrong
-  is worse than absent for a layer whose whole audience cannot check it.
+- **`th` was built, measured, and NOT shipped.** The romanizer exists
+  (`backend/services/nlp/thai_reading.py`, on `pythainlp`'s segmenter, since
+  Thai marks no word boundaries) and went through the same adversarial
+  verification Greek and Korean passed. Those returned one systematic defect
+  each. Thai returned **38 claimed defects over 60 corpus sentences in seven
+  classes**, and on the confirmed set the better of the two available engines
+  scores **6/18**. The failures are ordinary words — `สุขภาพ` health, `อิสระ`
+  freedom, `ฝรั่งเศส` France, and `ไหม`, the question particle ending a large
+  share of all Thai questions, which comes out as two syllables *haimai*.
+
+  So the seeder's original judgement ("rather than shipped wrong") was right,
+  and it is now backed by a number instead of an intuition. `th` stays out of
+  `READING_LANGS`; `pythainlp` is an optional extra, not a dependency; and
+  `backend/tests/test_thai_reading_is_not_ready.py` pins each known failure so
+  that whoever closes the gap sees it close. One class WAS fixable and is
+  fixed: `ๆ` (mai yamok) is a repetition mark, not a letter, and the engine
+  was hallucinating a syllable from it (`มากๆ` → *mak wi*).
+
+  **The general lesson is the one worth keeping: the adversarial pass is what
+  told these three apart.** Greek and Korean looked risky and were fine; Thai
+  looked buildable and was not. Neither outcome was predictable from reading
+  about the script.
 - **`ar` stays excluded.** Unvocalized script has no short vowels to romanize;
   a computed Arabic reading would invent sounds.
 
