@@ -86,6 +86,18 @@
           "usage": "be- on a past verb and the particle hami — for reading older prose.",
           "example": "شاه بگفت: چنین است. — The king said: it is so.",
           "nonstandard": true
+        },
+        {
+          "point": "Personal pronouns and budan (\"to be\")",
+          "label": "budan (to be)",
+          "usage": "Saying what someone or something is: hastam, hasti, ast, hastim.",
+          "example": "من هستم. — I am."
+        },
+        {
+          "point": "Two verb stems: present and past",
+          "label": "Verb stems",
+          "usage": "Every verb keeps two shapes: didam for the past, mibinam for now.",
+          "example": "دیروز او را دیدم. — I saw him yesterday."
         }
       ]
     },
@@ -229,6 +241,36 @@
           "usage": "gardid, namud, mibashad, jahat — the Persian of letters and forms.",
           "example": "این نامه برای شما ارسال گردید. — This letter was sent to you.",
           "nonstandard": true
+        },
+        {
+          "point": "Adjectives follow the noun",
+          "label": "Adjective after noun",
+          "usage": "The describing word goes after the thing described: ketab-e khub.",
+          "example": "من یک دوست خوب دارم. — I have a good friend."
+        },
+        {
+          "point": "Yes/no questions: same word order, just a question mark",
+          "label": "Yes/no questions",
+          "usage": "Leave the sentence exactly as it stands and add a question mark.",
+          "example": "تو می‌روی؟ — Are you going?"
+        },
+        {
+          "point": "Idioms and light-verb nuance",
+          "label": "Idioms",
+          "usage": "Set phrases whose parts do not add up: az dast dadan is \"to lose\".",
+          "example": "کتابم را از دست دادم. — I lost my book."
+        },
+        {
+          "point": "Register shifting: deference and distance",
+          "label": "Deference vs. intimacy",
+          "usage": "Choosing how respectful to sound: farmudid to an elder, gofti to a friend.",
+          "example": "شما دیروز چه فرمودید؟ — What did you say yesterday? (deferential)"
+        },
+        {
+          "point": "Classical verse conventions (recognition)",
+          "label": "Classical verse",
+          "usage": "For reading poetry, where written bud is read bovad and means \"is\", and ze stands for az.",
+          "example": "توانا بود هر که دانا بود. — Whoever is wise is strong. (Ferdowsi)"
         }
       ]
     }

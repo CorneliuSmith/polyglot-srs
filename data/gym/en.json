@@ -54,6 +54,132 @@
           "usage": "Irregular past forms.",
           "example": "I went home.",
           "nonstandard": true
+        },
+        {
+          "point": "To be — am / is / are",
+          "label": "To be",
+          "usage": "For saying what or how somebody is — I am, he is, they are — a word English never drops.",
+          "example": "I am a student. — Talking about yourself."
+        },
+        {
+          "point": "Imperatives (Open…, Don't…)",
+          "label": "Commands",
+          "usage": "For telling or asking somebody to do something, using the plain verb with nobody named in front of it.",
+          "example": "Open the door, please. — Asking someone to open the door."
+        },
+        {
+          "point": "Do-support: questions and negation",
+          "label": "Do / don't",
+          "usage": "For turning a statement into a question or a negative by putting do, does or don't in front of it.",
+          "example": "Do you speak English? — Asking about someone's languages."
+        },
+        {
+          "point": "There is / there are",
+          "label": "There is / are",
+          "usage": "For saying that something exists or is somewhere — one thing takes is, several take are.",
+          "example": "There is a book on the table. — One thing exists."
+        },
+        {
+          "point": "Present continuous vs present simple",
+          "label": "Continuous vs simple",
+          "usage": "For choosing between what is going on at this moment and what happens as a rule.",
+          "example": "The baby is sleeping now, but he usually wakes at six. — Happening this minute, against the usual pattern."
+        },
+        {
+          "point": "Can, could, have to",
+          "label": "Can / have to",
+          "usage": "For saying what somebody is able to do, what they are allowed to do, and what they have no choice about.",
+          "example": "She can speak three languages. — Ability now."
+        },
+        {
+          "point": "The passive (is made, was built)",
+          "label": "Passive",
+          "usage": "For putting the thing something was done to first, when who did it is unknown or beside the point.",
+          "example": "This wine is produced in Chile. — Present passive."
+        },
+        {
+          "point": "Used to — past habits and states",
+          "label": "Used to",
+          "usage": "For something that happened again and again, or was true, in the past but is not any more.",
+          "example": "I used to play football every weekend. — A past habit, now finished."
+        },
+        {
+          "point": "Reported speech",
+          "label": "Reported speech",
+          "usage": "For passing on what somebody said without quoting their exact words.",
+          "example": "She said she was busy that evening. — Passing on what she told me."
+        },
+        {
+          "point": "Gerund or infinitive?",
+          "label": "-ing or to",
+          "usage": "For deciding whether the verb that follows enjoy, want, decide and the rest takes -ing or to.",
+          "example": "I really enjoy swimming in the sea. — enjoy + -ing."
+        },
+        {
+          "point": "Third and mixed conditionals",
+          "label": "Past conditionals",
+          "usage": "For imagining how the past could have gone differently, and what would be true now if it had.",
+          "example": "If you had told me, I would have helped. — Unreal past condition."
+        },
+        {
+          "point": "Modals of deduction (must, might, can't)",
+          "label": "Must & might",
+          "usage": "For saying how sure you are about something from the evidence in front of you.",
+          "example": "The lights are on — someone must be home. — Almost certainly true."
+        },
+        {
+          "point": "Advanced passives (has been done, being done)",
+          "label": "Advanced passives",
+          "usage": "For something that was done earlier and still counts now, or is in the middle of being done, when who did it does not matter.",
+          "example": "The road has been closed since Monday. — Perfect passive."
+        },
+        {
+          "point": "Wish and if only",
+          "label": "Wishes & regrets",
+          "usage": "For saying you are sorry something is the way it is now, or was the way it was then.",
+          "example": "I wish I knew how to drive. — Present regret → past form."
+        },
+        {
+          "point": "Phrasal verbs — separable or not?",
+          "label": "Phrasal verbs",
+          "usage": "For knowing whether the little word can move away from its verb, and where a short word like it has to go.",
+          "example": "Could you turn it off? The music's too loud. — Pronouns split separable verbs."
+        },
+        {
+          "point": "Question tags and indirect questions",
+          "label": "Question tags",
+          "usage": "For checking something you already believe (…, aren't you?) and for asking a question the polite, roundabout way.",
+          "example": "You've met before, haven't you? — Positive → negative tag."
+        },
+        {
+          "point": "Inversion (Never have I…, Not only…)",
+          "label": "Inversion",
+          "usage": "For dramatic emphasis in formal writing, where a sentence opens with never or not only and the next two words swap round.",
+          "example": "Never have I heard such nonsense. — Auxiliary before subject."
+        },
+        {
+          "point": "Hedging and distancing (would seem, tend to)",
+          "label": "Hedging",
+          "usage": "For making a claim sound careful rather than absolute, the way academic and professional writing expects.",
+          "example": "It would seem that the figures are wrong. — The classic hedge."
+        },
+        {
+          "point": "Participle clauses (Having finished, …)",
+          "label": "Participle clauses",
+          "usage": "For packing two things the same person did into one sentence: Having finished the report, she left.",
+          "example": "Having finished dinner, we went for a walk. — The earlier action."
+        },
+        {
+          "point": "The mandative subjunctive (insist that he be)",
+          "label": "Subjunctive",
+          "usage": "In formal English, the plain verb stays unchanged for everybody after demand, insist, recommend or suggest.",
+          "example": "The board insisted that he be removed from the project. — Bare form of be, all persons."
+        },
+        {
+          "point": "Ellipsis and substitution (so, neither, do so)",
+          "label": "So & neither",
+          "usage": "For agreeing or answering in short — So do I, Neither can I — instead of repeating the whole sentence.",
+          "example": "She loved the film, and so did I. — Agreeing without repeating the whole sentence."
         }
       ]
     },
@@ -84,6 +210,66 @@
           "label": "Possessives",
           "usage": "my/your and the 's ending.",
           "example": "my book, Anna's car"
+        },
+        {
+          "point": "Subject pronouns (I, you, he…)",
+          "label": "Subject pronouns",
+          "usage": "The words for who is doing something — I, you, he, she, it, we, they — and English can never leave them out.",
+          "example": "I am from Brazil. — Introducing yourself."
+        },
+        {
+          "point": "Object pronouns (me, him, them)",
+          "label": "Object pronouns",
+          "usage": "The words for the person or thing on the receiving end, used after a verb or after with, for, to: me, him, us, them.",
+          "example": "Can you help me, please? — Asking for help for yourself."
+        },
+        {
+          "point": "The — pointing at a specific thing",
+          "label": "Article the",
+          "usage": "Use the when both of you already know which one is meant, or when there is only one of it.",
+          "example": "The sun is hot today. — There is only one of it."
+        },
+        {
+          "point": "Question words (what, where, when…)",
+          "label": "Question words",
+          "usage": "The words that open a question — what, where, when, who, why, how — and always come first.",
+          "example": "Where do you live? — Asking about someone's home."
+        },
+        {
+          "point": "Some, any, much, many",
+          "label": "Some / any",
+          "usage": "For amounts you are not counting exactly: some in statements and offers, any in questions and negatives, much for what you cannot count and many for what you can.",
+          "example": "There's some milk in the fridge. — Positive sentence."
+        },
+        {
+          "point": "Adverbs of frequency",
+          "label": "Frequency adverbs",
+          "usage": "The words for how often something happens — always, usually, sometimes, never — and where they sit in the sentence.",
+          "example": "I always drink coffee in the morning — every single day. — 100% of the time."
+        },
+        {
+          "point": "Prepositions of time: in, on, at",
+          "label": "In / on / at",
+          "usage": "Which small word goes before a time: at for clock times, on for days and dates, in for months and years.",
+          "example": "The meeting starts at nine o'clock. — Clock time."
+        },
+        {
+          "point": "Relative clauses (who, which, that, where)",
+          "label": "Relative clauses",
+          "usage": "For hanging a description onto a person, thing or place — the woman who lives next door — with who, which, that or where.",
+          "example": "She's the doctor who treated my father. — A person."
+        },
+        {
+          "point": "Cleft sentences (What I need is…, It was… that)",
+          "label": "Cleft sentences",
+          "usage": "For re-shaping a sentence so that one part of it gets the spotlight: What I need is a holiday.",
+          "example": "What I need is a good night's sleep. — The what-cleft opener."
+        },
+        {
+          "point": "Formal connectors (notwithstanding, albeit)",
+          "label": "Formal connectors",
+          "usage": "The joining words that legal and academic writing expects: notwithstanding, albeit, hence, whereby.",
+          "example": "The plan went ahead, notwithstanding the objections. — Formal 'despite'."
         }
       ]
     }

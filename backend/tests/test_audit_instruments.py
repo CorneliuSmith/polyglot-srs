@@ -306,13 +306,27 @@ class TestPolysemy:
 
 
 class TestAgainstTheRealTree:
-    def test_english_hides_the_forms_the_plan_named(self):
-        """docs/plans/gym-coverage.md measured English at 12 shown and 31 hidden,
-        and named the passive and relative clauses among the hidden. If this
-        drifts, either the content moved or the instrument broke."""
+    def test_no_language_hides_a_grammar_point_from_the_gym(self):
+        """docs/plans/gym-coverage.md measured English at 12 shown and 31
+        hidden, and named the passive and relative clauses among the hidden.
+        That was the whole program: 435 of 1,262 points trainable, seven
+        courses with no manifest at all.
+
+        It is 1,262 of 1,262 now, so the assertion inverts — this stops being
+        "English hides these particular forms" and becomes "nothing hides
+        anything". A point the manifest omits cannot be drilled by anyone, so
+        a regression here is a feature quietly disappearing rather than a
+        number drifting."""
+        hidden = {
+            r["code"]: len(r["hidden"])
+            for r in audit_gym.audit_all() if r.get("hidden")
+        }
+        assert not hidden, hidden
+
+    def test_english_specifically_shows_all_of_its_points(self):
         report = audit_gym.audit_language("en")
-        assert report["shown"] == 12
-        assert len(report["hidden"]) == 31
+        assert report["shown"] == 43      # was 12
+        assert report["hidden"] == []     # was 31, including the passive
 
     def test_no_language_has_a_dangling_picker_entry(self):
         """A dangling entry shows the learner an empty form, so this should stay

@@ -66,6 +66,114 @@
           "usage": "The prefix splits off to the end.",
           "example": "Ik sta om zeven uur op.",
           "nonstandard": true
+        },
+        {
+          "point": "Word order: the verb comes second",
+          "label": "Verb second",
+          "usage": "In an ordinary statement the verb stays in second place, even when the sentence opens with a time or a place.",
+          "example": "Morgen ga ik naar Amsterdam. — Tomorrow I am going to Amsterdam."
+        },
+        {
+          "point": "Negation: niet and geen",
+          "label": "niet / geen",
+          "usage": "Saying no: geen cancels a thing you don't have, niet cancels everything else.",
+          "example": "Ik heb geen auto. — I don't have a car."
+        },
+        {
+          "point": "Questions: inversion and question words",
+          "label": "Questions",
+          "usage": "Asking something: put the verb in front of the person, or open with a question word.",
+          "example": "Waar woon je? — Where do you live?"
+        },
+        {
+          "point": "Er is / er zijn",
+          "label": "Er is / zijn",
+          "usage": "Saying that something exists or is around, and asking whether there is any.",
+          "example": "Er is een probleem. — There is a problem."
+        },
+        {
+          "point": "Subclauses: the verb walks to the end",
+          "label": "Verb last",
+          "usage": "In the half of a sentence that starts with omdat, dat or als, the verb drops to the very end.",
+          "example": "Ik blijf thuis omdat ik ziek ben. — I'm staying home because I am sick."
+        },
+        {
+          "point": "Om te + infinitive",
+          "label": "Om te",
+          "usage": "Saying what you are doing something for.",
+          "example": "Ik ga naar de markt om groente te kopen. — I'm going to the market to buy vegetables."
+        },
+        {
+          "point": "Reflexive verbs: zich vergissen, zich voelen",
+          "label": "Reflexive verbs",
+          "usage": "When the action comes back to the person doing it, and with verbs that always demand it.",
+          "example": "Ik vergis me soms. — I am sometimes mistaken."
+        },
+        {
+          "point": "The passive: worden and zijn",
+          "label": "Passive",
+          "usage": "When what was done matters more than who did it.",
+          "example": "De weg wordt volgende week gerepareerd. — The road will be repaired next week."
+        },
+        {
+          "point": "Want vs omdat, dus and maar",
+          "label": "want / omdat",
+          "usage": "Giving a reason — and the word you choose decides where the verb goes.",
+          "example": "Ik blijf thuis, want ik ben ziek. — I'm staying home, for I am sick."
+        },
+        {
+          "point": "Te + infinitive: proberen te, hoeven te",
+          "label": "proberen te / hoeven te",
+          "usage": "Hooking a second verb onto verbs like proberen, hoeven and beloven.",
+          "example": "Ik probeer elke dag te sporten. — I try to exercise every day."
+        },
+        {
+          "point": "Zou: would, could you, apparently",
+          "label": "zou (would)",
+          "usage": "Asking politely, imagining something, giving advice, or passing on what people say.",
+          "example": "Zou je het raam kunnen sluiten? — Could you close the window?"
+        },
+        {
+          "point": "Indirect speech: dat and of",
+          "label": "Indirect speech",
+          "usage": "Reporting what somebody said or asked instead of quoting them.",
+          "example": "Hij zegt dat hij morgen komt. — He says that he is coming tomorrow."
+        },
+        {
+          "point": "Modal particles: wel, toch, maar, even, eens",
+          "label": "wel / toch / maar",
+          "usage": "The small words that soften, nudge or gently contradict, and make you sound Dutch.",
+          "example": "Het is wel lekker, hoor. — It IS actually tasty."
+        },
+        {
+          "point": "Past perfect and tense sequencing",
+          "label": "Past perfect (had gedaan)",
+          "usage": "Telling about something that was already finished before another past moment.",
+          "example": "Ik had al gegeten toen zij kwam. — I had already eaten when she came."
+        },
+        {
+          "point": "Double infinitives: heb kunnen doen",
+          "label": "Double infinitives",
+          "usage": "Putting can, must or want into the past with heb or had.",
+          "example": "Ik heb vannacht niet kunnen slapen. — I couldn't sleep last night."
+        },
+        {
+          "point": "Conditionals: als … zou, had gedaan",
+          "label": "Conditionals",
+          "usage": "Talking about what happens, would happen, or would have happened if something is true.",
+          "example": "Als ik rijk was, zou ik de wereld rondreizen. — If I were rich, I would travel the world."
+        },
+        {
+          "point": "The tang: brackets around the sentence",
+          "label": "Verb bracket",
+          "usage": "In sentences with two verb parts, everything else sits packed between them.",
+          "example": "Ik heb gisteren de hele dag aan mijn scriptie gewerkt. — I worked on my thesis all day yesterday."
+        },
+        {
+          "point": "Posture verbs as 'to be': staan, liggen, zitten",
+          "label": "Posture verbs",
+          "usage": "Saying where a thing is — Dutch says it stands, lies or sits there.",
+          "example": "De fles staat op tafel. — The bottle is (standing) on the table."
         }
       ]
     },
@@ -108,6 +216,54 @@
           "label": "Diminutives",
           "usage": "The -je ending (little / cute).",
           "example": "huis → huisje"
+        },
+        {
+          "point": "Subject pronouns: ik, jij, u, hij, zij…",
+          "label": "Subject pronouns",
+          "usage": "Naming who is doing something — I, you, he, she, we, they — with a polite you as well.",
+          "example": "Jij komt uit Nederland, hij komt uit België. — You are from the Netherlands, he is from Belgium."
+        },
+        {
+          "point": "Er — the five jobs of one little word",
+          "label": "er (five jobs)",
+          "usage": "Standing in for a place already mentioned, an amount, or a thing after a small word like over.",
+          "example": "Hoeveel katten heb je? — Ik heb er twee. — How many cats do you have? — I have two (of them)."
+        },
+        {
+          "point": "Relative clauses: die, dat, waar",
+          "label": "die / dat",
+          "usage": "Adding extra information about a thing: de-words take die, het-words take dat.",
+          "example": "De vrouw die daar staat, is mijn buurvrouw. — The woman who is standing there is my neighbour."
+        },
+        {
+          "point": "Waar-compounds: waarover, erop, daarmee",
+          "label": "waarover / ermee",
+          "usage": "Saying about it, with it or in it — and asking what about.",
+          "example": "Waar denk je aan? — What are you thinking about?"
+        },
+        {
+          "point": "Register: u-space, je-space, and writing",
+          "label": "u or je",
+          "usage": "Choosing between polite u and everyday je, in speech and in letters.",
+          "example": "Kunt u mij even helpen? — Could you help me for a moment? (to a friend: kun je me even helpen?)"
+        },
+        {
+          "point": "Nominalization: het + infinitive, -heid, ge-",
+          "label": "Making nouns",
+          "usage": "Turning a verb or a quality into a thing you can talk about.",
+          "example": "Het reizen verbreedt de blik. — Travelling broadens the mind."
+        },
+        {
+          "point": "Netherlands vs Flanders: one language, two flavours",
+          "label": "Dutch vs Flemish",
+          "usage": "Which words and forms you hear in Belgium rather than in the Netherlands.",
+          "example": "Ik heb goesting in frieten. — I fancy fries. (in the Netherlands: Ik heb zin in patat.)"
+        },
+        {
+          "point": "Fossils: der, des, te allen tijde",
+          "label": "Old case forms",
+          "usage": "Set phrases and formal writing that kept endings everyday Dutch dropped.",
+          "example": "Dat is nu eenmaal de loop der dingen. — That is simply the way of things."
         }
       ]
     }

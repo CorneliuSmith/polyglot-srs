@@ -55,6 +55,114 @@
           "usage": "make / have someone do.",
           "example": "मैंने खाना बनवाया।",
           "nonstandard": true
+        },
+        {
+          "point": "Word order: subject–object–verb",
+          "label": "Word order",
+          "usage": "Where the words go: the verb comes last.",
+          "example": "मैं चाय पीता हूँ। — I drink tea."
+        },
+        {
+          "point": "The verb 'to be': हूँ, है, हो, हैं",
+          "label": "To be हूँ/है/हैं",
+          "usage": "Am, is, are — Hindi never leaves it out.",
+          "example": "मैं डॉक्टर हूँ। — I am a doctor."
+        },
+        {
+          "point": "Negation: नहीं and मत",
+          "label": "Negation",
+          "usage": "Saying you don't do something, or telling someone not to.",
+          "example": "मैं कॉफ़ी नहीं पीता। — I don't drink coffee."
+        },
+        {
+          "point": "Questions: क्या and the question words",
+          "label": "Questions",
+          "usage": "Asking yes-or-no, or what, who, where and when.",
+          "example": "क्या आप भारत से हैं? — Are you from India?"
+        },
+        {
+          "point": "Commands and requests: करो, कीजिए",
+          "label": "Commands",
+          "usage": "Telling or asking someone to do something.",
+          "example": "यहाँ बैठो। (to a friend) — Sit here. (informal)"
+        },
+        {
+          "point": "Past 'to be': था, थी, थे, थीं",
+          "label": "Past था/थी/थे",
+          "usage": "Was and were, matching who you are talking about.",
+          "example": "कल मैं घर पर था। (a man speaking) — Yesterday I was at home. (male)"
+        },
+        {
+          "point": "Wanting and needing: चाहिए and चाहना",
+          "label": "Wanting चाहिए",
+          "usage": "Saying you want or need something.",
+          "example": "मुझे एक कप चाय चाहिए। — I want a cup of tea."
+        },
+        {
+          "point": "Can and could: सकना",
+          "label": "Can सकना",
+          "usage": "Saying what you are able to do.",
+          "example": "मैं हिंदी बोल सकता हूँ। (a man speaking) — I can speak Hindi. (male)"
+        },
+        {
+          "point": "Compound verbs: ले जाना, खा लेना",
+          "label": "Compound verbs",
+          "usage": "Finishing an action off — eaten up, given away, fallen asleep.",
+          "example": "मैंने पूरा खाना खा लिया। — I ate up all the food."
+        },
+        {
+          "point": "Obligation: चाहिए, है, पड़ना",
+          "label": "Necessity",
+          "usage": "Should, have to, or had no choice.",
+          "example": "तुम्हें डॉक्टर के पास जाना चाहिए। — You should go to the doctor."
+        },
+        {
+          "point": "Relative–correlative: जो… वह, जब… तब",
+          "label": "Relative जो… वह",
+          "usage": "Saying 'the one who…' with a matching pair of words.",
+          "example": "जो मेहनत करता है, वह सफल होता है। — The one who works hard succeeds."
+        },
+        {
+          "point": "Conditionals: अगर… तो",
+          "label": "Conditionals",
+          "usage": "If this happens, then that — real or imaginary.",
+          "example": "अगर तुम पढ़ोगे तो पास हो जाओगे। — If you study, you'll pass."
+        },
+        {
+          "point": "The passive: खाया जाता है",
+          "label": "Passive",
+          "usage": "When what happened matters more than who did it.",
+          "example": "भारत में कई भाषाएँ बोली जाती हैं। — Many languages are spoken in India."
+        },
+        {
+          "point": "Presumptive: होगा, रहा होगा",
+          "label": "Presumptive होगा",
+          "usage": "Guessing what is probably true right now.",
+          "example": "अभी दस बजे हैं, वह दफ़्तर में होगा। — It's ten now; he must be at the office."
+        },
+        {
+          "point": "Aspect verbs: लगना, रहना, चुकना, जाना",
+          "label": "Start, keep, finish",
+          "usage": "An action beginning, carrying on, or already over.",
+          "example": "बच्चा अचानक रोने लगा। — The child suddenly began to cry."
+        },
+        {
+          "point": "Reported speech and कि-clauses",
+          "label": "Reported speech",
+          "usage": "Telling someone what another person said.",
+          "example": "उसने कहा कि वह कल आएगा। — He said that he would come tomorrow."
+        },
+        {
+          "point": "Participial phrases: आते हुए, बैठे-बैठे",
+          "label": "Participles हुए",
+          "usage": "Doing one thing while doing another.",
+          "example": "घर आते हुए मैंने बाज़ार देखा। — While coming home, I saw the market."
+        },
+        {
+          "point": "Ne-construction edge cases and split ergativity",
+          "label": "ने exceptions",
+          "usage": "Which past sentences take ने — and which verbs never do.",
+          "example": "मैं कल बाज़ार से फल लाया। — I brought fruit from the market yesterday. (male)"
         }
       ]
     },
@@ -91,6 +199,72 @@
           "label": "Gender",
           "usage": "Every noun is masculine or feminine.",
           "example": "लड़का (m), लड़की (f)"
+        },
+        {
+          "point": "Pronouns and politeness: तू, तुम, आप",
+          "label": "Pronouns तू/तुम/आप",
+          "usage": "Picking the right 'you' for the person you are talking to.",
+          "example": "आप कैसे हैं? — How are you? (respectful)"
+        },
+        {
+          "point": "Having things: के पास, का, को",
+          "label": "I have के पास",
+          "usage": "Saying you have something — a bike, a brother, a fever.",
+          "example": "मेरे पास एक साइकिल है। — I have a bicycle."
+        },
+        {
+          "point": "Comparisons: से बड़ा, सबसे अच्छा",
+          "label": "Comparison",
+          "usage": "Saying one thing is bigger than another, or the best of all.",
+          "example": "हाथी घोड़े से बड़ा है। — An elephant is bigger than a horse."
+        },
+        {
+          "point": "Adverbs and manner: से, कर के, तरह",
+          "label": "Adverbs",
+          "usage": "Saying how something is done — quickly, carefully, calmly.",
+          "example": "कृपया ध्यान से सुनिए। — Please listen attentively."
+        },
+        {
+          "point": "Experiencer subjects: मुझे लगता है, पसंद है",
+          "label": "Feelings मुझे",
+          "usage": "Liking, feeling and thinking, where 'I' becomes मुझे.",
+          "example": "मुझे यह गाना पसंद है। — I like this song."
+        },
+        {
+          "point": "Numbers, ordinals, and fractions",
+          "label": "Numbers",
+          "usage": "Counting things, and saying first, second, half.",
+          "example": "यह मेरा पहला बच्चा है। — This is my first child."
+        },
+        {
+          "point": "Register: तत्सम Sanskrit vs Perso-Arabic vocabulary",
+          "label": "Register",
+          "usage": "Choosing the formal word or the everyday one.",
+          "example": "आपकी मदद के लिए बहुत-बहुत धन्यवाद। — Thank you very much for your help. (formal; among friends: शुक्रिया)"
+        },
+        {
+          "point": "Honorific concord and pronoun avoidance",
+          "label": "Honorific plural",
+          "usage": "Speaking of one respected person as if they were several.",
+          "example": "पिताजी अभी घर आए हैं। — Father has just come home. (honorific plural)"
+        },
+        {
+          "point": "Idiomatic body-and-mind expressions",
+          "label": "Idioms मन/दिल",
+          "usage": "Everyday phrases built on मन (mind) and दिल (heart).",
+          "example": "आज मेरा घूमने का मन कर रहा है। — I feel like going out today."
+        },
+        {
+          "point": "Discourse particles: तो, ही, भी, न, वाला",
+          "label": "Particles तो/ही/भी",
+          "usage": "Small words that add only, even, or 'as for me'.",
+          "example": "मैं तो यह काम आज ही करूँगा। — As for me, I'll do this very task today."
+        },
+        {
+          "point": "Literary and poetic syntax: inversion, ellipsis, Urdu izafat",
+          "label": "Izafat & inversion",
+          "usage": "Reading poetry and old-fashioned writing, where the words arrive in an unexpected order.",
+          "example": "शमा-ए-महफ़िल देर रात तक जलती रही। — The candle of the gathering burned on late into the night."
         }
       ]
     }

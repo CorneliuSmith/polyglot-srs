@@ -66,6 +66,102 @@
           "usage": "The past-before-the-past.",
           "example": "J'avais déjà mangé.",
           "nonstandard": true
+        },
+        {
+          "point": "Être — present (je suis, tu es…)",
+          "label": "Être (to be)",
+          "usage": "Saying what someone or something is.",
+          "example": "Je suis étudiant. — I am a student."
+        },
+        {
+          "point": "Avoir — present (j'ai faim)",
+          "label": "Avoir (to have)",
+          "usage": "Saying what you have — and how old, hungry or thirsty you are.",
+          "example": "J'ai vingt ans. — I am twenty years old."
+        },
+        {
+          "point": "Key irregular presents (vais, fais, peux, veux)",
+          "label": "Present irregulars",
+          "usage": "Now or regularly, for the everyday verbs that break the pattern.",
+          "example": "Je vais au marché maintenant. — I'm going to the market now."
+        },
+        {
+          "point": "Negation with ne … pas",
+          "label": "Negation",
+          "usage": "Saying that something is not so.",
+          "example": "Je ne parle pas anglais. — I don't speak English."
+        },
+        {
+          "point": "Il y a — there is / there are",
+          "label": "Il y a",
+          "usage": "Saying what exists or is present, one thing or many.",
+          "example": "Il y a un livre sur la table. — There is a book on the table."
+        },
+        {
+          "point": "Reflexive verbs (se laver)",
+          "label": "Reflexives",
+          "usage": "When you do something to yourself — washing, waking, getting up.",
+          "example": "Chaque matin, je me lève à sept heures. — Every morning I get up at seven."
+        },
+        {
+          "point": "Near future & recent past (aller / venir de)",
+          "label": "Near future/past",
+          "usage": "About to happen, or only just finished.",
+          "example": "Attends, je vais arriver dans cinq minutes. — Wait, I'm going to arrive in five minutes."
+        },
+        {
+          "point": "Reported speech (le discours indirect)",
+          "label": "Reported speech",
+          "usage": "Telling someone what another person said or asked.",
+          "example": "Il dit qu'il est fatigué. — He says (that) he is tired."
+        },
+        {
+          "point": "The passive voice (la voix passive)",
+          "label": "Passive",
+          "usage": "When the thing acted on comes first and who did it barely matters.",
+          "example": "La lettre est écrite en français. — The letter is written in French."
+        },
+        {
+          "point": "Hypotheticals with si (si + imparfait)",
+          "label": "Si clauses",
+          "usage": "Imagining something that is not true right now.",
+          "example": "Si j'étais riche, je voyagerais partout. — If I were rich, I would travel everywhere."
+        },
+        {
+          "point": "The gerund (le gérondif: en faisant)",
+          "label": "Gérondif",
+          "usage": "Doing one thing while, or by, doing another.",
+          "example": "Il est tombé en courant après le bus. — He fell while running for the bus."
+        },
+        {
+          "point": "Subjunctive after conjunctions",
+          "label": "Subjunctive (bien que, pour que)",
+          "usage": "After linking words like bien que and pour que.",
+          "example": "Bien qu'il fasse froid, ils se baignent. — Although it's cold, they swim."
+        },
+        {
+          "point": "The past conditional (le conditionnel passé)",
+          "label": "Past conditional",
+          "usage": "What would have happened, but did not.",
+          "example": "Si j'avais su, je serais venu plus tôt. — If I had known, I would have come earlier."
+        },
+        {
+          "point": "The past subjunctive & sequence of tenses",
+          "label": "Past subjunctive",
+          "usage": "After que, for something already over and done.",
+          "example": "Je suis ravi que tu sois venu. — I'm delighted that you came."
+        },
+        {
+          "point": "The literary past (le passé simple)",
+          "label": "Passé simple",
+          "usage": "The written past of novels and history — read, not spoken.",
+          "example": "Le roi construisit un grand palais. — The king built a great palace."
+        },
+        {
+          "point": "Elevated register (subjonctif littéraire, ne explétif)",
+          "label": "Elevated register",
+          "usage": "Formal and literary French that everyday speech has dropped.",
+          "example": "Je crains qu'il ne vienne trop tard. — I fear he will come too late."
         }
       ]
     },
@@ -102,6 +198,72 @@
           "label": "Possessive/demonstrative",
           "usage": "mon/ma/mes, ce/cette/ces.",
           "example": "mon ami, cette nuit"
+        },
+        {
+          "point": "Subject pronouns (je, tu, il…)",
+          "label": "Subject pronouns",
+          "usage": "The words for I, you, he and we — with tu or vous for you.",
+          "example": "Je suis de Paris. — I am from Paris."
+        },
+        {
+          "point": "Gender and number of nouns",
+          "label": "Noun gender/plural",
+          "usage": "Every thing counts as a he or a she, and the plural is written but barely heard.",
+          "example": "J'ai deux livres. — I have two books."
+        },
+        {
+          "point": "Question words (où, comment, quand…)",
+          "label": "Question words",
+          "usage": "Asking where, how, when, why and how much.",
+          "example": "Où habites-tu ? — Where do you live?"
+        },
+        {
+          "point": "Direct object pronouns (le, la, les…)",
+          "label": "Direct object pronouns",
+          "usage": "Saying him, her or them instead of naming the thing again.",
+          "example": "Tu connais Marc? Oui, je le connais bien. — Do you know Marc? Yes, I know him well."
+        },
+        {
+          "point": "Indirect pronouns, y and en (lui, leur, y, en)",
+          "label": "Lui, y, en",
+          "usage": "To him, to them, there, or some of it.",
+          "example": "Je téléphone à Paul; je lui téléphone ce soir. — I'm calling Paul; I'll call him tonight."
+        },
+        {
+          "point": "Two object pronouns (je le lui donne)",
+          "label": "Pronoun order",
+          "usage": "When two short words like le and lui meet before the verb, in a fixed order.",
+          "example": "Ce livre? Je te le prête volontiers. — This book? I'll gladly lend it to you."
+        },
+        {
+          "point": "Relative pronouns (qui, que, où, dont)",
+          "label": "Relative pronouns",
+          "usage": "Adding who, that or where to say more about a person or thing.",
+          "example": "C'est l'homme qui habite à côté. — That's the man who lives next door."
+        },
+        {
+          "point": "Comparative & superlative (plus… que, le plus)",
+          "label": "Comparative/superlative",
+          "usage": "Saying more than, less than, or the most.",
+          "example": "Paris est plus grand que Lyon. — Paris is bigger than Lyon."
+        },
+        {
+          "point": "Irregular comparatives (meilleur, mieux, pire)",
+          "label": "Irregular comparatives",
+          "usage": "Better and worse, which have words of their own.",
+          "example": "Ce restaurant est meilleur que l'autre. — This restaurant is better than the other."
+        },
+        {
+          "point": "Logical connectors (pourtant, donc, cependant)",
+          "label": "Connectors",
+          "usage": "Joining ideas: so, however, because, on the other hand.",
+          "example": "Il pleut, donc nous restons à la maison. — It's raining, so we're staying home."
+        },
+        {
+          "point": "Emphasis (c'est… qui / que, ce qui… c'est)",
+          "label": "Emphasis",
+          "usage": "Pushing one word to the front so it stands out.",
+          "example": "C'est moi qui ai préparé le dîner. — I'm the one who made the dinner."
         }
       ]
     }

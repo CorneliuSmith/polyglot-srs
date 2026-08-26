@@ -74,6 +74,84 @@
           "nonstandard": true,
           "usage": "Prefixes aim the motion — при- arrives, у- departs, вы- exits — and flip the aspect.",
           "example": "Он пришёл домой в семь часов. — He came home at seven o'clock."
+        },
+        {
+          "point": "Purpose clauses: чтобы + infinitive",
+          "label": "In order to",
+          "usage": "Why you are doing something, when one person does both halves — чтобы plus the plain dictionary verb.",
+          "example": "Я учу русский, чтобы работать в Москве. — I am learning Russian in order to work in Moscow."
+        },
+        {
+          "point": "Чтобы + past: wishes and demands",
+          "label": "Wishes (чтобы)",
+          "usage": "Wanting somebody ELSE to do something — чтобы, then the verb in its past form however future the wish is.",
+          "example": "Я хочу, чтобы ты пришёл завтра. — I want you to come tomorrow (said to a man)."
+        },
+        {
+          "point": "Reported speech (что, ли)",
+          "label": "Reported speech",
+          "usage": "Passing on what was said — что for statements, ли for a yes/no question, and the original words keep their own time.",
+          "example": "Он сказал, что придёт завтра. — He said that he would come tomorrow."
+        },
+        {
+          "point": "Impersonal constructions (надо, можно, нельзя)",
+          "label": "Must / may",
+          "usage": "Sentences with nobody doing the doing — надо, можно, нельзя, and whoever it applies to goes into the 'to me' form.",
+          "example": "Мне надо идти домой. — I have to go home."
+        },
+        {
+          "point": "Aspect in the imperative and prohibitions",
+          "label": "Aspect in commands",
+          "usage": "Which command verb to reach for — the finished one asks for a single act, the ongoing one invites, encourages, and says 'don't'.",
+          "example": "Не опаздывай — урок начинается в девять. — Don't be late — the lesson starts at nine."
+        },
+        {
+          "point": "General-factual imperfective (Вы читали…?)",
+          "label": "Have you ever…",
+          "usage": "When only the bare fact matters — ever read it, already seen it — the ongoing verb covers even finished events.",
+          "example": "Вы читали «Войну и мир»? — Да, давно. — Have you read War and Peace? — Yes, long ago."
+        },
+        {
+          "point": "Aspect nuance: annulled results (открывал vs открыл)",
+          "label": "Undone actions",
+          "usage": "The choice that says whether the result still stands — открывал means it was opened and shut again, открыл means it is still open.",
+          "example": "Здесь холодно — кто-то открывал окно, но уже закрыл. — It's cold in here — someone had the window open, but has already closed it."
+        },
+        {
+          "point": "Verbal prefixes (пере-, до-, за-)",
+          "label": "Verb prefixes",
+          "usage": "The front piece that redirects a verb — пере- does it again, до- takes it to the end, за- drops in for a moment.",
+          "example": "Книга так понравилась, что я хочу её перечитать. — I liked the book so much that I want to reread it."
+        },
+        {
+          "point": "Reflexive passive (дом строится)",
+          "label": "Is being done (строится)",
+          "usage": "Things that get done without naming who does them — the -ся tail carries 'is being built', 'is sold', 'is discussed'.",
+          "example": "Новая школа строится уже два года. — The new school has been under construction for two years."
+        },
+        {
+          "point": "Imperfective gerund (читая)",
+          "label": "While doing (читая)",
+          "usage": "'While doing' in one word, hooked onto a sentence whose subject is doing both things at once.",
+          "example": "Читая книгу, я делаю заметки. — While reading a book, I take notes."
+        },
+        {
+          "point": "Perfective gerund (прочитав)",
+          "label": "Having done (прочитав)",
+          "usage": "'Having done' in one word — the first action finishes, and then the main one happens.",
+          "example": "Прочитав книгу, я вернул её в библиотеку. — Having read the book, I returned it to the library."
+        },
+        {
+          "point": "Discourse particles (же, ведь, -то)",
+          "label": "Particles (же, ведь)",
+          "usage": "The small words that carry tone — же for 'I told you', ведь for 'you know this', -то for 'as for that'.",
+          "example": "Я же тебе говорил, что магазин закрыт! — I told you the shop was closed!"
+        },
+        {
+          "point": "Emphatic focus: именно and это-clefts",
+          "label": "Emphasis (именно)",
+          "usage": "Pointing hard at one word — именно он means HE was the one and nobody else.",
+          "example": "Именно он помог мне, когда все отказались. — It was he who helped me when everyone else refused."
         }
       ]
     },
@@ -129,6 +207,60 @@
           "nonstandard": true,
           "usage": "Numbers boss the noun around: 2–4 take one form, 5+ another — час, часа, часов.",
           "example": "Мне двадцать два года. — I am twenty-two years old."
+        },
+        {
+          "point": "Gender of nouns (он, она, оно)",
+          "label": "Gender",
+          "usage": "Every noun is a he, a she or an it — usually visible in its last letter, and the word that replaces it must match.",
+          "example": "Где книга? — Она на столе. — Where is the book? — It is on the table."
+        },
+        {
+          "point": "Это — this is / it is",
+          "label": "This is (это)",
+          "usage": "Point at something and name it — Russian needs no word for 'is': Это дом, Это мой друг.",
+          "example": "Это мой друг. — This is my friend."
+        },
+        {
+          "point": "Мне нравится — liking with the dative",
+          "label": "Liking (нравится)",
+          "usage": "Saying you like something turns the sentence round — you go into the 'to me' form and the thing you like drives the verb.",
+          "example": "Мне нравится этот фильм. — I like this film."
+        },
+        {
+          "point": "Time expressions (в понедельник, утром)",
+          "label": "Days and times",
+          "usage": "Saying when — в понедельник for days, в январе for months, and утром or зимой with no little word at all.",
+          "example": "У нас урок в понедельник. — We have a lesson on Monday."
+        },
+        {
+          "point": "Ordinals and dates (первое января)",
+          "label": "Dates",
+          "usage": "Giving the date — первое января for 'today is the first', второго марта for 'on the second'.",
+          "example": "Сегодня пятое мая. — Today is the fifth of May."
+        },
+        {
+          "point": "Question words (кто, что, где)",
+          "label": "Question words",
+          "usage": "Asking who, what, where, when, why and how — the question word goes first and the rest of the sentence stays as it was.",
+          "example": "Кто это? — Who is this?"
+        },
+        {
+          "point": "Conjunctions и, а, но",
+          "label": "And / but",
+          "usage": "Joining two things — и adds more of the same, но objects, and а switches to something different.",
+          "example": "Я пью чай и кофе. — I drink tea and coffee."
+        },
+        {
+          "point": "Negative pronouns (никто, ничего)",
+          "label": "Nobody / nothing",
+          "usage": "Nobody, nothing, never — and the verb still keeps its не, because Russian wants the negative twice.",
+          "example": "Никто не пришёл на собрание. — Nobody came to the meeting."
+        },
+        {
+          "point": "Declension of complex numerals",
+          "label": "Numbers in other cases (пятидесяти)",
+          "usage": "Big numbers change their own endings too, once they follow words like 'about', 'with' or 'more than'.",
+          "example": "В зале было около пятидесяти человек. — There were about fifty people in the hall."
         }
       ]
     },
@@ -172,6 +304,54 @@
           "label": "Свой (one's own)",
           "usage": "The boomerang possessive — points back at the subject, whoever that is.",
           "example": "Я люблю свою работу. — I love my (own) job."
+        },
+        {
+          "point": "Relative clauses: который",
+          "label": "Который (which)",
+          "usage": "The word for who, which or that — it borrows gender from the thing described and its ending from the job it does in the second half.",
+          "example": "Вот книга, которую я читаю. — Here is the book that I am reading."
+        },
+        {
+          "point": "Себя and сам",
+          "label": "Себя / сам",
+          "usage": "Pointing back at whoever the sentence is about — себя for himself as an object, сам for doing it personally.",
+          "example": "Он думает только о себе. — He thinks only about himself."
+        },
+        {
+          "point": "Present active participles (-ущий/-ющий)",
+          "label": "Participle (who is doing)",
+          "usage": "A one-word way to say 'who is doing' — built off the они form and then worn like an adjective.",
+          "example": "Человек, читающий газету, — мой сосед. — The man reading the newspaper is my neighbour."
+        },
+        {
+          "point": "Past active participles (-вший)",
+          "label": "Participle (who did)",
+          "usage": "A one-word 'who did' or 'who lived' — the past tense minus its -л, agreeing with its noun like an adjective.",
+          "example": "Писатель, живший в Париже, вернулся в Россию. — The writer who had lived in Paris returned to Russia."
+        },
+        {
+          "point": "Past passive participles (-нный/-тый)",
+          "label": "Participle (done to it)",
+          "usage": "A one-word 'that was done to it' — written, built, closed — describing the thing it happened to.",
+          "example": "Письмо, написанное вчера, уже пришло. — The letter written yesterday has already arrived."
+        },
+        {
+          "point": "Short passive participles (дом построен)",
+          "label": "It is closed (закрыт)",
+          "usage": "The everyday way to say something has been done — закрыт, написано, сделана — standing after 'is', never in front of a noun.",
+          "example": "Магазин закрыт — приходите завтра. — The shop is closed — come back tomorrow."
+        },
+        {
+          "point": "Participial style: replacing который",
+          "label": "Instead of который",
+          "usage": "How written Russian squeezes a который clause down to a single describing word.",
+          "example": "Вопросы, обсуждаемые на собрании, были важными. — The questions being discussed at the meeting were important."
+        },
+        {
+          "point": "Formal participial and nominal style",
+          "label": "Formal style",
+          "usage": "For reading contracts, notices and the news, where actions arrive as nouns instead of verbs — принятие решения, при рассмотрении вопроса.",
+          "example": "В сложившейся ситуации надо действовать быстро. — In the situation that has developed, one must act quickly."
         }
       ]
     }

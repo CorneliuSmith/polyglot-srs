@@ -62,6 +62,54 @@
           "usage": "The action done, doer unnamed.",
           "example": "كُتِبَ الدرسُ.",
           "nonstandard": true
+        },
+        {
+          "point": "kāna — 'was / were' (كان)",
+          "label": "kāna (was)",
+          "usage": "Puts a sentence that has no verb into the past: the weather is nice becomes the weather was nice.",
+          "example": "كان الطقس جميلًا أمس. — The weather was nice yesterday."
+        },
+        {
+          "point": "Object pronouns on verbs (رأيتُه، رأيتُها…)",
+          "label": "Object pronouns",
+          "usage": "For him, her, me or them stuck onto the end of the verb instead of standing as a separate word.",
+          "example": "الكتاب مفيد، قرأته كله. — The book is useful; I read all of it."
+        },
+        {
+          "point": "The verbal noun (المصدر)",
+          "label": "Maṣdar",
+          "usage": "Naming the activity itself rather than doing it — reading, studying, travelling.",
+          "example": "القراءة مفيدة للعقل. — Reading is useful for the mind."
+        },
+        {
+          "point": "Participles (كاتب، مكتوب)",
+          "label": "Participles",
+          "usage": "Naming the one who does it (a writer) or the thing it was done to (written).",
+          "example": "هو كاتب مشهور في الصحيفة. — He is a famous writer at the newspaper."
+        },
+        {
+          "point": "Weak verbs (الأفعال المعتلّة)",
+          "label": "Weak verbs",
+          "usage": "Verbs holding a و or ي that gets shortened or dropped in some forms, so they never look quite regular.",
+          "example": "القطار يصل في الموعد دائمًا. — The train always arrives on time."
+        },
+        {
+          "point": "Negation (لا / ليس)",
+          "label": "Negation (لا / ليس)",
+          "usage": "For saying not: لا in front of a verb, ليس when the sentence has no verb.",
+          "example": "لا أشرب القهوة ولستُ جائعًا. — I don't drink coffee, and I'm not hungry."
+        },
+        {
+          "point": "The conditional (الشرط: إذا، إن، لو)",
+          "label": "Conditionals",
+          "usage": "For if — if you study you will pass — and for what would have happened but never did.",
+          "example": "إذا درست بجد نجحت في الامتحان. — If you study hard, you'll pass the exam."
+        },
+        {
+          "point": "Literary discourse (أمّا…فـ، قد، لقد)",
+          "label": "Literary discourse",
+          "usage": "The joins of written Arabic: as for this…, and the little words that stress something really did happen.",
+          "example": "أما الطلاب فمجتهدون، وأما المعلمون فمخلصون. — As for the students, they are diligent; as for the teachers, devoted."
         }
       ]
     },
@@ -105,6 +153,108 @@
           "label": "Comparative",
           "usage": "The afʿal pattern.",
           "example": "أكبر، أجمل"
+        },
+        {
+          "point": "Personal pronouns (أنا، أنتَ، هو…)",
+          "label": "Pronouns",
+          "usage": "The words for I, you, he and she — with one you for a man and a different one for a woman.",
+          "example": "أنا طالب. — I am a student."
+        },
+        {
+          "point": "Gender and ة (tāʾ marbūṭa)",
+          "label": "Feminine ة",
+          "usage": "Words for a woman or girl usually end in ة, so most job and role words come as a pair.",
+          "example": "هي معلمة. — She is a teacher."
+        },
+        {
+          "point": "Demonstratives (هذا / هذه)",
+          "label": "Demonstratives",
+          "usage": "For pointing something out — this book, that city — choosing the form that fits the word you point at.",
+          "example": "هذا كتاب. — This is a book."
+        },
+        {
+          "point": "Adjective agreement",
+          "label": "Adjective agreement",
+          "usage": "A describing word comes after the thing it describes and copies its endings, so the two match.",
+          "example": "البيت الكبير قريب. — The big house is nearby."
+        },
+        {
+          "point": "Roots and patterns (ك ت ب)",
+          "label": "Root & pattern",
+          "usage": "Most words are built by pouring three letters into a shape, so كتاب, كاتب and مكتب all say something about writing.",
+          "example": "الكاتب يكتب في المكتب. — The writer writes in the office."
+        },
+        {
+          "point": "Attached pronouns (كتابي، كتابك…)",
+          "label": "Possessive endings",
+          "usage": "For saying whose something is by adding an ending to the thing owned: my book, your book, her car.",
+          "example": "هذا كتابي. — This is my book."
+        },
+        {
+          "point": "Numbers 3–10 (العدد والمعدود)",
+          "label": "Numbers 3–10",
+          "usage": "For counting three to ten of something, where the number takes the opposite ending to the thing being counted.",
+          "example": "عندي ثلاثة كتب على الرف. — I have three books on the shelf."
+        },
+        {
+          "point": "Nominal sentences — no 'to be'",
+          "label": "Zero copula",
+          "usage": "There is no word for is or are in the present, so the two halves simply sit side by side.",
+          "example": "الطالب مجتهد. — The student is hardworking."
+        },
+        {
+          "point": "Questions (هل، ما، من، أين)",
+          "label": "Questions",
+          "usage": "Put the question word first — what, who, where — or open with هل for a yes-or-no question.",
+          "example": "ما اسمك؟ — What is your name?"
+        },
+        {
+          "point": "Prepositions (حروف الجر)",
+          "label": "Prepositions",
+          "usage": "The small placing words — in, on, from, to, with — which change the ending of the word after them.",
+          "example": "الكتاب على الطاولة. — The book is on the table."
+        },
+        {
+          "point": "inna and her sisters (إنّ وأخواتها)",
+          "label": "inna & sisters",
+          "usage": "Openers like indeed, that, but and because, which change the ending of the word right after them.",
+          "example": "إنّ الطقسَ جميلٌ اليوم. — The weather really is nice today."
+        },
+        {
+          "point": "Relative clauses (الذي، التي، الذين)",
+          "label": "Relative الذي",
+          "usage": "For hanging a description on a known thing: the man who works here, the book that I read.",
+          "example": "الرجل الذي يعمل هنا طبيب. — The man who works here is a doctor."
+        },
+        {
+          "point": "The circumstantial ḥāl (الحال)",
+          "label": "The ḥāl",
+          "usage": "Says how someone was while the main thing happened: came running, drank the coffee hot.",
+          "example": "دخل المعلم الصف مبتسمًا. — The teacher entered the class smiling."
+        },
+        {
+          "point": "The specification tamyīz (التمييز)",
+          "label": "The tamyīz",
+          "usage": "Says what a vague amount or comparison is actually about: filled with water, richer in money.",
+          "example": "امتلأ الإناء ماءً. — The vessel filled with water."
+        },
+        {
+          "point": "The exception (الاستثناء: إلّا، غير، سوى)",
+          "label": "Exception (إلّا)",
+          "usage": "For leaving one thing out of the whole: everyone came except one.",
+          "example": "حضر الجميع الاجتماع إلا مديرَهم. — Everyone attended the meeting except their manager."
+        },
+        {
+          "point": "Vocative & emphasis (النداء والتوكيد بالنون)",
+          "label": "Vocative يا",
+          "usage": "For calling out to someone with يا, and for insisting that something certainly will happen.",
+          "example": "يا أيها الطلاب، انتبهوا جيدًا. — O students, pay close attention."
+        },
+        {
+          "point": "Fronting & restriction (التقديم، إنّما)",
+          "label": "Focus fronting",
+          "usage": "Moves the important word to the front of the sentence, or narrows it down to only that one.",
+          "example": "هذا الرأيَ لا أقبله. — This opinion, I do not accept."
         }
       ]
     }

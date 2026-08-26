@@ -175,6 +175,168 @@
           "label": "~ㄴ/은 후에",
           "usage": "Verb stem + ~은 (consonant) / ~ㄴ (vowel) + 후에 = 'after doing'.",
           "example": "저는 숙제를 끝낸 후에 잤어요."
+        },
+        {
+          "point": "The copula 이에요/예요 (책이에요, 의사예요)",
+          "label": "이에요 / 예요",
+          "usage": "Saying what something is by sticking 이에요 or 예요 straight onto the noun.",
+          "example": "이것은 책이에요. — This is a book."
+        },
+        {
+          "point": "Negation with 안 (안 가요)",
+          "label": "Negation 안",
+          "usage": "The short way to say you don't do something: 안 goes right in front of the verb.",
+          "example": "저는 오늘 학교에 안 가요. — I'm not going to school today."
+        },
+        {
+          "point": "있어요/없어요: existing and having (시간이 있어요)",
+          "label": "있어요 / 없어요",
+          "usage": "Saying that something is there or that you have it, and the opposite.",
+          "example": "오늘 시간이 있어요? — Do you have time today?"
+        },
+        {
+          "point": "Wanting: 고 싶어요 (가고 싶어요)",
+          "label": "고 싶어요 vs 싶어해요 (I / they)",
+          "usage": "Saying what you want to do, and what somebody else wants to do.",
+          "example": "한국에 가고 싶어요. — I want to go to Korea."
+        },
+        {
+          "point": "Polite requests and honorific (으)세요 (앉으세요)",
+          "label": "(으)세요 requests",
+          "usage": "Asking someone politely to do something, or talking about someone you look up to.",
+          "example": "여기 앉으세요. — Please sit here."
+        },
+        {
+          "point": "Do it for me: 아/어 주세요 (도와주세요)",
+          "label": "아/어 주세요",
+          "usage": "Asking someone to do something for you, as a favour.",
+          "example": "문을 열어 주세요. — Please open the door (for me)."
+        },
+        {
+          "point": "Can't: 못 vs won't: 안 (못 가요)",
+          "label": "못 vs 안",
+          "usage": "Choosing between not doing it by choice (안) and not being able to (못).",
+          "example": "다리를 다쳐서 못 가요. — I hurt my leg, so I can't go."
+        },
+        {
+          "point": "Intention and guessing with 겠 (하겠습니다, 맛있겠다)",
+          "label": "Intention 겠",
+          "usage": "Committing to do something yourself, or guessing about something right in front of you.",
+          "example": "제가 하겠습니다. — I will do it."
+        },
+        {
+          "point": "Passive and causative: 이히리기 (열리다, 먹이다)",
+          "label": "Passive & causative 이/히/리/기",
+          "usage": "Saying something got opened or heard, or that you made someone eat or get dressed.",
+          "example": "바람에 문이 열렸어요. — The door was opened by the wind."
+        },
+        {
+          "point": "Plain written style: 한다/는다 (신문체)",
+          "label": "Plain style 한다",
+          "usage": "The voice of books, newspapers and diaries, with no politeness ending at all.",
+          "example": "한국은 사계절이 있다. — Korea has four seasons. (written style)"
+        },
+        {
+          "point": "Future with 되다 (to become) vs 이다",
+          "label": "되다 (become)",
+          "usage": "Saying what someone turns into, and how to say they will be it.",
+          "example": "나는 미래에 의사가 될 거야 — I will become a doctor in the future."
+        },
+        {
+          "point": "~ㄹ/을 것이다 for Guessing (probably)",
+          "label": "Guessing 일 거예요",
+          "usage": "Guessing about somebody else right now: he's probably a doctor.",
+          "example": "그 사람이 의사일 거예요 — That person is probably a doctor."
+        },
+        {
+          "point": "Making normal verbs passive with ~아/어지다",
+          "label": "Passive ~아/어지다",
+          "usage": "Saying something got done without naming who did it, when no other passive fits.",
+          "example": "좋은 기회가 주어졌어요. — A good chance was given (to me)."
+        },
+        {
+          "point": "The many uses of 들다",
+          "label": "들다 (hold / enter)",
+          "usage": "One verb for carrying something, joining something, falling asleep and liking something.",
+          "example": "저는 그 그림이 마음에 들어요. — I like that picture."
+        },
+        {
+          "point": "가져오다 vs 가져가다 (bring vs take)",
+          "label": "가져오다 vs 가져가다",
+          "usage": "Choosing bring or take by whether you are coming here or going there.",
+          "example": "저는 친구 집에 돈을 가져왔어요. — I brought the money to my friend's house (I'm here)."
+        },
+        {
+          "point": "걸리다: one word, many meanings",
+          "label": "걸리다 (many senses)",
+          "usage": "One verb for hanging on a wall, getting caught, and taking a length of time.",
+          "example": "그림이 벽에 걸려 있어요 — The picture is hanging on the wall."
+        },
+        {
+          "point": "가지고 있다: to have / to possess",
+          "label": "가지고 있다",
+          "usage": "Saying you have or own something, even though the form looks like 'am having'.",
+          "example": "나는 계산기를 가지고 있어. — I have a calculator."
+        },
+        {
+          "point": "알고 있다 and 알았어 / 알겠습니다",
+          "label": "알고 있다 (know)",
+          "usage": "Saying you know something, and saying 'got it' when you accept what you are told.",
+          "example": "나는 그 소문을 알고 있어. — I know that rumor."
+        },
+        {
+          "point": "잘하다: to do something well",
+          "label": "잘하다 (good at)",
+          "usage": "Saying somebody is good at something in general.",
+          "example": "제 친구는 노래를 잘해요. — My friend sings well."
+        },
+        {
+          "point": "못하다: to do something poorly",
+          "label": "못하다 (bad at)",
+          "usage": "Saying somebody is bad at something in general.",
+          "example": "저는 수영을 못해요. — I am bad at swimming."
+        },
+        {
+          "point": "못: poorly / couldn't",
+          "label": "못 (poorly / couldn't)",
+          "usage": "Saying you did it badly, or that something stopped you doing it at all.",
+          "example": "아니, 못 들었어. — No, I couldn't hear (you)."
+        },
+        {
+          "point": "~지 못하다",
+          "label": "~지 못하다",
+          "usage": "The longer way to say couldn't — tacked onto the verb instead of standing in front of it.",
+          "example": "저는 어제 자지 못했어요. — I couldn't sleep yesterday."
+        },
+        {
+          "point": "Asking yes/no questions with intonation",
+          "label": "Yes / no questions",
+          "usage": "Turning a statement into a question with your voice and nothing else.",
+          "example": "소식을 들었어? — Did you hear the news?"
+        },
+        {
+          "point": "Solid ㄴ additions and the ㄹ irregular",
+          "label": "ㄹ drop before ㄴ",
+          "usage": "Dropping the ㄹ off a verb before any ending that starts with ㄴ.",
+          "example": "지금 뭘 만드니? — What are you making right now?"
+        },
+        {
+          "point": "~ㄴ/은 다음에 (after doing) — 다음 for 후",
+          "label": "~ㄴ/은 다음에 (= 후에)",
+          "usage": "Saying what you do after finishing something else, with 다음 in place of 후.",
+          "example": "숙제가 끝난 다음에 나는 집에 갈 거예요. — After my homework is finished, I will go home."
+        },
+        {
+          "point": "직전에 / 직후에 (right before / right after)",
+          "label": "직전에 / 직후에",
+          "usage": "Saying it happened right before or right after, not merely before or after.",
+          "example": "아들이 저녁 먹기 직전에 과자를 먹었어요. — Right before having dinner, my son ate snacks."
+        },
+        {
+          "point": "~ㄴ/은 이래로 (since)",
+          "label": "~ㄴ/은 이래로",
+          "usage": "Saying 'ever since' — correct, though Koreans usually reach for ~ㄴ/은 후에.",
+          "example": "한국에 온 이래로 한국어를 배우고 있어요. — Since coming to Korea, I have been learning Korean."
         }
       ]
     },
@@ -217,6 +379,30 @@
           "label": "Comparison 보다",
           "usage": "X보다 = more than X; 제일/가장 = the most.",
           "example": "형은 저보다 커요. — My brother is taller than me."
+        },
+        {
+          "point": "Particle ~에 (place or time)",
+          "label": "~에 (time or place)",
+          "usage": "Marking when or where: at three o'clock, to the park, on the sofa.",
+          "example": "고양이가 소파 위에 있어요. — The cat is on the sofa."
+        },
+        {
+          "point": "Subject – Object – Adjective form: ~이/가 with adjectives and passive verbs",
+          "label": "~이/가 with adjectives",
+          "usage": "Marking the thing you like, miss or can hear with 이/가 instead of 을/를.",
+          "example": "저는 한국 음식이 그리워요. — I miss Korean food."
+        },
+        {
+          "point": "Comparatives with ~보다 and 더",
+          "label": "~보다 + 더",
+          "usage": "Saying one thing is more than another, and naming what it beats.",
+          "example": "형보다 제가 키가 더 커요. — I am taller than my older brother."
+        },
+        {
+          "point": "~에 vs ~에서 with places",
+          "label": "Destination vs location",
+          "usage": "Choosing the particle by the verb: 에 for going somewhere, 에서 for doing something there.",
+          "example": "저는 공원에 가고 싶어요 — I want to go to the park."
         }
       ]
     },
@@ -261,6 +447,48 @@
           "usage": "Fold what someone said into your sentence.",
           "example": "친구가 내일 온다고 해요. — My friend says he's coming tomorrow.",
           "nonstandard": true
+        },
+        {
+          "point": "Going somewhere to do: (으)러 가요 (먹으러 가요)",
+          "label": "Purpose (으)러",
+          "usage": "Saying where you are going and what you are going there to do.",
+          "example": "밥을 먹으러 가요. — I'm going (out) to eat."
+        },
+        {
+          "point": "When: (으)ㄹ 때 (먹을 때, 어렸을 때)",
+          "label": "When (으)ㄹ 때",
+          "usage": "Saying when something happens — while eating, back when I was young.",
+          "example": "밥을 먹을 때 텔레비전을 봐요. — I watch TV when I eat."
+        },
+        {
+          "point": "Background and contrast: (으)ㄴ/는데 (바쁜데, 가는데)",
+          "label": "Background 는데",
+          "usage": "Setting the scene before a request, or holding two halves of a sentence against each other.",
+          "example": "지금 바쁜데 나중에 전화해도 돼요? — I'm busy now — can I call you later?"
+        },
+        {
+          "point": "Seems like: 것 같아요 (비가 올 것 같아요)",
+          "label": "Seems like 것 같아요",
+          "usage": "Softening what you say to 'it seems' or 'I think' instead of stating it flat.",
+          "example": "비가 올 것 같아요. — It looks like it's going to rain."
+        },
+        {
+          "point": "Because, formally: 기 때문에 (일 때문에)",
+          "label": "Because 기 때문에",
+          "usage": "Giving the reason in writing, or in a formal explanation.",
+          "example": "일 때문에 못 가요. — I can't go because of work."
+        },
+        {
+          "point": "Quote contractions: 대요, 래요, 냬요, 재요 (온대요)",
+          "label": "대요 / 래요 / 재요",
+          "usage": "Passing on what someone said, asked, told you to do or suggested, the short spoken way.",
+          "example": "친구가 내일 온대요. — My friend says he's coming tomorrow."
+        },
+        {
+          "point": "Formal written connectives: (으)며, (으)나, 므로 (있으며, 크나)",
+          "label": "Written connectives",
+          "usage": "The tighter joining words formal writing uses in place of 고, 지만 and 때문에.",
+          "example": "서울은 한국의 수도이며 최대 도시이다. — Seoul is Korea's capital and its largest city."
         }
       ]
     },
@@ -333,6 +561,36 @@
           "label": "Noun + ~마다",
           "usage": "Attach ~마다 to a noun to mean 'each/every' one of it.",
           "example": "학생마다 달라요"
+        },
+        {
+          "point": "Counters: 개, 명, 마리 with native numbers (사과 두 개)",
+          "label": "개 / 명 / 마리",
+          "usage": "Counting objects, people and animals: the thing, then the number, then the counting word.",
+          "example": "사과 두 개 주세요. — Two apples, please."
+        },
+        {
+          "point": "나 vs 저: two words for 'I'",
+          "label": "나 vs 저",
+          "usage": "Choosing the humble 저 or the casual 나 when you say 'I'.",
+          "example": "저는 학생이에요. — I am a student. (polite)"
+        },
+        {
+          "point": "번 – counter for times (how many times)",
+          "label": "번 (times)",
+          "usage": "Saying how many times something happened.",
+          "example": "저는 어제 학교에 세 번 갔어요. — I went to school three times yesterday."
+        },
+        {
+          "point": "Age with 살",
+          "label": "Age 살",
+          "usage": "Saying how old someone is.",
+          "example": "저는 열 살이에요. — I am ten years old."
+        },
+        {
+          "point": "모든 + noun (every / all ___)",
+          "label": "모든 + noun",
+          "usage": "Saying every one of something, straight in front of the noun.",
+          "example": "모든 아시아 사람들은 젓가락을 잘 써요. — All Asian people use chopsticks well."
         }
       ]
     },
@@ -411,6 +669,24 @@
           "label": "어때 (opinion) forms",
           "usage": "Ask someone's evaluation of something, present or past",
           "example": "한국 어때?"
+        },
+        {
+          "point": "또 다르다 = another (vs. 다르다 = other)",
+          "label": "또 다른 (another)",
+          "usage": "Adding one more of something you have already been talking about.",
+          "example": "또 다른 문제는 시간이 없어요 — Another problem is that there is no time."
+        },
+        {
+          "point": "실망하다 vs. 실망스럽다 (with ~에게/한테 and ~에)",
+          "label": "실망하다 vs 실망스럽다",
+          "usage": "Saying you were disappointed, and naming who or what disappointed you.",
+          "example": "저는 친구에게 실망했어요 — I was disappointed in my friend."
+        },
+        {
+          "point": "Adverbs with ~스럽게",
+          "label": "~스럽게 adverbs",
+          "usage": "Describing how something is done: naturally, lovingly, disappointingly.",
+          "example": "그는 한국어를 자연스럽게 말해요. — He speaks Korean naturally."
         }
       ]
     },
@@ -519,6 +795,186 @@
           "label": "아무 + 나/도",
           "usage": "Build 'any-' words with ~나 and 'no-' words with ~도 plus a negative verb.",
           "example": "아무나 그것을 할 수 있어요"
+        },
+        {
+          "point": "Question words: 뭐, 누구, 어디, 언제 (뭐 해요?)",
+          "label": "뭐 / 누구 / 어디 / 언제",
+          "usage": "Asking what, who, where or when — nothing else in the sentence has to move.",
+          "example": "지금 뭐 해요? — What are you doing now?"
+        },
+        {
+          "point": "마지막 (final) vs 지난 (previous)",
+          "label": "마지막 vs 지난",
+          "usage": "Choosing the last one at the end of a series, or the one before this one.",
+          "example": "이것은 저의 마지막 수업이에요. — This is my last (final) class."
+        },
+        {
+          "point": "처음 – at first / for the first time",
+          "label": "처음 (at first)",
+          "usage": "Saying 'at first', or that this is the first time something has happened.",
+          "example": "저는 처음에 체육 수업을 싫어했어요. — At first I didn't like PE class."
+        },
+        {
+          "point": "동안 – 'for' a period of time",
+          "label": "동안 (how long)",
+          "usage": "Saying how long something went on: for ten minutes, for two days.",
+          "example": "저는 10 분 동안 걸었어요. — I walked for 10 minutes."
+        },
+        {
+          "point": "Counting hours: 시간 vs 시",
+          "label": "시간 vs 시",
+          "usage": "Choosing between the hour on the clock and a number of hours.",
+          "example": "저는 세 시간 동안 잤어요. — I slept for three hours."
+        },
+        {
+          "point": "Counting seconds: 초",
+          "label": "초 (seconds)",
+          "usage": "Counting seconds.",
+          "example": "저는 2 초 동안 달렸어요. — I ran for 2 seconds."
+        },
+        {
+          "point": "지난/다음 + time words (last time / next time)",
+          "label": "지난 / 다음",
+          "usage": "Saying last week or next month by putting one word in front of the time word.",
+          "example": "저는 지난 주에 영화를 봤어요. — I saw a movie last week."
+        },
+        {
+          "point": "Korean days: 일, 날, 하루",
+          "label": "Days 일 / 날 / 하루",
+          "usage": "Counting days, and the native words for one, two and three of them.",
+          "example": "나는 3 일 동안 공부했어. — I studied for 3 days."
+        },
+        {
+          "point": "Korean weeks: 주 and 주일",
+          "label": "Weeks 주 / 주일",
+          "usage": "Counting weeks: 주 or 주일 both work after a number, and 주 is the one you hear more often.",
+          "example": "저는 2 주 동안 한식을 안 먹었어요. — I didn't eat Korean food for 2 weeks."
+        },
+        {
+          "point": "더: 'more' in Korean sentences",
+          "label": "더 (more)",
+          "usage": "Saying more, without having to name what you are comparing it to.",
+          "example": "저는 다음 학기에 더 열심히 공부할 거예요. — Next semester I will study harder."
+        },
+        {
+          "point": "동안: 'for' a time and 'during' a noun",
+          "label": "동안 + noun (during)",
+          "usage": "Saying 'during' something that is not a length of time: during vacation, during class.",
+          "example": "학생들은 수업 시간 동안 조용했어요. — The students were quiet during class."
+        },
+        {
+          "point": "덜 – Less",
+          "label": "덜 (less)",
+          "usage": "Saying something is less than the thing you are comparing it to.",
+          "example": "이 영화는 그 영화보다 덜 재미있어요. — This movie is less interesting than that movie."
+        },
+        {
+          "point": "Superlatives with 가장/제일",
+          "label": "가장 / 제일",
+          "usage": "Saying the most, the best, the tallest — one word in front, nothing else changes.",
+          "example": "우리 반에서 민수가 가장 키가 커요. — In our class Minsu is the tallest."
+        },
+        {
+          "point": "잘: well (adverb)",
+          "label": "잘 (well)",
+          "usage": "Saying an action was done well this time round.",
+          "example": "저는 어젯밤에 잘 잤어요. — I slept well last night."
+        },
+        {
+          "point": "잘못 vs 잘 못",
+          "label": "잘못 vs 잘 못",
+          "usage": "One space apart: a mistake, or not well.",
+          "example": "그것은 제 잘못이었어요. — That was my fault."
+        },
+        {
+          "point": "Why (왜)",
+          "label": "왜 (why)",
+          "usage": "Asking why, by dropping one word into a sentence you already know.",
+          "example": "오늘 왜 늦게 왔어요? — Why did you come late today?"
+        },
+        {
+          "point": "When (언제)",
+          "label": "언제 (when)",
+          "usage": "Asking when, and asking since when or until when.",
+          "example": "결혼식은 언제야? — When is the wedding?"
+        },
+        {
+          "point": "Where (어디)",
+          "label": "어디 (where)",
+          "usage": "Asking where, where to, and how far.",
+          "example": "지금 어디 살아요? — Where do you live now?"
+        },
+        {
+          "point": "How (어떻게)",
+          "label": "어떻게 (how)",
+          "usage": "Asking how something is done.",
+          "example": "이 파일을 어떻게 첨부해요? — How do you attach this file?"
+        },
+        {
+          "point": "What (무슨) before a noun",
+          "label": "무슨 + noun",
+          "usage": "Asking what kind of thing it is when you have no idea at all.",
+          "example": "지금 무슨 생각을 해? — What are you thinking about?"
+        },
+        {
+          "point": "Which (어떤 / 어느)",
+          "label": "어떤 / 어느 (which)",
+          "usage": "Asking which one, out of a set you can see or already know about.",
+          "example": "어떤 로션을 쓰고 싶어요? — Which lotion do you want to use?"
+        },
+        {
+          "point": "무슨, 어떤 and 어느: asking 'what' and 'which' before nouns",
+          "label": "Choosing 무슨 / 어떤 / 어느",
+          "usage": "Choosing between the three words that ask 'what' or 'which' in front of a noun.",
+          "example": "무슨 소리예요? 밖에서 뭔가 들려요. — What is that sound? I hear something outside."
+        },
+        {
+          "point": "어떤 to mean 'some / a certain'",
+          "label": "어떤 (a certain)",
+          "usage": "Mentioning some person or thing without saying which one it was.",
+          "example": "어떤 남자가 어제 우리 집에 왔어요. — Some man came to our house yesterday."
+        },
+        {
+          "point": "얼마나: asking 'how (much)'",
+          "label": "얼마나 (how much)",
+          "usage": "Asking how much, how often, how quickly, how well.",
+          "example": "한국어를 얼마나 자주 공부해요? — How often do you study Korean?"
+        },
+        {
+          "point": "얼마: asking how much something costs",
+          "label": "얼마 (price)",
+          "usage": "Asking what something costs.",
+          "example": "이게 얼마예요? — How much is this?"
+        },
+        {
+          "point": "Using question words on their own",
+          "label": "Question words alone",
+          "usage": "Answering back with just 왜? or 어디? when you need the one detail you missed.",
+          "example": "저는 내일 서울에 갈 거예요. – 왜? — I'm going to Seoul tomorrow. – Why?"
+        },
+        {
+          "point": "안 / 이내 (within a period of time)",
+          "label": "안 / 이내 (within)",
+          "usage": "Saying something will happen inside a stretch of time.",
+          "example": "나는 5년 안에 외국어 다섯 개를 배우고 싶어. — I want to learn five foreign languages within five years."
+        },
+        {
+          "point": "다 (all — adverb of completion)",
+          "label": "다 (completely)",
+          "usage": "Saying the whole thing got finished, or that everyone in a group did it.",
+          "example": "저는 숙제를 다 했어요. — I did all of my homework."
+        },
+        {
+          "point": "어느 + noun (some / an ambiguous ___)",
+          "label": "어느 날 (one day)",
+          "usage": "Naming a vague time or place the way a story does: one winter, some village.",
+          "example": "어느 겨울 꽃이 다 사라졌다. — One winter, all the flowers disappeared."
+        },
+        {
+          "point": "뭐 / 어디 / 누구 as 'something / somewhere / somebody'",
+          "label": "Bare 뭐 / 어디 / 누구",
+          "usage": "Using the question words to mean something, somewhere or somebody instead.",
+          "example": "아니요. 어디 갔어. — No, she went somewhere."
         }
       ]
     }

@@ -91,6 +91,72 @@
           "usage": "The common irregular preterites.",
           "example": "Fui e fiz tudo.",
           "nonstandard": true
+        },
+        {
+          "point": "Ser — present (sou, é, somos…)",
+          "label": "Ser (permanent)",
+          "usage": "For what someone or something simply is — your job, where you are from, what you are like, and what time it is.",
+          "example": "Eu sou engenheira. — I am an engineer."
+        },
+        {
+          "point": "Estar — present (estou, está…)",
+          "label": "Estar (temporary)",
+          "usage": "For how someone feels right now or where something is at the moment — tired, hungry, at home.",
+          "example": "Eu estou com fome. — I am hungry."
+        },
+        {
+          "point": "Ter — present (tenho, tem…)",
+          "label": "Ter (have)",
+          "usage": "For what you have — and also for your age and for being hungry, thirsty or cold, where English says 'I am'.",
+          "example": "Eu tenho duas irmãs. — I have two sisters."
+        },
+        {
+          "point": "Negation with não",
+          "label": "Negation",
+          "usage": "To say you don't do something, put não straight in front of the verb — and in Brazil you will hear a second não tacked on the end for emphasis.",
+          "example": "Eu não como carne. — I don't eat meat."
+        },
+        {
+          "point": "Tem / Há — there is, there are",
+          "label": "Tem / Há (there is)",
+          "usage": "For saying that something exists or is around — tem in everyday Brazil, há in writing, and há also means 'ago' with a stretch of time.",
+          "example": "Tem um banco nesta rua? — Is there a bank on this street?"
+        },
+        {
+          "point": "Reflexive verbs (me levanto, se chama)",
+          "label": "Reflexives",
+          "usage": "For things you do to yourself or to each other — getting up, being called a name, meeting — with me, se or nos in front of the verb.",
+          "example": "Eu me levanto às seis da manhã. — I get up at six in the morning."
+        },
+        {
+          "point": "Tenho falado — the iterative perfect",
+          "label": "Tenho falado (lately)",
+          "usage": "For something you have been doing again and again lately — never for one single finished event, which is the trap for English speakers.",
+          "example": "Ultimamente eu tenho trabalhado demais. — Lately I've been working too much."
+        },
+        {
+          "point": "Reported speech (disse que, perguntou se)",
+          "label": "Reported speech",
+          "usage": "For passing on what someone said or asked — disse que for a statement, perguntou se for a yes-or-no question, with the verb stepped back into the past.",
+          "example": "Ele disse que estava cansado. — He said (that) he was tired."
+        },
+        {
+          "point": "The passive (foi construído; vende-se)",
+          "label": "Passive",
+          "usage": "For saying what was done to something when you are not naming who did it — foi construído in careful Portuguese, vende-se on an everyday sign.",
+          "example": "O museu foi inaugurado em 1950. — The museum was opened in 1950."
+        },
+        {
+          "point": "Ficar — become, stay, be located, keep on",
+          "label": "Ficar (become/stay)",
+          "usage": "One verb doing four everyday jobs: where a place is, staying somewhere, turning happy or angry, and keeping on doing something.",
+          "example": "A farmácia fica ao lado do banco. — The pharmacy is next to the bank."
+        },
+        {
+          "point": "Compound subjunctives (tenha falado, tivesse ido)",
+          "label": "Tenha / tivesse feito",
+          "usage": "For hoping something already turned out well, and for saying what would have happened if things had gone differently.",
+          "example": "Espero que você tenha gostado do presente. — I hope you liked the gift."
         }
       ]
     },
@@ -127,6 +193,78 @@
           "label": "Contractions",
           "usage": "preposition + article fused.",
           "example": "no bosque, da cidade"
+        },
+        {
+          "point": "Subject pronouns (eu, você, ele…)",
+          "label": "Subject pronouns",
+          "usage": "For saying who is doing something — eu for yourself, você for the person you are speaking to, ele or ela for someone else, and in everyday Brazil a gente for 'we'.",
+          "example": "Eu sou do Brasil. — I am from Brazil."
+        },
+        {
+          "point": "Gender and number of nouns",
+          "label": "Gender & plurals",
+          "usage": "Every thing-word in Portuguese is either an o-word or an a-word, and that choice decides the shape of the words around it; add -s for more than one.",
+          "example": "O livro está na mesa. — The book is on the table."
+        },
+        {
+          "point": "Question words (onde, o que, quando…)",
+          "label": "Question words",
+          "usage": "For asking where, what, when, who, how, why or how much — the asking word goes first, often followed by é que.",
+          "example": "Onde fica a estação de metrô? — Where is the metro station?"
+        },
+        {
+          "point": "Object pronouns (me, te, o, a, nos)",
+          "label": "Object pronouns",
+          "usage": "For the person or thing an action happens to — me, te, o, a, nos — and in Brazil they sit in front of the verb, not after it.",
+          "example": "Ela me viu no shopping ontem. — She saw me at the mall yesterday."
+        },
+        {
+          "point": "Comparatives (mais… do que, o mais)",
+          "label": "Comparatives",
+          "usage": "For saying one thing is more, less or just as much as another, with a few one-word exceptions like melhor, pior and maior.",
+          "example": "São Paulo é maior do que Curitiba. — São Paulo is bigger than Curitiba."
+        },
+        {
+          "point": "Relative pronouns (que, quem, onde, cujo)",
+          "label": "Relative pronouns",
+          "usage": "For adding more about a person or thing you have just named — que does nearly all of it, quem after a small word like com, onde for a place.",
+          "example": "O bolo que você fez estava ótimo. — The cake you made was great."
+        },
+        {
+          "point": "Pronoun placement (me diga / diga-me)",
+          "label": "Pronoun placement",
+          "usage": "In everyday Brazilian the little words me, te and se go in front of the verb, and words like não, que and sempre pull them forward.",
+          "example": "Ela me ligou ontem à noite. — She called me last night."
+        },
+        {
+          "point": "Connectors (porém, portanto, embora)",
+          "label": "Connectors",
+          "usage": "For joining two ideas — however, therefore, besides, since — and note that embora and mesmo que change the shape of the verb that follows.",
+          "example": "Está chovendo, por isso vamos de carro. — It's raining, so we'll go by car."
+        },
+        {
+          "point": "Crase and regência (vou à praia)",
+          "label": "Crase & regência",
+          "usage": "For going to a place or to a person when the word after it takes a — vou à praia, à escola, à médica — and for the small word each verb insists on afterwards: assistir a, gostar de, precisar de.",
+          "example": "Amanhã vou à praia com as crianças. — Tomorrow I'm going to the beach with the kids."
+        },
+        {
+          "point": "Formal pronoun placement (mesóclise and ênclise)",
+          "label": "Placement in writing (diga-me)",
+          "usage": "In careful writing the little pronoun goes after the verb (diga-me), and in the future it even slides inside it (dir-te-ei).",
+          "example": "Diga-me a verdade, por favor. (formal) — Tell me the truth, please. (formal)"
+        },
+        {
+          "point": "Focus & clefts (foi ele que…, é que)",
+          "label": "Emphasis (é que)",
+          "usage": "For putting the spotlight on one word — é or foi plus que, the same frame that softens a question into onde é que você mora.",
+          "example": "Foi ele que quebrou o copo, não eu. — It was he who broke the glass, not me."
+        },
+        {
+          "point": "Register: Brazil, Portugal, and the written norm",
+          "label": "Register (BR/PT)",
+          "usage": "For choosing how to sound — everyday Brazilian, the Portugal of tu and estar a, or the formal written norm both countries share.",
+          "example": "A gente se vê no sábado! (spoken BR) — See you Saturday! (lit. the people see each other)"
         }
       ]
     }

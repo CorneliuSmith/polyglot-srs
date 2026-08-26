@@ -52,6 +52,18 @@
           "label": "Reciprocal",
           "usage": "To each other; joining in with.",
           "example": "kita → magkita"
+        },
+        {
+          "point": "Focus choice as information structure",
+          "label": "Choosing focus",
+          "usage": "The affix decides what is in view — a book, or the book.",
+          "example": "Bumili ako ng libro sa tindahan. — I bought a book at the store."
+        },
+        {
+          "point": "Code-switching as a system",
+          "label": "Taglish affixes",
+          "usage": "Tagalog affixes go straight onto English roots — nag-drive, i-check.",
+          "example": "I-check mo ang email mo. — Check your email."
         }
       ]
     },
@@ -99,6 +111,144 @@
           "label": "ma- adjectives",
           "usage": "Linker -ng after a vowel, na after a consonant.",
           "example": "magandang bahay"
+        },
+        {
+          "point": "The ang phrase marks the sentence's topic",
+          "label": "ang marker",
+          "usage": "Marks the one thing the sentence is about.",
+          "example": "Kumain ang bata. — The child ate."
+        },
+        {
+          "point": "ng marks a non-topic actor, object, or possessor",
+          "label": "ng marker",
+          "usage": "Marks the thing acted on, or the owner — anything that isn't what the sentence is about.",
+          "example": "Kumain ang bata ng pagkain. — The child ate (some) food."
+        },
+        {
+          "point": "sa marks location, direction, or a specific place",
+          "label": "sa marker",
+          "usage": "Marks where something is, or where it is going.",
+          "example": "Pumunta ang bata sa bahay. — The child went to the house."
+        },
+        {
+          "point": "The linker na",
+          "label": "Linker na",
+          "usage": "Joins a describing word to the thing it describes.",
+          "example": "Mabait na bata si Ana. — Ana is a kind child."
+        },
+        {
+          "point": "mga marks the plural",
+          "label": "mga plural",
+          "usage": "Goes before the noun to mean more than one.",
+          "example": "Naglalaro ang mga bata. — The children are playing."
+        },
+        {
+          "point": "Existence and possession: may and wala",
+          "label": "may / wala",
+          "usage": "Say something exists or that you have it; wala is the no.",
+          "example": "May pagkain ako. — I have food."
+        },
+        {
+          "point": "hindi negates verbs and adjectives",
+          "label": "hindi negation",
+          "usage": "Goes right before the verb or adjective you are denying.",
+          "example": "Hindi kumain ang bata. — The child didn't eat."
+        },
+        {
+          "point": "si and sina: names take their own marker",
+          "label": "si / sina",
+          "usage": "Names take si, never ang — sina for more than one.",
+          "example": "Kumain si Maria ng mangga. — Maria ate a mango."
+        },
+        {
+          "point": "Questions: ba and the question words",
+          "label": "Questions",
+          "usage": "ba makes a yes/no question; ano, saan and bakit start the rest.",
+          "example": "Ano ang pangalan mo? — What is your name?"
+        },
+        {
+          "point": "Enclitic particles and their order",
+          "label": "Particle order",
+          "usage": "The little words stack in one fixed order — na before ba.",
+          "example": "Kumain na ba kayo? — Have you eaten already?"
+        },
+        {
+          "point": "ay inversion",
+          "label": "ay inversion",
+          "usage": "Formal writing and speeches, with the topic moved to the front.",
+          "example": "Ang bahay ay maganda. — The house is beautiful."
+        },
+        {
+          "point": "Comparison: mas, kaysa, pinaka-",
+          "label": "Comparison",
+          "usage": "When you set two things side by side, or pick out the one that beats all the rest.",
+          "example": "Mas mataas siya kaysa sa akin. — He is taller than me."
+        },
+        {
+          "point": "Pseudo-verbs: gusto, ayaw, dapat, puwede",
+          "label": "Pseudo-verbs",
+          "usage": "Want, should, may — each takes a linker and a ng pronoun.",
+          "example": "Gusto kong matulog. — I want to sleep."
+        },
+        {
+          "point": "may and mayroon",
+          "label": "mayroon",
+          "usage": "Use mayroon when a pronoun or particle comes between.",
+          "example": "Mayroon akong aso. — I have a dog."
+        },
+        {
+          "point": "Counting: native and Spanish numbers",
+          "label": "Numbers",
+          "usage": "Native numbers count things; Spanish ones do time and money.",
+          "example": "Bumili ako ng tatlong mangga. — I bought three mangoes."
+        },
+        {
+          "point": "Nominalisation: pag-, pagka-, ka-...-an",
+          "label": "Nominalisation",
+          "usage": "Turn an action or a quality into a thing you can name.",
+          "example": "Mahalaga ang pag-aaral ng bata. — The child's studying is important."
+        },
+        {
+          "point": "Relative clauses with na and -ng",
+          "label": "Relative clauses",
+          "usage": "When you need to say which one — the child who ate, the book you bought.",
+          "example": "Ang taong kumain ay umalis. — The person who ate left."
+        },
+        {
+          "point": "Conditionals: kung, kapag, sana",
+          "label": "Conditionals",
+          "usage": "If, whenever, and the wish that it were so.",
+          "example": "Kung umulan, hindi ako pupunta. — If it rains, I won't go."
+        },
+        {
+          "point": "pang- instruments and other noun prefixes",
+          "label": "pang- / tag-",
+          "usage": "Names the tool you do it with, or the season.",
+          "example": "Ang panulat ay nasa mesa. — The pen is on the table."
+        },
+        {
+          "point": "Register: Filipino, deep Tagalog, and Taglish",
+          "label": "Register",
+          "usage": "Choose between formal Filipino, deep Tagalog and everyday Taglish.",
+          "example": "Ang bata ay masipag mag-aral. — The child is diligent in studying."
+        },
+        {
+          "point": "Aspect subtleties: na, pa, and the contemplated",
+          "label": "Already / still",
+          "usage": "na is already, pa is still, hindi pa is not yet.",
+          "example": "Kumakain pa siya. — He is still eating."
+        },
+        {
+          "point": "Literary and formal Filipino",
+          "label": "Literary Filipino",
+          "usage": "For novels, news and speeches — not how anyone talks to a friend.",
+          "example": "Kay ganda ng umaga! — How beautiful the morning is!"
+        },
+        {
+          "point": "Lexicalised affixation",
+          "label": "Frozen affixes",
+          "usage": "When a word looks built from a prefix and a root, learn it whole — the pieces no longer add up.",
+          "example": "Dalawa ang kapatid ko. — I have two siblings."
         }
       ]
     }

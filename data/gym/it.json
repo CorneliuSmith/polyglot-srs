@@ -65,6 +65,96 @@
           "label": "Progressive",
           "usage": "Happening right now.",
           "example": "Sto mangiando adesso."
+        },
+        {
+          "point": "Essere — present (sono, sei, è…)",
+          "label": "Essere (present)",
+          "usage": "For saying who or what someone is, and how things are, right now.",
+          "example": "Io sono studente. — I am a student."
+        },
+        {
+          "point": "Avere — present (ho fame)",
+          "label": "Avere (present)",
+          "usage": "For what you have — and in Italian also for being hungry, thirsty, right, or a certain age.",
+          "example": "Io ho vent'anni. — I am twenty years old."
+        },
+        {
+          "point": "Negation with non",
+          "label": "Negation",
+          "usage": "To say you don't do something: non sits straight in front of the verb and nothing else moves.",
+          "example": "Io non parlo inglese. — I don't speak English."
+        },
+        {
+          "point": "C'è and ci sono — there is / there are",
+          "label": "C'è, ci sono",
+          "usage": "For saying what is there — one of it, or several.",
+          "example": "C'è un libro sul tavolo. — There is a book on the table."
+        },
+        {
+          "point": "Reflexive verbs (lavarsi)",
+          "label": "Reflexives",
+          "usage": "For what you do to yourself — washing, getting up, getting dressed.",
+          "example": "Ogni mattina mi alzo alle sette. — Every morning I get up at seven."
+        },
+        {
+          "point": "The past perfect (il trapassato prossimo)",
+          "label": "Trapassato prossimo",
+          "usage": "For what had already happened before something else happened in the past.",
+          "example": "Quando sei arrivato, io avevo già mangiato. — When you arrived, I had already eaten."
+        },
+        {
+          "point": "Reported speech (il discorso indiretto)",
+          "label": "Reported speech",
+          "usage": "For passing on what somebody else said or asked.",
+          "example": "Mi ha detto che è stanco. — He told me (that) he is tired."
+        },
+        {
+          "point": "The passive voice (essere/venire; il si passivante)",
+          "label": "Passive",
+          "usage": "When what happened to something matters more than who did it.",
+          "example": "La lettera è scritta in italiano. — The letter is written in Italian."
+        },
+        {
+          "point": "Hypotheticals (se + congiuntivo imperfetto)",
+          "label": "Hypotheticals",
+          "usage": "For imagining something that isn't so: if I had time, I would come.",
+          "example": "Se avessi tempo, andrei al cinema. — If I had time, I would go to the cinema."
+        },
+        {
+          "point": "The gerund (il gerundio: facendo)",
+          "label": "Gerund",
+          "usage": "For the -ing form: doing one thing while, or by, doing another.",
+          "example": "È caduto correndo dietro all'autobus. — He fell while running after the bus."
+        },
+        {
+          "point": "Subjunctive after conjunctions",
+          "label": "Subjunctive after benché",
+          "usage": "Linking words like although, before and so that always pull a special verb form after them.",
+          "example": "Benché faccia freddo, escono lo stesso. — Although it's cold, they go out anyway."
+        },
+        {
+          "point": "Past hypotheticals (condizionale passato)",
+          "label": "Past hypotheticals",
+          "usage": "For imagining a past that never happened: if I had known, I would have come.",
+          "example": "Se avessi saputo, sarei venuto prima. — If I had known, I would have come earlier."
+        },
+        {
+          "point": "Past subjunctive & sequence of tenses",
+          "label": "Past subjunctive",
+          "usage": "After I think or I thought, when the thing you are thinking about already happened.",
+          "example": "Credo che lui abbia già mangiato. — I think he has already eaten."
+        },
+        {
+          "point": "The literary past (il passato remoto)",
+          "label": "Passato remoto",
+          "usage": "The past of stories, novels and history — and of everyday speech in the south.",
+          "example": "Il re costruì un grande palazzo. (racconto) — The king built a great palace. (narrative)"
+        },
+        {
+          "point": "Key irregular presents (vado, faccio, posso, voglio)",
+          "label": "Irregular presents",
+          "usage": "The handful of everyday verbs that break the pattern: go, do, can, want.",
+          "example": "Io vado al mercato adesso. — I'm going to the market now."
         }
       ]
     },
@@ -101,6 +191,78 @@
           "label": "Possessive/demonstrative",
           "usage": "il mio, questo/quello.",
           "example": "il mio libro, questa sera"
+        },
+        {
+          "point": "Subject pronouns (io, tu, lui…)",
+          "label": "Subject pronouns",
+          "usage": "The words for I, you, he and she — needed only when you want to stress who, since the verb ending already says it.",
+          "example": "Io sono di Roma. — I am from Rome."
+        },
+        {
+          "point": "Gender and number of nouns",
+          "label": "Noun gender/number",
+          "usage": "Whenever you name a thing: it is either masculine or feminine, and its ending changes for more than one.",
+          "example": "Ho due libri. — I have two books."
+        },
+        {
+          "point": "Question words (dove, come, che…)",
+          "label": "Question words",
+          "usage": "For asking anything that needs more than a yes or a no — where, how, what, when, why.",
+          "example": "Dove abiti? — Where do you live?"
+        },
+        {
+          "point": "Direct object pronouns (lo, la, li, le…)",
+          "label": "Direct pronouns",
+          "usage": "For a person or thing already mentioned, so you don't name it twice: I know him, I'm buying them.",
+          "example": "Conosci Marco? Sì, lo conosco bene. — Do you know Marco? Yes, I know him well."
+        },
+        {
+          "point": "Indirect pronouns, ci and ne (gli, le, ci, ne)",
+          "label": "Indirect, ci, ne",
+          "usage": "For saying to him, to her, there, or some of it without repeating what you mean.",
+          "example": "Telefono a Paolo; gli telefono stasera. — I'm calling Paolo; I'll call him tonight."
+        },
+        {
+          "point": "Comparative & superlative (più… di, il più)",
+          "label": "Comparatives",
+          "usage": "For saying one thing is bigger, smaller or better than another — or the best of the lot.",
+          "example": "Roma è più grande di Firenze. — Rome is bigger than Florence."
+        },
+        {
+          "point": "Combined pronouns (glielo, me lo)",
+          "label": "Combined pronouns",
+          "usage": "When you say both the thing and the person it goes to, and the two little words meet.",
+          "example": "Il libro? Glielo do domani. — The book? I'll give it to him tomorrow."
+        },
+        {
+          "point": "Relative pronouns (che, cui, il quale)",
+          "label": "Relative pronouns",
+          "usage": "For gluing two statements about the same thing into one: the man who lives nearby.",
+          "example": "È l'uomo che abita qui vicino. — That's the man who lives nearby."
+        },
+        {
+          "point": "Irregular comparatives (migliore, meglio, peggio)",
+          "label": "Irregular comparatives",
+          "usage": "For better and worse, which have their own words instead of the usual pattern.",
+          "example": "Questo ristorante è migliore dell'altro. — This restaurant is better than the other."
+        },
+        {
+          "point": "Logical connectors (tuttavia, quindi, poiché)",
+          "label": "Connectors",
+          "usage": "For tying ideas together in writing or a careful argument: so, however, since, besides.",
+          "example": "Piove, quindi restiamo a casa. — It's raining, so we're staying home."
+        },
+        {
+          "point": "Focus & dislocation (è a Roma che…, ce l'ho)",
+          "label": "Focus & dislocation",
+          "usage": "For pushing the important part of what you say to the front, the way speech does.",
+          "example": "È a Roma che vivo, non a Milano. — It's in Rome that I live, not Milan."
+        },
+        {
+          "point": "Formal register & idiom (registro formale)",
+          "label": "Formal register",
+          "usage": "For letters, business and anything official, where the everyday wording sounds too casual.",
+          "example": "A mio avviso, la proposta è valida. — In my opinion, the proposal is sound."
         }
       ]
     }

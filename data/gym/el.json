@@ -54,6 +54,90 @@
           "usage": "The action done to the subject, past.",
           "example": "Το γράμμα γράφτηκε.",
           "nonstandard": true
+        },
+        {
+          "point": "Είμαι — present (είμαι, είσαι, είναι…)",
+          "label": "Είμαι (to be)",
+          "usage": "Say what someone or something is — I am, you are, she is.",
+          "example": "Εγώ είμαι φοιτητής. — I am a student."
+        },
+        {
+          "point": "Έχω — present (έχω, έχεις, έχει…)",
+          "label": "Έχω (to have)",
+          "usage": "Say what you own or hold — Greek also uses it for being right.",
+          "example": "Εγώ έχω μια ερώτηση. — I have a question."
+        },
+        {
+          "point": "Contracted verbs (αγαπάω / αγαπώ)",
+          "label": "Contracted verbs",
+          "usage": "A big group of verbs that stress the ending and have two equally good forms, αγαπάω or αγαπώ.",
+          "example": "Εγώ αγαπώ πολύ την ελληνική μουσική. — I love Greek music very much."
+        },
+        {
+          "point": "The mediopassive present (-ομαι)",
+          "label": "Mediopassive (-ομαι)",
+          "usage": "A second set of endings for what happens to you, or what you do to yourself.",
+          "example": "Κάθε πρωί πλένομαι και ετοιμάζομαι για τη δουλειά. — Every morning I wash and get ready for work."
+        },
+        {
+          "point": "Deponent & irregular verbs (έρχομαι, γίνομαι)",
+          "label": "Deponents",
+          "usage": "For coming, going and becoming, Greek uses the -ομαι endings even though nobody is doing anything to you — and their past forms are their own.",
+          "example": "Χθες ήρθα πολύ αργά στο σπίτι. — Yesterday I came home very late."
+        },
+        {
+          "point": "Pluperfect & future perfect (είχα γράψει, θα έχω γράψει)",
+          "label": "Είχα γράψει (had done)",
+          "usage": "For what had already happened before something else, or what will be done by a certain time.",
+          "example": "Είχα ήδη φάει όταν ήρθαν οι φίλοι μου. — I had already eaten when my friends came."
+        },
+        {
+          "point": "Participles (τρέχοντας, γραμμένος)",
+          "label": "Participles",
+          "usage": "One word for while doing something, and one for something already done.",
+          "example": "Μπήκε στο δωμάτιο χαμογελώντας. — He entered the room smiling."
+        },
+        {
+          "point": "'want / can / must' + να",
+          "label": "Want / can / must",
+          "usage": "After θέλω, μπορώ and πρέπει comes να and a second verb that still changes with the person.",
+          "example": "Θέλω να φύγω νωρίς σήμερα. — I want to leave early today."
+        },
+        {
+          "point": "Negation with δεν",
+          "label": "Negation",
+          "usage": "Put δεν directly in front of the verb to say you don't.",
+          "example": "Εγώ δεν μιλάω αγγλικά. — I don't speak English."
+        },
+        {
+          "point": "Υπάρχει / υπάρχουν — there is, there are",
+          "label": "There is / are",
+          "usage": "Saying something exists — one word for a single thing, another for several.",
+          "example": "Υπάρχει ένα βιβλίο στο τραπέζι. — There is a book on the table."
+        },
+        {
+          "point": "Conditionals with αν",
+          "label": "Real conditionals",
+          "usage": "For an if that really might happen; the other half then says what follows — with θα, or as a command.",
+          "example": "Αν έχεις χρόνο, έλα να με δεις. — If you have time, come and see me."
+        },
+        {
+          "point": "Unreal conditionals (αν + past, θα + past)",
+          "label": "Unreal conditionals",
+          "usage": "For an if that is not true — both halves of the sentence go into the past.",
+          "example": "Αν ήμουν πλούσιος, θα ταξίδευα σε όλο τον κόσμο. — If I were rich, I would travel all over the world."
+        },
+        {
+          "point": "Reported speech (είπε ότι / να)",
+          "label": "Reported speech",
+          "usage": "Telling what someone said with ότι, or what they asked you to do with να.",
+          "example": "Μου είπε ότι θα αργήσει λίγο. — He told me that he'll be a bit late."
+        },
+        {
+          "point": "Subordinating connectors (επειδή, ενώ, αν και, ώστε)",
+          "label": "Connectors",
+          "usage": "Joining the halves of a longer sentence: because, while, although, so that.",
+          "example": "Δεν ήρθα επειδή ήμουν άρρωστος. — I didn't come because I was ill."
         }
       ]
     },
@@ -90,6 +174,90 @@
           "label": "Definite article",
           "usage": "ο/η/το decline by case.",
           "example": "ο άντρας, τον άντρα"
+        },
+        {
+          "point": "Gender and number of nouns",
+          "label": "Gender & number",
+          "usage": "Every noun is a he, a she or an it, and its ending tells you which — and how many.",
+          "example": "Έχω δύο βιβλία. — I have two books."
+        },
+        {
+          "point": "Indefinite articles (ένας / μία / ένα)",
+          "label": "Indefinite article",
+          "usage": "The word for a — ένας, μία or ένα, picked to match the noun.",
+          "example": "Είναι μία ωραία μέρα. — It is a beautiful day."
+        },
+        {
+          "point": "Subject pronouns (εγώ, εσύ, αυτός…)",
+          "label": "Subject pronouns",
+          "usage": "The words for I, you and they — said only when you want to stress who.",
+          "example": "Εγώ είμαι από την Αθήνα. — I am from Athens."
+        },
+        {
+          "point": "Object pronouns (τον, την, το…)",
+          "label": "Object pronouns",
+          "usage": "The short word that stands in for something already mentioned, and sits just before the verb.",
+          "example": "Ξέρω τον Γιώργο· τον βλέπω κάθε μέρα. — I know George; I see him every day."
+        },
+        {
+          "point": "Possessives (το βιβλίο μου…)",
+          "label": "Possessives",
+          "usage": "The little word placed after the noun to say whose it is.",
+          "example": "Το αυτοκίνητό μου είναι καινούριο. — My car is new."
+        },
+        {
+          "point": "Demonstratives (αυτός ο…, εκείνος)",
+          "label": "Demonstratives",
+          "usage": "Pointing at something near or far — and Greek keeps the word for the as well.",
+          "example": "Αυτό το βιβλίο είναι πολύ καλό. — This book is very good."
+        },
+        {
+          "point": "One-word comparatives (καλύτερος, μεγαλύτερος)",
+          "label": "One-word comparatives",
+          "usage": "Single words for bigger, better and worse, used instead of πιο.",
+          "example": "Αυτό το εστιατόριο είναι καλύτερο από το άλλο. — This restaurant is better than the other one."
+        },
+        {
+          "point": "Question words (πού, τι, πότε…)",
+          "label": "Question words",
+          "usage": "Where, what, when, who, how, why — and the Greek question mark looks like a semicolon.",
+          "example": "Πού μένεις; — Where do you live?"
+        },
+        {
+          "point": "Prepositions (σε, από, με, για…)",
+          "label": "Prepositions",
+          "usage": "Small words like in, from, with and for; σε usually merges into στο and στη.",
+          "example": "Μένω σε μια μικρή πόλη. — I live in a small town."
+        },
+        {
+          "point": "Comparative & superlative (πιο…, ο πιο…)",
+          "label": "Comparison (πιο)",
+          "usage": "Put πιο before a describing word for more, and add the word for the to get the most.",
+          "example": "Η Αθήνα είναι πιο μεγάλη από τη Θεσσαλονίκη. — Athens is bigger than Thessaloniki."
+        },
+        {
+          "point": "Two object pronouns (μου το έδωσε)",
+          "label": "Two pronouns at once (μου το)",
+          "usage": "To say he gave it to me, both short words come before the verb in a fixed order.",
+          "example": "Το βιβλίο; Ο Γιάννης μου το έδωσε χθες. — The book? John gave it to me yesterday."
+        },
+        {
+          "point": "Relative clauses (που, ο οποίος)",
+          "label": "Relative που",
+          "usage": "Sticking two sentences together with who, which or that — που does all three and never changes; ο οποίος is the formal alternative and does change to match the noun.",
+          "example": "Ο άντρας που ήρθε είναι γιατρός. — The man who came is a doctor."
+        },
+        {
+          "point": "Emphasis & clitic doubling (τον Γιάννη τον ξέρω)",
+          "label": "Clitic doubling",
+          "usage": "Move what you are talking about to the front, then repeat it with a short word on the verb.",
+          "example": "Τον Γιάννη τον ξέρω από παιδί. — John, I've known him since childhood."
+        },
+        {
+          "point": "Register & fixed expressions (formal vs everyday)",
+          "label": "Register",
+          "usage": "When you need to sound official — a notice, a form, a speech — Greek reaches for older words and set phrases instead of the everyday ones.",
+          "example": "Εν πάση περιπτώσει, θα τα πούμε αύριο. — In any case, we'll talk tomorrow."
         }
       ]
     }

@@ -53,6 +53,102 @@
           "label": "Imperative",
           "usage": "Commands.",
           "example": "Scrie mai tare!"
+        },
+        {
+          "point": "A fi — present (sunt, ești, este…)",
+          "label": "A fi (to be)",
+          "usage": "Saying what someone or something is.",
+          "example": "Eu sunt student. — I am a student."
+        },
+        {
+          "point": "A avea — present (am, ai, are…)",
+          "label": "A avea (to have)",
+          "usage": "Saying what you have — and how old you are.",
+          "example": "Eu am douăzeci de ani. — I am twenty years old."
+        },
+        {
+          "point": "Key irregular presents (vreau, pot, știu)",
+          "label": "Irregular presents",
+          "usage": "The everyday verbs that refuse the pattern: want, can, know.",
+          "example": "Eu vreau o cafea, te rog. — I want a coffee, please."
+        },
+        {
+          "point": "Reflexive verbs (a se spăla)",
+          "label": "Reflexive verbs",
+          "usage": "Actions you do to yourself: wash, wake up, feel.",
+          "example": "În fiecare dimineață mă trezesc la șapte. — Every morning I wake up at seven."
+        },
+        {
+          "point": "The passive voice (este scris / se vinde)",
+          "label": "Passive",
+          "usage": "When what happened matters more than who did it.",
+          "example": "Cartea este scrisă în limba română. — The book is written in Romanian."
+        },
+        {
+          "point": "The pluperfect (mai-mult-ca-perfectul)",
+          "label": "Pluperfect",
+          "usage": "Already over before another past moment: had done it.",
+          "example": "Când ai sosit, eu deja mâncasem. — When you arrived, I had already eaten."
+        },
+        {
+          "point": "The past conditional (aș fi scris)",
+          "label": "Past conditional",
+          "usage": "What would have happened, but never did.",
+          "example": "Aș fi venit imediat, dar nu am știut nimic. — I would have come at once, but I knew nothing."
+        },
+        {
+          "point": "The gerund (gerunziul: scriind)",
+          "label": "Gerund",
+          "usage": "One action going on alongside another: he left singing.",
+          "example": "A intrat în cameră zâmbind. — He entered the room smiling."
+        },
+        {
+          "point": "The supine (de scris, ușor de făcut)",
+          "label": "Supine",
+          "usage": "Naming the job itself: something to write, easy to do.",
+          "example": "Am multe lucruri de făcut azi. — I have many things to do today."
+        },
+        {
+          "point": "Negation with nu",
+          "label": "Negation",
+          "usage": "Saying not: nu sits straight in front of the verb.",
+          "example": "Eu nu vorbesc engleză. — I don't speak English."
+        },
+        {
+          "point": "Este / sunt — there is, there are",
+          "label": "There is / are",
+          "usage": "Saying what exists somewhere — Romanian just uses to be.",
+          "example": "Pe masă este o carte. — There is a book on the table."
+        },
+        {
+          "point": "Reported speech (că, dacă)",
+          "label": "Reported speech",
+          "usage": "Passing on what someone else said, asked or told you.",
+          "example": "Mi-a spus că va întârzia puțin. — He told me that he'll be a bit late."
+        },
+        {
+          "point": "Conditional sentences (dacă…)",
+          "label": "Dacă-clauses",
+          "usage": "If this, then that — the likely and the imagined.",
+          "example": "Dacă înveți mult, vei reuși la examen. — If you study a lot, you'll pass the exam."
+        },
+        {
+          "point": "Subjunctive after impersonals (trebuie să, e posibil să)",
+          "label": "Trebuie să",
+          "usage": "After must, it's possible, it's good — what follows takes să.",
+          "example": "Trebuie să plecăm acum, e târziu. — We must leave now, it's late."
+        },
+        {
+          "point": "Subordinating connectors (deși, întrucât, astfel încât)",
+          "label": "Connectors",
+          "usage": "Although, because, so that — joining clauses in careful speech.",
+          "example": "Deși era târziu, am continuat discuția. — Although it was late, we continued the discussion."
+        },
+        {
+          "point": "Register & the literary layer (perfectul simplu, formal style)",
+          "label": "Literary register",
+          "usage": "The written past and formal wording you meet in books.",
+          "example": "Se făcu liniște, iar el merse încet spre ușă. — Silence fell, and he walked slowly to the door. (literary past)"
         }
       ]
     },
@@ -90,6 +186,84 @@
           "usage": "Masculine, feminine, and the Romanian neuter.",
           "example": "un scaun, două scaune",
           "nonstandard": true
+        },
+        {
+          "point": "Subject pronouns (eu, tu, el…)",
+          "label": "Subject pronouns",
+          "usage": "I, you, he — usually left out, added for emphasis.",
+          "example": "Eu sunt din București. — I am from Bucharest."
+        },
+        {
+          "point": "Indefinite articles (un / o)",
+          "label": "Un / o",
+          "usage": "Saying a or an; the choice announces the gender.",
+          "example": "Am un câine. — I have a dog."
+        },
+        {
+          "point": "Direct object pronouns (mă, te, îl, o…)",
+          "label": "Direct object pronouns",
+          "usage": "Me, him, her, it — a short word before the verb.",
+          "example": "Ce carte bună! O citesc acum. — What a good book! I'm reading it now."
+        },
+        {
+          "point": "Dative pronouns (îmi, îți, îi…)",
+          "label": "Dative pronouns",
+          "usage": "Who you give or say something to — and what you like.",
+          "example": "Îmi place foarte mult muzica. — I really like music. (music pleases me)"
+        },
+        {
+          "point": "Possessives (meu, mea, tău…)",
+          "label": "Possessives",
+          "usage": "My, your, our — after the noun, and matching it.",
+          "example": "Mașina mea este nouă. — My car is new."
+        },
+        {
+          "point": "Demonstratives (acest, această, acel)",
+          "label": "This / that",
+          "usage": "Pointing at the one here or the one over there.",
+          "example": "Această carte este interesantă. — This book is interesting."
+        },
+        {
+          "point": "Prepositions with genitive-dative (datorită, în fața)",
+          "label": "Case prepositions",
+          "usage": "Saying thanks to, because of, in front of — the word after them changes shape.",
+          "example": "Am reușit datorită ajutorului tău. — I succeeded thanks to your help."
+        },
+        {
+          "point": "Question words (unde, ce, când…)",
+          "label": "Question words",
+          "usage": "Asking where, what, when — the question word leads.",
+          "example": "Unde locuiești? — Where do you live?"
+        },
+        {
+          "point": "Prepositions (în, la, cu, pe, pentru)",
+          "label": "În, la, cu, pe",
+          "usage": "In, at, with, for — and the ending the noun drops after them.",
+          "example": "Merg la școală în fiecare zi. — I go to school every day."
+        },
+        {
+          "point": "Comparative & superlative (mai… decât, cel mai)",
+          "label": "Mai … decât / cel mai",
+          "usage": "Saying bigger than something, and the biggest of all.",
+          "example": "Bucureștiul este mai mare decât Iașiul. — Bucharest is bigger than Iași."
+        },
+        {
+          "point": "Comparative structures (tot atât de, din ce în ce)",
+          "label": "As … as",
+          "usage": "Two things equal, or one getting more and more so.",
+          "example": "El este la fel de înalt ca mine. — He is as tall as me."
+        },
+        {
+          "point": "Relative pronouns (care, ce, cine)",
+          "label": "Relative care",
+          "usage": "Hanging a describing clause on: the man who came.",
+          "example": "Bărbatul care a venit este medic. — The man who came is a doctor."
+        },
+        {
+          "point": "Clitic doubling (pe Ion îl văd, îi dau Mariei)",
+          "label": "Doubling with pe",
+          "usage": "Whenever you name the person you see or give something to, Romanian says the short pronoun as well — it isn't optional.",
+          "example": "Pe Ion îl văd în fiecare zi. — I see Ion every day."
         }
       ]
     }

@@ -90,6 +90,12 @@
           "usage": "Passive endings, active meaning: loquitur = she speaks.",
           "example": "Puella cum puerō loquitur. — The girl speaks with the boy.",
           "nonstandard": true
+        },
+        {
+          "point": "Gerund, gerundive, and the passive periphrastic",
+          "label": "Gerund & gerundive",
+          "usage": "Naming the activity itself (ars amandī) and saying what has to be done: dēlenda est.",
+          "example": "Carthāgō dēlenda est. — Carthage must be destroyed."
         }
       ]
     },
@@ -241,6 +247,30 @@
           "usage": "Real, should-would, and contrary-to-fact conditions with sī.",
           "example": "Sī aquam habērem, tibi darem. — If I had water, I would give it to you.",
           "nonstandard": true
+        },
+        {
+          "point": "Indirect questions and the sequence of tenses",
+          "label": "Indirect questions",
+          "usage": "When a question sits inside another sentence — I know what she is saying — and the verb shifts to match.",
+          "example": "Sciō quid puella dīcat. — I know what the girl is saying."
+        },
+        {
+          "point": "Oratio obliqua: sustained indirect discourse",
+          "label": "Whole reported speeches",
+          "usage": "How a historian reports a whole speech without quotation marks: he said that the soldiers had fought.",
+          "example": "Dīxit rēgem, quī urbem tenēret, bonum esse. — He said that the king, who held the city, was good."
+        },
+        {
+          "point": "Poetic word order: reading real classical lines",
+          "label": "Poetic order",
+          "usage": "Reading verse, where poets pull words that belong together apart and the endings put them back.",
+          "example": "Carpe diem, quam minimum crēdula posterō. — Seize the day, trusting as little as possible in tomorrow. (Horace, Odes 1.11)"
+        },
+        {
+          "point": "Register: Ciceronian period and colloquial Latin",
+          "label": "Formal vs casual",
+          "usage": "The long, suspended sentence of a speech against the short, everyday Latin of letters and comedy.",
+          "example": "Quōusque tandem abūtēre, Catilīna, patientiā nostrā? — How long, Catiline, will you abuse our patience? (Cicero, In Catilinam 1)"
         }
       ]
     }

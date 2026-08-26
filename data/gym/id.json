@@ -52,6 +52,78 @@
           "label": "Passive 1 vs 2",
           "usage": "di- for third person; bare root for 1st/2nd.",
           "example": "Buku itu saya baca."
+        },
+        {
+          "point": "Verbs don't conjugate",
+          "label": "No conjugation",
+          "usage": "The verb never changes, whoever is doing it and whenever it happens.",
+          "example": "Saya mau makan. — I want to eat."
+        },
+        {
+          "point": "Negation: tidak vs. bukan",
+          "label": "tidak vs bukan",
+          "usage": "tidak denies an action or a quality; bukan denies a thing.",
+          "example": "Rumah ini tidak besar. — This house isn't big."
+        },
+        {
+          "point": "Time markers before the verb: sudah, belum, akan",
+          "label": "sudah / belum / akan",
+          "usage": "One word in front of the verb: done, not yet, still to come.",
+          "example": "Saya sudah makan. — I have already eaten."
+        },
+        {
+          "point": "Aspect markers: sedang, masih, pernah, baru",
+          "label": "sedang / masih / pernah",
+          "usage": "Going on now, still true, ever done, or only just done.",
+          "example": "Saya sedang makan sekarang. — I'm eating right now."
+        },
+        {
+          "point": "Modality: bisa, boleh, harus, mau",
+          "label": "bisa / boleh / harus",
+          "usage": "Can, may, must, want — straight before the verb, never changed.",
+          "example": "Saya bisa berbicara bahasa Indonesia. — I can speak Indonesian."
+        },
+        {
+          "point": "ada: existence, having, and 'there is'",
+          "label": "ada",
+          "usage": "There is, is present, and casually to have; tidak ada for none.",
+          "example": "Ada masalah dengan komputer ini. — There is a problem with this computer."
+        },
+        {
+          "point": "Agentless passives and oleh",
+          "label": "No doer, or oleh",
+          "usage": "The usual passive names nobody; oleh adds the doer.",
+          "example": "Rumah itu dijual tahun lalu. — That house was sold last year."
+        },
+        {
+          "point": "Affix pairs that shift meaning",
+          "label": "Affix pairs",
+          "usage": "Pick by who or what the object is: mengajar a subject, mengajari a person, mengajarkan a topic to someone.",
+          "example": "Dia mengajar matematika di sekolah. — She teaches mathematics at the school."
+        },
+        {
+          "point": "Lexicalised affixation",
+          "label": "Frozen affixes",
+          "usage": "Words that look built from a root but are learned whole.",
+          "example": "Saya tidak mengerti maksud Anda. — I don't understand what you mean."
+        },
+        {
+          "point": "Register: baku, colloquial, and Jakarta speech",
+          "label": "Colloquial speech",
+          "usage": "How people actually talk: gue, lu, nggak, and -in for -kan.",
+          "example": "Gue nggak tahu. — I don't know."
+        },
+        {
+          "point": "Switching register inside one text",
+          "label": "Register switching",
+          "usage": "News and novels narrate formally and let people speak casually.",
+          "example": "Menteri menyatakan bahwa harga akan stabil. — The minister stated that prices would be stable."
+        },
+        {
+          "point": "Journalistic style: fronting and ellipsis",
+          "label": "News style",
+          "usage": "Reporting leads with the thing affected and leaves out the rest.",
+          "example": "Tersangka ditangkap polisi tadi malam. — The suspect was arrested by police last night."
         }
       ]
     },
@@ -93,6 +165,90 @@
           "label": "Reduplication",
           "usage": "Casual, various, reciprocal — not only plural.",
           "example": "jalan-jalan"
+        },
+        {
+          "point": "Adjectives follow the noun",
+          "label": "Adjective order",
+          "usage": "The describing word comes after the thing it describes.",
+          "example": "Dia tinggal di rumah besar. — He lives in a big house."
+        },
+        {
+          "point": "Possession by word order",
+          "label": "Possession",
+          "usage": "Name the thing, then the owner — no extra word between them.",
+          "example": "Ini rumah saya. — This is my house."
+        },
+        {
+          "point": "Plural by reduplication",
+          "label": "Plural: buku-buku",
+          "usage": "Say the word twice when you mean more than one of it.",
+          "example": "Di rumah ada buku-buku. — There are books at home."
+        },
+        {
+          "point": "Yes/no questions with apakah",
+          "label": "apakah questions",
+          "usage": "Put apakah at the front; nothing else in the sentence moves.",
+          "example": "Apakah kamu mau makan? — Do you want to eat?"
+        },
+        {
+          "point": "Formal vs. informal \"you\"; inclusive vs. exclusive \"we\"",
+          "label": "Pronoun choice",
+          "usage": "kamu is casual, Anda polite; kita includes the listener, kami doesn't.",
+          "example": "Anda mau makan? — Would you like to eat? (formal/polite)"
+        },
+        {
+          "point": "Question words",
+          "label": "Question words",
+          "usage": "apa, siapa, di mana, kapan — each sits where the answer would.",
+          "example": "Kamu tinggal di mana? — Where do you live?"
+        },
+        {
+          "point": "Place prepositions: di, ke, dari",
+          "label": "di / ke / dari",
+          "usage": "At or in, to, and from — put one before the place.",
+          "example": "Buku itu ada di atas meja. — The book is on the table."
+        },
+        {
+          "point": "yang: the all-purpose relativiser",
+          "label": "yang",
+          "usage": "Hangs a whole description on a noun: the one that…",
+          "example": "Orang yang tinggi itu guru saya. — That tall person is my teacher."
+        },
+        {
+          "point": "Purpose: untuk, supaya, agar",
+          "label": "untuk / supaya",
+          "usage": "Say what something is for, or why you are doing it.",
+          "example": "Saya datang untuk belajar. — I came to study."
+        },
+        {
+          "point": "Conditionals: kalau, jika, bila",
+          "label": "kalau / jika",
+          "usage": "If this, then that — kalau when speaking, jika when writing.",
+          "example": "Kalau hujan, saya tidak pergi. — If it rains, I won't go."
+        },
+        {
+          "point": "Reported speech with bahwa",
+          "label": "bahwa",
+          "usage": "Passing on what someone said or thought, with no change of tense.",
+          "example": "Dia mengatakan bahwa dia akan datang. — He said that he would come."
+        },
+        {
+          "point": "Discourse particles: -lah, -kah, -pun",
+          "label": "-lah / -kah / -pun",
+          "usage": "Tiny endings that soften, ask, or point at the important word.",
+          "example": "Dialah yang bertanggung jawab. — HE is the one responsible."
+        },
+        {
+          "point": "Formal connectors",
+          "label": "Written connectors",
+          "usage": "The joining words written Indonesian runs on: sehingga, meskipun, namun.",
+          "example": "Hujan deras, sehingga jalan banjir. — It rained hard, so the road flooded."
+        },
+        {
+          "point": "Nominalisation in formal prose",
+          "label": "Formal noun style",
+          "usage": "Formal writing turns actions into things: pembangunan, penelitian.",
+          "example": "Pembangunan jalan tol sedang berlangsung. — Construction of the toll road is underway."
         }
       ]
     }

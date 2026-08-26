@@ -60,6 +60,114 @@
           "usage": "The action done to the subject.",
           "example": "Das Haus wird gebaut.",
           "nonstandard": true
+        },
+        {
+          "point": "Stem-changing presents (du fährst, er spricht)",
+          "label": "Stem changes",
+          "usage": "Some common verbs swap their vowel, but only when you talk about 'you' or 'he/she/it'.",
+          "example": "Du sprichst sehr gut Deutsch. — You speak German very well."
+        },
+        {
+          "point": "Simple past of sein & haben (war, hatte)",
+          "label": "war / hatte",
+          "usage": "Saying somebody was somewhere or had something — the everyday past of these two verbs.",
+          "example": "Gestern war ich sehr müde. — Yesterday I was very tired."
+        },
+        {
+          "point": "Separable verbs (aufstehen, einkaufen)",
+          "label": "Separable verbs",
+          "usage": "Some verbs split in two, and the front piece jumps to the end of the sentence.",
+          "example": "Ich stehe jeden Tag um sieben Uhr auf. — I get up at seven every day."
+        },
+        {
+          "point": "Reflexive verbs (sich freuen)",
+          "label": "Reflexive verbs",
+          "usage": "Verbs that need an extra little word pointing back at whoever is doing it.",
+          "example": "Ich freue mich auf das Wochenende. — I'm looking forward to the weekend."
+        },
+        {
+          "point": "The imperative (Geh! Nehmen Sie!)",
+          "label": "Imperative",
+          "usage": "Telling somebody to do something — with a different form for each way of saying 'you'.",
+          "example": "Sprich bitte langsamer! — Speak more slowly, please!"
+        },
+        {
+          "point": "The past perfect (Plusquamperfekt)",
+          "label": "Plusquamperfekt",
+          "usage": "Something that had already happened before another moment in the past.",
+          "example": "Als du ankamst, hatte ich schon gegessen. — When you arrived, I had already eaten."
+        },
+        {
+          "point": "Unreal conditions (Konjunktiv II der Vergangenheit)",
+          "label": "hätte … gemacht",
+          "usage": "What would have happened, but didn't.",
+          "example": "Wenn ich Zeit gehabt hätte, wäre ich gekommen. — If I had had time, I would have come."
+        },
+        {
+          "point": "Reported speech (Konjunktiv I)",
+          "label": "Reported speech (er sei)",
+          "usage": "Repeating what someone else said the way news reports do, without vouching for it.",
+          "example": "Er sagt, er sei krank. — He says he is ill."
+        },
+        {
+          "point": "Passive alternatives (man, sich lassen, sein + zu)",
+          "label": "Passive alternatives",
+          "usage": "Saying what gets done without naming who does it, in the ways Germans prefer to the passive.",
+          "example": "Man spricht hier Deutsch. — German is spoken here. (one speaks…)"
+        },
+        {
+          "point": "Verb second (V2) word order",
+          "label": "V2 word order",
+          "usage": "The verb sits in slot two of a statement, whatever you choose to start with.",
+          "example": "Heute lerne ich Deutsch. — Today I am learning German."
+        },
+        {
+          "point": "Es gibt — there is / there are",
+          "label": "es gibt",
+          "usage": "Saying that something exists or is around, one thing or many.",
+          "example": "Es gibt einen Park in der Nähe. — There is a park nearby."
+        },
+        {
+          "point": "Question words (wo, wie, was…)",
+          "label": "Question words",
+          "usage": "Asking where, how, what, when or why, with the verb right behind.",
+          "example": "Wo wohnst du? — Where do you live?"
+        },
+        {
+          "point": "Subordinate clauses (weil, dass)",
+          "label": "weil / dass",
+          "usage": "Adding a because- or that-half, which throws its verb right to the end.",
+          "example": "Ich bleibe zu Hause, weil ich krank bin. — I'm staying home because I'm ill."
+        },
+        {
+          "point": "Infinitive with zu (um … zu)",
+          "label": "zu + infinitive",
+          "usage": "Hanging a second verb on the first — trying to sleep, or doing something in order to.",
+          "example": "Ich lerne Deutsch, um in Wien zu arbeiten. — I'm learning German in order to work in Vienna."
+        },
+        {
+          "point": "Connectors & word order (deshalb, trotzdem, damit)",
+          "label": "Connectors",
+          "usage": "Joining two thoughts with so, nevertheless or in order that — each shuffles the words differently.",
+          "example": "Es regnet, deshalb bleiben wir zu Hause. — It's raining, so we're staying home."
+        },
+        {
+          "point": "Verbs with prepositions & da-/wo- words",
+          "label": "Verb + preposition",
+          "usage": "Verbs welded to a little word — waiting for, thinking of — and the darauf and worauf forms that stand in for what follows.",
+          "example": "Ich warte auf den Bus. — I'm waiting for the bus."
+        },
+        {
+          "point": "Advanced connectors (indem, je … desto, sofern)",
+          "label": "Advanced connectors",
+          "usage": "Joining thoughts the way careful writing does: by doing something, the more the better, provided that.",
+          "example": "Man lernt eine Sprache, indem man sie spricht. — You learn a language by speaking it."
+        },
+        {
+          "point": "Modal particles (doch, mal, ja, eben)",
+          "label": "Modal particles",
+          "usage": "The tiny words that add a shrug, a nudge or a bit of impatience without changing what is said.",
+          "example": "Komm doch mit, es wird lustig! — Do come along, it'll be fun!"
         }
       ]
     },
@@ -102,6 +210,66 @@
           "label": "Possessive articles",
           "usage": "mein/dein/sein decline like ein.",
           "example": "mein Bruder, meinem Bruder"
+        },
+        {
+          "point": "Subject pronouns (ich, du, er…)",
+          "label": "Subject pronouns",
+          "usage": "The words for I, you, he, she, we and they when they are the one doing something.",
+          "example": "Ich wohne in Berlin. — I live in Berlin."
+        },
+        {
+          "point": "Personal pronouns: accusative & dative (mich, dir)",
+          "label": "Object pronouns",
+          "usage": "The words for me, you, him and them when they are on the receiving end instead.",
+          "example": "Ich liebe dich. — I love you."
+        },
+        {
+          "point": "Gender and number of nouns",
+          "label": "Gender & plural",
+          "usage": "Whether a thing counts as a der, die or das word, and how it turns plural.",
+          "example": "Ich habe zwei Bücher. — I have two books."
+        },
+        {
+          "point": "Definite articles (der / die / das)",
+          "label": "der / die / das",
+          "usage": "The German words for 'the' — learn each one glued to its noun.",
+          "example": "Das Haus ist groß. — The house is big."
+        },
+        {
+          "point": "Indefinite articles (ein / eine)",
+          "label": "ein / eine",
+          "usage": "The German words for 'a' or 'an', and the plural that simply drops them.",
+          "example": "Das ist ein Haus. — That is a house."
+        },
+        {
+          "point": "Adjectival nouns (das Gute, ein Reisender)",
+          "label": "das Gute / ein Reisender",
+          "usage": "Describing words used as things in their own right: the good, a traveller.",
+          "example": "Das Gute an der Sache ist der Preis. — The good thing about it is the price."
+        },
+        {
+          "point": "Comparative & superlative (größer als, am größten)",
+          "label": "Comparative",
+          "usage": "Saying one thing is bigger than another, or the biggest of the lot.",
+          "example": "Berlin ist größer als München. — Berlin is bigger than Munich."
+        },
+        {
+          "point": "Negation with nicht and kein",
+          "label": "nicht / kein",
+          "usage": "Saying no or not — which of the two you need depends on what you are cancelling.",
+          "example": "Ich habe kein Auto. — I don't have a car."
+        },
+        {
+          "point": "Relative clauses (der, die, das, dem…)",
+          "label": "Relative clauses",
+          "usage": "Adding a who- or which-part to say more about a person or thing you just named.",
+          "example": "Der Mann, der dort steht, ist mein Lehrer. — The man who is standing there is my teacher."
+        },
+        {
+          "point": "Extended attributes & nominal style (Nominalstil)",
+          "label": "Extended attributes",
+          "usage": "The packed written style that squeezes a whole description in between 'the' and its noun.",
+          "example": "Die gestern getroffene Entscheidung war richtig. — The decision made yesterday was right."
         }
       ]
     }

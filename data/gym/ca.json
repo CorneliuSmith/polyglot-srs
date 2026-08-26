@@ -53,6 +53,108 @@
           "label": "Imperative",
           "usage": "Commands.",
           "example": "Parla més fort!"
+        },
+        {
+          "point": "Ser — present (soc, ets, és…)",
+          "label": "Ser (present)",
+          "usage": "For saying what someone or something is — where you are from, what you do, what you are like.",
+          "example": "Jo soc estudiant. — I am a student."
+        },
+        {
+          "point": "Estar — states and location (estic cansat)",
+          "label": "Estar (present)",
+          "usage": "For how someone feels or how something is at the moment, and for where they are right now.",
+          "example": "Estic molt cansat avui. — I'm very tired today."
+        },
+        {
+          "point": "Tenir — present (tinc gana)",
+          "label": "Tenir (present)",
+          "usage": "For what you have — and for your age, and for being hungry, thirsty or right, which Catalan treats as things you have.",
+          "example": "Jo tinc vint anys. — I am twenty years old."
+        },
+        {
+          "point": "Key irregular presents (faig, puc, vull)",
+          "label": "Irregular presents",
+          "usage": "For the everyday verbs — go, do, can, want, come, say — whose present forms you learn rather than build.",
+          "example": "Faig el sopar i després vull dormir. — I make dinner and then I want to sleep."
+        },
+        {
+          "point": "Negation with no",
+          "label": "Negation",
+          "usage": "For saying something is not so: no goes straight in front of the verb.",
+          "example": "Jo no parlo anglès. — I don't speak English."
+        },
+        {
+          "point": "Hi ha — there is / there are",
+          "label": "Hi ha",
+          "usage": "For saying that something exists or is somewhere — one unchanging phrase covers both there is and there are.",
+          "example": "Hi ha un llibre sobre la taula. — There is a book on the table."
+        },
+        {
+          "point": "The present perfect (el perfet)",
+          "label": "Present perfect",
+          "usage": "For what has happened today or a moment ago, rather than back in a finished past.",
+          "example": "Avui he menjat al restaurant. — Today I ate at the restaurant."
+        },
+        {
+          "point": "The past perfect (el plusquamperfet)",
+          "label": "Past perfect",
+          "usage": "For what had already happened before some other moment in the past.",
+          "example": "Quan vas arribar, jo ja havia sopat. — When you arrived, I had already had dinner."
+        },
+        {
+          "point": "Reflexive verbs (rentar-se)",
+          "label": "Reflexive verbs",
+          "usage": "For things you do to yourself — getting up, washing, going to bed — where a small word matching you comes first.",
+          "example": "Cada matí em llevo a les set. — Every morning I get up at seven."
+        },
+        {
+          "point": "The passive voice (ser + participi; es passiva)",
+          "label": "Passive",
+          "usage": "For when what happened to something matters more than who did it: the letter is written, bread is sold here.",
+          "example": "El pont va ser construït l'any passat. — The bridge was built last year."
+        },
+        {
+          "point": "Reported speech (l'estil indirecte)",
+          "label": "Reported speech",
+          "usage": "For passing on what someone said or asked, with que before a statement and si before a yes-or-no question.",
+          "example": "M'ha dit que està cansat. — He told me (that) he is tired."
+        },
+        {
+          "point": "Hypotheticals (si + imperfet de subjuntiu)",
+          "label": "Hypotheticals",
+          "usage": "For what you would do in a situation that is not actually true: if I had time, I would come.",
+          "example": "Si tingués temps, aniria al cinema. — If I had time, I would go to the cinema."
+        },
+        {
+          "point": "Past hypotheticals (condicional passat)",
+          "label": "Past hypotheticals",
+          "usage": "For looking back at something that never happened: if I had known, I would have come.",
+          "example": "Si ho hagués sabut, hauria vingut abans. — If I had known, I would have come earlier."
+        },
+        {
+          "point": "Subjunctive after conjunctions",
+          "label": "Subjunctive (encara que)",
+          "usage": "For the joining words — although, so that, before, without — that always pull the verb into its not-yet-real form.",
+          "example": "Encara que faci fred, surten igualment. — Although it's cold, they go out anyway."
+        },
+        {
+          "point": "Past subjunctive & sequence of tenses",
+          "label": "Past subjunctive",
+          "usage": "For a wish, a doubt or a request that sits in the past — what you wanted someone to do, what you doubted was true.",
+          "example": "Volia que vinguessis a la festa. — I wanted you to come to the party."
+        },
+        {
+          "point": "The gerund (el gerundi: fent)",
+          "label": "Gerund",
+          "usage": "For saying while doing or by doing something, and with estar for what is going on this very minute.",
+          "example": "Ha caigut corrent darrere l'autobús. — He fell while running after the bus."
+        },
+        {
+          "point": "The literary past (el passat simple)",
+          "label": "Literary past",
+          "usage": "For the one-word past you meet in novels, history and formal writing rather than in conversation.",
+          "example": "El rei construí un gran palau. (narració) — The king built a great palace. (narrative)"
         }
       ]
     },
@@ -83,6 +185,84 @@
           "label": "Possessive/demonstrative",
           "usage": "el meu, aquest/aquell.",
           "example": "el meu amic, aquesta nit"
+        },
+        {
+          "point": "Subject pronouns (jo, tu, ell…)",
+          "label": "Subject pronouns",
+          "usage": "For naming who you mean — jo, tu, ell — though the verb ending usually says it already, so you add them mainly for emphasis.",
+          "example": "Jo soc de Barcelona. — I am from Barcelona."
+        },
+        {
+          "point": "Gender and number of nouns",
+          "label": "Gender & number",
+          "usage": "For knowing whether a word counts as masculine or feminine, and how to turn one of something into several.",
+          "example": "Tinc un germà i dues germanes. — I have one brother and two sisters."
+        },
+        {
+          "point": "Contractions (al, del, pel)",
+          "label": "Article contractions",
+          "usage": "For when a, de or per runs into el or els and the two merge into one word: al, del, pel.",
+          "example": "Vaig al cinema aquesta nit. — I'm going to the cinema tonight."
+        },
+        {
+          "point": "Weak pronouns — direct object (el, la, els, les)",
+          "label": "Object pronouns",
+          "usage": "For swapping in a short word for a person or thing already mentioned, so you do not name it twice.",
+          "example": "Coneixes en Marc? Sí, el conec bé. — Do you know Marc? Yes, I know him well."
+        },
+        {
+          "point": "Weak pronouns — en and hi",
+          "label": "En and hi",
+          "usage": "For the two little words standing in for some of it and there or about it, which English usually leaves out altogether.",
+          "example": "Vols cafè? Sí, en vull, gràcies. — Do you want coffee? Yes, I'd like some."
+        },
+        {
+          "point": "Combined weak pronouns (me'l, l'hi, se'n)",
+          "label": "Stacked pronouns",
+          "usage": "For when two of those short words land in front of the same verb: give it to me, give me some.",
+          "example": "El llibre? Me'l dones demà? — The book? Will you give it to me tomorrow?"
+        },
+        {
+          "point": "Question words (on, com, què…)",
+          "label": "Question words",
+          "usage": "For asking where, how, what, when and why — the question word goes first and the verb comes right after.",
+          "example": "On vius? — Where do you live?"
+        },
+        {
+          "point": "Relative pronouns (que, qui, què, on)",
+          "label": "Relative pronouns",
+          "usage": "For tying two statements about the same person, thing or place into one: the man who lives here.",
+          "example": "És l'home que viu aquí al costat. — That's the man who lives next door."
+        },
+        {
+          "point": "Comparative & superlative (més… que, el més)",
+          "label": "Comparatives",
+          "usage": "For saying one thing is more or less than another, or the most of the lot.",
+          "example": "Barcelona és més gran que Girona. — Barcelona is bigger than Girona."
+        },
+        {
+          "point": "Irregular comparatives (millor, pitjor)",
+          "label": "Irregular comparatives",
+          "usage": "For the two comparisons that never take més: better and worse.",
+          "example": "Aquest restaurant és millor que l'altre. — This restaurant is better than the other."
+        },
+        {
+          "point": "Logical connectors (tanmateix, per tant, ja que)",
+          "label": "Connectors",
+          "usage": "For stringing your points together in longer speech or writing: so, however, since, what is more.",
+          "example": "Plou molt; per tant, ens quedem a casa. — It's raining hard, so we're staying home."
+        },
+        {
+          "point": "Focus & dislocation (és a Roma que…, el llibre l'he llegit)",
+          "label": "Focus & fronting",
+          "usage": "For pushing the part you care about to the front of the sentence and echoing it with a short word, the way Catalan spotlights things.",
+          "example": "És a Girona que visc, no a Lleida. — It's in Girona that I live, not Lleida."
+        },
+        {
+          "point": "Formal register & idiom (registre formal)",
+          "label": "Formal register",
+          "usage": "For the more formal turns of phrase used in writing, speeches and polite dealings.",
+          "example": "Al meu parer, la proposta és vàlida. — In my opinion, the proposal is sound."
         }
       ]
     }

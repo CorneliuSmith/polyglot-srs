@@ -67,6 +67,120 @@
           "usage": "make someone do.",
           "example": "Yazdırdım.",
           "nonstandard": true
+        },
+        {
+          "point": "Personal pronouns and 'to be' (-(y)im, -sin…)",
+          "label": "To be (-im)",
+          "usage": "Saying what someone is — the 'am/are' ending goes straight onto the word, with no separate verb.",
+          "example": "Ben öğrenciyim. — I am a student."
+        },
+        {
+          "point": "Question particle (mı / mi / mu / mü)",
+          "label": "Yes/no (mı)",
+          "usage": "Turning a statement into a yes-or-no question — mı comes after the word you are asking about.",
+          "example": "Sen öğrenci misin? — Are you a student?"
+        },
+        {
+          "point": "Var / yok — there is, there isn't",
+          "label": "Var / yok",
+          "usage": "Saying something is there or isn't there — and it is also how Turkish says someone has something.",
+          "example": "Evde süt var. — There is milk at home."
+        },
+        {
+          "point": "Negation with değil (doktor değilim)",
+          "label": "Not (değil)",
+          "usage": "Denying what someone or something is, where there is no action word to make negative.",
+          "example": "Ben doktor değilim. — I am not a doctor."
+        },
+        {
+          "point": "Negative present continuous (-miyor)",
+          "label": "Present continuous negative (-miyor)",
+          "usage": "Saying what is not happening right now.",
+          "example": "Ben kahve içmiyorum. — I am not drinking coffee."
+        },
+        {
+          "point": "Aorist negative (-mez / -mem)",
+          "label": "Aorist negative",
+          "usage": "Saying what someone never does, or does not do as a rule.",
+          "example": "Ben et yemem. — I don't eat meat."
+        },
+        {
+          "point": "Verbal nouns (-mek / -me)",
+          "label": "Verbal nouns",
+          "usage": "Talking about an activity itself — swimming, reading — as the thing you like, want or find hard.",
+          "example": "Yüzmeyi seviyorum. — I love swimming."
+        },
+        {
+          "point": "While (-ken)",
+          "label": "While (-ken)",
+          "usage": "Saying that one thing happens during another: while working, while eating.",
+          "example": "Çalışırken müzik dinlerim. — While working, I listen to music."
+        },
+        {
+          "point": "Subject participle (-en)",
+          "label": "Subject participle (-en)",
+          "usage": "Describing someone by what they are doing: the man who is coming, the girl reading a book.",
+          "example": "Gelen adam babamdır. — The man who is coming is my father."
+        },
+        {
+          "point": "Object participle (-dik)",
+          "label": "Object participle (-dik)",
+          "usage": "Describing a thing by what someone does to it: the book that I read, the food you made.",
+          "example": "Okuduğum kitap çok güzel. — The book that I read is very good."
+        },
+        {
+          "point": "Reported speech (-diğini söylemek)",
+          "label": "Reported speech",
+          "usage": "Passing on what someone else said, heard or thought.",
+          "example": "Hasta olduğunu söyledi. — He said that he was sick."
+        },
+        {
+          "point": "Converbs (-ip and -erek)",
+          "label": "Converbs (-ip, -erek)",
+          "usage": "Joining two things the same person did: one and then the other, or one by doing the other.",
+          "example": "Kahvaltı yapıp evden çıktım. — I had breakfast and left the house."
+        },
+        {
+          "point": "The more… (-dikçe)",
+          "label": "The more (-dikçe)",
+          "usage": "Saying that the more one thing happens, the more another one follows.",
+          "example": "Okudukça öğreniyorum. — The more I read, the more I learn."
+        },
+        {
+          "point": "Without doing (-meden)",
+          "label": "Without (-meden)",
+          "usage": "Saying someone did one thing without doing another at all.",
+          "example": "Veda etmeden gitti. — He left without saying goodbye."
+        },
+        {
+          "point": "Reflexive and reciprocal voice (-in / -iş)",
+          "label": "Reflexive & reciprocal",
+          "usage": "Doing something to yourself, or two people doing it to each other.",
+          "example": "Biz üniversitede tanıştık. — We met (each other) at university."
+        },
+        {
+          "point": "Because (-diği için)",
+          "label": "Because (-diği için)",
+          "usage": "Giving the reason something happened.",
+          "example": "Hasta olduğu için gelmedi. — He didn't come because he was sick."
+        },
+        {
+          "point": "Formal progressive (-mekte)",
+          "label": "Formal progressive",
+          "usage": "Saying what is going on in the formal wording of news reports and official notices.",
+          "example": "Toplantı devam etmektedir. — The meeting is continuing."
+        },
+        {
+          "point": "Pretending (-mış gibi)",
+          "label": "Pretending (-mış gibi)",
+          "usage": "Saying someone acted as if something were true when it wasn't.",
+          "example": "Duymamış gibi yaptı. — He pretended not to have heard."
+        },
+        {
+          "point": "Instead of (-eceğine)",
+          "label": "Instead of (-eceğine)",
+          "usage": "Doing one thing rather than the other one you had in mind.",
+          "example": "Televizyon izleyeceğine kitap oku. — Instead of watching TV, read a book."
         }
       ]
     },
@@ -115,6 +229,42 @@
           "label": "Plural",
           "usage": "Noun plural by vowel harmony.",
           "example": "evler, kitaplar"
+        },
+        {
+          "point": "Demonstratives (bu, şu, o)",
+          "label": "Demonstratives",
+          "usage": "Pointing something out: this one next to me, that one further away.",
+          "example": "Bu bir kitap. — This is a book."
+        },
+        {
+          "point": "Comparatives (daha / en)",
+          "label": "Comparatives",
+          "usage": "Saying one thing is more than another, or the most of all.",
+          "example": "Bu ev daha büyük. — This house is bigger."
+        },
+        {
+          "point": "Postpositions ile and için",
+          "label": "ile / için",
+          "usage": "Saying who or what you did something with, and who or what you did it for.",
+          "example": "Arkadaşım ile sinemaya gittim. — I went to the cinema with my friend."
+        },
+        {
+          "point": "gibi and kadar",
+          "label": "gibi / kadar",
+          "usage": "Comparing one thing to another: strong like a lion, as fast as you.",
+          "example": "O aslan gibi güçlü. — He is as strong as a lion."
+        },
+        {
+          "point": "Before and after (-den önce / sonra)",
+          "label": "Before / after",
+          "usage": "Placing something in time next to something else: after breakfast, before class.",
+          "example": "Kahvaltıdan sonra yürüyüş yaparım. — After breakfast I take a walk."
+        },
+        {
+          "point": "Question words (ne, kim, nerede)",
+          "label": "Question words",
+          "usage": "Asking what, who, where, when, why or how many.",
+          "example": "Ne okuyorsun? — What are you reading?"
         }
       ]
     }

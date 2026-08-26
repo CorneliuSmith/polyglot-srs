@@ -67,6 +67,138 @@
           "usage": "Hypotheticals and softened requests.",
           "example": "Si hablara más, entendería.",
           "nonstandard": true
+        },
+        {
+          "point": "The verb ser (to be) — present",
+          "label": "Ser (identity)",
+          "usage": "For saying who or what someone is — where they are from, what they do, what they are like.",
+          "example": "Yo soy estudiante. — I am a student."
+        },
+        {
+          "point": "The verb estar — location and states",
+          "label": "Estar (location)",
+          "usage": "For where something is, and for how someone feels at the moment — tired, happy, at home.",
+          "example": "Yo estoy en casa. — I am at home."
+        },
+        {
+          "point": "Negation with no",
+          "label": "Negation",
+          "usage": "For saying something is not so — put no directly in front of the verb.",
+          "example": "No tengo tiempo. — I don't have time."
+        },
+        {
+          "point": "Hay — there is / there are",
+          "label": "Hay (there is)",
+          "usage": "For saying something exists or is around — one word covers both there is and there are, and it never changes shape.",
+          "example": "Hay un libro en la mesa. — There is a book on the table."
+        },
+        {
+          "point": "Reflexive verbs (levantarse)",
+          "label": "Reflexives",
+          "usage": "For things you do to yourself, like getting up or washing — a small word (me, te, se) goes in front of the verb.",
+          "example": "Yo me levanto a las siete. — I get up at seven."
+        },
+        {
+          "point": "Gustar and similar verbs",
+          "label": "Gustar",
+          "usage": "For saying you like something: the verb follows the thing liked, so it is me gusta el café but me gustan los libros.",
+          "example": "Me gusta el café. — I like coffee."
+        },
+        {
+          "point": "Ir a + infinitive (near future)",
+          "label": "Near future",
+          "usage": "For plans and whatever is about to happen — put voy a, vas a or vamos a in front of the plain verb.",
+          "example": "Voy a viajar mañana. — I am going to travel tomorrow."
+        },
+        {
+          "point": "Present perfect (he hablado)",
+          "label": "Present perfect",
+          "usage": "For something finished that still counts today — he, has or ha followed by the -ado/-ido form.",
+          "example": "Hoy he trabajado mucho. — Today I have worked a lot."
+        },
+        {
+          "point": "Imperative — affirmative and negative (tú)",
+          "label": "Imperative",
+          "usage": "For telling one person to do something, or not to do it — the two are built from different forms.",
+          "example": "¡Abre la puerta! — Open the door!"
+        },
+        {
+          "point": "Impersonal and passive se",
+          "label": "Impersonal se",
+          "usage": "For saying what people do in general, or what gets done, without naming anyone.",
+          "example": "Se habla español aquí. — Spanish is spoken here."
+        },
+        {
+          "point": "Si-clauses (real and unreal)",
+          "label": "Si-clauses",
+          "usage": "For if-sentences — one shape for what will happen when it is likely, another for what would happen if it is not.",
+          "example": "Si estudias, aprobarás. — If you study, you will pass."
+        },
+        {
+          "point": "Pluperfect (había hablado)",
+          "label": "Pluperfect",
+          "usage": "For something that had already happened before another moment in the past.",
+          "example": "Cuando llegué, ya había salido. — When I arrived, she had already left."
+        },
+        {
+          "point": "Reported speech (dijo que…)",
+          "label": "Reported speech",
+          "usage": "For passing on what someone said earlier, which pushes every verb one step further into the past.",
+          "example": "Dijo que estaba cansado. — He said he was tired."
+        },
+        {
+          "point": "Subjunctive after para que, aunque…",
+          "label": "Para que, aunque",
+          "usage": "For saying what you do something for, and for granting an even-if you are not sure about.",
+          "example": "Te lo digo para que lo sepas. — I'm telling you so that you know."
+        },
+        {
+          "point": "Perfect subjunctive (haya hablado)",
+          "label": "Perfect subjunctive",
+          "usage": "For something already done that you hope for, doubt, or do not believe.",
+          "example": "Espero que hayas llegado bien. — I hope you have arrived safely."
+        },
+        {
+          "point": "Pluperfect subjunctive + conditional perfect",
+          "label": "Unreal past (si hubiera)",
+          "usage": "For looking back at what never happened — if I had studied, I would have passed.",
+          "example": "Si hubiera estudiado, habría aprobado. — If I had studied, I would have passed."
+        },
+        {
+          "point": "Passive with ser + participle",
+          "label": "Passive",
+          "usage": "For formal or written Spanish, where the thing acted on comes first and whoever did it follows por.",
+          "example": "La novela fue escrita en 1967. — The novel was written in 1967."
+        },
+        {
+          "point": "Cleft sentences (fue… quien / lo que)",
+          "label": "Emphasis with ser",
+          "usage": "For pointing at the one part of the sentence that matters — it was María who said it.",
+          "example": "Fue María quien lo dijo. — It was María who said it."
+        },
+        {
+          "point": "Concessive intensifiers (por más que, digan lo que digan)",
+          "label": "Por más que",
+          "usage": "For insisting that nothing will change the outcome — however much you try, whatever they say.",
+          "example": "Por más que insistas, no lo lograrás. — However much you insist, you won't manage it."
+        },
+        {
+          "point": "Literary -se subjunctive and ojalá + past",
+          "label": "Ojalá & -se (literary)",
+          "usage": "For the -se forms you meet in books, and for wishing out loud for something unlikely with ojalá.",
+          "example": "Si él supiese la verdad, callaría. — If he knew the truth, he would keep quiet."
+        },
+        {
+          "point": "No es que + subjunctive (nuanced denial)",
+          "label": "No es que",
+          "usage": "For rejecting the reason someone assumed and giving the real one instead.",
+          "example": "No es que no quiera, es que no puedo. — It's not that I don't want to — it's that I can't."
+        },
+        {
+          "point": "Stem-changing verbs (quiero, puedo)",
+          "label": "Stem changes",
+          "usage": "Many everyday verbs swap their middle vowel in the present — quiero, puedo — while the nosotros form keeps the plain one.",
+          "example": "Yo quiero un café, por favor. — I want a coffee, please."
         }
       ]
     },
@@ -103,6 +235,66 @@
           "label": "Demonstratives",
           "usage": "this/that agree with the noun.",
           "example": "este día, aquella noche"
+        },
+        {
+          "point": "Subject pronouns (yo, tú, él…)",
+          "label": "Subject pronouns",
+          "usage": "For saying who is doing something when it is not obvious, or to stress it — most of the time you leave the word out, because the verb ending already says who.",
+          "example": "Yo soy de México. — I am from Mexico."
+        },
+        {
+          "point": "Gender and number of nouns",
+          "label": "Gender & number",
+          "usage": "For picking el or la every time you name a thing, and adding -s or -es when there is more than one — the words around it copy that choice.",
+          "example": "Tengo dos libros. — I have two books."
+        },
+        {
+          "point": "Question words (qué, dónde, cómo…)",
+          "label": "Question words",
+          "usage": "For asking a question that needs a real answer rather than yes or no — qué for a thing, dónde for a place, cómo for the way — with the verb straight after.",
+          "example": "¿Dónde estás? — Where are you?"
+        },
+        {
+          "point": "Direct object pronouns (lo, la, los, las)",
+          "label": "Direct objects",
+          "usage": "For replacing something already mentioned with lo, la, los or las, matching the word it stands for.",
+          "example": "¿El libro? Lo tengo yo. — The book? I have it."
+        },
+        {
+          "point": "Indirect object pronouns (le, les)",
+          "label": "Indirect objects",
+          "usage": "For the person something is given, said or sent to — usually named again after a.",
+          "example": "Le di el libro a Juan. — I gave the book to Juan."
+        },
+        {
+          "point": "Comparatives (más… que, tan… como)",
+          "label": "Comparatives",
+          "usage": "For saying one thing is more, less, or just as much as another.",
+          "example": "Ella es más alta que yo. — She is taller than me."
+        },
+        {
+          "point": "Por vs para",
+          "label": "Por vs para",
+          "usage": "Para looks ahead to who or what something is for; por looks back at the cause, the price, or the way through.",
+          "example": "Este regalo es para ti. — This gift is for you."
+        },
+        {
+          "point": "Double object pronouns (se lo)",
+          "label": "Se lo",
+          "usage": "For when you drop both the thing and the person at once — I gave it to him: the person comes first, and le turns into se in front of lo or la.",
+          "example": "¿El libro? Se lo di ayer a Juan. — The book? I gave it to Juan yesterday."
+        },
+        {
+          "point": "Relative pronouns (quien, cuyo)",
+          "label": "Relative pronouns",
+          "usage": "For adding a with-whom or a whose to the person or thing you are describing.",
+          "example": "La mujer con quien hablé es doctora. — The woman with whom I spoke is a doctor."
+        },
+        {
+          "point": "Personal a (veo a Juan)",
+          "label": "Personal a",
+          "usage": "Put a in front of a particular person you do something to — veo a Juan, but veo la película.",
+          "example": "Veo a Juan todos los días. — I see Juan every day."
         }
       ]
     }

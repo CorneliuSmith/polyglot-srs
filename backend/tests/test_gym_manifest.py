@@ -43,6 +43,12 @@ def test_every_course_has_a_manifest():
         # every entry must name a REAL point: the title is matched literally,
         # so one character out is a dead row in the picker
         assert not (named - titles), f"{code}: {sorted(named - titles)[:3]}"
+        # ...and every point is reachable. A point the manifest omits cannot be
+        # drilled by anyone, which is the failure this whole gate is about:
+        # seven courses had no manifest and the other twenty averaged 38% of
+        # their own points.
+        assert not (titles - named), \
+            f"{code}: {len(titles - named)} points not trainable, e.g. {sorted(titles - named)[:2]}"
 
 
 def test_load_manifest_reads_columns():
