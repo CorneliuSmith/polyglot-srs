@@ -185,3 +185,56 @@ def test_interlinear_gloss_has_exactly_one_blank(code):
         and sum("___" in c for c in (d.get("gloss") or "").split("·")) != 1
     ]
     assert not offenders, f"{code}: " + "; ".join(offenders[:5])
+
+# ── romanisation, for the scripts that need it ───────────────────────────────
+# hintLayers.ts reveals romanisation FIRST for non-Latin scripts, on the
+# reasoning that a learner cannot recall a word they cannot sound out. hi, th
+# and ko shipped with NONE — 252, 240 and 268 drills with an empty first hint —
+# until 26 Aug 2026.
+
+ROMANISED_LANGS = ["hi", "th", "ko", "ru", "ar", "el", "he", "fa"]
+
+
+@pytest.mark.parametrize("code", ROMANISED_LANGS)
+def test_non_latin_drills_carry_a_romanisation(code):
+    drills = _drills(code)
+    if not drills:
+        pytest.skip(f"no grammar file for {code}")
+    missing = [d.get("sentence", "") for d in drills
+               if not (d.get("transliteration") or "").strip()]
+    allowed = 0.05 * len(drills)
+    assert len(missing) <= allowed, (
+        f"{code}: {len(missing)} of {len(drills)} drills have no romanisation "
+        f"(over the 5% tolerance). Examples: {missing[:3]}"
+    )
+
+
+@pytest.mark.parametrize("code", ["hi", "th", "ru", "ar", "el", "he"])
+def test_the_romanisation_keeps_the_blank(code):
+    # ko and fa are EXCLUDED pending repair, not because they pass. 250 ko and
+    # 4 fa romanisations still spell out their answer; they are the rows whose
+    # blank sits inside a word, where position alone cannot say which
+    # characters to cut. Add them back the moment that lands.
+    """The drill has one blank and the romanisation is printed under it, so the
+    romanisation must show a blank too — otherwise the two lines stop aligning,
+    or the romanisation simply hands over the answer.
+
+    TWO CONVENTIONS are in use and both are accepted here. `ru`, `ar`, `el`,
+    `he` and `fa` write `___`; `ko` writes `{{answer}}`, which it needs because
+    its blanks sit INSIDE a word (`저{{answer}}` — a bare `___` there would not
+    show that the particle attaches). `hi` and `th` were filled on 26 Aug
+    following ko's form. Settling on one is worth doing and is NOT done; this
+    test deliberately does not force it, because churning 750 rows over a
+    cosmetic choice is not the same as fixing a defect."""
+    offenders = [
+        d.get("sentence", "")
+        for d in _drills(code)
+        if (d.get("transliteration") or "").strip()
+        and "{{answer}}" in (d.get("sentence") or "")
+        and "{{answer}}" not in d["transliteration"]
+        and "___" not in d["transliteration"]
+    ]
+    assert not offenders, (
+        f"{code}: romanisation marks no blank at all — it drops or spells out "
+        f"the answer: {offenders[:3]}"
+    )

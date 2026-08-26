@@ -58,42 +58,48 @@
           "answer": "पीता हूँ",
           "translation": "I drink tea.",
           "hint": "drink (male speaker) — verb goes last",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "main chaay {{answer}}."
         },
         {
           "sentence": "वह किताब {{answer}}।",
           "answer": "पढ़ता है",
           "translation": "He reads a book.",
           "hint": "reads — verb at the end",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "voh kitaab {{answer}}."
         },
         {
           "sentence": "हम हिंदी {{answer}}।",
           "answer": "सीखते हैं",
           "translation": "We learn Hindi.",
           "hint": "learn — plural verb, sentence-final",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "ham Hindee {{answer}}."
         },
         {
           "sentence": "मैं दिल्ली में {{answer}}।",
           "answer": "रहता हूँ",
           "translation": "I live in Delhi.",
           "hint": "live (male speaker)",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "main Dillee mein {{answer}}."
         },
         {
           "sentence": "वे रोज़ फल {{answer}}।",
           "answer": "खाते हैं",
           "translation": "They eat fruit every day.",
           "hint": "eat — plural",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "ve roz phal {{answer}}."
         },
         {
           "sentence": "तुम पानी {{answer}}।",
           "answer": "पीते हो",
           "translation": "You drink water.",
           "hint": "drink — tum form",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "tum paanee {{answer}}."
         }
       ]
     },
@@ -128,7 +134,8 @@
           "translation": "How are you? (respectful)",
           "hint": "respectful 'you'",
           "display_order": 1,
-          "cell": "आप"
+          "cell": "आप",
+          "transliteration": "{{answer}} kaise hain?"
         },
         {
           "sentence": "{{answer}} मेरे शिक्षक हैं।",
@@ -136,7 +143,8 @@
           "translation": "You are my teacher. (respectful)",
           "hint": "the 'you' for teachers and elders",
           "display_order": 2,
-          "cell": "आप"
+          "cell": "आप",
+          "transliteration": "{{answer}} mere shikshak hain."
         },
         {
           "sentence": "{{answer}} कहाँ रहते हो?",
@@ -144,7 +152,8 @@
           "translation": "Where do you live? (informal)",
           "hint": "informal 'you' — friends",
           "display_order": 3,
-          "cell": "तुम"
+          "cell": "तुम",
+          "transliteration": "{{answer}} kahaan rahte ho?"
         },
         {
           "sentence": "{{answer}} मेरे दोस्त हो।",
@@ -152,7 +161,8 @@
           "translation": "You are my friend. (informal)",
           "hint": "friendly 'you'",
           "display_order": 4,
-          "cell": "तुम"
+          "cell": "तुम",
+          "transliteration": "{{answer}} mere dost ho."
         },
         {
           "sentence": "{{answer}} छात्र हूँ।",
@@ -160,7 +170,8 @@
           "translation": "I am a student.",
           "hint": "'I'",
           "display_order": 5,
-          "cell": "मैं"
+          "cell": "मैं",
+          "transliteration": "{{answer}} chhaatra hoon."
         },
         {
           "sentence": "{{answer}} भारतीय हूँ।",
@@ -168,7 +179,8 @@
           "translation": "I am Indian.",
           "hint": "first person singular",
           "display_order": 6,
-          "cell": "मैं"
+          "cell": "मैं",
+          "transliteration": "{{answer}} bhaarteeya hoon."
         }
       ]
     },
@@ -202,7 +214,8 @@
           "translation": "I am a doctor.",
           "hint": "am (with मैं)",
           "display_order": 1,
-          "cell": "हूँ"
+          "cell": "हूँ",
+          "transliteration": "main doktar {{answer}}."
         },
         {
           "sentence": "मैं तैयार {{answer}}।",
@@ -210,7 +223,8 @@
           "translation": "I am ready.",
           "hint": "first-person 'am'",
           "display_order": 2,
-          "cell": "हूँ"
+          "cell": "हूँ",
+          "transliteration": "main taiyaar {{answer}}."
         },
         {
           "sentence": "यह मेरा घर {{answer}}।",
@@ -218,7 +232,8 @@
           "translation": "This is my house.",
           "hint": "is (singular)",
           "display_order": 3,
-          "cell": "है"
+          "cell": "है",
+          "transliteration": "yeh meraa ghar {{answer}}."
         },
         {
           "sentence": "वह बहुत अच्छी {{answer}}।",
@@ -226,7 +241,8 @@
           "translation": "She is very good.",
           "hint": "third-singular 'is'",
           "display_order": 4,
-          "cell": "है"
+          "cell": "है",
+          "transliteration": "voh bahut achchhee {{answer}}."
         },
         {
           "sentence": "वे मेरे माता-पिता {{answer}}।",
@@ -234,7 +250,8 @@
           "translation": "They are my parents.",
           "hint": "are (plural, nasalized)",
           "display_order": 5,
-          "cell": "हैं"
+          "cell": "हैं",
+          "transliteration": "ve mere maataa-pitaa {{answer}}."
         },
         {
           "sentence": "आप कौन {{answer}}?",
@@ -242,7 +259,8 @@
           "translation": "Who are you? (respectful)",
           "hint": "आप takes the plural form",
           "display_order": 6,
-          "cell": "हैं"
+          "cell": "हैं",
+          "transliteration": "aap kaun {{answer}}?"
         }
       ]
     },
@@ -271,42 +289,48 @@
           "answer": "ा",
           "translation": "The boy is good.",
           "hint": "masculine adjective ending",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "ladkaa achchh{{answer}} hai."
         },
         {
           "sentence": "लड़की अच्छ{{answer}} है।",
           "answer": "ी",
           "translation": "The girl is good.",
           "hint": "feminine adjective ending",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "ladkee achchh{{answer}} hai."
         },
         {
           "sentence": "यह कमर{{answer}} बड़ा है।",
           "answer": "ा",
           "translation": "This room is big.",
           "hint": "room is masculine",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "yeh kamr{{answer}} badaa hai."
         },
         {
           "sentence": "मैं चाय पीत{{answer}} हूँ। (a woman speaking)",
           "answer": "ी",
           "translation": "I drink tea. (female speaker)",
           "hint": "the verb agrees with the speaker's gender",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "main chaay peet{{answer}} hoon. (a woman speaking)"
         },
         {
           "sentence": "मैं खाना बनात{{answer}} हूँ। (a man speaking)",
           "answer": "ा",
           "translation": "I cook food. (male speaker)",
           "hint": "masculine verb ending",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "main khaanaa banaat{{answer}} hoon. (a man speaking)"
         },
         {
           "sentence": "किताब अच्छ{{answer}} है।",
           "answer": "ी",
           "translation": "The book is good.",
           "hint": "book is feminine",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "kitaab achchh{{answer}} hai."
         }
       ]
     },
@@ -334,42 +358,48 @@
           "answer": "लड़के",
           "translation": "Two boys are playing.",
           "hint": "plural of लड़का",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "do {{answer}} khel rahe hain."
         },
         {
           "sentence": "तीन {{answer}} स्कूल जाती हैं।",
           "answer": "लड़कियाँ",
           "translation": "Three girls go to school.",
           "hint": "plural of लड़की",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "teen {{answer}} skool jaatee hain."
         },
         {
           "sentence": "मेज़ पर चार {{answer}} हैं।",
           "answer": "किताबें",
           "translation": "There are four books on the table.",
           "hint": "plural of किताब",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "mez par chaar {{answer}} hain."
         },
         {
           "sentence": "इस इमारत में दस {{answer}} हैं।",
           "answer": "कमरे",
           "translation": "There are ten rooms in this building.",
           "hint": "plural of कमरा",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "is imaarat mein das {{answer}} hain."
         },
         {
           "sentence": "यहाँ बहुत {{answer}} हैं।",
           "answer": "घर",
           "translation": "There are many houses here.",
           "hint": "unmarked masculine — plural looks the same",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "yahaan bahut {{answer}} hain."
         },
         {
           "sentence": "दो {{answer}} खाली हैं।",
           "answer": "कुर्सियाँ",
           "translation": "Two chairs are empty.",
           "hint": "plural of कुर्सी",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "do {{answer}} khaalee hain."
         }
       ]
     },
@@ -397,42 +427,48 @@
           "answer": "पर",
           "translation": "The book is on the table.",
           "hint": "on",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "kitaab mez {{answer}} hai."
         },
         {
           "sentence": "हम घर {{answer}} हैं।",
           "answer": "में",
           "translation": "We are in the house.",
           "hint": "in",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "ham ghar {{answer}} hain."
         },
         {
           "sentence": "वह मुंबई {{answer}} आता है।",
           "answer": "से",
           "translation": "He comes from Mumbai.",
           "hint": "from",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "voh Mumbaee {{answer}} aataa hai."
         },
         {
           "sentence": "मैंने राम {{answer}} पैसे दिए।",
           "answer": "को",
           "translation": "I gave money to Ram.",
           "hint": "to (the receiver)",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "mainne Raam {{answer}} paise diye."
         },
         {
           "sentence": "बच्चे स्कूल {{answer}} पढ़ते हैं।",
           "answer": "में",
           "translation": "The children study in school.",
           "hint": "in",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "bachche skool {{answer}} padhte hain."
         },
         {
           "sentence": "वह कलम {{answer}} लिखती है।",
           "answer": "से",
           "translation": "She writes with a pen.",
           "hint": "with (instrument)",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "voh kalam {{answer}} likhtee hai."
         }
       ]
     },
@@ -466,7 +502,8 @@
           "translation": "This is Ram's house.",
           "hint": "possessive — house is masculine singular",
           "display_order": 1,
-          "cell": "का"
+          "cell": "का",
+          "transliteration": "yeh Raam {{answer}} ghar hai."
         },
         {
           "sentence": "वह मेरे भाई {{answer}} कुत्ता है।",
@@ -474,7 +511,8 @@
           "translation": "That is my brother's dog.",
           "hint": "dog is masculine singular",
           "display_order": 2,
-          "cell": "का"
+          "cell": "का",
+          "transliteration": "voh mere bhaaee {{answer}} kuttaa hai."
         },
         {
           "sentence": "सीता {{answer}} किताब नई है।",
@@ -482,7 +520,8 @@
           "translation": "Sita's book is new.",
           "hint": "book is feminine",
           "display_order": 3,
-          "cell": "की"
+          "cell": "की",
+          "transliteration": "Seetaa {{answer}} kitaab naee hai."
         },
         {
           "sentence": "यह मेरी माँ {{answer}} साड़ी है।",
@@ -490,7 +529,8 @@
           "translation": "This is my mother's sari.",
           "hint": "sari is feminine",
           "display_order": 4,
-          "cell": "की"
+          "cell": "की",
+          "transliteration": "yeh meree maan {{answer}} saadee hai."
         },
         {
           "sentence": "राम {{answer}} दो भाई हैं।",
@@ -498,7 +538,8 @@
           "translation": "Ram has two brothers. (Ram's two brothers)",
           "hint": "plural possessed",
           "display_order": 5,
-          "cell": "के"
+          "cell": "के",
+          "transliteration": "Raam {{answer}} do bhaaee hain."
         },
         {
           "sentence": "उस {{answer}} बच्चे स्कूल जाते हैं।",
@@ -506,7 +547,8 @@
           "translation": "His/her children go to school.",
           "hint": "children — plural",
           "display_order": 6,
-          "cell": "के"
+          "cell": "के",
+          "transliteration": "us {{answer}} bachche skool jaate hain."
         }
       ]
     },
@@ -540,7 +582,8 @@
           "translation": "I run every morning. (male)",
           "hint": "masculine singular participle",
           "display_order": 1,
-          "cell": "ता"
+          "cell": "ता",
+          "transliteration": "main har subah daud{{answer}} hoon. (a man speaking)"
         },
         {
           "sentence": "वह स्कूल में पढ़ा{{answer}} है।",
@@ -548,7 +591,8 @@
           "translation": "He teaches at a school.",
           "hint": "masculine singular",
           "display_order": 2,
-          "cell": "ता"
+          "cell": "ता",
+          "transliteration": "voh skool mein padhaa{{answer}} hai."
         },
         {
           "sentence": "मेरी बहन गा{{answer}} है।",
@@ -556,7 +600,8 @@
           "translation": "My sister sings.",
           "hint": "feminine participle",
           "display_order": 3,
-          "cell": "ती"
+          "cell": "ती",
+          "transliteration": "meree bahan gaa{{answer}} hai."
         },
         {
           "sentence": "वह हिंदी बोल{{answer}} है।",
@@ -564,7 +609,8 @@
           "translation": "She speaks Hindi.",
           "hint": "feminine singular",
           "display_order": 4,
-          "cell": "ती"
+          "cell": "ती",
+          "transliteration": "voh Hindee bol{{answer}} hai."
         },
         {
           "sentence": "हम साथ खा{{answer}} हैं।",
@@ -572,7 +618,8 @@
           "translation": "We eat together.",
           "hint": "plural participle",
           "display_order": 5,
-          "cell": "ते"
+          "cell": "ते",
+          "transliteration": "ham saath khaa{{answer}} hain."
         },
         {
           "sentence": "वे यहाँ काम कर{{answer}} हैं।",
@@ -580,7 +627,8 @@
           "translation": "They work here.",
           "hint": "plural",
           "display_order": 6,
-          "cell": "ते"
+          "cell": "ते",
+          "transliteration": "ve yahaan kaam kar{{answer}} hain."
         }
       ]
     },
@@ -608,42 +656,48 @@
           "answer": "नहीं",
           "translation": "I don't drink coffee.",
           "hint": "not — before the verb",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "main kofee {{answer}} peetaa."
         },
         {
           "sentence": "वह यहाँ {{answer}} रहती।",
           "answer": "नहीं",
           "translation": "She doesn't live here.",
           "hint": "negation of a habit",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "voh yahaan {{answer}} rahtee."
         },
         {
           "sentence": "{{answer}} जाओ!",
           "answer": "मत",
           "translation": "Don't go!",
           "hint": "negative command",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "{{answer}} jaao!"
         },
         {
           "sentence": "यह पानी साफ़ {{answer}} है।",
           "answer": "नहीं",
           "translation": "This water is not clean.",
           "hint": "not — with 'is'",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "yeh paanee saaf {{answer}} hai."
         },
         {
           "sentence": "शोर {{answer}} करो।",
           "answer": "मत",
           "translation": "Don't make noise.",
           "hint": "prohibition with an order",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "shor {{answer}} karo."
         },
         {
           "sentence": "हम झूठ {{answer}} बोलते।",
           "answer": "नहीं",
           "translation": "We don't tell lies.",
           "hint": "don't (habitual)",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "ham jhooth {{answer}} bolte."
         }
       ]
     },
@@ -671,42 +725,48 @@
           "answer": "क्या",
           "translation": "Are you from India?",
           "hint": "yes/no question opener",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "{{answer}} aap Bhaarat se hain?"
         },
         {
           "sentence": "आपका नाम {{answer}} है?",
           "answer": "क्या",
           "translation": "What is your name?",
           "hint": "what",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "aapkaa naam {{answer}} hai?"
         },
         {
           "sentence": "तुम {{answer}} रहते हो?",
           "answer": "कहाँ",
           "translation": "Where do you live?",
           "hint": "where",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "tum {{answer}} rahte ho?"
         },
         {
           "sentence": "वह {{answer}} आएगा?",
           "answer": "कब",
           "translation": "When will he come?",
           "hint": "when",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "voh {{answer}} aayegaa?"
         },
         {
           "sentence": "आप उदास {{answer}} हैं?",
           "answer": "क्यों",
           "translation": "Why are you sad?",
           "hint": "why",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "aap udaas {{answer}} hain?"
         },
         {
           "sentence": "यह {{answer}} है?",
           "answer": "कौन",
           "translation": "Who is this?",
           "hint": "who",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "yeh {{answer}} hai?"
         }
       ]
     },
@@ -739,7 +799,8 @@
           "translation": "Sit here. (informal)",
           "hint": "sit — tum form",
           "display_order": 1,
-          "cell": "तुम-form"
+          "cell": "तुम-form",
+          "transliteration": "yahaan {{answer}}. (to a friend)"
         },
         {
           "sentence": "जल्दी {{answer}}। (to a friend)",
@@ -747,7 +808,8 @@
           "translation": "Come quickly. (informal)",
           "hint": "come — informal",
           "display_order": 2,
-          "cell": "तुम-form"
+          "cell": "तुम-form",
+          "transliteration": "jaldee {{answer}}. (to a friend)"
         },
         {
           "sentence": "कृपया यहाँ {{answer}}।",
@@ -755,7 +817,8 @@
           "translation": "Please sit here. (respectful)",
           "hint": "sit — polite -इए form",
           "display_order": 3,
-          "cell": "आप-form"
+          "cell": "आप-form",
+          "transliteration": "kripayaa yahaan {{answer}}."
         },
         {
           "sentence": "ज़रा पानी {{answer}}।",
@@ -763,7 +826,8 @@
           "translation": "Please give (me) some water.",
           "hint": "give — polite; irregular",
           "display_order": 4,
-          "cell": "आप-form"
+          "cell": "आप-form",
+          "transliteration": "zara paani {{answer}}."
         },
         {
           "sentence": "धीरे {{answer}}। (to a friend)",
@@ -771,7 +835,8 @@
           "translation": "Speak slowly. (informal)",
           "hint": "speak — informal",
           "display_order": 5,
-          "cell": "तुम-form"
+          "cell": "तुम-form",
+          "transliteration": "dheere {{answer}}. (to a friend)"
         },
         {
           "sentence": "मेरी बात {{answer}}।",
@@ -779,7 +844,8 @@
           "translation": "Please listen to me. (respectful)",
           "hint": "listen — polite form",
           "display_order": 6,
-          "cell": "आप-form"
+          "cell": "आप-form",
+          "transliteration": "meri baat {{answer}}."
         }
       ]
     },
@@ -807,42 +873,48 @@
           "answer": "पास",
           "translation": "I have a bicycle.",
           "hint": "possession — 'near me'",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "mere {{answer}} ek saaikil hai."
         },
         {
           "sentence": "उसके {{answer}} बहुत पैसे हैं।",
           "answer": "पास",
           "translation": "He has a lot of money.",
           "hint": "things you own",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "uske {{answer}} bahut paise hain."
         },
         {
           "sentence": "सीता {{answer}} एक बहन है।",
           "answer": "की",
           "translation": "Sita has a sister.",
           "hint": "relatives use the possessive — sister is feminine",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "seeta {{answer}} ek bahan hai."
         },
         {
           "sentence": "मुझ{{answer}} ज़ुकाम है।",
           "answer": "े",
           "translation": "I have a cold.",
           "hint": "states take the को form (मुझे)",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "mujh{{answer}} zukaam hai."
         },
         {
           "sentence": "क्या तुम्हारे {{answer}} कलम है?",
           "answer": "पास",
           "translation": "Do you have a pen?",
           "hint": "an object you can hand over",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "kya tumhaare {{answer}} kalam hai?"
         },
         {
           "sentence": "उन {{answer}} तीन बच्चे हैं।",
           "answer": "के",
           "translation": "They have three children.",
           "hint": "family members — plural possessed",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "un {{answer}} teen bachche hain."
         }
       ]
     },
@@ -870,42 +942,48 @@
           "answer": "घर",
           "translation": "We live in a big house.",
           "hint": "house — unmarked masc., unchanged in singular",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "ham bade {{answer}} men rahte hain."
         },
         {
           "sentence": "किताब {{answer}} में है।",
           "answer": "कमरे",
           "translation": "The book is in the room.",
           "hint": "oblique of कमरा",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "kitaab {{answer}} men hai."
         },
         {
           "sentence": "मैंने {{answer}} को बुलाया।",
           "answer": "लड़के",
           "translation": "I called the boy.",
           "hint": "oblique of लड़का",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "mainne {{answer}} ko bulaaya."
         },
         {
           "sentence": "शिक्षक {{answer}} से बात करते हैं।",
           "answer": "बच्चों",
           "translation": "The teacher talks with the children.",
           "hint": "oblique plural of बच्चे",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "shikshak {{answer}} se baat karte hain."
         },
         {
           "sentence": "वह {{answer}} के साथ खेलती है।",
           "answer": "लड़कियों",
           "translation": "She plays with the girls.",
           "hint": "oblique plural of लड़कियाँ",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "voh {{answer}} ke saath khelti hai."
         },
         {
           "sentence": "{{answer}} घर में कोई नहीं है।",
           "answer": "मेरे",
           "translation": "There is no one in my house.",
           "hint": "possessive goes oblique too",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "{{answer}} ghar men koi naheen hai."
         }
       ]
     },
@@ -933,42 +1011,48 @@
           "answer": "था",
           "translation": "Yesterday I was at home. (male)",
           "hint": "was — masculine singular",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "kal main ghar par {{answer}}. (a man speaking)"
         },
         {
           "sentence": "मौसम बहुत अच्छा {{answer}}।",
           "answer": "था",
           "translation": "The weather was very nice.",
           "hint": "मौसम is masculine",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "mausam bahut achchha {{answer}}."
         },
         {
           "sentence": "वह बहुत ख़ुश {{answer}}।",
           "answer": "थी",
           "translation": "She was very happy.",
           "hint": "was — feminine",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "voh bahut khush {{answer}}."
         },
         {
           "sentence": "मेरी दादी अध्यापिका {{answer}}।",
           "answer": "थीं",
           "translation": "My grandmother was a teacher. (respect plural)",
           "hint": "respected elders take the plural — feminine",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "meri daadi adhyaapika {{answer}}."
         },
         {
           "sentence": "हम स्कूल में साथ {{answer}}।",
           "answer": "थे",
           "translation": "We were together in school.",
           "hint": "were — masculine plural",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "ham skool men saath {{answer}}."
         },
         {
           "sentence": "पहले यहाँ पेड़ {{answer}}।",
           "answer": "थे",
           "translation": "Earlier there were trees here.",
           "hint": "trees — masculine plural",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "pahle yahaan ped {{answer}}."
         }
       ]
     },
@@ -1002,7 +1086,8 @@
           "translation": "I am cooking food. (male)",
           "hint": "continuous marker — masc. sing.",
           "display_order": 1,
-          "cell": "रहा"
+          "cell": "रहा",
+          "transliteration": "main khaana bana {{answer}} hoon. (a man speaking)"
         },
         {
           "sentence": "बच्चा सो {{answer}} है।",
@@ -1010,7 +1095,8 @@
           "translation": "The child is sleeping.",
           "hint": "masc. singular",
           "display_order": 2,
-          "cell": "रहा"
+          "cell": "रहा",
+          "transliteration": "bachcha so {{answer}} hai."
         },
         {
           "sentence": "वह गाना गा {{answer}} है।",
@@ -1018,7 +1104,8 @@
           "translation": "She is singing a song.",
           "hint": "feminine",
           "display_order": 3,
-          "cell": "रही"
+          "cell": "रही",
+          "transliteration": "voh gaana gaa {{answer}} hai."
         },
         {
           "sentence": "मेरी माँ फ़ोन पर बात कर {{answer}} हैं।",
@@ -1026,7 +1113,8 @@
           "translation": "My mother is talking on the phone.",
           "hint": "feminine (respect plural takes रही + हैं)",
           "display_order": 4,
-          "cell": "रही"
+          "cell": "रही",
+          "transliteration": "meri maan fon par baat kar {{answer}} hain."
         },
         {
           "sentence": "हम क्रिकेट खेल {{answer}} हैं।",
@@ -1034,7 +1122,8 @@
           "translation": "We are playing cricket.",
           "hint": "plural",
           "display_order": 5,
-          "cell": "रहे"
+          "cell": "रहे",
+          "transliteration": "ham kriket khel {{answer}} hain."
         },
         {
           "sentence": "लोग बाहर इंतज़ार कर {{answer}} हैं।",
@@ -1042,7 +1131,8 @@
           "translation": "People are waiting outside.",
           "hint": "plural",
           "display_order": 6,
-          "cell": "रहे"
+          "cell": "रहे",
+          "transliteration": "log baahar intazaar kar {{answer}} hain."
         }
       ]
     },
@@ -1070,42 +1160,48 @@
           "answer": "गया",
           "translation": "Ram went to Delhi yesterday.",
           "hint": "went — irregular, masc.",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "raam kal dilli {{answer}}."
         },
         {
           "sentence": "सीता बाज़ार {{answer}}।",
           "answer": "गई",
           "translation": "Sita went to the market.",
           "hint": "went — feminine",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "seeta baazaar {{answer}}."
         },
         {
           "sentence": "मेहमान शाम को {{answer}}।",
           "answer": "आए",
           "translation": "The guests came in the evening.",
           "hint": "came — masc. plural",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "mehmaan shaam ko {{answer}}."
         },
         {
           "sentence": "ट्रेन समय पर {{answer}}।",
           "answer": "पहुँची",
           "translation": "The train arrived on time.",
           "hint": "arrived — train is feminine",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "tren samay par {{answer}}."
         },
         {
           "sentence": "बच्चे जल्दी {{answer}}।",
           "answer": "सोए",
           "translation": "The children slept early.",
           "hint": "slept — plural",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "bachche jaldi {{answer}}."
         },
         {
           "sentence": "कल बारिश {{answer}}।",
           "answer": "हुई",
           "translation": "It rained yesterday. ('rain happened')",
           "hint": "happened — बारिश is feminine; होना is irregular",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "kal baarish {{answer}}."
         }
       ]
     },
@@ -1134,42 +1230,48 @@
           "answer": "मैंने",
           "translation": "I ate food.",
           "hint": "'I' + the past-tense subject marker, fused",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "{{answer}} khaana khaaya."
         },
         {
           "sentence": "राम {{answer}} चिट्ठी लिखी।",
           "answer": "ने",
           "translation": "Ram wrote a letter.",
           "hint": "the transitive-past subject marker",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "raam {{answer}} chitthi likhi."
         },
         {
           "sentence": "मैंने एक फ़िल्म {{answer}}।",
           "answer": "देखी",
           "translation": "I watched a movie.",
           "hint": "watched — agrees with फ़िल्म (fem.)",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "mainne ek film {{answer}}."
         },
         {
           "sentence": "सीता ने आम {{answer}}।",
           "answer": "खाया",
           "translation": "Sita ate a mango.",
           "hint": "ate — agrees with the mango, not Sita",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "seeta ne aam {{answer}}."
         },
         {
           "sentence": "{{answer}} यह किताब पढ़ी है?",
           "answer": "किसने",
           "translation": "Who has read this book?",
           "hint": "who + the marker, fused",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "{{answer}} yeh kitaab padhi hai?"
         },
         {
           "sentence": "हमने चाय {{answer}}।",
           "answer": "पी",
           "translation": "We drank tea.",
           "hint": "drank — agrees with चाय (fem.)",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "hamne chaay {{answer}}."
         }
       ]
     },
@@ -1203,7 +1305,8 @@
           "translation": "I will go to Mumbai tomorrow. (male)",
           "hint": "will go — first person masc.",
           "display_order": 1,
-          "cell": "-ूँगा"
+          "cell": "-ूँगा",
+          "transliteration": "main kal mumbai {{answer}}. (a man speaking)"
         },
         {
           "sentence": "मैं तुम्हें फ़ोन {{answer}}। (a man speaking)",
@@ -1211,7 +1314,8 @@
           "translation": "I will call you. (male)",
           "hint": "will do — first person",
           "display_order": 2,
-          "cell": "-ूँगा"
+          "cell": "-ूँगा",
+          "transliteration": "main tumhen fon {{answer}}. (a man speaking)"
         },
         {
           "sentence": "वह कल {{answer}}।",
@@ -1219,7 +1323,8 @@
           "translation": "He will come tomorrow.",
           "hint": "will come — third masc. sing.",
           "display_order": 3,
-          "cell": "-ेगा"
+          "cell": "-ेगा",
+          "transliteration": "voh kal {{answer}}."
         },
         {
           "sentence": "यह काम आसान {{answer}}।",
@@ -1227,7 +1332,8 @@
           "translation": "This work will be easy.",
           "hint": "will be — irregular",
           "display_order": 4,
-          "cell": "-ेगा"
+          "cell": "-ेगा",
+          "transliteration": "yeh kaam aasaan {{answer}}."
         },
         {
           "sentence": "हम शाम को {{answer}}।",
@@ -1235,7 +1341,8 @@
           "translation": "We will meet in the evening.",
           "hint": "will meet — plural",
           "display_order": 5,
-          "cell": "-ेंगे"
+          "cell": "-ेंगे",
+          "transliteration": "ham shaam ko {{answer}}."
         },
         {
           "sentence": "वे अगले साल भारत {{answer}}।",
@@ -1243,7 +1350,8 @@
           "translation": "They will go to India next year.",
           "hint": "will go — plural",
           "display_order": 6,
-          "cell": "-ेंगे"
+          "cell": "-ेंगे",
+          "transliteration": "ve agle saal bhaarat {{answer}}."
         }
       ]
     },
@@ -1271,42 +1379,48 @@
           "answer": "चाहिए",
           "translation": "I want a cup of tea.",
           "hint": "is-wanted (invariable)",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "mujhe ek kap chaay {{answer}}."
         },
         {
           "sentence": "बच्चों को दूध {{answer}}।",
           "answer": "चाहिए",
           "translation": "The children need milk.",
           "hint": "need — same word",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "bachchon ko doodh {{answer}}."
         },
         {
           "sentence": "{{answer}} नई कमीज़ चाहिए।",
           "answer": "मुझे",
           "translation": "I need a new shirt.",
           "hint": "the wanter takes को — 'to me'",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "{{answer}} nayi kameez chaahiye."
         },
         {
           "sentence": "मैं हिंदी सीखना {{answer}} हूँ। (a man speaking)",
           "answer": "चाहता",
           "translation": "I want to learn Hindi. (male)",
           "hint": "want — the full verb, masc.",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "main hindi seekhna {{answer}} hoon. (a man speaking)"
         },
         {
           "sentence": "वह गाना सीखना {{answer}} है।",
           "answer": "चाहती",
           "translation": "She wants to learn singing.",
           "hint": "want — feminine",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "voh gaana seekhna {{answer}} hai."
         },
         {
           "sentence": "हम भारत जाना {{answer}} हैं।",
           "answer": "चाहते",
           "translation": "We want to go to India.",
           "hint": "want — plural",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "ham bhaarat jaana {{answer}} hain."
         }
       ]
     },
@@ -1334,42 +1448,48 @@
           "answer": "सकता",
           "translation": "I can speak Hindi. (male)",
           "hint": "can — masc. sing.",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "main hindi bol {{answer}} hoon. (a man speaking)"
         },
         {
           "sentence": "वह तेज़ दौड़ {{answer}} है।",
           "answer": "सकती",
           "translation": "She can run fast.",
           "hint": "can — feminine",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "voh tez daud {{answer}} hai."
         },
         {
           "sentence": "हम आपकी मदद कर {{answer}} हैं।",
           "answer": "सकते",
           "translation": "We can help you.",
           "hint": "can — plural",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "ham aapki madad kar {{answer}} hain."
         },
         {
           "sentence": "क्या आप कल आ {{answer}} हैं?",
           "answer": "सकते",
           "translation": "Can you come tomorrow?",
           "hint": "आप takes the plural form",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "kya aap kal aa {{answer}} hain?"
         },
         {
           "sentence": "मैं कल नहीं आ {{answer}}। (a man speaking)",
           "answer": "सका",
           "translation": "I couldn't come yesterday. (male)",
           "hint": "couldn't — past",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "main kal naheen aa {{answer}}. (a man speaking)"
         },
         {
           "sentence": "बिना चश्मे के वह पढ़ नहीं {{answer}}।",
           "answer": "सकती",
           "translation": "She can't read without glasses.",
           "hint": "can — feminine",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "bina chashme ke voh padh naheen {{answer}}."
         }
       ]
     },
@@ -1397,35 +1517,40 @@
           "answer": "से",
           "translation": "An elephant is bigger than a horse.",
           "hint": "the comparison marker",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "haathi ghode {{answer}} bada hai."
         },
         {
           "sentence": "यह किताब उस किताब {{answer}} अच्छी है।",
           "answer": "से",
           "translation": "This book is better than that book.",
           "hint": "than",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "yeh kitaab us kitaab {{answer}} achchhi hai."
         },
         {
           "sentence": "गंगा भारत की {{answer}} लंबी नदी है।",
           "answer": "सबसे",
           "translation": "The Ganga is the longest river in India.",
           "hint": "superlative — 'than all'",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "ganga bhaarat ki {{answer}} lambi nadi hai."
         },
         {
           "sentence": "यह {{answer}} सस्ती दुकान है।",
           "answer": "सबसे",
           "translation": "This is the cheapest shop.",
           "hint": "the most",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "yeh {{answer}} sasti dukaan hai."
         },
         {
           "sentence": "आज कल {{answer}} ज़्यादा गरमी है।",
           "answer": "से",
           "translation": "Today is hotter than yesterday.",
           "hint": "than — with ज़्यादा",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "aaj kal {{answer}} zyaada garmi hai."
         },
         {
           "sentence": "मुझे पानी चाय से {{answer}} पसंद है।",
@@ -1460,42 +1585,48 @@
           "answer": "चलें",
           "translation": "Let's go, it's getting late.",
           "hint": "let's go — subjunctive",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "{{answer}}, der ho rahee hai."
         },
         {
           "sentence": "क्या मैं अंदर {{answer}}?",
           "answer": "आऊँ",
           "translation": "May I come in?",
           "hint": "may I come — first person subjunctive",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "kyaa main andar {{answer}}?"
         },
         {
           "sentence": "क्या हम चाय {{answer}}?",
           "answer": "पिएँ",
           "translation": "Shall we have tea?",
           "hint": "shall we drink",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "kyaa ham chaay {{answer}}?"
         },
         {
           "sentence": "क्या मैं यह किताब {{answer}}?",
           "answer": "लूँ",
           "translation": "May I take this book?",
           "hint": "may I take — irregular stem",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "kyaa main yeh kitaab {{answer}}?"
         },
         {
           "sentence": "मैं चाहता हूँ कि तुम रोज़ {{answer}}।",
           "answer": "पढ़ो",
           "translation": "I want you to study every day.",
           "hint": "that-you-study — subjunctive after कि",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "main chaahtaa hoon ki tum roz {{answer}}."
         },
         {
           "sentence": "यहाँ {{answer}}?",
           "answer": "बैठें",
           "translation": "Shall we sit here?",
           "hint": "shall we sit",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "yahaan {{answer}}?"
         }
       ]
     },
@@ -1523,42 +1654,48 @@
           "answer": "लिया",
           "translation": "I ate up all the food.",
           "hint": "completion 'for oneself' — past of लेना",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "maine pooraa khaanaa khaa {{answer}}."
         },
         {
           "sentence": "उसने मुझे सच बता {{answer}}।",
           "answer": "दिया",
           "translation": "He told me the truth.",
           "hint": "'told' — the away/for-another vector",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "usne mujhe sach bataa {{answer}}."
         },
         {
           "sentence": "बच्चा तुरंत सो {{answer}}।",
           "answer": "गया",
           "translation": "The child fell asleep at once.",
           "hint": "change of state — past of जाना",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "bachchaa turant so {{answer}}."
         },
         {
           "sentence": "कृपया दरवाज़ा खोल {{answer}}।",
           "answer": "दीजिए",
           "translation": "Please open the door.",
           "hint": "polite देना vector",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "kripyaa darvaazaa khol {{answer}}."
         },
         {
           "sentence": "उसने सारे पैसे ख़र्च कर {{answer}}।",
           "answer": "डाले",
           "translation": "He spent all the money (recklessly).",
           "hint": "decisive डालना vector, plural",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "usne saare paise kharch kar {{answer}}."
         },
         {
           "sentence": "मेहमान आ {{answer}} हैं।",
           "answer": "गए",
           "translation": "The guests have arrived.",
           "hint": "arrival — जाना vector, plural",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "mehmaan aa {{answer}} hain."
         }
       ]
     },
@@ -1586,42 +1723,48 @@
           "answer": "आया",
           "translation": "He has just come.",
           "hint": "perfective participle + है",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "voh abhee-abhee {{answer}} hai."
         },
         {
           "sentence": "मैंने यह फ़िल्म पहले {{answer}} है।",
           "answer": "देखी",
           "translation": "I have seen this film before.",
           "hint": "agrees with फ़िल्म (fem.)",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "maine yeh film pahle {{answer}} hai."
         },
         {
           "sentence": "जब मैं पहुँचा, ट्रेन जा {{answer}} थी।",
           "answer": "चुकी",
           "translation": "When I arrived, the train had already left.",
           "hint": "already-gone — चुकना, fem. for train",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "jab main pahunchaa, tren jaa {{answer}} thee."
         },
         {
           "sentence": "मैं खाना खा {{answer}} हूँ।",
           "answer": "चुका",
           "translation": "I have already eaten.",
           "hint": "already-done, masc.",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "main khaanaa khaa {{answer}} hoon."
         },
         {
           "sentence": "बारिश शुरू हो {{answer}} थी।",
           "answer": "चुकी",
           "translation": "The rain had already started.",
           "hint": "बारिश is feminine",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "baarish shuroo ho {{answer}} thee."
         },
         {
           "sentence": "उन्होंने काम पूरा कर {{answer}} था।",
           "answer": "लिया",
           "translation": "They had finished the work.",
           "hint": "compound + past perfect",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "unhone kaam pooraa kar {{answer}} thaa."
         }
       ]
     },
@@ -1649,42 +1792,48 @@
           "answer": "जाना",
           "translation": "You should go to the doctor.",
           "hint": "the infinitive meaning 'to go'",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "tumhen doktar ke paas {{answer}} chaahiye."
         },
         {
           "sentence": "मुझे कल दिल्ली {{answer}} है।",
           "answer": "जाना",
           "translation": "I have to go to Delhi tomorrow.",
           "hint": "infinitive + है (arranged obligation)",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "mujhe kal dillee {{answer}} hai."
         },
         {
           "sentence": "बारिश में हमें रुकना {{answer}}।",
           "answer": "पड़ा",
           "translation": "We had to stop in the rain.",
           "hint": "forced-to — past of पड़ना",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "baarish mein hamen ruknaa {{answer}}."
         },
         {
           "sentence": "मुझे यह दवा {{answer}} है।",
           "answer": "लेनी",
           "translation": "I have to take this medicine.",
           "hint": "infinitive agrees with दवा (fem.)",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "mujhe yeh davaa {{answer}} hai."
         },
         {
           "sentence": "उसे रोज़ जल्दी {{answer}} पड़ता है।",
           "answer": "उठना",
           "translation": "He has to get up early every day.",
           "hint": "infinitive with habitual पड़ना",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "use roz jaldee {{answer}} padtaa hai."
         },
         {
           "sentence": "आपको आराम {{answer}} चाहिए।",
           "answer": "करना",
           "translation": "You should rest.",
           "hint": "the infinitive meaning 'to do'",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "aapko aaraam {{answer}} chaahiye."
         }
       ]
     },
@@ -1712,42 +1861,48 @@
           "answer": "जो",
           "translation": "The one who works hard succeeds.",
           "hint": "relative 'the one who'",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "{{answer}} mehnat kartaa hai, voh saphal hotaa hai."
         },
         {
           "sentence": "जो किताब मेज़ पर है, {{answer}} मेरी है।",
           "answer": "वह",
           "translation": "The book that is on the table is mine.",
           "hint": "correlative picking up जो",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "jo kitaab mez par hai, {{answer}} meree hai."
         },
         {
           "sentence": "{{answer}} मैं छोटा था, तब गाँव में रहता था।",
           "answer": "जब",
           "translation": "When I was little, I lived in a village.",
           "hint": "'when' half of the pair",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "{{answer}} main chhotaa thaa, tab gaanv mein rahtaa thaa."
         },
         {
           "sentence": "जब बारिश होगी, {{answer}} हम घर रहेंगे।",
           "answer": "तब",
           "translation": "When it rains, then we'll stay home.",
           "hint": "'then' correlative",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "jab baarish hogee, {{answer}} ham ghar rahenge."
         },
         {
           "sentence": "{{answer}} तुम रहते हो, वहाँ मैं भी रहना चाहता हूँ।",
           "answer": "जहाँ",
           "translation": "Where you live, I want to live there too.",
           "hint": "'where' half",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "{{answer}} tum rahte ho, vahaan main bhee rahnaa chaahtaa hoon."
         },
         {
           "sentence": "जितना तुम पढ़ोगे, {{answer}} सीखोगे।",
           "answer": "उतना",
           "translation": "The more you study, the more you'll learn.",
           "hint": "'that much' correlative",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "jitnaa tum padhoge, {{answer}} seekhoge."
         }
       ]
     },
@@ -1775,42 +1930,48 @@
           "answer": "अगर",
           "translation": "If you study, you'll pass.",
           "hint": "'if'",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "{{answer}} tum padhoge to paas ho jaaoge."
         },
         {
           "sentence": "अगर वह आएगा {{answer}} मैं ख़ुश हूँगा।",
           "answer": "तो",
           "translation": "If he comes, then I'll be happy.",
           "hint": "'then' — opens the main clause",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "agar voh aayegaa {{answer}} main khush hoongaa."
         },
         {
           "sentence": "अगर मैं अमीर {{answer}} तो बड़ा घर ख़रीदता।",
           "answer": "होता",
           "translation": "If I were rich, I would buy a big house.",
           "hint": "unreal condition — the 'were/would' auxiliary (masc.)",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "agar main ameer {{answer}} to badaa ghar khareedtaa."
         },
         {
           "sentence": "अगर तुमने बताया {{answer}}, तो मैं मदद करता।",
           "answer": "होता",
           "translation": "If you had told me, I would have helped.",
           "hint": "past unreal",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "agar tumne bataayaa {{answer}}, to main madad kartaa."
         },
         {
           "sentence": "अगर समय {{answer}} तो हम मिलेंगे।",
           "answer": "होगा",
           "translation": "If there's time, we'll meet.",
           "hint": "real condition — future",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "agar samay {{answer}} to ham milenge."
         },
         {
           "sentence": "{{answer}} वह सच बोलती तो सब ठीक होता।",
           "answer": "अगर",
           "translation": "If she told the truth, everything would be fine.",
           "hint": "'if' opener",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "{{answer}} voh sach boltee to sab theek hotaa."
         }
       ]
     },
@@ -1838,42 +1999,48 @@
           "answer": "बोली",
           "translation": "Many languages are spoken in India.",
           "hint": "passive participle, fem. pl. for भाषाएँ",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "bhaarat mein kaee bhaashaaen {{answer}} jaatee hain."
         },
         {
           "sentence": "यह मिठाई दूध से {{answer}} जाती है।",
           "answer": "बनाई",
           "translation": "This sweet is made from milk.",
           "hint": "made — fem. for मिठाई",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "yeh mithaaee doodh se {{answer}} jaatee hai."
         },
         {
           "sentence": "चोर पकड़ा {{answer}}।",
           "answer": "गया",
           "translation": "The thief was caught.",
           "hint": "past passive — जाना, masc.",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "chor pakdaa {{answer}}."
         },
         {
           "sentence": "पत्र कल {{answer}} जाएगा।",
           "answer": "भेजा",
           "translation": "The letter will be sent tomorrow.",
           "hint": "future passive, masc. for पत्र",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "patr kal {{answer}} jaayegaa."
         },
         {
           "sentence": "मुझसे यह काम नहीं {{answer}} जाता।",
           "answer": "किया",
           "translation": "I just can't do this work.",
           "hint": "incapacity passive",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "mujhse yeh kaam naheen {{answer}} jaataa."
         },
         {
           "sentence": "यह किताब बच्चों के लिए {{answer}} गई है।",
           "answer": "लिखी",
           "translation": "This book was written for children.",
           "hint": "written — fem. for किताब",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "yeh kitaab bachchon ke liye {{answer}} gaee hai."
         }
       ]
     },
@@ -1901,42 +2068,48 @@
           "answer": "से",
           "translation": "Please listen attentively.",
           "hint": "adjective→adverb marker",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "kripyaa dhyaan {{answer}} suniye."
         },
         {
           "sentence": "खाना खा{{answer}} हम टहलने गए।",
           "answer": "कर",
           "translation": "Having eaten, we went for a walk.",
           "hint": "conjunctive participle 'having…'",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "khaanaa khaa{{answer}} ham tahalne gae."
         },
         {
           "sentence": "वह शेर की {{answer}} बहादुर है।",
           "answer": "तरह",
           "translation": "He is brave like a lion.",
           "hint": "'like'",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "voh sher kee {{answer}} bahaadur hai."
         },
         {
           "sentence": "नहा{{answer}} वह दफ़्तर चला गया।",
           "answer": "कर",
           "translation": "After bathing, he went to the office.",
           "hint": "chained action",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "nahaa{{answer}} voh daftar chalaa gayaa."
         },
         {
           "sentence": "आराम {{answer}} बैठिए।",
           "answer": "से",
           "translation": "Sit comfortably.",
           "hint": "manner adverb",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "aaraam {{answer}} baithiye."
         },
         {
           "sentence": "मुझे इस विषय के {{answer}} में बताइए।",
           "answer": "बारे",
           "translation": "Tell me about this topic.",
           "hint": "के ___ में = 'about'",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "mujhe is vishay ke {{answer}} mein bataaiye."
         }
       ]
     },
@@ -1964,42 +2137,48 @@
           "answer": "मुझे",
           "translation": "I like this song.",
           "hint": "experiencer 'to me'",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "{{answer}} yeh gaanaa pasand hai."
         },
         {
           "sentence": "मुझे हिंदी {{answer}} है।",
           "answer": "आती",
           "translation": "I know Hindi.",
           "hint": "'comes to me' — fem. for हिंदी",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "mujhe hindee {{answer}} hai."
         },
         {
           "sentence": "मुझे {{answer}} है कि वह सही है।",
           "answer": "लगता",
           "translation": "I think that he is right.",
           "hint": "'it seems to me'",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "mujhe {{answer}} hai ki voh sahee hai."
         },
         {
           "sentence": "बच्चे को बहुत भूख {{answer}} है।",
           "answer": "लगी",
           "translation": "The child is very hungry.",
           "hint": "hunger 'struck' — fem.",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "bachche ko bahut bhookh {{answer}} hai."
         },
         {
           "sentence": "उसे मुझ पर ग़ुस्सा {{answer}}।",
           "answer": "आया",
           "translation": "He got angry at me.",
           "hint": "anger 'came' — masc.",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "use mujh par gussaa {{answer}}."
         },
         {
           "sentence": "क्या {{answer}} तैरना आता है?",
           "answer": "तुम्हें",
           "translation": "Do you know how to swim?",
           "hint": "experiencer 'to you' (informal)",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "kyaa {{answer}} tairnaa aataa hai?"
         }
       ]
     },
@@ -2027,42 +2206,48 @@
           "answer": "खिलाती",
           "translation": "The mother feeds the child. (makes eat)",
           "hint": "causative of खाना — fem.",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "maan bachche ko khaanaa {{answer}} hai."
         },
         {
           "sentence": "शिक्षक बच्चों को हिंदी {{answer}} हैं।",
           "answer": "पढ़ाते",
           "translation": "The teachers teach the children Hindi.",
           "hint": "causative of पढ़ना (cause to read)",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "shikshak bachchon ko hindee {{answer}} hain."
         },
         {
           "sentence": "मैंने अपने बाल {{answer}}।",
           "answer": "कटवाए",
           "translation": "I got my hair cut.",
           "hint": "indirect causative of काटना — via a barber",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "maine apne baal {{answer}}."
         },
         {
           "sentence": "उसने मुझसे यह काम {{answer}}।",
           "answer": "करवाया",
           "translation": "He got me to do this work.",
           "hint": "indirect causative of करना",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "usne mujhse yeh kaam {{answer}}."
         },
         {
           "sentence": "कृपया कुर्सी ऊपर {{answer}}।",
           "answer": "उठाइए",
           "translation": "Please lift the chair up.",
           "hint": "causative of उठना (rise→lift)",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "kripyaa kursee oopar {{answer}}."
         },
         {
           "sentence": "हमने नया घर {{answer}}।",
           "answer": "बनवाया",
           "translation": "We had a new house built.",
           "hint": "indirect causative of बनना",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "hamne nayaa ghar {{answer}}."
         }
       ]
     },
@@ -2090,14 +2275,16 @@
           "answer": "होगा",
           "translation": "It's ten now; he must be at the office.",
           "hint": "presumptive 'probably is', masc.",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "abhee das baje hain, voh daftar mein {{answer}}."
         },
         {
           "sentence": "वे थके होंगे, आराम कर {{answer}} होंगे।",
           "answer": "रहे",
           "translation": "They're tired; they must be resting.",
           "hint": "presumptive continuous marker, plural",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "ve thake honge, aaraam kar {{answer}} honge."
         },
         {
           "sentence": "उसने अब तक खाना खा {{answer}} होगा।",
@@ -2111,21 +2298,24 @@
           "answer": "होगी",
           "translation": "Maybe it will rain tomorrow.",
           "hint": "presumptive, fem. for बारिश",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "shaayad kal baarish {{answer}}."
         },
         {
           "sentence": "तुम्हारी बहन अब बड़ी हो {{answer}} होगी।",
           "answer": "गई",
           "translation": "Your sister must have grown up by now.",
           "hint": "presumptive perfect, fem.",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "tumhaaree bahan ab badee ho {{answer}} hogee."
         },
         {
           "sentence": "वह रोज़ यहाँ आता {{answer}}।",
           "answer": "होगा",
           "translation": "He probably comes here every day.",
           "hint": "presumptive habitual",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "vah roz yahaan aataa {{answer}}."
         }
       ]
     },
@@ -2153,42 +2343,48 @@
           "answer": "लगा",
           "translation": "The child suddenly began to cry.",
           "hint": "'began' — past of लगना, masc.",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "bachchaa achaanak rone {{answer}}."
         },
         {
           "sentence": "बारिश तेज़ होने {{answer}}।",
           "answer": "लगी",
           "translation": "The rain began to fall harder.",
           "hint": "'began' — fem. for बारिश",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "baarish tez hone {{answer}}."
         },
         {
           "sentence": "वह देर रात तक पढ़ता {{answer}}।",
           "answer": "रहा",
           "translation": "He kept studying till late at night.",
           "hint": "persistence — 'kept', masc.",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "vah der raat tak padhtaa {{answer}}."
         },
         {
           "sentence": "शहर बड़ा होता {{answer}} है।",
           "answer": "जाता",
           "translation": "The city keeps getting bigger.",
           "hint": "gradual change — जाना",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "shahar badaa hotaa {{answer}} hai."
         },
         {
           "sentence": "लोग आते {{answer}}, हॉल भर गया।",
           "answer": "रहे",
           "translation": "People kept coming; the hall filled up.",
           "hint": "continuity, plural",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "log aate {{answer}}, haul bhar gayaa."
         },
         {
           "sentence": "वह बिना रुके बोले {{answer}} रहा था।",
           "answer": "जा",
           "translation": "He kept on talking without stopping.",
           "hint": "किए जाना pattern — stem of जाना",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "vah binaa ruke bole {{answer}} rahaa thaa."
         }
       ]
     },
@@ -2216,42 +2412,48 @@
           "answer": "कि",
           "translation": "He said that he would come tomorrow.",
           "hint": "the complementizer 'that'",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "usne kahaa {{answer}} vah kal aayegaa."
         },
         {
           "sentence": "राम ने कहा कि {{answer}} भूखा हूँ।",
           "answer": "मैं",
           "translation": "Ram said that he was hungry. (lit. 'I am hungry')",
           "hint": "Hindi keeps the original 'I' — no pronoun shift",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "raam ne kahaa ki {{answer}} bhookhaa hoon."
         },
         {
           "sentence": "मुझे {{answer}} है कि तुम पास हो जाओगे।",
           "answer": "उम्मीद",
           "translation": "I hope that you will pass.",
           "hint": "'hope' — takes a कि-clause",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "mujhe {{answer}} hai ki tum paas ho jaaoge."
         },
         {
           "sentence": "उसने पूछा कि मैं {{answer}} जा रहा हूँ।",
           "answer": "कहाँ",
           "translation": "He asked where I was going.",
           "hint": "embedded question word",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "usne poochhaa ki main {{answer}} jaa rahaa hoon."
         },
         {
           "sentence": "मुझे {{answer}} है कि वह नहीं आएगा।",
           "answer": "डर",
           "translation": "I'm afraid that he won't come.",
           "hint": "'fear' + कि-clause",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "mujhe {{answer}} hai ki vah naheen aayegaa."
         },
         {
           "sentence": "शिक्षक ने बताया {{answer}} परीक्षा सोमवार को है।",
           "answer": "कि",
           "translation": "The teacher told (us) that the exam is on Monday.",
           "hint": "'that'",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "shikshak ne bataayaa {{answer}} pareekshaa somvaar ko hai."
         }
       ]
     },
@@ -2279,42 +2481,48 @@
           "answer": "आते",
           "translation": "While coming home, I saw the market.",
           "hint": "imperfective participle + हुए",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "ghar {{answer}} hue maine baazaar dekhaa."
         },
         {
           "sentence": "वह {{answer}} हुए अंदर आई।",
           "answer": "मुस्कुराते",
           "translation": "She came in smiling.",
           "hint": "'while smiling'",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "vah {{answer}} hue andar aayee."
         },
         {
           "sentence": "कुर्सी पर {{answer}} हुआ आदमी मेरा चाचा है।",
           "answer": "बैठा",
           "translation": "The man seated on the chair is my uncle.",
           "hint": "perfective participle — resulting state, masc.",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "kursee par {{answer}} huaa aadmee meraa chaachaa hai."
         },
         {
           "sentence": "मेज़ पर {{answer}} हुई किताबें मेरी हैं।",
           "answer": "रखी",
           "translation": "The books placed on the table are mine.",
           "hint": "resulting state — fem. pl. for किताबें",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "mez par {{answer}} huee kitaaben meree hain."
         },
         {
           "sentence": "{{answer}}-बैठे मैं ऊब गया।",
           "answer": "बैठे",
           "translation": "Just sitting and sitting, I got bored.",
           "hint": "doubled participle — duration",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "{{answer}}-baithe main oob gayaa."
         },
         {
           "sentence": "वह दौड़ता {{answer}} आया।",
           "answer": "हुआ",
           "translation": "He came running.",
           "hint": "participle + ___ , masc.",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "vah daudtaa {{answer}} aayaa."
         }
       ]
     },
@@ -2342,42 +2550,48 @@
           "answer": "पहला",
           "translation": "This is my first child.",
           "hint": "ordinal 'first', masc.",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "yah meraa {{answer}} bachchaa hai."
         },
         {
           "sentence": "वह कक्षा में {{answer}} आया।",
           "answer": "दूसरा",
           "translation": "He came second in the class.",
           "hint": "ordinal 'second'",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "vah kakshaa men {{answer}} aayaa."
         },
         {
           "sentence": "मुझे {{answer}} किलो चीनी चाहिए।",
           "answer": "आधा",
           "translation": "I need half a kilo of sugar.",
           "hint": "'half'",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "mujhe {{answer}} kilo cheenee chaahiye."
         },
         {
           "sentence": "अभी {{answer}} बजे हैं। (2:30)",
           "answer": "ढाई",
           "translation": "It's half past two now. (2:30)",
           "hint": "special word for 2½",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "abhee {{answer}} baje hain. (2:30)"
         },
         {
           "sentence": "मुझे {{answer}} सौ रुपये दो। (150)",
           "answer": "डेढ़",
           "translation": "Give me one hundred fifty rupees. (150)",
           "hint": "1½ × hundred",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "mujhe {{answer}} sau rupaye do. (150)"
         },
         {
           "sentence": "यह इमारत की {{answer}} मंज़िल है। (5th)",
           "answer": "पाँचवीं",
           "translation": "This is the building's fifth floor.",
           "hint": "number + वाँ→वीं (fem. for मंज़िल)",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "yah imaarat kee {{answer}} manzil hai. (5th)"
         }
       ]
     },
@@ -2406,42 +2620,48 @@
           "answer": "शुक्रिया",
           "translation": "The everyday synonym for 'dhanyavād' (thanks) is 'shukriyā'.",
           "hint": "the Perso-Arabic 'thanks'",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "aupchaarik bhaashan men 'dhanyavaad' kaa rozmarraa paryaay {{answer}} hai."
         },
         {
           "sentence": "समाचार में वे 'सवाल' के बजाय {{answer}} कहते हैं।",
           "answer": "प्रश्न",
           "translation": "In the news they say 'praśn' instead of 'savāl'.",
           "hint": "the Sanskritic 'question'",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "samaachaar men ve 'savaal' ke bajaay {{answer}} kahte hain."
         },
         {
           "sentence": "'विद्यालय' बोलचाल में {{answer}} बन जाता है।",
           "answer": "स्कूल",
           "translation": "'Vidyālay' becomes 'skūl' in colloquial speech.",
           "hint": "the everyday loanword for school",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "'vidyaalay' bolchaal men {{answer}} ban jaataa hai."
         },
         {
           "sentence": "उर्दू-रंग वाली हिंदी में 'समाचार' को {{answer}} कहेंगे।",
           "answer": "ख़बर",
           "translation": "In Urdu-leaning Hindi, 'samāchār' would be called 'khabar'.",
           "hint": "Perso-Arabic 'news', with nuqta",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "urdoo-rang vaalee hindee men 'samaachaar' ko {{answer}} kahenge."
         },
         {
           "sentence": "साहित्यिक हिंदी 'शुक्रिया' के लिए {{answer}} पसंद करती है।",
           "answer": "धन्यवाद",
           "translation": "Literary Hindi prefers 'dhanyavād' for 'shukriyā'.",
           "hint": "the Sanskritic 'thanks'",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "saahityik hindee 'shukriyaa' ke liye {{answer}} pasand kartee hai."
         },
         {
           "sentence": "'किताब' का तत्सम पर्याय {{answer}} है।",
           "answer": "पुस्तक",
           "translation": "The Sanskritic synonym of 'kitāb' (book) is 'pustak'.",
           "hint": "formal/Sanskritic 'book'",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "'kitaab' kaa tatsam paryaay {{answer}} hai."
         }
       ]
     },
@@ -2469,28 +2689,32 @@
           "answer": "आए",
           "translation": "Father has just come home. (honorific plural)",
           "hint": "plural participle for one respected person",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "pitaajee abhee ghar {{answer}} hain."
         },
         {
           "sentence": "दादीजी बाज़ार {{answer}} हैं।",
           "answer": "गई",
           "translation": "Grandmother has gone to the market.",
           "hint": "honorific — fem. plural गईं/गई for one elder",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "daadeejee baazaar {{answer}} hain."
         },
         {
           "sentence": "गुरुजी {{answer}} कहते हैं, वह सही है।",
           "answer": "जो",
           "translation": "Whatever the teacher says is right.",
           "hint": "relative pronoun; verb stays plural for respect",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "gurujee {{answer}} kahte hain, vah sahee hai."
         },
         {
           "sentence": "आदरपूर्वक हाँ कहने के लिए '{{answer}} हाँ' कहते हैं।",
           "answer": "जी",
           "translation": "To say yes respectfully, one says 'jī hā̃'.",
           "hint": "the deference particle before हाँ",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "aadarpoorvak haan kahne ke liye '{{answer}} haan' kahte hain."
         },
         {
           "sentence": "माताजी ने यह {{answer}} बनाया है।",
@@ -2504,7 +2728,8 @@
           "answer": "लिया",
           "translation": "It was they (respected) who made this decision.",
           "hint": "ने-past with उन्होंने for one honored person",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "unhone hee yah nirnay {{answer}} thaa."
         }
       ]
     },
@@ -2532,42 +2757,48 @@
           "answer": "मन",
           "translation": "I feel like going out today.",
           "hint": "the seat of desire — 'mind/heart'",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "meraa {{answer}} aaj ghoomne kaa kar rahaa hai."
         },
         {
           "sentence": "मुझे अचानक अपनी माँ की {{answer}} आई।",
           "answer": "याद",
           "translation": "I suddenly remembered my mother.",
           "hint": "'memory came' idiom",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "mujhe achaanak apnee maan kee {{answer}} aayee."
         },
         {
           "sentence": "बच्चे को जल्दी {{answer}} आ गई।",
           "answer": "नींद",
           "translation": "The child soon felt sleepy.",
           "hint": "'sleep came' = felt sleepy",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "bachche ko jaldee {{answer}} aa gayee."
         },
         {
           "sentence": "यह किताब परीक्षा में {{answer}} आई।",
           "answer": "काम",
           "translation": "This book was useful in the exam.",
           "hint": "'came to work' = was useful",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "yah kitaab pareekshaa men {{answer}} aayee."
         },
         {
           "sentence": "उसकी बात सुनकर मेरा {{answer}} टूट गया।",
           "answer": "दिल",
           "translation": "Hearing his words, my heart broke.",
           "hint": "the seat of emotion",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "uskee baat sunkar meraa {{answer}} toot gayaa."
         },
         {
           "sentence": "नए शहर में उसका {{answer}} नहीं लगा।",
           "answer": "मन",
           "translation": "He didn't feel settled in the new city.",
           "hint": "मन ___ना = to feel at home/engaged",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "naye shahar men uskaa {{answer}} naheen lagaa."
         }
       ]
     },
@@ -2595,42 +2826,48 @@
           "answer": "तो",
           "translation": "As for me, I'll do this very task today.",
           "hint": "topic/emphasis particle",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "main {{answer}} yah kaam aaj hee karoongaa."
         },
         {
           "sentence": "आज {{answer}} यह काम पूरा करो।",
           "answer": "ही",
           "translation": "Finish this work this very day.",
           "hint": "'exactly/the very' — restricting particle",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "aaj {{answer}} yah kaam pooraa karo."
         },
         {
           "sentence": "मैं {{answer}} तुम्हारे साथ चलूँगा।",
           "answer": "भी",
           "translation": "I will go with you too.",
           "hint": "'also/too'",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "main {{answer}} tumhaare saath chaloongaa."
         },
         {
           "sentence": "आप कल आएँगे {{answer}}?",
           "answer": "न",
           "translation": "You'll come tomorrow, won't you?",
           "hint": "tag seeking agreement",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "aap kal aayenge {{answer}}?"
         },
         {
           "sentence": "मुझे लाल {{answer}} किताब चाहिए।",
           "answer": "वाली",
           "translation": "I want the red one (book).",
           "hint": "'the one that' — fem. for किताब",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "mujhe laal {{answer}} kitaab chaahiye."
         },
         {
           "sentence": "ट्रेन आने {{answer}} है।",
           "answer": "वाली",
           "translation": "The train is about to arrive.",
           "hint": "वाला = imminence; fem. for ट्रेन",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "tren aane {{answer}} hai."
         }
       ]
     },
@@ -2658,42 +2895,48 @@
           "answer": "लाया",
           "translation": "I brought fruit from the market yesterday. (male)",
           "hint": "लाना never takes ने — plain agreement with speaker",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "main kal baazaar se phal {{answer}}."
         },
         {
           "sentence": "उसने अपनी किताबें मेज़ पर {{answer}}।",
           "answer": "रखीं",
           "translation": "She placed her books on the table.",
           "hint": "ने-past, verb agrees with किताबें (fem. pl.)",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "usne apnee kitaaben mez par {{answer}}."
         },
         {
           "sentence": "मैंने सभी लड़कियों को {{answer}}।",
           "answer": "देखा",
           "translation": "I saw all the girls.",
           "hint": "को-marked object → verb goes neutral masc. sing.",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "maine sabhee ladkiyon ko {{answer}}."
         },
         {
           "sentence": "वह अपना बचपन का घर {{answer}} गया।",
           "answer": "भूल",
           "translation": "He forgot his childhood home.",
           "hint": "भूलना avoids ने — stem before the जाना vector",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "vah apnaa bachpan kaa ghar {{answer}} gayaa."
         },
         {
           "sentence": "हमने इस मुद्दे पर लंबी बात {{answer}}।",
           "answer": "की",
           "translation": "We talked at length about this issue.",
           "hint": "बात करना takes ने; की agrees with बात (fem.)",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "hamne is mudde par lambee baat {{answer}}."
         },
         {
           "sentence": "माँ बच्चे को {{answer}} बैठी।",
           "answer": "डाँट",
           "translation": "The mother (went and) scolded the child.",
           "hint": "बैठना vector; stem of डाँटना",
-          "display_order": 6
+          "display_order": 6,
+          "transliteration": "maan bachche ko {{answer}} baithee."
         }
       ]
     },
@@ -2722,35 +2965,40 @@
           "answer": "जोड़ता",
           "translation": "In 'shamā-e-mahfil', the '-e-' links two nouns.",
           "hint": "'joins/links' — masc. habitual",
-          "display_order": 1
+          "display_order": 1,
+          "transliteration": "'shamaa-e-mahfil' men '-e-' do sangyaaon ko {{answer}} hai."
         },
         {
           "sentence": "काव्य में अक्सर क्रिया कर्ता से {{answer}} आ जाती है।",
           "answer": "पहले",
           "translation": "In poetry the verb often comes before the subject.",
           "hint": "'before' — describing inversion",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "kaavya men aksar kriyaa kartaa se {{answer}} aa jaatee hai."
         },
         {
           "sentence": "'दिल है कि मानता नहीं' में कर्ता के बाद की {{answer}} छूट गई है।",
           "answer": "क्रिया",
           "translation": "In 'dil hai ki māntā nahī̃', the expected verb is elided.",
           "hint": "'verb' that is dropped",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "'dil hai ki maantaa naheen' men kartaa ke baad kee {{answer}} chhoot gayee hai."
         },
         {
           "sentence": "'तर्ज़-ए-बयाँ' का अर्थ है बयान {{answer}} तरीक़ा।",
           "answer": "का",
           "translation": "'Tarz-e-bayā̃' means the manner OF expression.",
           "hint": "the possessive the izāfat stands in for",
-          "display_order": 4
+          "display_order": 4,
+          "transliteration": "'tarz-e-bayaan' kaa arth hai bayaan {{answer}} tareeqaa."
         },
         {
           "sentence": "उच्च शैली में कभी-कभी परसर्ग {{answer}} लोप हो जाता है।",
           "answer": "का",
           "translation": "In high style, the postposition sometimes drops.",
           "hint": "genitive linking लोप ('elision')",
-          "display_order": 5
+          "display_order": 5,
+          "transliteration": "uchch shailee men kabhee-kabhee parsarg {{answer}} lop ho jaataa hai."
         },
         {
           "sentence": "फ़िल्मी गीत इस काव्य-शैली का लोकप्रिय {{answer}} हैं।",

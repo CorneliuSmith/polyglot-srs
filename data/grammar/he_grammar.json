@@ -47,7 +47,7 @@
           "answer": "הוא",
           "translation": "He is a good man.",
           "hint": "he — masculine pronoun, doubles as \"is\"",
-          "transliteration": "hu ish tov.",
+          "transliteration": "___ ish tov.",
           "display_order": 1
         },
         {
@@ -55,7 +55,7 @@
           "answer": "היא",
           "translation": "She is a good woman.",
           "hint": "she — feminine pronoun; note טובה, the feminine form of \"good\"",
-          "transliteration": "hi isha tova.",
+          "transliteration": "___ isha tova.",
           "display_order": 2
         },
         {
@@ -63,7 +63,7 @@
           "answer": "אתה",
           "translation": "Are you (m.) going home?",
           "hint": "you — masculine singular, contrasts with feminine את",
-          "transliteration": "ata holekh habayta?",
+          "transliteration": "___ holekh habayta?",
           "display_order": 3
         }
       ]
@@ -82,7 +82,7 @@
           "answer": "גדול",
           "translation": "The house is big.",
           "hint": "big — no \"is\" needed, just place it after the subject",
-          "transliteration": "habayit gadol.",
+          "transliteration": "habayit ___.",
           "display_order": 1
         },
         {
@@ -90,7 +90,7 @@
           "answer": "טוב",
           "translation": "I am good / fine.",
           "hint": "good — again, no verb \"to be\"",
-          "transliteration": "ani tov.",
+          "transliteration": "ani ___.",
           "display_order": 2
         },
         {
@@ -98,7 +98,7 @@
           "answer": "קטן",
           "translation": "The child is small.",
           "hint": "small — the predicate follows the subject directly",
-          "transliteration": "hayeled katan.",
+          "transliteration": "hayeled ___.",
           "display_order": 3
         }
       ]
@@ -117,7 +117,7 @@
           "answer": "טובה",
           "translation": "The woman is good.",
           "hint": "good, feminine — add ה־ to טוב",
-          "transliteration": "haisha tova.",
+          "transliteration": "haisha ___.",
           "display_order": 1
         },
         {
@@ -125,7 +125,7 @@
           "answer": "טוב",
           "translation": "The man is good.",
           "hint": "good, masculine — the base form, no ה־",
-          "transliteration": "haish tov.",
+          "transliteration": "haish ___.",
           "display_order": 2
         },
         {
@@ -133,7 +133,7 @@
           "answer": "קטנה",
           "translation": "The girl is small.",
           "hint": "small, feminine — add ה־ to קטן",
-          "transliteration": "hayalda ktana.",
+          "transliteration": "hayalda ___.",
           "display_order": 3
         }
       ]
@@ -152,7 +152,7 @@
           "answer": "הבית",
           "translation": "The house is big.",
           "hint": "the house — ה־ prefixed directly onto בית",
-          "transliteration": "habayit gadol.",
+          "transliteration": "___ gadol.",
           "display_order": 1
         },
         {
@@ -160,7 +160,7 @@
           "answer": "הספר",
           "translation": "The book is good.",
           "hint": "the book — ה־ prefixed onto ספר",
-          "transliteration": "hasefer tov.",
+          "transliteration": "___ tov.",
           "display_order": 2
         },
         {
@@ -168,7 +168,7 @@
           "answer": "העיר",
           "translation": "The city is beautiful.",
           "hint": "the city — ה־ prefixed onto עיר",
-          "transliteration": "hair yafa.",
+          "transliteration": "___ yafa.",
           "display_order": 3
         }
       ]
@@ -187,7 +187,7 @@
           "answer": "הולכת",
           "translation": "She is going home.",
           "hint": "goes — feminine singular, add ת to הולך",
-          "transliteration": "hi holekhet habayta.",
+          "transliteration": "hi ___ habayta.",
           "display_order": 1
         },
         {
@@ -195,7 +195,7 @@
           "answer": "הולכים",
           "translation": "They (m./mixed) are going home.",
           "hint": "go — masculine plural, add ים",
-          "transliteration": "hem holkhim habayta.",
+          "transliteration": "hem ___ habayta.",
           "display_order": 2
         },
         {
@@ -203,7 +203,7 @@
           "answer": "הולכות",
           "translation": "They (f.) are going home.",
           "hint": "go — feminine plural, add ות",
-          "transliteration": "hen holkhot habayta.",
+          "transliteration": "hen ___ habayta.",
           "display_order": 3
         }
       ]
@@ -222,7 +222,7 @@
           "answer": "לא",
           "translation": "I don't want (to).",
           "hint": "not — placed right before the verb",
-          "transliteration": "ani lo rotse.",
+          "transliteration": "ani ___ rotse.",
           "display_order": 1
         },
         {
@@ -230,7 +230,7 @@
           "answer": "לא",
           "translation": "He isn't going.",
           "hint": "not — before the verb, no auxiliary needed",
-          "transliteration": "hu lo holekh.",
+          "transliteration": "hu ___ holekh.",
           "display_order": 2
         },
         {
@@ -238,7 +238,7 @@
           "answer": "לא",
           "translation": "The house isn't small.",
           "hint": "not — before an adjective works the same way",
-          "transliteration": "habayit lo katan.",
+          "transliteration": "habayit ___ katan.",
           "display_order": 3
         }
       ]
@@ -257,7 +257,7 @@
           "answer": "יש",
           "translation": "There is a big house.",
           "hint": "there is — states existence",
-          "transliteration": "yesh bayit gadol.",
+          "transliteration": "___ bayit gadol.",
           "display_order": 1
         },
         {
@@ -265,7 +265,7 @@
           "answer": "יש",
           "translation": "There is a good book.",
           "hint": "there is",
-          "transliteration": "yesh sefer tov.",
+          "transliteration": "___ sefer tov.",
           "display_order": 2
         },
         {
@@ -273,7 +273,7 @@
           "answer": "אין",
           "translation": "There isn't time.",
           "hint": "there isn't — the negative of יש",
-          "transliteration": "eyn zman.",
+          "transliteration": "___ zman.",
           "display_order": 3
         }
       ]
@@ -292,7 +292,7 @@
           "answer": "של",
           "translation": "The house is David's / belongs to David.",
           "hint": "of / belonging to",
-          "transliteration": "habayit shel david.",
+          "transliteration": "habayit ___ david.",
           "display_order": 1
         },
         {
@@ -300,7 +300,7 @@
           "answer": "של",
           "translation": "The book is the girl's.",
           "hint": "of — links the book to its owner",
-          "transliteration": "hasefer shel hayalda.",
+          "transliteration": "hasefer ___ hayalda.",
           "display_order": 2
         },
         {
@@ -308,7 +308,7 @@
           "answer": "של",
           "translation": "The city belongs to the family.",
           "hint": "of / belonging to",
-          "transliteration": "hair shel hamishpacha.",
+          "transliteration": "hair ___ hamishpacha.",
           "display_order": 3
         }
       ]
@@ -327,7 +327,7 @@
           "answer": "ללכת",
           "translation": "I want to go home.",
           "hint": "to go — the infinitive of the everyday verb for going and walking",
-          "transliteration": "ani rotse lalekhet habayta.",
+          "transliteration": "ani rotse ___ habayta.",
           "display_order": 1
         },
         {
@@ -335,7 +335,7 @@
           "answer": "לשבת",
           "translation": "May we sit here?",
           "hint": "to sit — the infinitive that follows the impersonal word for it is possible",
-          "transliteration": "efshar lashevet kan?",
+          "transliteration": "efshar ___ kan?",
           "display_order": 2
         },
         {
@@ -343,7 +343,7 @@
           "answer": "לשתות",
           "translation": "She wants to drink coffee.",
           "hint": "to drink — infinitive, unchanged whoever the subject is",
-          "transliteration": "hi rotsa lishtot kafe.",
+          "transliteration": "hi rotsa ___ kafe.",
           "display_order": 3
         },
         {
@@ -351,7 +351,7 @@
           "answer": "לדבר",
           "translation": "We need to speak Hebrew.",
           "hint": "to speak — only the first verb agrees with we",
-          "transliteration": "anachnu tsrikhim ledaber ivrit.",
+          "transliteration": "anachnu tsrikhim ___ ivrit.",
           "display_order": 4
         },
         {
@@ -359,7 +359,7 @@
           "answer": "לקרוא",
           "translation": "He can read the book.",
           "hint": "to read — the second verb after can stays in its base form",
-          "transliteration": "hu yakhol likro et hasefer.",
+          "transliteration": "hu yakhol ___ et hasefer.",
           "display_order": 5
         }
       ]
@@ -378,7 +378,7 @@
           "answer": "איפה",
           "translation": "Where do you live?",
           "hint": "where — asks about place",
-          "transliteration": "eyfo ata gar?",
+          "transliteration": "___ ata gar?",
           "display_order": 1
         },
         {
@@ -386,7 +386,7 @@
           "answer": "מה",
           "translation": "What is this?",
           "hint": "what — asks about a thing",
-          "transliteration": "ma ze?",
+          "transliteration": "___ ze?",
           "display_order": 2
         },
         {
@@ -394,7 +394,7 @@
           "answer": "מתי",
           "translation": "When does the bus arrive?",
           "hint": "when — asks about time",
-          "transliteration": "matay haotobus magia?",
+          "transliteration": "___ haotobus magia?",
           "display_order": 3
         },
         {
@@ -402,7 +402,7 @@
           "answer": "כמה",
           "translation": "How much does it cost?",
           "hint": "how much — asks about quantity or price",
-          "transliteration": "kama ze ole?",
+          "transliteration": "___ ze ole?",
           "display_order": 4
         },
         {
@@ -410,7 +410,7 @@
           "answer": "למה",
           "translation": "Why aren't you coming?",
           "hint": "why — asks for a reason",
-          "transliteration": "lama ata lo ba?",
+          "transliteration": "___ ata lo ba?",
           "display_order": 5
         },
         {
@@ -418,7 +418,7 @@
           "answer": "מי",
           "translation": "Who speaks Hebrew?",
           "hint": "who — asks about a person",
-          "transliteration": "mi medaber ivrit?",
+          "transliteration": "___ medaber ivrit?",
           "display_order": 6
         }
       ]
@@ -437,7 +437,7 @@
           "answer": "כתבתי",
           "translation": "Yesterday I wrote a letter.",
           "hint": "I wrote — first person singular, the same for men and women",
-          "transliteration": "etmol katavti mikhtav.",
+          "transliteration": "etmol ___ mikhtav.",
           "display_order": 1
         },
         {
@@ -445,7 +445,7 @@
           "answer": "למד",
           "translation": "He studied Hebrew last year.",
           "hint": "he studied — the bare stem, with no ending at all",
-          "transliteration": "hu lamad ivrit bashana sheavra.",
+          "transliteration": "hu ___ ivrit bashana sheavra.",
           "display_order": 2
         },
         {
@@ -453,7 +453,7 @@
           "answer": "למדה",
           "translation": "She studied Hebrew last year.",
           "hint": "she studied — feminine singular, the ending you also see on adjectives",
-          "transliteration": "hi lamda ivrit bashana sheavra.",
+          "transliteration": "hi ___ ivrit bashana sheavra.",
           "display_order": 3
         },
         {
@@ -461,7 +461,7 @@
           "answer": "קראת",
           "translation": "Did you (m.) read the book?",
           "hint": "you read — second person singular; the unvocalized spelling covers both genders",
-          "transliteration": "ata karata et hasefer?",
+          "transliteration": "ata ___ et hasefer?",
           "display_order": 4
         },
         {
@@ -469,7 +469,7 @@
           "answer": "שמעתי",
           "translation": "I heard the song on the radio.",
           "hint": "I heard — first person singular past",
-          "transliteration": "ani shamati et hashir baradio.",
+          "transliteration": "ani ___ et hashir baradio.",
           "display_order": 5
         }
       ]
@@ -488,7 +488,7 @@
           "answer": "ישבנו",
           "translation": "We sat in a café.",
           "hint": "we sat — first person plural past",
-          "transliteration": "anachnu yashavnu beveit kafe.",
+          "transliteration": "anachnu ___ beveit kafe.",
           "display_order": 1
         },
         {
@@ -496,7 +496,7 @@
           "answer": "אכלו",
           "translation": "They ate pizza.",
           "hint": "they ate — one plural form serves both genders",
-          "transliteration": "hem akhlu pitsa.",
+          "transliteration": "hem ___ pitsa.",
           "display_order": 2
         },
         {
@@ -504,7 +504,7 @@
           "answer": "הלכו",
           "translation": "They (f.) left early.",
           "hint": "they went — the ending is the same as for a masculine group",
-          "transliteration": "hen halkhu mukdam.",
+          "transliteration": "hen ___ mukdam.",
           "display_order": 3
         },
         {
@@ -512,7 +512,7 @@
           "answer": "קראתם",
           "translation": "Did you (pl.) read the email?",
           "hint": "you read — second person plural past",
-          "transliteration": "atem kratem et hamail?",
+          "transliteration": "atem ___ et hamail?",
           "display_order": 4
         },
         {
@@ -520,7 +520,7 @@
           "answer": "ראינו",
           "translation": "We saw the movie yesterday.",
           "hint": "we saw — first person plural of a verb whose root ends in a weak letter",
-          "transliteration": "anachnu rainu et haseret etmol.",
+          "transliteration": "anachnu ___ et haseret etmol.",
           "display_order": 5
         }
       ]
@@ -539,7 +539,7 @@
           "answer": "אכתוב",
           "translation": "Tomorrow I will write a letter.",
           "hint": "I will write — the א prefix marks first person singular",
-          "transliteration": "machar ekhtov mikhtav.",
+          "transliteration": "machar ___ mikhtav.",
           "display_order": 1
         },
         {
@@ -547,7 +547,7 @@
           "answer": "ילמד",
           "translation": "He will study Hebrew next year.",
           "hint": "he will study — the י prefix marks third person masculine",
-          "transliteration": "hu yilmad ivrit bashana habaa.",
+          "transliteration": "hu ___ ivrit bashana habaa.",
           "display_order": 2
         },
         {
@@ -555,7 +555,7 @@
           "answer": "נלמד",
           "translation": "We will study together tomorrow.",
           "hint": "we will study — the נ prefix marks first person plural",
-          "transliteration": "anachnu nilmad yachad machar.",
+          "transliteration": "anachnu ___ yachad machar.",
           "display_order": 3
         },
         {
@@ -563,7 +563,7 @@
           "answer": "תלכי",
           "translation": "Will you (f.) go with me?",
           "hint": "will you go — feminine singular future, with an extra ending",
-          "transliteration": "at telkhi iti?",
+          "transliteration": "at ___ iti?",
           "display_order": 4
         },
         {
@@ -571,7 +571,7 @@
           "answer": "יבואו",
           "translation": "They will come tomorrow morning.",
           "hint": "they will come — third person plural future",
-          "transliteration": "hem yavou machar baboker.",
+          "transliteration": "hem ___ machar baboker.",
           "display_order": 5
         }
       ]
@@ -590,7 +590,7 @@
           "answer": "לי",
           "translation": "He gave me a book.",
           "hint": "to me — the little preposition for to, carrying a first person ending",
-          "transliteration": "hu natan li sefer.",
+          "transliteration": "hu natan ___ sefer.",
           "display_order": 1
         },
         {
@@ -598,7 +598,7 @@
           "answer": "לה",
           "translation": "I told her that everything is fine.",
           "hint": "to her — feminine third person ending",
-          "transliteration": "amarti la shehakol beseder.",
+          "transliteration": "amarti ___ shehakol beseder.",
           "display_order": 2
         },
         {
@@ -606,7 +606,7 @@
           "answer": "אצלי",
           "translation": "We met at my place in the evening.",
           "hint": "at my place — the preposition for someone's home, with a first person ending",
-          "transliteration": "nifgashnu etsli baerev.",
+          "transliteration": "nifgashnu ___ baerev.",
           "display_order": 3
         },
         {
@@ -614,7 +614,7 @@
           "answer": "לו",
           "translation": "He doesn't have time today.",
           "hint": "to him — after the word for there isn't, it means he doesn't have",
-          "transliteration": "eyn lo zman hayom.",
+          "transliteration": "eyn ___ zman hayom.",
           "display_order": 4
         },
         {
@@ -622,7 +622,7 @@
           "answer": "לך",
           "translation": "I'm waiting for you at the entrance.",
           "hint": "to you — masculine singular ending",
-          "transliteration": "ani mechake lekha baknisa.",
+          "transliteration": "ani mechake ___ baknisa.",
           "display_order": 5
         }
       ]
@@ -641,7 +641,7 @@
           "answer": "את",
           "translation": "I see the house.",
           "hint": "the untranslatable marker that stands before a definite object",
-          "transliteration": "ani roe et habayit.",
+          "transliteration": "ani roe ___ habayit.",
           "display_order": 1
         },
         {
@@ -649,7 +649,7 @@
           "answer": "את",
           "translation": "He loves Dana.",
           "hint": "needed here because a personal name counts as definite",
-          "transliteration": "hu ohev et dana.",
+          "transliteration": "hu ohev ___ dana.",
           "display_order": 2
         },
         {
@@ -657,7 +657,7 @@
           "answer": "את",
           "translation": "We read the book yesterday.",
           "hint": "flags the object; it is never translated into English",
-          "transliteration": "karanu et hasefer etmol.",
+          "transliteration": "karanu ___ hasefer etmol.",
           "display_order": 3
         },
         {
@@ -665,7 +665,7 @@
           "answer": "את",
           "translation": "I know the teacher.",
           "hint": "the marker required by the definite article on the next word",
-          "transliteration": "ani makir et hamore.",
+          "transliteration": "ani makir ___ hamore.",
           "display_order": 4
         },
         {
@@ -673,7 +673,7 @@
           "answer": "את",
           "translation": "She took the keys.",
           "hint": "the object flag, used with plural definites too",
-          "transliteration": "hi lakcha et hamaftechot.",
+          "transliteration": "hi lakcha ___ hamaftechot.",
           "display_order": 5
         }
       ]
@@ -692,7 +692,7 @@
           "answer": "שלושה",
           "translation": "I have three books.",
           "hint": "three, masculine — the longer counting form",
-          "transliteration": "yesh li shlosha sfarim.",
+          "transliteration": "yesh li ___ sfarim.",
           "display_order": 1
         },
         {
@@ -700,7 +700,7 @@
           "answer": "שלוש",
           "translation": "I have three notebooks.",
           "hint": "three, feminine — the short form, with no ending",
-          "transliteration": "yesh li shalosh machbarot.",
+          "transliteration": "yesh li ___ machbarot.",
           "display_order": 2
         },
         {
@@ -708,7 +708,7 @@
           "answer": "ארבעה",
           "translation": "I need four tickets.",
           "hint": "four, masculine — tickets is a masculine noun",
-          "transliteration": "ani tsarikh arbaa kartisim.",
+          "transliteration": "ani tsarikh ___ kartisim.",
           "display_order": 3
         },
         {
@@ -716,7 +716,7 @@
           "answer": "ארבע",
           "translation": "I bought four cakes.",
           "hint": "four, feminine — cakes is a feminine noun",
-          "transliteration": "kaniti arba ugot.",
+          "transliteration": "kaniti ___ ugot.",
           "display_order": 4
         },
         {
@@ -724,7 +724,7 @@
           "answer": "חמישה",
           "translation": "There are five children in the class.",
           "hint": "five, masculine",
-          "transliteration": "yesh chamisha yeladim bakita.",
+          "transliteration": "yesh ___ yeladim bakita.",
           "display_order": 5
         },
         {
@@ -732,7 +732,7 @@
           "answer": "חמש",
           "translation": "We have five minutes.",
           "hint": "five, feminine — minutes is a feminine noun",
-          "transliteration": "yesh lanu chamesh dakot.",
+          "transliteration": "yesh lanu ___ dakot.",
           "display_order": 6
         }
       ]
@@ -751,7 +751,7 @@
           "answer": "יש",
           "translation": "I have a big brother.",
           "hint": "there is — together with the to-word it means to have",
-          "transliteration": "yesh li ach gadol.",
+          "transliteration": "___ li ach gadol.",
           "display_order": 1
         },
         {
@@ -759,7 +759,7 @@
           "answer": "לנו",
           "translation": "We have a dog.",
           "hint": "to us — first person plural ending",
-          "transliteration": "yesh lanu kelev.",
+          "transliteration": "yesh ___ kelev.",
           "display_order": 2
         },
         {
@@ -767,7 +767,7 @@
           "answer": "אין",
           "translation": "I don't have time today.",
           "hint": "there isn't — the negative counterpart",
-          "transliteration": "eyn li zman hayom.",
+          "transliteration": "___ li zman hayom.",
           "display_order": 3
         },
         {
@@ -775,7 +775,7 @@
           "answer": "לך",
           "translation": "Do you have a question?",
           "hint": "to you — masculine singular",
-          "transliteration": "yesh lekha sheela?",
+          "transliteration": "yesh ___ sheela?",
           "display_order": 4
         },
         {
@@ -783,7 +783,7 @@
           "answer": "להם",
           "translation": "They have a house in Tel Aviv.",
           "hint": "to them — third person plural",
-          "transliteration": "yesh lahem bayit betel aviv.",
+          "transliteration": "yesh ___ bayit betel aviv.",
           "display_order": 5
         }
       ]
@@ -802,7 +802,7 @@
           "answer": "גדולים",
           "translation": "The books are big.",
           "hint": "big — masculine plural, matching the noun's ending",
-          "transliteration": "hasfarim gdolim.",
+          "transliteration": "hasfarim ___.",
           "display_order": 1
         },
         {
@@ -810,7 +810,7 @@
           "answer": "גדולות",
           "translation": "The notebooks are big.",
           "hint": "big — feminine plural",
-          "transliteration": "hamachbarot gdolot.",
+          "transliteration": "hamachbarot ___.",
           "display_order": 2
         },
         {
@@ -818,7 +818,7 @@
           "answer": "קטנות",
           "translation": "The girls are small.",
           "hint": "small — feminine plural",
-          "transliteration": "hayeladot ktanot.",
+          "transliteration": "hayeladot ___.",
           "display_order": 3
         },
         {
@@ -826,7 +826,7 @@
           "answer": "טובים",
           "translation": "I have good friends.",
           "hint": "good — masculine plural, following its noun",
-          "transliteration": "yesh li chaverim tovim.",
+          "transliteration": "yesh li chaverim ___.",
           "display_order": 4
         },
         {
@@ -834,7 +834,7 @@
           "answer": "גדולים",
           "translation": "The tables are big.",
           "hint": "big — the noun looks feminine in the plural but is masculine",
-          "transliteration": "hashulchanot gdolim.",
+          "transliteration": "hashulchanot ___.",
           "display_order": 5
         }
       ]
@@ -853,7 +853,7 @@
           "answer": "מדבר",
           "translation": "I speak Hebrew. (said by a man)",
           "hint": "speak — masculine singular; this pattern's present begins with מ",
-          "transliteration": "ani medaber ivrit.",
+          "transliteration": "ani ___ ivrit.",
           "display_order": 1
         },
         {
@@ -861,7 +861,7 @@
           "answer": "מדברת",
           "translation": "She speaks Hebrew.",
           "hint": "speaks — feminine singular",
-          "transliteration": "hi medaberet ivrit.",
+          "transliteration": "hi ___ ivrit.",
           "display_order": 2
         },
         {
@@ -869,7 +869,7 @@
           "answer": "מדברים",
           "translation": "They are talking about work.",
           "hint": "talk — masculine plural",
-          "transliteration": "hem medabrim al haavoda.",
+          "transliteration": "hem ___ al haavoda.",
           "display_order": 3
         },
         {
@@ -877,7 +877,7 @@
           "answer": "מלמד",
           "translation": "The teacher teaches mathematics.",
           "hint": "teaches — masculine singular of the same pattern",
-          "transliteration": "hamore melamed matematika.",
+          "transliteration": "hamore ___ matematika.",
           "display_order": 4
         },
         {
@@ -885,7 +885,7 @@
           "answer": "מבקש",
           "translation": "I am asking for help.",
           "hint": "request — masculine singular",
-          "transliteration": "ani mevakesh ezra.",
+          "transliteration": "ani ___ ezra.",
           "display_order": 5
         }
       ]
@@ -904,7 +904,7 @@
           "answer": "מרגיש",
           "translation": "I feel good today.",
           "hint": "feel — masculine singular",
-          "transliteration": "ani margish tov hayom.",
+          "transliteration": "ani ___ tov hayom.",
           "display_order": 1
         },
         {
@@ -912,7 +912,7 @@
           "answer": "מרגישה",
           "translation": "She feels good today.",
           "hint": "feels — feminine singular",
-          "transliteration": "hi margisha tov hayom.",
+          "transliteration": "hi ___ tov hayom.",
           "display_order": 2
         },
         {
@@ -920,7 +920,7 @@
           "answer": "מתחיל",
           "translation": "The lesson begins at eight.",
           "hint": "begins — masculine singular",
-          "transliteration": "hashiur matchil bishmone.",
+          "transliteration": "hashiur ___ bishmone.",
           "display_order": 3
         },
         {
@@ -928,7 +928,7 @@
           "answer": "מסביר",
           "translation": "The teacher explains the rule.",
           "hint": "explains — masculine singular",
-          "transliteration": "hamore masbir et haklal.",
+          "transliteration": "hamore ___ et haklal.",
           "display_order": 4
         },
         {
@@ -936,7 +936,7 @@
           "answer": "מזמינים",
           "translation": "We are ordering pizza.",
           "hint": "order — masculine plural",
-          "transliteration": "anachnu mazminim pitsa.",
+          "transliteration": "anachnu ___ pitsa.",
           "display_order": 5
         }
       ]
@@ -955,7 +955,7 @@
           "answer": "לובש",
           "translation": "He is wearing a white shirt.",
           "hint": "wears — the plain pattern of the root for clothing",
-          "transliteration": "hu lovesh chultsa levana.",
+          "transliteration": "hu ___ chultsa levana.",
           "display_order": 1
         },
         {
@@ -963,7 +963,7 @@
           "answer": "מלבישה",
           "translation": "Mom is dressing the child.",
           "hint": "dresses someone else — the causative pattern, feminine singular",
-          "transliteration": "ima malbisha et hayeled.",
+          "transliteration": "ima ___ et hayeled.",
           "display_order": 2
         },
         {
@@ -971,7 +971,7 @@
           "answer": "מתלבש",
           "translation": "I get dressed quickly in the morning.",
           "hint": "get dressed — the reflexive pattern, masculine singular",
-          "transliteration": "ani mitlabesh maher baboker.",
+          "transliteration": "ani ___ maher baboker.",
           "display_order": 3
         },
         {
@@ -979,7 +979,7 @@
           "answer": "מלמד",
           "translation": "The teacher teaches Hebrew.",
           "hint": "teaches — the intensive pattern built on the root for learning",
-          "transliteration": "hamore melamed ivrit.",
+          "transliteration": "hamore ___ ivrit.",
           "display_order": 4
         },
         {
@@ -987,7 +987,7 @@
           "answer": "לומד",
           "translation": "The student studies Hebrew.",
           "hint": "studies — the plain pattern of that same root",
-          "transliteration": "hatalmid lomed ivrit.",
+          "transliteration": "hatalmid ___ ivrit.",
           "display_order": 5
         }
       ]
@@ -1006,7 +1006,7 @@
           "answer": "דיברתי",
           "translation": "Yesterday I spoke with the manager.",
           "hint": "I spoke — first person singular past of this pattern",
-          "transliteration": "etmol dibarti im hamenahel.",
+          "transliteration": "etmol ___ im hamenahel.",
           "display_order": 1
         },
         {
@@ -1014,7 +1014,7 @@
           "answer": "סיפר",
           "translation": "He told me a long story.",
           "hint": "told — third person masculine singular past",
-          "transliteration": "hu siper li sipur arokh.",
+          "transliteration": "hu ___ li sipur arokh.",
           "display_order": 2
         },
         {
@@ -1022,7 +1022,7 @@
           "answer": "אדבר",
           "translation": "Tomorrow I'll speak with him about it.",
           "hint": "I will speak — the future prefix for first person singular",
-          "transliteration": "machar adaber ito al ze.",
+          "transliteration": "machar ___ ito al ze.",
           "display_order": 3
         },
         {
@@ -1030,7 +1030,7 @@
           "answer": "ניקתה",
           "translation": "She cleaned the room.",
           "hint": "cleaned — feminine singular past of a verb whose root ends in a weak letter",
-          "transliteration": "hi nikta et hacheder.",
+          "transliteration": "hi ___ et hacheder.",
           "display_order": 4
         },
         {
@@ -1038,7 +1038,7 @@
           "answer": "סיפרו",
           "translation": "They told us about the trip.",
           "hint": "told — third person plural past",
-          "transliteration": "hem sipru lanu al hatiyul.",
+          "transliteration": "hem ___ lanu al hatiyul.",
           "display_order": 5
         }
       ]
@@ -1057,7 +1057,7 @@
           "answer": "הרגשתי",
           "translation": "Yesterday I felt bad.",
           "hint": "I felt — first person singular past of this pattern",
-          "transliteration": "etmol hirgashti ra.",
+          "transliteration": "etmol ___ ra.",
           "display_order": 1
         },
         {
@@ -1065,7 +1065,7 @@
           "answer": "התחיל",
           "translation": "He started working at eight.",
           "hint": "started — third person masculine singular past",
-          "transliteration": "hu hitchil laavod bishmone.",
+          "transliteration": "hu ___ laavod bishmone.",
           "display_order": 2
         },
         {
@@ -1073,7 +1073,7 @@
           "answer": "תרגיש",
           "translation": "Tomorrow you'll feel better.",
           "hint": "you will feel — second person masculine singular future",
-          "transliteration": "machar targish tov yoter.",
+          "transliteration": "machar ___ tov yoter.",
           "display_order": 3
         },
         {
@@ -1081,7 +1081,7 @@
           "answer": "הסביר",
           "translation": "The teacher explained the rule.",
           "hint": "explained — third person masculine singular past",
-          "transliteration": "hamore hisbir et haklal.",
+          "transliteration": "hamore ___ et haklal.",
           "display_order": 4
         },
         {
@@ -1089,7 +1089,7 @@
           "answer": "יחזירו",
           "translation": "They will return the money tomorrow.",
           "hint": "they will give back — third person plural future",
-          "transliteration": "hem yachziru et hakesef machar.",
+          "transliteration": "hem ___ et hakesef machar.",
           "display_order": 5
         }
       ]
@@ -1108,7 +1108,7 @@
           "answer": "מתלבש",
           "translation": "I get dressed in the morning.",
           "hint": "get dressed — present, masculine singular",
-          "transliteration": "ani mitlabesh baboker.",
+          "transliteration": "ani ___ baboker.",
           "display_order": 1
         },
         {
@@ -1116,7 +1116,7 @@
           "answer": "התלבשה",
           "translation": "She got dressed quickly.",
           "hint": "got dressed — past, feminine singular",
-          "transliteration": "hi hitlabsha maher.",
+          "transliteration": "hi ___ maher.",
           "display_order": 2
         },
         {
@@ -1124,7 +1124,7 @@
           "answer": "מתגעגע",
           "translation": "I miss him a lot.",
           "hint": "miss — present, masculine singular of the same pattern",
-          "transliteration": "ani mitgaagea elav meod.",
+          "transliteration": "ani ___ elav meod.",
           "display_order": 3
         },
         {
@@ -1132,7 +1132,7 @@
           "answer": "השתמש",
           "translation": "He used a dictionary.",
           "hint": "used — here the ת has swapped places with the first root letter",
-          "transliteration": "hu hishtamesh bemilon.",
+          "transliteration": "hu ___ bemilon.",
           "display_order": 4
         },
         {
@@ -1140,7 +1140,7 @@
           "answer": "התעוררו",
           "translation": "They woke up early.",
           "hint": "woke up — past, third person plural",
-          "transliteration": "hem hitoreru mukdam.",
+          "transliteration": "hem ___ mukdam.",
           "display_order": 5
         }
       ]
@@ -1159,7 +1159,7 @@
           "answer": "הספר",
           "translation": "The children are going to school.",
           "hint": "the book — the second half of the compound, and the only part that takes the article",
-          "transliteration": "hayeladim holkhim leveit hasefer.",
+          "transliteration": "hayeladim holkhim leveit ___.",
           "display_order": 1
         },
         {
@@ -1167,7 +1167,7 @@
           "answer": "עוגת",
           "translation": "I ate a chocolate cake.",
           "hint": "cake of — the construct shape, with the feminine ending changed to ת",
-          "transliteration": "akhalti ugat shokolad.",
+          "transliteration": "akhalti ___ shokolad.",
           "display_order": 2
         },
         {
@@ -1175,7 +1175,7 @@
           "answer": "בית",
           "translation": "The school is on the main street.",
           "hint": "house of — the first link of the compound that means school",
-          "transliteration": "beit hasefer nimtsa barchov harashi.",
+          "transliteration": "___ hasefer nimtsa barchov harashi.",
           "display_order": 3
         },
         {
@@ -1183,7 +1183,7 @@
           "answer": "ספרי",
           "translation": "He read the children's books.",
           "hint": "books of — masculine plural in construct, with a shortened ending",
-          "transliteration": "hu kara et sifrey hayeladim.",
+          "transliteration": "hu kara et ___ hayeladim.",
           "display_order": 4
         },
         {
@@ -1191,7 +1191,7 @@
           "answer": "מיץ",
           "translation": "I drank orange juice.",
           "hint": "juice — the first noun of the compound; many masculine nouns look unchanged",
-          "transliteration": "shatiti mits tapuzim.",
+          "transliteration": "shatiti ___ tapuzim.",
           "display_order": 5
         }
       ]
@@ -1210,7 +1210,7 @@
           "answer": "הליכה",
           "translation": "Walking is good exercise.",
           "hint": "walking, as a noun — the pa'al action-noun shape",
-          "transliteration": "halikha hi sport tov.",
+          "transliteration": "___ hi sport tov.",
           "display_order": 1
         },
         {
@@ -1218,7 +1218,7 @@
           "answer": "הכתיבה",
           "translation": "His writing is very clear.",
           "hint": "the writing — the article plus the pa'al action noun",
-          "transliteration": "haktiva shelo brura meod.",
+          "transliteration": "___ shelo brura meod.",
           "display_order": 2
         },
         {
@@ -1226,7 +1226,7 @@
           "answer": "הפסקה",
           "translation": "The lesson continues after a short break.",
           "hint": "a break — a feminine action noun from the causative pattern",
-          "transliteration": "hashiur mamshikh acharey hafsaka ktsara.",
+          "transliteration": "hashiur mamshikh acharey ___ ktsara.",
           "display_order": 3
         },
         {
@@ -1234,7 +1234,7 @@
           "answer": "הסבר",
           "translation": "He gave me a good explanation.",
           "hint": "explanation — the action noun of the verb meaning to make clear",
-          "transliteration": "hu natan li hesber tov.",
+          "transliteration": "hu natan li ___ tov.",
           "display_order": 4
         },
         {
@@ -1242,7 +1242,7 @@
           "answer": "דיבור",
           "translation": "Speaking Hebrew is hard for me.",
           "hint": "speaking, as a noun — the pi'el action-noun shape",
-          "transliteration": "dibur beivrit kashe li.",
+          "transliteration": "___ beivrit kashe li.",
           "display_order": 5
         }
       ]
@@ -1261,7 +1261,7 @@
           "answer": "אם",
           "translation": "If I have time, I'll come.",
           "hint": "if — introduces a condition that may genuinely happen",
-          "transliteration": "im yihye li zman, avo.",
+          "transliteration": "___ yihye li zman, avo.",
           "display_order": 1
         },
         {
@@ -1269,7 +1269,7 @@
           "answer": "נישאר",
           "translation": "If it rains, we'll stay home.",
           "hint": "we will stay — the main clause takes the future too",
-          "transliteration": "im yered geshem, nishaer babayit.",
+          "transliteration": "im yered geshem, ___ babayit.",
           "display_order": 2
         },
         {
@@ -1277,7 +1277,7 @@
           "answer": "אעזור",
           "translation": "If you want, I'll help you.",
           "hint": "I will help — first person singular future",
-          "transliteration": "im tirtse, ani eezor lekha.",
+          "transliteration": "im tirtse, ani ___ lekha.",
           "display_order": 3
         },
         {
@@ -1285,7 +1285,7 @@
           "answer": "לך",
           "translation": "If you're tired, go to sleep.",
           "hint": "go — the masculine singular command form",
-          "transliteration": "im ata ayef, lekh lishon.",
+          "transliteration": "im ata ayef, ___ lishon.",
           "display_order": 4
         },
         {
@@ -1293,7 +1293,7 @@
           "answer": "אם",
           "translation": "If you don't come, we'll call you.",
           "hint": "if — the ordinary word for a real condition",
-          "transliteration": "im lo tavo, nitkasher elekha.",
+          "transliteration": "___ lo tavo, nitkasher elekha.",
           "display_order": 5
         }
       ]
@@ -1312,7 +1312,7 @@
           "answer": "שגר",
           "translation": "The man who lives here is a doctor.",
           "hint": "who lives — the relative prefix glued to the verb",
-          "transliteration": "haish shegar kan hu rofe.",
+          "transliteration": "haish ___ kan hu rofe.",
           "display_order": 1
         },
         {
@@ -1320,7 +1320,7 @@
           "answer": "שקראתי",
           "translation": "The book I read was interesting.",
           "hint": "that I read — the relative prefix on a past-tense verb",
-          "transliteration": "hasefer shekarati haya meanyen.",
+          "transliteration": "hasefer ___ haya meanyen.",
           "display_order": 2
         },
         {
@@ -1328,7 +1328,7 @@
           "answer": "שאכלנו",
           "translation": "This is the restaurant we ate at yesterday.",
           "hint": "that we ate — note that the preposition comes back later with an ending",
-          "transliteration": "zot hamisada sheakhalnu ba etmol.",
+          "transliteration": "zot hamisada ___ ba etmol.",
           "display_order": 3
         },
         {
@@ -1336,7 +1336,7 @@
           "answer": "שלומדת",
           "translation": "The girl who studies Hebrew lives here.",
           "hint": "who studies — feminine singular present with the relative prefix",
-          "transliteration": "hayalda shelomedet ivrit gara kan.",
+          "transliteration": "hayalda ___ ivrit gara kan.",
           "display_order": 4
         },
         {
@@ -1344,7 +1344,7 @@
           "answer": "שגדלתי",
           "translation": "This is the house I grew up in.",
           "hint": "that I grew up — with the preposition echoed at the end",
-          "transliteration": "ze habayit shegadalti bo.",
+          "transliteration": "ze habayit ___ bo.",
           "display_order": 5
         }
       ]
@@ -1363,7 +1363,7 @@
           "answer": "יותר",
           "translation": "Dan is taller than Dana.",
           "hint": "more — the word that builds the comparative",
-          "transliteration": "dan gavoha yoter midana.",
+          "transliteration": "dan gavoha ___ midana.",
           "display_order": 1
         },
         {
@@ -1371,7 +1371,7 @@
           "answer": "הכי",
           "translation": "He is the tallest in the class.",
           "hint": "most — the everyday superlative word",
-          "transliteration": "hu hachi gavoha bakita.",
+          "transliteration": "hu ___ gavoha bakita.",
           "display_order": 2
         },
         {
@@ -1379,7 +1379,7 @@
           "answer": "יותר",
           "translation": "This book is more interesting than the movie.",
           "hint": "more — here it comes before the adjective",
-          "transliteration": "hasefer haze yoter meanyen mehaseret.",
+          "transliteration": "hasefer haze ___ meanyen mehaseret.",
           "display_order": 3
         },
         {
@@ -1387,7 +1387,7 @@
           "answer": "יותר",
           "translation": "Today is colder than yesterday.",
           "hint": "more — with the prefix for than on the following word",
-          "transliteration": "hayom kar yoter meetmol.",
+          "transliteration": "hayom kar ___ meetmol.",
           "display_order": 4
         },
         {
@@ -1395,7 +1395,7 @@
           "answer": "פחות",
           "translation": "This one is less expensive.",
           "hint": "less — the opposite of the comparative word",
-          "transliteration": "ze pachot yakar.",
+          "transliteration": "ze ___ yakar.",
           "display_order": 5
         }
       ]
@@ -1414,7 +1414,7 @@
           "answer": "נפגשים",
           "translation": "We meet at the café at six.",
           "hint": "meet each other — present, masculine plural",
-          "transliteration": "anachnu nifgashim bakafe beshesh.",
+          "transliteration": "anachnu ___ bakafe beshesh.",
           "display_order": 1
         },
         {
@@ -1422,7 +1422,7 @@
           "answer": "נכנס",
           "translation": "He entered the room.",
           "hint": "entered — masculine singular; the present and past forms are spelled alike",
-          "transliteration": "hu nikhnas lacheder.",
+          "transliteration": "hu ___ lacheder.",
           "display_order": 2
         },
         {
@@ -1430,7 +1430,7 @@
           "answer": "נשברה",
           "translation": "The glass broke.",
           "hint": "broke — past, feminine singular, with nobody doing the breaking",
-          "transliteration": "hakos nishbera.",
+          "transliteration": "hakos ___.",
           "display_order": 3
         },
         {
@@ -1438,7 +1438,7 @@
           "answer": "נגמר",
           "translation": "The movie ended at ten.",
           "hint": "ended — masculine singular of this pattern",
-          "transliteration": "haseret nigmar beeser.",
+          "transliteration": "haseret ___ beeser.",
           "display_order": 4
         },
         {
@@ -1446,7 +1446,7 @@
           "answer": "נמצאים",
           "translation": "The keys are on the table.",
           "hint": "are located — present, masculine plural, matching a masculine noun",
-          "transliteration": "hamaftechot nimtsaim al hashulchan.",
+          "transliteration": "hamaftechot ___ al hashulchan.",
           "display_order": 5
         }
       ]
@@ -1465,7 +1465,7 @@
           "answer": "בוטלה",
           "translation": "The flight was cancelled.",
           "hint": "was cancelled — past, feminine singular, passive of the intensive pattern",
-          "transliteration": "hatisa butla.",
+          "transliteration": "hatisa ___.",
           "display_order": 1
         },
         {
@@ -1473,7 +1473,7 @@
           "answer": "מסודר",
           "translation": "The room is tidy.",
           "hint": "tidied — present, masculine singular of that same passive",
-          "transliteration": "hacheder mesudar.",
+          "transliteration": "hacheder ___.",
           "display_order": 2
         },
         {
@@ -1481,7 +1481,7 @@
           "answer": "מוזמן",
           "translation": "I am invited to the wedding.",
           "hint": "invited — present, masculine singular, passive of the causative pattern",
-          "transliteration": "ani muzman lachatuna.",
+          "transliteration": "ani ___ lachatuna.",
           "display_order": 3
         },
         {
@@ -1489,7 +1489,7 @@
           "answer": "הופסק",
           "translation": "The lesson was stopped halfway through.",
           "hint": "was stopped — past, masculine singular of that same passive",
-          "transliteration": "hashiur hufsak baemtsa.",
+          "transliteration": "hashiur ___ baemtsa.",
           "display_order": 4
         },
         {
@@ -1497,7 +1497,7 @@
           "answer": "הוסברו",
           "translation": "The rules were explained in the lesson.",
           "hint": "were explained — past, plural, passive of the causative pattern",
-          "transliteration": "haklalim husberu bashiur.",
+          "transliteration": "haklalim ___ bashiur.",
           "display_order": 5
         }
       ]
@@ -1516,7 +1516,7 @@
           "answer": "אילו",
           "translation": "If I had time, I would come.",
           "hint": "if, counterfactually — not the word used for a real condition",
-          "transliteration": "ilu haya li zman, hayiti ba.",
+          "transliteration": "___ haya li zman, hayiti ba.",
           "display_order": 1
         },
         {
@@ -1524,7 +1524,7 @@
           "answer": "הייתי",
           "translation": "If I had money, I'd buy an apartment.",
           "hint": "I was — the past of to be, which builds the conditional frame",
-          "transliteration": "ilu haya li kesef, hayiti kone dira.",
+          "transliteration": "ilu haya li kesef, ___ kone dira.",
           "display_order": 2
         },
         {
@@ -1532,7 +1532,7 @@
           "answer": "אומר",
           "translation": "If I had known, I would have told you.",
           "hint": "saying — the present participle after the past of to be",
-          "transliteration": "ilu yadati, hayiti omer lekha.",
+          "transliteration": "ilu yadati, hayiti ___ lekha.",
           "display_order": 3
         },
         {
@@ -1540,7 +1540,7 @@
           "answer": "הייתה",
           "translation": "She would be glad to help.",
           "hint": "she was — feminine singular of the past of to be, here with a would-meaning",
-          "transliteration": "hi hayta smecha laazor.",
+          "transliteration": "hi ___ smecha laazor.",
           "display_order": 4
         },
         {
@@ -1548,7 +1548,7 @@
           "answer": "לו",
           "translation": "If I were rich, I'd travel the world.",
           "hint": "the shorter counterfactual conjunction, common in writing",
-          "transliteration": "lu hayiti ashir, hayiti metayel baolam.",
+          "transliteration": "___ hayiti ashir, hayiti metayel baolam.",
           "display_order": 5
         }
       ]
@@ -1567,7 +1567,7 @@
           "answer": "כשהגעתי",
           "translation": "When I got home, it was raining.",
           "hint": "when I arrived — the when-prefix glued onto a past verb",
-          "transliteration": "keshehigati habayta, yarad geshem.",
+          "transliteration": "___ habayta, yarad geshem.",
           "display_order": 1
         },
         {
@@ -1575,7 +1575,7 @@
           "answer": "שיצאתי",
           "translation": "I ate before I left the house.",
           "hint": "that I went out — the linking form used after the word for before",
-          "transliteration": "akhalti lifney sheyatsati mehabayit.",
+          "transliteration": "akhalti lifney ___ mehabayit.",
           "display_order": 2
         },
         {
@@ -1583,7 +1583,7 @@
           "answer": "שראינו",
           "translation": "After we saw the movie, we went to sleep.",
           "hint": "that we saw — the linking form used after the word for after",
-          "transliteration": "acharey sherainu et haseret, halakhnu lishon.",
+          "transliteration": "acharey ___ et haseret, halakhnu lishon.",
           "display_order": 3
         },
         {
@@ -1591,7 +1591,7 @@
           "answer": "שייגמר",
           "translation": "We'll wait until the rain stops.",
           "hint": "that it will end — the future tense after the word for until",
-          "transliteration": "nechake ad sheyigamer hageshem.",
+          "transliteration": "nechake ad ___ hageshem.",
           "display_order": 4
         },
         {
@@ -1599,7 +1599,7 @@
           "answer": "כשאני",
           "translation": "When I'm tired, I drink coffee.",
           "hint": "when I — the when-prefix attached straight to the pronoun",
-          "transliteration": "keshaani ayef, ani shote kafe.",
+          "transliteration": "___ ayef, ani shote kafe.",
           "display_order": 5
         }
       ]
@@ -1618,7 +1618,7 @@
           "answer": "שהוא",
           "translation": "He said that he was tired.",
           "hint": "that he — the conjunction fused with the pronoun",
-          "transliteration": "hu amar shehu ayef.",
+          "transliteration": "hu amar ___ ayef.",
           "display_order": 1
         },
         {
@@ -1626,7 +1626,7 @@
           "answer": "שתבוא",
           "translation": "She said she would come tomorrow.",
           "hint": "that she will come — the tense stays as it was originally spoken",
-          "transliteration": "hi sipra shetavo machar.",
+          "transliteration": "hi sipra ___ machar.",
           "display_order": 2
         },
         {
@@ -1634,7 +1634,7 @@
           "answer": "אם",
           "translation": "I asked whether he wanted to come.",
           "hint": "whether — the same word used for a real condition",
-          "transliteration": "shaalti im hu rotse lavo.",
+          "transliteration": "shaalti ___ hu rotse lavo.",
           "display_order": 3
         },
         {
@@ -1642,7 +1642,7 @@
           "answer": "שאת",
           "translation": "I think you're right.",
           "hint": "that you — the conjunction with a feminine singular pronoun",
-          "transliteration": "ani choshev sheat tsodeket.",
+          "transliteration": "ani choshev ___ tsodeket.",
           "display_order": 4
         },
         {
@@ -1650,7 +1650,7 @@
           "answer": "שלא",
           "translation": "They said they didn't know.",
           "hint": "that not — the conjunction plus the negation word",
-          "transliteration": "hem amru shelo yodim.",
+          "transliteration": "hem amru ___ yodim.",
           "display_order": 5
         }
       ]
@@ -1669,7 +1669,7 @@
           "answer": "אותי",
           "translation": "He saw me at the market.",
           "hint": "me — the object marker carrying a first person ending",
-          "transliteration": "hu raa oti bashuk.",
+          "transliteration": "hu raa ___ bashuk.",
           "display_order": 1
         },
         {
@@ -1677,7 +1677,7 @@
           "answer": "אותה",
           "translation": "I know her well.",
           "hint": "her — the object marker with a feminine third person ending",
-          "transliteration": "ani makir ota heytev.",
+          "transliteration": "ani makir ___ heytev.",
           "display_order": 2
         },
         {
@@ -1685,7 +1685,7 @@
           "answer": "אותם",
           "translation": "We met them yesterday.",
           "hint": "them — the plural object form",
-          "transliteration": "pagashnu otam etmol.",
+          "transliteration": "pagashnu ___ etmol.",
           "display_order": 3
         },
         {
@@ -1693,7 +1693,7 @@
           "answer": "ראיתיו",
           "translation": "I saw him yesterday in town.",
           "hint": "I saw him, in a single literary word — the pronoun is welded onto the verb",
-          "transliteration": "reitiv etmol bair.",
+          "transliteration": "___ etmol bair.",
           "display_order": 4
         },
         {
@@ -1701,7 +1701,7 @@
           "answer": "אותך",
           "translation": "She loves you.",
           "hint": "you — the object form of the second person",
-          "transliteration": "hi ohevet otakh.",
+          "transliteration": "hi ohevet ___.",
           "display_order": 5
         }
       ]
@@ -1720,7 +1720,7 @@
           "answer": "אולם",
           "translation": "The meeting was cancelled; however, the notice was sent late.",
           "hint": "however — the written counterpart of the everyday word for but",
-          "transliteration": "hayeshiva butla, ulam hahodaa nishlecha meuchar.",
+          "transliteration": "hayeshiva butla, ___ hahodaa nishlecha meuchar.",
           "display_order": 1
         },
         {
@@ -1728,7 +1728,7 @@
           "answer": "בלבד",
           "translation": "Entry for subscribers only.",
           "hint": "only — the formal word, which follows what it limits",
-          "transliteration": "haknisa limnuyim bilvad.",
+          "transliteration": "haknisa limnuyim ___.",
           "display_order": 2
         },
         {
@@ -1736,7 +1736,7 @@
           "answer": "בשל",
           "translation": "The flight was cancelled due to the weather.",
           "hint": "due to — the written preposition; speech would use a different one",
-          "transliteration": "hatisa butla beshel mezeg haavir.",
+          "transliteration": "hatisa butla ___ mezeg haavir.",
           "display_order": 3
         },
         {
@@ -1744,7 +1744,7 @@
           "answer": "למרות",
           "translation": "Despite the late hour, we kept working.",
           "hint": "despite — used directly before a noun in careful writing",
-          "transliteration": "lamrot hashaa hameucheret, hemshakhnu laavod.",
+          "transliteration": "___ hashaa hameucheret, hemshakhnu laavod.",
           "display_order": 4
         },
         {
@@ -1752,7 +1752,7 @@
           "answer": "שהבטיח",
           "translation": "He did not come, although he had promised.",
           "hint": "that he promised — the clause form after the formal word for although",
-          "transliteration": "hu lo higia, af shehivtiach.",
+          "transliteration": "hu lo higia, af ___.",
           "display_order": 5
         }
       ]
@@ -1771,7 +1771,7 @@
           "answer": "אשר",
           "translation": "The report submitted yesterday is very long.",
           "hint": "which — the free-standing relative word of written Hebrew",
-          "transliteration": "hadoch asher hugash etmol arokh meod.",
+          "transliteration": "hadoch ___ hugash etmol arokh meod.",
           "display_order": 1
         },
         {
@@ -1779,7 +1779,7 @@
           "answer": "אשר",
           "translation": "The topic we spoke about is important.",
           "hint": "which — before a preposition, formal prose prefers the separate word",
-          "transliteration": "hanose asher alav dibarnu chashuv.",
+          "transliteration": "hanose ___ alav dibarnu chashuv.",
           "display_order": 2
         },
         {
@@ -1787,7 +1787,7 @@
           "answer": "שגר",
           "translation": "The man who lives here is a neighbour of mine.",
           "hint": "who lives — everyday speech glues the relative straight onto the verb",
-          "transliteration": "haish shegar kan hu shakhen sheli.",
+          "transliteration": "haish ___ kan hu shakhen sheli.",
           "display_order": 3
         },
         {
@@ -1795,7 +1795,7 @@
           "answer": "באשר",
           "translation": "As for the budget, we'll discuss it tomorrow.",
           "hint": "as for — a frozen formal phrase built on that same relative word",
-          "transliteration": "beasher lataktsiv, nadun bo machar.",
+          "transliteration": "___ lataktsiv, nadun bo machar.",
           "display_order": 4
         },
         {
@@ -1803,7 +1803,7 @@
           "answer": "אשר",
           "translation": "The decision taken last night was published today.",
           "hint": "which — the formal relative, here inside a news sentence",
-          "transliteration": "hahachlata asher hitkabla emesh pursema hayom.",
+          "transliteration": "hahachlata ___ hitkabla emesh pursema hayom.",
           "display_order": 5
         }
       ]
@@ -1822,7 +1822,7 @@
           "answer": "הממשלה",
           "translation": "He works in the Prime Minister's Office.",
           "hint": "the government — the last link, and the only one allowed the article",
-          "transliteration": "hu oved bemisrad rosh hamemshala.",
+          "transliteration": "hu oved bemisrad rosh ___.",
           "display_order": 1
         },
         {
@@ -1830,7 +1830,7 @@
           "answer": "בית",
           "translation": "The new school opened today.",
           "hint": "house of — the first link of the compound meaning school",
-          "transliteration": "beit hasefer hechadash niftach hayom.",
+          "transliteration": "___ hasefer hechadash niftach hayom.",
           "display_order": 2
         },
         {
@@ -1838,7 +1838,7 @@
           "answer": "החקירה",
           "translation": "We read the report of the commission of inquiry.",
           "hint": "the investigation — the final link of a three-noun chain",
-          "transliteration": "karanu et doch vaadat hachakira.",
+          "transliteration": "karanu et doch vaadat ___.",
           "display_order": 3
         },
         {
@@ -1846,7 +1846,7 @@
           "answer": "הדין",
           "translation": "The lawyer arrived at the meeting.",
           "hint": "the law — the second half of the compound that means lawyer",
-          "transliteration": "orekh hadin higia lapgisha.",
+          "transliteration": "orekh ___ higia lapgisha.",
           "display_order": 4
         },
         {
@@ -1854,7 +1854,7 @@
           "answer": "הספר",
           "translation": "The school's pupils went on a trip.",
           "hint": "the book — the closing link of a chain that begins with pupils",
-          "transliteration": "talmidey beit hasefer yatsu letiyul.",
+          "transliteration": "talmidey beit ___ yatsu letiyul.",
           "display_order": 5
         }
       ]
@@ -1873,7 +1873,7 @@
           "answer": "ויהי",
           "translation": "And there was light.",
           "hint": "and there was — a past narrated by a future-looking form",
-          "transliteration": "vayehi or.",
+          "transliteration": "___ or.",
           "display_order": 1
         },
         {
@@ -1881,7 +1881,7 @@
           "answer": "ויאמר",
           "translation": "And Moses said to the people.",
           "hint": "and he said — the classic narrative past with a prefixed vav",
-          "transliteration": "vayomer moshe el haam.",
+          "transliteration": "___ moshe el haam.",
           "display_order": 2
         },
         {
@@ -1889,7 +1889,7 @@
           "answer": "והיה",
           "translation": "And it shall come to pass on that day.",
           "hint": "and it will be — a past-shaped verb read as a future",
-          "transliteration": "vehaya bayom hahu.",
+          "transliteration": "___ bayom hahu.",
           "display_order": 3
         },
         {
@@ -1897,7 +1897,7 @@
           "answer": "ואהבת",
           "translation": "And you shall love your neighbour as yourself.",
           "hint": "and you shall love — a past form with vav read as a command",
-          "transliteration": "veahavta lereakha kamokha.",
+          "transliteration": "___ lereakha kamokha.",
           "display_order": 4
         },
         {
@@ -1905,7 +1905,7 @@
           "answer": "ויהי",
           "translation": "We'll carry on, come what may.",
           "hint": "let it be — the same frozen form, here inside a modern idiom",
-          "transliteration": "namshikh bedarkenu, vihi ma.",
+          "transliteration": "namshikh bedarkenu, ___ ma.",
           "display_order": 5
         }
       ]
@@ -1924,7 +1924,7 @@
           "answer": "הראה",
           "translation": "He showed me the picture.",
           "hint": "showed — the causative counterpart of the verb for seeing",
-          "transliteration": "hu hera li et hatmuna.",
+          "transliteration": "hu ___ li et hatmuna.",
           "display_order": 1
         },
         {
@@ -1932,7 +1932,7 @@
           "answer": "נראה",
           "translation": "You look tired today.",
           "hint": "look, seem — the middle-pattern form of that same root",
-          "transliteration": "ata nire ayef hayom.",
+          "transliteration": "ata ___ ayef hayom.",
           "display_order": 2
         },
         {
@@ -1940,7 +1940,7 @@
           "answer": "נשבר",
           "translation": "I'm fed up with this job.",
           "hint": "it broke — with a to-me phrase it becomes the idiom for being fed up",
-          "transliteration": "nishbar li mehaavoda hazot.",
+          "transliteration": "___ li mehaavoda hazot.",
           "display_order": 3
         },
         {
@@ -1948,7 +1948,7 @@
           "answer": "החזיר",
           "translation": "He returned the book to the library.",
           "hint": "gave back — the causative of the verb for coming back",
-          "transliteration": "hu hechzir et hasefer lasifriya.",
+          "transliteration": "hu ___ et hasefer lasifriya.",
           "display_order": 4
         },
         {
@@ -1956,7 +1956,7 @@
           "answer": "לחזרה",
           "translation": "The actors came to the rehearsal.",
           "hint": "to the rehearsal — a noun built on that same root",
-          "transliteration": "hasachkanim bau lachazara.",
+          "transliteration": "hasachkanim bau ___.",
           "display_order": 5
         }
       ]
@@ -1975,7 +1975,7 @@
           "answer": "יצאנו",
           "translation": "Before we left, we checked the address.",
           "hint": "we went out — after the elevated word for before, with no linking particle",
-          "transliteration": "beterem yatsanu, badaknu et haktovet.",
+          "transliteration": "beterem ___, badaknu et haktovet.",
           "display_order": 1
         },
         {
@@ -1983,7 +1983,7 @@
           "answer": "כדי",
           "translation": "That is not enough to change the decision.",
           "hint": "in order to — part of a formal frame meaning is not sufficient to",
-          "transliteration": "eyn bekhakh kedey leshanot et hahachlata.",
+          "transliteration": "eyn bekhakh ___ leshanot et hahachlata.",
           "display_order": 2
         },
         {
@@ -1991,7 +1991,7 @@
           "answer": "שלא",
           "translation": "He said he wasn't coming because he was tired.",
           "hint": "that not — plain spoken register, with the everyday conjunctions",
-          "transliteration": "hu amar shelo ba ki hu ayef.",
+          "transliteration": "hu amar ___ ba ki hu ayef.",
           "display_order": 3
         },
         {
@@ -1999,7 +1999,7 @@
           "answer": "בשל",
           "translation": "The decision was taken owing to the economic situation.",
           "hint": "owing to — the written causal preposition",
-          "transliteration": "hahachlata hitkabla beshel hamatsav hakalkali.",
+          "transliteration": "hahachlata hitkabla ___ hamatsav hakalkali.",
           "display_order": 4
         },
         {
@@ -2007,7 +2007,7 @@
           "answer": "בגלל",
           "translation": "We didn't come because of the rain.",
           "hint": "because of — the everyday causal preposition",
-          "transliteration": "lo banu biglal hageshem.",
+          "transliteration": "lo banu ___ hageshem.",
           "display_order": 5
         }
       ]
