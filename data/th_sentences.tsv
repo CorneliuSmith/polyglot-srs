@@ -184,7 +184,7 @@ word	sentence	translation	difficulty_rank
 ทุกคน	ทุกคนหัวเราะ	Everybody laughs.	147
 หัวเราะ	ทุกคนหัวเราะ	Everybody laughs.	147
 โชคดี	ทอมโชคดี	Tom was lucky.	153
-ถึง	ทำไมคุณถถึงไม่มา?	Why didn't you come?	159
+ถึง	ทำไมคุณถึงไม่มา?	Why didn't you come?	159
 ยัง	เขายังมาไม่ถึง	He hasn't arrived yet.	159
 ถึง	เขายังมาไม่ถึง	He hasn't arrived yet.	159
 ่	ทำไมคุณถึงทำไม่ได้	Why can't you do it?	159
@@ -4016,10 +4016,10 @@ word	sentence	translation	difficulty_rank
 ความพยายาม	ทั้งๆที่เขาใช้ความพยายามทั้งหมด เขาก็ยังล้มเหลวในการสอบ	In spite of all his efforts, he failed the exam.	19999
 วะ	ในประเทศญี่ปุ่น ประชาชนบรรลุนิติภาวะเมื่ออายุยี่สิบปี	In Japan, people become legally of age at twenty.	19999
 ประชาชน	ในประเทศญี่ปุ่น ประชาชนบรรลุนิติภาวะเมื่ออายุยี่สิบปี	In Japan, people become legally of age at twenty.	19999
-สวนสัตว์	นยังคงไม่เชื่อ ว่ามีเสือดาวหิมะที่อยู่ในสวนสัตว์ ฉันคิดว่าพวกมันคงเป็นสัตว์ที่ใกล้สูญพันธุ์	I still can't believe they had a snow leopard in that zoo. I thought they were an endangered species.	19999
-สัตว์	นยังคงไม่เชื่อ ว่ามีเสือดาวหิมะที่อยู่ในสวนสัตว์ ฉันคิดว่าพวกมันคงเป็นสัตว์ที่ใกล้สูญพันธุ์	I still can't believe they had a snow leopard in that zoo. I thought they were an endangered species.	19999
-เสือ	นยังคงไม่เชื่อ ว่ามีเสือดาวหิมะที่อยู่ในสวนสัตว์ ฉันคิดว่าพวกมันคงเป็นสัตว์ที่ใกล้สูญพันธุ์	I still can't believe they had a snow leopard in that zoo. I thought they were an endangered species.	19999
-พันธุ์	นยังคงไม่เชื่อ ว่ามีเสือดาวหิมะที่อยู่ในสวนสัตว์ ฉันคิดว่าพวกมันคงเป็นสัตว์ที่ใกล้สูญพันธุ์	I still can't believe they had a snow leopard in that zoo. I thought they were an endangered species.	19999
+สวนสัตว์	ฉันยังคงไม่เชื่อ ว่ามีเสือดาวหิมะที่อยู่ในสวนสัตว์ ฉันคิดว่าพวกมันคงเป็นสัตว์ที่ใกล้สูญพันธุ์	I still can't believe they had a snow leopard in that zoo. I thought they were an endangered species.	19999
+สัตว์	ฉันยังคงไม่เชื่อ ว่ามีเสือดาวหิมะที่อยู่ในสวนสัตว์ ฉันคิดว่าพวกมันคงเป็นสัตว์ที่ใกล้สูญพันธุ์	I still can't believe they had a snow leopard in that zoo. I thought they were an endangered species.	19999
+เสือ	ฉันยังคงไม่เชื่อ ว่ามีเสือดาวหิมะที่อยู่ในสวนสัตว์ ฉันคิดว่าพวกมันคงเป็นสัตว์ที่ใกล้สูญพันธุ์	I still can't believe they had a snow leopard in that zoo. I thought they were an endangered species.	19999
+พันธุ์	ฉันยังคงไม่เชื่อ ว่ามีเสือดาวหิมะที่อยู่ในสวนสัตว์ ฉันคิดว่าพวกมันคงเป็นสัตว์ที่ใกล้สูญพันธุ์	I still can't believe they had a snow leopard in that zoo. I thought they were an endangered species.	19999
 ปัจจุบัน	บุรจญ์เคาะลีฟะฮ์ปัจจุบันเป็นตึกระฟ้าที่สูงที่สุดในโลก	Burj Khalifa is currently the tallest skyscraper in the world.	19999
 ตึก	บุรจญ์เคาะลีฟะฮ์ปัจจุบันเป็นตึกระฟ้าที่สูงที่สุดในโลก	Burj Khalifa is currently the tallest skyscraper in the world.	19999
 ซา	ซานต้าอยู่ที่ขั้วโลกเหนือ	Santa lives at the North Pole.	19999

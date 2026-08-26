@@ -13,16 +13,21 @@ Only languages with reliable tooling are covered:
     read *Silla* rather than *sinla* — Hangul spells morphemes and pronounces
     something else, so a syllable-by-syllable mapping is wrong in a way a
     learner cannot detect
+  - th: RTGS, looked up from `data/th_readings.tsv` (Wiktionary's Royal
+    Institute readings) and segmented by longest match over that same table,
+    so there is no runtime dependency
   - el: ELOT 743, the scheme printed in Greek passports — regular mapping,
     a closed set of digraphs, and the <αυ/ευ> voicing rule that makes «αυτό»
     read *afto*
 Arabic is deliberately absent — unvocalized script drops the short vowels a
 romanization would need, so a computed reading would mislead.
 
-Thai is absent too, and that one was MEASURED rather than assumed. The
-romanizer exists (`backend/services/nlp/thai_reading.py`) and is deliberately
-not wired here: both available engines fail on ordinary words. See that
-module's docstring and `test_thai_reading_is_not_ready.py` for the numbers.
+Thai took two attempts. Computing it failed adversarial verification on
+ordinary words, so it is LOOKED UP instead, from a committed table built out
+of Wiktionary's Royal Institute readings — see `thai_reading.py`. It covers
+99% of the vocabulary and 89% of sentences, and returns nothing rather than a
+partial line for the rest. RTGS carries no tone, so a Thai reading
+approximates a word rather than pronouncing it.
 """
 from __future__ import annotations
 
@@ -30,7 +35,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-READING_LANGS = ("hi", "ru", "el", "ko")
+READING_LANGS = ("hi", "ru", "el", "ko", "th")
 
 
 def sentence_reading(text: str | None, language_code: str) -> str | None:
@@ -44,6 +49,9 @@ def sentence_reading(text: str | None, language_code: str) -> str | None:
         elif language_code == "ru":
             import cyrtranslit
             reading = cyrtranslit.to_latin(text, "ru")
+        elif language_code == "th":
+            from backend.services.nlp.thai_reading import thai_to_roman
+            reading = thai_to_roman(text)
         elif language_code == "ko":
             from backend.services.nlp.korean_reading import korean_to_roman
             reading = korean_to_roman(text)

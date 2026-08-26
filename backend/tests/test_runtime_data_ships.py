@@ -28,6 +28,11 @@ RUNTIME_DATA = [
     ("data/gym/es.json", "Gym manifests — every language shows 'no forms to train'"),
     ("data/es_frequency.tsv", "the collision guard degrades silently to off"),
     ("data/ru_frequency.tsv", "the collision guard degrades silently to off"),
+    # The whole Thai romanisation layer is one lookup table — the reading is
+    # looked up from it at request time and the segmenter is a longest-match
+    # walk over the same file. Absent, `th` readings are empty and nothing
+    # errors, which is indistinguishable from the layer never being built.
+    ("data/th_readings.tsv", "every Thai reading is silently empty"),
 ]
 
 

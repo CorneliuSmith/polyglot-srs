@@ -33,6 +33,10 @@ COPY backend ./backend
 #    silently to off rather than error. See .dockerignore.
 COPY data/gym ./data/gym
 COPY data/*_frequency.tsv ./data/
+#  - Thai readings. The whole `th` romanisation layer is this lookup table;
+#    a missing file degrades to no reading, which looks exactly like the
+#    layer never having been built.
+COPY data/th_readings.tsv ./data/
 RUN pip install --no-cache-dir .
 
 # Model/data downloads the app expects at runtime:

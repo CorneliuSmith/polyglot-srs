@@ -6,17 +6,25 @@ high-frequency band — the extract glosses ใช่ ("yes") via a negation sen
 and buries other function words in dictionary-speak. Thai has no inflection,
 so there is no lemma folding to worry about.
 
-Readings: still deferred, and now for a measured reason rather than a
-predicted one. A full RTGS romanizer was built on pythainlp
-(`backend/services/nlp/thai_reading.py`, 26 Aug 2026) and put through the same
-adversarial verification that passed Greek and Korean. It failed: 38 claimed
-defects over 60 corpus sentences in seven distinct classes, and on the
-confirmed set the better of the two available engines scores 6/18 — missing
-สุขภาพ, อิสระ, ฝรั่งเศส and the ubiquitous question particle ไหม. The original
-note said "rather than shipped wrong", and it was right.
+Readings: RTGS, LOOKED UP (26 Aug 2026) — see
+`backend/services/nlp/thai_reading.py`.
+
+It took two attempts, and the first one is why the second works. A computed
+romanizer over pythainlp's engines failed adversarial verification: 38 defects
+over 60 corpus sentences in seven classes, missing สุขภาพ, อิสระ, ฝรั่งเศส and
+the question particle ไหม. Reading WHICH words failed is what solved it — they
+were lexical failures, not rule failures, and a dictionary fixes exactly that
+class. Wiktionary's Royal Institute readings cover 99% of this vocabulary.
+
+The original note asked for "romanization with tones". RTGS still has none;
+that part is not solved, though the tone-marked Paiboon form now sits in the
+third column of data/th_readings.tsv waiting for someone to make a learner-
+readable notation out of it.
 """
 import csv
 import json
+
+from backend.services.nlp.thai_reading import thai_to_roman
 
 from .base import DATA_DIR, BaseSeeder  # noqa: F401 — re-exported so tests can patch it
 
@@ -136,10 +144,9 @@ class ThaiSeeder(BaseSeeder):
                 rank = int(row["rank"])
                 records.append({
                     "word": word,
-                    # Still None. A romanizer was built and measured against
-                    # the corpus; it is not accurate enough to ship. See
-                    # thai_reading.py and test_thai_reading_is_not_ready.py.
-                    "reading": None,
+                    # RTGS, looked up from data/th_readings.tsv — 99% of the
+                    # vocabulary. Empty rather than guessed for the rest.
+                    "reading": thai_to_roman(word) or None,
                     "pos": (row.get("pos") or "").strip() or None,
                     "level": self.rank_to_level(rank),
                     "frequency_rank": rank,
