@@ -13,6 +13,16 @@ from .validators import (
 )
 
 
+def _computed_reading(word: str, language_code: str) -> str | None:
+    """A romanized reading, or None when the language has no romanizer or the
+    result adds nothing. Returning the word back unchanged would store a
+    "reading" identical to the headword on every Latin-script row — noise the
+    card would then dutifully display."""
+    from backend.services.readings import sentence_reading
+    reading = sentence_reading(word, language_code)
+    return reading if reading and reading != word else None
+
+
 class CSVImporter(BaseSeeder):
     """Generic CSV/TSV vocabulary importer with validation.
 
@@ -187,7 +197,16 @@ class CSVImporter(BaseSeeder):
 
             records.append({
                 "word": row["word"].strip(),
-                "reading": (row.get("reading") or "").strip() or None,
+                # A committed reading wins; otherwise compute one where a
+                # deterministic romanizer exists. Greek reaches the database
+                # through this generic path — no dedicated seeder — so its
+                # 9,997 words had no reading at all while Hindi and Russian,
+                # which have their own seeders, both did. Same script problem,
+                # different code path, and only the languages with bespoke
+                # seeders were getting solved.
+                "reading": ((row.get("reading") or "").strip()
+                            or _computed_reading(row["word"].strip(),
+                                                 self.language_code)),
                 "pos": (row.get("pos") or "").strip().lower() or None,
                 "level": level or None,
                 "level_source": level_source,

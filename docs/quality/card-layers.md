@@ -75,6 +75,9 @@ Measured in production 25 Aug:
 | `hi` | 0% | 74% |
 | `th` | 0% | 0% |
 
+`el` and `hi` in that table now read differently: both are computed at request
+time, so the stored percentage understates what a learner sees.
+
 **`th` and `ko` have none anywhere**, and Thai has no spaces between words —
 the two hardest scripts to decode cold ship with no help at all. `ru` and `ar`
 have romanised drills against 35k and 20k unromanised sentences.
@@ -82,6 +85,45 @@ have romanised drills against 35k and 20k unromanised sentences.
 **Schema first, authoring second.** `ru_sentences.tsv` has no
 `transliteration` column at all while `ko`'s does. Agree the columns before
 filling them or the work lands where half the courses cannot hold it.
+
+### Computed vs authored — the layer does not have to be written by hand
+
+Three of the eight have a deterministic romanizer, so their reading costs no
+authoring and no storage: `hi` (Hunterian), `ru` (cyrtranslit) and, since
+26 Aug, `el` (ELOT 743, `backend/services/nlp/greek_reading.py`). The other
+five need authoring, and `ar` is deliberately excluded even from that —
+unvocalized script drops the short vowels a romanization would need, so a
+computed Arabic reading would invent sounds.
+
+Two lessons already paid for here:
+
+1. **A romanizer is not a layer until something calls it.** `sentence_reading`
+   covered `hi` and `ru` from the day it was written and had exactly one
+   caller — the grammar page. The review card read only the stored column, so
+   a learner met the same Russian sentence with a reading under the grammar
+   point and as bare Cyrillic on the card, where they actually have to recall
+   it. Fixed 26 Aug; the fallback lives in `_vocab_card`.
+2. **Compute the reading from the CLOZE, never the raw sentence.** Romanising
+   the raw text prints the hidden word in Latin letters directly above its own
+   blank. That is the answer leak of CHECKS.md §11 regenerated per card, where
+   no file guard can ever see it.
+
+**Authored beats computed, always.** `he` and `fa` have hand-written rows and
+`ko` has two hand-fixed time expressions; a fallback that overrode them would
+discard the only reviewed romanisation in the corpus.
+
+Measured in the committed banks, 26 Aug — and now a ratchet
+(`test_the_gap_is_the_gap_we_think_it_is`) rather than a line in a document
+that quietly goes stale:
+
+| bank | rows | with romanisation |
+| --- | --- | --- |
+| `he` | 7,483 | 194 |
+| `fa` | 4,003 | 199 |
+| `ru` `ar` `el` `hi` `th` `ko` | 70,928 | **no column at all** |
+
+`ru`, `hi` and `el` are covered live by the computed reading regardless, so
+the real authoring gap is `he`, `fa`, `th` and `ko`.
 
 ---
 

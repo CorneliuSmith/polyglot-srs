@@ -9,6 +9,9 @@ the review hint layers already use.
 Only languages with reliable tooling are covered:
   - hi: the Hunterian-style romanizer used for vocabulary readings
   - ru: cyrtranslit (already a dependency for Latin→Cyrillic answer input)
+  - el: ELOT 743, the scheme printed in Greek passports — regular mapping,
+    a closed set of digraphs, and the <αυ/ευ> voicing rule that makes «αυτό»
+    read *afto*
 Arabic is deliberately absent — unvocalized script drops the short vowels a
 romanization would need, so a computed reading would mislead.
 """
@@ -18,7 +21,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-READING_LANGS = ("hi", "ru")
+READING_LANGS = ("hi", "ru", "el")
 
 
 def sentence_reading(text: str | None, language_code: str) -> str | None:
@@ -32,6 +35,9 @@ def sentence_reading(text: str | None, language_code: str) -> str | None:
         elif language_code == "ru":
             import cyrtranslit
             reading = cyrtranslit.to_latin(text, "ru")
+        elif language_code == "el":
+            from backend.services.nlp.greek_reading import greek_to_roman
+            reading = greek_to_roman(text)
         else:
             return None
     except Exception as exc:  # noqa: BLE001 — a missing reading must never 500
