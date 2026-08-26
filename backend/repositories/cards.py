@@ -24,6 +24,7 @@ from backend.services.extract import ANSWER_MARKER, make_cloze
 from backend.services.gym_manifest import nonstandard_point_titles
 from backend.services.gym_weight import drill_weight
 from backend.services.locale_guard import mark_locale_mismatches
+from backend.services.readings import sentence_reading
 from backend.services.references import clean_references
 from backend.services.srs_stages import stage_for
 
@@ -550,6 +551,16 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
         (sentence, translation, gloss, transliteration,
          translation_locale) = candidates[idx]
         hint = r["definition"]
+        # The stored column is empty for most of the non-Latin corpus — ru, hi,
+        # el, ko and th have no sentence romanisation at all, and he/fa have it
+        # on ~5% of rows. `sentence_reading` could have covered ru and hi the
+        # whole time, but its only caller was the grammar page, so the same
+        # sentence showed a reading there and bare Cyrillic on the review card.
+        # Computed from the CLOZE, never the raw sentence: romanising the raw
+        # text spells the hidden word in Latin letters, which is exactly the
+        # answer leak that put 926 rows on the board (CHECKS.md §11).
+        if not (transliteration or "").strip():
+            transliteration = sentence_reading(sentence, r["language_code"])
     return {
         **_srs_fields(r),
         "sentence": sentence,

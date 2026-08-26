@@ -63,6 +63,65 @@ def read_tsv(code: str) -> dict[str, dict]:
     return out
 
 
+def read_sentences(code: str) -> list[dict]:
+    """(sentence, transliteration, gloss) from the committed sentence bank.
+
+    Only rows that actually carry one of the two layers are returned — the
+    point is to fill what is empty in the database, never to blank something.
+    """
+    path = DATA / f"{code}_sentences.tsv"
+    if not path.exists():
+        return []
+    rows = []
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle, delimiter="\t"):
+            sentence = (row.get("sentence") or "").strip()
+            translit = (row.get("transliteration") or "").strip()
+            gloss = (row.get("gloss") or "").strip()
+            if sentence and (translit or gloss):
+                rows.append({"sentence": sentence, "transliteration": translit,
+                             "gloss": gloss})
+    return rows
+
+
+async def survey_sentence_layers(conn, code: str, lang_id) -> list[dict]:
+    """Rows in example_sentences whose transliteration or gloss is EMPTY while
+    the committed bank has one.
+
+    This exists because `load_example_sentences` inserts with
+    `ON CONFLICT ... DO NOTHING`. Adding the two columns to that INSERT (25 Aug
+    2026) only helps rows created AFTERWARDS — the ~28,000 sentences already in
+    the database never gain them on a re-seed, so the romanisation and
+    interlinear layers stay invisible to a learner however well authored.
+    """
+    wanted = {r["sentence"]: r for r in read_sentences(code)}
+    if not wanted:
+        return []
+    live = await conn.fetch(
+        """
+        SELECT id, sentence, transliteration, gloss
+        FROM example_sentences
+        WHERE language_id = $1 AND sentence = ANY($2::text[])
+        """,
+        lang_id, list(wanted),
+    )
+    fills = []
+    for row in live:
+        want = wanted.get(row["sentence"])
+        if not want:
+            continue
+        translit = want["transliteration"] if (
+            want["transliteration"] and not (row["transliteration"] or "").strip()
+        ) else None
+        gloss = want["gloss"] if (
+            want["gloss"] and not (row["gloss"] or "").strip()
+        ) else None
+        if translit or gloss:
+            fills.append({"id": row["id"], "sentence": row["sentence"],
+                          "transliteration": translit, "gloss": gloss})
+    return fills
+
+
 async def survey(conn, code: str) -> dict:
     """Compare one language's committed file against the database."""
     tsv = read_tsv(code)
@@ -122,6 +181,7 @@ async def survey(conn, code: str) -> dict:
     return {
         "code": code, "db_rows": len(db_rows), "tsv_rows": len(tsv),
         "gloss_changes": gloss_changes, "pos_changes": pos_changes,
+        "sentence_layers": await survey_sentence_layers(conn, code, lang_id),
         "missing_translation": missing_translation, "departed": departed_detail,
         "absent_from_db": sorted(set(tsv) - db_words),
     }
@@ -148,6 +208,15 @@ def write_rollback(reports: list[dict], stamp: str) -> Path:
                     f"UPDATE translations SET definition = {_sql_str(c['old'])} "
                     f"WHERE vocabulary_id = '{c['id']}' AND locale = 'en';"
                     f"  -- {rep['code']} {c['word']}")
+        for c in rep.get("sentence_layers", []):
+            sets = []
+            if c["transliteration"] is not None:
+                sets.append("transliteration = NULL")
+            if c["gloss"] is not None:
+                sets.append("gloss = NULL")
+            lines.append(
+                f"UPDATE example_sentences SET {', '.join(sets)} "
+                f"WHERE id = '{c['id']}';  -- {rep['code']} restore empty")
         for c in rep.get("missing_translation", []):
             lines.append(
                 f"DELETE FROM translations WHERE vocabulary_id = '{c['id']}' "
@@ -163,7 +232,7 @@ def write_rollback(reports: list[dict], stamp: str) -> Path:
 
 
 async def apply(conn, reports: list[dict]) -> dict:
-    counts = {"gloss": 0, "pos": 0, "added_translation": 0}
+    counts = {"gloss": 0, "pos": 0, "added_translation": 0, "sentence_layers": 0}
     async with conn.transaction():
         for rep in reports:
             for c in rep.get("gloss_changes", []):
@@ -172,6 +241,18 @@ async def apply(conn, reports: list[dict]) -> dict:
                     "WHERE vocabulary_id = $2 AND locale = 'en'",
                     c["new"], c["id"])
                 counts["gloss"] += 1
+            for c in rep.get("sentence_layers", []):
+                # COALESCE-free on purpose: survey already proved the column is
+                # empty, and a plain SET makes the rollback exact.
+                if c["transliteration"] is not None:
+                    await conn.execute(
+                        "UPDATE example_sentences SET transliteration = $1 WHERE id = $2",
+                        c["transliteration"], c["id"])
+                if c["gloss"] is not None:
+                    await conn.execute(
+                        "UPDATE example_sentences SET gloss = $1 WHERE id = $2",
+                        c["gloss"], c["id"])
+                counts["sentence_layers"] += 1
             for c in rep.get("missing_translation", []):
                 await conn.execute(
                     "INSERT INTO translations (vocabulary_id, locale, definition) "
@@ -189,9 +270,9 @@ async def apply(conn, reports: list[dict]) -> dict:
 
 def print_report(reports: list[dict], detail: bool) -> None:
     print(f"{'lang':<6}{'db':>7}{'tsv':>7}{'gloss':>7}{'pos':>6}{'no-tr':>7}"
-          f"{'gone':>6}{'new':>6}")
+          f"{'gone':>6}{'new':>6}{'s-layer':>8}")
     print("-" * 52)
-    tot = {"gloss": 0, "pos": 0, "tr": 0, "gone": 0, "new": 0}
+    tot = {"gloss": 0, "pos": 0, "tr": 0, "gone": 0, "new": 0, "sl": 0}
     for rep in reports:
         if rep.get("skipped"):
             continue
@@ -213,6 +294,9 @@ def print_report(reports: list[dict], detail: bool) -> None:
     print("no-tr  rows with no English translation row at all — would be inserted")
     print("gone   in the database, no longer in the file — REPORTED ONLY, never deleted")
     print("new    in the file, not yet in the database — run the seeder, not this")
+    print("s-layer example sentences whose transliteration/gloss is EMPTY in the")
+    print("       database while the committed bank has one. ON CONFLICT DO NOTHING")
+    print("       means a re-seed never fills these; this is the only thing that does.")
 
     if detail:
         for rep in reports:
