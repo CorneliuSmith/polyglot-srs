@@ -50,9 +50,42 @@ carry risk that self-labelling ones do not.
 
 | | state | action |
 | --- | --- | --- |
-| `mi` | 100% of drills, already positional | settle the label casing per Rule 3 |
-| `sw` | `u-ta-rudi (2SG-FUT-return)` — self-labelling | convert; **371 of 461 convert mechanically**, 90 need review; 1,094 of 1,938 segmented pairs need Rule 2's `.`/`-` distinction applied |
-| every other course | **0%** | author with this spec from the start |
+| `mi` | 240/240, positional | settle the label casing per Rule 3 — `past` 24, `prog` 23, `obj` 14, `not` 15 are grammatical categories written lowercase. Only TWO true case collisions (`NOT`/`not`, `PERS`/`pers`), not the label mess this table once claimed |
+| `yo` `xh` `ha` | **761/761, authored 26 Aug** | done — see below |
+| `sw` | 131/442, self-labelling `u-ta-rudi (2SG-FUT-return)` | 311 to author. **Keep the self-labelling form**: positional cells cannot show WHERE the morphemes fall inside an unsegmented written word, and for an agglutinative language that is the information the layer exists to carry |
+| every other course | **0%** | author with this spec |
+
+### What authoring 761 of them settled
+
+The three courses the hint order already declares **gloss-first** — `yo`, `xh`,
+`ha`, where the word-by-word line is shown BEFORE the translation because their
+syntax does not map onto English — had zero glosses between them. All 761 now
+have one, written by a maker–checker pass (74 agents, one checker per batch of
+22 reading the course's own frequency file and grammar explanations).
+
+**Rule 2 resolves cleanly for new work: use `.`, not `-`.** The rule is that
+hyphens in the cell must equal hyphens in the word, and these sentences write
+their words unsegmented, so `Ndifunda` is `1SG.PRES.study`. The `.`/`-`
+question only looked hard while `sw`'s pre-segmented heads were in view.
+
+**Rule 1 is tightened for new work: cells must EQUAL tokens, not merely not
+exceed them.** `cells <= tokens` cannot catch a shift, which is the exact
+failure the owner found by reading one Māori card — every position after the
+shift teaching the wrong word. Exact equality makes alignment mechanically
+provable, and that provability is the only reason to prefer a positional
+format over a self-labelling one. Enforced for these three by
+`test_an_authored_gloss_has_exactly_one_cell_per_token`.
+
+**A gloss whose only cell is the blank is deleted, not stored.** Seven existed
+— four one-token `{{answer}}.` sentences and three `sw` rows the answer-leak
+fix had emptied. They render as a disclosure step that reads `___`.
+
+Mechanical result over all 761: zero cell-count mismatches, zero blank errors,
+zero answer leaks, zero label case-collisions. The eight case flags the
+validator raised were its own false positives — `top` (of the table) and
+`pass` (an exam) are lexical glosses that collide with the Leipzig category
+NAMES TOP and PASS, so ordinary English words came out of the validator's
+grammatical set.
 
 ---
 

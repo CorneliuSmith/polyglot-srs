@@ -115,3 +115,44 @@ def test_a_gloss_never_invents_a_cell(path):
         if len(cells) > len(tokens):
             bad.append((drill.get("sentence"), gloss, len(tokens), len(cells)))
     assert not bad, f"{len(bad)} gloss(es) with more cells than tokens: {bad[:2]}"
+
+
+# Courses whose glosses were authored to the strict positional contract: one
+# cell per whitespace token, no multi-word cells. mi predates it and legitimately
+# uses multi-word cells (`Kei te` is one tense marker), so it is not listed.
+STRICTLY_ALIGNED = ["yo_grammar.json", "xh_grammar.json", "ha_grammar.json"]
+
+
+@pytest.mark.parametrize("name", STRICTLY_ALIGNED)
+def test_an_authored_gloss_has_exactly_one_cell_per_token(name):
+    """`cells <= tokens` cannot catch a SHIFT — the failure the owner found by
+    reading one Māori card, where every position after the shift taught the
+    wrong word. Requiring exact equality makes alignment mechanically provable
+    for the courses authored under it, which is the only reason to accept a
+    positional format over a self-labelling one."""
+    bad = []
+    for drill in _drills(f"data/grammar/{name}"):
+        gloss = (drill.get("gloss") or "").strip()
+        if not gloss:
+            continue
+        cells = [c for c in gloss.split("·") if c.strip()]
+        tokens = (drill.get("sentence") or "").split()
+        if len(cells) != len(tokens):
+            bad.append((drill.get("sentence"), gloss, len(tokens), len(cells)))
+    assert not bad, f"{len(bad)} misaligned, e.g. {bad[:2]}"
+
+
+@pytest.mark.parametrize("path", FILES, ids=[os.path.basename(p) for p in FILES])
+def test_a_gloss_says_something(path):
+    """A gloss whose only cell is the blank renders as a hint layer reading
+    `___`. It is not wrong — the sentence really is one token — but it occupies
+    a disclosure step and tells the learner nothing, so it should be absent
+    rather than empty."""
+    empty = [
+        (d.get("sentence"), d.get("gloss"))
+        for d in _drills(path)
+        if (d.get("gloss") or "").strip()
+        and len([c for c in (d.get("gloss") or "").split("·") if c.strip()]) == 1
+        and (d.get("gloss") or "").strip() == "___"
+    ]
+    assert not empty, f"{len(empty)} gloss(es) that say nothing, e.g. {empty[0]}"
