@@ -258,7 +258,7 @@
           "translation": "books",
           "hint": "the plural suffix, often typed as a separate word",
           "display_order": 1,
-          "transliteration": "ketabha."
+          "transliteration": "ketab___."
         },
         {
           "sentence": "خانه {{answer}}.",
@@ -266,7 +266,7 @@
           "translation": "houses",
           "hint": "plural — same suffix",
           "display_order": 2,
-          "transliteration": "khaneha."
+          "transliteration": "khane___."
         },
         {
           "sentence": "دوست {{answer}}.",
@@ -274,7 +274,7 @@
           "translation": "friends",
           "hint": "plural — same suffix",
           "display_order": 3,
-          "transliteration": "dustha."
+          "transliteration": "dust___."
         }
       ]
     },
@@ -1857,7 +1857,7 @@
           "answer": "اعضای",
           "translation": "Human beings are the members of one body. (Saadi)",
           "hint": "members — an Arabic plural carrying an ezafe",
-          "transliteration": "bani adam azaye yek peykarand.",
+          "transliteration": "bani adam ___ yek peykarand.",
           "display_order": 2
         },
         {

@@ -3584,7 +3584,7 @@
           "translation": "That thing is a book.",
           "hint": "casual 'is' used after a consonant",
           "gloss": null,
-          "transliteration": "geugeoseun chaek-iya",
+          "transliteration": "geugeoseun chaek-___",
           "cell": "informal low, noun ends in consonant",
           "display_order": 1
         },
@@ -3594,7 +3594,7 @@
           "translation": "I am a teacher.",
           "hint": "casual copula ending for consonant-final nouns",
           "gloss": null,
-          "transliteration": "naneun seonsaengnim-iya",
+          "transliteration": "naneun seonsaengnim-___",
           "cell": "informal low, noun ends in consonant",
           "display_order": 2
         },
@@ -3604,7 +3604,7 @@
           "translation": "I am a doctor.",
           "hint": "casual copula ending after a vowel",
           "gloss": null,
-          "transliteration": "naneun uisa-ya",
+          "transliteration": "naneun uisa-___",
           "cell": "informal low, noun ends in vowel",
           "display_order": 3
         },
@@ -3614,7 +3614,7 @@
           "translation": "That thing is an apple.",
           "hint": "one-syllable casual copula for vowel-final nouns",
           "gloss": null,
-          "transliteration": "geugeoseun sagwa-ya",
+          "transliteration": "geugeoseun sagwa-___",
           "cell": "informal low, noun ends in vowel",
           "display_order": 4
         },
@@ -3644,7 +3644,7 @@
           "translation": "I am a teacher.",
           "hint": "polite copula after a consonant",
           "gloss": null,
-          "transliteration": "jeoneun seonsaengnim-ieyo",
+          "transliteration": "jeoneun seonsaengnim-___",
           "cell": "informal high, noun ends in consonant",
           "display_order": 7
         },
@@ -3654,7 +3654,7 @@
           "translation": "That thing is a picture.",
           "hint": "polite everyday 'is' for consonant-final nouns",
           "gloss": null,
-          "transliteration": "geugeoseun sajin-ieyo",
+          "transliteration": "geugeoseun sajin-___",
           "cell": "informal high, noun ends in consonant",
           "display_order": 8
         },
@@ -3664,7 +3664,7 @@
           "translation": "I am a doctor.",
           "hint": "polite copula after a vowel",
           "gloss": null,
-          "transliteration": "jeoneun uisa-yeyo",
+          "transliteration": "jeoneun uisa-___",
           "cell": "informal high, noun ends in vowel",
           "display_order": 9
         },
@@ -3674,7 +3674,7 @@
           "translation": "This person is my older sister.",
           "hint": "polite everyday 'is' for vowel-final nouns",
           "gloss": null,
-          "transliteration": "i sarameun jeoui nuna-yeyo",
+          "transliteration": "i sarameun jeoui nuna-___",
           "cell": "informal high, noun ends in vowel",
           "display_order": 10
         },
@@ -3704,7 +3704,7 @@
           "translation": "I am a good student.",
           "hint": "formal copula ending",
           "gloss": null,
-          "transliteration": "jeoneun joeun haksaeng-imnida",
+          "transliteration": "jeoneun joeun haksaeng-___",
           "cell": "formal high (vowel or consonant)",
           "display_order": 13
         },
@@ -3714,7 +3714,7 @@
           "translation": "That person is my older brother.",
           "hint": "formal 'is' used in speeches and writing",
           "gloss": null,
-          "transliteration": "geu sarameun jeoui hyeong-imnida",
+          "transliteration": "geu sarameun jeoui hyeong-___",
           "cell": "formal high (vowel or consonant)",
           "display_order": 14
         },
@@ -3744,7 +3744,7 @@
           "translation": "I am a good student.",
           "hint": "polite informal copula after a consonant",
           "gloss": null,
-          "transliteration": "jeoneun joeun haksaeng-ieyo",
+          "transliteration": "jeoneun joeun haksaeng-___",
           "cell": null,
           "display_order": 17
         },
@@ -3754,7 +3754,7 @@
           "translation": "Baseball is a good sport.",
           "hint": "casual copula after a vowel",
           "gloss": null,
-          "transliteration": "yaguneun joeun seupocheu-ya",
+          "transliteration": "yaguneun joeun seupocheu-___",
           "cell": null,
           "display_order": 18
         },
@@ -3764,7 +3764,7 @@
           "translation": "This is a passport.",
           "hint": "casual copula after a consonant",
           "gloss": null,
-          "transliteration": "igeoseun yeogwon-iya",
+          "transliteration": "igeoseun yeogwon-___",
           "cell": null,
           "display_order": 19
         },
@@ -3784,7 +3784,7 @@
           "translation": "This meat is pork.",
           "hint": "formal copula",
           "gloss": null,
-          "transliteration": "i gogineun dwaejigogi-imnida",
+          "transliteration": "i gogineun dwaejigogi-___",
           "cell": null,
           "display_order": 21
         }
@@ -3824,7 +3824,7 @@
           "translation": "I was a student.",
           "hint": "casual past copula after a consonant",
           "gloss": null,
-          "transliteration": "naneun haksaeng-ieosseo",
+          "transliteration": "naneun haksaeng-___",
           "cell": "informal low, consonant",
           "display_order": 1
         },
@@ -3834,7 +3834,7 @@
           "translation": "I was a busy teacher.",
           "hint": "casual past 'was' for consonant-final nouns",
           "gloss": null,
-          "transliteration": "naneun bappeun seonsaengnim-ieosseo",
+          "transliteration": "naneun bappeun seonsaengnim-___",
           "cell": "informal low, consonant",
           "display_order": 2
         },
@@ -3844,7 +3844,7 @@
           "translation": "I was a bad doctor.",
           "hint": "contracted casual past copula after a vowel",
           "gloss": null,
-          "transliteration": "naneun nappeun uisa-yeosseo",
+          "transliteration": "naneun nappeun uisa-___",
           "cell": "informal low, vowel (contracted)",
           "display_order": 3
         },
@@ -3854,7 +3854,7 @@
           "translation": "I was a bad baby.",
           "hint": "short casual past form used after vowels",
           "gloss": null,
-          "transliteration": "naneun nappeun aegi-yeosseo",
+          "transliteration": "naneun nappeun aegi-___",
           "cell": "informal low, vowel (contracted)",
           "display_order": 4
         },
@@ -3864,7 +3864,7 @@
           "translation": "I was a teacher.",
           "hint": "polite past copula after a consonant",
           "gloss": null,
-          "transliteration": "jeoneun seonsaengnim-ieosseoyo",
+          "transliteration": "jeoneun seonsaengnim-___",
           "cell": "informal high, consonant",
           "display_order": 5
         },
@@ -3874,7 +3874,7 @@
           "translation": "That was a big secret.",
           "hint": "polite past 'was' for consonant-final nouns",
           "gloss": null,
-          "transliteration": "geugeoseun keun bimil-ieosseoyo",
+          "transliteration": "geugeoseun keun bimil-___",
           "cell": "informal high, consonant",
           "display_order": 6
         },
@@ -3884,7 +3884,7 @@
           "translation": "I was a doctor.",
           "hint": "contracted polite past copula after a vowel",
           "gloss": null,
-          "transliteration": "jeoneun uisa-yeosseoyo",
+          "transliteration": "jeoneun uisa-___",
           "cell": "informal high, vowel (contracted)",
           "display_order": 7
         },
@@ -3894,7 +3894,7 @@
           "translation": "I was a bad baby.",
           "hint": "polite past form for vowel-final nouns",
           "gloss": null,
-          "transliteration": "jeoneun nappeun aegi-yeosseoyo",
+          "transliteration": "jeoneun nappeun aegi-___",
           "cell": "informal high, vowel (contracted)",
           "display_order": 8
         },
@@ -3904,7 +3904,7 @@
           "translation": "I was a teacher.",
           "hint": "plain (diary/書面) past copula after a consonant",
           "gloss": null,
-          "transliteration": "naneun seonsaengnim-ieotda",
+          "transliteration": "naneun seonsaengnim-___",
           "cell": "plain form, consonant",
           "display_order": 9
         },
@@ -3914,7 +3914,7 @@
           "translation": "That was a big secret.",
           "hint": "dictionary-style past 'was'",
           "gloss": null,
-          "transliteration": "geugeoseun keun bimil-ieotda",
+          "transliteration": "geugeoseun keun bimil-___",
           "cell": "plain form, consonant",
           "display_order": 10
         },
@@ -3924,7 +3924,7 @@
           "translation": "I was a doctor.",
           "hint": "contracted plain past copula after a vowel",
           "gloss": null,
-          "transliteration": "naneun uisa-yeotda",
+          "transliteration": "naneun uisa-___",
           "cell": "plain form, vowel (contracted)",
           "display_order": 11
         },
@@ -3934,7 +3934,7 @@
           "translation": "I was a teacher.",
           "hint": "formal past copula after a consonant",
           "gloss": null,
-          "transliteration": "jeoneun seonsaengnim-ieotseumnida",
+          "transliteration": "jeoneun seonsaengnim-___",
           "cell": "formal high, consonant",
           "display_order": 12
         },
@@ -3944,7 +3944,7 @@
           "translation": "That was a big secret.",
           "hint": "formal past 'was'",
           "gloss": null,
-          "transliteration": "geugeoseun keun bimil-ieotseumnida",
+          "transliteration": "geugeoseun keun bimil-___",
           "cell": "formal high, consonant",
           "display_order": 13
         },
@@ -3954,7 +3954,7 @@
           "translation": "I was a doctor.",
           "hint": "contracted formal past copula after a vowel",
           "gloss": null,
-          "transliteration": "jeoneun uisa-yeotseumnida",
+          "transliteration": "jeoneun uisa-___",
           "cell": "formal high, vowel (contracted)",
           "display_order": 14
         },
@@ -3984,7 +3984,7 @@
           "translation": "My first job was a nurse.",
           "hint": "Formal high past tense of the copula 이다, contracted after a vowel-final noun (간호사).",
           "gloss": null,
-          "transliteration": "Je cheot jigeobeun ganhosa-yeotseumnida.",
+          "transliteration": "Je cheot jigeobeun ganhosa-___.",
           "cell": "formal high, vowel (contracted)",
           "display_order": 21
         }
@@ -4147,7 +4147,7 @@
           "translation": "Our family will surely be happy in the house we newly moved into.",
           "hint": "‘기쁘고 만족스러운 상태’를 뜻하는 형용사를 미래 추측형 ‘-ㄹ 것이다’로 바꿔 쓰세요.",
           "gloss": null,
-          "transliteration": "uri gajogeun saero isahan jibeseo bunmyeonghi haengbokhal geosida.",
+          "transliteration": "uri gajogeun saero isahan jibeseo bunmyeonghi ___.",
           "cell": "adjective stem (행복하다)",
           "display_order": 14
         }
@@ -4317,7 +4317,7 @@
           "translation": "Tomorrow, even if it rains, I will walk to school.",
           "hint": "Use the ㄷ-irregular verb meaning 'to walk' in the plain future/intention form '-을 것이다' (the stem-final ㄷ changes to ㄹ).",
           "gloss": null,
-          "transliteration": "naeireun biga wado naneun hakgyokkaji georeul geosida.",
+          "transliteration": "naeireun biga wado naneun hakgyokkaji ___.",
           "cell": "ㄷ irregular – 걷다 (to walk)",
           "display_order": 14
         },
@@ -4327,7 +4327,7 @@
           "translation": "If you practice in advance, the exam questions will probably be much easier.",
           "hint": "Use the ㅂ-irregular adjective meaning 'to be easy' in the future/presumptive plain form (-(으)ㄹ 것이다); the ㅂ becomes 우.",
           "gloss": null,
-          "transliteration": "miri yeonseuphae dumyeon siheom munjega hwolssin swiul geosida.",
+          "transliteration": "miri yeonseuphae dumyeon siheom munjega hwolssin ___.",
           "cell": "ㅂ irregular – 쉽다 (to be easy)",
           "display_order": 15
         },
@@ -4337,7 +4337,7 @@
           "translation": "When my friend is having a hard time, I will definitely help (him).",
           "hint": "'돕다'를 미래 의지/추측 형태(관형형 어미 + 것이다)로 바꾸세요. ㅂ 불규칙이라 어간의 ㅂ이 '우'로 변합니다.",
           "gloss": null,
-          "transliteration": "chin-gu-ga eo-ryeo-ul ttae nae-ga ban-deu-si do-ul geo-si-da.",
+          "transliteration": "chin-gu-ga eo-ryeo-ul ttae nae-ga ban-deu-si ___.",
           "cell": "ㅂ irregular – 돕다 (to help)",
           "display_order": 16
         },
@@ -4347,7 +4347,7 @@
           "translation": "If we come home late at night, Dad will lock the front door.",
           "hint": "'to lock' + future/presumptive ending -(으)ㄹ 것이다; the ㅡ stem stays the same before -ㄹ.",
           "gloss": null,
-          "transliteration": "bamneutge jibe deureoomyeon appaga hyeongwanmuneul jamgeul geosida.",
+          "transliteration": "bamneutge jibe deureoomyeon appaga hyeongwanmuneul ___.",
           "cell": "ㅡ irregular – 잠그다 (to lock), no change",
           "display_order": 17
         },
@@ -4357,7 +4357,7 @@
           "translation": "From next year, the exam format will probably be very different from this year's.",
           "hint": "'같지 않다'라는 뜻의 르 불규칙 형용사를 미래 추측형 -(으)ㄹ 것이다로 바꿔 쓰세요.",
           "gloss": null,
-          "transliteration": "Naenyeonbuteoneun siheom bangsigi olhaewa manhi dareul geosida.",
+          "transliteration": "Naenyeonbuteoneun siheom bangsigi olhaewa manhi ___.",
           "cell": "르 irregular – 다르다 (to be different), no change",
           "display_order": 18
         },
@@ -4367,7 +4367,7 @@
           "translation": "This vacation will probably be much longer than last year's vacation.",
           "hint": "ㄹ 불규칙 용언 '길다'를 추측·미래를 나타내는 '-(으)ㄹ 것이다' 꼴로 바꾸세요. 어간의 ㄹ이 어미와 만나 탈락합니다.",
           "gloss": null,
-          "transliteration": "ibeon banghageun jangnyeon banghakboda hwolssin gil geosida.",
+          "transliteration": "ibeon banghageun jangnyeon banghakboda hwolssin ___.",
           "cell": "ㄹ irregular – 길다 (to be long)",
           "display_order": 19
         },
@@ -4440,7 +4440,7 @@
           "translation": "I will be a teacher soon.",
           "hint": "copula plus the future modifier ending",
           "gloss": null,
-          "transliteration": "jeoneun got seonsaengnim-il geoyeyo",
+          "transliteration": "jeoneun got seonsaengnim-___ geoyeyo",
           "cell": null,
           "display_order": 3
         },
@@ -4493,7 +4493,7 @@
           "translation": "That person is probably a doctor.",
           "hint": "copula plus the ~ㄹ modifier ending",
           "gloss": null,
-          "transliteration": "geu sarami uisa-il geoyeyo",
+          "transliteration": "geu sarami uisa-___ geoyeyo",
           "cell": null,
           "display_order": 1
         },
@@ -4513,7 +4513,7 @@
           "translation": "That thing is most likely a passport.",
           "hint": "copula plus the ~ㄹ modifier ending",
           "gloss": null,
-          "transliteration": "geugeoseun yeogwon-il geoyeyo",
+          "transliteration": "geugeoseun yeogwon-___ geoyeyo",
           "cell": null,
           "display_order": 3
         }
@@ -4546,7 +4546,7 @@
           "translation": "eleven",
           "hint": "ten combined with one in the Chinese-derived set",
           "gloss": null,
-          "transliteration": "sibil",
+          "transliteration": "___",
           "cell": null,
           "display_order": 1
         },
@@ -4556,7 +4556,7 @@
           "translation": "twenty-two",
           "hint": "two tens plus two",
           "gloss": null,
-          "transliteration": "isibi",
+          "transliteration": "___",
           "cell": null,
           "display_order": 2
         },
@@ -4566,7 +4566,7 @@
           "translation": "five thousand",
           "hint": "five times one thousand",
           "gloss": null,
-          "transliteration": "ocheon",
+          "transliteration": "___",
           "cell": null,
           "display_order": 3
         },
@@ -4576,7 +4576,7 @@
           "translation": "one hundred thousand",
           "hint": "ten times ten thousand",
           "gloss": null,
-          "transliteration": "simman",
+          "transliteration": "___",
           "cell": null,
           "display_order": 4
         },
@@ -4596,7 +4596,7 @@
           "translation": "Our office is on the first floor.",
           "hint": "Sino-Korean numeral for the digit '1', used with counters like 층 (floor).",
           "gloss": null,
-          "transliteration": "uri samusireun il-cheung-e isseoyo.",
+          "transliteration": "uri samusireun ___-cheung-e isseoyo.",
           "cell": "1",
           "display_order": 6
         },
@@ -4736,7 +4736,7 @@
           "translation": "One hundred plus one is one hundred and one.",
           "hint": "Sino-Korean numeral for the sum of 100 and 1.",
           "gloss": null,
-          "transliteration": "baek deohagi ir-eun baegir-imnida.",
+          "transliteration": "baek deohagi ir-eun ___-imnida.",
           "cell": "101 (100 + 1)",
           "display_order": 20
         },
@@ -4756,7 +4756,7 @@
           "translation": "If you want to go to school, take bus number 102.",
           "hint": "Read the bus number 100 + 2 in Sino-Korean numerals.",
           "gloss": null,
-          "transliteration": "hakgyoe garyeomyeon baegi-beon beoseureul taseyo.",
+          "transliteration": "hakgyoe garyeomyeon ___-beon beoseureul taseyo.",
           "cell": "102 (100 + 2)",
           "display_order": 22
         },
@@ -5056,7 +5056,7 @@
           "translation": "twenty-one",
           "hint": "twenty stacked with one in the pure Korean set",
           "gloss": null,
-          "transliteration": "seumulhana",
+          "transliteration": "___",
           "cell": null,
           "display_order": 13
         },
@@ -5066,7 +5066,7 @@
           "translation": "fifty-nine",
           "hint": "fifty stacked with nine in the pure Korean set",
           "gloss": null,
-          "transliteration": "swinahop",
+          "transliteration": "___",
           "cell": null,
           "display_order": 14
         },
@@ -5158,7 +5158,7 @@
           "translation": "I ate two apples.",
           "hint": "counter for general objects",
           "gloss": null,
-          "transliteration": "jeoneun sagwa du gae-reul meogeosseoyo.",
+          "transliteration": "jeoneun sagwa du ___-reul meogeosseoyo.",
           "cell": "개 – things",
           "display_order": 1
         },
@@ -5168,7 +5168,7 @@
           "translation": "I bought four pens.",
           "hint": "counter for items",
           "gloss": null,
-          "transliteration": "jeoneun pen ne gae-reul sasseoyo.",
+          "transliteration": "jeoneun pen ne ___-reul sasseoyo.",
           "cell": "개 – things",
           "display_order": 2
         },
@@ -5178,7 +5178,7 @@
           "translation": "I met five friends yesterday.",
           "hint": "counter used for persons",
           "gloss": null,
-          "transliteration": "jeoneun eoje chingu daseot myeong-eul mannasseoyo.",
+          "transliteration": "jeoneun eoje chingu daseot ___-eul mannasseoyo.",
           "cell": "명 – people",
           "display_order": 3
         },
@@ -5188,7 +5188,7 @@
           "translation": "There are three students in the classroom.",
           "hint": "counter used for persons",
           "gloss": null,
-          "transliteration": "gyosire haksaeng se myeong-i isseoyo.",
+          "transliteration": "gyosire haksaeng se ___-i isseoyo.",
           "cell": "명 – people",
           "display_order": 4
         },
@@ -5198,7 +5198,7 @@
           "translation": "There are two cars at our house.",
           "hint": "counter for cars and machines",
           "gloss": null,
-          "transliteration": "uri jibe cha du dae-ga isseoyo.",
+          "transliteration": "uri jibe cha du ___-ga isseoyo.",
           "cell": "대 – vehicles/machines",
           "display_order": 5
         },
@@ -5208,7 +5208,7 @@
           "translation": "I bought one computer.",
           "hint": "counter for machines",
           "gloss": null,
-          "transliteration": "jeoneun keompyuteo han dae-reul sasseoyo.",
+          "transliteration": "jeoneun keompyuteo han ___-reul sasseoyo.",
           "cell": "대 – vehicles/machines",
           "display_order": 6
         },
@@ -5218,7 +5218,7 @@
           "translation": "I drank two glasses of milk.",
           "hint": "counter for cups or glasses of a drink",
           "gloss": null,
-          "transliteration": "jeoneun uyu du jan-eul masyeosseoyo.",
+          "transliteration": "jeoneun uyu du ___-eul masyeosseoyo.",
           "cell": "잔 – cups/glasses",
           "display_order": 7
         },
@@ -5228,7 +5228,7 @@
           "translation": "I bought one cup of coffee.",
           "hint": "counter for cups of a drink",
           "gloss": null,
-          "transliteration": "jeoneun keopi han jan-eul sasseoyo.",
+          "transliteration": "jeoneun keopi han ___-eul sasseoyo.",
           "cell": "잔 – cups/glasses",
           "display_order": 8
         },
@@ -5238,7 +5238,7 @@
           "translation": "I met three friends yesterday.",
           "hint": "counter for people",
           "gloss": null,
-          "transliteration": "jeoneun eoje chingu se myeong-eul mannasseoyo.",
+          "transliteration": "jeoneun eoje chingu se ___-eul mannasseoyo.",
           "cell": null,
           "display_order": 9
         },
@@ -5248,7 +5248,7 @@
           "translation": "I ate two pieces of bread.",
           "hint": "counter for general items",
           "gloss": null,
-          "transliteration": "jeoneun ppang du gae-reul meogeosseoyo.",
+          "transliteration": "jeoneun ppang du ___-reul meogeosseoyo.",
           "cell": null,
           "display_order": 10
         },
@@ -5258,7 +5258,7 @@
           "translation": "That person has four cars.",
           "hint": "counter for cars",
           "gloss": null,
-          "transliteration": "geu sarameun cha ne dae-ga isseoyo.",
+          "transliteration": "geu sarameun cha ne ___-ga isseoyo.",
           "cell": null,
           "display_order": 11
         },
@@ -5268,7 +5268,7 @@
           "translation": "I ate two hamburgers.",
           "hint": "counter placed before the noun with ~의",
           "gloss": null,
-          "transliteration": "jeoneun du gae-ui haembeogeoreul meogeosseoyo.",
+          "transliteration": "jeoneun du ___-ui haembeogeoreul meogeosseoyo.",
           "cell": null,
           "display_order": 12
         }
@@ -5304,7 +5304,7 @@
           "translation": "The score was 2 to 0.",
           "hint": "zero as a number of points",
           "gloss": null,
-          "transliteration": "jeomsuneun i dae yeong-ieosseoyo.",
+          "transliteration": "jeomsuneun i dae ___-ieosseoyo.",
           "cell": "scores, temperature, math",
           "display_order": 1
         },
@@ -5314,7 +5314,7 @@
           "translation": "My phone number starts with 0-1-0.",
           "hint": "zero when reading digits of a phone number",
           "gloss": null,
-          "transliteration": "je jeonhwabeonhoneun gong-il-gong-euro sijakhaeyo.",
+          "transliteration": "je jeonhwabeonhoneun ___-il-gong-euro sijakhaeyo.",
           "cell": "phone numbers",
           "display_order": 2
         },
@@ -5334,7 +5334,7 @@
           "translation": "In phone numbers, 0 is read as 'gong'.",
           "hint": "zero of phone numbers",
           "gloss": null,
-          "transliteration": "jeonhwabeonhoeseo 0-eun gong-irago ilgeoyo.",
+          "transliteration": "jeonhwabeonhoeseo 0-eun ___-irago ilgeoyo.",
           "cell": null,
           "display_order": 4
         },
@@ -5344,7 +5344,7 @@
           "translation": "This morning the temperature dropped to zero degrees.",
           "hint": "Use the Sino-Korean word for the digit 0, the one read out in temperatures, test scores, and math.",
           "gloss": null,
-          "transliteration": "oneul achim gioni yeong-do-kkaji naeryeogasseoyo.",
+          "transliteration": "oneul achim gioni ___-do-kkaji naeryeogasseoyo.",
           "cell": "scores, temperature, math",
           "display_order": 5
         }
@@ -5424,7 +5424,7 @@
           "translation": "We ate lunch at 1:00.",
           "hint": "the hour after twelve noon's first hour",
           "gloss": null,
-          "transliteration": "urineun han si-e jeomsimeul meogeosseoyo.",
+          "transliteration": "urineun ___-e jeomsimeul meogeosseoyo.",
           "cell": "1 o'clock",
           "display_order": 1
         },
@@ -5434,7 +5434,7 @@
           "translation": "We will play baseball at 1:00.",
           "hint": "one o'clock",
           "gloss": null,
-          "transliteration": "urineun yagureul han si-e hal geoyeyo.",
+          "transliteration": "urineun yagureul ___-e hal geoyeyo.",
           "cell": "1 o'clock",
           "display_order": 2
         },
@@ -5444,7 +5444,7 @@
           "translation": "I came at 2:30.",
           "hint": "two o'clock",
           "gloss": null,
-          "transliteration": "jeoneun du si samsip bune wasseoyo.",
+          "transliteration": "jeoneun ___ samsip bune wasseoyo.",
           "cell": "2 o'clock",
           "display_order": 3
         },
@@ -5454,7 +5454,7 @@
           "translation": "The class starts at 2:00.",
           "hint": "two o'clock",
           "gloss": null,
-          "transliteration": "sueobeun du si-e sijakhaeyo.",
+          "transliteration": "sueobeun ___-e sijakhaeyo.",
           "cell": "2 o'clock",
           "display_order": 4
         },
@@ -5464,7 +5464,7 @@
           "translation": "I arrived at 3:10.",
           "hint": "three o'clock",
           "gloss": null,
-          "transliteration": "jeoneun se si sip bune dochakhaesseoyo.",
+          "transliteration": "jeoneun ___ sip bune dochakhaesseoyo.",
           "cell": "3 o'clock",
           "display_order": 5
         },
@@ -5474,7 +5474,7 @@
           "translation": "The meeting ended at 3:00.",
           "hint": "three o'clock",
           "gloss": null,
-          "transliteration": "hoeuineun se si-e kkeutnasseoyo.",
+          "transliteration": "hoeuineun ___-e kkeutnasseoyo.",
           "cell": "3 o'clock",
           "display_order": 6
         },
@@ -5484,7 +5484,7 @@
           "translation": "I will meet a friend at 4:00.",
           "hint": "four o'clock",
           "gloss": null,
-          "transliteration": "jeoneun ne si-e chingureul mannal geoyeyo.",
+          "transliteration": "jeoneun ___-e chingureul mannal geoyeyo.",
           "cell": "4 o'clock",
           "display_order": 7
         },
@@ -5494,7 +5494,7 @@
           "translation": "I went to sleep at 12:50.",
           "hint": "twelve o'clock",
           "gloss": null,
-          "transliteration": "jeoneun yeoldu si osip bune jasseoyo.",
+          "transliteration": "jeoneun ___ osip bune jasseoyo.",
           "cell": "12 o'clock",
           "display_order": 8
         },
@@ -5504,7 +5504,7 @@
           "translation": "We eat at 12:00.",
           "hint": "twelve o'clock",
           "gloss": null,
-          "transliteration": "urineun yeoldu si-e babeul meogeoyo.",
+          "transliteration": "urineun ___-e babeul meogeoyo.",
           "cell": "12 o'clock",
           "display_order": 9
         },
@@ -5514,7 +5514,7 @@
           "translation": "We will start at 7:20.",
           "hint": "unit of minutes, with Sino-Korean numbers",
           "gloss": null,
-          "transliteration": "urineun ilgop si isip bun-e sijakhal geoyeyo.",
+          "transliteration": "urineun ilgop si isip ___-e sijakhal geoyeyo.",
           "cell": null,
           "display_order": 10
         },
@@ -5524,7 +5524,7 @@
           "translation": "I will eat at 5:00.",
           "hint": "unit for the hour on a clock",
           "gloss": null,
-          "transliteration": "jeoneun daseot si-e meogeul geoyeyo.",
+          "transliteration": "jeoneun daseot ___-e meogeul geoyeyo.",
           "cell": null,
           "display_order": 11
         },
@@ -5534,7 +5534,7 @@
           "translation": "12:50 is 'twelve fifty'.",
           "hint": "the twelfth hour written in pure Korean",
           "gloss": null,
-          "transliteration": "yeoldu si osip buneun yeoldu si osip bunieyo.",
+          "transliteration": "yeoldu si osip buneun ___ osip bunieyo.",
           "cell": null,
           "display_order": 12
         },
@@ -5544,7 +5544,7 @@
           "translation": "We agreed to meet at the café at 4 p.m.",
           "hint": "Use the native Korean numeral for 4 (in its shortened form before a counter) plus the hour counter 시.",
           "gloss": null,
-          "transliteration": "urineun ohu ne si-e kape-eseo mannagiro haesseoyo.",
+          "transliteration": "urineun ohu ___-e kape-eseo mannagiro haesseoyo.",
           "cell": "4 o'clock",
           "display_order": 13
         }
@@ -5581,7 +5581,7 @@
           "translation": "I am ten years old.",
           "hint": "counter for years of age",
           "gloss": null,
-          "transliteration": "jeoneun yeol sal-ieyo.",
+          "transliteration": "jeoneun yeol ___-ieyo.",
           "cell": null,
           "display_order": 1
         },
@@ -5591,7 +5591,7 @@
           "translation": "My girlfriend is twenty-six years old.",
           "hint": "counter for years of age",
           "gloss": null,
-          "transliteration": "jeoui yeoja chinguneun seumullyeoseot sal-ieyo.",
+          "transliteration": "jeoui yeoja chinguneun seumullyeoseot ___-ieyo.",
           "cell": null,
           "display_order": 2
         },
@@ -5601,7 +5601,7 @@
           "translation": "How old are you?",
           "hint": "counter for years of age",
           "gloss": null,
-          "transliteration": "(naiga) myeot sal-ieyo?",
+          "transliteration": "(naiga) myeot ___-ieyo?",
           "cell": null,
           "display_order": 3
         }
@@ -5631,7 +5631,7 @@
           "translation": "That person is my first friend.",
           "hint": "ordinal for the number one",
           "gloss": null,
-          "transliteration": "geu sarameun jeoui cheot beonjjae chinguyeyo.",
+          "transliteration": "geu sarameun jeoui ___ chinguyeyo.",
           "cell": "first",
           "display_order": 1
         },
@@ -5641,7 +5641,7 @@
           "translation": "I didn't like the first car.",
           "hint": "ordinal for the number one",
           "gloss": null,
-          "transliteration": "jeoneun cheot beonjjae chareul sireohaesseoyo.",
+          "transliteration": "jeoneun ___ chareul sireohaesseoyo.",
           "cell": "first",
           "display_order": 2
         },
@@ -5651,7 +5651,7 @@
           "translation": "I took the second bus.",
           "hint": "ordinal for the number two",
           "gloss": null,
-          "transliteration": "jeoneun du beonjjae beoseureul tasseoyo.",
+          "transliteration": "jeoneun ___ beoseureul tasseoyo.",
           "cell": "second",
           "display_order": 3
         },
@@ -5661,7 +5661,7 @@
           "translation": "That second teacher was smart.",
           "hint": "ordinal for the number two",
           "gloss": null,
-          "transliteration": "geu du beonjjae seonsaengnimeun ttokttokhaesseoyo.",
+          "transliteration": "geu ___ seonsaengnimeun ttokttokhaesseoyo.",
           "cell": "second",
           "display_order": 4
         },
@@ -5671,7 +5671,7 @@
           "translation": "I read the third page.",
           "hint": "ordinal for the number three",
           "gloss": null,
-          "transliteration": "jeoneun se beonjjae peijireul ilgeosseoyo.",
+          "transliteration": "jeoneun ___ peijireul ilgeosseoyo.",
           "cell": "third",
           "display_order": 5
         },
@@ -5681,7 +5681,7 @@
           "translation": "This passport is my third passport.",
           "hint": "ordinal for the number three",
           "gloss": null,
-          "transliteration": "i yeogwoneun jeoui se beonjjae yeogwonieyo.",
+          "transliteration": "i yeogwoneun jeoui ___ yeogwonieyo.",
           "cell": "third",
           "display_order": 6
         },
@@ -5691,7 +5691,7 @@
           "translation": "I was the fourth person in line.",
           "hint": "ordinal for the number four",
           "gloss": null,
-          "transliteration": "jeoneun jureseo ne beonjjae saramieosseoyo.",
+          "transliteration": "jeoneun jureseo ___ saramieosseoyo.",
           "cell": "fourth",
           "display_order": 7
         },
@@ -5701,7 +5701,7 @@
           "translation": "This child is my fourth son.",
           "hint": "ordinal for the number four",
           "gloss": null,
-          "transliteration": "i aineun jeoui ne beonjjae adeurieyo.",
+          "transliteration": "i aineun jeoui ___ adeurieyo.",
           "cell": "fourth",
           "display_order": 8
         },
@@ -5711,7 +5711,7 @@
           "translation": "This is my tenth class today.",
           "hint": "ordinal for the number ten",
           "gloss": null,
-          "transliteration": "i sueobeun oneul jeoui yeol beonjjae sueobimnida.",
+          "transliteration": "i sueobeun oneul jeoui ___ sueobimnida.",
           "cell": "tenth",
           "display_order": 9
         },
@@ -5721,7 +5721,7 @@
           "translation": "I read the 100th page.",
           "hint": "ordinal for one hundred",
           "gloss": null,
-          "transliteration": "jeoneun baek beonjjae peijireul ilgeosseoyo.",
+          "transliteration": "jeoneun ___ peijireul ilgeosseoyo.",
           "cell": "hundredth",
           "display_order": 10
         },
@@ -5731,7 +5731,7 @@
           "translation": "That person was my first teacher.",
           "hint": "ordinal built on the number one",
           "gloss": null,
-          "transliteration": "geu sarameun jeoui cheot beonjjae seonsaengnimieosseoyo.",
+          "transliteration": "geu sarameun jeoui ___ seonsaengnimieosseoyo.",
           "cell": null,
           "display_order": 12
         },
@@ -5741,7 +5741,7 @@
           "translation": "I opened the third door.",
           "hint": "ordinal built on the number three",
           "gloss": null,
-          "transliteration": "jeoneun se beonjjae muneul yeoreosseoyo.",
+          "transliteration": "jeoneun ___ muneul yeoreosseoyo.",
           "cell": null,
           "display_order": 13
         },
@@ -5751,7 +5751,7 @@
           "translation": "He crossed the finish line in tenth place in the marathon.",
           "hint": "아홉 다음, 숫자 10의 순서를 나타내는 표현을 쓰세요.",
           "gloss": null,
-          "transliteration": "geuneun maraton gyeonggieseo yeol beonjjaero gyeolseungseoneul tonggwahaetda.",
+          "transliteration": "geuneun maraton gyeonggieseo ___ro gyeolseungseoneul tonggwahaetda.",
           "cell": "tenth",
           "display_order": 14
         },
@@ -5761,7 +5761,7 @@
           "translation": "She crossed the finish line in hundredth place at the marathon held yesterday.",
           "hint": "Use the ordinal built from the number 100 with the counter 번째 (99번째 다음 순서).",
           "gloss": null,
-          "transliteration": "geunyeoneun eoje yeollin maraton daehoeeseo baek beonjjaero gyeolseungseoneul tonggwahaetda.",
+          "transliteration": "geunyeoneun eoje yeollin maraton daehoeeseo ___ro gyeolseungseoneul tonggwahaetda.",
           "cell": "hundredth",
           "display_order": 15
         }
@@ -5822,7 +5822,7 @@
           "translation": "Our second (child) is a high school student.",
           "hint": "short ordinal for the number two",
           "gloss": null,
-          "transliteration": "uri duljjaeneun godeunghaksaengieyo.",
+          "transliteration": "uri ___neun godeunghaksaengieyo.",
           "cell": "second",
           "display_order": 3
         },
@@ -5981,7 +5981,7 @@
           "translation": "At first I didn't like PE class.",
           "hint": "the beginning stage, plus 에",
           "gloss": null,
-          "transliteration": "jeoneun cheoeume cheyuk sueobeul sireohaesseoyo.",
+          "transliteration": "jeoneun ___e cheyuk sueobeul sireohaesseoyo.",
           "cell": null,
           "display_order": 1
         },
@@ -6101,7 +6101,7 @@
           "translation": "'Se si' means 3:00.",
           "hint": "unit for the hour shown on a clock",
           "gloss": null,
-          "transliteration": "se si-neun se si-reul tteushaeyo.",
+          "transliteration": "se ___-neun se si-reul tteushaeyo.",
           "cell": null,
           "display_order": 4
         }
@@ -6145,7 +6145,7 @@
           "translation": "One minute is sixty seconds.",
           "hint": "unit smaller than a minute",
           "gloss": null,
-          "transliteration": "il buneun yuksip cho-imnida.",
+          "transliteration": "il buneun yuksip ___-imnida.",
           "cell": null,
           "display_order": 2
         }
@@ -6198,7 +6198,7 @@
           "translation": "I learned that last time.",
           "hint": "occasion word used after 지난",
           "gloss": null,
-          "transliteration": "jeoneun geugeoseul jinan beone baewosseoyo.",
+          "transliteration": "jeoneun geugeoseul jinan ___e baewosseoyo.",
           "cell": null,
           "display_order": 3
         },
@@ -6208,7 +6208,7 @@
           "translation": "We will go to school next time.",
           "hint": "word meaning both 'time' and hours",
           "gloss": null,
-          "transliteration": "urineun daeum sigane hakgyoe gal geoyeyo.",
+          "transliteration": "urineun daeum ___e hakgyoe gal geoyeyo.",
           "cell": null,
           "display_order": 4
         }
@@ -6272,7 +6272,7 @@
           "translation": "I have plans on that day.",
           "hint": "stand-alone word for a specific day",
           "gloss": null,
-          "transliteration": "jeoneun geu nare gyehoegi isseoyo.",
+          "transliteration": "jeoneun geu ___e gyehoegi isseoyo.",
           "cell": null,
           "display_order": 4
         },
@@ -6282,7 +6282,7 @@
           "translation": "I went to Myeongdong on the first day.",
           "hint": "the opening day of a period",
           "gloss": null,
-          "transliteration": "jeoneun cheonnare myeongdonge gasseoyo.",
+          "transliteration": "jeoneun ___e myeongdonge gasseoyo.",
           "cell": null,
           "display_order": 5
         }
@@ -6336,7 +6336,7 @@
           "translation": "I will go to the US next week.",
           "hint": "unit of seven days",
           "gloss": null,
-          "transliteration": "jeoneun daeum jue miguge gal geoyeyo.",
+          "transliteration": "jeoneun daeum ___e miguge gal geoyeyo.",
           "cell": null,
           "display_order": 3
         }
@@ -6370,7 +6370,7 @@
           "translation": "I took a Korean class for 2 months.",
           "hint": "two months with the native counter",
           "gloss": null,
-          "transliteration": "jeoneun du dal dongan hangugeo sueobeul deureosseoyo.",
+          "transliteration": "jeoneun ___ dongan hangugeo sueobeul deureosseoyo.",
           "cell": "달 (pure Korean numbers)",
           "display_order": 1
         },
@@ -6380,7 +6380,7 @@
           "translation": "I took a Korean class for 2 months.",
           "hint": "two months with the Chinese-origin counter",
           "gloss": null,
-          "transliteration": "jeoneun i gaewol dongan hangugeo sueobeul deureosseoyo.",
+          "transliteration": "jeoneun ___ dongan hangugeo sueobeul deureosseoyo.",
           "cell": "개월 (Sino-Korean numbers)",
           "display_order": 2
         },
@@ -6420,7 +6420,7 @@
           "translation": "I worked as an intern in Korea for two months.",
           "hint": "Use the Sino-Korean number for '2' with the counter used for a duration in months.",
           "gloss": null,
-          "transliteration": "jeoneun hangugeseo i gaewol dongan inteoneuro ilhaesseoyo.",
+          "transliteration": "jeoneun hangugeseo ___ dongan inteoneuro ilhaesseoyo.",
           "cell": "개월 (Sino-Korean numbers)",
           "display_order": 6
         }
@@ -6457,7 +6457,7 @@
           "translation": "6월 is read 'yuwol', not 'yugwol'.",
           "hint": "irregular name of the sixth month",
           "gloss": null,
-          "transliteration": "yuwoleun 'yugwol'i anira yuwol-irago ilgeoyo.",
+          "transliteration": "yuwoleun 'yugwol'i anira ___-irago ilgeoyo.",
           "cell": null,
           "display_order": 1
         },
@@ -6467,7 +6467,7 @@
           "translation": "10월 is read 'siwol'.",
           "hint": "irregular name of the tenth month",
           "gloss": null,
-          "transliteration": "siwoleun siwol-irago ilgeoyo.",
+          "transliteration": "siwoleun ___-irago ilgeoyo.",
           "cell": null,
           "display_order": 2
         },
@@ -6527,7 +6527,7 @@
           "translation": "My older sister is going to get married in March.",
           "hint": "The third month of the year — write the Korean word, not the digit.",
           "gloss": null,
-          "transliteration": "uri eonnineun samwore gyeolhonhal geoyeyo.",
+          "transliteration": "uri eonnineun ___e gyeolhonhal geoyeyo.",
           "cell": "March (3월)",
           "display_order": 9
         },
@@ -6557,7 +6557,7 @@
           "translation": "In July, the rainy season starts in Korea.",
           "hint": "the seventh month of the year, written as 7월",
           "gloss": null,
-          "transliteration": "chirwore-neun hanguge jangmaga sijakdwaeyo.",
+          "transliteration": "___e-neun hanguge jangmaga sijakdwaeyo.",
           "cell": "July (7월)",
           "display_order": 14
         },
@@ -6667,7 +6667,7 @@
           "translation": "In December it snows a lot, so the roads are slippery.",
           "hint": "한 해의 마지막 달 이름을 한자어 숫자로 쓰세요.",
           "gloss": null,
-          "transliteration": "sibiwore-neun nuni mani naeryeoseo giri mikkeureowoyo.",
+          "transliteration": "___e-neun nuni mani naeryeoseo giri mikkeureowoyo.",
           "cell": "December (12월)",
           "display_order": 25
         }
@@ -6697,7 +6697,7 @@
           "translation": "The class starts at 3:00.",
           "hint": "the third hour on the clock",
           "gloss": null,
-          "transliteration": "sueobeun se si-e sijakhaeyo.",
+          "transliteration": "sueobeun ___-e sijakhaeyo.",
           "cell": "시 – o'clock (pure Korean)",
           "display_order": 1
         },
@@ -6707,7 +6707,7 @@
           "translation": "I studied for 30 minutes.",
           "hint": "thirty of the small clock units",
           "gloss": null,
-          "transliteration": "jeoneun samsip bun dongan gongbuhaesseoyo.",
+          "transliteration": "jeoneun ___ dongan gongbuhaesseoyo.",
           "cell": "분 – minutes (Sino-Korean)",
           "display_order": 2
         },
@@ -6717,7 +6717,7 @@
           "translation": "I slept for three hours yesterday.",
           "hint": "a three-hour duration",
           "gloss": null,
-          "transliteration": "jeoneun eoje se sigan dongan jasseoyo.",
+          "transliteration": "jeoneun eoje ___ dongan jasseoyo.",
           "cell": "시간 – hours (pure Korean)",
           "display_order": 3
         },
@@ -6727,7 +6727,7 @@
           "translation": "I met that person for 10 seconds.",
           "hint": "ten of the smallest time units",
           "gloss": null,
-          "transliteration": "jeoneun geu sarameul sip cho dongan mannasseoyo.",
+          "transliteration": "jeoneun geu sarameul ___ dongan mannasseoyo.",
           "cell": "초 – seconds (Sino-Korean)",
           "display_order": 4
         },
@@ -6737,7 +6737,7 @@
           "translation": "I didn't go to school for three days.",
           "hint": "three days, Chinese-origin counter",
           "gloss": null,
-          "transliteration": "naneun sam il dongan hakgyoe an gasseo.",
+          "transliteration": "naneun ___ dongan hakgyoe an gasseo.",
           "cell": "일 – days (Sino-Korean)",
           "display_order": 5
         },
@@ -6747,7 +6747,7 @@
           "translation": "I didn't eat Korean food for two weeks.",
           "hint": "two weeks, Chinese-origin counter",
           "gloss": null,
-          "transliteration": "jeoneun i ju dongan hansigeul an meogeosseoyo.",
+          "transliteration": "jeoneun ___ dongan hansigeul an meogeosseoyo.",
           "cell": "주 – weeks (Sino-Korean)",
           "display_order": 6
         },
@@ -6757,7 +6757,7 @@
           "translation": "I studied Korean for two months.",
           "hint": "two months with the native word",
           "gloss": null,
-          "transliteration": "jeoneun du dal dongan hangugeoreul baewosseoyo.",
+          "transliteration": "jeoneun ___ dongan hangugeoreul baewosseoyo.",
           "cell": "달 – months (pure Korean)",
           "display_order": 7
         },
@@ -6767,7 +6767,7 @@
           "translation": "My younger sibling is ten years old.",
           "hint": "ten years of age",
           "gloss": null,
-          "transliteration": "je dongsaengeun yeol sal-ieyo.",
+          "transliteration": "je dongsaengeun ___-ieyo.",
           "cell": "살 – age (pure Korean)",
           "display_order": 9
         },
@@ -6777,7 +6777,7 @@
           "translation": "I went to school three times yesterday.",
           "hint": "three occurrences",
           "gloss": null,
-          "transliteration": "jeoneun eoje hakgyoe se beon gasseoyo.",
+          "transliteration": "jeoneun eoje hakgyoe ___ gasseoyo.",
           "cell": "번 – times (pure Korean)",
           "display_order": 10
         },
@@ -6787,7 +6787,7 @@
           "translation": "I slept for eight hours.",
           "hint": "eight hours, pure Korean number",
           "gloss": null,
-          "transliteration": "jeoneun yeodeol sigan dongan jasseoyo.",
+          "transliteration": "jeoneun ___ dongan jasseoyo.",
           "cell": null,
           "display_order": 11
         },
@@ -6797,7 +6797,7 @@
           "translation": "I walked for ten minutes.",
           "hint": "ten minutes, Sino-Korean number",
           "gloss": null,
-          "transliteration": "jeoneun sip bun dongan georeosseoyo.",
+          "transliteration": "jeoneun ___ dongan georeosseoyo.",
           "cell": null,
           "display_order": 12
         },
@@ -6807,7 +6807,7 @@
           "translation": "The meeting starts at 3 p.m., so don't be late.",
           "hint": "Use the native Korean numeral for '3' plus the hour counter (clock time).",
           "gloss": null,
-          "transliteration": "Hoeuineun ohu se si-e sijakhanikka neutji maseyo.",
+          "transliteration": "Hoeuineun ohu ___-e sijakhanikka neutji maseyo.",
           "cell": "시 – o'clock (pure Korean)",
           "display_order": 13
         },
@@ -6817,7 +6817,7 @@
           "translation": "They said the bus arrives in thirty minutes.",
           "hint": "Half an hour, expressed with the Sino-Korean number plus the minute counter.",
           "gloss": null,
-          "transliteration": "beoseuga samsip bun hue dochakhandago haesseoyo.",
+          "transliteration": "beoseuga ___ hue dochakhandago haesseoyo.",
           "cell": "분 – minutes (Sino-Korean)",
           "display_order": 14
         },
@@ -6837,7 +6837,7 @@
           "translation": "Take a deep breath and try holding your breath for ten seconds.",
           "hint": "숫자 10을 한자어로 읽고, 분보다 작은 시간 단위를 붙이세요.",
           "gloss": null,
-          "transliteration": "simhoheubeul hago sip cho dongan sumeul chama boseyo.",
+          "transliteration": "simhoheubeul hago ___ dongan sumeul chama boseyo.",
           "cell": "초 – seconds (Sino-Korean)",
           "display_order": 16
         },
@@ -6847,7 +6847,7 @@
           "translation": "Take this medicine twice a day for three days.",
           "hint": "Use the Sino-Korean number for 3 plus the day counter (the '일' series used for durations and dates).",
           "gloss": null,
-          "transliteration": "i yageun harue du beonssik sam il dongan deuseyo.",
+          "transliteration": "i yageun harue du beonssik ___ dongan deuseyo.",
           "cell": "일 – days (Sino-Korean)",
           "display_order": 17
         },
@@ -6857,7 +6857,7 @@
           "translation": "I left the house empty for two weeks because of a business trip.",
           "hint": "Use the Sino-Korean number for 2 plus the counter for 'week'.",
           "gloss": null,
-          "transliteration": "chuljang ttaemune i ju dongan jibeul biwosseoyo.",
+          "transliteration": "chuljang ttaemune ___ dongan jibeul biwosseoyo.",
           "cell": "주 – weeks (Sino-Korean)",
           "display_order": 18
         },
@@ -6887,7 +6887,7 @@
           "translation": "Take this medicine three times a day.",
           "hint": "Use the native Korean numeral for '3' with the counter for occurrences (frequency per day).",
           "gloss": null,
-          "transliteration": "i yageun harue se beon deuseyo.",
+          "transliteration": "i yageun harue ___ deuseyo.",
           "cell": "번 – times (pure Korean)",
           "display_order": 22
         }
@@ -6948,7 +6948,7 @@
           "translation": "When I arrived, the shop door was (in the state of) closed.",
           "hint": "past polite state form with 있다",
           "gloss": null,
-          "transliteration": "jega dochakhaesseul ttae gage muni dachyeo isseosseoyo.",
+          "transliteration": "jega dochakhaesseul ttae gage muni ___.",
           "cell": "past, state",
           "display_order": 3
         },
@@ -6958,7 +6958,7 @@
           "translation": "Yesterday morning the window was (in the state of) closed.",
           "hint": "past polite state form with 있다",
           "gloss": null,
-          "transliteration": "eoje achime changmuni dachyeo isseosseoyo.",
+          "transliteration": "eoje achime changmuni ___.",
           "cell": "past, state",
           "display_order": 4
         },
@@ -6988,7 +6988,7 @@
           "translation": "The window is closed right now.",
           "hint": "present polite state form with 있다",
           "gloss": null,
-          "transliteration": "jigeum changmuni dachyeo isseoyo.",
+          "transliteration": "jigeum changmuni ___.",
           "cell": "present, state",
           "display_order": 7
         },
@@ -6998,7 +6998,7 @@
           "translation": "The bank's door is closed.",
           "hint": "present polite state form with 있다",
           "gloss": null,
-          "transliteration": "eunhaeng muni dachyeo isseoyo.",
+          "transliteration": "eunhaeng muni ___.",
           "cell": "present, state",
           "display_order": 8
         },
@@ -7008,7 +7008,7 @@
           "translation": "The door will close soon.",
           "hint": "future polite passive of 'to shut'",
           "gloss": null,
-          "transliteration": "muni got dachil geoyeyo.",
+          "transliteration": "muni got ___.",
           "cell": "future, event",
           "display_order": 9
         },
@@ -7018,7 +7018,7 @@
           "translation": "That door will close by itself.",
           "hint": "future polite passive of 'to shut'",
           "gloss": null,
-          "transliteration": "geu muneun jeojeollo dachil geoyeyo.",
+          "transliteration": "geu muneun jeojeollo ___.",
           "cell": "future, event",
           "display_order": 10
         },
@@ -7028,7 +7028,7 @@
           "translation": "Tomorrow morning the shop door will be (in the state of) closed.",
           "hint": "future polite state form with 있다",
           "gloss": null,
-          "transliteration": "naeil achime gage muni dachyeo isseul geoyeyo.",
+          "transliteration": "naeil achime gage muni ___.",
           "cell": "future, state",
           "display_order": 11
         },
@@ -7038,7 +7038,7 @@
           "translation": "When I go, the window will be (in the state of) closed.",
           "hint": "future polite state form with 있다",
           "gloss": null,
-          "transliteration": "jega gal ttae changmuni dachyeo isseul geoyeyo.",
+          "transliteration": "jega gal ttae changmuni ___.",
           "cell": "future, state",
           "display_order": 12
         },
@@ -7155,7 +7155,7 @@
           "translation": "My younger sibling broke the clock.",
           "hint": "past polite active 'to cause a breakdown'",
           "gloss": null,
-          "transliteration": "je dongsaengi sigyereul gojang naesseoyo.",
+          "transliteration": "je dongsaengi sigyereul ___.",
           "cell": "고장 – active (내다)",
           "display_order": 5
         },
@@ -7165,7 +7165,7 @@
           "translation": "I broke my friend's computer.",
           "hint": "past polite active 'to cause a breakdown'",
           "gloss": null,
-          "transliteration": "jeoneun chinguui keompyuteoreul gojang naesseoyo.",
+          "transliteration": "jeoneun chinguui keompyuteoreul ___.",
           "cell": "고장 – active (내다)",
           "display_order": 6
         },
@@ -7175,7 +7175,7 @@
           "translation": "My cell phone is broken.",
           "hint": "past polite passive 'to be out of order'",
           "gloss": null,
-          "transliteration": "je hyudaeponi gojang nasseoyo.",
+          "transliteration": "je hyudaeponi ___.",
           "cell": "고장 – passive (나다)",
           "display_order": 7
         },
@@ -7185,7 +7185,7 @@
           "translation": "The TV in the classroom is broken.",
           "hint": "past polite passive 'to be out of order'",
           "gloss": null,
-          "transliteration": "gyosirui TV-ga gojang nasseoyo.",
+          "transliteration": "gyosirui TV-ga ___.",
           "cell": "고장 – passive (나다)",
           "display_order": 8
         },
@@ -7253,7 +7253,7 @@
           "translation": "Ah, I remember that!",
           "hint": "the memory 'came up', past polite",
           "gloss": null,
-          "transliteration": "a! geugeosi gieogi nasseoyo!",
+          "transliteration": "a! geugeosi ___!",
           "cell": "기억 (memory)",
           "display_order": 1
         },
@@ -7263,7 +7263,7 @@
           "translation": "My friend's name suddenly came back to me.",
           "hint": "the memory 'came up', past polite",
           "gloss": null,
-          "transliteration": "chinguui ireumi gapjagi gieogi nasseoyo.",
+          "transliteration": "chinguui ireumi gapjagi ___.",
           "cell": "기억 (memory)",
           "display_order": 2
         },
@@ -7273,7 +7273,7 @@
           "translation": "I have a good idea!",
           "hint": "an idea 'came up', past polite",
           "gloss": null,
-          "transliteration": "joeun saenggagi nasseoyo!",
+          "transliteration": "joeun ___!",
           "cell": "생각 (thought/idea)",
           "display_order": 3
         },
@@ -7283,7 +7283,7 @@
           "translation": "While watching that movie I thought of my mother.",
           "hint": "a thought 'came up', past polite",
           "gloss": null,
-          "transliteration": "geu yeonghwareul bol ttae eomeoni saenggagi nasseoyo.",
+          "transliteration": "geu yeonghwareul bol ttae eomeoni ___.",
           "cell": "생각 (thought/idea)",
           "display_order": 4
         },
@@ -7293,7 +7293,7 @@
           "translation": "That bag smelled (a smell came out of that bag).",
           "hint": "a smell 'came out', past polite",
           "gloss": null,
-          "transliteration": "geu gabangeseo naemsaega nasseoyo.",
+          "transliteration": "geu gabangeseo ___.",
           "cell": "냄새 (smell)",
           "display_order": 5
         },
@@ -7303,7 +7303,7 @@
           "translation": "A strange smell was coming out of that room.",
           "hint": "a smell 'came out', past polite",
           "gloss": null,
-          "transliteration": "geu bangeseo isanghan naemsaega nasseoyo.",
+          "transliteration": "geu bangeseo isanghan ___.",
           "cell": "냄새 (smell)",
           "display_order": 6
         },
@@ -7313,7 +7313,7 @@
           "translation": "I am/was angry.",
           "hint": "anger 'came up', past polite",
           "gloss": null,
-          "transliteration": "jeoneun hwaga nasseoyo.",
+          "transliteration": "jeoneun ___.",
           "cell": "화 (anger)",
           "display_order": 7
         },
@@ -7323,7 +7323,7 @@
           "translation": "The teacher got very angry.",
           "hint": "anger 'came up', past polite",
           "gloss": null,
-          "transliteration": "seonsaengnimi aju hwaga nasseoyo.",
+          "transliteration": "seonsaengnimi aju ___.",
           "cell": "화 (anger)",
           "display_order": 8
         },
@@ -7333,7 +7333,7 @@
           "translation": "I'm sweating.",
           "hint": "sweat 'came out', past polite",
           "gloss": null,
-          "transliteration": "jeoneun ttami nasseoyo.",
+          "transliteration": "jeoneun ___.",
           "cell": "땀 (sweat)",
           "display_order": 9
         },
@@ -7343,7 +7343,7 @@
           "translation": "It was so hot that I was sweating.",
           "hint": "sweat 'came out', past polite",
           "gloss": null,
-          "transliteration": "neomu deowoseo ttami nasseoyo.",
+          "transliteration": "neomu deowoseo ___.",
           "cell": "땀 (sweat)",
           "display_order": 10
         },
@@ -7353,7 +7353,7 @@
           "translation": "A loud sound came from outside.",
           "hint": "a sound 'came up', past polite",
           "gloss": null,
-          "transliteration": "bakkeseo keun soriga nasseoyo.",
+          "transliteration": "bakkeseo keun ___.",
           "cell": "소리 (sound)",
           "display_order": 11
         },
@@ -7363,7 +7363,7 @@
           "translation": "There was an accident in front of the school.",
           "hint": "an accident 'arose', past polite",
           "gloss": null,
-          "transliteration": "hakgyo apeseo sagoga nasseoyo.",
+          "transliteration": "hakgyo apeseo ___.",
           "cell": "사고 (accident)",
           "display_order": 12
         },
@@ -7373,7 +7373,7 @@
           "translation": "A war broke out in that country.",
           "hint": "a war 'came up', past polite",
           "gloss": null,
-          "transliteration": "geu naraeseo jeonjaengi nasseoyo.",
+          "transliteration": "geu naraeseo ___.",
           "cell": "전쟁 (war)",
           "display_order": 13
         },
@@ -7383,7 +7383,7 @@
           "translation": "I got motion sick on the bus.",
           "hint": "motion sickness 'came up', past polite",
           "gloss": null,
-          "transliteration": "beoseueseo meolmiga nasseoyo.",
+          "transliteration": "beoseueseo ___.",
           "cell": "멀미 (motion sickness)",
           "display_order": 14
         },
@@ -7393,7 +7393,7 @@
           "translation": "I remember that.",
           "hint": "subject particle after a consonant",
           "gloss": null,
-          "transliteration": "jeoneun geugeosi gieongnayo.",
+          "transliteration": "jeoneun geugeos___ gieongnayo.",
           "cell": null,
           "display_order": 15
         },
@@ -7433,7 +7433,7 @@
           "translation": "A big accident happened on the highway last night.",
           "hint": "Use the noun for a crash/mishap plus the past polite form of 나다 ('to occur').",
           "gloss": null,
-          "transliteration": "eojetbam-e gosokdoro-eseo keun sago-ga nasseoyo.",
+          "transliteration": "eojetbam-e gosokdoro-eseo keun ___.",
           "cell": "사고 (accident)",
           "display_order": 19
         },
@@ -7664,7 +7664,7 @@
           "translation": "I miss Korean food.",
           "hint": "subject-marking particle after a consonant",
           "gloss": null,
-          "transliteration": "jeoneun hanguk eumsigi geuriwoyo.",
+          "transliteration": "jeoneun hanguk eumsig___ geuriwoyo.",
           "cell": null,
           "display_order": 1
         },
@@ -7674,7 +7674,7 @@
           "translation": "I like kimchi.",
           "hint": "subject-marking particle after a vowel",
           "gloss": null,
-          "transliteration": "jeoneun kimchiga joayo.",
+          "transliteration": "jeoneun kimchi___ joayo.",
           "cell": null,
           "display_order": 2
         },
@@ -7684,7 +7684,7 @@
           "translation": "I am proud of you.",
           "hint": "subject-marking particle after a vowel",
           "gloss": null,
-          "transliteration": "naneun nega jarangseureowo.",
+          "transliteration": "naneun ne___ jarangseureowo.",
           "cell": null,
           "display_order": 3
         },
@@ -7694,7 +7694,7 @@
           "translation": "I don't like school.",
           "hint": "subject-marking particle after a vowel",
           "gloss": null,
-          "transliteration": "jeoneun hakgyoga sireoyo.",
+          "transliteration": "jeoneun hakgyo___ sireoyo.",
           "cell": null,
           "display_order": 4
         }
@@ -8867,7 +8867,7 @@
           "translation": "My younger sibling's personality is so impulsive that he spends all his allowance in just a few days.",
           "hint": "명사 '충동'에 한자 접미사 '-적'을 붙인 형태 (영어로 'impulsive')",
           "gloss": null,
-          "transliteration": "dongsaeng-eun seonggyeog-i neomu chungdongjeog-iraseo yongdon-eul myeochil man-e da sseo beorinda.",
+          "transliteration": "dongsaeng-eun seonggyeog-i neomu ___-iraseo yongdon-eul myeochil man-e da sseo beorinda.",
           "cell": "충동 + 적",
           "display_order": 34
         },
@@ -9715,7 +9715,7 @@
           "translation": "I want to go to Jeju Island for sure this vacation.",
           "hint": "일기나 글에 쓰는 기본 평서형(반말/문어체)으로, 어딘가로 이동하기를 바란다는 희망 표현을 쓰세요.",
           "gloss": null,
-          "transliteration": "Naneun ibeon banghage kkok Jejudoe gago sipda.",
+          "transliteration": "Naneun ibeon banghage kkok Jejudoe ___.",
           "cell": "plain present",
           "display_order": 12
         }
@@ -10257,7 +10257,7 @@
           "translation": "That tree is over a hundred years old, but it's still alive.",
           "hint": "Use the polite '-아/어 있어요' construction expressing a continuing state of being alive.",
           "gloss": null,
-          "transliteration": "geu namuneun baek nyeoni neomeotjiman ajik sara isseoyo.",
+          "transliteration": "geu namuneun baek nyeoni neomeotjiman ajik ___.",
           "cell": "살다 (to live / be alive)",
           "display_order": 13
         },
@@ -10267,7 +10267,7 @@
           "translation": "I turned it off when I left, but the light in the room is still on.",
           "hint": "Use the passive verb meaning '(a light) comes on' in the resultant-state pattern -어 있다, polite 요 form.",
           "gloss": null,
-          "transliteration": "jega nagal ttae kkeonneunde, bange buri ajik kyeojyeo isseoyo.",
+          "transliteration": "jega nagal ttae kkeonneunde, bange buri ajik ___.",
           "cell": "켜지다 (to be turned on)",
           "display_order": 14
         },
@@ -10476,7 +10476,7 @@
           "translation": "If you attach '-eojida' to the adjective 'keuda', it becomes the verb 'to grow bigger'.",
           "hint": "기본형(사전형)으로 쓰세요 — '점점 크게 되다'라는 뜻의 동사.",
           "gloss": null,
-          "transliteration": "hyeongyongsa 'keuda'e '-eojida'reul buchimyeon dongsa 'keojida'ga doenda.",
+          "transliteration": "hyeongyongsa 'keuda'e '-eojida'reul buchimyeon dongsa '___'ga doenda.",
           "cell": "크다 (to be big)",
           "display_order": 9
         },
@@ -10486,7 +10486,7 @@
           "translation": "If you attach '-어지다' to '어렵다', it becomes '어려워지다' (to become difficult).",
           "hint": "Give the plain dictionary form of the resulting 'become + adjective' verb (ㅂ-irregular).",
           "gloss": null,
-          "transliteration": "'eoryeopda'e '-eojida'reul buchimyeon eoryeowojida-ga doemnida.",
+          "transliteration": "'eoryeopda'e '-eojida'reul buchimyeon ___-ga doemnida.",
           "cell": "어렵다 (to be difficult)",
           "display_order": 10
         }
@@ -10629,7 +10629,7 @@
           "translation": "Starting next week, the weather will suddenly get cold.",
           "hint": "Use the '-아/어지다' change-of-state verb for '춥다' in the future-guess form, polite informal style (해요체).",
           "gloss": null,
-          "transliteration": "daeum jubuteo nalssiga gapjagi chuwojil geoyeyo.",
+          "transliteration": "daeum jubuteo nalssiga gapjagi ___.",
           "cell": "future, informal polite",
           "display_order": 12
         },
@@ -10639,7 +10639,7 @@
           "translation": "Now that it's October, the morning air is gradually getting colder.",
           "hint": "Use the progressive (-고 있다) of the verb meaning 'to become cold', in informal polite style.",
           "gloss": null,
-          "transliteration": "Siwori doenikka achim gonggiga jeomjeom chuwojigo isseoyo.",
+          "transliteration": "Siwori doenikka achim gonggiga jeomjeom ___.",
           "cell": "progressive, informal polite",
           "display_order": 13
         }
@@ -11459,7 +11459,7 @@
           "translation": "When the meeting ends, will you go straight home?",
           "hint": "Use the formal (합니다체) future question form of 가다.",
           "gloss": null,
-          "transliteration": "Hoeuiga kkeunnamyeon baro jibeuro gal geosimnikka?",
+          "transliteration": "Hoeuiga kkeunnamyeon baro jibeuro ___",
           "cell": "future (것입니까)",
           "display_order": 11
         },
@@ -11469,7 +11469,7 @@
           "translation": "Why didn't you go to the company dinner yesterday?",
           "hint": "Use the short negation with 안 plus the formal polite past question ending of 가다 (-았습니까?).",
           "gloss": null,
-          "transliteration": "eoje hoesige wae an gatseumnikka?",
+          "transliteration": "eoje hoesige wae ___",
           "cell": "negative with 안",
           "display_order": 12
         }
@@ -11601,7 +11601,7 @@
           "translation": "Is this your bag?",
           "hint": "present informal question form of the 'to be' copula",
           "gloss": null,
-          "transliteration": "ige ne gabang-ini?",
+          "transliteration": "ige ne gabang-___?",
           "cell": "present – 이다",
           "display_order": 11
         },
@@ -11611,7 +11611,7 @@
           "translation": "Is that person your friend?",
           "hint": "present informal question form of the 'to be' copula",
           "gloss": null,
-          "transliteration": "geu sarami ne chingu-ini?",
+          "transliteration": "geu sarami ne chingu-___?",
           "cell": "present – 이다",
           "display_order": 12
         },
@@ -11641,7 +11641,7 @@
           "translation": "What are you going to do on the weekend?",
           "hint": "future (~ㄹ 것이다) informal question form of 'to do'",
           "gloss": null,
-          "transliteration": "jumare mueoseul hal geoni?",
+          "transliteration": "jumare mueoseul ___?",
           "cell": "future ~ㄹ 것이다 – 하다",
           "display_order": 15
         },
@@ -11651,7 +11651,7 @@
           "translation": "Are you going to do that work alone?",
           "hint": "future (~ㄹ 것이다) informal question form of 'to do'",
           "gloss": null,
-          "transliteration": "geu ireul honja hal geoni?",
+          "transliteration": "geu ireul honja ___?",
           "cell": "future ~ㄹ 것이다 – 하다",
           "display_order": 16
         },
@@ -11812,7 +11812,7 @@
           "translation": "Is that person a teacher?",
           "hint": "soft present question form of the 'to be' copula",
           "gloss": null,
-          "transliteration": "geu sarami seonsaengnim-inga?",
+          "transliteration": "geu sarami seonsaengnim-___?",
           "cell": "이다 (plain)",
           "display_order": 5
         },
@@ -11822,7 +11822,7 @@
           "translation": "Is that person our mom?",
           "hint": "soft present question form of the 'to be' copula",
           "gloss": null,
-          "transliteration": "geu sarami uri eomma-inga?",
+          "transliteration": "geu sarami uri eomma-___?",
           "cell": "이다 (plain)",
           "display_order": 6
         },
@@ -11862,7 +11862,7 @@
           "translation": "Is that person the new teacher?",
           "hint": "soft polite present question form of the copula",
           "gloss": null,
-          "transliteration": "geu buni sae seonsaengnim-ingayo?",
+          "transliteration": "geu buni sae seonsaengnim-___?",
           "cell": null,
           "display_order": 10
         },
@@ -11994,7 +11994,7 @@
           "translation": "Were you admitted to the hospital yesterday?",
           "hint": "soft polite past question form of 'to do'",
           "gloss": null,
-          "transliteration": "eoje byeongwone ibwon-haennayo?",
+          "transliteration": "eoje byeongwone ibwon-___?",
           "cell": "past – 하다",
           "display_order": 6
         },
@@ -12184,7 +12184,7 @@
           "translation": "When is the wedding?",
           "hint": "question word standing before the copula, asking about time",
           "gloss": null,
-          "transliteration": "gyeolhonsigeun eonjeya?",
+          "transliteration": "gyeolhonsigeun ___ya?",
           "cell": null,
           "display_order": 1
         },
@@ -12194,7 +12194,7 @@
           "translation": "Since when have you been learning Korean?",
           "hint": "time question word taking the 'from' particle",
           "gloss": null,
-          "transliteration": "eonjebuteo hangugeoreul baewosseoyo?",
+          "transliteration": "___buteo hangugeoreul baewosseoyo?",
           "cell": null,
           "display_order": 2
         },
@@ -12204,7 +12204,7 @@
           "translation": "Until when will you be in Korea?",
           "hint": "time question word taking the 'until' particle",
           "gloss": null,
-          "transliteration": "hanguge eonjekkaji isseul geoyeyo?",
+          "transliteration": "hanguge ___kkaji isseul geoyeyo?",
           "cell": null,
           "display_order": 3
         },
@@ -12256,7 +12256,7 @@
           "translation": "Where did you get that file?",
           "hint": "place question word before the contracted 'from' form",
           "gloss": null,
-          "transliteration": "geu paireul eodiseo badasseoyo?",
+          "transliteration": "geu paireul ___seo badasseoyo?",
           "cell": null,
           "display_order": 2
         },
@@ -12266,7 +12266,7 @@
           "translation": "Where is my lotion?",
           "hint": "place question word used with 있다",
           "gloss": null,
-          "transliteration": "je rosyeoni eodie isseoyo?",
+          "transliteration": "je rosyeoni ___e isseoyo?",
           "cell": null,
           "display_order": 3
         },
@@ -12276,7 +12276,7 @@
           "translation": "Until where will you ride the bus?",
           "hint": "place question word taking the 'until' particle",
           "gloss": null,
-          "transliteration": "beoseureul eodikkaji tal geoyeyo?",
+          "transliteration": "beoseureul ___kkaji tal geoyeyo?",
           "cell": null,
           "display_order": 4
         }
@@ -12338,7 +12338,7 @@
           "translation": "Who is that person?",
           "hint": "'who' pronoun standing before the copula",
           "gloss": null,
-          "transliteration": "geu sarameun nuguya?",
+          "transliteration": "geu sarameun ___ya?",
           "cell": "before 이다",
           "display_order": 4
         },
@@ -12358,7 +12358,7 @@
           "translation": "Who will you meet on the weekend?",
           "hint": "object form of 'who' — the sentence already supplies 를",
           "gloss": null,
-          "transliteration": "neoneun jumare nugureul mannal geoya?",
+          "transliteration": "neoneun jumare ___reul mannal geoya?",
           "cell": null,
           "display_order": 6
         },
@@ -12378,7 +12378,7 @@
           "translation": "Who is the person smiling in this photo?",
           "hint": "사람의 정체를 묻는 의문사로, '이다'(예요) 앞에 오는 기본 형태입니다. (주격 조사와 줄어든 '누가' 형태가 아님)",
           "gloss": null,
-          "transliteration": "i sajin sogeseo utgo inneun sarameun nugu-yeyo?",
+          "transliteration": "i sajin sogeseo utgo inneun sarameun ___-yeyo?",
           "cell": "before 이다",
           "display_order": 9
         }
@@ -12614,7 +12614,7 @@
           "translation": "What is your name?",
           "hint": "'what' pronoun used before the copula",
           "gloss": null,
-          "transliteration": "ireumi mwoyeyo?",
+          "transliteration": "ireumi ___yeyo?",
           "cell": "before 이다",
           "display_order": 5
         },
@@ -12624,7 +12624,7 @@
           "translation": "What is this?",
           "hint": "'what' pronoun used before the copula",
           "gloss": null,
-          "transliteration": "igeoseun mwoya?",
+          "transliteration": "igeoseun ___ya?",
           "cell": "before 이다",
           "display_order": 6
         },
@@ -12644,7 +12644,7 @@
           "translation": "What did you eat in the morning?",
           "hint": "the more formal 'what' pronoun taking ~을",
           "gloss": null,
-          "transliteration": "achime mueoseul meogeosseo?",
+          "transliteration": "achime ___eul meogeosseo?",
           "cell": null,
           "display_order": 9
         },
@@ -13496,7 +13496,7 @@
           "translation": "I cleaned the room before the guest came.",
           "hint": "prior to someone's arrival",
           "gloss": null,
-          "transliteration": "sonnimi ogi jeone bang-eul chiwosseoyo.",
+          "transliteration": "sonnimi ___ bang-eul chiwosseoyo.",
           "cell": "오다 (to come)",
           "display_order": 1
         },
@@ -13506,7 +13506,7 @@
           "translation": "My younger sibling lived in China before coming to Korea.",
           "hint": "before arriving here",
           "gloss": null,
-          "transliteration": "je dongsaeng-eun hanguge ogi jeone jung-gugeseo saratseoyo.",
+          "transliteration": "je dongsaeng-eun hanguge ___ jung-gugeseo saratseoyo.",
           "cell": "오다 (to come)",
           "display_order": 2
         },
@@ -13516,7 +13516,7 @@
           "translation": "I wash my hands before I eat.",
           "hint": "prior to having a meal",
           "gloss": null,
-          "transliteration": "jeoneun babeul meokgi jeone soneul ssiseoyo.",
+          "transliteration": "jeoneun babeul ___ soneul ssiseoyo.",
           "cell": "먹다 (to eat)",
           "display_order": 3
         },
@@ -13526,7 +13526,7 @@
           "translation": "I got water ready before taking the medicine.",
           "hint": "before swallowing it",
           "gloss": null,
-          "transliteration": "yageul meokgi jeone mureul junbihaesseoyo.",
+          "transliteration": "yageul ___ mureul junbihaesseoyo.",
           "cell": "먹다 (to eat)",
           "display_order": 4
         },
@@ -13536,7 +13536,7 @@
           "translation": "I looked out the window before putting on my coat.",
           "hint": "before putting the clothing on",
           "gloss": null,
-          "transliteration": "jeoneun koteureul ipgi jeone changbakkeul bwasseoyo.",
+          "transliteration": "jeoneun koteureul ___ changbakkeul bwasseoyo.",
           "cell": "입다 (to wear, put on)",
           "display_order": 5
         },
@@ -13546,7 +13546,7 @@
           "translation": "I closed the window before leaving the house.",
           "hint": "before stepping outside",
           "gloss": null,
-          "transliteration": "jibeseo nagagi jeone changmuneul dadasseoyo.",
+          "transliteration": "jibeseo ___ changmuneul dadasseoyo.",
           "cell": "나가다 (to go out)",
           "display_order": 6
         },
@@ -13556,7 +13556,7 @@
           "translation": "My older sister worked in Busan before she got married.",
           "hint": "before the wedding took place",
           "gloss": null,
-          "transliteration": "eonnineun gyeolhonhagi jeone busaneseo ilhaesseoyo.",
+          "transliteration": "eonnineun ___ busaneseo ilhaesseoyo.",
           "cell": "결혼하다 (to marry)",
           "display_order": 7
         },
@@ -13566,7 +13566,7 @@
           "translation": "Before mom came, I ate.",
           "hint": "'before ___ arrives' clause built on 오다",
           "gloss": null,
-          "transliteration": "eommaga ogi jeone naneun babeul meogeosseo.",
+          "transliteration": "eommaga ___ naneun babeul meogeosseo.",
           "cell": null,
           "display_order": 8
         },
@@ -13576,7 +13576,7 @@
           "translation": "My younger brother drank milk before going to school.",
           "hint": "'before going' clause built on 가다",
           "gloss": null,
-          "transliteration": "dongsaeng-eun hakgyoe gagi jeone uyureul masyeosseoyo.",
+          "transliteration": "dongsaeng-eun hakgyoe ___ uyureul masyeosseoyo.",
           "cell": null,
           "display_order": 9
         },
@@ -13586,7 +13586,7 @@
           "translation": "Before mom comes, I will eat.",
           "hint": "future/intention form of 'to eat', casual style — the tense goes here, not in the first clause",
           "gloss": null,
-          "transliteration": "eommaga ogi jeone naneun meogeul geoya.",
+          "transliteration": "eommaga ogi jeone naneun ___.",
           "cell": null,
           "display_order": 10
         },
@@ -13653,7 +13653,7 @@
           "translation": "After I ate, I drank coffee.",
           "hint": "once the meal was finished",
           "gloss": null,
-          "transliteration": "jeoneun babeul meogeun hue keopireul masyeosseoyo.",
+          "transliteration": "jeoneun babeul ___ keopireul masyeosseoyo.",
           "cell": "먹다 → consonant stem",
           "display_order": 1
         },
@@ -13663,7 +13663,7 @@
           "translation": "After eating a lot of snacks, my stomach hurt.",
           "hint": "following the eating",
           "gloss": null,
-          "transliteration": "gwajareul mani meogeun hue baega apasseoyo.",
+          "transliteration": "gwajareul mani ___ baega apasseoyo.",
           "cell": "먹다 → consonant stem",
           "display_order": 2
         },
@@ -13673,7 +13673,7 @@
           "translation": "After putting on my dress shoes, I got up from the chair.",
           "hint": "once the shoes were on",
           "gloss": null,
-          "transliteration": "gudureul sineun hue uijaeseo ireonasseoyo.",
+          "transliteration": "gudureul ___ uijaeseo ireonasseoyo.",
           "cell": "신다 → consonant stem",
           "display_order": 3
         },
@@ -13683,7 +13683,7 @@
           "translation": "After I got the address, I sent the letter.",
           "hint": "once it had been received",
           "gloss": null,
-          "transliteration": "jusoreul badeun hue pyeonjireul bonaesseoyo.",
+          "transliteration": "jusoreul ___ pyeonjireul bonaesseoyo.",
           "cell": "받다 → consonant stem",
           "display_order": 4
         },
@@ -13693,7 +13693,7 @@
           "translation": "After the guest left, we cleaned the room.",
           "hint": "once the person had gone",
           "gloss": null,
-          "transliteration": "sonnimi gan hue urineun bang-eul chiwosseoyo.",
+          "transliteration": "sonnimi ___ urineun bang-eul chiwosseoyo.",
           "cell": "가다 → vowel stem",
           "display_order": 5
         },
@@ -13703,7 +13703,7 @@
           "translation": "After my homework is finished, I will go home.",
           "hint": "once it is over",
           "gloss": null,
-          "transliteration": "sukjega kkeutnan hue naneun jibe gal geoya.",
+          "transliteration": "sukjega ___ naneun jibe gal geoya.",
           "cell": "끝나다 → vowel stem",
           "display_order": 6
         },
@@ -13713,7 +13713,7 @@
           "translation": "After the meeting ended, I drank coffee.",
           "hint": "once it had come to an end",
           "gloss": null,
-          "transliteration": "hoeuiga kkeutnan hue jeoneun keopireul masyeosseoyo.",
+          "transliteration": "hoeuiga ___ jeoneun keopireul masyeosseoyo.",
           "cell": "끝나다 → vowel stem",
           "display_order": 7
         },
@@ -13723,7 +13723,7 @@
           "translation": "After cleaning up my room, I went outside.",
           "hint": "once the tidying was done",
           "gloss": null,
-          "transliteration": "bang-eul chiun hue bakke nagasseoyo.",
+          "transliteration": "bang-eul ___ bakke nagasseoyo.",
           "cell": "치우다 → vowel stem",
           "display_order": 8
         },
@@ -13733,7 +13733,7 @@
           "translation": "After the meeting finishes, I will go home.",
           "hint": "'after it ends' — built on a vowel-final stem",
           "gloss": null,
-          "transliteration": "hoeuiga kkeutnan hue jeoneun jibe gal geoyeyo.",
+          "transliteration": "hoeuiga ___ jeoneun jibe gal geoyeyo.",
           "cell": null,
           "display_order": 9
         },
@@ -13743,7 +13743,7 @@
           "translation": "After I tidied my room, I went for a walk.",
           "hint": "'after cleaning up' — vowel-final stem",
           "gloss": null,
-          "transliteration": "jeoneun bang-eul chiun hue sanchaekhaesseoyo.",
+          "transliteration": "jeoneun bang-eul ___ sanchaekhaesseoyo.",
           "cell": null,
           "display_order": 10
         },
@@ -13753,7 +13753,7 @@
           "translation": "After I ate, I met a friend.",
           "hint": "'after having the meal' — consonant-final stem",
           "gloss": null,
-          "transliteration": "babeul meogeun hue chingureul mannasseoyo.",
+          "transliteration": "babeul ___ chingureul mannasseoyo.",
           "cell": null,
           "display_order": 11
         },
@@ -13763,7 +13763,7 @@
           "translation": "After putting on my new sneakers, I ran in the park for a whole hour.",
           "hint": "Use the verb meaning 'to put on (shoes/socks)' with the pattern -은 후에 for consonant-final stems.",
           "gloss": null,
-          "transliteration": "sae undonghwa-reul sineun hue gongwon-eseo han sigani-na ttwieosseoyo.",
+          "transliteration": "sae undonghwa-reul ___ gongwon-eseo han sigani-na ttwieosseoyo.",
           "cell": "신다 → consonant stem",
           "display_order": 12
         },
@@ -13773,7 +13773,7 @@
           "translation": "After I received my salary, I bought a present for my parents.",
           "hint": "동사 '받다'를 '-(으)ㄴ 후에' 형태로 바꿔 쓰세요. 자음으로 끝나는 어간입니다.",
           "gloss": null,
-          "transliteration": "jeoneun wolgeubeul badeun hue bumonimkke seonmureul sa deuryeosseoyo.",
+          "transliteration": "jeoneun wolgeubeul ___ bumonimkke seonmureul sa deuryeosseoyo.",
           "cell": "받다 → consonant stem",
           "display_order": 13
         },
@@ -13793,7 +13793,7 @@
           "translation": "After clearing the table, I drank a cup of coffee.",
           "hint": "Use the verb meaning 'to clear away/tidy' with the '-(으)ㄴ 후에' (after doing) pattern; the stem ends in a vowel.",
           "gloss": null,
-          "transliteration": "Jeoneun siktageul chiun hue keopireul han jan masyeosseoyo.",
+          "transliteration": "Jeoneun siktageul ___ keopireul han jan masyeosseoyo.",
           "cell": "치우다 → vowel stem",
           "display_order": 15
         }
@@ -13834,7 +13834,7 @@
           "translation": "The door will open 2 seconds from now.",
           "hint": "two of the smallest time units later",
           "gloss": null,
-          "transliteration": "i-cho hue muni yeollil geoyeyo.",
+          "transliteration": "___ muni yeollil geoyeyo.",
           "cell": "seconds",
           "display_order": 1
         },
@@ -13844,7 +13844,7 @@
           "translation": "The bus will come 5 minutes from now.",
           "hint": "a five-unit wait, shorter than an hour",
           "gloss": null,
-          "transliteration": "beoseuneun o-bun hue ol geoyeyo.",
+          "transliteration": "beoseuneun ___ ol geoyeyo.",
           "cell": "minutes",
           "display_order": 2
         },
@@ -13854,7 +13854,7 @@
           "translation": "The plane will arrive 10 hours from now.",
           "hint": "ten of the sixty-minute units, written as a word",
           "gloss": null,
-          "transliteration": "bihaenggineun yeol sigan hue dochakhal geoyeyo.",
+          "transliteration": "bihaenggineun ___ dochakhal geoyeyo.",
           "cell": "hours",
           "display_order": 3
         },
@@ -13864,7 +13864,7 @@
           "translation": "I will go to my hometown 4 days from now.",
           "hint": "four twenty-four-hour periods later",
           "gloss": null,
-          "transliteration": "sa-il hue gohyang-e gal geoyeyo.",
+          "transliteration": "___ gohyang-e gal geoyeyo.",
           "cell": "days",
           "display_order": 4
         },
@@ -13874,7 +13874,7 @@
           "translation": "The meeting is 3 weeks from now.",
           "hint": "three seven-day periods later",
           "gloss": null,
-          "transliteration": "hoeuineun sam-ju hue isseoyo.",
+          "transliteration": "hoeuineun ___ isseoyo.",
           "cell": "weeks",
           "display_order": 5
         },
@@ -13884,7 +13884,7 @@
           "translation": "We will get married 2 years from now.",
           "hint": "two twelve-month periods later",
           "gloss": null,
-          "transliteration": "urineun i-nyeon hue gyeolhonhal geoyeyo.",
+          "transliteration": "urineun ___ gyeolhonhal geoyeyo.",
           "cell": "years",
           "display_order": 6
         },
@@ -13894,7 +13894,7 @@
           "translation": "I will go two hours from now.",
           "hint": "two of the sixty-minute units later, native numbers",
           "gloss": null,
-          "transliteration": "jeoneun du sigan hue gal geoyeyo.",
+          "transliteration": "jeoneun ___ gal geoyeyo.",
           "cell": null,
           "display_order": 7
         },
@@ -13904,7 +13904,7 @@
           "translation": "Class will finish 2 minutes from now.",
           "hint": "a two-unit wait, shorter than an hour",
           "gloss": null,
-          "transliteration": "sueobeun i-bun hue kkeutnal geoyeyo.",
+          "transliteration": "sueobeun ___ kkeutnal geoyeyo.",
           "cell": null,
           "display_order": 8
         },
@@ -13934,7 +13934,7 @@
           "translation": "This plane arrives at Incheon Airport ten hours from now.",
           "hint": "Use the native Korean numeral for 10 with the counter for clock-hours, followed by the particle meaning 'after/later'.",
           "gloss": null,
-          "transliteration": "i bihaenggineun yeol sigan hue Incheon gonghange dochakhamnida.",
+          "transliteration": "i bihaenggineun ___ Incheon gonghange dochakhamnida.",
           "cell": "hours",
           "display_order": 11
         },
@@ -13944,7 +13944,7 @@
           "translation": "The exam results will be announced four days from now.",
           "hint": "Use the time expression meaning 'after' the number of days shown by the numeral (four).",
           "gloss": null,
-          "transliteration": "siheom gyeolgwaneun sa-il hue balpyodoemnida.",
+          "transliteration": "siheom gyeolgwaneun ___ balpyodoemnida.",
           "cell": "days",
           "display_order": 12
         },
@@ -13954,7 +13954,7 @@
           "translation": "I'm going to move to a new apartment in three weeks.",
           "hint": "Time expression meaning 'after three of the seven-day units' — number + counter for weeks + the word for 'after'.",
           "gloss": null,
-          "transliteration": "jeoneun sam-ju hue sae apateuro isahal geoyeyo.",
+          "transliteration": "jeoneun ___ sae apateuro isahal geoyeyo.",
           "cell": "weeks",
           "display_order": 13
         },
@@ -13964,7 +13964,7 @@
           "translation": "We promised to meet again at this spot two years from now.",
           "hint": "Time expression: the numeral two + the counter for years + the word meaning 'after'.",
           "gloss": null,
-          "transliteration": "urineun i-nyeon hue i jarieseo dasi mannagiro yaksokhaesseoyo.",
+          "transliteration": "urineun ___ i jarieseo dasi mannagiro yaksokhaesseoyo.",
           "cell": "years",
           "display_order": 14
         }
@@ -14002,7 +14002,7 @@
           "translation": "After my homework is finished, I will go home.",
           "hint": "'after it ends', using the word for 'next' instead of 후",
           "gloss": null,
-          "transliteration": "sukjega kkeutnan daeume naneun jibe gal geoyeyo.",
+          "transliteration": "sukjega ___ naneun jibe gal geoyeyo.",
           "cell": null,
           "display_order": 1
         },
@@ -14012,7 +14012,7 @@
           "translation": "After I ate, I met a friend.",
           "hint": "'after eating', using the word for 'next' instead of 후",
           "gloss": null,
-          "transliteration": "babeul meogeun daeume chingureul mannasseoyo.",
+          "transliteration": "babeul ___ chingureul mannasseoyo.",
           "cell": null,
           "display_order": 2
         }
@@ -14045,7 +14045,7 @@
           "translation": "Right before having dinner, my son ate snacks.",
           "hint": "immediately before the meal happened",
           "gloss": null,
-          "transliteration": "adeuri jeonyeok meokgi jikjeone gwajareul meogeosseoyo.",
+          "transliteration": "adeuri jeonyeok ___ gwajareul meogeosseoyo.",
           "cell": null,
           "display_order": 1
         },
@@ -14055,7 +14055,7 @@
           "translation": "Right after I put on the suit, I went outside.",
           "hint": "immediately after getting dressed",
           "gloss": null,
-          "transliteration": "yangbogeul ibeun jikhue bakke nagasseoyo.",
+          "transliteration": "yangbogeul ___ bakke nagasseoyo.",
           "cell": null,
           "display_order": 2
         }
@@ -14089,7 +14089,7 @@
           "translation": "Since coming to Korea, I have been learning Korean.",
           "hint": "formal 'since arriving' form of 오다",
           "gloss": null,
-          "transliteration": "hanguge on iraero hangugeoreul baeugo isseoyo.",
+          "transliteration": "hanguge ___ hangugeoreul baeugo isseoyo.",
           "cell": null,
           "display_order": 1
         },
@@ -14099,7 +14099,7 @@
           "translation": "Since studying hard, my skills have improved quickly.",
           "hint": "formal 'since studying' form",
           "gloss": null,
-          "transliteration": "yeolsimhi gongbuhan iraero sillyeogeun ppalli neureosseoyo.",
+          "transliteration": "yeolsimhi ___ sillyeogeun ppalli neureosseoyo.",
           "cell": null,
           "display_order": 2
         }
@@ -14503,7 +14503,7 @@
           "translation": "There is something on your back.",
           "hint": "an unspecified thing, from the word for 'what'",
           "gloss": null,
-          "transliteration": "deung-e mwonga(ga) isseoyo.",
+          "transliteration": "deung-e ___(ga) isseoyo.",
           "cell": "뭐 → something",
           "display_order": 1
         },
@@ -14513,7 +14513,7 @@
           "translation": "I want to say something.",
           "hint": "an unspecified thing, from the word for 'what'",
           "gloss": null,
-          "transliteration": "jeoneun mwonga(reul) malhago sipeoyo.",
+          "transliteration": "jeoneun ___(reul) malhago sipeoyo.",
           "cell": "뭐 → something",
           "display_order": 2
         },
@@ -14523,7 +14523,7 @@
           "translation": "I left my keys somewhere.",
           "hint": "an unspecified place, from the word for 'where'",
           "gloss": null,
-          "transliteration": "yeolsoereul eodinga(e) dwosseo.",
+          "transliteration": "yeolsoereul ___(e) dwosseo.",
           "cell": "어디 → somewhere",
           "display_order": 3
         },
@@ -14533,7 +14533,7 @@
           "translation": "Blood is coming out of somewhere.",
           "hint": "an unspecified place, from the word for 'where'",
           "gloss": null,
-          "transliteration": "piga eodingaeseo naogo isseoyo.",
+          "transliteration": "piga ___eseo naogo isseoyo.",
           "cell": "어디 → somewhere",
           "display_order": 4
         },
@@ -14563,7 +14563,7 @@
           "translation": "Somebody is looking for you.",
           "hint": "an unspecified person, from the word for 'who'",
           "gloss": null,
-          "transliteration": "nugunga(neun) neoreul chatgo isseo.",
+          "transliteration": "___(neun) neoreul chatgo isseo.",
           "cell": "누구 → somebody",
           "display_order": 7
         },
@@ -14573,7 +14573,7 @@
           "translation": "I found somebody's keys.",
           "hint": "an unspecified person, from the word for 'who'",
           "gloss": null,
-          "transliteration": "jeoneun nugunga-ui yeolsoereul chajasseoyo.",
+          "transliteration": "jeoneun ___-ui yeolsoereul chajasseoyo.",
           "cell": "누구 → somebody",
           "display_order": 8
         },
@@ -14593,7 +14593,7 @@
           "translation": "I want to go somewhere on the holiday.",
           "hint": "'some place', built on 어디",
           "gloss": null,
-          "transliteration": "jeoneun hyuire eodingae gago sipeoyo.",
+          "transliteration": "jeoneun hyuire ___e gago sipeoyo.",
           "cell": null,
           "display_order": 10
         },
@@ -14603,7 +14603,7 @@
           "translation": "Somebody lost their wallet.",
           "hint": "'some person', built on 누구",
           "gloss": null,
-          "transliteration": "nugunga-ga jigabeul ireobeoryeosseoyo.",
+          "transliteration": "___-ga jigabeul ireobeoryeosseoyo.",
           "cell": null,
           "display_order": 11
         },
@@ -14920,7 +14920,7 @@
           "translation": "I want to eat anything (I'd eat anything).",
           "hint": "'any thing at all', positive",
           "gloss": null,
-          "transliteration": "jeoneun amu geona meokgo sipeoyo.",
+          "transliteration": "jeoneun ___ meokgo sipeoyo.",
           "cell": "thing, positive",
           "display_order": 1
         },
@@ -14930,7 +14930,7 @@
           "translation": "I want to go anywhere (I'd go anywhere).",
           "hint": "'any place at all', positive",
           "gloss": null,
-          "transliteration": "jeoneun amu dena gago sipeoyo.",
+          "transliteration": "jeoneun ___ gago sipeoyo.",
           "cell": "place, positive",
           "display_order": 2
         },
@@ -14940,7 +14940,7 @@
           "translation": "Anytime is good.",
           "hint": "'any time at all', positive",
           "gloss": null,
-          "transliteration": "amu ttaena joayo.",
+          "transliteration": "___ joayo.",
           "cell": "time, positive",
           "display_order": 3
         },
@@ -14950,7 +14950,7 @@
           "translation": "I didn't eat anything today.",
           "hint": "'not one thing', needs a negative verb",
           "gloss": null,
-          "transliteration": "jeoneun oneul amu geotdo an meogeosseoyo.",
+          "transliteration": "jeoneun oneul ___ an meogeosseoyo.",
           "cell": "thing, negative",
           "display_order": 4
         },
@@ -14960,7 +14960,7 @@
           "translation": "I didn't go anywhere yesterday.",
           "hint": "'not one place', needs a negative verb",
           "gloss": null,
-          "transliteration": "eojeneun amu dedo an gasseoyo.",
+          "transliteration": "eojeneun ___ an gasseoyo.",
           "cell": "place, negative",
           "display_order": 5
         },
@@ -14970,7 +14970,7 @@
           "translation": "It's fine for me to eat anything.",
           "hint": "'any thing at all', positive form",
           "gloss": null,
-          "transliteration": "jeoneun amu geona meogeodo gwaenchanayo.",
+          "transliteration": "jeoneun ___ meogeodo gwaenchanayo.",
           "cell": null,
           "display_order": 6
         },
@@ -14980,7 +14980,7 @@
           "translation": "Please sit anywhere.",
           "hint": "'any place at all', positive form",
           "gloss": null,
-          "transliteration": "amu dena anjeuseyo.",
+          "transliteration": "___ anjeuseyo.",
           "cell": null,
           "display_order": 7
         },
@@ -14990,7 +14990,7 @@
           "translation": "I didn't eat anything.",
           "hint": "'not one thing', negative form",
           "gloss": null,
-          "transliteration": "jeoneun amu geotdo an meogeosseoyo.",
+          "transliteration": "jeoneun ___ an meogeosseoyo.",
           "cell": null,
           "display_order": 8
         },
@@ -15010,7 +15010,7 @@
           "translation": "This cafe is open 24 hours, so you can drop by anytime.",
           "hint": "Use the indefinite time expression meaning '언제든지' (at any time you like).",
           "gloss": null,
-          "transliteration": "i kapeneun isipsasigan muneul yeoreoseo amu ttaena deulleul su isseoyo.",
+          "transliteration": "i kapeneun isipsasigan muneul yeoreoseo ___ deulleul su isseoyo.",
           "cell": "time, positive",
           "display_order": 10
         },
@@ -15020,7 +15020,7 @@
           "translation": "I'm so full that I don't want to eat anything right now.",
           "hint": "Use the indefinite 'any' word for objects plus the particle 도; it pairs with the negative verb ending.",
           "gloss": null,
-          "transliteration": "Bae-ga neomu bulleoseo jigeum-eun amu geot-do meokgo sipji anayo.",
+          "transliteration": "Bae-ga neomu bulleoseo jigeum-eun ___ meokgo sipji anayo.",
           "cell": "thing, negative",
           "display_order": 11
         },

@@ -209,12 +209,8 @@ def test_non_latin_drills_carry_a_romanisation(code):
     )
 
 
-@pytest.mark.parametrize("code", ["hi", "th", "ru", "ar", "el", "he"])
+@pytest.mark.parametrize("code", ROMANISED_LANGS)
 def test_the_romanisation_keeps_the_blank(code):
-    # ko and fa are EXCLUDED pending repair, not because they pass. 250 ko and
-    # 4 fa romanisations still spell out their answer; they are the rows whose
-    # blank sits inside a word, where position alone cannot say which
-    # characters to cut. Add them back the moment that lands.
     """The drill has one blank and the romanisation is printed under it, so the
     romanisation must show a blank too — otherwise the two lines stop aligning,
     or the romanisation simply hands over the answer.
