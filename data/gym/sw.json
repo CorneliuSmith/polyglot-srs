@@ -1,0 +1,408 @@
+{
+  "language": "Swahili",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a real drill sentence from that point. 'nonstandard': entries hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb forms",
+      "entries": [
+        {
+          "point": "Subject prefixes (ni-, u-, a-…)",
+          "label": "Subject prefixes",
+          "usage": "Every verb starts with a piece saying who is doing it — ni- for I, u- for you, a- for he or she — and it stays even when the pronoun is said too.",
+          "example": "Ninasoma kitabu. — I am reading a book."
+        },
+        {
+          "point": "Present tense -na-",
+          "label": "Present (-na-)",
+          "usage": "For what is happening now or what you do generally — slot -na- in after the who-prefix: ninasoma, anakula.",
+          "example": "Yeye anakunywa chai. — She is drinking tea."
+        },
+        {
+          "point": "Present negative (si-…-i)",
+          "label": "Present negative",
+          "usage": "To say you don't do something: the who-prefix goes negative, -na- disappears and the verb ends in -i — sisomi, hali.",
+          "example": "Mimi sili nyama. — I don't eat meat."
+        },
+        {
+          "point": "Past tense -li-",
+          "label": "Past (-li-)",
+          "usage": "For something that happened and finished — swap -na- for -li-: nilisoma, walikuja.",
+          "example": "Jana nilienda sokoni. — Yesterday I went to the market."
+        },
+        {
+          "point": "Future tense -ta-",
+          "label": "Future (-ta-)",
+          "usage": "For anything still to come — put -ta- in the same slot: nitasoma, atakuja.",
+          "example": "Kesho nitaenda shule. — Tomorrow I will go to school."
+        },
+        {
+          "point": "Perfect -me-",
+          "label": "Perfect (-me-)",
+          "usage": "For something already done whose result still counts right now — nimekula (I've eaten), amefika (she's here).",
+          "example": "Nimekula chakula. — I have eaten."
+        },
+        {
+          "point": "Negative past and future",
+          "label": "Negative past & future",
+          "usage": "To say it did not or will not happen — the past uses -ku- (sikusoma), the future keeps -ta- (sitasoma).",
+          "example": "Jana sikufanya kazi. — Yesterday I didn't do work."
+        },
+        {
+          "point": "Habitual hu-",
+          "label": "Habitual (hu-)",
+          "usage": "For what someone does as a rule, day in day out — hu- takes the place of both the who-prefix and the tense.",
+          "example": "Yeye husoma kila siku. — She reads every day."
+        },
+        {
+          "point": "Narrative -ka-",
+          "label": "Narrative (-ka-)",
+          "usage": "When telling a story, for each next thing that happened after the first — akanunua, akarudi, instead of repeating -li-.",
+          "example": "Alienda sokoni, akanunua ndizi. — He went to the market and (then) bought bananas."
+        },
+        {
+          "point": "Object infixes (-ku-, -m-, -wa-…)",
+          "label": "Object infixes",
+          "usage": "To say who or what the action is done to, tuck a short piece inside the verb just before the action word itself — ninakupenda (I love you), aliniona (she saw me).",
+          "example": "Mimi ninakupenda. — I love you."
+        },
+        {
+          "point": "Imperatives and polite requests",
+          "label": "Commands",
+          "usage": "For telling someone to do something — the bare verb to one person (Soma!), -eni to several, usi- for don't.",
+          "example": "Soma kitabu hiki! — Read this book!"
+        },
+        {
+          "point": "Subjunctive -e",
+          "label": "Subjunctive (-e)",
+          "usage": "After wanting, asking or telling someone to do something, the second verb drops its tense and ends in -e.",
+          "example": "Nataka usome kitabu hiki. — I want you to read this book."
+        },
+        {
+          "point": "Kuwa in other tenses (alikuwa, atakuwa)",
+          "label": "Was / will be",
+          "usage": "Because ni has no tense of its own, use kuwa to say was or will be — alikuwa mwalimu, nitakuwa daktari.",
+          "example": "Yeye alikuwa mwalimu zamani. — He was a teacher long ago."
+        },
+        {
+          "point": "To have: kuwa na",
+          "label": "Have (nina)",
+          "usage": "To say you have something, Swahili says you are with it — nina kitabu, and sina pesa for haven't.",
+          "example": "Nina kitabu kizuri. — I have a good book."
+        },
+        {
+          "point": "Compound tenses (alikuwa akisoma / amesoma)",
+          "label": "Compound tenses",
+          "usage": "For what was going on, or had already happened, at some moment in the past — two verbs: alikuwa akisoma, alikuwa amesoma.",
+          "example": "Nilipofika, watoto walikuwa wamelala. — When I arrived, the children had fallen asleep."
+        },
+        {
+          "point": "Passive -wa",
+          "label": "Passive (-wa)",
+          "usage": "When the thing acted on matters more than whoever did it — add -w- before the last vowel: kimepikwa, kilisomwa.",
+          "example": "Chakula kimepikwa. — The food has been cooked."
+        },
+        {
+          "point": "Causative -isha/-esha",
+          "label": "Causative",
+          "usage": "To say you make or get someone to do something — soma (read) becomes somesha (teach), rudi (go back) becomes rudisha (give back).",
+          "example": "Mwalimu anawasomesha watoto. — The teacher teaches the children."
+        },
+        {
+          "point": "Applicative -ia/-ea",
+          "label": "Applicative",
+          "usage": "To say you do it for or to someone — pika (cook) becomes pikia (cook for), andika becomes andikia (write to).",
+          "example": "Mama anawapikia watoto chakula. — Mother is cooking food for the children."
+        },
+        {
+          "point": "Stative -ika/-eka",
+          "label": "Stative",
+          "usage": "For the state something ends up in, or what can be done, with nobody named as doing it — vunjika (be broken), someka (be readable).",
+          "example": "Kikombe kimevunjika. — The cup has broken / is broken."
+        },
+        {
+          "point": "Reciprocal -ana",
+          "label": "Reciprocal",
+          "usage": "When two or more people do it to each other — pendana (love each other), onana (meet), saidiana (help each other).",
+          "example": "Wao wanapendana sana. — They love each other very much."
+        },
+        {
+          "point": "Reversive -ua / -oa (funga → fungua)",
+          "label": "Reversive",
+          "usage": "To undo an action — funga (shut) becomes fungua (open), vaa (put on) becomes vua (take off).",
+          "example": "Tafadhali fungua mlango. — Please open the door."
+        },
+        {
+          "point": "Negative infinitives with -to-: kutojua, kutokuwa",
+          "label": "Negative infinitive",
+          "usage": "To say not doing something in the to-do form of the verb, where there is no who-prefix to turn negative — slot -to- in after ku-: kujua becomes kutojua.",
+          "example": "Alilaumiwa kwa kutosema ukweli. — He was blamed for not telling the truth."
+        },
+        {
+          "point": "Conditional -ki- (if/when)",
+          "label": "If / when (-ki-)",
+          "usage": "For an if that could really come true, with the result usually in the future — Ukisoma, utafaulu.",
+          "example": "Ukisoma kwa bidii, utafaulu. — If you study hard, you will succeed."
+        },
+        {
+          "point": "Negative conditional -sipo- (unless)",
+          "label": "Unless (-sipo-)",
+          "usage": "For if you don't or unless — the whole idea rides inside the verb: usipofanya kazi.",
+          "example": "Usipofanya kazi, hutalipwa. — Unless you work, you won't be paid."
+        },
+        {
+          "point": "Hypothetical -nge- / -ngali-",
+          "label": "Would (-nge-)",
+          "usage": "For what would happen but isn't real — -nge- for now (ningesafiri), -ngali- for a past that never was (ungalifaulu).",
+          "example": "Ningekuwa na pesa, ningesafiri. — If I had money, I would travel."
+        },
+        {
+          "point": "Participial -ki- (waliondoka wakiimba)",
+          "label": "While -ing (-ki-)",
+          "usage": "For a second action going on at the same time as the main one, where English says -ing — waliondoka wakiimba.",
+          "example": "Waliondoka wakiimba. — They left singing."
+        },
+        {
+          "point": "Impersonal verbs: inabidi, inafaa, inawezekana",
+          "label": "Impersonal verbs",
+          "usage": "For have to, ought to and it is possible, where nobody is the doer — the person affected goes inside the verb: inanibidi.",
+          "example": "Inanibidi niende hospitali leo. — I have to go to hospital today."
+        }
+      ]
+    },
+    {
+      "kind": "nouns",
+      "label": "Nouns & agreement",
+      "entries": [
+        {
+          "point": "Personal pronouns and ni (to be)",
+          "label": "Pronouns & ni",
+          "usage": "For saying who or what someone is — mimi, wewe, yeye with ni for am/is/are, and si for isn't.",
+          "example": "Mimi ni mwalimu. — I am a teacher."
+        },
+        {
+          "point": "Noun classes: M-/Wa- (people)",
+          "label": "Class 1/2 (people)",
+          "usage": "Words for people take m- for one and wa- for many — mtoto/watoto — and the rest of the sentence copies that.",
+          "example": "Mtoto mmoja, watoto wawili. — One child, two children."
+        },
+        {
+          "point": "Noun classes: Ki-/Vi- (things)",
+          "label": "Class 7/8 (things)",
+          "usage": "Many everyday objects take ki- for one and vi- for more than one — kitabu/vitabu, kiti/viti.",
+          "example": "Kitabu kimoja, vitabu viwili. — One book, two books."
+        },
+        {
+          "point": "Noun classes: Ma- (class 5/6)",
+          "label": "Class 5/6 (ma-)",
+          "usage": "A large group of nouns makes its plural with ma- — jina/majina, gari/magari — and agrees with li- and ya-.",
+          "example": "Jina moja, majina mengi. — One name, many names."
+        },
+        {
+          "point": "Noun classes: N- (class 9/10)",
+          "label": "Class 9/10 (n-)",
+          "usage": "These nouns look identical singular and plural — nyumba, simu — so the words around them tell you how many.",
+          "example": "Nyumba hii ni kubwa. — This house is big."
+        },
+        {
+          "point": "Noun class U- (class 11/14: uhuru, ukuta)",
+          "label": "Class 11/14 (u-)",
+          "usage": "For ideas like uhuru and upendo, and for long or thin things like ukuta and ufunguo; their plurals jump to the n- class.",
+          "example": "Uhuru ulipatikana mwaka 1961. — Independence was gained in 1961."
+        },
+        {
+          "point": "Noun class Ku- (class 15: kusoma as a noun)",
+          "label": "Class 15 (ku-)",
+          "usage": "When the to-do form of a verb is used as a thing — kusoma ni muhimu, reading is important — it takes ku- agreement.",
+          "example": "Kuimba kwake kunanifurahisha. — Her singing pleases me."
+        },
+        {
+          "point": "Place classes 16–18 (mahali pa-, ku-, mu-)",
+          "label": "Place classes",
+          "usage": "Three ways of treating a place — pa- for an exact spot, ku- for a general or distant area, mu- for inside something.",
+          "example": "Mahali hapa panafaa kwa piknik. — This place is suitable for a picnic."
+        },
+        {
+          "point": "Locatives (-ni, kuna/pana/mna)",
+          "label": "Locatives (-ni)",
+          "usage": "To say where something is — add -ni to the noun (nyumbani, shuleni), and use kuna, pana or mna for there is.",
+          "example": "Watoto wako shuleni. — The children are at school."
+        },
+        {
+          "point": "Adjective agreement",
+          "label": "Adjective agreement",
+          "usage": "A describing word copies the prefix of the noun it describes — mtoto mzuri, watoto wazuri, kitabu kizuri.",
+          "example": "Watoto wazuri wanacheza. — The good children are playing."
+        },
+        {
+          "point": "Possessives (-angu, -ako, -ake…)",
+          "label": "Possessives",
+          "usage": "For my, your, his and hers — the ending stays (-angu, -ako, -ake) while the front matches the noun: kitabu changu, nyumba yangu.",
+          "example": "Kitabu changu kiko hapa. — My book is here."
+        },
+        {
+          "point": "The -a of association (wa, ya, cha…)",
+          "label": "Of (wa, ya, cha)",
+          "usage": "To join two nouns with of — the little linking word matches the FIRST noun: kitabu cha mtoto, nyumba ya Juma.",
+          "example": "Kitabu cha mtoto kiko hapa. — The child's book is here."
+        },
+        {
+          "point": "Demonstratives (huyu / hiki / hii… and -le)",
+          "label": "This / that",
+          "usage": "For pointing something out — the h- words for this (huyu, hiki, hii) and the -le words for that (yule, kile, ile).",
+          "example": "Mtoto huyu anasoma vizuri. — This child studies well."
+        },
+        {
+          "point": "The -enye construction: possessing a quality",
+          "label": "Having (-enye)",
+          "usage": "To describe someone by what they have, where English says with — mtu mwenye pesa, nyumba yenye bustani.",
+          "example": "Watu wenye ulemavu wanastahili fursa sawa. — People with disabilities deserve equal opportunities."
+        },
+        {
+          "point": "Numbers 11 to 100, and talking about prices",
+          "label": "Numbers 11–100",
+          "usage": "For counting past ten and asking what things cost — kumi na moja, ishirini na sita; only the small numbers change to match the noun.",
+          "example": "Nina miaka kumi na saba. — I am seventeen years old."
+        },
+        {
+          "point": "Ordinal numbers: wa kwanza, ya pili, cha tatu",
+          "label": "Ordinals",
+          "usage": "For first, second and third — the of-word matching the noun, plus the plain number: mtu wa kwanza, siku ya pili.",
+          "example": "Yeye ndiye mtoto wa kwanza. — He is the first child."
+        }
+      ]
+    },
+    {
+      "kind": "constructions",
+      "label": "Constructions",
+      "entries": [
+        {
+          "point": "Question words (nini, nani, wapi)",
+          "label": "Question words",
+          "usage": "For asking what, who or where — nini and wapi come after the verb (Unasoma nini?), while nani can start the sentence when it names the one doing the action (Nani anakuja?).",
+          "example": "Unasoma nini? — What are you reading?"
+        },
+        {
+          "point": "Asking about time, manner and kind: lini, vipi, gani, mbona",
+          "label": "Lini, vipi, gani",
+          "usage": "For asking when (lini), how (vipi), what kind (gani, after the noun) and why on earth (mbona).",
+          "example": "Utarudi lini kutoka safari? — When will you return from the trip?"
+        },
+        {
+          "point": "Asking for and giving directions",
+          "label": "Directions",
+          "usage": "For finding your way — X iko wapi? to ask, and kulia, kushoto, moja kwa moja to answer.",
+          "example": "Stesheni iko wapi? — Where is the station?"
+        },
+        {
+          "point": "Relative clauses (amba- and -ye-/-o-)",
+          "label": "Relative clauses",
+          "usage": "For who, which and that — either ambaye/ambacho after the noun, or the same marker packed inside the verb.",
+          "example": "Mtu ambaye anasoma ni mwalimu. — The person who is reading is a teacher."
+        },
+        {
+          "point": "Relative of time -po- (nilipofika)",
+          "label": "When-clauses (-po-)",
+          "usage": "For when something happened — one verb carries the whole clause: nilipofika, utakapomaliza.",
+          "example": "Nilipofika nyumbani, mvua ilianza. — When I arrived home, the rain began."
+        },
+        {
+          "point": "Relative of manner -vyo- (unavyojua)",
+          "label": "How-clauses (-vyo-)",
+          "usage": "For as or the way that — kama unavyojua (as you know), jinsi anavyofikiri (how he thinks).",
+          "example": "Kama unavyojua, maisha si rahisi. — As you know, life is not easy."
+        },
+        {
+          "point": "Comparatives (kuliko, zaidi ya, kama)",
+          "label": "Comparing",
+          "usage": "For taller than, more than, as much as — the describing word never changes; kuliko, zaidi ya and kama do the work.",
+          "example": "Mlima Kilimanjaro ni mrefu kuliko Mlima Kenya. — Mount Kilimanjaro is taller than Mount Kenya."
+        },
+        {
+          "point": "Reported speech (kwamba, kuwa, eti)",
+          "label": "Reported speech",
+          "usage": "For passing on what someone said — kwamba or kuwa before the statement, and eti when you don't vouch for it.",
+          "example": "Alisema kwamba atarudi kesho. — He said that he will return tomorrow."
+        },
+        {
+          "point": "Purpose clauses: ili + subjunctive",
+          "label": "So that (ili)",
+          "usage": "For saying why you are doing something — ili followed by a verb ending in -e: ninasoma ili nifaulu.",
+          "example": "Ninasoma kwa bidii ili nifaulu mtihani. — I study hard so that I pass the exam."
+        },
+        {
+          "point": "Concessives (ingawa, ijapokuwa, licha ya)",
+          "label": "Although",
+          "usage": "For although and despite — ingawa or ijapokuwa before a clause, licha ya before a noun.",
+          "example": "Ingawa mvua ilinyesha, tulisafiri. — Although it rained, we travelled."
+        },
+        {
+          "point": "Emphatic ndi- (ndiye, ndipo, ndivyo)",
+          "label": "Emphasis (ndi-)",
+          "usage": "For singling out the one that counts — HE is the one, that is exactly when: ndiye, ndipo, ndivyo.",
+          "example": "Yeye ndiye aliyeiba pesa. — HE is the one who stole the money."
+        },
+        {
+          "point": "Kupiga idioms (kupiga simu, picha, hodi)",
+          "label": "Kupiga idioms",
+          "usage": "For dozens of everyday actions built on kupiga — kupiga simu (phone), kupiga picha (photograph), kupiga hodi (call at a door).",
+          "example": "Nitakupigia simu kesho asubuhi. — I will call you tomorrow morning."
+        },
+        {
+          "point": "Methali — proverbs and their grammar",
+          "label": "Proverbs",
+          "usage": "Reach for one when you want to settle a situation with a line every Swahili speaker already knows — Haraka haraka haina baraka on someone rushing.",
+          "example": "Haraka haraka haina baraka. — Haste, haste has no blessing."
+        },
+        {
+          "point": "Respect register (shikamoo, honorific plural)",
+          "label": "Respect (shikamoo)",
+          "usage": "When speaking to elders — greet with shikamoo, and use plural agreement for one respected person: babu wamefika.",
+          "example": "Mtoto alimsalimia bibi: 'Shikamoo!' — The child greeted grandmother: 'Shikamoo!'"
+        },
+        {
+          "point": "Greetings with habari and the possessive concord",
+          "label": "Greetings",
+          "usage": "For asking how someone is — habari yako to one person, habari yenu to several, habari za asubuhi about a time of day.",
+          "example": "Habari yako, Juma? — How are you, Juma?"
+        },
+        {
+          "point": "Introducing yourself: naitwa and jina langu",
+          "label": "Your name",
+          "usage": "For giving or asking a name — naitwa Amina or jina langu ni Amina, and unaitwa nani? to ask.",
+          "example": "Naitwa Fatuma Ali. — My name is Fatuma Ali."
+        },
+        {
+          "point": "Telling the time: the Swahili saa system",
+          "label": "Telling the time",
+          "usage": "For clock time — Swahili counts the hours from dawn, so it runs six behind the clock face: seven in the morning is saa moja.",
+          "example": "Ni saa ngapi sasa? — What time is it now?"
+        },
+        {
+          "point": "Politeness formulas: asante, tafadhali, samahani, pole, karibu",
+          "label": "Courtesy words",
+          "usage": "The five everyday courtesies — asante (thanks), tafadhali (please), samahani (sorry), pole (sympathy), karibu (welcome).",
+          "example": "Asante sana kwa msaada wako. — Thank you very much for your help."
+        },
+        {
+          "point": "Talking about illness: ninaumwa na and inaniuma",
+          "label": "Aches & pains",
+          "usage": "For saying what hurts — ninaumwa na kichwa (I am hurt by the head) or kichwa kinaniuma (the head hurts me).",
+          "example": "Ninaumwa na kichwa tangu asubuhi. — I have had a headache since morning."
+        },
+        {
+          "point": "Dates, months and birthdays",
+          "label": "Dates & months",
+          "usage": "For dates and birthdays — tarehe, then the plain number, then the borrowed month name: tarehe nne Aprili.",
+          "example": "Nilizaliwa tarehe kumi na tatu Juni. — I was born on the thirteenth of June."
+        },
+        {
+          "point": "States expressed with nina: njaa, kiu, wasiwasi, huzuni",
+          "label": "States with nina",
+          "usage": "For being hungry, thirsty, cold or worried — Swahili says you HAVE the state rather than that you ARE it: nina njaa, nina kiu, nina wasiwasi.",
+          "example": "Nina njaa, twende tukale. — I am hungry; let's go and eat."
+        }
+      ]
+    }
+  ]
+}

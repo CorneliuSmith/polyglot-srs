@@ -1,0 +1,264 @@
+{
+  "language": "Thai",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a real drill sentence from that point. 'nonstandard': entries hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb forms",
+      "entries": [
+        {
+          "point": "The three 'be's: เป็น, คือ, อยู่",
+          "label": "Be (เป็น/คือ/อยู่)",
+          "usage": "Say what someone is with เป็น, point a thing out with คือ, and say where something is with อยู่ — and use none of them before a describing word.",
+          "example": "ผมเป็นหมอ — I am a doctor."
+        },
+        {
+          "point": "มี — have, and there is",
+          "label": "Have (มี)",
+          "usage": "Say you own something with มี, or start the sentence with it to say something exists nearby; ไม่มี is both 'don't have' and 'there isn't'.",
+          "example": "ผมมีรถ — I have a car."
+        },
+        {
+          "point": "จะ — the future marker",
+          "label": "Future (จะ)",
+          "usage": "Put จะ in front of the verb when you are talking about what will happen or what you intend to do.",
+          "example": "พรุ่งนี้ผมจะไปเชียงใหม่ — Tomorrow I will go to Chiang Mai."
+        },
+        {
+          "point": "แล้ว — already, and then",
+          "label": "Already (แล้ว)",
+          "usage": "Add แล้ว at the end when the thing is done already, or put it between two verbs to mean 'and then'.",
+          "example": "ผมกินข้าวแล้ว — I have already eaten."
+        },
+        {
+          "point": "กำลัง … อยู่ — happening right now",
+          "label": "Happening now (กำลัง)",
+          "usage": "Wrap the verb in กำลัง … อยู่ for something going on at this very moment; either half on its own also works.",
+          "example": "ผมกำลังกินข้าวอยู่ — I am eating (right now)."
+        },
+        {
+          "point": "ยัง — still and not yet",
+          "label": "Not yet (ยัง)",
+          "usage": "Use ยัง before the verb for something that is still going on, and ยังไม่ for something that has not happened yet.",
+          "example": "เขายังทำงานอยู่ — He is still working."
+        },
+        {
+          "point": "เคย — ever and used to",
+          "label": "Ever (เคย)",
+          "usage": "Put เคย before the verb for something you have done at some point in your life or used to do; ไม่เคย means never.",
+          "example": "ผมเคยไปภูเก็ต — I have been to Phuket."
+        },
+        {
+          "point": "ได้ — can, got to, and the past",
+          "label": "Can (ได้)",
+          "usage": "After the verb, ได้ says you are able to do it; before the verb it says you got to do it.",
+          "example": "ผมพูดภาษาไทยได้ — I can speak Thai."
+        },
+        {
+          "point": "ต้อง, ควร, อยาก — must, should, want to",
+          "label": "Must, should, want",
+          "usage": "Put ต้อง (have to), ควร (should) or อยาก (want to) straight in front of the verb; ไม่ต้อง means you don't have to.",
+          "example": "ผมต้องไปทำงาน — I have to go to work."
+        },
+        {
+          "point": "ไป and มา — direction after the verb",
+          "label": "Direction (ไป/มา)",
+          "usage": "Add ไป after the verb when the action moves away from you and มา when it comes toward you: เอาไป take it away, เอามา bring it here.",
+          "example": "เอาหนังสือมาให้ฉันหน่อย — Bring me the book, please."
+        },
+        {
+          "point": "ให้ — give, for, and make someone",
+          "label": "Give & for (ให้)",
+          "usage": "Use ให้ to hand something over, to do something for someone, or to have someone else do it.",
+          "example": "เขาให้ของขวัญฉัน — He gave me a present."
+        },
+        {
+          "point": "ทำให้ — make it happen",
+          "label": "Cause (ทำให้)",
+          "usage": "Use ทำให้ when one thing brings about another — the news makes me happy, the rain causes traffic.",
+          "example": "ข่าวนี้ทำให้ผมดีใจมาก — This news makes me very happy."
+        },
+        {
+          "point": "ถูก and โดน — the passive of bad things",
+          "label": "Passive (ถูก/โดน)",
+          "usage": "Use ถูก or โดน when something unpleasant was done to someone — bitten, arrested, robbed; pleasant things stay in the ordinary active pattern.",
+          "example": "ผมถูกหมากัด — I was bitten by a dog."
+        },
+        {
+          "point": "กัน — together and each other",
+          "label": "Together (กัน)",
+          "usage": "Add กัน after the verb when people do it together or to one another: ไปกัน let's go, เจอกัน see each other.",
+          "example": "ไปกันเถอะ — Let's go (together)."
+        },
+        {
+          "point": "Serial verbs: เดินไปซื้อกลับมากิน",
+          "label": "Verb chains",
+          "usage": "String verbs together in the order the actions happen, with nothing in between: walk-go-buy means walk over to buy.",
+          "example": "ผมเดินไปซื้อกาแฟ — I walked over to buy coffee."
+        },
+        {
+          "point": "Register: กิน, ทาน, รับประทาน",
+          "label": "Register levels",
+          "usage": "Pick the word that fits the company: กิน with friends, ทาน when being polite, รับประทาน in formal announcements.",
+          "example": "กับเพื่อน: ไปกินข้าวกัน — With friends: let's go eat."
+        },
+        {
+          "point": "ราชาศัพท์ — royal vocabulary",
+          "label": "Royal words",
+          "usage": "The separate set of words used about royalty and monks — เสวย for eat, บรรทม for sleep, เสด็จ for go — which you need to recognise in the news rather than say yourself.",
+          "example": "ข่าวในพระราชสำนัก: พระองค์เสวยพระกระยาหาร — Palace news: His Majesty dines."
+        }
+      ]
+    },
+    {
+      "kind": "nouns",
+      "label": "Nouns & agreement",
+      "entries": [
+        {
+          "point": "Pronouns: ผม, ฉัน, คุณ — and leaving them out",
+          "label": "Pronouns (ผม/ฉัน)",
+          "usage": "Say ผม for 'I' if you are male and ฉัน if female, คุณ for 'you' — and leave them out altogether when it is already clear who you mean.",
+          "example": "ผมชื่อสมชาย (ผู้ชายพูด) — My name is Somchai. (male)"
+        },
+        {
+          "point": "The pronoun landscape: พี่, น้อง, ลุง, หนู",
+          "label": "Kinship pronouns",
+          "usage": "In real conversation people use family words for 'I' and 'you': พี่ to someone a bit older, น้อง to someone younger or to a waiter, ลุง and ป้า to older people.",
+          "example": "เรียกพนักงานหนุ่มในร้าน: น้องครับ คิดเงินหน่อย — Calling a young waiter: 'Nong — the bill, please.'"
+        },
+        {
+          "point": "Classifiers: คน, ตัว, อัน, เล่ม",
+          "label": "Classifiers",
+          "usage": "When you count things, say the noun, then the number, then the counting word: คน for people, ตัว for animals, เล่ม for books, อัน for small objects.",
+          "example": "ผมมีเพื่อนสองคน — I have two friends."
+        },
+        {
+          "point": "ของ — of and mine",
+          "label": "Possession (ของ)",
+          "usage": "Say the thing first, then ของ, then the owner — บ้านของผม is my house; in relaxed speech ของ is simply dropped.",
+          "example": "นี่คือบ้านของผม — This is my house."
+        },
+        {
+          "point": "Adjectives are verbs: บ้านใหญ่",
+          "label": "Adjectives",
+          "usage": "Describing words come after the noun and work as the verb themselves, so you never add a word for 'is': อาหารอร่อย means the food is delicious.",
+          "example": "อาหารไทยอร่อย — Thai food is delicious."
+        },
+        {
+          "point": "Comparisons: กว่า and ที่สุด",
+          "label": "Comparisons (กว่า)",
+          "usage": "Add กว่า after a describing word for 'more …' and ที่สุด for 'the most …'.",
+          "example": "อันนี้แพงกว่า — This one is more expensive."
+        },
+        {
+          "point": "การ- and ความ- — making nouns",
+          "label": "Making nouns (การ/ความ)",
+          "usage": "Turn an action into a thing with การ (การเรียน = studying) and a feeling or quality into a thing with ความ (ความสุข = happiness).",
+          "example": "การเรียนภาษาต้องใช้เวลา — Learning a language takes time."
+        },
+        {
+          "point": "Reduplication and ๆ",
+          "label": "Doubling (ๆ)",
+          "usage": "Write ๆ to say the word before it twice — เด็กๆ for a bunch of kids, ช้าๆ for slowly, ใกล้ๆ for somewhere nearby.",
+          "example": "เด็กๆเล่นอยู่ในสวน — The kids are playing in the garden."
+        },
+        {
+          "point": "Four-syllable elegance: สะดวกสบาย",
+          "label": "Four-syllable pairs",
+          "usage": "Reach for these paired words when you want to sound polished — สะดวกสบาย (convenient-and-comfortable), เรียบร้อย (neat-and-proper) — in writing, speeches and formal good wishes, where one plain word would sound flat.",
+          "example": "ห้องพักสะดวกสบายมาก — The room is very convenient and comfortable."
+        }
+      ]
+    },
+    {
+      "kind": "constructions",
+      "label": "Constructions",
+      "entries": [
+        {
+          "point": "Word order: SVO, and nothing ever changes shape",
+          "label": "Word order (SVO)",
+          "usage": "Doer, verb, then the thing — and no Thai word ever changes shape, so describing words follow the noun and the time comes from context.",
+          "example": "ผมกินข้าว — I eat rice."
+        },
+        {
+          "point": "Polite particles: ครับ and ค่ะ",
+          "label": "Polite ครับ/ค่ะ",
+          "usage": "End the sentence with ครับ if you are male and ค่ะ if female (คะ when asking) any time you want to sound polite.",
+          "example": "สวัสดีครับ (ผู้ชายพูด) — Hello. (male speaker)"
+        },
+        {
+          "point": "Yes/no questions: ไหม and หรือเปล่า",
+          "label": "Yes/no (ไหม)",
+          "usage": "Add ไหม — or the everyday หรือเปล่า — to the end to ask a yes/no question; you answer by repeating the verb, because Thai has no word for yes.",
+          "example": "คุณไปไหม — Are you going?"
+        },
+        {
+          "point": "Negation: ไม่ before the verb",
+          "label": "Negation (ไม่)",
+          "usage": "Put ไม่ directly in front of the verb or describing word; to say something is not a certain thing, use ไม่ใช่.",
+          "example": "ผมไม่กินเผ็ด — I don't eat spicy food."
+        },
+        {
+          "point": "Question words: อะไร, ที่ไหน, ใคร…",
+          "label": "Question words",
+          "usage": "Ask what, where, who, when, why or how much by putting อะไร, ที่ไหน, ใคร, เมื่อไหร่, ทำไม or เท่าไหร่ exactly where the answer would sit.",
+          "example": "คุณกินอะไร — What are you eating?"
+        },
+        {
+          "point": "Requests: ขอ…หน่อย, ช่วย…หน่อย",
+          "label": "Requests (ขอ/ช่วย)",
+          "usage": "Ask for a thing with ขอ … หน่อย and for an action with ช่วย … หน่อย; หน่อย is the word that makes it sound gentle.",
+          "example": "ขอน้ำหน่อยครับ — Some water, please."
+        },
+        {
+          "point": "ก็ — so, then, too",
+          "label": "Linking (ก็)",
+          "usage": "Slip ก็ in front of the second half of a sentence for 'then, so', or before the verb to mean 'me too'.",
+          "example": "ถ้าฝนตก เราก็ไม่ไป — If it rains, then we won't go."
+        },
+        {
+          "point": "ที่ — relative clauses",
+          "label": "Relative clauses (ที่)",
+          "usage": "Use ที่ to hang a whole description on a noun: the person WHO is standing there, the food THAT I like.",
+          "example": "คนที่ยืนอยู่ตรงนั้นคือพี่ชายผม — The person standing there is my older brother."
+        },
+        {
+          "point": "ว่า — the that-clause",
+          "label": "That-clauses (ว่า)",
+          "usage": "After thinking, saying, knowing or hearing, put ว่า in front of what was thought or said.",
+          "example": "ผมคิดว่าคุณพูดถูก — I think that you are right."
+        },
+        {
+          "point": "ถ้า — conditionals",
+          "label": "If (ถ้า)",
+          "usage": "Start the condition with ถ้า and usually open the result with ก็.",
+          "example": "ถ้าฝนตก เราก็อยู่บ้าน — If it rains, we'll stay home."
+        },
+        {
+          "point": "เพราะ — because, and เลย — so",
+          "label": "Because / so",
+          "usage": "Give the reason after เพราะ, or put the reason first and open the result with เลย.",
+          "example": "ผมไม่ไปเพราะฝนตก — I'm not going because it's raining."
+        },
+        {
+          "point": "Final particles: นะ, สิ, ล่ะ, หรอก",
+          "label": "Final particles",
+          "usage": "The little words at the very end set the mood: นะ softens, สิ urges someone on, ล่ะ asks 'and you?', หรอก gently corrects.",
+          "example": "ผมไปก่อนนะ — I'm heading off now, okay?"
+        },
+        {
+          "point": "Topic first: เรื่องนี้ ผมไม่รู้",
+          "label": "Topic first",
+          "usage": "Put what you are talking about at the front, pause, then say what you have to say about it — no linking word is needed.",
+          "example": "เรื่องนี้ ผมไม่รู้จริงๆ — About this matter — I really don't know."
+        },
+        {
+          "point": "Written Thai: no spaces, ฯลฯ, and reading flow",
+          "label": "Written Thai",
+          "usage": "Reading real text: words run together with no gaps, spaces break up clauses instead, ฯ shortens a long name and ฯลฯ means 'and so on'.",
+          "example": "ชื่อเต็มยาวมาก จึงเขียน กรุงเทพฯ — The full name is long, so one writes 'Krung Thep ฯ'."
+        }
+      ]
+    }
+  ]
+}

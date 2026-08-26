@@ -1,0 +1,264 @@
+{
+  "language": "Māori",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a real drill sentence from that point. 'nonstandard': entries hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb forms",
+      "entries": [
+        {
+          "point": "Kei te — happening now",
+          "label": "Present (kei te)",
+          "usage": "Use kei te in front of the verb for what is going on right now, including the everyday greeting kei te pēhea koe.",
+          "example": "Kei te kai au. — I am eating."
+        },
+        {
+          "point": "I — the past",
+          "label": "Past (i)",
+          "usage": "Put i in front of the verb for something that already happened: i haere au, I went.",
+          "example": "I haere au ki te kura inanahi. — I went to school yesterday."
+        },
+        {
+          "point": "Ka — what happens next",
+          "label": "Future (ka)",
+          "usage": "Put ka in front of the verb for what happens next — usually 'will', and also how a story steps from one event to the next.",
+          "example": "Ka haere au āpōpō. — I will go tomorrow."
+        },
+        {
+          "point": "Kua — the perfect",
+          "label": "Perfect (kua)",
+          "usage": "Use kua when something has just become true or has just been finished and it still matters now: kua oti, it's done.",
+          "example": "Kua tae mai a Mere. — Mere has arrived."
+        },
+        {
+          "point": "E … ana — the progressive",
+          "label": "Ongoing (e…ana)",
+          "usage": "Wrap the verb in e … ana for an action in the middle of happening — unlike kei te this one also works in stories set in the past.",
+          "example": "E kai ana ia i tāna parāoa. — He is eating his bread."
+        },
+        {
+          "point": "I te — the past progressive",
+          "label": "Past ongoing (i te)",
+          "usage": "Use i te for what someone was busy doing at a past moment, the background while something else happened.",
+          "example": "I te moe ia inapō. — She was sleeping last night."
+        },
+        {
+          "point": "Passive verbs (kua kainga)",
+          "label": "Passive (-tia)",
+          "usage": "Use this when the thing something was done to is what you want to talk about: the verb takes an ending like -a, -hia or -tia, and the doer, if you name one, follows e.",
+          "example": "Kua kainga te kai e ngā manuhiri. — The food has been eaten by the guests."
+        },
+        {
+          "point": "The causative whaka-",
+          "label": "Causative (whaka-)",
+          "usage": "Put whaka- on the front of a word to say you make it happen: ako learn becomes whakaako teach, kī full becomes whakakī fill.",
+          "example": "Ka whakaako te kaiako i te reo Māori. — The teacher will teach the Māori language."
+        },
+        {
+          "point": "Me — 'should' and gentle instruction",
+          "label": "Should (me)",
+          "usage": "Use me in front of the verb for a soft 'you should' or 'let's', friendlier than a straight order.",
+          "example": "Me haere koe ki te moe ināianei. — You should go to sleep now."
+        },
+        {
+          "point": "Kia — wishes, purpose, and 'be…!'",
+          "label": "Wishes (kia)",
+          "usage": "Use kia for a state you are wishing for or working towards rather than one that is already true: kia kaha, be strong; tatari kia oti, wait until it's finished.",
+          "example": "Kia kaha, e hoa! — Be strong, friend!"
+        },
+        {
+          "point": "Imperatives and kaua — do and don't",
+          "label": "Commands (e tū!)",
+          "usage": "Telling someone to do something now: short verbs take e, as in e tū, longer ones go bare, as in haere mai, and 'don't' is kaua e.",
+          "example": "E tū, tamariki mā! — Stand up, children!"
+        },
+        {
+          "point": "Taea — 'can' (ka taea e au)",
+          "label": "Can (ka taea)",
+          "usage": "Say what someone is able to do with ka taea e plus the person plus te and the verb; for 'can't', start with kāore e taea.",
+          "example": "Ka taea e au te haere āpōpō. — I can go tomorrow."
+        }
+      ]
+    },
+    {
+      "kind": "nouns",
+      "label": "Nouns & agreement",
+      "entries": [
+        {
+          "point": "Pronouns (au, koe, ia…)",
+          "label": "Pronouns (basic)",
+          "usage": "Use these whenever you name who is doing something — au for yourself, koe for the one person you are talking to, ia for a man or a woman alike, and mātou or tātou for 'we' depending on whether the person you are speaking to is in the group.",
+          "example": "He tauira au. — I am a student."
+        },
+        {
+          "point": "Dual & plural pronouns (māua, tātou…)",
+          "label": "Dual & plural",
+          "usage": "Use these when you mean exactly two people — tāua, māua, kōrua, rāua — or three or more, and pick the 'we' that either takes in or leaves out the person you are talking to.",
+          "example": "Kua kai kē māua, engari kāore anō koe. — She and I have already eaten, but you haven't yet."
+        },
+        {
+          "point": "Te and ngā — the articles",
+          "label": "The (te/ngā)",
+          "usage": "The noun itself never changes for plural — say te whare for one house and ngā whare for several, so the little word in front carries the number.",
+          "example": "Kei te tākaro ngā tamariki. — The children are playing."
+        },
+        {
+          "point": "Possession: the a and o categories",
+          "label": "My & your",
+          "usage": "Pick the vowel by the relationship, not the owner: tāku and tāu for things you handle or made, tōku and tō for houses, vehicles, family and body parts.",
+          "example": "Ko tōku whare tēnei. — This is my house."
+        },
+        {
+          "point": "Possessives and the a/o categories",
+          "label": "His & hers",
+          "usage": "The same a-or-o choice for every owner — tāna kai his food, because he eats it, but tōna waka his car, because he only rides in it.",
+          "example": "He reka tāna kai. — His/her food is tasty."
+        },
+        {
+          "point": "Statives (he nui, he pai)",
+          "label": "Describing words",
+          "usage": "Say what something is like by leading with he and the describing word, then the thing — there is no separate word for 'is'.",
+          "example": "He nui te whare. — The house is big."
+        },
+        {
+          "point": "Nominalisation (te haerenga)",
+          "label": "Action nouns (-nga)",
+          "usage": "Add -nga, or -tanga, -hanga, -ranga, to a verb to name the doing of it: haere go becomes haerenga trip, ako learn becomes akoranga lesson.",
+          "example": "He rawe te haerenga ki te moana. — The trip to the sea was wonderful."
+        },
+        {
+          "point": "Counting things and people",
+          "label": "Counting (e rua)",
+          "usage": "Put e in front of the numbers two to nine when counting things, as in e rua ngā whare, but use toko- when you are counting people, as in tokorua.",
+          "example": "E rua ngā kurī i te whare. — There are two dogs in the house."
+        },
+        {
+          "point": "Nō and Mō — 'of/from' and 'for'",
+          "label": "Nō & Mō (from/for)",
+          "usage": "Use nō for where someone or something comes from and who it used to belong to, and mō for who it is for or what it is about, each picking its vowel by the same a-or-o rule that gives nā and mā.",
+          "example": "Nō wai tēnei pukapuka? — Whose is this book?"
+        }
+      ]
+    },
+    {
+      "kind": "constructions",
+      "label": "Constructions",
+      "entries": [
+        {
+          "point": "He — saying what something is",
+          "label": "He (is a…)",
+          "usage": "Say what someone or something is with no word for 'is' at all — he, then what they are, then who they are.",
+          "example": "He kaiako ia. — She is a teacher."
+        },
+        {
+          "point": "Ko — naming and identifying",
+          "label": "Ko (this is…)",
+          "usage": "Use ko to point at the particular one — names, and 'the' rather than 'a', as in ko ia te kaiako, she is THE teacher.",
+          "example": "Ko Mere tēnei. — This is Mere."
+        },
+        {
+          "point": "Kei — where things are",
+          "label": "Where (kei)",
+          "usage": "Use kei with a place to say where something is right now, kei hea to ask where, and position words after it such as kei runga on top and kei raro underneath.",
+          "example": "Kei te whare ia. — She is at the house."
+        },
+        {
+          "point": "Negation with kāore",
+          "label": "Not (kāore)",
+          "usage": "Start the sentence with kāore and move the person straight after it, so kei te mōhio au turns into kāore au i te mōhio.",
+          "example": "Kāore au i te mōhio. — I don't know."
+        },
+        {
+          "point": "Questions (he aha, ko wai, kei hea)",
+          "label": "Question words",
+          "usage": "Slot the question word into a sentence shape you already know — he aha for what, ko wai for who or which name, kei hea for where, nō hea for where from, e hia for how many.",
+          "example": "He aha tēnei? — What is this?"
+        },
+        {
+          "point": "Prepositions (ki, i, hei)",
+          "label": "Prepositions (ki, i)",
+          "usage": "ki points to where you are heading or what you are using, i marks where you came from and what the verb acts on, and hei says what something is for.",
+          "example": "Haere ki te toa, ka hoki mai. — Go to the shop and come back."
+        },
+        {
+          "point": "Negating tenses (kāore i te, kīhai i)",
+          "label": "Negating each tense",
+          "usage": "Each tense says 'not' in its own way — kāore … i te for what is happening now, kāore … i for what happened, kāore anō … kia for not yet — while the verb itself never changes.",
+          "example": "Kāore au i te mōhio ki tērā. — I don't know that."
+        },
+        {
+          "point": "Actor emphatic — Nā … i (past) and Mā … e (future)",
+          "label": "Actor emphatic",
+          "usage": "Put the doer first when the doer is the whole point, with nā for something already done and mā for something still to come, and i or e in front of the verb.",
+          "example": "Nā Hōne i hanga te waka. — It was Hōne who built the canoe."
+        },
+        {
+          "point": "Relative clauses (te tangata e mōhio ana au)",
+          "label": "Relative clauses",
+          "usage": "There is no word for 'who' or 'that' — hang the extra information straight onto the noun, as in te tangata e mōhio ana au, the person I know.",
+          "example": "Ko ia te tangata e mōhio ana au. — He is the person I know."
+        },
+        {
+          "point": "Conditions & purpose (ki te, mehemea)",
+          "label": "If (ki te)",
+          "usage": "Use ki te with a verb for a real 'if' or an 'in order to', and mehemea for the more imagined kind, as in mehemea he moni āku, if I had money.",
+          "example": "Ki te ua āpōpō, ka noho tātou i te whare. — If it rains tomorrow, we'll stay in the house."
+        },
+        {
+          "point": "Directional particles (mai, atu, ake, iho)",
+          "label": "Directionals (mai/atu)",
+          "usage": "A small word after the verb says which way it goes — mai towards the speaker, atu away from them, ake upward, iho downward.",
+          "example": "Haere mai, e te whānau! — Come here, family!"
+        },
+        {
+          "point": "Kāore anō … kia — not yet",
+          "label": "Not yet",
+          "usage": "For something that still hasn't happened, wrap it in kāore anō … kia with the person in the middle: kāore anō au kia kai.",
+          "example": "Kāore anō au kia kai. — I haven't eaten yet."
+        },
+        {
+          "point": "Hei — purpose and 'as a'",
+          "label": "Hei (as a)",
+          "usage": "Use hei for what something is for or the role someone is taking on — hei tapahi for cutting, hei kaiako as a teacher.",
+          "example": "He aha tēnei? Hei tapahi i te mīti. — What's this? For cutting the meat."
+        },
+        {
+          "point": "Ai — habitual and consequent clauses",
+          "label": "Ai (then, why)",
+          "usage": "Add ai to a clause that follows on from what came before — and THEN we go home — or when the sentence opens with the time, place or reason, as in he aha koe i riri ai, why were you angry.",
+          "example": "Ka oti te mahi, ka hoki ai mātou. — When the work is done, then we go home."
+        },
+        {
+          "point": "Nā and Mā — ownership and agency predicates",
+          "label": "Nā & Mā (whose)",
+          "usage": "Open with nā to say whose something is or who did it, and with mā to say who is going to do it, as in mā wai e tunu, who will cook.",
+          "example": "Nā Mere tēnei pukapuka. — This book is Mere's."
+        },
+        {
+          "point": "Ahakoa, nō te mea, engari — weaving clauses",
+          "label": "Although, because, but",
+          "usage": "Join two ideas in one sentence with ahakoa although or despite, nō te mea because, and engari but.",
+          "example": "Ahakoa te ua, i haere tonu mātou. — Despite the rain, we still went."
+        },
+        {
+          "point": "Ko-fronting — focus and identity",
+          "label": "Ko-fronting (focus)",
+          "usage": "Move the important part to the front after ko when it is the answer the listener is waiting for, as in ko Mere i haere, it was MERE who went.",
+          "example": "Ko Mere i haere ki te hui. — It was Mere who went to the meeting."
+        },
+        {
+          "point": "Mihi — the shape of formal greeting",
+          "label": "Formal greetings",
+          "usage": "Greet according to how many people are in front of you — tēnā koe to one, tēnā kōrua to two, tēnā koutou to three or more, tēnā koutou katoa to everyone.",
+          "example": "Tēnā koutou katoa. — Greetings to you all."
+        },
+        {
+          "point": "Whakataukī — proverb patterns",
+          "label": "Whakataukī",
+          "usage": "Proverbs come in set shapes worth knowing by heart, whether a question answered three times over or a single image like he waka eke noa, a canoe we are all in together.",
+          "example": "He aha te mea nui o te ao? He tangata! — What is the greatest thing in the world? It is people!"
+        }
+      ]
+    }
+  ]
+}

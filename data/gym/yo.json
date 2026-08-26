@@ -1,0 +1,264 @@
+{
+  "language": "Yoruba",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a real drill sentence from that point. 'nonstandard': entries hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb forms",
+      "entries": [
+        {
+          "point": "The copulas ni and jẹ́",
+          "label": "Copulas ni / jẹ́",
+          "usage": "Use these to say what or who somebody is: jẹ́ goes before the word (Mo jẹ́ olùkọ́), ni goes after it (Olùkọ́ ni mí).",
+          "example": "Mo jẹ́ olùkọ́. — I am a teacher."
+        },
+        {
+          "point": "Location with wà and ní",
+          "label": "wà (be located)",
+          "usage": "Use wà to say where somebody or something is, with ní in front of the place.",
+          "example": "Bàbá wà ní oko. — Father is at the farm."
+        },
+        {
+          "point": "Progressive ń",
+          "label": "Progressive ń",
+          "usage": "Put ń in front of the verb when the action is going on right now.",
+          "example": "Mo ń kàwé. — I am reading."
+        },
+        {
+          "point": "Perfect ti",
+          "label": "Perfect ti",
+          "usage": "Put ti in front of the verb when the thing is already done — have eaten, have arrived.",
+          "example": "Mo ti jẹun. — I have (already) eaten."
+        },
+        {
+          "point": "Future yóò / máa",
+          "label": "Future máa / yóò",
+          "usage": "Put máa (everyday speech) or yóò (fuller, more formal) before the verb for something that has not happened yet.",
+          "example": "Mo máa lọ ní ọ̀la. — I will go tomorrow."
+        },
+        {
+          "point": "Habitual máa ń",
+          "label": "Habitual máa ń",
+          "usage": "Use máa ń for what somebody does again and again — every morning, every Saturday; kì í is the never-does version.",
+          "example": "Mo máa ń jí ní aago mẹ́fà. — I usually wake up at six o'clock."
+        },
+        {
+          "point": "Adjectives are verbs (dára, tóbi)",
+          "label": "Adjective verbs",
+          "usage": "Describing words like dára (be good) and tóbi (be big) act as the verb themselves — never add a word for is.",
+          "example": "Oúnjẹ yìí dára. — This food is good."
+        },
+        {
+          "point": "Imperatives and má (don't)",
+          "label": "Commands & má",
+          "usage": "Use the plain verb on its own to tell somebody to do something, and put má in front of it to tell them not to.",
+          "example": "Wá síbí! — Come here!"
+        },
+        {
+          "point": "Modals fẹ́, lè, gbọ́dọ̀ (want / can / must)",
+          "label": "Modals fẹ́ / lè",
+          "usage": "Slot fẹ́ (want), lè (can) or gbọ́dọ̀ (must) between the person and the verb.",
+          "example": "Mo fẹ́ jẹun báyìí. — I want to eat now."
+        },
+        {
+          "point": "Láti + verb (to / in order to)",
+          "label": "Láti (to do)",
+          "usage": "Put láti before a verb to say why you did something, or after words like it is hard / it is easy.",
+          "example": "Mo wá láti kọ́ èdè Yorùbá. — I came to learn Yoruba."
+        }
+      ]
+    },
+    {
+      "kind": "nouns",
+      "label": "Nouns & agreement",
+      "entries": [
+        {
+          "point": "Subject pronouns (mo, o, ó…)",
+          "label": "Subject pronouns",
+          "usage": "Use these short words right before the verb to say who is doing it: mo (I), o (you), ó (he/she), a (we), ẹ (you all), wọ́n (they).",
+          "example": "Mo fẹ́ omi. — I want water."
+        },
+        {
+          "point": "Object pronouns",
+          "label": "Object pronouns",
+          "usage": "Use these after the verb for whoever is on the receiving end: mi, ẹ, i, wa, yín, wọn.",
+          "example": "Mo rí i ní ọjà. — I saw him/her at the market."
+        },
+        {
+          "point": "Tones change meaning",
+          "label": "Tone pairs",
+          "usage": "Use this when two words look alike apart from their marks — ọkọ́ (hoe), ọkọ (husband), ọkọ̀ (vehicle) — and you have to pick the one the sentence means.",
+          "example": "Mo ní ọkọ̀ kan. — I have a vehicle."
+        },
+        {
+          "point": "Plural with àwọn",
+          "label": "Plural àwọn",
+          "usage": "Put àwọn in front of a noun when it matters that there is more than one; leave it out when a number is already there.",
+          "example": "Àwọn ọmọ ń ṣeré. — The children are playing."
+        },
+        {
+          "point": "Possession (mi, rẹ, rẹ̀ / ti)",
+          "label": "Possessives",
+          "usage": "Put mi, rẹ, rẹ̀, wa or wọn after the noun to say whose it is: ìwé mi is my book.",
+          "example": "Ìwé mi wà níbí. — My book is here."
+        },
+        {
+          "point": "Demonstratives yìí and yẹn",
+          "label": "This / that",
+          "usage": "Put yìí (this) or yẹn (that) after the noun to point out which one you mean; náà means the one already spoken about.",
+          "example": "Ìwé yìí dára. — This book is good."
+        },
+        {
+          "point": "Numbers after the noun (ìwé méjì, mélòó)",
+          "label": "Numbers after nouns",
+          "usage": "Put the number after the thing you are counting, and put mélòó in the same place to ask how many.",
+          "example": "Mo ra ìwé méjì. — I bought two books."
+        },
+        {
+          "point": "Making nouns: olù-, oní-/alá-, ì-",
+          "label": "Noun prefixes",
+          "usage": "Build a word for a person or a thing: olù- for the one who does it, oní-/alá- for the one who owns or sells it, ì- for the activity itself.",
+          "example": "Olùkọ́ wa kọ́ wa ní èdè Gẹ̀ẹ́sì. — Our teacher teaches us English."
+        },
+        {
+          "point": "Reduplication: jíjẹ, kíkà, kíákíá",
+          "label": "Reduplication",
+          "usage": "Double the front of a verb to talk about the activity itself (jẹ eat becomes jíjẹ eating), and double a whole word to strengthen it (kíákíá quickly).",
+          "example": "Jíjẹ oúnjẹ tó dára ṣe pàtàkì. — Eating good food is important."
+        },
+        {
+          "point": "Respect register: ẹ and ẹ̀yin",
+          "label": "Respectful ẹ / ẹ̀yin",
+          "usage": "Say ẹ or ẹ̀yin instead of o when speaking to one older or senior person — greetings and thanks nearly always use it.",
+          "example": "'Ẹ káàárọ̀, mà!' ọmọ náà kí ìyá àgbà. — 'Good morning, ma!' the child greeted the old woman."
+        }
+      ]
+    },
+    {
+      "kind": "constructions",
+      "label": "Constructions",
+      "entries": [
+        {
+          "point": "Negation with kò",
+          "label": "Negation kò",
+          "usage": "Put kò in front of the verb to say something is not so; for there is no…, use kò sí.",
+          "example": "Ó kò fẹ́ oúnjẹ. — He does not want food."
+        },
+        {
+          "point": "Questions with ṣé and kí ni",
+          "label": "Ṣé & kí ni",
+          "usage": "Start a statement with ṣé to turn it into a yes-or-no question, or with kí ni to ask what something is.",
+          "example": "Ṣé o fẹ́ omi? — Do you want water?"
+        },
+        {
+          "point": "Question words (ta ni, níbo, báwo, èló)",
+          "label": "Who / where / how",
+          "usage": "Open with ta ni (who), níbo (where), báwo (how), èló (how much) or nígbà wo (when), and carry on with ni.",
+          "example": "Ta ni ó kọ ìwé yìí? — Who wrote this book?"
+        },
+        {
+          "point": "Focus with ni",
+          "label": "Focus with ni",
+          "usage": "Move the part you want to stress to the front and add ni after it — it was ADÉ who went, it was the MARKET I went to.",
+          "example": "Adé ni ó lọ. — It was Adé who went."
+        },
+        {
+          "point": "Relative clauses with tí",
+          "label": "Relative tí",
+          "usage": "Use tí to hang a whole description on a noun: the man WHO came, the book THAT I bought.",
+          "example": "Ọkùnrin tí ó wá jẹ́ olùkọ́. — The man who came is a teacher."
+        },
+        {
+          "point": "Serial verbs",
+          "label": "Serial verbs",
+          "usage": "String verbs one after another with no word for and when a single action runs through them: mú ìwé wá, take-book-come, means bring the book.",
+          "example": "Mú ìwé wá fún mi. — Bring me the book (take-book-come)."
+        },
+        {
+          "point": "Serial verbs with fi and fún",
+          "label": "fi / fún serials",
+          "usage": "Add fi to name the tool used (fi ọ̀bẹ gé, cut it with a knife) and fún to name who it is for (ra fún mi, buy it for me).",
+          "example": "Ó fi ọ̀bẹ gé ẹran. — He cut the meat with a knife."
+        },
+        {
+          "point": "Conditionals with bí … bá",
+          "label": "If: bí … bá",
+          "usage": "Use bí at the start and bá just before the verb for something that may still happen.",
+          "example": "Bí o bá kàwé, wàá yege. — If you study, you will pass."
+        },
+        {
+          "point": "Comparatives with ju … lọ",
+          "label": "Comparison ju … lọ",
+          "usage": "Wrap ju … lọ around whatever you are measuring against; the describing word itself stays as it is.",
+          "example": "Ó ga ju mí lọ. — He is taller than me."
+        },
+        {
+          "point": "Reported speech with pé",
+          "label": "Reported pé",
+          "usage": "Use pé after say, know, hear or think to report what somebody said; inside the report, òun points back at the speaker.",
+          "example": "Ó sọ pé òun máa wá. — He said that he would come."
+        },
+        {
+          "point": "Kí clauses — wishes and indirect commands",
+          "label": "Kí clauses",
+          "usage": "Use kí for what somebody should do or what you hope happens — I want you to come, may your day be good.",
+          "example": "Mo fẹ́ kí o wá ní àárọ̀. — I want you to come in the morning."
+        },
+        {
+          "point": "Impersonal wọ́n (passive meaning)",
+          "label": "Impersonal wọ́n",
+          "usage": "Say wọ́n (they), meaning nobody in particular, where English would say something was done to something — the house was sold, you are being called.",
+          "example": "Wọ́n ti kọ́ ilé náà. — The house has been built (lit. they have built it)."
+        },
+        {
+          "point": "Although: bí ó tilẹ̀ jẹ́ pé",
+          "label": "Even though",
+          "usage": "Open with bí ó tilẹ̀ jẹ́ pé when the second half happens in spite of the first; síbẹ̀ (nevertheless) does the same job between two sentences.",
+          "example": "Bí ó tilẹ̀ jẹ́ pé òjò rọ̀, a lọ. — Even though it rained, we went."
+        },
+        {
+          "point": "Ní vs sí — at a place vs towards it",
+          "label": "Ní vs sí",
+          "usage": "Use ní when nothing moves (wà ní ilé, is at home) and sí when something goes somewhere (lọ sí ọjà, went to the market).",
+          "example": "Bàbá wà ní oko. — Father is at the farm."
+        },
+        {
+          "point": "Time clauses: nígbà tí, lẹ́yìn tí, kí … tó",
+          "label": "Time clauses",
+          "usage": "Say how two events line up in time: nígbà tí (when), lẹ́yìn tí (after), kí … tó (before).",
+          "example": "Nígbà tí mo dé, òjò ń rọ̀. — When I arrived, it was raining."
+        },
+        {
+          "point": "Chaining clauses with sì (and then)",
+          "label": "Chaining with sì",
+          "usage": "Join two things the same person did one after the other, putting sì just after the doer in the second part.",
+          "example": "Ó dé ilé, ó sì jókòó. — He arrived home and sat down."
+        },
+        {
+          "point": "How-clauses with bí … ṣe",
+          "label": "How: bí … ṣe",
+          "usage": "Use bí … ṣe to talk about the way something is done — how I saw it, how the machine works.",
+          "example": "Èyí ni bí mo ṣe rí i. — This is how I saw it."
+        },
+        {
+          "point": "Ideophonic intensifiers (láúláú, roro)",
+          "label": "Intensifiers",
+          "usage": "Each describing word has its own partner word for very — funfun láúláú (spotlessly white), gbóná janjan (piping hot) — and the pairs cannot be swapped.",
+          "example": "Aṣọ náà funfun láúláú. — The cloth is spotlessly white."
+        },
+        {
+          "point": "Òwe — proverbs, the horses of speech",
+          "label": "Proverbs (òwe)",
+          "usage": "Drop in a proverb, word for word, when you want to settle a point or carry an argument home.",
+          "example": "Òwe ni ẹṣin ọ̀rọ̀. — Proverbs are the horses of speech."
+        },
+        {
+          "point": "Discourse particles (o, ná, ṣebí, gan-an)",
+          "label": "Discourse particles",
+          "usage": "Add these small words to colour what you say: o (warmth or urgency), ná (for now), ṣebí (surely…?), gan-an (really), tilẹ̀ (even).",
+          "example": "Ó dàbọ̀ o! — Goodbye o! (warm)"
+        }
+      ]
+    }
+  ]
+}

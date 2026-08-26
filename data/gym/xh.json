@@ -1,0 +1,264 @@
+{
+  "language": "isiXhosa",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a real drill sentence from that point. 'nonstandard': entries hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb forms",
+      "entries": [
+        {
+          "point": "Subject concords and the present (ndi-, u-, ba-…)",
+          "label": "Present",
+          "usage": "Use it for what someone does now or as a rule: the front piece says who (ndi- I, u- you, ba- they), and -ya- goes in only when nothing follows the verb.",
+          "example": "Ndifunda isiXhosa. — I study Xhosa."
+        },
+        {
+          "point": "Present negative (andi-…-i)",
+          "label": "Present negative",
+          "usage": "Use it to say someone does not do something: the verb gains a- at the front and swaps its last vowel to -i, so ndiyafunda becomes andifundi.",
+          "example": "Andithethi isiNgesi. — I don't speak English."
+        },
+        {
+          "point": "Recent past (-ile)",
+          "label": "Recent past",
+          "usage": "Use it for something finished today or lately, when the verb ends the sentence: it closes with -ile.",
+          "example": "Ndifundile. — I have studied."
+        },
+        {
+          "point": "Remote past (a-…-a)",
+          "label": "Remote past",
+          "usage": "Use it for things that happened long ago and for telling a story: ndi- fuses with -a- into nda-.",
+          "example": "Ndahlala eKapa kudala. — I lived in Cape Town long ago."
+        },
+        {
+          "point": "Past continuous (bendifunda, ebetya)",
+          "label": "Past continuous",
+          "usage": "Use it for what was going on at some past moment, often when something else interrupted: be- fuses onto the front, bendifunda.",
+          "example": "Bendifunda incwadi izolo. — I was reading a book yesterday."
+        },
+        {
+          "point": "Future (-za ku-)",
+          "label": "Future",
+          "usage": "Use it for anything still to come: -za before the verb with ku- on it, Ndiza kufunda.",
+          "example": "Ndiza kufunda ngomso. — I will study tomorrow."
+        },
+        {
+          "point": "Negative past and future",
+          "label": "Negative past/future",
+          "usage": "Use it to deny something that happened or will happen: a-…-anga for the past (andifundanga) and a-…-zi ku- for the future (andizi kufunda).",
+          "example": "Andifundanga izolo. — I didn't study yesterday."
+        },
+        {
+          "point": "Subjunctive (-e) and ma- (let's)",
+          "label": "Subjunctive / let's",
+          "usage": "Use it to propose doing something together, or to say what you want someone else to do: the verb ends in -e instead of -a.",
+          "example": "Masifunde! — Let's study!"
+        },
+        {
+          "point": "Persistive -sa- (still / no longer)",
+          "label": "Still / no longer",
+          "usage": "Use -sa- to say something is still going on (ndisafunda), and its negative to say it has stopped (andisahlali apha).",
+          "example": "Ndisafunda isiXhosa. — I am still learning Xhosa."
+        },
+        {
+          "point": "Potential -nga- (ndingakunceda — may I?)",
+          "label": "May / can",
+          "usage": "Use -nga- to ask permission or say something is possible: ndingakunceda? — may I help you?",
+          "example": "'Ndingakunceda?' wabuza unovenkile. — 'May I help you?' asked the shopkeeper."
+        },
+        {
+          "point": "Object concords",
+          "label": "Object concords",
+          "usage": "Use it when both of you already know what is being talked about, so it rides inside the verb instead of being named again.",
+          "example": "Incwadi? Ndiyayifunda. — The book? I am reading it."
+        },
+        {
+          "point": "Passive (-wa)",
+          "label": "Passive",
+          "usage": "Use it when what matters is what was done, not who did it: a -w- slips in before the last vowel, funda becomes fundwa.",
+          "example": "Incwadi iyafundwa. — The book is being read."
+        },
+        {
+          "point": "Causative (-isa)",
+          "label": "Causative",
+          "usage": "Use -isa when someone makes or gets something done: funda (learn) becomes fundisa (teach), sebenza (work) becomes sebenzisa (use).",
+          "example": "Utitshala ufundisa abantwana. — The teacher teaches the children."
+        },
+        {
+          "point": "Applicative (-ela)",
+          "label": "Applicative",
+          "usage": "Use -ela when the action is done for, to or towards someone: bhala (write) becomes bhalela (write to someone).",
+          "example": "Ndibhalela umama ileta. — I am writing a letter to mother."
+        },
+        {
+          "point": "Reciprocal (-ana)",
+          "label": "Reciprocal",
+          "usage": "Use -ana when two or more people do it to each other: thanda (love) becomes thandana (love each other).",
+          "example": "Bayathandana. — They love each other."
+        },
+        {
+          "point": "Stative -eka / -akala (kufuneka, iyabonakala)",
+          "label": "Stative (-eka)",
+          "usage": "Use -eka or -akala to say something can be seen, heard or found, without naming anyone who does it — and for the everyday kufuneka, it is necessary.",
+          "example": "Intaba iyabonakala kude. — The mountain is visible from afar."
+        },
+        {
+          "point": "To have: -na-",
+          "label": "Have (-na-)",
+          "usage": "Use -na- to say what someone has; it melts into the noun that follows, so ndi + imali becomes ndinemali.",
+          "example": "Ndinencwadi entle. — I have a beautiful book."
+        }
+      ]
+    },
+    {
+      "kind": "nouns",
+      "label": "Nouns & agreement",
+      "entries": [
+        {
+          "point": "Noun classes 1/2: um-/aba- (people)",
+          "label": "Classes 1/2 (people)",
+          "usage": "Use these for people: um- for one (umfundi, a student) and aba- for more than one (abafundi).",
+          "example": "Umfundi omnye, abafundi ababini. — One student, two students."
+        },
+        {
+          "point": "Noun classes 5/6 and 7/8",
+          "label": "Classes 5/6, 7/8",
+          "usage": "Use i-/ama- for things like iqanda and amaqanda, and isi-/izi- for isitya and izitya — isi- also names languages, isiXhosa.",
+          "example": "Iqanda elinye, amaqanda amabini. — One egg, two eggs."
+        },
+        {
+          "point": "Noun classes 9/10: in-/izin-",
+          "label": "Classes 9/10",
+          "usage": "Use these for most everyday things and for animals: inja becomes izinja, incwadi becomes iincwadi with a long ii-.",
+          "example": "Inja enye, izinja ezimbini. — One dog, two dogs."
+        },
+        {
+          "point": "Noun classes 11, 14, 15 (ulu-, ubu-, uku-)",
+          "label": "Classes 11/14/15",
+          "usage": "Use ulu- for things like ulwimi (language), ubu- for ideas like ubomi (life), and uku- when a verb is used as a thing, ukutya (food).",
+          "example": "Ulwimi lwesiXhosa luhle. — The Xhosa language is beautiful."
+        },
+        {
+          "point": "Identifying copulatives (ngu-, yi-)",
+          "label": "It is (ngu-/yi-)",
+          "usage": "Use it to say what or who something is: ngu- in front of names and people, yi- in front of class-9 nouns like incwadi.",
+          "example": "NguThemba lo. — This is Themba."
+        },
+        {
+          "point": "Possessive concords (yam, wam, bam…)",
+          "label": "Possessives",
+          "usage": "Use it to say whose something is: the ending stays put (-m my, -kho your, -khe his/her) while the first letter copies the thing owned, incwadi yam but umntwana wam.",
+          "example": "Incwadi yam ilahlekile. — My book is lost."
+        },
+        {
+          "point": "Adjective concords (omhle, entle…)",
+          "label": "Adjectives",
+          "usage": "Use it whenever you describe a noun: the describing word takes a front piece copied from that noun, umntwana omhle but incwadi entle.",
+          "example": "umntwana omhle — a beautiful child"
+        },
+        {
+          "point": "Demonstratives (lo, le, eli…)",
+          "label": "This / that",
+          "usage": "Use these to point at something near you (lo mntu, le ncwadi) or further off, where the word lengthens to loo, leyo.",
+          "example": "Lo mntu uyafunda. — This person is studying."
+        },
+        {
+          "point": "Absolute pronouns (mna, wena, yena…)",
+          "label": "Emphatic pronouns",
+          "usage": "Use mna, wena, yena when you want to stress or contrast who you mean, since the verb already says who is acting.",
+          "example": "Mna ndiyasebenza namhlanje. — As for ME, I am working today."
+        },
+        {
+          "point": "Counting with concords (ezimbini, bangaphi)",
+          "label": "Counting",
+          "usage": "Use it to count things or to ask how many: the number copies the noun it counts, abantu ababini but iincwadi ezimbini.",
+          "example": "Ndineencwadi ezimbini. — I have two books."
+        },
+        {
+          "point": "Locatives (e-…-ini)",
+          "label": "Places (e-…-ini)",
+          "usage": "Use it to say where something is or where you are going: the place word takes e- in front and often -ini on the end, isikolo becomes esikolweni.",
+          "example": "Ndihlala eKapa. — I live in Cape Town."
+        },
+        {
+          "point": "Instrumental nga- (ngemoto, ngesiXhosa)",
+          "label": "By / with (nga-)",
+          "usage": "Use nga- to say how, with what or when something is done: ngemoto (by car), ngesiXhosa (in Xhosa), ngoMvulo (on Monday).",
+          "example": "Siza kuhamba ngemoto. — We will travel by car."
+        }
+      ]
+    },
+    {
+      "kind": "constructions",
+      "label": "Constructions",
+      "entries": [
+        {
+          "point": "Questions (ntoni, bani, phi)",
+          "label": "Questions",
+          "usage": "Use these to ask for information; the question word comes after the verb, and a yes/no question just needs rising intonation or Ingaba in front.",
+          "example": "Ufuna ntoni? — What do you want?"
+        },
+        {
+          "point": "Relative clauses (o-…-yo)",
+          "label": "Relative clauses",
+          "usage": "Use it to pick out which one you mean by what it does: the verb gets a front piece and -yo on the end, umntwana ofundayo.",
+          "example": "umntwana ofundayo — the child who studies"
+        },
+        {
+          "point": "Conditions with ukuba",
+          "label": "If / that (ukuba)",
+          "usage": "Use ukuba to set up a condition (if you study, you will pass) and to report what someone knows or says (I know that you are coming).",
+          "example": "Ukuba uyafunda, uza kuphumelela. — If you study, you will pass."
+        },
+        {
+          "point": "When-clauses: xa + participial",
+          "label": "When (xa)",
+          "usage": "Use xa for when or while something happens; the verb in that half drops -ya- and u- shifts to e-, xa utitshala ethetha.",
+          "example": "Xa ndifunda, ndimamela umculo. — When I study, I listen to music."
+        },
+        {
+          "point": "Purpose: ukuze + subjunctive",
+          "label": "So that (ukuze)",
+          "usage": "Use ukuze to give the point of doing something, with the following verb ending in -e.",
+          "example": "Funda kakhulu ukuze uphumelele. — Study hard so that you pass."
+        },
+        {
+          "point": "Because: kuba, ngoba — and kutheni (why)",
+          "label": "Because & why",
+          "usage": "Use kuba or ngoba to give a reason, and kutheni … nje to ask for one.",
+          "example": "Andiyi esikolweni kuba ndiyagula. — I am not going to school because I am ill."
+        },
+        {
+          "point": "Ideophones with ukuthi (wathi cwaka)",
+          "label": "Ideophones",
+          "usage": "Use one to drop a vivid sound or sudden image into a story, carried by the verb -thi: wathi cwaka, it went dead silent.",
+          "example": "Indlu yathi cwaka. — The house went dead silent."
+        },
+        {
+          "point": "Amaqhalo — proverbs and ubuntu",
+          "label": "Proverbs",
+          "usage": "Use a proverb to settle a point the way an elder would; umntu ngumntu ngabantu is the one every speaker knows.",
+          "example": "Umntu ngumntu ngabantu. — A person is a person through people."
+        },
+        {
+          "point": "Hlonipha — the respect register",
+          "label": "Respect register",
+          "usage": "Use it with elders and in-laws: greet them in the plural (molweni), call them tata or mama rather than by name, and treat them ngembeko.",
+          "example": "'Molweni, tata.' watsho umfana ehlonipha. — 'Greetings (respectful plural), father,' said the young man politely."
+        },
+        {
+          "point": "Discourse particles (ke, nje, phofu, kaloku)",
+          "label": "Discourse particles",
+          "usage": "Drop these small words in to steer a conversation: ke moves it along, nje softens, kaloku appeals to what you both know, andithi asks for agreement.",
+          "example": "Masihambe ke. — Let's go, then."
+        },
+        {
+          "point": "Greetings in full (molo, hamba kakuhle)",
+          "label": "Greetings",
+          "usage": "Use these to open and close a conversation: molo to one person, molweni to several or to an elder, hamba kakuhle to whoever is leaving and sala kakuhle to whoever stays.",
+          "example": "'Molo!' 'Molo, unjani?' — 'Hello!' 'Hello, how are you?'"
+        }
+      ]
+    }
+  ]
+}

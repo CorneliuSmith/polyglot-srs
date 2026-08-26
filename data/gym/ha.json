@@ -1,0 +1,276 @@
+{
+  "language": "Hausa",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a real drill sentence from that point. 'nonstandard': entries hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb forms",
+      "entries": [
+        {
+          "point": "Identity with ne / ce",
+          "label": "Ne / ce",
+          "usage": "Use it to say what someone or something is: end with ne after a man, a plural, or a masculine word, and ce after a woman or a feminine word like mota.",
+          "example": "Ni malami ne. — I am a (male) teacher."
+        },
+        {
+          "point": "Completive aspect (na, ka, ya, ta…)",
+          "label": "Completive (na, ya)",
+          "usage": "Use it for something already done: na ci (I ate), sun tafi (they left).",
+          "example": "Na ci abinci. — I ate food."
+        },
+        {
+          "point": "Continuous aspect (ina, kana, yana…)",
+          "label": "Continuous (ina, yana)",
+          "usage": "Use it for what is going on right now: ina, kana, yana and the -ing shape of the verb.",
+          "example": "Ina cin abinci. — I am eating food."
+        },
+        {
+          "point": "Future with zan, za ka…",
+          "label": "Future (zan)",
+          "usage": "Use it for what has not happened yet: zan tafi (I will go), za ta dawo (she will come back).",
+          "example": "Zan tafi gida. — I will go home."
+        },
+        {
+          "point": "Habitual (nakan, yakan…)",
+          "label": "Habitual (nakan)",
+          "usage": "Use it for what someone does again and again, with words like kullum or kowace rana.",
+          "example": "Nakan sha shayi da safe. — I usually drink tea in the morning."
+        },
+        {
+          "point": "Subjunctive (ka tafi, mu je…)",
+          "label": "Subjunctive (ka zo)",
+          "usage": "Use these short pronouns after wanting, letting or telling someone to do something: ina so ka zo, bari mu je.",
+          "example": "Ina so ka zo. — I want you to come."
+        },
+        {
+          "point": "Imperative and don't (kada)",
+          "label": "Commands & kada",
+          "usage": "Use the bare verb to tell someone to do something (Zo!) and kada plus the short pronoun to tell them not to (Kada ka tafi!).",
+          "example": "Zo nan! — Come here!"
+        },
+        {
+          "point": "Relative completive (suka, muka, aka)",
+          "label": "Relative suka/aka",
+          "usage": "After da (who, that) and in it-was sentences, sun becomes suka, mun becomes muka, an becomes aka.",
+          "example": "Mutanen da suka zo jiya sun tafi. — The people who came yesterday have left."
+        },
+        {
+          "point": "Relative continuous -ke",
+          "label": "Relative -ke",
+          "usage": "In who/that clauses and straight after a question word, yana becomes yake and kana becomes kake.",
+          "example": "Ina kake zaune? — Where do you live? (you-m)"
+        },
+        {
+          "point": "Impersonal an / ana (passive sense)",
+          "label": "Impersonal an/ana",
+          "usage": "Use an or ana when it does not matter who did it: An gina gida (a house was built).",
+          "example": "An gina sabon gida. — A new house has been built."
+        },
+        {
+          "point": "Verbal nouns in the continuous (cin, shan, zuwa)",
+          "label": "Verbal nouns",
+          "usage": "After ina, yana and the rest the verb changes shape before its object: ci becomes cin, sha becomes shan, zo becomes zuwa.",
+          "example": "Ina cin abinci. — I am eating food."
+        },
+        {
+          "point": "Verb pairs: saya/sayar, koya/koyar, dafa/dafu",
+          "label": "Verb grades",
+          "usage": "Use the -ar form when the action is aimed at someone else (saya buy becomes sayar da sell) and the -u form when something simply gets done to a thing (dafa cook becomes dafu be cooked).",
+          "example": "Ya sayar da tsohuwar motarsa. — He sold his old car."
+        },
+        {
+          "point": "Choosing the aspect — jiya, yanzu, kowace rana",
+          "label": "Which aspect?",
+          "usage": "Let the time word pick the pronoun for you: jiya takes na, yanzu takes ina, kullum takes nakan, gobe takes zan.",
+          "example": "Jiya na tafi kasuwa. — Yesterday I went to the market."
+        },
+        {
+          "point": "To have: da (ina da, ba ni da)",
+          "label": "Have (da)",
+          "usage": "Use ina da, yana da to say you have something, and ba ni da, ba shi da to say you have not.",
+          "example": "Ina da mota. — I have a car."
+        }
+      ]
+    },
+    {
+      "kind": "nouns",
+      "label": "Nouns & agreement",
+      "entries": [
+        {
+          "point": "Independent pronouns (ni, kai, ke…)",
+          "label": "Independent pronouns",
+          "usage": "Use these standalone words for I, you, he and the rest — and say kai to a man, ke to a woman.",
+          "example": "Ni malami ne. — I am a teacher."
+        },
+        {
+          "point": "Object pronouns",
+          "label": "Object pronouns",
+          "usage": "Use these straight after the verb for the person or thing it happens to: Na gan shi (I saw him).",
+          "example": "Na gan shi a kasuwa. — I saw him at the market."
+        },
+        {
+          "point": "Indirect objects (mini, maka, masa)",
+          "label": "Indirect objects",
+          "usage": "Use mini, maka, masa right after the verb for the person you do something to or for.",
+          "example": "Ya rubuta mini wasiƙa. — He wrote me a letter."
+        },
+        {
+          "point": "Possessive pronouns (-na, -nka…)",
+          "label": "Possessives (-na)",
+          "usage": "Stick the owner on the end of the thing owned: littafina (my book), motarsa (his car).",
+          "example": "Littafina yana nan. — My book is here."
+        },
+        {
+          "point": "The genitive linker -n / -r",
+          "label": "Linker -n/-r",
+          "usage": "Use it to say whose something is: add -n to the first noun (littafin Audu) or -r if that noun is a feminine one like mota (motar Audu).",
+          "example": "Littafin Audu yana nan. — Audu's book is here."
+        },
+        {
+          "point": "Common plurals",
+          "label": "Plurals",
+          "usage": "Use it when you mean more than one — the word itself changes shape: mota becomes motoci, gida becomes gidaje.",
+          "example": "Ina da motoci biyu. — I have two cars."
+        },
+        {
+          "point": "Demonstratives (wannan, wancan, waɗannan)",
+          "label": "This / that",
+          "usage": "Point something out with wannan (this), wancan or waccan (that), waɗannan (these) — they go in front of the noun.",
+          "example": "Wannan littafi nawa ne. — This book is mine."
+        },
+        {
+          "point": "Describing with mai / masu",
+          "label": "Mai / masu",
+          "usage": "Use mai plus a noun to describe something (gida mai kyau, a fine house), masu when there is more than one.",
+          "example": "Wannan gida mai kyau ne. — This is a beautiful house."
+        },
+        {
+          "point": "Numbers after the noun (biyu, goma, nawa)",
+          "label": "Numbers & nawa",
+          "usage": "Put the number after the noun, not before it — mota biyu (two cars) — and use nawa in the same spot to ask how many.",
+          "example": "Ina da yara biyu. — I have two children."
+        },
+        {
+          "point": "Ɗan-compounds (ɗan kasuwa, ʼyan sanda)",
+          "label": "Ɗan-compounds",
+          "usage": "Put ɗan (ʼyar for a woman, ʼyan for several) in front of a noun to say where someone belongs or what they do: ɗan kasuwa, a trader.",
+          "example": "Shi ɗan Nijeriya ne. — He is a Nigerian."
+        }
+      ]
+    },
+    {
+      "kind": "constructions",
+      "label": "Constructions",
+      "entries": [
+        {
+          "point": "Existence: akwai / babu",
+          "label": "Akwai / babu",
+          "usage": "Say there is with akwai and there is no with babu.",
+          "example": "Akwai ruwa a gida. — There is water at home."
+        },
+        {
+          "point": "Negation ba … ba",
+          "label": "Negation (ba…ba)",
+          "usage": "Say something did not happen by wrapping the whole sentence in ba … ba: Ban ci ba (I didn't eat).",
+          "example": "Ban ci abinci ba. — I did not eat food."
+        },
+        {
+          "point": "Questions (me, wa, ina)",
+          "label": "Question words",
+          "usage": "Ask with me (what), wa (who), ina (where) and yaushe (when) at the front of the sentence, and use nawa (how much/how many) after the noun you are counting: littattafai nawa?",
+          "example": "Me ka ci? — What did you eat?"
+        },
+        {
+          "point": "Relative clauses (wanda, wadda, waɗanda)",
+          "label": "Relative clauses",
+          "usage": "Say more about a person or thing with da, or with wanda, wadda, waɗanda: the man who came, the car that I bought.",
+          "example": "Mutumin da ya zo malami ne. — The man who came is a teacher."
+        },
+        {
+          "point": "Focus fronting with ne/ce",
+          "label": "Focus fronting",
+          "usage": "Put the word you want to stress first and follow it with ne or ce to mean it was THAT one: Audu ne ya zo.",
+          "example": "Audu ne ya zo. — It was Audu who came."
+        },
+        {
+          "point": "Conditionals with idan / in",
+          "label": "If (idan)",
+          "usage": "Set up a condition with idan or its short form in: Idan ka zo, za mu ci abinci.",
+          "example": "Idan ka zo, za mu ci abinci. — If you come, we will eat."
+        },
+        {
+          "point": "Comparison with fi",
+          "label": "Comparison (fi)",
+          "usage": "Say one thing beats another with fi: Ya fi ni tsayi (he is taller than me).",
+          "example": "Ya fi ni tsayi. — He is taller than me."
+        },
+        {
+          "point": "Because and in order to: don, domin, saboda",
+          "label": "Because / purpose",
+          "usage": "Give the reason with saboda or domin, and the purpose with don plus a short pronoun: na zo don in gan ka.",
+          "example": "Na zo don in gan ka. — I came in order to see you."
+        },
+        {
+          "point": "Before and after: kafin, bayan",
+          "label": "Before / after",
+          "usage": "Line two events up in time: kafin ka tafi (before you go), bayan ya gama (after he finished).",
+          "example": "Kafin ka tafi, kashe wuta. — Before you go, turn off the light."
+        },
+        {
+          "point": "Connectors kuma, har, ma, amma",
+          "label": "Kuma, amma, har",
+          "usage": "Stitch sentences together: kuma adds, amma turns, har stretches, ma tags something on.",
+          "example": "Ya sayi gurasa kuma ya sayi madara. — He bought bread and also bought milk."
+        },
+        {
+          "point": "Sai — until, then, only, except",
+          "label": "Sai",
+          "usage": "One small word for until, then, only and except: sai gobe (see you tomorrow), kowa ya tafi sai Audu (everyone left except Audu).",
+          "example": "Sai gobe! — See you tomorrow!"
+        },
+        {
+          "point": "Ko — or, whether, any-, right?",
+          "label": "Ko (or, any-)",
+          "usage": "Ko offers a choice (shayi ko kofi), says whether, checks back (ko ba haka ba?) and builds kowa (everyone) and komai (everything).",
+          "example": "Kana son shayi ko kofi? — Do you want tea or coffee?"
+        },
+        {
+          "point": "Reported speech with cewa",
+          "label": "Reported speech",
+          "usage": "Use cewa to pass on what somebody said, heard or is sure of: Ya ce cewa zai zo.",
+          "example": "Ya ce cewa zai zo. — He said that he would come."
+        },
+        {
+          "point": "Reduplication (biyu-biyu, daban-daban)",
+          "label": "Reduplication",
+          "usage": "Double a word to spread it out or soften it: biyu-biyu (two by two), daban-daban (all sorts), ja-ja (reddish).",
+          "example": "Sun shiga biyu-biyu. — They entered two by two."
+        },
+        {
+          "point": "Ideophonic intensifiers (fari fat, ja wur)",
+          "label": "Intensifiers (fat, wur)",
+          "usage": "Each quality has its own booster word that goes with nothing else: fari fat (snow-white), ja wur (blazing red), shiru tsit (dead silent).",
+          "example": "Rigarsa fara ce fat. — His gown is snow-white."
+        },
+        {
+          "point": "Discourse particles (fa, dai, mana, ashe)",
+          "label": "Particles (fa, dai)",
+          "usage": "The small words that set the tone: fa turns it back on the listener, mana urges, dai softens, ashe means so that's how it is.",
+          "example": "Kai fa, yaya aikinka? — And you, how is your work?"
+        },
+        {
+          "point": "Greetings and respect (Ranka ya daɗe)",
+          "label": "Greetings",
+          "usage": "Use the greeting the moment calls for: barka da safiya early in the day, gafara dai to announce yourself, ranka ya daɗe to an elder or a chief.",
+          "example": "'Ranka ya daɗe!' ya gaishe sarki. — 'May your life be long!' he greeted the emir."
+        },
+        {
+          "point": "Karin magana — proverbs",
+          "label": "Proverbs",
+          "usage": "Drop one of these fixed sayings to settle a point the way an elder would.",
+          "example": "Sannu ba ta hana zuwa. — Going slowly does not prevent arriving."
+        }
+      ]
+    }
+  ]
+}

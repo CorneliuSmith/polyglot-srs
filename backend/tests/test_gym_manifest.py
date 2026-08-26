@@ -7,9 +7,42 @@ from backend.services.gym_manifest import (
 )
 
 
-def test_load_manifest_none_for_uninflected_language():
-    # A language without a curated manifest has no Gym.
-    assert load_manifest("sw") is None
+def test_load_manifest_none_for_an_unknown_language():
+    # A code with no manifest file has no Gym.
+    assert load_manifest("zz") is None
+
+
+def test_every_course_has_a_manifest():
+    """This test used to assert `load_manifest("sw") is None` and called
+    Swahili "uninflected" — a Bantu language with noun classes on every
+    agreeing word and four slots inside the verb. It was standing in for "no
+    manifest yet", and seven courses were in that state: sw, ha, yo, xh, mi,
+    th and jam, 298 grammar points that could not be drilled by anyone.
+
+    A point absent from its manifest is untrainable, so the Gym's real
+    coverage is this, not the number of manifest files."""
+    import json
+    from pathlib import Path
+
+    repo = Path(__file__).resolve().parents[2]
+    codes = [p.stem for p in (repo / "data" / "gym").glob("*.json")]
+    assert len(codes) == 27, f"only {len(codes)} courses have a Gym manifest"
+    for code in codes:
+        grammar = repo / "data" / "grammar" / f"{code}_grammar.json"
+        if not grammar.exists():
+            continue
+        data = json.loads(grammar.read_text(encoding="utf-8"))
+        points = data if isinstance(data, list) else (
+            data.get("points") or data.get("grammar_points") or [])
+        titles = {(p.get("title") or "").strip() for p in points}
+        manifest = load_manifest(code)
+        assert manifest, code
+        named = {(e.get("point") or "").strip()
+                 for col in manifest.get("columns") or []
+                 for e in col.get("entries") or []}
+        # every entry must name a REAL point: the title is matched literally,
+        # so one character out is a dead row in the picker
+        assert not (named - titles), f"{code}: {sorted(named - titles)[:3]}"
 
 
 def test_load_manifest_reads_columns():

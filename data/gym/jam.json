@@ -1,0 +1,216 @@
+{
+  "language": "Jamaican Patois",
+  "_note": "The Gym manifest (WP25a): which grammar points act as selectable form categories, grouped into picker columns. 'point' must match the grammar point title exactly (resolved to ids at request time). 'usage' is the plain-language hover explanation; 'example' is a real drill sentence from that point. 'nonstandard': entries hidden behind the 'include non-standard words' toggle.",
+  "columns": [
+    {
+      "kind": "verbs",
+      "label": "Verb forms",
+      "entries": [
+        {
+          "point": "Bare verbs — no endings, ever",
+          "label": "Bare verbs",
+          "usage": "Use the plain dictionary verb for every subject and every time — nothing is ever added to the end of it, and a little word in front (or the time word in the sentence) does the job English endings do.",
+          "example": "Im ron evri mawnin. — He runs every morning."
+        },
+        {
+          "point": "Progressive a: Mi a ron",
+          "label": "Happening now (a)",
+          "usage": "Put a in front of the verb when something is going on right now — Mi a ron, Wa yu a du? — with no 'am' or 'are' anywhere in the sentence.",
+          "example": "Mi a kuk di dina. — I am cooking the dinner."
+        },
+        {
+          "point": "Past with did: Mi did si im",
+          "label": "Past (did)",
+          "usage": "Put did in front of the verb when nothing else in the sentence already shows the thing has happened; with a time word like yeside the plain verb is enough on its own.",
+          "example": "Mi did si im laas wiik. — I saw him last week."
+        },
+        {
+          "point": "Continuous past: Im did a ron",
+          "label": "Was doing (did a)",
+          "usage": "Use did and then a, in that order, for something that was going on at a moment in the past — often when something else interrupted it.",
+          "example": "Im did a slip wen mi riich. — He was sleeping when I arrived."
+        },
+        {
+          "point": "Completive don: Mi don nyam",
+          "label": "Finished (don)",
+          "usage": "Use don when the action is over and done with — Mi don nyam for 'I've already eaten' — either in front of the verb or after the whole verb phrase.",
+          "example": "Mi don nyam aredi. — I have already eaten."
+        },
+        {
+          "point": "Future: wi and a go: Mi ago kom",
+          "label": "Future (wi, ago)",
+          "usage": "Use wi for a plain 'will' and ago (a go) for what you are going to do or what is clearly about to happen — Mi wi kom, It ago rien.",
+          "example": "Mi wi elp yu tumaro. — I will help you tomorrow."
+        },
+        {
+          "point": "Modals: kyan, hafi, mos, shuda",
+          "label": "Modals",
+          "usage": "Use kyan for can and kyaan for can't, hafi for have to, mos for must, and shuda, kuda, wuda for should, could and would.",
+          "example": "Mi kyan swim gud gud. — I can swim very well."
+        },
+        {
+          "point": "Fi + verb: Mi waan fi go",
+          "label": "Fi + verb",
+          "usage": "Put fi in front of a verb for 'to' after words like waan and laan, and also when you mean somebody is supposed to do something — Yu fi lisn to yu mada.",
+          "example": "Mi waan fi laan Patwa. — I want to learn Patois."
+        },
+        {
+          "point": "The equative copula a: Mi a di tiicha",
+          "label": "Is a doctor (a)",
+          "usage": "Use a when you are saying that one thing is another thing — Mi a di tiicha, Im a dakta — and never in front of a describing word.",
+          "example": "Mi a di nyuu tiicha. — I am the new teacher."
+        },
+        {
+          "point": "The locative copula de: Im de a yaad",
+          "label": "Is at home (de)",
+          "usage": "Use de when you are saying where somebody or something is — Im de a yaad, Mi de ya — while a is only for saying what something is.",
+          "example": "Mi de a yaad tide. — I am at home today."
+        },
+        {
+          "point": "Zero copula with adjectives: Di uman nais",
+          "label": "Is nice (no a)",
+          "usage": "Put nothing at all between the thing and the word describing it — Di uman nais, Mi taiyad — because slipping a in there is wrong.",
+          "example": "Di uman nais. — The woman is nice."
+        }
+      ]
+    },
+    {
+      "kind": "nouns",
+      "label": "Nouns & agreement",
+      "entries": [
+        {
+          "point": "Pronouns: mi, yu, im, wi, unu, dem",
+          "label": "Pronouns",
+          "usage": "Use these one-shape words wherever they land in the sentence — mi is both 'I' and 'me', im covers he and she alike, and unu is the plural 'you' that English has no word for.",
+          "example": "Mi a go a skuul. — I am going to school."
+        },
+        {
+          "point": "Plural with dem: di pikni dem",
+          "label": "Plural (dem)",
+          "usage": "Put dem after the noun when you mean more than one — di pikni dem — but leave it off when a number or a 'plenty' word already makes it clear, like faiv mango.",
+          "example": "Di pikni dem de a skuul. — The children are at school."
+        },
+        {
+          "point": "Articles: di, wan, and none",
+          "label": "Articles",
+          "usage": "Use di for 'the', and wan for 'a' when it matters that there is just one — but often say no article at all where English needs one, as in Im a tiicha.",
+          "example": "Di pikni dem a plie. — The children are playing."
+        },
+        {
+          "point": "Possession with fi: a fi mi buk",
+          "label": "Possession (fi)",
+          "usage": "Use fi in front of a pronoun to say whose something is — fi mi, fi yu, fi im — while with a person's name you simply set the two words side by side: Jan buk.",
+          "example": "A fi mi buk dat. — That's my book."
+        },
+        {
+          "point": "Prepositions: ina, pan, outa",
+          "label": "Prepositions",
+          "usage": "Use ina for in or inside, pan for on, outa for out of, and plain a for 'to' or 'at' a place — go a maakit, de a yaad.",
+          "example": "Di pikni dem de ina di yaad. — The children are in the yard."
+        },
+        {
+          "point": "Reduplication: likl-likl, was-was",
+          "label": "Doubling (gud-gud)",
+          "usage": "Say the word twice to turn it up or spread it out — swiit-swiit for really sweet, likl-likl for bit by bit, taak-taak for talking on and on.",
+          "example": "Di mango swiit-swiit. — The mango is really sweet."
+        }
+      ]
+    },
+    {
+      "kind": "constructions",
+      "label": "Constructions",
+      "entries": [
+        {
+          "point": "Negation: no and duon",
+          "label": "Negation (no)",
+          "usage": "Put no in front of the verb or its marker to say something is not so — Mi no nuo, Im no de ya — and use duon when telling somebody not to do something.",
+          "example": "Mi no nuo di ansa. — I don't know the answer."
+        },
+        {
+          "point": "Neva: past negation",
+          "label": "Didn't (neva)",
+          "usage": "Use neva rather than no for something that simply did not happen in the past — Mi neva si im means 'I didn't see him', not 'never in my life'.",
+          "example": "Mi neva tek yu moni. — I didn't take your money."
+        },
+        {
+          "point": "Questions: intonation, we, uu, wa",
+          "label": "Questions",
+          "usage": "For a yes/no question keep the ordinary word order and just lift your voice at the end; to ask for detail start with wa, we, uu, wen, ou, umoch or wa mek.",
+          "example": "Wa yu a du? — What are you doing?"
+        },
+        {
+          "point": "Question tags: no chuu? iihn? no?",
+          "label": "Question tags",
+          "usage": "Tack no chuu?, iihn? or no? onto the end of a statement when you want the other person to agree with you.",
+          "example": "Di mango dem swiit, no chuu? — The mangoes are sweet, aren't they?"
+        },
+        {
+          "point": "Se after talk and know: Im tel mi se…",
+          "label": "Saying that (se)",
+          "usage": "Use se to hook on what somebody said, knows, thinks or heard — Im tel mi se yu gaan — exactly where English would say 'that'.",
+          "example": "Im tel mi se yu naa kom. — He told me that you're not coming."
+        },
+        {
+          "point": "Serial verbs: ron go bring it kom",
+          "label": "Serial verbs",
+          "usage": "String the verbs straight together with no 'and' or 'to' between them — Ron go kaal im, Tek it kom ya — with go and kom on the end to show which way it moves.",
+          "example": "Ron go kaal yu faada. — Run and call your father."
+        },
+        {
+          "point": "Predicate cleft: A tiif im tiif it",
+          "label": "Stressing the verb",
+          "usage": "When somebody doubts that the thing really happened, say a plus the verb first and then the whole sentence again — A tiif im tiif it insists that stealing is exactly what he did.",
+          "example": "A tiif im tiif di moni. — He STOLE the money (stealing is what he did)."
+        },
+        {
+          "point": "Focus fronting: A we yu a go?",
+          "label": "Fronting for focus",
+          "usage": "Move whatever you want to spotlight to the front and put a before it — A yu mi a taak to for 'it's YOU', A we yu a go? for 'where exactly'.",
+          "example": "A yu mi a taak to, no im. — It's YOU I'm talking to, not him."
+        },
+        {
+          "point": "Mek: let, make, and let's",
+          "label": "Let, let's (mek)",
+          "usage": "Use mek for let, make and let's — Mek wi go, Mek mi si, Yu a mek mi liet — with a pronoun and then a plain verb behind it.",
+          "example": "Mek wi go a di bich! — Let's go to the beach!"
+        },
+        {
+          "point": "Conditionals: ef … wuda",
+          "label": "If (ef, wuda)",
+          "usage": "Use ef and then an ordinary sentence for a real 'if' — Ef it rien, wi stie a yaad — and ef with did plus wuda for something that never actually happened: Ef mi did nuo, mi wuda kom.",
+          "example": "Ef it rien, wi naa go. — If it rains, we're not going."
+        },
+        {
+          "point": "Existentials and weather: it av, wan … de",
+          "label": "There is (it av)",
+          "usage": "Say there is something with it av, or by putting de after the thing — Nof mango de pan di tri — and describe weather with no 'it' at all: Rien a faal.",
+          "example": "It av wan gud shap a toun. — There's a good shop in town."
+        },
+        {
+          "point": "The continuum: Patwa to Jamaican English",
+          "label": "Deep vs standard",
+          "usage": "Pick how deep to go for the situation — Im en a nyam at the deep end, Im did a eat in the middle, He was eating at the English end — and listen for the giveaways: en or did, nyam or eat, unu or you all.",
+          "example": "Deep Patwa fi 'he was eating': Im en a nyam. — Deep Patois for 'he was eating': Im en a nyam."
+        },
+        {
+          "point": "Proverbs: Wanti wanti kyaan getti",
+          "label": "Proverbs",
+          "usage": "Drop a whole proverb into a conversation the way a Jamaican speaker does — learn each one word for word, with its rhythm, because it stands in for a whole argument.",
+          "example": "Wan wan koko ful baskit. — One by one (cocoyam by cocoyam) fills the basket."
+        },
+        {
+          "point": "Iyaric: I-an-I and Rasta wordcraft",
+          "label": "Iyaric (Rasta)",
+          "usage": "Reach for the Rastafari words when the talk is conscious or reasoning — I-an-I in place of mi and wi, overstand for understand, downpressor for oppressor, Ital for pure food.",
+          "example": "Rasta seh: I-an-I a go a di hills. — Rasta says: I (we) am going to the hills."
+        },
+        {
+          "point": "Written Patwa: Cassidy spelling and dialect literature",
+          "label": "Spelling (Cassidy)",
+          "usage": "Write the one-sound-one-letter Cassidy way used in this course — di, likl, kyaan, uman — but expect likkle, cyaan and ooman when people type Patois online.",
+          "example": "Cassidy spelling fi 'little': likl. — Cassidy spelling for 'little': likl."
+        }
+      ]
+    }
+  ]
+}
