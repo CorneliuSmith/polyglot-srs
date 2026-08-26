@@ -581,3 +581,557 @@ summus	Summus mōns est.	It is the highest mountain.	19999
 impetus	Impetus coepit!	The attack has begun!	19999
 licet	Licet īnsānīre.	It's OK to be crazy.	19999
 tamen	Tamen suspicax sum.	I'm still paranoid.	19999
+et	Puer et puella in viā ambulant.	The boy and the girl are walking down the street.	1
+in	Liber in mēnsā est.	The book is on the table.	2
+nōn	Puer aquam nōn habet.	The boy doesn't have any water.	3
+est	Amīcus meus poēta est.	My friend is a poet.	4
+dē	Puella dē cēnā rogat.	The girl is asking about dinner.	5
+quī	Puer quī cantat laetus est.	The boy who is singing is happy.	6
+sum	Magister sum, nōn discipulus.	I'm a teacher, not a student.	7
+tū	Tū bonus amīcus es.	You're a good friend.	8
+ad	Puer ad silvam currit.	The boy is running to the woods.	9
+nōs	Nōs in agrō labōrāmus.	We're working in the field.	10
+vōs	Vōs semper bene cantātis.	You all always sing well.	11
+cum	Puer cum amīcō lūdit.	The boy is playing with his friend.	12
+ut	Puella cantat ut avis.	The girl sings like a bird.	13
+sī	Sī amīcus venit, laetus sum.	If a friend comes, I'm happy.	14
+cūr	Cūr in viā stās?	Why are you standing in the street?	15
+quandō	Quandō amīcī tuī veniunt?	When are your friends coming?	16
+sed	Cēna parva est, sed bona.	The meal is small, but good.	17
+quod	Domina rīdet quod fābula bona est.	The lady is laughing because the story is good.	18
+hic	Hic hortus parvus est.	This garden is small.	19
+ille	Ille puer in viā ambulat.	That boy is walking in the street.	20
+is	Is vir equum meum cūrat.	That man looks after my horse.	21
+ego	Ego aquam portō, tū sedēs.	I carry the water, you sit.	22
+fēmina	Fēmina in hortō rosās spectat.	The woman is looking at the roses in the garden.	23
+domina	Domina novam epistulam scrībit.	The lady is writing a new letter.	24
+fīlius	Fīlius meus multōs librōs habet.	My son has a lot of books.	25
+fīlia	Fīlia tua fābulās amat.	Your daughter loves stories.	26
+quis	Quis in viā cantat?	Who's singing out in the street?	27
+māter	Māter mea cēnam bonam parat.	My mother is making a good dinner.	28
+frāter	Frāter meus librum legit.	My brother is reading a book.	29
+atque	Magister atque discipulī fābulam legunt.	The teacher and the students are reading a story.	30
+aut	Aquam aut vīnum habēmus.	We have water or wine.	32
+pāx	Nunc in patriā pāx est.	There is peace in the country now.	33
+enim	Puella nōn cantat; fessa enim est.	The girl isn't singing; she's tired, you see.	34
+autem	Puer currit; puella autem sedet.	The boy is running; the girl, though, is sitting.	35
+ipse	Magister ipse discipulōs docet.	The teacher himself teaches the students.	36
+omnis	Omnis discipulus librum novum habet.	Every student has a new book.	37
+rēs	Puella multās rēs portat.	The girl is carrying a lot of things.	38
+suus	Agricola et fīlius suus labōrant.	The farmer and his son are working.	39
+rēx	Rēx in magnā vīllā habitat.	The king lives in a big house.	40
+etiam	Hodiē etiam magister fessus est.	Today even the teacher is tired.	41
+iam	Amīcī nostrī iam veniunt.	Our friends are already on their way.	42
+diēs	Diēs longus et clārus est.	The day is long and bright.	43
+per	Puella per silvam ambulat.	The girl is walking through the woods.	44
+ex	Fēmina ex tabernā venit.	The woman is coming out of the shop.	45
+ab	Epistula ab amīcō venit.	A letter is coming from a friend.	46
+prō	Fīlius prō patre labōrat hodiē.	The son is working in his father's place today.	47
+nōmen	Nōmen tuum pulchrum est.	Your name is beautiful.	48
+vīta	Vīta in agrīs bona est.	Life in the fields is good.	49
+inter	Hortus inter vīllam et viam est.	The garden is between the house and the road.	50
+post	Post cēnam in hortō sedēmus.	After dinner we sit in the garden.	51
+anima	Anima in corpore est.	The soul is in the body.	52
+ante	Ante iānuam canis sedet.	The dog is sitting in front of the door.	53
+sine	Sine aquā nōn vīvimus.	We don't live without water.	54
+sub	Canis sub mēnsā dormit.	The dog is sleeping under the table.	55
+amō	Hortum meum valdē amō.	I love my garden very much.	56
+videō	Nunc lūnam in caelō videō.	Now I see the moon in the sky.	57
+habeō	Multōs amīcōs bonōs habeō.	I have a lot of good friends.	58
+faciō	Novum hortum in agrō faciō.	I'm making a new garden in the field.	59
+dīcō	Semper tibi vērum dīcō.	I always tell you the truth.	60
+dō	Aquam equō meō dō.	I give my horse water.	61
+veniō	Statim ad iānuam veniō.	I'm coming to the door right away.	62
+eō	Nunc ad forum eō.	I'm going to the market now.	63
+vocō	Amīcōs meōs ad cēnam vocō.	I'm inviting my friends to dinner.	64
+audiō	Avēs in hortō audiō.	I hear the birds in the garden.	65
+scrībō	Epistulam longam mātrī scrībō.	I'm writing my mother a long letter.	66
+legō	Librum novum hodiē legō.	I'm reading a new book today.	67
+sedeō	Sub arbore magnā sedeō.	I'm sitting under a big tree.	68
+stō	In viā stō et amīcum exspectō.	I'm standing in the street waiting for a friend.	69
+sciō	Viam ad vīllam bene sciō.	I know the way to the house well.	70
+super	Lūna super silvam est.	The moon is above the woods.	71
+volō	Novum librum legere volō.	I want to read a new book.	72
+contrā	Nāvis contrā ventum nāvigat.	The ship is sailing against the wind.	73
+tamen	Fessus sum; tamen bene labōrō.	I'm tired; I'm still working well.	74
+quoque	Frāter meus quoque venit.	My brother is coming too.	75
+nam	Aquam bibō; nam sitiō.	I'm drinking water; I'm thirsty, you see.	76
+igitur	Pluit; igitur in casā manēmus.	It's raining, so we're staying in the house.	77
+ergō	Fessī sumus; ergō nōn labōrāmus.	We're tired, so we're not working.	78
+nec	Puer nec cantat nec labōrat.	The boy is neither singing nor working.	79
+vel	Hodiē vel crās ad oppidum eō.	I'm going to town today or tomorrow.	80
+ūnus	In hortō ūnus puer labōrat.	One boy is working in the garden.	81
+nisi	Nihil habeō nisi aquam.	I have nothing but water.	82
+trēs	In viā trēs puerī ambulant.	Three boys are walking in the street.	83
+dum	Puer lūdit, dum pater labōrat.	The boy plays while his father works.	84
+quam	Aqua melior est quam vīnum.	Water is better than wine.	85
+tam	Cēna tua tam bona est!	Your dinner is so good!	86
+nunc	Amīcus meus nunc dormit.	My friend is sleeping now.	87
+tunc	Puer tunc eram, nunc vir sum.	I was a boy then; now I am a man.	88
+semper	Pater meus semper māne surgit.	My father always gets up early.	89
+numquam	Frāter meus numquam sērō venit.	My brother is never late.	90
+saepe	Puerī saepe in silvā lūdunt.	The boys often play in the woods.	91
+iterum	Magister fābulam iterum nārrat.	The teacher tells the story again.	92
+hodiē	Māter hodiē domī manet.	Mother is staying at home today.	93
+herī	Amīcum meum herī vīdī.	I saw my friend yesterday.	94
+crās	Amīcī nostrī crās venient.	Our friends will come tomorrow.	95
+ibi	Ad mare īmus; ibi natāmus.	We go to the sea; we swim there.	96
+hīc	Familia mea hīc habitat.	My family lives here.	97
+ubi	Haec est casa ubi habitō.	This is the house where I live.	98
+sīc	Fābula nostra sīc incipit.	Our story begins like this.	99
+ita	Māter mea ita putat.	My mother thinks so.	100
+valdē	Hic cibus valdē bonus est.	This food is very good.	101
+satis	Casa mea satis magna est.	My house is big enough.	102
+bene	Amīca mea bene cantat.	My friend sings well.	103
+male	Hic puer male scrībit.	This boy writes badly.	104
+magis	Hunc librum magis amō.	I like this book more.	105
+minus	Frāter meus minus labōrat.	My brother works less.	106
+meus	Liber meus in mēnsā est.	My book is on the table.	107
+tuus	Canis tuus in viā currit.	Your dog is running in the street.	108
+noster	Hortus noster magnus et pulcher est.	Our garden is big and beautiful.	109
+vester	Magister vester bonus est.	Your teacher is good.	110
+aliquis	In casā aliquis nōs exspectat.	Someone is waiting for us in the house.	111
+nūllus	In scholā nūllus discipulus dormit.	No pupil sleeps in school.	112
+alius	Nunc alius magister nōs docet.	Now a different teacher teaches us.	113
+alter	Ūnus puer legit, alter scrībit.	One boy reads, the other writes.	114
+tōtus	Ager tōtus aquā plēnus est.	The whole field is full of water.	115
+sōlus	Puer sōlus in casā manet.	The boy stays alone in the house.	116
+īdem	Hic est īdem liber quem legō.	This is the same book that I am reading.	117
+tantus	In viā tantus clāmor est.	There is so much noise in the street.	118
+quālis	Domus tua quālis est?	What is your house like?	119
+quantus	Ager tuus quantus est?	How big is your field?	120
+possum	Hodiē labōrāre nōn possum.	I cannot work today.	121
+agō	Prō dōnō tibi grātiās agō.	I thank you for the gift.	122
+ferō	Aquam ad casam ferō.	I am carrying water to the house.	123
+dēbeō	Amīcō meō pecūniam dēbeō.	I owe my friend money.	124
+putō	Hoc vērum esse putō.	I think this is true.	125
+teneō	Librum in manū teneō.	I am holding a book in my hand.	126
+mittō	Epistulam ad amīcum mittō.	I am sending a letter to my friend.	127
+accipiō	Dōnum ā mātre meā accipiō.	I receive a gift from my mother.	128
+petō	Auxilium ā tē petō.	I am asking you for help.	129
+pōnō	Cibum in mēnsā pōnō.	I am putting the food on the table.	130
+capiō	Librum novum capiō et legō.	I take a new book and read it.	131
+relinquō	Amīcōs meōs numquam relinquō.	I never abandon my friends.	132
+maneō	Domī cum frātre maneō.	I am staying at home with my brother.	133
+vīvō	Cum familiā meā laetus vīvō.	I live happily with my family.	134
+mūtō	Sententiam meam saepe mūtō.	I often change my mind.	135
+moveō	Mēnsam ad fenestram moveō.	I am moving the table to the window.	136
+rogō	Patrem dē pecūniā rogō.	I ask my father about money.	137
+respondeō	Ad epistulam tuam statim respondeō.	I answer your letter at once.	138
+dūcō	Puerōs ad scholam dūcō.	I take the boys to school.	139
+gerō	Negōtium meum bene gerō.	I manage my business well.	140
+iaciō	Pilam ad amīcum iaciō.	I throw the ball to my friend.	141
+timeō	Canem magnum nōn timeō.	I am not afraid of the big dog.	142
+spērō	Tē mox vidēre spērō.	I hope to see you soon.	143
+cōgitō	Dē amīcīs meīs saepe cōgitō.	I often think about my friends.	144
+intellegō	Verba tua bene intellegō.	I understand your words well.	145
+cognōscō	Novōs amīcōs libenter cognōscō.	I gladly get to know new friends.	146
+homō	Bonus homō semper vērum dīcit.	A good person always tells the truth.	147
+vir	In tabernā vir pānem emit.	In the shop the man is buying bread.	148
+puer	Parvus puer mātrem vocat.	The little boy is calling his mother.	149
+puella	In hortō puella flōrēs spectat.	In the garden the girl is looking at the flowers.	150
+pater	Iam pater cēnam parat.	Father is already preparing dinner.	151
+soror	Est mihi soror parva.	I have a little sister.	152
+deus	In fābulā antīquā deus appāret.	A god appears in the old story.	153
+dominus	Ad vīllam dominus venit.	The master is coming to the villa.	154
+servus	In culīnā servus labōrat.	The slave works in the kitchen.	155
+populus	In theātrō populus rīdet.	In the theatre the people laugh.	156
+urbs	Rōma urbs antīqua est.	Rome is an ancient city.	157
+oppidum	Nostrum oppidum parvum est.	Our town is small.	158
+locus	Hic locus mihi placet.	I like this place.	159
+terra	Haec terra fertilis est.	This land is fertile.	160
+mare	Mare hodiē tranquillum est.	The sea is calm today.	161
+aqua	Aqua in pōculō est.	There is water in the cup.	162
+ignis	Ignis in culīnā ārdet.	A fire is burning in the kitchen.	163
+caelum	Caelum hodiē caeruleum est.	The sky is blue today.	164
+sōl	Sōl in caelō lūcet.	The sun is shining in the sky.	165
+lūna	Lūna hodiē plēna est.	The moon is full today.	166
+stella	Stella prīma iam appāret.	The first star is already appearing.	167
+nox	Nox hieme longa est.	The night is long in winter.	168
+tempus	Tempus hodiē nōn habēmus.	We have no time today.	169
+annus	Annus novus bonus erit.	The new year will be good.	170
+hōra	Ūna hōra satis est.	One hour is enough.	171
+manus	Manus mea frīgida est.	My hand is cold.	172
+caput	Caput meum valdē dolet.	My head really hurts.	173
+oculus	Oculus meus hodiē dolet.	My eye hurts today.	174
+cor	Cor meum celeriter pulsat.	My heart is beating fast.	175
+corpus	Corpus meum fessum est.	My body is tired.	176
+animus	Animus meus tranquillus est.	My mind is calm.	177
+mors	Mors pars vītae est.	Death is a part of life.	178
+bellum	Bellum longum et dūrum est.	War is long and hard.	179
+verbum	Hoc verbum longum est.	This word is long.	180
+liber	Liber meus in mēnsā est.	My book is on the table.	181
+via	Via ad oppidum longa est.	The road to the town is long.	182
+domus	Domus nostra parva est.	Our house is small.	183
+pecūnia	Pecūnia in sacculō meō est.	The money is in my purse.	184
+cibus	Cibus noster bonus et simplex est.	Our food is good and simple.	185
+pānis	Pānis hodiē recēns est.	The bread is fresh today.	186
+mālum	Mālum meum dulce est.	My apple is sweet.	187
+vīnum	Vīnum rubrum mihi placet.	I like red wine.	188
+duo	Duo puerī in viā ambulant.	Two boys are walking in the street.	189
+quattuor	Mēnsa nostra quattuor pedēs habet.	Our table has four legs.	190
+quīnque	Quīnque discipulī in scholā sunt.	Five students are at school.	191
+sex	Sex ōva in cistā sunt.	There are six eggs in the box.	192
+septem	Septem avēs in arbore sedent.	Seven birds are sitting in the tree.	193
+octō	Hodiē octō hōrās labōrō.	Today I work eight hours.	194
+novem	Novem discipulōs magister docet.	The teacher teaches nine students.	195
+decem	Decem digitōs in manibus habēmus.	We have ten fingers on our hands.	196
+centum	Centum hominēs in oppidō habitant.	A hundred people live in the town.	197
+mīlle	Mīlle stellae in caelō lūcent.	A thousand stars are shining in the sky.	198
+prīmus	Prīmus diēs semper difficilis est.	The first day is always hard.	199
+secundus	Secundus locus quoque bonus est.	Second place is good too.	200
+tertius	Tertius diēs iam adest.	The third day is already here.	201
+pars	Haec pars urbis pulchra est.	This part of the city is beautiful.	202
+bonus	Bonus magister discipulōs laudat.	A good teacher praises his students.	203
+malus	Malus odor in culīnā est.	There is a bad smell in the kitchen.	204
+magnus	Hortus noster magnus est.	Our garden is big.	205
+parvus	Parvus puer mātrem vocat.	The little boy is calling his mother.	206
+multus	Multus labor mē exspectat.	A lot of work is waiting for me.	207
+longus	Hic fluvius longus et lātus est.	This river is long and wide.	208
+altus	Hic mūrus altus est.	This wall is high.	209
+novus	Hic pōns novus est.	This bridge is new.	210
+vetus	Vetus arbor in agrō stat.	An old tree stands in the field.	211
+antīquus	Hic mōs antīquus est.	This custom is ancient.	212
+pulcher	Hic flōs pulcher est.	This flower is beautiful.	213
+fortis	Nauta fortis tempestātem nōn timet.	A brave sailor is not afraid of the storm.	214
+līber	Hodiē līber sum et laetus.	Today I am free and happy.	215
+fēlīx	Puer fēlīx in viā cantat.	The happy boy is singing in the street.	216
+miser	Miser sum, quod amīcus meus abest.	I am unhappy because my friend is away.	217
+similis	Soror mea mihi similis est.	My sister is like me.	218
+facilis	Hic labor facilis est.	This work is easy.	219
+difficilis	Lingua Latīna difficilis nōn est.	Latin is not difficult.	220
+dūrus	Hic pānis dūrus est.	This bread is hard.	221
+mollis	Lectus meus mollis est.	My bed is soft.	222
+gravis	Hic saccus gravis est.	This bag is heavy.	223
+levis	Haec cista levis est.	This box is light.	224
+clārus	Sōl hodiē clārus est.	The sun is bright today.	225
+obscūrus	Hic locus nocte obscūrus est.	This place is dark at night.	226
+sānctus	Sānctus lūcus prope oppidum est.	The sacred grove is near the town.	227
+sacer	Hic fōns sacer est.	This spring is sacred.	228
+vērus	Amīcus vērus semper adest.	A true friend is always there.	229
+falsus	Hic nūntius falsus est.	This report is false.	230
+plēnus	Hic liber plēnus fābulārum est.	This book is full of stories.	231
+vacuus	Hic sacculus vacuus est.	This purse is empty.	232
+dīves	Agricola dīves nōn est.	The farmer is not rich.	233
+pauper	Poēta pauper sed laetus est.	The poet is poor but happy.	234
+celer	Equus tuus celer est.	Your horse is fast.	235
+tardus	Frāter meus semper tardus est.	My brother is always late.	236
+calidus	Ventus hodiē calidus est.	The wind is warm today.	237
+frīgidus	Cibus meus iam frīgidus est.	My food is already cold.	238
+albus	Albus equus in prātō stat.	A white horse is standing in the meadow.	239
+niger	Canis meus niger est.	My dog is black.	240
+ruber	Liber ruber in mēnsā est.	The red book is on the table.	241
+viridis	Herba viridis in agrō est.	The green grass is in the field.	242
+aureus	Nummus aureus in mēnsā est.	A gold coin is on the table.	243
+lātus	Hortus noster lātus est.	Our garden is wide.	244
+angustus	Pōns angustus in oppidō est.	The narrow bridge is in the town.	245
+plūrimus	Labor hodiē plūrimus est.	There is a great deal of work today.	246
+faciēs	Hodiē faciēs tua laeta est.	Your face looks happy today.	247
+ōs	Medicus ōs meum spectat.	The doctor is looking at my mouth.	248
+auris	Auris mea hodiē dolet.	My ear hurts today.	249
+nāsus	Nāsus meus frīgidus est.	My nose is cold.	250
+dēns	Dēns meus valdē dolet.	My tooth hurts a lot.	251
+pēs	Pēs meus in aquā est.	My foot is in the water.	252
+bracchium	Puella bracchium meum tenet.	The girl is holding my arm.	253
+digitus	Digitus meus in librō est.	My finger is in the book.	254
+sanguis	Sanguis hominis ruber est.	Human blood is red.	255
+os	Canis meus os habet.	My dog has a bone.	256
+vōx	Vōx tua clāra est.	Your voice is clear.	257
+animal	Canis animal bonum est.	A dog is a good animal.	258
+canis	Canis in hortō dormit.	The dog is sleeping in the garden.	259
+equus	Equus meus aquam bibit.	My horse is drinking water.	260
+bōs	Bōs in agrō labōrat.	The ox is working in the field.	261
+avis	Avis in arbore cantat.	A bird is singing in the tree.	262
+piscis	Piscis in aquā natat.	A fish is swimming in the water.	263
+leō	Leō animal magnum est.	A lion is a big animal.	264
+lupus	Lupus in silvā habitat.	The wolf lives in the forest.	265
+ovis	Ovis nostra herbam edit.	Our sheep is eating grass.	266
+mōns	Mōns altus prope oppidum est.	A high mountain is near the town.	267
+flūmen	Flūmen per silvam fluit.	The river flows through the forest.	268
+silva	Silva magna et obscūra est.	The forest is big and dark.	269
+arbor	Arbor magna in hortō stat.	A big tree stands in the garden.	270
+flōs	Hic flōs bene olet.	This flower smells nice.	271
+lapis	Lapis in viā iacet.	A stone is lying in the road.	272
+ventus	Ventus hodiē fortis est.	The wind is strong today.	273
+nūbēs	Nūbēs magna in caelō est.	A big cloud is in the sky.	274
+imber	Imber in agrōs cadit.	Rain is falling on the fields.	275
+nix	Nix in montibus est.	There is snow on the mountains.	276
+frūmentum	Frūmentum in agrīs crēscit.	The grain is growing in the fields.	277
+herba	Herba in hortō meō crēscit.	The grass is growing in my garden.	278
+cīvis	Cīvis Rōmānus in forō est.	A Roman citizen is in the forum.	279
+mīles	Mīles in castrīs dormit.	The soldier is sleeping in the camp.	280
+hostis	Hostis trāns flūmen est.	The enemy is across the river.	281
+dux	Dux nōbīs viam mōnstrat.	The leader shows us the way.	282
+imperātor	Imperātor in urbe manet.	The commander is staying in the city.	283
+cōnsul	Cōnsul novus in forō est.	The new consul is in the forum.	284
+senātus	Senātus hodiē in cūriā est.	The senate is in the senate house today.	285
+lēx	Lēx nova iūsta est.	The new law is fair.	286
+iūs	Iūs Rōmānum clārum est.	Roman law is famous.	287
+imperium	Imperium Rōmānum magnum est.	The Roman empire is large.	288
+rēgnum	Rēgnum trāns montēs est.	The kingdom is beyond the mountains.	289
+cīvitās	Cīvitās nostra lībera est.	Our state is free.	290
+exercitus	Exercitus in castrīs est.	The army is in the camp.	291
+proelium	Proelium longum et dūrum est.	The battle is long and hard.	292
+victōria	Victōria nostra certa est.	Our victory is certain.	293
+glōria	Glōria poētae magna est.	The poet's fame is great.	294
+virtūs	Virtūs tua magna est.	Your courage is great.	295
+fidēs	Fidēs tua mihi cāra est.	Your trust is precious to me.	296
+spēs	Spēs in animō meō manet.	Hope stays in my heart.	297
+timor	Timor canum commūnis est.	Fear of dogs is common.	298
+amor	Amor mātris magnus est.	A mother's love is great.	299
+īra	Īra nōn diū manet.	Anger does not last long.	300
+gaudium	Gaudium nostrum hodiē magnum est.	Our joy is great today.	301
+dolor	Dolor capitis molestus est.	A headache is a nuisance.	302
+cōnsilium	Cōnsilium tuum bonum est.	Your plan is good.	303
+causa	Haec causa bona est.	This is a good reason.	304
+modus	Hic modus facilis est.	This way is easy.	305
+genus	Hoc genus avium rārum est.	This kind of bird is rare.	306
+labor	Labor agricolae dūrus est.	The farmer's work is hard.	307
+negōtium	Hodiē multum negōtium habeō.	I have a lot of business today.	308
+ōtium	Ōtium post labōrem dulce est.	Leisure after work is sweet.	309
+officium	Officium meum semper faciō.	I always do my duty.	310
+iaceō	In lectō iaceō et librum legō.	I lie in bed and read a book.	311
+currō	Ad scholam celeriter currō.	I run quickly to school.	312
+ambulō	Cum amīcō in hortō ambulō.	I walk in the garden with a friend.	313
+cadō	In herbam mollem cadō.	I fall onto the soft grass.	314
+surgō	Māne surgō et fenestram aperiō.	In the morning I get up and open the window.	315
+dormiō	Noctū octō hōrās dormiō.	I sleep eight hours at night.	316
+edō	Pānem et cāseum edō.	I eat bread and cheese.	317
+bibō	Aquam frīgidam libenter bibō.	I happily drink cold water.	318
+emō	In forō pānem emō.	I buy bread at the market.	319
+vēndō	Flōrēs in viā vēndō.	I sell flowers in the street.	320
+labōrō	In hortō meō semper labōrō.	I always work in my garden.	321
+lūdō	Cum amīcīs in hortō lūdō.	I play in the garden with my friends.	322
+dēfendō	Amīcum meum semper dēfendō.	I always defend my friend.	323
+oppugnō	In fābulā castra oppugnō.	In the story I attack the camp.	324
+vincō	In lūdīs saepe vincō.	I often win at the games.	325
+superō	Frātrem meum facile superō.	I beat my brother easily.	326
+servō	Epistulās tuās semper servō.	I always keep your letters.	327
+perdō	Librōs meōs saepe perdō.	I often lose my books.	328
+inveniō	Librum meum in mēnsā inveniō.	I find my book on the table.	329
+quaerō	Sorōrem meam in hortō quaerō.	I am looking for my sister in the garden.	330
+incipiō	Novum librum hodiē incipiō.	I am starting a new book today.	331
+cōnficiō	Epistulam meam nunc cōnficiō.	I am finishing my letter now.	332
+quia	Puella rīdet, quia fābula bona est.	The girl is laughing because the story is good.	333
+quoniam	Domum eō, quoniam nox est.	I'm going home, since it's night.	334
+dōnec	Hīc maneō, dōnec amīcus venit.	I stay here until my friend comes.	335
+postquam	Amīcōs vocāvī, postquam cēnam parāvī.	I called my friends after I made dinner.	336
+antequam	Librum legō, antequam dormiō.	I read a book before I go to sleep.	337
+priusquam	Fenestram claudō, priusquam exeō.	I close the window before I go out.	338
+quamquam	In hortō labōrō, quamquam fessus sum.	I'm working in the garden, although I'm tired.	339
+licet	Labōrāre dēbeō, licet fessus sim.	I have to work, even though I'm tired.	340
+simul	Puerī simul cantant et labōrant.	The boys sing and work at the same time.	341
+praetereā	Fessus sum; praetereā pecūniam nōn habeō.	I'm tired; besides, I have no money.	342
+dēnique	Ad vīllam nostram dēnique venīmus.	At last we reach our house.	343
+tandem	Epistulam tuam tandem accipiō.	I'm finally getting your letter.	344
+deinde	Prīmum legō, deinde scrībō.	First I read, then I write.	345
+dein	Cēnāmus, dein fābulās nārrāmus.	We have dinner, then we tell stories.	346
+posteā	Ad forum posteā ambulāmus.	Afterwards we walk to the forum.	347
+anteā	Hunc librum anteā nōn lēgī.	I haven't read this book before.	348
+mox	Amīcī nostrī mox veniunt.	Our friends are coming soon.	349
+ōlim	Rēgīna ōlim in īnsulā habitābat.	A queen once lived on an island.	350
+nūper	Novum librum nūper ēmī.	I recently bought a new book.	351
+adhūc	Puer adhūc in hortō lūdit.	The boy is still playing in the garden.	352
+statim	Puer ad portam statim currit.	The boy runs to the gate at once.	353
+subitō	Canis in viā subitō lātrat.	A dog suddenly barks in the street.	354
+forte	Magistrum forte in viā videō.	I happen to see the teacher in the street.	355
+fortasse	Amīcus meus fortasse domī est.	My friend is perhaps at home.	356
+certē	Hoc certē vērum est.	This is certainly true.	357
+vērō	Hoc vērō nōn crēdō.	I really don't believe this.	358
+quidem	Ego quidem tibi crēdō.	I, at least, believe you.	359
+scīlicet	Amīcum meum scīlicet adiuvō.	Of course I help my friend.	360
+praesertim	Hortum amō, praesertim vēre.	I love the garden, especially in spring.	361
+procul	Oppidum procul ā silvā est.	The town is far from the forest.	362
+prope	Amīcus meus prope habitat.	My friend lives nearby.	363
+ūnā	Fābulam ūnā legimus.	We read a story together.	364
+frūstrā	Amīcum meum frūstrā exspectō.	I wait for my friend in vain.	365
+paene	Cēna paene parāta est.	Dinner is almost ready.	366
+vix	In tenebrīs tē vix videō.	I can hardly see you in the dark.	367
+nēmō	In viā nēmō est.	There is nobody in the street.	368
+nihil	Hodiē nihil facere volō.	I don't want to do anything today.	369
+umquam	Fābulās meās umquam legis?	Do you ever read my stories?	370
+undique	Puerī undique in forum currunt.	Boys are running into the forum from all sides.	371
+plūs	Hodiē plūs labōrō quam herī.	Today I'm working more than yesterday.	372
+nimis	Soror mea nimis labōrat.	My sister works too much.	373
+parum	Frāter meus parum dormit.	My brother doesn't sleep enough.	374
+ferē	Amīcī meī ferē omnēs adsunt.	Almost all my friends are here.	375
+propter	Domī propter pluviam manēmus.	We're staying home because of the rain.	376
+apud	Hodiē apud amīcum cēnō.	Today I'm having dinner at a friend's place.	377
+trāns	Puerī trāns viam currunt.	The boys run across the street.	378
+circā	Discipulī circā magistrum sedent.	The students sit around the teacher.	379
+secundum	Cum amīcō secundum rīpam ambulō.	I walk along the riverbank with a friend.	380
+ergā	Grātus sum ergā magistrōs meōs.	I am grateful to my teachers.	381
+extrā	Hortus extrā portam est.	The garden is outside the gate.	382
+intrā	Familia mea intrā mūrōs habitat.	My family lives inside the walls.	383
+iubeō	Discipulōs meōs tacēre iubeō.	I tell my students to be quiet.	384
+cupiō	Novum librum legere cupiō.	I want to read a new book.	385
+nōlō	Hodiē in hortō labōrāre nōlō.	I don't want to work in the garden today.	386
+mālō	Aquam mālō quam vīnum.	I prefer water to wine.	387
+fīō	Cum tē videō, laetus fīō.	When I see you, I get happy.	388
+reddō	Librum tuum crās reddō.	I'm giving your book back tomorrow.	389
+trādō	Epistulam meam nūntiō trādō.	I hand my letter to the messenger.	390
+ostendō	Hortum meum amīcīs ostendō.	I show my garden to my friends.	391
+moneō	Amīcum meum dē perīculō moneō.	I warn my friend about the danger.	392
+doceō	Puerōs linguam Latīnam doceō.	I teach the boys Latin.	393
+discō	Hodiē nova verba discō.	Today I'm learning new words.	394
+cōgō	Frātrem meum labōrāre cōgō.	I make my brother work.	395
+permittō	Puerīs in hortō lūdere permittō.	I let the boys play in the garden.	396
+prohibeō	Puerōs ab aquā prohibeō.	I keep the boys away from the water.	397
+pellō	Ovēs in agrum pellō.	I drive the sheep into the field.	398
+tollō	Librum dē mēnsā tollō.	I take the book off the table.	399
+premō	Ūvās manibus meīs premō.	I press the grapes with my hands.	400
+tangō	Aquam frīgidam digitō tangō.	I touch the cold water with my finger.	401
+sentiō	Ventum frīgidum in silvā sentiō.	I feel a cold wind in the woods.	402
+crēdō	Amīcō meō semper crēdō.	I always trust my friend.	403
+nesciō	Viam ad oppidum nesciō.	I don't know the way to the town.	404
+iungō	Duōs equōs ad plaustrum iungō.	I hitch two horses to the wagon.	405
+solvō	Pecūniam nautae hodiē solvō.	I pay the sailor the money today.	406
+claudō	Librum meum iam claudō.	I am closing my book now.	407
+aperiō	Māne fenestram meam aperiō.	In the morning I open my window.	408
+appellō	Canem meum Argum appellō.	I call my dog Argus.	409
+loquor	Cum amīcīs meīs loquor.	I am talking with my friends.	410
+sequor	Patrem meum per viam sequor.	I follow my father along the road.	411
+ūtor	Meō stilō in scholā ūtor.	I use my pen at school.	412
+patior	Dolōrem capitis hodiē patior.	Today I am suffering from a headache.	413
+morior	Ego rīsū paene morior.	I am almost dying of laughter.	414
+cōnor	Novum carmen scrībere cōnor.	I am trying to write a new song.	416
+arbitror	Tē bonum amīcum esse arbitror.	I consider you a good friend.	417
+templum	In forō templum antīquum stat.	An ancient temple stands in the forum.	418
+mūrus	Hortī nostrī mūrus altus est.	The wall of our garden is high.	419
+porta	Nunc porta urbis clausa est.	The city gate is closed now.	420
+iānua	Casae nostrae iānua aperta est.	The door of our house is open.	421
+fenestra	Parva fenestra lūcem dat.	The small window lets in light.	422
+mēnsa	Nostra mēnsa cibō plēna est.	Our table is full of food.	423
+lectus	Meus lectus mollis est.	My bed is soft.	424
+cēna	Iam cēna nostra parāta est.	Our dinner is ready now.	425
+forum	Hodiē forum hominum plēnum est.	The forum is full of people today.	426
+hortus	Noster hortus multās rosās habet.	Our garden has many roses.	427
+ager	Agricolae ager lātus est.	The farmer's field is wide.	428
+campus	Prope flūmen campus apertus est.	The plain near the river is open.	429
+īnsula	Nostra īnsula parva sed pulchra est.	Our island is small but beautiful.	430
+pōns	Antīquus pōns adhūc firmus est.	The old bridge is still solid.	431
+iter	Ad urbem iter longum est.	The journey to the city is long.	432
+nāvis	In portū nāvis magna est.	There is a big ship in the harbour.	433
+portus	Noster portus tūtus est.	Our harbour is safe.	434
+epistula	In mēnsā epistula tua iacet.	Your letter is lying on the table.	435
+littera	In tabulā littera magna est.	There is a big letter on the writing tablet.	436
+fābula	Tua fābula longa sed bona est.	Your story is long but good.	437
+carmen	Puellae carmen novum cantant.	The girls are singing a new song.	438
+lingua	Mihi lingua Latīna placet.	I like the Latin language.	439
+ōrātiō	Tua ōrātiō brevis et clāra est.	Your speech is short and clear.	440
+sententia	Mihi sententia tua placet.	I like your opinion.	441
+memoria	Hodiē memoria mea mala est.	My memory is bad today.	442
+scientia	Magistrī scientia discipulōs iuvat.	The teacher's knowledge helps the students.	443
+sapientia	Patris nostrī sapientia magna est.	Our father's wisdom is great.	444
+ratiō	Tua ratiō simplex est.	Your method is simple.	445
+vēritās	Nōn semper vēritās facilis est.	The truth is not always easy.	446
+nātūra	Hominum nātūra varia est.	Human nature varies.	447
+mundus	Noster mundus magnus et pulcher est.	Our world is big and beautiful.	448
+orbis	Lūnae orbis clārus est.	The disc of the moon is bright.	449
+rēgīna	In hortō rēgīna ambulat.	The queen is walking in the garden.	450
+mulier	In tabernā mulier labōrat.	A woman works in the shop.	451
+coniūnx	In hortō coniūnx mea sedet.	My wife is sitting in the garden.	452
+magister	Amīcus meus magister est.	My friend is a teacher.	453
+discipulus	In scholā discipulus novus sedet.	The new student is sitting in the classroom.	454
+iūdex	Iūdex verba nostra audit.	The judge hears our words.	455
+testis	In forō testis vērum dīcit.	The witness tells the truth in the forum.	456
+sapiēns	Vir sapiēns saepe tacet.	A wise man is often silent.	457
+stultus	Amīcus meus stultus nōn est.	My friend is not foolish.	458
+iūstus	Iūdex noster iūstus est.	Our judge is fair.	459
+aequus	Ante casam locus aequus est.	The ground in front of the house is level.	460
+commūnis	Hortus noster commūnis est.	Our garden is shared.	461
+proprius	Meus proprius liber in mēnsā est.	My own book is on the table.	462
+dexter	Oculus dexter meus dolet.	My right eye hurts.	463
+sinister	Pēs sinister meus aeger est.	My left foot is sore.	464
+audeō	Nunc vērum dīcere audeō.	Now I dare to tell the truth.	465
+gaudeō	Adventū tuō valdē gaudeō.	I am very glad about your arrival.	466
+doleō	Dē morbō tuō doleō.	I am sorry about your illness.	467
+noceō	Ego nēminī umquam noceō.	I never harm anyone.	468
+pāreō	Magistrō meō semper pāreō.	I always obey my teacher.	469
+placeō	Nōn omnibus hominibus placeō.	I do not please everybody.	470
+studeō	Hodiē litterīs Latīnīs studeō.	Today I am studying Latin literature.	471
+valeō	Hodiē satis bene valeō.	Today I am feeling quite well.	472
+fleō	Propter fābulam trīstem fleō.	I am crying because of the sad story.	473
+rīdeō	Cum amīcīs saepe rīdeō.	I often laugh with my friends.	474
+taceō	In scholā semper taceō.	I am always quiet in class.	475
+cōnstituō	Hodiē domī manēre cōnstituō.	Today I decide to stay at home.	477
+statuō	Hōram cēnae nunc statuō.	I am setting the dinner time now.	478
+mūniō	Hortum meum mūrō mūniō.	I protect my garden with a wall.	479
+pūniō	Canem meum numquam pūniō.	I never punish my dog.	480
+fīniō	Hodiē labōrem meum fīniō.	Today I'm finishing my work.	481
+dēscendō	Dē monte lentē dēscendō.	I'm coming down the mountain slowly.	482
+ascendō	Cum amīcō in nāvem ascendō.	I'm boarding the ship with a friend.	483
+contendō	Ad urbem celeriter contendō.	I'm hurrying to the city.	484
+regō	Equum per viam regō.	I guide the horse along the road.	485
+tegō	Caput meum manū tegō.	I cover my head with my hand.	486
+trahō	Mēnsam ad fenestram trahō.	I'm pulling the table over to the window.	487
+crēscō	Puer sum et cotīdiē crēscō.	I'm a boy and I grow every day.	489
+cēdō	Ego tibi libenter cēdō.	I gladly give way to you.	490
+accēdō	Ad iānuam apertam accēdō.	I walk up to the open door.	491
+discēdō	Nunc ex urbe discēdō.	I'm leaving the city now.	492
+colligō	Flōrēs in hortō colligō.	I'm gathering flowers in the garden.	493
+dēligō	Ex hīs librīs ūnum dēligō.	I choose one of these books.	494
+vehō	Frūmentum ad oppidum vehō.	I'm carting the grain to the town.	495
+aetās	Longa aetās multa docet.	A long life teaches many things.	496
+initium	Fābulae initium bonum est.	The beginning of the story is good.	497
+fīnis	Iam fīnis viae adest.	The end of the road is here now.	498
+exitus	Lūdī exitus incertus est.	The outcome of the game is uncertain.	499
+adventus	Tuus adventus mē dēlectat.	Your arrival makes me happy.	500
+cāsus	Puerī cāsus levis erat.	The boy's fall was a minor one.	501
+fortūna	Nostra fortūna bona est.	Our luck is good.	502
+fātum	Ego fātum meum nōn timeō.	I'm not afraid of my fate.	503
+dōnum	Hoc dōnum pulchrum est.	This gift is lovely.	504
+praemium	Magnum praemium nōn exspectō.	I'm not expecting a big reward.	505
+poena	Haec poena nimis dūra est.	This punishment is too harsh.	506
+scelus	Fūrtum scelus grave est.	Theft is a serious crime.	507
+culpa	Nōn tua sed mea culpa est.	It's not your fault but mine.	508
+crīmen	Hoc crīmen falsum est.	This charge is false.	509
+iniūria	Nūlla iniūria in verbīs tuīs est.	There's no offence in your words.	510
+beneficium	Semper beneficium tuum memoriā teneō.	I always keep your kindness in mind.	511
+grātia	Tua grātia mihi cāra est.	Your goodwill means a lot to me.	512
+honor	Hic honor mihi placet.	This honour pleases me.	513
+potestās	Magistrī potestās magna est.	The teacher's authority is considerable.	514
+auctōritās	Tua auctōritās apud nōs magna est.	You have great influence with us.	515
+vīs	Ventī vīs arborēs movet.	The force of the wind moves the trees.	516
+impetus	Aquae impetus magnus est.	The rush of the water is strong.	517
+cōpia	In agrīs cōpia aquae est.	There's plenty of water in the fields.	518
+multitūdō	Magna multitūdō in forō est.	There's a big crowd in the marketplace.	519
+turba	Tōta turba in viā clāmat.	The whole crowd is shouting in the street.	520
+numerus	Discipulōrum numerus magnus est.	The number of pupils is large.	521
+ōrdō	In hortō longus ōrdō arborum est.	There's a long row of trees in the garden.	522
+legiō	Nostra legiō in castrīs manet.	Our legion is staying in camp.	523
+castra	Mīlitum castra prope flūmen sunt.	The soldiers' camp is near the river.	524
+arma	Haec arma gravia sunt.	These weapons are heavy.	525
+gladius	Mīlitis gladius longus est.	The soldier's sword is long.	526
+hasta	Mea hasta longa et gravis est.	My spear is long and heavy.	527
+scūtum	Frātris meī scūtum novum est.	My brother's shield is new.	528
+tēlum	In terrā tēlum iacet.	A weapon is lying on the ground.	529
+vulnus	Meum vulnus iam sānum est.	My wound has healed now.	530
+mēnsis	Novus mēnsis crās incipit.	A new month starts tomorrow.	531
+saeculum	Ūnum saeculum centum annōs habet.	A century is a hundred years.	532
+nūmen	Rōmānī nūmen deōrum colunt.	The Romans honour the power of the gods.	533
+sacrificium	Agricolae sacrificium deae parant.	The farmers are preparing an offering for the goddess.	534
+āra	Antīqua āra prope templum stat.	An old altar stands near the temple.	535
+cārus	Amīcus meus mihi cārus est.	My friend is dear to me.	536
+grātus	Sōl post pluviam grātus est.	The sun after rain is welcome.	537
+tūtus	Portus noster tūtus est.	Our harbour is safe.	538
+certus	Nūntius certus ad nōs venit.	A reliable messenger is coming to us.	539
+incertus	Numerus hospitum adhūc incertus est.	The number of guests is still uncertain.	540
+dubius	Animus meus dubius est.	My mind is undecided.	541
+aptus	Locus noster cēnae aptus est.	Our spot is right for dinner.	542
+idōneus	Discipulus meus huic labōrī idōneus est.	My student is right for this job.	543
+necessārius	Somnus hominī necessārius est.	Sleep is essential for a person.	544
+ūtilis	Equus agricolae ūtilis est.	A horse is useful to a farmer.	545
+dignus	Frāter tuus laude dignus est.	Your brother deserves praise.	546
+indignus	Nēmō hīc praemiō indignus est.	Nobody here is unworthy of the prize.	547
+ferōx	Canis vīcīnī ferōx est.	The neighbour's dog is fierce.	548
+ācer	Culter meus ācer est.	My knife is sharp.	549
+crūdēlis	Puer crūdēlis nūllōs amīcōs habet.	A cruel boy has no friends.	550
+mītis	Magister meus mītis est.	My teacher is gentle.	551
+summus	Hieme summus mōns albus est.	In winter the top of the mountain is white.	552
+īnfimus	Hic gradus īnfimus est.	This is the bottom step.	553
+medius	Iam medius diēs est.	It's midday already.	554
+extrēmus	Hic mēnsis annī extrēmus est.	This is the last month of the year.	555
+proximus	Vīcus proximus trāns flūmen est.	The nearest village is across the river.	556
+superior	Fenestra superior aperta est.	The upper window is open.	557
+īnferior	Mūrī pars īnferior ūmida est.	The lower part of the wall is damp.	558

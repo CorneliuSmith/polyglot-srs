@@ -228,3 +228,43 @@ inventory and the course's own sentences. See `docs/quality/CHECKS.md` §3b.
 
 Fixes are in `data/gloss_overrides.tsv` as well as `data/yo_frequency.tsv`, because
 glosses regenerate from kaikki and a TSV-only edit is undone by the next seed.
+
+## 41 more toning candidates, from authored sentences (25 Aug 2026)
+
+Authoring example sentences for Yoruba produced evidence the drills could not.
+The writers were instructed that tone is phonemic and the checker's explicit
+reject criterion was a missing or wrong tone mark — so they wrote correctly
+toned Yoruba for headwords the vocabulary still stores UNTONED. 60 of 145
+authored sentences did not contain their own headword verbatim for exactly
+this reason, and 41 yielded a recoverable toned form:
+
+| headword (untoned) | authored form | in |
+| --- | --- | --- |
+| `agbara` | `agbára` | Ọmọ náà ní agbára púpọ̀. |
+| `ere` | `èrè` | Èrè wà nínú òwò yìí. |
+| `oṣiṣẹ` | `òṣìṣẹ` | Òṣìṣẹ́ tuntun ti bẹ̀rẹ̀ iṣẹ́. |
+| `ayelujara` | `ayélujára` | Mo rí ìròyìn náà lórí ayélujára. |
+| `nikan` | `nìkan` | Ọmọ náà nìkan ni ó wà nílé. |
+| `oye` | `oyè` | Bàbá mi gba oyè lọ́dún yìí. |
+| `kekere` | `kékeré` | Ilé kékeré ni wọ́n ń gbé. |
+| `ikan` | `ikán` | Ikán ń jẹ igi ilé náà. |
+| `adiẹ` | `adìẹ` | Adìẹ náà ń jẹ àgbàdo lóde. |
+| `kọja` | `kọjá` | Ọkọ̀ náà kọjá níwájú ilé wa. |
+| `oloye` | `olóyè` | Gbogbo ìlú bọ̀wọ̀ fún olóyè náà. |
+| `agbegbe` | `agbègbè` | Agbègbè wa ní ọjà ńlá kan. |
+| `alaye` | `àlàyé` | Mo béèrè àlàyé lọ́wọ́ olùkọ́ mi. |
+| `gun` | `gùn` | Ọ̀nà náà gùn gan-an. |
+
+**These are NOT applied.** The same rule that held back 15 rows earlier holds
+here: this is maker-plus-checker evidence, not attestation, and yo.md's
+standing position is that the ~1,491-row tail needs an external source. An
+authored form is a strong hypothesis, not a witness.
+
+**But the sentences were kept**, and that is a deliberate trade worth naming: a
+learner will see `agbára` in the example under a card headed `agbara`. The
+example is right and the headword is wrong, so dropping good sentences to
+protect a known-defective headword would be backwards. The mismatch is a
+symptom of the untoned vocabulary, not a new defect — and it makes the defect
+visible instead of hidden, which is the better failure.
+
+They are the first list to check against any external tone source that arrives.
