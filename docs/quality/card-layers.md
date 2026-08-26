@@ -139,6 +139,38 @@ Two lessons already paid for here:
 `ko` has two hand-fixed time expressions; a fallback that overrode them would
 discard the only reviewed romanisation in the corpus.
 
+### Where the eight actually stand, 26 Aug
+
+| | words | sentences | reading |
+| --- | --- | --- | --- |
+| `ru` | 9,962 | 28,935 | computed, all |
+| `hi` | 9,385 | 8,130 | computed, all |
+| `el` | 9,997 | 10,919 | computed, all |
+| `ko` | 7,214 | 3,897 | computed, all |
+| `he` | 3,000 | 7,483 | authored, 194 sentences (3%) |
+| `fa` | 2,996 | 4,003 | authored, 199 sentences (5%) |
+| `th` | 3,754 | 4,376 | **none** |
+| `ar` | 8,928 | 14,671 | none, by design |
+
+Four of eight are covered end to end — 51,881 sentences and 36,558 words —
+at no authoring cost and no storage. What is left is genuinely three things,
+not one backlog:
+
+- **`he` and `fa` need authoring.** Both scripts drop vowels the reader has
+  to supply, so no romanizer can be written; 393 rows are hand-done and the
+  rest is work.
+- **`th` needs a decision, and its deferral is the one that still holds.**
+  Unlike Korean's ("Hangul is phonetic", true only for someone who can
+  already read it), the Thai seeder's reasoning is sound: RTGS is not a
+  character mapping. Thai writes vowels before, above, below and after their
+  consonant, leaves some implicit, marks no word boundaries, and RTGS drops
+  the tones a learner needs anyway. Doing it properly means a real Thai
+  segmenter (`pythainlp` has one) — a dependency decision — or a native
+  reviewer. **Attempting it by hand is how a layer ships wrong**, and wrong
+  is worse than absent for a layer whose whole audience cannot check it.
+- **`ar` stays excluded.** Unvocalized script has no short vowels to romanize;
+  a computed Arabic reading would invent sounds.
+
 Measured in the committed banks, 26 Aug — and now a ratchet
 (`test_the_gap_is_the_gap_we_think_it_is`) rather than a line in a document
 that quietly goes stale:
