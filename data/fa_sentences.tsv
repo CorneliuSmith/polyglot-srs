@@ -1,0 +1,200 @@
+word	sentence	translation	difficulty_rank	transliteration	source
+و	نان و پنیر خریدم.	I bought bread and cheese.	1	nân va panir kharidam.	authored
+در	کیفم در ماشین است.	My bag is in the car.	2	kifam dar mâshin ast.	authored
+به	این نامه را به مادرم دادم.	I gave this letter to my mother.	3	in nâme râ be mâdaram dâdam.	authored
+از	قطار از ایستگاه حرکت کرد.	The train left the station.	4	ghatâr az istgâh harekat kard.	authored
+که	کتابی که خریدم گران بود.	The book I bought was expensive.	5	ketâbi ke kharidam gerân bud.	authored
+را	من پنجره را باز کردم.	I opened the window.	6	man panjere râ bâz kardam.	authored
+این	این غذا خیلی خوشمزه است.	This food is very tasty.	7	in ghazâ kheyli khoshmaze ast.	authored
+هستم	من دانشجوی سال اول هستم.	I am a first-year university student.	8	man dâneshju-ye sâl-e avval hastam.	authored
+هستی	تو دوست خوبی هستی.	You are a good friend.	9	to dust-e khubi hasti.	authored
+هستیم	ما آماده رفتن هستیم.	We are ready to leave.	10	mâ âmâde-ye raftan hastim.	authored
+می‌خواهم	من یک لیوان آب می‌خواهم.	I want a glass of water.	11	man yek livân âb mikhâham.	authored
+می‌دانم	من پاسخ این پرسش را می‌دانم.	I know the answer to this question.	12	man pâsokh-e in porsesh râ midânam.	authored
+می‌بینم	من از اینجا دریا را می‌بینم.	I can see the sea from here.	13	man az injâ daryâ râ mibinam.	authored
+می‌روم	هر روز صبح به مدرسه می‌روم.	I go to school every morning.	14	har ruz sobh be madrese miravam.	authored
+می‌آیم	من هم با شما می‌آیم.	I am coming with you too.	15	man ham bâ shomâ miâyam.	authored
+می‌خورم	من صبحانه را در خانه می‌خورم.	I eat breakfast at home.	16	man sobhâne râ dar khâne mikhoram.	authored
+می‌نوشم	من بعد از ورزش آب می‌نوشم.	I drink water after exercise.	17	man ba'd az varzesh âb minusham.	authored
+دوست دارم	من موسیقی ایرانی را دوست دارم.	I like Persian music.	18	man musighi-ye irâni râ dust dâram.	authored
+می‌گویم	من همیشه حقیقت را می‌گویم.	I always tell the truth.	19	man hamishe haghighat râ miguyam.	authored
+می‌کنم	من در یک کتابخانه کار می‌کنم.	I work at a library.	20	man dar yek ketâbkhâne kâr mikonam.	authored
+می‌دهم	من پول را به فروشنده می‌دهم.	I give the money to the salesperson.	21	man pul râ be forushande midaham.	authored
+چی	دیروز از بازار چی خریدی؟	What did you buy at the market yesterday?	22	diruz az bâzâr chi kharidi?	authored
+با	من با دوستم به سینما رفتم.	I went to the cinema with my friend.	23	man bâ dustam be sinemâ raftam.	authored
+است	امروز هوا گرم و آفتابی است.	The weather is warm and sunny today.	24	emruz havâ garm va âftâbi ast.	authored
+برای	این هدیه برای شما است.	This gift is for you.	25	in hediye barâye shomâ ast.	authored
+آن	آن ساختمان بلند بیمارستان است.	That tall building is the hospital.	26	ân sâkhtemân-e boland bimârestân ast.	authored
+چه وقت	چه وقت به خانه برمی‌گردی؟	When are you coming back home?	27	che vaght be khâne barmigardi?	authored
+یک	فقط یک صندلی خالی است.	There is only one empty chair.	28	faghat yek sandali-ye khâli ast.	authored
+من	من صبح‌ها زود بیدار می‌شوم.	I wake up early in the mornings.	29	man sobh-hâ zud bidâr mishavam.	authored
+تو	تو خوب فارسی حرف می‌زنی.	You speak Persian well.	30	to khub fârsi harf mizani.	authored
+او	او خواهر کوچک من است.	She is my little sister.	31	u khâhar-e kuchak-e man ast.	authored
+ما	ما امشب مهمان داریم.	We have guests tonight.	32	mâ emshab mehmân dârim.	authored
+شما	شما اهل کدام شهر هستید؟	Which city are you from?	33	shomâ ahl-e kodâm shahr hastid?	authored
+آنها	آنها فردا به سفر می‌روند.	They are going on a trip tomorrow.	34	ânhâ fardâ be safar miravand.	authored
+هم	برادرم هم به دانشگاه می‌آید.	My brother is coming to the university too.	35	barâdaram ham be dâneshgâh miâyad.	authored
+اما	دیر رسیدم، اما فیلم را دیدم.	I arrived late, but I saw the film.	36	dir residam, ammâ film râ didam.	authored
+یا	چای می‌خواهی یا قهوه؟	Would you like tea or coffee?	37	chây mikhâhi yâ ghahve?	authored
+اگر	اگر باران بیاید، در خانه می‌مانیم.	If it rains, we will stay home.	38	agar bârân biyâyad, dar khâne mimânim.	authored
+نه	نه، من امروز وقت ندارم.	No, I do not have time today.	39	na, man emruz vaght nadâram.	authored
+بله	بله، من هم موافق هستم.	Yes, I agree as well.	40	bale, man ham movâfegh hastam.	authored
+خیلی	این کتاب خیلی جالب است.	This book is very interesting.	41	in ketâb kheyli jâleb ast.	authored
+بسیار	سفر ما بسیار خوب بود.	Our trip was very good.	42	safar-e mâ besyâr khub bud.	authored
+هر	هر دانش‌آموز یک دفتر دارد.	Every student has a notebook.	43	har dânesh-âmuz yek daftar dârad.	authored
+همه	همه بچه‌ها در حیاط بازی می‌کنند.	All the children are playing in the yard.	44	hame-ye bachche-hâ dar hayât bâzi mikonand.	authored
+هیچ	هیچ کس در خانه نیست.	There is nobody at home.	45	hich kas dar khâne nist.	authored
+چه	چه رنگی را بیشتر دوست داری؟	What colour do you like most?	46	che rangi râ bishtar dust dâri?	authored
+چرا	چرا دیشب تلفن نکردی؟	Why did you not call last night?	47	cherâ dishab telefon nakardi?	authored
+چطور	حال شما چطور است؟	How are you?	48	hâl-e shomâ che-towr ast?	authored
+چگونه	این دستگاه چگونه کار می‌کند؟	How does this machine work?	49	in dastgâh chegune kâr mikonad?	authored
+کجا	نزدیک‌ترین داروخانه کجا است؟	Where is the nearest pharmacy?	50	nazdik-tarin dârukhâne kojâ ast?	authored
+کی	کی به خانه می‌آیی؟	When are you coming home?	51	key be khâne miâyi?	authored
+چند	شما چند برادر و خواهر دارید؟	How many brothers and sisters do you have?	52	shomâ chand barâdar va khâhar dârid?	authored
+چیزی	دوستم چیزی به من نگفت.	My friend didn't tell me anything.	53	dustam chizi be man nagoft.	authored
+کسی	کسی در خانه نیست.	There is nobody home.	54	kasi dar khâne nist.	authored
+باید	من باید زودتر بخوابم.	I should go to bed earlier.	55	man bâyad zudtar bekhâbam.	authored
+شاید	شاید فردا هوا بهتر شود.	Maybe the weather will be better tomorrow.	56	shâyad fardâ havâ behtar shavad.	authored
+حالا	حالا می‌توانیم با هم برویم.	Now we can go together.	57	hâlâ mitavânim bâ ham beravim.	authored
+الان	الان در راه خانه هستم.	I'm on my way home right now.	58	alân dar râh-e khâne hastam.	authored
+دیگر	من دیگر قهوه نمی‌خورم.	I don't drink coffee anymore.	59	man digar qahve nemikhoram.	authored
+هنوز	پدرم هنوز به خانه نرسیده است.	My father hasn't got home yet.	60	pedaram hanuz be khâne naraside ast.	authored
+فقط	من فقط یک سوال دارم.	I only have one question.	61	man faqat yek so'âl dâram.	authored
+همیشه	مادرم همیشه صبح زود بیدار می‌شود.	My mother always wakes up early in the morning.	62	mâdaram hamishe sobh zud bidâr mishavad.	authored
+هرگز	من هرگز آنجا نرفته‌ام.	I have never been there.	63	man hargez ânjâ narafte-am.	authored
+لطفا	لطفا در را ببندید.	Please close the door.	64	lotfan dar râ bebandid.	authored
+ممنون	از کمک شما ممنون هستم.	I'm grateful for your help.	65	az komak-e shomâ mamnun hastam.	authored
+متشکرم	از دعوت شما بسیار متشکرم.	Thank you very much for your invitation.	66	az da'vat-e shomâ besyâr moteshakkeram.	authored
+گاهی	گاهی شب‌ها کتاب می‌خوانم.	Sometimes I read a book at night.	67	gâhi shab-hâ ketâb mikhânam.	authored
+اینجا	اینجا را خیلی دوست دارم.	I really like it here.	68	injâ râ kheyli dust dâram.	authored
+آنجا	آنجا یک پارک بزرگ هست.	There is a big park over there.	69	ânjâ yek pârk-e bozorg hast.	authored
+خوب	این کتاب خیلی خوب است.	This book is very good.	70	in ketâb kheyli khub ast.	authored
+بد	دیروز هوا خیلی بد بود.	The weather was very bad yesterday.	71	diruz havâ kheyli bad bud.	authored
+بزرگ	این شهر بزرگ و شلوغ است.	This city is big and crowded.	72	in shahr bozorg va sholugh ast.	authored
+کوچک	ما در یک آپارتمان کوچک زندگی می‌کنیم.	We live in a small apartment.	73	mâ dar yek âpârtemân-e kuchak zendegi mikonim.	authored
+زیاد	برادرم زیاد حرف می‌زند.	My brother talks a lot.	74	barâdaram ziyâd harf mizanad.	authored
+کم	نمک این غذا کم است.	This food doesn't have enough salt.	75	namak-e in ghazâ kam ast.	authored
+تازه	این نان تازه و گرم است.	This bread is fresh and warm.	76	in nân tâze va garm ast.	authored
+قدیمی	این ساعت قدیمی هنوز کار می‌کند.	This old watch still works.	77	in sâ'at-e qadimi hanuz kâr mikonad.	authored
+زیبا	باغ پشت خانه بسیار زیبا است.	The garden behind the house is very beautiful.	78	bâgh-e posht-e khâne besyâr zibâ ast.	authored
+خوشحال	از دیدن شما خوشحال شدم.	I was glad to see you.	79	az didan-e shomâ khoshhâl shodam.	authored
+ناراحت	همکارم از این خبر ناراحت شد.	My colleague was upset by this news.	80	hamkâram az in khabar nârâhat shod.	authored
+راست	بعد از چراغ قرمز به راست بپیچید.	Turn right after the traffic light.	81	ba'd az cherâgh-e qermez be râst bepichid.	authored
+چپ	دست چپ من درد می‌کند.	My left hand hurts.	82	dast-e chap-e man dard mikonad.	authored
+می‌توانم	من می‌توانم فارسی بخوانم.	I can read Persian.	83	man mitavânam fârsi bekhânam.	authored
+بودن	تنها بودن همیشه بد نیست.	Being alone isn't always bad.	84	tanhâ budan hamishe bad nist.	authored
+داشتن	داشتن یک دوست خوب مهم است.	Having a good friend is important.	85	dâshtan-e yek dust-e khub mohem ast.	authored
+شدن	بزرگ شدن آسان نیست.	Growing up is not easy.	86	bozorg shodan âsân nist.	authored
+کردن	آشپزی کردن را دوست دارم.	I like cooking.	87	âshpazi kardan râ dust dâram.	authored
+رفتن	برای رفتن به مدرسه عجله دارم.	I'm in a hurry to get to school.	88	barâye raftan be madrese ajale dâram.	authored
+آمدن	آمدن شما ما را خوشحال کرد.	We were happy that you came.	89	âmadan-e shomâ mâ râ khoshhâl kard.	authored
+گفتن	گفتن حقیقت گاهی سخت است.	Telling the truth is sometimes hard.	90	goftan-e haqiqat gâhi sakht ast.	authored
+دیدن	برای دیدن خواهرم به شهر رفتم.	I went into town to see my sister.	91	barâye didan-e khâharam be shahr raftam.	authored
+دانستن	دانستن دو زبان خیلی مفید است.	Knowing two languages is very useful.	92	dânestan-e do zabân kheyli mofid ast.	authored
+خواستن	کمک خواستن از دیگران سخت است.	Asking other people for help is hard.	93	komak khâstan az digarân sakht ast.	authored
+گرفتن	گرفتن بلیت هواپیما آسان نبود.	Getting a plane ticket was not easy.	95	gereftan-e bilit-e havâpeymâ âsân nabud.	authored
+دادن	دادن هدیه به بچه‌ها لذت‌بخش است.	Giving presents to children is a pleasure.	96	dâdan-e hediye be bachche-hâ lezzat-bakhsh ast.	authored
+خوردن	خوردن صبحانه برای بچه‌ها مهم است.	Eating breakfast is important for children.	97	khordan-e sobhâne barâye bachche-hâ mohem ast.	authored
+نوشیدن	نوشیدن آب کافی برای بدن لازم است.	Drinking enough water is necessary for the body.	98	nushidan-e âb-e kâfi barâye badan lâzem ast.	authored
+خواندن	خواندن کتاب قبل از خواب آرامش می‌دهد.	Reading a book before bed is calming.	99	khândan-e ketâb qabl az khâb ârâmesh midahad.	authored
+نوشتن	نوشتن نامه به دوستان وقت می‌برد.	Writing letters to friends takes time.	100	neveshtan-e nâme be dustân vaqt mibarad.	authored
+شنیدن	شنیدن این خبر ما را خوشحال کرد.	Hearing this news made us happy.	101	shenidan-e in khabar mâ râ khoshhâl kard.	authored
+فهمیدن	فهمیدن این درس برای من سخت بود.	Understanding this lesson was hard for me.	102	fahmidan-e in dars barâye man sakht bud.	authored
+رسیدن	رسیدن به ایستگاه ده دقیقه طول کشید.	Getting to the station took ten minutes.	103	residan be istgâh dah daghighe tul keshid.	authored
+گذاشتن	گذاشتن این جعبه اینجا مشکلی ندارد.	Putting this box here is no problem.	104	gozâshtan-e in ja'be injâ moshkeli nadârad.	authored
+برداشتن	برداشتن این چمدان سنگین آسان نیست.	Picking up this heavy suitcase is not easy.	105	bardâshtan-e in chamedân-e sangin âsân nist.	authored
+آوردن	آوردن ناهار از خانه ارزان‌تر است.	Bringing lunch from home is cheaper.	106	âvardan-e nâhâr az khâne arzântar ast.	authored
+بردن	بردن این میز به اتاق دیگر سخت است.	Taking this table to the other room is hard.	107	bordan-e in miz be otâgh-e digar sakht ast.	authored
+زدن	میخ زدن به دیوار کار آسانی نیست.	Hammering a nail into the wall is not an easy job.	108	mikh zadan be divâr kâr-e âsâni nist.	authored
+خریدن	خریدن نان تازه هر روز عادت خوبی است.	Buying fresh bread every day is a good habit.	109	kharidan-e nân-e tâze har ruz âdat-e khubi ast.	authored
+فروختن	فروختن ماشین قدیمی کار درستی بود.	Selling the old car was the right thing to do.	110	forukhtan-e mâshin-e ghadimi kâr-e dorosti bud.	authored
+ساختن	ساختن این خانه دو سال طول کشید.	Building this house took two years.	111	sâkhtan-e in khâne do sâl tul keshid.	authored
+کار کردن	کار کردن در تعطیلات سخت است.	Working during the holidays is hard.	112	kâr kardan dar ta'tilât sakht ast.	authored
+بازی کردن	بازی کردن در پارک برای بچه‌ها خوب است.	Playing in the park is good for children.	113	bâzi kardan dar pârk barâye bachche-hâ khub ast.	authored
+زندگی کردن	زندگی کردن در شهر بزرگ گران است.	Living in a big city is expensive.	114	zendegi kardan dar shahr-e bozorg gerân ast.	authored
+صحبت کردن	صحبت کردن با معلم به من کمک کرد.	Talking to the teacher helped me.	115	sohbat kardan bâ mo'allem be man komak kard.	authored
+فکر کردن	فکر کردن به این موضوع وقت می‌برد.	Thinking about this matter takes time.	116	fekr kardan be in mowzu' vaght mibarad.	authored
+پیدا کردن	پیدا کردن خانه شما آسان بود.	Finding your house was easy.	117	peydâ kardan-e khâne-ye shomâ âsân bud.	authored
+شروع کردن	شروع کردن یک ورزش تازه همیشه سخت است.	Starting a new sport is always hard.	118	shoru' kardan-e yek varzesh-e tâze hamishe sakht ast.	authored
+تمام کردن	تمام کردن این کتاب یک هفته طول کشید.	Finishing this book took a week.	119	tamâm kardan-e in ketâb yek hafte tul keshid.	authored
+دوست داشتن	دوست داشتن این شغل کار را آسان می‌کند.	Loving this job makes the work easy.	120	dust dâshtan-e in shoghl kâr râ âsân mikonad.	authored
+نگاه کردن	نگاه کردن به دریا مرا آرام می‌کند.	Looking at the sea calms me down.	121	negâh kardan be daryâ marâ ârâm mikonad.	authored
+گوش دادن	گوش دادن به موسیقی حالم را بهتر می‌کند.	Listening to music makes me feel better.	122	gush dâdan be musighi hâlam râ behtar mikonad.	authored
+سوال کردن	سوال کردن در کلاس اشکالی ندارد.	Asking questions in class is perfectly fine.	123	so'âl kardan dar kelâs eshkâli nadârad.	authored
+جواب دادن	جواب دادن به همه ایمیل‌ها وقت می‌برد.	Answering all the emails takes time.	124	javâb dâdan be hame-ye imeyl-hâ vaght mibarad.	authored
+کمک کردن	کمک کردن به همسایه کار خوبی است.	Helping a neighbour is a good thing to do.	125	komak kardan be hamsâye kâr-e khubi ast.	authored
+منتظر بودن	منتظر بودن در این سرما سخت است.	Waiting in this cold is hard.	126	montazer budan dar in sarmâ sakht ast.	authored
+خوابیدن	زود خوابیدن برای سلامتی خوب است.	Going to bed early is good for your health.	127	zud khâbidan barâye salâmati khub ast.	authored
+هست	در این خیابان یک داروخانه هست.	There is a pharmacy on this street.	128	dar in khiyâbân yek dârukhâne hast.	authored
+نیست	این کتاب مال من نیست.	This book is not mine.	129	in ketâb mâl-e man nist.	authored
+بود	دیروز هوا خیلی گرم بود.	Yesterday the weather was very hot.	130	diruz havâ kheyli garm bud.	authored
+دارد	این خانه سه اتاق دارد.	This house has three rooms.	131	in khâne se otâgh dârad.	authored
+می‌شود	هوا کم‌کم سرد می‌شود.	The weather is gradually getting cold.	132	havâ kam-kam sard mishavad.	authored
+می‌کند	سارا این کار را هر روز می‌کند.	Sara does this every day.	133	sârâ in kâr râ har ruz mikonad.	authored
+می‌رود	پدرم هر صبح سر کار می‌رود.	My father goes to work every morning.	134	pedaram har sobh sar-e kâr miravad.	authored
+می‌آید	مهمان ما فردا صبح می‌آید.	Our guest is coming tomorrow morning.	135	mehmân-e mâ fardâ sobh miâyad.	authored
+چیز	روی میز یک چیز عجیب دیدم.	I saw a strange thing on the table.	136	ruye miz yek chiz-e ajib didam.	authored
+کار	کار من صبح زود شروع می‌شود.	My work starts early in the morning.	137	kâr-e man sobh-e zud shoru' mishavad.	authored
+روز	امروز روز خیلی خوبی بود.	Today was a very good day.	138	emruz ruz-e kheyli khubi bud.	authored
+شب	هر شب یک ساعت کتاب می‌خوانم.	Every night I read a book for an hour.	139	har shab yek sâ'at ketâb mikhânam.	authored
+سال	سال گذشته به شمال سفر کردیم.	Last year we travelled to the north.	140	sâl-e gozashte be shomâl safar kardim.	authored
+ماه	ماه آینده به خانه جدید می‌رویم.	Next month we are moving to a new house.	141	mâh-e âyande be khâne-ye jadid miravim.	authored
+هفته	هفته آینده امتحان داریم.	We have an exam next week.	142	hafte-ye âyande emtehân dârim.	authored
+ساعت	این کار دو ساعت وقت می‌برد.	This job takes two hours.	143	in kâr do sâ'at vaght mibarad.	authored
+وقت	امروز وقت کافی برای ورزش نداشتم.	Today I didn't have enough time for exercise.	144	emruz vaght-e kâfi barâye varzesh nadâshtam.	authored
+زمان	زمان امتحان را فراموش کردم.	I forgot the time of the exam.	145	zamân-e emtehân râ farâmush kardam.	authored
+آدم	همسایه ما آدم مهربانی است.	Our neighbour is a kind person.	146	hamsâye-ye mâ âdam-e mehrabâni ast.	authored
+مرد	یک مرد جوان به من کمک کرد.	A young man helped me.	147	yek mard-e javân be man komak kard.	authored
+زن	یک زن مسن کنار من نشست.	An older woman sat down next to me.	148	yek zan-e mosen kenâr-e man neshast.	authored
+بچه	این بچه هنوز به مدرسه نمی‌رود.	This child doesn't go to school yet.	149	in bachche hanuz be madrese nemiravad.	authored
+پسر	پسر همسایه ما دانشجوی پزشکی است.	Our neighbour's son is a medical student.	150	pesar-e hamsâye-ye mâ dâneshjuy-e pezeshki ast.	authored
+دختر	دختر همسایه خیلی مهربان است.	The neighbour's daughter is very kind.	151	dokhtar-e hamsâye kheyli mehrabân ast.	authored
+دوست	دوست من فردا به دیدن ما می‌آید.	My friend is coming to see us tomorrow.	152	dust-e man fardâ be didan-e mâ miâyad.	authored
+خانواده	امروز تمام خانواده کنار هم هستند.	Today the whole family is together.	153	emruz tamâm-e khânevâde kenâr-e ham hastand.	authored
+مادر	مادر من در آشپزخانه است.	My mother is in the kitchen.	154	mâdar-e man dar âshpazkhâne ast.	authored
+پدر	پدر من هر روز روزنامه می‌خواند.	My father reads the newspaper every day.	155	pedar-e man har ruz ruznâme mikhânad.	authored
+برادر	برادر من در تهران کار می‌کند.	My brother works in Tehran.	156	barâdar-e man dar Tehrân kâr mikonad.	authored
+خواهر	خواهر بزرگ من پزشک است.	My older sister is a doctor.	157	khâhar-e bozorg-e man pezeshk ast.	authored
+خانه	ما دیشب دیر به خانه رسیدیم.	We got home late last night.	158	mâ dishab dir be khâne residim.	authored
+شهر	ما تابستان گذشته این شهر را دیدیم.	We saw this city last summer.	159	mâ tâbestân-e gozashte in shahr râ didim.	authored
+کشور	ما در یک کشور کوچک زندگی می‌کنیم.	We live in a small country.	160	mâ dar yek keshvar-e kuchak zendegi mikonim.	authored
+جهان	من دوست دارم جهان را ببینم.	I would like to see the world.	161	man dust dâram jahân râ bebinam.	authored
+دنیا	این روزها دنیا خیلی سریع عوض می‌شود.	These days the world changes very fast.	162	in ruz-hâ donyâ kheyli sari' avaz mishavad.	authored
+راه	این راه به بازار می‌رسد.	This road leads to the market.	163	in râh be bâzâr miresad.	authored
+خیابان	بچه‌ها در خیابان بازی می‌کنند.	The children are playing in the street.	164	bachche-hâ dar khiyâbân bâzi mikonand.	authored
+ماشین	ماشین من دیروز خراب شد.	My car broke down yesterday.	165	mâshin-e man diruz kharâb shod.	authored
+آب	من یک لیوان آب می‌خواهم.	I want a glass of water.	166	man yek livân âb mikhâham.	authored
+غذا	امشب غذا خیلی خوشمزه بود.	The food was very tasty tonight.	167	emshab ghazâ kheyli khoshmaze bud.	authored
+نان	من صبح‌ها نان و پنیر می‌خورم.	I eat bread and cheese in the mornings.	168	man sobh-hâ nân o panir mikhoram.	authored
+پول	امروز پول همراه من نیست.	I don't have any money on me today.	169	emruz pul hamrâh-e man nist.	authored
+دست	دست راست من درد می‌کند.	My right hand hurts.	170	dast-e râst-e man dard mikonad.	authored
+سر	بچه سر خود را تکان داد.	The child shook his head.	171	bachche sar-e khod râ tekân dâd.	authored
+چشم	چشم چپ من کمی درد دارد.	My left eye hurts a little.	172	cheshm-e chap-e man kami dard dârad.	authored
+دل	دل من برای دوستانم تنگ شده است.	I miss my friends.	173	del-e man barâye dustânam tang shode ast.	authored
+اسم	ببخشید، اسم شما چیست؟	Excuse me, what is your name?	174	bebakhshid, esm-e shomâ chist?	authored
+کتاب	این کتاب را دیروز خریدم.	I bought this book yesterday.	175	in ketâb râ diruz kharidam.	authored
+مدرسه	دانش‌آموزان با اتوبوس به مدرسه می‌روند.	The pupils go to school by bus.	176	dânesh-âmuzân bâ otobus be madrese miravand.	authored
+دانشگاه	من هفته آینده به دانشگاه می‌روم.	I am going to the university next week.	177	man hafte-ye âyande be dâneshgâh miravam.	authored
+زبان	من می‌خواهم یک زبان تازه یاد بگیرم.	I want to learn a new language.	178	man mikhâham yek zabân-e tâze yâd begiram.	authored
+حرف	من حرف شما را باور می‌کنم.	I believe what you say.	179	man harf-e shomâ râ bâvar mikonam.	authored
+دو	دو فنجان چای سفارش دادیم.	We ordered two cups of tea.	180	do fenjân chây sefâresh dâdim.	authored
+سه	ما سه روز در شمال ماندیم.	We stayed three days in the north.	181	mâ se ruz dar shomâl mândim.	authored
+چهار	این میز چهار صندلی دارد.	This table has four chairs.	182	in miz chahâr sandali dârad.	authored
+پنج	قطار پنج دقیقه دیگر می‌رسد.	The train arrives in five minutes.	183	ghatâr panj daghighe digar miresad.	authored
+شش	من شش ساعت خوابیدم.	I slept for six hours.	184	man shesh sâat khâbidam.	authored
+هفت	ساعت هفت صبح بیدار می‌شوم.	I wake up at seven in the morning.	185	sâat-e haft-e sobh bidâr mishavam.	authored
+هشت	کلاس ما ساعت هشت شروع می‌شود.	Our class starts at eight o'clock.	186	kelâs-e mâ sâat-e hasht shoru mishavad.	authored
+ده	ده دقیقه دیگر می‌آیم.	I'll be there in ten minutes.	187	dah daghighe digar miâyam.	authored
+بیست	بیست نفر در جلسه بودند.	Twenty people were at the meeting.	188	bist nafar dar jalase budand.	authored
+سی	این ماه سی روز دارد.	This month has thirty days.	189	in mâh si ruz dârad.	authored
+صد	این کتاب صد صفحه دارد.	This book has a hundred pages.	190	in ketâb sad safhe dârad.	authored
+هزار	من هزار بار به شما گفتم.	I've told you a thousand times.	191	man hezâr bâr be shomâ goftam.	authored
+میلیون	این فیلم را دو میلیون نفر دیدند.	Two million people saw this film.	192	in film râ do milyun nafar didand.	authored
+اول	ما در ردیف اول نشستیم.	We sat in the first row.	193	mâ dar radif-e avval neshastim.	authored
+دوم	خانه ما در طبقه دوم است.	Our home is on the second floor.	194	khâne-ye mâ dar tabaghe-ye dovvom ast.	authored
+سوم	امروز روز سوم سفر ما است.	Today is the third day of our trip.	195	emruz ruz-e sevvom-e safar-e mâ ast.	authored
+آخر	روز آخر تعطیلات باران آمد.	It rained on the last day of the holiday.	196	ruz-e âkhar-e tatilât bârân âmad.	authored
+نصف	من نصف غذا را خوردم.	I ate half the food.	197	man nesf-e ghazâ râ khordam.	authored
+عدد	این عدد را روی کاغذ بنویسید.	Write this number down on the paper.	198	in adad râ ruy-e kâghaz benevisid.	authored
+رنگ	رنگ این پیراهن را دوست دارم.	I like the colour of this shirt.	199	rang-e in pirâhan râ dust dâram.	authored
+قرمز	سیب‌های این درخت قرمز هستند.	The apples on this tree are red.	200	sib-hâ-ye in derakht ghermez hastand.	authored

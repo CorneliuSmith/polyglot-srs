@@ -215,6 +215,12 @@ TATOEBA_ISO3 = {
     "ro": "ron", "el": "ell", "ru": "rus", "ar": "ara", "pt": "por",
     "hi": "hin", "jam": "jam", "mi": "mri", "nl": "nld", "th": "tha",
     "ko": "kor",
+    # Latin was missing here, and the omission cost the course its whole
+    # sentence bank: `la` had ZERO examples and was queued for authoring from
+    # nothing, while Tatoeba has had a `lat` export the entire time. Its text
+    # is UNMACRONISED, which la.md's all-or-nothing macron policy does not
+    # allow to ship as-is — harvest, then macronise.
+    "la": "lat",
 }
 
 # Hausa has no reachable public-domain corpus in this pipeline; the user drops
@@ -1062,11 +1068,14 @@ async def load_example_sentences(db_url: str, language_code: str, tsv_path: Path
                 """
                 INSERT INTO example_sentences
                     (language_id, vocabulary_id, sentence, translation,
-                     difficulty_rank, translation_locale)
-                SELECT $1, v.id, u.sentence, u.translation, u.rank, u.locale
+                     difficulty_rank, translation_locale,
+                     transliteration, gloss)
+                SELECT $1, v.id, u.sentence, u.translation, u.rank, u.locale,
+                       u.translit, u.gloss
                 FROM UNNEST($2::text[], $3::text[], $4::text[], $5::int[],
-                            $6::text[])
-                     AS u(word, sentence, translation, rank, locale)
+                            $6::text[], $7::text[], $8::text[])
+                     AS u(word, sentence, translation, rank, locale,
+                          translit, gloss)
                 JOIN vocabulary v
                      ON v.language_id = $1 AND v.word = u.word
                 ON CONFLICT (vocabulary_id, sentence, translation_locale)
@@ -1082,6 +1091,14 @@ async def load_example_sentences(db_url: str, language_code: str, tsv_path: Path
                     (r.get("translation_locale") or "en").strip() or "en"
                     for r in chunk
                 ],
+                # These two were silently dropped until 25 Aug 2026. The TSVs
+                # have carried a `transliteration` column for `ko` since it was
+                # built, and production read 18% — because nothing on this path
+                # ever wrote it. The interlinear `gloss` was 0% in production
+                # for EVERY language for the same reason. Authoring either
+                # layer was invisible to a learner until this line existed.
+                [((r.get("transliteration") or "").strip() or None) for r in chunk],
+                [((r.get("gloss") or "").strip() or None) for r in chunk],
             )
             count += len(inserted_rows)
         return count
@@ -1610,11 +1627,12 @@ def build_sentences(language: str, cache_dir: Path, per_word: int = 3) -> Path:
             for form in nlp.get_morphological_family(word):
                 rank_by_word.setdefault(form, rank)
     from backend.services.nlp.jamaican import JamaicanNLP
+    from backend.services.nlp.latin_base import LatinNLP
 
     nlp_by_lang = {
         "tr": TurkishNLP, "sw": SwahiliNLP, "yo": YorubaNLP,
         "xh": XhosaNLP, "ha": HausaNLP, "ru": RussianNLP,
-        "jam": JamaicanNLP, "th": ThaiNLP,
+        "jam": JamaicanNLP, "th": ThaiNLP, "la": LatinNLP,
         **FREQ_NLP,
     }
     lemmatize = nlp_by_lang[language]().lemmatize

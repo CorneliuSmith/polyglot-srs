@@ -1,0 +1,195 @@
+word	sentence	translation	difficulty_rank	transliteration	source
+של	הספר הזה של אחותי.	This book is my sister's.	1	Ha-sefer ha-ze shel ac'hoti.	authored
+את	קניתי את הספר אתמול.	I bought the book yesterday.	2	Kaniti et ha-sefer etmol.	authored
+לא	לא הלכתי לעבודה אתמול.	I didn't go to work yesterday.	7	Lo halac'hti la-avoda etmol.	authored
+אני	אני מדברת עברית בבית.	I (f.) speak Hebrew at home.	8	Ani medaberet ivrit ba-bayit.	authored
+הן	הן לומדות עברית באוניברסיטה.	They (f.) study Hebrew at the university.	9	Hen lomdot ivrit ba-universita.	authored
+זה	זה הבית של סבתא שלי.	This is my grandmother's house.	10	Ze ha-bayit shel savta sheli.	authored
+על	המפתחות שלי על השולחן.	My keys are on the table.	11	Ha-maftec'hot sheli al ha-shulc'han.	authored
+הוא	הוא עובד בבית חולים.	He works at a hospital.	12	Hoo oved be-veyt c'holim.	authored
+מה	מה את רוצה לאכול?	What do you (f.) want to eat?	13	Ma at rotsa le-ec'hol?	authored
+עם	באתי עם החברים שלי.	I came with my friends.	14	Bati im ha-c'haverim sheli.	authored
+אתה	אתה רוצה קפה או תה?	Do you (m.) want coffee or tea?	15	Ata rotse kafe o te?	authored
+כל	קראתי את כל הספר אתמול.	I read the whole book yesterday.	16	Karati et kol ha-sefer etmol.	authored
+אבל	רציתי לבוא אבל לא יכולתי.	I wanted to come but I couldn't.	17	Ratsiti lavo aval lo yac'holti.	authored
+הם	הם גרים בדירה קטנה.	They (m.) live in a small apartment.	18	Hem garim be-dira ktana.	authored
+גם	גם אנחנו הלכנו לים.	We went to the sea too.	19	Gam anac'hnu halac'hnu la-yam.	authored
+כי	נשארתי בבית כי ירד גשם.	I stayed home because it was raining.	20	Nisharti ba-bayit ki yarad geshem.	authored
+אם	אם אתה רוצה, נלך יחד.	If you (m.) want, we'll go together.	21	Im ata rotse, nelec'h yac'had.	authored
+יש	יש לי שאלה קטנה.	I have a small question.	22	Yesh li she-ela ktana.	authored
+או	נלך היום או מחר?	Shall we go today or tomorrow?	23	Nelec'h ha-yom o mac'har?	authored
+רק	יש לי רק חמש דקות.	I only have five minutes.	24	Yesh li rak c'hamesh dakot.	authored
+היא	היא מדברת שלוש שפות.	She speaks three languages.	25	Hee medaberet shalosh safot.	authored
+אחד	יש כאן רק כיסא אחד.	There's only one chair here.	26	Yesh kan rak kise ec'had.	authored
+כן	כן, אני זוכר את השם.	Yes, I (m.) remember the name.	27	Ken, ani zoc'her et ha-shem.	authored
+אנחנו	אנחנו אוכלים ארוחת ערב יחד.	We're eating dinner together.	28	Anac'hnu oc'hlim aruc'hat erev yac'had.	authored
+מי	מי לקח את המפתחות שלי?	Who took my keys?	29	Mi lakac'h et ha-maftec'hot sheli?	authored
+עוד	אפשר עוד כוס מים, בבקשה?	Could I have another glass of water, please?	30	Efshar od kos mayim, be-vakasha?	authored
+איך	איך אומרים את זה בעברית?	How do you say this in Hebrew?	31	Eyc'h omrim et ze be-ivrit?	authored
+אז	סיימתי לעבוד, אז חזרתי הביתה.	I finished working, so I went home.	32	Siyamti le-avod, az c'hazarti ha-bayta.	authored
+כמו	הבית שלהם גדול כמו מלון.	Their house is as big as a hotel.	33	Ha-bayit shelahem gadol kmo malon.	authored
+שם	שם המשפחה שלי קצר.	My last name is short.	34	Shem ha-mishpac'ha sheli katsar.	authored
+מאכל	הכנתי מאכל חדש לארוחת הערב.	I made a new dish for dinner.	35	Hec'hanti ma-ac'hal c'hadash le-aruc'hat ha-erev.	authored
+למה	למה הרכבת מאחרת כל בוקר?	Why is the train late every morning?	36	Lama ha-rakevet me-ac'heret kol boker?	authored
+פה	חיכיתי פה שעה שלמה.	I waited here for a whole hour.	37	C'hikiti po sha-a shlema.	authored
+עכשיו	אני חוזרת הביתה עכשיו.	I (f.) am going home now.	38	Ani c'hozeret ha-bayta ac'hshav.	authored
+כבר	הם כבר סיימו את הארוחה.	They (m.) already finished the meal.	39	Hem kvar siymu et ha-aruc'ha.	authored
+מאוד	הקפה הזה חם מאוד.	This coffee is very hot.	40	Ha-kafe ha-ze c'ham me-od.	authored
+טוב	הסרט הזה ממש טוב.	This movie is really good.	41	Ha-seret ha-ze mamash tov.	authored
+יותר	היום קר יותר מאתמול.	Today is colder than yesterday.	42	Ha-yom kar yoter me-etmol.	authored
+אולי	אולי נלך לסרט בערב?	Maybe we'll go to a movie tonight?	43	Ulay nelec'h le-seret ba-erev?	authored
+משהו	שכחתי משהו חשוב בבית.	I forgot something important at home.	44	Shac'hac'hti mashehu c'hashuv ba-bayit.	authored
+מישהו	מישהו התקשר אליי הבוקר.	Someone called me this morning.	45	Mishehu hitkasher elay ha-boker.	authored
+שלי	הטלפון שלי לא עובד היום.	My phone isn't working today.	46	Ha-telefon sheli lo oved ha-yom.	authored
+אין	אין לי זמן לארוחת צהריים.	I don't have time for lunch.	47	Eyn li zman le-aruc'hat tsohorayim.	authored
+הכל	הכל יקר מאוד בעיר הזאת.	Everything is very expensive in this city.	48	Ha-kol yakar me-od ba-ir ha-zot.	authored
+אנשים	הרבה אנשים חיכו בתחנה.	A lot of people waited at the station.	49	Harbe anashim c'hiku ba-tac'hana.	authored
+יום	היה לי יום ארוך מאוד.	I had a very long day.	50	Haya li yom aroc'h me-od.	authored
+אתם	אתם רוצים לשתות משהו?	Do you (m. pl.) want something to drink?	51	Atem rotsim lishtot mashehoo?	authored
+הזה	הסרט הזה ארוך מדי.	This film is too long.	52	Ha-seret ha-ze aroc'h miday.	authored
+צריך	אני צריך ללכת הביתה עכשיו.	I (m.) need to go home now.	53	Ani tsaric'h lalec'het ha-bayta ac'hshav.	authored
+להיות	אני צריכה להיות בעבודה מחר.	I (f.) need to be at work tomorrow.	54	Ani tsric'ha lihyot ba-avoda mac'har.	authored
+עושה	מה אתה עושה עכשיו?	What are you (m.) doing now?	55	Ma Ata ose ac'hshav?	authored
+שלך	את יודעת איפה התיק שלך?	Do you (f.) know where your bag is?	56	At yodaat eyfo ha-tik shelac'h?	authored
+איפה	סליחה, איפה תחנת האוטובוס?	Excuse me, where is the bus stop?	57	Slic'ha, eyfo tac'hanat ha-otoboos?	authored
+מתי	מתי מתחיל השיעור בבוקר?	When does the lesson start in the morning?	58	Matay matc'hil ha-shioor ba-boker?	authored
+כמה	כמה עולה כרטיס לרכבת?	How much does a train ticket cost?	59	Kama ole kartis la-rakevet?	authored
+דבר	כל דבר כאן עולה הרבה כסף.	Everything here costs a lot of money.	60	Kol davar kan ole harbe kesef.	authored
+שנה	אנחנו גרים כאן כבר שנה.	We have been living here for a year already.	61	Anac'hnu garim kan kvar shana.	authored
+בית	קנינו בית קטן ליד הים.	We bought a small house by the sea.	62	Kaninoo bayit katan le-yad ha-yam.	authored
+איש	איש אחד עמד ליד הדלת.	A man stood by the door.	63	Ish ec'had amad le-yad ha-delet.	authored
+אישה	אישה נחמדה עזרה לי אתמול.	A nice woman helped me yesterday.	64	Isha nec'hmada azra li etmol.	authored
+ילד	כל ילד קיבל מתנה קטנה.	Every child got a small present.	65	Kol yeled kibel matana ktana.	authored
+זמן	אין לי זמן לארוחת צהריים.	I don't have time for lunch.	66	Eyn li zman le-arooc'hat tsohorayim.	authored
+עבודה	מצאתי עבודה חדשה בעיר.	I found a new job in the city.	67	Matsati avoda c'hadasha ba-ir.	authored
+כסף	יש לי מספיק כסף לקפה.	I have enough money for coffee.	68	Yesh li maspik kesef le-kafe.	authored
+חיים	יש לה חיים שקטים ונעימים.	She has a quiet, pleasant life.	69	Yesh la c'hayim shketim oo-neimim.	authored
+מים	אפשר לקבל כוס מים, בבקשה?	Could I have a glass of water, please?	70	Efshar lekabel kos mayim, bevakasha?	authored
+ארץ	זו ארץ יפה עם הרים גבוהים.	It's a beautiful country with high mountains.	72	Zo erets yafa im harim gvohim.	authored
+עולם	עולם הספורט מעניין אותי מאוד.	I'm very interested in the world of sports.	73	Olam ha-sport meanyen oti meod.	authored
+ראש	יש לי כאב ראש חזק.	I have a bad headache.	74	Yesh li keev rosh c'hazak.	authored
+יד	הוא הרים יד ושאל שאלה.	He raised his hand and asked a question.	75	Hoo herim yad ve-shaal sheela.	authored
+עין	פתחתי עין אחת וראיתי אור.	I opened one eye and saw light.	76	Patac'hti ayin ac'hat ve-raiti or.	authored
+לב	לסבתא שלי יש לב טוב.	My grandmother has a good heart.	78	Le-savta sheli yesh lev tov.	authored
+פנים	שטפתי פנים במים קרים.	I washed my face with cold water.	79	Shatafti panim be-mayim karim.	authored
+זאת	זאת החולצה שקניתי אתמול.	This is the shirt I bought yesterday.	80	Zot ha-c'hooltsa she-kaniti etmol.	authored
+להגיד	הוא לא ידע מה להגיד.	He didn't know what to say.	81	Hoo lo yada ma lehagid.	authored
+אמר	המורה אמר שיש מבחן מחר.	The teacher (m.) said there is a test tomorrow.	82	Ha-more amar she-yesh mivc'han mac'har.	authored
+רוצה	היא רוצה לנסוע לים בקיץ.	She wants to go to the sea in the summer.	83	Hee rotsa linsoa la-yam ba-kayits.	authored
+יכול	הוא לא יכול לבוא היום.	He can't come today.	84	Hoo lo yac'hol lavo ha-yom.	authored
+יודע	הוא יודע לשחות טוב מאוד.	He knows how to swim very well.	85	Hoo yodea lisc'hot tov meod.	authored
+חושב	אני חושב שהמסעדה סגורה היום.	I (m.) think the restaurant is closed today.	86	Ani c'hoshev she-ha-misada sgoora ha-yom.	authored
+רואה	הוא רואה טוב בלי משקפיים.	He sees well without glasses.	87	Hoo roe tov bli mishkafayim.	authored
+שומע	הוא שומע מוזיקה בכל ערב.	He listens to music every evening.	88	Hoo shomea moozika be-c'hol erev.	authored
+בא	הוא בא לבקר אותנו מחר.	He is coming to visit us tomorrow.	89	Hoo ba levaker otanoo mac'har.	authored
+הולך	הוא הולך לעבודה ברגל כל בוקר.	He walks to work every morning.	90	Hoo holec'h la-avoda ba-regel kol boker.	authored
+נותן	המורה נותן שיעורי בית כל יום.	The teacher (m.) gives homework every day.	91	Ha-more noten shioorey bayit kol yom.	authored
+לוקח	הוא לוקח את הכלב לטיול.	He takes the dog for a walk.	92	Hoo lokeac'h et ha-kelev le-tiyool.	authored
+אוכל	הוא אוכל ארוחת בוקר בשבע.	He eats breakfast at seven.	93	Hoo oc'hel arooc'hat boker be-sheva.	authored
+שותה	היא שותה קפה בלי סוכר.	She drinks coffee without sugar.	94	Hee shota kafe bli sookar.	authored
+עשה	הוא עשה טעות קטנה במבחן.	He made a small mistake on the test.	95	Hoo asa taoot ktana ba-mivc'han.	authored
+היה	אתמול היה יום חם מאוד.	Yesterday was a very hot day.	96	Etmol haya yom c'ham meod.	authored
+אמא	אמא שלי מבשלת מרק טעים.	My mom cooks tasty soup.	97	Ima sheli mevashelet marak taim.	authored
+אבא	אבא שלי עובד בבית חולים.	My dad works at a hospital.	98	Aba sheli oved be-veyt c'holim.	authored
+חבר	יש לי חבר טוב בעבודה.	I have a good friend (m.) at work.	99	Yesh li c'haver tov ba-avoda.	authored
+משפחה	משפחה שלמה גרה בבית הזה.	A whole family lives in this house.	100	Mishpac'ha shlema gara ba-bayit ha-ze.	authored
+ילדה	ילדה קטנה משחקת בגינה.	A little girl is playing in the garden.	101	Yalda ktana mesac'heket ba-gina.	authored
+בן	יש לי בן ושתי בנות.	I have a son and two daughters.	102	Yesh li ben oo-shtey banot.	authored
+בת	יש לנו בת אחת.	We have one daughter.	103	Yesh lanoo bat ac'hat.	authored
+אח	יש לי אח קטן.	I have a little brother.	104	Yesh li ac'h katan.	authored
+אחות	אין לי אחות, רק אחים.	I don't have a sister, only brothers.	105	Eyn li ac'hot, rak ac'him.	authored
+שלום	שלום, במה אפשר לעזור?	Hello, how can I help?	106	Shalom, ba-me efshar laazor?	authored
+תודה	תודה רבה על העזרה.	Thank you very much for the help.	107	Toda raba al ha-ezra.	authored
+בבקשה	אפשר לקבל את החשבון, בבקשה?	Could I have the bill, please?	108	Efshar lekabel et ha-c'heshbon, bevakasha?	authored
+סליחה	סליחה, איפה תחנת האוטובוס?	Excuse me, where is the bus stop?	109	Slic'ha, eyfo tac'hanat ha-otoboos?	authored
+גדול	הבית הזה גדול מאוד.	This house is very big.	110	Ha-bayit ha-ze gadol meod.	authored
+קטן	החדר קטן אבל נוח.	The room is small but comfortable.	111	Ha-c'heder katan aval noac'h.	authored
+חדש	קניתי מחשב חדש אתמול.	I bought a new computer yesterday.	112	Kaniti mac'hshev c'hadash etmol.	authored
+ישן	הרדיו הזה ישן מאוד.	This radio is very old.	113	Ha-radio ha-ze yashan meod.	authored
+יפה	יש כאן נוף יפה.	There's a beautiful view here.	114	Yesh kan nof yafe.	authored
+רע	היה לי יום רע.	I had a bad day.	115	Haya li yom ra.	authored
+קשה	המבחן היה קשה מאוד.	The exam was very hard.	116	Ha-mivc'han haya kashe meod.	authored
+קל	התרגיל הזה ממש קל.	This exercise is really easy.	117	Ha-targil ha-ze mamash kal.	authored
+ארוך	הסרט היה ארוך מדי.	The movie was too long.	118	Ha-seret haya aroc'h miday.	authored
+קצר	השיעור היום היה קצר.	Today's lesson was short.	119	Ha-shioor ha-yom haya katzar.	authored
+מהיר	האינטרנט כאן מהיר מאוד.	The internet here is very fast.	120	Ha-internet kan mahir meod.	authored
+איטי	המחשב שלי איטי בבוקר.	My computer is slow in the morning.	121	Ha-mac'hshev sheli iti ba-boker.	authored
+חם	היום חם מאוד בחוץ.	It's very hot outside today.	122	Ha-yom c'ham meod ba-c'hootz.	authored
+קר	המרק שלי כבר קר.	My soup is already cold.	123	Ha-marak sheli kvar kar.	authored
+מלא	האוטובוס היה מלא אנשים.	The bus was full of people.	124	Ha-otoboos haya ma-le anashim.	authored
+ריק	המקרר שלנו ריק לגמרי.	Our fridge is completely empty.	125	Ha-mekarer shelanoo reyk legamrey.	authored
+נכון	התאריך הזה לא נכון.	This date is not correct.	126	Ha-taaric'h ha-ze lo nac'hon.	authored
+אמת	יש קצת אמת בסיפור הזה.	There's some truth in this story.	127	Yesh ktzat emet ba-sipoor ha-ze.	authored
+שקר	זה היה שקר גדול.	That was a big lie.	128	Ze haya sheker gadol.	authored
+הרבה	יש הרבה אנשים בתור.	There are a lot of people in the line.	129	Yesh harbe anashim ba-tor.	authored
+מעט	נשאר מעט חלב במקרר.	There's a little milk left in the fridge.	130	Nishar me-at c'halav ba-mekarer.	authored
+תמיד	היא תמיד שותה קפה בבוקר.	She always drinks coffee in the morning.	131	Hee tamid shota kafe ba-boker.	authored
+אף פעם	אף פעם לא הייתי בפריז.	I have never been to Paris.	132	Af paam lo hayiti be-Pariz.	authored
+לפעמים	לפעמים אנחנו אוכלים בחוץ.	Sometimes we eat out.	133	Lifamim anac'hnu oc'hlim ba-c'hootz.	authored
+שוב	קראתי את הספר הזה שוב.	I read this book again.	134	Karati et ha-sefer ha-ze shoov.	authored
+מהר	הוא מדבר מהר מדי.	He speaks too fast.	135	Hoo medaber maher miday.	authored
+לאט	היא נוהגת לאט מאוד.	She drives very slowly.	136	Hee noheget le-at meod.	authored
+יחד	אנחנו לומדים יחד כל שבוע.	We study together every week.	137	Anac'hnu lomdim yac'had kol shavooa.	authored
+לבד	היא גרה לבד בתל אביב.	She lives alone in Tel Aviv.	138	Hee gara levad be-Tel Aviv.	authored
+קרוב	בית הספר קרוב לבית שלנו.	The school is close to our house.	139	Beyt ha-sefer karov la-bayit shelanoo.	authored
+רחוק	המלון רחוק מהתחנה המרכזית.	The hotel is far from the central station.	140	Ha-malon rac'hok me-ha-tac'hana ha-merkazit.	authored
+מעל	התמונה תלויה מעל הספה.	The picture hangs above the sofa.	141	Ha-tmoona tlooya me-al ha-sapa.	authored
+מתחת	החתול ישן מתחת לשולחן.	The cat is sleeping under the table.	142	Ha-c'hatool yashen mitac'hat la-shoolc'han.	authored
+בין	הכיסא נמצא בין השולחן לחלון.	The chair is between the table and the window.	143	Ha-kise nimtza beyn ha-shoolc'han la-c'halon.	authored
+לפני	היא הגיעה לפני כולם.	She arrived before everyone.	144	Hee higia lifney koolam.	authored
+אחרי	אחרי השיעור הלכנו הביתה.	After the lesson we went home.	145	Ac'harey ha-shioor halac'hnoo ha-bayta.	authored
+ליד	הכלב יושב ליד הדלת.	The dog is sitting next to the door.	146	Ha-kelev yoshev leyad ha-delet.	authored
+בתוך	המפתחות בתוך התיק שלי.	The keys are inside my bag.	147	Ha-maftec'hot betoc'h ha-tik sheli.	authored
+מחוץ	הם חיכו מחוץ לחנות.	They (m.) waited outside the shop.	148	Hem c'hikoo mic'hootz la-c'hanoot.	authored
+נגד	שיחקנו נגד קבוצה חזקה.	We played against a strong team.	149	Sic'haknoo neged kvootza c'hazaka.	authored
+בשביל	קניתי מתנה בשביל אמא שלי.	I bought a present for my mother.	150	Kaniti matana bishvil ima sheli.	authored
+בגלל	לא יצאנו בגלל הגשם.	We didn't go out because of the rain.	151	Lo yatsanu biglal ha-geshem.	authored
+בלי	אני שותה תה בלי סוכר.	I drink tea without sugar.	152	Ani shote te bli sukar.	authored
+עד	החנות פתוחה עד שמונה בערב.	The shop is open until eight in the evening.	153	Ha-c'hanut ptuc'ha ad shmone ba-erev.	authored
+מן	רבים מן התלמידים אוהבים מתמטיקה.	Many of the students like math.	154	Rabim min ha-talmidim ohavim matematika.	authored
+אל	הילד רץ אל המורה.	The boy ran to the teacher.	155	Ha-yeled rats el ha-more.	authored
+דרך	אנחנו חוזרים הביתה דרך הפארק.	We're heading home through the park.	156	Anac'hnu c'hozrim ha-bayta derec'h ha-park.	authored
+סביב	הילדים ישבו סביב השולחן.	The children sat around the table.	157	Ha-yeladim yashvu saviv ha-shulc'han.	authored
+אצל	השארתי את המפתחות אצל השכן.	I left the keys with the neighbor.	158	Hisharti et ha-maftec'hot etsel ha-shac'hen.	authored
+כדי	שתיתי קפה כדי להישאר ער.	I drank coffee to stay awake.	159	Shatiti kafe kedey lehishaer er.	authored
+למרות	שיחקנו בחוץ למרות הקור.	We played outside despite the cold.	160	Sic'haknu ba-c'huts lamrot ha-kor.	authored
+אחר	אני מחפש עבודה במקום אחר.	I'm looking for work somewhere else.	161	Ani mec'hapes avoda be-makom ac'her.	authored
+כזה	יש לי תיק כזה בבית.	I have a bag like this at home.	162	Yesh li tik kaze ba-bayit.	authored
+אותו	המורה חיפש את הילד ומצא אותו.	The teacher looked for the boy and found him.	163	Ha-more c'hipes et ha-yeled u-matsa oto.	authored
+אותה	הילדה נפלה והמורה הרימה אותה.	The girl fell and the teacher picked her up.	164	Ha-yalda nafla ve-ha-mora herima ota.	authored
+אותם	קניתי תפוחים ושמתי אותם במקרר.	I bought apples and put them in the fridge.	165	Kaniti tapuc'him ve-samti otam ba-mekarer.	authored
+הזאת	המסעדה הזאת טובה מאוד.	This restaurant is very good.	166	Ha-misada ha-zot tova meod.	authored
+ההוא	הסרט ההוא היה ממש מצחיק.	That movie was really funny.	167	Ha-seret ha-hoo haya mamash matsc'hik.	authored
+כאן	אנחנו גרים כאן כבר שנתיים.	We've been living here for two years.	168	Anac'hnu garim kan kvar shnatayim.	authored
+למעלה	השכנים שלנו גרים למעלה.	Our neighbors live upstairs.	169	Ha-shc'henim shelanu garim lemala.	authored
+למטה	הכלב ישן למטה ליד הדלת.	The dog is sleeping downstairs by the door.	170	Ha-kelev yashen lemata leyad ha-delet.	authored
+קדימה	הנהג הסתכל קדימה וראה את הרמזור.	The driver looked ahead and saw the traffic light.	171	Ha-nahag histakel kadima ve-raa et ha-ramzor.	authored
+אחורה	עשיתי צעד אחורה והסתכלתי שוב.	I took a step back and looked again.	172	Asiti tsaad ac'hora ve-histakalti shuv.	authored
+ימין	המכולת נמצאת בצד ימין.	The grocery store is on the right.	173	Ha-makolet nimtset be-tsad yamin.	authored
+שמאל	המטבח נמצא בצד שמאל של הבית.	The kitchen is on the left side of the house.	174	Ha-mitbac'h nimtsa be-tsad smol shel ha-bayit.	authored
+שעה	הפגישה נמשכה שעה וחצי.	The meeting lasted an hour and a half.	175	Ha-pgisha nimshec'ha shaa va-c'hetsi.	authored
+דקה	האוטובוס מגיע בעוד דקה.	The bus is arriving in a minute.	176	Ha-otobus magia be-od daka.	authored
+שבוע	נשארנו בצפון שבוע שלם.	We stayed up north for a whole week.	177	Nisharnu ba-tsafon shavua shalem.	authored
+חודש	אני לומדת עברית כבר חודש.	I've been studying Hebrew for a month.	178	Ani lomedet ivrit kvar c'hodesh.	authored
+בוקר	כל בוקר אני שותה קפה.	Every morning I drink coffee.	179	Kol boker ani shote kafe.	authored
+ערב	בילינו ערב נעים עם החברים.	We spent a pleasant evening with our friends.	180	Bilinu erev naim im ha-c'haverim.	authored
+לילה	היה לילה שקט וקריר.	It was a quiet, cool night.	181	Haya layla shaket ve-karir.	authored
+צהריים	אכלנו ארוחת צהריים בגינה.	We had lunch in the garden.	182	Ac'halnu aruc'hat tsohorayim ba-gina.	authored
+היום	היום יש לנו מבחן בהיסטוריה.	We have a history test today.	183	Ha-yom yesh lanu mivc'han be-historya.	authored
+מחר	מחר אנחנו נוסעים לים.	Tomorrow we're going to the beach.	184	Mac'har anac'hnu nosim la-yam.	authored
+אתמול	אתמול ירד גשם כל היום.	It rained all day yesterday.	185	Etmol yarad geshem kol ha-yom.	authored
+מקום	מצאנו מקום נחמד לפיקניק.	We found a nice spot for a picnic.	186	Matsanu makom nec'hmad le-piknik.	authored
+דלת	שמעתי דפיקה על דלת הכניסה.	I heard a knock at the front door.	187	Shamati dfika al delet ha-knisa.	authored
+חלון	בחדר שלי יש חלון גדול.	There's a big window in my room.	188	Ba-c'heder sheli yesh c'halon gadol.	authored
+שולחן	קנינו שולחן חדש למטבח.	We bought a new table for the kitchen.	189	Kaninu shulc'han c'hadash la-mitbac'h.	authored
+כיסא	צריך עוד כיסא ליד השולחן.	We need another chair by the table.	190	Tsaric'h od kise leyad ha-shulc'han.	authored
+מיטה	יש לנו מיטה נוספת לאורחים.	We have an extra bed for guests.	191	Yesh lanu mita nosefet le-orc'him.	authored
+חדר	הזמנו חדר במלון ליד הים.	We booked a room at a hotel by the sea.	192	Hizmanu c'heder be-malon leyad ha-yam.	authored
+רחוב	זה רחוב צר עם הרבה חנויות.	This is a narrow street with a lot of shops.	193	Ze rec'hov tsar im harbe c'hanuyot.	authored
+כביש	בונים כביש חדש מחוץ לעיר.	They're building a new road outside the city.	194	Bonim kvish c'hadash mic'huts la-ir.	authored
+מכונית	קניתי מכונית משומשת בשנה שעברה.	I bought a used car last year.	195	Kaniti mec'honit meshumeshet ba-shana she-avra.	authored
+אוטובוס	יש אוטובוס ישיר לשדה התעופה.	There's a direct bus to the airport.	196	Yesh otobus yashir li-sde ha-teufa.	authored
+רכבת	תחנת רכבת חדשה נפתחה בעיר.	A new train station opened in the city.	197	Tac'hanat rakevet c'hadasha niftec'ha ba-ir.	authored
+מטוס	עלינו על מטוס קטן ורועש.	We boarded a small, noisy plane.	198	Alinu al matos katan ve-roesh.	authored
+ספר	קראתי ספר מעניין על ציפורים.	I read an interesting book about birds.	199	Karati sefer meanyen al tsiporim.	authored
+עיתון	אני קונה עיתון בדרך לעבודה.	I buy a newspaper on the way to work.	200	Ani kone iton ba-derec'h la-avoda.	authored
