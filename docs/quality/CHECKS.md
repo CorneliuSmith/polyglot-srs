@@ -405,6 +405,11 @@ dictionary's homograph entries checked against the file.
 
 ## 9. The six layers of a card — measured per layer, not per course
 
+**The standard each layer must meet is `docs/quality/card-layers.md`** — the
+Leipzig Glossing Rules for the interlinear line, the romanisation policy, and
+the per-course sentence sourcing. This section is the measurement; that file is
+the requirement.
+
 **Owner directive, 25 Aug 2026:** check hint, sentence, translation,
 interlinear gloss, and — for non-Roman scripts — the romanisation. Plus the
 definition, which is the layer the wrong-lexeme sweep repaired. A course is not
