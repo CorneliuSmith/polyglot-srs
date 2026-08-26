@@ -461,6 +461,44 @@ all, `ko` does), so filling this starts with agreeing the schema.
 
 ---
 
+## 10. Unanswerable cards — a definition that cannot reach its word
+
+`ha` rank 119 `abubakar` is defined, in full, as **"a male given name"**. So is
+`de` rank 870 `mike`, `nl` rank 606 `sam`, `fr` rank 930 `mike`. The gloss is
+accurate and the card is impossible: the prompt gives a learner no route to the
+answer, and dozens of rows in the same course share the identical prompt.
+
+**1,164 rows across 20 courses** whose ENTIRE definition is "a male given
+name", "a female given name" or "a surname" (measured 25 Aug 2026):
+
+`de` 220, `fr` 141, `pt` 119, `nl` 100, `es` 91, `ro` 82, `it` 70, `tr` 69,
+`ru` 60, `ar` 47, `ha` 38, `hi` 28, `ca` 27, `el` 22, `yo` 22, `mi` 18,
+`sw` 6, `th` 2, `ko` 1, `xh` 1.
+
+**This is NOT the wrong-lexeme class** (§3b) and must not be counted with it.
+Those cards name a different word; these name the right word uselessly. Two
+different repairs:
+
+- where the name is one a learner genuinely meets (`ha abubakar` at rank 119,
+  `yo adebayọ` at 545 — these are common Nigerian names in running text), the
+  row needs REAL content: the English equivalent, the bearer, or what the name
+  means. "Michael — a male given name" is unanswerable; "Michael — the English
+  equivalent of Michel" is not.
+- where the name only earned its rank from corpus noise (`de mike`, `nl sam`,
+  `fr max` — English names inside foreign-language text), the row belongs in
+  `data/vocab_exclusions.tsv`, not on a card.
+
+**A separate, smaller class hides in the same query**: a proper-noun row glossed
+with an unrelated COMMON noun — `it svizzera` "hamburger" for Switzerland,
+`it roma` "a type of rice" for Rome, `pt charles` "rabona". Those ARE §3b and
+are being repaired by the db-vs-file pass.
+
+**Status: all 27, measured; unrepaired.** The screen is one line — `pos = name`
+and the definition matching `^(a )?(male|female)? ?(given name|surname)` — but
+the fix is a judgement per row and is not started.
+
+---
+
 ## Adding a check
 
 1. Measure it on the language that surfaced it.
