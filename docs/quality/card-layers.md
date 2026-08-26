@@ -50,10 +50,38 @@ carry risk that self-labelling ones do not.
 
 | | state | action |
 | --- | --- | --- |
-| `mi` | 240/240, positional | settle the label casing per Rule 3 — `past` 24, `prog` 23, `obj` 14, `not` 15 are grammatical categories written lowercase. Only TWO true case collisions (`NOT`/`not`, `PERS`/`pers`), not the label mess this table once claimed |
+| `mi` | **240/240, normalised 26 Aug** | done. Distinct labels 301 → 270, case collisions 2 → 0, and every lowercase grammatical category uppercased. The 24 multi-word cells now split, so `mi` is on the strict contract too |
 | `yo` `xh` `ha` | **761/761, authored 26 Aug** | done — see below |
 | `sw` | **442/442, converted to positional 26 Aug** | done. The earlier "keep the self-labelling form" call was WRONG: the gloss renders as flat text, where `u-ta-rudi (2SG-FUT-return) ___ kutoka (from)` reads worse than `2SG.FUT.return · ___ · from`, and `xh` had already proved the positional form works for a Bantu language with the same noun-class machinery. 107 of 131 converted mechanically; 24 multi-word cells and 311 blanks were authored |
 | every other course | **0%** | author with this spec |
+
+### What normalising Māori settled — disambiguate, do not flatten
+
+`mi`'s glosses were analytically sound and written many different ways. One
+pronoun, `mātou`, appeared as "we-excl", "we(excl)", "we", "us" and
+"we(excl.)"; `ia` as "he/she", "she", "her", "he", "him", though Māori `ia` is
+gender-neutral. Every grammatical category was lowercase against Rule 3.
+
+The instructive part is the particles. `i` carried five labels — "at" 28,
+"past" 23, "obj" 12, `PAST/OBJ` 10, `T/A` 3 — and the obvious fix, collapsing
+to a majority label the way Hausa's aspect labels were collapsed, would have
+been WRONG. Māori `i` genuinely marks past tense before a verb, the object
+before a noun, and location. So the pass was told to decide per sentence, and
+it did: OBJ 36, PST 28, at 18, and a handful of PROG/by/from. The `PAST/OBJ`
+hedge is gone — a hedge is not a gloss.
+
+The same for `e` (by 14, PROG 9, FUT 8, VOC 5, IMP 3) and `a` (PERS 15, plus
+one genuine possessive "of"). And `ia` came out `3SG` 33 times plus one
+"every", which is correct — Māori `ia` is also the distributive "each".
+
+**The test for whether to unify a label is whether the language makes one
+distinction or several**, not how many spellings there are. Hausa's `ya`
+carrying COMPL and PFV was one morpheme with two names. Māori's `i` carrying
+OBJ and PST is one form with two functions. The first is a defect; the second
+is the language.
+
+Result: 301 distinct labels → 270, two case collisions → zero, and the 24
+multi-word cells split so `mi` meets the strict one-cell-per-token contract.
 
 ### Where the remaining gloss work is — and where it is NOT
 

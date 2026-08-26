@@ -45,7 +45,7 @@
           "translation": "How are you?",
           "hint": "you — one person",
           "display_order": 2,
-          "gloss": "PRESENT · how · ___"
+          "gloss": "PROG · PROG · how · ___"
         },
         {
           "sentence": "He kaiako {{answer}}.",
@@ -61,7 +61,7 @@
           "translation": "We are learning the language.",
           "hint": "we — not including you",
           "display_order": 4,
-          "gloss": "PRESENT · learn · ___ · PAST/OBJ · the · language"
+          "gloss": "PROG · PROG · learn · ___ · OBJ · the · language"
         },
         {
           "sentence": "Kei te haere {{answer}} ki te kura.",
@@ -69,7 +69,7 @@
           "translation": "They are going to school.",
           "hint": "they — three or more",
           "display_order": 5,
-          "gloss": "PRESENT · go · ___ · to · the · school"
+          "gloss": "PROG · PROG · go · ___ · to · the · school"
         },
         {
           "sentence": "E noho ana {{answer}} ki Pōneke.",
@@ -77,7 +77,7 @@
           "translation": "You (all) live in Wellington.",
           "hint": "you — three or more",
           "display_order": 6,
-          "gloss": "CONT · living · CONT · ___ · to · Wellington"
+          "gloss": "PROG · live · PROG · ___ · to · Wellington"
         }
       ]
     },
@@ -123,7 +123,7 @@
           "translation": "The food is good.",
           "hint": "one thing",
           "display_order": 2,
-          "gloss": "a · good · ___ · eat/food"
+          "gloss": "a · good · ___ · food"
         },
         {
           "sentence": "Kei te tākaro {{answer}} tamariki.",
@@ -131,7 +131,7 @@
           "translation": "The children are playing.",
           "hint": "more than one",
           "display_order": 3,
-          "gloss": "PRESENT · play · ___ · children"
+          "gloss": "PROG · PROG · play · ___ · children"
         },
         {
           "sentence": "He reka {{answer}} āporo.",
@@ -139,7 +139,7 @@
           "translation": "The apples are sweet.",
           "hint": "more than one",
           "display_order": 4,
-          "gloss": "a · delicious · ___ · apple"
+          "gloss": "a · sweet · ___ · apple"
         },
         {
           "sentence": "Kei konei {{answer}} pukapuka.",
@@ -193,7 +193,7 @@
           "translation": "She is a teacher.",
           "hint": "the classifying particle",
           "display_order": 1,
-          "gloss": "___ · teacher · he/she"
+          "gloss": "___ · teacher · 3SG"
         },
         {
           "sentence": "{{answer}} tauira au.",
@@ -201,7 +201,7 @@
           "translation": "I am a student.",
           "hint": "the classifying particle",
           "display_order": 2,
-          "gloss": "___ · student · I"
+          "gloss": "___ · student · 1SG"
         },
         {
           "sentence": "{{answer}} whare nui tēnā.",
@@ -209,7 +209,7 @@
           "translation": "That is a big house.",
           "hint": "the classifying particle",
           "display_order": 3,
-          "gloss": "___ · house · big · that(near-you)"
+          "gloss": "___ · house · big · that.MED"
         },
         {
           "sentence": "{{answer}} rā ātaahua tēnei.",
@@ -217,7 +217,7 @@
           "translation": "This is a beautiful day.",
           "hint": "the classifying particle",
           "display_order": 4,
-          "gloss": "___ · day/sun · beautiful · this"
+          "gloss": "___ · day · beautiful · this"
         },
         {
           "sentence": "{{answer}} kurī tērā.",
@@ -225,7 +225,7 @@
           "translation": "That is a dog.",
           "hint": "the classifying particle",
           "display_order": 5,
-          "gloss": "___ · dog · that(yonder)"
+          "gloss": "___ · dog · that.DIST"
         },
         {
           "sentence": "{{answer}} hoa pai koe.",
@@ -233,7 +233,7 @@
           "translation": "You are a good friend.",
           "hint": "the classifying particle",
           "display_order": 6,
-          "gloss": "___ · friend · good · you"
+          "gloss": "___ · friend · good · 2SG"
         }
       ]
     },
@@ -279,7 +279,7 @@
           "translation": "What is your name?",
           "hint": "the identifying particle",
           "display_order": 2,
-          "gloss": "___ · who · your(o) · name"
+          "gloss": "___ · who · 2SG.POSS.O · name"
         },
         {
           "sentence": "{{answer}} Tāmaki Makaurau tēnei tāone.",
@@ -295,7 +295,7 @@
           "translation": "She is the teacher.",
           "hint": "the identifying particle",
           "display_order": 4,
-          "gloss": "___ · he/she · the · teacher"
+          "gloss": "___ · 3SG · the · teacher"
         },
         {
           "sentence": "{{answer}} Hemi au.",
@@ -303,7 +303,7 @@
           "translation": "I am Hemi.",
           "hint": "the identifying particle",
           "display_order": 5,
-          "gloss": "___ · Hemi · I"
+          "gloss": "___ · Hemi · 1SG"
         },
         {
           "sentence": "{{answer}} tērā te kura.",
@@ -311,7 +311,7 @@
           "translation": "That is the school.",
           "hint": "the identifying particle",
           "display_order": 6,
-          "gloss": "___ · that(yonder) · the · school"
+          "gloss": "___ · that.DIST · the · school"
         }
       ]
     },
@@ -349,7 +349,7 @@
           "translation": "I am eating.",
           "hint": "the first half of the present marker",
           "display_order": 1,
-          "gloss": "___ · the · eat/food · I"
+          "gloss": "___ · PROG · eat · 1SG"
         },
         {
           "sentence": "Kei {{answer}} moe ia.",
@@ -357,7 +357,7 @@
           "translation": "She is sleeping.",
           "hint": "the second half of the present marker",
           "display_order": 2,
-          "gloss": "at · ___ · sleep · he/she"
+          "gloss": "PROG · ___ · sleep · 3SG"
         },
         {
           "sentence": "Kei te {{answer}} mātou i te reo Māori.",
@@ -365,7 +365,7 @@
           "translation": "We are learning the Māori language.",
           "hint": "to learn",
           "display_order": 3,
-          "gloss": "PRESENT · ___ · we(excl) · PAST/OBJ · the · language · Māori"
+          "gloss": "PROG · PROG · ___ · 1PL.EXCL · OBJ · the · language · Māori"
         },
         {
           "sentence": "Kei te {{answer}} koe?",
@@ -373,7 +373,7 @@
           "translation": "How are you?",
           "hint": "the 'how' word of the greeting",
           "display_order": 4,
-          "gloss": "PRESENT · ___ · you"
+          "gloss": "PROG · PROG · ___ · 2SG"
         },
         {
           "sentence": "Kei te {{answer}} ngā tamariki.",
@@ -381,7 +381,7 @@
           "translation": "The children are playing.",
           "hint": "to play",
           "display_order": 5,
-          "gloss": "PRESENT · ___ · the(pl) · children"
+          "gloss": "PROG · PROG · ___ · the.PL · children"
         },
         {
           "sentence": "Kei te {{answer}} au ki te toa.",
@@ -389,7 +389,7 @@
           "translation": "I am going to the shop.",
           "hint": "to go",
           "display_order": 6,
-          "gloss": "PRESENT · ___ · I · to · the · shop"
+          "gloss": "PROG · PROG · ___ · 1SG · to · the · shop"
         }
       ]
     },
@@ -427,7 +427,7 @@
           "translation": "I went to school yesterday.",
           "hint": "the past marker",
           "display_order": 1,
-          "gloss": "___ · go · I · to · the · school · yesterday"
+          "gloss": "___ · go · 1SG · to · the · school · yesterday"
         },
         {
           "sentence": "I {{answer}} ia ki te toa.",
@@ -435,7 +435,7 @@
           "translation": "He went to the shop.",
           "hint": "to go",
           "display_order": 2,
-          "gloss": "PAST/OBJ · ___ · he/she · to · the · shop"
+          "gloss": "PST · ___ · 3SG · to · the · shop"
         },
         {
           "sentence": "I {{answer}} au i a ia inanahi.",
@@ -443,7 +443,7 @@
           "translation": "I saw her yesterday.",
           "hint": "to see",
           "display_order": 3,
-          "gloss": "PAST/OBJ · ___ · I · PAST/OBJ · PERS · he/she · yesterday"
+          "gloss": "PST · ___ · 1SG · OBJ · PERS · 3SG · yesterday"
         },
         {
           "sentence": "I {{answer}} rātou i te kai.",
@@ -451,7 +451,7 @@
           "translation": "They cooked the food.",
           "hint": "to cook",
           "display_order": 4,
-          "gloss": "PAST/OBJ · ___ · they · PAST/OBJ · the · eat/food"
+          "gloss": "PST · ___ · 3PL · OBJ · the · food"
         },
         {
           "sentence": "{{answer}} tae mai ia inanahi.",
@@ -459,7 +459,7 @@
           "translation": "She arrived yesterday.",
           "hint": "the past marker",
           "display_order": 5,
-          "gloss": "___ · arrive · he/she · yesterday"
+          "gloss": "___ · arrive · DIR · 3SG · yesterday"
         },
         {
           "sentence": "I {{answer}} mātou i te parakuihi.",
@@ -467,7 +467,7 @@
           "translation": "We ate breakfast.",
           "hint": "to eat",
           "display_order": 6,
-          "gloss": "PAST/OBJ · ___ · we(excl) · PAST/OBJ · the · breakfast"
+          "gloss": "PST · ___ · 1PL.EXCL · OBJ · the · breakfast"
         }
       ]
     },
@@ -505,7 +505,7 @@
           "translation": "I will go tomorrow.",
           "hint": "the forward-looking marker",
           "display_order": 1,
-          "gloss": "___ · go · I · tomorrow"
+          "gloss": "___ · go · 1SG · tomorrow"
         },
         {
           "sentence": "Ka {{answer}} mātou ki te moana.",
@@ -513,7 +513,7 @@
           "translation": "We will go to the sea.",
           "hint": "to go",
           "display_order": 2,
-          "gloss": "FUTURE · ___ · we(excl) · to · the · sea"
+          "gloss": "FUT · ___ · 1PL.EXCL · to · the · sea"
         },
         {
           "sentence": "{{answer}} kite anō tāua.",
@@ -521,7 +521,7 @@
           "translation": "See you again (you and I).",
           "hint": "the forward-looking marker",
           "display_order": 3,
-          "gloss": "___ · see · again · we-two"
+          "gloss": "___ · see · again · 1DU.INCL"
         },
         {
           "sentence": "Ka {{answer}} ia i te kai.",
@@ -529,7 +529,7 @@
           "translation": "She will cook the food.",
           "hint": "to cook",
           "display_order": 4,
-          "gloss": "FUTURE · ___ · he/she · PAST/OBJ · the · eat/food"
+          "gloss": "FUT · ___ · 3SG · OBJ · the · food"
         },
         {
           "sentence": "{{answer}} ako rātou i te reo.",
@@ -537,7 +537,7 @@
           "translation": "They will learn the language.",
           "hint": "the forward-looking marker",
           "display_order": 5,
-          "gloss": "___ · learn · they · PAST/OBJ · the · language"
+          "gloss": "___ · learn · 3PL · OBJ · the · language"
         },
         {
           "sentence": "Ka {{answer}} āpōpō.",
@@ -545,7 +545,7 @@
           "translation": "It will rain tomorrow.",
           "hint": "to rain",
           "display_order": 6,
-          "gloss": "FUTURE · ___ · tomorrow"
+          "gloss": "FUT · ___ · tomorrow"
         }
       ]
     },
@@ -583,7 +583,7 @@
           "translation": "She is at the house.",
           "hint": "the location marker",
           "display_order": 1,
-          "gloss": "___ · the · house · he/she"
+          "gloss": "___ · the · house · 3SG"
         },
         {
           "sentence": "Kei {{answer}} koe?",
@@ -591,7 +591,7 @@
           "translation": "Where are you?",
           "hint": "the 'where' word",
           "display_order": 2,
-          "gloss": "at · ___ · you"
+          "gloss": "at · ___ · 2SG"
         },
         {
           "sentence": "{{answer}} Ākarana rātou.",
@@ -599,7 +599,7 @@
           "translation": "They are in Auckland.",
           "hint": "the location marker",
           "display_order": 3,
-          "gloss": "___ · Auckland · they"
+          "gloss": "___ · Auckland · 3PL"
         },
         {
           "sentence": "Kei te {{answer}} ngā pukapuka.",
@@ -607,7 +607,7 @@
           "translation": "The books are on the table.",
           "hint": "table",
           "display_order": 4,
-          "gloss": "at · the · ___ · the(pl) · book"
+          "gloss": "at · the · ___ · the.PL · book"
         },
         {
           "sentence": "Kei te {{answer}} ia.",
@@ -615,7 +615,7 @@
           "translation": "She is at school.",
           "hint": "school",
           "display_order": 5,
-          "gloss": "at · the · ___ · he/she"
+          "gloss": "at · the · ___ · 3SG"
         },
         {
           "sentence": "{{answer}} raro te ngeru i te tēpu.",
@@ -623,7 +623,7 @@
           "translation": "The cat is under the table.",
           "hint": "the location marker",
           "display_order": 6,
-          "gloss": "___ · under · the · cat · PAST/OBJ · the · table"
+          "gloss": "___ · under · the · cat · at · the · table"
         }
       ]
     },
@@ -661,7 +661,7 @@
           "translation": "I don't know.",
           "hint": "the negator",
           "display_order": 1,
-          "gloss": "___ · I · T/A · the · know"
+          "gloss": "___ · 1SG · PROG · PROG · know"
         },
         {
           "sentence": "Kāore {{answer}} i te hiakai.",
@@ -669,7 +669,7 @@
           "translation": "He is not hungry.",
           "hint": "he/she — moves forward in negatives",
           "display_order": 2,
-          "gloss": "NOT · ___ · T/A · the · hungry"
+          "gloss": "NEG · ___ · PROG · PROG · hungry"
         },
         {
           "sentence": "{{answer}} mātou e haere āpōpō.",
@@ -677,7 +677,7 @@
           "translation": "We are not going tomorrow.",
           "hint": "the negator",
           "display_order": 3,
-          "gloss": "___ · we(excl) · PART · go · tomorrow"
+          "gloss": "___ · 1PL.EXCL · FUT · go · tomorrow"
         },
         {
           "sentence": "Kāore au {{answer}} te mārama.",
@@ -685,7 +685,7 @@
           "translation": "I don't understand.",
           "hint": "the little particle before 'te'",
           "display_order": 4,
-          "gloss": "NOT · I · ___ · the · understand"
+          "gloss": "NEG · 1SG · ___ · PROG · understand"
         },
         {
           "sentence": "{{answer}} he kai i te whare.",
@@ -693,7 +693,7 @@
           "translation": "There is no food in the house.",
           "hint": "the negator",
           "display_order": 5,
-          "gloss": "___ · a · eat/food · at · the · house"
+          "gloss": "___ · a · food · at · the · house"
         },
         {
           "sentence": "Kāore ia {{answer}} haere mai inanahi.",
@@ -701,7 +701,7 @@
           "translation": "She didn't come yesterday.",
           "hint": "the past particle in negatives",
           "display_order": 6,
-          "gloss": "NOT · he/she · ___ · come-here · yesterday"
+          "gloss": "NEG · 3SG · ___ · go · hither · yesterday"
         }
       ]
     },
@@ -747,7 +747,7 @@
           "translation": "What is your name?",
           "hint": "who — names ask 'who'",
           "display_order": 2,
-          "gloss": "IDENT · ___ · your(o) · name"
+          "gloss": "IDENT · ___ · 2SG.POSS · name"
         },
         {
           "sentence": "Kei {{answer}} te wharepaku?",
@@ -763,7 +763,7 @@
           "translation": "What are you doing?",
           "hint": "the present marker starts it",
           "display_order": 4,
-          "gloss": "___ · the · what · you"
+          "gloss": "___ · PROG · what · 2SG"
         },
         {
           "sentence": "E {{answer}} te utu?",
@@ -771,7 +771,7 @@
           "translation": "How much does it cost?",
           "hint": "how many/much",
           "display_order": 5,
-          "gloss": "PART · ___ · the · price"
+          "gloss": "NUM · ___ · the · price"
         },
         {
           "sentence": "Nō {{answer}} koe?",
@@ -779,7 +779,7 @@
           "translation": "Where are you from?",
           "hint": "where",
           "display_order": 6,
-          "gloss": "from · ___ · you"
+          "gloss": "from · ___ · 2SG"
         }
       ]
     },
@@ -825,7 +825,7 @@
           "translation": "That is my book.",
           "hint": "my — a category (controlled)",
           "display_order": 2,
-          "gloss": "IDENT · ___ · book · that(near-you)"
+          "gloss": "IDENT · ___ · book · that.MED"
         },
         {
           "sentence": "Kei hea {{answer}} waka?",
@@ -849,7 +849,7 @@
           "translation": "He is my friend.",
           "hint": "my — friends are o category",
           "display_order": 5,
-          "gloss": "IDENT · he/she · ___ · friend"
+          "gloss": "IDENT · 3SG · ___ · friend"
         },
         {
           "sentence": "He reka {{answer}} kai.",
@@ -857,7 +857,7 @@
           "translation": "My food is delicious.",
           "hint": "my — a category",
           "display_order": 6,
-          "gloss": "a · delicious · ___ · eat/food"
+          "gloss": "a · delicious · ___ · food"
         }
       ]
     },
@@ -911,7 +911,7 @@
           "translation": "The water is cold.",
           "hint": "cold",
           "display_order": 3,
-          "gloss": "a · ___ · the · who"
+          "gloss": "a · ___ · the · water"
         },
         {
           "sentence": "He {{answer}} te rā.",
@@ -919,7 +919,7 @@
           "translation": "The sun is hot.",
           "hint": "hot",
           "display_order": 4,
-          "gloss": "a · ___ · the · day/sun"
+          "gloss": "a · ___ · the · sun"
         },
         {
           "sentence": "He {{answer}} ngā putiputi.",
@@ -927,7 +927,7 @@
           "translation": "The flowers are beautiful.",
           "hint": "beautiful",
           "display_order": 5,
-          "gloss": "a · ___ · the(pl) · flower"
+          "gloss": "a · ___ · the.PL · flower"
         },
         {
           "sentence": "He {{answer}} te kai nei.",
@@ -935,7 +935,7 @@
           "translation": "This food is delicious.",
           "hint": "delicious",
           "display_order": 6,
-          "gloss": "a · ___ · the · eat/food · this/near"
+          "gloss": "a · ___ · the · food · this"
         }
       ]
     },
@@ -968,7 +968,7 @@
           "answer": "Kua",
           "translation": "Mere has arrived.",
           "hint": "has (perfect)",
-          "gloss": "___ · arrive · hither · (personal) · Mere",
+          "gloss": "___ · arrive · hither · PERS · Mere",
           "display_order": 1
         },
         {
@@ -976,7 +976,7 @@
           "answer": "Kua",
           "translation": "My work is finished.",
           "hint": "has (perfect)",
-          "gloss": "___ · finished · my · work",
+          "gloss": "___ · finished · 1SG.POSS · work",
           "display_order": 2
         },
         {
@@ -984,7 +984,7 @@
           "answer": "Kua",
           "translation": "They have already eaten.",
           "hint": "has (perfect)",
-          "gloss": "___ · eat · already · they(3+)",
+          "gloss": "___ · eat · already · 3PL",
           "display_order": 3
         },
         {
@@ -992,7 +992,7 @@
           "answer": "Kua",
           "translation": "I have got tired.",
           "hint": "has (perfect)",
-          "gloss": "___ · tired · I",
+          "gloss": "___ · tired · 1SG",
           "display_order": 4
         },
         {
@@ -1008,7 +1008,7 @@
           "answer": "Kua",
           "translation": "She has won the prize.",
           "hint": "has (perfect)",
-          "gloss": "___ · obtained · the · prize · by · (personal) · her",
+          "gloss": "___ · obtained · the · prize · by · PERS · 3SG",
           "display_order": 6
         }
       ]
@@ -1042,7 +1042,7 @@
           "answer": "ana",
           "translation": "He is eating his bread.",
           "hint": "(progressive frame)",
-          "gloss": "prog · eat · ___ · he · at · his · bread",
+          "gloss": "PROG · eat · ___ · 3SG · OBJ · 3SG.POSS · bread",
           "display_order": 1
         },
         {
@@ -1050,7 +1050,7 @@
           "answer": "ana",
           "translation": "We are going to school.",
           "hint": "(progressive frame)",
-          "gloss": "prog · go · ___ · we(excl.) · to · the · school",
+          "gloss": "PROG · go · ___ · 1PL.EXCL · to · the · school",
           "display_order": 2
         },
         {
@@ -1058,7 +1058,7 @@
           "answer": "ana",
           "translation": "The baby is sleeping.",
           "hint": "(progressive frame)",
-          "gloss": "prog · sleep · ___ · the · baby",
+          "gloss": "PROG · sleep · ___ · the · baby",
           "display_order": 3
         },
         {
@@ -1066,7 +1066,7 @@
           "answer": "mahi",
           "translation": "What are you doing?",
           "hint": "doing (in the progressive)",
-          "gloss": "prog · ___ · prog · you · at · the · what",
+          "gloss": "PROG · ___ · PROG · 2SG · OBJ · the · what",
           "display_order": 4
         },
         {
@@ -1074,7 +1074,7 @@
           "answer": "ana",
           "translation": "The children are singing.",
           "hint": "(progressive frame)",
-          "gloss": "prog · sing · ___ · the(pl.) · children",
+          "gloss": "PROG · sing · ___ · the.PL · children",
           "display_order": 5
         },
         {
@@ -1082,7 +1082,7 @@
           "answer": "kōrero",
           "translation": "I am talking to you.",
           "hint": "talking (in the progressive)",
-          "gloss": "prog · ___ · prog · I · to · (personal) · you",
+          "gloss": "PROG · ___ · PROG · 1SG · to · PERS · 2SG",
           "display_order": 6
         }
       ]
@@ -1116,7 +1116,7 @@
           "answer": "tāua",
           "translation": "You and I are going to the shop.",
           "hint": "you-and-I (dual, inclusive)",
-          "gloss": "prog · go · ___ · to · the · shop · you-two · and · I",
+          "gloss": "PROG · PROG · go · ___ · to · the · shop · 2DU · and · 1SG",
           "display_order": 1
         },
         {
@@ -1124,7 +1124,7 @@
           "answer": "māua",
           "translation": "She and I have already eaten, but you haven't yet.",
           "hint": "she/he-and-I (dual, exclusive)",
-          "gloss": "perf · eat · already · ___ · but · not · yet · you",
+          "gloss": "PERF · eat · already · ___ · but · NEG · yet · 2SG",
           "display_order": 2
         },
         {
@@ -1132,7 +1132,7 @@
           "answer": "kōrua",
           "translation": "Where are you two, you and your friend?",
           "hint": "you two (dual)",
-          "gloss": "at · where · ___ · with · your · friend",
+          "gloss": "at · where · ___ · and · 2SG.POSS · friend",
           "display_order": 3
         },
         {
@@ -1140,7 +1140,7 @@
           "answer": "tātou",
           "translation": "All of us will go to the marae.",
           "hint": "all of us (plural, inclusive)",
-          "gloss": "fut · go · ___ · all · to · the · marae",
+          "gloss": "FUT · go · ___ · all · to · the · marae",
           "display_order": 4
         },
         {
@@ -1148,7 +1148,7 @@
           "answer": "mātou",
           "translation": "This work was ours, not yours.",
           "hint": "us (plural, exclusive)",
-          "gloss": "by · ___ · this · work · not · by · (personal) · you(pl.)",
+          "gloss": "belong.to · ___ · this · work · NEG · OBJ · PERS · 2PL",
           "display_order": 5
         },
         {
@@ -1156,7 +1156,7 @@
           "answer": "koutou",
           "translation": "How are you all, children?",
           "hint": "you all (plural)",
-          "gloss": "prog · how · ___ · voc · the(pl.) · children",
+          "gloss": "PROG · PROG · how · ___ · VOC · the.PL · children",
           "display_order": 6
         }
       ]
@@ -1190,7 +1190,7 @@
           "answer": "tōku",
           "translation": "This is my father.",
           "hint": "my (o-category: kin)",
-          "gloss": "identify · ___ · father · this",
+          "gloss": "PRED · ___ · father · this",
           "display_order": 1
         },
         {
@@ -1206,7 +1206,7 @@
           "answer": "tāna",
           "translation": "His/her food is tasty.",
           "hint": "his/her (a-category: food)",
-          "gloss": "stative · tasty · ___ · food",
+          "gloss": "INDEF · tasty · ___ · food",
           "display_order": 3
         },
         {
@@ -1214,7 +1214,7 @@
           "answer": "tōna",
           "translation": "His/her car has been taken.",
           "hint": "his/her (o-category: transport)",
-          "gloss": "perf · taken · ___ · vehicle",
+          "gloss": "PERF · taken · ___ · vehicle",
           "display_order": 4
         },
         {
@@ -1222,7 +1222,7 @@
           "answer": "tōu",
           "translation": "Your mother is good.",
           "hint": "your (o-category: kin)",
-          "gloss": "stative · good · ___ · mother",
+          "gloss": "INDEF · good · ___ · mother",
           "display_order": 5
         },
         {
@@ -1230,7 +1230,7 @@
           "answer": "tāu",
           "translation": "Give me your pen, thanks.",
           "hint": "your (a-category: possessions)",
-          "gloss": "give.here · ___ · pen · thanks",
+          "gloss": "give.hither · ___ · pen · that · 2SG",
           "display_order": 6
         }
       ]
@@ -1264,7 +1264,7 @@
           "answer": "kainga",
           "translation": "The food has been eaten by the guests.",
           "hint": "eaten (passive of kai)",
-          "gloss": "perf · ___ · the · food · by · the(pl.) · guests",
+          "gloss": "PERF · ___ · the · food · by · the.PL · guests",
           "display_order": 1
         },
         {
@@ -1272,7 +1272,7 @@
           "answer": "hangaia",
           "translation": "The house will be built by them.",
           "hint": "built (passive of hanga)",
-          "gloss": "fut · ___ · the · house · by · they(3+)",
+          "gloss": "FUT · ___ · the · house · by · 3PL",
           "display_order": 2
         },
         {
@@ -1280,7 +1280,7 @@
           "answer": "kitea",
           "translation": "The bird has been seen by me.",
           "hint": "seen (passive of kite)",
-          "gloss": "perf · ___ · the · bird · by · me",
+          "gloss": "PERF · ___ · the · bird · by · 1SG",
           "display_order": 3
         },
         {
@@ -1288,7 +1288,7 @@
           "answer": "waiatatia",
           "translation": "The song was sung by her.",
           "hint": "sung (passive of waiata)",
-          "gloss": "past · ___ · the · song · by · her",
+          "gloss": "PST · ___ · the · song · by · 3SG",
           "display_order": 4
         },
         {
@@ -1296,7 +1296,7 @@
           "answer": "pānuitia",
           "translation": "The book has been read by the teacher.",
           "hint": "read (passive of pānui)",
-          "gloss": "perf · ___ · the · book · by · the · teacher",
+          "gloss": "PERF · ___ · the · book · by · the · teacher",
           "display_order": 5
         },
         {
@@ -1304,7 +1304,7 @@
           "answer": "āwhinatia",
           "translation": "You will be helped by us.",
           "hint": "helped (passive of āwhina)",
-          "gloss": "fut · ___ · you · by · us(excl.)",
+          "gloss": "FUT · ___ · 2SG · by · 1PL.EXCL",
           "display_order": 6
         }
       ]
@@ -1338,7 +1338,7 @@
           "answer": "ki",
           "translation": "Go to the shop and come back.",
           "hint": "to / towards",
-          "gloss": "go · ___ · the · shop · then · return · hither",
+          "gloss": "go · ___ · the · shop · FUT · return · hither",
           "display_order": 1
         },
         {
@@ -1346,7 +1346,7 @@
           "answer": "i",
           "translation": "Where are you from? I'm from Rotorua.",
           "hint": "from (source)",
-          "gloss": "from · where · you · from · Rotorua · ___ · I",
+          "gloss": "from · where · 2SG · from · Rotorua · ___ · 1SG",
           "display_order": 2
         },
         {
@@ -1354,7 +1354,7 @@
           "answer": "hei",
           "translation": "This will be used as/for what?",
           "hint": "as / for (purpose)",
-          "gloss": "fut · use.pass · this · ___ · what",
+          "gloss": "FUT · use.PASS · this · ___ · what",
           "display_order": 3
         },
         {
@@ -1362,7 +1362,7 @@
           "answer": "ki",
           "translation": "Give this to Mere.",
           "hint": "to (recipient)",
-          "gloss": "give.away · this · ___ · (personal) · Mere",
+          "gloss": "give.thither · this · ___ · PERS · Mere",
           "display_order": 4
         },
         {
@@ -1370,7 +1370,7 @@
           "answer": "i",
           "translation": "She is staying in Auckland.",
           "hint": "at / in (location)",
-          "gloss": "prog · stay · she · ___ · Auckland",
+          "gloss": "PROG · PROG · stay · 3SG · ___ · Auckland",
           "display_order": 5
         },
         {
@@ -1378,7 +1378,7 @@
           "answer": "hei",
           "translation": "He is (to be) a leader for the people.",
           "hint": "as / to be (role)",
-          "gloss": "identify · he · ___ · chief · for · the · tribe",
+          "gloss": "PRED · 3SG · ___ · chief · for · the · tribe",
           "display_order": 6
         }
       ]
@@ -1412,7 +1412,7 @@
           "answer": "haerenga",
           "translation": "The trip to the sea was wonderful.",
           "hint": "trip (from haere)",
-          "gloss": "stative · great · the · ___ · to · the · sea",
+          "gloss": "INDEF · great · the · ___ · to · the · sea",
           "display_order": 1
         },
         {
@@ -1420,7 +1420,7 @@
           "answer": "tōnga",
           "translation": "At the setting of the sun, we returned.",
           "hint": "setting (from tō)",
-          "gloss": "at · the · ___ · of · the · sun · then · return · we",
+          "gloss": "at · the · ___ · of · the · sun · FUT · return · 1PL.EXCL",
           "display_order": 2
         },
         {
@@ -1428,7 +1428,7 @@
           "answer": "waiatanga",
           "translation": "The singing of the group was long.",
           "hint": "singing (from waiata)",
-          "gloss": "stative · long · the · ___ · of · the · performance.group",
+          "gloss": "INDF · long · the · ___ · of · the · performance.group",
           "display_order": 3
         },
         {
@@ -1436,7 +1436,7 @@
           "answer": "akoranga",
           "translation": "The lesson will begin in the morning.",
           "hint": "lesson (from ako)",
-          "gloss": "fut · begin · the · ___ · at · the · morning",
+          "gloss": "FUT · begin · the · ___ · at · the · morning",
           "display_order": 4
         },
         {
@@ -1444,7 +1444,7 @@
           "answer": "taenga",
           "translation": "The arrival of the guests was big.",
           "hint": "arrival (from tae)",
-          "gloss": "stative · big · the · ___ · of · the(pl.) · guests",
+          "gloss": "INDF · big · the · ___ · of · the.PL · guests",
           "display_order": 5
         },
         {
@@ -1452,7 +1452,7 @@
           "answer": "hanganga",
           "translation": "I am preparing the making of food.",
           "hint": "making (from hanga)",
-          "gloss": "prog · prepare · I · at · the · ___ · food",
+          "gloss": "PROG · PROG · prepare · 1SG · OBJ · the · ___ · food",
           "display_order": 6
         }
       ]
@@ -1494,7 +1494,7 @@
           "answer": "Mō",
           "translation": "This treasure is for you.",
           "hint": "for (benefactive)",
-          "gloss": "___ · you · this · treasure",
+          "gloss": "___ · 2SG · this · treasure",
           "display_order": 2
         },
         {
@@ -1502,7 +1502,7 @@
           "answer": "Nō",
           "translation": "She is of Ngāti Porou.",
           "hint": "of/from (belonging)",
-          "gloss": "___ · (tribe) · she",
+          "gloss": "___ · tribe.of · Porou · 3SG",
           "display_order": 3
         },
         {
@@ -1510,7 +1510,7 @@
           "answer": "mā",
           "translation": "This is a gift for the family.",
           "hint": "for (a-category benefactive)",
-          "gloss": "a · gift · this · ___ · the · family",
+          "gloss": "INDF · gift · this · ___ · the · family",
           "display_order": 4
         },
         {
@@ -1526,7 +1526,7 @@
           "answer": "mō",
           "translation": "This is a talk about the past year.",
           "hint": "about (o-category)",
-          "gloss": "a · talk · this · ___ · the · year · perf · passed",
+          "gloss": "INDF · talk · this · ___ · the · year · PERF · passed",
           "display_order": 6
         }
       ]
@@ -1560,7 +1560,7 @@
           "answer": "E",
           "translation": "There are two dogs in the house.",
           "hint": "(counting particle for 2–9)",
-          "gloss": "___ · two · the(pl.) · dogs · at · the · house",
+          "gloss": "___ · two · the.PL · dogs · at · the · house",
           "display_order": 1
         },
         {
@@ -1568,7 +1568,7 @@
           "answer": "E",
           "translation": "There are three books on the table.",
           "hint": "(counting particle 2–9)",
-          "gloss": "___ · three · the(pl.) · books · at · top · at · the · table",
+          "gloss": "___ · three · the.PL · books · at · top · at · the · table",
           "display_order": 2
         },
         {
@@ -1576,7 +1576,7 @@
           "answer": "ngā",
           "translation": "Two children are playing.",
           "hint": "the (plural article)",
-          "gloss": "two.people · ___ · children · prog · play",
+          "gloss": "two.people · ___ · children · PROG · PROG · play",
           "display_order": 3
         },
         {
@@ -1592,7 +1592,7 @@
           "answer": "ngā",
           "translation": "How many guests arrived?",
           "hint": "the (plural article)",
-          "gloss": "how.many.people · ___ · guests · past · arrive · hither",
+          "gloss": "how.many.people · ___ · guests · PST · arrive · hither",
           "display_order": 5
         },
         {
@@ -1600,7 +1600,7 @@
           "answer": "E",
           "translation": "There are four days this week.",
           "hint": "(counting particle 2–9)",
-          "gloss": "___ · four · the(pl.) · days · of · the · week · this",
+          "gloss": "___ · four · the.PL · days · of · the · week · this",
           "display_order": 6
         }
       ]
@@ -1634,7 +1634,7 @@
           "answer": "Me",
           "translation": "You should go to sleep now.",
           "hint": "should (suggestion)",
-          "gloss": "___ · go · you · to · the · sleep · now",
+          "gloss": "___ · go · 2SG · to · the · sleep · now",
           "display_order": 1
         },
         {
@@ -1642,7 +1642,7 @@
           "answer": "Me",
           "translation": "Let's eat before we go.",
           "hint": "should / let's",
-          "gloss": "___ · eat · we(incl.) · before · the · go",
+          "gloss": "___ · eat · 1PL.INCL · at · front · at · the · go",
           "display_order": 2
         },
         {
@@ -1650,7 +1650,7 @@
           "answer": "Me",
           "translation": "You should write your name here.",
           "hint": "should (suggestion)",
-          "gloss": "___ · write · you · at · your · name · to · here",
+          "gloss": "___ · write · 2SG · OBJ · 2SG.POSS · name · to · here",
           "display_order": 3
         },
         {
@@ -1658,7 +1658,7 @@
           "answer": "Me",
           "translation": "You should speak softly, lest they hear.",
           "hint": "should (suggestion)",
-          "gloss": "___ · carefully · talk · you · lest · hear · they",
+          "gloss": "___ · carefully · talk · 2SG · lest · hear · 3PL",
           "display_order": 4
         },
         {
@@ -1666,7 +1666,7 @@
           "answer": "Me",
           "translation": "We should listen to the elder.",
           "hint": "should / let's",
-          "gloss": "___ · listen · we(incl.) · to · the · elder",
+          "gloss": "___ · listen · 1PL.INCL · to · the · elder",
           "display_order": 5
         },
         {
@@ -1674,7 +1674,7 @@
           "answer": "Me",
           "translation": "You should drink water every day.",
           "hint": "should (suggestion)",
-          "gloss": "___ · drink · water · you · every · day",
+          "gloss": "___ · drink · water · 2SG · every · day",
           "display_order": 6
         }
       ]
@@ -1708,7 +1708,7 @@
           "answer": "Kia",
           "translation": "Be strong, friend!",
           "hint": "be… (encouragement)",
-          "gloss": "___ · strong · voc · friend",
+          "gloss": "___ · strong · VOC · friend",
           "display_order": 1
         },
         {
@@ -1724,7 +1724,7 @@
           "answer": "kia",
           "translation": "I will study so that I know.",
           "hint": "so that",
-          "gloss": "fut · learn · I · ___ · know · (particle)",
+          "gloss": "FUT · learn · 1SG · ___ · know · ANAPH",
           "display_order": 3
         },
         {
@@ -1732,7 +1732,7 @@
           "answer": "Kia",
           "translation": "Be careful on the road.",
           "hint": "be… (encouragement)",
-          "gloss": "___ · careful · you · at · the · road",
+          "gloss": "___ · careful · 2SG · at · the · road",
           "display_order": 4
         },
         {
@@ -1740,7 +1740,7 @@
           "answer": "kite",
           "translation": "Give it here so that I see.",
           "hint": "see (after kia, purpose)",
-          "gloss": "give.here · so.that · ___ · I",
+          "gloss": "give.hither · SBJV · ___ · 1SG",
           "display_order": 5
         },
         {
@@ -1748,7 +1748,7 @@
           "answer": "Kia",
           "translation": "Have a good day!",
           "hint": "be… (well-wishing)",
-          "gloss": "___ · good · your · day",
+          "gloss": "___ · good · 2SG.POSS · day",
           "display_order": 6
         }
       ]
@@ -1782,7 +1782,7 @@
           "answer": "i",
           "translation": "I don't know that.",
           "hint": "(present negative: kāore … i te)",
-          "gloss": "not · I · ___ · the · know · to · that",
+          "gloss": "NEG · 1SG · ___ · the · know · to · that",
           "display_order": 1
         },
         {
@@ -1790,7 +1790,7 @@
           "answer": "Kāore",
           "translation": "They did not go to the meeting.",
           "hint": "not (past negative)",
-          "gloss": "___ · they · past · go · to · the · meeting",
+          "gloss": "___ · 3PL · PST · go · to · the · meeting",
           "display_order": 2
         },
         {
@@ -1798,7 +1798,7 @@
           "answer": "anō",
           "translation": "My work is not yet finished.",
           "hint": "yet (kāore anō … kia)",
-          "gloss": "not · ___ · perf.sbjv · finished · my · work",
+          "gloss": "NEG · ___ · SBJV · finished · 1SG.POSS · work",
           "display_order": 3
         },
         {
@@ -1806,7 +1806,7 @@
           "answer": "Kāore",
           "translation": "She is not well today.",
           "hint": "not (present negative)",
-          "gloss": "___ · she · T/A · the · good · at · this · day",
+          "gloss": "___ · 3SG · PROG · the · good · at · this · day",
           "display_order": 4
         },
         {
@@ -1814,7 +1814,7 @@
           "answer": "i",
           "translation": "We did not eat yesterday.",
           "hint": "(past negative: kāore … i)",
-          "gloss": "not · we · ___ · eat · yesterday",
+          "gloss": "NEG · 1PL.EXCL · ___ · eat · yesterday",
           "display_order": 5
         },
         {
@@ -1822,7 +1822,7 @@
           "answer": "Kāore",
           "translation": "He has not arrived yet.",
           "hint": "not … yet (perfect negative)",
-          "gloss": "___ · yet · he · perf.sbjv · arrive · hither",
+          "gloss": "___ · yet · 3SG · SBJV · arrive · hither",
           "display_order": 6
         }
       ]
@@ -1856,7 +1856,7 @@
           "answer": "Nā",
           "translation": "It was Hōne who built the canoe.",
           "hint": "by (past actor emphatic)",
-          "gloss": "___ · Hōne · past · build · the · canoe",
+          "gloss": "___ · Hōne · PST · build · the · canoe",
           "display_order": 1
         },
         {
@@ -1872,7 +1872,7 @@
           "answer": "Mā",
           "translation": "Who will save the forest?",
           "hint": "by (future actor emphatic)",
-          "gloss": "___ · who · fut · save · at · the · forest",
+          "gloss": "___ · who · FUT · save · OBJ · the · forest",
           "display_order": 3
         },
         {
@@ -1880,7 +1880,7 @@
           "answer": "e",
           "translation": "We will look after the children.",
           "hint": "(future, marks the verb after mā)",
-          "gloss": "by · us · ___ · care · at · the(pl.) · children",
+          "gloss": "by · 1PL.EXCL · ___ · care.for · OBJ · the.PL · children",
           "display_order": 4
         },
         {
@@ -1888,7 +1888,7 @@
           "answer": "Nā",
           "translation": "It was those two who sang that night.",
           "hint": "by (past actor emphatic)",
-          "gloss": "___ · those.two · past · sing · at · the · night · that",
+          "gloss": "___ · 3DU · PST · sing · at · the · night · that",
           "display_order": 5
         },
         {
@@ -1896,7 +1896,7 @@
           "answer": "e",
           "translation": "The teacher will teach us.",
           "hint": "(future verb marker after mā)",
-          "gloss": "by · the · teacher · ___ · teach · at · (personal) · us",
+          "gloss": "by · the · teacher · ___ · teach · OBJ · PERS · 1PL.EXCL",
           "display_order": 6
         }
       ]
@@ -1930,7 +1930,7 @@
           "answer": "whakaako",
           "translation": "The teacher will teach the Māori language.",
           "hint": "teach (whaka- + ako)",
-          "gloss": "fut · ___ · the · teacher · at · the · language · Māori",
+          "gloss": "FUT · ___ · the · teacher · OBJ · the · language · Māori",
           "display_order": 1
         },
         {
@@ -1938,7 +1938,7 @@
           "answer": "whakakī",
           "translation": "You should fill the cup with water.",
           "hint": "fill (whaka- + kī)",
-          "gloss": "should · ___ · you · at · the · cup · with · the · water",
+          "gloss": "OBLIG · ___ · 2SG · OBJ · the · cup · with · the · water",
           "display_order": 2
         },
         {
@@ -1946,7 +1946,7 @@
           "answer": "whakamōhio",
           "translation": "I have informed them about the meeting.",
           "hint": "inform (whaka- + mōhio)",
-          "gloss": "perf · ___ · I · at · (personal) · them · for · the · meeting",
+          "gloss": "PERF · ___ · 1SG · OBJ · PERS · 3PL · for · the · meeting",
           "display_order": 3
         },
         {
@@ -1954,7 +1954,7 @@
           "answer": "whakaora",
           "translation": "It was the medicine that healed him.",
           "hint": "heal (whaka- + ora)",
-          "gloss": "by · the · medicine · past · ___ · at · (personal) · him",
+          "gloss": "by · the · medicine · PST · ___ · OBJ · PERS · 3SG",
           "display_order": 4
         },
         {
@@ -1962,7 +1962,7 @@
           "answer": "whakapai",
           "translation": "She is tidying the house up.",
           "hint": "make good (whaka- + pai)",
-          "gloss": "prog · ___ · prog · she · obj · the · house · to(purp) · reach",
+          "gloss": "PROG · ___ · PROG · 3SG · OBJ · the · house · to · the · reach",
           "display_order": 5
         },
         {
@@ -1970,7 +1970,7 @@
           "answer": "whakakā",
           "translation": "They will light the fire.",
           "hint": "light/ignite (whaka- + kā)",
-          "gloss": "fut · ___ · they · at · the · fire",
+          "gloss": "FUT · ___ · 3PL · OBJ · the · fire",
           "display_order": 6
         }
       ]
@@ -2004,7 +2004,7 @@
           "answer": "e",
           "translation": "He is the person I know.",
           "hint": "(progressive frame in the clause)",
-          "gloss": "identify · he · the · person · ___ · know · prog · I",
+          "gloss": "EQ · 3SG · the · person · ___ · know · PROG · 1SG",
           "display_order": 1
         },
         {
@@ -2012,7 +2012,7 @@
           "answer": "i",
           "translation": "Here is the book that was written by her.",
           "hint": "(past frame in the clause)",
-          "gloss": "here · the · book · ___ · write.pass · by · her",
+          "gloss": "here · the · book · ___ · write.PASS · by · 3SG",
           "display_order": 2
         },
         {
@@ -2020,7 +2020,7 @@
           "answer": "ana",
           "translation": "The children who are playing are outside.",
           "hint": "(progressive frame)",
-          "gloss": "the(pl.) · children · prog · play · ___ · at · outside",
+          "gloss": "the.PL · children · PROG · play · ___ · at · outside",
           "display_order": 3
         },
         {
@@ -2028,7 +2028,7 @@
           "answer": "i",
           "translation": "That is the house that was built by them.",
           "hint": "(past frame in the clause)",
-          "gloss": "identify · the · house · ___ · build.pass · by · them · that",
+          "gloss": "EQ · the · house · ___ · build.PASS · by · 3PL · that",
           "display_order": 4
         },
         {
@@ -2036,7 +2036,7 @@
           "answer": "e",
           "translation": "The woman who is singing has a good voice.",
           "hint": "(progressive frame)",
-          "gloss": "the · woman · ___ · sing · prog · stative · good · her · voice",
+          "gloss": "the · woman · ___ · sing · PROG · a · good · 3SG.POSS · voice",
           "display_order": 5
         },
         {
@@ -2044,7 +2044,7 @@
           "answer": "i",
           "translation": "The food that you made is delicious.",
           "hint": "(past frame in the clause)",
-          "gloss": "the(pl.) · food · ___ · make.pass · by · you · stative · tasty",
+          "gloss": "the.PL · food · ___ · make.PASS · by · 2SG · a · tasty",
           "display_order": 6
         }
       ]
@@ -2078,7 +2078,7 @@
           "answer": "Ki",
           "translation": "If it rains tomorrow, we'll stay in the house.",
           "hint": "if (ki te)",
-          "gloss": "___ · the · rain · tomorrow · then · stay · we · at · the · house",
+          "gloss": "___ · the · rain · tomorrow · FUT · stay · 1PL.INCL · at · the · house",
           "display_order": 1
         },
         {
@@ -2086,7 +2086,7 @@
           "answer": "ki",
           "translation": "Go to fetch the water.",
           "hint": "in order to (ki te)",
-          "gloss": "go · ___ · the · fetch · at · the · water",
+          "gloss": "go · ___ · the · fetch · OBJ · the · water",
           "display_order": 2
         },
         {
@@ -2094,7 +2094,7 @@
           "answer": "Mehemea",
           "translation": "If I had money, I would buy that.",
           "hint": "if (hypothetical)",
-          "gloss": "___ · a · money · my · then · buy · I · at · that",
+          "gloss": "___ · a · money · 1SG.POSS · FUT · buy · 1SG · OBJ · that",
           "display_order": 3
         },
         {
@@ -2102,7 +2102,7 @@
           "answer": "ki",
           "translation": "The food is tasty if it's cooked right.",
           "hint": "if (ki te)",
-          "gloss": "then · tasty · the · food · ___ · the · correct · the · cook",
+          "gloss": "FUT · tasty · the · food · ___ · the · correct · the · cook",
           "display_order": 4
         },
         {
@@ -2110,7 +2110,7 @@
           "answer": "Ki",
           "translation": "If you don't go, I'll be sad.",
           "hint": "if (ki te … kore)",
-          "gloss": "___ · not · you · fut · go · then · sad · I",
+          "gloss": "___ · NEG · 2SG · FUT · go · FUT · sad · 1SG",
           "display_order": 5
         },
         {
@@ -2118,7 +2118,7 @@
           "answer": "Mehemea",
           "translation": "If you had been here yesterday, you'd have seen her.",
           "hint": "if (hypothetical, past)",
-          "gloss": "___ · at · here · you · yesterday · perf · see · you · obj · (personal) · her",
+          "gloss": "___ · at · here · 2SG · yesterday · PERF · see · 2SG · OBJ · PERS · 3SG",
           "display_order": 6
         }
       ]
@@ -2152,7 +2152,7 @@
           "answer": "mai",
           "translation": "Come here, family!",
           "hint": "towards me/us",
-          "gloss": "go · ___ · voc · the · family",
+          "gloss": "go · ___ · VOC · the · family",
           "display_order": 1
         },
         {
@@ -2168,7 +2168,7 @@
           "answer": "ake",
           "translation": "The sun has risen up into the sky.",
           "hint": "upward",
-          "gloss": "perf · climb · ___ · the · sun · to · the · sky",
+          "gloss": "PERF · climb · ___ · the · sun · to · the · sky",
           "display_order": 3
         },
         {
@@ -2176,7 +2176,7 @@
           "answer": "iho",
           "translation": "The rain comes down from the sky.",
           "hint": "downward",
-          "gloss": "fut · descend · ___ · the · rain · from · the · sky",
+          "gloss": "FUT · descend · ___ · the · rain · from · the · sky",
           "display_order": 4
         },
         {
@@ -2184,7 +2184,7 @@
           "answer": "mai",
           "translation": "Give the food to me.",
           "hint": "towards me (hōmai)",
-          "gloss": "give+___ · the · food · to · (personal) · me",
+          "gloss": "give.___ · the · food · to · PERS · 1SG",
           "display_order": 5
         },
         {
@@ -2192,7 +2192,7 @@
           "answer": "atu",
           "translation": "Speak to them (over there).",
           "hint": "away (towards them)",
-          "gloss": "talk · ___ · to · (personal) · them",
+          "gloss": "speak · ___ · to · PERS · 3PL",
           "display_order": 6
         }
       ]
@@ -2222,7 +2222,7 @@
           "answer": "taea",
           "translation": "I can go tomorrow.",
           "hint": "can (ability, passive verb)",
-          "gloss": "T/A · ___ · by · me · the · go · tomorrow",
+          "gloss": "FUT · ___ · by · 1SG · the · go · tomorrow",
           "display_order": 1
         },
         {
@@ -2230,7 +2230,7 @@
           "answer": "e",
           "translation": "Can you sing?",
           "hint": "by (agent marker)",
-          "gloss": "T/A · can · ___ · you · the · sing",
+          "gloss": "FUT · able.PASS · ___ · 2SG · the · sing",
           "display_order": 2
         },
         {
@@ -2238,7 +2238,7 @@
           "answer": "taea",
           "translation": "He can't run.",
           "hint": "can (after kāore e)",
-          "gloss": "not · T/A · ___ · by · him · the · run",
+          "gloss": "NEG · FUT · ___ · by · 3SG · the · run",
           "display_order": 3
         },
         {
@@ -2246,7 +2246,7 @@
           "answer": "au",
           "translation": "I can help you.",
           "hint": "me (the agent)",
-          "gloss": "T/A · can · by · ___ · the · help · obj · pers · you",
+          "gloss": "FUT · can · by · ___ · the · help · OBJ · PERS · 2SG",
           "display_order": 4
         },
         {
@@ -2254,7 +2254,7 @@
           "answer": "whakatika",
           "translation": "They can fix the car.",
           "hint": "fix / repair",
-          "gloss": "T/A · can · by · them · the · ___ · obj · the · car",
+          "gloss": "FUT · can · by · 3PL · the · ___ · OBJ · the · vehicle",
           "display_order": 5
         },
         {
@@ -2262,7 +2262,7 @@
           "answer": "Ka",
           "translation": "I can speak English.",
           "hint": "tense particle (neutral)",
-          "gloss": "___ · can · by · me · the · speak · English",
+          "gloss": "___ · can · by · 1SG · the · speak · English",
           "display_order": 6
         }
       ]
@@ -2292,7 +2292,7 @@
           "answer": "anō",
           "translation": "I haven't eaten yet.",
           "hint": "yet",
-          "gloss": "not · ___ · I · subj · eat",
+          "gloss": "NEG · ___ · 1SG · SBJV · eat",
           "display_order": 1
         },
         {
@@ -2300,7 +2300,7 @@
           "answer": "kia",
           "translation": "She hasn't arrived yet.",
           "hint": "subjunctive particle",
-          "gloss": "not · yet · she · ___ · arrive · hither",
+          "gloss": "NEG · yet · 3SG · ___ · arrive · hither",
           "display_order": 2
         },
         {
@@ -2308,7 +2308,7 @@
           "answer": "mutu",
           "translation": "The meeting hasn't finished yet.",
           "hint": "finished / ended",
-          "gloss": "not · yet · the · meeting · subj · ___",
+          "gloss": "NEG · yet · the · meeting · SBJV · ___",
           "display_order": 3
         },
         {
@@ -2316,7 +2316,7 @@
           "answer": "tunu",
           "translation": "We haven't cooked the food yet.",
           "hint": "cook",
-          "gloss": "not · yet · we-excl · subj · ___ · obj · the · food",
+          "gloss": "NEG · yet · 1PL.EXCL · SBJV · ___ · OBJ · the · food",
           "display_order": 4
         },
         {
@@ -2324,7 +2324,7 @@
           "answer": "anō",
           "translation": "They haven't come back yet.",
           "hint": "yet",
-          "gloss": "not · ___ · they · subj · return · hither",
+          "gloss": "NEG · ___ · 3PL · SBJV · return · hither",
           "display_order": 5
         },
         {
@@ -2332,7 +2332,7 @@
           "answer": "kia",
           "translation": "Haven't you washed the dishes yet?",
           "hint": "subjunctive particle",
-          "gloss": "not · yet · you · ___ · wash · obj · the-pl · dishes",
+          "gloss": "NEG · yet · 2SG · ___ · wash · OBJ · the.PL · dishes",
           "display_order": 6
         }
       ]
@@ -2362,7 +2362,7 @@
           "answer": "I",
           "translation": "She was sleeping last night.",
           "hint": "past-progressive particle",
-          "gloss": "___ · prog · sleep · she · last-night",
+          "gloss": "___ · PROG · sleep · 3SG · last.night",
           "display_order": 1
         },
         {
@@ -2370,7 +2370,7 @@
           "answer": "te",
           "translation": "They were working yesterday.",
           "hint": "progressive particle",
-          "gloss": "past · ___ · work · they · yesterday",
+          "gloss": "PST · ___ · work · 3PL · yesterday",
           "display_order": 2
         },
         {
@@ -2378,7 +2378,7 @@
           "answer": "tākaro",
           "translation": "The children were playing outside.",
           "hint": "play",
-          "gloss": "past · prog · ___ · the-pl · children · at · outside",
+          "gloss": "PST · PROG · ___ · the.PL · children · at · outside",
           "display_order": 3
         },
         {
@@ -2386,7 +2386,7 @@
           "answer": "pō",
           "translation": "What were you doing at night?",
           "hint": "night",
-          "gloss": "past · prog · what · you · at · the · ___",
+          "gloss": "PST · PROG · what · 2SG · at · the · ___",
           "display_order": 4
         },
         {
@@ -2394,7 +2394,7 @@
           "answer": "pānui",
           "translation": "I was reading my book.",
           "hint": "read",
-          "gloss": "past · prog · ___ · I · obj · my · book",
+          "gloss": "PST · PROG · ___ · 1SG · OBJ · 1SG.POSS · book",
           "display_order": 5
         },
         {
@@ -2402,7 +2402,7 @@
           "answer": "tunu",
           "translation": "Mere was cooking the food.",
           "hint": "cook",
-          "gloss": "past · prog · ___ · pers · Mere · obj · the · food",
+          "gloss": "PST · PROG · ___ · PERS · Mere · OBJ · the · food",
           "display_order": 6
         }
       ]
@@ -2432,7 +2432,7 @@
           "answer": "Hei",
           "translation": "What's this? For cutting the meat.",
           "hint": "for (purpose)",
-          "gloss": "a · what · this · ___ · cut · obj · the · meat",
+          "gloss": "a · what · this · ___ · cut · OBJ · the · meat",
           "display_order": 1
         },
         {
@@ -2440,7 +2440,7 @@
           "answer": "hei",
           "translation": "She has come to help us.",
           "hint": "for (purpose)",
-          "gloss": "perf · arrive · hither · she · ___ · help · obj · pers · us-excl",
+          "gloss": "PERF · arrive · hither · 3SG · ___ · help · OBJ · PERS · 1PL.EXCL",
           "display_order": 2
         },
         {
@@ -2448,7 +2448,7 @@
           "answer": "hei",
           "translation": "She will serve as a teacher for the school.",
           "hint": "as a (role)",
-          "gloss": "T/A · stay · she · ___ · teacher · for · the · school",
+          "gloss": "FUT · stay · 3SG · ___ · teacher · for · the · school",
           "display_order": 3
         },
         {
@@ -2456,7 +2456,7 @@
           "answer": "hei",
           "translation": "This is food for you to carry.",
           "hint": "for (purpose, with māu)",
-          "gloss": "a · food · this · ___ · carry · for-you",
+          "gloss": "a · food · this · ___ · carry · for.2SG",
           "display_order": 4
         },
         {
@@ -2472,7 +2472,7 @@
           "answer": "hei",
           "translation": "Give me a knife to cut the bread.",
           "hint": "for (purpose)",
-          "gloss": "give-me · a · knife · ___ · cut · obj · the · bread",
+          "gloss": "give.hither · a · knife · ___ · cut · OBJ · the · bread",
           "display_order": 6
         }
       ]
@@ -2502,7 +2502,7 @@
           "answer": "E",
           "translation": "Stand up, children!",
           "hint": "imperative particle (short verb)",
-          "gloss": "___ · stand · children · voc-pl",
+          "gloss": "___ · stand · children · VOC.PL",
           "display_order": 1
         },
         {
@@ -2510,7 +2510,7 @@
           "answer": "Kaua",
           "translation": "Don't go there!",
           "hint": "don't (prohibitive)",
-          "gloss": "___ · imp · go · to · there",
+          "gloss": "___ · IMP · go · to · there",
           "display_order": 2
         },
         {
@@ -2518,7 +2518,7 @@
           "answer": "e",
           "translation": "Don't run inside the house!",
           "hint": "particle after kaua",
-          "gloss": "don't · ___ · run · at · inside · at · the · house",
+          "gloss": "NEG.IMP · ___ · run · at · inside · at · the · house",
           "display_order": 3
         },
         {
@@ -2526,7 +2526,7 @@
           "answer": "noho",
           "translation": "Sit down!",
           "hint": "sit",
-          "gloss": "imp · ___ · to · down",
+          "gloss": "IMP · ___ · to · down",
           "display_order": 4
         },
         {
@@ -2542,7 +2542,7 @@
           "answer": "tango",
           "translation": "Don't take other people's things!",
           "hint": "take",
-          "gloss": "don't · imp · ___ · obj · the-pl · things · of · others",
+          "gloss": "NEG.IMP · IMP · ___ · OBJ · the.PL · thing · of · some · other",
           "display_order": 6
         }
       ]
@@ -2572,7 +2572,7 @@
           "answer": "ai",
           "translation": "When the work is done, then we go home.",
           "hint": "consequent particle",
-          "gloss": "T/A · finish · the · work · T/A · return · ___ · we-excl",
+          "gloss": "FUT · finish · the · work · FUT · return · ___ · 1PL.EXCL",
           "display_order": 1
         },
         {
@@ -2580,7 +2580,7 @@
           "answer": "ai",
           "translation": "Why did you come? To learn.",
           "hint": "purpose particle",
-          "gloss": "past · go · hither · you · to(purp) · what · to(purp) · learn · ___",
+          "gloss": "PST · go · hither · 2SG · to · the · what · to · the · learn · ___",
           "display_order": 2
         },
         {
@@ -2588,7 +2588,7 @@
           "answer": "ai",
           "translation": "This is where they live.",
           "hint": "habitual-place particle",
-          "gloss": "foc · here · they · live · ___",
+          "gloss": "FOC · here · 3PL · live · ___",
           "display_order": 3
         },
         {
@@ -2596,7 +2596,7 @@
           "answer": "ai",
           "translation": "Why were you angry?",
           "hint": "reason particle",
-          "gloss": "a · what · you · past · angry · ___",
+          "gloss": "a · what · 2SG · PST · angry · ___",
           "display_order": 4
         },
         {
@@ -2604,7 +2604,7 @@
           "answer": "ai",
           "translation": "When it rains, I take an umbrella.",
           "hint": "habitual particle",
-          "gloss": "T/A · rain · T/A · take · ___ · I · obj · the · umbrella",
+          "gloss": "FUT · rain · FUT · take · ___ · 1SG · OBJ · the · umbrella",
           "display_order": 5
         },
         {
@@ -2612,7 +2612,7 @@
           "answer": "ai",
           "translation": "That is why we left.",
           "hint": "reason particle",
-          "gloss": "from · there · we-excl · past · leave · ___",
+          "gloss": "from · there · 1PL.EXCL · PST · leave · ___",
           "display_order": 6
         }
       ]
@@ -2658,7 +2658,7 @@
           "answer": "Mā",
           "translation": "We two will complete this work.",
           "hint": "for/by (future agent)",
-          "gloss": "___ · we-two-excl · this · work · T/A · complete",
+          "gloss": "___ · 1DU.EXCL · this · work · FUT · complete",
           "display_order": 3
         },
         {
@@ -2666,7 +2666,7 @@
           "answer": "wai",
           "translation": "Who will cook the food?",
           "hint": "who",
-          "gloss": "by · ___ · the · food · T/A · cook",
+          "gloss": "by · ___ · the · food · FUT · cook",
           "display_order": 4
         },
         {
@@ -2674,7 +2674,7 @@
           "answer": "rātou",
           "translation": "They built this house.",
           "hint": "them (past agent)",
-          "gloss": "by · ___ · this · house · past · build",
+          "gloss": "by · ___ · this · house · PST · build",
           "display_order": 5
         },
         {
@@ -2682,7 +2682,7 @@
           "answer": "e",
           "translation": "Your mum will pick you up.",
           "hint": "verbal particle (after mā-agent)",
-          "gloss": "by · your · mum · you · ___ · fetch",
+          "gloss": "by · 2SG.POSS · mum · 2SG · ___ · fetch",
           "display_order": 6
         }
       ]
@@ -2712,7 +2712,7 @@
           "answer": "Ahakoa",
           "translation": "Despite the rain, we still went.",
           "hint": "although / despite",
-          "gloss": "___ · the · rain · past · go · still · we-excl",
+          "gloss": "___ · the · rain · PST · go · still · 1PL.EXCL",
           "display_order": 1
         },
         {
@@ -2720,7 +2720,7 @@
           "answer": "nō",
           "translation": "She didn't eat, because she wasn't hungry.",
           "hint": "because (nō te mea)",
-          "gloss": "not · she · past · eat · ___ · the · thing · not · she · past · hungry",
+          "gloss": "NEG · 3SG · PST · eat · ___ · the · thing · NEG · 3SG · PST · hungry",
           "display_order": 2
         },
         {
@@ -2728,7 +2728,7 @@
           "answer": "engari",
           "translation": "I stayed home, but she went.",
           "hint": "but",
-          "gloss": "past · stay · I · at · the · home · ___ · past · go · she",
+          "gloss": "PST · stay · 1SG · to · the · home · ___ · PST · go · 3SG",
           "display_order": 3
         },
         {
@@ -2736,7 +2736,7 @@
           "answer": "iti",
           "translation": "Although she is small, she is still strong.",
           "hint": "small",
-          "gloss": "although · a · ___ · she · a · strong · still",
+          "gloss": "although · a · ___ · 3SG · a · strong · still",
           "display_order": 4
         },
         {
@@ -2744,7 +2744,7 @@
           "answer": "ahakoa",
           "translation": "I will never forget, no matter what.",
           "hint": "no matter (what)",
-          "gloss": "T/A · never · I · T/A · forget · ___ · the · what",
+          "gloss": "FUT · NEG · 1SG · FUT · forget · ___ · the · what",
           "display_order": 5
         },
         {
@@ -2752,7 +2752,7 @@
           "answer": "Nō",
           "translation": "Because it rained, we stayed inside.",
           "hint": "because (nō te mea)",
-          "gloss": "___ · the · thing · past · rain · past · stay · we-excl · at · inside",
+          "gloss": "___ · the · thing · PST · rain · PST · stay · 1PL.EXCL · to · inside",
           "display_order": 6
         }
       ]
@@ -2782,7 +2782,7 @@
           "answer": "Ko",
           "translation": "It was Mere who went to the meeting.",
           "hint": "focus particle",
-          "gloss": "___ · Mere · past · go · to · the · meeting",
+          "gloss": "___ · Mere · PST · go · to · the · meeting",
           "display_order": 1
         },
         {
@@ -2790,7 +2790,7 @@
           "answer": "te",
           "translation": "This is the very best book.",
           "hint": "the",
-          "gloss": "foc · this · ___ · book · good · very",
+          "gloss": "FOC · this · ___ · book · good · very",
           "display_order": 2
         },
         {
@@ -2798,7 +2798,7 @@
           "answer": "Ko",
           "translation": "New Zealand is the beautiful land.",
           "hint": "focus particle",
-          "gloss": "___ · NZ · the · land · beautiful",
+          "gloss": "___ · New.Zealand · the · land · beautiful",
           "display_order": 3
         },
         {
@@ -2806,7 +2806,7 @@
           "answer": "i",
           "translation": "They were the first to arrive.",
           "hint": "past particle",
-          "gloss": "foc · they · ___ · arrive · first · hither",
+          "gloss": "FOC · 3PL · ___ · arrive · first · hither",
           "display_order": 4
         },
         {
@@ -2814,7 +2814,7 @@
           "answer": "tito",
           "translation": "It was Hine who composed the song.",
           "hint": "compose",
-          "gloss": "foc · Hine · past · ___ · obj · the · song",
+          "gloss": "FOC · Hine · PST · ___ · OBJ · the · song",
           "display_order": 5
         },
         {
@@ -2822,7 +2822,7 @@
           "answer": "Ko",
           "translation": "This is my house.",
           "hint": "identity particle",
-          "gloss": "___ · this · my · house",
+          "gloss": "___ · this · 1SG.POSS · house",
           "display_order": 6
         }
       ]
@@ -2852,7 +2852,7 @@
           "answer": "Tēnā",
           "translation": "Greetings to you all.",
           "hint": "formal greeting particle",
-          "gloss": "___ · you-pl · all",
+          "gloss": "___ · 2PL · all",
           "display_order": 1
         },
         {
@@ -2860,7 +2860,7 @@
           "answer": "koe",
           "translation": "Greetings to you, chief.",
           "hint": "you (one person)",
-          "gloss": "greet · ___ · voc · the · chief",
+          "gloss": "greet · ___ · VOC · the · chief",
           "display_order": 2
         },
         {
@@ -2868,7 +2868,7 @@
           "answer": "mai",
           "translation": "Welcome to our home.",
           "hint": "hither (welcome pair)",
-          "gloss": "welcome · ___ · to · our-excl · home",
+          "gloss": "welcome · ___ · to · POSS · 1PL.EXCL · home",
           "display_order": 3
         },
         {
@@ -2876,7 +2876,7 @@
           "answer": "koe",
           "translation": "Thank you for your help.",
           "hint": "you (thanking one person)",
-          "gloss": "greet · ___ · for · your · help",
+          "gloss": "greet · ___ · for · 2SG.POSS · help",
           "display_order": 4
         },
         {
@@ -2884,7 +2884,7 @@
           "answer": "Haere",
           "translation": "Come, welcome to the gathering!",
           "hint": "come (welcome)",
-          "gloss": "___ · hither · to · the · gathering",
+          "gloss": "___ · hither · to · the · meeting",
           "display_order": 5
         },
         {
@@ -2892,7 +2892,7 @@
           "answer": "kōrua",
           "translation": "Greetings to you two chiefs.",
           "hint": "you two",
-          "gloss": "greet · ___ · voc · the-pl · chiefs · two",
+          "gloss": "greet · ___ · VOC · the.PL · chief · NUM · two",
           "display_order": 6
         }
       ]
@@ -2930,7 +2930,7 @@
           "answer": "kōrero",
           "translation": "What is the food of chiefs? Talk.",
           "hint": "talk / speech",
-          "gloss": "a · what · the · food · of · the · chief — a · ___",
+          "gloss": "a · what · the · food · of · the · chief · a · ___",
           "display_order": 2
         },
         {
@@ -2954,7 +2954,7 @@
           "answer": "manu",
           "translation": "Feathers enable the bird to fly.",
           "hint": "bird",
-          "gloss": "by · the · feather · T/A · fly · the · ___",
+          "gloss": "by · the · feather · FUT · fly · the · ___",
           "display_order": 5
         },
         {
@@ -2962,7 +2962,7 @@
           "answer": "tūpuna",
           "translation": "Hold fast to the words of your ancestors.",
           "hint": "ancestors",
-          "gloss": "subj · hold · you · to · the-pl · words · of · your-pl · ___",
+          "gloss": "SBJV · hold · 2SG · to · the.PL · word · of · 2SG.POSS.PL · ___",
           "display_order": 6
         }
       ]

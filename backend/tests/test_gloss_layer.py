@@ -118,8 +118,11 @@ def test_a_gloss_never_invents_a_cell(path):
 
 
 # Courses whose glosses were authored to the strict positional contract: one
-# cell per whitespace token, no multi-word cells. mi predates it and uses
-# multi-word cells (`Kei te` is one tense marker), so it is not listed yet.
+# cell per whitespace token, no multi-word cells.
+#
+# `mi` joined on 26 Aug. It had used multi-word cells (`Kei te` as one tense
+# marker) on 24 lines; those now split, with each token of a two-word marker
+# glossed and split the SAME way every time.
 #
 # `sw` converted TO this contract on 26 Aug. Its old self-labelling form
 # (`u-ta-rudi (2SG-FUT-return)`) carried the morpheme split, which positional
@@ -130,7 +133,7 @@ def test_a_gloss_never_invents_a_cell(path):
 # converted mechanically; the other 24 had multi-word cells and were
 # re-authored along with the 311 that had no gloss at all.
 STRICTLY_ALIGNED = ["yo_grammar.json", "xh_grammar.json", "ha_grammar.json",
-                    "sw_grammar.json"]
+                    "sw_grammar.json", "mi_grammar.json"]
 
 
 @pytest.mark.parametrize("name", STRICTLY_ALIGNED)
