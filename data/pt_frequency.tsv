@@ -21,13 +21,13 @@ rank	word	pos	en
 20	em	prep	in; inside; within (contained by)
 21	bem	adv	well; accurately; competently
 22	isso	pron	that (the thing near you; the thing mentioned that concerns you)
-23	da	prep	of the, from the (de + a); also gives (dar)
+23	da	prep	of the, from the (de + a, feminine singular)
 24	como	adv	how; like, as (comparison); I eat (from comer)
 25	sim	intj	yes; indeed, really (for emphasis)
 26	as	article	the (feminine plural); them (object)
 27	no	prep	in the, on the (em + o)
 28	mais	adv	used to form the comparative of adjectives and adverbs; more; -er
-29	na	pron	feminine singular of o
+29	na	pron	in the (em + a, feminine singular)
 30	meu	det	my (belonging to, associated with, related to, or in the possession of me)
 31	aqui	adv	here (in this place)
 32	me	pron	me; to me; myself (usually before the verb in Brazil: me ajuda)
@@ -227,7 +227,7 @@ rank	word	pos	en
 226	carro	noun	cart (vehicle drawn or pushed by a person or animal)
 227	lado	noun	side
 228	vezes	noun	plural of vez
-229	nas	pron	feminine plural of o
+229	nas	pron	in the (em + as, feminine plural)
 230	fez	verb	third-person singular preterite indicative of fazer
 231	seus	det	masculine plural of seu
 232	novo	adj	new; recently made or created
@@ -246,7 +246,7 @@ rank	word	pos	en
 245	vem	verb	third-person singular present indicative
 246	dentro	adv	inside (within or into something’s interior)
 247	família	noun	family; nuclear family (a father, mother and their sons and daughters)
-248	ali	adv	there
+248	ali	adv	there (away from both the speaker and the listener)
 249	razão	noun	reason (the ability to think correctly)
 250	dias	noun	plural of dia
 251	aquele	det	that (far from the speaker and listener)
@@ -1336,7 +1336,7 @@ rank	word	pos	en
 1335	prestes	adj	ready, prepared
 1336	paris	verb	second-person plural present indicative of parir
 1337	corre	verb	runs; run!, hurry! (he, she, você — present of correr: ele corre rápido = he runs fast; corre! = run!, hurry!); (as a noun, m., Brazilian slang) o corre = hustle, a side job or gig
-1338	h	noun	abbreviation of hora
+1338	h	noun	abbreviation of hora (hour)
 1339	inteiro	adj	whole; entire; in full (with nothing missing)
 1340	branca	adj	feminine singular of branco
 1341	gelo	noun	ice (frozen water)
@@ -1373,7 +1373,7 @@ rank	word	pos	en
 1372	sucesso	noun	success; triumph
 1373	pegar	verb	to catch; to grab, hold
 1374	queira	verb	first/third-person singular present subjunctive
-1375	la	pron	feminine singular of o
+1375	la	pron	her, it — form of a used attached after a verb ending in -r, -s or -z (comprá-la = to buy it)
 1376	ajudá-lo	verb	contraction of ajudar + o
 1377	infelizmente	adv	unfortunately; unhappily
 1378	conduzir	verb	to wage (to conduct or carry out)
@@ -1634,7 +1634,7 @@ rank	word	pos	en
 1633	rico	adj	rich, wealthy; luxurious
 1634	íamos	verb	first-person plural imperfect indicative of ir
 1635	acordar	verb	to awake; to wake up (to stop sleeping)
-1636	charles	noun	rabona
+1636	charles	noun	a male given name
 1637	fugiu	verb	third-person singular preterite indicative of fugir
 1638	preocupar	verb	to concern, worry (to cause concern to, cause unrest)
 1639	humana	adj	feminine singular of humano
@@ -1901,7 +1901,7 @@ rank	word	pos	en
 1900	crédito	noun	credit (acknowledgement)
 1901	desligar	verb	to hang up; to turn off
 1902	costa	noun	coast (shoreline)
-1903	projecto	noun	pre-reform spelling
+1903	projecto	noun	project (pre-Acordo European spelling of projeto)
 1904	dão	verb	third-person plural present indicative of dar
 1905	importantes	adj	plural of importante
 1906	escreveu	verb	third-person singular preterite indicative of escrever
@@ -1942,7 +1942,7 @@ rank	word	pos	en
 1941	presença	noun	presence
 1942	melhorar	verb	to improve, to ameliorate, to better
 1943	imagens	noun	plural of imagem
-1944	vitória	noun	victory
+1944	vitória	noun	victory; also Vitória, a female given name (English Victoria)
 1945	pesquisa	noun	research (inquiry or examination)
 1946	cheira	verb	third-person singular present indicative
 1947	centenas	noun	plural of centena
@@ -1978,7 +1978,7 @@ rank	word	pos	en
 1977	aviso	noun	warning (instance of warning someone)
 1978	escrito	adj	written
 1979	admitir	verb	to admit, accept
-1980	los	pron	masculine plural of o
+1980	los	pron	them (masculine) — form of os used attached after a verb ending in -r, -s or -z (comprá-los = to buy them)
 1981	negra	adj	feminine singular of negro
 1982	deuses	noun	plural of deus
 1983	últimas	adj	feminine plural of último
@@ -1987,7 +1987,7 @@ rank	word	pos	en
 1986	sábado	noun	Saturday; Sabbath, sabbath
 1987	pensaste	verb	second-person singular preterite indicative of pensar
 1988	bairro	noun	neighborhood, area (of a city)
-1989	roma	adj	of the Roma people
+1989	roma	adj	Rome (a metropolitan city of Lazio, Italy)
 1990	famílias	noun	plural of família
 1991	completo	adj	full, complete; completed
 1992	fiques	verb	second-person singular present subjunctive of ficar
@@ -2449,7 +2449,7 @@ rank	word	pos	en
 2448	chegaste	verb	second-person singular preterite indicative of chegar
 2449	calmo	adj	calm; serene
 2450	bravo	adj	angry; furious, annoyed
-2451	eh	verb	is
+2451	eh	verb	is (alternative spelling of é)
 2452	soa	verb	third-person singular present indicative
 2453	garagem	noun	garage (place to store a car)
 2454	assustado	adj	shy, timid; fearful, frightened, afraid, scared
@@ -2995,7 +2995,7 @@ rank	word	pos	en
 2994	janelas	noun	plural of janela
 2995	seguida	verb	feminine singular of seguido
 2996	autoridades	noun	plural of autoridade
-2997	las	pron	feminine plural of o
+2997	las	pron	them (feminine) — form of as used attached after a verb ending in -r, -s or -z (comprá-las = to buy them)
 2998	mudei	verb	first-person singular preterite indicative of mudar
 2999	principalmente	adv	principally, mainly
 3000	igualmente	adv	equally; likewise (in the same manner)
@@ -3756,7 +3756,7 @@ rank	word	pos	en
 3755	julho	noun	July
 3756	curta	noun	short (film of length shorter than a feature film)
 3757	verifiquei	verb	first-person singular preterite indicative of verificar
-3758	cobarde	adj	cowardly
+3758	cobarde	adj	cowardly (European spelling of covarde)
 3759	reconhecimento	noun	acknowledgement (act of acknowledging)
 3760	progresso	noun	progress (a moving forward)
 3761	radiação	noun	radiation; radiancy
@@ -4030,7 +4030,7 @@ rank	word	pos	en
 4029	ténis	noun	tennis; a trainer, sneaker
 4030	cria	noun	young; offspring (a young animal, especially one that still depends on its mother)
 4031	preocupem	verb	third-person plural present subjunctive
-4032	victoria	noun	victory
+4032	victoria	noun	a female given name from Latin, masculine equivalent Victor, equivalent to English Victoria
 4033	magoado	verb	past participle of magoar
 4034	lixado	adj	screwed, fucked (beset with unfortunate circumstances)
 4035	actual	adj	pre-reform spelling
@@ -4088,7 +4088,7 @@ rank	word	pos	en
 4087	chamei	verb	first-person singular preterite indicative of chamar
 4088	medidas	noun	plural of medida
 4089	habilidade	noun	ability; skill
-4090	testamento	noun	will; testament
+4090	testamento	noun	will (a legal document); testament (either of the two parts of the Bible)
 4091	ponham	verb	third-person plural present subjunctive
 4092	man	intj	synonym of mano
 4093	bombeiros	noun	plural of bombeiro
@@ -4264,7 +4264,7 @@ rank	word	pos	en
 4263	amado	adj	beloved
 4264	maçã	noun	apple (fruit)
 4265	admira	verb	third-person singular present indicative
-4266	objecto	noun	pre-reform spelling
+4266	objecto	noun	object (pre-Acordo European spelling of objeto)
 4267	outubro	noun	October (month)
 4268	nascido	adj	born
 4269	resulta	verb	third-person singular present indicative
@@ -4610,7 +4610,7 @@ rank	word	pos	en
 4609	documento	noun	document (original or official paper)
 4610	gps	noun	GPS (global positioning system)
 4611	técnico	adj	technical
-4612	oscar	noun	Academy Award
+4612	oscar	noun	Oscar (the Academy Award); also a male given name
 4613	tendes	verb	second-person plural present indicative of ter
 4614	aprendeste	verb	second-person singular preterite indicative of aprender
 4615	adolescentes	adj	plural of adolescente
@@ -4695,7 +4695,7 @@ rank	word	pos	en
 4694	tentava	verb	first/third-person singular imperfect indicative of tentar
 4695	padrinho	noun	godfather (a male godparent)
 4696	oficina	noun	workshop; automobile garage (a place where cars are serviced and repaired)
-4697	l	character	Sometimes
+4697	l	character	The twelfth letter of the Portuguese alphabet, written in the Latin script.
 4698	levamos	verb	first-person plural present indicative
 4699	fadas	noun	plural of fada
 4700	ângulo	noun	figure formed by two half-planes or two half-lines with the same origin
@@ -5169,7 +5169,7 @@ rank	word	pos	en
 5168	contes	verb	second-person singular present subjunctive of contar
 5169	aranha	noun	spider; vulva, vagina, especially when hairy
 5170	comboios	noun	plural of comboio
-5171	câmera	noun	cameraperson
+5171	câmera	noun	camera (feminine); cameraperson, camera operator (masculine)
 5172	darei	verb	first-person singular future indicative of dar
 5173	moderna	adj	feminine singular of moderno
 5174	observação	noun	observation
@@ -5220,7 +5220,7 @@ rank	word	pos	en
 5219	obrigação	noun	duty; workplace
 5220	praça	noun	plaza (a public square or open area in front of a building or a place)
 5221	contato	noun	contact; touch
-5222	activo	noun	pre-reform spelling
+5222	activo	noun	active (pre-Acordo European spelling of ativo)
 5223	caravana	noun	caravan; caravan (furnished vehicle used as a dwelling)
 5224	acontecimentos	noun	plural of acontecimento
 5225	criei	verb	first-person singular preterite indicative of criar
@@ -6064,7 +6064,7 @@ rank	word	pos	en
 6063	paras	verb	second-person singular present indicative of parar
 6064	levada	adj	feminine singular of levado
 6065	donde	contraction	synonym of onde
-6066	chef	noun	chief, head, head man, boss
+6066	chef	noun	chef, head cook (of a restaurant)
 6067	públicas	adj	feminine plural of público
 6068	vermelhas	adj	feminine plural of vermelho
 6069	confirmação	noun	confirmation
@@ -6790,7 +6790,7 @@ rank	word	pos	en
 6789	declarações	noun	plural of declaração
 6790	falarei	verb	first-person singular future indicative of falar
 6791	apodrecer	verb	to rot, to decay, to decompose
-6792	colorado	adj	colored, red
+6792	colorado	adj	Colorado (a state in the western United States, the 38th state)
 6793	mobília	noun	furniture
 6794	agradecemos	verb	first-person plural present/preterite indicative of agradecer
 6795	seriamente	adv	seriously
@@ -6880,7 +6880,7 @@ rank	word	pos	en
 6879	entusiasmada	adj	feminine singular of entusiasmado
 6880	demoraste	verb	second-person singular preterite indicative of demorar
 6881	mentais	adj	masculine/feminine plural of mental
-6882	sofia	noun	science; wisdom
+6882	sofia	noun	a female given name, equivalent to English Sophie or Sophia
 6883	formal	adj	formal (being in accord with established forms)
 6884	paranóico	adj	pre-reform spelling
 6885	prisões	noun	plural of prisão
@@ -7041,7 +7041,7 @@ rank	word	pos	en
 7040	satisfação	noun	satisfaction; gratification, enjoyment
 7041	cumpriu	verb	third-person singular preterite indicative of cumprir
 7042	colchão	noun	mattress; air mattress
-7043	jacto	noun	pre-reform spelling
+7043	jacto	noun	jet (pre-Acordo European spelling of jato)
 7044	trocos	noun	plural of troco
 7045	fachada	noun	façade (of a building)
 7046	hostil	adj	hostile (showing ill will and malevolence)
@@ -7092,7 +7092,7 @@ rank	word	pos	en
 7091	raiz	noun	root (part of a plant)
 7092	ofender	verb	to offend; to displease
 7093	perturbada	adj	feminine singular of perturbado
-7094	montana	adj	feminine singular of montano
+7094	montana	adj	Montana (a state in the Mountain West region of the United States, formerly a territory)
 7095	feijão	noun	bean (seed)
 7096	tocava	verb	first/third-person singular imperfect indicative of tocar
 7097	lida	noun	read (an instance of reading)
@@ -7167,7 +7167,7 @@ rank	word	pos	en
 7166	projectos	noun	plural of projecto
 7167	insinuar	verb	to insinuate; to intimate
 7168	causas	noun	plural of causa
-7169	lo	pron	the; sometimes after lhe, especially when referring to a body part, a family member, or a pet.
+7169	lo	pron	him, it — form of o used attached after a verb ending in -r, -s or -z (fazê-lo = to do it)
 7170	assento	noun	seat
 7171	robôs	noun	plural of robô
 7172	afecta	verb	third-person singular present indicative
@@ -7438,7 +7438,7 @@ rank	word	pos	en
 7437	recomendação	noun	recommendation; advice
 7438	obrigações	noun	plural of obrigação
 7439	d.c.	adv	abbreviation of depois de Cristo (“after Christ”): AD
-7440	jóia	noun	pre-reform spelling
+7440	jóia	noun	jewel, gem (pre-Acordo spelling of joia)
 7441	abater	verb	to collapse; to topple
 7442	elefantes	noun	plural of elefante
 7443	desejam	verb	third-person plural present indicative of desejar
@@ -7638,7 +7638,7 @@ rank	word	pos	en
 7637	lançado	verb	past participle of lançar
 7638	danças	noun	plural of dança
 7639	au	intj	ouch (expression of minor physical pain)
-7640	q	pron	abbreviation of que
+7640	q	pron	abbreviation of que (that, what)
 7641	desapareçam	verb	third-person plural present subjunctive
 7642	recebes	verb	second-person singular present indicative of receber
 7643	aturar	verb	to put up with; to stand; to endure; to suffer through
@@ -7665,7 +7665,7 @@ rank	word	pos	en
 7664	àqueles	contraction	contraction of a + aqueles, literally “to those (masculine)”: masculine plural of àquele
 7665	exploração	noun	exploration; exploitation
 7666	controlada	verb	feminine singular of controlado
-7667	marta	noun	marten (animal)
+7667	marta	noun	Marta, a female given name (English Martha); also marten (the animal)
 7668	concorrência	noun	competition, rivalry
 7669	dúzias	noun	plural of dúzia
 7670	jade	noun	jade (gem)
@@ -8034,7 +8034,7 @@ rank	word	pos	en
 8033	ligadas	adj	feminine plural of ligado
 8034	separado	adj	isolated; off (which is apart)
 8035	chamaria	verb	first/third-person singular conditional of chamar
-8036	lanche	noun	afternoon tea, high tea
+8036	lanche	noun	snack; a light afternoon meal
 8037	conseguirei	verb	first-person singular future indicative of conseguir
 8038	motivação	noun	motivation (willingness of action)
 8039	dramático	adj	dramatic; drama king
@@ -8261,7 +8261,7 @@ rank	word	pos	en
 8260	engana	verb	third-person singular present indicative
 8261	aproximação	noun	approach, access
 8262	rancor	noun	rancor; grudge (deep seated animosity)
-8263	aquário	noun	aquarium
+8263	aquário	noun	aquarium; also Aquarius (the constellation)
 8264	esperes	verb	second-person singular present subjunctive of esperar
 8265	maníaco	noun	maniac (insane person)
 8266	garra	noun	claw (curved horny nail)
@@ -8389,7 +8389,7 @@ rank	word	pos	en
 8388	trancar	verb	to lock, latch
 8389	bronx	name	the Bronx (a borough of New York City, New York, United States)
 8390	derem	verb	third-person plural future subjunctive of dar
-8391	marcos	noun	plural of marco
+8391	marcos	noun	a male given name from Latin, equivalent to English Mark
 8392	devolve	verb	third-person singular present indicative
 8393	cumprimentar	verb	to greet, salute
 8394	dentada	noun	bite (instance of biting)
@@ -8704,7 +8704,7 @@ rank	word	pos	en
 8703	incomode	verb	first/third-person singular present subjunctive
 8704	gorila	noun	gorilla (large ape)
 8705	circuitos	noun	plural of circuito
-8706	vaticano	adj	Vatican (relating to the Vatican)
+8706	vaticano	adj	Vatican City (a city-state in Southern Europe, an enclave within the city of Rome, Italy)
 8707	espancado	verb	past participle of espancar
 8708	maca	noun	stretcher (simple litter designed to carry a sick, injured or dead person)
 8709	optimista	adj	pre-reform spelling
@@ -9283,7 +9283,7 @@ rank	word	pos	en
 9282	conheçam	verb	third-person plural present subjunctive
 9283	imprevisível	adj	unpredictable
 9284	traduzir	verb	to translate (to convert from a language to another)
-9285	hera	noun	ivy (plant)
+9285	hera	noun	ivy (the climbing plant); also Hera, the Greek goddess of marriage
 9286	servirá	verb	third-person singular future indicative of servir
 9287	atenda	verb	first/third-person singular present subjunctive
 9288	significou	verb	third-person singular preterite indicative of significar
@@ -9355,7 +9355,7 @@ rank	word	pos	en
 9354	führer	noun	Führer (leader exercising the powers of a tyrant)
 9355	chamavam	verb	third-person plural imperfect indicative of chamar
 9356	anita	noun	annite (phyllosilicate mineral related to biotite)
-9357	arquitecto	noun	pre-reform spelling
+9357	arquitecto	noun	architect (pre-Acordo European spelling of arquiteto)
 9358	subúrbios	noun	plural of subúrbio
 9359	tartarugas	noun	plural of tartaruga
 9360	educada	adj	feminine singular of educado
@@ -9395,7 +9395,7 @@ rank	word	pos	en
 9394	deitou	verb	third-person singular preterite indicative of deitar
 9395	imposto	adj	imposed
 9396	citação	noun	citation, quote
-9397	afecto	noun	pre-reform spelling
+9397	afecto	noun	affection, fondness (pre-Acordo European spelling of afeto)
 9398	aprendiz	noun	apprentice (a trainee, especially in a skilled trade)
 9399	físicos	adj	masculine plural of físico
 9400	cargas	noun	plural of carga
@@ -9952,7 +9952,7 @@ rank	word	pos	en
 9951	angus	noun	Aberdeen Angus
 9952	disserem	verb	third-person plural future subjunctive of dizer
 9953	cafés	noun	plural of café
-9954	lha	contraction	feminine singular of lho:
+9954	lha	contraction	it, her — to him, to her, to you (contraction of lhe + a)
 9955	gostares	verb	second-person singular future subjunctive
 9956	automaticamente	adv	automatically (in an automatic manner)
 9957	mova	verb	first/third-person singular present subjunctive

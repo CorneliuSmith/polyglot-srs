@@ -53,7 +53,7 @@ rank	word	pos	en
 52	so	verb	I know (a fact); I know how to: so nuotare 'I can swim'
 53	quando	adv	when
 54	sì	adv	yes (credo di sì 'I think so'; dire di sì 'to say yes') — the unaccented si is the reflexive pronoun, a different word
-55	ora	noun	hour; time (of day); hour
+55	ora	noun	hour; time (of day)
 56	lei	pron	she; her
 57	gli	article	form of the article i
 58	ne	pron	of it, of them, about it (partitive): ne ho una 'I have one of them', non ne so nulla 'I know nothing about it'; from there, away: me ne vado 'I'm off'
@@ -71,7 +71,7 @@ rank	word	pos	en
 70	stato	verb	been (past participle of essere): sono stato a Roma 'I have been to Rome'; stayed (past participle of stare); also a noun: state, country, condition
 71	abbiamo	verb	first-person plural present indicative/subjunctive
 72	tutti	pron	all; everybody, everyone
-73	dei	noun	plural of dio
+73	dei	noun	contraction of di + i; of the, from the
 74	grazie	intj	thank you, thanks!
 75	chi	pron	who, whom; whoever
 76	sta	verb	third-person singular present indicative of stare
@@ -788,7 +788,7 @@ rank	word	pos	en
 787	circa	prep	regarding, concerning
 788	ovviamente	adv	obviously, evidently, clearly
 789	finire	verb	to finish; to end up
-790	natale	adj	native (of one's birth)
+790	natale	adj	Christmas; native, of one's birth
 791	i'	pron	apocopic form of io
 792	direi	verb	first-person singular conditional of dire
 793	vostri	det	masculine plural of vostro
@@ -815,7 +815,7 @@ rank	word	pos	en
 814	mese	noun	month
 815	chiedere	verb	to ask (for); to ask, request
 816	cristo	noun	Christ (Jesus Christ)
-817	torno	noun	lathe
+817	torno	noun	I return, I come back (first-person singular present indicative of tornare)
 818	pero	noun	pear tree
 819	venite	verb	second-person plural present indicative
 820	controllare	verb	to check, verify, inspect, examine
@@ -1937,7 +1937,7 @@ rank	word	pos	en
 1936	fece	verb	third-person singular past historic of fare
 1937	ascoltate	verb	second-person plural present indicative
 1938	distanza	noun	distance, interval
-1939	alice	noun	anchovy
+1939	alice	noun	a female given name, equivalent to English Alice; anchovy
 1940	maledetto	verb	past participle of maledire
 1941	chiamarmi	verb	compound of the infinitive chiamare with mi
 1942	magnifico	adj	magnificent; marvellous, wonderful
@@ -1983,7 +1983,7 @@ rank	word	pos	en
 1982	vicina	noun	female equivalent of vicino
 1983	coinvolto	verb	past participle of coinvolgere
 1984	immagini	noun	plural of immagine
-1985	figo	adj	fig (fresh fruit and tree)
+1985	figo	adj	cool, great
 1986	grossa	adj	big, large; fat (feminine singular of grosso): è quella grossa 'it's the big one', sono più grossa di te 'I'm bigger than you'; as a noun (f.) a gross, twelve dozen
 1987	umana	adj	feminine singular of umano
 1988	amiche	adj	feminine plural of amico
@@ -2121,7 +2121,7 @@ rank	word	pos	en
 2120	bell'	adj	apocopic form of bella
 2121	francia	name	France (a country located primarily in Western Europe)
 2122	ossa	noun	plural of osso
-2123	roma	noun	a type of rice
+2123	roma	noun	Rome (a metropolitan city of Lazio, Italy)
 2124	carico	adj	loaded, laden; loaded (of a gun, etc.)
 2125	fastidio	noun	trouble, bother, nuisance
 2126	lisa	adj	feminine singular of liso
@@ -3180,7 +3180,7 @@ rank	word	pos	en
 3179	miele	noun	honey; sweetness
 3180	romantico	adj	romantic, sentimental, emotional
 3181	fregato	adj	swindled, taken in, ripped off
-3182	marco	noun	mark (money)
+3182	marco	noun	a male given name from Latin, equivalent to English Mark
 3183	texas	name	Texas (a state in the south-central region of the United States)
 3184	conferenza	noun	conference; lecture
 3185	straordinario	adj	extraordinary
@@ -3273,7 +3273,7 @@ rank	word	pos	en
 3272	registrato	adj	recorded, registered, logged
 3273	assicurarmi	verb	compound of the infinitive assicurare with mi
 3274	cittadini	noun	plural of cittadino
-3275	africa	adj	feminine singular of africo
+3275	africa	adj	Africa (the continent south of Europe and between the Atlantic and Indian Oceans)
 3276	potenza	noun	power, strength, force, authority
 3277	costo	noun	cost; expense
 3278	onesta	adj	feminine singular of onesto
@@ -3340,7 +3340,7 @@ rank	word	pos	en
 3339	troverò	verb	first-person singular future of trovare
 3340	appassiona	verb	third-person singular present indicative
 3341	vedevo	verb	first-person singular imperfect indicative of vedere
-3342	virginia	noun	Virginia tobacco
+3342	virginia	noun	Virginia (a state of the United States)
 3343	passiamo	verb	first-person plural present indicative/subjunctive
 3344	pessimo	adj	very bad, awful, foul, dreadful
 3345	credeva	verb	third-person singular imperfect indicative of credere
@@ -3453,7 +3453,7 @@ rank	word	pos	en
 3452	italia	name	Italy (a country in Southern Europe)
 3453	foste	verb	second-person plural past historic
 3454	piangendo	verb	gerund of piangere
-3455	notare	verb	swim
+3455	notare	verb	to notice; note
 3456	indossa	verb	third-person singular present indicative
 3457	vampiri	noun	plural of vampiro
 3458	giapponese	adj	Japanese (of, from or relating to Japan)
@@ -4761,7 +4761,7 @@ rank	word	pos	en
 4760	preda	noun	prey
 4761	mancava	verb	third-person singular imperfect indicative of mancare
 4762	petrolio	noun	petroleum, (with the same meaning) oil
-4763	valentino	noun	boyfriend, fiancé
+4763	valentino	noun	a male given name, feminine equivalent Valentina, equivalent to English Valentine
 4764	chiappe	noun	plural of chiappa
 4765	chiude	verb	third-person singular present indicative of chiudere
 4766	rissa	noun	a fight, scuffle or brawl
@@ -5160,7 +5160,7 @@ rank	word	pos	en
 5159	comanda	noun	order (a request for some product or service)
 5160	gusti	verb	second-person singular present indicative
 5161	fermate	noun	plural of fermata
-5162	r	article	dialectal form of el, whence modern il
+5162	r	article	The sixteenth letter of the Italian alphabet, called erre and written in the Latin script.
 5163	novembre	noun	November
 5164	amministratore	noun	administrator, manager
 5165	segua	verb	first/second/third-person singular present subjunctive
@@ -5292,7 +5292,7 @@ rank	word	pos	en
 5291	fermarci	verb	compound of the infinitive fermare with ci
 5292	oscurità	noun	darkness; gloominess
 5293	grassa	adj	feminine singular of grasso
-5294	ned	conj	nor; neither … nor
+5294	ned	conj	nor; neither … nor (form of né used before a vowel)
 5295	temevo	verb	first-person singular imperfect indicative of temere
 5296	vivente	verb	present participle of vivere
 5297	recita	noun	performance; recital
@@ -5346,7 +5346,7 @@ rank	word	pos	en
 5345	morì	verb	third-person singular past historic of morire
 5346	salvezza	noun	salvation
 5347	programmato	verb	past participle of programmare
-5348	sun	conj	up, upstairs
+5348	sun	conj	up, upstairs (form of su used before a vowel)
 5349	satellite	noun	satellite
 5350	marzo	noun	March (the month)
 5351	uffici	noun	plural of ufficio
@@ -5625,7 +5625,7 @@ rank	word	pos	en
 5624	mento	noun	chin, mentum
 5625	istruzione	noun	education, schooling
 5626	paolo	name	Paul (biblical character)
-5627	sofia	noun	wisdom; science
+5627	sofia	noun	a female given name, equivalent to English Sophia
 5628	avvelenato	verb	past participle of avvelenare
 5629	gentilmente	adv	kindly, courteously
 5630	successivo	adj	following, next, subsequent
@@ -6016,7 +6016,7 @@ rank	word	pos	en
 6015	iniziate	adj	feminine plural of iniziato
 6016	avvenuto	verb	past participle of avvenire
 6017	perdonato	verb	past participle of perdonare
-6018	sandra	noun	zander
+6018	sandra	noun	a female given name
 6019	demonio	noun	demon, devil
 6020	asciugamano	noun	hand towel
 6021	meritano	verb	third-person plural present indicative of meritare
@@ -6285,7 +6285,7 @@ rank	word	pos	en
 6284	settimo	adj	seventh
 6285	inserito	adj	inserted
 6286	venute	adj	feminine plural of venuto
-6287	scozia	noun	scotia (type of molding)
+6287	scozia	noun	Scotland (a constituent country of the United Kingdom)
 6288	teso	adj	taut, tight, tense, stretched
 6289	ripeti	verb	second-person singular present indicative
 6290	italiani	adj	masculine plural of italiano
@@ -6564,7 +6564,7 @@ rank	word	pos	en
 6563	lite	noun	a quarrel, row, altercation, fight
 6564	furba	adj	feminine singular of furbo
 6565	ometto	noun	a small or short person (male)
-6566	svizzera	noun	hamburger
+6566	svizzera	noun	Switzerland (a country in Western Europe and Central Europe)
 6567	riuniti	verb	masculine plural of riunito
 6568	muso	noun	muzzle (of an animal)
 6569	approvato	verb	past participle of approvare
@@ -6627,7 +6627,7 @@ rank	word	pos	en
 6626	iscritto	adj	enrolled; registered, entered
 6627	sottomarino	adj	submarine, underwater
 6628	umile	adj	humble
-6629	cuba	adj	feminine singular of cubo
+6629	cuba	adj	Cuba (a country, the largest island (based on land area) in the Caribbean)
 6630	vescovo	noun	bishop (clergyman)
 6631	stufato	verb	past participle of stufare
 6632	fottutamente	adv	an intensifier
@@ -6930,7 +6930,7 @@ rank	word	pos	en
 6929	completare	verb	to finish, complete, conclude
 6930	interruzione	noun	interruption, breakdown, stoppage, cut
 6931	crescono	verb	third-person plural present indicative of crescere
-6932	conclusioni	noun	opinion
+6932	conclusioni	noun	conclusions (plural of conclusione)
 6933	sposarlo	verb	compound of the infinitive sposare with lo
 6934	arancia	noun	orange (fruit)
 6935	coppa	noun	goblet; bowl
@@ -7122,7 +7122,7 @@ rank	word	pos	en
 7121	tubi	noun	plural of tubo
 7122	ripulito	verb	past participle of ripulire
 7123	preparazione	noun	preparation; qualification, background, knowledge, grounding
-7124	brasile	noun	brazilwood
+7124	brasile	noun	Brazil (a large Portuguese-speaking country in South America)
 7125	chiameremo	verb	first-person plural future of chiamare
 7126	colpiti	verb	masculine plural of colpito
 7127	difetti	noun	plural of difetto
@@ -7260,7 +7260,7 @@ rank	word	pos	en
 7259	vega	name	Vega
 7260	brindiamo	verb	first-person plural present indicative/subjunctive
 7261	correttamente	adv	correctly
-7262	nuoto	noun	swimming
+7262	nuoto	noun	swimming (the sport); I swim (first-person singular present indicative of nuotare)
 7263	spiritoso	adj	witty; funny
 7264	merci	noun	plural of merce
 7265	deputato	adj	appointed, fixed
@@ -7318,7 +7318,7 @@ rank	word	pos	en
 7317	viaggia	verb	third-person singular present indicative
 7318	difetto	noun	defect, fault, blemish, flaw
 7319	contabile	adj	book-keeping
-7320	roberto	name	a male given name from Proto-Germanic
+7320	roberto	name	a male given name from Proto-Germanic, feminine equivalent Roberta, equivalent to English Robert
 7321	navetta	noun	shuttle (all senses)
 7322	dolcetto	noun	dolcetto (grape and wine from Piedmont)
 7323	arrivò	verb	third-person singular past historic of arrivare
@@ -8008,7 +8008,7 @@ rank	word	pos	en
 8007	pollici	noun	plural of pollice
 8008	beccata	noun	peck
 8009	vaga	adj	feminine singular of vago
-8010	giorgio	name	a male given name from Ancient Greek
+8010	giorgio	name	a male given name from Ancient Greek, feminine equivalent Giorgia, equivalent to English George
 8011	idraulico	adj	hydraulic
 8012	procedure	noun	plural of procedura
 8013	toni	noun	plural of tono
@@ -8105,7 +8105,7 @@ rank	word	pos	en
 8104	vetri	noun	plural of vetro
 8105	stupidaggine	noun	stupidity, foolishness
 8106	maturo	adj	ripe, mature
-8107	celia	noun	joke
+8107	celia	noun	a female given name; joke
 8108	scoperte	noun	plural of scoperta
 8109	chiare	adj	feminine plural of chiaro
 8110	presentarsi	verb	to present oneself, show oneself, appear, face, arrive
@@ -8333,7 +8333,7 @@ rank	word	pos	en
 8332	chiederei	verb	first-person singular conditional of chiedere
 8333	permettete	verb	second-person plural present indicative
 8334	coprifuoco	noun	curfew (regulation requiring people to be at home)
-8335	bretagna	noun	synonym of giacinto
+8335	bretagna	noun	Brittany (a cultural region, historical province, and peninsula in northwest France)
 8336	marcire	verb	to rot, to fester, to go bad
 8337	consiste	verb	third-person singular present indicative of consistere
 8338	inventare	verb	to invent; to fabricate, make up
@@ -8521,7 +8521,7 @@ rank	word	pos	en
 8520	ombrello	noun	umbrella
 8521	occupazione	noun	occupation (the act of occupying and the state of being occupied)
 8522	domestico	adj	home, family, household; domestic
-8523	francesca	noun	francisca (throwing axe)
+8523	francesca	noun	a female given name from Latin, equivalent to English Frances
 8524	box	noun	horsebox; garage, lock-up
 8525	mostrando	verb	gerund of mostrare
 8526	nodo	noun	knot, gnarl; bond, tie
@@ -8660,7 +8660,7 @@ rank	word	pos	en
 8659	sbrighiamoci	verb	first-person plural imperative of sbrigarsi
 8660	scendiamo	verb	first-person plural present indicative/subjunctive
 8661	annunciato	verb	past participle of annunciare
-8662	venere	noun	a beautiful woman
+8662	venere	noun	Venus (planet); Venus (Roman goddess)
 8663	nasconderlo	verb	compound of the infinitive nascondere with lo
 8664	mozione	noun	motion (for debate)
 8665	eco	noun	echo; echoing sound
@@ -8768,7 +8768,7 @@ rank	word	pos	en
 8767	macello	noun	slaughterhouse, abattoir
 8768	rispondono	verb	third-person plural present indicative of rispondere
 8769	trasmesso	verb	past participle of trasmettere
-8770	giacomo	noun	only used in fare giacomo giacomo
+8770	giacomo	noun	a male given name from Hebrew, equivalent to English James or Jacob
 8771	urina	noun	urine
 8772	piacermi	verb	compound of the infinitive piacere with mi
 8773	indicato	verb	past participle of indicare
@@ -8792,7 +8792,7 @@ rank	word	pos	en
 8791	cotone	noun	cotton; cotton wool
 8792	grandissimo	adj	superlative degree of grande; very large, tall, high, wide, deep, great
 8793	adorava	verb	third-person singular imperfect indicative of adorare
-8794	cassandra	noun	storm petrel
+8794	cassandra	noun	Cassandra; a female given name
 8795	trasmettere	verb	to transmit, transfer, pass on, hand down, convey, communicate
 8796	interiore	adj	internal, interior
 8797	rabbino	noun	rabbi
@@ -9028,7 +9028,7 @@ rank	word	pos	en
 9027	chimiche	adj	feminine plural of chimico
 9028	tantissimi	adj	masculine plural of tantissimo
 9029	arcobaleno	noun	rainbow; a group of many colors or differently colored things
-9030	matteo	adj	mad, crazy
+9030	matteo	adj	a male given name from Hebrew, equivalent to English Matthew
 9031	trattarsi	verb	to be a matter of, be a question of, to be
 9032	trama	noun	plot; weave, texture, weft
 9033	ricomincia	verb	third-person singular present indicative
@@ -9740,7 +9740,7 @@ rank	word	pos	en
 9739	esaurimento	noun	exhaustion
 9740	zoccola	noun	sewer rat; whore, slut
 9741	astinenza	noun	abstinence; withdrawal, cold turkey (from a drug)
-9742	marchi	noun	plural of marchio
+9742	marchi	noun	brands, marks (plural of marchio); also a surname
 9743	assaggiato	verb	past participle of assaggiare
 9744	sposerai	verb	second-person singular future of sposare
 9745	testare	verb	to be testate (to leave a will)
@@ -9759,7 +9759,7 @@ rank	word	pos	en
 9758	convince	verb	third-person singular present indicative of convincere
 9759	pannolino	noun	nappy, diaper; sanitary towel, sanitary napkin, pad
 9760	mississippi	name	Mississippi, Mississippi River
-9761	sissignora	adv	when replying to a woman
+9761	sissignora	adv	alternative form of sissignore (“when replying to a woman”)
 9762	incasinata	verb	feminine singular of incasinato
 9763	occuparmene	verb	compound of occuparmi, the first-person singular infinitive of occuparsi, with ne
 9764	buste	noun	plural of busta
@@ -9810,7 +9810,7 @@ rank	word	pos	en
 9809	superata	adj	feminine singular of superato
 9810	diamogli	verb	compound of diamo, the first-person plural imperative form of dare, with gli
 9811	vociare	verb	to speak too loudly, often rudely
-9812	montana	adj	feminine singular of montano
+9812	montana	adj	Montana (a state in the Mountain West region of the United States, formerly a territory)
 9813	stereo	adj	stereo, stereophonic
 9814	alcolizzato	verb	past participle of alcolizzare
 9815	illuminazione	noun	lighting, illumination, light

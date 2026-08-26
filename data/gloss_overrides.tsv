@@ -371,7 +371,7 @@ nl	ze	pron	she; they; them (everyday unstressed form; zij/hen when stressed)
 pt	a	article	the (feminine singular); to, at — also estar a + verb (is doing); her, it
 pt	as	article	the (feminine plural); them (object)
 pt	como	adv	how; like, as (comparison); I eat (from comer)
-pt	da	prep	of the, from the (de + a); also gives (dar)
+pt	da	prep	of the, from the (de + a, feminine singular)
 pt	e	conj	and (joining words, phrases, or clauses)
 pt	ela	pron	she; it; her (after a preposition: com ela, para ela)
 pt	ele	pron	he; it; him (after a preposition: com ele, para ele)
@@ -2245,3 +2245,188 @@ yo	aapọn	noun	the fruit of the tree Irvingia gabonensis, whose seeds are ogbon
 yo	ọyan	noun	breast; Oyan (a river and a town in Nigeria)
 yo	ogurọ	noun	any raffia palm (Raphia vinifera, R. farinifera, R. hookeri, R. sudanica); the palm wine made from it
 yo	kunle	name	a male given name meaning “(one that) fills the house”, short for longer names such as Adékúnlé and Ọlákúnlé
+es	ellas	pron	they, them (used subjectively and after prepositions; can refer to women and feminine nouns)
+es	vigilancia	noun	vigilance, watchfulness (the state or quality of being watchful; alertness, vigilance or wakefulness); surveillance, security (close observation of an individual or group; person or persons under suspicion)
+es	áfrica	adj	Africa (the continent south of Europe and between the Atlantic and Indian Oceans)
+es	japón	adj	Japan (a country in East Asia)
+es	miguel	pron	a male given name from Hebrew, equivalent to English Michael
+es	misterioso	adj	mysterious; eerie (e.g. an eerie place, an eerie air or glow, eerie music)
+es	brasil	noun	Brazil (a large Portuguese-speaking country in South America)
+es	claudia	noun	a female given name from Latin, equivalent to English Claudia
+es	carmen	noun	a female given name transferred from the place name, traditionally popular in Spain
+es	suiza	noun	Switzerland (a country in Western Europe and Central Europe)
+es	cuba	noun	Cuba (a country, the largest island (based on land area) in the Caribbean)
+es	mercedes	noun	a female given name, equivalent to English Mercy (Mary, Our Lady of Mercy)
+es	grey	noun	flock, herd; flock (people served by a pastor, priest, etc., also all believers in a church or religion)
+es	bárbara	noun	a female given name from Latin [in turn from Ancient Greek], equivalent to English Barbara
+es	chad	noun	Chad (a country in Central Africa)
+es	jorge	noun	a male given name from Ancient Greek, equivalent to English George
+es	catalina	noun	a female given name, equivalent to English Catherine
+es	arturo	adj	a male given name, equivalent to English Arthur
+es	quito	adj	Quito (the capital city of Ecuador)
+es	napoleón	noun	a male given name from French, equivalent to English Napoleon
+es	cristina	noun	a female given name, equivalent to English Christina
+es	mateo	adj	Matthew, the apostle
+es	indiana	noun	Indiana (a state of the United States)
+es	mismo	adj	same; also -self, oneself, used for emphasis (yo mismo, I myself)
+es	vino	noun	wine; also he/she/it came (preterite of venir)
+es	viste	intj	you saw (preterite of ver); ¿viste? — you know?, right? (colloquial)
+es	navidad	noun	Christmas; the Nativity, the birth of Jesus
+es	adam	name	Adam, the biblical figure (archaic form of Adán)
+es	m	pron	abbreviation of me (“me, myself”)
+es	d	prep	abbreviation of de (“of, from”)
+es	clara	noun	the white of an egg; also Clara, a female given name
+es	hecha	noun	made, done (feminine of hecho, past participle of hacer)
+es	apuesta	noun	bet, wager; also he/she bets (from apostar)
+es	compañera	noun	companion, fellow; colleague; comrade (the female form of compañero)
+es	caray	intj	wow!, good heavens!, crikey! (surprise); heck!, darn!, geez! (annoyance)
+es	diana	noun	bullseye, the centre of a target; also Diana, a female given name
+es	dolores	noun	pains, aches (plural of dolor); also Dolores, a female given name
+es	gigantes	adj	giants (plural of gigante)
+es	talvez	adv	maybe, perhaps (a spelling of tal vez)
+es	escrita	noun	written (feminine of escrito, past participle of escribir)
+es	k	conj	abbreviation of que (“that”)
+es	colorado	adj	red; also Colorado, a state in the western United States
+es	champaña	noun	champagne
+es	conclusiones	noun	conclusions (plural of conclusión)
+es	pésimo	adj	terrible, awful, dreadful (the superlative of malo)
+es	nevada	noun	snowfall, snowstorm; also Nevada, a state in the western United States
+es	rezo	noun	prayer; also I pray (from rezar)
+es	chile	noun	Chile, a country in South America; also (Mexico) a chili pepper
+es	brindar	verb	to toast, drink a toast; also to offer, provide
+es	tito	noun	uncle (childish, for tío); also Tito, Titus
+fr	lui	pron	him, her; the third-person singular personal pronoun used as an indirect object
+fr	paris	noun	Paris (the capital and largest city of France)
+fr	robert	noun	a male given name, feminine equivalent Roberte, equivalent to English Robert
+fr	catherine	noun	a female given name, equivalent to English Catherine
+fr	diane	noun	Diana; a female given name
+fr	louise	noun	a female given name, masculine equivalent Louis
+fr	christian	name	a male given name, feminine equivalent Christiane, Christine, or Christelle, equivalent to English Christian
+fr	marcel	name	a male given name, equivalent to English Marcel, traditionally popular in France, borne by a 3rd century saint
+fr	brésil	noun	Brazil (a large Portuguese-speaking country in South America)
+fr	isabelle	adj	a female given name
+fr	zoé	noun	a female given name, equivalent to English Zoë
+fr	béguin	noun	a type of headwear once popular with Beguines, similar to a bonnet
+fr	julien	adj	a male given name, equivalent to English Julian
+fr	picard	noun	Picard (language)
+fr	stéphanie	name	a female given name, masculine equivalent Stéphane [=Stephen], equivalent to English Stephanie
+fr	soeur	noun	sister; nun (f.) — nonstandard spelling of sœur
+fr	crime	noun	crime, serious offence (m.) — in French law the most severe category of offence, carrying ten years' imprisonment or more
+fr	n	noun	abbreviation of nord; north
+fr	liberté	noun	liberty, freedom (f.)
+fr	amérique	name	America, the Americas (the continent); also America, the United States
+fr	parole	noun	spoken word, utterance; speech (f.)
+fr	rivière	noun	a river (f.) — one flowing into a lake or a larger river, not into the sea
+fr	chouette	noun	(informal) great, nice, cool; (as a noun, f.) owl
+fr	big	noun	IG — abbreviation of bureau de l'inspecteur général, the Inspector General's Office
+fr	charlotte	noun	Charlotte (a female given name, feminine of Charles); also a charlotte, a moulded dessert
+fr	poissons	noun	fish (plural of poisson); Pisces (the zodiac sign)
+fr	petit-déjeuner	noun	breakfast (m.) — also written petit déjeuner
+fr	oeufs	noun	eggs — plural of œuf, spelled here without the ligature
+fr	attaché	adj	attached — past participle of attacher; (as a noun, m.) an attaché, a civil servant in a government department
+fr	soeurs	noun	sisters — plural of sœur, spelled here without the ligature
+fr	personnalité	noun	personality, character (f.); also a public figure, a celebrity
+fr	nan	adv	nah, nope (informal form of non)
+fr	jules	noun	Jules (a male given name, equivalent to English Julius); (informal) boyfriend
+fr	sieste	noun	siesta, afternoon nap (f.)
+fr	voeux	noun	wishes, vows — plural of vœu, spelled here without the ligature
+fr	coeurs	noun	hearts — plural of cœur, spelled here without the ligature
+fr	voeu	noun	vow; wish (m.) — nonstandard spelling of vœu
+fr	cv	noun	CV, curriculum vitae; also horsepower (cheval-vapeur, cheval fiscal)
+fr	suède	noun	Sweden (the country); lowercase le suède, suede (the leather)
+fr	cantine	noun	canteen, cafeteria (f.) — in a school, workplace, or barracks
+fr	moïse	noun	Moses (the biblical figure); also un moïse, a Moses basket
+fr	carnaval	noun	carnival (m.) — the festivities before Lent, with masked parades and balls
+it	dei	noun	contraction of di + i; of the, from the
+it	roma	noun	Rome (a metropolitan city of Lazio, Italy)
+it	marco	noun	a male given name from Latin, equivalent to English Mark
+it	africa	adj	Africa (the continent south of Europe and between the Atlantic and Indian Oceans)
+it	virginia	noun	Virginia (a state of the United States)
+it	notare	verb	to notice; note
+it	valentino	noun	a male given name, feminine equivalent Valentina, equivalent to English Valentine
+it	r	article	The sixteenth letter of the Italian alphabet, called erre and written in the Latin script.
+it	sofia	noun	a female given name, equivalent to English Sophia
+it	sandra	noun	a female given name
+it	scozia	noun	Scotland (a constituent country of the United Kingdom)
+it	svizzera	noun	Switzerland (a country in Western Europe and Central Europe)
+it	cuba	adj	Cuba (a country, the largest island (based on land area) in the Caribbean)
+it	brasile	noun	Brazil (a large Portuguese-speaking country in South America)
+it	roberto	name	a male given name from Proto-Germanic, feminine equivalent Roberta, equivalent to English Robert
+it	giorgio	name	a male given name from Ancient Greek, feminine equivalent Giorgia, equivalent to English George
+it	bretagna	noun	Brittany (a cultural region, historical province, and peninsula in northwest France)
+it	francesca	noun	a female given name from Latin, equivalent to English Frances
+it	venere	noun	Venus (planet); Venus (Roman goddess)
+it	giacomo	noun	a male given name from Hebrew, equivalent to English James or Jacob
+it	cassandra	noun	Cassandra; a female given name
+it	matteo	adj	a male given name from Hebrew, equivalent to English Matthew
+it	sissignora	adv	alternative form of sissignore (“when replying to a woman”)
+it	montana	adj	Montana (a state in the Mountain West region of the United States, formerly a territory)
+it	ora	noun	hour; time (of day)
+it	natale	adj	Christmas; native, of one's birth
+it	torno	noun	I return, I come back (first-person singular present indicative of tornare)
+it	alice	noun	a female given name, equivalent to English Alice; anchovy
+it	figo	adj	cool, great
+it	ned	conj	nor; neither … nor (form of né used before a vowel)
+it	sun	conj	up, upstairs (form of su used before a vowel)
+it	conclusioni	noun	conclusions (plural of conclusione)
+it	nuoto	noun	swimming (the sport); I swim (first-person singular present indicative of nuotare)
+it	celia	noun	a female given name; joke
+it	marchi	noun	brands, marks (plural of marchio); also a surname
+pt	charles	noun	a male given name
+pt	roma	adj	Rome (a metropolitan city of Lazio, Italy)
+pt	victoria	noun	a female given name from Latin, masculine equivalent Victor, equivalent to English Victoria
+pt	l	character	The twelfth letter of the Portuguese alphabet, written in the Latin script.
+pt	colorado	adj	Colorado (a state in the western United States, the 38th state)
+pt	sofia	noun	a female given name, equivalent to English Sophie or Sophia
+pt	montana	adj	Montana (a state in the Mountain West region of the United States, formerly a territory)
+pt	marcos	noun	a male given name from Latin, equivalent to English Mark
+pt	vaticano	adj	Vatican City (a city-state in Southern Europe, an enclave within the city of Rome, Italy)
+pt	na	pron	in the (em + a, feminine singular)
+pt	nas	pron	in the (em + as, feminine plural)
+pt	ali	adv	there (away from both the speaker and the listener)
+pt	h	noun	abbreviation of hora (hour)
+pt	la	pron	her, it — form of a used attached after a verb ending in -r, -s or -z (comprá-la = to buy it)
+pt	projecto	noun	project (pre-Acordo European spelling of projeto)
+pt	vitória	noun	victory; also Vitória, a female given name (English Victoria)
+pt	los	pron	them (masculine) — form of os used attached after a verb ending in -r, -s or -z (comprá-los = to buy them)
+pt	eh	verb	is (alternative spelling of é)
+pt	las	pron	them (feminine) — form of as used attached after a verb ending in -r, -s or -z (comprá-las = to buy them)
+pt	cobarde	adj	cowardly (European spelling of covarde)
+pt	testamento	noun	will (a legal document); testament (either of the two parts of the Bible)
+pt	objecto	noun	object (pre-Acordo European spelling of objeto)
+pt	oscar	noun	Oscar (the Academy Award); also a male given name
+pt	câmera	noun	camera (feminine); cameraperson, camera operator (masculine)
+pt	activo	noun	active (pre-Acordo European spelling of ativo)
+pt	chef	noun	chef, head cook (of a restaurant)
+pt	jacto	noun	jet (pre-Acordo European spelling of jato)
+pt	lo	pron	him, it — form of o used attached after a verb ending in -r, -s or -z (fazê-lo = to do it)
+pt	jóia	noun	jewel, gem (pre-Acordo spelling of joia)
+pt	q	pron	abbreviation of que (that, what)
+pt	marta	noun	Marta, a female given name (English Martha); also marten (the animal)
+pt	lanche	noun	snack; a light afternoon meal
+pt	aquário	noun	aquarium; also Aquarius (the constellation)
+pt	hera	noun	ivy (the climbing plant); also Hera, the Greek goddess of marriage
+pt	arquitecto	noun	architect (pre-Acordo European spelling of arquiteto)
+pt	afecto	noun	affection, fondness (pre-Acordo European spelling of afeto)
+pt	lha	contraction	it, her — to him, to her, to you (contraction of lhe + a)
+ro	stan	noun	a male given name
+ro	marte	noun	Mars (planet)
+ro	panama	noun	Panama (a country in Central America)
+ro	grosolan	adj	roughly; coarsely; in an unrefined manner
+ro	ludovic	noun	a male given name from Latin
+ro	naiba	noun	devil, deuce (chiefly in exclamations: la naiba! “damn!”, unde naiba “where the hell”)
+ro	alegeri	noun	elections; choices (indefinite plural of alegere, f. “choice, election”)
+ro	gemeni	noun	twins (plural of geamăn “twin”)
+ro	defapt	adv	in fact, actually (nonstandard spelling of de fapt)
+ro	gratie	noun	bar on a window or door; (in the plural) grating, grille
+ro	luptători	noun	fighters (plural of luptător “fighter”)
+ro	nisa	name	Nice (city in southern France)
+ro	dap	intj	yep, yup (informal form of da “yes”)
+ro	leah	noun	Pole (an old ethnonym, also used as a surname)
+ro	italieni	noun	Italians (plural of italian)
+ro	datori	verb	indebted, owing (masculine plural of dator “indebted”)
+ro	câmpuri	noun	fields (plural of câmp, n. “field”)
+ro	pescari	noun	fishermen (plural of pescar “fisherman”)
+ro	domenii	noun	fields, domains (plural of domeniu “field, domain”)
+ro	boboci	noun	buds; ducklings (plural of boboc)
+ro	săteni	noun	villagers (plural of sătean “villager”)

@@ -147,7 +147,7 @@ rank	word	pos	en
 146	sea	verb	first/third-person singular present subjunctive
 147	padre	noun	father
 148	mira	noun	target; purpose, object
-149	mismo	adj	same; similar
+149	mismo	adj	same; also -self, oneself, used for emphasis (yo mismo, I myself)
 150	dijo	verb	third-person singular preterite indicative of decir
 151	nadie	pron	no one; nobody (anyone or anybody)
 152	quiere	verb	third-person singular present indicative
@@ -486,7 +486,7 @@ rank	word	pos	en
 485	conozco	verb	first-person singular present indicative of conocer
 486	fácil	adj	easy, facile, simple (requiring little effort)
 487	comer	verb	to eat; to have lunch
-488	vino	noun	wine
+488	vino	noun	wine; also he/she/it came (preterite of venir)
 489	lista	noun	list, roll; ready, clever - feminine of listo (ya estoy lista, I'm ready); stripe
 490	haga	verb	first/third-person singular present subjunctive
 491	necesitas	verb	second-person singular present indicative of necesitar
@@ -779,7 +779,7 @@ rank	word	pos	en
 778	quiera	verb	first/third-person singular present subjunctive
 779	pelo	noun	hair (a single hair)
 780	tenías	verb	second-person singular imperfect indicative of tener
-781	viste	intj	you know
+781	viste	intj	you saw (preterite of ver); ¿viste? — you know?, right? (colloquial)
 782	oficial	adj	official
 783	i	verb	second-person singular voseo imperative of ir
 784	llegó	verb	third-person singular preterite indicative of llegar
@@ -794,7 +794,7 @@ rank	word	pos	en
 793	sentir	verb	to feel; to regret, feel or be sorry
 794	través	noun	bend, turn
 795	accidente	noun	accident (unexpected event with negative consequences)
-796	ellas	pron	they, them
+796	ellas	pron	they, them (used subjectively and after prepositions; can refer to women and feminine nouns)
 797	caja	noun	box, case; bank
 798	tranquilo	adj	calm, peaceful, tranquil, quiet
 799	bonito	adj	pretty, cute; nice, lovely, sweet, fine, charming, great
@@ -908,7 +908,7 @@ rank	word	pos	en
 907	querías	verb	second-person singular imperfect indicative of querer
 908	ataque	noun	attack (an attempt to damage an opponent or enemy)
 909	das	verb	second-person singular present indicative
-910	navidad	noun	Christmas present
+910	navidad	noun	Christmas; the Nativity, the birth of Jesus
 911	negocios	noun	plural of negocio
 912	pudiera	verb	first/third-person singular imperfect subjunctive of poder
 913	ocho	num	eight (8)
@@ -1741,7 +1741,7 @@ rank	word	pos	en
 1740	dura	adj	feminine singular of duro
 1741	dará	verb	third-person singular future indicative of dar
 1742	seguros	adj	masculine plural of seguro
-1743	adam	name	biblical figure
+1743	adam	name	Adam, the biblical figure (archaic form of Adán)
 1744	ángeles	noun	plural of ángel (“angel”)
 1745	querría	verb	first/third-person singular conditional of querer
 1746	cerrar	verb	to close, to shut
@@ -1769,7 +1769,7 @@ rank	word	pos	en
 1768	demonio	noun	demon, devil
 1769	abierta	adj	open (feminine - la puerta está abierta, the door is open); unlocked, accessible; dejar la puerta abierta - to leave the door open
 1770	kevin	name	a male given name from English, equivalent to English Kevin
-1771	m	pron	abbreviation of me
+1771	m	pron	abbreviation of me (“me, myself”)
 1772	llámame	verb	second-person singular imperative of llamar combined with me
 1773	siguen	verb	third-person plural present indicative of seguir
 1774	romper	verb	to break; to break up, terminate (a relationship, friendship etc.)
@@ -1794,7 +1794,7 @@ rank	word	pos	en
 1793	dueño	noun	owner, proprietor, landlord
 1794	merece	verb	third-person singular present indicative
 1795	rayos	intj	dang it, goddammit, heck
-1796	d	prep	abbreviation of de
+1796	d	prep	abbreviation of de (“of, from”)
 1797	mintiendo	verb	gerund of mentir
 1798	tantas	det	feminine plural of tanto
 1799	imagino	verb	first-person singular present indicative of imaginar
@@ -2176,7 +2176,7 @@ rank	word	pos	en
 2175	muriendo	verb	gerund of morir
 2176	construir	verb	to build; to construct
 2177	conocen	verb	third-person plural present indicative of conocer
-2178	clara	noun	the white (of an egg)
+2178	clara	noun	the white of an egg; also Clara, a female given name
 2179	solución	noun	solution
 2180	mundial	adj	related to all the parts of the world; global
 2181	plato	noun	plate, dish (crockery)
@@ -2578,7 +2578,7 @@ rank	word	pos	en
 2577	salimos	verb	first-person plural present/preterite indicative of salir
 2578	revista	noun	magazine; revue
 2579	ma	noun	mum; mom
-2580	hecha	noun	date
+2580	hecha	noun	made, done (feminine of hecho, past participle of hacer)
 2581	imágenes	noun	plural of imagen
 2582	llegas	verb	second-person singular present indicative of llegar
 2583	rápida	adj	feminine singular of rápido
@@ -2592,7 +2592,7 @@ rank	word	pos	en
 2591	dejando	verb	gerund of dejar
 2592	estarías	verb	second-person singular conditional of estar
 2593	anteriormente	adv	previously
-2594	vigilancia	noun	vigilance, watchfulness
+2594	vigilancia	noun	vigilance, watchfulness (the state or quality of being watchful; alertness, vigilance or wakefulness); surveillance, security (close observation of an individual or group; person or persons under suspicion)
 2595	desierto	adj	desert; empty (of people)
 2596	asustada	adj	feminine singular of asustado
 2597	cuerda	adj	feminine singular of cuerdo
@@ -2626,7 +2626,7 @@ rank	word	pos	en
 2625	ruta	noun	highway; route
 2626	documentos	noun	plural of documento
 2627	enamorada	noun	female equivalent of enamorado
-2628	apuesta	noun	bet, wager
+2628	apuesta	noun	bet, wager; also he/she bets (from apostar)
 2629	perdida	adj	feminine singular of perdido
 2630	vinieron	verb	third-person plural preterite indicative of venir
 2631	ayudarnos	verb	infinitive of ayudar combined with nos
@@ -2981,7 +2981,7 @@ rank	word	pos	en
 2980	empezado	verb	past participle of empezar
 2981	fiebre	noun	fever
 2982	johnson	name	a surname from English
-2983	compañera	noun	female equivalent of compañero
+2983	compañera	noun	companion, fellow; colleague; comrade (the female form of compañero)
 2984	ayudarla	verb	infinitive of ayudar combined with la
 2985	desgraciado	adj	unfortunate
 2986	organización	noun	organization
@@ -3193,13 +3193,13 @@ rank	word	pos	en
 3192	aliento	noun	breath
 3193	placa	noun	plate; shield, sign
 3194	rata	noun	rat (medium-sized rodent belonging to the Rattus genus)
-3195	áfrica	adj	feminine singular of áfrico
+3195	áfrica	adj	Africa (the continent south of Europe and between the Atlantic and Indian Oceans)
 3196	entendí	verb	first-person singular preterite indicative of entender
 3197	metas	noun	plural of meta
 3198	cuadro	noun	square (a polygon with four straight sides of equal length and four right angles)
 3199	afortunado	adj	lucky, fortunate
 3200	puestos	adj	masculine plural of puesto
-3201	japón	adj	Japanese
+3201	japón	adj	Japan (a country in East Asia)
 3202	división	noun	division, divide
 3203	subtítulos	noun	plural of subtítulo
 3204	entradas	adj	feminine plural of entrado
@@ -3627,7 +3627,7 @@ rank	word	pos	en
 3626	discúlpame	verb	second-person singular imperative of disculpar combined with me
 3627	llevé	verb	first-person singular preterite indicative of llevar
 3628	prohibido	adj	forbidden; prohibited
-3629	caray	intj	crikey, wow, good heavens, golly, gosh, whoa, man, boy, blimey
+3629	caray	intj	wow!, good heavens!, crikey! (surprise); heck!, darn!, geez! (annoyance)
 3630	arruinar	verb	to ruin
 3631	masa	noun	dough; mass
 3632	existencia	noun	existence; stock; inventory
@@ -3871,7 +3871,7 @@ rank	word	pos	en
 3870	seguiré	verb	first-person singular future indicative of seguir
 3871	imaginé	verb	first-person singular preterite indicative of imaginar
 3872	detenerlo	verb	infinitive of detener combined with lo
-3873	diana	noun	bullseye (of an archery target)
+3873	diana	noun	bullseye, the centre of a target; also Diana, a female given name
 3874	pasaporte	noun	passport
 3875	infancia	noun	childhood (period of human development from birth until puberty)
 3876	suele	verb	first/third-person singular present subjunctive
@@ -4263,7 +4263,7 @@ rank	word	pos	en
 4262	pierdas	verb	second-person singular present subjunctive of perder
 4263	ponlo	verb	second-person singular imperative of poner combined with lo
 4264	gallina	noun	hen; chicken (coward)
-4265	miguel	pron	synonym of mí (me)
+4265	miguel	pron	a male given name from Hebrew, equivalent to English Michael
 4266	octubre	noun	October
 4267	sentirme	verb	infinitive of sentir combined with me
 4268	riesgos	noun	plural of riesgo
@@ -4746,7 +4746,7 @@ rank	word	pos	en
 4745	tristeza	noun	sadness, gloom, sorrow, gloominess, unhappiness, misery
 4746	miró	verb	third-person singular preterite indicative of mirar
 4747	pases	noun	plural of pase
-4748	dolores	noun	plural of dolor
+4748	dolores	noun	pains, aches (plural of dolor); also Dolores, a female given name
 4749	sigas	verb	second-person singular present subjunctive of seguir
 4750	doloroso	adj	painful
 4751	equivoqué	verb	first-person singular preterite indicative of equivocar
@@ -4843,7 +4843,7 @@ rank	word	pos	en
 4842	valores	noun	plural of valor
 4843	leslie	name	a female given name from English
 4844	ejecución	noun	execution (the act, manner, or style of executing actions)
-4845	misterioso	adj	mysterious; mystery
+4845	misterioso	adj	mysterious; eerie (e.g. an eerie place, an eerie air or glow, eerie music)
 4846	sándwich	noun	sandwich; a sandwich only made with sandwich bread
 4847	lobos	noun	plural of lobo
 4848	fortaleza	noun	fortress; fortitude
@@ -5265,7 +5265,7 @@ rank	word	pos	en
 5264	interrogatorio	noun	an interrogation; a questioning or inquiry
 5265	merecen	verb	third-person plural present indicative of merecer
 5266	bonitos	adj	masculine plural of bonito
-5267	brasil	noun	brazil, brazilwood
+5267	brasil	noun	Brazil (a large Portuguese-speaking country in South America)
 5268	asistencia	noun	attendance (the state of attending)
 5269	pagará	verb	third-person singular future indicative of pagar
 5270	novato	adj	newbie
@@ -5576,13 +5576,13 @@ rank	word	pos	en
 5575	multa	noun	fine (a fee levied as punishment for breaking the law)
 5576	anillos	noun	plural of anillo
 5577	quedara	verb	first/third-person singular imperfect subjunctive of quedar
-5578	claudia	noun	greengage
+5578	claudia	noun	a female given name from Latin, equivalent to English Claudia
 5579	hacerles	verb	infinitive of hacer combined with les
 5580	trabajador	adj	hard-working
 5581	acabaron	verb	third-person plural preterite indicative of acabar
 5582	quirófano	noun	operating room
 5583	aéreo	adj	aerial
-5584	carmen	noun	a type of house in Granada
+5584	carmen	noun	a female given name transferred from the place name, traditionally popular in Spain
 5585	misa	noun	mass (church)
 5586	riqueza	noun	wealth, affluence, richness
 5587	separado	adj	separated, apart
@@ -5614,7 +5614,7 @@ rank	word	pos	en
 5613	brigada	noun	team, squad (organized group)
 5614	diremos	verb	first-person plural future indicative of decir
 5615	perdonar	verb	to pardon, excuse, forgive
-5616	gigantes	adj	plural of gigante
+5616	gigantes	adj	giants (plural of gigante)
 5617	pila	noun	small battery; pile, stack, heap, mound
 5618	presentes	adj	plural of presente
 5619	bahía	noun	bay (geographical feature)
@@ -5696,7 +5696,7 @@ rank	word	pos	en
 5695	imbéciles	adj	plural of imbécil
 5696	mantenerse	verb	infinitive of mantener combined with se
 5697	alexander	name	a male given name
-5698	suiza	noun	female equivalent of suizo
+5698	suiza	noun	Switzerland (a country in Western Europe and Central Europe)
 5699	tapa	noun	lid, cap (the top or cover of a container)
 5700	votación	noun	voting, vote (act)
 5701	heredero	noun	heir
@@ -5967,7 +5967,7 @@ rank	word	pos	en
 5966	precios	noun	plural of precio
 5967	inevitable	adj	inevitable, inescapable, unavoidable (unable to be avoided)
 5968	pusimos	verb	first-person plural preterite indicative of poner
-5969	cuba	noun	barrel
+5969	cuba	noun	Cuba (a country, the largest island (based on land area) in the Caribbean)
 5970	estúpidas	adj	feminine plural of estúpido
 5971	matarlos	verb	infinitive of matar combined with los
 5972	lastimado	adj	hurt, injured
@@ -6066,7 +6066,7 @@ rank	word	pos	en
 6065	atacaron	verb	third-person plural preterite indicative of atacar
 6066	quite	noun	the action of removal
 6067	suéltalo	verb	second-person singular imperative of soltar combined with lo
-6068	mercedes	noun	plural of merced
+6068	mercedes	noun	a female given name, equivalent to English Mercy (Mary, Our Lady of Mercy)
 6069	portal	noun	portal; porch; portal
 6070	necesitarás	verb	second-person singular future indicative of necesitar
 6071	pudiese	verb	first/third-person singular imperfect subjunctive of poder
@@ -6417,7 +6417,7 @@ rank	word	pos	en
 6416	pausa	noun	break, pause, rest
 6417	asilo	noun	shelter, refuge
 6418	equivocados	adj	masculine plural of equivocado
-6419	grey	noun	flock
+6419	grey	noun	flock, herd; flock (people served by a pastor, priest, etc., also all believers in a church or religion)
 6420	póngase	verb	third-person singular imperative of poner combined with se
 6421	pertenecen	verb	third-person plural present indicative of pertenecer
 6422	rompiste	verb	second-person singular preterite indicative of romper
@@ -6427,7 +6427,7 @@ rank	word	pos	en
 6426	montones	pron	lots
 6427	mesas	noun	plural of mesa
 6428	convirtiendo	verb	gerund of convertir
-6429	bárbara	noun	female equivalent of bárbaro
+6429	bárbara	noun	a female given name from Latin [in turn from Ancient Greek], equivalent to English Barbara
 6430	queriendo	adv	willingly
 6431	síganme	verb	third-person plural imperative of seguir combined with me
 6432	comencemos	verb	first-person plural present subjunctive
@@ -6465,7 +6465,7 @@ rank	word	pos	en
 6464	sobrevivió	verb	third-person singular preterite indicative of sobrevivir
 6465	subasta	noun	auction
 6466	pasaremos	verb	first-person plural future indicative of pasar
-6467	talvez	adv	such
+6467	talvez	adv	maybe, perhaps (a spelling of tal vez)
 6468	cam	noun	acronym of Comunidad Autónoma de Madrid (“Autonomous Community of Madrid”)
 6469	naturales	adj	plural of natural
 6470	corrección	noun	correction; correctness
@@ -6518,7 +6518,7 @@ rank	word	pos	en
 6517	echando	verb	gerund of echar
 6518	filadelfia	name	Philadelphia (a large city in the United States)
 6519	plumas	noun	plural of pluma
-6520	escrita	noun	skate
+6520	escrita	noun	written (feminine of escrito, past participle of escribir)
 6521	tomaría	verb	first/third-person singular conditional of tomar
 6522	creando	verb	gerund of crear
 6523	gusanos	noun	plural of gusano
@@ -6651,7 +6651,7 @@ rank	word	pos	en
 6650	tiburones	noun	plural of tiburón
 6651	acepte	verb	first/third-person singular present subjunctive
 6652	agradecerte	verb	infinitive of agradecer combined with te
-6653	chad	noun	a Chad
+6653	chad	noun	Chad (a country in Central Africa)
 6654	gil	adj	naive, innocent, dumb, dummy
 6655	postura	noun	position; pose
 6656	concreto	adj	concrete; specific
@@ -6717,7 +6717,7 @@ rank	word	pos	en
 6716	hembra	noun	female
 6717	f	intj	bad luck
 6718	pruebe	verb	first/third-person singular present subjunctive
-6719	k	conj	abbreviation of que
+6719	k	conj	abbreviation of que (“that”)
 6720	restaurantes	noun	plural of restaurante
 6721	primaria	noun	primary school; primary schooling
 6722	convención	noun	convention
@@ -6775,7 +6775,7 @@ rank	word	pos	en
 6774	lesiones	noun	plural of lesión
 6775	desear	verb	to wish; to desire, to want, to hope for, to long for
 6776	cerebros	noun	plural of cerebro
-6777	jorge	noun	cockchafer
+6777	jorge	noun	a male given name from Ancient Greek, equivalent to English George
 6778	indican	verb	third-person plural present indicative of indicar
 6779	tuviese	verb	first/third-person singular imperfect subjunctive of tener
 6780	oyen	verb	third-person plural present indicative of oír
@@ -7152,7 +7152,7 @@ rank	word	pos	en
 7151	opuesto	adj	opposed to a thing, against
 7152	parecería	verb	first/third-person singular conditional of parecer
 7153	necesitaría	verb	first/third-person singular conditional of necesitar
-7154	catalina	noun	crankset; chainset
+7154	catalina	noun	a female given name, equivalent to English Catherine
 7155	pito	noun	whistle; fife
 7156	follar	verb	to fuck, to screw, to shag
 7157	sesenta	num	sixty
@@ -7332,7 +7332,7 @@ rank	word	pos	en
 7331	constitución	noun	constitution (all senses)
 7332	cuñada	noun	female equivalent of cuñado, sister-in-law
 7333	disparaste	verb	second-person singular preterite indicative of disparar
-7334	arturo	adj	gluttonous
+7334	arturo	adj	a male given name, equivalent to English Arthur
 7335	convenció	verb	third-person singular preterite indicative of convencer
 7336	tronco	noun	trunk, log (of a tree)
 7337	empezaré	verb	first-person singular future indicative of empezar
@@ -7419,7 +7419,7 @@ rank	word	pos	en
 7418	conquistar	verb	to conquer; to enamor, romantically convince
 7419	valía	noun	worth
 7420	billones	noun	plural of billón
-7421	colorado	adj	colored; red
+7421	colorado	adj	red; also Colorado, a state in the western United States
 7422	post	noun	post
 7423	capilla	noun	chapel; a hood that attaches to the neck of a cape, overcoat, or religious habit
 7424	ofreciendo	verb	gerund of ofrecer
@@ -7439,7 +7439,7 @@ rank	word	pos	en
 7438	carruaje	noun	carriage
 7439	terminando	verb	gerund of terminar
 7440	lote	noun	lot (chance assignment)
-7441	champaña	noun	champan
+7441	champaña	noun	champagne
 7442	palomitas	noun	plural of palomita
 7443	registrar	verb	to register, record
 7444	quedate	verb	second-person singular voseo imperative of quedar combined with te
@@ -7466,7 +7466,7 @@ rank	word	pos	en
 7465	oriental	adj	eastern; Oriental
 7466	llevarlos	verb	infinitive of llevar combined with los
 7467	valiosa	adj	feminine singular of valioso
-7468	quito	adj	exempt; free
+7468	quito	adj	Quito (the capital city of Ecuador)
 7469	karma	noun	karma
 7470	descuida	intj	don't worry
 7471	probabilidad	noun	probability; likelihood
@@ -7480,7 +7480,7 @@ rank	word	pos	en
 7479	tumbas	noun	plural of tumba
 7480	industrial	adj	industrial
 7481	amos	noun	plural of amo
-7482	napoleón	noun	napoleon (currency)
+7482	napoleón	noun	a male given name from French, equivalent to English Napoleon
 7483	dudar	verb	to doubt
 7484	cómico	adj	comedic, comical
 7485	limpios	adj	masculine plural of limpio
@@ -7650,7 +7650,7 @@ rank	word	pos	en
 7649	cargamento	noun	load, freight
 7650	alrededores	noun	plural of alrededor
 7651	entendía	verb	first/third-person singular imperfect indicative of entender
-7652	cristina	noun	a kind of military hat
+7652	cristina	noun	a female given name, equivalent to English Christina
 7653	saltando	verb	gerund of saltar
 7654	pensaban	verb	third-person plural imperfect indicative of pensar
 7655	p.	noun	abbreviation of página
@@ -7829,7 +7829,7 @@ rank	word	pos	en
 7828	sacrificios	noun	plural of sacrificio
 7829	fantasías	noun	plural of fantasía
 7830	mantendrá	verb	third-person singular future indicative of mantener
-7831	conclusiones	noun	opinion
+7831	conclusiones	noun	conclusions (plural of conclusión)
 7832	confirmación	noun	confirmation
 7833	traidores	adj	masculine plural of traidor
 7834	residente	adj	residing, domiciled, living, resident
@@ -8401,14 +8401,14 @@ rank	word	pos	en
 8400	traten	verb	third-person plural present subjunctive
 8401	echamos	verb	first-person plural present/preterite indicative of echar
 8402	mueves	verb	second-person singular present indicative of mover
-8403	pésimo	adj	superlative degree of malo: lousy
+8403	pésimo	adj	terrible, awful, dreadful (the superlative of malo)
 8404	directores	noun	plural of director
 8405	pagarás	verb	second-person singular future indicative of pagar
 8406	toc	noun	initialism of trastorno obsesivo-compulsivo
 8407	mapas	noun	plural of mapa
 8408	tenerlos	verb	infinitive of tener combined with los
 8409	hongos	noun	plural of hongo
-8410	mateo	adj	geeky
+8410	mateo	adj	Matthew, the apostle
 8411	gorila	noun	gorilla (ape); bouncer; heavy
 8412	facial	adj	facial
 8413	sushi	noun	sushi
@@ -8476,7 +8476,7 @@ rank	word	pos	en
 8475	sirvienta	noun	female equivalent of sirviente (“maid, servant”)
 8476	asignado	adj	assigned; allocated
 8477	gasolinera	noun	petrol station, garage, filling station, gas station, service station
-8478	nevada	noun	snowfall; snow storm
+8478	nevada	noun	snowfall, snowstorm; also Nevada, a state in the western United States
 8479	tasa	noun	rate; tax
 8480	eminencia	noun	eminence
 8481	dales	verb	second-person singular imperative combined with les
@@ -8651,7 +8651,7 @@ rank	word	pos	en
 8650	racha	noun	gust of wind, squall
 8651	distribución	noun	distribution
 8652	repentino	adj	sudden
-8653	rezo	noun	prayer
+8653	rezo	noun	prayer; also I pray (from rezar)
 8654	bailes	noun	plural of baile
 8655	humillación	noun	humiliation
 8656	hallaron	verb	third-person plural preterite indicative of hallar
@@ -8884,7 +8884,7 @@ rank	word	pos	en
 8883	vega	noun	meadow; fertile lowland
 8884	preguntaron	verb	third-person plural preterite indicative of preguntar
 8885	ordenadores	noun	plural of ordenador
-8886	chile	noun	a chili pepper; penis
+8886	chile	noun	Chile, a country in South America; also (Mexico) a chili pepper
 8887	aceptan	verb	third-person plural present indicative of aceptar
 8888	caros	adj	masculine plural of caro
 8889	locuras	noun	plural of locura
@@ -9219,7 +9219,7 @@ rank	word	pos	en
 9218	enmienda	noun	correction; amendment
 9219	encajar	verb	to insert, put into
 9220	burdel	noun	brothel, whorehouse
-9221	indiana	noun	printed calico
+9221	indiana	noun	Indiana (a state of the United States)
 9222	santiago	name	James; a male given name, equivalent to English James
 9223	pulsera	noun	bracelet
 9224	entrego	noun	hand-off; delivery
@@ -9766,7 +9766,7 @@ rank	word	pos	en
 9765	subtítulo	noun	subtitle, subhead, subheading (a heading below or after a title)
 9766	cumpliendo	verb	gerund of cumplir
 9767	suegro	noun	father-in-law (spouse's father)
-9768	brindar	verb	to toast, drink
+9768	brindar	verb	to toast, drink a toast; also to offer, provide
 9769	escalofríos	noun	plural of escalofrío
 9770	quejarse	verb	to complain, to whine, to gripe, to grouse, to fuss, to bitch, to beef
 9771	dure	verb	first/third-person singular present subjunctive
@@ -9898,7 +9898,7 @@ rank	word	pos	en
 9897	atómica	adj	feminine singular of atómico
 9898	aficionados	adj	masculine plural of aficionado
 9899	cantas	noun	plural of canta
-9900	tito	noun	uncle; unkie
+9900	tito	noun	uncle (childish, for tío); also Tito, Titus
 9901	recordó	verb	third-person singular preterite indicative of recordar
 9902	expreso	noun	espresso (coffee)
 9903	quites	noun	plural of quite

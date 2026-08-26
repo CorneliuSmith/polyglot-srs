@@ -69,7 +69,7 @@ rank	word	pos	en
 68	ma	det	feminine singular of mon
 69	toi	pron	you (informal second-person singular personal pronoun, disjunctive)
 70	dit	verb	third-person singular present and past participle of dire — says, said (dit-il = he said; j'ai tout dit = I've said everything); (as adj.) known as, alias
-71	lui	pron	him, he, it
+71	lui	pron	him, her; the third-person singular personal pronoun used as an indirect object
 72	votre	det	your, belonging to you (plural or formal)
 73	es	verb	second-person singular present indicative of être
 74	pourquoi	adv	why
@@ -767,13 +767,13 @@ rank	word	pos	en
 766	oncle	noun	uncle
 767	devriez	verb	second-person plural conditional of devoir
 768	liste	noun	list
-769	soeur	noun	sister; nun
+769	soeur	noun	sister; nun (f.) — nonstandard spelling of sœur
 770	complètement	adv	completely
 771	dos	noun	back (of a person)
 772	armée	noun	army; armed forces
 773	paix	noun	peace
 774	battre	verb	to beat; to defeat
-775	crime	noun	a category of severe offences within French law
+775	crime	noun	crime, serious offence (m.) — in French law the most severe category of offence, carrying ten years' imprisonment or more
 776	anniversaire	noun	birthday; anniversary
 777	finir	verb	to finish, end, complete
 778	réussi	verb	past participle of réussir
@@ -1017,7 +1017,7 @@ rank	word	pos	en
 1016	préfère	verb	first/third-person singular present indicative/subjunctive
 1017	coupable	adj	guilty; culpable, responsible
 1018	rire	verb	to laugh
-1019	paris	noun	plural of pari
+1019	paris	noun	Paris (the capital and largest city of France)
 1020	payé	verb	past participle of payer
 1021	soin	noun	care
 1022	milieu	noun	middle; center; setting; environment; surroundings
@@ -1052,7 +1052,7 @@ rank	word	pos	en
 1051	garçons	noun	plural of garçon
 1052	faisons	verb	first-person plural present indicative
 1053	paul	name	Paul (biblical figure)
-1054	n	noun	abbreviation of nord
+1054	n	noun	abbreviation of nord; north
 1055	tient	verb	third-person singular present indicative of tenir
 1056	prise	verb	feminine past participle of prendre — took, taken (je l'ai prise = I took it, I took her; la place est prise = the seat is taken); (as noun, f.) a socket, a power point (prise électrique); a grip, a hold; prise de sang = blood test
 1057	gouvernement	noun	government
@@ -1156,7 +1156,7 @@ rank	word	pos	en
 1155	étions	verb	first-person plural imperfect indicative of être
 1156	lune	noun	the Moon; any natural satellite of a planet
 1157	pitié	noun	pity, mercy
-1158	liberté	noun	liberty
+1158	liberté	noun	liberty, freedom (f.)
 1159	expérience	noun	experiment, trial, test
 1160	procès	noun	lawsuit; trial
 1161	radio	noun	radio, tuner
@@ -1232,7 +1232,7 @@ rank	word	pos	en
 1231	asseoir	verb	to sit (someone) down, to seat, make sit
 1232	ravi	adj	thrilled, overjoyed, delighted, ravished, chuffed
 1233	aimais	verb	first/second-person singular imperfect indicative of aimer
-1234	amérique	name	America, the Americas
+1234	amérique	name	America, the Americas (the continent); also America, the United States
 1235	fenêtre	noun	window
 1236	mien	adj	(of) mine, my own
 1237	terrain	noun	ground, landscape
@@ -1284,7 +1284,7 @@ rank	word	pos	en
 1283	touché	verb	past participle of toucher
 1284	mangé	verb	past participle of manger
 1285	vis	verb	first- and second-person singular present of vivre — I live, you live (je vis ici depuis dix ans = I've lived here for ten years; c'est là que tu vis = that's where you live); also the past historic of voir: je vis = I saw (literary); (as noun, f.) a screw
-1286	parole	noun	speech, language
+1286	parole	noun	spoken word, utterance; speech (f.)
 1287	rencontre	noun	encounter; meeting
 1288	apprécie	verb	first/third-person singular present indicative/subjunctive
 1289	réalité	noun	reality; actuality; truth
@@ -1566,7 +1566,7 @@ rank	word	pos	en
 1565	recherches	noun	plural of recherche
 1566	discours	noun	speech; speech, address, talk, oral presentation
 1567	données	verb	feminine plural of donné
-1568	robert	noun	tit (human breast)
+1568	robert	noun	a male given name, feminine equivalent Roberte, equivalent to English Robert
 1569	art	noun	art
 1570	appelles	verb	second-person singular present indicative/subjunctive of appeler
 1571	salaud	noun	bastard, wretch
@@ -2076,7 +2076,7 @@ rank	word	pos	en
 2075	théâtre	noun	theatre (venue for performing plays and drama; performing art form)
 2076	exploser	verb	to explode (fly apart with sudden violent force)
 2077	â	character	the letter a with circumflex, used in French spelling, representing the phoneme /ɑ/
-2078	rivière	noun	a river
+2078	rivière	noun	a river (f.) — one flowing into a lake or a larger river, not into the sea
 2079	paye	verb	first/third-person singular present indicative/subjunctive
 2080	allo	intj	post-1990 spelling of allô
 2081	revenez	verb	second-person plural present indicative
@@ -2371,7 +2371,7 @@ rank	word	pos	en
 2370	tenue	noun	maintenance, upkeep
 2371	journaliste	noun	a journalist; an anchor, anchorperson, anchorman or anchorwoman
 2372	soyons	verb	inflection of être
-2373	chouette	noun	owl
+2373	chouette	noun	(informal) great, nice, cool; (as a noun, f.) owl
 2374	karen	noun	Karen (member of an ethnic group in Burma)
 2375	aurons	verb	first-person plural future of avoir
 2376	avocats	noun	plural of avocat
@@ -2453,7 +2453,7 @@ rank	word	pos	en
 2452	lapin	noun	rabbit
 2453	désert	noun	desert
 2454	combattre	verb	to fight, to combat (against)
-2455	big	noun	IG
+2455	big	noun	IG — abbreviation of bureau de l'inspecteur général, the Inspector General's Office
 2456	julie	name	a female given name from Latin Iūlia, equivalent to English Julia
 2457	boutique	noun	shop; boutique
 2458	fonds	noun	plural of fond
@@ -2822,7 +2822,7 @@ rank	word	pos	en
 2821	miles	noun	plural of mile
 2822	donnera	verb	third-person singular future of donner
 2823	soins	noun	plural of soin
-2824	charlotte	noun	charlotte (dessert)
+2824	charlotte	noun	Charlotte (a female given name, feminine of Charles); also a charlotte, a moulded dessert
 2825	risqué	adj	risky
 2826	avouer	verb	to avow; to confess
 2827	passés	verb	masculine plural of passé
@@ -2849,7 +2849,7 @@ rank	word	pos	en
 2848	golf	noun	golf; golf course
 2849	annuler	verb	to cancel (to invalidate, to annul)
 2850	section	noun	section
-2851	catherine	noun	chamber pot
+2851	catherine	noun	a female given name, equivalent to English Catherine
 2852	aube	noun	dawn, sunrise, daybreak
 2853	précis	adj	Which does not leave doubt; specific, explicit
 2854	appellerai	verb	first-person singular future of appeler
@@ -2887,7 +2887,7 @@ rank	word	pos	en
 2886	patience	noun	patience (the quality of being patient)
 2887	suivez	verb	second-person plural present indicative
 2888	criminels	adj	masculine plural of criminel
-2889	poissons	noun	plural of poisson
+2889	poissons	noun	fish (plural of poisson); Pisces (the zodiac sign)
 2890	fermez	verb	second-person plural present indicative
 2891	bleue	adj	feminine singular of bleu
 2892	égal	adj	equal; indifferent, of no importance to
@@ -3225,7 +3225,7 @@ rank	word	pos	en
 3224	commandé	verb	past participle of commander
 3225	ailes	noun	plural of aile
 3226	employé	noun	employee; nonmanagerial worker
-3227	petit-déjeuner	noun	small; little
+3227	petit-déjeuner	noun	breakfast (m.) — also written petit déjeuner
 3228	coupez	verb	second-person plural present indicative
 3229	angle	noun	a geometric angle
 3230	participer	verb	to participate; to donate
@@ -3311,7 +3311,7 @@ rank	word	pos	en
 3310	pierres	noun	plural of pierre
 3311	gants	noun	plural of gant
 3312	sous-sol	noun	basement, cellar
-3313	oeufs	noun	plural of œuf
+3313	oeufs	noun	eggs — plural of œuf, spelled here without the ligature
 3314	nina	name	a female given name
 3315	rumeurs	noun	plural of rumeur
 3316	intérêts	noun	plural of intérêt
@@ -3323,7 +3323,7 @@ rank	word	pos	en
 3322	effrayant	adj	causing fear, fearful, frightening
 3323	fouiller	verb	to search (place, thing)
 3324	prier	verb	to pray; to beg, to beseech, to pray to
-3325	diane	noun	reveille
+3325	diane	noun	Diana; a female given name
 3326	actrice	noun	actress
 3327	suspects	adj	masculine plural of suspect
 3328	soirs	noun	plural of soir
@@ -3582,11 +3582,11 @@ rank	word	pos	en
 3581	intéressante	adj	feminine singular of intéressant
 3582	guitare	noun	guitar; a leg
 3583	loué	verb	past participle of louer
-3584	attaché	adj	attached
+3584	attaché	adj	attached — past participle of attacher; (as a noun, m.) an attaché, a civil servant in a government department
 3585	nue	adj	feminine singular of nu
 3586	améliorer	verb	to improve, better, ameliorate
 3587	termes	noun	plural of terme
-3588	soeurs	noun	plural of sœur
+3588	soeurs	noun	sisters — plural of sœur, spelled here without the ligature
 3589	vidéos	noun	plural of vidéo
 3590	amant	noun	lover (one who loves a particular person)
 3591	courte	adj	feminine singular of court
@@ -3601,7 +3601,7 @@ rank	word	pos	en
 3600	quatrième	adj	fourth
 3601	changent	verb	third-person plural present indicative/subjunctive of changer
 3602	accent	noun	accent, manner or tone of speech
-3603	personnalité	noun	personality, character
+3603	personnalité	noun	personality, character (f.); also a public figure, a celebrity
 3604	durs	adj	masculine plural of dur
 3605	commandement	noun	command, order; authority, power to command, to give orders; command
 3606	lampe	noun	lamp, light; bulb
@@ -3743,7 +3743,7 @@ rank	word	pos	en
 3742	ressources	noun	plural of ressource
 3743	environnement	noun	environment; nature
 3744	can	name	acronym of Coupe d'Afrique des nations; AFCON
-3745	louise	noun	fart
+3745	louise	noun	a female given name, masculine equivalent Louis
 3746	rigoles	verb	second-person singular present indicative/subjunctive of rigoler
 3747	menaces	noun	plural of menace
 3748	toast	noun	toast (bread); toast (salutation)
@@ -3887,7 +3887,7 @@ rank	word	pos	en
 3886	échantillon	noun	sample, extract
 3887	explosé	verb	past participle of exploser
 3888	jouent	verb	third-person plural present indicative/subjunctive of jouer
-3889	nan	adv	no
+3889	nan	adv	nah, nope (informal form of non)
 3890	flash	noun	flash (burst of light)
 3891	systèmes	noun	plural of système
 3892	usa	verb	third-person singular past historic of user
@@ -3963,7 +3963,7 @@ rank	word	pos	en
 3962	présidente	noun	female equivalent of président
 3963	oublierai	verb	first-person singular future of oublier
 3964	tokyo	name	Tokyo (a prefecture, the capital city of Japan)
-3965	jules	noun	boyfriend; pimp
+3965	jules	noun	Jules (a male given name, equivalent to English Julius); (informal) boyfriend
 3966	panneau	noun	sign; signpost; panel
 3967	évite	verb	first/third-person singular present indicative/subjunctive
 3968	regardent	verb	third-person plural present indicative/subjunctive of regarder
@@ -4470,7 +4470,7 @@ rank	word	pos	en
 4469	jugé	adj	judged (that was judged by the courts)
 4470	fragile	adj	fragile, breakable, brittle, delicate (that breaks easily)
 4471	fabuleux	adj	fabulous; fabled
-4472	sieste	noun	siesta
+4472	sieste	noun	siesta, afternoon nap (f.)
 4473	conçu	verb	past participle of concevoir
 4474	indices	noun	plural of indice
 4475	obéir	verb	to obey (+ à a person)
@@ -4744,7 +4744,7 @@ rank	word	pos	en
 4743	constamment	adv	constantly
 4744	vedette	noun	star (celebrity)
 4745	marchait	verb	third-person singular imperfect indicative of marcher
-4746	christian	name	a male given name
+4746	christian	name	a male given name, feminine equivalent Christiane, Christine, or Christelle, equivalent to English Christian
 4747	aidée	verb	feminine singular of aidé
 4748	familier	adj	familiar (known to one)
 4749	fixe	adj	fixed
@@ -5730,7 +5730,7 @@ rank	word	pos	en
 5729	sciences	noun	plural of science
 5730	caca	noun	poo, poop (childish word for excrement, fecal matter, dung, crap)
 5731	désespoir	noun	despair
-5732	voeux	noun	plural of vœu
+5732	voeux	noun	wishes, vows — plural of vœu, spelled here without the ligature
 5733	auberge	noun	hostel; prison
 5734	diront	verb	third-person plural future of dire
 5735	moore	name	a surname from English
@@ -5878,8 +5878,8 @@ rank	word	pos	en
 5877	barrage	noun	dam, barrage; barrier, roadblock
 5878	gays	noun	plural of gay
 5879	éternellement	adv	eternally
-5880	coeurs	noun	plural of cœur
-5881	marcel	name	a male given name
+5880	coeurs	noun	hearts — plural of cœur, spelled here without the ligature
+5881	marcel	name	a male given name, equivalent to English Marcel, traditionally popular in France, borne by a 3rd century saint
 5882	stand	noun	stand; Pit.
 5883	durée	noun	duration, period, time taken
 5884	robots	noun	plural of robot
@@ -5927,14 +5927,14 @@ rank	word	pos	en
 5926	exister	verb	to exist
 5927	israël	name	Israel
 5928	tripes	noun	tripe (food); courage
-5929	brésil	noun	brazil (wood)
+5929	brésil	noun	Brazil (a large Portuguese-speaking country in South America)
 5930	plaira	verb	third-person singular future of plaire
 5931	pacte	noun	pact, deal
 5932	réagi	verb	past participle of réagir
 5933	dons	noun	plural of don
 5934	choper	verb	to steal, nick, pinch
 5935	honoré	verb	past participle of honorer
-5936	isabelle	adj	light tan
+5936	isabelle	adj	a female given name
 5937	multiples	noun	plural of multiple
 5938	sacrément	adv	bloody, incredibly, really
 5939	hôpitaux	noun	plural of hôpital
@@ -6817,7 +6817,7 @@ rank	word	pos	en
 6816	prudence	noun	prudence, caution, care
 6817	hôtels	noun	plural of hôtel
 6818	éditeur	noun	editor; publisher
-6819	voeu	noun	vow; wish
+6819	voeu	noun	vow; wish (m.) — nonstandard spelling of vœu
 6820	prévenue	verb	feminine singular of prévenu
 6821	pleines	adj	feminine plural of plein
 6822	profs	noun	plural of prof
@@ -7081,7 +7081,7 @@ rank	word	pos	en
 7080	cassettes	noun	plural of cassette
 7081	épuisée	adj	feminine singular of épuisé
 7082	ruines	verb	second-person singular present indicative/subjunctive of ruiner
-7083	cv	noun	horsepower
+7083	cv	noun	CV, curriculum vitae; also horsepower (cheval-vapeur, cheval fiscal)
 7084	clou	noun	nail (metal pin)
 7085	détesté	verb	past participle of détester
 7086	violeur	noun	rapist
@@ -7430,7 +7430,7 @@ rank	word	pos	en
 7429	perde	verb	first/third-person singular present subjunctive of perdre
 7430	sérieuses	adj	feminine plural of sérieux
 7431	salir	verb	to dirty, make dirty
-7432	zoé	noun	zoaea
+7432	zoé	noun	a female given name, equivalent to English Zoë
 7433	réconfort	noun	comfort, solace
 7434	réagit	verb	third-person singular present indicative
 7435	croyant	adj	who adheres to a religious faith
@@ -7985,7 +7985,7 @@ rank	word	pos	en
 7984	remarques	noun	plural of remarque
 7985	écrits	verb	masculine plural of écrit
 7986	hanches	noun	plural of hanche
-7987	béguin	noun	Beghard, Beguin
+7987	béguin	noun	a type of headwear once popular with Beguines, similar to a bonnet
 7988	vivaient	verb	third-person plural imperfect indicative of vivre
 7989	bulle	noun	bubble; speech bubble, thought bubble
 7990	tiennes	verb	second-person singular present subjunctive of tenir
@@ -8447,7 +8447,7 @@ rank	word	pos	en
 8446	martiale	adj	feminine singular of martial
 8447	fondé	verb	past participle of fonder
 8448	retournerai	verb	first-person singular future of retourner
-8449	julien	adj	Julian
+8449	julien	adj	a male given name, equivalent to English Julian
 8450	dirigeant	verb	present participle of diriger
 8451	antibiotiques	noun	plural of antibiotique
 8452	sandwiches	noun	plural of sandwich; alternative form of sandwichs
@@ -9080,7 +9080,7 @@ rank	word	pos	en
 9079	ignorant	adj	ignorant
 9080	trouviez	verb	second-person plural imperfect indicative
 9081	assoir	verb	post-1990 spelling of asseoir
-9082	picard	noun	Picard
+9082	picard	noun	Picard (language)
 9083	ouvrira	verb	third-person singular future of ouvrir
 9084	divertissement	noun	entertainment
 9085	hold-up	noun	hold-up (robbery)
@@ -9289,7 +9289,7 @@ rank	word	pos	en
 9288	doubles	adj	plural of double
 9289	réalisation	noun	realization, fulfilment
 9290	records	noun	plural of record
-9291	suède	noun	suede (type of leather)
+9291	suède	noun	Sweden (the country); lowercase le suède, suede (the leather)
 9292	négatifs	adj	masculine plural of négatif
 9293	cailloux	noun	plural of caillou
 9294	apporterai	verb	first-person singular future of apporter
@@ -9421,7 +9421,7 @@ rank	word	pos	en
 9420	développe	verb	first/third-person singular present indicative/subjunctive
 9421	couture	noun	sewing; dressmaking
 9422	boulet	noun	cannonball; ball and chain
-9423	cantine	noun	canteen
+9423	cantine	noun	canteen, cafeteria (f.) — in a school, workplace, or barracks
 9424	étrangement	adv	strangely (in a strange manner)
 9425	excellents	adj	plural of excellent
 9426	quittent	verb	third-person plural present indicative/subjunctive of quitter
@@ -9452,7 +9452,7 @@ rank	word	pos	en
 9451	chiots	noun	plural of chiot
 9452	illinois	noun	Illinois, Illinese (member of the Illinois Confederation)
 9453	satisfaite	verb	feminine singular of satisfait
-9454	moïse	noun	Moses basket
+9454	moïse	noun	Moses (the biblical figure); also un moïse, a Moses basket
 9455	balistique	adj	ballistic
 9456	audace	noun	audacity, boldness
 9457	finirait	verb	third-person singular conditional of finir
@@ -9948,7 +9948,7 @@ rank	word	pos	en
 9947	vendeurs	noun	plural of vendeur
 9948	menaçant	adj	menacing, threatening
 9949	requiert	verb	third-person singular present indicative of requérir
-9950	stéphanie	name	a female given name
+9950	stéphanie	name	a female given name, masculine equivalent Stéphane [=Stephen], equivalent to English Stephanie
 9951	sauves	verb	second-person singular present indicative/subjunctive of sauver
 9952	oublient	verb	third-person plural present indicative/subjunctive of oublier
 9953	caverne	noun	cavern
@@ -9959,7 +9959,7 @@ rank	word	pos	en
 9958	hosto	noun	hospital; lodging
 9959	comptabilité	noun	accounting, bookkeeping
 9960	enlèves	verb	second-person singular present indicative/subjunctive of enlever
-9961	carnaval	noun	the carnival
+9961	carnaval	noun	carnival (m.) — the festivities before Lent, with masked parades and balls
 9962	diabète	noun	diabetes
 9963	tata	noun	auntie (aunt); auntie (woman of an older generation than oneself)
 9964	mémé	noun	grandma, granny, nana
