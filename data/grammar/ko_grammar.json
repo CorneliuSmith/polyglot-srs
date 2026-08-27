@@ -121,6 +121,14 @@
           "hint": "topic marker after a vowel",
           "display_order": 6,
           "transliteration": "uri{{answer}} hangugeoreul gongbuhaeyo."
+        },
+        {
+          "sentence": "한국 음식{{answer}} 어때요?",
+          "answer": "은",
+          "translation": "How is Korean food?",
+          "hint": "topic marker — it frames the sentence as 'as for Korean food'; that noun ends in a consonant",
+          "display_order": 7,
+          "transliteration": "hanguk eumsik{{answer}} eottaeyo?"
         }
       ],
       "source": "ai",
@@ -190,6 +198,14 @@
           "hint": "subject marker after a vowel",
           "display_order": 6,
           "transliteration": "keopi{{answer}} masisseoyo."
+        },
+        {
+          "sentence": "저는 시간{{answer}} 없어요.",
+          "answer": "이",
+          "translation": "I don't have time.",
+          "hint": "subject marker — the thing you lack is the grammatical subject; this noun ends in a consonant",
+          "display_order": 7,
+          "transliteration": "jeoneun sigan{{answer}} eopseoyo."
         }
       ],
       "source": "ai",
@@ -259,6 +275,14 @@
           "hint": "object marker after a consonant",
           "display_order": 6,
           "transliteration": "eumak{{answer}} deureoyo."
+        },
+        {
+          "sentence": "선생님{{answer}} 알아요?",
+          "answer": "을",
+          "translation": "Do you know the teacher?",
+          "hint": "object marker — the person being known is the object; this noun ends in a consonant",
+          "display_order": 7,
+          "transliteration": "seonsaengnim{{answer}} arayo?"
         }
       ],
       "source": "ai",
@@ -328,6 +352,14 @@
           "hint": "'is' after a consonant",
           "display_order": 6,
           "transliteration": "geugeoseun mul{{answer}}."
+        },
+        {
+          "sentence": "이거 뭐{{answer}}?",
+          "answer": "예요",
+          "translation": "What is this?",
+          "hint": "'is' — the everyday question word it attaches to ends in a vowel",
+          "display_order": 7,
+          "transliteration": "igeo mwo{{answer}}?"
         }
       ],
       "source": "ai",
@@ -455,7 +487,7 @@
           "sentence": "친구가 가{{answer}} 않아요.",
           "answer": "지",
           "translation": "My friend isn't going.",
-          "hint": "the longer negative: verb stem + 지 않아요",
+          "hint": "the longer, more formal negative — the single syllable that links the verb stem to the negative auxiliary after it",
           "display_order": 5,
           "transliteration": "chinguga ga{{answer}} anayo."
         },
@@ -466,6 +498,14 @@
           "hint": "'not' before the verb",
           "display_order": 6,
           "transliteration": "jeoneun tellebijeoneul {{answer}} bwayo."
+        },
+        {
+          "sentence": "왜 전화를 받지 {{answer}}?",
+          "answer": "않아요",
+          "translation": "Why aren't you answering the phone?",
+          "hint": "the longer negative's second half — the polite 'not' auxiliary that follows the linked verb stem",
+          "display_order": 7,
+          "transliteration": "wae jeonhwareul batji {{answer}}?"
         }
       ],
       "source": "ai",
@@ -535,6 +575,14 @@
           "hint": "drinking is an action",
           "display_order": 6,
           "transliteration": "kape{{answer}} keopireul masyeoyo."
+        },
+        {
+          "sentence": "보통 어디{{answer}} 운동해요?",
+          "answer": "에서",
+          "translation": "Where do you usually exercise?",
+          "hint": "asking where an activity takes place, not where someone is heading",
+          "display_order": 7,
+          "transliteration": "botong eodi{{answer}} undonghaeyo?"
         }
       ],
       "source": "ai",
@@ -604,6 +652,14 @@
           "hint": "to drink (마시다) — past polite",
           "display_order": 6,
           "transliteration": "mureul {{answer}}."
+        },
+        {
+          "sentence": "어제 제 이메일을 {{answer}}?",
+          "answer": "받았어요",
+          "translation": "Did you get my email yesterday?",
+          "hint": "the verb 'to receive', polite past in a question — its stem vowel is bright ㅏ and the stem ends in a consonant, so nothing contracts",
+          "display_order": 7,
+          "transliteration": "eoje je imeireul {{answer}}?"
         }
       ],
       "source": "ai",
@@ -673,6 +729,14 @@
           "hint": "'how'",
           "display_order": 6,
           "transliteration": "igeo {{answer}} meogeoyo?"
+        },
+        {
+          "sentence": "{{answer}} 전화했어요?",
+          "answer": "누가",
+          "translation": "Who called?",
+          "hint": "asking which person did it; the question word here is the subject, so use its subject-marked form",
+          "display_order": 7,
+          "transliteration": "{{answer}} jeonhwahaesseoyo?"
         }
       ],
       "source": "ai",
@@ -811,6 +875,14 @@
           "hint": "'two' shortens before a counter (둘 → ?)",
           "display_order": 6,
           "transliteration": "sagwa {{answer}} gae meogeosseoyo."
+        },
+        {
+          "sentence": "선생님 두 {{answer}}을 만났어요.",
+          "answer": "분",
+          "translation": "I met two teachers.",
+          "hint": "the respectful counter for people; 명 would be too blunt for teachers",
+          "display_order": 7,
+          "transliteration": "seonsaengnim du {{answer}}eul mannasseoyo."
         }
       ],
       "source": "ai",
@@ -880,6 +952,14 @@
           "hint": "'also'",
           "display_order": 6,
           "transliteration": "dongsaeng{{answer}} hangugeoreul baewoyo."
+        },
+        {
+          "sentence": "저는 한국 음악{{answer}} 좋아해요.",
+          "answer": "도",
+          "translation": "I like Korean music too.",
+          "hint": "'too' — it stands in place of the object marker rather than beside it",
+          "display_order": 7,
+          "transliteration": "jeoneun hanguk eumak{{answer}} joahaeyo."
         }
       ],
       "source": "ai",
@@ -949,6 +1029,14 @@
           "hint": "to go — future stem",
           "display_order": 6,
           "transliteration": "daeum jue busane {{answer}} geoyeyo."
+        },
+        {
+          "sentence": "이번 주말에 뭐 {{answer}} 거예요?",
+          "answer": "할",
+          "translation": "What are you going to do this weekend?",
+          "hint": "하다 (to do) — the future stem, asked as a question",
+          "display_order": 7,
+          "transliteration": "ibeon jumare mwo {{answer}} geoyeyo?"
         }
       ],
       "source": "ai",
@@ -984,7 +1072,8 @@
           "answer": "먹고",
           "translation": "I want to eat kimchi.",
           "hint": "to eat + the wanting connector",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "gimchireul {{answer}} sipeoyo."
         },
         {
           "sentence": "오늘은 집에서 쉬고 {{answer}}.",
@@ -1017,6 +1106,14 @@
           "hint": "to meet + the wanting connector",
           "display_order": 6,
           "transliteration": "chingureul {{answer}} sipeoyo."
+        },
+        {
+          "sentence": "어릴 때 가수가 되고 {{answer}}.",
+          "answer": "싶었어요",
+          "translation": "When I was little, I wanted to become a singer.",
+          "hint": "the wanting ending, put into the past tense",
+          "display_order": 7,
+          "transliteration": "eoril ttae gasuga doego {{answer}}."
         }
       ],
       "source": "ai",
@@ -1086,6 +1183,14 @@
           "hint": "말하다 upgrades to 말씀하다 + 세요",
           "display_order": 6,
           "transliteration": "cheoncheonhi {{answer}}."
+        },
+        {
+          "sentence": "할아버지는 어디에 {{answer}}?",
+          "answer": "사세요",
+          "translation": "Where does your grandfather live?",
+          "hint": "살다, about a respected person — its final ㄹ drops before this ending",
+          "display_order": 7,
+          "transliteration": "harabeojineun eodie {{answer}}?"
         }
       ],
       "source": "ai",
@@ -1155,6 +1260,14 @@
           "hint": "to go + the favour connector",
           "display_order": 6,
           "transliteration": "cheoncheonhi {{answer}} juseyo."
+        },
+        {
+          "sentence": "여기에 이름을 {{answer}} 주세요.",
+          "answer": "써",
+          "translation": "Please write your name here.",
+          "hint": "쓰다 (to write) — its vowel changes when the favour connector attaches",
+          "display_order": 7,
+          "transliteration": "yeogie ireumeul {{answer}} juseyo."
         }
       ],
       "source": "ai",
@@ -1293,6 +1406,14 @@
           "hint": "타다 (to ride) — ability stem",
           "display_order": 6,
           "transliteration": "jajeongeoreul {{answer}} su isseoyo?"
+        },
+        {
+          "sentence": "그때는 한국어를 읽을 수 {{answer}}.",
+          "answer": "없었어요",
+          "translation": "Back then I couldn't read Korean.",
+          "hint": "the 'cannot' word, in the past tense",
+          "display_order": 7,
+          "transliteration": "geuttaeneun hangugeoreul ilgeul su {{answer}}."
         }
       ],
       "source": "ai",
@@ -1362,6 +1483,14 @@
           "hint": "가다 + the sequence connector",
           "display_order": 6,
           "transliteration": "sijange {{answer}} gwaireul sasseoyo."
+        },
+        {
+          "sentence": "시간이 {{answer}} 아침을 못 먹었어요.",
+          "answer": "없어서",
+          "translation": "I had no time, so I couldn't eat breakfast.",
+          "hint": "없다 + the reason connector; the past tense waits for the final verb",
+          "display_order": 7,
+          "transliteration": "sigani {{answer}} achimeul mot meogeosseoyo."
         }
       ],
       "source": "ai",
@@ -1431,6 +1560,14 @@
           "hint": "'and' between clauses",
           "display_order": 6,
           "transliteration": "achime undongha{{answer}} syawohaeyo."
+        },
+        {
+          "sentence": "어제는 {{answer}} 오늘은 쉬어요.",
+          "answer": "공부했고",
+          "translation": "Yesterday I studied, and today I'm resting.",
+          "hint": "공부하다 in the past + 'and' — this connector, unlike 아서/어서, lets tense sit in front of it",
+          "display_order": 7,
+          "transliteration": "eojeneun {{answer}} oneureun swieoyo."
         }
       ],
       "source": "ai",
@@ -1500,6 +1637,14 @@
           "hint": "마시다 + the purpose ending",
           "display_order": 6,
           "transliteration": "keopireul {{answer}} kapee gayo."
+        },
+        {
+          "sentence": "주말에 수영{{answer}} 갈 거예요?",
+          "answer": "하러",
+          "translation": "Are you going swimming this weekend?",
+          "hint": "수영하다 — the ending that gives the trip its purpose, attached to a vowel stem",
+          "display_order": 7,
+          "transliteration": "jumare suyeong{{answer}} gal geoyeyo?"
         }
       ],
       "source": "ai",
@@ -1569,6 +1714,14 @@
           "hint": "'less' — the opposite of 더",
           "display_order": 6,
           "transliteration": "i sikdangi jeo sikdangboda {{answer}} bissayo."
+        },
+        {
+          "sentence": "커피하고 차 중에서 뭐를 {{answer}} 좋아해요?",
+          "answer": "더",
+          "translation": "Between coffee and tea, which do you like more?",
+          "hint": "the little word for 'more', asking which of the two wins",
+          "display_order": 7,
+          "transliteration": "keopihago cha jungeseo mworeul {{answer}} joahaeyo?"
         }
       ],
       "source": "ai",
@@ -1604,7 +1757,8 @@
           "answer": "갑니다",
           "translation": "I go to the office every day.",
           "hint": "가다 — the ㅂ fuses into the stem",
-          "display_order": 2
+          "display_order": 2,
+          "transliteration": "jeoneun maeil hoesae {{answer}}."
         },
         {
           "sentence": "아침을 {{answer}}.",
@@ -1637,6 +1791,14 @@
           "hint": "하다 + 겠 (intention) in the formal style",
           "display_order": 6,
           "transliteration": "hoeuireul sijak{{answer}}."
+        },
+        {
+          "sentence": "저는 작년에 한국에 {{answer}}.",
+          "answer": "왔습니다",
+          "translation": "I came to Korea last year.",
+          "hint": "오다 in the past, formal style — once tense is in, the ending is the consonant one",
+          "display_order": 7,
+          "transliteration": "jeoneun jangnyeone hanguge {{answer}}."
         }
       ],
       "source": "ai",
@@ -1775,6 +1937,14 @@
           "hint": "피곤하다 + 'if'",
           "display_order": 6,
           "transliteration": "pigon{{answer}} swiseyo."
+        },
+        {
+          "sentence": "주말에 날씨가 {{answer}} 등산 갈까요?",
+          "answer": "좋으면",
+          "translation": "If the weather is nice this weekend, shall we go hiking?",
+          "hint": "좋다 + 'if' — a stem ending in a consonant needs the linking vowel before the ending",
+          "display_order": 7,
+          "transliteration": "jumare nalssiga {{answer}} deungsan galkkayo?"
         }
       ],
       "source": "ai",
@@ -1844,6 +2014,14 @@
           "hint": "the consonant-stem form of the connector",
           "display_order": 6,
           "transliteration": "masit{{answer}} hanbeon deusyeo boseyo."
+        },
+        {
+          "sentence": "밖이 {{answer}} 창문 좀 닫아 줄래요?",
+          "answer": "추우니까",
+          "translation": "It's cold outside, so could you close the window?",
+          "hint": "춥다 + the command-friendly 'because' — this stem's final consonant softens into a vowel first",
+          "display_order": 7,
+          "transliteration": "bakki {{answer}} changmun jom dada jullaeyo?"
         }
       ],
       "source": "ai",
@@ -1982,6 +2160,14 @@
           "hint": "만들다 as a past describer (the ㄹ drops)",
           "display_order": 6,
           "transliteration": "jega {{answer}} keikeuyeyo."
+        },
+        {
+          "sentence": "요즘 제일 {{answer}} 드라마가 뭐예요?",
+          "answer": "재미있는",
+          "translation": "What's the most interesting drama these days?",
+          "hint": "재미있다 describing a noun — the 있다 family takes the present-tense verb ending, not the plain adjective one",
+          "display_order": 7,
+          "transliteration": "yojeum jeil {{answer}} deuramaga mwoyeyo?"
         }
       ],
       "source": "ai",
@@ -2051,6 +2237,14 @@
           "hint": "있다 upgrades for respected people",
           "display_order": 6,
           "transliteration": "seonsaengnimi gidarigo {{answer}}."
+        },
+        {
+          "sentence": "칠판에 뭐라고 {{answer}} 있어요?",
+          "answer": "쓰여",
+          "translation": "What's written on the blackboard?",
+          "hint": "쓰이다 (to be written) — the state that resulted, not the act of writing; give the stem its vowel ending",
+          "display_order": 7,
+          "transliteration": "chilpane mworago {{answer}} isseoyo?"
         }
       ],
       "source": "ai",
@@ -2120,6 +2314,14 @@
           "hint": "살다 + past + the 때-shape",
           "display_order": 6,
           "transliteration": "hanguge {{answer}} ttae hangugeoreul baewosseoyo."
+        },
+        {
+          "sentence": "보통 {{answer}} 때 음악을 들어요?",
+          "answer": "운전할",
+          "translation": "Do you usually listen to music when you drive?",
+          "hint": "운전하다 — the modifier ending that 때 always pairs with",
+          "display_order": 7,
+          "transliteration": "botong {{answer}} ttae eumageul deureoyo?"
         }
       ],
       "source": "ai",
@@ -2189,6 +2391,14 @@
           "hint": "가다 + the resolve marker, formal",
           "display_order": 6,
           "transliteration": "meonjeo {{answer}}."
+        },
+        {
+          "sentence": "어제 손님이 많아서 {{answer}}.",
+          "answer": "바빴겠어요",
+          "translation": "There were so many customers yesterday — you must have been busy.",
+          "hint": "바쁘다 in the past, then the guessing suffix, polite style",
+          "display_order": 7,
+          "transliteration": "eoje sonnimi manaseo {{answer}}."
         }
       ],
       "source": "ai",
@@ -2258,6 +2468,14 @@
           "hint": "있다 keeps plain 다 + 고",
           "display_order": 6,
           "transliteration": "seonsaengnimi sukjega {{answer}} hasyeosseoyo."
+        },
+        {
+          "sentence": "아이가 밥을 안 {{answer}} 해요.",
+          "answer": "먹는다고",
+          "translation": "The child says he won't eat his food.",
+          "hint": "먹다 is an action verb whose stem ends in a consonant — use the plain present quote form for that class",
+          "display_order": 7,
+          "transliteration": "aiga babeul an {{answer}} haeyo."
         }
       ],
       "source": "ai",
@@ -2370,7 +2588,8 @@
           "answer": "큰데",
           "translation": "My older brother is tall, but I am short.",
           "hint": "크다 + the contrast connector",
-          "display_order": 3
+          "display_order": 3,
+          "transliteration": "hyeongeun {{answer}} jeoneun jagayo."
         },
         {
           "sentence": "한국에 {{answer}} 한국어를 못 해요.",
@@ -2395,6 +2614,14 @@
           "hint": "비싸다 + the softener, sentence-final",
           "display_order": 6,
           "transliteration": "igeo jom {{answer}}…"
+        },
+        {
+          "sentence": "어제 그 식당에 {{answer}} 정말 맛있었어요.",
+          "answer": "갔는데",
+          "translation": "I went to that restaurant yesterday, and it was really delicious.",
+          "hint": "가다 in the past, then the scene-setting connector",
+          "display_order": 7,
+          "transliteration": "eoje geu sikdange {{answer}} jeongmal masisseosseoyo."
         }
       ],
       "source": "ai",
@@ -2464,6 +2691,14 @@
           "hint": "막히다 in the past/state modifier shape",
           "display_order": 6,
           "transliteration": "giri {{answer}} geot gatayo."
+        },
+        {
+          "sentence": "저분이 이 가게 주인{{answer}} 것 같아요.",
+          "answer": "인",
+          "translation": "That person seems to be the owner of this shop.",
+          "hint": "after a noun, the copula takes its modifier shape before 것",
+          "display_order": 7,
+          "transliteration": "jeobuni i gage juin{{answer}} geot gatayo."
         }
       ],
       "source": "ai",
@@ -2533,6 +2768,14 @@
           "hint": "the 'because' word after 기",
           "display_order": 6,
           "transliteration": "nuni mani watgi {{answer}} giri mikkeureowoyo."
+        },
+        {
+          "sentence": "저는 학생{{answer}} 때문에 표를 싸게 샀어요.",
+          "answer": "이기",
+          "translation": "Because I'm a student, I bought the ticket cheaply.",
+          "hint": "a noun reason nominalizes the copula before 때문에",
+          "display_order": 7,
+          "transliteration": "jeoneun haksaeng{{answer}} ttaemune pyoreul ssage sasseoyo."
         }
       ],
       "source": "ai",
@@ -2602,6 +2845,14 @@
           "hint": "묻다 lowered to its humble form + 아도",
           "display_order": 6,
           "transliteration": "hana {{answer}} dwaeyo?"
+        },
+        {
+          "sentence": "제가 이따가 부장님께 {{answer}}.",
+          "answer": "말씀드릴게요",
+          "translation": "I'll tell the manager about it later.",
+          "hint": "the humble verb for telling something to someone above you, carrying the 을게요 promise ending; never 시 on your own action",
+          "display_order": 7,
+          "transliteration": "jega ittaga bujangnimkke {{answer}}."
         }
       ],
       "source": "ai",
@@ -2628,7 +2879,7 @@
           "sentence": "한국은 사계절이 {{answer}}.",
           "answer": "있다",
           "translation": "Korea has four seasons. (written style)",
-          "hint": "있다 stays bare in the plain style",
+          "hint": "the verb of existence keeps its plain dictionary shape here; unlike action verbs it takes no ㄴ다/는다",
           "display_order": 1,
           "transliteration": "hangugeun sagyejeori {{answer}}."
         },
@@ -2671,6 +2922,14 @@
           "hint": "descriptive verbs stay bare in the plain style",
           "display_order": 6,
           "transliteration": "gyeoul badaneun jeongmal {{answer}}."
+        },
+        {
+          "sentence": "그는 고기를 먹지 {{answer}}.",
+          "answer": "않는다",
+          "translation": "He does not eat meat. (written style)",
+          "hint": "the long negation's auxiliary in the plain present; after an action verb it patterns like 먹다, not like 크다",
+          "display_order": 7,
+          "transliteration": "geuneun gogireul meokji {{answer}}."
         }
       ],
       "source": "ai",
@@ -2740,6 +2999,14 @@
           "hint": "the confirm-the-rumour ending",
           "display_order": 6,
           "transliteration": "hanguge {{answer}}? chukhahaeyo!"
+        },
+        {
+          "sentence": "민수 씨가 어제 그 책을 다 {{answer}}.",
+          "answer": "읽었대요",
+          "translation": "They say Minsu finished reading that book yesterday.",
+          "hint": "읽다 in the past, then the squeezed statement quote; a past stem needs no ㄴ/는 in front of it",
+          "display_order": 7,
+          "transliteration": "minsu ssiga eoje geu chaegeul da {{answer}}."
         }
       ],
       "source": "ai",
@@ -2809,6 +3076,14 @@
           "hint": "오다 + the formal 'therefore'",
           "display_order": 6,
           "transliteration": "biga {{answer}} haengsaneun sillaeeseo yeollinda."
+        },
+        {
+          "sentence": "그 제품은 값이 {{answer}} 품질이 좋다.",
+          "answer": "비싸나",
+          "translation": "That product is expensive, but the quality is good.",
+          "hint": "비싸다 with the formal stand-in for 지만; a stem ending in a vowel takes it without the linking 으",
+          "display_order": 7,
+          "transliteration": "geu jepumeun gapsi {{answer}} pumjiri jota."
         }
       ],
       "source": "ai",
@@ -2987,6 +3262,14 @@
           "transliteration": "keopi → keopi{{answer}}",
           "cell": null,
           "display_order": 6
+        },
+        {
+          "sentence": "동생이 지금 신문{{answer}} 읽어요.",
+          "answer": "을",
+          "translation": "My younger sibling is reading the newspaper right now.",
+          "hint": "mark the thing the verb acts on; 신문 ends in a consonant, so use the form that follows one",
+          "display_order": 7,
+          "transliteration": "dongsaengi jigeum sinmun{{answer}} ilgeoyo."
         }
       ],
       "prerequisites": [
@@ -3034,6 +3317,38 @@
           "transliteration": "seonsaengnimeun hakgyo{{answer}} isseoyo.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "수업은 아침 아홉 시{{answer}} 시작해요.",
+          "answer": "에",
+          "translation": "Class starts at nine in the morning.",
+          "hint": "the particle that pins an event to a clock time",
+          "display_order": 3,
+          "transliteration": "sueobeun achim ahop si{{answer}} sijakaeyo."
+        },
+        {
+          "sentence": "토요일{{answer}} 시간 있어요?",
+          "answer": "에",
+          "translation": "Do you have time on Saturday?",
+          "hint": "a day of the week takes the same particle as a clock time, question or not",
+          "display_order": 4,
+          "transliteration": "toyoil{{answer}} sigan isseoyo?"
+        },
+        {
+          "sentence": "저는 내일 부산{{answer}} 가요.",
+          "answer": "에",
+          "translation": "I am going to Busan tomorrow.",
+          "hint": "marks where you are heading with 가다",
+          "display_order": 5,
+          "transliteration": "jeoneun naeil busan{{answer}} gayo."
+        },
+        {
+          "sentence": "가방 안{{answer}} 책을 넣었어요.",
+          "answer": "에",
+          "translation": "I put the book in the bag.",
+          "hint": "marks where the book ends up; a position word like 안 takes it too, and the sentence can still carry an object",
+          "display_order": 6,
+          "transliteration": "gabang an{{answer}} chaegeul neoeosseoyo."
         }
       ],
       "prerequisites": [
@@ -3553,6 +3868,46 @@
           "transliteration": "{{answer}}neun keopiga isseo.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}}는 고기를 안 먹어요.",
+          "answer": "저",
+          "translation": "I don't eat meat.",
+          "hint": "polite word for 'I' — the sentence ends in ~요",
+          "display_order": 3,
+          "transliteration": "{{answer}}neun gogireul an meogeoyo."
+        },
+        {
+          "sentence": "{{answer}}랑 같이 영화 볼래?",
+          "answer": "나",
+          "translation": "Do you want to watch a movie with me?",
+          "hint": "casual word for 'I' — plain ~ㄹ래 ending, talking to a friend",
+          "display_order": 4,
+          "transliteration": "{{answer}}rang gachi yeonghwa bollae?"
+        },
+        {
+          "sentence": "{{answer}}도 같이 가도 돼요?",
+          "answer": "저",
+          "translation": "May I come along too?",
+          "hint": "polite word for 'I' — asking permission of someone you address formally",
+          "display_order": 5,
+          "transliteration": "{{answer}}do gachi gado dwaeyo?"
+        },
+        {
+          "sentence": "이따가 {{answer}}한테 전화해.",
+          "answer": "나",
+          "translation": "Call me later.",
+          "hint": "casual word for 'I' — plain command ending, said to a friend",
+          "display_order": 6,
+          "transliteration": "ittaga {{answer}}hante jeonhwahae."
+        },
+        {
+          "sentence": "누가 이거 만들었어요? {{answer}}요!",
+          "answer": "저",
+          "translation": "Who made this? Me!",
+          "hint": "polite word for 'I' standing alone as a one-word reply",
+          "display_order": 7,
+          "transliteration": "nuga igeo mandeureosseoyo? {{answer}}yo!"
         }
       ]
     },
@@ -4463,6 +4818,22 @@
           "transliteration": "naneun mirae-e uisa-ga doeji ___ geoya",
           "cell": null,
           "display_order": 5
+        },
+        {
+          "sentence": "제 친구는 작년에 아빠{{answer}} 됐어요",
+          "answer": "가",
+          "translation": "My friend became a dad last year.",
+          "hint": "되다 marks what someone turns into like a subject, never like an object — 아빠 ends in a vowel",
+          "display_order": 6,
+          "transliteration": "je chinguneun jangnyeone appa{{answer}} dwaesseoyo"
+        },
+        {
+          "sentence": "제 동생은 내년에 대학생{{answer}} 될 거예요",
+          "answer": "이",
+          "translation": "My younger sibling will become a university student next year.",
+          "hint": "the same 'turns into' marker as after a vowel — 대학생 ends in a consonant",
+          "display_order": 7,
+          "transliteration": "je dongsaengeun naenyeone daehaksaeng{{answer}} doel geoyeyo"
         }
       ],
       "prerequisites": [
@@ -4516,6 +4887,22 @@
           "transliteration": "geugeoseun yeogwon-___ geoyeyo",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "저 사람은 아마 미국 사람일 {{answer}}",
+          "answer": "거예요",
+          "translation": "That person is probably American.",
+          "hint": "polite half of the guessing pattern — the bound noun after a ~ㄹ modifier, fused with the copula",
+          "display_order": 4,
+          "transliteration": "jeo sarameun ama miguk saramil {{answer}}"
+        },
+        {
+          "sentence": "그건 초콜릿이 아닐 {{answer}}",
+          "answer": "거야",
+          "translation": "That's probably not chocolate.",
+          "hint": "casual half of the guessing pattern — the bound noun after ~ㄹ, fused with the plain-style copula",
+          "display_order": 5,
+          "transliteration": "geugeon chokollisi anil {{answer}}"
         }
       ],
       "prerequisites": [
@@ -5347,6 +5734,14 @@
           "transliteration": "oneul achim gioni ___-do-kkaji naeryeogasseoyo.",
           "cell": "scores, temperature, math",
           "display_order": 5
+        },
+        {
+          "sentence": "십 빼기 십은 {{answer}}이에요.",
+          "answer": "영",
+          "translation": "Ten minus ten is zero.",
+          "hint": "zero of arithmetic, temperatures and scores — not the phone-number one",
+          "display_order": 6,
+          "transliteration": "sip ppaegi sibeun {{answer}}ieyo."
         }
       ]
     },
@@ -5397,6 +5792,30 @@
           "transliteration": "jeoneun oneul chukgureul ne ___ hal geoyeyo.",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "저는 일주일에 두 {{answer}} 수영을 해요.",
+          "answer": "번",
+          "translation": "I swim twice a week.",
+          "hint": "counter of occurrences — how many times per week",
+          "display_order": 4,
+          "transliteration": "jeoneun iljuire du {{answer}} suyeongeul haeyo."
+        },
+        {
+          "sentence": "저는 하루에 {{answer}} 번 이를 닦아요.",
+          "answer": "두",
+          "translation": "I brush my teeth twice a day.",
+          "hint": "pure Korean 'two' in the short shape it takes before a counter",
+          "display_order": 5,
+          "transliteration": "jeoneun harue {{answer}} beon ireul dakkayo."
+        },
+        {
+          "sentence": "저는 올해 병원에 {{answer}} 번도 안 갔어요.",
+          "answer": "한",
+          "translation": "I haven't been to the hospital even once this year.",
+          "hint": "pure Korean 'one' in the short shape before a counter; the particle after it plus a negative gives 'not even once'",
+          "display_order": 6,
+          "transliteration": "jeoneun olhae byeongwone {{answer}} beondo an gasseoyo."
         }
       ]
     },
@@ -5604,6 +6023,30 @@
           "transliteration": "(naiga) myeot ___-ieyo?",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "제 형은 {{answer}} 살이에요.",
+          "answer": "스무",
+          "translation": "My older brother is twenty years old.",
+          "hint": "pure Korean 'twenty' drops its final consonant when it stands directly before a counter",
+          "display_order": 4,
+          "transliteration": "je hyeongeun {{answer}} sarieyo."
+        },
+        {
+          "sentence": "우리 딸은 다음 주에 {{answer}} 살이 돼요.",
+          "answer": "세",
+          "translation": "My daughter turns three next week.",
+          "hint": "pure Korean 'three' in the short shape it takes before a counter",
+          "display_order": 5,
+          "transliteration": "uri ttareun daeum jue {{answer}} sari dwaeyo."
+        },
+        {
+          "sentence": "저는 아직 서른 {{answer}}이 안 됐어요.",
+          "answer": "살",
+          "translation": "I'm not thirty yet.",
+          "hint": "counter for years of age — used with 되다 to say an age has not been reached",
+          "display_order": 6,
+          "transliteration": "jeoneun ajik seoreun {{answer}}i an dwaesseoyo."
         }
       ]
     },
@@ -5954,6 +6397,38 @@
           "transliteration": "jeoneun ___ sueobeul an deureosseoyo.",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} 버스가 몇 시에 와요?",
+          "answer": "마지막",
+          "translation": "What time does the last bus come?",
+          "hint": "the bus at the end of the run, with none after it",
+          "display_order": 4,
+          "transliteration": "{{answer}} beoseuga myeot sie wayo?"
+        },
+        {
+          "sentence": "저는 {{answer}} 기차를 못 탔어요.",
+          "answer": "마지막",
+          "translation": "I couldn't catch the last train.",
+          "hint": "the train that closes the day's service — not the train before this one",
+          "display_order": 5,
+          "transliteration": "jeoneun {{answer}} gichareul mot tasseoyo."
+        },
+        {
+          "sentence": "{{answer}} 시험이 너무 어려웠어요.",
+          "answer": "지난",
+          "translation": "The previous exam was too hard.",
+          "hint": "the exam before this one; nothing here is about the end of a series",
+          "display_order": 6,
+          "transliteration": "{{answer}} siheomi neomu eoryeowosseoyo."
+        },
+        {
+          "sentence": "{{answer}} 학기에 한국어를 배웠어요?",
+          "answer": "지난",
+          "translation": "Did you study Korean last semester?",
+          "hint": "the semester before this one, not the final semester of the course",
+          "display_order": 7,
+          "transliteration": "{{answer}} hakgie hangugeoreul baewosseoyo?"
         }
       ]
     },
@@ -5994,6 +6469,46 @@
           "transliteration": "jeoneun naeil hangug-e ___ gal geosimnida.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "우리는 작년에 부산에서 {{answer}} 만났어요.",
+          "answer": "처음",
+          "translation": "We met for the first time in Busan last year.",
+          "hint": "adverb: that meeting was the earliest one, never before",
+          "display_order": 3,
+          "transliteration": "urineun jangnyeone busaneseo {{answer}} mannasseoyo."
+        },
+        {
+          "sentence": "{{answer}}에는 어려웠지만 지금은 괜찮아요.",
+          "answer": "처음",
+          "translation": "At first it was hard, but now it's fine.",
+          "hint": "the earliest stage of the situation — the 'back then' that 지금 is set against",
+          "display_order": 4,
+          "transliteration": "{{answer}}eneun eoryeowotjiman jigeumeun gwaenchanayo."
+        },
+        {
+          "sentence": "여기에 {{answer}} 왔어요?",
+          "answer": "처음",
+          "translation": "Is this your first time coming here?",
+          "hint": "adverb asking whether this visit is the earliest one — never been before",
+          "display_order": 5,
+          "transliteration": "yeogie {{answer}} wasseoyo?"
+        },
+        {
+          "sentence": "한국은 {{answer}}이에요.",
+          "answer": "처음",
+          "translation": "This is my first time in Korea.",
+          "hint": "used as a noun here, with 이에요: an occasion that has never happened before",
+          "display_order": 6,
+          "transliteration": "hangugeun {{answer}}ieyo."
+        },
+        {
+          "sentence": "동생은 어제 자전거를 {{answer}} 탔어요.",
+          "answer": "처음",
+          "translation": "My younger sibling rode a bicycle for the first time yesterday.",
+          "hint": "adverb: yesterday was the earliest time he had ever done it",
+          "display_order": 7,
+          "transliteration": "dongsaengeun eoje jajeongeoreul {{answer}} tasseoyo."
         }
       ]
     },
@@ -6044,6 +6559,38 @@
           "transliteration": "jeoneun samsip bun ___ gongbuhaesseoyo.",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "몇 분 {{answer}} 기다렸어요?",
+          "answer": "동안",
+          "translation": "How many minutes did you wait?",
+          "hint": "asks across how long the waiting stretched — nothing is added after it",
+          "display_order": 4,
+          "transliteration": "myeot bun {{answer}} gidaryeosseoyo?"
+        },
+        {
+          "sentence": "저는 일주일 {{answer}} 부산에 있을 거예요.",
+          "answer": "동안",
+          "translation": "I will be in Busan for a week.",
+          "hint": "goes straight after the length of the stay; learners wrongly add 에 to it",
+          "display_order": 5,
+          "transliteration": "jeoneun iljuil {{answer}} busane isseul geoyeyo."
+        },
+        {
+          "sentence": "아이들은 한 시간 {{answer}} 텔레비전을 봐요.",
+          "answer": "동안",
+          "translation": "The children watch TV for an hour.",
+          "hint": "follows the stated length to say how long the watching lasts",
+          "display_order": 6,
+          "transliteration": "aideureun han sigan {{answer}} tellebijeoneul bwayo."
+        },
+        {
+          "sentence": "어제 비가 두 시간 {{answer}} 왔어요.",
+          "answer": "동안",
+          "translation": "It rained for two hours yesterday.",
+          "hint": "placed after the two-hour stretch to say how long the rain kept up",
+          "display_order": 7,
+          "transliteration": "eoje biga du sigan {{answer}} wasseoyo."
         }
       ]
     },
@@ -6104,6 +6651,30 @@
           "transliteration": "se ___-neun se si-reul tteushaeyo.",
           "cell": null,
           "display_order": 4
+        },
+        {
+          "sentence": "지금 몇 {{answer}}예요?",
+          "answer": "시",
+          "translation": "What time is it now?",
+          "hint": "counter for the point on the clock, not for a length",
+          "display_order": 5,
+          "transliteration": "jigeum myeot {{answer}}yeyo?"
+        },
+        {
+          "sentence": "수업은 아홉 {{answer}}에 시작해요.",
+          "answer": "시",
+          "translation": "The class starts at nine o'clock.",
+          "hint": "counter for o'clock, taking a pure Korean number and then 에",
+          "display_order": 6,
+          "transliteration": "sueobeun ahop {{answer}}e sijakaeyo."
+        },
+        {
+          "sentence": "미안해요, 지금 {{answer}}이 없어요.",
+          "answer": "시간",
+          "translation": "Sorry, I don't have time right now.",
+          "hint": "the same word that counts hours, in its general sense — what a busy person has none of",
+          "display_order": 7,
+          "transliteration": "mianhaeyo, jigeum {{answer}}i eopseoyo."
         }
       ],
       "prerequisites": [
@@ -6148,6 +6719,46 @@
           "transliteration": "il buneun yuksip ___-imnida.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "십 {{answer}} 동안 눈을 감으세요.",
+          "answer": "초",
+          "translation": "Close your eyes for ten seconds.",
+          "hint": "unit counted with Sino-Korean numbers; sixty of them make a minute",
+          "display_order": 3,
+          "transliteration": "sip {{answer}} dongan nuneul gameuseyo."
+        },
+        {
+          "sentence": "그 경기는 몇 {{answer}} 남았어요?",
+          "answer": "초",
+          "translation": "How many seconds are left in that game?",
+          "hint": "the smallest unit shown on a game clock",
+          "display_order": 4,
+          "transliteration": "geu gyeonggineun myeot {{answer}} namasseoyo?"
+        },
+        {
+          "sentence": "삼 {{answer}} 후에 사진을 찍을 거예요.",
+          "answer": "초",
+          "translation": "I'll take the photo in three seconds.",
+          "hint": "unit of the countdown before the shutter goes",
+          "display_order": 5,
+          "transliteration": "sam {{answer}} hue sajineul jjigeul geoyeyo."
+        },
+        {
+          "sentence": "일 {{answer}}도 안 걸렸어요.",
+          "answer": "초",
+          "translation": "It didn't even take one second.",
+          "hint": "one of these is a sixtieth of a minute",
+          "display_order": 6,
+          "transliteration": "il {{answer}}do an geollyeosseoyo."
+        },
+        {
+          "sentence": "저는 매일 아침 삼십 {{answer}} 동안 손을 씻어요.",
+          "answer": "초",
+          "translation": "I wash my hands for thirty seconds every morning.",
+          "hint": "unit counted in Sino-Korean; thirty of them is half a minute",
+          "display_order": 7,
+          "transliteration": "jeoneun maeil achim samsip {{answer}} dongan soneul ssiseoyo."
         }
       ],
       "prerequisites": [
@@ -6211,6 +6822,22 @@
           "transliteration": "urineun daeum ___e hakgyoe gal geoyeyo.",
           "cell": null,
           "display_order": 4
+        },
+        {
+          "sentence": "{{answer}} 시간에 우리는 이 문법을 배웠어요.",
+          "answer": "지난",
+          "translation": "We learned this grammar last time.",
+          "hint": "goes straight in front of a time word for 'previous'; before 시간 it points to the earlier occasion, not the earlier hour",
+          "display_order": 5,
+          "transliteration": "{{answer}} sigane urineun i munbeobeul baewosseoyo."
+        },
+        {
+          "sentence": "{{answer}} 달에 시간 있어요?",
+          "answer": "다음",
+          "translation": "Do you have time next month?",
+          "hint": "goes in front of a time word for the one that comes after this one",
+          "display_order": 6,
+          "transliteration": "{{answer}} dare sigan isseoyo?"
         }
       ],
       "prerequisites": [
@@ -6285,6 +6912,22 @@
           "transliteration": "jeoneun ___e myeongdonge gasseoyo.",
           "cell": null,
           "display_order": 5
+        },
+        {
+          "sentence": "시험이 6 월 3 {{answer}}에 있어요?",
+          "answer": "일",
+          "translation": "Is the exam on June 3rd?",
+          "hint": "in a date this closes the day-of-month after the number; standing on its own it is not the word for 'day'",
+          "display_order": 6,
+          "transliteration": "siheomi 6 wol 3 {{answer}}e isseoyo?"
+        },
+        {
+          "sentence": "저는 감기 때문에 {{answer}} 동안 학교에 못 갔어요.",
+          "answer": "사흘",
+          "translation": "I couldn't go to school for three days because of a cold.",
+          "hint": "the native Korean word for a run of three days, used in place of a number plus counter",
+          "display_order": 7,
+          "transliteration": "jeoneun gamgi ttaemune {{answer}} dongan hakgyoe mot gasseoyo."
         }
       ],
       "prerequisites": [
@@ -6339,6 +6982,38 @@
           "transliteration": "jeoneun daeum ___e miguge gal geoyeyo.",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "이번 {{answer}}에 시간 있어요?",
+          "answer": "주",
+          "translation": "Do you have time this week?",
+          "hint": "the week word that goes after 이번 to mean 'this ___'",
+          "display_order": 4,
+          "transliteration": "ibeon {{answer}}e sigan isseoyo?"
+        },
+        {
+          "sentence": "저는 {{answer}} 동안 부산에 있었어요.",
+          "answer": "일주일",
+          "translation": "I was in Busan for a week.",
+          "hint": "'one week' said as one fused noun — the ordinary way to say it, rather than a number counted separately",
+          "display_order": 5,
+          "transliteration": "jeoneun {{answer}} dongan busane isseosseoyo."
+        },
+        {
+          "sentence": "그 일은 2 {{answer}} 걸려요.",
+          "answer": "주일",
+          "translation": "That job takes two weeks.",
+          "hint": "the longer, two-syllable counter for weeks",
+          "display_order": 6,
+          "transliteration": "geu ireun 2 {{answer}} geollyeoyo."
+        },
+        {
+          "sentence": "우리는 2 {{answer}}마다 회의를 해요.",
+          "answer": "주",
+          "translation": "We have a meeting every two weeks.",
+          "hint": "the short counter for weeks, here in front of 마다 ('every')",
+          "display_order": 7,
+          "transliteration": "urineun 2 {{answer}}mada hoeuireul haeyo."
         }
       ],
       "prerequisites": [
@@ -6423,6 +7098,14 @@
           "transliteration": "jeoneun hangugeseo ___ dongan inteoneuro ilhaesseoyo.",
           "cell": "개월 (Sino-Korean numbers)",
           "display_order": 6
+        },
+        {
+          "sentence": "저는 다음 {{answer}}에 이사할 거예요.",
+          "answer": "달",
+          "translation": "I'm going to move next month.",
+          "hint": "the native-Korean month word; the Chinese-origin counter counts a duration only and cannot follow 다음",
+          "display_order": 7,
+          "transliteration": "jeoneun daeum {{answer}}e isahal geoyeyo."
         }
       ],
       "prerequisites": [
@@ -7509,6 +8192,46 @@
           "transliteration": "i hakgyoneun cheongubaekgusipnyeone ___.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "이 빵은 매일 아침 여기에서 {{answer}}.",
+          "answer": "만들어져요",
+          "translation": "This bread is made here every morning.",
+          "hint": "polite present passive of 'to make'",
+          "display_order": 3,
+          "transliteration": "i ppangeun maeil achim yeogieseo {{answer}}."
+        },
+        {
+          "sentence": "아직 날짜가 안 {{answer}}.",
+          "answer": "정해졌어요",
+          "translation": "The date hasn't been decided yet.",
+          "hint": "past polite passive of 'to set, to decide'",
+          "display_order": 4,
+          "transliteration": "ajik naljjaga an {{answer}}."
+        },
+        {
+          "sentence": "불이 갑자기 {{answer}}.",
+          "answer": "켜졌어요",
+          "translation": "The light suddenly came on.",
+          "hint": "past polite passive of 'to switch on'",
+          "display_order": 5,
+          "transliteration": "buri gapjagi {{answer}}."
+        },
+        {
+          "sentence": "회의가 왜 다음 주로 {{answer}}?",
+          "answer": "미뤄졌어요",
+          "translation": "Why was the meeting postponed to next week?",
+          "hint": "past polite passive of 'to postpone', asked as a question",
+          "display_order": 6,
+          "transliteration": "hoeuiga wae daeum juro {{answer}}?"
+        },
+        {
+          "sentence": "드디어 제 꿈이 {{answer}}.",
+          "answer": "이루어졌어요",
+          "translation": "My dream finally came true.",
+          "hint": "past polite passive of 'to achieve, to fulfil'",
+          "display_order": 7,
+          "transliteration": "deudieo je kkumi {{answer}}."
         }
       ],
       "prerequisites": [
@@ -7697,6 +8420,30 @@
           "transliteration": "jeoneun hakgyo___ sireoyo.",
           "cell": null,
           "display_order": 4
+        },
+        {
+          "sentence": "저는 그 노래 제목{{answer}} 기억나요.",
+          "answer": "이",
+          "translation": "I remember the title of that song.",
+          "hint": "subject-marking particle — 제목 ends in a consonant, and a verb of this kind never takes an object marker",
+          "display_order": 5,
+          "transliteration": "jeoneun geu norae jemok{{answer}} gieongnayo."
+        },
+        {
+          "sentence": "지금 뭐{{answer}} 필요해요?",
+          "answer": "가",
+          "translation": "What do you need right now?",
+          "hint": "subject-marking particle after a vowel — 필요하다 never takes the object marker",
+          "display_order": 6,
+          "transliteration": "jigeum mwo{{answer}} piryohaeyo?"
+        },
+        {
+          "sentence": "저는 이제 그 사람{{answer}} 안 무서워요.",
+          "answer": "이",
+          "translation": "I'm not afraid of that person anymore.",
+          "hint": "subject-marking particle — 사람 ends in a consonant, and an adjective cannot act on an object",
+          "display_order": 7,
+          "transliteration": "jeoneun ije geu saram{{answer}} an museowoyo."
         }
       ],
       "prerequisites": [
@@ -7750,6 +8497,38 @@
           "transliteration": "jeoneun mugeoun gabangeul ___.",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "선생님이 질문하면 학생들이 손을 {{answer}}.",
+          "answer": "들어요",
+          "translation": "When the teacher asks a question, the students raise their hands.",
+          "hint": "polite present — the lift-and-hold sense, applied to hands going up",
+          "display_order": 4,
+          "transliteration": "seonsaengnimi jilmunhamyeon haksaengdeuri soneul {{answer}}."
+        },
+        {
+          "sentence": "지금 누우면 금방 잠이 {{answer}}.",
+          "answer": "들 거예요",
+          "translation": "If you lie down now, you'll fall asleep soon.",
+          "hint": "polite future — in this idiom sleep is what does the 'entering'",
+          "display_order": 5,
+          "transliteration": "jigeum nuumyeon geumbang jami {{answer}}."
+        },
+        {
+          "sentence": "밖이 추우니까 어서 안으로 {{answer}}.",
+          "answer": "들어오세요",
+          "translation": "It's cold outside, so please come in.",
+          "hint": "polite request built on the compound that means moving inside towards the speaker",
+          "display_order": 6,
+          "transliteration": "bakki chuunikka eoseo aneuro {{answer}}."
+        },
+        {
+          "sentence": "이사할 때 돈이 많이 {{answer}}.",
+          "answer": "들었어요",
+          "translation": "Moving cost a lot of money.",
+          "hint": "past polite — with 돈 as its subject this verb means 'to be spent, to be required'",
+          "display_order": 7,
+          "transliteration": "isahal ttae doni mani {{answer}}."
         }
       ]
     },
@@ -8053,6 +8832,46 @@
           "transliteration": "jeoneun chingu jibe doneul ___.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "내일 우리 집에 올 때 노트북을 {{answer}}.",
+          "answer": "가져오세요",
+          "translation": "When you come to my house tomorrow, please bring your laptop.",
+          "hint": "polite request ending on the 'come with it' compound — the listener is moving toward where the speaker is.",
+          "display_order": 3,
+          "transliteration": "naeil uri jibe ol ttae noteubugeul {{answer}}."
+        },
+        {
+          "sentence": "제가 파티에 뭘 {{answer}}?",
+          "answer": "가져갈까요",
+          "translation": "What should I bring to the party?",
+          "hint": "suggestion question ('shall I …?') on the 'go with it' compound — the speaker is not at the party yet.",
+          "display_order": 4,
+          "transliteration": "jega patie mwol {{answer}}?"
+        },
+        {
+          "sentence": "미안, 오늘 우산을 안 {{answer}}.",
+          "answer": "가져왔어",
+          "translation": "Sorry, I didn't bring an umbrella today.",
+          "hint": "plain-speech past of the 'come with it' compound; the speaker is already here, and the negative adverb is supplied.",
+          "display_order": 5,
+          "transliteration": "mian, oneul usaneul an {{answer}}."
+        },
+        {
+          "sentence": "밖이 추우니까 이 목도리를 {{answer}}.",
+          "answer": "가져가세요",
+          "translation": "It's cold outside, so please take this scarf with you.",
+          "hint": "polite request ending on the 'go with it' compound — the listener is leaving the speaker's place.",
+          "display_order": 6,
+          "transliteration": "bakki chuunikka i mokdorireul {{answer}}."
+        },
+        {
+          "sentence": "내일 친구가 우리 집에 케이크를 {{answer}}.",
+          "answer": "가져올 거예요",
+          "translation": "Tomorrow my friend will bring a cake to our house.",
+          "hint": "the 'will' ending on the 'come with it' compound — the friend is heading toward where the speaker lives.",
+          "display_order": 7,
+          "transliteration": "naeil chinguga uri jibe keikeureul {{answer}}."
         }
       ],
       "prerequisites": [
@@ -8340,6 +9159,46 @@
           "transliteration": "jeoneun jumare tto {{answer}} yeonghwareul bwasseoyo",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "이거 말고 {{answer}} 것도 있어요?",
+          "answer": "또 다른",
+          "translation": "Do you have another one besides this one?",
+          "hint": "two words: the adverb meaning 'again' in front of the modifier meaning 'other' — one has already been shown.",
+          "display_order": 3,
+          "transliteration": "igeo malgo {{answer}} geotdo isseoyo?"
+        },
+        {
+          "sentence": "이 신발은 너무 작아요. {{answer}} 사이즈로 주세요.",
+          "answer": "다른",
+          "translation": "These shoes are too small. Please give me a different size.",
+          "hint": "the modifier alone, with no adverb in front: the customer wants one instead of this one, not one more added to a series.",
+          "display_order": 4,
+          "transliteration": "i sinbareun neomu jagayo. {{answer}} saijeuro juseyo."
+        },
+        {
+          "sentence": "형은 저와 성격이 다르고, 동생은 {{answer}} 달라요.",
+          "answer": "또",
+          "translation": "My older brother has a different personality from me, and my younger brother is different yet again.",
+          "hint": "the one-syllable adverb meaning 'again, on top of that' — here it sits in front of the adjective at the end, not in front of a noun.",
+          "display_order": 5,
+          "transliteration": "hyeongeun jeowa seonggyeogi dareugo, dongsaengeun {{answer}} dallayo."
+        },
+        {
+          "sentence": "아직 {{answer}} 방법을 못 찾았어요.",
+          "answer": "또 다른",
+          "translation": "I haven't found another way yet.",
+          "hint": "adverb plus modifier, two words: one more possibility beyond the one already tried.",
+          "display_order": 6,
+          "transliteration": "ajik {{answer}} bangbeobeul mot chajasseoyo."
+        },
+        {
+          "sentence": "듣는 것과 직접 보는 것은 또 {{answer}}.",
+          "answer": "달라요",
+          "translation": "Hearing about something and seeing it in person are two different things.",
+          "hint": "polite present of the adjective meaning 'to differ' — the adverb in front stays put while the adjective conjugates (르 irregular).",
+          "display_order": 7,
+          "transliteration": "deunneun geotgwa jikjeop boneun geoseun tto {{answer}}."
         }
       ],
       "prerequisites": [
@@ -8403,6 +9262,30 @@
           "transliteration": "jeoneun eoje pyeonjireul {{answer}}",
           "cell": null,
           "display_order": 4
+        },
+        {
+          "sentence": "겨울에는 사람들이 감기에 자주 {{answer}}.",
+          "answer": "걸려요",
+          "translation": "In winter people often catch colds.",
+          "hint": "polite present — the sense about coming down with an illness, not the one about how long a trip takes.",
+          "display_order": 5,
+          "transliteration": "gyeoureneun saramdeuri gamgie jaju {{answer}}."
+        },
+        {
+          "sentence": "이 일은 생각보다 오래 {{answer}} 거예요.",
+          "answer": "걸릴",
+          "translation": "This job will take longer than I expected.",
+          "hint": "the future noun-modifying form used before the 'will' ending, in the sense of time being used up.",
+          "display_order": 6,
+          "transliteration": "i ireun saenggakboda orae {{answer}} geoyeyo."
+        },
+        {
+          "sentence": "가방이 안 들어가요. 뭐가 {{answer}}?",
+          "answer": "걸렸어요",
+          "translation": "The bag won't go in. What is it caught on?",
+          "hint": "polite past in the sense of being snagged or stuck on something.",
+          "display_order": 7,
+          "transliteration": "gabangi an deureogayo. mwoga {{answer}}?"
         }
       ]
     },
@@ -9193,6 +10076,30 @@
           "transliteration": "uri abeojineun eoje {{answer}}",
           "cell": null,
           "display_order": 4
+        },
+        {
+          "sentence": "너 혹시 나{{answer}} 실망했어?",
+          "answer": "한테",
+          "translation": "Are you disappointed in me, by any chance?",
+          "hint": "the casual spoken particle marking the person the feeling is directed at.",
+          "display_order": 5,
+          "transliteration": "neo hoksi na{{answer}} silmanghaesseo?"
+        },
+        {
+          "sentence": "저는 요즘 그 가수가 {{answer}}.",
+          "answer": "실망스러워요",
+          "translation": "That singer is disappointing to me these days.",
+          "hint": "polite present of the adjective, with the singer marked as the thing causing it; the stem is ㅂ-irregular.",
+          "display_order": 6,
+          "transliteration": "jeoneun yojeum geu gasuga {{answer}}."
+        },
+        {
+          "sentence": "저는 그 결과에 별로 {{answer}}.",
+          "answer": "실망하지 않았어요",
+          "translation": "I wasn't particularly disappointed by that result.",
+          "hint": "long-form negative past of the verb of feeling: stem plus the 'does not' pattern, after the non-person particle.",
+          "display_order": 7,
+          "transliteration": "jeoneun geu gyeolgwae byeollo {{answer}}."
         }
       ],
       "prerequisites": [
@@ -9396,6 +10303,46 @@
           "transliteration": "geuneun {{answer}} haengdonghaesseoyo.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "아기가 저를 보고 {{answer}} 웃었어요.",
+          "answer": "사랑스럽게",
+          "translation": "The baby looked at me and smiled adorably.",
+          "hint": "adverb built on the adjective meaning 'adorable, loveable'.",
+          "display_order": 3,
+          "transliteration": "agiga jeoreul bogo {{answer}} useosseoyo."
+        },
+        {
+          "sentence": "어머니는 아들 사진을 {{answer}} 보여 주셨어요.",
+          "answer": "자랑스럽게",
+          "translation": "My mother proudly showed us a picture of her son.",
+          "hint": "adverb built on the adjective meaning 'proud'.",
+          "display_order": 4,
+          "transliteration": "eomeonineun adeul sajineul {{answer}} boyeo jusyeosseoyo."
+        },
+        {
+          "sentence": "왜 저를 그렇게 {{answer}} 봐요?",
+          "answer": "걱정스럽게",
+          "translation": "Why are you looking at me so worriedly?",
+          "hint": "adverb built on the adjective meaning 'worried, anxious'.",
+          "display_order": 5,
+          "transliteration": "wae jeoreul geureoke {{answer}} bwayo?"
+        },
+        {
+          "sentence": "동생은 물건을 {{answer}} 다루지 않아요.",
+          "answer": "조심스럽게",
+          "translation": "My younger brother doesn't handle things carefully.",
+          "hint": "adverb built on the adjective meaning 'cautious'; it still stands right in front of the verb even though the sentence is negative.",
+          "display_order": 6,
+          "transliteration": "dongsaengeun mulgeoneul {{answer}} daruji anayo."
+        },
+        {
+          "sentence": "날씨가 {{answer}} 추워졌어요.",
+          "answer": "갑작스럽게",
+          "translation": "The weather suddenly turned cold.",
+          "hint": "adverb built on the adjective meaning 'sudden, abrupt'.",
+          "display_order": 7,
+          "transliteration": "nalssiga {{answer}} chuwojyeosseoyo."
         }
       ],
       "prerequisites": [
@@ -10323,6 +11270,46 @@
           "transliteration": "naneun yeoja chingu{{answer}} isseo.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "혹시 볼펜을 {{answer}} 있어요?",
+          "answer": "가지고",
+          "translation": "Do you happen to have a ballpoint pen?",
+          "hint": "the possession verb in its ~고 form, asking whether someone has one on them right now",
+          "display_order": 3,
+          "transliteration": "hoksi bolpeneul {{answer}} isseoyo?"
+        },
+        {
+          "sentence": "저는 지금 우산{{answer}} 가지고 있어요.",
+          "answer": "을",
+          "translation": "I have an umbrella with me right now.",
+          "hint": "object particle after a consonant — this two-part phrase takes an object, unlike the plain existence verb",
+          "display_order": 4,
+          "transliteration": "jeoneun jigeum usan{{answer}} gajigo isseoyo."
+        },
+        {
+          "sentence": "저는 언니가 두 명 {{answer}}.",
+          "answer": "있어요",
+          "translation": "I have two older sisters.",
+          "hint": "family is 'had' with the existence verb rather than the possession one; polite present",
+          "display_order": 5,
+          "transliteration": "jeoneun eonniga du myeong {{answer}}."
+        },
+        {
+          "sentence": "그날은 카메라를 가지고 {{answer}}.",
+          "answer": "있었어요",
+          "translation": "That day I had my camera with me.",
+          "hint": "the tense sits on the second verb of the phrase — existence verb, polite past",
+          "display_order": 6,
+          "transliteration": "geunareun kamerareul gajigo {{answer}}."
+        },
+        {
+          "sentence": "저는 신용카드를 {{answer}} 있지 않아요.",
+          "answer": "가지고",
+          "translation": "I don't have a credit card.",
+          "hint": "the possession verb in its ~고 form; the negation lands on the verb that follows it",
+          "display_order": 7,
+          "transliteration": "jeoneun sinyongkadeureul {{answer}} itji anayo."
         }
       ],
       "prerequisites": [
@@ -10366,6 +11353,38 @@
           "transliteration": "ne, {{answer}}.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "이 노래 제목을 {{answer}} 있어요?",
+          "answer": "알고",
+          "translation": "Do you know the title of this song?",
+          "hint": "the knowing verb in its ~고 form, in a question about what someone knows now",
+          "display_order": 3,
+          "transliteration": "i norae jemogeul {{answer}} isseoyo?"
+        },
+        {
+          "sentence": "네, {{answer}}. 내일까지 보낼게요.",
+          "answer": "알았어요",
+          "translation": "Okay, got it. I'll send it by tomorrow.",
+          "hint": "polite past of the knowing verb, used to accept what you have just been told",
+          "display_order": 4,
+          "transliteration": "ne, {{answer}}. naeilkkaji bonaelgeyo."
+        },
+        {
+          "sentence": "저는 그때 이미 그 계획을 알고 {{answer}}.",
+          "answer": "있었어요",
+          "translation": "I already knew about that plan at that time.",
+          "hint": "the standing-knowledge phrase ends with the existence verb; put that one in the polite past",
+          "display_order": 5,
+          "transliteration": "jeoneun geuttae imi geu gyehoegeul algo {{answer}}."
+        },
+        {
+          "sentence": "그 문제는 저도 잘 알고 {{answer}}.",
+          "answer": "있어요",
+          "translation": "I am well aware of that problem too.",
+          "hint": "the polite present existence verb that completes the standing-knowledge phrase",
+          "display_order": 6,
+          "transliteration": "geu munjeneun jeodo jal algo {{answer}}."
         }
       ],
       "prerequisites": [
@@ -10695,6 +11714,38 @@
           "transliteration": "jeoneun jogeum {{answer}} gidaril geoyeyo.",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "어느 것이 {{answer}} 좋아요?",
+          "answer": "더",
+          "translation": "Which one is better?",
+          "hint": "one syllable in front of the adjective turns 'good' into 'better'",
+          "display_order": 4,
+          "transliteration": "eoneu geosi {{answer}} joayo?"
+        },
+        {
+          "sentence": "커피 {{answer}} 주세요.",
+          "answer": "더",
+          "translation": "More coffee, please.",
+          "hint": "asks for an additional amount, standing right before the request verb",
+          "display_order": 5,
+          "transliteration": "keopi {{answer}} juseyo."
+        },
+        {
+          "sentence": "저는 {{answer}} 이상 못 기다려요.",
+          "answer": "더",
+          "translation": "I can't wait any longer.",
+          "hint": "pairs with 이상 to make the phrase 'any longer' in a negative sentence",
+          "display_order": 6,
+          "transliteration": "jeoneun {{answer}} isang mot gidaryeoyo."
+        },
+        {
+          "sentence": "냉장고에 주스가 {{answer}} 있어요.",
+          "answer": "더",
+          "translation": "There is more juice in the fridge.",
+          "hint": "goes before the existence verb to say an additional amount is there",
+          "display_order": 7,
+          "transliteration": "naengjanggoe juseuga {{answer}} isseoyo."
         }
       ]
     },
@@ -10735,6 +11786,46 @@
           "transliteration": "haksaengdeureun sueop sigan {{answer}} joyonghaesseoyo.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "한국에서 얼마 {{answer}} 살았어요?",
+          "answer": "동안",
+          "translation": "How long did you live in Korea?",
+          "hint": "follows 얼마 to ask about a stretch of time rather than an amount",
+          "display_order": 3,
+          "transliteration": "hangugeseo eolma {{answer}} sarasseoyo?"
+        },
+        {
+          "sentence": "저는 세 시간 {{answer}} 운전할 거예요.",
+          "answer": "동안",
+          "translation": "I am going to drive for three hours.",
+          "hint": "after a length of time it gives the span the action will cover",
+          "display_order": 4,
+          "transliteration": "jeoneun se sigan {{answer}} unjeonhal geoyeyo."
+        },
+        {
+          "sentence": "방학 {{answer}} 아르바이트를 했어요.",
+          "answer": "동안",
+          "translation": "I worked a part-time job during vacation.",
+          "hint": "after an ordinary noun it marks the period something happened in",
+          "display_order": 5,
+          "transliteration": "banghak {{answer}} areubaiteureul haesseoyo."
+        },
+        {
+          "sentence": "저는 일주일 {{answer}} 커피를 안 마셨어요.",
+          "answer": "동안",
+          "translation": "I didn't drink coffee for a week.",
+          "hint": "after a length of time; the negation belongs to the verb, not to this word",
+          "display_order": 6,
+          "transliteration": "jeoneun iljuil {{answer}} keopireul an masyeosseoyo."
+        },
+        {
+          "sentence": "회의 {{answer}} 휴대폰을 꺼 주세요.",
+          "answer": "동안",
+          "translation": "Please turn off your cell phone during the meeting.",
+          "hint": "after an event noun, it marks the stretch of time the request covers",
+          "display_order": 7,
+          "transliteration": "hoeui {{answer}} hyudaeponeul kkeo juseyo."
         }
       ]
     },
@@ -10805,6 +11896,22 @@
           "transliteration": "jeoneun yennalboda doni deo {{answer}}.",
           "cell": null,
           "display_order": 5
+        },
+        {
+          "sentence": "남동생이 저보다 밥을 {{answer}} 많이 먹어요.",
+          "answer": "더",
+          "translation": "My younger brother eats more than I do.",
+          "hint": "the degree word that goes before 많이 once a ~보다 phrase has named the standard",
+          "display_order": 6,
+          "transliteration": "namdongsaengi jeoboda babeul {{answer}} mani meogeoyo."
+        },
+        {
+          "sentence": "이 식당이 저 식당{{answer}} 더 싸요?",
+          "answer": "보다",
+          "translation": "Is this restaurant cheaper than that one?",
+          "hint": "attaches straight onto the noun that sets the standard, with no space and no other particle",
+          "display_order": 7,
+          "transliteration": "i sikdangi jeo sikdang{{answer}} deo ssayo?"
         }
       ]
     },
@@ -10835,6 +11942,54 @@
           "transliteration": "i yeonghwaneun geu yeonghwaboda {{answer}} jaemiisseoyo.",
           "cell": null,
           "display_order": 1
+        },
+        {
+          "sentence": "저는 요즘 커피를 {{answer}} 마셔요.",
+          "answer": "덜",
+          "translation": "I drink less coffee these days.",
+          "hint": "one syllable before the verb, saying the action happens to a smaller degree",
+          "display_order": 2,
+          "transliteration": "jeoneun yojeum keopireul {{answer}} masyeoyo."
+        },
+        {
+          "sentence": "이 약을 먹으면 {{answer}} 아파요?",
+          "answer": "덜",
+          "translation": "Does it hurt less if I take this medicine?",
+          "hint": "the opposite of the word for 'more', placed before the adjective in a question",
+          "display_order": 3,
+          "transliteration": "i yageul meogeumyeon {{answer}} apayo?"
+        },
+        {
+          "sentence": "다음 주에는 {{answer}} 바쁠 거예요.",
+          "answer": "덜",
+          "translation": "I will be less busy next week.",
+          "hint": "lowers the degree of what follows; the future ending is unaffected",
+          "display_order": 4,
+          "transliteration": "daeum jueneun {{answer}} bappeul geoyeyo."
+        },
+        {
+          "sentence": "고기가 아직 {{answer}} 익었어요.",
+          "answer": "덜",
+          "translation": "The meat is still undercooked.",
+          "hint": "before a verb it can mean 'not all the way'; with cooking that reads as underdone",
+          "display_order": 5,
+          "transliteration": "gogiga ajik {{answer}} igeosseoyo."
+        },
+        {
+          "sentence": "설탕을 {{answer}} 넣어 주세요.",
+          "answer": "덜",
+          "translation": "Please put in less sugar.",
+          "hint": "reduces the amount in a request, standing directly before the verb",
+          "display_order": 6,
+          "transliteration": "seoltangeul {{answer}} neoeo juseyo."
+        },
+        {
+          "sentence": "이번 주에는 지난주보다 {{answer}} 걸었어요.",
+          "answer": "덜",
+          "translation": "I walked less this week than last week.",
+          "hint": "with a ~보다 phrase naming the standard, this lowers the degree of the past verb",
+          "display_order": 7,
+          "transliteration": "ibeon jueneun jinanjuboda {{answer}} georeosseoyo."
         }
       ],
       "prerequisites": [
@@ -10997,6 +12152,30 @@
           "transliteration": "uri hyeong-i jibe jeil {{answer}} dochakhaesseoyo.",
           "cell": null,
           "display_order": 4
+        },
+        {
+          "sentence": "이 식당에서 {{answer}} 맛있는 음식이 뭐예요?",
+          "answer": "가장",
+          "translation": "What is the most delicious food at this restaurant?",
+          "hint": "the superlative word of the pair that suits writing and formal speech; it stands right in front of the describing word",
+          "display_order": 5,
+          "transliteration": "i sikdangeseo {{answer}} masinneun eumsigi mwoyeyo?"
+        },
+        {
+          "sentence": "어제 시험이 이번 학기 시험 중에서 제일 {{answer}}.",
+          "answer": "어려웠어요",
+          "translation": "Yesterday's exam was the hardest one this semester.",
+          "hint": "polite past of 'to be difficult' — a negative superlative is built from an opposite-meaning word, not from a negation",
+          "display_order": 6,
+          "transliteration": "eoje siheomi ibeon hakgi siheom jungeseo jeil {{answer}}."
+        },
+        {
+          "sentence": "제 동생이 우리 집에서 밥을 {{answer}} 많이 먹어요.",
+          "answer": "제일",
+          "translation": "My younger sibling eats the most in our family.",
+          "hint": "the everyday-conversation superlative word; a plain action verb cannot carry it alone, which is why an adverb follows",
+          "display_order": 7,
+          "transliteration": "je dongsaengi uri jibeseo babeul {{answer}} mani meogeoyo."
         }
       ]
     },
@@ -11047,6 +12226,38 @@
           "transliteration": "geu gyosuneun dareun gyosudeulboda sueobeul deo {{answer}}.",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "제 형은 {{answer}}를 아주 잘해요.",
+          "answer": "공부",
+          "translation": "My older brother does really well in school.",
+          "hint": "drop 하다 from the verb meaning 'to study' and use the noun that is left",
+          "display_order": 4,
+          "transliteration": "je hyeongeun {{answer}}reul aju jalhaeyo."
+        },
+        {
+          "sentence": "수미 씨는 어떤 운동을 {{answer}}?",
+          "answer": "잘해요",
+          "translation": "Sumi, which sport are you good at?",
+          "hint": "the 'good at' verb in the polite present — a question in this style takes the same shape as a statement",
+          "display_order": 5,
+          "transliteration": "sumi ssineun eotteon undongeul {{answer}}?"
+        },
+        {
+          "sentence": "어제 발표를 정말 {{answer}}.",
+          "answer": "잘했어요",
+          "translation": "You did really well on the presentation yesterday.",
+          "hint": "the 'good at' verb in the polite past, said as praise for something already finished",
+          "display_order": 6,
+          "transliteration": "eoje balpyoreul jeongmal {{answer}}."
+        },
+        {
+          "sentence": "동생은 수학을 {{answer}}, 저는 영어를 잘해요.",
+          "answer": "잘하고",
+          "translation": "My younger sibling is good at math, and I am good at English.",
+          "hint": "the 'good at' verb carrying the 'and' ending that links it to the second clause",
+          "display_order": 7,
+          "transliteration": "dongsaengeun suhageul {{answer}}, jeoneun yeongeoreul jalhaeyo."
         }
       ]
     },
@@ -11097,6 +12308,38 @@
           "transliteration": "jeoneun geu saram ireumeul jal {{answer}}.",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "그 배우는 키도 크고 정말 {{answer}}.",
+          "answer": "잘생겼어요",
+          "translation": "That actor is tall and really handsome.",
+          "hint": "the fixed adjective for good looks, built on the 'in a good manner' adverb; its past-shaped ending describes how someone is now",
+          "display_order": 4,
+          "transliteration": "geu baeuneun kido keugo jeongmal {{answer}}."
+        },
+        {
+          "sentence": "제 목소리가 {{answer}} 들려요?",
+          "answer": "잘",
+          "translation": "Can you hear my voice okay?",
+          "hint": "the one-syllable adverb saying the action comes off nicely; it sits directly before the verb",
+          "display_order": 5,
+          "transliteration": "je moksoriga {{answer}} deullyeoyo?"
+        },
+        {
+          "sentence": "어제 그 식당에서 정말 잘 {{answer}}.",
+          "answer": "먹었어요",
+          "translation": "I ate really well at that restaurant yesterday.",
+          "hint": "polite past of 'to eat' — the adverb in front already supplies the 'in a good manner' part",
+          "display_order": 6,
+          "transliteration": "eoje geu sikdangeseo jeongmal jal {{answer}}."
+        },
+        {
+          "sentence": "요즘 잘 {{answer}}?",
+          "answer": "지내요",
+          "translation": "Are you doing well these days?",
+          "hint": "polite present of the verb for getting on and spending one's days — the standard way to ask how someone is",
+          "display_order": 7,
+          "transliteration": "yojeum jal {{answer}}?"
         }
       ],
       "prerequisites": [
@@ -11140,6 +12383,46 @@
           "transliteration": "jeoneun chukgureul jeil {{answer}}.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "저는 요리{{answer}} 좀 못해요.",
+          "answer": "를",
+          "translation": "I am not very good at cooking.",
+          "hint": "object marker on a noun with no final consonant — the skill is the object of the ability verb",
+          "display_order": 3,
+          "transliteration": "jeoneun yori{{answer}} jom motaeyo."
+        },
+        {
+          "sentence": "어렸을 때는 노래를 정말 {{answer}}.",
+          "answer": "못했어요",
+          "translation": "When I was little I was really bad at singing.",
+          "hint": "the 'bad at' verb in the polite past — the ability is described for a time that is over",
+          "display_order": 4,
+          "transliteration": "eoryeosseul ttaeneun noraereul jeongmal {{answer}}."
+        },
+        {
+          "sentence": "저는 컴퓨터를 {{answer}} 아들한테 자주 물어봐요.",
+          "answer": "못해서",
+          "translation": "I am bad with computers, so I often ask my son.",
+          "hint": "the 'bad at' verb carrying the 'because' ending that ties it to the result clause",
+          "display_order": 5,
+          "transliteration": "jeoneun keompyuteoreul {{answer}} adeulhante jaju mureobwayo."
+        },
+        {
+          "sentence": "제 동생은 저보다 영어를 더 {{answer}}.",
+          "answer": "못해요",
+          "translation": "My younger sibling is worse at English than I am.",
+          "hint": "the 'bad at' verb in the polite present; the comparison in front of it does not change its shape",
+          "display_order": 6,
+          "transliteration": "je dongsaengeun jeoboda yeongeoreul deo {{answer}}."
+        },
+        {
+          "sentence": "저는 운동을 {{answer}} 매일 걸어요.",
+          "answer": "못하지만",
+          "translation": "I am bad at sports, but I walk every day.",
+          "hint": "the 'bad at' verb carrying the 'but' ending that sets up a contrast with the next clause",
+          "display_order": 7,
+          "transliteration": "jeoneun undongeul {{answer}} maeil georeoyo."
         }
       ],
       "prerequisites": [
@@ -11193,6 +12476,30 @@
           "transliteration": "pyoga neomu bissaseo kaenadae {{answer}} gagetda.",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "어제는 시간이 없어서 운동을 {{answer}} 했어요.",
+          "answer": "못",
+          "translation": "I had no time yesterday, so I could not work out.",
+          "hint": "the one-syllable adverb of being prevented; with a 하다 verb it slips in right before the doing part, never in front of the noun",
+          "display_order": 4,
+          "transliteration": "eojeneun sigani eopseoseo undongeul {{answer}} haesseoyo."
+        },
+        {
+          "sentence": "다리를 다쳐서 어제 학교에 못 {{answer}}.",
+          "answer": "갔어요",
+          "translation": "I hurt my leg, so I could not go to school yesterday.",
+          "hint": "polite past of 'to go' — the adverb in front already carries the inability",
+          "display_order": 5,
+          "transliteration": "darireul dachyeoseo eoje hakgyoe mot {{answer}}."
+        },
+        {
+          "sentence": "요즘 너무 바빠서 친구를 자주 못 {{answer}}.",
+          "answer": "만나요",
+          "translation": "I am so busy these days that I cannot see my friends often.",
+          "hint": "polite present of 'to meet' — the adverb before it supplies the inability",
+          "display_order": 6,
+          "transliteration": "yojeum neomu bappaseo chingureul jaju mot {{answer}}."
         }
       ],
       "prerequisites": [
@@ -11236,6 +12543,46 @@
           "transliteration": "jeoneun eoje gongbuha{{answer}} mothaesseoyo.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "요즘은 일이 많아서 운동을 하지 {{answer}}.",
+          "answer": "못해요",
+          "translation": "I have a lot of work these days, so I cannot exercise.",
+          "hint": "the auxiliary that follows ~지, in the polite present",
+          "display_order": 3,
+          "transliteration": "yojeumeun iri manaseo undongeul haji {{answer}}."
+        },
+        {
+          "sentence": "요즘 할머니 건강이 {{answer}} 못해요.",
+          "answer": "좋지",
+          "translation": "My grandmother's health has not been good lately.",
+          "hint": "'to be good' plus the one-syllable ending that hands the clause over to the negative auxiliary; with a describing word the pattern means 'falls short'",
+          "display_order": 4,
+          "transliteration": "yojeum halmeoni geongangi {{answer}} motaeyo."
+        },
+        {
+          "sentence": "아직 표를 구하지 {{answer}}?",
+          "answer": "못했어요",
+          "translation": "Have you still not managed to get a ticket?",
+          "hint": "the auxiliary that follows ~지, polite past, asked as a question",
+          "display_order": 5,
+          "transliteration": "ajik pyoreul guhaji {{answer}}?"
+        },
+        {
+          "sentence": "아침을 먹지 {{answer}} 지금 배가 너무 고파요.",
+          "answer": "못해서",
+          "translation": "I could not eat breakfast, so I am really hungry now.",
+          "hint": "the auxiliary after ~지 carrying the 'because' ending that ties it to the next clause",
+          "display_order": 6,
+          "transliteration": "achimeul meokji {{answer}} jigeum baega neomu gopayo."
+        },
+        {
+          "sentence": "영화를 끝까지 보지 {{answer}} 그냥 나왔어요.",
+          "answer": "못하고",
+          "translation": "I could not watch the movie to the end, so I just left.",
+          "hint": "the auxiliary after ~지 with the 'and then' ending that lets the sentence run on",
+          "display_order": 7,
+          "transliteration": "yeonghwareul kkeutkkaji boji {{answer}} geunyang nawasseoyo."
         }
       ],
       "prerequisites": [
@@ -11279,6 +12626,38 @@
           "transliteration": "jeoneun dabeul {{answer}} mot sseosseoyo.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "이건 누구 {{answer}}이에요?",
+          "answer": "잘못",
+          "translation": "Whose fault is this?",
+          "hint": "the noun for an error or blame, written solid with nothing between its two syllables",
+          "display_order": 3,
+          "transliteration": "igeon nugu {{answer}}ieyo?"
+        },
+        {
+          "sentence": "동생은 노래를 {{answer}} 불러요.",
+          "answer": "잘 못",
+          "translation": "My younger sibling doesn't sing well.",
+          "hint": "two separate words with a space between them: the adverb of good manner, then the negative that says the action does not come off",
+          "display_order": 4,
+          "transliteration": "dongsaengeun noraereul {{answer}} bulleoyo."
+        },
+        {
+          "sentence": "죄송합니다, 제가 {{answer}}했습니다.",
+          "answer": "잘못",
+          "translation": "I'm sorry, I did something wrong.",
+          "hint": "the same noun for an error, here written straight onto 하다 so that it works as a verb",
+          "display_order": 5,
+          "transliteration": "joesonghamnida, jega {{answer}}haetseumnida."
+        },
+        {
+          "sentence": "{{answer}}을 인정하는 게 어려워요.",
+          "answer": "잘못",
+          "translation": "Admitting your mistakes is hard.",
+          "hint": "the noun for wrongdoing, here carrying an object particle in front of 인정하다",
+          "display_order": 6,
+          "transliteration": "{{answer}}eul injeonghaneun ge eoryeowoyo."
         }
       ],
       "prerequisites": [
@@ -11332,6 +12711,38 @@
           "transliteration": "eommado ol {{answer}}?",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "매일 운동{{answer}}?",
+          "answer": "해요",
+          "translation": "Do you exercise every day?",
+          "hint": "polite present of the verb meaning to do; nothing but a rising tone turns it into a question",
+          "display_order": 4,
+          "transliteration": "maeil undong{{answer}}?"
+        },
+        {
+          "sentence": "남동생은 {{answer}}?",
+          "answer": "울었어요",
+          "translation": "Did your younger brother cry?",
+          "hint": "polite past of the verb meaning to weep, with the subject stated because it is not the listener",
+          "display_order": 5,
+          "transliteration": "namdongsaengeun {{answer}}?"
+        },
+        {
+          "sentence": "이 옷 {{answer}}?",
+          "answer": "비싸",
+          "translation": "Are these clothes expensive?",
+          "hint": "plain-form descriptive verb meaning costly, unchanged from how you would say it as a statement",
+          "display_order": 6,
+          "transliteration": "i ot {{answer}}?"
+        },
+        {
+          "sentence": "밥 안 {{answer}}?",
+          "answer": "먹어",
+          "translation": "Aren't you eating?",
+          "hint": "plain present of the verb meaning to eat, following the negative 안",
+          "display_order": 7,
+          "transliteration": "bap an {{answer}}?"
         }
       ]
     },
@@ -11743,6 +13154,38 @@
           "transliteration": "palda + ~nayo = ___?",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "학교가 생각보다 {{answer}}!",
+          "answer": "머네요",
+          "translation": "The school is farther than I thought!",
+          "hint": "멀다 with the exclamatory ~네요; the stem cannot keep its final consonant in front of it",
+          "display_order": 3,
+          "transliteration": "hakgyoga saenggakboda {{answer}}!"
+        },
+        {
+          "sentence": "지금 케이크를 {{answer}}, 조금만 기다려.",
+          "answer": "만드는데",
+          "translation": "I'm making a cake right now, so wait a moment.",
+          "hint": "만들다 setting up background information with ~는데, which begins with the consonant that forces the stem to give one up",
+          "display_order": 4,
+          "transliteration": "jigeum keikeureul {{answer}}, jogeumman gidaryeo."
+        },
+        {
+          "sentence": "부산에 {{answer}} 친구가 있어요.",
+          "answer": "사는",
+          "translation": "I have a friend who lives in Busan.",
+          "hint": "살다 turned into a modifier for the following noun with ~는, losing its final stem consonant on the way",
+          "display_order": 5,
+          "transliteration": "busane {{answer}} chinguga isseoyo."
+        },
+        {
+          "sentence": "아기가 왜 {{answer}}?",
+          "answer": "우니",
+          "translation": "Why is the baby crying?",
+          "hint": "울다 asked in the intimate ~니 question form, with the stem reduced as this family of endings requires",
+          "display_order": 6,
+          "transliteration": "agiga wae {{answer}}?"
         }
       ],
       "prerequisites": [
@@ -12158,6 +13601,38 @@
           "transliteration": "hangugeoreul ___ gongbuhago isseoyo?",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} 아무도 안 왔어요?",
+          "answer": "왜",
+          "translation": "Why did nobody come?",
+          "hint": "reason question word opening the sentence, ahead of the subject and the negative",
+          "display_order": 4,
+          "transliteration": "{{answer}} amudo an wasseoyo?"
+        },
+        {
+          "sentence": "{{answer}} 웃어?",
+          "answer": "왜",
+          "translation": "Why are you laughing?",
+          "hint": "reason question word starting a two-word question in casual plain speech",
+          "display_order": 5,
+          "transliteration": "{{answer}} useo?"
+        },
+        {
+          "sentence": "그게 {{answer}} 문제예요?",
+          "answer": "왜",
+          "translation": "Why is that a problem?",
+          "hint": "reason question word in a sentence built on the copula instead of an action verb",
+          "display_order": 6,
+          "transliteration": "geuge {{answer}} munjeyeyo?"
+        },
+        {
+          "sentence": "어제는 {{answer}} 못 왔어요?",
+          "answer": "왜",
+          "translation": "Why couldn't you come yesterday?",
+          "hint": "reason question word placed in front of the negative 못",
+          "display_order": 7,
+          "transliteration": "eojeneun {{answer}} mot wasseoyo?"
         }
       ]
     },
@@ -12217,6 +13692,30 @@
           "transliteration": "natjameul ___ jasseoyo?",
           "cell": null,
           "display_order": 4
+        },
+        {
+          "sentence": "{{answer}}든지 전화하세요.",
+          "answer": "언제",
+          "translation": "Call me any time.",
+          "hint": "the time question word; with ~든지 attached it stops asking and means no matter the moment",
+          "display_order": 5,
+          "transliteration": "{{answer}}deunji jeonhwahaseyo."
+        },
+        {
+          "sentence": "우리 {{answer}} 만나?",
+          "answer": "언제",
+          "translation": "When are we meeting?",
+          "hint": "time question word in a casual plain-speech question about an arrangement still to come",
+          "display_order": 6,
+          "transliteration": "uri {{answer}} manna?"
+        },
+        {
+          "sentence": "시험이 {{answer}}였어요?",
+          "answer": "언제",
+          "translation": "When was the exam?",
+          "hint": "the word that fills the missing time expression directly before a past form of 이다",
+          "display_order": 7,
+          "transliteration": "siheomi {{answer}}yeosseoyo?"
         }
       ],
       "prerequisites": [
@@ -12279,6 +13778,30 @@
           "transliteration": "beoseureul ___kkaji tal geoyeyo?",
           "cell": null,
           "display_order": 4
+        },
+        {
+          "sentence": "너 지금 {{answer}}야?",
+          "answer": "어디",
+          "translation": "Where are you right now?",
+          "hint": "place question word before the plain copula, asking the person you are speaking to for their own location",
+          "display_order": 5,
+          "transliteration": "neo jigeum {{answer}}ya?"
+        },
+        {
+          "sentence": "저기요, 화장실이 {{answer}}예요?",
+          "answer": "어디",
+          "translation": "Excuse me, where is the bathroom?",
+          "hint": "place question word before the polite copula, asking for the location of a place rather than a person",
+          "display_order": 6,
+          "transliteration": "jeogiyo, hwajangsiri {{answer}}yeyo?"
+        },
+        {
+          "sentence": "이 버스는 {{answer}}로 가요?",
+          "answer": "어디",
+          "translation": "Where does this bus go?",
+          "hint": "place question word carrying the particle that marks the direction something moves toward",
+          "display_order": 7,
+          "transliteration": "i beoseuneun {{answer}}ro gayo?"
         }
       ],
       "prerequisites": [
@@ -12438,6 +13961,38 @@
           "transliteration": "geu yeonghwae daehae ___ saenggakhaeyo?",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "요즘 {{answer}} 지내요?",
+          "answer": "어떻게",
+          "translation": "How have you been getting on lately?",
+          "hint": "manner question word, in the everyday greeting that asks in what way someone is getting along",
+          "display_order": 4,
+          "transliteration": "yojeum {{answer}} jinaeyo?"
+        },
+        {
+          "sentence": "내일 학교에 {{answer}} 갈 거예요?",
+          "answer": "어떻게",
+          "translation": "How are you going to get to school tomorrow?",
+          "hint": "manner question word standing in front of a future-tense verb",
+          "display_order": 5,
+          "transliteration": "naeil hakgyoe {{answer}} gal geoyeyo?"
+        },
+        {
+          "sentence": "이 게임 {{answer}} 해?",
+          "answer": "어떻게",
+          "translation": "How do you play this game?",
+          "hint": "manner question word in casual speech — the adverb itself never changes shape",
+          "display_order": 6,
+          "transliteration": "i geim {{answer}} hae?"
+        },
+        {
+          "sentence": "우리 이제 {{answer}} 해요?",
+          "answer": "어떻게",
+          "translation": "What do we do now?",
+          "hint": "manner question word; Korean asks 'in what way do we do it' where English says 'what do we do'",
+          "display_order": 7,
+          "transliteration": "uri ije {{answer}} haeyo?"
         }
       ],
       "prerequisites": [
@@ -12715,6 +14270,30 @@
           "transliteration": "ige ___ soriya?",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "오늘이 {{answer}} 요일이에요?",
+          "answer": "무슨",
+          "translation": "What day of the week is it today?",
+          "hint": "the 'what' word that fills the adjective slot before a noun; the fixed way to ask about the day",
+          "display_order": 4,
+          "transliteration": "oneuri {{answer}} yoirieyo?"
+        },
+        {
+          "sentence": "주말에 {{answer}} 음식을 만들 거예요?",
+          "answer": "무슨",
+          "translation": "What food are you going to make this weekend?",
+          "hint": "the 'what' word before a noun, with a future-tense verb; the possible answers are wide open",
+          "display_order": 5,
+          "transliteration": "jumare {{answer}} eumsigeul mandeul geoyeyo?"
+        },
+        {
+          "sentence": "{{answer}} 문제가 있어요?",
+          "answer": "무슨",
+          "translation": "What problem do you have?",
+          "hint": "the 'what' word describing a noun that is the subject of the sentence",
+          "display_order": 6,
+          "transliteration": "{{answer}} munjega isseoyo?"
         }
       ],
       "prerequisites": [
@@ -12767,6 +14346,30 @@
           "transliteration": "___ chareul sago sipeoyo?",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} 나라에서 왔어요?",
+          "answer": "어느",
+          "translation": "Which country are you from?",
+          "hint": "'which' word for singling one out of a known, closed set such as countries",
+          "display_order": 4,
+          "transliteration": "{{answer}} naraeseo wasseoyo?"
+        },
+        {
+          "sentence": "{{answer}} 쪽으로 가야 해요?",
+          "answer": "어느",
+          "translation": "Which way do I have to go?",
+          "hint": "'which' word for choosing between a small number of options already in front of you",
+          "display_order": 5,
+          "transliteration": "{{answer}} jjogeuro gaya haeyo?"
+        },
+        {
+          "sentence": "{{answer}} 음악을 좋아해요?",
+          "answer": "어떤",
+          "translation": "What kind of music do you like?",
+          "hint": "'which' word used to ask about the type or characteristics of something, not to pick off a fixed list",
+          "display_order": 6,
+          "transliteration": "{{answer}} eumageul joahaeyo?"
         }
       ],
       "prerequisites": [
@@ -12956,6 +14559,30 @@
           "transliteration": "chinguneun {{answer}} geonmure deureogasseoyo.",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "{{answer}} 사람들은 우유를 안 마셔요.",
+          "answer": "어떤",
+          "translation": "Some people don't drink milk.",
+          "hint": "determiner meaning 'some' before a plural noun — a subset the speaker does not identify",
+          "display_order": 4,
+          "transliteration": "{{answer}} saramdeureun uyureul an masyeoyo."
+        },
+        {
+          "sentence": "그 사람은 {{answer}} 이유로 회사를 그만뒀어요.",
+          "answer": "어떤",
+          "translation": "He quit the company for some reason.",
+          "hint": "determiner meaning 'a certain' — the speaker will not say what the reason was",
+          "display_order": 5,
+          "transliteration": "geu sarameun {{answer}} iyuro hoesareul geumandwosseoyo."
+        },
+        {
+          "sentence": "지금 밖에서 {{answer}} 아이가 울고 있어요.",
+          "answer": "어떤",
+          "translation": "Some child is crying outside right now.",
+          "hint": "determiner for an unidentified person — the speaker can hear the child but does not know who it is",
+          "display_order": 6,
+          "transliteration": "jigeum bakkeseo {{answer}} aiga ulgo isseoyo."
         }
       ],
       "prerequisites": [
@@ -13187,6 +14814,38 @@
           "transliteration": "geu chaeksangeun jarireul {{answer}} chajihaeyo?",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "여기서 학교까지 {{answer}} 걸려요?",
+          "answer": "얼마나",
+          "translation": "How long does it take from here to school?",
+          "hint": "the 'how much' adverb, here measuring a length of time",
+          "display_order": 4,
+          "transliteration": "yeogiseo hakgyokkaji {{answer}} geollyeoyo?"
+        },
+        {
+          "sentence": "그 사람은 키가 {{answer}} 커요?",
+          "answer": "얼마나",
+          "translation": "How tall is that person?",
+          "hint": "the 'how ___' adverb placed directly before an adjective",
+          "display_order": 5,
+          "transliteration": "geu sarameun kiga {{answer}} keoyo?"
+        },
+        {
+          "sentence": "이 일을 {{answer}} 빨리 끝낼 수 있어요?",
+          "answer": "얼마나",
+          "translation": "How quickly can you finish this work?",
+          "hint": "the 'how ___' adverb before an adverb of speed",
+          "display_order": 6,
+          "transliteration": "i ireul {{answer}} ppalli kkeunnael su isseoyo?"
+        },
+        {
+          "sentence": "어제 {{answer}} 많이 걸었어?",
+          "answer": "얼마나",
+          "translation": "How much did you walk yesterday?",
+          "hint": "the 'how much' adverb in casual speech, reinforced by the word for 'a lot'",
+          "display_order": 7,
+          "transliteration": "eoje {{answer}} mani georeosseo?"
         }
       ],
       "prerequisites": [
@@ -13240,6 +14899,30 @@
           "transliteration": "beolgeumeun {{answer}}yeosseoyo?",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "이 우산 {{answer}}야?",
+          "answer": "얼마",
+          "translation": "How much is this umbrella?",
+          "hint": "noun asking a price, with the casual (반말) copula ending",
+          "display_order": 4,
+          "transliteration": "i usan {{answer}}ya?"
+        },
+        {
+          "sentence": "이 가방은 {{answer}}입니까?",
+          "answer": "얼마",
+          "translation": "How much is this bag?",
+          "hint": "noun asking a price, with the formal ~입니까 ending",
+          "display_order": 5,
+          "transliteration": "i gabangeun {{answer}}imnikka?"
+        },
+        {
+          "sentence": "그 신발을 {{answer}}에 샀어요?",
+          "answer": "얼마",
+          "translation": "How much did you buy those shoes for?",
+          "hint": "noun for an amount of money taking the particle 에 instead of the copula — bought it AT what price",
+          "display_order": 6,
+          "transliteration": "geu sinbareul {{answer}}e sasseoyo?"
         }
       ]
     },
@@ -13320,6 +15003,14 @@
           "transliteration": "jeoneun gonghange gal geoyeyo. – {{answer}}?",
           "cell": null,
           "display_order": 6
+        },
+        {
+          "sentence": "친구가 어제 이상한 걸 샀어요. – {{answer}}?",
+          "answer": "뭐",
+          "translation": "My friend bought something strange yesterday. – What?",
+          "hint": "one-word question about the thing itself",
+          "display_order": 7,
+          "transliteration": "chinguga eoje isanghan geol sasseoyo. – {{answer}}?"
         }
       ]
     },
@@ -14015,6 +15706,46 @@
           "transliteration": "babeul ___ chingureul mannasseoyo.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "운동을 {{answer}} 뭐 먹을 거예요?",
+          "answer": "한 다음에",
+          "translation": "What are you going to eat after you exercise?",
+          "hint": "'after exercising' — build it on 하다 and use the word for 'next' where 후 would go",
+          "display_order": 3,
+          "transliteration": "undongeul {{answer}} mwo meogeul geoyeyo?"
+        },
+        {
+          "sentence": "이를 {{answer}} 아무것도 먹지 마세요.",
+          "answer": "닦은 다음에",
+          "translation": "After you brush your teeth, don't eat anything.",
+          "hint": "'after brushing' — from 닦다, a consonant-final stem, with 'next' in place of 후",
+          "display_order": 4,
+          "transliteration": "ireul {{answer}} amugeotdo meokji maseyo."
+        },
+        {
+          "sentence": "우리는 영화를 {{answer}} 커피를 마셨어요.",
+          "answer": "본 다음에",
+          "translation": "After we watched the movie, we drank coffee.",
+          "hint": "'after watching' — from 보다, a vowel-final stem, with 'next' in place of 후",
+          "display_order": 5,
+          "transliteration": "urineun yeonghwareul {{answer}} keopireul masyeosseoyo."
+        },
+        {
+          "sentence": "저는 항상 손을 {{answer}} 밥을 먹어요.",
+          "answer": "씻은 다음에",
+          "translation": "I always eat after washing my hands.",
+          "hint": "'after washing' — from 씻다, consonant-final, using 'next' rather than 후",
+          "display_order": 6,
+          "transliteration": "jeoneun hangsang soneul {{answer}} babeul meogeoyo."
+        },
+        {
+          "sentence": "친구들이 다 {{answer}} 저는 청소를 시작했어요.",
+          "answer": "간 다음에",
+          "translation": "After all my friends had left, I started cleaning.",
+          "hint": "'after they left' — from 가다, vowel-final, using 'next' rather than 후",
+          "display_order": 7,
+          "transliteration": "chingudeuri da {{answer}} jeoneun cheongsoreul sijakaesseoyo."
         }
       ],
       "prerequisites": [
@@ -14058,6 +15789,38 @@
           "transliteration": "yangbogeul ___ bakke nagasseoyo.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "시험 {{answer}} 배가 아팠어요.",
+          "answer": "직전에",
+          "translation": "Right before the exam, my stomach hurt.",
+          "hint": "goes straight onto a time noun: the moment immediately before it",
+          "display_order": 3,
+          "transliteration": "siheom {{answer}} baega apasseoyo."
+        },
+        {
+          "sentence": "저는 졸업 {{answer}} 취직했어요.",
+          "answer": "직후에",
+          "translation": "I got a job right after graduating.",
+          "hint": "goes straight onto a noun such as 'graduation': the moment immediately following it",
+          "display_order": 4,
+          "transliteration": "jeoneun joreop {{answer}} chwijikaesseoyo."
+        },
+        {
+          "sentence": "버스가 {{answer}} 겨우 탔어요.",
+          "answer": "출발하기 직전에",
+          "translation": "I barely got on the bus right before it left.",
+          "hint": "출발하다, turned into 'the instant before it leaves'",
+          "display_order": 5,
+          "transliteration": "beoseuga {{answer}} gyeou tasseoyo."
+        },
+        {
+          "sentence": "지하철에서 {{answer}} 지갑이 없어진 걸 알았어요.",
+          "answer": "내린 직후에",
+          "translation": "Right after I got off the subway, I realised my wallet was gone.",
+          "hint": "내리다, turned into 'the instant after getting off'",
+          "display_order": 6,
+          "transliteration": "jihacheoreseo {{answer}} jigabi eopseojin geol arasseoyo."
         }
       ],
       "prerequisites": [
@@ -14102,6 +15865,46 @@
           "transliteration": "yeolsimhi ___ sillyeogeun ppalli neureosseoyo.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "장학금을 {{answer}} 더 열심히 공부하고 있어요.",
+          "answer": "받은 이래로",
+          "translation": "Since receiving the scholarship, I have been studying harder.",
+          "hint": "the bookish 'since receiving' form of 받다 — a consonant-final stem",
+          "display_order": 3,
+          "transliteration": "janghakgeumeul {{answer}} deo yeolsimhi gongbuhago isseoyo."
+        },
+        {
+          "sentence": "그 사고가 {{answer}} 저는 밤에 운전을 안 해요.",
+          "answer": "난 이래로",
+          "translation": "Since that accident happened, I don't drive at night.",
+          "hint": "the bookish 'since it happened' form of 나다 — a vowel-final stem",
+          "display_order": 4,
+          "transliteration": "geu sagoga {{answer}} jeoneun bame unjeoneul an haeyo."
+        },
+        {
+          "sentence": "그 책을 {{answer}} 세상을 보는 눈이 달라졌어요.",
+          "answer": "읽은 이래로",
+          "translation": "Since reading that book, the way I see the world has changed.",
+          "hint": "the literary 'since reading' form of 읽다, the kind of wording you meet in print",
+          "display_order": 5,
+          "transliteration": "geu chaegeul {{answer}} sesangeul boneun nuni dallajyeosseoyo."
+        },
+        {
+          "sentence": "선생님을 처음 {{answer}} 벌써 십 년이 지났어요.",
+          "answer": "만난 이래로",
+          "translation": "Ten years have already passed since I first met my teacher.",
+          "hint": "the literary 'since meeting' form of 만나다",
+          "display_order": 6,
+          "transliteration": "seonsaengnimeul cheoeum {{answer}} beolsseo sip nyeoni jinasseoyo."
+        },
+        {
+          "sentence": "회사를 {{answer}} 후회한 적이 있어요?",
+          "answer": "그만둔 이래로",
+          "translation": "Have you ever regretted it since you quit the company?",
+          "hint": "the bookish 'since quitting' form of 그만두다, here inside a question",
+          "display_order": 7,
+          "transliteration": "hoesareul {{answer}} huhoehan jeogi isseoyo?"
         }
       ],
       "prerequisites": [
@@ -14145,6 +15948,46 @@
           "transliteration": "urineun il-nyeon ___ gyeolhonhal geoyeyo.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "이 일을 한 시간 {{answer}} 끝낼 수 있어요?",
+          "answer": "안에",
+          "translation": "Can you finish this work within an hour?",
+          "hint": "sets the one-hour limit: the plain noun meaning 'inside a place', carrying 에",
+          "display_order": 3,
+          "transliteration": "i ireul han sigan {{answer}} kkeunnael su isseoyo?"
+        },
+        {
+          "sentence": "숙제를 오늘 {{answer}} 다 못 할 것 같아요.",
+          "answer": "안에",
+          "translation": "I don't think I can finish all the homework before the day is out.",
+          "hint": "casual speech, with today as the deadline — the ordinary 'inside' word plus 에",
+          "display_order": 4,
+          "transliteration": "sukjereul oneul {{answer}} da mot hal geot gatayo."
+        },
+        {
+          "sentence": "물건을 받고 14일 {{answer}} 환불을 신청해야 돼요.",
+          "answer": "이내에",
+          "translation": "You have to apply for a refund within 14 days of receiving the item.",
+          "hint": "shop-policy wording: the formal 'within', with 에 on it",
+          "display_order": 5,
+          "transliteration": "mulgeoneul batgo 14il {{answer}} hwanbureul sincheonghaeya dwaeyo."
+        },
+        {
+          "sentence": "면접 결과는 일주일 {{answer}} 알려 드릴게요.",
+          "answer": "이내에",
+          "translation": "We'll let you know the interview result within a week.",
+          "hint": "polite business register: the stiffer word for 'within', still carrying 에",
+          "display_order": 6,
+          "transliteration": "myeonjeop gyeolgwaneun iljuil {{answer}} allyeo deurilgeyo."
+        },
+        {
+          "sentence": "이 상품은 3일 {{answer}} 배송이에요.",
+          "answer": "이내",
+          "translation": "This item is delivered within three days.",
+          "hint": "the formal 'within' left bare, no particle, right in front of the noun",
+          "display_order": 7,
+          "transliteration": "i sangpumeun 3il {{answer}} baesongieyo."
         }
       ]
     },
@@ -14185,6 +16028,46 @@
           "transliteration": "___ haksaengdeureun haru jong-il jasseo.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} 손님이 예약을 해야 돼요?",
+          "answer": "모든",
+          "translation": "Does every customer have to make a reservation?",
+          "hint": "the one-word 'every' that sits in front of a noun; here it opens a question",
+          "display_order": 3,
+          "transliteration": "{{answer}} sonnimi yeyageul haeya dwaeyo?"
+        },
+        {
+          "sentence": "이 가게의 {{answer}} 물건이 싸지는 않아요.",
+          "answer": "모든",
+          "translation": "Not everything in this shop is cheap.",
+          "hint": "the 'every' word before the noun — the ending of the sentence does the denying",
+          "display_order": 4,
+          "transliteration": "i gageui {{answer}} mulgeoni ssajineun anayo."
+        },
+        {
+          "sentence": "그 회사는 {{answer}} 것을 인터넷으로 팔아요.",
+          "answer": "모든",
+          "translation": "That company sells everything online.",
+          "hint": "the 'every' determiner, here in front of the word for 'thing'",
+          "display_order": 5,
+          "transliteration": "geu hoesaneun {{answer}} geoseul inteoneseuro parayo."
+        },
+        {
+          "sentence": "선생님이 {{answer}} 질문에 친절하게 대답해 주셨어요.",
+          "answer": "모든",
+          "translation": "The teacher kindly answered every question.",
+          "hint": "the 'every' word placed before the noun; it never takes an ending of its own",
+          "display_order": 6,
+          "transliteration": "seonsaengnimi {{answer}} jilmune chinjeolhage daedapae jusyeosseoyo."
+        },
+        {
+          "sentence": "이 도서관에서는 {{answer}} 책을 무료로 빌릴 수 있어요.",
+          "answer": "모든",
+          "translation": "At this library you can borrow any book free of charge.",
+          "hint": "the determiner meaning 'all', which looks like a ~ㄴ describing form but comes from no verb",
+          "display_order": 7,
+          "transliteration": "i doseogwaneseoneun {{answer}} chaegeul muryoro billil su isseoyo."
         }
       ]
     },
@@ -14235,6 +16118,30 @@
           "transliteration": "geuge ___?",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "우유를 {{answer}} 마셨어요?",
+          "answer": "다",
+          "translation": "Did you drink all the milk?",
+          "hint": "adverb of completion, here in a question — the carton was left empty; it never takes an object particle",
+          "display_order": 4,
+          "transliteration": "uyureul {{answer}} masyeosseoyo?"
+        },
+        {
+          "sentence": "우리 반 학생들은 {{answer}} 친절해요.",
+          "answer": "다",
+          "translation": "The students in my class are all kind.",
+          "hint": "one-syllable adverb saying every member of the group shares the quality",
+          "display_order": 5,
+          "transliteration": "uri ban haksaengdeureun {{answer}} chinjeolhaeyo."
+        },
+        {
+          "sentence": "돈을 {{answer}} 쓰지 마세요.",
+          "answer": "다",
+          "translation": "Don't spend all the money.",
+          "hint": "adverb of completion in a negative command — spend it down to nothing",
+          "display_order": 6,
+          "transliteration": "doneul {{answer}} sseuji maseyo."
         }
       ]
     },
@@ -14662,6 +16569,46 @@
           "transliteration": "___ maeureseo aegi du myeong-i taeeonatda.",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "{{answer}} 날 갑자기 친구에게서 편지가 왔어요.",
+          "answer": "어느",
+          "translation": "One day a letter suddenly arrived from a friend.",
+          "hint": "the determiner that leaves the day unidentified — the same word as 'which', used vaguely",
+          "display_order": 3,
+          "transliteration": "{{answer}} nal gapjagi chinguegeseo pyeonjiga wasseoyo."
+        },
+        {
+          "sentence": "옛날에 {{answer}} 나라에 왕이 살았다.",
+          "answer": "어느",
+          "translation": "Long ago, in a certain country, there lived a king.",
+          "hint": "the determiner a fairy tale puts before the country so it is never named",
+          "display_order": 4,
+          "transliteration": "yennare {{answer}} narae wangi saratda."
+        },
+        {
+          "sentence": "언젠가 {{answer}} 작은 섬에서 조용히 살고 싶어요.",
+          "answer": "어느",
+          "translation": "Someday I'd like to live quietly on some small island.",
+          "hint": "vague determiner opening the noun phrase — you have no particular island in mind",
+          "display_order": 5,
+          "transliteration": "eonjenga {{answer}} jageun seomeseo joyonghi salgo sipeoyo."
+        },
+        {
+          "sentence": "{{answer}} 밤 아이는 집에 돌아오지 않았다.",
+          "answer": "어느",
+          "translation": "One night the child did not come home.",
+          "hint": "narrative determiner before the word for night, leaving which night unspecified",
+          "display_order": 6,
+          "transliteration": "{{answer}} bam aineun jibe doraoji anatda."
+        },
+        {
+          "sentence": "{{answer}} 도시에서 큰 사고가 났다는 뉴스를 봤어요.",
+          "answer": "어느",
+          "translation": "I saw the news that a big accident had happened in some city.",
+          "hint": "the determiner a news report uses when the city is not being named",
+          "display_order": 7,
+          "transliteration": "{{answer}} dosieseo keun sagoga natdaneun nyuseureul bwasseoyo."
         }
       ]
     },
@@ -14712,6 +16659,30 @@
           "transliteration": "naneun naeil ___ mannal geoya.",
           "cell": null,
           "display_order": 3
+        },
+        {
+          "sentence": "주말에 {{answer}} 좀 놀러 가고 싶어요.",
+          "answer": "어디",
+          "translation": "I'd like to go somewhere for fun this weekend.",
+          "hint": "bare place word, no particle attached — the destination has not been decided",
+          "display_order": 4,
+          "transliteration": "jumare {{answer}} jom nolleo gago sipeoyo."
+        },
+        {
+          "sentence": "형이 아까부터 {{answer}}하고 통화하고 있어.",
+          "answer": "누구",
+          "translation": "My older brother has been on the phone with somebody for a while.",
+          "hint": "bare person word carrying the 'with' particle — the other party goes unnamed",
+          "display_order": 5,
+          "transliteration": "hyeongi akkabuteo {{answer}}hago tonghwahago isseo."
+        },
+        {
+          "sentence": "가방을 {{answer}} 두고 온 것 같아요.",
+          "answer": "어디",
+          "translation": "I think I left my bag somewhere.",
+          "hint": "bare place word standing in for a spot you cannot pin down",
+          "display_order": 6,
+          "transliteration": "gabangeul {{answer}} dugo on geot gatayo."
         }
       ],
       "prerequisites": [
@@ -15408,9 +17379,49 @@
           "translation": "I want to eat in the park.",
           "hint": "particle for the place where an action happens",
           "gloss": null,
-          "transliteration": null,
+          "transliteration": "jeoneun babeul gongwon{{answer}} meokgo sipeoyo",
           "cell": null,
           "display_order": 2
+        },
+        {
+          "sentence": "친구가 도서관{{answer}} 공부해요.",
+          "answer": "에서",
+          "translation": "My friend studies at the library.",
+          "hint": "the studying happens at the place rather than moving toward it — take the two-syllable particle",
+          "display_order": 3,
+          "transliteration": "chinguga doseogwan{{answer}} gongbuhaeyo."
+        },
+        {
+          "sentence": "내일 우리 집{{answer}} 오세요.",
+          "answer": "에",
+          "translation": "Come to my house tomorrow.",
+          "hint": "an invitation to move toward a place — the particle that goes with verbs of coming and going",
+          "display_order": 4,
+          "transliteration": "naeil uri jip{{answer}} oseyo."
+        },
+        {
+          "sentence": "오늘은 회사{{answer}} 안 갔어요.",
+          "answer": "에",
+          "translation": "I didn't go to work today.",
+          "hint": "still a destination even though the trip never happened — choose by the verb, not by the negative",
+          "display_order": 5,
+          "transliteration": "oneureun hoesa{{answer}} an gasseoyo."
+        },
+        {
+          "sentence": "저는 은행{{answer}} 일해요.",
+          "answer": "에서",
+          "translation": "I work at a bank.",
+          "hint": "a workplace is where the action goes on, so use the location particle",
+          "display_order": 6,
+          "transliteration": "jeoneun eunhaeng{{answer}} ilhaeyo."
+        },
+        {
+          "sentence": "그 옷을 어디{{answer}} 샀어요?",
+          "answer": "에서",
+          "translation": "Where did you buy those clothes?",
+          "hint": "the shop is the site of the buying, not a place you headed for — attach the longer particle",
+          "display_order": 7,
+          "transliteration": "geu oseul eodi{{answer}} sasseoyo?"
         }
       ]
     }

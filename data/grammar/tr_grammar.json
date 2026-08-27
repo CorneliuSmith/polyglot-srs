@@ -247,6 +247,13 @@
           "hint": "pointing at something",
           "display_order": 6,
           "cell": "şu"
+        },
+        {
+          "sentence": "{{answer}} çanta çok ağır.",
+          "answer": "Bu",
+          "translation": "This bag is very heavy.",
+          "hint": "sits in front of the noun here; the thing nearest the speaker",
+          "display_order": 7
         }
       ],
       "related": [
@@ -330,6 +337,13 @@
           "translation": "The cats are in the park.",
           "hint": "cat + plural",
           "display_order": 6
+        },
+        {
+          "sentence": "Bu {{answer}} çok pahalı.",
+          "answer": "ayakkabılar",
+          "translation": "These shoes are very expensive.",
+          "hint": "shoe + plural; the stem's last vowel decides the suffix shape",
+          "display_order": 7
         }
       ],
       "related": [
@@ -642,6 +656,13 @@
           "hint": "absence",
           "display_order": 6,
           "cell": "yok"
+        },
+        {
+          "sentence": "Bende hiç para {{answer}}.",
+          "answer": "yok",
+          "translation": "I don't have any money.",
+          "hint": "possession expressed as existence, denied",
+          "display_order": 7
         }
       ],
       "related": [
@@ -1258,6 +1279,13 @@
           "translation": "Did you watch the film?",
           "hint": "to watch + past (you)",
           "display_order": 6
+        },
+        {
+          "sentence": "Toplantıda siz de {{answer}}.",
+          "answer": "konuştunuz",
+          "translation": "You spoke at the meeting too.",
+          "hint": "to speak + past, plural/polite you; the stem's voiceless ending hardens the suffix",
+          "display_order": 7
         }
       ]
     },
@@ -1326,6 +1354,13 @@
           "translation": "Will you come too?",
           "hint": "to come + future; the question particle stays separate",
           "display_order": 6
+        },
+        {
+          "sentence": "Siz burada biraz {{answer}}.",
+          "answer": "bekleyeceksiniz",
+          "translation": "You will wait here a little while.",
+          "hint": "to wait + future, plural/polite you; a vowel-final stem needs a buffer consonant",
+          "display_order": 7
         }
       ]
     },
@@ -1394,6 +1429,13 @@
           "translation": "I gave the book to my friend.",
           "hint": "friend + 'my' + dative",
           "display_order": 6
+        },
+        {
+          "sentence": "Anahtarları {{answer}} koydum.",
+          "answer": "masaya",
+          "translation": "I put the keys on the table.",
+          "hint": "table + dative; a vowel-final noun needs a buffer consonant",
+          "display_order": 7
         }
       ]
     },
@@ -1458,6 +1500,13 @@
           "translation": "I left the house.",
           "hint": "house + ablative",
           "display_order": 6
+        },
+        {
+          "sentence": "Bu masa {{answer}} mı?",
+          "answer": "tahtadan",
+          "translation": "Is this table made of wood?",
+          "hint": "wood + ablative — the same case states what a thing is made of",
+          "display_order": 7
         }
       ]
     },
@@ -1522,6 +1571,13 @@
           "translation": "Turkish grammar is not hard.",
           "hint": "grammar + possessed ending",
           "display_order": 6
+        },
+        {
+          "sentence": "{{answer}} anahtarı sende mi?",
+          "answer": "Odanın",
+          "translation": "Do you have the key to the room?",
+          "hint": "room + genitive; after a final vowel the ending takes a buffer -n-",
+          "display_order": 7
         }
       ]
     },
@@ -1590,6 +1646,13 @@
           "translation": "Birds fly.",
           "hint": "to fly + aorist — general truth",
           "display_order": 6
+        },
+        {
+          "sentence": "Bizimle {{answer}} misin?",
+          "answer": "gelir",
+          "translation": "Will you come with us?",
+          "hint": "to come + aorist (you) — the tense that turns a question into an invitation; the person ending sits on the separate question word",
+          "display_order": 7
         }
       ]
     },
@@ -1658,6 +1721,13 @@
           "translation": "We can come tomorrow.",
           "hint": "to come + ability (we)",
           "display_order": 6
+        },
+        {
+          "sentence": "Çocuklar bahçede {{answer}}.",
+          "answer": "oynayabilirler",
+          "translation": "The children can play in the garden.",
+          "hint": "to play + ability (they) — a buffer -y- joins the suffix to the stem's final vowel",
+          "display_order": 7
         }
       ]
     },
@@ -1722,6 +1792,13 @@
           "translation": "This is the coldest day of the year.",
           "hint": "the most",
           "display_order": 6
+        },
+        {
+          "sentence": "Ali {{answer}} daha hızlı koşuyor.",
+          "answer": "benden",
+          "translation": "Ali runs faster than me.",
+          "hint": "'than' is carried by the ablative case — put that ending on the pronoun meaning 'I'",
+          "display_order": 7
         }
       ]
     },
@@ -1786,6 +1863,13 @@
           "translation": "I would do anything for you.",
           "hint": "for",
           "display_order": 6
+        },
+        {
+          "sentence": "Bu mektubu {{answer}} yazdım.",
+          "answer": "kalemle",
+          "translation": "I wrote this letter with a pen.",
+          "hint": "pen + the fused, vowel-harmonised form of the 'with' postposition — one word here, not two",
+          "display_order": 7
         }
       ]
     },
@@ -1850,6 +1934,13 @@
           "translation": "Before the exam I studied a lot.",
           "hint": "before",
           "display_order": 6
+        },
+        {
+          "sentence": "Ödevini {{answer}} sonra dışarı çıkabilirsin.",
+          "answer": "bitirdikten",
+          "translation": "After you finish your homework, you can go outside.",
+          "hint": "to finish + object participle + ablative — the form this postposition takes as its complement",
+          "display_order": 7
         }
       ]
     },
@@ -1914,6 +2005,13 @@
           "translation": "He doesn't like fish.",
           "hint": "to like + aorist negative (he)",
           "display_order": 6
+        },
+        {
+          "sentence": "Neden bana hiç {{answer}}?",
+          "answer": "yazmazsın",
+          "translation": "Why do you never write to me?",
+          "hint": "to write + aorist negative (you, singular)",
+          "display_order": 7
         }
       ]
     },
@@ -1982,6 +2080,13 @@
           "translation": "The food has turned out great (they say).",
           "hint": "to turn out + evidential past",
           "display_order": 6
+        },
+        {
+          "sentence": "Anahtarımı evde {{answer}}.",
+          "answer": "unutmuşum",
+          "translation": "I must have forgotten my keys at home.",
+          "hint": "to forget + evidential past (I) — the sudden-realisation use",
+          "display_order": 7
         }
       ]
     },
@@ -2046,6 +2151,13 @@
           "translation": "You should practise Turkish.",
           "hint": "to do + necessity, you (plural)",
           "display_order": 6
+        },
+        {
+          "sentence": "Bu kadar çok kahve {{answer}}.",
+          "answer": "içmemelisin",
+          "translation": "You shouldn't drink so much coffee.",
+          "hint": "to drink + negative + necessity (you, singular)",
+          "display_order": 7
         }
       ]
     },
@@ -2110,6 +2222,13 @@
           "translation": "If I'm late, don't wait for me.",
           "hint": "to be (late) + aorist + conditional (I)",
           "display_order": 6
+        },
+        {
+          "sentence": "Bugün işin {{answer}}, sinemaya gidelim.",
+          "answer": "yoksa",
+          "translation": "If you don't have any work today, let's go to the cinema.",
+          "hint": "non-existence + conditional suffix",
+          "display_order": 7
         }
       ]
     },
@@ -2174,6 +2293,13 @@
           "translation": "He loves reading books.",
           "hint": "reading as a noun + accusative",
           "display_order": 6
+        },
+        {
+          "sentence": "Hafta sonları {{answer}} hoşlanırım.",
+          "answer": "koşmaktan",
+          "translation": "I enjoy running at the weekend.",
+          "hint": "to run + infinitive as a noun + the ablative this verb takes",
+          "display_order": 7
         }
       ]
     },
@@ -2238,6 +2364,13 @@
           "translation": "A person like an angel.",
           "hint": "like",
           "display_order": 6
+        },
+        {
+          "sentence": "Ankara İstanbul {{answer}} kalabalık mı?",
+          "answer": "kadar",
+          "translation": "Is Ankara as crowded as Istanbul?",
+          "hint": "'as … as' — an equal degree, not a resemblance; the compared noun stays bare here (only pronouns take the genitive before it).",
+          "display_order": 7
         }
       ]
     },
@@ -2302,6 +2435,13 @@
           "translation": "Don't look at your phone while studying.",
           "hint": "to study + aorist + 'while'",
           "display_order": 6
+        },
+        {
+          "sentence": "Ben {{answer}} bu sokakta hiç araba yoktu.",
+          "answer": "çocukken",
+          "translation": "When I was a child, there were no cars on this street.",
+          "hint": "child + 'while' ending — it hangs straight on a noun here, so no aorist is involved; the noun ends in a consonant, and the ending never harmonises.",
+          "display_order": 7
         }
       ]
     },
@@ -2370,6 +2510,13 @@
           "translation": "I saw the man running in the street.",
           "hint": "to run + subject participle",
           "display_order": 6
+        },
+        {
+          "sentence": "Beni {{answer}} insanlarla vakit geçirmek istemiyorum.",
+          "answer": "anlamayan",
+          "translation": "I don't want to spend time with people who don't understand me.",
+          "hint": "to understand + negative + subject participle — negate the stem first, then add the participle, which needs its buffer y after that negative.",
+          "display_order": 7
         }
       ]
     },
@@ -2438,6 +2585,13 @@
           "translation": "The book I am reading is on the table.",
           "hint": "to read + object participle, my",
           "display_order": 6
+        },
+        {
+          "sentence": "Geçen yaz {{answer}} otelin adı neydi?",
+          "answer": "kaldığınız",
+          "translation": "What was the name of the hotel you stayed at last summer?",
+          "hint": "to stay + object participle, your (plural/polite) — the hotel is where it happened, not the doer, so the participle carries a possessive; its final k softens before that vowel.",
+          "display_order": 7
         }
       ]
     },
@@ -2502,6 +2656,13 @@
           "translation": "The doors are closed at nine in the evening.",
           "hint": "to close + passive + aorist",
           "display_order": 6
+        },
+        {
+          "sentence": "Bu halı nasıl {{answer}}?",
+          "answer": "temizlenir",
+          "translation": "How is this carpet cleaned?",
+          "hint": "to clean + passive + aorist — this stem ends in a vowel, so the passive marker is a single -n- before the ending.",
+          "display_order": 7
         }
       ]
     },
@@ -2566,6 +2727,13 @@
           "translation": "I had the house painted.",
           "hint": "to paint + causative + past (I)",
           "display_order": 6
+        },
+        {
+          "sentence": "Dişini ne zaman {{answer}}?",
+          "answer": "çektireceksin",
+          "translation": "When are you going to have your tooth pulled?",
+          "hint": "to pull (a tooth) + causative + future, you — the dentist does the pulling, so the verb needs the 'have it done' step before the tense ending.",
+          "display_order": 7
         }
       ]
     },
@@ -2630,6 +2798,13 @@
           "translation": "I realised that I was late.",
           "hint": "to be (late) + object participle, my + accusative",
           "display_order": 6
+        },
+        {
+          "sentence": "Senin sınavı {{answer}} biliyordum.",
+          "answer": "geçeceğini",
+          "translation": "I knew that you would pass the exam.",
+          "hint": "to pass + future participle, your + accusative",
+          "display_order": 7
         }
       ]
     },
@@ -2698,6 +2873,13 @@
           "translation": "I study while listening to music.",
           "hint": "to listen + 'by …ing' converb (buffer y)",
           "display_order": 6
+        },
+        {
+          "sentence": "Ellerini {{answer}} sofraya otur.",
+          "answer": "yıkayıp",
+          "translation": "Wash your hands and sit down at the table.",
+          "hint": "to wash + the 'and then' converb; a buffer y follows the vowel-final stem",
+          "display_order": 7
         }
       ]
     },
@@ -2762,6 +2944,13 @@
           "translation": "As time passes, everything changes.",
           "hint": "to pass + 'the more' converb (suffix devoices)",
           "display_order": 6
+        },
+        {
+          "sentence": "Sen özür {{answer}} ben seninle konuşmam.",
+          "answer": "dilemedikçe",
+          "translation": "As long as you don't apologise, I won't speak to you.",
+          "hint": "the verb that pairs with 'özür' (to apologise) + negative + the 'as long as … not' converb",
+          "display_order": 7
         }
       ]
     },
@@ -2826,6 +3015,13 @@
           "translation": "He was walking without looking around.",
           "hint": "to look + 'without …ing'",
           "display_order": 6
+        },
+        {
+          "sentence": "Bana {{answer}} nasıl karar verdin?",
+          "answer": "sormadan",
+          "translation": "How did you decide without asking me?",
+          "hint": "to ask + 'without …ing'",
+          "display_order": 7
         }
       ]
     },
@@ -2890,6 +3086,13 @@
           "translation": "The two brothers are constantly fighting each other.",
           "hint": "döv + -üş — reciprocal",
           "display_order": 6
+        },
+        {
+          "sentence": "Hava çok soğuk, kalın {{answer}}.",
+          "answer": "giyin",
+          "translation": "It's very cold — dress warmly.",
+          "hint": "to put clothes on + reflexive suffix, as an informal command to one person",
+          "display_order": 7
         }
       ]
     },
@@ -2954,6 +3157,13 @@
           "translation": "Because we didn't buy tickets, we couldn't get in.",
           "hint": "to buy + negative + object participle, our (+ 'because')",
           "display_order": 6
+        },
+        {
+          "sentence": "Bana yardım {{answer}} için teşekkür ederim.",
+          "answer": "ettiğin",
+          "translation": "Thank you for helping me.",
+          "hint": "to do + object participle, your (+ 'because')",
+          "display_order": 7
         }
       ]
     },
@@ -3018,6 +3228,13 @@
           "translation": "The results are awaited.",
           "hint": "passive + -mektedir",
           "display_order": 6
+        },
+        {
+          "sentence": "Bu ilaç çocuklarda aynı etkiyi {{answer}}.",
+          "answer": "göstermemektedir",
+          "translation": "This medicine does not show the same effect in children.",
+          "hint": "to show + made negative + formal progressive",
+          "display_order": 7
         }
       ]
     },
@@ -3082,6 +3299,13 @@
           "translation": "She acted as if she didn't know me.",
           "hint": "to not know (someone) + evidential (before 'gibi')",
           "display_order": 6
+        },
+        {
+          "sentence": "Annem odaya girince {{answer}} gibi yaptım.",
+          "answer": "uyuyormuş",
+          "translation": "When my mother came into the room, I pretended to be asleep.",
+          "hint": "to be sleeping — the ongoing form plus the evidential, before 'gibi'",
+          "display_order": 7
         }
       ]
     },
@@ -3146,6 +3370,13 @@
           "translation": "Instead of spending the money on games, buy books.",
           "hint": "to spend + 'instead of …ing'",
           "display_order": 6
+        },
+        {
+          "sentence": "Yeni bir telefon {{answer}} eski telefonumu tamir ettirdim.",
+          "answer": "alacağıma",
+          "translation": "Instead of buying a new phone, I had my old one repaired.",
+          "hint": "to buy + 'instead of …ing' — the ending agrees with I, not with you",
+          "display_order": 7
         }
       ]
     },
@@ -3224,6 +3455,13 @@
           "translation": "Why are you learning Turkish?",
           "hint": "why — a reason",
           "display_order": 6
+        },
+        {
+          "sentence": "{{answer}} kardeşin var?",
+          "answer": "Kaç",
+          "translation": "How many siblings do you have?",
+          "hint": "how many — asks a quantity, and the noun after it stays singular",
+          "display_order": 7
         }
       ]
     },
@@ -3306,6 +3544,13 @@
           "translation": "The weather isn't cold today.",
           "hint": "not — describing the weather",
           "display_order": 6
+        },
+        {
+          "sentence": "Siz yalnız {{answer}}, biz buradayız.",
+          "answer": "değilsiniz",
+          "translation": "You are not alone — we are here.",
+          "hint": "not — with the polite/plural you ending",
+          "display_order": 7
         }
       ]
     }

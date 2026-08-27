@@ -310,6 +310,13 @@
           "hint": "plural",
           "display_order": 6,
           "cell": "les"
+        },
+        {
+          "sentence": "Ma fille va à {{answer}} école du quartier.",
+          "answer": "l'",
+          "translation": "My daughter goes to the neighbourhood school.",
+          "hint": "the definite article, elided before a vowel",
+          "display_order": 7
         }
       ],
       "paradigm": [
@@ -389,6 +396,13 @@
           "hint": "plural indefinite",
           "display_order": 6,
           "cell": "des"
+        },
+        {
+          "sentence": "Est-ce que tu as {{answer}} frères et sœurs ?",
+          "answer": "des",
+          "translation": "Do you have any brothers and sisters?",
+          "hint": "the indefinite article — English can leave it out here, French cannot",
+          "display_order": 7
         }
       ],
       "paradigm": [
@@ -982,6 +996,13 @@
           "translation": "You don't dance?",
           "hint": "the closing half of the frame",
           "display_order": 6
+        },
+        {
+          "sentence": "Ils {{answer}} ont pas de voiture.",
+          "answer": "n'",
+          "translation": "They don't have a car.",
+          "hint": "the opening half of the frame, elided before a vowel",
+          "display_order": 7
         }
       ]
     },
@@ -1544,6 +1565,13 @@
           "translation": "We used to live in a small apartment.",
           "hint": "used to live — we",
           "display_order": 6
+        },
+        {
+          "sentence": "Vous {{answer}} déjà là quand nous sommes arrivés.",
+          "answer": "étiez",
+          "translation": "You were already there when we arrived.",
+          "hint": "être, vous — the background state, not the completed act",
+          "display_order": 7
         }
       ]
     },
@@ -1608,6 +1636,13 @@
           "translation": "My friends will be at the party.",
           "hint": "will be — they",
           "display_order": 6
+        },
+        {
+          "sentence": "Vous n'{{answer}} pas besoin de réserver une table.",
+          "answer": "aurez",
+          "translation": "You won't need to book a table.",
+          "hint": "will have — you (plural/polite)",
+          "display_order": 7
         }
       ]
     },
@@ -1672,6 +1707,13 @@
           "translation": "I love this song; I listen to it often.",
           "hint": "it (elided before a vowel)",
           "display_order": 6
+        },
+        {
+          "sentence": "Madame, je {{answer}} comprends très bien.",
+          "answer": "vous",
+          "translation": "Madam, I understand you very well.",
+          "hint": "you (formal, one person)",
+          "display_order": 7
         }
       ]
     },
@@ -1736,6 +1778,13 @@
           "translation": "Are you thinking about your exam? Yes, I'm thinking about it.",
           "hint": "about it (à + thing)",
           "display_order": 6
+        },
+        {
+          "sentence": "Marie est là? Je dois {{answer}} parler.",
+          "answer": "lui",
+          "translation": "Is Marie here? I need to talk to her.",
+          "hint": "to her — the same form serves a man or a woman",
+          "display_order": 7
         }
       ]
     },
@@ -1800,6 +1849,13 @@
           "translation": "Health is more important than money.",
           "hint": "more (comparative)",
           "display_order": 6
+        },
+        {
+          "sentence": "Est-ce que le train est {{answer}} rapide que la voiture?",
+          "answer": "aussi",
+          "translation": "Is the train as fast as the car?",
+          "hint": "as … as (equality, neither more nor less)",
+          "display_order": 7
         }
       ]
     },
@@ -1870,6 +1926,13 @@
           "hint": "themselves — they",
           "cell": "ils",
           "display_order": 6
+        },
+        {
+          "sentence": "Le dimanche, je ne {{answer}} habille pas avant midi.",
+          "answer": "m'",
+          "translation": "On Sundays I don't get dressed before noon.",
+          "hint": "myself — I (elides before the silent h of habiller)",
+          "display_order": 7
         }
       ]
     },
@@ -1934,6 +1997,13 @@
           "translation": "Do you take sugar in your tea?",
           "hint": "some (masc.)",
           "display_order": 6
+        },
+        {
+          "sentence": "Il n'y a plus {{answer}} eau dans la bouteille.",
+          "answer": "d'",
+          "translation": "There's no more water in the bottle.",
+          "hint": "none at all — after a negative, elided before a vowel",
+          "display_order": 7
         }
       ]
     },
@@ -2090,6 +2160,13 @@
           "translation": "She has to go to the doctor.",
           "hint": "go — she (subjunctive of aller)",
           "display_order": 6
+        },
+        {
+          "sentence": "Je doute qu'ils {{answer}} le temps ce week-end.",
+          "answer": "aient",
+          "translation": "I doubt they have time this weekend.",
+          "hint": "have — they (subjunctive of avoir)",
+          "display_order": 7
         }
       ]
     },
@@ -2154,6 +2231,13 @@
           "translation": "They would be happy to see you.",
           "hint": "would be — they (conditional of être)",
           "display_order": 6
+        },
+        {
+          "sentence": "Si tu avais le choix, tu {{answer}} où?",
+          "answer": "irais",
+          "translation": "If you had the choice, where would you go?",
+          "hint": "would go — you (conditional of aller)",
+          "display_order": 7
         }
       ]
     },
@@ -2202,7 +2286,7 @@
           "sentence": "Du gâteau? Il y {{answer}} a encore.",
           "answer": "en",
           "translation": "Some cake? There's still some.",
-          "hint": "some (y + en)",
+          "hint": "'some of it' — stands for de + a noun; goes last, after y",
           "display_order": 4
         },
         {
@@ -2218,6 +2302,13 @@
           "translation": "This story, I'll tell it to you tomorrow.",
           "hint": "to you (pl., before la)",
           "display_order": 6
+        },
+        {
+          "sentence": "Si le dossier est prêt, tu peux le {{answer}} envoyer ce soir?",
+          "answer": "leur",
+          "translation": "If the file is ready, can you send it to them tonight?",
+          "hint": "to them (third in the chain, after le)",
+          "display_order": 7
         }
       ]
     },
@@ -2282,6 +2373,13 @@
           "translation": "The car that he bought is red.",
           "hint": "that (object, elided before il)",
           "display_order": 6
+        },
+        {
+          "sentence": "C'est une amie {{answer}} le frère travaille avec moi.",
+          "answer": "dont",
+          "translation": "She's a friend whose brother works with me.",
+          "hint": "whose (the de-relative, not qui or que)",
+          "display_order": 7
         }
       ]
     },
@@ -2346,6 +2444,13 @@
           "translation": "The children have just woken up.",
           "hint": "just (venir de) — they",
           "display_order": 6
+        },
+        {
+          "sentence": "On ne {{answer}} pas rester longtemps.",
+          "answer": "va",
+          "translation": "We're not going to stay long.",
+          "hint": "going to — on/we (aller, negated)",
+          "display_order": 7
         }
       ]
     },
@@ -2410,6 +2515,13 @@
           "translation": "She told me she had forgotten her appointment.",
           "hint": "had — she (pluperfect)",
           "display_order": 6
+        },
+        {
+          "sentence": "{{answer}}-vous déjà visité Paris avant ce voyage?",
+          "answer": "Aviez",
+          "translation": "Had you already visited Paris before that trip?",
+          "hint": "had — you (pl., pluperfect of avoir, inverted question)",
+          "display_order": 7
         }
       ]
     },
@@ -2465,7 +2577,7 @@
           "sentence": "Dis-moi ce {{answer}} s'est passé.",
           "answer": "qui",
           "translation": "Tell me what happened.",
-          "hint": "what (ce qui, subject)",
+          "hint": "'what' — it is the subject of the following verb, so use the subject relative after ce",
           "display_order": 5
         },
         {
@@ -2474,6 +2586,13 @@
           "translation": "She asked me whether I had finished.",
           "hint": "whether",
           "display_order": 6
+        },
+        {
+          "sentence": "Elle a répondu qu'elle n'{{answer}} pas libre ce soir-là.",
+          "answer": "était",
+          "translation": "She replied that she wasn't free that evening.",
+          "hint": "was — she (a past reporting verb shifts the original present tense back)",
+          "display_order": 7
         }
       ]
     },
@@ -2538,6 +2657,13 @@
           "translation": "These decisions will be made tomorrow.",
           "hint": "made (participle agrees, fem. pl.)",
           "display_order": 6
+        },
+        {
+          "sentence": "Les gagnants ont été {{answer}} hier soir.",
+          "answer": "annoncés",
+          "translation": "The winners were announced last night.",
+          "hint": "announced — the participle after être agrees with the subject",
+          "display_order": 7
         }
       ]
     },
@@ -2602,6 +2728,13 @@
           "translation": "If they asked me, I would say yes.",
           "hint": "would say — I (conditional)",
           "display_order": 6
+        },
+        {
+          "sentence": "Qu'est-ce que tu {{answer}} si tu gagnais au loto ?",
+          "answer": "ferais",
+          "translation": "What would you do if you won the lottery?",
+          "hint": "would do — you (the conditional belongs in the main clause, never after si)",
+          "display_order": 7
         }
       ]
     },
@@ -2629,14 +2762,14 @@
           "sentence": "Il est tombé {{answer}} courant après le bus.",
           "answer": "en",
           "translation": "He fell while running for the bus.",
-          "hint": "while (en + participle)",
+          "hint": "'while' + a present participle — supply the preposition that turns that form into a gérondif",
           "display_order": 1
         },
         {
           "sentence": "On apprend beaucoup {{answer}} voyageant.",
           "answer": "en",
           "translation": "You learn a lot by travelling.",
-          "hint": "by (en + participle)",
+          "hint": "'by doing something' — the preposition that goes in front of a present participle to give the means",
           "display_order": 2
         },
         {
@@ -2650,7 +2783,7 @@
           "sentence": "{{answer}} lisant tous les jours, tu progresseras.",
           "answer": "En",
           "translation": "By reading every day, you'll improve.",
-          "hint": "by (en + participle)",
+          "hint": "'by doing something', opening the sentence — the gérondif's preposition, capitalised here",
           "display_order": 4
         },
         {
@@ -2666,6 +2799,13 @@
           "translation": "Don't talk while eating!",
           "hint": "eating (present participle)",
           "display_order": 6
+        },
+        {
+          "sentence": "Il a trouvé la solution en {{answer}} par la fin.",
+          "answer": "commençant",
+          "translation": "He found the solution by starting from the end.",
+          "hint": "starting — a -cer verb keeps its soft c in the present participle",
+          "display_order": 7
         }
       ]
     },
@@ -2730,6 +2870,13 @@
           "translation": "He left without my knowing it.",
           "hint": "know — I (subjunctive of savoir)",
           "display_order": 6
+        },
+        {
+          "sentence": "Il travaille encore, quoiqu'il {{answer}} plus de quatre-vingts ans.",
+          "answer": "ait",
+          "translation": "He's still working, although he's over eighty.",
+          "hint": "has — he (subjunctive of avoir, required by quoique)",
+          "display_order": 7
         }
       ]
     },
@@ -2794,6 +2941,13 @@
           "translation": "His results are worse than expected.",
           "hint": "worse (plural, mauvais)",
           "display_order": 6
+        },
+        {
+          "sentence": "Est-ce que les hôtels sont {{answer}} près de la plage ?",
+          "answer": "meilleurs",
+          "translation": "Are the hotels better near the beach?",
+          "hint": "better — the adjective from bon, agreeing with the subject",
+          "display_order": 7
         }
       ]
     },
@@ -2835,7 +2989,7 @@
           "sentence": "Je reste ici {{answer}} j'attends un ami.",
           "answer": "car",
           "translation": "I'm staying here because I'm waiting for a friend.",
-          "hint": "because (car)",
+          "hint": "because — the coordinating conjunction that attaches a justification to the clause before it; unlike parce que it joins two independent clauses and can never stand alone as the answer to a bare pourquoi.",
           "display_order": 3
         },
         {
@@ -2858,6 +3012,13 @@
           "translation": "Coffee is expensive; however, tea is cheap.",
           "hint": "however",
           "display_order": 6
+        },
+        {
+          "sentence": "Je ne connais pas ce quartier; je n'y suis {{answer}} jamais allé.",
+          "answer": "d'ailleurs",
+          "translation": "I don't know this neighbourhood; besides, I've never been there.",
+          "hint": "besides / what's more — a supporting afterthought; the contracted adverb, sitting here between the auxiliary and the past participle.",
+          "display_order": 7
         }
       ]
     },
@@ -2922,6 +3083,13 @@
           "translation": "What would you have done in my place?",
           "hint": "would have — you (avoir)",
           "display_order": 6
+        },
+        {
+          "sentence": "Vous {{answer}} pu me prévenir plus tôt!",
+          "answer": "auriez",
+          "translation": "You could have warned me earlier!",
+          "hint": "would have — you (vous, plural/polite), auxiliary avoir",
+          "display_order": 7
         }
       ]
     },
@@ -2986,6 +3154,13 @@
           "translation": "It's possible she forgot it.",
           "hint": "has (past subjunctive of avoir)",
           "display_order": 6
+        },
+        {
+          "sentence": "Il faut que nous {{answer}} fini avant leur arrivée.",
+          "answer": "ayons",
+          "translation": "We have to be finished before they arrive.",
+          "hint": "have — nous, past subjunctive of avoir, for an action completed before a deadline",
+          "display_order": 7
         }
       ]
     },
@@ -3050,6 +3225,13 @@
           "translation": "They had a feast that evening. (narrative)",
           "hint": "had — they (passé simple of avoir)",
           "display_order": 6
+        },
+        {
+          "sentence": "Personne ne {{answer}} ce jour-là. (récit)",
+          "answer": "vint",
+          "translation": "Nobody came that day. (narrative)",
+          "hint": "came — he/she (passé simple of venir)",
+          "display_order": 7
         }
       ]
     },
@@ -3091,14 +3273,14 @@
           "sentence": "Ce {{answer}} je veux, c'est un peu de calme.",
           "answer": "que",
           "translation": "What I want is a bit of quiet.",
-          "hint": "what (ce que … c'est)",
+          "hint": "what — the clefting frame ce …, c'est; the verb that follows already has its subject, so the relative fills its object slot.",
           "display_order": 3
         },
         {
           "sentence": "Ce {{answer}} me plaît, c'est sa sincérité.",
           "answer": "qui",
           "translation": "What pleases me is his sincerity.",
-          "hint": "what (ce qui … c'est, subject)",
+          "hint": "what — the ce …, c'est frame; the verb that follows has no subject of its own (the pronoun in front of it is an object), so the relative has to supply the subject.",
           "display_order": 4
         },
         {
@@ -3114,6 +3296,13 @@
           "translation": "It's that book you must read.",
           "hint": "that (cleft, elided before il)",
           "display_order": 6
+        },
+        {
+          "sentence": "Ce {{answer}} j'ai peur, c'est de perdre mon travail.",
+          "answer": "dont",
+          "translation": "What I'm afraid of is losing my job.",
+          "hint": "what — the ce …, c'est frame; the verb takes its complement with de (avoir peur de …), so the relative must carry that de.",
+          "display_order": 7
         }
       ]
     },
@@ -3141,14 +3330,14 @@
           "sentence": "Je crains qu'il {{answer}} vienne trop tard.",
           "answer": "ne",
           "translation": "I fear he will come too late. (ne explétif)",
-          "hint": "(expletive ne, no negation)",
+          "hint": "the semantically empty particle formal French slips in after a verb of fearing plus the subjunctive; it does not make the clause negative and takes no pas.",
           "display_order": 1
         },
         {
           "sentence": "Partez avant qu'il {{answer}} soit trop tard.",
           "answer": "ne",
           "translation": "Leave before it's too late. (ne explétif)",
-          "hint": "(expletive ne after avant que)",
+          "hint": "the meaningless particle formal French adds inside a clause introduced by avant que; it negates nothing and pairs with no pas.",
           "display_order": 2
         },
         {
@@ -3178,6 +3367,13 @@
           "translation": "Will you attend tomorrow's conference?",
           "hint": "will attend — you (formal inversion)",
           "display_order": 6
+        },
+        {
+          "sentence": "Nul ne croyait qu'il {{answer}} si jeune.",
+          "answer": "fût",
+          "translation": "No one believed he was so young. (literary imperfect subjunctive)",
+          "hint": "was — imperfect subjunctive of être, third person singular; the literary sequence after a past main clause, and its vowel takes a circumflex.",
+          "display_order": 7
         }
       ]
     },
@@ -3318,6 +3514,13 @@
           "translation": "Give me your number.",
           "hint": "tu command with a pronoun attached",
           "display_order": 6
+        },
+        {
+          "sentence": "Ne t'{{answer}} pas, on a encore le temps.",
+          "answer": "inquiète",
+          "translation": "Don't worry, we still have time.",
+          "hint": "negative tu command of the reflexive verb meaning 'to worry' — its pronoun stands before the verb in the negative, and an -er tu command takes no final -s",
+          "display_order": 7
         }
       ]
     }
