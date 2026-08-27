@@ -154,10 +154,21 @@ rate, say so — that result matters more than the phase closing quietly.
     gloss work (3,609 of 6,610 drills) is for courses whose `LAYER_ORDER` has
     no gloss slot, so nothing would ever show it. Check the consumer before
     the content — this is CHECKS.md §12 from the other end.
-23. **Facts yes, sentences regenerated** — paradigms/vocab from licensed
+23. **A mechanical split is a guess. Verify it before you ship it.** Peeling
+    clitics off Hebrew and Persian words looked like clean engineering and was
+    wrong 20% and 91% of the time — producing DIFFERENT WORDS, not near
+    misses: `מחברות` read as "from friends" when it is "notebooks". Anything
+    that decomposes a word it does not know is guessing; send a sample to a
+    checker before it reaches a learner, and delete it if the rate is bad.
+24. **A coverage number going DOWN can be the correct outcome.** Removing the
+    Hebrew peeler dropped sentence coverage from 80% to 64%. That is 16
+    percentage points of confidently wrong readings leaving the corpus. Move
+    the ratchet floor down and write the reason into the test, so the next
+    person does not "fix" it by restoring the fault.
+25. **Facts yes, sentences regenerated** — paradigms/vocab from licensed
    courses may inform; verbatim sentences may not ship.
-24. **Never the API key.** Maker–checker runs in-session (Workflow tool).
-25. **Fixes land in committed files** (`gloss_overrides.tsv`, TSVs, JSON) —
+26. **Never the API key.** Maker–checker runs in-session (Workflow tool).
+27. **Fixes land in committed files** (`gloss_overrides.tsv`, TSVs, JSON) —
     a DB-only repair is undone by the next re-seed. Same logic one level up:
     a TSV-only deletion is undone by the next regeneration — durable
     deletions go in `data/vocab_exclusions.tsv` (typo-mass rows like `citta`
@@ -165,30 +176,30 @@ rate, say so — that result matters more than the phase closing quietly.
 
 ## Verification
 
-26. **Verify agent output mechanically before writing it back**: structural
+28. **Verify agent output mechanically before writing it back**: structural
     validators, spot-checks against known ground truth, and assembly by stable
     key, never by index (a rank drift once nearly filed `luna`'s gloss under
     `stella`). After writing a TSV, eyeball it: text containing `"` gets
     csv-escaped into `""..""` noise — reword the text instead.
-27. **Re-measure any agent-reported number before acting on it** — two of five
+29. **Re-measure any agent-reported number before acting on it** — two of five
     sampled claim-audit figures did not reproduce.
-28. **State verification honestly**: "275 of 557 checker-verified, rest
+30. **State verification honestly**: "275 of 557 checker-verified, rest
     maker-only" — never round up to "verified".
-29. **Never freeze a count the audit computes** — cite the rule name; the tool
+31. **Never freeze a count the audit computes** — cite the rule name; the tool
     says the number. Hand counts carry date + method. "Verified" names every
     file the claim covers.
-30. **Baseline ratchet**: equal is fine, worse needs `--update-baseline` and a
+32. **Baseline ratchet**: equal is fine, worse needs `--update-baseline` and a
     written reason. Run `audit_content` before pushing content.
 
 ## Ship
 
-31. Green = `npm run build` (not `tsc --noEmit`), `vitest`, backend pytest at
+33. Green = `npm run build` (not `tsc --noEmit`), `vitest`, backend pytest at
     baseline (7 known environment failures), `ruff`, audit PASS, CI green,
     then merge — standing authorization. Say plainly what was left out.
-32. **When adding words to fill a homonym gap, add only members a learner
+34. **When adding words to fill a homonym gap, add only members a learner
     meets** (`hīc`, `mālum` yes; `pōpulus` "poplar" no) and gloss each naming
     its false twin — "here (distinct from hic: this)".
-33. **Nothing of value stays only on this machine** (owner directive, 20 Aug
+35. **Nothing of value stays only on this machine** (owner directive, 20 Aug
     2026). After every merge — and before any long-running job — fast-forward
     `feat/phases` to the current head and push it:
     `git branch -f feat/phases HEAD && git push origin feat/phases`.
