@@ -171,28 +171,30 @@ def test_a_gloss_says_something(path):
     assert not empty, f"{len(empty)} gloss(es) that say nothing, e.g. {empty[0]}"
 
 
-def test_english_glosses_are_not_authored_before_the_locale_decision():
-    """A ratchet on a DECISION, not a defect — same pattern as Thai's
-    NO_ROMANISATION set.
+def test_english_glosses_are_structural_not_translational():
+    """Owner decision, 27 Aug 2026: ALL courses transition to STRUCTURAL
+    glosses — Leipzig decomposition, metalanguage English everywhere, en
+    included. An earlier tripwire here blocked en glosses as "circular"; that
+    analysis treated the layer as a translation, and it is not. The value of
+    an en gloss is the decomposition — have.NEG, bark.3SG, child.PL — which
+    is precisely what a Spanish learner of English needs made visible.
 
-    The interlinear gloss's lexical cells are written in English, the
-    program's metalanguage. That works for every course except English
-    itself, where it is circular: "the · dog · barks" glossed
-    `the · dog · bark` — and en is a gloss-leads course, so that empty
-    statement would be the FIRST hint a Spanish learner of English gets,
-    ahead of the Spanish translation that actually helps them. Glossing en
-    usefully means lexical cells in the LEARNER'S language, and no gloss
-    field carries a locale today (drill.gloss and the sentence bank's gloss
-    column are single strings).
-
-    So en's 266 drills stay unglossed until the owner decides between a
-    locale dimension for glosses and exempting en from the layer. If this
-    fails because someone authored them: stop, read
-    docs/quality/card-layers.md §1c, and take the decision first."""
-    count = sum(
-        1 for d in _drills("data/grammar/en_grammar.json")
-        if (d.get("gloss") or "").strip()
-    )
-    assert count == 0, (
-        f"{count} en glosses authored — circular in English metalanguage; "
-        "the locale decision in card-layers.md §1c comes first")
+    What WOULD be a defect on en is a gloss that only echoes its own tokens:
+    a line where no cell decomposes anything teaches nothing. Once en glosses
+    exist, at least the inflected cells must differ from the token above."""
+    drills = [d for d in _drills("data/grammar/en_grammar.json")
+              if (d.get("gloss") or "").strip()]
+    echo_only = []
+    for d in drills:
+        cells = [c.strip() for c in (d.get("gloss") or "").split("·")]
+        tokens = (d.get("sentence") or "").split()
+        if len(cells) != len(tokens):
+            continue  # the strict-alignment test reports this separately
+        pairs = [(t, c) for t, c in zip(tokens, cells) if c != "___"]
+        if pairs and all(
+            c.lower() == t.strip(".,!?\"'").lower() for t, c in pairs
+        ):
+            echo_only.append((d.get("sentence"), d.get("gloss")))
+    assert not echo_only, (
+        f"{len(echo_only)} en gloss(es) only echo their tokens — no cell "
+        f"decomposes anything, e.g. {echo_only[:2]}")

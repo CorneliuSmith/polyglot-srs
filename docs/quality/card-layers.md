@@ -148,29 +148,25 @@ grammatical set.
 
 ---
 
-## 1c. The English course cannot take the gloss layer as designed — open decision
+## 1c. Glosses are STRUCTURAL, on every course — en included (owner decision, 27 Aug 2026)
 
-The interlinear gloss's lexical cells are English, the program's metalanguage.
-That works for 26 courses and is CIRCULAR on the 27th: an English sentence
-glossed word-by-word into English ("the · dog · barks" → `the · dog · bark`)
-tells a learner nothing — and en is a gloss-leads course, so that empty line
-would sit ABOVE the translation that actually helps. Glossing en usefully
-means lexical cells in the learner's own language, and nothing today can hold
-that: `drill.gloss` and the sentence bank's `gloss` column are single strings
-with no locale dimension, and the auto-translate loop has no gloss kind.
+The question "what does an English gloss of an English sentence say?" had a
+wrong answer written here for a day: that it is circular, and that en needs
+either a locale dimension or an exemption. That analysis treated the gloss as
+a TRANSLATION layer. It is not — the program is transitioning all 27 courses
+to structural glosses: Leipzig decomposition, one cell per token, metalanguage
+English everywhere, whose job is showing how each word is BUILT.
 
-**Until the owner picks one of these, en's 266 drills stay unglossed**
-(tripwire: `test_english_glosses_are_not_authored_before_the_locale_decision`):
+Under that convention the en gloss carries exactly what a beginner cannot see:
+`haven't` → `have.NEG`, `barks` → `bark.3SG`, `children` → `child.PL`,
+`won't` → `will.NEG`, `better` → `good.COMP`. Uninflected cells echo their
+lemma, and that is the identity part of a structural line, not a defect. No
+locale dimension is needed, on en or anywhere: the metalanguage does not vary
+by learner.
 
-1. a locale dimension for glosses (schema + loop kind + authoring per locale);
-2. exempting en from the layer — its hint order then leads with the
-   translation, which for an es-locale learner is the Spanish rendering and
-   already the right first help.
-
-The same locale question exists in miniature for every OTHER course viewed in
-a non-English locale — a Spanish learner of Swahili reads English gloss cells
-under a Spanish "Palabra por palabra" label — but there the cells still carry
-real information; on en they carry none. Decide en first.
+The defect class specific to en is a gloss where NOTHING decomposes — every
+cell a bare echo. `test_english_glosses_are_structural_not_translational`
+guards it (it replaced the day-old tripwire that blocked en authoring).
 
 ## 1b. Phonetics — how to say it, under how to spell it
 

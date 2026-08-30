@@ -58,3 +58,15 @@ choosing a learner-readable notation, not finding the data.
 
 **The owner intends to roll this layer out to other languages later**, so
 build it as a general card layer, not a Thai special case.
+
+## 5. Glosses are STRUCTURAL, on all 27 courses — en included (27 Aug 2026)
+
+The interlinear gloss is a Leipzig morphological decomposition, not a
+translation: its metalanguage is English everywhere BY DESIGN and does not
+vary by learner locale. This settles the en question the wrong way round from
+how it was briefly recorded: an English gloss of English is not circular,
+because its value is the decomposition (`haven't` → `have.NEG`,
+`barks` → `bark.3SG`), which is precisely what a beginner cannot see. No
+locale dimension is added to any gloss field. The en-specific defect class is
+a line where nothing decomposes; `test_english_glosses_are_structural_not_
+translational` guards it.
