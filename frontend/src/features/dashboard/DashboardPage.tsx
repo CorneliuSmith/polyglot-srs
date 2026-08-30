@@ -477,8 +477,8 @@ export default function DashboardPage() {
                       </span>
                       <span className="block text-xs text-white/60 mt-1">
                         {stats.learned_today >= dailyLearnGoal
-                          ? t('dashboard.goalDoneQueued', { count: newAvailable })
-                          : t('dashboard.learnedTodayQueued', { count: newAvailable })}
+                          ? t('dashboard.goalDone')
+                          : t('dashboard.learnedToday')}
                       </span>
                     </>
                   ) : (
