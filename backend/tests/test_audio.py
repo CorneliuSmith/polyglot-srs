@@ -71,6 +71,11 @@ def _client(priv_conn, rls_conn):
         patch("backend.routers.audio.get_settings", return_value=FakeSettings()),
         patch("backend.routers.audio.privileged_connection", fake_priv),
         patch("backend.routers.audio.rls_connection", fake_rls),
+        # No human recording by default, so the synthetic-TTS fixtures keep
+        # their exact connection-call sequences. The contributor-recording
+        # tests override this seam.
+        patch("backend.routers.audio.approved_recording",
+              new=AsyncMock(return_value=None)),
     )
 
 
@@ -192,7 +197,7 @@ class TestTTSEndpoint:
 
     def test_requires_auth(self):
         ps = _client(_conn([None]), _conn([True]))
-        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6]:
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], ps[7]:
             app = create_app()
             with TestClient(app) as client:
                 resp = client.post(
@@ -203,7 +208,7 @@ class TestTTSEndpoint:
 
     def test_uncovered_language_404(self):
         ps = _client(_conn([None]), _conn([True]))
-        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6]:
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], ps[7]:
             app = create_app()
             with TestClient(app) as client:
                 resp = client.post(
@@ -218,7 +223,7 @@ class TestTTSEndpoint:
         key = cache_key(voice, "você")
         priv = _conn([f"pt/{key}.mp3"])
         ps = _client(priv, _conn([True]))
-        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], \
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], ps[7], \
              patch("backend.routers.audio.synthesize",
                    new=AsyncMock()) as mock_synth:
             app = create_app()
@@ -240,7 +245,7 @@ class TestTTSEndpoint:
         priv = _conn([None])          # cache miss
         rls = _conn([False])          # text is NOT ours
         ps = _client(priv, rls)
-        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], \
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], ps[7], \
              patch("backend.routers.audio.synthesize",
                    new=AsyncMock()) as mock_synth:
             app = create_app()
@@ -285,7 +290,7 @@ class TestTTSEndpoint:
         http_client.post = AsyncMock(return_value=upload)
 
         ps = _client(priv, rls)
-        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], \
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], ps[7], \
              patch("backend.routers.audio.synthesize",
                    new=AsyncMock(return_value=b"mp3bytes")), \
              patch("backend.routers.audio.httpx.AsyncClient",
@@ -327,7 +332,7 @@ class TestTTSEndpoint:
         )
 
         ps = _client(priv, rls)
-        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], \
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], ps[7], \
              patch("backend.routers.audio.synthesize",
                    new=AsyncMock(return_value=b"mp3bytes")), \
              patch("backend.routers.audio.httpx.AsyncClient",
@@ -366,7 +371,7 @@ class TestTTSEndpoint:
         http_client.post = AsyncMock(return_value=upload)
 
         ps = _client(priv, rls)
-        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], \
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], ps[7], \
              patch("backend.routers.audio.synthesize",
                    new=AsyncMock(return_value=b"mp3bytes")), \
              patch("backend.routers.audio.httpx.AsyncClient",
@@ -419,7 +424,7 @@ class TestTTSEndpoint:
         http_client.post = AsyncMock(return_value=upload)
 
         ps = _client(priv, rls)
-        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], \
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], ps[7], \
              patch("backend.routers.audio.synthesize",
                    new=AsyncMock(return_value=b"mp3bytes")) as mock_synth, \
              patch("backend.routers.audio.httpx.AsyncClient",
@@ -450,7 +455,7 @@ class TestTTSEndpoint:
         priv = _conn([None])
         rls = _conn([True])
         ps = _client(priv, rls)
-        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], \
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], ps[7], \
              patch("backend.routers.audio.synthesize",
                    new=AsyncMock(return_value=b"mp3bytes")), \
              patch("backend.routers.audio._upload_clip",
@@ -472,7 +477,7 @@ class TestTTSEndpoint:
         ledger.reset_mock()
         cached = _conn([f"pt/{cache_key(voice_for('pt'), 'você')}.mp3"])
         ps = _client(cached, _conn([True]))
-        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], \
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], ps[7], \
              patch("backend.routers.audio.synthesize",
                    new=AsyncMock(return_value=b"mp3bytes")), \
              patch("backend.routers.audio.record_speech_event", ledger):
@@ -509,7 +514,7 @@ class TestDurableCache:
 
     def _post(self, priv, rls, http_client, synth=b"mp3bytes"):
         ps = _client(priv, rls)
-        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], \
+        with ps[0], ps[1], ps[2], ps[3], ps[4], ps[5], ps[6], ps[7], \
              patch("backend.routers.audio.synthesize",
                    new=AsyncMock(return_value=synth)) as mock_synth, \
              patch("backend.routers.audio.httpx.AsyncClient",

@@ -1590,6 +1590,68 @@ export async function setPlanLimit(
   return response.data.limits
 }
 
+// ── Contributor recordings (human audio for voiceless languages) ───────────
+// Jamaican Patois has no neural voice, so audio comes from people: a
+// contributor records a clip for one exact text, a reviewer approves it,
+// and the audio endpoint serves it where TTS would have been.
+
+export interface RecordingRow {
+  id: string
+  text: string
+  mime: string
+  status: 'pending' | 'approved' | 'rejected'
+  created_at: string
+  contributor_email?: string
+}
+
+export async function submitRecording(
+  languageId: string,
+  text: string,
+  audioB64: string,
+  mime: string,
+): Promise<void> {
+  await apiClient.post('/api/contribute/recordings', {
+    language_id: languageId,
+    text,
+    audio_b64: audioB64,
+    mime,
+  })
+}
+
+export async function getMyRecordings(languageId: string): Promise<RecordingRow[]> {
+  const response = await apiClient.get('/api/contribute/recordings/mine', {
+    params: { language_id: languageId },
+  })
+  return response.data.recordings
+}
+
+export async function getRecordingsQueue(
+  languageId: string,
+): Promise<RecordingRow[]> {
+  const response = await apiClient.get('/api/contribute/recordings', {
+    params: { language_id: languageId, status_filter: 'pending' },
+  })
+  return response.data.recordings
+}
+
+export async function getRecordingAudio(
+  recordingId: string,
+): Promise<{ audio_b64: string; mime: string }> {
+  const response = await apiClient.get(
+    `/api/contribute/recordings/${recordingId}/audio`,
+  )
+  return response.data
+}
+
+export async function reviewRecording(
+  recordingId: string,
+  approve: boolean,
+): Promise<void> {
+  await apiClient.post(`/api/contribute/recordings/${recordingId}/review`, {
+    approve,
+  })
+}
+
 /** One batch of the bulk AI check (admin). Call repeatedly until
  *  `remaining` is 0 — each call takes the next still-unchecked points. */
 export async function runAiCheckBatch(

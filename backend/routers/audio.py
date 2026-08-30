@@ -23,6 +23,7 @@ from pydantic import BaseModel, Field
 from backend.config import get_settings
 from backend.dependencies import get_current_user
 from backend.repositories.pool import privileged_connection, rls_connection
+from backend.repositories.recordings import approved_recording
 from backend.repositories.speech import record_speech_event
 from backend.services.rate_limit import tts_limiter
 from backend.services.tts import cache_key, synthesize, voice_for
@@ -213,13 +214,29 @@ async def tts(
     user: dict = Depends(get_current_user),
 ):
     """Return a cached (or freshly synthesized) MP3 URL for one clip."""
+    text = body.text.strip()
+
+    # A human recording outranks a synthetic voice — and for languages with
+    # no neural voice at all (jam), it's the only audio there is. Checked
+    # BEFORE the voice gate so a voiceless language with an approved clip
+    # serves it instead of 404ing. Served inline: clips are short, they sit
+    # in the row (see migration 20261007), and no provider is billed.
+    async with privileged_connection() as conn:
+        human = await approved_recording(conn, body.language_code, text)
+    if human:
+        return {
+            "url": None,
+            "cached": True,
+            "audio_b64": base64.b64encode(human["audio"]).decode(),
+            "mime": human["mime"],
+        }
+
     voice = voice_for(body.language_code)
     if voice is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"No TTS voice for language: {body.language_code}",
         )
-    text = body.text.strip()
     key = cache_key(voice, text)
     storage_path = f"{body.language_code}/{key}.mp3"
     settings = get_settings()

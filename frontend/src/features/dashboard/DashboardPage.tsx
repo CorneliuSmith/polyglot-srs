@@ -16,6 +16,8 @@ import {
 import { getMyRoles } from '../../api/contribute'
 import { getOnboardingStatus } from '../../api/onboarding'
 import { usePrefsStore } from '../../stores/prefsStore'
+import { getLanguages } from '../../api/profile'
+import { languageDisplayName } from '../../lib/languages'
 import LanguagePicker from '../../components/LanguagePicker'
 import PlacementOffer from '../onboarding/PlacementOffer'
 import ReviewPromptGate from './ReviewPromptGate'
@@ -208,9 +210,16 @@ function SkeletonCard() {
 
 export default function DashboardPage() {
   const navigate = useNavigate()
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
+  // For the audio note below: has_tts is false only where no neural voice
+  // exists (Jamaican Patois) — the same 'languages' cache every page shares.
+  const { data: allLanguages = [] } = useQuery({
+    queryKey: ['languages'],
+    queryFn: getLanguages,
+  })
+  const activeLanguage = allLanguages.find((l) => l.id === activeLanguageId)
   const dailyLearnGoal = usePrefsStore((s) => s.dailyLearnGoal)
   const [learnOpen, setLearnOpen] = useState(false)
   const [reviewOpen, setReviewOpen] = useState(false)
@@ -407,6 +416,22 @@ export default function DashboardPage() {
           </label>
           <LanguagePicker />
         </div>
+
+        {/* No synthetic voice exists for this language — say so once,
+            plainly, instead of letting silent speaker buttons look broken
+            (owner: "give the disclaimer that we are working on finding
+            recordings"). */}
+        {activeLanguage?.has_tts === false && (
+          <p
+            data-testid="audio-pending-note"
+            className="rounded-xl border border-gray-100 bg-white px-3 py-2 text-xs text-gray-500"
+          >
+            {t('dashboard.audioPending', {
+              language: languageDisplayName(
+                activeLanguage.code, activeLanguage.name, i18n.language),
+            })}
+          </p>
+        )}
 
         {/* Learning tip (throttled to ~once a day; off in Settings) */}
         {/* Staff only: something came in and nobody has closed it out. */}

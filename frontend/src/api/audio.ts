@@ -19,13 +19,16 @@ export const TTS_LANGUAGES = new Set([
 interface TTSResponse {
   url: string | null
   cached: boolean
-  /** Inline clip when the storage cache is unavailable server-side. */
+  /** Inline clip when the storage cache is unavailable server-side — or a
+   * contributor-recorded human clip (those always come inline). */
   audio_b64?: string
+  /** Set for human recordings (webm/ogg/…); synthesized clips are MP3. */
+  mime?: string
 }
 
-function blobUrlFromBase64(b64: string): string {
+function blobUrlFromBase64(b64: string, mime = 'audio/mpeg'): string {
   const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0))
-  return URL.createObjectURL(new Blob([bytes], { type: 'audio/mpeg' }))
+  return URL.createObjectURL(new Blob([bytes], { type: mime }))
 }
 
 /**
@@ -48,8 +51,8 @@ export async function getTTSUrl(
       language_code: languageCode,
       text,
     })
-    const { url, audio_b64 } = response.data
-    const playable = url ?? (audio_b64 ? blobUrlFromBase64(audio_b64) : null)
+    const { url, audio_b64, mime } = response.data
+    const playable = url ?? (audio_b64 ? blobUrlFromBase64(audio_b64, mime) : null)
     if (playable) {
       urlCache.set(key, playable)
       return playable

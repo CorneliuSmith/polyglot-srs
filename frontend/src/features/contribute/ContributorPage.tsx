@@ -44,6 +44,7 @@ import GymDrillsPanel from './GymDrillsPanel'
 import AiLevelsPanel from './AiLevelsPanel'
 import GenerationPanel from './GenerationPanel'
 import TranslationReviewsPanel from './TranslationReviewsPanel'
+import RecordingsPanel, { RecordingsReviewQueue } from './RecordingsPanel'
 import { useAuthStore } from '../../stores/authStore'
 import {
   flagPointIssue,
@@ -1106,6 +1107,19 @@ export default function ContributorPage() {
             )}
             {tab === 'contribute' && contentKind === 'grammar' && (
               <NewPointForm languageId={activeLanguageId} onCreated={refresh} />
+            )}
+
+            {/* Human audio for voiceless languages (owner: Jamaican Patois).
+                Only where no neural voice exists — for covered languages
+                TTS already speaks and this surface would be noise. */}
+            {tab === 'contribute' && language?.has_tts === false && (
+              <RecordingsPanel
+                languageId={activeLanguageId}
+                languageName={language?.name}
+              />
+            )}
+            {tab === 'review' && canSeeQueues && language?.has_tts === false && (
+              <RecordingsReviewQueue languageId={activeLanguageId} />
             )}
 
             {/* Vocab review surface (WP32): browse + votable suggestions,

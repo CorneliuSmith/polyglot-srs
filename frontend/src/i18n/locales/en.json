@@ -110,7 +110,8 @@
     "removeWidget": "Remove widget",
     "speakCaption": "Have a conversation",
     "speakNew": "New",
-    "speakPitch": "Have a conversation. Corrections as you go, or all at the end."
+    "speakPitch": "Have a conversation. Corrections as you go, or all at the end.",
+    "audioPending": "No audio for {{language}} yet — no synthetic voice exists for it, so we’re collecting real recordings from speakers. Audio will appear as clips are approved."
   },
   "stages": {
     "beginner": "Beginner",
