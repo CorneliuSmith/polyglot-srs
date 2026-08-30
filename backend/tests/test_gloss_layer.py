@@ -169,3 +169,30 @@ def test_a_gloss_says_something(path):
         and (d.get("gloss") or "").strip() == "___"
     ]
     assert not empty, f"{len(empty)} gloss(es) that say nothing, e.g. {empty[0]}"
+
+
+def test_english_glosses_are_not_authored_before_the_locale_decision():
+    """A ratchet on a DECISION, not a defect — same pattern as Thai's
+    NO_ROMANISATION set.
+
+    The interlinear gloss's lexical cells are written in English, the
+    program's metalanguage. That works for every course except English
+    itself, where it is circular: "the · dog · barks" glossed
+    `the · dog · bark` — and en is a gloss-leads course, so that empty
+    statement would be the FIRST hint a Spanish learner of English gets,
+    ahead of the Spanish translation that actually helps them. Glossing en
+    usefully means lexical cells in the LEARNER'S language, and no gloss
+    field carries a locale today (drill.gloss and the sentence bank's gloss
+    column are single strings).
+
+    So en's 266 drills stay unglossed until the owner decides between a
+    locale dimension for glosses and exempting en from the layer. If this
+    fails because someone authored them: stop, read
+    docs/quality/card-layers.md §1c, and take the decision first."""
+    count = sum(
+        1 for d in _drills("data/grammar/en_grammar.json")
+        if (d.get("gloss") or "").strip()
+    )
+    assert count == 0, (
+        f"{count} en glosses authored — circular in English metalanguage; "
+        "the locale decision in card-layers.md §1c comes first")

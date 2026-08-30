@@ -148,6 +148,30 @@ grammatical set.
 
 ---
 
+## 1c. The English course cannot take the gloss layer as designed — open decision
+
+The interlinear gloss's lexical cells are English, the program's metalanguage.
+That works for 26 courses and is CIRCULAR on the 27th: an English sentence
+glossed word-by-word into English ("the · dog · barks" → `the · dog · bark`)
+tells a learner nothing — and en is a gloss-leads course, so that empty line
+would sit ABOVE the translation that actually helps. Glossing en usefully
+means lexical cells in the learner's own language, and nothing today can hold
+that: `drill.gloss` and the sentence bank's `gloss` column are single strings
+with no locale dimension, and the auto-translate loop has no gloss kind.
+
+**Until the owner picks one of these, en's 266 drills stay unglossed**
+(tripwire: `test_english_glosses_are_not_authored_before_the_locale_decision`):
+
+1. a locale dimension for glosses (schema + loop kind + authoring per locale);
+2. exempting en from the layer — its hint order then leads with the
+   translation, which for an es-locale learner is the Spanish rendering and
+   already the right first help.
+
+The same locale question exists in miniature for every OTHER course viewed in
+a non-English locale — a Spanish learner of Swahili reads English gloss cells
+under a Spanish "Palabra por palabra" label — but there the cells still carry
+real information; on en they carry none. Decide en first.
+
 ## 1b. Phonetics — how to say it, under how to spell it
 
 A romanisation says which letters; **phonetics says how to say them**. They are
