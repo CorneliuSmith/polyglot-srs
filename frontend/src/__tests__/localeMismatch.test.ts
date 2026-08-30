@@ -61,6 +61,19 @@ describe('the label exists in every shipped locale', () => {
     expect(value).not.toBe('review.layerNotTranslated')
     expect(value).toContain('X')
   })
+
+  it.each(LOCALES)('%s does not claim the fallback is English', (locale) => {
+    // The label once said "(English — not yet translated)" in every locale.
+    // True for course content, false for PERSONAL cards, whose fallback is
+    // whatever language the card's author typed — the owner saw their own
+    // Spanish captioned "на английском" and read it as data corruption.
+    // The label may say the text isn't in your language; it must not guess
+    // which language it IS in.
+    const value = i18n.getFixedT(locale)('review.layerNotTranslated', { label: 'X' })
+    expect(value.toLowerCase()).not.toMatch(
+      /english|inglés|anglais|inglês|английск|الإنجليزية/,
+    )
+  })
 })
 
 describe('a translation in the wrong language is labelled, whatever the script', () => {

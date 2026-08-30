@@ -485,7 +485,7 @@
     "durationSec_many": "{{count}} сек",
     "durationSec_other": "{{count}} сек",
     "loadFailed": "Не удалось загрузить сессию повторения.",
-    "layerNotTranslated": "{{label}} (на английском — ещё не переведено)",
+    "layerNotTranslated": "{{label}} (пока не на вашем языке)",
     "translateMine": "Перевести мои карточки ({{count}}) — 1 сообщение",
     "translateMineWorking": "Перевод…",
     "translateMineDone": "Переведено: {{count}} — обновите страницу",

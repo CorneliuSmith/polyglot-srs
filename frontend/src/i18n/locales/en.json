@@ -465,7 +465,7 @@
     "durationSec_one": "{{count}} sec",
     "durationSec_other": "{{count}} sec",
     "loadFailed": "Couldn't load your review session.",
-    "layerNotTranslated": "{{label}} (English — not yet translated)",
+    "layerNotTranslated": "{{label}} (not in your language yet)",
     "translateMine": "Translate my {{count}} cards (uses 1 message)",
     "translateMineWorking": "Translating…",
     "translateMineDone": "Translated {{count}} — reload to see them",

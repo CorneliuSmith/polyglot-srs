@@ -115,8 +115,12 @@ export function hintLayersFor(languageCode: string, card: HintLayerSource): Hint
   // A field the server flagged is shown, but never under a label that
   // claims it is the learner's language: an Arabic speaker was told
   // "الترجمة" over an English sentence. Withholding it instead would
-  // leave a cloze with no semantic cue at all, so it is labelled with the
-  // language it is actually in and the demand queue fills it for next time.
+  // leave a cloze with no semantic cue at all, so it is labelled as not
+  // theirs and the demand queue fills it for next time. The label
+  // deliberately does NOT name which language it IS in: course-content
+  // fallbacks are English, but a PERSONAL card falls back to whatever
+  // language its author typed — the owner saw Spanish captioned "на
+  // английском", which reads as data corruption when it's only a caption.
   const mismatched = new Set(card.locale_mismatch ?? [])
   if (card.translation_pending) mismatched.add('translation')
   return order
