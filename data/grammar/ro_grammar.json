@@ -708,7 +708,7 @@
           "sentence": "Ea {{answer}} frumos.",
           "answer": "cântă",
           "translation": "She sings beautifully.",
-          "hint": "'to sing' — el/ea present",
+          "hint": "a cânta, el/ea",
           "display_order": 3,
           "cell": "el/ea"
         },
@@ -756,7 +756,7 @@
           "sentence": "El {{answer}} muzică veche.",
           "answer": "ascultă",
           "translation": "He listens to old music.",
-          "hint": "'to listen' — el/ea present",
+          "hint": "a asculta, el/ea",
           "cell": "el/ea",
           "display_order": 9
         },
@@ -854,7 +854,7 @@
           "sentence": "Tu {{answer}} muzica?",
           "answer": "auzi",
           "translation": "Do you hear the music?",
-          "hint": "'to hear' — tu present",
+          "hint": "a auzi, tu",
           "display_order": 5,
           "cell": "tu"
         },
@@ -2027,7 +2027,7 @@
           "sentence": "{{answer}} fereastra, te rog!",
           "answer": "deschide",
           "translation": "Open the window, please!",
-          "hint": "'to open' — tu imperative",
+          "hint": "a deschide, tu",
           "cell": "tu",
           "display_order": 1
         },

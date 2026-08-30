@@ -293,7 +293,7 @@
           "sentence": "Het weer {{answer}} mooi.",
           "answer": "is",
           "translation": "The weather is nice.",
-          "hint": "third person singular of the verb 'to be'",
+          "hint": "zijn, het",
           "display_order": 5,
           "cell": "is"
         },
@@ -301,7 +301,7 @@
           "sentence": "Dat {{answer}} mijn fiets.",
           "answer": "is",
           "translation": "That is my bicycle.",
-          "hint": "third person singular of the verb 'to be'",
+          "hint": "zijn, dat",
           "display_order": 6,
           "cell": "is"
         }

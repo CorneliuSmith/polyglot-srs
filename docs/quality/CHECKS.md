@@ -812,3 +812,37 @@ Three invariants are tested rather than trusted (`test_prune_sentences.py`):
 sentences, and **an empty or missing TSV refuses outright** — the file
 endorsing nothing must not mean "delete the entire corpus", so `survey()`
 does not even issue the query.
+
+---
+
+## §19 A conjugation cue is not an answer leak (30 Aug 2026)
+
+A sweep for "hints that name their own answer" flagged 96 drills; 12 of them
+were correct as written and the fix broke them.
+
+A conjugation/declension drill — one carrying a `cell` — is cued by
+`<base form>, <person>` in the TARGET language (`test_grammar_hints.py` locks
+this for es/fr/it/ca/ro/de/ru/nl). Naming the base form is the exercise's
+PREMISE: "conjugate *haben* for *wir*" is the task, and German 1PL happens to
+coincide with the infinitive. The learner is not being handed the answer;
+they are being handed the input.
+
+Two ways the sweep manufactures a false positive here:
+
+* **Coincidence.** German 1PL/3PL *haben* = infinitive *haben*, Romanian `tu`
+  imperative *deschide* = stem of *a deschide*. Real forms, real convention.
+* **The fold.** Romanian `a cânta` → `cântă` differ ONLY in the diacritic the
+  folded comparison strips. The mark IS the grammatical content being tested,
+  so folding the two together invents a leak. This is rule 10 from the other
+  side — a fold may excuse a mark, but where the mark is the answer, the fold
+  must not be applied at all.
+
+**So: exclude drills with a `cell` from the answer-leak sweep**, and check
+them against the conjugation convention instead. A `cell` drill whose hint is
+NOT a base-form cue is still fair game — `nl` had two whose hint was the bare
+string `is` for the answer `is`, which is a leak by any reading; those were
+put on the convention as `zijn, het` / `zijn, dat` (Dutch has an infinitive,
+and *zijn* ≠ *is*).
+
+Count after the pass: 0 non-conjugation hints name their answer, across all
+27 courses, down from 84.

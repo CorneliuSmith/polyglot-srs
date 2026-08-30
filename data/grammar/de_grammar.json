@@ -595,7 +595,7 @@
           "sentence": "Wir {{answer}} Zeit.",
           "answer": "haben",
           "translation": "We have time.",
-          "hint": "'to have', present, 1st person plural",
+          "hint": "haben, wir",
           "display_order": 4,
           "cell": "1pl"
         },
@@ -611,7 +611,7 @@
           "sentence": "{{answer}} Sie Fragen?",
           "answer": "Haben",
           "translation": "Do you have questions?",
-          "hint": "'to have', present, the polite 'Sie' form",
+          "hint": "haben, sie",
           "display_order": 6,
           "cell": "3pl"
         },
@@ -643,7 +643,7 @@
           "sentence": "Wir {{answer}} zwei Autos.",
           "answer": "haben",
           "translation": "We have two cars.",
-          "hint": "'to have', present, the 'wir' form",
+          "hint": "haben, wir",
           "cell": "1pl",
           "display_order": 10
         },
@@ -659,7 +659,7 @@
           "sentence": "Die Kinder {{answer}} Hunger.",
           "answer": "haben",
           "translation": "The children are hungry.",
-          "hint": "'to have', present, 3rd person plural",
+          "hint": "haben, sie",
           "cell": "3pl",
           "display_order": 12
         }
@@ -725,7 +725,7 @@
           "sentence": "Wir {{answer}} Musik.",
           "answer": "hören",
           "translation": "We are listening to music.",
-          "hint": "'to listen', present, 1st person plural",
+          "hint": "hören, wir",
           "display_order": 4,
           "cell": "1pl"
         },
@@ -741,7 +741,7 @@
           "sentence": "Sie {{answer}} jeden Tag.",
           "answer": "arbeiten",
           "translation": "They work every day.",
-          "hint": "to work, present tense, 3rd person plural",
+          "hint": "arbeiten, sie",
           "display_order": 6,
           "cell": "3pl"
         },
@@ -773,7 +773,7 @@
           "sentence": "Wir {{answer}} heute Abend.",
           "answer": "kochen",
           "translation": "We are cooking tonight.",
-          "hint": "to cook, present tense, 1st person plural",
+          "hint": "kochen, wir",
           "cell": "1pl",
           "display_order": 10
         },
@@ -789,7 +789,7 @@
           "sentence": "Die Kinder {{answer}} im Park.",
           "answer": "spielen",
           "translation": "The children are playing in the park.",
-          "hint": "to play, present tense, 3rd person plural",
+          "hint": "spielen, sie",
           "cell": "3pl",
           "display_order": 12
         }
