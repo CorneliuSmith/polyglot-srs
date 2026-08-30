@@ -24,19 +24,45 @@ pytestmark = requires_db
 
 @pytest.fixture(autouse=True)
 async def _quiet_the_other_courses(pool):
-    """Leave no course switched on behind you.
+    """Leave no LANE primed behind you.
 
-    Every test here runs the WHOLE sweep, so a course another test left
-    enabled is swept too and lands in the same global counters. That was
-    harmless while failed content was excluded permanently — it could never
-    come back. Now that a failure retries, one test's leftovers show up in
-    the next test's "processed" and the assertions stop meaning what they
-    say. Several tests already did this by hand at the end; this makes it
-    the rule.
+    Every test here runs the WHOLE sweep, so anything another test left live
+    is swept too and lands in the same global counters. This used to quiet
+    only the toggle, which covers exactly one of the three lanes — and the
+    schema is session-scoped while `pool` is per-test, so nothing else wipes
+    the rows.
+
+    That hole failed CI for four days on
+    `test_an_off_course_with_no_recent_learners_spends_nothing` (assert
+    18 == 0). The BASELINE lane deliberately serves courses that are
+    switched OFF when real accounts are recently active on them, so the
+    English course the previous test leaves behind — with a fresh pt learner
+    — is still swept after its toggle is cleared. The test passed alone and
+    failed in sequence, which is the shared-state shape, not a broken gate:
+    its own course was correctly ignored the whole time.
+
+    So quiet every lane a later test's counters can see:
+      backlog  — the toggle;
+      baseline — learner recency (profile touched, or a review logged);
+      demand   — outstanding rows a learner is waiting on.
     """
     yield
     async with pool.privileged_connection() as conn:
         await conn.execute("UPDATE languages SET auto_translate_enabled = false")
+        # Age every learner out of BASELINE_ACTIVE_DAYS on both signals.
+        await conn.execute(
+            "UPDATE user_profiles SET updated_at = now() - interval '400 days'")
+        for table, column in (("review_log", "created_at"),
+                              ("translation_demand", None)):
+            try:
+                if column:
+                    await conn.execute(
+                        f"UPDATE {table} SET {column} = "
+                        f"now() - interval '400 days'")
+                else:
+                    await conn.execute(f"DELETE FROM {table}")
+            except Exception:  # noqa: BLE001,S110 — table may not exist yet
+                pass
 
 
 class _MockSettings:
