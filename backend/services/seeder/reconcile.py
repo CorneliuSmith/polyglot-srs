@@ -271,7 +271,7 @@ async def apply(conn, reports: list[dict]) -> dict:
 def print_report(reports: list[dict], detail: bool) -> None:
     print(f"{'lang':<6}{'db':>7}{'tsv':>7}{'gloss':>7}{'pos':>6}{'no-tr':>7}"
           f"{'gone':>6}{'new':>6}{'s-layer':>8}")
-    print("-" * 52)
+    print("-" * 60)
     tot = {"gloss": 0, "pos": 0, "tr": 0, "gone": 0, "new": 0, "sl": 0}
     for rep in reports:
         if rep.get("skipped"):
@@ -279,16 +279,23 @@ def print_report(reports: list[dict], detail: bool) -> None:
         g, p = len(rep["gloss_changes"]), len(rep["pos_changes"])
         t, d = len(rep["missing_translation"]), len(rep["departed"])
         n = len(rep["absent_from_db"])
+        # s-layer was in the header and the legend, computed, applied and
+        # rolled back — but never PRINTED, so the one column describing the
+        # romanisation/interlinear backfill read as blank in every dry run.
+        # An operator deciding whether to --apply could not see the size of
+        # the only thing that fills those layers.
+        sl = len(rep.get("sentence_layers", []))
         tot["gloss"] += g
         tot["pos"] += p
         tot["tr"] += t
         tot["gone"] += d
         tot["new"] += n
+        tot["sl"] += sl
         print(f"{rep['code']:<6}{rep['db_rows']:>7}{rep['tsv_rows']:>7}"
-              f"{g:>7}{p:>6}{t:>7}{d:>6}{n:>6}")
-    print("-" * 52)
+              f"{g:>7}{p:>6}{t:>7}{d:>6}{n:>6}{sl:>8}")
+    print("-" * 60)
     print(f"{'all':<6}{'':>14}{tot['gloss']:>7}{tot['pos']:>6}{tot['tr']:>7}"
-          f"{tot['gone']:>6}{tot['new']:>6}")
+          f"{tot['gone']:>6}{tot['new']:>6}{tot['sl']:>8}")
     print("\ngloss  definitions this would CORRECT (ON CONFLICT DO NOTHING never did)")
     print("pos    parts of speech this would correct")
     print("no-tr  rows with no English translation row at all — would be inserted")
