@@ -1873,7 +1873,7 @@
           "sentence": "He {{answer}} be stuck in traffic — it happens.",
           "answer": "might",
           "translation": "Just possible.",
-          "hint": "a possibility word",
+          "hint": "a possibility word — the one built from \"may\"",
           "display_order": 3
         },
         {
@@ -1894,7 +1894,7 @@
           "sentence": "It {{answer}} rain later, so take an umbrella.",
           "answer": "could",
           "translation": "Open possibility.",
-          "hint": "a possibility word",
+          "hint": "a possibility word — the one built from \"can\"",
           "display_order": 6
         }
       ]
@@ -2099,14 +2099,14 @@
           "sentence": "You've met before, {{answer}} you?",
           "answer": "haven't",
           "translation": "Positive → negative tag.",
-          "hint": "the flipped tag auxiliary",
+          "hint": "the tag flips the auxiliary in \"you’ve\" — and the statement is positive, so the tag turns negative",
           "display_order": 1
         },
         {
           "sentence": "She doesn't eat fish, {{answer}} she?",
           "answer": "does",
           "translation": "Negative → positive tag.",
-          "hint": "the flipped tag auxiliary",
+          "hint": "the statement is already negative, so the tag is positive — and it echoes the auxiliary that carries that negative",
           "display_order": 2
         },
         {
@@ -2127,7 +2127,7 @@
           "sentence": "It's cold today, {{answer}} it?",
           "answer": "isn't",
           "translation": "Positive → negative tag.",
-          "hint": "the flipped tag auxiliary",
+          "hint": "the tag flips the auxiliary hiding in \"it’s\" — positive statement, negative tag",
           "display_order": 5
         },
         {
@@ -2166,7 +2166,7 @@
           "sentence": "Not only {{answer}} she sing, she writes her own songs.",
           "answer": "does",
           "translation": "Present emphasis.",
-          "hint": "the present auxiliary",
+          "hint": "the present auxiliary agreeing with \"she\"",
           "display_order": 2
         },
         {
@@ -2187,7 +2187,7 @@
           "sentence": "Rarely {{answer}} we see such talent.",
           "answer": "do",
           "translation": "Present emphasis.",
-          "hint": "the present auxiliary",
+          "hint": "the present auxiliary agreeing with \"we\"",
           "display_order": 5
         },
         {
@@ -2759,7 +2759,7 @@
           "sentence": "{{answer}} me tomorrow, please.",
           "answer": "Call",
           "translation": "Asking for a phone call.",
-          "hint": "base verb",
+          "hint": "base verb — to telephone someone",
           "display_order": 3
         },
         {
@@ -2780,7 +2780,7 @@
           "sentence": "Please {{answer}} down and wait a moment.",
           "answer": "sit",
           "translation": "Offering someone a seat.",
-          "hint": "base verb",
+          "hint": "base verb — to take a seat",
           "display_order": 6
         }
       ]
