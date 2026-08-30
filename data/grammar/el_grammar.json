@@ -38,7 +38,8 @@
           "transliteration": "___ íme apó tin Athína.",
           "hint": "I",
           "display_order": 1,
-          "cell": "εγώ"
+          "cell": "εγώ",
+          "gloss": "___ · be.1SG · from · DEF.F.ACC.SG · Athens.ACC"
         },
         {
           "sentence": "{{answer}} είσαι φίλος μου.",
@@ -47,7 +48,8 @@
           "transliteration": "___ íse fílos mu.",
           "hint": "you — informal",
           "display_order": 2,
-          "cell": "εσύ"
+          "cell": "εσύ",
+          "gloss": "___ · be.2SG · friend.NOM · 1SG.POSS"
         },
         {
           "sentence": "{{answer}} είναι η αδελφή μου.",
@@ -56,7 +58,8 @@
           "transliteration": "___ íne i adelfí mu.",
           "hint": "she",
           "display_order": 3,
-          "cell": "αυτή"
+          "cell": "αυτή",
+          "gloss": "___ · be.3SG · DEF.F.NOM.SG · sister.NOM · 1SG.POSS"
         },
         {
           "sentence": "{{answer}} είμαστε φοιτητές.",
@@ -65,7 +68,8 @@
           "transliteration": "___ ímaste fitités.",
           "hint": "we",
           "display_order": 4,
-          "cell": "εμείς"
+          "cell": "εμείς",
+          "gloss": "___ · be.1PL · student.NOM.PL"
         },
         {
           "sentence": "{{answer}} είναι από την Ισπανία.",
@@ -74,7 +78,8 @@
           "transliteration": "___ íne apó tin Ispanía.",
           "hint": "they (masculine)",
           "display_order": 5,
-          "cell": "αυτοί"
+          "cell": "αυτοί",
+          "gloss": "___ · be.3PL · from · DEF.F.ACC.SG · Spain.ACC"
         },
         {
           "sentence": "{{answer}} είστε πολύ ευγενικοί.",
@@ -83,7 +88,8 @@
           "transliteration": "___ íste polí evyenikí.",
           "hint": "you — plural/formal",
           "display_order": 6,
-          "cell": "εσείς"
+          "cell": "εσείς",
+          "gloss": "___ · be.2PL · very · kind.M.NOM.PL"
         },
         {
           "sentence": "{{answer}} είναι ο δάσκαλός μας.",
@@ -92,7 +98,8 @@
           "transliteration": "___ íne o dáskalós mas.",
           "hint": "he",
           "cell": "αυτός",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · be.3SG · DEF.M.NOM.SG · teacher.NOM · 1PL.POSS"
         },
         {
           "sentence": "{{answer}} είναι δύσκολο.",
@@ -101,7 +108,8 @@
           "transliteration": "___ íne dískolo.",
           "hint": "it",
           "cell": "αυτό",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "___ · be.3SG · difficult.N.NOM.SG"
         },
         {
           "sentence": "{{answer}} μένω στη Θεσσαλονίκη.",
@@ -110,7 +118,8 @@
           "hint": "I",
           "cell": "εγώ",
           "display_order": 9,
-          "transliteration": "___ méno sti Thessaloníki."
+          "transliteration": "___ méno sti Thessaloníki.",
+          "gloss": "___ · live.1SG · in-DEF.F.ACC.SG · Thessaloniki.ACC"
         },
         {
           "sentence": "{{answer}} μιλάς πολύ γρήγορα.",
@@ -119,7 +128,8 @@
           "hint": "you — informal",
           "cell": "εσύ",
           "display_order": 10,
-          "transliteration": "___ milás polí grígora."
+          "transliteration": "___ milás polí grígora.",
+          "gloss": "___ · speak.2SG · very · fast"
         },
         {
           "sentence": "{{answer}} δουλεύει στην τράπεζα.",
@@ -128,7 +138,8 @@
           "hint": "he",
           "cell": "αυτός",
           "display_order": 11,
-          "transliteration": "___ dulévi stin trápeza."
+          "transliteration": "___ dulévi stin trápeza.",
+          "gloss": "___ · work.3SG · in-DEF.F.ACC.SG · bank.ACC"
         },
         {
           "sentence": "{{answer}} μένει στο κέντρο.",
@@ -137,7 +148,8 @@
           "hint": "she",
           "cell": "αυτή",
           "display_order": 12,
-          "transliteration": "___ méni sto kéndro."
+          "transliteration": "___ méni sto kéndro.",
+          "gloss": "___ · live.3SG · in-DEF.N.ACC.SG · centre.ACC"
         },
         {
           "sentence": "{{answer}} είναι πολύ ακριβό.",
@@ -146,7 +158,8 @@
           "hint": "it",
           "cell": "αυτό",
           "display_order": 13,
-          "transliteration": "___ íne polí akrivó."
+          "transliteration": "___ íne polí akrivó.",
+          "gloss": "___ · be.3SG · very · expensive.N.NOM.SG"
         },
         {
           "sentence": "{{answer}} έχουμε ένα σπίτι στο χωριό.",
@@ -155,7 +168,8 @@
           "hint": "we",
           "cell": "εμείς",
           "display_order": 14,
-          "transliteration": "___ échume éna spíti sto chorió."
+          "transliteration": "___ échume éna spíti sto chorió.",
+          "gloss": "___ · have.1PL · INDF.N.ACC.SG · house.ACC · in-DEF.N.ACC.SG · village.ACC"
         },
         {
           "sentence": "{{answer}} μιλάτε αγγλικά;",
@@ -164,7 +178,8 @@
           "hint": "you — plural/formal",
           "cell": "εσείς",
           "display_order": 15,
-          "transliteration": "___ miláte angliká?"
+          "transliteration": "___ miláte angliká?",
+          "gloss": "___ · speak.2PL · English.ACC.PL"
         },
         {
           "sentence": "{{answer}} παίζουν στον κήπο.",
@@ -173,7 +188,8 @@
           "hint": "they (masculine)",
           "cell": "αυτοί",
           "display_order": 16,
-          "transliteration": "___ pézun ston kípo."
+          "transliteration": "___ pézun ston kípo.",
+          "gloss": "___ · play.3PL · in-DEF.M.ACC.SG · garden.ACC"
         }
       ],
       "paradigm": [
@@ -218,7 +234,8 @@
           "transliteration": "Ého dío ___.",
           "hint": "book, plural — neuter",
           "display_order": 1,
-          "cell": "neuter"
+          "cell": "neuter",
+          "gloss": "have.1SG · two · ___"
         },
         {
           "sentence": "Τα {{answer}} παίζουν έξω.",
@@ -227,7 +244,8 @@
           "transliteration": "Ta ___ pézun éxo.",
           "hint": "child, plural — neuter",
           "display_order": 2,
-          "cell": "neuter"
+          "cell": "neuter",
+          "gloss": "DEF.N.NOM.PL · ___ · play.3PL · outside"
         },
         {
           "sentence": "Έχω τρεις {{answer}}.",
@@ -236,7 +254,8 @@
           "transliteration": "Ého tris ___.",
           "hint": "sister, plural — feminine",
           "display_order": 3,
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "have.1SG · three.ACC · ___"
         },
         {
           "sentence": "Οι {{answer}} είναι ωραίοι.",
@@ -245,7 +264,8 @@
           "transliteration": "I ___ íne oréi.",
           "hint": "street, plural — masculine",
           "display_order": 4,
-          "cell": "masculine"
+          "cell": "masculine",
+          "gloss": "DEF.M.NOM.PL · ___ · be.3PL · nice.M.NOM.PL"
         },
         {
           "sentence": "Έχω δύο {{answer}} στο σπίτι.",
@@ -254,7 +274,8 @@
           "transliteration": "Ého dío ___ sto spíti.",
           "hint": "cat, plural — feminine",
           "display_order": 5,
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "have.PRS.1SG · two · ___ · in-DEF.N.SG.ACC · house.N.SG.ACC"
         },
         {
           "sentence": "Τα {{answer}} είναι καινούργια.",
@@ -263,7 +284,8 @@
           "transliteration": "Ta ___ íne kenúrya.",
           "hint": "car, plural — neuter",
           "display_order": 6,
-          "cell": "neuter"
+          "cell": "neuter",
+          "gloss": "DEF.N.PL.NOM · ___ · be.PRS.3PL · new.N.PL.NOM"
         },
         {
           "sentence": "Οι {{answer}} είναι ζεστοί.",
@@ -272,7 +294,8 @@
           "hint": "coffee, plural — masculine",
           "cell": "masculine",
           "display_order": 7,
-          "transliteration": "I ___ íne zestí."
+          "transliteration": "I ___ íne zestí.",
+          "gloss": "DEF.M.PL.NOM · ___ · be.PRS.3PL · hot.M.PL.NOM"
         }
       ],
       "paradigm": [
@@ -312,7 +335,8 @@
           "transliteration": "___ drómos íne megálos.",
           "hint": "masculine",
           "display_order": 1,
-          "cell": "ο"
+          "cell": "ο",
+          "gloss": "___ · street.M.SG.NOM · be.PRS.3SG · big.M.SG.NOM"
         },
         {
           "sentence": "{{answer}} μέρα είναι ωραία.",
@@ -321,7 +345,8 @@
           "transliteration": "___ méra íne oréa.",
           "hint": "feminine",
           "display_order": 2,
-          "cell": "η"
+          "cell": "η",
+          "gloss": "___ · day.F.SG.NOM · be.PRS.3SG · beautiful.F.SG.NOM"
         },
         {
           "sentence": "{{answer}} βιβλίο είναι καινούργιο.",
@@ -330,7 +355,8 @@
           "transliteration": "___ vivlío íne kenúryo.",
           "hint": "neuter",
           "display_order": 3,
-          "cell": "το"
+          "cell": "το",
+          "gloss": "___ · book.N.SG.NOM · be.PRS.3SG · new.N.SG.NOM"
         },
         {
           "sentence": "{{answer}} καφές είναι ζεστός.",
@@ -339,7 +365,8 @@
           "transliteration": "___ kafés íne zestós.",
           "hint": "masculine",
           "display_order": 4,
-          "cell": "ο"
+          "cell": "ο",
+          "gloss": "___ · coffee.M.SG.NOM · be.PRS.3SG · hot.M.SG.NOM"
         },
         {
           "sentence": "{{answer}} πόρτα είναι ανοιχτή.",
@@ -348,7 +375,8 @@
           "transliteration": "___ pórta íne anichtí.",
           "hint": "feminine",
           "display_order": 5,
-          "cell": "η"
+          "cell": "η",
+          "gloss": "___ · door.F.SG.NOM · be.PRS.3SG · open.F.SG.NOM"
         },
         {
           "sentence": "{{answer}} παιδί κοιμάται.",
@@ -357,7 +385,8 @@
           "transliteration": "___ pedí kimáte.",
           "hint": "neuter",
           "display_order": 6,
-          "cell": "το"
+          "cell": "το",
+          "gloss": "___ · child.N.SG.NOM · sleep.PRS.3SG"
         }
       ],
       "paradigm": [
@@ -397,7 +426,8 @@
           "transliteration": "Íne ___ oréa méra.",
           "hint": "feminine",
           "display_order": 1,
-          "cell": "μία"
+          "cell": "μία",
+          "gloss": "be.PRS.3SG · ___ · beautiful.F.SG.NOM · day.F.SG.NOM"
         },
         {
           "sentence": "Αυτός είναι {{answer}} καλός φίλος.",
@@ -406,7 +436,8 @@
           "transliteration": "Aftós íne ___ kalós fílos.",
           "hint": "masculine",
           "display_order": 2,
-          "cell": "ένας"
+          "cell": "ένας",
+          "gloss": "3SG.M.NOM · be.PRS.3SG · ___ · good.M.SG.NOM · friend.M.SG.NOM"
         },
         {
           "sentence": "Είναι {{answer}} μεγάλο σπίτι.",
@@ -415,7 +446,8 @@
           "transliteration": "Íne ___ megálo spíti.",
           "hint": "neuter",
           "display_order": 3,
-          "cell": "ένα"
+          "cell": "ένα",
+          "gloss": "be.PRS.3SG · ___ · big.N.SG.NOM · house.N.SG.NOM"
         },
         {
           "sentence": "Έχω {{answer}} ιδέα.",
@@ -424,7 +456,8 @@
           "transliteration": "Ého ___ idéa.",
           "hint": "feminine",
           "display_order": 4,
-          "cell": "μία"
+          "cell": "μία",
+          "gloss": "have.PRS.1SG · ___ · idea.F.SG.ACC"
         },
         {
           "sentence": "Είναι {{answer}} καλό βιβλίο.",
@@ -433,7 +466,8 @@
           "transliteration": "Íne ___ kaló vivlío.",
           "hint": "neuter",
           "display_order": 5,
-          "cell": "ένα"
+          "cell": "ένα",
+          "gloss": "be.PRS.3SG · ___ · good.N.SG.NOM · book.N.SG.NOM"
         },
         {
           "sentence": "Είναι {{answer}} όμορφος κήπος.",
@@ -442,7 +476,8 @@
           "transliteration": "Íne ___ ómorfos kípos.",
           "hint": "masculine",
           "display_order": 6,
-          "cell": "ένας"
+          "cell": "ένας",
+          "gloss": "be.PRS.3SG · ___ · beautiful.M.SG.NOM · garden.M.SG.NOM"
         }
       ],
       "paradigm": [
@@ -482,7 +517,8 @@
           "transliteration": "Egó ___ fititís.",
           "hint": "to be (I)",
           "display_order": 1,
-          "cell": "1sg"
+          "cell": "1sg",
+          "gloss": "1SG.NOM · ___ · student.M.SG.NOM"
         },
         {
           "sentence": "Εσύ {{answer}} πολύ ψηλός.",
@@ -491,7 +527,8 @@
           "transliteration": "Esí ___ polí psilós.",
           "hint": "to be, you (informal)",
           "display_order": 2,
-          "cell": "2sg"
+          "cell": "2sg",
+          "gloss": "2SG.NOM · ___ · very · tall.M.SG.NOM"
         },
         {
           "sentence": "Αυτή {{answer}} δασκάλα.",
@@ -500,7 +537,8 @@
           "transliteration": "Aftí ___ daskála.",
           "hint": "to be (she)",
           "display_order": 3,
-          "cell": "3sg"
+          "cell": "3sg",
+          "gloss": "3SG.F.NOM · ___ · teacher.F.SG.NOM"
         },
         {
           "sentence": "Εμείς {{answer}} φίλοι.",
@@ -509,7 +547,8 @@
           "transliteration": "Emís ___ fíli.",
           "hint": "to be (we)",
           "display_order": 4,
-          "cell": "1pl"
+          "cell": "1pl",
+          "gloss": "1PL.NOM · ___ · friend.M.PL.NOM"
         },
         {
           "sentence": "Εσείς {{answer}} Έλληνες;",
@@ -518,7 +557,8 @@
           "transliteration": "Esís ___ Élines?",
           "hint": "to be, you (plural)",
           "display_order": 5,
-          "cell": "2pl"
+          "cell": "2pl",
+          "gloss": "2PL.NOM · ___ · Greek.M.PL.NOM"
         },
         {
           "sentence": "Αυτοί {{answer}} στο σπίτι.",
@@ -527,7 +567,8 @@
           "transliteration": "Aftí ___ sto spíti.",
           "hint": "to be (they)",
           "display_order": 6,
-          "cell": "3pl"
+          "cell": "3pl",
+          "gloss": "3PL.M.NOM · ___ · in-DEF.N.ACC.SG · house.ACC.SG"
         },
         {
           "sentence": "Εγώ {{answer}} από την Κρήτη.",
@@ -536,7 +577,8 @@
           "hint": "to be (I)",
           "cell": "1sg",
           "display_order": 7,
-          "transliteration": "Egó ___ apó tin Kríti."
+          "transliteration": "Egó ___ apó tin Kríti.",
+          "gloss": "1SG.NOM · ___ · from · DEF.F.ACC.SG · Crete.ACC.SG"
         },
         {
           "sentence": "Εσύ {{answer}} καλός φίλος.",
@@ -545,7 +587,8 @@
           "hint": "to be, you (informal)",
           "cell": "2sg",
           "display_order": 8,
-          "transliteration": "Esí ___ kalós fílos."
+          "transliteration": "Esí ___ kalós fílos.",
+          "gloss": "2SG.NOM · ___ · good.M.NOM.SG · friend.NOM.SG"
         },
         {
           "sentence": "Ο πατέρας μου {{answer}} γιατρός.",
@@ -554,7 +597,8 @@
           "hint": "to be (he)",
           "cell": "3sg",
           "display_order": 9,
-          "transliteration": "O patéras mu ___ yiatrós."
+          "transliteration": "O patéras mu ___ yiatrós.",
+          "gloss": "DEF.M.NOM.SG · father.NOM.SG · 1SG.POSS · ___ · doctor.NOM.SG"
         },
         {
           "sentence": "Εμείς {{answer}} έτοιμοι.",
@@ -563,7 +607,8 @@
           "hint": "to be (we)",
           "cell": "1pl",
           "display_order": 10,
-          "transliteration": "Emís ___ étimi."
+          "transliteration": "Emís ___ étimi.",
+          "gloss": "1PL.NOM · ___ · ready.M.NOM.PL"
         },
         {
           "sentence": "Εσείς {{answer}} από την Κύπρο;",
@@ -572,7 +617,8 @@
           "hint": "to be, you (plural)",
           "cell": "2pl",
           "display_order": 11,
-          "transliteration": "Esís ___ apó tin Kípro?"
+          "transliteration": "Esís ___ apó tin Kípro?",
+          "gloss": "2PL.NOM · ___ · from · DEF.F.ACC.SG · Cyprus.ACC.SG"
         },
         {
           "sentence": "Τα παιδιά {{answer}} στον κήπο.",
@@ -581,7 +627,8 @@
           "hint": "to be (they)",
           "cell": "3pl",
           "display_order": 12,
-          "transliteration": "Ta pediá ___ ston kípo."
+          "transliteration": "Ta pediá ___ ston kípo.",
+          "gloss": "DEF.N.NOM.PL · child.NOM.PL · ___ · in-DEF.M.ACC.SG · garden.ACC.SG"
         }
       ],
       "paradigm": [
@@ -624,7 +671,8 @@
           "transliteration": "Egó ___ mia erótisi.",
           "hint": "to have (I)",
           "display_order": 1,
-          "cell": "1sg"
+          "cell": "1sg",
+          "gloss": "1SG.NOM · ___ · INDF.F.ACC.SG · question.ACC.SG"
         },
         {
           "sentence": "Εσύ {{answer}} μια γάτα;",
@@ -633,7 +681,8 @@
           "transliteration": "Esí ___ mia gáta?",
           "hint": "to have, you (informal)",
           "display_order": 2,
-          "cell": "2sg"
+          "cell": "2sg",
+          "gloss": "2SG.NOM · ___ · INDF.F.ACC.SG · cat.ACC.SG"
         },
         {
           "sentence": "Αυτή {{answer}} ένα ποδήλατο.",
@@ -642,7 +691,8 @@
           "transliteration": "Aftí ___ éna podílato.",
           "hint": "to have (she)",
           "display_order": 3,
-          "cell": "3sg"
+          "cell": "3sg",
+          "gloss": "3SG.F.NOM · ___ · INDF.N.ACC.SG · bicycle.ACC.SG"
         },
         {
           "sentence": "Εμείς {{answer}} χρόνο.",
@@ -651,7 +701,8 @@
           "transliteration": "Emís ___ chróno.",
           "hint": "to have (we)",
           "display_order": 4,
-          "cell": "1pl"
+          "cell": "1pl",
+          "gloss": "1PL.NOM · ___ · time.ACC.SG"
         },
         {
           "sentence": "Εσείς {{answer}} δίκιο.",
@@ -660,7 +711,8 @@
           "transliteration": "Esís ___ díkio.",
           "hint": "to have, you (plural)",
           "display_order": 5,
-          "cell": "2pl"
+          "cell": "2pl",
+          "gloss": "2PL.NOM · ___ · right.ACC.SG"
         },
         {
           "sentence": "Αυτοί {{answer}} ένα σπίτι στη θάλασσα.",
@@ -669,7 +721,8 @@
           "transliteration": "Aftí ___ éna spíti sti thálasa.",
           "hint": "to have (they)",
           "display_order": 6,
-          "cell": "3pl"
+          "cell": "3pl",
+          "gloss": "3PL.M.NOM · ___ · INDF.N.ACC.SG · house.ACC.SG · in-DEF.F.ACC.SG · sea.ACC.SG"
         },
         {
           "sentence": "Εγώ {{answer}} δύο αδελφές.",
@@ -678,7 +731,8 @@
           "hint": "to have (I)",
           "cell": "1sg",
           "display_order": 7,
-          "transliteration": "Egó ___ dío adelfés."
+          "transliteration": "Egó ___ dío adelfés.",
+          "gloss": "1SG.NOM · ___ · two · sister.ACC.PL"
         },
         {
           "sentence": "Εσύ {{answer}} χρόνο σήμερα;",
@@ -687,7 +741,8 @@
           "hint": "to have, you (informal)",
           "cell": "2sg",
           "display_order": 8,
-          "transliteration": "Esí ___ chróno símera?"
+          "transliteration": "Esí ___ chróno símera?",
+          "gloss": "2SG.NOM · ___ · time.ACC.SG · today"
         },
         {
           "sentence": "Αυτός {{answer}} πολλά βιβλία.",
@@ -696,7 +751,8 @@
           "hint": "to have (he)",
           "cell": "3sg",
           "display_order": 9,
-          "transliteration": "Aftós ___ pollá vivlía."
+          "transliteration": "Aftós ___ pollá vivlía.",
+          "gloss": "3SG.M.NOM · ___ · many.N.ACC.PL · book.ACC.PL"
         },
         {
           "sentence": "Εμείς {{answer}} ένα μεγάλο τραπέζι.",
@@ -705,7 +761,8 @@
           "hint": "to have (we)",
           "cell": "1pl",
           "display_order": 10,
-          "transliteration": "Emís ___ éna megálo trapézi."
+          "transliteration": "Emís ___ éna megálo trapézi.",
+          "gloss": "1PL.NOM · ___ · INDF.N.ACC.SG · big.N.ACC.SG · table.ACC.SG"
         },
         {
           "sentence": "Εσείς {{answer}} παιδιά;",
@@ -714,7 +771,8 @@
           "hint": "to have, you (plural)",
           "cell": "2pl",
           "display_order": 11,
-          "transliteration": "Esís ___ pediá?"
+          "transliteration": "Esís ___ pediá?",
+          "gloss": "2PL.NOM · ___ · child.ACC.PL"
         },
         {
           "sentence": "Αυτοί {{answer}} δύο γάτες.",
@@ -723,7 +781,8 @@
           "hint": "to have (they)",
           "cell": "3pl",
           "display_order": 12,
-          "transliteration": "Aftí ___ dío gátes."
+          "transliteration": "Aftí ___ dío gátes.",
+          "gloss": "3PL.M.NOM · ___ · two · cat.ACC.PL"
         }
       ],
       "paradigm": [
@@ -766,7 +825,8 @@
           "transliteration": "Egó ___ stin Athína.",
           "hint": "to live (I)",
           "display_order": 1,
-          "cell": "1sg"
+          "cell": "1sg",
+          "gloss": "1SG.NOM · ___ · in-DEF.F.ACC.SG · Athens.ACC.SG"
         },
         {
           "sentence": "Αυτή {{answer}} σε ένα γραφείο.",
@@ -775,7 +835,8 @@
           "transliteration": "Aftí ___ se éna grafío.",
           "hint": "to work (she)",
           "display_order": 2,
-          "cell": "3sg"
+          "cell": "3sg",
+          "gloss": "3SG.F · ___ · in · INDF.N.ACC · office.ACC"
         },
         {
           "sentence": "Εμείς {{answer}} ελληνικά.",
@@ -784,7 +845,8 @@
           "transliteration": "Emís ___ eliniká.",
           "hint": "to learn (we)",
           "display_order": 3,
-          "cell": "1pl"
+          "cell": "1pl",
+          "gloss": "1PL · ___ · Greek.PL.ACC"
         },
         {
           "sentence": "Αυτοί {{answer}} ποδόσφαιρο.",
@@ -793,7 +855,8 @@
           "transliteration": "Aftí ___ podósfero.",
           "hint": "to play (they)",
           "display_order": 4,
-          "cell": "3pl"
+          "cell": "3pl",
+          "gloss": "3PL.M · ___ · football.ACC"
         },
         {
           "sentence": "Εσύ {{answer}} μουσική;",
@@ -802,7 +865,8 @@
           "transliteration": "Esí ___ musikí?",
           "hint": "to listen, you (informal)",
           "display_order": 5,
-          "cell": "2sg"
+          "cell": "2sg",
+          "gloss": "2SG · ___ · music.ACC"
         },
         {
           "sentence": "Εγώ {{answer}} ένα βιβλίο.",
@@ -811,7 +875,8 @@
           "transliteration": "Egó ___ éna vivlío.",
           "hint": "to read (I)",
           "display_order": 6,
-          "cell": "1sg"
+          "cell": "1sg",
+          "gloss": "1SG · ___ · INDF.N.ACC · book.ACC"
         },
         {
           "sentence": "Εσείς {{answer}} στην Αθήνα;",
@@ -820,7 +885,8 @@
           "transliteration": "Esís ___ stin Athína?",
           "hint": "to live, you (plural)",
           "cell": "2pl",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "2PL · ___ · in-DEF.F.ACC · Athens.ACC"
         },
         {
           "sentence": "Εσύ {{answer}} ένα γράμμα;",
@@ -829,7 +895,8 @@
           "hint": "to write, you (informal)",
           "cell": "2sg",
           "display_order": 8,
-          "transliteration": "Esí ___ éna grámma?"
+          "transliteration": "Esí ___ éna grámma?",
+          "gloss": "2SG · ___ · INDF.N.ACC · letter.ACC"
         },
         {
           "sentence": "Αυτός {{answer}} εφημερίδα.",
@@ -838,7 +905,8 @@
           "hint": "to read (he)",
           "cell": "3sg",
           "display_order": 9,
-          "transliteration": "Aftós ___ efimerída."
+          "transliteration": "Aftós ___ efimerída.",
+          "gloss": "3SG.M · ___ · newspaper.ACC"
         },
         {
           "sentence": "Εμείς {{answer}} έναν καφέ.",
@@ -847,7 +915,8 @@
           "hint": "to drink (we)",
           "cell": "1pl",
           "display_order": 10,
-          "transliteration": "Emís ___ énan kafé."
+          "transliteration": "Emís ___ énan kafé.",
+          "gloss": "1PL · ___ · INDF.M.ACC · coffee.ACC"
         },
         {
           "sentence": "Εσείς {{answer}} ελληνική μουσική;",
@@ -856,7 +925,8 @@
           "hint": "to listen, you (plural)",
           "cell": "2pl",
           "display_order": 11,
-          "transliteration": "Esís ___ ellinikí musikí?"
+          "transliteration": "Esís ___ ellinikí musikí?",
+          "gloss": "2PL · ___ · Greek.F.ACC · music.ACC"
         },
         {
           "sentence": "Αυτοί {{answer}} στο πάρκο.",
@@ -865,7 +935,8 @@
           "hint": "to run (they)",
           "cell": "3pl",
           "display_order": 12,
-          "transliteration": "Aftí ___ sto párko."
+          "transliteration": "Aftí ___ sto párko.",
+          "gloss": "3PL.M · ___ · in-DEF.N.ACC · park.ACC"
         }
       ],
       "paradigm": [
@@ -908,7 +979,8 @@
           "transliteration": "Vlépo ___ drómo.",
           "hint": "masculine object — keeps its ν",
           "display_order": 1,
-          "cell": "τον"
+          "cell": "τον",
+          "gloss": "see.1SG · ___ · street.ACC"
         },
         {
           "sentence": "Βλέπω {{answer}} πόρτα.",
@@ -917,7 +989,8 @@
           "transliteration": "Vlépo ___ pórta.",
           "hint": "feminine object — ν stays before π",
           "display_order": 2,
-          "cell": "την"
+          "cell": "την",
+          "gloss": "see.1SG · ___ · door.ACC"
         },
         {
           "sentence": "Ακούω {{answer}} παιδί.",
@@ -926,7 +999,8 @@
           "transliteration": "Akúo ___ pedí.",
           "hint": "neuter — unchanged as object",
           "display_order": 3,
-          "cell": "το"
+          "cell": "το",
+          "gloss": "hear.1SG · ___ · child.ACC"
         },
         {
           "sentence": "Αγαπώ {{answer}} θάλασσα.",
@@ -935,7 +1009,8 @@
           "transliteration": "Agapó ___ thálasa.",
           "hint": "feminine — the ν drops before θ",
           "display_order": 4,
-          "cell": "την"
+          "cell": "την",
+          "gloss": "love.1SG · ___ · sea.ACC"
         },
         {
           "sentence": "Διαβάζω {{answer}} βιβλίο.",
@@ -944,7 +1019,8 @@
           "transliteration": "Diavázo ___ vivlío.",
           "hint": "neuter — unchanged as object",
           "display_order": 5,
-          "cell": "το"
+          "cell": "το",
+          "gloss": "read.1SG · ___ · book.ACC"
         },
         {
           "sentence": "Ρωτάω {{answer}} δάσκαλο.",
@@ -953,7 +1029,8 @@
           "transliteration": "Rotáo ___ dáskalo.",
           "hint": "masculine object — keeps its ν",
           "display_order": 6,
-          "cell": "τον"
+          "cell": "τον",
+          "gloss": "ask.1SG · ___ · teacher.ACC"
         }
       ],
       "paradigm": [
@@ -992,7 +1069,8 @@
           "translation": "I don't speak English.",
           "transliteration": "Egó ___ miláo angliká.",
           "hint": "before the verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · speak.1SG · English.PL.ACC"
         },
         {
           "sentence": "Αυτός {{answer}} δουλεύει την Κυριακή.",
@@ -1000,7 +1078,8 @@
           "translation": "He doesn't work on Sundays.",
           "transliteration": "Aftós ___ dulévi tin Kiriakí.",
           "hint": "before the verb",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.M · ___ · work.3SG · DEF.F.ACC · Sunday.ACC"
         },
         {
           "sentence": "Εμείς {{answer}} είμαστε κουρασμένοι.",
@@ -1008,7 +1087,8 @@
           "translation": "We are not tired.",
           "transliteration": "Emís ___ ímaste kurasméni.",
           "hint": "before the verb",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · be.1PL · tired.M.PL"
         },
         {
           "sentence": "Αυτή {{answer}} τρώει κρέας.",
@@ -1016,7 +1096,8 @@
           "translation": "She doesn't eat meat.",
           "transliteration": "Aftí ___ trói kréas.",
           "hint": "before the verb",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F.NOM · ___ · eat.PRS.3SG · meat.N.SG.ACC"
         },
         {
           "sentence": "Εσύ {{answer}} τρως;",
@@ -1024,7 +1105,8 @@
           "translation": "Aren't you eating?",
           "transliteration": "Esí ___ tros?",
           "hint": "before the verb",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG.NOM · ___ · eat.PRS.2SG"
         },
         {
           "sentence": "Εσείς {{answer}} χορεύετε;",
@@ -1032,7 +1114,8 @@
           "translation": "You (all) don't dance?",
           "transliteration": "Esís ___ chorévete?",
           "hint": "before the verb",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "2PL.NOM · ___ · dance.PRS.2PL"
         }
       ]
     },
@@ -1066,7 +1149,8 @@
           "translation": "There is a book on the table.",
           "transliteration": "___ éna vivlío sto trapézi.",
           "hint": "singular",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · INDF.N.SG.NOM · book.N.SG.NOM · at-DEF.N.SG.ACC · table.N.SG.ACC"
         },
         {
           "sentence": "{{answer}} δύο καφετέριες στον δρόμο.",
@@ -1074,7 +1158,8 @@
           "translation": "There are two cafés on the street.",
           "transliteration": "___ dío kafetéries ston drómo.",
           "hint": "plural",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · two · cafe.F.PL.NOM · at-DEF.M.SG.ACC · street.M.SG.ACC"
         },
         {
           "sentence": "Δεν {{answer}} γάλα.",
@@ -1082,7 +1167,8 @@
           "translation": "There is no milk.",
           "transliteration": "Den ___ gála.",
           "hint": "singular",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · ___ · milk.N.SG.NOM"
         },
         {
           "sentence": "{{answer}} πολλοί άνθρωποι εδώ.",
@@ -1090,7 +1176,8 @@
           "translation": "There are many people here.",
           "transliteration": "___ polí ánthropi edó.",
           "hint": "plural",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · many.M.PL.NOM · person.M.PL.NOM · here"
         },
         {
           "sentence": "{{answer}} ένα πάρκο κοντά;",
@@ -1098,7 +1185,8 @@
           "translation": "Is there a park nearby?",
           "transliteration": "___ éna párko kondá?",
           "hint": "singular",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · INDF.N.SG.NOM · park.N.SG.NOM · nearby"
         },
         {
           "sentence": "Δεν {{answer}} προβλήματα.",
@@ -1106,7 +1194,8 @@
           "translation": "There are no problems.",
           "transliteration": "Den ___ provlímata.",
           "hint": "plural",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG · ___ · problem.N.PL.NOM"
         }
       ]
     },
@@ -1140,7 +1229,8 @@
           "translation": "Where do you live?",
           "transliteration": "___ ménis?",
           "hint": "where",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · live.PRS.2SG"
         },
         {
           "sentence": "{{answer}} σε λένε;",
@@ -1148,7 +1238,8 @@
           "translation": "What is your name?",
           "transliteration": "___ se léne?",
           "hint": "how — names ask 'how' in Greek",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 2SG.OBJ · call.PRS.3PL"
         },
         {
           "sentence": "{{answer}} είναι τα γενέθλιά σου;",
@@ -1156,7 +1247,8 @@
           "translation": "When is your birthday?",
           "transliteration": "___ íne ta yenéthliá su?",
           "hint": "when",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · be.PRS.3PL · DEF.N.PL.NOM · birthday.N.PL.NOM · 2SG.POSS"
         },
         {
           "sentence": "{{answer}} είναι αυτό;",
@@ -1164,7 +1256,8 @@
           "translation": "What is this?",
           "transliteration": "___ íne aftó?",
           "hint": "what",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · be.PRS.3SG · this.N.SG.NOM"
         },
         {
           "sentence": "{{answer}} είναι ο δάσκαλός σου;",
@@ -1172,7 +1265,8 @@
           "translation": "Who is your teacher?",
           "transliteration": "___ íne o dáskalós su?",
           "hint": "who",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · be.PRS.3SG · DEF.M.SG.NOM · teacher.M.SG.NOM · 2SG.POSS"
         },
         {
           "sentence": "{{answer}} κλαις;",
@@ -1180,7 +1274,8 @@
           "translation": "Why are you crying?",
           "transliteration": "___ kles?",
           "hint": "why",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · cry.PRS.2SG"
         }
       ]
     },
@@ -1215,7 +1310,8 @@
           "transliteration": "To spíti íne ___.",
           "hint": "big — neuter",
           "display_order": 1,
-          "cell": "n.sg"
+          "cell": "n.sg",
+          "gloss": "DEF.N.SG.NOM · house.N.SG.NOM · be.PRS.3SG · ___"
         },
         {
           "sentence": "Τα βιβλία είναι {{answer}}.",
@@ -1224,7 +1320,8 @@
           "transliteration": "Ta vivlía íne ___.",
           "hint": "new — neuter plural",
           "display_order": 2,
-          "cell": "n.pl"
+          "cell": "n.pl",
+          "gloss": "DEF.N.PL.NOM · book.N.PL.NOM · be.PRS.3PL · ___"
         },
         {
           "sentence": "Η αδελφή μου είναι πολύ {{answer}}.",
@@ -1233,7 +1330,8 @@
           "transliteration": "I adelfí mu íne polí ___.",
           "hint": "kind — feminine",
           "display_order": 3,
-          "cell": "f.sg"
+          "cell": "f.sg",
+          "gloss": "DEF.F.SG.NOM · sister.F.SG.NOM · 1SG.POSS · be.PRS.3SG · very · ___"
         },
         {
           "sentence": "Ο καφές είναι {{answer}}.",
@@ -1242,7 +1340,8 @@
           "transliteration": "O kafés íne ___.",
           "hint": "hot — masculine",
           "display_order": 4,
-          "cell": "m.sg"
+          "cell": "m.sg",
+          "gloss": "DEF.M.SG.NOM · coffee.M.SG.NOM · be.PRS.3SG · ___"
         },
         {
           "sentence": "Τα λουλούδια είναι {{answer}}.",
@@ -1251,7 +1350,8 @@
           "transliteration": "Ta lulúdia íne ___.",
           "hint": "beautiful — neuter plural",
           "display_order": 5,
-          "cell": "n.pl"
+          "cell": "n.pl",
+          "gloss": "DEF.N.PL.NOM · flower.N.PL.NOM · be.PRS.3PL · ___"
         },
         {
           "sentence": "Η ταινία είναι {{answer}}.",
@@ -1260,7 +1360,8 @@
           "transliteration": "I tenía íne ___.",
           "hint": "interesting — feminine",
           "display_order": 6,
-          "cell": "f.sg"
+          "cell": "f.sg",
+          "gloss": "DEF.F.SG.NOM · film.F.SG.NOM · be.3SG · ___"
         },
         {
           "sentence": "Οι κήποι είναι {{answer}}.",
@@ -1269,7 +1370,8 @@
           "transliteration": "I kípi íne ___.",
           "hint": "beautiful — masculine plural",
           "cell": "m.pl",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "DEF.M.PL.NOM · garden.M.PL.NOM · be.3PL · ___"
         },
         {
           "sentence": "Οι μέρες είναι {{answer}}.",
@@ -1278,7 +1380,8 @@
           "transliteration": "I méres íne ___.",
           "hint": "big/long — feminine plural",
           "cell": "f.pl",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "DEF.F.PL.NOM · day.F.PL.NOM · be.3PL · ___"
         },
         {
           "sentence": "Ο ουρανός είναι {{answer}}.",
@@ -1287,7 +1390,8 @@
           "hint": "clear — masculine",
           "cell": "m.sg",
           "display_order": 9,
-          "transliteration": "O uranós íne ___."
+          "transliteration": "O uranós íne ___.",
+          "gloss": "DEF.M.SG.NOM · sky.M.SG.NOM · be.3SG · ___"
         },
         {
           "sentence": "Το φαγητό είναι {{answer}}.",
@@ -1296,7 +1400,8 @@
           "hint": "delicious — neuter",
           "cell": "n.sg",
           "display_order": 10,
-          "transliteration": "To fayitó íne ___."
+          "transliteration": "To fayitó íne ___.",
+          "gloss": "DEF.N.SG.NOM · food.N.SG.NOM · be.3SG · ___"
         },
         {
           "sentence": "Οι δρόμοι είναι {{answer}}.",
@@ -1305,7 +1410,8 @@
           "hint": "empty — masculine plural",
           "cell": "m.pl",
           "display_order": 11,
-          "transliteration": "I drómi íne ___."
+          "transliteration": "I drómi íne ___.",
+          "gloss": "DEF.M.PL.NOM · street.M.PL.NOM · be.3PL · ___"
         },
         {
           "sentence": "Οι πόρτες είναι {{answer}}.",
@@ -1314,7 +1420,8 @@
           "hint": "closed — feminine plural",
           "cell": "f.pl",
           "display_order": 12,
-          "transliteration": "I pórtes íne ___."
+          "transliteration": "I pórtes íne ___.",
+          "gloss": "DEF.F.PL.NOM · door.F.PL.NOM · be.3PL · ___"
         }
       ],
       "paradigm": [
@@ -1353,7 +1460,8 @@
           "hint": "wrote — I",
           "transliteration": "Chthes ___ éna grámma sti fíli mu.",
           "cell": "εγώ",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "yesterday · ___ · INDF.N.SG.ACC · letter.N.SG.ACC · to-DEF.F.SG.ACC · friend.F.SG.ACC · 1SG.POSS"
         },
         {
           "sentence": "Το πρωί {{answer}} τον καφέ μου γρήγορα.",
@@ -1362,7 +1470,8 @@
           "hint": "drank — I",
           "transliteration": "To proí ___ ton kafé mu grígora.",
           "cell": "εγώ",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.N.SG.ACC · morning.N.SG.ACC · ___ · DEF.M.SG.ACC · coffee.M.SG.ACC · 1SG.POSS · quickly"
         },
         {
           "sentence": "{{answer}} το μάθημα χθες το βράδυ;",
@@ -1371,7 +1480,8 @@
           "hint": "studied — you (sg.)",
           "transliteration": "___ to máthima chthes to vrádi?",
           "cell": "εσύ",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · DEF.N.SG.ACC · lesson.N.SG.ACC · yesterday · DEF.N.SG.ACC · evening.N.SG.ACC"
         },
         {
           "sentence": "Πότε {{answer}} στο σπίτι;",
@@ -1380,7 +1490,8 @@
           "hint": "returned — you (sg.)",
           "transliteration": "Póte ___ sto spíti?",
           "cell": "εσύ",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "when.Q · ___ · to-DEF.N.SG.ACC · house.N.SG.ACC"
         },
         {
           "sentence": "Ο Γιώργος {{answer}} το τρένο το πρωί.",
@@ -1389,7 +1500,8 @@
           "hint": "missed — he",
           "transliteration": "O Yiórgos ___ to tréno to proí.",
           "cell": "αυτός",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M.SG.NOM · George.M.SG.NOM · ___ · DEF.N.SG.ACC · train.N.SG.ACC · DEF.N.SG.ACC · morning.N.SG.ACC"
         },
         {
           "sentence": "Η Μαρία {{answer}} ένα ωραίο τραγούδι.",
@@ -1398,7 +1510,8 @@
           "hint": "sang — she",
           "transliteration": "I María ___ éna oréo tragúdi.",
           "cell": "αυτός",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.F.SG.NOM · Maria.F.SG.NOM · ___ · INDF.N.SG.ACC · beautiful.N.SG.ACC · song.N.SG.ACC"
         },
         {
           "sentence": "Το καλοκαίρι {{answer}} στην Κρήτη.",
@@ -1407,7 +1520,8 @@
           "hint": "went — we",
           "transliteration": "To kalokéri ___ stin Kríti.",
           "cell": "εμείς",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "DEF.N.SG.ACC · summer.N.SG.ACC · ___ · to-DEF.F.SG.ACC · Crete.F.SG.ACC"
         },
         {
           "sentence": "Χθες {{answer}} μαζί στο εστιατόριο.",
@@ -1416,7 +1530,8 @@
           "hint": "ate — we",
           "transliteration": "Chthes ___ mazí sto estiatório.",
           "cell": "εμείς",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "yesterday · ___ · together · at-DEF.N.SG.ACC · restaurant.N.SG.ACC"
         },
         {
           "sentence": "Τι ώρα {{answer}} στο πάρτι;",
@@ -1425,7 +1540,8 @@
           "hint": "arrived — you (pl.)",
           "transliteration": "Ti óra ___ sto párti?",
           "cell": "εσείς",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "what.Q · hour.F.SG.ACC · ___ · at-DEF.N.SG.ACC · party.N.SG.ACC"
         },
         {
           "sentence": "{{answer}} τις βαλίτσες σας;",
@@ -1434,7 +1550,8 @@
           "hint": "prepared — you (pl.)",
           "transliteration": "___ tis valítses sas?",
           "cell": "εσείς",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "___ · DEF.F.PL.ACC · suitcase.F.PL.ACC · 2PL.POSS"
         },
         {
           "sentence": "Τα παιδιά {{answer}} στην αυλή όλο το απόγευμα.",
@@ -1443,7 +1560,8 @@
           "hint": "played — they",
           "transliteration": "Ta pediá ___ stin avlí ólo to apóyevma.",
           "cell": "αυτοί",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "DEF.N.PL.NOM · child.N.PL.NOM · ___ · at-DEF.F.SG.ACC · yard.F.SG.ACC · all.N.SG.ACC · DEF.N.SG.ACC · afternoon.N.SG.ACC"
         },
         {
           "sentence": "Οι φοιτητές {{answer}} για τις εξετάσεις.",
@@ -1452,7 +1570,8 @@
           "hint": "studied — they",
           "transliteration": "I fitités ___ yia tis exetásis.",
           "cell": "αυτοί",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "DEF.M.PL.NOM · student.M.PL.NOM · ___ · for · DEF.F.PL.ACC · exam.F.PL.ACC"
         }
       ],
       "paradigm": [
@@ -1491,7 +1610,8 @@
           "hint": "of the — masc.",
           "transliteration": "Aftó íne to aftokínito ___ patéra mu.",
           "cell": "masc",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this.N.SG.NOM · be.3SG · DEF.N.SG.NOM · car.N.SG.NOM · ___ · father.M.SG.GEN · 1SG.POSS"
         },
         {
           "sentence": "Το χρώμα {{answer}} θάλασσας είναι μπλε.",
@@ -1500,7 +1620,8 @@
           "hint": "of the — fem.",
           "transliteration": "To chróma ___ thálassas íne ble.",
           "cell": "fem",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.N.NOM.SG · colour.NOM.SG · ___ · sea.GEN.SG · be.PRS.3SG · blue"
         },
         {
           "sentence": "Η πόρτα {{answer}} σπιτιού είναι ανοιχτή.",
@@ -1509,7 +1630,8 @@
           "hint": "of the — neut.",
           "transliteration": "I pórta ___ spitiú íne anichtí.",
           "cell": "neut",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.F.NOM.SG · door.NOM.SG · ___ · house.GEN.SG · be.PRS.3SG · open.F.NOM.SG"
         },
         {
           "sentence": "Τα παιχνίδια {{answer}} παιδιών είναι εδώ.",
@@ -1518,7 +1640,8 @@
           "hint": "of the — plural",
           "transliteration": "Ta pechnídia ___ pedión íne edó.",
           "cell": "plural",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.N.NOM.PL · toy.NOM.PL · ___ · child.GEN.PL · be.PRS.3PL · here"
         },
         {
           "sentence": "Ο φίλος {{answer}} αδελφής μου ήρθε.",
@@ -1527,7 +1650,8 @@
           "hint": "of the — fem.",
           "transliteration": "O fílos ___ adelfís mu írthe.",
           "cell": "fem",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M.NOM.SG · friend.NOM.SG · ___ · sister.GEN.SG · 1SG.POSS · come.PST.PFV.3SG"
         },
         {
           "sentence": "Η αρχή {{answer}} μαθήματος είναι δύσκολη.",
@@ -1536,7 +1660,8 @@
           "hint": "of the — neut.",
           "transliteration": "I archí ___ mathímatos íne dískoli.",
           "cell": "neut",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.F.NOM.SG · beginning.NOM.SG · ___ · lesson.GEN.SG · be.PRS.3SG · difficult.F.NOM.SG"
         }
       ]
     },
@@ -1566,7 +1691,8 @@
           "translation": "My friends came to the party.",
           "hint": "friends (ο φίλος)",
           "transliteration": "I ___ mu írthan sto párti.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.M.NOM.PL · ___ · 1SG.POSS · come.PST.PFV.3PL · to-DEF.N.ACC.SG · party"
         },
         {
           "sentence": "Οι {{answer}} του σπιτιού είναι κλειστές.",
@@ -1574,7 +1700,8 @@
           "translation": "The doors of the house are closed.",
           "hint": "doors (η πόρτα)",
           "transliteration": "I ___ tu spitiú íne klistés.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.F.NOM.PL · ___ · DEF.N.GEN.SG · house.GEN.SG · be.PRS.3PL · closed.F.NOM.PL"
         },
         {
           "sentence": "Τα {{answer}} είναι πάνω στο τραπέζι.",
@@ -1582,7 +1709,8 @@
           "translation": "The books are on the table.",
           "hint": "books (το βιβλίο)",
           "transliteration": "Ta ___ íne páno sto trapézi.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.N.NOM.PL · ___ · be.PRS.3PL · on · at-DEF.N.ACC.SG · table.ACC.SG"
         },
         {
           "sentence": "Τα {{answer}} παίζουν στην παραλία.",
@@ -1590,7 +1718,8 @@
           "translation": "The children are playing on the beach.",
           "hint": "children (το παιδί)",
           "transliteration": "Ta ___ pézun stin paralía.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.N.NOM.PL · ___ · play.PRS.3PL · at-DEF.F.ACC.SG · beach.ACC.SG"
         },
         {
           "sentence": "Οι {{answer}} διδάσκουν καλά.",
@@ -1598,7 +1727,8 @@
           "translation": "The teachers teach well.",
           "hint": "teachers (ο δάσκαλος)",
           "transliteration": "I ___ didáskun kalá.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M.NOM.PL · ___ · teach.PRS.3PL · well"
         },
         {
           "sentence": "Αγόρασα τρεις {{answer}} για το σπίτι.",
@@ -1606,7 +1736,8 @@
           "translation": "I bought three chairs for the house.",
           "hint": "chairs (η καρέκλα)",
           "transliteration": "Agórasa tris ___ yia to spíti.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "buy.PST.PFV.1SG · three.F.ACC · ___ · for · DEF.N.ACC.SG · house.ACC.SG"
         }
       ]
     },
@@ -1636,7 +1767,8 @@
           "translation": "Every summer we used to go to the village.",
           "hint": "used to go — we",
           "transliteration": "Káthe kalokéri ___ sto chorió.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "every · summer.ACC.SG · ___ · to-DEF.N.ACC.SG · village.ACC.SG"
         },
         {
           "sentence": "Όταν ήμουν μικρός, {{answer}} πολύ.",
@@ -1644,7 +1776,8 @@
           "translation": "When I was little, I used to read a lot.",
           "hint": "used to read — I",
           "transliteration": "Ótan ímun mikrós, ___ polí.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "when · be.PST.IPFV.1SG · small.M.NOM.SG · ___ · much"
         },
         {
           "sentence": "Τι {{answer}} όταν σε πήρα τηλέφωνο;",
@@ -1652,7 +1785,8 @@
           "translation": "What were you doing when I called you?",
           "hint": "were doing — you (sg.)",
           "transliteration": "Ti ___ ótan se píra tiléfono?",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "what · ___ · when · 2SG.ACC · take.PST.PFV.1SG · telephone.ACC.SG"
         },
         {
           "sentence": "Ο παππούς μου {{answer}} ιστορίες κάθε βράδυ.",
@@ -1660,7 +1794,8 @@
           "translation": "My grandfather used to tell stories every night.",
           "hint": "used to tell — he",
           "transliteration": "O pappús mu ___ istoríes káthe vrádi.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.M.NOM.SG · grandfather.NOM.SG · 1SG.POSS · ___ · story.ACC.PL · every · evening.ACC.SG"
         },
         {
           "sentence": "Τα παιδιά {{answer}} στον κήπο όλη μέρα.",
@@ -1668,7 +1803,8 @@
           "translation": "The children were playing in the garden all day.",
           "hint": "were playing — they",
           "transliteration": "Ta pediá ___ ston kípo óli méra.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.N.NOM.PL · child.NOM.PL · ___ · at-DEF.M.ACC.SG · garden.ACC.SG · all.F.ACC.SG · day.ACC.SG"
         },
         {
           "sentence": "Παλιά {{answer}} σε ένα μικρό διαμέρισμα.",
@@ -1676,7 +1812,8 @@
           "translation": "We used to live in a small apartment.",
           "hint": "used to live — we",
           "transliteration": "Paliá ___ se éna mikró diamérisma.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "formerly · ___ · at · INDF.N.ACC.SG · small.N.ACC.SG · apartment.ACC.SG"
         }
       ]
     },
@@ -1706,7 +1843,8 @@
           "translation": "Tomorrow I will go to work early.",
           "hint": "will go — I (perfective)",
           "transliteration": "Ávrio tha ___ sti duliá norís.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "tomorrow · FUT · ___ · to-DEF.F.ACC.SG · work.ACC.SG · early"
         },
         {
           "sentence": "Το βράδυ θα {{answer}} μια ταινία.",
@@ -1714,7 +1852,8 @@
           "translation": "In the evening we will watch a film.",
           "hint": "will watch — we",
           "transliteration": "To vrádi tha ___ mia tenía.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.N.ACC.SG · evening.ACC.SG · FUT · ___ · INDF.F.ACC.SG · film.ACC.SG"
         },
         {
           "sentence": "{{answer}} έρθεις μαζί μας στο ταξίδι;",
@@ -1722,7 +1861,8 @@
           "translation": "Will you come with us on the trip?",
           "hint": "future marker",
           "transliteration": "___ érthis mazí mas sto taxídi?",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · come.PFV.2SG · together · 1PL.OBJ · at-DEF.N.ACC.SG · trip.ACC.SG"
         },
         {
           "sentence": "Η Άννα θα {{answer}} το δώρο αύριο.",
@@ -1730,7 +1870,8 @@
           "translation": "Anna will buy the gift tomorrow.",
           "hint": "will buy — she (perfective)",
           "transliteration": "I Ánna tha ___ to dóro ávrio.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.F.SG · Anna · FUT · ___ · DEF.N.SG · gift.ACC · tomorrow"
         },
         {
           "sentence": "Του χρόνου θα {{answer}} ελληνικά κάθε μέρα.",
@@ -1738,7 +1879,8 @@
           "translation": "Next year I will be learning Greek every day.",
           "hint": "will be learning — I (present stem)",
           "transliteration": "Tu chrónu tha ___ elliniká káthe méra.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M.SG · year.GEN · FUT · ___ · Greek.PL.ACC · every · day.ACC"
         },
         {
           "sentence": "Οι φίλοι μου {{answer}} είναι στο πάρτι.",
@@ -1746,7 +1888,8 @@
           "translation": "My friends will be at the party.",
           "hint": "future marker",
           "transliteration": "I fíli mu ___ íne sto párti.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.PL · friend.PL · 1SG.POSS · ___ · be.3PL · in-DEF.N.SG · party.ACC"
         }
       ]
     },
@@ -1777,7 +1920,8 @@
           "hint": "him",
           "transliteration": "Xéro ton Yiórgo; ___ vlépo káthe méra.",
           "cell": "τον",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "know.1SG · DEF.M.SG · George.ACC · ___ · see.1SG · every · day.ACC"
         },
         {
           "sentence": "Πού είναι η Μαρία; Δεν {{answer}} βρίσκω.",
@@ -1786,7 +1930,8 @@
           "hint": "her",
           "transliteration": "Pú íne i María? Den ___ vrísko.",
           "cell": "την",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "where · be.3SG · DEF.F.SG · Maria · NEG · ___ · find.1SG"
         },
         {
           "sentence": "Ωραίο βιβλίο! {{answer}} διαβάζω τώρα.",
@@ -1795,7 +1940,8 @@
           "hint": "it",
           "transliteration": "Oréo vivlío! ___ diavázo tóra.",
           "cell": "το",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "nice.N.SG · book · ___ · read.1SG · now"
         },
         {
           "sentence": "Τα κλειδιά; {{answer}} άφησα στο τραπέζι.",
@@ -1804,7 +1950,8 @@
           "hint": "them (neut.)",
           "transliteration": "Ta klidiá? ___ áfisa sto trapézi.",
           "cell": "τα",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.N.PL · key.PL · ___ · leave.PFV.PST.1SG · on-DEF.N.SG · table.ACC"
         },
         {
           "sentence": "Αν έρθεις, {{answer}} περιμένω στη στάση.",
@@ -1813,7 +1960,8 @@
           "hint": "you (sg.)",
           "transliteration": "An érthis, ___ periméno sti stási.",
           "cell": "σε",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · come.PFV.2SG · ___ · wait.1SG · at-DEF.F.SG · stop.ACC"
         },
         {
           "sentence": "Είμαστε εδώ· {{answer}} ακούς;",
@@ -1822,7 +1970,8 @@
           "hint": "us",
           "transliteration": "Ímaste edó; ___ akús?",
           "cell": "μας",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "be.1PL · here · ___ · hear.2SG"
         }
       ]
     },
@@ -1852,7 +2001,8 @@
           "translation": "Athens is bigger than Thessaloniki.",
           "hint": "more (comparative)",
           "transliteration": "I Athína íne ___ megáli apó ti Thessaloníki.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.F.SG · Athens · be.3SG · ___ · big.F.SG · than · DEF.F.SG · Thessaloniki.ACC"
         },
         {
           "sentence": "Αυτός ο δρόμος είναι ο {{answer}} σύντομος.",
@@ -1860,7 +2010,8 @@
           "translation": "This road is the shortest.",
           "hint": "most (superlative)",
           "transliteration": "Aftós o drómos íne o ___ síndomos.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "this.M.SG · DEF.M.SG · road · be.3SG · DEF.M.SG · ___ · short.M.SG"
         },
         {
           "sentence": "Τα ελληνικά είναι {{answer}} δύσκολα από τα ισπανικά για μένα.",
@@ -1868,7 +2019,8 @@
           "translation": "Greek is harder than Spanish for me.",
           "hint": "more (comparative)",
           "transliteration": "Ta elliniká íne ___ dískola apó ta ispaniká yia ména.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.N.PL · Greek.PL · be.3PL · ___ · difficult.N.PL · than · DEF.N.PL · Spanish.PL.ACC · for · 1SG.ACC"
         },
         {
           "sentence": "Είναι ο {{answer}} έξυπνος μαθητής της τάξης.",
@@ -1876,7 +2028,8 @@
           "translation": "He is the smartest student in the class.",
           "hint": "most (superlative)",
           "transliteration": "Íne o ___ éxipnos mathitís tis táxis.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "be.3SG · DEF.M.SG · ___ · smart.M.SG · student · DEF.F.SG · class.GEN"
         },
         {
           "sentence": "Το καλοκαίρι οι μέρες είναι {{answer}} μεγάλες.",
@@ -1884,7 +2037,8 @@
           "translation": "In summer the days are longer.",
           "hint": "more (comparative)",
           "transliteration": "To kalokéri i méres íne ___ megáles.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.N.SG · summer.ACC · DEF.F.PL · day.PL · be.3PL · ___ · big.F.PL"
         },
         {
           "sentence": "Η υγεία είναι {{answer}} σημαντική από τα χρήματα.",
@@ -1892,7 +2046,8 @@
           "translation": "Health is more important than money.",
           "hint": "more (comparative)",
           "transliteration": "I iyía íne ___ simandikí apó ta chrímata.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.F.SG · health · be.3SG · ___ · important.F.SG · than · DEF.N.PL · money.PL.ACC"
         }
       ]
     },
@@ -1922,7 +2077,8 @@
           "translation": "I live in a small town.",
           "hint": "in / at",
           "transliteration": "Méno ___ mia mikrí póli.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "live.1SG · ___ · INDF.F.SG · small.F.SG · town.ACC"
         },
         {
           "sentence": "Ήρθα {{answer}} την Αθήνα χθες.",
@@ -1930,7 +2086,8 @@
           "translation": "I came from Athens yesterday.",
           "hint": "from",
           "transliteration": "Írtha ___ tin Athína chthes.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "come.PFV.PST.1SG · ___ · DEF.F.SG · Athens.ACC · yesterday"
         },
         {
           "sentence": "Πάω σινεμά {{answer}} τους φίλους μου.",
@@ -1938,7 +2095,8 @@
           "translation": "I'm going to the cinema with my friends.",
           "hint": "with",
           "transliteration": "Páo sinemá ___ tus fílus mu.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "go.1SG · cinema.ACC · ___ · DEF.M.PL · friend.PL.ACC · 1SG.POSS"
         },
         {
           "sentence": "Αγόρασα ένα δώρο {{answer}} τη μητέρα μου.",
@@ -1946,7 +2104,8 @@
           "translation": "I bought a gift for my mother.",
           "hint": "for",
           "transliteration": "Agórasa éna dóro ___ ti mitéra mu.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "buy.PFV.PST.1SG · INDF.N.SG · gift.ACC · ___ · DEF.F.SG · mother.ACC · 1SG.POSS"
         },
         {
           "sentence": "Δεν μπορώ να ζήσω {{answer}} καφέ.",
@@ -1954,7 +2113,8 @@
           "translation": "I can't live without coffee.",
           "hint": "without",
           "transliteration": "Den boró na zíso ___ kafé.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · can.1SG · INF · live.PFV.1SG · ___ · coffee.ACC"
         },
         {
           "sentence": "Περπατήσαμε {{answer}} την παραλία.",
@@ -1962,7 +2122,8 @@
           "translation": "We walked towards the beach.",
           "hint": "towards",
           "transliteration": "Perpatísame ___ tin paralía.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "walk.PFV.PST.1PL · ___ · DEF.F.ACC · beach.ACC"
         }
       ]
     },
@@ -1993,7 +2154,8 @@
           "hint": "my",
           "transliteration": "To aftokínito ___ íne kenúrio.",
           "cell": "μου",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.N.NOM · car.NOM · ___ · be.PRS.3SG · new.N.NOM"
         },
         {
           "sentence": "Πού είναι το κινητό {{answer}};",
@@ -2002,7 +2164,8 @@
           "hint": "your (sg.)",
           "transliteration": "Pú íne to kinitó ___?",
           "cell": "σου",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "where · be.PRS.3SG · DEF.N.NOM · phone.NOM · ___"
         },
         {
           "sentence": "Η αδελφή {{answer}} μένει στη Λάρισα.",
@@ -2011,7 +2174,8 @@
           "hint": "her",
           "transliteration": "I adelfí ___ méni sti Lárisa.",
           "cell": "της",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.F.NOM · sister.NOM · ___ · live.PRS.3SG · in-DEF.F.ACC · Larissa.ACC"
         },
         {
           "sentence": "Ο σκύλος {{answer}} είναι πολύ φιλικός.",
@@ -2020,7 +2184,8 @@
           "hint": "his",
           "transliteration": "O skílos ___ íne polí filikós.",
           "cell": "του",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.M.NOM · dog.NOM · ___ · be.PRS.3SG · very · friendly.M.NOM"
         },
         {
           "sentence": "Οι γείτονες {{answer}} είναι πολύ ευγενικοί.",
@@ -2029,7 +2194,8 @@
           "hint": "our",
           "transliteration": "I yítones ___ íne polí evyenikí.",
           "cell": "μας",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M.NOM.PL · neighbour.NOM.PL · ___ · be.PRS.3PL · very · kind.M.NOM.PL"
         },
         {
           "sentence": "Το σπίτι {{answer}} είναι κοντά στη θάλασσα.",
@@ -2038,7 +2204,8 @@
           "hint": "their",
           "transliteration": "To spíti ___ íne kondá sti thálassa.",
           "cell": "τους",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.N.NOM · house.NOM · ___ · be.PRS.3SG · near · to-DEF.F.ACC · sea.ACC"
         }
       ]
     },
@@ -2068,7 +2235,8 @@
           "translation": "I want to leave early today.",
           "hint": "to (+ subjunctive)",
           "transliteration": "Thélo ___ fígo norís símera.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "want.PRS.1SG · ___ · leave.PFV.1SG · early · today"
         },
         {
           "sentence": "Πρέπει {{answer}} διαβάσεις για τις εξετάσεις.",
@@ -2076,7 +2244,8 @@
           "translation": "You must study for the exams.",
           "hint": "to (+ subjunctive)",
           "transliteration": "Prépi ___ diavásis yia tis exetásis.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "must.PRS.3SG · ___ · study.PFV.2SG · for · DEF.F.ACC.PL · exam.ACC.PL"
         },
         {
           "sentence": "Μπορείς {{answer}} με βοηθήσεις;",
@@ -2084,7 +2253,8 @@
           "translation": "Can you help me?",
           "hint": "to (+ subjunctive)",
           "transliteration": "Borís ___ me voithísis?",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "can.PRS.2SG · ___ · 1SG.ACC · help.PFV.2SG"
         },
         {
           "sentence": "Θέλουμε να {{answer}} ελληνικά καλά.",
@@ -2092,7 +2262,8 @@
           "translation": "We want to learn Greek well.",
           "hint": "learn — we (subjunctive)",
           "transliteration": "Thélume na ___ elliniká kalá.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "want.PRS.1PL · INF · ___ · Greek.ACC.PL · well"
         },
         {
           "sentence": "Πρέπει να {{answer}} στην ώρα μας.",
@@ -2100,7 +2271,8 @@
           "translation": "We must be on time.",
           "hint": "be — we (subjunctive)",
           "transliteration": "Prépi na ___ stin óra mas.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "must.PRS.3SG · INF · ___ · at-DEF.F.ACC · hour.ACC · 1PL.POSS"
         },
         {
           "sentence": "Μπορεί να {{answer}} αύριο.",
@@ -2108,7 +2280,8 @@
           "translation": "It may rain tomorrow.",
           "hint": "rain — it (subjunctive)",
           "transliteration": "Borí na ___ ávrio.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "can.PRS.3SG · INF · ___ · tomorrow"
         }
       ]
     },
@@ -2138,7 +2311,8 @@
           "translation": "I want to write this letter now.",
           "hint": "write once — I (aorist)",
           "transliteration": "Thélo na ___ aftó to grámma tóra.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "want.PRS.1SG · INF · ___ · this.N.ACC · DEF.N.ACC · letter.ACC · now"
         },
         {
           "sentence": "Θέλω να {{answer}} στο ημερολόγιό μου κάθε βράδυ.",
@@ -2146,7 +2320,8 @@
           "translation": "I want to write in my diary every night.",
           "hint": "write habitually — I (present)",
           "transliteration": "Thélo na ___ sto imerolóyió mu káthe vrádi.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "want.PRS.1SG · INF · ___ · in-DEF.N.ACC · diary.ACC · 1SG.POSS · every · evening.ACC"
         },
         {
           "sentence": "Πρέπει να {{answer}} το φάρμακο κάθε μέρα.",
@@ -2154,7 +2329,8 @@
           "translation": "You must take the medicine every day.",
           "hint": "take habitually — you (present)",
           "transliteration": "Prépi na ___ to fármako káthe méra.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "must.PRS.3SG · INF · ___ · DEF.N.ACC · medicine.ACC · every · day.ACC"
         },
         {
           "sentence": "Πρέπει να {{answer}} ένα χάπι τώρα.",
@@ -2162,7 +2338,8 @@
           "translation": "You must take one pill now.",
           "hint": "take once — you (aorist)",
           "transliteration": "Prépi na ___ éna chápi tóra.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "must.PRS.3SG · INF · ___ · INDF.N.ACC · pill.ACC · now"
         },
         {
           "sentence": "Μου αρέσει να {{answer}} μουσική όταν μαγειρεύω.",
@@ -2170,7 +2347,8 @@
           "translation": "I like to listen to music while I cook.",
           "hint": "listen habitually — I (present)",
           "transliteration": "Mu arési na ___ musikí ótan mayirévo.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG.GEN · please.PRS.3SG · INF · ___ · music.ACC · when · cook.PRS.1SG"
         },
         {
           "sentence": "Θέλω να {{answer}} αυτό το τραγούδι μία φορά ακόμα.",
@@ -2178,7 +2356,8 @@
           "translation": "I want to hear this song one more time.",
           "hint": "hear once — I (aorist)",
           "transliteration": "Thélo na ___ aftó to tragúdi mía forá akóma.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "want.PRS.1SG · INF · ___ · this.N.ACC · DEF.N.ACC · song.ACC · INDF.F.ACC · time.ACC · more"
         }
       ]
     },
@@ -2209,7 +2388,8 @@
           "hint": "give! — to one person",
           "transliteration": "___ mu to tiléfonó su, parakaló.",
           "cell": "εσύ",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 1SG.GEN · DEF.N.ACC · phone.ACC · 2SG.POSS · beg.PRS.1SG"
         },
         {
           "sentence": "{{answer}} ήσυχα, το μωρό κοιμάται.",
@@ -2218,7 +2398,8 @@
           "hint": "speak! — to one person",
           "transliteration": "___ ísicha, to moró kimáte.",
           "cell": "εσύ",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · quietly · DEF.N.SG.NOM · baby.SG.NOM · sleep.MED.PRS.3SG"
         },
         {
           "sentence": "Παιδιά, {{answer}} τα βιβλία σας στη σελίδα δέκα.",
@@ -2227,7 +2408,8 @@
           "hint": "open! — to a group",
           "transliteration": "Pediá, ___ ta vivlía sas sti selída déka.",
           "cell": "εσείς",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "child.PL.VOC · ___ · DEF.N.PL.ACC · book.PL.ACC · 2PL.POSS · to-DEF.F.SG.ACC · page.SG.ACC · ten"
         },
         {
           "sentence": "{{answer}} προσεκτικά όταν περνάτε τον δρόμο.",
@@ -2236,7 +2418,8 @@
           "hint": "be careful! — to a group",
           "transliteration": "___ prosektiká ótan pernáte ton drómo.",
           "cell": "εσείς",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · carefully · when · cross.PRS.2PL · DEF.M.SG.ACC · street.SG.ACC"
         },
         {
           "sentence": "{{answer}} ανησυχείς, όλα θα πάνε καλά.",
@@ -2244,7 +2427,8 @@
           "translation": "Don't worry, everything will be fine.",
           "hint": "don't (+ subjunctive)",
           "transliteration": "___ anisichís, óla tha páne kalá.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · worry.PRS.2SG · all.N.PL.NOM · FUT · go.PFV.3PL · well"
         },
         {
           "sentence": "{{answer}} ξεχάσεις να μου τηλεφωνήσεις.",
@@ -2252,7 +2436,8 @@
           "translation": "Don't forget to call me.",
           "hint": "don't (+ subjunctive)",
           "transliteration": "___ xechásis na mu tilefonísis.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · forget.PFV.2SG · SBJV · 1SG.GEN · phone.PFV.2SG"
         }
       ],
       "paradigm": [
@@ -2286,7 +2471,8 @@
           "translation": "The book? John gave it to me yesterday.",
           "hint": "to me (indirect)",
           "transliteration": "To vivlío? O Yiánnis ___ to édose chthes.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.N.SG.NOM · book.SG.NOM · DEF.M.SG.NOM · John.SG.NOM · ___ · 3SG.N.ACC · give.PFV.PST.3SG · yesterday"
         },
         {
           "sentence": "Τα κλειδιά; {{answer}} τα έδωσα το πρωί.",
@@ -2294,7 +2480,8 @@
           "translation": "The keys? I gave them to you this morning.",
           "hint": "to you (indirect)",
           "transliteration": "Ta klidiá? ___ ta édosa to proí.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.N.PL.NOM · key.PL.NOM · ___ · 3PL.N.ACC · give.PFV.PST.1SG · DEF.N.SG.ACC · morning.SG.ACC"
         },
         {
           "sentence": "Ήξερε την αλήθεια γιατί {{answer}} την είπα.",
@@ -2302,7 +2489,8 @@
           "translation": "She knew the truth because I told it to her.",
           "hint": "to her (indirect)",
           "transliteration": "Íxere tin alíthia yiatí ___ tin ípa.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "know.IPFV.PST.3SG · DEF.F.SG.ACC · truth.SG.ACC · because · ___ · 3SG.F.ACC · say.PFV.PST.1SG"
         },
         {
           "sentence": "Μου αρέσει το φαγητό· {{answer}} το φτιάχνει η γιαγιά.",
@@ -2310,7 +2498,8 @@
           "translation": "I love the food; grandma makes it for me.",
           "hint": "for me (indirect)",
           "transliteration": "Mu arési to fayitó; ___ to ftiáchni i yiayiá.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG.GEN · please.PRS.3SG · DEF.N.SG.NOM · food.SG.NOM · ___ · 3SG.N.ACC · make.PRS.3SG · DEF.F.SG.NOM · grandma.SG.NOM"
         },
         {
           "sentence": "Αν θέλετε τις φωτογραφίες, {{answer}} τις στέλνω.",
@@ -2318,7 +2507,8 @@
           "translation": "If you want the photos, I'll send them to you.",
           "hint": "to you (pl., indirect)",
           "transliteration": "An thélete tis fotografíes, ___ tis stélno.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · want.PRS.2PL · DEF.F.PL.ACC · photo.PL.ACC · ___ · 3PL.F.ACC · send.PRS.1SG"
         },
         {
           "sentence": "Το δώρο ήταν έκπληξη· {{answer}} το κράτησα κρυφό.",
@@ -2326,7 +2516,8 @@
           "translation": "The gift was a surprise; I kept it secret from them.",
           "hint": "from them (indirect)",
           "transliteration": "To dóro ítan ékplixi; ___ to krátisa krifó.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.N.SG.NOM · gift.SG.NOM · be.PST.3SG · surprise.SG.NOM · ___ · 3SG.N.ACC · keep.PFV.PST.1SG · secret.N.SG.ACC"
         }
       ]
     },
@@ -2356,7 +2547,8 @@
           "translation": "The man who came is a doctor.",
           "hint": "who / that",
           "transliteration": "O ándras ___ írthe íne yiatrós.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.M.SG.NOM · man.SG.NOM · ___ · come.PFV.PST.3SG · be.PRS.3SG · doctor.SG.NOM"
         },
         {
           "sentence": "Η ταινία {{answer}} είδαμε ήταν υπέροχη.",
@@ -2364,7 +2556,8 @@
           "translation": "The film that we saw was wonderful.",
           "hint": "which / that",
           "transliteration": "I tenía ___ ídame ítan ipérochi.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.F.SG.NOM · film.SG.NOM · ___ · see.PFV.PST.1PL · be.PST.3SG · wonderful.F.SG.NOM"
         },
         {
           "sentence": "Αυτό είναι το σπίτι {{answer}} μεγάλωσα.",
@@ -2372,7 +2565,8 @@
           "translation": "This is the house where I grew up.",
           "hint": "where",
           "transliteration": "Aftó íne to spíti ___ megálosa.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "this.N.SG.NOM · be.PRS.3SG · DEF.N.SG.NOM · house.SG.NOM · ___ · grow_up.PFV.PST.1SG"
         },
         {
           "sentence": "Ο καθηγητής, ο {{answer}} μας δίδαξε, συνταξιοδοτήθηκε.",
@@ -2380,7 +2574,8 @@
           "translation": "The professor, who taught us, retired.",
           "hint": "who (formal, masc.)",
           "transliteration": "O kathiyitís, o ___ mas dídaxe, sindaxiodotíthike.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.M.SG.NOM · professor.SG.NOM · DEF.M.SG.NOM · ___ · 1PL.ACC · teach.PFV.PST.3SG · retire.MED.PFV.PST.3SG"
         },
         {
           "sentence": "Τα παιδιά {{answer}} έπαιζαν έξω μπήκαν μέσα.",
@@ -2388,7 +2583,8 @@
           "translation": "The children who were playing outside came in.",
           "hint": "who / that",
           "transliteration": "Ta pediá ___ épezan éxo bíkan mésa.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.N.PL.NOM · child.PL.NOM · ___ · play.IPFV.PST.3PL · outside · enter.PFV.PST.3PL · inside"
         },
         {
           "sentence": "Η εταιρεία για την {{answer}} δουλεύω είναι μεγάλη.",
@@ -2396,7 +2592,8 @@
           "translation": "The company I work for is large.",
           "hint": "which (formal, fem.)",
           "transliteration": "I etería yia tin ___ dulévo íne megáli.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.F.SG.NOM · company.SG.NOM · for · DEF.F.SG.ACC · ___ · work.PRS.1SG · be.PRS.3SG · big.F.SG.NOM"
         }
       ]
     },
@@ -2426,7 +2623,8 @@
           "translation": "Every morning I wash and get ready for work.",
           "hint": "I wash myself",
           "transliteration": "Káthe proí ___ ke etimázome yia ti duliá.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "every · morning.SG.ACC · ___ · and · prepare.MED.PRS.1SG · for · DEF.F.SG.ACC · work.SG.ACC"
         },
         {
           "sentence": "Πώς {{answer}}; — Με λένε Ελένη.",
@@ -2434,7 +2632,8 @@
           "translation": "What's your name? — My name is Eleni.",
           "hint": "you are named",
           "transliteration": "Pós ___? — Me léne Eléni.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "how · ___ · — · 1SG.ACC · call.PRS.3PL · Eleni"
         },
         {
           "sentence": "Ο φίλος μου {{answer}} από τη Θεσσαλονίκη απόψε.",
@@ -2442,7 +2641,8 @@
           "translation": "My friend is coming from Thessaloniki tonight.",
           "hint": "he comes",
           "transliteration": "O fílos mu ___ apó ti Thessaloníki apópse.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M.SG.NOM · friend.SG.NOM · 1SG.POSS · ___ · from · DEF.F.SG.ACC · Thessaloniki.SG.ACC · tonight"
         },
         {
           "sentence": "{{answer}} λίγη βοήθεια με τις βαλίτσες.",
@@ -2450,7 +2650,8 @@
           "translation": "I need a little help with the suitcases.",
           "hint": "I need",
           "transliteration": "___ líyi voíthia me tis valítses.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · little.F.ACC.SG · help.ACC.SG · with · DEF.F.ACC.PL · suitcase.ACC.PL"
         },
         {
           "sentence": "Τα μαγαζιά {{answer}} στις εννιά το βράδυ.",
@@ -2458,7 +2659,8 @@
           "translation": "The shops are closed at nine in the evening.",
           "hint": "are closed (passive)",
           "transliteration": "Ta magaziá ___ stis enniá to vrádi.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.N.NOM.PL · shop.NOM.PL · ___ · at-DEF.F.ACC.PL · nine · DEF.N.ACC.SG · evening.ACC.SG"
         },
         {
           "sentence": "Εμείς {{answer}} πολύ νωρίς τις καθημερινές.",
@@ -2466,7 +2668,8 @@
           "translation": "We wake up very early on weekdays.",
           "hint": "we wake up",
           "transliteration": "Emís ___ polí norís tis kathimerinés.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL.NOM · ___ · very · early · DEF.F.ACC.PL · weekday.ACC.PL"
         }
       ]
     },
@@ -2496,7 +2699,8 @@
           "translation": "I have read this book three times.",
           "hint": "have — I (+ aparémfato)",
           "transliteration": "___ diavási aftó to vivlío tris forés.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · read.PFV · this.N.ACC.SG · DEF.N.ACC.SG · book.ACC.SG · three.ACC.PL · time.ACC.PL"
         },
         {
           "sentence": "{{answer}} δει ποτέ την Ακρόπολη;",
@@ -2504,7 +2708,8 @@
           "translation": "Have you ever seen the Acropolis?",
           "hint": "have — you (sg.)",
           "transliteration": "___ di poté tin Akrópoli?",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · see.PFV · ever · DEF.F.ACC.SG · Acropolis.ACC.SG"
         },
         {
           "sentence": "Η Άννα {{answer}} τελειώσει τις σπουδές της.",
@@ -2512,7 +2717,8 @@
           "translation": "Anna has finished her studies.",
           "hint": "has — she",
           "transliteration": "I Ánna ___ teliósi tis spudés tis.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.F.NOM.SG · Anna.NOM.SG · ___ · finish.PFV · DEF.F.ACC.PL · study.ACC.PL · 3SG.F.POSS"
         },
         {
           "sentence": "{{answer}} επισκεφτεί πολλά ελληνικά νησιά.",
@@ -2520,7 +2726,8 @@
           "translation": "We have visited many Greek islands.",
           "hint": "have — we",
           "transliteration": "___ episkeftí pollá elliniká nisiá.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · visit.PFV · many.N.ACC.PL · Greek.N.ACC.PL · island.ACC.PL"
         },
         {
           "sentence": "Δεν έχω {{answer}} ποτέ τέτοιο φαγητό.",
@@ -2528,7 +2735,8 @@
           "translation": "I have never tried such food.",
           "hint": "tried (aparémfato)",
           "transliteration": "Den écho ___ poté tétio fayitó.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · have.1SG · ___ · ever · such.N.ACC.SG · food.ACC.SG"
         },
         {
           "sentence": "Οι φίλοι μου {{answer}} ήδη φύγει.",
@@ -2536,7 +2744,8 @@
           "translation": "My friends have already left.",
           "hint": "have — they",
           "transliteration": "I fíli mu ___ ídi fíyi.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.NOM.PL · friend.NOM.PL · 1SG.POSS · ___ · already · leave.PFV"
         }
       ]
     },
@@ -2566,7 +2775,8 @@
           "translation": "If you have time, come and see me.",
           "hint": "if",
           "transliteration": "___ échis chróno, éla na me dis.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · have.2SG · time.ACC.SG · come.IMP.2SG · SBJV · 1SG.OBJ · see.PFV.2SG"
         },
         {
           "sentence": "Αν διαβάσεις πολύ, {{answer}} περάσεις τις εξετάσεις.",
@@ -2574,7 +2784,8 @@
           "translation": "If you study a lot, you'll pass the exams.",
           "hint": "then (result marker)",
           "transliteration": "An diavásis polí, ___ perásis tis exetásis.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if · study.PFV.2SG · much · ___ · pass.PFV.2SG · DEF.F.ACC.PL · exam.ACC.PL"
         },
         {
           "sentence": "Αν {{answer}} αύριο, δεν θα πάμε εκδρομή.",
@@ -2582,7 +2793,8 @@
           "translation": "If it rains tomorrow, we won't go on the trip.",
           "hint": "rains — it",
           "transliteration": "An ___ ávrio, den tha páme ekdromí.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if · ___ · tomorrow · NEG · FUT · go.1PL · excursion.ACC.SG"
         },
         {
           "sentence": "{{answer}} δεν βιαστείς, θα χάσεις το λεωφορείο.",
@@ -2590,7 +2802,8 @@
           "translation": "If you don't hurry, you'll miss the bus.",
           "hint": "if",
           "transliteration": "___ den viastís, tha chásis to leoforío.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · NEG · hurry.PFV.2SG · FUT · lose.PFV.2SG · DEF.N.ACC.SG · bus.ACC.SG"
         },
         {
           "sentence": "Αν έρθεις νωρίς, {{answer}} φάμε μαζί.",
@@ -2598,7 +2811,8 @@
           "translation": "If you come early, we'll eat together.",
           "hint": "then (result marker)",
           "transliteration": "An érthis norís, ___ fáme mazí.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · come.PFV.2SG · early · ___ · eat.PFV.1PL · together"
         },
         {
           "sentence": "Αν {{answer}} τα χρήματα, θα αγοράσω το αυτοκίνητο.",
@@ -2606,7 +2820,8 @@
           "translation": "If I have the money, I'll buy the car.",
           "hint": "have — I",
           "transliteration": "An ___ ta chrímata, tha agoráso to aftokínito.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "if · ___ · DEF.N.ACC.PL · money.ACC.PL · FUT · buy.PFV.1SG · DEF.N.ACC.SG · car.ACC.SG"
         }
       ]
     },
@@ -2636,7 +2851,8 @@
           "translation": "The letter was written in Greek.",
           "hint": "was written (passive aorist)",
           "transliteration": "To grámma ___ sta elliniká.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.N.NOM.SG · letter.NOM.SG · ___ · in-DEF.N.ACC.PL · Greek.N.ACC.PL"
         },
         {
           "sentence": "Τα κλειδιά {{answer}} χθες το βράδυ.",
@@ -2644,7 +2860,8 @@
           "translation": "The keys got lost last night.",
           "hint": "were lost (passive aorist)",
           "transliteration": "Ta klidiá ___ chthes to vrádi.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.N.NOM.PL · key.NOM.PL · ___ · yesterday · DEF.N.ACC.SG · evening.ACC.SG"
         },
         {
           "sentence": "Το σπίτι {{answer}} πριν εκατό χρόνια.",
@@ -2652,7 +2869,8 @@
           "translation": "The house was built a hundred years ago.",
           "hint": "was built (passive aorist)",
           "transliteration": "To spíti ___ prin ekató chrónia.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.N.NOM.SG · house.NOM.SG · ___ · before · hundred · year.ACC.PL"
         },
         {
           "sentence": "{{answer}} πολύ όταν έμαθα τα νέα.",
@@ -2660,7 +2878,8 @@
           "translation": "I was very glad when I heard the news.",
           "hint": "I was glad (deponent aorist)",
           "transliteration": "___ polí ótan ématha ta néa.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · much · when · learn.PFV.PST.1SG · DEF.N.ACC.PL · news.ACC.PL"
         },
         {
           "sentence": "Η συνάντηση {{answer}} για την επόμενη εβδομάδα.",
@@ -2668,7 +2887,8 @@
           "translation": "The meeting was scheduled for next week.",
           "hint": "was scheduled (passive aorist)",
           "transliteration": "I sinándisi ___ yia tin epómeni evdomáda.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.F.NOM.SG · meeting.NOM.SG · ___ · for · DEF.F.ACC.SG · next.F.ACC.SG · week.ACC.SG"
         },
         {
           "sentence": "Τα παιδιά {{answer}} γρήγορα πριν το σχολείο.",
@@ -2676,7 +2896,8 @@
           "translation": "The children got ready quickly before school.",
           "hint": "got ready (passive aorist)",
           "transliteration": "Ta pediá ___ grígora prin to scholío.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.N.PL.NOM · child.PL.NOM · ___ · quickly · before · DEF.N.SG.ACC · school.SG.ACC"
         }
       ]
     },
@@ -2706,7 +2927,8 @@
           "translation": "If I were rich, I would travel all over the world.",
           "hint": "were — I (past)",
           "transliteration": "An ___ plúsios, tha taxídeva se ólo ton kósmo.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "if · ___ · rich.M.SG.NOM · COND · travel.PST.IPFV.1SG · in · all.M.SG.ACC · DEF.M.SG.ACC · world.SG.ACC"
         },
         {
           "sentence": "Αν είχα χρόνο, {{answer}} ερχόμουν στο πάρτι.",
@@ -2714,7 +2936,8 @@
           "translation": "If I had time, I would come to the party.",
           "hint": "would (result marker)",
           "transliteration": "An ícha chróno, ___ erchómun sto párti.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if · have.PST.IPFV.1SG · time.SG.ACC · ___ · come.PST.IPFV.1SG · in-DEF.N.SG.ACC · party.SG.ACC"
         },
         {
           "sentence": "Αν το {{answer}}, θα σου το έλεγα αμέσως.",
@@ -2722,7 +2945,8 @@
           "translation": "If I had known it, I'd have told you at once.",
           "hint": "knew — I (past)",
           "transliteration": "An to ___, tha su to élega amésos.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if · 3SG.N.OBJ · ___ · COND · 2SG.DAT · 3SG.N.OBJ · say.PST.IPFV.1SG · immediately"
         },
         {
           "sentence": "Θα {{answer}} περισσότερο αν δεν ήταν τόσο αργά.",
@@ -2730,7 +2954,8 @@
           "translation": "We would stay longer if it weren't so late.",
           "hint": "would stay — we (past)",
           "transliteration": "Tha ___ perissótero an den ítan tóso argá.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "COND · ___ · much.COMP · if · NEG · be.PST.3SG · so · late"
         },
         {
           "sentence": "Αν {{answer}} διαβάσει, θα περνούσε εύκολα.",
@@ -2738,7 +2963,8 @@
           "translation": "If he had studied, he would pass easily.",
           "hint": "had — he (pluperfect condition)",
           "transliteration": "An ___ diavási, tha pernúse éfkola.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · ___ · study.PFV · COND · pass.PST.IPFV.3SG · easily"
         },
         {
           "sentence": "Αν μου το {{answer}}, θα σε βοηθούσα.",
@@ -2746,7 +2972,8 @@
           "translation": "If you asked me, I would help you.",
           "hint": "asked — you (past)",
           "transliteration": "An mu to ___, tha se voithúsa.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "if · 1SG.DAT · 3SG.N.OBJ · ___ · COND · 2SG.OBJ · help.PST.IPFV.1SG"
         }
       ]
     },
@@ -2776,7 +3003,8 @@
           "translation": "I love Greek music very much.",
           "hint": "love — I",
           "transliteration": "Egó ___ polí tin ellinikí musikí.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.NOM · ___ · much · DEF.F.SG.ACC · Greek.F.SG.ACC · music.SG.ACC"
         },
         {
           "sentence": "{{answer}} πολύ γρήγορα, δεν σε καταλαβαίνω.",
@@ -2784,7 +3012,8 @@
           "translation": "You speak very fast, I don't understand you.",
           "hint": "speak — you (sg.)",
           "transliteration": "___ polí grígora, den se katalavéno.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · very · quickly · NEG · 2SG.OBJ · understand.PRS.1SG"
         },
         {
           "sentence": "Η δασκάλα {{answer}} τους μαθητές κάθε μέρα.",
@@ -2792,7 +3021,8 @@
           "translation": "The teacher asks the students every day.",
           "hint": "asks — she",
           "transliteration": "I daskála ___ tus mathités káthe méra.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.F.SG.NOM · teacher.SG.NOM · ___ · DEF.M.PL.ACC · student.PL.ACC · every · day.SG.ACC"
         },
         {
           "sentence": "Εμείς {{answer}} στην Αθήνα δέκα χρόνια.",
@@ -2800,7 +3030,8 @@
           "translation": "We have been living in Athens for ten years.",
           "hint": "live — we",
           "transliteration": "Emís ___ stin Athína déka chrónia.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL.NOM · ___ · in-DEF.F.SG.ACC · Athens.SG.ACC · ten · year.PL.ACC"
         },
         {
           "sentence": "Τα παιδιά {{answer}} στην αυλή κάθε απόγευμα.",
@@ -2808,7 +3039,8 @@
           "translation": "The children play in the yard every afternoon.",
           "hint": "play — they (plain -ω, contrast)",
           "transliteration": "Ta pediá ___ stin avlí káthe apóyevma.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.N.PL.NOM · child.PL.NOM · ___ · in-DEF.F.SG.ACC · yard.SG.ACC · every · afternoon.SG.ACC"
         },
         {
           "sentence": "Δεν {{answer}} να έρθω απόψε, συγγνώμη.",
@@ -2816,7 +3048,8 @@
           "translation": "I can't come tonight, sorry.",
           "hint": "can — I",
           "transliteration": "Den ___ na értho apópse, singnómi.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG · ___ · INF · come.PFV.1SG · tonight · sorry"
         }
       ]
     },
@@ -2846,7 +3079,8 @@
           "translation": "This restaurant is better than the other one.",
           "hint": "better (irregular)",
           "transliteration": "Aftó to estiatório íne ___ apó to állo.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this.N.SG.NOM · DEF.N.SG.NOM · restaurant.SG.NOM · be.PRS.3SG · ___ · than · DEF.N.SG.ACC · other.N.SG.ACC"
         },
         {
           "sentence": "Ο καιρός σήμερα είναι {{answer}} από χθες.",
@@ -2854,7 +3088,8 @@
           "translation": "The weather today is worse than yesterday.",
           "hint": "worse (irregular)",
           "transliteration": "O kerós símera íne ___ apó chthes.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.M.SG.NOM · weather.SG.NOM · today · be.PRS.3SG · ___ · than · yesterday"
         },
         {
           "sentence": "Η Αθήνα είναι η {{answer}} πόλη της Ελλάδας.",
@@ -2862,7 +3097,8 @@
           "translation": "Athens is the biggest city in Greece.",
           "hint": "biggest (synthetic superlative)",
           "transliteration": "I Athína íne i ___ póli tis Elládas.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.F.SG.NOM · Athens.SG.NOM · be.PRS.3SG · DEF.F.SG.NOM · ___ · city.SG.NOM · DEF.F.SG.GEN · Greece.SG.GEN"
         },
         {
           "sentence": "Χρειαζόμαστε {{answer}} χρόνο για το έργο.",
@@ -2870,7 +3106,8 @@
           "translation": "We need more time for the project.",
           "hint": "more (irregular)",
           "transliteration": "Chriazómaste ___ chróno yia to érgo.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "need.PRS.1PL · ___ · time.SG.ACC · for · DEF.N.SG.ACC · project.SG.ACC"
         },
         {
           "sentence": "Ο αδελφός μου είναι {{answer}} από μένα.",
@@ -2878,7 +3115,8 @@
           "translation": "My brother is younger than me.",
           "hint": "younger (synthetic)",
           "transliteration": "O adelfós mu íne ___ apó ména.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M.SG.NOM · brother.SG.NOM · 1SG.POSS · be.PRS.3SG · ___ · than · 1SG.ACC"
         },
         {
           "sentence": "Είναι ο {{answer}} μαθητής της τάξης.",
@@ -2886,7 +3124,8 @@
           "translation": "He is the best student in the class.",
           "hint": "best (irregular superlative)",
           "transliteration": "Íne o ___ mathitís tis táxis.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "be.PRS.3SG · DEF.M.SG.NOM · ___ · student.SG.NOM · DEF.F.SG.GEN · class.SG.GEN"
         }
       ]
     },
@@ -2916,7 +3155,8 @@
           "translation": "He entered the room smiling.",
           "hint": "smiling (-οντας participle)",
           "transliteration": "Bíke sto domátio ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "enter.PST.PFV.3SG · in-DEF.N.SG.ACC · room.SG.ACC · ___"
         },
         {
           "sentence": "{{answer}} για το λεωφορείο, έπεσα.",
@@ -2924,7 +3164,8 @@
           "translation": "Running for the bus, I fell.",
           "hint": "running (-οντας participle)",
           "transliteration": "___ yia to leoforío, épesa.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · for · DEF.N.ACC.SG · bus.ACC.SG · fall.PST.1SG"
         },
         {
           "sentence": "Το γράμμα ήταν {{answer}} στα ελληνικά.",
@@ -2932,7 +3173,8 @@
           "translation": "The letter was written in Greek.",
           "hint": "written (-μένος, neut.)",
           "transliteration": "To grámma ítan ___ sta elliniká.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.N.NOM.SG · letter.NOM.SG · be.PST.3SG · ___ · in-DEF.N.ACC.PL · Greek.ACC.PL"
         },
         {
           "sentence": "Ήμουν πολύ {{answer}} μετά τη δουλειά.",
@@ -2940,7 +3182,8 @@
           "translation": "I was very tired after work.",
           "hint": "tired (-μένος, fem.)",
           "transliteration": "Ímun polí ___ metá ti duliá.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "be.PST.1SG · very · ___ · after · DEF.F.ACC.SG · work.ACC.SG"
         },
         {
           "sentence": "Βρήκα την πόρτα {{answer}}.",
@@ -2948,7 +3191,8 @@
           "translation": "I found the door locked.",
           "hint": "locked (-μένος, fem.)",
           "transliteration": "Vríka tin pórta ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "find.PST.1SG · DEF.F.ACC.SG · door.ACC.SG · ___"
         },
         {
           "sentence": "Διάβαζε το βιβλίο {{answer}} στον καναπέ.",
@@ -2956,7 +3200,8 @@
           "translation": "He read the book lying on the couch.",
           "hint": "lying down (-μένος, masc.)",
           "transliteration": "Diávaze to vivlío ___ ston kanapé.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "read.PST.IPFV.3SG · DEF.N.ACC.SG · book.ACC.SG · ___ · in-DEF.M.ACC.SG · couch.ACC.SG"
         }
       ]
     },
@@ -2986,7 +3231,8 @@
           "translation": "He told me that he'll be a bit late.",
           "hint": "that (statement), the neutral formal conjunction",
           "transliteration": "Mu ípe ___ tha aryísi lígo.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.GEN · say.PST.3SG · ___ · FUT · delay.PFV.3SG · little"
         },
         {
           "sentence": "Η δασκάλα είπε {{answer}} διαβάσουμε το κεφάλαιο.",
@@ -2994,7 +3240,8 @@
           "translation": "The teacher said to read the chapter.",
           "hint": "to (command)",
           "transliteration": "I daskála ípe ___ diavásume to kefáleo.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.F.NOM.SG · teacher.NOM.SG · say.PST.3SG · ___ · read.PFV.1PL · DEF.N.ACC.SG · chapter.ACC.SG"
         },
         {
           "sentence": "Νομίζω {{answer}} έχει δίκιο.",
@@ -3002,7 +3249,8 @@
           "translation": "I think that he is right.",
           "hint": "that (statement), the colloquial alternative",
           "transliteration": "Nomízo ___ échi díkio.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "think.PRS.1SG · ___ · have.PRS.3SG · right.ACC.SG"
         },
         {
           "sentence": "Της ζήτησα {{answer}} μου τηλεφωνήσει το βράδυ.",
@@ -3010,7 +3258,8 @@
           "translation": "I asked her to call me in the evening.",
           "hint": "to (request)",
           "transliteration": "Tis zítisa ___ mu tilefonísi to vrádi.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F.GEN · request.PST.1SG · ___ · 1SG.GEN · phone.PFV.3SG · DEF.N.ACC.SG · evening.ACC.SG"
         },
         {
           "sentence": "Είπαν {{answer}} το μαγαζί είναι κλειστό σήμερα.",
@@ -3018,7 +3267,8 @@
           "translation": "They said that the shop is closed today.",
           "hint": "that (statement), the neutral formal conjunction",
           "transliteration": "Ípan ___ to magazí íne klistó símera.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "say.PST.3PL · ___ · DEF.N.NOM.SG · shop.NOM.SG · be.PRS.3SG · closed.N.NOM.SG · today"
         },
         {
           "sentence": "Μας ρώτησε {{answer}} θέλουμε καφέ.",
@@ -3026,7 +3276,8 @@
           "translation": "He asked us whether we want coffee.",
           "hint": "whether (reported question)",
           "transliteration": "Mas rótise ___ thélume kafé.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL.ACC · ask.PST.3SG · ___ · want.PRS.1PL · coffee.ACC.SG"
         }
       ]
     },
@@ -3056,7 +3307,8 @@
           "translation": "I had already eaten when my friends came.",
           "hint": "had — I (pluperfect)",
           "transliteration": "___ ídi fái ótan írthan i fíli mu.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · already · eat.INF · when · come.PST.3PL · DEF.M.NOM.PL · friend.NOM.PL · 1SG.GEN"
         },
         {
           "sentence": "Το τρένο {{answer}} φύγει πριν φτάσουμε.",
@@ -3064,7 +3316,8 @@
           "translation": "The train had left before we arrived.",
           "hint": "had — it (pluperfect)",
           "transliteration": "To tréno ___ fíyi prin ftásume.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.N.NOM.SG · train.NOM.SG · ___ · leave.INF · before · arrive.PFV.1PL"
         },
         {
           "sentence": "Ως το βράδυ θα {{answer}} τελειώσει την εργασία.",
@@ -3072,7 +3325,8 @@
           "translation": "By evening I will have finished the assignment.",
           "hint": "will have — I (future perfect)",
           "transliteration": "Os to vrádi tha ___ teliósi tin ergasía.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "until · DEF.N.ACC.SG · evening.ACC.SG · FUT · ___ · finish.INF · DEF.F.ACC.SG · assignment.ACC.SG"
         },
         {
           "sentence": "Μέχρι τον Ιούνιο {{answer}} είχαμε μάθει πολλά.",
@@ -3080,7 +3334,8 @@
           "translation": "By June we had already learned a lot.",
           "hint": "already (with pluperfect)",
           "transliteration": "Méchri ton Iúnio ___ íchame máthi pollá.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "until · DEF.M.ACC.SG · June.ACC.SG · ___ · have.PST.1PL · learn.INF · many.N.ACC.PL"
         },
         {
           "sentence": "Όταν γυρίσεις, θα {{answer}} καθαρίσει το σπίτι.",
@@ -3088,7 +3343,8 @@
           "translation": "When you get back, I'll have cleaned the house.",
           "hint": "will have — I (future perfect)",
           "transliteration": "Ótan yirísis, tha ___ katharísi to spíti.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "when · return.PFV.2SG · FUT · ___ · clean.INF · DEF.N.ACC.SG · house.ACC.SG"
         },
         {
           "sentence": "Δεν είχε {{answer}} ποτέ ελληνικά πριν έρθει εδώ.",
@@ -3096,7 +3352,8 @@
           "translation": "He had never spoken Greek before he came here.",
           "hint": "spoken (aparémfato)",
           "transliteration": "Den íche ___ poté elliniká prin érthi edó.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG · have.PST.3SG · ___ · ever · Greek.ACC.PL · before · come.INF · here"
         }
       ]
     },
@@ -3126,7 +3383,8 @@
           "translation": "Yesterday I came home very late.",
           "hint": "came — I (aorist of έρχομαι)",
           "transliteration": "Chthes ___ polí argá sto spíti.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "yesterday · ___ · very · late · in-DEF.N.ACC.SG · house.ACC.SG"
         },
         {
           "sentence": "Τι {{answer}} μετά το σχολείο; — Δάσκαλος.",
@@ -3134,7 +3392,8 @@
           "translation": "What did you become after school? — A teacher.",
           "hint": "became — you (aorist of γίνομαι)",
           "transliteration": "Ti ___ metá to scholío? — Dáskalos.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "what · ___ · after · DEF.N.ACC.SG · school.ACC.SG · — · teacher.NOM.SG"
         },
         {
           "sentence": "Ο παππούς {{answer}} στην πολυθρόνα και κοιμήθηκε.",
@@ -3142,7 +3401,8 @@
           "translation": "Grandpa sat in the armchair and fell asleep.",
           "hint": "sat — he (aorist of κάθομαι)",
           "transliteration": "O pappús ___ stin polithróna ke kimíthike.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M.NOM.SG · grandpa.NOM.SG · ___ · in-DEF.F.ACC.SG · armchair.ACC.SG · and · sleep.PST.3SG"
         },
         {
           "sentence": "Το παιδί {{answer}} τον σκύλο και έκλαψε.",
@@ -3150,7 +3410,8 @@
           "translation": "The child was afraid of the dog and cried.",
           "hint": "feared — he (aorist of φοβάμαι)",
           "transliteration": "To pedí ___ ton skílo ke éklapse.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.N.NOM.SG · child.NOM.SG · ___ · DEF.M.ACC.SG · dog.ACC.SG · and · cry.PST.PFV.3SG"
         },
         {
           "sentence": "Πέρσι {{answer}} πολλοί τουρίστες στο νησί.",
@@ -3158,7 +3419,8 @@
           "translation": "Last year many tourists came to the island.",
           "hint": "came — they (aorist of έρχομαι)",
           "transliteration": "Pérsi ___ pollí turístes sto nisí.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "last.year · ___ · many.M.NOM.PL · tourist.NOM.PL · to-DEF.N.ACC.SG · island.ACC.SG"
         },
         {
           "sentence": "Ξαφνικά ο ουρανός {{answer}} γκρίζος.",
@@ -3166,7 +3428,8 @@
           "translation": "Suddenly the sky became grey.",
           "hint": "became — it (aorist of γίνομαι)",
           "transliteration": "Xafniká o uranós ___ grízos.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "suddenly · DEF.M.NOM.SG · sky.NOM.SG · ___ · grey.M.NOM.SG"
         }
       ]
     },
@@ -3196,7 +3459,8 @@
           "translation": "I didn't come because I was ill.",
           "hint": "because",
           "transliteration": "Den írtha ___ ímun árrostos.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "NEG · come.PST.PFV.1SG · ___ · be.PST.1SG · ill.M.NOM.SG"
         },
         {
           "sentence": "{{answer}} εγώ δούλευα, εκείνος κοιμόταν.",
@@ -3204,7 +3468,8 @@
           "translation": "While I was working, he was sleeping.",
           "hint": "while / whereas",
           "transliteration": "___ egó dúleva, ekínos kimótan.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 1SG.NOM · work.PST.IPFV.1SG · that.M.NOM.SG · sleep.PST.IPFV.3SG"
         },
         {
           "sentence": "{{answer}} και ήταν αργά, συνεχίσαμε τη συζήτηση.",
@@ -3212,7 +3477,8 @@
           "translation": "Although it was late, we continued the conversation.",
           "hint": "conditional conjunction; with 'και' it means although",
           "transliteration": "___ ke ítan argá, sinechísame ti sizítisi.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · and · be.PST.3SG · late · continue.PST.PFV.1PL · DEF.F.ACC.SG · conversation.ACC.SG"
         },
         {
           "sentence": "Μίλησε δυνατά, {{answer}} να τον ακούσουν όλοι.",
@@ -3220,7 +3486,8 @@
           "translation": "He spoke loudly, so that everyone could hear him.",
           "hint": "so that",
           "transliteration": "Mílise dinatá, ___ na ton akúsun óli.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "speak.PST.PFV.3SG · loudly · ___ · SBJV · 3SG.M.ACC · hear.PFV.3PL · all.M.NOM.PL"
         },
         {
           "sentence": "Θα σε βοηθήσω, {{answer}} μου το ζητήσεις ευγενικά.",
@@ -3228,7 +3495,8 @@
           "translation": "I'll help you, as long as you ask me politely.",
           "hint": "as long as / provided",
           "transliteration": "Tha se voithíso, ___ mu to zitísis evyeniká.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "FUT · 2SG.ACC · help.PFV.1SG · ___ · 1SG.GEN · 3SG.N.ACC · ask.PFV.2SG · politely"
         },
         {
           "sentence": "Έμεινε σπίτι {{answer}} έβρεχε πολύ.",
@@ -3236,7 +3504,8 @@
           "translation": "She stayed home because it was raining a lot.",
           "hint": "because",
           "transliteration": "Émine spíti ___ évreche polí.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "stay.PST.PFV.3SG · home.ACC.SG · ___ · rain.PST.IPFV.3SG · much"
         }
       ]
     },
@@ -3266,7 +3535,8 @@
           "translation": "John, I've known him since childhood.",
           "hint": "him (doubling clitic)",
           "transliteration": "Ton Yiánni ___ xéro apó pedí.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.M.ACC.SG · John.ACC.SG · ___ · know.PRS.1SG · from · child.ACC.SG"
         },
         {
           "sentence": "Το βιβλίο {{answer}} έχω διαβάσει δύο φορές.",
@@ -3274,7 +3544,8 @@
           "translation": "The book, I've read it twice.",
           "hint": "it (doubling clitic)",
           "transliteration": "To vivlío ___ écho diavási dío forés.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.N.ACC.SG · book.ACC.SG · ___ · have.PRS.1SG · read.INF · two · time.ACC.PL"
         },
         {
           "sentence": "Της Μαρίας {{answer}} το είπα χθες.",
@@ -3282,7 +3553,8 @@
           "translation": "To Maria, I told it to her yesterday.",
           "hint": "to her (doubling clitic)",
           "transliteration": "Tis Marías ___ to ípa chthes.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.F.GEN.SG · Maria.GEN.SG · ___ · 3SG.N.ACC · say.PST.PFV.1SG · yesterday"
         },
         {
           "sentence": "Τους γείτονες δεν {{answer}} βλέπω συχνά.",
@@ -3290,7 +3562,8 @@
           "translation": "The neighbours, I don't see them often.",
           "hint": "them (doubling clitic)",
           "transliteration": "Tus yítones den ___ vlépo sichná.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.M.ACC.PL · neighbour.ACC.PL · NEG · ___ · see.PRS.1SG · often"
         },
         {
           "sentence": "Την αλήθεια {{answer}} ξέρουν όλοι.",
@@ -3298,7 +3571,8 @@
           "translation": "The truth, everyone knows it.",
           "hint": "it/her (doubling clitic)",
           "transliteration": "Tin alíthia ___ xérun óli.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.F.ACC.SG · truth.ACC.SG · ___ · know.PRS.3PL · all.M.NOM.PL"
         },
         {
           "sentence": "Εσένα {{answer}} περίμενα όλο το βράδυ.",
@@ -3306,7 +3580,8 @@
           "translation": "It was you I was waiting for all evening.",
           "hint": "you (emphatic + clitic)",
           "transliteration": "Eséna ___ perímena ólo to vrádi.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "2SG.ACC · ___ · wait.PST.IPFV.1SG · all.N.ACC.SG · DEF.N.ACC.SG · evening.ACC.SG"
         }
       ]
     },
@@ -3336,7 +3611,8 @@
           "translation": "In any case, we'll talk tomorrow.",
           "hint": "archaic 'in' governing the dative — formal register",
           "transliteration": "___ periptósi, tha ta púme ávrio.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · case.DAT.SG · FUT · 3PL.N.ACC · say.PFV.1PL · tomorrow"
         },
         {
           "sentence": "Κατά τη {{answer}} μου, έχει δίκιο.",
@@ -3344,7 +3620,8 @@
           "translation": "In my opinion, he is right.",
           "hint": "opinion (fixed phrase)",
           "transliteration": "Katá ti ___ mu, échi díkio.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "according.to · DEF.F.ACC.SG · ___ · 1SG.GEN · have.PRS.3SG · right.ACC.SG"
         },
         {
           "sentence": "Ήταν δύσκολο· {{answer}}, τα καταφέραμε.",
@@ -3352,7 +3629,8 @@
           "translation": "It was hard; nevertheless, we managed.",
           "hint": "nevertheless (formal)",
           "transliteration": "Ítan dískolo; ___, ta kataférame.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "be.PST.3SG · difficult.N.NOM.SG · ___ · 3PL.N.ACC · manage.PST.PFV.1PL"
         },
         {
           "sentence": "{{answer}} να παραδεχτώ ότι έκανα λάθος.",
@@ -3360,7 +3638,8 @@
           "translation": "I ought to admit that I was wrong.",
           "hint": "I ought (formal for πρέπει)",
           "transliteration": "___ na paradechtó óti ékana láthos.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · SBJV · admit.PFV.1SG · COMP · do.PST.PFV.1SG · mistake.ACC.SG"
         },
         {
           "sentence": "Δεν ήρθε, {{answer}} ήταν άρρωστος.",
@@ -3368,7 +3647,8 @@
           "translation": "He didn't come, since he was ill.",
           "hint": "since (formal for γιατί)",
           "transliteration": "Den írthe, ___ ítan árrostos.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · come.PST.PFV.3SG · ___ · be.PST.3SG · ill.M.NOM.SG"
         },
         {
           "sentence": "Θα το κάνω {{answer}} ώρας.",
@@ -3376,7 +3656,8 @@
           "translation": "I'll do it in due course.",
           "hint": "archaic 'in' used in frozen formal phrases",
           "transliteration": "Tha to káno ___ óras.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "FUT · 3SG.N.ACC · do.1SG · ___ · hour.F.SG.GEN"
         }
       ]
     },
@@ -3416,7 +3697,8 @@
           "translation": "This book is very good.",
           "hint": "this — neuter",
           "transliteration": "___ to vivlío íne polý kaló.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · DEF.N.SG · book.N.SG · be.3SG · very · good.N.SG"
         },
         {
           "sentence": "{{answer}} ο άνθρωπος είναι ο γείτονάς μου.",
@@ -3424,7 +3706,8 @@
           "translation": "This man is my neighbor.",
           "hint": "this — masculine",
           "transliteration": "___ o ánthropos íne o gítonás mou.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · DEF.M.SG · man.M.SG · be.3SG · DEF.M.SG · neighbor.M.SG · 1SG.POSS"
         },
         {
           "sentence": "{{answer}} η ταινία ήταν βαρετή.",
@@ -3432,7 +3715,8 @@
           "translation": "This film was boring.",
           "hint": "this — feminine",
           "transliteration": "___ i tenía ítan varetí.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · DEF.F.SG · film.F.SG · be.PST.3SG · boring.F.SG"
         },
         {
           "sentence": "{{answer}} το σπίτι εκεί πέρα είναι δικό μας.",
@@ -3440,7 +3724,8 @@
           "translation": "That house over there is ours.",
           "hint": "that one, far away — neuter",
           "transliteration": "___ to spíti ekí péra íne dikó mas.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · DEF.N.SG · house.N.SG · there · beyond · be.3SG · own.N.SG · 1PL.POSS"
         },
         {
           "sentence": "{{answer}} η γυναίκα είναι δασκάλα.",
@@ -3448,7 +3733,8 @@
           "translation": "That woman is a teacher.",
           "hint": "that — feminine, far away",
           "transliteration": "___ i ginéka íne daskála.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · DEF.F.SG · woman.F.SG · be.3SG · teacher.F.SG"
         },
         {
           "sentence": "Θέλω {{answer}} τα παπούτσια.",
@@ -3456,7 +3742,8 @@
           "translation": "I want these shoes.",
           "hint": "these — neuter plural",
           "transliteration": "Thélo ___ ta papoútsia.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "want.1SG · ___ · DEF.N.PL.ACC · shoe.N.PL.ACC"
         }
       ]
     }

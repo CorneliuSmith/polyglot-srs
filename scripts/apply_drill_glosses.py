@@ -92,6 +92,10 @@ def check(gloss: str, sentence: str, answer: str) -> str | None:
         seen.update(p for p in re.split(r"[-'’.]", tok) if p)
     if fold(answer).strip() in seen:
         return "gloss contains the answer"
+    if all(c == "___" for c in cells):
+        # A one-token sentence glossed as a bare blank. Structurally valid and
+        # completely empty — test_gloss_layer rejects it, and so should this.
+        return "the whole gloss is the blank"
     pairs = [(t, c) for t, c in zip(tokens, cells, strict=False) if c != "___"]
     if pairs and all(c.lower() == t.strip(".,!?\"'").lower() for t, c in pairs):
         return "every cell echoes its token"

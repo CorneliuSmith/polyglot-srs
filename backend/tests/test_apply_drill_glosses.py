@@ -66,3 +66,10 @@ class TestHarvest:
             '{"type":"result","result":{"glosses":[],"fixes":'
             '[{"k":"en:0:0","gloss":"RIGHT","why":"x"}]}}\n', encoding="utf-8")
         assert adg.harvest([p]) == {"en:0:0": "RIGHT"}
+
+
+def test_a_gloss_that_is_only_the_blank_says_nothing():
+    """A one-token sentence ({{answer}}?) glossed as `___` passes every
+    structural rule and conveys nothing. Two Korean drills reached the tree
+    that way before test_gloss_layer caught them."""
+    assert adg.check("___", "{{answer}}?", "네") == "the whole gloss is the blank"
