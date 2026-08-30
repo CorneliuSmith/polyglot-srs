@@ -2984,7 +2984,7 @@
           "sentence": "Μου είπε {{answer}} θα αργήσει λίγο.",
           "answer": "ότι",
           "translation": "He told me that he'll be a bit late.",
-          "hint": "that (statement)",
+          "hint": "that (statement), the neutral formal conjunction",
           "transliteration": "Mu ípe ___ tha aryísi lígo.",
           "display_order": 1
         },
@@ -3000,7 +3000,7 @@
           "sentence": "Νομίζω {{answer}} έχει δίκιο.",
           "answer": "πως",
           "translation": "I think that he is right.",
-          "hint": "that (statement)",
+          "hint": "that (statement), the colloquial alternative",
           "transliteration": "Nomízo ___ échi díkio.",
           "display_order": 3
         },
@@ -3016,7 +3016,7 @@
           "sentence": "Είπαν {{answer}} το μαγαζί είναι κλειστό σήμερα.",
           "answer": "ότι",
           "translation": "They said that the shop is closed today.",
-          "hint": "that (statement)",
+          "hint": "that (statement), the neutral formal conjunction",
           "transliteration": "Ípan ___ to magazí íne klistó símera.",
           "display_order": 5
         },

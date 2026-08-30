@@ -1957,7 +1957,7 @@
           "sentence": "Ella va a {{answer}} una fiesta.",
           "answer": "organizar",
           "translation": "She is going to organise a party.",
-          "hint": "infinitive after ir a",
+          "hint": "infinitive — putting the event together",
           "display_order": 3,
           "gloss": "3SG.F · go.PRS.3SG · to · ___ · INDF.F.SG · party"
         },
@@ -1981,7 +1981,7 @@
           "sentence": "Voy a {{answer}} pescado para la cena.",
           "answer": "comprar",
           "translation": "I am going to buy fish for dinner.",
-          "hint": "infinitive after ir a",
+          "hint": "infinitive — the opposite of selling",
           "display_order": 6,
           "gloss": "go.PRS.1SG · to · ___ · fish · for · DEF.F.SG · dinner"
         }
@@ -3125,7 +3125,7 @@
           "sentence": "Dijo que {{answer}} cansado.",
           "answer": "estaba",
           "translation": "He said he was tired.",
-          "hint": "present → imperfect",
+          "hint": "'to be' in a state, imperfect",
           "display_order": 1,
           "gloss": "say.PST.PFV.3SG · COMP · ___ · tired.M.SG"
         },
@@ -3133,7 +3133,7 @@
           "sentence": "Me dijo que {{answer}} mañana.",
           "answer": "vendría",
           "translation": "She told me she would come tomorrow.",
-          "hint": "future → conditional",
+          "hint": "'to come', one person",
           "display_order": 2,
           "gloss": "1SG.OBJ · say.PST.PFV.3SG · COMP · ___ · tomorrow"
         },
@@ -3141,7 +3141,7 @@
           "sentence": "Dijo que no {{answer}} venir hoy.",
           "answer": "podía",
           "translation": "He said he couldn't come today.",
-          "hint": "present → imperfect",
+          "hint": "'to be able to', imperfect",
           "display_order": 3,
           "gloss": "say.PST.PFV.3SG · COMP · NEG · ___ · come.INF · today"
         },
@@ -3157,7 +3157,7 @@
           "sentence": "Dijeron que {{answer}} el lunes.",
           "answer": "llegarían",
           "translation": "They said they would arrive on Monday.",
-          "hint": "future → conditional",
+          "hint": "'to arrive', plural subject",
           "display_order": 5,
           "gloss": "say.PST.PFV.3PL · COMP · ___ · DEF.M.SG · Monday"
         },
@@ -3433,7 +3433,7 @@
           "sentence": "Si lo {{answer}} sabido, no habría venido.",
           "answer": "hubiera",
           "translation": "If I had known, I wouldn't have come.",
-          "hint": "haber — pluperfect subjunctive",
+          "hint": "subjunctive auxiliary, first person singular (yo)",
           "display_order": 3,
           "gloss": "if · 3SG.M.OBJ · ___ · know.PTCP · NEG · have.1SG.COND · come.PTCP"
         },
@@ -3441,7 +3441,7 @@
           "sentence": "Si hubieras salido antes, no {{answer}} perdido el tren.",
           "answer": "habrías",
           "translation": "If you had left earlier, you wouldn't have missed the train.",
-          "hint": "haber — conditional perfect",
+          "hint": "conditional auxiliary, second person singular (tú)",
           "display_order": 4,
           "gloss": "if · have.2SG.PST.SBJV · leave.PTCP · before · NEG · ___ · lose.PTCP · DEF.M · train"
         },
@@ -3449,7 +3449,7 @@
           "sentence": "Ojalá me lo {{answer}} dicho antes.",
           "answer": "hubieras",
           "translation": "I wish you had told me earlier.",
-          "hint": "haber — pluperfect subjunctive",
+          "hint": "subjunctive auxiliary, second person singular (tú)",
           "display_order": 5,
           "gloss": "if_only · 1SG.OBJ · 3SG.M.OBJ · ___ · say.PTCP · before"
         },
@@ -3457,7 +3457,7 @@
           "sentence": "Sin tu ayuda, no lo {{answer}} conseguido.",
           "answer": "habríamos",
           "translation": "Without your help, we wouldn't have managed it.",
-          "hint": "haber — conditional perfect",
+          "hint": "conditional auxiliary, first person plural (we)",
           "display_order": 6,
           "gloss": "without · 2SG.POSS · help · NEG · 3SG.M.OBJ · ___ · manage.PTCP"
         }
@@ -3659,7 +3659,7 @@
           "sentence": "Pase lo que {{answer}}, estaré contigo.",
           "answer": "pase",
           "translation": "Whatever happens, I'll be with you.",
-          "hint": "echo the verb — subjunctive",
+          "hint": "echo the verb 'to happen', subjunctive",
           "display_order": 4,
           "gloss": "happen.SBJV.3SG · DEF.N · that · ___ · be.FUT.1SG · with.2SG"
         },
@@ -3667,7 +3667,7 @@
           "sentence": "Haga el tiempo que {{answer}}, saldremos.",
           "answer": "haga",
           "translation": "Whatever the weather, we'll go out.",
-          "hint": "echo the verb — subjunctive",
+          "hint": "echo the weather verb, subjunctive",
           "display_order": 5,
           "gloss": "make.SBJV.3SG · DEF.M · weather · that · ___ · go_out.FUT.1PL"
         },

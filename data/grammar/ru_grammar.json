@@ -1906,7 +1906,7 @@
           "sentence": "{{answer}} я пью кофе.",
           "answer": "Утром",
           "translation": "In the morning I drink coffee.",
-          "hint": "part of day — instrumental",
+          "hint": "the part of day before noon — instrumental",
           "display_order": 3,
           "transliteration": "___ ya p'yu kofe.",
           "gloss": "___ · I.1SG.NOM · drink.PRS.1SG · coffee.ACC"
@@ -1924,7 +1924,7 @@
           "sentence": "{{answer}} она смотрит телевизор.",
           "answer": "Вечером",
           "translation": "In the evening she watches TV.",
-          "hint": "part of day — instrumental",
+          "hint": "the part of day after sunset — instrumental",
           "display_order": 5,
           "transliteration": "___ ona smotrit televizor.",
           "gloss": "___ · she.3SG.NOM · watch.PRS.3SG · television.ACC"
@@ -2377,7 +2377,7 @@
           "sentence": "Новый год начинается {{answer}} января.",
           "answer": "первого",
           "translation": "The New Year begins on the first of January.",
-          "hint": "'on a date' → genitive ordinal",
+          "hint": "day 1 of the month — genitive ordinal",
           "display_order": 2,
           "transliteration": "Novy'j god nachinaetsya ___ yanvarya.",
           "gloss": "new.M.SG.NOM · year.NOM · begin.3SG · ___ · January.GEN"
@@ -2386,7 +2386,7 @@
           "sentence": "Она родилась {{answer}} марта.",
           "answer": "второго",
           "translation": "She was born on the second of March.",
-          "hint": "'on a date' → genitive ordinal",
+          "hint": "day 2 of the month — genitive ordinal",
           "display_order": 3,
           "transliteration": "Ona rodilas' ___ marta.",
           "gloss": "3SG.F.NOM · be_born.PST.F · ___ · March.GEN"
@@ -2404,7 +2404,7 @@
           "sentence": "Экзамен будет {{answer}} июня.",
           "answer": "пятнадцатого",
           "translation": "The exam will be on the fifteenth of June.",
-          "hint": "'on a date' → genitive ordinal",
+          "hint": "day 15 of the month — genitive ordinal",
           "display_order": 5,
           "transliteration": "E'kzamen budet ___ iyunya.",
           "gloss": "exam.NOM · be.FUT.3SG · ___ · June.GEN"
@@ -4226,7 +4226,7 @@
           "sentence": "Он {{answer}} мою книгу и до сих пор не вернул.",
           "answer": "взял",
           "translation": "He took my book and still hasn't returned it.",
-          "hint": "result still holds → perfective",
+          "hint": "took it (and still has it) — perfective",
           "display_order": 3,
           "transliteration": "On ___ moyu knigu i do sih por ne vernul.",
           "gloss": "3SG.M.NOM · ___ · 1SG.POSS.ACC.F · book.ACC · and · until · this.GEN.PL · time.GEN.PL · NEG · return.PST.PFV.M"
@@ -4244,7 +4244,7 @@
           "sentence": "Кто {{answer}} свет? В комнате темно было, а теперь горит.",
           "answer": "включил",
           "translation": "Who turned on the light? The room was dark, and now it's on.",
-          "hint": "result still holds → perfective",
+          "hint": "switched it on (light) — perfective",
           "display_order": 5,
           "transliteration": "Kto ___ svet? V komnate temno by'lo, a teper' gorit.",
           "gloss": "who.NOM · ___ · light.ACC · in · room.LOC · dark · be.PST.IPFV.N · but · now · burn.PRS.3SG"

@@ -2019,7 +2019,7 @@
           "sentence": "Ngā tamariki e tākaro {{answer}} kei waho.",
           "answer": "ana",
           "translation": "The children who are playing are outside.",
-          "hint": "(progressive frame)",
+          "hint": "closes the frame, right after the verb",
           "gloss": "the.PL · children · PROG · play · ___ · at · outside",
           "display_order": 3
         },
@@ -2035,7 +2035,7 @@
           "sentence": "Te wahine {{answer}} waiata ana he pai tōna reo.",
           "answer": "e",
           "translation": "The woman who is singing has a good voice.",
-          "hint": "(progressive frame)",
+          "hint": "opens the frame, right before the verb",
           "gloss": "the · woman · ___ · sing · PROG · a · good · 3SG.POSS · voice",
           "display_order": 5
         },

@@ -904,7 +904,7 @@
      "sentence": "Oúnjẹ yìí {{answer}}.",
      "answer": "dára",
      "translation": "This food is good.",
-     "hint": "quality word used as a verb",
+     "hint": "quality verb meaning to be good",
      "display_order": 1,
      "gloss": "food · this · ___"
     },
@@ -912,7 +912,7 @@
      "sentence": "Ilé náà {{answer}}.",
      "answer": "tóbi",
      "translation": "The house is big.",
-     "hint": "quality word used as a verb",
+     "hint": "quality verb meaning to be big",
      "display_order": 2,
      "gloss": "house · DEF · ___"
     },
