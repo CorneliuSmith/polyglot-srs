@@ -84,7 +84,7 @@ DUMP_ARGS=(
   "$DATABASE_URL"
   --no-owner --no-privileges
   --clean --if-exists
-  "${SCOPE_FLAGS[@]}"
+  ${SCOPE_FLAGS[@]+"${SCOPE_FLAGS[@]}"}
 )
 
 # Emit the dump on stdout so the gzip/plain branch below stays one code path.
@@ -104,7 +104,7 @@ emit_dump() {
     # installed pgcrypto into public. Found by round-tripping this, not by
     # reading it.
     pg_dump "$DATABASE_URL" --no-owner --no-privileges \
-      "${SCOPE_FLAGS[@]}" --schema=public
+      ${SCOPE_FLAGS[@]+"${SCOPE_FLAGS[@]}"} --schema=public
   else
     pg_dump "${DUMP_ARGS[@]}"
   fi
