@@ -1726,11 +1726,28 @@ async def get_card_detail(
     }
 
     if card["card_type"] == "personal":
+        # Provenance columns arrived in separate owner-applied migrations
+        # (personal_deck_id: 20260811, source: 20261005) — probe, never
+        # catch, or the pooled transaction dies (see get_due_cards).
+        has_deck = await table_present(conn, "personal_decks")
+        has_source = bool(await conn.fetchval(
+            "SELECT 1 FROM information_schema.columns"
+            " WHERE table_schema = 'public'"
+            "   AND table_name = 'user_cloze_cards' AND column_name = 'source'"
+        ))
+        deck_join = (
+            "LEFT JOIN personal_decks pd ON cc.personal_deck_id = pd.id"
+            if has_deck else ""
+        )
         cc = await conn.fetchrow(
-            """
-            SELECT cc.answer, cc.translation, cc.sentence, n.title AS note_title
+            f"""
+            SELECT cc.answer, cc.translation, cc.sentence, cc.created_at,
+                   {"cc.source" if has_source else "NULL"} AS source,
+                   {"pd.name" if has_deck else "NULL"} AS deck_name,
+                   n.title AS note_title
             FROM user_cloze_cards cc
             LEFT JOIN user_notes n ON cc.note_id = n.id
+            {deck_join}
             WHERE cc.id = $1
             """,
             card["card_id"],
@@ -1749,6 +1766,17 @@ async def get_card_detail(
             f"From your note: {cc['note_title']}"
             if cc and cc["note_title"] else None
         )
+        # Structured provenance, localized CLIENT-side (usage_note above is
+        # composed English and kept only for old clients). source None means
+        # the card predates tracking — displayed as that, never guessed.
+        provenance = {
+            "source": cc["source"] if cc else None,
+            "created_at": (
+                cc["created_at"].isoformat() if cc and cc["created_at"] else None
+            ),
+            "note_title": cc["note_title"] if cc else None,
+            "deck_name": cc["deck_name"] if cc else None,
+        } if cc else None
         return {
             "card_type": "personal",
             "title": cc["answer"] if cc else None,
@@ -1763,6 +1791,7 @@ async def get_card_detail(
             "references": [],
             "examples": examples,
             "progress": progress,
+            "provenance": provenance,
         }
 
     if card["card_type"] == "vocabulary":

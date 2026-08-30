@@ -161,6 +161,6 @@ async def create_card(body: PersonalCardCreate, user: dict = Depends(get_current
             deck_name = None
         card_id = await create_personal_card(
             conn, user["id"], body.language_id, stored_sentence, body.answer,
-            body.translation, body.note_id, deck_id,
+            body.translation, body.note_id, deck_id, source=body.source,
         )
     return {"id": card_id, "sentence": stored_sentence, "deck_name": deck_name}

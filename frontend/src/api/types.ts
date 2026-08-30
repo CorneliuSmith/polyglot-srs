@@ -118,6 +118,14 @@ export interface CardDetail {
   // the learner's own sentences using this word (vocabulary only)
   your_sentences?: { sentence: string; translation: string | null }[]
   progress?: CardProgress
+  /** Personal cards only: how this card was made. source null = created
+   * before tracking (displayed as such, never guessed). */
+  provenance?: {
+    source: 'reading' | 'tutor' | 'notes' | 'speak' | 'manual' | null
+    created_at: string | null
+    note_title: string | null
+    deck_name: string | null
+  } | null
 }
 
 export interface ValidateAnswerRequest {

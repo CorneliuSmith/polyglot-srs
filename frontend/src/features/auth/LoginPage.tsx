@@ -359,6 +359,10 @@ export default function LoginPage() {
           <a href="/terms" className="text-lang hover:underline">
             {t('login.terms')}
           </a>
+          {' · '}
+          <a href="/privacy" className="text-lang hover:underline">
+            {t('more.privacy')}
+          </a>
           .
         </p>
       </div>

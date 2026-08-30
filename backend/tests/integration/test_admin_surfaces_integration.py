@@ -168,6 +168,35 @@ async def test_grouped_rollups_count_into_the_right_language(pool):
             "DELETE FROM app_feedback WHERE user_id = $1", uid)
 
 
+async def test_personal_card_provenance_round_trip(pool):
+    """A hand-made card stores its source and the detail view returns it
+    structured (migration 20261005; the write degrades silently without it,
+    so this proves the WITH-column path against the real schema)."""
+    from backend.repositories.cards import get_card_detail
+    from backend.repositories.notes import create_personal_card
+
+    lang, uid = await _seed_account(pool, "provenance@example.com")
+    async with pool.privileged_connection() as conn:
+        user_card_id = await create_personal_card(
+            conn, uid, lang, "Blue is not the best {{answer}} for me.",
+            "color", "El azul no es el mejor color para mí.", None,
+            source="manual",
+        )
+        stored = await conn.fetchval(
+            "SELECT cc.source FROM user_cards uc"
+            " JOIN user_cloze_cards cc ON uc.card_id = cc.id"
+            " WHERE uc.id = $1", user_card_id,
+        )
+        assert stored == "manual"
+
+        detail = await get_card_detail(conn, user_card_id)
+        assert detail is not None
+        prov = detail["provenance"]
+        assert prov["source"] == "manual"
+        assert prov["created_at"] is not None
+        assert prov["note_title"] is None
+
+
 async def test_review_prompt_query_executes(pool):
     """The tester-prompt rotation's md5 ORDER BY was once verified only as a
     substring of the SQL text — run the actual query."""

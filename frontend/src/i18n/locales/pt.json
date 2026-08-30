@@ -29,7 +29,8 @@
     "vocab": "Vocabulário",
     "today": "Hoje",
     "todayLower": "hoje",
-    "cancel": "Cancelar"
+    "cancel": "Cancelar",
+    "aiDisclaimer": "Parte do conteúdo é gerada por IA e pode conter erros — confira o que for importante."
   },
   "days": {
     "sun": "dom",
@@ -474,7 +475,16 @@
     "translateMineFailed": "Não foi possível traduzir — tente mais tarde",
     "repeatCard": "De novo",
     "toRedo_one": "{{count}} por repetir",
-    "toRedo_other": "{{count}} por repetir"
+    "toRedo_other": "{{count}} por repetir",
+    "source": {
+      "reading": "Salva de uma leitura",
+      "tutor": "Salva do tutor",
+      "notes": "Criada das suas notas",
+      "speak": "Salva de uma conversa",
+      "manual": "Adicionada à mão",
+      "unknown": "Adicionada antes do registro de origem"
+    },
+    "sourceNote": "da sua nota “{{title}}”"
   },
   "about": {
     "title": "O que saber",
@@ -1591,5 +1601,11 @@
     "topicSuggestLabel": "Ou escolha um",
     "showTranslation": "O que isso significa?",
     "hideTranslation": "Ocultar o significado"
+  },
+  "more": {
+    "donateTea": "Me pague um chá 🍵",
+    "legalNote": "As lições podem incluir material gerado por IA e revisado por pessoas; erros são possíveis. Nada aqui é aconselhamento profissional.",
+    "terms": "Termos de serviço",
+    "privacy": "Política de privacidade"
   }
 }

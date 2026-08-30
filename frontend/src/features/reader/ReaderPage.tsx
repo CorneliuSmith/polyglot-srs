@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { languageDisplayName } from '../../lib/languages'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
+import AiDisclaimer from '../../components/AiDisclaimer'
 import { Trans, useTranslation } from 'react-i18next'
 import { Headphones, Trash2 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
@@ -743,6 +744,7 @@ export default function ReaderPage() {
                     </div>
                   ))}
                 </Annotatable>
+                <AiDisclaimer className="mt-2" />
               </LanguageWrapper>
             </div>
             )}

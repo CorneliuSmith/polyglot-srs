@@ -160,6 +160,43 @@ export default function MorePage() {
             {t('dashboard.contribute')}
           </button>
         )}
+
+        {/* Pre-launch tip jar (owner: "donate a tea - I don't drink
+            coffee"). Config-driven and absent when unset, so turning real
+            billing on later just means removing one env var. Opens the
+            payment page in a new tab — never navigates the app away. */}
+        {import.meta.env.VITE_DONATE_URL && (
+          <a
+            href={import.meta.env.VITE_DONATE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="donate-tea"
+            className="block w-full rounded-xl border border-gray-200 bg-white px-4 py-2.5 text-center text-sm font-medium text-gray-700 hover:border-lang/40 hover:text-lang"
+          >
+            {t('more.donateTea')}
+          </a>
+        )}
+
+        {/* The honest small print, on the one page everyone can reach —
+            with the full documents one tap away. */}
+        <p className="text-[11px] leading-snug text-gray-400">
+          {t('more.legalNote')}{' '}
+          <button
+            type="button"
+            onClick={() => navigate('/terms')}
+            className="underline hover:text-lang"
+          >
+            {t('more.terms')}
+          </button>
+          {' · '}
+          <button
+            type="button"
+            onClick={() => navigate('/privacy')}
+            className="underline hover:text-lang"
+          >
+            {t('more.privacy')}
+          </button>
+        </p>
       </div>
     </div>
   )

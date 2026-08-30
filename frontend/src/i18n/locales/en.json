@@ -29,7 +29,8 @@
     "vocab": "Vocab",
     "today": "Today",
     "todayLower": "today",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "aiDisclaimer": "Some content here is AI-generated and can be wrong — double-check anything important."
   },
   "days": {
     "sun": "Sun",
@@ -474,7 +475,16 @@
     "translateMineFailed": "Couldn't translate — try again later",
     "repeatCard": "Repeat",
     "toRedo_one": "{{count}} to redo",
-    "toRedo_other": "{{count}} to redo"
+    "toRedo_other": "{{count}} to redo",
+    "source": {
+      "reading": "Saved from a reading",
+      "tutor": "Saved from the Tutor",
+      "notes": "Made from your notes",
+      "speak": "Saved from a conversation",
+      "manual": "Added by hand",
+      "unknown": "Added before source tracking"
+    },
+    "sourceNote": "from your note “{{title}}”"
   },
   "about": {
     "title": "Things to know",
@@ -1591,5 +1601,11 @@
     "topicSuggestLabel": "Or pick one",
     "showTranslation": "What does that mean?",
     "hideTranslation": "Hide the meaning"
+  },
+  "more": {
+    "donateTea": "Donate a tea 🍵",
+    "legalNote": "Lessons can include AI-generated material reviewed by people; mistakes are possible. Nothing here is professional advice.",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy"
   }
 }

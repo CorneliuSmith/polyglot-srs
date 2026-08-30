@@ -29,7 +29,8 @@
     "vocab": "Vocabulaire",
     "today": "Aujourd’hui",
     "todayLower": "aujourd’hui",
-    "cancel": "Annuler"
+    "cancel": "Annuler",
+    "aiDisclaimer": "Certains contenus sont générés par IA et peuvent être erronés — vérifiez ce qui est important."
   },
   "days": {
     "sun": "dim",
@@ -474,7 +475,16 @@
     "translateMineFailed": "Traduction impossible — réessayez plus tard",
     "repeatCard": "À revoir",
     "toRedo_one": "{{count}} à refaire",
-    "toRedo_other": "{{count}} à refaire"
+    "toRedo_other": "{{count}} à refaire",
+    "source": {
+      "reading": "Enregistrée depuis une lecture",
+      "tutor": "Enregistrée depuis le tuteur",
+      "notes": "Créée depuis vos notes",
+      "speak": "Enregistrée depuis une conversation",
+      "manual": "Ajoutée à la main",
+      "unknown": "Ajoutée avant le suivi d'origine"
+    },
+    "sourceNote": "de votre note « {{title}} »"
   },
   "about": {
     "title": "À savoir",
@@ -1591,5 +1601,11 @@
     "topicSuggestLabel": "Ou choisissez-en un",
     "showTranslation": "Qu'est-ce que ça veut dire ?",
     "hideTranslation": "Masquer la traduction"
+  },
+  "more": {
+    "donateTea": "Offrez-moi un thé 🍵",
+    "legalNote": "Les leçons peuvent contenir du contenu généré par IA et relu par des personnes ; des erreurs sont possibles. Rien ici ne constitue un conseil professionnel.",
+    "terms": "Conditions d'utilisation",
+    "privacy": "Politique de confidentialité"
   }
 }

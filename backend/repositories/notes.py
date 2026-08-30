@@ -60,6 +60,17 @@ async def known_vocab(
     return {r["word"]: r["definition"] for r in rows}
 
 
+async def _cloze_source_column_present(conn: asyncpg.Connection) -> bool:
+    """Probe, never catch: an UndefinedColumnError would abort the pooled
+    transaction and take the card save down with it. Migration 20261005 is
+    applied by the owner, so a deploy routinely runs ahead of it."""
+    return bool(await conn.fetchval(
+        "SELECT 1 FROM information_schema.columns"
+        " WHERE table_schema = 'public' AND table_name = 'user_cloze_cards'"
+        "   AND column_name = 'source'"
+    ))
+
+
 async def create_personal_card(
     conn: asyncpg.Connection,
     user_id: str,
@@ -69,6 +80,7 @@ async def create_personal_card(
     translation: str | None,
     note_id: str | None,
     deck_id: str | None = None,
+    source: str | None = None,
 ) -> str:
     """Create a cloze card from the learner's text and queue it for review.
 
@@ -76,14 +88,29 @@ async def create_personal_card(
     worth stating because file_card() keys on the cloze id, so handing it
     this return value silently files nothing. Which is why *deck_id* is set
     here at insert time rather than by a follow-up update.
+
+    *source* records how the card was made ('reading' | 'tutor' | 'notes' |
+    'speak' | 'manual') — the auto-filing deck used to be the only trace of
+    this, and decks are renameable. Dropped silently when migration 20261005
+    hasn't landed: the save matters more than its annotation.
     """
-    cloze_id = await conn.fetchval(
-        "INSERT INTO user_cloze_cards "
-        "(user_id, language_id, sentence, answer, translation, note_id, personal_deck_id) "
-        "VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id",
-        user_id, language_id, sentence, answer, translation or None, note_id,
-        deck_id,
-    )
+    if source is not None and await _cloze_source_column_present(conn):
+        cloze_id = await conn.fetchval(
+            "INSERT INTO user_cloze_cards "
+            "(user_id, language_id, sentence, answer, translation, note_id,"
+            " personal_deck_id, source) "
+            "VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id",
+            user_id, language_id, sentence, answer, translation or None,
+            note_id, deck_id, source,
+        )
+    else:
+        cloze_id = await conn.fetchval(
+            "INSERT INTO user_cloze_cards "
+            "(user_id, language_id, sentence, answer, translation, note_id, personal_deck_id) "
+            "VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id",
+            user_id, language_id, sentence, answer, translation or None, note_id,
+            deck_id,
+        )
     user_card_id = await conn.fetchval(
         """
         INSERT INTO user_cards

@@ -240,7 +240,27 @@ export default function ReviewDetail({ cardId, cardType, languageCode, stats }: 
                 </p>
               )}
 
-              {data.usage_note && (
+              {/* Personal cards say where they came from — the auto-filing
+                  deck used to be the only trace, and decks are renameable.
+                  Localized here from structured fields; the server's
+                  English usage_note is suppressed when provenance exists
+                  (same information, wrong language). */}
+              {data.provenance && (
+                <p className="text-xs text-gray-500" data-testid="card-provenance">
+                  {t(`review.source.${data.provenance.source ?? 'unknown'}`)}
+                  {data.provenance.note_title &&
+                    ` · ${t('review.sourceNote', { title: data.provenance.note_title })}`}
+                  {data.provenance.deck_name &&
+                    ` · ${data.provenance.deck_name}`}
+                  {data.provenance.created_at &&
+                    ` · ${new Date(data.provenance.created_at).toLocaleDateString(
+                      i18n.language,
+                      { year: 'numeric', month: 'short', day: 'numeric' },
+                    )}`}
+                </p>
+              )}
+
+              {data.usage_note && !data.provenance && (
                 <div>
                   <h3 className="font-semibold text-gray-700 mb-1">{t('review.usage')}</h3>
                   <p className="text-gray-700 whitespace-pre-wrap">{data.usage_note}</p>
