@@ -466,7 +466,7 @@
     "durationSec_one": "{{count}} seg",
     "durationSec_other": "{{count}} seg",
     "loadFailed": "Não foi possível carregar a sua sessão de revisão.",
-    "layerNotTranslated": "{{label}} (em inglês — ainda não traduzido)",
+    "layerNotTranslated": "{{label}} (ainda não está no seu idioma)",
     "translateMine": "Traduzir os meus {{count}} cartões (usa 1 mensagem)",
     "translateMineWorking": "A traduzir…",
     "translateMineDone": "{{count}} traduzidos — recarregue para ver",
