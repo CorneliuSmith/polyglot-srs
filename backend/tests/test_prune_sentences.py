@@ -33,8 +33,7 @@ class TestSurveyRules:
             async def fetch(self, *a, **k):
                 return rows
         import asyncio
-        return asyncio.get_event_loop().run_until_complete(
-            ps.survey(_Conn(), "en"))
+        return asyncio.run(ps.survey(_Conn(), "en"))
 
     def test_a_sentence_the_file_keeps_survives_in_every_locale(self, monkeypatch):
         """The file stores one row per sentence; the DB stores it once per
@@ -67,7 +66,7 @@ class TestSurveyRules:
                 _row(sentence="I think he did it.")]
         rep = self._survey(rows, {("i", "I think he did it.")}, monkeypatch)
         assert sorted(r["sentence"] for r in rep["delete"]) == \
-            ["I am you.", "I am."][::-1] or True
+            ["I am you.", "I am."]
         assert len(rep["delete"]) == 2
         assert rep["kept_empty"] == []
 
@@ -97,6 +96,6 @@ def test_an_empty_committed_bank_deletes_nothing(monkeypatch):
         async def fetch(self, *a, **k):
             raise AssertionError("must not even query with no committed bank")
     import asyncio
-    rep = asyncio.get_event_loop().run_until_complete(ps.survey(_Conn(), "en"))
+    rep = asyncio.run(ps.survey(_Conn(), "en"))
     assert rep["skipped"] == "no committed bank"
     assert rep["delete"] == []
