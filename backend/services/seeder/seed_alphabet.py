@@ -345,7 +345,13 @@ async def seed(db_url: str, code: str) -> int:
                                  alternatives = EXCLUDED.alternatives
                 RETURNING id
                 """,
-                lang_id, letter, rom, rank, _letter_alternatives(code, letter),
+                # `or []` because vocabulary.alternatives is NOT NULL DEFAULT
+                # '{}' and an explicit NULL does NOT fall back to the default.
+                # _letter_alternatives returns None for any letter with no
+                # special case — which is the FIRST letter of every alphabet
+                # here — so each of these seeders aborted on its opening row.
+                lang_id, letter, rom, rank,
+                _letter_alternatives(code, letter) or [],
             )
             await conn.execute(
                 """

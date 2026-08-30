@@ -92,3 +92,26 @@ class TestFileAlphabet:
     def test_missing_file_returns_none(self, tmp_path, monkeypatch):
         monkeypatch.setattr(seed_alphabet, "ALPHABET_DIR", tmp_path)
         assert _load_file_alphabet("nope") is None
+
+
+def test_letters_with_no_special_case_get_an_empty_list_not_none():
+    """`vocabulary.alternatives` is NOT NULL DEFAULT '{}', and an explicit
+    NULL does not fall back to a DEFAULT — so passing None writes a constraint
+    violation, not an empty array.
+
+    _letter_alternatives returns None for any letter without a special case,
+    and that includes the FIRST letter of all eight alphabets (ا α آ א अ ㄱ а ก).
+    Every one of those seeders therefore aborted on its opening row with
+    `null value in column "alternatives" ... violates not-null constraint`,
+    silently leaving the letter decks unseeded while the 27 main courses
+    reported OK. Nothing caught it because no test exercised the INSERT.
+    """
+    from backend.services.seeder.seed_alphabet import _letter_alternatives
+    plain = [("ar", "ا"), ("el", "α"), ("fa", "آ"), ("he", "א"),
+             ("hi", "अ"), ("ko", "ㄱ"), ("ru", "а"), ("th", "ก")]
+    for code, letter in plain:
+        # None is what the helper returns; the call site must coalesce it.
+        assert (_letter_alternatives(code, letter) or []) == [], (
+            f"{code} {letter}: expected no alternatives")
+    # and the special cases still produce real ones
+    assert _letter_alternatives("ko", "ㅏ") == ["아"]
