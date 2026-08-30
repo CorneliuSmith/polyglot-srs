@@ -56,7 +56,29 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if ! command -v pg_dump >/dev/null; then
+# pg_dump REFUSES to dump a server newer than itself, and Homebrew keeps every
+# postgresql@NN in its own prefix while linking only one onto PATH. Supabase
+# runs 17.x; a Mac with postgresql@16 linked therefore fails with "aborting
+# because of server version mismatch" even though a new-enough binary may be
+# installed a directory away. So: take $PG_DUMP if set, else the HIGHEST
+# version available, not merely the one on PATH.
+pick_pg_dump() {
+  if [[ -n "${PG_DUMP:-}" ]]; then echo "$PG_DUMP"; return; fi
+  local best="" best_v=0 cand v
+  for cand in $(ls -d /opt/homebrew/opt/postgresql@*/bin/pg_dump \
+                      /usr/local/opt/postgresql@*/bin/pg_dump \
+                      /usr/lib/postgresql/*/bin/pg_dump 2>/dev/null) \
+              "$(command -v pg_dump 2>/dev/null || true)"; do
+    [[ -x "$cand" ]] || continue
+    v=$("$cand" --version 2>/dev/null | grep -oE '[0-9]+' | head -1)
+    [[ -n "$v" ]] || continue
+    if (( v > best_v )); then best_v=$v; best="$cand"; fi
+  done
+  echo "$best"
+}
+
+PG_DUMP_BIN=$(pick_pg_dump)
+if [[ -z "$PG_DUMP_BIN" ]]; then
   echo "ERROR: pg_dump not found (install the postgres client tools)." >&2
   exit 1
 fi
@@ -75,6 +97,17 @@ STAMP=$(date -u +%Y%m%d-%H%M%S)
 FILE="$OUT_DIR/polyglot-$STAMP.sql"
 
 echo "==> Target:  $(sed 's|//[^@]*@|//***@|' <<<"$DATABASE_URL")"
+echo "==> pg_dump: $("$PG_DUMP_BIN" --version | head -1)  ($PG_DUMP_BIN)"
+# A server newer than the client aborts mid-dump; say so up front, with the fix.
+SRV_V=$(psql "$DATABASE_URL" -tAc 'SHOW server_version' 2>/dev/null | grep -oE '^[0-9]+' || true)
+CLI_V=$("$PG_DUMP_BIN" --version | grep -oE '[0-9]+' | head -1)
+if [[ -n "$SRV_V" && -n "$CLI_V" ]] && (( SRV_V > CLI_V )); then
+  echo "ERROR: server is PostgreSQL $SRV_V but the newest pg_dump here is $CLI_V." >&2
+  echo "       pg_dump cannot dump a newer server. Install a matching client:" >&2
+  echo "         brew install postgresql@$SRV_V" >&2
+  echo "       then re-run. (Or point PG_DUMP at one: PG_DUMP=/path/to/pg_dump $0 ...)" >&2
+  exit 1
+fi
 echo "==> Writing: $FILE$($GZIP && echo .gz)"
 
 # --no-owner / --no-privileges keep the dump portable across roles (Supabase's
@@ -96,17 +129,17 @@ emit_dump() {
     # Supabase) — we are deliberately NOT shipping GoTrue's schema.
     echo "-- polyglot portable dump: auth.users rows + all of public."
     echo "-- Restore with scripts/restore_db.sh (applies the shim first)."
-    pg_dump "$DATABASE_URL" --no-owner --no-privileges \
+    "$PG_DUMP_BIN" "$DATABASE_URL" --no-owner --no-privileges \
       --data-only --table=auth.users
     # All of public, schema + data — deliberately WITHOUT --clean. A portable
     # dump restores into an empty database, so there is nothing to drop, and
     # `--clean` emits DROP SCHEMA public, which FAILS once the auth shim has
     # installed pgcrypto into public. Found by round-tripping this, not by
     # reading it.
-    pg_dump "$DATABASE_URL" --no-owner --no-privileges \
+    "$PG_DUMP_BIN" "$DATABASE_URL" --no-owner --no-privileges \
       ${SCOPE_FLAGS[@]+"${SCOPE_FLAGS[@]}"} --schema=public
   else
-    pg_dump "${DUMP_ARGS[@]}"
+    "$PG_DUMP_BIN" "${DUMP_ARGS[@]}"
   fi
 }
 
