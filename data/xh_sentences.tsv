@@ -288,3 +288,439 @@ inyanga	Inyanga ikhanya kakhulu ebusuku.	The moon shines brightly at night.	263	
 kona	Ukufunda kona kubalulekile kakhulu.	Reading itself is very important.	265	CL15.read · CL15.PERS · CL15.be_important.PERF · greatly
 isiqingatha	Utye isiqingatha sekhekhe kuphela.	He ate only half of the cake.	267	CL1.eat.PERF · CL7.half · CL7.POSS.CL5.cake · only
 inzala	Inzala yeenkomo zethu yandile.	The offspring of our cattle has increased.	268	CL9.offspring · CL9.POSS.CL10.cattle · CL10.POSS.1PL · CL9.increase.PERF
+imfuyo	Imfuyo yakhe ilala ebuhlanti.	His livestock sleeps in the kraal.	20000	CL9.livestock · CL9.POSS.3SG · CL9.PRES.sleep · LOC.CL14.kraal
+imfuyo	Umalume uthengise imfuyo yakhe ukuze afundise abantwana.	Uncle sold his livestock so that he could send the children to school.	20001	CL1a.uncle · CL1.sell.PERF · CL9.livestock · CL9.POSS.3SG · so_that · CL1.educate.SBJV · CL2.child
+izilumko	Izilumko azithethi kakhulu.	Wise people do not talk much.	20002	CL8.wise_person · CL8.NEG.PRES.speak · greatly
+izilumko	Ekuhlaleni izilumko ziyamamelwa xa kukho ingxaki.	In the community the wise ones are listened to when there is a problem.	20003	LOC.CL15.community · CL8.wise_person · CL8.PRES.listen.PASS · when · CL17.there_be · CL9.problem
+khumbula	Khumbula ukuthenga isonka.	Remember to buy bread.	20004	remember.IMP · INF.buy · CL5.bread
+khumbula	Ndiyamkhumbula umama wam osebenza eGoli.	I miss my mother, who works in Johannesburg.	20005	1SG.PRES.CL1.OBJ.miss · CL1a.mother · CL1.POSS.1SG · CL1.REL.work · LOC.Johannesburg
+ihlazo	Ihlazo alipheli ngosuku olunye.	Disgrace does not pass in a single day.	20006	CL5.disgrace · CL5.NEG.PRES.end · in.CL11.day · CL11.one
+ihlazo	Umntwana lo wenza ihlazo kubazali bakhe.	This child is bringing disgrace on his parents.	20007	CL1.child · CL1.this · CL1.PRES.do · CL5.disgrace · LOC.CL2.parent · CL2.POSS.3SG
+izibonda	Izibonda zocingo zibolile ngoku.	The fence posts have rotted now.	20008	CL8.post · CL8.POSS.CL11.wire · CL8.rot.PERF · now
+izibonda	Izibonda zelali zihlangene nenkosi namhlanje.	The village headmen have met with the chief today.	20009	CL8.headman · CL8.POSS.CL9.village · CL8.meet.PERF · with.CL9.chief · today
+mhlophe	Iinwele zikatatomkhulu ziba mhlophe ngoku.	Grandfather's hair is going white now.	20010	CL10.hair · CL10.POSS.CL1a.grandfather · CL10.PRES.become · white · now
+mhlophe	Wasixelela mhlophe ukuba akanamali.	He told us plainly that he has no money.	20011	CL1.PST.1PL.OBJ.tell · plainly · that · NEG.CL1.have.CL9.money
+uvuyo	Uvuyo lwakhe lubonakala ebusweni.	His joy shows on his face.	20012	CL11.joy · CL11.POSS.3SG · CL11.PRES.be_visible · LOC.CL14.face
+uvuyo	Kwakukho uvuyo olukhulu emtshatweni kabhuti wam.	There was great joy at my brother's wedding.	20013	CL17.PST.there_be · CL11.joy · CL11.REL.big · LOC.CL3.wedding · POSS.CL1a.brother · CL1.POSS.1SG
+isidumbu	Isidumbu sifunyenwe ecaleni komlambo.	The body was found beside the river.	20014	CL7.corpse · CL7.find.PASS.PERF · LOC.side · CL17.POSS.CL3.river
+isidumbu	Usapho lulandele isidumbu esibhedlele izolo.	The family fetched the body from the hospital yesterday.	20015	CL11.family · CL11.fetch.PERF · CL7.corpse · LOC.CL7.hospital · yesterday
+ingonyama	Ingonyama igquma ebusuku.	The lion roars at night.	20016	CL9.lion · CL9.PRES.roar · LOC.CL14.night
+ingonyama	Abakhenkethi babone ingonyama ilele phantsi komthi.	The tourists saw a lion lying under a tree.	20017	CL2.tourist · CL2.see.PERF · CL9.lion · CL9.lie.PERF · under · CL17.POSS.CL3.tree
+imilambo	Imilambo emininzi yomile ngoku.	Many rivers have dried up now.	20018	CL4.river · CL4.REL.many · CL4.dry.PERF · now
+imilambo	Sinqumla imilambo emibini ukuya esikolweni.	We cross two rivers on the way to school.	20019	1PL.PRES.cross · CL4.river · CL4.two · INF.go · LOC.CL7.school
+sika	Sika isonka ulibeke etafileni.	Cut the bread and put it on the table.	20020	cut.IMP · CL5.bread · 2SG.CL5.OBJ.put.SBJV · LOC.CL9.table
+sika	Utata usika inyama ngemela ebukhali.	Father is cutting the meat with a sharp knife.	20021	CL1a.father · CL1.PRES.cut · CL9.meat · INS.CL9.knife · CL9.REL.sharp
+ivumba	Ivumba lenyama ligcwele endlwini.	The smell of meat fills the house.	20022	CL5.smell · CL5.POSS.CL9.meat · CL5.be_full.PERF · LOC.CL9.house
+ivumba	Izinja zilandela ivumba lomntu emzileni.	Dogs follow a person's scent along the track.	20023	CL10.dog · CL10.PRES.follow · CL5.scent · CL5.POSS.CL1.person · LOC.CL3.track
+ekuqaleni	Ekuqaleni bekunzima, kodwa ngoku ndiqhelile.	At first it was hard, but now I am used to it.	20024	LOC.CL15.beginning · CL17.PST.COP.difficult · but · now · 1SG.be_accustomed.PERF
+ekuqaleni	Ekuqaleni konyaka izikolo ziyavula.	At the beginning of the year the schools open.	20025	LOC.CL15.beginning · CL17.POSS.CL3.year · CL8.school · CL8.PRES.open
+iliwa	Iliwa limi phezu kolwandle.	The cliff stands above the sea.	20026	CL5.cliff · CL5.stand · above · CL17.POSS.CL11.sea
+iliwa	Amakhwenkwe ayoyika ukunyuka iliwa elide.	The boys are afraid to climb the tall cliff.	20027	CL6.boy · CL6.PRES.fear · INF.climb · CL5.cliff · CL5.REL.tall
+umbulali	Umbulali ubanjiwe ngamapolisa izolo.	The murderer was arrested by the police yesterday.	20028	CL1.murderer · CL1.catch.PASS.PERF · AGT.CL6.police · yesterday
+umbulali	Ilali yonke ifuna ukwazi ukuba ngubani umbulali.	The whole village wants to know who the killer is.	20029	CL9.village · CL9.all · CL9.PRES.want · INF.know · that · COP.who · CL1.murderer
+ingqondo	Ingqondo yakhe isebenza ngokukhawuleza.	His mind works quickly.	20030	CL9.mind · CL9.POSS.3SG · CL9.PRES.work · INS.INF.hurry
+ingqondo	Sebenzisa ingqondo phambi kokuba uthethe.	Use your head before you speak.	20031	use.IMP · CL9.mind · before · CL17.POSS.that · 2SG.speak.SBJV
+umzekeliso	Umzekeliso wonke unentsingiselo enzulu.	Every proverb carries a deep meaning.	20032	CL3.proverb · CL3.every · CL3.have.CL9.meaning · CL9.REL.deep
+umzekeliso	Utatomkhulu usixelele umzekeliso omtsha namhlanje.	Grandfather told us a new proverb today.	20033	CL1a.grandfather · CL1.1PL.OBJ.tell.PERF · CL3.proverb · CL3.REL.new · today
+khawuleza	Khawuleza, ibhasi iza kuhamba!	Hurry up, the bus is about to leave!	20034	hurry.IMP · CL9.bus · CL9.FUT · INF.go
+khawuleza	Ukuba sikhawuleza siza kufika ngexesha esikolweni.	If we hurry we will get to school on time.	20035	if · 1PL.hurry · 1PL.FUT · INF.arrive · in.CL5.time · LOC.CL7.school
+isipho	Isipho sakhe sokucula siyabonakala.	Her gift for singing is plain to see.	20036	CL7.talent · CL7.POSS.3SG · CL7.POSS.INF.sing · CL7.PRES.be_visible
+isipho	Ndithenge isipho sikamama ngosuku lokuzalwa kwakhe.	I bought my mother a present on her birthday.	20037	1SG.buy.PERF · CL7.gift · CL7.POSS.CL1a.mother · in.CL11.day · CL11.POSS.INF.be_born · CL15.POSS.3SG
+seza	Seza iinkomo emlanjeni kusasa.	Water the cattle at the river in the morning.	20038	give_drink.IMP · CL10.cattle · LOC.CL3.river · LOC.morning
+seza	Umama useza umntwana iyeza lokukhohlela.	Mother is dosing the child with cough medicine.	20039	CL1a.mother · CL1.PRES.dose · CL1.child · CL5.medicine · CL5.POSS.INF.cough
+izibhambathiso	Abafundi basayine izibhambathiso zokulwa ubundlobongela.	The students signed pledges to fight violence.	20040	CL2.student.PL · CL2.sign.PERF · CL8.pledge.PL · CL8.POSS.INF.fight · CL14.violence
+izibhambathiso	Amazwi alula, kodwa izibhambathiso zifuna izenzo.	Words are easy, but pledges demand deeds.	20041	CL6.word.PL · CL6.easy · but · CL8.pledge.PL · CL8.demand · CL8.deed.PL
+isiko	Isiko lethu lifuna sihloniphe abadala.	Our custom requires that we respect our elders.	20042	CL5.custom · CL5.POSS.1PL · CL5.require · 1PL.respect.SBJV · CL2.elder.PL
+isiko	Ekhaya senza isiko lembeleko xa kuzelwe usana.	At home we perform the imbeleko custom when a baby is born.	20043	LOC.CL5.home · 1PL.do · CL5.custom · CL5.POSS.CL9.imbeleko · when · CL17.be_born.PERF · CL11.baby
+umnatha	Abalobi balungisa umnatha wabo elwandle.	The fishermen are mending their net at the sea.	20044	CL2.fisherman.PL · CL2.repair · CL3.net · CL3.POSS.CL2 · LOC.CL11.sea
+umnatha	Umnatha wale festile unemingxuma emikhulu.	The mesh on this window has big holes.	20045	CL3.mesh · CL3.POSS.CL9.this · CL9.window · CL3.have.CL4.hole.PL · CL4.big
+uhambo	Ndikunqwenelela uhambo olulungileyo!	I wish you a safe journey!	20046	1SG.2SG.OBJ.wish · CL11.journey · CL11.REL.be_good.PERF
+uhambo	Uhambo lokuya eKapa luthatha iiyure ezintlanu ngebhasi.	The trip to Cape Town takes five hours by bus.	20047	CL11.trip · CL11.POSS.INF.go · LOC.Cape_Town · CL11.take · CL10.hour.PL · CL10.five · by.CL9.bus
+okuya	Okuya kutya kumnandi kakhulu.	That food over there is very tasty.	20048	CL15.that_yonder · CL15.food · CL15.tasty · very
+okuya	Ndithanda oku kutya, kodwa okuya kubiza kakhulu.	I like this food, but the one over there is expensive.	20049	1SG.like · CL15.this · CL15.food · but · CL15.that_yonder · CL15.cost · very
+usuku	Usuku lokuqala esikolweni lwalunzima kum.	My first day at school was hard for me.	20050	CL11.day · CL11.POSS.INF.be_first · LOC.CL7.school · CL11.PST.be_hard · to.1SG
+usuku	Sisebenze usuku lonke sivuna umbona egadini kamakhulu.	We worked the whole day harvesting maize in grandmother's garden.	20051	1PL.work.PERF · CL11.day · CL11.whole · 1PL.PTCP.harvest · CL3.maize · LOC.CL9.garden · POSS.CL1a.grandmother
+inzuzo	Ivenkile yakhe yenze inzuzo enkulu kule nyanga.	Her shop made a big profit this month.	20052	CL9.shop · CL9.POSS.CL1 · CL9.make.PERF · CL9.profit · CL9.big · LOC.CL9.this · CL9.month
+inzuzo	Ayikho inzuzo ekukhalazeni yonke imihla.	There is no benefit in complaining every day.	20053	NEG.CL9.EXIST · CL9.benefit · LOC.INF.complain · CL4.all · CL4.day.PL
+inkululeko	Ootatomkhulu bethu balwela inkululeko yeli lizwe.	Our grandfathers fought for the freedom of this country.	20054	CL2a.grandfather.PL · CL2.POSS.1PL · CL2.fight_for · CL9.freedom · CL9.POSS.CL5.this · CL5.country
+inkululeko	Utitshala usinike inkululeko yokukhetha isihloko.	The teacher gave us the freedom to choose our own topic.	20055	CL1a.teacher · CL1.1PL.OBJ.give.PERF · CL9.liberty · CL9.POSS.INF.choose · CL7.topic
+enza	Amakhwenkwe enza ingxolo enkulu ngaphandle.	The boys are making a lot of noise outside.	20056	CL6.boy.PL · CL6.make · CL9.noise · CL9.big · outside
+enza	Ndimfumene enza umsebenzi wesikolo.	I found him doing his schoolwork.	20057	1SG.CL1.OBJ.find.PERF · CL1.PTCP.do · CL3.work · CL3.POSS.CL7.school
+ingqina	Ingqina lifike ngexesha enkundleni.	The witness arrived at the court on time.	20058	CL5.witness · CL5.arrive.PERF · at.CL5.time · LOC.CL9.court
+ingqina	Kufuneka sifumane ingqina eliyibonileyo ingozi.	We need to find a witness who saw the accident.	20059	CL17.be_necessary · 1PL.find.SBJV · CL5.witness · CL5.REL.CL9.OBJ.see.PERF · CL9.accident
+intlanganiso	Intlanganiso yootitshala iqala ngentsimbi yesine.	The teachers' meeting starts at four o'clock.	20060	CL9.meeting · CL9.POSS.CL2a.teacher.PL · CL9.begin · at.CL9.bell · CL9.POSS.fourth
+intlanganiso	Sibambe intlanganiso ecaweni ngoLwesihlanu.	We held a meeting at the church on Friday.	20061	1PL.hold.PERF · CL9.meeting · LOC.CL9.church · on.CL11.Friday
+inqaba	Ndifumene inqaba phakathi kweencwadi zikatatomkhulu.	I found a real treasure among grandfather's books.	20062	1SG.find.PERF · CL9.rare_thing · among · LOC.CL10.book.PL · CL10.POSS.CL1a.grandfather
+inqaba	Inqaba yeli lizwe ziintaba zalo.	The rare treasure of this country is its mountains.	20063	CL9.rare_thing · CL9.POSS.CL5.this · CL5.country · COP.CL10.mountain.PL · CL10.POSS.CL5
+ingalo	Ingalo yam ibuhlungu emva kokuthwala amanzi.	My arm is sore after carrying water.	20064	CL9.arm · CL9.POSS.1SG · CL9.be_painful · after · POSS.INF.carry · CL6.water
+ingalo	Ugqirha ubophe ingalo yomntwana.	The doctor bandaged the child's arm.	20065	CL1a.doctor · CL1.bind.PERF · CL9.arm · CL9.POSS.CL1.child
+nyulu	Ufuna ukuba intliziyo yakhe ibe nyulu.	He wants his heart to be pure.	20066	CL1.PRES.want · that · CL9.heart · CL9.POSS.CL1 · CL9.be.SBJV · pure
+nyulu	Hlambani izandla nizenze nyulu phambi kokutya.	Wash your hands and make yourselves clean before eating.	20067	wash.IMP.PL · CL8.hand.PL · 2PL.REFL.make.SBJV · clean · before · POSS.INF.eat
+ikratshi	Shiya ikratshi lakho, ucele uncedo.	Put your pride aside and ask for help.	20068	leave.IMP · CL5.pride · CL5.POSS.2SG · 2SG.ask.SBJV · CL11.help
+ikratshi	Ikratshi alizange lincede mntu.	Pride has never helped anybody.	20069	CL5.pride · NEG.CL5.ever · CL5.help.SBJV · CL1.person
+imbandezelo	Imbandezelo ayihlali ngonaphakade, iyadlula.	Adversity does not stay forever, it passes.	20070	CL9.adversity · NEG.CL9.stay · forever · CL9.PRES.pass
+imbandezelo	Bathwele imbandezelo enkulu emva kwesichotho.	They bore great hardship after the hailstorm.	20071	CL2.bear.PERF · CL9.adversity · CL9.big · after · POSS.CL7.hail
+idinga	Ndenze idinga nogqirha ngoLwesibini.	I made an appointment with the doctor for Tuesday.	20072	1SG.make.PERF · CL5.appointment · with.CL1a.doctor · on.CL11.Tuesday
+idinga	Indoda egcina idinga layo iyathenjwa.	A man who keeps his promise is trusted.	20073	CL9.man · CL9.REL.keep · CL5.promise · CL5.POSS.CL9 · CL9.PRES.trust.PASS
+igorha	Igorha alikhalazi xa kunzima.	A brave person does not complain when things get hard.	20074	CL5.hero · NEG.CL5.complain · when · CL17.be_hard
+igorha	Ilali yonke iyalihlonipha igorha layo.	The whole village honours its hero.	20075	CL9.village · CL9.whole · CL9.PRES.CL5.OBJ.honour · CL5.hero · CL5.POSS.CL9
+umsi	Umsi undenza ndikhohlele.	The smoke is making me cough.	20076	CL3.smoke · CL3.1SG.OBJ.make · 1SG.cough.SBJV
+umsi	Umsi womlilo ungene endlwini yonke.	The smoke from the fire has got into the whole house.	20077	CL3.smoke · CL3.POSS.CL3.fire · CL3.enter.PERF · LOC.CL9.house · CL9.whole
+buka	Buka umzi wam omtsha!	Come and admire my new home!	20078	admire.IMP · CL3.homestead · CL3.POSS.1SG · CL3.REL.new
+buka	Sonke sasibuka amakhwenkwe exhentsa.	We were all watching the boys dance.	20079	1PL.all · 1PL.PST.PROG.watch · CL6.boy · CL6.PART.dance
+eliya	Ndifuna ihashe eliya, hayi eli.	I want that horse over there, not this one.	20080	1SG.PRES.want · CL5.horse · CL5.DEM.DIST · no · CL5.DEM.PROX
+eliya	Ilizwe eliya ngaphesheya kolwandle likude kakhulu.	That country over there across the sea is very far away.	20081	CL5.country · CL5.DEM.DIST · across · CL17.POSS.CL11.sea · CL5.far · very
+iqhinga	Ndinalo iqhinga elingcono.	I have a better idea.	20082	1SG.have.CL5.OBJ · CL5.idea · CL5.REL.better
+iqhinga	Sifuna iqhinga lokufumana imali yesikolo.	We need a plan for finding the school fees.	20083	1PL.PRES.want · CL5.plan · CL5.POSS.INF.find · CL9.money · CL9.POSS.CL7.school
+lowa	Umfana lowa ngumzala wam.	That young man over there is my cousin.	20084	CL1.young_man · CL1.DEM.DIST · COP.CL1.cousin · CL1.POSS.1SG
+lowa	Uyambona umntu lowa? Ngutitshala wam.	Do you see that person over there? He is my teacher.	20085	2SG.PRES.CL1.OBJ.see · CL1.person · CL1.DEM.DIST · COP.CL1a.teacher · CL1.POSS.1SG
+amafu	Amafu amnyama agubungele izulu.	Dark clouds have covered the sky.	20086	CL6.cloud · CL6.REL.black · CL6.cover.PERF · CL5.sky
+amafu	Khangela phezulu, amafu ayahamba ngokukhawuleza.	Look up — the clouds are moving fast.	20087	look.IMP · up · CL6.cloud · CL6.PRES.move · quickly
+umzuzwana	Linda umzuzwana, ndiyeza.	Wait a moment, I'm coming.	20088	wait.IMP · CL3.moment · 1SG.PRES.come
+umzuzwana	Ndicela undinike umzuzwana ndicinge ngale nto.	Please give me a moment to think about this.	20089	1SG.PRES.request · 2SG.1SG.OBJ.give.SBJV · CL3.moment · 1SG.think.SBJV · about.CL9.DEM.PROX · CL9.thing
+thanda	Ndiyathanda ukupheka umngqusho.	I love cooking samp and beans.	20090	1SG.PRES.love · INF.cook · CL3.samp_and_beans
+thanda	Uthanda ntoni, iti okanye ikofu?	Which do you like, tea or coffee?	20091	2SG.PRES.like · what · CL9.tea · or · CL9.coffee
+umnqamlezo	Kukho umnqamlezo phezu kwecawa.	There is a cross on top of the church.	20092	CL17.exist · CL3.cross · on_top · CL17.POSS.CL9.church
+umnqamlezo	Umakhulu unxiba umnqamlezo wegolide entanyeni yakhe.	Grandmother wears a gold cross around her neck.	20093	CL1a.grandmother · CL1.PRES.wear · CL3.cross · CL3.POSS.CL9.gold · LOC.CL9.neck · CL9.POSS.CL1
+ngena	Ngena, ucango luvuliwe.	Come in, the door is open.	20094	enter.IMP · CL11.door · CL11.open.PASS.PERF
+ngena	Abafundi bangena eklasini xa kukhala intsimbi.	The pupils go into the classroom when the bell rings.	20095	CL2.pupil · CL2.PRES.enter · LOC.CL5.classroom · when · CL17.PRES.ring · CL9.bell
+inkonzo	Inkonzo iqala ngentsimbi yesithoba ngeCawa.	The service starts at nine o'clock on Sunday.	20096	CL9.service · CL9.PRES.begin · at.CL9.hour · CL9.POSS.ninth · on.CL9.Sunday
+inkonzo	Eli sebe linika inkonzo entle ebantwini.	This department gives people good service.	20097	CL5.DEM.PROX · CL5.department · CL5.PRES.give · CL9.service · CL9.REL.good · LOC.CL2.people
+mandla	Akukho mandla kum namhlanje.	I have no strength today.	20098	NEG.CL17.exist · CL6.strength · LOC.1SG · today
+mandla	Sebenzisa la mandla akho ukunceda abanye.	Use that strength of yours to help others.	20099	use.IMP · CL6.DEM.PROX · CL6.strength · CL6.POSS.2SG · INF.help · CL2.other
+isebe	Isebe lezempilo livule ikliniki entsha.	The health department has opened a new clinic.	20100	CL5.department · CL5.POSS.CL10.health · CL5.open.PERF · CL9.clinic · CL9.REL.new
+isebe	Isebe lomthi liwile emva kwesaqhwithi.	A branch of the tree fell after the storm.	20101	CL5.branch · CL5.POSS.CL3.tree · CL5.fall.PERF · after · CL17.POSS.CL7.storm
+isiqhumiso	Umfundisi utshisa isiqhumiso ecaweni.	The priest burns incense in the church.	20102	CL1.priest · CL1.PRES.burn · CL7.incense · LOC.CL9.church
+isiqhumiso	Bathwala isiqhumiso namakhandlela beya ecaweni.	They carry incense and candles as they go to church.	20103	CL2.PRES.carry · CL7.incense · and.CL6.candle · CL2.PART.go · LOC.CL9.church
+ityuwa	Ndicela undiphathele ityuwa, sisi.	Please pass me the salt, sister.	20104	1SG.PRES.request · 2SG.1SG.OBJ.bring.APPL.SBJV · CL5.salt · sister.VOC
+ityuwa	Ndithenge ityuwa, iswekile nesonka evenkileni.	I bought salt, sugar and bread at the shop.	20105	1SG.buy.PERF · CL5.salt · CL9.sugar · and.CL5.bread · LOC.CL9.shop
+isibhambathiso	Sityikitye isibhambathiso namhlanje.	We signed the agreement today.	20106	1PL.sign.PERF · CL7.agreement · today
+isibhambathiso	Amaqela omabini enze isibhambathiso sokusebenzisana.	The two groups made an agreement to work together.	20107	CL6.group · CL6.both · CL6.make.PERF · CL7.agreement · CL7.POSS.INF.cooperate
+iqela	Iqela lethu liphumelele umdlalo izolo.	Our team won the match yesterday.	20108	CL5.team · CL5.POSS.1PL · CL5.win.PERF · CL3.match · yesterday
+iqela	Kufike iqela labafundi abavela eMonti.	A group of students arrived from East London.	20109	CL17.arrive.PERF · CL5.group · CL5.POSS.CL2.student · CL2.REL.come_from · LOC.East_London
+unyoko	Uphi unyoko namhlanje?	Where is your mother today?	20110	CL1.where · CL1a.mother.2SG · today
+unyoko	Xelela unyoko ukuba siza kufika ngoLwesihlanu.	Tell your mother that we will arrive on Friday.	20111	tell.IMP · CL1a.mother.2SG · that · 1PL.FUT · INF.arrive · on.CL11.Friday
+isinyithi	Isinyithi siyagqwala xa sishiywe emvuleni.	Metal rusts when it is left out in the rain.	20112	CL7.metal · CL7.PRES.rust · when · CL7.leave.PASS.PERF · LOC.CL9.rain
+isinyithi	Isinyithi sishushu, musa ukusibamba!	The metal is hot, don't touch it!	20113	CL7.metal · CL7.hot · NEG.IMP · INF.CL7.OBJ.hold
+ukhuko	Yandlala ukhuko phantsi komthi, sihlale.	Spread the mat under the tree so that we can sit.	20114	spread.IMP · CL11.mat · under · CL17.POSS.CL3.tree · 1PL.sit.SBJV
+ukhuko	Ukhuko lukamakhulu lwenziwe ngengca.	Grandmother's mat is made of grass.	20115	CL11.mat · CL11.POSS.CL1a.grandmother · CL11.make.PASS.PERF · with.CL9.grass
+isenzo	Isenzo sakhe sobubele sisincedile kakhulu.	His act of kindness helped us a great deal.	20116	CL7.deed · CL7.POSS.CL1 · CL7.POSS.CL14.kindness · CL7.1PL.OBJ.help.PERF · very
+isenzo	Isenzo esihle asilibalwa.	A good deed is not forgotten.	20117	CL7.deed · CL7.REL.good · NEG.CL7.forget.PASS
+bulela	Bulela utitshala wakho ngale ncwadi.	Thank your teacher for this book.	20118	thank.IMP · CL1a.teacher · CL1.POSS.2SG · INS.CL9.this · CL9.book
+bulela	Ndiyabulela ngoncedo lwakho, mhlobo wam.	I am grateful for your help, my friend.	20119	1SG.PRES.thank · INS.CL11.help · CL11.POSS.2SG · VOC.CL1.friend · CL1.POSS.1SG
+umfundi	Umfundi omtsha ufike esikolweni sethu namhlanje.	A new student arrived at our school today.	20120	CL1.student · CL1.REL.new · CL1.arrive.PERF · LOC.CL7.school · CL7.POSS.1PL · today
+umfundi	Utitshala uncoma umfundi ophumelele kakuhle.	The teacher praises the student who has done well.	20121	CL1a.teacher · CL1.PRES.praise · CL1.student · CL1.REL.pass.PERF · well
+umbulo	Umbulo sisono esikhulu ecaweni.	Immorality is a great sin in the church.	20122	CL3.immorality · COP.CL7.sin · CL7.REL.big · LOC.CL9.church
+umbulo	Umfundisi ukhuza umbulo entshumayelweni yakhe.	The minister condemns immorality in his sermon.	20123	CL1.minister · CL1.PRES.rebuke · CL3.immorality · LOC.CL9.sermon · CL9.POSS.3SG
+dla	Ityuwa idla intsimbi yemoto.	Salt corrodes the metal of the car.	20124	CL9.salt · CL9.PRES.corrode · CL9.metal · CL9.POSS.CL9.car
+dla	Iibhokhwe zidla emigqomeni edolophini.	The goats are eating out of the bins in town.	20125	CL10.goat · CL10.PRES.eat · LOC.CL4.bin · LOC.CL9.town
+isidenge	Isidenge sichitha imali yaso yonke.	A fool wastes all his money.	20126	CL7.fool · CL7.PRES.waste · CL9.money · CL9.POSS.CL7 · CL9.all
+isidenge	Ungazenzi isidenge phambi kwabantu.	Do not make a fool of yourself in front of people.	20127	NEG.2SG.REFL.make.SBJV · CL7.fool · in_front · CL17.POSS.CL2.person
+uthuthu	Uthuthu lomlilo lusashushu.	The ash from the fire is still hot.	20128	CL11.ash · CL11.POSS.CL3.fire · CL11.still.COP.hot
+uthuthu	Susa uthuthu eziko phambi kokubasa umlilo.	Clear the ash out of the hearth before you light a fire.	20129	remove.IMP · CL11.ash · LOC.CL5.hearth · before · CL17.POSS.CL15.light_fire · CL3.fire
+nyanga	Nyanga inxeba ngamayeza.	Treat the wound with medicine.	20130	cure.IMP · CL5.wound · INS.CL6.medicine
+nyanga	Ugqirha unyanga abantu abagulayo elalini.	The doctor treats sick people in the village.	20131	CL1a.doctor · CL1.PRES.cure · CL2.person · CL2.REL.be_sick · LOC.CL9.village
+intlango	Intlango ishushu kakhulu emini.	The desert is very hot at midday.	20132	CL9.desert · CL9.COP.hot · greatly · LOC.CL9.midday
+intlango	Sahamba iintsuku ezintathu siwela intlango.	We travelled for three days crossing the desert.	20133	1PL.PST.travel · CL10.day · CL10.three · 1PL.PTCP.cross · CL9.desert
+ihashe	Ihashe libaleka ethafeni.	The horse is running on the plain.	20134	CL5.horse · CL5.PRES.run · LOC.CL5.plain
+ihashe	Utata ukhwela ihashe xa esiya edolophini.	Father rides a horse when he goes to town.	20135	CL1a.father · CL1.PRES.ride · CL5.horse · when · CL1.PTCP.go · LOC.CL9.town
+isifo	Isifo sikamalume sinyangwa esibhedlele.	My uncle's illness is being treated at the hospital.	20136	CL7.sickness · CL7.POSS.CL1a.uncle · CL7.PRES.cure.PASS · LOC.CL7.hospital
+isifo	Isifo esiqhelekileyo ebusika ngumkhuhlane.	The common illness in winter is the flu.	20137	CL7.sickness · CL7.REL.be_common · LOC.CL14.winter · COP.CL3.flu
+tyala	Tyala imbewu phambi kwemvula.	Plant the seed before the rain.	20138	plant.IMP · CL9.seed · before · CL17.POSS.CL9.rain
+tyala	Umama utyala amazambane egadini yakhe.	Mum is planting potatoes in her garden.	20139	CL1a.mother · CL1.PRES.plant · CL6.potato · LOC.CL9.garden · CL9.POSS.3SG
+ukungcola	Ukungcola kwamanzi kubangela izifo.	The dirtiness of the water causes diseases.	20140	CL15.dirtiness · CL15.POSS.CL6.water · CL15.PRES.cause · CL8.disease
+ukungcola	Ndicoca igumbi lam, andithandi ukungcola.	I am cleaning my room; I do not like dirt.	20141	1SG.PRES.clean · CL5.room · CL5.POSS.1SG · NEG.1SG.PRES.like · CL15.dirtiness
+leya	Leya mithi imide kakhulu.	Those trees over there are very tall.	20142	CL4.that_over_there · CL4.tree · CL4.COP.tall · greatly
+leya	Ndithanda leya mifino ethengiswa emarikeni.	I like those vegetables over there that are sold at the market.	20143	1SG.PRES.like · CL4.that_over_there · CL4.vegetable · CL4.REL.sell.PASS · LOC.CL9.market
+ubugqwetha	Ubugqwetha bufuna umntu onomonde.	Law needs a patient person.	20144	CL14.law · CL14.PRES.require · CL1.person · CL1.REL.have.CL3.patience
+ubugqwetha	Unyana wam ufunda ubugqwetha eyunivesithi.	My son is studying law at the university.	20145	CL1a.son · CL1.POSS.1SG · CL1.PRES.study · CL14.law · LOC.CL9.university
+awu	Awu, uyandimangalisa mfondini!	Oh, you amaze me, man!	20146	oh · 2SG.PRES.1SG.OBJ.amaze · VOC.CL1.man
+awu	Awu, ndilibele isitshixo sam endlwini!	Oh, I have left my key in the house!	20147	oh · 1SG.forget.PERF · CL7.key · CL7.POSS.1SG · LOC.CL9.house
+iphiko	Iphiko lentaka lophukile, ayikwazi ukubhabha.	The bird's wing is broken; it cannot fly.	20148	CL5.wing · CL5.POSS.CL9.bird · CL5.break.PERF · NEG.CL9.PRES.be_able · INF.fly
+iphiko	Umntwana udwebe iphiko elikhulu ephepheni.	The child has drawn a big wing on the paper.	20149	CL1.child · CL1.draw.PERF · CL5.wing · CL5.REL.big · LOC.CL5.paper
+amazinyo	Hlamba amazinyo akho phambi kokulala.	Brush your teeth before going to sleep.	20150	wash.IMP · CL6.tooth · CL6.POSS.2SG · before · CL17.POSS.CL15.sleep
+amazinyo	Amazinyo am abuhlungu, ndiya kugqirha.	My teeth are sore; I am going to the doctor.	20151	CL6.tooth · CL6.POSS.1SG · CL6.COP.sore · 1SG.PRES.go · LOC.CL1a.doctor
+umnqweno	Umnqweno wam kukuya elwandle ngoDisemba.	My wish is to go to the sea in December.	20152	CL3.wish · CL3.POSS.1SG · COP.CL15.go · LOC.CL11.sea · in.December
+umnqweno	Uzalisekile umnqweno wakhe wokuba ligqwetha.	His wish to become a lawyer has been fulfilled.	20153	CL3.be_fulfilled.PERF · CL3.wish · CL3.POSS.3SG · CL3.POSS.INF.be · COP.CL5.lawyer
+isigqubuthelo	Isigqubuthelo sebhedi sihlanjiwe namhlanje.	The bed cover has been washed today.	20154	CL7.cover · CL7.POSS.CL9.bed · CL7.wash.PASS.PERF · today
+isigqubuthelo	Beka isigqubuthelo phezu kwesitya sokutya.	Put the cover over the dish of food.	20155	put.IMP · CL7.cover · on_top · CL17.POSS.CL7.dish · CL7.POSS.CL15.food
+inyamakazi	Inyamakazi ibaleka isiya ehlathini.	The buck is running towards the forest.	20156	CL9.buck · CL9.PRES.run · CL9.PTCP.go_towards · LOC.CL5.forest
+inyamakazi	Sabona inyamakazi encinane equleni kusasa.	We saw a small buck at the waterhole in the morning.	20157	1PL.PST.see · CL9.buck · CL9.REL.small · LOC.CL5.waterhole · morning
+beka	Beka le ncwadi etafileni.	Put this book on the table.	20158	put.IMP · CL9.this · CL9.book · LOC.CL9.table
+beka	Umama ubeka imbiza eziko kusasa.	Mum puts the pot on the hearth in the morning.	20159	CL1a.mother · CL1.PRES.put · CL9.pot · LOC.CL5.hearth · early.morning
+isisu	Umntwana ukhala kuba isisu sakhe sibuhlungu.	The child is crying because his stomach hurts.	20160	CL1.child · CL1.PRES.cry · because · CL7.stomach · CL7.POSS.3SG · CL7.COP.sore
+isisu	Ndityile kakhulu, isisu sam sigcwele.	I have eaten too much, my stomach is full.	20161	1SG.eat.PERF · greatly · CL7.stomach · CL7.POSS.1SG · CL7.be_full.PERF
+imfundiso	Ndiyayikhumbula imfundiso katata.	I still remember my father's teaching.	20162	1SG.PRES.CL9.OBJ.remember · CL9.teaching · CL9.POSS.CL1a.father
+imfundiso	Imfundiso yanamhlanje iza kuqala ngentsimbi yesithoba.	Today's lecture will start at nine o'clock.	20163	CL9.lecture · CL9.POSS.today · CL9.FUT · INF.begin · at.CL9.bell · CL9.POSS.CL7.nine
+umyeni	Umyeni wam usebenza eKapa.	My husband works in Cape Town.	20164	CL1.husband · CL1.POSS.1SG · CL1.PRES.work · LOC.Cape_Town
+umyeni	Izolo umyeni nomtshakazi bafike ecaweni ngentsimbi yeshumi.	Yesterday the bridegroom and the bride arrived at the church at ten o'clock.	20165	yesterday · CL1.bridegroom · and.CL1.bride · CL2.arrive.PERF · LOC.CL9.church · at.CL9.bell · CL9.POSS.CL5.ten
+sela	Sela amanzi mntanam, kushushu namhlanje.	Drink water, my child, it is hot today.	20166	drink.IMP · CL6.water · CL1.child.POSS.1SG.VOC · CL17.COP.hot · today
+sela	Umakhulu usela iti yakhe kusasa nangokuhlwa.	Grandmother drinks her tea in the morning and in the evening.	20167	CL1a.grandmother · CL1.PRES.drink · CL5.tea · CL5.POSS.3SG · early.morning · and.at.CL15.evening
+izipho	Ngomhla wokuzalwa abantwana bavule izipho zabo.	On the birthday the children opened their gifts.	20168	on.CL3.day · CL3.POSS.INF.be_born · CL2.child · CL2.open.PERF · CL8.gift · CL8.POSS.CL2
+izipho	Umntwana ngamnye unazo izipho zakhe.	Every child has gifts of their own.	20169	CL1.child · CL1.each · CL1.have.CL8.OBJ · CL8.talent · CL8.POSS.3SG
+umbhinqo	Umbhinqo wakhe omtsha mhle.	Her new skirt is beautiful.	20170	CL3.skirt · CL3.POSS.3SG · CL3.REL.new · CL3.COP.beautiful
+umbhinqo	Umakhulu unxibe umbhinqo wesiXhosa emtshatweni.	Grandmother wore a traditional Xhosa wrap-skirt to the wedding.	20171	CL1a.grandmother · CL1.wear.PERF · CL3.skirt · CL3.POSS.CL7.Xhosa · LOC.CL3.wedding
+inxalenye	Umntwana utye inxalenye encinci yesonka.	The child ate a small portion of the bread.	20172	CL1.child · CL1.eat.PERF · CL9.portion · CL9.REL.small · CL9.POSS.CL5.bread
+inxalenye	Inxalenye enkulu yonyaka ndiyichithe ndisebenza eKapa.	I spent a large part of the year working in Cape Town.	20173	CL9.part · CL9.REL.big · CL9.POSS.CL3.year · 1SG.CL9.OBJ.spend.PERF · 1SG.PTCP.work · LOC.Cape_Town
+izigidimi	Izigidimi zibuye neendaba ezimnandi.	The messengers came back with good news.	20174	CL8.messenger · CL8.return.PERF · with.CL10.news · CL10.REL.nice
+izigidimi	Inkosi ithumele izigidimi kwiilali zonke.	The chief has sent messengers to all the villages.	20175	CL9.chief · CL9.send.PERF · CL8.messenger · LOC.CL10.village · CL10.all
+iyeza	Iyeza lam liphelile.	My medicine is finished.	20176	CL5.medicine · CL5.POSS.1SG · CL5.finish.PERF
+iyeza	Ugqirha undinike iyeza lokukhohlela.	The doctor gave me medicine for the cough.	20177	CL1a.doctor · CL1.1SG.OBJ.give.PERF · CL5.medicine · CL5.POSS.INF.cough
+inkohlakalo	Inkohlakalo ayamkelekanga kule lali yethu.	Cruelty is not accepted in this village of ours.	20178	CL9.cruelty · NEG.CL9.be_acceptable.PERF · LOC.CL9.this · CL9.village · CL9.POSS.1PL
+inkohlakalo	Andiyithandi inkohlakalo eyenziwa kwizilwanyana.	I hate the cruelty that is done to animals.	20179	NEG.1SG.PRES.CL9.OBJ.like · CL9.cruelty · CL9.REL.do.PASS · LOC.CL8.animal
+isilumko	Isilumko sithetha kancinci, siva kakhulu.	A wise person speaks little and hears a great deal.	20180	CL7.wise_person · CL7.PRES.speak · a_little · CL7.PRES.hear · greatly
+isilumko	Ilali imamela isilumko xa kukho ingxaki.	The village listens to the wise one when there is trouble.	20181	CL9.village · CL9.PRES.listen · CL7.wise_person · when · CL17.there_be · CL9.problem
+eziya	Ndifuna izitya eziya, hayi ezi.	I want those dishes over there, not these ones.	20182	1SG.PRES.want · CL8.dish · CL8.that_yonder · no · CL8.this
+eziya	Uyazibona iinkomo eziya ngasemlanjeni?	Do you see those cattle over there by the river?	20183	2SG.PRES.CL10.OBJ.see · CL10.cattle · CL10.that_yonder · near.LOC.CL3.river
+ukuqala	Ukuqala kwenyanga sihlawula irenti nombane.	At the beginning of the month we pay the rent and the electricity.	20184	CL15.beginning · CL15.POSS.CL9.month · 1PL.PRES.pay · CL9.rent · and.CL3.electricity
+ukuqala	Kunzima ukuqala umsebenzi omtsha.	It is hard to start a new job.	20185	CL17.COP.difficult · INF.begin · CL3.work · CL3.REL.new
+ikhaya	Ikhaya lethu likufuphi nesikolo.	Our home is near the school.	20186	CL5.home · CL5.POSS.1PL · CL5.COP.near · with.CL7.school
+ikhaya	Kule lali ikhaya ngalinye linamanzi.	In this village every household has water.	20187	LOC.CL9.this · CL9.village · CL5.household · CL5.each · CL5.have.CL6.water
+isililo	Isililo sabafazi savakala kude.	The women's wailing was heard far off.	20188	CL7.lamentation · CL7.POSS.CL2.woman · CL7.PST.be_heard · far
+isililo	Emngcwabeni bekukho isililo esikhulu kusasa.	At the funeral that morning there was great mourning.	20189	LOC.CL3.funeral · CL17.PST.there_be · CL7.lamentation · CL7.REL.big · early.morning
+isicaka	Isicaka esithembekileyo asifihli nto.	A trustworthy servant hides nothing.	20190	CL7.servant · CL7.REL.trustworthy · NEG.CL7.PRES.hide · thing
+isicaka	Kusasa isicaka sikhupha iinkomo ebuhlanti.	In the morning the servant drives the cattle out of the kraal.	20191	early.morning · CL7.servant · CL7.PRES.drive_out · CL10.cattle · LOC.CL14.kraal
+izikhwebu	Umama wosa izikhwebu emlilweni ngokuhlwa.	Mum roasts mealie cobs on the fire in the evening.	20192	CL1a.mother · CL1.PRES.roast · CL8.cob · LOC.CL3.fire · at.CL15.evening
+izikhwebu	Izikhwebu zombona zivuthiwe ensimini.	The maize cobs are ripe in the field.	20193	CL8.cob · CL8.POSS.CL3.maize · CL8.ripen.PERF · LOC.CL9.field
+indyebo	Iimvula ezi zizisa indyebo emasimini ethu.	These rains bring abundance to our fields.	20194	CL10.rain · CL10.this · CL10.PRES.bring · CL9.abundance · LOC.CL6.field · CL6.POSS.1PL
+indyebo	Indyebo ayimenzi umntu abe ngcono.	Wealth does not make a person any better.	20195	CL9.wealth · NEG.CL9.PRES.CL1.OBJ.make · CL1.person · CL1.be.SBJV · better
+inqwelo	Inqwelo yeenkabi igcwele iinkuni.	The ox wagon is full of firewood.	20196	CL9.wagon · CL9.POSS.CL10.ox · CL9.be_full.PERF · CL10.firewood
+inqwelo	Abantwana bakhwele inqwelo besiya edolophini.	The children have climbed onto the wagon on their way to town.	20197	CL2.child · CL2.board.PERF · CL9.wagon · CL2.PTCP.go · LOC.town
+uyesu	Sonke sikholelwa ukuba uYesu wavuka kwabafileyo.	We all believe that Jesus rose from the dead.	20198	1PL.all · 1PL.PRES.believe · that · CL1a.Jesus · CL1.PST.rise · LOC.CL2.dead
+uyesu	UYesu wathetha nesihlwele esikhulu entabeni.	Jesus spoke to a great crowd on the mountain.	20199	CL1a.Jesus · CL1.PST.speak · COM.CL7.crowd · CL7.big · LOC.CL9.mountain
+inene	Inene, andizange ndibone into enjalo.	Truly, I have never seen such a thing.	20200	truly · NEG.1SG.ever · 1SG.see.SBJV · CL9.thing · CL9.like_that
+inene	Xa uthembisile, inene kufuneka ugcine ilizwi lakho.	When you have made a promise, you truly must keep your word.	20201	when · 2SG.promise.PERF · truly · CL17.PRES.be_necessary · 2SG.keep.SBJV · CL5.word · CL5.POSS.2SG
+nye	Bafike ngaxesha nye emsebenzini.	They arrived at work at the same time.	20202	CL2.arrive.PERF · INS.CL5.time · one · LOC.CL3.work
+nye	Impendulo ibe nye kuphela kulo mbuzo.	There must be only one answer to this question.	20203	CL9.answer · CL9.be.SBJV · one · only · LOC.CL3.this · CL3.question
+nguthixo	Umdali wezinto zonke nguThixo.	The creator of all things is God.	20204	CL1.creator · CL1.POSS.CL8.thing · CL8.all · COP.CL1a.God
+nguthixo	Bakholelwa ukuba nguThixo owadala umhlaba.	They believe that it is God who created the earth.	20205	CL2.PRES.believe · that · COP.CL1a.God · CL1.REL.PST.create · CL3.earth
+indawo	Ndifumene indawo entle yokutyela eGqeberha.	I have found a nice place to eat in Gqeberha.	20206	1SG.find.PERF · CL9.place · CL9.beautiful · CL9.POSS.INF.eat.APPL · LOC.Gqeberha
+indawo	Uyayazi indawo ahlala kuyo?	Do you know the place where he lives?	20207	2SG.PRES.CL9.OBJ.know · CL9.place · CL1.REL.PRES.live · LOC.CL9.PRON
+ne	Izitulo etafileni mazibe ne.	There should be four chairs at the table.	20208	CL8.chair · LOC.CL9.table · HORT.CL8.be.SBJV · four
+ne	Ndabala iigusha zethu, zaba ne kuphela.	I counted our sheep; there were only four.	20209	1SG.PST.count · CL10.sheep · CL10.POSS.1PL · CL10.PST.be · four · only
+ze	Hlamba izandla zakho, ze utye.	Wash your hands, and then eat.	20210	wash.IMP · CL8.hand · CL8.POSS.2SG · then · 2SG.eat.SBJV
+ze	Wafumana umntwana ehamba ze endlwini.	She found the child walking around naked in the house.	20211	CL1.PST.find · CL1.child · CL1.PART.walk · naked · LOC.CL9.house
+iziqhamo	Umama uthenge iziqhamo emarikeni.	Mum bought fruit at the market.	20212	CL1a.mother · CL1.buy.PERF · CL8.fruit · LOC.CL9.market
+iziqhamo	Lo mthi uvelisa iziqhamo ezimnandi yonke iminyaka.	This tree produces sweet fruit every year.	20213	CL3.this · CL3.tree · CL3.PRES.produce · CL8.fruit · CL8.sweet · CL4.all · CL4.year
+ngcwele	Yibani ngcwele kuzo zonke iindlela zenu.	Be holy in all your ways.	20214	be.IMP.2PL · holy · LOC.CL10.PRON · CL10.all · CL10.way · CL10.POSS.2PL
+ngcwele	Umhla wokuphumla mawube ngcwele kuni.	Let the day of rest be holy to you.	20215	CL3.day · CL3.POSS.INF.rest · HORT.CL3.be.SBJV · holy · LOC.2PL
+khe	Tata, khe uzame kwakhona.	Dad, just try again.	20216	CL1a.father · just · 2SG.try.SBJV · again
+khe	Xa unexesha, khe undifowunele ngokuhlwa.	When you have time, do give me a call in the evening.	20217	when · 2SG.have.CL5.time · just · 2SG.1SG.OBJ.phone.APPL.SBJV · in_the_evening
+iqashiso	Laphuma iqashiso, wachongwa uNomsa.	The lot came out, and Nomsa was chosen.	20218	CL5.PST.come_out · CL5.lot · CL1.PST.choose.PASS · CL1a.Nomsa
+iqashiso	Wafumana iqashiso lakhe kumhlaba wooyise.	He received his allotted share of his fathers' land.	20219	CL1.PST.receive · CL5.portion · CL5.POSS.3SG · LOC.CL3.land · CL3.POSS.CL2a.father.3SG
+sixhenxe	Abafundi abafikileyo babe sixhenxe kuphela.	Only seven students turned up.	20220	CL2.student · CL2.REL.arrive.PERF · CL2.be.SBJV · seven · only
+sixhenxe	Iiveki zibe sixhenxe ndingambonanga utata.	It has been seven weeks since I last saw my father.	20221	CL10.week · CL10.be.SBJV · seven · NEG.1SG.PART.CL1.OBJ.see.PERF · CL1a.father
+saza	Safika ekhaya, saza salala.	We got home, and then we went to sleep.	20222	1PL.PST.arrive · LOC.CL5.home · 1PL.PST.then · 1PL.PST.sleep
+saza	Sathetha noomakhulu, saza savumelana ngexesha lomcimbi.	We spoke with the grandmothers, and then we agreed on the time for the ceremony.	20223	1PL.PST.speak · COM.CL2a.grandmother · 1PL.PST.then · 1PL.PST.agree.RECIP · INS.CL5.time · CL5.POSS.CL3.ceremony
+khulu	Umthetheli-khulu wathumela izicaka zakhe kuYesu.	The centurion sent his servants to Jesus.	20224	CL1.commander.hundred · CL1.PST.send.APPL · CL8.servant · CL8.POSS.3SG · LOC.CL1a.Jesus
+khulu	Abathetheli-khulu bema phambi kwenkosi.	The centurions stood before the chief.	20225	CL2.commander.hundred · CL2.PST.stand · before · CL17.POSS.CL9.chief
+isitya	Beka isitya etafileni.	Put the dish on the table.	20226	put.IMP · CL7.dish · LOC.CL9.table
+isitya	Umakhulu ugcwalise isitya ngomngqusho oshushu.	Grandmother has filled the dish with hot samp.	20227	CL1a.grandmother · CL1.fill.PERF · CL7.dish · INS.CL3.samp · CL3.hot
+amaphiko	Inkukhu ibetha amaphiko ayo ebuhlanti.	The chicken is flapping its wings in the kraal.	20228	CL9.chicken · CL9.PRES.beat · CL6.wing · CL6.POSS.CL9 · LOC.CL14.kraal
+amaphiko	Ukhozi lolula amaphiko alo phezu kweentaba.	The eagle spreads its wings above the mountains.	20229	CL11.eagle · CL11.PRES.stretch · CL6.wing · CL6.POSS.CL11 · above · CL17.POSS.CL10.mountain
+umnyaka	Wahlala eGoli umnyaka wonke.	He lived in Johannesburg for a whole year.	20230	CL1.PST.live · LOC.Johannesburg · CL3.year · CL3.whole
+umnyaka	Ndinethemba lokuba umnyaka ozayo uya kuba ngcono.	I hope that the coming year will be better.	20231	1SG.have.CL5.hope · CL5.POSS.that · CL3.year · CL3.REL.come · CL3.FUT · INF.be · better
+usomandla	Ngamana uSomandla angakusikelela.	May the Almighty bless you.	20232	OPT · CL1a.Almighty · CL1.POT.2SG.OBJ.bless
+usomandla	Umfundisi uthe uThixo uSomandla uyasikhusela.	The minister said that God the Almighty protects us.	20233	CL1.minister · CL1.say.PERF · CL1a.God · CL1a.Almighty · CL1.PRES.1PL.OBJ.protect
+isidlo	Umama ulungiselela isidlo sangokuhlwa.	Mum is preparing the evening meal.	20234	CL1a.mother · CL1.PRES.prepare · CL7.meal · CL7.POSS.evening
+isidlo	Emva komtshato kwabakho isidlo esikhulu ekhaya.	After the wedding there was a big feast at home.	20235	after · CL17.POSS.CL3.wedding · CL17.PST.be_there · CL7.feast · CL7.big · LOC.CL5.home
+ummiselo	Ummiselo wesikolo uthintela iifowuni eklasini.	The school rule forbids phones in class.	20236	CL3.ordinance · CL3.POSS.CL7.school · CL3.PRES.forbid · CL10.phone · LOC.CL9.class
+ummiselo	Umasipala uvumele ummiselo omtsha ngamanzi.	The municipality has approved a new by-law about water.	20237	CL1a.municipality · CL1.approve.PERF · CL3.ordinance · CL3.REL.new · about.CL6.water
+ukuphela	Ukuphela kwenyanga kusondele, kodwa imali iphelile.	The end of the month is near, but the money is finished.	20238	CL15.end · CL15.POSS.CL9.month · CL15.be_near.PERF · but · CL9.money · CL9.finish.PERF
+ukuphela	Ukuphela kwendlela yokuphumelela kukufunda.	The only way to succeed is to study.	20239	CL15.only · CL15.POSS.CL9.way · CL9.POSS.INF.succeed · COP.INF.study
+ingqumbo	Abantwana boyika ingqumbo katata.	The children fear their father's anger.	20240	CL2.child · CL2.PRES.fear · CL9.anger · CL9.POSS.CL1a.father
+ingqumbo	Ingqumbo yakhe yadamba emva kwexesha elide.	His anger subsided after a long time.	20241	CL9.anger · CL9.POSS.3SG · CL9.PST.subside · after · CL17.POSS.CL5.time · CL5.REL.long
+kholwa	Kholwa kuThixo, konke kuya kulunga.	Believe in God; everything will be all right.	20242	believe.IMP · LOC.CL1a.God · CL17.all · CL17.FUT · INF.be_well
+kholwa	Kholwa yinyaniso, hayi amarhe.	Believe the truth, not the rumours.	20243	believe.IMP · COP.CL9.truth · not · CL6.rumour
+ubuthongo	Ubuthongo bubalulekile ebantwaneni abancinci.	Sleep is important for small children.	20244	CL14.sleep · CL14.be_important.PERF · LOC.CL2.child · CL2.REL.small
+ubuthongo	Andifumananga ubuthongo phezolo.	I got no sleep last night.	20245	NEG.1SG.get.PERF · CL14.sleep · last_night
+inyoka	Kwangena inyoka endlwini, sabaleka sonke.	A snake came into the house and we all ran.	20246	CL17.PST.enter · CL9.snake · LOC.CL9.house · 1PL.PST.run · 1PL.all
+inyoka	Lumka, kukho inyoka phantsi kwelitye elo.	Careful, there is a snake under that stone.	20247	be_careful.IMP · CL17.PRES.be_there · CL9.snake · under · CL17.POSS.CL5.stone · CL5.that
+nzima	Ingxowa yombona ibe nzima kakhulu.	The sack of maize was very heavy.	20248	CL9.sack · CL9.POSS.CL3.maize · CL9.PST.be · heavy · greatly
+nzima	Abafundi basebenze nzima ukuze baphumelele.	The students worked hard so that they would pass.	20249	CL2.student · CL2.work.PERF · hard · so_that · CL2.succeed.SBJV
+ngaphaya	Iinkomo zidla ngaphaya kocingo.	The cattle are grazing on the other side of the fence.	20250	CL10.cattle · CL10.PRES.graze · beyond · CL17.POSS.CL11.fence
+ngaphaya	Wahamba ngaphaya kweentaba wafika kwelinye ilizwe.	He travelled beyond the mountains and reached another country.	20251	CL1.PST.travel · beyond · CL17.POSS.CL10.mountain · CL1.PST.arrive · LOC.CL5.other · CL5.country
+ihlwempu	Ihlwempu alinamali yokuthenga ukutya.	A pauper has no money to buy food.	20252	CL5.pauper · NEG.CL5.have.CL9.money · CL9.POSS.INF.buy · CL15.food
+ihlwempu	Sincede ihlwempu ngempahla nokutya ebusika.	We helped a poor man with clothing and food in winter.	20253	1PL.help.PERF · CL5.pauper · INS.CL9.clothing · and.CL15.food · LOC.CL14.winter
+ithuba	Ndicela undinike ithuba lokuthetha nomphathi.	Please give me a chance to speak with the manager.	20254	1SG.PRES.request · 2SG.1SG.OBJ.give.SBJV · CL5.opportunity · CL5.POSS.INF.speak · with.CL1.manager
+ithuba	Kudlule ithuba elide singabonani.	A long while has passed without us seeing one another.	20255	CL17.pass.PERF · CL5.while · CL5.REL.long · NEG.1PL.see.RECIP
+uphondo	Uphondo lwenkomo lubukhali kakhulu.	A cow's horn is very sharp.	20256	CL11.horn · CL11.POSS.CL9.cow · CL11.COP.sharp · greatly
+uphondo	Abazingeli babulala umkhombe befuna uphondo lwawo.	Poachers kill the rhino for its horn.	20257	CL2.hunter · CL2.PRES.kill · CL3.rhino · CL2.PART.want · CL11.horn · CL11.POSS.CL3
+indumiso	Umama ufunda indumiso yakhe yonke intsasa.	Mother reads her psalm every morning.	20258	CL1a.mother · CL1.PRES.read · CL9.psalm · CL9.POSS.3SG · CL9.every · CL9.morning
+indumiso	Ibandla lacula indumiso phambi kwentshumayelo.	The congregation sang a psalm before the sermon.	20259	CL5.congregation · CL5.PST.sing · CL9.psalm · before · CL17.POSS.CL9.sermon
+isiphelo	Andisithandanga isiphelo sale noveli.	I did not like the end of this novel.	20260	NEG.1SG.CL7.OBJ.like.PERF · CL7.end · CL7.POSS.CL9.this · CL9.novel
+isiphelo	Wonke umntu ulinde isiphelo sonyaka wesikolo.	Everyone is waiting for the end of the school year.	20261	CL1.every · CL1.person · CL1.wait.PERF · CL7.end · CL7.POSS.CL3.year · CL3.POSS.CL7.school
+isihlalo	Beka isihlalo ecaleni kwetafile.	Put the chair beside the table.	20262	put.IMP · CL7.chair · LOC.CL5.side · CL17.POSS.CL9.table
+isihlalo	Isihlalo sobukhosi sidluliselwa kunyana omdala.	The chief's seat is handed down to the eldest son.	20263	CL7.seat · CL7.POSS.CL14.royalty · CL7.PRES.hand_down.PASS · LOC.CL1a.son · CL1.REL.old
+izibane	Izibane esitalatweni azikhanyi namhlanje.	The street lights are not on today.	20264	CL8.lamp · LOC.CL7.street · NEG.CL8.PRES.shine · today
+izibane	Kwaba mnyama, saza sakhanyisa izibane.	It grew dark, and then we lit the lamps.	20265	CL17.PST.be · dark · 1PL.PST.then · 1PL.PST.light · CL8.lamp
+izidumbu	Izidumbu zeenkomo zigcwele ethafeni emva kwembalela.	Cattle carcasses cover the plain after the drought.	20266	CL8.carcass · CL8.POSS.CL10.cattle · CL8.be_full.PERF · LOC.CL5.plain · after · CL17.POSS.CL9.drought
+izidumbu	Amapolisa asuse izidumbu endleleni.	The police removed the bodies from the road.	20267	CL6.police · CL6.remove.PERF · CL8.corpse · LOC.CL9.road
+umnyango	Vala umnyango, kuyabanda ngaphandle.	Close the door, it is cold outside.	20268	close.IMP · CL3.door · CL17.PRES.be_cold · outside
+umnyango	UMnyango weMfundo uvule izikolo ezitsha kulo nyaka.	The Department of Education has opened new schools this year.	20269	CL3.department · CL3.POSS.CL9.education · CL3.open.PERF · CL8.school · CL8.REL.new · LOC.CL3.this · CL3.year
+phaya	Jonga phaya, kuza imvula.	Look over there, rain is coming.	20270	look.IMP · over_there · CL17.PRES.come · CL9.rain
+phaya	Umntwana ushiye ibhola phaya ebaleni.	The child left the ball over there on the field.	20271	CL1.child · CL1.leave.PERF · CL9.ball · over_there · LOC.CL5.field
+inkitha	Inkitha yabantu ilinde ibhasi.	A crowd of people is waiting for the bus.	20272	CL9.multitude · CL9.POSS.CL2.person · CL9.wait.PERF · CL9.bus
+inkitha	Kule ndlu kukho inkitha yeencwadi zakudala.	In this house there is a collection of old books.	20273	LOC.CL9.this · CL9.house · CL17.PRES.be_there · CL9.collection · CL9.POSS.CL10.book · CL10.POSS.long_ago
+amagazi	Amagazi abantu aphalele kuloo mfazwe.	The people's blood was spilled in that war.	20274	CL6.blood · CL6.POSS.CL2.person · CL6.spill.PERF · LOC.CL9.that · CL9.war
+amagazi	Ugqirha uthathe amagazi ukuze ahlole isifo.	The doctor took blood in order to test for the disease.	20275	CL1a.doctor · CL1.take.PERF · CL6.blood · so_that · CL1.test.SBJV · CL7.disease
+lungisa	Lungisa ucango olwaphukileyo.	Fix the broken door.	20276	fix.IMP · CL11.door · CL11.REL.break.PERF
+lungisa	Umama ulungisa itafile ngaphambi kwesidlo.	Mum sets the table before the meal.	20277	CL1a.mother · CL1.PRES.prepare · CL9.table · before · CL17.POSS.CL7.meal
+mnandi	Ukutya kwakho kumnandi kakhulu, ndicela esinye isitya.	Your food is really tasty; may I have another plate, please.	20278	CL15.food · CL15.POSS.2SG · CL15.COP.nice · greatly · 1SG.PRES.request · CL7.other · CL7.dish
+mnandi	Sibe nexesha elimnandi kwitheko likamakhulu.	We had a lovely time at grandmother's party.	20279	1PL.PST.be · with.CL5.time · CL5.REL.nice · LOC.CL5.party · CL5.POSS.CL1a.grandmother
+ulusu	Ulusu lwam lomile ebusika.	My skin is dry in winter.	20280	CL11.skin · CL11.POSS.1SG · CL11.be_dry.PERF · LOC.CL14.winter
+ulusu	Umama upheka ulusu lwenkomo namhlanje.	Mum is cooking beef tripe today.	20281	CL1a.mother · CL1.PRES.cook · CL11.tripe · CL11.POSS.CL9.cow · today
+matye	Umhlaba wale ndawo umatye kakhulu.	The soil of this place is very stony.	20282	CL3.soil · CL3.POSS.CL9.this · CL9.place · CL3.COP.stony · greatly
+matye	Qhuba kancinci, indlela imatye.	Drive slowly, the road is stony.	20283	drive.IMP · slowly · CL9.road · CL9.COP.stony
+mbalwa	Bambalwa abantu abafikileyo entlanganisweni namhlanje.	Few people came to the meeting today.	20284	CL2.COP.few · CL2.person · CL2.REL.arrive.PERF · LOC.CL9.meeting · today
+mbalwa	Ndihlala iintsuku ezimbalwa eKapa.	I am staying in Cape Town for a few days.	20285	1SG.PRES.stay · CL10.day · CL10.REL.few · LOC.Cape_Town
+izifo	Izifo ezininzi zinyangeka lula namhlanje.	Many diseases are easily cured these days.	20286	CL8.disease · CL8.REL.many · CL8.PRES.be_curable · easily · today
+izifo	Ukuhlamba izandla kunciphisa izifo.	Washing your hands cuts down on illness.	20287	INF.wash · CL8.hand · CL15.PRES.reduce · CL8.disease
+ingcambu	Igqirha lisebenzisa ingcambu yomthi ukunyanga abantu.	The healer uses a tree root to treat people.	20288	CL5.healer · CL5.PRES.use · CL9.root · CL9.POSS.CL3.tree · INF.treat · CL2.person
+ingcambu	Ingcambu yale ngxaki yimali.	The root of this problem is money.	20289	CL9.root · CL9.POSS.CL9.this · CL9.problem · COP.CL9.money
+ingcwaba	Ingcwaba likatatomkhulu ligcinwa licocekile.	Grandfather's grave is kept clean.	20290	CL5.grave · CL5.POSS.CL1a.grandfather · CL5.PRES.keep.PASS · CL5.be_clean.PERF
+ingcwaba	Bafumene ingcwaba lakudala kufuphi nomlambo.	They found an old grave near the river.	20291	CL2.find.PERF · CL5.grave · CL5.POSS.long_ago · near · with.CL3.river
+akha	Abafana bakha uthango lwobuhlanti namhlanje.	The young men are building the kraal fence today.	20292	CL2.young_man · CL2.PRES.build · CL11.fence · CL11.POSS.CL14.kraal · today
+akha	Ukwakha ubuhlobo kuthatha ixesha.	Building a friendship takes time.	20293	INF.build · CL14.friendship · CL15.PRES.take · CL5.time
+utolo	Umzingeli uphosa utolo lwakhe enyamakazini.	The hunter throws his spear at the buck.	20294	CL1.hunter · CL1.PRES.throw · CL11.spear · CL11.POSS.3SG · LOC.CL9.game_animal
+utolo	Kwiintsomi zakudala, iqhawe lalithwala utolo nekhaka.	In the old folktales the hero carried a spear and a shield.	20295	LOC.CL10.folktale · CL10.POSS.long_ago · CL5.hero · CL5.PST.carry · CL11.spear · and.CL5.shield
+ibamba	Ibamba lenqununu liza kuthetha nabazali.	The deputy principal will speak to the parents.	20296	CL5.deputy · CL5.POSS.CL9.principal · CL5.FUT · INF.speak · with.CL2.parent
+ibamba	Xa inkosi ingekho, ibamba lithatha izigqibo.	When the chief is away, the deputy takes the decisions.	20297	when · CL9.chief · NEG.CL9.be_present.PTCP · CL5.deputy · CL5.PRES.take · CL8.decision
+igumbi	Igumbi lam licocekile ngoku.	My room is clean now.	20298	CL5.room · CL5.POSS.1SG · CL5.be_clean.PERF · now
+igumbi	Umntwana ulele kwelinye igumbi, ungenzi ingxolo.	The child is asleep in the other room, do not make a noise.	20299	CL1.child · CL1.sleep.PERF · LOC.CL5.other · CL5.room · 2SG.NEG.make.SBJV · CL9.noise
+uncedo	Ndicela uncedo lwakho.	I would like your help.	20300	1SG.PRES.request · CL11.help · CL11.POSS.2SG
+uncedo	Uncedo lwabamelwane lufike ngexesha emva kwengozi.	The neighbours' help arrived in time after the accident.	20301	CL11.help · CL11.POSS.CL2.neighbour · CL11.arrive.PERF · at.CL5.time · after · CL17.POSS.CL9.accident
+ingqiqo	Ingqiqo ibaluleke ngaphezu kobutyebi.	Good sense matters more than wealth.	20302	CL9.sense · CL9.be_important.PERF · above · CL17.POSS.CL14.wealth
+ingqiqo	Sebenzisa ingqiqo yakho xa uthenga imoto endala.	Use your good sense when you buy an old car.	20303	use.IMP · CL9.sense · CL9.POSS.2SG · when · 2SG.PRES.buy · CL9.car · CL9.REL.old
+ummandla	Ummandla wethu unemvula eninzi ehlotyeni.	Our region gets a lot of rain in summer.	20304	CL3.region · CL3.POSS.1PL · CL3.with.CL9.rain · CL9.REL.much · LOC.summer
+ummandla	Ugqirha omnye kuphela usebenza kuwo wonke ummandla.	Only one doctor works across this whole region.	20305	CL1a.doctor · CL1.REL.one · only · CL1.PRES.work · LOC.CL3 · CL3.all · CL3.region
+buyela	Buyela ekhaya, sekumnyama phandle.	Go back home, it is already dark outside.	20306	return_to.IMP · LOC.CL5.home · already.CL15.COP.dark · outside
+buyela	Emva kweholide, abafundi babuyela esikolweni.	After the holidays the students go back to school.	20307	after · CL17.POSS.CL9.holiday · CL2.student · CL2.PRES.return_to · LOC.CL7.school
+inkwenkwe	Inkwenkwe ilusa iigusha entabeni.	The boy is herding the sheep on the mountain.	20308	CL9.boy · CL9.PRES.herd · CL10.sheep · LOC.CL9.mountain
+inkwenkwe	Ndabona inkwenkwe ilinde ibhasi esitalatweni.	I saw a boy waiting for the bus in the street.	20309	1SG.PST.see · CL9.boy · CL9.wait.PERF · CL9.bus · LOC.CL7.street
+iqula	Iqula elikufuphi nelali lomile kulo nyaka.	The spring near the village has dried up this year.	20310	CL5.spring · CL5.REL.near · with.CL9.village · CL5.be_dry.PERF · LOC.CL3.this · CL3.year
+iqula	Kukho iqula emva kwentaba.	There is a spring behind the mountain.	20311	CL17.PRES.be_there · CL5.spring · behind · CL17.POSS.CL9.mountain
+vuma	Vuma ingoma, siza kukulandela.	Start the song, we will follow you.	20312	sing.IMP · CL9.song · 1PL.FUT · INF.2SG.OBJ.follow
+vuma	Ndiyavuma, masenze njalo.	I agree, let us do it that way.	20313	1SG.PRES.agree · HORT.1PL.do.SBJV · so
+isiza	Utata uthenge isiza eMonti.	Dad has bought a plot in East London.	20314	CL1a.father · CL1.buy.PERF · CL7.plot · LOC.East_London
+isiza	Bacoca isiza phambi kokuqalisa umsebenzi.	They are clearing the site before the work starts.	20315	CL2.PRES.clean · CL7.site · before · CL17.POSS.INF.start · CL3.work
+umhlobo	Umhlobo wam uhlala eMthatha.	My friend lives in Mthatha.	20316	CL1.friend · CL1.POSS.1SG · CL1.PRES.live · LOC.Mthatha
+umhlobo	Izolo ndabona umhlobo wam evenkileni.	Yesterday I saw my friend at the shop.	20317	yesterday · 1SG.PST.see · CL1.friend · CL1.POSS.1SG · LOC.CL9.shop
+ubuhle	Ubuhle bendalo buyamangalisa.	The beauty of nature is astonishing.	20318	CL14.beauty · CL14.POSS.CL9.nature · CL14.PRES.astonish
+ubuhle	Umama uthi ubuhle bomntu buphuma entliziyweni.	Mum says a person's beauty comes from the heart.	20319	CL1a.mother · CL1.PRES.say · CL14.beauty · CL14.POSS.CL1.person · CL14.PRES.emerge · LOC.CL9.heart
+umbandezeli	Abantu bavukela umbandezeli wabo.	The people are rising up against their oppressor.	20320	CL2.people · CL2.PRES.rise.against · CL1.oppressor · CL1.POSS.3PL
+umbandezeli	Umbandezeli akaziboni ukuba wenza into embi.	The oppressor does not see that he is doing a bad thing.	20321	CL1.oppressor · CL1.NEG.REFL.see · COMP · CL1.PRES.do · CL9.thing · CL9.REL.bad
+umfanekiselo	Umfanekiselo womthi omkhulu umela usapho lwethu.	The image of a great tree stands for our family.	20322	CL3.image · CL3.POSS.CL3.tree · CL3.REL.big · CL3.PRES.represent · CL11.family · CL11.POSS.1PL
+umfanekiselo	Utitshala usebenzisa umfanekiselo xa echaza le nto.	The teacher uses an image when he explains this.	20323	CL1a.teacher · CL1.PRES.use · CL3.image · when · CL1.PART.explain · CL9.this · CL9.thing
+isiqu	Emva kokusebenza imini yonke, isiqu sam sidiniwe.	After working all day, my body is tired.	20324	after · POSS.CL15.work · CL9.day · CL9.all · CL7.body · CL7.POSS.1SG · CL7.PERF.be.tired
+isiqu	Umhlobo wenene akacingeli isiqu sakhe sodwa.	A true friend does not think of himself alone.	20325	CL1.friend · CL1.POSS.truth · CL1.NEG.consider · CL7.self · CL7.POSS.3SG · CL7.only
+isithuba	Shiya isithuba phakathi kwamagama.	Leave a space between the words.	20326	leave.IMP · CL7.space · between · POSS.CL6.word
+isithuba	Ndifake isicelo kwisithuba somsebenzi esikolweni.	I have applied for a job post at the school.	20327	1SG.PERF.submit · CL7.application · LOC.CL7.post · CL7.POSS.CL3.work · LOC.CL7.school
+iyelenqe	Ndiyabona ukuba kukho iyelenqe apha.	I can see that there is a plot here.	20328	1SG.PRES.see · COMP · EXIST · CL5.plot · here
+iyelenqe	Iyelenqe labo lafunyanwa ngamapolisa.	Their conspiracy was uncovered by the police.	20329	CL5.conspiracy · CL5.POSS.3PL · CL5.PST.PASS.discover · AGT.CL6.police
+zala	Umakhulu wazala abantwana abathandathu.	Grandmother bore six children.	20330	CL1a.grandmother · CL1.PST.bear · CL2.child · CL2.six
+zala	Kuthiwa ukuzala kukuzelula amathambo.	They say that to bear children is to stretch out your own bones.	20331	CL17.PASS.say · CL15.bear.children · COP.CL15.REFL.stretch · CL6.bone
+mgama	Wema mgama, esoyika ukusondela.	He stood far off, afraid to come closer.	20332	CL1.PST.stand · afar · CL1.PART.fear · CL15.approach
+mgama	Musa ukuma mgama, sondela apha.	Don't stand far away, come closer here.	20333	NEG.IMP · CL15.stand · afar · approach.IMP · here
+intlama	Umama uxova intlama yesonka rhoqo ngeCawa.	Mum kneads bread dough every Sunday.	20334	CL1a.mother · CL1.PRES.knead · CL9.dough · CL9.POSS.CL7.bread · regularly · TEMP.CL9.Sunday
+intlama	Intlama inyuke kakuhle namhlanje.	The dough has risen nicely today.	20335	CL9.dough · CL9.PERF.rise · well · today
+lula	Le bhegi ilula, ndingayithwala.	This bag is light, I can carry it.	20336	CL9.this · CL9.bag · CL9.PRES.be.light · 1SG.POT.CL9.OBJ.carry
+lula	Lo mbuzo ulula kakhulu, wonke umntu uyakwazi ukuwuphendula.	This question is very easy; everyone can answer it.	20337	CL3.this · CL3.question · CL3.PRES.be.easy · very · CL1.all · CL1.person · CL1.PRES.be.able · CL15.CL3.OBJ.answer
+ingqalo	Ingqalo yomsebenzi yayinzima kakhulu.	The beginning of the job was very hard.	20338	CL9.beginning · CL9.POSS.CL3.work · CL9.PST.be.hard · very
+ingqalo	Le ntlanganiso yaba yingqalo yotshintsho olukhulu.	This meeting became the start of a great change.	20339	CL9.this · CL9.meeting · CL9.PST.become · COP.CL9.beginning · CL9.POSS.CL11.change · CL11.REL.big
+umqala	Umqala wam ubuhlungu namhlanje.	My throat is sore today.	20340	CL3.throat · CL3.POSS.1SG · CL3.PRES.be.sore · today
+umqala	Nceda ulungise umqala wehempe yakho.	Please straighten the collar of your shirt.	20341	please · 2SG.SBJV.fix · CL3.collar · CL3.POSS.CL9.shirt · CL9.POSS.2SG
+inqatha	Susa inqatha enyameni ngaphambi kokupheka.	Remove the fat from the meat before cooking.	20342	remove.IMP · CL5.fat · LOC.CL9.meat · before · POSS.CL15.cook
+inqatha	Ugqirha uthi inqatha alilunganga kwintliziyo.	The doctor says fat is not good for the heart.	20343	CL1a.doctor · CL1.PRES.say · CL5.fat · CL5.NEG.be.good · LOC.CL9.heart
+umthombo	Kukho umthombo wamanzi ezantsi kwelali.	There is a water spring below the village.	20344	EXIST · CL3.spring · CL3.POSS.CL6.water · below · POSS.CL9.village
+umthombo	Le ncwadi ngumthombo wolwazi olubalulekileyo.	This book is a source of important knowledge.	20345	CL9.this · CL9.book · COP.CL3.source · CL3.POSS.CL11.knowledge · CL11.REL.be.important
+umhlolokazi	Umhlolokazi lowo ukhulisa abantwana bakhe yedwa.	That widow is raising her children on her own.	20346	CL1.widow · CL1.that · CL1.PRES.raise · CL2.child · CL2.POSS.3SG · CL1.alone
+umhlolokazi	Kwiveki ephelileyo umhlolokazi wafumana uncedo ebandleni.	Last week the widow received help from the congregation.	20347	LOC.CL9.week · CL9.REL.past · CL1.widow · CL1.PST.receive · CL11.help · LOC.CL5.congregation
+azisa	Umphathi wazisa abasebenzi ngentlanganiso.	The manager informed the workers about the meeting.	20348	CL1.manager · CL1.PST.inform · CL2.worker · about.CL9.meeting
+azisa	Ndifuna ukwazisa wonke umntu ukuba siyatshata.	I want to announce to everyone that we are getting married.	20349	1SG.PRES.want · CL15.announce · CL1.all · CL1.person · COMP · 1PL.PRES.marry
+intsimbi	Intsimbi iyagqwala xa ihlala emvuleni.	Iron rusts when it stays out in the rain.	20350	CL9.iron · CL9.PRES.rust · when · CL9.PART.stay · LOC.CL9.rain
+intsimbi	Xa ikhala intsimbi, abantwana baphuma bagijima.	When the bell rings, the children run outside.	20351	when · CL9.PART.ring · CL9.bell · CL2.child · CL2.PRES.go.out · CL2.PRES.run
+ubuhlungu	Ndiva ubuhlungu emlenzeni.	I feel pain in my leg.	20352	1SG.PRES.feel · CL14.pain · LOC.CL3.leg
+ubuhlungu	Ubuhlungu bakhe bubonakala nasebusweni.	Her pain shows even on her face.	20353	CL14.pain · CL14.POSS.3SG · CL14.PRES.be.visible · even.LOC.CL14.face
+iqhina	Iqhina lentambo liqinile kakhulu, andikwazi ukulikhulula.	The knot in the rope is very tight; I can't undo it.	20354	CL5.knot · CL5.POSS.CL9.rope · CL5.PERF.be.tight · very · 1SG.NEG.be.able · CL15.CL5.OBJ.untie
+iqhina	Utata ufaka iqhina lakhe phambi kokuya ecaweni.	Dad puts on his necktie before going to church.	20355	CL1a.father · CL1.PRES.put.on · CL5.necktie · CL5.POSS.3SG · before · POSS.CL15.go · LOC.CL9.church
+ubudenge	Musa ukwenza ubudenge phambi kwabantu.	Don't behave foolishly in front of people.	20356	NEG.IMP · INF.do · CL14.foolishness · in_front · CL17.POSS.CL2.person
+ubudenge	Ubudenge bakhe bumfake engxakini.	His foolishness has landed him in trouble.	20357	CL14.foolishness · CL14.POSS.3SG · CL14.CL1.OBJ.put.PERF · LOC.CL9.trouble
+abafana	Abafana badlala ibhola ebaleni.	The boys are playing ball on the field.	20358	CL2.young_man · CL2.PRES.play · CL5.ball · LOC.CL5.field
+abafana	Ndicela abafana bandincede ndithwale le ngxowa.	I'm asking the young men to help me carry this sack.	20359	1SG.PRES.request · CL2.young_man · CL2.1SG.OBJ.help.SBJV · 1SG.carry.SBJV · CL9.this · CL9.sack
+lwa	Izinja zilwa ngenyama egadini.	The dogs are fighting over the meat in the yard.	20360	CL10.dog · CL10.PRES.fight · about.CL9.meat · LOC.CL9.garden
+lwa	Sonke silwa nendlala kule lali.	We are all fighting hunger in this village.	20361	1PL.all · 1PL.PRES.fight · with.CL9.hunger · LOC.CL9.this · CL9.village
+ubulawu	Amagqirha asebenzisa ubulawu ukuze aphuphe.	Diviners use the dream root so that they may dream.	20362	CL6.diviner · CL6.PRES.use · CL14.dream_root · so_that · CL6.dream.SBJV
+ubulawu	Umakhulu uphehla ubulawu kusasa.	Grandmother whisks the dream root into a froth in the morning.	20363	CL1a.grandmother · CL1.PRES.whisk · CL14.dream_root · LOC.morning
+banzi	Indlela iba banzi xa usondela edolophini.	The road becomes wide as you get closer to town.	20364	CL9.road · CL9.PRES.become · wide · when · 2SG.PRES.approach · LOC.CL9.town
+banzi	Funda banzi ngembali yesizwe sakho.	Read widely about the history of your nation.	20365	read.IMP · widely · about.CL9.history · CL9.POSS.CL7.nation · CL7.POSS.2SG
+uboya	Uboya begusha bufudumele ebusika.	Sheep's wool is warm in winter.	20366	CL14.wool · CL14.POSS.CL9.sheep · CL14.be_warm.PERF · LOC.CL14.winter
+uboya	Ikati yam ishiya uboya kuzo zonke izitulo.	My cat leaves fur on all the chairs.	20367	CL9.cat · CL9.POSS.1SG · CL9.PRES.leave · CL14.fur · LOC.CL8.PRON · CL8.all · CL8.chair
+phela	Yiza phela, sisalindile!	Do come, we're still waiting!	20368	come.IMP · EMPH · 1PL.still.wait.PERF
+phela	Imali yam iphela phakathi kwenyanga.	My money runs out in the middle of the month.	20369	CL9.money · CL9.POSS.1SG · CL9.PRES.run_out · in_the_middle · CL17.POSS.CL9.month
+bala	Bala iinkomo zakho, mfana.	Count your cattle, young man.	20370	count.IMP · CL10.cattle · CL10.POSS.2SG · CL1a.young_man.VOC
+bala	Bala kancinci ukuze wonke umntu akuve.	Count slowly so that everyone can hear you.	20371	count.IMP · slowly · so_that · CL1.all · CL1.person · CL1.2SG.OBJ.hear.SBJV
+iziphelo	Iziphelo zeentsomi zikamakhulu zihlala zimnandi.	The endings of grandmother's folktales are always lovely.	20372	CL8.ending · CL8.POSS.CL10.folktale · CL10.POSS.CL1a.grandmother · CL8.PRES.habitually · CL8.COP.pleasant
+iziphelo	Bopha iziphelo zentambo zombini.	Tie both ends of the rope.	20373	tie.IMP · CL8.end · CL8.POSS.CL9.rope · CL8.both
+ihlathi	Ihlathi linemithi emide kakhulu.	The forest has very tall trees.	20374	CL5.forest · CL5.have.CL4.tree · CL4.REL.tall · greatly
+ihlathi	Ihlathi elikufuphi nomzi wethu ligcwele iinyoka.	The forest near our homestead is full of snakes.	20375	CL5.forest · CL5.REL.near · with.CL3.homestead · CL3.POSS.1PL · CL5.be_full.PERF · CL10.snake
+intsika	Intsika yendlu yaphuka phakathi kwesiphango.	The pillar of the house broke during the storm.	20376	CL9.pillar · CL9.POSS.CL9.house · CL9.PST.break · in_the_middle · CL17.POSS.CL7.storm
+intsika	Intsika yekhaya lethu ngumama.	The pillar of our home is mother.	20377	CL9.pillar · CL9.POSS.CL5.home · CL5.POSS.1PL · COP.CL1a.mother
+amadolo	Amadolo am abuhlungu emva kokubaleka.	My knees are sore after running.	20378	CL6.knee · CL6.POSS.1SG · CL6.COP.pain · after · CL17.POSS.CL15.run
+amadolo	Wagoba amadolo wathandaza.	He bent his knees and prayed.	20379	CL1.PST.bend · CL6.knee · CL1.PST.pray
+tshotsho	Tshotsho! Ndakuxelela ukuba ungahambi ebusuku.	Serves you right! I told you not to go out at night.	20380	serves_you_right · 1SG.PST.2SG.OBJ.tell · COMP · NEG.2SG.go.SBJV · LOC.CL14.night
+tshotsho	Uwile? Tshotsho, awuphulaphulanga.	You fell? Serves you right, you didn't listen.	20381	2SG.fall.PERF · serves_you_right · NEG.2SG.listen.PERF
+ingxabano	Ingxabano yabo iqale ngenxa yemali.	Their quarrel started because of money.	20382	CL9.quarrel · CL9.POSS.3PL · CL9.start.PERF · because_of · CL9.POSS.CL9.money
+ingxabano	Sifuna uxolo, hayi ingxabano.	We want peace, not a quarrel.	20383	1PL.PRES.want · CL11.peace · not · CL9.quarrel
+inkuku	Inkuku ibeke amaqanda amahlanu namhlanje.	The hen laid five eggs today.	20384	CL9.fowl · CL9.lay.PERF · CL6.egg · CL6.five · today
+inkuku	Umama upheka inkuku nerayisi.	Mum is cooking chicken and rice.	20385	CL1a.mother · CL1.PRES.cook · CL9.fowl · with.CL5.rice
+isibhakabhaka	Isibhakabhaka sizele ngamafu namhlanje.	The sky is full of clouds today.	20386	CL7.sky · CL7.be_full.PERF · INS.CL6.cloud · today
+isibhakabhaka	Jonga isibhakabhaka ngokuhlwa, iinkwenkwezi ziyakhanya.	Look at the sky in the evening, the stars are shining.	20387	look.IMP · CL7.sky · LOC.evening · CL10.star · CL10.PRES.shine
+umphanda	Umphanda wamanzi umi ngasemnyango.	The water barrel stands by the doorway.	20388	CL3.barrel · CL3.POSS.CL6.water · CL3.PRES.stand · LOC.CL3.doorway
+umphanda	Umama uzalisa umphanda emthonjeni yonke imihla.	Mum fills the barrel at the spring every day.	20389	CL1a.mother · CL1.PRES.fill · CL3.barrel · LOC.CL3.spring · CL4.all · CL4.day
+gqi	Wathi gqi emnyango sisathetha ngaye.	He appeared out of nowhere in the doorway while we were still talking about him.	20390	CL1.PST.say · IDEO.sudden_appearance · LOC.CL3.doorway · 1PL.still.speak · about.CL1.PRON
+gqi	Kwathi gqi imvula, sabaleka.	The rain came out of nowhere, and we ran.	20391	CL17.PST.say · IDEO.sudden_appearance · CL9.rain · 1PL.PST.run
+umququ	Umoya uphephetha umququ, kusale ingqolowa.	The wind blows the chaff away, and the wheat is left.	20392	CL3.wind · CL3.PRES.blow · CL3.chaff · CL17.remain.SBJV · CL9.wheat
+umququ	Iimbuzi zitya umququ ebuhlanti.	The goats are eating the chaff in the kraal.	20393	CL10.goat · CL10.PRES.eat · CL3.chaff · LOC.CL14.kraal
+itakane	Itakane legusha lilandela unina ethafeni.	The lamb follows its mother on the plain.	20394	CL5.lamb · CL5.POSS.CL9.sheep · CL5.PRES.follow · CL1a.its_mother · LOC.CL5.plain
+itakane	Utata undinike itakane elimhlophe.	Father has given me a white lamb.	20395	CL1a.father · CL1.1SG.OBJ.give.PERF · CL5.lamb · CL5.REL.white
+izazi	Izazi zithetha kwiindaba ngemozulu yale veki.	The experts are talking on the news about this week's weather.	20396	CL8.expert · CL8.PRES.speak · LOC.CL10.news · about.CL9.weather · CL9.POSS.CL9.this · CL9.week
+izazi	Kutheni izazi zingavumelani ngale nto?	Why do the experts not agree about this?	20397	why · CL8.expert · NEG.CL8.agree.RECIP.PTCP · about.CL9.this · CL9.thing
+isela	Isela lithathe ifowuni yam eteksini.	The thief took my phone in the taxi.	20398	CL5.thief · CL5.take.PERF · CL9.phone · CL9.POSS.1SG · LOC.CL9.taxi
+isela	Bambani isela, liyabaleka!	Catch the thief, he is running away!	20399	catch.IMP.PL · CL5.thief · CL5.PRES.run
+inxeba	Inxeba lam liyaphola ngoku.	My wound is healing now.	20400	CL5.wound · CL5.POSS.1SG · CL5.PRES.heal · now
+inxeba	Inxeba lentliziyo lithatha ixesha elide ukuphola.	A wound of the heart takes a long time to heal.	20401	CL5.wound · CL5.POSS.CL9.heart · CL5.PRES.take · CL5.time · CL5.long · INF.heal
+yeka	Yeka ukudlala ngefowuni, funda incwadi yakho.	Stop playing with the phone and read your book.	20402	stop.IMP · INF.play · with.CL9.phone · read.IMP · CL9.book · CL9.POSS.2SG
+yeka	Yeka ubuhle bale ndawo!	What a beautiful place this is!	20403	what_a · CL14.beauty · CL14.POSS.CL9.this · CL9.place
+sondela	Sondela apha ndikuve kakuhle.	Come closer so that I can hear you properly.	20404	approach.IMP · here · 1SG.2SG.OBJ.hear.SBJV · well
+sondela	Sondela, ungoyiki, inja yam ayilumi.	Come closer, don't be afraid, my dog doesn't bite.	20405	approach.IMP · NEG.2SG.fear.SBJV · CL9.dog · CL9.POSS.1SG · NEG.CL9.PRES.bite
+umthwalo	Umthwalo kamama unzima, khawumncede.	Mum's load is heavy, please help her.	20406	CL3.load · CL3.POSS.CL1a.mother · CL3.heavy · HORT.2SG.CL1.OBJ.help.SBJV
+umthwalo	Beka phantsi umthwalo wakho, uphumle kancinci.	Put your load down and rest a little.	20407	put.IMP · down · CL3.load · CL3.POSS.2SG · 2SG.rest.SBJV · a_little
+buza	Buza kutata, uyayazi indlela.	Ask dad, he knows the way.	20408	ask.IMP · to.CL1a.father · CL1.PRES.CL9.OBJ.know · CL9.way
+buza	Buza umbuzo wakho ngesiXhosa, utitshala uza kuphendula.	Ask your question in isiXhosa, the teacher will answer.	20409	ask.IMP · CL3.question · CL3.POSS.2SG · in.CL7.Xhosa · CL1a.teacher · CL1.FUT · INF.answer
+ubungangamsha	Ubungangamsha bukaThixo bugcwele emhlabeni.	God's glory fills the earth.	20410	CL14.glory · CL14.POSS.CL1a.God · CL14.be_full.PERF · LOC.CL3.earth
+ubungangamsha	Sonke sabona ubungangamsha bale ntaba.	We all saw the majesty of this mountain.	20411	1PL.all · 1PL.PST.see · CL14.majesty · CL14.POSS.CL9.this · CL9.mountain
+ihenyukazi	Ihenyukazi lisebenza ezitalatweni ebusuku.	The prostitute works in the streets at night.	20412	CL5.prostitute · CL5.PRES.work · LOC.CL8.street · at_night
+ihenyukazi	Kwakukho ihenyukazi elalihlala kuloo dolophu.	There was a prostitute who lived in that town.	20413	CL17.PST.there_was · CL5.prostitute · CL5.REL.PST.live · LOC.CL9.that · CL9.town
+umzalwane	Umzalwane wam uhlala eMonti.	My relative lives in East London.	20414	CL1.relative · CL1.POSS.1SG · CL1.PRES.live · LOC.East_London
+umzalwane	Kwafika umzalwane wethu ovela eGoli izolo.	A relative of ours from Johannesburg arrived yesterday.	20415	CL17.PST.arrive · CL1.relative · CL1.POSS.1PL · CL1.REL.come_from · LOC.Johannesburg · yesterday
+ingweletshetshe	Amagorha akudala ayephethe ingweletshetshe nomkhonto.	The warriors of old carried a shield and a spear.	20416	CL6.hero · CL6.POSS.long_ago · CL6.PST.hold.PERF · CL9.shield · and.CL3.spear
+ingweletshetshe	Ingweletshetshe yenziwa ngofele lwenkomo.	A shield is made from cowhide.	20417	CL9.shield · CL9.PRES.make.PASS · from.CL11.hide · CL11.POSS.CL9.cow
+ikampu	Amajoni amisa ikampu ecaleni komlambo.	The soldiers are pitching camp beside the river.	20418	CL6.soldier · CL6.PRES.pitch · CL9.camp · beside · CL17.POSS.CL3.river
+ikampu	Ikampu yabafundi iqala ngoLwesihlanu.	The pupils' camp starts on Friday.	20419	CL9.camp · CL9.POSS.CL2.pupil · CL9.PRES.begin · on.CL11.Friday
+themba	Themba kuThixo xa kunzima, konke kuya kulunga.	Trust in God when things are hard; everything will be all right.	20420	trust.IMP · in.CL1a.God · when · CL17.PRES.be_hard · CL17.all · CL17.FUT · INF.be_good
+themba	Themba amandla akho, uza kuphumelela.	Trust your own strength, you will succeed.	20421	trust.IMP · CL6.strength · CL6.POSS.2SG · 2SG.FUT · INF.succeed
+irhafu	Wonke umntu osebenzayo kufuneka ahlawule irhafu.	Everyone who works has to pay tax.	20422	CL1.every · CL1.person · CL1.REL.work · CL17.PRES.be_necessary · CL1.pay.SBJV · CL9.tax
+irhafu	Irhafu inyukile kulo nyaka.	Tax has gone up this year.	20423	CL9.tax · CL9.rise.PERF · LOC.CL3.this · CL3.year
+ububele	Ububele bakho bundincedile kakhulu ngeli xesha linzima.	Your kindness has helped me a great deal in this difficult time.	20424	CL14.kindness · CL14.POSS.2SG · CL14.1SG.OBJ.help.PERF · very_much · in.CL5.this · CL5.time · CL5.difficult
+ububele	Umakhulu wandifundisa ububele nentlonipho.	Grandmother taught me kindness and respect.	20425	CL1a.grandmother · CL1.PST.1SG.OBJ.teach · CL14.kindness · and.CL9.respect
+ibango	Ibango lakhe lamkelwe kwiveki ephelileyo.	His claim was accepted last week.	20426	CL5.claim · CL5.POSS.3SG · CL5.accept.PASS.PERF · LOC.CL9.week · CL9.REL.finish.PERF
+ibango	Usapho lwethu lufake ibango lomhlaba wookhokho.	Our family has lodged a claim for the ancestors' land.	20427	CL11.family · CL11.POSS.1PL · CL11.lodge.PERF · CL5.claim · CL5.POSS.CL3.land · CL3.POSS.CL2a.ancestor
+ubugorha	Ubugorha bukaNelson Mandela busakhunjulwa namhlanje.	Nelson Mandela's bravery is still remembered today.	20428	CL14.bravery · CL14.POSS.Nelson · Mandela · CL14.still.remember.PASS · today
+ubugorha	Wabonisa ubugorha xa esindisa umntwana emlanjeni.	He showed bravery when he saved a child in the river.	20429	CL1.PST.show · CL14.bravery · when · CL1.PTCP.save · CL1.child · LOC.CL3.river
+umfundisi	Umfundisi ushumayela ecaweni ngeCawa.	The minister preaches at the church on Sunday.	20430	CL1.minister · CL1.PRES.preach · LOC.CL9.church · on.CL9.Sunday
+umfundisi	Bonke abafundi bayamthanda umfundisi wesiXhosa.	All the pupils like the isiXhosa teacher.	20431	CL2.all · CL2.pupil · CL2.PRES.CL1.OBJ.like · CL1.teacher · CL1.POSS.CL7.Xhosa
+zela	Zela mna kule ntlanganiso, ndiyagula namhlanje.	Stand in for me at this meeting, I am ill today.	20432	represent.IMP · 1SG.PERS · LOC.CL9.this · CL9.meeting · 1SG.PRES.be_sick · today
+zela	Zela ikhaya lakho ngesidima.	Represent your home with dignity.	20433	represent.IMP · CL5.home · CL5.POSS.2SG · with.CL7.dignity
+ithokazi	Utata uthenge ithokazi elitsha izolo.	Dad bought a new heifer yesterday.	20434	CL1a.father · CL1.buy.PERF · CL5.heifer · CL5.new · yesterday
+ithokazi	Ithokazi liphume ebuhlanti, alifumaneki.	The heifer has got out of the kraal and cannot be found.	20435	CL5.heifer · CL5.leave.PERF · LOC.CL14.kraal · NEG.CL5.PRES.be_found
