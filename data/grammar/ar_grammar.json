@@ -3188,7 +3188,7 @@
           "sentence": "ما نجح {{answer}} المجتهد.",
           "answer": "إلا",
           "translation": "None succeeded but the diligent one.",
-          "hint": "none but (ما…إلا)",
+          "hint": "exceptive particle after the negation (not سوى)",
           "transliteration": "mā najaḥa ___ al-mujtahid",
           "display_order": 3
         },

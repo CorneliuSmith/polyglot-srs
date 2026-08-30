@@ -3210,7 +3210,7 @@
           "sentence": "{{answer}} και ήταν αργά, συνεχίσαμε τη συζήτηση.",
           "answer": "αν",
           "translation": "Although it was late, we continued the conversation.",
-          "hint": "although (αν και)",
+          "hint": "conditional conjunction; with 'και' it means although",
           "transliteration": "___ ke ítan argá, sinechísame ti sizítisi.",
           "display_order": 3
         },
@@ -3334,7 +3334,7 @@
           "sentence": "{{answer}} περιπτώσει, θα τα πούμε αύριο.",
           "answer": "εν",
           "translation": "In any case, we'll talk tomorrow.",
-          "hint": "in (fixed phrase εν πάση περιπτώσει)",
+          "hint": "archaic 'in' governing the dative — formal register",
           "transliteration": "___ periptósi, tha ta púme ávrio.",
           "display_order": 1
         },
@@ -3374,7 +3374,7 @@
           "sentence": "Θα το κάνω {{answer}} ώρας.",
           "answer": "εν",
           "translation": "I'll do it in due course.",
-          "hint": "in (fixed phrase εν ευθέτω χρόνω / εν ώρα)",
+          "hint": "archaic 'in' used in frozen formal phrases",
           "transliteration": "Tha to káno ___ óras.",
           "display_order": 6
         }

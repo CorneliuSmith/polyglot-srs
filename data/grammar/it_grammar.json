@@ -2559,14 +2559,14 @@
           "sentence": "Qui {{answer}} vende pane fresco.",
           "answer": "si",
           "translation": "Fresh bread is sold here.",
-          "hint": "(si passivante)",
+          "hint": "reflexive clitic, agent unnamed — 'is sold'",
           "display_order": 3
         },
         {
           "sentence": "{{answer}} dice che l'inverno sarà freddo.",
           "answer": "Si",
           "translation": "It is said that the winter will be cold.",
-          "hint": "(impersonal si)",
+          "hint": "impersonal reflexive clitic, sentence-initial — 'one says'",
           "display_order": 4
         },
         {
@@ -3142,7 +3142,7 @@
           "sentence": "Le chiavi? Ce {{answer}} ho io.",
           "answer": "le",
           "translation": "The keys? I have them.",
-          "hint": "them (ce + le)",
+          "hint": "feminine plural object clitic — for 'chiavi'",
           "display_order": 4
         },
         {

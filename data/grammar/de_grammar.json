@@ -2387,14 +2387,14 @@
           "sentence": "Ich lerne, {{answer}} die Prüfung zu bestehen.",
           "answer": "um",
           "translation": "I study in order to pass the exam.",
-          "hint": "in order (um … zu)",
+          "hint": "purpose 'in order to', pairing with zu",
           "display_order": 3
         },
         {
           "sentence": "Er ging in die Stadt, {{answer}} einzukaufen.",
           "answer": "um",
           "translation": "He went into town in order to shop.",
-          "hint": "in order (um … zu)",
+          "hint": "purpose 'in order to', not ohne/statt + zu",
           "display_order": 4
         },
         {
@@ -2693,21 +2693,21 @@
           "sentence": "Ich warte {{answer}} den Bus.",
           "answer": "auf",
           "translation": "I'm waiting for the bus.",
-          "hint": "for (warten auf + acc.)",
+          "hint": "the preposition warten governs, + accusative (not für)",
           "display_order": 1
         },
         {
           "sentence": "Wir freuen uns {{answer}} die Ferien.",
           "answer": "auf",
           "translation": "We're looking forward to the holidays.",
-          "hint": "to (sich freuen auf)",
+          "hint": "sich freuen, anticipating a future event (not über)",
           "display_order": 2
         },
         {
           "sentence": "Denkst du oft {{answer}} deine Familie?",
           "answer": "an",
           "translation": "Do you often think of your family?",
-          "hint": "of (denken an)",
+          "hint": "the preposition denken governs, + accusative (not über)",
           "display_order": 3
         },
         {
@@ -2728,7 +2728,7 @@
           "sentence": "Sie interessiert sich sehr {{answer}} Kunst.",
           "answer": "für",
           "translation": "She's very interested in art.",
-          "hint": "in (sich interessieren für)",
+          "hint": "the preposition sich interessieren governs, + accusative",
           "display_order": 6
         }
       ]
@@ -2885,7 +2885,7 @@
           "sentence": "{{answer}} spricht hier Deutsch.",
           "answer": "Man",
           "translation": "German is spoken here. (one speaks…)",
-          "hint": "one/you (man-passive)",
+          "hint": "the impersonal 'one/you' subject, 3rd singular",
           "display_order": 1
         },
         {
@@ -2899,14 +2899,14 @@
           "sentence": "Dieser Text ist leicht {{answer}} verstehen.",
           "answer": "zu",
           "translation": "This text is easy to understand.",
-          "hint": "to (sein + zu)",
+          "hint": "infinitive marker after sein, 'can be understood'",
           "display_order": 3
         },
         {
           "sentence": "{{answer}} muss die Regeln beachten.",
           "answer": "Man",
           "translation": "One must observe the rules.",
-          "hint": "one/you (man-passive)",
+          "hint": "impersonal generic subject, 3rd person singular",
           "display_order": 4
         },
         {
@@ -2920,7 +2920,7 @@
           "sentence": "Da ist nichts mehr {{answer}} machen.",
           "answer": "zu",
           "translation": "There's nothing more to be done.",
-          "hint": "to (sein + zu)",
+          "hint": "infinitive marker in the 'sein' passive substitute",
           "display_order": 6
         }
       ]

@@ -2542,7 +2542,7 @@
           "sentence": "{{answer}} diu que l'hivern serà fred.",
           "answer": "Es",
           "translation": "It is said that the winter will be cold.",
-          "hint": "(impersonal es)",
+          "hint": "impersonal reflexive clitic, reinforced form before a consonant",
           "display_order": 4
         },
         {
@@ -2855,7 +2855,7 @@
           "sentence": "Ja {{answer}} és tard, anem a dormir.",
           "answer": "que",
           "translation": "Since it's late, let's go to sleep.",
-          "hint": "since (ja que)",
+          "hint": "the subordinator that makes 'ja' mean 'since'",
           "display_order": 3
         },
         {
@@ -2876,7 +2876,7 @@
           "sentence": "Atès {{answer}} plou, agafem el paraigua.",
           "answer": "que",
           "translation": "Given that it's raining, let's take the umbrella.",
-          "hint": "that (atès que)",
+          "hint": "the subordinator that must follow 'atès'",
           "display_order": 6
         }
       ]
@@ -3111,7 +3111,7 @@
           "sentence": "De peres, no {{answer}} tinc.",
           "answer": "en",
           "translation": "As for pears, I don't have any.",
-          "hint": "any (dislocation with en)",
+          "hint": "partitive clitic taking up 'de peres'",
           "display_order": 3
         },
         {
@@ -3189,14 +3189,14 @@
           "sentence": "En tot {{answer}}, ens veiem demà.",
           "answer": "cas",
           "translation": "In any case, see you tomorrow.",
-          "hint": "case (en tot cas)",
+          "hint": "the noun making 'en tot' mean 'in any event'",
           "display_order": 5
         },
         {
           "sentence": "La reunió s'ha ajornat; {{answer}} consegüent, us avisarem.",
           "answer": "per",
           "translation": "The meeting has been postponed; consequently, we'll notify you.",
-          "hint": "by (per consegüent)",
+          "hint": "the preposition making 'consegüent' mean 'consequently'",
           "display_order": 6
         }
       ]

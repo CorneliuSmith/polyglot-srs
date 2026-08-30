@@ -341,7 +341,7 @@
           "sentence": "Mi granny {{answer}} a maakit evri satdi.",
           "answer": "go",
           "translation": "My grandmother goes to the market every Saturday.",
-          "hint": "go — bare form",
+          "hint": "bare verb, opposite of 'come' — no final s",
           "display_order": 4
         },
         {
@@ -800,7 +800,7 @@
           "sentence": "Im naa {{answer}} laik dis.",
           "answer": "go",
           "translation": "He is not going to like this.",
-          "hint": "after naa, the 'go' part",
+          "hint": "the future marker after naa — not wi",
           "display_order": 6
         }
       ]
@@ -989,7 +989,7 @@
           "sentence": "Di tiicha se {{answer}} di tes aad.",
           "answer": "se",
           "translation": "The teacher said that the test is hard.",
-          "hint": "yes — say + se together",
+          "hint": "the 'that' linker after a verb of telling",
           "display_order": 6
         }
       ]
@@ -1045,7 +1045,7 @@
           "sentence": "Pikni no {{answer}} taak so.",
           "answer": "fi",
           "translation": "Children shouldn't talk like that.",
-          "hint": "shouldn't = no fi",
+          "hint": "the 'to' particle after no (shouldn't)",
           "display_order": 5
         },
         {

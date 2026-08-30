@@ -1781,7 +1781,7 @@
           "sentence": "Kāore au {{answer}} te mōhio ki tērā.",
           "answer": "i",
           "translation": "I don't know that.",
-          "hint": "(present negative: kāore … i te)",
+          "hint": "the marker before te — present tense",
           "gloss": "NEG · 1SG · ___ · the · know · to · that",
           "display_order": 1
         },
@@ -1797,7 +1797,7 @@
           "sentence": "Kāore {{answer}} kia oti taku mahi.",
           "answer": "anō",
           "translation": "My work is not yet finished.",
-          "hint": "yet (kāore anō … kia)",
+          "hint": "'yet' — the particle before kia",
           "gloss": "NEG · ___ · SBJV · finished · 1SG.POSS · work",
           "display_order": 3
         },
@@ -1813,7 +1813,7 @@
           "sentence": "Kāore mātou {{answer}} kai inanahi.",
           "answer": "i",
           "translation": "We did not eat yesterday.",
-          "hint": "(past negative: kāore … i)",
+          "hint": "past tense — the marker before the verb",
           "gloss": "NEG · 1PL.EXCL · ___ · eat · yesterday",
           "display_order": 5
         },
@@ -2077,7 +2077,7 @@
           "sentence": "{{answer}} te ua āpōpō, ka noho tātou i te whare.",
           "answer": "Ki",
           "translation": "If it rains tomorrow, we'll stay in the house.",
-          "hint": "if (ki te)",
+          "hint": "'if' before te — not mehemea",
           "gloss": "___ · the · rain · tomorrow · FUT · stay · 1PL.INCL · at · the · house",
           "display_order": 1
         },
@@ -2085,7 +2085,7 @@
           "sentence": "Haere {{answer}} te tiki i te wai.",
           "answer": "ki",
           "translation": "Go to fetch the water.",
-          "hint": "in order to (ki te)",
+          "hint": "'in order to' — purpose particle before te",
           "gloss": "go · ___ · the · fetch · OBJ · the · water",
           "display_order": 2
         },
@@ -2101,7 +2101,7 @@
           "sentence": "Ka reka te kai {{answer}} te tika te tunu.",
           "answer": "ki",
           "translation": "The food is tasty if it's cooked right.",
-          "hint": "if (ki te)",
+          "hint": "'if' introducing the condition, before te — not mehemea",
           "gloss": "FUT · tasty · the · food · ___ · the · correct · the · cook",
           "display_order": 4
         },
@@ -2109,7 +2109,7 @@
           "sentence": "{{answer}} kore koe e haere, ka pōuri au.",
           "answer": "Ki",
           "translation": "If you don't go, I'll be sad.",
-          "hint": "if (ki te … kore)",
+          "hint": "'if' — the bare conditional preposition, not mehemea",
           "gloss": "___ · NEG · 2SG · FUT · go · FUT · sad · 1SG",
           "display_order": 5
         },
@@ -2719,7 +2719,7 @@
           "sentence": "Kāore ia i kai, {{answer}} te mea kāore ia i hiakai.",
           "answer": "nō",
           "translation": "She didn't eat, because she wasn't hungry.",
-          "hint": "because (nō te mea)",
+          "hint": "'because' — the o-category causal particle before te mea",
           "gloss": "NEG · 3SG · PST · eat · ___ · the · thing · NEG · 3SG · PST · hungry",
           "display_order": 2
         },
@@ -2751,7 +2751,7 @@
           "sentence": "{{answer}} te mea i ua, i noho mātou ki roto.",
           "answer": "Nō",
           "translation": "Because it rained, we stayed inside.",
-          "hint": "because (nō te mea)",
+          "hint": "'because' at the sentence start — the o-category causal particle",
           "gloss": "___ · the · thing · PST · rain · PST · stay · 1PL.EXCL · to · inside",
           "display_order": 6
         }
