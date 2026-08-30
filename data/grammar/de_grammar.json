@@ -37,7 +37,8 @@
           "translation": "I live in Berlin.",
           "hint": "I",
           "display_order": 1,
-          "cell": "ich"
+          "cell": "ich",
+          "gloss": "___ · live.1SG · in · Berlin"
         },
         {
           "sentence": "{{answer}} bist mein Freund.",
@@ -45,7 +46,8 @@
           "translation": "You are my friend.",
           "hint": "you — informal",
           "display_order": 2,
-          "cell": "du"
+          "cell": "du",
+          "gloss": "___ · be.2SG · 1SG.POSS.M.SG · friend"
         },
         {
           "sentence": "{{answer}} ist meine Schwester.",
@@ -53,7 +55,8 @@
           "translation": "She is my sister.",
           "hint": "she",
           "display_order": 3,
-          "cell": "sie"
+          "cell": "sie",
+          "gloss": "___ · be.3SG · 1SG.POSS.F.SG · sister"
         },
         {
           "sentence": "{{answer}} sind Studenten.",
@@ -61,7 +64,8 @@
           "translation": "We are students.",
           "hint": "we",
           "display_order": 4,
-          "cell": "wir"
+          "cell": "wir",
+          "gloss": "___ · be.1PL · student.PL"
         },
         {
           "sentence": "{{answer}} seid sehr nett.",
@@ -69,7 +73,8 @@
           "translation": "You (all) are very nice.",
           "hint": "you — plural informal",
           "display_order": 5,
-          "cell": "ihr"
+          "cell": "ihr",
+          "gloss": "___ · be.2PL · very · nice"
         },
         {
           "sentence": "{{answer}} arbeitet bei einer Bank.",
@@ -77,7 +82,8 @@
           "translation": "He works at a bank.",
           "hint": "he",
           "display_order": 6,
-          "cell": "er"
+          "cell": "er",
+          "gloss": "___ · work.3SG · at · INDF.F.DAT · bank"
         },
         {
           "sentence": "{{answer}} ist kalt heute.",
@@ -85,7 +91,8 @@
           "translation": "It is cold today.",
           "hint": "it",
           "cell": "es",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · be.3SG · cold · today"
         },
         {
           "sentence": "{{answer}} sind meine Eltern.",
@@ -93,7 +100,8 @@
           "translation": "They are my parents.",
           "hint": "they",
           "cell": "sie (pl)",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "___ · be.3PL · 1SG.POSS.PL · parent.PL"
         },
         {
           "sentence": "{{answer}} trinke gern Kaffee.",
@@ -101,7 +109,8 @@
           "translation": "I like drinking coffee.",
           "hint": "I",
           "cell": "ich",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "___ · drink.1SG · gladly · coffee"
         },
         {
           "sentence": "{{answer}} sprichst sehr schnell.",
@@ -109,7 +118,8 @@
           "translation": "You speak very fast.",
           "hint": "you — informal",
           "cell": "du",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "___ · speak.2SG · very · fast"
         },
         {
           "sentence": "{{answer}} arbeitet in München.",
@@ -117,7 +127,8 @@
           "translation": "He works in Munich.",
           "hint": "he",
           "cell": "er",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "___ · work.3SG · in · Munich"
         },
         {
           "sentence": "{{answer}} singt sehr gut.",
@@ -125,7 +136,8 @@
           "translation": "She sings very well.",
           "hint": "she",
           "cell": "sie",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "___ · sing.3SG · very · well"
         },
         {
           "sentence": "{{answer}} regnet heute.",
@@ -133,7 +145,8 @@
           "translation": "It is raining today.",
           "hint": "it",
           "cell": "es",
-          "display_order": 13
+          "display_order": 13,
+          "gloss": "___ · rain.3SG · today"
         },
         {
           "sentence": "{{answer}} lernen zusammen.",
@@ -141,7 +154,8 @@
           "translation": "We study together.",
           "hint": "we",
           "cell": "wir",
-          "display_order": 14
+          "display_order": 14,
+          "gloss": "___ · learn.1PL · together"
         },
         {
           "sentence": "{{answer}} kommt aus Wien?",
@@ -149,7 +163,8 @@
           "translation": "You (all) come from Vienna?",
           "hint": "you all — informal",
           "cell": "ihr",
-          "display_order": 15
+          "display_order": 15,
+          "gloss": "___ · come.2PL · from · Vienna"
         },
         {
           "sentence": "{{answer}} wohnen in Köln.",
@@ -157,7 +172,8 @@
           "translation": "They live in Cologne.",
           "hint": "they",
           "cell": "sie (pl)",
-          "display_order": 16
+          "display_order": 16,
+          "gloss": "___ · live.3PL · in · Cologne"
         }
       ],
       "paradigm": [
@@ -201,7 +217,8 @@
           "translation": "I have two books.",
           "hint": "book, plural (umlaut)",
           "display_order": 1,
-          "cell": "neuter"
+          "cell": "neuter",
+          "gloss": "1SG · have.1SG · two · ___"
         },
         {
           "sentence": "Die {{answer}} sind schön.",
@@ -209,7 +226,8 @@
           "translation": "The houses are beautiful.",
           "hint": "house, plural (umlaut)",
           "display_order": 2,
-          "cell": "neuter"
+          "cell": "neuter",
+          "gloss": "DEF.PL · ___ · be.3PL · beautiful"
         },
         {
           "sentence": "Ich habe drei {{answer}}.",
@@ -217,7 +235,8 @@
           "translation": "I have three sisters.",
           "hint": "sister, plural",
           "display_order": 3,
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "1SG · have.1SG · three · ___"
         },
         {
           "sentence": "Die {{answer}} spielen im Garten.",
@@ -225,7 +244,8 @@
           "translation": "The children are playing in the garden.",
           "hint": "child, plural",
           "display_order": 4,
-          "cell": "neuter"
+          "cell": "neuter",
+          "gloss": "DEF.PL · ___ · play.3PL · in-DEF.M.DAT · garden"
         },
         {
           "sentence": "Ich habe zwei {{answer}} zu Hause.",
@@ -233,7 +253,8 @@
           "translation": "I have two cats at home.",
           "hint": "cat, plural",
           "display_order": 5,
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "1SG.NOM · have.PRS.1SG · two · ___ · at · house.DAT"
         },
         {
           "sentence": "Die {{answer}} sind neu.",
@@ -241,7 +262,8 @@
           "translation": "The cars are new.",
           "hint": "car, plural (-s)",
           "display_order": 6,
-          "cell": "neuter"
+          "cell": "neuter",
+          "gloss": "DEF.PL · ___ · be.PRS.3PL · new"
         },
         {
           "sentence": "Die {{answer}} sind aus Holz.",
@@ -249,7 +271,8 @@
           "translation": "The tables are made of wood.",
           "hint": "table, plural — masculine",
           "cell": "masculine",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "DEF.PL · ___ · be.PRS.3PL · from · wood"
         },
         {
           "sentence": "Die {{answer}} bellen laut.",
@@ -257,7 +280,8 @@
           "translation": "The dogs bark loudly.",
           "hint": "dog, plural — masculine",
           "cell": "masculine",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "DEF.PL · ___ · bark.PRS.3PL · loud"
         }
       ],
       "paradigm": [
@@ -296,7 +320,8 @@
           "translation": "The house is big.",
           "hint": "neuter",
           "display_order": 1,
-          "cell": "das"
+          "cell": "das",
+          "gloss": "___ · house · be.PRS.3SG · big"
         },
         {
           "sentence": "{{answer}} Mann ist Lehrer.",
@@ -304,7 +329,8 @@
           "translation": "The man is a teacher.",
           "hint": "masculine",
           "display_order": 2,
-          "cell": "der"
+          "cell": "der",
+          "gloss": "___ · man · be.PRS.3SG · teacher"
         },
         {
           "sentence": "{{answer}} Frau ist Ärztin.",
@@ -312,7 +338,8 @@
           "translation": "The woman is a doctor.",
           "hint": "feminine",
           "display_order": 3,
-          "cell": "die"
+          "cell": "die",
+          "gloss": "___ · woman · be.PRS.3SG · doctor.F"
         },
         {
           "sentence": "{{answer}} Kaffee ist heiß.",
@@ -320,7 +347,8 @@
           "translation": "The coffee is hot.",
           "hint": "masculine",
           "display_order": 4,
-          "cell": "der"
+          "cell": "der",
+          "gloss": "___ · coffee · be.PRS.3SG · hot"
         },
         {
           "sentence": "{{answer}} Kinder spielen draußen.",
@@ -328,7 +356,8 @@
           "translation": "The children are playing outside.",
           "hint": "plural",
           "display_order": 5,
-          "cell": "die"
+          "cell": "die",
+          "gloss": "___ · child.PL · play.PRS.3PL · outside"
         },
         {
           "sentence": "{{answer}} Auto ist schnell.",
@@ -336,7 +365,8 @@
           "translation": "The car is fast.",
           "hint": "neuter",
           "display_order": 6,
-          "cell": "das"
+          "cell": "das",
+          "gloss": "___ · car · be.PRS.3SG · fast"
         }
       ],
       "paradigm": [
@@ -374,42 +404,48 @@
           "answer": "ein",
           "translation": "That is a house.",
           "hint": "neuter",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEM.N · be.PRS.3SG · ___ · house"
         },
         {
           "sentence": "Das ist {{answer}} gute Idee.",
           "answer": "eine",
           "translation": "That is a good idea.",
           "hint": "feminine",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEM.N · be.PRS.3SG · ___ · good.F · idea"
         },
         {
           "sentence": "Er ist {{answer}} Freund von mir.",
           "answer": "ein",
           "translation": "He is a friend of mine.",
           "hint": "masculine",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.M.NOM · be.PRS.3SG · ___ · friend · of · 1SG.DAT"
         },
         {
           "sentence": "Das ist {{answer}} Katze.",
           "answer": "eine",
           "translation": "That is a cat.",
           "hint": "feminine",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEM.N · be.PRS.3SG · ___ · cat"
         },
         {
           "sentence": "Hier ist {{answer}} Stuhl.",
           "answer": "ein",
           "translation": "Here is a chair.",
           "hint": "masculine",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "here · be.PRS.3SG · ___ · chair"
         },
         {
           "sentence": "Das ist {{answer}} schönes Auto.",
           "answer": "ein",
           "translation": "That is a beautiful car.",
           "hint": "neuter",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEM.N · be.PRS.3SG · ___ · beautiful.N · car"
         }
       ]
     },
@@ -443,7 +479,8 @@
           "translation": "I am a student.",
           "hint": "sein, ich",
           "display_order": 1,
-          "cell": "1sg"
+          "cell": "1sg",
+          "gloss": "1SG.NOM · ___ · student"
         },
         {
           "sentence": "Du {{answer}} sehr groß.",
@@ -451,7 +488,8 @@
           "translation": "You are very tall.",
           "hint": "sein, du",
           "display_order": 2,
-          "cell": "2sg"
+          "cell": "2sg",
+          "gloss": "2SG.NOM · ___ · very · tall"
         },
         {
           "sentence": "Sie {{answer}} Lehrerin.",
@@ -459,7 +497,8 @@
           "translation": "She is a teacher.",
           "hint": "sein, er/sie/es",
           "display_order": 3,
-          "cell": "3sg"
+          "cell": "3sg",
+          "gloss": "3SG.F.NOM · ___ · teacher.F"
         },
         {
           "sentence": "Wir {{answer}} Freunde.",
@@ -467,7 +506,8 @@
           "translation": "We are friends.",
           "hint": "sein, wir",
           "display_order": 4,
-          "cell": "1pl"
+          "cell": "1pl",
+          "gloss": "1PL.NOM · ___ · friend.PL"
         },
         {
           "sentence": "Ihr {{answer}} müde.",
@@ -475,7 +515,8 @@
           "translation": "You (all) are tired.",
           "hint": "sein, ihr",
           "display_order": 5,
-          "cell": "2pl"
+          "cell": "2pl",
+          "gloss": "2PL · ___ · tired"
         },
         {
           "sentence": "Die Kinder {{answer}} im Garten.",
@@ -483,7 +524,8 @@
           "translation": "The children are in the garden.",
           "hint": "sein, sie",
           "display_order": 6,
-          "cell": "3pl"
+          "cell": "3pl",
+          "gloss": "DEF.PL · child.PL · ___ · in-DEF.DAT · garden"
         },
         {
           "sentence": "Ich {{answer}} müde.",
@@ -491,7 +533,8 @@
           "translation": "I am tired.",
           "hint": "sein, ich",
           "cell": "1sg",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · ___ · tired"
         },
         {
           "sentence": "Du {{answer}} mein bester Freund.",
@@ -499,7 +542,8 @@
           "translation": "You are my best friend.",
           "hint": "sein, du",
           "cell": "2sg",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG · ___ · 1SG.POSS · good.SUP.M.SG · friend"
         },
         {
           "sentence": "Mein Vater {{answer}} Arzt.",
@@ -507,7 +551,8 @@
           "translation": "My father is a doctor.",
           "hint": "sein, er/sie/es",
           "cell": "3sg",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "1SG.POSS · father · ___ · doctor"
         },
         {
           "sentence": "Wir {{answer}} bereit.",
@@ -515,7 +560,8 @@
           "translation": "We are ready.",
           "hint": "sein, wir",
           "cell": "1pl",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL · ___ · ready"
         },
         {
           "sentence": "Ihr {{answer}} sehr nett.",
@@ -523,7 +569,8 @@
           "translation": "You (all) are very nice.",
           "hint": "sein, ihr",
           "cell": "2pl",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL · ___ · very · nice"
         },
         {
           "sentence": "Meine Eltern {{answer}} aus Bonn.",
@@ -531,7 +578,8 @@
           "translation": "My parents are from Bonn.",
           "hint": "sein, sie",
           "cell": "3pl",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "1SG.POSS.PL · parent.PL · ___ · from · Bonn"
         }
       ],
       "paradigm": [
@@ -573,7 +621,8 @@
           "translation": "I am hungry.",
           "hint": "haben, ich",
           "display_order": 1,
-          "cell": "1sg"
+          "cell": "1sg",
+          "gloss": "1SG · ___ · hunger"
         },
         {
           "sentence": "Du {{answer}} Recht.",
@@ -581,7 +630,8 @@
           "translation": "You are right.",
           "hint": "haben, du",
           "display_order": 2,
-          "cell": "2sg"
+          "cell": "2sg",
+          "gloss": "2SG · ___ · right"
         },
         {
           "sentence": "Sie {{answer}} eine Katze.",
@@ -589,7 +639,8 @@
           "translation": "She has a cat.",
           "hint": "haben, er/sie/es",
           "display_order": 3,
-          "cell": "3sg"
+          "cell": "3sg",
+          "gloss": "3SG.F · ___ · INDF.F.ACC · cat"
         },
         {
           "sentence": "Wir {{answer}} Zeit.",
@@ -597,7 +648,8 @@
           "translation": "We have time.",
           "hint": "haben, wir",
           "display_order": 4,
-          "cell": "1pl"
+          "cell": "1pl",
+          "gloss": "1PL · ___ · time"
         },
         {
           "sentence": "Ihr {{answer}} Glück.",
@@ -605,7 +657,8 @@
           "translation": "You (all) are lucky.",
           "hint": "haben, ihr",
           "display_order": 5,
-          "cell": "2pl"
+          "cell": "2pl",
+          "gloss": "2PL · ___ · luck"
         },
         {
           "sentence": "{{answer}} Sie Fragen?",
@@ -613,7 +666,8 @@
           "translation": "Do you have questions?",
           "hint": "haben, sie",
           "display_order": 6,
-          "cell": "3pl"
+          "cell": "3pl",
+          "gloss": "___ · 2PL.POL · question.PL"
         },
         {
           "sentence": "Ich {{answer}} eine Frage.",
@@ -621,7 +675,8 @@
           "translation": "I have a question.",
           "hint": "haben, ich",
           "cell": "1sg",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · ___ · INDF.F.ACC · question"
         },
         {
           "sentence": "Du {{answer}} einen Hund?",
@@ -629,7 +684,8 @@
           "translation": "Do you have a dog?",
           "hint": "haben, du",
           "cell": "2sg",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG · ___ · INDF.M.ACC · dog"
         },
         {
           "sentence": "Er {{answer}} heute Geburtstag.",
@@ -637,7 +693,8 @@
           "translation": "It's his birthday today.",
           "hint": "haben, er/sie/es",
           "cell": "3sg",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "3SG.M · ___ · today · birthday"
         },
         {
           "sentence": "Wir {{answer}} zwei Autos.",
@@ -645,7 +702,8 @@
           "translation": "We have two cars.",
           "hint": "haben, wir",
           "cell": "1pl",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL · ___ · two · car.PL"
         },
         {
           "sentence": "Ihr {{answer}} viel Arbeit.",
@@ -653,7 +711,8 @@
           "translation": "You (all) have a lot of work.",
           "hint": "haben, ihr",
           "cell": "2pl",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL · ___ · much · work"
         },
         {
           "sentence": "Die Kinder {{answer}} Hunger.",
@@ -661,7 +720,8 @@
           "translation": "The children are hungry.",
           "hint": "haben, sie",
           "cell": "3pl",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "DEF.PL · child.PL · ___ · hunger"
         }
       ],
       "paradigm": [
@@ -703,7 +763,8 @@
           "translation": "I am learning German.",
           "hint": "lernen, ich",
           "display_order": 1,
-          "cell": "1sg"
+          "cell": "1sg",
+          "gloss": "1SG.NOM · ___ · German"
         },
         {
           "sentence": "Du {{answer}} gut.",
@@ -711,7 +772,8 @@
           "translation": "You sing well.",
           "hint": "singen, du",
           "display_order": 2,
-          "cell": "2sg"
+          "cell": "2sg",
+          "gloss": "2SG.NOM · ___ · well"
         },
         {
           "sentence": "Er {{answer}} in Hamburg.",
@@ -719,7 +781,8 @@
           "translation": "He lives in Hamburg.",
           "hint": "wohnen, er/sie/es",
           "display_order": 3,
-          "cell": "3sg"
+          "cell": "3sg",
+          "gloss": "3SG.M.NOM · ___ · in · Hamburg"
         },
         {
           "sentence": "Wir {{answer}} Musik.",
@@ -727,7 +790,8 @@
           "translation": "We are listening to music.",
           "hint": "hören, wir",
           "display_order": 4,
-          "cell": "1pl"
+          "cell": "1pl",
+          "gloss": "1PL.NOM · ___ · music"
         },
         {
           "sentence": "Ihr {{answer}} Fußball.",
@@ -735,7 +799,8 @@
           "translation": "You (all) play football.",
           "hint": "spielen, ihr",
           "display_order": 5,
-          "cell": "2pl"
+          "cell": "2pl",
+          "gloss": "2PL.NOM · ___ · football"
         },
         {
           "sentence": "Sie {{answer}} jeden Tag.",
@@ -743,7 +808,8 @@
           "translation": "They work every day.",
           "hint": "arbeiten, sie",
           "display_order": 6,
-          "cell": "3pl"
+          "cell": "3pl",
+          "gloss": "3PL.NOM · ___ · every.M.SG.ACC · day"
         },
         {
           "sentence": "Ich {{answer}} bei einer Firma.",
@@ -751,7 +817,8 @@
           "translation": "I work at a company.",
           "hint": "arbeiten, ich",
           "cell": "1sg",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG.NOM · ___ · at · INDF.F.SG.DAT · company"
         },
         {
           "sentence": "Du {{answer}} Deutsch?",
@@ -759,7 +826,8 @@
           "translation": "Are you learning German?",
           "hint": "lernen, du",
           "cell": "2sg",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG.NOM · ___ · German"
         },
         {
           "sentence": "Meine Schwester {{answer}} im Chor.",
@@ -767,7 +835,8 @@
           "translation": "My sister sings in a choir.",
           "hint": "singen, er/sie/es",
           "cell": "3sg",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "my.F.SG.NOM · sister · ___ · in-DEF.M.SG.DAT · choir"
         },
         {
           "sentence": "Wir {{answer}} heute Abend.",
@@ -775,7 +844,8 @@
           "translation": "We are cooking tonight.",
           "hint": "kochen, wir",
           "cell": "1pl",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL.NOM · ___ · today · evening"
         },
         {
           "sentence": "Ihr {{answer}} laut Musik.",
@@ -783,7 +853,8 @@
           "translation": "You (all) are playing music loudly.",
           "hint": "hören, ihr",
           "cell": "2pl",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL.NOM · ___ · loudly · music"
         },
         {
           "sentence": "Die Kinder {{answer}} im Park.",
@@ -791,7 +862,8 @@
           "translation": "The children are playing in the park.",
           "hint": "spielen, sie",
           "cell": "3pl",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "DEF.PL.NOM · child.PL · ___ · in-DEF.M.SG.DAT · park"
         }
       ],
       "paradigm": [
@@ -832,42 +904,48 @@
           "answer": "lerne",
           "translation": "Today I am learning German.",
           "hint": "to learn, I — verb stays second",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "today · ___ · 1SG.NOM · German"
         },
         {
           "sentence": "Morgen {{answer}} wir nach Berlin.",
           "answer": "fahren",
           "translation": "Tomorrow we are travelling to Berlin.",
           "hint": "to travel, we — verb stays second",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "tomorrow · ___ · 1PL.NOM · to · Berlin"
         },
         {
           "sentence": "Am Montag {{answer}} er Fußball.",
           "answer": "spielt",
           "translation": "On Monday he plays football.",
           "hint": "to play, he — verb stays second",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "on-DEF.M.SG.DAT · Monday · ___ · 3SG.M.NOM · football"
         },
         {
           "sentence": "Jetzt {{answer}} sie Kaffee.",
           "answer": "trinkt",
           "translation": "Now she is drinking coffee.",
           "hint": "to drink, she — verb stays second",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "now · ___ · 3SG.F.NOM · coffee"
         },
         {
           "sentence": "Abends {{answer}} ich Musik.",
           "answer": "höre",
           "translation": "In the evenings I listen to music.",
           "hint": "to listen, I — verb stays second",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "evening.GEN · ___ · 1SG.NOM · music"
         },
         {
           "sentence": "Hier {{answer}} meine Schwester.",
           "answer": "wohnt",
           "translation": "My sister lives here.",
           "hint": "to live, she — verb stays second",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "here · ___ · my.F.SG.NOM · sister"
         }
       ]
     },
@@ -901,7 +979,8 @@
           "translation": "I don't have a car.",
           "hint": "noun negator, neuter",
           "display_order": 1,
-          "cell": "kein"
+          "cell": "kein",
+          "gloss": "1SG.NOM · have.PRS.1SG · ___ · car"
         },
         {
           "sentence": "Sie hat {{answer}} Zeit.",
@@ -909,7 +988,8 @@
           "translation": "She has no time.",
           "hint": "noun negator, feminine",
           "display_order": 2,
-          "cell": "keine"
+          "cell": "keine",
+          "gloss": "3SG.F.NOM · have.PRS.3SG · ___ · time"
         },
         {
           "sentence": "Das ist {{answer}} richtig.",
@@ -917,7 +997,8 @@
           "translation": "That is not right.",
           "hint": "negates an adjective",
           "display_order": 3,
-          "cell": "nicht"
+          "cell": "nicht",
+          "gloss": "that · be.3SG · ___ · right"
         },
         {
           "sentence": "Wir wohnen {{answer}} in Berlin.",
@@ -925,7 +1006,8 @@
           "translation": "We don't live in Berlin.",
           "hint": "negates the verb phrase",
           "display_order": 4,
-          "cell": "nicht"
+          "cell": "nicht",
+          "gloss": "1PL · live.1PL · ___ · in · Berlin"
         },
         {
           "sentence": "Ich habe {{answer}} Geld.",
@@ -933,7 +1015,8 @@
           "translation": "I have no money.",
           "hint": "noun negator, neuter",
           "display_order": 5,
-          "cell": "kein"
+          "cell": "kein",
+          "gloss": "1SG · have.1SG · ___ · money"
         },
         {
           "sentence": "Er ist {{answer}} müde.",
@@ -941,7 +1024,8 @@
           "translation": "He is not tired.",
           "hint": "negates an adjective",
           "display_order": 6,
-          "cell": "nicht"
+          "cell": "nicht",
+          "gloss": "3SG.M · be.3SG · ___ · tired"
         },
         {
           "sentence": "Wir haben {{answer}} Fragen.",
@@ -949,7 +1033,8 @@
           "translation": "We have no questions.",
           "hint": "no/none — before a plural noun",
           "cell": "keine",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1PL · have.1PL · ___ · question.PL"
         }
       ],
       "paradigm": [
@@ -987,42 +1072,48 @@
           "answer": "gibt",
           "translation": "There is a park nearby.",
           "hint": "the verb of the fixed phrase",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG.N · ___ · INDF.M.ACC · park · in · DEF.F.DAT · vicinity"
         },
         {
           "sentence": "{{answer}} gibt viele Cafés hier.",
           "answer": "Es",
           "translation": "There are many cafés here.",
           "hint": "the dummy subject",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · give.3SG · many.PL · café.PL · here"
         },
         {
           "sentence": "Gibt {{answer}} hier ein Hotel?",
           "answer": "es",
           "translation": "Is there a hotel here?",
           "hint": "the dummy subject, question order",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "give.3SG · ___ · here · INDF.N.ACC · hotel"
         },
         {
           "sentence": "Es gibt {{answer}} Brot.",
           "answer": "kein",
           "translation": "There is no bread.",
           "hint": "noun negator, neuter",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.N · give.3SG · ___ · bread"
         },
         {
           "sentence": "Was {{answer}} es zum Essen?",
           "answer": "gibt",
           "translation": "What is there to eat?",
           "hint": "the verb of the fixed phrase",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "what · ___ · 3SG.N · to-DEF.N.DAT · eat.INF"
         },
         {
           "sentence": "Es gibt {{answer}} Probleme.",
           "answer": "keine",
           "translation": "There are no problems.",
           "hint": "noun negator, plural",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.N · give.3SG · ___ · problem.PL"
         }
       ]
     },
@@ -1055,56 +1146,64 @@
           "answer": "Wo",
           "translation": "Where do you live?",
           "hint": "where",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · live.2SG · 2SG"
         },
         {
           "sentence": "{{answer}} heißt du?",
           "answer": "Wie",
           "translation": "What is your name?",
           "hint": "how — names ask 'how' in German",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · be_called.2SG · 2SG"
         },
         {
           "sentence": "{{answer}} ist das?",
           "answer": "Was",
           "translation": "What is that?",
           "hint": "what",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · be.3SG · that"
         },
         {
           "sentence": "{{answer}} kommst du?",
           "answer": "Woher",
           "translation": "Where do you come from?",
           "hint": "where from",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · come.2SG · 2SG"
         },
         {
           "sentence": "{{answer}} beginnt der Kurs?",
           "answer": "Wann",
           "translation": "When does the course begin?",
           "hint": "when",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · begin.3SG · DEF.M.NOM · course"
         },
         {
           "sentence": "{{answer}} ist dein Lehrer?",
           "answer": "Wer",
           "translation": "Who is your teacher?",
           "hint": "who",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · be.3SG · 2SG.POSS · teacher"
         },
         {
           "sentence": "{{answer}} lernst du Deutsch?",
           "answer": "Warum",
           "translation": "Why are you learning German?",
           "hint": "why — a reason",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · learn.2SG · 2SG · German"
         },
         {
           "sentence": "{{answer}} fährst du im Urlaub?",
           "answer": "Wohin",
           "translation": "Where are you going on holiday?",
           "hint": "where TO — direction, not location",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "___ · travel.2SG · 2SG · in-DEF.M.DAT · holiday"
         }
       ]
     },
@@ -1138,7 +1237,8 @@
           "translation": "I see the man.",
           "hint": "definite article — masculine object",
           "display_order": 1,
-          "cell": "den"
+          "cell": "den",
+          "gloss": "1SG · see.1SG · ___ · man"
         },
         {
           "sentence": "Sie liest {{answer}} Buch.",
@@ -1146,7 +1246,8 @@
           "translation": "She is reading the book.",
           "hint": "neuter — unchanged as object",
           "display_order": 2,
-          "cell": "das"
+          "cell": "das",
+          "gloss": "3SG.F · read.3SG · ___ · book"
         },
         {
           "sentence": "Wir kaufen {{answer}} Tisch.",
@@ -1154,7 +1255,8 @@
           "translation": "We are buying a table.",
           "hint": "indefinite article — masculine object",
           "display_order": 3,
-          "cell": "einen"
+          "cell": "einen",
+          "gloss": "1PL · buy.1PL · ___ · table"
         },
         {
           "sentence": "Er trinkt {{answer}} Kaffee.",
@@ -1162,7 +1264,8 @@
           "translation": "He is drinking a coffee.",
           "hint": "indefinite article — masculine object",
           "display_order": 4,
-          "cell": "einen"
+          "cell": "einen",
+          "gloss": "3SG.M · drink.3SG · ___ · coffee"
         },
         {
           "sentence": "Ich frage {{answer}} Lehrer.",
@@ -1170,7 +1273,8 @@
           "translation": "I ask the teacher.",
           "hint": "definite article — masculine object",
           "display_order": 5,
-          "cell": "den"
+          "cell": "den",
+          "gloss": "1SG · ask.1SG · ___ · teacher"
         },
         {
           "sentence": "Sie hat {{answer}} Hund.",
@@ -1178,7 +1282,8 @@
           "translation": "She has a dog.",
           "hint": "indefinite article — masculine object",
           "display_order": 6,
-          "cell": "einen"
+          "cell": "einen",
+          "gloss": "3SG.F · have.3SG · ___ · dog"
         },
         {
           "sentence": "Ich öffne {{answer}} Fenster.",
@@ -1186,7 +1291,8 @@
           "translation": "I open the window.",
           "hint": "the — neuter object (unchanged)",
           "cell": "das",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · open.1SG · ___ · window"
         }
       ],
       "paradigm": [
@@ -1221,7 +1327,8 @@
           "translation": "Yesterday I played football.",
           "hint": "have — I (auxiliary)",
           "cell": "ich",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "yesterday · ___ · 1SG · football · play.PTCP"
         },
         {
           "sentence": "Heute Morgen {{answer}} ich einen Kaffee getrunken.",
@@ -1229,7 +1336,8 @@
           "translation": "This morning I drank a coffee.",
           "hint": "have — I (auxiliary)",
           "cell": "ich",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "today · morning · ___ · 1SG · INDF.ACC · coffee · drink.PTCP"
         },
         {
           "sentence": "{{answer}} du deine Hausaufgaben gemacht?",
@@ -1237,7 +1345,8 @@
           "translation": "Have you done your homework?",
           "hint": "have — you sg. (auxiliary)",
           "cell": "du",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 2SG · 2SG.POSS.ACC.PL · homework.PL · do.PTCP"
         },
         {
           "sentence": "Wann {{answer}} du diesen Film gesehen?",
@@ -1245,7 +1354,8 @@
           "translation": "When did you see this film?",
           "hint": "have — you sg. (auxiliary)",
           "cell": "du",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "when · ___ · 2SG · this.ACC · film · see.PTCP"
         },
         {
           "sentence": "Er {{answer}} seinen Schlüssel verloren.",
@@ -1253,7 +1363,8 @@
           "translation": "He lost his key.",
           "hint": "has — he (auxiliary)",
           "cell": "er",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M · ___ · 3SG.POSS.ACC · key · lose.PTCP"
         },
         {
           "sentence": "Sie {{answer}} ein schönes Lied gesungen.",
@@ -1261,7 +1372,8 @@
           "translation": "She sang a beautiful song.",
           "hint": "has — she (auxiliary)",
           "cell": "er",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.F · ___ · INDF.ACC · beautiful.ACC · song · sing.PTCP"
         },
         {
           "sentence": "Wir {{answer}} das Museum besucht.",
@@ -1269,7 +1381,8 @@
           "translation": "We visited the museum.",
           "hint": "have — we (auxiliary)",
           "cell": "wir",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1PL · ___ · DEF.ACC · museum · visit.PTCP"
         },
         {
           "sentence": "Am Wochenende {{answer}} wir viel getanzt.",
@@ -1277,7 +1390,8 @@
           "translation": "At the weekend we danced a lot.",
           "hint": "have — we (auxiliary)",
           "cell": "wir",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "at-DEF.DAT · weekend · ___ · 1PL · much · dance.PTCP"
         },
         {
           "sentence": "{{answer}} ihr schon gegessen?",
@@ -1285,7 +1399,8 @@
           "translation": "Have you (pl.) already eaten?",
           "hint": "have — you pl. (auxiliary)",
           "cell": "ihr",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "___ · 2PL · already · eat.PTCP"
         },
         {
           "sentence": "Warum {{answer}} ihr so lange gewartet?",
@@ -1293,7 +1408,8 @@
           "translation": "Why did you (pl.) wait so long?",
           "hint": "have — you pl. (auxiliary)",
           "cell": "ihr",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "why · ___ · 2PL · so · long · wait.PTCP"
         },
         {
           "sentence": "Die Kinder {{answer}} im Garten gespielt.",
@@ -1301,7 +1417,8 @@
           "translation": "The children played in the garden.",
           "hint": "have — they (auxiliary)",
           "cell": "sie",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "DEF.NOM.PL · child.PL · ___ · in-DEF.DAT · garden · play.PTCP"
         },
         {
           "sentence": "Meine Freunde {{answer}} das ganze Wochenende gearbeitet.",
@@ -1309,7 +1426,8 @@
           "translation": "My friends worked the whole weekend.",
           "hint": "have — they (auxiliary)",
           "cell": "sie",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "1SG.POSS.NOM.PL · friend.PL · ___ · DEF.ACC · whole.ACC · weekend · work.PTCP"
         }
       ],
       "paradigm": [
@@ -1347,7 +1465,8 @@
           "translation": "Yesterday I went to the cinema.",
           "hint": "am — I (auxiliary sein)",
           "cell": "ich",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "yesterday · ___ · 1SG · in-DEF.ACC · cinema · go.PTCP"
         },
         {
           "sentence": "Heute {{answer}} ich zu spät gekommen.",
@@ -1355,7 +1474,8 @@
           "translation": "Today I came too late.",
           "hint": "am — I (auxiliary sein)",
           "cell": "ich",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "today · ___ · 1SG · too · late · come.PTCP"
         },
         {
           "sentence": "{{answer}} du mit dem Zug gefahren?",
@@ -1363,7 +1483,8 @@
           "translation": "Did you go by train?",
           "hint": "are — you sg. (auxiliary sein)",
           "cell": "du",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 2SG · with · DEF.DAT.M.SG · train · drive.PTCP"
         },
         {
           "sentence": "Wann {{answer}} du nach Hause gekommen?",
@@ -1371,7 +1492,8 @@
           "translation": "When did you come home?",
           "hint": "are — you sg. (auxiliary sein)",
           "cell": "du",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "when · ___ · 2SG · to · home · come.PTCP"
         },
         {
           "sentence": "Der Zug {{answer}} schon abgefahren.",
@@ -1379,7 +1501,8 @@
           "translation": "The train has already left.",
           "hint": "is — it (auxiliary sein)",
           "cell": "er",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.NOM.M.SG · train · ___ · already · depart.PTCP"
         },
         {
           "sentence": "Sie {{answer}} zu Hause geblieben.",
@@ -1387,7 +1510,8 @@
           "translation": "She stayed home.",
           "hint": "is — she (auxiliary sein)",
           "cell": "er",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.F · ___ · at · home · stay.PTCP"
         },
         {
           "sentence": "Wir {{answer}} spät nach Hause gekommen.",
@@ -1395,7 +1519,8 @@
           "translation": "We got home late.",
           "hint": "are — we (auxiliary sein)",
           "cell": "wir",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1PL · ___ · late · to · home · come.PTCP"
         },
         {
           "sentence": "Am Sonntag {{answer}} wir in die Stadt gefahren.",
@@ -1403,7 +1528,8 @@
           "translation": "On Sunday we went into town.",
           "hint": "are — we (auxiliary sein)",
           "cell": "wir",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "on.DEF.DAT.M.SG · Sunday · ___ · 1PL · in · DEF.ACC.F.SG · town · drive.PTCP"
         },
         {
           "sentence": "{{answer}} ihr zu Fuß gegangen?",
@@ -1411,7 +1537,8 @@
           "translation": "Did you (pl.) go on foot?",
           "hint": "are — you pl. (auxiliary sein)",
           "cell": "ihr",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "___ · 2PL · on · foot · go.PTCP"
         },
         {
           "sentence": "Wohin {{answer}} ihr gestern gereist?",
@@ -1419,7 +1546,8 @@
           "translation": "Where did you (pl.) travel yesterday?",
           "hint": "are — you pl. (auxiliary sein)",
           "cell": "ihr",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "where.to · ___ · 2PL · yesterday · travel.PTCP"
         },
         {
           "sentence": "Die Gäste {{answer}} um zwölf angekommen.",
@@ -1427,7 +1555,8 @@
           "translation": "The guests arrived at twelve.",
           "hint": "are — they (auxiliary sein)",
           "cell": "sie",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "DEF.NOM.PL · guest.PL · ___ · at · twelve · arrive.PTCP"
         },
         {
           "sentence": "Meine Eltern {{answer}} nach Italien geflogen.",
@@ -1435,7 +1564,8 @@
           "translation": "My parents flew to Italy.",
           "hint": "are — they (auxiliary sein)",
           "cell": "sie",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "1SG.POSS.NOM.PL · parent.PL · ___ · to · Italy · fly.PTCP"
         }
       ],
       "paradigm": [
@@ -1472,42 +1602,48 @@
           "answer": "dem",
           "translation": "I give the man the book.",
           "hint": "the (dative, masc.)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · give.1SG · ___ · man · DEF.ACC.N.SG · book"
         },
         {
           "sentence": "Sie hilft {{answer}} Frau mit den Taschen.",
           "answer": "der",
           "translation": "She helps the woman with the bags.",
           "hint": "the (dative, fem.)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · help.3SG · ___ · woman · with · DEF.DAT.PL · bag.PL"
         },
         {
           "sentence": "Das Geschenk gefällt {{answer}} Kind sehr.",
           "answer": "dem",
           "translation": "The child likes the gift a lot.",
           "hint": "the (dative, neut.)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.NOM.N.SG · gift · please.3SG · ___ · child · very"
         },
         {
           "sentence": "Ich fahre mit {{answer}} Bus zur Arbeit.",
           "answer": "dem",
           "translation": "I go to work by bus.",
           "hint": "the (dative after 'mit')",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · drive.1SG · with · ___ · bus · to.DEF.DAT.F.SG · work"
         },
         {
           "sentence": "Wir danken {{answer}} Lehrern für ihre Hilfe.",
           "answer": "den",
           "translation": "We thank the teachers for their help.",
           "hint": "the (dative plural, +n)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL · thank.1PL · ___ · teacher.DAT.PL · for · 3PL.POSS.ACC.F.SG · help"
         },
         {
           "sentence": "Nach {{answer}} Essen trinken wir Kaffee.",
           "answer": "dem",
           "translation": "After the meal we drink coffee.",
           "hint": "the (dative after 'nach')",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "after · ___ · meal · drink.1PL · 1PL · coffee"
         }
       ]
     },
@@ -1536,42 +1672,48 @@
           "answer": "kann",
           "translation": "I can swim very well.",
           "hint": "can — I (können)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · very · well · swim.INF"
         },
         {
           "sentence": "Du {{answer}} jetzt nach Hause gehen.",
           "answer": "musst",
           "translation": "You must go home now.",
           "hint": "must — you (müssen)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "2SG · ___ · now · to · home · go.INF"
         },
         {
           "sentence": "Wir {{answer}} am Wochenende ins Kino gehen.",
           "answer": "wollen",
           "translation": "We want to go to the cinema at the weekend.",
           "hint": "want — we (modal)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · on.DEF.DAT.N.SG · weekend · in.DEF.ACC.N.SG · cinema · go.INF"
         },
         {
           "sentence": "{{answer}} ich hier parken?",
           "answer": "Darf",
           "translation": "May I park here?",
           "hint": "may — I (dürfen)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · 1SG · here · park.INF"
         },
         {
           "sentence": "Ihr {{answer}} mehr üben.",
           "answer": "sollt",
           "translation": "You (pl.) should practise more.",
           "hint": "should — you pl. (sollen)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2PL · ___ · more · practise.INF"
         },
         {
           "sentence": "Ich {{answer}} bitte einen Kaffee.",
           "answer": "möchte",
           "translation": "I would like a coffee, please.",
           "hint": "would like — I (möchten)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · ___ · please · INDF.M.ACC · coffee"
         }
       ]
     },
@@ -1600,42 +1742,48 @@
           "answer": "war",
           "translation": "Yesterday I was very tired.",
           "hint": "was — I (sein)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "yesterday · ___ · 1SG · very · tired"
         },
         {
           "sentence": "{{answer}} du gestern auf der Party?",
           "answer": "Warst",
           "translation": "Were you at the party yesterday?",
           "hint": "were — you sg. (sein)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 2SG · yesterday · on · DEF.F.DAT · party"
         },
         {
           "sentence": "Wir {{answer}} letztes Jahr in Spanien.",
           "answer": "waren",
           "translation": "We were in Spain last year.",
           "hint": "were — we (sein)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · last.N.ACC · year · in · Spain"
         },
         {
           "sentence": "Ich {{answer}} als Kind einen Hund.",
           "answer": "hatte",
           "translation": "As a child I had a dog.",
           "hint": "had — I (haben)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · ___ · as · child · INDF.M.ACC · dog"
         },
         {
           "sentence": "Sie {{answer}} gestern keine Zeit.",
           "answer": "hatte",
           "translation": "She had no time yesterday.",
           "hint": "had — she (haben)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.F · ___ · yesterday · NEG.INDF.F.ACC · time"
         },
         {
           "sentence": "Wir {{answer}} viel Spaß im Urlaub.",
           "answer": "hatten",
           "translation": "We had a lot of fun on holiday.",
           "hint": "had — we (haben)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · ___ · much · fun · in-DEF.M.DAT · holiday"
         }
       ]
     },
@@ -1664,42 +1812,48 @@
           "answer": "die",
           "translation": "I'm going into the kitchen. (motion)",
           "hint": "the (accusative — motion)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · go.1SG · in · ___ · kitchen · (motion)"
         },
         {
           "sentence": "Ich bin in {{answer}} Küche. (Ort)",
           "answer": "der",
           "translation": "I'm in the kitchen. (location)",
           "hint": "the (dative — location)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · be.1SG · in · ___ · kitchen · (location)"
         },
         {
           "sentence": "Häng das Bild an {{answer}} Wand! (Bewegung)",
           "answer": "die",
           "translation": "Hang the picture on the wall! (motion)",
           "hint": "the (accusative — motion)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "hang.IMP.2SG · DEF.N.ACC · picture · on · ___ · wall · (motion)"
         },
         {
           "sentence": "Das Bild hängt an {{answer}} Wand. (Ort)",
           "answer": "der",
           "translation": "The picture is hanging on the wall. (location)",
           "hint": "the (dative — location)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.N.NOM · picture · hang.3SG · on · ___ · wall · (location)"
         },
         {
           "sentence": "Die Katze springt auf {{answer}} Tisch. (Bewegung)",
           "answer": "den",
           "translation": "The cat jumps onto the table. (motion)",
           "hint": "the (accusative masc. — motion)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.F.NOM · cat · jump.3SG · on · ___ · table · (motion)"
         },
         {
           "sentence": "Die Katze schläft auf {{answer}} Tisch. (Ort)",
           "answer": "dem",
           "translation": "The cat is sleeping on the table. (location)",
           "hint": "the (dative masc. — location)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.F.NOM · cat · sleep.3SG · on · ___ · table · (location)"
         }
       ]
     },
@@ -1728,42 +1882,48 @@
           "answer": "auf",
           "translation": "I get up at seven every day.",
           "hint": "up (prefix of aufstehen)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · stand.1SG · every.M.ACC · day · at · seven · o'clock · ___"
         },
         {
           "sentence": "Wir kaufen im Supermarkt {{answer}}.",
           "answer": "ein",
           "translation": "We shop at the supermarket.",
           "hint": "in (prefix of einkaufen)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1PL · buy.1PL · in-DEF.M.DAT · supermarket · ___"
         },
         {
           "sentence": "Der Zug kommt um zehn Uhr {{answer}}.",
           "answer": "an",
           "translation": "The train arrives at ten.",
           "hint": "at/to (prefix of ankommen)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M.NOM · train · come.3SG · at · ten · o'clock · ___"
         },
         {
           "sentence": "Kommst du heute Abend {{answer}}?",
           "answer": "mit",
           "translation": "Are you coming along tonight?",
           "hint": "along (prefix of mitkommen)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "come.2SG · 2SG · today · evening · ___"
         },
         {
           "sentence": "Am Freitag rufe ich dich {{answer}}.",
           "answer": "an",
           "translation": "On Friday I'll call you.",
           "hint": "at/to (prefix of anrufen)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "on-DEF.M.DAT · Friday · call.1SG · 1SG · 2SG.ACC · ___"
         },
         {
           "sentence": "Wann kommst du aus dem Urlaub {{answer}}?",
           "answer": "zurück",
           "translation": "When are you coming back from holiday?",
           "hint": "back (prefix of zurückkommen)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "when.Q · come.2SG · 2SG · from · DEF.M.DAT · holiday · ___"
         }
       ]
     },
@@ -1792,42 +1952,48 @@
           "answer": "größer",
           "translation": "Berlin is bigger than Munich.",
           "hint": "bigger (comparative)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "Berlin · be.PRS.3SG · ___ · than · Munich"
         },
         {
           "sentence": "Dieses Café ist am {{answer}} in der Stadt.",
           "answer": "besten",
           "translation": "This café is the best in town.",
           "hint": "best (superlative)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "this.NOM.N.SG · cafe · be.PRS.3SG · at-DEF.DAT.N.SG · ___ · in · DEF.DAT.F.SG · town"
         },
         {
           "sentence": "Deutsch ist {{answer}} als Spanisch für mich.",
           "answer": "schwerer",
           "translation": "German is harder than Spanish for me.",
           "hint": "harder (comparative)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "German · be.PRS.3SG · ___ · than · Spanish · for · 1SG.ACC"
         },
         {
           "sentence": "Im Sommer sind die Tage {{answer}}.",
           "answer": "länger",
           "translation": "In summer the days are longer.",
           "hint": "longer (comparative)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "in-DEF.DAT.M.SG · summer · be.PRS.3PL · DEF.NOM.PL · day.PL · ___"
         },
         {
           "sentence": "Er spielt {{answer}} Fußball als ich.",
           "answer": "besser",
           "translation": "He plays football better than me.",
           "hint": "better (irregular, gut)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M.NOM · play.PRS.3SG · ___ · football · than · 1SG.NOM"
         },
         {
           "sentence": "Gesundheit ist {{answer}} als Geld.",
           "answer": "wichtiger",
           "translation": "Health is more important than money.",
           "hint": "more important (comparative)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "health · be.PRS.3SG · ___ · than · money"
         }
       ]
     },
@@ -1856,42 +2022,48 @@
           "answer": "Mein",
           "translation": "My car is new.",
           "hint": "my (nom. neut.)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · car · be.PRS.3SG · new"
         },
         {
           "sentence": "Wo ist {{answer}} Handy?",
           "answer": "dein",
           "translation": "Where is your phone?",
           "hint": "your (nom. neut.)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "where · be.PRS.3SG · ___ · phone"
         },
         {
           "sentence": "{{answer}} Schwester wohnt in Köln.",
           "answer": "Seine",
           "translation": "His sister lives in Cologne.",
           "hint": "his (nom. fem.)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · sister · live.PRS.3SG · in · Cologne"
         },
         {
           "sentence": "Ich besuche {{answer}} Bruder am Wochenende.",
           "answer": "meinen",
           "translation": "I'm visiting my brother at the weekend.",
           "hint": "my (acc. masc.)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG.NOM · visit.PRS.1SG · ___ · brother · at-DEF.DAT.N.SG · weekend"
         },
         {
           "sentence": "Wir fahren mit {{answer}} Auto.",
           "answer": "unserem",
           "translation": "We're going by our car.",
           "hint": "our (dat. neut.)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL.NOM · go.PRS.1PL · with · ___ · car"
         },
         {
           "sentence": "{{answer}} Nachbarn sind sehr nett.",
           "answer": "Unsere",
           "translation": "Our neighbours are very nice.",
           "hint": "our (nom. plural)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · neighbour.PL · be.PRS.3PL · very · nice"
         }
       ]
     },
@@ -1920,42 +2092,48 @@
           "answer": "weil",
           "translation": "I'm staying home because I'm ill.",
           "hint": "because (verb to the end)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.NOM · stay.PRS.1SG · to · house.DAT · ___ · 1SG.NOM · ill · be.PRS.1SG"
         },
         {
           "sentence": "Ich glaube, {{answer}} er recht hat.",
           "answer": "dass",
           "translation": "I think that he is right.",
           "hint": "that (verb to the end)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG.NOM · think.PRS.1SG · ___ · 3SG.M.NOM · right · have.PRS.3SG"
         },
         {
           "sentence": "Wir gehen spazieren, {{answer}} es schön ist.",
           "answer": "wenn",
           "translation": "We go for a walk when the weather is nice.",
           "hint": "when/if (verb to the end)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL.NOM · go.PRS.1PL · walk.INF · ___ · 3SG.N.NOM · nice · be.PRS.3SG"
         },
         {
           "sentence": "{{answer}} es regnet, gehen wir ins Museum.",
           "answer": "Weil",
           "translation": "Because it's raining, we're going to the museum.",
           "hint": "because (fronted clause)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · 3SG.N.NOM · rain.PRS.3SG · go.PRS.1PL · 1PL.NOM · in-DEF.ACC.N.SG · museum"
         },
         {
           "sentence": "Sie sagt, {{answer}} sie später kommt.",
           "answer": "dass",
           "translation": "She says that she'll come later.",
           "hint": "that (verb to the end)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.F.NOM · say.PRS.3SG · ___ · 3SG.F.NOM · late.COMP · come.PRS.3SG"
         },
         {
           "sentence": "Ich lerne Deutsch, {{answer}} es mir gefällt.",
           "answer": "weil",
           "translation": "I'm learning German because I like it.",
           "hint": "because (verb to the end)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG.NOM · learn.PRS.1SG · German · ___ · 3SG.N.NOM · 1SG.DAT · please.PRS.3SG"
         }
       ]
     },
@@ -1984,42 +2162,48 @@
           "answer": "des",
           "translation": "The man's car is new.",
           "hint": "of the (genitive, masc.)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.NOM.N.SG · car · ___ · man.GEN · be.PRS.3SG · new"
         },
         {
           "sentence": "Die Farbe {{answer}} Blume ist rot.",
           "answer": "der",
           "translation": "The colour of the flower is red.",
           "hint": "of the (genitive, fem.)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.NOM.F.SG · colour · ___ · flower · be.PRS.3SG · red"
         },
         {
           "sentence": "Das Dach {{answer}} Hauses ist alt.",
           "answer": "des",
           "translation": "The roof of the house is old.",
           "hint": "of the (genitive, neut.)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.N.NOM · roof · ___ · house.GEN · be.3SG · old"
         },
         {
           "sentence": "Wegen {{answer}} Wetters bleiben wir zu Hause.",
           "answer": "des",
           "translation": "Because of the weather we're staying home.",
           "hint": "of the (after 'wegen')",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "because_of · ___ · weather.GEN · stay.1PL · 1PL.NOM · at · house.DAT"
         },
         {
           "sentence": "Die Spielsachen {{answer}} Kinder liegen dort.",
           "answer": "der",
           "translation": "The children's toys are lying there.",
           "hint": "of the (genitive, plural)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.PL.NOM · toy.PL · ___ · child.PL.GEN · lie.3PL · there"
         },
         {
           "sentence": "Während {{answer}} Reise haben wir viel gesehen.",
           "answer": "der",
           "translation": "During the trip we saw a lot.",
           "hint": "of the (after 'während', fem.)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "during · ___ · trip.F.GEN · have.1PL · 1PL.NOM · much · see.PTCP"
         }
       ]
     },
@@ -2048,42 +2232,48 @@
           "answer": "ging",
           "translation": "He went home yesterday.",
           "hint": "went — he (gehen, strong)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG.M.NOM · ___ · yesterday · to · house.DAT"
         },
         {
           "sentence": "Ich {{answer}} meine Hausaufgaben am Abend.",
           "answer": "machte",
           "translation": "I did my homework in the evening.",
           "hint": "did — I (machen, weak)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG.NOM · ___ · 1SG.POSS.PL.ACC · homework.PL.ACC · at-DEF.M.DAT · evening.DAT"
         },
         {
           "sentence": "Sie {{answer}} ein interessantes Buch.",
           "answer": "las",
           "translation": "She read an interesting book.",
           "hint": "read — she (lesen, strong)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.F.NOM · ___ · INDF.N.ACC · interesting.N.ACC · book.ACC"
         },
         {
           "sentence": "Wir {{answer}} mit dem Zug nach Berlin.",
           "answer": "fuhren",
           "translation": "We went to Berlin by train.",
           "hint": "went — we (fahren, strong)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL.NOM · ___ · with · DEF.M.DAT · train.DAT · to · Berlin"
         },
         {
           "sentence": "Das Kind {{answer}} den ganzen Tag.",
           "answer": "spielte",
           "translation": "The child played all day.",
           "hint": "played — it (spielen, weak)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.N.NOM · child · ___ · DEF.M.ACC · whole.M.ACC · day.ACC"
         },
         {
           "sentence": "Plötzlich {{answer}} ein Fremder an die Tür.",
           "answer": "klopfte",
           "translation": "Suddenly a stranger knocked at the door.",
           "hint": "knocked — he (klopfen, weak)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "suddenly · ___ · INDF.M.NOM · stranger.M.NOM · at · DEF.F.ACC · door.ACC"
         }
       ]
     },
@@ -2112,42 +2302,48 @@
           "answer": "alte",
           "translation": "The old man is sitting on the bench.",
           "hint": "old (after 'der', nom. m.)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.M.NOM · ___ · man · sit.3SG · on · DEF.F.DAT · bench.DAT"
         },
         {
           "sentence": "Ich habe einen {{answer}} Hund.",
           "answer": "kleinen",
           "translation": "I have a small dog.",
           "hint": "small (after 'einen', acc. m.)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG.NOM · have.1SG · INDF.M.ACC · ___ · dog.ACC"
         },
         {
           "sentence": "Das ist eine {{answer}} Idee.",
           "answer": "gute",
           "translation": "That's a good idea.",
           "hint": "good (after 'eine', nom. f.)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "that.N.NOM · be.3SG · INDF.F.NOM · ___ · idea.NOM"
         },
         {
           "sentence": "Sie trägt ein {{answer}} Kleid.",
           "answer": "rotes",
           "translation": "She's wearing a red dress.",
           "hint": "red (after 'ein', nom. n.)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F.NOM · wear.3SG · INDF.N.ACC · ___ · dress.ACC"
         },
         {
           "sentence": "Wir wohnen in einem {{answer}} Haus.",
           "answer": "großen",
           "translation": "We live in a big house.",
           "hint": "big (after 'einem', dat. n.)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL.NOM · live.1PL · in · INDF.N.DAT · ___ · house.DAT"
         },
         {
           "sentence": "Ich trinke gern {{answer}} Kaffee.",
           "answer": "heißen",
           "translation": "I like drinking hot coffee.",
           "hint": "hot (no article, acc. m.)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG.NOM · drink.1SG · gladly · ___ · coffee.ACC"
         }
       ]
     },
@@ -2177,7 +2373,8 @@
           "translation": "I'm looking forward to the weekend.",
           "hint": "myself — I (accusative)",
           "cell": "ich",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.NOM · rejoice.1SG · ___ · on · DEF.N.ACC · weekend.ACC"
         },
         {
           "sentence": "Setz {{answer}} bitte hin!",
@@ -2185,7 +2382,8 @@
           "translation": "Please sit down!",
           "hint": "yourself — you (accusative)",
           "cell": "du",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "set.IMP.2SG · ___ · please · down"
         },
         {
           "sentence": "Er interessiert {{answer}} für Musik.",
@@ -2193,7 +2391,8 @@
           "translation": "He is interested in music.",
           "hint": "himself — he (accusative)",
           "cell": "er",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.M.NOM · interest.3SG · ___ · for · music.ACC"
         },
         {
           "sentence": "Wir treffen {{answer}} morgen im Café.",
@@ -2201,7 +2400,8 @@
           "translation": "We're meeting tomorrow at the café.",
           "hint": "ourselves — we (accusative)",
           "cell": "wir",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL.NOM · meet.1PL · ___ · tomorrow · in-DEF.N.DAT · cafe.DAT"
         },
         {
           "sentence": "Beeilt {{answer}}, der Bus kommt!",
@@ -2209,7 +2409,8 @@
           "translation": "Hurry up (pl.), the bus is coming!",
           "hint": "yourselves — you pl. (accusative)",
           "cell": "ihr",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "hurry.IMP.2PL · ___ · DEF.M.NOM · bus · come.3SG"
         },
         {
           "sentence": "Die Gäste fühlen {{answer}} wohl.",
@@ -2217,7 +2418,8 @@
           "translation": "The guests feel comfortable.",
           "hint": "themselves — they (accusative)",
           "cell": "sie",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.PL.NOM · guest.PL · feel.3PL · ___ · well"
         }
       ]
     },
@@ -2246,42 +2448,48 @@
           "answer": "der",
           "translation": "The man who is standing there is my teacher.",
           "hint": "who (nom. masc.)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.M.NOM · man · ___ · there · stand.3SG · be.3SG · POSS.1SG · teacher"
         },
         {
           "sentence": "Das Buch, {{answer}} ich lese, ist spannend.",
           "answer": "das",
           "translation": "The book that I'm reading is exciting.",
           "hint": "that (acc. neut.)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.N.NOM · book · ___ · 1SG.NOM · read.1SG · be.3SG · exciting"
         },
         {
           "sentence": "Die Frau, {{answer}} ich helfe, ist krank.",
           "answer": "der",
           "translation": "The woman I'm helping is ill.",
           "hint": "whom (dat. fem.)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.F.NOM · woman · ___ · 1SG.NOM · help.1SG · be.3SG · ill"
         },
         {
           "sentence": "Der Freund, {{answer}} ich ein Geschenk gebe, hat Geburtstag.",
           "answer": "dem",
           "translation": "The friend I'm giving a present to has a birthday.",
           "hint": "to whom (dat. masc.)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.M.NOM · friend · ___ · 1SG.NOM · INDF.N.ACC · present · give.1SG · have.3SG · birthday"
         },
         {
           "sentence": "Die Kinder, {{answer}} draußen spielen, sind laut.",
           "answer": "die",
           "translation": "The children who are playing outside are loud.",
           "hint": "who (nom. plural)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.PL.NOM · child.PL · ___ · outside · play.3PL · be.3PL · loud"
         },
         {
           "sentence": "Das Auto, {{answer}} er gekauft hat, ist rot.",
           "answer": "das",
           "translation": "The car that he bought is red.",
           "hint": "that (acc. neut.)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.N.NOM · car · ___ · 3SG.M.NOM · buy.PTCP · have.3SG · be.3SG · red"
         }
       ]
     },
@@ -2310,42 +2518,48 @@
           "answer": "hätte",
           "translation": "I would like a coffee.",
           "hint": "would have — I (haben, Konj. II)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.NOM · ___ · gladly · INDF.M.ACC · coffee"
         },
         {
           "sentence": "{{answer}} du mir bitte helfen?",
           "answer": "Würdest",
           "translation": "Would you help me, please?",
           "hint": "would — you (würde)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 2SG.NOM · 1SG.DAT · please · help.INF"
         },
         {
           "sentence": "An deiner Stelle {{answer}} ich das nicht tun.",
           "answer": "würde",
           "translation": "In your place I wouldn't do that.",
           "hint": "would — I (Konj. II)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "at · POSS.2SG.F.DAT · place · ___ · 1SG.NOM · that.N.ACC · NEG · do.INF"
         },
         {
           "sentence": "Es {{answer}} schön, wenn du kämst.",
           "answer": "wäre",
           "translation": "It would be nice if you came.",
           "hint": "would be (sein, Konj. II)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.N.NOM · ___ · nice · if · 2SG.NOM · come.COND.2SG"
         },
         {
           "sentence": "{{answer}} du mir kurz zuhören?",
           "answer": "Könntest",
           "translation": "Could you listen to me for a moment?",
           "hint": "could — you (können, Konj. II)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · 2SG.NOM · 1SG.DAT · briefly · listen.INF"
         },
         {
           "sentence": "Wir {{answer}} gern mehr Zeit haben.",
           "answer": "würden",
           "translation": "We would like to have more time.",
           "hint": "would — we (würde)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL.NOM · ___ · gladly · more · time · have.INF"
         }
       ]
     },
@@ -2374,42 +2588,48 @@
           "answer": "zu",
           "translation": "I try to sleep early.",
           "hint": "to (+ infinitive)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.NOM · try.1SG · early · ___ · sleep.INF"
         },
         {
           "sentence": "Es ist wichtig, pünktlich {{answer}} sein.",
           "answer": "zu",
           "translation": "It's important to be on time.",
           "hint": "to (+ infinitive)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.N.NOM · be.3SG · important · punctual · ___ · be.INF"
         },
         {
           "sentence": "Ich lerne, {{answer}} die Prüfung zu bestehen.",
           "answer": "um",
           "translation": "I study in order to pass the exam.",
           "hint": "purpose 'in order to', pairing with zu",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG.NOM · learn.1SG · ___ · DEF.F.ACC · exam · INF · pass.INF"
         },
         {
           "sentence": "Er ging in die Stadt, {{answer}} einzukaufen.",
           "answer": "um",
           "translation": "He went into town in order to shop.",
           "hint": "purpose 'in order to', not ohne/statt + zu",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.M.NOM · go.PST.3SG · into · DEF.F.ACC · town · ___ · shop-INF"
         },
         {
           "sentence": "Hast du Lust, ins Kino {{answer}} gehen?",
           "answer": "zu",
           "translation": "Do you feel like going to the cinema?",
           "hint": "to (+ infinitive)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "have.2SG · 2SG.NOM · desire · into-DEF.N.ACC · cinema · ___ · go.INF"
         },
         {
           "sentence": "Es ist nicht leicht, eine Sprache {{answer}} lernen.",
           "answer": "zu",
           "translation": "It's not easy to learn a language.",
           "hint": "to (+ infinitive)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.N.NOM · be.3SG · NEG · easy · INDF.F.ACC · language · ___ · learn.INF"
         }
       ]
     },
@@ -2438,42 +2658,48 @@
           "answer": "wird",
           "translation": "The house is being built right now.",
           "hint": "is (passive, present)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.N.NOM · house.NOM · ___ · now · build.PTCP"
         },
         {
           "sentence": "Die Briefe {{answer}} gestern geschrieben.",
           "answer": "wurden",
           "translation": "The letters were written yesterday.",
           "hint": "were (passive, past)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.PL.NOM · letter.PL.NOM · ___ · yesterday · write.PTCP"
         },
         {
           "sentence": "Das Museum {{answer}} von vielen Touristen besucht.",
           "answer": "wird",
           "translation": "The museum is visited by many tourists.",
           "hint": "is (passive, present)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.N.NOM · museum.NOM · ___ · by · many.PL.DAT · tourist.PL.DAT · visit.PTCP"
         },
         {
           "sentence": "Der Kuchen ist schon gegessen {{answer}}.",
           "answer": "worden",
           "translation": "The cake has already been eaten.",
           "hint": "been (passive perfect)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.M.NOM · cake.NOM · be.PRS.3SG · already · eat.PTCP · ___"
         },
         {
           "sentence": "Diese Entscheidung {{answer}} morgen getroffen.",
           "answer": "wird",
           "translation": "This decision will be made tomorrow.",
           "hint": "is/will be (passive)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "this.F.NOM · decision.NOM · ___ · tomorrow · make.PTCP"
         },
         {
           "sentence": "Das Bild wurde {{answer}} einem berühmten Maler gemalt.",
           "answer": "von",
           "translation": "The painting was painted by a famous painter.",
           "hint": "by (the agent)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.N.NOM · picture.NOM · PASS.PST.3SG · ___ · INDF.M.DAT · famous.M.DAT · painter.DAT · paint.PTCP"
         }
       ]
     },
@@ -2502,42 +2728,48 @@
           "answer": "hatte",
           "translation": "When you arrived, I had already eaten.",
           "hint": "had — I (Plusquamperfekt)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "when · 2SG.NOM · arrive.PST.2SG · ___ · 1SG.NOM · already · eat.PTCP"
         },
         {
           "sentence": "Der Zug {{answer}} schon abgefahren, als wir ankamen.",
           "answer": "war",
           "translation": "The train had already left when we arrived.",
           "hint": "had — it (sein-verb)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.M.NOM · train.NOM · ___ · already · depart.PTCP · when · 1PL.NOM · arrive.PST.1PL"
         },
         {
           "sentence": "Nachdem sie gegangen {{answer}}, wurde es still.",
           "answer": "war",
           "translation": "After she had left, it became quiet.",
           "hint": "had (sein-verb, nachdem)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "after · 3SG.F.NOM · go.PTCP · ___ · become.PST.3SG · 3SG.N.NOM · quiet"
         },
         {
           "sentence": "Wir {{answer}} das Essen schon bestellt, als er kam.",
           "answer": "hatten",
           "translation": "We had already ordered the food when he came.",
           "hint": "had — we (Plusquamperfekt)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL.NOM · ___ · DEF.N.ACC · food.ACC · already · order.PTCP · when · 3SG.M.NOM · come.PST.3SG"
         },
         {
           "sentence": "Ich erkannte das Haus nicht; es {{answer}} sich verändert.",
           "answer": "hatte",
           "translation": "I didn't recognize the house; it had changed.",
           "hint": "had — it (Plusquamperfekt)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG.NOM · recognize.PST.1SG · DEF.N.ACC · house.ACC · NEG · 3SG.N.NOM · ___ · REFL.ACC · change.PTCP"
         },
         {
           "sentence": "Nachdem er die Prüfung bestanden {{answer}}, feierte er.",
           "answer": "hatte",
           "translation": "After he had passed the exam, he celebrated.",
           "hint": "had — he (Plusquamperfekt)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "after · 3SG.M.NOM · DEF.F.ACC · exam.ACC · pass.PTCP · ___ · celebrate.PST.3SG · 3SG.M.NOM"
         }
       ]
     },
@@ -2566,42 +2798,48 @@
           "answer": "hätte",
           "translation": "If I had had time, I would have come.",
           "hint": "had — I (Konj. II past, haben)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "if · 1SG.NOM · time.ACC · have.PTCP · ___ · be.COND.1SG · 1SG.NOM · come.PTCP"
         },
         {
           "sentence": "Wenn du früher gegangen {{answer}}, hättest du den Zug erreicht.",
           "answer": "wärst",
           "translation": "If you had left earlier, you'd have caught the train.",
           "hint": "had — you (sein)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if · 2SG.NOM · early.COMP · go.PTCP · ___ · have.COND.2SG · 2SG.NOM · DEF.M.ACC · train.ACC · reach.PTCP"
         },
         {
           "sentence": "Ich {{answer}} dir geholfen, wenn du gefragt hättest.",
           "answer": "hätte",
           "translation": "I would have helped you if you had asked.",
           "hint": "would have — I (haben)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG.NOM · ___ · 2SG.DAT · help.PTCP · if · 2SG.NOM · ask.PTCP · have.COND.2SG"
         },
         {
           "sentence": "Wir {{answer}} gern länger geblieben.",
           "answer": "wären",
           "translation": "We would have liked to stay longer.",
           "hint": "would have — we (sein)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL.NOM · ___ · gladly · long.COMP · stay.PTCP"
         },
         {
           "sentence": "Wenn es nicht geregnet {{answer}}, hätten wir gegrillt.",
           "answer": "hätte",
           "translation": "If it hadn't rained, we would have had a barbecue.",
           "hint": "had — it (haben)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · 3SG.N.NOM · NEG · rain.PTCP · ___ · have.COND.1PL · 1PL.NOM · grill.PTCP"
         },
         {
           "sentence": "Was {{answer}} du an meiner Stelle gemacht?",
           "answer": "hättest",
           "translation": "What would you have done in my place?",
           "hint": "would have — you (haben)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "what.ACC · ___ · 2SG.NOM · at · 1SG.POSS.F.DAT · place.DAT · do.PTCP"
         }
       ]
     },
@@ -2630,42 +2868,48 @@
           "answer": "deshalb",
           "translation": "It's raining, so we're staying home.",
           "hint": "therefore (verb comes next)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG.N.NOM · rain.PRS.3SG · ___ · stay.PRS.1PL · 1PL.NOM · at · home.DAT"
         },
         {
           "sentence": "Er ist müde; {{answer}} arbeitet er weiter.",
           "answer": "trotzdem",
           "translation": "He's tired; nevertheless he keeps working.",
           "hint": "nevertheless",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.M.NOM · be.PRS.3SG · tired · ___ · work.PRS.3SG · 3SG.M.NOM · further"
         },
         {
           "sentence": "Ich spreche laut, {{answer}} alle mich hören.",
           "answer": "damit",
           "translation": "I speak loudly so that everyone hears me.",
           "hint": "so that (verb to the end)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG.NOM · speak.1SG · loud · ___ · all.PL · 1SG.ACC · hear.3PL"
         },
         {
           "sentence": "{{answer}} es spät war, blieben wir noch.",
           "answer": "Obwohl",
           "translation": "Although it was late, we stayed a while.",
           "hint": "although (verb to the end)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · 3SG.N.NOM · late · be.PST.3SG · stay.PST.1PL · 1PL.NOM · still"
         },
         {
           "sentence": "Ich lerne Deutsch, {{answer}} ich in Wien arbeiten will.",
           "answer": "weil",
           "translation": "I'm learning German because I want to work in Vienna.",
           "hint": "because (verb to the end)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG.NOM · learn.1SG · German · ___ · 1SG.NOM · in · Vienna · work.INF · want.1SG"
         },
         {
           "sentence": "Beeil dich, {{answer}} verpassen wir den Bus!",
           "answer": "sonst",
           "translation": "Hurry up, otherwise we'll miss the bus!",
           "hint": "otherwise (verb comes next)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "hurry.IMP.2SG · 2SG.ACC · ___ · miss.1PL · 1PL.NOM · DEF.M.ACC · bus"
         }
       ]
     },
@@ -2694,42 +2938,48 @@
           "answer": "auf",
           "translation": "I'm waiting for the bus.",
           "hint": "the preposition warten governs, + accusative (not für)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.NOM · wait.1SG · ___ · DEF.M.ACC · bus"
         },
         {
           "sentence": "Wir freuen uns {{answer}} die Ferien.",
           "answer": "auf",
           "translation": "We're looking forward to the holidays.",
           "hint": "sich freuen, anticipating a future event (not über)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1PL.NOM · rejoice.1PL · 1PL.ACC · ___ · DEF.ACC.PL · holiday.PL"
         },
         {
           "sentence": "Denkst du oft {{answer}} deine Familie?",
           "answer": "an",
           "translation": "Do you often think of your family?",
           "hint": "the preposition denken governs, + accusative (not über)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "think.2SG · 2SG.NOM · often · ___ · 2SG.POSS.F.ACC · family"
         },
         {
           "sentence": "Der Bus kommt nicht. Ich warte schon lange {{answer}}.",
           "answer": "darauf",
           "translation": "The bus isn't coming. I've been waiting for it a while.",
           "hint": "for it (da-compound)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.M.NOM · bus · come.3SG · NEG · 1SG.NOM · wait.1SG · already · long · ___"
         },
         {
           "sentence": "{{answer}} wartest du? — Auf den Zug.",
           "answer": "Worauf",
           "translation": "What are you waiting for? — For the train.",
           "hint": "what … for (wo-compound)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · wait.2SG · 2SG.NOM · — · for · DEF.M.ACC · train"
         },
         {
           "sentence": "Sie interessiert sich sehr {{answer}} Kunst.",
           "answer": "für",
           "translation": "She's very interested in art.",
           "hint": "the preposition sich interessieren governs, + accusative",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.F.NOM · interest.3SG · 3SG.ACC · very · ___ · art"
         }
       ]
     },
@@ -2758,42 +3008,48 @@
           "answer": "Gute",
           "translation": "The good thing about it is the price.",
           "hint": "good thing (adjectival noun, neut.)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.N.NOM · ___ · about · DEF.F.DAT · matter · be.3SG · DEF.M.NOM · price"
         },
         {
           "sentence": "Der {{answer}} sitzt allein auf der Bank.",
           "answer": "Alte",
           "translation": "The old man is sitting alone on the bench.",
           "hint": "old man (adjectival noun)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.M.NOM · ___ · sit.3SG · alone · on · DEF.F.DAT · bench"
         },
         {
           "sentence": "Ein {{answer}} fragte mich nach dem Weg.",
           "answer": "Reisender",
           "translation": "A traveller asked me for directions.",
           "hint": "traveller (participle noun, nom. m.)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "INDF.M.NOM · ___ · ask.PST.3SG · 1SG.ACC · for · DEF.M.DAT · way"
         },
         {
           "sentence": "Die {{answer}} bekommen medizinische Hilfe.",
           "answer": "Kranken",
           "translation": "The sick receive medical help.",
           "hint": "the sick (adjectival noun, plural)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.NOM.PL · ___ · receive.3PL · medical.F.ACC · help"
         },
         {
           "sentence": "Er ist {{answer}} und lebt in Berlin.",
           "answer": "Deutscher",
           "translation": "He is a German and lives in Berlin.",
           "hint": "a German (adjectival noun, nom. m.)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M.NOM · be.3SG · ___ · and · live.3SG · in · Berlin"
         },
         {
           "sentence": "Ich wünsche dir alles {{answer}}!",
           "answer": "Gute",
           "translation": "I wish you all the best!",
           "hint": "best/good (adjectival noun)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG.NOM · wish.1SG · 2SG.DAT · all.N.ACC · ___"
         }
       ]
     },
@@ -2822,42 +3078,48 @@
           "answer": "sei",
           "translation": "He says he is ill.",
           "hint": "is (Konjunktiv I of sein)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG.M.NOM · say.3SG · 3SG.M.NOM · ___ · ill"
         },
         {
           "sentence": "Sie meint, sie {{answer}} keine Zeit.",
           "answer": "habe",
           "translation": "She says she has no time.",
           "hint": "has (Konjunktiv I of haben)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F.NOM · think.3SG · 3SG.F.NOM · ___ · NEG.INDF.F.ACC · time"
         },
         {
           "sentence": "Der Minister erklärte, die Lage {{answer}} ernst.",
           "answer": "sei",
           "translation": "The minister stated that the situation was serious.",
           "hint": "is (Konjunktiv I of sein)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M.NOM · minister · declare.PST.3SG · DEF.F.NOM · situation · ___ · serious"
         },
         {
           "sentence": "Man sagt, er {{answer}} bald zurück.",
           "answer": "komme",
           "translation": "They say he'll come back soon.",
           "hint": "comes (Konjunktiv I of kommen)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "one · say.3SG · 3SG.M.NOM · ___ · soon · back"
         },
         {
           "sentence": "Sie behauptet, sie {{answer}} nichts davon gewusst.",
           "answer": "habe",
           "translation": "She claims she knew nothing about it.",
           "hint": "has (Konjunktiv I of haben)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.F · claim.PRS.3SG · 3SG.F · ___ · nothing · it-of · know.PTCP"
         },
         {
           "sentence": "Er betonte, es {{answer}} keine andere Lösung.",
           "answer": "gebe",
           "translation": "He stressed that there was no other solution.",
           "hint": "gives/is (Konj. I of geben)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.M · stress.PST.3SG · 3SG.N · ___ · NEG.INDF.F · other.F · solution"
         }
       ]
     },
@@ -2886,42 +3148,48 @@
           "answer": "Man",
           "translation": "German is spoken here. (one speaks…)",
           "hint": "the impersonal 'one/you' subject, 3rd singular",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · speak.PRS.3SG · here · German"
         },
         {
           "sentence": "Das Problem {{answer}} sich leicht lösen.",
           "answer": "lässt",
           "translation": "The problem can easily be solved.",
           "hint": "can be (sich lassen)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.N · problem · ___ · REFL · easy · solve.INF"
         },
         {
           "sentence": "Dieser Text ist leicht {{answer}} verstehen.",
           "answer": "zu",
           "translation": "This text is easy to understand.",
           "hint": "infinitive marker after sein, 'can be understood'",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "this.M · text · be.PRS.3SG · easy · ___ · understand.INF"
         },
         {
           "sentence": "{{answer}} muss die Regeln beachten.",
           "answer": "Man",
           "translation": "One must observe the rules.",
           "hint": "impersonal generic subject, 3rd person singular",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · must.PRS.3SG · DEF.PL · rule.PL · observe.INF"
         },
         {
           "sentence": "Die Tür {{answer}} sich nicht öffnen.",
           "answer": "lässt",
           "translation": "The door can't be opened.",
           "hint": "can be (sich lassen)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.F · door · ___ · REFL · NEG · open.INF"
         },
         {
           "sentence": "Da ist nichts mehr {{answer}} machen.",
           "answer": "zu",
           "translation": "There's nothing more to be done.",
           "hint": "infinitive marker in the 'sein' passive substitute",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "there · be.PRS.3SG · nothing · much.COMP · ___ · do.INF"
         }
       ]
     },
@@ -2950,42 +3218,48 @@
           "answer": "indem",
           "translation": "You learn a language by speaking it.",
           "hint": "by …-ing (means)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "one · learn.PRS.3SG · INDF.F · language · ___ · one · 3SG.F · speak.PRS.3SG"
         },
         {
           "sentence": "{{answer}} mehr man übt, desto besser wird man.",
           "answer": "Je",
           "translation": "The more you practise, the better you get.",
           "hint": "first half of the pair; 'desto' completes it",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · much.COMP · one · practise.PRS.3SG · CORR · good.COMP · become.PRS.3SG · one"
         },
         {
           "sentence": "Je mehr ich lese, {{answer}} mehr verstehe ich.",
           "answer": "desto",
           "translation": "The more I read, the more I understand.",
           "hint": "second half; completes 'Je', main clause",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "CORR · much.COMP · 1SG · read.PRS.1SG · ___ · much.COMP · understand.PRS.1SG · 1SG"
         },
         {
           "sentence": "Ich helfe dir, {{answer}} du mich rechtzeitig fragst.",
           "answer": "sofern",
           "translation": "I'll help you, provided you ask me in time.",
           "hint": "provided that",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · help.PRS.1SG · 2SG.DAT · ___ · 2SG · 1SG.ACC · timely · ask.PRS.2SG"
         },
         {
           "sentence": "Er ging, {{answer}} sich zu verabschieden.",
           "answer": "ohne",
           "translation": "He left without saying goodbye.",
           "hint": "without (+ zu-infinitive)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M · go.PST.3SG · ___ · REFL · INF · say.goodbye.INF"
         },
         {
           "sentence": "{{answer}} zu arbeiten, schaute er den ganzen Tag fern.",
           "answer": "Anstatt",
           "translation": "Instead of working, he watched TV all day.",
           "hint": "instead of (+ zu-infinitive)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · INF · work.INF · watch.PST.3SG · 3SG.M · DEF.M.ACC · whole.M.ACC · day · far"
         }
       ]
     },
@@ -3014,42 +3288,48 @@
           "answer": "getroffene",
           "translation": "The decision made yesterday was right.",
           "hint": "made (participial attribute)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.F · yesterday · ___ · decision · be.PST.3SG · right"
         },
         {
           "sentence": "Der in Berlin {{answer}} Künstler ist berühmt.",
           "answer": "lebende",
           "translation": "The artist living in Berlin is famous.",
           "hint": "living (present-participle attribute)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.M · in · Berlin · ___ · artist · be.PRS.3SG · famous"
         },
         {
           "sentence": "Das von allen {{answer}} Buch war ausverkauft.",
           "answer": "erwartete",
           "translation": "The book everyone expected was sold out.",
           "hint": "expected (participial attribute)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.N · by · all.PL.DAT · ___ · book · be.PST.3SG · sell.out.PTCP"
         },
         {
           "sentence": "Die zu {{answer}} Aufgaben sind schwierig.",
           "answer": "lösenden",
           "translation": "The tasks to be solved are difficult.",
           "hint": "to be solved (zu + participle attribute)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.PL · INF · ___ · task.PL · be.PRS.3PL · difficult"
         },
         {
           "sentence": "Der seit Jahren {{answer}} Konflikt bleibt ungelöst.",
           "answer": "andauernde",
           "translation": "The conflict that has lasted for years remains unresolved.",
           "hint": "lasting (participle attribute)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M · since · year.PL.DAT · ___ · conflict · remain.PRS.3SG · NEG-solve.PTCP"
         },
         {
           "sentence": "Die im Bericht {{answer}} Zahlen sind aktuell.",
           "answer": "genannten",
           "translation": "The figures named in the report are current.",
           "hint": "named (participial attribute)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.PL · in-DEF.M.DAT · report · ___ · figure.PL · be.PRS.3PL · current"
         }
       ]
     },
@@ -3078,42 +3358,48 @@
           "answer": "doch",
           "translation": "Do come along, it'll be fun!",
           "hint": "(encouragement particle)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "come.IMP.2SG · ___ · along · 3SG.N.NOM · become.3SG · fun"
         },
         {
           "sentence": "Warte {{answer}}, ich bin gleich fertig.",
           "answer": "mal",
           "translation": "Hold on, I'm nearly done.",
           "hint": "(softening particle)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "wait.IMP.2SG · ___ · 1SG.NOM · be.1SG · soon · ready"
         },
         {
           "sentence": "Das ist {{answer}} toll!",
           "answer": "ja",
           "translation": "That's great! (as you can see)",
           "hint": "(surprise / 'as you see' particle)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "that.N.NOM · be.3SG · ___ · great"
         },
         {
           "sentence": "Das ist {{answer}} so, da kann man nichts machen.",
           "answer": "eben",
           "translation": "That's just how it is, nothing to be done.",
           "hint": "(resignation particle)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "that.N.NOM · be.3SG · ___ · thus · there · can.3SG · one · nothing · do.INF"
         },
         {
           "sentence": "Er ist {{answer}} schon nach Hause gegangen.",
           "answer": "wohl",
           "translation": "He's probably already gone home.",
           "hint": "(probability particle)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M.NOM · be.3SG · ___ · already · to · home.DAT · go.PTCP"
         },
         {
           "sentence": "Nun mach {{answer}} endlich!",
           "answer": "schon",
           "translation": "Come on, get on with it!",
           "hint": "(impatience particle)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "now · do.IMP.2SG · ___ · finally"
         }
       ]
     },
@@ -3148,42 +3434,48 @@
           "answer": "sprichst",
           "translation": "You speak German very well.",
           "hint": "e → i in the du form: the talking verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "2SG.NOM · ___ · very · well · German"
         },
         {
           "sentence": "Er {{answer}} jeden Morgen Zeitung.",
           "answer": "liest",
           "translation": "He reads the paper every morning.",
           "hint": "e → ie in the er form",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.M.NOM · ___ · every.M.ACC · morning.ACC · newspaper.ACC"
         },
         {
           "sentence": "{{answer}} du morgen nach Berlin?",
           "answer": "Fährst",
           "translation": "Are you driving to Berlin tomorrow?",
           "hint": "a → ä in the du form",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 2SG.NOM · tomorrow · to · Berlin"
         },
         {
           "sentence": "Das Kind {{answer}} zehn Stunden.",
           "answer": "schläft",
           "translation": "The child sleeps ten hours.",
           "hint": "a → ä in the es form",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.N.NOM · child.NOM · ___ · ten · hour.PL.ACC"
         },
         {
           "sentence": "Was {{answer}} du gern zum Frühstück?",
           "answer": "isst",
           "translation": "What do you like to eat for breakfast?",
           "hint": "e → i in the du form: the eating verb",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "what.ACC · ___ · 2SG.NOM · gladly · to-DEF.N.DAT · breakfast.DAT"
         },
         {
           "sentence": "Wir {{answer}} am Wochenende nach Hause.",
           "answer": "fahren",
           "translation": "We're driving home at the weekend.",
           "hint": "wir keeps the plain stem",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL.NOM · ___ · at-DEF.N.DAT · weekend.DAT · to · home.DAT"
         }
       ]
     },
@@ -3218,42 +3510,48 @@
           "answer": "dich",
           "translation": "I love you.",
           "hint": "you — accusative",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.NOM · love.1SG · ___"
         },
         {
           "sentence": "Kannst du {{answer}} helfen?",
           "answer": "mir",
           "translation": "Can you help me?",
           "hint": "helfen takes the dative",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "can.2SG · 2SG.NOM · ___ · help.INF"
         },
         {
           "sentence": "Wir sehen {{answer}} morgen.",
           "answer": "euch",
           "translation": "We'll see you (all) tomorrow.",
           "hint": "you all — accusative",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL.NOM · see.1PL · ___ · tomorrow"
         },
         {
           "sentence": "Das Buch gehört {{answer}}.",
           "answer": "ihm",
           "translation": "The book belongs to him.",
           "hint": "gehören takes the dative",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.N.NOM · book.NOM · belong.3SG · ___"
         },
         {
           "sentence": "Sie gibt {{answer}} den Schlüssel.",
           "answer": "ihr",
           "translation": "She gives her the key.",
           "hint": "to her — dative",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.F.NOM · give.3SG · ___ · DEF.M.ACC · key.ACC"
         },
         {
           "sentence": "Kommst du mit {{answer}} ins Kino?",
           "answer": "uns",
           "translation": "Are you coming to the cinema with us?",
           "hint": "mit takes the dative",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "come.2SG · 2SG.NOM · with · ___ · in-DEF.N.ACC · cinema.ACC"
         }
       ]
     },
@@ -3288,42 +3586,48 @@
           "answer": "Sprich",
           "translation": "Speak more slowly, please!",
           "hint": "du imperative, e → i: the talking verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · please · slow.COMP"
         },
         {
           "sentence": "{{answer}} Sie bitte Platz!",
           "answer": "Nehmen",
           "translation": "Please take a seat!",
           "hint": "the polite form: verb + Sie",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 2SG.POL.NOM · please · seat.ACC"
         },
         {
           "sentence": "{{answer}} mir bitte mit der Tasche!",
           "answer": "Hilf",
           "translation": "Please help me with the bag!",
           "hint": "du imperative, e → i: the assisting verb",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 1SG.DAT · please · with · DEF.F.DAT · bag"
         },
         {
           "sentence": "{{answer}} vorsichtig, Kinder!",
           "answer": "Seid",
           "translation": "Be careful, children!",
           "hint": "sein — ihr imperative",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · careful · child.PL"
         },
         {
           "sentence": "{{answer}} nicht so schnell!",
           "answer": "Fahr",
           "translation": "Don't drive so fast!",
           "hint": "du imperative — the umlaut disappears",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · NEG · so · fast"
         },
         {
           "sentence": "{{answer}} bitte die Tür zu!",
           "answer": "Mach",
           "translation": "Please close the door!",
           "hint": "du imperative — bare stem",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · please · DEF.F.ACC · door · shut"
         }
       ]
     }

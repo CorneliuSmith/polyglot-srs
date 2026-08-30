@@ -37,7 +37,8 @@
           "translation": "I am from Bucharest.",
           "hint": "I",
           "display_order": 1,
-          "cell": "eu"
+          "cell": "eu",
+          "gloss": "___ · be.1SG · from · Bucharest"
         },
         {
           "sentence": "{{answer}} ești prietenul meu.",
@@ -45,7 +46,8 @@
           "translation": "You are my friend.",
           "hint": "you — informal",
           "display_order": 2,
-          "cell": "tu"
+          "cell": "tu",
+          "gloss": "___ · be.2SG · friend.DEF.M.SG · my.M.SG"
         },
         {
           "sentence": "{{answer}} este sora mea.",
@@ -53,7 +55,8 @@
           "translation": "She is my sister.",
           "hint": "she",
           "display_order": 3,
-          "cell": "ea"
+          "cell": "ea",
+          "gloss": "___ · be.3SG · sister.DEF.F.SG · my.F.SG"
         },
         {
           "sentence": "{{answer}} suntem studenți.",
@@ -61,7 +64,8 @@
           "translation": "We are students.",
           "hint": "we",
           "display_order": 4,
-          "cell": "noi"
+          "cell": "noi",
+          "gloss": "___ · be.1PL · student.M.PL"
         },
         {
           "sentence": "{{answer}} sunt din Spania.",
@@ -69,7 +73,8 @@
           "translation": "They are from Spain.",
           "hint": "they (masculine)",
           "display_order": 5,
-          "cell": "ei"
+          "cell": "ei",
+          "gloss": "___ · be.3PL · from · Spain"
         },
         {
           "sentence": "{{answer}} sunteți foarte amabili.",
@@ -77,7 +82,8 @@
           "translation": "You (all) are very kind.",
           "hint": "you — plural",
           "display_order": 6,
-          "cell": "voi"
+          "cell": "voi",
+          "gloss": "___ · be.2PL · very · kind.M.PL"
         },
         {
           "sentence": "{{answer}} este fratele meu.",
@@ -85,7 +91,8 @@
           "translation": "He is my brother.",
           "hint": "he",
           "cell": "el",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · be.3SG · brother.DEF.M.SG · my.M.SG"
         },
         {
           "sentence": "{{answer}} sunt prietenele mele.",
@@ -93,7 +100,8 @@
           "translation": "They are my friends (all women).",
           "hint": "they — all female",
           "cell": "ele",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "___ · be.3PL · friend.DEF.F.PL · my.F.PL"
         },
         {
           "sentence": "{{answer}} vorbesc puțină română.",
@@ -101,7 +109,8 @@
           "translation": "I speak a little Romanian.",
           "hint": "I",
           "cell": "eu",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "___ · speak.1SG · little.F.SG · Romanian.F.SG"
         },
         {
           "sentence": "{{answer}} locuiești aici?",
@@ -109,7 +118,8 @@
           "translation": "Do you live here?",
           "hint": "you — informal",
           "cell": "tu",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "___ · live.2SG · here"
         },
         {
           "sentence": "{{answer}} lucrează la o bancă.",
@@ -117,7 +127,8 @@
           "translation": "He works at a bank.",
           "hint": "he",
           "cell": "el",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "___ · work.3SG · at · INDF.F.SG · bank.F.SG"
         },
         {
           "sentence": "{{answer}} cântă foarte frumos.",
@@ -125,7 +136,8 @@
           "translation": "She sings very beautifully.",
           "hint": "she",
           "cell": "ea",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "___ · sing.3SG · very · beautifully"
         },
         {
           "sentence": "{{answer}} locuim în Cluj.",
@@ -133,7 +145,8 @@
           "translation": "We live in Cluj.",
           "hint": "we",
           "cell": "noi",
-          "display_order": 13
+          "display_order": 13,
+          "gloss": "___ · live.1PL · in · Cluj"
         },
         {
           "sentence": "{{answer}} vorbiți engleză?",
@@ -141,7 +154,8 @@
           "translation": "Do you (all) speak English?",
           "hint": "you all",
           "cell": "voi",
-          "display_order": 14
+          "display_order": 14,
+          "gloss": "___ · speak.2PL · English.F.SG"
         },
         {
           "sentence": "{{answer}} joacă fotbal.",
@@ -149,7 +163,8 @@
           "translation": "They play football.",
           "hint": "they (masculine)",
           "cell": "ei",
-          "display_order": 15
+          "display_order": 15,
+          "gloss": "___ · play.3PL · football"
         },
         {
           "sentence": "{{answer}} sosesc mâine.",
@@ -157,7 +172,8 @@
           "translation": "They (f.) arrive tomorrow.",
           "hint": "they (feminine)",
           "cell": "ele",
-          "display_order": 16
+          "display_order": 16,
+          "gloss": "___ · arrive.3PL · tomorrow"
         }
       ],
       "paradigm": [
@@ -201,7 +217,8 @@
           "translation": "I have two books.",
           "hint": "book, plural",
           "display_order": 1,
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "have.1SG · two.F · ___"
         },
         {
           "sentence": "Am trei {{answer}}.",
@@ -209,7 +226,8 @@
           "translation": "I have three sisters.",
           "hint": "sister, plural",
           "display_order": 2,
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "have.1SG · three · ___"
         },
         {
           "sentence": "Am două {{answer}} în casă.",
@@ -217,7 +235,8 @@
           "translation": "I have two cats in the house.",
           "hint": "cat, plural",
           "display_order": 3,
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "have.1SG · two.F · ___ · in · house.F.SG"
         },
         {
           "sentence": "Am două {{answer}} noi.",
@@ -225,7 +244,8 @@
           "translation": "I have two new chairs.",
           "hint": "chair — neuter: două, not doi",
           "display_order": 4,
-          "cell": "neuter"
+          "cell": "neuter",
+          "gloss": "have.1SG · two.F · ___ · new.N.PL"
         },
         {
           "sentence": "Am doi {{answer}}.",
@@ -233,7 +253,8 @@
           "translation": "I have two brothers.",
           "hint": "brother, plural — doi for masculine",
           "display_order": 5,
-          "cell": "masculine"
+          "cell": "masculine",
+          "gloss": "have.1SG · two.M · ___"
         },
         {
           "sentence": "Cumpăr două {{answer}}.",
@@ -241,7 +262,8 @@
           "translation": "I am buying two apples.",
           "hint": "apple, plural — neuter",
           "display_order": 6,
-          "cell": "neuter"
+          "cell": "neuter",
+          "gloss": "buy.1SG · two.F · ___"
         },
         {
           "sentence": "Doi {{answer}} cântă în parc.",
@@ -249,7 +271,8 @@
           "translation": "Two children are singing in the park.",
           "hint": "child, plural — masculine",
           "cell": "masculine",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "two.M · ___ · sing.3PL · in · park"
         }
       ],
       "paradigm": [
@@ -287,42 +310,48 @@
           "answer": "un",
           "translation": "I have a dog.",
           "hint": "masculine",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "have.1SG · ___ · dog"
         },
         {
           "sentence": "Este {{answer}} casă mare.",
           "answer": "o",
           "translation": "It is a big house.",
           "hint": "feminine",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "be.3SG · ___ · house · big"
         },
         {
           "sentence": "Am {{answer}} idee.",
           "answer": "o",
           "translation": "I have an idea.",
           "hint": "feminine",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "have.1SG · ___ · idea"
         },
         {
           "sentence": "Este {{answer}} carte bună.",
           "answer": "o",
           "translation": "It is a good book.",
           "hint": "feminine",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "be.3SG · ___ · book · good.F"
         },
         {
           "sentence": "Am {{answer}} scaun nou.",
           "answer": "un",
           "translation": "I have a new chair.",
           "hint": "neuter takes the masculine article in the singular",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "have.1SG · ___ · chair · new.M"
         },
         {
           "sentence": "Este {{answer}} zi frumoasă.",
           "answer": "o",
           "translation": "It is a beautiful day.",
           "hint": "feminine",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "be.3SG · ___ · day · beautiful.F"
         }
       ]
     },
@@ -356,7 +385,8 @@
           "translation": "The house is big.",
           "hint": "house + the suffixed article",
           "display_order": 1,
-          "cell": "-a"
+          "cell": "-a",
+          "gloss": "___ · be.3SG · big"
         },
         {
           "sentence": "{{answer}} este nou.",
@@ -364,7 +394,8 @@
           "translation": "The chair is new.",
           "hint": "chair + the suffixed article",
           "display_order": 2,
-          "cell": "-ul"
+          "cell": "-ul",
+          "gloss": "___ · be.3SG · new.M"
         },
         {
           "sentence": "{{answer}} este interesantă.",
@@ -372,7 +403,8 @@
           "translation": "The book is interesting.",
           "hint": "book + the suffixed article",
           "display_order": 3,
-          "cell": "-a"
+          "cell": "-a",
+          "gloss": "___ · be.3SG · interesting.F"
         },
         {
           "sentence": "{{answer}} este caldă.",
@@ -380,7 +412,8 @@
           "translation": "The coffee is hot.",
           "hint": "coffee + the suffixed article",
           "display_order": 4,
-          "cell": "-a"
+          "cell": "-a",
+          "gloss": "___ · be.3SG · hot.F"
         },
         {
           "sentence": "{{answer}} lucrează aici.",
@@ -388,7 +421,8 @@
           "translation": "The teacher works here.",
           "hint": "teacher + the suffixed article",
           "display_order": 5,
-          "cell": "-ul"
+          "cell": "-ul",
+          "gloss": "___ · work.3SG · here"
         },
         {
           "sentence": "{{answer}} este deschisă.",
@@ -396,7 +430,8 @@
           "translation": "The door is open.",
           "hint": "door + the suffixed article",
           "display_order": 6,
-          "cell": "-a"
+          "cell": "-a",
+          "gloss": "___ · be.3SG · open.F"
         }
       ],
       "paradigm": [
@@ -434,7 +469,8 @@
           "translation": "I am a student.",
           "hint": "a fi, eu",
           "display_order": 1,
-          "cell": "eu"
+          "cell": "eu",
+          "gloss": "1SG · ___ · student"
         },
         {
           "sentence": "Tu {{answer}} foarte înalt.",
@@ -442,7 +478,8 @@
           "translation": "You are very tall.",
           "hint": "a fi, tu",
           "display_order": 2,
-          "cell": "tu"
+          "cell": "tu",
+          "gloss": "2SG · ___ · very · tall.M"
         },
         {
           "sentence": "Ea {{answer}} profesoară.",
@@ -450,7 +487,8 @@
           "translation": "She is a teacher.",
           "hint": "a fi, el/ea",
           "display_order": 3,
-          "cell": "el/ea"
+          "cell": "el/ea",
+          "gloss": "3SG.F · ___ · teacher.F"
         },
         {
           "sentence": "Noi {{answer}} prieteni.",
@@ -458,7 +496,8 @@
           "translation": "We are friends.",
           "hint": "a fi, noi",
           "display_order": 4,
-          "cell": "noi"
+          "cell": "noi",
+          "gloss": "1PL · ___ · friend.PL"
         },
         {
           "sentence": "Voi {{answer}} români?",
@@ -466,7 +505,8 @@
           "translation": "Are you (all) Romanian?",
           "hint": "a fi, voi",
           "display_order": 5,
-          "cell": "voi"
+          "cell": "voi",
+          "gloss": "2PL · ___ · Romanian.PL"
         },
         {
           "sentence": "Ei {{answer}} acasă.",
@@ -474,7 +514,8 @@
           "translation": "They are at home.",
           "hint": "a fi, ei",
           "display_order": 6,
-          "cell": "ei"
+          "cell": "ei",
+          "gloss": "3PL.M · ___ · at-home"
         },
         {
           "sentence": "Eu {{answer}} din Iași.",
@@ -482,7 +523,8 @@
           "translation": "I am from Iași.",
           "hint": "a fi, eu",
           "cell": "eu",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · ___ · from · Iași"
         },
         {
           "sentence": "Tu {{answer}} medic?",
@@ -490,7 +532,8 @@
           "translation": "Are you a doctor?",
           "hint": "a fi, tu",
           "cell": "tu",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG · ___ · doctor"
         },
         {
           "sentence": "Tatăl meu {{answer}} inginer.",
@@ -498,7 +541,8 @@
           "translation": "My father is an engineer.",
           "hint": "a fi, el/ea",
           "cell": "el/ea",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "father.DEF.M.SG · 1SG.POSS.M · ___ · engineer"
         },
         {
           "sentence": "Noi {{answer}} gata.",
@@ -506,7 +550,8 @@
           "translation": "We are ready.",
           "hint": "a fi, noi",
           "cell": "noi",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL · ___ · ready"
         },
         {
           "sentence": "Voi {{answer}} obosiți?",
@@ -514,7 +559,8 @@
           "translation": "Are you (all) tired?",
           "hint": "a fi, voi",
           "cell": "voi",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL · ___ · tired.M.PL"
         },
         {
           "sentence": "Părinții mei {{answer}} din Brașov.",
@@ -522,7 +568,8 @@
           "translation": "My parents are from Brașov.",
           "hint": "a fi, ei",
           "cell": "ei",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "parent.DEF.M.PL · 1SG.POSS.M.PL · ___ · from · Brașov"
         }
       ],
       "paradigm": [
@@ -564,7 +611,8 @@
           "translation": "I am twenty years old.",
           "hint": "a avea, eu",
           "display_order": 1,
-          "cell": "eu"
+          "cell": "eu",
+          "gloss": "1SG · ___ · twenty · of · year.PL"
         },
         {
           "sentence": "Tu {{answer}} o pisică?",
@@ -572,7 +620,8 @@
           "translation": "Do you have a cat?",
           "hint": "a avea, tu",
           "display_order": 2,
-          "cell": "tu"
+          "cell": "tu",
+          "gloss": "2SG · ___ · INDF.F · cat"
         },
         {
           "sentence": "Ea {{answer}} o întrebare.",
@@ -580,7 +629,8 @@
           "translation": "She has a question.",
           "hint": "a avea, el/ea",
           "display_order": 3,
-          "cell": "el/ea"
+          "cell": "el/ea",
+          "gloss": "3SG.F · ___ · INDF.F · question"
         },
         {
           "sentence": "Noi {{answer}} timp.",
@@ -588,7 +638,8 @@
           "translation": "We have time.",
           "hint": "a avea, noi",
           "display_order": 4,
-          "cell": "noi"
+          "cell": "noi",
+          "gloss": "1PL · ___ · time"
         },
         {
           "sentence": "Voi {{answer}} dreptate.",
@@ -596,7 +647,8 @@
           "translation": "You (all) are right.",
           "hint": "a avea, voi",
           "display_order": 5,
-          "cell": "voi"
+          "cell": "voi",
+          "gloss": "2PL · ___ · rightness"
         },
         {
           "sentence": "Ei {{answer}} o casă la munte.",
@@ -604,7 +656,8 @@
           "translation": "They have a house in the mountains.",
           "hint": "a avea, ei",
           "display_order": 6,
-          "cell": "ei"
+          "cell": "ei",
+          "gloss": "3PL.M · ___ · INDF.F · house · at · mountain"
         },
         {
           "sentence": "Eu {{answer}} două surori.",
@@ -612,7 +665,8 @@
           "translation": "I have two sisters.",
           "hint": "a avea, eu",
           "cell": "eu",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · ___ · two.F · sister.PL"
         },
         {
           "sentence": "Tu {{answer}} un stilou?",
@@ -620,7 +674,8 @@
           "translation": "Do you have a pen?",
           "hint": "a avea, tu",
           "cell": "tu",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG · ___ · INDF.M · pen"
         },
         {
           "sentence": "Fratele meu {{answer}} un câine.",
@@ -628,7 +683,8 @@
           "translation": "My brother has a dog.",
           "hint": "a avea, el/ea",
           "cell": "el/ea",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "brother.DEF.M.SG · 1SG.POSS.M · ___ · INDF.M · dog"
         },
         {
           "sentence": "Noi {{answer}} o casă mică.",
@@ -636,7 +692,8 @@
           "translation": "We have a small house.",
           "hint": "a avea, noi",
           "cell": "noi",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL · ___ · INDF.F · house · small.F.SG"
         },
         {
           "sentence": "Voi {{answer}} copii?",
@@ -644,7 +701,8 @@
           "translation": "Do you (all) have children?",
           "hint": "a avea, voi",
           "cell": "voi",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL · ___ · child.PL"
         },
         {
           "sentence": "Ei {{answer}} mulți prieteni.",
@@ -652,7 +710,8 @@
           "translation": "They have many friends.",
           "hint": "a avea, ei",
           "cell": "ei",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "3PL.M · ___ · many.M.PL · friend.PL"
         }
       ],
       "paradigm": [
@@ -694,7 +753,8 @@
           "translation": "I work in an office.",
           "hint": "a lucra, eu",
           "display_order": 1,
-          "cell": "eu"
+          "cell": "eu",
+          "gloss": "1SG · ___ · in-INDF.M · office"
         },
         {
           "sentence": "Tu {{answer}} muzică în fiecare zi?",
@@ -702,7 +762,8 @@
           "translation": "Do you listen to music every day?",
           "hint": "a asculta, tu",
           "display_order": 2,
-          "cell": "tu"
+          "cell": "tu",
+          "gloss": "2SG · ___ · music · in · every · day"
         },
         {
           "sentence": "Ea {{answer}} frumos.",
@@ -710,7 +771,8 @@
           "translation": "She sings beautifully.",
           "hint": "a cânta, el/ea",
           "display_order": 3,
-          "cell": "el/ea"
+          "cell": "el/ea",
+          "gloss": "3SG.F · ___ · beautifully"
         },
         {
           "sentence": "Ei {{answer}} fotbal.",
@@ -718,7 +780,8 @@
           "translation": "They play football.",
           "hint": "a juca, ei",
           "display_order": 4,
-          "cell": "ei"
+          "cell": "ei",
+          "gloss": "3PL.M · ___ · football"
         },
         {
           "sentence": "Voi {{answer}} în casă.",
@@ -726,7 +789,8 @@
           "translation": "You (all) are entering the house.",
           "hint": "a intra, voi",
           "display_order": 5,
-          "cell": "voi"
+          "cell": "voi",
+          "gloss": "2PL · ___ · in · house"
         },
         {
           "sentence": "Eu {{answer}} pâine.",
@@ -734,7 +798,8 @@
           "translation": "I am buying bread.",
           "hint": "a cumpăra, eu",
           "display_order": 6,
-          "cell": "eu"
+          "cell": "eu",
+          "gloss": "1SG · ___ · bread"
         },
         {
           "sentence": "Noi {{answer}} împreună.",
@@ -742,7 +807,8 @@
           "translation": "We work together.",
           "hint": "a lucra, noi",
           "cell": "noi",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1PL · ___ · together"
         },
         {
           "sentence": "Tu {{answer}} prea repede!",
@@ -750,7 +816,8 @@
           "translation": "You work too fast!",
           "hint": "a lucra, tu",
           "cell": "tu",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG · ___ · too · fast"
         },
         {
           "sentence": "El {{answer}} muzică veche.",
@@ -758,7 +825,8 @@
           "translation": "He listens to old music.",
           "hint": "a asculta, el/ea",
           "cell": "el/ea",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "3SG.M · ___ · music · old.F.SG"
         },
         {
           "sentence": "Noi {{answer}} seara.",
@@ -766,7 +834,8 @@
           "translation": "We work in the evening.",
           "hint": "a lucra, noi",
           "cell": "noi",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL · ___ · evening.DEF"
         },
         {
           "sentence": "Voi {{answer}} des aici?",
@@ -774,7 +843,8 @@
           "translation": "Do you (all) come in here often?",
           "hint": "a intra, voi",
           "cell": "voi",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL · ___ · often · here"
         },
         {
           "sentence": "Ei {{answer}} tenis.",
@@ -782,7 +852,8 @@
           "translation": "They play tennis.",
           "hint": "a juca, ei",
           "cell": "ei",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "3PL.M · ___ · tennis"
         }
       ],
       "paradigm": [
@@ -824,7 +895,8 @@
           "translation": "I go to school.",
           "hint": "a merge, eu",
           "display_order": 1,
-          "cell": "eu"
+          "cell": "eu",
+          "gloss": "1SG · ___ · to · school"
         },
         {
           "sentence": "Noi {{answer}} o scrisoare.",
@@ -832,7 +904,8 @@
           "translation": "We are writing a letter.",
           "hint": "a scrie, noi",
           "display_order": 2,
-          "cell": "noi"
+          "cell": "noi",
+          "gloss": "1PL · ___ · INDF.F · letter"
         },
         {
           "sentence": "Ei {{answer}} mult.",
@@ -840,7 +913,8 @@
           "translation": "They sleep a lot.",
           "hint": "a dormi, ei",
           "display_order": 3,
-          "cell": "ei"
+          "cell": "ei",
+          "gloss": "3PL.M · ___ · much"
         },
         {
           "sentence": "Ea {{answer}} o carte.",
@@ -848,7 +922,8 @@
           "translation": "She is reading a book.",
           "hint": "a citi, el/ea",
           "display_order": 4,
-          "cell": "el/ea"
+          "cell": "el/ea",
+          "gloss": "3SG.F · ___ · INDF.F · book"
         },
         {
           "sentence": "Tu {{answer}} muzica?",
@@ -856,7 +931,8 @@
           "translation": "Do you hear the music?",
           "hint": "a auzi, tu",
           "display_order": 5,
-          "cell": "tu"
+          "cell": "tu",
+          "gloss": "2SG · ___ · music.DEF"
         },
         {
           "sentence": "Voi {{answer}} marea de aici?",
@@ -864,7 +940,8 @@
           "translation": "Do you (all) see the sea from here?",
           "hint": "a vedea, voi",
           "display_order": 6,
-          "cell": "voi"
+          "cell": "voi",
+          "gloss": "2PL · ___ · sea.DEF · from · here"
         },
         {
           "sentence": "Eu {{answer}} un email.",
@@ -872,7 +949,8 @@
           "translation": "I am writing an email.",
           "hint": "a scrie, eu",
           "cell": "eu",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · ___ · INDF.M · email"
         },
         {
           "sentence": "Tu {{answer}} cafea dimineața?",
@@ -880,7 +958,8 @@
           "translation": "Do you drink coffee in the morning?",
           "hint": "a bea, tu",
           "cell": "tu",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG · ___ · coffee · morning.DEF"
         },
         {
           "sentence": "Ea {{answer}} bine de aici.",
@@ -888,7 +967,8 @@
           "translation": "She sees well from here.",
           "hint": "a vedea, el/ea",
           "cell": "el/ea",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "3SG.F · ___ · well · from · here"
         },
         {
           "sentence": "Noi {{answer}} la piață.",
@@ -896,7 +976,8 @@
           "translation": "We are going to the market.",
           "hint": "a merge, noi",
           "cell": "noi",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL · ___ · to · market"
         },
         {
           "sentence": "Voi {{answer}} până târziu?",
@@ -904,7 +985,8 @@
           "translation": "Do you (all) sleep late?",
           "hint": "a dormi, voi",
           "cell": "voi",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL · ___ · until · late"
         },
         {
           "sentence": "Ei {{answer}} ziarul.",
@@ -912,7 +994,8 @@
           "translation": "They read the newspaper.",
           "hint": "a citi, ei",
           "cell": "ei",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "3PL.M · ___ · newspaper-DEF.M.SG"
         }
       ],
       "paradigm": [
@@ -953,42 +1036,48 @@
           "answer": "nu",
           "translation": "I don't speak English.",
           "hint": "before the verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · speak.1SG · English"
         },
         {
           "sentence": "El {{answer}} lucrează duminica.",
           "answer": "nu",
           "translation": "He doesn't work on Sundays.",
           "hint": "before the verb",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.M · ___ · work.3SG · Sunday-DEF.F.SG"
         },
         {
           "sentence": "Noi {{answer}} suntem obosiți.",
           "answer": "nu",
           "translation": "We are not tired.",
           "hint": "before the verb",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · be.1PL · tired.M.PL"
         },
         {
           "sentence": "Ea {{answer}} mănâncă carne.",
           "answer": "nu",
           "translation": "She doesn't eat meat.",
           "hint": "before the verb",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F · ___ · eat.3SG · meat"
         },
         {
           "sentence": "Tu {{answer}} mănânci?",
           "answer": "nu",
           "translation": "Aren't you eating?",
           "hint": "before the verb",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · ___ · eat.2SG"
         },
         {
           "sentence": "Voi {{answer}} dansați?",
           "answer": "nu",
           "translation": "You (all) don't dance?",
           "hint": "before the verb",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "2PL · ___ · dance.2PL"
         }
       ]
     },
@@ -1021,42 +1110,48 @@
           "answer": "este",
           "translation": "There is a book on the table.",
           "hint": "singular",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "on · table · ___ · INDF.F · book"
         },
         {
           "sentence": "În stradă {{answer}} două cafenele.",
           "answer": "sunt",
           "translation": "There are two cafés in the street.",
           "hint": "plural",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "in · street · ___ · two.F · cafe.PL"
         },
         {
           "sentence": "{{answer}} o pisică în grădină.",
           "answer": "Este",
           "translation": "There is a cat in the garden.",
           "hint": "singular",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · INDF.F · cat · in · garden"
         },
         {
           "sentence": "Nu {{answer}} lapte.",
           "answer": "este",
           "translation": "There is no milk.",
           "hint": "singular",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NEG · ___ · milk"
         },
         {
           "sentence": "{{answer}} multe probleme?",
           "answer": "Sunt",
           "translation": "Are there many problems?",
           "hint": "plural",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · many.F.PL · problem.PL"
         },
         {
           "sentence": "În oraș {{answer}} un parc frumos.",
           "answer": "este",
           "translation": "There is a beautiful park in the city.",
           "hint": "singular",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "in · city · ___ · INDF.M · park · beautiful.M.SG"
         }
       ]
     },
@@ -1089,49 +1184,56 @@
           "answer": "Unde",
           "translation": "Where do you live?",
           "hint": "where",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · live.2SG"
         },
         {
           "sentence": "{{answer}} te cheamă?",
           "answer": "Cum",
           "translation": "What is your name?",
           "hint": "how — names ask 'how' in Romanian",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 2SG.ACC · call.3SG"
         },
         {
           "sentence": "{{answer}} este ziua ta?",
           "answer": "Când",
           "translation": "When is your birthday?",
           "hint": "when",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · be.3SG · day-DEF.F.SG · 2SG.POSS.F"
         },
         {
           "sentence": "{{answer}} este asta?",
           "answer": "Ce",
           "translation": "What is this?",
           "hint": "what",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · be.3SG · this.F.SG"
         },
         {
           "sentence": "{{answer}} frați ai?",
           "answer": "Câți",
           "translation": "How many brothers do you have?",
           "hint": "how many",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · brother.PL · have.2SG"
         },
         {
           "sentence": "{{answer}} este profesorul tău?",
           "answer": "Cine",
           "translation": "Who is your teacher?",
           "hint": "who",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · be.3SG · teacher.DEF.M.SG · 2SG.POSS.M"
         },
         {
           "sentence": "{{answer}} înveți românește?",
           "answer": "De ce",
           "translation": "Why are you learning Romanian?",
           "hint": "why — asking for a reason (two words)",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · learn.2SG · Romanian.ADV"
         }
       ]
     },
@@ -1165,7 +1267,8 @@
           "translation": "The house is white.",
           "hint": "white — feminine",
           "display_order": 1,
-          "cell": "f.sg"
+          "cell": "f.sg",
+          "gloss": "house.DEF.F.SG · be.3SG · ___"
         },
         {
           "sentence": "Cărțile sunt {{answer}}.",
@@ -1173,7 +1276,8 @@
           "translation": "The books are new.",
           "hint": "new — feminine plural",
           "display_order": 2,
-          "cell": "m.pl"
+          "cell": "m.pl",
+          "gloss": "book.DEF.F.PL · be.3PL · ___"
         },
         {
           "sentence": "Sora mea este foarte {{answer}}.",
@@ -1181,7 +1285,8 @@
           "translation": "My sister is very kind.",
           "hint": "kind — feminine",
           "display_order": 3,
-          "cell": "f.sg"
+          "cell": "f.sg",
+          "gloss": "sister.DEF.F.SG · 1SG.POSS.F · be.3SG · very · ___"
         },
         {
           "sentence": "Filmul este {{answer}}.",
@@ -1189,7 +1294,8 @@
           "translation": "The film is interesting.",
           "hint": "interesting — masculine/neuter",
           "display_order": 4,
-          "cell": "m.sg"
+          "cell": "m.sg",
+          "gloss": "film.DEF.M.SG · be.3SG · ___"
         },
         {
           "sentence": "Florile sunt {{answer}}.",
@@ -1197,7 +1303,8 @@
           "translation": "The flowers are beautiful.",
           "hint": "beautiful — feminine plural",
           "display_order": 5,
-          "cell": "f.pl"
+          "cell": "f.pl",
+          "gloss": "flower.DEF.F.PL · be.3PL · ___"
         },
         {
           "sentence": "Băiatul este {{answer}}.",
@@ -1205,7 +1312,8 @@
           "translation": "The boy is tall.",
           "hint": "tall — masculine",
           "display_order": 6,
-          "cell": "m.sg"
+          "cell": "m.sg",
+          "gloss": "boy.DEF.M.SG · be.3SG · ___"
         },
         {
           "sentence": "Pantofii sunt {{answer}}.",
@@ -1213,7 +1321,8 @@
           "translation": "The shoes are black.",
           "hint": "black — masculine plural",
           "cell": "m.pl",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "shoe.DEF.M.PL · be.3PL · ___"
         },
         {
           "sentence": "Ferestrele sunt {{answer}}.",
@@ -1221,7 +1330,8 @@
           "translation": "The windows are open.",
           "hint": "open — feminine plural",
           "cell": "f.pl",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "window.DEF.F.PL · be.3PL · ___"
         }
       ],
       "paradigm": [
@@ -1257,7 +1367,8 @@
           "translation": "I wrote a letter yesterday.",
           "hint": "have — I (auxiliary)",
           "cell": "eu",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.NOM · ___ · write.PTCP · INDF.F · letter · yesterday"
         },
         {
           "sentence": "Azi-dimineață {{answer}} băut cafeaua repede.",
@@ -1265,7 +1376,8 @@
           "translation": "This morning I drank my coffee quickly.",
           "hint": "have — I (auxiliary)",
           "cell": "eu",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "today-morning · ___ · drink.PTCP · coffee.DEF.F.SG · quickly"
         },
         {
           "sentence": "Tu {{answer}} citit cartea aceasta?",
@@ -1273,7 +1385,8 @@
           "translation": "Have you read this book?",
           "hint": "have — you sg. (auxiliary)",
           "cell": "tu",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "2SG.NOM · ___ · read.PTCP · book.DEF.F.SG · this.F.SG"
         },
         {
           "sentence": "Când {{answer}} ajuns acasă aseară?",
@@ -1281,7 +1394,8 @@
           "translation": "When did you get home last night?",
           "hint": "have — you sg. (auxiliary)",
           "cell": "tu",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "when · ___ · arrive.PTCP · home · last.night"
         },
         {
           "sentence": "El {{answer}} pierdut trenul de dimineață.",
@@ -1289,7 +1403,8 @@
           "translation": "He missed the morning train.",
           "hint": "has — he (auxiliary)",
           "cell": "el",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M.NOM · ___ · lose.PTCP · train.DEF.M.SG · of · morning"
         },
         {
           "sentence": "Maria {{answer}} cântat un cântec frumos.",
@@ -1297,7 +1412,8 @@
           "translation": "Maria sang a beautiful song.",
           "hint": "has — she (auxiliary)",
           "cell": "el",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "Maria · ___ · sing.PTCP · INDF.M · song · beautiful.M.SG"
         },
         {
           "sentence": "Vara aceasta {{answer}} fost la mare.",
@@ -1305,7 +1421,8 @@
           "translation": "This summer we were at the seaside.",
           "hint": "have — we (auxiliary)",
           "cell": "noi",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "summer.DEF.F.SG · this.F.SG · ___ · be.PTCP · at · sea"
         },
         {
           "sentence": "Aseară {{answer}} mâncat împreună la restaurant.",
@@ -1313,7 +1430,8 @@
           "translation": "Last night we ate together at the restaurant.",
           "hint": "have — we (auxiliary)",
           "cell": "noi",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "last.night · ___ · eat.PTCP · together · at · restaurant"
         },
         {
           "sentence": "La ce oră {{answer}} sosit la petrecere?",
@@ -1321,7 +1439,8 @@
           "translation": "What time did you (pl.) arrive at the party?",
           "hint": "have — you pl. (auxiliary)",
           "cell": "voi",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "at · what · hour · ___ · arrive.PTCP · at · party"
         },
         {
           "sentence": "{{answer}} terminat deja proiectul?",
@@ -1329,7 +1448,8 @@
           "translation": "Have you (pl.) already finished the project?",
           "hint": "have — you pl. (auxiliary)",
           "cell": "voi",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "___ · finish.PTCP · already · project.DEF.M.SG"
         },
         {
           "sentence": "Copiii {{answer}} jucat în curte toată ziua.",
@@ -1337,7 +1457,8 @@
           "translation": "The children played in the yard all day.",
           "hint": "have — they (auxiliary)",
           "cell": "ei",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "child.M.PL.DEF · ___ · play.PTCP · in · yard · all.F.SG · day.F.SG.DEF"
         },
         {
           "sentence": "Studenții {{answer}} învățat pentru examen.",
@@ -1345,7 +1466,8 @@
           "translation": "The students studied for the exam.",
           "hint": "have — they (auxiliary)",
           "cell": "ei",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "student.M.PL.DEF · ___ · learn.PTCP · for · exam"
         }
       ],
       "paradigm": [
@@ -1382,42 +1504,48 @@
           "answer": "lui",
           "translation": "This is Ion's book.",
           "hint": "of (before a man's name)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this.F.SG · be.PRS.3SG · book.F.SG.DEF · ___ · Ion"
         },
         {
           "sentence": "Am dat cadoul {{answer}} copil.",
           "answer": "unui",
           "translation": "I gave the gift to a child.",
           "hint": "to a (dative, masc.)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "have.PRS.1SG · give.PTCP · gift.N.SG.DEF · ___ · child"
         },
         {
           "sentence": "Culoarea {{answer}} este albastră.",
           "answer": "mării",
           "translation": "The colour of the sea is blue.",
           "hint": "of the sea (genitive)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "colour.F.SG.DEF · ___ · be.PRS.3SG · blue.F.SG"
         },
         {
           "sentence": "I-am spus adevărul {{answer}} mele.",
           "answer": "surorii",
           "translation": "I told the truth to my sister.",
           "hint": "to the sister (dative)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.DAT-have.PRS.1SG · say.PTCP · truth.N.SG.DEF · ___ · my.F.SG.DAT"
         },
         {
           "sentence": "Jucăriile {{answer}} sunt pe jos.",
           "answer": "copiilor",
           "translation": "The children's toys are on the floor.",
           "hint": "of the children (genitive pl.)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "toy.F.PL.DEF · ___ · be.PRS.3PL · on · down"
         },
         {
           "sentence": "Am trimis o scrisoare {{answer}} mei.",
           "answer": "părinților",
           "translation": "I sent a letter to my parents.",
           "hint": "to the parents (dative pl.)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "have.PRS.1SG · send.PTCP · INDF.F.SG · letter · ___ · my.M.PL"
         }
       ]
     },
@@ -1446,42 +1574,48 @@
           "answer": "prieteni",
           "translation": "I have two good friends at school.",
           "hint": "friends (prieten)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "have.PRS.1SG · two.M · ___ · good.M.PL · at · school"
         },
         {
           "sentence": "În grădină sunt multe {{answer}}.",
           "answer": "flori",
           "translation": "There are many flowers in the garden.",
           "hint": "flowers (floare)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "in · garden · be.PRS.3PL · many.F.PL · ___"
         },
         {
           "sentence": "Pe masă sunt trei {{answer}}.",
           "answer": "cărți",
           "translation": "There are three books on the table.",
           "hint": "books (carte)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "on · table · be.PRS.3PL · three · ___"
         },
         {
           "sentence": "Avem nevoie de mai multe {{answer}}.",
           "answer": "scaune",
           "translation": "We need more chairs.",
           "hint": "chairs (scaun, neuter)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "have.PRS.1PL · need · of · COMP · many.F.PL · ___"
         },
         {
           "sentence": "Copiii au primit {{answer}} noi.",
           "answer": "jucării",
           "translation": "The children got new toys.",
           "hint": "toys (jucărie)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "child.M.PL.DEF · have.PRS.3PL · receive.PTCP · ___ · new.F.PL"
         },
         {
           "sentence": "Am cumpărat două {{answer}} de tren.",
           "answer": "bilete",
           "translation": "I bought two train tickets.",
           "hint": "tickets (bilet, neuter)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "have.PRS.1SG · buy.PTCP · two.F · ___ · of · train"
         }
       ]
     },
@@ -1510,42 +1644,48 @@
           "answer": "mergeam",
           "translation": "Every summer we used to go to our grandparents'.",
           "hint": "used to go — we",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "in · every · summer · ___ · to · grandparent.M.PL"
         },
         {
           "sentence": "Când eram mic, {{answer}} mult.",
           "answer": "citeam",
           "translation": "When I was little, I used to read a lot.",
           "hint": "used to read — I",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "when · be.PST.IPFV.1SG · small.M.SG · ___ · much"
         },
         {
           "sentence": "Ce {{answer}} când te-am sunat?",
           "answer": "făceai",
           "translation": "What were you doing when I called you?",
           "hint": "were doing — you (sg.)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "what · ___ · when · 2SG.ACC-have.PRS.1SG · call.PTCP"
         },
         {
           "sentence": "Bunicul {{answer}} povești în fiecare seară.",
           "answer": "spunea",
           "translation": "Grandfather used to tell stories every evening.",
           "hint": "used to tell — he",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "grandfather.M.SG.DEF · ___ · story.F.PL · in · every · evening"
         },
         {
           "sentence": "Copiii se {{answer}} în parc toată ziua.",
           "answer": "jucau",
           "translation": "The children were playing in the park all day.",
           "hint": "were playing — they",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "child.M.PL.DEF · REFL · ___ · in · park · all.F.SG · day.F.SG.DEF"
         },
         {
           "sentence": "Pe vremuri {{answer}} într-un apartament mic.",
           "answer": "locuiam",
           "translation": "In the old days we lived in a small apartment.",
           "hint": "used to live — we",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "on · time.F.PL · ___ · in-INDF.M.SG · apartment · small.M.SG"
         }
       ]
     },
@@ -1574,42 +1714,48 @@
           "answer": "voi",
           "translation": "Tomorrow I will go to work early.",
           "hint": "will — I (formal future)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "tomorrow · ___ · go.INF · to · work · early"
         },
         {
           "sentence": "Diseară {{answer}} vedea un film împreună.",
           "answer": "vom",
           "translation": "Tonight we will watch a film together.",
           "hint": "will — we (formal future)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "tonight · ___ · see.INF · INDF.M · film · together"
         },
         {
           "sentence": "{{answer}} veni cu noi în excursie?",
           "answer": "vei",
           "translation": "Will you come with us on the trip?",
           "hint": "will — you sg. (formal future)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · come.INF · with · 1PL.ACC · in · trip"
         },
         {
           "sentence": "O {{answer}} cumpăr cadoul mâine.",
           "answer": "să",
           "translation": "I'll buy the gift tomorrow.",
           "hint": "subjunctive particle after 'o' (spoken future)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "FUT · ___ · buy.1SG · gift.DEF · tomorrow"
         },
         {
           "sentence": "Anul viitor {{answer}} învăța română în fiecare zi.",
           "answer": "voi",
           "translation": "Next year I will study Romanian every day.",
           "hint": "will — I (formal future)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "year.DEF · next · ___ · learn.INF · Romanian · in · every · day"
         },
         {
           "sentence": "Prietenii mei {{answer}} fi la petrecere.",
           "answer": "vor",
           "translation": "My friends will be at the party.",
           "hint": "will — they (formal future)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "friend.PL.DEF · 1SG.POSS.M.PL · ___ · be.INF · at · party"
         }
       ]
     },
@@ -1638,42 +1784,48 @@
           "answer": "îl",
           "translation": "I know Ion; I see him every day.",
           "hint": "him",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG.M.ACC · know.1SG · OBJ · Ion · ___ · see.1SG · in · every · day"
         },
         {
           "sentence": "Unde e Maria? Nu {{answer}} găsesc.",
           "answer": "o",
           "translation": "Where is Maria? I can't find her.",
           "hint": "her",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "where · be.3SG · Maria · NEG · ___ · find.1SG"
         },
         {
           "sentence": "Ce carte bună! {{answer}} citesc acum.",
           "answer": "o",
           "translation": "What a good book! I'm reading it now.",
           "hint": "it (fem.)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "what · book · good.F.SG · ___ · read.1SG · now"
         },
         {
           "sentence": "Dacă vii, {{answer}} aștept la stație.",
           "answer": "te",
           "translation": "If you come, I'll wait for you at the stop.",
           "hint": "you (sg.)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "if · come.2SG · ___ · wait.1SG · at · stop"
         },
         {
           "sentence": "Suntem aici; {{answer}} auzi?",
           "answer": "ne",
           "translation": "We're here; can you hear us?",
           "hint": "us",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "be.1PL · here · ___ · hear.2SG"
         },
         {
           "sentence": "Copiii sunt obosiți; {{answer}} duc la culcare.",
           "answer": "îi",
           "translation": "The children are tired; I'm taking them to bed.",
           "hint": "them (masc.)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "child.PL.DEF · be.3PL · tired.M.PL · ___ · take.1SG · to · bedtime"
         }
       ]
     },
@@ -1702,42 +1854,48 @@
           "answer": "mai",
           "translation": "Bucharest is bigger than Iași.",
           "hint": "more (comparative)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "Bucharest.DEF · be.3SG · ___ · big · than · Iași.DEF"
         },
         {
           "sentence": "Aceasta este cea {{answer}} bună cafenea din oraș.",
           "answer": "mai",
           "translation": "This is the best café in town.",
           "hint": "most (superlative)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "this.F.SG · be.3SG · DEF.F · ___ · good.F.SG · café · from · town"
         },
         {
           "sentence": "Româna este {{answer}} grea decât spaniola pentru mine.",
           "answer": "mai",
           "translation": "Romanian is harder than Spanish for me.",
           "hint": "more (comparative)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "Romanian.DEF · be.3SG · ___ · hard.F.SG · than · Spanish.DEF · for · 1SG.ACC"
         },
         {
           "sentence": "El este {{answer}} mai inteligent elev din clasă.",
           "answer": "cel",
           "translation": "He is the smartest student in the class.",
           "hint": "the (superlative article)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.M · be.3SG · ___ · COMP · intelligent.M.SG · student · from · class"
         },
         {
           "sentence": "Vara zilele sunt {{answer}} lungi.",
           "answer": "mai",
           "translation": "In summer the days are longer.",
           "hint": "more (comparative)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "summer.DEF · day.PL.DEF · be.3PL · ___ · long.F.PL"
         },
         {
           "sentence": "Sănătatea este {{answer}} importantă decât banii.",
           "answer": "mai",
           "translation": "Health is more important than money.",
           "hint": "more (comparative)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "health.DEF · be.3SG · ___ · important.F.SG · than · money.PL.DEF"
         }
       ]
     },
@@ -1766,42 +1924,48 @@
           "answer": "în",
           "translation": "I live in a small town.",
           "hint": "enclosure preposition, not 'la' (at)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "live.1SG · ___ · INDF.M · town · small.M.SG"
         },
         {
           "sentence": "Merg {{answer}} școală în fiecare zi.",
           "answer": "la",
           "translation": "I go to school every day.",
           "hint": "at / to",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "go.1SG · ___ · school · in · every · day"
         },
         {
           "sentence": "Vin la cinema {{answer}} prietenii mei.",
           "answer": "cu",
           "translation": "I'm coming to the cinema with my friends.",
           "hint": "with",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "come.1SG · to · cinema · ___ · friend.M.PL.DEF · 1SG.POSS.M.PL"
         },
         {
           "sentence": "Am cumpărat un cadou {{answer}} mama.",
           "answer": "pentru",
           "translation": "I bought a gift for my mother.",
           "hint": "for",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "have.1SG · buy.PTCP · INDF.M · gift · ___ · mother.F.SG.DEF"
         },
         {
           "sentence": "Nu pot trăi {{answer}} cafea.",
           "answer": "fără",
           "translation": "I can't live without coffee.",
           "hint": "without",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · can.1SG · live.INF · ___ · coffee"
         },
         {
           "sentence": "O văd {{answer}} Maria la piață.",
           "answer": "pe",
           "translation": "I see Maria at the market.",
           "hint": "(personal-object marker)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.F.OBJ · see.1SG · ___ · Maria · at · market"
         }
       ]
     },
@@ -1830,42 +1994,48 @@
           "answer": "mea",
           "translation": "My car is new.",
           "hint": "my (fem.)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "car.F.SG.DEF · ___ · be.3SG · new.F.SG"
         },
         {
           "sentence": "Unde este telefonul {{answer}}?",
           "answer": "tău",
           "translation": "Where is your phone?",
           "hint": "your (masc., sg.)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "where · be.3SG · phone.M.SG.DEF · ___"
         },
         {
           "sentence": "Sora {{answer}} locuiește la Cluj.",
           "answer": "sa",
           "translation": "His/her sister lives in Cluj.",
           "hint": "his/her (fem. noun)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "sister.F.SG.DEF · ___ · live.3SG · in · Cluj"
         },
         {
           "sentence": "Câinele {{answer}} este foarte prietenos.",
           "answer": "său",
           "translation": "His dog is very friendly.",
           "hint": "his (masc. noun)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "dog.M.SG.DEF · ___ · be.3SG · very · friendly.M.SG"
         },
         {
           "sentence": "Vecinii {{answer}} sunt foarte amabili.",
           "answer": "noștri",
           "translation": "Our neighbours are very kind.",
           "hint": "our (masc. pl.)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "neighbour.M.PL.DEF · ___ · be.3PL · very · kind.M.PL"
         },
         {
           "sentence": "Casa {{answer}} este aproape de mare.",
           "answer": "lor",
           "translation": "Their house is near the sea.",
           "hint": "their (invariable)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "house.F.SG.DEF · ___ · be.3SG · near · of · sea"
         }
       ]
     },
@@ -1895,7 +2065,8 @@
           "translation": "Every morning I wake up at seven.",
           "hint": "myself — I",
           "cell": "eu",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "in · every · morning · ___ · wake.1SG · at · seven"
         },
         {
           "sentence": "La ce oră {{answer}} culci de obicei?",
@@ -1903,7 +2074,8 @@
           "translation": "What time do you usually go to bed?",
           "hint": "yourself — you (sg.)",
           "cell": "tu",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "at · what · hour · ___ · lie_down.2SG · of · habit"
         },
         {
           "sentence": "Ea {{answer}} simte mult mai bine azi.",
@@ -1911,7 +2083,8 @@
           "translation": "She feels much better today.",
           "hint": "herself — she",
           "cell": "el",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.F · ___ · feel.3SG · much · COMP · well · today"
         },
         {
           "sentence": "Duminica {{answer}} odihnim acasă.",
@@ -1919,7 +2092,8 @@
           "translation": "On Sundays we rest at home.",
           "hint": "ourselves — we",
           "cell": "noi",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "Sunday.F.SG.DEF · ___ · rest.1PL · home"
         },
         {
           "sentence": "Voi {{answer}} distrați la petrecere?",
@@ -1927,7 +2101,8 @@
           "translation": "Did you (pl.) have fun at the party?",
           "hint": "yourselves — you (pl.)",
           "cell": "voi",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2PL · ___ · amuse.PTCP · at · party"
         },
         {
           "sentence": "Copiii {{answer}} joacă în parc.",
@@ -1935,7 +2110,8 @@
           "translation": "The children are playing in the park.",
           "hint": "themselves — they",
           "cell": "ei",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "child.M.PL.DEF · ___ · play.3PL · in · park"
         }
       ]
     },
@@ -1964,42 +2140,48 @@
           "answer": "să",
           "translation": "I want to leave earlier today.",
           "hint": "to (+ subjunctive)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "want.1SG · ___ · leave.1SG · COMP · early · today"
         },
         {
           "sentence": "Trebuie {{answer}} înveți pentru examen.",
           "answer": "să",
           "translation": "You must study for the exam.",
           "hint": "to (+ subjunctive)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "must.3SG · ___ · learn.2SG · for · exam"
         },
         {
           "sentence": "El trebuie să {{answer}} la doctor mâine.",
           "answer": "meargă",
           "translation": "He must go to the doctor tomorrow.",
           "hint": "go — he (subjunctive)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.M · must.3SG · SBJV · ___ · to · doctor · tomorrow"
         },
         {
           "sentence": "E important să {{answer}} atenți.",
           "answer": "fim",
           "translation": "It's important that we be careful.",
           "hint": "be — we (subjunctive)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "be.3SG · important · SBJV · ___ · careful.M.PL"
         },
         {
           "sentence": "Vreau să {{answer}} bine limba română.",
           "answer": "știu",
           "translation": "I want to know Romanian well.",
           "hint": "know — I (subjunctive)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "want.1SG · SBJV · ___ · well · language.DEF.F · Romanian.F"
         },
         {
           "sentence": "Ea vrea să {{answer}} un tort pentru petrecere.",
           "answer": "facă",
           "translation": "She wants to make a cake for the party.",
           "hint": "make — she (subjunctive)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.F · want.3SG · SBJV · ___ · INDF.M · cake · for · party"
         }
       ]
     },
@@ -2029,7 +2211,8 @@
           "translation": "Open the window, please!",
           "hint": "a deschide, tu",
           "cell": "tu",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · window.DEF.F · 2SG.ACC · ask.1SG"
         },
         {
           "sentence": "{{answer}} mai încet, copilul doarme.",
@@ -2037,7 +2220,8 @@
           "translation": "Speak more quietly, the child is sleeping.",
           "hint": "a vorbi, tu",
           "cell": "tu",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · COMP · quietly · child.DEF.M · sleep.3SG"
         },
         {
           "sentence": "Copii, {{answer}} cărțile la pagina zece!",
@@ -2045,7 +2229,8 @@
           "translation": "Children, open your books to page ten!",
           "hint": "a deschide, voi",
           "cell": "voi",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "child.PL · ___ · book.DEF.F.PL · at · page.DEF.F · ten"
         },
         {
           "sentence": "{{answer}} atenți când traversați strada!",
@@ -2053,21 +2238,24 @@
           "translation": "Be careful when you cross the street!",
           "hint": "a fi, voi",
           "cell": "voi",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · careful.M.PL · when · cross.2PL · street.DEF.F"
         },
         {
           "sentence": "Nu {{answer}} griji, totul va fi bine.",
           "answer": "-ți",
           "translation": "Don't worry, everything will be fine. (nu-ți face griji)",
           "hint": "(negative reflexive command)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · ___ · worry.PL · all.DEF.M · FUT.3SG · be.INF · well"
         },
         {
           "sentence": "Nu {{answer}} încă, mai avem timp!",
           "answer": "pleca",
           "translation": "Don't leave yet, we still have time!",
           "hint": "don't leave! (nu + infinitive)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG · ___ · yet · still · have.1PL · time"
         }
       ],
       "paradigm": [
@@ -2100,42 +2288,48 @@
           "answer": "îmi",
           "translation": "I really like music. (music pleases me)",
           "hint": "to me",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · please.3SG · very · much · music.DEF.F"
         },
         {
           "sentence": "{{answer}} dau cartea mâine, promit.",
           "answer": "îți",
           "translation": "I'll give you the book tomorrow, I promise.",
           "hint": "to you (sg.)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · give.1SG · book.DEF.F · tomorrow · promise.1SG"
         },
         {
           "sentence": "Maria e tristă; {{answer}} lipsește familia.",
           "answer": "îi",
           "translation": "Maria is sad; she misses her family.",
           "hint": "to her",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "Maria · be.3SG · sad.F · ___ · be_missing.3SG · family.DEF.F"
         },
         {
           "sentence": "Profesorul {{answer}} explică lecția clar.",
           "answer": "ne",
           "translation": "The teacher explains the lesson to us clearly.",
           "hint": "to us",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "teacher.DEF.M · ___ · explain.3SG · lesson.DEF.F · clearly"
         },
         {
           "sentence": "Dacă aveți întrebări, {{answer}} răspund cu plăcere.",
           "answer": "vă",
           "translation": "If you (pl.) have questions, I'll gladly answer you.",
           "hint": "to you (pl.)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · have.2PL · question.PL · ___ · answer.1SG · with · pleasure"
         },
         {
           "sentence": "Copiilor {{answer}} place să se joace afară.",
           "answer": "le",
           "translation": "The children like to play outside.",
           "hint": "to them",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "child.DEF.M.PL.DAT · ___ · please.3SG · SBJV · REFL · play.3PL.SBJV · outside"
         }
       ]
     },
@@ -2164,42 +2358,48 @@
           "answer": "care",
           "translation": "The man who came is a doctor.",
           "hint": "who / that",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "man.DEF.M · ___ · PST.3SG · come.PTCP · be.3SG · doctor"
         },
         {
           "sentence": "Filmul pe {{answer}} l-am văzut a fost minunat.",
           "answer": "care",
           "translation": "The film that I saw was wonderful.",
           "hint": "which / that",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "film.DEF.M · ACC · ___ · 3SG.M.ACC-PST.1SG · see.PTCP · PST.3SG · be.PTCP · wonderful"
         },
         {
           "sentence": "Tot {{answer}} spui este adevărat.",
           "answer": "ce",
           "translation": "Everything you say is true.",
           "hint": "what / that",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "all · ___ · say.2SG · be.3SG · true"
         },
         {
           "sentence": "{{answer}} muncește mult reușește.",
           "answer": "cine",
           "translation": "Whoever works hard succeeds.",
           "hint": "whoever / who",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · work.3SG · much · succeed.3SG"
         },
         {
           "sentence": "Copiii {{answer}} se jucau afară au intrat.",
           "answer": "care",
           "translation": "The children who were playing outside came in.",
           "hint": "who / that",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "child.DEF.M.PL · ___ · REFL · play.PST.IPFV.3PL · outside · PST.3PL · enter.PTCP"
         },
         {
           "sentence": "Aceasta este casa în {{answer}} am crescut.",
           "answer": "care",
           "translation": "This is the house in which I grew up.",
           "hint": "which",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "this.F · be.3SG · house.DEF.F · in · ___ · PST.1SG · grow.PTCP"
         }
       ]
     },
@@ -2228,42 +2428,48 @@
           "answer": "aș",
           "translation": "I would like a coffee, please.",
           "hint": "would — I (conditional)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · want.INF · INDF.F.SG · coffee · 2SG.ACC · beg.1SG"
         },
         {
           "sentence": "{{answer}} putea să mă ajuți puțin?",
           "answer": "ai",
           "translation": "Could you help me a little?",
           "hint": "would — you sg. (conditional)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · can.INF · SBJV · 1SG.ACC · help.2SG · little"
         },
         {
           "sentence": "El {{answer}} veni bucuros la petrecere.",
           "answer": "ar",
           "translation": "He would gladly come to the party.",
           "hint": "would — he (conditional)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.M · ___ · come.INF · glad.M.SG · to · party"
         },
         {
           "sentence": "Noi {{answer}} merge la munte cu plăcere.",
           "answer": "am",
           "translation": "We would gladly go to the mountains.",
           "hint": "would — we (conditional)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · ___ · go.INF · to · mountain · with · pleasure"
         },
         {
           "sentence": "{{answer}} vrea să locuiască lângă mare.",
           "answer": "ar",
           "translation": "They would like to live by the sea.",
           "hint": "would — they (conditional)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · want.INF · SBJV · live.3PL · near · sea"
         },
         {
           "sentence": "În locul tău, {{answer}} accepta oferta.",
           "answer": "aș",
           "translation": "In your place, I would accept the offer.",
           "hint": "would — I (conditional)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "in · place.DEF.M.SG · 2SG.POSS.M.SG · ___ · accept.INF · offer.DEF.F.SG"
         }
       ]
     },
@@ -2292,42 +2498,48 @@
           "answer": "datorită",
           "translation": "I succeeded thanks to your help.",
           "hint": "thanks to (+ dative)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "have.1SG · succeed.PTCP · ___ · help.DEF.DAT.M.SG · 2SG.POSS.M.SG"
         },
         {
           "sentence": "Mașina e parcată în {{answer}} casei.",
           "answer": "fața",
           "translation": "The car is parked in front of the house.",
           "hint": "in front of (compound preposition)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "car.DEF.F.SG · be.3SG · park.PASS.PTCP.F.SG · in · ___ · house.DEF.GEN.F.SG"
         },
         {
           "sentence": "Toți au votat {{answer}} propunerii.",
           "answer": "împotriva",
           "translation": "Everyone voted against the proposal.",
           "hint": "against (+ genitive)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "all.M.PL · have.3PL · vote.PTCP · ___ · proposal.DEF.GEN.F.SG"
         },
         {
           "sentence": "Din {{answer}} ploii, am rămas acasă.",
           "answer": "cauza",
           "translation": "Because of the rain, we stayed home.",
           "hint": "because of (compound preposition)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "from · ___ · rain.DEF.GEN.F.SG · have.1PL · stay.PTCP · home"
         },
         {
           "sentence": "Copiii aleargă în {{answer}} mesei.",
           "answer": "jurul",
           "translation": "The children run around the table.",
           "hint": "around (compound preposition)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "child.DEF.M.PL · run.3PL · in · ___ · table.DEF.GEN.F.SG"
         },
         {
           "sentence": "A câștigat {{answer}} muncii sale.",
           "answer": "datorită",
           "translation": "He won thanks to his work.",
           "hint": "thanks to (+ dative)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "have.3SG · win.PTCP · ___ · work.DEF.DAT.F.SG · 3SG.POSS.F.SG"
         }
       ]
     },
@@ -2356,42 +2568,48 @@
           "answer": "că",
           "translation": "He told me that he'll be a bit late.",
           "hint": "that (statement)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.DAT-have.3SG · tell.PTCP · ___ · FUT.3SG · delay.INF · little"
         },
         {
           "sentence": "M-a întrebat {{answer}} vreau o cafea.",
           "answer": "dacă",
           "translation": "He asked me whether I want a coffee.",
           "hint": "whether (reported question)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG.ACC-have.3SG · ask.PTCP · ___ · want.1SG · INDF.F.SG · coffee"
         },
         {
           "sentence": "Profesoara a zis {{answer}} citim capitolul.",
           "answer": "să",
           "translation": "The teacher said to read the chapter.",
           "hint": "to (reported command)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "teacher.DEF.F.SG · have.3SG · say.PTCP · ___ · read.1PL · chapter.DEF.M.SG"
         },
         {
           "sentence": "Cred {{answer}} are dreptate.",
           "answer": "că",
           "translation": "I think that he is right.",
           "hint": "that (statement)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "believe.1SG · ___ · have.3SG · right"
         },
         {
           "sentence": "I-am cerut {{answer}} mă sune diseară.",
           "answer": "să",
           "translation": "I asked her to call me tonight.",
           "hint": "to (reported request)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.DAT-have.1SG · request.PTCP · ___ · 1SG.ACC · call.3SG · tonight"
         },
         {
           "sentence": "Nu știu {{answer}} magazinul e deschis azi.",
           "answer": "dacă",
           "translation": "I don't know whether the shop is open today.",
           "hint": "whether",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG · know.1SG · ___ · shop.DEF.M.SG · be.3SG · open.M.SG · today"
         }
       ]
     },
@@ -2420,42 +2638,48 @@
           "answer": "este",
           "translation": "The book is written in Romanian.",
           "hint": "is (a fi passive)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "book.DEF.F.SG · ___ · write.PASS.PTCP.F.SG · in · language.DEF.F.SG · Romanian.F.SG"
         },
         {
           "sentence": "Ușile {{answer}} închise la ora nouă.",
           "answer": "sunt",
           "translation": "The doors are closed at nine o'clock.",
           "hint": "are (a fi passive)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "door.DEF.F.PL · ___ · close.PASS.PTCP.F.PL · at · hour.DEF.F.SG · nine"
         },
         {
           "sentence": "Aici {{answer}} vinde pâine proaspătă.",
           "answer": "se",
           "translation": "Fresh bread is sold here.",
           "hint": "(reflexive passive)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "here · ___ · sell.3SG · bread · fresh.F.SG"
         },
         {
           "sentence": "{{answer}} spune că iarna va fi grea.",
           "answer": "se",
           "translation": "It is said that the winter will be harsh.",
           "hint": "third-person reflexive, impersonal passive",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · say.3SG · COMP · winter.DEF.F.SG · FUT.3SG · be.INF · harsh.F.SG"
         },
         {
           "sentence": "Casa a {{answer}} construită acum o sută de ani.",
           "answer": "fost",
           "translation": "The house was built a hundred years ago.",
           "hint": "been (past passive)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "house.DEF.F.SG · have.3SG · ___ · build.PTCP.F.SG · now · INDF.F · hundred · of · year.PL"
         },
         {
           "sentence": "Problemele {{answer}} rezolvă ușor cu răbdare.",
           "answer": "se",
           "translation": "The problems are solved easily with patience.",
           "hint": "(reflexive passive)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "problem.DEF.F.PL · ___ · solve.3PL · easily · with · patience"
         }
       ]
     },
@@ -2484,42 +2708,48 @@
           "answer": "dacă",
           "translation": "If you study a lot, you'll pass the exam.",
           "hint": "if",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · learn.2SG · much · FUT.2SG · succeed.INF · at · exam"
         },
         {
           "sentence": "Dacă aș avea timp, aș {{answer}} la petrecere.",
           "answer": "veni",
           "translation": "If I had time, I would come to the party.",
           "hint": "come (conditional result)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if · COND.1SG · have.INF · time · COND.1SG · ___ · to · party"
         },
         {
           "sentence": "Dacă {{answer}} bani, ar cumpăra o casă.",
           "answer": "avea",
           "translation": "If he had money, he would buy a house.",
           "hint": "had — he (imperfect)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if · ___ · money.PL · COND.3SG · buy.INF · INDF.F · house"
         },
         {
           "sentence": "{{answer}} plouă mâine, nu mergem în excursie.",
           "answer": "dacă",
           "translation": "If it rains tomorrow, we won't go on the trip.",
           "hint": "if",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · rain.3SG · tomorrow · NEG · go.1PL · in · trip"
         },
         {
           "sentence": "Dacă aș fi știut, {{answer}} fi spus imediat.",
           "answer": "ți-aș",
           "translation": "If I had known, I would have told you at once.",
           "hint": "would — I (past conditional)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · COND.1SG · be.INF · know.PTCP · ___ · be.INF · say.PTCP · immediately"
         },
         {
           "sentence": "Ai reuși {{answer}} ai încerca mai mult.",
           "answer": "dacă",
           "translation": "You would succeed if you tried harder.",
           "hint": "if",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "COND.2SG · succeed.INF · ___ · COND.2SG · try.INF · more · much"
         }
       ]
     },
@@ -2548,42 +2778,48 @@
           "answer": "zâmbind",
           "translation": "He entered the room smiling.",
           "hint": "smiling (gerund)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "have.3SG · enter.PTCP · in · room · ___"
         },
         {
           "sentence": "{{answer}} după autobuz, am căzut.",
           "answer": "alergând",
           "translation": "Running for the bus, I fell.",
           "hint": "running (gerund)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · after · bus · have.1SG · fall.PTCP"
         },
         {
           "sentence": "Și-a petrecut seara {{answer}} un roman.",
           "answer": "citind",
           "translation": "He spent the evening reading a novel.",
           "hint": "reading (gerund)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.DAT-have.3SG · spend.PTCP · evening.DEF.F.SG · ___ · INDF.M · novel"
         },
         {
           "sentence": "{{answer}} atent, vei învăța repede.",
           "answer": "ascultând",
           "translation": "By listening carefully, you'll learn fast.",
           "hint": "listening (gerund)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · attentively · FUT.2SG · learn.INF · fast"
         },
         {
           "sentence": "A plecat {{answer}} la revedere.",
           "answer": "spunând",
           "translation": "He left saying goodbye.",
           "hint": "saying (gerund)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "have.3SG · leave.PTCP · ___ · to · reunion"
         },
         {
           "sentence": "{{answer}} pe stradă, am întâlnit un prieten.",
           "answer": "mergând",
           "translation": "Walking down the street, I met a friend.",
           "hint": "walking (gerund)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · on · street · have.1SG · meet.PTCP · INDF.M · friend"
         }
       ]
     },
@@ -2612,42 +2848,48 @@
           "answer": "făcut",
           "translation": "I have many things to do today.",
           "hint": "to do (supine)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "have.1SG · many.PL · thing.PL · SUP · ___ · today"
         },
         {
           "sentence": "Această lecție este ușor de {{answer}}.",
           "answer": "înțeles",
           "translation": "This lesson is easy to understand.",
           "hint": "to understand (supine)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "this.F.SG · lesson · be.3SG · easy · SUP · ___"
         },
         {
           "sentence": "Mai am un capitol de {{answer}}.",
           "answer": "citit",
           "translation": "I still have one chapter to read.",
           "hint": "to read (supine)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "still · have.1SG · INDF.M · chapter · SUP · ___"
         },
         {
           "sentence": "Avem o mașină de {{answer}} vase.",
           "answer": "spălat",
           "translation": "We have a dishwasher. (machine for washing dishes)",
           "hint": "washing (supine)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "have.1PL · INDF.F · machine · SUP · ___ · dish.PL"
         },
         {
           "sentence": "Nu e nimic de {{answer}} aici.",
           "answer": "văzut",
           "translation": "There's nothing to see here.",
           "hint": "to see (supine)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · be.3SG · nothing · SUP · ___ · here"
         },
         {
           "sentence": "Mâncarea este gata de {{answer}}.",
           "answer": "servit",
           "translation": "The food is ready to serve.",
           "hint": "to serve (supine)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "food.DEF.F.SG · be.3SG · ready · SUP · ___"
         }
       ]
     },
@@ -2676,42 +2918,48 @@
           "answer": "să",
           "translation": "We must leave now, it's late.",
           "hint": "to (+ subjunctive)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "must.3SG · ___ · leave.1PL · now · be.3SG · late"
         },
         {
           "sentence": "E posibil {{answer}} plouă diseară.",
           "answer": "să",
           "translation": "It's possible that it will rain tonight.",
           "hint": "that (+ subjunctive)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "be.3SG · possible · ___ · rain.3SG · tonight"
         },
         {
           "sentence": "Învăț mult ca {{answer}} reușesc la examen.",
           "answer": "să",
           "translation": "I study a lot in order to pass the exam.",
           "hint": "in order to — the subjunctive particle after 'ca'",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "study.1SG · much · COMP · ___ · succeed.1SG · at · exam"
         },
         {
           "sentence": "E bine {{answer}} bei multă apă.",
           "answer": "să",
           "translation": "It's good to drink a lot of water.",
           "hint": "to (+ subjunctive)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "be.3SG · well · ___ · drink.2SG · much.F.SG · water"
         },
         {
           "sentence": "Mă tem {{answer}} nu întârzii.",
           "answer": "să",
           "translation": "I'm afraid I might be late.",
           "hint": "that (fear + subjunctive)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG.REFL · fear.1SG · ___ · NEG · delay.1SG"
         },
         {
           "sentence": "Ar fi bine să {{answer}} mai devreme mâine.",
           "answer": "venim",
           "translation": "It would be good if we came earlier tomorrow.",
           "hint": "come — we (subjunctive)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "COND.3SG · be.INF · well · SBJV · ___ · more · early · tomorrow"
         }
       ]
     },
@@ -2740,42 +2988,48 @@
           "answer": "fel",
           "translation": "He is as tall as me.",
           "hint": "'sort, kind' — the noun in 'la … de … ca'",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG.M · be.3SG · at · ___ · of · tall.M.SG · as · 1SG.ACC"
         },
         {
           "sentence": "Vremea devine din ce în ce mai {{answer}}.",
           "answer": "rece",
           "translation": "The weather is getting colder and colder.",
           "hint": "cold (din ce în ce mai = more and more)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "weather.DEF.F.SG · become.3SG · from · what · in · what · more · ___"
         },
         {
           "sentence": "Cu cât citești mai mult, {{answer}} atât înveți mai bine.",
           "answer": "cu",
           "translation": "The more you read, the better you learn.",
           "hint": "the preposition 'with' again, now before 'atât'",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "with · how.much · read.2SG · more · much · ___ · so.much · learn.2SG · more · well"
         },
         {
           "sentence": "Nu e {{answer}} atât de greu pe cât pare.",
           "answer": "tot",
           "translation": "It's not as hard as it seems.",
           "hint": "'just as' — the particle before 'atât de', not chiar",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NEG · be.3SG · ___ · so.much · of · hard.M.SG · on · how.much · seem.3SG"
         },
         {
           "sentence": "Orașul este {{answer}} fel de frumos ca în poze.",
           "answer": "la",
           "translation": "The city is as beautiful as in the photos.",
           "hint": "as … as — the preposition before 'fel de … ca'",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "city.DEF.M.SG · be.3SG · ___ · way · of · beautiful.M.SG · as · in · photo.PL"
         },
         {
           "sentence": "Zilele devin din ce în ce mai {{answer}}.",
           "answer": "lungi",
           "translation": "The days are getting longer and longer.",
           "hint": "long (din ce în ce mai)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "day.DEF.F.PL · become.3PL · from · what · in · what · more · ___"
         }
       ]
     },
@@ -2804,42 +3058,48 @@
           "answer": "mâncasem",
           "translation": "When you arrived, I had already eaten.",
           "hint": "had eaten — I",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "when · have.2SG · arrive.PTCP · 1SG · already · ___"
         },
         {
           "sentence": "Trenul {{answer}} deja când am ajuns la gară.",
           "answer": "plecase",
           "translation": "The train had already left when I got to the station.",
           "hint": "had left — it",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "train.DEF.M.SG · ___ · already · when · have.1SG · arrive.PTCP · at · station"
         },
         {
           "sentence": "Nu am recunoscut casa; se {{answer}} mult.",
           "answer": "schimbase",
           "translation": "I didn't recognize the house; it had changed a lot.",
           "hint": "had changed — it",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · have.1SG · recognize.PTCP · house.DEF.F.SG · 3SG.REFL · ___ · much"
         },
         {
           "sentence": "Până atunci {{answer}} deja despre acest oraș.",
           "answer": "citisem",
           "translation": "By then I had already read about this city.",
           "hint": "had read — I",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "until · then · ___ · already · about · this.M.SG · city"
         },
         {
           "sentence": "Ei {{answer}} plecat înainte să înceapă ploaia.",
           "answer": "plecaseră",
           "translation": "They had left before the rain started.",
           "hint": "had left — they",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3PL.M · ___ · leave.PTCP · before · SBJV · begin.SBJV.3SG · rain.DEF.F.SG"
         },
         {
           "sentence": "Îmi amintii că îl {{answer}} undeva înainte.",
           "answer": "văzusem",
           "translation": "I remembered that I had seen him somewhere before.",
           "hint": "had seen — I",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG.DAT · remember.PST.1SG · COMP · 3SG.M.ACC · ___ · somewhere · before"
         }
       ]
     },
@@ -3074,28 +3334,32 @@
           "answer": "așadar",
           "translation": "He didn't study enough; therefore, he failed the exam.",
           "hint": "therefore (formal)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · AUX.3SG · study.PTCP · enough · ___ · AUX.3SG · fail.PTCP · exam.DEF"
         },
         {
           "sentence": "În ceea ce {{answer}} bugetul, vom discuta mâine.",
           "answer": "privește",
           "translation": "As regards the budget, we'll discuss it tomorrow.",
           "hint": "concerns (fixed phrase)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "in · DEM.F · REL · ___ · budget.DEF · AUX.FUT.1PL · discuss.INF · tomorrow"
         },
         {
           "sentence": "Au venit profesorii, {{answer}} și studenții.",
           "answer": "precum",
           "translation": "The teachers came, as well as the students.",
           "hint": "as well as (additive connector)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "AUX.3PL · come.PTCP · teacher.DEF.PL · ___ · and · student.DEF.PL"
         },
         {
           "sentence": "{{answer}} vremea era rea, spectacolul continuă.",
           "answer": "deși",
           "translation": "Although the weather was bad, the show went on. (literary)",
           "hint": "although",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · weather.DEF · be.PST.IPFV.3SG · bad.F.SG · show.DEF · continue.PST.PFV.3SG"
         }
       ]
     },
@@ -3134,42 +3398,48 @@
           "answer": "Această",
           "translation": "This book is interesting.",
           "hint": "this — feminine",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · book · be.PRS.3SG · interesting.F.SG"
         },
         {
           "sentence": "{{answer}} băiat este fratele meu.",
           "answer": "Acest",
           "translation": "This boy is my brother.",
           "hint": "this — masculine",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · boy · be.PRS.3SG · brother.DEF · POSS.1SG.M"
         },
         {
           "sentence": "{{answer}} oameni sunt profesori.",
           "answer": "Acești",
           "translation": "These people are teachers.",
           "hint": "these — masculine plural",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · person.PL · be.PRS.3PL · teacher.PL"
         },
         {
           "sentence": "{{answer}} casă de acolo este veche.",
           "answer": "Acea",
           "translation": "That house over there is old.",
           "hint": "that — feminine, far away",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · house · from · there · be.PRS.3SG · old.F.SG"
         },
         {
           "sentence": "{{answer}} munți sunt Carpații.",
           "answer": "Acei",
           "translation": "Those mountains are the Carpathians.",
           "hint": "those — masculine plural",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · mountain.PL · be.PRS.3PL · Carpathians.DEF.PL"
         },
         {
           "sentence": "Îmi place cartea {{answer}}.",
           "answer": "aceasta",
           "translation": "I like this book.",
           "hint": "after the definite noun — the form gains a final -a",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG.DAT · please.PRS.3SG · book.DEF · ___"
         }
       ]
     },
@@ -3208,42 +3478,48 @@
           "answer": "vreau",
           "translation": "I want a coffee, please.",
           "hint": "a vrea — eu",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.NOM · ___ · INDF.F · coffee · 2SG.ACC · beg.PRS.1SG"
         },
         {
           "sentence": "Nu {{answer}} veni diseară.",
           "answer": "pot",
           "translation": "I can't come tonight.",
           "hint": "a putea — eu",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "NEG · ___ · come.INF · tonight"
         },
         {
           "sentence": "Tu {{answer}} unde este gara?",
           "answer": "știi",
           "translation": "Do you know where the station is?",
           "hint": "a ști — tu",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "2SG.NOM · ___ · where · be.PRS.3SG · station.DEF"
         },
         {
           "sentence": "El îmi {{answer}} cartea mâine.",
           "answer": "dă",
           "translation": "He gives me the book tomorrow.",
           "hint": "'to give' — el, present tense",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.M.NOM · 1SG.DAT · ___ · book.DEF · tomorrow"
         },
         {
           "sentence": "Noi {{answer}} autobuzul de la opt.",
           "answer": "luăm",
           "translation": "We take the eight o'clock bus.",
           "hint": "a lua — noi",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL.NOM · ___ · bus.DEF · from · at · eight"
         },
         {
           "sentence": "Copiii {{answer}} înghețată.",
           "answer": "vor",
           "translation": "The children want ice cream.",
           "hint": "a vrea — ei",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "child.DEF.PL · ___ · ice_cream"
         }
       ]
     }
