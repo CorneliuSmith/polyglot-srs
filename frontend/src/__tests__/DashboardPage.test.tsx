@@ -291,11 +291,14 @@ describe('Dashboard tiles', () => {
     )
   })
 
-  it('the Learn tile shows daily-goal progress, not the whole queue', async () => {
+  it('the Learn tile shows daily-goal progress, never the raw queue count', async () => {
     renderDashboard()
-    // 3 learned today of the default 20-goal; the queue moves to the sublabel
+    // 3 learned today of the default 20-goal; the sublabel names neither
+    // the queue size nor any other overwhelming raw number.
     expect(await screen.findByText('3 / 20')).toBeDefined()
-    expect(screen.getByText(/learned today · 15 queued/)).toBeDefined()
+    expect(screen.getByText(/^learned today$/)).toBeDefined()
+    expect(screen.queryByText(/15/)).toBeNull()
+    expect(screen.queryByText(/queued/)).toBeNull()
   })
 
   it('a met goal celebrates and goal 0 falls back to the queue count', async () => {
