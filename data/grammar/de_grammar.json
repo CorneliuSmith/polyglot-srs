@@ -2956,14 +2956,14 @@
           "sentence": "{{answer}} mehr man übt, desto besser wird man.",
           "answer": "Je",
           "translation": "The more you practise, the better you get.",
-          "hint": "the more (correlative)",
+          "hint": "first half of the pair; 'desto' completes it",
           "display_order": 2
         },
         {
           "sentence": "Je mehr ich lese, {{answer}} mehr verstehe ich.",
           "answer": "desto",
           "translation": "The more I read, the more I understand.",
-          "hint": "the more (correlative)",
+          "hint": "second half; completes 'Je', main clause",
           "display_order": 3
         },
         {
@@ -3147,7 +3147,7 @@
           "sentence": "Du {{answer}} sehr gut Deutsch.",
           "answer": "sprichst",
           "translation": "You speak German very well.",
-          "hint": "e → i in the du form",
+          "hint": "e → i in the du form: the talking verb",
           "display_order": 1
         },
         {
@@ -3175,7 +3175,7 @@
           "sentence": "Was {{answer}} du gern zum Frühstück?",
           "answer": "isst",
           "translation": "What do you like to eat for breakfast?",
-          "hint": "e → i in the du form",
+          "hint": "e → i in the du form: the eating verb",
           "display_order": 5
         },
         {
@@ -3287,7 +3287,7 @@
           "sentence": "{{answer}} bitte langsamer!",
           "answer": "Sprich",
           "translation": "Speak more slowly, please!",
-          "hint": "du imperative — e → i survives",
+          "hint": "du imperative, e → i: the talking verb",
           "display_order": 1
         },
         {
@@ -3301,7 +3301,7 @@
           "sentence": "{{answer}} mir bitte mit der Tasche!",
           "answer": "Hilf",
           "translation": "Please help me with the bag!",
-          "hint": "du imperative — e → i survives",
+          "hint": "du imperative, e → i: the assisting verb",
           "display_order": 3
         },
         {

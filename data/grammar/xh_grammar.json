@@ -367,7 +367,7 @@
           "sentence": "{{answer}} lo.",
           "answer": "NguThemba",
           "translation": "This is Themba.",
-          "hint": "ngu- + name",
+          "hint": "ngu- + the name meaning 'trust/hope'",
           "display_order": 1,
           "gloss": "___ · CL1.this"
         },
@@ -383,7 +383,7 @@
           "sentence": "{{answer}} lowo.",
           "answer": "NguSipho",
           "translation": "That is Sipho.",
-          "hint": "ngu- + name",
+          "hint": "ngu- + the name meaning 'gift'",
           "display_order": 3,
           "gloss": "___ · CL1.that"
         },
@@ -515,7 +515,7 @@
           "sentence": "Ndihlala {{answer}}.",
           "answer": "eKapa",
           "translation": "I live in Cape Town.",
-          "hint": "e- + place name",
+          "hint": "iKapa → e-",
           "display_order": 1,
           "gloss": "1SG.PRES.live · ___"
         },
@@ -531,7 +531,7 @@
           "sentence": "Umama uhlala {{answer}}.",
           "answer": "eGoli",
           "translation": "Mum lives in Johannesburg.",
-          "hint": "e- + place name",
+          "hint": "iGoli → e-",
           "display_order": 3,
           "gloss": "CL1.mother · CL1.PRES.live · ___"
         },

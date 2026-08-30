@@ -3645,7 +3645,7 @@
           "sentence": "I bambini stanno {{answer}} in giardino.",
           "answer": "giocando",
           "translation": "The children are playing in the garden.",
-          "hint": "-are verbs → -ando",
+          "hint": "-are gerund of 'to play' (games)",
           "display_order": 3,
           "gloss": "DEF.M.PL · child.PL · stay.3PL · ___ · in · garden"
         },
@@ -3669,7 +3669,7 @@
           "sentence": "Noi stiamo {{answer}} la cena.",
           "answer": "preparando",
           "translation": "We're preparing dinner.",
-          "hint": "-are verbs → -ando",
+          "hint": "-are gerund: getting a meal ready",
           "display_order": 6,
           "gloss": "1PL · stay.1PL · ___ · DEF.F · dinner"
         }

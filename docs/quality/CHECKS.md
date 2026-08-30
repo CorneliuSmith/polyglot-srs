@@ -846,3 +846,31 @@ and *zijn* ≠ *is*).
 
 Count after the pass: 0 non-conjugation hints name their answer, across all
 27 courses, down from 84.
+
+---
+
+## §20 "Same hint, different answer" is mostly capitalisation (30 Aug 2026)
+
+A sweep for drills sharing a hint across different answers returned **121**
+across 16 courses, each supposedly unanswerable — a learner types a correct
+word and is marked wrong. Only **45** were real.
+
+The other 76 were the SAME answer, capitalised because one drill's blank
+opens its sentence: Catalan `Hi` / `hi`, Spanish `la` / `La`, Jamaican
+`Di` / `di`, Romanian `este` / `Este`. Those drills are supposed to share a
+hint. Fold the answer before comparing, exactly as the leak sweep does.
+
+Two further shapes look like the defect and are not:
+
+* **A rule that the learner applies.** Turkish `mı / mi / mu / mü` all share
+  "question particle — harmonize with the last vowel", which is the complete
+  and correct cue: deriving which vowel is the exercise. Compare §19's
+  conjugation cue — naming the input is not giving the answer.
+* **A repeated answer inside a genuinely mixed group.** Greek point 34 has
+  three drills, two answering `ότι` and one `πως`. The two `ότι` drills must
+  keep the SAME hint. So the rule is not "all hints in a group are distinct"
+  — it is **hints differ wherever answers differ, and match wherever answers
+  match**. A first pass demanding all-distinct rejected the correct fix.
+
+After the pass: 1 shared-hint group remains, the Turkish harmony set, and it
+is correct as written.
