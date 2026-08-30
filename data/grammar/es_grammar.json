@@ -62,7 +62,8 @@
           "translation": "I am from Mexico.",
           "hint": "the 'I' pronoun, said for emphasis",
           "display_order": 1,
-          "cell": "yo"
+          "cell": "yo",
+          "gloss": "___ · be.1SG · from · Mexico"
         },
         {
           "sentence": "¿{{answer}} vives aquí?",
@@ -70,7 +71,8 @@
           "translation": "Do you live here?",
           "hint": "you — informal",
           "cell": "tú",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · live.2SG · here"
         },
         {
           "sentence": "{{answer}} canta muy bien.",
@@ -78,7 +80,8 @@
           "translation": "She sings very well.",
           "hint": "she",
           "cell": "ella",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · sing.3SG · very · well"
         },
         {
           "sentence": "{{answer}} somos estudiantes.",
@@ -86,7 +89,8 @@
           "translation": "We are students.",
           "hint": "we",
           "display_order": 4,
-          "cell": "nosotros"
+          "cell": "nosotros",
+          "gloss": "___ · be.1PL · student.PL"
         },
         {
           "sentence": "{{answer}} trabaja en un banco.",
@@ -94,7 +98,8 @@
           "translation": "He works in a bank.",
           "hint": "he",
           "cell": "él",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · work.3SG · in · INDF.M · bank"
         },
         {
           "sentence": "¿{{answer}} habla inglés?",
@@ -102,7 +107,8 @@
           "translation": "Do you (formal) speak English?",
           "hint": "you — formal singular",
           "cell": "usted",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · speak.3SG · English"
         },
         {
           "sentence": "{{answer}} juegan al fútbol.",
@@ -110,7 +116,8 @@
           "translation": "They play football.",
           "hint": "they (masculine)",
           "cell": "ellos",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · play.3PL · to-DEF.M · football"
         },
         {
           "sentence": "{{answer}} sois de Valencia.",
@@ -118,7 +125,8 @@
           "translation": "You all are from Valencia.",
           "hint": "you all — informal (Spain)",
           "cell": "vosotros",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "___ · be.2PL · from · Valencia"
         },
         {
           "sentence": "¿{{answer}} necesitan ayuda?",
@@ -126,7 +134,8 @@
           "translation": "Do you (all, formal) need help?",
           "hint": "you all — formal / Latin America",
           "cell": "ustedes",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "___ · need.3PL · help"
         },
         {
           "sentence": "{{answer}} eres mi amigo.",
@@ -134,7 +143,8 @@
           "translation": "You are my friend.",
           "hint": "informal singular 'you'",
           "display_order": 10,
-          "cell": "tú"
+          "cell": "tú",
+          "gloss": "___ · be.2SG · 1SG.POSS · friend"
         },
         {
           "sentence": "{{answer}} es mi hermana.",
@@ -142,7 +152,8 @@
           "translation": "She is my sister.",
           "hint": "she",
           "display_order": 11,
-          "cell": "ella"
+          "cell": "ella",
+          "gloss": "___ · be.3SG · 1SG.POSS · sister"
         },
         {
           "sentence": "{{answer}} hablo un poco de español.",
@@ -150,7 +161,8 @@
           "translation": "I speak a little Spanish.",
           "hint": "I",
           "cell": "yo",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "___ · speak.1SG · INDF.M · little · of · Spanish"
         },
         {
           "sentence": "{{answer}} es mi padre.",
@@ -158,7 +170,8 @@
           "translation": "He is my father.",
           "hint": "he — with accent",
           "display_order": 13,
-          "cell": "él"
+          "cell": "él",
+          "gloss": "___ · be.3SG · 1SG.POSS · father"
         },
         {
           "sentence": "{{answer}} vivimos en Madrid.",
@@ -166,7 +179,8 @@
           "translation": "We live in Madrid.",
           "hint": "we",
           "cell": "nosotros",
-          "display_order": 14
+          "display_order": 14,
+          "gloss": "___ · live.1PL · in · Madrid"
         },
         {
           "sentence": "{{answer}} son de España.",
@@ -174,7 +188,8 @@
           "translation": "They are from Spain.",
           "hint": "they (masculine)",
           "display_order": 15,
-          "cell": "ellos"
+          "cell": "ellos",
+          "gloss": "___ · be.3PL · from · Spain"
         },
         {
           "sentence": "¿{{answer}} es el doctor Ruiz?",
@@ -182,7 +197,8 @@
           "translation": "Are you Dr. Ruiz?",
           "hint": "you — formal singular",
           "cell": "usted",
-          "display_order": 16
+          "display_order": 16,
+          "gloss": "___ · be.3SG · DEF.M · doctor · Ruiz"
         },
         {
           "sentence": "¿{{answer}} tenéis hambre?",
@@ -190,7 +206,8 @@
           "translation": "Are you all hungry?",
           "hint": "you all — informal (Spain)",
           "cell": "vosotros",
-          "display_order": 17
+          "display_order": 17,
+          "gloss": "___ · have.2PL · hunger"
         },
         {
           "sentence": "{{answer}} son bienvenidos.",
@@ -198,7 +215,8 @@
           "translation": "You (all) are welcome.",
           "hint": "you all — formal / Latin America",
           "cell": "ustedes",
-          "display_order": 18
+          "display_order": 18,
+          "gloss": "___ · be.3PL · welcome.M.PL"
         }
       ],
       "related": [
@@ -252,42 +270,48 @@
           "answer": "libros",
           "translation": "I have two books.",
           "hint": "plural of libro",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "have.1SG · two · ___"
         },
         {
           "sentence": "Las {{answer}} son bonitas.",
           "answer": "casas",
           "translation": "The houses are pretty.",
           "hint": "plural of casa",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.F.PL · ___ · be.3PL · pretty.F.PL"
         },
         {
           "sentence": "Tengo tres {{answer}}.",
           "answer": "hermanas",
           "translation": "I have three sisters.",
           "hint": "hermana, plural",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "have.1SG · three · ___"
         },
         {
           "sentence": "Los {{answer}} son nuevos.",
           "answer": "coches",
           "translation": "The cars are new.",
           "hint": "coche, plural",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.M.PL · ___ · be.3PL · new.M.PL"
         },
         {
           "sentence": "Las {{answer}} son pequeñas.",
           "answer": "mesas",
           "translation": "The tables are small.",
           "hint": "mesa, plural",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.F.PL · ___ · be.3PL · small.F.PL"
         },
         {
           "sentence": "Tengo dos {{answer}} en casa.",
           "answer": "gatos",
           "translation": "I have two cats at home.",
           "hint": "gato, plural",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "have.1SG · two · ___ · in · house"
         }
       ],
       "related": [
@@ -331,7 +355,8 @@
           "translation": "The house is big.",
           "hint": "feminine singular",
           "display_order": 1,
-          "cell": "la"
+          "cell": "la",
+          "gloss": "___ · house · be.3SG · big"
         },
         {
           "sentence": "{{answer}} libro es nuevo.",
@@ -339,7 +364,8 @@
           "translation": "The book is new.",
           "hint": "masculine singular",
           "display_order": 2,
-          "cell": "el"
+          "cell": "el",
+          "gloss": "___ · book · be.3SG · new.M.SG"
         },
         {
           "sentence": "{{answer}} casas son blancas.",
@@ -347,7 +373,8 @@
           "translation": "The houses are white.",
           "hint": "feminine plural",
           "display_order": 3,
-          "cell": "las"
+          "cell": "las",
+          "gloss": "___ · house.PL · be.3PL · white.F.PL"
         },
         {
           "sentence": "{{answer}} profesor es simpático.",
@@ -355,7 +382,8 @@
           "translation": "The teacher is nice.",
           "hint": "masculine singular",
           "display_order": 4,
-          "cell": "el"
+          "cell": "el",
+          "gloss": "___ · teacher · be.3SG · nice.M.SG"
         },
         {
           "sentence": "{{answer}} coches son rápidos.",
@@ -363,7 +391,8 @@
           "translation": "The cars are fast.",
           "hint": "masculine plural",
           "display_order": 5,
-          "cell": "los"
+          "cell": "los",
+          "gloss": "___ · car.PL · be.3PL · fast.M.PL"
         },
         {
           "sentence": "{{answer}} escuela es grande.",
@@ -371,7 +400,8 @@
           "translation": "The school is big.",
           "hint": "feminine singular",
           "display_order": 6,
-          "cell": "la"
+          "cell": "la",
+          "gloss": "___ · school · be.3SG · big"
         },
         {
           "sentence": "{{answer}} niños juegan en el parque.",
@@ -379,7 +409,8 @@
           "translation": "The children play in the park.",
           "hint": "the — masculine plural",
           "cell": "los",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · child.PL · play.3PL · in · DEF.M.SG · park"
         },
         {
           "sentence": "{{answer}} flores son bonitas.",
@@ -387,7 +418,8 @@
           "translation": "The flowers are beautiful.",
           "hint": "the — feminine plural",
           "cell": "las",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "___ · flower.PL · be.3PL · pretty.F.PL"
         }
       ],
       "related": [
@@ -437,7 +469,8 @@
           "translation": "I have a dog.",
           "hint": "masculine singular",
           "display_order": 1,
-          "cell": "un"
+          "cell": "un",
+          "gloss": "have.1SG · ___ · dog"
         },
         {
           "sentence": "Es {{answer}} casa grande.",
@@ -445,7 +478,8 @@
           "translation": "It is a big house.",
           "hint": "feminine singular",
           "display_order": 2,
-          "cell": "una"
+          "cell": "una",
+          "gloss": "be.3SG · ___ · house · big"
         },
         {
           "sentence": "Compro {{answer}} mesa nueva.",
@@ -453,7 +487,8 @@
           "translation": "I am buying a new table.",
           "hint": "mesa is feminine",
           "display_order": 3,
-          "cell": "una"
+          "cell": "una",
+          "gloss": "buy.1SG · ___ · table · new.F.SG"
         },
         {
           "sentence": "Hay {{answer}} problema con el coche.",
@@ -461,7 +496,8 @@
           "translation": "There is a problem with the car.",
           "hint": "problema is masculine!",
           "display_order": 4,
-          "cell": "un"
+          "cell": "un",
+          "gloss": "exist.3SG · ___ · problem · with · DEF.M.SG · car"
         },
         {
           "sentence": "Tengo {{answer}} idea.",
@@ -469,7 +505,8 @@
           "translation": "I have an idea.",
           "hint": "idea is feminine",
           "display_order": 5,
-          "cell": "una"
+          "cell": "una",
+          "gloss": "have.1SG · ___ · idea"
         },
         {
           "sentence": "Es {{answer}} día bonito.",
@@ -477,7 +514,8 @@
           "translation": "It is a beautiful day.",
           "hint": "día is masculine!",
           "display_order": 6,
-          "cell": "un"
+          "cell": "un",
+          "gloss": "be.3SG · ___ · day · pretty.M.SG"
         }
       ],
       "related": [
@@ -533,7 +571,8 @@
           "translation": "I am a student.",
           "hint": "ser, yo",
           "display_order": 1,
-          "cell": "yo"
+          "cell": "yo",
+          "gloss": "1SG · ___ · student"
         },
         {
           "sentence": "Nosotros {{answer}} amigos.",
@@ -541,7 +580,8 @@
           "translation": "We are friends.",
           "hint": "ser, nosotros",
           "display_order": 2,
-          "cell": "nosotros"
+          "cell": "nosotros",
+          "gloss": "1PL · ___ · friend.PL"
         },
         {
           "sentence": "Ella {{answer}} profesora.",
@@ -549,7 +589,8 @@
           "translation": "She is a teacher.",
           "hint": "ser, ella",
           "display_order": 3,
-          "cell": "él/ella"
+          "cell": "él/ella",
+          "gloss": "3SG.F · ___ · teacher.F"
         },
         {
           "sentence": "Ellos {{answer}} de Argentina.",
@@ -557,7 +598,8 @@
           "translation": "They are from Argentina.",
           "hint": "ser, ellos",
           "display_order": 4,
-          "cell": "ellos"
+          "cell": "ellos",
+          "gloss": "3PL.M · ___ · from · Argentina"
         },
         {
           "sentence": "Tú {{answer}} muy alto.",
@@ -565,7 +607,8 @@
           "translation": "You are very tall.",
           "hint": "ser, tú",
           "display_order": 5,
-          "cell": "tú"
+          "cell": "tú",
+          "gloss": "2SG · ___ · very · tall.M"
         },
         {
           "sentence": "Vosotros {{answer}} mis amigos.",
@@ -573,7 +616,8 @@
           "translation": "You (all) are my friends.",
           "hint": "ser, vosotros",
           "display_order": 6,
-          "cell": "vosotros"
+          "cell": "vosotros",
+          "gloss": "2PL.M · ___ · 1SG.POSS.PL · friend.M.PL"
         },
         {
           "sentence": "Yo {{answer}} de Colombia.",
@@ -581,7 +625,8 @@
           "translation": "I am from Colombia.",
           "hint": "ser, yo",
           "cell": "yo",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · ___ · from · Colombia"
         },
         {
           "sentence": "¿Tú {{answer}} médico?",
@@ -589,7 +634,8 @@
           "translation": "Are you a doctor?",
           "hint": "ser, tú",
           "cell": "tú",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG · ___ · doctor.M"
         },
         {
           "sentence": "Mi madre {{answer}} profesora.",
@@ -597,7 +643,8 @@
           "translation": "My mother is a teacher.",
           "hint": "ser, él/ella",
           "cell": "él/ella",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "1SG.POSS · mother.F · ___ · teacher.F"
         },
         {
           "sentence": "Nosotros {{answer}} hermanos.",
@@ -605,7 +652,8 @@
           "translation": "We are brothers.",
           "hint": "ser, nosotros",
           "cell": "nosotros",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL.M · ___ · brother.M.PL"
         },
         {
           "sentence": "Vosotros {{answer}} muy simpáticos.",
@@ -613,7 +661,8 @@
           "translation": "You all are very nice.",
           "hint": "ser, vosotros",
           "cell": "vosotros",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL.M · ___ · very · nice.M.PL"
         },
         {
           "sentence": "Mis padres {{answer}} de Sevilla.",
@@ -621,7 +670,8 @@
           "translation": "My parents are from Seville.",
           "hint": "ser, ellos",
           "cell": "ellos",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "1SG.POSS.PL · parent.M.PL · ___ · from · Seville"
         }
       ],
       "related": [
@@ -677,7 +727,8 @@
           "translation": "I am at home.",
           "hint": "estar, yo",
           "display_order": 1,
-          "cell": "yo"
+          "cell": "yo",
+          "gloss": "1SG · ___ · in · house.F"
         },
         {
           "sentence": "La comida {{answer}} fría.",
@@ -685,7 +736,8 @@
           "translation": "The food is cold.",
           "hint": "estar, él/ella",
           "display_order": 2,
-          "cell": "él/ella"
+          "cell": "él/ella",
+          "gloss": "DEF.F · food.F · ___ · cold.F"
         },
         {
           "sentence": "Nosotros {{answer}} en el parque.",
@@ -693,7 +745,8 @@
           "translation": "We are in the park.",
           "hint": "estar, nosotros",
           "display_order": 3,
-          "cell": "nosotros"
+          "cell": "nosotros",
+          "gloss": "1PL.M · ___ · in · DEF.M · park.M"
         },
         {
           "sentence": "¿Dónde {{answer}} mis llaves?",
@@ -701,7 +754,8 @@
           "translation": "Where are my keys?",
           "hint": "estar, ellas",
           "display_order": 4,
-          "cell": "ellos"
+          "cell": "ellos",
+          "gloss": "where · ___ · 1SG.POSS.PL · key.F.PL"
         },
         {
           "sentence": "Tú {{answer}} cansado hoy.",
@@ -709,7 +763,8 @@
           "translation": "You are tired today.",
           "hint": "estar, tú",
           "display_order": 5,
-          "cell": "tú"
+          "cell": "tú",
+          "gloss": "2SG · ___ · tired.M · today"
         },
         {
           "sentence": "El café {{answer}} caliente.",
@@ -717,7 +772,8 @@
           "translation": "The coffee is hot.",
           "hint": "estar, él — temporary state",
           "display_order": 6,
-          "cell": "él/ella"
+          "cell": "él/ella",
+          "gloss": "DEF.M · coffee.M · ___ · hot"
         },
         {
           "sentence": "Vosotros {{answer}} en clase.",
@@ -725,7 +781,8 @@
           "translation": "You all are in class.",
           "hint": "estar, vosotros",
           "cell": "vosotros",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "2PL.M · ___ · in · class.F"
         },
         {
           "sentence": "Yo {{answer}} muy cansado hoy.",
@@ -733,7 +790,8 @@
           "translation": "I am very tired today.",
           "hint": "estar, yo",
           "cell": "yo",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "1SG · ___ · very · tired.M · today"
         },
         {
           "sentence": "¿Dónde {{answer}} ahora?",
@@ -741,7 +799,8 @@
           "translation": "Where are you now?",
           "hint": "estar, tú",
           "cell": "tú",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "where · ___ · now"
         },
         {
           "sentence": "Nosotros {{answer}} listos.",
@@ -749,7 +808,8 @@
           "translation": "We are ready.",
           "hint": "estar, nosotros",
           "cell": "nosotros",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL.M · ___ · ready.M.PL"
         },
         {
           "sentence": "¿Vosotros {{answer}} bien?",
@@ -757,7 +817,8 @@
           "translation": "Are you all well?",
           "hint": "estar, vosotros",
           "cell": "vosotros",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL · ___ · well"
         },
         {
           "sentence": "Los platos {{answer}} en la mesa.",
@@ -765,7 +826,8 @@
           "translation": "The plates are on the table.",
           "hint": "estar, ellos",
           "cell": "ellos",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "DEF.M.PL · plate.PL · ___ · in · DEF.F · table"
         }
       ],
       "related": [
@@ -821,7 +883,8 @@
           "translation": "We speak Spanish.",
           "hint": "hablar, nosotros",
           "display_order": 1,
-          "cell": "nosotros"
+          "cell": "nosotros",
+          "gloss": "1PL · ___ · Spanish"
         },
         {
           "sentence": "Ella {{answer}} en una oficina.",
@@ -829,7 +892,8 @@
           "translation": "She works in an office.",
           "hint": "trabajar, él/ella",
           "display_order": 2,
-          "cell": "él/ella"
+          "cell": "él/ella",
+          "gloss": "3SG.F · ___ · in · INDF.F · office"
         },
         {
           "sentence": "Yo {{answer}} música por la noche.",
@@ -837,7 +901,8 @@
           "translation": "I listen to music at night.",
           "hint": "escuchar, yo",
           "display_order": 3,
-          "cell": "yo"
+          "cell": "yo",
+          "gloss": "1SG · ___ · music · at · DEF.F · night"
         },
         {
           "sentence": "Ellos {{answer}} mucho en verano.",
@@ -845,7 +910,8 @@
           "translation": "They travel a lot in summer.",
           "hint": "viajar, ellos",
           "display_order": 4,
-          "cell": "ellos"
+          "cell": "ellos",
+          "gloss": "3PL.M · ___ · much · in · summer"
         },
         {
           "sentence": "¿Tú {{answer}} inglés?",
@@ -853,7 +919,8 @@
           "translation": "Do you study English?",
           "hint": "estudiar, tú",
           "display_order": 5,
-          "cell": "tú"
+          "cell": "tú",
+          "gloss": "2SG · ___ · English"
         },
         {
           "sentence": "Mi madre {{answer}} la cena.",
@@ -861,7 +928,8 @@
           "translation": "My mother prepares dinner.",
           "hint": "preparar, él/ella",
           "display_order": 6,
-          "cell": "él/ella"
+          "cell": "él/ella",
+          "gloss": "1SG.POSS · mother · ___ · DEF.F · dinner"
         },
         {
           "sentence": "¿Vosotros {{answer}} español?",
@@ -869,7 +937,8 @@
           "translation": "Do you all speak Spanish?",
           "hint": "hablar, vosotros",
           "cell": "vosotros",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "2PL · ___ · Spanish"
         },
         {
           "sentence": "Yo {{answer}} en un hospital.",
@@ -877,7 +946,8 @@
           "translation": "I work in a hospital.",
           "hint": "trabajar, yo",
           "cell": "yo",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "1SG · ___ · in · INDF.M · hospital"
         },
         {
           "sentence": "¿Qué música {{answer}}?",
@@ -885,7 +955,8 @@
           "translation": "What music do you listen to?",
           "hint": "escuchar, tú",
           "cell": "tú",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "what · music · ___"
         },
         {
           "sentence": "Nosotros {{answer}} la comida juntos.",
@@ -893,7 +964,8 @@
           "translation": "We prepare the food together.",
           "hint": "preparar, nosotros",
           "cell": "nosotros",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL · ___ · DEF.F · food · together.M.PL"
         },
         {
           "sentence": "¿Dónde {{answer}} vosotros?",
@@ -901,7 +973,8 @@
           "translation": "Where do you all work?",
           "hint": "trabajar, vosotros",
           "cell": "vosotros",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "where · ___ · 2PL"
         },
         {
           "sentence": "Mis amigos {{answer}} francés.",
@@ -909,7 +982,8 @@
           "translation": "My friends study French.",
           "hint": "estudiar, ellos",
           "cell": "ellos",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "1SG.POSS.PL · friend.M.PL · ___ · French"
         }
       ],
       "related": [
@@ -965,7 +1039,8 @@
           "translation": "I drink water.",
           "hint": "beber, yo",
           "display_order": 1,
-          "cell": "yo"
+          "cell": "yo",
+          "gloss": "1SG · ___ · water"
         },
         {
           "sentence": "Nosotros {{answer}} en Madrid.",
@@ -973,7 +1048,8 @@
           "translation": "We live in Madrid.",
           "hint": "vivir, nosotros",
           "display_order": 2,
-          "cell": "nosotros"
+          "cell": "nosotros",
+          "gloss": "1PL · ___ · in · Madrid"
         },
         {
           "sentence": "Ella {{answer}} muchos libros.",
@@ -981,7 +1057,8 @@
           "translation": "She reads many books.",
           "hint": "leer, él/ella",
           "display_order": 3,
-          "cell": "él/ella"
+          "cell": "él/ella",
+          "gloss": "3SG.F · ___ · many.M.PL · book.PL"
         },
         {
           "sentence": "Ellos {{answer}} en Barcelona.",
@@ -989,7 +1066,8 @@
           "translation": "They live in Barcelona.",
           "hint": "vivir, ellos",
           "display_order": 4,
-          "cell": "ellos"
+          "cell": "ellos",
+          "gloss": "3PL.M · ___ · in · Barcelona"
         },
         {
           "sentence": "Yo {{answer}} cartas a mi abuela.",
@@ -997,7 +1075,8 @@
           "translation": "I write letters to my grandmother.",
           "hint": "escribir, yo",
           "display_order": 5,
-          "cell": "yo"
+          "cell": "yo",
+          "gloss": "1SG · ___ · letter.PL · to · 1SG.POSS · grandmother"
         },
         {
           "sentence": "Nosotros {{answer}} pan por la mañana.",
@@ -1005,7 +1084,8 @@
           "translation": "We eat bread in the morning.",
           "hint": "comer, nosotros",
           "display_order": 6,
-          "cell": "nosotros"
+          "cell": "nosotros",
+          "gloss": "1PL · ___ · bread · at · DEF.F · morning"
         },
         {
           "sentence": "¿Tú {{answer}} carne?",
@@ -1013,7 +1093,8 @@
           "translation": "Do you eat meat?",
           "hint": "comer, tú",
           "cell": "tú",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "2SG · ___ · meat"
         },
         {
           "sentence": "Vosotros {{answer}} cerca de la playa.",
@@ -1021,7 +1102,8 @@
           "translation": "You all live near the beach.",
           "hint": "vivir, vosotros",
           "cell": "vosotros",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2PL.M · ___ · near · of · DEF.F · beach"
         },
         {
           "sentence": "¿Qué {{answer}} normalmente?",
@@ -1029,7 +1111,8 @@
           "translation": "What do you usually drink?",
           "hint": "beber, tú",
           "cell": "tú",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "what · ___ · normally"
         },
         {
           "sentence": "Mi hermano {{answer}} en Valencia.",
@@ -1037,7 +1120,8 @@
           "translation": "My brother lives in Valencia.",
           "hint": "vivir, él/ella",
           "cell": "él/ella",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1SG.POSS · brother · ___ · in · Valencia"
         },
         {
           "sentence": "¿Qué {{answer}} vosotros?",
@@ -1045,7 +1129,8 @@
           "translation": "What are you all reading?",
           "hint": "leer, vosotros",
           "cell": "vosotros",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "what · ___ · 2PL.M"
         },
         {
           "sentence": "Los niños {{answer}} mucho pan.",
@@ -1053,7 +1138,8 @@
           "translation": "The children eat a lot of bread.",
           "hint": "comer, ellos",
           "cell": "ellos",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "DEF.M.PL · child.PL · ___ · much.M · bread"
         }
       ],
       "related": [
@@ -1104,42 +1190,48 @@
           "answer": "No",
           "translation": "I don't have time.",
           "hint": "negation before the verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · have.1SG · time"
         },
         {
           "sentence": "Ella {{answer}} habla inglés.",
           "answer": "no",
           "translation": "She doesn't speak English.",
           "hint": "negation before the verb",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · ___ · speak.3SG · English"
         },
         {
           "sentence": "Yo {{answer}} bebo café.",
           "answer": "no",
           "translation": "I don't drink coffee.",
           "hint": "before the verb",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · ___ · drink.1SG · coffee"
         },
         {
           "sentence": "Ellos {{answer}} viven aquí.",
           "answer": "no",
           "translation": "They don't live here.",
           "hint": "before the verb",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3PL.M · ___ · live.3PL · here"
         },
         {
           "sentence": "{{answer}} somos de Madrid.",
           "answer": "No",
           "translation": "We are not from Madrid.",
           "hint": "sentence start",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · be.1PL · from · Madrid"
         },
         {
           "sentence": "Ella {{answer}} está en casa.",
           "answer": "no",
           "translation": "She is not at home.",
           "hint": "before the verb",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.F · ___ · be.3SG · at · house"
         }
       ],
       "related": [
@@ -1182,42 +1274,48 @@
           "answer": "Hay",
           "translation": "There is a book on the table.",
           "hint": "there is",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · INDF.M · book · on · DEF.F · table"
         },
         {
           "sentence": "No {{answer}} leche.",
           "answer": "hay",
           "translation": "There is no milk.",
           "hint": "there is (negated)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "NEG · ___ · milk"
         },
         {
           "sentence": "{{answer}} muchas personas en la calle.",
           "answer": "Hay",
           "translation": "There are many people in the street.",
           "hint": "same form for plural",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · much.F.PL · person.PL · in · DEF.F · street"
         },
         {
           "sentence": "¿{{answer}} un banco cerca?",
           "answer": "Hay",
           "translation": "Is there a bank nearby?",
           "hint": "question — same form",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · INDF.M · bank · near"
         },
         {
           "sentence": "No {{answer}} agua caliente.",
           "answer": "hay",
           "translation": "There is no hot water.",
           "hint": "after no",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · ___ · water · hot"
         },
         {
           "sentence": "{{answer}} dos ventanas en mi cuarto.",
           "answer": "Hay",
           "translation": "There are two windows in my room.",
           "hint": "same form for plural",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · two · window.PL · in · 1SG.POSS · room"
         }
       ],
       "related": [
@@ -1260,56 +1358,64 @@
           "answer": "Dónde",
           "translation": "Where are you?",
           "hint": "asking about place",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · be.2SG"
         },
         {
           "sentence": "¿{{answer}} te llamas?",
           "answer": "Cómo",
           "translation": "What is your name? (lit. how do you call yourself)",
           "hint": "asking 'how'",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 2SG.OBJ · call.2SG"
         },
         {
           "sentence": "¿{{answer}} es esto?",
           "answer": "Qué",
           "translation": "What is this?",
           "hint": "what",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · be.3SG · this.N"
         },
         {
           "sentence": "¿{{answer}} vives?",
           "answer": "Dónde",
           "translation": "Where do you live?",
           "hint": "where",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · live.2SG"
         },
         {
           "sentence": "¿{{answer}} es tu cumpleaños?",
           "answer": "Cuándo",
           "translation": "When is your birthday?",
           "hint": "when",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · be.3SG · POSS.2SG · birthday.M"
         },
         {
           "sentence": "¿{{answer}} años tienes?",
           "answer": "Cuántos",
           "translation": "How old are you?",
           "hint": "how many (masculine)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · year.M.PL · have.2SG"
         },
         {
           "sentence": "¿{{answer}} es tu profesor?",
           "answer": "Quién",
           "translation": "Who is your teacher?",
           "hint": "who — a person",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · be.3SG · POSS.2SG · teacher.M"
         },
         {
           "sentence": "¿{{answer}} es tu número de teléfono?",
           "answer": "Cuál",
           "translation": "What is your phone number?",
           "hint": "which/what — choosing from possibilities, not a definition",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "___ · be.3SG · POSS.2SG · number.M · of · telephone.M"
         }
       ],
       "related": [
@@ -1353,7 +1459,8 @@
           "translation": "The house is white.",
           "hint": "blanco, feminine singular",
           "display_order": 1,
-          "cell": "f.sg"
+          "cell": "f.sg",
+          "gloss": "DEF.F.SG · house.F · be.3SG · ___"
         },
         {
           "sentence": "Los libros son {{answer}}.",
@@ -1361,7 +1468,8 @@
           "translation": "The books are new.",
           "hint": "nuevo, masculine plural",
           "display_order": 2,
-          "cell": "m.pl"
+          "cell": "m.pl",
+          "gloss": "DEF.M.PL · book.M.PL · be.3PL · ___"
         },
         {
           "sentence": "El coche es {{answer}}.",
@@ -1369,7 +1477,8 @@
           "translation": "The car is red.",
           "hint": "red — masculine singular",
           "display_order": 3,
-          "cell": "m.sg"
+          "cell": "m.sg",
+          "gloss": "DEF.M.SG · car.M · be.3SG · ___"
         },
         {
           "sentence": "Las mesas son {{answer}}.",
@@ -1377,7 +1486,8 @@
           "translation": "The tables are small.",
           "hint": "pequeño — feminine plural",
           "display_order": 4,
-          "cell": "f.pl"
+          "cell": "f.pl",
+          "gloss": "DEF.F.PL · table.F.PL · be.3PL · ___"
         },
         {
           "sentence": "Mi hermana es muy {{answer}}.",
@@ -1385,7 +1495,8 @@
           "translation": "My sister is very nice.",
           "hint": "simpático — feminine",
           "display_order": 5,
-          "cell": "f.sg"
+          "cell": "f.sg",
+          "gloss": "POSS.1SG · sister.F · be.3SG · very · ___"
         },
         {
           "sentence": "Los niños están {{answer}}.",
@@ -1393,7 +1504,8 @@
           "translation": "The children are tired.",
           "hint": "cansado — masculine plural",
           "display_order": 6,
-          "cell": "m.pl"
+          "cell": "m.pl",
+          "gloss": "DEF.M.PL · child.M.PL · be.3PL · ___"
         },
         {
           "sentence": "El perro es {{answer}}.",
@@ -1401,7 +1513,8 @@
           "translation": "The dog is small.",
           "hint": "small — masculine singular",
           "cell": "m.sg",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "DEF.M.SG · dog.M · be.3SG · ___"
         },
         {
           "sentence": "Las ventanas están {{answer}}.",
@@ -1409,7 +1522,8 @@
           "translation": "The windows are open.",
           "hint": "open — feminine plural",
           "cell": "f.pl",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "DEF.F.PL · window.F.PL · be.3PL · ___"
         }
       ],
       "related": [
@@ -1458,42 +1572,48 @@
           "answer": "levanto",
           "translation": "I get up at seven.",
           "hint": "levantarse, yo",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · 1SG.OBJ · ___ · at · DEF.F.PL · seven"
         },
         {
           "sentence": "Ella se {{answer}} temprano.",
           "answer": "acuesta",
           "translation": "She goes to bed early.",
           "hint": "acostarse, ella",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · 3SG.OBJ · ___ · early"
         },
         {
           "sentence": "Nosotros nos {{answer}} tarde los domingos.",
           "answer": "levantamos",
           "translation": "We get up late on Sundays.",
           "hint": "levantarse, nosotros",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · 1PL.OBJ · ___ · late · DEF.M.PL · Sunday.M.PL"
         },
         {
           "sentence": "¿A qué hora te {{answer}}?",
           "answer": "duchas",
           "translation": "What time do you shower?",
           "hint": "ducharse, tú",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "at · what · hour.F · 2SG.OBJ · ___"
         },
         {
           "sentence": "Él se {{answer}} los dientes después de comer.",
           "answer": "lava",
           "translation": "He brushes his teeth after eating.",
           "hint": "to wash (reflexive) (he)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M · 3SG.OBJ · ___ · DEF.M.PL · tooth.M.PL · after · of · eat.INF"
         },
         {
           "sentence": "Yo me {{answer}} Carmen.",
           "answer": "llamo",
           "translation": "My name is Carmen.",
           "hint": "llamarse, yo",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · 1SG.OBJ · ___ · Carmen"
         }
       ]
     },
@@ -1526,42 +1646,48 @@
           "answer": "gusta",
           "translation": "I like coffee.",
           "hint": "singular thing liked",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.DAT · ___ · DEF.M.SG · coffee"
         },
         {
           "sentence": "Me {{answer}} los libros.",
           "answer": "gustan",
           "translation": "I like books.",
           "hint": "plural things liked",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG.DAT · ___ · DEF.M.PL · book.PL"
         },
         {
           "sentence": "Nos {{answer}} viajar en tren.",
           "answer": "gusta",
           "translation": "We like travelling by train.",
           "hint": "infinitive subject — singular",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL.DAT · ___ · travel.INF · in · train"
         },
         {
           "sentence": "¿Te {{answer}} las películas de terror?",
           "answer": "gustan",
           "translation": "Do you like horror films?",
           "hint": "plural subject",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "2SG.DAT · ___ · DEF.F.PL · film.PL · of · horror"
         },
         {
           "sentence": "Me {{answer}} la cabeza.",
           "answer": "duele",
           "translation": "My head hurts.",
           "hint": "doler — same pattern",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG.DAT · ___ · DEF.F.SG · head"
         },
         {
           "sentence": "Le {{answer}} mucho el chocolate.",
           "answer": "gusta",
           "translation": "He/she likes chocolate a lot.",
           "hint": "singular subject",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.DAT · ___ · much · DEF.M.SG · chocolate"
         }
       ]
     },
@@ -1594,42 +1720,48 @@
           "answer": "hablé",
           "translation": "Yesterday I spoke with my mother.",
           "hint": "hablar, yo",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "yesterday · ___ · with · 1SG.POSS · mother"
         },
         {
           "sentence": "Ella {{answer}} la puerta.",
           "answer": "abrió",
           "translation": "She opened the door.",
           "hint": "abrir, ella",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · ___ · DEF.F.SG · door"
         },
         {
           "sentence": "Anoche {{answer}} una carta.",
           "answer": "escribí",
           "translation": "Last night I wrote a letter.",
           "hint": "escribir, yo",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "last.night · ___ · INDF.F.SG · letter"
         },
         {
           "sentence": "Ellos {{answer}} la casa en 2010.",
           "answer": "compraron",
           "translation": "They bought the house in 2010.",
           "hint": "comprar, ellos",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3PL.M · ___ · DEF.F.SG · house · in · 2010"
         },
         {
           "sentence": "¿{{answer}} tú con el profesor ayer?",
           "answer": "Hablaste",
           "translation": "Did you speak with the teacher yesterday?",
           "hint": "hablar, tú",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · 2SG · with · DEF.M.SG · teacher · yesterday"
         },
         {
           "sentence": "Nosotros {{answer}} en un restaurante el sábado.",
           "answer": "comimos",
           "translation": "We ate at a restaurant on Saturday.",
           "hint": "comer, nosotros",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · ___ · in · INDF.M.SG · restaurant · DEF.M.SG · Saturday"
         }
       ]
     },
@@ -1662,42 +1794,48 @@
           "answer": "fui",
           "translation": "Yesterday I went to the cinema.",
           "hint": "ir, yo",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "yesterday · ___ · to-DEF.M.SG · cinema"
         },
         {
           "sentence": "Él {{answer}} mucho trabajo.",
           "answer": "tuvo",
           "translation": "He had a lot of work.",
           "hint": "tener, él",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.M · ___ · much.M.SG · work"
         },
         {
           "sentence": "Ayer {{answer}} mucho frío.",
           "answer": "hizo",
           "translation": "Yesterday it was very cold.",
           "hint": "hacer — weather",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "yesterday · ___ · much.M.SG · cold"
         },
         {
           "sentence": "Ella {{answer}} profesora muchos años.",
           "answer": "fue",
           "translation": "She was a teacher for many years.",
           "hint": "ser, ella",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F · ___ · teacher.F · much.M.PL · year.PL"
         },
         {
           "sentence": "Nosotros no {{answer}} tiempo.",
           "answer": "tuvimos",
           "translation": "We didn't have time.",
           "hint": "tener, nosotros",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL · NEG · ___ · time"
         },
         {
           "sentence": "¿Qué {{answer}} el fin de semana?",
           "answer": "hiciste",
           "translation": "What did you do at the weekend?",
           "hint": "hacer, tú",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "what · ___ · DEF.M.SG · end · of · week"
         }
       ]
     },
@@ -1730,42 +1868,48 @@
           "answer": "jugaba",
           "translation": "When I was a child, I used to play a lot.",
           "hint": "jugar, habitual past",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "when · be.PST.IPFV.1SG · child · ___ · much"
         },
         {
           "sentence": "Antes {{answer}} en Madrid.",
           "answer": "vivíamos",
           "translation": "We used to live in Madrid.",
           "hint": "vivir, nosotros",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "before · ___ · in · Madrid"
         },
         {
           "sentence": "Mi abuela {{answer}} historias maravillosas.",
           "answer": "contaba",
           "translation": "My grandmother used to tell wonderful stories.",
           "hint": "contar, ella",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG.POSS · grandmother · ___ · story.PL · wonderful.F.PL"
         },
         {
           "sentence": "De niños, {{answer}} al fútbol cada tarde.",
           "answer": "jugábamos",
           "translation": "As children, we played football every afternoon.",
           "hint": "jugar, nosotros",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "as · child.PL · ___ · to.DEF.M.SG · football · every · afternoon"
         },
         {
           "sentence": "Cuando llegaste, yo {{answer}} la televisión.",
           "answer": "veía",
           "translation": "When you arrived, I was watching television.",
           "hint": "ver, yo",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "when · arrive.PST.PFV.2SG · 1SG · ___ · DEF.F.SG · television"
         },
         {
           "sentence": "Antes la ciudad {{answer}} más tranquila.",
           "answer": "era",
           "translation": "The city used to be quieter.",
           "hint": "ser — description in the past",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "before · DEF.F.SG · city · ___ · more · quiet.F.SG"
         }
       ]
     },
@@ -1798,42 +1942,48 @@
           "answer": "Voy",
           "translation": "I am going to travel tomorrow.",
           "hint": "ir, yo",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · to · travel.INF · tomorrow"
         },
         {
           "sentence": "Ellos {{answer}} a comer.",
           "answer": "van",
           "translation": "They are going to eat.",
           "hint": "ir, ellos",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3PL.M · ___ · to · eat.INF"
         },
         {
           "sentence": "Ella va a {{answer}} una fiesta.",
           "answer": "organizar",
           "translation": "She is going to organise a party.",
           "hint": "infinitive after ir a",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.F · go.PRS.3SG · to · ___ · INDF.F.SG · party"
         },
         {
           "sentence": "Nosotros {{answer}} a estudiar esta noche.",
           "answer": "vamos",
           "translation": "We are going to study tonight.",
           "hint": "ir, nosotros",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL.M · ___ · to · study.INF · this.F.SG · night"
         },
         {
           "sentence": "¿Tú {{answer}} a venir mañana?",
           "answer": "vas",
           "translation": "Are you going to come tomorrow?",
           "hint": "ir, tú",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · ___ · to · come.INF · tomorrow"
         },
         {
           "sentence": "Voy a {{answer}} pescado para la cena.",
           "answer": "comprar",
           "translation": "I am going to buy fish for dinner.",
           "hint": "infinitive after ir a",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "go.PRS.1SG · to · ___ · fish · for · DEF.F.SG · dinner"
         }
       ]
     },
@@ -1866,42 +2016,48 @@
           "answer": "leyendo",
           "translation": "I am reading a book.",
           "hint": "leer, gerund",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "be.PRS.1SG · ___ · INDF.M.SG · book"
         },
         {
           "sentence": "Ella está {{answer}}.",
           "answer": "durmiendo",
           "translation": "She is sleeping.",
           "hint": "dormir, gerund",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · be.PRS.3SG · ___"
         },
         {
           "sentence": "Los niños están {{answer}} en el jardín.",
           "answer": "jugando",
           "translation": "The children are playing in the garden.",
           "hint": "to play + gerund",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M.PL · child.PL · be.PRS.3PL · ___ · in · DEF.M.SG · garden"
         },
         {
           "sentence": "¿Qué estás {{answer}}?",
           "answer": "haciendo",
           "translation": "What are you doing?",
           "hint": "to do + gerund (-er/-ir type)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "what · be.PRS.2SG · ___"
         },
         {
           "sentence": "Estamos {{answer}} la cena ahora.",
           "answer": "preparando",
           "translation": "We are preparing dinner now.",
           "hint": "to prepare + gerund",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "be.PRS.1PL · ___ · DEF.F.SG · dinner · now"
         },
         {
           "sentence": "Ella está {{answer}} con su madre por teléfono.",
           "answer": "hablando",
           "translation": "She is talking with her mother on the phone.",
           "hint": "to talk + gerund",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.F · be.PRS.3SG · ___ · with · 3SG.POSS · mother · by · telephone"
         }
       ]
     },
@@ -1934,42 +2090,48 @@
           "answer": "Lo",
           "translation": "The book? I have it.",
           "hint": "masculine singular object",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.M.SG · book · ___ · have.PRS.1SG · 1SG"
         },
         {
           "sentence": "¿Las llaves? No {{answer}} veo.",
           "answer": "las",
           "translation": "The keys? I don't see them.",
           "hint": "feminine plural object",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.F.PL · key.PL · NEG · ___ · see.PRS.1SG"
         },
         {
           "sentence": "¿La película? {{answer}} vimos anoche.",
           "answer": "La",
           "translation": "The film? We saw it last night.",
           "hint": "feminine singular",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.F.SG · film · ___ · see.PST.PFV.1PL · last_night"
         },
         {
           "sentence": "¿Los libros? {{answer}} compré ayer.",
           "answer": "Los",
           "translation": "The books? I bought them yesterday.",
           "hint": "masculine plural",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.M.PL · book.PL · ___ · buy.PST.PFV.1SG · yesterday"
         },
         {
           "sentence": "¿El pan? No {{answer}} encuentro.",
           "answer": "lo",
           "translation": "The bread? I can't find it.",
           "hint": "masculine singular",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M.SG · bread · NEG · ___ · find.PRS.1SG"
         },
         {
           "sentence": "¿Las fotos? {{answer}} tengo en el móvil.",
           "answer": "las",
           "translation": "The photos? I have them on my phone.",
           "hint": "feminine plural",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.F.PL · photo.PL · ___ · have.PRS.1SG · in · DEF.M.SG · phone"
         }
       ]
     },
@@ -2002,42 +2164,48 @@
           "answer": "Le",
           "translation": "I gave the book to Juan.",
           "hint": "to him",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · give.PST.1SG · DEF.M.SG · book · DAT · Juan"
         },
         {
           "sentence": "{{answer}} escribí a mis padres.",
           "answer": "Les",
           "translation": "I wrote to my parents.",
           "hint": "to them",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · write.PST.1SG · DAT · POSS.1SG.PL · parent.PL"
         },
         {
           "sentence": "{{answer}} compré flores a mi madre.",
           "answer": "Le",
           "translation": "I bought flowers for my mother.",
           "hint": "singular receiver",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · buy.PST.1SG · flower.PL · DAT · POSS.1SG · mother"
         },
         {
           "sentence": "{{answer}} conté la historia a los niños.",
           "answer": "Les",
           "translation": "I told the story to the children.",
           "hint": "plural receivers",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · tell.PST.1SG · DEF.F.SG · story · DAT · DEF.M.PL · child.PL"
         },
         {
           "sentence": "¿{{answer}} diste las llaves a Ana?",
           "answer": "Le",
           "translation": "Did you give the keys to Ana?",
           "hint": "singular receiver",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · give.PST.2SG · DEF.F.PL · key.PL · DAT · Ana"
         },
         {
           "sentence": "El profesor {{answer}} explica la lección a los alumnos.",
           "answer": "les",
           "translation": "The teacher explains the lesson to the students.",
           "hint": "plural receivers",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.SG · teacher · ___ · explain.PRS.3SG · DEF.F.SG · lesson · DAT · DEF.M.PL · student.PL"
         }
       ]
     },
@@ -2070,42 +2238,48 @@
           "answer": "más",
           "translation": "She is taller than me.",
           "hint": "'more' comparative",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG.F · be.PRS.3SG · ___ · tall.F.SG · than · 1SG"
         },
         {
           "sentence": "Es tan alto {{answer}} su padre.",
           "answer": "como",
           "translation": "He is as tall as his father.",
           "hint": "equality 'as'",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "be.PRS.3SG · as · tall.M.SG · ___ · POSS.3SG · father"
         },
         {
           "sentence": "El tren es {{answer}} rápido que el autobús.",
           "answer": "más",
           "translation": "The train is faster than the bus.",
           "hint": "more … than",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M.SG · train · be.PRS.3SG · ___ · fast.M.SG · than · DEF.M.SG · bus"
         },
         {
           "sentence": "Mi casa es {{answer}} grande que la tuya.",
           "answer": "menos",
           "translation": "My house is smaller (less big) than yours.",
           "hint": "less … than",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "POSS.1SG · house · be.PRS.3SG · ___ · big.SG · than · DEF.F.SG · POSS.2SG.F"
         },
         {
           "sentence": "Ella canta tan bien {{answer}} su hermana.",
           "answer": "como",
           "translation": "She sings as well as her sister.",
           "hint": "as … as",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.F · sing.PRS.3SG · as · well · ___ · POSS.3SG · sister"
         },
         {
           "sentence": "Este libro es {{answer}} que el otro.",
           "answer": "mejor",
           "translation": "This book is better than the other one.",
           "hint": "irregular — bueno",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "this.M.SG · book · be.PRS.3SG · ___ · than · DEF.M.SG · other.M.SG"
         }
       ]
     },
@@ -2138,42 +2312,48 @@
           "answer": "he",
           "translation": "Today I have worked a lot.",
           "hint": "haber, yo",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "today · ___ · work.PTCP · much"
         },
         {
           "sentence": "¿Has {{answer}} esa película?",
           "answer": "visto",
           "translation": "Have you seen that film?",
           "hint": "ver, irregular participle",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "have.PRS.2SG · ___ · that.F.SG · film"
         },
         {
           "sentence": "Nunca {{answer}} estado en México.",
           "answer": "he",
           "translation": "I have never been to Mexico.",
           "hint": "haber, yo",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "never · ___ · be.PTCP · in · Mexico"
         },
         {
           "sentence": "¿Habéis {{answer}} ya?",
           "answer": "comido",
           "translation": "Have you (all) eaten already?",
           "hint": "comer → participle",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "have.PRS.2PL · ___ · already"
         },
         {
           "sentence": "Ella ha {{answer}} una carta muy larga.",
           "answer": "escrito",
           "translation": "She has written a very long letter.",
           "hint": "escribir → irregular participle",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.F · have.PRS.3SG · ___ · INDF.F.SG · letter · very · long.F.SG"
         },
         {
           "sentence": "Este año {{answer}} viajado mucho.",
           "answer": "hemos",
           "translation": "This year we have travelled a lot.",
           "hint": "haber, nosotros",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "this.M.SG · year · ___ · travel.PTCP · much"
         }
       ]
     },
@@ -2206,42 +2386,48 @@
           "answer": "hablaré",
           "translation": "Tomorrow I will speak with you.",
           "hint": "hablar, yo",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "tomorrow · ___ · with-2SG"
         },
         {
           "sentence": "Ellos {{answer}} tarde.",
           "answer": "llegarán",
           "translation": "They will arrive late.",
           "hint": "llegar, ellos",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3PL.M · ___ · late"
         },
         {
           "sentence": "El año que viene {{answer}} a España.",
           "answer": "iré",
           "translation": "Next year I will go to Spain.",
           "hint": "ir, yo",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M.SG · year · COMP · come.3SG.PRS · ___ · to · Spain"
         },
         {
           "sentence": "¿Qué {{answer}} el tiempo mañana?",
           "answer": "hará",
           "translation": "What will the weather be like tomorrow?",
           "hint": "hacer — irregular stem",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "what.Q · ___ · DEF.M.SG · weather · tomorrow"
         },
         {
           "sentence": "Nosotros {{answer}} la verdad.",
           "answer": "sabremos",
           "translation": "We will know the truth.",
           "hint": "saber — irregular stem",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL.M · ___ · DEF.F.SG · truth"
         },
         {
           "sentence": "Ella {{answer}} una casa junto al mar.",
           "answer": "tendrá",
           "translation": "She will have a house by the sea.",
           "hint": "tener — irregular stem",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.F · ___ · INDF.F.SG · house · beside · to-DEF.M.SG · sea"
         }
       ]
     },
@@ -2274,42 +2460,48 @@
           "answer": "gustaría",
           "translation": "I would like to travel the world.",
           "hint": "gustar, conditional",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.OBJ · ___ · travel.INF · through · DEF.M.SG · world"
         },
         {
           "sentence": "¿Qué {{answer}} tú en mi lugar?",
           "answer": "harías",
           "translation": "What would you do in my place?",
           "hint": "hacer, tú",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "what.Q · ___ · 2SG · in · 1SG.POSS · place"
         },
         {
           "sentence": "Yo en tu lugar no {{answer}} eso.",
           "answer": "diría",
           "translation": "In your place I wouldn't say that.",
           "hint": "decir — irregular stem",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · in · 2SG.POSS · place · NEG · ___ · that"
         },
         {
           "sentence": "¿{{answer}} ayudarme con esto, por favor?",
           "answer": "Podrías",
           "translation": "Could you help me with this, please?",
           "hint": "poder, tú — polite request",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · help.INF-1SG.OBJ · with · this · for · favor"
         },
         {
           "sentence": "Nosotros {{answer}} más tiempo con la familia.",
           "answer": "pasaríamos",
           "translation": "We would spend more time with family.",
           "hint": "pasar, nosotros",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL.M · ___ · more · time · with · DEF.F.SG · family"
         },
         {
           "sentence": "Él dijo que {{answer}} a las ocho.",
           "answer": "llegaría",
           "translation": "He said he would arrive at eight.",
           "hint": "llegar, él",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.M · say.3SG.PST · COMP · ___ · at · DEF.F.PL · eight"
         }
       ]
     },
@@ -2342,42 +2534,48 @@
           "answer": "vengas",
           "translation": "I want you to come early.",
           "hint": "venir, subjunctive tú",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "want.1SG.PRS · COMP · ___ · early"
         },
         {
           "sentence": "Es importante que {{answer}} agua.",
           "answer": "bebas",
           "translation": "It's important that you drink water.",
           "hint": "beber, subjunctive tú",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "be.3SG.PRS · important · COMP · ___ · water"
         },
         {
           "sentence": "Espero que {{answer}} buen viaje.",
           "answer": "tengas",
           "translation": "I hope you have a good trip.",
           "hint": "tener, tú",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "hope.1SG.PRS · COMP · ___ · good · trip"
         },
         {
           "sentence": "Quieren que nosotros {{answer}} más despacio.",
           "answer": "hablemos",
           "translation": "They want us to speak more slowly.",
           "hint": "hablar, nosotros",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "want.3PL.PRS · COMP · 1PL.M · ___ · more · slowly"
         },
         {
           "sentence": "Es necesario que ella {{answer}} al médico.",
           "answer": "vaya",
           "translation": "It is necessary that she go to the doctor.",
           "hint": "ir — irregular subjunctive",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "be.3SG.PRS · necessary · COMP · 3SG.F · ___ · to-DEF.M.SG · doctor"
         },
         {
           "sentence": "No quiero que lo {{answer}} ellos.",
           "answer": "sepan",
           "translation": "I don't want them to know it.",
           "hint": "saber — irregular subjunctive",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG · want.1SG.PRS · COMP · 3SG.M.OBJ · ___ · 3PL.M"
         }
       ]
     },
@@ -2410,42 +2608,48 @@
           "answer": "Abre",
           "translation": "Open the door!",
           "hint": "abrir, tú command",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · DEF.F.SG · door"
         },
         {
           "sentence": "¡No {{answer}} eso!",
           "answer": "hagas",
           "translation": "Don't do that!",
           "hint": "hacer, negative command = subjunctive",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "NEG · ___ · that"
         },
         {
           "sentence": "¡{{answer}} más despacio, por favor!",
           "answer": "Habla",
           "translation": "Speak more slowly, please!",
           "hint": "to speak — affirmative tú",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · more · slowly · for · favour"
         },
         {
           "sentence": "¡No {{answer}} la ventana!",
           "answer": "abras",
           "translation": "Don't open the window!",
           "hint": "abrir — negative uses subjunctive",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NEG · ___ · DEF.F · window"
         },
         {
           "sentence": "¡{{answer}} aquí ahora mismo!",
           "answer": "Ven",
           "translation": "Come here right now!",
           "hint": "to come — irregular tú",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · here · now · same"
         },
         {
           "sentence": "¡No me {{answer}} mentiras!",
           "answer": "digas",
           "translation": "Don't tell me lies!",
           "hint": "decir — negative uses subjunctive",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG · 1SG.OBJ · ___ · lie.PL"
         }
       ]
     },
@@ -2478,42 +2682,48 @@
           "answer": "para",
           "translation": "This gift is for you.",
           "hint": "destination/recipient",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this.M.SG · gift · be.3SG · ___ · 2SG.OBJ"
         },
         {
           "sentence": "Gracias {{answer}} tu ayuda.",
           "answer": "por",
           "translation": "Thanks for your help.",
           "hint": "cause",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "thanks · ___ · 2SG.POSS · help"
         },
         {
           "sentence": "Estudio español {{answer}} trabajar en Chile.",
           "answer": "para",
           "translation": "I study Spanish in order to work in Chile.",
           "hint": "purpose",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "study.1SG · Spanish · ___ · work.INF · in · Chile"
         },
         {
           "sentence": "Caminamos {{answer}} el parque.",
           "answer": "por",
           "translation": "We walked through the park.",
           "hint": "movement through",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "walk.PST.1PL · ___ · DEF.M · park"
         },
         {
           "sentence": "El regalo es {{answer}} mi madre.",
           "answer": "para",
           "translation": "The present is for my mother.",
           "hint": "recipient",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M · gift · be.3SG · ___ · 1SG.POSS · mother"
         },
         {
           "sentence": "Lo compré {{answer}} diez euros.",
           "answer": "por",
           "translation": "I bought it for ten euros.",
           "hint": "price / exchange",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.M.OBJ · buy.PST.1SG · ___ · ten · euro.PL"
         }
       ]
     },
@@ -2546,42 +2756,48 @@
           "answer": "Se",
           "translation": "Spanish is spoken here.",
           "hint": "impersonal marker",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · speak.3SG · Spanish · here"
         },
         {
           "sentence": "Aquí se {{answer}} frutas.",
           "answer": "venden",
           "translation": "Fruit is sold here.",
           "hint": "agrees with plural 'frutas'",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "here · PASS · ___ · fruit.PL"
         },
         {
           "sentence": "{{answer}} come muy bien en este restaurante.",
           "answer": "Se",
           "translation": "One eats very well at this restaurant.",
           "hint": "impersonal",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · eat.3SG · very · well · in · this.M.SG · restaurant"
         },
         {
           "sentence": "Se {{answer}} casas en este barrio.",
           "answer": "alquilan",
           "translation": "Houses are rented in this neighbourhood.",
           "hint": "alquilar — plural subject",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "PASS · ___ · house.PL · in · this.M.SG · neighbourhood"
         },
         {
           "sentence": "¿Cómo {{answer}} dice esto en español?",
           "answer": "se",
           "translation": "How do you say this in Spanish?",
           "hint": "impersonal question",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "how · ___ · say.3SG · this.N · in · Spanish"
         },
         {
           "sentence": "Se {{answer}} español en veinte países.",
           "answer": "habla",
           "translation": "Spanish is spoken in twenty countries.",
           "hint": "to speak — singular subject",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "PASS · ___ · Spanish · in · twenty · country.PL"
         }
       ]
     },
@@ -2614,42 +2830,48 @@
           "answer": "Se",
           "translation": "The book? I gave it to Juan yesterday.",
           "hint": "the indirect pronoun changes shape before lo/la",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.M · book · ___ · 3SG.M.OBJ · give.PST.1SG · yesterday · to · Juan"
         },
         {
           "sentence": "El regalo, se {{answer}} di a María.",
           "answer": "lo",
           "translation": "The gift — I gave it to María.",
           "hint": "direct object after se",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.M · gift · 3SG.OBJ · ___ · give.PST.1SG · to · María"
         },
         {
           "sentence": "¿Las llaves? Se {{answer}} di al portero.",
           "answer": "las",
           "translation": "The keys? I gave them to the doorman.",
           "hint": "feminine plural thing",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.F.PL · key.PL · 3SG.OBJ · ___ · give.PST.1SG · to-DEF.M · doorman"
         },
         {
           "sentence": "El coche, {{answer}} lo vendí a mi vecino.",
           "answer": "se",
           "translation": "The car, I sold it to my neighbour.",
           "hint": "the indirect pronoun changes shape before lo/la",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.M · car · ___ · 3SG.M.OBJ · sell.PST.1SG · to · 1SG.POSS · neighbour"
         },
         {
           "sentence": "¿Me prestas el libro? — Sí, te {{answer}} presto.",
           "answer": "lo",
           "translation": "Will you lend me the book? — Yes, I'll lend it to you.",
           "hint": "masculine singular thing",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG.DAT · lend.PRS.2SG · DEF.M · book · — · yes · 2SG.DAT · ___ · lend.PRS.1SG"
         },
         {
           "sentence": "¿El regalo? {{answer}} lo daremos mañana a la abuela.",
           "answer": "Se",
           "translation": "The present? We'll give it to grandma tomorrow.",
           "hint": "the indirect pronoun changes shape before lo/la",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M · gift · ___ · 3SG.M.ACC · give.FUT.1PL · tomorrow · DAT · DEF.F · grandmother"
         }
       ]
     },
@@ -2682,42 +2904,48 @@
           "answer": "tuviera",
           "translation": "If I had money, I would travel.",
           "hint": "tener, past subjunctive",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "if · ___ · money · travel.COND.1SG"
         },
         {
           "sentence": "Quería que {{answer}} conmigo.",
           "answer": "vinieras",
           "translation": "I wanted you to come with me.",
           "hint": "venir, past subjunctive tú",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "want.PST.IPFV.1SG · COMP · ___ · with.1SG"
         },
         {
           "sentence": "Si {{answer}} más tiempo, aprendería francés.",
           "answer": "tuviera",
           "translation": "If I had more time, I would learn French.",
           "hint": "tener — -ra form",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if · ___ · more · time · learn.COND.1SG · French"
         },
         {
           "sentence": "Me pidió que le {{answer}} con la mudanza.",
           "answer": "ayudara",
           "translation": "He asked me to help him with the move.",
           "hint": "to help — past subjunctive",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG.DAT · ask.PST.PFV.3SG · COMP · 3SG.DAT · ___ · with · DEF.F · move"
         },
         {
           "sentence": "Ojalá {{answer}} aquí mi hermano.",
           "answer": "estuviera",
           "translation": "I wish my brother were here.",
           "hint": "to be (estar) — past subjunctive",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if.only · ___ · here · 1SG.POSS · brother"
         },
         {
           "sentence": "Buscaban a alguien que {{answer}} ruso.",
           "answer": "hablara",
           "translation": "They were looking for someone who spoke Russian.",
           "hint": "to speak — past subjunctive",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "seek.PST.IPFV.3PL · ACC · someone · COMP · ___ · Russian"
         }
       ]
     },
@@ -2750,42 +2978,48 @@
           "answer": "aprobarás",
           "translation": "If you study, you will pass.",
           "hint": "real condition, future",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "if · study.PRS.2SG · ___"
         },
         {
           "sentence": "Si hubiera sabido, no {{answer}} venido.",
           "answer": "habría",
           "translation": "Had I known, I would not have come.",
           "hint": "conditional perfect",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if · have.PST.SBJV.1SG · know.PTCP · NEG · ___ · come.PTCP"
         },
         {
           "sentence": "Si llueve mañana, no {{answer}}.",
           "answer": "saldremos",
           "translation": "If it rains tomorrow, we won't go out.",
           "hint": "real condition → future",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if · rain.PRS.3SG · tomorrow · NEG · ___"
         },
         {
           "sentence": "Si fuera rico, {{answer}} una isla.",
           "answer": "compraría",
           "translation": "If I were rich, I would buy an island.",
           "hint": "unreal → conditional",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "if · be.PST.SBJV.1SG · rich.M · ___ · INDF.F · island"
         },
         {
           "sentence": "Si {{answer}} frío, cierra la ventana.",
           "answer": "hace",
           "translation": "If it's cold, close the window.",
           "hint": "real condition → present",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · ___ · cold · close.IMP.2SG · DEF.F · window"
         },
         {
           "sentence": "Si me hubieras llamado, habría {{answer}}.",
           "answer": "venido",
           "translation": "If you had called me, I would have come.",
           "hint": "venir → participle",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "if · 1SG.ACC · have.PST.SBJV.2SG · call.PTCP · have.COND.1SG · ___"
         }
       ]
     },
@@ -2818,42 +3052,48 @@
           "answer": "había",
           "translation": "When I arrived, she had already left.",
           "hint": "haber, imperfect",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "when · arrive.PST.PFV.1SG · already · ___ · leave.PTCP"
         },
         {
           "sentence": "Nunca {{answer}} visto el mar.",
           "answer": "habíamos",
           "translation": "We had never seen the sea.",
           "hint": "haber, nosotros",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "never · ___ · see.PTCP · DEF.M · sea"
         },
         {
           "sentence": "Ya {{answer}} comido cuando llegaron.",
           "answer": "habíamos",
           "translation": "We had already eaten when they arrived.",
           "hint": "haber, nosotros — imperfect",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "already · ___ · eat.PTCP · when · arrive.PST.PFV.3PL"
         },
         {
           "sentence": "Ella nunca {{answer}} viajado en avión antes.",
           "answer": "había",
           "translation": "She had never travelled by plane before.",
           "hint": "haber, ella — imperfect",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F.NOM · never · ___ · travel.PTCP · in · plane · before"
         },
         {
           "sentence": "Cuando volví, ya habían {{answer}} la puerta.",
           "answer": "cerrado",
           "translation": "When I returned, they had already closed the door.",
           "hint": "cerrar → participle",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "when · return.PST.PFV.1SG · already · have.PST.IPFV.3PL · ___ · DEF.F · door"
         },
         {
           "sentence": "Me di cuenta de que {{answer}} perdido las llaves.",
           "answer": "había",
           "translation": "I realised that I had lost the keys.",
           "hint": "haber, yo — imperfect",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG.REFL · give.PST.PFV.1SG · account · of · COMP · ___ · lose.PTCP · DEF.F.PL · key.PL"
         }
       ]
     },
@@ -2886,42 +3126,48 @@
           "answer": "estaba",
           "translation": "He said he was tired.",
           "hint": "present → imperfect",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "say.PST.PFV.3SG · COMP · ___ · tired.M.SG"
         },
         {
           "sentence": "Me dijo que {{answer}} mañana.",
           "answer": "vendría",
           "translation": "She told me she would come tomorrow.",
           "hint": "future → conditional",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG.OBJ · say.PST.PFV.3SG · COMP · ___ · tomorrow"
         },
         {
           "sentence": "Dijo que no {{answer}} venir hoy.",
           "answer": "podía",
           "translation": "He said he couldn't come today.",
           "hint": "present → imperfect",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "say.PST.PFV.3SG · COMP · NEG · ___ · come.INF · today"
         },
         {
           "sentence": "Me contó que {{answer}} vivido en Perú.",
           "answer": "había",
           "translation": "She told me she had lived in Peru.",
           "hint": "preterite → pluperfect",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG.OBJ · tell.PST.PFV.3SG · COMP · ___ · live.PTCP · in · Peru"
         },
         {
           "sentence": "Dijeron que {{answer}} el lunes.",
           "answer": "llegarían",
           "translation": "They said they would arrive on Monday.",
           "hint": "future → conditional",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "say.PST.PFV.3PL · COMP · ___ · DEF.M.SG · Monday"
         },
         {
           "sentence": "Preguntó {{answer}} estaba el hospital.",
           "answer": "dónde",
           "translation": "He asked where the hospital was.",
           "hint": "the question word stays",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "ask.PST.PFV.3SG · ___ · be.PST.IPFV.3SG · DEF.M.SG · hospital"
         }
       ]
     },
@@ -2954,42 +3200,48 @@
           "answer": "quien",
           "translation": "The woman with whom I spoke is a doctor.",
           "hint": "person after preposition",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.F.SG · woman · with · ___ · speak.PST.PFV.1SG · be.PRS.3SG · doctor.F"
         },
         {
           "sentence": "El autor, {{answer}} libro leí, es chileno.",
           "answer": "cuyo",
           "translation": "The author, whose book I read, is Chilean.",
           "hint": "'whose', agrees with libro",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.M.SG · author · ___ · book · read.PST.PFV.1SG · be.PRS.3SG · Chilean.M.SG"
         },
         {
           "sentence": "El médico a {{answer}} llamamos llegó rápido.",
           "answer": "quien",
           "translation": "The doctor whom we called arrived quickly.",
           "hint": "person, after a",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M.SG · doctor · OBJ · ___ · call.PST.PFV.1PL · arrive.PST.PFV.3SG · quickly"
         },
         {
           "sentence": "La casa, {{answer}} puertas son rojas, es antigua.",
           "answer": "cuyas",
           "translation": "The house, whose doors are red, is old.",
           "hint": "cuyo agrees with puertas",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.F.SG · house · ___ · door.PL · be.PRS.3PL · red.F.PL · be.PRS.3SG · old.F.SG"
         },
         {
           "sentence": "Los estudiantes, {{answer}} trabajos leí, son brillantes.",
           "answer": "cuyos",
           "translation": "The students, whose papers I read, are brilliant.",
           "hint": "cuyo agrees with trabajos",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M.PL · student.PL · ___ · work.PL · read.PST.PFV.1SG · be.PRS.3PL · brilliant.PL"
         },
         {
           "sentence": "Fue ella {{answer}} resolvió el problema.",
           "answer": "quien",
           "translation": "It was she who solved the problem.",
           "hint": "person, cleft",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "be.PST.PFV.3SG · 3SG.F · ___ · solve.PST.PFV.3SG · DEF.M.SG · problem"
         }
       ]
     },
@@ -3022,42 +3274,48 @@
           "answer": "sepas",
           "translation": "I'm telling you so that you know.",
           "hint": "saber, subjunctive",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "2SG.OBJ · 3SG.M.OBJ · say.PRS.1SG · for · COMP · 3SG.M.OBJ · ___"
         },
         {
           "sentence": "Aunque {{answer}}, iremos.",
           "answer": "llueva",
           "translation": "Even if it rains, we will go.",
           "hint": "llover, subjunctive",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "although · ___ · go.FUT.1PL"
         },
         {
           "sentence": "Habla despacio para que todos te {{answer}}.",
           "answer": "entiendan",
           "translation": "Speak slowly so that everyone understands you.",
           "hint": "entender — subjunctive",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "speak.IMP.2SG · slowly · for · COMP · all.M.PL · 2SG.OBJ · ___"
         },
         {
           "sentence": "Aunque {{answer}} tarde, terminaré el trabajo.",
           "answer": "sea",
           "translation": "Even if it's late, I will finish the work.",
           "hint": "ser — subjunctive",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "although · ___ · late · finish.FUT.1SG · DEF.M.SG · work"
         },
         {
           "sentence": "Te dejo la llave para que {{answer}} entrar.",
           "answer": "puedas",
           "translation": "I'm leaving you the key so that you can get in.",
           "hint": "poder — subjunctive",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG.OBJ · leave.PRS.1SG · DEF.F.SG · key · for · COMP · ___ · enter.INF"
         },
         {
           "sentence": "No saldremos hasta que {{answer}} de llover.",
           "answer": "deje",
           "translation": "We won't go out until it stops raining.",
           "hint": "dejar — subjunctive",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG · leave.FUT.1PL · until · COMP · ___ · of · rain.INF"
         }
       ]
     },
@@ -3090,42 +3348,48 @@
           "answer": "hayas",
           "translation": "I hope you have arrived safely.",
           "hint": "haber, subjunctive tú",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "hope.PRS.1SG · COMP · ___ · arrive.PTCP · well"
         },
         {
           "sentence": "No creo que lo {{answer}} hecho.",
           "answer": "haya",
           "translation": "I don't think he has done it.",
           "hint": "haber, subjunctive él",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "NEG · think.PRS.1SG · COMP · 3SG.M.OBJ · ___ · do.PTCP"
         },
         {
           "sentence": "Me alegro de que {{answer}} venido.",
           "answer": "hayas",
           "translation": "I'm glad you have come.",
           "hint": "haber, tú — subjunctive",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG.OBJ · rejoice.1SG.PRS · of · COMP · ___ · come.PTCP"
         },
         {
           "sentence": "Es posible que ya {{answer}} salido.",
           "answer": "hayan",
           "translation": "It's possible they have already left.",
           "hint": "haber, ellos — subjunctive",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "be.3SG.PRS · possible · COMP · already · ___ · leave.PTCP"
         },
         {
           "sentence": "No creo que ella haya {{answer}} eso.",
           "answer": "dicho",
           "translation": "I don't think she has said that.",
           "hint": "decir → participle",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · think.1SG.PRS · COMP · 3SG.F · have.3SG.PRS.SBJV · ___ · that"
         },
         {
           "sentence": "Dudo que lo {{answer}} terminado a tiempo.",
           "answer": "hayamos",
           "translation": "I doubt we have finished it on time.",
           "hint": "haber, nosotros — subjunctive",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "doubt.1SG.PRS · COMP · 3SG.M.OBJ · ___ · finish.PTCP · at · time"
         }
       ]
     },
@@ -3154,42 +3418,48 @@
           "answer": "hubiera",
           "translation": "If I had studied, I would have passed.",
           "hint": "haber, pluperfect subjunctive",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "if · ___ · study.PTCP · have.1SG.COND · pass.PTCP"
         },
         {
           "sentence": "Si me lo hubieras dicho, te {{answer}} ayudado.",
           "answer": "habría",
           "translation": "If you had told me, I would have helped you.",
           "hint": "conditional perfect",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if · 1SG.OBJ · 3SG.M.OBJ · have.2SG.PST.SBJV · say.PTCP · 2SG.OBJ · ___ · help.PTCP"
         },
         {
           "sentence": "Si lo {{answer}} sabido, no habría venido.",
           "answer": "hubiera",
           "translation": "If I had known, I wouldn't have come.",
           "hint": "haber — pluperfect subjunctive",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if · 3SG.M.OBJ · ___ · know.PTCP · NEG · have.1SG.COND · come.PTCP"
         },
         {
           "sentence": "Si hubieras salido antes, no {{answer}} perdido el tren.",
           "answer": "habrías",
           "translation": "If you had left earlier, you wouldn't have missed the train.",
           "hint": "haber — conditional perfect",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "if · have.2SG.PST.SBJV · leave.PTCP · before · NEG · ___ · lose.PTCP · DEF.M · train"
         },
         {
           "sentence": "Ojalá me lo {{answer}} dicho antes.",
           "answer": "hubieras",
           "translation": "I wish you had told me earlier.",
           "hint": "haber — pluperfect subjunctive",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if_only · 1SG.OBJ · 3SG.M.OBJ · ___ · say.PTCP · before"
         },
         {
           "sentence": "Sin tu ayuda, no lo {{answer}} conseguido.",
           "answer": "habríamos",
           "translation": "Without your help, we wouldn't have managed it.",
           "hint": "haber — conditional perfect",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "without · 2SG.POSS · help · NEG · 3SG.M.OBJ · ___ · manage.PTCP"
         }
       ]
     },
@@ -3222,42 +3492,48 @@
           "answer": "escrita",
           "translation": "The novel was written in 1967.",
           "hint": "escribir, participle agrees with novela",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.F · novel · be.3SG.PST · ___ · in · 1967"
         },
         {
           "sentence": "Los puentes fueron {{answer}} por los romanos.",
           "answer": "construidos",
           "translation": "The bridges were built by the Romans.",
           "hint": "agrees with puentes",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.M.PL · bridge.PL · be.3PL.PST · ___ · by · DEF.M.PL · Roman.PL"
         },
         {
           "sentence": "El puente fue {{answer}} en el siglo XIX.",
           "answer": "construido",
           "translation": "The bridge was built in the 19th century.",
           "hint": "construir → participle",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M · bridge · be.3SG.PST · ___ · in · DEF.M · century · 19th"
         },
         {
           "sentence": "Las cartas fueron {{answer}} por la secretaria.",
           "answer": "enviadas",
           "translation": "The letters were sent by the secretary.",
           "hint": "enviar — feminine plural",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.F.PL · letter.PL · be.3PL.PST · ___ · by · DEF.F · secretary.F"
         },
         {
           "sentence": "La ley {{answer}} aprobada por el parlamento.",
           "answer": "fue",
           "translation": "The law was passed by parliament.",
           "hint": "ser — preterite",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.F · law · ___ · approve.PTCP.F · by · DEF.M · parliament"
         },
         {
           "sentence": "El ladrón fue {{answer}} por la policía.",
           "answer": "detenido",
           "translation": "The thief was arrested by the police.",
           "hint": "detener → participle",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M · thief · be.3SG.PST · ___ · by · DEF.F · police"
         }
       ]
     },
@@ -3290,42 +3566,48 @@
           "answer": "quien",
           "translation": "It was María who said it.",
           "hint": "person focus",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "be.3SG.PST · María · ___ · 3SG.M.OBJ · say.3SG.PST"
         },
         {
           "sentence": "Es eso lo {{answer}} me preocupa.",
           "answer": "que",
           "translation": "That is what worries me.",
           "hint": "neuter cleft — 'lo' + relative",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "be.3SG.PRS · that · DEF.N · ___ · 1SG.OBJ · worry.3SG.PRS"
         },
         {
           "sentence": "Fue en Sevilla {{answer}} nos conocimos.",
           "answer": "donde",
           "translation": "It was in Seville that we met.",
           "hint": "place cleft",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "be.3SG.PST · in · Seville · ___ · 1PL.OBJ · meet.1PL.PST"
         },
         {
           "sentence": "Es el dinero lo {{answer}} le importa.",
           "answer": "que",
           "translation": "It's money that matters to him.",
           "hint": "neuter cleft — 'lo' + relative",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "be.3SG.PRS · DEF.M · money · DEF.N · ___ · 3SG.OBJ · matter.3SG.PRS"
         },
         {
           "sentence": "{{answer}} mi hermana quien encontró las llaves.",
           "answer": "Fue",
           "translation": "It was my sister who found the keys.",
           "hint": "ser — preterite",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · 1SG.POSS · sister · who · find.PST.3SG · DEF.F.PL · key.PL"
         },
         {
           "sentence": "Fue ayer {{answer}} me enteré de la noticia.",
           "answer": "cuando",
           "translation": "It was yesterday that I heard the news.",
           "hint": "time cleft",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "be.PST.3SG · yesterday · ___ · 1SG.OBJ · find_out.PST.1SG · of · DEF.F · news"
         }
       ]
     },
@@ -3354,42 +3636,48 @@
           "answer": "insistas",
           "translation": "However much you insist, you won't manage it.",
           "hint": "insistir, subjunctive",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "for · more · that · ___ · NEG · 3SG.OBJ · manage.FUT.2SG"
         },
         {
           "sentence": "Digan lo que {{answer}}, seguiré.",
           "answer": "digan",
           "translation": "Whatever they say, I will carry on.",
           "hint": "reduplicated subjunctive",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "say.SBJV.3PL · DEF.N · that · ___ · continue.FUT.1SG"
         },
         {
           "sentence": "Por mucho que {{answer}}, no cambiará nada.",
           "answer": "llores",
           "translation": "However much you cry, nothing will change.",
           "hint": "llorar — subjunctive",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "for · much · that · ___ · NEG · change.FUT.3SG · nothing"
         },
         {
           "sentence": "Pase lo que {{answer}}, estaré contigo.",
           "answer": "pase",
           "translation": "Whatever happens, I'll be with you.",
           "hint": "echo the verb — subjunctive",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "happen.SBJV.3SG · DEF.N · that · ___ · be.FUT.1SG · with.2SG"
         },
         {
           "sentence": "Haga el tiempo que {{answer}}, saldremos.",
           "answer": "haga",
           "translation": "Whatever the weather, we'll go out.",
           "hint": "echo the verb — subjunctive",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "make.SBJV.3SG · DEF.M · weather · that · ___ · go_out.FUT.1PL"
         },
         {
           "sentence": "Por más que lo {{answer}}, no lo entiendo.",
           "answer": "intento",
           "translation": "However much I try, I don't understand it.",
           "hint": "indicative — real repeated effort",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "for · more · that · 3SG.OBJ · ___ · NEG · 3SG.OBJ · understand.1SG"
         }
       ]
     },
@@ -3422,42 +3710,48 @@
           "answer": "supiese",
           "translation": "If he knew the truth, he would keep quiet.",
           "hint": "saber, -se form",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "if · 3SG.M · ___ · DEF.F · truth · keep_quiet.COND.3SG"
         },
         {
           "sentence": "Ojalá {{answer}} venir.",
           "answer": "pudiese",
           "translation": "If only he could come.",
           "hint": "poder, -se form",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if_only · ___ · come.INF"
         },
         {
           "sentence": "Si me lo {{answer}}, te ayudaría.",
           "answer": "pidieses",
           "translation": "If you asked me, I would help you.",
           "hint": "pedir — -se form",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if · 1SG.OBJ · 3SG.OBJ · ___ · 2SG.OBJ · help.COND.1SG"
         },
         {
           "sentence": "Ojalá {{answer}} más tiempo para leer.",
           "answer": "tuviese",
           "translation": "If only I had more time to read.",
           "hint": "tener — -se form",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "if_only · ___ · more · time · for · read.INF"
         },
         {
           "sentence": "Quisiera que todo {{answer}} como antes.",
           "answer": "fuese",
           "translation": "I wish everything were as before.",
           "hint": "ser — -se form",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "want.PST.SBJV.1SG · that · everything · ___ · as · before"
         },
         {
           "sentence": "Si él {{answer}} aquí, todo sería distinto.",
           "answer": "estuviese",
           "translation": "If he were here, everything would be different.",
           "hint": "to be (estar) — literary subjunctive",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "if · 3SG.M · ___ · here · everything · be.COND.3SG · different"
         }
       ]
     },
@@ -3486,42 +3780,48 @@
           "answer": "quiera",
           "translation": "It's not that I don't want to — it's that I can't.",
           "hint": "querer, subjunctive",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "NEG · be.3SG · that · NEG · ___ · be.3SG · that · NEG · can.1SG"
         },
         {
           "sentence": "No es que me {{answer}} mal, es que no lo conozco.",
           "answer": "caiga",
           "translation": "It's not that I dislike him — I just don't know him.",
           "hint": "caer(se) bien/mal, subjunctive",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "NEG · be.3SG · that · 1SG.OBJ · ___ · badly · be.3SG · that · NEG · 3SG.OBJ · know.1SG"
         },
         {
           "sentence": "No es que no te {{answer}}, es que estoy ocupado.",
           "answer": "crea",
           "translation": "It's not that I don't believe you, it's that I'm busy.",
           "hint": "creer — subjunctive",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · be.3SG · that · NEG · 2SG.OBJ · ___ · be.3SG · that · be.1SG · busy"
         },
         {
           "sentence": "No es que {{answer}} tarde, es que hay tráfico.",
           "answer": "sea",
           "translation": "It's not that it's late, it's that there's traffic.",
           "hint": "ser — subjunctive",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NEG · be.3SG · that · ___ · late · be.3SG · that · there_be.3SG · traffic"
         },
         {
           "sentence": "No es que no me {{answer}} la fiesta, es que estoy cansado.",
           "answer": "guste",
           "translation": "It's not that I don't like the party, it's that I'm tired.",
           "hint": "gustar — subjunctive",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · be.3SG · that · NEG · 1SG.OBJ · ___ · DEF.F · party · be.3SG · that · be.1SG · tired"
         },
         {
           "sentence": "No es que {{answer}} miedo, es que soy prudente.",
           "answer": "tenga",
           "translation": "It's not that I'm afraid, it's that I'm careful.",
           "hint": "tener — subjunctive",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG · be.3SG · that · ___ · fear · be.3SG · that · be.1SG · careful"
         }
       ]
     },
@@ -3560,42 +3860,48 @@
           "answer": "Mi",
           "translation": "My house is in Madrid.",
           "hint": "the speaker's house",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · house · be.3SG · in · Madrid"
         },
         {
           "sentence": "¿Dónde están {{answer}} llaves, Ana?",
           "answer": "tus",
           "translation": "Where are your keys, Ana?",
           "hint": "your (tú) — plural thing",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "where · be.3PL · ___ · key.PL · Ana"
         },
         {
           "sentence": "{{answer}} hermana vive en Lima.",
           "answer": "Su",
           "translation": "His sister lives in Lima.",
           "hint": "his — one owner, one thing",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · sister · live.3SG · in · Lima"
         },
         {
           "sentence": "{{answer}} escuela es muy grande.",
           "answer": "Nuestra",
           "translation": "Our school is very big.",
           "hint": "our — escuela is feminine",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · school · be.3SG · very · big"
         },
         {
           "sentence": "Los niños buscan a {{answer}} madre.",
           "answer": "su",
           "translation": "The children are looking for their mother.",
           "hint": "their — one thing owned",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M.PL · child.PL · look_for.3PL · OBJ · ___ · mother"
         },
         {
           "sentence": "{{answer}} amigos son simpáticos.",
           "answer": "Mis",
           "translation": "My friends are nice.",
           "hint": "the speaker's — plural",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · friend.PL · be.3PL · nice.M.PL"
         }
       ]
     },
@@ -3634,42 +3940,48 @@
           "answer": "quiero",
           "translation": "I want a coffee, please.",
           "hint": "querer — e → ie",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · INDF.M · coffee · for · favor"
         },
         {
           "sentence": "¿{{answer}} ayudarme con esto?",
           "answer": "Puedes",
           "translation": "Can you help me with this?",
           "hint": "poder — o → ue, tú",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · help.INF-1SG.OBJ · with · this.N"
         },
         {
           "sentence": "El niño {{answer}} diez horas.",
           "answer": "duerme",
           "translation": "The boy sleeps ten hours.",
           "hint": "dormir — o → ue",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M · boy · ___ · ten · hour.PL"
         },
         {
           "sentence": "¿Qué {{answer}} tú de este plan?",
           "answer": "piensas",
           "translation": "What do you think of this plan?",
           "hint": "pensar — e → ie",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "what · ___ · 2SG · of · this.M · plan"
         },
         {
           "sentence": "Nosotros {{answer}} viajar en tren.",
           "answer": "preferimos",
           "translation": "We prefer to travel by train.",
           "hint": "nosotros keeps the original vowel",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL · ___ · travel.INF · in · train"
         },
         {
           "sentence": "Ella siempre {{answer}} pescado en este restaurante.",
           "answer": "pide",
           "translation": "She always orders fish at this restaurant.",
           "hint": "pedir — e → i",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.F · always · ___ · fish · in · this.M · restaurant"
         }
       ]
     },
@@ -3708,42 +4020,48 @@
           "answer": "Este",
           "translation": "This book I have here is very good.",
           "hint": "near the speaker — masculine",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · book · COMP · have.1SG · here · be.3SG · very · good.M"
         },
         {
           "sentence": "¿De quién es {{answer}} mochila que llevas?",
           "answer": "esa",
           "translation": "Whose backpack is that you're carrying?",
           "hint": "near the listener — feminine",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "of · who · be.3SG · ___ · backpack · COMP · carry.2SG"
         },
         {
           "sentence": "{{answer}} montañas de allá son los Andes.",
           "answer": "Aquellas",
           "translation": "Those mountains over there are the Andes.",
           "hint": "far from both — feminine plural",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · mountain.PL · of · over_there · be.3PL · DEF.M.PL · Andes"
         },
         {
           "sentence": "¿Qué es {{answer}}? Nunca lo he visto.",
           "answer": "esto",
           "translation": "What is this? I've never seen it.",
           "hint": "neuter — an unknown thing",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "what · be.3SG · ___ · never · 3SG.M.OBJ · have.1SG · see.PTCP"
         },
         {
           "sentence": "{{answer}} zapatos de aquí son más baratos.",
           "answer": "Estos",
           "translation": "These shoes here are cheaper.",
           "hint": "near the speaker — masculine plural",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · shoe.PL · of · here · be.3PL · more · cheap.M.PL"
         },
         {
           "sentence": "Me gusta {{answer}} casa de enfrente.",
           "answer": "esa",
           "translation": "I like that house across the street.",
           "hint": "there, by you / in view — feminine",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG.OBJ · please.3SG · ___ · house · of · opposite"
         }
       ]
     },
@@ -3782,42 +4100,48 @@
           "answer": "a",
           "translation": "I see Juan every day.",
           "hint": "the marker that flags human direct objects",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "see.1SG · ___ · Juan · all.M.PL · DEF.M.PL · day.PL"
         },
         {
           "sentence": "¿Llamaste {{answer}} tu madre?",
           "answer": "a",
           "translation": "Did you call your mother?",
           "hint": "the personal-object marker before people",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "call.PST.2SG · ___ · 2SG.POSS · mother"
         },
         {
           "sentence": "No conozco {{answer}} nadie aquí.",
           "answer": "a",
           "translation": "I don't know anyone here.",
           "hint": "nadie takes the marker too",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · know.1SG · ___ · nobody · here"
         },
         {
           "sentence": "Busco {{answer}} mi perro, se llama Rex.",
           "answer": "a",
           "translation": "I'm looking for my dog — his name is Rex.",
           "hint": "the personal-object marker — pets count too",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "seek.1SG · ___ · 1SG.POSS · dog · 3SG.REFL · call.3SG · Rex"
         },
         {
           "sentence": "Ana quiere mucho {{answer}} sus abuelos.",
           "answer": "a",
           "translation": "Ana loves her grandparents very much.",
           "hint": "people as objects of querer",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "Ana · love.3SG · much · ___ · 3SG.POSS.PL · grandparent.M.PL"
         },
         {
           "sentence": "¿Ves {{answer}} esa mujer del sombrero rojo?",
           "answer": "a",
           "translation": "Do you see that woman with the red hat?",
           "hint": "the personal-object marker before specific people",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "see.2SG · ___ · that.F.SG · woman · of-DEF.M.SG · hat · red.M.SG"
         }
       ]
     }

@@ -63,7 +63,8 @@
           "hint": "книга is feminine",
           "display_order": 1,
           "transliteration": "Gde kniga? — ___ na stole.",
-          "cell": "она"
+          "cell": "она",
+          "gloss": "where · book.F · — · ___ · on · table.LOC"
         },
         {
           "sentence": "Где дом? — {{answer}} там.",
@@ -72,7 +73,8 @@
           "hint": "дом is masculine",
           "display_order": 2,
           "transliteration": "Gde dom? — ___ tam.",
-          "cell": "он"
+          "cell": "он",
+          "gloss": "where · house.M · — · ___ · there"
         },
         {
           "sentence": "Где окно? — {{answer}} там.",
@@ -81,7 +83,8 @@
           "hint": "окно is neuter",
           "display_order": 3,
           "transliteration": "Gde okno? — ___ tam.",
-          "cell": "оно"
+          "cell": "оно",
+          "gloss": "where · window.N · — · ___ · there"
         },
         {
           "sentence": "Где мама? — {{answer}} дома.",
@@ -90,7 +93,8 @@
           "hint": "мама is feminine",
           "display_order": 4,
           "transliteration": "Gde mama? — ___ doma.",
-          "cell": "она"
+          "cell": "она",
+          "gloss": "where · mum.F · — · ___ · at.home"
         },
         {
           "sentence": "Где журнал? — {{answer}} на столе.",
@@ -99,7 +103,8 @@
           "hint": "журнал is masculine",
           "display_order": 5,
           "transliteration": "Gde zhurnal? — ___ na stole.",
-          "cell": "он"
+          "cell": "он",
+          "gloss": "where · magazine.M · — · ___ · on · table.LOC"
         },
         {
           "sentence": "Где море? — {{answer}} далеко.",
@@ -108,7 +113,8 @@
           "hint": "море is neuter",
           "display_order": 6,
           "transliteration": "Gde more? — ___ daleko.",
-          "cell": "оно"
+          "cell": "оно",
+          "gloss": "where · sea.N · — · ___ · far"
         }
       ],
       "related": [
@@ -157,7 +163,8 @@
           "translation": "This is my friend.",
           "hint": "identifying someone",
           "display_order": 1,
-          "transliteration": "___ moj drug."
+          "transliteration": "___ moj drug.",
+          "gloss": "___ · 1SG.POSS.M · friend.M"
         },
         {
           "sentence": "{{answer}} школа.",
@@ -165,7 +172,8 @@
           "translation": "This is a school.",
           "hint": "identifying a thing",
           "display_order": 2,
-          "transliteration": "___ shkola."
+          "transliteration": "___ shkola.",
+          "gloss": "___ · school.F"
         },
         {
           "sentence": "{{answer}} моя сестра.",
@@ -173,7 +181,8 @@
           "translation": "This is my sister.",
           "hint": "introducing a person",
           "display_order": 3,
-          "transliteration": "___ moya sestra."
+          "transliteration": "___ moya sestra.",
+          "gloss": "___ · 1SG.POSS.F · sister.F"
         },
         {
           "sentence": "{{answer}} наш дом.",
@@ -181,7 +190,8 @@
           "translation": "This is our house.",
           "hint": "identifying a thing",
           "display_order": 4,
-          "transliteration": "___ nash dom."
+          "transliteration": "___ nash dom.",
+          "gloss": "___ · 1PL.POSS.M · house.M"
         },
         {
           "sentence": "Кто это? — {{answer}} мой друг Иван.",
@@ -189,7 +199,8 @@
           "translation": "Who is this? — This is my friend Ivan.",
           "hint": "answering 'who is this?'",
           "display_order": 5,
-          "transliteration": "Kto e'to? — ___ moj drug Ivan."
+          "transliteration": "Kto e'to? — ___ moj drug Ivan.",
+          "gloss": "who · this · — · ___ · 1SG.POSS.M · friend.M · Ivan.M"
         },
         {
           "sentence": "{{answer}} не вода.",
@@ -197,7 +208,8 @@
           "translation": "This is not water.",
           "hint": "negating with не",
           "display_order": 6,
-          "transliteration": "___ ne voda."
+          "transliteration": "___ ne voda.",
+          "gloss": "___ · NEG · water.F"
         }
       ],
       "related": [
@@ -242,7 +254,8 @@
           "hint": "читать, я",
           "display_order": 1,
           "transliteration": "Ya ___ knigu.",
-          "cell": "1sg"
+          "cell": "1sg",
+          "gloss": "1SG · ___ · book.ACC"
         },
         {
           "sentence": "Ты хорошо {{answer}} по-русски.",
@@ -251,7 +264,8 @@
           "hint": "говорить, ты",
           "display_order": 2,
           "transliteration": "Ty' horosho ___ po-russki.",
-          "cell": "2sg"
+          "cell": "2sg",
+          "gloss": "2SG · well · ___ · in-Russian"
         },
         {
           "sentence": "Он {{answer}} по-английски.",
@@ -260,7 +274,8 @@
           "hint": "говорить, он/она",
           "display_order": 3,
           "transliteration": "On ___ po-anglijski.",
-          "cell": "3sg"
+          "cell": "3sg",
+          "gloss": "3SG.M · ___ · in-English"
         },
         {
           "sentence": "Мы {{answer}} журнал.",
@@ -269,7 +284,8 @@
           "hint": "читать, мы",
           "display_order": 4,
           "transliteration": "My' ___ zhurnal.",
-          "cell": "1pl"
+          "cell": "1pl",
+          "gloss": "1PL · ___ · magazine.ACC"
         },
         {
           "sentence": "Они {{answer}} в Москве.",
@@ -278,7 +294,8 @@
           "hint": "жить, они",
           "display_order": 5,
           "transliteration": "Oni ___ v Moskve.",
-          "cell": "3pl"
+          "cell": "3pl",
+          "gloss": "3PL · ___ · in · Moscow.LOC"
         },
         {
           "sentence": "Вы {{answer}} по-русски?",
@@ -287,7 +304,8 @@
           "hint": "говорить, вы",
           "display_order": 6,
           "transliteration": "Vy' ___ po-russki?",
-          "cell": "2pl"
+          "cell": "2pl",
+          "gloss": "2PL · ___ · in-Russian"
         },
         {
           "sentence": "Я {{answer}} по-испански.",
@@ -296,7 +314,8 @@
           "hint": "говорить, я",
           "cell": "1sg",
           "display_order": 7,
-          "transliteration": "Ya ___ po-ispanski."
+          "transliteration": "Ya ___ po-ispanski.",
+          "gloss": "1SG · ___ · in-Spanish"
         },
         {
           "sentence": "Ты {{answer}} газету?",
@@ -305,7 +324,8 @@
           "hint": "читать, ты",
           "cell": "2sg",
           "display_order": 8,
-          "transliteration": "Ty' ___ gazetu?"
+          "transliteration": "Ty' ___ gazetu?",
+          "gloss": "2SG · ___ · newspaper.ACC"
         },
         {
           "sentence": "Она {{answer}} в школе.",
@@ -314,7 +334,8 @@
           "hint": "работать, он/она",
           "cell": "3sg",
           "display_order": 9,
-          "transliteration": "Ona ___ v shkole."
+          "transliteration": "Ona ___ v shkole.",
+          "gloss": "3SG.F.NOM · ___ · in · school.LOC"
         },
         {
           "sentence": "Мы {{answer}} музыку.",
@@ -323,7 +344,8 @@
           "hint": "слушать, мы",
           "cell": "1pl",
           "display_order": 10,
-          "transliteration": "My' ___ muzy'ku."
+          "transliteration": "My' ___ muzy'ku.",
+          "gloss": "1PL.NOM · ___ · music.ACC"
         },
         {
           "sentence": "Вы {{answer}} в Москве?",
@@ -332,7 +354,8 @@
           "hint": "жить, вы",
           "cell": "2pl",
           "display_order": 11,
-          "transliteration": "Vy' ___ v Moskve?"
+          "transliteration": "Vy' ___ v Moskve?",
+          "gloss": "2PL.NOM · ___ · in · Moscow.LOC"
         },
         {
           "sentence": "Они {{answer}} по-русски.",
@@ -341,7 +364,8 @@
           "hint": "говорить, они",
           "cell": "3pl",
           "display_order": 12,
-          "transliteration": "Oni ___ po-russki."
+          "transliteration": "Oni ___ po-russki.",
+          "gloss": "3PL.NOM · ___ · in.Russian"
         }
       ],
       "related": [
@@ -393,7 +417,8 @@
           "translation": "The book is on the table.",
           "hint": "table + prepositional",
           "display_order": 1,
-          "transliteration": "Kniga na ___."
+          "transliteration": "Kniga na ___.",
+          "gloss": "book.F.NOM · on · ___"
         },
         {
           "sentence": "Я живу в {{answer}}.",
@@ -401,7 +426,8 @@
           "translation": "I live in Moscow.",
           "hint": "Moscow + prepositional",
           "display_order": 2,
-          "transliteration": "Ya zhivu v ___."
+          "transliteration": "Ya zhivu v ___.",
+          "gloss": "1SG.NOM · live.PRS.1SG · in · ___"
         },
         {
           "sentence": "Мы живём в {{answer}}.",
@@ -409,7 +435,8 @@
           "translation": "We live in Russia.",
           "hint": "Russia + prepositional",
           "display_order": 3,
-          "transliteration": "My' zhivyom v ___."
+          "transliteration": "My' zhivyom v ___.",
+          "gloss": "1PL.NOM · live.PRS.1PL · in · ___"
         },
         {
           "sentence": "Он работает в {{answer}}.",
@@ -417,7 +444,8 @@
           "translation": "He works at a school.",
           "hint": "school + prepositional",
           "display_order": 4,
-          "transliteration": "On rabotaet v ___."
+          "transliteration": "On rabotaet v ___.",
+          "gloss": "3SG.M.NOM · work.PRS.3SG · in · ___"
         },
         {
           "sentence": "Мама работает в {{answer}}.",
@@ -425,7 +453,8 @@
           "translation": "Mum works in a shop.",
           "hint": "shop + prepositional",
           "display_order": 5,
-          "transliteration": "Mama rabotaet v ___."
+          "transliteration": "Mama rabotaet v ___.",
+          "gloss": "mum.F.NOM · work.PRS.3SG · in · ___"
         },
         {
           "sentence": "Мы говорим о {{answer}}.",
@@ -433,7 +462,8 @@
           "translation": "We are talking about the film.",
           "hint": "о + prepositional — film",
           "display_order": 6,
-          "transliteration": "My' govorim o ___."
+          "transliteration": "My' govorim o ___.",
+          "gloss": "1PL.NOM · speak.PRS.1PL · about · ___"
         }
       ],
       "related": [
@@ -482,7 +512,8 @@
           "hint": "book + accusative",
           "display_order": 1,
           "transliteration": "Ya chitayu ___.",
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "1SG.NOM · read.PRS.1SG · ___"
         },
         {
           "sentence": "Она пишет {{answer}}.",
@@ -491,7 +522,8 @@
           "hint": "neuter — no change",
           "display_order": 2,
           "transliteration": "Ona pishet ___.",
-          "cell": "neuter"
+          "cell": "neuter",
+          "gloss": "3SG.F.NOM · write.PRS.3SG · ___"
         },
         {
           "sentence": "Он читает {{answer}}.",
@@ -500,7 +532,8 @@
           "hint": "newspaper + accusative",
           "display_order": 3,
           "transliteration": "On chitaet ___.",
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "3SG.M.NOM · read.PRS.3SG · ___"
         },
         {
           "sentence": "Она любит {{answer}}.",
@@ -509,7 +542,8 @@
           "hint": "music + accusative",
           "display_order": 4,
           "transliteration": "Ona lyubit ___.",
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "3SG.F.NOM · love.PRS.3SG · ___"
         },
         {
           "sentence": "Я пью {{answer}}.",
@@ -518,7 +552,8 @@
           "hint": "water + accusative",
           "display_order": 5,
           "transliteration": "Ya p'yu ___.",
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "1SG.NOM · drink.PRS.1SG · ___"
         },
         {
           "sentence": "Мы смотрим {{answer}}.",
@@ -527,7 +562,8 @@
           "hint": "masculine inanimate — no change",
           "display_order": 6,
           "transliteration": "My' smotrim ___.",
-          "cell": "masculine"
+          "cell": "masculine",
+          "gloss": "1PL.NOM · watch.PRS.1PL · ___"
         },
         {
           "sentence": "Я покупаю {{answer}}.",
@@ -536,7 +572,8 @@
           "hint": "magazine — inanimate masculine keeps its form",
           "cell": "masculine",
           "display_order": 7,
-          "transliteration": "Ya pokupayu ___."
+          "transliteration": "Ya pokupayu ___.",
+          "gloss": "1SG.NOM · buy.PRS.1SG · ___"
         },
         {
           "sentence": "Я люблю {{answer}}.",
@@ -545,7 +582,8 @@
           "hint": "milk — neuter keeps its form",
           "cell": "neuter",
           "display_order": 8,
-          "transliteration": "Ya lyublyu ___."
+          "transliteration": "Ya lyublyu ___.",
+          "gloss": "1SG.NOM · love.PRS.1SG · ___"
         }
       ],
       "related": [
@@ -595,7 +633,8 @@
           "hint": "книга is feminine",
           "display_order": 1,
           "transliteration": "E'to ___ kniga.",
-          "cell": "f"
+          "cell": "f",
+          "gloss": "this · ___ · book.F.NOM"
         },
         {
           "sentence": "Это {{answer}} дом.",
@@ -604,7 +643,8 @@
           "hint": "дом is masculine",
           "display_order": 2,
           "transliteration": "E'to ___ dom.",
-          "cell": "m"
+          "cell": "m",
+          "gloss": "this · ___ · house.M.NOM"
         },
         {
           "sentence": "Это {{answer}} окно.",
@@ -613,7 +653,8 @@
           "hint": "окно is neuter",
           "display_order": 3,
           "transliteration": "E'to ___ okno.",
-          "cell": "n"
+          "cell": "n",
+          "gloss": "this · ___ · window.NOM"
         },
         {
           "sentence": "Это {{answer}} книги.",
@@ -622,7 +663,8 @@
           "hint": "plural",
           "display_order": 4,
           "transliteration": "E'to ___ knigi.",
-          "cell": "pl"
+          "cell": "pl",
+          "gloss": "this · ___ · book.NOM.PL"
         },
         {
           "sentence": "Где {{answer}} брат?",
@@ -631,7 +673,8 @@
           "hint": "your (ты) — брат is masculine",
           "display_order": 5,
           "transliteration": "Gde ___ brat?",
-          "cell": "m"
+          "cell": "m",
+          "gloss": "where · ___ · brother.NOM"
         },
         {
           "sentence": "Это {{answer}} школа.",
@@ -640,7 +683,8 @@
           "hint": "our — школа is feminine",
           "display_order": 6,
           "transliteration": "E'to ___ shkola.",
-          "cell": "f"
+          "cell": "f",
+          "gloss": "this · ___ · school.NOM"
         },
         {
           "sentence": "Где {{answer}} место?",
@@ -649,7 +693,8 @@
           "hint": "my — neuter",
           "cell": "n",
           "display_order": 7,
-          "transliteration": "Gde ___ mesto?"
+          "transliteration": "Gde ___ mesto?",
+          "gloss": "where · ___ · seat.NOM"
         },
         {
           "sentence": "Где {{answer}} очки?",
@@ -658,7 +703,8 @@
           "hint": "my — plural",
           "cell": "pl",
           "display_order": 8,
-          "transliteration": "Gde ___ ochki?"
+          "transliteration": "Gde ___ ochki?",
+          "gloss": "where · ___ · glasses.NOM.PL"
         },
         {
           "sentence": "Это {{answer}} машина.",
@@ -667,7 +713,8 @@
           "hint": "his — one frozen form, even before a feminine noun",
           "display_order": 9,
           "transliteration": "E'to ___ mashina.",
-          "cell": "f"
+          "cell": "f",
+          "gloss": "this · ___ · car.NOM"
         },
         {
           "sentence": "Где {{answer}} телефон?",
@@ -676,7 +723,8 @@
           "hint": "her — one frozen form, even before a masculine noun",
           "display_order": 10,
           "transliteration": "Gde ___ telefon?",
-          "cell": "m"
+          "cell": "m",
+          "gloss": "where · ___ · phone.NOM"
         },
         {
           "sentence": "Это {{answer}} дети.",
@@ -685,7 +733,8 @@
           "hint": "their — one frozen form, even before a plural noun",
           "display_order": 11,
           "transliteration": "E'to ___ deti.",
-          "cell": "pl"
+          "cell": "pl",
+          "gloss": "this · ___ · child.NOM.PL"
         },
         {
           "sentence": "Это {{answer}} окно, а не твоё.",
@@ -694,7 +743,8 @@
           "hint": "his — same frozen form for every gender",
           "display_order": 12,
           "transliteration": "E'to ___ okno, a ne tvoyo.",
-          "cell": "n"
+          "cell": "n",
+          "gloss": "this · ___ · window.NOM · but · NEG · 2SG.POSS.N.SG"
         }
       ],
       "related": [
@@ -745,7 +795,8 @@
           "hint": "быть, feminine subject",
           "display_order": 1,
           "transliteration": "Ona ___ v Moskve.",
-          "cell": "f"
+          "cell": "f",
+          "gloss": "3SG.F.NOM · ___ · in · Moscow.LOC"
         },
         {
           "sentence": "Он {{answer}} фильм.",
@@ -754,7 +805,8 @@
           "hint": "смотреть, masculine subject",
           "display_order": 2,
           "transliteration": "On ___ fil'm.",
-          "cell": "m"
+          "cell": "m",
+          "gloss": "3SG.M.NOM · ___ · film.ACC"
         },
         {
           "sentence": "Я {{answer}} дома вчера.",
@@ -763,7 +815,8 @@
           "hint": "быть, masculine",
           "display_order": 3,
           "transliteration": "Ya ___ doma vchera.",
-          "cell": "m"
+          "cell": "m",
+          "gloss": "1SG.NOM · ___ · at.home · yesterday"
         },
         {
           "sentence": "Мы {{answer}} в парке.",
@@ -772,7 +825,8 @@
           "hint": "быть, plural",
           "display_order": 4,
           "transliteration": "My' ___ v parke.",
-          "cell": "pl"
+          "cell": "pl",
+          "gloss": "1PL.NOM · ___ · in · park.LOC"
         },
         {
           "sentence": "Она {{answer}} книгу вечером.",
@@ -781,7 +835,8 @@
           "hint": "читать, feminine",
           "display_order": 5,
           "transliteration": "Ona ___ knigu vecherom.",
-          "cell": "f"
+          "cell": "f",
+          "gloss": "3SG.F.NOM · ___ · book.ACC · evening.INS"
         },
         {
           "sentence": "Они {{answer}} телевизор.",
@@ -790,7 +845,8 @@
           "hint": "смотреть, plural",
           "display_order": 6,
           "transliteration": "Oni ___ televizor.",
-          "cell": "pl"
+          "cell": "pl",
+          "gloss": "3PL.NOM · ___ · television.ACC"
         },
         {
           "sentence": "Это {{answer}} давно.",
@@ -799,7 +855,8 @@
           "transliteration": "E'to ___ davno.",
           "hint": "быть, оно",
           "cell": "n",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "this · ___ · long.ago"
         },
         {
           "sentence": "Утром {{answer}} холодно.",
@@ -808,7 +865,8 @@
           "hint": "быть, оно",
           "cell": "n",
           "display_order": 8,
-          "transliteration": "Utrom ___ holodno."
+          "transliteration": "Utrom ___ holodno.",
+          "gloss": "morning.INS · ___ · cold.N.SG"
         }
       ],
       "related": [
@@ -862,7 +920,8 @@
           "translation": "I have no time.",
           "hint": "время in the genitive",
           "display_order": 1,
-          "transliteration": "U menya net ___."
+          "transliteration": "U menya net ___.",
+          "gloss": "at · 1SG.GEN · exist.NEG · ___"
         },
         {
           "sentence": "У неё нет {{answer}}.",
@@ -870,7 +929,8 @@
           "translation": "She doesn't have a car.",
           "hint": "car + genitive",
           "display_order": 2,
-          "transliteration": "U neyo net ___."
+          "transliteration": "U neyo net ___.",
+          "gloss": "at · 3SG.F.GEN · exist.NEG · ___"
         },
         {
           "sentence": "Сегодня у меня нет {{answer}}.",
@@ -878,7 +938,8 @@
           "translation": "Today I have no money.",
           "hint": "деньги in the genitive",
           "display_order": 3,
-          "transliteration": "Segodnya u menya net ___."
+          "transliteration": "Segodnya u menya net ___.",
+          "gloss": "today · at · 1SG.GEN · NEG.EXIST · ___"
         },
         {
           "sentence": "У него нет {{answer}}.",
@@ -886,7 +947,8 @@
           "translation": "He doesn't have a job.",
           "hint": "job + genitive",
           "display_order": 4,
-          "transliteration": "U nego net ___."
+          "transliteration": "U nego net ___.",
+          "gloss": "at · 3SG.M.GEN · NEG.EXIST · ___"
         },
         {
           "sentence": "У нас нет {{answer}}.",
@@ -894,7 +956,8 @@
           "translation": "We have no milk.",
           "hint": "milk + genitive",
           "display_order": 5,
-          "transliteration": "U nas net ___."
+          "transliteration": "U nas net ___.",
+          "gloss": "at · 1PL.GEN · NEG.EXIST · ___"
         },
         {
           "sentence": "В городе нет {{answer}}.",
@@ -902,7 +965,8 @@
           "translation": "There is no metro in the city.",
           "hint": "indeclinable loanword — no ending",
           "display_order": 6,
-          "transliteration": "V gorode net ___."
+          "transliteration": "V gorode net ___.",
+          "gloss": "in · city.LOC · NEG.EXIST · ___"
         }
       ],
       "related": [
@@ -946,7 +1010,8 @@
           "translation": "I am giving my brother a book.",
           "hint": "brother + dative",
           "display_order": 1,
-          "transliteration": "Ya dayu ___ knigu."
+          "transliteration": "Ya dayu ___ knigu.",
+          "gloss": "1SG.NOM · give.PRS.1SG · ___ · book.ACC"
         },
         {
           "sentence": "Она помогает {{answer}}.",
@@ -954,7 +1019,8 @@
           "translation": "She helps her mother.",
           "hint": "mum + dative",
           "display_order": 2,
-          "transliteration": "Ona pomogaet ___."
+          "transliteration": "Ona pomogaet ___.",
+          "gloss": "3SG.F.NOM · help.PRS.3SG · ___"
         },
         {
           "sentence": "Мы звоним {{answer}} каждый день.",
@@ -962,7 +1028,8 @@
           "translation": "We call our grandmother every day.",
           "hint": "grandmother + dative",
           "display_order": 3,
-          "transliteration": "My' zvonim ___ kazhdy'j den'."
+          "transliteration": "My' zvonim ___ kazhdy'j den'.",
+          "gloss": "1PL.NOM · call.PRS.1PL · ___ · every.M.ACC · day.ACC"
         },
         {
           "sentence": "{{answer}} двадцать лет.",
@@ -970,7 +1037,8 @@
           "translation": "I am twenty years old.",
           "hint": "age takes the dative of я",
           "display_order": 4,
-          "transliteration": "___ dvadczat' let."
+          "transliteration": "___ dvadczat' let.",
+          "gloss": "___ · twenty · year.PL.GEN"
         },
         {
           "sentence": "Он пишет письмо {{answer}}.",
@@ -978,7 +1046,8 @@
           "translation": "He is writing a letter to a friend.",
           "hint": "friend + dative",
           "display_order": 5,
-          "transliteration": "On pishet pis'mo ___."
+          "transliteration": "On pishet pis'mo ___.",
+          "gloss": "3SG.M.NOM · write.PRS.3SG · letter.ACC · ___"
         },
         {
           "sentence": "Ты отвечаешь {{answer}} на вопрос.",
@@ -986,7 +1055,8 @@
           "translation": "You are answering the teacher's question.",
           "hint": "teacher + dative (soft stem)",
           "display_order": 6,
-          "transliteration": "Ty' otvechaesh' ___ na vopros."
+          "transliteration": "Ty' otvechaesh' ___ na vopros.",
+          "gloss": "2SG.NOM · reply.PRS.2SG · ___ · to · question.ACC"
         }
       ]
     },
@@ -1020,7 +1090,8 @@
           "translation": "I like this film.",
           "hint": "singular subject — фильм",
           "display_order": 1,
-          "transliteration": "Mne ___ e'tot fil'm."
+          "transliteration": "Mne ___ e'tot fil'm.",
+          "gloss": "1SG.DAT · ___ · this.M.NOM · film.NOM"
         },
         {
           "sentence": "Ей {{answer}} книги.",
@@ -1028,7 +1099,8 @@
           "translation": "She likes books.",
           "hint": "plural subject — книги",
           "display_order": 2,
-          "transliteration": "Ej ___ knigi."
+          "transliteration": "Ej ___ knigi.",
+          "gloss": "3SG.F.DAT · ___ · book.PL.NOM"
         },
         {
           "sentence": "{{answer}} нравится русский язык.",
@@ -1036,7 +1108,8 @@
           "translation": "I like the Russian language.",
           "hint": "the liker takes the dative",
           "display_order": 3,
-          "transliteration": "___ nravitsya russkij yazy'k."
+          "transliteration": "___ nravitsya russkij yazy'k.",
+          "gloss": "___ · please.PRS.3SG-REFL · Russian.M.NOM · language.NOM"
         },
         {
           "sentence": "{{answer}} нравится эта музыка?",
@@ -1044,7 +1117,8 @@
           "translation": "Do you like this music?",
           "hint": "ты in the dative",
           "display_order": 4,
-          "transliteration": "___ nravitsya e'ta muzy'ka?"
+          "transliteration": "___ nravitsya e'ta muzy'ka?",
+          "gloss": "___ · please.PRS.3SG-REFL · this.F.NOM · music.NOM"
         },
         {
           "sentence": "Нам {{answer}} этот город.",
@@ -1052,7 +1126,8 @@
           "translation": "We like this city.",
           "hint": "singular subject — город",
           "display_order": 5,
-          "transliteration": "Nam ___ e'tot gorod."
+          "transliteration": "Nam ___ e'tot gorod.",
+          "gloss": "1PL.DAT · ___ · this.M.NOM · city.NOM"
         },
         {
           "sentence": "Им {{answer}} эти песни.",
@@ -1060,7 +1135,8 @@
           "translation": "They like these songs.",
           "hint": "plural subject — песни",
           "display_order": 6,
-          "transliteration": "Im ___ e'ti pesni."
+          "transliteration": "Im ___ e'ti pesni.",
+          "gloss": "3PL.DAT · ___ · this.PL.NOM · song.PL.NOM"
         }
       ]
     },
@@ -1094,7 +1170,8 @@
           "translation": "I write with a pen.",
           "hint": "pen + instrumental",
           "display_order": 1,
-          "transliteration": "Ya pishu ___."
+          "transliteration": "Ya pishu ___.",
+          "gloss": "1SG.NOM · write.PRS.1SG · ___"
         },
         {
           "sentence": "Она идёт в кино с {{answer}}.",
@@ -1102,7 +1179,8 @@
           "translation": "She is going to the cinema with a friend.",
           "hint": "friend + instrumental",
           "display_order": 2,
-          "transliteration": "Ona idyot v kino s ___."
+          "transliteration": "Ona idyot v kino s ___.",
+          "gloss": "3SG.F.NOM · go.PRS.3SG · to · cinema · with · ___"
         },
         {
           "sentence": "Он хочет стать {{answer}}.",
@@ -1110,7 +1188,8 @@
           "translation": "He wants to become a doctor.",
           "hint": "doctor + instrumental",
           "display_order": 3,
-          "transliteration": "On hochet stat' ___."
+          "transliteration": "On hochet stat' ___.",
+          "gloss": "3SG.M.NOM · want.PRS.3SG · become.INF · ___"
         },
         {
           "sentence": "Мы занимаемся {{answer}}.",
@@ -1118,7 +1197,8 @@
           "translation": "We do sports.",
           "hint": "заниматься + instrumental",
           "display_order": 4,
-          "transliteration": "My' zanimaemsya ___."
+          "transliteration": "My' zanimaemsya ___.",
+          "gloss": "1PL.NOM · engage.PRS.1PL-REFL · ___"
         },
         {
           "sentence": "Я пью чай с {{answer}}.",
@@ -1126,7 +1206,8 @@
           "translation": "I drink tea with milk.",
           "hint": "milk + instrumental",
           "display_order": 5,
-          "transliteration": "Ya p'yu chaj s ___."
+          "transliteration": "Ya p'yu chaj s ___.",
+          "gloss": "1SG.NOM · drink.IPFV.PRS.1SG · tea.ACC · with · ___"
         },
         {
           "sentence": "Она говорит с {{answer}} по телефону.",
@@ -1134,7 +1215,8 @@
           "translation": "She is talking with her sister on the phone.",
           "hint": "sister + instrumental",
           "display_order": 6,
-          "transliteration": "Ona govorit s ___ po telefonu."
+          "transliteration": "Ona govorit s ___ po telefonu.",
+          "gloss": "3SG.F.NOM · speak.IPFV.PRS.3SG · with · ___ · on · phone.DAT"
         }
       ]
     },
@@ -1168,7 +1250,8 @@
           "translation": "Yesterday I finally finished reading this book.",
           "hint": "completed result — perfective",
           "display_order": 1,
-          "transliteration": "Vchera ya nakonecz ___ e'tu knigu."
+          "transliteration": "Vchera ya nakonecz ___ e'tu knigu.",
+          "gloss": "yesterday · 1SG.NOM · finally · ___ · this.ACC.F.SG · book.ACC"
         },
         {
           "sentence": "Весь вечер она {{answer}} письмо.",
@@ -1176,7 +1259,8 @@
           "translation": "She was writing a letter all evening.",
           "hint": "process over time — imperfective, feminine",
           "display_order": 2,
-          "transliteration": "Ves' vecher ona ___ pis'mo."
+          "transliteration": "Ves' vecher ona ___ pis'mo.",
+          "gloss": "all.ACC.M.SG · evening.ACC · 3SG.F.NOM · ___ · letter.ACC"
         },
         {
           "sentence": "Он уже {{answer}} домашнюю работу.",
@@ -1184,7 +1268,8 @@
           "translation": "He has already done his homework.",
           "hint": "делать/сделать — result",
           "display_order": 3,
-          "transliteration": "On uzhe ___ domashnyuyu rabotu."
+          "transliteration": "On uzhe ___ domashnyuyu rabotu.",
+          "gloss": "3SG.M.NOM · already · ___ · home.ACC.F.SG · work.ACC"
         },
         {
           "sentence": "Каждый день я {{answer}} газету.",
@@ -1192,7 +1277,8 @@
           "translation": "Every day I read the newspaper.",
           "hint": "repeated action — imperfective",
           "display_order": 4,
-          "transliteration": "Kazhdy'j den' ya ___ gazetu."
+          "transliteration": "Kazhdy'j den' ya ___ gazetu.",
+          "gloss": "every.ACC.M.SG · day.ACC · 1SG.NOM · ___ · newspaper.ACC"
         },
         {
           "sentence": "Она {{answer}} письмо и пошла на почту.",
@@ -1200,7 +1286,8 @@
           "translation": "She wrote the letter and went to the post office.",
           "hint": "finished before the next action — perfective",
           "display_order": 5,
-          "transliteration": "Ona ___ pis'mo i poshla na pochtu."
+          "transliteration": "Ona ___ pis'mo i poshla na pochtu.",
+          "gloss": "3SG.F.NOM · ___ · letter.ACC · and · go.PFV.PST.F.SG · to · post_office.ACC"
         },
         {
           "sentence": "Мы долго {{answer}} этот фильм.",
@@ -1208,7 +1295,8 @@
           "translation": "We watched this film for a long time.",
           "hint": "duration — imperfective",
           "display_order": 6,
-          "transliteration": "My' dolgo ___ e'tot fil'm."
+          "transliteration": "My' dolgo ___ e'tot fil'm.",
+          "gloss": "1PL.NOM · long · ___ · this.ACC.M.SG · film.ACC"
         }
       ]
     },
@@ -1242,7 +1330,8 @@
           "translation": "Tomorrow I will be working at home.",
           "hint": "быть, я",
           "display_order": 1,
-          "transliteration": "Zavtra ya ___ rabotat' doma."
+          "transliteration": "Zavtra ya ___ rabotat' doma.",
+          "gloss": "tomorrow · 1SG.NOM · ___ · work.IPFV.INF · at_home"
         },
         {
           "sentence": "Что ты {{answer}} делать вечером?",
@@ -1250,7 +1339,8 @@
           "translation": "What will you be doing in the evening?",
           "hint": "быть, ты",
           "display_order": 2,
-          "transliteration": "CHto ty' ___ delat' vecherom?"
+          "transliteration": "CHto ty' ___ delat' vecherom?",
+          "gloss": "what.ACC · 2SG.NOM · ___ · do.IPFV.INF · evening.INS"
         },
         {
           "sentence": "Мы {{answer}} жить в Москве.",
@@ -1258,7 +1348,8 @@
           "translation": "We are going to live in Moscow.",
           "hint": "быть, мы",
           "display_order": 3,
-          "transliteration": "My' ___ zhit' v Moskve."
+          "transliteration": "My' ___ zhit' v Moskve.",
+          "gloss": "1PL.NOM · ___ · live.IPFV.INF · in · Moscow.LOC"
         },
         {
           "sentence": "Она будет {{answer}} русский язык каждый день.",
@@ -1266,7 +1357,8 @@
           "translation": "She will study Russian every day.",
           "hint": "imperfective infinitive after буду",
           "display_order": 4,
-          "transliteration": "Ona budet ___ russkij yazy'k kazhdy'j den'."
+          "transliteration": "Ona budet ___ russkij yazy'k kazhdy'j den'.",
+          "gloss": "3SG.F.NOM · be.FUT.3SG · ___ · Russian.ACC.M.SG · language.ACC · every.ACC.M.SG · day.ACC"
         },
         {
           "sentence": "Они {{answer}} смотреть фильм вечером.",
@@ -1274,7 +1366,8 @@
           "translation": "They will be watching a film in the evening.",
           "hint": "быть, они",
           "display_order": 5,
-          "transliteration": "Oni ___ smotret' fil'm vecherom."
+          "transliteration": "Oni ___ smotret' fil'm vecherom.",
+          "gloss": "3PL.NOM · ___ · watch.IPFV.INF · film.ACC · evening.INS"
         },
         {
           "sentence": "Вы {{answer}} завтра работать?",
@@ -1282,7 +1375,8 @@
           "translation": "Will you be working tomorrow?",
           "hint": "быть, вы",
           "display_order": 6,
-          "transliteration": "Vy' ___ zavtra rabotat'?"
+          "transliteration": "Vy' ___ zavtra rabotat'?",
+          "gloss": "2PL.NOM · ___ · tomorrow · work.IPFV.INF"
         }
       ]
     },
@@ -1316,7 +1410,8 @@
           "translation": "I will call you in the evening.",
           "hint": "позвонить, я",
           "display_order": 1,
-          "transliteration": "Ya ___ tebe vecherom."
+          "transliteration": "Ya ___ tebe vecherom.",
+          "gloss": "1SG.NOM · ___ · 2SG.DAT · evening.INS"
         },
         {
           "sentence": "Завтра она {{answer}} письмо.",
@@ -1324,7 +1419,8 @@
           "translation": "Tomorrow she will write the letter.",
           "hint": "написать, она",
           "display_order": 2,
-          "transliteration": "Zavtra ona ___ pis'mo."
+          "transliteration": "Zavtra ona ___ pis'mo.",
+          "gloss": "tomorrow · 3SG.F.NOM · ___ · letter.ACC"
         },
         {
           "sentence": "Я {{answer}} эту книгу за неделю.",
@@ -1332,7 +1428,8 @@
           "translation": "I will finish this book in a week.",
           "hint": "прочитать, я",
           "display_order": 3,
-          "transliteration": "Ya ___ e'tu knigu za nedelyu."
+          "transliteration": "Ya ___ e'tu knigu za nedelyu.",
+          "gloss": "1SG.NOM · ___ · this.ACC.F.SG · book.ACC · within · week.ACC"
         },
         {
           "sentence": "Мы {{answer}} всё завтра.",
@@ -1340,7 +1437,8 @@
           "translation": "We will get everything done tomorrow.",
           "hint": "сделать, мы",
           "display_order": 4,
-          "transliteration": "My' ___ vsyo zavtra."
+          "transliteration": "My' ___ vsyo zavtra.",
+          "gloss": "1PL.NOM · ___ · all.ACC.N.SG · tomorrow"
         },
         {
           "sentence": "Ты {{answer}} мне эту фотографию?",
@@ -1348,7 +1446,8 @@
           "translation": "Will you show me this photo?",
           "hint": "показать, ты",
           "display_order": 5,
-          "transliteration": "Ty' ___ mne e'tu fotografiyu?"
+          "transliteration": "Ty' ___ mne e'tu fotografiyu?",
+          "gloss": "2SG.NOM · ___ · 1SG.DAT · this.ACC.F.SG · photo.ACC"
         },
         {
           "sentence": "Он {{answer}} хлеб в магазине.",
@@ -1356,7 +1455,8 @@
           "translation": "He will buy bread at the shop.",
           "hint": "to buy (perfective) (he)",
           "display_order": 6,
-          "transliteration": "On ___ hleb v magazine."
+          "transliteration": "On ___ hleb v magazine.",
+          "gloss": "3SG.M.NOM · ___ · bread.ACC · in · shop.LOC"
         }
       ]
     },
@@ -1390,7 +1490,8 @@
           "translation": "I am walking to school right now.",
           "hint": "one direction, right now",
           "display_order": 1,
-          "transliteration": "Sejchas ya ___ v shkolu."
+          "transliteration": "Sejchas ya ___ v shkolu.",
+          "gloss": "now · 1SG · ___ · to · school.ACC"
         },
         {
           "sentence": "Каждый день я {{answer}} на работу пешком.",
@@ -1398,7 +1499,8 @@
           "translation": "Every day I walk to work.",
           "hint": "repeated trips",
           "display_order": 2,
-          "transliteration": "Kazhdy'j den' ya ___ na rabotu peshkom."
+          "transliteration": "Kazhdy'j den' ya ___ na rabotu peshkom.",
+          "gloss": "every.M.SG.ACC · day.ACC · 1SG · ___ · to · work.ACC · on_foot"
         },
         {
           "sentence": "Вчера мы {{answer}} в кино.",
@@ -1406,7 +1508,8 @@
           "translation": "Yesterday we went to the cinema.",
           "hint": "completed round trip — past plural",
           "display_order": 3,
-          "transliteration": "Vchera my' ___ v kino."
+          "transliteration": "Vchera my' ___ v kino.",
+          "gloss": "yesterday · 1PL · ___ · to · cinema"
         },
         {
           "sentence": "Куда ты {{answer}}? — В магазин.",
@@ -1414,7 +1517,8 @@
           "translation": "Where are you going? — To the shop.",
           "hint": "one direction, right now, ты",
           "display_order": 4,
-          "transliteration": "Kuda ty' ___? — V magazin."
+          "transliteration": "Kuda ty' ___? — V magazin.",
+          "gloss": "where_to · 2SG · ___ · — · to · shop.ACC"
         },
         {
           "sentence": "Она часто {{answer}} в театр.",
@@ -1422,7 +1526,8 @@
           "translation": "She often goes to the theatre.",
           "hint": "repeated trips — the multidirectional verb (she)",
           "display_order": 5,
-          "transliteration": "Ona chasto ___ v teatr."
+          "transliteration": "Ona chasto ___ v teatr.",
+          "gloss": "3SG.F · often · ___ · to · theatre.ACC"
         },
         {
           "sentence": "Смотри, вот {{answer}} наш учитель!",
@@ -1430,7 +1535,8 @@
           "translation": "Look, here comes our teacher!",
           "hint": "one direction, visible now",
           "display_order": 6,
-          "transliteration": "Smotri, vot ___ nash uchitel'!"
+          "transliteration": "Smotri, vot ___ nash uchitel'!",
+          "gloss": "look.IMP.2SG · here · ___ · 1PL.POSS.M.SG.NOM · teacher.NOM"
         }
       ]
     },
@@ -1464,7 +1570,8 @@
           "translation": "We are on our way to Moscow now.",
           "hint": "one direction, by vehicle, мы",
           "display_order": 1,
-          "transliteration": "Sejchas my' ___ v Moskvu."
+          "transliteration": "Sejchas my' ___ v Moskvu.",
+          "gloss": "now · 1PL · ___ · to · Moscow.ACC"
         },
         {
           "sentence": "Каждое лето они {{answer}} на море.",
@@ -1472,7 +1579,8 @@
           "translation": "Every summer they go to the seaside.",
           "hint": "repeated trips, они",
           "display_order": 2,
-          "transliteration": "Kazhdoe leto oni ___ na more."
+          "transliteration": "Kazhdoe leto oni ___ na more.",
+          "gloss": "every.N.SG.ACC · summer.ACC · 3PL · ___ · to · sea.ACC"
         },
         {
           "sentence": "Я {{answer}} на работу на автобусе.",
@@ -1480,7 +1588,8 @@
           "translation": "I go to work by bus.",
           "hint": "habitual, я — watch the зж",
           "display_order": 3,
-          "transliteration": "Ya ___ na rabotu na avtobuse."
+          "transliteration": "Ya ___ na rabotu na avtobuse.",
+          "gloss": "1SG · ___ · to · work.ACC · by · bus.LOC"
         },
         {
           "sentence": "Куда ты {{answer}}? — На вокзал.",
@@ -1488,7 +1597,8 @@
           "translation": "Where are you going? — To the station.",
           "hint": "one direction now, ты",
           "display_order": 4,
-          "transliteration": "Kuda ty' ___? — Na vokzal."
+          "transliteration": "Kuda ty' ___? — Na vokzal.",
+          "gloss": "where_to · 2SG · ___ · — · to · station.ACC"
         },
         {
           "sentence": "В прошлом году мы {{answer}} в Петербург.",
@@ -1496,7 +1606,8 @@
           "translation": "Last year we went to Saint Petersburg.",
           "hint": "completed round trip — past plural",
           "display_order": 5,
-          "transliteration": "V proshlom godu my' ___ v Peterburg."
+          "transliteration": "V proshlom godu my' ___ v Peterburg.",
+          "gloss": "in · last.M.SG.LOC · year.LOC · 1PL · ___ · to · Petersburg.ACC"
         },
         {
           "sentence": "Он {{answer}} домой на такси.",
@@ -1504,7 +1615,8 @@
           "translation": "He is going home by taxi.",
           "hint": "one direction now, он",
           "display_order": 6,
-          "transliteration": "On ___ domoj na taksi."
+          "transliteration": "On ___ domoj na taksi.",
+          "gloss": "3SG.M · ___ · homeward · by · taxi"
         }
       ]
     },
@@ -1538,7 +1650,8 @@
           "translation": "Please tell me, where is the metro?",
           "hint": "сказать → polite вы form",
           "display_order": 1,
-          "transliteration": "___, pozhalujsta, gde metro?"
+          "transliteration": "___, pozhalujsta, gde metro?",
+          "gloss": "___ · please · where · metro"
         },
         {
           "sentence": "{{answer}} этот текст дома.",
@@ -1546,7 +1659,8 @@
           "translation": "Read this text at home.",
           "hint": "читать → ты form",
           "display_order": 2,
-          "transliteration": "___ e'tot tekst doma."
+          "transliteration": "___ e'tot tekst doma.",
+          "gloss": "___ · this.M.SG.ACC · text.ACC · at_home"
         },
         {
           "sentence": "{{answer}} меня внимательно.",
@@ -1554,7 +1668,8 @@
           "translation": "Listen to me carefully.",
           "hint": "слушать → вы form",
           "display_order": 3,
-          "transliteration": "___ menya vnimatel'no."
+          "transliteration": "___ menya vnimatel'no.",
+          "gloss": "___ · 1SG.ACC · attentively"
         },
         {
           "sentence": "{{answer}}, какое красивое небо!",
@@ -1562,7 +1677,8 @@
           "translation": "Look, what a beautiful sky!",
           "hint": "смотреть → ты form",
           "display_order": 4,
-          "transliteration": "___, kakoe krasivoe nebo!"
+          "transliteration": "___, kakoe krasivoe nebo!",
+          "gloss": "___ · what.N.SG.NOM · beautiful.N.SG.NOM · sky.NOM"
         },
         {
           "sentence": "{{answer}} мне, пожалуйста, вашу ручку.",
@@ -1570,7 +1686,8 @@
           "translation": "Please give me your pen.",
           "hint": "дать → вы form",
           "display_order": 5,
-          "transliteration": "___ mne, pozhalujsta, vashu ruchku."
+          "transliteration": "___ mne, pozhalujsta, vashu ruchku.",
+          "gloss": "___ · 1SG.DAT · please · 2PL.POSS.F.SG.ACC · pen.ACC"
         },
         {
           "sentence": "{{answer}} по-русски, пожалуйста.",
@@ -1578,7 +1695,8 @@
           "translation": "Speak Russian, please.",
           "hint": "говорить → вы form",
           "display_order": 6,
-          "transliteration": "___ po-russki, pozhalujsta."
+          "transliteration": "___ po-russki, pozhalujsta.",
+          "gloss": "___ · in_Russian · please"
         }
       ]
     },
@@ -1612,7 +1730,8 @@
           "translation": "I study the Russian language.",
           "hint": "заниматься, я",
           "display_order": 1,
-          "transliteration": "Ya ___ russkim yazy'kom."
+          "transliteration": "Ya ___ russkim yazy'kom.",
+          "gloss": "1SG · ___ · Russian.M.SG.INS · language.INS"
         },
         {
           "sentence": "Она {{answer}} в университете.",
@@ -1620,7 +1739,8 @@
           "translation": "She studies at the university.",
           "hint": "учиться, она",
           "display_order": 2,
-          "transliteration": "Ona ___ v universitete."
+          "transliteration": "Ona ___ v universitete.",
+          "gloss": "3SG.F · ___ · in · university.LOC"
         },
         {
           "sentence": "Урок {{answer}} в девять часов.",
@@ -1628,7 +1748,8 @@
           "translation": "The lesson begins at nine o'clock.",
           "hint": "начинаться, singular",
           "display_order": 3,
-          "transliteration": "Urok ___ v devyat' chasov."
+          "transliteration": "Urok ___ v devyat' chasov.",
+          "gloss": "lesson.NOM · ___ · in · nine · hour.GEN.PL"
         },
         {
           "sentence": "Магазин {{answer}} в восемь часов.",
@@ -1636,7 +1757,8 @@
           "translation": "The shop closes at eight o'clock.",
           "hint": "закрываться, singular",
           "display_order": 4,
-          "transliteration": "Magazin ___ v vosem' chasov."
+          "transliteration": "Magazin ___ v vosem' chasov.",
+          "gloss": "shop.NOM · ___ · in · eight · hour.GEN.PL"
         },
         {
           "sentence": "Где ты {{answer}}? — В школе.",
@@ -1644,7 +1766,8 @@
           "translation": "Where do you study? — At school.",
           "hint": "учиться, ты",
           "display_order": 5,
-          "transliteration": "Gde ty' ___? — V shkole."
+          "transliteration": "Gde ty' ___? — V shkole.",
+          "gloss": "where · you.2SG.NOM · ___ · — · in · school.LOC"
         },
         {
           "sentence": "Мы {{answer}} спортом по субботам.",
@@ -1652,7 +1775,8 @@
           "translation": "We do sports on Saturdays.",
           "hint": "заниматься, мы",
           "display_order": 6,
-          "transliteration": "My' ___ sportom po subbotam."
+          "transliteration": "My' ___ sportom po subbotam.",
+          "gloss": "we.1PL.NOM · ___ · sport.INS · on · Saturday.DAT.PL"
         }
       ]
     },
@@ -1686,7 +1810,8 @@
           "translation": "I see my brother every day.",
           "hint": "brother — animate, borrows the genitive",
           "display_order": 1,
-          "transliteration": "Ya vizhu ___ kazhdy'j den'."
+          "transliteration": "Ya vizhu ___ kazhdy'j den'.",
+          "gloss": "I.1SG.NOM · see.PRS.1SG · ___ · every.M.SG.ACC · day.ACC"
         },
         {
           "sentence": "Она хорошо знает {{answer}}.",
@@ -1694,7 +1819,8 @@
           "translation": "She knows the teacher well.",
           "hint": "teacher — animate, borrows the genitive",
           "display_order": 2,
-          "transliteration": "Ona horosho znaet ___."
+          "transliteration": "Ona horosho znaet ___.",
+          "gloss": "she.3SG.NOM · well · know.PRS.3SG · ___"
         },
         {
           "sentence": "Мы ждём {{answer}} у входа.",
@@ -1702,7 +1828,8 @@
           "translation": "We are waiting for the doctor at the entrance.",
           "hint": "doctor — animate, borrows the genitive",
           "display_order": 3,
-          "transliteration": "My' zhdyom ___ u vhoda."
+          "transliteration": "My' zhdyom ___ u vhoda.",
+          "gloss": "we.1PL.NOM · wait.PRS.1PL · ___ · at · entrance.GEN"
         },
         {
           "sentence": "Ты любишь {{answer}}?",
@@ -1710,7 +1837,8 @@
           "translation": "Do you love Ivan?",
           "hint": "the name — animate, borrows the genitive",
           "display_order": 4,
-          "transliteration": "Ty' lyubish' ___?"
+          "transliteration": "Ty' lyubish' ___?",
+          "gloss": "you.2SG.NOM · love.PRS.2SG · ___"
         },
         {
           "sentence": "Я вижу {{answer}} в окне.",
@@ -1718,7 +1846,8 @@
           "translation": "I see my sister in the window.",
           "hint": "feminine keeps its own accusative -у",
           "display_order": 5,
-          "transliteration": "Ya vizhu ___ v okne."
+          "transliteration": "Ya vizhu ___ v okne.",
+          "gloss": "I.1SG.NOM · see.PRS.1SG · ___ · in · window.LOC"
         },
         {
           "sentence": "Он читает {{answer}} в поезде.",
@@ -1726,7 +1855,8 @@
           "translation": "He reads a magazine on the train.",
           "hint": "inanimate masculine — no change",
           "display_order": 6,
-          "transliteration": "On chitaet ___ v poezde."
+          "transliteration": "On chitaet ___ v poezde.",
+          "gloss": "he.3SG.NOM · read.PRS.3SG · ___ · in · train.LOC"
         }
       ]
     },
@@ -1760,7 +1890,8 @@
           "translation": "We have a lesson on Monday.",
           "hint": "day — в + accusative",
           "display_order": 1,
-          "transliteration": "U nas urok v ___."
+          "transliteration": "U nas urok v ___.",
+          "gloss": "at · we.1PL.GEN · lesson.NOM · in · ___"
         },
         {
           "sentence": "Мой день рождения в {{answer}}.",
@@ -1768,7 +1899,8 @@
           "translation": "My birthday is in January.",
           "hint": "month — в + prepositional",
           "display_order": 2,
-          "transliteration": "Moj den' rozhdeniya v ___."
+          "transliteration": "Moj den' rozhdeniya v ___.",
+          "gloss": "my.M.SG.NOM · day.NOM · birth.GEN · in · ___"
         },
         {
           "sentence": "{{answer}} я пью кофе.",
@@ -1776,7 +1908,8 @@
           "translation": "In the morning I drink coffee.",
           "hint": "part of day — instrumental",
           "display_order": 3,
-          "transliteration": "___ ya p'yu kofe."
+          "transliteration": "___ ya p'yu kofe.",
+          "gloss": "___ · I.1SG.NOM · drink.PRS.1SG · coffee.ACC"
         },
         {
           "sentence": "{{answer}} мы ездим на море.",
@@ -1784,7 +1917,8 @@
           "translation": "In summer we go to the seaside.",
           "hint": "season — instrumental",
           "display_order": 4,
-          "transliteration": "___ my' ezdim na more."
+          "transliteration": "___ my' ezdim na more.",
+          "gloss": "___ · we.1PL.NOM · go.HAB.PRS.1PL · to · sea.ACC"
         },
         {
           "sentence": "{{answer}} она смотрит телевизор.",
@@ -1792,7 +1926,8 @@
           "translation": "In the evening she watches TV.",
           "hint": "part of day — instrumental",
           "display_order": 5,
-          "transliteration": "___ ona smotrit televizor."
+          "transliteration": "___ ona smotrit televizor.",
+          "gloss": "___ · she.3SG.NOM · watch.PRS.3SG · television.ACC"
         },
         {
           "sentence": "В {{answer}} мы ходим в бассейн.",
@@ -1800,7 +1935,8 @@
           "translation": "On Wednesday we go to the swimming pool.",
           "hint": "Wednesday — в + accusative",
           "display_order": 6,
-          "transliteration": "V ___ my' hodim v bassejn."
+          "transliteration": "V ___ my' hodim v bassejn.",
+          "gloss": "in · ___ · we.1PL.NOM · go.HAB.PRS.1PL · in · pool.ACC"
         }
       ]
     },
@@ -1834,7 +1970,8 @@
           "translation": "This book is more interesting than the film.",
           "hint": "interesting + comparative",
           "display_order": 1,
-          "transliteration": "E'ta kniga ___, chem fil'm."
+          "transliteration": "E'ta kniga ___, chem fil'm.",
+          "gloss": "this.F.SG.NOM · book.NOM · ___ · than · film.NOM"
         },
         {
           "sentence": "Сегодня погода {{answer}}, чем вчера.",
@@ -1842,7 +1979,8 @@
           "translation": "The weather today is better than yesterday.",
           "hint": "хороший → irregular",
           "display_order": 2,
-          "transliteration": "Segodnya pogoda ___, chem vchera."
+          "transliteration": "Segodnya pogoda ___, chem vchera.",
+          "gloss": "today · weather.NOM · ___ · than · yesterday"
         },
         {
           "sentence": "Москва {{answer}}, чем Тверь.",
@@ -1850,7 +1988,8 @@
           "translation": "Moscow is bigger than Tver.",
           "hint": "большой → irregular",
           "display_order": 3,
-          "transliteration": "Moskva ___, chem Tver'."
+          "transliteration": "Moskva ___, chem Tver'.",
+          "gloss": "Moscow.NOM · ___ · than · Tver.NOM"
         },
         {
           "sentence": "Мой брат {{answer}} меня на два года.",
@@ -1858,7 +1997,8 @@
           "translation": "My brother is two years older than me.",
           "hint": "старый → irregular",
           "display_order": 4,
-          "transliteration": "Moj brat ___ menya na dva goda."
+          "transliteration": "Moj brat ___ menya na dva goda.",
+          "gloss": "my.M.SG.NOM · brother.NOM · ___ · I.1SG.GEN · by · two · year.GEN"
         },
         {
           "sentence": "Зимой дни {{answer}}, чем летом.",
@@ -1866,7 +2006,8 @@
           "translation": "In winter the days are shorter than in summer.",
           "hint": "short + irregular comparative",
           "display_order": 5,
-          "transliteration": "Zimoj dni ___, chem letom."
+          "transliteration": "Zimoj dni ___, chem letom.",
+          "gloss": "winter.INS · day.NOM.PL · ___ · than · summer.INS"
         },
         {
           "sentence": "Говори {{answer}}, пожалуйста.",
@@ -1874,7 +2015,8 @@
           "translation": "Speak more slowly, please.",
           "hint": "slowly + comparative",
           "display_order": 6,
-          "transliteration": "Govori ___, pozhalujsta."
+          "transliteration": "Govori ___, pozhalujsta.",
+          "gloss": "speak.IPFV.IMP.2SG · ___ · please"
         }
       ]
     },
@@ -1908,7 +2050,8 @@
           "translation": "Moscow is the biggest city in Russia.",
           "hint": "город is masculine",
           "display_order": 1,
-          "transliteration": "Moskva — ___ bol'shoj gorod Rossii."
+          "transliteration": "Moskva — ___ bol'shoj gorod Rossii.",
+          "gloss": "Moscow.NOM · be.PRS · ___ · big.NOM.M.SG · city.NOM.SG · Russia.GEN"
         },
         {
           "sentence": "Это {{answer}} красивая площадь в городе.",
@@ -1916,7 +2059,8 @@
           "translation": "This is the most beautiful square in the city.",
           "hint": "площадь is feminine",
           "display_order": 2,
-          "transliteration": "E'to ___ krasivaya ploshhad' v gorode."
+          "transliteration": "E'to ___ krasivaya ploshhad' v gorode.",
+          "gloss": "this.N · ___ · beautiful.NOM.F.SG · square.NOM.SG · in · city.LOC.SG"
         },
         {
           "sentence": "Байкал — {{answer}} глубокое озеро в мире.",
@@ -1924,7 +2068,8 @@
           "translation": "Baikal is the deepest lake in the world.",
           "hint": "озеро is neuter",
           "display_order": 3,
-          "transliteration": "Bajkal — ___ glubokoe ozero v mire."
+          "transliteration": "Bajkal — ___ glubokoe ozero v mire.",
+          "gloss": "Baikal.NOM · be.PRS · ___ · deep.NOM.N.SG · lake.NOM.SG · in · world.LOC.SG"
         },
         {
           "sentence": "Это {{answer}} интересные книги в библиотеке.",
@@ -1932,7 +2077,8 @@
           "translation": "These are the most interesting books in the library.",
           "hint": "plural agreement",
           "display_order": 4,
-          "transliteration": "E'to ___ interesny'e knigi v biblioteke."
+          "transliteration": "E'to ___ interesny'e knigi v biblioteke.",
+          "gloss": "this.N · ___ · interesting.NOM.PL · book.NOM.PL · in · library.LOC.SG"
         },
         {
           "sentence": "Он мой самый {{answer}} друг.",
@@ -1940,7 +2086,8 @@
           "translation": "He is my very best friend.",
           "hint": "хороший → superlative stem",
           "display_order": 5,
-          "transliteration": "On moj samy'j ___ drug."
+          "transliteration": "On moj samy'j ___ drug.",
+          "gloss": "3SG.M.NOM · 1SG.POSS.NOM.M.SG · SUP.NOM.M.SG · ___ · friend.NOM.SG"
         },
         {
           "sentence": "Лето — {{answer}} тёплое время года.",
@@ -1948,7 +2095,8 @@
           "translation": "Summer is the warmest season of the year.",
           "hint": "время is neuter",
           "display_order": 6,
-          "transliteration": "Leto — ___ tyoploe vremya goda."
+          "transliteration": "Leto — ___ tyoploe vremya goda.",
+          "gloss": "summer.NOM.SG · be.PRS · ___ · warm.NOM.N.SG · time.NOM.SG · year.GEN.SG"
         }
       ]
     },
@@ -1982,7 +2130,8 @@
           "translation": "I am very glad to see you (male speaker).",
           "hint": "glad — masculine short form",
           "display_order": 1,
-          "transliteration": "Ya ochen' ___ tebya videt'."
+          "transliteration": "Ya ochen' ___ tebya videt'.",
+          "gloss": "1SG.NOM · very · ___ · 2SG.ACC · see.IPFV.INF"
         },
         {
           "sentence": "Она уже {{answer}} к экзамену.",
@@ -1990,7 +2139,8 @@
           "translation": "She is already ready for the exam.",
           "hint": "готов — feminine",
           "display_order": 2,
-          "transliteration": "Ona uzhe ___ k e'kzamenu."
+          "transliteration": "Ona uzhe ___ k e'kzamenu.",
+          "gloss": "3SG.F.NOM · already · ___ · to · exam.DAT.SG"
         },
         {
           "sentence": "Мы {{answer}} работать в субботу.",
@@ -1998,7 +2148,8 @@
           "translation": "We have to work on Saturday.",
           "hint": "должен — plural",
           "display_order": 3,
-          "transliteration": "My' ___ rabotat' v subbotu."
+          "transliteration": "My' ___ rabotat' v subbotu.",
+          "gloss": "1PL.NOM · ___ · work.IPFV.INF · on · Saturday.ACC.SG"
         },
         {
           "sentence": "Извини, я сейчас очень {{answer}}.",
@@ -2006,7 +2157,8 @@
           "translation": "Sorry, I am very busy right now (male speaker).",
           "hint": "busy — masculine short form",
           "display_order": 4,
-          "transliteration": "Izvini, ya sejchas ochen' ___."
+          "transliteration": "Izvini, ya sejchas ochen' ___.",
+          "gloss": "excuse.PFV.IMP.2SG · 1SG.NOM · now · very · ___"
         },
         {
           "sentence": "Он не пришёл, потому что он {{answer}}.",
@@ -2014,7 +2166,8 @@
           "translation": "He didn't come because he is ill.",
           "hint": "ill — masculine short form",
           "display_order": 5,
-          "transliteration": "On ne prishyol, potomu chto on ___."
+          "transliteration": "On ne prishyol, potomu chto on ___.",
+          "gloss": "3SG.M.NOM · NEG · come.PFV.PST.M.SG · because · COMP · 3SG.M.NOM · ___"
         },
         {
           "sentence": "Ты {{answer}} мне помочь.",
@@ -2022,7 +2175,8 @@
           "translation": "You must help me (to a male).",
           "hint": "must — masculine short form",
           "display_order": 6,
-          "transliteration": "Ty' ___ mne pomoch'."
+          "transliteration": "Ty' ___ mne pomoch'.",
+          "gloss": "2SG.NOM · ___ · 1SG.DAT · help.PFV.INF"
         }
       ]
     },
@@ -2056,7 +2210,8 @@
           "translation": "I love my (own) job.",
           "hint": "работа — feminine accusative",
           "display_order": 1,
-          "transliteration": "Ya lyublyu ___ rabotu."
+          "transliteration": "Ya lyublyu ___ rabotu.",
+          "gloss": "1SG.NOM · love.IPFV.PRS.1SG · ___ · job.ACC.SG"
         },
         {
           "sentence": "Он рассказывает о {{answer}} семье.",
@@ -2064,7 +2219,8 @@
           "translation": "He talks about his (own) family.",
           "hint": "семья — feminine prepositional",
           "display_order": 2,
-          "transliteration": "On rasskazy'vaet o ___ sem'e."
+          "transliteration": "On rasskazy'vaet o ___ sem'e.",
+          "gloss": "3SG.M.NOM · tell.IPFV.PRS.3SG · about · ___ · family.LOC.SG"
         },
         {
           "sentence": "Мы пригласили {{answer}} друзей.",
@@ -2072,7 +2228,8 @@
           "translation": "We invited our (own) friends.",
           "hint": "animate plural accusative",
           "display_order": 3,
-          "transliteration": "My' priglasili ___ druzej."
+          "transliteration": "My' priglasili ___ druzej.",
+          "gloss": "1PL.NOM · invite.PFV.PST.PL · ___ · friend.ACC.PL"
         },
         {
           "sentence": "Она дала мне {{answer}} номер телефона.",
@@ -2080,7 +2237,8 @@
           "translation": "She gave me her (own) phone number.",
           "hint": "номер — masculine accusative",
           "display_order": 4,
-          "transliteration": "Ona dala mne ___ nomer telefona."
+          "transliteration": "Ona dala mne ___ nomer telefona.",
+          "gloss": "3SG.F.NOM · give.PFV.PST.F.SG · 1SG.DAT · ___ · number.ACC.SG · phone.GEN.SG"
         },
         {
           "sentence": "Ты взял {{answer}} документы?",
@@ -2088,7 +2246,8 @@
           "translation": "Did you take your (own) documents?",
           "hint": "plural accusative, inanimate",
           "display_order": 5,
-          "transliteration": "Ty' vzyal ___ dokumenty'?"
+          "transliteration": "Ty' vzyal ___ dokumenty'?",
+          "gloss": "2SG.NOM · take.PFV.PST.M.SG · ___ · document.ACC.PL"
         },
         {
           "sentence": "Каждый говорил о {{answer}} городе.",
@@ -2096,7 +2255,8 @@
           "translation": "Each person talked about their own city.",
           "hint": "город — masculine prepositional",
           "display_order": 6,
-          "transliteration": "Kazhdy'j govoril o ___ gorode."
+          "transliteration": "Kazhdy'j govoril o ___ gorode.",
+          "gloss": "each.NOM.M.SG · speak.IPFV.PST.M.SG · about · ___ · city.LOC.SG"
         }
       ]
     },
@@ -2130,7 +2290,8 @@
           "translation": "I am twenty-two years old.",
           "hint": "compound ends in 2 → genitive singular",
           "display_order": 1,
-          "transliteration": "Mne dvadczat' dva ___."
+          "transliteration": "Mne dvadczat' dva ___.",
+          "gloss": "1SG.DAT · twenty · two.M · ___"
         },
         {
           "sentence": "Ей тридцать {{answer}}.",
@@ -2138,7 +2299,8 @@
           "translation": "She is thirty years old.",
           "hint": "30 → genitive plural of год",
           "display_order": 2,
-          "transliteration": "Ej tridczat' ___."
+          "transliteration": "Ej tridczat' ___.",
+          "gloss": "3SG.F.DAT · thirty · ___"
         },
         {
           "sentence": "Это стоит пять {{answer}}.",
@@ -2146,7 +2308,8 @@
           "translation": "This costs five roubles.",
           "hint": "5 → genitive plural",
           "display_order": 3,
-          "transliteration": "E'to stoit pyat' ___."
+          "transliteration": "E'to stoit pyat' ___.",
+          "gloss": "this · cost.3SG · five · ___"
         },
         {
           "sentence": "У меня два {{answer}}.",
@@ -2154,7 +2317,8 @@
           "translation": "I have two brothers.",
           "hint": "2 → genitive singular",
           "display_order": 4,
-          "transliteration": "U menya dva ___."
+          "transliteration": "U menya dva ___.",
+          "gloss": "at · 1SG.GEN · two.M · ___"
         },
         {
           "sentence": "На столе четыре {{answer}}.",
@@ -2162,7 +2326,8 @@
           "translation": "There are four books on the table.",
           "hint": "4 → genitive singular",
           "display_order": 5,
-          "transliteration": "Na stole chety're ___."
+          "transliteration": "Na stole chety're ___.",
+          "gloss": "on · table.LOC · four · ___"
         },
         {
           "sentence": "Фильм идёт три {{answer}}.",
@@ -2170,7 +2335,8 @@
           "translation": "The film runs for three hours.",
           "hint": "3 → genitive singular",
           "display_order": 6,
-          "transliteration": "Fil'm idyot tri ___."
+          "transliteration": "Fil'm idyot tri ___.",
+          "gloss": "film.NOM · go.3SG · three · ___"
         }
       ]
     },
@@ -2204,7 +2370,8 @@
           "translation": "Today is the fifth of May.",
           "hint": "neuter ordinal — agreeing with число",
           "display_order": 1,
-          "transliteration": "Segodnya ___ maya."
+          "transliteration": "Segodnya ___ maya.",
+          "gloss": "today · ___ · May.GEN"
         },
         {
           "sentence": "Новый год начинается {{answer}} января.",
@@ -2212,7 +2379,8 @@
           "translation": "The New Year begins on the first of January.",
           "hint": "'on a date' → genitive ordinal",
           "display_order": 2,
-          "transliteration": "Novy'j god nachinaetsya ___ yanvarya."
+          "transliteration": "Novy'j god nachinaetsya ___ yanvarya.",
+          "gloss": "new.M.SG.NOM · year.NOM · begin.3SG · ___ · January.GEN"
         },
         {
           "sentence": "Она родилась {{answer}} марта.",
@@ -2220,7 +2388,8 @@
           "translation": "She was born on the second of March.",
           "hint": "'on a date' → genitive ordinal",
           "display_order": 3,
-          "transliteration": "Ona rodilas' ___ marta."
+          "transliteration": "Ona rodilas' ___ marta.",
+          "gloss": "3SG.F.NOM · be_born.PST.F · ___ · March.GEN"
         },
         {
           "sentence": "Сегодня десятое {{answer}}.",
@@ -2228,7 +2397,8 @@
           "translation": "Today is the tenth of September.",
           "hint": "month in the genitive",
           "display_order": 4,
-          "transliteration": "Segodnya desyatoe ___."
+          "transliteration": "Segodnya desyatoe ___.",
+          "gloss": "today · tenth.N.SG.NOM · ___"
         },
         {
           "sentence": "Экзамен будет {{answer}} июня.",
@@ -2236,7 +2406,8 @@
           "translation": "The exam will be on the fifteenth of June.",
           "hint": "'on a date' → genitive ordinal",
           "display_order": 5,
-          "transliteration": "E'kzamen budet ___ iyunya."
+          "transliteration": "E'kzamen budet ___ iyunya.",
+          "gloss": "exam.NOM · be.FUT.3SG · ___ · June.GEN"
         },
         {
           "sentence": "Это мой {{answer}} урок русского языка.",
@@ -2244,7 +2415,8 @@
           "translation": "This is my first Russian lesson.",
           "hint": "ordinal agrees — урок is masculine",
           "display_order": 6,
-          "transliteration": "E'to moj ___ urok russkogo yazy'ka."
+          "transliteration": "E'to moj ___ urok russkogo yazy'ka.",
+          "gloss": "this · 1SG.POSS.M.SG.NOM · ___ · lesson.NOM · Russian.M.SG.GEN · language.GEN"
         }
       ]
     },
@@ -2278,7 +2450,8 @@
           "translation": "I would like a cup of coffee.",
           "hint": "past + particle",
           "display_order": 1,
-          "transliteration": "Ya hotel ___ chashku kofe."
+          "transliteration": "Ya hotel ___ chashku kofe.",
+          "gloss": "1SG.NOM · want.PST.M · ___ · cup.ACC · coffee"
         },
         {
           "sentence": "Если бы у меня было время, я бы {{answer}}.",
@@ -2286,7 +2459,8 @@
           "translation": "If I had time, I would come (male speaker).",
           "hint": "прийти — past masculine",
           "display_order": 2,
-          "transliteration": "Esli by' u menya by'lo vremya, ya by' ___."
+          "transliteration": "Esli by' u menya by'lo vremya, ya by' ___.",
+          "gloss": "if · COND · at · 1SG.GEN · be.PST.N · time.NOM · 1SG.NOM · COND · ___"
         },
         {
           "sentence": "Она бы с удовольствием {{answer}}.",
@@ -2294,7 +2468,8 @@
           "translation": "She would gladly come.",
           "hint": "прийти — past feminine after бы",
           "display_order": 3,
-          "transliteration": "Ona by' s udovol'stviem ___."
+          "transliteration": "Ona by' s udovol'stviem ___.",
+          "gloss": "3SG.F.NOM · COND · with · pleasure.INS · ___"
         },
         {
           "sentence": "Она {{answer}} бы тебе помогла.",
@@ -2302,7 +2477,8 @@
           "translation": "She would definitely help you.",
           "hint": "adverb — 'definitely'",
           "display_order": 4,
-          "transliteration": "Ona ___ by' tebe pomogla."
+          "transliteration": "Ona ___ by' tebe pomogla.",
+          "gloss": "3SG.F.NOM · ___ · COND · 2SG.DAT · help.PST.F"
         },
         {
           "sentence": "Мы хотели бы {{answer}} билета на вечер.",
@@ -2310,7 +2486,8 @@
           "translation": "We would like two tickets for the evening.",
           "hint": "numeral before genitive singular",
           "display_order": 5,
-          "transliteration": "My' hoteli by' ___ bileta na vecher."
+          "transliteration": "My' hoteli by' ___ bileta na vecher.",
+          "gloss": "1PL.NOM · want.PST.PL · COND · ___ · ticket.GEN · on · evening.ACC"
         },
         {
           "sentence": "На твоём месте я бы {{answer}} врачу.",
@@ -2318,7 +2495,8 @@
           "translation": "In your place I would call the doctor (male speaker).",
           "hint": "позвонить — past masculine",
           "display_order": 6,
-          "transliteration": "Na tvoyom meste ya by' ___ vrachu."
+          "transliteration": "Na tvoyom meste ya by' ___ vrachu.",
+          "gloss": "on · 2SG.POSS.N.SG.LOC · place.LOC · 1SG.NOM · COND · ___ · doctor.DAT"
         }
       ]
     },
@@ -2352,7 +2530,8 @@
           "translation": "Here is the book that I am reading.",
           "hint": "feminine object → accusative",
           "display_order": 1,
-          "transliteration": "Vot kniga, ___ ya chitayu."
+          "transliteration": "Vot kniga, ___ ya chitayu.",
+          "gloss": "here · book.NOM · ___ · 1SG.NOM · read.1SG"
         },
         {
           "sentence": "Это девушка, {{answer}} работает в банке.",
@@ -2360,7 +2539,8 @@
           "translation": "This is the girl who works at the bank.",
           "hint": "feminine subject → nominative",
           "display_order": 2,
-          "transliteration": "E'to devushka, ___ rabotaet v banke."
+          "transliteration": "E'to devushka, ___ rabotaet v banke.",
+          "gloss": "this · girl.NOM · ___ · work.3SG · in · bank.LOC"
         },
         {
           "sentence": "Вот дом, в {{answer}} я живу.",
@@ -2368,7 +2548,8 @@
           "translation": "Here is the house in which I live.",
           "hint": "в + prepositional, masculine",
           "display_order": 3,
-          "transliteration": "Vot dom, v ___ ya zhivu."
+          "transliteration": "Vot dom, v ___ ya zhivu.",
+          "gloss": "here.is · house.NOM · in · ___ · 1SG.NOM · live.PRS.1SG"
         },
         {
           "sentence": "Это друг, {{answer}} я звонил вчера.",
@@ -2376,7 +2557,8 @@
           "translation": "This is the friend whom I called yesterday.",
           "hint": "звонить + dative, masculine",
           "display_order": 4,
-          "transliteration": "E'to drug, ___ ya zvonil vchera."
+          "transliteration": "E'to drug, ___ ya zvonil vchera.",
+          "gloss": "this · friend.NOM · ___ · 1SG.NOM · call.IPFV.PST.M · yesterday"
         },
         {
           "sentence": "Фильм, {{answer}} мы смотрели, был скучный.",
@@ -2384,7 +2566,8 @@
           "translation": "The film that we watched was boring.",
           "hint": "masculine inanimate object",
           "display_order": 5,
-          "transliteration": "Fil'm, ___ my' smotreli, by'l skuchny'j."
+          "transliteration": "Fil'm, ___ my' smotreli, by'l skuchny'j.",
+          "gloss": "film.NOM · ___ · 1PL.NOM · watch.IPFV.PST.PL · be.PST.M · boring.M.NOM"
         },
         {
           "sentence": "Люди, {{answer}} живут здесь, очень добрые.",
@@ -2392,7 +2575,8 @@
           "translation": "The people who live here are very kind.",
           "hint": "plural subject → nominative",
           "display_order": 6,
-          "transliteration": "Lyudi, ___ zhivut zdes', ochen' dobry'e."
+          "transliteration": "Lyudi, ___ zhivut zdes', ochen' dobry'e.",
+          "gloss": "person.PL.NOM · ___ · live.PRS.3PL · here · very · kind.PL.NOM"
         }
       ]
     },
@@ -2426,7 +2610,8 @@
           "translation": "I am learning Russian in order to work in Moscow.",
           "hint": "purpose conjunction",
           "display_order": 1,
-          "transliteration": "Ya uchu russkij, ___ rabotat' v Moskve."
+          "transliteration": "Ya uchu russkij, ___ rabotat' v Moskve.",
+          "gloss": "1SG.NOM · learn.PRS.1SG · Russian.M.ACC · ___ · work.IPFV.INF · in · Moscow.LOC"
         },
         {
           "sentence": "Мы пришли, чтобы {{answer}} с вами.",
@@ -2434,7 +2619,8 @@
           "translation": "We came to have a talk with you.",
           "hint": "infinitive after чтобы",
           "display_order": 2,
-          "transliteration": "My' prishli, chtoby' ___ s vami."
+          "transliteration": "My' prishli, chtoby' ___ s vami.",
+          "gloss": "1PL.NOM · come.PFV.PST.PL · PURP · ___ · with · 2PL.INS"
         },
         {
           "sentence": "Она встала рано, {{answer}} не опоздать.",
@@ -2442,7 +2628,8 @@
           "translation": "She got up early so as not to be late.",
           "hint": "purpose conjunction",
           "display_order": 3,
-          "transliteration": "Ona vstala rano, ___ ne opozdat'."
+          "transliteration": "Ona vstala rano, ___ ne opozdat'.",
+          "gloss": "3SG.F.NOM · get.up.PFV.PST.F · early · ___ · NEG · be.late.PFV.INF"
         },
         {
           "sentence": "Он поехал в магазин, чтобы {{answer}} продукты.",
@@ -2450,7 +2637,8 @@
           "translation": "He went to the shop to buy groceries.",
           "hint": "perfective infinitive — one completed purchase",
           "display_order": 4,
-          "transliteration": "On poehal v magazin, chtoby' ___ produkty'."
+          "transliteration": "On poehal v magazin, chtoby' ___ produkty'.",
+          "gloss": "3SG.M.NOM · go.PFV.PST.M · to · shop.ACC · PURP · ___ · product.PL.ACC"
         },
         {
           "sentence": "Чтобы хорошо {{answer}} по-русски, нужна практика.",
@@ -2458,7 +2646,8 @@
           "translation": "To speak Russian well, you need practice.",
           "hint": "imperfective infinitive — general skill",
           "display_order": 5,
-          "transliteration": "CHtoby' horosho ___ po-russki, nuzhna praktika."
+          "transliteration": "CHtoby' horosho ___ po-russki, nuzhna praktika.",
+          "gloss": "PURP · well · ___ · Russian.ADV · necessary.F · practice.NOM"
         },
         {
           "sentence": "Я позвонил, {{answer}} узнать расписание.",
@@ -2466,7 +2655,8 @@
           "translation": "I called to find out the schedule.",
           "hint": "purpose conjunction",
           "display_order": 6,
-          "transliteration": "Ya pozvonil, ___ uznat' raspisanie."
+          "transliteration": "Ya pozvonil, ___ uznat' raspisanie.",
+          "gloss": "1SG.NOM · call.PFV.PST.M · ___ · find.out.PFV.INF · schedule.ACC"
         }
       ]
     },
@@ -2500,7 +2690,8 @@
           "translation": "He said that he would come tomorrow.",
           "hint": "reporting a statement",
           "display_order": 1,
-          "transliteration": "On skazal, ___ pridyot zavtra."
+          "transliteration": "On skazal, ___ pridyot zavtra.",
+          "gloss": "3SG.M.NOM · say.PFV.PST.M · ___ · come.PFV.FUT.3SG · tomorrow"
         },
         {
           "sentence": "Она спросила, {{answer}} я живу.",
@@ -2508,7 +2699,8 @@
           "translation": "She asked where I live.",
           "hint": "the question word stays",
           "display_order": 2,
-          "transliteration": "Ona sprosila, ___ ya zhivu."
+          "transliteration": "Ona sprosila, ___ ya zhivu.",
+          "gloss": "3SG.F.NOM · ask.PFV.PST.F · ___ · 1SG.NOM · live.PRS.1SG"
         },
         {
           "sentence": "Он спросил, приду {{answer}} я на вечер.",
@@ -2516,7 +2708,8 @@
           "translation": "He asked whether I would come to the party.",
           "hint": "yes/no question → particle after the verb",
           "display_order": 3,
-          "transliteration": "On sprosil, pridu ___ ya na vecher."
+          "transliteration": "On sprosil, pridu ___ ya na vecher.",
+          "gloss": "3SG.M.NOM · ask.PFV.PST.M · come.PFV.FUT.1SG · ___ · 1SG.NOM · to · evening.ACC"
         },
         {
           "sentence": "Мама сказала, что она {{answer}} нас вечером.",
@@ -2524,7 +2717,8 @@
           "translation": "Mum said that she is waiting for us in the evening.",
           "hint": "no tense backshift — present stays present",
           "display_order": 4,
-          "transliteration": "Mama skazala, chto ona ___ nas vecherom."
+          "transliteration": "Mama skazala, chto ona ___ nas vecherom.",
+          "gloss": "mum.NOM · say.PFV.PST.F · COMP · 3SG.F.NOM · ___ · 1PL.ACC · evening.INS"
         },
         {
           "sentence": "Я не знаю, {{answer}} он работает.",
@@ -2532,7 +2726,8 @@
           "translation": "I don't know what he works as.",
           "hint": "работать + instrumental of кто",
           "display_order": 5,
-          "transliteration": "Ya ne znayu, ___ on rabotaet."
+          "transliteration": "Ya ne znayu, ___ on rabotaet.",
+          "gloss": "1SG.NOM · NEG · know.PRS.1SG · ___ · 3SG.M.NOM · work.PRS.3SG"
         },
         {
           "sentence": "Она спросила, говорю {{answer}} я по-русски.",
@@ -2540,7 +2735,8 @@
           "translation": "She asked whether I speak Russian.",
           "hint": "yes/no question → particle after the verb",
           "display_order": 6,
-          "transliteration": "Ona sprosila, govoryu ___ ya po-russki."
+          "transliteration": "Ona sprosila, govoryu ___ ya po-russki.",
+          "gloss": "3SG.F.NOM · ask.PFV.PST.F · speak.PRS.1SG · ___ · 1SG.NOM · Russian.ADV"
         }
       ]
     },
@@ -2574,7 +2770,8 @@
           "translation": "I have to go home.",
           "hint": "the person takes the dative",
           "display_order": 1,
-          "transliteration": "___ nado idti domoj."
+          "transliteration": "___ nado idti domoj.",
+          "gloss": "___ · must · go.IPFV.INF · homeward"
         },
         {
           "sentence": "Здесь {{answer}} фотографировать?",
@@ -2582,7 +2779,8 @@
           "translation": "Is it allowed to take photos here?",
           "hint": "permission",
           "display_order": 2,
-          "transliteration": "Zdes' ___ fotografirovat'?"
+          "transliteration": "Zdes' ___ fotografirovat'?",
+          "gloss": "here · ___ · photograph.IPFV.INF"
         },
         {
           "sentence": "В библиотеке {{answer}} громко говорить.",
@@ -2590,7 +2788,8 @@
           "translation": "One mustn't talk loudly in the library.",
           "hint": "prohibition",
           "display_order": 3,
-          "transliteration": "V biblioteke ___ gromko govorit'."
+          "transliteration": "V biblioteke ___ gromko govorit'.",
+          "gloss": "in · library.LOC · ___ · loudly · speak.IPFV.INF"
         },
         {
           "sentence": "{{answer}} холодно — закрой окно, пожалуйста.",
@@ -2598,7 +2797,8 @@
           "translation": "I'm cold — close the window, please.",
           "hint": "state + dative person",
           "display_order": 4,
-          "transliteration": "___ holodno — zakroj okno, pozhalujsta."
+          "transliteration": "___ holodno — zakroj okno, pozhalujsta.",
+          "gloss": "___ · cold.N · — · close.PFV.IMP.2SG · window.ACC · please"
         },
         {
           "sentence": "Нам {{answer}} купить билеты заранее.",
@@ -2606,7 +2806,8 @@
           "translation": "We need to buy tickets in advance.",
           "hint": "necessity",
           "display_order": 5,
-          "transliteration": "Nam ___ kupit' bilety' zaranee."
+          "transliteration": "Nam ___ kupit' bilety' zaranee.",
+          "gloss": "1PL.DAT · ___ · buy.PFV.INF · ticket.ACC.PL · in_advance"
         },
         {
           "sentence": "Ему {{answer}} — фильм совсем не интересный.",
@@ -2614,7 +2815,8 @@
           "translation": "He is bored — the film isn't interesting at all.",
           "hint": "state adverb",
           "display_order": 6,
-          "transliteration": "Emu ___ — fil'm sovsem ne interesny'j."
+          "transliteration": "Emu ___ — fil'm sovsem ne interesny'j.",
+          "gloss": "3SG.M.DAT · ___ · — · film.NOM.SG · at_all · NEG · interesting.NOM.M.SG"
         }
       ]
     },
@@ -2648,7 +2850,8 @@
           "translation": "He came home at seven o'clock.",
           "hint": "arrival — при-, past masculine",
           "display_order": 1,
-          "transliteration": "On ___ domoj v sem' chasov."
+          "transliteration": "On ___ domoj v sem' chasov.",
+          "gloss": "3SG.M.NOM · ___ · homeward · at · seven · hour.GEN.PL"
         },
         {
           "sentence": "Она {{answer}} из комнаты.",
@@ -2656,7 +2859,8 @@
           "translation": "She went out of the room.",
           "hint": "exiting — вы-, past feminine",
           "display_order": 2,
-          "transliteration": "Ona ___ iz komnaty'."
+          "transliteration": "Ona ___ iz komnaty'.",
+          "gloss": "3SG.F.NOM · ___ · from · room.GEN.SG"
         },
         {
           "sentence": "Директор уже {{answer}} — приходите завтра.",
@@ -2664,7 +2868,8 @@
           "translation": "The director has already left — come back tomorrow.",
           "hint": "leaving — у-, past masculine",
           "display_order": 3,
-          "transliteration": "Direktor uzhe ___ — prihodite zavtra."
+          "transliteration": "Direktor uzhe ___ — prihodite zavtra.",
+          "gloss": "director.NOM.SG · already · ___ · — · come.IPFV.IMP.2PL · tomorrow"
         },
         {
           "sentence": "{{answer}} к доске, пожалуйста.",
@@ -2672,7 +2877,8 @@
           "translation": "Come up to the board, please.",
           "hint": "approaching — под-, imperative ты",
           "display_order": 4,
-          "transliteration": "___ k doske, pozhalujsta."
+          "transliteration": "___ k doske, pozhalujsta.",
+          "gloss": "___ · to · board.DAT.SG · please"
         },
         {
           "sentence": "Здесь можно {{answer}} улицу.",
@@ -2680,7 +2886,8 @@
           "translation": "You can cross the street here.",
           "hint": "crossing — пере-, infinitive",
           "display_order": 5,
-          "transliteration": "Zdes' mozhno ___ uliczu."
+          "transliteration": "Zdes' mozhno ___ uliczu.",
+          "gloss": "here · possible · ___ · street.ACC.SG"
         },
         {
           "sentence": "Каждое утро он {{answer}} на работу в восемь.",
@@ -2688,7 +2895,8 @@
           "translation": "Every morning he arrives at work at eight.",
           "hint": "repeated arrival — imperfective",
           "display_order": 6,
-          "transliteration": "Kazhdoe utro on ___ na rabotu v vosem'."
+          "transliteration": "Kazhdoe utro on ___ na rabotu v vosem'.",
+          "gloss": "every.ACC.N.SG · morning.ACC.SG · 3SG.M.NOM · ___ · onto · work.ACC.SG · at · eight"
         }
       ]
     },
@@ -2722,7 +2930,8 @@
           "translation": "Don't be late — the lesson starts at nine.",
           "hint": "prohibition → imperfective",
           "display_order": 1,
-          "transliteration": "Ne ___ — urok nachinaetsya v devyat'."
+          "transliteration": "Ne ___ — urok nachinaetsya v devyat'.",
+          "gloss": "NEG · ___ · — · lesson.NOM.SG · begin.IPFV.PRS.3SG-REFL · at · nine"
         },
         {
           "sentence": "Не {{answer}} взять паспорт!",
@@ -2730,7 +2939,8 @@
           "translation": "Don't forget to take your passport!",
           "hint": "warning → perfective",
           "display_order": 2,
-          "transliteration": "Ne ___ vzyat' pasport!"
+          "transliteration": "Ne ___ vzyat' pasport!",
+          "gloss": "NEG · ___ · take.PFV.INF · passport.ACC.SG"
         },
         {
           "sentence": "{{answer}}, пожалуйста — чувствуйте себя как дома.",
@@ -2738,7 +2948,8 @@
           "translation": "Do sit down, please — make yourself at home.",
           "hint": "invitation → imperfective вы",
           "display_order": 3,
-          "transliteration": "___, pozhalujsta — chuvstvujte sebya kak doma."
+          "transliteration": "___, pozhalujsta — chuvstvujte sebya kak doma.",
+          "gloss": "___ · please · — · feel.IPFV.IMP.2PL · self.ACC · like · at_home"
         },
         {
           "sentence": "{{answer}} мне письмо, когда приедешь.",
@@ -2746,7 +2957,8 @@
           "translation": "Write me a letter when you arrive.",
           "hint": "one completed act → perfective ты",
           "display_order": 4,
-          "transliteration": "___ mne pis'mo, kogda priedesh'."
+          "transliteration": "___ mne pis'mo, kogda priedesh'.",
+          "gloss": "___ · 1SG.DAT · letter.ACC.SG · when · arrive.PFV.FUT.2SG"
         },
         {
           "sentence": "{{answer}} каждый день — и язык придёт.",
@@ -2754,7 +2966,8 @@
           "translation": "Read every day — and the language will come.",
           "hint": "routine → imperfective вы",
           "display_order": 5,
-          "transliteration": "___ kazhdy'j den' — i yazy'k pridyot."
+          "transliteration": "___ kazhdy'j den' — i yazy'k pridyot.",
+          "gloss": "___ · every.ACC.M.SG · day.ACC.SG · — · and · language.NOM.SG · come.PFV.FUT.3SG"
         },
         {
           "sentence": "Осторожно, не {{answer}} — пол мокрый.",
@@ -2762,7 +2975,8 @@
           "translation": "Careful, don't fall — the floor is wet.",
           "hint": "warning against accident → perfective",
           "display_order": 6,
-          "transliteration": "Ostorozhno, ne ___ — pol mokry'j."
+          "transliteration": "Ostorozhno, ne ___ — pol mokry'j.",
+          "gloss": "carefully · NEG · ___ · — · floor.NOM.SG · wet.NOM.M.SG"
         }
       ]
     },
@@ -2796,7 +3010,8 @@
           "translation": "He thinks only about himself.",
           "hint": "о + prepositional of себя",
           "display_order": 1,
-          "transliteration": "On dumaet tol'ko o ___."
+          "transliteration": "On dumaet tol'ko o ___.",
+          "gloss": "3SG.M.NOM · think.IPFV.PRS.3SG · only · about · ___"
         },
         {
           "sentence": "Она купила {{answer}} новое платье.",
@@ -2804,7 +3019,8 @@
           "translation": "She bought herself a new dress.",
           "hint": "dative of себя",
           "display_order": 2,
-          "transliteration": "Ona kupila ___ novoe plat'e."
+          "transliteration": "Ona kupila ___ novoe plat'e.",
+          "gloss": "3SG.F.NOM · buy.PFV.PST.F.SG · ___ · new.ACC.N.SG · dress.ACC.SG"
         },
         {
           "sentence": "Она {{answer}} это сделала, без помощи.",
@@ -2812,7 +3028,8 @@
           "translation": "She did it herself, without help.",
           "hint": "emphatic — feminine",
           "display_order": 3,
-          "transliteration": "Ona ___ e'to sdelala, bez pomoshhi."
+          "transliteration": "Ona ___ e'to sdelala, bez pomoshhi.",
+          "gloss": "3SG.F.NOM · ___ · this.ACC.N.SG · do.PFV.PST.F.SG · without · help.GEN.SG"
         },
         {
           "sentence": "Посмотри на {{answer}} в зеркало.",
@@ -2820,7 +3037,8 @@
           "translation": "Look at yourself in the mirror.",
           "hint": "'oneself' + accusative after на",
           "display_order": 4,
-          "transliteration": "Posmotri na ___ v zerkalo."
+          "transliteration": "Posmotri na ___ v zerkalo.",
+          "gloss": "look.PFV.IMP.2SG · at · ___ · into · mirror.ACC.SG"
         },
         {
           "sentence": "Я {{answer}} виноват — извини.",
@@ -2828,7 +3046,8 @@
           "translation": "It's my own fault — sorry (male speaker).",
           "hint": "emphatic — masculine",
           "display_order": 5,
-          "transliteration": "Ya ___ vinovat — izvini."
+          "transliteration": "Ya ___ vinovat — izvini.",
+          "gloss": "1SG.NOM · ___ · guilty.M.SG · — · excuse.PFV.IMP.2SG"
         },
         {
           "sentence": "Возьмите с {{answer}} воду — будет жарко.",
@@ -2836,7 +3055,8 @@
           "translation": "Take water with you — it will be hot.",
           "hint": "с + instrumental of себя",
           "display_order": 6,
-          "transliteration": "Voz'mite s ___ vodu — budet zharko."
+          "transliteration": "Voz'mite s ___ vodu — budet zharko.",
+          "gloss": "take.PFV.IMP.2PL · with · ___ · water.ACC.SG · — · be.FUT.3SG · hot"
         }
       ]
     },
@@ -2870,7 +3090,8 @@
           "translation": "The man reading the newspaper is my neighbour.",
           "hint": "to read + present active participle, masculine",
           "display_order": 1,
-          "transliteration": "CHelovek, ___ gazetu, — moj sosed."
+          "transliteration": "CHelovek, ___ gazetu, — moj sosed.",
+          "gloss": "person · ___ · newspaper.ACC · — · 1SG.POSS · neighbour"
         },
         {
           "sentence": "Студенты, {{answer}} в Москве, часто ходят в театры.",
@@ -2878,7 +3099,8 @@
           "translation": "Students living in Moscow often go to the theatre.",
           "hint": "живут → -ущий, plural",
           "display_order": 2,
-          "transliteration": "Studenty', ___ v Moskve, chasto hodyat v teatry'."
+          "transliteration": "Studenty', ___ v Moskve, chasto hodyat v teatry'.",
+          "gloss": "student.PL · ___ · in · Moscow.LOC · often · go.3PL · to · theatre.PL.ACC"
         },
         {
           "sentence": "Женщина, {{answer}} по телефону, — наш директор.",
@@ -2886,7 +3108,8 @@
           "translation": "The woman talking on the phone is our director.",
           "hint": "говорят → -ящий, feminine",
           "display_order": 3,
-          "transliteration": "ZHenshhina, ___ po telefonu, — nash direktor."
+          "transliteration": "ZHenshhina, ___ po telefonu, — nash direktor.",
+          "gloss": "woman · ___ · on · telephone.DAT · — · 1PL.POSS · director"
         },
         {
           "sentence": "Дети, {{answer}} в парке, очень шумные.",
@@ -2894,7 +3117,8 @@
           "translation": "The children playing in the park are very noisy.",
           "hint": "играют → -ющий, plural",
           "display_order": 4,
-          "transliteration": "Deti, ___ v parke, ochen' shumny'e."
+          "transliteration": "Deti, ___ v parke, ochen' shumny'e.",
+          "gloss": "child.PL · ___ · in · park.LOC · very · noisy.PL"
         },
         {
           "sentence": "Все {{answer}} по-русски могут участвовать.",
@@ -2902,7 +3126,8 @@
           "translation": "Everyone who speaks Russian can take part.",
           "hint": "говорят → -ящий, plural",
           "display_order": 5,
-          "transliteration": "Vse ___ po-russki mogut uchastvovat'."
+          "transliteration": "Vse ___ po-russki mogut uchastvovat'.",
+          "gloss": "all.PL · ___ · in.Russian · can.3PL · participate.INF"
         },
         {
           "sentence": "Поезд, {{answer}} в Москву, отходит в шесть.",
@@ -2910,7 +3135,8 @@
           "translation": "The train going to Moscow leaves at six.",
           "hint": "to go + present active participle, masculine",
           "display_order": 6,
-          "transliteration": "Poezd, ___ v Moskvu, othodit v shest'."
+          "transliteration": "Poezd, ___ v Moskvu, othodit v shest'.",
+          "gloss": "train · ___ · to · Moscow.ACC · depart.3SG · at · six"
         }
       ]
     },
@@ -2944,7 +3170,8 @@
           "translation": "The writer who had lived in Paris returned to Russia.",
           "hint": "жил → -вший, masculine",
           "display_order": 1,
-          "transliteration": "Pisatel', ___ v Parizhe, vernulsya v Rossiyu."
+          "transliteration": "Pisatel', ___ v Parizhe, vernulsya v Rossiyu.",
+          "gloss": "writer · ___ · in · Paris.LOC · return.PST.M · to · Russia.ACC"
         },
         {
           "sentence": "Студент, {{answer}} экзамен, был очень рад.",
@@ -2952,7 +3179,8 @@
           "translation": "The student who passed the exam was very glad.",
           "hint": "to pass (an exam) + past active participle",
           "display_order": 2,
-          "transliteration": "Student, ___ e'kzamen, by'l ochen' rad."
+          "transliteration": "Student, ___ e'kzamen, by'l ochen' rad.",
+          "gloss": "student · ___ · exam.ACC · be.PST.M · very · glad.M"
         },
         {
           "sentence": "Все, {{answer}} эту книгу, советуют её.",
@@ -2960,7 +3188,8 @@
           "translation": "Everyone who has read this book recommends it.",
           "hint": "прочитал → -вший, plural",
           "display_order": 3,
-          "transliteration": "Vse, ___ e'tu knigu, sovetuyut eyo."
+          "transliteration": "Vse, ___ e'tu knigu, sovetuyut eyo.",
+          "gloss": "all.PL · ___ · this.F.ACC · book.ACC · recommend.3PL · 3SG.F.ACC"
         },
         {
           "sentence": "Женщина, {{answer}} это письмо, — известная журналистка.",
@@ -2968,7 +3197,8 @@
           "translation": "The woman who wrote this letter is a well-known journalist.",
           "hint": "написала → -вший, feminine",
           "display_order": 4,
-          "transliteration": "ZHenshhina, ___ e'to pis'mo, — izvestnaya zhurnalistka."
+          "transliteration": "ZHenshhina, ___ e'to pis'mo, — izvestnaya zhurnalistka.",
+          "gloss": "woman · ___ · this.N.ACC · letter.ACC · — · famous.F · journalist.F"
         },
         {
           "sentence": "Гости, {{answer}} вчера, уже уехали.",
@@ -2976,7 +3206,8 @@
           "translation": "The guests who arrived yesterday have already left.",
           "hint": "приехал → -вший, plural",
           "display_order": 5,
-          "transliteration": "Gosti, ___ vchera, uzhe uehali."
+          "transliteration": "Gosti, ___ vchera, uzhe uehali.",
+          "gloss": "guest.PL · ___ · yesterday · already · leave.PST.PL"
         },
         {
           "sentence": "Человек, {{answer}} окно, извинился.",
@@ -2984,7 +3215,8 @@
           "translation": "The person who opened the window apologised.",
           "hint": "to open + past active participle, masculine",
           "display_order": 6,
-          "transliteration": "CHelovek, ___ okno, izvinilsya."
+          "transliteration": "CHelovek, ___ okno, izvinilsya.",
+          "gloss": "person · ___ · window.ACC · apologise.PST.M"
         }
       ]
     },
@@ -3018,7 +3250,8 @@
           "translation": "The letter written yesterday has already arrived.",
           "hint": "написать → -нный, neuter",
           "display_order": 1,
-          "transliteration": "Pis'mo, ___ vchera, uzhe prishlo."
+          "transliteration": "Pis'mo, ___ vchera, uzhe prishlo.",
+          "gloss": "letter · ___ · yesterday · already · arrive.PST.N"
         },
         {
           "sentence": "Дом, {{answer}} в прошлом году, уже продан.",
@@ -3026,7 +3259,8 @@
           "translation": "The house built last year has already been sold.",
           "hint": "to build + past passive participle, masculine",
           "display_order": 2,
-          "transliteration": "Dom, ___ v proshlom godu, uzhe prodan."
+          "transliteration": "Dom, ___ v proshlom godu, uzhe prodan.",
+          "gloss": "house · ___ · in · last.M.LOC · year.LOC · already · sell.PST.PTCP.PASS.M"
         },
         {
           "sentence": "Это роман, {{answer}} Толстым.",
@@ -3034,7 +3268,8 @@
           "translation": "This is a novel written by Tolstoy.",
           "hint": "the doer takes the instrumental",
           "display_order": 3,
-          "transliteration": "E'to roman, ___ Tolsty'm."
+          "transliteration": "E'to roman, ___ Tolsty'm.",
+          "gloss": "this · novel · ___ · Tolstoy.INS"
         },
         {
           "sentence": "Книга, {{answer}} мной летом, лежит на полке.",
@@ -3042,7 +3277,8 @@
           "translation": "The book I read in the summer is lying on the shelf.",
           "hint": "прочитать → -нный, feminine",
           "display_order": 4,
-          "transliteration": "Kniga, ___ mnoj letom, lezhit na polke."
+          "transliteration": "Kniga, ___ mnoj letom, lezhit na polke.",
+          "gloss": "book · ___ · 1SG.INS · summer.INS · lie.3SG · on · shelf.LOC"
         },
         {
           "sentence": "Дверь, {{answer}} на ключ, никто не открыл.",
@@ -3050,7 +3286,8 @@
           "translation": "Nobody opened the door locked with a key.",
           "hint": "закрыть → -тый, feminine",
           "display_order": 5,
-          "transliteration": "Dver', ___ na klyuch, nikto ne otkry'l."
+          "transliteration": "Dver', ___ na klyuch, nikto ne otkry'l.",
+          "gloss": "door · ___ · on · key.ACC · nobody · NEG · open.PST.M"
         },
         {
           "sentence": "Все билеты, {{answer}} онлайн, дешевле.",
@@ -3058,7 +3295,8 @@
           "translation": "All tickets bought online are cheaper.",
           "hint": "купить → -ленный, plural",
           "display_order": 6,
-          "transliteration": "Vse bilety', ___ onlajn, deshevle."
+          "transliteration": "Vse bilety', ___ onlajn, deshevle.",
+          "gloss": "all.PL · ticket.PL · ___ · online · cheap.COMP"
         }
       ]
     },
@@ -3092,7 +3330,8 @@
           "translation": "The shop is closed — come back tomorrow.",
           "hint": "to close + short passive form, masculine",
           "display_order": 1,
-          "transliteration": "Magazin ___ — prihodite zavtra."
+          "transliteration": "Magazin ___ — prihodite zavtra.",
+          "gloss": "shop · ___ · — · come.IMP.2PL · tomorrow"
         },
         {
           "sentence": "Работа уже {{answer}}.",
@@ -3100,7 +3339,8 @@
           "translation": "The work is already done.",
           "hint": "сделать → short form, feminine",
           "display_order": 2,
-          "transliteration": "Rabota uzhe ___."
+          "transliteration": "Rabota uzhe ___.",
+          "gloss": "work · already · ___"
         },
         {
           "sentence": "Письмо {{answer}}, можно отправлять.",
@@ -3108,7 +3348,8 @@
           "translation": "The letter is written, it can be sent.",
           "hint": "написать → short form, neuter",
           "display_order": 3,
-          "transliteration": "Pis'mo ___, mozhno otpravlyat'."
+          "transliteration": "Pis'mo ___, mozhno otpravlyat'.",
+          "gloss": "letter.NOM.SG · ___ · possible · send.IPFV.INF"
         },
         {
           "sentence": "Этот дом {{answer}} сто лет назад.",
@@ -3116,7 +3357,8 @@
           "translation": "This house was built a hundred years ago.",
           "hint": "построить → short form, masculine",
           "display_order": 4,
-          "transliteration": "E'tot dom ___ sto let nazad."
+          "transliteration": "E'tot dom ___ sto let nazad.",
+          "gloss": "this.NOM.M.SG · house.NOM.SG · ___ · hundred · year.GEN.PL · ago"
         },
         {
           "sentence": "Билеты уже {{answer}} — идём в театр!",
@@ -3124,7 +3366,8 @@
           "translation": "The tickets are already bought — we're going to the theatre!",
           "hint": "купить → short form, plural",
           "display_order": 5,
-          "transliteration": "Bilety' uzhe ___ — idyom v teatr!"
+          "transliteration": "Bilety' uzhe ___ — idyom v teatr!",
+          "gloss": "ticket.NOM.PL · already · ___ · — · go.1PL · to · theatre.ACC.SG"
         },
         {
           "sentence": "Дверь была {{answer}} всю ночь.",
@@ -3132,7 +3375,8 @@
           "translation": "The door was open all night.",
           "hint": "открыть → short form, feminine",
           "display_order": 6,
-          "transliteration": "Dver' by'la ___ vsyu noch'."
+          "transliteration": "Dver' by'la ___ vsyu noch'.",
+          "gloss": "door.NOM.SG · be.PST.F.SG · ___ · all.ACC.F.SG · night.ACC.SG"
         }
       ]
     },
@@ -3166,7 +3410,8 @@
           "translation": "While reading a book, I take notes.",
           "hint": "to read + imperfective gerund",
           "display_order": 1,
-          "transliteration": "___ knigu, ya delayu zametki."
+          "transliteration": "___ knigu, ya delayu zametki.",
+          "gloss": "___ · book.ACC.SG · 1SG.NOM · make.1SG · note.ACC.PL"
         },
         {
           "sentence": "{{answer}} по парку, мы разговаривали.",
@@ -3174,7 +3419,8 @@
           "translation": "Strolling through the park, we talked.",
           "hint": "to stroll + imperfective gerund",
           "display_order": 2,
-          "transliteration": "___ po parku, my' razgovarivali."
+          "transliteration": "___ po parku, my' razgovarivali.",
+          "gloss": "___ · along · park.DAT.SG · 1PL.NOM · talk.IPFV.PST.PL"
         },
         {
           "sentence": "Она слушает музыку, {{answer}} ужин.",
@@ -3182,7 +3428,8 @@
           "translation": "She listens to music while cooking dinner.",
           "hint": "to cook + imperfective gerund",
           "display_order": 3,
-          "transliteration": "Ona slushaet muzy'ku, ___ uzhin."
+          "transliteration": "Ona slushaet muzy'ku, ___ uzhin.",
+          "gloss": "3SG.F.NOM · listen.3SG · music.ACC.SG · ___ · dinner.ACC.SG"
         },
         {
           "sentence": "{{answer}} с нами, он всё время улыбался.",
@@ -3190,7 +3437,8 @@
           "translation": "While talking with us, he smiled the whole time.",
           "hint": "to talk + imperfective gerund",
           "display_order": 4,
-          "transliteration": "___ s nami, on vsyo vremya uly'balsya."
+          "transliteration": "___ s nami, on vsyo vremya uly'balsya.",
+          "gloss": "___ · with · 1PL.INS · 3SG.M.NOM · all.ACC.N.SG · time.ACC.SG · smile.IPFV.PST.M.SG"
         },
         {
           "sentence": "{{answer}} спортом, следи за дыханием.",
@@ -3198,7 +3446,8 @@
           "translation": "When doing sports, watch your breathing.",
           "hint": "to do (sports) + imperfective gerund, reflexive",
           "display_order": 5,
-          "transliteration": "___ sportom, sledi za dy'haniem."
+          "transliteration": "___ sportom, sledi za dy'haniem.",
+          "gloss": "___ · sport.INS.SG · watch.IMP.2SG · after · breathing.INS.SG"
         },
         {
           "sentence": "Он работает, {{answer}} радио.",
@@ -3206,7 +3455,8 @@
           "translation": "He works while listening to the radio.",
           "hint": "to listen + imperfective gerund",
           "display_order": 6,
-          "transliteration": "On rabotaet, ___ radio."
+          "transliteration": "On rabotaet, ___ radio.",
+          "gloss": "3SG.M.NOM · work.3SG · ___ · radio"
         }
       ]
     },
@@ -3240,7 +3490,8 @@
           "translation": "Having read the book, I returned it to the library.",
           "hint": "to finish reading + perfective gerund",
           "display_order": 1,
-          "transliteration": "___ knigu, ya vernul eyo v biblioteku."
+          "transliteration": "___ knigu, ya vernul eyo v biblioteku.",
+          "gloss": "___ · book.ACC.SG · 1SG.NOM · return.PFV.PST.M.SG · 3SG.F.ACC · to · library.ACC.SG"
         },
         {
           "sentence": "{{answer}} письмо, она пошла на почту.",
@@ -3248,7 +3499,8 @@
           "translation": "Having written the letter, she went to the post office.",
           "hint": "to write (perfective) + gerund",
           "display_order": 2,
-          "transliteration": "___ pis'mo, ona poshla na pochtu."
+          "transliteration": "___ pis'mo, ona poshla na pochtu.",
+          "gloss": "___ · letter.ACC.SG · 3SG.F.NOM · go.PFV.PST.F.SG · to · post.ACC.SG"
         },
         {
           "sentence": "{{answer}} домой, он сразу поужинал.",
@@ -3256,7 +3508,8 @@
           "translation": "Having come home, he had dinner right away.",
           "hint": "to arrive + gerund (motion verbs take -я)",
           "display_order": 3,
-          "transliteration": "___ domoj, on srazu pouzhinal."
+          "transliteration": "___ domoj, on srazu pouzhinal.",
+          "gloss": "___ · homeward · 3SG.M.NOM · immediately · dine.PFV.PST.M.SG"
         },
         {
           "sentence": "{{answer}} билеты, мы пошли в зал.",
@@ -3264,7 +3517,8 @@
           "translation": "Having bought the tickets, we went into the hall.",
           "hint": "to buy (perfective) + gerund",
           "display_order": 4,
-          "transliteration": "___ bilety', my' poshli v zal."
+          "transliteration": "___ bilety', my' poshli v zal.",
+          "gloss": "___ · ticket.ACC.PL · 1PL.NOM · go.PFV.PST.PL · to · hall.ACC.SG"
         },
         {
           "sentence": "{{answer}} домой, она позвонила маме.",
@@ -3272,7 +3526,8 @@
           "translation": "Having returned home, she called her mum.",
           "hint": "to return + gerund, reflexive",
           "display_order": 5,
-          "transliteration": "___ domoj, ona pozvonila mame."
+          "transliteration": "___ domoj, ona pozvonila mame.",
+          "gloss": "___ · homeward · 3SG.F.NOM · call.PFV.PST.F.SG · mum.DAT.SG"
         },
         {
           "sentence": "{{answer}} работу, он выключил компьютер.",
@@ -3280,7 +3535,8 @@
           "translation": "Having finished the work, he switched off the computer.",
           "hint": "to finish + perfective gerund",
           "display_order": 6,
-          "transliteration": "___ rabotu, on vy'klyuchil komp'yuter."
+          "transliteration": "___ rabotu, on vy'klyuchil komp'yuter.",
+          "gloss": "___ · work.ACC.SG · 3SG.M.NOM · switch_off.PFV.PST.M.SG · computer.ACC.SG"
         }
       ]
     },
@@ -3314,7 +3570,8 @@
           "translation": "I liked the book so much that I want to reread it.",
           "hint": "пере- = again",
           "display_order": 1,
-          "transliteration": "Kniga tak ponravilas', chto ya hochu eyo ___."
+          "transliteration": "Kniga tak ponravilas', chto ya hochu eyo ___.",
+          "gloss": "book.NOM.SG · so · please.PFV.PST.F.SG · COMP · 1SG.NOM · want.1SG · 3SG.F.ACC · ___"
         },
         {
           "sentence": "Я {{answer}} книгу до конца за одну ночь.",
@@ -3322,7 +3579,8 @@
           "translation": "I read the book to the end in one night.",
           "hint": "до- = up to the end, past masculine",
           "display_order": 2,
-          "transliteration": "Ya ___ knigu do koncza za odnu noch'."
+          "transliteration": "Ya ___ knigu do koncza za odnu noch'.",
+          "gloss": "1SG.NOM · ___ · book.ACC.SG · until · end.GEN.SG · in · one.ACC.F.SG · night.ACC.SG"
         },
         {
           "sentence": "{{answer}} мой номер телефона, пожалуйста.",
@@ -3330,7 +3588,8 @@
           "translation": "Write down my phone number, please.",
           "hint": "за- + писать, imperative ты",
           "display_order": 3,
-          "transliteration": "___ moj nomer telefona, pozhalujsta."
+          "transliteration": "___ moj nomer telefona, pozhalujsta.",
+          "gloss": "___ · 1SG.POSS.ACC.M.SG · number.ACC.SG · telephone.GEN.SG · please"
         },
         {
           "sentence": "В тексте много ошибок — надо его {{answer}}.",
@@ -3338,7 +3597,8 @@
           "translation": "There are many mistakes in the text — it needs to be rewritten.",
           "hint": "пере- = anew",
           "display_order": 4,
-          "transliteration": "V tekste mnogo oshibok — nado ego ___."
+          "transliteration": "V tekste mnogo oshibok — nado ego ___.",
+          "gloss": "in · text.LOC.SG · many · mistake.GEN.PL · — · necessary · 3SG.M.ACC · ___"
         },
         {
           "sentence": "{{answer}} нам о своей поездке!",
@@ -3346,7 +3606,8 @@
           "translation": "Tell us about your trip!",
           "hint": "рас- + сказать, imperative ты",
           "display_order": 5,
-          "transliteration": "___ nam o svoej poezdke!"
+          "transliteration": "___ nam o svoej poezdke!",
+          "gloss": "___ · 1PL.DAT · about · own.POSS.F.LOC · trip.LOC"
         },
         {
           "sentence": "По дороге домой я {{answer}} в магазин.",
@@ -3354,7 +3615,8 @@
           "translation": "On the way home I popped into the shop.",
           "hint": "за- = drop in, past masculine",
           "display_order": 6,
-          "transliteration": "Po doroge domoj ya ___ v magazin."
+          "transliteration": "Po doroge domoj ya ___ v magazin.",
+          "gloss": "along · road.DAT · homeward · 1SG.NOM · ___ · in · shop.ACC"
         }
       ]
     },
@@ -3388,7 +3650,8 @@
           "translation": "Nobody came to the meeting.",
           "hint": "negative pronoun — person",
           "display_order": 1,
-          "transliteration": "___ ne prishyol na sobranie."
+          "transliteration": "___ ne prishyol na sobranie.",
+          "gloss": "___ · NEG · come.PFV.PST.M.SG · on · meeting.ACC"
         },
         {
           "sentence": "Я {{answer}} не знаю об этом.",
@@ -3396,7 +3659,8 @@
           "translation": "I don't know anything about this.",
           "hint": "negative pronoun — thing, genitive",
           "display_order": 2,
-          "transliteration": "Ya ___ ne znayu ob e'tom."
+          "transliteration": "Ya ___ ne znayu ob e'tom.",
+          "gloss": "1SG.NOM · ___ · NEG · know.PRS.1SG · about · this.N.LOC"
         },
         {
           "sentence": "Он {{answer}} не был в Москве.",
@@ -3404,7 +3668,8 @@
           "translation": "He has never been to Moscow.",
           "hint": "negative adverb — time",
           "display_order": 3,
-          "transliteration": "On ___ ne by'l v Moskve."
+          "transliteration": "On ___ ne by'l v Moskve.",
+          "gloss": "3SG.M.NOM · ___ · NEG · be.IPFV.PST.M.SG · in · Moscow.LOC"
         },
         {
           "sentence": "Никто {{answer}} видел мой телефон?",
@@ -3412,7 +3677,8 @@
           "translation": "Has nobody seen my phone?",
           "hint": "double negation is obligatory",
           "display_order": 4,
-          "transliteration": "Nikto ___ videl moj telefon?"
+          "transliteration": "Nikto ___ videl moj telefon?",
+          "gloss": "nobody.NOM · ___ · see.IPFV.PST.M.SG · 1SG.POSS.M.ACC · phone.ACC"
         },
         {
           "sentence": "Мы {{answer}} не нашли в этом магазине.",
@@ -3420,7 +3686,8 @@
           "translation": "We didn't find anything in this shop.",
           "hint": "negative pronoun — thing",
           "display_order": 5,
-          "transliteration": "My' ___ ne nashli v e'tom magazine."
+          "transliteration": "My' ___ ne nashli v e'tom magazine.",
+          "gloss": "1PL.NOM · ___ · NEG · find.PFV.PST.PL · in · this.M.LOC · shop.LOC"
         },
         {
           "sentence": "Она {{answer}} не рассказала о своих планах.",
@@ -3428,7 +3695,8 @@
           "translation": "She didn't tell anyone about her plans.",
           "hint": "dative of никто",
           "display_order": 6,
-          "transliteration": "Ona ___ ne rasskazala o svoih planah."
+          "transliteration": "Ona ___ ne rasskazala o svoih planah.",
+          "gloss": "3SG.F.NOM · ___ · NEG · tell.PFV.PST.F.SG · about · own.POSS.PL.LOC · plan.PL.LOC"
         }
       ]
     },
@@ -3462,7 +3730,8 @@
           "translation": "The questions being discussed at the meeting were important.",
           "hint": "которые обсуждаются → present passive participle",
           "display_order": 1,
-          "transliteration": "Voprosy', ___ na sobranii, by'li vazhny'mi."
+          "transliteration": "Voprosy', ___ na sobranii, by'li vazhny'mi.",
+          "gloss": "question.PL.NOM · ___ · on · meeting.LOC · be.IPFV.PST.PL · important.PL.INS"
         },
         {
           "sentence": "Рядом стоит {{answer}} дом — через год он будет готов.",
@@ -3470,7 +3739,8 @@
           "translation": "Nearby stands a house under construction — in a year it will be ready.",
           "hint": "'which is being built' as one participle",
           "display_order": 2,
-          "transliteration": "Ryadom stoit ___ dom — cherez god on budet gotov."
+          "transliteration": "Ryadom stoit ___ dom — cherez god on budet gotov.",
+          "gloss": "nearby · stand.PRS.3SG · ___ · house.NOM · — · in · year.ACC · 3SG.M.NOM · be.FUT.3SG · ready.M.SG"
         },
         {
           "sentence": "Меры, {{answer}} правительством, дали результат.",
@@ -3478,7 +3748,8 @@
           "translation": "The measures taken by the government produced results.",
           "hint": "которые приняли → past passive participle",
           "display_order": 3,
-          "transliteration": "Mery', ___ pravitel'stvom, dali rezul'tat."
+          "transliteration": "Mery', ___ pravitel'stvom, dali rezul'tat.",
+          "gloss": "measure.PL.NOM · ___ · government.INS · give.PFV.PST.PL · result.ACC"
         },
         {
           "sentence": "Документы, {{answer}} подписи, лежат на столе.",
@@ -3486,7 +3757,8 @@
           "translation": "The documents requiring a signature are on the desk.",
           "hint": "которые требуют → present active participle",
           "display_order": 4,
-          "transliteration": "Dokumenty', ___ podpisi, lezhat na stole."
+          "transliteration": "Dokumenty', ___ podpisi, lezhat na stole.",
+          "gloss": "document.PL.NOM · ___ · signature.GEN · lie.PRS.3PL · on · table.LOC"
         },
         {
           "sentence": "Все {{answer}} билеты уже проданы.",
@@ -3494,7 +3766,8 @@
           "translation": "All available tickets have already been sold.",
           "hint": "которые имеются → -щийся, plural",
           "display_order": 5,
-          "transliteration": "Vse ___ bilety' uzhe prodany'."
+          "transliteration": "Vse ___ bilety' uzhe prodany'.",
+          "gloss": "all.PL.NOM · ___ · ticket.PL.NOM · already · sell.PFV.PASS.PTCP.PL"
         },
         {
           "sentence": "Учёные, {{answer}} эту проблему, собрались в Москве.",
@@ -3502,7 +3775,8 @@
           "translation": "The scholars studying this problem gathered in Moscow.",
           "hint": "которые изучают → present active participle",
           "display_order": 6,
-          "transliteration": "Uchyony'e, ___ e'tu problemu, sobralis' v Moskve."
+          "transliteration": "Uchyony'e, ___ e'tu problemu, sobralis' v Moskve.",
+          "gloss": "scholar.PL.NOM · ___ · this.F.ACC · problem.ACC · gather.PFV.PST.PL · in · Moscow.LOC"
         }
       ]
     },
@@ -3536,7 +3810,8 @@
           "translation": "Have you read War and Peace? — Yes, long ago.",
           "hint": "only the fact matters — imperfective",
           "display_order": 1,
-          "transliteration": "Vy' ___ «Vojnu i mir»? — Da, davno."
+          "transliteration": "Vy' ___ «Vojnu i mir»? — Da, davno.",
+          "gloss": "2PL.NOM · ___ · war.ACC · and · peace.ACC · — · yes · long_ago"
         },
         {
           "sentence": "Я уже {{answer}} этот фильм, давай другой.",
@@ -3544,7 +3819,8 @@
           "translation": "I've already seen this film, let's pick another.",
           "hint": "experience, not result — imperfective",
           "display_order": 2,
-          "transliteration": "Ya uzhe ___ e'tot fil'm, davaj drugoj."
+          "transliteration": "Ya uzhe ___ e'tot fil'm, davaj drugoj.",
+          "gloss": "1SG.NOM · already · ___ · this.M.ACC · film.ACC · give.IMP.2SG · other.M.ACC"
         },
         {
           "sentence": "Кто {{answer}} этот отчёт? У меня есть вопросы.",
@@ -3552,7 +3828,8 @@
           "translation": "Who wrote this report? I have some questions.",
           "hint": "asking about the doer — imperfective",
           "display_order": 3,
-          "transliteration": "Kto ___ e'tot otchyot? U menya est' voprosy'."
+          "transliteration": "Kto ___ e'tot otchyot? U menya est' voprosy'.",
+          "gloss": "who.NOM · ___ · this.M.ACC · report.ACC · at · 1SG.GEN · be.PRS.3SG · question.PL.NOM"
         },
         {
           "sentence": "Ты когда-нибудь {{answer}} борщ?",
@@ -3560,7 +3837,8 @@
           "translation": "Have you ever tried borscht?",
           "hint": "когда-нибудь → general experience",
           "display_order": 4,
-          "transliteration": "Ty' kogda-nibud' ___ borshh?"
+          "transliteration": "Ty' kogda-nibud' ___ borshh?",
+          "gloss": "2SG.NOM · when-INDF · ___ · borscht.ACC"
         },
         {
           "sentence": "Мы уже {{answer}} эту оперу, в прошлом сезоне.",
@@ -3568,7 +3846,8 @@
           "translation": "We've already heard this opera, last season.",
           "hint": "experience — imperfective",
           "display_order": 5,
-          "transliteration": "My' uzhe ___ e'tu operu, v proshlom sezone."
+          "transliteration": "My' uzhe ___ e'tu operu, v proshlom sezone.",
+          "gloss": "1PL.NOM · already · ___ · this.F.ACC · opera.ACC · in · last.M.LOC · season.LOC"
         },
         {
           "sentence": "Ты {{answer}} мой отчёт до конца? Он нужен мне сейчас.",
@@ -3576,7 +3855,8 @@
           "translation": "Did you finish reading my report? I need it now.",
           "hint": "result matters here — perfective",
           "display_order": 6,
-          "transliteration": "Ty' ___ moj otchyot do koncza? On nuzhen mne sejchas."
+          "transliteration": "Ty' ___ moj otchyot do koncza? On nuzhen mne sejchas.",
+          "gloss": "2SG.NOM · ___ · 1SG.POSS.M.ACC · report.ACC · until · end.GEN · 3SG.M.NOM · necessary.M.SG · 1SG.DAT · now"
         }
       ]
     },
@@ -3610,7 +3890,8 @@
           "translation": "I want you to come tomorrow (to a male).",
           "hint": "past tense after чтобы",
           "display_order": 1,
-          "transliteration": "Ya hochu, chtoby' ty' ___ zavtra."
+          "transliteration": "Ya hochu, chtoby' ty' ___ zavtra.",
+          "gloss": "1SG.NOM · want.PRS.1SG · that.COND · 2SG.NOM · ___ · tomorrow"
         },
         {
           "sentence": "Она попросила, чтобы мы {{answer}} её у входа.",
@@ -3618,7 +3899,8 @@
           "translation": "She asked us to wait for her at the entrance.",
           "hint": "подождать — past plural",
           "display_order": 2,
-          "transliteration": "Ona poprosila, chtoby' my' ___ eyo u vhoda."
+          "transliteration": "Ona poprosila, chtoby' my' ___ eyo u vhoda.",
+          "gloss": "3SG.F.NOM · ask.PFV.PST.F · that.COND · 1PL.NOM · ___ · 3SG.F.ACC · at · entrance.GEN"
         },
         {
           "sentence": "Важно, {{answer}} все были готовы к девяти.",
@@ -3626,7 +3908,8 @@
           "translation": "It is important that everyone be ready by nine.",
           "hint": "the subjunctive conjunction",
           "display_order": 3,
-          "transliteration": "Vazhno, ___ vse by'li gotovy' k devyati."
+          "transliteration": "Vazhno, ___ vse by'li gotovy' k devyati.",
+          "gloss": "important.N · ___ · all.PL.NOM · be.PST.PL · ready.PL · to · nine.DAT"
         },
         {
           "sentence": "Учитель хочет, чтобы студенты больше {{answer}}.",
@@ -3634,7 +3917,8 @@
           "translation": "The teacher wants the students to read more.",
           "hint": "past plural after чтобы",
           "display_order": 4,
-          "transliteration": "Uchitel' hochet, chtoby' studenty' bol'she ___."
+          "transliteration": "Uchitel' hochet, chtoby' studenty' bol'she ___.",
+          "gloss": "teacher.NOM · want.PRS.3SG · that.COND · student.PL.NOM · much.COMP · ___"
         },
         {
           "sentence": "Родители хотят, чтобы дочь {{answer}} врачом.",
@@ -3642,7 +3926,8 @@
           "translation": "The parents want their daughter to become a doctor.",
           "hint": "стать — past feminine",
           "display_order": 5,
-          "transliteration": "Roditeli hotyat, chtoby' doch' ___ vrachom."
+          "transliteration": "Roditeli hotyat, chtoby' doch' ___ vrachom.",
+          "gloss": "parent.PL.NOM · want.PRS.3PL · that.COND · daughter.NOM · ___ · doctor.INS"
         },
         {
           "sentence": "Скажи ему, {{answer}} он не опаздывал.",
@@ -3650,7 +3935,8 @@
           "translation": "Tell him not to be late.",
           "hint": "reported command",
           "display_order": 6,
-          "transliteration": "Skazhi emu, ___ on ne opazdy'val."
+          "transliteration": "Skazhi emu, ___ on ne opazdy'val.",
+          "gloss": "say.PFV.IMP.2SG · 3SG.M.DAT · ___ · 3SG.M.NOM · NEG · be_late.IPFV.PST.M"
         }
       ]
     },
@@ -3684,7 +3970,8 @@
           "translation": "The new school has been under construction for two years.",
           "hint": "to build + reflexive passive",
           "display_order": 1,
-          "transliteration": "Novaya shkola ___ uzhe dva goda."
+          "transliteration": "Novaya shkola ___ uzhe dva goda.",
+          "gloss": "new.F.NOM · school.NOM · ___ · already · two.ACC · year.GEN"
         },
         {
           "sentence": "Этот журнал {{answer}} в любом киоске.",
@@ -3692,7 +3979,8 @@
           "translation": "This magazine is sold at any kiosk.",
           "hint": "to sell + reflexive passive",
           "display_order": 2,
-          "transliteration": "E'tot zhurnal ___ v lyubom kioske."
+          "transliteration": "E'tot zhurnal ___ v lyubom kioske.",
+          "gloss": "this.M.NOM · magazine.NOM · ___ · in · any.M.LOC · kiosk.LOC"
         },
         {
           "sentence": "Этот вопрос сейчас {{answer}} на собрании.",
@@ -3700,7 +3988,8 @@
           "translation": "This question is now being discussed at the meeting.",
           "hint": "to discuss + reflexive passive",
           "display_order": 3,
-          "transliteration": "E'tot vopros sejchas ___ na sobranii."
+          "transliteration": "E'tot vopros sejchas ___ na sobranii.",
+          "gloss": "this.M.NOM · question.NOM · now · ___ · at · meeting.LOC"
         },
         {
           "sentence": "Проект {{answer}} нашей командой.",
@@ -3708,7 +3997,8 @@
           "translation": "The project is being developed by our team.",
           "hint": "the doer takes the instrumental",
           "display_order": 4,
-          "transliteration": "Proekt ___ nashej komandoj."
+          "transliteration": "Proekt ___ nashej komandoj.",
+          "gloss": "project.NOM · ___ · 1PL.POSS.F.INS · team.INS"
         },
         {
           "sentence": "Эта книга легко {{answer}} за один вечер.",
@@ -3716,7 +4006,8 @@
           "translation": "This book reads easily in one evening.",
           "hint": "to read + reflexive passive",
           "display_order": 5,
-          "transliteration": "E'ta kniga legko ___ za odin vecher."
+          "transliteration": "E'ta kniga legko ___ za odin vecher.",
+          "gloss": "this.F.NOM · book.NOM · easily · ___ · within · one.M.ACC · evening.ACC"
         },
         {
           "sentence": "Экзамены {{answer}} в июне.",
@@ -3724,7 +4015,8 @@
           "translation": "The exams are held in June.",
           "hint": "to hold + reflexive passive, plural",
           "display_order": 6,
-          "transliteration": "E'kzameny' ___ v iyune."
+          "transliteration": "E'kzameny' ___ v iyune.",
+          "gloss": "exam.PL.NOM · ___ · in · June.LOC"
         }
       ]
     },
@@ -3758,7 +4050,8 @@
           "translation": "There were about fifty people in the hall.",
           "hint": "пятьдесят → genitive after около",
           "display_order": 1,
-          "transliteration": "V zale by'lo okolo ___ chelovek."
+          "transliteration": "V zale by'lo okolo ___ chelovek.",
+          "gloss": "in · hall.LOC · be.PST.N · about · ___ · person.PL.GEN"
         },
         {
           "sentence": "Более {{answer}} студентов сдали экзамен.",
@@ -3766,7 +4059,8 @@
           "translation": "More than two hundred students passed the exam.",
           "hint": "двести → genitive after более",
           "display_order": 2,
-          "transliteration": "Bolee ___ studentov sdali e'kzamen."
+          "transliteration": "Bolee ___ studentov sdali e'kzamen.",
+          "gloss": "much.COMP · ___ · student.PL.GEN · pass.PFV.PST.PL · exam.ACC"
         },
         {
           "sentence": "Ему около {{answer}} лет.",
@@ -3774,7 +4068,8 @@
           "translation": "He is about forty years old.",
           "hint": "forty — oblique case form",
           "display_order": 3,
-          "transliteration": "Emu okolo ___ let."
+          "transliteration": "Emu okolo ___ let.",
+          "gloss": "3SG.M.DAT · about · ___ · year.PL.GEN"
         },
         {
           "sentence": "Этому зданию более {{answer}} лет.",
@@ -3782,7 +4077,8 @@
           "translation": "This building is more than a hundred years old.",
           "hint": "сто → -а in oblique cases",
           "display_order": 4,
-          "transliteration": "E'tomu zdaniyu bolee ___ let."
+          "transliteration": "E'tomu zdaniyu bolee ___ let.",
+          "gloss": "this.N.DAT · building.DAT · much.COMP · ___ · year.PL.GEN"
         },
         {
           "sentence": "Он вышел из дома с {{answer}} рублями в кармане.",
@@ -3790,7 +4086,8 @@
           "translation": "He left the house with fifty roubles in his pocket.",
           "hint": "пятьдесят → instrumental, both halves decline",
           "display_order": 5,
-          "transliteration": "On vy'shel iz doma s ___ rublyami v karmane."
+          "transliteration": "On vy'shel iz doma s ___ rublyami v karmane.",
+          "gloss": "3SG.M.NOM · go_out.PFV.PST.M · from · house.GEN · with · ___ · rouble.PL.INS · in · pocket.LOC"
         },
         {
           "sentence": "Автобус ехал со скоростью около {{answer}} километров в час.",
@@ -3798,7 +4095,8 @@
           "translation": "The bus was travelling at about sixty kilometres per hour.",
           "hint": "шестьдесят → genitive after около",
           "display_order": 6,
-          "transliteration": "Avtobus ehal so skorost'yu okolo ___ kilometrov v chas."
+          "transliteration": "Avtobus ehal so skorost'yu okolo ___ kilometrov v chas.",
+          "gloss": "bus.NOM · travel.IPFV.PST.M · with · speed.INS · about · ___ · kilometre.PL.GEN · per · hour.ACC"
         }
       ]
     },
@@ -3832,7 +4130,8 @@
           "translation": "In the situation that has developed, one must act quickly.",
           "hint": "сложиться → reflexive past participle, prepositional",
           "display_order": 1,
-          "transliteration": "V ___ situaczii nado dejstvovat' by'stro."
+          "transliteration": "V ___ situaczii nado dejstvovat' by'stro.",
+          "gloss": "in · ___ · situation.LOC · necessary · act.INF · quickly"
         },
         {
           "sentence": "{{answer}} решения заняло два месяца.",
@@ -3840,7 +4139,8 @@
           "translation": "The taking of the decision took two months.",
           "hint": "to adopt + verbal noun",
           "display_order": 2,
-          "transliteration": "___ resheniya zanyalo dva mesyacza."
+          "transliteration": "___ resheniya zanyalo dva mesyacza.",
+          "gloss": "___ · decision.GEN · occupy.PFV.PST.N · two.ACC · month.GEN"
         },
         {
           "sentence": "При {{answer}} вопроса возникли трудности.",
@@ -3848,7 +4148,8 @@
           "translation": "Difficulties arose during the consideration of the question.",
           "hint": "рассмотрение → prepositional after при",
           "display_order": 3,
-          "transliteration": "Pri ___ voprosa voznikli trudnosti."
+          "transliteration": "Pri ___ voprosa voznikli trudnosti.",
+          "gloss": "during · ___ · question.GEN · arise.PST.PFV.PL · difficulty.NOM.PL"
         },
         {
           "sentence": "{{answer}} время лучше использовать для подготовки.",
@@ -3856,7 +4157,8 @@
           "translation": "The remaining time is best used for preparation.",
           "hint": "остаться → reflexive past participle, neuter",
           "display_order": 4,
-          "transliteration": "___ vremya luchshe ispol'zovat' dlya podgotovki."
+          "transliteration": "___ vremya luchshe ispol'zovat' dlya podgotovki.",
+          "gloss": "___ · time.ACC · better · use.INF · for · preparation.GEN"
         },
         {
           "sentence": "{{answer}} языка требует ежедневной практики.",
@@ -3864,7 +4166,8 @@
           "translation": "The study of a language requires daily practice.",
           "hint": "to study + verbal noun",
           "display_order": 5,
-          "transliteration": "___ yazy'ka trebuet ezhednevnoj praktiki."
+          "transliteration": "___ yazy'ka trebuet ezhednevnoj praktiki.",
+          "gloss": "___ · language.GEN · require.PRS.3SG · daily.GEN.F · practice.GEN"
         },
         {
           "sentence": "Стороны подписали договор о {{answer}} сотрудничества.",
@@ -3872,7 +4175,8 @@
           "translation": "The parties signed an agreement on the development of cooperation.",
           "hint": "развитие → prepositional after о",
           "display_order": 6,
-          "transliteration": "Storony' podpisali dogovor o ___ sotrudnichestva."
+          "transliteration": "Storony' podpisali dogovor o ___ sotrudnichestva.",
+          "gloss": "party.NOM.PL · sign.PST.PFV.PL · agreement.ACC · about · ___ · cooperation.GEN"
         }
       ]
     },
@@ -3906,7 +4210,8 @@
           "translation": "It's cold in here — someone had the window open, but has already closed it.",
           "hint": "result annulled → imperfective",
           "display_order": 1,
-          "transliteration": "Zdes' holodno — kto-to ___ okno, no uzhe zakry'l."
+          "transliteration": "Zdes' holodno — kto-to ___ okno, no uzhe zakry'l.",
+          "gloss": "here · cold · — · who.NOM-INDF · ___ · window.ACC · but · already · close.PST.PFV.M"
         },
         {
           "sentence": "К нам {{answer}} брат — жаль, ты его не застал.",
@@ -3914,7 +4219,8 @@
           "translation": "My brother visited us — a pity you missed him.",
           "hint": "he came and left → imperfective",
           "display_order": 2,
-          "transliteration": "K nam ___ brat — zhal', ty' ego ne zastal."
+          "transliteration": "K nam ___ brat — zhal', ty' ego ne zastal.",
+          "gloss": "to · 1PL.DAT · ___ · brother.NOM · — · pity · 2SG.NOM · 3SG.M.ACC · NEG · catch.PST.PFV.M"
         },
         {
           "sentence": "Он {{answer}} мою книгу и до сих пор не вернул.",
@@ -3922,7 +4228,8 @@
           "translation": "He took my book and still hasn't returned it.",
           "hint": "result still holds → perfective",
           "display_order": 3,
-          "transliteration": "On ___ moyu knigu i do sih por ne vernul."
+          "transliteration": "On ___ moyu knigu i do sih por ne vernul.",
+          "gloss": "3SG.M.NOM · ___ · 1SG.POSS.ACC.F · book.ACC · and · until · this.GEN.PL · time.GEN.PL · NEG · return.PST.PFV.M"
         },
         {
           "sentence": "Она {{answer}} мою ручку, но уже положила на место.",
@@ -3930,7 +4237,8 @@
           "translation": "She borrowed my pen, but has already put it back.",
           "hint": "result annulled → imperfective, feminine",
           "display_order": 4,
-          "transliteration": "Ona ___ moyu ruchku, no uzhe polozhila na mesto."
+          "transliteration": "Ona ___ moyu ruchku, no uzhe polozhila na mesto.",
+          "gloss": "3SG.F.NOM · ___ · 1SG.POSS.ACC.F · pen.ACC · but · already · put.PST.PFV.F · onto · place.ACC"
         },
         {
           "sentence": "Кто {{answer}} свет? В комнате темно было, а теперь горит.",
@@ -3938,7 +4246,8 @@
           "translation": "Who turned on the light? The room was dark, and now it's on.",
           "hint": "result still holds → perfective",
           "display_order": 5,
-          "transliteration": "Kto ___ svet? V komnate temno by'lo, a teper' gorit."
+          "transliteration": "Kto ___ svet? V komnate temno by'lo, a teper' gorit.",
+          "gloss": "who.NOM · ___ · light.ACC · in · room.LOC · dark · be.PST.IPFV.N · but · now · burn.PRS.3SG"
         },
         {
           "sentence": "Ко мне {{answer}} гости, поэтому посуда не убрана.",
@@ -3946,7 +4255,8 @@
           "translation": "I had guests over, which is why the dishes aren't cleared.",
           "hint": "they came and left → imperfective plural",
           "display_order": 6,
-          "transliteration": "Ko mne ___ gosti, poe'tomu posuda ne ubrana."
+          "transliteration": "Ko mne ___ gosti, poe'tomu posuda ne ubrana.",
+          "gloss": "to · 1SG.DAT · ___ · guest.NOM.PL · therefore · dishes.NOM · NEG · clear.PASS.PTCP.F"
         }
       ]
     },
@@ -3980,7 +4290,8 @@
           "translation": "I told you the shop was closed!",
           "hint": "impatience — 'I TOLD you'",
           "display_order": 1,
-          "transliteration": "Ya ___ tebe govoril, chto magazin zakry't!"
+          "transliteration": "Ya ___ tebe govoril, chto magazin zakry't!",
+          "gloss": "1SG.NOM · ___ · 2SG.DAT · tell.PST.IPFV.M · COMP · shop.NOM · close.PASS.PTCP.M"
         },
         {
           "sentence": "Ты {{answer}} знаешь его — он никогда не опаздывает.",
@@ -3988,7 +4299,8 @@
           "translation": "You know him, after all — he is never late.",
           "hint": "appeal to shared knowledge",
           "display_order": 2,
-          "transliteration": "Ty' ___ znaesh' ego — on nikogda ne opazdy'vaet."
+          "transliteration": "Ty' ___ znaesh' ego — on nikogda ne opazdy'vaet.",
+          "gloss": "2SG.NOM · ___ · know.PRS.2SG · 3SG.M.ACC · — · 3SG.M.NOM · never · NEG · be_late.PRS.3SG"
         },
         {
           "sentence": "Приходи, {{answer}} сегодня праздник.",
@@ -3996,7 +4308,8 @@
           "translation": "Do come — it's a holiday today, after all.",
           "hint": "giving the obvious reason",
           "display_order": 3,
-          "transliteration": "Prihodi, ___ segodnya prazdnik."
+          "transliteration": "Prihodi, ___ segodnya prazdnik.",
+          "gloss": "come.IMP.IPFV.2SG · ___ · today · holiday.NOM"
         },
         {
           "sentence": "Где {{answer}} ты был? Мы ждали два часа!",
@@ -4004,7 +4317,8 @@
           "translation": "Where on earth were you? We waited two hours!",
           "hint": "intensifying the question word",
           "display_order": 4,
-          "transliteration": "Gde ___ ty' by'l? My' zhdali dva chasa!"
+          "transliteration": "Gde ___ ty' by'l? My' zhdali dva chasa!",
+          "gloss": "where · ___ · 2SG.NOM · be.PST.IPFV.M · 1PL.NOM · wait.PST.IPFV.PL · two · hour.GEN"
         },
         {
           "sentence": "Он обещал помочь, а денег-{{answer}} у него нет.",
@@ -4012,7 +4326,8 @@
           "translation": "He promised to help, but money is just what he doesn't have.",
           "hint": "enclitic topic particle",
           "display_order": 5,
-          "transliteration": "On obeshhal pomoch', a deneg-___ u nego net."
+          "transliteration": "On obeshhal pomoch', a deneg-___ u nego net.",
+          "gloss": "3SG.M.NOM · promise.PST.IPFV.M · help.INF.PFV · but · ___ · at · 3SG.M.GEN · be.NEG"
         },
         {
           "sentence": "Сделай {{answer}} это сегодня, не откладывай.",
@@ -4020,7 +4335,8 @@
           "translation": "Just do it today, don't put it off.",
           "hint": "urging with the imperative",
           "display_order": 6,
-          "transliteration": "Sdelaj ___ e'to segodnya, ne otklady'vaj."
+          "transliteration": "Sdelaj ___ e'to segodnya, ne otklady'vaj.",
+          "gloss": "do.IMP.PFV.2SG · ___ · this.ACC.N · today · NEG · put_off.IMP.IPFV.2SG"
         }
       ]
     },
@@ -4054,7 +4370,8 @@
           "translation": "It was he who helped me when everyone else refused.",
           "hint": "the focus particle + 'that is why'",
           "display_order": 1,
-          "transliteration": "___ on pomog mne, kogda vse otkazalis'."
+          "transliteration": "___ on pomog mne, kogda vse otkazalis'.",
+          "gloss": "___ · 3SG.M.NOM · help.PST.PFV.M · 1SG.DAT · when · all.NOM.PL · refuse.PST.PFV.PL"
         },
         {
           "sentence": "Мне нужна {{answer}} эта книга, а не другая.",
@@ -4062,7 +4379,8 @@
           "translation": "It's precisely this book I need, not another one.",
           "hint": "pinning the choice",
           "display_order": 2,
-          "transliteration": "Mne nuzhna ___ e'ta kniga, a ne drugaya."
+          "transliteration": "Mne nuzhna ___ e'ta kniga, a ne drugaya.",
+          "gloss": "1SG.DAT · needed.F · ___ · this.NOM.F · book.NOM · but · NEG · other.NOM.F"
         },
         {
           "sentence": "{{answer}} поэтому я и позвонил тебе.",
@@ -4070,7 +4388,8 @@
           "translation": "That is exactly why I called you.",
           "hint": "the focus particle + 'that is why'",
           "display_order": 3,
-          "transliteration": "___ poe'tomu ya i pozvonil tebe."
+          "transliteration": "___ poe'tomu ya i pozvonil tebe.",
+          "gloss": "___ · therefore · 1SG.NOM · indeed · call.PST.PFV.M · 2SG.DAT"
         },
         {
           "sentence": "{{answer}} кто звонил так поздно?",
@@ -4078,7 +4397,8 @@
           "translation": "Who was it that called so late?",
           "hint": "cleft with the question word",
           "display_order": 4,
-          "transliteration": "___ kto zvonil tak pozdno?"
+          "transliteration": "___ kto zvonil tak pozdno?",
+          "gloss": "___ · who.NOM · call.PST.IPFV.M · so · late"
         },
         {
           "sentence": "{{answer}} здесь мы встретились в первый раз.",
@@ -4086,7 +4406,8 @@
           "translation": "It was right here that we met for the first time.",
           "hint": "the focus particle + 'that is why'",
           "display_order": 5,
-          "transliteration": "___ zdes' my' vstretilis' v pervy'j raz."
+          "transliteration": "___ zdes' my' vstretilis' v pervy'j raz.",
+          "gloss": "___ · here · 1PL.NOM · meet.PFV.PST.PL.RECP · in · first.M.SG.ACC · time.SG.ACC"
         },
         {
           "sentence": "Что {{answer}} вы хотите сказать?",
@@ -4094,7 +4415,8 @@
           "translation": "What exactly do you want to say?",
           "hint": "sharpening the question",
           "display_order": 6,
-          "transliteration": "CHto ___ vy' hotite skazat'?"
+          "transliteration": "CHto ___ vy' hotite skazat'?",
+          "gloss": "what.ACC · ___ · 2PL.NOM · want.IPFV.PRS.2PL · say.PFV.INF"
         }
       ]
     },
@@ -4141,7 +4463,8 @@
           "hint": "дом is masculine — -ый",
           "transliteration": "E'to ___ dom.",
           "cell": "m",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this · ___ · house.SG.NOM"
         },
         {
           "sentence": "Москва — {{answer}} город.",
@@ -4150,7 +4473,8 @@
           "hint": "big — stressed ending, masculine: -ой",
           "transliteration": "Moskva — ___ gorod.",
           "cell": "m",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "Moscow.SG.NOM · be.PRS · ___ · city.SG.NOM"
         },
         {
           "sentence": "Это {{answer}} книга.",
@@ -4159,7 +4483,8 @@
           "hint": "книга is feminine — -ая",
           "transliteration": "E'to ___ kniga.",
           "cell": "f",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "this · ___ · book.SG.NOM"
         },
         {
           "sentence": "У нас {{answer}} квартира.",
@@ -4168,7 +4493,8 @@
           "hint": "big — feminine: -ая",
           "transliteration": "U nas ___ kvartira.",
           "cell": "f",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "at · 1PL.GEN · ___ · flat.SG.NOM"
         },
         {
           "sentence": "Это {{answer}} окно.",
@@ -4177,7 +4503,8 @@
           "hint": "окно is neuter — -ое",
           "transliteration": "E'to ___ okno.",
           "cell": "n",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "this · ___ · window.SG.NOM"
         },
         {
           "sentence": "Какое {{answer}} море!",
@@ -4186,7 +4513,8 @@
           "hint": "beautiful — neuter: -ое",
           "transliteration": "Kakoe ___ more!",
           "cell": "n",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "what.N.SG.NOM · ___ · sea.SG.NOM"
         },
         {
           "sentence": "Это {{answer}} дома.",
@@ -4195,7 +4523,8 @@
           "hint": "plural — -ые",
           "transliteration": "E'to ___ doma.",
           "cell": "pl",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "this · ___ · house.PL.NOM"
         },
         {
           "sentence": "Здесь живут {{answer}} люди.",
@@ -4204,7 +4533,8 @@
           "hint": "good — plural, and after ш the spelling is -ие",
           "transliteration": "Zdes' zhivut ___ lyudi.",
           "cell": "pl",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "here · live.IPFV.PRS.3PL · ___ · person.PL.NOM"
         }
       ]
     },
@@ -4244,7 +4574,8 @@
           "translation": "Who is this?",
           "hint": "who — asking about a person",
           "transliteration": "___ e'to?",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · this"
         },
         {
           "sentence": "{{answer}} ты читаешь?",
@@ -4252,7 +4583,8 @@
           "translation": "What are you reading?",
           "hint": "what — a thing",
           "transliteration": "___ ty chitaesh'?",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 2SG.NOM · read.IPFV.PRS.2SG"
         },
         {
           "sentence": "{{answer}} ты живёшь?",
@@ -4260,7 +4592,8 @@
           "translation": "Where do you live?",
           "hint": "where — location",
           "transliteration": "___ ty zhivyosh'?",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 2SG.NOM · live.IPFV.PRS.2SG"
         },
         {
           "sentence": "{{answer}} начинается фильм?",
@@ -4268,7 +4601,8 @@
           "translation": "When does the film start?",
           "hint": "when — time",
           "transliteration": "___ nachinaetsya fil'm?",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · begin.IPFV.PRS.3SG.MID · film.SG.NOM"
         },
         {
           "sentence": "{{answer}} ты изучаешь русский?",
@@ -4276,7 +4610,8 @@
           "translation": "Why are you learning Russian?",
           "hint": "why — reason",
           "transliteration": "___ ty izuchaesh' russkiy?",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · 2SG.NOM · study.IPFV.PRS.2SG · Russian.M.SG.ACC"
         },
         {
           "sentence": "{{answer}} дела?",
@@ -4284,7 +4619,8 @@
           "translation": "How are things?",
           "hint": "how",
           "transliteration": "___ dela?",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · affair.PL.NOM"
         }
       ]
     },
@@ -4319,7 +4655,8 @@
           "translation": "I drink tea and coffee.",
           "hint": "joining similar things",
           "transliteration": "Ya p'yu chay ___ kofe.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.NOM · drink.IPFV.PRS.1SG · tea.SG.ACC · ___ · coffee.SG.ACC"
         },
         {
           "sentence": "Это Анна, {{answer}} это Иван.",
@@ -4327,7 +4664,8 @@
           "translation": "This is Anna, and this is Ivan.",
           "hint": "switching to a new person — contrast",
           "transliteration": "E'to Anna, ___ e'to Ivan.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "this · Anna.SG.NOM · ___ · this · Ivan.SG.NOM"
         },
         {
           "sentence": "Квартира маленькая, {{answer}} уютная.",
@@ -4335,7 +4673,8 @@
           "translation": "The flat is small but cosy.",
           "hint": "an objection — but",
           "transliteration": "Kvartira malen'kaya, ___ uyutnaya.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "flat.SG.NOM · small.F.SG.NOM · ___ · cosy.F.SG.NOM"
         },
         {
           "sentence": "Я не пью кофе, {{answer}} чай пью.",
@@ -4343,7 +4682,8 @@
           "translation": "I don't drink coffee — I drink tea.",
           "hint": "corrective 'but rather' after the negation — not но",
           "transliteration": "Ya ne p'yu kofe, ___ chay p'yu.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG.NOM · NEG · drink.IPFV.PRS.1SG · coffee.SG.ACC · ___ · tea.SG.ACC · drink.IPFV.PRS.1SG"
         },
         {
           "sentence": "Он читает, {{answer}} она слушает музыку.",
@@ -4351,7 +4691,8 @@
           "translation": "He is reading while she listens to music.",
           "hint": "two people doing different things",
           "transliteration": "On chitaet, ___ ona slushaet muzyku.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "he.NOM · read.3SG · ___ · she.NOM · listen.3SG · music.ACC"
         },
         {
           "sentence": "Я хочу пойти, {{answer}} не могу.",
@@ -4359,7 +4700,8 @@
           "translation": "I want to go but I can't.",
           "hint": "obstacle — but",
           "transliteration": "Ya khochu poyti, ___ ne mogu.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "I.NOM · want.1SG · go.INF · ___ · NEG · can.1SG"
         }
       ]
     },
@@ -4399,7 +4741,8 @@
           "translation": "This is my brother's car.",
           "hint": "whose car? — брат in the genitive",
           "transliteration": "E'to mashina ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this.N · car.NOM · ___"
         },
         {
           "sentence": "Вот фото {{answer}}.",
@@ -4407,7 +4750,8 @@
           "translation": "Here is a photo of my sister.",
           "hint": "сестра → feminine -ы",
           "transliteration": "Vot foto ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "here · photo.NOM · ___"
         },
         {
           "sentence": "Он приехал из {{answer}}.",
@@ -4415,7 +4759,8 @@
           "translation": "He came from Moscow.",
           "hint": "из + genitive",
           "transliteration": "On priekhal iz ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "he.NOM · arrive.PST.M.SG · from · ___"
         },
         {
           "sentence": "После {{answer}} мы идём домой.",
@@ -4423,7 +4768,8 @@
           "translation": "After work we go home.",
           "hint": "после + genitive",
           "transliteration": "Posle ___ my idyom domoy.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "after · ___ · we.NOM · go.1PL · homeward"
         },
         {
           "sentence": "Это подарок для {{answer}}.",
@@ -4431,7 +4777,8 @@
           "translation": "This is a present for a friend.",
           "hint": "для + genitive, masculine -а",
           "transliteration": "E'to podarok dlya ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "this.N · gift.NOM · for · ___"
         },
         {
           "sentence": "Я пью чай без {{answer}}.",
@@ -4439,7 +4786,8 @@
           "translation": "I drink tea without sugar.",
           "hint": "без + genitive",
           "transliteration": "Ya p'yu chay bez ___.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "I.NOM · drink.1SG · tea.ACC · without · ___"
         }
       ]
     }
