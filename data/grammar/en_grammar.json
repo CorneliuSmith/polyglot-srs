@@ -36,49 +36,56 @@
           "answer": "I",
           "translation": "Introducing yourself.",
           "hint": "the speaker — always capitalized",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · be.1SG · from · Brazil"
         },
         {
           "sentence": "{{answer}} is my sister.",
           "answer": "She",
           "translation": "Introducing a woman in your family.",
           "hint": "a woman",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · be.3SG · 1SG.POSS · sister"
         },
         {
           "sentence": "{{answer}} are students.",
           "answer": "We",
           "translation": "Talking about yourself and your classmates.",
           "hint": "the speaker + others",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · be.PL · student.PL"
         },
         {
           "sentence": "{{answer}} is my father.",
           "answer": "He",
           "translation": "Introducing a man in your family.",
           "hint": "a man",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · be.3SG · 1SG.POSS · father"
         },
         {
           "sentence": "{{answer}} is on the table.",
           "answer": "It",
           "translation": "Talking about a thing.",
           "hint": "a thing",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · be.3SG · on · DEF · table"
         },
         {
           "sentence": "{{answer}} are very kind.",
           "answer": "You",
           "translation": "Complimenting the person you are talking to.",
           "hint": "the person being addressed",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · be.2SG · very · kind"
         },
         {
           "sentence": "{{answer}} are my friends.",
           "answer": "They",
           "translation": "Talking about a group of people.",
           "hint": "several other people",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · be.PL · 1SG.POSS · friend.PL"
         }
       ]
     },
@@ -111,42 +118,48 @@
           "answer": "am",
           "translation": "Talking about yourself.",
           "hint": "be — with I",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · INDF · student"
         },
         {
           "sentence": "You {{answer}} my friend.",
           "answer": "are",
           "translation": "Talking to one person.",
           "hint": "be — with you",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "2SG · ___ · 1SG.POSS · friend"
         },
         {
           "sentence": "She {{answer}} a doctor.",
           "answer": "is",
           "translation": "Talking about her job.",
           "hint": "be — with she",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.F · ___ · INDF · doctor"
         },
         {
           "sentence": "We {{answer}} at home.",
           "answer": "are",
           "translation": "Saying where you and your family are.",
           "hint": "be — with we",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · ___ · at · home"
         },
         {
           "sentence": "The coffee {{answer}} hot.",
           "answer": "is",
           "translation": "Describing a drink.",
           "hint": "be — with it/a thing",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF · coffee · ___ · hot"
         },
         {
           "sentence": "They {{answer}} from Japan.",
           "answer": "are",
           "translation": "Saying where some people come from.",
           "hint": "be — with they",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3PL · ___ · from · Japan"
         }
       ]
     },
@@ -179,42 +192,48 @@
           "answer": "a",
           "translation": "Talking about your pet.",
           "hint": "the article for consonant sounds",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · have · ___ · dog"
         },
         {
           "sentence": "She is {{answer}} engineer.",
           "answer": "an",
           "translation": "Talking about her job.",
           "hint": "before a vowel sound",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · be.3SG · ___ · engineer"
         },
         {
           "sentence": "It is {{answer}} big house.",
           "answer": "a",
           "translation": "Describing a home.",
           "hint": "the article for consonant sounds",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.N · be.3SG · ___ · big · house"
         },
         {
           "sentence": "He eats {{answer}} apple every day.",
           "answer": "an",
           "translation": "Describing a daily habit.",
           "hint": "before a vowel sound",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.M · eat.3SG · ___ · apple · every · day"
         },
         {
           "sentence": "I read {{answer}} book every week.",
           "answer": "a",
           "translation": "Describing a weekly habit.",
           "hint": "the article for consonant sounds",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · read · ___ · book · every · week"
         },
         {
           "sentence": "I need {{answer}} umbrella.",
           "answer": "an",
           "translation": "It looks like rain.",
           "hint": "before a vowel sound",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · need · ___ · umbrella"
         }
       ]
     },
@@ -247,7 +266,8 @@
           "answer": "The",
           "translation": "There is only one of it.",
           "hint": "unique things take this article",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · sun · be.3SG · hot · today"
         },
         {
           "sentence": "Please close {{answer}} door.",
@@ -261,28 +281,32 @@
           "answer": "The",
           "translation": "Specific, identified keys.",
           "hint": "definite — what follows says exactly which ones",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · key.PL · in · 1SG.POSS · hand · be.PL · 1SG.POSS.PRON"
         },
         {
           "sentence": "We live near {{answer}} station.",
           "answer": "the",
           "translation": "The station of this town.",
           "hint": "both of you can identify it",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · live · near · ___ · station"
         },
         {
           "sentence": "{{answer}} moon is bright tonight.",
           "answer": "The",
           "translation": "There is only one of it.",
           "hint": "unique things take this article",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · moon · be.3SG · bright · tonight"
         },
         {
           "sentence": "Where is {{answer}} bathroom?",
           "answer": "the",
           "translation": "Asking in a café or a home.",
           "hint": "both of you can identify it",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "where · be.3SG · ___ · bathroom"
         }
       ]
     },
@@ -315,42 +339,48 @@
           "answer": "books",
           "translation": "Things you read.",
           "hint": "book, plural",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · have · two · ___"
         },
         {
           "sentence": "The {{answer}} are playing outside.",
           "answer": "children",
           "translation": "Young people.",
           "hint": "child — irregular plural",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF · ___ · be.PL · play.PROG · outside"
         },
         {
           "sentence": "She has three {{answer}}.",
           "answer": "watches",
           "translation": "Things that tell the time.",
           "hint": "watch — add -es",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.F · have.3SG · three · ___"
         },
         {
           "sentence": "The {{answer}} are late today.",
           "answer": "buses",
           "translation": "Public transport.",
           "hint": "bus — add -es",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF · ___ · be.PL · late · today"
         },
         {
           "sentence": "Two {{answer}} live in our street.",
           "answer": "families",
           "translation": "Parents and children.",
           "hint": "family — y becomes -ies",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "two · ___ · live · in · 1PL.POSS · street"
         },
         {
           "sentence": "My {{answer}} are cold.",
           "answer": "feet",
           "translation": "The body parts you stand on.",
           "hint": "foot — irregular plural",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG.POSS · ___ · be.PL · cold"
         }
       ]
     },
@@ -383,42 +413,48 @@
           "answer": "work",
           "translation": "Talking about your job.",
           "hint": "what you do at your job",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · in · INDF · bank"
         },
         {
           "sentence": "We {{answer}} breakfast at seven.",
           "answer": "have",
           "translation": "Describing your morning routine.",
           "hint": "eat or take (a meal)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1PL · ___ · breakfast · at · seven"
         },
         {
           "sentence": "They {{answer}} in London.",
           "answer": "live",
           "translation": "Saying where some people are at home.",
           "hint": "reside somewhere",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3PL · ___ · in · London"
         },
         {
           "sentence": "You {{answer}} English very well.",
           "answer": "speak",
           "translation": "Complimenting someone's language skills.",
           "hint": "use a language",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "2SG · ___ · English · very · well"
         },
         {
           "sentence": "I {{answer}} coffee every morning.",
           "answer": "drink",
           "translation": "Describing a daily habit.",
           "hint": "consume a liquid",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · ___ · coffee · every · morning"
         },
         {
           "sentence": "We {{answer}} TV in the evening.",
           "answer": "watch",
           "translation": "Describing an evening habit.",
           "hint": "look at a screen or show",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · ___ · TV · in · DEF · evening"
         }
       ]
     },
@@ -451,42 +487,48 @@
           "answer": "works",
           "translation": "Talking about her job.",
           "hint": "to work — with she",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG.F · ___ · in · INDF · hospital"
         },
         {
           "sentence": "He {{answer}} to school every day.",
           "answer": "goes",
           "translation": "Describing his daily routine.",
           "hint": "to go — add -es",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.M · ___ · to · school · every · day"
         },
         {
           "sentence": "My brother {{answer}} English.",
           "answer": "studies",
           "translation": "Talking about his classes.",
           "hint": "to study — y becomes -ies",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG.POSS · brother · ___ · English"
         },
         {
           "sentence": "The shop {{answer}} at nine.",
           "answer": "opens",
           "translation": "Talking about business hours.",
           "hint": "to open — with it",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF · shop · ___ · at · nine"
         },
         {
           "sentence": "She {{answer}} TV after dinner.",
           "answer": "watches",
           "translation": "Describing her evening habit.",
           "hint": "to watch — add -es",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.F · ___ · TV · after · dinner"
         },
         {
           "sentence": "It {{answer}} a lot in April.",
           "answer": "rains",
           "translation": "Talking about the weather.",
           "hint": "to rain — with it",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.N · ___ · INDF · lot · in · April"
         }
       ]
     },
@@ -519,56 +561,64 @@
           "answer": "Do",
           "translation": "Asking about someone's languages.",
           "hint": "the helper — with you",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 2SG · speak · English"
         },
         {
           "sentence": "{{answer}} she work here?",
           "answer": "Does",
           "translation": "Asking about her job.",
           "hint": "the helper — with she",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 3SG.F · work · here"
         },
         {
           "sentence": "I {{answer}} not eat meat.",
           "answer": "do",
           "translation": "Talking about your diet.",
           "hint": "the helper — with I",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · ___ · NEG · eat · meat"
         },
         {
           "sentence": "He {{answer}} not like coffee.",
           "answer": "does",
           "translation": "Talking about his tastes.",
           "hint": "the helper — with he",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.M · ___ · NEG · like · coffee"
         },
         {
           "sentence": "{{answer}} they live in Rome?",
           "answer": "Do",
           "translation": "Asking where some people live.",
           "hint": "the helper — with they",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · 3PL · live · in · Rome"
         },
         {
           "sentence": "We {{answer}} not have time.",
           "answer": "do",
           "translation": "You are in a hurry.",
           "hint": "the helper — with we",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · ___ · NEG · have · time"
         },
         {
           "sentence": "I {{answer}} like coffee.",
           "answer": "don't",
           "translation": "Saying you don't like something.",
           "hint": "negation with I",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · ___ · like · coffee"
         },
         {
           "sentence": "She {{answer}} work on Sundays.",
           "answer": "doesn't",
           "translation": "Saying she doesn't work then.",
           "hint": "negation with she",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "3SG.F · ___ · work · on · Sunday.PL"
         }
       ]
     },
@@ -601,56 +651,64 @@
           "answer": "reading",
           "translation": "What you are doing at this moment.",
           "hint": "to read + -ing",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · be.PRS.1SG · ___ · INDF · book · right · now"
         },
         {
           "sentence": "She is {{answer}} dinner now.",
           "answer": "cooking",
           "translation": "She is in the kitchen.",
           "hint": "to cook + -ing",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · be.PRS.3SG · ___ · dinner · now"
         },
         {
           "sentence": "They are {{answer}} football.",
           "answer": "playing",
           "translation": "A game is happening.",
           "hint": "to play + -ing",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3PL · be.PRS.PL · ___ · football"
         },
         {
           "sentence": "Look! It is {{answer}}.",
           "answer": "raining",
           "translation": "Weather, right now.",
           "hint": "to rain + -ing",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "look · 3SG.N · be.PRS.3SG · ___"
         },
         {
           "sentence": "We are {{answer}} for the bus.",
           "answer": "waiting",
           "translation": "Standing at the bus stop.",
           "hint": "to wait + -ing",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL · be.PRS.PL · ___ · for · DEF · bus"
         },
         {
           "sentence": "He is {{answer}} at the moment.",
           "answer": "sleeping",
           "translation": "Please be quiet.",
           "hint": "to sleep + -ing",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.M · be.PRS.3SG · ___ · at · DEF · moment"
         },
         {
           "sentence": "He is {{answer}} in the park.",
           "answer": "running",
           "translation": "An action happening right now.",
           "hint": "run — double the final consonant",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "3SG.M · be.PRS.3SG · ___ · in · DEF · park"
         },
         {
           "sentence": "She is {{answer}} an email.",
           "answer": "writing",
           "translation": "An action happening right now.",
           "hint": "write — drop the silent e",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "3SG.F · be.PRS.3SG · ___ · INDF · email"
         }
       ]
     },
@@ -683,42 +741,48 @@
           "answer": "is",
           "translation": "One thing exists.",
           "hint": "singular",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "there · ___ · INDF · book · on · DEF · table"
         },
         {
           "sentence": "There {{answer}} two cafés in this street.",
           "answer": "are",
           "translation": "More than one thing exists.",
           "hint": "plural",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "there · ___ · two · café.PL · in · this · street"
         },
         {
           "sentence": "{{answer}} there a bank near here?",
           "answer": "Is",
           "translation": "Asking about one place.",
           "hint": "singular, question order",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · there · INDF · bank · near · here"
         },
         {
           "sentence": "There {{answer}} no milk.",
           "answer": "is",
           "translation": "The fridge is empty.",
           "hint": "singular",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "there · ___ · NEG · milk"
         },
         {
           "sentence": "{{answer}} there any questions?",
           "answer": "Are",
           "translation": "Asking a group at the end of a talk.",
           "hint": "plural, question order",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · there · any · question.PL"
         },
         {
           "sentence": "There {{answer}} many people here today.",
           "answer": "are",
           "translation": "The place is crowded.",
           "hint": "plural",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "there · ___ · many · person.PL · here · today"
         }
       ]
     },
@@ -751,42 +815,48 @@
           "answer": "Where",
           "translation": "Asking about someone's home.",
           "hint": "asking about a place",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · do · 2SG · live"
         },
         {
           "sentence": "{{answer}} is your name?",
           "answer": "What",
           "translation": "Meeting someone new.",
           "hint": "asking about a thing",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · be.3SG · 2.POSS · name"
         },
         {
           "sentence": "{{answer}} is your birthday?",
           "answer": "When",
           "translation": "Asking about a date.",
           "hint": "asking about time",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · be.3SG · 2.POSS · birthday"
         },
         {
           "sentence": "{{answer}} old are you?",
           "answer": "How",
           "translation": "Asking someone's age.",
           "hint": "age asks this way",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · old · be.PL · 2SG"
         },
         {
           "sentence": "{{answer}} is your teacher?",
           "answer": "Who",
           "translation": "Asking about a person.",
           "hint": "asking about a person",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · be.3SG · 2.POSS · teacher"
         },
         {
           "sentence": "{{answer}} are you crying?",
           "answer": "Why",
           "translation": "Asking for a reason.",
           "hint": "asking for a reason",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · be.PL · 2SG · cry.PROG"
         }
       ]
     },
@@ -819,56 +889,64 @@
           "answer": "my",
           "translation": "It belongs to the speaker.",
           "hint": "belonging to me",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this · be.3SG · ___ · book"
         },
         {
           "sentence": "Is this {{answer}} car?",
           "answer": "your",
           "translation": "Asking the person you are talking to.",
           "hint": "belonging to you",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "be.3SG · this · ___ · car"
         },
         {
           "sentence": "{{answer}} name is Anna.",
           "answer": "Her",
           "translation": "Introducing a woman.",
           "hint": "belonging to that woman",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · name · be.3SG · Anna"
         },
         {
           "sentence": "That is my {{answer}} car.",
           "answer": "brother's",
           "translation": "It belongs to a family member.",
           "hint": "brother + the ownership ending",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "that · be.3SG · 1SG.POSS · ___ · car"
         },
         {
           "sentence": "{{answer}} house is big.",
           "answer": "Their",
           "translation": "It belongs to some people.",
           "hint": "belonging to them",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · house · be.3SG · big"
         },
         {
           "sentence": "The dog wags {{answer}} tail.",
           "answer": "its",
           "translation": "The tail belongs to the dog.",
           "hint": "belonging to a thing — no apostrophe",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF · dog · wag.3SG · ___ · tail"
         },
         {
           "sentence": "{{answer}} name is David.",
           "answer": "His",
           "translation": "Giving a man's name.",
           "hint": "the man's name",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · name · be.3SG · David"
         },
         {
           "sentence": "That is {{answer}} classroom.",
           "answer": "our",
           "translation": "Talking about your group's room.",
           "hint": "it belongs to us",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "that · be.3SG · ___ · classroom"
         }
       ]
     },
@@ -893,42 +971,48 @@
           "answer": "went",
           "translation": "The past of 'go'.",
           "hint": "go — past",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "yesterday · 1SG · ___ · to · DEF · market"
         },
         {
           "sentence": "She {{answer}} a great film last night.",
           "answer": "saw",
           "translation": "The past of 'see'.",
           "hint": "see — past",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · ___ · INDF · great · film · last · night"
         },
         {
           "sentence": "We {{answer}} a new car in March.",
           "answer": "bought",
           "translation": "The past of 'buy'.",
           "hint": "buy — past",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · INDF · new · car · in · March"
         },
         {
           "sentence": "He {{answer}} the early train this morning.",
           "answer": "took",
           "translation": "The past of 'take'.",
           "hint": "take — past",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.M · ___ · DEF · early · train · this · morning"
         },
         {
           "sentence": "They {{answer}} home very late.",
           "answer": "came",
           "translation": "The past of 'come'.",
           "hint": "come — past",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3PL · ___ · home · very · late"
         },
         {
           "sentence": "I {{answer}} breakfast at seven.",
           "answer": "ate",
           "translation": "The past of 'eat'.",
           "hint": "eat — past",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · ___ · breakfast · at · seven"
         }
       ]
     },
@@ -953,42 +1037,48 @@
           "answer": "is",
           "translation": "Right now → continuous.",
           "hint": "be — 3rd person",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "quiet · please · — · DEF · baby · ___ · sleep.PROG"
         },
         {
           "sentence": "She {{answer}} to work by bike every day.",
           "answer": "goes",
           "translation": "A habit → simple.",
           "hint": "go — habit (she)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · ___ · to · work · by · bike · every · day"
         },
         {
           "sentence": "I'm {{answer}} for my keys at the moment.",
           "answer": "looking",
           "translation": "Right now → -ing form.",
           "hint": "look — continuous",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG.be · ___ · for · 1SG.POSS · key.PL · at · DEF · moment"
         },
         {
           "sentence": "Water {{answer}} at 100 degrees.",
           "answer": "boils",
           "translation": "A fact → simple.",
           "hint": "boil — fact (it)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "water · ___ · at · 100 · degree.PL"
         },
         {
           "sentence": "They {{answer}} watching TV right now.",
           "answer": "are",
           "translation": "Right now → continuous.",
           "hint": "be — they",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3PL · ___ · watch.PROG · TV · right · now"
         },
         {
           "sentence": "He usually {{answer}} coffee, not tea.",
           "answer": "drinks",
           "translation": "usually → simple.",
           "hint": "drink — habit (he)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.M · usually · ___ · coffee · NEG · tea"
         }
       ]
     },
@@ -1013,42 +1103,48 @@
           "answer": "cheaper",
           "translation": "cheap — comparing two.",
           "hint": "cheap — comparative",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this · bag · be.3SG · ___ · COMP.than · that · one"
         },
         {
           "sentence": "It's the {{answer}} building in the city.",
           "answer": "tallest",
           "translation": "tall — the number one.",
           "hint": "tall — superlative",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "it.be.3SG · DEF · ___ · building · in · DEF · city"
         },
         {
           "sentence": "Her English is {{answer}} than mine.",
           "answer": "better",
           "translation": "good — irregular comparative.",
           "hint": "good — comparative",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.POSS · English · be.3SG · ___ · COMP.than · 1SG.POSS.PRON"
         },
         {
           "sentence": "That was the {{answer}} meal I've ever had.",
           "answer": "worst",
           "translation": "bad — irregular superlative.",
           "hint": "bad — superlative",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "that · be.PST.SG · DEF · ___ · meal · I.have · ever · have.PRF"
         },
         {
           "sentence": "This exercise is {{answer}} difficult than the last.",
           "answer": "more",
           "translation": "Long adjective — add a word.",
           "hint": "the word before long adjectives",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "this · exercise · be.3SG · ___ · difficult · COMP.than · DEF · last"
         },
         {
           "sentence": "The station is {{answer}} than I thought.",
           "answer": "further",
           "translation": "far — irregular comparative.",
           "hint": "far — comparative",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF · station · be.3SG · ___ · COMP.than · 1SG · think.PST"
         }
       ]
     },
@@ -1073,42 +1169,48 @@
           "answer": "going",
           "translation": "A plan made earlier.",
           "hint": "the planned future",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "we.be · ___ · INF · visit · Rome · in · May"
         },
         {
           "sentence": "Don't worry — I {{answer}} help you.",
           "answer": "will",
           "translation": "A promise, decided now.",
           "hint": "instant decision",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "do.NEG · worry · — · 1SG · ___ · help · 2SG"
         },
         {
           "sentence": "Look at those clouds! It's going to {{answer}}.",
           "answer": "rain",
           "translation": "You can see it coming.",
           "hint": "wet weather",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "look · at · that.PL · cloud.PL · it.be.3SG · go.PROG · INF · ___"
         },
         {
           "sentence": "I think she {{answer}} pass the exam.",
           "answer": "will",
           "translation": "An opinion about the future.",
           "hint": "prediction word",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · think · 3SG.F · ___ · pass · DEF · exam"
         },
         {
           "sentence": "They're going {{answer}} move house next year.",
           "answer": "to",
           "translation": "The little word in 'going …'.",
           "hint": "the particle after going",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "they.be · go.PROG · ___ · move · house · next · year"
         },
         {
           "sentence": "I'm tired — I {{answer}} go to bed.",
           "answer": "'ll",
           "translation": "A decision made this second.",
           "hint": "short form of the instant future",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "I.be · tired · — · 1SG · ___ · go · to · bed"
         }
       ]
     },
@@ -1133,42 +1235,48 @@
           "answer": "some",
           "translation": "Positive sentence.",
           "hint": "positive amount word",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "there.be.3SG · ___ · milk · in · DEF · fridge"
         },
         {
           "sentence": "We don't have {{answer}} eggs left.",
           "answer": "any",
           "translation": "Negative sentence.",
           "hint": "negative amount word",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1PL · do.NEG · have · ___ · egg.PL · leave.PASS"
         },
         {
           "sentence": "Do you have {{answer}} questions?",
           "answer": "any",
           "translation": "A question.",
           "hint": "question amount word",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "do.Q · 2SG · have · ___ · question.PL"
         },
         {
           "sentence": "How {{answer}} money do you need?",
           "answer": "much",
           "translation": "Uncountable amount.",
           "hint": "with uncountables",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "how · ___ · money · do.Q · 2SG · need"
         },
         {
           "sentence": "How {{answer}} people are coming?",
           "answer": "many",
           "translation": "Countable amount.",
           "hint": "with countables",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "how · ___ · person.PL · be.PL · come.PROG"
         },
         {
           "sentence": "Would you like {{answer}} tea?",
           "answer": "some",
           "translation": "Offers use the positive word.",
           "hint": "offer amount word",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "will.PST · 2SG · like · ___ · tea"
         }
       ]
     },
@@ -1193,49 +1301,56 @@
           "answer": "always",
           "translation": "100% of the time.",
           "hint": "the every-time word",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · drink · coffee · in · DEF · morning · — · every · single · day"
         },
         {
           "sentence": "He is {{answer}} late — it drives me crazy.",
           "answer": "always",
           "translation": "After 'be'.",
           "hint": "the every-time word",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.M · be.3SG · ___ · late · — · 3SG.N · drive.3SG · 1SG.OBJ · crazy"
         },
         {
           "sentence": "We {{answer}} go out on Fridays — maybe once a month.",
           "answer": "sometimes",
           "translation": "Not often, not never.",
           "hint": "the now-and-then word",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · go · out · on · Friday.PL · — · maybe · once · INDF · month"
         },
         {
           "sentence": "She {{answer}} eats meat — she's almost vegetarian.",
           "answer": "rarely",
           "translation": "Nearly never.",
           "hint": "the almost-never word",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F · ___ · eat.3SG · meat · — · she.be.3SG · almost · vegetarian"
         },
         {
           "sentence": "I have {{answer}} been to Japan, but I'd love to go.",
           "answer": "never",
           "translation": "Zero times.",
           "hint": "the zero-times word",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · have · ___ · be.PRF · to · Japan · but · I.will.PST · love · INF · go"
         },
         {
           "sentence": "They {{answer}} visit us at Christmas — most years.",
           "answer": "usually",
           "translation": "Most of the time.",
           "hint": "the most-of-the-time word",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3PL · ___ · visit · 1PL.OBJ · at · Christmas · — · many.SUP · year.PL"
         },
         {
           "sentence": "We {{answer}} eat out on Fridays.",
           "answer": "often",
           "translation": "A regular but not constant habit.",
           "hint": "many times — more than sometimes, less than always",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1PL · ___ · eat · out · on · Friday.PL"
         }
       ]
     },
@@ -1260,42 +1375,48 @@
           "answer": "can",
           "translation": "Ability now.",
           "hint": "ability word",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG.F · ___ · speak · three · language.PL"
         },
         {
           "sentence": "{{answer}} you open the window, please?",
           "answer": "Could",
           "translation": "A polite request.",
           "hint": "polite request word",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 2SG · open · DEF · window · please"
         },
         {
           "sentence": "I {{answer}} to wear a uniform at work.",
           "answer": "have",
           "translation": "Outside obligation.",
           "hint": "obligation verb",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · ___ · INF · wear · INDF · uniform · at · work"
         },
         {
           "sentence": "When I was five, I {{answer}} already read.",
           "answer": "could",
           "translation": "Past ability.",
           "hint": "ability word — past",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "when · 1SG · be.PST.SG · five · 1SG · ___ · already · read"
         },
         {
           "sentence": "You don't {{answer}} to come if you're busy.",
           "answer": "have",
           "translation": "No obligation.",
           "hint": "obligation verb",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · do.NEG · ___ · INF · come · if · you.be · busy"
         },
         {
           "sentence": "{{answer}} I sit here? — Of course.",
           "answer": "Can",
           "translation": "Asking permission.",
           "hint": "permission word",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · 1SG · sit · here · — · of · course"
         }
       ]
     },
@@ -1320,42 +1441,48 @@
           "answer": "at",
           "translation": "Clock time.",
           "hint": "clock-time preposition",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF · meeting · start.3SG · ___ · nine · of.clock"
         },
         {
           "sentence": "I was born {{answer}} 1998.",
           "answer": "in",
           "translation": "A year.",
           "hint": "long-period preposition",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · be.PST.SG · bear.PASS · ___ · 1998"
         },
         {
           "sentence": "We're leaving {{answer}} Friday.",
           "answer": "on",
           "translation": "A day.",
           "hint": "day preposition",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "we.be · leave.PROG · ___ · Friday"
         },
         {
           "sentence": "She works best {{answer}} the morning.",
           "answer": "in",
           "translation": "Part of the day.",
           "hint": "long-period preposition",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F · work.3SG · well.SUP · ___ · DEF · morning"
         },
         {
           "sentence": "My birthday is {{answer}} 12 March.",
           "answer": "on",
           "translation": "A date.",
           "hint": "date preposition",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG.POSS · birthday · be.3SG · ___ · 12 · March"
         },
         {
           "sentence": "He often studies {{answer}} night.",
           "answer": "at",
           "translation": "The fixed phrase with 'night'.",
           "hint": "the night preposition",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.M · often · study.3SG · ___ · night"
         }
       ]
     },
@@ -1380,42 +1507,48 @@
           "answer": "lost",
           "translation": "Still lost now → perfect.",
           "hint": "lose — participle",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "I.have · ___ · 1SG.POSS · wallet · — · can · 2SG · help · 1SG.OBJ · look"
         },
         {
           "sentence": "She {{answer}} in Berlin in 2019.",
           "answer": "lived",
           "translation": "Finished time → past simple.",
           "hint": "live — past",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · ___ · in · Berlin · in · 2019"
         },
         {
           "sentence": "Have you {{answer}} been to Japan?",
           "answer": "ever",
           "translation": "The experience question word.",
           "hint": "the any-time-in-your-life word",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "have · 2SG · ___ · be.PRF · to · Japan"
         },
         {
           "sentence": "We've known each other {{answer}} ten years.",
           "answer": "for",
           "translation": "A length of time.",
           "hint": "duration word",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "we.have · know.PRF · each · other · ___ · ten · year.PL"
         },
         {
           "sentence": "He's worked here {{answer}} 2020.",
           "answer": "since",
           "translation": "A starting point.",
           "hint": "starting-point word",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "he.have.3SG · work.PRF · here · ___ · 2020"
         },
         {
           "sentence": "They haven't finished {{answer}}.",
           "answer": "yet",
           "translation": "Expected but not done.",
           "hint": "the still-waiting word",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3PL · have.NEG · finish.PRF · ___"
         }
       ]
     },
@@ -1440,42 +1573,48 @@
           "answer": "rains",
           "translation": "Real condition → present.",
           "hint": "rain — present (it)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "if · 3SG.N · ___ · tomorrow · we.will · cancel · DEF · picnic"
         },
         {
           "sentence": "If you study, you {{answer}} pass.",
           "answer": "will",
           "translation": "Real result.",
           "hint": "the real-future word",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if · 2SG · study · 2SG · ___ · pass"
         },
         {
           "sentence": "If I {{answer}} rich, I would buy an island.",
           "answer": "were",
           "translation": "Imagined → past form of be.",
           "hint": "be — unreal form",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if · 1SG · ___ · rich · 1SG · will.PST · buy · INDF · island"
         },
         {
           "sentence": "She {{answer}} travel more if she had time.",
           "answer": "would",
           "translation": "Imagined result.",
           "hint": "the unreal-result word",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F · ___ · travel · much.COMP · if · 3SG.F · have.PST · time"
         },
         {
           "sentence": "If we {{answer}} now, we'll catch the train.",
           "answer": "leave",
           "translation": "Real condition → present.",
           "hint": "set off — present form",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · 1PL · ___ · now · we.will · catch · DEF · train"
         },
         {
           "sentence": "What {{answer}} you do if you won the lottery?",
           "answer": "would",
           "translation": "Imagined question.",
           "hint": "the unreal-result word",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "what · ___ · 2SG · do · if · 2SG · win.PST · DEF · lottery"
         }
       ]
     },
@@ -1500,42 +1639,48 @@
           "answer": "is",
           "translation": "Present passive.",
           "hint": "be — present (it)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this · wine · ___ · produce.PASS · in · Chile"
         },
         {
           "sentence": "The castle was {{answer}} in the twelfth century.",
           "answer": "built",
           "translation": "build — the participle.",
           "hint": "build — participle",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF · castle · be.PST.SG · ___ · in · DEF · twelve.ORD · century"
         },
         {
           "sentence": "These photos {{answer}} taken by my grandmother.",
           "answer": "were",
           "translation": "Past passive, plural.",
           "hint": "be — past (they)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "this.PL · photo.PL · ___ · take.PASS · by · 1SG.POSS · grandmother"
         },
         {
           "sentence": "English {{answer}} spoken all over the world.",
           "answer": "is",
           "translation": "Present passive.",
           "hint": "be — present (it)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "English · ___ · speak.PASS · all · over · DEF · world"
         },
         {
           "sentence": "The thief was caught {{answer}} the police.",
           "answer": "by",
           "translation": "Naming the doer.",
           "hint": "the doer preposition",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF · thief · be.PST.SG · catch.PASS · ___ · DEF · police"
         },
         {
           "sentence": "My phone was {{answer}} at the festival.",
           "answer": "stolen",
           "translation": "steal — the participle.",
           "hint": "steal — participle",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG.POSS · phone · be.PST.SG · ___ · at · DEF · festival"
         }
       ]
     },
@@ -1560,42 +1705,48 @@
           "answer": "who",
           "translation": "A person.",
           "hint": "person link word",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "she.be.3SG · DEF · doctor · ___ · treat.PST · 1SG.POSS · father"
         },
         {
           "sentence": "That's the restaurant {{answer}} we first met.",
           "answer": "where",
           "translation": "A place.",
           "hint": "place link word",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "that.be.3SG · DEF · restaurant · ___ · 1PL · one.ORD · meet.PST"
         },
         {
           "sentence": "The laptop {{answer}} I bought last week is broken.",
           "answer": "that",
           "translation": "A thing (defining).",
           "hint": "all-purpose link word",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF · laptop · ___ · 1SG · buy.PST · last · week · be.3SG · break.PASS"
         },
         {
           "sentence": "He's the author {{answer}} books sell millions.",
           "answer": "whose",
           "translation": "Possession.",
           "hint": "possession link word",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "he.be.3SG · DEF · author · ___ · book.PL · sell · million.PL"
         },
         {
           "sentence": "The train, {{answer}} was already late, then broke down.",
           "answer": "which",
           "translation": "A thing (non-defining, after a comma).",
           "hint": "thing link word",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF · train · ___ · be.PST.SG · already · late · then · break.PST · down"
         },
         {
           "sentence": "People {{answer}} exercise regularly live longer.",
           "answer": "who",
           "translation": "People in general.",
           "hint": "person link word",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "person.PL · ___ · exercise · regularly · live · long.COMP"
         }
       ]
     },
@@ -1620,42 +1771,48 @@
           "answer": "used",
           "translation": "A past habit, now finished.",
           "hint": "the past-habit verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · INF · play · football · every · weekend"
         },
         {
           "sentence": "She didn't {{answer}} to like coffee, but now she loves it.",
           "answer": "use",
           "translation": "After didn't — no d.",
           "hint": "the past-habit verb, bare",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · do.PST.NEG · ___ · INF · like · coffee · but · now · 3SG.F · love.3SG · 3SG.N"
         },
         {
           "sentence": "There {{answer}} to be a bakery on this corner.",
           "answer": "used",
           "translation": "A past state.",
           "hint": "the past-habit verb",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "there · ___ · INF · be · INDF · bakery · on · this · corner"
         },
         {
           "sentence": "Did you {{answer}} to live in London?",
           "answer": "use",
           "translation": "In questions — no d.",
           "hint": "the past-habit verb, bare",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "do.PST.Q · 2SG · ___ · INF · live · in · London"
         },
         {
           "sentence": "He used {{answer}} have long hair.",
           "answer": "to",
           "translation": "The little word after 'used'.",
           "hint": "the particle",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M · use.PST · ___ · have · long · hair"
         },
         {
           "sentence": "We {{answer}} to go camping every summer as kids.",
           "answer": "used",
           "translation": "A childhood habit.",
           "hint": "the past-habit verb",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · ___ · INF · go · camp.PROG · every · summer · as · kid.PL"
         }
       ]
     },
@@ -1680,42 +1837,48 @@
           "answer": "was",
           "translation": "Present steps back to past.",
           "hint": "be — stepped back",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "I.be.PRS · busy · → · 3SG.F · say.PST · 3SG.F · ___ · busy"
         },
         {
           "sentence": "'I'll call you.' → He said he {{answer}} call me.",
           "answer": "would",
           "translation": "will steps back.",
           "hint": "will — stepped back",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "I.will · call · 2SG · → · 3SG.M · say.PST · 3SG.M · ___ · call · 1SG.OBJ"
         },
         {
           "sentence": "'Are you ready?' → She asked {{answer}} I was ready.",
           "answer": "if",
           "translation": "Yes/no question link.",
           "hint": "the yes/no link word",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "be.PRS.Q · 2SG · ready · → · 3SG.F · ask.PST · ___ · 1SG · be.PST.SG · ready"
         },
         {
           "sentence": "'Where do you live?' → He asked where I {{answer}}.",
           "answer": "lived",
           "translation": "Question word + normal order.",
           "hint": "live — stepped back",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "where · do.PRS.Q · 2SG · live · → · 3SG.M · ask.PST · where · 1SG · ___"
         },
         {
           "sentence": "'I can swim.' → She said she {{answer}} swim.",
           "answer": "could",
           "translation": "can steps back.",
           "hint": "can — stepped back",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · can · swim · → · 3SG.F · say.PST · 3SG.F · ___ · swim"
         },
         {
           "sentence": "'We bought a house.' → They said they {{answer}} bought a house.",
           "answer": "had",
           "translation": "Past steps back to perfect.",
           "hint": "the step-back auxiliary",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · buy.PST · INDF · house · → · 3PL · say.PST · 3PL · ___ · buy.PRF · INDF · house"
         }
       ]
     },
@@ -1740,42 +1903,48 @@
           "answer": "swimming",
           "translation": "enjoy + -ing.",
           "hint": "swim — which form?",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · really · enjoy · ___ · in · DEF · sea"
         },
         {
           "sentence": "She decided {{answer}} accept the job.",
           "answer": "to",
           "translation": "decide + infinitive.",
           "hint": "the infinitive particle",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · decide.PST · ___ · accept · DEF · job"
         },
         {
           "sentence": "Would you mind {{answer}} the door?",
           "answer": "closing",
           "translation": "mind + -ing.",
           "hint": "close — which form?",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "will.PST.Q · 2SG · mind · ___ · DEF · door"
         },
         {
           "sentence": "We hope {{answer}} see you soon.",
           "answer": "to",
           "translation": "hope + infinitive.",
           "hint": "the infinitive particle",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · hope · ___ · see · 2SG · soon"
         },
         {
           "sentence": "He avoided {{answer}} my question.",
           "answer": "answering",
           "translation": "avoid + -ing.",
           "hint": "answer — which form?",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M · avoid.PST · ___ · 1SG.POSS · question"
         },
         {
           "sentence": "They promised {{answer}} write every week.",
           "answer": "to",
           "translation": "promise + infinitive.",
           "hint": "the infinitive particle",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3PL · promise.PST · ___ · write · every · week"
         }
       ]
     },
@@ -1800,42 +1969,48 @@
           "answer": "had",
           "translation": "Unreal past condition.",
           "hint": "the past-perfect auxiliary",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "if · 2SG · ___ · tell.PRF · 1SG.OBJ · 1SG · will.PST · have · help.PRF"
         },
         {
           "sentence": "If she had left earlier, she would {{answer}} caught the flight.",
           "answer": "have",
           "translation": "Unreal past result.",
           "hint": "the perfect auxiliary after would",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if · 3SG.F · PRF.PST · leave.PRF · early.COMP · 3SG.F · will.PST · ___ · catch.PRF · DEF · flight"
         },
         {
           "sentence": "I wouldn't {{answer}} met her if I hadn't gone to that party.",
           "answer": "have",
           "translation": "Unreal past result.",
           "hint": "the perfect auxiliary",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · will.PST.NEG · ___ · meet.PRF · her · if · 1SG · PRF.PST.NEG · go.PRF · to · that · party"
         },
         {
           "sentence": "If he had studied medicine, he {{answer}} be a doctor now.",
           "answer": "would",
           "translation": "Past cause, present result.",
           "hint": "the unreal-result word",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "if · 3SG.M · have.PST · study.PRF · medicine · 3SG.M · ___ · be · INDF · doctor · now"
         },
         {
           "sentence": "If we {{answer}} taken the map, we wouldn't have got lost.",
           "answer": "had",
           "translation": "Unreal past condition.",
           "hint": "the past-perfect auxiliary",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · 1PL · ___ · take.PRF · DEF · map · 1PL · will.PST.NEG · have · get.PRF · lose.PASS"
         },
         {
           "sentence": "What would you have {{answer}} in my position?",
           "answer": "done",
           "translation": "do — the participle.",
           "hint": "do — participle",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "what · will.PST.Q · 2SG · have · ___ · in · 1SG.POSS · position"
         }
       ]
     },
@@ -1860,42 +2035,48 @@
           "answer": "must",
           "translation": "Almost certainly true.",
           "hint": "the near-certainty word",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF · light.PL · be.PL · on · — · someone · ___ · be · home"
         },
         {
           "sentence": "That {{answer}} be Maria — she's in Brazil this week!",
           "answer": "can't",
           "translation": "Almost certainly false.",
           "hint": "the impossibility word",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "that · ___ · be · Maria · — · she.be.3SG · in · Brazil · this · week"
         },
         {
           "sentence": "He {{answer}} be stuck in traffic — it happens.",
           "answer": "might",
           "translation": "Just possible.",
           "hint": "a possibility word — the one built from \"may\"",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.M · ___ · be · stick.PASS · in · traffic · — · 3SG.N · happen.3SG"
         },
         {
           "sentence": "She must {{answer}} forgotten our meeting.",
           "answer": "have",
           "translation": "Deduction about the past.",
           "hint": "the past-deduction auxiliary",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F · must · ___ · forget.PRF · 1PL.POSS · meeting"
         },
         {
           "sentence": "They can't {{answer}} left already — the car's still here.",
           "answer": "have",
           "translation": "Past impossibility.",
           "hint": "the past-deduction auxiliary",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3PL · can.NEG · ___ · leave.PRF · already · — · DEF · car.be.3SG · still · here"
         },
         {
           "sentence": "It {{answer}} rain later, so take an umbrella.",
           "answer": "could",
           "translation": "Open possibility.",
           "hint": "a possibility word — the one built from \"can\"",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.N · ___ · rain · later · so · take · INDF · umbrella"
         }
       ]
     },
@@ -1920,42 +2101,48 @@
           "answer": "been",
           "translation": "Perfect passive.",
           "hint": "the participle of be",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF · road · have.3SG · ___ · close.PASS · since · Monday"
         },
         {
           "sentence": "Our office is {{answer}} renovated at the moment.",
           "answer": "being",
           "translation": "Continuous passive.",
           "hint": "the -ing of be",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1PL.POSS · office · be.3SG · ___ · renovate.PASS · at · DEF · moment"
         },
         {
           "sentence": "All answers must be {{answer}} in ink.",
           "answer": "written",
           "translation": "Modal passive — write.",
           "hint": "write — participle",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "all · answer.PL · must · be · ___ · in · ink"
         },
         {
           "sentence": "She is {{answer}} to be the richest woman in the country.",
           "answer": "said",
           "translation": "Reporting passive — say.",
           "hint": "say — participle",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F · be.3SG · ___ · INF · be · DEF · rich.SUP · woman · in · DEF · country"
         },
         {
           "sentence": "The results will {{answer}} announced on Friday.",
           "answer": "be",
           "translation": "Future passive.",
           "hint": "the bare infinitive of the passive",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF · result.PL · will · ___ · announce.PASS · on · Friday"
         },
         {
           "sentence": "By 1990, the bridge {{answer}} been rebuilt twice.",
           "answer": "had",
           "translation": "Past perfect passive.",
           "hint": "the past-perfect auxiliary",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "by · 1990 · DEF · bridge · ___ · be.PRF · rebuild.PASS · twice"
         }
       ]
     },
@@ -1980,42 +2167,48 @@
           "answer": "knew",
           "translation": "Present regret → past form.",
           "hint": "know — regret form",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · wish · 1SG · ___ · how · INF · drive"
         },
         {
           "sentence": "She wishes she {{answer}} accepted the offer.",
           "answer": "had",
           "translation": "Past regret → past perfect.",
           "hint": "the past-regret auxiliary",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · wish.3SG · 3SG.F · ___ · accept.PRF · DEF · offer"
         },
         {
           "sentence": "I wish you {{answer}} stop interrupting me!",
           "answer": "would",
           "translation": "Complaint about someone.",
           "hint": "the complaint word",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · wish · 2SG · ___ · stop · interrupt.PROG · 1SG.OBJ"
         },
         {
           "sentence": "If {{answer}} I had listened to your advice!",
           "answer": "only",
           "translation": "The stronger version of wish.",
           "hint": "the word after if",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "if · ___ · 1SG · have.PST · listen.PRF · to · 2SG.POSS · advice"
         },
         {
           "sentence": "He wishes he {{answer}} taller.",
           "answer": "were",
           "translation": "Present regret with be.",
           "hint": "be — regret form",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M · wish.3SG · 3SG.M · ___ · tall.COMP"
         },
         {
           "sentence": "We wish we {{answer}} bought tickets earlier.",
           "answer": "had",
           "translation": "Past regret.",
           "hint": "the past-regret auxiliary",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · wish · 1PL · ___ · buy.PRF · ticket.PL · early.COMP"
         }
       ]
     },
@@ -2040,14 +2233,16 @@
           "answer": "it",
           "translation": "Pronouns split separable verbs.",
           "hint": "the object pronoun",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "can.PST · 2SG · turn · ___ · off · DEF · music.be.3SG · too · loud"
         },
         {
           "sentence": "She's looking {{answer}} her elderly mother.",
           "answer": "after",
           "translation": "The caring phrasal verb.",
           "hint": "the caring particle",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "she.be.3SG · look.PROG · ___ · 3SG.POSS · elderly · mother"
         },
         {
           "sentence": "Please fill {{answer}} this form.",
@@ -2061,21 +2256,24 @@
           "answer": "up",
           "translation": "Collect someone.",
           "hint": "the collecting particle",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG.will · pick · 2SG · ___ · at · eight"
         },
         {
           "sentence": "We've put {{answer}} the meeting until Friday.",
           "answer": "off",
           "translation": "Postpone.",
           "hint": "the postponing particle",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "we.have · put.PRF · ___ · DEF · meeting · until · Friday"
         },
         {
           "sentence": "He takes {{answer}} his father — same smile, same laugh.",
           "answer": "after",
           "translation": "Resemble a parent.",
           "hint": "the resembling particle",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.M · take.3SG · ___ · 3SG.POSS · father · — · same · smile · same · laugh"
         }
       ]
     },
@@ -2100,42 +2298,48 @@
           "answer": "haven't",
           "translation": "Positive → negative tag.",
           "hint": "the tag flips the auxiliary in \"you’ve\" — and the statement is positive, so the tag turns negative",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "you.have · meet.PRF · before · ___ · 2SG"
         },
         {
           "sentence": "She doesn't eat fish, {{answer}} she?",
           "answer": "does",
           "translation": "Negative → positive tag.",
           "hint": "the statement is already negative, so the tag is positive — and it echoes the auxiliary that carries that negative",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · do.3SG.NEG · eat · fish · ___ · 3SG.F"
         },
         {
           "sentence": "Could you tell me where the bank {{answer}}?",
           "answer": "is",
           "translation": "Statement order inside.",
           "hint": "be — at the END",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "can.PST · 2SG · tell · 1SG.OBJ · where · DEF · bank · ___"
         },
         {
           "sentence": "Do you know if the shop {{answer}} at six?",
           "answer": "closes",
           "translation": "Indirect yes/no question.",
           "hint": "close — statement order",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "do.Q · 2SG · know · Q.if · DEF · shop · ___ · at · six"
         },
         {
           "sentence": "It's cold today, {{answer}} it?",
           "answer": "isn't",
           "translation": "Positive → negative tag.",
           "hint": "the tag flips the auxiliary hiding in \"it’s\" — positive statement, negative tag",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "it.be.3SG · cold · today · ___ · 3SG.N"
         },
         {
           "sentence": "I wonder {{answer}} they got home safely.",
           "answer": "whether",
           "translation": "Indirect yes/no link.",
           "hint": "the if-alternative",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · wonder · ___ · 3PL · get.PST · home · safe.ADV"
         }
       ]
     },
@@ -2160,42 +2364,48 @@
           "answer": "have",
           "translation": "Auxiliary before subject.",
           "hint": "the perfect auxiliary",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "never · ___ · 1SG · hear.PRF · such · nonsense"
         },
         {
           "sentence": "Not only {{answer}} she sing, she writes her own songs.",
           "answer": "does",
           "translation": "Present emphasis.",
           "hint": "the present auxiliary agreeing with \"she\"",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "NEG · only · ___ · 3SG.F · sing · 3SG.F · write.3SG · 3SG.POSS · own · song.PL"
         },
         {
           "sentence": "No sooner had we sat down {{answer}} the phone rang.",
           "answer": "than",
           "translation": "The no-sooner pair.",
           "hint": "the pairing word",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · soon.COMP · have.PST · 1PL · sit.PRF · down · ___ · DEF · phone · ring.PST"
         },
         {
           "sentence": "Under no circumstances {{answer}} you open that door.",
           "answer": "should",
           "translation": "A stern warning.",
           "hint": "the advice modal",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "under · NEG · circumstance.PL · ___ · 2SG · open · that · door"
         },
         {
           "sentence": "Rarely {{answer}} we see such talent.",
           "answer": "do",
           "translation": "Present emphasis.",
           "hint": "the present auxiliary agreeing with \"we\"",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "rare.ADV · ___ · 1PL · see · such · talent"
         },
         {
           "sentence": "Only then {{answer}} I understand what she meant.",
           "answer": "did",
           "translation": "Past emphasis.",
           "hint": "the past auxiliary",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "only · then · ___ · 1SG · understand · what · 3SG.F · mean.PST"
         }
       ]
     },
@@ -2220,42 +2430,48 @@
           "answer": "What",
           "translation": "The what-cleft opener.",
           "hint": "the cleft opener",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 1SG · need · be.3SG · INDF · good · night.POSS · sleep"
         },
         {
           "sentence": "It was Marco {{answer}} suggested the idea.",
           "answer": "who",
           "translation": "Focusing on a person.",
           "hint": "the person link",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.N · be.PST.SG · Marco · ___ · suggest.PST · DEF · idea"
         },
         {
           "sentence": "What annoys me {{answer}} his constant lateness.",
           "answer": "is",
           "translation": "The cleft pivot.",
           "hint": "be — the pivot",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "what · annoy.3SG · 1SG.OBJ · ___ · 3SG.POSS · constant · late.NMLZ"
         },
         {
           "sentence": "It {{answer}} in Paris that they first met.",
           "answer": "was",
           "translation": "Focusing on a place.",
           "hint": "be — past",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.N · ___ · in · Paris · that · 3PL · first · meet.PST"
         },
         {
           "sentence": "{{answer}} she wants is a little respect.",
           "answer": "All",
           "translation": "The everything-cleft.",
           "hint": "the only-thing opener",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · 3SG.F · want.3SG · be.3SG · INDF · little · respect"
         },
         {
           "sentence": "It wasn't until midnight {{answer}} he finally called.",
           "answer": "that",
           "translation": "Focusing on a time.",
           "hint": "the cleft link",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.N · be.PST.SG.NEG · until · midnight · ___ · 3SG.M · final.ADV · call.PST"
         }
       ]
     },
@@ -2280,42 +2496,48 @@
           "answer": "seem",
           "translation": "The classic hedge.",
           "hint": "the appearing verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG.N · will.PST · ___ · that · DEF · figure.PL · be.PL · wrong"
         },
         {
           "sentence": "House prices {{answer}} to rise in spring.",
           "answer": "tend",
           "translation": "A general tendency.",
           "hint": "the tendency verb",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "house · price.PL · ___ · INF · rise · in · spring"
         },
         {
           "sentence": "There {{answer}} to be a problem with the data.",
           "answer": "appears",
           "translation": "A visible hedge.",
           "hint": "the appearing verb, 3rd person",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "there · ___ · INF · be · INDF · problem · with · DEF · data"
         },
         {
           "sentence": "It is widely {{answer}} that the climate is changing.",
           "answer": "believed",
           "translation": "Distanced reporting — believe.",
           "hint": "believe — participle",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.N · be.3SG · widely · ___ · that · DEF · climate · be.3SG · change.PROG"
         },
         {
           "sentence": "The results {{answer}} that more research is needed.",
           "answer": "suggest",
           "translation": "Letting data speak.",
           "hint": "the hinting verb",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF · result.PL · ___ · that · much.COMP · research · be.3SG · need.PASS"
         },
         {
           "sentence": "It could be {{answer}} that the policy failed.",
           "answer": "argued",
           "translation": "Distanced debate — argue.",
           "hint": "argue — participle",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.N · can.PST · be · ___ · that · DEF · policy · fail.PST"
         }
       ]
     },
@@ -2340,42 +2562,48 @@
           "answer": "Having",
           "translation": "The earlier action.",
           "hint": "the perfect participle opener",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · finish.PRF · dinner · 1PL · go.PST · for · INDF · walk"
         },
         {
           "sentence": "{{answer}} through the window, she saw the storm coming.",
           "answer": "Looking",
           "translation": "Same-time action — look.",
           "hint": "look — participle",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · through · DEF · window · 3SG.F · see.PST · DEF · storm · come.PROG"
         },
         {
           "sentence": "{{answer}} in 1889, the tower still draws millions.",
           "answer": "Built",
           "translation": "A passive participle — build.",
           "hint": "build — participle",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · in · 1889 · DEF · tower · still · draw.3SG · million.PL"
         },
         {
           "sentence": "Not {{answer}} what to say, he stayed silent.",
           "answer": "knowing",
           "translation": "Negative participle — know.",
           "hint": "know — participle",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NEG · ___ · what · INF · say · 3SG.M · stay.PST · silent"
         },
         {
           "sentence": "Having {{answer}} in Rome for years, she speaks fluent Italian.",
           "answer": "lived",
           "translation": "live — the participle.",
           "hint": "live — participle",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "have.PROG · ___ · in · Rome · for · year.PL · 3SG.F · speak.3SG · fluent · Italian"
         },
         {
           "sentence": "{{answer}} by the news, they cancelled the trip.",
           "answer": "Shocked",
           "translation": "A passive participle — shock.",
           "hint": "shock — participle",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · by · DEF · news · 3PL · cancel.PST · DEF · trip"
         }
       ]
     },
@@ -2400,42 +2628,48 @@
           "answer": "be",
           "translation": "Bare form of be, all persons.",
           "hint": "bare infinitive — not is, are or was",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF · board · insist.PST · that · 3SG.M · ___ · remove.PASS · from · DEF · project"
         },
         {
           "sentence": "It is essential that every member {{answer}} the code of conduct.",
           "answer": "follow",
           "translation": "Bare form — no -s.",
           "hint": "obey — bare form",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.N · be.3SG · essential · that · every · member · ___ · DEF · code · of · conduct"
         },
         {
           "sentence": "She recommended that the report {{answer}} rewritten.",
           "answer": "be",
           "translation": "Passive subjunctive.",
           "hint": "bare infinitive — not is, are or was",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.F · recommend.PST · that · DEF · report · ___ · rewrite.PASS"
         },
         {
           "sentence": "They demanded that the minister {{answer}}.",
           "answer": "resign",
           "translation": "Bare form — no -s.",
           "hint": "step down — bare form",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3PL · demand.PST · that · DEF · minister · ___"
         },
         {
           "sentence": "It's vital that she {{answer}} informed at once.",
           "answer": "be",
           "translation": "Passive subjunctive.",
           "hint": "bare infinitive — not is, are or was",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "it.PRS.3SG · vital · that · 3SG.F · ___ · inform.PASS · at · once"
         },
         {
           "sentence": "We suggest that he {{answer}} a lawyer before signing.",
           "answer": "consult",
           "translation": "Bare form — no -s.",
           "hint": "seek advice from — bare form",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · suggest · that · 3SG.M · ___ · INDF · lawyer · before · sign.PROG"
         }
       ]
     },
@@ -2460,42 +2694,48 @@
           "answer": "So",
           "translation": "Positive echo.",
           "hint": "the me-too opener",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · love.PST · DEF · film · — · ___ · do.PST · 1SG"
         },
         {
           "sentence": "She can't make it tonight. — {{answer}} can I.",
           "answer": "Neither",
           "translation": "Negative echo.",
           "hint": "the negative me-too opener",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · can.NEG · make · 3SG.N · tonight · — · ___ · can · 1SG"
         },
         {
           "sentence": "He was asked to apologise, and he did {{answer}} immediately.",
           "answer": "so",
           "translation": "Formal verb-phrase substitute.",
           "hint": "the substitute after did",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.M · be.PST.SG · ask.PASS · INF · apologise · and · 3SG.M · do.PST · ___ · immediately"
         },
         {
           "sentence": "You may be tired; if {{answer}}, rest.",
           "answer": "so",
           "translation": "Compressed condition.",
           "hint": "the substitute after if",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "2SG · may · be · tire.PASS · if · ___ · rest"
         },
         {
           "sentence": "They promised to help, but failed to {{answer}} so.",
           "answer": "do",
           "translation": "The formal substitute verb.",
           "hint": "the substitute verb",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3PL · promise.PST · INF · help · but · fail.PST · INF · ___ · so"
         },
         {
           "sentence": "I've never been to Oslo. — Nor {{answer}} I.",
           "answer": "have",
           "translation": "Negative echo, perfect.",
           "hint": "the perfect auxiliary",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "I.PRF · never · be.PRF · to · Oslo · — · nor · ___ · 1SG"
         }
       ]
     },
@@ -2520,42 +2760,48 @@
           "answer": "notwithstanding",
           "translation": "Formal 'despite'.",
           "hint": "the heaviest despite",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF · plan · go.PST · ahead · ___ · DEF · objection.PL"
         },
         {
           "sentence": "It was a victory, {{answer}} a narrow one.",
           "answer": "albeit",
           "translation": "although + phrase.",
           "hint": "the compressed although",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.N · be.PST.SG · INDF · victory · ___ · INDF · narrow · one"
         },
         {
           "sentence": "The costs rose sharply; {{answer}} the project was cancelled.",
           "answer": "hence",
           "translation": "Formal 'therefore'.",
           "hint": "a formal therefore",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF · cost.PL · rise.PST · sharply · ___ · DEF · project · be.PST.SG · cancel.PASS"
         },
         {
           "sentence": "A scheme {{answer}} employees share the profits.",
           "answer": "whereby",
           "translation": "by which.",
           "hint": "the by-which word",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "INDF · scheme · ___ · employee.PL · share · DEF · profit.PL"
         },
         {
           "sentence": "A {{answer}} unknown author won the prize.",
           "answer": "hitherto",
           "translation": "until now.",
           "hint": "the until-now word",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "INDF · ___ · unknown · author · win.PST · DEF · prize"
         },
         {
           "sentence": "The evidence, {{answer}} incomplete, points one way.",
           "answer": "though",
           "translation": "Reduced concession.",
           "hint": "the reduced although",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF · evidence · ___ · incomplete · point.3SG · one · way"
         }
       ]
     },
@@ -2598,42 +2844,48 @@
           "answer": "worked",
           "translation": "Talking about an old job.",
           "hint": "work + -ed",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · in · INDF · bank · for · five · year.PL"
         },
         {
           "sentence": "She {{answer}} in Rome when she was young.",
           "answer": "lived",
           "translation": "Where she lived before.",
           "hint": "live — just add -d",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · ___ · in · Rome · when · 3SG.F · be.PST.SG · young"
         },
         {
           "sentence": "He {{answer}} English at university.",
           "answer": "studied",
           "translation": "His old subject.",
           "hint": "study — y becomes -ied",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.M · ___ · English · at · university"
         },
         {
           "sentence": "The bus {{answer}} suddenly.",
           "answer": "stopped",
           "translation": "What the bus did.",
           "hint": "stop — double the p",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF · bus · ___ · suddenly"
         },
         {
           "sentence": "We {{answer}} football in the park yesterday.",
           "answer": "played",
           "translation": "Yesterday's game.",
           "hint": "vowel + y — just add -ed",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL · ___ · football · in · DEF · park · yesterday"
         },
         {
           "sentence": "They {{answer}} work yesterday — it was a holiday.",
           "answer": "didn't",
           "translation": "A day off.",
           "hint": "negative past: did + not",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3PL · ___ · work · yesterday · — · 3SG.N · be.PST.SG · INDF · holiday"
         }
       ]
     },
@@ -2672,42 +2924,48 @@
           "answer": "me",
           "translation": "Asking for help for yourself.",
           "hint": "the speaker asks for help",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "can · 2SG · help · ___ · please"
         },
         {
           "sentence": "I saw {{answer}} at school yesterday.",
           "answer": "him",
           "translation": "Talking about seeing a man.",
           "hint": "a man",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · see.PST · ___ · at · school · yesterday"
         },
         {
           "sentence": "This present is for {{answer}}.",
           "answer": "her",
           "translation": "A present for a woman.",
           "hint": "a woman",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "this · present · be.3SG · for · ___"
         },
         {
           "sentence": "Our teacher knows {{answer}} well.",
           "answer": "us",
           "translation": "The teacher knows your group.",
           "hint": "the speaker + others",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL.POSS · teacher · know.3SG · ___ · well"
         },
         {
           "sentence": "I like these shoes — I'll buy {{answer}}.",
           "answer": "them",
           "translation": "Buying the shoes.",
           "hint": "more than one thing",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · like · this.PL · shoe.PL · — · I.will · buy · ___"
         },
         {
           "sentence": "Where is my phone? I can't find {{answer}}.",
           "answer": "it",
           "translation": "Looking for your phone.",
           "hint": "one thing",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "Q.where · be.3SG · 1SG.POSS · phone · 1SG · can.NEG · find · ___"
         }
       ]
     },
@@ -2746,42 +3004,48 @@
           "answer": "Open",
           "translation": "Asking someone to open the door.",
           "hint": "base verb, no subject",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · DEF · door · please"
         },
         {
           "sentence": "{{answer}} worry — everything is fine.",
           "answer": "Don't",
           "translation": "Telling someone not to worry.",
           "hint": "negative order",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · worry · — · everything · be.3SG · fine"
         },
         {
           "sentence": "{{answer}} me tomorrow, please.",
           "answer": "Call",
           "translation": "Asking for a phone call.",
           "hint": "base verb — to telephone someone",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 1SG.OBJ · tomorrow · please"
         },
         {
           "sentence": "{{answer}} be late — the film starts at eight.",
           "answer": "Don't",
           "translation": "Warning someone not to be late.",
           "hint": "negative order with be",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · be · late · — · DEF · film · start.3SG · at · eight"
         },
         {
           "sentence": "{{answer}} quiet, please — the baby is sleeping.",
           "answer": "Be",
           "translation": "Asking for quiet.",
           "hint": "base form of the being verb, as a command",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · quiet · please · — · DEF · baby · AUX.3SG · sleep.PROG"
         },
         {
           "sentence": "Please {{answer}} down and wait a moment.",
           "answer": "sit",
           "translation": "Offering someone a seat.",
           "hint": "base verb — to take a seat",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "please · ___ · down · and · wait · INDF · moment"
         }
       ]
     }
