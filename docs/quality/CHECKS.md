@@ -731,3 +731,36 @@ mock mode by `test_translate_gates.py`):
 Also fixed at the source: ten `en` hints named their own answer as a folded
 token and rendered blanked; all ten rewritten leak-free (checked against the
 same fold before writing).
+
+---
+
+## §17 Where the interlinear gloss renders — and the one surface that drops it
+
+Traced end to end 30 Aug 2026, before authoring at scale (rules 13 and 22):
+
+| surface | path | gloss? |
+| --- | --- | --- |
+| vocabulary review card | `cards.py` `es.gloss` → `example_glosses` | **yes** |
+| grammar review card | `cards.py` `d.glosses` → `drill_glosses` | **yes** |
+| grammar LESSON view | `curriculum.py:269` `examples[]` | **no** |
+
+So the layer is live on both SRS surfaces — the ones a learner actually
+drills — and authoring is not into a dead route. The lesson view is the
+exception: its query selects only sentence/answer/translation/hint, and it
+computes `reading` on the fly rather than reading the stored romanisation.
+
+**Adding gloss there is not a one-line select.** The lesson view fills the
+answer INTO the sentence (`ANSWER_MARKER` → `d["answer"]`), while the stored
+gloss carries `___` at that position by construction. A filled sentence over
+a blanked gloss cell is a mismatch a learner would notice, and nothing stores
+the answer's own gloss cell to substitute. Options, undecided: substitute the
+answer's cell (needs a new field), drop the `___` cell from the lesson
+rendering, or leave the lesson view glossless and let the layer be an SRS
+feature. Left alone deliberately — surfacing it is the job.
+
+Sentence-bank status the same day: `gloss` column present and populated only
+in the five gloss-first banks (`ha`/`mi`/`sw`/`xh`/`yo`); the other 22 TSVs
+have no gloss column at all. 6,627 of 375,004 sentence rows glossed (2%);
+1,439 of 8,874 drills (16%). The write path (`seed_sentences.py`,
+`seed_grammar.py`, migration 20260707) carries both gloss and
+transliteration, so this is a content gap, not a plumbing one.
