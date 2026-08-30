@@ -37,7 +37,8 @@
           "translation": "I am from Barcelona.",
           "hint": "I",
           "display_order": 1,
-          "cell": "jo"
+          "cell": "jo",
+          "gloss": "___ · be.1SG · from · Barcelona"
         },
         {
           "sentence": "{{answer}} ets el meu amic.",
@@ -45,7 +46,8 @@
           "translation": "You are my friend.",
           "hint": "you — informal",
           "display_order": 2,
-          "cell": "tu"
+          "cell": "tu",
+          "gloss": "___ · be.2SG · DEF.M.SG · 1SG.POSS.M · friend.M"
         },
         {
           "sentence": "{{answer}} és la meva germana.",
@@ -53,7 +55,8 @@
           "translation": "She is my sister.",
           "hint": "she",
           "display_order": 3,
-          "cell": "ella"
+          "cell": "ella",
+          "gloss": "___ · be.3SG · DEF.F.SG · 1SG.POSS.F · sister"
         },
         {
           "sentence": "{{answer}} som estudiants.",
@@ -61,7 +64,8 @@
           "translation": "We are students.",
           "hint": "we",
           "display_order": 4,
-          "cell": "nosaltres"
+          "cell": "nosaltres",
+          "gloss": "___ · be.1PL · student.PL"
         },
         {
           "sentence": "{{answer}} són de Girona.",
@@ -69,7 +73,8 @@
           "translation": "They are from Girona.",
           "hint": "they (masculine)",
           "display_order": 5,
-          "cell": "ells"
+          "cell": "ells",
+          "gloss": "___ · be.3PL · from · Girona"
         },
         {
           "sentence": "{{answer}} sou molt amables.",
@@ -77,7 +82,8 @@
           "translation": "You (all) are very kind.",
           "hint": "you — plural",
           "display_order": 6,
-          "cell": "vosaltres"
+          "cell": "vosaltres",
+          "gloss": "___ · be.2PL · very · kind.PL"
         },
         {
           "sentence": "{{answer}} és el meu germà.",
@@ -85,7 +91,8 @@
           "translation": "He is my brother.",
           "hint": "he",
           "cell": "ell",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · be.3SG · DEF.M.SG · 1SG.POSS.M · brother"
         },
         {
           "sentence": "{{answer}} són les meves amigues.",
@@ -93,7 +100,8 @@
           "translation": "They are my friends (all women).",
           "hint": "they — all female",
           "cell": "elles",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "___ · be.3PL · DEF.F.PL · 1SG.POSS.F.PL · friend.F.PL"
         },
         {
           "sentence": "{{answer}} parlo una mica de català.",
@@ -101,7 +109,8 @@
           "translation": "I speak a little Catalan.",
           "hint": "I",
           "cell": "jo",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "___ · speak.1SG · INDF.F.SG · bit · of · Catalan"
         },
         {
           "sentence": "{{answer}} vius aquí a prop?",
@@ -109,7 +118,8 @@
           "translation": "Do you live near here?",
           "hint": "you — informal",
           "cell": "tu",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "___ · live.2SG · here · at · near"
         },
         {
           "sentence": "{{answer}} treballa en un banc.",
@@ -117,7 +127,8 @@
           "translation": "He works in a bank.",
           "hint": "he",
           "cell": "ell",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "___ · work.3SG · in · INDF.M.SG · bank"
         },
         {
           "sentence": "{{answer}} canta molt bé.",
@@ -125,7 +136,8 @@
           "translation": "She sings very well.",
           "hint": "she",
           "cell": "ella",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "___ · sing.3SG · very · well"
         },
         {
           "sentence": "{{answer}} vivim a Girona.",
@@ -133,7 +145,8 @@
           "translation": "We live in Girona.",
           "hint": "we",
           "cell": "nosaltres",
-          "display_order": 13
+          "display_order": 13,
+          "gloss": "___ · live.1PL · at · Girona"
         },
         {
           "sentence": "{{answer}} parleu anglès?",
@@ -141,7 +154,8 @@
           "translation": "Do you (all) speak English?",
           "hint": "you all",
           "cell": "vosaltres",
-          "display_order": 14
+          "display_order": 14,
+          "gloss": "___ · speak.2PL · English"
         },
         {
           "sentence": "{{answer}} juguen a bàsquet.",
@@ -149,7 +163,8 @@
           "translation": "They play basketball.",
           "hint": "they (masculine)",
           "cell": "ells",
-          "display_order": 15
+          "display_order": 15,
+          "gloss": "___ · play.3PL · at · basketball"
         },
         {
           "sentence": "{{answer}} arriben demà.",
@@ -157,7 +172,8 @@
           "translation": "They (f.) arrive tomorrow.",
           "hint": "they (feminine)",
           "cell": "elles",
-          "display_order": 16
+          "display_order": 16,
+          "gloss": "___ · arrive.3PL · tomorrow"
         }
       ],
       "paradigm": [
@@ -201,7 +217,8 @@
           "translation": "I have two books.",
           "hint": "book, plural",
           "display_order": 1,
-          "cell": "masculine"
+          "cell": "masculine",
+          "gloss": "have.1SG · two.M · ___"
         },
         {
           "sentence": "Les {{answer}} són boniques.",
@@ -209,7 +226,8 @@
           "translation": "The houses are beautiful.",
           "hint": "house, plural (-a → -es)",
           "display_order": 2,
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "DEF.F.PL · ___ · be.3PL · beautiful.F.PL"
         },
         {
           "sentence": "Tinc tres {{answer}}.",
@@ -217,7 +235,8 @@
           "translation": "I have three sisters.",
           "hint": "sister, plural",
           "display_order": 3,
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "have.1SG · three · ___"
         },
         {
           "sentence": "Els {{answer}} són grans.",
@@ -225,7 +244,8 @@
           "translation": "The gardens are big.",
           "hint": "garden, plural",
           "display_order": 4,
-          "cell": "masculine"
+          "cell": "masculine",
+          "gloss": "DEF.M.PL · ___ · be.3PL · big.PL"
         },
         {
           "sentence": "Tinc dos {{answer}} a casa.",
@@ -233,7 +253,8 @@
           "translation": "I have two cats at home.",
           "hint": "cat, plural",
           "display_order": 5,
-          "cell": "masculine"
+          "cell": "masculine",
+          "gloss": "have.1SG · two.M · ___ · at · house"
         },
         {
           "sentence": "Les {{answer}} són noves.",
@@ -241,7 +262,8 @@
           "translation": "The chairs are new.",
           "hint": "chair, plural",
           "display_order": 6,
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "DEF.F.PL · ___ · be.3PL · new.F.PL"
         }
       ],
       "paradigm": [
@@ -279,7 +301,8 @@
           "translation": "The house is big.",
           "hint": "feminine singular",
           "display_order": 1,
-          "cell": "la"
+          "cell": "la",
+          "gloss": "___ · house · be.3SG · big.SG"
         },
         {
           "sentence": "{{answer}} llibre és nou.",
@@ -287,7 +310,8 @@
           "translation": "The book is new.",
           "hint": "masculine singular",
           "display_order": 2,
-          "cell": "el"
+          "cell": "el",
+          "gloss": "___ · book · be.3SG · new.M.SG"
         },
         {
           "sentence": "{{answer}} nens juguen fora.",
@@ -295,7 +319,8 @@
           "translation": "The children are playing outside.",
           "hint": "masculine plural",
           "display_order": 3,
-          "cell": "els"
+          "cell": "els",
+          "gloss": "___ · child.M.PL · play.3PL · outside"
         },
         {
           "sentence": "{{answer}} cafè és calent.",
@@ -303,7 +328,8 @@
           "translation": "The coffee is hot.",
           "hint": "masculine singular",
           "display_order": 4,
-          "cell": "el"
+          "cell": "el",
+          "gloss": "___ · coffee · be.3SG · hot.M.SG"
         },
         {
           "sentence": "{{answer}} porta és oberta.",
@@ -311,7 +337,8 @@
           "translation": "The door is open.",
           "hint": "feminine singular",
           "display_order": 5,
-          "cell": "la"
+          "cell": "la",
+          "gloss": "___ · door · be.3SG · open.F.SG"
         },
         {
           "sentence": "{{answer}} noies són simpàtiques.",
@@ -319,7 +346,8 @@
           "translation": "The girls are nice.",
           "hint": "feminine plural",
           "display_order": 6,
-          "cell": "les"
+          "cell": "les",
+          "gloss": "___ · girl.F.PL · be.3PL · nice.F.PL"
         },
         {
           "sentence": "{{answer}} gats dormen al sofà.",
@@ -327,7 +355,8 @@
           "translation": "The cats sleep on the sofa.",
           "hint": "the — masculine plural",
           "cell": "els",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · cat.M.PL · sleep.3PL · at-DEF.M.SG · sofa"
         },
         {
           "sentence": "{{answer}} finestres són obertes.",
@@ -335,7 +364,8 @@
           "translation": "The windows are open.",
           "hint": "the — feminine plural",
           "cell": "les",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "___ · window.F.PL · be.3PL · open.F.PL"
         }
       ],
       "paradigm": [
@@ -374,42 +404,48 @@
           "answer": "un",
           "translation": "I have a dog.",
           "hint": "masculine",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "have.1SG · ___ · dog"
         },
         {
           "sentence": "És {{answer}} casa gran.",
           "answer": "una",
           "translation": "It is a big house.",
           "hint": "feminine",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "be.3SG · ___ · house · big.SG"
         },
         {
           "sentence": "Ell té {{answer}} idea.",
           "answer": "una",
           "translation": "He has an idea.",
           "hint": "idea is feminine",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.M · have.3SG · ___ · idea"
         },
         {
           "sentence": "És {{answer}} bon llibre.",
           "answer": "un",
           "translation": "It is a good book.",
           "hint": "masculine",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "be.3SG · ___ · good.M.SG · book"
         },
         {
           "sentence": "Tinc {{answer}} pregunta.",
           "answer": "una",
           "translation": "I have a question.",
           "hint": "feminine",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "have.1SG · ___ · question"
         },
         {
           "sentence": "És {{answer}} dia bonic.",
           "answer": "un",
           "translation": "It is a beautiful day.",
           "hint": "masculine",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "be.3SG · ___ · day · beautiful.M.SG"
         }
       ]
     },
@@ -443,7 +479,8 @@
           "translation": "I am a student.",
           "hint": "ser, jo",
           "display_order": 1,
-          "cell": "jo"
+          "cell": "jo",
+          "gloss": "1SG · ___ · student"
         },
         {
           "sentence": "Tu {{answer}} molt alt.",
@@ -451,7 +488,8 @@
           "translation": "You are very tall.",
           "hint": "ser, tu",
           "display_order": 2,
-          "cell": "tu"
+          "cell": "tu",
+          "gloss": "2SG · ___ · very · tall.M.SG"
         },
         {
           "sentence": "Ella {{answer}} professora.",
@@ -459,7 +497,8 @@
           "translation": "She is a teacher.",
           "hint": "ser, ell",
           "display_order": 3,
-          "cell": "ell"
+          "cell": "ell",
+          "gloss": "3SG.F · ___ · teacher.F"
         },
         {
           "sentence": "Nosaltres {{answer}} amics.",
@@ -467,7 +506,8 @@
           "translation": "We are friends.",
           "hint": "ser, nosaltres",
           "display_order": 4,
-          "cell": "nosaltres"
+          "cell": "nosaltres",
+          "gloss": "1PL · ___ · friend.M.PL"
         },
         {
           "sentence": "Vosaltres {{answer}} catalans?",
@@ -475,7 +515,8 @@
           "translation": "Are you (all) Catalan?",
           "hint": "ser, vosaltres",
           "display_order": 5,
-          "cell": "vosaltres"
+          "cell": "vosaltres",
+          "gloss": "2PL · ___ · Catalan.M.PL"
         },
         {
           "sentence": "Ells {{answer}} a casa.",
@@ -483,7 +524,8 @@
           "translation": "They are at home.",
           "hint": "ser, ells",
           "display_order": 6,
-          "cell": "ells"
+          "cell": "ells",
+          "gloss": "3PL.M · ___ · at · house.F.SG"
         },
         {
           "sentence": "Jo {{answer}} de Tarragona.",
@@ -491,7 +533,8 @@
           "translation": "I am from Tarragona.",
           "hint": "ser, jo",
           "cell": "jo",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · ___ · from · Tarragona"
         },
         {
           "sentence": "Tu {{answer}} metge?",
@@ -499,7 +542,8 @@
           "translation": "Are you a doctor?",
           "hint": "ser, tu",
           "cell": "tu",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG · ___ · doctor.M.SG"
         },
         {
           "sentence": "El meu pare {{answer}} mestre.",
@@ -507,7 +551,8 @@
           "translation": "My father is a teacher.",
           "hint": "ser, ell",
           "cell": "ell",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "DEF.M.SG · POSS.1SG.M.SG · father.M.SG · ___ · teacher.M.SG"
         },
         {
           "sentence": "Nosaltres {{answer}} germans.",
@@ -515,7 +560,8 @@
           "translation": "We are brothers.",
           "hint": "ser, nosaltres",
           "cell": "nosaltres",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL · ___ · brother.M.PL"
         },
         {
           "sentence": "Vosaltres {{answer}} de Lleida?",
@@ -523,7 +569,8 @@
           "translation": "Are you (all) from Lleida?",
           "hint": "ser, vosaltres",
           "cell": "vosaltres",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL · ___ · from · Lleida"
         },
         {
           "sentence": "Els meus pares {{answer}} de València.",
@@ -531,7 +578,8 @@
           "translation": "My parents are from Valencia.",
           "hint": "ser, ells",
           "cell": "ells",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "DEF.M.PL · POSS.1SG.M.PL · father.M.PL · ___ · from · Valencia"
         }
       ],
       "paradigm": [
@@ -573,7 +621,8 @@
           "translation": "I am twenty years old.",
           "hint": "tenir, jo",
           "display_order": 1,
-          "cell": "jo"
+          "cell": "jo",
+          "gloss": "1SG · ___ · twenty · year.M.PL"
         },
         {
           "sentence": "Tu {{answer}} gana?",
@@ -581,7 +630,8 @@
           "translation": "Are you hungry?",
           "hint": "tenir, tu",
           "display_order": 2,
-          "cell": "tu"
+          "cell": "tu",
+          "gloss": "2SG · ___ · hunger.F.SG"
         },
         {
           "sentence": "Ella {{answer}} un gat.",
@@ -589,7 +639,8 @@
           "translation": "She has a cat.",
           "hint": "tenir, ell",
           "display_order": 3,
-          "cell": "ell"
+          "cell": "ell",
+          "gloss": "3SG.F · ___ · INDF.M.SG · cat.M.SG"
         },
         {
           "sentence": "Nosaltres {{answer}} una pregunta.",
@@ -597,7 +648,8 @@
           "translation": "We have a question.",
           "hint": "tenir, nosaltres",
           "display_order": 4,
-          "cell": "nosaltres"
+          "cell": "nosaltres",
+          "gloss": "1PL · ___ · INDF.F.SG · question.F.SG"
         },
         {
           "sentence": "Vosaltres {{answer}} raó.",
@@ -605,7 +657,8 @@
           "translation": "You (all) are right.",
           "hint": "tenir, vosaltres",
           "display_order": 5,
-          "cell": "vosaltres"
+          "cell": "vosaltres",
+          "gloss": "2PL · ___ · reason.F.SG"
         },
         {
           "sentence": "Ells {{answer}} set.",
@@ -613,7 +666,8 @@
           "translation": "They are thirsty.",
           "hint": "tenir, ells",
           "display_order": 6,
-          "cell": "ells"
+          "cell": "ells",
+          "gloss": "3PL.M · ___ · thirst.F.SG"
         },
         {
           "sentence": "Jo {{answer}} dues germanes.",
@@ -621,7 +675,8 @@
           "translation": "I have two sisters.",
           "hint": "tenir, jo",
           "cell": "jo",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · ___ · two.F · sister.F.PL"
         },
         {
           "sentence": "Tu {{answer}} un bolígraf?",
@@ -629,7 +684,8 @@
           "translation": "Do you have a pen?",
           "hint": "tenir, tu",
           "cell": "tu",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG · ___ · INDF.M.SG · pen.M.SG"
         },
         {
           "sentence": "El meu germà {{answer}} un gos.",
@@ -637,7 +693,8 @@
           "translation": "My brother has a dog.",
           "hint": "tenir, ell",
           "cell": "ell",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "DEF.M.SG · POSS.1SG.M.SG · brother.M.SG · ___ · INDF.M.SG · dog.M.SG"
         },
         {
           "sentence": "Nosaltres {{answer}} temps avui.",
@@ -645,7 +702,8 @@
           "translation": "We have time today.",
           "hint": "tenir, nosaltres",
           "cell": "nosaltres",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL · ___ · time.M.SG · today"
         },
         {
           "sentence": "Vosaltres {{answer}} fills?",
@@ -653,7 +711,8 @@
           "translation": "Do you (all) have children?",
           "hint": "tenir, vosaltres",
           "cell": "vosaltres",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL · ___ · child.M.PL"
         },
         {
           "sentence": "Ells {{answer}} una casa gran.",
@@ -661,7 +720,8 @@
           "translation": "They have a big house.",
           "hint": "tenir, ells",
           "cell": "ells",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "3PL.M · ___ · INDF.F.SG · house.F.SG · big.SG"
         }
       ],
       "paradigm": [
@@ -703,7 +763,8 @@
           "translation": "We speak Catalan.",
           "hint": "parlar, nosaltres",
           "display_order": 1,
-          "cell": "nosaltres"
+          "cell": "nosaltres",
+          "gloss": "1PL · ___ · Catalan"
         },
         {
           "sentence": "Ella {{answer}} en una oficina.",
@@ -711,7 +772,8 @@
           "translation": "She works in an office.",
           "hint": "treballar, ell",
           "display_order": 2,
-          "cell": "ell"
+          "cell": "ell",
+          "gloss": "3SG.F · ___ · in · INDF.F · office"
         },
         {
           "sentence": "Tu {{answer}} música cada dia?",
@@ -719,7 +781,8 @@
           "translation": "Do you listen to music every day?",
           "hint": "escoltar, tu",
           "display_order": 3,
-          "cell": "tu"
+          "cell": "tu",
+          "gloss": "2SG · ___ · music · every · day"
         },
         {
           "sentence": "Ells {{answer}} a futbol.",
@@ -727,7 +790,8 @@
           "translation": "They play football.",
           "hint": "jugar, ells",
           "display_order": 4,
-          "cell": "ells"
+          "cell": "ells",
+          "gloss": "3PL.M · ___ · to · football"
         },
         {
           "sentence": "Vosaltres {{answer}} català?",
@@ -735,7 +799,8 @@
           "translation": "Do you (all) study Catalan?",
           "hint": "estudiar, vosaltres",
           "display_order": 5,
-          "cell": "vosaltres"
+          "cell": "vosaltres",
+          "gloss": "2PL · ___ · Catalan"
         },
         {
           "sentence": "Jo {{answer}} el pa.",
@@ -743,7 +808,8 @@
           "translation": "I buy the bread.",
           "hint": "comprar, jo",
           "display_order": 6,
-          "cell": "jo"
+          "cell": "jo",
+          "gloss": "1SG · ___ · DEF.M · bread"
         },
         {
           "sentence": "Jo {{answer}} en un hospital.",
@@ -751,7 +817,8 @@
           "translation": "I work in a hospital.",
           "hint": "treballar, jo",
           "cell": "jo",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · ___ · in · INDF.M · hospital"
         },
         {
           "sentence": "Tu {{answer}} a quina hora?",
@@ -759,7 +826,8 @@
           "translation": "What time do you arrive?",
           "hint": "arribar, tu",
           "cell": "tu",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG · ___ · at · which.F · hour"
         },
         {
           "sentence": "Ell {{answer}} el sopar.",
@@ -767,7 +835,8 @@
           "translation": "He prepares dinner.",
           "hint": "preparar, ell",
           "cell": "ell",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "3SG.M · ___ · DEF.M · dinner"
         },
         {
           "sentence": "Nosaltres {{answer}} la ràdio.",
@@ -775,7 +844,8 @@
           "translation": "We listen to the radio.",
           "hint": "escoltar, nosaltres",
           "cell": "nosaltres",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL · ___ · DEF.F · radio"
         },
         {
           "sentence": "Vosaltres {{answer}} francès a l'escola?",
@@ -783,7 +853,8 @@
           "translation": "Do you (all) study French at school?",
           "hint": "estudiar, vosaltres",
           "cell": "vosaltres",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL · ___ · French · at · DEF.F-school"
         },
         {
           "sentence": "Els nens {{answer}} al parc.",
@@ -791,7 +862,8 @@
           "translation": "The children play in the park.",
           "hint": "jugar, ells",
           "cell": "ells",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "DEF.M.PL · child.PL · ___ · at-DEF.M · park"
         }
       ],
       "paradigm": [
@@ -833,7 +905,8 @@
           "translation": "I sleep a lot.",
           "hint": "dormir, jo",
           "display_order": 1,
-          "cell": "jo"
+          "cell": "jo",
+          "gloss": "1SG · ___ · much"
         },
         {
           "sentence": "Nosaltres {{answer}} una carta.",
@@ -841,7 +914,8 @@
           "translation": "We are writing a letter.",
           "hint": "escriure, nosaltres",
           "display_order": 2,
-          "cell": "nosaltres"
+          "cell": "nosaltres",
+          "gloss": "1PL · ___ · INDF.F · letter"
         },
         {
           "sentence": "Ella {{answer}} el diari.",
@@ -849,7 +923,8 @@
           "translation": "She reads the newspaper.",
           "hint": "llegir, ell",
           "display_order": 3,
-          "cell": "ell"
+          "cell": "ell",
+          "gloss": "3SG.F · ___ · DEF.M · newspaper"
         },
         {
           "sentence": "Tu {{answer}} la música?",
@@ -857,7 +932,8 @@
           "translation": "Do you hear the music?",
           "hint": "sentir, tu",
           "display_order": 4,
-          "cell": "tu"
+          "cell": "tu",
+          "gloss": "2SG · ___ · DEF.F · music"
         },
         {
           "sentence": "Vosaltres {{answer}} un pastís?",
@@ -865,7 +941,8 @@
           "translation": "Do you (all) prefer a cake?",
           "hint": "preferir, vosaltres",
           "display_order": 5,
-          "cell": "vosaltres"
+          "cell": "vosaltres",
+          "gloss": "2PL · ___ · INDF.M · cake"
         },
         {
           "sentence": "Jo {{answer}} cafè cada matí.",
@@ -873,7 +950,8 @@
           "translation": "I have coffee every morning.",
           "hint": "prendre, jo",
           "display_order": 6,
-          "cell": "jo"
+          "cell": "jo",
+          "gloss": "1SG · ___ · coffee · every · morning"
         },
         {
           "sentence": "Ells {{answer}} el tren.",
@@ -881,7 +959,8 @@
           "translation": "They miss the train.",
           "hint": "perdre, ells",
           "cell": "ells",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "3PL.M · ___ · DEF.M · train"
         },
         {
           "sentence": "Tu {{answer}} el cafè?",
@@ -889,7 +968,8 @@
           "translation": "Are you having coffee?",
           "hint": "prendre, tu",
           "cell": "tu",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG · ___ · DEF.M · coffee"
         },
         {
           "sentence": "Ell {{answer}} fins tard.",
@@ -897,7 +977,8 @@
           "translation": "He sleeps until late.",
           "hint": "dormir, ell",
           "cell": "ell",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "3SG.M · ___ · until · late"
         },
         {
           "sentence": "Nosaltres {{answer}} el tren.",
@@ -905,7 +986,8 @@
           "translation": "We are missing the train.",
           "hint": "perdre, nosaltres",
           "cell": "nosaltres",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL · ___ · DEF.M · train"
         },
         {
           "sentence": "Vosaltres {{answer}} el diari?",
@@ -913,7 +995,8 @@
           "translation": "Do you (all) read the newspaper?",
           "hint": "llegir, vosaltres",
           "cell": "vosaltres",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL · ___ · DEF.M · newspaper"
         },
         {
           "sentence": "Ells {{answer}} moltes cartes.",
@@ -921,7 +1004,8 @@
           "translation": "They write many letters.",
           "hint": "escriure, ells",
           "cell": "ells",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "3PL.M · ___ · many.F.PL · letter.PL"
         }
       ],
       "paradigm": [
@@ -962,42 +1046,48 @@
           "answer": "no",
           "translation": "I don't speak English.",
           "hint": "before the verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · speak.1SG · English"
         },
         {
           "sentence": "Ell {{answer}} treballa el diumenge.",
           "answer": "no",
           "translation": "He doesn't work on Sundays.",
           "hint": "before the verb",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.M · ___ · work.3SG · DEF.M · Sunday"
         },
         {
           "sentence": "Nosaltres {{answer}} estem cansats.",
           "answer": "no",
           "translation": "We are not tired.",
           "hint": "before the verb",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · be.1PL · tired.M.PL"
         },
         {
           "sentence": "Ella {{answer}} menja carn.",
           "answer": "no",
           "translation": "She doesn't eat meat.",
           "hint": "before the verb",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F · ___ · eat.3SG · meat"
         },
         {
           "sentence": "Tu {{answer}} menges?",
           "answer": "no",
           "translation": "Aren't you eating?",
           "hint": "before the verb",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · ___ · eat.2SG"
         },
         {
           "sentence": "Vosaltres {{answer}} balleu?",
           "answer": "no",
           "translation": "You (all) don't dance?",
           "hint": "before the verb",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "2PL · ___ · dance.2PL"
         }
       ]
     },
@@ -1030,42 +1120,48 @@
           "answer": "ha",
           "translation": "There is a book on the table.",
           "hint": "the verb of the fixed phrase",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "LOC · ___ · INDF.M · book · on · DEF.F · table"
         },
         {
           "sentence": "{{answer}} ha dos cafès al carrer.",
           "answer": "Hi",
           "translation": "There are two cafés on the street.",
           "hint": "the locative particle",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · have.3SG · two.M · café.PL · at-DEF.M · street"
         },
         {
           "sentence": "No hi {{answer}} llet.",
           "answer": "ha",
           "translation": "There is no milk.",
           "hint": "the verb of the fixed phrase",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · LOC · ___ · milk"
         },
         {
           "sentence": "Hi ha {{answer}} gat al jardí.",
           "answer": "un",
           "translation": "There is a cat in the garden.",
           "hint": "indefinite article, masculine",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "LOC · have.3SG · ___ · cat · at-DEF.M · garden"
         },
         {
           "sentence": "Què hi {{answer}} per sopar?",
           "answer": "ha",
           "translation": "What is there for dinner?",
           "hint": "the verb of the fixed phrase",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "what · LOC · ___ · for · dine.INF"
         },
         {
           "sentence": "No {{answer}} ha problemes.",
           "answer": "hi",
           "translation": "There are no problems.",
           "hint": "the locative particle",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG · ___ · have.3SG · problem.PL"
         }
       ]
     },
@@ -1098,49 +1194,56 @@
           "answer": "On",
           "translation": "Where do you live?",
           "hint": "where",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · live.2SG"
         },
         {
           "sentence": "{{answer}} et dius?",
           "answer": "Com",
           "translation": "What is your name?",
           "hint": "how — names ask 'how' in Catalan",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 2SG.OBJ · say.2SG"
         },
         {
           "sentence": "{{answer}} és el teu aniversari?",
           "answer": "Quan",
           "translation": "When is your birthday?",
           "hint": "when",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · be.3SG · DEF.M · 2SG.POSS.M · birthday"
         },
         {
           "sentence": "{{answer}} mires?",
           "answer": "Què",
           "translation": "What are you watching?",
           "hint": "what",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · watch.2SG"
         },
         {
           "sentence": "{{answer}} germans tens?",
           "answer": "Quants",
           "translation": "How many brothers do you have?",
           "hint": "how many",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · brother.PL · have.2SG"
         },
         {
           "sentence": "{{answer}} és el teu professor?",
           "answer": "Qui",
           "translation": "Who is your teacher?",
           "hint": "who",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · be.3SG · DEF.M.SG · 2SG.POSS.M.SG · teacher"
         },
         {
           "sentence": "{{answer}} no véns a la festa?",
           "answer": "Per què",
           "translation": "Why aren't you coming to the party?",
           "hint": "why — asking for a reason (two words)",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · NEG · come.2SG · to · DEF.F.SG · party"
         }
       ]
     },
@@ -1174,7 +1277,8 @@
           "translation": "The house is white.",
           "hint": "white — feminine",
           "display_order": 1,
-          "cell": "f.sg"
+          "cell": "f.sg",
+          "gloss": "DEF.F.SG · house · be.3SG · ___"
         },
         {
           "sentence": "Els llibres són {{answer}}.",
@@ -1182,14 +1286,16 @@
           "translation": "The books are new.",
           "hint": "new — masculine plural",
           "display_order": 2,
-          "cell": "m.pl"
+          "cell": "m.pl",
+          "gloss": "DEF.M.PL · book.PL · be.3PL · ___"
         },
         {
           "sentence": "La meva germana és molt {{answer}}.",
           "answer": "amable",
           "translation": "My sister is very kind.",
           "hint": "kind — one singular form",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.F.SG · 1SG.POSS.F.SG · sister · be.3SG · very · ___"
         },
         {
           "sentence": "El cafè és {{answer}}.",
@@ -1197,7 +1303,8 @@
           "translation": "The coffee is hot.",
           "hint": "hot — masculine",
           "display_order": 4,
-          "cell": "m.sg"
+          "cell": "m.sg",
+          "gloss": "DEF.M.SG · coffee · be.3SG · ___"
         },
         {
           "sentence": "Les flors són {{answer}}.",
@@ -1205,14 +1312,16 @@
           "translation": "The flowers are pretty.",
           "hint": "pretty — feminine plural",
           "display_order": 5,
-          "cell": "f.pl"
+          "cell": "f.pl",
+          "gloss": "DEF.F.PL · flower.PL · be.3PL · ___"
         },
         {
           "sentence": "El film és {{answer}}.",
           "answer": "interessant",
           "translation": "The film is interesting.",
           "hint": "interesting — masculine",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.SG · film · be.3SG · ___"
         },
         {
           "sentence": "El cel és {{answer}}.",
@@ -1220,7 +1329,8 @@
           "translation": "The sky is blue.",
           "hint": "blue — masculine singular",
           "cell": "m.sg",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "DEF.M.SG · sky · be.3SG · ___"
         },
         {
           "sentence": "La porta és {{answer}}.",
@@ -1228,7 +1338,8 @@
           "translation": "The door is open.",
           "hint": "open — feminine singular",
           "cell": "f.sg",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "DEF.F.SG · door · be.3SG · ___"
         },
         {
           "sentence": "Els plats són {{answer}}.",
@@ -1236,7 +1347,8 @@
           "translation": "The plates are clean.",
           "hint": "clean — masculine plural",
           "cell": "m.pl",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "DEF.M.PL · plate.PL · be.3PL · ___"
         },
         {
           "sentence": "Les cases són {{answer}}.",
@@ -1244,7 +1356,8 @@
           "translation": "The houses are small.",
           "hint": "small — feminine plural",
           "cell": "f.pl",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "DEF.F.PL · house.PL · be.3PL · ___"
         }
       ],
       "paradigm": [
@@ -1280,7 +1393,8 @@
           "translation": "Today I ate at the restaurant.",
           "hint": "have — I (auxiliary)",
           "cell": "jo",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "today · ___ · eat.PTCP · to-DEF.M.SG · restaurant"
         },
         {
           "sentence": "Aquest matí {{answer}} begut un cafè.",
@@ -1288,7 +1402,8 @@
           "translation": "This morning I drank a coffee.",
           "hint": "have — I (auxiliary)",
           "cell": "jo",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "this.M.SG · morning · ___ · drink.PTCP · INDF.M.SG · coffee"
         },
         {
           "sentence": "{{answer}} acabat els deures?",
@@ -1296,7 +1411,8 @@
           "translation": "Have you finished your homework?",
           "hint": "have — you sg. (auxiliary)",
           "cell": "tu",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · finish.PTCP · DEF.M.PL · homework.PL"
         },
         {
           "sentence": "Avui {{answer}} vist una pel·lícula?",
@@ -1304,7 +1420,8 @@
           "translation": "Have you seen a film today?",
           "hint": "have — you sg. (auxiliary)",
           "cell": "tu",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "today · ___ · see.PTCP · INDF.F.SG · film"
         },
         {
           "sentence": "Ell {{answer}} perdut les claus.",
@@ -1312,7 +1429,8 @@
           "translation": "He lost his keys.",
           "hint": "has — he (auxiliary)",
           "cell": "ell",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M · ___ · lose.PTCP · DEF.F.PL · key.PL"
         },
         {
           "sentence": "Ella {{answer}} cantat una cançó bonica.",
@@ -1320,7 +1438,8 @@
           "translation": "She sang a beautiful song.",
           "hint": "has — she (auxiliary)",
           "cell": "ell",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.F · ___ · sing.PTCP · INDF.F.SG · song · beautiful.F.SG"
         },
         {
           "sentence": "Nosaltres {{answer}} visitat el museu.",
@@ -1328,7 +1447,8 @@
           "translation": "We visited the museum.",
           "hint": "have — we (auxiliary)",
           "cell": "nosaltres",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1PL · ___ · visit.PTCP · DEF.M.SG · museum"
         },
         {
           "sentence": "Aquesta setmana {{answer}} treballat molt.",
@@ -1336,7 +1456,8 @@
           "translation": "This week we worked a lot.",
           "hint": "have — we (auxiliary)",
           "cell": "nosaltres",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "this.F.SG · week · ___ · work.PTCP · much"
         },
         {
           "sentence": "{{answer}} reservat ja la taula?",
@@ -1344,7 +1465,8 @@
           "translation": "Have you already booked the table?",
           "hint": "have — you pl. (auxiliary)",
           "cell": "vosaltres",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "___ · book.PTCP · already · DEF.F.SG · table"
         },
         {
           "sentence": "Avui {{answer}} sopat aviat?",
@@ -1352,7 +1474,8 @@
           "translation": "Did you (pl.) have dinner early today?",
           "hint": "have — you pl. (auxiliary)",
           "cell": "vosaltres",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "today · ___ · dine.PTCP · early"
         },
         {
           "sentence": "Els nens {{answer}} jugat al jardí.",
@@ -1360,7 +1483,8 @@
           "translation": "The children played in the garden.",
           "hint": "have — they (auxiliary)",
           "cell": "ells",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "DEF.M.PL · child.PL · ___ · play.PTCP · at-DEF.M.SG · garden"
         },
         {
           "sentence": "Els meus amics {{answer}} arribat tard.",
@@ -1368,7 +1492,8 @@
           "translation": "My friends arrived late.",
           "hint": "have — they (auxiliary)",
           "cell": "ells",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "DEF.M.PL · 1SG.POSS.M.PL · friend.PL · ___ · arrive.PTCP · late"
         }
       ],
       "paradigm": [
@@ -1406,7 +1531,8 @@
           "translation": "Yesterday I went to the cinema.",
           "hint": "did — I (auxiliary + infinitive)",
           "cell": "jo",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "yesterday · ___ · go.INF · to-DEF.M.SG · cinema"
         },
         {
           "sentence": "La setmana passada {{answer}} veure els avis.",
@@ -1414,7 +1540,8 @@
           "translation": "Last week I went to see my grandparents.",
           "hint": "did — I (auxiliary)",
           "cell": "jo",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.F.SG · week · last.F.SG · ___ · see.INF · DEF.M.PL · grandparent.PL"
         },
         {
           "sentence": "{{answer}} arribar tard ahir?",
@@ -1422,7 +1549,8 @@
           "translation": "Did you arrive late yesterday?",
           "hint": "did — you sg. (auxiliary)",
           "cell": "tu",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · arrive.INF · late · yesterday"
         },
         {
           "sentence": "Quan {{answer}} néixer?",
@@ -1430,7 +1558,8 @@
           "translation": "When were you born?",
           "hint": "did — you sg. (auxiliary)",
           "cell": "tu",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "when · ___ · be_born.INF"
         },
         {
           "sentence": "Ell {{answer}} perdre el tren.",
@@ -1438,7 +1567,8 @@
           "translation": "He missed the train.",
           "hint": "did — he (auxiliary)",
           "cell": "ell",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M · ___ · miss.INF · DEF.M.SG · train"
         },
         {
           "sentence": "Ella {{answer}} cantar molt bé.",
@@ -1446,7 +1576,8 @@
           "translation": "She sang very well.",
           "hint": "did — she (auxiliary)",
           "cell": "ell",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.F · ___ · sing.INF · very · well"
         },
         {
           "sentence": "Nosaltres {{answer}} visitar el museu.",
@@ -1454,7 +1585,8 @@
           "translation": "We visited the museum.",
           "hint": "did — we (auxiliary)",
           "cell": "nosaltres",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1PL · ___ · visit.INF · DEF.M.SG · museum"
         },
         {
           "sentence": "L'estiu passat {{answer}} anar a la platja.",
@@ -1462,7 +1594,8 @@
           "translation": "Last summer we went to the beach.",
           "hint": "did — we (auxiliary)",
           "cell": "nosaltres",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "DEF.M.SG-summer · last.M.SG · ___ · go.INF · to · DEF.F.SG · beach"
         },
         {
           "sentence": "{{answer}} sortir aviat de la festa?",
@@ -1470,7 +1603,8 @@
           "translation": "Did you (pl.) leave the party early?",
           "hint": "did — you pl. (auxiliary)",
           "cell": "vosaltres",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "___ · leave.INF · early · from · DEF.F.SG · party"
         },
         {
           "sentence": "Quan {{answer}} tornar de vacances?",
@@ -1478,7 +1612,8 @@
           "translation": "When did you (pl.) come back from holiday?",
           "hint": "did — you pl. (auxiliary)",
           "cell": "vosaltres",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "when · ___ · return.INF · from · holiday.PL"
         },
         {
           "sentence": "Els convidats {{answer}} arribar al migdia.",
@@ -1486,7 +1621,8 @@
           "translation": "The guests arrived at noon.",
           "hint": "did — they (auxiliary)",
           "cell": "ells",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "DEF.M.PL · guest.PL · ___ · arrive.INF · at-DEF.M.SG · noon"
         },
         {
           "sentence": "Els nens {{answer}} jugar tot el matí.",
@@ -1494,7 +1630,8 @@
           "translation": "The children played all morning.",
           "hint": "did — they (auxiliary)",
           "cell": "ells",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "DEF.M.PL · child.PL · ___ · play.INF · all.M.SG · DEF.M.SG · morning"
         }
       ],
       "paradigm": [
@@ -1531,42 +1668,48 @@
           "answer": "anàvem",
           "translation": "Every summer we used to go to the beach.",
           "hint": "used to go — we",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "each · summer · ___ · to · DEF.F.SG · beach"
         },
         {
           "sentence": "Quan era petit, {{answer}} molt.",
           "answer": "llegia",
           "translation": "When I was little, I used to read a lot.",
           "hint": "used to read — I",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "when · be.IPFV.1SG · small.M.SG · ___ · much"
         },
         {
           "sentence": "Què {{answer}} quan et vaig trucar?",
           "answer": "feies",
           "translation": "What were you doing when I called you?",
           "hint": "were doing — you (sg.)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "what · ___ · when · 2SG.OBJ · PST.1SG · call.INF"
         },
         {
           "sentence": "El meu avi {{answer}} contes cada nit.",
           "answer": "explicava",
           "translation": "My grandfather used to tell stories every night.",
           "hint": "used to tell — he",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.M · 1SG.POSS.M · grandfather · ___ · story.PL · every · night"
         },
         {
           "sentence": "Els nens {{answer}} al parc.",
           "answer": "jugaven",
           "translation": "The children were playing in the park.",
           "hint": "were playing — they",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M.PL · child.PL · ___ · at-DEF.M · park"
         },
         {
           "sentence": "Abans {{answer}} en un pis petit.",
           "answer": "vivíem",
           "translation": "We used to live in a small flat.",
           "hint": "used to live — we",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "before · ___ · in · INDF.M · flat · small.M"
         }
       ]
     },
@@ -1595,42 +1738,48 @@
           "answer": "aniré",
           "translation": "Tomorrow I will go to work early.",
           "hint": "will go — I",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "tomorrow · ___ · to · DEF.F · work · early"
         },
         {
           "sentence": "Aquesta nit {{answer}} una pel·lícula junts.",
           "answer": "veurem",
           "translation": "Tonight we will watch a film together.",
           "hint": "will watch — we",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "this.F · night · ___ · INDF.F · film · together.M.PL"
         },
         {
           "sentence": "{{answer}} amb nosaltres al viatge?",
           "answer": "Vindràs",
           "translation": "Will you come with us on the trip?",
           "hint": "will come — you (sg.)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · with · 1PL · to-DEF.M · trip"
         },
         {
           "sentence": "L'Anna {{answer}} el regal demà.",
           "answer": "comprarà",
           "translation": "Anna will buy the gift tomorrow.",
           "hint": "will buy — she",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.F-Anna · ___ · DEF.M · gift · tomorrow"
         },
         {
           "sentence": "L'any que ve {{answer}} català cada dia.",
           "answer": "estudiaré",
           "translation": "Next year I will study Catalan every day.",
           "hint": "will study — I",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M-year · COMP · come.PRS.3SG · ___ · Catalan · every · day"
         },
         {
           "sentence": "Els meus amics {{answer}} a la festa.",
           "answer": "seran",
           "translation": "My friends will be at the party.",
           "hint": "will be — they",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.PL · 1SG.POSS.M.PL · friend.PL · ___ · at · DEF.F · party"
         }
       ]
     },
@@ -1659,42 +1808,48 @@
           "answer": "el",
           "translation": "Do you know Marc? Yes, I know him well.",
           "hint": "him",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "know.PRS.2SG · DEF.M · Marc · yes · ___ · know.PRS.1SG · well"
         },
         {
           "sentence": "Coneixes aquesta noia? No, no {{answer}} conec.",
           "answer": "la",
           "translation": "Do you know this girl? No, I don't know her.",
           "hint": "her",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "know.PRS.2SG · this.F · girl · no · NEG · ___ · know.PRS.1SG"
         },
         {
           "sentence": "Aquests llibres són bons; {{answer}} llegeixo ara.",
           "answer": "els",
           "translation": "These books are good; I'm reading them now.",
           "hint": "them (masc.)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "this.M.PL · book.PL · be.PRS.3PL · good.M.PL · ___ · read.PRS.1SG · now"
         },
         {
           "sentence": "Si véns, {{answer}} espero a l'estació.",
           "answer": "t'",
           "translation": "If you come, I'll wait for you at the station.",
           "hint": "you (sg., elided)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "if · come.PRS.2SG · ___ · wait.PRS.1SG · at · DEF.F-station"
         },
         {
           "sentence": "Som aquí; {{answer}} sents?",
           "answer": "ens",
           "translation": "We're here; can you hear us?",
           "hint": "us",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "be.PRS.1PL · here · ___ · hear.PRS.2SG"
         },
         {
           "sentence": "Les pomes? {{answer}} compro al mercat.",
           "answer": "les",
           "translation": "The apples? I buy them at the market.",
           "hint": "them (fem.)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.F.PL · apple.PL · ___ · buy.PRS.1SG · at-DEF.M · market"
         }
       ]
     },
@@ -1723,42 +1878,48 @@
           "answer": "en",
           "translation": "Do you want coffee? Yes, I'd like some.",
           "hint": "some (de + thing)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "want.PRS.2SG · coffee · yes · ___ · want.PRS.1SG · thanks"
         },
         {
           "sentence": "Pomes? {{answer}} he comprat un quilo.",
           "answer": "N'",
           "translation": "Apples? I've bought a kilo of them.",
           "hint": "of them (elided before a vowel)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "apple.PL · ___ · have.PRS.1SG · buy.PTCP · INDF.M · kilo"
         },
         {
           "sentence": "Vas a Girona? Sí, {{answer}} vaig demà.",
           "answer": "hi",
           "translation": "Are you going to Girona? Yes, I'm going there tomorrow.",
           "hint": "there (place)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "go.PRS.2SG · to · Girona · yes · ___ · go.PRS.1SG · tomorrow"
         },
         {
           "sentence": "Que has estat mai a París? Sí, {{answer}} he estat.",
           "answer": "hi",
           "translation": "Have you ever been to Paris? Yes, I've been there.",
           "hint": "there (place)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "Q · have.PRS.2SG · be.PTCP · ever · to · Paris · yes · ___ · have.PRS.1SG · be.PTCP"
         },
         {
           "sentence": "Quants germans tens? {{answer}} tinc dos.",
           "answer": "En",
           "translation": "How many siblings do you have? I have two.",
           "hint": "of them (quantity)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "how_many.M.PL · sibling.PL · have.PRS.2SG · ___ · have.PRS.1SG · two.M"
         },
         {
           "sentence": "Penses en l'examen? Sí, {{answer}} penso.",
           "answer": "hi",
           "translation": "Are you thinking about the exam? Yes, I'm thinking about it.",
           "hint": "about it (a/en + thing)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "think.2SG · about · DEF-exam · yes · ___ · think.1SG"
         }
       ]
     },
@@ -1787,42 +1948,48 @@
           "answer": "més",
           "translation": "Barcelona is bigger than Girona.",
           "hint": "more (comparative)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "Barcelona · be.3SG · ___ · big · than · Girona"
         },
         {
           "sentence": "És el {{answer}} bon cafè de la ciutat.",
           "answer": "més",
           "translation": "It's the best café in town.",
           "hint": "most (superlative)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "be.3SG · DEF.M.SG · ___ · good.M.SG · café · of · DEF.F.SG · city"
         },
         {
           "sentence": "El català és {{answer}} fàcil que l'alemany per a mi.",
           "answer": "més",
           "translation": "Catalan is easier than German for me.",
           "hint": "more (comparative)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M.SG · Catalan · be.3SG · ___ · easy · than · DEF-German · for · to · 1SG.OBJ"
         },
         {
           "sentence": "Aquest pastís és {{answer}} que l'altre.",
           "answer": "millor",
           "translation": "This cake is better than the other one.",
           "hint": "better (irregular)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "this.M.SG · cake · be.3SG · ___ · than · DEF-other"
         },
         {
           "sentence": "A l'estiu els dies són {{answer}} llargs.",
           "answer": "més",
           "translation": "In summer the days are longer.",
           "hint": "more (comparative)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "at · DEF-summer · DEF.M.PL · day.PL · be.3PL · ___ · long.M.PL"
         },
         {
           "sentence": "La salut és {{answer}} important que els diners.",
           "answer": "més",
           "translation": "Health is more important than money.",
           "hint": "more (comparative)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.F.SG · health · be.3SG · ___ · important · than · DEF.M.PL · money.PL"
         }
       ]
     },
@@ -1852,7 +2019,8 @@
           "translation": "Every morning I get up at seven.",
           "hint": "myself — I",
           "cell": "jo",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "every · morning · ___ · rise.1SG · at · DEF.F.PL · seven"
         },
         {
           "sentence": "A quina hora {{answer}} fiques al llit?",
@@ -1860,7 +2028,8 @@
           "translation": "What time do you go to bed?",
           "hint": "yourself — you (sg.)",
           "cell": "tu",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "at · which.F.SG · hour · ___ · put.2SG · to-DEF.M.SG · bed"
         },
         {
           "sentence": "Ella {{answer}} troba molt millor avui.",
@@ -1868,7 +2037,8 @@
           "translation": "She feels much better today.",
           "hint": "herself — she",
           "cell": "ell",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.F · ___ · find.3SG · much · good.COMP · today"
         },
         {
           "sentence": "El diumenge {{answer}} quedem a casa.",
@@ -1876,7 +2046,8 @@
           "translation": "On Sundays we stay home.",
           "hint": "ourselves — we",
           "cell": "nosaltres",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.M.SG · Sunday · ___ · stay.1PL · at · house"
         },
         {
           "sentence": "Que {{answer}} divertiu a la festa?",
@@ -1884,7 +2055,8 @@
           "translation": "Are you (pl.) having fun at the party?",
           "hint": "yourselves — you (pl.)",
           "cell": "vosaltres",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "Q · ___ · amuse.2PL · at · DEF.F.SG · party"
         },
         {
           "sentence": "Els nens {{answer}} renten les mans abans de menjar.",
@@ -1892,7 +2064,8 @@
           "translation": "The children wash their hands before eating.",
           "hint": "themselves — they",
           "cell": "ells",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.PL · child.PL · ___ · wash.3PL · DEF.F.PL · hand.PL · before · of · eat.INF"
         }
       ]
     },
@@ -1921,42 +2094,48 @@
           "answer": "al",
           "translation": "I'm going to the cinema tonight.",
           "hint": "to the (a + el)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "go.1SG · ___ · cinema · this.F.SG · night"
         },
         {
           "sentence": "La casa {{answer}} avis és gran.",
           "answer": "dels",
           "translation": "The grandparents' house is big.",
           "hint": "of the (de + els)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.F.SG · house · ___ · grandparent.PL · be.3SG · big"
         },
         {
           "sentence": "El llibre és {{answer}} professor.",
           "answer": "del",
           "translation": "The book is the teacher's.",
           "hint": "of the (de + el)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M.SG · book · be.3SG · ___ · teacher"
         },
         {
           "sentence": "Passegem {{answer}} parc cada tarda.",
           "answer": "pel",
           "translation": "We walk through the park every afternoon.",
           "hint": "through the (per + el)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "walk.1PL · ___ · park · every · afternoon"
         },
         {
           "sentence": "Torno {{answer}} treball a les sis.",
           "answer": "del",
           "translation": "I come back from work at six.",
           "hint": "from the (de + el)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "return.1SG · ___ · work · at · DEF.F.PL · six"
         },
         {
           "sentence": "Donem menjar {{answer}} ocells.",
           "answer": "als",
           "translation": "We give food to the birds.",
           "hint": "to the (a + els)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "give.1PL · food · ___ · bird.PL"
         }
       ]
     },
@@ -1985,56 +2164,64 @@
           "answer": "El",
           "translation": "My car is new.",
           "hint": "the (with 'meu', masc.)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 1SG.POSS.M.SG · car · be.3SG · new.M.SG"
         },
         {
           "sentence": "On és el {{answer}} telèfon?",
           "answer": "teu",
           "translation": "Where is your phone?",
           "hint": "your (masc.)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "where · be.PRS.3SG · DEF.M.SG · ___ · phone"
         },
         {
           "sentence": "Els {{answer}} amics arriben aquesta nit.",
           "answer": "meus",
           "translation": "My friends are arriving tonight.",
           "hint": "my (masc. plural)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M.PL · ___ · friend.PL · arrive.PRS.3PL · this.F.SG · night"
         },
         {
           "sentence": "{{answer}} llibre és molt interessant.",
           "answer": "Aquest",
           "translation": "This book is very interesting.",
           "hint": "this (masc.)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · book · be.PRS.3SG · very · interesting"
         },
         {
           "sentence": "{{answer}} casa és a prop del mar.",
           "answer": "Aquella",
           "translation": "That house is near the sea.",
           "hint": "that (fem.)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · house · be.PRS.3SG · at · near · of-DEF.M.SG · sea"
         },
         {
           "sentence": "La {{answer}} germana viu a Lleida.",
           "answer": "meva",
           "translation": "My sister lives in Lleida.",
           "hint": "my (fem.)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.F.SG · ___ · sister · live.PRS.3SG · at · Lleida"
         },
         {
           "sentence": "La {{answer}} escola és molt gran.",
           "answer": "nostra",
           "translation": "Our school is very big.",
           "hint": "our — feminine",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "DEF.F.SG · ___ · school · be.PRS.3SG · very · big"
         },
         {
           "sentence": "{{answer}} home és el meu veí.",
           "answer": "Aquell",
           "translation": "That man over there is my neighbor.",
           "hint": "that one, far away — masculine",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "___ · man · be.PRS.3SG · DEF.M.SG · 1SG.POSS.M.SG · neighbor"
         }
       ]
     },
@@ -2063,42 +2250,48 @@
           "answer": "siguis",
           "translation": "I want you to be on time.",
           "hint": "are — you (subjunctive of ser)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "want.PRS.1SG · COMP · ___ · punctual"
         },
         {
           "sentence": "Cal que {{answer}} els deures avui.",
           "answer": "facis",
           "translation": "You need to do the homework today.",
           "hint": "do — you (subjunctive of fer)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "be_necessary.PRS.3SG · COMP · ___ · DEF.M.PL · homework.PL · today"
         },
         {
           "sentence": "És important que {{answer}} atenció.",
           "answer": "parem",
           "translation": "It's important that we pay attention.",
           "hint": "pay — we (subjunctive of parar)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "be.PRS.3SG · important · COMP · ___ · attention"
         },
         {
           "sentence": "Encara que {{answer}} tard, continuem.",
           "answer": "sigui",
           "translation": "Although it's late, we carry on.",
           "hint": "is — it (subjunctive of ser)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "still · COMP · ___ · late · continue.PRS.1PL"
         },
         {
           "sentence": "Espero que {{answer}} venir demà.",
           "answer": "puguis",
           "translation": "I hope you can come tomorrow.",
           "hint": "can — you (subjunctive of poder)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "hope.PRS.1SG · COMP · ___ · come.INF · tomorrow"
         },
         {
           "sentence": "Dubto que ells {{answer}} raó.",
           "answer": "tinguin",
           "translation": "I doubt they are right.",
           "hint": "have — they (subjunctive of tenir)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "doubt.PRS.1SG · COMP · 3PL.M · ___ · reason"
         }
       ]
     },
@@ -2127,42 +2320,48 @@
           "answer": "Voldria",
           "translation": "I would like a coffee, please.",
           "hint": "would like — I (conditional)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · INDF.M.SG · coffee · if · 2PL.OBJ · please.PRS.3SG"
         },
         {
           "sentence": "{{answer}} ajudar-me un moment?",
           "answer": "Podries",
           "translation": "Could you help me for a moment?",
           "hint": "could — you (conditional of poder)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · help.INF-1SG.OBJ · INDF.M.SG · moment"
         },
         {
           "sentence": "Ell {{answer}} de gust, però està ocupat.",
           "answer": "vindria",
           "translation": "He would gladly come, but he's busy.",
           "hint": "would come — he (conditional)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.M · ___ · of · pleasure · but · be.PRS.3SG · busy"
         },
         {
           "sentence": "Al teu lloc, {{answer}} l'oferta.",
           "answer": "acceptaria",
           "translation": "In your place, I would accept the offer.",
           "hint": "would accept — I (conditional)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "at-DEF.M.SG · 2SG.POSS.M.SG · place · ___ · DEF.F.SG-offer"
         },
         {
           "sentence": "Nosaltres {{answer}} viure vora el mar.",
           "answer": "voldríem",
           "translation": "We would love to live by the sea.",
           "hint": "would like — we (conditional)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL · ___ · live.INF · beside · DEF.M.SG · sea"
         },
         {
           "sentence": "Ells {{answer}} contents de veure't.",
           "answer": "estarien",
           "translation": "They would be happy to see you.",
           "hint": "would be — they (conditional)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3PL.M · ___ · happy.M.PL · of · see.INF-2SG.OBJ"
         }
       ]
     },
@@ -2191,42 +2390,48 @@
           "answer": "me'l",
           "translation": "The book? Will you give it to me tomorrow?",
           "hint": "it-to-me (me + el)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.M.SG · book · ___ · give.PRS.2SG · tomorrow · to · 1SG.OBJ"
         },
         {
           "sentence": "El regal? {{answer}} porto ara. (a tu)",
           "answer": "te'l",
           "translation": "The gift? I'll bring it to you now.",
           "hint": "it-to-you (te + el)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.M · gift · ___ · bring.1SG · now · to · 2SG"
         },
         {
           "sentence": "El paquet? {{answer}} dono avui. (a ell)",
           "answer": "l'hi",
           "translation": "The parcel? I'll give it to him today.",
           "hint": "it-to-him (li + el)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M · parcel · ___ · give.1SG · today · to · 3SG.M"
         },
         {
           "sentence": "De pomes, {{answer}} dones tres? (a mi)",
           "answer": "me'n",
           "translation": "Apples — will you give me three?",
           "hint": "of-them-to-me (me + en)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "of · apple.PL · ___ · give.2SG · three · to · 1SG"
         },
         {
           "sentence": "Ja és tard; ell {{answer}} va a casa.",
           "answer": "se'n",
           "translation": "It's late; he's going home (away).",
           "hint": "away (se + en)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "already · be.3SG · late · 3SG.M · ___ · go.3SG · to · home"
         },
         {
           "sentence": "La notícia? {{answer}} explico ara mateix. (a ell)",
           "answer": "l'hi",
           "translation": "The news? I'll tell it to him right now.",
           "hint": "it-to-him (li + la)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.F · news · ___ · explain.1SG · now · same · to · 3SG.M"
         }
       ]
     },
@@ -2255,42 +2460,48 @@
           "answer": "que",
           "translation": "That's the man who lives next door.",
           "hint": "who/that (subject or object)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "be.3SG · DEF.M-man · ___ · live.3SG · here · to-DEF.M · side"
         },
         {
           "sentence": "El llibre {{answer}} llegeixo és apassionant.",
           "answer": "que",
           "translation": "The book that I'm reading is gripping.",
           "hint": "that (object)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.M · book · ___ · read.1SG · be.3SG · gripping"
         },
         {
           "sentence": "La persona amb {{answer}} parlo és la meva tieta.",
           "answer": "qui",
           "translation": "The person I'm talking to is my aunt.",
           "hint": "whom (person, after prep.)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.F · person · with · ___ · speak.1SG · be.3SG · DEF.F · 1SG.POSS.F · aunt"
         },
         {
           "sentence": "La ciutat {{answer}} visc és molt bonica.",
           "answer": "on",
           "translation": "The city where I live is beautiful.",
           "hint": "where",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.F · city · ___ · live.1SG · be.3SG · very · beautiful.F"
         },
         {
           "sentence": "Els amics {{answer}} vénen aquesta nit són simpàtics.",
           "answer": "que",
           "translation": "The friends who are coming tonight are nice.",
           "hint": "who (subject, plural)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M.PL · friend.PL · ___ · come.3PL · this.F · night · be.3PL · nice.M.PL"
         },
         {
           "sentence": "El motiu pel {{answer}} soc aquí és senzill.",
           "answer": "qual",
           "translation": "The reason I'm here is simple.",
           "hint": "which (formal relative, after a preposition)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M · reason · for-DEF.M · ___ · be.1SG · here · be.3SG · simple.M"
         }
       ]
     },
@@ -2320,7 +2531,8 @@
           "translation": "Open the window, please!",
           "hint": "obrir, tu",
           "cell": "tu",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · DEF.F · window · if · 2PL.OBJ · please.3SG · 2SG"
         },
         {
           "sentence": "{{answer}} més fluix, el nen dorm. (tu)",
@@ -2328,7 +2540,8 @@
           "translation": "Speak more quietly, the child is sleeping.",
           "hint": "parlar, tu",
           "cell": "tu",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · more · soft · DEF.M · child · sleep.3SG · 2SG"
         },
         {
           "sentence": "{{answer}}, si us plau, segui! (vostè)",
@@ -2336,7 +2549,8 @@
           "translation": "Come in, please, have a seat!",
           "hint": "come! — polite (vostè)",
           "cell": "vostè",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · if · 2PL.OBJ · please.3SG · sit.IMP.POL · 2SG.POL"
         },
         {
           "sentence": "{{answer}}, l'escolto. (vostè)",
@@ -2344,7 +2558,8 @@
           "translation": "Go ahead, I'm listening.",
           "hint": "say/tell! — polite (vostè)",
           "cell": "vostè",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · 3SG.OBJ-listen.1SG · 2SG.POL"
         },
         {
           "sentence": "No {{answer}} tan de pressa! (tu)",
@@ -2352,7 +2567,8 @@
           "translation": "Don't speak so fast!",
           "hint": "don't speak! (negative subjunctive)",
           "cell": "neg",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · ___ · so · of · haste · 2SG"
         },
         {
           "sentence": "No {{answer}} encara, espera un moment! (tu)",
@@ -2360,7 +2576,8 @@
           "translation": "Don't leave yet, wait a moment!",
           "hint": "don't leave! (negative subjunctive)",
           "cell": "neg",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG · ___ · yet · wait.IMP.2SG · INDF.M · moment · 2SG"
         }
       ],
       "paradigm": [
@@ -2394,42 +2611,48 @@
           "answer": "havia",
           "translation": "When you arrived, I had already had dinner.",
           "hint": "had — I (plusquamperfet)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "when · PST.2SG · arrive.INF · 1SG · already · ___ · dine.PTCP"
         },
         {
           "sentence": "El tren ja {{answer}} marxat quan vam arribar.",
           "answer": "havia",
           "translation": "The train had already left when we arrived.",
           "hint": "had — it (plusquamperfet)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.M · train · already · ___ · leave.PTCP · when · PST.1PL · arrive.INF"
         },
         {
           "sentence": "No vaig reconèixer la casa; {{answer}} canviat molt.",
           "answer": "havia",
           "translation": "I didn't recognize the house; it had changed a lot.",
           "hint": "had — it (plusquamperfet)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · PST.1SG · recognize.INF · DEF.F · house · ___ · change.PTCP · much"
         },
         {
           "sentence": "Ells ja {{answer}} marxat abans de la pluja.",
           "answer": "havien",
           "translation": "They had already left before the rain.",
           "hint": "had — they (plusquamperfet)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3PL.M · already · ___ · leave.PTCP · before · of · DEF.F · rain"
         },
         {
           "sentence": "Nosaltres ja {{answer}} acabat quan va trucar.",
           "answer": "havíem",
           "translation": "We had already finished when he called.",
           "hint": "had — we (plusquamperfet)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL · already · ___ · finish.PTCP · when · PST.3SG · call.INF"
         },
         {
           "sentence": "Em va dir que {{answer}} oblidat la cita.",
           "answer": "havia",
           "translation": "She told me she had forgotten the appointment.",
           "hint": "had — she (plusquamperfet)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG.OBJ · PST.3SG · say.INF · COMP · ___ · forget.PTCP · DEF.F · appointment"
         }
       ]
     },
@@ -2458,42 +2681,48 @@
           "answer": "que",
           "translation": "He told me (that) he is tired.",
           "hint": "that (statement)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.OBJ-have.PRS.3SG · say.PTCP · ___ · be.PRS.3SG · tired.M.SG"
         },
         {
           "sentence": "Em pregunta {{answer}} vull un cafè.",
           "answer": "si",
           "translation": "He asks me whether I want a coffee.",
           "hint": "whether (reported question)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG.OBJ · ask.PRS.3SG · ___ · want.PRS.1SG · INDF.M · coffee"
         },
         {
           "sentence": "Penso {{answer}} tens raó.",
           "answer": "que",
           "translation": "I think that you are right.",
           "hint": "that (statement)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "think.PRS.1SG · ___ · have.PRS.2SG · reason"
         },
         {
           "sentence": "Va dir que {{answer}} l'endemà.",
           "answer": "vindria",
           "translation": "He said he would come the next day.",
           "hint": "would come (shifted to conditional)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "PST.3SG · say.INF · COMP · ___ · DEF-next.day"
         },
         {
           "sentence": "No sé {{answer}} la botiga és oberta avui.",
           "answer": "si",
           "translation": "I don't know whether the shop is open today.",
           "hint": "whether",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · know.PRS.1SG · ___ · DEF.F · shop · be.PRS.3SG · open.F.SG · today"
         },
         {
           "sentence": "Li vaig demanar que em {{answer}}.",
           "answer": "truqués",
           "translation": "I asked her to call me.",
           "hint": "call — she (reported request, subjunctive)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.OBJ · PST.1SG · request.INF · COMP · 1SG.OBJ · ___"
         }
       ]
     },
@@ -2522,42 +2751,48 @@
           "answer": "és",
           "translation": "The letter is written in Catalan.",
           "hint": "is (passive, ser)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.F · letter · ___ · write.PTCP.F.SG · in · Catalan"
         },
         {
           "sentence": "Les portes {{answer}} tancades a les nou.",
           "answer": "són",
           "translation": "The doors are closed at nine.",
           "hint": "are (passive, plural)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.F.PL · door.PL · ___ · close.PTCP.F.PL · at · DEF.F.PL · nine"
         },
         {
           "sentence": "Aquí {{answer}} ven pa fresc.",
           "answer": "es",
           "translation": "Fresh bread is sold here.",
           "hint": "(reflexive passive)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "here · ___ · sell.PRS.3SG · bread · fresh.M.SG"
         },
         {
           "sentence": "{{answer}} diu que l'hivern serà fred.",
           "answer": "Es",
           "translation": "It is said that the winter will be cold.",
           "hint": "impersonal reflexive clitic, reinforced form before a consonant",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · say.PRS.3SG · COMP · DEF-winter · be.FUT.3SG · cold.M.SG"
         },
         {
           "sentence": "El quadre va ser pintat {{answer}} un artista famós.",
           "answer": "per",
           "translation": "The painting was painted by a famous artist.",
           "hint": "by (the agent)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M · painting · PST.3SG · be.INF · paint.PTCP.M.SG · ___ · INDF.M · artist · famous.M.SG"
         },
         {
           "sentence": "Els problemes {{answer}} resolen amb paciència.",
           "answer": "es",
           "translation": "Problems are solved with patience.",
           "hint": "(reflexive passive)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.PL · problem.PL · ___ · solve.PRS.3PL · with · patience"
         }
       ]
     },
@@ -2586,42 +2821,48 @@
           "answer": "tingués",
           "translation": "If I had time, I would go to the cinema.",
           "hint": "had — I (imperfect subjunctive)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "if · ___ · time · go.COND.1SG · to-DEF.M · cinema"
         },
         {
           "sentence": "Si fos ric, {{answer}} per tot el món.",
           "answer": "viatjaria",
           "translation": "If I were rich, I would travel all over the world.",
           "hint": "would travel — I (conditional)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if · be.SBJV.PST.1SG · rich.M.SG · ___ · through · all.M.SG · DEF.M · world"
         },
         {
           "sentence": "Si {{answer}} abans, veuríem la sortida del sol.",
           "answer": "marxéssim",
           "translation": "If we left earlier, we would see the sunrise.",
           "hint": "left — we (imperfect subjunctive)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if · ___ · before · see.COND.1PL · DEF.F · rise · of-DEF.M · sun"
         },
         {
           "sentence": "Aprovaries si {{answer}} més.",
           "answer": "estudiessis",
           "translation": "You would pass if you studied more.",
           "hint": "studied — you (imperfect subjunctive)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "pass.COND.2SG · if · ___ · more"
         },
         {
           "sentence": "Si {{answer}} bon temps, faríem una passejada.",
           "answer": "fes",
           "translation": "If the weather were nice, we would take a walk.",
           "hint": "made/were — it (imperfect subjunctive)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · ___ · good.M.SG · weather · do.COND.1PL · INDF.F · walk"
         },
         {
           "sentence": "Si m'ho demanessin, {{answer}} que sí.",
           "answer": "diria",
           "translation": "If they asked me, I would say yes.",
           "hint": "would say — I (conditional)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "if · 1SG.DAT-N.ACC · ask.PST.SBJV.3PL · ___ · COMP · yes"
         }
       ]
     },
@@ -2650,42 +2891,48 @@
           "answer": "corrent",
           "translation": "He fell while running after the bus.",
           "hint": "running (gerund)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "have.PRS.3SG · fall.PTCP · ___ · behind · DEF.M-bus"
         },
         {
           "sentence": "S'aprèn molt {{answer}}.",
           "answer": "viatjant",
           "translation": "You learn a lot by travelling.",
           "hint": "by travelling (gerund)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "IMPERS-learn.PRS.3SG · much · ___"
         },
         {
           "sentence": "No parlis {{answer}}!",
           "answer": "menjant",
           "translation": "Don't talk while eating!",
           "hint": "eating (gerund)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · speak.PRS.SBJV.2SG · ___"
         },
         {
           "sentence": "En aquest moment estic {{answer}} un llibre.",
           "answer": "llegint",
           "translation": "Right now I'm reading a book.",
           "hint": "reading (estar + gerund)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "in · this.M.SG · moment · be.PRS.1SG · ___ · INDF.M · book"
         },
         {
           "sentence": "Què estàs {{answer}}?",
           "answer": "fent",
           "translation": "What are you doing (right now)?",
           "hint": "doing (estar + gerund)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "what · be.PRS.2SG · ___"
         },
         {
           "sentence": "Els nens estan {{answer}} al pati.",
           "answer": "jugant",
           "translation": "The children are playing in the yard.",
           "hint": "playing (estar + gerund)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.PL · child.PL · be.PRS.3PL · ___ · at-DEF.M · yard"
         }
       ]
     },
@@ -2714,42 +2961,48 @@
           "answer": "faci",
           "translation": "Although it's cold, they go out anyway.",
           "hint": "makes/is — it (subjunctive)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "still · COMP · ___ · cold · go.out.PRS.3PL · equal-ADV"
         },
         {
           "sentence": "T'ho explico perquè ho {{answer}} entendre.",
           "answer": "puguis",
           "translation": "I'll explain it so that you can understand.",
           "hint": "can — you (subjunctive)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "2SG.DAT-N.ACC · explain.PRS.1SG · so.that · N.ACC · ___ · understand.INF"
         },
         {
           "sentence": "Marxem abans que {{answer}} a ploure.",
           "answer": "comenci",
           "translation": "Let's leave before it starts to rain.",
           "hint": "begins — it (subjunctive)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "leave.PRS.1PL · before · COMP · ___ · to · rain.INF"
         },
         {
           "sentence": "Vindré a condició que {{answer}} allà.",
           "answer": "siguis",
           "translation": "I'll come provided that you're there.",
           "hint": "are — you (subjunctive of ser)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "come.FUT.1SG · at · condition · COMP · ___ · there"
         },
         {
           "sentence": "Per bé que {{answer}} tard, no tinc son.",
           "answer": "sigui",
           "translation": "Although it's late, I'm not sleepy.",
           "hint": "is — it (subjunctive of ser)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "for · well · COMP · ___ · late · NEG · have.PRS.1SG · sleepiness"
         },
         {
           "sentence": "Va marxar sense que jo ho {{answer}}.",
           "answer": "sabés",
           "translation": "He left without my knowing.",
           "hint": "knew — I (imperfect subjunctive)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "PST.3SG · leave.INF · without · COMP · 1SG.NOM · N.ACC · ___"
         }
       ]
     },
@@ -2778,42 +3031,48 @@
           "answer": "millor",
           "translation": "This restaurant is better than the other.",
           "hint": "better (adjective, bo)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this.M.SG · restaurant · be.PRS.3SG · ___ · than · DEF.M-other"
         },
         {
           "sentence": "Ella canta {{answer}} que jo.",
           "answer": "millor",
           "translation": "She sings better than me.",
           "hint": "better (adverb, bé)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F.NOM · sing.PRS.3SG · ___ · than · 1SG.NOM"
         },
         {
           "sentence": "La situació és {{answer}} que abans.",
           "answer": "pitjor",
           "translation": "The situation is worse than before.",
           "hint": "worse (adjective, dolent)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.F · situation · be.PRS.3SG · ___ · than · before"
         },
         {
           "sentence": "És la {{answer}} pastisseria de la ciutat.",
           "answer": "millor",
           "translation": "It's the best pastry shop in town.",
           "hint": "best (adjective, bo)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "be.PRS.3SG · DEF.F · ___ · pastry.shop · of · DEF.F · city"
         },
         {
           "sentence": "Avui em trobo {{answer}} que ahir.",
           "answer": "millor",
           "translation": "Today I feel better than yesterday.",
           "hint": "better (adverb, bé)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "today · 1SG.ACC · find.PRS.1SG · ___ · than · yesterday"
         },
         {
           "sentence": "Els seus resultats són {{answer}} del que esperava.",
           "answer": "pitjors",
           "translation": "His results are worse than expected.",
           "hint": "worse (plural, dolent)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.PL · POSS.3.M.PL · result.PL · be.PRS.3PL · ___ · than-DEF.M · REL · expect.PST.IPFV.3SG"
         }
       ]
     },
@@ -2842,42 +3101,48 @@
           "answer": "doncs",
           "translation": "It's raining, so we're staying home.",
           "hint": "so / therefore",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "rain.PRS.3SG · ___ · 1PL.ACC · stay.PRS.1PL · at · home"
         },
         {
           "sentence": "Està cansada; {{answer}}, continua treballant.",
           "answer": "tanmateix",
           "translation": "She is tired; however, she keeps working.",
           "hint": "however",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "be.3SG · tired.F.SG · ___ · continue.3SG · work.PROG"
         },
         {
           "sentence": "Ja {{answer}} és tard, anem a dormir.",
           "answer": "que",
           "translation": "Since it's late, let's go to sleep.",
           "hint": "the subordinator that makes 'ja' mean 'since'",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "already · ___ · be.3SG · late · go.1PL · to · sleep.INF"
         },
         {
           "sentence": "No li agrada la ciutat; {{answer}}, hi treballa.",
           "answer": "tanmateix",
           "translation": "He doesn't like the city; however, he works there.",
           "hint": "however",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NEG · 3SG.DAT · please.3SG · DEF.F · city · ___ · LOC · work.3SG"
         },
         {
           "sentence": "El cafè és car; en {{answer}}, el te val poc.",
           "answer": "canvi",
           "translation": "Coffee is expensive; the tea, on the other hand, is cheap.",
           "hint": "on the other hand",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M · coffee · be.3SG · expensive.M.SG · in · ___ · DEF.M · tea · be_worth.3SG · little"
         },
         {
           "sentence": "Atès {{answer}} plou, agafem el paraigua.",
           "answer": "que",
           "translation": "Given that it's raining, let's take the umbrella.",
           "hint": "the subordinator that must follow 'atès'",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "given.M.SG · ___ · rain.3SG · take.1PL · DEF.M · umbrella"
         }
       ]
     },
@@ -2906,42 +3171,48 @@
           "answer": "hauria",
           "translation": "If I had known, I would have come earlier.",
           "hint": "would have — I (haver)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "if · 3SG.N.ACC · have.PST.SBJV.1SG · know.PTCP · ___ · come.PTCP · before"
         },
         {
           "sentence": "{{answer}} aprovat si hagués estudiat.",
           "answer": "Hauria",
           "translation": "He would have passed if he had studied.",
           "hint": "would have — he (haver)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · pass.PTCP · if · have.PST.SBJV.3SG · study.PTCP"
         },
         {
           "sentence": "Nosaltres {{answer}} volgut quedar-nos més.",
           "answer": "hauríem",
           "translation": "We would have liked to stay longer.",
           "hint": "would have — we (haver)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL.NOM · ___ · want.PTCP · stay.INF-1PL.ACC · more"
         },
         {
           "sentence": "Sense la teva ajuda, no {{answer}} acabat mai.",
           "answer": "hauria",
           "translation": "Without your help, I would never have finished.",
           "hint": "would have — I (haver)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "without · DEF.F · 2SG.POSS.F.SG · help · NEG · ___ · finish.PTCP · never"
         },
         {
           "sentence": "Si m'ho haguessis demanat, t'{{answer}} ajudat.",
           "answer": "hauria",
           "translation": "If you had asked me, I would have helped you.",
           "hint": "would have — I (haver)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · 1SG.DAT-3SG.N.ACC · have.PST.SBJV.2SG · ask.PTCP · ___ · help.PTCP"
         },
         {
           "sentence": "Què {{answer}} fet tu al meu lloc?",
           "answer": "hauries",
           "translation": "What would you have done in my place?",
           "hint": "would have — you (haver)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "what · ___ · do.PTCP · 2SG.NOM · to-DEF.M · 1SG.POSS.M.SG · place"
         }
       ]
     },
@@ -2970,42 +3241,48 @@
           "answer": "hagi",
           "translation": "I think he has already eaten.",
           "hint": "has (perfect subjunctive of haver)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "believe.1SG · COMP · already · ___ · eat.PTCP"
         },
         {
           "sentence": "M'alegro que {{answer}} vingut.",
           "answer": "hagis",
           "translation": "I'm glad you came.",
           "hint": "have (perfect subjunctive of haver)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG.ACC-be_glad.1SG · COMP · ___ · come.PTCP"
         },
         {
           "sentence": "Pensava que {{answer}} més tard.",
           "answer": "vingués",
           "translation": "I thought he would come later.",
           "hint": "came — he (imperfect subjunctive)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "think.PST.IPFV.1SG · COMP · ___ · more · late"
         },
         {
           "sentence": "Volia que {{answer}} allà amb mi.",
           "answer": "fossis",
           "translation": "I wanted you to be there with me.",
           "hint": "were — you (imperfect subjunctive)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "want.PST.IPFV.1SG · COMP · ___ · there · with · 1SG.OBJ"
         },
         {
           "sentence": "No sabia que ja {{answer}} marxat.",
           "answer": "haguessin",
           "translation": "I didn't know they had already left.",
           "hint": "had — they (pluperfect subjunctive)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · know.PST.IPFV.1SG · COMP · already · ___ · leave.PTCP"
         },
         {
           "sentence": "Era possible que ella ho {{answer}} oblidat.",
           "answer": "hagués",
           "translation": "It was possible she had forgotten it.",
           "hint": "had — she (pluperfect subjunctive)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "be.PST.IPFV.3SG · possible · COMP · 3SG.F.NOM · 3SG.N.ACC · ___ · forget.PTCP"
         }
       ]
     },
@@ -3034,42 +3311,48 @@
           "answer": "construí",
           "translation": "The king built a great palace. (narrative)",
           "hint": "built — he (passat simple)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.M · king · ___ · INDF.M · great · palace · narrative"
         },
         {
           "sentence": "Ells {{answer}} al bosc fosc. (narració)",
           "answer": "entraren",
           "translation": "They entered the dark forest. (narrative)",
           "hint": "entered — they (passat simple)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3PL.M.NOM · ___ · to-DEF.M · forest · dark.M.SG · narrative"
         },
         {
           "sentence": "Ella {{answer}} molt sorpresa en veure'l. (narració)",
           "answer": "fou",
           "translation": "She was very surprised on seeing him. (narrative)",
           "hint": "was — she (passat simple of ser)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.F.NOM · ___ · very · surprised.F.SG · upon · see.INF-3SG.M.ACC · narrative"
         },
         {
           "sentence": "L'heroi {{answer}} l'espasa i marxà. (narració)",
           "answer": "prengué",
           "translation": "The hero took his sword and left. (narrative)",
           "hint": "took — he (passat simple)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF-hero · ___ · DEF-sword · and · leave.PST.3SG · narration"
         },
         {
           "sentence": "De sobte algú {{answer}}: «Atureu-vos!». (narració)",
           "answer": "digué",
           "translation": "Suddenly someone said: 'Stop!'. (narrative)",
           "hint": "said — he (passat simple of dir)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "of · suddenness · someone · ___ · stop.IMP.2PL-2PL.OBJ · narration"
         },
         {
           "sentence": "Aquella nit hi {{answer}} un gran banquet. (narració)",
           "answer": "hagué",
           "translation": "That night there was a great banquet. (narrative)",
           "hint": "there was (passat simple)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "that.F · night · LOC · ___ · INDF.M · great · banquet · narration"
         }
       ]
     },
@@ -3098,42 +3381,48 @@
           "answer": "que",
           "translation": "It's in Girona that I live, not Lleida.",
           "hint": "that (cleft on a phrase)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "be.PRS.3SG · at · Girona · ___ · live.PRS.1SG · NEG · at · Lleida"
         },
         {
           "sentence": "El llibre, ja {{answer}} he llegit.",
           "answer": "l'",
           "translation": "The book, I've already read it.",
           "hint": "it (dislocation + clitic, elided)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.M · book · already · ___ · have.PRS.1SG · read.PTCP"
         },
         {
           "sentence": "De peres, no {{answer}} tinc.",
           "answer": "en",
           "translation": "As for pears, I don't have any.",
           "hint": "partitive clitic taking up 'de peres'",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "of · pear.PL · NEG · ___ · have.PRS.1SG"
         },
         {
           "sentence": "A en Marc {{answer}} parlaré demà.",
           "answer": "li",
           "translation": "Marc, I'll talk to him tomorrow.",
           "hint": "to him (left dislocation)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DAT · DEF.M · Marc · ___ · speak.FUT.1SG · tomorrow"
         },
         {
           "sentence": "És ell {{answer}} ha preparat el sopar.",
           "answer": "qui",
           "translation": "It's he who prepared the dinner.",
           "hint": "who (cleft on the subject)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "be.PRS.3SG · 3SG.M · ___ · have.PRS.3SG · prepare.PTCP · DEF.M · dinner"
         },
         {
           "sentence": "Les claus? {{answer}} tinc jo.",
           "answer": "Les",
           "translation": "The keys? I have them.",
           "hint": "them (right dislocation, fronted clitic)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.F.PL · key.PL · ___ · have.PRS.1SG · 1SG"
         }
       ]
     },
@@ -3162,42 +3451,48 @@
           "answer": "parer",
           "translation": "In my opinion, the proposal is sound.",
           "hint": "opinion (fixed phrase)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "to-DEF.M · 1SG.POSS.M · ___ · DEF.F · proposal · be.PRS.3SG · valid.F"
         },
         {
           "sentence": "El projecte és complex; {{answer}}, és realitzable.",
           "answer": "tanmateix",
           "translation": "The project is complex; nevertheless, it's feasible.",
           "hint": "nevertheless (formal)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.M · project · be.PRS.3SG · complex · ___ · be.PRS.3SG · feasible"
         },
         {
           "sentence": "{{answer}} que ho necessitis, truca'm.",
           "answer": "Sempre",
           "translation": "As long as you need it, call me.",
           "hint": "as long as (+ subjunctive)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · COMP · 3SG.N.OBJ · need.SBJV.2SG · call.IMP.2SG-1SG.OBJ"
         },
         {
           "sentence": "No {{answer}} això, va aprovar l'examen.",
           "answer": "obstant",
           "translation": "Nevertheless, he passed the exam.",
           "hint": "notwithstanding (fixed phrase)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NEG · ___ · this.N · PST.3SG · pass.INF · DEF-exam"
         },
         {
           "sentence": "En tot {{answer}}, ens veiem demà.",
           "answer": "cas",
           "translation": "In any case, see you tomorrow.",
           "hint": "the noun making 'en tot' mean 'in any event'",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "in · all · ___ · 1PL.OBJ · see.PRS.1PL · tomorrow"
         },
         {
           "sentence": "La reunió s'ha ajornat; {{answer}} consegüent, us avisarem.",
           "answer": "per",
           "translation": "The meeting has been postponed; consequently, we'll notify you.",
           "hint": "the preposition making 'consegüent' mean 'consequently'",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.F · meeting · PASS-have.PRS.3SG · postpone.PTCP · ___ · consequent · 2PL.OBJ · notify.FUT.1PL"
         }
       ]
     },
@@ -3232,42 +3527,48 @@
           "answer": "vaig",
           "translation": "I'm going to the market now.",
           "hint": "anar — jo; the following words decide present vs past",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · to-DEF.M · market · now"
         },
         {
           "sentence": "Què {{answer}} aquest cap de setmana?",
           "answer": "fas",
           "translation": "What are you doing this weekend?",
           "hint": "fer — tu",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "what · ___ · this.M · head · of · week"
         },
         {
           "sentence": "No {{answer}} venir aquesta nit.",
           "answer": "puc",
           "translation": "I can't come tonight.",
           "hint": "poder — jo",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · ___ · come.INF · this.F · night"
         },
         {
           "sentence": "Ells {{answer}} aprendre català.",
           "answer": "volen",
           "translation": "They want to learn Catalan.",
           "hint": "voler — ells",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3PL.M · ___ · learn.INF · Catalan"
         },
         {
           "sentence": "Ella {{answer}} amb tren cada dia.",
           "answer": "ve",
           "translation": "She comes by train every day.",
           "hint": "venir — ella",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.F · ___ · with · train · each · day"
         },
         {
           "sentence": "Nosaltres {{answer}} els deures junts.",
           "answer": "fem",
           "translation": "We do our homework together.",
           "hint": "fer — nosaltres",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · ___ · DEF.M.PL · homework.PL · together.M.PL"
         }
       ]
     },
@@ -3302,42 +3603,48 @@
           "answer": "Estic",
           "translation": "I'm very tired today.",
           "hint": "a temporary state — jo",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · very · tired.M.SG · today"
         },
         {
           "sentence": "On {{answer}} ara?",
           "answer": "estàs",
           "translation": "Where are you right now?",
           "hint": "location right now — tu",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "where · ___ · now"
         },
         {
           "sentence": "La Maria {{answer}} malalta.",
           "answer": "està",
           "translation": "Maria is ill.",
           "hint": "a temporary condition",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.F · Maria · ___ · ill.F.SG"
         },
         {
           "sentence": "Nosaltres {{answer}} molt contents.",
           "answer": "estem",
           "translation": "We are very happy.",
           "hint": "a state — nosaltres",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · ___ · very · happy.M.PL"
         },
         {
           "sentence": "Els nens {{answer}} a l'escola ara.",
           "answer": "estan",
           "translation": "The children are at school now.",
           "hint": "where they are right now",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M.PL · child.PL · ___ · at · DEF.F-school · now"
         },
         {
           "sentence": "{{answer}} llegint un llibre boníssim.",
           "answer": "Estic",
           "translation": "I'm reading a great book.",
           "hint": "with the gerund — happening now",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · read.PROG · INDF.M · book · good.SUP.M.SG"
         }
       ]
     }

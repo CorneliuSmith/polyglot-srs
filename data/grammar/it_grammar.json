@@ -37,7 +37,8 @@
           "translation": "I am from Rome.",
           "hint": "I",
           "display_order": 1,
-          "cell": "io"
+          "cell": "io",
+          "gloss": "___ · be.1SG · from · Rome"
         },
         {
           "sentence": "{{answer}} sei il mio migliore amico.",
@@ -45,7 +46,8 @@
           "translation": "You are my best friend.",
           "hint": "you — informal",
           "display_order": 2,
-          "cell": "tu"
+          "cell": "tu",
+          "gloss": "___ · be.2SG · DEF.M.SG · my.M.SG · good.COMP · friend"
         },
         {
           "sentence": "{{answer}} è mia sorella.",
@@ -53,7 +55,8 @@
           "translation": "She is my sister.",
           "hint": "she",
           "display_order": 3,
-          "cell": "lei"
+          "cell": "lei",
+          "gloss": "___ · be.3SG · my.F.SG · sister"
         },
         {
           "sentence": "{{answer}} siamo studenti.",
@@ -61,7 +64,8 @@
           "translation": "We are students.",
           "hint": "we",
           "display_order": 4,
-          "cell": "noi"
+          "cell": "noi",
+          "gloss": "___ · be.1PL · student.PL"
         },
         {
           "sentence": "{{answer}} sono i miei genitori.",
@@ -69,7 +73,8 @@
           "translation": "They are my parents.",
           "hint": "they",
           "display_order": 5,
-          "cell": "loro"
+          "cell": "loro",
+          "gloss": "___ · be.3PL · DEF.M.PL · my.M.PL · parent.PL"
         },
         {
           "sentence": "{{answer}} è il mio professore.",
@@ -77,7 +82,8 @@
           "translation": "He is my teacher.",
           "hint": "he",
           "display_order": 6,
-          "cell": "lui"
+          "cell": "lui",
+          "gloss": "___ · be.3SG · DEF.M.SG · my.M.SG · teacher"
         },
         {
           "sentence": "{{answer}} siete i benvenuti.",
@@ -85,7 +91,8 @@
           "translation": "You (all) are welcome.",
           "hint": "you all",
           "cell": "voi",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · be.2PL · DEF.M.PL · welcome.M.PL"
         },
         {
           "sentence": "{{answer}} parlo un po' di italiano.",
@@ -93,7 +100,8 @@
           "translation": "I speak a little Italian.",
           "hint": "I",
           "cell": "io",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "___ · speak.1SG · INDF.M.SG · little · of · Italian"
         },
         {
           "sentence": "{{answer}} abiti qui vicino?",
@@ -101,7 +109,8 @@
           "translation": "Do you live near here?",
           "hint": "you — informal",
           "cell": "tu",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "___ · live.2SG · here · near"
         },
         {
           "sentence": "{{answer}} lavora in banca.",
@@ -109,7 +118,8 @@
           "translation": "He works in a bank.",
           "hint": "he",
           "cell": "lui",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "___ · work.3SG · in · bank"
         },
         {
           "sentence": "{{answer}} canta molto bene.",
@@ -117,7 +127,8 @@
           "translation": "She sings very well.",
           "hint": "she",
           "cell": "lei",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "___ · sing.3SG · very · well"
         },
         {
           "sentence": "{{answer}} abitiamo a Milano.",
@@ -125,7 +136,8 @@
           "translation": "We live in Milan.",
           "hint": "we",
           "cell": "noi",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "___ · live.1PL · at · Milan"
         },
         {
           "sentence": "{{answer}} parlate inglese?",
@@ -133,7 +145,8 @@
           "translation": "Do you (all) speak English?",
           "hint": "you all",
           "cell": "voi",
-          "display_order": 13
+          "display_order": 13,
+          "gloss": "___ · speak.2PL · English"
         },
         {
           "sentence": "{{answer}} giocano a tennis.",
@@ -141,7 +154,8 @@
           "translation": "They play tennis.",
           "hint": "they",
           "cell": "loro",
-          "display_order": 14
+          "display_order": 14,
+          "gloss": "___ · play.3PL · at · tennis"
         }
       ],
       "paradigm": [
@@ -184,7 +198,8 @@
           "translation": "I have two books.",
           "hint": "book, plural",
           "display_order": 1,
-          "cell": "masculine"
+          "cell": "masculine",
+          "gloss": "have.1SG · two · ___"
         },
         {
           "sentence": "Le {{answer}} sono belle.",
@@ -192,7 +207,8 @@
           "translation": "The houses are beautiful.",
           "hint": "house, plural",
           "display_order": 2,
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "DEF.F.PL · ___ · be.3PL · beautiful.F.PL"
         },
         {
           "sentence": "Ho tre {{answer}}.",
@@ -200,7 +216,8 @@
           "translation": "I have three sisters.",
           "hint": "sister, plural",
           "display_order": 3,
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "have.1SG · three · ___"
         },
         {
           "sentence": "I {{answer}} sono grandi.",
@@ -208,7 +225,8 @@
           "translation": "The gardens are big.",
           "hint": "garden, plural",
           "display_order": 4,
-          "cell": "masculine"
+          "cell": "masculine",
+          "gloss": "DEF.M.PL · ___ · be.3PL · big.PL"
         },
         {
           "sentence": "Ho due {{answer}} a casa.",
@@ -216,7 +234,8 @@
           "translation": "I have two cats at home.",
           "hint": "cat, plural",
           "display_order": 5,
-          "cell": "masculine"
+          "cell": "masculine",
+          "gloss": "have.1SG · two · ___ · at · home"
         },
         {
           "sentence": "Le {{answer}} sono nuove.",
@@ -224,7 +243,8 @@
           "translation": "The cars are new.",
           "hint": "car, plural",
           "display_order": 6,
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "DEF.F.PL · ___ · be.3PL · new.F.PL"
         }
       ],
       "paradigm": [
@@ -262,7 +282,8 @@
           "translation": "The house is big.",
           "hint": "feminine singular",
           "display_order": 1,
-          "cell": "la"
+          "cell": "la",
+          "gloss": "___ · house.F.SG · be.3SG · big.SG"
         },
         {
           "sentence": "{{answer}} libro è nuovo.",
@@ -270,7 +291,8 @@
           "translation": "The book is new.",
           "hint": "masculine singular",
           "display_order": 2,
-          "cell": "il"
+          "cell": "il",
+          "gloss": "___ · book.M.SG · be.3SG · new.M.SG"
         },
         {
           "sentence": "{{answer}} bambini giocano fuori.",
@@ -278,7 +300,8 @@
           "translation": "The children are playing outside.",
           "hint": "masculine plural",
           "display_order": 3,
-          "cell": "i"
+          "cell": "i",
+          "gloss": "___ · child.M.PL · play.3PL · outside"
         },
         {
           "sentence": "{{answer}} caffè è caldo.",
@@ -286,7 +309,8 @@
           "translation": "The coffee is hot.",
           "hint": "masculine singular",
           "display_order": 4,
-          "cell": "il"
+          "cell": "il",
+          "gloss": "___ · coffee.M.SG · be.3SG · hot.M.SG"
         },
         {
           "sentence": "{{answer}} ragazze sono simpatiche.",
@@ -294,7 +318,8 @@
           "translation": "The girls are nice.",
           "hint": "feminine plural",
           "display_order": 5,
-          "cell": "le"
+          "cell": "le",
+          "gloss": "___ · girl.F.PL · be.3PL · nice.F.PL"
         },
         {
           "sentence": "{{answer}} zaino è pesante.",
@@ -302,7 +327,8 @@
           "translation": "The backpack is heavy.",
           "hint": "masculine before z-",
           "display_order": 6,
-          "cell": "lo"
+          "cell": "lo",
+          "gloss": "___ · backpack.M.SG · be.3SG · heavy.SG"
         },
         {
           "sentence": "{{answer}} amici arrivano stasera.",
@@ -310,7 +336,8 @@
           "translation": "The friends are arriving tonight.",
           "hint": "masculine plural, before a vowel",
           "cell": "gli",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · friend.M.PL · arrive.3PL · tonight"
         },
         {
           "sentence": "{{answer}} studente è bravo.",
@@ -318,7 +345,8 @@
           "translation": "The student is good.",
           "hint": "the — before s+consonant/z",
           "cell": "lo",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "___ · student.M.SG · be.3SG · good.M.SG"
         },
         {
           "sentence": "{{answer}} finestra è aperta.",
@@ -326,7 +354,8 @@
           "translation": "The window is open.",
           "hint": "the — feminine singular",
           "cell": "la",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "___ · window.F.SG · be.3SG · open.F.SG"
         },
         {
           "sentence": "{{answer}} gatti dormono.",
@@ -334,7 +363,8 @@
           "translation": "The cats are sleeping.",
           "hint": "the — masculine plural",
           "cell": "i",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "___ · cat.M.PL · sleep.3PL"
         },
         {
           "sentence": "{{answer}} studenti arrivano oggi.",
@@ -342,7 +372,8 @@
           "translation": "The students arrive today.",
           "hint": "the — masc. plural before vowel/s+cons",
           "cell": "gli",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "___ · student.M.PL · arrive.3PL · today"
         },
         {
           "sentence": "{{answer}} scarpe sono nuove.",
@@ -350,7 +381,8 @@
           "translation": "The shoes are new.",
           "hint": "the — feminine plural",
           "cell": "le",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "___ · shoe.F.PL · be.3PL · new.F.PL"
         }
       ],
       "paradigm": [
@@ -391,42 +423,48 @@
           "answer": "un",
           "translation": "I have a dog.",
           "hint": "masculine",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "have.1SG · ___ · dog.M.SG"
         },
         {
           "sentence": "È {{answer}} casa grande.",
           "answer": "una",
           "translation": "It is a big house.",
           "hint": "feminine",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "be.3SG · ___ · house.F.SG · big.SG"
         },
         {
           "sentence": "È {{answer}} bella giornata.",
           "answer": "una",
           "translation": "It is a beautiful day.",
           "hint": "feminine",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "be.3SG · ___ · beautiful.F.SG · day.F.SG"
         },
         {
           "sentence": "Lui è {{answer}} amico.",
           "answer": "un",
           "translation": "He is a friend.",
           "hint": "masculine — no apostrophe for masculine",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.M · be.3SG · ___ · friend.M.SG"
         },
         {
           "sentence": "Ho {{answer}} zaino nuovo.",
           "answer": "uno",
           "translation": "I have a new backpack.",
           "hint": "masculine before z-",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "have.1SG · ___ · backpack.M.SG · new.M.SG"
         },
         {
           "sentence": "È {{answer}} buon libro.",
           "answer": "un",
           "translation": "It is a good book.",
           "hint": "masculine",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "be.3SG · ___ · good.M.SG · book.M.SG"
         }
       ]
     },
@@ -460,7 +498,8 @@
           "translation": "I am a student.",
           "hint": "essere, io",
           "display_order": 1,
-          "cell": "io"
+          "cell": "io",
+          "gloss": "1SG · ___ · student.M.SG"
         },
         {
           "sentence": "Tu {{answer}} molto alto.",
@@ -468,7 +507,8 @@
           "translation": "You are very tall.",
           "hint": "essere, tu",
           "display_order": 2,
-          "cell": "tu"
+          "cell": "tu",
+          "gloss": "2SG · ___ · very · tall.M.SG"
         },
         {
           "sentence": "Lei {{answer}} professoressa.",
@@ -476,7 +516,8 @@
           "translation": "She is a teacher.",
           "hint": "essere, lui/lei",
           "display_order": 3,
-          "cell": "lui/lei"
+          "cell": "lui/lei",
+          "gloss": "3SG.F · ___ · teacher.F"
         },
         {
           "sentence": "Noi {{answer}} amici.",
@@ -484,7 +525,8 @@
           "translation": "We are friends.",
           "hint": "essere, noi",
           "display_order": 4,
-          "cell": "noi"
+          "cell": "noi",
+          "gloss": "1PL · ___ · friend.PL"
         },
         {
           "sentence": "Voi {{answer}} italiani?",
@@ -492,7 +534,8 @@
           "translation": "Are you (all) Italian?",
           "hint": "essere, voi",
           "display_order": 5,
-          "cell": "voi"
+          "cell": "voi",
+          "gloss": "2PL · ___ · Italian.M.PL"
         },
         {
           "sentence": "Loro {{answer}} a casa.",
@@ -500,7 +543,8 @@
           "translation": "They are at home.",
           "hint": "essere, loro",
           "display_order": 6,
-          "cell": "loro"
+          "cell": "loro",
+          "gloss": "3PL · ___ · at · house"
         },
         {
           "sentence": "Io {{answer}} di Napoli.",
@@ -508,7 +552,8 @@
           "translation": "I am from Naples.",
           "hint": "essere, io",
           "cell": "io",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · ___ · from · Naples"
         },
         {
           "sentence": "Tu {{answer}} medico?",
@@ -516,7 +561,8 @@
           "translation": "Are you a doctor?",
           "hint": "essere, tu",
           "cell": "tu",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG · ___ · doctor"
         },
         {
           "sentence": "Mio padre {{answer}} ingegnere.",
@@ -524,7 +570,8 @@
           "translation": "My father is an engineer.",
           "hint": "essere, lui/lei",
           "cell": "lui/lei",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "1SG.POSS.M · father · ___ · engineer"
         },
         {
           "sentence": "Noi {{answer}} pronti.",
@@ -532,7 +579,8 @@
           "translation": "We are ready.",
           "hint": "essere, noi",
           "cell": "noi",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL · ___ · ready.M.PL"
         },
         {
           "sentence": "Voi {{answer}} molto gentili.",
@@ -540,7 +588,8 @@
           "translation": "You (all) are very kind.",
           "hint": "essere, voi",
           "cell": "voi",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL · ___ · very · kind.PL"
         },
         {
           "sentence": "I miei genitori {{answer}} di Torino.",
@@ -548,7 +597,8 @@
           "translation": "My parents are from Turin.",
           "hint": "essere, loro",
           "cell": "loro",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "DEF.M.PL · 1SG.POSS.M.PL · parent.PL · ___ · from · Turin"
         }
       ],
       "paradigm": [
@@ -590,7 +640,8 @@
           "translation": "I am twenty years old.",
           "hint": "avere, io",
           "display_order": 1,
-          "cell": "io"
+          "cell": "io",
+          "gloss": "1SG · ___ · twenty-year.PL"
         },
         {
           "sentence": "Tu {{answer}} fame?",
@@ -598,7 +649,8 @@
           "translation": "Are you hungry?",
           "hint": "avere, tu",
           "display_order": 2,
-          "cell": "tu"
+          "cell": "tu",
+          "gloss": "2SG · ___ · hunger"
         },
         {
           "sentence": "Lei {{answer}} un gatto.",
@@ -606,7 +658,8 @@
           "translation": "She has a cat.",
           "hint": "avere, lui/lei",
           "display_order": 3,
-          "cell": "lui/lei"
+          "cell": "lui/lei",
+          "gloss": "3SG.F · ___ · INDF.M · cat"
         },
         {
           "sentence": "Noi {{answer}} una domanda.",
@@ -614,7 +667,8 @@
           "translation": "We have a question.",
           "hint": "avere, noi",
           "display_order": 4,
-          "cell": "noi"
+          "cell": "noi",
+          "gloss": "1PL · ___ · INDF.F · question"
         },
         {
           "sentence": "Voi {{answer}} ragione.",
@@ -622,7 +676,8 @@
           "translation": "You (all) are right.",
           "hint": "avere, voi",
           "display_order": 5,
-          "cell": "voi"
+          "cell": "voi",
+          "gloss": "2PL · ___ · reason"
         },
         {
           "sentence": "Loro {{answer}} sete.",
@@ -630,7 +685,8 @@
           "translation": "They are thirsty.",
           "hint": "avere, loro",
           "display_order": 6,
-          "cell": "loro"
+          "cell": "loro",
+          "gloss": "3PL · ___ · thirst"
         },
         {
           "sentence": "Io {{answer}} due sorelle.",
@@ -638,7 +694,8 @@
           "translation": "I have two sisters.",
           "hint": "avere, io",
           "cell": "io",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · ___ · two · sister.PL"
         },
         {
           "sentence": "Tu {{answer}} una penna?",
@@ -646,7 +703,8 @@
           "translation": "Do you have a pen?",
           "hint": "avere, tu",
           "cell": "tu",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG · ___ · INDF.F · pen"
         },
         {
           "sentence": "Mio fratello {{answer}} un cane.",
@@ -654,7 +712,8 @@
           "translation": "My brother has a dog.",
           "hint": "avere, lui/lei",
           "cell": "lui/lei",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "1SG.POSS.M · brother · ___ · INDF.M · dog"
         },
         {
           "sentence": "Noi {{answer}} tempo oggi.",
@@ -662,7 +721,8 @@
           "translation": "We have time today.",
           "hint": "avere, noi",
           "cell": "noi",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL · ___ · time · today"
         },
         {
           "sentence": "Voi {{answer}} figli?",
@@ -670,7 +730,8 @@
           "translation": "Do you (all) have children?",
           "hint": "avere, voi",
           "cell": "voi",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL · ___ · child.PL"
         },
         {
           "sentence": "Loro {{answer}} una casa grande.",
@@ -678,7 +739,8 @@
           "translation": "They have a big house.",
           "hint": "avere, loro",
           "cell": "loro",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "3PL · ___ · INDF.F · house · big"
         }
       ],
       "paradigm": [
@@ -720,7 +782,8 @@
           "translation": "We speak Italian.",
           "hint": "parlare, noi",
           "display_order": 1,
-          "cell": "noi"
+          "cell": "noi",
+          "gloss": "1PL · ___ · Italian"
         },
         {
           "sentence": "Lei {{answer}} in un ufficio.",
@@ -728,7 +791,8 @@
           "translation": "She works in an office.",
           "hint": "lavorare, lui/lei",
           "display_order": 2,
-          "cell": "lui/lei"
+          "cell": "lui/lei",
+          "gloss": "3SG.F · ___ · in · INDF.M · office"
         },
         {
           "sentence": "Tu {{answer}} il cioccolato?",
@@ -736,7 +800,8 @@
           "translation": "Do you love chocolate?",
           "hint": "amare, tu",
           "display_order": 3,
-          "cell": "tu"
+          "cell": "tu",
+          "gloss": "2SG · ___ · DEF.M · chocolate"
         },
         {
           "sentence": "Loro {{answer}} a calcio.",
@@ -744,7 +809,8 @@
           "translation": "They play football.",
           "hint": "giocare, loro",
           "display_order": 4,
-          "cell": "loro"
+          "cell": "loro",
+          "gloss": "3PL · ___ · at · football"
         },
         {
           "sentence": "Voi {{answer}} a Roma?",
@@ -752,7 +818,8 @@
           "translation": "Do you (all) live in Rome?",
           "hint": "abitare, voi",
           "display_order": 5,
-          "cell": "voi"
+          "cell": "voi",
+          "gloss": "2PL · ___ · at · Rome"
         },
         {
           "sentence": "Io {{answer}} il pane.",
@@ -760,7 +827,8 @@
           "translation": "I buy the bread.",
           "hint": "comprare, io",
           "display_order": 6,
-          "cell": "io"
+          "cell": "io",
+          "gloss": "1SG · ___ · DEF.M · bread"
         },
         {
           "sentence": "Io {{answer}} in ospedale.",
@@ -768,7 +836,8 @@
           "translation": "I work in a hospital.",
           "hint": "lavorare, io",
           "cell": "io",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · ___ · in · hospital"
         },
         {
           "sentence": "Tu {{answer}} a che ora?",
@@ -776,7 +845,8 @@
           "translation": "What time do you arrive?",
           "hint": "arrivare, tu",
           "cell": "tu",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG · ___ · at · what · hour"
         },
         {
           "sentence": "Lui {{answer}} la cena.",
@@ -784,7 +854,8 @@
           "translation": "He prepares dinner.",
           "hint": "preparare, lui/lei",
           "cell": "lui/lei",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "3SG.M · ___ · DEF.F · dinner"
         },
         {
           "sentence": "Noi {{answer}} la radio.",
@@ -792,7 +863,8 @@
           "translation": "We listen to the radio.",
           "hint": "ascoltare, noi",
           "cell": "noi",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL · ___ · DEF.F · radio"
         },
         {
           "sentence": "Voi {{answer}} lo spagnolo?",
@@ -800,7 +872,8 @@
           "translation": "Do you (all) study Spanish?",
           "hint": "studiare, voi",
           "cell": "voi",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL · ___ · DEF.M · Spanish"
         },
         {
           "sentence": "I bambini {{answer}} in giardino.",
@@ -808,7 +881,8 @@
           "translation": "The children play in the garden.",
           "hint": "giocare, loro",
           "cell": "loro",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "DEF.M.PL · child.PL · ___ · in · garden"
         }
       ],
       "paradigm": [
@@ -850,7 +924,8 @@
           "translation": "I take the train at eight.",
           "hint": "prendere, io",
           "display_order": 1,
-          "cell": "io"
+          "cell": "io",
+          "gloss": "1SG · ___ · DEF.M · train · at-DEF.F.PL · eight"
         },
         {
           "sentence": "Noi {{answer}} una lettera.",
@@ -858,7 +933,8 @@
           "translation": "We are writing a letter.",
           "hint": "scrivere, noi",
           "display_order": 2,
-          "cell": "noi"
+          "cell": "noi",
+          "gloss": "1PL · ___ · INDF.F · letter"
         },
         {
           "sentence": "Loro {{answer}} molto.",
@@ -866,7 +942,8 @@
           "translation": "They sleep a lot.",
           "hint": "dormire, loro",
           "display_order": 3,
-          "cell": "loro"
+          "cell": "loro",
+          "gloss": "3PL · ___ · much"
         },
         {
           "sentence": "Lei {{answer}} il lavoro alle sei.",
@@ -874,7 +951,8 @@
           "translation": "She finishes work at six.",
           "hint": "finire, lui/lei",
           "display_order": 4,
-          "cell": "lui/lei"
+          "cell": "lui/lei",
+          "gloss": "3SG.F · ___ · DEF.M · work · at-DEF.F.PL · six"
         },
         {
           "sentence": "Tu {{answer}} la musica?",
@@ -882,7 +960,8 @@
           "translation": "Do you hear the music?",
           "hint": "sentire, tu",
           "display_order": 5,
-          "cell": "tu"
+          "cell": "tu",
+          "gloss": "2SG · ___ · DEF.F · music"
         },
         {
           "sentence": "Voi {{answer}} un dolce?",
@@ -890,7 +969,8 @@
           "translation": "Do you (all) prefer a dessert?",
           "hint": "preferire, voi",
           "display_order": 6,
-          "cell": "voi"
+          "cell": "voi",
+          "gloss": "2PL · ___ · INDF.M · dessert"
         },
         {
           "sentence": "Io {{answer}} molte lettere.",
@@ -898,7 +978,8 @@
           "translation": "I write many letters.",
           "hint": "scrivere, io",
           "cell": "io",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · ___ · many.F.PL · letter.F.PL"
         },
         {
           "sentence": "Tu {{answer}} il caffè?",
@@ -906,7 +987,8 @@
           "translation": "Are you having coffee?",
           "hint": "prendere, tu",
           "cell": "tu",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "2SG · ___ · DEF.M.SG · coffee"
         },
         {
           "sentence": "Lei {{answer}} fino a tardi.",
@@ -914,7 +996,8 @@
           "translation": "She sleeps until late.",
           "hint": "dormire, lui/lei",
           "cell": "lui/lei",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "3SG.F · ___ · until · to · late"
         },
         {
           "sentence": "Noi {{answer}} il lavoro alle cinque.",
@@ -922,7 +1005,8 @@
           "translation": "We finish work at five.",
           "hint": "finire, noi",
           "cell": "noi",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "1PL · ___ · DEF.M.SG · work · at-DEF.F.PL · five"
         },
         {
           "sentence": "Voi {{answer}} il rumore?",
@@ -930,7 +1014,8 @@
           "translation": "Do you (all) hear the noise?",
           "hint": "sentire, voi",
           "cell": "voi",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "2PL · ___ · DEF.M.SG · noise"
         },
         {
           "sentence": "Loro {{answer}} il giornale.",
@@ -938,7 +1023,8 @@
           "translation": "They read the newspaper.",
           "hint": "leggere, loro",
           "cell": "loro",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "3PL · ___ · DEF.M.SG · newspaper"
         }
       ],
       "paradigm": [
@@ -979,42 +1065,48 @@
           "answer": "non",
           "translation": "I don't speak English.",
           "hint": "before the verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · speak.1SG · English"
         },
         {
           "sentence": "Lui {{answer}} lavora la domenica.",
           "answer": "non",
           "translation": "He doesn't work on Sundays.",
           "hint": "before the verb",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.M · ___ · work.3SG · DEF.F.SG · Sunday"
         },
         {
           "sentence": "Noi {{answer}} siamo stanchi.",
           "answer": "non",
           "translation": "We are not tired.",
           "hint": "before the verb",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · be.1PL · tired.M.PL"
         },
         {
           "sentence": "Lei {{answer}} mangia carne.",
           "answer": "non",
           "translation": "She doesn't eat meat.",
           "hint": "before the verb",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F · ___ · eat.3SG · meat"
         },
         {
           "sentence": "Tu {{answer}} mangi?",
           "answer": "non",
           "translation": "Aren't you eating?",
           "hint": "before the verb",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · ___ · eat.2SG"
         },
         {
           "sentence": "Voi {{answer}} ballate?",
           "answer": "non",
           "translation": "You (all) don't dance?",
           "hint": "before the verb",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "2PL · ___ · dance.2PL"
         }
       ]
     },
@@ -1047,42 +1139,48 @@
           "answer": "C'è",
           "translation": "There is a book on the table.",
           "hint": "singular",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · INDF.M.SG · book · on-DEF.M.SG · table"
         },
         {
           "sentence": "Ci {{answer}} due caffè in questa strada.",
           "answer": "sono",
           "translation": "There are two cafés on this street.",
           "hint": "plural — the verb",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "LOC · ___ · two · cafe · in · this.F.SG · street"
         },
         {
           "sentence": "{{answer}} sono molte persone qui.",
           "answer": "Ci",
           "translation": "There are many people here.",
           "hint": "plural — the little word",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · be.3PL · many.F.PL · person.F.PL · here"
         },
         {
           "sentence": "C'è {{answer}} gatto in giardino.",
           "answer": "un",
           "translation": "There is a cat in the garden.",
           "hint": "indefinite article, masculine",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "LOC-be.3SG · ___ · cat · in · garden"
         },
         {
           "sentence": "Non {{answer}} pane.",
           "answer": "c'è",
           "translation": "There is no bread.",
           "hint": "singular",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · ___ · bread"
         },
         {
           "sentence": "Ci {{answer}} problemi?",
           "answer": "sono",
           "translation": "Are there problems?",
           "hint": "plural — the verb",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "LOC · ___ · problem.M.PL"
         }
       ]
     },
@@ -1115,49 +1213,56 @@
           "answer": "Dove",
           "translation": "Where do you live?",
           "hint": "where",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · live.2SG"
         },
         {
           "sentence": "{{answer}} ti chiami?",
           "answer": "Come",
           "translation": "What is your name?",
           "hint": "how — names ask 'how' in Italian",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 2SG.OBJ · call.2SG"
         },
         {
           "sentence": "{{answer}} è il tuo compleanno?",
           "answer": "Quando",
           "translation": "When is your birthday?",
           "hint": "when",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · be.PRS.3SG · DEF.M.SG · 2SG.POSS.M.SG · birthday"
         },
         {
           "sentence": "{{answer}} cosa guardi?",
           "answer": "Che",
           "translation": "What are you watching?",
           "hint": "what",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · thing · watch.PRS.2SG"
         },
         {
           "sentence": "{{answer}} fratelli hai?",
           "answer": "Quanti",
           "translation": "How many brothers do you have?",
           "hint": "how many",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · brother.PL · have.PRS.2SG"
         },
         {
           "sentence": "{{answer}} piangi?",
           "answer": "Perché",
           "translation": "Why are you crying?",
           "hint": "why",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · cry.PRS.2SG"
         },
         {
           "sentence": "{{answer}} è il tuo professore?",
           "answer": "Chi",
           "translation": "Who is your teacher?",
           "hint": "who — a person",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · be.PRS.3SG · DEF.M.SG · 2SG.POSS.M.SG · teacher"
         }
       ]
     },
@@ -1191,7 +1296,8 @@
           "translation": "The house is white.",
           "hint": "white — feminine",
           "display_order": 1,
-          "cell": "f.sg"
+          "cell": "f.sg",
+          "gloss": "DEF.F.SG · house · be.PRS.3SG · ___"
         },
         {
           "sentence": "I libri sono {{answer}}.",
@@ -1199,14 +1305,16 @@
           "translation": "The books are new.",
           "hint": "new — masculine plural",
           "display_order": 2,
-          "cell": "m.pl"
+          "cell": "m.pl",
+          "gloss": "DEF.M.PL · book.PL · be.PRS.3PL · ___"
         },
         {
           "sentence": "Mia sorella è molto {{answer}}.",
           "answer": "gentile",
           "translation": "My sister is very kind.",
           "hint": "kind — -e type",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG.POSS.F.SG · sister · be.PRS.3SG · very · ___"
         },
         {
           "sentence": "Il caffè è {{answer}}.",
@@ -1214,7 +1322,8 @@
           "translation": "The coffee is hot.",
           "hint": "hot — masculine",
           "display_order": 4,
-          "cell": "m.sg"
+          "cell": "m.sg",
+          "gloss": "DEF.M.SG · coffee · be.PRS.3SG · ___"
         },
         {
           "sentence": "Le ragazze sono {{answer}}.",
@@ -1222,14 +1331,16 @@
           "translation": "The girls are nice.",
           "hint": "nice — feminine plural",
           "display_order": 5,
-          "cell": "f.pl"
+          "cell": "f.pl",
+          "gloss": "DEF.F.PL · girl.PL · be.PRS.3PL · ___"
         },
         {
           "sentence": "Il film è {{answer}}.",
           "answer": "interessante",
           "translation": "The film is interesting.",
           "hint": "interesting — -e type",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.SG · film · be.PRS.3SG · ___"
         },
         {
           "sentence": "Il vino è {{answer}}.",
@@ -1237,7 +1348,8 @@
           "translation": "The wine is red.",
           "hint": "red — masculine singular",
           "cell": "m.sg",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "DEF.M.SG · wine · be.PRS.3SG · ___"
         },
         {
           "sentence": "La porta è {{answer}}.",
@@ -1245,7 +1357,8 @@
           "translation": "The door is open.",
           "hint": "open — feminine singular",
           "cell": "f.sg",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "DEF.F.SG · door · be.PRS.3SG · ___"
         },
         {
           "sentence": "I fiori sono {{answer}}.",
@@ -1253,7 +1366,8 @@
           "translation": "The flowers are yellow.",
           "hint": "yellow — masculine plural",
           "cell": "m.pl",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "DEF.M.PL · flower.PL · be.PRS.3PL · ___"
         },
         {
           "sentence": "Le case sono {{answer}}.",
@@ -1261,7 +1375,8 @@
           "translation": "The houses are small.",
           "hint": "small — feminine plural",
           "cell": "f.pl",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "DEF.F.PL · house.PL · be.PRS.3PL · ___"
         }
       ],
       "paradigm": [
@@ -1297,7 +1412,8 @@
           "translation": "Yesterday I ate at the restaurant.",
           "hint": "have — I (auxiliary)",
           "cell": "io",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "yesterday · ___ · eat.PTCP · to-DEF.M.SG · restaurant"
         },
         {
           "sentence": "Stamattina {{answer}} bevuto un caffè.",
@@ -1305,7 +1421,8 @@
           "translation": "This morning I drank a coffee.",
           "hint": "have — I (auxiliary)",
           "cell": "io",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "this.morning · ___ · drink.PTCP · INDF.M.SG · coffee"
         },
         {
           "sentence": "{{answer}} finito i compiti?",
@@ -1313,7 +1430,8 @@
           "translation": "Have you finished your homework?",
           "hint": "have — you sg. (auxiliary)",
           "cell": "tu",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · finish.PTCP · DEF.M.PL · homework.PL"
         },
         {
           "sentence": "Quando {{answer}} visto questo film?",
@@ -1321,7 +1439,8 @@
           "translation": "When did you see this film?",
           "hint": "have — you sg. (auxiliary)",
           "cell": "tu",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "when · ___ · see.PTCP · this.M.SG · film"
         },
         {
           "sentence": "Lui {{answer}} perso le chiavi.",
@@ -1329,7 +1448,8 @@
           "translation": "He lost his keys.",
           "hint": "has — he (auxiliary)",
           "cell": "lui",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M · ___ · lose.PTCP · DEF.F.PL · key.PL"
         },
         {
           "sentence": "Lei {{answer}} cantato una bella canzone.",
@@ -1337,7 +1457,8 @@
           "translation": "She sang a beautiful song.",
           "hint": "has — she (auxiliary)",
           "cell": "lui",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.F · ___ · sing.PTCP · INDF.F · beautiful.F · song"
         },
         {
           "sentence": "Noi {{answer}} visitato il museo.",
@@ -1345,7 +1466,8 @@
           "translation": "We visited the museum.",
           "hint": "have — we (auxiliary)",
           "cell": "noi",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1PL · ___ · visit.PTCP · DEF.M · museum"
         },
         {
           "sentence": "Nel weekend {{answer}} ballato molto.",
@@ -1353,7 +1475,8 @@
           "translation": "This weekend we danced a lot.",
           "hint": "have — we (auxiliary)",
           "cell": "noi",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "in-DEF.M · weekend · ___ · dance.PTCP · a_lot"
         },
         {
           "sentence": "{{answer}} già prenotato il tavolo?",
@@ -1361,7 +1484,8 @@
           "translation": "Have you already booked the table?",
           "hint": "have — you pl. (auxiliary)",
           "cell": "voi",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "___ · already · book.PTCP · DEF.M · table"
         },
         {
           "sentence": "A che ora {{answer}} cenato?",
@@ -1369,7 +1493,8 @@
           "translation": "What time did you have dinner?",
           "hint": "have — you pl. (auxiliary)",
           "cell": "voi",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "at · what · hour · ___ · dine.PTCP"
         },
         {
           "sentence": "I bambini {{answer}} giocato in giardino.",
@@ -1377,7 +1502,8 @@
           "translation": "The children played in the garden.",
           "hint": "have — they (auxiliary)",
           "cell": "loro",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "DEF.M.PL · child.PL · ___ · play.PTCP · in · garden"
         },
         {
           "sentence": "I miei amici {{answer}} lavorato tutto il weekend.",
@@ -1385,7 +1511,8 @@
           "translation": "My friends worked all weekend.",
           "hint": "have — they (auxiliary)",
           "cell": "loro",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "DEF.M.PL · 1SG.POSS.M.PL · friend.PL · ___ · work.PTCP · all.M · DEF.M · weekend"
         }
       ],
       "paradigm": [
@@ -1423,7 +1550,8 @@
           "translation": "Last night I went to the cinema.",
           "hint": "am — I (auxiliary essere)",
           "cell": "io",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "yesterday · evening · ___ · go.PTCP.M · to-DEF.M · cinema"
         },
         {
           "sentence": "Stamattina {{answer}} arrivato in ritardo.",
@@ -1431,7 +1559,8 @@
           "translation": "This morning I arrived late.",
           "hint": "am — I (auxiliary essere)",
           "cell": "io",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "this_morning · ___ · arrive.PTCP.M · in · delay"
         },
         {
           "sentence": "{{answer}} venuto alla festa?",
@@ -1439,7 +1568,8 @@
           "translation": "Did you come to the party?",
           "hint": "are — you sg. (auxiliary essere)",
           "cell": "tu",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · come.PTCP.M · to-DEF.F · party"
         },
         {
           "sentence": "A che ora {{answer}} partito?",
@@ -1447,7 +1577,8 @@
           "translation": "What time did you leave?",
           "hint": "are — you sg. (auxiliary essere)",
           "cell": "tu",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "at · what · hour · ___ · leave.PTCP.M"
         },
         {
           "sentence": "Lei {{answer}} rimasta a casa.",
@@ -1455,7 +1586,8 @@
           "translation": "She stayed home.",
           "hint": "is — she (auxiliary essere)",
           "cell": "lui",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.F · ___ · stay.PTCP.F · at · house"
         },
         {
           "sentence": "Il treno {{answer}} già partito.",
@@ -1463,7 +1595,8 @@
           "translation": "The train has already left.",
           "hint": "is — it (auxiliary essere)",
           "cell": "lui",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M · train · ___ · already · leave.PTCP.M"
         },
         {
           "sentence": "Noi {{answer}} tornati molto tardi.",
@@ -1471,7 +1604,8 @@
           "translation": "We got home very late.",
           "hint": "are — we (auxiliary essere)",
           "cell": "noi",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1PL · ___ · return.PTCP.M.PL · very · late"
         },
         {
           "sentence": "Domenica {{answer}} usciti in città.",
@@ -1479,7 +1613,8 @@
           "translation": "On Sunday we went out in town.",
           "hint": "are — we (auxiliary essere)",
           "cell": "noi",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "Sunday · ___ · go_out.PTCP.M.PL · in · city"
         },
         {
           "sentence": "{{answer}} scesi a piedi?",
@@ -1487,7 +1622,8 @@
           "translation": "Did you (pl.) come down on foot?",
           "hint": "are — you pl. (auxiliary essere)",
           "cell": "voi",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "___ · descend.PTCP.M.PL · on · foot.PL"
         },
         {
           "sentence": "Quando {{answer}} nati?",
@@ -1495,7 +1631,8 @@
           "translation": "When were you (pl.) born?",
           "hint": "are — you pl. (auxiliary essere)",
           "cell": "voi",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "when · ___ · be_born.PTCP.M.PL"
         },
         {
           "sentence": "Gli ospiti {{answer}} arrivati a mezzogiorno.",
@@ -1503,7 +1640,8 @@
           "translation": "The guests arrived at noon.",
           "hint": "are — they (auxiliary essere)",
           "cell": "loro",
-          "display_order": 11
+          "display_order": 11,
+          "gloss": "DEF.M.PL · guest.PL · ___ · arrive.PTCP.M.PL · at · noon"
         },
         {
           "sentence": "Le mie sorelle {{answer}} salite sull'autobus.",
@@ -1511,7 +1649,8 @@
           "translation": "My sisters got on the bus.",
           "hint": "are — they (auxiliary essere)",
           "cell": "loro",
-          "display_order": 12
+          "display_order": 12,
+          "gloss": "DEF.F.PL · 1SG.POSS.F.PL · sister.PL · ___ · go_up.PTCP.F.PL · on-DEF.M-bus"
         }
       ],
       "paradigm": [
@@ -1548,42 +1687,48 @@
           "answer": "andavamo",
           "translation": "Every summer we used to go to the seaside.",
           "hint": "used to go — we",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "every · summer · ___ · to-DEF.M · sea"
         },
         {
           "sentence": "Quando ero piccolo, {{answer}} molto.",
           "answer": "leggevo",
           "translation": "When I was little, I used to read a lot.",
           "hint": "used to read — I",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "when · be.PST.IPFV.1SG · small.M.SG · ___ · much"
         },
         {
           "sentence": "Cosa {{answer}} quando ti ho chiamato?",
           "answer": "facevi",
           "translation": "What were you doing when I called you?",
           "hint": "were doing — you (sg.)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "what · ___ · when · 2SG.OBJ · have.PRS.1SG · call.PTCP"
         },
         {
           "sentence": "Mio nonno {{answer}} storie ogni sera.",
           "answer": "raccontava",
           "translation": "My grandfather used to tell stories every evening.",
           "hint": "used to tell — he",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG.POSS.M.SG · grandfather.M.SG · ___ · story.F.PL · every · evening.F.SG"
         },
         {
           "sentence": "I bambini {{answer}} nel parco.",
           "answer": "giocavano",
           "translation": "The children were playing in the park.",
           "hint": "were playing — they",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M.PL · child.M.PL · ___ · in-DEF.M.SG · park.M.SG"
         },
         {
           "sentence": "Una volta {{answer}} in un piccolo appartamento.",
           "answer": "abitavamo",
           "translation": "We used to live in a small apartment.",
           "hint": "used to live — we",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "INDF.F.SG · time.F.SG · ___ · in · INDF.M.SG · small.M.SG · apartment.M.SG"
         }
       ]
     },
@@ -1612,42 +1757,48 @@
           "answer": "andrò",
           "translation": "Tomorrow I will go to work early.",
           "hint": "will go — I",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "tomorrow · ___ · to-DEF.M.SG · work.M.SG · early"
         },
         {
           "sentence": "Stasera {{answer}} un film insieme.",
           "answer": "guarderemo",
           "translation": "Tonight we will watch a film together.",
           "hint": "will watch — we",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "tonight · ___ · INDF.M.SG · film.M.SG · together"
         },
         {
           "sentence": "{{answer}} con noi in viaggio?",
           "answer": "Verrai",
           "translation": "Will you come with us on the trip?",
           "hint": "will come — you (sg.)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · with · 1PL · in · trip.M.SG"
         },
         {
           "sentence": "Anna {{answer}} il regalo domani.",
           "answer": "comprerà",
           "translation": "Anna will buy the gift tomorrow.",
           "hint": "will buy — she",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "Anna · ___ · DEF.M.SG · gift.M.SG · tomorrow"
         },
         {
           "sentence": "L'anno prossimo {{answer}} italiano ogni giorno.",
           "answer": "studierò",
           "translation": "Next year I will study Italian every day.",
           "hint": "will study — I",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M.SG-year.M.SG · next.M.SG · ___ · Italian.M.SG · every · day.M.SG"
         },
         {
           "sentence": "I miei amici {{answer}} alla festa.",
           "answer": "saranno",
           "translation": "My friends will be at the party.",
           "hint": "will be — they",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.PL · 1SG.POSS.M.PL · friend.M.PL · ___ · at-DEF.F.SG · party.F.SG"
         }
       ]
     },
@@ -1676,42 +1827,48 @@
           "answer": "lo",
           "translation": "Do you know Marco? Yes, I know him well.",
           "hint": "him",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "know.PRS.2SG · Marco · yes · ___ · know.PRS.1SG · well"
         },
         {
           "sentence": "Dov'è Maria? Non {{answer}} vedo.",
           "answer": "la",
           "translation": "Where is Maria? I don't see her.",
           "hint": "her",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "where-be.PRS.3SG · Maria · NEG · ___ · see.PRS.1SG"
         },
         {
           "sentence": "Questi libri sono belli; {{answer}} leggo adesso.",
           "answer": "li",
           "translation": "These books are good; I'm reading them now.",
           "hint": "them (masc.)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "this.M.PL · book.M.PL · be.PRS.3PL · beautiful.M.PL · ___ · read.PRS.1SG · now"
         },
         {
           "sentence": "Se vieni, {{answer}} aspetto alla stazione.",
           "answer": "ti",
           "translation": "If you come, I'll wait for you at the station.",
           "hint": "you (sg.)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "if · come.PRS.2SG · ___ · wait.PRS.1SG · at-DEF.F.SG · station.F.SG"
         },
         {
           "sentence": "Siamo qui; {{answer}} senti?",
           "answer": "ci",
           "translation": "We're here; can you hear us?",
           "hint": "us",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "be.PRS.1PL · here · ___ · hear.PRS.2SG"
         },
         {
           "sentence": "Le mele? {{answer}} compro al mercato.",
           "answer": "le",
           "translation": "The apples? I buy them at the market.",
           "hint": "them (fem.)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.F.PL · apple.F.PL · ___ · buy.PRS.1SG · at-DEF.M.SG · market.M.SG"
         }
       ]
     },
@@ -1740,42 +1897,48 @@
           "answer": "gli",
           "translation": "I'm calling Paolo; I'll call him tonight.",
           "hint": "to him",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "phone.PRS.1SG · to · Paolo · ___ · phone.PRS.1SG · tonight"
         },
         {
           "sentence": "Scrivi a Maria? Sì, {{answer}} scrivo spesso.",
           "answer": "le",
           "translation": "Do you write to Maria? Yes, I write to her often.",
           "hint": "to her",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "write.PRS.2SG · to · Maria · yes · ___ · write.PRS.1SG · often"
         },
         {
           "sentence": "Vai a Roma? Sì, {{answer}} vado domani.",
           "answer": "ci",
           "translation": "Are you going to Rome? Yes, I'm going there tomorrow.",
           "hint": "there (a + place)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "go.PRS.2SG · to · Rome · yes · ___ · go.PRS.1SG · tomorrow"
         },
         {
           "sentence": "Vuoi del caffè? Sì, {{answer}} voglio volentieri.",
           "answer": "ne",
           "translation": "Do you want some coffee? Yes, I'd like some.",
           "hint": "some (di + thing)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "want.2SG · of.DEF.M.SG · coffee · yes · ___ · want.1SG · gladly"
         },
         {
           "sentence": "Mele? {{answer}} ho comprate un chilo.",
           "answer": "ne",
           "translation": "Apples? I bought a kilo of them.",
           "hint": "of them (quantity)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "apple.PL · ___ · have.1SG · buy.PTCP.F.PL · INDF.M.SG · kilo"
         },
         {
           "sentence": "Parli ai tuoi genitori? Sì, {{answer}} parlo ogni giorno.",
           "answer": "gli",
           "translation": "Do you talk to your parents? Yes, I talk to them every day.",
           "hint": "to them",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "speak.2SG · to.DEF.M.PL · 2SG.POSS.M.PL · parent.PL · yes · ___ · speak.1SG · every · day"
         }
       ]
     },
@@ -1804,42 +1967,48 @@
           "answer": "più",
           "translation": "Rome is bigger than Florence.",
           "hint": "more (comparative)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "Rome · be.3SG · ___ · big · than · Florence"
         },
         {
           "sentence": "È il {{answer}} bel caffè della città.",
           "answer": "più",
           "translation": "It's the most beautiful café in town.",
           "hint": "most (superlative)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "be.3SG · DEF.M.SG · ___ · beautiful.M.SG · café · of.DEF.F.SG · city"
         },
         {
           "sentence": "L'italiano è {{answer}} difficile dello spagnolo per me.",
           "answer": "più",
           "translation": "Italian is harder than Spanish for me.",
           "hint": "more (comparative)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M.SG-Italian · be.3SG · ___ · difficult · than.DEF.M.SG · Spanish · for · 1SG.OBJ"
         },
         {
           "sentence": "Questa torta è {{answer}} dell'altra.",
           "answer": "migliore",
           "translation": "This cake is better than the other one.",
           "hint": "better (irregular)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "this.F.SG · cake · be.3SG · ___ · than.DEF.F.SG-other.F.SG"
         },
         {
           "sentence": "D'estate le giornate sono {{answer}} lunghe.",
           "answer": "più",
           "translation": "In summer the days are longer.",
           "hint": "more (comparative)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "in-summer · DEF.F.PL · day.PL · be.3PL · ___ · long.F.PL"
         },
         {
           "sentence": "La salute è {{answer}} importante del denaro.",
           "answer": "più",
           "translation": "Health is more important than money.",
           "hint": "more (comparative)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.F.SG · health · be.3SG · ___ · important · than.DEF.M.SG · money"
         }
       ]
     },
@@ -1869,7 +2038,8 @@
           "translation": "Every morning I get up at seven.",
           "hint": "myself — I",
           "cell": "io",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "every · morning · ___ · raise.1SG · at.DEF.F.PL · seven"
         },
         {
           "sentence": "A che ora {{answer}} corichi di solito?",
@@ -1877,7 +2047,8 @@
           "translation": "What time do you usually go to bed?",
           "hint": "yourself — you (sg.)",
           "cell": "tu",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "at · what.Q · hour · ___ · lay.2SG · of · usual"
         },
         {
           "sentence": "Lei {{answer}} sente molto meglio oggi.",
@@ -1885,7 +2056,8 @@
           "translation": "She feels much better today.",
           "hint": "herself — she",
           "cell": "lui",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.F · ___ · feel.3SG · much · well.COMP · today"
         },
         {
           "sentence": "La domenica {{answer}} riposiamo a casa.",
@@ -1893,7 +2065,8 @@
           "translation": "On Sundays we rest at home.",
           "hint": "ourselves — we",
           "cell": "noi",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.F.SG · Sunday · ___ · rest.1PL · at · house"
         },
         {
           "sentence": "Vi divertite alla festa? Sì, {{answer}} divertiamo molto.",
@@ -1901,7 +2074,8 @@
           "translation": "Are you having fun at the party? Yes, we're having a lot.",
           "hint": "ourselves — we",
           "cell": "noi",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2PL.OBJ · amuse.2PL · at.DEF.F.SG · party · yes · ___ · amuse.1PL · much"
         },
         {
           "sentence": "I bambini {{answer}} lavano le mani prima di mangiare.",
@@ -1909,7 +2083,8 @@
           "translation": "The children wash their hands before eating.",
           "hint": "themselves — they",
           "cell": "loro",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.PL · child.PL · ___ · wash.3PL · DEF.F.PL · hand.PL · before · of · eat.INF"
         }
       ]
     },
@@ -1938,42 +2113,48 @@
           "answer": "sul",
           "translation": "The book is on the table.",
           "hint": "on the (su + il)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.M.SG · book · be.3SG · ___ · table"
         },
         {
           "sentence": "Vado {{answer}} cinema stasera.",
           "answer": "al",
           "translation": "I'm going to the cinema tonight.",
           "hint": "to the (a + il)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "go.1SG · ___ · cinema · tonight"
         },
         {
           "sentence": "La casa {{answer}} miei nonni è grande.",
           "answer": "dei",
           "translation": "My grandparents' house is big.",
           "hint": "of the (di + i)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.F.SG · house · ___ · 1SG.POSS.M.PL · grandparent.PL · be.3SG · big"
         },
         {
           "sentence": "Torno {{answer}} lavoro alle sei.",
           "answer": "dal",
           "translation": "I'm coming back from work at six.",
           "hint": "from the (da + il)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "return.1SG · ___ · work · at.DEF.F.PL · six"
         },
         {
           "sentence": "Le chiavi sono {{answer}} borsa.",
           "answer": "nella",
           "translation": "The keys are in the bag.",
           "hint": "in the (in + la)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.F.PL · key.PL · be.3PL · ___ · bag"
         },
         {
           "sentence": "Il gatto dorme {{answer}} divano.",
           "answer": "sul",
           "translation": "The cat is sleeping on the sofa.",
           "hint": "on the (su + il)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.SG · cat · sleep.3SG · ___ · sofa"
         }
       ]
     },
@@ -2002,63 +2183,72 @@
           "answer": "La",
           "translation": "My car is new.",
           "hint": "the (with 'mia', fem.)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 1SG.POSS.F.SG · car · be.3SG · new.F.SG"
         },
         {
           "sentence": "Dov'è il {{answer}} telefono?",
           "answer": "tuo",
           "translation": "Where is your phone?",
           "hint": "your (masc.)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "where-be.3SG · DEF.M.SG · ___ · phone"
         },
         {
           "sentence": "I {{answer}} amici arrivano stasera.",
           "answer": "miei",
           "translation": "My friends are arriving tonight.",
           "hint": "my (masc. plural)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M.PL · ___ · friend.PL · arrive.3PL · tonight"
         },
         {
           "sentence": "{{answer}} libro è molto interessante.",
           "answer": "Questo",
           "translation": "This book is very interesting.",
           "hint": "this (masc.)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · book · be.3SG · very · interesting.SG"
         },
         {
           "sentence": "{{answer}} casa è vicino al mare.",
           "answer": "Quella",
           "translation": "That house is near the sea.",
           "hint": "that (fem.)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · house · be.3SG · near · to-DEF.M.SG · sea"
         },
         {
           "sentence": "{{answer}} madre lavora in ospedale.",
           "answer": "Mia",
           "translation": "My mother works at a hospital.",
           "hint": "my (family member, no article)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · mother · work.3SG · in · hospital"
         },
         {
           "sentence": "La {{answer}} macchina è veloce.",
           "answer": "sua",
           "translation": "His car is fast.",
           "hint": "his — with the article",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "DEF.F.SG · ___ · car · be.3SG · fast.SG"
         },
         {
           "sentence": "I {{answer}} amici arrivano stasera.",
           "answer": "nostri",
           "translation": "Our friends arrive tonight.",
           "hint": "our — masculine plural",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "DEF.M.PL · ___ · friend.PL · arrive.3PL · tonight"
         },
         {
           "sentence": "{{answer}} scarpe sono care.",
           "answer": "Quelle",
           "translation": "Those shoes are expensive.",
           "hint": "those — feminine plural",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "___ · shoe.PL · be.3PL · expensive.F.PL"
         }
       ]
     },
@@ -2087,42 +2277,48 @@
           "answer": "abbia",
           "translation": "I think he is right.",
           "hint": "has (subjunctive of avere)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "think.1SG · COMP · 3SG.M · ___ · reason"
         },
         {
           "sentence": "Voglio che tu {{answer}} puntuale.",
           "answer": "sia",
           "translation": "I want you to be on time.",
           "hint": "are (subjunctive of essere)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "want.1SG · COMP · 2SG · ___ · punctual.SG"
         },
         {
           "sentence": "È importante che noi {{answer}} attenzione.",
           "answer": "facciamo",
           "translation": "It's important that we pay attention.",
           "hint": "make/do — we (subjunctive)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "be.3SG · important.SG · COMP · 1PL · ___ · attention"
         },
         {
           "sentence": "Benché {{answer}} tardi, continuiamo.",
           "answer": "sia",
           "translation": "Although it's late, we carry on.",
           "hint": "is (subjunctive of essere)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "although · ___ · late · continue.1PL"
         },
         {
           "sentence": "Credo che loro {{answer}} a Roma.",
           "answer": "vadano",
           "translation": "I think they're going to Rome.",
           "hint": "go — they (subjunctive of andare)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "believe.1SG · COMP · 3PL · ___ · to · Rome"
         },
         {
           "sentence": "Spero che tu {{answer}} venire domani.",
           "answer": "possa",
           "translation": "I hope you can come tomorrow.",
           "hint": "can (subjunctive of potere)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "hope.1SG · COMP · 2SG · ___ · come.INF · tomorrow"
         }
       ]
     },
@@ -2151,42 +2347,48 @@
           "answer": "Vorrei",
           "translation": "I would like a coffee, please.",
           "hint": "would like — I (conditional)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · INDF.M.SG · coffee · for · favor"
         },
         {
           "sentence": "{{answer}} aiutarmi un momento?",
           "answer": "Potresti",
           "translation": "Could you help me for a moment?",
           "hint": "could — you (conditional of potere)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · help.INF-1SG.OBJ · INDF.M.SG · moment"
         },
         {
           "sentence": "Lui {{answer}} volentieri, ma è occupato.",
           "answer": "verrebbe",
           "translation": "He would gladly come, but he's busy.",
           "hint": "would come — he (conditional)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.M · ___ · gladly · but · be.3SG · busy.M.SG"
         },
         {
           "sentence": "Al posto tuo, {{answer}} l'offerta.",
           "answer": "accetterei",
           "translation": "In your place, I would accept the offer.",
           "hint": "would accept — I (conditional)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "to-DEF.M.SG · place · 2SG.POSS.M.SG · ___ · DEF.F.SG-offer"
         },
         {
           "sentence": "Noi {{answer}} vivere al mare.",
           "answer": "vorremmo",
           "translation": "We would love to live by the sea.",
           "hint": "would like — we (conditional)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL.NOM · ___ · live.INF · to-DEF.M.SG · sea"
         },
         {
           "sentence": "Loro {{answer}} felici di vederti.",
           "answer": "sarebbero",
           "translation": "They would be happy to see you.",
           "hint": "would be — they (conditional of essere)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3PL.NOM · ___ · happy.PL · COMP · see.INF-2SG.OBJ"
         }
       ]
     },
@@ -2215,42 +2417,48 @@
           "answer": "glielo",
           "translation": "The book? I'll give it to him tomorrow.",
           "hint": "it-to-him (glie + lo)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.M.SG · book · ___ · give.1SG · tomorrow · to · 3SG.M"
         },
         {
           "sentence": "La lettera? {{answer}} ho già spedita. (a lei)",
           "answer": "gliela",
           "translation": "The letter? I already sent it to her.",
           "hint": "it-to-her (glie + la, fem.)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.F.SG · letter · ___ · have.1SG · already · send.PTCP.F.SG · to · 3SG.F"
         },
         {
           "sentence": "Il tuo indirizzo, me {{answer}} dai?",
           "answer": "lo",
           "translation": "Your address, will you give it to me?",
           "hint": "it (after 'me')",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M.SG · 2SG.POSS.M.SG · address · 1SG.DAT · ___ · give.2SG"
         },
         {
           "sentence": "Questa storia, te {{answer}} racconto domani.",
           "answer": "la",
           "translation": "This story, I'll tell it to you tomorrow.",
           "hint": "it (fem., after 'te')",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "this.F.SG · story · 2SG.DAT · ___ · tell.1SG · tomorrow"
         },
         {
           "sentence": "Le chiavi? Ce {{answer}} ha date lui.",
           "answer": "le",
           "translation": "The keys? He gave them to us.",
           "hint": "them (fem., after 'ce')",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.F.PL · key.PL · 1PL.DAT · ___ · have.3SG · give.PTCP.F.PL · 3SG.M.NOM"
         },
         {
           "sentence": "I documenti? {{answer}} mando subito. (a loro)",
           "answer": "glieli",
           "translation": "The documents? I'll send them to them right away.",
           "hint": "them-to-them (glie + li)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.PL · document.PL · ___ · send.1SG · immediately · to · 3PL"
         }
       ]
     },
@@ -2279,42 +2487,48 @@
           "answer": "che",
           "translation": "That's the man who lives nearby.",
           "hint": "who/that (subject or object)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "be.3SG · DEF.M.SG-man · ___ · live.3SG · here · nearby"
         },
         {
           "sentence": "Il libro {{answer}} leggo è appassionante.",
           "answer": "che",
           "translation": "The book that I'm reading is gripping.",
           "hint": "that (object)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.M.SG · book · ___ · read.1SG · be.3SG · gripping"
         },
         {
           "sentence": "La persona con {{answer}} parlo è mia zia.",
           "answer": "cui",
           "translation": "The person I'm talking to is my aunt.",
           "hint": "whom (after a preposition)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.F.SG · person · with · ___ · speak.1SG · be.3SG · 1SG.POSS.F.SG · aunt"
         },
         {
           "sentence": "La città in {{answer}} vivo è bellissima.",
           "answer": "cui",
           "translation": "The city in which I live is beautiful.",
           "hint": "which (after 'in')",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.F.SG · city · in · ___ · live.1SG · be.3SG · beautiful.SUP.F.SG"
         },
         {
           "sentence": "Gli amici {{answer}} vengono stasera sono simpatici.",
           "answer": "che",
           "translation": "The friends who are coming tonight are nice.",
           "hint": "who (subject, plural)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.M.PL · friend.PL · ___ · come.3PL · tonight · be.3PL · nice.M.PL"
         },
         {
           "sentence": "Il motivo per {{answer}} sono qui è semplice.",
           "answer": "cui",
           "translation": "The reason I'm here is simple.",
           "hint": "which (after 'per')",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.SG · reason · for · ___ · be.1SG · here · be.3SG · simple"
         }
       ]
     },
@@ -2344,7 +2558,8 @@
           "translation": "Open the window, please!",
           "hint": "aprire, tu",
           "cell": "tu",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · DEF.F.SG · window · for · favor · 2SG.NOM"
         },
         {
           "sentence": "{{answer}} più piano, il bambino dorme. (tu)",
@@ -2352,7 +2567,8 @@
           "translation": "Speak more quietly, the child is sleeping.",
           "hint": "parlare, tu",
           "cell": "tu",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · more · quietly · DEF.M.SG · child · sleep.3SG · 2SG.NOM"
         },
         {
           "sentence": "{{answer}}, prego, si accomodi! (Lei)",
@@ -2360,7 +2576,8 @@
           "translation": "Come in, please, have a seat!",
           "hint": "come! — polite (Lei)",
           "cell": "Lei",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · pray.1SG · REFL · settle.IMP.POL · 2SG.POL.NOM"
         },
         {
           "sentence": "{{answer}} pure, La ascolto. (Lei)",
@@ -2368,7 +2585,8 @@
           "translation": "Go ahead, I'm listening.",
           "hint": "say/tell! — polite (Lei)",
           "cell": "Lei",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · freely · 2SG.POL.OBJ · listen.1SG · 2SG.POL.NOM"
         },
         {
           "sentence": "Non {{answer}} così in fretta! (tu)",
@@ -2376,7 +2594,8 @@
           "translation": "Don't speak so fast!",
           "hint": "don't speak! (non + infinitive)",
           "cell": "neg",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · ___ · so · in · haste · 2SG.NOM"
         },
         {
           "sentence": "Non {{answer}} ancora, aspetta un attimo! (tu)",
@@ -2384,7 +2603,8 @@
           "translation": "Don't leave yet, wait a second!",
           "hint": "don't go! (non + infinitive)",
           "cell": "neg",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG · ___ · yet · wait.IMP.2SG · INDF.M.SG · moment · 2SG.NOM"
         }
       ],
       "paradigm": [
@@ -2418,42 +2638,48 @@
           "answer": "avevo",
           "translation": "When you arrived, I had already eaten.",
           "hint": "had — I (trapassato, avere)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "when · be.2SG · arrive.PTCP.M.SG · 1SG · ___ · already · eat.PTCP"
         },
         {
           "sentence": "Il treno {{answer}} già partito quando siamo arrivati.",
           "answer": "era",
           "translation": "The train had already left when we arrived.",
           "hint": "had — it (trapassato, essere)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.M.SG · train · ___ · already · leave.PTCP.M.SG · when · be.1PL · arrive.PTCP.M.PL"
         },
         {
           "sentence": "Non ho riconosciuto la casa; {{answer}} cambiata molto.",
           "answer": "era",
           "translation": "I didn't recognize the house; it had changed a lot.",
           "hint": "had — it (trapassato, essere)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · have.1SG · recognize.PTCP · DEF.F.SG · house · ___ · change.PTCP.F.SG · much"
         },
         {
           "sentence": "Loro {{answer}} partiti prima della pioggia.",
           "answer": "erano",
           "translation": "They had left before the rain.",
           "hint": "had — they (trapassato, essere)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3PL · ___ · leave.PTCP.M.PL · before · of-DEF.F.SG · rain"
         },
         {
           "sentence": "Noi {{answer}} già finito quando ha chiamato.",
           "answer": "avevamo",
           "translation": "We had already finished when he called.",
           "hint": "had — we (trapassato, avere)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL · ___ · already · finish.PTCP · when · have.3SG · call.PTCP"
         },
         {
           "sentence": "Mi ha detto che {{answer}} dimenticato l'appuntamento.",
           "answer": "aveva",
           "translation": "She told me she had forgotten the appointment.",
           "hint": "had — she (trapassato, avere)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG.DAT · have.3SG · say.PTCP · COMP · ___ · forget.PTCP · DEF.M.SG-appointment"
         }
       ]
     },
@@ -2482,42 +2708,48 @@
           "answer": "che",
           "translation": "He told me (that) he is tired.",
           "hint": "that (statement)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.DAT · have.3SG · say.PTCP · ___ · be.3SG · tired.M.SG"
         },
         {
           "sentence": "Mi chiede {{answer}} voglio un caffè.",
           "answer": "se",
           "translation": "He asks me whether I want a coffee.",
           "hint": "whether (reported question)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG.DAT · ask.3SG · ___ · want.1SG · INDF.M.SG · coffee"
         },
         {
           "sentence": "Penso {{answer}} abbia ragione.",
           "answer": "che",
           "translation": "I think that he is right.",
           "hint": "that (+ subjunctive)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "think.1SG · ___ · have.SBJV.3SG · reason"
         },
         {
           "sentence": "Ha detto che {{answer}} venuto il giorno dopo.",
           "answer": "sarebbe",
           "translation": "He said he would come the next day.",
           "hint": "would have (shifted future)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "have.3SG · say.PTCP · COMP · ___ · come.PTCP.M.SG · DEF.M.SG · day · after"
         },
         {
           "sentence": "Non so {{answer}} il negozio è aperto oggi.",
           "answer": "se",
           "translation": "I don't know whether the shop is open today.",
           "hint": "whether",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · know.1SG · ___ · DEF.M.SG · shop · be.3SG · open.M.SG · today"
         },
         {
           "sentence": "Le ho chiesto di {{answer}} mi telefonasse.",
           "answer": "farmi",
           "translation": "I asked her to call me. (lit. to make me…)",
           "hint": "to make me (reported request)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.F.DAT · have.1SG · ask.PTCP · COMP · ___ · 1SG.DAT · telephone.PST.SBJV.3SG"
         }
       ]
     },
@@ -2546,42 +2778,48 @@
           "answer": "è",
           "translation": "The letter is written in Italian.",
           "hint": "is (passive, essere)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.F.SG · letter · ___ · write.PTCP.F.SG · in · Italian"
         },
         {
           "sentence": "Le porte {{answer}} chiuse alle nove.",
           "answer": "vengono",
           "translation": "The doors are closed at nine.",
           "hint": "are (passive with venire)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.F.PL · door.PL · ___ · close.PTCP.F.PL · at-DEF.F.PL · nine"
         },
         {
           "sentence": "Qui {{answer}} vende pane fresco.",
           "answer": "si",
           "translation": "Fresh bread is sold here.",
           "hint": "reflexive clitic, agent unnamed — 'is sold'",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "here · ___ · sell.3SG · bread · fresh.M.SG"
         },
         {
           "sentence": "{{answer}} dice che l'inverno sarà freddo.",
           "answer": "Si",
           "translation": "It is said that the winter will be cold.",
           "hint": "impersonal reflexive clitic, sentence-initial — 'one says'",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · say.3SG · COMP · DEF.M.SG-winter · be.FUT.3SG · cold.M.SG"
         },
         {
           "sentence": "La casa è stata costruita {{answer}} cent'anni fa.",
           "answer": "cento",
           "translation": "The house was built a hundred years ago.",
           "hint": "hundred (time phrase — not the agent)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.F.SG · house · be.3SG · be.PTCP.F.SG · build.PTCP.F.SG · ___ · hundred-year.PL · ago"
         },
         {
           "sentence": "Il quadro è stato dipinto {{answer}} un artista famoso.",
           "answer": "da",
           "translation": "The painting was painted by a famous artist.",
           "hint": "by (the agent)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.SG · painting · be.3SG · be.PTCP.M.SG · paint.PTCP.M.SG · ___ · INDF.M.SG · artist · famous.M.SG"
         }
       ]
     },
@@ -2610,42 +2848,48 @@
           "answer": "avessi",
           "translation": "If I had time, I would go to the cinema.",
           "hint": "had — I (imperfect subjunctive)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "if · ___ · time · go.COND.1SG · to-DEF.M.SG · cinema"
         },
         {
           "sentence": "Se fossi ricco, {{answer}} in tutto il mondo.",
           "answer": "viaggerei",
           "translation": "If I were rich, I would travel all over the world.",
           "hint": "would travel — I (conditional)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if · be.PST.SBJV.1SG · rich.M.SG · ___ · in · all.M.SG · DEF.M.SG · world"
         },
         {
           "sentence": "Se {{answer}} prima, vedremmo l'alba.",
           "answer": "partissimo",
           "translation": "If we left earlier, we would see the sunrise.",
           "hint": "left — we (imperfect subjunctive)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if · ___ · earlier · see.COND.1PL · DEF.F-dawn"
         },
         {
           "sentence": "Passeresti l'esame se {{answer}} di più.",
           "answer": "studiassi",
           "translation": "You would pass the exam if you studied more.",
           "hint": "studied — you (imperfect subjunctive)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "pass.COND.2SG · DEF.M-exam · if · ___ · of · more"
         },
         {
           "sentence": "Se {{answer}} bel tempo, faremmo una passeggiata.",
           "answer": "facesse",
           "translation": "If the weather were nice, we would take a walk.",
           "hint": "made/were — it (imperfect subjunctive)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · ___ · nice.M · weather · do.COND.1PL · INDF.F · walk"
         },
         {
           "sentence": "Se me lo chiedessero, {{answer}} di sì.",
           "answer": "direi",
           "translation": "If they asked me, I would say yes.",
           "hint": "would say — I (conditional)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "if · 1SG.DAT · 3SG.M.ACC · ask.PST.SBJV.3PL · ___ · of · yes"
         }
       ]
     },
@@ -2674,42 +2918,48 @@
           "answer": "correndo",
           "translation": "He fell while running after the bus.",
           "hint": "running (gerund)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "be.3SG · fall.PTCP · ___ · behind · to-DEF.M-bus"
         },
         {
           "sentence": "Si impara molto {{answer}}.",
           "answer": "viaggiando",
           "translation": "You learn a lot by travelling.",
           "hint": "by travelling (gerund)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "IMPRS · learn.3SG · much · ___"
         },
         {
           "sentence": "Non parlare {{answer}}!",
           "answer": "mangiando",
           "translation": "Don't talk while eating!",
           "hint": "eating (gerund)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · speak.INF · ___"
         },
         {
           "sentence": "In questo momento sto {{answer}} un libro.",
           "answer": "leggendo",
           "translation": "Right now I'm reading a book.",
           "hint": "reading (stare + gerund)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "in · this.M · moment · stay.1SG · ___ · INDF.M · book"
         },
         {
           "sentence": "Che cosa stai {{answer}}?",
           "answer": "facendo",
           "translation": "What are you doing (right now)?",
           "hint": "doing (stare + gerund)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "what.Q · thing · stay.2SG · ___"
         },
         {
           "sentence": "Sto {{answer}} in palestra tre volte a settimana.",
           "answer": "andando",
           "translation": "I've been going to the gym three times a week.",
           "hint": "going (stare + gerund)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "stay.1SG · ___ · in · gym · three · time.PL · per · week"
         }
       ]
     },
@@ -2738,42 +2988,48 @@
           "answer": "faccia",
           "translation": "Although it's cold, they go out anyway.",
           "hint": "makes/is — it (subjunctive)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "although · ___ · cold · go_out.3PL · DEF.M · same.M"
         },
         {
           "sentence": "Te lo spiego affinché tu {{answer}} capire.",
           "answer": "possa",
           "translation": "I'll explain it so that you can understand.",
           "hint": "can — you (subjunctive)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "2SG.DAT · 3SG.M.ACC · explain.1SG · so_that · 2SG.NOM · ___ · understand.INF"
         },
         {
           "sentence": "Partiamo prima che {{answer}} a piovere.",
           "answer": "cominci",
           "translation": "Let's leave before it starts to rain.",
           "hint": "begins — it (subjunctive)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "leave.1PL · before · that · ___ · to · rain.INF"
         },
         {
           "sentence": "Verrò a condizione che tu {{answer}} lì.",
           "answer": "sia",
           "translation": "I'll come provided that you're there.",
           "hint": "are — you (subjunctive of essere)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "come.FUT.1SG · on · condition · that · 2SG.NOM · ___ · there"
         },
         {
           "sentence": "Sebbene {{answer}} tardi, non ho sonno.",
           "answer": "sia",
           "translation": "Although it's late, I'm not sleepy.",
           "hint": "is — it (subjunctive of essere)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "although · ___ · late · NEG · have.1SG · sleep"
         },
         {
           "sentence": "È uscito senza che io lo {{answer}}.",
           "answer": "sapessi",
           "translation": "He left without my knowing.",
           "hint": "knew — I (imperfect subjunctive)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "be.3SG · go_out.PTCP · without · that · 1SG.NOM · 3SG.M.ACC · ___"
         }
       ]
     },
@@ -2802,42 +3058,48 @@
           "answer": "migliore",
           "translation": "This restaurant is better than the other.",
           "hint": "better (adjective, buono)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this.M · restaurant · be.3SG · ___ · than-DEF.M-other"
         },
         {
           "sentence": "Lei canta {{answer}} di me.",
           "answer": "meglio",
           "translation": "She sings better than me.",
           "hint": "better (adverb, bene)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F.NOM · sing.3SG · ___ · than · 1SG.OBJ"
         },
         {
           "sentence": "La situazione è {{answer}} di prima.",
           "answer": "peggiore",
           "translation": "The situation is worse than before.",
           "hint": "worse (adjective, cattivo)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.F · situation · be.3SG · ___ · than · before"
         },
         {
           "sentence": "È la {{answer}} pasticceria della città.",
           "answer": "migliore",
           "translation": "It's the best pastry shop in town.",
           "hint": "best (adjective, buono)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "be.3SG · DEF.F · ___ · pastry_shop · of-DEF.F · city"
         },
         {
           "sentence": "Oggi mi sento {{answer}} di ieri.",
           "answer": "meglio",
           "translation": "Today I feel better than yesterday.",
           "hint": "better (adverb, bene)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "today · 1SG.ACC · feel.PRS.1SG · ___ · than · yesterday"
         },
         {
           "sentence": "Oggi ho dormito {{answer}} di ieri.",
           "answer": "peggio",
           "translation": "Today I slept worse than yesterday.",
           "hint": "worse (adverb, male)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "today · have.PRS.1SG · sleep.PTCP · ___ · than · yesterday"
         }
       ]
     },
@@ -2866,42 +3128,48 @@
           "answer": "quindi",
           "translation": "It's raining, so we're staying home.",
           "hint": "so / therefore",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "rain.PRS.3SG · ___ · stay.PRS.1PL · at · house"
         },
         {
           "sentence": "È stanca; {{answer}}, continua a lavorare.",
           "answer": "tuttavia",
           "translation": "She is tired; however, she keeps working.",
           "hint": "however",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "be.PRS.3SG · tired.F.SG · ___ · continue.PRS.3SG · to · work.INF"
         },
         {
           "sentence": "{{answer}} è tardi, andiamo a dormire.",
           "answer": "Poiché",
           "translation": "Since it's late, let's go to sleep.",
           "hint": "since (cause)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · be.PRS.3SG · late · go.PRS.1PL · to · sleep.INF"
         },
         {
           "sentence": "Non gli piace la città; {{answer}}, ci lavora.",
           "answer": "tuttavia",
           "translation": "He doesn't like the city; however, he works there.",
           "hint": "however",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NEG · 3SG.M.DAT · please.PRS.3SG · DEF.F.SG · city · ___ · LOC · work.PRS.3SG"
         },
         {
           "sentence": "{{answer}} sei pronto, partiamo.",
           "answer": "Siccome",
           "translation": "Since you're ready, let's go.",
           "hint": "since (given that)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · be.PRS.2SG · ready.M.SG · leave.PRS.1PL"
         },
         {
           "sentence": "Il caffè è caro; {{answer}}, il tè costa poco.",
           "answer": "invece",
           "translation": "Coffee is expensive; the tea, instead, is cheap.",
           "hint": "instead / on the other hand",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.M.SG · coffee · be.PRS.3SG · expensive.M.SG · ___ · DEF.M.SG · tea · cost.PRS.3SG · little"
         }
       ]
     },
@@ -2930,42 +3198,48 @@
           "answer": "sarei",
           "translation": "If I had known, I would have come earlier.",
           "hint": "would have — I (essere)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "if · have.PST.SBJV.1SG · know.PTCP · ___ · come.PTCP.M.SG · earlier"
         },
         {
           "sentence": "{{answer}} riuscito se avesse studiato.",
           "answer": "Sarebbe",
           "translation": "He would have succeeded if he had studied.",
           "hint": "would have — he (essere)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · succeed.PTCP.M.SG · if · have.PST.SBJV.3SG · study.PTCP"
         },
         {
           "sentence": "Noi {{answer}} voluto restare più a lungo.",
           "answer": "avremmo",
           "translation": "We would have liked to stay longer.",
           "hint": "would have — we (avere)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL.NOM · ___ · want.PTCP · stay.INF · more · at · long"
         },
         {
           "sentence": "Senza il tuo aiuto, non {{answer}} mai finito.",
           "answer": "avrei",
           "translation": "Without your help, I would never have finished.",
           "hint": "would have — I (avere)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "without · DEF.M.SG · 2SG.POSS.M.SG · help · NEG · ___ · never · finish.PTCP"
         },
         {
           "sentence": "Se me lo avessi chiesto, ti {{answer}} aiutato.",
           "answer": "avrei",
           "translation": "If you had asked me, I would have helped you.",
           "hint": "would have — I (avere)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · 1SG.DAT · 3SG.M.ACC · have.PST.SBJV.2SG · ask.PTCP · 2SG.ACC · ___ · help.PTCP"
         },
         {
           "sentence": "Che cosa {{answer}} fatto tu al mio posto?",
           "answer": "avresti",
           "translation": "What would you have done in my place?",
           "hint": "would have — you (avere)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "what · thing · ___ · do.PTCP · 2SG.NOM · at-DEF.M.SG · 1SG.POSS.M.SG · place"
         }
       ]
     },
@@ -2994,42 +3268,48 @@
           "answer": "abbia",
           "translation": "I think he has already eaten.",
           "hint": "has (past subjunctive of avere)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "believe.PRS.1SG · that · 3SG.M.NOM · ___ · already · eat.PTCP"
         },
         {
           "sentence": "Sono contento che tu {{answer}} venuto.",
           "answer": "sia",
           "translation": "I'm glad you came.",
           "hint": "have (past subjunctive of essere)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "be.PRS.1SG · glad.M.SG · that · 2SG.NOM · ___ · come.PTCP.M.SG"
         },
         {
           "sentence": "Pensavo che {{answer}} più tardi.",
           "answer": "venisse",
           "translation": "I thought he would come later.",
           "hint": "came — he (imperfect subjunctive)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "think.PST.IPFV.1SG · that · ___ · more · late"
         },
         {
           "sentence": "Volevo che tu {{answer}} lì con me.",
           "answer": "fossi",
           "translation": "I wanted you to be there with me.",
           "hint": "were — you (imperfect subjunctive)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "want.PST.IPFV.1SG · that · 2SG.NOM · ___ · there · with · 1SG.ACC"
         },
         {
           "sentence": "Non sapevo che {{answer}} già partiti.",
           "answer": "fossero",
           "translation": "I didn't know they had already left.",
           "hint": "had — they (pluperfect subjunctive)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · know.PST.IPFV.1SG · that · ___ · already · leave.PTCP.M.PL"
         },
         {
           "sentence": "Era possibile che lei l'{{answer}} dimenticato.",
           "answer": "avesse",
           "translation": "It was possible she had forgotten it.",
           "hint": "had — she (pluperfect subjunctive)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "be.PST.IPFV.3SG · possible · that · 3SG.F.NOM · ___ · forget.PTCP"
         }
       ]
     },
@@ -3058,42 +3338,48 @@
           "answer": "costruì",
           "translation": "The king built a great palace. (narrative)",
           "hint": "built — he (passato remoto)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.M.SG · king · ___ · INDF.M.SG · great · palace · story"
         },
         {
           "sentence": "Loro {{answer}} nella foresta oscura. (racconto)",
           "answer": "entrarono",
           "translation": "They entered the dark forest. (narrative)",
           "hint": "entered — they (passato remoto)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3PL · ___ · in-DEF.F.SG · forest · dark.F.SG · story"
         },
         {
           "sentence": "Lei {{answer}} molto sorpresa nel vederlo. (racconto)",
           "answer": "fu",
           "translation": "She was very surprised on seeing him. (narrative)",
           "hint": "was — she (passato remoto of essere)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.F · ___ · very · surprised.F.SG · in-DEF.M.SG · see.INF-3SG.M.OBJ · story"
         },
         {
           "sentence": "L'eroe {{answer}} la spada e partì. (racconto)",
           "answer": "prese",
           "translation": "The hero took his sword and left. (narrative)",
           "hint": "took — he (passato remoto)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.M.SG-hero · ___ · DEF.F.SG · sword · and · leave.PST.3SG · story"
         },
         {
           "sentence": "All'improvviso qualcuno {{answer}}: «Fermi!». (racconto)",
           "answer": "disse",
           "translation": "Suddenly someone said: 'Stop!'. (narrative)",
           "hint": "said — he (passato remoto of dire)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "at-DEF.M.SG-sudden · someone · ___ · still.M.PL · story"
         },
         {
           "sentence": "Quella sera ci {{answer}} un grande banchetto. (racconto)",
           "answer": "fu",
           "translation": "That evening there was a great banquet. (narrative)",
           "hint": "was (passato remoto of essere)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "that.F.SG · evening · there · ___ · INDF.M.SG · great · banquet · story"
         }
       ]
     },
@@ -3122,42 +3408,48 @@
           "answer": "che",
           "translation": "It's in Rome that I live, not Milan.",
           "hint": "that (cleft on a phrase)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "be.PRS.3SG · at · Rome · ___ · live.PRS.1SG · NEG · at · Milan"
         },
         {
           "sentence": "Il libro, l'{{answer}} già letto.",
           "answer": "ho",
           "translation": "The book, I've already read it.",
           "hint": "have (dislocation + clitic)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.M.SG · book · ___ · already · read.PTCP"
         },
         {
           "sentence": "A Marco {{answer}} parlo domani.",
           "answer": "gli",
           "translation": "Marco, I'll talk to him tomorrow.",
           "hint": "to him (left dislocation)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "to · Marco · ___ · speak.PRS.1SG · tomorrow"
         },
         {
           "sentence": "Le chiavi? Ce {{answer}} ho io.",
           "answer": "le",
           "translation": "The keys? I have them.",
           "hint": "feminine plural object clitic — for 'chiavi'",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.F.PL · key.PL · there · ___ · have.PRS.1SG · 1SG"
         },
         {
           "sentence": "È lui {{answer}} ha preparato la cena.",
           "answer": "che",
           "translation": "It's he who prepared the dinner.",
           "hint": "who (cleft on the subject)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "be.PRS.3SG · 3SG.M · ___ · have.PRS.3SG · prepare.PTCP · DEF.F.SG · dinner"
         },
         {
           "sentence": "Di problemi, ne {{answer}} tanti.",
           "answer": "ho",
           "translation": "As for problems, I have many.",
           "hint": "have (dislocation with ne)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "of · problem.PL · 3PL.GEN · ___ · many.M.PL"
         }
       ]
     },
@@ -3186,42 +3478,48 @@
           "answer": "avviso",
           "translation": "In my opinion, the proposal is sound.",
           "hint": "opinion (fixed phrase)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "to · 1SG.POSS.M.SG · ___ · DEF.F.SG · proposal · be.PRS.3SG · valid.F.SG"
         },
         {
           "sentence": "Il progetto è complesso; {{answer}}, è realizzabile.",
           "answer": "tuttavia",
           "translation": "The project is complex; nevertheless, it's feasible.",
           "hint": "nevertheless (formal)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.M.SG · project · be.PRS.3SG · complex.M.SG · ___ · be.PRS.3SG · feasible"
         },
         {
           "sentence": "{{answer}} tu avessi bisogno, chiamami.",
           "answer": "Qualora",
           "translation": "Should you need anything, call me.",
           "hint": "should/in case (+ subjunctive)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 2SG · have.PST.SBJV.2SG · need · call.IMP.2SG-1SG.OBJ"
         },
         {
           "sentence": "Non ha studiato; {{answer}}, ha superato l'esame.",
           "answer": "nondimeno",
           "translation": "He didn't study; nonetheless, he passed the exam.",
           "hint": "nonetheless (formal)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NEG · have.PRS.3SG · study.PTCP · ___ · have.PRS.3SG · pass.PTCP · DEF.M.SG-exam"
         },
         {
           "sentence": "In ogni {{answer}}, ci vediamo domani.",
           "answer": "caso",
           "translation": "In any case, see you tomorrow.",
           "hint": "case (fixed phrase)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "in · every · ___ · 1PL.OBJ · see.PRS.1PL · tomorrow"
         },
         {
           "sentence": "La riunione è stata rinviata; {{answer}}, vi avviseremo.",
           "answer": "pertanto",
           "translation": "The meeting has been postponed; therefore, we'll notify you.",
           "hint": "therefore (formal)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.F.SG · meeting · be.PRS.3SG · be.PTCP.F.SG · postpone.PTCP.F.SG · ___ · 2PL.OBJ · notify.FUT.1PL"
         }
       ]
     },
@@ -3256,42 +3554,48 @@
           "answer": "vado",
           "translation": "I'm going to the market now.",
           "hint": "andare — io",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · at-DEF.M.SG · market · now"
         },
         {
           "sentence": "Cosa {{answer}} questo weekend?",
           "answer": "fai",
           "translation": "What are you doing this weekend?",
           "hint": "fare — tu",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "what.Q · ___ · this.M.SG · weekend"
         },
         {
           "sentence": "Non {{answer}} venire stasera.",
           "answer": "posso",
           "translation": "I can't come tonight.",
           "hint": "potere — io",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · ___ · come.INF · tonight"
         },
         {
           "sentence": "Loro {{answer}} imparare l'italiano.",
           "answer": "vogliono",
           "translation": "They want to learn Italian.",
           "hint": "volere — loro",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3PL · ___ · learn.INF · DEF-Italian"
         },
         {
           "sentence": "{{answer}} anche tu alla festa?",
           "answer": "Vieni",
           "translation": "Are you coming to the party too?",
           "hint": "venire — tu",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · also · 2SG · to-DEF.F · party"
         },
         {
           "sentence": "Noi {{answer}} colazione al bar.",
           "answer": "facciamo",
           "translation": "We have breakfast at the café.",
           "hint": "fare — noi",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · ___ · breakfast · at-DEF.M · café"
         }
       ]
     },
@@ -3326,42 +3630,48 @@
           "answer": "Sto",
           "translation": "I'm eating — I'll call you back later.",
           "hint": "stare — io",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · eat.PROG · 2SG.OBJ · again-call.1SG · later"
         },
         {
           "sentence": "Che cosa stai {{answer}}?",
           "answer": "facendo",
           "translation": "What are you doing?",
           "hint": "the irregular gerund of fare",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "what · thing · stay.2SG · ___"
         },
         {
           "sentence": "I bambini stanno {{answer}} in giardino.",
           "answer": "giocando",
           "translation": "The children are playing in the garden.",
           "hint": "-are verbs → -ando",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.M.PL · child.PL · stay.3PL · ___ · in · garden"
         },
         {
           "sentence": "Maria sta {{answer}} un libro interessante.",
           "answer": "leggendo",
           "translation": "Maria is reading an interesting book.",
           "hint": "-ere verbs → -endo",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "Maria · stay.3SG · ___ · INDF.M · book · interesting"
         },
         {
           "sentence": "{{answer}} piovendo — prendi l'ombrello!",
           "answer": "Sta",
           "translation": "It's raining — take the umbrella!",
           "hint": "stare — the weather",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · rain.PROG · — · take.IMP.2SG · DEF-umbrella"
         },
         {
           "sentence": "Noi stiamo {{answer}} la cena.",
           "answer": "preparando",
           "translation": "We're preparing dinner.",
           "hint": "-are verbs → -ando",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · stay.1PL · ___ · DEF.F · dinner"
         }
       ]
     }
