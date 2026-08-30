@@ -34,6 +34,7 @@ import { usePrefsStore } from '../../stores/prefsStore'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import SectionHeader from '../../components/SectionHeader'
 import UsageMeter from '../../components/UsageMeter'
+import AiDisclaimer from '../../components/AiDisclaimer'
 
 interface Exchange {
   /** Empty for the partner's opening line — nobody spoke before it. */
@@ -838,6 +839,8 @@ export default function SpeakPage() {
               : t('speak.micPrivacy')}
         </p>
       )}
+
+      <AiDisclaimer className="mt-2" />
 
       {/* The browser refused to play a clip nobody's finger asked for. The
           replay buttons still work, so this explains rather than alarms. */}

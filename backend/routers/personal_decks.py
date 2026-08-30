@@ -204,6 +204,7 @@ async def add_card(body: CardCreate, user: dict = Depends(get_current_user)):
         card_id = await create_personal_card(
             conn, user["id"], body.language_id, sentence, body.answer.strip(),
             body.translation.strip() or None, None, body.deck_id,
+            source="manual",
         )
     return {"id": card_id}
 

@@ -20,6 +20,7 @@ import type { TutorAllowance, TutorMessage, TutorMode } from '../../api/tutor'
 import UsageMeter from '../../components/UsageMeter'
 import { usePrefsStore } from '../../stores/prefsStore'
 import Annotatable from '../contribute/Annotatable'
+import AiDisclaimer from '../../components/AiDisclaimer'
 import TutorMarkdown from './TutorMarkdown'
 
 // Summarize into memory after this long without activity.
@@ -679,6 +680,7 @@ export default function TutorPage() {
             </button>
           </form>
         )}
+        <AiDisclaimer className="mt-1.5 text-center" />
       </div>
     </div>
   )

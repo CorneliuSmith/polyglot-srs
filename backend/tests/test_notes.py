@@ -92,6 +92,22 @@ class TestNotes:
         # The stored sentence has the blank inserted at the answer's position.
         assert mock_create.await_args.args[3] == "El {{answer}} duerme."
 
+    def test_create_card_forwards_its_source(self, client):
+        # Provenance (owner: "can personal cards have sources somewhere?").
+        # The source used to only pick a deck NAME — renameable, so lossy;
+        # it now also reaches create_personal_card as a stored column.
+        with patch("backend.routers.notes.validate_drill",
+                   new=AsyncMock(return_value=True)), \
+             patch("backend.routers.notes.create_personal_card",
+                   new=AsyncMock(return_value="card-9")) as mock_create:
+            resp = client.post("/api/notes/cards", json={
+                "language_id": LANG, "language_code": "es",
+                "sentence": "El gato duerme.", "answer": "gato",
+                "source": "reading",
+            }, headers=_auth_headers())
+        assert resp.status_code == 200
+        assert mock_create.await_args.kwargs["source"] == "reading"
+
     def test_create_card_word_not_in_sentence_422(self, client):
         resp = client.post("/api/notes/cards", json={
             "language_id": LANG, "language_code": "es",

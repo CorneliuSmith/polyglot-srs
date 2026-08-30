@@ -13,6 +13,7 @@ import {
 import type { PlacementItem, WritingAssessment } from '../../api/onboarding'
 import { chooseActiveLanguage } from '../../lib/activeLanguage'
 import { usePrefsStore } from '../../stores/prefsStore'
+import AiDisclaimer from '../../components/AiDisclaimer'
 import DirArrow from '../../components/DirArrow'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import { formatPrice, getPlanPrices } from '../../api/billing'
@@ -416,6 +417,7 @@ export default function OnboardingPage() {
                     {assessment.notes && (
                       <p className="text-xs text-gray-600">{assessment.notes}</p>
                     )}
+                    <AiDisclaimer />
                     {assessment.level !== level && (
                       <button
                         type="button"

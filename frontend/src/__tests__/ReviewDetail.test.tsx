@@ -66,6 +66,40 @@ describe('ReviewDetail', () => {
     expect(mockGetCardDetail).toHaveBeenCalledWith('card-1')
   })
 
+  it('a personal card says where it came from, localized, not in server English', async () => {
+    // Owner: "can personal cards have sources somewhere - how they were
+    // created, etc.?" The server sends structured provenance; the client
+    // renders it in the site language. The English usage_note ("From your
+    // note: …") is suppressed when provenance exists — same information,
+    // wrong language.
+    mockGetCardDetail.mockResolvedValue({
+      card_type: 'personal',
+      title: 'color',
+      part_of_speech: null,
+      definition: 'El azul no es el mejor color para mí.',
+      usage_note: 'From your note: Colores',
+      morphology: null,
+      explanation: null,
+      culture_note: null,
+      examples: [],
+      provenance: {
+        source: 'manual',
+        created_at: '2026-08-30T10:00:00Z',
+        note_title: 'Colores',
+        deck_name: 'From reading',
+      },
+    })
+    renderDetail({ cardType: 'vocabulary' })
+    fireEvent.click(screen.getByRole('button', { name: /show info/i }))
+
+    const prov = await screen.findByTestId('card-provenance')
+    expect(prov.textContent).toContain('Added by hand')
+    expect(prov.textContent).toContain('Colores')
+    expect(prov.textContent).toContain('From reading')
+    // The server-composed English line does not render alongside it.
+    expect(screen.queryByText('From your note: Colores')).toBeNull()
+  })
+
   it('shows the WP13 item page: stage, progress, related grid, split resources', async () => {
     mockGetCardDetail.mockResolvedValue({
       card_type: 'grammar',
