@@ -362,9 +362,15 @@ async def main() -> int:
         path = write_rollback(reports, stamp)
         print(f"\nrollback written first: {path}")
         counts = await apply(conn, reports)
+        # sentence_layers was tallied and never printed — the same omission
+        # the report column had. On the 30 Aug production apply the summary
+        # read "532 glosses, 0 translations, 3409 parts of speech" while
+        # 5,541 interlinear glosses and transliterations landed unmentioned,
+        # and those are the ones nothing else can ever write.
         print(f"applied — {counts['gloss']} glosses corrected, "
               f"{counts['added_translation']} translations inserted, "
-              f"{counts['pos']} parts of speech corrected")
+              f"{counts['pos']} parts of speech corrected, "
+              f"{counts['sentence_layers']} sentence layers filled")
         print(f"undo with: python -m backend.services.seeder.reconcile "
               f"--rollback {path}")
         return 0
