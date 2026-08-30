@@ -52,6 +52,7 @@ from backend.services.translate import (
     maker_check_batch,
     translations_available,
 )
+from backend.services.translate_checks import safe_row
 
 logger = logging.getLogger(__name__)
 
@@ -705,7 +706,7 @@ async def pending_drills(
     loop re-spending on it every cycle."""
     rows = await conn.fetch(
         f"""
-        SELECT ds.id, ds.sentence, ds.translation, ds.hint
+        SELECT ds.id, ds.sentence, ds.translation, ds.hint, ds.answer
         FROM drill_sentences ds
         JOIN grammar_points gp ON gp.id = ds.grammar_point_id
         LEFT JOIN drill_hint_translations dht
@@ -921,14 +922,23 @@ async def _translate_drills(conn, pair, rows) -> int:
                             for r in rows}
     fields = ("hint",) if self_pair(pair) else ("translation", "hint")
     for field in fields:
-        items = [{"i": i, "sentence": r[field]}
+        # The HINT carries the drill's answer so the gate can refuse a
+        # rendering that names it. The TRANSLATION field does not: it
+        # legitimately renders the sentence's full meaning, and gating it on
+        # the English answer would reject every Spanish sentence containing
+        # "no" for a drill whose answer is the English word "no" — the
+        # cross-language homograph phantom of quality rule 19.
+        items = [{"i": i, "sentence": r[field],
+                  **({"answer": r.get("answer") or ""} if field == "hint" else {})}
                  for i, r in enumerate(rows) if r[field]]
         if not items:
             continue
-        results = await generate_sentence_translations(pair["locale_name"], items)
+        results = await generate_sentence_translations(
+            pair["locale_name"], items, locale=pair["locale"])
         for res in results:
-            if res["translation"]:
-                out[str(rows[res["i"]]["id"])][field] = res["translation"]
+            row = safe_row(rows, res["i"])
+            if res["translation"] and row is not None:
+                out[str(row["id"])][field] = res["translation"]
     applied = 0
     for r in rows:
         vals = out[str(r["id"])]
@@ -957,17 +967,19 @@ async def _translate_explanations(conn, pair, rows) -> int:
     either way)."""
     items = [{"i": i, "sentence": r["explanation"]} for i, r in enumerate(rows)]
     results = await generate_text_translations(pair["locale_name"], items,
-                                               kind="prose")
+                                               kind="prose",
+                                               locale=pair["locale"])
     applied = 0
     for res in results:
-        if not res["translation"]:
+        row = safe_row(rows, res["i"])
+        if not res["translation"] or row is None:
             continue
         await conn.execute(
             """INSERT INTO explanation_translations
                    (grammar_point_id, locale, explanation, reviewed)
                VALUES ($1, $2, $3, false)
                ON CONFLICT (grammar_point_id, locale) DO NOTHING""",
-            rows[res["i"]]["id"], pair["locale"], res["translation"])
+            row["id"], pair["locale"], res["translation"])
         applied += 1
     return applied
 
@@ -987,10 +999,12 @@ async def _translate_grammar_meta(conn, pair, rows) -> int:
         if not items:
             continue
         results = await generate_text_translations(pair["locale_name"], items,
-                                                   kind=kind)
+                                                   kind=kind,
+                                                   locale=pair["locale"])
         for res in results:
-            if res["translation"]:
-                out[str(rows[res["i"]]["id"])][field] = res["translation"]
+            row = safe_row(rows, res["i"])
+            if res["translation"] and row is not None:
+                out[str(row["id"])][field] = res["translation"]
     applied = 0
     for r in rows:
         vals = out[str(r["id"])]
@@ -1032,10 +1046,12 @@ async def _translate_gym_labels(conn, pair, rows) -> int:
         if not items:
             continue
         results = await generate_text_translations(pair["locale_name"], items,
-                                                   kind="label")
+                                                   kind="label",
+                                                   locale=pair["locale"])
         for res in results:
-            if res["translation"]:
-                out[rows[res["i"]]["point"]][field] = res["translation"]
+            row = safe_row(rows, res["i"])
+            if res["translation"] and row is not None:
+                out[row["point"]][field] = res["translation"]
     applied = 0
     for r in rows:
         vals = out[r["point"]]
@@ -1068,12 +1084,13 @@ async def _translate_examples(conn, pair, rows) -> int:
     if self_pair(pair):
         return 0  # the rendering would just restate the sentence
     items = [{"i": i, "sentence": r["translation"]} for i, r in enumerate(rows)]
-    results = await generate_sentence_translations(pair["locale_name"], items)
+    results = await generate_sentence_translations(
+        pair["locale_name"], items, locale=pair["locale"])
     applied = 0
     for res in results:
-        if not res["translation"]:
+        r = safe_row(rows, res["i"])
+        if not res["translation"] or r is None:
             continue
-        r = rows[res["i"]]
         row_id = await add_example_sentence(
             conn, r["vocabulary_id"], r["language_id"], r["sentence"],
             res["translation"], source="ai",

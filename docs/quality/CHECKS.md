@@ -693,3 +693,41 @@ The ranking was not predictable from what the scripts look like. Build the
 romanizer, run it over the real corpus, and let the number decide. Recording
 a rejection is a result: `test_thai_reading_is_not_ready.py` pins each known
 failure so the day one starts passing is visible.
+
+---
+
+## §16 The translation pipeline re-runs the guards on its own output
+
+A Spanish speaker learning English reads the auto-translate loop's output on
+every card, so the loop now carries the same mechanical guards as the content
+it conveys (`backend/services/translate_checks.py`, gated inside
+`generate_sentence_translations` / `generate_text_translations`, proven in
+mock mode by `test_translate_gates.py`):
+
+* **A translated hint must not contain the drill's answer.** The label
+  charter's own — correct — instruction to copy quoted course-language
+  material unchanged is precisely how an English hint that quotes its answer
+  (`be — bare`) carries the leak verbatim into every locale. The render guard
+  would blank it, the learner would get no hint, and COALESCE would keep the
+  row "done" forever. The gate withholds instead, so the sweep retries after
+  the source is fixed. The drill's TRANSLATION field is deliberately not
+  answer-gated: an English answer `no` would veto every Spanish sentence
+  containing the Spanish word `no` (rule 19's homograph phantom).
+* **Model-controlled indexes are validated.** `rows[res["i"]]` with `i = -1`
+  filed a rendering under the LAST row with no error — the luna/stella class.
+  `safe_row` drops anything not an in-range int; no raw lookups remain.
+* **Identity echoes, altered cloze blanks, and missing Spanish inverted
+  punctuation are withheld** rather than stored (examples land
+  `reviewed=true`, so nothing downstream re-examines them).
+* **Folding strips Unicode category `M*`, not `combining()>0`.** Python's
+  `\w` drops the Devanagari vowel sign ी (Mc, combining class 0) exactly as
+  JS `\p{L}` did, so रही tokenised as रह and slipped the guard. Same bug,
+  second language, now one fold on both sides.
+* Sentences are graded by their own checker charter naming the caught
+  classes (wrong language outright — the TRADUCCIÓN incident —
+  part-translation, meaning drift), not the word-gloss charter's
+  "right part of speech".
+
+Also fixed at the source: ten `en` hints named their own answer as a folded
+token and rendered blanked; all ten rewritten leak-free (checked against the
+same fold before writing).

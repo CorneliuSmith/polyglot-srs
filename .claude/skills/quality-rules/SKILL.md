@@ -208,6 +208,14 @@ rate, say so — that result matters more than the phase closing quietly.
     and analysis scripts live in the session scratchpad under `/private/tmp`
     and do NOT survive — promote anything worth keeping into the repo.
 
+36. **A pipeline that rewrites content re-runs the guards on its output.**
+    The translate loop's charter correctly says "copy quoted course-language
+    material unchanged" — which faithfully carries a hint's answer-leak into
+    every locale. Gates now run inside generate_* (leak, identity echo, blank,
+    locale punctuation, validated model indexes), in mock mode too, so tests
+    prove them without a model. And Python's `\w` drops Mc marks exactly as
+    JS `\p{L}` did (रही → रह) — fold on category M*, both sides. (CHECKS §16)
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one

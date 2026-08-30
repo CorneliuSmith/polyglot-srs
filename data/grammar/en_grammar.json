@@ -70,7 +70,7 @@
           "sentence": "{{answer}} are very kind.",
           "answer": "You",
           "translation": "Complimenting the person you are talking to.",
-          "hint": "the person you are talking to",
+          "hint": "the person being addressed",
           "display_order": 6
         },
         {
@@ -178,7 +178,7 @@
           "sentence": "I have {{answer}} dog.",
           "answer": "a",
           "translation": "Talking about your pet.",
-          "hint": "before a consonant sound",
+          "hint": "the article for consonant sounds",
           "display_order": 1
         },
         {
@@ -192,7 +192,7 @@
           "sentence": "It is {{answer}} big house.",
           "answer": "a",
           "translation": "Describing a home.",
-          "hint": "before a consonant sound",
+          "hint": "the article for consonant sounds",
           "display_order": 3
         },
         {
@@ -206,7 +206,7 @@
           "sentence": "I read {{answer}} book every week.",
           "answer": "a",
           "translation": "Describing a weekly habit.",
-          "hint": "before a consonant sound",
+          "hint": "the article for consonant sounds",
           "display_order": 5
         },
         {
@@ -260,7 +260,7 @@
           "sentence": "{{answer}} keys in my hand are mine.",
           "answer": "The",
           "translation": "Specific, identified keys.",
-          "hint": "identified by the phrase after it",
+          "hint": "definite — what follows says exactly which ones",
           "display_order": 3
         },
         {
@@ -832,7 +832,7 @@
           "sentence": "{{answer}} name is Anna.",
           "answer": "Her",
           "translation": "Introducing a woman.",
-          "hint": "belonging to her",
+          "hint": "belonging to that woman",
           "display_order": 3
         },
         {
@@ -2399,7 +2399,7 @@
           "sentence": "The board insisted that he {{answer}} removed from the project.",
           "answer": "be",
           "translation": "Bare form of be, all persons.",
-          "hint": "be — bare",
+          "hint": "bare infinitive — not is, are or was",
           "display_order": 1
         },
         {
@@ -2413,7 +2413,7 @@
           "sentence": "She recommended that the report {{answer}} rewritten.",
           "answer": "be",
           "translation": "Passive subjunctive.",
-          "hint": "be — bare",
+          "hint": "bare infinitive — not is, are or was",
           "display_order": 3
         },
         {
@@ -2427,7 +2427,7 @@
           "sentence": "It's vital that she {{answer}} informed at once.",
           "answer": "be",
           "translation": "Passive subjunctive.",
-          "hint": "be — bare",
+          "hint": "bare infinitive — not is, are or was",
           "display_order": 5
         },
         {
@@ -2773,7 +2773,7 @@
           "sentence": "{{answer}} quiet, please — the baby is sleeping.",
           "answer": "Be",
           "translation": "Asking for quiet.",
-          "hint": "the verb be, base form",
+          "hint": "base form of the being verb, as a command",
           "display_order": 5
         },
         {

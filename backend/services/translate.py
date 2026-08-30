@@ -23,6 +23,7 @@ from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
 from backend.services.models import resolve_model
+from backend.services.translate_checks import gate
 
 _MAKER_SCHEMA = {
     "type": "object",
@@ -114,6 +115,34 @@ def checker_system(target_language: str, source_language: str = "English") -> st
     )
 
 
+def sentence_checker_system(target_language: str) -> str:
+    """The checker charter for FULL SENTENCES. Sentences were graded with the
+    word-gloss charter ("right part of speech") for want of their own; this
+    one names the failure classes the program has actually caught:
+
+    * output not in the target language at all — a Spanish learner was once
+      shown Greek and Romanian under "TRADUCCIÓN", because the script-based
+      locale guard is silent between Latin alphabets;
+    * English left untranslated beyond genuinely quoted course material;
+    * meaning drift — a dropped negation, a changed subject, a hedged claim
+      turned flat;
+    * the locale's own conventions: Spanish questions and exclamations open
+      with ¿ and ¡."""
+    return (
+        f"You are a strict reviewer of English→{target_language} sentence "
+        f"translations for a learner app. For each item decide: 'ok' if the "
+        f"rendering is fully in {target_language}, faithful (no dropped "
+        f"negation, no changed subject, no added or lost meaning), natural, "
+        f"and follows {target_language} orthography and punctuation "
+        f"conventions; 'fixed' if it is close and you can correct it (put "
+        f"the corrected sentence in final); 'reject' if it is in the wrong "
+        f"language, part-translated, unfaithful, or you are unsure (final "
+        f"empty). Quoted course-language material may stay untranslated; "
+        f"everything else must read as native {target_language}. Be "
+        f"conservative — reject rather than guess."
+    )
+
+
 def _mock_glosses(items: list[dict]) -> list[dict]:
     # deterministic stub: echo the English word tagged, so tests can assert flow
     return [{"i": it["i"], "gloss": f"[{it['word']}]"} for it in items]
@@ -167,7 +196,8 @@ async def make_glosses(target_language: str, items: list[dict],
 
 async def check_glosses(target_language: str, items: list[dict],
                         model: str | None = None, *,
-                        source_language: str = "English") -> dict[int, dict]:
+                        source_language: str = "English",
+                        system: str | None = None) -> dict[int, dict]:
     """Checker: {i -> {verdict, final, note}} for items {i, word, definition, gloss}."""
     settings = get_settings()
     if getattr(settings, "tutor_dev_mock", False):
@@ -181,7 +211,7 @@ async def check_glosses(target_language: str, items: list[dict],
     resp = await _client().messages.create(
         model=model or resolve_model("translate"),
         max_tokens=4096,
-        system=checker_system(target_language, source_language),
+        system=system or checker_system(target_language, source_language),
         messages=[{"role": "user", "content": lines}],
         output_config={"format": {"type": "json_schema", "schema": _CHECKER_SCHEMA}},
     )
@@ -303,30 +333,45 @@ async def make_sentence_translations(
 async def generate_sentence_translations(
     target_language: str, items: list[dict],
     maker_model: str | None = None, checker_model: str | None = None,
+    *, locale: str = "",
 ) -> list[dict]:
-    """Maker then checker: translate English sentences into a support locale.
-    items: {i, sentence}. Returns {i, sentence, translation, verdict, note};
-    translation is the final to store (empty when rejected)."""
+    """Maker then checker then MECHANICAL GATES: translate English sentences
+    into a support locale. items: {i, sentence, answer?}. Returns
+    {i, sentence, translation, verdict, note}; translation is the final to
+    store (empty when rejected).
+
+    The gates (translate_checks.gate) run on every rendering, mock mode
+    included, so the tests exercise them without a model: a rendering that
+    contains the item's cloze `answer`, echoes its source, alters a blank, or
+    drops the locale's inverted punctuation is withheld — the row stays
+    unfilled and a later sweep retries, instead of a defect landing behind
+    COALESCE where nothing re-examines it."""
     made = await make_sentence_translations(target_language, items, maker_model)
+    by_i = {it["i"]: it for it in items}
     checkable = [
-        # The gloss checker reads `word` + `gloss`; feed it the sentence as the
-        # source so it grades the English→L rendering.
         {"i": it["i"], "word": it["sentence"], "sentence": it["sentence"],
          "definition": "", "gloss": made[it["i"]]}
         for it in items if it["i"] in made
     ]
     if not checkable:
         return []
-    # Reuse the gloss checker: it grades any English→L rendering for correctness.
-    verdicts = await check_glosses(target_language, checkable, checker_model)
+    verdicts = await check_glosses(
+        target_language, checkable, checker_model,
+        system=sentence_checker_system(target_language))
     results = []
     for it in checkable:
         v = verdicts.get(it["i"], {"verdict": "reject", "final": "", "note": "no verdict"})
         store = it["gloss"] if v["verdict"] == "ok" else v["final"]
+        verdict, note = v["verdict"], v["note"]
+        if verdict in ("ok", "fixed") and store:
+            reason = gate(it["sentence"], store, locale=locale,
+                          answer=(by_i.get(it["i"], {}).get("answer") or ""))
+            if reason:
+                verdict, note, store = "reject", f"gate: {reason}", ""
         results.append({
             "i": it["i"], "sentence": it["sentence"],
-            "translation": store if v["verdict"] in ("ok", "fixed") else "",
-            "verdict": v["verdict"], "note": v["note"],
+            "translation": store if verdict in ("ok", "fixed") else "",
+            "verdict": verdict, "note": note,
         })
     return results
 
@@ -390,11 +435,16 @@ async def make_text_translations(
 async def generate_text_translations(
     target_language: str, items: list[dict], kind: str = "prose",
     maker_model: str | None = None, checker_model: str | None = None,
+    *, locale: str = "",
 ) -> list[dict]:
-    """Maker then checker for non-sentence texts (titles, labels, notes,
-    explanations). Same contract as generate_sentence_translations:
-    items {i, sentence} → {i, sentence, translation, verdict, note}."""
+    """Maker then checker then the same mechanical gates as sentences, for
+    non-sentence texts (titles, labels, notes, explanations). items may carry
+    `answer` — a drill HINT translated here must never contain the answer the
+    drill asks for, and the label charter's own (correct) instruction to copy
+    quoted course-language material unchanged is exactly how an English hint
+    that quotes its answer would carry the leak into every locale."""
     made = await make_text_translations(target_language, items, kind, maker_model)
+    by_i = {it["i"]: it for it in items}
     checkable = [
         {"i": it["i"], "word": it["sentence"], "sentence": it["sentence"],
          "definition": "", "gloss": made[it["i"]]}
@@ -407,10 +457,16 @@ async def generate_text_translations(
     for it in checkable:
         v = verdicts.get(it["i"], {"verdict": "reject", "final": "", "note": "no verdict"})
         store = it["gloss"] if v["verdict"] == "ok" else v["final"]
+        verdict, note = v["verdict"], v["note"]
+        if verdict in ("ok", "fixed") and store:
+            reason = gate(it["sentence"], store, locale=locale,
+                          answer=(by_i.get(it["i"], {}).get("answer") or ""))
+            if reason:
+                verdict, note, store = "reject", f"gate: {reason}", ""
         results.append({
             "i": it["i"], "sentence": it["sentence"],
-            "translation": store if v["verdict"] in ("ok", "fixed") else "",
-            "verdict": v["verdict"], "note": v["note"],
+            "translation": store if verdict in ("ok", "fixed") else "",
+            "verdict": verdict, "note": note,
         })
     return results
 
