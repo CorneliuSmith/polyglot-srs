@@ -110,7 +110,8 @@
     "removeWidget": "Quitar widget",
     "speakCaption": "Mantén una conversación",
     "speakNew": "Nuevo",
-    "speakPitch": "Mantén una conversación. Correcciones sobre la marcha o al final."
+    "speakPitch": "Mantén una conversación. Correcciones sobre la marcha o al final.",
+    "audioPending": "Aún no hay audio para {{language}} — no existe una voz sintética para este idioma, así que estamos reuniendo grabaciones reales de hablantes. El audio irá apareciendo a medida que se aprueben los clips."
   },
   "stages": {
     "beginner": "Principiante",

@@ -7,6 +7,8 @@ caller's role is verified for the target language.
 
 from __future__ import annotations
 
+import base64
+import binascii
 import html
 import logging
 import re
@@ -139,6 +141,13 @@ from backend.repositories.languages import (
     set_language_visibility,
 )
 from backend.repositories.pool import privileged_connection, rls_connection
+from backend.repositories.recordings import (
+    get_recording_audio,
+    list_recordings,
+    my_recordings,
+    review_recording,
+    submit_recording,
+)
 from backend.repositories.speech import aggregate_speech_usage
 from backend.repositories.trials import (
     get_trial_request,
@@ -707,6 +716,156 @@ async def update_monetization(
             ),
         )
     return {"enabled": body.enabled}
+
+
+# ── contributor recordings: human audio for voiceless languages ────────────
+# Jamaican Patois has no neural voice on any provider, so its audio comes
+# from people (owner: "build in some contributor functionality to provide
+# recordings"). Contributors submit a clip for one exact text; reviewers
+# approve; the audio endpoint serves the approved clip where TTS would be.
+
+RECORDING_MIMES = (
+    "audio/webm", "audio/ogg", "audio/mpeg", "audio/mp4", "audio/wav",
+)
+# Clips are single words/sentences; 2MB of opus/webm is minutes of audio,
+# so anything bigger is a wrong file, not a long take.
+MAX_RECORDING_BYTES = 2 * 1024 * 1024
+
+
+class RecordingSubmission(BaseModel):
+    language_id: str
+    text: str = Field(min_length=1, max_length=300)
+    audio_b64: str = Field(min_length=64, max_length=2_900_000)
+    mime: str
+
+
+class RecordingVerdict(BaseModel):
+    approve: bool
+
+
+async def _require_language_role(user_id: str, language_id: str, *, review: bool):
+    async with rls_connection(user_id) as conn:
+        roles = await get_roles(conn, user_id)
+    allowed = (
+        can_review(roles, language_id) if review
+        else can_contribute(roles, language_id)
+    )
+    if not allowed:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You need a contributor role for this language",
+        )
+
+
+@router.post("/recordings")
+async def submit_recording_endpoint(
+    body: RecordingSubmission,
+    user: dict = Depends(get_current_user),
+):
+    """Submit (or re-record) one clip for one exact text. Goes to the
+    review queue; a resubmit replaces your previous take and re-queues."""
+    await _require_language_role(user["id"], body.language_id, review=False)
+    if body.mime not in RECORDING_MIMES:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"mime must be one of: {', '.join(RECORDING_MIMES)}",
+        )
+    try:
+        audio = base64.b64decode(body.audio_b64, validate=True)
+    except (ValueError, binascii.Error) as exc:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="audio_b64 is not valid base64",
+        ) from exc
+    if len(audio) > MAX_RECORDING_BYTES:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="Recording too large — clips are single words or sentences",
+        )
+    async with privileged_connection() as conn:
+        ok = await submit_recording(
+            conn, body.language_id, user["id"], body.text.strip(), audio,
+            body.mime,
+        )
+    if not ok:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail=(
+                "Recordings need migration 20261007 applied — "
+                "check /api/health/schema"
+            ),
+        )
+    return {"status": "pending"}
+
+
+@router.get("/recordings/mine")
+async def my_recordings_endpoint(
+    language_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """The caller's own submissions for a language, with review states."""
+    await _require_language_role(user["id"], language_id, review=False)
+    async with privileged_connection() as conn:
+        return {"recordings": await my_recordings(conn, user["id"], language_id)}
+
+
+@router.get("/recordings")
+async def recordings_queue(
+    language_id: str,
+    status_filter: str = "pending",
+    user: dict = Depends(get_current_user),
+):
+    """The review queue (reviewers/admins): metadata only — a clip's audio
+    is fetched when the reviewer presses play."""
+    await _require_language_role(user["id"], language_id, review=True)
+    if status_filter not in ("pending", "approved", "rejected"):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="status_filter must be pending, approved, or rejected",
+        )
+    async with privileged_connection() as conn:
+        return {"recordings": await list_recordings(conn, language_id, status_filter)}
+
+
+@router.get("/recordings/{recording_id}/audio")
+async def recording_audio(
+    recording_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """One clip's bytes, for the review queue's play button."""
+    async with privileged_connection() as conn:
+        clip = await get_recording_audio(conn, recording_id)
+    if clip is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="No such recording"
+        )
+    await _require_language_role(user["id"], clip["language_id"], review=True)
+    return {
+        "audio_b64": base64.b64encode(clip["audio"]).decode(),
+        "mime": clip["mime"],
+    }
+
+
+@router.post("/recordings/{recording_id}/review")
+async def review_recording_endpoint(
+    recording_id: str,
+    body: RecordingVerdict,
+    user: dict = Depends(get_current_user),
+):
+    """Approve or reject a clip. Approval makes it live immediately — the
+    audio endpoint serves approved clips ahead of any synthetic voice."""
+    async with privileged_connection() as conn:
+        clip = await get_recording_audio(conn, recording_id)
+    if clip is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="No such recording"
+        )
+    await _require_language_role(user["id"], clip["language_id"], review=True)
+    async with privileged_connection() as conn:
+        new_status = await review_recording(
+            conn, recording_id, user["id"], approve=body.approve
+        )
+    return {"status": new_status}
 
 
 # ---------------------------------------------------------------------------

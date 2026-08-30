@@ -12,6 +12,11 @@ export interface Language {
    * accounts actually use. Optional like is_visible's degrade story:
    * absent (older response) reads as off. */
   auto_translate_enabled?: boolean
+  /** Whether a neural TTS voice exists for this language. False means
+   * audio comes (only) from contributor recordings — the UI shows the
+   * "we're collecting real recordings" note. Absent (older response)
+   * reads as true so no note appears spuriously. */
+  has_tts?: boolean
 }
 
 export interface DueCard {
