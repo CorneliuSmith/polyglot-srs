@@ -56,32 +56,23 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-# pg_dump REFUSES to dump a server newer than itself, and Homebrew keeps every
-# postgresql@NN in its own prefix while linking only one onto PATH. Supabase
-# runs 17.x; a Mac with postgresql@16 linked therefore fails with "aborting
-# because of server version mismatch" even though a new-enough binary may be
-# installed a directory away. So: take $PG_DUMP if set, else the HIGHEST
-# version available, not merely the one on PATH.
-pick_pg_dump() {
-  if [[ -n "${PG_DUMP:-}" ]]; then echo "$PG_DUMP"; return; fi
-  local best="" best_v=0 cand v
-  for cand in $(ls -d /opt/homebrew/opt/postgresql@*/bin/pg_dump \
-                      /usr/local/opt/postgresql@*/bin/pg_dump \
-                      /usr/lib/postgresql/*/bin/pg_dump 2>/dev/null) \
+# pg_dump refuses to dump a server NEWER than itself, and a pg_dump newer than
+# the server emits syntax the server cannot read back — a 17 client dumping a
+# 16 server writes `SET transaction_timeout`, which 16 rejects on restore. So
+# the rule is not "newest": it is the LOWEST client whose major version is at
+# least the server's. Homebrew keeps every postgresql@NN in its own prefix and
+# links just one onto PATH, so the right binary is often installed but unfound.
+pg_dump_candidates() {
+  local cand
+  for cand in /opt/homebrew/opt/postgresql@*/bin/pg_dump \
+              /usr/local/opt/postgresql@*/bin/pg_dump \
+              /usr/lib/postgresql/*/bin/pg_dump \
               "$(command -v pg_dump 2>/dev/null || true)"; do
-    [[ -x "$cand" ]] || continue
-    v=$("$cand" --version 2>/dev/null | grep -oE '[0-9]+' | head -1)
-    [[ -n "$v" ]] || continue
-    if (( v > best_v )); then best_v=$v; best="$cand"; fi
+    [[ -x "$cand" ]] && echo "$cand"
   done
-  echo "$best"
 }
 
-PG_DUMP_BIN=$(pick_pg_dump)
-if [[ -z "$PG_DUMP_BIN" ]]; then
-  echo "ERROR: pg_dump not found (install the postgres client tools)." >&2
-  exit 1
-fi
+pg_dump_major() { "$1" --version 2>/dev/null | grep -oE '[0-9]+' | head -1; }
 
 # Resolve DATABASE_URL from the env or .env, same as setup_db.sh.
 if [[ -z "${DATABASE_URL:-}" && -f .env ]]; then
@@ -92,15 +83,32 @@ if [[ -z "${DATABASE_URL:-}" ]]; then
   exit 1
 fi
 
-mkdir -p "$OUT_DIR"
-STAMP=$(date -u +%Y%m%d-%H%M%S)
-FILE="$OUT_DIR/polyglot-$STAMP.sql"
+SRV_V=$(psql "$DATABASE_URL" -tAc 'SHOW server_version' 2>/dev/null \
+        | grep -oE '^[0-9]+' || true)
 
-echo "==> Target:  $(sed 's|//[^@]*@|//***@|' <<<"$DATABASE_URL")"
-echo "==> pg_dump: $("$PG_DUMP_BIN" --version | head -1)  ($PG_DUMP_BIN)"
-# A server newer than the client aborts mid-dump; say so up front, with the fix.
-SRV_V=$(psql "$DATABASE_URL" -tAc 'SHOW server_version' 2>/dev/null | grep -oE '^[0-9]+' || true)
-CLI_V=$("$PG_DUMP_BIN" --version | grep -oE '[0-9]+' | head -1)
+if [[ -n "${PG_DUMP:-}" ]]; then
+  PG_DUMP_BIN="$PG_DUMP"
+else
+  PG_DUMP_BIN=""; BEST=0; HIGHEST=""; HIGHEST_V=0
+  while read -r cand; do
+    [[ -n "$cand" ]] || continue
+    v=$(pg_dump_major "$cand"); [[ -n "$v" ]] || continue
+    if (( v > HIGHEST_V )); then HIGHEST_V=$v; HIGHEST="$cand"; fi
+    # lowest client that can still read this server
+    if [[ -n "$SRV_V" ]] && (( v >= SRV_V )) && { (( BEST == 0 )) || (( v < BEST )); }; then
+      BEST=$v; PG_DUMP_BIN="$cand"
+    fi
+  done < <(pg_dump_candidates | sort -u)
+  # No server version (offline check) or nothing new enough: take the newest.
+  [[ -n "$PG_DUMP_BIN" ]] || PG_DUMP_BIN="$HIGHEST"
+fi
+
+if [[ -z "$PG_DUMP_BIN" ]]; then
+  echo "ERROR: pg_dump not found (install the postgres client tools)." >&2
+  exit 1
+fi
+
+CLI_V=$(pg_dump_major "$PG_DUMP_BIN")
 if [[ -n "$SRV_V" && -n "$CLI_V" ]] && (( SRV_V > CLI_V )); then
   echo "ERROR: server is PostgreSQL $SRV_V but the newest pg_dump here is $CLI_V." >&2
   echo "       pg_dump cannot dump a newer server. Install a matching client:" >&2
@@ -108,6 +116,13 @@ if [[ -n "$SRV_V" && -n "$CLI_V" ]] && (( SRV_V > CLI_V )); then
   echo "       then re-run. (Or point PG_DUMP at one: PG_DUMP=/path/to/pg_dump $0 ...)" >&2
   exit 1
 fi
+
+mkdir -p "$OUT_DIR"
+STAMP=$(date -u +%Y%m%d-%H%M%S)
+FILE="$OUT_DIR/polyglot-$STAMP.sql"
+
+echo "==> Target:  $(sed 's|//[^@]*@|//***@|' <<<"$DATABASE_URL")"
+echo "==> pg_dump: $("$PG_DUMP_BIN" --version | head -1)  ($PG_DUMP_BIN)"
 echo "==> Writing: $FILE$($GZIP && echo .gz)"
 
 # --no-owner / --no-privileges keep the dump portable across roles (Supabase's
