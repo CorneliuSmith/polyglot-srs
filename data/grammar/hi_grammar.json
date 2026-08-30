@@ -357,7 +357,7 @@
           "sentence": "दो {{answer}} खेल रहे हैं।",
           "answer": "लड़के",
           "translation": "Two boys are playing.",
-          "hint": "plural of लड़का",
+          "hint": "'boy' — plural, direct case",
           "display_order": 1,
           "transliteration": "do {{answer}} khel rahe hain."
         },
@@ -373,7 +373,7 @@
           "sentence": "मेज़ पर चार {{answer}} हैं।",
           "answer": "किताबें",
           "translation": "There are four books on the table.",
-          "hint": "plural of किताब",
+          "hint": "'book' — plural, direct case",
           "display_order": 3,
           "transliteration": "mez par chaar {{answer}} hain."
         },
@@ -381,7 +381,7 @@
           "sentence": "इस इमारत में दस {{answer}} हैं।",
           "answer": "कमरे",
           "translation": "There are ten rooms in this building.",
-          "hint": "plural of कमरा",
+          "hint": "'room' — plural, direct case",
           "display_order": 4,
           "transliteration": "is imaarat mein das {{answer}} hain."
         },
@@ -949,7 +949,7 @@
           "sentence": "किताब {{answer}} में है।",
           "answer": "कमरे",
           "translation": "The book is in the room.",
-          "hint": "oblique of कमरा",
+          "hint": "'room' — singular, oblique before में",
           "display_order": 2,
           "transliteration": "kitaab {{answer}} men hai."
         },
@@ -957,7 +957,7 @@
           "sentence": "मैंने {{answer}} को बुलाया।",
           "answer": "लड़के",
           "translation": "I called the boy.",
-          "hint": "oblique of लड़का",
+          "hint": "'boy' — oblique singular before को",
           "display_order": 3,
           "transliteration": "mainne {{answer}} ko bulaaya."
         },
@@ -965,7 +965,7 @@
           "sentence": "शिक्षक {{answer}} से बात करते हैं।",
           "answer": "बच्चों",
           "translation": "The teacher talks with the children.",
-          "hint": "oblique plural of बच्चे",
+          "hint": "'children' — oblique plural before से",
           "display_order": 4,
           "transliteration": "shikshak {{answer}} se baat karte hain."
         },
@@ -973,7 +973,7 @@
           "sentence": "वह {{answer}} के साथ खेलती है।",
           "answer": "लड़कियों",
           "translation": "She plays with the girls.",
-          "hint": "oblique plural of लड़कियाँ",
+          "hint": "'girls' — oblique plural before के साथ",
           "display_order": 5,
           "transliteration": "voh {{answer}} ke saath khelti hai."
         },
@@ -1111,7 +1111,7 @@
           "sentence": "मेरी माँ फ़ोन पर बात कर {{answer}} हैं।",
           "answer": "रही",
           "translation": "My mother is talking on the phone.",
-          "hint": "feminine (respect plural takes रही + हैं)",
+          "hint": "progressive marker, feminine — with honorific हैं",
           "display_order": 4,
           "cell": "रही",
           "transliteration": "meri maan fon par baat kar {{answer}} hain."
@@ -2696,7 +2696,7 @@
           "sentence": "दादीजी बाज़ार {{answer}} हैं।",
           "answer": "गई",
           "translation": "Grandmother has gone to the market.",
-          "hint": "honorific — fem. plural गईं/गई for one elder",
+          "hint": "perfective of जाना — feminine, no nasal",
           "display_order": 2,
           "transliteration": "daadeejee baazaar {{answer}} hain."
         },
@@ -2796,7 +2796,7 @@
           "sentence": "नए शहर में उसका {{answer}} नहीं लगा।",
           "answer": "मन",
           "translation": "He didn't feel settled in the new city.",
-          "hint": "मन ___ना = to feel at home/engaged",
+          "hint": "'mind' in ___ लगना — not दिल",
           "display_order": 6,
           "transliteration": "naye shahar men uskaa {{answer}} naheen lagaa."
         }
@@ -2865,7 +2865,7 @@
           "sentence": "ट्रेन आने {{answer}} है।",
           "answer": "वाली",
           "translation": "The train is about to arrive.",
-          "hint": "वाला = imminence; fem. for ट्रेन",
+          "hint": "'about to' suffix — feminine, for ट्रेन",
           "display_order": 6,
           "transliteration": "tren aane {{answer}} hai."
         }
@@ -2926,7 +2926,7 @@
           "sentence": "हमने इस मुद्दे पर लंबी बात {{answer}}।",
           "answer": "की",
           "translation": "We talked at length about this issue.",
-          "hint": "बात करना takes ने; की agrees with बात (fem.)",
+          "hint": "perfective of 'to do' — feminine sg., agreeing with बात",
           "display_order": 5,
           "transliteration": "hamne is mudde par lambee baat {{answer}}."
         },

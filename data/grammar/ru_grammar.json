@@ -664,7 +664,7 @@
           "sentence": "Это {{answer}} машина.",
           "answer": "его",
           "translation": "This is his car.",
-          "hint": "his — его never changes form",
+          "hint": "his — one frozen form, even before a feminine noun",
           "display_order": 9,
           "transliteration": "E'to ___ mashina.",
           "cell": "f"
@@ -673,7 +673,7 @@
           "sentence": "Где {{answer}} телефон?",
           "answer": "её",
           "translation": "Where is her phone?",
-          "hint": "her — её never changes form",
+          "hint": "her — one frozen form, even before a masculine noun",
           "display_order": 10,
           "transliteration": "Gde ___ telefon?",
           "cell": "m"
@@ -682,7 +682,7 @@
           "sentence": "Это {{answer}} дети.",
           "answer": "их",
           "translation": "These are their children.",
-          "hint": "their — их never changes form",
+          "hint": "their — one frozen form, even before a plural noun",
           "display_order": 11,
           "transliteration": "E'to ___ deti.",
           "cell": "pl"
@@ -4341,7 +4341,7 @@
           "sentence": "Я не пью кофе, {{answer}} чай пью.",
           "answer": "а",
           "translation": "I don't drink coffee — I drink tea.",
-          "hint": "not X, а Y",
+          "hint": "corrective 'but rather' after the negation — not но",
           "transliteration": "Ya ne p'yu kofe, ___ chay p'yu.",
           "display_order": 4
         },

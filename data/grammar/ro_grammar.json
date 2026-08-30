@@ -708,7 +708,7 @@
           "sentence": "Ea {{answer}} frumos.",
           "answer": "cântă",
           "translation": "She sings beautifully.",
-          "hint": "a cânta, el/ea",
+          "hint": "'to sing' — el/ea present",
           "display_order": 3,
           "cell": "el/ea"
         },
@@ -756,7 +756,7 @@
           "sentence": "El {{answer}} muzică veche.",
           "answer": "ascultă",
           "translation": "He listens to old music.",
-          "hint": "a asculta, el/ea",
+          "hint": "'to listen' — el/ea present",
           "cell": "el/ea",
           "display_order": 9
         },
@@ -854,7 +854,7 @@
           "sentence": "Tu {{answer}} muzica?",
           "answer": "auzi",
           "translation": "Do you hear the music?",
-          "hint": "a auzi, tu",
+          "hint": "'to hear' — tu present",
           "display_order": 5,
           "cell": "tu"
         },
@@ -1594,7 +1594,7 @@
           "sentence": "O {{answer}} cumpăr cadoul mâine.",
           "answer": "să",
           "translation": "I'll buy the gift tomorrow.",
-          "hint": "(o să + subjunctive future)",
+          "hint": "subjunctive particle after 'o' (spoken future)",
           "display_order": 4
         },
         {
@@ -1765,7 +1765,7 @@
           "sentence": "Locuiesc {{answer}} un oraș mic.",
           "answer": "în",
           "translation": "I live in a small town.",
-          "hint": "in",
+          "hint": "enclosure preposition, not 'la' (at)",
           "display_order": 1
         },
         {
@@ -2027,7 +2027,7 @@
           "sentence": "{{answer}} fereastra, te rog!",
           "answer": "deschide",
           "translation": "Open the window, please!",
-          "hint": "a deschide, tu",
+          "hint": "'to open' — tu imperative",
           "cell": "tu",
           "display_order": 1
         },
@@ -2440,7 +2440,7 @@
           "sentence": "{{answer}} spune că iarna va fi grea.",
           "answer": "se",
           "translation": "It is said that the winter will be harsh.",
-          "hint": "(impersonal se-passive)",
+          "hint": "third-person reflexive, impersonal passive",
           "display_order": 4
         },
         {
@@ -2689,7 +2689,7 @@
           "sentence": "Învăț mult ca {{answer}} reușesc la examen.",
           "answer": "să",
           "translation": "I study a lot in order to pass the exam.",
-          "hint": "so that (ca să)",
+          "hint": "in order to — the subjunctive particle after 'ca'",
           "display_order": 3
         },
         {
@@ -2739,7 +2739,7 @@
           "sentence": "El este la {{answer}} de înalt ca mine.",
           "answer": "fel",
           "translation": "He is as tall as me.",
-          "hint": "as (la fel de … ca)",
+          "hint": "'sort, kind' — the noun in 'la … de … ca'",
           "display_order": 1
         },
         {
@@ -2753,21 +2753,21 @@
           "sentence": "Cu cât citești mai mult, {{answer}} atât înveți mai bine.",
           "answer": "cu",
           "translation": "The more you read, the better you learn.",
-          "hint": "(cu cât … cu atât)",
+          "hint": "the preposition 'with' again, now before 'atât'",
           "display_order": 3
         },
         {
           "sentence": "Nu e {{answer}} atât de greu pe cât pare.",
           "answer": "tot",
           "translation": "It's not as hard as it seems.",
-          "hint": "(tot atât de)",
+          "hint": "'just as' — the particle before 'atât de', not chiar",
           "display_order": 4
         },
         {
           "sentence": "Orașul este {{answer}} fel de frumos ca în poze.",
           "answer": "la",
           "translation": "The city is as beautiful as in the photos.",
-          "hint": "as (la fel de)",
+          "hint": "as … as — the preposition before 'fel de … ca'",
           "display_order": 5
         },
         {
@@ -2952,7 +2952,7 @@
           "sentence": "{{answer}} timp ce eu găteam, el citea.",
           "answer": "în",
           "translation": "While I was cooking, he was reading.",
-          "hint": "while (în timp ce)",
+          "hint": "while — the preposition before 'timp ce'",
           "display_order": 4
         },
         {
@@ -2966,7 +2966,7 @@
           "sentence": "Nu a venit, {{answer}} toate că îl invitasem.",
           "answer": "cu",
           "translation": "He didn't come, although I had invited him.",
-          "hint": "although (cu toate că)",
+          "hint": "although — the preposition 'with' before 'toate că'",
           "display_order": 6
         }
       ]
@@ -3228,7 +3228,7 @@
           "sentence": "El îmi {{answer}} cartea mâine.",
           "answer": "dă",
           "translation": "He gives me the book tomorrow.",
-          "hint": "a da — el",
+          "hint": "'to give' — el, present tense",
           "display_order": 4
         },
         {

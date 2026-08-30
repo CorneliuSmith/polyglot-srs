@@ -3781,14 +3781,14 @@
           "sentence": "Veo {{answer}} Juan todos los días.",
           "answer": "a",
           "translation": "I see Juan every day.",
-          "hint": "a specific person as object",
+          "hint": "the marker that flags human direct objects",
           "display_order": 1
         },
         {
           "sentence": "¿Llamaste {{answer}} tu madre?",
           "answer": "a",
           "translation": "Did you call your mother?",
-          "hint": "a person as object",
+          "hint": "the personal-object marker before people",
           "display_order": 2
         },
         {
@@ -3802,7 +3802,7 @@
           "sentence": "Busco {{answer}} mi perro, se llama Rex.",
           "answer": "a",
           "translation": "I'm looking for my dog — his name is Rex.",
-          "hint": "a beloved pet counts as a person",
+          "hint": "the personal-object marker — pets count too",
           "display_order": 4
         },
         {
@@ -3816,7 +3816,7 @@
           "sentence": "¿Ves {{answer}} esa mujer del sombrero rojo?",
           "answer": "a",
           "translation": "Do you see that woman with the red hat?",
-          "hint": "a specific person",
+          "hint": "the personal-object marker before specific people",
           "display_order": 6
         }
       ]

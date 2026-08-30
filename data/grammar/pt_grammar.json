@@ -1299,7 +1299,7 @@
           "sentence": "Ela {{answer}} viu no shopping ontem.",
           "answer": "me",
           "translation": "She saw me at the mall yesterday.",
-          "hint": "me",
+          "hint": "first person singular object pronoun",
           "display_order": 1
         },
         {
@@ -2042,7 +2042,7 @@
           "sentence": "Ela {{answer}} ligou ontem à noite.",
           "answer": "me",
           "translation": "She called me last night.",
-          "hint": "me (before the verb)",
+          "hint": "first person singular object — before the verb",
           "display_order": 1
         },
         {
@@ -2490,7 +2490,7 @@
           "sentence": "Está chovendo, {{answer}} isso vamos de carro.",
           "answer": "por",
           "translation": "It's raining, so we'll go by car.",
-          "hint": "for (por isso = therefore)",
+          "hint": "the preposition before isso, meaning therefore",
           "display_order": 1
         },
         {
@@ -2518,7 +2518,7 @@
           "sentence": "{{answer}} que você está aqui, me ajuda?",
           "answer": "Já",
           "translation": "Since you're here, can you help me?",
-          "hint": "since (já que)",
+          "hint": "adverb meaning 'already' — with que, 'since'",
           "display_order": 5
         },
         {
@@ -2618,7 +2618,7 @@
           "sentence": "Amanhã vou {{answer}} praia com as crianças.",
           "answer": "à",
           "translation": "Tomorrow I'm going to the beach with the kids.",
-          "hint": "to the (a + a = crase)",
+          "hint": "crase: ir + the feminine article",
           "display_order": 1
         },
         {
@@ -2632,14 +2632,14 @@
           "sentence": "Você assistiu {{answer}} entrevista ontem?",
           "answer": "à",
           "translation": "Did you watch the interview yesterday?",
-          "hint": "to the (assistir a + a)",
+          "hint": "crase: assistir + the feminine article",
           "display_order": 3
         },
         {
           "sentence": "Preciso {{answer}} sua ajuda no sábado.",
           "answer": "de",
           "translation": "I need your help on Saturday.",
-          "hint": "of (precisar de)",
+          "hint": "the preposition precisar governs — no article",
           "display_order": 4
         },
         {
@@ -2653,7 +2653,7 @@
           "sentence": "Ela respondeu {{answer}} todas as mensagens.",
           "answer": "a",
           "translation": "She replied to all the messages.",
-          "hint": "to (responder a — no article, no crase)",
+          "hint": "the preposition responder governs — no crase",
           "display_order": 6
         }
       ]
@@ -2760,7 +2760,7 @@
           "sentence": "Onde é {{answer}} você deixou as chaves?",
           "answer": "que",
           "translation": "Where (is it that) you left the keys?",
-          "hint": "that (é que question)",
+          "hint": "invariable cleft linker after 'é'",
           "display_order": 3
         },
         {
@@ -2781,7 +2781,7 @@
           "sentence": "O que é {{answer}} está acontecendo ali?",
           "answer": "que",
           "translation": "What (is it that) is going on over there?",
-          "hint": "that (é que question)",
+          "hint": "cleft linker joining 'é' to the clause",
           "display_order": 6
         }
       ]
@@ -2810,14 +2810,14 @@
           "sentence": "{{answer}} gente se vê no sábado! (spoken BR)",
           "answer": "A",
           "translation": "See you Saturday! (lit. the people see each other)",
-          "hint": "the (a gente = we)",
+          "hint": "definite feminine article before 'gente' (= we)",
           "display_order": 1
         },
         {
           "sentence": "Estou {{answer}} trabalhar agora. (European)",
           "answer": "a",
           "translation": "I'm working right now. (European progressive)",
-          "hint": "at (estar a + infinitive)",
+          "hint": "European progressive preposition, 'estar' + infinitive",
           "display_order": 2
         },
         {
@@ -2838,7 +2838,7 @@
           "sentence": "Ele fala {{answer}} nem o pai. (spoken BR)",
           "answer": "que",
           "translation": "He talks just like his father.",
-          "hint": "that (que nem = just like)",
+          "hint": "spoken-BR linker before 'nem' (just like)",
           "display_order": 5
         },
         {
