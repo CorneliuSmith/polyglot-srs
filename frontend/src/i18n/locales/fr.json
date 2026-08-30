@@ -1604,6 +1604,8 @@
   },
   "more": {
     "donateTea": "Offrez-moi un thé 🍵",
-    "legalNote": "Les leçons peuvent contenir du contenu généré par IA et relu par des personnes ; des erreurs sont possibles. Rien ici ne constitue un conseil professionnel."
+    "legalNote": "Les leçons peuvent contenir du contenu généré par IA et relu par des personnes ; des erreurs sont possibles. Rien ici ne constitue un conseil professionnel.",
+    "terms": "Conditions d'utilisation",
+    "privacy": "Politique de confidentialité"
   }
 }

@@ -1604,6 +1604,8 @@
   },
   "more": {
     "donateTea": "Me pague um chá 🍵",
-    "legalNote": "As lições podem incluir material gerado por IA e revisado por pessoas; erros são possíveis. Nada aqui é aconselhamento profissional."
+    "legalNote": "As lições podem incluir material gerado por IA e revisado por pessoas; erros são possíveis. Nada aqui é aconselhamento profissional.",
+    "terms": "Termos de serviço",
+    "privacy": "Política de privacidade"
   }
 }

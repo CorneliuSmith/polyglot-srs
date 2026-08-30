@@ -73,6 +73,7 @@ const SettingsPage = lazyWithRetry(() => import('./features/settings/SettingsPag
 const GrammarPathPage = lazyWithRetry(() => import('./features/curriculum/GrammarPathPage'))
 const ContributorPage = lazyWithRetry(() => import('./features/contribute/ContributorPage'))
 const TermsPage = lazyWithRetry(() => import('./features/legal/TermsPage'))
+const PrivacyPage = lazyWithRetry(() => import('./features/legal/PrivacyPage'))
 const SearchPage = lazyWithRetry(() => import('./features/search/SearchPage'))
 const DecksPage = lazyWithRetry(() => import('./features/decks/DecksPage'))
 const DeckDetailPage = lazyWithRetry(() => import('./features/decks/DeckDetailPage'))
@@ -107,6 +108,12 @@ const router = createBrowserRouter([
     // Public: readable before signing up.
     path: '/terms',
     element: <TermsPage />,
+    errorElement: <ErrorScreen />,
+  },
+  {
+    // Public: app-store submissions require a dedicated privacy URL.
+    path: '/privacy',
+    element: <PrivacyPage />,
     errorElement: <ErrorScreen />,
   },
   {

@@ -177,9 +177,25 @@ export default function MorePage() {
           </a>
         )}
 
-        {/* The honest small print, on the one page everyone can reach. */}
+        {/* The honest small print, on the one page everyone can reach —
+            with the full documents one tap away. */}
         <p className="text-[11px] leading-snug text-gray-400">
-          {t('more.legalNote')}
+          {t('more.legalNote')}{' '}
+          <button
+            type="button"
+            onClick={() => navigate('/terms')}
+            className="underline hover:text-lang"
+          >
+            {t('more.terms')}
+          </button>
+          {' · '}
+          <button
+            type="button"
+            onClick={() => navigate('/privacy')}
+            className="underline hover:text-lang"
+          >
+            {t('more.privacy')}
+          </button>
         </p>
       </div>
     </div>

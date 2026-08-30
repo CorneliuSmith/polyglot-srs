@@ -1604,6 +1604,8 @@
   },
   "more": {
     "donateTea": "Donate a tea 🍵",
-    "legalNote": "Lessons can include AI-generated material reviewed by people; mistakes are possible. Nothing here is professional advice."
+    "legalNote": "Lessons can include AI-generated material reviewed by people; mistakes are possible. Nothing here is professional advice.",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy"
   }
 }
