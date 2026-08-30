@@ -764,3 +764,51 @@ have no gloss column at all. 6,627 of 375,004 sentence rows glossed (2%);
 1,439 of 8,874 drills (16%). The write path (`seed_sentences.py`,
 `seed_grammar.py`, migration 20260707) carries both gloss and
 transliteration, so this is a content gap, not a plumbing one.
+
+---
+
+## §18 A curated file does not reach a learner by itself (30 Aug 2026)
+
+The owner opened the English card for `I` and was shown **"I am."**,
+**"I am you."** and **"I am!"** — while `data/en_sentences.tsv` holds
+"I think he did it." and "Just do what I say." for that word.
+
+None of those three is in any committed file. They are rows the curation cut
+that stayed live, because `seed_sentences` inserts `ON CONFLICT DO NOTHING`
+and can therefore only ever ADD. Production held **196,004** English
+sentences against a curated **70,975**, and the review card picks at random
+from everything present — so thinning the file changed nothing a learner saw.
+This is the sentence-layer twin of §16's rule: a fix that lands in a file is
+not a fix in production until something carries it there.
+
+Two mechanisms now exist, and they are NOT the same job:
+
+* `seed_sentences -l <code>` — additive, safe, idempotent. Fixes "the file
+  has content production lacks". Five courses had sentences on disk and
+  **zero** in the database (`he` 7,483, `id` 5,219, `tl` 4,749, `fa` 4,003,
+  `la` 1,136); 26,471 rows were loaded on 30 Aug.
+* `prune_sentences -l <code> --apply` — subtractive, gated behind a rollback
+  file. Fixes "production has content the file rejected". This is the only
+  thing that makes a thinning decision real.
+
+**Measured 30 Aug, all 27:** 147,246 tatoeba rows are no longer endorsed by
+any committed bank (English alone 127,363), 30,938 rows are exempt as
+`curated`/`ai`, and 1,131 words would be stranded and are therefore left
+alone. See §18a for why the match key is not the obvious one.
+
+### §18a The prune's match key is (word, SENTENCE), never the locale
+
+The committed bank keeps one row per sentence; the database keeps that
+sentence once per translation locale. Keying the prune on
+`(word, sentence, translation_locale)` — the same key the INSERT conflicts
+on — would delete the German translation of a sentence the bank endorses
+merely because the file happened to store that sentence with its Spanish
+one. Modelled before running: keying on the sentence keeps 66,258 English
+rows across all locales; keying on the locale would have kept far fewer and
+silently cost every non-file locale.
+
+Three invariants are tested rather than trusted (`test_prune_sentences.py`):
+`curated`/`ai` are never candidates, a word is never stranded with zero
+sentences, and **an empty or missing TSV refuses outright** — the file
+endorsing nothing must not mean "delete the entire corpus", so `survey()`
+does not even issue the query.
