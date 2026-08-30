@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { usePrefsStore } from '../../stores/prefsStore'
+import { useMonetization } from '../billing/useMonetization'
 import {
   getRecoProfile,
   getRecommendations,
@@ -45,6 +46,7 @@ const MEDIA = ['book', 'film', 'series', 'podcast', 'music']
  */
 export default function RecoSettings() {
   const { t } = useTranslation()
+  const { monetization } = useMonetization()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const queryClient = useQueryClient()
 
@@ -117,7 +119,11 @@ export default function RecoSettings() {
       </div>
 
       {state && !state.entitled && (
-        <p className="text-xs text-amber-600">{t('recoSettings.needsPlus')}</p>
+        <p className="text-xs text-amber-600">
+          {monetization
+            ? t('recoSettings.needsPlus')
+            : t('recoSettings.unavailable')}
+        </p>
       )}
 
       {enabled && (

@@ -6,7 +6,8 @@ import { ArrowDown, ArrowUp, Star } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
-import { createCheckout } from '../../api/billing'
+import { createCheckout, createTopupCheckout, formatPrice } from '../../api/billing'
+import { useMonetization } from '../billing/useMonetization'
 import {
   endTutorSession,
   getTutorSessions,
@@ -85,14 +86,33 @@ export default function TutorPage() {
     enabled: !!activeLanguageId && !!language,
   })
 
-  // Start a subscription. Real mode hands back a Stripe Checkout URL to
-  // redirect to; dev-mock grants directly, so we just refetch entitlement.
+  // The master switch: while monetization is off, nothing on this page may
+  // pitch, price, or sell — the exhausted panel just states the reset date.
+  const { monetization, prices } = useMonetization()
+  const topupPrice = monetization ? (prices?.topup ?? null) : null
+
+  // Start an AI add-on subscription. Real mode hands back a Stripe Checkout
+  // URL to redirect to; dev-mock grants directly, so we just refetch.
   const subscribeMutation = useMutation({
     mutationFn: () => createCheckout(activeLanguageId!),
     onSuccess: (res) => {
       if (res.url) {
         window.location.href = res.url
       } else {
+        queryClient.invalidateQueries({ queryKey: ['tutor-status'] })
+      }
+    },
+  })
+
+  // Buy a one-time top-up (+N messages, THIS month's pool). Dev-mock grants
+  // directly — refetch so the meter and the exhausted panel update in place.
+  const topupMutation = useMutation({
+    mutationFn: createTopupCheckout,
+    onSuccess: (res) => {
+      if (res.url) {
+        window.location.href = res.url
+      } else {
+        setLiveAllowance(null) // the /status refetch is now the freshest
         queryClient.invalidateQueries({ queryKey: ['tutor-status'] })
       }
     },
@@ -453,18 +473,21 @@ export default function TutorPage() {
         {allowance && !allowance.unlimited && !exhausted && (
           <div className="mb-3" data-testid="tutor-allowance">
             <UsageMeter allowance={allowance} />
-            {['free', 'single', 'all'].includes(allowance.tier) && (
-              <p className="mt-1 text-xs text-gray-500">
-                <button
-                  type="button"
-                  onClick={() => subscribeMutation.mutate()}
-                  className="text-lang hover:underline"
-                >
-                  {t('tutor.plus')}
-                </button>{' '}
-                {t('tutor.plusNote')}
-              </p>
-            )}
+            {/* The add-on pitch exists only when monetization is on — with
+                the switch off there is nothing to buy and no money copy. */}
+            {monetization &&
+              ['free', 'single', 'all'].includes(allowance.tier) && (
+                <p className="mt-1 text-xs text-gray-500">
+                  <button
+                    type="button"
+                    onClick={() => subscribeMutation.mutate()}
+                    className="text-lang hover:underline"
+                  >
+                    {t('tutor.plus')}
+                  </button>{' '}
+                  {t('tutor.plusNote')}
+                </p>
+              )}
           </div>
         )}
 
@@ -586,7 +609,15 @@ export default function TutorPage() {
             className="bg-white border border-gray-200 rounded-2xl p-4 text-sm text-gray-700 space-y-2"
             data-testid="tutor-exhausted"
           >
-            {['free', 'single', 'all'].includes(allowance.tier) ? (
+            {!monetization ? (
+              /* Money features are off: state the fact and the reset date,
+                 pitch nothing, mention no payment. */
+              <p>
+                {t('tutor.exhausted', {
+                  date: resetDay(allowance.resets_at, i18n.language) ?? t('tutor.soon'),
+                })}
+              </p>
+            ) : ['free', 'single', 'all'].includes(allowance.tier) ? (
               <>
                 <p>
                   {t('tutor.exhaustedFree', {
@@ -599,31 +630,85 @@ export default function TutorPage() {
                     components={{ strong: <strong /> }}
                   />
                 </p>
-                <button
-                  type="button"
-                  onClick={() => subscribeMutation.mutate()}
-                  disabled={subscribeMutation.isPending}
-                  className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-5 py-2.5 text-sm"
-                  style={{ minHeight: '44px' }}
-                >
-                  {subscribeMutation.isPending
-                    ? t('tutor.starting')
-                    : t('tutor.getPlus', {
-                        language: languageDisplayName(language.code, language.name, i18n.language),
-                      })}
-                </button>
-                {subscribeMutation.isError && (
+                {/* The base version sold: the plan WITH AI in the monthly
+                    charge. The one-time top-up sits beside it for anyone
+                    who just needs this month. */}
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={() => subscribeMutation.mutate()}
+                    disabled={subscribeMutation.isPending}
+                    className="bg-lang hover:bg-lang-dark disabled:opacity-50 text-lang-on font-semibold rounded-xl px-5 py-2.5 text-sm"
+                    style={{ minHeight: '44px' }}
+                  >
+                    {subscribeMutation.isPending
+                      ? t('tutor.starting')
+                      : t('tutor.getPlus', {
+                          language: languageDisplayName(language.code, language.name, i18n.language),
+                        })}
+                  </button>
+                  {topupPrice && (
+                    <button
+                      type="button"
+                      data-testid="tutor-topup"
+                      onClick={() => topupMutation.mutate()}
+                      disabled={topupMutation.isPending}
+                      className="border border-lang text-lang hover:bg-lang-soft disabled:opacity-50 font-semibold rounded-xl px-5 py-2.5 text-sm"
+                      style={{ minHeight: '44px' }}
+                    >
+                      {topupMutation.isPending
+                        ? t('tutor.starting')
+                        : t('tutor.topup', {
+                            messages: topupPrice.messages,
+                            price: formatPrice({
+                              amount_cents: topupPrice.amount_cents,
+                              currency: topupPrice.currency,
+                              interval: null,
+                            }),
+                          })}
+                    </button>
+                  )}
+                </div>
+                {(subscribeMutation.isError || topupMutation.isError) && (
                   <p className="text-xs text-red-500">
                     {t('tutor.checkoutError')}
                   </p>
                 )}
               </>
             ) : (
-              <p>
-                {t('tutor.exhaustedPaid', {
-                  date: resetDay(allowance.resets_at, i18n.language) ?? t('tutor.soon'),
-                })}
-              </p>
+              <>
+                <p>
+                  {t('tutor.exhaustedPaid', {
+                    date: resetDay(allowance.resets_at, i18n.language) ?? t('tutor.soon'),
+                  })}
+                </p>
+                {topupPrice && (
+                  <button
+                    type="button"
+                    data-testid="tutor-topup"
+                    onClick={() => topupMutation.mutate()}
+                    disabled={topupMutation.isPending}
+                    className="border border-lang text-lang hover:bg-lang-soft disabled:opacity-50 font-semibold rounded-xl px-5 py-2.5 text-sm"
+                    style={{ minHeight: '44px' }}
+                  >
+                    {topupMutation.isPending
+                      ? t('tutor.starting')
+                      : t('tutor.topup', {
+                          messages: topupPrice.messages,
+                          price: formatPrice({
+                            amount_cents: topupPrice.amount_cents,
+                            currency: topupPrice.currency,
+                            interval: null,
+                          }),
+                        })}
+                  </button>
+                )}
+                {topupMutation.isError && (
+                  <p className="text-xs text-red-500">
+                    {t('tutor.checkoutError')}
+                  </p>
+                )}
+              </>
             )}
           </div>
         ) : (

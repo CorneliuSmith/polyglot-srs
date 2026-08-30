@@ -24,6 +24,7 @@ import {
   type RecoItem,
 } from '../../api/recommendations'
 import RecoSettings from './RecoSettings'
+import { useMonetization } from '../billing/useMonetization'
 
 const MEDIA_TYPE_ICONS: Record<string, LucideIcon> = {
   book: BookOpen,
@@ -183,6 +184,7 @@ function Batch({ batch, heading }: { batch: RecoBatch; heading: string }) {
 export default function RecommendationsPage() {
   const navigate = useNavigate()
   const { t, i18n } = useTranslation()
+  const { monetization } = useMonetization()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const queryClient = useQueryClient()
 
@@ -284,13 +286,21 @@ export default function RecommendationsPage() {
           </div>
         )}
 
-        {/* On but not entitled → tutor+ upsell. */}
+        {/* On but not entitled → the add-on upsell, but ONLY while
+            monetization is on. With the master switch off there is nothing
+            to buy, so the copy just says the feature isn't available. */}
         {data?.enabled && !data.entitled && (
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-5 text-sm text-gray-600 space-y-2">
-            <p className="font-medium text-gray-800">{t('recos.plusFeature')}</p>
-            <p>
-              {t('recos.plusUpsell')}
-            </p>
+            {monetization ? (
+              <>
+                <p className="font-medium text-gray-800">{t('recos.plusFeature')}</p>
+                <p>
+                  {t('recos.plusUpsell')}
+                </p>
+              </>
+            ) : (
+              <p>{t('recos.unavailable')}</p>
+            )}
           </div>
         )}
 
@@ -312,7 +322,7 @@ export default function RecommendationsPage() {
 
         {data?.enabled && data.entitled && refreshStatus === 402 && (
           <p className="text-sm text-amber-600">
-            {t('recos.needPlus')}
+            {monetization ? t('recos.needPlus') : t('recos.unavailable')}
           </p>
         )}
 

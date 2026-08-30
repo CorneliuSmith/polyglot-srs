@@ -23,6 +23,13 @@ export interface PlanPrice {
   interval: string | null
 }
 
+export interface TopupPrice {
+  amount_cents: number
+  currency: string
+  /** How many messages one purchase adds to the CURRENT month's pool. */
+  messages: number
+}
+
 export interface PlanPrices {
   single: PlanPrice | null
   all: PlanPrice | null
@@ -30,6 +37,12 @@ export interface PlanPrices {
    * already mirrors it onto both scopes, so price displays need no special
    * casing — this field just names the fact for UIs that want to. */
   custom?: PlanPrice | null
+  /** The one-time AI top-up's price, or null when it can't be bought. */
+  topup?: TopupPrice | null
+  /** The master switch. False (or absent, on an older server) means NO
+   * money surface renders anywhere: no prices, upgrade buttons, top-ups,
+   * or the tip jar. Flipped from the admin panel. */
+  monetization?: boolean
 }
 
 /** Live Stripe prices for the two plans; null until billing is configured. */
@@ -47,6 +60,12 @@ export async function startPlanCheckout(
     '/api/billing/plan/checkout',
     { plan_scope: planScope, plan_language_id: planLanguageId ?? null },
   )
+  return response.data
+}
+
+/** Buy a one-time AI top-up — messages added to the CURRENT month's pool. */
+export async function createTopupCheckout(): Promise<CheckoutResponse> {
+  const response = await apiClient.post<CheckoutResponse>('/api/billing/topup')
   return response.data
 }
 

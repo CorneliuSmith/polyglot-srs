@@ -6,6 +6,7 @@ import type { LucideIcon } from 'lucide-react'
 import { getLanguages } from '../../api/profile'
 import { getMyRoles } from '../../api/contribute'
 import { useViewAsKey } from '../../stores/viewAsStore'
+import { useMonetization } from '../billing/useMonetization'
 import { usePrefsStore } from '../../stores/prefsStore'
 import DirArrow from '../../components/DirArrow'
 import SectionHeader from '../../components/SectionHeader'
@@ -83,6 +84,7 @@ export default function MorePage() {
     retry: false,
   })
   const canContribute = (roleInfo?.roles?.length ?? 0) > 0
+  const { monetization } = useMonetization()
 
   return (
     <div className="min-h-screen bg-gray-50 overflow-x-hidden">
@@ -161,11 +163,12 @@ export default function MorePage() {
           </button>
         )}
 
-        {/* Pre-launch tip jar (owner: "donate a tea - I don't drink
-            coffee"). Config-driven and absent when unset, so turning real
-            billing on later just means removing one env var. Opens the
-            payment page in a new tab — never navigates the app away. */}
-        {import.meta.env.VITE_DONATE_URL && (
+        {/* Tip jar (owner: "donate a tea - I don't drink coffee"). Behind
+            BOTH the env var and the monetization master switch — while the
+            owner's employer clearance is pending, even a donation link is
+            a money feature and must not render. Opens the payment page in
+            a new tab — never navigates the app away. */}
+        {monetization && import.meta.env.VITE_DONATE_URL && (
           <a
             href={import.meta.env.VITE_DONATE_URL}
             target="_blank"

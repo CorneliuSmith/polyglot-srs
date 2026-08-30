@@ -85,16 +85,23 @@ class Settings(BaseSettings):
     # calendar-month pool — one mental model, no daily walls, and a heavy study
     # day never locks anyone out (it just draws down the month).
     #   free (no plan):   a real taste of the tutor
-    #   single plan:      included with the plan
+    #   single plan:      NO AI included — the single-language plan sells
+    #                     without AI; the add-on or a top-up adds messages
     #   all plan:         included with the plan
-    #   Tutor+ add-on:    the heavy-use pool for power users
+    #   AI add-on:        a flat monthly add-on POOL, ADDED to the plan's
+    #                     base (single 0 + 200 = 200; all 300 + 200 = 500)
     # Sized so worst-case Sonnet-5 COGS stays a small share of each price
-    # point (~$0.01–0.02/message: 100/mo ≈ $1.50, 300/mo ≈ $4.50,
-    # 1000/mo ≈ $15 worst-case — route scaffolded turns to Haiku to halve it).
+    # point (~$0.01–0.02/message: 200/mo ≈ $3 worst-case, 300/mo ≈ $4.50 —
+    # route scaffolded turns to Haiku to halve it).
     tutor_free_monthly_messages: int = 20
-    tutor_single_monthly_messages: int = 100
+    tutor_single_monthly_messages: int = 0
     tutor_all_monthly_messages: int = 300
-    tutor_plus_monthly_messages: int = 1000
+    tutor_plus_monthly_messages: int = 200
+    # One-time AI top-up: a single purchase that adds messages to the
+    # CURRENT calendar month's pool (it does not roll over — the purchase
+    # button says so). Also the à-la-carte AI path for the no-AI plan.
+    topup_price_cents: int = 500
+    topup_messages: int = 200
 
     # Stripe billing for the tutor add-on. Empty secret disables checkout.
     stripe_secret_key: str = ""

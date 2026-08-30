@@ -133,6 +133,7 @@ from backend.repositories.experiments import (
     update_experiment,
 )
 from backend.repositories.feedback import open_feedback_by_language
+from backend.repositories.flags import MONETIZATION, get_flag, set_flag
 from backend.repositories.languages import (
     set_language_auto_translate,
     set_language_visibility,
@@ -669,6 +670,43 @@ async def update_plan_limit(
             )
         stored = await get_plan_message_limits(conn)
     return {"limits": effective_plan_limits(stored)}
+
+
+class MonetizationUpdate(BaseModel):
+    enabled: bool
+
+
+@router.get("/monetization")
+async def monetization_state(user: dict = Depends(get_current_user)):
+    """The monetization master switch (admin-only). OFF means no money
+    feature or mention of payment appears anywhere in the app — the owner
+    can't run money features until an employer clearance lands."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        enabled = await get_flag(conn, MONETIZATION, default=False)
+    return {"enabled": enabled}
+
+
+@router.put("/monetization")
+async def update_monetization(
+    body: MonetizationUpdate,
+    user: dict = Depends(get_current_user),
+):
+    """Flip the monetization master switch (admin-only). Takes effect on
+    every surface's next load — checkout endpoints, prices, upgrade
+    buttons, top-ups, and the tip jar all key off this one flag."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        ok = await set_flag(conn, MONETIZATION, body.enabled, user["id"])
+    if not ok:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail=(
+                "The monetization switch needs migration 20261006 applied — "
+                "check /api/health/schema"
+            ),
+        )
+    return {"enabled": body.enabled}
 
 
 # ---------------------------------------------------------------------------

@@ -14,6 +14,7 @@ from datetime import UTC, datetime, timedelta
 from fastapi import HTTPException, status
 
 from backend.config import get_settings
+from backend.repositories.billing import count_topup_messages
 from backend.repositories.pool import rls_connection
 from backend.repositories.tutor import (
     count_tutor_messages,
@@ -82,19 +83,29 @@ async def get_allowance(user_id: str, language_id: str) -> dict:
             # now caps messages PER MONTH like every other tier.
             limit = override["daily_cap"] or _plan_limit(plan_limits, settings, "plus")
             tier = "granted"
-        elif await has_tutor_entitlement(conn, user_id, language_id):
-            # Tutor+ add-on — the heavy-use monthly pool.
-            limit = _plan_limit(plan_limits, settings, "plus")
-            tier = "plus"
-        elif override.get("plan_scope") == "all":
-            limit = _plan_limit(plan_limits, settings, "all")
-            tier = "all"
-        elif override.get("plan_scope") == "single":
-            limit = _plan_limit(plan_limits, settings, "single")
-            tier = "single"
         else:
-            limit = _plan_limit(plan_limits, settings, "free")
-            tier = "free"
+            # The plan's base pool. The single plan sells WITHOUT AI (owner:
+            # the base $ price includes no AI) — its default base is 0.
+            if override.get("plan_scope") == "all":
+                limit = _plan_limit(plan_limits, settings, "all")
+                tier = "all"
+            elif override.get("plan_scope") == "single":
+                limit = _plan_limit(plan_limits, settings, "single")
+                tier = "single"
+            else:
+                limit = _plan_limit(plan_limits, settings, "free")
+                tier = "free"
+            # The AI add-on ('plus' tier) is a flat monthly pool ADDED to
+            # the plan's base, per language — the recurring way to put AI on
+            # a plan that doesn't include it, and extra headroom on one that
+            # does. It used to REPLACE the base, which under a 0-base single
+            # plan would have made "all + add-on" smaller than "all".
+            if await has_tutor_entitlement(conn, user_id, language_id):
+                limit += _plan_limit(plan_limits, settings, "plus")
+                tier = "plus"
+        # One-time top-ups land in the CURRENT calendar month's pool — the
+        # same window — so the accounting stays one SUM, no credit ledger.
+        limit += await count_topup_messages(conn, user_id, window_start)
         used = await count_tutor_messages(conn, user_id, window_start)
     return {
         "tier": tier, "unlimited": False, "entitled": tier in ("plus", "granted"),

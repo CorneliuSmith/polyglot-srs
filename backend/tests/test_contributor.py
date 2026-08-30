@@ -2736,6 +2736,53 @@ class TestPlanLimits:
         assert resp.status_code == 503
 
 
+# ── the monetization master switch (admin toggle) ──────────────────────────
+# Money features stay OFF until the owner's employer clearance lands; this
+# pair of endpoints is the one lever that turns every payment surface on.
+
+class TestMonetizationToggle:
+    def test_requires_admin(self, client):
+        with _roles([{"language_id": None, "role": "reviewer"}]):
+            get = client.get("/api/contribute/monetization", headers=_auth_headers())
+            put = client.put("/api/contribute/monetization", json={"enabled": True},
+                             headers=_auth_headers())
+        assert get.status_code == 403
+        assert put.status_code == 403
+
+    def test_reads_the_stored_flag(self, client):
+        conn = AsyncMock()
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.get_flag",
+                   new=AsyncMock(return_value=False)):
+            resp = client.get("/api/contribute/monetization", headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"enabled": False}
+
+    def test_flips_the_switch(self, client):
+        conn = AsyncMock()
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.set_flag",
+                   new=AsyncMock(return_value=True)) as mock_set:
+            resp = client.put("/api/contribute/monetization", json={"enabled": True},
+                              headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"enabled": True}
+        assert mock_set.await_args.args[1:3] == ("monetization", True)
+
+    def test_missing_migration_reports_503_not_500(self, client):
+        conn = AsyncMock()
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             _priv_yielding(conn), \
+             patch("backend.routers.contribute.set_flag",
+                   new=AsyncMock(return_value=False)):
+            resp = client.put("/api/contribute/monetization", json={"enabled": True},
+                              headers=_auth_headers())
+        assert resp.status_code == 503
+        assert "20261006" in resp.json()["detail"]
+
+
 # ── bulk AI check: the "Check all N now" button behind the policy panel ────
 # Owner-reported: they switched a language to 'ai_ok' and nothing appeared,
 # because Open only shows points with a stored 'pass' verdict and a freshly

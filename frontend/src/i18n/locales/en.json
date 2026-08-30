@@ -226,8 +226,8 @@
     "noPastSessions": "No past sessions yet — they appear here after you end one.",
     "messages_one": "{{count}} message",
     "messages_other": "{{count}} messages",
-    "plus": "Plus",
-    "plusNote": "is a flat price with far more monthly usage — never a charge for what you use.",
+    "plus": "Add AI",
+    "plusNote": "to your plan — one flat monthly add-on price, never a charge for what you use.",
     "greeting": "Hi! I’m your {{language}} tutor. I can see which words you’ve been struggling with in your reviews. Say hello, or ask me to drill your weak spots.",
     "thinking": "Tutor is thinking…",
     "stop": "Stop",
@@ -236,15 +236,17 @@
     "scrollBottom": "Scroll to bottom",
     "scrollBottomTitle": "Back to the latest message",
     "exhaustedFree": "You’ve used all of this month’s usage — it refreshes on {{date}}.",
-    "plusPitch": "Plus is a <strong>flat price</strong> with far more monthly usage — you’re never charged for what you use.",
+    "plusPitch": "Adding AI is one <strong>flat monthly price</strong> for a full message pool — you’re never charged for what you use.",
     "starting": "Starting…",
-    "getPlus": "Get Plus for {{language}}",
+    "getPlus": "Add AI for {{language}}",
     "checkoutError": "Couldn’t start checkout — try again.",
     "exhaustedPaid": "You’ve reached this month’s usage limit. It refreshes on {{date}} — nothing extra to pay, your price never changes with usage.",
     "inputPlaceholder": "Message your tutor…",
     "send": "Send",
     "sendError": "The tutor could not respond. Check your connection and try again.",
-    "soon": "soon"
+    "soon": "soon",
+    "exhausted": "You’ve reached this month’s usage limit. It refreshes on {{date}}.",
+    "topup": "+{{messages}} messages this month — {{price}}"
   },
   "gym": {
     "title": "The Gym",
@@ -861,7 +863,8 @@
     "finished": "Finished",
     "yourRating": "Your rating",
     "rateStar": "Rate {{count}} of 5",
-    "draftFailed": "Drafting your picks failed — try again in a moment."
+    "draftFailed": "Drafting your picks failed — try again in a moment.",
+    "unavailable": "Personalized recommendations aren’t available on your account yet."
   },
   "onboarding": {
     "back": "Back",
@@ -890,10 +893,10 @@
     "planHelp": "Study just {{language}}, or unlock every language. You can upgrade any time in Settings.",
     "singleOnly": "{{language}} only",
     "singlePriced": "One language — {{price}}",
-    "singleUnpriced": "One language at the lower price",
+    "singleUnpriced": "Just the language you’re learning",
     "allLanguages": "All languages",
     "allPriced": "Every language we offer — {{price}}",
-    "allUnpriced": "Every language we offer, one price",
+    "allUnpriced": "Every language we offer",
     "billingNote": "Billing hasn't launched yet — early accounts keep full access to their choice for free, and keep their price when plans go live.",
     "startLearning": "Start learning"
   },
@@ -1219,7 +1222,8 @@
     "mediaHint": "Leave all off to let us pick across everything.",
     "saving": "Saving…",
     "save": "Save",
-    "saveError": "Couldn’t save — try again."
+    "saveError": "Couldn’t save — try again.",
+    "unavailable": "Receiving picks isn’t available on your account yet — you can still set up your profile."
   },
   "gymForms": {
     "anLocativeFocus": "-an locative focus",
