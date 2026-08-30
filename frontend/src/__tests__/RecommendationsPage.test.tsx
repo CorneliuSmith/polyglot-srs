@@ -15,6 +15,14 @@ vi.mock('../stores/prefsStore', () => ({
       sel({ activeLanguageId: 'lang-es' }),
   ),
 }))
+vi.mock('../api/billing', async (orig) => ({
+  ...(await orig<typeof import('../api/billing')>()),
+  // Monetization ON so the upsell copy renders; the switch-off test
+  // overrides this per-call.
+  getPlanPrices: vi.fn(() =>
+    Promise.resolve({ single: null, all: null, monetization: true })),
+}))
+
 vi.mock('../api/recommendations', async (orig) => ({
   ...(await orig<typeof import('../api/recommendations')>()),
   getRecommendations: vi.fn(),
@@ -76,6 +84,18 @@ describe('RecommendationsPage', () => {
     renderPage()
     expect(await screen.findByText(/Plus feature/i)).toBeDefined()
     // Never auto-generates without entitlement.
+    expect(mockRefresh).not.toHaveBeenCalled()
+  })
+
+  it('says “not available” instead of upselling while monetization is off', async () => {
+    const { getPlanPrices } = await import('../api/billing')
+    ;(getPlanPrices as ReturnType<typeof vi.fn>).mockResolvedValueOnce({
+      single: null, all: null, monetization: false,
+    })
+    mockGet.mockResolvedValue({ enabled: true, entitled: false, stale: true, batches: [] })
+    renderPage()
+    expect(await screen.findByText(/aren’t available on your account yet/i)).toBeDefined()
+    expect(screen.queryByText(/Plus feature/i)).toBeNull()
     expect(mockRefresh).not.toHaveBeenCalled()
   })
 

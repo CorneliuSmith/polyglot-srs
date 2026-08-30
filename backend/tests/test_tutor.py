@@ -114,6 +114,8 @@ def client():
          patch("backend.routers.tutor.get_settings", return_value=FakeSettings()), \
          patch("backend.services.allowance.get_settings", return_value=FakeSettings()), \
          patch("backend.services.allowance.rls_connection", _fake_rls_connection), \
+         patch("backend.services.allowance.count_topup_messages",
+               new=AsyncMock(return_value=0)), \
          patch("backend.routers.tutor.rls_connection", _fake_rls_connection):
         app = create_app()
         with TestClient(app, raise_server_exceptions=True) as c:
@@ -543,13 +545,14 @@ class TestTutorChatEndpoint:
              patch("backend.services.allowance.has_tutor_entitlement",
                    new=AsyncMock(return_value=True)), \
              patch("backend.services.allowance.count_tutor_messages",
-                   new=AsyncMock(return_value=1000)):
+                   new=AsyncMock(return_value=1020)):
             resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
         assert resp.status_code == 402
         detail = resp.json()["detail"]
         assert detail["code"] == "allowance_exhausted"
         assert detail["tier"] == "plus"        # fair-use pool, resets on the 1st
-        assert detail["limit"] == 1000
+        # The AI add-on pool is ADDED to the plan's base (free 20 + 1000).
+        assert detail["limit"] == 1020
 
     def test_plan_scaled_monthly_allowances(self, client):
         # A language plan includes a monthly tutor allowance: all 300,

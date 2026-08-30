@@ -21,8 +21,17 @@ vi.mock('../api/tutor', async () => ({
   resolveMasterySuggestion: vi.fn(),
 }))
 
-vi.mock('../api/billing', () => ({
+vi.mock('../api/billing', async (orig) => ({
+  ...(await orig()),
   createCheckout: vi.fn(),
+  createTopupCheckout: vi.fn(),
+  // Monetization ON by default so the upsell paths are exercisable; the
+  // master-switch test overrides this to false.
+  getPlanPrices: vi.fn(() =>
+    Promise.resolve({
+      single: null, all: null, custom: null, monetization: true,
+      topup: { amount_cents: 500, currency: 'usd', messages: 200 },
+    })),
 }))
 
 vi.mock('../stores/prefsStore', () => ({
@@ -38,7 +47,7 @@ import {
   resolveMasterySuggestion,
   TutorTurnError,
 } from '../api/tutor'
-import { createCheckout } from '../api/billing'
+import { createCheckout, createTopupCheckout, getPlanPrices } from '../api/billing'
 
 const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
 const mockGetTutorStatus = getTutorStatus as ReturnType<typeof vi.fn>
@@ -46,6 +55,8 @@ const mockSendTutorMessage = sendTutorMessage as ReturnType<typeof vi.fn>
 const mockStreamTutorMessage = streamTutorMessage as ReturnType<typeof vi.fn>
 const mockEndTutorSession = endTutorSession as ReturnType<typeof vi.fn>
 const mockCreateCheckout = createCheckout as ReturnType<typeof vi.fn>
+const mockCreateTopupCheckout = createTopupCheckout as ReturnType<typeof vi.fn>
+const mockGetPlanPrices = getPlanPrices as ReturnType<typeof vi.fn>
 
 const turkish = { id: 'lang-tr', code: 'tr', name: 'Turkish', rtl: false }
 
@@ -112,7 +123,7 @@ describe('TutorPage', () => {
     expect(meter.textContent).toContain('Monthly usage')
     expect(meter.textContent).toContain('30% used') // 6 of 20 drawn
     expect(meter.textContent).not.toContain('messages')
-    expect(meter.textContent).toContain('flat price') // the Plus line
+    expect(meter.textContent).toContain('flat monthly') // the add-AI line
     expect(screen.getByPlaceholderText(/message your tutor/i)).toBeDefined()
   })
 
@@ -122,10 +133,10 @@ describe('TutorPage', () => {
     const meter = await screen.findByTestId('tutor-allowance')
     expect(meter.textContent).toContain('7% used') // 7 of 100 drawn
     expect(meter.textContent).toContain('Resets')
-    expect(meter.textContent).not.toContain('flat price')
+    expect(meter.textContent).not.toContain('flat monthly')
   })
 
-  it('exhausted free tier blocks input and offers flat-price Plus', async () => {
+  it('exhausted free tier blocks input and offers the flat-price AI add-on', async () => {
     mockGetTutorStatus.mockResolvedValue(statusWith(freeAllowance(0)))
     mockCreateCheckout.mockResolvedValue({ granted: false, url: 'https://checkout.stripe/x' })
     const original = window.location
@@ -134,10 +145,10 @@ describe('TutorPage', () => {
 
     const panel = await screen.findByTestId('tutor-exhausted')
     expect(panel.textContent).toContain('all of this month’s usage')
-    expect(panel.textContent).toContain('flat price')
+    expect(panel.textContent).toContain('flat monthly')
     expect(screen.queryByPlaceholderText(/message your tutor/i)).toBeNull()
 
-    fireEvent.click(screen.getByRole('button', { name: /get plus for turkish/i }))
+    fireEvent.click(screen.getByRole('button', { name: /add ai for turkish/i }))
     await waitFor(() => {
       expect(mockCreateCheckout).toHaveBeenCalledWith('lang-tr')
       expect(window.location.href).toBe('https://checkout.stripe/x')
@@ -151,7 +162,47 @@ describe('TutorPage', () => {
     const panel = await screen.findByTestId('tutor-exhausted')
     expect(panel.textContent).toContain('this month’s usage limit')
     expect(panel.textContent).toContain('price never changes')
-    expect(screen.queryByRole('button', { name: /get plus/i })).toBeNull()
+    expect(screen.queryByRole('button', { name: /add ai/i })).toBeNull()
+  })
+
+  it('a top-up buys this month’s messages from the exhausted panel', async () => {
+    mockGetTutorStatus.mockResolvedValue(statusWith(freeAllowance(0)))
+    mockCreateTopupCheckout.mockResolvedValue({
+      granted: false, url: 'https://checkout.stripe/topup',
+    })
+    const original = window.location
+    Object.defineProperty(window, 'location', { value: { href: '' }, writable: true })
+    renderPage()
+
+    const button = await screen.findByTestId('tutor-topup')
+    // The button names the deal: how many messages, this month, the price.
+    expect(button.textContent).toContain('+200')
+    expect(button.textContent).toContain('$5')
+    fireEvent.click(button)
+    await waitFor(() => {
+      expect(mockCreateTopupCheckout).toHaveBeenCalled()
+      expect(window.location.href).toBe('https://checkout.stripe/topup')
+    })
+    Object.defineProperty(window, 'location', { value: original, writable: true })
+  })
+
+  it('sells nothing anywhere while monetization is off', async () => {
+    // The master switch (owner: money features stay off until the employer
+    // clearance lands): no upsell under the meter, and the exhausted panel
+    // states the reset date without a single purchase button.
+    // Once, so the factory's monetization-on default returns for the
+    // rest of the file (clearAllMocks keeps implementations).
+    mockGetPlanPrices.mockResolvedValueOnce({
+      single: null, all: null, custom: null, monetization: false, topup: null,
+    })
+    mockGetTutorStatus.mockResolvedValue(statusWith(freeAllowance(0)))
+    renderPage()
+
+    const panel = await screen.findByTestId('tutor-exhausted')
+    expect(panel.textContent).toContain('It refreshes on')
+    expect(panel.textContent).not.toContain('flat monthly')
+    expect(screen.queryByTestId('tutor-topup')).toBeNull()
+    expect(screen.queryByRole('button', { name: /add ai/i })).toBeNull()
   })
 
   it('shows unavailable state when the tutor is not configured', async () => {

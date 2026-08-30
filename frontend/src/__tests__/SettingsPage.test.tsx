@@ -70,7 +70,8 @@ vi.mock('../api/review', () => ({
 vi.mock('../api/onboarding', () => ({ setLearnerLevel: vi.fn() }))
 vi.mock('../api/billing', async (orig) => ({
   ...(await orig<typeof import('../api/billing')>()),
-  getPlanPrices: vi.fn(() => Promise.resolve({ single: null, all: null })),
+  getPlanPrices: vi.fn(() =>
+    Promise.resolve({ single: null, all: null, monetization: true })),
   startPlanCheckout: vi.fn(() => Promise.resolve({ granted: true, url: null })),
   openBillingPortal: vi.fn(() => Promise.resolve('https://stripe.example/portal')),
 }))
@@ -210,6 +211,7 @@ describe('SettingsPage', () => {
     ;(getPlanPrices as ReturnType<typeof vi.fn>).mockResolvedValue({
       single: { amount_cents: 500, currency: 'usd', interval: 'month' },
       all: { amount_cents: 900, currency: 'usd', interval: 'month' },
+      monetization: true,
     })
     mockGetProfile.mockResolvedValue({
       batch_size: 5, ui_language: 'en', active_language_id: 'lang-es',

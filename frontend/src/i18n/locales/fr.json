@@ -226,8 +226,8 @@
     "noPastSessions": "Pas encore de sessions passées — elles apparaissent ici quand vous en terminez une.",
     "messages_one": "{{count}} message",
     "messages_other": "{{count}} messages",
-    "plus": "Plus",
-    "plusNote": "est un prix fixe avec beaucoup plus d’utilisation mensuelle — jamais facturé à l’usage.",
+    "plus": "Ajouter l’IA",
+    "plusNote": "à votre forfait — un supplément mensuel à prix fixe, jamais facturé à l’usage.",
     "greeting": "Bonjour ! Je suis votre tuteur de {{language}}. Je vois quels mots vous posent problème dans vos révisions. Dites bonjour, ou demandez-moi de travailler vos points faibles.",
     "thinking": "Le tuteur réfléchit…",
     "stop": "Arrêter",
@@ -236,15 +236,17 @@
     "scrollBottom": "Descendre en bas",
     "scrollBottomTitle": "Retour au dernier message",
     "exhaustedFree": "Vous avez épuisé l’utilisation de ce mois-ci — elle se renouvelle le {{date}}.",
-    "plusPitch": "Plus est un <strong>prix fixe</strong> avec beaucoup plus d’utilisation mensuelle — vous n’êtes jamais facturé à l’usage.",
+    "plusPitch": "Ajouter l’IA, c’est un <strong>prix mensuel fixe</strong> pour une réserve complète de messages — jamais facturé à l’usage.",
     "starting": "Démarrage…",
-    "getPlus": "Passer à Plus pour {{language}}",
+    "getPlus": "Ajouter l’IA pour {{language}}",
     "checkoutError": "Impossible de lancer le paiement — réessayez.",
     "exhaustedPaid": "Vous avez atteint la limite d’utilisation de ce mois-ci. Elle se renouvelle le {{date}} — rien de plus à payer, votre prix ne change jamais avec l’usage.",
     "inputPlaceholder": "Écrivez à votre tuteur…",
     "send": "Envoyer",
     "sendError": "Le tuteur n’a pas pu répondre. Vérifiez votre connexion et réessayez.",
-    "soon": "bientôt"
+    "soon": "bientôt",
+    "exhausted": "Vous avez atteint la limite d’utilisation de ce mois-ci. Elle se renouvelle le {{date}}.",
+    "topup": "+{{messages}} messages ce mois-ci — {{price}}"
   },
   "gym": {
     "title": "La Gym",
@@ -861,7 +863,8 @@
     "finished": "Terminé",
     "yourRating": "Votre note",
     "rateStar": "Noter {{count}} sur 5",
-    "draftFailed": "La préparation de vos recommandations a échoué — réessayez dans un instant."
+    "draftFailed": "La préparation de vos recommandations a échoué — réessayez dans un instant.",
+    "unavailable": "Les recommandations personnalisées ne sont pas encore disponibles sur votre compte."
   },
   "onboarding": {
     "back": "Retour",
@@ -890,10 +893,10 @@
     "planHelp": "Étudiez seulement {{language}}, ou débloquez toutes les langues. Vous pourrez évoluer à tout moment dans les réglages.",
     "singleOnly": "{{language}} seulement",
     "singlePriced": "Une langue — {{price}}",
-    "singleUnpriced": "Une langue, au tarif le plus bas",
+    "singleUnpriced": "Seulement la langue que vous apprenez",
     "allLanguages": "Toutes les langues",
     "allPriced": "Toutes nos langues — {{price}}",
-    "allUnpriced": "Toutes nos langues, un seul prix",
+    "allUnpriced": "Toutes les langues proposées",
     "billingNote": "La facturation n’a pas encore été lancée — les premiers comptes gardent gratuitement l’accès complet à leur choix, et conservent leur prix quand les forfaits seront lancés.",
     "startLearning": "Commencer à apprendre"
   },
@@ -1219,7 +1222,8 @@
     "mediaHint": "Laissez tout désactivé pour nous laisser choisir parmi tout.",
     "saving": "Enregistrement…",
     "save": "Enregistrer",
-    "saveError": "Enregistrement impossible — réessayez."
+    "saveError": "Enregistrement impossible — réessayez.",
+    "unavailable": "La réception de sélections n’est pas encore disponible sur votre compte — vous pouvez tout de même remplir votre profil."
   },
   "gymForms": {
     "anLocativeFocus": "-an focus locatif",

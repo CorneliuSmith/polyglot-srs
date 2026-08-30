@@ -226,8 +226,8 @@
     "noPastSessions": "Aún no hay sesiones anteriores — aparecerán aquí cuando termines una.",
     "messages_one": "{{count}} mensaje",
     "messages_other": "{{count}} mensajes",
-    "plus": "Plus",
-    "plusNote": "es un precio fijo con mucho más uso mensual — nunca se cobra por lo que usas.",
+    "plus": "Añade IA",
+    "plusNote": "a tu plan — un complemento mensual de precio fijo; nunca se cobra por lo que usas.",
     "greeting": "¡Hola! Soy tu tutor de {{language}}. Puedo ver con qué palabras has tenido dificultades en tus repasos. Salúdame, o pídeme que entrenemos tus puntos débiles.",
     "thinking": "El tutor está pensando…",
     "stop": "Detener",
@@ -236,15 +236,17 @@
     "scrollBottom": "Ir abajo",
     "scrollBottomTitle": "Volver al último mensaje",
     "exhaustedFree": "Has agotado el uso de este mes — se renueva el {{date}}.",
-    "plusPitch": "Plus es un <strong>precio fijo</strong> con mucho más uso mensual — nunca se te cobra por lo que usas.",
+    "plusPitch": "Añadir IA es un <strong>precio mensual fijo</strong> con una reserva completa de mensajes — nunca se te cobra por el uso.",
     "starting": "Iniciando…",
-    "getPlus": "Consigue Plus para {{language}}",
+    "getPlus": "Añadir IA para {{language}}",
     "checkoutError": "No se pudo iniciar el pago — inténtalo de nuevo.",
     "exhaustedPaid": "Alcanzaste el límite de uso de este mes. Se renueva el {{date}} — no hay nada extra que pagar; tu precio nunca cambia según el uso.",
     "inputPlaceholder": "Escríbele a tu tutor…",
     "send": "Enviar",
     "sendError": "El tutor no pudo responder. Revisa tu conexión e inténtalo de nuevo.",
-    "soon": "pronto"
+    "soon": "pronto",
+    "exhausted": "Has llegado al límite de uso de este mes. Se renueva el {{date}}.",
+    "topup": "+{{messages}} mensajes este mes — {{price}}"
   },
   "gym": {
     "title": "El Gimnasio",
@@ -861,7 +863,8 @@
     "finished": "Terminado",
     "yourRating": "Tu valoración",
     "rateStar": "Valorar con {{count}} de 5",
-    "draftFailed": "No se pudieron generar tus recomendaciones; inténtalo de nuevo en un momento."
+    "draftFailed": "No se pudieron generar tus recomendaciones; inténtalo de nuevo en un momento.",
+    "unavailable": "Las recomendaciones personalizadas aún no están disponibles en tu cuenta."
   },
   "onboarding": {
     "back": "Atrás",
@@ -890,10 +893,10 @@
     "planHelp": "Estudia solo {{language}} o desbloquea todos los idiomas. Puedes mejorar tu plan cuando quieras en Ajustes.",
     "singleOnly": "Solo {{language}}",
     "singlePriced": "Un idioma — {{price}}",
-    "singleUnpriced": "Un idioma al precio más bajo",
+    "singleUnpriced": "Solo el idioma que estudias",
     "allLanguages": "Todos los idiomas",
     "allPriced": "Todos los idiomas que ofrecemos — {{price}}",
-    "allUnpriced": "Todos los idiomas que ofrecemos, un solo precio",
+    "allUnpriced": "Todos los idiomas que ofrecemos",
     "billingNote": "La facturación aún no se ha lanzado — las cuentas tempranas conservan gratis el acceso completo a su elección, y mantienen su precio cuando los planes entren en vigor.",
     "startLearning": "Empezar a aprender"
   },
@@ -1219,7 +1222,8 @@
     "mediaHint": "Déjalo todo desactivado para que elijamos entre todo.",
     "saving": "Guardando…",
     "save": "Guardar",
-    "saveError": "No se pudo guardar — inténtalo de nuevo."
+    "saveError": "No se pudo guardar — inténtalo de nuevo.",
+    "unavailable": "Recibir selecciones aún no está disponible en tu cuenta — puedes configurar tu perfil de todos modos."
   },
   "gymForms": {
     "anLocativeFocus": "-an foco locativo",

@@ -176,6 +176,51 @@ async def set_custom_price(
     return True
 
 
+async def _topups_present(conn: asyncpg.Connection) -> bool:
+    """Whether migration 20261006 has landed. to_regclass, never raises —
+    a thrown UndefinedTableError would abort the pooled transaction."""
+    return bool(
+        await conn.fetchval("SELECT to_regclass('allowance_topups') IS NOT NULL")
+    )
+
+
+async def grant_topup(
+    conn: asyncpg.Connection, user_id: str, messages: int, external_id: str
+) -> bool:
+    """Record a purchased top-up. external_id (the Stripe Checkout session
+    id; 'mock-*' in dev-mock) is UNIQUE, so webhook retries and
+    double-deliveries grant exactly once — the duplicate INSERT is a no-op.
+    Returns False when migration 20261006 hasn't been applied."""
+    if not await _topups_present(conn):
+        return False
+    await conn.execute(
+        """
+        INSERT INTO allowance_topups (user_id, messages, external_id)
+        VALUES ($1, $2, $3)
+        ON CONFLICT (external_id) DO NOTHING
+        """,
+        user_id, messages, external_id,
+    )
+    return True
+
+
+async def count_topup_messages(
+    conn: asyncpg.Connection, user_id: str, window_start: datetime
+) -> int:
+    """Messages purchased in the current window. A top-up belongs to the
+    calendar month it was bought in — one SUM over the window, no mutable
+    credit ledger. Missing migration reads as 0 on purpose."""
+    if not await _topups_present(conn):
+        return 0
+    return await conn.fetchval(
+        """
+        SELECT COALESCE(SUM(messages), 0) FROM allowance_topups
+        WHERE user_id = $1 AND created_at >= $2
+        """,
+        user_id, window_start,
+    )
+
+
 async def deactivate_plan_by_subscription(
     conn: asyncpg.Connection, subscription_id: str
 ) -> int:

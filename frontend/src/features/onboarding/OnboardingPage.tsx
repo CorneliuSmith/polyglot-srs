@@ -76,6 +76,10 @@ export default function OnboardingPage() {
   })
   const singlePrice = formatPrice(planPrices?.single ?? null)
   const allPrice = formatPrice(planPrices?.all ?? null)
+  // Monetization off: the step is a pure SCOPE choice (which languages you
+  // want) — prices already come back null, and the billing note is hidden
+  // so nothing on the screen mentions payment.
+  const monetization = planPrices?.monetization === true
 
   const { data: allLanguages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
   // A language an admin has hidden doesn't offer itself to new learners.
@@ -488,9 +492,11 @@ export default function OnboardingPage() {
                   : t('onboarding.allUnpriced')}
               </span>
             </button>
-            <p className="text-xs text-gray-500">
-              {t('onboarding.billingNote')}
-            </p>
+            {monetization && (
+              <p className="text-xs text-gray-500">
+                {t('onboarding.billingNote')}
+              </p>
+            )}
             <button
               type="button"
               onClick={() => finishMutation.mutate()}

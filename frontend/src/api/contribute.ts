@@ -1553,9 +1553,26 @@ export type PlanTier = 'free' | 'single' | 'all' | 'plus'
 
 export const PLAN_TIER_LABELS: Record<PlanTier, string> = {
   free: 'Free',
-  single: 'Single language',
+  single: 'Single language (no AI included)',
   all: 'All languages',
-  plus: 'Plus (tutor add-on)',
+  plus: 'AI add-on (added to the plan base)',
+}
+
+// ── Monetization master switch (admin) ─────────────────────────────────────
+// OFF (the default) hides every money surface in the app — prices, upgrade
+// buttons, top-ups, the tip jar — and closes the checkout endpoints. The
+// owner flips it here once cleared to charge.
+
+export async function getMonetization(): Promise<boolean> {
+  const response = await apiClient.get('/api/contribute/monetization')
+  return response.data.enabled
+}
+
+export async function setMonetization(enabled: boolean): Promise<boolean> {
+  const response = await apiClient.put('/api/contribute/monetization', {
+    enabled,
+  })
+  return response.data.enabled
 }
 
 export async function getPlanLimits(): Promise<Record<PlanTier, number>> {

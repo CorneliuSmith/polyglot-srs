@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   PLAN_TIER_LABELS,
+  getMonetization,
   getPlanLimits,
+  setMonetization,
   setPlanLimit,
   type PlanTier,
 } from '../../api/contribute'
@@ -66,6 +68,70 @@ function TierRow({
   )
 }
 
+/**
+ * The monetization master switch (owner: money features stay off until the
+ * employer conflict-of-interest clearance lands, then one toggle turns
+ * them on). While OFF, nothing payment-shaped exists anywhere in the app:
+ * no prices, upgrade buttons, AI top-ups, billing links, or the tip jar —
+ * and the checkout endpoints refuse. Learners just see neutral copy.
+ */
+function MonetizationSwitch() {
+  const queryClient = useQueryClient()
+  const { data: enabled, isLoading } = useQuery({
+    queryKey: ['monetization'],
+    queryFn: getMonetization,
+    retry: false,
+  })
+  const mutation = useMutation({
+    mutationFn: (next: boolean) => setMonetization(next),
+    onSuccess: (next) => {
+      queryClient.setQueryData(['monetization'], next)
+      // The learner-facing flag rides on plan-prices — refetch so the
+      // admin's own session reflects the flip without a reload.
+      queryClient.invalidateQueries({ queryKey: ['plan-prices'] })
+    },
+  })
+
+  return (
+    <section
+      data-testid="monetization-switch"
+      className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3"
+    >
+      <div className="flex flex-wrap items-center gap-3">
+        <div className="min-w-0 flex-1">
+          <h2 className="font-semibold text-gray-800">Money features</h2>
+          <p className="text-xs text-gray-500">
+            The master switch. Off: no prices, upgrade buttons, AI top-ups,
+            billing links, or the tip jar appear anywhere, and checkout is
+            closed. Turn on only once you're cleared to charge.
+          </p>
+        </div>
+        <button
+          type="button"
+          role="switch"
+          aria-checked={enabled === true}
+          disabled={isLoading || mutation.isPending}
+          onClick={() => mutation.mutate(!enabled)}
+          className={
+            'rounded-full px-4 py-1.5 text-xs font-semibold border disabled:opacity-40 ' +
+            (enabled
+              ? 'bg-emerald-600 border-emerald-600 text-white'
+              : 'bg-gray-100 border-gray-300 text-gray-700')
+          }
+        >
+          {isLoading ? '…' : enabled ? 'On' : 'Off'}
+        </button>
+      </div>
+      {mutation.isError && (
+        <p className="text-sm text-red-600">
+          That didn't save — if this deploy predates migration 20261006, the
+          switch has nowhere to live yet (it reads as Off either way).
+        </p>
+      )}
+    </section>
+  )
+}
+
 export default function PlanLimitsPanel() {
   const queryClient = useQueryClient()
   const [savingTier, setSavingTier] = useState<PlanTier | null>(null)
@@ -87,6 +153,8 @@ export default function PlanLimitsPanel() {
   })
 
   return (
+    <div className="space-y-4">
+    <MonetizationSwitch />
     <section
       data-testid="plan-limits"
       className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3"
@@ -130,8 +198,11 @@ export default function PlanLimitsPanel() {
       )}
       <p className="text-[11px] text-gray-500">
         A per-account override (Accounts → tutor access) still wins over the
-        tier default for that one person.
+        tier default for that one person. The AI add-on's pool is added ON
+        TOP of the plan's base — single (0) + add-on = the "with AI"
+        account; one-time top-ups stack the same way for one month.
       </p>
     </section>
+    </div>
   )
 }

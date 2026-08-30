@@ -149,6 +149,45 @@ def create_priced_plan_checkout_session(
     return {"url": session["url"], "session_id": session["id"]}
 
 
+def create_topup_checkout_session(
+    *,
+    user_id: str,
+    customer_id: str,
+    success_url: str,
+    cancel_url: str,
+) -> dict:
+    """One-time Checkout for an AI top-up (mode='payment', no subscription).
+
+    The price is inline from Settings — no dashboard Price object — and
+    metadata.kind='topup' is what routes the completed-session webhook to
+    the top-up grant instead of the subscription lanes.
+    """
+    settings = get_settings()
+    session = _stripe().checkout.Session.create(
+        mode="payment",
+        customer=customer_id,
+        line_items=[{
+            "price_data": {
+                "currency": "usd",
+                "unit_amount": settings.topup_price_cents,
+                "product_data": {
+                    "name": f"AI top-up — {settings.topup_messages} messages this month",
+                },
+            },
+            "quantity": 1,
+        }],
+        client_reference_id=user_id,
+        metadata={
+            "kind": "topup",
+            "user_id": user_id,
+            "messages": str(settings.topup_messages),
+        },
+        success_url=success_url,
+        cancel_url=cancel_url,
+    )
+    return {"url": session["url"], "session_id": session["id"]}
+
+
 def create_portal_session(*, customer_id: str, return_url: str) -> str:
     """A Stripe Billing Portal URL — upgrades/downgrades prorate there."""
     session = _stripe().billing_portal.Session.create(
@@ -299,3 +338,33 @@ def extract_plan_change(event) -> dict | None:
             return _grant(obj.get("metadata") or {}, obj.get("id"))
 
     return None
+
+
+def extract_topup(event) -> dict | None:
+    """Map a Stripe event to a top-up grant, or None.
+
+    One-time payments only complete — there is no lifecycle to track — so
+    the only event that matters is checkout.session.completed with
+    metadata.kind='topup'. The session id rides along as the idempotency
+    key: grant_topup's UNIQUE external_id makes a redelivered event a no-op.
+
+    Returns {"user_id", "messages", "session_id"} or None.
+    """
+    if event["type"] != "checkout.session.completed":
+        return None
+    obj = event["data"]["object"]
+    meta = obj.get("metadata") or {}
+    if meta.get("kind") != "topup":
+        return None
+    user_id = obj.get("client_reference_id") or meta.get("user_id")
+    try:
+        messages = int(meta.get("messages") or 0)
+    except (TypeError, ValueError):
+        return None
+    if not user_id or messages <= 0:
+        return None
+    return {
+        "user_id": user_id,
+        "messages": messages,
+        "session_id": obj.get("id"),
+    }

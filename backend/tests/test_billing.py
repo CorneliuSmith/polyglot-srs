@@ -37,6 +37,11 @@ class FakeSettings:
     stripe_price_all = "price_all"
     stripe_dev_mock = True
     app_base_url = "https://app.example"
+    topup_price_cents = 500
+    topup_messages = 200
+
+
+TOPUP_PRICE = {"amount_cents": 500, "currency": "usd", "messages": 200}
 
 
 def _auth_headers() -> dict:
@@ -137,9 +142,13 @@ def client():
          patch("backend.routers.billing.get_settings", return_value=FakeSettings()), \
          patch("backend.services.billing.get_settings", return_value=FakeSettings()), \
          patch("backend.routers.billing.privileged_connection", _fake_priv), \
+         patch("backend.routers.billing.monetization_enabled",
+               new=AsyncMock(return_value=True)), \
          patch("backend.routers.billing.get_custom_price",
                new=AsyncMock(return_value=None)):
-        # No admin-set price by default; the custom-pricing tests override.
+        # Monetization ON so the purchase paths are exercisable; the
+        # master-switch tests below patch it off. No admin-set price by
+        # default; the custom-pricing tests override.
         app = create_app()
         with TestClient(app, raise_server_exceptions=True) as c:
             yield c
@@ -197,6 +206,8 @@ def test_checkout_real_mode_returns_url():
          patch("backend.routers.billing.get_settings", return_value=RealSettings()), \
          patch("backend.services.billing.get_settings", return_value=RealSettings()), \
          patch("backend.routers.billing.privileged_connection", _fake_priv), \
+         patch("backend.routers.billing.monetization_enabled",
+               new=AsyncMock(return_value=True)), \
          patch("backend.routers.billing.get_customer_id", new=AsyncMock(return_value=None)), \
          patch("backend.routers.billing.save_customer_id", new=AsyncMock()), \
          patch("backend.services.billing.create_customer", return_value="cus_new"), \
@@ -310,9 +321,12 @@ class TestPlanEndpoints:
         assert resp.status_code == 503
 
     def test_prices_null_until_configured(self, client):
+        # Plan prices need Stripe Price ids; the top-up is priced inline
+        # from Settings so dev-mock alone already quotes it.
         resp = client.get("/api/billing/plan/prices", headers=_auth_headers())
         assert resp.status_code == 200
-        assert resp.json() == {"single": None, "all": None, "custom": None}
+        assert resp.json() == {"single": None, "all": None, "custom": None,
+                               "topup": TOPUP_PRICE, "monetization": True}
 
     def test_portal_503_when_not_configured(self, client):
         resp = client.post("/api/billing/portal", headers=_auth_headers())
@@ -361,7 +375,8 @@ class TestCustomPricing:
         # Mirrored onto both scopes: the charge is per ACCOUNT, whichever
         # plan shape they pick, so existing price displays need no changes.
         assert resp.json() == {"single": priced, "all": priced,
-                               "custom": priced}
+                               "custom": priced, "topup": TOPUP_PRICE,
+                               "monetization": True}
 
     def test_zero_priced_account_subscribes_free_without_stripe(self):
         """0 cents = free. No key, no dev-mock, no Stripe round trip — the
@@ -375,6 +390,8 @@ class TestCustomPricing:
              patch("backend.routers.billing.get_settings", return_value=unpaid), \
              patch("backend.services.billing.get_settings", return_value=unpaid), \
              patch("backend.routers.billing.privileged_connection", _fake_priv), \
+             patch("backend.routers.billing.monetization_enabled",
+                   new=AsyncMock(return_value=True)), \
              patch("backend.routers.billing.get_custom_price",
                    new=AsyncMock(return_value={
                        "monthly_cents": 0, "currency": "usd", "note": None})), \
@@ -407,6 +424,8 @@ class TestCustomPricing:
              patch("backend.routers.billing.get_settings", return_value=PricedSettings()), \
              patch("backend.services.billing.get_settings", return_value=PricedSettings()), \
              patch("backend.routers.billing.privileged_connection", _fake_priv), \
+             patch("backend.routers.billing.monetization_enabled",
+                   new=AsyncMock(return_value=True)), \
              patch("backend.routers.billing.get_custom_price",
                    new=AsyncMock(return_value={
                        "monthly_cents": 750, "currency": "usd", "note": None})), \
@@ -481,3 +500,215 @@ class TestCustomPriceRepo:
         conn.fetchval = AsyncMock(return_value=True)
         assert await set_custom_price(conn, TEST_USER_ID, None) is True
         assert "DELETE FROM custom_prices" in conn.execute.await_args.args[0]
+
+
+# ── the monetization master switch ───────────────────────────────────────────
+
+class TestMonetizationSwitch:
+    """OFF (the default, and the state before migration 20261006 lands)
+    means every purchase path 503s and /plan/prices tells the UI to show
+    no money surface at all. The owner flips it from the admin panel."""
+
+    def _off(self):
+        return patch("backend.routers.billing.monetization_enabled",
+                     new=AsyncMock(return_value=False))
+
+    def test_prices_say_monetization_off(self, client):
+        with self._off():
+            resp = client.get("/api/billing/plan/prices",
+                              headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"single": None, "all": None, "custom": None,
+                               "topup": None, "monetization": False}
+
+    def test_every_purchase_path_is_closed(self, client):
+        with self._off():
+            checkout = client.post("/api/billing/checkout",
+                                   json={"language_id": LANG},
+                                   headers=_auth_headers())
+            plan = client.post("/api/billing/plan/checkout",
+                               json={"plan_scope": "all"},
+                               headers=_auth_headers())
+            topup = client.post("/api/billing/topup", headers=_auth_headers())
+            portal = client.post("/api/billing/portal", headers=_auth_headers())
+        assert {r.status_code for r in (checkout, plan, topup, portal)} == {503}
+
+
+# ── one-time AI top-ups ──────────────────────────────────────────────────────
+
+class TestExtractTopup:
+    def _completed(self, meta, session_id="cs_t1"):
+        return {"type": "checkout.session.completed", "data": {"object": {
+            "id": session_id, "metadata": meta,
+            "client_reference_id": meta.get("user_id"),
+        }}}
+
+    def test_completed_topup_grants(self):
+        grant = billing.extract_topup(self._completed({
+            "kind": "topup", "user_id": TEST_USER_ID, "messages": "200",
+        }))
+        assert grant == {"user_id": TEST_USER_ID, "messages": 200,
+                         "session_id": "cs_t1"}
+
+    def test_other_kinds_never_grant_a_topup(self):
+        # A plan or tutor checkout completing must not also add messages.
+        assert billing.extract_topup(self._completed({
+            "kind": "plan", "user_id": TEST_USER_ID,
+            "plan_scope": "all", "plan_language_id": "",
+        })) is None
+        assert billing.extract_topup(self._completed({
+            "user_id": TEST_USER_ID, "language_id": LANG,
+        })) is None
+
+    def test_topup_event_never_grants_plan_or_tutor(self):
+        event = self._completed({
+            "kind": "topup", "user_id": TEST_USER_ID, "messages": "200",
+        })
+        assert billing.extract_plan_change(event) is None
+        assert billing.extract_entitlement_change(event) is None
+
+    def test_bad_message_counts_are_rejected(self):
+        for messages in ("", "0", "-5", "abc", None):
+            assert billing.extract_topup(self._completed({
+                "kind": "topup", "user_id": TEST_USER_ID,
+                "messages": messages,
+            })) is None
+
+    def test_subscription_events_are_ignored(self):
+        assert billing.extract_topup(
+            {"type": "customer.subscription.deleted",
+             "data": {"object": {"id": "sub_1"}}}
+        ) is None
+
+
+class TestTopupEndpoint:
+    def test_requires_auth(self, client):
+        assert client.post("/api/billing/topup").status_code == 401
+
+    def test_dev_mock_grants_directly(self, client):
+        with patch("backend.routers.billing.grant_topup",
+                   new=AsyncMock(return_value=True)) as grant:
+            resp = client.post("/api/billing/topup", headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"granted": True, "url": None}
+        args = grant.await_args.args
+        assert args[1:3] == (TEST_USER_ID, 200)
+        # dev-mock still gets a unique idempotency key per purchase — two
+        # mock top-ups are two rows, not one deduplicated one.
+        assert args[3].startswith("mock-")
+
+    def test_dev_mock_503_before_the_migration(self, client):
+        with patch("backend.routers.billing.grant_topup",
+                   new=AsyncMock(return_value=False)):
+            resp = client.post("/api/billing/topup", headers=_auth_headers())
+        assert resp.status_code == 503
+        assert "20261006" in resp.json()["detail"]
+
+    def test_webhook_records_the_grant_with_the_session_id(self, client):
+        event = {"type": "checkout.session.completed", "data": {"object": {
+            "id": "cs_t9", "client_reference_id": TEST_USER_ID,
+            "metadata": {"kind": "topup", "user_id": TEST_USER_ID,
+                         "messages": "200"},
+        }}}
+        with patch("backend.services.billing.construct_event",
+                   return_value=event), \
+             patch("backend.routers.billing.grant_topup",
+                   new=AsyncMock(return_value=True)) as grant:
+            resp = client.post("/api/billing/webhook", content=b"{}",
+                               headers={"Stripe-Signature": "sig"})
+        assert resp.status_code == 200
+        assert grant.await_args.args[1:] == (TEST_USER_ID, 200, "cs_t9")
+
+    def test_session_builds_a_one_time_payment(self):
+        fake_stripe = type("S", (), {})()
+        captured = {}
+
+        class _Session:
+            @staticmethod
+            def create(**kwargs):
+                captured.update(kwargs)
+                return {"url": "https://checkout/t", "id": "cs_t2"}
+
+        fake_stripe.checkout = type("C", (), {"Session": _Session})()
+        with patch("backend.services.billing._stripe",
+                   return_value=fake_stripe), \
+             patch("backend.services.billing.get_settings",
+                   return_value=FakeSettings()):
+            out = billing.create_topup_checkout_session(
+                user_id=TEST_USER_ID, customer_id="cus_7",
+                success_url="s", cancel_url="c",
+            )
+        assert out["url"] == "https://checkout/t"
+        assert captured["mode"] == "payment"          # one-time, never a sub
+        item = captured["line_items"][0]["price_data"]
+        assert item["unit_amount"] == 500
+        assert "recurring" not in item
+        assert captured["metadata"] == {
+            "kind": "topup", "user_id": TEST_USER_ID, "messages": "200",
+        }
+
+
+class TestTopupRepo:
+    """Degrades on a missing migration: counts read 0, grants say 'cannot'
+    so the endpoint can name the fix instead of failing silently."""
+
+    @pytest.mark.asyncio
+    async def test_count_is_zero_before_the_migration(self):
+        from backend.repositories.billing import count_topup_messages
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=None)  # to_regclass miss
+        from datetime import UTC, datetime
+        assert await count_topup_messages(
+            conn, TEST_USER_ID, datetime.now(UTC)) == 0
+
+    @pytest.mark.asyncio
+    async def test_grant_refuses_before_the_migration(self):
+        from backend.repositories.billing import grant_topup
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=None)
+        assert await grant_topup(conn, TEST_USER_ID, 200, "cs_1") is False
+        conn.execute.assert_not_awaited()
+
+    @pytest.mark.asyncio
+    async def test_grant_inserts_with_conflict_do_nothing(self):
+        from backend.repositories.billing import grant_topup
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=True)
+        assert await grant_topup(conn, TEST_USER_ID, 200, "cs_1") is True
+        sql = conn.execute.await_args.args[0]
+        assert "ON CONFLICT (external_id) DO NOTHING" in sql
+
+
+class TestFlagsRepo:
+    """app_flags reads default OFF — including before migration 20261006 —
+    and writes refuse so the admin toggle can 503 naming the migration."""
+
+    @pytest.mark.asyncio
+    async def test_missing_table_reads_as_the_default(self):
+        from backend.repositories.flags import get_flag
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=None)
+        assert await get_flag(conn, "monetization") is False
+        assert await get_flag(conn, "monetization", default=True) is True
+
+    @pytest.mark.asyncio
+    async def test_missing_row_reads_as_the_default(self):
+        from backend.repositories.flags import get_flag
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(side_effect=[True, None])
+        assert await get_flag(conn, "monetization") is False
+
+    @pytest.mark.asyncio
+    async def test_stored_value_wins(self):
+        from backend.repositories.flags import get_flag
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(side_effect=[True, True])
+        assert await get_flag(conn, "monetization") is True
+
+    @pytest.mark.asyncio
+    async def test_write_refuses_before_the_migration(self):
+        from backend.repositories.flags import set_flag
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=None)
+        assert await set_flag(conn, "monetization", True, TEST_USER_ID) is False
+        conn.execute.assert_not_awaited()

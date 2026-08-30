@@ -239,6 +239,10 @@ export default function SettingsPage() {
     retry: false,
   })
   const allPrice = formatPrice(planPrices?.all ?? null)
+  // The monetization master switch: off (or unknown) hides every money
+  // control here — the upgrade button and the billing link. The plan
+  // NAME still shows; what you're on isn't a payment mention.
+  const monetization = planPrices?.monetization === true
   const [billingUnavailable, setBillingUnavailable] = useState(false)
 
   // Upgrade (single → all): dev-mock grants directly; real mode redirects
@@ -634,7 +638,7 @@ export default function SettingsPage() {
                   : t('settings.plan.single')
                 : t('settings.plan.all')}
             </p>
-            {profile?.plan_scope === 'single' && (
+            {monetization && profile?.plan_scope === 'single' && (
               <button
                 type="button"
                 onClick={() => upgradeMutation.mutate()}
@@ -651,15 +655,17 @@ export default function SettingsPage() {
             {tutorStatus?.available && (
               <UsageMeter allowance={tutorStatus.allowance} className="pt-1" />
             )}
-            <button
-              type="button"
-              onClick={() => portalMutation.mutate()}
-              disabled={portalMutation.isPending}
-              className="block text-xs text-lang hover:underline disabled:opacity-50"
-            >
-              {t('settings.plan.manageBilling')}
-            </button>
-            {billingUnavailable && (
+            {monetization && (
+              <button
+                type="button"
+                onClick={() => portalMutation.mutate()}
+                disabled={portalMutation.isPending}
+                className="block text-xs text-lang hover:underline disabled:opacity-50"
+              >
+                {t('settings.plan.manageBilling')}
+              </button>
+            )}
+            {monetization && billingUnavailable && (
               <p className="text-xs text-gray-500">
                 {t('settings.plan.billingUnavailable')}
               </p>
