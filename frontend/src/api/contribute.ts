@@ -1274,6 +1274,9 @@ export interface ReviewInboxCounts {
   flagged_examples: number
   translation_suggestions: number
   ai_levels: number
+  /** Provisional Topic Lens buckets (topic_source='ai') awaiting a
+   * reviewer's confirm — the semantic sorting the classifier produced. */
+  ai_topics: number
   change_requests: number
   suggestions: number
   notes: number

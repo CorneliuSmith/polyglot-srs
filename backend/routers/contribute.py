@@ -48,11 +48,15 @@ from backend.repositories.contributor import (
     admin_timeseries,
     approve_explanation,
     approve_suggestion,
+    bulk_confirm_topics,
+    bulk_reject_topics,
     can_add_accounts,
     can_contribute,
     can_review,
     can_trial_review,
     confirm_vocab_level,
+    confirm_vocab_topic,
+    count_ai_topic_vocab,
     count_unchecked_points,
     count_unchecked_vocab,
     create_auth_user,
@@ -82,6 +86,7 @@ from backend.repositories.contributor import (
     language_release_readiness,
     list_accounts,
     list_ai_leveled_vocab,
+    list_ai_topic_vocab,
     list_all_roles,
     list_drills,
     list_feedback,
@@ -194,6 +199,7 @@ from backend.services.speech_costs import (
     FREE_TIER_TTS_CHARS,
 )
 from backend.services.speech_costs import cost_usd as speech_cost_usd
+from backend.services.topic_taxonomy import valid_topic
 from backend.services.tutor_costs import estimate_cost_usd
 from backend.services.visibility import PUBLISH_POLICIES
 
@@ -1847,6 +1853,137 @@ async def set_vocab_level(
     if not changed:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such word.")
     return {"ok": True}
+
+
+# ── Topic Lens review (docs/plans/topic-lens.md) ───────────────────────────
+# The ai-levels flow applied to semantic buckets, plus the two bulk moves
+# that make review tractable at course scale: confirm a sampled (language,
+# bucket) in one signature, and reject a bad run so it re-queues.
+
+
+async def _require_topic_reviewer(user_id: str, language_id: str) -> None:
+    async with rls_connection(user_id) as conn:
+        roles = await get_roles(conn, user_id)
+    if not can_review(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only a reviewer or admin for this language can sort topics",
+        )
+
+
+@router.get("/review/ai-topics")
+async def review_ai_topics(
+    language_id: str,
+    topic: str | None = None,
+    user: dict = Depends(get_current_user),
+):
+    """Provisional topic buckets awaiting review: the per-bucket pending
+    counts, and the words themselves (all, or one bucket via *topic* — the
+    sample a reviewer reads before bulk-confirming it)."""
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not can_trial_review(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Only a reviewer or tester for this language can view this",
+        )
+    try:
+        async with privileged_connection() as conn:
+            counts = await count_ai_topic_vocab(conn, language_id)
+            words = await list_ai_topic_vocab(conn, language_id, valid_topic(topic))
+    except asyncpg.exceptions.UndefinedColumnError:
+        # Migration 20261009 hasn't landed: an empty queue, not a 500 — the
+        # caught error aborts only this privileged transaction, which held
+        # nothing else. The write endpoints below stay loud on purpose.
+        counts, words = [], []
+    return {
+        "counts": counts,
+        "words": words,
+        "can_publish": can_review(roles, language_id),
+    }
+
+
+class VocabTopicRequest(BaseModel):
+    topic: str
+
+
+@router.post("/review/vocab/{vocabulary_id}/topic")
+async def set_vocab_topic(
+    vocabulary_id: str,
+    body: VocabTopicRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Confirm or re-bucket one word — marks its topic curated (trusted,
+    visible under strict policy). Full reviewers/admins only."""
+    if not valid_topic(body.topic):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="bad topic"
+        )
+    async with rls_connection(user["id"]) as conn:
+        lang = await conn.fetchval(
+            "SELECT language_id FROM vocabulary WHERE id = $1", vocabulary_id
+        )
+    if lang is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such word.")
+    await _require_topic_reviewer(user["id"], str(lang))
+    async with privileged_connection() as conn:
+        changed = await confirm_vocab_topic(
+            conn, vocabulary_id, body.topic, actor_id=user["id"]
+        )
+    if not changed:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No such word.")
+    return {"ok": True}
+
+
+class BulkTopicRequest(BaseModel):
+    topic: str
+
+
+class BulkTopicRejectRequest(BaseModel):
+    # None = clear the language's WHOLE pending set (bad-run recovery).
+    topic: str | None = None
+
+
+@router.post("/review/ai-topics/{language_id}/confirm")
+async def bulk_confirm_ai_topics(
+    language_id: str,
+    body: BulkTopicRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Confirm every provisional word in one bucket at once. The panel shows
+    the bucket's words first — this call is the reviewer's signature that
+    they sampled them. Full reviewers/admins only."""
+    if not valid_topic(body.topic):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="bad topic"
+        )
+    await _require_topic_reviewer(user["id"], language_id)
+    async with privileged_connection() as conn:
+        confirmed = await bulk_confirm_topics(
+            conn, language_id, body.topic, actor_id=user["id"]
+        )
+    return {"confirmed": confirmed}
+
+
+@router.post("/review/ai-topics/{language_id}/reject")
+async def bulk_reject_ai_topics(
+    language_id: str,
+    body: BulkTopicRejectRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Clear provisional tags for one bucket — or the language's whole
+    pending set — so a bad classification run re-queues instead of hiding
+    behind the classifier's WHERE topic IS NULL resumability."""
+    if body.topic is not None and not valid_topic(body.topic):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail="bad topic"
+        )
+    await _require_topic_reviewer(user["id"], language_id)
+    async with privileged_connection() as conn:
+        cleared = await bulk_reject_topics(
+            conn, language_id, body.topic, actor_id=user["id"]
+        )
+    return {"cleared": cleared}
 
 
 # ---------------------------------------------------------------------------

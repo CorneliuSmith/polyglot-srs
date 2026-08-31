@@ -32,6 +32,7 @@ from backend.repositories.cards import (
     get_due_cards,
     get_generation_context,
     get_learn_decks,
+    get_topic_summary,
     get_vocab_item,
     pretranslate_upcoming,
     reset_card_progress,
@@ -82,6 +83,7 @@ from backend.services.generate import (
 )
 from backend.services.models import resolve_model
 from backend.services.nlp import validate_answer_async
+from backend.services.topic_taxonomy import valid_topic
 from backend.services.translate import (
     generate_trivia,
     translations_available,
@@ -122,6 +124,11 @@ class LearnRequest(BaseModel):
     # Learn from one specific deck (CEFR level) instead of everything
     # subscribed — the deck rows on the dashboard pass this.
     level: str | None = None
+    # The Topic Lens (docs/plans/topic-lens.md): scope the draw to one
+    # semantic bucket, still inside the subscribed levels. Vocabulary only —
+    # grammar points have no topics. An unknown slug degrades to a normal
+    # draw (a stale cached link must not 422 a learn session).
+    topic: str | None = None
 
 
 class CardFeedbackRequest(BaseModel):
@@ -916,6 +923,23 @@ async def decks(
         return {"decks": await get_learn_decks(conn, user["id"], language_id)}
 
 
+@router.get("/topics")
+async def topics(
+    language_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """The Topic Lens deck rows: per semantic bucket, the learnable words
+    inside the caller's subscribed levels and how many they've started.
+
+    Empty before migration 20261009 and for any course whose classification
+    hasn't run (or hasn't been confirmed, under strict review policy) — the
+    client renders the By-topic toggle only when this has rows, so no
+    language ever shows an empty topic view.
+    """
+    async with rls_connection(user["id"]) as conn:
+        return {"topics": await get_topic_summary(conn, user["id"], language_id)}
+
+
 @router.get("/decks/{list_id}/preview")
 async def deck_preview(
     list_id: str,
@@ -1057,6 +1081,15 @@ async def learn(
                 body.level,
             )
 
+        # Unknown/stale topic slugs degrade to a plain draw rather than 422:
+        # the learner pressed Learn, and learning is the answer. Logged so a
+        # renamed bucket that strands old links is visible in one grep.
+        topic = valid_topic(body.topic) if body.card_type == "vocabulary" else None
+        if body.topic and not topic:
+            logger.info(
+                "learn: unknown or non-vocabulary topic %r ignored", body.topic
+            )
+
         if body.card_type == "both":
             result = await add_mixed_learn_batch(
                 conn, user["id"], body.language_id, batch_size
@@ -1067,7 +1100,8 @@ async def learn(
             )
         else:
             result = await add_learn_batch(
-                conn, user["id"], body.language_id, batch_size, body.level
+                conn, user["id"], body.language_id, batch_size, body.level,
+                topic,
             )
 
         # Bulk-fetch the lesson payloads: per-card fetching is an N+1 that

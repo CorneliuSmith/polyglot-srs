@@ -84,6 +84,8 @@ export const QUEUE_META: QueueMeta[] = [
     audience: 'admin', hint: 'AI translations panel · Review tab' },
   { key: 'ai_levels', label: 'AI vocab levels', origin: 'ai',
     audience: 'all', hint: 'AI levels panel · Review tab' },
+  { key: 'ai_topics', label: 'AI topic buckets', origin: 'ai',
+    audience: 'all', hint: 'Topic buckets panel · Review tab' },
   { key: 'overlaps', label: 'Overlapping points', origin: 'ai',
     audience: 'all', hint: 'Overlaps panel · Review tab' },
 

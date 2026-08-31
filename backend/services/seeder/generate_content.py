@@ -59,8 +59,10 @@ from backend.repositories.contributor import (
     queue_definition_review,
     sentences_needing_locale,
     set_vocab_ai_level,
+    set_vocab_ai_topic,
     vocab_needing_definition,
     vocab_needing_level,
+    vocab_needing_topic,
 )
 from backend.repositories.pool import close_pool, init_pool, privileged_connection
 from backend.services.define import definitions_available, generate_definitions
@@ -78,6 +80,7 @@ from backend.services.generation_admin import (
     run_overlap_audit,
 )
 from backend.services.level_estimate import estimate_levels
+from backend.services.topic_estimate import dry_run_estimate, estimate_topics
 from backend.services.translate import (
     generate_sentence_translations,
     translations_available,
@@ -125,6 +128,54 @@ async def _run_levels(conn, lang, args) -> None:
         "\nEstimated levels are provisional (level_source='ai'). Confirm them in "
         "Contributor › Review; under Strict policy they stay out of learners' "
         "decks until confirmed."
+    )
+
+
+async def _run_topics(conn, lang, args) -> None:
+    """Classify untagged words into the Topic Lens buckets (topic_source='ai',
+    pending review — docs/plans/topic-lens.md). Resumable: only rows with no
+    topic are touched, so re-running continues where the last run stopped,
+    and a bulk-rejected bucket re-queues itself."""
+    words = await vocab_needing_topic(conn, str(lang["id"]), args.max)
+    if not words:
+        print(f"No untagged {lang['name']} words — nothing to do.")
+        return
+    if args.dry_run:
+        print(json.dumps({
+            "dry_run": True, "kind": "topics",
+            **dry_run_estimate(len(words)),
+        }, indent=2))
+        return
+    if not generation_available():
+        print("ERROR: real classification needs ANTHROPIC_API_KEY (or TUTOR_DEV_MOCK=1).")
+        return
+    print(f"Sorting {len(words)} {lang['name']} words into topics…")
+    override = await conn.fetchval(
+        "SELECT tutor_model FROM languages WHERE id = $1", lang["id"]
+    )
+    applied = 0
+    # Batched like the estimator expects (~75 words/call keeps each call's
+    # listing inside a sane context and the enum output reliable).
+    for start in range(0, len(words), 75):
+        chunk = words[start:start + 75]
+        topics = await estimate_topics(
+            chunk, lang["name"], lang["code"], model=override
+        )
+        for w in chunk:
+            topic = topics.get(w["word"])
+            if not topic:
+                continue
+            if await set_vocab_ai_topic(conn, w["vocabulary_id"], topic):
+                applied += 1
+        print(f"  …{min(start + 75, len(words))}/{len(words)} ({applied} tagged)")
+    print(json.dumps({
+        "dry_run": False, "kind": "topics",
+        "words_untagged": len(words), "topics_applied": applied,
+    }, indent=2))
+    print(
+        "\nAssigned topics are provisional (topic_source='ai'). Confirm them in "
+        "Workspace › Review › Topic buckets; under Strict policy they stay out "
+        "of learners' topic view until confirmed."
     )
 
 
@@ -369,6 +420,10 @@ async def _run(args: argparse.Namespace) -> None:
             await _run_levels(conn, lang, args)
             return
 
+        if args.kind == "topics":
+            await _run_topics(conn, lang, args)
+            return
+
         if args.kind == "definitions":
             await _run_definitions(conn, lang, args)
             return
@@ -429,8 +484,8 @@ async def main() -> None:
     parser.add_argument("--language", "-l", required=True, help="language code, e.g. en")
     parser.add_argument(
         "--kind", "-k",
-        choices=["vocab", "grammar", "levels", "definitions", "translations",
-                 "overlap", "forms"],
+        choices=["vocab", "grammar", "levels", "topics", "definitions",
+                 "translations", "overlap", "forms"],
         required=True,
     )
     parser.add_argument(

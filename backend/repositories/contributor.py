@@ -694,6 +694,13 @@ _INBOX_QUEUES: tuple[tuple[str, str, str, tuple[str, ...]], ...] = (
         FROM vocabulary v
         WHERE v.level_source = 'ai'
      """, ("vocabulary.level_source",)),
+    # Provisional Topic Lens buckets (migration 20261009) — same contract
+    # as ai_levels: 'ai' rows wait on a reviewer, and under strict policy
+    # nothing shows to learners until they're confirmed.
+    ("ai_topics", "v.language_id", """
+        FROM vocabulary v
+        WHERE v.topic_source = 'ai'
+     """, ("vocabulary.topic_source",)),
     ("change_requests", "ccr.language_id", """
         FROM card_change_requests ccr
         WHERE ccr.status = 'open'
@@ -2088,6 +2095,189 @@ async def confirm_vocab_level(
             after={"level": level, "level_source": "curated"},
         )
     return changed
+
+
+# ── Topic Lens classification (docs/plans/topic-lens.md) ──────────────────
+# The level_source pipeline, applied to semantic buckets: the classifier
+# writes provisional 'ai' topics, reviewers confirm — singly or in bulk by
+# (language, topic), because reviewer throughput is the real gate for
+# strict-policy languages — and a systematically bad run is recoverable
+# (bulk reject clears the tags so WHERE topic IS NULL re-queues them).
+
+
+async def vocab_needing_topic(
+    conn: asyncpg.Connection, language_id: str, limit: int = 500
+) -> list[dict]:
+    """Untagged words, commonest first — the classifier's work list. Rows
+    carry the word, its type, and the English gloss the model sorts by."""
+    rows = await conn.fetch(
+        """
+        SELECT v.id, v.word, v.part_of_speech,
+               (SELECT t.definition FROM translations t
+                 WHERE t.vocabulary_id = v.id AND t.locale = 'en' LIMIT 1)
+                 AS definition
+        FROM vocabulary v
+        WHERE v.language_id = $1 AND v.topic IS NULL
+        ORDER BY v.frequency_rank NULLS LAST, v.word
+        LIMIT $2
+        """,
+        language_id, limit,
+    )
+    return [
+        {
+            "vocabulary_id": str(r["id"]),
+            "word": r["word"],
+            "part_of_speech": r["part_of_speech"],
+            "definition": r["definition"],
+        }
+        for r in rows
+    ]
+
+
+async def set_vocab_ai_topic(
+    conn: asyncpg.Connection, vocabulary_id: str, topic: str
+) -> bool:
+    """Store an AI-classified topic (topic_source='ai', provisional). Only
+    touches untagged rows, so it never overwrites a human's sorting — and a
+    re-run after a bulk reject re-tags exactly the rejected set."""
+    result = await conn.execute(
+        "UPDATE vocabulary SET topic = $2, topic_source = 'ai' "
+        "WHERE id = $1 AND topic IS NULL",
+        vocabulary_id, topic,
+    )
+    return result.rsplit(" ", 1)[-1] == "1"
+
+
+async def list_ai_topic_vocab(
+    conn: asyncpg.Connection, language_id: str, topic: str | None = None,
+    limit: int = 200,
+) -> list[dict]:
+    """Provisional topic assignments for review, grouped by bucket (pass
+    *topic* to page through one bucket — the shape bulk confirm samples)."""
+    rows = await conn.fetch(
+        """
+        SELECT v.id, v.word, v.part_of_speech, v.topic,
+               (SELECT t.definition FROM translations t
+                 WHERE t.vocabulary_id = v.id AND t.locale = 'en' LIMIT 1)
+                 AS definition
+        FROM vocabulary v
+        WHERE v.language_id = $1 AND v.topic_source = 'ai'
+          AND ($3::text IS NULL OR v.topic = $3)
+        ORDER BY v.topic, v.frequency_rank NULLS LAST, v.word
+        LIMIT $2
+        """,
+        language_id, limit, topic,
+    )
+    return [
+        {
+            "id": str(r["id"]),
+            "word": r["word"],
+            "part_of_speech": r["part_of_speech"],
+            "topic": r["topic"],
+            "definition": r["definition"],
+        }
+        for r in rows
+    ]
+
+
+async def count_ai_topic_vocab(
+    conn: asyncpg.Connection, language_id: str
+) -> list[dict]:
+    """Pending count per bucket — what the review panel's bulk rows show."""
+    rows = await conn.fetch(
+        """
+        SELECT topic, COUNT(*) AS pending
+        FROM vocabulary
+        WHERE language_id = $1 AND topic_source = 'ai'
+        GROUP BY topic ORDER BY topic
+        """,
+        language_id,
+    )
+    return [{"topic": r["topic"], "pending": int(r["pending"])} for r in rows]
+
+
+async def confirm_vocab_topic(
+    conn: asyncpg.Connection, vocabulary_id: str, topic: str,
+    actor_id: str | None = None,
+) -> bool:
+    """A reviewer confirms (or re-buckets) one word — marks it curated so
+    it's trusted, visible under strict policy, and no longer flagged."""
+    prev = await conn.fetchrow(
+        "SELECT language_id, topic, topic_source FROM vocabulary WHERE id = $1",
+        vocabulary_id,
+    )
+    result = await conn.execute(
+        "UPDATE vocabulary SET topic = $2, topic_source = 'curated' WHERE id = $1",
+        vocabulary_id, topic,
+    )
+    changed = result.rsplit(" ", 1)[-1] == "1"
+    if changed and prev:
+        await log_change(
+            conn, entity_type="vocabulary", entity_id=vocabulary_id,
+            actor_id=actor_id, action="topic_confirmed", field="topic",
+            language_id=str(prev["language_id"]),
+            before={"topic": prev["topic"], "topic_source": prev["topic_source"]},
+            after={"topic": topic, "topic_source": "curated"},
+        )
+    return changed
+
+
+async def bulk_confirm_topics(
+    conn: asyncpg.Connection, language_id: str, topic: str,
+    actor_id: str | None = None,
+) -> int:
+    """Confirm every provisional word in one (language, bucket) at once.
+
+    Reviewer throughput is the actual gate for strict-policy languages —
+    400 single confirms per bucket is how a queue rots. The panel asks the
+    reviewer to SAMPLE the bucket first (it shows the words); this call is
+    the signature that they did. One change-log row for the batch, not
+    hundreds."""
+    result = await conn.execute(
+        """
+        UPDATE vocabulary SET topic_source = 'curated'
+        WHERE language_id = $1 AND topic = $2 AND topic_source = 'ai'
+        """,
+        language_id, topic,
+    )
+    count = int(result.rsplit(" ", 1)[-1])
+    if count:
+        await log_change(
+            conn, entity_type="language", entity_id=language_id,
+            actor_id=actor_id, action="topics_bulk_confirmed", field="topic",
+            language_id=language_id,
+            before={"topic": topic, "pending": count},
+            after={"topic": topic, "confirmed": count},
+        )
+    return count
+
+
+async def bulk_reject_topics(
+    conn: asyncpg.Connection, language_id: str, topic: str | None = None,
+    actor_id: str | None = None,
+) -> int:
+    """Clear provisional tags — one bucket, or (topic None) the language's
+    whole pending set. The bad-run recovery: the classifier's resumability
+    (WHERE topic IS NULL) means a systematically bad run would otherwise be
+    invisible to a re-run; rejecting re-queues exactly the bad set."""
+    result = await conn.execute(
+        """
+        UPDATE vocabulary SET topic = NULL, topic_source = NULL
+        WHERE language_id = $1 AND topic_source = 'ai'
+          AND ($2::text IS NULL OR topic = $2)
+        """,
+        language_id, topic,
+    )
+    count = int(result.rsplit(" ", 1)[-1])
+    if count:
+        await log_change(
+            conn, entity_type="language", entity_id=language_id,
+            actor_id=actor_id, action="topics_bulk_rejected", field="topic",
+            language_id=language_id,
+            before={"topic": topic, "pending": count},
+            after={"topic": topic, "cleared": count},
+        )
+    return count
 
 
 async def vocab_needing_examples(
