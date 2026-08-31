@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Flame, Plus, X } from 'lucide-react'
 import { usePrefsStore } from '../../stores/prefsStore'
 import type { DashboardStats } from '../../api/types'
+import RecsWidget from './RecsWidget'
 
 /**
  * iPhone-style widget slots on the Study page (owner request): two open
@@ -20,7 +21,9 @@ const SLOT_COUNT = 2
 const DAY_KEYS = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
 const CEFR_LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 
-const WIDGET_IDS = ['streak', 'forecast', 'cefr', 'itemsStudied', 'activity'] as const
+const WIDGET_IDS = [
+  'streak', 'forecast', 'cefr', 'itemsStudied', 'activity', 'recs',
+] as const
 type WidgetId = (typeof WIDGET_IDS)[number]
 
 const isWidgetId = (id: string): id is WidgetId =>
@@ -34,6 +37,7 @@ const LABEL_KEYS: Record<WidgetId, string> = {
   cefr: 'dashboard.cefrTitle',
   itemsStudied: 'dashboard.itemsStudied',
   activity: 'dashboard.activityTitle',
+  recs: 'dashboard.recsTitle',
 }
 
 function StreakWidget({ stats }: { stats?: DashboardStats }) {
@@ -143,6 +147,9 @@ const RENDERERS: Record<WidgetId, ComponentType<{ stats?: DashboardStats }>> = {
   cefr: CefrWidget,
   itemsStudied: ItemsStudiedWidget,
   activity: ActivityWidget,
+  // The one widget that feeds itself: picks are per language and live under
+  // their own cache key, not in DashboardStats. It ignores the prop.
+  recs: RecsWidget,
 }
 
 export default function WidgetSlots({ stats }: { stats?: DashboardStats }) {

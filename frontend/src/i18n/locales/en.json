@@ -111,7 +111,10 @@
     "speakCaption": "Have a conversation",
     "speakNew": "New",
     "speakPitch": "Have a conversation. Corrections as you go, or all at the end.",
-    "audioPending": "No audio for {{language}} yet — no synthetic voice exists for it, so we’re collecting real recordings from speakers. Audio will appear as clips are approved."
+    "audioPending": "No audio for {{language}} yet — no synthetic voice exists for it, so we’re collecting real recordings from speakers. Audio will appear as clips are approved.",
+    "recsTitle": "Your picks",
+    "recsSetUp": "Turn on recommendations →",
+    "recsSeeAll": "See all →"
   },
   "stages": {
     "beginner": "Beginner",

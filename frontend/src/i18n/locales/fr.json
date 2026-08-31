@@ -111,7 +111,10 @@
     "speakCaption": "Avoir une conversation",
     "speakNew": "Nouveau",
     "speakPitch": "Ayez une conversation. Corrections au fil de l’eau ou à la fin.",
-    "audioPending": "Pas encore d’audio pour {{language}} — aucune voix de synthèse n’existe pour cette langue, alors nous rassemblons de vrais enregistrements de locuteurs. L’audio apparaîtra au fil des validations."
+    "audioPending": "Pas encore d’audio pour {{language}} — aucune voix de synthèse n’existe pour cette langue, alors nous rassemblons de vrais enregistrements de locuteurs. L’audio apparaîtra au fil des validations.",
+    "recsTitle": "Vos suggestions",
+    "recsSetUp": "Activer les recommandations →",
+    "recsSeeAll": "Tout voir →"
   },
   "stages": {
     "beginner": "Débutant",
