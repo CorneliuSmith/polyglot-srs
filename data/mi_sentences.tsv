@@ -1,8 +1,4 @@
 word	sentence	translation	difficulty_rank	gloss
-te	He nui te whare.	The house is big.	55	a · big · the · house
-nui	He nui te whare.	The house is big.	55	a · big · the · house
-he	He nui te whare.	The house is big.	55	a · big · the · house
-whare	He nui te whare.	The house is big.	55	a · big · the · house
 e	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	66	SBJV · good · the · work · to · the · people · PROG · bad · PROG · to · PERS · 2PL
 te	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	66	SBJV · good · the · work · to · the · people · PROG · bad · PROG · to · PERS · 2PL
 kia	Kia pai te mahi ki te hunga e kino ana ki a koutou.	Do good to those who hate you.	66	SBJV · good · the · work · to · the · people · PROG · bad · PROG · to · PERS · 2PL
@@ -20,15 +16,6 @@ noa	I te taha noa atu ahau.	I was just passing by.	86	PST · PROG · pass.by · 
 i	I te taha noa atu ahau.	I was just passing by.	86	PST · PROG · pass.by · just · thither · 1SG
 ahau	I te taha noa atu ahau.	I was just passing by.	86	PST · PROG · pass.by · just · thither · 1SG
 atu	I te taha noa atu ahau.	I was just passing by.	86	PST · PROG · pass.by · just · thither · 1SG
-ahau	Kei te kai ahau.	I'm eating.	88	PROG · PROG · eat · 1SG
-kai	Kei te kai ahau.	I'm eating.	88	PROG · PROG · eat · 1SG
-kei	Kei te kai ahau.	I'm eating.	88	PROG · PROG · eat · 1SG
-kai	Kei te kai koe.	You're eating.	88	PROG · PROG · eat · 2SG
-koe	Kei te kai koe.	You're eating.	88	PROG · PROG · eat · 2SG
-kei	Kei te kai koe.	You're eating.	88	PROG · PROG · eat · 2SG
-koe	Kei te aha koe?	What are you doing?	90	PROG · PROG · what · 2SG
-aha	Kei te aha koe?	What are you doing?	90	PROG · PROG · what · 2SG
-kei	Kei te aha koe?	What are you doing?	90	PROG · PROG · what · 2SG
 e	E aroha ana ahau ki tāku wahine.	I love my wife.	102	PROG · love · PROG · 1SG · to · 1SG.POSS · woman
 aroha	E aroha ana ahau ki tāku wahine.	I love my wife.	102	PROG · love · PROG · 1SG · to · 1SG.POSS · woman
 ana	E aroha ana ahau ki tāku wahine.	I love my wife.	102	PROG · love · PROG · 1SG · to · 1SG.POSS · woman
@@ -36,9 +23,6 @@ tāku	E aroha ana ahau ki tāku wahine.	I love my wife.	102	PROG · love · PROG
 ki	E aroha ana ahau ki tāku wahine.	I love my wife.	102	PROG · love · PROG · 1SG · to · 1SG.POSS · woman
 ahau	E aroha ana ahau ki tāku wahine.	I love my wife.	102	PROG · love · PROG · 1SG · to · 1SG.POSS · woman
 wahine	E aroha ana ahau ki tāku wahine.	I love my wife.	102	PROG · love · PROG · 1SG · to · 1SG.POSS · woman
-au	He wahine au.	I am a woman.	104	a · woman · 1SG
-wahine	He wahine au.	I am a woman.	104	a · woman · 1SG
-he	He wahine au.	I am a woman.	104	a · woman · 1SG
 au	He pai ki a au.	I like it.	104	a · good · to · PERS · 1SG
 pai	He pai ki a au.	I like it.	104	a · good · to · PERS · 1SG
 he	He pai ki a au.	I like it.	104	a · good · to · PERS · 1SG
@@ -92,17 +76,11 @@ kai	I kai hapa ahau i a ia.	I had dinner with him.	277	PST · eat · supper · 1
 whakaahua	I paingia e koe taku whakaahua?	Did you like my picture?	410	PST · like.PASS · by · 2SG · 1SG.POSS · picture
 paingia	I paingia e koe taku whakaahua?	Did you like my picture?	410	PST · like.PASS · by · 2SG · 1SG.POSS · picture
 taku	I paingia e koe taku whakaahua?	Did you like my picture?	410	PST · like.PASS · by · 2SG · 1SG.POSS · picture
-tauira	He tauira au.	I'm a student.	420	a · student · 1SG
-tauira	He tauira ia.	She's a student.	420	a · student · 3SG
 pene	Kei hea te pene nei?	Where was this pen?	421	at · where · the · pen · this
 nei	Kei hea te pene nei?	Where was this pen?	421	at · where · the · pen · this
 hea	Kei hea te pene nei?	Where was this pen?	421	at · where · the · pen · this
-tāku	He pai tāku pene.	My pen is good.	421	a · good · 1SG.POSS · pen
-pene	He pai tāku pene.	My pen is good.	421	a · good · 1SG.POSS · pen
-pai	He pai tāku pene.	My pen is good.	421	a · good · 1SG.POSS · pen
 anake	Kotahi anake te urunga.	There is only one pillow.	473	one · only · the · pillow
 urunga	Kotahi anake te urunga.	There is only one pillow.	473	one · only · the · pillow
-kotahi	Kotahi anake te urunga.	There is only one pillow.	473	one · only · the · pillow
 pereti	E hia ngā pereti, e hia ngā kapu?	How many plates and cups are there?	556	NUM · how.many · the.PL · plate · NUM · how.many · the.PL · cup
 hia	E hia ngā pereti, e hia ngā kapu?	How many plates and cups are there?	556	NUM · how.many · the.PL · plate · NUM · how.many · the.PL · cup
 kapu	E hia ngā pereti, e hia ngā kapu?	How many plates and cups are there?	556	NUM · how.many · the.PL · plate · NUM · how.many · the.PL · cup
@@ -114,7 +92,6 @@ me	Me utu e koe āu nama.	You should pay back your debts.	585	OBLIG · pay · by
 nama	Me utu e koe āu nama.	You should pay back your debts.	585	OBLIG · pay · by · 2SG · 2SG.POSS.PL · debt
 utu	Me utu e koe āu nama.	You should pay back your debts.	585	OBLIG · pay · by · 2SG · 2SG.POSS.PL · debt
 taihoa	Taihoa ake.	Hang on a sec.	656	wait · shortly
-ake	Taihoa ake.	Hang on a sec.	656	wait · shortly
 hiahia	E hiahia noa ana au ki te tuku mihi atu ki a koe.	I just want to thank you.	800	PROG · want · just · PROG · 1SG · to · the · offer · greeting · away · to · PERS · 2SG
 mihi	E hiahia noa ana au ki te tuku mihi atu ki a koe.	I just want to thank you.	800	PROG · want · just · PROG · 1SG · to · the · offer · greeting · away · to · PERS · 2SG
 noa	E hiahia noa ana au ki te tuku mihi atu ki a koe.	I just want to thank you.	800	PROG · want · just · PROG · 1SG · to · the · offer · greeting · away · to · PERS · 2SG
@@ -127,11 +104,8 @@ hiahia	Kāore au e hiahia ana ki te haere ki te kura.	I don't want to go to scho
 kāore	Kāore au e hiahia ana ki te haere ki te kura.	I don't want to go to school.	811	NEG · 1SG · PROG · want · PROG · to · the · go · to · the · school
 kura	Kāore au e hiahia ana ki te haere ki te kura.	I don't want to go to school.	811	NEG · 1SG · PROG · want · PROG · to · the · go · to · the · school
 haere	Kāore au e hiahia ana ki te haere ki te kura.	I don't want to go to school.	811	NEG · 1SG · PROG · want · PROG · to · the · go · to · the · school
-tika	Kāore i te tika.	It's not ethical.	811	NEG · PROG · the · correct
-kāore	Kāore i te tika.	It's not ethical.	811	NEG · PROG · the · correct
 paingia	Kāore e paingia ana e au te kai parai.	I don't like fried food.	811	NEG · PROG · like.PASS · PROG · by · 1SG · the · food · fried
 parai	Kāore e paingia ana e au te kai parai.	I don't like fried food.	811	NEG · PROG · like.PASS · PROG · by · 1SG · the · food · fried
-uaua	Kāore i uaua.	It wasn't difficult.	811	NEG · PST · difficult
 noho	Kāore koe i hiahia ki noho ki a au?	Don't you want to sit with me?	811	NEG · 2SG · PST · want · to · sit · to · PERS · 1SG
 rangi	He tino makariri tēnei rangi.	It's really cold today.	812	a · very · cold · this · day
 tēnei	He tino makariri tēnei rangi.	It's really cold today.	812	a · very · cold · this · day
@@ -165,22 +139,14 @@ mātou	He aha i kore ai koe e rata mai ki a mātou?	What didn't you like about u
 kore	He aha i kore ai koe e rata mai ki a mātou?	What didn't you like about us?	814	a · what · PST · NEG · ANAPH · 2SG · FUT · fond · hither · to · PERS · 1PL.EXCL
 rata	He aha i kore ai koe e rata mai ki a mātou?	What didn't you like about us?	814	a · what · PST · NEG · ANAPH · 2SG · FUT · fond · hither · to · PERS · 1PL.EXCL
 whawhai	Kāore mātou i whawhai.	We didn't have a fight.	814	NEG · 1PL.EXCL · PST · fight
-mātou	Kāore mātou i whawhai.	We didn't have a fight.	814	NEG · 1PL.EXCL · PST · fight
-tōku	He whakaaro tōku.	I have an idea.	815	a · thought · 1SG.POSS
-whakaaro	He whakaaro tōku.	I have an idea.	815	a · thought · 1SG.POSS
 puku	Kei te mamae tōku puku.	My stomach hurts.	815	PROG · PROG · hurt · 1SG.POSS · stomach
 mamae	Kei te mamae tōku puku.	My stomach hurts.	815	PROG · PROG · hurt · 1SG.POSS · stomach
 tōku	Kei te mamae tōku puku.	My stomach hurts.	815	PROG · PROG · hurt · 1SG.POSS · stomach
 tō	He aha tō tino pepeha?	What's your favorite saying?	816	a · what · 2SG.POSS · main · saying
 pepeha	He aha tō tino pepeha?	What's your favorite saying?	816	a · what · 2SG.POSS · main · saying
 tino	He aha tō tino pepeha?	What's your favorite saying?	816	a · what · 2SG.POSS · main · saying
-anō	I haere anō ia.	He went again.	817	PST · go · again · 3SG
-haere	I haere anō ia.	He went again.	817	PST · go · again · 3SG
-mea	Kāore he mea anō?	Isn't there something else?	817	NEG · a · thing · else
-anō	Kāore he mea anō?	Isn't there something else?	817	NEG · a · thing · else
 anō	Kāore au e kai i te mīti i a au anō.	I don't eat meat myself.	817	NEG · 1SG · FUT · eat · OBJ · the · meat · by · PERS · 1SG · self
 mīti	Kāore au e kai i te mīti i a au anō.	I don't eat meat myself.	817	NEG · 1SG · FUT · eat · OBJ · the · meat · at · PERS · 1SG · self
-tēnā	He kaupapa pai tēnā.	That's a good plan.	818	a · plan · good · that.MED
 kaupapa	He kaupapa pai tēnā.	That's a good plan.	818	a · plan · good · that.MED
 tiaki	E kore e taea e au te tiaki i a ia.	I can't protect her.	819	FUT · NEG · FUT · can · by · 1SG · the · care.for · OBJ · PERS · 3SG
 taea	E kore e taea e au te tiaki i a ia.	I can't protect her.	819	FUT · NEG · FUT · can · by · 1SG · the · care.for · OBJ · PERS · 3SG
@@ -256,14 +222,8 @@ tau	E 15 ōna tau, i oma atu ia i te kāinga.	When he was 15, he ran away from h
 ōna	E 15 ōna tau, i oma atu ia i te kāinga.	When he was 15, he ran away from home.	833	NUM · fifteen · 3SG.POSS.O.PL · year · PST · run · away · 3SG · from · the · home
 kāinga	E 15 ōna tau, i oma atu ia i te kāinga.	When he was 15, he ran away from home.	833	NUM · fifteen · 3SG.POSS.O.PL · year · PST · run · away · 3SG · from · the · home
 oma	E 15 ōna tau, i oma atu ia i te kāinga.	When he was 15, he ran away from home.	833	NUM · fifteen · 3SG.POSS.O.PL · year · PST · run · away · 3SG · from · the · home
-kikorangi	He makawe kikorangi ōna.	Her hair is blue.	833	INDF · hair · blue · 3SG.POSS.O.PL
-makawe	He makawe kikorangi ōna.	Her hair is blue.	833	INDF · hair · blue · 3SG.POSS.O.PL
-ōna	He makawe kikorangi ōna.	Her hair is blue.	833	INDF · hair · blue · 3SG.POSS.O.PL
-makawe	I tapahi ōna makawe.	She cut her hair.	833	PST · cut · 3SG.POSS.O.PL · hair
 tapahi	I tapahi ōna makawe.	She cut her hair.	833	PST · cut · 3SG.POSS.O.PL · hair
-ōna	I tapahi ōna makawe.	She cut her hair.	833	PST · cut · 3SG.POSS.O.PL · hair
 kurī	Ko tāku kurī tēnei.	This is my dog.	834	IDENT · 1SG.POSS.A · dog · this
-ko	Ko tāku kurī tēnei.	This is my dog.	834	IDENT · 1SG.POSS.A · dog · this
 auau	I auau ngā kurī.	The dogs barked.	834	PST · bark · the.PL · dog
 kurī	I auau ngā kurī.	The dogs barked.	834	PST · bark · the.PL · dog
 horoia	Horoia te kurī.	Wash the dog.	834	wash.PASS · the · dog
@@ -284,7 +244,6 @@ māua	Kāore i wareware i a māua/mātou	We didn't forget.	841	NEG · PST · for
 rata	He aha i kore ai koe e rata mai ki a māua?	What didn't you like about us?	841	a · what · PST · NEG · ANAPH · 2SG · FUT · fond · hither · to · PERS · 1DU.EXCL
 māua	He aha i kore ai koe e rata mai ki a māua?	What didn't you like about us?	841	a · what · PST · NEG · ANAPH · 2SG · FUT · fond · hither · to · PERS · 1DU.EXCL
 whawhai	Kāore māua i whawhai.	We didn't have a fight.	841	NEG · 1DU.EXCL · PST · fight
-māua	Kāore māua i whawhai.	We didn't have a fight.	841	NEG · 1DU.EXCL · PST · fight
 moana	Kei te tāhoe au i roto ki te moana.	I'm swimming in the ocean.	844	PROG · PROG · swim · 1SG · at · inside · to · the · sea
 tāhoe	Kei te tāhoe au i roto ki te moana.	I'm swimming in the ocean.	844	PROG · PROG · swim · 1SG · at · inside · to · the · sea
 roto	Kei te tāhoe au i roto ki te moana.	I'm swimming in the ocean.	844	PROG · PROG · swim · 1SG · at · inside · to · the · sea
@@ -299,8 +258,6 @@ nei	Te āhua nei i karo ia i te tūtaki mai ki a au.	I felt as if he shrank from
 āhua	Te āhua nei i karo ia i te tūtaki mai ki a au.	I felt as if he shrank from meeting me.	847	the · appearance · this · PST · dodge · 3SG · OBJ · the · meet · hither · to · PERS · 1SG
 karo	Te āhua nei i karo ia i te tūtaki mai ki a au.	I felt as if he shrank from meeting me.	847	the · appearance · this · PST · dodge · 3SG · OBJ · the · meet · hither · to · PERS · 1SG
 aku	E rua aku ngeru.	I have two cats.	848	NUM · two · 1SG.POSS.PL · cat
-ngeru	E rua aku ngeru.	I have two cats.	848	NUM · two · 1SG.POSS.PL · cat
-ngeru	He ngeru au.	I am a cat.	848	a · cat · 1SG
 kitea	Ko tēnei te ngeru tino nui kua kitea e au.	This is the biggest cat that I've ever seen.	848	IDENT · this · the · cat · very · big · PERF · see.PASS · by · 1SG
 ngeru	Ko tēnei te ngeru tino nui kua kitea e au.	This is the biggest cat that I've ever seen.	848	IDENT · this · the · cat · very · big · PERF · see.PASS · by · 1SG
 me	Aroha mai, engari me haere koe.	I'm sorry, but you've got to go.	849	love · hither · but · OBLIG · go · 2SG
@@ -308,10 +265,6 @@ engari	Aroha mai, engari me haere koe.	I'm sorry, but you've got to go.	849	love
 tauira	Ka hoatu au ki a koe he tauira.	I'll give you some examples.	851	FUT · give.thither · 1SG · to · PERS · 2SG · a · example
 ka	Ka hoatu au ki a koe he tauira.	I'll give you some examples.	851	FUT · give.thither · 1SG · to · PERS · 2SG · a · example
 hoatu	Ka hoatu au ki a koe he tauira.	I'll give you some examples.	851	FUT · give.thither · 1SG · to · PERS · 2SG · a · example
-waewae	He waewae iti ōna.	She has small feet.	853	a · foot · small · 3SG.POSS.PL
-iti	He waewae iti ōna.	She has small feet.	853	a · foot · small · 3SG.POSS.PL
-tāu	He iti tāu māra.	Your garden really is little.	853	a · small · 2SG.POSS · garden
-iti	He iti tāu māra.	Your garden really is little.	853	a · small · 2SG.POSS · garden
 tāu	He iti tāu māra nei!	Your garden really is little.	853	a · small · 2SG.POSS · garden · this
 iti	He iti tāu māra nei!	Your garden really is little.	853	a · small · 2SG.POSS · garden · this
 haumanu	Kei hea tana whare haumanu?	Where is his clinic situated?	854	at · where · 3SG.POSS · house · healing
@@ -328,27 +281,18 @@ pānui	E pānui ana ngā tāngata katoa.	Everyone's reading.	862	PROG · read ·
 katoa	E pānui ana ngā tāngata katoa.	Everyone's reading.	862	PROG · read · PROG · the.PL · people · all
 tū	E tū ana au kei mua i a koe	I'm standing here before you.	863	PROG · stand · PROG · 1SG · at · front · at · PERS · 2SG
 mua	E tū ana au kei mua i a koe	I'm standing here before you.	863	PROG · stand · PROG · 1SG · at · front · at · PERS · 2SG
-pōtae	He pōtae tēnei.	This is a hat.	864	a · hat · this
 whero	He whero te pōtae.	A red hat.	864	a · red · the · hat
-pōtae	He whero te pōtae.	A red hat.	864	a · red · the · hat
 tīkina	Tīkina ia hei roto.	Bring her in.	865	fetch.PASS · 3SG · at · inside
-roto	Tīkina ia hei roto.	Bring her in.	865	fetch.PASS · 3SG · at · inside
-hei	Tīkina ia hei roto.	Bring her in.	865	fetch.PASS · 3SG · at · inside
 tokorua	Tokorua ōku tuākana.	I have two older sisters.	869	two.people · 1SG.POSS.PL.O · older.sibling.PL
 tuākana	Tokorua ōku tuākana.	I have two older sisters.	869	two.people · 1SG.POSS.PL.O · older.sibling.PL
-ōku	Tokorua ōku tuākana.	I have two older sisters.	869	two.people · 1SG.POSS.PL.O · older.sibling.PL
 tokorua	Tokorua āku tamāhine.	I have two daughters.	869	two.people · 1SG.POSS.PL.A · daughter.PL
 āku	Tokorua āku tamāhine.	I have two daughters.	869	two.people · 1SG.POSS.PL.A · daughter.PL
 tokorua	Tokorua āku tama.	I have two sons.	869	two.people · 1SG.POSS.PL.A · son
-tama	Tokorua āku tama.	I have two sons.	869	two.people · 1SG.POSS.PL.A · son
 āku	Tokorua āku tama.	I have two sons.	869	two.people · 1SG.POSS.PL.A · son
 pōtae	Kāore ia i te mau pōtae.	He doesn't have a hat on.	874	NEG · 3SG · PROG · PROG · wear · hat
 mau	Kāore ia i te mau pōtae.	He doesn't have a hat on.	874	NEG · 3SG · PROG · PROG · wear · hat
 tepe	I kai au i te miraka tepe.	I ate the yoghurt.	875	PST · eat · 1SG · OBJ · the · milk · congealed
 miraka	I kai au i te miraka tepe.	I ate the yoghurt.	875	PST · eat · 1SG · OBJ · the · milk · congealed
-tana	I roa tana oranga.	She lived a long life.	876	PST · long · 3SG.POSS · life
-oranga	I roa tana oranga.	She lived a long life.	876	PST · long · 3SG.POSS · life
-roa	I roa tana oranga.	She lived a long life.	876	PST · long · 3SG.POSS · life
 hiahiatia	He peita kikorangi e hiahiatia ana e au.	I need some blue paint.	877	a · paint · light.blue · PROG · want.PASS · PROG · by · 1SG
 kikorangi	He peita kikorangi e hiahiatia ana e au.	I need some blue paint.	877	a · paint · light.blue · PROG · want.PASS · PROG · by · 1SG
 peita	He peita kikorangi e hiahiatia ana e au.	I need some blue paint.	877	a · paint · light.blue · PROG · want.PASS · PROG · by · 1SG
@@ -367,7 +311,6 @@ tama	I āwhinatia te tama e ahau.	The boy was helped by me.	888	PST · help.PASS
 āwhinatia	I āwhinatia te tama e ahau.	The boy was helped by me.	888	PST · help.PASS · the · boy · by · 1SG
 ēnei	He tino nui ēnei āporo.	These apples are very big.	890	a · very · big · these · apple
 āporo	He tino nui ēnei āporo.	These apples are very big.	890	a · very · big · these · apple
-ēnei	He pōtae ēnei.	These are hats.	890	a · hat · these
 ināianei	Haere mai i a au ināianei.	Come with me now.	891	go · hither · at · PERS · 1SG · now
 kī	Kī atu ki a rāua he mea nui.	Please tell them it's important.	894	say · away · to · PERS · 3DU · a · thing · big
 rāua	Kī atu ki a rāua he mea nui.	Please tell them it's important.	894	say · away · to · PERS · 3DU · a · thing · big
@@ -404,10 +347,7 @@ wai	Ko wai te ingoa o tēnei rākau?	What is the name of that tree?	910	IDENT ·
 ingoa	Ko wai te ingoa o tēnei rākau?	What is the name of that tree?	910	IDENT · who · the · name · of · this · tree
 rākau	Ko wai te ingoa o tēnei rākau?	What is the name of that tree?	910	IDENT · who · the · name · of · this · tree
 parāikete	E whitu ngā parāikete?	Are there seven blankets?	912	NUM · seven · the.PL · blanket
-whitu	E whitu ngā parāikete?	Are there seven blankets?	912	NUM · seven · the.PL · blanket
-ōu	E whitu ōu parāikete.	You have seven blankets.	912	NUM · seven · 2SG.POSS.PL · blanket
 parāikete	E whitu ōu parāikete.	You have seven blankets.	912	NUM · seven · 2SG.POSS.PL · blanket
-whitu	E whitu ōu parāikete.	You have seven blankets.	912	NUM · seven · 2SG.POSS.PL · blanket
 mōkai	He kiore te mōkai a tāku tamāhine.	My daughter's pet is a rat.	913	a · rat · the · pet · of · 1SG.POSS · daughter
 kiore	He kiore te mōkai a tāku tamāhine.	My daughter's pet is a rat.	913	a · rat · the · pet · of · 1SG.POSS · daughter
 moe	I te moe hōhonu ia.	He was fast asleep.	914	PST · PROG · sleep · deep · 3SG
@@ -417,18 +357,14 @@ pea	Ākene pea kei te hē koe.	You are probably wrong.	915	perhaps · perhaps ·
 hē	Ākene pea kei te hē koe.	You are probably wrong.	915	perhaps · perhaps · PROG · PROG · wrong · 2SG
 pūngāwerewere	He whakamataku te pūngāwerewere ki a au.	Spiders scare me.	916	a · frightening · the · spider · to · PERS · 1SG
 whakamataku	He whakamataku te pūngāwerewere ki a au.	Spiders scare me.	916	a · frightening · the · spider · to · PERS · 1SG
-tamariki	Tokowhā āku tamariki.	I have four children.	917	four.people · 1SG.POSS.PL · children
 āku	Tokowhā āku tamariki.	I have four children.	917	four.people · 1SG.POSS.PL · children
 tokowhā	Tokowhā āku tamariki.	I have four children.	917	four.people · 1SG.POSS.A.PL · children
-pīkau	I te pīkau rātou.	They were backpacking.	918	PST · PROG · carry.on.back · 3PL
-pīkau	I te pīkau ia.	She was backpacking.	918	PST · PROG · carry.on.back · 3SG
 pīkau	I wareware koe i tāku pīkau.	You forgot your backpack.	918	PST · forget · 2SG · OBJ · 1SG.POSS.A · backpack
 wareware	I wareware koe i tāku pīkau.	You forgot your backpack.	918	PST · forget · 2SG · OBJ · 1SG.POSS.A · backpack
 tīkina	Tīkina tāku pīkau.	Go grab your backpack.	918	fetch.PASS · 1SG.POSS.A · backpack
 homai	Homai te pīkau.	Give me the backpack.	918	give.hither · the · backpack
 tāhae	I tāhae ia tāku pene.	He stole my pen.	919	PST · steal · 3SG · 1SG.POSS.A · pen
 pene	I tāhae ia tāku pene.	He stole my pen.	919	PST · steal · 3SG · 1SG.POSS.A · pen
-ngenge	Kei te ngenge ahau!	I'm sleepy!	923	PRES · PROG · tired · 1SG
 kaiako	Ehara ahau i tōu kaiako.	I'm not your teacher.	925	NEG.COP · 1SG · PRED · 2SG.POSS.O · teacher
 tōu	Ehara ahau i tōu kaiako.	I'm not your teacher.	925	NEG.COP · 1SG · PRED · 2SG.POSS.O · teacher
 ehara	Ehara ahau i tōu kaiako.	I'm not your teacher.	925	NEG.COP · 1SG · PRED · 2SG.POSS.O · teacher
@@ -437,8 +373,6 @@ ehara	Ehara tēnei i te pōtae.	This is not a hat.	925	NEG.COP · this · PRED �
 kaua	Kaua e katia te kūaha.	Don't close the door.	947	NEG.IMP · IMP · close.PASS · the · door
 katia	Kaua e katia te kūaha.	Don't close the door.	947	NEG.IMP · IMP · close.PASS · the · door
 kūaha	Kaua e katia te kūaha.	Don't close the door.	947	NEG.IMP · IMP · close.PASS · the · door
-tamariki	Tokotoru āu tamariki?	Have you got three children?	958	three.people · 2SG.POSS.A.PL · children
-āu	Tokotoru āu tamariki?	Have you got three children?	958	three.people · 2SG.POSS.A.PL · children
 tokotoru	Tokotoru āu tamariki?	Have you got three children?	958	three.people · 2SG.POSS.A.PL · children
 auahi	I mare ia i te auahi.	She coughed from smoking.	959	PST · cough · 3SG · from · the · smoke
 mare	I mare ia i te auahi.	She coughed from smoking.	959	PST · cough · 3SG · from · the · smoke
@@ -449,11 +383,8 @@ kaipuke	I te haere atu te kaipuke ki uta.	The ship made for the shore.	961	PST �
 āpōpō	Kei te wātea koe āpōpō?	Are you free tomorrow?	19999	PRES · PROG · free · 2SG · tomorrow
 kaua	Kaua e wareware ki te tīketi.	Don't forget the ticket.	19999	NEG.IMP · IMP · forget · to · the · ticket
 wareware	Kaua e wareware ki te tīketi.	Don't forget the ticket.	19999	NEG.IMP · IMP · forget · to · the · ticket
-āporo	He āporo māku.	I would like an apple.	19999	INDEF · apple · for.1SG
 tāne	He tāne mārena ahau.	I am a married man.	19999	INDEF · man · married · 1SG
-ā	Tokohia ā koutou ākonga?	How many students have you?	19999	how.many.people · POSS.PL · 2PL · students
 tokohia	Tokohia ā koutou ākonga?	How many students have you?	19999	how.many.people · POSS.PL · 2PL · students
-koutou	Tokohia ā koutou ākonga?	How many students have you?	19999	how.many.people · POSS.PL · 2PL · students
 marae	Kotahi rau ngā marae o tēnei rohe.	There are one hundred marae in this area.	19999	one · hundred · the.PL · marae · of · this · area
 kotahi	Kotahi rau ngā marae o tēnei rohe.	There are one hundred marae in this area.	19999	one · hundred · the.PL · marae · of · this · area
 rau	Kotahi rau ngā marae o tēnei rohe.	There are one hundred marae in this area.	19999	one · hundred · the.PL · marae · of · this · area
@@ -461,14 +392,10 @@ tātou	E whā tekau mā whā ō tātou manuhiri.	We have forty-four guests.	199
 whā	E whā tekau mā whā ō tātou manuhiri.	We have forty-four guests.	19999	NUM · four · ten · and · four · POSS.PL · 1PL.INCL · guests
 ō	E whā tekau mā whā ō tātou manuhiri.	We have forty-four guests.	19999	NUM · four · ten · and · four · POSS.PL · 1PL.INCL · guests
 manuhiri	E whā tekau mā whā ō tātou manuhiri.	We have forty-four guests.	19999	NUM · four · ten · and · four · POSS.PL · 1PL.INCL · guests
-waru	Tekau mā waru rātou.	There are eighteen of them.	19999	ten · and · eight · 3PL
-kotahi	Kotahi tōku tungāne.	I have one brother.	19999	one · 1SG.POSS · brother
 kuihi	Ka kite mātou i tāna kāhui kuihi.	We saw his flock of geese.	19999	T/A · see · 1PL.EXCL · OBJ · 3SG.POSS · flock · geese
 kite	Ka kite mātou i tāna kāhui kuihi.	We saw his flock of geese.	19999	T/A · see · 1PL.EXCL · OBJ · 3SG.POSS · flock · geese
 tāna	Ka kite mātou i tāna kāhui kuihi.	We saw his flock of geese.	19999	T/A · see · 1PL.EXCL · OBJ · 3SG.POSS · flock · geese
-ēnei	Na wai ēnei kūkū?	Whose mussels are these?	19999	belong.to · who · these · mussels
 moenga	Whakapaitia tō moenga.	Make your bed.	19999	tidy.PASS · 2SG.POSS · bed
-tō	Whakapaitia tō moenga.	Make your bed.	19999	tidy.PASS · 2SG.POSS · bed
 kaua	Kaua e whakararuraru i a au!	Don't disturb me!	19999	NEG.IMP · IMP · disturb · OBJ · PERS · 1SG
 mahia	I mahia e māua/mātou he panikeke mō te parakuihi.	We made pancakes for breakfast.	19999	PST · make.PASS · by · 1DU.EXCL/1PL.EXCL · INDEF · pancakes · for · the · breakfast
 parakuihi	I mahia e māua/mātou he panikeke mō te parakuihi.	We made pancakes for breakfast.	19999	PST · make.PASS · by · 1DU.EXCL/1PL.EXCL · INDEF · pancakes · for · the · breakfast
@@ -482,13 +409,9 @@ pōuri	Pōuri atu, kei pūhia koe e au.	Out of my way or I shoot you.	19999	sad 
 tika	E tika ana kia whakatutukia tēnei mahi ā te āpōpō.	The work must be completed by tomorrow.	19999	PROG · correct · PROG · SBJV · complete.PASS · this · work · at · the · tomorrow
 ā	E tika ana kia whakatutukia tēnei mahi ā te āpōpō.	The work must be completed by tomorrow.	19999	PROG · correct · PROG · SBJV · complete.PASS · this · work · at · the · tomorrow
 āpōpō	E tika ana kia whakatutukia tēnei mahi ā te āpōpō.	The work must be completed by tomorrow.	19999	PROG · correct · PROG · SBJV · complete.PASS · this · work · at · the · tomorrow
-kōrero	Kia tūturu tō kōrero.	Speak plain truth.	19999	SBJV · true · 2SG.POSS · talk
 hia	E hia anō ngā whare ā Tom?	How many other houses does Tom own?	19999	NUM · how.many · besides · the.PL · house · of · Tom
 ā	E hia anō ngā whare ā Tom?	How many other houses does Tom own?	19999	NUM · how.many · besides · the.PL · house · of · Tom
 kiri	He kiri māia ahau ia rā, ia rā.	I am an adventurer each day.	19999	a · skin · brave · 1SG · every · day · every · day
-noho	Tuhia tana wāhi noho.	Write down his address.	19999	write.PASS · 3SG.POSS · place · live
-tuhia	Tuhia tana wāhi noho.	Write down his address.	19999	write.PASS · 3SG.POSS · place · live
-tana	Tuhia tana wāhi noho.	Write down his address.	19999	write.PASS · 3SG.POSS · place · live
 nama	E 3,000 yen e nama ana au ki a koe.	I owe you 3,000 yen.	19999	NUM · 3,000 · yen · PROG · owe · PROG · 1SG · to · PERS · 2SG
 runga	He mea tāhae nā rāua/rātou tana kopa i runga i te tereina.	They stole his wallet on the train.	19999	a · thing · steal · by · 3DU/3PL · 3SG.POSS · wallet · at · top · at · the · train
 tāhae	He mea tāhae nā rāua/rātou tana kopa i runga i te tereina.	They stole his wallet on the train.	19999	a · thing · steal · by · 3DU/3PL · 3SG.POSS · wallet · at · top · at · the · train
@@ -580,10 +503,7 @@ reira	Nō reira kāore ahau i konei.	I wasn't here then.	19999	from · there · 
 nau	Nau mai ki Tatoeba!	Welcome to Tatoeba!	19999	come · hither · to · Tatoeba
 tāhae	I ngana ngā makimaki ki te tāhae i ā mātou kai.	The monkeys tried to steal our food.	19999	PST · try · the.PL · monkey · to · the · steal · OBJ · POSS · 1PL.EXCL · food
 makimaki	I ngana ngā makimaki ki te tāhae i ā mātou kai.	The monkeys tried to steal our food.	19999	PST · try · the.PL · monkey · to · the · steal · OBJ · POSS · 1PL.EXCL · food
-ingoa	Ko Emiri tōku ingoa.	My name is Emily.	19999	IDENT · Emiri · 1SG.POSS · name
 whānau	Āhea tō rā whānau?	When is your birthday?	19999	when · 2SG.POSS · day · birth
-katia	Katia tā kōrua waha	Shut up, both of you.	19999	shut.PASS · POSS · 2DU · mouth
-waha	Katia tā kōrua waha	Shut up, both of you.	19999	shut.PASS · POSS · 2DU · mouth
 kōrua	Katia tā kōrua waha	Shut up, both of you.	19999	shut.PASS · POSS · 2DU · mouth
 ētahi	Kei te hiahia a Yanni ētahi wā e mahi ana.	Yanni needs some time to do this work.	19999	PROG · PROG · want · PERS · Yanni · some · time · PROG · work · PROG
 mate	He mate kē a Tom pea.	Tom may already be dead.	19999	a · dead · already · PERS · Tom · perhaps
@@ -600,30 +520,24 @@ tikanga	Tōna tikanga kia tūtaki ia ki a ia ki ngā kiriata.	He was supposed to
 tūtaki	Tōna tikanga kia tūtaki ia ki a ia ki ngā kiriata.	He was supposed to meet her at the movies.	19999	3SG.POSS · proper.way · SBJV · meet · 3SG · to · PERS · 3SG · to · the.PL · movie
 tōna	Tōna tikanga kia tūtaki ia ki a ia ki ngā kiriata.	He was supposed to meet her at the movies.	19999	3SG.POSS · proper.way · SBJV · meet · 3SG · to · PERS · 3SG · to · the.PL · movie
 tiakarete	E hia ngā tiakarete i kai a Tom?	How much chocolate did Tom eat?	19999	NUM · how.many · the.PL · chocolate · PST · eat · PERS · Tom
-arapoka	I tanuku te arapoka.	The tunnel collapsed.	19999	PST · collapse · the · tunnel
-ōku	Paraihetia ōku makawe.	Brush your hair.	19999	brush.PASS · 1SG.POSS.PL · hair
 āna	Kei te mōhio i āna rārangi	He knows his lines.	19999	PROG · PROG · know · OBJ · 3SG.POSS.PL · line
 riri	E hia ngā whakawai riri nāu?	How many push-ups did you do?	19999	NUM · how.many · the.PL · train · fight · by.2SG
 ata	Ka aha a Jane ā te ata?	What is Jane going to do tomorrow morning?	19999	FUT · what · PERS · Jane · at · the · morning
 pukapuka	He tokomaha ngā tāngata i te whare pukapuka i ngā wā katoa.	There are always many people in the library.	19999	a · many.people · the.PL · people · at · the · house · book · at · the.PL · time · all
 karu	He pai tōku karu inaianei.	My eye is fine now.	19999	a · good · 1SG.POSS · eye · now
 waewae	He pai tōku waewae inaianei.	My leg is fine now.	19999	a · good · 1SG.POSS · leg · now
-te	Kei te kai koe.	You're eating.	76	PROG · PROG · eat · 2SG
 ki	Kei te aroha au ki a koe.	I love you.	92	PROG · PROG · love · 1SG · to · PERS · 2SG
 kei	Kei te aroha au ki a koe.	I love you.	92	PROG · PROG · love · 1SG · to · PERS · 2SG
 e	He maha ngā mea o te ao kua kitea e ia.	He has seen much of the world.	151	a · many · the.PL · thing · of · the · world · PERF · see.PASS · by · 3SG
 i	I paingia e koe taku whakaahua?	Did you like my picture?	389	PST · like.PASS · by · 2SG · 1SG.POSS · picture
-ia	He tauira ia.	She's a student.	399	a · student · 3SG
 ana	E hiahia noa ana au ki te tuku mihi atu ki a koe.	I just want to thank you.	772	PROG · want · just · PROG · 1SG · to · the · send · greeting · thither · to · PERS · 2SG
 i	Kei te tāhoe au i roto ki te moana.	I'm swimming in the ocean.	19999	PROG · PROG · swim · 1SG · at · inside · to · the · sea
-rua	E rua aku ngeru.	I have two cats.	19999	NUM · two · 1SG.POSS.PL · cat
 kai	I kai au i te miraka tepe.	I ate the yoghurt.	19999	PST · eat · 1SG · OBJ · the · milk · congealed
 utu	E rua tāra te utu mō te pukapuka.	The price of the book was $5.	19999	NUM · two · dollar · the · price · for · the · book
 o	I te wā o te haerenga, i whakaaro au ki a koe.	During the entire trip my thoughts were of you.	19999	at · the · time · of · the · journey · PST · think · 1SG · to · PERS · 2SG
 kore	E kore e taea e au te tiaki i a ia.	I can't protect her.	19999	FUT · NEG · FUT · able.PASS · by · 1SG · the · care.for · OBJ · PERS · 3SG
 me	Me haere au ki te whare paku.	I have to use the restroom.	19999	OBLIG · go · 1SG · to · the · house · small
 haere	Me haere au ki te whare paku.	I have to use the restroom.	19999	OBLIG · go · 1SG · to · the · house · small
-mai	Haere mai ki Tatoeba!	Welcome to Tatoeba!	19999	go · hither · to · Tatoeba
 tekau	Kotahi rau e rima tekau hoki ngā tāngata i mate i te rū whenua.	This earthquake took a hundred and fifty lives, as well.	19999	one · hundred · NUM · five · ten · also · the.PL · people · PST · die · from · the · shake · land
 hoki	Kotahi rau e rima tekau hoki ngā tāngata i mate i te rū whenua.	This earthquake took a hundred and fifty lives, as well.	19999	one · hundred · NUM · five · ten · also · the.PL · people · PST · die · from · the · shake · land
 kotahi	Kotahi rau e rima tekau hoki ngā tāngata i mate i te rū whenua.	This earthquake took a hundred and fifty lives, as well.	19999	one · hundred · NUM · five · ten · also · the.PL · people · PST · die · from · the · shake · land
@@ -641,6 +555,5 @@ kura	Kua toru ngā rā a Tom e ngaro ana i te kura.	Tom has been absent from sch
 rā	Kua toru ngā rā a Tom e ngaro ana i te kura.	Tom has been absent from school for three days.	19999	PERF · three · the.PL · day · of · Tom · PROG · missing · PROG · at · the · school
 ko	Ko koe te hoa kotahi o Tom i mua.	You were Tom's only friend.	19999	EQ · 2SG · the · friend · one · of · Tom · at · front
 kotahi	Ko koe te hoa kotahi o Tom i mua.	You were Tom's only friend.	19999	EQ · 2SG · the · friend · one · of · Tom · at · front
-makawe	He makawe weriweri	What ugly hair.	19999	a · hair · disgusting
 nei	He iti tāu māra nei!	Your garden really is little.	19999	a · small · 2SG.POSS.A · garden · this
 ka	Ka aha a Jane ā te ata?	What is Jane going to do tomorrow morning?	19999	FUT · what · PERS · Jane · at · the · morning

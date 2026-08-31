@@ -973,3 +973,35 @@ inside the top 2,000 had NO sentence longer than three tokens — including
 `я` (rank 0, best example "Не я."), `не`, `и`, `что`, `كان`, `لا`, `هذا`.
 The highest-frequency words had the thinnest examples, which is the worst
 possible distribution: they are what a learner meets first.
+
+---
+
+## §24 The authoring bar and the deletion bar are different numbers
+
+§23 sets AUTHORING at 7-14 words. Deletion is looser on purpose: a five-word
+corpus sentence is often perfectly good, and destroying it to satisfy an
+aspiration is not an improvement.
+
+**The deletion rule: a sentence under five tokens goes when its word already
+has a longer one.** Never otherwise — a word whose every sentence is thin
+keeps them all until something better is authored.
+`scripts/enforce_sentence_floor.py`, enforced by
+`test_a_word_with_a_real_sentence_keeps_no_fragments`.
+
+**Why deletion and not re-ranking.** The owner's card for `мне` showed
+"Это мне?", "Это не мне." and "Это мне." while three authored sentences of
+ten and eleven words sat unseen behind them. A card draws by
+`difficulty_rank`; the authored rows were appended with rank = max + 1, so
+they sorted last and were never reached. **2,743 authored sentences across
+ru/ar/jam/yo/xh were buried that way.** Re-ranking would also have worked,
+but leaving three useless rows to be shuffled is the worse outcome.
+
+Applied 31 Aug: 69,473 sentences dropped, 48,281 words improved, 15,894 left
+alone because nothing better exists yet. Thai excluded entirely (§22).
+
+**And a lesson about the selection, not the bar.** The first ru/ar pass
+picked words whose best sentence was ≤3 tokens — a threshold invented on the
+spot, weaker than the §23 rule written the same day. 998 Russian and 1,068
+Arabic words inside the top 2,000 still failed §23 afterwards, and the owner
+caught it from a card. **When a rule exists, select against the rule, not
+against a number that feels adjacent to it.**

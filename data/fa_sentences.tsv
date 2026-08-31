@@ -1,5 +1,4 @@
 word	sentence	translation	difficulty_rank	transliteration	source
-و	نان و پنیر خریدم.	I bought bread and cheese.	1	nân va panir kharidam.	authored
 در	کیفم در ماشین است.	My bag is in the car.	2	kifam dar mâshin ast.	authored
 به	این نامه را به مادرم دادم.	I gave this letter to my mother.	3	in nâme râ be mâdaram dâdam.	authored
 از	قطار از ایستگاه حرکت کرد.	The train left the station.	4	ghatâr az istgâh harekat kard.	authored
@@ -8,7 +7,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 این	این غذا خیلی خوشمزه است.	This food is very tasty.	7	in ghazâ kheyli khoshmaze ast.	authored
 هستم	من دانشجوی سال اول هستم.	I am a first-year university student.	8	man dâneshju-ye sâl-e avval hastam.	authored
 هستی	تو دوست خوبی هستی.	You are a good friend.	9	to dust-e khubi hasti.	authored
-هستیم	ما آماده رفتن هستیم.	We are ready to leave.	10	mâ âmâde-ye raftan hastim.	authored
 می‌خواهم	من یک لیوان آب می‌خواهم.	I want a glass of water.	11	man yek livân âb mikhâham.	authored
 می‌دانم	من پاسخ این پرسش را می‌دانم.	I know the answer to this question.	12	man pâsokh-e in porsesh râ midânam.	authored
 می‌بینم	من از اینجا دریا را می‌بینم.	I can see the sea from here.	13	man az injâ daryâ râ mibinam.	authored
@@ -46,14 +44,11 @@ word	sentence	translation	difficulty_rank	transliteration	source
 هیچ	هیچ کس در خانه نیست.	There is nobody at home.	45	hich kas dar khâne nist.	authored
 چه	چه رنگی را بیشتر دوست داری؟	What colour do you like most?	46	che rangi râ bishtar dust dâri?	authored
 چرا	چرا دیشب تلفن نکردی؟	Why did you not call last night?	47	cherâ dishab telefon nakardi?	authored
-چطور	حال شما چطور است؟	How are you?	48	hâl-e shomâ che-towr ast?	authored
 چگونه	این دستگاه چگونه کار می‌کند؟	How does this machine work?	49	in dastgâh chegune kâr mikonad?	authored
 کجا	نزدیک‌ترین داروخانه کجا است؟	Where is the nearest pharmacy?	50	nazdik-tarin dârukhâne kojâ ast?	authored
 کی	کی به خانه می‌آیی؟	When are you coming home?	51	key be khâne miâyi?	authored
 چند	شما چند برادر و خواهر دارید؟	How many brothers and sisters do you have?	52	shomâ chand barâdar va khâhar dârid?	authored
 چیزی	دوستم چیزی به من نگفت.	My friend didn't tell me anything.	53	dustam chizi be man nagoft.	authored
-کسی	کسی در خانه نیست.	There is nobody home.	54	kasi dar khâne nist.	authored
-باید	من باید زودتر بخوابم.	I should go to bed earlier.	55	man bâyad zudtar bekhâbam.	authored
 شاید	شاید فردا هوا بهتر شود.	Maybe the weather will be better tomorrow.	56	shâyad fardâ havâ behtar shavad.	authored
 حالا	حالا می‌توانیم با هم برویم.	Now we can go together.	57	hâlâ mitavânim bâ ham beravim.	authored
 الان	الان در راه خانه هستم.	I'm on my way home right now.	58	alân dar râh-e khâne hastam.	authored
@@ -62,7 +57,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 فقط	من فقط یک سوال دارم.	I only have one question.	61	man faqat yek so'âl dâram.	authored
 همیشه	مادرم همیشه صبح زود بیدار می‌شود.	My mother always wakes up early in the morning.	62	mâdaram hamishe sobh zud bidâr mishavad.	authored
 هرگز	من هرگز آنجا نرفته‌ام.	I have never been there.	63	man hargez ânjâ narafte-am.	authored
-لطفا	لطفا در را ببندید.	Please close the door.	64	lotfan dar râ bebandid.	authored
 ممنون	از کمک شما ممنون هستم.	I'm grateful for your help.	65	az komak-e shomâ mamnun hastam.	authored
 متشکرم	از دعوت شما بسیار متشکرم.	Thank you very much for your invitation.	66	az da'vat-e shomâ besyâr moteshakkeram.	authored
 گاهی	گاهی شب‌ها کتاب می‌خوانم.	Sometimes I read a book at night.	67	gâhi shab-hâ ketâb mikhânam.	authored
@@ -84,7 +78,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 می‌توانم	من می‌توانم فارسی بخوانم.	I can read Persian.	83	man mitavânam fârsi bekhânam.	authored
 بودن	تنها بودن همیشه بد نیست.	Being alone isn't always bad.	84	tanhâ budan hamishe bad nist.	authored
 داشتن	داشتن یک دوست خوب مهم است.	Having a good friend is important.	85	dâshtan-e yek dust-e khub mohem ast.	authored
-شدن	بزرگ شدن آسان نیست.	Growing up is not easy.	86	bozorg shodan âsân nist.	authored
 کردن	آشپزی کردن را دوست دارم.	I like cooking.	87	âshpazi kardan râ dust dâram.	authored
 رفتن	برای رفتن به مدرسه عجله دارم.	I'm in a hurry to get to school.	88	barâye raftan be madrese ajale dâram.	authored
 آمدن	آمدن شما ما را خوشحال کرد.	We were happy that you came.	89	âmadan-e shomâ mâ râ khoshhâl kard.	authored
@@ -139,7 +132,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 شب	هر شب یک ساعت کتاب می‌خوانم.	Every night I read a book for an hour.	139	har shab yek sâ'at ketâb mikhânam.	authored
 سال	سال گذشته به شمال سفر کردیم.	Last year we travelled to the north.	140	sâl-e gozashte be shomâl safar kardim.	authored
 ماه	ماه آینده به خانه جدید می‌رویم.	Next month we are moving to a new house.	141	mâh-e âyande be khâne-ye jadid miravim.	authored
-هفته	هفته آینده امتحان داریم.	We have an exam next week.	142	hafte-ye âyande emtehân dârim.	authored
 ساعت	این کار دو ساعت وقت می‌برد.	This job takes two hours.	143	in kâr do sâ'at vaght mibarad.	authored
 وقت	امروز وقت کافی برای ورزش نداشتم.	Today I didn't have enough time for exercise.	144	emruz vaght-e kâfi barâye varzesh nadâshtam.	authored
 زمان	زمان امتحان را فراموش کردم.	I forgot the time of the exam.	145	zamân-e emtehân râ farâmush kardam.	authored
@@ -181,7 +173,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 سه	ما سه روز در شمال ماندیم.	We stayed three days in the north.	181	mâ se ruz dar shomâl mândim.	authored
 چهار	این میز چهار صندلی دارد.	This table has four chairs.	182	in miz chahâr sandali dârad.	authored
 پنج	قطار پنج دقیقه دیگر می‌رسد.	The train arrives in five minutes.	183	ghatâr panj daghighe digar miresad.	authored
-شش	من شش ساعت خوابیدم.	I slept for six hours.	184	man shesh sâat khâbidam.	authored
 هفت	ساعت هفت صبح بیدار می‌شوم.	I wake up at seven in the morning.	185	sâat-e haft-e sobh bidâr mishavam.	authored
 هشت	کلاس ما ساعت هشت شروع می‌شود.	Our class starts at eight o'clock.	186	kelâs-e mâ sâat-e hasht shoru mishavad.	authored
 ده	ده دقیقه دیگر می‌آیم.	I'll be there in ten minutes.	187	dah daghighe digar miâyam.	authored
@@ -199,108 +190,29 @@ word	sentence	translation	difficulty_rank	transliteration	source
 رنگ	رنگ این پیراهن را دوست دارم.	I like the colour of this shirt.	199	rang-e in pirâhan râ dust dâram.	authored
 قرمز	سیب‌های این درخت قرمز هستند.	The apples on this tree are red.	200	sib-hâ-ye in derakht ghermez hastand.	authored
 در	این به آن در!	Tit for tat!	26		tatoeba
-آن	این به آن در!	Tit for tat!	26		tatoeba
-این	این به آن در!	Tit for tat!	26		tatoeba
-به	این به آن در!	Tit for tat!	26		tatoeba
 در	این به آن در.	Tit for tat.	26		tatoeba
-آن	این به آن در.	Tit for tat.	26		tatoeba
-این	این به آن در.	Tit for tat.	26		tatoeba
-به	این به آن در.	Tit for tat.	26		tatoeba
-او	این او است.	It is he.	31		tatoeba
-این	این او است.	It is he.	31		tatoeba
-است	این او است.	It is he.	31		tatoeba
-شما	و شما	And you?	33		tatoeba
-و	و شما	And you?	33		tatoeba
-آن	این یا آن؟	This one or that one?	37		tatoeba
-یا	این یا آن؟	This one or that one?	37		tatoeba
 چرا	چرا من؟	Why me?	47		tatoeba
-من	چرا من؟	Why me?	47		tatoeba
-نه	چرا که نه؟	Why not?	47		tatoeba
 چرا	چرا که نه؟	Why not?	47		tatoeba
-که	چرا که نه؟	Why not?	47		tatoeba
-چطور	تو چطور؟	How about you?	48		tatoeba
-تو	تو چطور؟	How about you?	48		tatoeba
-هستم	کجا هستم؟	Where am I?	50		tatoeba
-کجا	کجا هستم؟	Where am I?	50		tatoeba
-هستم	من کی هستم؟	Who am I?	51		tatoeba
-من	من کی هستم؟	Who am I?	51		tatoeba
-کی	من کی هستم؟	Who am I?	51		tatoeba
-کسی	چه کسی؟	Who?	54		tatoeba
-چه	چه کسی؟	Who?	54		tatoeba
-تو	حالا تو کی هستی؟	Who are you, anyway?	57		tatoeba
 هستی	حالا تو کی هستی؟	Who are you, anyway?	57		tatoeba
-کی	حالا تو کی هستی؟	Who are you, anyway?	57		tatoeba
-حالا	حالا تو کی هستی؟	Who are you, anyway?	57		tatoeba
-متشکرم	خیلی متشکرم.	Thanks a lot!	66		tatoeba
-خیلی	خیلی متشکرم.	Thanks a lot!	66		tatoeba
-هستیم	ما اینجا هستیم.	We are here.	68		tatoeba
-اینجا	ما اینجا هستیم.	We are here.	68		tatoeba
 ما	ما اینجا هستیم.	We are here.	68		tatoeba
-هستم	چرا اینجا هستم؟	Why am I here?	68		tatoeba
-اینجا	چرا اینجا هستم؟	Why am I here?	68		tatoeba
 چرا	چرا اینجا هستم؟	Why am I here?	68		tatoeba
-زیبا	تو زیبا هستی.	You are beautiful.	78		tatoeba
 هستی	تو زیبا هستی.	You are beautiful.	78		tatoeba
-تو	تو زیبا هستی.	You are beautiful.	78		tatoeba
 هستی	زیبا هستی.	You are beautiful.	78		tatoeba
-زیبا	زیبا هستی.	You are beautiful.	78		tatoeba
-خواستن	خواستن توانستن است.	Where there's a will, there's a way.	94		tatoeba
 توانستن	خواستن توانستن است.	Where there's a will, there's a way.	94		tatoeba
-است	خواستن توانستن است.	Where there's a will, there's a way.	94		tatoeba
 برای	اینجا هیچ چیزی برای من نیست.	There's nothing for me here.	129		tatoeba
 چیزی	اینجا هیچ چیزی برای من نیست.	There's nothing for me here.	129		tatoeba
 هیچ	اینجا هیچ چیزی برای من نیست.	There's nothing for me here.	129		tatoeba
 اینجا	اینجا هیچ چیزی برای من نیست.	There's nothing for me here.	129		tatoeba
 من	اینجا هیچ چیزی برای من نیست.	There's nothing for me here.	129		tatoeba
 نیست	اینجا هیچ چیزی برای من نیست.	There's nothing for me here.	129		tatoeba
-نیست	اینجا نیست.	It's not here.	129		tatoeba
-است	او تازه کار است.	He is a beginner.	137		tatoeba
-او	او تازه کار است.	He is a beginner.	137		tatoeba
-کار	او تازه کار است.	He is a beginner.	137		tatoeba
-تازه	او تازه کار است.	He is a beginner.	137		tatoeba
-چند	ساعت چند است.	What time is it?	143		tatoeba
-ساعت	ساعت چند است.	What time is it?	143		tatoeba
-آدم	تو آدم هستی.	You are human.	146		tatoeba
-او	او یک مرد است.	He is a man.	147		tatoeba
-مرد	او یک مرد است.	He is a man.	147		tatoeba
-یک	او یک مرد است.	He is a man.	147		tatoeba
-مرد	من یک مرد هستم.	I am a man.	147		tatoeba
-یک	من یک مرد هستم.	I am a man.	147		tatoeba
-یک	تو یک مرد هستی.	You are a man.	147		tatoeba
-مرد	تو یک مرد هستی.	You are a man.	147		tatoeba
-نیست	زن زیبا نیست.	The woman is not beautiful.	148		tatoeba
-زن	زن زیبا نیست.	The woman is not beautiful.	148		tatoeba
-زیبا	زن زیبا نیست.	The woman is not beautiful.	148		tatoeba
-زن	من یک زن هستم.	I am a woman.	148		tatoeba
-زن	تو یک زن هستی.	You are a woman.	148		tatoeba
 و	او یک مرد است و او یک زن است.	He's a man, and she's a woman.	148		tatoeba
-پسر	من یک پسر هستم.	I am a boy.	150		tatoeba
-پسر	تو یک پسر هستی.	You are a boy.	150		tatoeba
-پسر	او یک پسر است.	He is a boy.	150		tatoeba
 نه	من یک مرد هستم، نه یک پسر.	I'm a man, not a boy.	150		tatoeba
-دختر	من یک دختر هستم.	I am a girl.	151		tatoeba
-دختر	تو یک دختر هستی.	You are a girl.	151		tatoeba
-دختر	او یک دختر است.	She is a girl.	151		tatoeba
 و	او یک پسر است و او یک دختر است.	He's a boy, and she's a girl.	151		tatoeba
-هستیم	ما همه مادر هستیم.	We're all mothers.	154		tatoeba
 ما	ما همه مادر هستیم.	We're all mothers.	154		tatoeba
-مادر	ما همه مادر هستیم.	We're all mothers.	154		tatoeba
-همه	ما همه مادر هستیم.	We're all mothers.	154		tatoeba
 بسیار	خانه شما بسیار بزرگ است.	Your house is massive!	158		tatoeba
 بزرگ	خانه شما بسیار بزرگ است.	Your house is massive!	158		tatoeba
 شما	خانه شما بسیار بزرگ است.	Your house is massive!	158		tatoeba
 خانه	خانه شما بسیار بزرگ است.	Your house is massive!	158		tatoeba
-کوچک	دنیا کوچک است.	The world is small.	162		tatoeba
-دنیا	دنیا کوچک است.	The world is small.	162		tatoeba
-کسی	کسی تو ماشین بود؟	Was there anybody in the car?	165		tatoeba
-بود	کسی تو ماشین بود؟	Was there anybody in the car?	165		tatoeba
-ماشین	کسی تو ماشین بود؟	Was there anybody in the car?	165		tatoeba
-زیاد	پول خیلی زیاد؟	Too much money?	169		tatoeba
-پول	پول خیلی زیاد؟	Too much money?	169		tatoeba
-خیلی	پول خیلی زیاد؟	Too much money?	169		tatoeba
-چیز	همه چیز پول است.	Money talks.	169		tatoeba
-پول	همه چیز پول است.	Money talks.	169		tatoeba
-همه	همه چیز پول است.	Money talks.	169		tatoeba
 بسیار	این یک کتاب بسیار قدیمی است.	This is a very old book.	175		tatoeba
 قدیمی	این یک کتاب بسیار قدیمی است.	This is a very old book.	175		tatoeba
 کتاب	این یک کتاب بسیار قدیمی است.	This is a very old book.	175		tatoeba
@@ -308,26 +220,14 @@ word	sentence	translation	difficulty_rank	transliteration	source
 پدر	پدر من بسیار کتاب دارد.	My father has a lot of books.	175		tatoeba
 دارد	پدر من بسیار کتاب دارد.	My father has a lot of books.	175		tatoeba
 کتاب	پدر من بسیار کتاب دارد.	My father has a lot of books.	175		tatoeba
-کتاب	این کتاب من است.	It's my book.	175		tatoeba
-قدیمی	این کتاب قدیمی است.	This book is old.	175		tatoeba
-مدرسه	دنیا یک مدرسه است.	The world is a school.	176		tatoeba
-دنیا	دنیا یک مدرسه است.	The world is a school.	176		tatoeba
-دارد	او هفت پسر دارد.	She has seven sons.	185		tatoeba
-هفت	او هفت پسر دارد.	She has seven sons.	185		tatoeba
 روز	یک هفته هفت روز دارد.	A week has seven days.	185		tatoeba
 هفته	یک هفته هفت روز دارد.	A week has seven days.	185		tatoeba
 دارد	یک هفته هفت روز دارد.	A week has seven days.	185		tatoeba
 هفت	یک هفته هفت روز دارد.	A week has seven days.	185		tatoeba
-ماشین	ماشین آبی‌رنگ است.	The car is blue.	201		tatoeba
 آبی	ماشین آبی‌رنگ است.	The car is blue.	201		tatoeba
-رنگ	ماشین آبی‌رنگ است.	The car is blue.	201		tatoeba
-ستاره	خورشید یک ستاره است.	The sun is a star.	223		tatoeba
-خورشید	خورشید یک ستاره است.	The sun is a star.	223		tatoeba
 کوچک	او یک سگ کوچک سیاه دارد.	She has a small, black dog.	239		tatoeba
 سیاه	او یک سگ کوچک سیاه دارد.	She has a small, black dog.	239		tatoeba
 سگ	او یک سگ کوچک سیاه دارد.	She has a small, black dog.	239		tatoeba
-خوب	گربه خوب	Good cat!	240		tatoeba
-گربه	گربه خوب	Good cat!	240		tatoeba
 با	دو پرنده را با یک سنگ زدن.	Kill two birds with one stone.	241		tatoeba
 پرنده	دو پرنده را با یک سنگ زدن.	Kill two birds with one stone.	241		tatoeba
 زدن	دو پرنده را با یک سنگ زدن.	Kill two birds with one stone.	241		tatoeba
@@ -335,31 +235,12 @@ word	sentence	translation	difficulty_rank	transliteration	source
 سنگ	دو پرنده را با یک سنگ زدن.	Kill two birds with one stone.	241		tatoeba
 دو	دو پرنده را با یک سنگ زدن.	Kill two birds with one stone.	241		tatoeba
 در	پرنده در آسمان است.	The bird is in the sky.	241		tatoeba
-پرنده	پرنده در آسمان است.	The bird is in the sky.	241		tatoeba
-آسمان	پرنده در آسمان است.	The bird is in the sky.	241		tatoeba
-اسب	پسر اسب دارد.	The boy has a horse.	243		tatoeba
-گوشت	گوشت یا ماهی؟	Meat or fish?	245		tatoeba
-ماهی	گوشت یا ماهی؟	Meat or fish?	245		tatoeba
-یا	گوشت یا ماهی؟	Meat or fish?	245		tatoeba
-گوشت	گوشت، لطفا.	Meat, please.	245		tatoeba
-لطفا	گوشت، لطفا.	Meat, please.	245		tatoeba
 خوب	این چای بسیار خوب است.	This tea is very nice.	252		tatoeba
 چای	این چای بسیار خوب است.	This tea is very nice.	252		tatoeba
-شکر	شیر؟ شکر؟	Any milk or sugar?	255		tatoeba
-شیر	شیر؟ شکر؟	Any milk or sugar?	255		tatoeba
-همسایه	او همسایه ما است.	She is our neighbor.	266		tatoeba
 ما	او همسایه ما است.	She is our neighbor.	266		tatoeba
-دکتر	همسر من دکتر است.	My wife is a doctor.	271		tatoeba
 همسر	همسر من دکتر است.	My wife is a doctor.	271		tatoeba
-مهندس	من مهندس هستم.	I'm an engineer.	273		tatoeba
-سخت	سخت است.	It's hard.	292		tatoeba
-بود	شب سرد بود.	The night was cold.	298		tatoeba
-سرد	شب سرد بود.	The night was cold.	298		tatoeba
-شب	شب سرد بود.	The night was cold.	298		tatoeba
-خالی	اینجا خالی است.	The place is free.	304		tatoeba
 مهم	این مهم نیست.	This is not important.	307		tatoeba
 مهم	آن الآن مهم نیست.	That's not important right now.	307		tatoeba
-جالب	جالب نیست.	That isn't cool.	308		tatoeba
 چند	پس او چند سال دارد؟	How old is he, then?	335		tatoeba
 سال	پس او چند سال دارد؟	How old is he, then?	335		tatoeba
 پس	پس او چند سال دارد؟	How old is he, then?	335		tatoeba
@@ -368,53 +249,24 @@ word	sentence	translation	difficulty_rank	transliteration	source
 شنیدن	شنیدن کی بُوَد مانند دیدن.	Seeing is believing.	342		tatoeba
 کی	شنیدن کی بُوَد مانند دیدن.	Seeing is believing.	342		tatoeba
 البته	البته.	Of course.	344		tatoeba
-خوب	واقعا خوب بود.	It was really good.	348		tatoeba
-واقعا	واقعا خوب بود.	It was really good.	348		tatoeba
-بود	واقعا خوب بود.	It was really good.	348		tatoeba
-زشت	این واقعاً زشت است.	It's really gross.	348		tatoeba
-امروز	چرا امروز اینجا هستی؟	Why are you here today?	361		tatoeba
 چهار	دو دو تا چهار تا.	Twice two is four.	376		tatoeba
 دو	دو دو تا چهار تا.	Twice two is four.	376		tatoeba
 تا	دو دو تا چهار تا.	Twice two is four.	376		tatoeba
-میز	کتاب روی میز است.	The book is on the table.	377		tatoeba
-روی	کتاب روی میز است.	The book is on the table.	377		tatoeba
 روی	نان و نمک روی میز است.	There is bread and salt on the table.	377		tatoeba
 نان	نان و نمک روی میز است.	There is bread and salt on the table.	377		tatoeba
 نمک	نان و نمک روی میز است.	There is bread and salt on the table.	377		tatoeba
 میز	نان و نمک روی میز است.	There is bread and salt on the table.	377		tatoeba
-بد	جنگ بد است.	War is bad.	387		tatoeba
-جنگ	جنگ بد است.	War is bad.	387		tatoeba
-هدف	هدف،آتش!	Aim. Fire!	404		tatoeba
-آتش	هدف،آتش!	Aim. Fire!	404		tatoeba
-فقط	فقط نتیجه مهم است.	The result is all that matters.	406		tatoeba
-نتیجه	فقط نتیجه مهم است.	The result is all that matters.	406		tatoeba
 مهم	فقط نتیجه مهم است.	The result is all that matters.	406		tatoeba
-عشق	من عشق تو هستم.	I love you.	410		tatoeba
 داشتن	عشق دوست داشتن عشق را دوست دارد.	Love loves to love love.	410		tatoeba
 را	عشق دوست داشتن عشق را دوست دارد.	Love loves to love love.	410		tatoeba
 عشق	عشق دوست داشتن عشق را دوست دارد.	Love loves to love love.	410		tatoeba
 دوست	عشق دوست داشتن عشق را دوست دارد.	Love loves to love love.	410		tatoeba
-کامپیوتر	این کامپیوتر من است.	This is my computer.	417		tatoeba
 خبر	چه خبر؟	What's up?	425		tatoeba
-چه	چه خبر؟	What's up?	425		tatoeba
 خبر	از خانواده چه خبر؟	How is it going with your family?	425		tatoeba
-چه	از خانواده چه خبر؟	How is it going with your family?	425		tatoeba
-خانواده	از خانواده چه خبر؟	How is it going with your family?	425		tatoeba
-از	از خانواده چه خبر؟	How is it going with your family?	425		tatoeba
 روزنامه	یک روزنامه در اتاق من است.	There is a newspaper in my room.	426		tatoeba
 اتاق	یک روزنامه در اتاق من است.	There is a newspaper in my room.	426		tatoeba
-جوان	پدر من جوان است.	My father is young.	459		tatoeba
-پدر	پدر من جوان است.	My father is young.	459		tatoeba
 پیر	این مرد خیلی خیلی پیر است.	This man is very, very old.	460		tatoeba
 خیلی	این مرد خیلی خیلی پیر است.	This man is very, very old.	460		tatoeba
-باهوش	او باهوش است.	She is sharp.	463		tatoeba
-خطرناک	این خطرناک است!	It is dangerous!	464		tatoeba
-آماده	آماده هستی؟	Are you ready?	466		tatoeba
-واضح	این کاملاً واضح است.	It's abundantly clear.	469		tatoeba
-درست	درست است.	It's true.	470		tatoeba
-درست	تلفن الان درست نیست.	The telephone is now out of order.	470		tatoeba
-الان	تلفن الان درست نیست.	The telephone is now out of order.	470		tatoeba
-تلفن	تلفن الان درست نیست.	The telephone is now out of order.	470		tatoeba
 خوشمزه	خوشمزه نیست؟	Isn't it delicious?	472		tatoeba
 مدرن	خانه‌ی او خیلی مدرن است.	Her house is very modern.	477		tatoeba
 خانه	خانه‌ی او خیلی مدرن است.	Her house is very modern.	477		tatoeba
@@ -424,16 +276,9 @@ word	sentence	translation	difficulty_rank	transliteration	source
 بد	امروز هوا بسیار بد است.	It is terrible weather today.	479		tatoeba
 امروز	امروز هوا بسیار بد است.	It is terrible weather today.	479		tatoeba
 هوا	امروز هوا بسیار بد است.	It is terrible weather today.	479		tatoeba
-هوا	هوا بسیار گرم است.	The weather is very hot.	479		tatoeba
-گرم	هوا بسیار گرم است.	The weather is very hot.	479		tatoeba
-هوا	امروز هوا گرم است.	It's a hot day.	479		tatoeba
-امروز	امروز هوا گرم است.	It's a hot day.	479		tatoeba
-گرم	امروز هوا گرم است.	It's a hot day.	479		tatoeba
-چطور	هوا چطور است؟	What is the weather like?	479		tatoeba
 کوتاه	تابستان ما کوتاه و گرم است.	Our summer is short, but warm.	481		tatoeba
 تابستان	تابستان ما کوتاه و گرم است.	Our summer is short, but warm.	481		tatoeba
 گرم	تابستان ما کوتاه و گرم است.	Our summer is short, but warm.	481		tatoeba
-آشپزخانه	این آشپزخانه من است.	This is my kitchen.	489		tatoeba
 برای	هیچ چیزی برای خوردن در آشپزخانه نیست.	There's nothing to eat in the kitchen.	489		tatoeba
 چیزی	هیچ چیزی برای خوردن در آشپزخانه نیست.	There's nothing to eat in the kitchen.	489		tatoeba
 آشپزخانه	هیچ چیزی برای خوردن در آشپزخانه نیست.	There's nothing to eat in the kitchen.	489		tatoeba
@@ -467,30 +312,17 @@ word	sentence	translation	difficulty_rank	transliteration	source
 سیاه	تصویر سیاه و سفید است.	The picture is in black and white.	528		tatoeba
 تصویر	تصویر سیاه و سفید است.	The picture is in black and white.	528		tatoeba
 سفید	تصویر سیاه و سفید است.	The picture is in black and white.	528		tatoeba
-چای	این طعم چای دارد.	This tastes like tea.	531		tatoeba
-طعم	این طعم چای دارد.	This tastes like tea.	531		tatoeba
 تنها	من اینجا خیلی تنها هستم.	I'm very lonely here.	569		tatoeba
-تنها	چرا تنها هستم؟	Why am I alone?	569		tatoeba
 تاریک	هوا خیلی تاریک بود.	It was so dark.	574		tatoeba
 زمین	زمین گرد است	The earth is round.	575		tatoeba
 گرد	زمین گرد است	The earth is round.	575		tatoeba
 زمین	زمین گرد است.	The Earth is round.	575		tatoeba
 گرد	زمین گرد است.	The Earth is round.	575		tatoeba
-سه	نزدیک ساعت سه است.	It's nearly three o'clock.	577		tatoeba
-نزدیک	نزدیک ساعت سه است.	It's nearly three o'clock.	577		tatoeba
-ساعت	نزدیک ساعت سه است.	It's nearly three o'clock.	577		tatoeba
 دور	بسیار دور بسیار خوب است.	So far, so good.	578		tatoeba
 جدید	نه، او دوست‌پسر جدید من نیست.	No, he's not my new boyfriend.	583		tatoeba
 دوست	نه، او دوست‌پسر جدید من نیست.	No, he's not my new boyfriend.	583		tatoeba
-عجیب	چه عجیب!	How weird!	584		tatoeba
 ماشین	ماشین من الآن درست شد.	My car is being fixed now.	585		tatoeba
 شد	ماشین من الآن درست شد.	My car is being fixed now.	585		tatoeba
-شد	غذا سرد شد.	The food is getting cold.	585		tatoeba
-غذا	غذا سرد شد.	The food is getting cold.	585		tatoeba
-سرد	غذا سرد شد.	The food is getting cold.	585		tatoeba
-ثروتمند	او ثروتمند شد.	He became rich.	585		tatoeba
-شد	او ثروتمند شد.	He became rich.	585		tatoeba
-دور	او دور شد.	He slipped away.	585		tatoeba
 هم	بله، من هم کرد هستم.	Yes, I'm also Kurdish.	586		tatoeba
 کرد	بله، من هم کرد هستم.	Yes, I'm also Kurdish.	586		tatoeba
 بله	بله، من هم کرد هستم.	Yes, I'm also Kurdish.	586		tatoeba
@@ -518,7 +350,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 خاکستری	زمان مو را خاکستری می کند.	Time turns hair gray.	605		tatoeba
 کند	زمان مو را خاکستری می کند.	Time turns hair gray.	605		tatoeba
 زمان	زمان مو را خاکستری می کند.	Time turns hair gray.	605		tatoeba
-کجا	کجا می روی؟	Where are you going?	605		tatoeba
 داشت	هنوز او را دوست داشت.	She still loved him.	606		tatoeba
 هنوز	هنوز او را دوست داشت.	She still loved him.	606		tatoeba
 زیاد	کار برای انجام دادن زیاد است و وقت کم.	There is so much to do and so little time.	609		tatoeba
@@ -527,10 +358,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 انجام	کار برای انجام دادن زیاد است و وقت کم.	There is so much to do and so little time.	609		tatoeba
 کم	کار برای انجام دادن زیاد است و وقت کم.	There is so much to do and so little time.	609		tatoeba
 دادن	کار برای انجام دادن زیاد است و وقت کم.	There is so much to do and so little time.	609		tatoeba
-صندلی	دو صندلی خالی بودند.	Two seats were vacant.	615		tatoeba
-خالی	دو صندلی خالی بودند.	Two seats were vacant.	615		tatoeba
-بودند	دو صندلی خالی بودند.	Two seats were vacant.	615		tatoeba
-دو	دو صندلی خالی بودند.	Two seats were vacant.	615		tatoeba
 چاقو	پلیس چاقو را از پسر گرفت.	The policeman took the knife from the boy.	617		tatoeba
 پلیس	پلیس چاقو را از پسر گرفت.	The policeman took the knife from the boy.	617		tatoeba
 از	پلیس چاقو را از پسر گرفت.	The policeman took the knife from the boy.	617		tatoeba
@@ -551,8 +378,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 کم	جمعیت این کشور در حال کم شدن است.	The population of this country is diminishing.	622		tatoeba
 حال	من در حال خوردن هستم.	I am eating.	622		tatoeba
 خوردن	من در حال خوردن هستم.	I am eating.	622		tatoeba
-دیگر	یک بار دیگر.	Once again.	627		tatoeba
-بار	یک بار دیگر.	Once again.	627		tatoeba
 آنها	آنها بار من را سبک کردند.	They lightened my burden.	627		tatoeba
 سبک	آنها بار من را سبک کردند.	They lightened my burden.	627		tatoeba
 بار	آنها بار من را سبک کردند.	They lightened my burden.	627		tatoeba
@@ -570,29 +395,16 @@ word	sentence	translation	difficulty_rank	transliteration	source
 زندگی	آن ماهی در آب شیرین زندگی می‌کند.	That fish lives in fresh water.	631		tatoeba
 کند	آن ماهی در آب شیرین زندگی می‌کند.	That fish lives in fresh water.	631		tatoeba
 ماهی	آن ماهی در آب شیرین زندگی می‌کند.	That fish lives in fresh water.	631		tatoeba
-آسان	زندگی آسان نیست.	Life's not easy.	631		tatoeba
 بزرگ	او در یک خانه بزرگ زندگی می کند.	He lives in an enormous house.	631		tatoeba
 کند	او در یک خانه بزرگ زندگی می کند.	He lives in an enormous house.	631		tatoeba
 شهر	او در شهر زندگی می‌کند.	She lives in the city.	631		tatoeba
 ای	او تنها در خانه‌ای بزرگ زندگی می‌کند.	He lives alone in a big house.	639		tatoeba
 تنها	او تنها در خانه‌ای بزرگ زندگی می‌کند.	He lives alone in a big house.	639		tatoeba
-تغییر	دارد تغییر می‌کند.	That's changing.	642		tatoeba
-ممکن	آن ممکن نیست.	That's impossible.	650		tatoeba
-توجه	توجه لطفاً!	Attention please!	655		tatoeba
 تعطیلات	تعطیلات خیلی زود تمام شد.	The holiday ended all too soon.	657		tatoeba
 زود	تعطیلات خیلی زود تمام شد.	The holiday ended all too soon.	657		tatoeba
 تمام	تعطیلات خیلی زود تمام شد.	The holiday ended all too soon.	657		tatoeba
-وقت	وقت شما تمام شد.	Your time is over.	657		tatoeba
-تمام	وقت شما تمام شد.	Your time is over.	657		tatoeba
 درخت	مرد درخت را تحت است.	The man is under the tree.	667		tatoeba
 تحت	مرد درخت را تحت است.	The man is under the tree.	667		tatoeba
-اتاق	او وارد اتاق شد.	He came into the room.	673		tatoeba
-وارد	او وارد اتاق شد.	He came into the room.	673		tatoeba
-اسب	اوّل اسب وارد شد.	The horse came in first.	673		tatoeba
-وارد	اوّل اسب وارد شد.	The horse came in first.	673		tatoeba
-رسید	او به‌سلامت رسید.	He arrived safe and sound.	676		tatoeba
-سلامت	او به‌سلامت رسید.	He arrived safe and sound.	676		tatoeba
-به	او به‌سلامت رسید.	He arrived safe and sound.	676		tatoeba
 وی	وی چگونه به نظر رسید؟	What did she look like?	676		tatoeba
 چگونه	وی چگونه به نظر رسید؟	What did she look like?	676		tatoeba
 نظر	وی چگونه به نظر رسید؟	What did she look like?	676		tatoeba
@@ -605,8 +417,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 هستیم	ما آماده‌ی کمک هستیم.	We're ready to help out.	683		tatoeba
 کمک	ما آماده‌ی کمک هستیم.	We're ready to help out.	683		tatoeba
 زمین	زمین مرکز جهان نیست.	Earth is not the centre of the world.	684		tatoeba
-مرکز	زمین مرکز جهان نیست.	Earth is not the centre of the world.	684		tatoeba
-جهان	زمین مرکز جهان نیست.	Earth is not the centre of the world.	684		tatoeba
 کرد	او از من شروع کرد.	He stared at me.	685		tatoeba
 شروع	او از من شروع کرد.	He stared at me.	685		tatoeba
 ساعت	فیلم ساعت دو شروع شد.	The film started at 2 o'clock.	685		tatoeba
@@ -620,9 +430,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 تمام	شروع کردن جنگ آسان است، اما تمام کردن (آن) سخت است.	A war is easy to start, but difficult to end.	685		tatoeba
 اما	شروع کردن جنگ آسان است، اما تمام کردن (آن) سخت است.	A war is easy to start, but difficult to end.	685		tatoeba
 پیام	پیام دریافت شد	Your message has been received.	687		tatoeba
-دریافت	پیام دریافت شد	Your message has been received.	687		tatoeba
-هست	جای خالی هست؟	Is there a free spot?	698		tatoeba
-جای	جای خالی هست؟	Is there a free spot?	698		tatoeba
 سال	او به مدت هفت سال در آنجا زندگی کرده است.	She has lived there for seven years.	705		tatoeba
 کرده	او به مدت هفت سال در آنجا زندگی کرده است.	She has lived there for seven years.	705		tatoeba
 مدت	او به مدت هفت سال در آنجا زندگی کرده است.	She has lived there for seven years.	705		tatoeba
@@ -634,26 +441,18 @@ word	sentence	translation	difficulty_rank	transliteration	source
 ده	این کار به ده نفر برای ده روز نیاز دارد.	The work requires ten men for ten days.	708		tatoeba
 جهانی	او از جهانی دیگر است.	He is from another world.	709		tatoeba
 دیگر	او از جهانی دیگر است.	He is from another world.	709		tatoeba
-برادر	ترس برادر مرگ است.	A coward dies a thousand times before his death. The valiant never taste of death but once.	710		tatoeba
-مرگ	ترس برادر مرگ است.	A coward dies a thousand times before his death. The valiant never taste of death but once.	710		tatoeba
-ترس	ترس برادر مرگ است.	A coward dies a thousand times before his death. The valiant never taste of death but once.	710		tatoeba
 بهترین	کتاب بهترین دوست من است.	The book is my best friend.	721		tatoeba
 بودن	بهترین راه برای داشتن یک دوست، بودن یک دوست است.	The best way to have a friend is to be a friend.	721		tatoeba
 داشتن	بهترین راه برای داشتن یک دوست، بودن یک دوست است.	The best way to have a friend is to be a friend.	721		tatoeba
 بهترین	بهترین راه برای داشتن یک دوست، بودن یک دوست است.	The best way to have a friend is to be a friend.	721		tatoeba
 راه	بهترین راه برای داشتن یک دوست، بودن یک دوست است.	The best way to have a friend is to be a friend.	721		tatoeba
-کردن	بودن، عمل کردن است.	To be is to do.	722		tatoeba
-بودن	بودن، عمل کردن است.	To be is to do.	722		tatoeba
 عمل	بودن، عمل کردن است.	To be is to do.	722		tatoeba
 عمل	دیروز عمل شد.	He was operated on yesterday.	722		tatoeba
-دیروز	دیروز عمل شد.	He was operated on yesterday.	722		tatoeba
 که	او گفت که همه‌ی آن را انجام داده است.	He said he's done all of that.	724		tatoeba
 همه	او گفت که همه‌ی آن را انجام داده است.	He said he's done all of that.	724		tatoeba
 گفت	او گفت که همه‌ی آن را انجام داده است.	He said he's done all of that.	724		tatoeba
 انجام	او گفت که همه‌ی آن را انجام داده است.	He said he's done all of that.	724		tatoeba
 داده	او گفت که همه‌ی آن را انجام داده است.	He said he's done all of that.	724		tatoeba
-جریان	همه چیز جریان دارد.	Everything flows.	728		tatoeba
-چیز	همه چیز جریان دارد.	Everything flows.	728		tatoeba
 تلخ	این یک شکست تلخ بود.	It was a dismal failure.	731		tatoeba
 شکست	این یک شکست تلخ بود.	It was a dismal failure.	731		tatoeba
 مربوط	این به من مربوط نیست.	It's not my business.	732		tatoeba
@@ -664,8 +463,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 سه	او سه روز پیش از اینجا رفت.	He left three days ago.	738		tatoeba
 حرکت	زمین ناگهان شروع به حرکت کرد.	The earth suddenly began to move.	740		tatoeba
 ناگهان	زمین ناگهان شروع به حرکت کرد.	The earth suddenly began to move.	740		tatoeba
-ممکن	این غیر ممکن!	This is impossible!	755		tatoeba
-غیر	این غیر ممکن!	This is impossible!	755		tatoeba
 ممکن	برای او غیر ممکن است که آن را تا یک ساعت دیگر تمام کند.	It is impossible for him to finish it in an hour.	755		tatoeba
 تا	برای او غیر ممکن است که آن را تا یک ساعت دیگر تمام کند.	It is impossible for him to finish it in an hour.	755		tatoeba
 دیگر	برای او غیر ممکن است که آن را تا یک ساعت دیگر تمام کند.	It is impossible for him to finish it in an hour.	755		tatoeba
@@ -674,30 +471,16 @@ word	sentence	translation	difficulty_rank	transliteration	source
 غیر	او غیر قابل پیش بینی است.	He is unpredictable.	755		tatoeba
 بینی	او غیر قابل پیش بینی است.	He is unpredictable.	755		tatoeba
 قابل	او غیر قابل پیش بینی است.	He is unpredictable.	755		tatoeba
-وجود	او وجود ندارد.	He doesn't exist.	757		tatoeba
 ندارد	او وجود ندارد.	He doesn't exist.	757		tatoeba
-قهوه	او قهوه دوست ندارد.	He doesn't like coffee.	757		tatoeba
 ندارد	او قهوه دوست ندارد.	He doesn't like coffee.	757		tatoeba
-صدا	یک دست صدا ندارد.	Strength in unity.	757		tatoeba
-دست	یک دست صدا ندارد.	Strength in unity.	757		tatoeba
 ندارد	یک دست صدا ندارد.	Strength in unity.	757		tatoeba
 خود	راه عشق وجود ندارد. عشق خود راه است.	There is no road to love. Love is the road.	757		tatoeba
 راه	راه عشق وجود ندارد. عشق خود راه است.	There is no road to love. Love is the road.	757		tatoeba
 عشق	راه عشق وجود ندارد. عشق خود راه است.	There is no road to love. Love is the road.	757		tatoeba
 وجود	راه عشق وجود ندارد. عشق خود راه است.	There is no road to love. Love is the road.	757		tatoeba
-حاضر	غذا حاضر است.	The food is ready.	758		tatoeba
-غذا	غذا حاضر است.	The food is ready.	758		tatoeba
 داشتند	خانواده (آن دختر) من را دوست داشتند	Her family loved me.	759		tatoeba
 خانواده	خانواده (آن دختر) من را دوست داشتند	Her family loved me.	759		tatoeba
-ها	آن‌ها اینجا هستند.	They're here.	761		tatoeba
-هستند	آن‌ها اینجا هستند.	They're here.	761		tatoeba
-ها	داده ها درست نیست.	The data is incorrect.	761		tatoeba
-داده	داده ها درست نیست.	The data is incorrect.	761		tatoeba
 دست	این دست‌خطِّ او نیست.	This is not his handwriting.	778		tatoeba
-قهوه	باز هم قهوه لطفا.	More coffee, please.	780		tatoeba
-لطفا	باز هم قهوه لطفا.	More coffee, please.	780		tatoeba
-باز	باز هم قهوه لطفا.	More coffee, please.	780		tatoeba
-هم	باز هم قهوه لطفا.	More coffee, please.	780		tatoeba
 انسان	عشق دادن چیزی است که انسان ندارد.	Love is giving something one doesn't have.	781		tatoeba
 دادن	عشق دادن چیزی است که انسان ندارد.	Love is giving something one doesn't have.	781		tatoeba
 خود	عشق دادن آن چیزی است که خود انسان آن را ندارد.	Love is giving something one doesn't have.	781		tatoeba
@@ -706,31 +489,21 @@ word	sentence	translation	difficulty_rank	transliteration	source
 سگ	سگ بهترین دوست انسان است.	The dog is man's best friend.	781		tatoeba
 بهترین	سگ بهترین دوست انسان است.	The dog is man's best friend.	781		tatoeba
 انسان	سگ بهترین دوست انسان است.	The dog is man's best friend.	781		tatoeba
-با	او با ماشین آمد.	He came by car.	782		tatoeba
-آمد	او با ماشین آمد.	He came by car.	782		tatoeba
 پیش	پیش‌بینی او درست از کار در آمد.	His prediction has come true.	782		tatoeba
 بینی	پیش‌بینی او درست از کار در آمد.	His prediction has come true.	782		tatoeba
 آمد	پیش‌بینی او درست از کار در آمد.	His prediction has come true.	782		tatoeba
-آمد	امروز چه پیش آمد؟	What happened today?	782		tatoeba
-بهار	بهار آمد.	Spring has come.	782		tatoeba
-عضو	من عضو هستم.	I am an office worker.	788		tatoeba
 فارسی	فارسی سخت نیست.	Persian's not hard.	789		tatoeba
 ها	پدر گل ها رو آب می ده.	Father is watering flowers.	790		tatoeba
 آب	پدر گل ها رو آب می ده.	Father is watering flowers.	790		tatoeba
 گل	پدر گل ها رو آب می ده.	Father is watering flowers.	790		tatoeba
 ده	پدر گل ها رو آب می ده.	Father is watering flowers.	790		tatoeba
 رو	پدر گل ها رو آب می ده.	Father is watering flowers.	790		tatoeba
-شبکه	این یک شبکه است.	It's a grid.	797		tatoeba
 خارج	این خانه خارج از شبکه است.	This house is off the grid.	797		tatoeba
 شبکه	این خانه خارج از شبکه است.	This house is off the grid.	797		tatoeba
-تاریخی	امروز چه تاریخی است؟	What is the date today?	800		tatoeba
-علی	علی انسان خوب است.	Ali is a good person.	806		tatoeba
-علی	علی یک دوست دارد.	Ali has a friend.	806		tatoeba
 مدرسه	مدرسه دو کیلومتر به سمت جلو است.	The school is two kilometers ahead.	809		tatoeba
 جلو	مدرسه دو کیلومتر به سمت جلو است.	The school is two kilometers ahead.	809		tatoeba
 سمت	مدرسه دو کیلومتر به سمت جلو است.	The school is two kilometers ahead.	809		tatoeba
 کیلومتر	مدرسه دو کیلومتر به سمت جلو است.	The school is two kilometers ahead.	809		tatoeba
-طرف	من طرف تو هستم.	I am on your side.	810		tatoeba
 بودن	این به خاطر دختر بودن تو است.	That's because you're a girl.	824		tatoeba
 خاطر	این به خاطر دختر بودن تو است.	That's because you're a girl.	824		tatoeba
 سن	من و او(زن) هم سن هستیم.	She and I are the same age.	834		tatoeba
@@ -751,9 +524,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 مانند	موسیقی زبان نیست. اما بعضی زبان‌ها در گوش من مانند موسیقی هستند.	Music is not a language. But some languages are music to my ears.	845		tatoeba
 اما	موسیقی زبان نیست. اما بعضی زبان‌ها در گوش من مانند موسیقی هستند.	Music is not a language. But some languages are music to my ears.	845		tatoeba
 هستند	موسیقی زبان نیست. اما بعضی زبان‌ها در گوش من مانند موسیقی هستند.	Music is not a language. But some languages are music to my ears.	845		tatoeba
-آماده	آماده، بی حرکت.... حرکت!	Ready, steady....Go!	847		tatoeba
-بی	آماده، بی حرکت.... حرکت!	Ready, steady....Go!	847		tatoeba
-حرکت	آماده، بی حرکت.... حرکت!	Ready, steady....Go!	847		tatoeba
 کردن	هر روز ورزش کردن بی اندازه مهم است.	It's extremely important to do sport every day.	848		tatoeba
 هر	هر روز ورزش کردن بی اندازه مهم است.	It's extremely important to do sport every day.	848		tatoeba
 بی	هر روز ورزش کردن بی اندازه مهم است.	It's extremely important to do sport every day.	848		tatoeba
@@ -781,10 +551,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 خریدن	حقوق کم او او را از خانه خریدن باز می دارد.	His low salary prevents him from buying the house.	878		tatoeba
 حقوق	حقوق کم او او را از خانه خریدن باز می دارد.	His low salary prevents him from buying the house.	878		tatoeba
 کم	حقوق کم او او را از خانه خریدن باز می دارد.	His low salary prevents him from buying the house.	878		tatoeba
-تحت	مردم تحت فشار هستند.	The people are under pressure.	880		tatoeba
-فشار	مردم تحت فشار هستند.	The people are under pressure.	880		tatoeba
-مردم	مردم تحت فشار هستند.	The people are under pressure.	880		tatoeba
-مناسب	آن مناسب است.	That is appropriate.	884		tatoeba
 برنامه	همه چیز طبق برنامه است.	Everything is on schedule.	889		tatoeba
 طبق	همه چیز طبق برنامه است.	Everything is on schedule.	889		tatoeba
 هتل	هتل ما در خیابان بعدی است.	Our hotel is on the next street.	893		tatoeba
@@ -792,8 +558,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 بعدی	هتل ما در خیابان بعدی است.	Our hotel is on the next street.	893		tatoeba
 دلار	قیمت این کتاب 4 دلار است.	This book costs 4 dollars.	895		tatoeba
 قیمت	قیمت این کتاب 4 دلار است.	This book costs 4 dollars.	895		tatoeba
-هنر	ترجمه یک هنر است.	Translation is an art.	903		tatoeba
-ترجمه	ترجمه یک هنر است.	Translation is an art.	903		tatoeba
 سال	آن بیش از یک سال پیش رخ داد.	It happened over a year ago.	904		tatoeba
 بیش	آن بیش از یک سال پیش رخ داد.	It happened over a year ago.	904		tatoeba
 داد	آن بیش از یک سال پیش رخ داد.	It happened over a year ago.	904		tatoeba
@@ -813,60 +577,40 @@ word	sentence	translation	difficulty_rank	transliteration	source
 خوبی	یک شروع خوب، پایان خوبی در پی دارد.	A good beginning makes a good ending.	935		tatoeba
 پایان	یک شروع خوب، پایان خوبی در پی دارد.	A good beginning makes a good ending.	935		tatoeba
 پی	یک شروع خوب، پایان خوبی در پی دارد.	A good beginning makes a good ending.	935		tatoeba
-خوبی	چه فکر خوبی!	What a good idea!	935		tatoeba
-فکر	چه فکر خوبی!	What a good idea!	935		tatoeba
-کردند	آنها پیشنهاد کمک کردند.	They offered assistance.	943		tatoeba
-پیشنهاد	آنها پیشنهاد کمک کردند.	They offered assistance.	943		tatoeba
-کمک	آنها پیشنهاد کمک کردند.	They offered assistance.	943		tatoeba
 گوشت	امروزه گوشت خیلی گران است.	Meat is very expensive nowadays.	949		tatoeba
 امروزه	امروزه گوشت خیلی گران است.	Meat is very expensive nowadays.	949		tatoeba
 گران	امروزه گوشت خیلی گران است.	Meat is very expensive nowadays.	949		tatoeba
 شدت	او به‌شدت کار می‌کرد.	He was working hard.	957		tatoeba
 شدت	هوا به شدت گرم است.	The weather is extremely hot.	957		tatoeba
-تغییر	تغییر تنها ثابت است.	Change is the only constant.	962		tatoeba
-ثابت	تغییر تنها ثابت است.	Change is the only constant.	962		tatoeba
 طبیعت	تنها ثابت در طبیعت تغییر است.	The only constant in nature is change.	962		tatoeba
 ثابت	تنها ثابت در طبیعت تغییر است.	The only constant in nature is change.	962		tatoeba
 تغییر	تنها ثابت در طبیعت تغییر است.	The only constant in nature is change.	962		tatoeba
-زبان	زنده باد زبان فارسی!	Long live the Persian language!	983		tatoeba
-زنده	زنده باد زبان فارسی!	Long live the Persian language!	983		tatoeba
 فارسی	زنده باد زبان فارسی!	Long live the Persian language!	983		tatoeba
-باد	زنده باد زبان فارسی!	Long live the Persian language!	983		tatoeba
-واقعی	پدر واقعی من نیست.	He's not my real father.	987		tatoeba
 نبود	این صدا خیلی قابل شنیدن نبود.	The sound wasn't very audible.	994		tatoeba
 شنیدن	این صدا خیلی قابل شنیدن نبود.	The sound wasn't very audible.	994		tatoeba
 صدا	این صدا خیلی قابل شنیدن نبود.	The sound wasn't very audible.	994		tatoeba
 قابل	این صدا خیلی قابل شنیدن نبود.	The sound wasn't very audible.	994		tatoeba
-نبود	امتحان سخت نبود.	The exam wasn't hard.	994		tatoeba
-امتحان	امتحان سخت نبود.	The exam wasn't hard.	994		tatoeba
 داد	او به سؤال پاسخ داد.	He answered the question.	995		tatoeba
 پاسخ	او به سؤال پاسخ داد.	He answered the question.	995		tatoeba
 موسیقی	من عضو باشگاه موسیقی هستم.	I belong to the music club.	999		tatoeba
 عضو	من عضو باشگاه موسیقی هستم.	I belong to the music club.	999		tatoeba
 باشگاه	من عضو باشگاه موسیقی هستم.	I belong to the music club.	999		tatoeba
 خبر	او خبر چین است!	He's a snitch!	1000		tatoeba
-چین	او خبر چین است!	He's a snitch!	1000		tatoeba
 جنوب	در جنوب چین ،وضعیت متفاوت است	In the south of China, the situation is different.	1001		tatoeba
 چین	در جنوب چین ،وضعیت متفاوت است	In the south of China, the situation is different.	1001		tatoeba
 وضعیت	در جنوب چین ،وضعیت متفاوت است	In the south of China, the situation is different.	1001		tatoeba
 متفاوت	در جنوب چین ،وضعیت متفاوت است	In the south of China, the situation is different.	1001		tatoeba
 ارزش	این ارزش بررسی را دارد.	That's worth investigating.	1003		tatoeba
 بررسی	این ارزش بررسی را دارد.	That's worth investigating.	1003		tatoeba
-زبان	زبان عربی سخت است!	Arabic is difficult!	1008		tatoeba
-عربی	زبان عربی سخت است!	Arabic is difficult!	1008		tatoeba
 دلار	قیمت آن سی دی 10 دلار است.	That CD costs 10 dollars.	1009		tatoeba
 سی	قیمت آن سی دی 10 دلار است.	That CD costs 10 dollars.	1009		tatoeba
 دی	قیمت آن سی دی 10 دلار است.	That CD costs 10 dollars.	1009		tatoeba
 قیمت	قیمت آن سی دی 10 دلار است.	That CD costs 10 dollars.	1009		tatoeba
-تیم	تیم پزشکی آمد.	A medical team came.	1018		tatoeba
-پزشکی	تیم پزشکی آمد.	A medical team came.	1018		tatoeba
 آسان	در ابتدا، او فکر می کرد انگلیسی خیلی سخت است، اما اکنون او فکر می کند آسان است.	At first, he thought English very difficult, but now he thinks it is easy.	1019		tatoeba
 انگلیسی	در ابتدا، او فکر می کرد انگلیسی خیلی سخت است، اما اکنون او فکر می کند آسان است.	At first, he thought English very difficult, but now he thinks it is easy.	1019		tatoeba
 ابتدا	در ابتدا، او فکر می کرد انگلیسی خیلی سخت است، اما اکنون او فکر می کند آسان است.	At first, he thought English very difficult, but now he thinks it is easy.	1019		tatoeba
 اکنون	در ابتدا، او فکر می کرد انگلیسی خیلی سخت است، اما اکنون او فکر می کند آسان است.	At first, he thought English very difficult, but now he thinks it is easy.	1019		tatoeba
 فکر	در ابتدا، او فکر می کرد انگلیسی خیلی سخت است، اما اکنون او فکر می کند آسان است.	At first, he thought English very difficult, but now he thinks it is easy.	1019		tatoeba
-اکنون	ما اکنون کجا هستیم؟	Where are we now?	1019		tatoeba
-کجا	ما اکنون کجا هستیم؟	Where are we now?	1019		tatoeba
 آنجا	آنجا هوا چه طور است؟	How's the weather there?	1024		tatoeba
 طور	آنجا هوا چه طور است؟	How's the weather there?	1024		tatoeba
 زود	کمی برای نوشیدن زود است، این طور نیست؟	It's a bit early to be drinking, isn't it?	1024		tatoeba
@@ -881,9 +625,7 @@ word	sentence	translation	difficulty_rank	transliteration	source
 شماره	شماره تلفن من دوباره تغییر کرده است.	My phone number has changed again.	1035		tatoeba
 دوباره	شماره تلفن من دوباره تغییر کرده است.	My phone number has changed again.	1035		tatoeba
 تلفن	شماره تلفن من دوباره تغییر کرده است.	My phone number has changed again.	1035		tatoeba
-پروژه	پروژه بسیار بزرگ است.	The project is massive.	1042		tatoeba
 حمله	حمله بهترین دفاع است.	Attack is the best form of defense.	1048		tatoeba
-دفاع	حمله بهترین دفاع است.	Attack is the best form of defense.	1048		tatoeba
 کسی	چه کسی از او دفاع می کند.	Who defends him?	1048		tatoeba
 دفاع	چه کسی از او دفاع می کند.	Who defends him?	1048		tatoeba
 مسئله	آنها مسئله را بررسی می کنند.	They explore the problem.	1052		tatoeba
@@ -896,7 +638,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 نویسنده	تو نویسندهٔ این کتاب هستی؟	Are you the author of this book?	1054		tatoeba
 مقاومت	او برای مقاومت کردن خیلی پیر است.	He was too old to resist.	1060		tatoeba
 پیر	او برای مقاومت کردن خیلی پیر است.	He was too old to resist.	1060		tatoeba
-عالی	عالی! خیلی خوب!	Great!	1062		tatoeba
 حال	خیلی با حال! بسیار عالی!	Fantastic!	1062		tatoeba
 عالی	خیلی با حال! بسیار عالی!	Fantastic!	1062		tatoeba
 برخوردار	این موضوع از اهمیت کمی برخوردار است.	This fact is of little consequence.	1064		tatoeba
@@ -923,9 +664,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 سطح	سه چهارم سطح زمین آب است.	Three-fourths of the earth's surface is water.	1086		tatoeba
 سه	سه چهارم سطح زمین آب است.	Three-fourths of the earth's surface is water.	1086		tatoeba
 چهارم	سه چهارم سطح زمین آب است.	Three-fourths of the earth's surface is water.	1086		tatoeba
-درخواست	او درخواست کمک کرد.	He appealed for help.	1095		tatoeba
-بیشتر	هر چه بیشتر، بهتر.	The more the better.	1096		tatoeba
-بهتر	هر چه بیشتر، بهتر.	The more the better.	1096		tatoeba
 بهتر	بهتر است ثروتمند زندگی کرد، تا ثروتمند مرد.	It is better to live rich, than to die rich.	1096		tatoeba
 تا	بهتر است ثروتمند زندگی کرد، تا ثروتمند مرد.	It is better to live rich, than to die rich.	1096		tatoeba
 ثروتمند	بهتر است ثروتمند زندگی کرد، تا ثروتمند مرد.	It is better to live rich, than to die rich.	1096		tatoeba
@@ -933,13 +671,8 @@ word	sentence	translation	difficulty_rank	transliteration	source
 گفته	خوب انجام شدن بهتر از خوب گفته شدن است.	Well done is better than well said.	1096		tatoeba
 شدن	خوب انجام شدن بهتر از خوب گفته شدن است.	Well done is better than well said.	1096		tatoeba
 انجام	خوب انجام شدن بهتر از خوب گفته شدن است.	Well done is better than well said.	1096		tatoeba
-قابل	این قابل بحث است	That's debatable.	1098		tatoeba
-بحث	این قابل بحث است	That's debatable.	1098		tatoeba
-ادامه	بحث ادامه دارد.	The debate is continuing.	1098		tatoeba
-بحث	بحث ادامه دارد.	The debate is continuing.	1098		tatoeba
 پروژه	پروژه‌ی شما چطور پیش می‌رود؟	How's your project coming along?	1111		tatoeba
 رود	پروژه‌ی شما چطور پیش می‌رود؟	How's your project coming along?	1111		tatoeba
-رود	او راه می رود.	She walks.	1111		tatoeba
 هتل	او الآن دارد به هتل می‌رود.	She's going to the hotel now.	1111		tatoeba
 رود	او الآن دارد به هتل می‌رود.	She's going to the hotel now.	1111		tatoeba
 قهرمان	او سه سال قهرمان بود.	He was the champion for three years.	1113		tatoeba
@@ -952,20 +685,12 @@ word	sentence	translation	difficulty_rank	transliteration	source
 کنید	فکر می‌کنید، که خیلی بلند هستم؟	Do you think I'm too tall?	1120		tatoeba
 فکر	فکر می‌کنید، که خیلی بلند هستم؟	Do you think I'm too tall?	1120		tatoeba
 بلند	فکر می‌کنید، که خیلی بلند هستم؟	Do you think I'm too tall?	1120		tatoeba
-کشتی	کشتی را ترک کنید!	Abandon ship!	1120		tatoeba
-کنید	کشتی را ترک کنید!	Abandon ship!	1120		tatoeba
-ترک	کشتی را ترک کنید!	Abandon ship!	1120		tatoeba
-کنید	از خود دفاع کنید.	Defend yourselves.	1120		tatoeba
-خود	از خود دفاع کنید.	Defend yourselves.	1120		tatoeba
-دفاع	از خود دفاع کنید.	Defend yourselves.	1120		tatoeba
 داشتند	در دریا جزیره ها وجود داشتند.	There were islands in the sea.	1121		tatoeba
 دریا	در دریا جزیره ها وجود داشتند.	There were islands in the sea.	1121		tatoeba
 جزیره	در دریا جزیره ها وجود داشتند.	There were islands in the sea.	1121		tatoeba
 وجود	در دریا جزیره ها وجود داشتند.	There were islands in the sea.	1121		tatoeba
 خانواده	او خانواده‌ی بزرگی دارد.	He has a large family.	1123		tatoeba
 بزرگی	او خانواده‌ی بزرگی دارد.	He has a large family.	1123		tatoeba
-بزرگی	خانواده‌ی بزرگی دارد.	His is a large family.	1123		tatoeba
-خدا	خدا وجود دارد.	God exists.	1134		tatoeba
 قطار	قطار تا ده دقیقه‌ی دیگر حرکت می‌کند.	The train leaves in ten minutes.	1135		tatoeba
 حرکت	قطار تا ده دقیقه‌ی دیگر حرکت می‌کند.	The train leaves in ten minutes.	1135		tatoeba
 دقیقه	قطار تا ده دقیقه‌ی دیگر حرکت می‌کند.	The train leaves in ten minutes.	1135		tatoeba
@@ -979,18 +704,13 @@ word	sentence	translation	difficulty_rank	transliteration	source
 ساده	انجام این کار برای من خیلی ساده است.	This work is simple enough for me to do.	1136		tatoeba
 همیشه	همیشه همه چیز در زندگی ساده نیست.	Everything isn't always simple in life.	1136		tatoeba
 ساده	همیشه همه چیز در زندگی ساده نیست.	Everything isn't always simple in life.	1136		tatoeba
-دل	تو ساده‌دل هستی.	You're gullible.	1136		tatoeba
-ساده	تو ساده‌دل هستی.	You're gullible.	1136		tatoeba
 کشتی	در آن فاصله، آن کشتی شبیه یک جزیره است.	From that distance, the ship is similar to an island.	1141		tatoeba
 جزیره	در آن فاصله، آن کشتی شبیه یک جزیره است.	From that distance, the ship is similar to an island.	1141		tatoeba
 شبیه	در آن فاصله، آن کشتی شبیه یک جزیره است.	From that distance, the ship is similar to an island.	1141		tatoeba
 فاصله	در آن فاصله، آن کشتی شبیه یک جزیره است.	From that distance, the ship is similar to an island.	1141		tatoeba
-خطر	جهان در خطر است.	The world is in danger.	1151		tatoeba
-جهان	جهان در خطر است.	The world is in danger.	1151		tatoeba
 سالگی	او این کتاب را در سن بیست‌سالگی نوشت.	He wrote this book at the age of twenty.	1155		tatoeba
 نوشت	او این کتاب را در سن بیست‌سالگی نوشت.	He wrote this book at the age of twenty.	1155		tatoeba
 بیست	او این کتاب را در سن بیست‌سالگی نوشت.	He wrote this book at the age of twenty.	1155		tatoeba
-سعی	او سعی کرد.	She tried.	1162		tatoeba
 غذا	به هر نفر، غذا و لباس کافی داده شد.	Each person was given enough food and clothing.	1168		tatoeba
 نفر	به هر نفر، غذا و لباس کافی داده شد.	Each person was given enough food and clothing.	1168		tatoeba
 لباس	به هر نفر، غذا و لباس کافی داده شد.	Each person was given enough food and clothing.	1168		tatoeba
@@ -1001,9 +721,7 @@ word	sentence	translation	difficulty_rank	transliteration	source
 اتاق	این اتاق به اندازه کافی بزرگ است.	This room is large enough.	1168		tatoeba
 اندازه	این اتاق به اندازه کافی بزرگ است.	This room is large enough.	1168		tatoeba
 کافی	این اتاق به اندازه کافی بزرگ است.	This room is large enough.	1168		tatoeba
-مقابل	مغازه، مقابل بانک است.	The shop is opposite the bank.	1169		tatoeba
 مغازه	مغازه، مقابل بانک است.	The shop is opposite the bank.	1169		tatoeba
-بانک	مغازه، مقابل بانک است.	The shop is opposite the bank.	1169		tatoeba
 کودکان	مردان فقط کودکان بزرگ هستند.	Men are but children of a larger growth.	1172		tatoeba
 مردان	مردان فقط کودکان بزرگ هستند.	Men are but children of a larger growth.	1172		tatoeba
 تعطیلات	خیلی ها به من پیشنهاد رفتن به تعطیلات را داده اند.	A good many people have told me to take a holiday.	1177		tatoeba
@@ -1021,8 +739,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 حکومت	آن پادشاه سال ها بر آن سرزمین حکومت کرد.	The kingdom ruled over that land for years.	1188		tatoeba
 سرزمین	آن پادشاه سال ها بر آن سرزمین حکومت کرد.	The kingdom ruled over that land for years.	1188		tatoeba
 بر	آن پادشاه سال ها بر آن سرزمین حکومت کرد.	The kingdom ruled over that land for years.	1188		tatoeba
-قالب	این قالب جان ندارد.	This body has no life.	1190		tatoeba
-جان	این قالب جان ندارد.	This body has no life.	1190		tatoeba
 خوبی	او بازیگر خوبی است(مرد)	He's a great artist.	1194		tatoeba
 بازیگر	او بازیگر خوبی است(مرد)	He's a great artist.	1194		tatoeba
 کیفیت	این آب با کیفیت است.	The water is good.	1195		tatoeba
@@ -1038,16 +754,13 @@ word	sentence	translation	difficulty_rank	transliteration	source
 صحبت	او انگلیسی صحبت می‌کند.	She speaks English.	1199		tatoeba
 انگلیسی	او انگلیسی صحبت می‌کند.	She speaks English.	1199		tatoeba
 فارسی	فارسی صحبت می‌کنید؟	Do you speak Farsi?	1199		tatoeba
-صحبت	فارسی صحبت می‌کنید؟	Do you speak Farsi?	1199		tatoeba
 ماند	او سه روز در آنجا ماند.	He stayed there for three days.	1200		tatoeba
 آنجا	او سه روز در آنجا ماند.	He stayed there for three days.	1200		tatoeba
 ماند	یک مشکل باقی می ماند.	One problem remains.	1200		tatoeba
 باقی	یک مشکل باقی می ماند.	One problem remains.	1200		tatoeba
 مشکل	یک مشکل باقی می ماند.	One problem remains.	1200		tatoeba
-آلمانی	آلمانی هستم.	I'm German.	1204		tatoeba
 منصوب	او به ریاست منصوب شد.	He was appointed chairman.	1207		tatoeba
 ریاست	او به ریاست منصوب شد.	He was appointed chairman.	1207		tatoeba
-درک	به درک	Served you right!	1212		tatoeba
 شش	صفر، یک، دو، سه، چهار، پنج، شش، هفت، هشت، نه،‌ ده.	Zero, one, two, three, four, five, six, seven, eight, nine, ten.	1214		tatoeba
 چهار	صفر، یک، دو، سه، چهار، پنج، شش، هفت، هشت، نه،‌ ده.	Zero, one, two, three, four, five, six, seven, eight, nine, ten.	1214		tatoeba
 صفر	صفر، یک، دو، سه، چهار، پنج، شش، هفت، هشت، نه،‌ ده.	Zero, one, two, three, four, five, six, seven, eight, nine, ten.	1214		tatoeba
@@ -1056,7 +769,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 پرنده	پرنده ها پرواز می کنند.	Birds fly.	1223		tatoeba
 پرواز	پرنده ها پرواز می کنند.	Birds fly.	1223		tatoeba
 کنند	پرنده ها پرواز می کنند.	Birds fly.	1223		tatoeba
-پرواز	پرنده پرواز می‌کند.	The bird flies.	1223		tatoeba
 بخش	او بخش مجله را رهبری می کند.	She leads the magazine department.	1224		tatoeba
 مجله	او بخش مجله را رهبری می کند.	She leads the magazine department.	1224		tatoeba
 رهبری	او بخش مجله را رهبری می کند.	She leads the magazine department.	1224		tatoeba
@@ -1070,8 +782,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 اشاره	آنها با اشاره با هم ارتباط برقرار می‌کنند.	They communicate with each other by gesture.	1247		tatoeba
 ارتباط	آنها با اشاره با هم ارتباط برقرار می‌کنند.	They communicate with each other by gesture.	1247		tatoeba
 برقرار	آنها با اشاره با هم ارتباط برقرار می‌کنند.	They communicate with each other by gesture.	1247		tatoeba
-بازی	بازی او متوسط است.	His playing is mediocre.	1257		tatoeba
-متوسط	بازی او متوسط است.	His playing is mediocre.	1257		tatoeba
 محصولات	این محصولات کیفیت متوسط دارند.	These products are mediocre quality.	1257		tatoeba
 متوسط	این محصولات کیفیت متوسط دارند.	These products are mediocre quality.	1257		tatoeba
 دارند	این محصولات کیفیت متوسط دارند.	These products are mediocre quality.	1257		tatoeba
@@ -1092,8 +802,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 دستگیر	او توسط پلیس دستگیر شد.	She was arrested by the police.	1303		tatoeba
 طولانی	این دیدار بسیار طولانی بود.	It was a very long meeting.	1304		tatoeba
 دیدار	این دیدار بسیار طولانی بود.	It was a very long meeting.	1304		tatoeba
-دیدار	به امید دیدار.	See you.	1304		tatoeba
-امید	به امید دیدار.	See you.	1304		tatoeba
 چای	چای تازه از چای مانده بهتر است	Fresh tea is better than stale tea.	1305		tatoeba
 مانده	چای تازه از چای مانده بهتر است	Fresh tea is better than stale tea.	1305		tatoeba
 تازه	چای تازه از چای مانده بهتر است	Fresh tea is better than stale tea.	1305		tatoeba
@@ -1104,13 +812,10 @@ word	sentence	translation	difficulty_rank	transliteration	source
 خسته	کار خسته کننده ای است.	It's a tiring job.	1307		tatoeba
 ای	کار خسته کننده ای است.	It's a tiring job.	1307		tatoeba
 کننده	کار خسته کننده ای است.	It's a tiring job.	1307		tatoeba
-تلخ	حقیقت تلخ است.	The truth hurts.	1311		tatoeba
-حقیقت	حقیقت تلخ است.	The truth hurts.	1311		tatoeba
 تر	شما باید سخت‌تر فرانسوی مطالعه کنید.	You have to study French harder.	1319		tatoeba
 مطالعه	شما باید سخت‌تر فرانسوی مطالعه کنید.	You have to study French harder.	1319		tatoeba
 باید	شما باید سخت‌تر فرانسوی مطالعه کنید.	You have to study French harder.	1319		tatoeba
 فرانسوی	شما باید سخت‌تر فرانسوی مطالعه کنید.	You have to study French harder.	1319		tatoeba
-فرانسوی	فرانسوی هستی؟	Are you French?	1319		tatoeba
 فرانسوی	زبان فرانسوی خیلی سخت است.	French is very difficult.	1319		tatoeba
 صندلی	پسر روی یک صندلی نشست.	The boy sat on a chair.	1324		tatoeba
 نشست	پسر روی یک صندلی نشست.	The boy sat on a chair.	1324		tatoeba
@@ -1129,16 +834,11 @@ word	sentence	translation	difficulty_rank	transliteration	source
 چشم	چشم‌انتظار دیدار مجدد شما هستم.	I'm looking forward to seeing you again.	1343		tatoeba
 دیدار	چشم‌انتظار دیدار مجدد شما هستم.	I'm looking forward to seeing you again.	1343		tatoeba
 مجدد	چشم‌انتظار دیدار مجدد شما هستم.	I'm looking forward to seeing you again.	1343		tatoeba
-نبود	اشتباه من نبود.	It wasn't my fault.	1344		tatoeba
-اشتباه	اشتباه من نبود.	It wasn't my fault.	1344		tatoeba
 اشتباه	این تنها اشتباه او بود.	This was his only mistake.	1344		tatoeba
 اشتباه	حق با تو است، او اشتباه می‌کند.	You are right. He is wrong.	1344		tatoeba
 حق	حق با تو است، او اشتباه می‌کند.	You are right. He is wrong.	1344		tatoeba
-تشخیص	تشخیص ما اشتباه بود.	Our diagnosis was wrong.	1344		tatoeba
 شدت	او به شدت بیمار است.	He is very sick.	1346		tatoeba
 بیمار	او به شدت بیمار است.	He is very sick.	1346		tatoeba
-هرگز	او هرگز بیمار نبود.	He was never sick.	1346		tatoeba
-بیمار	او هرگز بیمار نبود.	He was never sick.	1346		tatoeba
 آشنا	من با او آشنا هستم.	I am acquainted with him.	1350		tatoeba
 آشنا	من با پدر شما آشنا هستم.	I am acquainted with your father.	1350		tatoeba
 نویسنده	من با نویسنده آشنا هستم.	I am acquainted with the author.	1350		tatoeba
@@ -1150,16 +850,12 @@ word	sentence	translation	difficulty_rank	transliteration	source
 سایت	این سایت واقعا بزرگ است!	This site is really great!	1362		tatoeba
 زنی	با کی حرف می زنی؟	With whom are you talking?	1366		tatoeba
 حرف	با کی حرف می زنی؟	With whom are you talking?	1366		tatoeba
-زنی	فارسی حرف می‌زنی؟	Do you speak Farsi?	1366		tatoeba
-حرف	فارسی حرف می‌زنی؟	Do you speak Farsi?	1366		tatoeba
-کلمه	آن کلمه چه بود؟	What's that vocabulary?	1385		tatoeba
 حرف	یک کلمه هم حرف نزد	Not a word did he speak.	1385		tatoeba
 کلمه	یک کلمه هم حرف نزد	Not a word did he speak.	1385		tatoeba
 نزد	یک کلمه هم حرف نزد	Not a word did he speak.	1385		tatoeba
 کلمه	این کلمه با حرفِ بزرگ شروع می‌کند.	This word starts with a capital letter.	1385		tatoeba
 عبور	دو جاده از آنجا عبور می کند.	The two roads cross there.	1388		tatoeba
 جاده	دو جاده از آنجا عبور می کند.	The two roads cross there.	1388		tatoeba
-آیا	آیا تنها هستی؟	Are you alone?	1391		tatoeba
 آیا	آیا مادر شما در خانه است؟	Is your mother at home?	1391		tatoeba
 مادر	آیا مادر شما در خانه است؟	Is your mother at home?	1391		tatoeba
 جدید	آیا این تصویر جدید است؟	Is it a recent picture?	1391		tatoeba
@@ -1167,19 +863,13 @@ word	sentence	translation	difficulty_rank	transliteration	source
 تصویر	آیا این تصویر جدید است؟	Is it a recent picture?	1391		tatoeba
 نام	آیا این نام واقعی تو است؟	Is this your real name?	1391		tatoeba
 واقعی	آیا این نام واقعی تو است؟	Is this your real name?	1391		tatoeba
-بانک	آیا بانک باز است؟	Is the bank open?	1391		tatoeba
-باز	آیا بانک باز است؟	Is the bank open?	1391		tatoeba
 پاسخ	آیا او به شما پاسخ مثبت داد یا منفی؟	Did he give you a positive or a negative response?	1391		tatoeba
 منفی	آیا او به شما پاسخ مثبت داد یا منفی؟	Did he give you a positive or a negative response?	1391		tatoeba
 مثبت	آیا او به شما پاسخ مثبت داد یا منفی؟	Did he give you a positive or a negative response?	1391		tatoeba
-نزدیک	آیا پایان نزدیک است؟	Is the end near?	1391		tatoeba
-پایان	آیا پایان نزدیک است؟	Is the end near?	1391		tatoeba
 دقیق	آیا این داده دقیق است؟	Is this data accurate?	1391		tatoeba
 حمایت	آیا حقوق شما برای حمایت از خانواده کافی است؟	Is your salary adequate to support your family?	1391		tatoeba
 حقوق	آیا حقوق شما برای حمایت از خانواده کافی است؟	Is your salary adequate to support your family?	1391		tatoeba
 انگلیسی	آیا فرانسوی هستی یا انگلیسی؟	Are you French or English?	1391		tatoeba
-قرارداد	قرارداد را مطالعه کنید.	Read the contract.	1395		tatoeba
-مطالعه	قرارداد را مطالعه کنید.	Read the contract.	1395		tatoeba
 آینده	بازی تا هفته آینده متوقف شد.	The game was put off until next week.	1404		tatoeba
 بازی	بازی تا هفته آینده متوقف شد.	The game was put off until next week.	1404		tatoeba
 متوقف	بازی تا هفته آینده متوقف شد.	The game was put off until next week.	1404		tatoeba
@@ -1191,18 +881,13 @@ word	sentence	translation	difficulty_rank	transliteration	source
 اضافه	از آن به بعد، آنها ورزش کردن را متوقف کردند و اضافه وزن پیدا کردند.	Since then, they've stopped doing sports and gained weight.	1404		tatoeba
 ورزش	از آن به بعد، آنها ورزش کردن را متوقف کردند و اضافه وزن پیدا کردند.	Since then, they've stopped doing sports and gained weight.	1404		tatoeba
 کردند	از آن به بعد، آنها ورزش کردن را متوقف کردند و اضافه وزن پیدا کردند.	Since then, they've stopped doing sports and gained weight.	1404		tatoeba
-سبز	چرا گیاهان سبز هستند؟	Why are plants green?	1411		tatoeba
-گیاهان	چرا گیاهان سبز هستند؟	Why are plants green?	1411		tatoeba
-نو	خانه نو است.	The house is new.	1421		tatoeba
 رها	او گفت برای رها کردن آماده نیست.	She said she's not ready to leave.	1423		tatoeba
 گفت	او گفت برای رها کردن آماده نیست.	She said she's not ready to leave.	1423		tatoeba
-رها	او رها شد.	She was abandoned.	1423		tatoeba
 رها	او همه امید را رها کرد.	He abandoned all hope.	1423		tatoeba
 امید	او همه امید را رها کرد.	He abandoned all hope.	1423		tatoeba
 پای	همیشه پای یک زن در میان است.	There's always a woman in between.	1426		tatoeba
 همیشه	همیشه پای یک زن در میان است.	There's always a woman in between.	1426		tatoeba
 میان	همیشه پای یک زن در میان است.	There's always a woman in between.	1426		tatoeba
-مبارزه	او درگیر مبارزه شد.	He engaged in the struggle.	1429		tatoeba
 درگیر	او درگیر مبارزه شد.	He engaged in the struggle.	1429		tatoeba
 قطع	باد شدید شب قطع شد.	The strong wind died away at night.	1432		tatoeba
 باد	باد شدید شب قطع شد.	The strong wind died away at night.	1432		tatoeba
@@ -1212,8 +897,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 اشغال	ارتش کشور همسایه را اشغال کرد.	The army made inroads into the neighboring country.	1439		tatoeba
 کشور	ارتش کشور همسایه را اشغال کرد.	The army made inroads into the neighboring country.	1439		tatoeba
 همسایه	ارتش کشور همسایه را اشغال کرد.	The army made inroads into the neighboring country.	1439		tatoeba
-انتقاد	از یکدیگر انتقاد کردند.	They criticized each other.	1444		tatoeba
-یکدیگر	از یکدیگر انتقاد کردند.	They criticized each other.	1444		tatoeba
 مورد	او به شدن مورد انتقاد قرار گرفت.	He was harshly criticised.	1444		tatoeba
 شدن	او به شدن مورد انتقاد قرار گرفت.	He was harshly criticised.	1444		tatoeba
 انتقاد	او به شدن مورد انتقاد قرار گرفت.	He was harshly criticised.	1444		tatoeba
@@ -1244,27 +927,16 @@ word	sentence	translation	difficulty_rank	transliteration	source
 بچه	او به من گفت: بچه ها مثل حیوانات کوچک هستند.	"He said to me, ""Children are like small animals."""	1454		tatoeba
 حیوانات	او به من گفت: بچه ها مثل حیوانات کوچک هستند.	"He said to me, ""Children are like small animals."""	1454		tatoeba
 مثل	او به من گفت: بچه ها مثل حیوانات کوچک هستند.	"He said to me, ""Children are like small animals."""	1454		tatoeba
-درخت	این درخت مقدس است.	This tree is sacred.	1460		tatoeba
 مقدس	این درخت مقدس است.	This tree is sacred.	1460		tatoeba
 مقدس	زمان غذا مقدس است.	Meal time is sacred.	1460		tatoeba
-زمان	زمان غذا مقدس است.	Meal time is sacred.	1460		tatoeba
-تهدید	او یک تهدید است.	He's a menace.	1466		tatoeba
 مسئولیت	او از مسئولیت سنگین خود رها شد.	He was relieved of his heavy responsibility.	1475		tatoeba
 سنگین	او از مسئولیت سنگین خود رها شد.	He was relieved of his heavy responsibility.	1475		tatoeba
-هوایی	پست هوایی، لطفاً.	Airmail, please.	1479		tatoeba
-پست	پست هوایی، لطفاً.	Airmail, please.	1479		tatoeba
 راحتی	مردم وقتی در خانه هستند، بیشترین احساس راحتی را می‌کنند.	People feel most at ease when they are at home.	1483		tatoeba
 وقتی	مردم وقتی در خانه هستند، بیشترین احساس راحتی را می‌کنند.	People feel most at ease when they are at home.	1483		tatoeba
 بیشترین	مردم وقتی در خانه هستند، بیشترین احساس راحتی را می‌کنند.	People feel most at ease when they are at home.	1483		tatoeba
 مردم	مردم وقتی در خانه هستند، بیشترین احساس راحتی را می‌کنند.	People feel most at ease when they are at home.	1483		tatoeba
 احساس	مردم وقتی در خانه هستند، بیشترین احساس راحتی را می‌کنند.	People feel most at ease when they are at home.	1483		tatoeba
-عادی	این غیر عادی نبود.	It wasn't an aberration.	1484		tatoeba
 دشمن	دشمن یک دشمن دوست است.	An enemy of an enemy is a friend.	1488		tatoeba
-دشمن	دشمن دشمن دوست است.	Enemy of the enemy is a friend.	1488		tatoeba
-دشمن	دشمن شناسایی شد.	Enemy spotted.	1488		tatoeba
-شناسایی	دشمن شناسایی شد.	Enemy spotted.	1488		tatoeba
-جرم	او شاهد جرم بود.	She witnessed the crime.	1491		tatoeba
-شاهد	او شاهد جرم بود.	She witnessed the crime.	1491		tatoeba
 کشتی	کشتی به یک موج بزرگ برخورد کرد.	The ship was hit by a big wave.	1494		tatoeba
 موج	کشتی به یک موج بزرگ برخورد کرد.	The ship was hit by a big wave.	1494		tatoeba
 برخورد	کشتی به یک موج بزرگ برخورد کرد.	The ship was hit by a big wave.	1494		tatoeba
@@ -1292,10 +964,7 @@ word	sentence	translation	difficulty_rank	transliteration	source
 تازه	وقتی مردی در ماشین را برای زنی باز می کند، یا زن تازه است یا ماشین.	When a man opens the door of a car for a woman, either the woman is new, or the car.	1519		tatoeba
 زنی	وقتی مردی در ماشین را برای زنی باز می کند، یا زن تازه است یا ماشین.	When a man opens the door of a car for a woman, either the woman is new, or the car.	1519		tatoeba
 وقتی	وقتی مردی در ماشین را برای زنی باز می کند، یا زن تازه است یا ماشین.	When a man opens the door of a car for a woman, either the woman is new, or the car.	1519		tatoeba
-مردی	او مردی را کشت.	He killed a man.	1519		tatoeba
-مردی	اینجا مردی هست.	A man is here.	1519		tatoeba
 روم	من در ساعت هفت به مدرسه می روم.	I go to school at seven.	1537		tatoeba
-روم	به مدرسه می روم.	I go to school.	1537		tatoeba
 روم	من امروز به مدرسه می روم.	Today I go to school.	1537		tatoeba
 کتابخانه	من به کتابخانه می روم.	I'm going to the library.	1537		tatoeba
 کتابخانه	برای خواندن کتاب به کتابخانه می روم.	I'm going to the library to read books.	1537		tatoeba
@@ -1326,11 +995,8 @@ word	sentence	translation	difficulty_rank	transliteration	source
 آزاد	زندانی آزاد شد.	The prisoner was released.	1561		tatoeba
 زندانی	زندانی آزاد شد.	The prisoner was released.	1561		tatoeba
 بالغ	ما بالغ هستیم.	We're mature.	1566		tatoeba
-دوستان	پول کم، دوستان کم.	Little money, few friends.	1569		tatoeba
 دوستان	دوستان من در خطر هستند.	My friends are in danger.	1569		tatoeba
 خطر	دوستان من در خطر هستند.	My friends are in danger.	1569		tatoeba
-حیوانات	حیوانات دوستان ما هستند.	Animals are our friends.	1569		tatoeba
-دوستان	حیوانات دوستان ما هستند.	Animals are our friends.	1569		tatoeba
 سالن	چه کسی در سالن است؟	Who is in the lounge?	1570		tatoeba
 ساحل	آیا این اتوبوس به ساحل می‌رود؟	Does this bus go to the beach?	1585		tatoeba
 اتوبوس	آیا این اتوبوس به ساحل می‌رود؟	Does this bus go to the beach?	1585		tatoeba
@@ -1340,29 +1006,19 @@ word	sentence	translation	difficulty_rank	transliteration	source
 الان	زبان چینی شما الان هم عالی است.	Your Chinese is awesome already.	1601		tatoeba
 چینی	زبان چینی شما الان هم عالی است.	Your Chinese is awesome already.	1601		tatoeba
 چینی	او چینی را صحبت می کند.	He speaks Chinese.	1601		tatoeba
-سیب	او سیب می خورد.	He's eating an apple.	1617		tatoeba
-خورد	او سیب می خورد.	He's eating an apple.	1617		tatoeba
 بر	آیا این به تو بر می خورد؟	Does this offend you?	1617		tatoeba
 خورد	آیا این به تو بر می خورد؟	Does this offend you?	1617		tatoeba
 خورد	جدول زمانی به هم خورد.	The timetable was disrupted.	1617		tatoeba
 جدول	جدول زمانی به هم خورد.	The timetable was disrupted.	1617		tatoeba
 زمانی	جدول زمانی به هم خورد.	The timetable was disrupted.	1617		tatoeba
-مشارکت	مشارکت ضعیف بود.	The participation was low.	1622		tatoeba
-ضعیف	مشارکت ضعیف بود.	The participation was low.	1622		tatoeba
 باهوش	بر من آشکار شد که او بسیار باهوش است.	It appeared to me that he was very intelligent.	1625		tatoeba
 بر	بر من آشکار شد که او بسیار باهوش است.	It appeared to me that he was very intelligent.	1625		tatoeba
 آشکار	بر من آشکار شد که او بسیار باهوش است.	It appeared to me that he was very intelligent.	1625		tatoeba
-خطر	خطر آشکار نبود.	The danger was not apparent.	1625		tatoeba
-آشکار	خطر آشکار نبود.	The danger was not apparent.	1625		tatoeba
 تپه	خانه او پشت تپه است.	His house is beyond the hill.	1628		tatoeba
 پشت	خانه او پشت تپه است.	His house is beyond the hill.	1628		tatoeba
-کتابی	تو نویسندهٔ این کتابی؟	Are you the author of this book?	1634		tatoeba
 کلیسا	از کلیسا دفاع کنید.	Defend the church.	1638		tatoeba
 ژاپنی	در شرکتِ ما زبان رسمی ژاپنی است.	In our company, the official language is Japanese.	1654		tatoeba
 رسمی	در شرکتِ ما زبان رسمی ژاپنی است.	In our company, the official language is Japanese.	1654		tatoeba
-برنج	محصول برنج برداشت شد.	The rice crop was harvested.	1658		tatoeba
-محصول	محصول برنج برداشت شد.	The rice crop was harvested.	1658		tatoeba
-برداشت	محصول برنج برداشت شد.	The rice crop was harvested.	1658		tatoeba
 پرسیدن	سوال پرسیدن بهترین راه برای یادگیری است.	Asking questions is the best way to learn.	1665		tatoeba
 یادگیری	سوال پرسیدن بهترین راه برای یادگیری است.	Asking questions is the best way to learn.	1665		tatoeba
 سوال	سوال پرسیدن بهترین راه برای یادگیری است.	Asking questions is the best way to learn.	1665		tatoeba
@@ -1389,13 +1045,9 @@ word	sentence	translation	difficulty_rank	transliteration	source
 روسی	او به فرزندان خود روسی یاد داد.	He taught his children Russian.	1681		tatoeba
 یاد	او به فرزندان خود روسی یاد داد.	He taught his children Russian.	1681		tatoeba
 فرزندان	او به فرزندان خود روسی یاد داد.	He taught his children Russian.	1681		tatoeba
-بله	"""روسی هستی؟"" ""بله."""	"""Are you Russian?"" ""Yes."""	1681		tatoeba
-روسی	"""روسی هستی؟"" ""بله."""	"""Are you Russian?"" ""Yes."""	1681		tatoeba
-روسی	روسی هستم.	I'm Russian.	1681		tatoeba
 زنده	روح قالب را زنده می‌کند.	The soul animates the body.	1689		tatoeba
 قالب	روح قالب را زنده می‌کند.	The soul animates the body.	1689		tatoeba
 روح	روح قالب را زنده می‌کند.	The soul animates the body.	1689		tatoeba
-روح	قلم زبان روح است.	The pen is the tongue of the soul.	1689		tatoeba
 قلم	قلم زبان روح است.	The pen is the tongue of the soul.	1689		tatoeba
 ابراز	نامه بهترین راه برای ابراز عشق است.	A letter is the best way to express love.	1697		tatoeba
 نامه	نامه بهترین راه برای ابراز عشق است.	A letter is the best way to express love.	1697		tatoeba
@@ -1410,15 +1062,10 @@ word	sentence	translation	difficulty_rank	transliteration	source
 کلاس	ساکت بودن در کلاس احترام به خواب مردم است.	To be quiet in class is to respect other people's sleep.	1708		tatoeba
 احترام	با او با احترام رفتار کنید.	Treat her with respect.	1708		tatoeba
 رفتار	با او با احترام رفتار کنید.	Treat her with respect.	1708		tatoeba
-ایده	چه ایده خوبی!	What a nice idea!	1709		tatoeba
-موفقیت	ایده یک موفقیت بود.	The idea was a success.	1709		tatoeba
-ایده	ایده یک موفقیت بود.	The idea was a success.	1709		tatoeba
 ذهن	این که تنها ترجمه ی موجود است،دور از ذهن من بود.	As far as I know, this is the only translation available.	1712		tatoeba
 موجود	این که تنها ترجمه ی موجود است،دور از ذهن من بود.	As far as I know, this is the only translation available.	1712		tatoeba
 ترجمه	این که تنها ترجمه ی موجود است،دور از ذهن من بود.	As far as I know, this is the only translation available.	1712		tatoeba
 دور	این که تنها ترجمه ی موجود است،دور از ذهن من بود.	As far as I know, this is the only translation available.	1712		tatoeba
-فعال	او ذهن فعال دارد.	He has a nimble mind.	1712		tatoeba
-ذهن	او ذهن فعال دارد.	He has a nimble mind.	1712		tatoeba
 تمایل	این یک تمایل مثبت است.	It's a positive tendency.	1718		tatoeba
 مثبت	این یک تمایل مثبت است.	It's a positive tendency.	1718		tatoeba
 عمق	این عمق زندگی است که مهم است نه طول آن.	It is not length of life, but depth of life.	1728		tatoeba
@@ -1430,19 +1077,13 @@ word	sentence	translation	difficulty_rank	transliteration	source
 آرام	پرستار به شما یک آرام‌بخش داد.	The nurse gave you a sedative.	1738		tatoeba
 آرام	دکتر به او یک آرام‌بخش داد.	The doctor gave her a sedative.	1738		tatoeba
 دکتر	دکتر به او یک آرام‌بخش داد.	The doctor gave her a sedative.	1738		tatoeba
-آرام	دریا آرام است.	The sea is calm.	1738		tatoeba
-دریا	دریا آرام است.	The sea is calm.	1738		tatoeba
 شلیک	او سگ را شلیک کرد.	She shot a dog.	1744		tatoeba
-شکار	او شکار کرد.	He hunted.	1745		tatoeba
 شکار	خیلی از افراد شکار می کنند.	Many people hunt.	1745		tatoeba
 افراد	خیلی از افراد شکار می کنند.	Many people hunt.	1745		tatoeba
 پارک	اینجا پارک کردن ممنوع است.	Parking is prohibited here.	1746		tatoeba
 ممنوع	اینجا پارک کردن ممنوع است.	Parking is prohibited here.	1746		tatoeba
-ممنوع	الآن شکار ممنوع است.	Hunting is forbidden now.	1746		tatoeba
-شکار	الآن شکار ممنوع است.	Hunting is forbidden now.	1746		tatoeba
 چنین	چه کسی چنین چیزی را ممنوع می کند؟	Who would prohibit such a thing?	1746		tatoeba
 ممنوع	چه کسی چنین چیزی را ممنوع می کند؟	Who would prohibit such a thing?	1746		tatoeba
-پارک	پارک کردن ممنوع!	Parking prohibited!	1746		tatoeba
 وجه	به هیچ وجه.	No way.	1747		tatoeba
 لیست	این لیست جامع نیست.	This list is not exhaustive.	1754		tatoeba
 جامع	این لیست جامع نیست.	This list is not exhaustive.	1754		tatoeba
@@ -1452,19 +1093,14 @@ word	sentence	translation	difficulty_rank	transliteration	source
 سلاح	بهترین سلاح علیه یک دشمن، دشمن دیگر است.	The best weapon against an enemy is another enemy.	1758		tatoeba
 ضروری	سرعت عمل ضروری است.	Prompt action is necessary.	1759		tatoeba
 عمل	سرعت عمل ضروری است.	Prompt action is necessary.	1759		tatoeba
-سرعت	سرعت عمل ضروری است.	Prompt action is necessary.	1759		tatoeba
 حرفه	زندگی کردن، حرفه و هنر من است.	Living is my profession and my art.	1766		tatoeba
 سرطان	او با سرطان مبارزه می کند.	She's beating cancer.	1768		tatoeba
 مبارزه	او با سرطان مبارزه می کند.	She's beating cancer.	1768		tatoeba
 وسیع	دنیا وسیع است.	The universe is vast.	1777		tatoeba
-دنیا	دنیا وسیع است.	The universe is vast.	1777		tatoeba
 دهم	آیا لازم است دلیل را به او توضیح دهم؟	Do I need to explain the reason to him?	1786		tatoeba
 دلیل	آیا لازم است دلیل را به او توضیح دهم؟	Do I need to explain the reason to him?	1786		tatoeba
 توضیح	آیا لازم است دلیل را به او توضیح دهم؟	Do I need to explain the reason to him?	1786		tatoeba
 لازم	آیا لازم است دلیل را به او توضیح دهم؟	Do I need to explain the reason to him?	1786		tatoeba
-رویکرد	رویکرد من متفاوت است.	My approach is different.	1797		tatoeba
-متفاوت	رویکرد من متفاوت است.	My approach is different.	1797		tatoeba
-لغو	کار را لغو کنید.	Abolish work.	1800		tatoeba
 رأی	اگر رأی دادن چیزی را تغییر می داد، آنها این را لغو می کردند.	If voting changed anything, they'd abolish it.	1800		tatoeba
 اگر	اگر رأی دادن چیزی را تغییر می داد، آنها این را لغو می کردند.	If voting changed anything, they'd abolish it.	1800		tatoeba
 لغو	اگر رأی دادن چیزی را تغییر می داد، آنها این را لغو می کردند.	If voting changed anything, they'd abolish it.	1800		tatoeba
@@ -1479,8 +1115,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 پلیس	پلیس ساختمان را محاصره کرد.	Police surrounded the building.	1828		tatoeba
 محاصره	پلیس ساختمان را محاصره کرد.	Police surrounded the building.	1828		tatoeba
 ساختمان	پلیس ساختمان را محاصره کرد.	Police surrounded the building.	1828		tatoeba
-رنگی	خورشید چه رنگی است؟	What colour is the sun?	1838		tatoeba
-خورشید	خورشید چه رنگی است؟	What colour is the sun?	1838		tatoeba
 معبد	در شهر یک معبد خیلی قدیمی وجود دارد.	There is a very old temple in the town.	1842		tatoeba
 قدیمی	در شهر یک معبد خیلی قدیمی وجود دارد.	There is a very old temple in the town.	1842		tatoeba
 هشتم	در طبقه‌ی هشتم واقع است.	It's on the eighth floor.	1844		tatoeba
@@ -1514,21 +1148,14 @@ word	sentence	translation	difficulty_rank	transliteration	source
 جشن	جشن و سرور ازدواج سه روز کامل ادامه پیدا کرد.	The marriage feast continued for three whole days.	1886		tatoeba
 ادامه	جشن و سرور ازدواج سه روز کامل ادامه پیدا کرد.	The marriage feast continued for three whole days.	1886		tatoeba
 سرور	جشن و سرور ازدواج سه روز کامل ادامه پیدا کرد.	The marriage feast continued for three whole days.	1886		tatoeba
-شواهد	شواهد را تخریب کنید.	Destroy the evidence.	1887		tatoeba
 تخریب	شواهد را تخریب کنید.	Destroy the evidence.	1887		tatoeba
 طبیعی	همه نشانه ها طبیعی هستند.	All indicators are normal.	1892		tatoeba
 نشانه	همه نشانه ها طبیعی هستند.	All indicators are normal.	1892		tatoeba
 صلح	ما ملت صلح دوستی هستیم.	We are a peace-loving nation.	1901		tatoeba
 دوستی	ما ملت صلح دوستی هستیم.	We are a peace-loving nation.	1901		tatoeba
 ملت	ما ملت صلح دوستی هستیم.	We are a peace-loving nation.	1901		tatoeba
-مجازات	مجازات قتل مرگ است.	Homicide is punishable by death.	1905		tatoeba
-قتل	مجازات قتل مرگ است.	Homicide is punishable by death.	1905		tatoeba
-مرگ	مجازات قتل مرگ است.	Homicide is punishable by death.	1905		tatoeba
 گویش	این یک گویش محلی است.	It's a regional dialect.	1911		tatoeba
 محلی	این یک گویش محلی است.	It's a regional dialect.	1911		tatoeba
-اخبار	آن در اخبار بود.	That was on the news.	1912		tatoeba
-قرمز	سقف خانه قرمز است.	The roof of the house is red.	1920		tatoeba
-سقف	سقف خانه قرمز است.	The roof of the house is red.	1920		tatoeba
 افتاده	کل خانواده در بستر بیماری افتاده بودند.	The whole family was sick in bed.	1927		tatoeba
 بیماری	کل خانواده در بستر بیماری افتاده بودند.	The whole family was sick in bed.	1927		tatoeba
 کل	کل خانواده در بستر بیماری افتاده بودند.	The whole family was sick in bed.	1927		tatoeba
@@ -1554,21 +1181,16 @@ word	sentence	translation	difficulty_rank	transliteration	source
 پرندگان	ما باید از پرندگان حفاظت کنیم.	We must preserve birds.	1990		tatoeba
 حفاظت	ما باید از پرندگان حفاظت کنیم.	We must preserve birds.	1990		tatoeba
 چهره	چهره او قرمز بود.	Her face was red.	1991		tatoeba
-قرمز	چهره او قرمز بود.	Her face was red.	1991		tatoeba
 خیابان	او در خیابان به جلو و عقب گام بر می داشت.	He walked back and forth on the street.	1992		tatoeba
 جلو	او در خیابان به جلو و عقب گام بر می داشت.	He walked back and forth on the street.	1992		tatoeba
 داشت	او در خیابان به جلو و عقب گام بر می داشت.	He walked back and forth on the street.	1992		tatoeba
 عقب	او در خیابان به جلو و عقب گام بر می داشت.	He walked back and forth on the street.	1992		tatoeba
 گام	او در خیابان به جلو و عقب گام بر می داشت.	He walked back and forth on the street.	1992		tatoeba
 خندیدن	خندیدن آخر خوش است.	He laughs best who laughs last.	1995		tatoeba
-خوش	خندیدن آخر خوش است.	He laughs best who laughs last.	1995		tatoeba
-خوش	روز خوش	Good day!	1995		tatoeba
 گذشته	آیا به همه خوش گذشته؟	Did everyone have a good time?	1995		tatoeba
 خوش	آیا به همه خوش گذشته؟	Did everyone have a good time?	1995		tatoeba
 داشت	داستان یک پایان خوش داشت.	The story had a happy ending.	1995		tatoeba
 داستان	داستان یک پایان خوش داشت.	The story had a happy ending.	1995		tatoeba
-شب	شب خوش.	Good night!	1995		tatoeba
-بالاخره	بالاخره چند خبر خوش.	At last, some good news.	1995		tatoeba
 مشتری	مشتری همیشه حق دارد، حتّی زمانی‌که حق ندارد.	The customer's always right, even when they're not.	1998		tatoeba
 حق	مشتری همیشه حق دارد، حتّی زمانی‌که حق ندارد.	The customer's always right, even when they're not.	1998		tatoeba
 زمانی	مشتری همیشه حق دارد، حتّی زمانی‌که حق ندارد.	The customer's always right, even when they're not.	1998		tatoeba
@@ -1595,12 +1217,8 @@ word	sentence	translation	difficulty_rank	transliteration	source
 شرق	زمین از غرب به شرق گردش می‌کند.	The Earth is rotating from West to East.	2073		tatoeba
 غرب	زمین از غرب به شرق گردش می‌کند.	The Earth is rotating from West to East.	2073		tatoeba
 گردش	زمین از غرب به شرق گردش می‌کند.	The Earth is rotating from West to East.	2073		tatoeba
-ستاره	ستاره ها بیرون آمدند.	The stars came out.	2074		tatoeba
-بیرون	ستاره ها بیرون آمدند.	The stars came out.	2074		tatoeba
-آمدند	ستاره ها بیرون آمدند.	The stars came out.	2074		tatoeba
 ارتقا	هدف او ارتقا پیدا کردن است.	His goal is getting promoted.	2093		tatoeba
 هدف	هدف او ارتقا پیدا کردن است.	His goal is getting promoted.	2093		tatoeba
-رفتند	آنها به کجا رفتند؟	Where did they go?	2103		tatoeba
 دریا	دریا مثل شیشه صاف بود.	The sea was as smooth as glass.	2120		tatoeba
 صاف	دریا مثل شیشه صاف بود.	The sea was as smooth as glass.	2120		tatoeba
 شیشه	دریا مثل شیشه صاف بود.	The sea was as smooth as glass.	2120		tatoeba
@@ -1639,8 +1257,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 نگرانی	او با نگرانی سوال کرد.	She asked anxiously.	2181		tatoeba
 سوال	او با نگرانی سوال کرد.	She asked anxiously.	2181		tatoeba
 پایداری	آیا واقعاً صلح پایداری وجود دارد؟	Is there really a sustainable peace?	2184		tatoeba
-اندک	تفاوت اندک.	Scant difference.	2192		tatoeba
-تفاوت	تفاوت اندک.	Scant difference.	2192		tatoeba
 بیشتر	زندگی بیشتر از هنر تقلید می‌کند تا هنر از زندگی.	Life imitates art far more than art imitates life.	2195		tatoeba
 تقلید	زندگی بیشتر از هنر تقلید می‌کند تا هنر از زندگی.	Life imitates art far more than art imitates life.	2195		tatoeba
 حیاط	حیاط بدون زن مانند باغ بدون گل است.	A court without ladies is like a garden without flowers.	2197		tatoeba
@@ -1655,18 +1271,13 @@ word	sentence	translation	difficulty_rank	transliteration	source
 فنجان	یک فنجان چای دوست داری	Would you like a drink?	2214		tatoeba
 داری	یک فنجان چای دوست داری	Would you like a drink?	2214		tatoeba
 داری	آیا تو همه چیز داری؟	Do you have everything?	2214		tatoeba
-فردا	فردا امتحان داری؟	There is a test tomorrow.	2214		tatoeba
-امتحان	فردا امتحان داری؟	There is a test tomorrow.	2214		tatoeba
-داری	فردا امتحان داری؟	There is a test tomorrow.	2214		tatoeba
 حافظه	تو حافظه خیلی خوبی داری.	You have a very good memory.	2214		tatoeba
-رنگی	چه رنگی دوست داری؟	Which color do you prefer?	2214		tatoeba
 رنگی	تو چه رنگی دوست داری؟	Which color do you prefer?	2214		tatoeba
 برنامه	برنامه ای برای فردا شب داری؟	Do you have plans for tomorrow night?	2214		tatoeba
 فردا	برنامه ای برای فردا شب داری؟	Do you have plans for tomorrow night?	2214		tatoeba
 هتل	بخش هتل‌داری در حال جذب نیرو است.	The hotel sector is recruiting.	2214		tatoeba
 نیرو	بخش هتل‌داری در حال جذب نیرو است.	The hotel sector is recruiting.	2214		tatoeba
 جذب	بخش هتل‌داری در حال جذب نیرو است.	The hotel sector is recruiting.	2214		tatoeba
-مداد	مداد داری؟	Do you have a pencil?	2214		tatoeba
 داغ	آیا برای تهیه چای، آب به اندازه کافی داغ است؟	Is the water hot enough to make the tea?	2215		tatoeba
 تهیه	آیا برای تهیه چای، آب به اندازه کافی داغ است؟	Is the water hot enough to make the tea?	2215		tatoeba
 ابر	ابر توده ای از بخار است.	A cloud is a mass of vapor.	2225		tatoeba
@@ -1676,8 +1287,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 توده	ابر توده ای از بخار در آسمان است.	A cloud is a mass of vapor in the sky.	2225		tatoeba
 بخار	ابر توده ای از بخار در آسمان است.	A cloud is a mass of vapor in the sky.	2225		tatoeba
 آسمان	ابر توده ای از بخار در آسمان است.	A cloud is a mass of vapor in the sky.	2225		tatoeba
-قاره	پنج قاره وجود دارد.	There are five continents.	2233		tatoeba
-پنج	پنج قاره وجود دارد.	There are five continents.	2233		tatoeba
 محکوم	قاضی او را به اعدام محکوم کرد.	The judge condemned him to death.	2234		tatoeba
 اعدام	قاضی او را به اعدام محکوم کرد.	The judge condemned him to death.	2234		tatoeba
 قاضی	قاضی او را به اعدام محکوم کرد.	The judge condemned him to death.	2234		tatoeba
@@ -1687,12 +1296,10 @@ word	sentence	translation	difficulty_rank	transliteration	source
 خورشید	خورشید برف را ذوب می‌کند.	The sun melts the snow.	2253		tatoeba
 ذوب	خورشید برف را ذوب می‌کند.	The sun melts the snow.	2253		tatoeba
 برف	خورشید برف را ذوب می‌کند.	The sun melts the snow.	2253		tatoeba
-مذاکرات	مذاکرات شکست خورد.	The negotiations failed.	2260		tatoeba
 شکل	گرما یک شکل از انرژی است.	Heat is a form of energy.	2269		tatoeba
 انرژی	گرما یک شکل از انرژی است.	Heat is a form of energy.	2269		tatoeba
 گرما	گرما یک شکل از انرژی است.	Heat is a form of energy.	2269		tatoeba
 افسر	او یک افسر پلیس شد.	She became a police officer.	2270		tatoeba
-تخم	آنها تخم هستند.	They're eggs.	2273		tatoeba
 خواب	روز بعد، او را مرده در اتاق خواب پیدا کردند.	The following day he was found dead in the bedroom.	2282		tatoeba
 بعد	روز بعد، او را مرده در اتاق خواب پیدا کردند.	The following day he was found dead in the bedroom.	2282		tatoeba
 مرده	روز بعد، او را مرده در اتاق خواب پیدا کردند.	The following day he was found dead in the bedroom.	2282		tatoeba
@@ -1707,8 +1314,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 ساختمان	به این ساختمان نگاه کن.آیا آن یک معبد است؟	Look at that building. Is it a temple?	2286		tatoeba
 کن	آلان کن چه می کند؟	What is Ken doing now?	2286		tatoeba
 کن	در را کمی باز کن!	Open the door a bit!	2286		tatoeba
-اضافه	کمی شیر اضافه کن.	Add a little milk.	2286		tatoeba
-شیر	کمی شیر اضافه کن.	Add a little milk.	2286		tatoeba
 دقت	با دقت از عینک نگهداری کن.	Handle the glasses carefully.	2286		tatoeba
 عینک	با دقت از عینک نگهداری کن.	Handle the glasses carefully.	2286		tatoeba
 نگهداری	با دقت از عینک نگهداری کن.	Handle the glasses carefully.	2286		tatoeba
@@ -1716,14 +1321,7 @@ word	sentence	translation	difficulty_rank	transliteration	source
 پست	لطفا این نامه را برای من پست کن.	Please mail this letter for me.	2286		tatoeba
 نامه	لطفا این نامه را برای من پست کن.	Please mail this letter for me.	2286		tatoeba
 اسم	اسم سگ «کِن» است.	The dog's name is Ken.	2286		tatoeba
-گوش	گوش کن.	Listen.	2286		tatoeba
-دقت	به دقت گوش کن.	Listen carefully.	2286		tatoeba
-گوش	به دقت گوش کن.	Listen carefully.	2286		tatoeba
-دوباره	دوباره سعی کن.	Try again.	2286		tatoeba
-اعتماد	به من اعتماد کن.	Confide in me.	2286		tatoeba
 بسته	لطفاً بسته را باز کن.	Please open the package.	2286		tatoeba
-پایین	به پایین نگاه کن.	Look at the bottom.	2286		tatoeba
-نگاه	به پایین نگاه کن.	Look at the bottom.	2286		tatoeba
 اعتماد	او گفت: به من اعتماد کن.	"""Trust me,"" he said."	2286		tatoeba
 طبق	طبق گزارش،اسلحه خیلی قدرتمند است.	This gun is reportedly very powerful.	2288		tatoeba
 گزارش	طبق گزارش،اسلحه خیلی قدرتمند است.	This gun is reportedly very powerful.	2288		tatoeba
@@ -1731,15 +1329,10 @@ word	sentence	translation	difficulty_rank	transliteration	source
 اسلحه	طبق گزارش،اسلحه خیلی قدرتمند است.	This gun is reportedly very powerful.	2288		tatoeba
 کودک	آیا کودک هنوز بیدار است؟	Is the kid still up?	2292		tatoeba
 بیدار	آیا کودک هنوز بیدار است؟	Is the kid still up?	2292		tatoeba
-بیدار	او کاملاً بیدار است.	She's wide awake.	2292		tatoeba
-صبح	تا صبح بیدار ماند.	I stayed awake until morning.	2292		tatoeba
-بیدار	تا صبح بیدار ماند.	I stayed awake until morning.	2292		tatoeba
 ورود	ورود به کتابخانه رایگان است.	It's free to get into the library.	2298		tatoeba
 رایگان	ورود به کتابخانه رایگان است.	It's free to get into the library.	2298		tatoeba
 رایگان	پذیرش در کتابخانه رایگان است.	Admission to the library is free.	2298		tatoeba
 پذیرش	پذیرش در کتابخانه رایگان است.	Admission to the library is free.	2298		tatoeba
-حضور	حضور رایگان است.	Attendance is free.	2298		tatoeba
-رایگان	حضور رایگان است.	Attendance is free.	2298		tatoeba
 طلب	امید تلاش را طلب می کند.	Hope demands hard-work.	2304		tatoeba
 خیانت	آنها به من خیانت کردند.	They betrayed me.	2318		tatoeba
 مدعی	او مدعی بود که او یک وکیل است.	He pretended that he was a lawyer.	2326		tatoeba
@@ -1747,8 +1340,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 نقاشی	او در نقاشی استعداد دارد.	He has an aptitude for painting.	2330		tatoeba
 استعداد	او در نقاشی استعداد دارد.	He has an aptitude for painting.	2330		tatoeba
 بیمه	این را بیمه کن،لطفا.	Insure it, please.	2332		tatoeba
-رقیب	آنها رقیب هستند.	They're rivals.	2336		tatoeba
-کس	هیچ کس آنجا نبود.	There wasn't anyone there.	2352		tatoeba
 کس	دوست همه کس، دوست هیچ کس.	A friend to all is a friend to none.	2352		tatoeba
 استراحت	ده دقیقه استراحت می کنیم.	Let's take a 10-minute break.	2353		tatoeba
 استراحت	دکتر به او گفت او باید استراحت کند.	The doctor told her that she should take a rest.	2353		tatoeba
@@ -1762,7 +1353,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 سوراخ	گلوله کلاه را سوراخ کرد.	A bullet pierced the helmet.	2362		tatoeba
 شکسته	چه کسی این پنجره را شکسته است؟	By whom was this window broken?	2365		tatoeba
 پنجره	چه کسی این پنجره را شکسته است؟	By whom was this window broken?	2365		tatoeba
-معامله	معامله بزرگ.	Big deal.	2373		tatoeba
 کردی	آن لحظه چه می کردی؟	What were you doing that moment?	2378		tatoeba
 لحظه	آن لحظه چه می کردی؟	What were you doing that moment?	2378		tatoeba
 سریع	باید خیلی سریع عمل می کردی	You had better set off at once.	2378		tatoeba
@@ -1776,7 +1366,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 رنگ	کدام رنگ را انتخاب کردی؟	Which color did you choose?	2378		tatoeba
 انتخاب	کدام رنگ را انتخاب کردی؟	Which color did you choose?	2378		tatoeba
 مگر	تو چیزی پیدا کردی، مگر نه؟	You found something, didn't you?	2378		tatoeba
-استراتژی	امید یک استراتژی نیست.	Hope is not a strategy.	2380		tatoeba
 استراتژی	چگونه این استراتژی را ارزیابی می‌کنید؟	How do you assess this strategy?	2380		tatoeba
 ارزیابی	چگونه این استراتژی را ارزیابی می‌کنید؟	How do you assess this strategy?	2380		tatoeba
 چگونه	چگونه این استراتژی را ارزیابی می‌کنید؟	How do you assess this strategy?	2380		tatoeba
@@ -1784,8 +1373,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 جوش	او یک لوله را جوش داده است.	She welded a pipe.	2382		tatoeba
 چراغ	لطفا چراغ را خاموش کن.	Please turn off the light.	2385		tatoeba
 خاموش	لطفا چراغ را خاموش کن.	Please turn off the light.	2385		tatoeba
-تلویزیون	تلویزیون را خاموش کن.	Turn off the TV.	2385		tatoeba
-خاموش	تلویزیون را خاموش کن.	Turn off the TV.	2385		tatoeba
 چراغ	چراغ را خاموش می‌کنید؟	Will you turn off the light?	2385		tatoeba
 خاموش	چراغ را خاموش می‌کنید؟	Will you turn off the light?	2385		tatoeba
 عاشق	من عاشق گربه ها هستم.	I love cats.	2393		tatoeba
@@ -1803,8 +1390,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 ظرف	این کار را ظرف پنج روز تمام می‌کنم.	I will finish the work in five days.	2400		tatoeba
 پنج	این کار را ظرف پنج روز تمام می‌کنم.	I will finish the work in five days.	2400		tatoeba
 حمام	من هر روز حمام می کنم.	I bathe every day.	2400		tatoeba
-حمام	روزانه حمام می کنم.	I bathe daily.	2400		tatoeba
-روزانه	روزانه حمام می کنم.	I bathe daily.	2400		tatoeba
 ایده	من باید با این ایده مخالفت کنم.	I have to oppose this idea.	2400		tatoeba
 مخالفت	من باید با این ایده مخالفت کنم.	I have to oppose this idea.	2400		tatoeba
 رشته	من در رشته زبان فارسی تحصیل می کنم.	I am reading Persian.	2400		tatoeba
@@ -1815,7 +1400,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 فردا	تا فردا باید این نامه را به فرانسوی ترجمه کنم.	I must put this letter into French by tomorrow.	2400		tatoeba
 پس	من فکر می‌کنم, پس هستم.	I think, therefore I am.	2400		tatoeba
 آلمانی	اوّلین بار است که با یک آلمانی به آلمانی صحبت می‌کنم.	This is my first time speaking German with a German person.	2400		tatoeba
-امشب	باید امشب کار کنم.	I have to work tonight.	2400		tatoeba
 وکیل	فکر می‌کنم که او وکیل است.	I doubt that he's a lawyer.	2400		tatoeba
 تحصیل	من در مدرسه تحصیل می کنم.	I study at school.	2400		tatoeba
 استفاده	آن کامپیوتر را استفاده می‌کنم.	I use that computer.	2400		tatoeba
@@ -1835,14 +1419,9 @@ word	sentence	translation	difficulty_rank	transliteration	source
 شخص	جمع شخص، مردم است نه اشخاص.	The plural of 'person' is 'people', not 'persons'.	2403		tatoeba
 اشخاص	جمع شخص، مردم است نه اشخاص.	The plural of 'person' is 'people', not 'persons'.	2403		tatoeba
 جمع	جمع شخص، مردم است نه اشخاص.	The plural of 'person' is 'people', not 'persons'.	2403		tatoeba
-سرقت	ماشین سرقت شد.	The car was stolen.	2415		tatoeba
 زندانی	زندانی زیر شکنجه مرد.	The prisoner died under torture.	2418		tatoeba
-زیر	زندانی زیر شکنجه مرد.	The prisoner died under torture.	2418		tatoeba
-شکنجه	زندانی زیر شکنجه مرد.	The prisoner died under torture.	2418		tatoeba
-شواهد	شواهد کاملاً فرعی هستند.	The evidence is purely circumstantial.	2421		tatoeba
 فرعی	شواهد کاملاً فرعی هستند.	The evidence is purely circumstantial.	2421		tatoeba
 ماجرا	چه کسی ماجرا را به تو گفت؟	Who told you the story?	2423		tatoeba
-نیاز	چند کپی نیاز داری؟	How many copies do you need?	2429		tatoeba
 کپی	چند کپی نیاز داری؟	How many copies do you need?	2429		tatoeba
 اصرار	او اصرار کرد دوباره فکر کنم.	He urged me to think again.	2431		tatoeba
 دوباره	او اصرار کرد دوباره فکر کنم.	He urged me to think again.	2431		tatoeba
@@ -1850,12 +1429,9 @@ word	sentence	translation	difficulty_rank	transliteration	source
 تعهد	عشق یک احساس نیست. یک تعهد است.	Love isn't a feeling. It's a commitment.	2432		tatoeba
 احساس	عشق یک احساس نیست. یک تعهد است.	Love isn't a feeling. It's a commitment.	2432		tatoeba
 خیر	صبح به خیر!	Good morning!	2433		tatoeba
-صبح	صبح به خیر!	Good morning!	2433		tatoeba
 خیر	روز به خیر	Good day!	2433		tatoeba
 خیر	وقت به خیر	Good day!	2433		tatoeba
-وقت	وقت به خیر	Good day!	2433		tatoeba
 ظهر	بعد از ظهر به خیر.	Good afternoon.	2433		tatoeba
-عصر	عصر به خیر.	Good evening.	2433		tatoeba
 عصر	عصر به خیر؛ حال شما چطور است؟	Good evening; how're you doing?	2433		tatoeba
 عصر	عصر به خیر. حال شما چطور است؟	Good evening. How's it going?	2433		tatoeba
 استفاده	سوء استفاده از بچه اشتباه است.	Child abuse is wrong.	2438		tatoeba
@@ -1863,13 +1439,9 @@ word	sentence	translation	difficulty_rank	transliteration	source
 بچه	سوء استفاده از بچه اشتباه است.	Child abuse is wrong.	2438		tatoeba
 مهندس	پدر من مهندس الکترونیک است.	My father is an electric engineer.	2447		tatoeba
 الکترونیک	پدر من مهندس الکترونیک است.	My father is an electric engineer.	2447		tatoeba
-بچه	ما دو بچه داریم.	We have two children.	2454		tatoeba
-داریم	ما دو بچه داریم.	We have two children.	2454		tatoeba
 داریم	زندگی واقعاً ساده است، اما ما اصرار داریم آن را پیچیده کنیم.	Life is really simple, but we insist on making it complicated.	2454		tatoeba
 اصرار	زندگی واقعاً ساده است، اما ما اصرار داریم آن را پیچیده کنیم.	Life is really simple, but we insist on making it complicated.	2454		tatoeba
 پیچیده	زندگی واقعاً ساده است، اما ما اصرار داریم آن را پیچیده کنیم.	Life is really simple, but we insist on making it complicated.	2454		tatoeba
-قرارداد	ما یک قرارداد داریم.	We have a contract.	2454		tatoeba
-داریم	ما یک قرارداد داریم.	We have a contract.	2454		tatoeba
 اصلی	ازدواج عامل اصلی طلاق است.	Marriage is the main cause of divorce.	2461		tatoeba
 عامل	ازدواج عامل اصلی طلاق است.	Marriage is the main cause of divorce.	2461		tatoeba
 طلاق	ازدواج عامل اصلی طلاق است.	Marriage is the main cause of divorce.	2461		tatoeba
@@ -1905,9 +1477,7 @@ word	sentence	translation	difficulty_rank	transliteration	source
 آسمان	چند ستاره در آسمان شب شروع به پدیدار شدن کردند.	Some stars began to appear in the night sky.	2498		tatoeba
 تشدید	این به تدریج تشدید شد.	It gradually escalated.	2502		tatoeba
 تدریج	این به تدریج تشدید شد.	It gradually escalated.	2502		tatoeba
-دموکراسی	زنده باد دموکراسی!	Long live democracy!	2505		tatoeba
 شمرده	شمرده‌تر صحبت کنید.	Speak more slowly.	2510		tatoeba
-توضیح	او مفصل توضیح داد.	He explained it in detail.	2517		tatoeba
 مفصل	او مفصل توضیح داد.	He explained it in detail.	2517		tatoeba
 آمدن	من او را وادار به آمدن می کنم.	I am persuading him to come.	2521		tatoeba
 وادار	من او را وادار به آمدن می کنم.	I am persuading him to come.	2521		tatoeba
@@ -1961,26 +1531,20 @@ word	sentence	translation	difficulty_rank	transliteration	source
 نیاز	این جمله نیاز به تصحیح دارد.	This sentence needs to be corrected.	2614		tatoeba
 جمله	این جمله نیاز به تصحیح دارد.	This sentence needs to be corrected.	2614		tatoeba
 تصحیح	این جمله نیاز به تصحیح دارد.	This sentence needs to be corrected.	2614		tatoeba
-دوستی	دوری و دوستی.	Absence makes the heart grow fonder.	2619		tatoeba
 دوری	دوری و دوستی.	Absence makes the heart grow fonder.	2619		tatoeba
 دوری	از ترس دوری کن.	Avoid danger.	2619		tatoeba
-شیطان	شیطان همه جا هست.	Evil is everywhere.	2624		tatoeba
 فرش	یک فرش بزرگ روی زمین است.	There's a large carpet on the floor.	2625		tatoeba
-لذت	هوا لذت بخش بود.	The weather was delightful.	2628		tatoeba
 مارک	مارک تجربه سوء استفاده را دارد.	Mark has experienced abuse.	2629		tatoeba
 سوء	مارک تجربه سوء استفاده را دارد.	Mark has experienced abuse.	2629		tatoeba
 تجربه	مارک تجربه سوء استفاده را دارد.	Mark has experienced abuse.	2629		tatoeba
 شکنجه	آن یک شکنجهٔ محض بود.	It was sheer torture.	2631		tatoeba
 محض	آن یک شکنجهٔ محض بود.	It was sheer torture.	2631		tatoeba
-محض	آن گمان محض است.	That's pure conjecture.	2631		tatoeba
-گمان	آن گمان محض است.	That's pure conjecture.	2631		tatoeba
 محکم	او به اندازه کافی محکم به نظر می رسید.	He seemed firm enough.	2632		tatoeba
 اجتماع	کجا اجتماع می‌کنیم؟	Where are we assembling?	2640		tatoeba
 خراب	چرا همه چیز خراب پیش می رود؟	Why is everything going wrong?	2648		tatoeba
 دیروز	کامپیوتر من دیروز خراب شد.	My computer was down yesterday.	2648		tatoeba
 کامپیوتر	کامپیوتر من دیروز خراب شد.	My computer was down yesterday.	2648		tatoeba
 خراب	کامپیوتر من دیروز خراب شد.	My computer was down yesterday.	2648		tatoeba
-خراب	کامپیوتر خراب است.	The computer is broken.	2648		tatoeba
 زمان	شهر در زمان جنگ خراب شد.	The city was destroyed during the war.	2648		tatoeba
 مشکوک	من به همه مشکوک هستم.	I'm suspicious of everybody.	2659		tatoeba
 گذاشت	او وی را منتظر گذاشت.	He made her wait.	2661		tatoeba
@@ -1989,35 +1553,24 @@ word	sentence	translation	difficulty_rank	transliteration	source
 گذاشت	وی او را منتظر گذاشت.	He made her wait.	2661		tatoeba
 وی	وی او را منتظر گذاشت.	He made her wait.	2661		tatoeba
 منتظر	وی او را منتظر گذاشت.	He made her wait.	2661		tatoeba
-موقع	موقع رفتن است.	It is time to go.	2663		tatoeba
-رفتن	موقع رفتن است.	It is time to go.	2663		tatoeba
 توصیف	او ریز واقعه را توصیف کرد.	He described the incident in detail.	2666		tatoeba
 ریز	او ریز واقعه را توصیف کرد.	He described the incident in detail.	2666		tatoeba
 واقعه	او ریز واقعه را توصیف کرد.	He described the incident in detail.	2666		tatoeba
-تند	شیب تند است.	The slope is steep.	2677		tatoeba
-شیب	شیب تند است.	The slope is steep.	2677		tatoeba
 چاقو	این چاقو خیلی تیز است.	This knife is very sharp.	2678		tatoeba
 تیز	این چاقو خیلی تیز است.	This knife is very sharp.	2678		tatoeba
 مداد	باید مداد را تیز کنم.	I need to make the pencil sharp.	2678		tatoeba
 تیز	باید مداد را تیز کنم.	I need to make the pencil sharp.	2678		tatoeba
-پا	دروغ پا ندارد.	A lie has no legs.	2680		tatoeba
-دروغ	دروغ پا ندارد.	A lie has no legs.	2680		tatoeba
 دروغ	این یک دروغ آشکار است.	That's a blatant lie.	2680		tatoeba
 آشکار	این یک دروغ آشکار است.	That's a blatant lie.	2680		tatoeba
-امشب	امشب شام چی داریم؟	What do we have for dinner tonight?	2687		tatoeba
-چی	امشب شام چی داریم؟	What do we have for dinner tonight?	2687		tatoeba
 شام	امشب شام چی داریم؟	What do we have for dinner tonight?	2687		tatoeba
 کوشش	من کوشش را تحسین می‌کنم.	I appreciate the effort.	2699		tatoeba
 تحسین	من کوشش را تحسین می‌کنم.	I appreciate the effort.	2699		tatoeba
 ثمر	کوشش ثمر داد.	The effort paid off.	2699		tatoeba
-کوشش	کوشش ثمر داد.	The effort paid off.	2699		tatoeba
 وابسته	موفقیت به کوشش وابسته است.	Success depends on effort.	2699		tatoeba
 کوشش	موفقیت به کوشش وابسته است.	Success depends on effort.	2699		tatoeba
 موفقیت	موفقیت به کوشش وابسته است.	Success depends on effort.	2699		tatoeba
 آرامی	او به آرامی کار می کند.	She works slowly.	2701		tatoeba
 آرامی	او به آرامی راه می رود.	He walks slowly.	2701		tatoeba
-آرامی	به آرامی رانندگی کن.	Drive slowly.	2701		tatoeba
-رانندگی	به آرامی رانندگی کن.	Drive slowly.	2701		tatoeba
 افسانه	این یک افسانه شهری است.	This is an urban legend.	2704		tatoeba
 شهری	این یک افسانه شهری است.	This is an urban legend.	2704		tatoeba
 امشب	امشب احتمال دارد او تلفن بزند.	A telephone call from him is probable tonight.	2706		tatoeba
@@ -2029,14 +1582,11 @@ word	sentence	translation	difficulty_rank	transliteration	source
 تحریم	کمیته تحریم‌ها را برداشت.	The committee lifted the sanctions.	2708		tatoeba
 گزارش	او این تصادف را به پلیس گزارش کرد	He reported his accident to the police.	2710		tatoeba
 تصادف	او این تصادف را به پلیس گزارش کرد	He reported his accident to the police.	2710		tatoeba
-عظیم	سیل عظیم بود.	The flood was massive.	2723		tatoeba
 سیل	سیل عظیم بود.	The flood was massive.	2723		tatoeba
 رودخانه	او در رودخانه غرق شد.	He drowned in the river.	2725		tatoeba
 غرق	او در رودخانه غرق شد.	He drowned in the river.	2725		tatoeba
 نامزدی	او نامزدی خود را به او اعلام کرد.	She announced her engagement to him.	2732		tatoeba
 اعلام	او نامزدی خود را به او اعلام کرد.	She announced her engagement to him.	2732		tatoeba
-کارگاه	او از کارگاه برگشت.	He returned from the workshop.	2736		tatoeba
-برگشت	او از کارگاه برگشت.	He returned from the workshop.	2736		tatoeba
 بیشتر	من خیلی بیشتر احساس آرامش می کردم.	I felt much more relaxed.	2737		tatoeba
 آرامش	من خیلی بیشتر احساس آرامش می کردم.	I felt much more relaxed.	2737		tatoeba
 کردم	من خیلی بیشتر احساس آرامش می کردم.	I felt much more relaxed.	2737		tatoeba
@@ -2056,12 +1606,8 @@ word	sentence	translation	difficulty_rank	transliteration	source
 مکان	من پس از آن به روستا نقل مکان کردم.	I subsequently moved to the village.	2737		tatoeba
 روستا	من پس از آن به روستا نقل مکان کردم.	I subsequently moved to the village.	2737		tatoeba
 پشت	من به پشت نگاه کردم.	I glanced back.	2737		tatoeba
-تحمل	درد را تحمل کردم.	I endured the pain.	2737		tatoeba
-درد	درد را تحمل کردم.	I endured the pain.	2737		tatoeba
 پهن	من یک نقشهٔ بزرگ را روی میز پهن کردم.	I spread the large map out on the table.	2737		tatoeba
 نقشه	من یک نقشهٔ بزرگ را روی میز پهن کردم.	I spread the large map out on the table.	2737		tatoeba
-لغو	اجاره را لغو کنید.	Abolish rent.	2739		tatoeba
-اجاره	اجاره را لغو کنید.	Abolish rent.	2739		tatoeba
 زود	الآن هم هنوز زود است که راجع به آن صحبت کنیم.	It's still too early to talk about this now.	2751		tatoeba
 راجع	الآن هم هنوز زود است که راجع به آن صحبت کنیم.	It's still too early to talk about this now.	2751		tatoeba
 مسائل	خیلی از دانشمندان بزرگ راجع به مسائل عجیب و غیر معمول فکر کرده بودند.	Many great scientists had thought about absurd things.	2751		tatoeba
@@ -2071,11 +1617,7 @@ word	sentence	translation	difficulty_rank	transliteration	source
 بودند	خیلی از دانشمندان بزرگ راجع به مسائل عجیب و غیر معمول فکر کرده بودند.	Many great scientists had thought about absurd things.	2751		tatoeba
 معمول	خیلی از دانشمندان بزرگ راجع به مسائل عجیب و غیر معمول فکر کرده بودند.	Many great scientists had thought about absurd things.	2751		tatoeba
 لغت	این لغت نامه ی من است.	That is my dictionary.	2759		tatoeba
-لغت	لغت پایه زبان است.	Vocabulary is the basis of language.	2759		tatoeba
 پایه	لغت پایه زبان است.	Vocabulary is the basis of language.	2759		tatoeba
-مرغ	آنها تخمِ مرغ هستند.	They're eggs.	2761		tatoeba
-یه	این یه جمله نیست.	This is not a sentence.	2768		tatoeba
-جمله	این یه جمله نیست.	This is not a sentence.	2768		tatoeba
 قرار	کتابی را که بر روی آن میز قرار دارد بردار.	Take the book which is lying on that table.	2773		tatoeba
 بردار	کتابی را که بر روی آن میز قرار دارد بردار.	Take the book which is lying on that table.	2773		tatoeba
 کتابی	کتابی را که بر روی آن میز قرار دارد بردار.	Take the book which is lying on that table.	2773		tatoeba
@@ -2090,7 +1632,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 رو	او به تازگی یک رستوران جدید رو کشف کرده	He's recently discovered a new restaurant.	2777		tatoeba
 تازگی	او به تازگی یک رستوران جدید رو کشف کرده	He's recently discovered a new restaurant.	2777		tatoeba
 کشف	او به تازگی یک رستوران جدید رو کشف کرده	He's recently discovered a new restaurant.	2777		tatoeba
-جنگی	این جنایت جنگی است.	This is a war crime.	2782		tatoeba
 جنایت	این جنایت جنگی است.	This is a war crime.	2782		tatoeba
 تقسیم	برای گرفتن ارزش واقعی شادی، باید آن را با کسی تقسیم کنید.	To get the full value of joy, you must have someone to divide it with.	2787		tatoeba
 شادی	برای گرفتن ارزش واقعی شادی، باید آن را با کسی تقسیم کنید.	To get the full value of joy, you must have someone to divide it with.	2787		tatoeba
@@ -2112,7 +1653,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 تاریکی	اتاق در تاریکی کامل بود.	The room was in complete darkness.	2813		tatoeba
 فرو	اتاق در تاریکی فرو رفت.	The room was engulfed in darkness.	2813		tatoeba
 تاریکی	اتاق در تاریکی فرو رفت.	The room was engulfed in darkness.	2813		tatoeba
-تاریکی	آنجا تاریکی است.	There is a darkness.	2813		tatoeba
 صادق	من معمولاً کاملاً صادق هستم.	I'm usually quite frank.	2826		tatoeba
 قفل	ساعت نه در قفل است.	The door is locked at nine o'clock.	2828		tatoeba
 مناسبت	سخنرانی تو مناسب این مناسبت بود.	Your speech was appropriate for the occasion.	2831		tatoeba
@@ -2122,8 +1662,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 باریک	او مثل یک نی باریک است.	He is as slender as a reed.	2837		tatoeba
 مثل	او مثل یک نی باریک است.	He is as slender as a reed.	2837		tatoeba
 هنگ	کامپیوتر هنگ کرد.	The computer froze up.	2839		tatoeba
-پیانو	آنها پیانو زدند.	They play the piano.	2842		tatoeba
-زدند	آنها پیانو زدند.	They play the piano.	2842		tatoeba
 انگیزه	او به من گفت که بی‌انگیزه است.	He told me that he's discouraged.	2850		tatoeba
 جک	جک به انگلیسی صحبت می کند.	Jack speaks English.	2855		tatoeba
 کشیدن	او شروع به فریاد کشیدن کرد.	He began to shout.	2865		tatoeba
@@ -2131,8 +1669,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 زدن	فریاد زدن را متوقف کن!	Stop yelling!	2865		tatoeba
 متوقف	فریاد زدن را متوقف کن!	Stop yelling!	2865		tatoeba
 فریاد	فریاد زدن را متوقف کن!	Stop yelling!	2865		tatoeba
-فریاد	چه کسی فریاد زد؟	Who yelled?	2865		tatoeba
-زد	چه کسی فریاد زد؟	Who yelled?	2865		tatoeba
 لهجه	این یک لهجهٔ محلی است.	This is a regional dialect.	2866		tatoeba
 محلی	این یک لهجهٔ محلی است.	This is a regional dialect.	2866		tatoeba
 لهجه	آنها با یک لهجهٔ جنوبی صحبت می‌کنند.	They were speaking in a Southern dialect.	2866		tatoeba
@@ -2146,12 +1682,9 @@ word	sentence	translation	difficulty_rank	transliteration	source
 نگران	او در مورد امنیت شما نگران است.	She's worried about your safety.	2872		tatoeba
 شغل	او نگران شغل خود بود.	She was anxious about her job.	2872		tatoeba
 وقتی	وقتی شب‌ها به خواب می‌روی نگران چه هستی؟	What do you worry about when you go to sleep at night?	2872		tatoeba
-اقلیت	من در اقلیت هستم.	I'm in the minority.	2875		tatoeba
 اقلیت	آیا ما در اقلیت هستیم.	Are we in the minority?	2875		tatoeba
 رخ	کی خطا رخ داده است؟	When did the error occur?	2883		tatoeba
 خطا	کی خطا رخ داده است؟	When did the error occur?	2883		tatoeba
-جمله	این جمله خطا دارد.	This sentence contains an error.	2883		tatoeba
-خطا	این جمله خطا دارد.	This sentence contains an error.	2883		tatoeba
 ریاضیات	چگونه خطا در ریاضیات ممکن است؟	How is an error possible in mathematics?	2883		tatoeba
 خطا	چگونه خطا در ریاضیات ممکن است؟	How is an error possible in mathematics?	2883		tatoeba
 زیاد	کسی که کم فکر می‌کند، زیاد خطا می‌کند.	He that thinks little, errs much.	2883		tatoeba
@@ -2164,7 +1697,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 ریاضیات	من در ریاضیات مهارت دارم.	I'm good at mathematics.	2884		tatoeba
 مهارت	من در ریاضیات مهارت دارم.	I'm good at mathematics.	2884		tatoeba
 بله	بله، من یک ایده ی خوب دارم.	Yes, I have a good idea.	2884		tatoeba
-چهل	چهل سال دارم.	I'm forty years old.	2884		tatoeba
 همان	دقیقاً همان ایده ای است که من دارم.	That is exactly the same idea as I have.	2884		tatoeba
 آرامش	من در خانه آرامش دارم.	I have peace at home.	2884		tatoeba
 جلسه	من یک جلسه مهم دارم.	I have an important meeting.	2884		tatoeba
@@ -2181,14 +1713,11 @@ word	sentence	translation	difficulty_rank	transliteration	source
 شخصی	من نیاز دارم که با تو دربارهٔ چیزی شخصی صحبت کنم.	I need to talk to you about something personal.	2884		tatoeba
 قرمز	من واقعاً قرمز را دوست دارم.	I really like red.	2884		tatoeba
 دستگیری	من به دستگیری نیاز دارم.	I need assistance.	2884		tatoeba
-افسردگی	امروز احساس افسردگی دارم.	Today I'm feeling melancholic.	2884		tatoeba
 سیب	من سیب‌ها را نیز دوست دارم.	I also like apples.	2884		tatoeba
 نیز	من سیب‌ها را نیز دوست دارم.	I also like apples.	2884		tatoeba
 مترجم	من به یک مترجم نیاز دارم.	I need an interpreter.	2884		tatoeba
-تردید	من یکم تردید دارم.	I hesitate a little.	2884		tatoeba
 یکم	من یکم تردید دارم.	I hesitate a little.	2884		tatoeba
 نگرانی	من واقعاً احساس نگرانی دارم.	I feel really uneasy.	2884		tatoeba
-خدا	به خدا ایمان دارم.	I believe in God.	2884		tatoeba
 اصلی	من این روایت را بیش از نسخهٔ اصلی دوست دارم.	I like this rendition more than the original version.	2884		tatoeba
 بیش	من این روایت را بیش از نسخهٔ اصلی دوست دارم.	I like this rendition more than the original version.	2884		tatoeba
 روایت	من این روایت را بیش از نسخهٔ اصلی دوست دارم.	I like this rendition more than the original version.	2884		tatoeba
@@ -2201,13 +1730,10 @@ word	sentence	translation	difficulty_rank	transliteration	source
 احتیاج	پشت بام واقعا به تعمیر احتیاج دارد.	The roof is really in need of repair.	2907		tatoeba
 بام	پشت بام واقعا به تعمیر احتیاج دارد.	The roof is really in need of repair.	2907		tatoeba
 پشت	پشت بام واقعا به تعمیر احتیاج دارد.	The roof is really in need of repair.	2907		tatoeba
-نشانه	تب نشانه بیماری است	Fever indicates sickness.	2913		tatoeba
-بیماری	تب نشانه بیماری است	Fever indicates sickness.	2913		tatoeba
 تب	تب نشانه بیماری است	Fever indicates sickness.	2913		tatoeba
 عبور	من او را در حال عبور از خیابان تماشا کردم.	I watched him cross the street.	2915		tatoeba
 خیابان	من او را در حال عبور از خیابان تماشا کردم.	I watched him cross the street.	2915		tatoeba
 تماشا	من او را در حال عبور از خیابان تماشا کردم.	I watched him cross the street.	2915		tatoeba
-تماشا	تلویزیون تماشا کنیم.	We watch television.	2915		tatoeba
 برادر	برادر کوچک من تلویزیون تماشا می‌کند.	My little brother is watching TV.	2915		tatoeba
 تماشا	برادر کوچک من تلویزیون تماشا می‌کند.	My little brother is watching TV.	2915		tatoeba
 سکوت	یک فریاد سکوت را شکست.	A scream pierced the silence.	2922		tatoeba
@@ -2236,7 +1762,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 اجتناب	از الکل اجتناب می‌کنند.	They abstain from alcohol.	2948		tatoeba
 الکل	از الکل اجتناب می‌کنند.	They abstain from alcohol.	2948		tatoeba
 درگیری	از درگیری اجتناب کنید.	Avoid conflict.	2948		tatoeba
-اجتناب	از درگیری اجتناب کنید.	Avoid conflict.	2948		tatoeba
 سازگار	این اقلیم با من سازگار نیست.	This climate doesn't agree with me.	2950		tatoeba
 اقلیم	این اقلیم با من سازگار نیست.	This climate doesn't agree with me.	2950		tatoeba
 اقلیم	اقلیم گرم و مرطوب است.	The climate is moist and warm.	2950		tatoeba
@@ -2244,9 +1769,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 تفنگ	آنها خود را با تفنگ مسلح کردند.	They armed themselves with guns.	2957		tatoeba
 مسلح	آنها خود را با تفنگ مسلح کردند.	They armed themselves with guns.	2957		tatoeba
 گیاه	این گیاه خوراکی است.	This plant is edible.	2963		tatoeba
-خوراکی	این گیاه خوراکی است.	This plant is edible.	2963		tatoeba
-ماهی	این ماهی خوراکی نیست.	This fish is not edible.	2963		tatoeba
-خوراکی	این ماهی خوراکی نیست.	This fish is not edible.	2963		tatoeba
 اصلا	آیا اصلا این خوراکی هست؟	Is this even edible?	2963		tatoeba
 خوراکی	آیا اصلا این خوراکی هست؟	Is this even edible?	2963		tatoeba
 نیمه	اعتماد نیمه، بدتر از نبود آن است.	Half confidences are worse than none.	2988		tatoeba
@@ -2270,15 +1792,10 @@ word	sentence	translation	difficulty_rank	transliteration	source
 جدی	زیاد جدی نگیر.	Don't take it so seriously.	19999		tatoeba
 حقیقت	این حقیقت که او دغل کار است، بر کسی پنهان نیست.	There's no disguising the fact that she is dishonest.	19999		tatoeba
 پنهان	این حقیقت که او دغل کار است، بر کسی پنهان نیست.	There's no disguising the fact that she is dishonest.	19999		tatoeba
-حالت	سلام، حالت خوب است؟	Hello, are you well?	19999		tatoeba
-دست	دست چپش شکست.	He broke his left arm.	19999		tatoeba
 دشوار	تشخیص دادن تو از برادرت دشوار است.	It is hard to distinguish you from your brother.	19999		tatoeba
 تشخیص	تشخیص دادن تو از برادرت دشوار است.	It is hard to distinguish you from your brother.	19999		tatoeba
-ایستگاه	ایستگاه اتوبوس کجاست؟	Where is the bus stop?	19999		tatoeba
-اتوبوس	ایستگاه اتوبوس کجاست؟	Where is the bus stop?	19999		tatoeba
 ماندن	بیشتر از این ماندن وقت تلف کردن است.	It's a waste of time to stay longer.	19999		tatoeba
 صبح	او(پسر) در صبح 15 می آمد تا مرا ببیند.	He came to see me on the morning of May 15.	19999		tatoeba
-خواننده	دوستش یک خواننده است.	Her friend is a singer.	19999		tatoeba
 درس	آیا فکر میکنی که روش درس دادن من اشتباه است؟	Do you think that my way of teaching is wrong?	19999		tatoeba
 روش	آیا فکر میکنی که روش درس دادن من اشتباه است؟	Do you think that my way of teaching is wrong?	19999		tatoeba
 مصرف	من کشیدن سیگار و مصرف الکل را متوقف کردم.	I stopped smoking and drinking.	19999		tatoeba
@@ -2288,8 +1805,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 عاشق	او(دختر) عاشق تام است، نه من	She loves Tom, not me.	19999		tatoeba
 سیب	همه بچه ها سیب را دوست ندارند.	Not all children like apples.	19999		tatoeba
 کودک	آن کودک از آب ترسی ندارد.	That child has no fear of water.	19999		tatoeba
-خط	یک خط راست بکش.	Draw a straight line.	19999		tatoeba
-راست	یک خط راست بکش.	Draw a straight line.	19999		tatoeba
 امنیت	ما برای امنیت آنها نگرانیم.	We are anxious for their safety.	19999		tatoeba
 تمیز	ما باید کلاسمان را تمیز کنیم.	We must clean our class.	19999		tatoeba
 عاشق	او برای همیشه عاشق او خواهد بود.	He will love her forever.	19999		tatoeba
@@ -2305,7 +1820,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 باب	عمو باب ما را برای نهار دعوت کرد.	Uncle Bob invited us to have dinner.	19999		tatoeba
 زد	او برای حقوق کم من به من غر می زد.	She complained to me of my small salary.	19999		tatoeba
 حقوق	او برای حقوق کم من به من غر می زد.	She complained to me of my small salary.	19999		tatoeba
-حالت	حالت خوبه؟	Are you well?	19999		tatoeba
 جهان	آموزش در جهان من را نا امید کرده است.	Education in this world disappoints me.	19999		tatoeba
 آموزش	آموزش در جهان من را نا امید کرده است.	Education in this world disappoints me.	19999		tatoeba
 سکوت	من سکوت او را به رضایت تعبیر می کنم.	I interpreted his silence as consent.	19999		tatoeba
@@ -2337,8 +1851,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 پنجره	او بینی‌اش را روی پنجره فشار داد.	He pushed his nose against the window.	19999		tatoeba
 فشار	او بینی‌اش را روی پنجره فشار داد.	He pushed his nose against the window.	19999		tatoeba
 بینی	او بینی‌اش را روی پنجره فشار داد.	He pushed his nose against the window.	19999		tatoeba
-طولانی	آیا طولانی خواهد شد؟	Will it be much longer?	19999		tatoeba
-توضیح	این را توضیح بده.	Explain the following.	19999		tatoeba
 شلیک	جان یک ببر را کشت و به دو شیر شلیک کرد.	John caught a tiger and shot two lions.	19999		tatoeba
 جان	جان یک ببر را کشت و به دو شیر شلیک کرد.	John caught a tiger and shot two lions.	19999		tatoeba
 نتیجه	ما به این نتیجه رسیدیم که باید به او کمک کنیم.	We came to the conclusion that we should help him.	19999		tatoeba
@@ -2350,21 +1862,15 @@ word	sentence	translation	difficulty_rank	transliteration	source
 رد	او به کنار رفت تا آن خانم رد شود.	He stepped aside for her to pass.	19999		tatoeba
 خانم	او به کنار رفت تا آن خانم رد شود.	He stepped aside for her to pass.	19999		tatoeba
 کنار	او به کنار رفت تا آن خانم رد شود.	He stepped aside for her to pass.	19999		tatoeba
-نام	نام شما چیست؟	What is your name?	19999		tatoeba
 مورد	برای من مشکل است که از پس این مورد بر آیم.	It is difficult for me to handle the case.	19999		tatoeba
 تحت	من خیلی تحت تأثیر کار تو قرار گرفتم.	I'm very impressed by your work.	19999		tatoeba
 تأثیر	من خیلی تحت تأثیر کار تو قرار گرفتم.	I'm very impressed by your work.	19999		tatoeba
 رساندن	او در به پایان رساندن کار سهمی داشت.	He had a share in completing the job.	19999		tatoeba
 رساندن	او نقشی در به پایان رساندن کار داشت.	He had a share in completing the job.	19999		tatoeba
-بیرون	برو بیرون!	Get out!	19999		tatoeba
-گم	گم شو!	Go away!	19999		tatoeba
 دیده	قبلا او را دیده بودی؟	Have you met her before?	19999		tatoeba
 قبلا	قبلا او را دیده بودی؟	Have you met her before?	19999		tatoeba
-برف	دارد برف می بارد.	It's snowing.	19999		tatoeba
 ژاپنی	او می تواند ژاپنی صحبت کند.	He is able to speak Japanese.	19999		tatoeba
 احتیاج	من به مشوت شما احتیاج دارم.	I need your advice.	19999		tatoeba
-دی	چند سی دی دارید؟	How many CDs do you have?	19999		tatoeba
-سی	چند سی دی دارید؟	How many CDs do you have?	19999		tatoeba
 رادیو	این رادیو کار نمی کند.	This radio is out of order.	19999		tatoeba
 دلار	نیک به من ده دلار را برگرداند.	Nick owes me ten dollars.	19999		tatoeba
 نیک	نیک به من ده دلار را برگرداند.	Nick owes me ten dollars.	19999		tatoeba
@@ -2400,15 +1906,10 @@ word	sentence	translation	difficulty_rank	transliteration	source
 دسته	میگو به دسته ی حیوانات دریایی تعلق دارد.	Lobsters belong to a class of marine animals.	19999		tatoeba
 حیوانات	میگو به دسته ی حیوانات دریایی تعلق دارد.	Lobsters belong to a class of marine animals.	19999		tatoeba
 دریایی	میگو به دسته ی حیوانات دریایی تعلق دارد.	Lobsters belong to a class of marine animals.	19999		tatoeba
-ناگهان	ناگهان باران باریدن گرفت.	Suddenly rain began to fall.	19999		tatoeba
-باران	ناگهان باران باریدن گرفت.	Suddenly rain began to fall.	19999		tatoeba
 رنگ	رنگ دوست داشتنی من قرمز است.	My favorite color is red.	19999		tatoeba
-خسته	آیا خسته نیستی؟	Are you not tired?	19999		tatoeba
-تحقیقات	تحقیقات شروع می شود.	The investigation is under way.	19999		tatoeba
 خسته	او خسته به نظر می رسد.	He seems tired.	19999		tatoeba
 پشتیبانی	آنها با آب و غذای کافی سربازان را پشتیبانی می کنند.	They supplied the soldiers with enough food and water.	19999		tatoeba
 سربازان	آنها با آب و غذای کافی سربازان را پشتیبانی می کنند.	They supplied the soldiers with enough food and water.	19999		tatoeba
-عمق	عمق دریاچه چقدر است؟	What is the depth of the lake?	19999		tatoeba
 دریاچه	عمق دریاچه چقدر است؟	What is the depth of the lake?	19999		tatoeba
 اقتصاد	اقتصاد ژاپن به سرعت پیشرفت کرد.	The Japanese economy developed rapidly.	19999		tatoeba
 سرعت	اقتصاد ژاپن به سرعت پیشرفت کرد.	The Japanese economy developed rapidly.	19999		tatoeba
@@ -2434,7 +1935,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 متولد	او کی متولد شده است؟	When was she born?	19999		tatoeba
 صدای	صدای ترافیک بسیار گوش خراش است.	Traffic noise is very harsh to the ear.	19999		tatoeba
 ترافیک	صدای ترافیک بسیار گوش خراش است.	Traffic noise is very harsh to the ear.	19999		tatoeba
-روزی	روزی دیدمش.	One day I met him.	19999		tatoeba
 شک	مردم دوست دارند یا به هیچ چیز شک نکنند یا به همه چیز شک کنند.	People who love doubt nothing, or doubt everything.	19999		tatoeba
 راهنمایی	او هیچ کسی را ندارد که راهنمایی اش کند.	She had no one to turn to.	19999		tatoeba
 رادیو	من این را از رادیو شنیدم.	I heard it on the radio.	19999		tatoeba
@@ -2445,8 +1945,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 قسمت	آن را به دو قسمت ببر.	Cut it into two pieces.	19999		tatoeba
 فراموش	من آن را فراموش نکردم.	I didn't forget it.	19999		tatoeba
 پادشاهی	با خدا باش و پادشاهی کن.	Be with God and be a lord.	19999		tatoeba
-گرسنه	من گرسنه ام.	I'm hungry!	19999		tatoeba
-حق	حق کاملاً با شماست.	You are completely right.	19999		tatoeba
 بگذارد	به وقتی واقعا اولین انسان بر مریخ پای بگذارد، زمان باقی است.	Just when the first human beings will reach Mars remains to be seen.	19999		tatoeba
 پای	به وقتی واقعا اولین انسان بر مریخ پای بگذارد، زمان باقی است.	Just when the first human beings will reach Mars remains to be seen.	19999		tatoeba
 اولین	به وقتی واقعا اولین انسان بر مریخ پای بگذارد، زمان باقی است.	Just when the first human beings will reach Mars remains to be seen.	19999		tatoeba
@@ -2462,7 +1960,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 موافقت	همه با نظرش موافقت کردند.	Everybody agreed with his idea.	19999		tatoeba
 واژه	این واژه از یونانی می آید.	This word comes from Greek.	19999		tatoeba
 یونانی	این واژه از یونانی می آید.	This word comes from Greek.	19999		tatoeba
-سر	پشت سر من بیا.	Follow me.	19999		tatoeba
 سرد	من چیزی سرد برای نوشیدن می خواهم.	I want something cold to drink.	19999		tatoeba
 نوشیدن	من چیزی سرد برای نوشیدن می خواهم.	I want something cold to drink.	19999		tatoeba
 چون	به او بد نگاه نکن چون که تنها او بی پول است.	Don't look down on him merely because he is poor.	19999		tatoeba
@@ -2470,7 +1967,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 نمک	لطفا نمک را به من بده.	Please pass me the salt.	19999		tatoeba
 قهوه	قهوه را به چای ترجیح می دهم.	I prefer coffee to tea.	19999		tatoeba
 دهم	قهوه را به چای ترجیح می دهم.	I prefer coffee to tea.	19999		tatoeba
-حفظ	قدرتت را حفظ کن.	Save your strength.	19999		tatoeba
 تلفظ	او به من آموخت که چگونه آن کلمه را تلفظ کنم.	He taught me how to spell the word.	19999		tatoeba
 صورت	دنیا یک مهمانی بزرگ است که در آن هر کس ماسکی بر صورت دارد.	The world is a grand ball in which everyone wears a mask.	19999		tatoeba
 کس	دنیا یک مهمانی بزرگ است که در آن هر کس ماسکی بر صورت دارد.	The world is a grand ball in which everyone wears a mask.	19999		tatoeba
@@ -2497,7 +1993,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 بو	این بو حالم را به هم می‌زند.	This smell disgusts me.	19999		tatoeba
 زند	این بو حالم را به هم می‌زند.	This smell disgusts me.	19999		tatoeba
 قلبی	تشکر قلبی!	Heartfelt thanks!	19999		tatoeba
-قلب	از صمیم قلب متشکرم!	Thank you, from the bottom of my heart!	19999		tatoeba
 طبیعی	در باره‌ی رابطه‌ی بین محیط مصنوعی و محیط طبیعی بنویسید.	Write about the relationship between the artificial environment and the natural environment.	19999		tatoeba
 بین	در باره‌ی رابطه‌ی بین محیط مصنوعی و محیط طبیعی بنویسید.	Write about the relationship between the artificial environment and the natural environment.	19999		tatoeba
 باره	در باره‌ی رابطه‌ی بین محیط مصنوعی و محیط طبیعی بنویسید.	Write about the relationship between the artificial environment and the natural environment.	19999		tatoeba
@@ -2580,10 +2075,8 @@ word	sentence	translation	difficulty_rank	transliteration	source
 منفجر	مثل باروت منفجر شد.	It exploded like gunpowder.	19999		tatoeba
 زیر	او زیر میکروسکوپ را نگاه کرد.	He looked through the microscope.	19999		tatoeba
 هرگز	من هرگز آن را نگفتم.	I've never said that!	19999		tatoeba
-ایتالیایی	ایتالیایی صحبت می‌کنی؟	Do you speak Italian?	19999		tatoeba
 بدتر	وضعیت روز به روز بدتر و بدتر می‌شود.	The situation is getting worse and worse day by day.	19999		tatoeba
 وضعیت	وضعیت روز به روز بدتر و بدتر می‌شود.	The situation is getting worse and worse day by day.	19999		tatoeba
-جنوبی	آفریقای جنوبی دور است.	South Africa is far away.	19999		tatoeba
 رئیس	ما او را به عنوان رئیس جلسه انتخاب کرده‌ایم.	We have elected him chairman of the meeting.	19999		tatoeba
 عنوان	ما او را به عنوان رئیس جلسه انتخاب کرده‌ایم.	We have elected him chairman of the meeting.	19999		tatoeba
 انتخاب	ما او را به عنوان رئیس جلسه انتخاب کرده‌ایم.	We have elected him chairman of the meeting.	19999		tatoeba
@@ -2600,10 +2093,8 @@ word	sentence	translation	difficulty_rank	transliteration	source
 برق	زمان مثل برق می‌گذرد.	Time flies.	19999		tatoeba
 روند	هردو راه به ایستگاه می‌روند.	Both roads lead to the station.	19999		tatoeba
 ایستگاه	هردو راه به ایستگاه می‌روند.	Both roads lead to the station.	19999		tatoeba
-مرتب	اتاقت را مرتب کن.	Make your room tidy.	19999		tatoeba
 فاصله	اگر او را با فاصله ببینی، او زیبا است.	If you see her from a distance, she is beautiful.	19999		tatoeba
 کیف	کدام کیف مال تو است؟	Which bag is yours?	19999		tatoeba
-روزی	امروز روزی آفتابی است.	It's a sunny day.	19999		tatoeba
 جک	او مدام یک جک را چندین بار می گفت.	He keeps telling the same jokes over and over again.	19999		tatoeba
 چندین	او مدام یک جک را چندین بار می گفت.	He keeps telling the same jokes over and over again.	19999		tatoeba
 آژانس	من در آژانس مسافرتی کار می کنم.	I work for a travel agency.	19999		tatoeba
@@ -2634,8 +2125,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 دقت	رانندگی بدون دقت موجب تصادف می شود.	Careless driving causes accidents.	19999		tatoeba
 تصادف	رانندگی بدون دقت موجب تصادف می شود.	Careless driving causes accidents.	19999		tatoeba
 موجب	رانندگی بدون دقت موجب تصادف می شود.	Careless driving causes accidents.	19999		tatoeba
-بیاید	باید زودتر بیاید.	It must come soon.	19999		tatoeba
-حقیقت	چگونه حقیقت را دریابیم؟	How can we learn the truth?	19999		tatoeba
 آزاد	امشب وقتت آزاد است؟	Are you free tonight?	19999		tatoeba
 جواب	همه به غیر از او به آن سؤال جواب دادند.	All but she answered the question.	19999		tatoeba
 آشنایی	او به من لبخندی از سر آشنایی تقدیم کرد.	She gave me a smile of recognition.	19999		tatoeba
@@ -2644,7 +2133,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 تکرار	او سؤالش را تکرار کرد.	He repeated his question.	19999		tatoeba
 کمال	او یک جنتلمن تمام و کمال نبود.	He isn't quite a gentleman.	19999		tatoeba
 اعتقاد	من به ارواح اعتقاد دارم.	I do believe in ghosts.	19999		tatoeba
-دیر	ما دیر کردیم.	We are late.	19999		tatoeba
 قصد	در حال حاضر قصد دارم در هتل بمانم.	For the time being, I intend to stay at a hotel.	19999		tatoeba
 چاقو	یک چاقو گم شده است.	There is a knife missing.	19999		tatoeba
 علاقه	من به چنین داستانهایی خیلی علاقه دارم.	I am very interested in those stories.	19999		tatoeba
@@ -2656,7 +2144,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 فارس	از لحاظ تاریخی، خلیج فارس متعلق به ایران است.	Historically, the Persian Gulf belongs to Iran.	19999		tatoeba
 راست	چشم راست او کور است.	Her right eye is blind.	19999		tatoeba
 چشم	چشم راست او کور است.	Her right eye is blind.	19999		tatoeba
-خواننده	شما یک خواننده هستید؟	Are you a singer?	19999		tatoeba
 پیراهن	این پیراهن نیاز به اتو دارد.	The shirt needs ironing.	19999		tatoeba
 ارتفاع	کلمات بالای در تئاتر یک متر ارتفاع داشت.	The words above the door of the theatre were a metre high.	19999		tatoeba
 متر	کلمات بالای در تئاتر یک متر ارتفاع داشت.	The words above the door of the theatre were a metre high.	19999		tatoeba
@@ -2687,7 +2174,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 آمدند	آنها به اینجا نیامدند. آمدند؟	They didn't come here, did they?	19999		tatoeba
 دقیق	او در کارش دقیق است.	He is accurate in his work.	19999		tatoeba
 گاهی	لطفا گاهی خانه ما بیا.	Please come home sometimes.	19999		tatoeba
-همسایه	او همسایه ماست.	He is my neighbour.	19999		tatoeba
 اشاره	ما با زبان اشاره صحبت کردیم.	We talked in sign language.	19999		tatoeba
 راحت	این خانه راحت اجاره داده خواهد شد.	This house will let easily.	19999		tatoeba
 اجاره	این خانه راحت اجاره داده خواهد شد.	This house will let easily.	19999		tatoeba
@@ -2713,7 +2199,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 دوازده	بالاخره دوازده استونیا را نشان داد.	And finally, twelve points to Estonia!	19999		tatoeba
 نشان	بالاخره دوازده استونیا را نشان داد.	And finally, twelve points to Estonia!	19999		tatoeba
 بالاخره	بالاخره دوازده استونیا را نشان داد.	And finally, twelve points to Estonia!	19999		tatoeba
-ایستگاه	من به ایستگاه رفتم.	I went to the station.	19999		tatoeba
 درخت	جیم از درخت پایین آمد.	Jim got down from the tree.	19999		tatoeba
 صورتی	در صورتی که دیر کردم، منتظر من نمان.	Should I be late, don't wait for me.	19999		tatoeba
 مرکز	روزی، مایک و جین برای خرید به مرکز شهر رفتند.	One day Mike and Jane went downtown to do some shopping.	19999		tatoeba
@@ -2755,7 +2240,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 رقص	چه کسی به تو رقص آموخت؟	Who taught you to dance?	19999		tatoeba
 چی	اینجا داری چی کار می کنی؟	What on earth are you doing here?	19999		tatoeba
 چین	سال پیش در چین بودم.	I was in China last year.	19999		tatoeba
-شکر	شیر یا شکر دارید؟	Any milk or sugar?	19999		tatoeba
 صدای	صدای عمل رساتر از حرف است.	Actions speak louder than words.	19999		tatoeba
 سخن	عمل پرصداتر از سخن است.	Actions speak louder than words.	19999		tatoeba
 صد	دو صد گفته چون نیم کردار نیست.	Actions speak louder than words.	19999		tatoeba
@@ -2767,8 +2251,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 طوفان	پس از طوفان، آرامش گسترده می‌گردد.	After a storm comes a calm.	19999		tatoeba
 گسترده	پس از طوفان، آرامش گسترده می‌گردد.	After a storm comes a calm.	19999		tatoeba
 آرامش	پس از طوفان، آرامش گسترده می‌گردد.	After a storm comes a calm.	19999		tatoeba
-خطرناک	دانش ناقص خطرناک است.	A little knowledge is a dangerous thing.	19999		tatoeba
-دانش	دانش ناقص خطرناک است.	A little knowledge is a dangerous thing.	19999		tatoeba
 عمر	دل‌شاد بودن، عمر انسان را طولانی می‌کند.	A merry heart makes a long life.	19999		tatoeba
 دل	دل‌شاد بودن، عمر انسان را طولانی می‌کند.	A merry heart makes a long life.	19999		tatoeba
 آغاز	تابستان در کشور من زود آغاز می شود.	Summer begins early in my country.	19999		tatoeba
@@ -2776,8 +2258,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 موضوع	من در این موضوع با تو موافق نیستم.	I can't agree with you on this matter.	19999		tatoeba
 قول	او به تمام قول هایش عمل کرد.	He carried out all his promises.	19999		tatoeba
 حیوان	انسان یک حیوان عاقل است.	Man is a rational animal.	19999		tatoeba
-روشن	قانون باید روشن باشد.	The law should be clear.	19999		tatoeba
-قانون	قانون باید روشن باشد.	The law should be clear.	19999		tatoeba
 اصلی	در گذشته ایرانی ها با نان زندگی می کردند ولی امروزه غذای اصلی آنان برنج است.	In the past, Iranians lived on bread, but today their main food is rice.	19999		tatoeba
 آنان	در گذشته ایرانی ها با نان زندگی می کردند ولی امروزه غذای اصلی آنان برنج است.	In the past, Iranians lived on bread, but today their main food is rice.	19999		tatoeba
 گذشته	در گذشته ایرانی ها با نان زندگی می کردند ولی امروزه غذای اصلی آنان برنج است.	In the past, Iranians lived on bread, but today their main food is rice.	19999		tatoeba
@@ -2786,9 +2266,7 @@ word	sentence	translation	difficulty_rank	transliteration	source
 ایرانی	در گذشته ایرانی ها با نان زندگی می کردند ولی امروزه غذای اصلی آنان برنج است.	In the past, Iranians lived on bread, but today their main food is rice.	19999		tatoeba
 امروزه	در گذشته ایرانی ها با نان زندگی می کردند ولی امروزه غذای اصلی آنان برنج است.	In the past, Iranians lived on bread, but today their main food is rice.	19999		tatoeba
 برنج	در گذشته ایرانی ها با نان زندگی می کردند ولی امروزه غذای اصلی آنان برنج است.	In the past, Iranians lived on bread, but today their main food is rice.	19999		tatoeba
-خوشحال	همه آنها خوشحال نیستند.	Not all of them are happy.	19999		tatoeba
 جمع	مردم دور یک میز جمع شدند	The people gathered around a round table.	19999		tatoeba
-نو	سال نو مبارک!‏	Happy New Year!	19999		tatoeba
 فرهنگ	شما می توانید از فرهنگ لغت من استفاده کنید	You can use my dictionary.	19999		tatoeba
 لغت	شما می توانید از فرهنگ لغت من استفاده کنید	You can use my dictionary.	19999		tatoeba
 گیاه	گیاه خواری هستم.	I am a vegetarian.	19999		tatoeba
@@ -2802,9 +2280,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 خلیفه	اکنون برج خلیفه بلندترین آسمانخراش دنیا است.	Burj Khalifa is currently the tallest skyscraper in the world.	19999		tatoeba
 اکنون	اکنون برج خلیفه بلندترین آسمانخراش دنیا است.	Burj Khalifa is currently the tallest skyscraper in the world.	19999		tatoeba
 برج	اکنون برج خلیفه بلندترین آسمانخراش دنیا است.	Burj Khalifa is currently the tallest skyscraper in the world.	19999		tatoeba
-مشکلات	او مشکلات زیادی دارد.	He has many troubles.	19999		tatoeba
-تجربه	تجربه بهترین آموزگار است.	Experience is the best teacher.	19999		tatoeba
-دانشکده	دانشکده حقوق کجاست؟	Where is law college?	19999		tatoeba
 اهل	او اهل جنوا است.	He comes from Genoa.	19999		tatoeba
 میان	حفاظت، وضعیت توازن میان انسان و زمین است.	Conservation is a state of harmony between men and land.	19999		tatoeba
 حفاظت	حفاظت، وضعیت توازن میان انسان و زمین است.	Conservation is a state of harmony between men and land.	19999		tatoeba
@@ -2816,8 +2291,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 گاز	این کولا گاز خود را از دست داده است و طعم خوبی ندارد.	This cola has lost its fizz and doesn't taste any good.	19999		tatoeba
 طعم	این کولا گاز خود را از دست داده است و طعم خوبی ندارد.	This cola has lost its fizz and doesn't taste any good.	19999		tatoeba
 ادامه	ما بعد از فیلم ادامه خواهیم داد.	We’ll continue after the film.	19999		tatoeba
-حرفه	حرفه شما چیست؟	What is your line of work?	19999		tatoeba
-جلوی	زن جلوی کتابخانه ایستاد.	The woman stands before the library.	19999		tatoeba
 ماه	کودک او ماه آینده به دنیا خواهد آمد.	She will have a child next month.	19999		tatoeba
 آینده	کودک او ماه آینده به دنیا خواهد آمد.	She will have a child next month.	19999		tatoeba
 ماه	ماه آینده کودک او متولد خواهد شد.	She will give birth to a child next month.	19999		tatoeba
@@ -2838,11 +2311,9 @@ word	sentence	translation	difficulty_rank	transliteration	source
 عروسی	همه ما در جشن عروسی او حضور داشیم.	We were all present at her wedding.	19999		tatoeba
 مصرف	من توضیح خواهم داد که چگونه این دارو را مصرف کنید.	I'll explain how to take this medicine.	19999		tatoeba
 دارو	من توضیح خواهم داد که چگونه این دارو را مصرف کنید.	I'll explain how to take this medicine.	19999		tatoeba
-همزمان	ما همزمان شروع کردیم.	We started at the same time.	19999		tatoeba
 عملی	او ایده های خود را عملی کرد.	He brought his ideas into practice.	19999		tatoeba
 میلیون	میلیون ها کارگر کار خود را از دست دادند.	Millions of workers lost their jobs.	19999		tatoeba
 کارگر	میلیون ها کارگر کار خود را از دست دادند.	Millions of workers lost their jobs.	19999		tatoeba
-صندلی	به صندلی خود برگرد.	Go back to your seat.	19999		tatoeba
 مستقل	می خواستم مستقل کار کنم، برای همین شرکت رو ترک کردم.	I left the firm, because I wanted to be on my own.	19999		tatoeba
 شرکت	می خواستم مستقل کار کنم، برای همین شرکت رو ترک کردم.	I left the firm, because I wanted to be on my own.	19999		tatoeba
 کلاس	معلم مرا از کلاس بیرون انداخت.	The teacher kicked me out of class.	19999		tatoeba
@@ -2895,15 +2366,12 @@ word	sentence	translation	difficulty_rank	transliteration	source
 آوردن	او شانسی برای به دست آوردن قلب او ندارد.	He will have no chance of winning her heart.	19999		tatoeba
 قرارداد	ما با شرکت قرارداد بستیم.	We made a contract with the firm.	19999		tatoeba
 فرصت	او برای آماده کردن مردانش برای جنگ فرصت داشت.	He had time to prepare his men for battle.	19999		tatoeba
-خسارت	خسارت وارد شده است.	The damage has been done.	19999		tatoeba
-مهندس	فیلیپ مهندس نیست.	Phillip isn't an engineer.	19999		tatoeba
 داشته	امروز در تلویزیون برنامه ای که ارزش دیدن داشته باشد، نیست.	There's nothing worth watching on TV today.	19999		tatoeba
 مثبت	حق مثبت و حق منفی چیست؟	What is negative right and positive right?	19999		tatoeba
 منفی	حق مثبت و حق منفی چیست؟	What is negative right and positive right?	19999		tatoeba
 اعتراض	خدایا! من اعتراض دارم.	Lord! I object.	19999		tatoeba
 سالم	همه دندانهای او سالم بودند.	All his teeth were sound.	19999		tatoeba
 مادری	عربي زبان مادری من است.	Arabic is my mother tongue.	19999		tatoeba
-قفل	بنجره را قفل کن.	Close the window.	19999		tatoeba
 فوق	فوق العاده است.	It is fantastic.	19999		tatoeba
 فرق	فرق میان حقیقت و واقعیت چیست؟	What is the difference between reality and truth?	19999		tatoeba
 میان	فرق میان حقیقت و واقعیت چیست؟	What is the difference between reality and truth?	19999		tatoeba
@@ -2914,7 +2382,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 شاعر	او یک سیاستمدار و شاعر است.	He is a poet and statesman.	19999		tatoeba
 مخالفت	من بطور مطلق مخالفت کردم.	I refused absolutely.	19999		tatoeba
 مطلق	من بطور مطلق مخالفت کردم.	I refused absolutely.	19999		tatoeba
-سریع	زمان سریع می گذرد.	Time passes quickly.	19999		tatoeba
 قدمت	آن خانه ها پانصد سال قدمت دارند.	Those houses are 500 years old.	19999		tatoeba
 اقامت	در حال حاضر، در منزل عمویم اقامت دارم.	I'm now staying at my uncle's.	19999		tatoeba
 منزل	در حال حاضر، در منزل عمویم اقامت دارم.	I'm now staying at my uncle's.	19999		tatoeba
@@ -2926,7 +2393,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 خیس	تا مغز استخوان خیس شدم.	I got soaked to the skin.	19999		tatoeba
 مغز	تا مغز استخوان خیس شدم.	I got soaked to the skin.	19999		tatoeba
 استخوان	تا مغز استخوان خیس شدم.	I got soaked to the skin.	19999		tatoeba
-دانشگاه	او دانشجوی دانشگاه است.	He is a university student.	19999		tatoeba
 جایزه	یا من یا تو جایزه اول را برنده خواهیم شد.	Either you or I will get the first prize.	19999		tatoeba
 اول	یا من یا تو جایزه اول را برنده خواهیم شد.	Either you or I will get the first prize.	19999		tatoeba
 برنده	یا من یا تو جایزه اول را برنده خواهیم شد.	Either you or I will get the first prize.	19999		tatoeba
@@ -2955,18 +2421,13 @@ word	sentence	translation	difficulty_rank	transliteration	source
 ساحل	بچه ها ساعت ها کنار ساحل بازی خواهند کرد.	The children would play for hours on the beach.	19999		tatoeba
 قضاوت	من این را به قضاوت شما واگذار می کنم.	I will leave it to your judgement.	19999		tatoeba
 چوب	صندلی از چوب درست شده است.	The chair is made of wood.	19999		tatoeba
-بارندگی	امسال بارندگی زیاد نیست	It isn't raining much this year.	19999		tatoeba
 درآمد	حدسش درست از آب درآمد	His guess turned out to be right.	19999		tatoeba
-شکایت	ازت شکایت می کنم	I will sue you.	19999		tatoeba
 درجه	تو واقعا خنگ درجه یکی	You're really a number-one fool.	19999		tatoeba
 حد	بیش از حد به مردم اعتماد می کنی	You trust people too much.	19999		tatoeba
 بهار	وقتی بهار آمد، قصد دارم ورزش جدیدی را شروع کنم.	When spring arrives, I am going to take up a new sport.	19999		tatoeba
 محصول	شرکت یک ماه در میان محصول جدید تولید می کنه	The company develops new products every other month.	19999		tatoeba
 تولید	شرکت یک ماه در میان محصول جدید تولید می کنه	The company develops new products every other month.	19999		tatoeba
 بالا	اینقدر از زمین بالا نیست	It's not that high off the ground.	19999		tatoeba
-نور	نور می گیره؟ (اتاق)	Does it get much sun?	19999		tatoeba
-پاک	اشکات رو پاک کن	Wipe your tears.	19999		tatoeba
-کارت	کارت چیه؟	What line of work are you in?	19999		tatoeba
 نسبت	او نسبت به سنش جوان تر به نظر می رسید.	She looks young for her age.	19999		tatoeba
 جوان	او نسبت به سنش جوان تر به نظر می رسید.	She looks young for her age.	19999		tatoeba
 معمولا	یک تصادف معمولا نتیجه ی بی دقتی است.	An accident often comes of carelessness.	19999		tatoeba
@@ -2974,7 +2435,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 پا	این کاغذ ها رو از جلوی پا بردارید.	Please get these papers out of the way.	19999		tatoeba
 جلوی	این کاغذ ها رو از جلوی پا بردارید.	Please get these papers out of the way.	19999		tatoeba
 کاغذ	این کاغذ ها رو از جلوی پا بردارید.	Please get these papers out of the way.	19999		tatoeba
-کوه	چه کوه بلندیه!	How tall that mountain is!	19999		tatoeba
 پارس	شیشه از طریق جاده ابریشم از پارس وارد شد.	Glasswork came from Persia by way of the Silk Road.	19999		tatoeba
 طریق	شیشه از طریق جاده ابریشم از پارس وارد شد.	Glasswork came from Persia by way of the Silk Road.	19999		tatoeba
 شیشه	شیشه از طریق جاده ابریشم از پارس وارد شد.	Glasswork came from Persia by way of the Silk Road.	19999		tatoeba
@@ -2983,7 +2443,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 روزه	دو روزه این آهنگ تو مغزم گیر کرده!	I've had this song stuck in my head for two days!	19999		tatoeba
 گیر	دو روزه این آهنگ تو مغزم گیر کرده!	I've had this song stuck in my head for two days!	19999		tatoeba
 بارندگی	هواشناسی پیش بینی بارندگی کرده.	The forecast calls for rain.	19999		tatoeba
-رستوران	رستوران شیکی نیست.	This is a low end restaurant.	19999		tatoeba
 بیان	ما افکارمان را به وسیله‌ی زبان بیان می‌کنیم.	We express our thoughts by means of languages.	19999		tatoeba
 وسیله	ما افکارمان را به وسیله‌ی زبان بیان می‌کنیم.	We express our thoughts by means of languages.	19999		tatoeba
 غلبه	من بر آن غلبه کردم. تو هم باید همین کار را بکنی.	I got over it. You should, too.	19999		tatoeba
@@ -2993,9 +2452,7 @@ word	sentence	translation	difficulty_rank	transliteration	source
 مخفی	او مخفی شده است.	He's gone into hiding.	19999		tatoeba
 نقاط	من او را به خاطر نقاط ضعفش بیشتر دوست دارم.	I like him all the more for his weaknesses.	19999		tatoeba
 خاطر	من او را به خاطر نقاط ضعفش بیشتر دوست دارم.	I like him all the more for his weaknesses.	19999		tatoeba
-زده	تام وحشت‌زده بود.	Tom was terrified.	19999		tatoeba
 وحشت	تام وحشت‌زده بود.	Tom was terrified.	19999		tatoeba
-چک	حال نداشتم چک کنم.	I haven't bothered checking it.	19999		tatoeba
 سند	سند زیاد قانع کننده نیست.	The proof is trivial.	19999		tatoeba
 کننده	سند زیاد قانع کننده نیست.	The proof is trivial.	19999		tatoeba
 دار	بقیه پول رو نگه دار.	Keep the change, driver.	19999		tatoeba
@@ -3008,18 +2465,14 @@ word	sentence	translation	difficulty_rank	transliteration	source
 باعث	رکود باعث بسته شدن خیلی از تجارت ها شد.	The recession caused many businesses to close.	19999		tatoeba
 بسته	رکود باعث بسته شدن خیلی از تجارت ها شد.	The recession caused many businesses to close.	19999		tatoeba
 تجارت	رکود باعث بسته شدن خیلی از تجارت ها شد.	The recession caused many businesses to close.	19999		tatoeba
-عقب	عقب واستا.	Stay back.	19999		tatoeba
 جهت	از یک جهت حق با توست.	In a sense, you are right.	19999		tatoeba
-درخواست	ما درخواست عدالت داریم.	We demand justice.	19999		tatoeba
 ایجاد	این موسسه بعد از جنگ ایجاد شد.	This institution came into being after the war.	19999		tatoeba
 بعدی	پاپ بعدی چه کسی خواهد بود؟	Who will be the next pope?	19999		tatoeba
 پاپ	پاپ بعدی چه کسی خواهد بود؟	Who will be the next pope?	19999		tatoeba
 تماس	من سه ساعت پیش با شما تماس گرفتم.	I called you three hours ago.	19999		tatoeba
 کفش	این کفش‌ها ساخت ایتالیا هستند.	These shoes were made in Italy.	19999		tatoeba
 ساخت	این کفش‌ها ساخت ایتالیا هستند.	These shoes were made in Italy.	19999		tatoeba
-چی	شام چی خوردی؟	What did you eat for dinner?	19999		tatoeba
 شام	شام چی خوردی؟	What did you eat for dinner?	19999		tatoeba
-مشغول	فردا مشغول نخواهم بود.	I will not be busy tomorrow.	19999		tatoeba
 بسته	تو باید دهنت رو بسته نگاه داری	You should keep your mouth shut.	19999		tatoeba
 گونه	این گونه جانوری رکورد مهاجرت طولانی را در دست دارد.	This species holds the record for long-distance migration.	19999		tatoeba
 رکورد	این گونه جانوری رکورد مهاجرت طولانی را در دست دارد.	This species holds the record for long-distance migration.	19999		tatoeba
@@ -3033,15 +2486,12 @@ word	sentence	translation	difficulty_rank	transliteration	source
 سفر	دکتر بودنم در طی سفر به من کمک بزرگی کرد.	Being a doctor helped me greatly during the journey.	19999		tatoeba
 طی	دکتر بودنم در طی سفر به من کمک بزرگی کرد.	Being a doctor helped me greatly during the journey.	19999		tatoeba
 نهایت	در نهایت او خوشبختی خود را از دست داد.	He lost his happiness in the end.	19999		tatoeba
-دختران	اغلب دختران مهربان هستند.	Most girls are kind.	19999		tatoeba
-اغلب	اغلب دختران مهربان هستند.	Most girls are kind.	19999		tatoeba
 ظرف	در ظرف سه روز پاسخ خواهم داد.	I will answer within three days.	19999		tatoeba
 زدن	من قدم زدن رو به رفتن با اتوبوس ترجیح می دهم.	I prefer going on foot to going by bus.	19999		tatoeba
 غرب	فردیت در غرب بسیار اهمیت دارد.	Individuality is very important in the West.	19999		tatoeba
 نمایشگاه	نمایشگاه برای یک ماه دیگر باز خواهند ماند.	The exhibition will stay open for another month.	19999		tatoeba
 بین	کارتها را بین ما پخش کن	Deal us the cards.	19999		tatoeba
 پخش	کارتها را بین ما پخش کن	Deal us the cards.	19999		tatoeba
-قانون	شما قانون را شکستید	You broke the rule.	19999		tatoeba
 اقیانوس	در اقیانوس شنا می کنم.	I'm swimming in the ocean.	19999		tatoeba
 آغاز	این آغاز عصری جدید است.	This is the beginning of a new era.	19999		tatoeba
 رادیو	رادیو توسط مارکونی اختراع شد.	The radio was invented by Marconi.	19999		tatoeba
@@ -3053,42 +2503,30 @@ word	sentence	translation	difficulty_rank	transliteration	source
 جدی	تام جدی شد.	Tom became serious.	19999		tatoeba
 اینترنت	اینترنت همه چیز را دگرگون کرد.	The Internet changed everything.	19999		tatoeba
 مقابل	ما در مقابل قانون مسئولیم.	We are all responsible before the law.	19999		tatoeba
-فرار	تام فرار کرده است.	Tom has run away.	19999		tatoeba
-باور	آن باور نکردنی است.	It's incredible.	19999		tatoeba
 تست	تست میکنم	I try.	19999		tatoeba
-جواب	سوال را جواب بدهید.	Answer the question.	19999		tatoeba
 استراحت	می توانم الان استراحت کنم؟	Can I take a break now?	19999		tatoeba
 سریع	او نسبتا سریع حرف می زند.	She spoke relatively quickly.	19999		tatoeba
 زند	او نسبتا سریع حرف می زند.	She spoke relatively quickly.	19999		tatoeba
-زیبایی	تو دستهای زیبایی داری.	You have beautiful hands.	19999		tatoeba
 چپ	آیا تام چپ دست است؟	Is Tom left-handed?	19999		tatoeba
 خطرناک	شما فکر می کنید که آنها ممکن است خطرناک باشند؟	Do you think they might be dangerous?	19999		tatoeba
 بیاید	شما دوست نداشتید با ما بیاید؟	Wouldn't you like to go with us?	19999		tatoeba
-محکم	دستم را محکم گرفت.	She held my hand firmly.	19999		tatoeba
 مراتب	حال به مراتب بهتری دارم.	I'm feeling much better.	19999		tatoeba
-دید	او تهران را دید.	He visited Tehran.	19999		tatoeba
 شیراز	در شیراز بزرگ شدم.	I grew up in Shiraz.	19999		tatoeba
-دراز	روی تخت دراز کشیدم.	I lay down on the bed.	19999		tatoeba
-تخت	روی تخت دراز کشیدم.	I lay down on the bed.	19999		tatoeba
 معمولا	معمولا ساعت ۸ بلند می‌شوم.	I usually get up at eight o'clock.	19999		tatoeba
-گرسنه	من گرسنه نیستم.	I'm not hungry.	19999		tatoeba
 دختران	چرا این دختران بسیار بدجنس هستند؟	Why are these girls so mean?	19999		tatoeba
 موقع	شما بد موقع می آیید.	You're coming at the wrong moment.	19999		tatoeba
 سپس	صبح برف سنگینی آمد و سپس آب شد.	In the morning, heavy snow fell, and then it melted.	19999		tatoeba
 زندانی	تو زندانی منی.	You are my prisoner.	19999		tatoeba
 قضیه	این قضیه مختومه است.	This case is closed.	19999		tatoeba
 شکایت	قصد کردم رسما شکایت کنم.	I intend to file a formal complaint.	19999		tatoeba
-مشغول	چرا مشغول کار نیستی؟	Why aren't you working?	19999		tatoeba
 شعر	او دوستدار شعر و موسیقی بود.	She liked poetry and music.	19999		tatoeba
 افتخار	تمام افتخار اش به او تعلق دارد.	All the laurels belong to him.	19999		tatoeba
 تعلق	تمام افتخار اش به او تعلق دارد.	All the laurels belong to him.	19999		tatoeba
 خیانت	من به تو خیانت نکردم.	I didn't betray you.	19999		tatoeba
 دوستی	با دوستی مثل تام کسی احتیاج به دشمن ندارد.	With friends like Tom, one doesn't need any enemies.	19999		tatoeba
 سد	شما راه مرا سد کرده اید.	You are in my way.	19999		tatoeba
-یورو	میشه ۳۰ یورو.	This will cost €30.	19999		tatoeba
 تحمل	با من بسیار بی تحمل هستید.	You're so impatient with me.	19999		tatoeba
 پروانه	اوه، آنجا یک پروانه هست.	Oh, there's a butterfly!	19999		tatoeba
-بستگی	بستگی به شرایط دارد.	It depends on the context.	19999		tatoeba
 تیر	با تیر او را خواهم زد.	I'm gonna shoot him.	19999		tatoeba
 خواهر	من همیشه خیال می کردم برادر و خواهر داشتن چگونه است.	I've always wondered what it'd be like to have siblings.	19999		tatoeba
 همان	این همان چیزی است که من می گفتم.	This is what I would have said.	19999		tatoeba
@@ -3113,7 +2551,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 پنجاه	سال قبل کمتر از پنجاه فیلم ندیدم.	Last year I watched no less than fifty films.	19999		tatoeba
 صورت	این را به صورت‌حسابم اضافه کن.	Add this to my bill.	19999		tatoeba
 بیست	گردباد بیش از بیست نفر را کشت.	The tornado killed more than twenty people.	19999		tatoeba
-لباس	لباس زیباییست.	This is a pretty dress.	19999		tatoeba
 ساکت	گربهٔ ساکت موش را گرفت.	The quiet cat caught the mouse.	19999		tatoeba
 هزار	هر هزار سال معادل یک هزاره است.	A thousand years makes a millennium.	19999		tatoeba
 معادل	هر هزار سال معادل یک هزاره است.	A thousand years makes a millennium.	19999		tatoeba
@@ -3131,8 +2568,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 سرخ	ماهی را بعد از خواباندن سرخ کردم.	I fried the fish after marinating it.	19999		tatoeba
 اوقات	گاهی اوقات، کار‌ها طبقِ برنامه پیش نمی‌رود.	Occasionally, things don't go as planned.	19999		tatoeba
 تعریف	چگونه «سرسپردگی» را تعریف می کنید؟	"How do you define ""servility""?"	19999		tatoeba
-عرض	تسلیت عرض می‌کنم.	I grieve with you.	19999		tatoeba
-ممنون	من خوبم ، ممنون.	I'm doing good, thank you!	19999		tatoeba
 سفارش	برای سفارش دادن هنوز آماده نیستیم.	We're not ready to order yet.	19999		tatoeba
 نوبت	ما به نوبت اتاق را تمیز مى کنیم	We took turns cleaning the room.	19999		tatoeba
 تمیز	ما به نوبت اتاق را تمیز مى کنیم	We took turns cleaning the room.	19999		tatoeba
@@ -3145,10 +2580,7 @@ word	sentence	translation	difficulty_rank	transliteration	source
 دارو	این دارو باید با شکم خالی مصرف شود.	This medicine is to be taken on an empty stomach.	19999		tatoeba
 خرد	ارزش خرد بیشتر از مروارید است.	The price of wisdom is above pearls.	19999		tatoeba
 اعلام	روم در ونیس جنگ اعلام کرد.	Rome has declared war on Venice.	19999		tatoeba
-باعث	باعث افتخارمه.	It's a pleasure for me.	19999		tatoeba
 هنگ	کامپیوترم هنگ کرد.	My computer froze up.	19999		tatoeba
-شیرین	هلو ها شیرین هستند.	Peaches are sweet.	19999		tatoeba
-ممنون	خیلی ممنون برای حضورتون.	Thank you so much for attending!	19999		tatoeba
 دی	نور خورشید منبع اصلی ویتامین دی است.	Sunlight is the main source of vitamin D.	19999		tatoeba
 منبع	نور خورشید منبع اصلی ویتامین دی است.	Sunlight is the main source of vitamin D.	19999		tatoeba
 نوجوان	یکی از نوجوان ها فریاد کشید.	One of the teenagers screamed.	19999		tatoeba
@@ -3156,8 +2588,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 قبول	شما قابل قبول هستید.	You're reasonable.	19999		tatoeba
 شاخه	حقوق بین الملل شاخه ای از حقوق است.	International law is a branch of law.	19999		tatoeba
 بخاطر	این را بخاطر می‌آورم.	I remember this.	19999		tatoeba
-ضد	ضد آفتاب زده ای ؟	Have you put on sunscreen?	19999		tatoeba
-زده	ضد آفتاب زده ای ؟	Have you put on sunscreen?	19999		tatoeba
 خام	آنها گوشت خام می خورند.	They eat raw meat.	19999		tatoeba
 یونانی	من غذای یونانی دوست دارم.	I like to eat Greek food.	19999		tatoeba
 لیوان	من لیوان پلاستیکی دارم.	I have a plastic cup.	19999		tatoeba
@@ -3172,19 +2602,10 @@ word	sentence	translation	difficulty_rank	transliteration	source
 یه	مثل یه زن لباس پوشیده.	He dressed up as a woman.	19999		tatoeba
 ترسیدن	دلیلی برای ترسیدن نیست.	There's no reason to be afraid.	19999		tatoeba
 گران	من این ساعت را می خریدم، اگر که گران نبود.	I would buy this watch, except it's too expensive.	19999		tatoeba
-مرتب	شما مرتب هستید.	You're organized.	19999		tatoeba
 کوتاهی	برای مدت کوتاهی اینجا می مانم.	I'll be there in a while.	19999		tatoeba
-زرد	موز زرد است.	Bananas are yellow.	19999		tatoeba
 آزادی	عصاره ی آزادی ریاضیات است.	The essence of liberty is mathematics.	19999		tatoeba
 ناپدید	او بدون هیچ اثری ناپدید شد.	He disappeared without a trace.	19999		tatoeba
-موفق	موفق شدیم.	We succeeded.	19999		tatoeba
-خوشحال	دیروز خوشحال بودم.	I was happy yesterday.	19999		tatoeba
-درس	سخت درس بخوان.	Study hard.	19999		tatoeba
-خانم	اول خانم ها بفرمایند.	Ladies first.	19999		tatoeba
-چوب	چوب می سوزد.	Wood burns.	19999		tatoeba
-روشن	روشن حرف بزن.	Speak clearly.	19999		tatoeba
 توافق	ما به توافق رسیدیم.	We agree.	19999		tatoeba
-جوان	توم بسیار جوان است.	Tom is very young.	19999		tatoeba
 مناسبت	داستانش مناسب این مناسبت نبود.	His story wasn't appropriate for the occasion.	19999		tatoeba
 درباره	درباره من اشتباه برداشت نکن.	Don't get me wrong.	19999		tatoeba
 برداشت	درباره من اشتباه برداشت نکن.	Don't get me wrong.	19999		tatoeba
@@ -3199,24 +2620,15 @@ word	sentence	translation	difficulty_rank	transliteration	source
 تی	چرا تی شرتت آب رفت؟	Why did your T-shirt shrink?	19999		tatoeba
 زمینه	ما همه احمقیم، هر کدام در یک زمینه.	We are all stupid, just on different subjects.	19999		tatoeba
 نفس	برای موفقیت فقط نادانی و اعتماد به نفس نیاز است.	All you need is ignorance and confidence and the success is sure.	19999		tatoeba
-شیطان	عجله کار شیطان است.	Haste makes waste.	19999		tatoeba
-حساب	حساب حساب کاکا برادر.	Business is business.	19999		tatoeba
-دیوار	دیوار موش دارد.	Walls have ears.	19999		tatoeba
 بشر	بشر جائزالخطاست.	Everyone makes mistakes.	19999		tatoeba
 رسیدن	دیر رسیدن بهتر از هرگز نرسیدن است.	Better late than never.	19999		tatoeba
 قهرمانان	قهرمانان همیشه دیر می‌رسند.	Heroes always arrive late.	19999		tatoeba
-مرغ	مرغ همسایه غاز است.	All his geese are swans.	19999		tatoeba
-سنگ	کاغذ سنگ صبور است.	Paper is patient.	19999		tatoeba
-کاغذ	کاغذ سنگ صبور است.	Paper is patient.	19999		tatoeba
 هزار	یک تصویر به اندازهٔ هزار کلمه می‌ارزد.	A picture is worth a thousand words.	19999		tatoeba
 تصویر	یک تصویر به اندازهٔ هزار کلمه می‌ارزد.	A picture is worth a thousand words.	19999		tatoeba
 سنگ	سنگ بزرگ نشانهٔ نزدن است.	He who starts ten tasks won't finish a single one.	19999		tatoeba
 درمان	حماقت درمان ندارد.	There's no cure for stupidity.	19999		tatoeba
 مقدس	این عددی مقدس است.	It's a sacred number.	19999		tatoeba
-خشونت	خشونت، نیرویی ضعیف است.	Violence is a weak force.	19999		tatoeba
-ضعیف	خشونت، نیرویی ضعیف است.	Violence is a weak force.	19999		tatoeba
 درد	زبان همیشه به دندانی که درد می‌کند می‌خورد.	The tongue ever turns to the aching tooth.	19999		tatoeba
-سلامتی	سلامتی نعمت است.	Health is wealth.	19999		tatoeba
 آنگاه	آنگاه الگوریتم را ادامه می‌دهیم.	Then we can continue the algorithm.	19999		tatoeba
 الگوریتم	آنگاه الگوریتم را ادامه می‌دهیم.	Then we can continue the algorithm.	19999		tatoeba
 خریدن	خریدن بهتر از قرض گرفتن است.	Better buy than borrow.	19999		tatoeba
@@ -3250,7 +2662,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 آواز	یک قرص نان بهتر از آواز پرندگان است.	A loaf of bread is better than the songs of birds.	19999		tatoeba
 بیان	کلمات از بیان اشتباه شما قاصر اند.	Words cannot express the extent to which you are wrong.	19999		tatoeba
 کلمات	کلمات از بیان اشتباه شما قاصر اند.	Words cannot express the extent to which you are wrong.	19999		tatoeba
-سبک	زندگی را سبک نگیر.	Don't make light of life.	19999		tatoeba
 قایق	به نظر می‌رسد ما در یک قایق هستیم.	It seems we are in the same boat.	19999		tatoeba
 ضعف	هر انسانی نقطه ضعف‌های خود را دارد.	Every man has his weak points.	19999		tatoeba
 نقطه	هر انسانی نقطه ضعف‌های خود را دارد.	Every man has his weak points.	19999		tatoeba
@@ -3269,15 +2680,12 @@ word	sentence	translation	difficulty_rank	transliteration	source
 گونه	آنها هر دو از یک گونه ی جانوری هستند.	They are both of one species.	19999		tatoeba
 اخراج	او از کشور خودش اخراج شد.	She was exiled from her country.	19999		tatoeba
 جزئیات	تو خیلی از جزئیات را در نظر نگرفتی.	You're missing too many of the details.	19999		tatoeba
-خشم	خشم آغاز جنون است.	Anger is the beginning of folly.	19999		tatoeba
-آغاز	خشم آغاز جنون است.	Anger is the beginning of folly.	19999		tatoeba
 جعبه	این جعبه از جوب است.	This box is from Jobe.	19999		tatoeba
 طبیعت	در بهار طبیعت سبز می شود.	In spring, nature turns green.	19999		tatoeba
 سبز	در بهار طبیعت سبز می شود.	In spring, nature turns green.	19999		tatoeba
 بهار	در بهار طبیعت سبز می شود.	In spring, nature turns green.	19999		tatoeba
 تحصیل	دوست می داشتم در دانشگاه تحصیل کنم.	I would have liked to study at the university.	19999		tatoeba
 گناه	در جهان تنها یک گناه وجود دارد و آن جهل است.	There is only one sin in the world, and it is ignorance.	19999		tatoeba
-فرار	فرار تقریباً ناممکن بود.	Escape was almost impossible.	19999		tatoeba
 تجربه	ما از تجربه‌ها بسیار درس می‌گیریم.	We learn many lessons from experiences.	19999		tatoeba
 سوار	سوار اتوبوس بعدی می شوم.	I will catch the next bus.	19999		tatoeba
 همراه	شما باید آن را همراه با بقیه بپذیرید.	You must accept that along with others.	19999		tatoeba
@@ -3287,8 +2695,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 داخل	لطفاً، داخل اتاق ندوید.	Please don't enter the room.	19999		tatoeba
 فساد	او زندگی خود را علیه فساد اهداء کرد.	He sacrificed his life against corruption.	19999		tatoeba
 علیه	او زندگی خود را علیه فساد اهداء کرد.	He sacrificed his life against corruption.	19999		tatoeba
-پیچیده	مغز ساختاری پیچیده دارد.	The brain has a complex structure.	19999		tatoeba
-مغز	مغز ساختاری پیچیده دارد.	The brain has a complex structure.	19999		tatoeba
 سوخت	بدون سوخت موتور کار نمی‌کند.	The engine will not work without fuel.	19999		tatoeba
 موتور	بدون سوخت موتور کار نمی‌کند.	The engine will not work without fuel.	19999		tatoeba
 پنهان	چه چیزی را از من پنهان می‌کنی؟	What are you hiding from me?	19999		tatoeba
@@ -3301,7 +2707,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 سرباز	سرباز با یک مرخصی به خانه بازگشت.	The soldier returned home on a furlough.	19999		tatoeba
 بازگشت	سرباز با یک مرخصی به خانه بازگشت.	The soldier returned home on a furlough.	19999		tatoeba
 خوردن	آیا اینها قابل خوردن هستند؟	Are these edible?	19999		tatoeba
-طنز	طنز طعنهٔ دیروز است.	Humour is the satire of yesterday.	19999		tatoeba
 تجویز	دکتر برای تام یک آرام‌بخش تجویز کرد.	The doctor prescribed Tom a sedative.	19999		tatoeba
 کودکان	تنها رها کردن کودکان، یک بی‌فکری محض بود.	Leaving the children alone was sheer thoughtlessness.	19999		tatoeba
 محض	تنها رها کردن کودکان، یک بی‌فکری محض بود.	Leaving the children alone was sheer thoughtlessness.	19999		tatoeba
@@ -3310,7 +2715,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 بومی	من مطالعه دربارهٔ گیاهان خوراکی که بومی محلتان هستند را توصیه می‌کنم.	I recommend learning about edible plants that are native to your area.	19999		tatoeba
 توصیه	من مطالعه دربارهٔ گیاهان خوراکی که بومی محلتان هستند را توصیه می‌کنم.	I recommend learning about edible plants that are native to your area.	19999		tatoeba
 گیاهان	من مطالعه دربارهٔ گیاهان خوراکی که بومی محلتان هستند را توصیه می‌کنم.	I recommend learning about edible plants that are native to your area.	19999		tatoeba
-آهنگ	آهنگ ناگهانی متوقف شد.	The music stopped abruptly.	19999		tatoeba
 غرق	در تابستان شهر غرق از جهانگردان بود.	The town was deluged with tourists in summer.	19999		tatoeba
 افکار	این افکار پیشقراول دموکراسی بودند.	Those ideas were the harbinger of democracy.	19999		tatoeba
 دموکراسی	این افکار پیشقراول دموکراسی بودند.	Those ideas were the harbinger of democracy.	19999		tatoeba
@@ -3326,7 +2730,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 سرور	سرور آنها ناقوس قدیمی را دوباره به صدا در آورد.	Their mirth made the old vault ring again.	19999		tatoeba
 آورد	سرور آنها ناقوس قدیمی را دوباره به صدا در آورد.	Their mirth made the old vault ring again.	19999		tatoeba
 گویی	انگلیسی‌ها آدم‌های کم گویی هستند.	The English are a taciturn people.	19999		tatoeba
-مقاومت	مقاومت بیهوده است.	Resistance is futile.	19999		tatoeba
 طرز	این جمله به طرز فاحشی غلط است.	This sentence is egregiously wrong.	19999		tatoeba
 غلط	این جمله به طرز فاحشی غلط است.	This sentence is egregiously wrong.	19999		tatoeba
 آورد	صاحبخانهٔ ما اجاره را پایین آورد.	Our landlord has lowered the rent.	19999		tatoeba
@@ -3334,16 +2737,10 @@ word	sentence	translation	difficulty_rank	transliteration	source
 موافقت	او بی درنگ با آن موافقت کرد.	He readily agreed to it.	19999		tatoeba
 شیمی	من با شیمی آشنایی مختصری دارم.	I have some acquaintance with chemistry.	19999		tatoeba
 آشنایی	من با شیمی آشنایی مختصری دارم.	I have some acquaintance with chemistry.	19999		tatoeba
-علت	علت چیست؟	What's the cause?	19999		tatoeba
-سبب	سبب چیست؟	What's the cause?	19999		tatoeba
 عکس	من آن عکس را یک هفته پیش گرفتم.	I took that picture a week ago.	19999		tatoeba
 هنگام	من در هنگام خواندن به خواب رفتم.	I fell asleep while reading.	19999		tatoeba
-هواپیما	من یک هواپیما دیدم.	I saw an airplane.	19999		tatoeba
-عروسی	عروسی آنها فرداست.	Their wedding is tomorrow.	19999		tatoeba
-پرندگان	پرندگان آواز می‌خوانند.	Birds sing.	19999		tatoeba
 تند	شما زیاد تند می‌رانید.	You're driving too fast.	19999		tatoeba
 مجبور	من مجبور شدم مدرسه را ترک کنم.	I was compelled to leave school.	19999		tatoeba
-غرق	معلم غرق اشک شد.	The teacher burst into tears.	19999		tatoeba
 نارنجی	کراواتم نارنجی است.	My tie is orange.	19999		tatoeba
 آتش	از میان آتش و آب بگذر.	Go through fire and water.	19999		tatoeba
 قاشق	از قاشق‌ها می‌ترسم.	I'm afraid of spoons.	19999		tatoeba
@@ -3359,7 +2756,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 داستان	آن یک داستان توجه بر انگیز است.	That's a very compelling story.	19999		tatoeba
 دیوار	تقویم به دیوار آویزان است.	The calendar is hanging on the wall.	19999		tatoeba
 تقویم	تقویم به دیوار آویزان است.	The calendar is hanging on the wall.	19999		tatoeba
-روح	روی آئینهٔ روح است.	The face is the mirror of the soul.	19999		tatoeba
 مسلمان	در یک کشور اکثریت مسلمان متولد شدم.	I was born in a Muslim-majority country.	19999		tatoeba
 اکثریت	در یک کشور اکثریت مسلمان متولد شدم.	I was born in a Muslim-majority country.	19999		tatoeba
 متولد	در یک کشور اکثریت مسلمان متولد شدم.	I was born in a Muslim-majority country.	19999		tatoeba
@@ -3372,14 +2768,11 @@ word	sentence	translation	difficulty_rank	transliteration	source
 دیوار	میخ دیوار را سوراخ کرد.	The nail pierced the wall.	19999		tatoeba
 سوراخ	میخ دیوار را سوراخ کرد.	The nail pierced the wall.	19999		tatoeba
 والدین	والدین جوان اغلب کودکان خود را نازپرورده می‌کنند.	Young parents often indulge their children.	19999		tatoeba
-گزارش	یک گزارش بنویس.	Write a report.	19999		tatoeba
 دانشجو	من دانشجو نیستم.	I'm not a student.	19999		tatoeba
-آنان	آنان اینجاند.	They're here.	19999		tatoeba
 شام	شام پختم.	I made supper.	19999		tatoeba
 آزاد	روژاوای آزاد!	Free Rojava!	19999		tatoeba
 اثبات	اثبات ندارند.	They have no proof.	19999		tatoeba
 خالص	پوستش سفید خالص است.	Her skin is pure white.	19999		tatoeba
-سفید	پوستش سفید خالص است.	Her skin is pure white.	19999		tatoeba
 بردند	فاضل را به اتاق خود بردند.	Fadil retired to his room.	19999		tatoeba
 سقف	توماس روی تخت دراز کشیده بود و به سقف نگاه می کرد.	Tom lay in bed staring up at the ceiling.	19999		tatoeba
 تخت	توماس روی تخت دراز کشیده بود و به سقف نگاه می کرد.	Tom lay in bed staring up at the ceiling.	19999		tatoeba
@@ -3390,17 +2783,13 @@ word	sentence	translation	difficulty_rank	transliteration	source
 ری	برای شنا کردن کجا می‌ری؟	Where did you go swimming?	19999		tatoeba
 نصب	من برای نصب جا حوله ای به یک متر نیاز دارم.	I need a tape measure to install the towel rack.	19999		tatoeba
 متر	من برای نصب جا حوله ای به یک متر نیاز دارم.	I need a tape measure to install the towel rack.	19999		tatoeba
-اوقات	اوقات خوبی داشته باشید.	Have a good time.	19999		tatoeba
-داشته	اوقات خوبی داشته باشید.	Have a good time.	19999		tatoeba
 فرودگاه	من میخواهم در یک هتل نزدیک فرودگاه اقامت کنم.	I want to stay in a hotel near the airport.	19999		tatoeba
 اقامت	من میخواهم در یک هتل نزدیک فرودگاه اقامت کنم.	I want to stay in a hotel near the airport.	19999		tatoeba
 اطراف	روزی او عازم یک پیاده روی طولانی در اطراف شهر شد.	One day he set off on a long walk around the town.	19999		tatoeba
 خاله	دختر خاله من به حرف هیچ کس گوش نمیدهد.	My cousin doesn't listen to anyone.	19999		tatoeba
-سیاست	من اهل سیاست نیستم.	I don't follow politics.	19999		tatoeba
 اهل	من اهل سیاست نیستم.	I don't follow politics.	19999		tatoeba
 زمستان	سرماخوردگی در زمستان شایع است.	Colds are prevalent this winter.	19999		tatoeba
 شایع	سرماخوردگی در زمستان شایع است.	Colds are prevalent this winter.	19999		tatoeba
-تحقیق	این تحقیق پیشگامانه است.	This research is groundbreaking.	19999		tatoeba
 روزنامه	دارم روزنامه را می‌خوانم.	I'm reading the newspaper.	19999		tatoeba
 کنفرانس	این کنفرانس سالانه برگزار می شود.	The conference takes place annually.	19999		tatoeba
 برگزار	این کنفرانس سالانه برگزار می شود.	The conference takes place annually.	19999		tatoeba
@@ -3413,7 +2802,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 فرهنگ	این جشن یک قسمت ذاتی از فرهنگ کشور ماست.	This celebration is an intrinsic part of the culture of our country.	19999		tatoeba
 قسمت	این جشن یک قسمت ذاتی از فرهنگ کشور ماست.	This celebration is an intrinsic part of the culture of our country.	19999		tatoeba
 واضح	واضح بود که شما دروغ گفتید.	It's obvious that you're lying.	19999		tatoeba
-اخراج	من اخراج شدم.	I was fired.	19999		tatoeba
 تیم	او از تیم اخراج شده بود.	He had been expelled from the team.	19999		tatoeba
 اخراج	او از تیم اخراج شده بود.	He had been expelled from the team.	19999		tatoeba
 تقاضا	قیمت تقاضا را منعکس می‌کند.	Price reflects demand.	19999		tatoeba
@@ -3424,7 +2812,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 اعمال	قتل و سرقت اعمال جنائی هستند.	Murder and robbery are criminal acts.	19999		tatoeba
 قتل	قتل و سرقت اعمال جنائی هستند.	Murder and robbery are criminal acts.	19999		tatoeba
 سرقت	قتل و سرقت اعمال جنائی هستند.	Murder and robbery are criminal acts.	19999		tatoeba
-کمبود	او کمبود شعور دارد.	He lacks common sense.	19999		tatoeba
 انتظار	او وی را به انتظار واداشت.	He made her wait.	19999		tatoeba
 گشت	من در ایستگاه بعدی پیاده خواهم گشت.	I'll get off at the next station.	19999		tatoeba
 گاه	وی هیچ‌گاه نشان نداد.	He never showed.	19999		tatoeba
@@ -3441,7 +2828,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 شخصی	من احتیاج دارم که با شما دربارهٔ چیزی شخصی صحبت بکنم.	I need to talk to you about something personal.	19999		tatoeba
 بازداشت	مجرم بازداشت شد.	The criminal was arrested.	19999		tatoeba
 سرخ	من واقعاً سرخ را می‌پسندم.	I really like red.	19999		tatoeba
-دل	شما ساده‌دل هستید.	You're gullible.	19999		tatoeba
 بازنشسته	تام گفت که بازنشسته است.	Tom said that he's retired.	19999		tatoeba
 دهان	صحبت کردن با دهان پر بی‌ادبانه است.	It is rude to speak with your mouth full.	19999		tatoeba
 پر	صحبت کردن با دهان پر بی‌ادبانه است.	It is rude to speak with your mouth full.	19999		tatoeba
@@ -3460,23 +2846,17 @@ word	sentence	translation	difficulty_rank	transliteration	source
 شاه	در سرزمین نابینایان، مرد یک چشم شاه است.	In the land of the blind, the one-eyed man is king.	19999		tatoeba
 چشم	در سرزمین نابینایان، مرد یک چشم شاه است.	In the land of the blind, the one-eyed man is king.	19999		tatoeba
 سرزمین	در سرزمین نابینایان، مرد یک چشم شاه است.	In the land of the blind, the one-eyed man is king.	19999		tatoeba
-خواهر	تام خواهر ندارد.	Tom doesn't have any sisters.	19999		tatoeba
 رد	او فوراً پیشنهاد مرا رد می‌کند.	He briskly rejects my suggestion.	19999		tatoeba
 همان	این دقیقا همان چیزی است که تام به من گفت.	That's exactly what Tom told me.	19999		tatoeba
 دقیقا	این دقیقا همان چیزی است که تام به من گفت.	That's exactly what Tom told me.	19999		tatoeba
 عمیق	این چاه چقدر عمیق است؟	How deep is this well?	19999		tatoeba
 چاه	این چاه چقدر عمیق است؟	How deep is this well?	19999		tatoeba
-موزه	من موزه دوز هستم.	I'm a shoemaker.	19999		tatoeba
 ذهن	ذهن‌های زیبا ملاقات می‌کنند.	Beautiful minds meet.	19999		tatoeba
 نرخ	نرخ روزانه چیست؟	What's the daily rate?	19999		tatoeba
-روزانه	نرخ روزانه چیست؟	What's the daily rate?	19999		tatoeba
-عقل	عقل سلیم غالب شد.	Common sense has prevailed.	19999		tatoeba
-غالب	عقل سلیم غالب شد.	Common sense has prevailed.	19999		tatoeba
 آسیب	شایعات به اعتبار او آسیب زدند.	The gossip hurt his reputation.	19999		tatoeba
 اعتبار	شایعات به اعتبار او آسیب زدند.	The gossip hurt his reputation.	19999		tatoeba
 زدند	شایعات به اعتبار او آسیب زدند.	The gossip hurt his reputation.	19999		tatoeba
 متوسط	او از طبقهٔ متوسط می‌آید.	He comes from the middle class.	19999		tatoeba
-عادی	نبضت عادی است.	Your pulse is normal.	19999		tatoeba
 شک	من شک دارم تحریم ها مؤثر باشند.	I doubt if sanctions will work.	19999		tatoeba
 تحریم	من شک دارم تحریم ها مؤثر باشند.	I doubt if sanctions will work.	19999		tatoeba
 مؤثر	من شک دارم تحریم ها مؤثر باشند.	I doubt if sanctions will work.	19999		tatoeba
@@ -3485,7 +2865,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 تعهد	من به آن تعهد پایبندم.	I stand by that commitment.	19999		tatoeba
 کنون	آیا تا کنون مردم شما را متهم به لوس شدن کرده‌اند؟	Do people ever accuse you of being self-indulgent?	19999		tatoeba
 متهم	آیا تا کنون مردم شما را متهم به لوس شدن کرده‌اند؟	Do people ever accuse you of being self-indulgent?	19999		tatoeba
-دستگیری	من به دستگیری نیازمندم.	I need assistance.	19999		tatoeba
 دستگیری	او فکورانه مرا دستگیری کرد.	He thoughtfully gave me a helping hand.	19999		tatoeba
 موزه	از اینجا تا موزه چقدر راه است؟	How far is it from here to the museum?	19999		tatoeba
 مقصد	مسیر مهمتر از مقصد است.	The journey is more important than the destination.	19999		tatoeba
@@ -3495,10 +2874,8 @@ word	sentence	translation	difficulty_rank	transliteration	source
 گرگان	برف گرگان را به سوی دشت می‌کشاند.	The snow pushes the wolves towards the plains.	19999		tatoeba
 دشت	آنها بوفالو را در دشت دنبال کردند.	They followed the buffalo across the plains.	19999		tatoeba
 مسکن	بازار مسکن راکد است.	The housing market is stagnant.	19999		tatoeba
-بازار	بازار مسکن راکد است.	The housing market is stagnant.	19999		tatoeba
 سرانجام	زیری سرانجام به خانه آمد.	Ziri finally came home.	19999		tatoeba
 نقطه	زندگی در خانواده سامی به نقطه جوش رسید.	Life in Sami's household reached a boiling point.	19999		tatoeba
-گشت	فردا برخواهم گشت.	I'll be back tomorrow.	19999		tatoeba
 فروش	آیا اینها برای فروش هستند؟	Are these for sale?	19999		tatoeba
 فقر	کمونیسم توزیع برابر فقر است.	Communism is the equal distribution of poverty.	19999		tatoeba
 توزیع	کمونیسم توزیع برابر فقر است.	Communism is the equal distribution of poverty.	19999		tatoeba
@@ -3515,7 +2892,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 شطرنج	شطرنج یک نبرد بین دو ذهن خلاق است.	Chess is a battle between two creative minds.	19999		tatoeba
 افزودن	آنها بدون افزودن نمک آشپزی می‌کنند.	They cook without adding salt.	19999		tatoeba
 حقیقی	این یک شاهکار حقیقی است.	This is a true masterpiece.	19999		tatoeba
-خان	موزهٔ آقا خان زیباست.	The Aga Khan Museum is beautiful.	19999		tatoeba
 آقا	موزهٔ آقا خان زیباست.	The Aga Khan Museum is beautiful.	19999		tatoeba
 عمومی	لیزا از توجه عمومی اجتناب می‌کند.	Liisa eschews public attention.	19999		tatoeba
 اجتناب	لیزا از توجه عمومی اجتناب می‌کند.	Liisa eschews public attention.	19999		tatoeba
@@ -3531,16 +2907,13 @@ word	sentence	translation	difficulty_rank	transliteration	source
 باریک	باریک الله، چه عالی، چه خوب	Good for you.	19999		tatoeba
 پا	عقرب‌ها هشت پا دارند.	Scorpions have eight legs.	19999		tatoeba
 هشت	عقرب‌ها هشت پا دارند.	Scorpions have eight legs.	19999		tatoeba
-قاره	اروپا یک قاره است.	Europe is a continent.	19999		tatoeba
 قاره	آیا استرالیا یک قاره است؟	Is Australia a continent?	19999		tatoeba
 دستی	هر قلمو به دستی نقاش نیست.	Not everyone who has a paintbrush in their hand is a painter.	19999		tatoeba
 نقاش	هر قلمو به دستی نقاش نیست.	Not everyone who has a paintbrush in their hand is a painter.	19999		tatoeba
 بازار	چانه زدن در بازار معمول است.	Haggling is common in markets.	19999		tatoeba
 معمول	چانه زدن در بازار معمول است.	Haggling is common in markets.	19999		tatoeba
 عادی	چانه زدن در این کشور عادی است.	Haggling is normal in this country.	19999		tatoeba
-تخم	تخم‌مرغ خوردیم.	We ate eggs.	19999		tatoeba
 اسپانیایی	یه‌کم اسپانیایی بلدم.	I speak a little Spanish.	19999		tatoeba
-نزد	باید نزد پزشک بروید.	You should see a doctor.	19999		tatoeba
 تپه	بالای تپه یک نقطهٔ دید خوب دارد.	The top of the hill is a good vantage point.	19999		tatoeba
 نقطه	بالای تپه یک نقطهٔ دید خوب دارد.	The top of the hill is a good vantage point.	19999		tatoeba
 نهاد	مادر شکردان را روی میز نهاد.	The mother puts the sugar bowl on the table.	19999		tatoeba
@@ -3548,7 +2921,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 مو	آیا می‌خواهی آن را مو به مو توضیح دهم؟	Do you want me to spell it out?	19999		tatoeba
 خواهر	مری خواهر کوچک من است.	Mary is my younger sister.	19999		tatoeba
 تمرین	آیا در این تمرین غلطی وجود دارد؟	Are there any mistakes in this exercise?	19999		tatoeba
-افتاده	روزهایش به شماره افتاده.	His days are numbered.	19999		tatoeba
 یاری	چرا به آنها یاری می‌رسانیم؟	Why are we helping them?	19999		tatoeba
 کارگاه	من یک کارگاه در گاراژم دارم.	I have a workshop in my garage.	19999		tatoeba
 ناموفق	همهٔ تقلاهایش ناموفق بود.	All his endeavors proved unsuccessful.	19999		tatoeba
@@ -3566,7 +2938,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 جنگل	مهمترین گونه درخت در این قسمت از جنگل سرو است.	The main type of tree in this part of the forest is the cypress.	19999		tatoeba
 سرو	مهمترین گونه درخت در این قسمت از جنگل سرو است.	The main type of tree in this part of the forest is the cypress.	19999		tatoeba
 شاهزاده	شاهزاده از افسون رها شد.	The Princess was freed from the spell.	19999		tatoeba
-بستن	بستن یک گزینه است.	Closing is an option.	19999		tatoeba
 بستن	بستن چشمانتان به شما کمک می‌کند بهتر فکر کنید.	Closing your eyes helps you think better.	19999		tatoeba
 صفت	او همهٔ صفت‌های یک رهبر را داشت.	He had all the qualities of a leader.	19999		tatoeba
 رهبر	او همهٔ صفت‌های یک رهبر را داشت.	He had all the qualities of a leader.	19999		tatoeba
@@ -3592,10 +2963,8 @@ word	sentence	translation	difficulty_rank	transliteration	source
 خویش	خود پرست عاشق تصویر خویش است.	Narcissus fell in love with his own reflection.	19999		tatoeba
 یکدیگر	بگذارید تلاش کنیم با یکدیگر با احترام برخورد کنیم.	Let's try to treat each other with respect.	19999		tatoeba
 برخورد	بگذارید تلاش کنیم با یکدیگر با احترام برخورد کنیم.	Let's try to treat each other with respect.	19999		tatoeba
-گردش	گردش خواهیم رفت؟	Are we going to go for a walk?	19999		tatoeba
 ایتالیایی	زبان ایتالیایی از نظر دستوری دشوار است.	The Italian language is grammatically difficult.	19999		tatoeba
 ویروس	بدترین ویروس نادانی است.	The worst virus is ignorance.	19999		tatoeba
-بدترین	بدترین ویروس نادانی است.	The worst virus is ignorance.	19999		tatoeba
 بوسیدن	آنها بیشتر وقت را صرف بوسیدن کردند تا تماشای فیلم.	They spent more time kissing than watching the movie.	19999		tatoeba
 صرف	آنها بیشتر وقت را صرف بوسیدن کردند تا تماشای فیلم.	They spent more time kissing than watching the movie.	19999		tatoeba
 وعده	آن وعده هرگز محقق نشد.	That promise was never to be fulfilled.	19999		tatoeba
@@ -3615,9 +2984,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 گرسنه	هنوز گرسنه‌ای یا سیر شده‌ای؟	Are you still hungry or have you had enough?	19999		tatoeba
 چوب	من فکر می‌کنم چوب تراشی بسته است.	I think the sawmill has closed.	19999		tatoeba
 اخبار	بعضی روزنامه‌ها اخبار را تحریف می‌کنند.	Some newspapers distorted the news.	19999		tatoeba
-بهشت	روحش در بهشت بود.	His soul was in heaven.	19999		tatoeba
-کتابی	تو مؤلفِ این کتابی؟	Are you the author of this book?	19999		tatoeba
-آینه	آینه کجاست؟	Where's the mirror?	19999		tatoeba
 دریاچه	این دریاچه سبزفام است.	This lake is greenish.	19999		tatoeba
 جریان	اما آن یک جریان بی مزه است!	Oh, but that is a mundane matter!	19999		tatoeba
 پارس	سگ پارس می‌کند، کاروان حرکت می‌کند.	The dog barks, the caravan moves.	19999		tatoeba
@@ -3630,12 +2996,9 @@ word	sentence	translation	difficulty_rank	transliteration	source
 شعار	«آزادی، برابری، برادری» یک شعار فرانسوی است.	"""Liberty, equality, fraternity"" is a French motto."	19999		tatoeba
 مسئولیت	تو می‌دانی که این مسئولیت تو است.	You know this is your responsibility.	19999		tatoeba
 ظهر	بعد از ظهر به خیر! چطوری؟	Good afternoon! How are you?	19999		tatoeba
-ممنون	خوبم، ممنون.	I'm fine, thank you.	19999		tatoeba
 نیز	من نیز چای می‌نوشم.	I drink tea, too.	19999		tatoeba
 کره	من نان و کره و چای با شکر خواهم داشت.	I'll have bread and butter and tea with sugar.	19999		tatoeba
-ایشان	ایشان چای می‌نوشند؟	Do they drink tea?	19999		tatoeba
 ایشان	آیا ایشان چای می‌نوشند؟	Do they drink tea?	19999		tatoeba
-ایشان	ایشان قهوه می‌نوشند.	They drink coffee.	19999		tatoeba
 پسران	پسران آب می‌نوشند.	The boys drink water.	19999		tatoeba
 زنان	زنان آب می‌نوشند.	The women drink water.	19999		tatoeba
 اندکی	من اندکی بیشتر نان می‌خواهم، لطفاً.	I'd like some more bread, please.	19999		tatoeba
@@ -3643,10 +3006,8 @@ word	sentence	translation	difficulty_rank	transliteration	source
 سرنوشت	آیا فکر می‌کنید هر چه برای ما اتفاق می‌افتد سرنوشت است؟	Do you think that everything that happens to us is predestined?	19999		tatoeba
 آهن	آهن از طلا مفیدتر است.	Iron is more useful than gold.	19999		tatoeba
 طلا	آهن از طلا مفیدتر است.	Iron is more useful than gold.	19999		tatoeba
-سیاره	سیارهٔ ما زیباست.	Our planet is beautiful.	19999		tatoeba
 خصوصی	اوّلین کانال خصوصی در ترکیه چی بود؟	What was the first private channel in Turkey?	19999		tatoeba
 کانال	اوّلین کانال خصوصی در ترکیه چی بود؟	What was the first private channel in Turkey?	19999		tatoeba
-مشکلات	او مشکلات اضطراب دارد.	He has anxiety issues.	19999		tatoeba
 حاشیه	حاشیهٔ سود این کمپانی بسیار بزرگ است.	This company's profit margin is very big.	19999		tatoeba
 سود	حاشیهٔ سود این کمپانی بسیار بزرگ است.	This company's profit margin is very big.	19999		tatoeba
 شمشیر	او یک سپر و شمشیر خرید.	He bought a shield and a sword.	19999		tatoeba
@@ -3654,7 +3015,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 عنوان	من از این تن بی سر به عنوان یک سپر استفاده کردم.	I used his beheaded body as a shield.	19999		tatoeba
 تن	من از این تن بی سر به عنوان یک سپر استفاده کردم.	I used his beheaded body as a shield.	19999		tatoeba
 تکیه	من به دیوار تکیه دادم.	I leaned against the wall.	19999		tatoeba
-دموکراسی	دموکراسی هنر مصالحه است.	Democracy is the art of compromise.	19999		tatoeba
 کپی	چند کپی نیاز دارید؟	How many copies do you need?	19999		tatoeba
 رنج	میزان رنج تجربه‌شده بر این سیاره، عظیم است.	Rate of suffering experienced on this planet is enormous.	19999		tatoeba
 میزان	میزان رنج تجربه‌شده بر این سیاره، عظیم است.	Rate of suffering experienced on this planet is enormous.	19999		tatoeba
@@ -3673,10 +3033,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 واضح	هیچ‌چیز فریبنده‌تر از یک واقعیت واضح نیست.	There is nothing more deceptive than an obvious fact.	19999		tatoeba
 کمتر	هر چه آدم بیشتر قضاوت می‌کند، کمتر عشق می‌ورزد.	The more one judges, the less one loves.	19999		tatoeba
 قضاوت	هر چه آدم بیشتر قضاوت می‌کند، کمتر عشق می‌ورزد.	The more one judges, the less one loves.	19999		tatoeba
-یعنی	ابر یعنی حجاب آسمان.	Clouds signify the veil of the Most High.	19999		tatoeba
-عمومی	کمونیسم یعنی فقر عمومی.	Communism means general poverty.	19999		tatoeba
-فقر	کمونیسم یعنی فقر عمومی.	Communism means general poverty.	19999		tatoeba
-یعنی	کمونیسم یعنی فقر عمومی.	Communism means general poverty.	19999		tatoeba
 تعلیم	لذت تعلیم کمتر از لذت تعلم نیست.	The pleasure of teaching is not smaller than the pleasure of learning.	19999		tatoeba
 لذت	لذت تعلیم کمتر از لذت تعلم نیست.	The pleasure of teaching is not smaller than the pleasure of learning.	19999		tatoeba
 تدریس	تدریس فکر کردن فی البداهه در مدارس مشکل است.	Teaching spontaneous thinking is difficult in schools.	19999		tatoeba
@@ -3687,7 +3043,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 مسئولیت	هیچ برف دانه‌ای در یک بهمن احساس مسئولیت نمی‌کند.	No snowflake in an avalanche ever feels responsible.	19999		tatoeba
 دانه	هیچ برف دانه‌ای در یک بهمن احساس مسئولیت نمی‌کند.	No snowflake in an avalanche ever feels responsible.	19999		tatoeba
 بهمن	هیچ برف دانه‌ای در یک بهمن احساس مسئولیت نمی‌کند.	No snowflake in an avalanche ever feels responsible.	19999		tatoeba
-تردید	در تردید، راست بگو.	When in doubt, tell the truth.	19999		tatoeba
 شاید	شاید این دنیا جهنم یک سیارهٔ دیگر است.	Maybe this world is another planet's Hell.	19999		tatoeba
 فلسفه	فلسفه یادگیری چگونه مردن است.	Philosophy is learning how to die.	19999		tatoeba
 محقق	افسوس! این ترس محقق شد.	Alas! this fear was realized.	19999		tatoeba
@@ -3708,7 +3063,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 جذب	پنبه آب را جذب می‌کند.	Cotton absorbs water.	19999		tatoeba
 مسدود	این لوله مسدود شده است.	This pipe is blocked.	19999		tatoeba
 لوله	این لوله مسدود شده است.	This pipe is blocked.	19999		tatoeba
-عوض	دارد عوض می‌شود.	That's changing.	19999		tatoeba
 درون	ما همه در درون شبیه همدیگر هستیم.	We are all alike, on the inside.	19999		tatoeba
 شبیه	ما همه در درون شبیه همدیگر هستیم.	We are all alike, on the inside.	19999		tatoeba
 کاربر	من یک کاربر ویندوز هستم.	I am a Windows user.	19999		tatoeba
@@ -3722,16 +3076,13 @@ word	sentence	translation	difficulty_rank	transliteration	source
 شمشیر	او سرانجام شمشیر را در نیام خود کرد.	Eventually, he returned the sword to its sheath.	19999		tatoeba
 خدایان	خدایان تقدیر کرده‌اند که انسان فانی است.	The gods have decreed that man is mortal.	19999		tatoeba
 تقدیر	خدایان تقدیر کرده‌اند که انسان فانی است.	The gods have decreed that man is mortal.	19999		tatoeba
-نگرانی	چرا نگرانی بیخودی؟	Why worry needlessly?	19999		tatoeba
 ضعیف	او یک موزیسین ضعیف بود.	He was an impoverished musician.	19999		tatoeba
 فقر	فقر باعث جرم می شود.	Poverty induces crime.	19999		tatoeba
 باعث	فقر باعث جرم می شود.	Poverty induces crime.	19999		tatoeba
 اعتراف	او به جرمش اعتراف کرد.	He confessed his crime.	19999		tatoeba
 مشخص	گزینه درست را مشخص کنید.	Indicate the correct option.	19999		tatoeba
-نقره	ساغر نقره‌ای است.	The goblet is silver.	19999		tatoeba
 شوروی	در شوروی، جمله شما را می‌نویسد.	In Soviet Russia, sentence writes you!	19999		tatoeba
 شوروی	در شوروی، تلویزیون تماشاگران را نگاه می‌کند.	In Soviet Russia, television watches the audience!	19999		tatoeba
-خداوند	خداوند یک فیل است.	God is an elephant.	19999		tatoeba
 گواهی	گواهی‌نامه‌ام توقیف شد.	My license was confiscated.	19999		tatoeba
 توقیف	گواهی‌نامه‌ام توقیف شد.	My license was confiscated.	19999		tatoeba
 غالب	نور بر تاریکی غالب می‌شود.	Light prevails over darkness.	19999		tatoeba
@@ -3741,13 +3092,11 @@ word	sentence	translation	difficulty_rank	transliteration	source
 پاک	من گوشهایم را با گوش پاک کن تمیز می‌کنم.	I clean my ears using cotton swabs.	19999		tatoeba
 تمیز	من گوشهایم را با گوش پاک کن تمیز می‌کنم.	I clean my ears using cotton swabs.	19999		tatoeba
 هدایت	او یک وبینار را هدایت کرد.	He conducted a webinar.	19999		tatoeba
-فرودگاه	فرودگاه کجاست؟	Where's the airport?	19999		tatoeba
 گاو	گاو را دوشیدم.	I milked the cow.	19999		tatoeba
 گاو	من گاو را دوشیدم.	I milked the cow.	19999		tatoeba
 معمولی	او بیش از یک لات معمولی نیست.	He's nothing more than a common thug.	19999		tatoeba
 منع	او از معالجهٔ پزشکی منع شد.	He was refused medical treatment.	19999		tatoeba
 پزشکی	او از معالجهٔ پزشکی منع شد.	He was refused medical treatment.	19999		tatoeba
-قلب	قلب یک عضله است.	The heart is a muscle.	19999		tatoeba
 تورم	پاهایش تورم کرده‌اند.	His feet have swelled up.	19999		tatoeba
 یهودی	عبری اولین زبان یهودی بود.	Hebrew was the first Jewish language.	19999		tatoeba
 ارزشمند	این یک جهد ارزشمند است.	This is a worthwhile endeavor.	19999		tatoeba
@@ -3756,8 +3105,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 تند	ما از یک شیب تند صعود کردیم.	We climbed the steep slope.	19999		tatoeba
 صعود	ما از یک شیب تند صعود کردیم.	We climbed the steep slope.	19999		tatoeba
 موجود	چند مهرهٔ متفاوت در شطرنج ژاپنی موجود است؟	How many different pieces are there in Japanese chess?	19999		tatoeba
-تفنگ	تفنگ را بیانداز.	Drop your gun!	19999		tatoeba
-رسانه	رسانه را باور نکن.	Don't believe the media.	19999		tatoeba
 شخصیت	من شخصیت امیر خان را در فیلم ۳ ابله دوست دارم.	I love Aamir Khan's character in the movie 3 Idiots.	19999		tatoeba
 خان	من شخصیت امیر خان را در فیلم ۳ ابله دوست دارم.	I love Aamir Khan's character in the movie 3 Idiots.	19999		tatoeba
 امیر	من شخصیت امیر خان را در فیلم ۳ ابله دوست دارم.	I love Aamir Khan's character in the movie 3 Idiots.	19999		tatoeba
@@ -3777,28 +3124,22 @@ word	sentence	translation	difficulty_rank	transliteration	source
 تمدن	آیا تمدن ما روزی سقوط خواهد کرد؟	Will our civilization collapse one day?	19999		tatoeba
 آستانه	سقف در آستانه فروپاشی است.	The roof is about to collapse.	19999		tatoeba
 سقف	سقف در آستانه فروپاشی است.	The roof is about to collapse.	19999		tatoeba
-تیز	تیغه خیلی تیز بود.	The blade was very sharp.	19999		tatoeba
 خودداری	تام از پنهان کردن حقیقت خودداری کرد.	Tom refused to conceal the truth.	19999		tatoeba
 استخدام	آنها کارگران موقت را استخدام می کنند.	They employ temporary workers.	19999		tatoeba
 موقت	آنها کارگران موقت را استخدام می کنند.	They employ temporary workers.	19999		tatoeba
 فرهنگ	فرهنگ ما هرگز از بین نخواهد رفت.	Our culture will never vanish.	19999		tatoeba
-مه	مه غلیظ است.	The fog is dense.	19999		tatoeba
 حذف	حذف کردن تقلب، دشوار است.	It's difficult to eliminate cheating.	19999		tatoeba
-اکثریت	متأسفانه آنها اکثریت هستند.	Unfortunately, they're the majority.	19999		tatoeba
 موتور	من موتور ماشین را مونتاژ می کنم.	I assemble car engines.	19999		tatoeba
 جنگل	بیآیید جنگل را کشف کنیم!	Let's explore the forest!	19999		tatoeba
 کشف	بیآیید جنگل را کشف کنیم!	Let's explore the forest!	19999		tatoeba
 فرار	او تلاش نکرد، از واقعیت فرار کند.	She didn't try to evade the truth.	19999		tatoeba
 نوع	این یک نوع کلاهبرداری است.	This is some kind of scam.	19999		tatoeba
-ملک	آنها ملک را فروختند.	They sold the estate.	19999		tatoeba
 نقص	یک نقص طراحی باعث خرابی رایانه من شد.	A design flaw made my computer crash.	19999		tatoeba
 رایانه	یک نقص طراحی باعث خرابی رایانه من شد.	A design flaw made my computer crash.	19999		tatoeba
 طراحی	یک نقص طراحی باعث خرابی رایانه من شد.	A design flaw made my computer crash.	19999		tatoeba
 استدلال	در استدلال شما یک ایراد وجود دارد.	There's a flaw in your argument.	19999		tatoeba
 مقصد	من به مقصد نزدیک می شوم.	I approach my destination.	19999		tatoeba
 رویکرد	از رویکرد تطبیقی استفاده کنید.	Use an adaptive approach.	19999		tatoeba
-معمولی	صبح دوشنبه معمولی بود.	Monday morning was typical.	19999		tatoeba
-حافظ	خدا حافظ شما باشد.	God protect you.	19999		tatoeba
 حافظ	خدا حافظ همهٔ شما باشد.	God protects you all.	19999		tatoeba
 رضایت	او از رضایت خودش خودداری کرد.	He withheld his consent.	19999		tatoeba
 محکوم	هیچ کس را محکوم نکن.	Denounce no-one.	19999		tatoeba
@@ -3813,7 +3154,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 ماده	این ماده جریان الکتریسیته را به خوبی هدایت می کند.	This substance conducts electricity well.	19999		tatoeba
 معتدل	آب و هوای این منطقه معتدل است.	This region's climate is temperate.	19999		tatoeba
 منطقه	آب و هوای این منطقه معتدل است.	This region's climate is temperate.	19999		tatoeba
-مقاومت	من مقاومت نکردم.	I did not resist.	19999		tatoeba
 آتش	شما فکر می کنید چرا حیوانات از آتش می ترسند؟	Why do you think animals dread fire?	19999		tatoeba
 شخصیت	او یک شخصیت بسیار مردانه دارد.	He has a very masculine character.	19999		tatoeba
 شواهد	تام شواهد را پنهان کرد.	Tom concealed evidence.	19999		tatoeba
@@ -3825,16 +3165,13 @@ word	sentence	translation	difficulty_rank	transliteration	source
 تار	اشکها دید مرا تیره و تار کردند.	Tears clouded my vision.	19999		tatoeba
 تیره	اشکها دید مرا تیره و تار کردند.	Tears clouded my vision.	19999		tatoeba
 تار	دید من تار شده است.	My vision is blurred.	19999		tatoeba
-اقلیت	زنان، اقلیت نیستند.	Women are not a minority.	19999		tatoeba
 زنان	زنان، اقلیت نیستند.	Women are not a minority.	19999		tatoeba
 درگیری	از درگیری دور بمانید.	Stay away from conflict.	19999		tatoeba
-مکرر	این اشتباهات مکرر هستند.	These mistakes are frequent.	19999		tatoeba
 گاز	من اجاق گاز را روشن می کنم.	I ignite the stove.	19999		tatoeba
 فوتبال	بیایید فوتبال را لغو کنیم.	Let's abolish football!	19999		tatoeba
 برده	من قصد دارم برده داری را ملغی کنم.	I intend to abolish slavery.	19999		tatoeba
 اعدام	ما باید مجازات اعدام را ملغی کنیم.	We must abolish the death penalty.	19999		tatoeba
 مجازات	ما باید مجازات اعدام را ملغی کنیم.	We must abolish the death penalty.	19999		tatoeba
-صادق	من خیلی صادق بودم.	I was very frank.	19999		tatoeba
 صادق	لطفاً با من صادق باش.	Please be frank with me.	19999		tatoeba
 ویران	کمونیسم در اینجا هر چیزی را ویران کرد.	Communism ruined everything here.	19999		tatoeba
 ضد	چرچیل بسیار ضد کمونیست بود.	Churchill was very anti-communist.	19999		tatoeba
@@ -3865,18 +3202,15 @@ word	sentence	translation	difficulty_rank	transliteration	source
 لایحه	این لایحه به اتفاق آراء تصویب شد.	The bill passed unanimously.	19999		tatoeba
 موافق	آنها به اتفاق آراء موافق بودند.	They agreed to it unanimously.	19999		tatoeba
 مشترک	ما یک نیای مشترک داریم.	We have a common ancestor.	19999		tatoeba
-شباهت	شباهت چشمگیر بود.	The resemblance was striking.	19999		tatoeba
 مطمئن	تام مطمئن ماند.	Tom remains confident.	19999		tatoeba
 نفس	اعتماد به نفس داشته باشید.	Be self-confident.	19999		tatoeba
 مطمئن	ما کاملاً مطمئن بودیم.	We were pretty confident.	19999		tatoeba
 سوراخ	فقط چیزی را سوراخ نکن.	Just don't pierce anything.	19999		tatoeba
 حاشیه	شما خیلی در حاشیه هستید.	You're too on edge.	19999		tatoeba
 ادبیات	مطالعه ادبیات ذهن را تغذیه می کند.	Reading of literature nourishes the mind.	19999		tatoeba
-خط	خط پایین چیست؟	What's the bottom line?	19999		tatoeba
 برنده	شیطان گاهی اوقات برنده می شود.	Evil sometimes wins.	19999		tatoeba
 کودکی	دوران کودکی اش سخت بود.	His childhood was harsh.	19999		tatoeba
 دوران	دوران کودکی اش سخت بود.	His childhood was harsh.	19999		tatoeba
-پوست	پوست او زمخت است.	Her skin is harsh.	19999		tatoeba
 فعال	تام به اندازه گذشته فعال نیست.	Tom is not as nimble as he used to be.	19999		tatoeba
 لشکر	دو لشکر تسلیم شدند.	Two divisions have surrendered.	19999		tatoeba
 تسلیم	دو لشکر تسلیم شدند.	Two divisions have surrendered.	19999		tatoeba
@@ -3895,11 +3229,8 @@ word	sentence	translation	difficulty_rank	transliteration	source
 شکسته	آیا جمجمه شما شکسته است؟	Is your skull broken?	19999		tatoeba
 فرمان	کاپیتان فرمان سکوت داد.	The captain commanded silence.	19999		tatoeba
 فرمانده	تام فرمانده شد.	Tom became the commander.	19999		tatoeba
-خیس	احتیاط! نقاشی خیس	Caution! Wet Paint	19999		tatoeba
 گر	او خیلی حیله گر است.	She is very cunning.	19999		tatoeba
-خشونت	ما از خشونت متنفریم.	We hate violence.	19999		tatoeba
 تکیه	او به همراهانش تکیه کرد.	He relied on his companions.	19999		tatoeba
-عمیق	مرداب خیلی عمیق است.	The lagoon is very deep.	19999		tatoeba
 بگیرند	آنها در تالاب جزیره باید ماهی بگیرند.	They'll have to fish in the island's lagoon.	19999		tatoeba
 باله	ماهی آبشش و باله دارند.	Fish have gills and fins.	19999		tatoeba
 اعتراف	تام همه چیز را اعتراف کرد.	Tom confessed everything.	19999		tatoeba
@@ -3907,7 +3238,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 تولید	پستانداران شیر تولید می کنند.	Mammals produce milk.	19999		tatoeba
 دانشکده	من در دانشکده حاضر شدم.	I attended college.	19999		tatoeba
 تجویز	پزشک مقداری دارو تجویز کرد.	The doctor prescribed some medicine.	19999		tatoeba
-کلمات	کلمات عاقلانه!	Wise words!	19999		tatoeba
 هوایی	این را با پست هوایی بفرست.	Send it airmail.	19999		tatoeba
 هوایی	سرعت پست هوایی چقدر است؟	What's the airmail rate?	19999		tatoeba
 محاصره	ما روستا را محاصره کردیم.	We surrounded the village.	19999		tatoeba
@@ -3930,8 +3260,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 فراوان	فراوان بنوشید.	Drink plenty.	19999		tatoeba
 عصبی	من بسیار عصبی بودم.	I was plenty nervous.	19999		tatoeba
 بارها	تام بارها به من کمک کرد.	Tom helped me out countless times.	19999		tatoeba
-شاعر	آلن شاعر است.	Allen is a poet.	19999		tatoeba
-حذف	حذف مرزها!	Abolish borders!	19999		tatoeba
 گرفتند	آنها تصمیم گرفتند محدودیتهای قدیمی را لغو کنند.	They decided to abolish the old restriction.	19999		tatoeba
 تصمیم	آنها تصمیم گرفتند محدودیتهای قدیمی را لغو کنند.	They decided to abolish the old restriction.	19999		tatoeba
 ریز	تام یک برنامه ریز شهری است.	Tom is an urban planner.	19999		tatoeba
@@ -3966,30 +3294,23 @@ word	sentence	translation	difficulty_rank	transliteration	source
 برده	برده‌داری یک تجارت پر منفعت بود.	Slavery was a lucrative business.	19999		tatoeba
 پر	برده‌داری یک تجارت پر منفعت بود.	Slavery was a lucrative business.	19999		tatoeba
 تجارت	برده‌داری یک تجارت پر منفعت بود.	Slavery was a lucrative business.	19999		tatoeba
-باهوش	کلاغ‌ها باهوش هستند.	Crows are smart.	19999		tatoeba
 شمال	عقربه به سمت شمال است.	The needle is pointing north.	19999		tatoeba
 نقشه	من یک نقشهٔ بزرگ را روی میز گستردم.	I spread out the large map on the table.	19999		tatoeba
-تشخیص	تشخیص شما چیست؟	What's your diagnosis?	19999		tatoeba
 موافق	تام با تشخیص او موافق نیست.	Tom disagrees with his diagnosis.	19999		tatoeba
-مسجد	مسجد کجاست؟	Where is the mosque?	19999		tatoeba
 کلیسا	کلیسا کجاست؟	Where's the church?	19999		tatoeba
 پوست	شاه میگو یک سخت‌پوست دریایی است.	The lobster is a marine crustacean.	19999		tatoeba
 فنجان	تام قهوه را از یک فنجان یک بار مصرف خورد.	Tom was drinking coffee in a disposable styrofoam cup.	19999		tatoeba
 فصل	تابستان گرمترین فصل سال است.	Summer is the warmest season of the year.	19999		tatoeba
 فصل	زمستان سردترین فصل سال است.	Winter is the coldest season of the year.	19999		tatoeba
 عربی	زبان عربی زبان سختی است!	Arabic is difficult!	19999		tatoeba
-یهودی	عیسی یک یهودی بود.	Jesus was a Jew.	19999		tatoeba
-پارچه	پارچه ریشریش بود.	The fabric was frayed.	19999		tatoeba
 قدیم	ما از رسم الخط قدیم استفاده می‌کنیم.	We use the old orthography.	19999		tatoeba
 رسم	ما از رسم الخط قدیم استفاده می‌کنیم.	We use the old orthography.	19999		tatoeba
 غیرممکن	فرانسوی‌ها معتقدند که هیچ چیز غیرممکن نیست.	The French believe that nothing is impossible.	19999		tatoeba
 یهودی	سامی با یک زن یهودی ازدواج کرد.	Sami married a Jewish woman.	19999		tatoeba
 عربی	چرا عربی یاد می‌گیری؟	Why are you learning Arabic?	19999		tatoeba
-خداوند	خداوند چه می‌خواهد؟	What does God want?	19999		tatoeba
 نسخه	این نسخه ماقبل آخر مقاله است.	This is the penultimate version of the paper.	19999		tatoeba
 مقاله	این نسخه ماقبل آخر مقاله است.	This is the penultimate version of the paper.	19999		tatoeba
 پرسیدن	سوال پرسیدن هیچ هزینه ای نداره	Asking doesn’t cost anything.	19999		tatoeba
 هزینه	سوال پرسیدن هیچ هزینه ای نداره	Asking doesn’t cost anything.	19999		tatoeba
 میوه	سیب و گلابی میوه هستند.	Apples and pears are fruit.	19999		tatoeba
-مریض	مریض نبودم.	I wasn't sick.	19999		tatoeba
 دفن	ما زمان را می‌کشیم. زمان ما را دفن می‌کند.	We kill time; time buries us.	19999		tatoeba

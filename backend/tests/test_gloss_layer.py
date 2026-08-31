@@ -22,6 +22,7 @@ import glob
 import json
 import os
 import re
+import unicodedata
 
 import pytest
 
@@ -221,3 +222,54 @@ def test_english_glosses_are_structural_not_translational():
     assert not echo_only, (
         f"{len(echo_only)} en gloss(es) only echo their tokens — no cell "
         f"decomposes anything, e.g. {echo_only[:2]}")
+
+
+# ── Example-sentence floor (CHECKS §23) ────────────────────────────────────
+def _sentence_tokens(sentence: str) -> list[str]:
+    out: list[str] = []
+    cur = ""
+    for ch in sentence or "":
+        if unicodedata.category(ch).startswith(("L", "M")) or (cur and ch in "'’-"):
+            cur += ch
+        else:
+            if cur:
+                out.append(cur)
+                cur = ""
+    if cur:
+        out.append(cur)
+    return out
+
+
+@pytest.mark.parametrize(
+    "path",
+    [p for p in glob.glob("data/*_sentences.tsv") if "/th_" not in p],
+    ids=lambda p: os.path.basename(p),
+)
+def test_a_word_with_a_real_sentence_keeps_no_fragments(path):
+    """CHECKS §23. A word that HAS a sentence of five tokens or more must not
+    also carry ones below that: the card draws by difficulty_rank, appended
+    rows sort last, and the fragments win. The owner's `мне` card showed
+    "Это мне?", "Это не мне." and "Это мне." while three authored sentences
+    of ten and eleven words sat unseen behind them.
+
+    Words whose every sentence is thin are exempt — nothing better exists
+    yet, and an empty card is worse. Thai is excluded (§22): it writes
+    without spaces, so a token count says nothing.
+    """
+    import csv as _csv
+    from collections import defaultdict
+
+    with open(path, encoding="utf-8-sig", newline="") as fh:
+        rows = [r for r in _csv.DictReader(fh, delimiter="\t")
+                if (r.get("sentence") or "").strip()]
+    by_word = defaultdict(list)
+    for r in rows:
+        by_word[(r.get("word") or "").strip()].append(r.get("sentence") or "")
+    bad = []
+    for word, group in by_word.items():
+        lens = [len(_sentence_tokens(s)) for s in group]
+        if max(lens) >= 5 and min(lens) < 5:
+            bad.append((word, [s for s, n in zip(group, lens, strict=False) if n < 5][:2]))
+    assert not bad, (
+        f"{len(bad)} word(s) keep a fragment despite having a real sentence, "
+        f"e.g. {bad[:2]}")
