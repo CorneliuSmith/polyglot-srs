@@ -936,3 +936,40 @@ ceiling is a known limitation, not a backlog item to grind at.
 
 Applies to any future course written without word spaces (Japanese, Chinese,
 Khmer, Lao). Check the writing system before setting a coverage target.
+
+---
+
+## §23 The complexity bar for an example sentence (owner, 30 Aug 2026)
+
+§21 set the floor — a sentence may not be only the word it teaches. This is
+the ceiling, and it is the more demanding half: **a sentence must carry a
+scene, because that is the mechanism by which a learner remembers.**
+
+Grammatical is not the standard. *Я живу в Москве* is correct, natural, and
+nearly worthless as a card — there is nothing to picture, so nothing to
+attach the word to. *Я живу в Москве уже пять лет, но до сих пор путаюсь в
+метро* teaches the same word and is memorable, because it has a duration, a
+complication and a feeling.
+
+The bar, applied when authoring and enforced when checking:
+
+* **7–14 words.** Below seven there is rarely room for a scene; above
+  fourteen it stops being memorable.
+* **A finite verb and a real predicate** — not a label, list, or bare noun
+  phrase.
+* **The target word does work.** Remove it and the sentence should lose
+  meaning. A preposition or particle must sit in the construction that
+  actually teaches its use.
+* **Three sentences per word, differing in KIND** — one domestic, one social
+  or working, one carrying feeling or opinion. Three frames with swapped
+  nouns count as one sentence.
+* **Native settings.** A dacha, a marshrutka, Ramadan, a souq — not English
+  scenery with the nouns changed.
+* **Meaning-for-meaning translations**, never word-for-word.
+
+**Measured before the first pass (30 Aug):** 21% of Russian and 31% of
+Arabic sentences were three tokens or fewer. 151 Russian and 228 Arabic words
+inside the top 2,000 had NO sentence longer than three tokens — including
+`я` (rank 0, best example "Не я."), `не`, `и`, `что`, `كان`, `لا`, `هذا`.
+The highest-frequency words had the thinnest examples, which is the worst
+possible distribution: they are what a learner meets first.

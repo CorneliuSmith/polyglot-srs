@@ -216,6 +216,16 @@ rate, say so — that result matters more than the phase closing quietly.
     prove them without a model. And Python's `\w` drops Mc marks exactly as
     JS `\p{L}` did (रही → रह) — fold on category M*, both sides. (CHECKS §16)
 
+37. **An example sentence must carry a SCENE, not just be grammatical.**
+    Owner requirement, 30 Aug 2026: a learner remembers a word through the
+    situation it sat in, so a true-but-pictureless sentence ("I live in
+    Moscow") is nearly as weak as a fragment. The bar: 7-14 words, a finite
+    verb, the target word doing work the sentence would lose without it,
+    three sentences per word differing in KIND rather than in swapped nouns,
+    and settings native to the speakers rather than English scenery
+    translated across. Fragments were the floor (CHECKS §21); this is the
+    ceiling. (CHECKS §23)
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one
