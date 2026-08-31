@@ -501,16 +501,22 @@ function ReviewSessionInner({
       setLastInput(variables.user_input)
       session.setValidationResult(result)
       setUserInput('')
-      // Read the whole sentence aloud on a fully correct answer — the one
-      // moment the learner can just listen, no longer hunting for the
-      // word. The clip was prefetched while they typed, so this is a cache
-      // hit; a browser that refuses the autoplay stays quiet and the play
-      // button on the feedback screen still works. 'correct' only: an
-      // amber "almost" screen is still a correction to read.
+      // Read the whole sentence aloud once the learner got the word — the
+      // one moment they can just listen, no longer hunting for it. The clip
+      // was prefetched while they typed, so this is a cache hit; a browser
+      // that refuses the autoplay stays quiet and the play button on the
+      // feedback screen still works.
+      //
+      // Amber ('correct_sloppy') plays too. It used to be 'correct' only,
+      // on the reasoning that an "almost" screen is a correction to read —
+      // but amber IS the accent/diacritic miss, and hearing the word said
+      // properly is the correction. Orange and red stay quiet: those are a
+      // wrong form and a wrong answer, where the text is what teaches.
       const said = session.currentCard
       if (
         sentenceAudioOnCorrect &&
-        result.answer_result === 'correct' &&
+        (result.answer_result === 'correct' ||
+          result.answer_result === 'correct_sloppy') &&
         said &&
         TTS_LANGUAGES.has(said.language_code)
       ) {

@@ -1187,7 +1187,7 @@
     },
     "sentenceAudio": {
       "title": "Hear the sentence when you're right",
-      "desc": "After a correct answer, the full sentence is read aloud so you hear it whole. Applies on every device you use."
+      "desc": "After a correct answer — including one that only slipped on the accents — the full sentence is read aloud so you hear it whole. Applies on every device you use."
     }
   },
   "feedback": {

@@ -1187,7 +1187,7 @@
     },
     "sentenceAudio": {
       "title": "Écoutez la phrase quand vous avez juste",
-      "desc": "Après une bonne réponse, la phrase complète est lue à voix haute pour que vous l'entendiez en entier. S'applique sur tous vos appareils."
+      "desc": "Après une bonne réponse — y compris celle où seuls les accents ont manqué —, la phrase complète est lue à voix haute pour que vous l'entendiez en entier. S'applique sur tous vos appareils."
     }
   },
   "feedback": {
