@@ -1,27 +1,10 @@
 word	sentence	translation	difficulty_rank	gloss
-sake	Sake shi.	Release him.	71	release.IMP · 3SG.M
-shi	Sake shi.	Release him.	71	release.IMP · 3SG.M
-sake	Sake shi!	Release him!	71	release.IMP · 3SG.M
-shi	Sake shi!	Release him!	71	release.IMP · 3SG.M
-mai	Kai, mai kyau!	Hey there, good looking!	85	2SG.M · having · goodness
-kyau	Kai, mai kyau!	Hey there, good looking!	85	2SG.M · having · goodness
-kai	Kai, mai kyau!	Hey there, good looking!	85	2SG.M · having · goodness
 girma	Ka girma.	You're not young.	108	2SG.M.PFV · grow
 ka	Ka girma.	You're not young.	108	2SG.M.PFV · grow
-zama	Ka fara zama kaza.	You're turning into a chicken.	238	2SG.M.PFV · begin · become · chicken
-kaza	Ka fara zama kaza.	You're turning into a chicken.	238	2SG.M.PFV · begin · become · chicken
 ka	Ka fara zama kaza.	You're turning into a chicken.	238	2SG.M.PFV · begin · become · chicken
-fara	Ka fara zama kaza.	You're turning into a chicken.	238	2SG.M.PFV · begin · become · chicken
 ka	Ka ji kunya.	Shame on you.	271	2SG.M.SBJV · feel · shame
 ji	Ka ji kunya.	Shame on you.	271	2SG.M.SBJV · feel · shame
-kunya	Ka ji kunya.	Shame on you.	271	2SG.M.SBJV · feel · shame
-zafi	Baya zafi.	It doesn't hurt.	278	NEG.3SG.M · heat
-baya	Baya zafi.	It doesn't hurt.	278	NEG.3SG.M · heat
-zama	Yanzu ka zama babba.	Now you're an adult.	309	now · 2SG.M.PFV · become · big
-babba	Yanzu ka zama babba.	Now you're an adult.	309	now · 2SG.M.PFV · become · big
-yanzu	Yanzu ka zama babba.	Now you're an adult.	309	now · 2SG.M.PFV · become · big
 ji	Ka ji ciwo?	Are you hurt?	344	2SG.M.PFV · feel · pain
-ciwo	Ka ji ciwo?	Are you hurt?	344	2SG.M.PFV · feel · pain
 dari	Dari ɗaya, dari biyu, dari uku, dari huɗu, dari biyar, dari shida, dari bakwai, dari takwas, dari tara, dubu ɗaya.	One hundred, two hundred, three hundred, four hundred, five hundred, six hundred, seven hundred, eight hundred, nine hundred, one thousand.	682	hundred · one · hundred · two · hundred · three · hundred · four · hundred · five · hundred · six · hundred · seven · hundred · eight · hundred · nine · thousand · one
 uku	Dari ɗaya, dari biyu, dari uku, dari huɗu, dari biyar, dari shida, dari bakwai, dari takwas, dari tara, dubu ɗaya.	One hundred, two hundred, three hundred, four hundred, five hundred, six hundred, seven hundred, eight hundred, nine hundred, one thousand.	682	hundred · one · hundred · two · hundred · three · hundred · four · hundred · five · hundred · six · hundred · seven · hundred · eight · hundred · nine · thousand · one
 dubu	Dari ɗaya, dari biyu, dari uku, dari huɗu, dari biyar, dari shida, dari bakwai, dari takwas, dari tara, dubu ɗaya.	One hundred, two hundred, three hundred, four hundred, five hundred, six hundred, seven hundred, eight hundred, nine hundred, one thousand.	682	hundred · one · hundred · two · hundred · three · hundred · four · hundred · five · hundred · six · hundred · seven · hundred · eight · hundred · nine · thousand · one
@@ -34,68 +17,29 @@ biyar	Dari ɗaya, dari biyu, dari uku, dari huɗu, dari biyar, dari shida, dari 
 shida	Dari ɗaya, dari biyu, dari uku, dari huɗu, dari biyar, dari shida, dari bakwai, dari takwas, dari tara, dubu ɗaya.	One hundred, two hundred, three hundred, four hundred, five hundred, six hundred, seven hundred, eight hundred, nine hundred, one thousand.	682	hundred · one · hundred · two · hundred · three · hundred · four · hundred · five · hundred · six · hundred · seven · hundred · eight · hundred · nine · thousand · one
 huɗu	Dari ɗaya, dari biyu, dari uku, dari huɗu, dari biyar, dari shida, dari bakwai, dari takwas, dari tara, dubu ɗaya.	One hundred, two hundred, three hundred, four hundred, five hundred, six hundred, seven hundred, eight hundred, nine hundred, one thousand.	682	hundred · one · hundred · two · hundred · three · hundred · four · hundred · five · hundred · six · hundred · seven · hundred · eight · hundred · nine · thousand · one
 alade	Fashe, alade!	Explode, swine!	863	burst.IMP · pig
-fashe	Fashe, alade!	Explode, swine!	863	burst.IMP · pig
-uku	Buƙata uku.	Gimme three.	1014	need.IMP · three
-buƙata	Buƙata uku.	Gimme three.	1014	need.IMP · three
 barka	Barka da yamma.	Good evening.	1152	blessing · with · evening
-yamma	Barka da yamma.	Good evening.	1152	blessing · with · evening
 da	Barka da yamma.	Good evening.	1152	blessing · with · evening
-allura	Tana aiki da allura.	She is handy with a needle.	1152	3SG.F.PROG · work · with · needle
-aiki	Tana aiki da allura.	She is handy with a needle.	1152	3SG.F.PROG · work · with · needle
-tana	Tana aiki da allura.	She is handy with a needle.	1152	3SG.F.PROG · work · with · needle
 da	Tana aiki da allura.	She is handy with a needle.	1152	3SG.F.PROG · work · with · needle
 girma	Suna da girma.	They're really big.	1152	3PL.PROG · with · bigness
-suna	Suna da girma.	They're really big.	1152	3PL.PROG · with · bigness
 da	Suna da girma.	They're really big.	1152	3PL.PROG · with · bigness
 lokaci	Gaskiya baka da lokaci.	You obviously don't have time.	1152	truth · NEG.2SG.M · with · time
 baka	Gaskiya baka da lokaci.	You obviously don't have time.	1152	truth · NEG.2SG.M · with · time
-gaskiya	Gaskiya baka da lokaci.	You obviously don't have time.	1152	truth · NEG.2SG.M · with · time
-turanci	Tana magana da Turanci.	She speaks English.	1152	3SG.F.PROG · speech · with · English
-magana	Tana magana da Turanci.	She speaks English.	1152	3SG.F.PROG · speech · with · English
-tana	Tana magana da Turanci.	She speaks English.	1152	3SG.F.PROG · speech · with · English
-mata	Mata suna da gaskiya.	Women are sincere.	1152	woman.PL · 3PL.PROG · with · truth
-suna	Mata suna da gaskiya.	Women are sincere.	1152	woman.PL · 3PL.PROG · with · truth
-gaskiya	Mata suna da gaskiya.	Women are sincere.	1152	woman.PL · 3PL.PROG · with · truth
 mu	Kada mu daina mai da hankali.	Let's not lose focus.	1152	PROH · 1PL.SBJV · cease · return · PRT · sense
 kada	Kada mu daina mai da hankali.	Let's not lose focus.	1152	PROH · 1PL.SBJV · cease · return · PRT · sense
 hankali	Kada mu daina mai da hankali.	Let's not lose focus.	1152	PROH · 1PL.SBJV · cease · return · PRT · sense
 mai	Kada mu daina mai da hankali.	Let's not lose focus.	1152	PROH · 1PL.SBJV · cease · return · PRT · sense
 daina	Kada mu daina mai da hankali.	Let's not lose focus.	1152	PROH · 1PL.SBJV · cease · return · PRT · sense
-hankali	Mai da hankali.	Focus.	1152	return.IMP · PRT · sense
-hankali	Mai da hankali!	Focus!	1152	return.IMP · PRT · sense
 barka	Barka da Asabar.	Happy Saturday.	1152	blessing · with · Saturday
-asabar	Barka da Asabar.	Happy Saturday.	1152	blessing · with · Saturday
-ya	Ya koma Amurka.	He returned to America.	1153	3SG.M.PFV · return · America
-amurka	Ya koma Amurka.	He returned to America.	1153	3SG.M.PFV · return · America
-koma	Ya koma Amurka.	He returned to America.	1153	3SG.M.PFV · return · America
 ya	Ya saye shi dala biyar.	He bought it for five dollars.	1153	3SG.M.PFV · buy · 3SG.M · dollar · five
 shi	Ya saye shi dala biyar.	He bought it for five dollars.	1153	3SG.M.PFV · buy · 3SG.M · dollar · five
 dala	Ya saye shi dala biyar.	He bought it for five dollars.	1153	3SG.M.PFV · buy · 3SG.M · dollar · five
 biyar	Ya saye shi dala biyar.	He bought it for five dollars.	1153	3SG.M.PFV · buy · 3SG.M · dollar · five
 saye	Ya saye shi dala biyar.	He bought it for five dollars.	1153	3SG.M.PFV · buy · 3SG.M · dollar · five
-ya	Ya kafa tarihi.	He made up the history.	1153	3SG.M.PFV · establish · history
-tarihi	Ya kafa tarihi.	He made up the history.	1153	3SG.M.PFV · establish · history
-kafa	Ya kafa tarihi.	He made up the history.	1153	3SG.M.PFV · establish · history
-kowa	Ya kowa da kowa?	How's everybody?	1153	how · everyone · with · everyone
-su	Kowa ya nuna su.	Everyone pointed at them.	1153	everyone · 3SG.M.PFV · show · 3PL
-nuna	Kowa ya nuna su.	Everyone pointed at them.	1153	everyone · 3SG.M.PFV · show · 3PL
-kowa	Kowa ya nuna su.	Everyone pointed at them.	1153	everyone · 3SG.M.PFV · show · 3PL
-mata	Ya rubuta mata sako.	He wrote her a message.	1153	3SG.M.PFV · write · DAT.3SG.F · message
 sako	Ya rubuta mata sako.	He wrote her a message.	1153	3SG.M.PFV · write · DAT.3SG.F · message
-rubuta	Ya rubuta mata sako.	He wrote her a message.	1153	3SG.M.PFV · write · DAT.3SG.F · message
-isa	Wannan ya isa.	This is enough.	1153	this · 3SG.M.PFV · suffice
-wannan	Wannan ya isa.	This is enough.	1153	this · 3SG.M.PFV · suffice
 zafi	Da Kyau! Kofi yana da zafi.	Great! The coffee is hot.	1155	with · goodness · coffee · 3SG.M.PROG · with · heat
 yana	Da Kyau! Kofi yana da zafi.	Great! The coffee is hot.	1155	with · goodness · coffee · 3SG.M.PROG · with · heat
 kofi	Da Kyau! Kofi yana da zafi.	Great! The coffee is hot.	1155	with · goodness · coffee · 3SG.M.PROG · with · heat
 kyau	Da Kyau! Kofi yana da zafi.	Great! The coffee is hot.	1155	with · goodness · coffee · 3SG.M.PROG · with · heat
-abu	Wani abu yana zuwa.	Something's coming.	1155	some.M · thing · 3SG.M.PROG · come
-yana	Wani abu yana zuwa.	Something's coming.	1155	some.M · thing · 3SG.M.PROG · come
-wani	Wani abu yana zuwa.	Something's coming.	1155	some.M · thing · 3SG.M.PROG · come
-zuwa	Wani abu yana zuwa.	Something's coming.	1155	some.M · thing · 3SG.M.PROG · come
-yana	Wannan yana aiki.	This one works.	1155	this · 3SG.M.PROG · work
-aiki	Wannan yana aiki.	This one works.	1155	this · 3SG.M.PROG · work
-wannan	Wannan yana aiki.	This one works.	1155	this · 3SG.M.PROG · work
 kullum	Yana magana da ni kullum.	He talked to me every day.	1155	3SG.M.PROG · speech · with · 1SG · always
 ni	Yana magana da ni kullum.	He talked to me every day.	1155	3SG.M.PROG · speech · with · 1SG · always
 magana	Yana magana da ni kullum.	He talked to me every day.	1155	3SG.M.PROG · speech · with · 1SG · always
@@ -106,18 +50,12 @@ dama	Har yanzu kowa yana da dama.	Everyone still has a chance.	1155	until · now
 yanzu	Har yanzu kowa yana da dama.	Everyone still has a chance.	1155	until · now · everyone · 3SG.M.PROG · with · opportunity
 kowa	Har yanzu kowa yana da dama.	Everyone still has a chance.	1155	until · now · everyone · 3SG.M.PROG · with · opportunity
 har	Har yanzu kowa yana da dama.	Everyone still has a chance.	1155	until · now · everyone · 3SG.M.PROG · with · opportunity
-na	Lokaci na tafiya.	Time runs on.	1156	time · PROG · go
-tafiya	Lokaci na tafiya.	Time runs on.	1156	time · PROG · go
 lokaci	Lokaci na tafiya.	Time runs on.	1156	time · PROG · go
 bayan	Lahadi na zuwa bayan Asabar.	Sunday comes after Saturday.	1156	Sunday · PROG · come · after · Saturday
 zuwa	Lahadi na zuwa bayan Asabar.	Sunday comes after Saturday.	1156	Sunday · PROG · come · after · Saturday
 asabar	Lahadi na zuwa bayan Asabar.	Sunday comes after Saturday.	1156	Sunday · PROG · come · after · Saturday
 na	Lahadi na zuwa bayan Asabar.	Sunday comes after Saturday.	1156	Sunday · PROG · come · after · Saturday
 lahadi	Lahadi na zuwa bayan Asabar.	Sunday comes after Saturday.	1156	Sunday · PROG · come · after · Saturday
-na	Na kai mishi hannu.	I took a swing at him.	1156	1SG.PFV · take · DAT.3SG.M · hand
-mishi	Na kai mishi hannu.	I took a swing at him.	1156	1SG.PFV · take · DAT.3SG.M · hand
-kai	Na kai mishi hannu.	I took a swing at him.	1156	1SG.PFV · take · DAT.3SG.M · hand
-hannu	Na kai mishi hannu.	I took a swing at him.	1156	1SG.PFV · take · DAT.3SG.M · hand
 kusa	Na zauna kusa da shi.	I sat next to him.	1156	1SG.PFV · sit · near · with · 3SG.M
 zauna	Na zauna kusa da shi.	I sat next to him.	1156	1SG.PFV · sit · near · with · 3SG.M
 kada	Kada ka sa magana a baki na.	Don't twist my words around.	1156	PROH · 2SG.M.SBJV · put · speech · at · mouth · 1SG.POSS.M
@@ -127,65 +65,31 @@ baki	Kada ka sa magana a baki na.	Don't twist my words around.	1156	PROH · 2SG.
 a	Kada ka sa magana a baki na.	Don't twist my words around.	1156	PROH · 2SG.M.SBJV · put · speech · at · mouth · 1SG.POSS.M
 ji	Na ji ka.	I heard you.	1156	1SG.PFV · hear · 2SG.M
 lafiya	Ya na lafiya?	Is he all right?	1156	3SG.M · PROG · health
-daraja	Wannan na da daraja?	Is this valuable?	1156	this · PROG · with · value
-wannan	Wannan na da daraja?	Is this valuable?	1156	this · PROG · with · value
 ladabi	Yana da ladabi na kowa.	It's common courtesy.	1156	3SG.M.PROG · with · courtesy · POSS.M · everyone
-kallo	Na sha kallo.	I've had a look around.	1156	1SG.PFV · drink · watching
-sha	Na sha kallo.	I've had a look around.	1156	1SG.PFV · drink · watching
-kasuwanci	Kasuwanci na da kyau.	Business is good.	1156	trade · PROG · with · goodness
-aiki	Mama na aiki.	Mommy's working.	1156	mother · PROG · work
-mama	Mama na aiki.	Mommy's working.	1156	mother · PROG · work
-kofi	Na sha kofi.	I drank the coffee.	1156	1SG.PFV · drink · coffee
-sha	Na sha kofi.	I drank the coffee.	1156	1SG.PFV · drink · coffee
 riga	Na riga na faɗa mata.	I already told her.	1156	1SG.PFV · precede · 1SG.PFV · tell · DAT.3SG.F
 mata	Na riga na faɗa mata.	I already told her.	1156	1SG.PFV · precede · 1SG.PFV · tell · DAT.3SG.F
 faɗa	Na riga na faɗa mata.	I already told her.	1156	1SG.PFV · precede · 1SG.PFV · tell · DAT.3SG.F
-kaita	Yanzu na kaita Makaranta.	I just got her off to school.	1156	now · 1SG.PFV · take.3SG.F · school
-yanzu	Yanzu na kaita Makaranta.	I just got her off to school.	1156	now · 1SG.PFV · take.3SG.F · school
-makaranta	Yanzu na kaita Makaranta.	I just got her off to school.	1156	now · 1SG.PFV · take.3SG.F · school
-yadda	Na yadda da ita.	I believed her.	1156	1SG.PFV · believe · with · 3SG.F
-ita	Na yadda da ita.	I believed her.	1156	1SG.PFV · believe · with · 3SG.F
 lafiya	Ka na lafiya?	Do you feel well?	1156	2SG.M · PROG · health
-tabo	Na tabo matsala?	Did I touch a raw nerve?	1156	1SG.PFV · touch · problem
-matsala	Na tabo matsala?	Did I touch a raw nerve?	1156	1SG.PFV · touch · problem
 kai	Kai, ya sha giya biyar na giya!	Wow, he drank five bottles of wine!	1156	hey · 3SG.M.PFV · drink · beer · five · POSS.M · beer
 biyar	Kai, ya sha giya biyar na giya!	Wow, he drank five bottles of wine!	1156	hey · 3SG.M.PFV · drink · beer · five · POSS.M · beer
 sha	Kai, ya sha giya biyar na giya!	Wow, he drank five bottles of wine!	1156	hey · 3SG.M.PFV · drink · beer · five · POSS.M · beer
 giya	Kai, ya sha giya biyar na giya!	Wow, he drank five bottles of wine!	1156	hey · 3SG.M.PFV · drink · beer · five · POSS.M · beer
 wasa	Bana wasa da aiki na.	I don't take my job lightly.	1156	NEG.1SG.PROG · play · with · work · 1SG.POSS.M
 bana	Bana wasa da aiki na.	I don't take my job lightly.	1156	NEG.1SG.PROG · play · with · work · 1SG.POSS.M
-gida	Ka na gida.	You are home.	1156	2SG.M · PROG · home
-kusa	Rana na yana kusa.	My day is arriving.	1156	day · 1SG.POSS.M · 3SG.M.PROG · near
-rana	Rana na yana kusa.	My day is arriving.	1156	day · 1SG.POSS.M · 3SG.M.PROG · near
 riga	Na riga na sha kofi.	I've already had coffee.	1156	1SG.PFV · already · 1SG.PFV · drink · coffee.
 kofi	Na riga na sha kofi.	I've already had coffee.	1156	1SG.PFV · already · 1SG.PFV · drink · coffee.
-gida	Gida na yana kusa.	My flat is near.	1156	house · 1SG.POSS.M · 3SG.M.PROG · near.
-kusa	Gida na yana kusa.	My flat is near.	1156	house · 1SG.POSS.M · 3SG.M.PROG · near.
-maka	Na faɗa maka shi.	I have told you it.	1156	1SG.PFV · tell · DAT.2SG.M · 3SG.M.
-faɗa	Na faɗa maka shi.	I have told you it.	1156	1SG.PFV · tell · DAT.2SG.M · 3SG.M.
 talaka	Ita talaka ce, amma mai gaskiya.	She was poor, but she was honest.	1157	3SG.F · poor.person · COP.F, · but · having · truth.
 ce	Ita talaka ce, amma mai gaskiya.	She was poor, but she was honest.	1157	3SG.F · poor.person · COP.F, · but · having · truth.
 amma	Ita talaka ce, amma mai gaskiya.	She was poor, but she was honest.	1157	3SG.F · poor.person · COP.F, · but · having · truth.
 gaskiya	Ita talaka ce, amma mai gaskiya.	She was poor, but she was honest.	1157	3SG.F · poor.person · COP.F, · but · having · truth.
 ita	Ita talaka ce, amma mai gaskiya.	She was poor, but she was honest.	1157	3SG.F · poor.person · COP.F, · but · having · truth.
-ce	Ni mace ce.	I'm a woman.	1157	1SG · woman · COP.F.
-mace	Ni mace ce.	I'm a woman.	1157	1SG · woman · COP.F.
-ni	Ni mace ce.	I'm a woman.	1157	1SG · woman · COP.F.
 ce	Ita uwa ce mai hikima.	She's a very wise mother.	1157	3SG.F · mother · COP.F · having · wisdom.
 hikima	Ita uwa ce mai hikima.	She's a very wise mother.	1157	3SG.F · mother · COP.F · having · wisdom.
 ita	Ita uwa ce mai hikima.	She's a very wise mother.	1157	3SG.F · mother · COP.F · having · wisdom.
 uwa	Ita uwa ce mai hikima.	She's a very wise mother.	1157	3SG.F · mother · COP.F · having · wisdom.
-asabar	Asabar ce.	It's Saturday.	1157	Saturday · COP.F.
-mutum	Ni mutum ce.	I'm a human being.	1157	1SG · person · COP.F.
-ni	Ni mutum ce.	I'm a human being.	1157	1SG · person · COP.F.
-ƙaddara	Ƙaddara ce.	It’s fate.	1157	fate · COP.F.
-makaranta	Wannan ce makaranta.	That is a school.	1157	this · COP.F · school.
-rana	Rana ce mai kyau.	It's a great day.	1157	day · COP.F · having · goodness.
-matsala	Yanzu wannan matsala ce.	Now that's a problem.	1157	now · this · problem · COP.F.
 budurwa	Har yanzu ita budurwa ce.	She was still a virgin.	1157	until · now · 3SG.F · young.woman · COP.F.
 har	Har yanzu ita budurwa ce.	She was still a virgin.	1157	until · now · 3SG.F · young.woman · COP.F.
 rana	Wannan rana ce mai kyau.	What a day.	1157	this · day · COP.F · having · goodness.
-uwa	Ni uwa ce.	I am a mother.	1157	1SG · mother · COP.F.
 awa	Ya ce yana da sha'awa.	He said that he was interested.	1157	3SG.M.PFV · say · 3SG.M.PROG · with · interest.
 uku	Tauraro na uku na wani sarki ne.	The third star belonged to a certain king.	1158	star · POSS.M · three · POSS.M · certain · king · COP.M.
 ne	Tauraro na uku na wani sarki ne.	The third star belonged to a certain king.	1158	star · POSS.M · three · POSS.M · certain · king · COP.M.
@@ -194,34 +98,17 @@ wani	Tauraro na uku na wani sarki ne.	The third star belonged to a certain king.
 sarki	Tauraro na uku na wani sarki ne.	The third star belonged to a certain king.	1158	star · POSS.M · three · POSS.M · certain · king · COP.M.
 kuɗi	Da ni mai kuɗi ne.	I was a rich man.	1158	formerly · 1SG · having · money · COP.M.
 ne	Da ni mai kuɗi ne.	I was a rich man.	1158	formerly · 1SG · having · money · COP.M.
-labari	Labari ne na gaskiya.	It's a true story.	1158	story · COP.M · POSS.M · truth.
-ne	Labari ne na gaskiya.	It's a true story.	1158	story · COP.M · POSS.M · truth.
 labari	Wannan labari ne mai kyau.	That's a nice story.	1158	this · story · COP.M · having · goodness.
-daga	Ni daga Italiya ne.	I'm from Italy.	1158	1SG · from · Italy · COP.M.
-italiya	Ni daga Italiya ne.	I'm from Italy.	1158	1SG · from · Italy · COP.M.
-haɗari	Aiki ne mai haɗari.	That's a risky strategy.	1158	work · COP.M · having · danger.
-littafi	Littafi ne mai kyau.	It's a good book.	1158	book · COP.M · having · goodness.
-baba	Wannan baba na ne.	That's my father.	1158	this · father · 1SG.POSS.M · COP.M.
-wasa	Mu ƴan wasa ne.	We are players.	1158	1PL · children.of · game · COP.PL.
-mu	Mu ƴan wasa ne.	We are players.	1158	1PL · children.of · game · COP.PL.
-ƴan	Mu ƴan wasa ne.	We are players.	1158	1PL · children.of · game · COP.PL.
 zama	Tana zama ne a Amurka.	She lives in the United States.	1158	3SG.F.PROG · dwelling · FOC · at · America.
 amurka	Tana zama ne a Amurka.	She lives in the United States.	1158	3SG.F.PROG · dwelling · FOC · at · America.
 tana	Tana zama ne a Amurka.	She lives in the United States.	1158	3SG.F.PROG · dwelling · FOC · at · America.
 a	Tana zama ne a Amurka.	She lives in the United States.	1158	3SG.F.PROG · dwelling · FOC · at · America.
-su	Su zo su hau.	Let them come aboard.	1159	3PL.SBJV · come · 3PL.SBJV · mount.
-zo	Su zo su hau.	Let them come aboard.	1159	3PL.SBJV · come · 3PL.SBJV · mount.
-hau	Su zo su hau.	Let them come aboard.	1159	3PL.SBJV · come · 3PL.SBJV · mount.
 ina	Ina kusa da shi.	I was on close terms with him.	1160	1SG.PROG · near · with · 3SG.M.
 ina	Ina da keke.	I have a bicycle.	1160	1SG.PROG · with · bicycle.
-keke	Ina da keke.	I have a bicycle.	1160	1SG.PROG · with · bicycle.
 ina	Ina na tun Asabar.	I've been here since Saturday.	1160	1SG.PROG · 1SG.PFV · since · Saturday.
-tun	Ina na tun Asabar.	I've been here since Saturday.	1160	1SG.PROG · 1SG.PFV · since · Saturday.
-a	A'a ina!	Not again!	1160	no · where
 zo	Kai! Daga ina ya zo?	Whoa! Where did that come from?	1160	hey · from · where · 3SG.M.REL.PFV · come
 daga	Kai! Daga ina ya zo?	Whoa! Where did that come from?	1160	hey · from · where · 3SG.M.REL.PFV · come
 bayani	Ina da bayani.	I have information.	1160	1SG.PROG · with · information
-wani	Ina da wani.	I'll have another.	1160	1SG.PROG · with · INDF.M
 yaro	A ina ne yaro na?	Where's my son?	1160	at · where · COP.M · boy · GEN.M.1SG
 mu	Daga ina mu ka zo?	Where did we come from?	1160	from · where · 1PL · REL.PFV · come
 zo	Daga ina mu ka zo?	Where did we come from?	1160	from · where · 1PL · REL.PFV · come
@@ -235,10 +122,6 @@ lafiya	Ina lafiya.	I'm well.	1160	1SG.PROG · health
 kullum	Ina zuwa kullum banda Asabar da Lahadi.	I come every day except Saturday and Sunday.	1160	1SG.PROG · coming · always · except · Saturday · and · Sunday
 banda	Ina zuwa kullum banda Asabar da Lahadi.	I come every day except Saturday and Sunday.	1160	1SG.PROG · coming · always · except · Saturday · and · Sunday
 lahadi	Ina zuwa kullum banda Asabar da Lahadi.	I come every day except Saturday and Sunday.	1160	1SG.PROG · coming · always · except · Saturday · and · Sunday
-wanka	Ina Tara? - Tana wanka.	"""Where's Tara?"" ""She's taking a shower."""	1160	where · Tara · - · 3SG.F.PROG · bathing
-tara	Ina Tara? - Tana wanka.	"""Where's Tara?"" ""She's taking a shower."""	1160	where · Tara · - · 3SG.F.PROG · bathing
-ƙafa	Kai! Ƙafa ta!	Ouch! My foot!	1161	hey · foot · GEN.F.1SG
-ta	Kai! Ƙafa ta!	Ouch! My foot!	1161	hey · foot · GEN.F.1SG
 ta	Rana ta bakwai a mako ita ce Asabar.	The seventh day of the week is Saturday.	1161	day · GEN.F · seven · at · week · 3SG.F · COP.F · Saturday
 bakwai	Rana ta bakwai a mako ita ce Asabar.	The seventh day of the week is Saturday.	1161	day · GEN.F · seven · at · week · 3SG.F · COP.F · Saturday
 mako	Rana ta bakwai a mako ita ce Asabar.	The seventh day of the week is Saturday.	1161	day · GEN.F · seven · at · week · 3SG.F · COP.F · Saturday
@@ -251,10 +134,7 @@ zauna	Ta zauna kusa da mu.	She lived next door to us.	1161	3SG.F.PFV · live · 
 nisa	Afirka ta Kudu tana da nisa.	South Africa is far away.	1161	Africa · GEN.F · south · 3SG.F.PROG · with · distance
 kudu	Afirka ta Kudu tana da nisa.	South Africa is far away.	1161	Africa · GEN.F · south · 3SG.F.PROG · with · distance
 afirka	Afirka ta Kudu tana da nisa.	South Africa is far away.	1161	Africa · GEN.F · south · 3SG.F.PROG · with · distance
-faransa	A Faransa ta girma.	She was raised in France.	1161	at · France · 3SG.F.PFV · grow.up
 girma	A Faransa ta girma.	She was raised in France.	1161	at · France · 3SG.F.PFV · grow.up
-mace	Mace ce ta gari.	She's a good woman.	1161	woman · COP.F · GEN.F · town
-gari	Mace ce ta gari.	She's a good woman.	1161	woman · COP.F · GEN.F · town
 farko	Ta sani tun daga farko.	She knew it from the start.	1161	3SG.F.PFV · know · since · from · beginning
 tun	Ta sani tun daga farko.	She knew it from the start.	1161	3SG.F.PFV · know · since · from · beginning
 sani	Ta sani tun daga farko.	She knew it from the start.	1161	3SG.F.PFV · know · since · from · beginning
@@ -264,7 +144,6 @@ sabo	Littafi ba sabo ba ne.	The book isn't new.	1162	book · NEG · new.M · NEG
 littafi	Littafi ba sabo ba ne.	The book isn't new.	1162	book · NEG · new.M · NEG · COP.M
 magani	Ba a ba shi magani ba.	He was refused medical treatment.	1162	NEG · IMPRS · give · 3SG.M · medicine · NEG
 ba	Ba a ba shi magani ba.	He was refused medical treatment.	1162	NEG · IMPRS · give · 3SG.M · medicine · NEG
-ba	Ba shi da hankali.	He has no common sense.	1162	NEG · 3SG.M · with · sense
 shayi	Ba sukari a shayi na.	There's no sugar in my tea.	1162	NEG · sugar · at · tea · GEN.M.1SG
 sukari	Ba sukari a shayi na.	There's no sugar in my tea.	1162	NEG · sugar · at · tea · GEN.M.1SG
 sani	Har yanzu ba mu sani ba.	We still don't know.	1162	until · now · NEG · 1PL · know · NEG
@@ -274,42 +153,23 @@ wata	Ba ni da wata baiwa ta musamman.	I have no particular talent.	1162	NEG · 1
 musamman	Ba ni da wata baiwa ta musamman.	I have no particular talent.	1162	NEG · 1SG · with · INDF.F · talent · GEN.F · special
 baiwa	Ba ni da wata baiwa ta musamman.	I have no particular talent.	1162	NEG · 1SG · with · INDF.F · talent · GEN.F · special
 makaranta	Ba ni da lafiya a makaranta.	I'm sick of school.	1162	NEG · 1SG · with · health · at · school
-tsoro	Daina ba ta tsoro.	Stop scaring her.	1162	stop.IMP · give · 3SG.F · fear
-daina	Daina ba ta tsoro.	Stop scaring her.	1162	stop.IMP · give · 3SG.F · fear
 amma	Jiki mai mutuwa ne, amma kurwa ba ta mutuwa.	The body is mortal, but the soul is immortal.	1162	body · having · death · COP.M · but · soul · NEG · 3SG.F · death
 mutuwa	Jiki mai mutuwa ne, amma kurwa ba ta mutuwa.	The body is mortal, but the soul is immortal.	1162	body · having · death · COP.M · but · soul · NEG · 3SG.F · death
 kurwa	Jiki mai mutuwa ne, amma kurwa ba ta mutuwa.	The body is mortal, but the soul is immortal.	1162	body · having · death · COP.M · but · soul · NEG · 3SG.F · death
 jiki	Jiki mai mutuwa ne, amma kurwa ba ta mutuwa.	The body is mortal, but the soul is immortal.	1162	body · having · death · COP.M · but · soul · NEG · 3SG.F · death
-sani	Ba mu sani ba.	We won't know.	1162	NEG · 1PL · know · NEG
-amsa	Ba mu da amsa.	We didn't have an answer.	1162	NEG · 1PL · with · answer
-uba	Ba ka da uba.	You never had a father.	1162	NEG · 2SG.M · with · father
 farko	Ba wannan ne na farko ba.	It would not be the first time.	1162	NEG · this · COP.M · POSS.M · beginning · NEG
-matsala	Ba matsala ba ne.	It isn't an issue.	1162	NEG · problem · NEG · COP.M
 likita	Ni ba likita ba ne.	I'm not a doctor.	1162	1SG · NEG · doctor · NEG · COP.M
-yi	Yanzu na yi.	I just did it.	1163	now · 1SG.PFV · do
 yi	Ka yi ƙasa da shi.	You lower it then.	1163	2SG.M.SBJV · do · down · with · 3SG.M
 ƙasa	Ka yi ƙasa da shi.	You lower it then.	1163	2SG.M.SBJV · do · down · with · 3SG.M
 yi	Ba'a yi ba a baya.	It hasn't been done before.	1163	NEG.IMPRS.PFV · do · NEG · at · back
 baya	Ba'a yi ba a baya.	It hasn't been done before.	1163	NEG.IMPRS.PFV · do · NEG · at · back
 lokaci	Lokaci ya yi.	The time is now.	1163	time · 3SG.M.PFV · do
-shiru	Kai, yi shiru!	Oh, shut up!	1163	hey · do.IMP · silence
-sa	Na yi sa'a.	I felt lucky.	1163	1SG.PFV · do · luck
-riga	Na riga na yi.	I did it already.	1163	1SG.PFV · precede · 1SG.PFV · do
-wasa	Ka yi wasa.	You've played.	1163	2SG.M.PFV · do · game
 shekara	Kowa ya yi shekara mai kyau.	Everyone had a good year.	1163	everyone · 3SG.M.PFV · do · year · having · goodness
-sake	Na sake yi.	I've done it again.	1163	1SG.PFV · repeat · do
 dama	Na yi wannan da dama.	I've done that quite a bit.	1163	1SG.PFV · do · this · with · plenty
 nan	Kai na babba a nan?	Are you the boss?	1164	2SG.M · PROG · big · at · here
 babba	Kai na babba a nan?	Are you the boss?	1164	2SG.M · PROG · big · at · here
-nan	Ba ta nan.	She's not here.	1164	NEG · 3SG.F · here
-japan	Japan na nan!	Japan is here!	1164	Japan · PROG · here
-nan	Japan na nan!	Japan is here!	1164	Japan · PROG · here
-zauna	Mu zauna a nan.	Let's all settle down here.	1164	1PL.SBJV · sit · at · here
 gida	Gida na yana kusa da nan.	My flat is near here.	1164	house · 1SG.POSS.M · 3SG.M.PROG · near · with · here
 kanta	Ta zo nan da kanta.	She came here by herself.	1164	3SG.F.PFV · come · here · with · head.3SG.F.POSS
-za	Za mu shiga ciki.	We're going inside.	1165	FUT · 1PL · enter · inside
-ciki	Za mu shiga ciki.	We're going inside.	1165	FUT · 1PL · enter · inside
-shiga	Za mu shiga ciki.	We're going inside.	1165	FUT · 1PL · enter · inside
 za	Za ta haihu nan kusa.	She will give birth soon.	1165	FUT · 3SG.F · give.birth · here · near
 haihu	Za ta haihu nan kusa.	She will give birth soon.	1165	FUT · 3SG.F · give.birth · here · near
 wata	Da suna da wata matsala, za mu ji labari.	If there had been a problem, we'd have heard about it.	1165	COND · 3PL.PROG · with · INDF.F · problem · FUT · 1PL · hear · news
@@ -325,8 +185,6 @@ damuwa	Baba da Mama sun shiga damuwa.	Mummy and Daddy are very nervous.	1166	dad
 baba	Baba da Mama sun shiga damuwa.	Mummy and Daddy are very nervous.	1166	dad · and · mum · 3PL.PFV · enter · worry
 shiga	Baba da Mama sun shiga damuwa.	Mummy and Daddy are very nervous.	1166	dad · and · mum · 3PL.PFV · enter · worry
 sun	Baba da Mama sun shiga damuwa.	Mummy and Daddy are very nervous.	1166	dad · and · mum · 3PL.PFV · enter · worry
-sun	Sun daina zuwa makaranta.	They dropped out of school.	1166	3PL.PFV · stop · going · school
-daina	Sun daina zuwa makaranta.	They dropped out of school.	1166	3PL.PFV · stop · going · school
 ƙanana	Sun yi aure tun suna ƙanana.	They got married when they were still young.	1166	3PL.PFV · do · marriage · since · 3PL.PROG · small.PL
 tun	Sun yi aure tun suna ƙanana.	They got married when they were still young.	1166	3PL.PFV · do · marriage · since · 3PL.PROG · small.PL
 aure	Sun yi aure tun suna ƙanana.	They got married when they were still young.	1166	3PL.PFV · do · marriage · since · 3PL.PROG · small.PL
@@ -336,54 +194,30 @@ jarida	Sun gana da ƴan jarida.	They granted the journalist an interview.	1166	3
 gana	Sun gana da ƴan jarida.	They granted the journalist an interview.	1166	3PL.PFV · meet · with · children.GEN · newspaper
 wahala	Sun sha wahala a nan.	They clearly suffered here.	1166	3PL.PFV · drink · trouble · at · here
 baka	Sun baka tsoro.	They scared you.	1166	3PL.PFV · give.DAT.2SG.M · fear
-tsoro	Sun baka tsoro.	They scared you.	1166	3PL.PFV · give.DAT.2SG.M · fear
 faransanci	Sun ce ba su karanta Faransanci ba.	They said that they didn't study French.	1166	3PL.PFV · say · NEG · 3PL · read · French · NEG
 karanta	Sun ce ba su karanta Faransanci ba.	They said that they didn't study French.	1166	3PL.PFV · say · NEG · 3PL · read · French · NEG
 su	Sun ce ba su karanta Faransanci ba.	They said that they didn't study French.	1166	3PL.PFV · say · NEG · 3PL · read · French · NEG
 kuɗi	Sun ce ba su da kuɗi.	They said they didn't have any money.	1166	3PL.PFV · say · NEG · 3PL · with · money
-abinci	Ina da wani abinci.	I have some food.	1167	1SG.PROG · with · INDF.M · food
 tafi	Yanzu za mu tafi.	We're leaving now.	1168	now · FUT · 1PL · go
 tafi	Kai ka tafi.	You go away.	1168	2SG.M · 2SG.M.SBJV · go
 sai	Daga wannan sai wannan.	One event followed another.	1169	from · this · then · this
 sai	Bayan Asabar sai Lahadi.	After Saturday comes Sunday.	1169	after · Saturday · then · Sunday
-bayan	Bayan Asabar sai Lahadi.	After Saturday comes Sunday.	1169	after · Saturday · then · Sunday
-lahadi	Bayan Asabar sai Lahadi.	After Saturday comes Sunday.	1169	after · Saturday · then · Sunday
 sai	Sai shekara mai zuwa!	Until next year!	1169	until · year · having · coming
-shekara	Sai shekara mai zuwa!	Until next year!	1169	until · year · having · coming
 idan	Idan na sani, zan faɗa miki shi.	If I knew it, I would tell it to you.	1170	if · 1SG.PFV · know · FUT.1SG · tell · DAT.2SG.F · 3SG.M
 zan	Idan na sani, zan faɗa miki shi.	If I knew it, I would tell it to you.	1170	if · 1SG.PFV · know · FUT.1SG · tell · DAT.2SG.F · 3SG.M
 miki	Idan na sani, zan faɗa miki shi.	If I knew it, I would tell it to you.	1170	if · 1SG.PFV · know · FUT.1SG · tell · DAT.2SG.F · 3SG.M
 faɗa	Idan na sani, zan faɗa miki shi.	If I knew it, I would tell it to you.	1170	if · 1SG.PFV · know · FUT.1SG · tell · DAT.2SG.F · 3SG.M
-zan	Zan zauna a gida.	I will stay at home.	1170	FUT.1SG · stay · at · home
 amurka	Zan tafi Amurka shekara mai zuwa.	I am going to go to America next year.	1170	FUT.1SG · go · America · year · having · coming
 zan	Zan tafi Amurka shekara mai zuwa.	I am going to go to America next year.	1170	FUT.1SG · go · America · year · having · coming
 shekara	Zan tafi Amurka shekara mai zuwa.	I am going to go to America next year.	1170	FUT.1SG · go · America · year · having · coming
-shiga	Zan shiga tsari na 6.	I'm going into the 6th form.	1170	FUT.1SG · enter · class · POSS.M · six
-tsari	Zan shiga tsari na 6.	I'm going into the 6th form.	1170	FUT.1SG · enter · class · POSS.M · six
-giya	Zan sha giya.	I'm going to drink a beer.	1170	FUT.1SG · drink · beer
-ofis	Zan koma ofis.	I'm going to go back to the office.	1170	FUT.1SG · return · office
-koma	Zan koma ofis.	I'm going to go back to the office.	1170	FUT.1SG · return · office
-asara	Zan yi asara.	I'll lose.	1170	FUT.1SG · do · loss
 baka	Zan baka dama.	I'll give you a chance.	1170	FUT.1SG · give.DAT.2SG.M · chance
-dama	Zan baka dama.	I'll give you a chance.	1170	FUT.1SG · give.DAT.2SG.M · chance
-biya	Zan biya da kuɗi.	I will pay in cash.	1170	FUT.1SG · pay · with · money
 muna	Muna aiki da rana.	We work by the day.	1171	1PL.PROG · work · at · daytime
-maka	Muna da labari maka.	We've got news for you.	1171	1PL.PROG · with · news · DAT.2SG.M
 muna	Muna da labari maka.	We've got news for you.	1171	1PL.PROG · with · news · DAT.2SG.M
-kullum	Muna aiki kullum.	We work daily.	1171	1PL.PROG · work · always
 muna	Muna aiki kullum.	We work daily.	1171	1PL.PROG · work · always
 aure	Har yanzu muna da aure.	We're still married.	1171	until · now · 1PL.PROG · with · marriage
-arewa	Muna zuwa arewa.	We're heading north.	1171	1PL.PROG · going · north
-damuwa	Mun shiga damuwa.	We were worried.	1172	1PL.PFV · enter · worry
 mun	Mun shiga damuwa.	We were worried.	1172	1PL.PFV · enter · worry
-yaro	Sake mun yaro na.	Let go of my son.	1172	release.IMP · DAT.1SG · boy · 1SG.POSS.M
 mun	Sake mun yaro na.	Let go of my son.	1172	release.IMP · DAT.1SG · boy · 1SG.POSS.M
-shiru	Mun yi shiru.	We remained silent.	1172	1PL.PFV · do · silence
 mun	Mun yi shiru.	We remained silent.	1172	1PL.PFV · do · silence
-matuƙa	Mun yi sa'a matuƙa.	We've been very lucky.	1172	1PL.PFV · do · luck · utmost
-sa	Mun yi sa'a matuƙa.	We've been very lucky.	1172	1PL.PFV · do · luck · utmost
-baya	Mun ja da baya.	We backed off.	1172	1PL.PFV · pull · with · back
-ja	Mun ja da baya.	We backed off.	1172	1PL.PFV · pull · with · back
 son	Na komo ina son sa.	I came to like him.	1173	1SG.PFV · return · 1SG.PROG · want.GEN · 3SG.M
 komo	Na komo ina son sa.	I came to like him.	1173	1SG.PFV · return · 1SG.PROG · want.GEN · 3SG.M
 son	Ya ji kwatsam yana son ya rubuta labari.	He felt a sudden urge to write a novel.	1173	3SG.M.PFV · feel · suddenly · 3SG.M.PROG · want.GEN · 3SG.M.SBJV · write · story
@@ -393,13 +227,9 @@ son	Tana son magana da kai.	She wants to talk to you.	1173	3SG.F.PROG · want.GE
 ibada	Yana da son ibada.	He loves ritual.	1173	3SG.M.PROG · with · want.GEN · worship
 bayani	Muna son bayani.	We want information.	1173	1PL.PROG · want.GEN · explanation
 sara	Yana son sara itace.	He likes to chop wood.	1173	3SG.M.PROG · want.GEN · chop · wood
-itace	Yana son sara itace.	He likes to chop wood.	1173	3SG.M.PROG · want.GEN · chop · wood
 tallafa	Ina son na tallafa mata.	I'd like you to assist her.	1173	1SG.PROG · want.GEN · 1SG.SBJV · support · DAT.3SG.F
 lafazi	Ina son wannan lafazi.	I love that accent.	1173	1SG.PROG · want.GEN · this · pronunciation
-likita	Ina son zama likita.	I plan to be a doctor.	1173	1SG.PROG · want.GEN · become · doctor
-giya	Ina son giya.	I'd like some white wine, please.	1173	1SG.PROG · want.GEN · beer
 iska	Ta ce tana son ta sha iska.	She said she needs to get some air.	1173	3SG.F.PFV · say · 3SG.F.PROG · want.GEN · 3SG.F.SBJV · drink · air
-bana	Gaskiya, bana son sa.	To be honest, I don't like him.	1173	truth · NEG.1SG.PROG · want.GEN · 3SG.M
 bana	Bana son ka zo nan.	I don't want you to come here.	1173	NEG.1SG.PROG · want.GEN · 2SG.M.SBJV · come · here
 ɗaya	Bana son kowa baki ɗaya.	I don't want anybody at all.	1173	NEG.1SG.PROG · want.GEN · everyone · mouth · one
 baki	Bana son kowa baki ɗaya.	I don't want anybody at all.	1173	NEG.1SG.PROG · want.GEN · everyone · mouth · one
@@ -412,28 +242,21 @@ yara	Muna da yara mata biyu.	We have two daughters.	1175	1PL.PROG · with · chi
 biyu	Muna da yara mata biyu.	We have two daughters.	1175	1PL.PROG · with · child.PL · woman.PL · two
 yara	Ina son yara kowanne lokaci.	I've always wanted children.	1175	1SG.PROG · want.GEN · child.PL · every.M · time
 kowanne	Ina son yara kowanne lokaci.	I've always wanted children.	1175	1SG.PROG · want.GEN · child.PL · every.M · time
-yara	Yara na son wasa.	Kids like to play.	1175	child.PL · PROG · want.GEN · play
 zai	Wannan ba zai yi tasiri ba.	That won't have an effect.	1176	this · NEG · 3SG.M.FUT · do · influence · NEG
 tasiri	Wannan ba zai yi tasiri ba.	That won't have an effect.	1176	this · NEG · 3SG.M.FUT · do · influence · NEG
-zai	A ina zai zauna?	Where is he going to settle down?	1176	at · where · 3SG.M.FUT · settle
-zai	Zai yi aiki.	It's going to work.	1176	3SG.M.FUT · do · work
 yaƙi	Yaƙi ba zai yi amfani ba.	War doesn't pay.	1176	war · NEG · 3SG.M.FUT · do · usefulness · NEG
 amfani	Yaƙi ba zai yi amfani ba.	War doesn't pay.	1176	war · NEG · 3SG.M.FUT · do · usefulness · NEG
 ɗari	Wannan zai biya ɗari uku.	That'll cost three hundred bucks.	1176	this · 3SG.M.FUT · pay · hundred · three
 biya	Wannan zai biya ɗari uku.	That'll cost three hundred bucks.	1176	this · 3SG.M.FUT · pay · hundred · three
-zafi	Zai yi zafi.	It'll be hot.	1176	3SG.M.FUT · do · heat
 idan	Zai ci abinci idan ya isa gida.	He'll eat when he gets home.	1176	3SG.M.FUT · eat · food · if · 3SG.M.PFV · reach · home
 abinci	Zai ci abinci idan ya isa gida.	He'll eat when he gets home.	1176	3SG.M.FUT · eat · food · if · 3SG.M.PFV · reach · home
 ci	Zai ci abinci idan ya isa gida.	He'll eat when he gets home.	1176	3SG.M.FUT · eat · food · if · 3SG.M.PFV · reach · home
 isa	Zai ci abinci idan ya isa gida.	He'll eat when he gets home.	1176	3SG.M.FUT · eat · food · if · 3SG.M.PFV · reach · home
 akwai	Nan gaskiya akwai zafi.	It's really hot there.	1177	here · truth · EXIST · heat
-wata	Akwai wata hanya.	There's another way.	1177	EXIST · INDF.F · way
-hanya	Akwai wata hanya.	There's another way.	1177	EXIST · INDF.F · way
 akwai	Akwai wata hanya.	There's another way.	1177	EXIST · INDF.F · way
 cokali	Akwai cokali a nan.	There is a spoon here.	1177	EXIST · spoon · at · here
 akwai	Akwai cokali a nan.	There is a spoon here.	1177	EXIST · spoon · at · here
 tsada	Akwai tsada.	It's expensive.	1177	EXIST · costliness
-jini	Da akwai jini.	There was blood.	1177	formerly · EXIST · blood
 mota	Ka sa ido! Akwai mota na zuwa!	Watch out! There's a car coming!	1177	2SG.M.SBJV · put · eye · EXIST · car · PROG · coming
 ido	Ka sa ido! Akwai mota na zuwa!	Watch out! There's a car coming!	1177	2SG.M.SBJV · put · eye · EXIST · car · PROG · coming
 tsada	Wannan akwai tsada.	These are expensive.	1177	this · EXIST · costliness
@@ -445,33 +268,19 @@ goma	Dama sau ɗaya a kowane minti goma sha biyar.	Stir once every fifteen minut
 kowane	Dama sau ɗaya a kowane minti goma sha biyar.	Stir once every fifteen minutes.	1179	stir.IMP · time · one · at · every.M · minute · ten · plus · five
 minti	Dama sau ɗaya a kowane minti goma sha biyar.	Stir once every fifteen minutes.	1179	stir.IMP · time · one · at · every.M · minute · ten · plus · five
 jiya	Jiya Lahadi, ba Asabar ba.	Yesterday was Sunday, not Saturday.	1182	yesterday · Sunday · NEG · Saturday · NEG
-jiya	Jiya, mun karanta Turanci.	Yesterday, we studied English.	1182	yesterday · 1PL.PFV · study · English
-karanta	Jiya, mun karanta Turanci.	Yesterday, we studied English.	1182	yesterday · 1PL.PFV · study · English
-turanci	Jiya, mun karanta Turanci.	Yesterday, we studied English.	1182	yesterday · 1PL.PFV · study · English
-jiya	Jiya Asabar.	Yesterday was Saturday.	1182	yesterday · Saturday
 so	Ina so ta yi aiki mai wahala.	I want her to do the difficult work.	1183	1SG.PROG · want · 3SG.F.SBJV · do · work · having · difficulty
 wahala	Ina so ta yi aiki mai wahala.	I want her to do the difficult work.	1183	1SG.PROG · want · 3SG.F.SBJV · do · work · having · difficulty
 amsa	Ba sai ka amsa idan baka so.	You don't have to answer if you don't want to.	1183	NEG · must · 2SG.M.SBJV · answer · if · NEG.2SG.M · want
 so	Ba sai ka amsa idan baka so.	You don't have to answer if you don't want to.	1183	NEG · must · 2SG.M.SBJV · answer · if · NEG.2SG.M · want
-so	Muna so.	We like it.	1183	1PL.PROG · want
 fara	Ina so ka fara yanzu.	I want you to start right now.	1183	1SG.PROG · want · 2SG.M.SBJV · begin · now
-fi	Wannan na fi so.	I like this one the most.	1183	this · 1SG.PFV · exceed · want
 aure	Sun ce suna so su yi aure.	They say they want to settle down.	1183	3PL.PFV · say · 3PL.PROG · want · 3PL.SBJV · do · marriage
 fi	Wani littafi ka fi so?	What is your favorite book?	1183	which.M · book · 2SG.M.PFV · exceed · want
 littafi	Wani littafi ka fi so?	What is your favorite book?	1183	which.M · book · 2SG.M.PFV · exceed · want
-sosai	Matsala ne sosai.	It's a pain in the neck.	1184	problem · COP.M · very.much
-sosai	Dauda yana aiki sosai.	David is very active.	1184	Dauda · 3SG.M.PROG · work · very.much
 dauda	Dauda yana aiki sosai.	David is very active.	1184	Dauda · 3SG.M.PROG · work · very.much
 sosai	Mama tana aiki sosai yanzu.	Mother is very busy just now.	1184	mother · 3SG.F.PROG · work · very.much · now
 mama	Mama tana aiki sosai yanzu.	Mother is very busy just now.	1184	mother · 3SG.F.PROG · work · very.much · now
-karatu	Ina karatu sosai.	I am studying very hard.	1184	1SG.PROG · study · very.much
 arziki	Sun ce yana da arziki sosai.	They said he's very rich.	1184	3PL.PFV · say · 3SG.M.PROG · with · wealth · very.much
 kare	Wannan kare yana da girma sosai.	That dog is super enormous.	1184	this · dog · 3SG.M.PROG · with · bigness · very.much
-ciwo	Na ji ciwo sosai.	I was badly injured.	1184	1SG.PFV · feel · pain · very.much
-wahala	Ya yi wahala sosai.	It was too difficult.	1184	3SG.M.PFV · do · difficulty · very.much
-tafiya	Aiki yana tafiya sosai.	Work is going well.	1184	work · 3SG.M.PROG · going · very.much
-gobe	Gobe Lahadi.	Tomorrow is Sunday.	1185	tomorrow · Sunday
-gobe	Gobe ne Asabar?	Will it be Saturday tomorrow?	1185	tomorrow · COP.M · Saturday
 gobe	Ta ce za ta zo gobe.	She says that she will come tomorrow.	1185	3SG.F.PFV · say · FUT · 3SG.F · come · tomorrow
 gan	Jiya ne na gan shi.	It was yesterday that I saw him.	1186	yesterday · COP.M · 1SG.REL.PFV · see · 3SG.M
 gan	Mun gan yara suna wasa.	We saw the children playing.	1186	1PL.PFV · see · child.PL · 3PL.PROG · play
@@ -486,9 +295,6 @@ farko	Na sami matsala mai yawa a farko.	I had great difficulty at the beginning.
 sami	Na sami matsala mai yawa a farko.	I had great difficulty at the beginning.	1188	1SG.PFV · get · problem · having · abundance · at · beginning
 yawa	Na sami matsala mai yawa a farko.	I had great difficulty at the beginning.	1188	1SG.PFV · get · problem · having · abundance · at · beginning
 izini	Zan sami izini?	Do I have permission?	1188	FUT.1SG · get · permission
-sami	Zan sami izini?	Do I have permission?	1188	FUT.1SG · get · permission
-nasara	Zan sami nasara.	I'm going to win this.	1188	FUT.1SG · get · victory
-sami	Zan sami nasara.	I'm going to win this.	1188	FUT.1SG · get · victory
 karanta	Ka karanta wannan idan ka sami lokaci.	Read this when you have time.	1188	2SG.M.SBJV · read · this · if · 2SG.M.PFV · get · time
 asuba	Ana fara aiki da asuba.	The operation begins at dawn.	1189	IMPRS.PROG · begin · work · at · dawn
 ana	Ana fara aiki da asuba.	The operation begins at dawn.	1189	IMPRS.PROG · begin · work · at · dawn
@@ -500,9 +306,6 @@ sau	Haka ne, sun riga sun makara sau biyu.	That's right, they've been late twice
 makara	Haka ne, sun riga sun makara sau biyu.	That's right, they've been late twice already.	1190	thus · COP.M · 3PL.PFV · already · 3PL.PFV · be.late · time · two
 biyu	Haka ne, sun riga sun makara sau biyu.	That's right, they've been late twice already.	1190	thus · COP.M · 3PL.PFV · already · 3PL.PFV · be.late · time · two
 haka	Haka ne, sun riga sun makara sau biyu.	That's right, they've been late twice already.	1190	thus · COP.M · 3PL.PFV · already · 3PL.PFV · be.late · time · two
-haka	Haka ne.	All right.	1190	thus · COP.M
-haka	Ba na son haka.	I didn't want that.	1190	NEG · 1SG.PROG · want.GEN · thus
-bayan	Ina zuwa bayan haka?	Where to afterwards?	1190	where · going · after · thus
 nuna	Ba ta haka zai yi aiki ba. Bari na nuna maka yadda zai yi.	That's not how it works. Let me show you how.	1190	NEG · via · thus · FUT.3SG.M · do · work · NEG · let · 1SG.SBJV · show · DAT.2SG.M · how.REL · FUT.3SG.M · do
 yadda	Ba ta haka zai yi aiki ba. Bari na nuna maka yadda zai yi.	That's not how it works. Let me show you how.	1190	NEG · via · thus · FUT.3SG.M · do · work · NEG · let · 1SG.SBJV · show · DAT.2SG.M · how.REL · FUT.3SG.M · do
 sau	Na yi haka sau ɗaya tuni.	I did that once already.	1190	1SG.PFV · do · thus · time · one · already
@@ -529,11 +332,8 @@ ci	Kana da ci da yawa.	You eat too much.	1193	2SG.M.PROG · with · eating · wi
 yawa	Kana da ci da yawa.	You eat too much.	1193	2SG.M.PROG · with · eating · with · abundance
 dawo	Ta dawo daga asibiti ne.	She returned from the hospital.	1194	3SG.F.PFV · return · from · hospital · COP.M
 asibiti	Ta dawo daga asibiti ne.	She returned from the hospital.	1194	3SG.F.PFV · return · from · hospital · COP.M
-dawo	Dawo gida.	Come home.	1194	return.IMP · home
-dawo	Zan dawo daga baya.	I'll come back for you later.	1194	FUT.1SG · return · from · back
 baba	Mama da baba sun dawo gida.	Mom and dad came home.	1194	mother · and · father · 3PL.PFV · return · home
 zuma	Zuma na, Na dawo gida.	Honey, I'm home.	1194	honey · 1SG.GEN.M · 1SG.PFV · return · home
-babu	Babu kowa.	No one's around.	1195	NEG.EXIST · anyone
 kowanne	Babu Gaskiya. Gaskiya ɗaya ce a kowanne lokaci.	There is no Truth. There is only the truth within each moment.	1195	NEG.EXIST · truth · truth · one · COP.F · at · every.M · time
 babu	Babu Gaskiya. Gaskiya ɗaya ce a kowanne lokaci.	There is no Truth. There is only the truth within each moment.	1195	NEG.EXIST · truth · truth · one · COP.F · at · every.M · time
 babu	Babu tsoro nan da nan.	There was no immediate panic.	1195	NEG.EXIST · fear · here · with · here
@@ -542,14 +342,10 @@ me	Ina son riga mai kwala me kyau.	I need a shirt with a stiff collar.	1196	1SG.
 kwala	Ina son riga mai kwala me kyau.	I need a shirt with a stiff collar.	1196	1SG.PROG · want.GEN.M · gown · having · collar · having · goodness
 me	Me ya sa ka faɗa soyayya?	Why do fools fall in love?	1196	what · 3SG.M.PFV · cause · 2SG.M.PFV · fall · love
 soyayya	Me ya sa ka faɗa soyayya?	Why do fools fall in love?	1196	what · 3SG.M.PFV · cause · 2SG.M.PFV · fall · love
-me	Me ka karanta?	What did you study?	1196	what · 2SG.M.PFV · read
 rubuta	Me zan rubuta a nan?	What shall I write here?	1196	what · FUT.1SG · write · at · here
 suka	Me suka ce ka yi?	What did they ask you to do?	1197	what · 3PL.REL.PFV · say · 2SG.M.SBJV · do
-suka	Suka ce suna gida.	They said they were at home.	1197	3PL.REL.PFV · say · 3PL.PROG · home
 suka	Suka ce sun sauka ni mai kyau ce.	They said they thought I was cute.	1197	3PL.REL.PFV · say · 3PL.PFV · descend · 1SG · having · goodness · COP.F
 sauka	Suka ce sun sauka ni mai kyau ce.	They said they thought I was cute.	1197	3PL.REL.PFV · say · 3PL.PFV · descend · 1SG · having · goodness · COP.F
-gada	Muna gina gada.	We're building a bridge.	1199	1PL.PROG · build · bridge
-gina	Muna gina gada.	We're building a bridge.	1199	1PL.PROG · build · bridge
 shiru	An yi shiru mai yawa.	There was an awkward silence.	1200	IMPRS.PFV · do · silence · having · abundance
 an	An yi shiru mai yawa.	There was an awkward silence.	1200	IMPRS.PFV · do · silence · having · abundance
 don	Sun ce sun yi shi don mu.	They said that they did that for us.	1201	3PL.PFV · say · 3PL.PFV · do · 3SG.M · for · 1PL
@@ -559,19 +355,12 @@ itace	Arewa itace kishiyar shugabanci daga kudu.	North is the opposite direction
 kudu	Arewa itace kishiyar shugabanci daga kudu.	North is the opposite direction from south.	1202	north · 3SG.F.COP.F · opposite.GEN.F · leadership · from · south
 kishiyar	Arewa itace kishiyar shugabanci daga kudu.	North is the opposite direction from south.	1202	north · 3SG.F.COP.F · opposite.GEN.F · leadership · from · south
 aikin	Ina da aikin da zan yi.	I've got homework to do.	1204	1SG.PROG · with · work.DEF.M · REL · FUT.1SG · do
-aikin	Ina da aikin yi.	I've got work to do.	1204	1SG.PROG · with · work.GEN.M · do
-aikin	Ina son wannan aikin.	I want that job.	1204	1SG.PROG · want.GEN.M · this · work.DEF.M
 mutane	Ko da mu mutane ne.	Even we are people.	1205	even · COND · 1PL · person.PL · COP.PL
 mutane	Bana son mutane suna magana na a baya na.	I don't like people talking about me behind my back.	1205	NEG.1SG.PROG · want.GEN.M · person.PL · 3PL.PROG · talk · 1SG.GEN.M · at · back · 1SG.GEN.M
 ban	Ban yi aiki ba tun jiya.	I have not been busy since yesterday.	1206	NEG.1SG.PFV · do · work · NEG · since · yesterday
-ban	Suna da ban tsoro.	They're creepy.	1206	3PL.PROG · with · give.GEN.M · fear
-mamaki	Ban yi mamaki ba.	I wouldn't be surprised.	1206	NEG.1SG.PFV · do · astonishment · NEG
-ban	Ban yi mamaki ba.	I wouldn't be surprised.	1206	NEG.1SG.PFV · do · astonishment · NEG
 iyali	Iyali ne na ban mamaki!	What a marvelous family!	1206	family · COP.M · GEN.M · give.GEN.M · astonishment
 mamaki	Iyali ne na ban mamaki!	What a marvelous family!	1206	family · COP.M · GEN.M · give.GEN.M · astonishment
-haihuwa	Ban sami haihuwa ba.	I'm not able to have children.	1206	NEG.1SG.PFV · get · birth · NEG
 saboda	Ban yi haka ba saboda ba na so.	I didn't do that because I didn't want to.	1206	NEG.1SG.PFV · do · thus · NEG · because · NEG · 1SG.PROG · want
-mutane	Ban da son mutane.	I don't like people.	1206	NEG.1SG · with · love.GEN · person.PL
 awa	Falsafa fanni darasi ne mai ban sha'awa.	Philosophy is an interesting field of study.	1206	philosophy · field · lesson · COP.M · having · give.GEN · interest
 fanni	Falsafa fanni darasi ne mai ban sha'awa.	Philosophy is an interesting field of study.	1206	philosophy · field · lesson · COP.M · having · give.GEN · interest
 falsafa	Falsafa fanni darasi ne mai ban sha'awa.	Philosophy is an interesting field of study.	1206	philosophy · field · lesson · COP.M · having · give.GEN · interest
@@ -579,17 +368,10 @@ darasi	Falsafa fanni darasi ne mai ban sha'awa.	Philosophy is an interesting fie
 nawa	Sau nawa ne zan ce a'a?	How many times do I have to say no?	1207	time · how.many · COP.M · 1SG.FUT · say · no
 kira	Ta ce za ta kira ka daga baya.	She says she will call you later.	1208	3SG.F.PFV · say · FUT · 3SG.F · call · 2SG.M · from · back
 kira	Zan kira su gobe idan na dawo gida.	I'll ring them tomorrow when I come home.	1208	1SG.FUT · call · 3PL · tomorrow · if · 1SG.PFV · return · home
-kira	Zan kira tasi.	I'll call you a cab.	1208	1SG.FUT · call · taxi
-tasi	Zan kira tasi.	I'll call you a cab.	1208	1SG.FUT · call · taxi
-likita	Kira likita.	Call a doctor.	1208	call.IMP · doctor
 isa	Kira mu idan ka isa.	Give us a call when you arrive.	1208	call.IMP · 1PL · if · 2SG.M.PFV · arrive
-dare	Dare ya yi.	It was getting dark.	1209	night · 3SG.M.PFV · do
-dare	Yana aiki kowanne dare.	He works all night.	1209	3SG.M.PROG · work · every.M · night
-kowanne	Yana aiki kowanne dare.	He works all night.	1209	3SG.M.PROG · work · every.M · night
 dare	Yawanci ina aiki da dare.	I work nights.	1209	usually · 1SG.PROG · work · with · night
 yawanci	Yawanci ina aiki da dare.	I work nights.	1209	usually · 1SG.PROG · work · with · night
 litinin	Na isa nan Litinin da dare.	I got here Monday night.	1209	1SG.PFV · arrive · here · Monday · with · night
-in	Ina so in so.	I want to want.	1210	1SG.PROG · want · 1SG.SBJV · want
 in	Ina so in gan su!	I want to see them!	1210	1SG.PROG · want · 1SG.SBJV · see · 3PL
 iyali	Ina so in fara iyali.	I want to start a family.	1210	1SG.PROG · want · 1SG.SBJV · start · family
 in	Ina so in fara iyali.	I want to start a family.	1210	1SG.PROG · want · 1SG.SBJV · start · family
@@ -603,19 +385,14 @@ sarki	A in da babu kowa, sarki ba shi da iko.	In an empty place, an emperor has 
 daban	A baiwa wani daban dama.	Give someone else a chance.	1211	IMPRS.SBJV · give.DAT · someone.M · different · chance
 baiwa	A baiwa wani daban dama.	Give someone else a chance.	1211	IMPRS.SBJV · give.DAT · someone.M · different · chance
 buƙatar	Tana buƙatar soyayya.	She is hungry for affection.	1212	3SG.F.PROG · need.GEN · love
-soyayya	Tana buƙatar soyayya.	She is hungry for affection.	1212	3SG.F.PROG · need.GEN · love
-taimako	Bana buƙatar taimako.	I don't require assistance.	1212	NEG.1SG.PROG · need.GEN · help
 buƙatar	Bana buƙatar taimako.	I don't require assistance.	1212	NEG.1SG.PROG · need.GEN · help
 buƙatar	Ina buƙatar wannan.	I need this one.	1212	1SG.PROG · need.GEN · this
 taimako	Ba mamaki suna buƙatar taimako.	They may need help.	1212	NEG · surprise · 3PL.PROG · need.GEN · help
-nisa	Dare yayi nisa.	The night was far advanced.	1213	night · 3SG.M.PFV.do · distance
 yayi	Dare yayi nisa.	The night was far advanced.	1213	night · 3SG.M.PFV.do · distance
 yayi	Yayi tsada sosai!	This is too expensive!	1213	3SG.M.PFV.do · costliness · very
 tsada	Yayi tsada sosai!	This is too expensive!	1213	3SG.M.PFV.do · costliness · very
 yayi	Yayi kyau.	It looks good.	1213	3SG.M.PFV.do · goodness
 sako	Yayi sako-sako.	It's loose.	1213	3SG.M.PFV.do · looseness
-kam	Kai kam tamkar shi.	You're just like him.	1214	2SG.M · EMPH · like.GEN · 3SG.M
-tamkar	Kai kam tamkar shi.	You're just like him.	1214	2SG.M · EMPH · like.GEN · 3SG.M
 sarauniya	Ita kam tamkar wata sarauniya.	She looks like an angel.	1214	3SG.F · EMPH · like.GEN · INDF.F · queen
 kam	Ita kam tamkar wata sarauniya.	She looks like an angel.	1214	3SG.F · EMPH · like.GEN · INDF.F · queen
 tamkar	Ita kam tamkar wata sarauniya.	She looks like an angel.	1214	3SG.F · EMPH · like.GEN · INDF.F · queen
@@ -623,54 +400,34 @@ gara	Gara baka karanta wannan littafin ba.	You had better not read this book.	12
 littafin	Gara baka karanta wannan littafin ba.	You had better not read this book.	1215	better · NEG.2SG.M.PFV · read · this · book.DEF.M · NEG
 yadda	Ba yadda za'a yi a ce ya karanta wannan littafin.	He can't have read this book.	1215	NEG.EXIST · how · FUT.IMPRS · do · IMPRS.SBJV · say · 3SG.M.PFV · read · this · book.DEF.M
 littafin	Ba yadda za'a yi a ce ya karanta wannan littafin.	He can't have read this book.	1215	NEG.EXIST · how · FUT.IMPRS · do · IMPRS.SBJV · say · 3SG.M.PFV · read · this · book.DEF.M
-littafin	Bana son wannan littafin.	I don't like this book.	1215	NEG.1SG.PROG · want.GEN · this · book.DEF.M
-sabo	Littafin sabo ne.	The book is new.	1215	book.DEF.M · new.M · COP.M
 kura	Motar sai kura ta bari.	The car left a trail of dust.	1216	car.DEF.F · only · dust · 3SG.F.PFV · leave
 motar	Motar sai kura ta bari.	The car left a trail of dust.	1216	car.DEF.F · only · dust · 3SG.F.PFV · leave
 bas	Ina zuwa makaranta a motar bas.	I go to school by bus.	1216	1SG.PROG · going · school · at · car.GEN.F · bus
 motar	Ina zuwa makaranta a motar bas.	I go to school by bus.	1216	1SG.PROG · going · school · at · car.GEN.F · bus
-motar	A kira motar asibiti!	Call an ambulance!	1216	IMPRS.SBJV · call · car.GEN.F · hospital
-asibiti	A kira motar asibiti!	Call an ambulance!	1216	IMPRS.SBJV · call · car.GEN.F · hospital
 rigar	Wannan rigar ta yi maka yawa.	That shirt's too big for you.	1217	this · gown.DEF.F · 3SG.F.PFV · do · DAT.2SG.M · abundance
-gani	Bari in gani.	Gimme a look-see.	1220	let · 1SG.SBJV · see
-gani	Na gani!	Be seen by me!	1220	1SG.PFV · see
 gani	Gaskiya yana da kyau gani.	It's really cool looking.	1220	truth · 3SG.M.PROG · with · goodness · seeing
 mutum	Ni mutum ne mai gani.	I'm a visual person.	1220	1SG · person · COP.M · having · seeing
-mutanen	Barka, mutanen.	Howdy folks.	1221	blessing · people.DEF
 abin	Ina son wani abin da zan rubuta.	I want something with which to write.	1222	1SG.PROG · want.GEN · INDF.M · thing.DEF.M · REL · FUT.1SG · write
-abin	Abin mamaki!	Wonderful!	1222	thing.GEN.M · wonder
-kunya	Wannan abin kunya ne.	That's so embarrassing.	1222	this · thing.GEN.M · shame · COP.M
-abin	Wannan abin kunya ne.	That's so embarrassing.	1222	this · thing.GEN.M · shame · COP.M
-garkuwa	Sun sami abin garkuwa.	They've got a hostage.	1222	3PL.PFV · get · thing.GEN.M · shield
-gama	Na gama karanta littafin.	I finished reading the book.	1223	1SG.PFV · finish · read · book.DEF.M
 gama	Har yanzu ban kusa gama wannan ba.	I'm only halfway finished doing that.	1223	until · now · NEG.1SG.PFV · near · finish · this · NEG
-gama	Na gama.	I'm done.	1223	1SG.PFV · finish
 wancan	Wancan zai isa a yanzu.	That will be enough for now.	1224	that · FUT.3SG.M · suffice · at · now
 wancan	Idan ka ci wancan za ka mutu.	If you eat that you will die.	1224	if · 2SG.M.PFV · eat · that · FUT · 2SG.M · die
 mutu	Idan ka ci wancan za ka mutu.	If you eat that you will die.	1224	if · 2SG.M.PFV · eat · that · FUT · 2SG.M · die
-wancan	Wancan yayi kyau.	That sounds nice.	1224	that · 3SG.M.PFV.do · goodness
 babur	Wancan babur ne mai kyau!	What a nice bike!	1224	that · motorbike · COP.M · having · goodness
 nuna	Bari na nuna maka a kusa da gidan mu.	Let me show you around our house.	1225	let · 1SG.SBJV · show · DAT.2SG.M · at · near · with · house.GEN.M · 1PL
 gidan	Bari na nuna maka a kusa da gidan mu.	Let me show you around our house.	1225	let · 1SG.SBJV · show · DAT.2SG.M · at · near · with · house.GEN.M · 1PL
 gidan	Babu kowa yanzu a gidan.	The house is not occupied now.	1225	NEG.EXIST · anyone · now · at · house.DEF.M
 gidan	Yana zaune a gidan sa.	He lives in a flat.	1225	3SG.M.PROG · residing · at · house.GEN.M · 3SG.M
 zaune	Yana zaune a gidan sa.	He lives in a flat.	1225	3SG.M.PROG · residing · at · house.GEN.M · 3SG.M
-babba	Gidan ka babba ne.	Your house is big.	1225	house.GEN.M · 2SG.M · big · COP.M
 lambu	Gidan na da lambu ne?	Has the flat got a garden?	1225	house.DEF.M · 3SG.M.PROG · with · garden · COP.M
-kawo	Kawo ta nan.	Bring her here.	1226	bring.IMP · 3SG.F · here
 kawo	Na riga na ce a kawo.	I've already ordered it.	1226	1SG.PFV · already · 1SG.PFV · say · IMPRS.SBJV · bring
 kawo	Yanzu na ce a kawo mun giya.	I just ordered a beer.	1226	now · 1SG.PFV · say · IMPRS.SBJV · bring · 1PL.PFV · beer
 abinci	Na ce a kawo abinci.	I ordered some food.	1226	1SG.PFV · say · IMPRS.SBJV · bring · food
 nama	Na ce a kawo mun nama da dankali.	I ordered steak and potatoes.	1226	1SG.PFV · say · IMPRS.SBJV · bring · 1PL.PFV · meat · and · potato
 dankali	Na ce a kawo mun nama da dankali.	I ordered steak and potatoes.	1226	1SG.PFV · say · IMPRS.SBJV · bring · 1PL.PFV · meat · and · potato
-kori	Kori yaran.	Screw the boys.	1227	drive.away.IMP · child.PL.DEF
-yaran	Kori yaran.	Screw the boys.	1227	drive.away.IMP · child.PL.DEF
 sayar	Zan sayar da mota ta.	I'm going to sell my car.	1228	1SG.FUT · sell · OBJ · car · 1SG.POSS.F
 mota	Zan sayar da mota ta.	I'm going to sell my car.	1228	1SG.FUT · sell · OBJ · car · 1SG.POSS.F
 sayar	Sun riga sun sayar da motar su.	They've already sold their car.	1228	3PL.PFV · already · 3PL.PFV · sell · OBJ · car.GEN · 3PL
-ma	Kowa ma yana yi.	Everyone was doing it.	1230	everyone · too · 3SG.M.PROG · do
 ma	Tana so na ni ma ina son ta.	She likes me and I like her too.	1230	3SG.F.PROG · want · 1SG.POSS.M · 1SG · too · 1SG.PROG · want.GEN · 3SG.F
-ma	Ni ma na ji.	I heard that.	1230	1SG · too · 1SG.PFV · hear
 ana	Wannan ba shi da ma'ana?	What doesn't make sense?	1230	this · NEG · 3SG.M · with · meaning
 biya	Na biya kuɗi mai kyau ma wannan.	I paid good money for this.	1230	1SG.PFV · pay · money · having · goodness · DAT · this
 mini	Da ka faɗa mini haka tun da farko.	You should have told me that before.	1231	COND · 2SG.M.PFV · tell · DAT.1SG · thus · since · at · beginning
@@ -686,43 +443,30 @@ bayani	Ina da bayani musu.	I have information for them.	1232	1SG.PROG · with ·
 dai	Yanzu dai, me ya sa ban yi mamaki ba?	Now, why doesn't that surprise me?	1233	now · EMPH · what · 3SG.M.PFV · cause · NEG.1SG · do · surprise · NEG
 dai	Na koma dai-dai da shi.	I went down to his level.	1233	1SG.PFV · return · exactly · with · 3SG.M
 dai	Ya ce zai yi dai-dai.	He said that he'd be right over.	1233	3SG.M.PFV · say · 3SG.M.FUT · do · exactly
-kati	Lale mana kati.	Deal us the cards.	1234	shuffle.IMP · DAT.1PL · card
 lale	Lale mana kati.	Deal us the cards.	1234	shuffle.IMP · DAT.1PL · card
 mana	Lale mana kati.	Deal us the cards.	1234	shuffle.IMP · DAT.1PL · card
 mana	Ka kira ni mana.	Please call me.	1234	2SG.M.SBJV · call · 1SG · EMPH
 mana	Kai, giya mun mana!	Come on, tell me!	1234	hey · beer · 1PL.PFV · EMPH
-nawa	Ji mana, nawa wannan?	Excuse me, how much is this?	1234	hear.IMP · EMPH · how.much · this
-datti	Tsaftace datti daga madubi.	Clean the dirt off the mirror.	1235	clean.IMP · dirt · from · mirror
-madubi	Tsaftace datti daga madubi.	Clean the dirt off the mirror.	1235	clean.IMP · dirt · from · mirror
-tsaftace	Tsaftace datti daga madubi.	Clean the dirt off the mirror.	1235	clean.IMP · dirt · from · mirror
 tsaya	Zan tsaya har zuwa mako mai zuwa.	I am staying for another few weeks.	1236	1SG.FUT · stay · until · coming · week · having · coming
 mako	Zan tsaya har zuwa mako mai zuwa.	I am staying for another few weeks.	1236	1SG.FUT · stay · until · coming · week · having · coming
-tsaya	Tsaya kusa.	Stay close.	1236	stay.IMP · near
 tsaya	Akwai ban mamaki yadda ya tsaya.	It's amazing how much he can stand.	1236	EXIST · give.GEN · astonishment · how · 3SG.M.PFV · stand.firm
-minti	Ɗan tsaya minti ɗaya.	Just wait a minute.	1236	a.little · wait.IMP · minute · one
-ɗan	Ɗan tsaya minti ɗaya.	Just wait a minute.	1236	a.little · wait.IMP · minute · one
 ɗan	Zan tsaya na wani ɗan lokaci.	I'll be staying for a while.	1236	FUT.1SG · stay · POSS.M · INDF.M · little · time
 ɗayanka	Kai kam baki ɗayanka ka zama matsala.	You're a real pain in the neck.	1237	2SG.M · EMPH · mouth · one.GEN.2SG.M · 2SG.M.PFV · become · problem
 kam	Kai kam baki ɗayanka ka zama matsala.	You're a real pain in the neck.	1237	2SG.M · EMPH · mouth · one.GEN.2SG.M · 2SG.M.PFV · become · problem
 baki	Kai kam baki ɗayanka ka zama matsala.	You're a real pain in the neck.	1237	2SG.M · EMPH · mouth · one.GEN.2SG.M · 2SG.M.PFV · become · problem
-kin	Kin yi kyau sosai.	You look beautiful.	1239	2SG.F.PFV · do · goodness · very.much
 kin	Kai, kin yi kyau sosai!	Damned, you look good!	1239	hey · 2SG.F.PFV · do · goodness · very.much
-kin	Kin yi kyau.	You're looking well.	1239	2SG.F.PFV · do · goodness
 taimako	Kin yi taimako da yawa.	You've been a lot of help.	1239	2SG.F.PFV · do · help · with · abundance
-ja	Kin ja hankali na.	You've got my attention.	1239	2SG.F.PFV · pull · sense · POSS.M.1SG
 fita	Kin fita daga wasa na.	You're way out of my league.	1239	2SG.F.PFV · go.out · from · game · POSS.M.1SG
 kanki	Kin zo nan da kanki?	Did you come here by yourself?	1239	2SG.F.PFV · come · here · with · head.GEN.2SG.F
 yaron	Tana alfahari cewa yaron ta ya zama likita.	She is proud that her son has become a doctor.	1241	3SG.F.PROG · pride · COMP · boy.GEN · 3SG.F · 3SG.M.PFV · become · doctor
 alfahari	Tana alfahari cewa yaron ta ya zama likita.	She is proud that her son has become a doctor.	1241	3SG.F.PROG · pride · COMP · boy.GEN · 3SG.F · 3SG.M.PFV · become · doctor
 cewa	Tana alfahari cewa yaron ta ya zama likita.	She is proud that her son has become a doctor.	1241	3SG.F.PROG · pride · COMP · boy.GEN · 3SG.F · 3SG.M.PFV · become · doctor
-yaron	Yaron ya yi shiru.	The boy stayed quiet.	1241	boy.DEF.M · 3SG.M.PFV · do · silence
 ku	Zan ba ku dama na kwana biyar.	I will give you five days' grace.	1244	FUT.1SG · give · 2PL · chance · POSS.M · day · five
 kwana	Zan ba ku dama na kwana biyar.	I will give you five days' grace.	1244	FUT.1SG · give · 2PL · chance · POSS.M · day · five
 magani	Zan ba ku magani na ɗan lokaci.	I'll give you a temporary treatment.	1244	FUT.1SG · give · 2PL · medicine · POSS.M · little · time
 ku	Zan ba ku magani na ɗan lokaci.	I'll give you a temporary treatment.	1244	FUT.1SG · give · 2PL · medicine · POSS.M · little · time
 talla	Za ku sami talla sosai da wannan littafin.	You're going to get much publicity with this book.	1244	FUT · 2PL · get · publicity · very.much · with · this · book.DEF.M
 ku	Za ku sami talla sosai da wannan littafin.	You're going to get much publicity with this book.	1244	FUT · 2PL · get · publicity · very.much · with · this · book.DEF.M
-an	An biya ku.	You've been paid.	1244	IMPRS.PFV · pay · 2PL
 uwa	Ku ba ƴan uwa ba ne?	Aren't you sisters?	1244	2PL · NEG · child.PL.GEN · mother · NEG · COP.PL
 cewa	Na ji cewa za ku yi haka.	I heard that you were going to do that.	1244	1SG.PFV · hear · COMP · FUT · 2PL · do · thus
 je	Zan fita, zan je na yi wanka.	Signing off, gonna take a shower.	1247	FUT.1SG · go.out · FUT.1SG · go · 1SG.SBJV · do · bathing
@@ -745,7 +489,6 @@ waccan	Waccan ita ce alama ta.	That's my cue.	1250	that.F · 3SG.F · COP.F · m
 ruwa	Ka ba ni ruwa kaɗan.	Give me a little more water.	1251	2SG.M.SBJV · give · 1SG · water · little
 kaɗan	Ka ba ni ruwa kaɗan.	Give me a little more water.	1251	2SG.M.SBJV · give · 1SG · water · little
 kaɗan	Ba kuɗi ne kaɗan ba.	It's not a little money.	1251	NEG · money · COP.M · little · NEG
-kaɗan	Yana da kuɗi kaɗan.	He has a little money.	1251	3SG.M.PROG · with · money · little
 alama	Ba ni da wata alama ko kaɗan.	I don't have the slightest clue.	1251	NEG · 1SG · with · any.F · sign · even · little
 masu	Mu mutane ne masu hidima da yawa.	We are busy men.	1252	1PL · person.PL · COP.PL · having.PL · service · with · abundance
 hidima	Mu mutane ne masu hidima da yawa.	We are busy men.	1252	1PL · person.PL · COP.PL · having.PL · service · with · abundance
@@ -760,43 +503,30 @@ safe	Na ci abincin safe mai gina jiki.	I had a healthy breakfast.	1255	1SG.PFV �
 jiki	Na ci abincin safe mai gina jiki.	I had a healthy breakfast.	1255	1SG.PFV · eat · food.GEN · morning · having · build · body
 yamma	Yanzu na ci abincin yamma.	I've just had dinner.	1255	now · 1SG.PFV · eat · food.GEN · evening
 ishe	Abincin ya ishe Ni.	I've eaten enough.	1255	food.DEF · 3SG.M.PFV · suffice · 1SG
-kuka	"""Wuta!"", ya sa kuka."	"""Fire!"" he cried."	1256	fire · 3SG.M.PFV · put · cry
-wuta	"""Wuta!"", ya sa kuka."	"""Fire!"" he cried."	1256	fire · 3SG.M.PFV · put · cry
 kuka	Me kuka yi jiya da yamma?	What did you do yesterday evening?	1256	what · 2PL.REL.PFV · do · yesterday · in · evening
 yamma	Me kuka yi jiya da yamma?	What did you do yesterday evening?	1256	what · 2PL.REL.PFV · do · yesterday · in · evening
-kuka	Ina kuka tafi?	Where did you go?	1256	where · 2PL.REL.PFV · go
 fashe	Sai ta fashe ta kuka.	She burst into sobs.	1256	then · 3SG.F.PFV · burst · 3SG.F.PFV · cry
 aka	Wannan ne aikin gidan da aka baka?	Is this your homework?	1257	this · COP.M · work.GEN · house.DEF.M · REL · IMPRS.REL.PFV · give.OBJ.2SG.M
 alfahari	Ina alfahari da aka ce in shiga.	I'm honored to be asked to participate.	1257	1SG.PROG · pride · REL · IMPRS.REL.PFV · say · 1SG.SBJV · enter
 aka	Ina alfahari da aka ce in shiga.	I'm honored to be asked to participate.	1257	1SG.PROG · pride · REL · IMPRS.REL.PFV · say · 1SG.SBJV · enter
 waƙar	Waƙar da ka fi so ce.	It's your favorite song.	1260	song.DEF.F · REL · 2SG.M.REL.PFV · exceed · want · COP.F
 waƙar	Wannan waƙar tana da ɗan sani.	This song sounds somewhat familiar.	1260	this · song.DEF.F · 3SG.F.PROG · with · bit.GEN · knowing
-kama	Gidan ya kama wuta.	The house caught fire.	1263	house.DEF.M · 3SG.M.PFV · catch · fire
-wuta	Gidan ya kama wuta.	The house caught fire.	1263	house.DEF.M · 3SG.M.PFV · catch · fire
 wuta	Gidan ya kama da wuta.	The flat is on fire.	1263	house.DEF.M · 3SG.M.PFV · catch · with · fire
 kama	Gidan ya kama da wuta.	The flat is on fire.	1263	house.DEF.M · 3SG.M.PFV · catch · with · fire
-yaro	Yana kama da yaro.	He looks young.	1263	3SG.M.PROG · catch · with · boy
-kama	Yana kama da yaro.	He looks young.	1263	3SG.M.PROG · catch · with · boy
 ja	Wannan yana kama da zai ja da baya.	This looks as though it will drag on and on.	1263	this · 3SG.M.PROG · catch · with · 3SG.M.FUT · pull · with · back
 nono	Ya kama nono na.	He grabbed my breasts.	1263	3SG.M.PFV · catch · breast · 1SG.POSS.M
-saniya	Yayi kama da saniya.	It looks like a cow.	1263	3SG.M.PFV.do · catch · with · cow
-ƙarfi	Shiru na da ƙarfi.	Silence has strength.	1264	silence · 3SG.M.PROG · with · strength
 jin	Ina jin zafi a nan.	I have a pain here.	1265	1SG.PROG · feel.GEN · heat · at · here
 jin	Ina jin sosai cewa maza da mata dai-dai ne.	I feel strongly that men and women are equal.	1265	1SG.PROG · feel.GEN · very.much · COMP · man.PL · and · woman.PL · equal · COP.PL
 maza	Ina jin sosai cewa maza da mata dai-dai ne.	I feel strongly that men and women are equal.	1265	1SG.PROG · feel.GEN · very.much · COMP · man.PL · and · woman.PL · equal · COP.PL
 makara	Ina jin za ku makara.	I had a feeling you would be late.	1265	1SG.PROG · feel.GEN · FUT · 2PL · be.late
 jin	Ina jin za ku makara.	I had a feeling you would be late.	1265	1SG.PROG · feel.GEN · FUT · 2PL · be.late
 jiki	Ya ce yana jin jiki.	He said he was dying.	1265	3SG.M.PFV · say · 3SG.M.PROG · feel.GEN · body
-ruwan	An fara ruwan sama.	It had started to rain.	1266	IMPRS.PFV · begin · water.GEN.M · sky
-an	An fara ruwan sama.	It had started to rain.	1266	IMPRS.PFV · begin · water.GEN.M · sky
-sama	An fara ruwan sama.	It had started to rain.	1266	IMPRS.PFV · begin · water.GEN.M · sky
 ruwan	Ni bana son ruwan sama.	I do not like the rain.	1266	1SG · NEG.1SG.PROG · want.GEN · water.GEN.M · sky
 sama	Ni bana son ruwan sama.	I do not like the rain.	1266	1SG · NEG.1SG.PROG · want.GEN · water.GEN.M · sky
 ruwan	Ba za'a yi ruwan sama gobe ba.	It will not rain tomorrow.	1266	NEG · FUT.IMPRS · do · water.GEN.M · sky · tomorrow · NEG
 sama	Ba za'a yi ruwan sama gobe ba.	It will not rain tomorrow.	1266	NEG · FUT.IMPRS · do · water.GEN.M · sky · tomorrow · NEG
 aka	Yanzu aka gama ruwan sama.	It just stopped raining.	1266	now · IMPRS.REL.PFV · finish · water.GEN.M · sky
 kyauta	Ba na fassara kyauta.	I don't translate for free.	1267	NEG · 1SG.PROG · translate · gift
-fassara	Ba na fassara kyauta.	I don't translate for free.	1267	NEG · 1SG.PROG · translate · gift
 kyauta	Shiga kyauta ne.	Entry is free of charge.	1267	entry · gift · COP.M
 tashi	Zan dawo gida bayan na tashi daga aiki.	I'll be home right after work.	1268	FUT.1SG · return · home · after · 1SG.PFV · rise · from · work
 tashi	Rana ta gabas za ta tashi a yamma.	The sun of the east shall rise in the west.	1268	sun · POSS.F · east · FUT · 3SG.F · rise · at · west
@@ -804,9 +534,7 @@ gabas	Rana ta gabas za ta tashi a yamma.	The sun of the east shall rise in the w
 tashi	Wani lokaci kake tashi aiki?	What time do you leave work?	1268	INDF.M · time · 2SG.M.REL.PROG · rise · work
 don	Asabar ce don haka ba sai na tashi zuwa makaranta ba gobe.	It's Saturday so I don't have to get up for school tomorrow.	1268	Saturday · COP.F · for · thus · NEG · must · 1SG.PFV · rise · to · school · NEG · tomorrow
 don	Asabar ce don haka ba sai na tashi zuwa aiki gobe ba.	It's Saturday so I don't have to get up for work tomorrow.	1268	Saturday · COP.F · for · thus · NEG · must · 1SG.PFV · rise · to · work · tomorrow · NEG
-komai	Ku ci komai.	Eat everything.	1269	2PL.SBJV · eat · everything
 komai	Ba zan ce komai ba.	I can't send my word.	1269	NEG · FUT.1SG · say · anything · NEG
-komai	Na faɗa mata komai.	I told her everything.	1269	1SG.PFV · tell · DAT.3SG.F · everything
 hannu	Ban so in tafi ba komai a hannu.	I didn't want to leave empty-handed.	1269	NEG.1SG.PFV · want · 1SG.SBJV · go · NEG · anything · at · hand
 taimake	Bari in taimake ka goge shi.	Let me help you wipe it off.	1270	let · 1SG.SBJV · help · 2SG.M.SBJV · wipe · 3SG.M
 goge	Bari in taimake ka goge shi.	Let me help you wipe it off.	1270	let · 1SG.SBJV · help · 2SG.M.SBJV · wipe · 3SG.M
@@ -826,10 +554,7 @@ yaya	Ta yaya za mu yi haka?	How do we do that?	1274	via · how · FUT · 1PL · 
 musulmi	Ta yaya kake son zama Musulmi?	How do you like being a Muslim?	1274	via · how · 2SG.M.REL.PROG · want.GEN · become · Muslim
 tuni	Ina ta jira tun tuni.	I've been waiting a long time.	1276	1SG.PROG · via · wait · since · long.ago
 jira	Ina ta jira tun tuni.	I've been waiting a long time.	1276	1SG.PROG · via · wait · since · long.ago
-jira	Za mu jira.	We should wait.	1276	FUT · 1PL · wait
 jira	Zan jira har sai an gama.	I'll stay until the end.	1276	FUT.1SG · wait · up.to · until · IMPRS.PFV · finish
-muhimmanci	Ilimi na da muhimmanci.	Education is important.	1278	knowledge · PROG · with · importance
-ilimi	Ilimi na da muhimmanci.	Education is important.	1278	knowledge · PROG · with · importance
 muhimmanci	Yana da muhimmanci na ji.	It's important I hear this.	1278	3SG.M.PROG · with · importance · 1SG.PFV · hear
 kilishi	Wannan kilishi yana da kyakkyawan tsari.	This rug has a nice pattern.	1279	this · rug · 3SG.M.PROG · with · beautiful.M.GEN · pattern
 kyakkyawan	Wannan kilishi yana da kyakkyawan tsari.	This rug has a nice pattern.	1279	this · rug · 3SG.M.PROG · with · beautiful.M.GEN · pattern
@@ -850,41 +575,22 @@ iska	Ana samun iska mai zafi daga kudu.	There's a warm wind blowing from the sou
 kudu	Ana samun iska mai zafi daga kudu.	There's a warm wind blowing from the south.	1281	IMPRS.PROG · get.VN.GEN · air · having · heat · from · south
 samun	Ana samun iska mai zafi daga kudu.	There's a warm wind blowing from the south.	1281	IMPRS.PROG · get.VN.GEN · air · having · heat · from · south
 iska	Ta ce tana buƙatar samun iska.	She said she needed to get some air.	1281	3SG.F.PFV · say · 3SG.F.PROG · need.F.GEN · get.VN.GEN · air
-taɓa	Ka taɓa zuwa Paris?	Have you ever been to Paris?	1282	2SG.M.PFV · ever · go.VN · Paris
-paris	Ka taɓa zuwa Paris?	Have you ever been to Paris?	1282	2SG.M.PFV · ever · go.VN · Paris
 taɓa	Ban taɓa yin wannan ba.	I have never done this.	1282	NEG.1SG.PFV · ever · do.VN.GEN · this · NEG
 taɓa	Ba ku taɓa cewa komai ba.	You never said anything.	1282	NEG · 2PL.PFV · ever · say.VN · anything · NEG
 budurwa	Ban taɓa yin budurwa ba.	I've never had a girlfriend.	1282	NEG.1SG.PFV · ever · do.VN.GEN · girlfriend · NEG
 shuka	Idan za ka taɓa dabba ko shuka, ka taɓa a hankali.	If you touch an animal or plant, touch it gently.	1282	if · FUT · 2SG.M · touch · animal · or · plant · 2SG.M.SBJV · touch · at · care
 dabba	Idan za ka taɓa dabba ko shuka, ka taɓa a hankali.	If you touch an animal or plant, touch it gently.	1282	if · FUT · 2SG.M · touch · animal · or · plant · 2SG.M.SBJV · touch · at · care
-can	Ka daina zuwa can.	Stop going there.	1283	2SG.M.SBJV · stop · go.VN · there
 can	Ba zai tafi can ba.	He shan't go there.	1283	NEG · FUT.3SG.M · go · there · NEG
 can	Ba na so in zauna a can.	I wouldn't like to live there.	1283	NEG · 1SG.PROG · want · 1SG.SBJV · reside · at · there
 gada	Akwai gada a can a da.	There was a bridge there.	1283	EXIST · bridge · at · there · at · long.ago
 kallo	Ta tsaya a can tana kallo na.	She stood there looking at me.	1283	3SG.F.PFV · stand · at · there · 3SG.F.PROG · watching · 1SG.POSS
-ƙarancin	Suna ƙarancin kuɗi.	They are short of funds.	1284	3PL.PROG · shortage.M.GEN · money
-tattara	Suna tattara goro.	They are gathering nuts.	1285	3PL.PROG · gather · kola.nut
-goro	Suna tattara goro.	They are gathering nuts.	1285	3PL.PROG · gather · kola.nut
 katin	Kada ka nuna katin ka.	Don't show your cards.	1286	PROH · 2SG.M.SBJV · show · card.M.GEN · 2SG.M.POSS
-sasanta	Mu sasanta wannan yanzu.	Let's settle this now.	1287	1PL.SBJV · settle · this · now
 yaƙi	Mutane na jin tsoron yaƙi.	People are afraid of war.	1288	person.PL · PROG · feel.VN.GEN · fear.M.GEN · war
 tsoron	Mutane na jin tsoron yaƙi.	People are afraid of war.	1288	person.PL · PROG · feel.VN.GEN · fear.M.GEN · war
-tsoron	Bana tsoron kowa.	I'm not scared of anybody.	1288	NEG.1SG.PROG · fear.M.GEN · anyone
 tsoron	Ina jin tsoron yin haka.	I'm afraid to try doing that.	1288	1SG.PROG · feel.VN.GEN · fear.M.GEN · do.VN.GEN · thus
 zaka	Wata rana zaka yi da na sani.	Someday you'll regret this.	1289	INDF.F · day · FUT.2SG.M · do · COND · 1SG.PFV · know
-zaka	Zaka faɗa mata?	Are you going to tell her?	1289	FUT.2SG.M · tell · DAT.3SG.F
-zaka	A ina zaka zauna?	Where will you stay?	1289	at · where · FUT.2SG.M · stay
 bada	Wannan wani labari mai bada tsoro!	What a bizarre tale!	1290	this · INDF.M · story · having · give · fear
-bada	An bada abincin rana.	Lunch is served.	1290	IMPRS.PFV · give · food.GEN · day
-awa	Ya bada sha'awa.	It sounds lovely.	1290	3SG.M.PFV · give · interest
-bada	Ya bada sha'awa.	It sounds lovely.	1290	3SG.M.PFV · give · interest
-sauti	Sun fara bada sauti.	They began chanting.	1290	3PL.PFV · begin · give · sound
-kanta	Ta bada kanta.	She made a fool of herself.	1290	3SG.F.PFV · give · head.GEN.3SG.F
-ilimi	Tambaya masomin ilimi.	Education begins with curiosity.	1291	question · beginning.GEN · knowledge
 masomin	Tambaya masomin ilimi.	Education begins with curiosity.	1291	question · beginning.GEN · knowledge
-tambaya	Tambaya masomin ilimi.	Education begins with curiosity.	1291	question · beginning.GEN · knowledge
-kare	Tana ƙoƙarin kare kanta.	She tried to protect herself.	1292	3SG.F.PROG · effort.GEN · protect · head.GEN.3SG.F
-ƙoƙarin	Tana ƙoƙarin kare kanta.	She tried to protect herself.	1292	3SG.F.PROG · effort.GEN · protect · head.GEN.3SG.F
 ɗalibi	Kai ɗalibi ne?	Are you a student?	1293	2SG.M · student · COP.M
 ɗalibi	Ni ɗalibi ne.	I am a student.	1293	1SG · student · COP.M
 ɗalibi	Ni ɗalibi ce.	I am a student.	1293	1SG · student · COP.F
@@ -897,12 +603,8 @@ ruwa	Bai yi kama da ruwa ba.	It doesn't look like water.	1294	NEG.3SG.M.PFV · d
 wuya	Wancan bai yi wuya ba.	That wasn't difficult.	1294	that · NEG.3SG.M.PFV · do · difficulty · NEG
 nesa	Gida na bai da nesa daga nan.	My flat isn't far from here.	1294	house · 1SG.POSS.M · NEG.3SG.M · with · far · from · here
 sunan	Yaya ma sunan wannan gidan abincin?	What was the name of that restaurant?	1295	how · also · name.GEN · this · house.GEN · food.DEF
-yaushe	Yaushe ta yi aure?	When did she get married?	1297	when · 3SG.F.REL.PFV · do · marriage
 yaushe	Yaushe za mu koma gida?	When will we drive home?	1297	when · FUT · 1PL · return · home
 yaushe	Sai yaushe za ka ci abincin rana?	How long do you have to eat lunch?	1297	until · when · FUT · 2SG.M · eat · food.GEN · day
-cigaba	Yaushe zaka cigaba?	When will you advance?	1297	when · FUT.2SG.M · progress
-dala	Kuɗin littafin dala 4 ne.	The cost of the book is 4 dollars.	1298	money.GEN · book.DEF · dollar · four · COP.M
-kuɗin	Kuɗin littafin dala 4 ne.	The cost of the book is 4 dollars.	1298	money.GEN · book.DEF · dollar · four · COP.M
 kuɗin	Ba a sami kuɗin ba.	The money was never found.	1298	NEG · IMPRS.PFV · get · money.DEF · NEG
 mutum	Ni mutum ne mai son motoci.	I am a fan of cars.	1299	1SG · person · COP.M · having · like.GEN · car.PL
 motoci	Ni mutum ne mai son motoci.	I am a fan of cars.	1299	1SG · person · COP.M · having · like.GEN · car.PL
@@ -924,16 +626,13 @@ wanda	Ba wanda ya ji ciwo.	No one was hit.	1313	NEG.EXIST · REL.M · 3SG.M.REL.
 daraja	An ba wanda ya zo na biyu suna mai daraja.	The runner-up was given an honorable mention.	1313	IMPRS.PFV · give · REL.M · 3SG.M.REL.PFV · come · POSS.M · two · name · having · worth
 rubutu	Wanda ya yi rubutu ya karanta sau biyu.	He who writes reads twice.	1313	REL.M · 3SG.M.REL.PFV · do · writing · 3SG.M.PFV · read · times · two
 amsa	Babu wanda ya sami amsa.	No one had an answer.	1313	NEG.EXIST · REL.M · 3SG.M.REL.PFV · get · answer
-nake	Da wasa nake yi.	I'm not kidding.	1317	with · play · 1SG.REL.PROG · do
 nake	Ba daga nan nake ba.	I'm not from here.	1317	NEG · from · here · 1SG.REL.PROG · NEG
 nake	Wannan shi ne abin da nake so.	This is all I want.	1317	this · 3SG.M · COP.M · thing.DEF.M · REL · 1SG.REL.PROG · want
 inda	Ina zuwa inda aka ce in je.	I go where I'm told to go.	1319	1SG.PROG · coming · where.REL · IMPRS.REL.PFV · say · 1SG.SBJV · go
 inda	Faɗa mun inda lokaci yayi na tafiya.	Tell me when it's time to go.	1319	tell · DAT.1SG · where.REL · time · 3SG.M.PFV.do · POSS.M · journey
 muke	Ina ji har yanzu ma muke.	I think we're even now.	1320	1SG.PROG · feel · until · now · also · 1PL.REL.PROG
-muke	Yaya muke?	How are we doing?	1320	how · 1PL.REL.PROG
 muke	Wannan zai ba mu abin da muke so.	That'll give us the focus we need.	1320	this · 3SG.M.FUT · give · 1PL · thing.DEF.M · REL · 1PL.REL.PROG · want
 muka	Da muke yara, muna ta so mu girma. Yanzu da muka girma, muna ina ma da mun sani.	When we were kids, we always wanted to grow up. Now that we have grown up, we wish we were aware of it.	1320	when · 1PL.REL.PROG · child.PL · 1PL.PROG · keep.on · want · 1PL.SBJV · grow.up · now · when · 1PL.REL.PFV · grow.up · 1PL.PROG · would.that · also · COND · 1PL.PFV · know
-suke	A ina suke?	What's their location?	1322	at · where · 3PL.REL.PROG
 takobi	A ina takobi na suke?	Where are my swords?	1322	at · where · sword · 1SG.POSS.M · 3PL.REL.PROG
 suke	A ina takobi na suke?	Where are my swords?	1322	at · where · sword · 1SG.POSS.M · 3PL.REL.PROG
 gaya	Ban taɓa gaya wa kowa haka ba.	I've never told anyone that before.	1323	NEG.1SG.PFV · ever · tell · DAT · everyone · thus · NEG
@@ -943,45 +642,25 @@ likitoci	Likitoci da yawa sun fara amfani da sabon magani.	More and more doctors
 amfani	Likitoci da yawa sun fara amfani da sabon magani.	More and more doctors have begun to use the new medicine.	1324	doctor.PL · with · abundance · 3PL.PFV · begin · use · with · new.M.LK · medicine
 sabon	Likitoci da yawa sun fara amfani da sabon magani.	More and more doctors have begun to use the new medicine.	1324	doctor.PL · with · abundance · 3PL.PFV · begin · use · with · new.M.LK · medicine
 zaƙi	Zuma akwai zaƙi.	Honey is sweet.	1326	honey · EXIST · sweetness
-zuma	Zuma akwai zaƙi.	Honey is sweet.	1326	honey · EXIST · sweetness
 daɗi	Muna da labari mai daɗi.	We have good news.	1327	1PL.PROG · with · news · having · pleasantness
 daɗi	Littafin can na da daɗi.	That book was interesting.	1327	book.DEF.M · there · POSS.M · with · pleasantness
 daɗi	Rana me daɗi, ko ba haka ba?	Lovely day, isn't it?	1327	day · having · pleasantness · or · NEG · thus · NEG
-tsoho	Tsoho bai da daɗi.	Old age isn't pleasant.	1327	old.one · NEG.3SG.M.PFV · with · pleasantness
 rai	Ina jin wani daɗi a rai na.	I'm feeling a buzz.	1327	1SG.PROG · feel.GEN · certain.M · pleasantness · at · spirit · 1SG.POSS.M
 kayan	Ina amfani da kayan aiki.	I'm using tools.	1328	1SG.PROG · usefulness · with · goods.GEN · work
-tattara	Tattara kayan ku.	Collect your gear.	1328	gather.IMP · goods.GEN · 2PL
-kayan	Tattara kayan ku.	Collect your gear.	1328	gather.IMP · goods.GEN · 2PL
-kawai	Yaro ne kawai.	He is but a child.	1330	boy · COP.M · only
 kawai	Ya na zaune ne kawai.	He lives off the grid.	1330	3SG.M · PROG · residing · COP.M · only
 zaune	Ya na zaune ne kawai.	He lives off the grid.	1330	3SG.M · PROG · residing · COP.M · only
-kawai	Kawai ban sani ba.	I just don't know.	1330	only · NEG.1SG.PFV · know · NEG
 mugu	Ka yi hankali, Mugu kawai!	I thou thee, thou traitor!	1330	2SG.M.SBJV · do · sense · evil.one · only
 ladabi	Ina yin ladabi ne kawai.	I was just being polite.	1330	1SG.PROG · do.GEN · politeness · COP.M · only
 yaron	Yaron na son jin daɗi kawai.	The boys just want to have fun.	1330	boy.DEF.M · PROG · want.GEN · feel.GEN · pleasantness · only
-hali	Kyakkyawan hali ne kawai.	It's just good manners.	1330	good.M · character · COP.M · only
-kyakkyawan	Kyakkyawan hali ne kawai.	It's just good manners.	1330	good.M · character · COP.M · only
 zalunci	Wannan zalunci ne kawai.	That's just brutal.	1330	this · oppression · COP.M · only
-aboki	Kawai sami aboki.	You just made a friend.	1330	only · get.IMP · friend
 kuke	Ina da abin da kuke so.	I have what you want.	1331	1SG.PROG · with · thing.M.DEF · REL · 2PL.REL.PROG · want
 kuke	Ba da wasa kuke yi ba?	You're not joking, are you?	1331	NEG · with · play · 2PL.REL.PROG · do · NEG
 kuke	Ina son yadda kuke magana.	I like the way you speak.	1331	1SG.PROG · want.GEN · how.REL · 2PL.REL.PROG · speech
-nawa	Nawa kuke a yanzu?	How many of you are there now?	1331	how.many · 2PL.REL.PROG · at · now
 fari	Me kuke sha, fari ko ja?	What are you drinking, white or red?	1331	what · 2PL.REL.PROG · drink · white · or · red
-nema	Wani girma kuke nema?	What size are you looking for?	1331	certain.M · size · 2PL.REL.PROG · seek
 allah	Don Allah a ce wasa kuke.	Please say you're kidding.	1331	for · God · IMPRS.SBJV · say · play · 2PL.REL.PROG
-kiran	Zan sake kiran ku.	I will call on you again.	1332	FUT.1SG · repeat · call.GEN · 2PL
-kiran	Kiran kyauta ne.	The call is free of charge.	1332	call.GEN · gift · COP.M
 kiran	Na ji ana kiran suna na.	I thought I heard my name being called.	1332	1SG.PFV · hear · IMPRS.PROG · call.GEN · name · 1SG.POSS.M
-jiran	Ina jiran amsa.	I'm waiting for a reply.	1333	1SG.PROG · wait.GEN · answer
-jiran	Muna jiran abincin dare.	We're waiting for dinner.	1333	1PL.PROG · wait.GEN · food.GEN · night
-tsayi	Ya kai ni tsayi.	He's as tall as me.	1335	3SG.M.PFV · reach · 1SG · height
-dakata	Baki ɗaya sun dakata.	They all stopped.	1337	mouth · one · 3PL.PFV · pause
 shan	Ya kamata ka daina shan giya.	You need to stop drinking.	1338	3SG.M.PFV · be.proper · 2SG.M.SBJV · cease · drink.GEN · beer
 shan	Ina son shan wani abu mai zafi.	I'd like to drink something hot.	1338	1SG.PROG · want.GEN · drink.GEN · certain.M · thing · having · heat
-shan	Mutumin yana shan ruwa.	The man drinks water.	1338	man.M.DEF · 3SG.M.PROG · drink.GEN · water
-mutumin	Mutumin yana shan ruwa.	The man drinks water.	1338	man.M.DEF · 3SG.M.PROG · drink.GEN · water
-yunwa	Ina jin yunwa.	I feel hungry.	1339	1SG.PROG · feel.GEN · hunger
 masu	Akwai yara masu yunwa a Afirka.	There are starving children in Africa.	1339	EXIST · child.PL · having.PL · hunger · at · Africa
 yunwa	Akwai yara masu yunwa a Afirka.	There are starving children in Africa.	1339	EXIST · child.PL · having.PL · hunger · at · Africa
 afirka	Akwai yara masu yunwa a Afirka.	There are starving children in Africa.	1339	EXIST · child.PL · having.PL · hunger · at · Africa
@@ -990,13 +669,11 @@ kashe	Mujalla ce don kashe lokaci.	The magazine is for killing time.	1341	magazi
 mujalla	Mujalla ce don kashe lokaci.	The magazine is for killing time.	1341	magazine · COP.F · for · kill · time
 kashe	Akwai kashe-kashe da yawa a bara.	There were a lot of murders last year.	1341	EXIST · kill-RDP · with · abundance · at · last.year
 bara	Akwai kashe-kashe da yawa a bara.	There were a lot of murders last year.	1341	EXIST · kill-RDP · with · abundance · at · last.year
-kashe	Ta kashe kanta.	She took her own life.	1341	3SG.F.PFV · kill · self.GEN.3SG.F
 amma	Ya kamata da ka kashe ni, amma ba ka yi ba.	You could have killed me, but you didn't.	1341	3SG.M.PFV · be.proper · COND · 2SG.M.SBJV · kill · 1SG · but · NEG · 2SG.M.PFV · do · NEG
 dala	Yanzu na kashe sama da dala dubu uku.	I just spent over three thousand dollars.	1341	now · 1SG.PFV · spend · above · with · dollar · thousand · three
 dubu	Yanzu na kashe sama da dala dubu uku.	I just spent over three thousand dollars.	1341	now · 1SG.PFV · spend · above · with · dollar · thousand · three
 tsakiya	Babu wanda na sani da aka kashe a Kudu ta Tsakiya L.A.	Nobody I know got killed in South Central L.A.	1341	NEG.EXIST · one.REL.M · 1SG.REL.PFV · know · REL · IMPRS.REL.PFV · kill · at · south · POSS.F · middle · L.A.
 kuma	Ya kuma Asabar mai zuwa?	How about next Saturday?	1344	how · also · Saturday · having · coming
-kuma	Yanzu kuma sai kai.	It's now your turn.	1344	now · also · only · 2SG.M
 kuma	Ba zan kuma zuwa can ba.	I won't go there again.	1344	NEG · FUT.1SG · again · coming · there · NEG
 coci	Ba na zuwa coci kuma.	I don't go to church anymore.	1344	NEG · 1SG.PROG · coming · church · again
 iya	Ba za ku iya fita ba.	You can't go out.	1346	NEG · FUT · 2PL · can · go.out · NEG
@@ -1040,7 +717,6 @@ shafa	Ba zan iya shafa tebur ba. Ba ni da kaya.	I cannot wipe the table. I don't
 kaya	Ba zan iya shafa tebur ba. Ba ni da kaya.	I cannot wipe the table. I don't have a cloth.	1351	NEG · FUT.1SG · can · wipe · table · NEG · NEG · 1SG · with · goods
 tebur	Ba zan iya shafa tebur ba. Ba ni da kaya.	I cannot wipe the table. I don't have a cloth.	1351	NEG · FUT.1SG · can · wipe · table · NEG · NEG · 1SG · with · goods
 kaya	Wancan kaya ne mai kyau.	That's a cute costume.	1351	that · goods · COP.M · having · goodness
-sabuwar	Yaya sabuwar gidanka?	How is your new flat?	1352	how · new.F.GEN · house.GEN.2SG.M
 gidanka	Yaya sabuwar gidanka?	How is your new flat?	1352	how · new.F.GEN · house.GEN.2SG.M
 murna	Suna murna da sabuwar gidan su.	They're happy with their new flat.	1352	3PL.PROG · rejoicing · with · new.F.GEN · house.GEN · 3PL
 sabuwar	Suna murna da sabuwar gidan su.	They're happy with their new flat.	1352	3PL.PROG · rejoicing · with · new.F.GEN · house.GEN · 3PL
@@ -1048,8 +724,6 @@ wasiƙar	Ba zan manta da aika wasiƙar ba.	I mustn't forget to post the letter.	
 aika	Ba zan manta da aika wasiƙar ba.	I mustn't forget to post the letter.	1353	NEG · FUT.1SG · forget · with · send · letter.DEF · NEG
 wasiƙar	Na riga na rubuta wasiƙar.	I've written the letter already.	1353	1SG.PFV · do.first · 1SG.PFV · write · letter.DEF
 yau	Ba ni da komai a yau.	I have nothing on for today.	1354	NEG · 1SG · with · anything · at · today
-litinin	Yau Litinin ne.	It is Monday today.	1354	today · Monday · COP.M
-yau	Yau Litinin ne.	It is Monday today.	1354	today · Monday · COP.M
 yau	Muna kiran ta yau da gobe.	We call on her now and again.	1354	1PL.PROG · call.GEN · 3SG.F · today · and · tomorrow
 fes	Ya yi fes da shi yau.	He looks a good deal better today.	1354	3SG.M.PFV · do · spotless · with · 3SG.M · today
 tsari	Tsari ne na yau da kullum.	It's routine procedure.	1354	arrangement · COP.M · POSS.M · today · and · always
@@ -1059,18 +733,13 @@ zaune	Yana zaune a ɗakin jira.	He's sitting in the waiting room.	1362	3SG.M.PRO
 ɗakin	Ina tafiya zuwa ɗakin wanka.	I am walking to the bathroom.	1362	1SG.PROG · going · to · room.GEN · bathing
 kwana	Kowane ɗakin kwana yana da ɗakin wanka.	Each bedroom has an en suite bathroom.	1362	every.M · room.GEN · sleeping · 3SG.M.PROG · with · room.GEN · bathing
 ɗakin	Kowane ɗakin kwana yana da ɗakin wanka.	Each bedroom has an en suite bathroom.	1362	every.M · room.GEN · sleeping · 3SG.M.PROG · with · room.GEN · bathing
-cika	Na cika sosai.	I'm loaded.	1363	1SG.PFV · be.full · very.much
 cika	Da alama dai ba ku cika damuwa ba.	You don't seem too worried.	1363	with · sign · EMPH · NEG · 2PL · be.full · worry · NEG
 cika	Wannan ya cika kyau sosai!	That was absolutely awesome!	1363	this · 3SG.M.PFV · be.full · goodness · very.much
-sauri	Ba a buƙatar sauri.	There is no hurry.	1368	NEG · IMPRS · need.GEN · speed
 sauri	Ya kamata ku yi sauri.	You need to hurry.	1368	3SG.M.PFV · be.proper · 2PL.SBJV · do · speed
 mutu	Jiki yana girma a hankali kuma ya mutu da sauri.	Bodies grow slowly and die quickly.	1368	body · 3SG.M.PROG · growing · at · sense · and · 3SG.M.PFV · die · with · speed
 sauri	Jiki yana girma a hankali kuma ya mutu da sauri.	Bodies grow slowly and die quickly.	1368	body · 3SG.M.PROG · growing · at · sense · and · 3SG.M.PFV · die · with · speed
 saboda	Kada ka yi sauri saboda Ni.	Don't rush on my account.	1368	PROH · 2SG.M.SBJV · do · speed · because.of · 1SG
 rubutu	Yaya zan iya rubutu da sauri?	How can I write faster?	1368	how · FUT.1SG · can · writing · with · speed
-ingilishi	Ba wahala koyon Ingilishi.	English isn't easy to master.	1370	NEG.EXIST · difficulty · learn.GEN · English
-koyon	Ba wahala koyon Ingilishi.	English isn't easy to master.	1370	NEG.EXIST · difficulty · learn.GEN · English
-koyon	Babu wahala koyon Faransanci.	It isn't too hard to learn French.	1370	NEG.EXIST · difficulty · learn.GEN · French
 filin	Ta ce ita ne mai wannan filin.	She claimed to be the owner of the land.	1372	3SG.F.PFV · say · 3SG.F · COP.M · possessor.of · this · field.M.DEF
 filin	Wannan filin ya na da girma.	This field is wild.	1372	this · field.M.DEF · 3SG.M · PROG · with · bigness
 ƙaramin	Wani lokaci, Ina so in zama ƙaramin tsuntsu.	Sometimes, I'd like to be a small bird.	1374	some.M · time · 1SG.PROG · want · 1SG.SBJV · become · small.M.GEN · bird
@@ -1084,7 +753,6 @@ mutuwa	Mai haƙuri zai iya mutuwa idan ba don magani ba.	The patient could've di
 haƙuri	Sun yi haƙuri sosai, ko ba haka ba?	They were very patient, weren't they?	1376	3PL.PFV · do · patience · very.much · or · NEG · thus · NEG
 maganin	Wannan maganin guba ne daga Allah.	This medicine is a natural poison.	1377	this · medicine.M.DEF · poison · COP.M · from · God
 guba	Wannan maganin guba ne daga Allah.	This medicine is a natural poison.	1377	this · medicine.M.DEF · poison · COP.M · from · God
-maganin	Ka sha maganin ka.	Take your pills.	1377	2SG.M.SBJV · drink · medicine.GEN · 2SG.M.POSS
 maganin	Kare ne mai maganin kare lafiya.	Cookie is a therapy dog.	1377	dog · COP.M · possessor.of · medicine.GEN · protect · health
 kare	Kare ne mai maganin kare lafiya.	Cookie is a therapy dog.	1377	dog · COP.M · possessor.of · medicine.GEN · protect · health
 jifa	Me ya sa ka yi jifa da ni?	Why are you short with me?	1379	what · 3SG.M.REL.PFV · cause · 2SG.M.PFV · do · throw · with · 1SG
@@ -1092,16 +760,13 @@ banza	Kai ba banza ba ne.	You are not a coward.	1381	2SG.M · NEG · worthlessne
 banza	Sun yi banza da shi.	They ignored him.	1381	3PL.PFV · do · worthlessness · with · 3SG.M
 rigakafi	Ina da rigakafi.	I have immunity.	1382	1SG.PROG · with · prevention
 daɗe	Me ya sa ya daɗe haka?	What's taking him so long?	1383	what · 3SG.M.REL.PFV · cause · 3SG.M.PFV · last.long · thus
-daɗe	Za ka daɗe?	Will you be long?	1383	FUT · 2SG.M · last.long
 daɗe	Ba mu wani daɗe sosai ba.	We haven't been together that long.	1383	NEG · 1PL · some.M · last.long · very.much · NEG
 gode	Na gode!	Thanks!	1386	1SG.PFV · thank
 gode	A'a, na gode.	No, thank you.	1386	no · 1SG.PFV · thank
 gode	Mun gode sosai.	Thank you so much for this.	1386	1PL.PFV · thank · very.much
-fa	Yaya don gobe fa?	How about for tomorrow?	1389	how · for · tomorrow · EMPH
 fa	Idan kowane rana Asabar ne fa?	What if all days were Saturday?	1389	if · every.M · day · Saturday · COP.M · EMPH
 mace	Yanzu ita fa mace ce.	She's a woman now.	1389	now · 3SG.F · EMPH · woman · COP.F
 fa	Yanzu ita fa mace ce.	She's a woman now.	1389	now · 3SG.F · EMPH · woman · COP.F
-maza	Yara maza fa?	What about boys?	1389	child.PL · male.PL · EMPH
 yarda	Na yarda da ku sosai.	To some extent I agree with you.	1391	1SG.PFV · agree · with · 2PL · very.much
 yarda	Ba zan kuma yarda da shi ba.	I don't trust him any more.	1391	NEG · FUT.1SG · again · agree · with · 3SG.M · NEG
 yarda	Ba zan iya yarda da wannan ba.	I can't accept this.	1391	NEG · 1SG.FUT · can · agree · with · this · NEG
@@ -1109,7 +774,6 @@ kuwa	Bai kamata ku yi haka ba, ko kuwa?	You're not supposed to be doing that, ar
 kuwa	Kai kuwa ina zaka haka?	Where on earth are you going?	1392	2SG.M · EMPH · where · 2SG.M.FUT · thus
 san	Na san za ka ce a'a.	I know you're going to say no.	1393	1SG.PFV · know · FUT · 2SG.M · say · no
 san	Na san za ku ce a'a.	I know you're going to say no.	1393	1SG.PFV · know · FUT · 2PL · say · no
-san	Ya san mu sosai.	He knows us very well.	1393	3SG.M.PFV · know · 1PL · greatly
 yarinyar	Wannan yarinyar ta san Jamusanci da Ingilishi.	That girl knows German and English.	1393	this · girl.F.DEF · 3SG.F.PFV · know · German · and · English
 jamusanci	Wannan yarinyar ta san Jamusanci da Ingilishi.	That girl knows German and English.	1393	this · girl.F.DEF · 3SG.F.PFV · know · German · and · English
 waƙar	Ban san wannan waƙar ba.	I don't know this song.	1393	1SG.NEG.PFV · know · this · song.F.DEF · NEG
@@ -1122,7 +786,6 @@ kallo	Na san ana kallo na.	I knew I was being watched.	1393	1SG.PFV · know · I
 sannu	Na san da sannu zan mutu.	I know I'll die soon.	1393	1SG.PFV · know · with · slowly · 1SG.FUT · die
 mutu	Na san da sannu zan mutu.	I know I'll die soon.	1393	1SG.PFV · know · with · slowly · 1SG.FUT · die
 nasara	Ta san ba za ta ci nasara ba.	She knew she wouldn't win.	1393	3SG.F.PFV · know · NEG · FUT · 3SG.F · eat · victory · NEG
-fito	Ku fito shiru.	Come out quietly.	1395	2PL.SBJV · emerge · silence
 ga	An ƙaddara mutum ga wahala.	Man is destined to suffer.	1396	IMPRS.PFV · destine · person · to · hardship
 ƙaddara	An ƙaddara mutum ga wahala.	Man is destined to suffer.	1396	IMPRS.PFV · destine · person · to · hardship
 ga	Har yanzu ba ka ga komai ba.	And you ain’t seen nothin’ yet.	1396	until · now · NEG · 2SG.M.PFV · see · anything · NEG
@@ -1130,20 +793,10 @@ ga	Ya kamata na ga likita yau.	I have to go to the doctor today.	1396	3SG.M.PFV 
 sanda	Na ga sanda motar ta yi bindiga.	I saw the car explode.	1396	1SG.PFV · see · when · car.F.DEF · 3SG.F.REL.PFV · do · gun
 bindiga	Na ga sanda motar ta yi bindiga.	I saw the car explode.	1396	1SG.PFV · see · when · car.F.DEF · 3SG.F.REL.PFV · do · gun
 biyayya	Ka yi biyayya ga mata. Son su bai isa ba.	Be loyal to women. Loving them isn't enough.	1396	2SG.M.SBJV · do · loyalty · to · women · love.GEN · 3PL · 3SG.M.NEG.PFV · suffice · NEG
-aboki	Na ga aboki na.	I saw my friend.	1396	1SG.PFV · see · friend · 1SG.POSS.M
-oktoba	Yau Asabar, 14 ga Oktoba.	Today is Saturday, the 14th of October.	1396	today · Saturday · 14 · of · October
-afrilu	Gobe ne 5 ga Afrilu.	Tomorrow is April 5th.	1396	tomorrow · COP.M · 5 · of · April
 motsa	Ya kamata ka motsa jiki.	You should exercise.	1397	3SG.M.PFV · fitting · 2SG.M.SBJV · move · body
-fada	Ta manta abin fada.	She blew her lines.	1399	3SG.F.PFV · forget · thing.M.DEF · say
 fada	Zan fada ma yaushe zaka daina ba.	I'll tell you when to stop.	1399	1SG.FUT · say · DAT · when · 2SG.M.FUT · stop · NEG
-bukatar	Bana bukatar komai.	I don't need anything.	1400	1SG.NEG.PROG · need.GEN · anything
 bukatar	Ina bukatar wanda zan yi magana da shi.	I need someone to talk to.	1400	1SG.PROG · need.GEN · one.REL.M · 1SG.FUT · do · talk · with · 3SG.M
-bukatar	Ina bukatar kifi.	Fish, please.	1400	1SG.PROG · need.GEN · fish
-kifi	Ina bukatar kifi.	Fish, please.	1400	1SG.PROG · need.GEN · fish
-kujera	Ina bukatar kujera.	I want a chair.	1400	1SG.PROG · need.GEN · chair
-fitsari	Ina bukatar yin fitsari.	I need to go pee.	1400	1SG.PROG · need.GEN · do.VN.GEN · urine
 kula	Mata da yawa suna kula da gida kuma su fita aiki.	Lots of women both run a home and go out to work.	1401	woman.PL · with · abundance · 3PL.PROG · care · with · house · and · 3PL.SBJV · go.out · work
-kula	Yana kula da gidan.	He looked about the house.	1401	3SG.M.PROG · care · with · house.DEF
 kula	Ta kula da shi da kyau.	She did well by him.	1401	3SG.F.PFV · care · with · 3SG.M · with · goodness
 domin	Ya zo domin ya kula da ku.	He's here to protect you.	1401	3SG.M.PFV · come · for · 3SG.M.SBJV · care · with · 2PL
 miki	Za mu kula miki da wannan.	We'll take care of this for you.	1401	FUT · 1PL · care · DAT.2SG.F · with · this
@@ -1153,15 +806,12 @@ samu	Idan ya dage zai samu nasara.	If he tries hard, he will succeed.	1402	if ·
 dage	Idan ya dage zai samu nasara.	If he tries hard, he will succeed.	1402	if · 3SG.M.PFV · persist · FUT.3SG.M · get · victory
 samu	Za ku iya samu ba domin komai ba.	You may have it for nothing.	1402	FUT · 2PL · can · get · NEG · for · anything · NEG
 samu	Idan ya yi nasara zai samu yarda da kai.	If he wins he will gain self-confidence.	1402	if · 3SG.M.PFV · do · victory · FUT.3SG.M · get · trust · with · head
-sakamako	Ba'a samu sakamako ba.	There were no consequences.	1402	NEG.IMPRS.PFV · get · result · NEG
 mota	Ina sauri in samu mota.	I have a bus to catch.	1402	1SG.PROG · hurry · 1SG.SBJV · get · car
 bambanta	Me ya bambanta ku?	What makes you different?	1403	what · 3SG.M.PFV · differ · 2PL
-shawara	Wannan shawara ta yi!	What a good idea!	1404	this · advice · 3SG.F.PFV · do
 shawara	Ina so in ba ka wata shawara.	I would like to give you a piece of advice.	1404	1SG.PROG · want · 1SG.SBJV · give · 2SG.M · INDF.F · advice
 shawara	Zan iya ba da shawara?	Can I offer a suggestion?	1404	FUT.1SG · can · give · PRT · advice
 yanke	Ba za mu iya yanke shawara ba.	We can't make up our mind.	1405	NEG · FUT · 1PL · can · cut · advice · NEG
 gashinta	Bana yanke gashinta ba.	I don't cut her hair.	1405	NEG.1SG.PROG · cut · hair.GEN.3SG.F · NEG
-yanke	Bana yanke gashinta ba.	I don't cut her hair.	1405	NEG.1SG.PROG · cut · hair.GEN.3SG.F · NEG
 yanke	Zai fi kyau ka yanke shawara.	You'd better make up your mind.	1405	FUT.3SG.M · exceed · goodness · 2SG.M.SBJV · cut · advice
 alheri	Fadi alheri ko kai shiru.	Make a spoon or spoil a horn.	1406	say · kindness · or · 2SG.M · silence
 fadi	Fadi alheri ko kai shiru.	Make a spoon or spoil a horn.	1406	say · kindness · or · 2SG.M · silence
@@ -1175,13 +825,9 @@ manoma	Manoma suna aiki sosai a cikin filin.	Farmers are busy working in the fie
 filin	Manoma suna aiki sosai a cikin filin.	Farmers are busy working in the field.	1408	farmer.PL · 3PL.PROG · work · much · at · inside.GEN · field.DEF
 cikin	Manoma suna aiki sosai a cikin filin.	Farmers are busy working in the field.	1408	farmer.PL · 3PL.PROG · work · much · at · inside.GEN · field.DEF
 cikin	Suna jin suna cikin wahala.	They felt their way in the dark.	1408	3PL.PROG · hear.VN.GEN · 3PL.PROG · inside.GEN · difficulty
-cikin	Suna cikin ɗakin malamai.	They are in the teachers' room.	1408	3PL.PROG · inside.GEN · room.GEN · teacher.PL
-malamai	Suna cikin ɗakin malamai.	They are in the teachers' room.	1408	3PL.PROG · inside.GEN · room.GEN · teacher.PL
 kaso	Kaso biyu cikin uku ba laifi.	Two out of three ain't bad.	1408	portion · two · inside.GEN · three · NEG · fault
 laifi	Kaso biyu cikin uku ba laifi.	Two out of three ain't bad.	1408	portion · two · inside.GEN · three · NEG · fault
 gari	An yi ruwan sama a cikin gari.	The rain has cleared up in the city.	1408	IMPRS.PFV · do · water.GEN · sky · at · inside.GEN · town.
-haɗari	Muna cikin haɗari.	We're not safe.	1408	1PL.PROG · inside.GEN · danger.
-shanu	Shanu suna cikin yunwa.	The cattle are starving.	1408	cow.PL · 3PL.PROG · inside.GEN · hunger.
 shuka	Za a shuka shinkafa a cikin wannan filin.	Rice will be planted in this field.	1408	FUT · IMPRS · sow · rice · at · inside.GEN · this · field.DEF.
 shinkafa	Za a shuka shinkafa a cikin wannan filin.	Rice will be planted in this field.	1408	FUT · IMPRS · sow · rice · at · inside.GEN · this · field.DEF.
 gina	Ina zaune a cikin gidan da aka gina a 2013.	I live in a house that was built in 2013.	1408	1SG.PROG · residing · at · inside.GEN · house.DEF · REL · IMPRS.REL.PFV · build · at · 2013.
@@ -1194,18 +840,12 @@ mene	Mene ne asali kake yi?	What exactly are you doing?	1412	what · COP.M · or
 asali	Mene ne asali kake yi?	What exactly are you doing?	1412	what · COP.M · origin · 2SG.M.REL.PROG · do?
 mene	Mene ne haka, zan iya! Yaushe zan fara?	What the heck, I'll do it! When shall I start?	1412	what · COP.M · thus, · FUT.1SG · can! · when · FUT.1SG · begin?
 mene	Kawai mene abin da kake yi?	Just what the heck are you doing?	1412	only · what · thing.DEF · REL · 2SG.M.REL.PROG · do?
-mamata	Mamata tana asibiti yanzu.	My mother is in the hospital now.	1413	mother.1SG.POSS · 3SG.F.PROG · hospital · now.
-kash	Fara, kash!	Start, dammit!	1414	begin.IMP, · alas!
-ikon	Kai, ikon Allah!	Lo and behold!	1415	hey, · power.GEN · God!
-ari	Ka ari littafi.	You borrow a book.	1416	2SG.M.SBJV · borrow · book.
 gaisuwa	Gaisuwa mai yawa.	Many greetings.	1417	greeting · having · abundance.
 gaisuwa	Gaisuwa mai daɗi!	Warm greetings!	1417	greeting · having · pleasantness!
 sonka	Bana sonka.	I don't love you.	1418	NEG.1SG.PROG · love.GEN.2SG.M.
 shirya	Fada ba zai shirya komai ba.	Fighting won't settle anything.	1419	fighting · NEG · FUT.3SG.M · arrange · anything · NEG.
 fada	Fada ba zai shirya komai ba.	Fighting won't settle anything.	1419	fighting · NEG · FUT.3SG.M · arrange · anything · NEG.
 shirya	Tun jiya ta shirya tafiya.	He set out on a trip yesterday.	1419	since · yesterday · 3SG.F.PFV · prepare · journey.
-mishi	Bai shirya mishi ba.	He wasn't ready for it.	1419	NEG.3SG.M.PFV · prepare · DAT.3SG.M · NEG.
-shirya	Bai shirya mishi ba.	He wasn't ready for it.	1419	NEG.3SG.M.PFV · prepare · DAT.3SG.M · NEG.
 harbi	Ban harbi kowa ba.	I didn't shoot anyone.	1420	NEG.1SG.PFV · shoot · anyone · NEG.
 harbi	Daina harbi!	Stop shooting!	1420	stop.IMP · shooting!
 harbi	Suna mun harbi.	They're shooting at me.	1420	3PL.PROG · DAT.1SG · shooting.
@@ -1213,63 +853,41 @@ kazamin	Kai kazamin alade!	You filthy pig!	1421	2SG.M · filthy.M.GEN · pig!
 alade	Kai kazamin alade!	You filthy pig!	1421	2SG.M · filthy.M.GEN · pig!
 mamata	Mamata ba ta iya tuƙa mota ba baki ɗaya.	My mother cannot drive a car at all.	1422	mother.1SG.POSS · NEG · 3SG.F · can · drive · car · NEG · mouth · one.
 tuƙa	Mamata ba ta iya tuƙa mota ba baki ɗaya.	My mother cannot drive a car at all.	1422	mother.1SG.POSS · NEG · 3SG.F · can · drive · car · NEG · mouth · one.
-tuƙa	Tana tuƙa babur.	She rides a fixed gear bike.	1422	3SG.F.PROG · drive · motorcycle.
-babur	Tana tuƙa babur.	She rides a fixed gear bike.	1422	3SG.F.PROG · drive · motorcycle.
 ninka	Kuɗin da kake samu ya ninka nawa sau uku.	Your income is three times larger than mine.	1423	money.DEF · REL · 2SG.M.REL.PROG · get · 3SG.M.PFV · multiply · 1SG.POSS.M · times · three.
 kuɗin	Kuɗin da kake samu ya ninka nawa sau uku.	Your income is three times larger than mine.	1423	money.DEF · REL · 2SG.M.REL.PROG · get · 3SG.M.PFV · multiply · 1SG.POSS.M · times · three.
-ninka	Ninka shi biyu.	Double the dose.	1423	multiply.IMP · 3SG.M.OBJ · two.
-katin	Don Allah raba katin.	Please deal the cards.	1424	for · God · divide.IMP · card.M.DEF
-raba	Don Allah raba katin.	Please deal the cards.	1424	for · God · divide.IMP · card.M.DEF
-raba	Raba wannan zuwa biyu.	Divide this in half.	1424	divide.IMP · this · to · two
 mutumin	Mutumin da ya faɗa ruwa ya fara numfashi.	The man who nearly drowned began to breathe.	1425	man.M.DEF · REL · 3SG.M.REL.PFV · fall · water · 3SG.M.PFV · begin · breathing
 numfashi	Mutumin da ya faɗa ruwa ya fara numfashi.	The man who nearly drowned began to breathe.	1425	man.M.DEF · REL · 3SG.M.REL.PFV · fall · water · 3SG.M.PFV · begin · breathing
-numfashi	Har yanzu tana numfashi.	She's still breathing.	1425	until · now · 3SG.F.PROG · breathing
-numfashi	Yana numfashi da sauri.	My lungs were screaming for air.	1425	3SG.M.PROG · breathing · with · speed
 wayyo	Wayyo Allah, guba, ta kawo mini guba!...	Oh, gods, my gods, poison, bring me poison!...	1426	alas · God · poison · 3SG.F.SBJV · bring · DAT.1SG · poison
 guba	Wayyo Allah, guba, ta kawo mini guba!...	Oh, gods, my gods, poison, bring me poison!...	1426	alas · God · poison · 3SG.F.SBJV · bring · DAT.1SG · poison
-wayyo	Fili, wayyo!	Land, ho!	1426	field · alas
-fili	Fili, wayyo!	Land, ho!	1426	field · alas
 zamuyi	Zamuyi aure.	We're going to get married.	1427	FUT.1PL.do · marriage
 alade	Kai alade mai banƙyama.	You're a disgusting pig.	1428	2SG.M · pig · having · disgust
-banƙyama	Kai alade mai banƙyama.	You're a disgusting pig.	1428	2SG.M · pig · having · disgust
 laifi	Kai mutum ne mai banƙyama. Babu laifi.	You are a disgusting person. No offense.	1428	2SG.M · person · COP.M · having · disgust · NEG.EXIST · fault
 banƙyama	Kai mutum ne mai banƙyama. Babu laifi.	You are a disgusting person. No offense.	1428	2SG.M · person · COP.M · having · disgust · NEG.EXIST · fault
 kun	Kun san wani da ya iya Faransanci?	Do you know anyone who speaks French?	1429	2PL.PFV · know · someone · REL · 3SG.M.REL.PFV · can · French
 kun	Kun san mene ne wannan?	Do you know what that is?	1429	2PL.PFV · know · what · COP.M · this
-kun	Kun ga, mu tafi!	C'mon, let's go!	1429	2PL.PFV · see · 1PL.SBJV · go
 fashe	Kun yi sa'a ba ku fashe ba.	You're lucky you didn't get busted.	1429	2PL.PFV · do · luck · NEG · 2PL · burst · NEG
-kwamfutan	Wannan kwamfutan nawa ne.	This laptop belongs to me.	1430	this · computer.DEF · 1SG.POSS.M · COP.M
-kwamfutan	Kwamfutan baya aiki.	The computer doesn't work.	1430	computer.DEF · NEG.3SG.M.PROG · work
 kaisu	A kaisu asibiti.	Take them to the hospital.	1431	IMPRS.SBJV · take.3PL · hospital
 gano	Na gano shi yana aiki cikin lambu.	I found him working in the garden.	1432	1SG.PFV · find · 3SG.M · 3SG.M.PROG · work · in · garden
 lambu	Na gano shi yana aiki cikin lambu.	I found him working in the garden.	1432	1SG.PFV · find · 3SG.M · 3SG.M.PROG · work · in · garden
 gano	Na gano cewa ban shirya ba.	I realized I wasn't ready.	1432	1SG.PFV · find · COMP · NEG.1SG.PFV · prepare · NEG
 bincike	Bincike; samu; gano!	Search; find; discover!	1432	search · get · find
-gano	Bincike; samu; gano!	Search; find; discover!	1432	search · get · find
 nema	Faɗa mini abin da kuke nema kuma zan taimake ku gano shi.	Tell me what you're looking for and I'll help you find it.	1432	tell.IMP · DAT.1SG · thing.M.DEF · REL · 2PL.REL.PROG · seek · and · FUT.1SG · help · 2PL · find · 3SG.M
 yarinyar	Ba mu gano yarinyar ba.	We have not found the girl.	1432	NEG · 1PL · find · girl.F.DEF · NEG
 zaki	Kin gano yadda zaki yi haka?	Did you ever figure out how to do that?	1432	2SG.F.PFV · find · how · FUT.2SG.F · do · thus
 karshen	Asabar ita ce rana ta karshen sati.	Saturday is the last day of week.	1433	Saturday · 3SG.F · COP.F · day · GEN.F · end.M.GEN · week
 sati	Asabar ita ce rana ta karshen sati.	Saturday is the last day of week.	1433	Saturday · 3SG.F · COP.F · day · GEN.F · end.M.GEN · week
-karshen	Bana aiki karshen mako.	I don't work on weekends.	1433	NEG.1SG.PROG · work · end.M.GEN · week
-mako	Bana aiki karshen mako.	I don't work on weekends.	1433	NEG.1SG.PROG · work · end.M.GEN · week
 karshen	Ina za ku je wannan karshen mako?	Where are you going this weekend?	1433	where · FUT · 2PL · go · this · end.M.GEN · week
-basa	Basa buƙata har yanzu.	They don't need one yet.	1434	NEG.3PL.PROG · need · until · now
-buƙata	Basa buƙata har yanzu.	They don't need one yet.	1434	NEG.3PL.PROG · need · until · now
 ƙazami	Mutu, ƙazami!	Die, scum!	1435	die.IMP · filthy.M
 kunnena	Kunnena baya bayan gida!	My ear is not a toilet!	1436	ear.GEN.1SG · NEG.3SG.M.PROG · behind · house
 salama	Bari salama ta kasance a duniya.	Let peace happen in the world.	19999	let.IMP · peace · 3SG.F.SBJV · be · at · world
 duniya	Bari salama ta kasance a duniya.	Let peace happen in the world.	19999	let.IMP · peace · 3SG.F.SBJV · be · at · world
 sayi	Ina so in sayi baƙa ne.	I want to buy a black one.	19999	1SG.PROG · want · 1SG.SBJV · buy · black.F · COP.M
 tamkar	Ya yi shige tamkar ta mace.	He dressed up as a woman.	19999	3SG.M.PFV · do · outfit · like · POSS.F · woman
-sabon	Wannan sabon abokinka ne?	Is that your new friend?	19999	this · new.M.GEN · friend.GEN.2SG.M · COP.M
 kyakkyawan	Yana da wahala samun kyakkyawan tunani.	It's difficult to have great ideas.	19999	3SG.M.PROG · with · difficulty · getting.GEN · good.M.GEN · thought
-hutu	Kuna buƙatar hutu.	You are in need of a holiday.	19999	2PL.PROG · need.F.GEN · rest
 dogara	Na dogara ne da taimakon ku.	I count on your help.	19999	1SG.PFV · rely · COP.M · with · help.GEN · 2PL
 shanu	Shanu na rayuwa ne da ciyawa.	Cows live on grass.	19999	cow.PL · PROG · living · COP.M · with · grass
 ciyawa	Shanu na rayuwa ne da ciyawa.	Cows live on grass.	19999	cow.PL · PROG · living · COP.M · with · grass
 cigaba	Ya kamata ka cigaba har sai ka gamsu.	You should continue until you're satisfied.	19999	3SG.M.PFV · befit · 2SG.M.SBJV · continue · until · only · 2SG.M.SBJV · satisfied
-malama	Zan iya taimakonki malama?	May I help you ma'am?	19999	1SG.FUT · can · help.GEN.2SG.F · teacher.F
 sabon	Shin ko akwai wani sabon labari?	Is there any fresh news?	19999	Q · whether · EXIST · INDF.M · new.M.GEN · news
 ƙafa	Na wani abu ya taɓa min ƙafa.	I felt something touch my feet.	19999	1SG.PFV · INDF.M · thing · 3SG.M.PFV · touch · DAT.1SG · foot
 wuya	Magana da Turanci yanada wuya.	Speaking English is difficult.	19999	speech · with · English · 3SG.M.PROG.with · difficulty
@@ -1286,7 +904,6 @@ gasa	Gasa don matsayin yana da ƙarfi sosai.	Competition for the position is ver
 bara	Paul ya sami kuɗi da yawa a bara.	Paul made a lot of money last year.	19999	Paul · 3SG.M.PFV · get · money · with · abundance · at · last.year
 aske	Na ji daɗin yadda na aske gemu na.	It is pleasant to shave off my beard.	19999	1SG.PFV · feel · pleasure.GEN · how · 1SG.REL.PFV · shave · beard · 1SG.POSS.M
 gemu	Na ji daɗin yadda na aske gemu na.	It is pleasant to shave off my beard.	19999	1SG.PFV · feel · pleasure.GEN · how · 1SG.REL.PFV · shave · beard · 1SG.POSS.M
-ofis	Dorothy ba ya ofis.	Dorothy isn't in the office.	19999	Dorothy · NEG · 3SG.M.PROG · office
 haraji	A ina zan sami lauyan haraji mai kyau?	Where can I get hold of a good tax lawyer?	19999	at · where · 1SG.FUT · get · lawyer.GEN · tax · having · goodness
 italiya	Jamus ta yi ƙawance da Italiya.	Germany made an alliance with Italy.	19999	Germany · 3SG.F.PFV · do · alliance · with · Italy
 jamus	Jamus ta yi ƙawance da Italiya.	Germany made an alliance with Italy.	19999	Germany · 3SG.F.PFV · do · alliance · with · Italy
@@ -1298,10 +915,7 @@ sabuwar	Na yi nasara da Dave ya biya kuɗin don sabuwar motar sa.	I bet Dave pai
 tsoho	Wancan ya nuna, shi tsoho ne kuma ya gaji.	That is to say, he was old and gray and tired.	19999	that · 3SG.M.PFV · show · 3SG.M · old.M · COP.M · and · 3SG.M.PFV · tired
 raba	Garkuwar ta raba ɗakin gida biyu.	A screen divided the room into two.	19999	shield.F.DEF · 3SG.F.PFV · divide · room.GEN · house · two
 mamaye	Duk da dai Ni ne da gaskiya, ya mamaye Ni.	Even though I was right, he got the best of me.	19999	all · with · EMPH · 1SG · COP.M · with · truth · 3SG.M.PFV · overwhelm · 1SG
-ashe	Ashe, babu zafi gabadaya.	So, it isn't hot at all.	19999	MIR · NEG.EXIST · heat · altogether
 laifi	Wancan laifi ne babba, kuma za'a hukunta ka!	That is a criminal offense, and you will surely be punished!	19999	that · crime · COP.M · big · and · FUT.IMPRS · punish · 2SG.M
-hali	Su ne mawuyacin hali.	They are the extreme cases.	19999	3PL · COP.PL · difficult.GEN · condition
-waɗannan	Waɗannan barayin.	That's thieves' cant.	19999	these · thief.PL.DEF
 yawanci	Yawanci sun yarda da labarin.	Many a man believes the story.	19999	mostly · 3PL.PFV · agree · with · story.DEF
 yakan	Tsoho yakan yi wa kansa magana wani lokaci.	The old man sometimes talks to himself.	19999	old.man · 3SG.M.HAB · do · DAT · head.GEN.3SG.M · speech · INDF.M · time
 tsoho	Tsoho yakan yi wa kansa magana wani lokaci.	The old man sometimes talks to himself.	19999	old.man · 3SG.M.HAB · do · DAT · head.GEN.3SG.M · speech · INDF.M · time
@@ -1319,8 +933,6 @@ goma	Jimlar ta kai dala goma.	The total came to ten dollars.	19999	total.DEF · 
 mutanen	Mutanen ba sa son tsuntsayen.	The people don't like the birds.	19999	person.PL.DEF · NEG · 3PL.PROG · like.GEN · bird.PL.DEF
 bango	Yaron ya zana hoto a bango.	The boy drew a picture on the wall.	19999	boy.DEF · 3SG.M.PFV · draw · picture · at · wall
 hoto	Yaron ya zana hoto a bango.	The boy drew a picture on the wall.	19999	boy.DEF · 3SG.M.PFV · draw · picture · at · wall
-rigar	Yarinyar ta yaga rigar.	The girl tore the cloth.	19999	girl.DEF · 3SG.F.PFV · tear · gown.DEF
-yarinyar	Yarinyar ta yaga rigar.	The girl tore the cloth.	19999	girl.DEF · 3SG.F.PFV · tear · gown.DEF
 safar	Safar hannu yana da rami a babban yatsa.	The glove has a hole in the thumb.	19999	sock.GEN · hand · 3SG.M.PROG · with · hole · at · big.GEN · finger
 yatsa	Safar hannu yana da rami a babban yatsa.	The glove has a hole in the thumb.	19999	sock.GEN · hand · 3SG.M.PROG · with · hole · at · big.GEN · finger
 rami	Safar hannu yana da rami a babban yatsa.	The glove has a hole in the thumb.	19999	sock.GEN · hand · 3SG.M.PROG · with · hole · at · big.GEN · finger
@@ -1347,8 +959,6 @@ fure	Wannan fure kamshinsa akwai daɗi.	This flower smells sweet.	19999	this · 
 dubu	Mutane dubu biyu ne za su cika ɗakin taron.	Two thousand people fit into this hall.	19999	person.PL · thousand · two · COP.PL · FUT · 3PL · fill · room.GEN.M · meeting.DEF.M
 kwana	Zan yi ban kwana da wannan makaranta mai wari.	I'll bid farewell to this stinking school.	19999	FUT.1SG · do · give.VN.LK · sleeping · with · this · school · having · stench
 kasuwanci	Na zo nan dan kasuwanci.	I am here on business.	19999	1SG.PFV · come · here · for · commerce
-budurwa	Ya ajiye budurwa, tsakaninmu.	Between ourselves, he keeps a mistress.	19999	3SG.M.PFV · keep · girlfriend · between.GEN.1PL
-kike	Daga ina kike, Karen?	Where are you from, Karen?	19999	from · where · 2SG.F.PROG.REL · Karen
 malama	Wannan hanyar, don Allah, malama.	This way, please, mademoiselle.	19999	this · way.DEF.F · for · God · madam
 ƙaramin	Evan ƙaramin yaro ne kawai. Ta yaya zai san abin da zai yi?	Evan is just a little boy. How should he know what to do?	19999	Evan · small.M.LK · boy · COP.M · only · via · how · FUT.3SG.M · know · thing.DEF.M · REL · FUT.3SG.M · do
 iyali	A hankali nake son shiryawa kuma in sami iyali, amma ba yanzu ba.	Eventually I'd like to settle down and have a family, but not yet.	19999	at · sense · 1SG.PROG.REL · want.GEN · prepare.VN · and · 1SG.SBJV · get · family · but · NEG · now · NEG
@@ -1359,8 +969,6 @@ murna	Fatan alheri ko nasara! Murna!	Here's to you! Cheers!	19999	hope.GEN.M · 
 alheri	Fatan alheri ko nasara! Murna!	Here's to you! Cheers!	19999	hope.GEN.M · kindness · or · victory · joy
 yawanci	Yawanci ka na da juriya sosai.	You're usually as tough as nails.	19999	mostly · 2SG.M · PROG · with · endurance · very.much
 paris	Baka taba zuwa Paris ba?	You've never been to Paris?	19999	NEG.2SG.M.PFV · ever · going · Paris · NEG
-wanke	Akwai buƙatar wanke rigarka.	Your shirts need to be washed.	19999	EXIST · need.GEN.F · wash · gown.GEN.2SG.M
-murna	Nayi murna da zuwa.	I'm glad that you'll come.	19999	1SG.PFV.do · joy · with · coming
 shida	Da fatan za a ba shi wani magani na kowane bayan awa shida.	Please give him a dose of medicine every six hours.	19999	with · hope.GEN.M · FUT · IMPRS · give · 3SG.M · INDF.M · medicine · POSS.M · every.M · after · hour · six
 kwabo	Yana yin addinin da ba zai kashe ko kwabo ba.	He makes a religion of never wasting a penny.	19999	3SG.M.PROG · do.VN.LK · religion.DEF.M · REL · NEG · FUT.3SG.M · spend · even · kobo · NEG
 oktoba	A biya wannan kudin a Oktoba 28, 1998.	Please settle this account by October 28, 1998.	19999	IMPRS.SBJV · pay · this · money.DEF.M · at · October · 28 · 1998
@@ -1387,7 +995,6 @@ gona	Kawuna yana da gona a ƙauye.	My uncle has a farm in the village.	19999	unc
 dafu	Ina son naman da bai dafu sosai.	I like my steak cooked medium rare.	19999	1SG.PROG · want.GEN · meat.DEF.M · REL · NEG.3SG.M.PFV · be.cooked · very.much
 ƙafa	Na ji ma ƙafa na ciwo da kuskure.	I got my leg hurt in the accident.	19999	1SG.PFV · feel · DAT · leg · 1SG.POSS.M · pain · with · mistake
 tuƙuru	Na gaji sosai da aiki tuƙuru.	I am very tired from the hard work.	19999	1SG.PFV · be.tired · very.much · with · work · hard
-sayi	Na sayi caseti.	I buy a tape.	19999	1SG.PFV · buy · cassette
 tabarau	Na fasa tabarau na.	I've broken my glasses.	19999	1SG.PFV · break · eyeglasses · 1SG.POSS.M
 tsohuwa	Na haɗu da tsohuwa.	I met an old woman.	19999	1SG.PFV · meet · with · old.woman
 hali	Ina son ganin ta, ta kowane hali.	I want to see her by any means.	19999	1SG.PROG · want.GEN · see.GEN · 3SG.F · by · every.M · condition
@@ -1398,11 +1005,9 @@ mishi	Na ce mishi ya haɗa shayi.	I asked him to make tea.	19999	1SG.PFV · say 
 bakwai	Kullum ina cin abincin safe a bakwai.	I usually have breakfast at seven.	19999	always · 1SG.PROG · eat.GEN · food.GEN · morning · at · seven
 safe	Kullum ina cin abincin safe a bakwai.	I usually have breakfast at seven.	19999	always · 1SG.PROG · eat.GEN · food.GEN · morning · at · seven
 kafa	Mun sake karanta wasikar sau da kafa.	We read the letter again and again.	19999	1PL.PFV · repeat · read · letter.DEF.F · times · with · foot
-jirgi	Muna son hawa jirgi.	We went aboard the plane.	19999	1PL.PROG · want.GEN · mounting · vehicle
 albarka	Albarka ta tabbata ga waɗanda ba su da baiwa!	Blessed are those who have no talent!	19999	blessing · 3SG.F.SBJV · be.established · for · REL.PL · NEG · 3PL · with · talent
 waɗanda	Albarka ta tabbata ga waɗanda ba su da baiwa!	Blessed are those who have no talent!	19999	blessing · 3SG.F.SBJV · be.established · for · REL.PL · NEG · 3PL · with · talent
 hutu	Don Allah a bar Asabar mai zuwa a hutu.	Please leave next Saturday afternoon free.	19999	for · God · IMPRS.SBJV · leave · Saturday · having · coming · at · rest
-kunne	Kunne na yana ƙara.	My ear is ringing.	19999	ear · 1SG.POSS.M · 3SG.M.PROG · noise
 yakan	Zamewar harshe wani lokaci yakan kashe ɗan siyasa.	A slip of the tongue is sometimes fatal to a politician.	19999	slipping.GEN · tongue · some.M · time · 3SG.M.HAB · kill · son.GEN · politics
 siyasa	Zamewar harshe wani lokaci yakan kashe ɗan siyasa.	A slip of the tongue is sometimes fatal to a politician.	19999	slipping.GEN · tongue · some.M · time · 3SG.M.HAB · kill · son.GEN · politics
 harshe	Zamewar harshe wani lokaci yakan kashe ɗan siyasa.	A slip of the tongue is sometimes fatal to a politician.	19999	slipping.GEN · tongue · some.M · time · 3SG.M.HAB · kill · son.GEN · politics
@@ -1424,7 +1029,6 @@ siyasa	Kuɗi yana da yawa a cikin lamuran siyasa.	Money counts for much in polit
 adu	Al'adu da yawa na Turai sun kama ƙasa a Japan.	Many western customs have taken root in Japan.	19999	custom.PL · with · abundance · POSS.PL · Europe · 3PL.PFV · seize · ground · at · Japan
 japan	Al'adu da yawa na Turai sun kama ƙasa a Japan.	Many western customs have taken root in Japan.	19999	custom.PL · with · abundance · POSS.PL · Europe · 3PL.PFV · seize · ground · at · Japan
 sarki	Da an taɓa samun babban sarki.	Once there lived a great king.	19999	formerly · IMPRS.PFV · ever · get.GEN · big.M.GEN · king
-malam	Malam ya tattara takardu.	The teacher collected the papers.	19999	teacher · 3SG.M.PFV · collect · paper.PL
 banda	Ku tafi a hankali, banda gudu.	Don't run, walk slowly.	19999	2PL.SBJV · go · at · sense · except · running
 goge	Kana son in goge jikinka?	Would you like me to wipe your body?	19999	2SG.M.PROG · want.GEN · 1SG.SBJV · wipe · body.GEN.2SG.M
 tambaya	Shin akwai wanda yayi tambaya na?	Has anyone asked for me?	19999	Q · EXIST · one.REL.M · 3SG.M.REL.PFV.do · question · 1SG.POSS
@@ -1443,7 +1047,6 @@ sanye	Jaruman sun fito sanye cikin kayan da.	The actors appeared in historical c
 fito	Jaruman sun fito sanye cikin kayan da.	The actors appeared in historical costumes.	19999	actor.PL.DEF · 3PL.PFV · emerge · dressed · inside.GEN · clothes.GEN · formerly
 rigar	Kina da rigar da za ta shiga da fara?	Do you have a dress in white?	19999	2SG.F.PROG · with · gown.DEF · REL · FUT · 3SG.F · enter · with · white
 fito	Ko ya fito ko bai fito ba, sakamakon zai zama ɗaya.	Whether he comes or not, the result will be the same.	19999	whether · 3SG.M.PFV · come.out · or · NEG.3SG.M.PFV · come.out · NEG · result.DEF · 3SG.M.FUT · become · one
-italiya	Shi haifaffen Italiya ne.	He is Italian by birth.	19999	3SG.M · born.GEN · Italy · COP.M
 sunan	Kowa ya san sunan shi a garin mu.	His name is known to everybody in our town.	19999	everyone · 3SG.M.PFV · know · name.GEN · 3SG.M · at · town.GEN · 1PL
 imani	Nayi imani cewa zai yi kuɗi wani rana.	I believe he is going to be rich one day.	19999	1SG.PFV.do · belief · COMP · 3SG.M.FUT · do · money · INDF.M · day
 harsashi	Ya ajiye bindigan shi da harsashi.	He keeps this gun loaded.	19999	3SG.M.PFV · keep · gun.GEN · 3SG.M · with · bullet
@@ -1453,38 +1056,30 @@ komo	Nan ba da jimawa ba zai komo daga Turai.	He will return from Europe soon.	1
 titi	Yana ta tafiya kan titi.	He walked about the streets.	19999	3SG.M.PROG · continually · walking · on · street
 cigaba	Ya cigaba da zama farko a ajin shi a makaranta.	He remained at the top of the class at school.	19999	3SG.M.PFV · continue · with · being · first · at · class.GEN · 3SG.M · at · school
 fuskarsa	Ya ji ruwan saman ya a fuskarsa.	He felt the rain on his face.	19999	3SG.M.PFV · feel · water.GEN · sky.DEF · 3SG.M.PFV · at · face.GEN.3SG.M
-rai	Yana cikin ɓacin rai.	He is in a bad mood.	19999	3SG.M.PROG · inside.GEN · spoiling.GEN · spirit
 buƙata	Bai taɓa samun abin da yake buƙata ba.	He's never had to earn his own living.	19999	NEG.3SG.M.PFV · ever · getting.GEN · thing.DEF · REL · 3SG.M.REL.PROG · need · NEG
 tarihi	Tabbas zai kafa sabon tarihi a cikin sau uku.	He is sure to set a new record in the triple jump.	19999	certainly · 3SG.M.FUT · set · new.M.GEN · history · at · inside.GEN · time · three
 dutse	Ya zo daga wani ɗan ƙaramin garin dutse.	He came from a tiny mountain town.	19999	3SG.M.PFV · come · from · INDF.M · little · small.M.GEN · town.GEN · mountain
 baƙonmu	Ya kasance baƙonmu baki ɗaya.	He was an entire stranger to us.	19999	3SG.M.PFV · be · guest.GEN.1PL · mouth · one
 uzuri	Zai bani uzuri.	He will excuse me.	19999	3SG.M.FUT · give.1SG · excuse
-motarsa	Yana wankin motarsa.	He is washing his car.	19999	3SG.M.PROG · washing.GEN · car.GEN.3SG.M
 kurkuku	An sake shi daga kurkuku nan da nan bayan yaƙin.	He was released from prison immediately after the war.	19999	IMPRS.PFV · release · 3SG.M · from · prison · here · with · here · after.GEN · war.DEF
 jawabi	Ya kamata ya yi jawabi ga taron.	He had to address the meeting.	19999	3SG.M.PFV · be.proper · 3SG.M.SBJV · do · speech · to · gathering.DEF
 motarsa	Ya ji daɗin sabuwar motarsa.	He is pleased with his new car.	19999	3SG.M.PFV · feel · pleasantness.GEN · new.F.GEN · car.GEN.3SG.M
 mutunci	Mutum ne mai mutunci a cikin jama'a.	He is a man of high social status.	19999	person · COP.M · having · dignity · at · inside.GEN · community
-jamus	Shi haifaffen Jamus ne.	He is German by birth.	19999	3SG.M · born.GEN · Germany · COP.M
-rasha	Shi haifaffen Rasha ne.	He is a Russian by birth.	19999	3SG.M · born.GEN · Russia · COP.M
 silin	Ya rataye fitila daga silin.	He hung a lamp from the ceiling.	19999	3SG.M.PFV · hang · lamp · from · ceiling
 fitila	Ya rataye fitila daga silin.	He hung a lamp from the ceiling.	19999	3SG.M.PFV · hang · lamp · from · ceiling
 ofis	Ba ya zuwa ofis ran Asabar.	He doesn't go to the office on Saturday.	19999	NEG · 3SG.M.PROG · coming · office · day.GEN · Saturday
 kwano	Ya kafa yumbu a cikin kwano.	He formed the clay into a bowl.	19999	3SG.M.PFV · set · clay · at · inside.GEN · bowl
-asali	Asali mutumin kirki ne.	He is basically a nice man.	19999	origin · person.GEN · goodness · COP.M
-manoma	Asalin su manoma ne.	Originally they were farmers.	19999	origin.GEN · 3PL · farmer.PL · COP.M
 talata	Suna iya zuwa ranar Litinin ko Talata, amma ba Laraba ko Alhamis ba.	They can come on Monday or Tuesday, but not on Wednesday or Thursday.	19999	3PL.PROG · can · coming · day.GEN · Monday · or · Tuesday · but · NEG · Wednesday · or · Thursday · NEG
 laraba	Suna iya zuwa ranar Litinin ko Talata, amma ba Laraba ko Alhamis ba.	They can come on Monday or Tuesday, but not on Wednesday or Thursday.	19999	3PL.PROG · can · coming · day.GEN · Monday · or · Tuesday · but · NEG · Wednesday · or · Thursday · NEG
 alhamis	Suna iya zuwa ranar Litinin ko Talata, amma ba Laraba ko Alhamis ba.	They can come on Monday or Tuesday, but not on Wednesday or Thursday.	19999	3PL.PROG · can · coming · day.GEN · Monday · or · Tuesday · but · NEG · Wednesday · or · Thursday · NEG
 miji	Suna yi kamar mata da miji.	They pretend to be man and wife.	19999	3PL.PROG · do · like · wife · and · husband
 taska	Sun fita neman taska.	They went in search of treasure.	19999	3PL.PFV · exit · seek.GEN · treasure
 miji	Ta haife yaro na miji.	She gave birth to a baby boy.	19999	3SG.F.PFV · bear · child · GEN.M · male
-taga	Yaushe ta fasa taga?	When did she break the window?	19999	when · 3SG.F.PFV · break · window
 saboda	Ba ta yi karta ba, saboda ba ta son ta.	She didn't play cards, because she didn't like it.	19999	NEG · 3SG.F.PFV · do · cards · NEG · because · NEG · 3SG.F.PROG · want.GEN · 3SG.F
 goge	Ta fi so ta goge kayan adon ta musamman.	She especially liked to polish her jewels.	19999	3SG.F.PFV · exceed · want · 3SG.F.SBJV · polish · goods.GEN · adornment.GEN · 3SG.F.POSS · especially
 musamman	Ta fi so ta goge kayan adon ta musamman.	She especially liked to polish her jewels.	19999	3SG.F.PFV · exceed · want · 3SG.F.SBJV · polish · goods.GEN · adornment.GEN · 3SG.F.POSS · especially
 hadda	Tana da hankali kuma hadda karfin hali.	She is not only gentle but brave.	19999	3SG.F.PROG · with · sense · also · including · strength.GEN · character
 ƙoƙarin	Ta yi ƙoƙarin kawo furen a cikin hankali.	She tried to bring the flowers into focus.	19999	3SG.F.PFV · do · effort.GEN · bring · flower.DEF · at · inside.GEN · sense
-faransa	Haifaffiyar Faransa ce.	She is of French birth.	19999	born.F.GEN · France · COP.F
 haihuwa	Ita yar Amurka ce da haihuwa.	She is an American by birth.	19999	3SG.F · daughter.GEN · America · COP.F · with · birth
 sanye	Tana sanye da takalmi mai launin ruwan ƙasa mai duhu.	She was wearing dark brown shoes.	19999	3SG.F.PROG · wearing · with · shoe · having · colour.GEN · water.GEN · ground · having · darkness
 haihuwa	Bana amfani da tazarar haihuwa.	I don't use birth control.	19999	NEG.1SG.PROG · use · with · distance.GEN · birth
@@ -1501,7 +1096,6 @@ hoto	Mun ga Mac ya yi wani kyakkyawan hoto.	We saw Mac make a fantastic shot.	19
 mayu	Sarauniyar mayu ta mutu.	The queen of the witches is dead.	19999	queen.GEN · witch.PL · 3SG.F.PFV · die
 kowace	Suna tattara shara a kowace Litinin.	They collect our garbage every Monday.	19999	3PL.PROG · gather · rubbish · at · every.F · Monday
 motata	Idan motata ta sami matsala zan je a bus.	If something were wrong with my car, I'd go by bus.	19999	if · car.GEN.1SG · 3SG.F.PFV · get · problem · 1SG.FUT · go · at · bus
-jini	Kai, babu bugun jini.	Hey, there's no pulse.	19999	2SG.M · NEG.EXIST · beat.GEN · blood
 sanka	Riba yafi mutane su sanka.	Profit is better than fame.	19999	profit · 3SG.M.PFV.exceed · person.PL · 3PL.SBJV · know.2SG.M
 riba	Riba yafi mutane su sanka.	Profit is better than fame.	19999	profit · 3SG.M.PFV.exceed · person.PL · 3PL.SBJV · know.2SG.M
 alkawari	Duk wanda ya yi alkawari ya kamata ya cika.	Anyone who has made a promise should keep it.	19999	all · REL.M · 3SG.M.REL.PFV · do · promise · 3SG.M.PFV · befit · 3SG.M.SBJV · fulfil
@@ -1513,7 +1107,6 @@ halaka	Japan na jefa kanta cikin halaka, ko ba haka ba?	Present-day Japan is goi
 afrilu	A watan Afrilu 1905 aka gina makaranta a filin gidan kallo.	It was April 1905 when a school was built on the site of the theatre.	19999	at · month.GEN · April · 1905 · IMPRS.REL.PFV · build · school · at · field.GEN · house.GEN · watching
 waɗannan	Waɗannan da su ke da daraja su za mu raba.	Those are values that we all share.	19999	these · REL · 3PL · REL.PROG · with · value · 3PL · FUT · 1PL · share
 daraja	Waɗannan da su ke da daraja su za mu raba.	Those are values that we all share.	19999	these · REL · 3PL · REL.PROG · with · value · 3PL · FUT · 1PL · share
-bishiya	Motar ta daki bishiya.	His car ran into a tree.	19999	car.DEF · 3SG.F.PFV · hit · tree
 kunkuru	Mun sami kunkuru a gonar.	We found a turtle in the garden.	19999	1PL.PFV · find · turtle · at · farm.DEF
 aika	Ina aika ta zuwa California.	I'm sending her to California.	19999	1SG.PROG · send · 3SG.F · to · California
 tsayi	Kamar Ni, bai da tsayi sosai.	Like me, he's also not tall.	19999	like · 1SG · NEG.3SG.M.PFV · with · height · very.much
@@ -1529,7 +1122,6 @@ jawo	Kasuwanci yana jawo cigaban ƙasa.	Trade leads to national progress.	19999	
 shinkafa	Kada a sha ciyawar shinkafa ɗaya!	Waste not a single grain of rice!	19999	PROH · IMPRS.SBJV · drink · grass.GEN · rice · one
 huɗu	Ba giya kafin ƙarfe huɗu!	No beer before four!	19999	NEG · beer · before · o'clock · four
 daban	Babu wanda zai iya samun ranakun haihuwa uku daban-daban.	No one can have three different birth dates.	19999	NEG.EXIST · REL.M · FUT.3SG.M · can · get.VN.GEN · day.PL.GEN · birth · three · different-different
-agogo	Agogo ya yi latti.	The clock is slow.	19999	clock · 3SG.M.PFV · do · lateness
 takwas	Wani mutum ya faɗi sau bakwai kuma ya tashi sau takwas.	A man fails seven times and rises eight times.	19999	INDF.M · man · 3SG.M.PFV · fall · time · seven · and · 3SG.M.PFV · rise · time · eight
 takobi	Wanda ya sare da takobi, ya mutu da takobi.	He who wounds by the sword, dies by the sword.	19999	REL.M · 3SG.M.REL.PFV · cut · with · sword · 3SG.M.PFV · die · with · sword
 kasuwa	Manomi na sayar da biredin manoma a kasuwa.	At the market, the farmer is selling his farmer's bread.	19999	farmer · PROG · sell · OBJ · bread.GEN · farmer.PL · at · market
@@ -1537,7 +1129,6 @@ manoma	Manomi na sayar da biredin manoma a kasuwa.	At the market, the farmer is 
 manomi	Manomi na sayar da biredin manoma a kasuwa.	At the market, the farmer is selling his farmer's bread.	19999	farmer · PROG · sell · OBJ · bread.GEN · farmer.PL · at · market
 hau	Ya kamata ku hau bas ma namba 5.	You should take bus no. 5.	19999	3SG.M.PFV · be.proper · 2PL.SBJV · mount · bus · having · number · five
 rami	Bayan awa uku a cikin gidan caca, yana da $ 2,000 a cikin rami.	After three hours in the casino, he's $2,000 in the hole.	19999	after · hour · three · at · inside.GEN · house.GEN · gambling · 3SG.M.PROG · with · dollar · two.thousand · at · inside.GEN · hole
-ayaba	Ina cin ayaba.	I am eating a banana.	19999	1SG.PROG · eat.VN.GEN · banana
 safiya	Ƙarfe biyu na safiya ne.	It is two o'clock in the morning.	19999	o'clock · two · POSS.M · morning · COP.M
 fure	Yaron ya ba da fure ga baƙo.	The child offered a flower to the visitor.	19999	boy.DEF · 3SG.M.PFV · give · OBJ · flower · to · guest
 adabo	"A Amurka, adabo na nufin ""sai wata rana."""	"In the United States, a wave means ""goodbye."""	19999	at · America · wave · PROG · mean.VN.GEN · until · INDF.F · day
@@ -1562,7 +1153,6 @@ asara	Babu riba, babu asara, mun zama daidai.	No gain, no lose, we are fully equ
 riba	Babu riba, babu asara, mun zama daidai.	No gain, no lose, we are fully equal.	19999	NEG.EXIST · profit · NEG.EXIST · loss · 1PL.PFV · become · equal
 ƙarancin	Bayan haka, dafa shi a kan ƙarancin wuta na minti 30 kuma kun gama.	After, cook it on a low flame for 30 minutes and you're done.	19999	after · thus · cook · 3SG.M.OBJ · at · on · smallness.GEN · fire · POSS.M · minute · thirty · also · 2PL.PFV · finish
 barci	Kai, yaron nan zai yi barci ba tare da ya ci abincin dare ba.	Oh, that kid went to sleep without eating supper.	19999	hey · boy.DEF · this · 3SG.M.FUT · do · sleep · NEG · together · with · 3SG.M.SBJV · eat · food.GEN · night · NEG
-zuciya	Ina koyo da zuciya.	I learn by heart.	19999	1SG.PROG · learn · with · heart
 talata	An raba mako zuwa kwana bakwai: Litinin, Talata, Laraba, Alhamis, Juma'a, Asabar, da Lahadi.	A week is divided into seven days: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, and Sunday.	19999	IMPRS.PFV · divide · week · to · day · seven · Monday · Tuesday · Wednesday · Thursday · Friday · Saturday · and · Sunday
 laraba	An raba mako zuwa kwana bakwai: Litinin, Talata, Laraba, Alhamis, Juma'a, Asabar, da Lahadi.	A week is divided into seven days: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, and Sunday.	19999	IMPRS.PFV · divide · week · to · day · seven · Monday · Tuesday · Wednesday · Thursday · Friday · Saturday · and · Sunday
 alhamis	An raba mako zuwa kwana bakwai: Litinin, Talata, Laraba, Alhamis, Juma'a, Asabar, da Lahadi.	A week is divided into seven days: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, and Sunday.	19999	IMPRS.PFV · divide · week · to · day · seven · Monday · Tuesday · Wednesday · Thursday · Friday · Saturday · and · Sunday
@@ -1578,7 +1168,6 @@ wasiƙa	Ya daɗe bai rubuta muku wasiƙa ba.	He hasn't written you a letter in a
 harsashi	Ko bindigar ka da harsashi?	Is your gun loaded?	19999	Q · gun.GEN · 2SG.M · with · bullet
 kokarin	Nayi kokarin kiran ka jiya da yamma. Ko ka fita ne?	I tried to call you yesterday evening. Were you out?	19999	1SG.PFV.do · effort.GEN · call.GEN · 2SG.M · yesterday · at · evening · Q · 2SG.M.PFV · exit · COP.M
 aboki	Gin ba aboki na ba ne.	Gin is not my friend.	19999	gin · NEG · friend · POSS.1SG · NEG · COP.M
-malami	Chen malami ne.	Chen is a teacher.	19999	Chen · teacher.M · COP.M
 ashe	Ashe! Shin wannan gaskiya ne?	What! Is this true?	19999	SURP · Q · this · truth · COP.M
 malama	Kai malama, kin manta rigar ki!	Hey mister, you forgot your coat!	19999	hey · teacher.F · 2SG.F.PFV · forget · gown.GEN · 2SG.F
 babur	Yana so ya siya sabuwar babur.	He really wants to buy a new motorcycle.	19999	3SG.M.PROG · want · 3SG.M.SBJV · buy · new.F.GEN · motorcycle
@@ -1595,7 +1184,6 @@ zamba	Ya shiga wani babban zamba.	He took part in a big scam.	19999	3SG.M.PFV ·
 aƙalla	Ni bance na fi kowa ba, amma aƙalla ni mai gaskiya ne.	At least I'm honest and I say I'm not perfect.	19999	1SG · NEG.1SG.PFV.say · 1SG.PFV · exceed · everyone · NEG · but · at.least · 1SG · having · truth · COP.M
 salo	Na gabatar da wani sabon salo ne.	I just proposed a new version.	19999	1SG.PFV · present · OBJ · INDF.M · new.M · style · COP.M
 wasiƙa	Violet ta rubuta wasiƙa sau ɗaya a wata.	Violet wrote a letter once a month.	19999	Violet · 3SG.F.PFV · write · letter · times · one · at · month
-takwas	Ya tafi karfe takwas.	He leaves at eight.	19999	3SG.M.PFV · go · o'clock · eight
 manomi	Andy na iya zama manomi!	Andy can be the farmer!	19999	Andy · PROG · can · become · farmer
 takarda	Mama, a ina ne tsunmar takarda?	Mom, where is the toilet paper roll?	19999	mother · at · where · COP.M · roll.GEN · paper
 yuli	Wata na takwas a shekarar Yuli ne, ko ba haka ba?	The eighth month of the year is July, isn't it?	19999	month · GEN.M · eight · at · year.GEN · July · COP.M · or · NEG · thus · NEG
@@ -1607,7 +1195,6 @@ matuƙa	Motsa jiki ko wane lokaci na amfani ga lafiya matuƙa.	Routine exercise 
 jawo	Wani laifi ɗaya ne yake jawo wani.	One vice leads to another.	19999	INDF.M · fault · one · COP.M · 3SG.M.REL.PROG · pull · INDF.M
 agogo	Na sa shi ya gyara mun agogo.	I had him repair my watch.	19999	1SG.PFV · cause · 3SG.M · 3SG.M.SBJV · repair · DAT.1SG · watch
 garkuwa	Ya yi ƙoƙarin nuna shi jarumi ne, bayan an yi garkuwa da shi.	He tried to be brave while he was being held hostage.	19999	3SG.M.PFV · do · effort.GEN · show · 3SG.M · hero · COP.M · after · IMPRS.PFV · do · shield · with · 3SG.M
-ɗanta	Ta rabu da ɗanta.	She abandoned her sons.	19999	3SG.F.PFV · separate · with · son.GEN.3SG.F
 taga	Kujerar ba ta kusa da taga.	The chair is not by the window.	19999	chair.DEF.F · NEG · 3SG.F.PROG · near · with · window
 maye	Maye yayi ma yaron da baya ji sihiri.	The witch cast a spell on the naughty boy.	19999	witch · 3SG.M.PFV.do · DAT · boy.DEF.M · REL · NEG.3SG.M.PROG · hear · magic
 asibitin	Babarta ta mutu a dai asibitin da ta haihu.	Her mother died in the same hospital she had given birth.	19999	mother.GEN.3SG.F · 3SG.F.PFV · die · at · EMPH · hospital.DEF.M · REL · 3SG.F.REL.PFV · give.birth
@@ -1618,14 +1205,12 @@ gatari	Har yanzu ban taba amfani da gatari ba.	Until now I've never used an axe.
 kasuwa	Zan tafi cin kasuwa gobe, amma ba zan iya damuwa ba.	I was gonna go shopping tomorrow, but I really can't be bothered.	19999	1SG.FUT · go · eating.GEN · market · tomorrow · but · NEG · 1SG.FUT · can · bother · NEG
 kifi	Yana zuwa kamun kifi kullum.	He goes fishing every other day.	19999	3SG.M.PROG · going · catching.GEN · fish · always
 gwamnati	Ina da alaka a cikin gwamnati.	I have connections in the government.	19999	1SG.PROG · with · connection · at · inside.GEN · government
-gwal	Matsayi ne na gwal.	It's the gold standard.	19999	standard · COP.M · GEN.M · gold
 tsoka	Philip yana so ya tara tsoka.	Philip wants to get ripped.	19999	Philip · 3SG.M.PROG · want · 3SG.M.SBJV · gather · muscle
 kwamfutan	Mahadatar kwamfutan bai nuna a kwamfutan ba.	My flash drive isn't being recognized.	19999	connector.GEN · computer.DEF · NEG.3SG.M.PFV · show · at · computer.DEF · NEG
 teku	Yana rayuwa ne kusa da bakin teku.	He lives near the beach.	19999	3SG.M.PROG · living · COP.M · near · with · edge.GEN · sea
 malam	Kai Malam, kana da matsala idan abu ya hada da mata...	Dude, you're so dumb when it comes to women...	19999	2SG.M · teacher · 2SG.M.PROG · with · problem · if · thing · 3SG.M.PFV · join · with · woman.PL
 tsere	Ya samu tsere a Mexico.	He got the runs in Mexico.	19999	3SG.M.PFV · get · race · at · Mexico
 zuma	Kukan zuma na sani cikin damuwa.	The buzzing of the bees makes me a little nervous.	19999	cry.GEN · bee · 1SG.PFV · know · inside.GEN · worry
-motata	Ina hutawa a motata.	I am taking a rest in my car.	19999	1SG.PROG · resting · at · car.GEN.1SG
 lumana	Suna kai wa mutane hari, ba mutane masu lumana ba.	They were attacking people, not peaceful people.	19999	3PL.PROG · carry · DAT · person.PL · attack · NEG · person.PL · having.PL · peace · NEG
 ashirin	Tana yin wannan tun sama da shekaru ashirin.	She's been doing this for over twenty years.	19999	3SG.F.PROG · do.GEN · this · since · above · with · year.PL · twenty
 sanye	Ina sanye da kayan ado na azurfa.	I am wearing my silver jewelry.	19999	1SG.PROG · wearing · with · goods.GEN · adornment · GEN.M · silver
@@ -1634,7 +1219,6 @@ ari	Dole in ari wani kuɗi.	I have to borrow some money.	19999	necessity · 1SG.
 ungulu	Faɗa wa waɗannan mutane su ƙaura, don jirgi mai saukar ungulu ya sauka.	Tell these people to move away, so that the helicopter can land.	19999	tell.IMP · DAT · these · person.PL · 3PL.SBJV · migrate · for · craft · having · descend.GEN · vulture · 3SG.M.SBJV · descend
 ƙaura	Faɗa wa waɗannan mutane su ƙaura, don jirgi mai saukar ungulu ya sauka.	Tell these people to move away, so that the helicopter can land.	19999	tell.IMP · DAT · these · person.PL · 3PL.SBJV · migrate · for · craft · having · descend.GEN · vulture · 3SG.M.SBJV · descend
 jirgi	Faɗa wa waɗannan mutane su ƙaura, don jirgi mai saukar ungulu ya sauka.	Tell these people to move away, so that the helicopter can land.	19999	tell.IMP · DAT · these · person.PL · 3PL.SBJV · migrate · for · craft · having · descend.GEN · vulture · 3SG.M.SBJV · descend
-tauna	Ina son tauna taba.	I like to chew tobacco.	19999	1SG.PROG · like.GEN · chew · tobacco
 kawu	Na san Kawu Alfred zai dawo.	I bet Uncle Alfred'll come back.	19999	1SG.PFV · know · uncle · Alfred · 3SG.M.FUT · return
 bango	Wane ne ya yi rubutu a bango?	Who was writing on the wall?	19999	which.M · COP.M · 3SG.M.REL.PFV · do · writing · at · wall
 hukuma	Ba na son rubuta wasiƙu na hukuma.	I didn't like to write official letters.	19999	NEG · 1SG.PROG · like.GEN · write · letter.PL · GEN.PL · authority
@@ -1643,28 +1227,21 @@ hadda	Eh, na yarda da kai. Kuma hadda wancan.	Yes, I agree with you. It's also t
 adawa	Wayyo! Babu adawa a masarutar ka.	Oh my God! There is no objection in your kingdom.	19999	alas · NEG.EXIST · opposition · at · kingdom.GEN · 2SG.M
 kuwa	Shin ka so ni kuwa?	Did you really love me?	19999	Q · 2SG.M.PFV · love · 1SG · EMPH
 sabuwa	Duniyata kullum sabuwa.	The sun never sets on my empire.	19999	world.GEN.1SG · always · new.F
-afirka	Ita Ba'amurkiyar Afirka ce.	She's an African American.	19999	3SG.F · American.F.GEN · Africa · COP.F
 alawa	ʻYarlukutar yarinyar ta cika shan alawa mai sukari da yawa.	The fat girl is eating too much sweets with lots of sugar.	19999	daughter.plump.GEN · girl.DEF · 3SG.F.PFV · fill · drink.GEN · candy · having · sugar · with · abundance
 sukari	ʻYarlukutar yarinyar ta cika shan alawa mai sukari da yawa.	The fat girl is eating too much sweets with lots of sugar.	19999	daughter.plump.GEN · girl.DEF · 3SG.F.PFV · fill · drink.GEN · candy · having · sugar · with · abundance
 bauta	A Indiya, shanu ababen bauta ne.	In India, cows are sacred animals.	19999	at · India · cow.PL · thing.PL.GEN · worship · COP.PL
 indiya	A Indiya, shanu ababen bauta ne.	In India, cows are sacred animals.	19999	at · India · cow.PL · thing.PL.GEN · worship · COP.PL
 gefen	Ban san meyasa bai kamata in je wancan gefen gari ba.	I didn't know why I wasn't supposed to go to that part of town.	19999	NEG.1SG.PFV · know · why · NEG.3SG.M.PFV · befit · 1SG.SBJV · go · that.M · side.GEN · town · NEG
-nesa	Na yi hangen nesa.	I had a vision.	19999	1SG.PFV · do · sight.GEN · distance
 tsawo	Mun san juna lokaci mai tsawo.	We've known each other for a long time.	19999	1PL.PFV · know · each.other · time · having · length
 masauki	Ya kawo wa baƙonsa abinci kuma ya ba shi masauki.	He brought food to his guest and provided him shelter.	19999	3SG.M.PFV · bring · DAT · guest.GEN.3SG.M · food · also · 3SG.M.PFV · give · 3SG.M · lodging
 sako	Na tura ta Sako.	I've sent it by Post.	19999	1SG.PFV · send · via · message
 wallafa	Kamfanin sun sake wallafa.	The company released a press release.	19999	company.DEF · 3PL.PFV · do.again · publish
-maye	Harry maye ne.	Harry is a wizard.	19999	Harry · wizard · COP.M
-kunkuru	Mun sha miyar kunkuru.	We ate some turtle soup.	19999	1PL.PFV · drink · soup.F.GEN · turtle
 kati	Ba za mu iya yin karta ba idan ba mu da kowane kati.	We can't play poker if we don't have any cards.	19999	NEG · FUT · 1PL · can · do.GEN · cards · NEG · if · NEG · 1PL · with · every.M · card
 ɗalibai	Akwai ɗalibai 40 a cikin aji na.	There are 40 students in my class.	19999	EXIST · student.PL · 40 · at · inside.GEN · class · 1SG.POSS.M
 nakan	Akwai gidan kwana a kusa da Boston wanda sau da yawa nakan je.	There's a fishing lodge near Boston that I often go to.	19999	EXIST · house.GEN · spend.night · at · near · with · Boston · REL.M · times · with · abundance · 1SG.HAB · go
 kujera	Bana son in kwana akan kujera yau kuma?	I don't want to sleep on the couch again tonight.	19999	NEG.1SG.PROG · want.GEN · 1SG.SBJV · spend.night · on · chair · today · also
-zaki	Ya shiga kogon zaki.	He entered the lion's den.	19999	3SG.M.PFV · enter · cave.GEN · lion
-wanke	Taimaka ka wanke.	Please wash it.	19999	help.IMP · 2SG.M.SBJV · wash
 datti	Tankuna basa jin tsoron datti.	Tanks don't fear dirt.	19999	tank.PL · NEG.3PL.PROG · feel.GEN · fear.GEN · dirt
 basa	Tankuna basa jin tsoron datti.	Tanks don't fear dirt.	19999	tank.PL · NEG.3PL.PROG · feel.GEN · fear.GEN · dirt
-motsa	Kar ka motsa!	Don't move!	19999	PROH · 2SG.M.SBJV · move
 datti	Gashi na yayi datti sosai!	My hair is so dirty!	19999	hair · 1SG.POSS.M · 3SG.M.PFV.do · dirt · very.much
 kati	Akwai caji a kati na.	My card is charged.	19999	EXIST · charge · at · card · 1SG.POSS.M
 alheri	Wannan alheri ne a boye.	It's a blessing in disguise.	19999	this · blessing · COP.M · at · hiding
@@ -1677,12 +1254,10 @@ sarauniya	Yaushe Victoria ta zama Sarauniya?	When did Victoria become Queen?	199
 ɗansa	Ivan mai ban tsoro ya kashe ɗansa a 1581.	Ivan the Terrible killed his son in 1581.	19999	Ivan · having · give.GEN · fear · 3SG.M.PFV · kill · son.GEN.3SG.M · at · 1581
 jagoranci	Ya jagoranci ni ga lalacewar kuɗi.	He led me to financial ruin.	19999	3SG.M.PFV · lead · 1SG · to · ruin.F.GEN · money
 dari	Akwai mutane dari a zauren.	There were a hundred people in the hall.	19999	EXIST · person.PL · hundred · at · hall.DEF
-hukuma	Sun sanar da hukuma.	They reported it to the authorities.	19999	3PL.PFV · inform · PRT · authority
 tsakiya	Ana magana da harshe Spanish a Amurka ta kudu da ta tsakiya.	Spanish is spoken in Central and South America.	19999	IMPRS.PROG · speaking · with · language · Spanish · at · America · F.GEN · south · and · F.GEN · middle
 harshe	Ana magana da harshe Spanish a Amurka ta kudu da ta tsakiya.	Spanish is spoken in Central and South America.	19999	IMPRS.PROG · speaking · with · language · Spanish · at · America · F.GEN · south · and · F.GEN · middle
 wayoyi	Dole ne mu raba wayoyi.	We'll have to separate the wires.	19999	necessity · COP.M · 1PL.SBJV · separate · wire.PL
 motoci	Ban ji wasu motoci ba.	I didn't hear any cars.	19999	NEG.1SG.PFV · hear · some.PL · car.PL · NEG
-banga	Ni banga fatalwa ba.	I didn't see a ghost.	19999	1SG · NEG.1SG.PFV.see · ghost · NEG
 rumfa	Basu da rumfa.	They don't have a shed.	19999	NEG.3PL · with · shed
 kokarin	Sun yi kokarin zaburar da ni.	They tried to cheer me up.	19999	3PL.PFV · do · effort.GEN · rouse · PRT · 1SG
 landan	Akwai wurare da yawa masu haɗari a Landan.	There are lots of risky places in London.	19999	EXIST · place.PL · with · abundance · having.PL · danger · at · London
@@ -1706,16 +1281,12 @@ zunubi	Kare ƙasarsu yanzu ya zama zunubi?	Defending their land has now become a
 hanci	Shin yana da hanci mai girma?	Does he have a big nose?	19999	Q · 3SG.M.PROG · with · nose · having · bigness
 musamman	Ina ajiye wannan kwalbar ruwan inabi don wani rana na musamman.	I'm saving this bottle of wine for a special occasion.	19999	1SG.PROG · keep · this · bottle.GEN · water.GEN · grape · for · INDF.M · day · POSS.M · special
 inabi	Ina ajiye wannan kwalbar ruwan inabi don wani rana na musamman.	I'm saving this bottle of wine for a special occasion.	19999	1SG.PROG · keep · this · bottle.GEN · water.GEN · grape · for · INDF.M · day · POSS.M · special
-tasi	Zan ɗauki tasi.	I'm going to take a cab.	19999	FUT.1SG · take · taxi
-komo	Zan komo kansa.	I'll get to it.	19999	FUT.1SG · return · head.GEN.3SG.M.POSS
 yuli	Barka da ranar huɗu ga Yuli!	Happy fourth of July!	19999	blessing · with · day.GEN · four · to · July
 huɗu	Barka da ranar huɗu ga Yuli!	Happy fourth of July!	19999	blessing · with · day.GEN · four · to · July
 gatari	Yanzu an daina amfani da gatari a kabilarsu.	The handle of an axe is Death to its own tribe.	19999	now · IMPRS.PFV · stop · use · with · axe · at · tribe.GEN.3PL.POSS
 motoci	Shi mai sayar da tsofin motoci ne.	He's a used car salesman.	19999	3SG.M · having · sell · PRT · old.PL.GEN · car.PL · COP.M
-keke	Keke na yayi faci.	My bicycle has a flat.	19999	bicycle · 1SG.POSS.M · 3SG.M.PFV.do · puncture
 citta	Wannan lemon citta ne.	This is a ginger drink.	19999	this · drink.GEN · ginger · COP.M
 siket	Siket ɗinki na baya.	Your skirt's on backwards.	19999	skirt · 2SG.F.POSS.M · POSS.M · back
-goro	Gwanin na goro ne.	My shrink is nuts.	19999	expert.GEN · 1SG.POSS.M · kola · COP.M
 kaka	Mun damu da kaka na da kaka ta.	We are worried about grandpa and grandma.	19999	1PL.PFV · worry · with · grandparent · 1SG.POSS.M · with · grandparent · 1SG.POSS.F
 ƙarancin	Akwai dai kawai daya ƙarancin matsala.	There's just one tiny problem.	19999	EXIST · EMPH · only · one · smallness.GEN · problem
 ciyawa	Wannan naman shanu ne mai ciyawa.	This is grass-fed organic beef.	19999	this · meat.GEN · cow.PL · COP.M · having · grass
@@ -1735,10 +1306,8 @@ kifi	Na fi son kifi fiye da nama.	I like fish more than meat.	19999	1SG.PFV · e
 saniya	Shanu namiji ne, saniya kuma mace.	A bull is male and a cow is female.	19999	bull.PL · male · COP.M · cow · and · female
 laraba	A wannan Laraba zan ga Carla.	This Wednesday I'll see Carla.	19999	at · this · Wednesday · FUT.1SG · see · Carla
 paris	Ana kiran Detroit da Paris na yamma.	Detroit was called the Paris of the West.	19999	IMPRS.PROG · call.GEN · Detroit · as · Paris · POSS.M · west
-kori	Ta kori wata kuyanga.	She fired a maid.	19999	3SG.F.PFV · dismiss · INDF.F · maidservant
 basa	Wasu mutane basa yin komai.	Some people did nothing.	19999	INDF.PL · person.PL · NEG.3PL.PROG · do.GEN · anything
 kufai	Duk ya zama kufai.	It's all been a waste.	19999	all · 3SG.M.PFV · become · ruin
-madara	Akwai madara cikin kwalbar.	There is some milk in the bottle.	19999	EXIST · milk · inside.GEN · bottle.DEF
 biyayya	Ni buƙatar da nake da ita shine ka yi biyayya.	I only demand your complete loyalty.	19999	1SG · demand.DEF · REL · 1SG.PROG.REL · with · 3SG.F · 3SG.M.COP.M · 2SG.M.SBJV · do · obedience
 amarya	Kar ka fada wa amarya ta.	Don't tell it to my bride.	19999	PROH · 2SG.M.SBJV · tell · DAT · bride · 1SG.POSS.F
 ɗalibai	Ɗalibai sun yi abin da bai dace ba.	The students acted in an inappropriate manner.	19999	student.PL · 3PL.PFV · do · thing.DEF · REL · NEG.3SG.M.PFV · be.fitting · NEG
@@ -1764,7 +1333,6 @@ muka	Mun dawo inda muka faro.	We're back where we started.	19999	1PL.PFV · retu
 jaka	Sanya wannan a cikin jaka.	Slip this into your purse.	19999	put.IMP · this · at · inside.GEN · bag
 muddin	Na yi shirin zama muddin ka zauna.	I plan to stay as long as you stay.	19999	1SG.PFV · do · plan.GEN · staying · as.long.as · 2SG.M.SBJV · sit
 ar	Jama'ar sun yi tsit.	The crowd was silent.	19999	crowd.DEF · 3PL.PFV · do · silence
-tsit	Jama'ar sun yi tsit.	The crowd was silent.	19999	crowd.DEF · 3PL.PFV · do · silence
 abada	Za mu zauna tare har abada.	I'll hug you to death.	19999	FUT · 1PL · sit · together · until · forever
 ƙarni	Akwai kunkuru wadanda suka fi ƙarni biyu da haihuwa.	There are turtles that are more than two centuries old.	19999	EXIST · tortoise · REL.PL · 3PL.REL.PFV · exceed · century · two · with · birth
 kunkuru	Akwai kunkuru wadanda suka fi ƙarni biyu da haihuwa.	There are turtles that are more than two centuries old.	19999	EXIST · tortoise · REL.PL · 3PL.REL.PFV · exceed · century · two · with · birth
@@ -1779,10 +1347,7 @@ fuskarsa	Zahiri Fuskarsa ya nuna yana godiya.	His face clearly shows gratitude.	
 zahiri	Zahiri Fuskarsa ya nuna yana godiya.	His face clearly shows gratitude.	19999	clearly · face.GEN.3SG.M · 3SG.M.PFV · show · 3SG.M.PROG · gratitude
 halal	Ciniki ne na halal.	It's a legitimate business.	19999	trade · COP.M · POSS.M · lawful
 barkono	Fesa barkono kawai.	It's just pepper spray.	19999	spray.IMP · pepper · only
-huta	Bari in dan huta.	Let me catch my breath.	19999	let · 1SG.SBJV · a.bit · rest
 kalma	Basu fadi ko kalma ɗaya ba.	They didn't say a word.	19999	NEG.3PL.PFV · say · even · word · one · NEG
-asali	Kuna da asali.	You're very original.	19999	2PL.PROG · with · origin
-matuƙa	Akwai ban haushi matuƙa.	It's really very annoying.	19999	EXIST · giving.GEN · anger · extreme
 gabar	Kira masu gadin gabar teku.	Call the coast guard.	19999	call.IMP · having.PL · guarding.GEN · shore.GEN · sea
 gabar	Sun yi kira ga masu gadin gabar teku.	They made a desperate call to the coast guard.	19999	3PL.PFV · do · call · to · having.PL · guarding.GEN · shore.GEN · sea
 kaita	To ina za su kaita?	Where are they taking her?	19999	well · where · FUT · 3PL · take.3SG.F.OBJ
@@ -1798,7 +1363,6 @@ bincike	Akwai buƙatar ƙara bincike.	More research is needed.	19999	EXIST · ne
 allura	Ina da buƙatar allura kafin na fara ɗinkin?	Do I need a special needle to start cross-stitching?	19999	1SG.PROG · with · need.GEN · needle · before · 1SG.SBJV · begin · sewing.DEF
 gada	Yana da haɗari wucewa ta gada.	It's dangerous to pass by the bridge.	19999	3SG.M.PROG · with · danger · passing · via · bridge
 tsaro	Har yanzu akwai damuwa ta fannin tsaro.	Security is still a concern.	19999	until · now · EXIST · worry · GEN.F · branch.GEN · security
-ikon	Ikon Allaah!	Holy heavens!	19999	power.GEN · God
 barewa	Barewa ita ce ta mace bareyi.	A doe is a female deer.	19999	gazelle · 3SG.F · COP.F · GEN.F · female · gazelle.PL
 agogo	Ya ba ni agogo na alfarma na zinariya.	He gave me a golden luxury watch.	19999	3SG.M.PFV · give · 1SG · clock · GEN.M · privilege · GEN.M · gold
 kogi	Shin ko ruwan bakin kogi shi ma baki ne?	Is the water in the Black Sea actually black?	19999	Q · whether · water.GEN · black.M.GEN · river · 3SG.M · also · black · COP.M
@@ -1806,10 +1370,8 @@ safar	Akwai rami a Safar ƙafa na Jon.	There is a hole in Jon's sock.	19999	EXIS
 tattaunawa	Wasu ba su son tattaunawa.	Some didn't want to discuss.	19999	some · NEG · 3PL.PROG · want.GEN · discussion
 karuwa	Marie ta yarda cewa ita karuwa ce.	Marie admitted that she was a prostitute.	19999	Marie · 3SG.F.PFV · agree · COMP · 3SG.F · prostitute · COP.F
 gona	Gidan barga yana bayan gidan gona.	The stable is behind the farm house.	19999	house.GEN · stable · 3SG.M.PROG · behind · house.GEN · farm
-ƙaddara	Ƙaddara ne agare ni.	It was my destiny.	19999	destiny · COP.M · to · 1SG
 inabi	Na ce a kawo mun kofin ruwan inabi.	I ordered a glass of wine.	19999	1SG.PFV · say · IMPRS.SBJV · bring · DAT.1SG · cup.GEN · water.GEN · grape
 banga	Banga wata matsala ba anan.	I don't see the problem here.	19999	NEG.1SG.PFV.see · any.F · problem · NEG · here
-ayaba	Jean ya ci ayaba.	Jean eats a banana.	19999	Jean · 3SG.M.PFV · eat · banana
 mujiya	Mujiya tana kashe yaranta, daga baya kuma sai ta yi kuka a kanta.	The owl kills her young, and afterwards she cries about it.	19999	owl · 3SG.F.PROG · kill · child.PL.GEN.3SG.F · from · back · moreover · then · 3SG.F.PFV · do · weeping · at · head.GEN.3SG.F
 talla	Shin kun yi ƙoƙarin kafa talla?	Have you tried putting up an ad?	19999	Q · 2PL.PFV · do · effort.GEN · erect · advertisement
 shahara	Shahara ba ya daukan wasa, kuma ido baya ajiye imani.	Fame does not bear joking, nor does the eye bear keeping faith.	19999	fame · NEG · 3SG.M.PROG · bearing.GEN · play · moreover · eye · NEG.3SG.M.PROG · keep · belief
@@ -1820,7 +1382,6 @@ gatari	Don reshe mai ƙarfi, ana buƙatar gatari mai ƙarfi.	For a rough branch,
 sati	Ana buƙatar ɗalibai su yi aikin sa'a ɗaya ga alʻumma a kowane sati.	Students are required to perform one hour of community service per week.	19999	IMPRS.PROG · need.GEN · student.PL · 3PL.SBJV · do · work.GEN · hour · one · to · community · at · every · week
 lu	Wadannan lu'u-lu'u sun fito ne daga Afirka ta Kudu.	These diamonds are from South Africa.	19999	these · pearl · 3PL.PFV · emerge · EMPH · from · Africa · GEN.F · south
 rera	Ban iya rera waka ba.	I'm not good at singing.	19999	NEG.1SG.PFV · can · sing · song · NEG
-tsuntsu	Shin kana da tsuntsu?	Do you have a bird?	19999	Q · 2SG.M.PROG · with · bird
 sauti	Wane sauti ka fi so?	What is your favorite sound?	19999	which · sound · 2SG.M.PFV · exceed · like
 aske	Dole in aske gemu kullum.	I have to shave every day.	19999	must · 1SG.SBJV · shave · beard · always
 gemu	Dole in aske gemu kullum.	I have to shave every day.	19999	must · 1SG.SBJV · shave · beard · always
@@ -1829,7 +1390,6 @@ kirsimati	Ba za ka iya aika katin bikin kirsimati ga kowa ba.	You can't send Chr
 aika	Ba za ka iya aika katin bikin kirsimati ga kowa ba.	You can't send Christmas cards to everyone.	19999	NEG · FUT · 2SG.M · be.able · send · card.GEN · festival.GEN · Christmas · to · everyone · NEG
 tuƙuru	Babu matsala yadda kake da wayo. Idan baka yi aiki tuƙuru ba, ba za ka taɓa yin nasara ba.	It doesn't matter how smart you are. If you don't work hard, you'll never succeed.	19999	NEG.EXIST · problem · how · 2SG.M.PROG.REL · with · cleverness · if · NEG.2SG.M.PFV · do · work · hard · NEG · NEG · FUT · 2SG.M · ever · do.GEN · success · NEG
 kirsimati	Katin bikin Kirsimati nawa ka aika?	How many Christmas cards did you send?	19999	card.GEN · festival.GEN · Christmas · how.many · 2SG.M.PFV · send
-lamarin	Muna binciken wannan lamarin.	We're investigating this incident.	19999	1PL.PROG · investigation.GEN · this · matter.DEF
 rera	Dama ban taɓa so rera wancan wakar.	I never wanted to sing that song.	19999	actually · NEG.1SG.PFV · ever · want · sing · that · song.DEF
 shafa	Madalla da duk wanda abin ya shafa.	Congratulations to all involved.	19999	congratulations · with · all · REL · thing.DEF · 3SG.M.PFV · affect
 madalla	Madalla da duk wanda abin ya shafa.	Congratulations to all involved.	19999	congratulations · with · all · REL · thing.DEF · 3SG.M.PFV · affect
@@ -1849,7 +1409,6 @@ tsawo	Na kusan fara wani tafiya mai tsawo da wahala.	I am about to proceed on a 
 tsere	Barka da zuwa duniya ta wasan tsere.	Welcome to the world of drag racing.	19999	greeting · with · coming · world · of · game.GEN · race
 jirgi	Za mu hau jirgi guda.	We will be taking the same plane.	19999	FUT · 1PL · mount · plane · one
 rasha	Mutanenmu na Rasha na da ban tsoro.	My Russian is terrible.	19999	person.PL.1PL.POSS · of · Russia · PROG · with · give.GEN · fear
-talatin	Zan shiga shekaru talatin.	I'm turning thirty.	19999	FUT.1SG · enter · year.PL · thirty
 kalma	A kalma ɗaya, ka ƙi ni, ko?	In a word, you hate me, right?	19999	at · word · one · 2SG.M.PFV · hate · 1SG · Q
 tarbiyya	Iyayenku sun ba ku tarbiyya mai kyau.	Your parents raised you well.	19999	parent.PL.2PL.POSS · 3PL.PFV · give · 2PL · upbringing · having · goodness
 tasi	Na fi son na ƙira maka tasi.	I prefer to call you a taxi.	19999	1SG.PFV · exceed · like.GEN · 1SG.SBJV · call · DAT.2SG.M · taxi
@@ -1874,18 +1433,14 @@ tabo	Akwai wani tabo a rigarka.	There's a spot on your shirt.	19999	EXIST · som
 damisa	Tafi kamo su damisa!	Go get 'em tiger!	19999	go.IMP · catch.IMP · 3PL · leopard
 aljanna	Ina son ki, aljanna na!	I love you, my goddess!	19999	1SG.PROG · like.GEN · 2SG.F · paradise · 1SG.POSS
 majalisa	Suna zaune a cikin gidan 'yan majalisa.	They live in a council flat.	19999	3PL.PROG · residing · at · inside.GEN · house.GEN · child.PL.GEN · council
-kore	Dodo ya kore ni.	The monster chased me.	19999	monster · 3SG.M.PFV · chase · 1SG
-fitsari	Ko kaji suna fitsari?	Do chickens pee?	19999	Q · chicken.PL · 3PL.PROG · urination
 dina	Robot dina ba zai daina jin magana ba.	My robot won't stop beeping.	19999	robot · 1SG.POSS · NEG · 3SG.M.FUT · stop · hear.GEN · speech · NEG
 fanke	Ina mafarkin fanke.	I'm dreaming about pancakes.	19999	1SG.PROG · dream.GEN · pancake
 riguna	Ana buƙatar riguna don shiga wannan shagon.	Shirts are required for entrance to this store.	19999	IMPRS.PROG · need.GEN · gown.PL · for · enter · this · shop.DEF
 falsafa	Tana son karami a cikin falsafa.	She wants to minor in philosophy.	19999	3SG.F.PROG · like.GEN · small.M · at · inside.GEN · philosophy
-jarida	Barbara tana karanta Jarida.	Barbara is reading a newspaper.	19999	Barbara · 3SG.F.PROG · read · newspaper
 kunne	Kunne yana da kakin zuma da yawa a ciki.	The ear has a lot of wax in it.	19999	ear · 3SG.M.PROG · with · wax.GEN · honey · with · abundance · at · inside
 zinari	Ko da yake azurfa tana da daraja, zinari sun fi daraja.	Although silver is precious, gold is more precious.	19999	even · COND · 3SG.M.REL.PROG · silver · 3SG.F.PROG · with · value · gold · 3PL.PFV · exceed · value
 aƙalla	Zan zauna har zuwa ranar Litinin mai zuwa aƙalla.	I'll be staying at least until next Monday.	19999	1SG.FUT · stay · until · coming · day.GEN · Monday · having · coming · at.least
 safiya	Ina son zama nan ko wace safiya.	I'm going to be here all morning.	19999	1SG.PROG · want.GEN · stay · here · any · which.F · morning
-tsit	Gidanku ya yi tsit?	Is your home quiet?	19999	house.GEN.2PL · 3SG.M.PFV · do · silence
 zahiri	Yana da fasaha a zahiri.	It's technically legal.	19999	3SG.M.PROG · with · skill · at · obviousness
 hura	Ciyawar ta hura a hankali cikin iska.	The grass blew gently in the breeze.	19999	grass.DEF · 3SG.F.PFV · blow · at · sense · inside.GEN · wind
 arewa	Jirgin ruwan yana tafiya arewa.	The ship is sailing north.	19999	vehicle.GEN · water.DEF · 3SG.M.PROG · travel · north
@@ -1921,7 +1476,6 @@ shuka	Idan ba ku shuka iri ba, ba za su yi girma ba.	If you don't plant the seed
 biyayya	Muna ƙoƙarin yin biyayya ga dokokin.	We try to obey the rules.	19999	1PL.PROG · effort.GEN · do.VN.GEN · obedience · to · rule.PL.DEF
 janar	Janar yana da daraja sama da kanal.	General is a higher rank than colonel.	19999	general · 3SG.M.PROG · with · rank · above · with · colonel
 ƙauye	Jonathan ya gama zama a wani ƙaramin ƙauye.	Jonathan ended up living in a small desert village.	19999	Jonathan · 3SG.M.PFV · finish · residing · at · INDF.M · small.M.GEN · village
-mamaye	Ina kokarin mamaye zuciyarsa.	I am trying to conquer his heart.	19999	1SG.PROG · effort.GEN · occupy · heart.GEN.3SG.M
 tsatsa	Makamai shi sun yi tsatsa.	His weapons are rusty.	19999	weapon.PL · 3SG.M · 3PL.PFV · do · rust
 koyar	Motsa jiki yana koyar da tsokoki.	Physical exercise trains the muscles.	19999	move · body · 3SG.M.PROG · teach · PRT · muscle.PL
 lumana	Ina son bayyanarka a cikin lumana.	I want your peaceful appearance.	19999	1SG.PROG · want.GEN · appearance.GEN.2SG.M · at · inside.GEN · harmony
@@ -1930,37 +1484,14 @@ sittin	Tushen ɗari shida da dubu tara da ɗari tara da sittin da ɗaya shi ne �
 tamanin	Tushen ɗari shida da dubu tara da ɗari tara da sittin da ɗaya shi ne ɗari bakwai da tamanin da ɗaya.	The square root of six hundred and nine thousand nine hundred and sixty-one is seven hundred and eighty-one.	19999	root.GEN · hundred · six · and · thousand · nine · and · hundred · nine · and · sixty · and · one · 3SG.M · COP.M · hundred · seven · and · eighty · and · one
 babi	Shafuka shida ne a babi na biyu.	There are six pages in chapter two.	19999	page.PL · six · COP.PL · at · chapter · GEN.M · two
 kumallo	Da me za mu yi karin kumallo?	What are we having for breakfast?	19999	with · what · FUT · 1PL · do · breaking.GEN · fasting
-zuwa	Ka taɓa zuwa Paris?	Have you ever been to Paris?	19999	2SG.M.PFV · ever · go.VN · Paris
-daina	Ka daina zuwa can.	Stop going there.	19999	2SG.M.SBJV · stop · go.VN · there
-zuwa	Ka daina zuwa can.	Stop going there.	19999	2SG.M.SBJV · stop · go.VN · there
 yanzu	Yanzu bari mu fara aiki.	Now let's get down to work.	19999	now · let · 1PL.SBJV · begin · work
 mu	Yanzu bari mu fara aiki.	Now let's get down to work.	19999	now · let · 1PL.SBJV · begin · work
 aiki	Yanzu bari mu fara aiki.	Now let's get down to work.	19999	now · let · 1PL.SBJV · begin · work
-baya	Rajistan baya aiki.	This register is out of commission.	19999	register.DEF · NEG.3SG.M.PROG · work
-aiki	Rajistan baya aiki.	This register is out of commission.	19999	register.DEF · NEG.3SG.M.PROG · work
-kai	Kai! Ƙafa ta!	Ouch! My foot!	19999	hey · foot · GEN.F.1SG
 biya	A biya wannan kudin a Oktoba 28, 1998.	Please settle this account by October 28, 1998.	19999	IMPRS.SBJV · pay · this · money.DEF.M · at · October · 28 · 1998
 wannan	A biya wannan kudin a Oktoba 28, 1998.	Please settle this account by October 28, 1998.	19999	IMPRS.SBJV · pay · this · money.DEF.M · at · October · 28 · 1998
 yanzu	Mama tana aiki sosai yanzu.	Mother is very busy just now.	19999	mother · 3SG.F.PROG · work · very.much · now
 aiki	Mama tana aiki sosai yanzu.	Mother is very busy just now.	19999	mother · 3SG.F.PROG · work · very.much · now
 tana	Mama tana aiki sosai yanzu.	Mother is very busy just now.	19999	mother · 3SG.F.PROG · work · very.much · now
-gida	Zan zauna a gida.	I will stay at home.	19999	FUT.1SG · stay · at · home
-zauna	Zan zauna a gida.	I will stay at home.	19999	FUT.1SG · stay · at · home
-daga	Daga wannan sai wannan.	One event followed another.	19999	from · this · then · this
-wannan	Daga wannan sai wannan.	One event followed another.	19999	from · this · then · this
-nuna	Nuna kartarka.	Show your cards.	19999	show.IMP · card.GEN.2SG.M
-suna	Suna ƙarancin kuɗi.	They are short of funds.	19999	3PL.PROG · shortage.M.GEN · money
-kuɗi	Suna ƙarancin kuɗi.	They are short of funds.	19999	3PL.PROG · shortage.M.GEN · money
-suna	Suna tattara goro.	They are gathering nuts.	19999	3PL.PROG · gather · kola.nut
-tana	Tana buƙatar soyayya.	She is hungry for affection.	19999	3SG.F.PROG · need.GEN · love
-asibiti	Mamata tana asibiti yanzu.	My mother is in the hospital now.	19999	mother.1SG.POSS · 3SG.F.PROG · hospital · now.
-fara	Fara, kash!	Start, dammit!	19999	begin.IMP, · alas!
-makaranta	Sun daina zuwa makaranta.	They dropped out of school.	19999	3PL.PFV · stop · going · school
-gida	Dawo gida.	Come home.	19999	return.IMP · home
-mamaki	Abin mamaki!	Wonderful!	19999	thing.GEN.M · wonder
-daga	Tsaftace datti daga madubi.	Clean the dirt off the mirror.	19999	clean.IMP · dirt · from · mirror
-asabar	Bayan Asabar sai Lahadi.	After Saturday comes Sunday.	19999	after · Saturday · then · Sunday
-lahadi	Gobe Lahadi.	Tomorrow is Sunday.	19999	tomorrow · Sunday
 ɗaya	Kada a sha ciyawar shinkafa ɗaya!	Waste not a single grain of rice!	19999	PROH · IMPRS.SBJV · drink · grass.GEN · rice · one
 kada	Kada a sha ciyawar shinkafa ɗaya!	Waste not a single grain of rice!	19999	PROH · IMPRS.SBJV · drink · grass.GEN · rice · one
 sha	Kada a sha ciyawar shinkafa ɗaya!	Waste not a single grain of rice!	19999	PROH · IMPRS.SBJV · drink · grass.GEN · rice · one
@@ -1968,56 +1499,16 @@ dama	Dama sau ɗaya a kowane minti goma sha biyar.	Stir once every fifteen minut
 sha	Dama sau ɗaya a kowane minti goma sha biyar.	Stir once every fifteen minutes.	19999	stir.IMP · time · one · at · every.M · minute · ten · plus · five
 biyar	Dama sau ɗaya a kowane minti goma sha biyar.	Stir once every fifteen minutes.	19999	stir.IMP · time · one · at · every.M · minute · ten · plus · five
 daga	Arewa itace kishiyar shugabanci daga kudu.	North is the opposite direction from south.	19999	north · 3SG.F.COP.F · opposite.GEN.F · leadership · from · south
-allah	Kai, ikon Allah!	Lo and behold!	19999	hey, · power.GEN · God!
 mai	Ita talaka ce, amma mai gaskiya.	She was poor, but she was honest.	19999	3SG.F · poor.person · COP.F, · but · having · truth.
-ni	Sannu, Ni Ryan.	Hello, I'm Ryan.	19999	hello · 1SG · Ryan
-sannu	Sannu, Ni Ryan.	Hello, I'm Ryan.	19999	hello · 1SG · Ryan
-littafi	Ka ari littafi.	You borrow a book.	19999	2SG.M.SBJV · borrow · book.
-yawa	Gaisuwa mai yawa.	Many greetings.	19999	greeting · having · abundance.
-bana	Bana sonka.	I don't love you.	19999	NEG.1SG.PROG · love.GEN.2SG.M.
 sake	Ka sake ka tuntube Ni.	Feel free to contact me.	19999	2SG.M.SBJV · do.again · 2SG.M.SBJV · contact · 1SG
 ni	Ka sake ka tuntube Ni.	Feel free to contact me.	19999	2SG.M.SBJV · do.again · 2SG.M.SBJV · contact · 1SG
-sha	Zan sha giya.	I'm going to drink a beer.	19999	FUT.1SG · drink · beer
-ci	Ka ci abincin ka.	Eat your food.	19999	2SG.M.SBJV · eat · food.GEN · 2SG.M
 barka	Barka, mutanen.	Howdy folks.	19999	blessing · people.DEF
-sannu	Sannu, fasihi!	Hi, the blue sky!	19999	hello · eloquent
-kyau	Yayi kyau.	It looks good.	19999	3SG.M.PFV.do · goodness
-shiga	Mun shiga damuwa.	We were worried.	19999	1PL.PFV · enter · worry
 kada	Kada ka nuna katin ka.	Don't show your cards.	19999	PROH · 2SG.M.SBJV · show · card.M.GEN · 2SG.M.POSS
 nuna	Kada ka nuna katin ka.	Don't show your cards.	19999	PROH · 2SG.M.SBJV · show · card.M.GEN · 2SG.M.POSS
-mu	Mu sasanta wannan yanzu.	Let's settle this now.	19999	1PL.SBJV · settle · this · now
-wannan	Mu sasanta wannan yanzu.	Let's settle this now.	19999	1PL.SBJV · settle · this · now
-mu	Mu shirya.	Let's settle down.	19999	1PL.SBJV · prepare
-daina	Daina harbi!	Stop shooting!	19999	stop.IMP · shooting!
-kusa	Tsaya kusa.	Stay close.	19999	stay.IMP · near
-biyu	Ninka shi biyu.	Double the dose.	19999	multiply.IMP · 3SG.M.OBJ · two.
-magana	Magana ce.	It's an expression.	19999	speech · COP.F
-kowa	Babu kowa.	No one's around.	19999	NEG.EXIST · anyone
-kyau	Wannan yayi kyau.	This looks delicious.	19999	this · 3SG.M.PFV.do · goodness
-biyu	Raba wannan zuwa biyu.	Divide this in half.	19999	divide.IMP · this · to · two
-bana	Bana buƙatar taimako.	I don't require assistance.	19999	NEG.1SG.PROG · need.GEN · help
-kowa	Bana tsoron kowa.	I'm not scared of anybody.	19999	NEG.1SG.PROG · fear.M.GEN · anyone
-bana	Bana tsoron kowa.	I'm not scared of anybody.	19999	NEG.1SG.PROG · fear.M.GEN · anyone
-faɗa	Zaka faɗa mata?	Are you going to tell her?	19999	FUT.2SG.M · tell · DAT.3SG.F
-mata	Zaka faɗa mata?	Are you going to tell her?	19999	FUT.2SG.M · tell · DAT.3SG.F
-har	Har yanzu tana numfashi.	She's still breathing.	19999	until · now · 3SG.F.PROG · breathing
-abu	Ka sami wani abu?	Did you get anything?	19999	2SG.M.PFV · get · INDF.M · thing
-wani	Ka sami wani abu?	Did you get anything?	19999	2SG.M.PFV · get · INDF.M · thing
 wani	A baiwa wani daban dama.	Give someone else a chance.	19999	IMPRS.SBJV · give.DAT · someone.M · different · chance
 dama	A baiwa wani daban dama.	Give someone else a chance.	19999	IMPRS.SBJV · give.DAT · someone.M · different · chance
-aure	Zamuyi aure.	We're going to get married.	19999	FUT.1PL.do · marriage
-ƙasa	Kun kai ni ƙasa.	You wore me down.	19999	2PL.PFV · take · 1SG · ground
-baya	Kwamfutan baya aiki.	The computer doesn't work.	19999	computer.DEF · NEG.3SG.M.PROG · work
-karanta	Me ka karanta?	What did you study?	19999	what · 2SG.M.PFV · read
-rubuta	Rubuta musu.	Write to them.	19999	write.IMP · DAT.3PL
-asibiti	A kaisu asibiti.	Take them to the hospital.	19999	IMPRS.SBJV · take.3PL · hospital
-su	Ka gano su yanzu?	Have you found them yet?	19999	2SG.M.PFV · discover · 3PL · now
 uku	Wannan zai biya ɗari uku.	That'll cost three hundred bucks.	19999	this · 3SG.M.FUT · pay · hundred · three
 idan	Kira mu idan ka isa.	Give us a call when you arrive.	19999	call.IMP · 1PL · if · 2SG.M.PFV · arrive
-sannu	Sannu fellas!	Hi fellas!	19999	hello · fellows
-shiga	Shiga ciki, fella.	Drop in, fella.	19999	enter.IMP · inside · fellow
-ciki	Shiga ciki, fella.	Drop in, fella.	19999	enter.IMP · inside · fellow
-kwana	Mu kwana lafiya, Timmy.	Sleep well, Timmy.	19999	1PL.SBJV · spend.night · health · Timmy
 lafiya	Mu kwana lafiya, Timmy.	Sleep well, Timmy.	19999	1PL.SBJV · spend.night · health · Timmy
 ita	Har yanzu ita budurwa ce.	She was still a virgin.	19999	until · now · 3SG.F · young.woman · COP.F.
 wata	Wata iska mai zafi tana kadawa daga kudu.	A hot wind is blowing in from the south.	19999	INDF.F · wind · having · heat · 3SG.F.PROG · blowing · from · south
@@ -2028,17 +1519,7 @@ labari	Wannan wani labari mai bada tsoro!	What a bizarre tale!	19999	this · IND
 tsoro	Wannan wani labari mai bada tsoro!	What a bizarre tale!	19999	this · INDF.M · story · having · give · fear
 zuciya	Ka zama mai kyakkywar zuciya.	Have an open mind.	19999	2SG.M.SBJV · become · having · good.F.GEN · heart
 zama	Ka zama mai kyakkywar zuciya.	Have an open mind.	19999	2SG.M.SBJV · become · having · good.F.GEN · heart
-mutu	Mutu, ƙazami!	Die, scum!	19999	die.IMP · filthy.M
 lokaci	Lokaci yayi.	The time is right.	19999	time · 3SG.M.PFV.do
-bayan	Kunnena baya bayan gida!	My ear is not a toilet!	19999	ear.GEN.1SG · NEG.3SG.M.PROG · behind · house
-mutunci	Mara mutunci!	Scoundrel!	19999	lacking · decency
-giya	Ka sha giya sosai?	Did you drink a lot?	19999	2SG.M.PFV · drink · beer · very.much
-karanta	Barbara tana karanta Jarida.	Barbara is reading a newspaper.	19999	Barbara · 3SG.F.PROG · read · newspaper
 idan	Ka karanta wannan idan ka sami lokaci.	Read this when you have time.	19999	2SG.M.SBJV · read · this · if · 2SG.M.PFV · get · time
 matsala	Kai kam baki ɗayanka ka zama matsala.	You're a real pain in the neck.	19999	2SG.M · EMPH · mouth · one.GEN.2SG.M · 2SG.M.PFV · become · problem
 wata	Ita kam tamkar wata sarauniya.	She looks like an angel.	19999	3SG.F · EMPH · like.GEN · INDF.F · queen
-kanta	Tana ƙoƙarin kare kanta.	She tried to protect herself.	19999	3SG.F.PROG · effort.GEN · protect · head.GEN.3SG.F
-sa	Gaskiya, bana son sa.	To be honest, I don't like him.	19999	truth · NEG.1SG.PROG · want.GEN · 3SG.M
-rubuta	Kin rubuta wannan?	Did you write this?	19999	2SG.F.PFV · write · this
-iska	Yan iska!	Bastards!	19999	child.PL.GEN · wind
-mota	Tana gyara mota.	She's fixing a car.	19999	3SG.F.PROG · fix · car

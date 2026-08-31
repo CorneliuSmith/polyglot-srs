@@ -22,7 +22,6 @@ de-so	Mi lef mi bag de-so pan di tiebl.	I left my bag there on the table.	20004
 de-so	Duon go de-so a nait.	Don't go there at night.	20005
 we	We yu put di kii dem?	Where did you put the keys?	20006
 we	Di uman we sel di mango de a di maakit.	The woman who sells the mangoes is at the market.	20007
-uu	Uu tel yu dat?	Who told you that?	20008
 uu	Mi waan nuo uu tek mi fuon.	I want to know who took my phone.	20009
 wen	Wen mi did likl, mi did liv a kontri.	When I was little, I lived in the country.	20010
 wen	Wen di shap open pan Sondi?	When does the shop open on Sunday?	20011
@@ -84,7 +83,6 @@ widout	Mi drink mi ti widout shuga.	I drink my tea without sugar.	20066
 widout	Im gaan a skuul widout im buk dem agen tide.	He's gone off to school without his books again today.	20067
 bifuo	Wash yu an dem bifuo yu nyam.	Wash your hands before you eat.	20068
 bifuo	Mi hafi riich a wok bifuo siks aklak evri maanin.	I have to get to work before six o'clock every morning.	20069
-kaafi	Yu waan som kaafi?	Do you want some coffee?	20070
 kaafi	Evri maanin mi drink mi kaafi bifuo mi go a wok.	Every morning I drink my coffee before I go to work.	20071
 juus	Di juus tuu swiit fi mi.	The juice is too sweet for me.	20072
 juus	Gi di pikni som kuol juus, im tosti.	Give the child some cold juice, he's thirsty.	20073
@@ -107,9 +105,7 @@ kontri	Jamieka a wan likl kontri, bot nof piipl nuo bout wi.	Jamaica is a small 
 plies	Mi kyaan fain no plies fi sidong.	I can't find anywhere to sit down.	20090
 plies	Put di buk bak a di plies we yu fain it.	Put the book back in the place where you found it.	20091
 bos	Di bos ful op suo wi hafi tan op.	The bus is packed so we have to stand.	20092
-bos	Di bos aredi gaan.	The bus has already gone.	20093
 kyaar	Mi faada kyaar uol, bot it stil ron gud.	My father's car is old, but it still runs well.	20094
-kyaar	A uu kyaar dat?	Whose car is that?	20095
 taksi	Di taksi kyaan tek no muor piipl.	The taxi can't take any more people.	20096
 taksi	Kaal wan taksi fi mi, mi liet fi wok.	Call a taxi for me, I'm late for work.	20097
 baisikl	Mi baisikl brok dong agen.	My bicycle has broken down again.	20098
@@ -189,17 +185,13 @@ sliip	Mi neva sliip gud yeside nait.	I didn't sleep well last night.	20171
 iit	Wi iit rais an piiz evri Sondi.	We eat rice and peas every Sunday.	20172
 iit	Mi kyaan iit no muor, mi beli ful.	I can't eat any more, my belly is full.	20173
 drink	Yu fi drink nof wata wen di son at.	You should drink plenty of water when the sun is hot.	20174
-drink	Wa yu a drink?	What are you drinking?	20175
 kuk	Mi aanti kuk di bes akii an saalfish ina di huol toun.	My aunt cooks the best ackee and saltfish in the whole town.	20176
-kuk	Uu a kuk tide?	Who's cooking today?	20177
 bai	Mi bai chrii mango fi ten dala.	I bought three mangoes for ten dollars.	20178
 bai	Wi a go bai fish an bred a di maakit tumaro.	We're going to buy fish and bread at the market tomorrow.	20179
 sel	Im sel mi wan uol baisikl fi faiv touzn dala.	He sold me an old bicycle for five thousand dollars.	20180
-sel	Unu sel bred yaso?	Do you all sell bread here?	20181
 kya	Kya di bag dem go a di kyaar fi mi.	Carry the bags to the car for me.	20182
 kya	Mi no kya wa dem se bout mi.	I don't care what they say about me.	20183
 im	Im a kuk saalfish an akii fi wi.	She's cooking saltfish and ackee for us.	20184
-im	Dat a im yaad.	That's his house.	20185
 dem	Di bwai dem a plie futbaal a di skuul.	The boys are playing football at the school.	20186
 dem	Tel dem fi kom ya nou.	Tell them to come here now.	20187
 wan	Wan big daag de a di giet.	A big dog is at the gate.	20188
@@ -221,7 +213,6 @@ kom	Di rien kom dong haad aal nait.	The rain came down hard all night.	20203
 si	Mi si di jankro dem a flai ova di ous.	I saw the vultures flying over the house.	20204
 si	Yu si wa mi a se?	Do you see what I'm saying?	20205
 luk	Luk ou di pikni dem gruo!	Look how the children have grown!	20206
-luk	Yu luk taiyad, man.	You look tired, man.	20207
 tek	Tek yu taim, no waari.	Take your time, don't worry.	20208
 tek	Im tek wan pikcha a wi aal.	He took a picture of all of us.	20209
 bring	Im bring wan big bag a mango kom fram kontri.	She brought a big bag of mangoes from the country.	20210
@@ -261,7 +252,6 @@ wata	Gi mi wan glaas a wata, mi tosti.	Give me a glass of water, I'm thirsty.	20
 wata	Afta di rien, wata de aal ova di ruod.	After the rain there's water all over the road.	20244
 fuud	Mi mada kuk nof fuud fi di huol famili pan Sondi.	My mother cooked plenty of food for the whole family on Sunday.	20245
 fuud	Yu waan som fuud bifuo yu go?	Do you want some food before you go?	20246
-priti	Mi sista priti bad.	My sister is really pretty.	20247
 priti	Luk pan di priti flowa dem ina di yaad.	Look at the pretty flowers in the yard.	20248
 ogli	Nobadi no waan di ogli wan.	Nobody wants the ugly one.	20249
 ogli	Di ruod ogli afta di rien faal.	The road is a mess after the rain falls.	20250
@@ -290,7 +280,6 @@ brok	Di bwai brok di glaas.	The boy broke the glass.	20272
 fas	Di bwai ron tuu fas fi mi kech im.	The boy runs too fast for me to catch him.	20273
 fas	No fas ina mi biznis!	Don't be nosy in my business!	20274
 slou	Di bos slou tide bikaa rien a faal.	The bus is slow today because it's raining.	20275
-slou	Mi granmada waak slou.	My grandmother walks slowly.	20276
 at	Di fuud stil at, kom mek wi nyam.	The food is still hot, come let's eat.	20277
 at	Wier yu at ina di son.	Wear your hat in the sun.	20278
 kuol	Di nait kuol, shet di winda.	The night is cold, shut the window.	20279
@@ -298,7 +287,6 @@ kuol	Gi mi wan kuol drink, di son at.	Give me a cold drink, the sun is hot.	2028
 rien	Mi kyaan go a maakit, rien a faal.	I can't go to the market, it's raining.	20281
 rien	Di rien no stap fram mawnin.	The rain hasn't stopped since morning.	20282
 son	Di son at, kom sidong anda di tri.	The sun is hot, come sit under the tree.	20283
-son	Di son op aredi.	The sun is up already.	20284
 skai	Nof kloud de ina di skai, rien a kom.	There are a lot of clouds in the sky, rain is coming.	20285
 skai	Di jankro a flai ina di skai.	The vulture is flying in the sky.	20286
 breda	Mi breda a laan mi fi jraiv.	My brother is teaching me to drive.	20287
@@ -310,7 +298,6 @@ aanti	Aanti, mi kyan elp yu wid di pat?	Auntie, can I help you with the pot?	202
 onkl	Mi onkl wok a toun bot im liv a di kontri.	My uncle works in town but he lives in the country.	20293
 onkl	A mi onkl dat a di giet.	That's my uncle at the gate.	20294
 granmada	Mi granmada wash kloz ina di yaad evri maanin.	My grandmother washes clothes in the yard every morning.	20295
-granmada	Granmada, di ti riedi!	Grandma, the tea is ready!	20296
 granfaada	Mi granfaada sidong anda di mango tri aal die.	My grandfather sits under the mango tree all day.	20297
 granfaada	A mi granfaada tiich mi fi swim.	It was my grandfather who taught me to swim.	20298
 biebi	Di biebi no waan sliip, im a krai di huol nait.	The baby won't sleep, he's been crying all night.	20299
@@ -354,7 +341,6 @@ bag	Di bag ful a mango, mi kyaan kya it.	The bag is full of mangoes, I can't car
 buk	Mi likl sista ried im buk evri nait.	My little sister reads her book every night.	20337
 buk	Mi kyaan fain di buk we di tiicha gi mi.	I can't find the book the teacher gave me.	20338
 pen	Gi mi wan pen, mek mi rait dong di niem.	Give me a pen, let me write down the name.	20339
-pen	Uu tek mi pen?	Who took my pen?	20340
 piepa	Mi faada ried di piepa evri mawnin.	My father reads the newspaper every morning.	20341
 piepa	Di tiicha gi evri pikni wan piepa fi di tes.	The teacher gave every child a sheet of paper for the test.	20342
 fuon	Kaal mi pan di fuon wen yu riich a yaad.	Call me on the phone when you get home.	20343
@@ -391,7 +377,6 @@ mangguus	Di mangguus tiif di fowl eg dem.	The mongoose stole the hen's eggs.	203
 mangguus	Mi si wan mangguus ron chuu di bush yeside.	I saw a mongoose run through the bush yesterday.	20374
 krab	Di krab dem kom out afta di rien faal.	The crabs come out after the rain falls.	20375
 krab	Umoch di krab dem kaas?	How much do the crabs cost?	20376
-waas	Mi fried a waas.	I'm afraid of wasps.	20377
 waas	Wan waas flai ina di ruum an evribadi ron out.	A wasp flew into the room and everybody ran out.	20378
 maskita	Mi kyaan sliip fi di maskita.	I can't sleep because of the mosquitoes.	20379
 maskita	Evri iivnin wen di son go dong, di maskita dem kom out.	Every evening when the sun goes down, the mosquitoes come out.	20380
@@ -412,9 +397,7 @@ lisn	Im neva lisn tu im mada.	He didn't listen to his mother.	20394
 sing	Di kwaia a sing a chorch pan Sondi.	The choir is singing at church on Sunday.	20395
 sing	Uu tiich yu fi sing?	Who taught you to sing?	20396
 daans	Mi granmada stil kyan daans beta dan mi.	My grandmother can still dance better than me.	20397
-daans	Kom mek wi daans!	Come let's dance!	20398
 laaf	Evribadi staat laaf wen im faal dong.	Everybody started laughing when he fell down.	20399
-laaf	Duon laaf afta mi!	Don't laugh at me!	20400
 krai	Wen mi granmada ded, evribadi krai.	When my grandmother died, everybody cried.	20401
 krai	Duon krai, mi wi get wan oda wan fi yu.	Don't cry, I'll get another one for you.	20402
 smail	Wen di biebi si im mada, im staat smail.	When the baby saw his mother, he started to smile.	20403
@@ -505,7 +488,6 @@ staat	Di kyaar no waan staat dis mawnin.	The car won't start this morning.	20487
 staat	Mek wi staat di wok bifuo di son get tuu at.	Let's start the work before the sun gets too hot.	20488
 stap	Di bos stap rait a di chorch giet fi pik op di pikni dem.	The bus stopped right at the church gate to pick up the children.	20489
 stap	Di rien no stap faal fram maanin.	The rain hasn't stopped falling since morning.	20490
-finish	Yu finish nyam yet?	Have you finished eating yet?	20491
 finish	Wen di konsert finish, wi wi waak go a yaad.	When the concert finishes, we'll walk home.	20492
 elp	Kyan yu elp mi wid dis bag?	Can you help me with this bag?	20493
 elp	Mi neba elp mi mada kya di baskit fram maakit.	My neighbour helped my mother carry the basket from the market.	20494
@@ -554,7 +536,6 @@ sang	Wen dat sang plie, evribadi staat daans.	When that song plays, everybody st
 sang	Mi granmada sing wan uol sang wen im a kuk dina.	My grandmother sings an old song while she's cooking dinner.	20537
 myuuzik	Mi kyaan wok widout myuuzik a plie.	I can't work without music playing.	20538
 myuuzik	Dem plie rege myuuzik aal die a di shap.	They play reggae music all day at the shop.	20539
-ridim	Dat ridim aad, man!	That riddim is heavy, man!	20540
 ridim	Mi ier di ridim bifuo mi ier di wod dem.	I hear the rhythm before I hear the words.	20541
 dansaal	Wi a go a dansaal Satdi nait.	We're going to the dancehall on Saturday night.	20542
 dansaal	Di myuuzik from di dansaal wiek mi op a chrii aklak.	The music from the dancehall woke me up at three o'clock.	20543

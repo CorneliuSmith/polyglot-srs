@@ -84,7 +84,7 @@ def test_the_cloze_blank_survives():
     assert "{{answer}}" in out
 
 
-@pytest.mark.parametrize("code,floor", [("ar", 0.35), ("he", 0.60), ("fa", 0.60)])
+@pytest.mark.parametrize("code,floor", [("ar", 0.33), ("he", 0.60), ("fa", 0.60)])
 def test_coverage_has_not_silently_dropped(code, floor):
     """A ratchet. Arabic's floor is lower than the others because its sentences
     are full of inflected verb forms that are not headwords — the vocabulary is
@@ -101,7 +101,23 @@ def test_coverage_has_not_silently_dropped(code, floor):
 
     A number moving down because the wrong answers were removed is the ratchet
     working, not failing. Do not restore the old floor by re-enabling the
-    peeler."""
+    peeler.
+
+    ARABIC MOVED TWICE ON 30-31 AUG, 0.38 -> 0.35 -> 0.33, and the mechanism
+    matters more than either number. This measures SENTENCES fully covered,
+    which is a function of sentence LENGTH: a long sentence has more chances
+    to contain a word the lookup does not know, so it fails where a short one
+    passes. Both moves came from deliberately raising sentence quality —
+    first 684 authored sentences of 7-14 words, then dropping 3,552 fragments
+    under five tokens — so the corpus got longer and this number fell while
+    the content improved.
+
+    That means the floor will keep drifting as §23 is applied to more courses,
+    which makes it a poor ratchet. The fix is to measure TOKEN coverage
+    instead — what share of words the table knows, which is independent of how
+    they are grouped into sentences — and it is not done here because changing
+    a ratchet's unit in the same commit that moves it hides whichever of the
+    two actually mattered."""
     with (DATA / f"{code}_sentences.tsv").open(encoding="utf-8-sig", newline="") as fh:
         rows = [(r.get("sentence") or "").strip() for r in csv.DictReader(fh, delimiter="\t")]
     rows = [s for s in rows if s]
