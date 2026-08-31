@@ -1,0 +1,301 @@
+# LEARN.md — technology choices and concepts
+
+This is an onboarding document for the *owner*, not for an AI agent: it exists
+so you can explain why the codebase looks the way it does, and change it
+yourself without having to rediscover the reasoning first. It complements
+[`ARCHITECTURE.md`](ARCHITECTURE.md) rather than repeating it — that file has
+the diagrams and the "how a request flows through the system" walkthroughs;
+this file is organized around "why this technology, and what does it buy
+you." Where a topic already has a dedicated doc under `docs/`, this file
+gives you the one-paragraph version and points at the real thing. See
+[`DEBT.md`](DEBT.md) for the companion list of rough edges and choices worth
+revisiting.
+
+## How to navigate the docs
+
+- **`ARCHITECTURE.md`** — the system diagrams, the request-flow walkthroughs,
+  and a "decisions worth knowing about" section. Read this first.
+- **`docs/*.md`** — one file per subsystem (`content-visibility.md`,
+  `review-workflow.md`, `seeding.md`, `accounts-and-roles.md`, `database.md`,
+  `native-apps.md`, `offline.md`, `content-generation-cli.md`,
+  `curriculum-design.md`, `extraction-sources.md`, `ingestion-interchange.md`,
+  `pricing-and-launch.md`, `DEPLOY.md`). Each is written the same way this
+  file is — plain language, explains the *why*, not just the *what*.
+- **`docs/decisions/`** — an ADR log. Short, dated records of specific calls
+  that constrain future work (e.g. "offline belongs in the web layer, not a
+  new native app"). Check here before re-opening a settled question.
+- **`docs/plans/`** — design docs for features, some shipped, some not.
+  Useful as "why does this feature have this shape" once it exists, or as
+  "here's a fully-thought-through spec" for something that doesn't yet
+  (`offline.md`'s companion, `docs/plans/*`, are the un-built ones).
+- **This file (`LEARN.md`)** — the technology layer underneath all of the
+  above: why FastAPI and not Django, why raw SQL and not an ORM, why FSRS,
+  why Capacitor, and so on.
+
+---
+
+## Backend
+
+### FastAPI + asyncpg, no ORM — by design
+
+The backend is FastAPI (`backend/main.py`) talking to Postgres directly
+through `asyncpg`. There is no ORM (no SQLAlchemy, no Tortoise) anywhere in
+the codebase. This is a deliberate choice, not an oversight: the database is
+Supabase Postgres with Row-Level Security as the actual security boundary
+(see below), and RLS policies are easiest to reason about when the SQL that
+runs is SQL you wrote, not SQL an ORM generated on your behalf. The cost is
+that every query is hand-written; the benefit is that "what does this
+endpoint actually ask the database for" is always answerable by reading one
+function.
+
+### The three-layer rule
+
+Enforced by convention (there's no linter for it, so it lives in
+`ARCHITECTURE.md` and in how PRs get reviewed):
+
+```
+routers/**       auth + request validation + HTTP status codes. No SQL.
+services/**      pure logic. No DB access. Unit-testable with zero network.
+repositories/**  SQL, and only SQL. Connection-agnostic (takes a connection,
+                 doesn't open one).
+```
+
+If you're adding a feature and find yourself writing SQL inside a router, or
+opening a database connection inside a service, that's the signal you're
+fighting the grain of the codebase — move it to a repository.
+
+### Two kinds of database connection
+
+`backend/repositories/pool.py` (or wherever the connection helpers live)
+exposes two entry points, and which one a piece of code uses is a real
+security decision, not a style choice:
+
+- **`rls_connection(user_id)`** — sets the Postgres session so RLS policies
+  see that user as `auth.uid()`. Use this for anything acting *as* a
+  specific learner. The database itself refuses to leak another user's rows,
+  even if the query above it has a bug.
+- **`privileged_connection()`** — bypasses RLS. Only used after the *router*
+  has already checked the caller's role (admin, reviewer, etc.) — the
+  privilege check happens in application code before this connection is ever
+  opened. Grep for `privileged_connection(` before trusting a new endpoint;
+  if it's called without a preceding role check, that's a bug worth finding
+  immediately.
+
+### Auth: Supabase JWTs, verified locally
+
+The frontend gets a JWT from Supabase Auth (GoTrue) on sign-in. The backend
+never calls out to Supabase to verify it — it verifies the signature itself
+with `PyJWT` + `cryptography` (ES256/RS256) against Supabase's public keys.
+This means auth verification has no per-request network dependency on
+Supabase; it's a pure crypto check.
+
+### Migrations are the owner's, not the agent's
+
+**No agent — including Claude Code sessions — runs `supabase db push`.**
+Migrations are applied by you. This means any code that reads a table or
+column added in a migration that hasn't landed yet must degrade rather than
+crash: probe first (`to_regclass`, `information_schema.columns`, or catch
+`asyncpg.exceptions.UndefinedTableError` / `UndefinedColumnError`) and fall
+back to "feature not available yet" rather than a 500. This matters most on
+hot paths — the profile endpoint loads on every page view, so an unguarded
+new column there takes down the *whole app*, not just one setting (this
+already happened once — the `is_visible` outage, see
+`docs/decisions/0001-probe-tables-instead-of-catching-errors.md`).
+
+The corollary: seeded/default values always use `ON CONFLICT DO NOTHING`,
+never `DO UPDATE` — a migration that gets re-applied (or a seed script that
+gets re-run) must never stomp a value you've since changed by hand.
+
+### AI integration: maker-checker, everywhere
+
+Every place the app uses Claude to produce learner-facing content follows
+the same pattern: **AI output lands as provisional, never auto-published.**
+A `source` (or `level_source`, `topic_source`, `explanation_source`) column
+records that a row came from `'ai'`; it's either surfaced immediately under
+a language's publish policy (`ai_ok` / `all`) or held for a human to approve
+(`strict`, the default). See `docs/review-workflow.md` for the full
+maker→checker→publish flow, and `docs/content-visibility.md` for exactly
+which two independent signals (`reviewed`, `ai_check_status`) gate what a
+learner sees.
+
+`resolve_model(task, language_code, override=...)` is the one place model
+selection happens — it picks the right Claude model per task and per
+language (some languages are pinned to a specific model because it performs
+measurably better on them), with an admin-settable per-language override.
+If you're ever tempted to hardcode a model string in a new feature, this
+function is why you shouldn't.
+
+### SRS: FSRS, not SM-2
+
+The scheduler is **FSRS** (Free Spaced Repetition Scheduler) —
+`backend/services/fsrs.py`, `fsrs_weights.py`, `fsrs_optimizer.py`,
+`srs_stages.py` — with per-user, per-language weight fitting via an
+`scipy`/`numpy` L-BFGS-B optimizer against each learner's own review
+history. This is worth knowing explicitly because `README.md` still says
+"SM-2 scheduling" (a much simpler, non-personalized algorithm) — that's
+stale, not a second scheduler; see `DEBT.md`.
+
+### NLP: one backend per language family, chosen on measured accuracy
+
+Answer grading is per-language and morphology-aware — it coaches on a
+missing diacritic rather than failing the answer outright, which is the
+single most distinctive thing about the product (see
+`ARCHITECTURE.md`'s "decisions worth knowing about"). The backends:
+`pymorphy3` (Russian), `spacy` + `lemminflect` (English — `spacy` needs a
+separate `en_core_web_sm` model download, not just a pip install),
+`nltk`/WordNet (English seeder only, not grading), `cyrtranslit`
+(Cyrillic↔Latin transliteration).
+
+Two language families get **lookup-based romanization** instead of a
+computed one, because a computed romanizer drops information a learner
+needs: `backend/services/nlp/thai_reading.py` (RTGS + a Paiboon-derived tone
+line, since Thai is tonal and RTGS alone doesn't carry tone) and
+`backend/services/nlp/semitic_reading.py` (Hebrew/Persian/Arabic, since
+their scripts drop vowels a reading needs — see
+`docs/decisions/2026-08-26-owner-decisions.md` items 3–4 for why this
+replaced an earlier "can't be computed, so skip it" stance). Both were
+reached the same way: a computed approach was tried, measured, and rejected
+in favor of a dictionary lookup.
+
+`camel-tools` (full Arabic morphological analysis, for grading) stays an
+**optional** extra, not installed by default — it pulls in `torch` +
+`transformers` (~4GB), which has previously blown a DigitalOcean build
+machine's disk during a real deploy. Arabic grading falls back to a
+diacritic-folding heuristic (`ArabicNLP`) behind a guarded import. This is
+independent of Arabic *romanization*, which works today via
+`semitic_reading.py`'s lookup and needs none of that weight.
+
+### Billing: built, wired, deliberately inert
+
+The `stripe` SDK integration is complete but sits behind a single master
+flag, `app_flags.monetization`, which **ships OFF by default**. This isn't a
+half-finished feature — it's a fully-built one the owner has chosen not to
+switch on yet (see `DEBT.md` for the reason). `services/flags.py`'s
+`monetization_enabled()` is the one function every payment-adjacent surface
+checks, and it fails safe (`default=False`) even if the flag row's own
+migration hasn't landed.
+
+### Rate limiting
+
+In-process by default; becomes cross-instance via `redis` when `REDIS_URL`
+is set. One gotcha worth remembering if you ever see intermittent,
+order-dependent test failures touching rate limits: an async Redis client
+cached against one event loop silently breaks when read from a different
+one, and each test client / uvicorn worker gets its own loop. This has
+already caused real (and initially confusing) test failures — see
+`DEBT.md`.
+
+### Content visibility: one function, not twenty-one copies
+
+`backend/services/visibility.py` is the single source of truth for "can this
+learner see this content." It used to be hand-copied into 21 different SQL
+queries; now every one of them calls the same helper. `normalize_policy`
+maps any value it doesn't recognize (a typo, a legacy spelling) to the
+*strictest* policy — fail closed, not open. Full detail:
+`docs/content-visibility.md`.
+
+---
+
+## Frontend
+
+React 19 + Vite 6 + TypeScript (~5.7, project-graph mode via `tsc -b`) +
+TanStack Query 5 + Zustand 5 + react-router-dom 7 + Tailwind CSS 4.
+
+**`npm run build`, not `npx tsc --noEmit`, is the only trustworthy
+type-check.** The build runs `tsc -b`, which type-checks the whole project
+graph; `--noEmit` alone has already let four real type errors through into a
+red CI once (a prefetch reading a field that doesn't exist on the type it
+was given). This is codified in `CLAUDE.md` and matches what CI actually
+runs (`.github/workflows/ci.yml`); it's worth knowing precisely because
+`ARCHITECTURE.md` used to recommend the weaker command — now fixed, see
+`DEBT.md` for the general pattern of doc drift to watch for.
+
+Zustand stores worth knowing: `prefsStore` (study-language, UI preferences —
+synced across devices, not just local), `authStore`, `viewAsStore` (an
+admin's "view the app as this learner" mode).
+
+Three locale concepts, kept deliberately separate — conflating any two of
+them is the most common source of "why is this in the wrong language" bugs:
+
+1. **The course being studied** (e.g. learning Russian).
+2. **The "support locale"** the course is explained *in* — an overlay system
+   where English is the eagerly-authored spine and other locales fill in by
+   demand (`auto_translate.py`'s maker-checker sweep), never a pre-seeded
+   full matrix. A field with no translation yet falls back to English.
+3. **The UI/chrome language** (`user_profiles.ui_language`) — six locales
+   (en, es, fr, pt, ru, ar; `ar` is RTL and flips the whole document
+   direction). Detection order: explicit device choice → account's saved
+   choice → browser's preferred languages → English. Deliberately never IP
+   geolocation.
+
+`react-simple-keyboard` powers the on-screen keyboard for non-Latin/diacritic
+input; `react-markdown` + `remark-gfm` render the tutor's chat; `@sentry/react`
+is crash telemetry.
+
+---
+
+## Mobile
+
+Capacitor 8.5, not React Native — the product was already mobile-first (a
+bottom tab bar, safe-area insets, six UI locales, an on-screen keyboard), so
+a React Native port would just re-implement the same screens a second time.
+`frontend/` builds once; both `android/` and `ios/` are committed Capacitor
+shells around the same bundle (`webDir: 'dist'`, no remote `server.url` — the
+bundle ships inside the binary, which is also what App Store review
+requires). The trade: **shipping a web change to the apps means shipping a
+new build** — the web app updates on deploy, the apps update on store
+review. Full detail, including what's still missing before a store
+submission, is in `docs/native-apps.md`.
+
+Offline support is a fully worked-out **design**, not yet built —
+`docs/offline.md` is worth reading even though nothing in it exists yet,
+because it explains precisely which two things (answer grading, FSRS
+scheduling) are pure client-side computation and therefore genuinely
+portable to a service worker + IndexedDB pack, versus what's permanently
+online-only (anything that costs a model call).
+
+---
+
+## Testing
+
+- **Backend**: `pytest` (`asyncio_mode = "auto"`) + `ruff`. Integration
+  tests are gated behind `INTEGRATION_DATABASE_URL` and **skip silently**
+  without it — a green "1400 passed, 95 skipped" run may have exercised zero
+  SQL. Always set it before trusting a result that touches the database; see
+  `CLAUDE.md` for the exact local commands (Postgres + Redis on non-default
+  ports, so they don't collide with anything else running).
+- **Frontend**: `vitest` for unit/component tests, `npm run build` as the
+  real type-check (see above).
+- **A standing risk class worth knowing about**: a unit test's mock can
+  "agree with a bug" if its return shape doesn't match what the real
+  repository function actually returns. This caused one real production
+  500 (the assign-by-email bug, since fixed) where a mock returned a dict
+  and the real function returned a bare string. Mocks are only as good as
+  their fidelity to the real shape — when in doubt, prefer the integration
+  test that hits real Postgres over a mocked unit test for anything
+  touching a repository's return type.
+
+---
+
+## Deployment
+
+DigitalOcean App Platform, `Dockerfile` at the repo root. One quirk worth
+remembering if a feature ever seems to hang under load: DO's egress can't
+always reach Supabase's HTTP/Storage APIs directly (connections hang until
+timeout on some paths) — worked around with tight timeouts and a cooldown
+circuit-breaker (see `backend/routers/audio.py`'s TTS storage upload path
+for the pattern; anything uploading to Supabase Storage from the backend
+should probably use the same shape).
+
+Background loops run in-process from `backend/main.py`'s app lifespan (all
+never-raise, all cancelled cleanly on shutdown): `reminder_loop` (15 min,
+review reminders), `digest_loop` (1 hour, weekly digest + admin ops digest),
+`auto_translate_loop` (15 min, fills missing support-locale text),
+`_check_schema` (once at boot — logs loudly if the code is ahead of the
+applied migrations, which is your early warning that a `supabase db push` is
+overdue).
+
+See `docs/database.md` for exactly how portable this all is if you ever
+wanted to leave Supabase — short version: the schema and RLS are portable
+today (plain SQL, no Supabase-only schemas, verified in CI against a
+throwaway Postgres); the one real lock-in is sign-in (GoTrue).
