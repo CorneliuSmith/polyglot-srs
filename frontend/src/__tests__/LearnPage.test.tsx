@@ -172,7 +172,7 @@ describe('LearnPage (teach-before-quiz)', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /start reviewing/i }))
     await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith('/review'))
-    expect(mockLearn).toHaveBeenCalledWith('lang-es', 'grammar', undefined)
+    expect(mockLearn).toHaveBeenCalledWith('lang-es', 'grammar', undefined, undefined)
   })
 
   it('offers the on-screen keyboard during the quiz (beta report)', async () => {
@@ -377,7 +377,19 @@ describe('LearnPage (teach-before-quiz)', () => {
   it('passes the vocabulary card type from the query string', async () => {
     mockLearn.mockResolvedValue({ added: 1, items: ['uc-2'], lessons: [vocabLesson] })
     renderPage('/learn?type=vocabulary')
-    await waitFor(() => expect(mockLearn).toHaveBeenCalledWith('lang-es', 'vocabulary', undefined))
+    await waitFor(() => expect(mockLearn).toHaveBeenCalledWith('lang-es', 'vocabulary', undefined, undefined))
+  })
+
+  it('passes the Topic Lens scope from the query string', async () => {
+    // The topic deck rows link here; the server does the slug validation
+    // (an unknown one degrades to a plain draw there, not a 422 here).
+    mockLearn.mockResolvedValue({ added: 1, items: ['uc-2'], lessons: [vocabLesson] })
+    renderPage('/learn?type=vocabulary&topic=food_drink')
+    await waitFor(() =>
+      expect(mockLearn).toHaveBeenCalledWith(
+        'lang-es', 'vocabulary', undefined, 'food_drink',
+      ),
+    )
   })
 
   it('renders the error state without crashing (hooks precede returns)', async () => {
@@ -436,12 +448,12 @@ describe('LearnPage (teach-before-quiz)', () => {
     )
     const { rerender } = render(makeTree())
     await waitFor(() =>
-      expect(mockLearn).toHaveBeenCalledWith('lang-es', 'grammar', undefined),
+      expect(mockLearn).toHaveBeenCalledWith('lang-es', 'grammar', undefined, undefined),
     )
     lang = 'lang-sw'
     rerender(makeTree())
     await waitFor(() =>
-      expect(mockLearn).toHaveBeenCalledWith('lang-sw', 'grammar', undefined),
+      expect(mockLearn).toHaveBeenCalledWith('lang-sw', 'grammar', undefined, undefined),
     )
   })
 

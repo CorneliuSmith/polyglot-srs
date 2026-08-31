@@ -148,13 +148,39 @@ export async function startLearnSession(
   languageId: string,
   cardType: 'vocabulary' | 'grammar' | 'both' = 'vocabulary',
   level?: string,
+  /** Topic Lens: scope the batch to one semantic bucket (vocabulary only).
+   * The server treats an unknown slug as unscoped, so a stale link still
+   * learns rather than erroring. */
+  topic?: string,
 ): Promise<LearnResponse> {
   const response = await apiClient.post<LearnResponse>('/api/review/learn', {
     language_id: languageId,
     card_type: cardType,
     ...(level ? { level } : {}),
+    ...(topic ? { topic } : {}),
   })
   return response.data
+}
+
+export interface TopicDeck {
+  topic: string
+  /** Learnable words inside the caller's SUBSCRIBED level lists. */
+  total: number
+  /** Started words — counted regardless of subscription (progress shows
+   * even after unsubscribing a level), so it can exceed total; cap the
+   * display. */
+  learned: number
+}
+
+/** The Topic Lens deck rows. Empty until the language's classification has
+ * run (and, under strict review policy, been confirmed) — the By-topic
+ * toggle only renders when this has rows. */
+export async function getTopicSummary(languageId: string): Promise<TopicDeck[]> {
+  const response = await apiClient.get<{ topics: TopicDeck[] }>(
+    '/api/review/topics',
+    { params: { language_id: languageId } },
+  )
+  return response.data.topics
 }
 
 export async function confirmLearnSession(

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
@@ -7,6 +8,11 @@ import { usePrefsStore } from '../../stores/prefsStore'
 import { deckTitle } from '../../lib/deckTitles'
 import LanguagePicker from '../../components/LanguagePicker'
 import PersonalDecksSection from './PersonalDecksSection'
+import {
+  DeckViewToggle,
+  TopicDeckCards,
+  useTopicDecks,
+} from './TopicDecks'
 import type { LearnDeck } from '../../api/types'
 
 /**
@@ -28,6 +34,13 @@ export default function DecksPage() {
   const visible = decks.filter((d) => d.total > 0)
   const grammar = visible.filter((d) => d.list_type === 'grammar')
   const vocab = visible.filter((d) => d.list_type === 'vocabulary')
+
+  // The Topic Lens: the same vocabulary pool, re-grouped by meaning. The
+  // toggle exists only when this course actually has sorted words, so a
+  // language with no classification looks exactly like today.
+  const { topics, hasTopics } = useTopicDecks(activeLanguageId)
+  const [view, setView] = useState<'level' | 'topic'>('level')
+  const topicView = hasTopics && view === 'topic'
 
   const DeckCard = ({ deck }: { deck: LearnDeck }) => {
     const pct = deck.total > 0 ? Math.round((deck.learned / deck.total) * 100) : 0
@@ -85,6 +98,8 @@ export default function DecksPage() {
 
         {isLoading && <p className="text-sm text-gray-500">{t('decks.loadingDecks')}</p>}
 
+        {hasTopics && <DeckViewToggle view={view} onChange={setView} />}
+
         {grammar.length > 0 && (
           <section className="space-y-3">
             <h2 className="font-semibold text-gray-800">{t('decks.grammarDecks')}</h2>
@@ -96,15 +111,29 @@ export default function DecksPage() {
           </section>
         )}
 
-        {vocab.length > 0 && (
+        {/* Vocabulary, by whichever axis is selected. Grammar stays above
+            in both views — grammar points have no topics. */}
+        {topicView ? (
           <section className="space-y-3">
-            <h2 className="font-semibold text-gray-800">{t('decks.vocabularyDecks')}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {vocab.map((d) => (
-                <DeckCard key={d.id} deck={d} />
-              ))}
-            </div>
+            <h2 className="font-semibold text-gray-800">{t('decks.topicDecks')}</h2>
+            <TopicDeckCards
+              topics={topics}
+              onLearn={(topic) =>
+                navigate(`/learn?type=vocabulary&topic=${encodeURIComponent(topic)}`)
+              }
+            />
           </section>
+        ) : (
+          vocab.length > 0 && (
+            <section className="space-y-3">
+              <h2 className="font-semibold text-gray-800">{t('decks.vocabularyDecks')}</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {vocab.map((d) => (
+                  <DeckCard key={d.id} deck={d} />
+                ))}
+              </div>
+            </section>
+          )
         )}
 
         {!isLoading && visible.length === 0 && (
