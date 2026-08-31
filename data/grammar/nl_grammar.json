@@ -57,42 +57,48 @@
           "answer": "drink",
           "translation": "I drink coffee.",
           "hint": "the drinking verb — position two",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · coffee"
         },
         {
           "sentence": "Morgen {{answer}} ik naar Amsterdam.",
           "answer": "ga",
           "translation": "Tomorrow I am going to Amsterdam.",
           "hint": "to go — verb stays second, subject flips",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "tomorrow · ___ · 1SG · to · Amsterdam"
         },
         {
           "sentence": "Vandaag {{answer}} wij thuis.",
           "answer": "blijven",
           "translation": "Today we are staying home.",
           "hint": "to stay — after a time word",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "today · ___ · 1PL · at.home"
         },
         {
           "sentence": "Hij {{answer}} in Utrecht.",
           "answer": "woont",
           "translation": "He lives in Utrecht.",
           "hint": "to live",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.M · ___ · in · Utrecht"
         },
         {
           "sentence": "Nu {{answer}} je het.",
           "answer": "begrijp",
           "translation": "Now you understand it.",
           "hint": "to understand — subject after the verb",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "now · ___ · 2SG · 3SG.N"
         },
         {
           "sentence": "Wij {{answer}} Nederlands.",
           "answer": "leren",
           "translation": "We are learning Dutch.",
           "hint": "to learn",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · ___ · Dutch"
         }
       ]
     },
@@ -126,7 +132,8 @@
           "translation": "The man walks in the street.",
           "hint": "common-gender article",
           "display_order": 1,
-          "cell": "de"
+          "cell": "de",
+          "gloss": "___ · man · walk.3SG · on · street"
         },
         {
           "sentence": "{{answer}} vrouw leest een boek.",
@@ -134,7 +141,8 @@
           "translation": "The woman reads a book.",
           "hint": "common gender",
           "display_order": 2,
-          "cell": "de"
+          "cell": "de",
+          "gloss": "___ · woman · read.3SG · INDF · book"
         },
         {
           "sentence": "{{answer}} huis is groot.",
@@ -142,7 +150,8 @@
           "translation": "The house is big.",
           "hint": "neuter article",
           "display_order": 3,
-          "cell": "het"
+          "cell": "het",
+          "gloss": "___ · house · be.3SG · big"
         },
         {
           "sentence": "{{answer}} kind slaapt.",
@@ -150,7 +159,8 @@
           "translation": "The child sleeps.",
           "hint": "definite article for a neuter noun",
           "display_order": 4,
-          "cell": "het"
+          "cell": "het",
+          "gloss": "___ · child · sleep.3SG"
         },
         {
           "sentence": "Ik zie {{answer}} hond.",
@@ -158,7 +168,8 @@
           "translation": "I see a dog.",
           "hint": "a/an — same for both genders",
           "display_order": 5,
-          "cell": "een"
+          "cell": "een",
+          "gloss": "1SG · see.1SG · ___ · dog"
         },
         {
           "sentence": "Zij koopt {{answer}} boek.",
@@ -166,7 +177,8 @@
           "translation": "She buys a book.",
           "hint": "indefinite article",
           "display_order": 6,
-          "cell": "een"
+          "cell": "een",
+          "gloss": "3SG.F · buy.3SG · ___ · book"
         }
       ]
     },
@@ -194,42 +206,48 @@
           "answer": "Ik",
           "translation": "I am tired.",
           "hint": "I",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · be.1SG · tired"
         },
         {
           "sentence": "{{answer}} bent mijn vriend.",
           "answer": "Jij",
           "translation": "You are my friend. (informal)",
           "hint": "informal you (full form)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · be.2SG · 1SG.POSS · friend"
         },
         {
           "sentence": "{{answer}} bent van harte welkom.",
           "answer": "U",
           "translation": "You are most welcome. (polite)",
           "hint": "the polite you",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · be.2SG · from · heart.DAT · welcome"
         },
         {
           "sentence": "{{answer}} is mijn broer.",
           "answer": "Hij",
           "translation": "He is my brother.",
           "hint": "he",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · be.3SG · 1SG.POSS · brother"
         },
         {
           "sentence": "{{answer}} wonen in Rotterdam.",
           "answer": "Wij",
           "translation": "We live in Rotterdam.",
           "hint": "we (full form)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · live.1PL · in · Rotterdam"
         },
         {
           "sentence": "{{answer}} zijn laat.",
           "answer": "Jullie",
           "translation": "You all are late.",
           "hint": "plural you",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · be.2PL · late"
         }
       ]
     },
@@ -263,7 +281,8 @@
           "translation": "I am a student.",
           "hint": "am",
           "display_order": 1,
-          "cell": "ben"
+          "cell": "ben",
+          "gloss": "1SG · ___ · student"
         },
         {
           "sentence": "{{answer}} jij klaar?",
@@ -271,7 +290,8 @@
           "translation": "Are you ready?",
           "hint": "the -t drops in jij-questions",
           "display_order": 2,
-          "cell": "ben"
+          "cell": "ben",
+          "gloss": "___ · 2SG · ready"
         },
         {
           "sentence": "Jij {{answer}} aardig.",
@@ -279,7 +299,8 @@
           "translation": "You are nice.",
           "hint": "are — jij before the verb",
           "display_order": 3,
-          "cell": "bent"
+          "cell": "bent",
+          "gloss": "2SG · ___ · nice"
         },
         {
           "sentence": "U {{answer}} de eerste.",
@@ -287,7 +308,8 @@
           "translation": "You are the first. (polite)",
           "hint": "u takes the jij-form",
           "display_order": 4,
-          "cell": "bent"
+          "cell": "bent",
+          "gloss": "2SG.POL · ___ · DEF.C · one.ORD"
         },
         {
           "sentence": "Het weer {{answer}} mooi.",
@@ -295,7 +317,8 @@
           "translation": "The weather is nice.",
           "hint": "zijn, het",
           "display_order": 5,
-          "cell": "is"
+          "cell": "is",
+          "gloss": "DEF.N · weather · ___ · beautiful"
         },
         {
           "sentence": "Dat {{answer}} mijn fiets.",
@@ -303,7 +326,8 @@
           "translation": "That is my bicycle.",
           "hint": "zijn, dat",
           "display_order": 6,
-          "cell": "is"
+          "cell": "is",
+          "gloss": "DEM.N · ___ · 1SG.POSS · bicycle"
         }
       ]
     },
@@ -331,42 +355,48 @@
           "answer": "heb",
           "translation": "I have a question.",
           "hint": "have — first person",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · INDF · question"
         },
         {
           "sentence": "{{answer}} jij tijd?",
           "answer": "Heb",
           "translation": "Do you have time?",
           "hint": "jij-question form",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 2SG · time"
         },
         {
           "sentence": "Jij {{answer}} gelijk.",
           "answer": "hebt",
           "translation": "You are right. ('have right')",
           "hint": "jij before the verb",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "2SG · ___ · right"
         },
         {
           "sentence": "Zij {{answer}} twee katten.",
           "answer": "heeft",
           "translation": "She has two cats.",
           "hint": "third person singular",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F · ___ · two · cat.PL"
         },
         {
           "sentence": "Hij {{answer}} honger.",
           "answer": "heeft",
           "translation": "He is hungry. ('has hunger')",
           "hint": "third singular",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M · ___ · hunger"
         },
         {
           "sentence": "Ik {{answer}} het koud.",
           "answer": "heb",
           "translation": "I am cold. ('have it cold')",
           "hint": "first person",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · ___ · 3SG.N · cold"
         }
       ]
     },
@@ -400,7 +430,8 @@
           "translation": "I work at a bank.",
           "hint": "work — bare stem",
           "display_order": 1,
-          "cell": "stem"
+          "cell": "stem",
+          "gloss": "1SG · ___ · at · INDF · bank"
         },
         {
           "sentence": "Ik {{answer}} een brief.",
@@ -408,7 +439,8 @@
           "translation": "I am writing a letter.",
           "hint": "write — stem, long vowel spelled short",
           "display_order": 2,
-          "cell": "stem"
+          "cell": "stem",
+          "gloss": "1SG · ___ · INDF · letter"
         },
         {
           "sentence": "Hij {{answer}} in Den Haag.",
@@ -416,7 +448,8 @@
           "translation": "He works in The Hague.",
           "hint": "work + t",
           "display_order": 3,
-          "cell": "stem+t"
+          "cell": "stem+t",
+          "gloss": "3SG.M · ___ · in · DEF · Hague"
         },
         {
           "sentence": "Zij {{answer}} elke dag.",
@@ -424,7 +457,8 @@
           "translation": "She cycles every day.",
           "hint": "cycle + t",
           "display_order": 4,
-          "cell": "stem+t"
+          "cell": "stem+t",
+          "gloss": "3SG.F · ___ · every · day"
         },
         {
           "sentence": "Wij {{answer}} Nederlands.",
@@ -432,7 +466,8 @@
           "translation": "We speak Dutch.",
           "hint": "plural = infinitive",
           "display_order": 5,
-          "cell": "infinitief"
+          "cell": "infinitief",
+          "gloss": "1PL · ___ · Dutch"
         },
         {
           "sentence": "Jullie {{answer}} te snel.",
@@ -440,7 +475,8 @@
           "translation": "You all talk too fast.",
           "hint": "plural form",
           "display_order": 6,
-          "cell": "infinitief"
+          "cell": "infinitief",
+          "gloss": "2PL · ___ · too · fast"
         }
       ]
     },
@@ -468,42 +504,48 @@
           "answer": "boeken",
           "translation": "I am reading two books.",
           "hint": "plural of boek",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · read.PRS.1SG · two · ___"
         },
         {
           "sentence": "De {{answer}} zijn oud.",
           "answer": "huizen",
           "translation": "The houses are old.",
           "hint": "plural of huis — s becomes z",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.PL · ___ · be.PRS.3PL · old"
         },
         {
           "sentence": "Er staan vier {{answer}} in de kamer.",
           "answer": "tafels",
           "translation": "There are four tables in the room.",
           "hint": "-el words take -s",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "EXPL · stand.PRS.3PL · four · ___ · in · DEF.C · room"
         },
         {
           "sentence": "Twee {{answer}} staan voor de deur.",
           "answer": "auto's",
           "translation": "Two cars are parked at the door.",
           "hint": "loanword — apostrophe s",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "two · ___ · stand.PRS.3PL · in.front.of · DEF.C · door"
         },
         {
           "sentence": "De {{answer}} spelen buiten.",
           "answer": "kinderen",
           "translation": "The children are playing outside.",
           "hint": "irregular plural of kind",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.PL · ___ · play.PRS.3PL · outside"
         },
         {
           "sentence": "Alle {{answer}} zijn vandaag open.",
           "answer": "winkels",
           "translation": "All the shops are open today.",
           "hint": "-el word",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "all · ___ · be.PRS.3PL · today · open"
         }
       ]
     },
@@ -536,7 +578,8 @@
           "translation": "I don't have a car.",
           "hint": "negates an indefinite noun",
           "display_order": 1,
-          "cell": "geen"
+          "cell": "geen",
+          "gloss": "1SG · have.PRS.1SG · ___ · car"
         },
         {
           "sentence": "Zij drinkt {{answer}} melk.",
@@ -544,7 +587,8 @@
           "translation": "She doesn't drink milk.",
           "hint": "no + noun",
           "display_order": 2,
-          "cell": "geen"
+          "cell": "geen",
+          "gloss": "3SG.F · drink.PRS.3SG · ___ · milk"
         },
         {
           "sentence": "Er is {{answer}} brood meer.",
@@ -552,7 +596,8 @@
           "translation": "There is no bread left.",
           "hint": "no + noun",
           "display_order": 3,
-          "cell": "geen"
+          "cell": "geen",
+          "gloss": "EXPL · be.PRS.3SG · ___ · bread · more"
         },
         {
           "sentence": "Ik werk vandaag {{answer}}.",
@@ -560,7 +605,8 @@
           "translation": "I am not working today.",
           "hint": "negates the verb — goes late",
           "display_order": 4,
-          "cell": "niet"
+          "cell": "niet",
+          "gloss": "1SG · work.PRS.1SG · today · ___"
         },
         {
           "sentence": "Het boek is {{answer}} duur.",
@@ -568,7 +614,8 @@
           "translation": "The book is not expensive.",
           "hint": "negates an adjective",
           "display_order": 5,
-          "cell": "niet"
+          "cell": "niet",
+          "gloss": "DEF.N · book · be.PRS.3SG · ___ · expensive"
         },
         {
           "sentence": "Dat is {{answer}} mijn fiets.",
@@ -576,7 +623,8 @@
           "translation": "That is not my bicycle.",
           "hint": "definite noun → this negator",
           "display_order": 6,
-          "cell": "niet"
+          "cell": "niet",
+          "gloss": "DEM.N · be.PRS.3SG · ___ · 1SG.POSS · bicycle"
         }
       ]
     },
@@ -604,42 +652,48 @@
           "answer": "Waar",
           "translation": "Where do you live?",
           "hint": "where",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · live.PRS.2SG · 2SG"
         },
         {
           "sentence": "{{answer}} is dat?",
           "answer": "Wie",
           "translation": "Who is that?",
           "hint": "who",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · be.PRS.3SG · DEM.N"
         },
         {
           "sentence": "{{answer}} kom je naar huis?",
           "answer": "Wanneer",
           "translation": "When are you coming home?",
           "hint": "when",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · come.PRS.2SG · 2SG · to · house"
         },
         {
           "sentence": "{{answer}} kost dat?",
           "answer": "Wat",
           "translation": "What does that cost?",
           "hint": "what",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · cost.PRS.3SG · DEM.N"
         },
         {
           "sentence": "{{answer}} ben je moe?",
           "answer": "Waarom",
           "translation": "Why are you tired?",
           "hint": "why",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · be.PRS.2SG · 2SG · tired"
         },
         {
           "sentence": "{{answer}} je morgen?",
           "answer": "Werk",
           "translation": "Are you working tomorrow?",
           "hint": "verb first, no -t before je",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · 2SG · tomorrow"
         }
       ]
     },
@@ -667,42 +721,48 @@
           "answer": "oude",
           "translation": "The old man laughs.",
           "hint": "old + -e (de-word)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.C · ___ · man · laugh.PRS.3SG"
         },
         {
           "sentence": "Het {{answer}} huis staat te koop.",
           "answer": "witte",
           "translation": "The white house is for sale.",
           "hint": "white + -e (definite het-word)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.N · ___ · house · stand.PRS.3SG · to · sale"
         },
         {
           "sentence": "Ik zoek een {{answer}} huis.",
           "answer": "groot",
           "translation": "I am looking for a big house.",
           "hint": "een + het-word: NO -e",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · seek.PRS.1SG · INDF · ___ · house"
         },
         {
           "sentence": "Zij heeft een {{answer}} idee.",
           "answer": "goed",
           "translation": "She has a good idea.",
           "hint": "een + het-word (idee) — bare form",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F · have.PRS.3SG · INDF · ___ · idea"
         },
         {
           "sentence": "Dat is een {{answer}} vrouw.",
           "answer": "sterke",
           "translation": "That is a strong woman.",
           "hint": "een + de-word keeps the -e",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEM.N · be.PRS.3SG · INDF · ___ · woman"
         },
         {
           "sentence": "De koffie is {{answer}}.",
           "answer": "warm",
           "translation": "The coffee is warm.",
           "hint": "after the noun — never inflected",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.C · coffee · be.PRS.3SG · ___"
         }
       ]
     },
@@ -730,42 +790,48 @@
           "answer": "mijn",
           "translation": "This is my bicycle.",
           "hint": "my",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this.N · be.PRS.3SG · ___ · bicycle.C"
         },
         {
           "sentence": "Is dat {{answer}} jas?",
           "answer": "jouw",
           "translation": "Is that your coat? (informal)",
           "hint": "your — informal full form",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "be.PRS.3SG · that.N · ___ · coat.C"
         },
         {
           "sentence": "{{answer}} huis is klein.",
           "answer": "Ons",
           "translation": "Our house is small.",
           "hint": "our — het-word singular takes the short form",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · house.N · be.PRS.3SG · small"
         },
         {
           "sentence": "{{answer}} auto staat buiten.",
           "answer": "Onze",
           "translation": "Our car is parked outside.",
           "hint": "our — de-word takes the long form",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · car.C · stand.PRS.3SG · outside"
         },
         {
           "sentence": "{{answer}} kinderen zijn al groot.",
           "answer": "Onze",
           "translation": "Our children are already grown.",
           "hint": "our — plural always long",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · child.PL · be.PRS.3PL · already · big"
         },
         {
           "sentence": "Zij wast {{answer}} handen.",
           "answer": "haar",
           "translation": "She washes her hands.",
           "hint": "her",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "she · wash.PRS.3SG · ___ · hand.PL"
         }
       ]
     },
@@ -793,42 +859,48 @@
           "answer": "is",
           "translation": "There is a problem.",
           "hint": "singular",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "EXPL · ___ · INDF · problem.N"
         },
         {
           "sentence": "Er {{answer}} veel mensen op straat.",
           "answer": "zijn",
           "translation": "There are many people in the street.",
           "hint": "plural",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "EXPL · ___ · many · person.PL · on · street.C"
         },
         {
           "sentence": "{{answer}} er nog koffie?",
           "answer": "Is",
           "translation": "Is there still coffee?",
           "hint": "question — singular",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · EXPL · still · coffee.C"
         },
         {
           "sentence": "{{answer}} er vragen?",
           "answer": "Zijn",
           "translation": "Are there any questions?",
           "hint": "question — plural",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · EXPL · question.PL"
         },
         {
           "sentence": "Er {{answer}} geen melk in de koelkast.",
           "answer": "is",
           "translation": "There is no milk in the fridge.",
           "hint": "singular",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "EXPL · ___ · NEG.INDF · milk.C · in · DEF.C · fridge.C"
         },
         {
           "sentence": "Er {{answer}} twee banken in het park.",
           "answer": "staan",
           "translation": "There are two benches in the park. ('stand')",
           "hint": "Dutch prefers a posture verb here",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "EXPL · ___ · two · bench.PL · in · DEF.N · park.N"
         }
       ]
     },
@@ -856,42 +928,48 @@
           "answer": "gewerkt",
           "translation": "I worked yesterday.",
           "hint": "participle of werken — 't kofschip t",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "I · have.PRS.1SG · yesterday · ___"
         },
         {
           "sentence": "De kinderen hebben buiten {{answer}}.",
           "answer": "gespeeld",
           "translation": "The children played outside.",
           "hint": "participle of spelen — soft d",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.PL · child.PL · have.PRS.3PL · outside · ___"
         },
         {
           "sentence": "Wij zijn naar Utrecht {{answer}}.",
           "answer": "gegaan",
           "translation": "We went to Utrecht.",
           "hint": "movement takes zijn; irregular participle",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "we · be.PRS.1PL · to · Utrecht · ___"
         },
         {
           "sentence": "Ik {{answer}} die film gezien.",
           "answer": "heb",
           "translation": "I have seen that film.",
           "hint": "the auxiliary for most verbs",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "I · ___ · that.C · film.C · see.PTCP"
         },
         {
           "sentence": "Zij {{answer}} thuis gebleven.",
           "answer": "is",
           "translation": "She stayed home.",
           "hint": "blijven takes the other auxiliary",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "she · ___ · at.home · stay.PTCP"
         },
         {
           "sentence": "Hij heeft een nieuwe fiets {{answer}}.",
           "answer": "gekocht",
           "translation": "He bought a new bicycle.",
           "hint": "participle of kopen — irregular",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "he · have.PRS.3SG · INDF · new-C · bicycle.C · ___"
         }
       ]
     },
@@ -919,42 +997,48 @@
           "answer": "woonde",
           "translation": "I used to live in Leiden.",
           "hint": "wonen — soft de",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "I · ___ · formerly · in · Leiden"
         },
         {
           "sentence": "Hij {{answer}} elke dag.",
           "answer": "werkte",
           "translation": "He worked every day.",
           "hint": "werken — 't kofschip te",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "he · ___ · every-C · day.C"
         },
         {
           "sentence": "Het {{answer}} koud die winter.",
           "answer": "was",
           "translation": "It was cold that winter.",
           "hint": "past of zijn",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.N · ___ · cold · that.C · winter"
         },
         {
           "sentence": "Wij {{answer}} geen geld.",
           "answer": "hadden",
           "translation": "We had no money.",
           "hint": "past plural of hebben",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · ___ · NEG.INDF · money"
         },
         {
           "sentence": "Zij {{answer}} om acht uur.",
           "answer": "kwam",
           "translation": "She came at eight o'clock.",
           "hint": "komen — vowel change",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.F · ___ · at · eight · hour"
         },
         {
           "sentence": "De trein {{answer}} te laat.",
           "answer": "ging",
           "translation": "The train left too late.",
           "hint": "gaan — vowel change",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.C · train · ___ · too · late"
         }
       ]
     },
@@ -982,42 +1066,48 @@
           "answer": "kan",
           "translation": "I can't come tomorrow.",
           "hint": "can — first person",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · tomorrow · NEG · come.INF"
         },
         {
           "sentence": "Je {{answer}} hier niet roken.",
           "answer": "mag",
           "translation": "You may not smoke here.",
           "hint": "may",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "2SG · ___ · here · NEG · smoke.INF"
         },
         {
           "sentence": "Wij {{answer}} nu gaan.",
           "answer": "moeten",
           "translation": "We have to go now.",
           "hint": "must — plural",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · now · go.INF"
         },
         {
           "sentence": "Zij {{answer}} arts worden.",
           "answer": "wil",
           "translation": "She wants to become a doctor.",
           "hint": "want — third singular",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F · ___ · doctor · become.INF"
         },
         {
           "sentence": "{{answer}} ik u helpen?",
           "answer": "Zal",
           "translation": "Shall I help you?",
           "hint": "the offer modal",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · 1SG · 2SG.POL · help.INF"
         },
         {
           "sentence": "Hij {{answer}} goed koken.",
           "answer": "kan",
           "translation": "He can cook well.",
           "hint": "can",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.M · ___ · well · cook.INF"
         }
       ]
     },
@@ -1045,42 +1135,48 @@
           "answer": "op",
           "translation": "I get up at seven.",
           "hint": "the broken-off prefix of opstaan",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · stand.PRS.1SG · at · seven · hour · ___"
         },
         {
           "sentence": "De trein komt om tien uur {{answer}}.",
           "answer": "aan",
           "translation": "The train arrives at ten.",
           "hint": "prefix of aankomen",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.C · train · come.PRS.3SG · at · ten · hour · ___"
         },
         {
           "sentence": "Kom je vanavond {{answer}}?",
           "answer": "mee",
           "translation": "Are you coming along tonight?",
           "hint": "prefix of meekomen",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "come.PRS.2SG · 2SG · tonight · ___"
         },
         {
           "sentence": "Ik ben vroeg {{answer}}.",
           "answer": "opgestaan",
           "translation": "I got up early.",
           "hint": "perfect — ge inside the verb",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · be.PRS.1SG · early · ___"
         },
         {
           "sentence": "Zij belt haar moeder {{answer}}.",
           "answer": "op",
           "translation": "She calls her mother.",
           "hint": "prefix of opbellen",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.F · call.PRS.3SG · 3SG.F.POSS · mother · ___"
         },
         {
           "sentence": "Ik moet morgen vroeg {{answer}}.",
           "answer": "opstaan",
           "translation": "I have to get up early tomorrow.",
           "hint": "whole again after a modal",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · must.PRS.1SG · tomorrow · early · ___"
         }
       ]
     },
@@ -1108,42 +1204,48 @@
           "answer": "ben",
           "translation": "I'm staying home because I am sick.",
           "hint": "the verb ends the omdat-clause",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · stay.PRS.1SG · home · because.COMP · 1SG · sick · ___"
         },
         {
           "sentence": "Hij zegt dat hij morgen {{answer}}.",
           "answer": "komt",
           "translation": "He says that he is coming tomorrow.",
           "hint": "verb-final after dat",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.M · say.PRS.3SG · that.COMP · 3SG.M · tomorrow · ___"
         },
         {
           "sentence": "Als het {{answer}}, blijven we binnen.",
           "answer": "regent",
           "translation": "If it rains, we stay inside.",
           "hint": "verb-final in the als-clause",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if.COMP · 3SG.N · ___ · stay.PRS.1PL · 1PL · inside"
         },
         {
           "sentence": "Ik weet dat zij hard {{answer}}.",
           "answer": "werkt",
           "translation": "I know that she works hard.",
           "hint": "end position",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · know.PRS.1SG · that.COMP · 3SG.F · hard · ___"
         },
         {
           "sentence": "Terwijl ik {{answer}}, luister ik muziek.",
           "answer": "kook",
           "translation": "While I cook, I listen to music.",
           "hint": "verb-final after terwijl",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "while · 1SG · ___ · listen.PRS.1SG · 1SG · music"
         },
         {
           "sentence": "Toen ik jong {{answer}}, woonde ik hier.",
           "answer": "was",
           "translation": "When I was young, I lived here.",
           "hint": "past 'to be', clause-final",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "when · 1SG · young · ___ · live.PST.1SG · 1SG · here"
         }
       ]
     },
@@ -1171,42 +1273,48 @@
           "answer": "ga",
           "translation": "I am going to do groceries tomorrow.",
           "hint": "the everyday future auxiliary",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · tomorrow · grocery-PL · do.INF"
         },
         {
           "sentence": "Wat {{answer}} jullie dit weekend doen?",
           "answer": "gaan",
           "translation": "What are you all going to do this weekend?",
           "hint": "plural",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "what · ___ · 2PL · this.N · weekend · do.INF"
         },
         {
           "sentence": "Ik {{answer}} je helpen, beloofd.",
           "answer": "zal",
           "translation": "I will help you, promised.",
           "hint": "the promise auxiliary",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · ___ · 2SG · help.INF · promise.PTCP"
         },
         {
           "sentence": "Het {{answer}} vanavond sneeuwen.",
           "answer": "gaat",
           "translation": "It is going to snow tonight.",
           "hint": "third singular",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.N · ___ · tonight · snow.INF"
         },
         {
           "sentence": "{{answer}} we samen eten?",
           "answer": "Zullen",
           "translation": "Shall we eat together?",
           "hint": "the proposal form",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · 1PL · together · eat.INF"
         },
         {
           "sentence": "Zij {{answer}} volgend jaar verhuizen.",
           "answer": "gaat",
           "translation": "She is going to move next year.",
           "hint": "third singular",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.F · ___ · next · year · move.INF"
         }
       ]
     },
@@ -1234,42 +1342,48 @@
           "answer": "groter",
           "translation": "My house is bigger than yours.",
           "hint": "big + er",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG.POSS · house · be.PRS.3SG · ___ · than · 2SG.POSS · house"
         },
         {
           "sentence": "Deze jas is {{answer}} dan die.",
           "answer": "duurder",
           "translation": "This coat is more expensive than that one.",
           "hint": "-r word inserts d",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "this.C · coat · be.PRS.3SG · ___ · than · that.C"
         },
         {
           "sentence": "Dit is het {{answer}} gebouw van de stad.",
           "answer": "hoogste",
           "translation": "This is the tallest building in the city.",
           "hint": "high + ste",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "this.N · be.PRS.3SG · DEF.N · ___ · building · of · DEF.C · city"
         },
         {
           "sentence": "Haar Nederlands is {{answer}} dan het mijne.",
           "answer": "beter",
           "translation": "Her Dutch is better than mine.",
           "hint": "irregular comparative of goed",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F.POSS · Dutch · be.PRS.3SG · ___ · than · DEF.N · 1SG.POSS.N"
         },
         {
           "sentence": "Ik drink {{answer}} thee dan koffie.",
           "answer": "liever",
           "translation": "I prefer tea to coffee. ('more gladly')",
           "hint": "comparative of graag",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · drink.PRS.1SG · ___ · tea · than · coffee"
         },
         {
           "sentence": "Dat is het {{answer}} idee tot nu toe.",
           "answer": "beste",
           "translation": "That is the best idea so far.",
           "hint": "superlative of goed",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "that.N · be.PRS.3SG · DEF.N · ___ · idea · until · now · to"
         }
       ]
     },
@@ -1297,42 +1411,48 @@
           "answer": "huisje",
           "translation": "We live in a little house.",
           "hint": "huis + je",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1PL · live.PRS.1PL · in · INDF · small · ___"
         },
         {
           "sentence": "Mag ik een {{answer}}?",
           "answer": "biertje",
           "translation": "May I have a beer?",
           "hint": "how you actually order beer",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "may.PRS.1SG · 1SG · INDF · ___"
         },
         {
           "sentence": "Het {{answer}} speelt in de tuin.",
           "answer": "meisje",
           "translation": "The girl plays in the garden.",
           "hint": "the famous het-word for girl",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.N · ___ · play.PRS.3SG · in · DEF.C · garden"
         },
         {
           "sentence": "Er zit een {{answer}} in de boom.",
           "answer": "vogeltje",
           "translation": "There is a little bird in the tree.",
           "hint": "vogel + tje",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "there · sit.PRS.3SG · INDF · ___ · in · DEF.C · tree"
         },
         {
           "sentence": "Zullen we een {{answer}} maken?",
           "answer": "ommetje",
           "translation": "Shall we take a little walk?",
           "hint": "om + etje — a stroll around the block",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "shall.PRS.1PL · 1PL · INDF · ___ · make.INF"
         },
         {
           "sentence": "Wacht een {{answer}}!",
           "answer": "momentje",
           "translation": "Wait a moment!",
           "hint": "moment + je",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "wait.IMP · INDF · ___"
         }
       ]
     },
@@ -1360,42 +1480,48 @@
           "answer": "te",
           "translation": "I'm going to the market to buy vegetables.",
           "hint": "the little word before the infinitive",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · go.PRS.1SG · to · DEF.C · market · COMP · vegetable · ___ · buy.INF"
         },
         {
           "sentence": "Het is leuk {{answer}} nieuwe mensen te ontmoeten.",
           "answer": "om",
           "translation": "It is nice to meet new people.",
           "hint": "the opener of the construction",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.N · be.PRS.3SG · nice · ___ · new · person-PL · INF · meet.INF"
         },
         {
           "sentence": "Zij spaart om een huis te {{answer}}.",
           "answer": "kopen",
           "translation": "She is saving to buy a house.",
           "hint": "the infinitive closes it",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.F · save.PRS.3SG · COMP · INDF · house · INF · ___"
         },
         {
           "sentence": "Het is tijd om op te {{answer}}.",
           "answer": "staan",
           "translation": "It is time to get up.",
           "hint": "separable verb — te sits inside",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.N · be.PRS.3SG · time · COMP · up · INF · ___"
         },
         {
           "sentence": "Hij belt om iets {{answer}} vragen.",
           "answer": "te",
           "translation": "He is calling to ask something.",
           "hint": "before the infinitive",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M · call.PRS.3SG · COMP · something · ___ · ask.INF"
         },
         {
           "sentence": "Het is moeilijk om vroeg {{answer}} beginnen.",
           "answer": "te",
           "translation": "It is hard to start early.",
           "hint": "same slot",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.N · be.PRS.3SG · difficult · COMP · early · ___ · begin.INF"
         }
       ]
     },
@@ -1423,42 +1549,48 @@
           "answer": "Kom",
           "translation": "Come here!",
           "hint": "bare stem of komen",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · here"
         },
         {
           "sentence": "{{answer}} uit!",
           "answer": "Kijk",
           "translation": "Watch out!",
           "hint": "stem of kijken",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · out"
         },
         {
           "sentence": "{{answer}} u binnen.",
           "answer": "Komt",
           "translation": "Do come in. (polite)",
           "hint": "polite form adds -t with u",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 2SG.POL · inside"
         },
         {
           "sentence": "{{answer}} even zitten.",
           "answer": "Ga",
           "translation": "Have a seat.",
           "hint": "stem of gaan, softened with even",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · briefly · sit.INF"
         },
         {
           "sentence": "{{answer}} maar rustig aan.",
           "answer": "Doe",
           "translation": "Take it easy.",
           "hint": "stem of doen",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · just · calm · on"
         },
         {
           "sentence": "{{answer}} je jas aan!",
           "answer": "Trek",
           "translation": "Put your coat on!",
           "hint": "stem of aantrekken — prefix at the end",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · 2SG.POSS · coat · on"
         }
       ]
     },
@@ -1486,42 +1618,48 @@
           "answer": "er",
           "translation": "How many cats do you have? — I have two (of them).",
           "hint": "the quantity filler",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "how-many · cat-PL · have.PRS.2SG · 2SG · — · 1SG · have.PRS.1SG · ___ · two"
         },
         {
           "sentence": "Ik woon {{answer}} al tien jaar.",
           "answer": "er",
           "translation": "I have lived there for ten years.",
           "hint": "unstressed 'there'",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · live.PRS.1SG · ___ · already · ten · year"
         },
         {
           "sentence": "Denk je nog over het aanbod na? — Ik denk {{answer}} over na.",
           "answer": "er",
           "translation": "Are you still considering the offer? — I'm thinking about it.",
           "hint": "fuses with the preposition",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "think.PRS.2SG · 2SG · still · about · DEF.N · offer · after · — · 1SG · think.PRS.1SG · ___ · about · after"
         },
         {
           "sentence": "{{answer}} wordt op de deur geklopt.",
           "answer": "Er",
           "translation": "Someone is knocking on the door.",
           "hint": "the passive filler",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · become.PASS.PRS.3SG · on · DEF.C · door · knock.PTCP"
         },
         {
           "sentence": "Zijn er nog kaartjes? — Ja, {{answer}} zijn er nog vijf.",
           "answer": "er",
           "translation": "Are there tickets left? — Yes, there are five left.",
           "hint": "existence",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "be.PRS.3PL · EXPL · still · card-DIM-PL · — · yes · ___ · be.PRS.3PL · QUANT · still · five"
         },
         {
           "sentence": "Ik ben {{answer}} nooit geweest.",
           "answer": "er",
           "translation": "I have never been there.",
           "hint": "place, unstressed",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · be.PRS.1SG · ___ · never · be.PTCP"
         }
       ]
     },
@@ -1555,7 +1693,8 @@
           "translation": "The woman who is standing there is my neighbour.",
           "hint": "de-word relative",
           "display_order": 1,
-          "cell": "die"
+          "cell": "die",
+          "gloss": "DEF.C · woman · ___ · there · stand.PRS.3SG · be.PRS.3SG · 1SG.POSS · neighbour-woman"
         },
         {
           "sentence": "De fiets {{answer}} ik kocht, is al kapot.",
@@ -1563,7 +1702,8 @@
           "translation": "The bicycle I bought is already broken.",
           "hint": "de-word",
           "display_order": 2,
-          "cell": "die"
+          "cell": "die",
+          "gloss": "DEF.C · bicycle · ___ · 1SG · buy.PST.1SG · be.PRS.3SG · already · broken"
         },
         {
           "sentence": "Het boek {{answer}} ik lees, is spannend.",
@@ -1571,7 +1711,8 @@
           "translation": "The book I am reading is exciting.",
           "hint": "het-word relative",
           "display_order": 3,
-          "cell": "dat"
+          "cell": "dat",
+          "gloss": "DEF.N · book · ___ · 1SG · read.1SG · be.3SG · exciting"
         },
         {
           "sentence": "Het huis {{answer}} te koop staat, is oud.",
@@ -1579,7 +1720,8 @@
           "translation": "The house that is for sale is old.",
           "hint": "het-word",
           "display_order": 4,
-          "cell": "dat"
+          "cell": "dat",
+          "gloss": "DEF.N · house · ___ · to · sale · stand.3SG · be.3SG · old"
         },
         {
           "sentence": "De collega met {{answer}} ik samenwerk, is aardig.",
@@ -1587,7 +1729,8 @@
           "translation": "The colleague I work with is nice.",
           "hint": "person after a preposition",
           "display_order": 5,
-          "cell": "wie"
+          "cell": "wie",
+          "gloss": "DEF.C · colleague · with · ___ · 1SG · together-work.1SG · be.3SG · nice"
         },
         {
           "sentence": "Weet jij met {{answer}} zij praat?",
@@ -1595,7 +1738,8 @@
           "translation": "Do you know who she is talking to?",
           "hint": "person + preposition",
           "display_order": 6,
-          "cell": "wie"
+          "cell": "wie",
+          "gloss": "know.2SG · 2SG · with · ___ · 3SG.F · talk.3SG"
         }
       ]
     },
@@ -1623,42 +1767,48 @@
           "answer": "me",
           "translation": "I am sometimes mistaken.",
           "hint": "first-person reflexive",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · err.1SG · ___ · sometimes"
         },
         {
           "sentence": "Hij voelt {{answer}} vandaag beter.",
           "answer": "zich",
           "translation": "He feels better today.",
           "hint": "third-person reflexive",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.M · feel.3SG · ___ · today · good.COMP"
         },
         {
           "sentence": "Wij herinneren {{answer}} die zomer nog goed.",
           "answer": "ons",
           "translation": "We still remember that summer well.",
           "hint": "first-plural reflexive",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · remember.1PL · ___ · DEM.C · summer · still · well"
         },
         {
           "sentence": "Verveel je {{answer}}?",
           "answer": "je",
           "translation": "Are you bored?",
           "hint": "second-person reflexive",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "bore.2SG · 2SG · ___"
         },
         {
           "sentence": "Zij haasten {{answer}} naar de trein.",
           "answer": "zich",
           "translation": "They hurry to the train.",
           "hint": "plural third-person",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3PL · hurry.3PL · ___ · to · DEF.C · train"
         },
         {
           "sentence": "Ik was {{answer}} elke ochtend.",
           "answer": "me",
           "translation": "I wash (myself) every morning.",
           "hint": "first person",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · wash.1SG · ___ · every · morning"
         }
       ]
     },
@@ -1686,42 +1836,48 @@
           "answer": "wordt",
           "translation": "The road will be repaired next week.",
           "hint": "ongoing-passive auxiliary",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.C · road · ___ · next · week · repair.PTCP"
         },
         {
           "sentence": "Dit huis {{answer}} in 1900 gebouwd.",
           "answer": "werd",
           "translation": "This house was built in 1900.",
           "hint": "past of the passive auxiliary",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEM.N · house · ___ · in · 1900 · build.PTCP"
         },
         {
           "sentence": "Het probleem {{answer}} al opgelost.",
           "answer": "is",
           "translation": "The problem is already solved.",
           "hint": "result state",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF.N · problem · ___ · already · solve.PTCP"
         },
         {
           "sentence": "De brief wordt morgen {{answer}}.",
           "answer": "verstuurd",
           "translation": "The letter will be sent tomorrow.",
           "hint": "participle of versturen",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.C · letter · PASS.3SG · tomorrow · ___"
         },
         {
           "sentence": "Het boek werd {{answer}} veel mensen gelezen.",
           "answer": "door",
           "translation": "The book was read by many people.",
           "hint": "marks the doer",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.N · book · PASS.PST.3SG · ___ · many · person.PL · read.PTCP"
         },
         {
           "sentence": "Er {{answer}} hier veel gebouwd.",
           "answer": "wordt",
           "translation": "A lot is being built here.",
           "hint": "with er — impersonal",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "EXPL · ___ · here · much · build.PTCP"
         }
       ]
     },
@@ -1749,42 +1905,48 @@
           "answer": "want",
           "translation": "I'm staying home, for I am sick.",
           "hint": "the because that keeps normal order",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · stay.1SG · home · ___ · 1SG · be.1SG · sick"
         },
         {
           "sentence": "Zij is blij, {{answer}} het is vrijdag.",
           "answer": "want",
           "translation": "She is happy, because it is Friday.",
           "hint": "V2 follows it",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · be.3SG · happy · ___ · 3SG.N · be.3SG · Friday"
         },
         {
           "sentence": "Ik blijf thuis {{answer}} ik ziek ben.",
           "answer": "omdat",
           "translation": "I'm staying home because I am sick.",
           "hint": "the because that kicks the verb to the end",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · stay.1SG · home · ___ · 1SG · sick · be.1SG"
         },
         {
           "sentence": "Hij leert Nederlands {{answer}} hij in Utrecht woont.",
           "answer": "omdat",
           "translation": "He is learning Dutch because he lives in Utrecht.",
           "hint": "verb-final follows",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.M · learn.3SG · Dutch · ___ · 3SG.M · in · Utrecht · live.3SG"
         },
         {
           "sentence": "Het regent, {{answer}} we blijven binnen.",
           "answer": "dus",
           "translation": "It's raining, so we're staying inside.",
           "hint": "so — coordinator",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.N · rain.PRS.3SG · ___ · 1PL · stay.PRS.1PL · inside"
         },
         {
           "sentence": "Ik wil komen, {{answer}} ik heb geen tijd.",
           "answer": "maar",
           "translation": "I want to come, but I have no time.",
           "hint": "but",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · want.PRS.1SG · come.INF · ___ · 1SG · have.PRS.1SG · NEG.INDF · time"
         }
       ]
     },
@@ -1812,42 +1974,48 @@
           "answer": "te",
           "translation": "I try to exercise every day.",
           "hint": "proberen takes this",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · try.PRS.1SG · every · day · ___ · exercise.INF"
         },
         {
           "sentence": "Je hoeft niet {{answer}} komen.",
           "answer": "te",
           "translation": "You don't have to come.",
           "hint": "hoeven + niet + …",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "2SG · need.PRS.2SG · NEG · ___ · come.INF"
         },
         {
           "sentence": "Vergeet niet je moeder {{answer}} bellen!",
           "answer": "te",
           "translation": "Don't forget to call your mother!",
           "hint": "vergeten takes it",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "forget.IMP · NEG · 2SG.POSS · mother · ___ · call.INF"
         },
         {
           "sentence": "Ik laat mijn haar {{answer}}.",
           "answer": "knippen",
           "translation": "I am having my hair cut.",
           "hint": "laten + bare infinitive",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · let.PRS.1SG · 1SG.POSS · hair · ___"
         },
         {
           "sentence": "Ik zie hem elke dag {{answer}}.",
           "answer": "fietsen",
           "translation": "I see him cycling every day.",
           "hint": "zien + bare infinitive",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · see.PRS.1SG · 3SG.M.OBJ · every · day · ___"
         },
         {
           "sentence": "Zij belooft op tijd {{answer}} zijn.",
           "answer": "te",
           "translation": "She promises to be on time.",
           "hint": "beloven takes it",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.F · promise.PRS.3SG · on · time · ___ · be.INF"
         }
       ]
     },
@@ -1875,42 +2043,48 @@
           "answer": "Zou",
           "translation": "Could you close the window?",
           "hint": "the politeness auxiliary",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 2SG · DEF.N · window · can.INF · close.INF"
         },
         {
           "sentence": "Ik {{answer}} graag een huis met een tuin willen.",
           "answer": "zou",
           "translation": "I would like a house with a garden.",
           "hint": "would",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · ___ · gladly · INDF · house · with · INDF · garden · want.INF"
         },
         {
           "sentence": "Wat {{answer}} jij doen in mijn plaats?",
           "answer": "zou",
           "translation": "What would you do in my place?",
           "hint": "hypothetical",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "what.Q · ___ · 2SG · do.INF · in · 1SG.POSS · place"
         },
         {
           "sentence": "Je {{answer}} meer water moeten drinken.",
           "answer": "zou",
           "translation": "You should drink more water.",
           "hint": "advice — with moeten",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "2SG · ___ · more · water · must.INF · drink.INF"
         },
         {
           "sentence": "{{answer}} wij samen kunnen lunchen?",
           "answer": "Zouden",
           "translation": "Could we have lunch together?",
           "hint": "plural form",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · 1PL · together · can.INF · lunch.INF"
         },
         {
           "sentence": "Hij {{answer}} miljonair zijn, zegt men.",
           "answer": "zou",
           "translation": "He is said to be a millionaire.",
           "hint": "hearsay use",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.M · ___ · millionaire · be.INF · say.PRS.3SG · one"
         }
       ]
     },
@@ -1938,42 +2112,48 @@
           "answer": "dat",
           "translation": "He says that he is coming tomorrow.",
           "hint": "reported statement",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG.M · say.PRS.3SG · ___ · 3SG.M · tomorrow · come.PRS.3SG"
         },
         {
           "sentence": "Zij vraagt {{answer}} ik tijd heb.",
           "answer": "of",
           "translation": "She asks whether I have time.",
           "hint": "reported yes/no question",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · ask.PRS.3SG · ___ · 1SG · time · have.PRS.1SG"
         },
         {
           "sentence": "Ik weet niet {{answer}} hij thuis is.",
           "answer": "of",
           "translation": "I don't know whether he is home.",
           "hint": "whether",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · know.PRS.1SG · NEG · ___ · 3SG.M · home · be.PRS.3SG"
         },
         {
           "sentence": "Ze vraagt {{answer}} de winkel opengaat.",
           "answer": "wanneer",
           "translation": "She asks when the shop opens.",
           "hint": "the question word survives",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F · ask.PRS.3SG · ___ · DEF.C · shop · open-go.PRS.3SG"
         },
         {
           "sentence": "Hij vertelt dat hij in Gent {{answer}}.",
           "answer": "woont",
           "translation": "He says that he lives in Ghent.",
           "hint": "verb-final in the dat-clause",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M · tell.PRS.3SG · COMP · 3SG.M · in · Ghent · ___"
         },
         {
           "sentence": "Weet jij {{answer}} zij komt?",
           "answer": "of",
           "translation": "Do you know whether she is coming?",
           "hint": "whether",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "know.PRS.2SG · 2SG · ___ · 3SG.F · come.PRS.3SG"
         }
       ]
     },
@@ -2001,42 +2181,48 @@
           "answer": "wel",
           "translation": "It IS actually tasty.",
           "hint": "the soft contradiction particle",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "it.N · be.PRS.3SG · ___ · tasty · hear.IMP"
         },
         {
           "sentence": "Je komt morgen {{answer}}?",
           "answer": "toch",
           "translation": "You're coming tomorrow, right?",
           "hint": "seeks agreement",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "2SG · come.PRS.2SG · tomorrow · ___"
         },
         {
           "sentence": "Ga {{answer}} zitten.",
           "answer": "maar",
           "translation": "Go ahead and sit down.",
           "hint": "softens the command",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "go.IMP · ___ · sit.INF"
         },
         {
           "sentence": "Ik bel je {{answer}}.",
           "answer": "even",
           "translation": "I'll give you a quick call.",
           "hint": "makes it quick and casual",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · call.PRS.1SG · 2SG · ___"
         },
         {
           "sentence": "Kom {{answer}} kijken!",
           "answer": "eens",
           "translation": "Come and have a look!",
           "hint": "'just/sometime' invitation",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "come.IMP · ___ · look.INF"
         },
         {
           "sentence": "Dat valt {{answer}} mee.",
           "answer": "wel",
           "translation": "It's not as bad as it seems.",
           "hint": "in the fixed phrase 'valt … mee'",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "that.N · fall.PRS.3SG · ___ · along"
         }
       ]
     },
@@ -2064,42 +2250,48 @@
           "answer": "had",
           "translation": "I had already eaten when she came.",
           "hint": "past-perfect auxiliary",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · already · eat.PTCP · when · 3SG.F · come.PST.3SG"
         },
         {
           "sentence": "De trein {{answer}} al vertrokken.",
           "answer": "was",
           "translation": "The train had already left.",
           "hint": "movement takes the zijn-past",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF.C · train · ___ · already · depart.PTCP"
         },
         {
           "sentence": "Wij {{answer}} het huis al verkocht.",
           "answer": "hadden",
           "translation": "We had already sold the house.",
           "hint": "plural auxiliary",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · DEF.N · house · already · sell.PTCP"
         },
         {
           "sentence": "Toen ik aankwam, {{answer}} het feest al begonnen.",
           "answer": "was",
           "translation": "When I arrived, the party had already started.",
           "hint": "beginnen takes zijn",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "when · 1SG · arrive.PST.1SG · ___ · DEF.N · party · already · begin.PTCP"
         },
         {
           "sentence": "Zij had de brief nog niet {{answer}}.",
           "answer": "gelezen",
           "translation": "She had not yet read the letter.",
           "hint": "participle of lezen",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.F · have.PST.3SG · DEF.C · letter · yet · NEG · ___"
         },
         {
           "sentence": "Hij was al naar huis {{answer}}.",
           "answer": "gegaan",
           "translation": "He had already gone home.",
           "hint": "participle of gaan",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.M · be.PST.3SG · already · to · house · ___"
         }
       ]
     },
@@ -2127,42 +2319,48 @@
           "answer": "kunnen",
           "translation": "I couldn't sleep last night.",
           "hint": "modal as infinitive, not participle",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · have.PRS.1SG · last_night · NEG · ___ · sleep.INF"
         },
         {
           "sentence": "Zij heeft niet {{answer}} komen.",
           "answer": "willen",
           "translation": "She didn't want to come.",
           "hint": "infinitive form",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · have.PRS.3SG · NEG · ___ · come.INF"
         },
         {
           "sentence": "Wij hadden eerder {{answer}} bellen.",
           "answer": "moeten",
           "translation": "We should have called earlier.",
           "hint": "infinitive of the must-modal",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · have.PST.1PL · early.COMP · ___ · call.INF"
         },
         {
           "sentence": "Hij heeft zijn auto laten {{answer}}.",
           "answer": "repareren",
           "translation": "He had his car repaired.",
           "hint": "laten + infinitive in the perfect",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.M · have.PRS.3SG · 3SG.M.POSS · car · let.INF · ___"
         },
         {
           "sentence": "Ik heb hem zien {{answer}}.",
           "answer": "vertrekken",
           "translation": "I saw him leave.",
           "hint": "zien + infinitive in the perfect",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · have.PRS.1SG · 3SG.M.ACC · see.INF · ___"
         },
         {
           "sentence": "Je had het {{answer}} weten.",
           "answer": "kunnen",
           "translation": "You could have known.",
           "hint": "infinitive modal",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "2SG · have.PST.2SG · it.N · ___ · know.INF"
         }
       ]
     },
@@ -2190,42 +2388,48 @@
           "answer": "aan",
           "translation": "I am (busy) cooking.",
           "hint": "the progressive frame",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · be.PRS.1SG · ___ · DEF.N · cook.INF"
         },
         {
           "sentence": "Zij is aan het {{answer}}.",
           "answer": "werken",
           "translation": "She is working.",
           "hint": "infinitive closes the frame",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · be.PRS.3SG · PROG · DEF.N · ___"
         },
         {
           "sentence": "Hij zit al uren {{answer}} lezen.",
           "answer": "te",
           "translation": "He has been sitting reading for hours.",
           "hint": "posture verb + this word",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "he · sit.PRS.3SG · already · hour-PL · ___ · read.INF"
         },
         {
           "sentence": "Wij staan buiten {{answer}} wachten.",
           "answer": "te",
           "translation": "We are standing outside waiting.",
           "hint": "staan + … + infinitive",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "we · stand.PRS.1PL · outside · ___ · wait.INF"
         },
         {
           "sentence": "De baby ligt {{answer}} slapen.",
           "answer": "te",
           "translation": "The baby is (lying) sleeping.",
           "hint": "liggen + … + infinitive",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.C · baby · lie.PRS.3SG · ___ · sleep.INF"
         },
         {
           "sentence": "Ik was net aan het {{answer}} toen je belde.",
           "answer": "eten",
           "translation": "I was just eating when you called.",
           "hint": "infinitive in the frame",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "I · be.PST.1SG · just · at · DEF.N · ___ · when · you.SG · call.PST.2SG"
         }
       ]
     },
@@ -2253,42 +2457,48 @@
           "answer": "Waar",
           "translation": "What are you thinking about?",
           "hint": "what + preposition, fused and split",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · think.PRS.2SG · you.SG · at"
         },
         {
           "sentence": "Ik ben het er niet {{answer}} eens.",
           "answer": "mee",
           "translation": "I don't agree with it.",
           "hint": "met fuses to this",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "I · be.PRS.1SG · it · there · NEG · ___ · agreed"
         },
         {
           "sentence": "{{answer}} heb ik geen zin in.",
           "answer": "Daar",
           "translation": "I don't feel like that.",
           "hint": "that + in, fused and split",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · have.PRS.1SG · I · NEG.INDF · desire · in"
         },
         {
           "sentence": "Ik denk er vaak {{answer}}.",
           "answer": "aan",
           "translation": "I often think about it.",
           "hint": "the preposition lands at the end",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "I · think.PRS.1SG · there · often · ___"
         },
         {
           "sentence": "{{answer}} gaat dit boek over?",
           "answer": "Waar",
           "translation": "What is this book about?",
           "hint": "what-fusion, split",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · go.PRS.3SG · this.N · book · about"
         },
         {
           "sentence": "Zij is er trots {{answer}}.",
           "answer": "op",
           "translation": "She is proud of it.",
           "hint": "the preposition trots governs",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "she · be.PRS.3SG · there · proud · ___"
         }
       ]
     },
@@ -2316,42 +2526,48 @@
           "answer": "zou",
           "translation": "If I were rich, I would travel the world.",
           "hint": "the would-auxiliary",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "if · I · rich · be.PST.1SG · ___ · I · DEF.C · world · around-travel.INF"
         },
         {
           "sentence": "Als het morgen {{answer}}, gaan we naar het strand.",
           "answer": "zonnig is",
           "translation": "If it is sunny tomorrow, we'll go to the beach.",
           "hint": "adjective + verb-final 'is'",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if · it · tomorrow · ___ · go.PRS.1PL · we · to · DEF.N · beach"
         },
         {
           "sentence": "Als ik het {{answer}} geweten, was ik gekomen.",
           "answer": "had",
           "translation": "If I had known, I would have come.",
           "hint": "past-perfect in the if-clause",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if · I · it · ___ · know.PTCP · be.PST.1SG · I · come.PTCP"
         },
         {
           "sentence": "Wat zou je doen als je de loterij {{answer}} winnen?",
           "answer": "zou",
           "translation": "What would you do if you were to win the lottery?",
           "hint": "hypothetical marker in the als-clause",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "what · will.COND.2SG · you.SG · do.INF · if · you.SG · DEF.C · lottery · ___ · win.INF"
         },
         {
           "sentence": "Als je harder had gewerkt, {{answer}} je geslaagd.",
           "answer": "was",
           "translation": "If you had worked harder, you would have passed.",
           "hint": "zijn-past as the result auxiliary",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · you.SG · hard-COMP · have.PST.2SG · work.PTCP · ___ · you.SG · succeed.PTCP"
         },
         {
           "sentence": "{{answer}} het regent, dan blijven we binnen.",
           "answer": "Als",
           "translation": "If it rains, then we stay inside.",
           "hint": "the if-word",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · it · rain.PRS.3SG · then · stay.PRS.1PL · we · inside"
         }
       ]
     },
@@ -2379,42 +2595,48 @@
           "answer": "Geachte",
           "translation": "Dear Mr De Vries, — the formal letter opening.",
           "hint": "the formal salutation",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · mister · NAME · NAME · — · thus · open.PRS.3SG · INDF · formal-C · letter"
         },
         {
           "sentence": "Met vriendelijke {{answer}} — de standaardafsluiting.",
           "answer": "groet",
           "translation": "With kind regards — the standard sign-off.",
           "hint": "the closing noun",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "with · friendly-C · ___ · — · DEF.C · standard-closing"
         },
         {
           "sentence": "Tegen een oudere klant zeg je {{answer}}, geen je.",
           "answer": "u",
           "translation": "To an older customer you say u, not je.",
           "hint": "the polite pronoun",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "to · INDF · old-COMP-C · customer · say.PRS.2SG · you.SG · ___ · NEG.INDF · you.SG"
         },
         {
           "sentence": "Zeg maar {{answer}}, hoor.",
           "answer": "je",
           "translation": "Feel free to use the informal you.",
           "hint": "the informal pronoun being offered",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "say.IMP · just · ___ · PTCL"
         },
         {
           "sentence": "In Vlaanderen blijft {{answer}} langer gebruikelijk.",
           "answer": "u",
           "translation": "In Flanders, u stays customary longer.",
           "hint": "the formal pronoun",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "in · Flanders · stay.PRS.3SG · ___ · long.COMP · customary"
         },
         {
           "sentence": "Onder collega's is {{answer}} tegenwoordig normaal.",
           "answer": "je",
           "translation": "Among colleagues, informal you is normal nowadays.",
           "hint": "informal",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "among · colleague-PL · be.PRS.3SG · ___ · nowadays · normal"
         }
       ]
     },
@@ -2442,42 +2664,48 @@
           "answer": "Het",
           "translation": "Travelling broadens the mind.",
           "hint": "the article that nominalizes",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · travel.INF · broaden.PRS.3SG · DEF.C · view"
         },
         {
           "sentence": "Vrij{{answer}} is een groot goed.",
           "answer": "heid",
           "translation": "Freedom is a precious thing.",
           "hint": "the quality suffix",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · be.PRS.3SG · INDF · great · good"
         },
         {
           "sentence": "Ik word gek van dat {{answer}}!",
           "answer": "gepraat",
           "translation": "All that talking is driving me mad!",
           "hint": "ge- + stem, irritated",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · become.PRS.1SG · crazy · from · DEM.N · ___"
         },
         {
           "sentence": "De snel{{answer}} van het antwoord verbaasde me.",
           "answer": "heid",
           "translation": "The speed of the reply surprised me.",
           "hint": "quality suffix",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF.C · ___ · of · DEF.N · answer · surprise.PST.3SG · 1SG.OBJ"
         },
         {
           "sentence": "{{answer}} leren van talen kost tijd.",
           "answer": "Het",
           "translation": "Learning languages takes time.",
           "hint": "nominalizing article",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · learn.INF · of · language-PL · cost.PRS.3SG · time"
         },
         {
           "sentence": "Dat eeuwige {{answer}} in de gangen stoort iedereen.",
           "answer": "geloop",
           "translation": "That endless walking about in the corridors bothers everyone.",
           "hint": "ge-noun of lopen",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEM.N · eternal-ATTR · ___ · in · DEF.C · corridor-PL · bother.PRS.3SG · everyone"
         }
       ]
     },
@@ -2505,42 +2733,48 @@
           "answer": "gewerkt",
           "translation": "I worked on my thesis all day yesterday.",
           "hint": "the participle closes the pincer",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · have.PRS.1SG · yesterday · DEF.C · whole-ATTR · day · on · 1SG.POSS · thesis · ___"
         },
         {
           "sentence": "Zij wil volgend jaar in Amsterdam gaan {{answer}}.",
           "answer": "studeren",
           "translation": "She wants to go study in Amsterdam next year.",
           "hint": "infinitive chain at the close",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · want.PRS.3SG · next · year · in · Amsterdam · go.INF · ___"
         },
         {
           "sentence": "Hij heeft ons gisteren pas over het plan {{answer}}.",
           "answer": "verteld",
           "translation": "He only told us about the plan yesterday.",
           "hint": "participle at the close",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.M · have.PRS.3SG · 1PL.OBJ · yesterday · only · about · DEF.N · plan · ___"
         },
         {
           "sentence": "Ik moet morgen vroeg naar het station {{answer}}.",
           "answer": "vertrekken",
           "translation": "I have to leave for the station early tomorrow.",
           "hint": "infinitive closes",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · must.PRS.1SG · tomorrow · early · to · DEF.N · station · ___"
         },
         {
           "sentence": "Wij hebben lang op de uitslag {{answer}}.",
           "answer": "gewacht",
           "translation": "We waited a long time for the result.",
           "hint": "participle closes",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL · have.PRS.1PL · long · on · DEF.C · result · ___"
         },
         {
           "sentence": "Ze heeft de kinderen naar school {{answer}}.",
           "answer": "gebracht",
           "translation": "She took the children to school.",
           "hint": "participle of brengen",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG.F · have.PRS.3SG · DEF.C · child-PL · to · school · ___"
         }
       ]
     },
@@ -2574,7 +2808,8 @@
           "translation": "The bottle is (standing) on the table.",
           "hint": "upright things",
           "display_order": 1,
-          "cell": "staan"
+          "cell": "staan",
+          "gloss": "DEF.C · bottle · ___ · on · table"
         },
         {
           "sentence": "De vaas {{answer}} op de kast.",
@@ -2582,7 +2817,8 @@
           "translation": "The vase is on the cupboard.",
           "hint": "upright",
           "display_order": 2,
-          "cell": "staan"
+          "cell": "staan",
+          "gloss": "DEF.C · vase · ___ · on · DEF.C · cupboard"
         },
         {
           "sentence": "De krant {{answer}} op de mat.",
@@ -2590,7 +2826,8 @@
           "translation": "The newspaper is (lying) on the doormat.",
           "hint": "flat things",
           "display_order": 3,
-          "cell": "liggen"
+          "cell": "liggen",
+          "gloss": "DEF.C · newspaper · ___ · on · DEF.C · mat"
         },
         {
           "sentence": "Amsterdam {{answer}} aan het IJ.",
@@ -2598,7 +2835,8 @@
           "translation": "Amsterdam lies on the IJ.",
           "hint": "cities lie",
           "display_order": 4,
-          "cell": "liggen"
+          "cell": "liggen",
+          "gloss": "Amsterdam · ___ · on · DEF.N · IJ"
         },
         {
           "sentence": "De sleutels {{answer}} in mijn jaszak.",
@@ -2606,7 +2844,8 @@
           "translation": "The keys are in my coat pocket.",
           "hint": "contained things",
           "display_order": 5,
-          "cell": "zitten"
+          "cell": "zitten",
+          "gloss": "DEF.C · key-PL · ___ · in · 1SG.POSS · coat.pocket"
         },
         {
           "sentence": "Er {{answer}} een gat in mijn sok.",
@@ -2614,7 +2853,8 @@
           "translation": "There is a hole in my sock.",
           "hint": "contained",
           "display_order": 6,
-          "cell": "zitten"
+          "cell": "zitten",
+          "gloss": "EXPL · ___ · INDF · hole · in · 1SG.POSS · sock"
         }
       ]
     },
@@ -2642,42 +2882,48 @@
           "answer": "goesting",
           "translation": "Flemish for 'desire': I fancy fries.",
           "hint": "the Flemish craving word",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "Flemish · for · desire · 1SG · have.PRS.1SG · ___ · in · fry-PL"
         },
         {
           "sentence": "Vlaams informeel 'jij': {{answer}} zijt gij daar?",
           "answer": "Wat",
           "translation": "Flemish informal: What are you doing there?",
           "hint": "the question word — note zijt gij",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "Flemish · informal · 2SG · ___ · be.PRS.2SG · 2SG · there"
         },
         {
           "sentence": "'Dat is {{answer}}!' — zegt een Vlaming over iets moois.",
           "answer": "schoon",
           "translation": "'That is beautiful!' — as a Fleming says it.",
           "hint": "means clean up north, beautiful down south",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "that.N · be.PRS.3SG · ___ · — · say.PRS.3SG · INDF · Fleming · about · something · beautiful-GEN"
         },
         {
           "sentence": "Vlaams voor 'leuk': een {{answer}} avond.",
           "answer": "plezante",
           "translation": "Flemish for 'fun': a fun evening.",
           "hint": "with the adjective -e",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "Flemish · for · fun · INDF · ___ · evening"
         },
         {
           "sentence": "Vlaams voor 'ham': een boterham met {{answer}}.",
           "answer": "hesp",
           "translation": "Flemish for 'ham': a sandwich with ham.",
           "hint": "the Belgian word",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "Flemish · for · ham · INDF · sandwich · with · ___"
         },
         {
           "sentence": "De zachte {{answer}} kleurt het zuidelijke accent.",
           "answer": "g",
           "translation": "The 'soft g' colours the southern accent.",
           "hint": "one letter",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.C · soft-ATTR · ___ · color.PRS.3SG · DEF.N · southern-ATTR · accent"
         }
       ]
     },
@@ -2705,42 +2951,48 @@
           "answer": "der",
           "translation": "The course of things — such is life.",
           "hint": "fossil genitive article (fem./pl.)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF.C · course · ___ · thing-PL · — · thus · go.PRS.3SG · DEF.N · life"
         },
         {
           "sentence": "{{answer}} ochtends drink ik koffie.",
           "answer": "'s",
           "translation": "In the morning I drink coffee.",
           "hint": "the clitic remnant of des",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · morning-GEN · drink.PRS.1SG · 1SG · coffee"
         },
         {
           "sentence": "Te {{answer}} tijde bereikbaar.",
           "answer": "allen",
           "translation": "Reachable at all times.",
           "hint": "dative fossil after te",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "at · ___ · time.DAT · reach-ABLE"
         },
         {
           "sentence": "{{answer}} slotte wil ik u bedanken.",
           "answer": "Ten",
           "translation": "Finally, I want to thank you.",
           "hint": "te + den fused",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · conclusion.DAT · want.PRS.1SG · 1SG · 2SG.POL · thank.INF"
         },
         {
           "sentence": "De heer {{answer}} huizes opent de deur.",
           "answer": "des",
           "translation": "The master of the house opens the door.",
           "hint": "fossil genitive article (masc./neut.)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF.C · master · ___ · house-GEN · open.PRS.3SG · DEF.C · door"
         },
         {
           "sentence": "Het onderzoek gebeurt {{answer}} plaatse.",
           "answer": "ter",
           "translation": "The investigation happens on site.",
           "hint": "te + der fused",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF.N · investigation · happen.PRS.3SG · ___ · place.DAT"
         }
       ]
     }

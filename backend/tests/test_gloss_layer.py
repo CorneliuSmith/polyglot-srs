@@ -43,6 +43,28 @@ def _norm(text: str) -> str:
     return re.sub(r"[-\s]", "", (text or "").lower().strip("()?.,!¿¡\"'"))
 
 
+
+# Scripts written without spaces between words. Counting whitespace there is
+# meaningless — a whole Thai sentence is ONE token, so the correct three-cell
+# gloss of ผม{{answer}}ข้าว reads as three invented cells. Borrow the reading
+# pipeline's segmentation, which is how the learner sees the sentence divided
+# (CHECKS.md §22).
+UNSPACED = {"th"}
+
+
+def _tokens(sentence: str, code: str) -> list[str]:
+    if code in UNSPACED:
+        try:
+            from backend.services.readings import sentence_reading
+
+            reading = sentence_reading(sentence, code)
+            if reading and reading.split():
+                return reading.split()
+        except Exception:  # noqa: BLE001 — a missing reader must not fail a gloss
+            pass
+    return sentence.split()
+
+
 @pytest.mark.parametrize("path", FILES, ids=[os.path.basename(p) for p in FILES])
 def test_a_gloss_never_spells_out_the_answer(path):
     """Scoped to the SELF-LABELLING format (`word (GLOSS) word (GLOSS)`), the
@@ -105,13 +127,14 @@ def test_a_gloss_never_invents_a_cell(path):
     MORE cells than tokens means a cell was invented, and every position after
     it teaches the wrong word — the shifted Māori line the owner caught by
     reading one card."""
+    code = os.path.basename(path).split("_")[0]
     bad = []
     for drill in _drills(path):
         gloss = (drill.get("gloss") or "").strip()
         if not gloss or "·" not in gloss:
             continue  # self-labelling format, checked by the tests above
         cells = [c for c in gloss.split("·") if c.strip()]
-        tokens = (drill.get("sentence") or "").split()
+        tokens = _tokens(drill.get("sentence") or "", code)
         if len(cells) > len(tokens):
             bad.append((drill.get("sentence"), gloss, len(tokens), len(cells)))
     assert not bad, f"{len(bad)} gloss(es) with more cells than tokens: {bad[:2]}"

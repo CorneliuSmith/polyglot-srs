@@ -3128,42 +3128,48 @@
           "answer": "aș",
           "translation": "I would have come at once, but I knew nothing.",
           "hint": "would — I (past conditional)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · be.INF · come.PTCP · immediately · but · NEG · have.PRS.1SG · know.PTCP · nothing"
         },
         {
           "sentence": "El {{answer}} fi reușit cu puțin efort.",
           "answer": "ar",
           "translation": "He would have succeeded with a little effort.",
           "hint": "would — he (past conditional)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "he.3SG.M · ___ · be.INF · succeed.PTCP · with · little · effort"
         },
         {
           "sentence": "Noi {{answer}} fi mers, dar era prea târziu.",
           "answer": "am",
           "translation": "We would have gone, but it was too late.",
           "hint": "would — we (past conditional)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "we.1PL · ___ · be.INF · go.PTCP · but · be.IPFV.3SG · too · late"
         },
         {
           "sentence": "{{answer}} fi vrut să te ajut, dar nu am putut.",
           "answer": "aș",
           "translation": "I would have liked to help you, but I couldn't.",
           "hint": "would — I (past conditional)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · be.INF · want.PTCP · SBJV · you.2SG.ACC · help.PRS.1SG · but · NEG · have.PRS.1SG · can.PTCP"
         },
         {
           "sentence": "Ce {{answer}} fi făcut tu în locul meu?",
           "answer": "ai",
           "translation": "What would you have done in my place?",
           "hint": "would — you sg. (past conditional)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "what · ___ · be.INF · do.PTCP · you.2SG · in · place-DEF.M.SG · my.M.SG"
         },
         {
           "sentence": "Ei {{answer}} fi câștigat cu puțin noroc.",
           "answer": "ar",
           "translation": "They would have won with a little luck.",
           "hint": "would — they (past conditional)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "they.3PL.M · ___ · be.INF · win.PTCP · with · little · luck"
         }
       ]
     },
@@ -3192,42 +3198,48 @@
           "answer": "deși",
           "translation": "Although it was late, we continued the discussion.",
           "hint": "although",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · be.IPFV.3SG · late · have.PRS.1PL · continue.PTCP · discussion-DEF.F.SG"
         },
         {
           "sentence": "Am rămas acasă {{answer}} ploua tare.",
           "answer": "deoarece",
           "translation": "I stayed home because it was raining hard.",
           "hint": "because",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "have.PRS.1SG · stay.PTCP · at_home · ___ · rain.IPFV.3SG · hard"
         },
         {
           "sentence": "A vorbit tare, {{answer}} încât toți l-au auzit.",
           "answer": "astfel",
           "translation": "He spoke loudly, so that everyone heard him.",
           "hint": "so that (result connector)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "have.PRS.3SG · speak.PTCP · loud · ___ · that · all.M.PL · him.3SG.M.ACC-have.PRS.3PL · hear.PTCP"
         },
         {
           "sentence": "{{answer}} timp ce eu găteam, el citea.",
           "answer": "în",
           "translation": "While I was cooking, he was reading.",
           "hint": "while — the preposition before 'timp ce'",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · time · REL · I.1SG · cook.IPFV.1SG · he.3SG.M · read.IPFV.3SG"
         },
         {
           "sentence": "Pe {{answer}} ce înaintam, drumul devenea mai greu.",
           "answer": "măsură",
           "translation": "As we advanced, the road became harder.",
           "hint": "as (progressive connector)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "on · ___ · REL · advance.IPFV.1PL · road-DEF.M.SG · become.IPFV.3SG · COMP · hard"
         },
         {
           "sentence": "Nu a venit, {{answer}} toate că îl invitasem.",
           "answer": "cu",
           "translation": "He didn't come, although I had invited him.",
           "hint": "although — the preposition 'with' before 'toate că'",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG · have.PRS.3SG · come.PTCP · ___ · all.F.PL · that · him.3SG.M.ACC · invite.PLUP.1SG"
         }
       ]
     },
@@ -3256,42 +3268,48 @@
           "answer": "îl",
           "translation": "I see Ion every day.",
           "hint": "him (obligatory doubling)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "OBJ · Ion · ___ · see.PRS.1SG · in · every · day"
         },
         {
           "sentence": "{{answer}} cunosc pe Maria de mult timp.",
           "answer": "o",
           "translation": "I've known Maria for a long time.",
           "hint": "her (doubling)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · know.PRS.1SG · OBJ · Maria · for · much · time"
         },
         {
           "sentence": "{{answer}} dau Mariei cartea mâine.",
           "answer": "îi",
           "translation": "I'll give Maria the book tomorrow.",
           "hint": "to her (dative doubling)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · give.PRS.1SG · Maria.DAT · book-DEF.F.SG · tomorrow"
         },
         {
           "sentence": "{{answer}}-am spus copiilor povestea.",
           "answer": "le",
           "translation": "I told the children the story.",
           "hint": "to them (dative doubling)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · say.PTCP · child-PL-DEF.DAT.PL · story-DEF.F.SG"
         },
         {
           "sentence": "Pe voi {{answer}} așteptam de mult.",
           "answer": "vă",
           "translation": "It was you (pl.) I'd been waiting for.",
           "hint": "you pl. (doubling)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "OBJ · you.2PL · ___ · wait.IPFV.1SG · for · much"
         },
         {
           "sentence": "{{answer}} ajut pe vecinii mei des.",
           "answer": "îi",
           "translation": "I often help my neighbours.",
           "hint": "them (doubling)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · help.PRS.1SG · OBJ · neighbour-PL-DEF.M.PL · my.M.PL · often"
         }
       ]
     },
@@ -3320,14 +3338,16 @@
           "answer": "merse",
           "translation": "Silence fell, and he walked slowly to the door. (literary past)",
           "hint": "went (perfectul simplu)",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "REFL · make.PST.3SG · silence · and · he.3SG.M · ___ · slowly · toward · door"
         },
         {
           "sentence": "Bătrânul {{answer}} o poveste și tăcu.",
           "answer": "spuse",
           "translation": "The old man told a story and fell silent. (literary past)",
           "hint": "told (perfectul simplu)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "old_man-DEF.M.SG · ___ · INDF.F.SG · story · and · be_silent.PST.3SG"
         },
         {
           "sentence": "Nu a studiat destul; {{answer}}, a picat examenul.",

@@ -619,7 +619,8 @@
           "translation": "I am twenty years old.",
           "hint": "avoir, je",
           "display_order": 1,
-          "cell": "je"
+          "cell": "je",
+          "gloss": "___ · twenty · year.PL"
         },
         {
           "sentence": "Tu {{answer}} faim ?",
@@ -672,7 +673,8 @@
           "translation": "I have a small question.",
           "hint": "avoir, je",
           "cell": "je",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · INDF.F · small.F · question"
         },
         {
           "sentence": "Tu {{answer}} un stylo ?",

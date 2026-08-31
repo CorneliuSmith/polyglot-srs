@@ -59,7 +59,8 @@
           "hint": "to eat — same form forever",
           "display_order": 1,
           "transliteration": "phǒm {{answer}} khâao",
-          "phonetics": "phǒm {{answer}} khâo"
+          "phonetics": "phǒm {{answer}} khâo",
+          "gloss": "1SG.M · ___ · rice"
         },
         {
           "sentence": "เขา{{answer}}หนังสือ",
@@ -68,7 +69,8 @@
           "hint": "to read",
           "display_order": 2,
           "transliteration": "khǎo {{answer}} nǎng-sǔe",
-          "phonetics": "khǎo {{answer}} nǎng-sǔe"
+          "phonetics": "khǎo {{answer}} nǎng-sǔe",
+          "gloss": "3SG · ___ · book"
         },
         {
           "sentence": "ฉัน{{answer}}น้ำ",
@@ -77,7 +79,8 @@
           "hint": "to drink",
           "display_order": 3,
           "transliteration": "chǎn {{answer}} náam",
-          "phonetics": "chǎn {{answer}} nám"
+          "phonetics": "chǎn {{answer}} nám",
+          "gloss": "1SG.F · ___ · water"
         },
         {
           "sentence": "บ้าน{{answer}}",
@@ -86,7 +89,8 @@
           "hint": "big — follows the noun",
           "display_order": 4,
           "transliteration": "bâan {{answer}}",
-          "phonetics": "bân {{answer}}"
+          "phonetics": "bân {{answer}}",
+          "gloss": "house · ___"
         },
         {
           "sentence": "เรา{{answer}}ภาษาไทย",
@@ -95,7 +99,8 @@
           "hint": "to study",
           "display_order": 5,
           "transliteration": "rao {{answer}} phaa-sǎa thai",
-          "phonetics": "rao {{answer}} pha-sǎ thai"
+          "phonetics": "rao {{answer}} pha-sǎ thai",
+          "gloss": "1PL · ___ · language · Thai"
         },
         {
           "sentence": "แมว{{answer}}ปลา",
@@ -104,7 +109,8 @@
           "hint": "to eat — no -s for the cat",
           "display_order": 6,
           "transliteration": "maew {{answer}} plaa",
-          "phonetics": "maeo {{answer}} pla"
+          "phonetics": "maeo {{answer}} pla",
+          "gloss": "cat · ___ · fish"
         },
         {
           "sentence": "เมื่อวานเรา{{answer}}หนัง",
@@ -113,7 +119,8 @@
           "hint": "to view something on a screen — the time word at the front carries the past, so the verb keeps the single shape it always has",
           "display_order": 7,
           "transliteration": "muea-wan rao {{answer}} nang",
-          "phonetics": "mûea-wan rao {{answer}} nǎng"
+          "phonetics": "mûea-wan rao {{answer}} nǎng",
+          "gloss": "yesterday · 1PL · ___ · movie"
         }
       ]
     },
@@ -282,7 +289,8 @@
           "display_order": 5,
           "cell": "คุณ",
           "transliteration": "{{answer}} maa jàak nǎi",
-          "phonetics": "{{answer}} mà chak nǎi"
+          "phonetics": "{{answer}} mà chak nǎi",
+          "gloss": "___ · come · from · where"
         },
         {
           "sentence": "{{answer}}พูดไทยได้ไหม",
@@ -292,7 +300,8 @@
           "display_order": 6,
           "cell": "คุณ",
           "transliteration": "{{answer}} phûut thai dâai mǎi",
-          "phonetics": "{{answer}} phût thai dâi mǎi"
+          "phonetics": "{{answer}} phût thai dâi mǎi",
+          "gloss": "___ · speak · Thai · can · Q"
         },
         {
           "sentence": "{{answer}}เป็นน้องชายของผม",
@@ -451,7 +460,8 @@
           "hint": "answer 'yes' by echoing the verb",
           "display_order": 4,
           "transliteration": "pai kin khâao kan mǎi — tòrp-ráp: {{answer}}",
-          "phonetics": "pai kin khâo kan mǎi — tòp ráp : {{answer}}"
+          "phonetics": "pai kin khâo kan mǎi — tòp ráp : {{answer}}",
+          "gloss": "go-eat · rice-together-Q · — · answer-accept · ___"
         },
         {
           "sentence": "คุณเหนื่อยหรือ{{answer}}",
@@ -469,7 +479,8 @@
           "hint": "the tag question",
           "display_order": 6,
           "transliteration": "khun pen khon thai châi {{answer}}",
-          "phonetics": "khun pen khon thai châi {{answer}}"
+          "phonetics": "khun pen khon thai châi {{answer}}",
+          "gloss": "2SG.POL-be-person-Thai · ___"
         },
         {
           "sentence": "คุณชอบกาแฟไหม — ตอบปฏิเสธ: {{answer}}",
@@ -478,7 +489,8 @@
           "hint": "Thai has no word for 'no' — answer by repeating the verb of the question with the negator placed in front of it",
           "display_order": 7,
           "transliteration": "khun chop ka-fae mai — top pa-ti-set : {{answer}}",
-          "phonetics": "khun chôp ka-fae mǎi — tòp pà-tì-sèt : {{answer}}"
+          "phonetics": "khun chôp ka-fae mǎi — tòp pà-tì-sèt : {{answer}}",
+          "gloss": "2SG.POL-like-coffee-Q · — · answer-refuse · ___"
         }
       ]
     },
@@ -591,7 +603,8 @@
           "translation": "Is there a coffee shop nearby?",
           "hint": "there-is",
           "display_order": 2,
-          "transliteration": "{{answer}} ráan kaa-fae klâi-klâi mǎi"
+          "transliteration": "{{answer}} ráan kaa-fae klâi-klâi mǎi",
+          "gloss": "___ · Q"
         },
         {
           "sentence": "ฉัน{{answer}}มีเงิน",
@@ -1047,7 +1060,8 @@
           "hint": "'Mine' standing alone after a negative, with no noun repeated: the possession linker plus the male speaker's own pronoun.",
           "display_order": 7,
           "transliteration": "rom khan ni mai-chai {{answer}}",
-          "phonetics": "rôm khan ní mâi-châi {{answer}}"
+          "phonetics": "rôm khan ní mâi-châi {{answer}}",
+          "gloss": "umbrella · CLF · this · NEG.COP · ___"
         }
       ]
     },
@@ -1086,7 +1100,8 @@
           "hint": "already",
           "display_order": 2,
           "transliteration": "rót-fai àawk {{answer}}",
-          "phonetics": "rót-fai òk {{answer}}"
+          "phonetics": "rót-fai òk {{answer}}",
+          "gloss": "train · leave · ___"
         },
         {
           "sentence": "เขาแต่งงาน{{answer}}",
@@ -1095,7 +1110,8 @@
           "hint": "already",
           "display_order": 3,
           "transliteration": "khǎo tàeng-ngaan {{answer}}",
-          "phonetics": "khǎo tàeng-ngan {{answer}}"
+          "phonetics": "khǎo tàeng-ngan {{answer}}",
+          "gloss": "3SG · marry · ___"
         },
         {
           "sentence": "ฉันทำการบ้านเสร็จ{{answer}}",
@@ -1113,7 +1129,8 @@
           "hint": "the 'and then' use",
           "display_order": 5,
           "transliteration": "àap-náam {{answer}} naawn",
-          "phonetics": "àp-nám {{answer}} non"
+          "phonetics": "àp-nám {{answer}} non",
+          "gloss": "bathe.water · ___ · sleep"
         },
         {
           "sentence": "พอ{{answer}} ขอบคุณ",
@@ -1122,7 +1139,8 @@
           "hint": "with พอ — enough",
           "display_order": 6,
           "transliteration": "phaaw {{answer}} khàawp-khun",
-          "phonetics": "pho {{answer}} khòp-khun"
+          "phonetics": "pho {{answer}} khòp-khun",
+          "gloss": "enough · ___ · thanks"
         },
         {
           "sentence": "ผมไม่หิว{{answer}}",
@@ -1131,7 +1149,8 @@
           "hint": "sentence-final change-of-state marker; paired with a negated verb it gives the sense of no longer",
           "display_order": 7,
           "transliteration": "phom mai hio {{answer}}",
-          "phonetics": "phǒm mâi hǐo {{answer}}"
+          "phonetics": "phǒm mâi hǐo {{answer}}",
+          "gloss": "1SG.M · NEG · hungry · ___"
         }
       ]
     },
@@ -1179,7 +1198,8 @@
           "hint": "front half",
           "display_order": 3,
           "transliteration": "khǎo {{answer}} àap-náam yùu",
-          "phonetics": "khǎo {{answer}} àp-nám yù"
+          "phonetics": "khǎo {{answer}} àp-nám yù",
+          "gloss": "3SG · ___ · bathe.water · PROG"
         },
         {
           "sentence": "ฉันทำงาน{{answer}} โทรกลับได้ไหม",
@@ -1188,7 +1208,8 @@
           "hint": "back half alone",
           "display_order": 4,
           "transliteration": "chǎn tham-ngaan {{answer}} thoo klàp dâai mái",
-          "phonetics": "chǎn tham-ngan {{answer}} tho-rá- klàp dâi mǎi"
+          "phonetics": "chǎn tham-ngan {{answer}} tho-rá- klàp dâi mǎi",
+          "gloss": "1SG.F · work · ___ · phone · return · can · Q"
         },
         {
           "sentence": "เรา{{answer}}จะออกจากบ้าน",
@@ -1206,7 +1227,8 @@
           "hint": "front half",
           "display_order": 6,
           "transliteration": "fǒn {{answer}} tòk yùu",
-          "phonetics": "fǒn {{answer}} tòk yù"
+          "phonetics": "fǒn {{answer}} tòk yù",
+          "gloss": "rain · ___ · fall · PROG"
         },
         {
           "sentence": "คุณทำอะไร{{answer}}",
@@ -1215,7 +1237,8 @@
           "hint": "the after-verb half of the progressive pair, standing alone here in a question",
           "display_order": 7,
           "transliteration": "khun tham a-rai {{answer}}",
-          "phonetics": "khun tham à-rai {{answer}}"
+          "phonetics": "khun tham à-rai {{answer}}",
+          "gloss": "2SG · do · what · ___"
         }
       ]
     },
@@ -1245,7 +1268,8 @@
           "hint": "after the verb = can",
           "display_order": 1,
           "transliteration": "phǒm phûut phaa-sǎa thai {{answer}}",
-          "phonetics": "phǒm phût pha-sǎ thai {{answer}}"
+          "phonetics": "phǒm phût pha-sǎ thai {{answer}}",
+          "gloss": "1SG.M · speak · language · Thai · ___"
         },
         {
           "sentence": "เขาว่ายน้ำไม่{{answer}}",
@@ -1254,7 +1278,8 @@
           "hint": "can — negated",
           "display_order": 2,
           "transliteration": "khǎo wâai-náam mâi {{answer}}",
-          "phonetics": "khǎo wâi-nám mâi {{answer}}"
+          "phonetics": "khǎo wâi-nám mâi {{answer}}",
+          "gloss": "3SG · swim.water · NEG · ___"
         },
         {
           "sentence": "นั่งที่นี่{{answer}}ไหม",
@@ -1263,7 +1288,8 @@
           "hint": "the permission question",
           "display_order": 3,
           "transliteration": "nâng thîi-nîi {{answer}} mái",
-          "phonetics": "nâng thî-nî {{answer}} mǎi"
+          "phonetics": "nâng thî-nî {{answer}} mǎi",
+          "gloss": "sit · here · ___ · Q"
         },
         {
           "sentence": "เมื่อวานผม{{answer}}เจอเพื่อนเก่า",
@@ -1272,7 +1298,8 @@
           "hint": "before the verb = got to",
           "display_order": 4,
           "transliteration": "mûua-waan phǒm {{answer}} joe phûuan kào",
-          "phonetics": "mûea-wan phǒm {{answer}} choe phûean kào"
+          "phonetics": "mûea-wan phǒm {{answer}} choe phûean kào",
+          "gloss": "yesterday · 1SG.M · ___ · meet · friend · old"
         },
         {
           "sentence": "กินเผ็ด{{answer}}ไหม",
@@ -1281,7 +1308,8 @@
           "hint": "ability question",
           "display_order": 5,
           "transliteration": "kin phèt {{answer}} mái",
-          "phonetics": "kin phèt {{answer}} mǎi"
+          "phonetics": "kin phèt {{answer}} mǎi",
+          "gloss": "eat · spicy · ___ · Q"
         },
         {
           "sentence": "ปีที่แล้วฉัน{{answer}}ไปญี่ปุ่น",
@@ -1290,7 +1318,8 @@
           "hint": "attainment past",
           "display_order": 6,
           "transliteration": "pii thîi-láew chǎn {{answer}} pai yîi-pùn",
-          "phonetics": "pi thî-láeo chǎn {{answer}} pai yî-pùn"
+          "phonetics": "pi thî-láeo chǎn {{answer}} pai yî-pùn",
+          "gloss": "year · REL-PFV · 1SG.F · ___ · go · Japan"
         },
         {
           "sentence": "ฉันไม่{{answer}}บอกใคร",
@@ -1299,7 +1328,8 @@
           "hint": "before the verb, right after the negator — the action did not happen, rather than being impossible",
           "display_order": 7,
           "transliteration": "chan mai {{answer}} bok khrai",
-          "phonetics": "chǎn mâi {{answer}} bòk khrai"
+          "phonetics": "chǎn mâi {{answer}} bòk khrai",
+          "gloss": "1SG.F · NEG · ___ · tell · anyone"
         }
       ]
     },
@@ -1335,7 +1365,8 @@
           "display_order": 1,
           "cell": "ต้อง",
           "transliteration": "phǒm {{answer}} pai tham-ngaan",
-          "phonetics": "phǒm {{answer}} pai tham-ngan"
+          "phonetics": "phǒm {{answer}} pai tham-ngan",
+          "gloss": "1SG.M · ___ · go · do-work"
         },
         {
           "sentence": "คุณไม่{{answer}}มา",
@@ -1345,7 +1376,8 @@
           "display_order": 2,
           "cell": "ต้อง",
           "transliteration": "khun mâi {{answer}} maa",
-          "phonetics": "khun mâi {{answer}} ma"
+          "phonetics": "khun mâi {{answer}} ma",
+          "gloss": "2SG · NEG · ___ · come"
         },
         {
           "sentence": "คุณ{{answer}}พักผ่อน",
@@ -1355,7 +1387,8 @@
           "display_order": 3,
           "cell": "ควร",
           "transliteration": "khun {{answer}} phák-phàawn",
-          "phonetics": "khun {{answer}} phák-phòn"
+          "phonetics": "khun {{answer}} phák-phòn",
+          "gloss": "2SG · ___ · rest-relax"
         },
         {
           "sentence": "เราไม่{{answer}}กินดึก",
@@ -1383,7 +1416,8 @@
           "display_order": 6,
           "cell": "อยาก",
           "transliteration": "khǎo {{answer}} pai thá-lee",
-          "phonetics": "khǎo {{answer}} pai thá-le"
+          "phonetics": "khǎo {{answer}} pai thá-le",
+          "gloss": "3SG · ___ · go · sea"
         },
         {
           "sentence": "วันนี้ฉันไม่{{answer}}ออกจากบ้าน",
@@ -1392,7 +1426,8 @@
           "hint": "the pre-verb helper of desire, negated — preference, not obligation and not advice",
           "display_order": 7,
           "transliteration": "wan-ni chan mai {{answer}} ok-chak ban",
-          "phonetics": "wan-ní chǎn mâi {{answer}} òk-chàk bân"
+          "phonetics": "wan-ní chǎn mâi {{answer}} òk-chàk bân",
+          "gloss": "day-this · 1SG.F · NEG · ___ · exit-from · house"
         }
       ]
     },
@@ -1427,7 +1462,8 @@
           "display_order": 1,
           "cell": "มา",
           "transliteration": "ao nǎng-sǔue {{answer}} hâi chǎn nàawy",
-          "phonetics": "ao nǎng-sǔe {{answer}} hâi chǎn nòi"
+          "phonetics": "ao nǎng-sǔe {{answer}} hâi chǎn nòi",
+          "gloss": "take · book · ___ · give · 1SG.F · a.bit"
         },
         {
           "sentence": "เพื่อนโทร{{answer}}เมื่อคืน",
@@ -1437,7 +1473,8 @@
           "display_order": 2,
           "cell": "มา",
           "transliteration": "phûuan thoo {{answer}} mûua-khuuen",
-          "phonetics": "phûean tho-rá- {{answer}} mûea-khuen"
+          "phonetics": "phûean tho-rá- {{answer}} mûea-khuen",
+          "gloss": "friend · call · ___ · when-night"
         },
         {
           "sentence": "เอาขยะ{{answer}}ทิ้ง",
@@ -1447,7 +1484,8 @@
           "display_order": 3,
           "cell": "ไป",
           "transliteration": "ao khà-yà {{answer}} thíng",
-          "phonetics": "ao khà-yà {{answer}} thíng"
+          "phonetics": "ao khà-yà {{answer}} thíng",
+          "gloss": "take · rubbish · ___ · discard"
         },
         {
           "sentence": "เขากลับ{{answer}}บ้านแล้ว",
@@ -1457,7 +1495,8 @@
           "display_order": 4,
           "cell": "ไป",
           "transliteration": "khǎo klàp {{answer}} bâan láew",
-          "phonetics": "khǎo klàp {{answer}} bân láeo"
+          "phonetics": "khǎo klàp {{answer}} bân láeo",
+          "gloss": "3SG · return · ___ · house · PFV"
         },
         {
           "sentence": "พ่อกลับ{{answer}}จากทำงานแล้ว",
@@ -1467,7 +1506,8 @@
           "display_order": 5,
           "cell": "มา",
           "transliteration": "phâaw klàp {{answer}} jàak tham-ngaan láew",
-          "phonetics": "phô klàp {{answer}} chàk tham-ngan láeo"
+          "phonetics": "phô klàp {{answer}} chàk tham-ngan láeo",
+          "gloss": "father · return · ___ · from · do-work · PFV"
         },
         {
           "sentence": "ส่งรูป{{answer}}ให้หน่อย",
@@ -1477,7 +1517,8 @@
           "display_order": 6,
           "cell": "มา",
           "transliteration": "sòng rûup {{answer}} hâi nàawy",
-          "phonetics": "sòng rûp {{answer}} hâi nòi"
+          "phonetics": "sòng rûp {{answer}} hâi nòi",
+          "gloss": "send · picture · ___ · give · a.bit"
         },
         {
           "sentence": "ผมอยู่ที่นี่{{answer}}สามปีแล้ว",
@@ -1486,7 +1527,8 @@
           "hint": "the direction word used for a stretch of time: the three years run up to the present, toward the speaker",
           "display_order": 7,
           "transliteration": "phom yu thi-ni {{answer}} sam pi laeo",
-          "phonetics": "phǒm yù thî-nî {{answer}} sǎm pi láeo"
+          "phonetics": "phǒm yù thî-nî {{answer}} sǎm pi láeo",
+          "gloss": "1SG.M · stay · at-this · ___ · three · year · PFV"
         }
       ]
     },
@@ -1516,7 +1558,8 @@
           "hint": "plain 'give'",
           "display_order": 1,
           "transliteration": "khǎo {{answer}} khǎawng-khwǎn chǎn",
-          "phonetics": "khǎo {{answer}} khǒng-khwǎn chǎn"
+          "phonetics": "khǎo {{answer}} khǒng-khwǎn chǎn",
+          "gloss": "3SG · ___ · gift · 1SG.F"
         },
         {
           "sentence": "แม่ทำอาหาร{{answer}}ลูก",
@@ -1534,7 +1577,8 @@
           "hint": "benefactive",
           "display_order": 3,
           "transliteration": "pòet prà-tuu {{answer}} nàawy",
-          "phonetics": "pòet prà-tu {{answer}} nòi"
+          "phonetics": "pòet prà-tu {{answer}} nòi",
+          "gloss": "open · door · ___ · a.bit"
         },
         {
           "sentence": "หมอ{{answer}}ผมพักผ่อน",
@@ -1543,7 +1587,8 @@
           "hint": "causative — before the person",
           "display_order": 4,
           "transliteration": "mǎaw {{answer}} phǒm phák-phàawn",
-          "phonetics": "mǒ {{answer}} phǒm phák-phòn"
+          "phonetics": "mǒ {{answer}} phǒm phák-phòn",
+          "gloss": "doctor · ___ · 1SG.M · rest-relax"
         },
         {
           "sentence": "ครู{{answer}}นักเรียนอ่านทุกวัน",
@@ -1552,7 +1597,8 @@
           "hint": "causative",
           "display_order": 5,
           "transliteration": "khruu {{answer}} nák-rian àan thúk-wan",
-          "phonetics": "khru {{answer}} nák-rian àn thúk-wan"
+          "phonetics": "khru {{answer}} nák-rian àn thúk-wan",
+          "gloss": "teacher · ___ · AGT-study · read · every-day"
         },
         {
           "sentence": "ช่วยถือกระเป๋า{{answer}}หน่อย",
@@ -1561,7 +1607,8 @@
           "hint": "do-for",
           "display_order": 6,
           "transliteration": "chûai thǔue krà-pǎo {{answer}} nàawy",
-          "phonetics": "chûai thǔe krà-pǎo {{answer}} nòi"
+          "phonetics": "chûai thǔe krà-pǎo {{answer}} nòi",
+          "gloss": "help · carry · bag · ___ · a.bit"
         },
         {
           "sentence": "พ่อไม่{{answer}}ผมไปคนเดียว",
@@ -1570,7 +1617,8 @@
           "hint": "the causative slot before the person, here negated — withholding permission",
           "display_order": 7,
           "transliteration": "pho mai {{answer}} phom pai khon-diao",
-          "phonetics": "phô mâi {{answer}} phǒm pai khon-diao"
+          "phonetics": "phô mâi {{answer}} phǒm pai khon-diao",
+          "gloss": "father · NEG · ___ · 1SG.M · go · person-single"
         }
       ]
     },
@@ -1618,7 +1666,8 @@
           "hint": "than",
           "display_order": 3,
           "transliteration": "wan-níi ráawn {{answer}} mûua-waan",
-          "phonetics": "wan-ní rón {{answer}} mûea-wan"
+          "phonetics": "wan-ní rón {{answer}} mûea-wan",
+          "gloss": "day-this · hot · ___ · yesterday"
         },
         {
           "sentence": "ร้านนี้อร่อย{{answer}}",
@@ -1627,7 +1676,8 @@
           "hint": "the most",
           "display_order": 4,
           "transliteration": "ráan níi à-ràawy {{answer}}",
-          "phonetics": "rán ní à-ròi {{answer}}"
+          "phonetics": "rán ní à-ròi {{answer}}",
+          "gloss": "shop · this · delicious · ___"
         },
         {
           "sentence": "เขาเก่ง{{answer}}ในห้อง",
@@ -1636,7 +1686,8 @@
           "hint": "superlative",
           "display_order": 5,
           "transliteration": "khǎo kèng {{answer}} nai hâawng",
-          "phonetics": "khǎo kèng {{answer}} nai hông"
+          "phonetics": "khǎo kèng {{answer}} nai hông",
+          "gloss": "3SG · skilled · ___ · in · room"
         },
         {
           "sentence": "ราคาสองอันนี้เท่า{{answer}}",
@@ -1654,7 +1705,8 @@
           "hint": "Superlative ending — it attaches after มาก to turn 'like a lot' into 'like best'. Two syllables, and it closes the sentence.",
           "display_order": 7,
           "transliteration": "khun chop phon-la-mai a-rai mak {{answer}}",
-          "phonetics": "khun chôp phǒn-lá-mái à-rai mâk {{answer}}"
+          "phonetics": "khun chôp phǒn-lá-mái à-rai mâk {{answer}}",
+          "gloss": "2SG · like · fruit · what · much · ___"
         }
       ]
     },
@@ -1700,7 +1752,8 @@
           "hint": "never = not-ever",
           "display_order": 3,
           "transliteration": "chǎn mâi {{answer}} khìi cháang",
-          "phonetics": "chǎn mâi {{answer}} khì cháng"
+          "phonetics": "chǎn mâi {{answer}} khì cháng",
+          "gloss": "1SG.F · NEG · ___ · ride · elephant"
         },
         {
           "sentence": "เขา{{answer}}อยู่ที่ญี่ปุ่น",
@@ -1709,7 +1762,8 @@
           "hint": "used-to",
           "display_order": 4,
           "transliteration": "khǎo {{answer}} yùu thîi yîi-pùn",
-          "phonetics": "khǎo {{answer}} yù thî yî-pùn"
+          "phonetics": "khǎo {{answer}} yù thî yî-pùn",
+          "gloss": "3SG · ___ · live · at · Japan"
         },
         {
           "sentence": "เรา{{answer}}เจอกันที่ไหนไหม",
@@ -1727,7 +1781,8 @@
           "hint": "never",
           "display_order": 6,
           "transliteration": "phǒm mâi {{answer}} hěn hì-má",
-          "phonetics": "phǒm mâi {{answer}} hěn hì-má"
+          "phonetics": "phǒm mâi {{answer}} hěn hì-má",
+          "gloss": "1SG.M · NEG · ___ · see · snow"
         },
         {
           "sentence": "เขา{{answer}}มาสายเลย",
@@ -1736,7 +1791,8 @@
           "hint": "'Never' — put the negator in front of the experience marker and produce both words together, before the verb.",
           "display_order": 7,
           "transliteration": "khao {{answer}} ma-sai loei",
-          "phonetics": "khǎo {{answer}} ma-sǎi loei"
+          "phonetics": "khǎo {{answer}} ma-sǎi loei",
+          "gloss": "3SG · ___ · come-late · at.all"
         }
       ]
     },
@@ -1766,7 +1822,8 @@
           "hint": "the asking-for-things opener",
           "display_order": 1,
           "transliteration": "{{answer}} náam nòi khráp",
-          "phonetics": "{{answer}} nám nòi khráp"
+          "phonetics": "{{answer}} nám nòi khráp",
+          "gloss": "___ · water · a.bit · POL.M"
         },
         {
           "sentence": "{{answer}}เมนูหน่อยค่ะ",
@@ -1783,7 +1840,8 @@
           "hint": "the asking-for-actions opener",
           "display_order": 3,
           "transliteration": "{{answer}} pòet ae nòi",
-          "phonetics": "{{answer}} pòet ae nòi"
+          "phonetics": "{{answer}} pòet ae nòi",
+          "gloss": "___ · open · air.con · a.bit"
         },
         {
           "sentence": "{{answer}}ถ่ายรูปให้หน่อยครับ",
@@ -1800,7 +1858,8 @@
           "translation": "Sorry — could you speak slowly, please?",
           "hint": "the softener",
           "display_order": 5,
-          "transliteration": "khǒr-thôot phûut cháa-cháa {{answer}} dâi mǎi"
+          "transliteration": "khǒr-thôot phûut cháa-cháa {{answer}} dâi mǎi",
+          "gloss": "request.fault · speak.slow.RDP · ___"
         },
         {
           "sentence": "ขอบิล{{answer}}ครับ",
@@ -1847,7 +1906,8 @@
           "hint": "the then-linker",
           "display_order": 1,
           "transliteration": "thâa fǒn tòk rao {{answer}} mâi pai",
-          "phonetics": "thâ fǒn tòk rao {{answer}} mâi pai"
+          "phonetics": "thâ fǒn tòk rao {{answer}} mâi pai",
+          "gloss": "if.rain.fall · ___"
         },
         {
           "sentence": "ผม{{answer}}หิวเหมือนกัน",
@@ -1874,7 +1934,8 @@
           "hint": "whoever…then",
           "display_order": 4,
           "transliteration": "khrai maa chǎn {{answer}} dii-jai",
-          "phonetics": "khrai ma chǎn {{answer}} di-chai"
+          "phonetics": "khrai ma chǎn {{answer}} di-chai",
+          "gloss": "who.come · ___"
         },
         {
           "sentence": "ถ้าถูก ผม{{answer}}ซื้อ",
@@ -1883,7 +1944,8 @@
           "hint": "then",
           "display_order": 5,
           "transliteration": "thâa thùuk phǒm {{answer}} súe",
-          "phonetics": "thâ thùk phǒm {{answer}} súe"
+          "phonetics": "thâ thùk phǒm {{answer}} súe",
+          "gloss": "if.cheap · ___"
         },
         {
           "sentence": "เขาไป ฉัน{{answer}}ไป",
@@ -1892,7 +1954,8 @@
           "hint": "too/then",
           "display_order": 6,
           "transliteration": "khǎo pai chǎn {{answer}} pai",
-          "phonetics": "khǎo pai chǎn {{answer}} pai"
+          "phonetics": "khǎo pai chǎn {{answer}} pai",
+          "gloss": "3SG.go · ___"
         },
         {
           "sentence": "พอทำงานเสร็จ ผม{{answer}}กลับบ้านเลย",
@@ -1901,7 +1964,8 @@
           "hint": "The one-syllable linker that answers a พอ… ('as soon as') clause — 'and then'. It sits right before the verb.",
           "display_order": 7,
           "transliteration": "pho tham-ngan set phom {{answer}} klap-ban loei",
-          "phonetics": "pho tham-ngan sèt phǒm {{answer}} klàp-bân loei"
+          "phonetics": "pho tham-ngan sèt phǒm {{answer}} klàp-bân loei",
+          "gloss": "when.do.work.finish · ___"
         }
       ]
     },
@@ -2097,7 +2161,8 @@
           "hint": "if",
           "display_order": 1,
           "transliteration": "{{answer}} fǒn tòk rao kôr yùu bâan",
-          "phonetics": "{{answer}} fǒn tòk rao kô yù bân"
+          "phonetics": "{{answer}} fǒn tòk rao kô yù bân",
+          "gloss": "___ · 1PL.then.stay.home"
         },
         {
           "sentence": "{{answer}}มีเวลา ผมจะไปหาคุณ",
@@ -2106,7 +2171,8 @@
           "hint": "if",
           "display_order": 2,
           "transliteration": "{{answer}} mii wee-laa phǒm jà pai hǎa khun",
-          "phonetics": "{{answer}} mi we-la phǒm chà pai hǎ khun"
+          "phonetics": "{{answer}} mi we-la phǒm chà pai hǎ khun",
+          "gloss": "___ · 1SG.M.FUT.go.see.2SG"
         },
         {
           "sentence": "ถ้าอร่อย ฉัน{{answer}}สั่งอีก",
@@ -2115,7 +2181,8 @@
           "hint": "future in the result clause",
           "display_order": 3,
           "transliteration": "thâa a-ròi chǎn {{answer}} sàng ìik",
-          "phonetics": "thâ à-ròi chǎn {{answer}} sàng ìk"
+          "phonetics": "thâ à-ròi chǎn {{answer}} sàng ìk",
+          "gloss": "if.tasty · ___"
         },
         {
           "sentence": "ถ้าผมรวย ผม{{answer}}ซื้อเกาะ",
@@ -2124,7 +2191,8 @@
           "hint": "the probably-would marker",
           "display_order": 4,
           "transliteration": "thâa phǒm ruai phǒm {{answer}} súe kò",
-          "phonetics": "thâ phǒm ruai phǒm {{answer}} súe kò"
+          "phonetics": "thâ phǒm ruai phǒm {{answer}} súe kò",
+          "gloss": "if.1SG.M.rich · ___"
         },
         {
           "sentence": "ถ้าไม่รีบ เรา{{answer}}ตกรถไฟ",
@@ -2133,7 +2201,8 @@
           "hint": "future marker",
           "display_order": 5,
           "transliteration": "thâa mâi rîip rao {{answer}} tòk rót-fai",
-          "phonetics": "thâ mâi rîp rao {{answer}} tòk rót-fai"
+          "phonetics": "thâ mâi rîp rao {{answer}} tòk rót-fai",
+          "gloss": "if.NEG.hurry · ___"
         },
         {
           "sentence": "ถ้าเหนื่อย {{answer}}พักก่อน",
@@ -2142,7 +2211,8 @@
           "hint": "the then-linker",
           "display_order": 6,
           "transliteration": "thâa nùeai {{answer}} phák kòrn",
-          "phonetics": "thâ nùeai {{answer}} phák kòn"
+          "phonetics": "thâ nùeai {{answer}} phák kòn",
+          "gloss": "if.tired · ___"
         },
         {
           "sentence": "พรุ่งนี้เราไปทะเลกัน {{answer}}อากาศดี",
@@ -2151,7 +2221,8 @@
           "hint": "the if-word; here the condition trails the main clause instead of leading it",
           "display_order": 7,
           "transliteration": "phrung-ni rao pai tha-le kan {{answer}} a-kat di",
-          "phonetics": "phrûng-ní rao pai thá-le kan {{answer}} a-kàt di"
+          "phonetics": "phrûng-ní rao pai thá-le kan {{answer}} a-kàt di",
+          "gloss": "tomorrow.1PL.go.sea.together · ___"
         }
       ]
     },
@@ -2226,7 +2297,8 @@
           "hint": "colloquial",
           "display_order": 6,
           "transliteration": "rá-wang ná dǐao {{answer}} rót chon",
-          "phonetics": "rá-wang ná dǐao {{answer}} rót chon"
+          "phonetics": "rá-wang ná dǐao {{answer}} rót chon",
+          "gloss": "beware.POL · ___"
         },
         {
           "sentence": "คุณเคย{{answer}}ตำรวจปรับไหม",
@@ -2274,7 +2346,8 @@
           "hint": "the 'lead/take someone' verb",
           "display_order": 2,
           "transliteration": "mâe {{answer}} lûuk pai roong-rian",
-          "phonetics": "mâe {{answer}} lûk pai rong-rian"
+          "phonetics": "mâe {{answer}} lûk pai rong-rian",
+          "gloss": "mother · ___ · child · go · building-study"
         },
         {
           "sentence": "เขาวิ่ง{{answer}}ไปข้างนอก",
@@ -2283,7 +2356,8 @@
           "hint": "the exit-direction verb",
           "display_order": 3,
           "transliteration": "khǎo wîng {{answer}} pai khâang-nôrk",
-          "phonetics": "khǎo wîng {{answer}} pai khâng-nôk"
+          "phonetics": "khǎo wîng {{answer}} pai khâng-nôk",
+          "gloss": "3SG · run · ___ · go · side-outer"
         },
         {
           "sentence": "ฉันกลับมา{{answer}}ข้าวที่บ้าน",
@@ -2292,7 +2366,8 @@
           "hint": "the action at the chain's end",
           "display_order": 4,
           "transliteration": "chǎn klàp maa {{answer}} khâao thîi bâan",
-          "phonetics": "chǎn klàp ma {{answer}} khâo thî bân"
+          "phonetics": "chǎn klàp ma {{answer}} khâo thî bân",
+          "gloss": "1SG.F · return · come · ___ · rice · LOC · home"
         },
         {
           "sentence": "เดิน{{answer}}บันไดไปชั้นสอง",
@@ -2301,7 +2376,8 @@
           "hint": "the ascend-direction verb",
           "display_order": 5,
           "transliteration": "doen {{answer}} ban-dai pai chán sǒrng",
-          "phonetics": "doen {{answer}} ban-dai pai chán sǒng"
+          "phonetics": "doen {{answer}} ban-dai pai chán sǒng",
+          "gloss": "walk · ___ · stairs · go · floor · two"
         },
         {
           "sentence": "เขาขับรถ{{answer}}ส่งฉัน",
@@ -2310,7 +2386,8 @@
           "hint": "toward-speaker thread",
           "display_order": 6,
           "transliteration": "khǎo khàp rót {{answer}} sòng chǎn",
-          "phonetics": "khǎo khàp rót {{answer}} sòng chǎn"
+          "phonetics": "khǎo khàp rót {{answer}} sòng chǎn",
+          "gloss": "3SG · drive · car · ___ · send · 1SG.F"
         }
       ]
     },
@@ -2340,7 +2417,8 @@
           "hint": "the cause-a-state verb",
           "display_order": 1,
           "transliteration": "khàao níi {{answer}} phǒm dii-jai mâak",
-          "phonetics": "khào ní {{answer}} phǒm di-chai mâk"
+          "phonetics": "khào ní {{answer}} phǒm di-chai mâk",
+          "gloss": "news · DEM · ___ · 1SG.M · good-heart · very"
         },
         {
           "sentence": "ฝน{{answer}}รถติด",
@@ -2349,7 +2427,8 @@
           "hint": "cause",
           "display_order": 2,
           "transliteration": "fǒn {{answer}} rót-tìt",
-          "phonetics": "fǒn {{answer}} rót-tìt"
+          "phonetics": "fǒn {{answer}} rót-tìt",
+          "gloss": "rain · ___ · car-stuck"
         },
         {
           "sentence": "เพลงนี้{{answer}}ฉันคิดถึงบ้าน",
@@ -2358,7 +2437,8 @@
           "hint": "cause-feeling",
           "display_order": 3,
           "transliteration": "phleeng níi {{answer}} chǎn khít-thǔeng bâan",
-          "phonetics": "phleng ní {{answer}} chǎn khít-thǔeng bân"
+          "phonetics": "phleng ní {{answer}} chǎn khít-thǔeng bân",
+          "gloss": "song · DEM · ___ · 1SG.F · think-reach · home"
         },
         {
           "sentence": "เขา{{answer}}ทุกคนหัวเราะ",
@@ -2376,7 +2456,8 @@
           "hint": "cause",
           "display_order": 5,
           "transliteration": "aa-kàat rórn {{answer}} khon nùeai ngâai",
-          "phonetics": "a-kàt rón {{answer}} khon nùeai ngâi"
+          "phonetics": "a-kàt rón {{answer}} khon nùeai ngâi",
+          "gloss": "weather · hot · ___ · person · tired · easy"
         },
         {
           "sentence": "การออกกำลังกาย{{answer}}สุขภาพดี",
@@ -2394,7 +2475,8 @@
           "hint": "the cause-a-result verb, here with a question word as its subject",
           "display_order": 7,
           "transliteration": "a-rai {{answer}} khun plian chai",
-          "phonetics": "à-rai {{answer}} khun plìan chai"
+          "phonetics": "à-rai {{answer}} khun plìan chai",
+          "gloss": "what · ___ · 2SG · change · heart"
         }
       ]
     },
@@ -2424,7 +2506,8 @@
           "hint": "still",
           "display_order": 1,
           "transliteration": "khǎo {{answer}} tham-ngaan yùu",
-          "phonetics": "khǎo {{answer}} tham-ngan yù"
+          "phonetics": "khǎo {{answer}} tham-ngan yù",
+          "gloss": "3SG · ___ · do-work · PROG"
         },
         {
           "sentence": "ผม{{answer}}ไม่ได้กินข้าว",
@@ -2451,7 +2534,8 @@
           "hint": "still",
           "display_order": 4,
           "transliteration": "fǒn {{answer}} tòk yùu loei",
-          "phonetics": "fǒn {{answer}} tòk yù loei"
+          "phonetics": "fǒn {{answer}} tòk yù loei",
+          "gloss": "rain · ___ · fall · PROG · EMPH"
         },
         {
           "sentence": "งาน{{answer}}ไม่เสร็จ",
@@ -2460,7 +2544,8 @@
           "hint": "not yet",
           "display_order": 5,
           "transliteration": "ngaan {{answer}} mâi sèt",
-          "phonetics": "ngan {{answer}} mâi sèt"
+          "phonetics": "ngan {{answer}} mâi sèt",
+          "gloss": "work · ___ · NEG · finish"
         },
         {
           "sentence": "คุณ{{answer}}โกรธฉันอยู่ไหม",
@@ -2469,7 +2554,8 @@
           "hint": "still",
           "display_order": 6,
           "transliteration": "khun {{answer}} kròot chǎn yùu mǎi",
-          "phonetics": "khun {{answer}} kròt chǎn yù mǎi"
+          "phonetics": "khun {{answer}} kròt chǎn yù mǎi",
+          "gloss": "2SG · ___ · angry · 1SG.F · PROG · Q"
         },
         {
           "sentence": "ทำไมคุณ{{answer}}ไม่นอน ดึกแล้วนะ",
@@ -2506,7 +2592,8 @@
           "hint": "because",
           "display_order": 1,
           "transliteration": "phǒm mâi pai {{answer}} fǒn tòk",
-          "phonetics": "phǒm mâi pai {{answer}} fǒn tòk"
+          "phonetics": "phǒm mâi pai {{answer}} fǒn tòk",
+          "gloss": "1SG.M · NEG · go · ___ · rain · fall"
         },
         {
           "sentence": "เขาดีใจ{{answer}}สอบผ่าน",
@@ -2524,7 +2611,8 @@
           "hint": "the spoken 'so'",
           "display_order": 3,
           "transliteration": "fǒn tòk nàk {{answer}} rót-tìt mâak",
-          "phonetics": "fǒn tòk nàk {{answer}} rót-tìt mâk"
+          "phonetics": "fǒn tòk nàk {{answer}} rót-tìt mâk",
+          "gloss": "rain.fall.heavy · ___"
         },
         {
           "sentence": "ง่วงมาก {{answer}}นอนเร็ว",
@@ -2533,7 +2621,8 @@
           "hint": "so/therefore",
           "display_order": 4,
           "transliteration": "ngûang mâak {{answer}} norn reo",
-          "phonetics": "ngûang mâk {{answer}} non reo"
+          "phonetics": "ngûang mâk {{answer}} non reo",
+          "gloss": "sleepy.very · ___"
         },
         {
           "sentence": "อร่อยมาก{{answer}}",
@@ -2551,7 +2640,8 @@
           "hint": "because (+ว่า)",
           "display_order": 6,
           "transliteration": "{{answer}} wâa nùeai khǎo kôr-loei phák",
-          "phonetics": "{{answer}} wâ nùeai khǎo kô loei phák"
+          "phonetics": "{{answer}} wâ nùeai khǎo kô loei phák",
+          "gloss": "___ · 3SG.then.so.rest"
         }
       ]
     },
@@ -2607,7 +2697,8 @@
           "display_order": 3,
           "cell": "สิ",
           "transliteration": "maa {{answer}} mâi tâwng aai",
-          "phonetics": "ma {{answer}} mâi tông ai"
+          "phonetics": "ma {{answer}} mâi tông ai",
+          "gloss": "___ · NEG.must.shy"
         },
         {
           "sentence": "ลองชิม{{answer}} อร่อยมาก",
@@ -2617,7 +2708,8 @@
           "display_order": 4,
           "cell": "สิ",
           "transliteration": "lawng chim {{answer}} à-ràwi mâak",
-          "phonetics": "long chim {{answer}} à-ròi mâk"
+          "phonetics": "long chim {{answer}} à-ròi mâk",
+          "gloss": "___ · delicious.very"
         },
         {
           "sentence": "ผมสบายดี แล้วคุณ{{answer}}",
@@ -2627,7 +2719,8 @@
           "display_order": 5,
           "cell": "ล่ะ",
           "transliteration": "phǒm sà-baai dii láew khun {{answer}}",
-          "phonetics": "phǒm sà-bai-di láeo khun {{answer}}"
+          "phonetics": "phǒm sà-bai-di láeo khun {{answer}}",
+          "gloss": "1SG.M.well.good · ___"
         },
         {
           "sentence": "แล้วอันนี้{{answer}} เอาไหม",
@@ -2637,7 +2730,8 @@
           "display_order": 6,
           "cell": "ล่ะ",
           "transliteration": "láew an-níi {{answer}} ao mái",
-          "phonetics": "láeo an-ní {{answer}} ao mǎi"
+          "phonetics": "láeo an-ní {{answer}} ao mǎi",
+          "gloss": "___ · want.Q"
         }
       ]
     },
@@ -2742,7 +2836,8 @@
           "hint": "the topic word 'matter/story'",
           "display_order": 1,
           "transliteration": "{{answer}} níi phǒm mâi rúu jing-jing",
-          "phonetics": "{{answer}} ní phǒm mâi-rú ching-ching"
+          "phonetics": "{{answer}} ní phǒm mâi-rú ching-ching",
+          "gloss": "___ · 1SG.M.NEG.know.really"
         },
         {
           "sentence": "อาหารไทย ฉันชอบ{{answer}}",
@@ -2751,7 +2846,8 @@
           "hint": "the comment's intensifier",
           "display_order": 2,
           "transliteration": "aa-hǎan thai chǎn châwp {{answer}}",
-          "phonetics": "a-hǎn thai chǎn chôp {{answer}}"
+          "phonetics": "a-hǎn thai chǎn chôp {{answer}}",
+          "gloss": "food.Thai · ___"
         },
         {
           "sentence": "ภาษาไทย ไวยากรณ์ไม่{{answer}}",
@@ -2759,7 +2855,8 @@
           "translation": "Thai — the grammar isn't hard.",
           "hint": "the commented adjective",
           "display_order": 3,
-          "transliteration": "phaa-sǎa thai wai-yaa-kawn mâi {{answer}}"
+          "transliteration": "phaa-sǎa thai wai-yaa-kawn mâi {{answer}}",
+          "gloss": "language.Thai · ___"
         },
         {
           "sentence": "เมืองไทย อากาศ{{answer}}ตลอด",
@@ -2768,7 +2865,8 @@
           "hint": "comment adjective",
           "display_order": 4,
           "transliteration": "mueang thai aa-kàat {{answer}} tà-làwt",
-          "phonetics": "mueang thai a-kàt {{answer}} tà-lòt"
+          "phonetics": "mueang thai a-kàt {{answer}} tà-lòt",
+          "gloss": "country.thai · ___"
         },
         {
           "sentence": "งานนี้ เรา{{answer}}เสร็จวันนี้",
@@ -2777,7 +2875,8 @@
           "hint": "the must-helper in the comment",
           "display_order": 5,
           "transliteration": "ngaan níi rao {{answer}} sèt wan-níi",
-          "phonetics": "ngan ní rao {{answer}} sèt wan-ní"
+          "phonetics": "ngan ní rao {{answer}} sèt wan-ní",
+          "gloss": "work.this · ___"
         },
         {
           "sentence": "หนังเรื่องนั้น ฉันดู{{answer}}",
@@ -2786,7 +2885,8 @@
           "hint": "the already-marker",
           "display_order": 6,
           "transliteration": "nǎng rûeang nán chǎn duu {{answer}}",
-          "phonetics": "nǎng rûeang nán chǎn du {{answer}}"
+          "phonetics": "nǎng rûeang nán chǎn du {{answer}}",
+          "gloss": "movie.CLF.that · ___"
         }
       ]
     },
@@ -2945,7 +3045,8 @@
           "hint": "doubled 'fast'",
           "display_order": 5,
           "transliteration": "reo-{{answer}} khâo dǐao sǎai",
-          "phonetics": "reo {{answer}} khâo dǐao sǎi"
+          "phonetics": "reo {{answer}} khâo dǐao sǎi",
+          "gloss": "___ · soon.late"
         },
         {
           "sentence": "ผู้ใหญ่{{answer}}คุยกันอยู่",
@@ -2963,7 +3064,8 @@
           "hint": "the repeat mark; on a quantifier it spreads the count out into 'various different ones' rather than one plain number",
           "display_order": 7,
           "transliteration": "tham-mai mai long tham lai {{answer}} khon-du la",
-          "phonetics": "tham-mai mâi long thǎm lǎi {{answer}} khon-du lâ"
+          "phonetics": "tham-mai mâi long thǎm lǎi {{answer}} khon-du lâ",
+          "gloss": "___ · person.see.Q"
         }
       ]
     },
@@ -2999,7 +3101,8 @@
           "display_order": 1,
           "cell": "กิน",
           "transliteration": "kàp phûean: pai {{answer}} khâao kan",
-          "phonetics": "kàp phûean: pai {{answer}} khâo kan"
+          "phonetics": "kàp phûean: pai {{answer}} khâo kan",
+          "gloss": "with.friend · ___"
         },
         {
           "sentence": "เด็กๆ ชอบ{{answer}}ขนม",
@@ -3008,7 +3111,8 @@
           "hint": "plain",
           "display_order": 2,
           "cell": "กิน",
-          "transliteration": "dèk-dèk châwp {{answer}} khà-nǒm"
+          "transliteration": "dèk-dèk châwp {{answer}} khà-nǒm",
+          "gloss": "child-PL · ___"
         },
         {
           "sentence": "เชิญ{{answer}}ข้าวก่อนนะคะ",
@@ -3086,7 +3190,8 @@
           "hint": "the younger-person address",
           "display_order": 1,
           "transliteration": "rîak phá-nák-ngaan nùm nai ráan: {{answer}} khráp khít ngoen nàwi",
-          "phonetics": "rîak phá-nák-ngan nùm nai rán : {{answer}} khráp khít ngoen nòi"
+          "phonetics": "rîak phá-nák-ngan nùm nai rán : {{answer}} khráp khít ngoen nòi",
+          "gloss": "call.staff.young.M.in.shop · ___ · calculate.money.a.bit"
         },
         {
           "sentence": "เด็กเรียกตัวเอง: {{answer}}หิวข้าว",
@@ -3095,7 +3200,8 @@
           "hint": "the child/young-woman 'I'",
           "display_order": 2,
           "transliteration": "dèk rîak tua-eeng: {{answer}} hǐu khâao",
-          "phonetics": "dèk rîak tua-eng : {{answer}} hǐo khâo"
+          "phonetics": "dèk rîak tua-eng : {{answer}} hǐo khâo",
+          "gloss": "child.call.self · ___"
         },
         {
           "sentence": "พูดกับคนแก่กว่านิดหน่อย: {{answer}}จะไปไหน",
@@ -3104,7 +3210,8 @@
           "hint": "the older-sibling address",
           "display_order": 3,
           "transliteration": "phûut kàp khon kàe kwàa nít-nàwi: {{answer}} jà pai nǎi",
-          "phonetics": "phût kàp khon kàe kwà nít-nòi : {{answer}} chà pai nǎi"
+          "phonetics": "phût kàp khon kàe kwà nít-nòi : {{answer}} chà pai nǎi",
+          "gloss": "speak.with.person.old.COMP.a.bit · ___"
         },
         {
           "sentence": "{{answer}}ขอถามหน่อย (พูดกับชายสูงอายุ)",
@@ -3113,7 +3220,8 @@
           "hint": "the uncle address",
           "display_order": 4,
           "transliteration": "{{answer}} khǎw thǎam nàwi (phûut kàp chaai sǔung-aa-yú)",
-          "phonetics": "{{answer}} khǒ thǎm nòi (phût kàp chai sǔng a-yú)"
+          "phonetics": "{{answer}} khǒ thǎm nòi (phût kàp chai sǔng a-yú)",
+          "gloss": "___ · (speak.with.man.elderly)"
         },
         {
           "sentence": "หมอพูดกับคนไข้: {{answer}}แนะนำให้พัก",
@@ -3122,7 +3230,8 @@
           "hint": "profession as 'I'",
           "display_order": 5,
           "transliteration": "mǎw phûut kàp khon-khâi: {{answer}} náe-nam hâi phák",
-          "phonetics": "mǒ phût kàp khon-khâi : {{answer}} náe-nam hâi phák"
+          "phonetics": "mǒ phût kàp khon-khâi : {{answer}} náe-nam hâi phák",
+          "gloss": "doctor.speak.with.patient · ___"
         },
         {
           "sentence": "น้องสาวเรียกพี่สาว: {{answer}}คะ ช่วยหนูหน่อย",
@@ -3131,7 +3240,8 @@
           "hint": "older-sibling address",
           "display_order": 6,
           "transliteration": "náwng-sǎao rîak phîi-sǎao: {{answer}} khá chûai nǔu nàwi",
-          "phonetics": "nóng-sǎo rîak phî-sǎo : {{answer}} khá chûai nǔ nòi"
+          "phonetics": "nóng-sǎo rîak phî-sǎo : {{answer}} khá chûai nǔ nòi",
+          "gloss": "younger.sister.call.elder.sister · ___ · help.1SG.a.bit"
         },
         {
           "sentence": "แม่ค้าสูงอายุพูดกับลูกค้า: {{answer}}ลดให้สิบบาทนะ",
@@ -3140,7 +3250,8 @@
           "hint": "an older woman calling herself by a kin term when speaking to a younger customer — the female counterpart of ลุง",
           "display_order": 7,
           "transliteration": "mae kha sung a-yu phut kap luk-kha : {{answer}} lot hai sip bat na",
-          "phonetics": "mâe khá sǔng a-yú phût kàp lûk-khá : {{answer}} lót hâi sìp bàt ná"
+          "phonetics": "mâe khá sǔng a-yú phût kàp lûk-khá : {{answer}} lót hâi sìp bàt ná",
+          "gloss": "vendor.F.elderly.speak.with.customer · ___"
         }
       ]
     },
@@ -3251,7 +3362,8 @@
           "translation": "Palace news: His Majesty dines.",
           "hint": "royal 'eat'",
           "display_order": 1,
-          "transliteration": "khàao nai phrá-râat-chá-sǎm-nák: phrá-ong {{answer}} phrá-krà-yaa-hǎan"
+          "transliteration": "khàao nai phrá-râat-chá-sǎm-nák: phrá-ong {{answer}} phrá-krà-yaa-hǎan",
+          "gloss": "news.in.HON.royal.court · ___"
         },
         {
           "sentence": "พระมหากษัตริย์{{answer}}ไปต่างประเทศ",
@@ -3268,7 +3380,8 @@
           "translation": "The royal word for 'sleep'.",
           "hint": "royal 'sleep'",
           "display_order": 3,
-          "transliteration": "song phrá-{{answer}} — kham raa-chaa-sàp khǎwng 'nawn'"
+          "transliteration": "song phrá-{{answer}} — kham raa-chaa-sàp khǎwng 'nawn'",
+          "gloss": "___ · — · word.royal_term.GEN · 'sleep'"
         },
         {
           "sentence": "พระราช{{answer}}ปริญญาบัตร",
@@ -3292,7 +3405,8 @@
           "translation": "The word used when a king passes away.",
           "hint": "royal 'die' — 'ascend to heaven'",
           "display_order": 6,
-          "transliteration": "kham-wâa '{{answer}}' chái mûea kà-sàt sîn phrá-chon"
+          "transliteration": "kham-wâa '{{answer}}' chái mûea kà-sàt sîn phrá-chon",
+          "gloss": "word.COMP · ___ · use.when.king.end.ROY-life"
         },
         {
           "sentence": "ประชาชนนำดอกไม้ไป{{answer}}พระบาทสมเด็จพระเจ้าอยู่หัว",
@@ -3328,7 +3442,8 @@
           "translation": "The full name is long, so one writes 'Krung Thep ฯ'.",
           "hint": "the clipping mark",
           "display_order": 1,
-          "transliteration": "chûe tem yaao mâak jueng khǐan krung-thêep{{answer}}"
+          "transliteration": "chûe tem yaao mâak jueng khǐan krung-thêep{{answer}}",
+          "gloss": "name.full.long.very · so.write · ___"
         },
         {
           "sentence": "ผลไม้ เช่น มะม่วง กล้วย {{answer}}",
@@ -3336,7 +3451,8 @@
           "translation": "Fruits such as mango, banana, etc.",
           "hint": "the et-cetera mark",
           "display_order": 2,
-          "transliteration": "phǒn-lá-mái chên má-mûang klûai {{answer}}"
+          "transliteration": "phǒn-lá-mái chên má-mûang klûai {{answer}}",
+          "gloss": "fruit · such_as · mango · banana · ___"
         },
         {
           "sentence": "เลขไทยของ 3 คือ {{answer}}",
@@ -3345,7 +3461,8 @@
           "hint": "Thai digit",
           "display_order": 3,
           "transliteration": "lêek thai khǎwng 3 khue {{answer}}",
-          "phonetics": "lêk thai khǒng 3 khue {{answer}}"
+          "phonetics": "lêk thai khǒng 3 khue {{answer}}",
+          "gloss": "numeral.Thai.GEN · three · COP · ___"
         },
         {
           "sentence": "สระ {{answer}} เขียนหน้าพยัญชนะ เช่น เมา",
@@ -3353,7 +3470,8 @@
           "translation": "The vowel เ- is written BEFORE its consonant, as in เมา.",
           "hint": "the leading vowel sign",
           "display_order": 4,
-          "transliteration": "sà-rà {{answer}} khǐan nâa phá-yan-chá-ná chên mao"
+          "transliteration": "sà-rà {{answer}} khǐan nâa phá-yan-chá-ná chên mao",
+          "gloss": "vowel · ___ · write.before.consonant · such_as · drunk"
         },
         {
           "sentence": "ช่องว่างในภาษาไทยคั่น{{answer}} ไม่ใช่คำ",
@@ -3361,7 +3479,8 @@
           "translation": "Spaces in Thai separate sentences/clauses, not words.",
           "hint": "what the space separates",
           "display_order": 5,
-          "transliteration": "châwng-wâang nai phaa-sǎa thai khân {{answer}} mâi châi kham"
+          "transliteration": "châwng-wâang nai phaa-sǎa thai khân {{answer}} mâi châi kham",
+          "gloss": "___ · NEG.be.word"
         },
         {
           "sentence": "เด็ก{{answer}} — เครื่องหมายซ้ำคำ",
@@ -3370,7 +3489,8 @@
           "hint": "the repeat sign",
           "display_order": 6,
           "transliteration": "dèk-{{answer}} — khrûeang-mǎai sám kham",
-          "phonetics": "dèk {{answer}} — khrûeang-mǎi sám kham"
+          "phonetics": "dèk {{answer}} — khrûeang-mǎi sám kham",
+          "gloss": "___ · — · mark.repeat.word"
         }
       ]
     }

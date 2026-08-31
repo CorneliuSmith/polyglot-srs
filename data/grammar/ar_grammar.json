@@ -38,7 +38,8 @@
           "hint": "I",
           "display_order": 1,
           "transliteration": "___ ṭālib",
-          "cell": "أنا"
+          "cell": "أنا",
+          "gloss": "___ · student"
         },
         {
           "sentence": "{{answer}} معلمة.",
@@ -47,7 +48,8 @@
           "hint": "she",
           "display_order": 2,
           "transliteration": "___ muʿallima",
-          "cell": "هي"
+          "cell": "هي",
+          "gloss": "___ · teacher-F"
         },
         {
           "sentence": "{{answer}} من مصر.",
@@ -56,7 +58,8 @@
           "hint": "he",
           "display_order": 3,
           "transliteration": "___ min Miṣr",
-          "cell": "هو"
+          "cell": "هو",
+          "gloss": "___ · from · Egypt"
         },
         {
           "sentence": "{{answer}} طلاب.",
@@ -65,7 +68,8 @@
           "hint": "we",
           "display_order": 4,
           "transliteration": "___ ṭullāb",
-          "cell": "نحن"
+          "cell": "نحن",
+          "gloss": "___ · student.PL"
         },
         {
           "sentence": "هل {{answer}} جوعان؟",
@@ -74,7 +78,8 @@
           "hint": "you",
           "display_order": 5,
           "transliteration": "hal ___ jawʿān",
-          "cell": "أنتَ"
+          "cell": "أنتَ",
+          "gloss": "Q · ___ · hungry.M"
         },
         {
           "sentence": "{{answer}} أصدقاء.",
@@ -83,7 +88,8 @@
           "hint": "they",
           "display_order": 6,
           "transliteration": "___ aṣdiqāʾ",
-          "cell": "هم"
+          "cell": "هم",
+          "gloss": "___ · friend.PL"
         },
         {
           "sentence": "{{answer}} طبيبة.",
@@ -92,7 +98,8 @@
           "transliteration": "___ ṭabība.",
           "hint": "you — feminine",
           "cell": "أنتِ",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · doctor-F"
         },
         {
           "sentence": "{{answer}} أصدقائي.",
@@ -101,7 +108,8 @@
           "transliteration": "___ aṣdiqāʾī.",
           "hint": "you — plural",
           "cell": "أنتم",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "___ · friend.PL-1SG.POSS"
         },
         {
           "sentence": "{{answer}} من لبنان.",
@@ -110,7 +118,8 @@
           "hint": "I",
           "cell": "أنا",
           "display_order": 9,
-          "transliteration": "___ min Lubnān."
+          "transliteration": "___ min Lubnān.",
+          "gloss": "___ · from · Lebanon"
         },
         {
           "sentence": "{{answer}} طالب جديد.",
@@ -119,7 +128,8 @@
           "hint": "you — masculine",
           "cell": "أنتَ",
           "display_order": 10,
-          "transliteration": "___ ṭālib jadīd."
+          "transliteration": "___ ṭālib jadīd.",
+          "gloss": "___ · student · new.M"
         },
         {
           "sentence": "{{answer}} صديقتي.",
@@ -128,7 +138,8 @@
           "hint": "you — feminine",
           "cell": "أنتِ",
           "display_order": 11,
-          "transliteration": "___ ṣadīqatī."
+          "transliteration": "___ ṣadīqatī.",
+          "gloss": "___ · friend-F-1SG.POSS"
         },
         {
           "sentence": "{{answer}} مهندس.",
@@ -137,7 +148,8 @@
           "hint": "he",
           "cell": "هو",
           "display_order": 12,
-          "transliteration": "___ muhandis."
+          "transliteration": "___ muhandis.",
+          "gloss": "___ · engineer"
         },
         {
           "sentence": "{{answer}} في البيت.",
@@ -146,7 +158,8 @@
           "hint": "she",
           "cell": "هي",
           "display_order": 13,
-          "transliteration": "___ fī al-bayt."
+          "transliteration": "___ fī al-bayt.",
+          "gloss": "___ · in · DEF-house"
         },
         {
           "sentence": "{{answer}} من المدينة.",
@@ -155,7 +168,8 @@
           "hint": "we",
           "cell": "نحن",
           "display_order": 14,
-          "transliteration": "___ min al-madīna."
+          "transliteration": "___ min al-madīna.",
+          "gloss": "___ · from · DEF-city-F"
         },
         {
           "sentence": "هل {{answer}} طلاب؟",
@@ -164,7 +178,8 @@
           "hint": "you — plural",
           "cell": "أنتم",
           "display_order": 15,
-          "transliteration": "hal ___ ṭullāb?"
+          "transliteration": "hal ___ ṭullāb?",
+          "gloss": "Q · ___ · student.PL"
         },
         {
           "sentence": "{{answer}} في المدرسة.",
@@ -173,7 +188,8 @@
           "hint": "they",
           "cell": "هم",
           "display_order": 16,
-          "transliteration": "___ fī al-madrasa."
+          "transliteration": "___ fī al-madrasa.",
+          "gloss": "___ · in · DEF-school-F"
         }
       ],
       "paradigm": [
@@ -217,7 +233,8 @@
           "translation": "The student is hardworking.",
           "hint": "hardworking — no 'is' needed",
           "display_order": 1,
-          "transliteration": "aṭ-ṭālib ___"
+          "transliteration": "aṭ-ṭālib ___",
+          "gloss": "DEF-student · ___"
         },
         {
           "sentence": "البيت {{answer}}.",
@@ -225,7 +242,8 @@
           "translation": "The house is big.",
           "hint": "big",
           "display_order": 2,
-          "transliteration": "al-bayt ___"
+          "transliteration": "al-bayt ___",
+          "gloss": "DEF-house · ___"
         },
         {
           "sentence": "القهوة {{answer}}.",
@@ -233,7 +251,8 @@
           "translation": "The coffee is hot.",
           "hint": "hot — feminine form",
           "display_order": 3,
-          "transliteration": "al-qahwa ___"
+          "transliteration": "al-qahwa ___",
+          "gloss": "DEF-coffee-F · ___"
         },
         {
           "sentence": "أنا {{answer}}.",
@@ -241,7 +260,8 @@
           "translation": "I am happy.",
           "hint": "happy",
           "display_order": 4,
-          "transliteration": "ana ___"
+          "transliteration": "ana ___",
+          "gloss": "1SG · ___"
         },
         {
           "sentence": "الكتاب {{answer}}.",
@@ -249,7 +269,8 @@
           "translation": "The book is new.",
           "hint": "new",
           "display_order": 5,
-          "transliteration": "al-kitāb ___"
+          "transliteration": "al-kitāb ___",
+          "gloss": "DEF-book.M · ___"
         },
         {
           "sentence": "الطقس {{answer}} اليوم.",
@@ -257,7 +278,8 @@
           "translation": "The weather is beautiful today.",
           "hint": "beautiful",
           "display_order": 6,
-          "transliteration": "aṭ-ṭaqs ___ al-yawm"
+          "transliteration": "aṭ-ṭaqs ___ al-yawm",
+          "gloss": "DEF-weather.M · ___ · DEF-day.M"
         }
       ]
     },
@@ -292,7 +314,8 @@
           "hint": "house + the article (moon letter: al-bayt)",
           "display_order": 1,
           "transliteration": "___ kabīr",
-          "cell": "moon"
+          "cell": "moon",
+          "gloss": "___ · big.M"
         },
         {
           "sentence": "{{answer}} ساخنة.",
@@ -301,7 +324,8 @@
           "hint": "coffee + the article (moon letter)",
           "display_order": 2,
           "transliteration": "___ sākhina",
-          "cell": "moon"
+          "cell": "moon",
+          "gloss": "___ · hot.F"
         },
         {
           "sentence": "{{answer}} جديد.",
@@ -310,7 +334,8 @@
           "hint": "book + the article (moon letter)",
           "display_order": 3,
           "transliteration": "___ jadīd",
-          "cell": "moon"
+          "cell": "moon",
+          "gloss": "___ · new.M"
         },
         {
           "sentence": "{{answer}} جميلة.",
@@ -319,7 +344,8 @@
           "hint": "city + the article (moon letter)",
           "display_order": 4,
           "transliteration": "___ jamīla",
-          "cell": "moon"
+          "cell": "moon",
+          "gloss": "___ · beautiful.F"
         },
         {
           "sentence": "{{answer}} طويل.",
@@ -328,7 +354,8 @@
           "hint": "street + the article (sun letter: ash-shāriʿ)",
           "display_order": 5,
           "transliteration": "___ ṭawīl",
-          "cell": "sun"
+          "cell": "sun",
+          "gloss": "___ · long.M"
         },
         {
           "sentence": "{{answer}} مفتوح.",
@@ -337,7 +364,8 @@
           "hint": "door + the article (moon letter)",
           "display_order": 6,
           "transliteration": "___ maftūḥ",
-          "cell": "moon"
+          "cell": "moon",
+          "gloss": "___ · open.PASS.PTCP.M"
         },
         {
           "sentence": "{{answer}} حارة اليوم.",
@@ -346,7 +374,8 @@
           "transliteration": "___ ḥārra al-yawm.",
           "hint": "sun + ال (the L assimilates — sun letter)",
           "cell": "sun",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · hot.F · DEF-day.M"
         }
       ],
       "paradigm": [
@@ -385,7 +414,8 @@
           "hint": "teacher — feminine ة",
           "display_order": 1,
           "transliteration": "hiya ___",
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "3SG.F · ___"
         },
         {
           "sentence": "هو {{answer}}.",
@@ -394,7 +424,8 @@
           "hint": "teacher — masculine",
           "display_order": 2,
           "transliteration": "huwa ___",
-          "cell": "masculine"
+          "cell": "masculine",
+          "gloss": "3SG.M · ___"
         },
         {
           "sentence": "مريم {{answer}}.",
@@ -403,7 +434,8 @@
           "hint": "student — feminine ة",
           "display_order": 3,
           "transliteration": "Maryam ___",
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "Maryam.F · ___"
         },
         {
           "sentence": "أحمد {{answer}}.",
@@ -412,7 +444,8 @@
           "hint": "student — masculine",
           "display_order": 4,
           "transliteration": "Aḥmad ___",
-          "cell": "masculine"
+          "cell": "masculine",
+          "gloss": "Ahmad.M · ___"
         },
         {
           "sentence": "أمي {{answer}}.",
@@ -421,7 +454,8 @@
           "hint": "doctor — feminine ة",
           "display_order": 5,
           "transliteration": "ummī ___",
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "mother.F-1SG.POSS · ___"
         },
         {
           "sentence": "أختي {{answer}}.",
@@ -430,7 +464,8 @@
           "hint": "engineer — feminine ة",
           "display_order": 6,
           "transliteration": "ukhtī ___",
-          "cell": "feminine"
+          "cell": "feminine",
+          "gloss": "sister.F-1SG.POSS · ___"
         }
       ],
       "paradigm": [
@@ -469,7 +504,8 @@
           "hint": "this — masculine",
           "display_order": 1,
           "transliteration": "___ kitāb",
-          "cell": "هذا"
+          "cell": "هذا",
+          "gloss": "___ · book.M"
         },
         {
           "sentence": "{{answer}} سيارة.",
@@ -478,7 +514,8 @@
           "hint": "this — feminine",
           "display_order": 2,
           "transliteration": "___ sayyāra",
-          "cell": "هذه"
+          "cell": "هذه",
+          "gloss": "___ · car.F"
         },
         {
           "sentence": "{{answer}} بيت كبير.",
@@ -487,7 +524,8 @@
           "hint": "this — masculine",
           "display_order": 3,
           "transliteration": "___ bayt kabīr",
-          "cell": "هذا"
+          "cell": "هذا",
+          "gloss": "___ · house.M · big.M"
         },
         {
           "sentence": "{{answer}} مدينة جميلة.",
@@ -496,7 +534,8 @@
           "hint": "this — feminine",
           "display_order": 4,
           "transliteration": "___ madīna jamīla",
-          "cell": "هذه"
+          "cell": "هذه",
+          "gloss": "___ · city.F · beautiful.F"
         },
         {
           "sentence": "{{answer}} شاي.",
@@ -505,7 +544,8 @@
           "hint": "this — masculine",
           "display_order": 5,
           "transliteration": "___ shāy",
-          "cell": "هذا"
+          "cell": "هذا",
+          "gloss": "___ · tea.M"
         },
         {
           "sentence": "{{answer}} شجرة.",
@@ -514,7 +554,8 @@
           "hint": "this — feminine",
           "display_order": 6,
           "transliteration": "___ shajara",
-          "cell": "هذه"
+          "cell": "هذه",
+          "gloss": "___ · tree.F"
         },
         {
           "sentence": "{{answer}} الرجل هناك أخي.",
@@ -522,7 +563,8 @@
           "translation": "That man over there is my brother.",
           "hint": "that — masculine, far away",
           "transliteration": "___ ar-rajul hunāka akhī.",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · DEF-man · there · brother-1SG.POSS"
         },
         {
           "sentence": "{{answer}} السيارة سيارة جديدة.",
@@ -530,7 +572,8 @@
           "translation": "That car is a new car.",
           "hint": "that — feminine, far away",
           "transliteration": "___ as-sayyāra sayyāra jadīda.",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "___ · DEF-car.F · car.F · new.F"
         }
       ],
       "paradigm": [
@@ -568,7 +611,8 @@
           "translation": "The big house is nearby.",
           "hint": "big — definite, matching the noun",
           "display_order": 1,
-          "transliteration": "al-bayt ___ qarīb"
+          "transliteration": "al-bayt ___ qarīb",
+          "gloss": "DEF-house · ___ · near.M"
         },
         {
           "sentence": "عندي سيارة {{answer}}.",
@@ -576,7 +620,8 @@
           "translation": "I have a new car.",
           "hint": "new — feminine indefinite",
           "display_order": 2,
-          "transliteration": "ʿindī sayyāra ___"
+          "transliteration": "ʿindī sayyāra ___",
+          "gloss": "at-1SG.POSS · car.F · ___"
         },
         {
           "sentence": "المدينة {{answer}} بعيدة.",
@@ -584,7 +629,8 @@
           "translation": "The beautiful city is far away.",
           "hint": "beautiful — definite feminine",
           "display_order": 3,
-          "transliteration": "al-madīna ___ baʿīda"
+          "transliteration": "al-madīna ___ baʿīda",
+          "gloss": "DEF-city.F · ___ · far.F"
         },
         {
           "sentence": "أقرأ كتاباً {{answer}}.",
@@ -592,7 +638,8 @@
           "translation": "I am reading a new book.",
           "hint": "new — masculine indefinite (object form)",
           "display_order": 4,
-          "transliteration": "aqraʾu kitāban ___"
+          "transliteration": "aqraʾu kitāban ___",
+          "gloss": "read.PRS.1SG · book.ACC.INDF · ___"
         },
         {
           "sentence": "القهوة {{answer}} لذيذة.",
@@ -600,7 +647,8 @@
           "translation": "The hot coffee is delicious.",
           "hint": "hot — definite feminine",
           "display_order": 5,
-          "transliteration": "al-qahwa ___ ladhīdha"
+          "transliteration": "al-qahwa ___ ladhīdha",
+          "gloss": "DEF-coffee.F · ___ · delicious.F"
         },
         {
           "sentence": "هو رجل {{answer}}.",
@@ -608,7 +656,8 @@
           "translation": "He is a tall man.",
           "hint": "tall — masculine indefinite",
           "display_order": 6,
-          "transliteration": "huwa rajul ___"
+          "transliteration": "huwa rajul ___",
+          "gloss": "3SG.M · man · ___"
         }
       ]
     },
@@ -642,7 +691,8 @@
           "translation": "This is a book.",
           "hint": "the thing you read — root k-t-b",
           "display_order": 1,
-          "transliteration": "hādhā ___"
+          "transliteration": "hādhā ___",
+          "gloss": "this.M · ___"
         },
         {
           "sentence": "هو {{answer}}.",
@@ -650,7 +700,8 @@
           "translation": "He is a writer.",
           "hint": "the doer pattern of k-t-b",
           "display_order": 2,
-          "transliteration": "huwa ___"
+          "transliteration": "huwa ___",
+          "gloss": "3SG.M · ___"
         },
         {
           "sentence": "{{answer}} قريب من البيت.",
@@ -658,7 +709,8 @@
           "translation": "The office is near the house.",
           "hint": "the place pattern of k-t-b + the article",
           "display_order": 3,
-          "transliteration": "___ qarīb man al-bayt"
+          "transliteration": "___ qarīb man al-bayt",
+          "gloss": "___ · near.M · from · DEF-house"
         },
         {
           "sentence": "{{answer}} مفتوحة اليوم.",
@@ -666,7 +718,8 @@
           "translation": "The library is open today.",
           "hint": "the book-place — feminine ة + the article",
           "display_order": 4,
-          "transliteration": "___ maftūḥa al-yawm"
+          "transliteration": "___ maftūḥa al-yawm",
+          "gloss": "___ · open.PASS.PTCP.F · DEF-day"
         },
         {
           "sentence": "هي {{answer}}.",
@@ -674,7 +727,8 @@
           "translation": "She is a writer.",
           "hint": "the doer pattern, feminine ة",
           "display_order": 5,
-          "transliteration": "hiya ___"
+          "transliteration": "hiya ___",
+          "gloss": "3SG.F · ___"
         },
         {
           "sentence": "هذا {{answer}} جميل.",
@@ -682,7 +736,8 @@
           "translation": "This is a beautiful office.",
           "hint": "the place pattern of k-t-b",
           "display_order": 6,
-          "transliteration": "hādhā ___ jamīl"
+          "transliteration": "hādhā ___ jamīl",
+          "gloss": "this.M · ___ · beautiful.M"
         }
       ]
     },
@@ -716,7 +771,8 @@
           "translation": "This is the student's book.",
           "hint": "student + the article — the owner comes second",
           "display_order": 1,
-          "transliteration": "hādhā kitāb ___"
+          "transliteration": "hādhā kitāb ___",
+          "gloss": "this.M · book.CONSTR · ___"
         },
         {
           "sentence": "باب {{answer}} مفتوح.",
@@ -724,7 +780,8 @@
           "translation": "The door of the house is open.",
           "hint": "house + the article",
           "display_order": 2,
-          "transliteration": "bāb ___ maftūḥ"
+          "transliteration": "bāb ___ maftūḥ",
+          "gloss": "door.CONSTR · ___ · open.PASS.PTCP.M"
         },
         {
           "sentence": "سيارة {{answer}} جديدة.",
@@ -732,7 +789,8 @@
           "translation": "The teacher's car is new.",
           "hint": "teacher + the article",
           "display_order": 3,
-          "transliteration": "sayyāra ___ jadīda"
+          "transliteration": "sayyāra ___ jadīda",
+          "gloss": "car.F.CONSTR · ___ · new.F"
         },
         {
           "sentence": "اسم {{answer}} أحمد.",
@@ -740,7 +798,8 @@
           "translation": "The boy's name is Ahmed.",
           "hint": "boy + the article",
           "display_order": 4,
-          "transliteration": "ism ___ Aḥmad"
+          "transliteration": "ism ___ Aḥmad",
+          "gloss": "name.CONSTR · ___ · Ahmed"
         },
         {
           "sentence": "مفتاح {{answer}} هنا.",
@@ -748,7 +807,8 @@
           "translation": "The car key is here.",
           "hint": "car + the article",
           "display_order": 5,
-          "transliteration": "miftāḥ ___ hunā"
+          "transliteration": "miftāḥ ___ hunā",
+          "gloss": "key.CONSTR · ___ · here"
         },
         {
           "sentence": "بيت {{answer}} كبير.",
@@ -756,7 +816,8 @@
           "translation": "The family's house is big.",
           "hint": "family + the article",
           "display_order": 6,
-          "transliteration": "bayt ___ kabīr"
+          "transliteration": "bayt ___ kabīr",
+          "gloss": "house.NOM.SG · ___ · big.M.NOM.SG"
         }
       ]
     },
@@ -791,7 +852,8 @@
           "hint": "book + my",
           "display_order": 1,
           "transliteration": "hādhā ___",
-          "cell": "ي"
+          "cell": "ي",
+          "gloss": "this.M.SG · ___"
         },
         {
           "sentence": "أين {{answer}}؟",
@@ -800,7 +862,8 @@
           "hint": "car + your (ة becomes ت)",
           "display_order": 2,
           "transliteration": "ayna ___",
-          "cell": "كَ"
+          "cell": "كَ",
+          "gloss": "where · ___"
         },
         {
           "sentence": "{{answer}} كبير جداً.",
@@ -809,7 +872,8 @@
           "hint": "house + his",
           "display_order": 3,
           "transliteration": "___ kabīr jiddan",
-          "cell": "ه"
+          "cell": "ه",
+          "gloss": "___ · big.M.NOM.SG · very.ACC"
         },
         {
           "sentence": "هذه {{answer}}.",
@@ -818,7 +882,8 @@
           "hint": "school + my (ة becomes ت)",
           "display_order": 4,
           "transliteration": "hādhihi ___",
-          "cell": "ي"
+          "cell": "ي",
+          "gloss": "this.F.SG · ___"
         },
         {
           "sentence": "{{answer}} في مصر.",
@@ -827,7 +892,8 @@
           "hint": "family + my (ة becomes ت)",
           "display_order": 5,
           "transliteration": "___ fī Miṣr",
-          "cell": "ي"
+          "cell": "ي",
+          "gloss": "___ · in · Egypt.GEN"
         },
         {
           "sentence": "اسم {{answer}} فاطمة.",
@@ -836,7 +902,8 @@
           "hint": "mother + my",
           "display_order": 6,
           "transliteration": "ism ___ Fāṭima",
-          "cell": "ي"
+          "cell": "ي",
+          "gloss": "name.NOM.SG · ___ · Fatima.NOM"
         },
         {
           "sentence": "{{answer}} جديدة.",
@@ -845,7 +912,8 @@
           "transliteration": "___ jadīda.",
           "hint": "car + her",
           "cell": "ها",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · new.F.NOM.SG"
         },
         {
           "sentence": "{{answer}} كبير.",
@@ -854,7 +922,8 @@
           "transliteration": "___ kabīr.",
           "hint": "house + our",
           "cell": "نا",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "___ · big.M.NOM.SG"
         },
         {
           "sentence": "هل هذا {{answer}}؟",
@@ -863,7 +932,8 @@
           "hint": "pen + your (m.)",
           "cell": "كَ",
           "display_order": 9,
-          "transliteration": "hal hādhā ___?"
+          "transliteration": "hal hādhā ___?",
+          "gloss": "Q · this.M.SG · ___"
         },
         {
           "sentence": "{{answer}} جميلة.",
@@ -872,7 +942,8 @@
           "hint": "car + his",
           "cell": "ه",
           "display_order": 10,
-          "transliteration": "___ jamīla."
+          "transliteration": "___ jamīla.",
+          "gloss": "___ · beautiful.F.NOM.SG"
         },
         {
           "sentence": "{{answer}} قريب من هنا.",
@@ -881,7 +952,8 @@
           "hint": "house + her",
           "cell": "ها",
           "display_order": 11,
-          "transliteration": "___ qarīb min hunā."
+          "transliteration": "___ qarīb min hunā.",
+          "gloss": "___ · near.M.NOM.SG · from · here"
         },
         {
           "sentence": "{{answer}} أمام البيت.",
@@ -890,7 +962,8 @@
           "hint": "car + our",
           "cell": "نا",
           "display_order": 12,
-          "transliteration": "___ amāma al-bayt."
+          "transliteration": "___ amāma al-bayt.",
+          "gloss": "___ · in.front.of · DEF-house.GEN.SG"
         }
       ],
       "paradigm": [
@@ -932,7 +1005,8 @@
           "hint": "to study — the 'I' prefix",
           "display_order": 1,
           "transliteration": "ana ___ al-ʿarabiyya",
-          "cell": "أنا"
+          "cell": "أنا",
+          "gloss": "1SG · ___ · DEF-Arabic.ACC.SG"
         },
         {
           "sentence": "هو {{answer}} في بنك.",
@@ -941,7 +1015,8 @@
           "hint": "to work — the 'he' prefix",
           "display_order": 2,
           "transliteration": "huwa ___ fī bank",
-          "cell": "هو"
+          "cell": "هو",
+          "gloss": "3SG.M · ___ · in · bank.GEN.SG"
         },
         {
           "sentence": "هي {{answer}} القهوة.",
@@ -950,7 +1025,8 @@
           "hint": "to drink — the 'she' prefix",
           "display_order": 3,
           "transliteration": "hiya ___ al-qahwa",
-          "cell": "هي"
+          "cell": "هي",
+          "gloss": "3SG.F · ___ · DEF-coffee.ACC.SG"
         },
         {
           "sentence": "نحن {{answer}} الكتب.",
@@ -959,7 +1035,8 @@
           "hint": "to read — the 'we' prefix",
           "display_order": 4,
           "transliteration": "naḥnu ___ al-kutub",
-          "cell": "نحن"
+          "cell": "نحن",
+          "gloss": "1PL · ___ · DEF-book.ACC.PL"
         },
         {
           "sentence": "{{answer}} إلى المدرسة كل يوم.",
@@ -968,7 +1045,8 @@
           "hint": "to go — the 'I' prefix",
           "display_order": 5,
           "transliteration": "___ ilā al-madrasa kull yawm",
-          "cell": "أنا"
+          "cell": "أنا",
+          "gloss": "___ · to · DEF-school.GEN.SG · every.ACC · day.GEN.SG"
         },
         {
           "sentence": "هم {{answer}} العربية.",
@@ -977,7 +1055,8 @@
           "hint": "to speak — the 'they' form",
           "display_order": 6,
           "transliteration": "hum ___ al-ʿarabiyya",
-          "cell": "هم"
+          "cell": "هم",
+          "gloss": "3PL.M · ___ · DEF-Arabic.ACC.SG"
         },
         {
           "sentence": "أنتَ {{answer}} الشاي؟",
@@ -986,7 +1065,8 @@
           "transliteration": "anta ___ ash-shāy?",
           "hint": "to drink, you (m.) — same form as 'she'",
           "cell": "أنتَ",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "2SG.M · ___ · DEF-tea.ACC.SG"
         },
         {
           "sentence": "أنتَ {{answer}} بسرعة.",
@@ -995,7 +1075,8 @@
           "hint": "to speak + present, you (m.)",
           "cell": "أنتَ",
           "display_order": 8,
-          "transliteration": "anta ___ bi-surʿa."
+          "transliteration": "anta ___ bi-surʿa.",
+          "gloss": "2SG.M · ___ · with-speed"
         },
         {
           "sentence": "هو {{answer}} القهوة في الصباح.",
@@ -1004,7 +1085,8 @@
           "hint": "to drink + present (he)",
           "cell": "هو",
           "display_order": 9,
-          "transliteration": "huwa ___ al-qahwa fī aṣ-ṣabāḥ."
+          "transliteration": "huwa ___ al-qahwa fī aṣ-ṣabāḥ.",
+          "gloss": "3SG.M · ___ · DEF-coffee · in · DEF-morning"
         },
         {
           "sentence": "هي {{answer}} في مستشفى.",
@@ -1013,7 +1095,8 @@
           "hint": "to work + present (she)",
           "cell": "هي",
           "display_order": 10,
-          "transliteration": "hiya ___ fī mustashfā."
+          "transliteration": "hiya ___ fī mustashfā.",
+          "gloss": "3SG.F · ___ · in · hospital"
         },
         {
           "sentence": "نحن {{answer}} العربية.",
@@ -1022,7 +1105,8 @@
           "hint": "to learn + present (we)",
           "cell": "نحن",
           "display_order": 11,
-          "transliteration": "naḥnu ___ al-ʿarabiyya."
+          "transliteration": "naḥnu ___ al-ʿarabiyya.",
+          "gloss": "1PL · ___ · DEF-Arabic.F"
         },
         {
           "sentence": "هم {{answer}} في السوق.",
@@ -1031,7 +1115,8 @@
           "hint": "to work + present (they)",
           "cell": "هم",
           "display_order": 12,
-          "transliteration": "hum ___ fī as-sūq."
+          "transliteration": "hum ___ fī as-sūq.",
+          "gloss": "3PL.M · ___ · in · DEF-market"
         }
       ],
       "paradigm": [
@@ -1074,7 +1159,8 @@
           "hint": "the nominal negator, 'I' form",
           "display_order": 1,
           "transliteration": "ana ___ jawʿān",
-          "cell": "لست"
+          "cell": "لست",
+          "gloss": "1SG · ___ · hungry.M"
         },
         {
           "sentence": "{{answer}} أشرب القهوة.",
@@ -1083,7 +1169,8 @@
           "hint": "the verb negator",
           "display_order": 2,
           "transliteration": "___ ashrabu al-qahwa",
-          "cell": "لا"
+          "cell": "لا",
+          "gloss": "___ · drink.PRS.1SG · DEF-coffee"
         },
         {
           "sentence": "هو {{answer}} هنا.",
@@ -1092,7 +1179,8 @@
           "hint": "the nominal negator, 'he' form",
           "display_order": 3,
           "transliteration": "huwa ___ hunā",
-          "cell": "ليس"
+          "cell": "ليس",
+          "gloss": "3SG.M · ___ · here"
         },
         {
           "sentence": "هي {{answer}} أختي.",
@@ -1101,7 +1189,8 @@
           "hint": "the nominal negator, 'she' form",
           "display_order": 4,
           "transliteration": "hiya ___ ukhtī",
-          "cell": "ليست"
+          "cell": "ليست",
+          "gloss": "3SG.F · ___ · sister-1SG.POSS"
         },
         {
           "sentence": "نحن {{answer}} نعمل اليوم.",
@@ -1110,7 +1199,8 @@
           "hint": "the verb negator",
           "display_order": 5,
           "transliteration": "naḥnu ___ naʿmalu al-yawm",
-          "cell": "لا"
+          "cell": "لا",
+          "gloss": "1PL · ___ · work.PRS.1PL · DEF-day"
         },
         {
           "sentence": "{{answer}} أفهم.",
@@ -1119,7 +1209,8 @@
           "hint": "the verb negator",
           "display_order": 6,
           "transliteration": "___ afhamu",
-          "cell": "لا"
+          "cell": "لا",
+          "gloss": "___ · understand.PRS.1SG"
         },
         {
           "sentence": "البيت {{answer}} كبيراً.",
@@ -1128,7 +1219,8 @@
           "hint": "negates a nominal sentence — masculine",
           "cell": "ليس",
           "display_order": 7,
-          "transliteration": "al-bayt ___ kabīran."
+          "transliteration": "al-bayt ___ kabīran.",
+          "gloss": "DEF-house · ___ · big.M.ACC"
         },
         {
           "sentence": "القهوة {{answer}} ساخنة.",
@@ -1137,7 +1229,8 @@
           "hint": "negates a nominal sentence — feminine",
           "cell": "ليست",
           "display_order": 8,
-          "transliteration": "al-qahwa ___ sākhina."
+          "transliteration": "al-qahwa ___ sākhina.",
+          "gloss": "DEF-coffee · ___ · hot.F"
         },
         {
           "sentence": "{{answer}} متعباً اليوم.",
@@ -1146,7 +1239,8 @@
           "hint": "negates 'I am'",
           "cell": "لست",
           "display_order": 9,
-          "transliteration": "___ mutʿaban al-yawm."
+          "transliteration": "___ mutʿaban al-yawm.",
+          "gloss": "___ · tired.M.ACC · DEF-day"
         }
       ],
       "paradigm": [
@@ -1186,7 +1280,8 @@
           "translation": "What is your name?",
           "hint": "what",
           "display_order": 1,
-          "transliteration": "___ ismuka"
+          "transliteration": "___ ismuka",
+          "gloss": "___ · name-2SG.M.POSS"
         },
         {
           "sentence": "{{answer}} أنت الآن؟",
@@ -1194,7 +1289,8 @@
           "translation": "Where are you now?",
           "hint": "where",
           "display_order": 2,
-          "transliteration": "___ anta al-ān"
+          "transliteration": "___ anta al-ān",
+          "gloss": "___ · 2SG.M · DEF-now"
         },
         {
           "sentence": "{{answer}} هذا؟",
@@ -1202,7 +1298,8 @@
           "translation": "Who is this?",
           "hint": "who",
           "display_order": 3,
-          "transliteration": "___ hādhā"
+          "transliteration": "___ hādhā",
+          "gloss": "___ · this.M"
         },
         {
           "sentence": "{{answer}} تدرس العربية؟",
@@ -1210,7 +1307,8 @@
           "translation": "Do you study Arabic?",
           "hint": "the yes/no question word",
           "display_order": 4,
-          "transliteration": "___ tadrusu al-ʿarabiyya"
+          "transliteration": "___ tadrusu al-ʿarabiyya",
+          "gloss": "___ · study.PRS.2SG.M · DEF-Arabic.F"
         },
         {
           "sentence": "{{answer}} يبدأ الدرس؟",
@@ -1218,7 +1316,8 @@
           "translation": "When does the lesson start?",
           "hint": "when",
           "display_order": 5,
-          "transliteration": "___ yabdaʾu ad-dars"
+          "transliteration": "___ yabdaʾu ad-dars",
+          "gloss": "___ · begin.PRS.3SG.M · DEF-lesson"
         },
         {
           "sentence": "{{answer}} حالك؟",
@@ -1226,7 +1325,8 @@
           "translation": "How are you?",
           "hint": "how",
           "display_order": 6,
-          "transliteration": "___ ḥāluka"
+          "transliteration": "___ ḥāluka",
+          "gloss": "___ · state-2SG.M.POSS"
         },
         {
           "sentence": "{{answer}} تدرس العربية؟",
@@ -1234,7 +1334,8 @@
           "translation": "Why do you study Arabic?",
           "hint": "why — a reason",
           "transliteration": "___ tadrusu l-ʿarabiyya?",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · study.PRS.2SG · DEF-Arabic"
         },
         {
           "sentence": "{{answer}} تفعل الآن؟",
@@ -1242,7 +1343,8 @@
           "translation": "What are you doing now?",
           "hint": "what — before a verb",
           "transliteration": "___ tafʿalu l-ān?",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "___ · do.PRS.2SG · DEF-now"
         }
       ]
     },
@@ -1273,7 +1375,8 @@
           "hint": "studied — he",
           "transliteration": "huwa ___ al-ʿarabiyya fī l-jāmiʿa",
           "cell": "هو",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG.M · ___ · DEF-Arabic · in · DEF-university"
         },
         {
           "sentence": "الطالب {{answer}} كثيرًا أمس.",
@@ -1282,7 +1385,8 @@
           "hint": "studied — he",
           "transliteration": "aṭ-ṭālib ___ kathīran ams",
           "cell": "هو",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF-student · ___ · much.ACC · yesterday"
         },
         {
           "sentence": "هي {{answer}} الطب في القاهرة.",
@@ -1291,7 +1395,8 @@
           "hint": "studied — she",
           "transliteration": "hiya ___ aṭ-ṭibb fī l-Qāhira",
           "cell": "هي",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.F · ___ · DEF-medicine · in · DEF-Cairo"
         },
         {
           "sentence": "البنت {{answer}} للامتحان.",
@@ -1300,7 +1405,8 @@
           "hint": "studied — she",
           "transliteration": "al-bint ___ li-l-imtiḥān",
           "cell": "هي",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF-girl · ___ · for-DEF-exam"
         },
         {
           "sentence": "نحن {{answer}} معًا في المكتبة.",
@@ -1309,7 +1415,8 @@
           "hint": "studied — we",
           "transliteration": "naḥnu ___ maʿan fī l-maktaba",
           "cell": "نحن",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL · ___ · together.ACC · in · DEF-library"
         },
         {
           "sentence": "أمس {{answer}} الدرس كله.",
@@ -1318,7 +1425,8 @@
           "hint": "studied — we",
           "transliteration": "ams ___ ad-dars kullah",
           "cell": "نحن",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "yesterday · ___ · DEF-lesson · all-3SG.M.POSS"
         },
         {
           "sentence": "أنتم {{answer}} التاريخ العام الماضي.",
@@ -1327,7 +1435,8 @@
           "hint": "studied — you (pl.)",
           "transliteration": "antum ___ at-tārīkh al-ʿām al-māḍī",
           "cell": "أنتم",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "2PL.M · ___ · DEF-history · DEF-year · DEF-past"
         },
         {
           "sentence": "هل {{answer}} هذا الكتاب؟",
@@ -1336,7 +1445,8 @@
           "hint": "studied — you (pl.)",
           "transliteration": "hal ___ hādhā l-kitāb",
           "cell": "أنتم",
-          "display_order": 8
+          "display_order": 8,
+          "gloss": "Q · ___ · this.SG.M · DEF-book"
         },
         {
           "sentence": "هم {{answer}} الفيزياء في ألمانيا.",
@@ -1345,7 +1455,8 @@
           "hint": "studied — they",
           "transliteration": "hum ___ al-fīziyāʾ fī Almāniyā",
           "cell": "هم",
-          "display_order": 9
+          "display_order": 9,
+          "gloss": "3PL.M · ___ · DEF-physics · in · Germany"
         },
         {
           "sentence": "الطلاب {{answer}} طوال الليل.",
@@ -1354,7 +1465,8 @@
           "hint": "studied — they",
           "transliteration": "aṭ-ṭullāb ___ ṭiwāl al-layl",
           "cell": "هم",
-          "display_order": 10
+          "display_order": 10,
+          "gloss": "DEF-student.PL · ___ · throughout · DEF-night"
         }
       ],
       "paradigm": [
@@ -1391,7 +1503,8 @@
           "translation": "Tomorrow I will go to school.",
           "hint": "will go — I",
           "transliteration": "ghadan ___ ilā l-madrasa",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "tomorrow.ACC · ___ · to · DEF-school"
         },
         {
           "sentence": "هو {{answer}} رسالة إلى صديقه.",
@@ -1399,7 +1512,8 @@
           "translation": "He will write a letter to his friend.",
           "hint": "will write — he",
           "transliteration": "huwa ___ risāla ilā ṣadīqih",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.M · ___ · letter · to · friend-3SG.M.POSS"
         },
         {
           "sentence": "نحن {{answer}} القهوة بعد قليل.",
@@ -1407,7 +1521,8 @@
           "translation": "We will drink coffee shortly.",
           "hint": "will drink — we",
           "transliteration": "naḥnu ___ al-qahwa baʿda qalīl",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · DEF-coffee · after · little"
         },
         {
           "sentence": "سوف {{answer}} الحقيقة يومًا ما.",
@@ -1415,7 +1530,8 @@
           "translation": "You will know the truth one day.",
           "hint": "will know — you",
           "transliteration": "sawfa ___ al-ḥaqīqa yawman mā",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "FUT · ___ · DEF-truth · day.ACC · INDF"
         },
         {
           "sentence": "هي {{answer}} في الشركة العام القادم.",
@@ -1423,7 +1539,8 @@
           "translation": "She will work at the company next year.",
           "hint": "will work — she",
           "transliteration": "hiya ___ fī sh-sharika al-ʿām al-qādim",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.F · ___ · in · DEF-company · DEF-year · DEF-next"
         },
         {
           "sentence": "متى {{answer}} الطائرة؟",
@@ -1431,7 +1548,8 @@
           "translation": "When will the plane arrive?",
           "hint": "will arrive — it (f.)",
           "transliteration": "matā ___ aṭ-ṭāʾira",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "when · ___ · DEF-airplane"
         }
       ]
     },
@@ -1461,7 +1579,8 @@
           "translation": "The teachers are at the school.",
           "hint": "teachers (m.)",
           "transliteration": "al-___ fī l-madrasa",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · in · DEF-school"
         },
         {
           "sentence": "هؤلاء {{answer}} مجتهدون.",
@@ -1469,7 +1588,8 @@
           "translation": "These are hard-working engineers.",
           "hint": "engineers (m.)",
           "transliteration": "hāʾulāʾi ___ mujtahidūn",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "this.PL · ___ · diligent-PL.M.NOM"
         },
         {
           "sentence": "رأيت {{answer}} في المؤتمر.",
@@ -1477,7 +1597,8 @@
           "translation": "I saw the teachers at the conference.",
           "hint": "teachers (m., object)",
           "transliteration": "raʾaytu l-___ fī l-muʾtamar",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "see.PST.1SG · ___ · in · DEF-conference"
         },
         {
           "sentence": "{{answer}} يعملن في المستشفى.",
@@ -1485,7 +1606,8 @@
           "translation": "The nurses (f.) work at the hospital.",
           "hint": "nurses (f.)",
           "transliteration": "al-___ yaʿmalna fī l-mustashfā",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · work.PRS.3PL.F · in · DEF-hospital"
         },
         {
           "sentence": "عندنا ثلاث {{answer}} جديدة.",
@@ -1493,7 +1615,8 @@
           "translation": "We have three new cars.",
           "hint": "cars",
           "transliteration": "ʿindanā thalāth ___ jadīda",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "at-1PL · three · ___ · new.F.SG"
         },
         {
           "sentence": "{{answer}} على الطاولة.",
@@ -1501,7 +1624,8 @@
           "translation": "The magazines are on the table.",
           "hint": "magazines",
           "transliteration": "al-___ ʿalā ṭ-ṭāwila",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · on · DEF-table"
         }
       ]
     },
@@ -1531,7 +1655,8 @@
           "translation": "I read three books this month.",
           "hint": "books (كتاب)",
           "transliteration": "qaraʾtu thalāthat ___ hādhā sh-shahr",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "read.PST.1SG · three.F · ___ · this.M · DEF-month"
         },
         {
           "sentence": "يلعب ال{{answer}} في الحديقة.",
@@ -1539,7 +1664,8 @@
           "translation": "The boys are playing in the garden.",
           "hint": "boys (ولد)",
           "transliteration": "yalʿab al-___ fī l-ḥadīqa",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "play.PRS.3SG.M · ___ · in · DEF-garden"
         },
         {
           "sentence": "هذه ال{{answer}} قديمة جدًا.",
@@ -1547,7 +1673,8 @@
           "translation": "These houses are very old.",
           "hint": "houses (بيت)",
           "transliteration": "hādhihi l-___ qadīma jiddan",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "this.F · ___ · old.F.SG · very"
         },
         {
           "sentence": "على المكتب ثلاثة {{answer}}.",
@@ -1555,7 +1682,8 @@
           "translation": "There are three pens on the desk.",
           "hint": "pens (قلم)",
           "transliteration": "ʿalā l-maktab thalāthat ___",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "on · DEF-desk · three.F · ___"
         },
         {
           "sentence": "زرنا عدة {{answer}} في مصر.",
@@ -1563,7 +1691,8 @@
           "translation": "We visited several cities in Egypt.",
           "hint": "cities (مدينة)",
           "transliteration": "zurnā ʿiddat ___ fī Miṣr",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "visit.PST.1PL · several · ___ · in · Egypt"
         },
         {
           "sentence": "في الغابة {{answer}} كثيرة.",
@@ -1571,7 +1700,8 @@
           "translation": "There are many men in the forest.",
           "hint": "men (رجل)",
           "transliteration": "fī l-ghāba ___ kathīra",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "in · DEF-forest · ___ · many.F.SG"
         }
       ]
     },
@@ -1601,7 +1731,8 @@
           "translation": "I have two new books.",
           "hint": "two books",
           "transliteration": "ʿindī ___ jadīdān",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "at-1SG · ___ · new.M-DU.NOM"
         },
         {
           "sentence": "جاء {{answer}} إلى الصف.",
@@ -1609,7 +1740,8 @@
           "translation": "Two students came to the class.",
           "hint": "two students",
           "transliteration": "jāʾa ___ ilā ṣ-ṣaff",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "come.PST.3SG.M · ___ · to · DEF-class"
         },
         {
           "sentence": "رأيت {{answer}} أمام البيت.",
@@ -1617,7 +1749,8 @@
           "translation": "I saw two men in front of the house.",
           "hint": "two men (object)",
           "transliteration": "raʾaytu ___ amāma l-bayt",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "see.PST.1SG · ___ · in.front.of · DEF-house"
         },
         {
           "sentence": "للطاولة {{answer}} فقط.",
@@ -1625,7 +1758,8 @@
           "translation": "The table has only two legs.",
           "hint": "two legs",
           "transliteration": "li-ṭ-ṭāwila ___ faqaṭ",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "for-DEF-table · ___ · only"
         },
         {
           "sentence": "اشتريت {{answer}} حمراوين.",
@@ -1633,7 +1767,8 @@
           "translation": "I bought two red cars.",
           "hint": "two cars (object)",
           "transliteration": "ishtaraytu ___ ḥamrāwayn",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "buy.PST.1SG · ___ · red.F-DU.ACC"
         },
         {
           "sentence": "في يدي {{answer}} اثنتان.",
@@ -1641,7 +1776,8 @@
           "translation": "I have two watches on my hand.",
           "hint": "two watches",
           "transliteration": "fī yadī ___ ithnatān",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "in · hand-1SG.POSS · ___ · two.F-DU.NOM"
         }
       ]
     },
@@ -1671,7 +1807,8 @@
           "translation": "The book is on the table.",
           "hint": "on",
           "transliteration": "al-kitāb ___ aṭ-ṭāwila",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF-book · ___ · DEF-table"
         },
         {
           "sentence": "أنا {{answer}} البيت الآن.",
@@ -1679,7 +1816,8 @@
           "translation": "I am in the house now.",
           "hint": "in",
           "transliteration": "anā ___ al-bayt al-ān",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · ___ · DEF-house · DEF-now"
         },
         {
           "sentence": "جئت {{answer}} المدينة.",
@@ -1687,7 +1825,8 @@
           "translation": "I came from the city.",
           "hint": "from",
           "transliteration": "jiʾtu ___ al-madīna",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "come.PST.1SG · ___ · DEF-city"
         },
         {
           "sentence": "نذهب {{answer}} المطار.",
@@ -1695,7 +1834,8 @@
           "translation": "We are going to the airport.",
           "hint": "to",
           "transliteration": "nadhhab ___ al-maṭār",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "go.PRS.1PL · ___ · DEF-airport"
         },
         {
           "sentence": "تحدثنا {{answer}} المشروع.",
@@ -1703,7 +1843,8 @@
           "translation": "We talked about the project.",
           "hint": "about",
           "transliteration": "taḥaddathnā ___ al-mashrūʿ",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "talk.PST.1PL · ___ · DEF-project"
         },
         {
           "sentence": "ذهبت {{answer}} صديقي.",
@@ -1711,7 +1852,8 @@
           "translation": "I went with my friend.",
           "hint": "with",
           "transliteration": "dhahabtu ___ ṣadīqī",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "go.PST.1SG · ___ · friend-1SG.POSS"
         }
       ]
     },
@@ -1741,7 +1883,8 @@
           "translation": "The elephant is bigger than the cat.",
           "hint": "bigger",
           "transliteration": "al-fīl ___ min al-qiṭṭa",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF-elephant · ___ · than · DEF-cat"
         },
         {
           "sentence": "هذا الطريق {{answer}} من ذاك.",
@@ -1749,7 +1892,8 @@
           "translation": "This road is shorter than that one.",
           "hint": "shorter",
           "transliteration": "hādhā ṭ-ṭarīq ___ min dhāk",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "this.M.SG · DEF-road · ___ · than · that.M.SG"
         },
         {
           "sentence": "اللغة العربية {{answer}} من الإنجليزية عندي.",
@@ -1757,7 +1901,8 @@
           "translation": "Arabic is harder than English for me.",
           "hint": "harder",
           "transliteration": "al-lugha l-ʿarabiyya ___ min al-injlīziyya ʿindī",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF-language · DEF-Arabic.F.SG · ___ · than · DEF-English.F.SG · at-1SG"
         },
         {
           "sentence": "القاهرة {{answer}} مدينة في مصر.",
@@ -1765,7 +1910,8 @@
           "translation": "Cairo is the biggest city in Egypt.",
           "hint": "biggest",
           "transliteration": "al-Qāhira ___ madīna fī Miṣr",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF-Cairo · ___ · city.GEN.SG · in · Egypt"
         },
         {
           "sentence": "هو {{answer}} طالب في الصف.",
@@ -1773,7 +1919,8 @@
           "translation": "He is the smartest student in the class.",
           "hint": "smartest",
           "transliteration": "huwa ___ ṭālib fī ṣ-ṣaff",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M · ___ · student.GEN.SG · in · DEF-class"
         },
         {
           "sentence": "الصحة {{answer}} من المال.",
@@ -1781,7 +1928,8 @@
           "translation": "Health is more important than money.",
           "hint": "more important",
           "transliteration": "aṣ-ṣiḥḥa ___ min al-māl",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF-health · ___ · than · DEF-money"
         }
       ]
     },
@@ -1812,7 +1960,8 @@
           "hint": "was — he/it (m.)",
           "transliteration": "___ aṭ-ṭaqs jamīlan ams",
           "cell": "كان",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · DEF-weather · beautiful.M.SG.ACC · yesterday"
         },
         {
           "sentence": "{{answer}} الدرس طويلًا.",
@@ -1821,7 +1970,8 @@
           "hint": "was — he/it (m.)",
           "transliteration": "___ ad-dars ṭawīlan",
           "cell": "كان",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · DEF-lesson · long.M.SG.ACC"
         },
         {
           "sentence": "{{answer}} البنت مريضة.",
@@ -1830,7 +1980,8 @@
           "hint": "was — she",
           "transliteration": "___ al-bint marīḍa",
           "cell": "كانت",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · DEF-girl · ill.F.SG.ACC"
         },
         {
           "sentence": "{{answer}} المدينة هادئة في الصباح.",
@@ -1839,7 +1990,8 @@
           "hint": "was — she/it (f.)",
           "transliteration": "___ al-madīna hādiʾa fī ṣ-ṣabāḥ",
           "cell": "كانت",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · DEF-city · quiet.F.SG.ACC · in · DEF-morning"
         },
         {
           "sentence": "{{answer}} الطلاب متعبين بعد الامتحان.",
@@ -1848,7 +2000,8 @@
           "hint": "were — they",
           "transliteration": "___ aṭ-ṭullāb mutʿabīn baʿda l-imtiḥān",
           "cell": "كانوا",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · DEF-student.PL · tired.M.PL.ACC · after · DEF-exam"
         },
         {
           "sentence": "{{answer}} اللاعبون سعداء بالفوز.",
@@ -1857,7 +2010,8 @@
           "hint": "were — they",
           "transliteration": "___ al-lāʿibūn suʿadāʾ bi-l-fawz",
           "cell": "كانوا",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · DEF-player.M.PL · happy.M.PL.ACC · with-DEF-win"
         }
       ],
       "paradigm": [
@@ -1893,7 +2047,8 @@
           "hint": "I read it (m.)",
           "transliteration": "al-kitāb mufīd, ___ kullah",
           "cell": "ـه",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF-book · useful.M.SG · ___ · all-3SG.M"
         },
         {
           "sentence": "أعجبني الفيلم فـ{{answer}} مرتين.",
@@ -1902,7 +2057,8 @@
           "hint": "I watched it (m.)",
           "transliteration": "aʿjabanī l-fīlm fa-___ marratayn",
           "cell": "ـه",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "please.PST.3SG.M-1SG · DEF-film · ___ · time.DU.ACC"
         },
         {
           "sentence": "القصة جميلة، {{answer}} من جدتي.",
@@ -1911,7 +2067,8 @@
           "hint": "I heard it (f.)",
           "transliteration": "al-qiṣṣa jamīla, ___ min jaddatī",
           "cell": "ـها",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF-story · beautiful.F.SG · ___ · from · grandmother-1SG.POSS"
         },
         {
           "sentence": "السيارة قديمة لكنني {{answer}}.",
@@ -1920,7 +2077,8 @@
           "hint": "I love it (f.)",
           "transliteration": "as-sayyāra qadīma lākinnanī ___",
           "cell": "ـها",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF-car · old.F.SG · but-1SG · ___"
         },
         {
           "sentence": "أصدقائي هنا، {{answer}} إلى البيت.",
@@ -1929,7 +2087,8 @@
           "hint": "I invited them",
           "transliteration": "aṣdiqāʾī hunā, ___ ilā l-bayt",
           "cell": "ـهم",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "friend.PL-1SG.POSS · here · ___ · to · DEF-house"
         },
         {
           "sentence": "الضيوف وصلوا فـ{{answer}} بحرارة.",
@@ -1938,7 +2097,8 @@
           "hint": "I welcomed them",
           "transliteration": "aḍ-ḍuyūf waṣalū fa-___ bi-ḥarāra",
           "cell": "ـهم",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF-guest.PL · arrive.PST.3PL.M · ___ · with-warmth"
         }
       ],
       "paradigm": [
@@ -1973,7 +2133,8 @@
           "translation": "I have three books on the shelf.",
           "hint": "three (with masc. noun)",
           "transliteration": "ʿindī ___ kutub ʿalā r-raff",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "at-1SG · ___ · book.PL.GEN · on · DEF-shelf.GEN"
         },
         {
           "sentence": "في الصف {{answer}} بنات فقط.",
@@ -1981,7 +2142,8 @@
           "translation": "There are only three girls in the class.",
           "hint": "three (with fem. noun)",
           "transliteration": "fī ṣ-ṣaff ___ banāt faqaṭ",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "in · DEF-class.GEN · ___ · girl.PL.GEN · only"
         },
         {
           "sentence": "اشتريت {{answer}} أقلام حمراء.",
@@ -1989,7 +2151,8 @@
           "translation": "I bought four red pens.",
           "hint": "four (with masc. noun)",
           "transliteration": "ishtaraytu ___ aqlām ḥamrāʾ",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "buy.PST.1SG · ___ · pen.PL.GEN · red.F.SG.GEN"
         },
         {
           "sentence": "زارنا {{answer}} ضيوف مساءً.",
@@ -1997,7 +2160,8 @@
           "translation": "Five guests visited us in the evening.",
           "hint": "five (with masc. noun)",
           "transliteration": "zāranā ___ ḍuyūf masāʾan",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "visit.PST.3SG.M-1PL.OBJ · ___ · guest.PL.GEN · evening.ACC"
         },
         {
           "sentence": "في اليد {{answer}} أصابع.",
@@ -2005,7 +2169,8 @@
           "translation": "There are five fingers on the hand.",
           "hint": "five (with fem. noun)",
           "transliteration": "fī l-yad ___ aṣābiʿ",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "in · DEF-hand.GEN · ___ · finger.PL.GEN"
         },
         {
           "sentence": "قرأت {{answer}} مجلات هذا الأسبوع.",
@@ -2013,7 +2178,8 @@
           "translation": "I read six magazines this week.",
           "hint": "six (with fem. noun)",
           "transliteration": "qaraʾtu ___ majallāt hādhā l-usbūʿ",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "read.PST.1SG · ___ · magazine.PL.GEN · this.M.SG · DEF-week.ACC"
         }
       ]
     },
@@ -2043,7 +2209,8 @@
           "translation": "I want to learn Arabic well.",
           "hint": "learn — I (subj.)",
           "transliteration": "urīdu an ___ al-ʿarabiyya jayyidan",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "want.PRS.1SG · COMP · ___ · DEF-Arabic.F.ACC · good.ACC"
         },
         {
           "sentence": "يجب أن {{answer}} الطلاب بجد.",
@@ -2051,7 +2218,8 @@
           "translation": "The students must study hard.",
           "hint": "study — they (subj., ن dropped)",
           "transliteration": "yajib an ___ aṭ-ṭullāb bi-jidd",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "must.PRS.3SG.M · COMP · ___ · DEF-student.PL.NOM · with-diligence.GEN"
         },
         {
           "sentence": "{{answer}} أنساك أبدًا.",
@@ -2059,7 +2227,8 @@
           "translation": "I will never forget you.",
           "hint": "will not",
           "transliteration": "___ ansāka abadan",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · forget.SBJV.1SG-2SG.M.OBJ · ever.ACC"
         },
         {
           "sentence": "درست حتى {{answer}} في الامتحان.",
@@ -2067,7 +2236,8 @@
           "translation": "I studied so that I would pass the exam.",
           "hint": "succeed — I (subj.)",
           "transliteration": "darastu ḥattā ___ fī l-imtiḥān",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "study.PST.1SG · so.that · ___ · in · DEF-exam.GEN"
         },
         {
           "sentence": "سافرنا لكي {{answer}} العالم.",
@@ -2075,7 +2245,8 @@
           "translation": "We traveled in order to see the world.",
           "hint": "see — we (subj.)",
           "transliteration": "sāfarnā li-kay ___ al-ʿālam",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "travel.PST.1PL · for-COMP · ___ · DEF-world.ACC"
         },
         {
           "sentence": "عليكِ أن {{answer}} من هنا مبكرًا.",
@@ -2083,7 +2254,8 @@
           "translation": "You (f.) must leave here early.",
           "hint": "leave — you f. (subj., ن dropped)",
           "transliteration": "ʿalayki an ___ min hunā mubakkiran",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "on-2SG.F · COMP · ___ · from · here · early.ACC"
         }
       ]
     },
@@ -2113,7 +2285,8 @@
           "translation": "I did not understand the lesson yesterday.",
           "hint": "did not (+ jussive)",
           "transliteration": "___ afham ad-dars ams",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · understand.JUS.1SG · DEF-lesson.ACC · yesterday"
         },
         {
           "sentence": "لم {{answer}} إلى الحفلة.",
@@ -2121,7 +2294,8 @@
           "translation": "They did not go to the party.",
           "hint": "go — they (jussive, ن dropped)",
           "transliteration": "lam ___ ilā l-ḥafla",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "NEG.PST · ___ · to · DEF-party.GEN"
         },
         {
           "sentence": "لماذا لم {{answer}} رسالتي؟",
@@ -2129,7 +2303,8 @@
           "translation": "Why didn't you read my message?",
           "hint": "read — you (jussive)",
           "transliteration": "limādhā lam ___ risālatī",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "why.Q · NEG.PST · ___ · message-1SG.POSS"
         },
         {
           "sentence": "لم {{answer}} المطر منذ أسابيع.",
@@ -2137,7 +2312,8 @@
           "translation": "It hasn't rained for weeks.",
           "hint": "fall/rain — it (jussive)",
           "transliteration": "lam ___ al-maṭar mundhu asābīʿ",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NEG.PST · ___ · DEF-rain.NOM · since · week.PL.GEN"
         },
         {
           "sentence": "لِـ{{answer}} كل واحد بدوره.",
@@ -2145,7 +2321,8 @@
           "translation": "Let each one speak in turn.",
           "hint": "speak — let him (jussive)",
           "transliteration": "li-___ kull wāḥid bi-dawrih",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · every.NOM · one.GEN · in-turn.GEN-3SG.M.POSS"
         },
         {
           "sentence": "نحن لم {{answer}} الخبر بعد.",
@@ -2153,7 +2330,8 @@
           "translation": "We haven't heard the news yet.",
           "hint": "hear — we (jussive)",
           "transliteration": "naḥnu lam ___ al-khabar baʿd",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · NEG.PST · ___ · DEF-news.ACC · yet"
         }
       ]
     },
@@ -2183,7 +2361,8 @@
           "translation": "Indeed the weather is nice today.",
           "hint": "indeed (+ acc. subject)",
           "transliteration": "___ aṭ-ṭaqs jamīl al-yawm",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · DEF-weather.ACC · beautiful.NOM · DEF-day.ACC"
         },
         {
           "sentence": "أعتقد {{answer}} اللغة العربية مهمة.",
@@ -2191,7 +2370,8 @@
           "translation": "I think that Arabic is important.",
           "hint": "that",
           "transliteration": "aʿtaqid ___ al-lugha l-ʿarabiyya muhimma",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "think.PRS.1SG · ___ · DEF-language.F.ACC · DEF-Arabic.F.ACC · important.F.NOM"
         },
         {
           "sentence": "هو ذكي {{answer}} كسول قليلًا.",
@@ -2199,7 +2379,8 @@
           "translation": "He is smart but a little lazy.",
           "hint": "but",
           "transliteration": "huwa dhakī ___ kasūl qalīlan",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "he.3SG.M · smart.M.SG · ___ · lazy.M.SG · little.ACC"
         },
         {
           "sentence": "تأخرت {{answer}} السيارة تعطلت.",
@@ -2207,7 +2388,8 @@
           "translation": "I was late because the car broke down.",
           "hint": "because",
           "transliteration": "taʾakhkhartu ___ as-sayyāra taʿaṭṭalat",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "be_late.PST.1SG · ___ · DEF-car.F · break_down.PST.3SG.F"
         },
         {
           "sentence": "ينظر إليّ {{answer}} يعرفني.",
@@ -2215,7 +2397,8 @@
           "translation": "He looks at me as if he knows me.",
           "hint": "as if",
           "transliteration": "yanẓur ilayya ___ yaʿrifunī",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "look.PRS.3SG.M · to-1SG · ___ · know.PRS.3SG.M-OBJ.1SG"
         },
         {
           "sentence": "{{answer}} النتيجة تكون جيدة.",
@@ -2223,7 +2406,8 @@
           "translation": "Perhaps the result will be good.",
           "hint": "perhaps",
           "transliteration": "___ an-natīja takūn jayyida",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · DEF-result.F · be.PRS.3SG.F · good.F.SG"
         }
       ]
     },
@@ -2254,7 +2438,8 @@
           "hint": "open! — to a man",
           "transliteration": "___ al-bāb min faḍlik",
           "cell": "أنتَ",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · DEF-door · from · favour-POSS.2SG.M"
         },
         {
           "sentence": "{{answer}} هنا يا أخي.",
@@ -2263,7 +2448,8 @@
           "hint": "sit! — to a man",
           "transliteration": "___ hunā yā akhī",
           "cell": "أنتَ",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · here · VOC · brother-POSS.1SG"
         },
         {
           "sentence": "{{answer}} الكتاب يا سارة.",
@@ -2272,7 +2458,8 @@
           "hint": "read! — to a woman",
           "transliteration": "___ al-kitāb yā Sāra",
           "cell": "أنتِ",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · DEF-book · VOC · Sarah"
         },
         {
           "sentence": "{{answer}} معنا يا هند.",
@@ -2281,7 +2468,8 @@
           "hint": "come! — to a woman",
           "transliteration": "___ maʿanā yā Hind",
           "cell": "أنتِ",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · with-1PL · VOC · Hind"
         },
         {
           "sentence": "{{answer}} أماكنكم يا أطفال.",
@@ -2290,7 +2478,8 @@
           "hint": "take! — to a group",
           "transliteration": "___ amākinakum yā aṭfāl",
           "cell": "أنتم",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · place.PL-POSS.2PL.M · VOC · child.PL"
         },
         {
           "sentence": "{{answer}} إلى المعلم جيدًا.",
@@ -2299,7 +2488,8 @@
           "hint": "listen! — to a group",
           "transliteration": "___ ilā l-muʿallim jayyidan",
           "cell": "أنتم",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · to · DEF-teacher · good.ACC"
         }
       ],
       "paradigm": [
@@ -2334,7 +2524,8 @@
           "translation": "Reading is useful for the mind.",
           "hint": "reading (maṣdar of قرأ)",
           "transliteration": "___ mufīda li-l-ʿaql",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · useful.F.SG · for-DEF-mind"
         },
         {
           "sentence": "{{answer}} في الخارج مكلفة.",
@@ -2342,7 +2533,8 @@
           "translation": "Studying abroad is expensive.",
           "hint": "study (maṣdar of درس)",
           "transliteration": "___ fī l-khārij mukallifa",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · in · DEF-outside · expensive.F.SG"
         },
         {
           "sentence": "أحب {{answer}} إلى بلاد جديدة.",
@@ -2350,7 +2542,8 @@
           "translation": "I love traveling to new countries.",
           "hint": "travel (maṣdar of سافر)",
           "transliteration": "uḥibb ___ ilā bilād jadīda",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "love.PRS.1SG · ___ · to · country.PL · new.F.SG"
         },
         {
           "sentence": "{{answer}} فن جميل.",
@@ -2358,7 +2551,8 @@
           "translation": "Cooking is a beautiful art.",
           "hint": "cooking (maṣdar of طبخ)",
           "transliteration": "___ fann jamīl",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · art.M.SG · beautiful.M.SG"
         },
         {
           "sentence": "{{answer}} المبكر مفيد للصحة.",
@@ -2366,7 +2560,8 @@
           "translation": "Waking up early is good for health.",
           "hint": "waking up (maṣdar of استيقظ)",
           "transliteration": "___ al-mubakkir mufīd li-ṣ-ṣiḥḥa",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · DEF-early.M.SG · useful.M.SG · for-DEF-health"
         },
         {
           "sentence": "ساعدني {{answer}} على الهدوء.",
@@ -2374,7 +2569,8 @@
           "translation": "Meditation helped me stay calm.",
           "hint": "meditation (maṣdar of تأمل)",
           "transliteration": "sāʿadanī ___ ʿalā l-hudūʾ",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "help.PST.3SG.M-OBJ.1SG · ___ · on · DEF-calm"
         }
       ]
     },
@@ -2404,7 +2600,8 @@
           "translation": "He is a famous writer at the newspaper.",
           "hint": "writer (active participle)",
           "transliteration": "huwa ___ mashhūr fī ṣ-ṣaḥīfa",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "he.3SG.M · ___ · famous.M.SG · in · DEF-newspaper"
         },
         {
           "sentence": "الرسالة {{answer}} باللغة العربية.",
@@ -2412,7 +2609,8 @@
           "translation": "The letter is written in Arabic.",
           "hint": "written (passive participle, f.)",
           "transliteration": "ar-risāla ___ bi-l-lugha l-ʿarabiyya",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF-letter.F · ___ · in-DEF-language.F · DEF-Arabic.F.SG"
         },
         {
           "sentence": "الباب {{answer}} منذ الصباح.",
@@ -2420,7 +2618,8 @@
           "translation": "The door has been open since morning.",
           "hint": "open/opened (passive participle)",
           "transliteration": "al-bāb ___ mundhu ṣ-ṣabāḥ",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF-door.M · ___ · since · DEF-morning"
         },
         {
           "sentence": "هي {{answer}} ماهرة في المستشفى.",
@@ -2428,7 +2627,8 @@
           "translation": "She is a skilled worker at the hospital.",
           "hint": "worker (active participle, f.)",
           "transliteration": "hiya ___ māhira fī l-mustashfā",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "she.3SG.F · ___ · skilled.F.SG · in · DEF-hospital"
         },
         {
           "sentence": "الطعام {{answer}} على النار.",
@@ -2436,7 +2636,8 @@
           "translation": "The food is cooked on the fire.",
           "hint": "cooked (passive participle)",
           "transliteration": "aṭ-ṭaʿām ___ ʿalā n-nār",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF-food · ___ · on · DEF-fire"
         },
         {
           "sentence": "الطفل {{answer}} في سريره.",
@@ -2444,7 +2645,8 @@
           "translation": "The child is asleep in his bed.",
           "hint": "sleeping (active participle)",
           "transliteration": "aṭ-ṭifl ___ fī sarīrih",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF-child · ___ · in · bed-3SG.M.POSS"
         }
       ]
     },
@@ -2474,7 +2676,8 @@
           "translation": "The man who works here is a doctor.",
           "hint": "who — m.s.",
           "transliteration": "ar-rajul ___ yaʿmal hunā ṭabīb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF-man · ___ · work.PRS.3SG.M · here · doctor"
         },
         {
           "sentence": "المدينة {{answer}} زرتها جميلة.",
@@ -2482,7 +2685,8 @@
           "translation": "The city that I visited is beautiful.",
           "hint": "which — f.s.",
           "transliteration": "al-madīna ___ zurtuhā jamīla",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF-city · ___ · visit.PST.1SG-3SG.F.OBJ · beautiful.F"
         },
         {
           "sentence": "الطلاب {{answer}} نجحوا سعداء.",
@@ -2490,7 +2694,8 @@
           "translation": "The students who passed are happy.",
           "hint": "who — m.pl.",
           "transliteration": "aṭ-ṭullāb ___ najaḥū suʿadāʾ",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF-student.PL · ___ · succeed.PST.3PL.M · happy.PL"
         },
         {
           "sentence": "هذا هو الكتاب {{answer}} أخبرتك عنه.",
@@ -2498,7 +2703,8 @@
           "translation": "This is the book I told you about.",
           "hint": "which — m.s.",
           "transliteration": "hādhā huwa l-kitāb ___ akhbartuka ʿanh",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "this.M · 3SG.M · DEF-book · ___ · tell.PST.1SG-2SG.M.OBJ · about-3SG.M.OBJ"
         },
         {
           "sentence": "الفتاة {{answer}} تغني موهوبة.",
@@ -2506,7 +2712,8 @@
           "translation": "The girl who is singing is talented.",
           "hint": "who — f.s.",
           "transliteration": "al-fatāt ___ tughannī mawhūba",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF-girl · ___ · sing.PRS.3SG.F · talented.F"
         },
         {
           "sentence": "الأشخاص {{answer}} ساعدوني أصدقائي.",
@@ -2514,7 +2721,8 @@
           "translation": "The people who helped me are my friends.",
           "hint": "who — pl.",
           "transliteration": "al-ashkhāṣ ___ sāʿadūnī aṣdiqāʾī",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF-person.PL · ___ · help.PST.3PL.M-1SG.OBJ · friend.PL-1SG.POSS"
         }
       ]
     },
@@ -2544,7 +2752,8 @@
           "translation": "It was said that the party was postponed.",
           "hint": "was said (passive of قال)",
           "transliteration": "___ inna l-ḥafla ujjilat",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · COMP · DEF-party · postpone.PST.PASS.3SG.F"
         },
         {
           "sentence": "البيت القديم {{answer}} أمس.",
@@ -2552,7 +2761,8 @@
           "translation": "The old house was sold yesterday.",
           "hint": "was sold (passive of باع)",
           "transliteration": "al-bayt al-qadīm ___ ams",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF-house · DEF-old · ___ · yesterday"
         },
         {
           "sentence": "{{answer}} الطفل في الشتاء.",
@@ -2560,7 +2770,8 @@
           "translation": "The child was born in winter.",
           "hint": "was born (passive)",
           "transliteration": "___ aṭ-ṭifl fī sh-shitāʾ",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · DEF-child · in · DEF-winter"
         },
         {
           "sentence": "{{answer}} الفائز في نهاية الحفل.",
@@ -2568,7 +2779,8 @@
           "translation": "The winner was announced at the end of the ceremony.",
           "hint": "was announced (passive)",
           "transliteration": "___ al-fāʾiz fī nihāyat al-ḥafl",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · DEF-winner · in · end · DEF-ceremony"
         },
         {
           "sentence": "هذا الكتاب {{answer}} في مصر.",
@@ -2576,7 +2788,8 @@
           "translation": "This book was printed in Egypt.",
           "hint": "was printed (passive)",
           "transliteration": "hādhā l-kitāb ___ fī Miṣr",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "this.M · DEF-book · ___ · in · Egypt"
         },
         {
           "sentence": "اللغة العربية {{answer}} في دول كثيرة.",
@@ -2584,7 +2797,8 @@
           "translation": "Arabic is used in many countries.",
           "hint": "is used (present passive)",
           "transliteration": "al-lugha l-ʿarabiyya ___ fī duwal kathīra",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF-language · DEF-Arabic.F · ___ · in · country.PL · many.F"
         }
       ]
     },
@@ -2614,7 +2828,8 @@
           "translation": "The professor teaches Arabic to foreigners.",
           "hint": "teaches (form II of درس)",
           "transliteration": "al-ustādh ___ al-ʿarabiyya li-l-ajānib",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF-professor · ___ · DEF-Arabic.F · for-DEF-foreigner.PL"
         },
         {
           "sentence": "الأم {{answer}} الطفل كل صباح.",
@@ -2622,7 +2837,8 @@
           "translation": "The mother dresses the child every morning.",
           "hint": "dresses (form II)",
           "transliteration": "al-umm ___ aṭ-ṭifl kull ṣabāḥ",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF-mother · ___ · DEF-child · every · morning"
         },
         {
           "sentence": "{{answer}} صديقي كل أسبوع بالرسائل.",
@@ -2630,7 +2846,8 @@
           "translation": "I correspond with my friend every week by letters.",
           "hint": "correspond with (form III)",
           "transliteration": "___ ṣadīqī kull usbūʿ bi-r-rasāʾil",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · friend-1SG.POSS · every · week · with-DEF-letter.PL"
         },
         {
           "sentence": "الجمهور {{answer}} المباراة بحماس.",
@@ -2638,7 +2855,8 @@
           "translation": "The audience watches the match with enthusiasm.",
           "hint": "watches (form III of شهد)",
           "transliteration": "al-jumhūr ___ al-mubārāt bi-ḥamās",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF-audience · ___ · DEF-match · with-enthusiasm"
         },
         {
           "sentence": "المخرج {{answer}} فيلمًا جديدًا هذا العام.",
@@ -2646,7 +2864,8 @@
           "translation": "The director produced a new film this year.",
           "hint": "produced (form IV of خرج)",
           "transliteration": "al-mukhrij ___ fīlman jadīdan hādhā l-ʿām",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF-director · ___ · film.INDF.ACC · new.INDF.ACC · this.M · DEF-year"
         },
         {
           "sentence": "الشركة {{answer}} البضاعة إلى الخارج.",
@@ -2654,7 +2873,8 @@
           "translation": "The company sent the goods abroad.",
           "hint": "sent (form IV of رسل)",
           "transliteration": "ash-sharika ___ al-biḍāʿa ilā l-khārij",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF-company · ___ · DEF-goods · to · DEF-abroad"
         }
       ]
     },
@@ -2684,7 +2904,8 @@
           "translation": "The children learn Arabic quickly.",
           "hint": "learn (form V of علم)",
           "transliteration": "al-aṭfāl ___ al-ʿarabiyya bi-surʿa",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF-child.PL · ___ · DEF-arabic.F · with-speed"
         },
         {
           "sentence": "الزجاج {{answer}} عندما وقع.",
@@ -2692,7 +2913,8 @@
           "translation": "The glass broke when it fell.",
           "hint": "broke, intr. (form VII)",
           "transliteration": "az-zujāj ___ ʿindamā waqaʿa",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF-glass · ___ · when · fall.PST.3SG.M"
         },
         {
           "sentence": "{{answer}} المدير بالموظفين صباحًا.",
@@ -2700,7 +2922,8 @@
           "translation": "The manager met with the staff in the morning.",
           "hint": "met (form VIII of جمع)",
           "transliteration": "___ al-mudīr bi-l-muwaẓẓafīn ṣabāḥan",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · DEF-manager · with-DEF-employee.PL.GEN · morning.ACC"
         },
         {
           "sentence": "نحن {{answer}} الحاسوب كل يوم في العمل.",
@@ -2708,7 +2931,8 @@
           "translation": "We use the computer every day at work.",
           "hint": "use (form X of خدم)",
           "transliteration": "naḥnu ___ al-ḥāsūb kull yawm fī l-ʿamal",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · ___ · DEF-computer · every · day · in · DEF-work"
         },
         {
           "sentence": "هي {{answer}} إلى الموسيقى قبل النوم.",
@@ -2716,7 +2940,8 @@
           "translation": "She listens to music before sleeping.",
           "hint": "listens (form VIII of سمع)",
           "transliteration": "hiya ___ ilā l-mūsīqā qabla n-nawm",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.F · ___ · to · DEF-music · before · DEF-sleep"
         },
         {
           "sentence": "الجو {{answer}} بعد المطر.",
@@ -2724,7 +2949,8 @@
           "translation": "The weather became moderate after the rain.",
           "hint": "became moderate (form VIII of عدل)",
           "transliteration": "al-jaww ___ baʿda l-maṭar",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF-weather · ___ · after · DEF-rain"
         }
       ]
     },
@@ -2754,7 +2980,8 @@
           "translation": "If you study hard, you'll pass the exam.",
           "hint": "if (real, + past)",
           "transliteration": "___ darasta bi-jidd najaḥta fī l-imtiḥān",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · study.PST.2SG.M · with-diligence · succeed.PST.2SG.M · in · DEF-exam"
         },
         {
           "sentence": "{{answer}} تسافر إلى مصر تر الأهرام.",
@@ -2762,7 +2989,8 @@
           "translation": "If you travel to Egypt, you'll see the pyramids.",
           "hint": "if (formal, + jussive)",
           "transliteration": "___ tusāfir ilā Miṣr tara l-ahrām",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · travel.COND.2SG.M · to · Egypt · see.COND.2SG.M · DEF-pyramid.PL"
         },
         {
           "sentence": "{{answer}} كنت مكانك لقبلت العرض.",
@@ -2770,7 +2998,8 @@
           "translation": "If I were in your place, I would have accepted the offer.",
           "hint": "if (counterfactual, + past)",
           "transliteration": "___ kuntu makānak la-qabiltu l-ʿarḍ",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · be.PST.1SG · place-2SG.M.POSS · then-accept.PST.1SG · DEF-offer"
         },
         {
           "sentence": "إذا جاء المطر {{answer}} في البيت.",
@@ -2778,7 +3007,8 @@
           "translation": "If it rains, we'll stay home.",
           "hint": "we'll stay (answer clause)",
           "transliteration": "idhā jāʾa l-maṭar ___ fī l-bayt",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "if · come.PST.3SG.M · DEF-rain · ___ · in · DEF-house"
         },
         {
           "sentence": "لو عرفت الحقيقة {{answer}} لك.",
@@ -2786,7 +3016,8 @@
           "translation": "Had I known the truth, I would have told you.",
           "hint": "I would have said (لـ + past)",
           "transliteration": "law ʿaraftu l-ḥaqīqa ___ lak",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · know.PST.1SG · DEF-truth · ___ · for-2SG.M"
         },
         {
           "sentence": "{{answer}} تعمل بجد تحقق حلمك.",
@@ -2794,7 +3025,8 @@
           "translation": "If you work hard, you'll achieve your dream.",
           "hint": "if (formal, + jussive)",
           "transliteration": "___ taʿmal bi-jidd tuḥaqqiq ḥulmak",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · work.COND.2SG.M · with-diligence · achieve.COND.2SG.M · dream-2SG.M.POSS"
         }
       ]
     },
@@ -2824,7 +3056,8 @@
           "translation": "The teacher entered the class smiling.",
           "hint": "smiling (ḥāl, acc.)",
           "transliteration": "dakhala l-muʿallim aṣ-ṣaff ___",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "enter.PST.3SG.M · DEF-teacher · DEF-class · ___"
         },
         {
           "sentence": "خرج الأطفال من المدرسة {{answer}}.",
@@ -2832,7 +3065,8 @@
           "translation": "The children left the school hurrying.",
           "hint": "hurrying (ḥāl, m.pl. acc.)",
           "transliteration": "kharaja l-aṭfāl min al-madrasa ___",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "leave.PST.3SG.M · DEF-child.PL · from · DEF-school · ___"
         },
         {
           "sentence": "شربت الشاي {{answer}}.",
@@ -2840,7 +3074,8 @@
           "translation": "I drank the tea hot.",
           "hint": "hot (ḥāl, acc.)",
           "transliteration": "sharibtu sh-shāy ___",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "drink.PST.1SG · DEF-tea · ___"
         },
         {
           "sentence": "عادت البنت إلى البيت {{answer}}.",
@@ -2848,7 +3083,8 @@
           "translation": "The girl returned home tired.",
           "hint": "tired (ḥāl, f. acc.)",
           "transliteration": "ʿādat al-bint ilā l-bayt ___",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "return.PST.3SG.F · DEF-girl · to · DEF-house · ___"
         },
         {
           "sentence": "وقف الجندي أمام الباب {{answer}}.",
@@ -2856,7 +3092,8 @@
           "translation": "The soldier stood before the door silent.",
           "hint": "silent (ḥāl, acc.)",
           "transliteration": "waqafa l-jundī amāma l-bāb ___",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "stand.PST.3SG.M · DEF-soldier · before · DEF-door · ___"
         },
         {
           "sentence": "نظرت إليه {{answer}}.",
@@ -2864,7 +3101,8 @@
           "translation": "I looked at him astonished.",
           "hint": "astonished (ḥāl, f. acc.)",
           "transliteration": "naẓartu ilayh ___",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "look.PST.1SG · to-3SG.M · ___"
         }
       ]
     },
@@ -2894,7 +3132,8 @@
           "translation": "The vessel filled with water.",
           "hint": "with water (tamyīz, acc.)",
           "transliteration": "imtalaʾa l-ināʾ ___",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "fill.PST.3SG.M · DEF-vessel · ___"
         },
         {
           "sentence": "ازداد الرجل {{answer}} بمرور السنين.",
@@ -2902,7 +3141,8 @@
           "translation": "The man grew in wisdom over the years.",
           "hint": "in wisdom (tamyīz, acc.)",
           "transliteration": "izdāda r-rajul ___ bi-murūr as-sinīn",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "increase.PST.3SG.M · DEF-man · ___ · with-passage · DEF-year.PL.GEN"
         },
         {
           "sentence": "هو أكثر مني {{answer}} وخبرة.",
@@ -2910,7 +3150,8 @@
           "translation": "He is greater than me in knowledge and experience.",
           "hint": "in knowledge (tamyīz, acc.)",
           "transliteration": "huwa akthar minnī ___ wa-khibra",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.M · many.COMP · from-1SG · ___ · and-experience.INDF.ACC"
         },
         {
           "sentence": "طاب الطالب {{answer}}.",
@@ -2918,7 +3159,8 @@
           "translation": "The student became content (lit. good in soul).",
           "hint": "in soul (tamyīz, acc.)",
           "transliteration": "ṭāba ṭ-ṭālib ___",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "be_good.PST.3SG.M · DEF-student · ___"
         },
         {
           "sentence": "اشتريت رطلًا {{answer}}.",
@@ -2926,7 +3168,8 @@
           "translation": "I bought a pound of grapes.",
           "hint": "of grapes (tamyīz, acc.)",
           "transliteration": "ishtaraytu raṭlan ___",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "buy.PST.1SG · pound.INDF.ACC · ___"
         },
         {
           "sentence": "ازدادت المدينة {{answer}} هذا العقد.",
@@ -2934,7 +3177,8 @@
           "translation": "The city grew in population this decade.",
           "hint": "in population (tamyīz, acc.)",
           "transliteration": "izdādat al-madīna ___ hādhā l-ʿaqd",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "increase.PST.3SG.F · DEF-city · ___ · this.SG.M · DEF-decade"
         }
       ]
     },
@@ -2964,7 +3208,8 @@
           "translation": "The train arrives on time always.",
           "hint": "arrives (assimilated, و drops)",
           "transliteration": "al-qiṭār ___ fī l-mawʿid dāʾiman",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF-train · ___ · in · DEF-appointment · always.ACC"
         },
         {
           "sentence": "{{answer}} الحقيقة من فضلك.",
@@ -2972,7 +3217,8 @@
           "translation": "Say the truth, please.",
           "hint": "say! (hollow, command)",
           "transliteration": "___ al-ḥaqīqa min faḍlik",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · DEF-truth · from · favour-2SG.M.POSS"
         },
         {
           "sentence": "هو {{answer}} إلى الله كل ليلة.",
@@ -2980,7 +3226,8 @@
           "translation": "He prays to God every night.",
           "hint": "prays (defective final و)",
           "transliteration": "huwa ___ ilā llāh kull layla",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG.M · ___ · to · God · every · night.GEN"
         },
         {
           "sentence": "لم {{answer}} الطفل إلى المدرسة اليوم.",
@@ -2988,7 +3235,8 @@
           "translation": "The child didn't walk to school today.",
           "hint": "walk (defective, ي drops in jussive)",
           "transliteration": "lam ___ aṭ-ṭifl ilā l-madrasa l-yawm",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NEG.PST · ___ · DEF-child · to · DEF-school · DEF-day"
         },
         {
           "sentence": "متى {{answer}} إلى البيت أمس؟",
@@ -2996,7 +3244,8 @@
           "translation": "When did you return home yesterday?",
           "hint": "returned (hollow past)",
           "transliteration": "matā ___ ilā l-bayt ams",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "when.Q · ___ · to · DEF-house · yesterday"
         },
         {
           "sentence": "نحن {{answer}} القهوة كل صباح.",
@@ -3004,7 +3253,8 @@
           "translation": "We drink coffee every morning.",
           "hint": "drink (sound, for contrast)",
           "transliteration": "naḥnu ___ al-qahwa kull ṣabāḥ",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · ___ · DEF-coffee · every · morning.GEN"
         }
       ]
     },
@@ -3034,7 +3284,8 @@
           "translation": "Everyone attended the meeting except their manager.",
           "hint": "except",
           "transliteration": "ḥaḍara l-jamīʿ al-ijtimāʿ ___ mudīrahum",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "attend.PST.3SG.M · DEF-all · DEF-meeting · ___ · manager.ACC-3PL.POSS"
         },
         {
           "sentence": "قرأت الكتاب كله {{answer}} الفصل الأخير.",
@@ -3042,7 +3293,8 @@
           "translation": "I read the whole book except the last chapter.",
           "hint": "except",
           "transliteration": "qaraʾtu l-kitāb kullah ___ al-faṣl al-akhīr",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "read.PST.1SG · DEF-book · all-3SG.M.POSS · ___ · DEF-chapter · DEF-last"
         },
         {
           "sentence": "لا أشرب {{answer}} الماء.",
@@ -3050,7 +3302,8 @@
           "translation": "I drink nothing but water.",
           "hint": "nothing but",
           "transliteration": "lā ashrab ___ al-māʾ",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · drink.PRS.1SG · ___ · DEF-water"
         },
         {
           "sentence": "نجح الطلاب {{answer}} واحد.",
@@ -3058,7 +3311,8 @@
           "translation": "The students passed except one.",
           "hint": "except (as noun, + gen.)",
           "transliteration": "najaḥa ṭ-ṭullāb ___ wāḥid",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "succeed.PST.3SG.M · DEF-student.PL · ___ · one.GEN"
         },
         {
           "sentence": "لم يبق في الصف {{answer}} طالبين.",
@@ -3066,7 +3320,8 @@
           "translation": "Only two students remained in the class.",
           "hint": "except / only (+ gen.)",
           "transliteration": "lam yabqa fī ṣ-ṣaff ___ ṭālibayn",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG.PST · remain.3SG.M · in · DEF-class · ___ · student.DU.GEN"
         },
         {
           "sentence": "جاء الضيوف {{answer}} صديقي المريض.",
@@ -3074,7 +3329,8 @@
           "translation": "The guests came except my sick friend.",
           "hint": "except (+ acc.)",
           "transliteration": "jāʾa ḍ-ḍuyūf ___ ṣadīqī l-marīḍ",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "come.PST.3SG.M · DEF-guest.PL · ___ · friend-1SG.POSS · DEF-sick"
         }
       ]
     },
@@ -3104,7 +3360,8 @@
           "translation": "O students, pay close attention.",
           "hint": "O (vocative particle)",
           "transliteration": "___ ayyuhā ṭ-ṭullāb, intabihū jayyidan",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · VOC.M · DEF-student.PL · heed.IMP.2PL · well.ACC"
         },
         {
           "sentence": "يا {{answer}} الناس، اسمعوا كلامي.",
@@ -3112,7 +3369,8 @@
           "translation": "O people, hear my words.",
           "hint": "O you (formal vocative)",
           "transliteration": "yā ___ an-nās, ismaʿū kalāmī",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "VOC · ___ · DEF-people · hear.IMP.2PL · speech-1SG.POSS"
         },
         {
           "sentence": "والله {{answer}} على تحقيق هدفي.",
@@ -3120,7 +3378,8 @@
           "translation": "By God, I shall certainly work to achieve my goal.",
           "hint": "I shall surely work (energetic نّ)",
           "transliteration": "wa-llāh ___ ʿalā taḥqīq hadafī",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "by-God · ___ · on · achievement · goal-1SG.POSS"
         },
         {
           "sentence": "{{answer}} الحقيقة مهما كان الثمن.",
@@ -3128,7 +3387,8 @@
           "translation": "I will certainly tell the truth whatever the cost.",
           "hint": "I shall surely say (energetic نّ)",
           "transliteration": "___ al-ḥaqīqa mahmā kāna th-thaman",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · DEF-truth · whatever · be.PST.3SG.M · DEF-price"
         },
         {
           "sentence": "يا {{answer}} السيدة، تفضلي بالجلوس.",
@@ -3136,7 +3396,8 @@
           "translation": "O madam, please have a seat.",
           "hint": "O you (f. formal vocative)",
           "transliteration": "yā ___ as-sayyida, tafaḍḍalī bi-l-julūs",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "VOC · ___ · DEF-lady · please.IMP.2SG.F · with-DEF-sitting"
         },
         {
           "sentence": "لَـ{{answer}} الواجب قبل النوم.",
@@ -3174,7 +3435,8 @@
           "translation": "You alone we worship, and You we ask for help.",
           "hint": "You alone (fronted object)",
           "transliteration": "___ naʿbud wa-iyyāka nastaʿīn",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · worship.PRS.1PL · and-OBJ.2SG.M · seek.help.PRS.1PL"
         },
         {
           "sentence": "{{answer}} العلم نور.",
@@ -3182,7 +3444,8 @@
           "translation": "Knowledge is but a light.",
           "hint": "only / but (restriction)",
           "transliteration": "___ al-ʿilm nūr",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · DEF-knowledge · light"
         },
         {
           "sentence": "ما نجح {{answer}} المجتهد.",
@@ -3190,7 +3453,8 @@
           "translation": "None succeeded but the diligent one.",
           "hint": "exceptive particle after the negation (not سوى)",
           "transliteration": "mā najaḥa ___ al-mujtahid",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · succeed.PST.3SG.M · ___ · DEF-diligent"
         },
         {
           "sentence": "{{answer}} الطاولة كتاب قديم.",
@@ -3198,7 +3462,8 @@
           "translation": "On the table is an old book. (fronted phrase)",
           "hint": "on (fronted for emphasis)",
           "transliteration": "___ aṭ-ṭāwila kitāb qadīm",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · DEF-table · book · old"
         },
         {
           "sentence": "{{answer}} الحق يعلو ولا يعلى عليه.",
@@ -3206,7 +3471,8 @@
           "translation": "Truth alone prevails and is not overcome.",
           "hint": "only / but (restriction)",
           "transliteration": "___ al-ḥaqq yaʿlū wa-lā yuʿlā ʿalayh",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · DEF-truth · prevail.PRS.3SG.M · and-NEG · prevail.PRS.PASS.3SG.M · on-3SG.M"
         },
         {
           "sentence": "{{answer}} وحده أشكو حزني.",
@@ -3214,7 +3480,8 @@
           "translation": "To You alone I complain of my sorrow. (fronted)",
           "hint": "to You alone (fronted phrase)",
           "transliteration": "___ waḥdaka ashkū ḥuznī",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · alone-2SG.M · complain.PRS.1SG · sorrow-POSS.1SG"
         }
       ]
     },
@@ -3244,7 +3511,8 @@
           "translation": "As for the students, they are diligent; as for the teachers, devoted.",
           "hint": "as for (topic marker)",
           "transliteration": "___ aṭ-ṭullāb fa-mujtahidūn...",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · DEF-student.PL · then-diligent.PL · and-as.for · DEF-teacher.PL · then-devoted.PL"
         },
         {
           "sentence": "أما العمل {{answer}}أنجزناه في الوقت.",
@@ -3260,7 +3528,8 @@
           "translation": "The guests have indeed arrived a little while ago.",
           "hint": "indeed (qad + past)",
           "transliteration": "___ waṣala ḍ-ḍuyūf qabla qalīl",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · arrive.PST.3SG.M · DEF-guest.PL · before · little"
         },
         {
           "sentence": "{{answer}} اجتهدت طوال العام فنجحت.",
@@ -3268,7 +3537,8 @@
           "translation": "I did work hard all year, so I passed.",
           "hint": "indeed / truly (emphatic laqad)",
           "transliteration": "___ ijtahadtu ṭiwāl al-ʿām fa-najaḥtu",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · strive.PST.1SG · throughout · DEF-year · so-succeed.PST.1SG"
         },
         {
           "sentence": "{{answer}} يخطئ الإنسان أحيانًا.",
@@ -3276,7 +3546,8 @@
           "translation": "A person may sometimes err.",
           "hint": "may / sometimes (qad + present)",
           "transliteration": "___ yukhṭiʾ al-insān aḥyānan",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · err.PRS.3SG.M · DEF-human · sometimes.ACC"
         },
         {
           "sentence": "{{answer}} تغيرت المدينة كثيرًا منذ ذلك الحين.",
@@ -3284,7 +3555,8 @@
           "translation": "The city has indeed changed a lot since then.",
           "hint": "indeed (emphatic laqad)",
           "transliteration": "___ taghayyarat al-madīna kathīran...",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · change.PST.3SG.F · DEF-city · much.ACC · since · that.M · DEF-time"
         }
       ]
     }

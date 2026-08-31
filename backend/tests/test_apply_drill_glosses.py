@@ -73,3 +73,18 @@ def test_a_gloss_that_is_only_the_blank_says_nothing():
     structural rule and conveys nothing. Two Korean drills reached the tree
     that way before test_gloss_layer caught them."""
     assert adg.check("___", "{{answer}}?", "네") == "the whole gloss is the blank"
+
+
+def test_thai_is_segmented_not_split_on_whitespace():
+    """Thai writes without spaces, so a whole sentence is ONE whitespace
+    token and a correct three-cell gloss looks like a count error. 100
+    correct Thai glosses were rejected that way before the gate learned to
+    segment, which it does by borrowing the reading pipeline's own
+    segmentation — the same one the learner sees under the sentence."""
+    assert adg.tokenize("ผม{{answer}}ข้าว", "th") == ["phom", "{{answer}}", "khao"]
+    assert adg.check("1SG.M · ___ · rice", "ผม{{answer}}ข้าว", "กิน", "th") is None
+
+
+def test_spaced_languages_are_untouched_by_the_segmenter():
+    assert adg.tokenize("Yo {{answer}} pan", "es") == ["Yo", "{{answer}}", "pan"]
+    assert adg.check("1SG · ___ · bread", "Yo {{answer}} pan", "como", "es") is None

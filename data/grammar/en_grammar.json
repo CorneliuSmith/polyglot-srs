@@ -274,7 +274,8 @@
           "answer": "the",
           "translation": "You both know which door.",
           "hint": "both of you can identify it",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "POL · close.IMP · ___ · door.SG"
         },
         {
           "sentence": "{{answer}} keys in my hand are mine.",
@@ -2249,7 +2250,8 @@
           "answer": "in",
           "translation": "Complete a document.",
           "hint": "the form particle",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "POL · fill.IMP · ___ · this.DEM.SG · form.SG"
         },
         {
           "sentence": "I'll pick you {{answer}} at eight.",

@@ -48,7 +48,8 @@
           "translation": "I am.",
           "hint": "am — 1st person singular of \"to be\"",
           "display_order": 1,
-          "transliteration": "man ___."
+          "transliteration": "man ___.",
+          "gloss": "1SG · ___"
         },
         {
           "sentence": "تو {{answer}}.",
@@ -56,7 +57,8 @@
           "translation": "You are.",
           "hint": "are — 2nd person singular of \"to be\"",
           "display_order": 2,
-          "transliteration": "to ___."
+          "transliteration": "to ___.",
+          "gloss": "2SG · ___"
         },
         {
           "sentence": "ما {{answer}}.",
@@ -64,7 +66,8 @@
           "translation": "We are.",
           "hint": "are — 1st person plural of \"to be\"",
           "display_order": 3,
-          "transliteration": "ma ___."
+          "transliteration": "ma ___.",
+          "gloss": "1PL · ___"
         },
         {
           "sentence": "او معلم {{answer}}.",
@@ -72,7 +75,8 @@
           "translation": "He/she is a teacher.",
           "hint": "'to be' in the third person singular — the full written form used in books and news, not the ending that attaches to the previous word in speech.",
           "display_order": 4,
-          "transliteration": "u mu'allim {{answer}}."
+          "transliteration": "u mu'allim {{answer}}.",
+          "gloss": "3SG · teacher · ___"
         },
         {
           "sentence": "شما کجا {{answer}}؟",
@@ -80,7 +84,8 @@
           "translation": "Where are you?",
           "hint": "'to be' in the second person plural — also the polite form for one person you address respectfully.",
           "display_order": 5,
-          "transliteration": "šumâ kojâ {{answer}}؟"
+          "transliteration": "šumâ kojâ {{answer}}؟",
+          "gloss": "2PL · where · ___"
         },
         {
           "sentence": "آنها دانشجو {{answer}}.",
@@ -88,7 +93,8 @@
           "translation": "They are students.",
           "hint": "'to be' with a third-person plural subject — the noun after the subject stays singular in Persian, so the verb is what shows the plural.",
           "display_order": 6,
-          "transliteration": "ân-hâ dânišjô {{answer}}."
+          "transliteration": "ân-hâ dânišjô {{answer}}.",
+          "gloss": "3PL · student · ___"
         },
         {
           "sentence": "من خسته {{answer}}.",
@@ -96,7 +102,8 @@
           "translation": "I am not tired.",
           "hint": "the negative of 'to be', first person singular — one word does the whole job; no separate word for 'not' is added.",
           "display_order": 7,
-          "transliteration": "man xaste {{answer}}."
+          "transliteration": "man xaste {{answer}}.",
+          "gloss": "1SG · tired · ___"
         }
       ]
     },
@@ -115,7 +122,8 @@
           "translation": "I want tea.",
           "hint": "want — the verb comes at the very end",
           "display_order": 1,
-          "transliteration": "man chay ___."
+          "transliteration": "man chay ___.",
+          "gloss": "1SG · tea · ___"
         },
         {
           "sentence": "من خانه {{answer}}.",
@@ -123,7 +131,8 @@
           "translation": "I see the house.",
           "hint": "see — verb-final position",
           "display_order": 2,
-          "transliteration": "man khane ___."
+          "transliteration": "man khane ___.",
+          "gloss": "1SG · house · ___"
         },
         {
           "sentence": "من نان {{answer}}.",
@@ -131,7 +140,8 @@
           "translation": "I eat bread.",
           "hint": "eat — verb at the very end",
           "display_order": 3,
-          "transliteration": "man nan ___."
+          "transliteration": "man nan ___.",
+          "gloss": "1SG · bread · ___"
         },
         {
           "sentence": "پدرم روزنامه {{answer}}.",
@@ -139,7 +149,8 @@
           "translation": "My father reads the newspaper.",
           "hint": "'to read', third person singular present — English puts it right after the subject; Persian holds it until after the object.",
           "display_order": 4,
-          "transliteration": "pedaram ruznâme {{answer}}."
+          "transliteration": "pedaram ruznâme {{answer}}.",
+          "gloss": "father-1SG.POSS · newspaper · ___"
         },
         {
           "sentence": "شما امشب کجا شام {{answer}}؟",
@@ -147,7 +158,8 @@
           "translation": "Where are you eating dinner tonight?",
           "hint": "'to eat', second person plural present — a question word in the middle does not pull the verb forward.",
           "display_order": 5,
-          "transliteration": "šumâ imšab kojâ šâm {{answer}}؟"
+          "transliteration": "šumâ imšab kojâ šâm {{answer}}؟",
+          "gloss": "2PL · this-night · where · dinner · ___"
         },
         {
           "sentence": "ما امروز به کلاس {{answer}}.",
@@ -155,7 +167,8 @@
           "translation": "We are not going to class today.",
           "hint": "'to go', first person plural, negative — a time word and a destination both come before it, and it still closes the sentence.",
           "display_order": 6,
-          "transliteration": "mâ imrôz ba kelâs {{answer}}."
+          "transliteration": "mâ imrôz ba kelâs {{answer}}.",
+          "gloss": "1PL · this-day · to · class · ___"
         },
         {
           "sentence": "بچه‌ها در پارک {{answer}}.",
@@ -163,7 +176,8 @@
           "translation": "The children are running in the park.",
           "hint": "'to run', third person plural present — the place phrase comes before it, where English would put it after.",
           "display_order": 7,
-          "transliteration": "be-če-hâ dar pârk {{answer}}."
+          "transliteration": "be-če-hâ dar pârk {{answer}}.",
+          "gloss": "child-PL · in · park · ___"
         }
       ]
     },
@@ -182,7 +196,8 @@
           "translation": "You go / You are going.",
           "hint": "go — 2nd person singular, -ی ending",
           "display_order": 1,
-          "transliteration": "to ___."
+          "transliteration": "to ___.",
+          "gloss": "2SG · ___"
         },
         {
           "sentence": "او {{answer}}.",
@@ -190,7 +205,8 @@
           "translation": "He/she goes.",
           "hint": "goes — 3rd person singular, -د ending",
           "display_order": 2,
-          "transliteration": "u ___."
+          "transliteration": "u ___.",
+          "gloss": "3SG · ___"
         },
         {
           "sentence": "من {{answer}}.",
@@ -198,7 +214,8 @@
           "translation": "I go / I'm going.",
           "hint": "go — 1st person singular, -م ending",
           "display_order": 3,
-          "transliteration": "man ___."
+          "transliteration": "man ___.",
+          "gloss": "1SG · ___"
         },
         {
           "sentence": "ما هر روز فارسی {{answer}}.",
@@ -206,7 +223,8 @@
           "translation": "We study Persian every day.",
           "hint": "'to read, to study', first person plural — the present stem with the -یم ending.",
           "display_order": 4,
-          "transliteration": "mâ har rôz fârsī {{answer}}."
+          "transliteration": "mâ har rôz fârsī {{answer}}.",
+          "gloss": "1PL · every · day · Persian · ___"
         },
         {
           "sentence": "شما کجا کار {{answer}}؟",
@@ -214,7 +232,8 @@
           "translation": "Where do you work?",
           "hint": "'to do', second person plural — the verbal half of this two-word idiom, carrying the -ید ending.",
           "display_order": 5,
-          "transliteration": "šumâ kojâ -kâr {{answer}}؟"
+          "transliteration": "šumâ kojâ -kâr {{answer}}؟",
+          "gloss": "2PL · where · work · ___"
         },
         {
           "sentence": "آنها زود {{answer}}.",
@@ -222,7 +241,8 @@
           "translation": "They go to bed early.",
           "hint": "'to sleep', third person plural — the -ند ending, the plural partner of the third-person singular one.",
           "display_order": 6,
-          "transliteration": "ân-hâ zūd {{answer}}."
+          "transliteration": "ân-hâ zūd {{answer}}.",
+          "gloss": "3PL · early · ___"
         },
         {
           "sentence": "مادرم هر شب چای {{answer}}.",
@@ -230,7 +250,8 @@
           "translation": "My mother drinks tea every night.",
           "hint": "'to eat, to drink', third person singular — the same -د ending as on 'he/she goes', on a different stem.",
           "display_order": 7,
-          "transliteration": "mâdaram har šab čây {{answer}}."
+          "transliteration": "mâdaram har šab čây {{answer}}.",
+          "gloss": "mother-1SG.POSS · every · night · tea · ___"
         }
       ]
     },
@@ -249,7 +270,8 @@
           "translation": "I don't know.",
           "hint": "don't know — نمی‌ prefixed onto می‌دانم",
           "display_order": 1,
-          "transliteration": "man ___."
+          "transliteration": "man ___.",
+          "gloss": "1SG · ___"
         },
         {
           "sentence": "من {{answer}}.",
@@ -257,7 +279,8 @@
           "translation": "I don't want (to).",
           "hint": "don't want — نمی‌ prefixed onto می‌خواهم",
           "display_order": 2,
-          "transliteration": "man ___."
+          "transliteration": "man ___.",
+          "gloss": "1SG · ___"
         },
         {
           "sentence": "من {{answer}}.",
@@ -265,7 +288,8 @@
           "translation": "I don't see.",
           "hint": "don't see — نمی‌ prefixed onto می‌بینم",
           "display_order": 3,
-          "transliteration": "man ___."
+          "transliteration": "man ___.",
+          "gloss": "1SG · ___"
         },
         {
           "sentence": "تو چرا غذا {{answer}}؟",
@@ -273,7 +297,8 @@
           "translation": "Why are you not eating?",
           "hint": "'to eat', second person singular, negative — the negative goes on the very front, ahead of the present-tense marker; the person ending stays at the back.",
           "display_order": 4,
-          "transliteration": "to čarâ ġizâ {{answer}}؟"
+          "transliteration": "to čarâ ġizâ {{answer}}؟",
+          "gloss": "2SG · why · food · ___"
         },
         {
           "sentence": "ما امروز کلاس {{answer}}.",
@@ -281,7 +306,8 @@
           "translation": "We do not have class today.",
           "hint": "'to have', first person plural, negative — this verb takes no present-tense marker at all, so the negative attaches straight to the stem.",
           "display_order": 5,
-          "transliteration": "mâ imrôz kelâs {{answer}}."
+          "transliteration": "mâ imrôz kelâs {{answer}}.",
+          "gloss": "1PL · today · class · ___"
         },
         {
           "sentence": "آنها امشب به مهمانی {{answer}}.",
@@ -289,7 +315,8 @@
           "translation": "They are not coming to the party tonight.",
           "hint": "'to come', third person plural, negative — the negative sits at the front and the plural ending at the back, with the verb wrapped between them.",
           "display_order": 6,
-          "transliteration": "ân-hâ imšab ba mihmânī {{answer}}."
+          "transliteration": "ân-hâ imšab ba mihmânī {{answer}}.",
+          "gloss": "3PL · tonight · to · party · ___"
         },
         {
           "sentence": "او دیگر اینجا زندگی {{answer}}.",
@@ -297,7 +324,8 @@
           "translation": "He/she does not live here anymore.",
           "hint": "'to do', third person singular, negative — in a two-part verb the negative attaches to the half that carries the person ending, never to the noun in front of it.",
           "display_order": 7,
-          "transliteration": "u dīgar injâ zindagī {{answer}}."
+          "transliteration": "u dīgar injâ zindagī {{answer}}.",
+          "gloss": "3SG · anymore · here · life · ___"
         }
       ]
     },
@@ -316,7 +344,8 @@
           "translation": "a good book",
           "hint": "good — placed AFTER the noun, not before",
           "display_order": 1,
-          "transliteration": "ketab-e ___."
+          "transliteration": "ketab-e ___.",
+          "gloss": "book.EZ · ___"
         },
         {
           "sentence": "دوست {{answer}}.",
@@ -324,7 +353,8 @@
           "translation": "a good friend",
           "hint": "good — again, after the noun",
           "display_order": 2,
-          "transliteration": "dust-e ___."
+          "transliteration": "dust-e ___.",
+          "gloss": "friend.EZ · ___"
         },
         {
           "sentence": "مرد {{answer}}.",
@@ -332,7 +362,8 @@
           "translation": "a big man",
           "hint": "big — adjective follows the noun",
           "display_order": 3,
-          "transliteration": "mard-e ___."
+          "transliteration": "mard-e ___.",
+          "gloss": "man.EZ · ___"
         },
         {
           "sentence": "من یک ماشین {{answer}} دارم.",
@@ -340,7 +371,8 @@
           "translation": "I have a red car.",
           "hint": "red — the describing word follows the noun, so it lands between the noun and the verb at the end.",
           "display_order": 4,
-          "transliteration": "man yak mâšīn {{answer}} dâram."
+          "transliteration": "man yak mâšīn {{answer}} dâram.",
+          "gloss": "1SG · INDF · car · ___ · have.PRS.1SG"
         },
         {
           "sentence": "تو آب {{answer}} می‌خواهی؟",
@@ -348,7 +380,8 @@
           "translation": "Do you want cold water?",
           "hint": "cold — it comes after the thing it describes, and the verb still holds the last place.",
           "display_order": 5,
-          "transliteration": "to âb-e {{answer}} mixâhi?"
+          "transliteration": "to âb-e {{answer}} mixâhi?",
+          "gloss": "2SG · water.EZ · ___ · PROG-want.2SG"
         },
         {
           "sentence": "او یک معلم {{answer}} است.",
@@ -356,7 +389,8 @@
           "translation": "He/she is a new teacher.",
           "hint": "new — even with 'a' in front of the noun, the describing word goes after the noun and before 'is'.",
           "display_order": 6,
-          "transliteration": "u yak mu'allim {{answer}} ast."
+          "transliteration": "u yak mu'allim {{answer}} ast.",
+          "gloss": "3SG · INDF · teacher · ___ · be.PRS.3SG"
         },
         {
           "sentence": "من غذای {{answer}} دوست ندارم.",
@@ -364,7 +398,8 @@
           "translation": "I do not like sweet food.",
           "hint": "sweet — the noun in front already carries the ی that links the two words after a vowel, and the description follows that link.",
           "display_order": 7,
-          "transliteration": "man ġazâ-ye {{answer}} dust nadâram."
+          "transliteration": "man ġazâ-ye {{answer}} dust nadâram.",
+          "gloss": "1SG · food.EZ · ___ · friend · NEG-have.PRS.1SG"
         }
       ]
     },
@@ -383,7 +418,8 @@
           "translation": "Are you going?",
           "hint": "going — statement form, the question mark signals the question",
           "display_order": 1,
-          "transliteration": "to ___?"
+          "transliteration": "to ___?",
+          "gloss": "2SG · ___"
         },
         {
           "sentence": "او {{answer}}؟",
@@ -391,7 +427,8 @@
           "translation": "Is he/she going?",
           "hint": "going — same form as the statement",
           "display_order": 2,
-          "transliteration": "u ___?"
+          "transliteration": "u ___?",
+          "gloss": "3SG · ___"
         },
         {
           "sentence": "تو خوب {{answer}}؟",
@@ -399,7 +436,8 @@
           "translation": "Are you well?",
           "hint": "are — \"to be,\" unchanged in form; only the ؟ makes it a question",
           "display_order": 3,
-          "transliteration": "to khub ___?"
+          "transliteration": "to khub ___?",
+          "gloss": "2SG · good · ___"
         },
         {
           "sentence": "شما فارسی {{answer}}؟",
@@ -407,7 +445,8 @@
           "translation": "Do you know Persian?",
           "hint": "'to know', second person plural present — written exactly as it would be in a statement; only the final mark differs.",
           "display_order": 4,
-          "transliteration": "šumâ fârsī {{answer}}؟"
+          "transliteration": "šumâ fârsī {{answer}}؟",
+          "gloss": "2PL · Persian · ___"
         },
         {
           "sentence": "آنها فردا {{answer}}؟",
@@ -415,7 +454,8 @@
           "translation": "Are they coming tomorrow?",
           "hint": "'to come', third person plural present — nothing is added in front and nothing changes places to make a question.",
           "display_order": 5,
-          "transliteration": "ân-hâ fardâ {{answer}}؟"
+          "transliteration": "ân-hâ fardâ {{answer}}؟",
+          "gloss": "3PL · tomorrow · ___"
         },
         {
           "sentence": "تو گرسنه {{answer}}؟",
@@ -423,7 +463,8 @@
           "translation": "Are you not hungry?",
           "hint": "the negative of 'to be', second person singular — a negative question is just the negative statement, with the mark at the end doing the asking.",
           "display_order": 6,
-          "transliteration": "to gurusna {{answer}}؟"
+          "transliteration": "to gurusna {{answer}}؟",
+          "gloss": "2SG · hungry · ___"
         },
         {
           "sentence": "امروز کلاس {{answer}}؟",
@@ -431,7 +472,8 @@
           "translation": "Do we have class today?",
           "hint": "'to have', first person plural — the pronoun is left out because the ending already names the subject, and the question needs no extra word.",
           "display_order": 7,
-          "transliteration": "imrôz kelâs {{answer}}؟"
+          "transliteration": "imrôz kelâs {{answer}}؟",
+          "gloss": "today · class · ___"
         }
       ]
     },
@@ -450,7 +492,8 @@
           "translation": "books",
           "hint": "the plural suffix, often typed as a separate word",
           "display_order": 1,
-          "transliteration": "ketab___."
+          "transliteration": "ketab___.",
+          "gloss": "book · ___"
         },
         {
           "sentence": "خانه {{answer}}.",
@@ -458,7 +501,8 @@
           "translation": "houses",
           "hint": "plural — same suffix",
           "display_order": 2,
-          "transliteration": "khane___."
+          "transliteration": "khane___.",
+          "gloss": "house · ___"
         },
         {
           "sentence": "دوست {{answer}}.",
@@ -466,7 +510,8 @@
           "translation": "friends",
           "hint": "plural — same suffix",
           "display_order": 3,
-          "transliteration": "dust___."
+          "transliteration": "dust___.",
+          "gloss": "friend · ___"
         },
         {
           "sentence": "{{answer}} در خانه هستند.",
@@ -474,7 +519,8 @@
           "translation": "The children are at home.",
           "hint": "children — the word for one child plus the general plural ending, joined on with a thin connector after its silent final letter.",
           "display_order": 4,
-          "transliteration": "{{answer}} dar xâna hastand."
+          "transliteration": "{{answer}} dar xâna hastand.",
+          "gloss": "___ · in · house · be.PRS.3PL"
         },
         {
           "sentence": "من سه {{answer}} دارم.",
@@ -482,7 +528,8 @@
           "translation": "I have three books.",
           "hint": "book — after a number Persian leaves the noun bare, so nothing is added to it here even though English counts more than one.",
           "display_order": 5,
-          "transliteration": "man si {{answer}} dâram."
+          "transliteration": "man si {{answer}} dâram.",
+          "gloss": "1SG · three · ___ · have.PRS.1SG"
         },
         {
           "sentence": "{{answer}} کجا هستند؟",
@@ -490,7 +537,8 @@
           "translation": "Where are the keys?",
           "hint": "keys — the plural of the small metal thing that opens a door; on this noun the ending is written straight onto the word.",
           "display_order": 6,
-          "transliteration": "{{answer}} kojâ hastand؟"
+          "transliteration": "{{answer}} kojâ hastand؟",
+          "gloss": "___ · where · be.PRS.3PL"
         },
         {
           "sentence": "این {{answer}} گران نیستند.",
@@ -498,7 +546,8 @@
           "translation": "These apples are not expensive.",
           "hint": "apples — the fruit, made plural; the demonstrative in front does not spare the noun its plural ending.",
           "display_order": 7,
-          "transliteration": "in {{answer}} gerân nistand."
+          "transliteration": "in {{answer}} gerân nistand.",
+          "gloss": "this · ___ · expensive · NEG-be.PRS.3PL"
         }
       ]
     },
@@ -517,7 +566,8 @@
           "translation": "I want the book.",
           "hint": "the definite object marker — a postposition, placed after the noun",
           "display_order": 1,
-          "transliteration": "ketab ___ mikhaham."
+          "transliteration": "ketab ___ mikhaham.",
+          "gloss": "book · ___ · PROG-want.1SG"
         },
         {
           "sentence": "خانه {{answer}} می‌بینم.",
@@ -525,7 +575,8 @@
           "translation": "I see the house.",
           "hint": "the definite object marker",
           "display_order": 2,
-          "transliteration": "khane ___ mibinam."
+          "transliteration": "khane ___ mibinam.",
+          "gloss": "house · ___ · PROG-see.1SG"
         },
         {
           "sentence": "غذا {{answer}} می‌خورم.",
@@ -533,7 +584,8 @@
           "translation": "I'm eating the food.",
           "hint": "the definite object marker, standing after the noun",
           "display_order": 3,
-          "transliteration": "ghaza ___ mikhoram."
+          "transliteration": "ghaza ___ mikhoram.",
+          "gloss": "food · ___ · PROG-eat.1SG"
         },
         {
           "sentence": "من او {{answer}} می‌شناسم.",
@@ -541,7 +593,8 @@
           "translation": "I know him/her.",
           "hint": "the postposition that marks a definite object — a pronoun standing as the object is specific by its nature, so it is never left unmarked.",
           "display_order": 4,
-          "transliteration": "man u {{answer}} mišenâsam."
+          "transliteration": "man u {{answer}} mišenâsam.",
+          "gloss": "1SG · 3SG · ___ · PROG-know.1SG"
         },
         {
           "sentence": "چرا این کتاب {{answer}} نمی‌خوانی؟",
@@ -549,7 +602,8 @@
           "translation": "Why aren't you reading this book?",
           "hint": "the marker a definite object needs — one particular book is meant, and neither the question nor the negative excuses leaving it out.",
           "display_order": 5,
-          "transliteration": "čerâ in ketâb {{answer}} nemixâni?"
+          "transliteration": "čerâ in ketâb {{answer}} nemixâni?",
+          "gloss": "why · this · book · ___ · NEG-PROG-read.2SG"
         },
         {
           "sentence": "من {{answer}} می‌فروشم.",
@@ -557,7 +611,8 @@
           "translation": "I'm selling the car.",
           "hint": "the car and the marker a definite object carries — both words go in the blank, and the marker comes second.",
           "display_order": 6,
-          "transliteration": "man {{answer}} miforušam."
+          "transliteration": "man {{answer}} miforušam.",
+          "gloss": "1SG · ___ · PROG-sell.1SG"
         }
       ]
     },
@@ -576,7 +631,8 @@
           "translation": "This is my book.",
           "hint": "the pronoun for the owner — \"me,\" linked by the unwritten ezafe",
           "transliteration": "in ketab-e ___ ast.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this · book.EZ · ___ · be.PRS.3SG"
         },
         {
           "sentence": "این ماشین {{answer}} است.",
@@ -584,7 +640,8 @@
           "translation": "This is his/her car.",
           "hint": "the owner — \"him/her\"; the ezafe vowel is not written",
           "transliteration": "in mashin-e ___ ast.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "this · car.EZ · ___ · be.PRS.3SG"
         },
         {
           "sentence": "این خانهٔ {{answer}} است.",
@@ -592,7 +649,8 @@
           "translation": "This is our house.",
           "hint": "the owner — \"us\"; the ezafe is written on خانه as a hamza",
           "transliteration": "in khane-ye ___ ast.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "this · house.EZ · ___ · be.PRS.3SG"
         },
         {
           "sentence": "این {{answer}} تو است.",
@@ -600,7 +658,8 @@
           "translation": "This is your friend.",
           "hint": "friend — the possessed thing comes FIRST, the owner second",
           "transliteration": "in ___ to ast.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "this · ___ · 2SG · be.PRS.3SG"
         },
         {
           "sentence": "این دفتر {{answer}} است.",
@@ -608,7 +667,8 @@
           "translation": "This is the teacher's notebook.",
           "hint": "teacher — the owner can be a noun, not just a pronoun",
           "transliteration": "in daftar-e ___ ast.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "this · notebook.EZ · ___ · be.PRS.3SG"
         },
         {
           "sentence": "{{answer}} علی معلم است.",
@@ -616,7 +676,8 @@
           "translation": "Ali's brother is a teacher.",
           "hint": "brother — the thing possessed is named first and the owner's name follows straight after it, with nothing written between the two.",
           "display_order": 6,
-          "transliteration": "{{answer}} 'alâ mu'allim ast."
+          "transliteration": "{{answer}} 'alâ mu'allim ast.",
+          "gloss": "___ · Ali · teacher · be.PRS.3SG"
         }
       ]
     },
@@ -635,7 +696,8 @@
           "translation": "My book is on the table.",
           "hint": "my book — noun plus the -am ending, written as one word",
           "transliteration": "___ ruye miz ast.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · on.EZ · table · be.PRS.3SG"
         },
         {
           "sentence": "{{answer}} کجاست؟",
@@ -643,7 +705,8 @@
           "translation": "Where is your mother?",
           "hint": "your mother — noun plus the -at ending",
           "transliteration": "___ kojast?",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · where-be.PRS.3SG"
         },
         {
           "sentence": "{{answer}} علی است.",
@@ -651,7 +714,8 @@
           "translation": "His name is Ali.",
           "hint": "his name — noun plus the -ash ending",
           "transliteration": "___ Ali ast.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · Ali · be.PRS.3SG"
         },
         {
           "sentence": "{{answer}} بزرگ است.",
@@ -659,7 +723,8 @@
           "translation": "My house is big.",
           "hint": "my house — after the silent ه the ending joins with a thin connector",
           "transliteration": "___ bozorg ast.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · big · be.PRS.3SG"
         },
         {
           "sentence": "{{answer}} در تهران زندگی می‌کند.",
@@ -667,7 +732,8 @@
           "translation": "My friend lives in Tehran.",
           "hint": "my friend — noun plus the -am ending",
           "transliteration": "___ dar Tehran zendegi mikonad.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · in · Tehran · life · PROG-do.3SG"
         },
         {
           "sentence": "{{answer}} از اینجا خیلی دور است.",
@@ -675,7 +741,8 @@
           "translation": "Our city is very far from here.",
           "hint": "our city — the noun takes the ending that means \"our\" and the two are written as a single word.",
           "display_order": 6,
-          "transliteration": "{{answer}} az injâ xaylê dur ast."
+          "transliteration": "{{answer}} az injâ xaylê dur ast.",
+          "gloss": "___ · from · here · very · far · be.PRS.3SG"
         },
         {
           "sentence": "چرا {{answer}} امروز اینجا نیست؟",
@@ -683,7 +750,8 @@
           "translation": "Why isn't their teacher here today?",
           "hint": "their teacher — rather than a separate pronoun after the noun, the 3rd person plural ending goes on the end of it.",
           "display_order": 7,
-          "transliteration": "čarâ {{answer}} imrôz injâ nêst؟"
+          "transliteration": "čarâ {{answer}} imrôz injâ nêst؟",
+          "gloss": "why · ___ · today · here · NEG-be.PRS.3SG"
         }
       ]
     },
@@ -702,7 +770,8 @@
           "translation": "I have a book.",
           "hint": "have — 1st person singular, and no می prefix on this verb",
           "transliteration": "man yek ketab ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · INDF · book · ___"
         },
         {
           "sentence": "تو یک خواهر {{answer}}.",
@@ -710,7 +779,8 @@
           "translation": "You have a sister.",
           "hint": "have — 2nd person singular",
           "transliteration": "to yek khahar ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "2SG · INDF · sister · ___"
         },
         {
           "sentence": "او یک ماشین {{answer}}.",
@@ -718,7 +788,8 @@
           "translation": "He/she has a car.",
           "hint": "has — 3rd person singular",
           "transliteration": "u yek mashin ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG · INDF · car · ___"
         },
         {
           "sentence": "ما وقت {{answer}}.",
@@ -726,7 +797,8 @@
           "translation": "We have time.",
           "hint": "have — 1st person plural",
           "transliteration": "ma vaght ___.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · time · ___"
         },
         {
           "sentence": "من پول {{answer}}.",
@@ -734,7 +806,8 @@
           "translation": "I don't have money.",
           "hint": "don't have — the negative prefix ن, not نمی, on this verb",
           "transliteration": "man pul ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · money · ___"
         },
         {
           "sentence": "شما سوالی {{answer}}؟",
@@ -742,7 +815,8 @@
           "translation": "Do you have a question?",
           "hint": "have — 2nd person plural, agreeing with the polite subject of the question; this verb still takes no present-tense prefix.",
           "display_order": 6,
-          "transliteration": "šomâ so'âli {{answer}}?"
+          "transliteration": "šomâ so'âli {{answer}}?",
+          "gloss": "2PL · question-INDF · ___"
         },
         {
           "sentence": "آنها امروز کلاس {{answer}}.",
@@ -750,7 +824,8 @@
           "translation": "They don't have class today.",
           "hint": "don't have — 3rd person plural; this verb is negated with the single letter that ordinary verbs combine with the present prefix.",
           "display_order": 7,
-          "transliteration": "ân-hâ imrôz kelâs {{answer}}."
+          "transliteration": "ân-hâ imrôz kelâs {{answer}}.",
+          "gloss": "3PL · today · class · ___"
         }
       ]
     },
@@ -769,7 +844,8 @@
           "translation": "I went to school yesterday.",
           "hint": "went — past stem plus the 1st person singular ending",
           "transliteration": "man diruz be madrese ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · yesterday · to · school · ___"
         },
         {
           "sentence": "تو دیروز کجا {{answer}}؟",
@@ -777,7 +853,8 @@
           "translation": "Where did you go yesterday?",
           "hint": "went — past stem plus the 2nd person singular ending",
           "transliteration": "to diruz koja ___?",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "2SG · yesterday · where · ___"
         },
         {
           "sentence": "او به خانه {{answer}}.",
@@ -785,7 +862,8 @@
           "translation": "He/she went home.",
           "hint": "went — 3rd person singular, the bare past stem with no ending",
           "transliteration": "u be khane ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG · to · home · ___"
         },
         {
           "sentence": "ما دیشب فیلم {{answer}}.",
@@ -793,7 +871,8 @@
           "translation": "We saw a film last night.",
           "hint": "saw — past stem of دیدن plus the 1st person plural ending",
           "transliteration": "ma dishab film ___.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · last.night · film · ___"
         },
         {
           "sentence": "من غذا {{answer}}.",
@@ -801,7 +880,8 @@
           "translation": "I ate.",
           "hint": "ate — past stem of خوردن plus the 1st person singular ending",
           "transliteration": "man ghaza ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · food · ___"
         },
         {
           "sentence": "شما این کتاب را {{answer}}؟",
@@ -809,7 +889,8 @@
           "translation": "Did you read this book?",
           "hint": "read — the past stem of the verb meaning \"to read\", plus the 2nd person plural ending that matches the polite subject.",
           "display_order": 6,
-          "transliteration": "šumâ ên kitâb râ {{answer}}؟"
+          "transliteration": "šumâ ên kitâb râ {{answer}}؟",
+          "gloss": "2PL · this · book · OBJ · ___"
         },
         {
           "sentence": "مهمان‌ها دیر {{answer}}.",
@@ -817,7 +898,8 @@
           "translation": "The guests arrived late.",
           "hint": "arrived — the past stem of the verb meaning \"to come\", plus the 3rd person plural ending.",
           "display_order": 7,
-          "transliteration": "mihmân-hâ dêr {{answer}}."
+          "transliteration": "mihmân-hâ dêr {{answer}}.",
+          "gloss": "guest-PL · late · ___"
         }
       ]
     },
@@ -836,7 +918,8 @@
           "translation": "I saw him yesterday.",
           "hint": "saw — the PAST stem of دیدن with the 1st person ending",
           "transliteration": "diruz u ra ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "yesterday · 3SG · OBJ · ___"
         },
         {
           "sentence": "هر روز او را {{answer}}.",
@@ -844,7 +927,8 @@
           "translation": "I see him every day.",
           "hint": "see — the PRESENT stem of the same verb, with می",
           "transliteration": "har ruz u ra ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "every · day · 3SG · OBJ · ___"
         },
         {
           "sentence": "من به او {{answer}}.",
@@ -852,7 +936,8 @@
           "translation": "I told him.",
           "hint": "told — the past stem of گفتن; the present stem is گو",
           "transliteration": "man be u ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · to · 3SG · ___"
         },
         {
           "sentence": "من هر روز کتاب {{answer}}.",
@@ -860,7 +945,8 @@
           "translation": "I read a book every day.",
           "hint": "read — the present stem of خواندن, with می",
           "transliteration": "man har ruz ketab ___.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · every · day · book · ___"
         },
         {
           "sentence": "دیشب کتاب {{answer}}.",
@@ -868,7 +954,8 @@
           "translation": "Last night I read a book.",
           "hint": "read — the past stem of the same verb",
           "transliteration": "dishab ketab ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "last.night · book · ___"
         },
         {
           "sentence": "شما فردا کجا {{answer}}؟",
@@ -876,7 +963,8 @@
           "translation": "Where are you going tomorrow?",
           "hint": "are going — the present stem of رفتن shares almost no letters with its past stem; that stem takes می in front and the 2nd person plural ending after",
           "display_order": 6,
-          "transliteration": "šumâ fardâ kojâ {{answer}}؟"
+          "transliteration": "šumâ fardâ kojâ {{answer}}؟",
+          "gloss": "2PL · tomorrow · where · ___"
         }
       ]
     },
@@ -895,7 +983,8 @@
           "translation": "I didn't go to school yesterday.",
           "hint": "didn't go — the ن prefix on the past form",
           "transliteration": "man diruz be madrese ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · yesterday · to · school · ___"
         },
         {
           "sentence": "او را {{answer}}.",
@@ -903,7 +992,8 @@
           "translation": "I didn't see him.",
           "hint": "didn't see — ن plus the past of دیدن",
           "transliteration": "u ra ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · OBJ · ___"
         },
         {
           "sentence": "ما چیزی {{answer}}.",
@@ -911,7 +1001,8 @@
           "translation": "We didn't say anything.",
           "hint": "didn't say — ن plus the past of گفتن, 1st person plural",
           "transliteration": "ma chizi ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · thing-INDF · ___"
         },
         {
           "sentence": "تو غذا {{answer}}؟",
@@ -919,7 +1010,8 @@
           "translation": "Didn't you eat?",
           "hint": "didn't eat — ن plus the past of خوردن, 2nd person singular",
           "transliteration": "to ghaza ___?",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "2SG · food · ___"
         },
         {
           "sentence": "او دیشب {{answer}}.",
@@ -927,7 +1019,8 @@
           "translation": "He didn't come last night.",
           "hint": "didn't come — ن plus the past of آمدن",
           "transliteration": "u dishab ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG · last.night · ___"
         }
       ]
     },
@@ -946,7 +1039,8 @@
           "translation": "I have seen this film.",
           "hint": "have seen — participle joined to the 1st person short form of \"to be\"",
           "transliteration": "man in film ra ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · this · film · OBJ · ___"
         },
         {
           "sentence": "او به تهران {{answer}} است.",
@@ -954,7 +1048,8 @@
           "translation": "He has gone to Tehran.",
           "hint": "gone — the participle; است carries the person here",
           "transliteration": "u be Tehran ___ ast.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · to · Tehran · ___ · be.PRS.3SG"
         },
         {
           "sentence": "ما این کتاب را {{answer}}.",
@@ -962,7 +1057,8 @@
           "translation": "We have read this book.",
           "hint": "have read — participle of خواندن, 1st person plural",
           "transliteration": "ma in ketab ra ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · this · book · OBJ · ___"
         },
         {
           "sentence": "تو تا حالا آنجا {{answer}}؟",
@@ -970,7 +1066,8 @@
           "translation": "Have you ever been there?",
           "hint": "have been/gone — participle, 2nd person singular",
           "transliteration": "to ta hala anja ___?",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "2SG · until · now · there · ___"
         },
         {
           "sentence": "من تازه غذا {{answer}}.",
@@ -978,7 +1075,8 @@
           "translation": "I have just eaten.",
           "hint": "have eaten — participle of خوردن, 1st person singular",
           "transliteration": "man taze ghaza ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · just · food · ___"
         }
       ]
     },
@@ -997,7 +1095,8 @@
           "translation": "This book is better than that book.",
           "hint": "better — the irregular comparative of خوب",
           "transliteration": "in ketab az an ketab ___ ast.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this · book · from · that · book · ___ · be.PRS.3SG"
         },
         {
           "sentence": "تهران از اصفهان {{answer}} است.",
@@ -1005,7 +1104,8 @@
           "translation": "Tehran is bigger than Isfahan.",
           "hint": "bigger — adjective plus the comparative suffix",
           "transliteration": "Tehran az Esfahan ___ ast.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "Tehran · from · Isfahan · ___ · be.PRS.3SG"
         },
         {
           "sentence": "برادرم از من {{answer}} است.",
@@ -1013,7 +1113,8 @@
           "translation": "My brother is younger than me.",
           "hint": "smaller/younger — adjective plus the comparative suffix",
           "transliteration": "baradaram az man ___ ast.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "brother-1SG.POSS · from · 1SG · ___ · be.PRS.3SG"
         },
         {
           "sentence": "او {{answer}} دوست من است.",
@@ -1021,7 +1122,8 @@
           "translation": "He is my best friend.",
           "hint": "best — irregular superlative, standing BEFORE the noun",
           "transliteration": "u ___ dust-e man ast.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG · ___ · friend.EZ · 1SG · be.PRS.3SG"
         },
         {
           "sentence": "این {{answer}} شهر ایران است.",
@@ -1029,7 +1131,8 @@
           "translation": "This is the biggest city in Iran.",
           "hint": "biggest — superlative suffix, and it comes before the noun",
           "transliteration": "in ___ shahr-e Iran ast.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "this · ___ · city.EZ · Iran · be.PRS.3SG"
         },
         {
           "sentence": "او از من {{answer}} می‌دود.",
@@ -1037,7 +1140,8 @@
           "translation": "He runs faster than I do.",
           "hint": "faster — the comparative suffix on the adjective for \"quick\"; it does this next to a verb just as it does before است",
           "display_order": 6,
-          "transliteration": "u az man {{answer}} midavad."
+          "transliteration": "u az man {{answer}} midavad.",
+          "gloss": "3SG · from · 1SG · ___ · PROG-run.PRS.3SG"
         },
         {
           "sentence": "من {{answer}} کتاب این کتابخانه را خواندم.",
@@ -1045,7 +1149,8 @@
           "translation": "I read the oldest book in this library.",
           "hint": "oldest — the superlative suffix on the adjective for old-of-things (not old-of-people), and remember which side of the noun a superlative sits on",
           "display_order": 7,
-          "transliteration": "man {{answer}} ketâb-e in ketâbxâne râ xândam."
+          "transliteration": "man {{answer}} ketâb-e in ketâbxâne râ xândam.",
+          "gloss": "1SG · ___ · book.EZ · this · library · OBJ · read.PST.1SG"
         }
       ]
     },
@@ -1064,7 +1169,8 @@
           "translation": "I saw him yesterday.",
           "hint": "I saw him — past verb with the 3rd person object stuck on the end",
           "transliteration": "diruz ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "yesterday · ___"
         },
         {
           "sentence": "من {{answer}}.",
@@ -1072,7 +1178,8 @@
           "translation": "I saw you.",
           "hint": "I saw you — same verb, 2nd person object clitic",
           "transliteration": "man ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · ___"
         },
         {
           "sentence": "من دیشب {{answer}}.",
@@ -1080,7 +1187,8 @@
           "translation": "I read it last night.",
           "hint": "I read it — past of خواندن with the object clitic",
           "transliteration": "man dishab ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · last.night · ___"
         },
         {
           "sentence": "ما {{answer}}.",
@@ -1088,7 +1196,8 @@
           "translation": "We saw him.",
           "hint": "we saw him — 1st person plural verb plus the object clitic",
           "transliteration": "ma ___.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · ___"
         },
         {
           "sentence": "من هر روز در دانشگاه {{answer}}.",
@@ -1096,7 +1205,8 @@
           "translation": "I see him every day at the university.",
           "hint": "I see him — the present of دیدن, 1st person singular, with the 3rd person object riding on the end instead of standing as a separate word",
           "display_order": 5,
-          "transliteration": "man har rôz dar dânišgâh {{answer}}."
+          "transliteration": "man har rôz dar dânišgâh {{answer}}.",
+          "gloss": "1SG · every · day · in · university · ___"
         },
         {
           "sentence": "او دیروز در خیابان {{answer}}.",
@@ -1104,7 +1214,8 @@
           "translation": "He saw you in the street yesterday.",
           "hint": "he saw you — 3rd person singular past, which carries no personal ending of its own, and then the 2nd person object clitic",
           "display_order": 6,
-          "transliteration": "u dīrôz dar xiyâbân {{answer}}."
+          "transliteration": "u dīrôz dar xiyâbân {{answer}}.",
+          "gloss": "3SG · yesterday · in · street · ___"
         }
       ]
     },
@@ -1123,7 +1234,8 @@
           "translation": "Where are you going?",
           "hint": "where — it stays in the middle; the verb is still last",
           "transliteration": "to ___ miravi?",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "2SG · ___ · PROG-go.PRS.2SG"
         },
         {
           "sentence": "او {{answer}} نمی‌آید؟",
@@ -1131,7 +1243,8 @@
           "translation": "Why isn't he coming?",
           "hint": "why — placed before the verb, no reordering",
           "transliteration": "u ___ nemiayad?",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · NEG-PROG-come.PRS.3SG"
         },
         {
           "sentence": "شما {{answer}} هستید؟",
@@ -1139,7 +1252,8 @@
           "translation": "Who are you?",
           "hint": "who — one short word, before the verb",
           "transliteration": "shoma ___ hastid?",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "2PL · ___ · be.PRS.2PL"
         },
         {
           "sentence": "این {{answer}}؟",
@@ -1147,7 +1261,8 @@
           "translation": "What is this?",
           "hint": "what is (it) — the written form that fuses \"what\" with \"is\"",
           "transliteration": "in ___?",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "this · ___"
         },
         {
           "sentence": "حال شما {{answer}} است؟",
@@ -1155,7 +1270,8 @@
           "translation": "How are you?",
           "hint": "how — asking after someone's state",
           "transliteration": "hal-e shoma ___ ast?",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "condition.EZ · 2PL · ___ · be.PRS.3SG"
         },
         {
           "sentence": "شما {{answer}} کتابی می‌خوانید؟",
@@ -1163,7 +1279,8 @@
           "translation": "What book are you reading?",
           "hint": "what — the written form, standing right in front of the noun it asks about, where English would move it to the front of the question",
           "display_order": 6,
-          "transliteration": "šomâ {{answer}} ketâbi mixânid?"
+          "transliteration": "šomâ {{answer}} ketâbi mixânid?",
+          "gloss": "2PL · ___ · book-INDF · PROG-read.PRS.2PL"
         },
         {
           "sentence": "تو {{answer}} به ایران رفتی؟",
@@ -1171,7 +1288,8 @@
           "translation": "When did you go to Iran?",
           "hint": "when — the same one-syllable word that also asks \"who\"; it stays in the middle, and the verb still comes last",
           "display_order": 7,
-          "transliteration": "to {{answer}} be Irân rafti?"
+          "transliteration": "to {{answer}} be Irân rafti?",
+          "gloss": "2SG · ___ · to · Iran · go.PST.2SG"
         }
       ]
     },
@@ -1190,7 +1308,8 @@
           "translation": "I used to go to school every day.",
           "hint": "used to go — می on the past form, 1st person singular",
           "transliteration": "man har ruz be madrese ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · every · day · to · school · ___"
         },
         {
           "sentence": "او هر شب دیر {{answer}}.",
@@ -1198,7 +1317,8 @@
           "translation": "He used to go to bed late every night.",
           "hint": "used to sleep — می on the past of خوابیدن, 3rd person singular",
           "transliteration": "u har shab dir ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · every · night · late · ___"
         },
         {
           "sentence": "ما هر تابستان به شمال {{answer}}.",
@@ -1206,7 +1326,8 @@
           "translation": "Every summer we used to go to the north.",
           "hint": "used to go — 1st person plural of the same tense",
           "transliteration": "ma har tabestan be shomal ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · every · summer · to · north · ___"
         },
         {
           "sentence": "تو هر روز او را {{answer}}.",
@@ -1214,7 +1335,8 @@
           "translation": "You used to see him every day.",
           "hint": "used to see — می on the past of دیدن, 2nd person singular",
           "transliteration": "to har ruz u ra ___.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "2SG · every · day · 3SG · OBJ · ___"
         },
         {
           "sentence": "من آنجا کسی را {{answer}}.",
@@ -1222,7 +1344,8 @@
           "translation": "I didn't know anyone there.",
           "hint": "didn't know — the negative of this tense, on the past of شناختن",
           "transliteration": "man anja kasi ra ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · there · person-INDF · OBJ · ___"
         },
         {
           "sentence": "شما در دبیرستان چه کتاب‌هایی {{answer}}؟",
@@ -1230,7 +1353,8 @@
           "translation": "What books did you use to read in high school?",
           "hint": "used to read — the habitual past, 2nd person plural (also the polite way of addressing one person)",
           "display_order": 6,
-          "transliteration": "šomâ dar dabirestân če ketâb-hâyi {{answer}}?"
+          "transliteration": "šomâ dar dabirestân če ketâb-hâyi {{answer}}?",
+          "gloss": "2PL · in · high.school · what · book-PL-INDF · ___"
         },
         {
           "sentence": "آن‌ها هرگز به ما چیزی {{answer}}.",
@@ -1238,7 +1362,8 @@
           "translation": "They never used to tell us anything.",
           "hint": "didn't tell — the negative of this same tense, 3rd person plural; the ن goes in front of what is already there",
           "display_order": 7,
-          "transliteration": "ân-hâ hargez ba mâ čizê {{answer}}."
+          "transliteration": "ân-hâ hargez ba mâ čizê {{answer}}.",
+          "gloss": "3PL · never · to · 1PL · thing-INDF · ___"
         }
       ]
     },
@@ -1257,7 +1382,8 @@
           "translation": "I work in Tehran.",
           "hint": "do — only the light verb conjugates; کار stays put",
           "transliteration": "man dar Tehran kar ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · in · Tehran · work · ___"
         },
         {
           "sentence": "او فارسی حرف {{answer}}.",
@@ -1265,7 +1391,8 @@
           "translation": "He speaks Persian.",
           "hint": "hits — the light verb of \"to speak,\" 3rd person singular",
           "transliteration": "u farsi harf ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · Persian · speech · ___"
         },
         {
           "sentence": "ما به موسیقی گوش {{answer}}.",
@@ -1273,7 +1400,8 @@
           "translation": "We listen to music.",
           "hint": "give — the light verb of \"to listen,\" 1st person plural",
           "transliteration": "ma be musighi gush ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · to · music · ear · ___"
         },
         {
           "sentence": "من تلویزیون {{answer}} می‌کنم.",
@@ -1281,7 +1409,8 @@
           "translation": "I watch television.",
           "hint": "the fixed noun half of the compound meaning \"to watch\"",
           "transliteration": "man televizion ___ mikonam.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · television · ___ · PROG-do.1SG"
         },
         {
           "sentence": "تو خیلی {{answer}} می‌کنی.",
@@ -1289,7 +1418,8 @@
           "translation": "You work a lot.",
           "hint": "the fixed noun half of the compound meaning \"to work\"",
           "transliteration": "to kheyli ___ mikoni.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · much · ___ · PROG-do.2SG"
         },
         {
           "sentence": "چرا دیروز به من تلفن {{answer}}؟",
@@ -1297,7 +1427,8 @@
           "translation": "Why didn't you call me yesterday?",
           "hint": "didn't do — the light verb of \"to phone\" carries the past tense and the negation on its own, 2nd person singular; the noun half stays put",
           "display_order": 6,
-          "transliteration": "čarâ dīrôz ba man telefon {{answer}}؟"
+          "transliteration": "čarâ dīrôz ba man telefon {{answer}}؟",
+          "gloss": "why · yesterday · to · 1SG · telephone · ___"
         },
         {
           "sentence": "بعد از آن سفر ما با هم دوست {{answer}}.",
@@ -1305,7 +1436,8 @@
           "translation": "After that trip we became friends.",
           "hint": "became — the light verb that pairs with a noun or adjective for \"to become\", past tense, 1st person plural",
           "display_order": 7,
-          "transliteration": "ba'd az ân safar mâ -bâ ham dôst {{answer}}."
+          "transliteration": "ba'd az ân safar mâ -bâ ham dôst {{answer}}.",
+          "gloss": "after · from · that · trip · 1PL · with · each.other · friend · ___"
         }
       ]
     },
@@ -1324,7 +1456,8 @@
           "translation": "I have three books.",
           "hint": "the counter word between a number and its noun",
           "transliteration": "man se ___ ketab daram.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · three · ___ · book · have.PRS.1SG"
         },
         {
           "sentence": "او دو {{answer}} برادر دارد.",
@@ -1332,7 +1465,8 @@
           "translation": "He has two brothers.",
           "hint": "the same counter word",
           "transliteration": "u do ___ baradar darad.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · two · ___ · brother · have.PRS.3SG"
         },
         {
           "sentence": "من {{answer}} کتاب دارم.",
@@ -1340,7 +1474,8 @@
           "translation": "I have five books.",
           "hint": "five — and note the noun after it stays singular",
           "transliteration": "man ___ ketab daram.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · ___ · book · have.PRS.1SG"
         },
         {
           "sentence": "ما {{answer}} تا صندلی داریم.",
@@ -1348,7 +1483,8 @@
           "translation": "We have four chairs.",
           "hint": "four — the number before the counter",
           "transliteration": "ma ___ ta sandali darim.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · ___ · CLF · chair · have.PRS.1PL"
         },
         {
           "sentence": "من {{answer}} خواهر دارم.",
@@ -1356,7 +1492,8 @@
           "translation": "I have two sisters.",
           "hint": "two — the noun after it is not pluralized",
           "transliteration": "man ___ khahar daram.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · ___ · sister · have.PRS.1SG"
         },
         {
           "sentence": "شما چند {{answer}} بچه دارید؟",
@@ -1364,7 +1501,8 @@
           "translation": "How many children do you have?",
           "hint": "the counter word — in a question it follows چند \"how many\" exactly as it follows a number",
           "display_order": 6,
-          "transliteration": "šumâ čand {{answer}} bačča dârid؟"
+          "transliteration": "šumâ čand {{answer}} bačča dârid؟",
+          "gloss": "2PL · how.many · ___ · child · have.PRS.2PL"
         },
         {
           "sentence": "این خانه شش {{answer}} دارد.",
@@ -1372,7 +1510,8 @@
           "translation": "This house has six rooms.",
           "hint": "room — after a number the Persian noun keeps its singular shape, so no plural suffix on it",
           "display_order": 7,
-          "transliteration": "ên xâna šeš {{answer}} dârad."
+          "transliteration": "ên xâna šeš {{answer}} dârad.",
+          "gloss": "this · house · six · ___ · have.PRS.3SG"
         }
       ]
     },
@@ -1391,7 +1530,8 @@
           "translation": "I want to go home.",
           "hint": "go — subjunctive after \"I want\": بـ prefix, no می",
           "transliteration": "mikhaham be khane ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "PROG-want.1SG · to · house · ___"
         },
         {
           "sentence": "باید فارسی یاد {{answer}}.",
@@ -1399,7 +1539,8 @@
           "translation": "I have to learn Persian.",
           "hint": "take — the light verb of \"to learn,\" in the subjunctive after باید",
           "transliteration": "bayad farsi yad ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "must · Persian · memory · ___"
         },
         {
           "sentence": "شاید فردا {{answer}}.",
@@ -1407,7 +1548,8 @@
           "translation": "Maybe he'll come tomorrow.",
           "hint": "come — subjunctive of آمدن after شاید",
           "transliteration": "shayad farda ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "maybe · tomorrow · ___"
         },
         {
           "sentence": "می‌خواهی چای {{answer}}؟",
@@ -1415,7 +1557,8 @@
           "translation": "Do you want to drink tea?",
           "hint": "eat/drink — subjunctive of خوردن, 2nd person singular",
           "transliteration": "mikhahi chay ___?",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "PROG-want.2SG · tea · ___"
         },
         {
           "sentence": "باید این کتاب را {{answer}}.",
@@ -1423,7 +1566,8 @@
           "translation": "You must read this book.",
           "hint": "read — subjunctive of خواندن after باید",
           "transliteration": "bayad in ketab ra ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "must · this · book · OBJ · ___"
         },
         {
           "sentence": "به او بگو که نگران {{answer}}.",
@@ -1431,7 +1575,8 @@
           "translation": "Tell him not to worry.",
           "hint": "be — the negative subjunctive of \"to be\", 3rd person singular; this verb's subjunctive carries no بـ of its own, so only the negation shows",
           "display_order": 6,
-          "transliteration": "ba u be-gu ki negarân {{answer}}."
+          "transliteration": "ba u be-gu ki negarân {{answer}}.",
+          "gloss": "to · 3SG · IMP-say · COMP · worried · ___"
         },
         {
           "sentence": "لازم است این نامه را امروز {{answer}}.",
@@ -1439,7 +1584,8 @@
           "translation": "We need to write this letter today.",
           "hint": "write — the subjunctive of نوشتن after \"it is necessary\", 1st person plural; the present stem is not the one the infinitive shows",
           "display_order": 7,
-          "transliteration": "lâzem ast ên nâma râ imrôz {{answer}}."
+          "transliteration": "lâzem ast ên nâma râ imrôz {{answer}}.",
+          "gloss": "necessary · be.PRS.3SG · this · letter · OBJ · today · ___"
         }
       ]
     },
@@ -1458,7 +1604,8 @@
           "translation": "I will go to Tehran tomorrow.",
           "hint": "will — the 1st person auxiliary; رفت stays bare after it",
           "transliteration": "man farda be Tehran ___ raft.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · tomorrow · to · Tehran · ___ · go.PST"
         },
         {
           "sentence": "او فردا {{answer}} آمد.",
@@ -1466,7 +1613,8 @@
           "translation": "He will come tomorrow.",
           "hint": "will — the 3rd person singular auxiliary",
           "transliteration": "u farda ___ amad.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · tomorrow · ___ · come.PST"
         },
         {
           "sentence": "ما این کتاب را {{answer}} خواند.",
@@ -1474,7 +1622,8 @@
           "translation": "We will read this book.",
           "hint": "will — the 1st person plural auxiliary",
           "transliteration": "ma in ketab ra ___ khand.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · this · book · OBJ · ___ · read.PST"
         },
         {
           "sentence": "تو فردا کجا خواهی {{answer}}؟",
@@ -1482,7 +1631,8 @@
           "translation": "Where will you go tomorrow?",
           "hint": "go — the bare past stem after the auxiliary, with no ending",
           "transliteration": "to farda koja khahi ___?",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "2SG · tomorrow · where · FUT.2SG · ___"
         },
         {
           "sentence": "من فردا تو را خواهم {{answer}}.",
@@ -1490,7 +1640,8 @@
           "translation": "I will see you tomorrow.",
           "hint": "see — bare past stem, person is already on the auxiliary",
           "transliteration": "man farda to ra khaham ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · tomorrow · 2SG · OBJ · FUT.1SG · ___"
         },
         {
           "sentence": "من هرگز این کار را {{answer}} کرد.",
@@ -1498,7 +1649,8 @@
           "translation": "I will never do this.",
           "hint": "will not — the future auxiliary with its negative prefix, 1st person singular; the verb after it stays bare",
           "display_order": 6,
-          "transliteration": "man hargez ên -kâr râ {{answer}} kord."
+          "transliteration": "man hargez ên -kâr râ {{answer}} kord.",
+          "gloss": "1SG · never · this · work · OBJ · ___ · do.PST"
         },
         {
           "sentence": "آن‌ها هفتهٔ آینده جواب را به ما {{answer}} داد.",
@@ -1506,7 +1658,8 @@
           "translation": "They will give us the answer next week.",
           "hint": "will — the auxiliary for a 3rd person plural subject; person is marked here and nowhere else in the verb phrase",
           "display_order": 7,
-          "transliteration": "ân-hâ hafte-ye âyande javâb râ be mâ {{answer}} dâd."
+          "transliteration": "ân-hâ hafte-ye âyande javâb râ be mâ {{answer}} dâd.",
+          "gloss": "3PL · week.EZ · come.PTCP · answer · OBJ · to · 1PL · ___ · give.PST"
         }
       ]
     },
@@ -1525,7 +1678,8 @@
           "translation": "If you go to Tehran, you'll see him.",
           "hint": "go — subjunctive in the if-clause, 2nd person singular",
           "transliteration": "agar be Tehran ___, u ra mibini.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "if · to · Tehran · ___ · 3SG · OBJ · PROG-see.2SG"
         },
         {
           "sentence": "اگر وقت داشته {{answer}}، به تو زنگ می‌زنم.",
@@ -1533,7 +1687,8 @@
           "translation": "If I have time, I'll call you.",
           "hint": "be — the subjunctive half of \"to have\" in a condition",
           "transliteration": "agar vaght dashte ___, be to zang mizanam.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if · time · have.PTCP · ___ · to · 2SG · bell · PROG-hit.1SG"
         },
         {
           "sentence": "اگر باران {{answer}}، نمی‌رویم.",
@@ -1541,7 +1696,8 @@
           "translation": "If it rains, we won't go.",
           "hint": "come — subjunctive of آمدن; Persian says rain \"comes\"",
           "transliteration": "agar baran ___, nemiravim.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if · rain · ___ · NEG-PROG-go.1PL"
         },
         {
           "sentence": "اگر درس {{answer}}، قبول می‌شوی.",
@@ -1549,7 +1705,8 @@
           "translation": "If you study, you'll pass.",
           "hint": "read — subjunctive of خواندن, 2nd person singular",
           "transliteration": "agar dars ___, ghabul mishavi.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "if · lesson · ___ · acceptance · PROG-become.2SG"
         },
         {
           "sentence": "اگر {{answer}}، می‌آیم.",
@@ -1557,7 +1714,8 @@
           "translation": "If I can, I'll come.",
           "hint": "can — subjunctive of توانستن, 1st person singular",
           "transliteration": "agar ___, miayam.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · ___ · PROG-come.1SG"
         },
         {
           "sentence": "اگر فردا بیایی، خیلی خوشحال {{answer}}.",
@@ -1565,7 +1723,8 @@
           "translation": "If you come tomorrow, I'll be very happy.",
           "hint": "become — the result half of the condition stays in the ordinary present tense, not the subjunctive, 1st person singular",
           "display_order": 6,
-          "transliteration": "agar fardâ biyâyi, xeyli xošhâl {{answer}}."
+          "transliteration": "agar fardâ biyâyi, xeyli xošhâl {{answer}}.",
+          "gloss": "if · tomorrow · SBJV-come.2SG · very · happy · ___"
         },
         {
           "sentence": "اگر امشب زود {{answer}}، فردا صبح به کلاس نمی‌رسیم.",
@@ -1573,7 +1732,8 @@
           "translation": "If we don't go to bed early tonight, we won't make it to class tomorrow morning.",
           "hint": "don't sleep — in the اگر clause the negative prefix takes the place of the subjunctive بـ, 1st person plural",
           "display_order": 7,
-          "transliteration": "agar emšab zud {{answer}}, fardâ sobh be kelâs nemi-resim."
+          "transliteration": "agar emšab zud {{answer}}, fardâ sobh be kelâs nemi-resim.",
+          "gloss": "if · tonight · early · ___ · tomorrow · morning · to · class · NEG-PROG-arrive.1PL"
         }
       ]
     },
@@ -1592,7 +1752,8 @@
           "translation": "The book I read was good.",
           "hint": "the linker that opens the clause — never omitted, unlike English \"that\"",
           "transliteration": "ketabi ___ khandam khub bud.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "book-INDF · ___ · read.PST.1SG · good · be.PST.3SG"
         },
         {
           "sentence": "مردی که دیدم دوست من {{answer}}.",
@@ -1600,7 +1761,8 @@
           "translation": "The man I saw was my friend.",
           "hint": "was — the main verb, after the relative clause closes",
           "transliteration": "mardi ke didam dust-e man ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "man-INDF · REL · see.PST.1SG · friend.EZ · 1SG · ___"
         },
         {
           "sentence": "خانه‌ای که در آن زندگی می‌کنم بزرگ {{answer}}.",
@@ -1608,7 +1770,8 @@
           "translation": "The house I live in is big.",
           "hint": "is — the main clause verb, at the very end",
           "transliteration": "khane-i ke dar an zendegi mikonam bozorg ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "house-INDF · REL · in · that · life · PROG-do.1SG · big · ___"
         },
         {
           "sentence": "زنی {{answer}} آنجا نشسته معلم است.",
@@ -1616,7 +1779,8 @@
           "translation": "The woman sitting over there is a teacher.",
           "hint": "the relative linker after the indefinite noun",
           "transliteration": "zani ___ anja neshaste moallem ast.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "woman-INDF · ___ · there · sit.PTCP · teacher · be.PRS.3SG"
         },
         {
           "sentence": "این همان کتابی است {{answer}} می‌خواستم.",
@@ -1624,7 +1788,8 @@
           "translation": "This is the very book I wanted.",
           "hint": "the relative linker; the noun before it carries the indefinite ـی",
           "transliteration": "in haman ketabi ast ___ mikhastam.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "this · same · book-INDF · be.PRS.3SG · ___ · PROG-want.PST.1SG"
         },
         {
           "sentence": "فیلمی که دیشب {{answer}} چطور بود؟",
@@ -1632,7 +1797,8 @@
           "translation": "How was the film we saw last night?",
           "hint": "we saw — the relative clause's own verb, 1st person plural past; it closes the clause before the main verb of the question arrives",
           "display_order": 6,
-          "transliteration": "filmi ki dīšab {{answer}} četowr bud؟"
+          "transliteration": "filmi ki dīšab {{answer}} četowr bud؟",
+          "gloss": "film-INDF · REL · last.night · ___ · how · be.PST.3SG"
         },
         {
           "sentence": "{{answer}} که با من کار می‌کند اهل اصفهان است.",
@@ -1640,7 +1806,8 @@
           "translation": "The man who works with me is from Isfahan.",
           "hint": "man — the noun the clause describes; standing in front of the linker it picks up the indefinite ending that a relative clause calls for",
           "display_order": 7,
-          "transliteration": "{{answer}} ki -bâ man -kâr mi-kond ahl isfahân ast."
+          "transliteration": "{{answer}} ki -bâ man -kâr mi-kond ahl isfahân ast.",
+          "gloss": "___ · REL · with · 1SG · work · PROG-do.3SG · native.EZ · Isfahan · be.PRS.3SG"
         }
       ]
     },
@@ -1659,7 +1826,8 @@
           "translation": "He said he was coming.",
           "hint": "the linker that opens reported speech",
           "transliteration": "u goft ___ miayad.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG · say.PST.3SG · ___ · PROG-come.3SG"
         },
         {
           "sentence": "او گفت که فردا {{answer}}.",
@@ -1667,7 +1835,8 @@
           "translation": "He said he would come tomorrow.",
           "hint": "comes — the tense stays as the speaker said it, no backshift",
           "transliteration": "u goft ke farda ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · say.PST.3SG · COMP · tomorrow · ___"
         },
         {
           "sentence": "من فکر می‌کنم {{answer}} او در خانه است.",
@@ -1675,7 +1844,8 @@
           "translation": "I think he's at home.",
           "hint": "the linker after a verb of thinking",
           "transliteration": "man fekr mikonam ___ u dar khane ast.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · thought · PROG-do.1SG · ___ · 3SG · in · house · be.PRS.3SG"
         },
         {
           "sentence": "او پرسید که من کجا {{answer}}.",
@@ -1683,7 +1853,8 @@
           "translation": "He asked where I was.",
           "hint": "am — present kept in the report, where English shifts to \"was\"",
           "transliteration": "u porsid ke man koja ___.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG · ask.PST.3SG · COMP · 1SG · where · ___"
         },
         {
           "sentence": "گفتم که کتاب را {{answer}}.",
@@ -1691,7 +1862,8 @@
           "translation": "I said I had read the book.",
           "hint": "have read — the perfect, again unshifted",
           "transliteration": "goftam ke ketab ra ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "say.PST.1SG · COMP · book · OBJ · ___"
         },
         {
           "sentence": "معلم به ما گفت که هفتهٔ آینده امتحان {{answer}}.",
@@ -1699,7 +1871,8 @@
           "translation": "The teacher told us we had a test next week.",
           "hint": "we have — reported speech keeps the tense the speaker actually used, so this one stays present, 1st person plural",
           "display_order": 6,
-          "transliteration": "mo'allem be mâ goft ke hafte-ye âyande emtehân {{answer}}."
+          "transliteration": "mo'allem be mâ goft ke hafte-ye âyande emtehân {{answer}}.",
+          "gloss": "teacher · to · 1PL · say.PST.3SG · COMP · week.EZ · next · exam · ___"
         },
         {
           "sentence": "او در نامه‌اش نوشت که دیگر آنجا زندگی {{answer}}.",
@@ -1707,7 +1880,8 @@
           "translation": "He wrote in his letter that he no longer lived there.",
           "hint": "does not live — the light verb of \"to live somewhere\" in the negative present, 3rd person singular; the report keeps the tense the writer used rather than shifting it back as English does",
           "display_order": 7,
-          "transliteration": "u dar nâma-aš nevešt ki dīgar ânjâ zindagī {{answer}}."
+          "transliteration": "u dar nâma-aš nevešt ki dīgar ânjâ zindagī {{answer}}.",
+          "gloss": "3SG · in · letter-3SG.POSS · write.PST.3SG · COMP · any.more · there · life · ___"
         }
       ]
     },
@@ -1726,7 +1900,8 @@
           "translation": "My friend's house door is open.",
           "hint": "house — the middle link in the chain, carrying a written ezafe",
           "transliteration": "dar-e ___ dustam baz ast.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "door.EZ · ___ · friend-1SG.POSS · open · be.PRS.3SG"
         },
         {
           "sentence": "کتاب {{answer}} من روی میز است.",
@@ -1734,7 +1909,8 @@
           "translation": "My brother's book is on the table.",
           "hint": "brother — the middle link between the thing and its owner",
           "transliteration": "ketab-e ___ man ruye miz ast.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "book.EZ · ___ · 1SG · on.EZ · table · be.PRS.3SG"
         },
         {
           "sentence": "اسم {{answer}} من علی است.",
@@ -1742,7 +1918,8 @@
           "translation": "My father's name is Ali.",
           "hint": "father — the middle link of the chain",
           "transliteration": "esm-e ___ man Ali ast.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "name.EZ · ___ · 1SG · Ali · be.PRS.3SG"
         },
         {
           "sentence": "ماشین پدر {{answer}} قرمز است.",
@@ -1750,7 +1927,8 @@
           "translation": "My friend's father's car is red.",
           "hint": "my friend — the last link, where the chain ends",
           "transliteration": "mashin-e pedar-e ___ ghermez ast.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "car.EZ · father.EZ · ___ · red · be.PRS.3SG"
         },
         {
           "sentence": "رنگ {{answer}} خانه سفید است.",
@@ -1758,7 +1936,8 @@
           "translation": "The colour of the house door is white.",
           "hint": "door — the middle link between \"colour\" and \"house\"",
           "transliteration": "rang-e ___ khane sefid ast.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "color.EZ · ___ · house · white · be.PRS.3SG"
         },
         {
           "sentence": "دفتر {{answer}} رضایی در طبقهٔ دوم است.",
@@ -1766,7 +1945,8 @@
           "translation": "Mr Rezaei's office is on the second floor.",
           "hint": "Mr — the courtesy title sitting between the office and the family name; a title that ends in a long vowel spells its link out instead of leaving it silent",
           "display_order": 6,
-          "transliteration": "daftar {{answer}} rizâyī dar tabaqa duwum ast."
+          "transliteration": "daftar {{answer}} rizâyī dar tabaqa duwum ast.",
+          "gloss": "office.EZ · ___ · Rezaei · in · floor.EZ · second · be.PRS.3SG"
         }
       ]
     },
@@ -1785,7 +1965,8 @@
           "translation": "Reading books is good.",
           "hint": "reading — the infinitive of the verb \"to read\", used as the subject",
           "transliteration": "___ ketab khub ast.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · book · good · be.PRS.3SG"
         },
         {
           "sentence": "{{answer}} به تهران سخت است.",
@@ -1793,7 +1974,8 @@
           "translation": "Going to Tehran is hard.",
           "hint": "going — the infinitive as subject",
           "transliteration": "___ be Tehran sakht ast.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · to · Tehran · hard · be.PRS.3SG"
         },
         {
           "sentence": "{{answer}} فارسی آسان نیست.",
@@ -1801,7 +1983,8 @@
           "translation": "Writing Persian isn't easy.",
           "hint": "writing — the infinitive of the verb \"to write\", linked to فارسی by ezafe",
           "transliteration": "___ farsi asan nist.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · Persian · easy · NEG-be.PRS.3SG"
         },
         {
           "sentence": "{{answer}} برای سلامتی خوب است.",
@@ -1809,7 +1992,8 @@
           "translation": "Running is good for your health.",
           "hint": "running — the infinitive of the verb \"to run\"",
           "transliteration": "___ baraye salamati khub ast.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · for · health · good · be.PRS.3SG"
         },
         {
           "sentence": "او {{answer}} را دوست دارد.",
@@ -1817,7 +2001,8 @@
           "translation": "He likes reading.",
           "hint": "reading — an infinitive can even take را as an object",
           "transliteration": "u ___ ra dust darad.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG · ___ · OBJ · friend · have.PRS.3SG"
         },
         {
           "sentence": "قبل از {{answer}} همیشه کمی کتاب می‌خوانم.",
@@ -1825,7 +2010,8 @@
           "translation": "Before going to sleep I always read a little.",
           "hint": "going to sleep — the dictionary form of the verb, doing duty as a noun after a time preposition",
           "display_order": 6,
-          "transliteration": "ġabl az {{answer}} hamiše kami ketâb mi-xânam."
+          "transliteration": "ġabl az {{answer}} hamiše kami ketâb mi-xânam.",
+          "gloss": "before · from · ___ · always · little-INDF · book · PROG-read.1SG"
         },
         {
           "sentence": "برای {{answer}} نان به نانوایی رفتم.",
@@ -1833,7 +2019,8 @@
           "translation": "I went to the bakery to buy bread.",
           "hint": "buying — the dictionary form of the verb; after a purpose preposition it behaves like any noun and links to its own object",
           "display_order": 7,
-          "transliteration": "barâye {{answer}} nân be nânvâyi raftam."
+          "transliteration": "barâye {{answer}} nân be nânvâyi raftam.",
+          "gloss": "for · ___ · bread · to · bakery · go.PST.1SG"
         }
       ]
     },
@@ -1852,7 +2039,8 @@
           "translation": "I can speak Persian.",
           "hint": "can — 1st person singular; the second verb stays subjunctive",
           "transliteration": "man ___ farsi harf bezanam.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · Persian · word · SBJV-hit.1SG"
         },
         {
           "sentence": "او {{answer}} بیاید.",
@@ -1860,7 +2048,8 @@
           "translation": "He can't come.",
           "hint": "can't — the negative, 3rd person singular",
           "transliteration": "u ___ biayad.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · SBJV-come.3SG"
         },
         {
           "sentence": "می‌توانی به من کمک {{answer}}؟",
@@ -1868,7 +2057,8 @@
           "translation": "Can you help me?",
           "hint": "do — the light verb of \"to help,\" in the subjunctive",
           "transliteration": "mitavani be man komak ___?",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "PROG-can.2SG · to · 1SG · help · ___"
         },
         {
           "sentence": "ما می‌توانیم فردا {{answer}}.",
@@ -1876,7 +2066,8 @@
           "translation": "We can go tomorrow.",
           "hint": "go — subjunctive after \"we can,\" 1st person plural",
           "transliteration": "ma mitavanim farda ___.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · PROG-can.1PL · tomorrow · ___"
         },
         {
           "sentence": "دیروز {{answer}} بیایم.",
@@ -1884,7 +2075,8 @@
           "translation": "I couldn't come yesterday.",
           "hint": "couldn't — the negative past of this verb",
           "transliteration": "diruz ___ biayam.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "yesterday · ___ · SBJV-come.1SG"
         },
         {
           "sentence": "{{answer}} در را ببندید؟",
@@ -1892,7 +2084,8 @@
           "translation": "Can you close the door?",
           "hint": "can — 2nd person plural, the form used for politeness as well as for several people; the request verb after it stays subjunctive",
           "display_order": 6,
-          "transliteration": "{{answer}} dar râ bebandid?"
+          "transliteration": "{{answer}} dar râ bebandid?",
+          "gloss": "___ · door · OBJ · SBJV-close.2PL"
         },
         {
           "sentence": "من امشب نمی‌توانم {{answer}}.",
@@ -1900,7 +2093,8 @@
           "translation": "I can't sleep tonight.",
           "hint": "sleep — the second verb keeps the subjunctive and repeats the person, 1st person singular; the negation belongs to the first verb alone",
           "display_order": 7,
-          "transliteration": "man emšab nemi-tavânam {{answer}}."
+          "transliteration": "man emšab nemi-tavânam {{answer}}.",
+          "gloss": "1SG · tonight · NEG-PROG-can.1SG · ___"
         }
       ]
     },
@@ -1919,7 +2113,8 @@
           "translation": "When I arrived, he had left.",
           "hint": "gone — the participle; بود carries the tense",
           "transliteration": "vaghti residam, u ___ bud.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "when · arrive.PST.1SG · 3SG · ___ · be.PST.3SG"
         },
         {
           "sentence": "من آن کتاب را پیشتر خوانده {{answer}}.",
@@ -1927,7 +2122,8 @@
           "translation": "I had already read that book.",
           "hint": "had — the past of بودن, 1st person singular",
           "transliteration": "man an ketab ra pishtar khande ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · that · book · OBJ · before-COMP · read.PTCP · ___"
         },
         {
           "sentence": "ما او را پیشتر {{answer}} بودیم.",
@@ -1935,7 +2131,8 @@
           "translation": "We had seen him before.",
           "hint": "seen — participle of دیدن",
           "transliteration": "ma u ra pishtar ___ budim.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · 3SG · OBJ · before-COMP · ___ · be.PST.1PL"
         },
         {
           "sentence": "تو کجا رفته {{answer}}؟",
@@ -1943,7 +2140,8 @@
           "translation": "Where had you gone?",
           "hint": "had — 2nd person singular of بودن",
           "transliteration": "to koja rafte ___?",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "2SG · where · go.PTCP · ___"
         },
         {
           "sentence": "آنها غذا را خورده {{answer}}.",
@@ -1951,7 +2149,8 @@
           "translation": "They had eaten the food.",
           "hint": "had — 3rd person plural of بودن",
           "transliteration": "anha ghaza ra khorde ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3PL · food · OBJ · eat.PTCP · ___"
         },
         {
           "sentence": "تا دیروز هیچ‌کس این خبر را {{answer}} بود.",
@@ -1959,7 +2158,8 @@
           "translation": "Until yesterday nobody had heard this news.",
           "hint": "heard — the participle, and the one carrying the negation, since the word after it stays plain",
           "display_order": 6,
-          "transliteration": "tâ diruz hič-kas in xabar râ {{answer}} bud."
+          "transliteration": "tâ diruz hič-kas in xabar râ {{answer}} bud.",
+          "gloss": "until · yesterday · no-person · this · news · OBJ · ___ · be.PST.3SG"
         },
         {
           "sentence": "ما تا آن سال هرگز به شیراز نرفته {{answer}}.",
@@ -1967,7 +2167,8 @@
           "translation": "Until that year we had never been to Shiraz.",
           "hint": "had — the past tense of \"to be\", 1st person plural; it stays plain because the participle in front of it already carries the negative",
           "display_order": 7,
-          "transliteration": "mâ tâ ân sâl hargez be Širâz narafte {{answer}}."
+          "transliteration": "mâ tâ ân sâl hargez be Širâz narafte {{answer}}.",
+          "gloss": "1PL · until · that · year · never · to · Shiraz · NEG-go.PTCP · ___"
         }
       ]
     },
@@ -1986,7 +2187,8 @@
           "translation": "If I had money, I would buy this house.",
           "hint": "had — the past of داشتن, which takes no می",
           "transliteration": "agar pul ___, in khane ra mikharidam.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "if · money · ___ · this · house · OBJ · IPFV-buy.PST.1SG"
         },
         {
           "sentence": "اگر وقت داشتم، به تو زنگ {{answer}}.",
@@ -1994,7 +2196,8 @@
           "translation": "If I had time, I would call you.",
           "hint": "would hit — the light verb of \"to call,\" in the habitual past",
           "transliteration": "agar vaght dashtam, be to zang ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if · time · have.PST.1SG · to · 2SG · bell · ___"
         },
         {
           "sentence": "اگر او می‌آمد، خوشحال {{answer}}.",
@@ -2002,7 +2205,8 @@
           "translation": "If he had come, I would have been happy.",
           "hint": "would become — habitual past of شدن",
           "transliteration": "agar u miamad, khoshhal ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if · 3SG · IPFV-come.PST.3SG · happy · ___"
         },
         {
           "sentence": "اگر تو {{answer}}، او را می‌دیدی.",
@@ -2010,7 +2214,8 @@
           "translation": "If you had gone, you would have seen him.",
           "hint": "had gone — habitual past, 2nd person singular",
           "transliteration": "agar to ___, u ra mididi.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "if · 2SG · ___ · 3SG · OBJ · IPFV-see.PST.2SG"
         },
         {
           "sentence": "اگر می‌دانستم، به تو {{answer}}.",
@@ -2018,7 +2223,8 @@
           "translation": "If I had known, I would have told you.",
           "hint": "would have told — habitual past of گفتن",
           "transliteration": "agar midanestam, be to ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · IPFV-know.PST.1SG · to · 2SG · ___"
         },
         {
           "sentence": "اگر جای من بودی، چه کار {{answer}}؟",
@@ -2026,7 +2232,8 @@
           "translation": "If you were in my place, what would you do?",
           "hint": "would do — habitual past of کردن, 2nd person singular, inside a question",
           "display_order": 6,
-          "transliteration": "agar jâ-ye man budi, če kâr {{answer}}?"
+          "transliteration": "agar jâ-ye man budi, če kâr {{answer}}?",
+          "gloss": "if · place.EZ · 1SG · be.PST.2SG · what · work · ___"
         },
         {
           "sentence": "اگر دیشب زود می‌خوابیدم، حالا خسته {{answer}}.",
@@ -2034,7 +2241,8 @@
           "translation": "If I had gone to bed early last night, I wouldn't be tired now.",
           "hint": "would not be — the negated past of بودن, 1st person singular; this verb takes no می",
           "display_order": 7,
-          "transliteration": "agar dišab zud mixâbidam, hâlâ xaste {{answer}}."
+          "transliteration": "agar dišab zud mixâbidam, hâlâ xaste {{answer}}.",
+          "gloss": "if · last.night · early · IPFV-sleep.PST.1SG · now · tired · ___"
         }
       ]
     },
@@ -2053,7 +2261,8 @@
           "translation": "This letter was written yesterday.",
           "hint": "written — the participle before شد",
           "transliteration": "in name diruz ___ shod.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this · letter · yesterday · ___ · become.PST.3SG"
         },
         {
           "sentence": "پنجره {{answer}} شد.",
@@ -2061,7 +2270,8 @@
           "translation": "The window was closed.",
           "hint": "closed — participle of بستن",
           "transliteration": "panjere ___ shod.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "window · ___ · become.PST.3SG"
         },
         {
           "sentence": "این خانه ده سال پیش ساخته {{answer}}.",
@@ -2069,7 +2279,8 @@
           "translation": "This house was built ten years ago.",
           "hint": "became — the auxiliary that carries the passive",
           "transliteration": "in khane dah sal pish sakhte ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "this · house · ten · year · ago · build.PTCP · ___"
         },
         {
           "sentence": "این کتاب زیاد خوانده {{answer}}.",
@@ -2077,7 +2288,8 @@
           "translation": "This book is read a lot.",
           "hint": "is becoming — the present of the passive auxiliary",
           "transliteration": "in ketab ziad khande ___.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "this · book · much · read.PTCP · ___"
         },
         {
           "sentence": "نامه‌ها {{answer}} شدند.",
@@ -2085,7 +2297,8 @@
           "translation": "The letters were sent.",
           "hint": "sent — participle of فرستادن",
           "transliteration": "nameha ___ shodand.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "letter-PL · ___ · become.PST.3PL"
         },
         {
           "sentence": "میوه‌ها در بازار ارزان‌تر فروخته {{answer}}.",
@@ -2093,7 +2306,8 @@
           "translation": "Fruit is sold more cheaply at the market.",
           "hint": "are becoming — the passive auxiliary in the present, agreeing with a plural subject",
           "display_order": 6,
-          "transliteration": "mivehâ dar bâzâr arzântar foruxte {{answer}}."
+          "transliteration": "mivehâ dar bâzâr arzântar foruxte {{answer}}.",
+          "gloss": "fruit-PL · in · market · cheap-COMP · sell.PTCP · ___"
         },
         {
           "sentence": "حرف من در آن جلسه شنیده {{answer}}.",
@@ -2101,7 +2315,8 @@
           "translation": "What I said was not heard at that meeting.",
           "hint": "did not become — the passive auxiliary in the past, negated",
           "display_order": 7,
-          "transliteration": "harf-e man dar ân jalase šenide {{answer}}."
+          "transliteration": "harf-e man dar ân jalase šenide {{answer}}.",
+          "gloss": "word.EZ · 1SG · in · that · meeting · hear.PTCP · ___"
         }
       ]
     },
@@ -2120,7 +2335,8 @@
           "translation": "He took me home.",
           "hint": "delivered — the causative of رسیدن, past tense",
           "transliteration": "u mara be khane ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG · 1SG-OBJ · to · house · ___"
         },
         {
           "sentence": "او ما را {{answer}}.",
@@ -2128,7 +2344,8 @@
           "translation": "He makes us laugh.",
           "hint": "makes laugh — the causative of خندیدن, present",
           "transliteration": "u ma ra ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · 1PL · OBJ · ___"
         },
         {
           "sentence": "او این را به من {{answer}}.",
@@ -2136,7 +2353,8 @@
           "translation": "He made me understand this.",
           "hint": "made understand — the causative of فهمیدن",
           "transliteration": "u in ra be man ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG · this · OBJ · to · 1SG · ___"
         },
         {
           "sentence": "مادر به بچه غذا {{answer}}.",
@@ -2144,7 +2362,8 @@
           "translation": "The mother fed the child.",
           "hint": "fed — the causative of خوردن",
           "transliteration": "madar be bache ghaza ___.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "mother · to · child · food · ___"
         },
         {
           "sentence": "من تو را به خانه {{answer}}.",
@@ -2152,7 +2371,8 @@
           "translation": "I'll take you home.",
           "hint": "deliver — the causative of رسیدن, 1st person present",
           "transliteration": "man to ra be khane ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · 2SG · OBJ · to · house · ___"
         },
         {
           "sentence": "چرا بچه را {{answer}}؟",
@@ -2160,7 +2380,8 @@
           "translation": "Why are you frightening the child?",
           "hint": "frighten — the causative of ترسیدن, 2nd person singular present, in a question",
           "display_order": 6,
-          "transliteration": "čarâ bačča râ {{answer}}؟"
+          "transliteration": "čarâ bačča râ {{answer}}؟",
+          "gloss": "why · child · OBJ · ___"
         },
         {
           "sentence": "می‌خواهم بچه‌ها را زودتر {{answer}}.",
@@ -2168,7 +2389,8 @@
           "translation": "I want to put the children to bed earlier.",
           "hint": "put to sleep — the causative of خوابیدن, subjunctive, 1st person singular",
           "display_order": 7,
-          "transliteration": "mixâham bačehâ râ zudtar {{answer}}."
+          "transliteration": "mixâham bačehâ râ zudtar {{answer}}.",
+          "gloss": "PROG-want.1SG · child-PL · OBJ · early-COMP · ___"
         }
       ]
     },
@@ -2187,7 +2409,8 @@
           "translation": "I went to Tehran to see him.",
           "hint": "so that — the linker before a subjunctive",
           "transliteration": "be Tehran raftam ___ u ra bebinam.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "to · Tehran · go.PST.1SG · ___ · 3SG · OBJ · SBJV-see.1SG"
         },
         {
           "sentence": "درس می‌خوانم تا قبول {{answer}}.",
@@ -2195,7 +2418,8 @@
           "translation": "I'm studying so that I pass.",
           "hint": "become — subjunctive of شدن after the purpose linker",
           "transliteration": "dars mikhanam ta ghabul ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "lesson · PROG-read.1SG · so.that · acceptance · ___"
         },
         {
           "sentence": "{{answer}} فردا صبر کن.",
@@ -2203,7 +2427,8 @@
           "translation": "Wait until tomorrow.",
           "hint": "until — the same word before a time phrase",
           "transliteration": "___ farda sabr kon.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · tomorrow · patience · do.IMP.2SG"
         },
         {
           "sentence": "منتظر ماندم تا او {{answer}}.",
@@ -2211,7 +2436,8 @@
           "translation": "I waited until he came.",
           "hint": "came — a plain past here, so تا reads as \"until\"",
           "transliteration": "montazer mandam ta u ___.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "waiting · stay.PST.1SG · until · 3SG · ___"
         },
         {
           "sentence": "زود بیا {{answer}} با هم برویم.",
@@ -2219,7 +2445,8 @@
           "translation": "Come early so we can go together.",
           "hint": "so that — again followed by a subjunctive",
           "transliteration": "zud bia ___ ba ham beravim.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "early · come.IMP.2SG · ___ · with · each.other · SBJV-go.1PL"
         },
         {
           "sentence": "چراغ را روشن کردم تا او بهتر {{answer}}.",
@@ -2227,7 +2454,8 @@
           "translation": "I turned on the light so that he could see better.",
           "hint": "see — subjunctive of دیدن, 3rd person singular, after the purpose linker",
           "display_order": 6,
-          "transliteration": "čirâġ râ rawšan kardam tâ u behtar {{answer}}."
+          "transliteration": "čirâġ râ rawšan kardam tâ u behtar {{answer}}.",
+          "gloss": "lamp · OBJ · bright · do.PST.1SG · so.that · 3SG · good-COMP · ___"
         }
       ]
     },
@@ -2246,7 +2474,8 @@
           "translation": "I'm going home tomorrow.",
           "hint": "the written standard for what is said \"miram\"",
           "transliteration": "man farda be khane ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · tomorrow · to · house · ___"
         },
         {
           "sentence": "من چای {{answer}}.",
@@ -2254,7 +2483,8 @@
           "translation": "I want tea.",
           "hint": "the written standard for what is said \"mikham\"",
           "transliteration": "man chay ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · tea · ___"
         },
         {
           "sentence": "{{answer}} کتاب را خواندم.",
@@ -2262,7 +2492,8 @@
           "translation": "I read that book.",
           "hint": "\"that\" — written in full, though it is said \"un\"",
           "transliteration": "___ ketab ra khandam.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · book · OBJ · read.PST.1SG"
         },
         {
           "sentence": "این خانه بزرگ {{answer}}.",
@@ -2270,7 +2501,8 @@
           "translation": "This house is big.",
           "hint": "\"is\" — the full written word, which speech reduces to a suffix",
           "transliteration": "in khane bozorg ___.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "this · house · big · ___"
         },
         {
           "sentence": "او به ما {{answer}}.",
@@ -2278,7 +2510,8 @@
           "translation": "He tells us.",
           "hint": "the written standard for what is said \"mige\"",
           "transliteration": "u be ma ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG · to · 1PL · ___"
         },
         {
           "sentence": "بچه‌ها به زودی {{answer}}.",
@@ -2286,7 +2519,8 @@
           "translation": "The children will come soon.",
           "hint": "the written standard, 3rd person plural of آمدن, for what is said 'miyan'",
           "display_order": 6,
-          "transliteration": "bačehâ be zudi {{answer}}."
+          "transliteration": "bačehâ be zudi {{answer}}.",
+          "gloss": "child-PL · to · earliness · ___"
         }
       ]
     },
@@ -2305,7 +2539,8 @@
           "translation": "This letter was sent to you.",
           "hint": "became — the formal counterpart of شد",
           "transliteration": "in name baraye shoma ersal ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this · letter · for · 2PL · sending · ___"
         },
         {
           "sentence": "ایشان در جلسه شرکت {{answer}}.",
@@ -2313,7 +2548,8 @@
           "translation": "He/she attended the meeting.",
           "hint": "did — the formal counterpart of کردند, plural out of deference",
           "transliteration": "ishan dar jalase sherkat ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3PL.POL · in · meeting · participation · ___"
         },
         {
           "sentence": "این موضوع مهم {{answer}}.",
@@ -2321,7 +2557,8 @@
           "translation": "This matter is important.",
           "hint": "is — the bureaucratic substitute for است",
           "transliteration": "in mozu mohem ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "this · matter · important · ___"
         },
         {
           "sentence": "خواهشمند است فرم را تکمیل {{answer}}.",
@@ -2329,7 +2566,8 @@
           "translation": "Please complete the form.",
           "hint": "the polite verb that replaces کنید in requests",
           "transliteration": "khaheshmand ast form ra takmil ___.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "requesting · be.PRS.3SG · form · OBJ · completion · ___"
         },
         {
           "sentence": "{{answer}} اطلاعات بیشتر با ما تماس بگیرید.",
@@ -2337,7 +2575,8 @@
           "translation": "For further information, contact us.",
           "hint": "for — the formal preposition that replaces برای",
           "transliteration": "___ ettelaat-e bishtar ba ma tamas begirid.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · information-PL.EZ · much-COMP · with · 1PL · contact · IMP-take.2PL"
         },
         {
           "sentence": "ایشان در این باره چه {{answer}}؟",
@@ -2345,7 +2584,8 @@
           "translation": "What did he/she say about this?",
           "hint": "said — the deferential verb that stands in for گفتن, past, plural for one respected person",
           "display_order": 6,
-          "transliteration": "išân dar ên bâre če {{answer}}؟"
+          "transliteration": "išân dar ên bâre če {{answer}}؟",
+          "gloss": "3PL.POL · in · this · regard · what · ___"
         },
         {
           "sentence": "این مدرک معتبر {{answer}}.",
@@ -2353,7 +2593,8 @@
           "translation": "This document is not valid.",
           "hint": "is not — the negative of the bureaucratic stand-in for است",
           "display_order": 7,
-          "transliteration": "ên madrak mo'tabar {{answer}}."
+          "transliteration": "ên madrak mo'tabar {{answer}}.",
+          "gloss": "this · document · valid · ___"
         }
       ]
     },
@@ -2372,7 +2613,8 @@
           "translation": "This writer's books are famous.",
           "hint": "books — the Arabic plural of کتاب",
           "transliteration": "___ in nevisande maruf ast.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · this · writer · famous · be.PRS.3SG"
         },
         {
           "sentence": "{{answer}} امروز مهم بود.",
@@ -2380,7 +2622,8 @@
           "translation": "Today's news was important.",
           "hint": "news — the Arabic plural of خبر",
           "transliteration": "___ emruz mohem bud.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · today · important · be.PST.3SG"
         },
         {
           "sentence": "{{answer}} دین در این جلسه بودند.",
@@ -2388,7 +2631,8 @@
           "translation": "The religious scholars were at this meeting.",
           "hint": "scholars — the Arabic plural of عالم, carrying an ezafe",
           "transliteration": "___ din dar in jalase budand.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · religion · in · this · meeting · be.PST.3PL"
         },
         {
           "sentence": "او {{answer}} زیادی نوشته است.",
@@ -2396,7 +2640,8 @@
           "translation": "He has written a great many articles.",
           "hint": "articles — the Arabic plural of مقاله",
           "transliteration": "u ___ ziadi neveshte ast.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG · ___ · many-INDF · write.PTCP · be.PRS.3SG"
         },
         {
           "sentence": "{{answer}} این خانواده کم هستند.",
@@ -2404,7 +2649,8 @@
           "translation": "This family's members are few.",
           "hint": "members — the Arabic plural of عضو, carrying an ezafe",
           "transliteration": "___ in khanevade kam hastand.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · this · family · few · be.PRS.3PL"
         },
         {
           "sentence": "آیا {{answer}} مهم این درس را یادداشت کردید؟",
@@ -2412,7 +2658,8 @@
           "translation": "Did you note down the important points of this lesson?",
           "hint": "points, remarks — the broken plural of نکته, the shape formal writing prefers",
           "display_order": 6,
-          "transliteration": "âyâ {{answer}} mohemm ên dars râ yâddâšt kardid؟"
+          "transliteration": "âyâ {{answer}} mohemm ên dars râ yâddâšt kardid؟",
+          "gloss": "Q · ___ · important · this · lesson · OBJ · note · do.PST.2PL"
         },
         {
           "sentence": "این {{answer}} را نمی‌شناسم.",
@@ -2420,7 +2667,8 @@
           "translation": "I don't know these people.",
           "hint": "persons — the broken plural of شخص, preferred to the suffixed plural in formal prose",
           "display_order": 7,
-          "transliteration": "in {{answer}} râ nemišenâsam."
+          "transliteration": "in {{answer}} râ nemišenâsam.",
+          "gloss": "this · ___ · OBJ · NEG-PROG-know.1SG"
         }
       ]
     },
@@ -2439,7 +2687,8 @@
           "translation": "He went away and did not return.",
           "hint": "went — the literary form of رفت, with its بـ prefix",
           "transliteration": "u ___ va baznagasht.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG · ___ · and · back-NEG-return.PST.3SG"
         },
         {
           "sentence": "شاه {{answer}}: چنین است.",
@@ -2447,7 +2696,8 @@
           "translation": "The king said: it is so.",
           "hint": "said — the literary form of گفت",
           "transliteration": "shah ___: chonin ast.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "king · ___ · thus · be.PRS.3SG"
         },
         {
           "sentence": "او را {{answer}} و شناخت.",
@@ -2455,7 +2705,8 @@
           "translation": "He saw him and recognized him.",
           "hint": "saw — the literary form of دید",
           "transliteration": "u ra ___ va shenakht.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG · OBJ · ___ · and · recognize.PST.3SG"
         },
         {
           "sentence": "مرد {{answer}} و رفت.",
@@ -2463,7 +2714,8 @@
           "translation": "The man rose and left.",
           "hint": "rose — a literary verb of standing up",
           "transliteration": "mard ___ va raft.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "man · ___ · and · go.PST.3SG"
         },
         {
           "sentence": "او {{answer}} رفت.",
@@ -2471,7 +2723,8 @@
           "translation": "He went on and on.",
           "hint": "the old continuous particle that modern Persian writes as a prefix",
           "transliteration": "u ___ raft.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG · ___ · go.PST.3SG"
         },
         {
           "sentence": "مردم این سخن را {{answer}} و خاموش شدند.",
@@ -2479,7 +2732,8 @@
           "translation": "The people heard this speech and fell silent.",
           "hint": "heard — the past of the verb for hearing as older narrative prose writes it, third person plural",
           "display_order": 6,
-          "transliteration": "mardom in soxan râ {{answer}} va xâmuš šodand."
+          "transliteration": "mardom in soxan râ {{answer}} va xâmuš šodand.",
+          "gloss": "people · this · speech · OBJ · ___ · and · silent · become.PST.3PL"
         }
       ]
     },
@@ -2498,7 +2752,8 @@
           "translation": "Whoever is wise is strong. (Ferdowsi)",
           "hint": "strong/capable — the first word of the hemistich",
           "transliteration": "___ bovad har ke dana bovad.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · be.PRS.3SG · every · REL · wise · be.PRS.3SG"
         },
         {
           "sentence": "بنی‌آدم {{answer}} یک پیکرند.",
@@ -2506,7 +2761,8 @@
           "translation": "Human beings are the members of one body. (Saadi)",
           "hint": "members — an Arabic plural carrying an ezafe",
           "transliteration": "bani adam ___ yek peykarand.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "son.PL-Adam · ___ · one · body-be.PRS.3PL"
         },
         {
           "sentence": "که در آفرینش ز یک {{answer}}.",
@@ -2514,7 +2770,8 @@
           "translation": "for in creation they are of one essence. (Saadi)",
           "hint": "they are of one jewel — noun plus the poetic plural predicate ending",
           "transliteration": "ke dar afarinesh ze yek ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "REL · in · creation · from · one · ___"
         },
         {
           "sentence": "او {{answer}} شهر رفت.",
@@ -2522,7 +2779,8 @@
           "translation": "He left the city. (poetic)",
           "hint": "from — the one-letter poetic form of the ordinary preposition",
           "transliteration": "u ___ shahr raft.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG · ___ · city · go.PST.3SG"
         },
         {
           "sentence": "او دانا {{answer}}.",
@@ -2530,7 +2788,8 @@
           "translation": "He is wise. (verse)",
           "hint": "is — read bovad in verse, where prose would use است",
           "transliteration": "u dana ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG · wise · ___"
         },
         {
           "sentence": "بسی رنج بردم در این سال {{answer}}.",
@@ -2538,7 +2797,8 @@
           "translation": "I have suffered much toil in these thirty years. (Ferdowsi)",
           "hint": "thirty — the numeral, which verse lets follow its noun instead of standing before it",
           "display_order": 6,
-          "transliteration": "be-si ranj bordam dar ên sâl {{answer}}."
+          "transliteration": "be-si ranj bordam dar ên sâl {{answer}}.",
+          "gloss": "much · toil · bear.PST.1SG · in · this · year · ___"
         },
         {
           "sentence": "ز دانش دل پیر {{answer}} بود.",
@@ -2546,7 +2806,8 @@
           "translation": "Through knowledge the old heart grows young. (Ferdowsi)",
           "hint": "young — the verse word for it, where prose would say جوان",
           "display_order": 7,
-          "transliteration": "ze dâniš dil pir {{answer}} bud."
+          "transliteration": "ze dâniš dil pir {{answer}} bud.",
+          "gloss": "from · knowledge · heart.EZ · old · ___ · be.PRS.3SG"
         }
       ]
     },
@@ -2565,7 +2826,8 @@
           "translation": "I lost my book.",
           "hint": "gave — the light verb of the idiom meaning \"to lose\"",
           "transliteration": "ketabam ra az dast ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "book-1SG.POSS · OBJ · from · hand · ___"
         },
         {
           "sentence": "دلم برای تو تنگ {{answer}}.",
@@ -2573,7 +2835,8 @@
           "translation": "I miss you.",
           "hint": "become — the participle in the idiom \"my heart has grown narrow\"",
           "transliteration": "delam baraye to tang ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "heart-1SG.POSS · for · 2SG · tight · ___"
         },
         {
           "sentence": "حرف او را باور {{answer}}.",
@@ -2581,7 +2844,8 @@
           "translation": "I didn't believe what he said.",
           "hint": "didn't do — the negated light verb of \"to believe\"",
           "transliteration": "harf-e u ra bavar ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "word.EZ · 3SG · OBJ · belief · ___"
         },
         {
           "sentence": "از این موضوع سر در {{answer}}.",
@@ -2589,7 +2853,8 @@
           "translation": "I can't make sense of this.",
           "hint": "don't bring — the negated light verb of \"to figure out\"",
           "transliteration": "az in mozu sar dar ___.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "from · this · matter · head · in · ___"
         },
         {
           "sentence": "او {{answer}} به کار شد.",
@@ -2597,7 +2862,8 @@
           "translation": "He got down to work.",
           "hint": "hand — the fixed noun in the idiom for setting to work",
           "transliteration": "u ___ be kar shod.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG · ___ · to · work · become.PST.3SG"
         },
         {
           "sentence": "اگر این وعده را باور {{answer}}، پشیمان می‌شوی.",
@@ -2605,7 +2871,8 @@
           "translation": "If you believe this promise, you'll be sorry.",
           "hint": "do — the light verb of the idiom for believing, in the subjunctive a conditional calls for, second person singular",
           "display_order": 6,
-          "transliteration": "agar in va'de râ bâvar {{answer}}, pašimân mišavi."
+          "transliteration": "agar in va'de râ bâvar {{answer}}, pašimân mišavi.",
+          "gloss": "if · this · promise · OBJ · belief · ___ · regretful · PROG-become.2SG"
         },
         {
           "sentence": "تو از کار او سر در {{answer}}؟",
@@ -2613,7 +2880,8 @@
           "translation": "Do you make sense of what he is doing?",
           "hint": "bring — the light verb that completes the idiom for figuring something out, present tense, second person singular",
           "display_order": 7,
-          "transliteration": "to az -kâr u sar dar {{answer}}؟"
+          "transliteration": "to az -kâr u sar dar {{answer}}؟",
+          "gloss": "2SG · from · work.EZ · 3SG · head · in · ___"
         }
       ]
     },
@@ -2632,7 +2900,8 @@
           "translation": "What did you say yesterday? (deferential)",
           "hint": "said — the deferential verb that replaces گفتید",
           "transliteration": "shoma diruz che ___?",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "2PL.POL · yesterday · what · ___"
         },
         {
           "sentence": "{{answer}}، خواهش می‌کنم.",
@@ -2640,7 +2909,8 @@
           "translation": "Please, go ahead.",
           "hint": "the all-purpose polite invitation, from the deferential verb",
           "transliteration": "___, khahesh mikonam.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · request · PROG-do.1SG"
         },
         {
           "sentence": "شما کجا تشریف {{answer}}؟",
@@ -2648,7 +2918,8 @@
           "translation": "Where are you? (deferential)",
           "hint": "have — the second half of the polite phrase for \"to be present\"",
           "transliteration": "shoma koja tashrif ___?",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "2PL.POL · where · honor.POL · ___"
         },
         {
           "sentence": "ایشان فردا {{answer}}.",
@@ -2656,7 +2927,8 @@
           "translation": "He/she is coming tomorrow. (deferential)",
           "hint": "come — plural verb for one respected person",
           "transliteration": "ishan farda ___.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3PL.POL · tomorrow · ___"
         },
         {
           "sentence": "تو کجا {{answer}}؟",
@@ -2664,7 +2936,8 @@
           "translation": "Where are you going? (intimate)",
           "hint": "go — singular verb, the intimate register",
           "transliteration": "to koja ___?",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · where · ___"
         },
         {
           "sentence": "ایشان دیروز به دفتر ما تشریف {{answer}}.",
@@ -2672,7 +2945,8 @@
           "translation": "He/she came to our office yesterday. (deferential)",
           "hint": "brought — the verb that completes the polite phrase for arriving, in the plural deference requires",
           "display_order": 6,
-          "transliteration": "išân dīrôz ba daftar mâ tašrīf {{answer}}."
+          "transliteration": "išân dīrôz ba daftar mâ tašrīf {{answer}}.",
+          "gloss": "3PL.POL · yesterday · to · office.EZ · 1PL · honor.POL · ___"
         },
         {
           "sentence": "چرا دیروز به من زنگ {{answer}}؟",
@@ -2680,7 +2954,8 @@
           "translation": "Why didn't you call me yesterday? (intimate)",
           "hint": "the negated past of the light verb that pairs with زنگ, second person singular — the intimate register",
           "display_order": 7,
-          "transliteration": "čarâ dīrôz ba man zang {{answer}}؟"
+          "transliteration": "čarâ dīrôz ba man zang {{answer}}؟",
+          "gloss": "why · yesterday · to · 1SG · bell · ___"
         }
       ]
     }
