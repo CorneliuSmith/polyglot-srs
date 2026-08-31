@@ -1028,6 +1028,40 @@ Remaining, in order:
   afterwards (`review_translations` offline mode, `review_hints`,
   gym top-up, example diversity) and what each costs.
 
+### Phase 7 — Topic Lens classification (owner decision, 30 Aug 2026: LAST)
+
+**Deferred on purpose.** The feature shipped complete — migration 20261009,
+the 24-slug frozen taxonomy, `vocab_needing_topic` / `set_vocab_ai_topic`,
+the review queue with bulk confirm-and-reject by (language, topic), and
+`generate_content -k topics`. What is *not* done is the classification run
+itself: ~170,303 words across 27 courses, all `topic IS NULL` today.
+
+The owner's call is that this is unnecessary until the rest of the programme
+lands, and the sequencing supports it: **a topic is derived from the English
+gloss**, and the gloss is what Phase 2d deepens. Only 10% of the top-1000
+bands are override-verified today (2,633 of 26,003), so classifying now
+would compute topics from the layer that is about to change. The cost that
+matters is not the classifying — it is the REVIEWING. Topics land
+`topic_source='ai'` and a human confirms them bucket by bucket; if the
+gloss beneath a word changes afterwards, that confirmation has to be spent
+twice. Classify once the gloss under a band is settled.
+
+**It will cost nothing when it runs.** `--topics-file` (added with this
+entry) applies a classification produced outside the process — an in-session
+maker-checker pass — through exactly the same path: same provisional
+`topic_source='ai'`, same review queue, same `WHERE topic IS NULL`
+resumability, same audit row. Only the paid `estimate_topics` call is
+skipped, and slugs outside the frozen taxonomy are rejected rather than
+stored, so the migration's CHECK can never be violated by a hand-made file.
+
+    python -m backend.services.seeder.generate_content -l pt -k topics \
+        --topics-file data/topics/pt.json
+
+Order when it opens: the courses whose top band is already settled (`tr`,
+`en`, `ru` — the three at override depth), then the small courses that fit
+entirely inside their top 1,000 and will not be deepened further (`jam` 483,
+`la` 559, `mi` 961, `xh`, `ha`, `yo`), then the rest behind Phase 2d.
+
 ## What this deliberately does not do
 
 - **No auto-approval.** Generated sentences/drills land unreviewed in the

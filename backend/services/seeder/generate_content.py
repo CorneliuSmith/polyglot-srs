@@ -49,6 +49,7 @@ import argparse
 import asyncio
 import json
 import logging
+from pathlib import Path
 
 from backend.config import get_settings
 from backend.repositories.contributor import (
@@ -81,6 +82,7 @@ from backend.services.generation_admin import (
 )
 from backend.services.level_estimate import estimate_levels
 from backend.services.topic_estimate import dry_run_estimate, estimate_topics
+from backend.services.topic_taxonomy import valid_topic
 from backend.services.translate import (
     generate_sentence_translations,
     translations_available,
@@ -146,6 +148,38 @@ async def _run_topics(conn, lang, args) -> None:
             **dry_run_estimate(len(words)),
         }, indent=2))
         return
+    # A classification produced OUTSIDE this process — an in-session
+    # maker-checker pass rather than a paid API run — loads through exactly
+    # this path, so it gets the same resumability, the same provisional
+    # topic_source='ai', the same review queue and the same audit row. Only
+    # the estimator call is skipped; nothing downstream can tell the
+    # difference, which is the point.
+    if getattr(args, "topics_file", None):
+        supplied = json.loads(Path(args.topics_file).read_text(encoding="utf-8"))
+        by_word = supplied.get(lang["code"], supplied) if isinstance(supplied, dict) else {}
+        applied = skipped = unknown = 0
+        for w in words:
+            topic = valid_topic(by_word.get(w["word"]))
+            if topic is None:
+                if by_word.get(w["word"]):
+                    unknown += 1      # a slug outside the frozen taxonomy
+                else:
+                    skipped += 1      # not in the file; a later pass takes it
+                continue
+            if await set_vocab_ai_topic(conn, w["vocabulary_id"], topic):
+                applied += 1
+        print(json.dumps({
+            "dry_run": False, "kind": "topics", "source": args.topics_file,
+            "words_untagged": len(words), "topics_applied": applied,
+            "not_in_file": skipped, "rejected_unknown_slug": unknown,
+        }, indent=2))
+        print(
+            "\nAssigned topics are provisional (topic_source='ai'). Confirm them in "
+            "Workspace › Review › Topic buckets; under Strict policy they stay out "
+            "of learners' topic view until confirmed."
+        )
+        return
+
     if not generation_available():
         print("ERROR: real classification needs ANTHROPIC_API_KEY (or TUTOR_DEV_MOCK=1).")
         return
@@ -482,6 +516,11 @@ async def main() -> None:
         description="Maker-checker generation for example sentences / drills."
     )
     parser.add_argument("--language", "-l", required=True, help="language code, e.g. en")
+    parser.add_argument(
+        "--topics-file", metavar="JSON",
+        help="apply topics from a file instead of calling the estimator: "
+             '{"<lang>": {"<word>": "<slug>"}} or a flat {word: slug} map. '
+             "Slugs outside the taxonomy are rejected, not stored.")
     parser.add_argument(
         "--kind", "-k",
         choices=["vocab", "grammar", "levels", "topics", "definitions",

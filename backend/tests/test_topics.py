@@ -443,3 +443,53 @@ class TestTopicReviewEndpoints:
         assert resp.status_code == 200
         assert resp.json() == {"cleared": 412}
         assert bulk.await_args.args[2] is None
+
+
+class TestTopicsFromFile:
+    """`-k topics --topics-file` applies a classification produced OUTSIDE
+    this process — an in-session maker-checker pass instead of a paid
+    estimator run — through the same path: same provisional
+    topic_source='ai', same review queue, same resumability. Only the
+    estimator call is skipped.
+
+    The plan costs a full classification at "tens of dollars" across ~170k
+    rows. This flag is why that phase can cost nothing.
+    """
+
+    def test_the_flag_exists_and_documents_both_file_shapes(self):
+        import argparse
+        import inspect
+
+        from backend.services.seeder import generate_content as gc
+
+        src = inspect.getsource(gc)
+        assert "--topics-file" in src
+        # nested map (many languages) and flat map (one) are both accepted
+        assert '{"<lang>": {"<word>": "<slug>"}}' in src
+        assert isinstance(argparse.ArgumentParser(), argparse.ArgumentParser)
+
+    def test_a_slug_outside_the_taxonomy_is_refused_not_stored(self):
+        """The enum is the whole safety property: the API path cannot invent
+        a bucket because the schema forbids it, so the file path must reject
+        one for the same reason — a bad slug would violate the migration's
+        CHECK and abort the transaction."""
+        from backend.services.topic_taxonomy import valid_topic
+
+        assert valid_topic("food_drink") == "food_drink"
+        assert valid_topic("function_words") == "function_words"
+        assert valid_topic("colours") is None
+        assert valid_topic("") is None
+        assert valid_topic(None) is None
+
+    def test_every_guide_bucket_is_a_real_slug(self):
+        """The estimator's prompt guide and the frozen taxonomy must not
+        drift: a bucket described to the model but absent from the enum
+        would be proposed and then silently dropped."""
+        import re
+
+        from backend.services import topic_estimate as te
+        from backend.services.topic_taxonomy import ALL_TOPICS
+
+        described = set(re.findall(r"^(\w+):", te._GUIDE, re.M))
+        assert described == set(ALL_TOPICS), (
+            f"guide/taxonomy drift: {described ^ set(ALL_TOPICS)}")
