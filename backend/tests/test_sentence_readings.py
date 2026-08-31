@@ -49,8 +49,25 @@ _NATIVE = [
 # the table covers reads as a coverage drop. Rule 24 — a number going down
 # can be the correct outcome; the floor moves, with the reason attached.
 # Raise it again when the lookup is extended over sentence vocabulary.
+# TOKEN coverage — what share of words the reader can render. NOT the share
+# of whole sentences, which falls as sentences get longer even when the
+# reader is unchanged: a sentence needs EVERY word known. Arabic's
+# sentence-share floor was moved twice in two days chasing that, both times
+# because sentence quality had been RAISED. A ratchet that drops when the
+# content improves is measuring the wrong unit.
+#
+# ru/el/hi/ko compute their reading rather than look it up, so they render
+# any word and sit at 1.00. th/he/fa/ar are dictionary lookups and their
+# floors are the real state of those tables (measured 31 Aug).
 FLOORS = {"ru": 0.99, "el": 0.99, "hi": 0.99, "ko": 0.99,
-          "th": 0.85, "he": 0.60, "fa": 0.60, "ar": 0.35}
+          "he": 0.85, "fa": 0.90, "ar": 0.78}
+
+# Thai stays on the per-SENTENCE measure, and it is the one language where
+# that is right: it writes without spaces, so "a token" only exists once the
+# reader has segmented the text — and asking whether the reader can render
+# the segments it produced is circular. Sentence coverage is the only
+# non-circular question available (§22).
+SENTENCE_FLOORS = {"th": 0.85}
 
 
 def _native(token: str) -> bool:
@@ -83,12 +100,32 @@ def test_a_reading_is_never_partial(code):
         f"still contains {partial[0][2][:3]}")
 
 
+@pytest.mark.parametrize("code", sorted(SENTENCE_FLOORS))
+def test_unspaced_reading_coverage_holds_its_floor(code):
+    """Thai only. See SENTENCE_FLOORS for why the unit differs."""
+    rows = _sample(code)
+    share = sum(1 for s in rows if sentence_reading(s, code)) / len(rows)
+    assert share >= SENTENCE_FLOORS[code], (
+        f"{code}: readings on {share:.0%} of the sample, floor "
+        f"{SENTENCE_FLOORS[code]:.0%}")
+
+
 @pytest.mark.parametrize("code", sorted(FLOORS))
 def test_reading_coverage_holds_its_floor(code):
-    rows = _sample(code)
-    got = sum(1 for s in rows if sentence_reading(s, code))
-    share = got / len(rows)
+    """Per-TOKEN, so the number answers "how much of this language can the
+    reader render" rather than "how short are the sentences today"."""
+    total = known = 0
+    for sentence in _sample(code):
+        for token in TOK.findall(sentence):
+            if not _native(token):
+                continue          # already Latin: nothing to render
+            total += 1
+            if sentence_reading(token, code):
+                known += 1
+    share = known / max(1, total)
     assert share >= FLOORS[code], (
-        f"{code}: sentence readings available on {share:.0%} of the sample, "
-        f"floor {FLOORS[code]:.0%}. Coverage dropping means the lookup lost "
-        f"entries; raise the floor only after it genuinely improves.")
+        f"{code}: the reader renders {share:.0%} of {total} native tokens, "
+        f"floor {FLOORS[code]:.0%}. A drop means the lookup lost entries — "
+        f"raise the floor only after it genuinely improves, and never to "
+        f"accommodate longer sentences (that is what the old per-sentence "
+        f"unit punished).")
