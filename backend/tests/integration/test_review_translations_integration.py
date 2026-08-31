@@ -37,7 +37,10 @@ HINDI = "मैं चाय {{answer}} हूँ।"
 
 async def _fixture(conn) -> dict:
     """One language with one drill and one example sentence, both English."""
-    code = f"zz{uuid.uuid4().hex[:4]}"
+    # Full hex, never a slice — see test_seed_sentences_locale: these
+    # codes share one session-scoped schema all run, and a truncated
+    # tail collided in CI.
+    code = f"zz{uuid.uuid4().hex}"
     lang_id = await conn.fetchval(
         "INSERT INTO languages (code, name) VALUES ($1, $2) RETURNING id",
         code, "Hindi",

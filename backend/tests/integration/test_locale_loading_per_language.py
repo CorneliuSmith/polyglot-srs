@@ -117,7 +117,7 @@ async def _load_course(conn, code: str, tmp_path, monkeypatch) -> dict | None:
     rows, fields = _sample_rows(code)
     if not rows:
         return None
-    test_code = f"z{uuid.uuid4().hex[:5]}"
+    test_code = f"z{uuid.uuid4().hex}"
     lang_id = await conn.fetchval(
         "INSERT INTO languages (code, name) VALUES ($1, $2) RETURNING id",
         test_code, f"Test {code}")
@@ -220,7 +220,7 @@ class TestTheEnglishCourseSpecifically:
                     for r in rows}
         assert len(expected) > 1
 
-        test_code = f"z{uuid.uuid4().hex[:5]}"
+        test_code = f"z{uuid.uuid4().hex}"
         lang_id = await conn.fetchval(
             "INSERT INTO languages (code, name) VALUES ($1,'Multi') RETURNING id",
             test_code)

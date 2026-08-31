@@ -35,7 +35,10 @@ async def conn(schema):
 
 
 async def _spanish_course(conn) -> dict:
-    code = f"zz{uuid.uuid4().hex[:4]}"
+    # Full hex, never a slice — see test_seed_sentences_locale: these
+    # codes share one session-scoped schema all run, and a truncated
+    # tail collided in CI.
+    code = f"zz{uuid.uuid4().hex}"
     lang_id = await conn.fetchval(
         "INSERT INTO languages (code, name) VALUES ($1, 'Spanish') RETURNING id",
         code)
