@@ -1,8 +1,10 @@
 # Topic Lens: learn by meaning, not only by rank
 
-A plan, not an implementation. Status: **awaiting owner approval** of the
-taxonomy below (the owner has seen this plan and the bucket list in chat,
-2026-08-31; implementation starts on their go).
+Status: **taxonomy approved by the owner, 2026-08-31** ("Okay, push the
+plan and these sorting functions… push the stuff and the db changes").
+The backend — migration 20261009, the topic-scoped draw, the classifier
+(`-k topics`) and its review queue — ships with this document; the
+learner-facing toggle (rollout step 3 below) follows in its own PR.
 
 The owner's request, verbatim: *"instead of adding purely based on language
 ranking category, there could be the ability to swap to more granular

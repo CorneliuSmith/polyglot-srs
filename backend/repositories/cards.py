@@ -27,6 +27,7 @@ from backend.services.locale_guard import mark_locale_mismatches
 from backend.services.readings import sentence_phonetics, sentence_reading
 from backend.services.references import clean_references
 from backend.services.srs_stages import stage_for
+from backend.services.topic_taxonomy import HIDDEN_TOPICS
 
 logger = logging.getLogger(__name__)
 
@@ -655,11 +656,20 @@ async def _select_vocab_candidate_ids(
     language_id: str,
     batch_size: int,
     level: str | None,
+    topic: str | None = None,
 ) -> list:
     """Vocabulary the user hasn't started, ranked round-robin across the queued
     level decks (Nth of every level before the (N+1)th; frequency within a
     level). DISTINCT guards against a word matching several subscribed lists.
     With *level* set, it's just that deck in frequency order.
+
+    With *topic* set (the Topic Lens, docs/plans/topic-lens.md), the pool is
+    additionally filtered to one semantic bucket and the round-robin runs
+    across WORD TYPES (part of speech) instead of levels — the interference
+    literature's finding is that new same-type coordinates taught together
+    (*peach/plum/cherry*) blur, so a topic batch deals *bread, cook,
+    delicious*, never five nouns in a row. Levels still order WITHIN a word
+    type, so easier, more frequent words still come first.
 
     Explicit words are excluded unless the learner opted in. The preference
     is read inside the query rather than passed down, so every caller of
@@ -668,15 +678,57 @@ async def _select_vocab_candidate_ids(
     """
     try:
         return await _vocab_candidates(
-            conn, user_id, language_id, batch_size, level, explicit_filter=True
+            conn, user_id, language_id, batch_size, level,
+            explicit_filter=True, topic=topic,
         )
     except asyncpg.exceptions.UndefinedColumnError:
+        if topic is not None:
+            # Migration 20261009 (vocabulary.topic) hasn't landed but a
+            # topic was requested — a stale link on a deploy ahead of its
+            # schema. Serve a normal draw rather than fail the session; the
+            # toggle that mints topic links doesn't render pre-migration.
+            try:
+                return await _vocab_candidates(
+                    conn, user_id, language_id, batch_size, level,
+                    explicit_filter=True, topic=None,
+                )
+            except asyncpg.exceptions.UndefinedColumnError:
+                return await _vocab_candidates(
+                    conn, user_id, language_id, batch_size, level,
+                    explicit_filter=False, topic=None,
+                )
         # Migration 20260910 hasn't landed. Serve vocabulary rather than
         # fail the session; nothing is marked explicit yet either, so the
         # filter would have been a no-op regardless.
         return await _vocab_candidates(
-            conn, user_id, language_id, batch_size, level, explicit_filter=False
+            conn, user_id, language_id, batch_size, level,
+            explicit_filter=False, topic=None,
         )
+
+
+def _spread_word_types(rows: list, limit: int) -> list:
+    """Deal a topic batch so no two consecutive items share a word type.
+
+    Greedy over the ranked candidates: take the best-ranked row whose
+    part_of_speech differs from the previous pick; when none differs (a
+    noun-heavy topic — the partition alone degenerates there), fall back to
+    the best-ranked remaining row rather than starve the batch. NULL part
+    of speech is its own lane. Accepted residual: with batch_size 5 and
+    sentence-context drills at introduction, an occasional same-type pair
+    is bounded; five in a row is what this exists to prevent.
+    """
+    remaining = list(rows)
+    picked: list = []
+    prev_pos = object()  # matches nothing, so the first pick is rank order
+    while remaining and len(picked) < limit:
+        choice = next(
+            (r for r in remaining if r["part_of_speech"] != prev_pos),
+            remaining[0],
+        )
+        remaining.remove(choice)
+        picked.append(choice)
+        prev_pos = choice["part_of_speech"]
+    return [r["id"] for r in picked]
 
 
 async def _vocab_candidates(
@@ -687,6 +739,7 @@ async def _vocab_candidates(
     level: str | None,
     *,
     explicit_filter: bool,
+    topic: str | None = None,
 ) -> list:
     explicit_clause = (
         """
@@ -701,6 +754,68 @@ async def _vocab_candidates(
         if explicit_filter
         else ""
     )
+    if topic is not None:
+        # The Topic Lens draw. Its own query rather than more conditional
+        # interpolation in the main one: the clause must reference v.topic
+        # ONLY when a topic was actually requested, so plain level learns
+        # stay byte-identical to today (and keep working on a schema
+        # without the column — the caller catches UndefinedColumnError).
+        # Over-fetched 3x, then dealt by _spread_word_types so consecutive
+        # items differ in word type; unconfirmed 'ai' topics are gated
+        # exactly like unconfirmed 'ai' levels.
+        rows = await conn.fetch(
+            """
+            WITH candidates AS (
+                SELECT DISTINCT v.id AS id, v.level AS level,
+                                v.frequency_rank AS frequency_rank,
+                                v.part_of_speech AS part_of_speech
+                FROM vocabulary v
+                JOIN content_lists cl
+                       ON v.language_id = cl.language_id
+                      AND cl.list_type = 'vocabulary'
+                      AND (cl.level IS NULL OR cl.level = v.level)
+                JOIN user_content_subscriptions ucs
+                       ON cl.id = ucs.content_list_id
+                      AND ucs.user_id = $1
+                WHERE v.language_id = $2
+                  AND v.topic = $4
+                  AND ($5::text IS NULL OR v.level = $5)
+                  AND (v.level_source <> 'ai'
+                       OR EXISTS (SELECT 1 FROM languages lp
+                                   WHERE lp.id = v.language_id
+                                     AND lp.grammar_review_policy IN ('ai_ok', 'all')))
+                  AND (v.topic_source IS DISTINCT FROM 'ai'
+                       OR EXISTS (SELECT 1 FROM languages lp
+                                   WHERE lp.id = v.language_id
+                                     AND lp.grammar_review_policy IN ('ai_ok', 'all')))
+                  AND v.id NOT IN (
+                      SELECT card_id FROM user_cards
+                      WHERE user_id = $1 AND card_type = 'vocabulary'
+                        AND NOT (is_suspended AND repetitions = 0)
+                  )
+                  {explicit_clause}
+            ),
+            ranked AS (
+                SELECT id, part_of_speech,
+                       row_number() OVER (
+                           PARTITION BY part_of_speech
+                           ORDER BY level ASC NULLS LAST,
+                                    frequency_rank ASC NULLS LAST, id
+                       ) AS rn
+                FROM candidates
+            )
+            SELECT id, part_of_speech
+            FROM ranked
+            ORDER BY rn ASC, part_of_speech ASC NULLS LAST
+            LIMIT $3
+            """.replace("{explicit_clause}", explicit_clause),
+            user_id,
+            language_id,
+            batch_size * 3,
+            topic,
+            level,
+        )
+        return _spread_word_types(list(rows), batch_size)
     rows = await conn.fetch(
         """
         WITH candidates AS (
@@ -1174,19 +1289,22 @@ async def add_learn_batch(
     language_id: str,
     batch_size: int,
     level: str | None = None,
+    topic: str | None = None,
 ) -> dict:
     """Add a batch of new vocabulary cards to user_cards from subscribed lists.
 
     Selects vocabulary the user has not yet learned (round-robin across the
     queued level decks), inserts each suspended, due now. When *level* is
     given, the batch draws only from that CEFR level (a specific deck).
+    When *topic* is given (the Topic Lens), only that semantic bucket —
+    still inside the subscribed level lists, dealt across word types.
 
     Returns:
         {"added": int, "items": list[str]}  — count and list of new user_card IDs
     """
     await pretranslate_upcoming(conn, user_id, language_id, batch_size, level)
     ids = await _select_vocab_candidate_ids(
-        conn, user_id, language_id, batch_size, level
+        conn, user_id, language_id, batch_size, level, topic
     )
     return await _insert_learn_cards(
         conn, user_id, language_id, [("vocabulary", i) for i in ids]
@@ -1369,6 +1487,100 @@ async def get_learn_decks(
             "level": r["level"],
             "title": r["title"],
             "subscribed": r["subscribed"],
+            "total": int(r["total"]),
+            "learned": int(r["learned"]),
+        }
+        for r in rows
+    ]
+
+
+async def get_topic_summary(
+    conn: asyncpg.Connection, user_id: str, language_id: str
+) -> list[dict]:
+    """The Topic Lens's deck rows: per visible topic, how many learnable
+    words sit INSIDE the learner's subscribed level lists, and how many
+    they've started. Empty list pre-migration-20261009 (probed, never
+    thrown — the toggle simply doesn't render) and for any course whose
+    classification hasn't run.
+
+    Totals share the learn selector's gates on purpose — subscriptions,
+    ai-level gate, ai-topic gate — or the number on the deck row would not
+    reconcile with what Learn actually serves. The learned count ignores
+    subscription (like get_learn_decks): progress already made shows even
+    if the learner later unsubscribes a level, so learned can exceed total;
+    the client caps the display. Hidden buckets (abstract_general,
+    function_words) are excluded here, not in the client, so no consumer
+    can forget.
+    """
+    present = await conn.fetchval(
+        """
+        SELECT EXISTS (
+            SELECT 1 FROM information_schema.columns
+            WHERE table_name = 'vocabulary' AND column_name = 'topic'
+        )
+        """
+    )
+    if not present:
+        return []
+    rows = await conn.fetch(
+        """
+        -- One row per WORD (EXISTS, not joins): a word can match both its
+        -- level list and a whole-language (NULL-level) list, and a join
+        -- would count it twice — the selectors guard the same fact with
+        -- DISTINCT.
+        SELECT v.topic AS topic,
+               COUNT(*) FILTER (WHERE EXISTS (
+                   SELECT 1 FROM content_lists cl
+                   JOIN user_content_subscriptions ucs
+                        ON cl.id = ucs.content_list_id AND ucs.user_id = $1
+                   WHERE cl.language_id = v.language_id
+                     AND cl.list_type = 'vocabulary'
+                     AND (cl.level IS NULL OR cl.level = v.level)
+               )) AS total,
+               COUNT(*) FILTER (WHERE EXISTS (
+                   SELECT 1 FROM user_cards uc
+                   WHERE uc.user_id = $1
+                     AND uc.card_type = 'vocabulary'
+                     AND uc.card_id = v.id
+                     AND NOT (uc.is_suspended AND uc.repetitions = 0)
+               )) AS learned
+        FROM vocabulary v
+        WHERE v.language_id = $2
+          AND v.topic IS NOT NULL
+          AND v.topic <> ALL($3::text[])
+          AND (v.level_source <> 'ai'
+               OR EXISTS (SELECT 1 FROM languages lp
+                           WHERE lp.id = v.language_id
+                             AND lp.grammar_review_policy IN ('ai_ok', 'all')))
+          AND (v.topic_source IS DISTINCT FROM 'ai'
+               OR EXISTS (SELECT 1 FROM languages lp
+                           WHERE lp.id = v.language_id
+                             AND lp.grammar_review_policy IN ('ai_ok', 'all')))
+        GROUP BY v.topic
+        HAVING COUNT(*) FILTER (WHERE EXISTS (
+                   SELECT 1 FROM content_lists cl
+                   JOIN user_content_subscriptions ucs
+                        ON cl.id = ucs.content_list_id AND ucs.user_id = $1
+                   WHERE cl.language_id = v.language_id
+                     AND cl.list_type = 'vocabulary'
+                     AND (cl.level IS NULL OR cl.level = v.level)
+               )) > 0
+            OR COUNT(*) FILTER (WHERE EXISTS (
+                   SELECT 1 FROM user_cards uc
+                   WHERE uc.user_id = $1
+                     AND uc.card_type = 'vocabulary'
+                     AND uc.card_id = v.id
+                     AND NOT (uc.is_suspended AND uc.repetitions = 0)
+               )) > 0
+        ORDER BY v.topic
+        """,
+        user_id,
+        language_id,
+        list(HIDDEN_TOPICS),
+    )
+    return [
+        {
+            "topic": r["topic"],
             "total": int(r["total"]),
             "learned": int(r["learned"]),
         }
