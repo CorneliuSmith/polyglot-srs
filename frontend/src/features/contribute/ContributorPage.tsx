@@ -777,9 +777,28 @@ const ADMIN_SECTIONS: [AdminSection, string][] = [
   ['costs', 'Costs'],
 ]
 
+const WORKSPACE_TABS: WorkspaceTab[] = ['contribute', 'review', 'admin']
+
+/** A tab/section named in the URL, or null. Lets anything that knows where
+ *  work is waiting — the staff bell above all — link straight AT it,
+ *  instead of dropping the reader on the workspace to find it themselves. */
+function paramTab(value: string | null): WorkspaceTab | null {
+  return WORKSPACE_TABS.includes(value as WorkspaceTab)
+    ? (value as WorkspaceTab)
+    : null
+}
+
+function paramSection(value: string | null): AdminSection | null {
+  return ADMIN_SECTIONS.some(([key]) => key === value)
+    ? (value as AdminSection)
+    : null
+}
+
 export default function ContributorPage() {
   const [searchParams] = useSearchParams()
   const focusPointId = searchParams.get('point')
+  const linkedTab = paramTab(searchParams.get('tab'))
+  const linkedSection = paramSection(searchParams.get('section'))
   const selfId = useAuthStore((s) => s.session?.user?.id ?? null)
   const navigate = useNavigate()
   const queryClient = useQueryClient()
@@ -793,7 +812,9 @@ export default function ContributorPage() {
   const setWorkspaceLanguageId = usePrefsStore((s) => s.setWorkspaceLanguageId)
   const activeLanguageId = workspaceLanguageId ?? studyLanguageId
   const setActiveLanguageId = setWorkspaceLanguageId
-  const [tab, setTab] = useState<WorkspaceTab>('contribute')
+  // A ?tab= in the URL is the opening position, not a lock — switching tabs
+  // afterwards works normally (the param is read once, at mount).
+  const [tab, setTab] = useState<WorkspaceTab>(linkedTab ?? 'contribute')
   // Grammar points have a full authoring surface; vocab is browse + votable
   // suggestions (WP32). The toggle scopes the Contribute/Review content list.
   const [contentKind, setContentKind] = useState<'grammar' | 'vocab'>('grammar')
@@ -801,7 +822,9 @@ export default function ContributorPage() {
   // the language switches meant scrolling past every chart (owner: "the
   // admin page needs to be organized"). One panel group on screen at a
   // time; the pills are the map.
-  const [adminSection, setAdminSection] = useState<AdminSection>('insights')
+  const [adminSection, setAdminSection] = useState<AdminSection>(
+    linkedSection ?? 'insights',
+  )
 
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
   const language = languages.find((l) => l.id === activeLanguageId)
