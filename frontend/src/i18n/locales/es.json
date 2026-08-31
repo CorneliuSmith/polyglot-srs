@@ -338,7 +338,7 @@
     "inReviews": "En repasos ✓"
   },
   "login": {
-    "privateBeta": "Beta privada: inicia sesión con la cuenta que creó tu administrador.",
+    "privateBeta": "Solo por invitación: inicia sesión con la cuenta que creó tu administrador.",
     "signIn": "Iniciar sesión",
     "signUp": "Registrarse",
     "resetIntro": "Introduce el correo de tu cuenta y te enviaremos un enlace para elegir una nueva contraseña.",
