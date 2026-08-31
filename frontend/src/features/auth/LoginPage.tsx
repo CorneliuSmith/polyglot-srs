@@ -40,16 +40,13 @@ export default function LoginPage() {
     setLoading(true)
     try {
       await requestTrial(email, trialName, trialNote)
-      setMessage(
-        'Request received! If it’s approved you’ll get an email with a ' +
-          'temporary password.',
-      )
+      setMessage(t('login.trialReceived'))
       setTrialName('')
       setTrialNote('')
     } catch (err) {
       const detail = (err as { response?: { data?: { detail?: string } } })
         ?.response?.data?.detail
-      setError(detail ?? 'Could not send the request — try again in a moment.')
+      setError(detail ?? t('login.trialError'))
     } finally {
       setLoading(false)
     }
@@ -172,8 +169,7 @@ export default function LoginPage() {
 
         {trialMode && (
           <p className="text-sm text-gray-600 mb-4">
-            Ask for trial access — if it’s approved you’ll get an email with
-            a temporary password to sign in with.
+            {t('login.trialIntro')}
           </p>
         )}
 
@@ -212,7 +208,7 @@ export default function LoginPage() {
                   className="block text-sm font-medium text-gray-700 mb-1"
                   htmlFor="trial-name"
                 >
-                  Name (optional)
+                  {t('login.trialNameLabel')}
                 </label>
                 <input
                   id="trial-name"
@@ -230,7 +226,7 @@ export default function LoginPage() {
                   className="block text-sm font-medium text-gray-700 mb-1"
                   htmlFor="trial-note"
                 >
-                  What would you like to learn? (optional)
+                  {t('login.trialNoteLabel')}
                 </label>
                 <textarea
                   id="trial-note"
@@ -282,7 +278,7 @@ export default function LoginPage() {
               : resetMode
                 ? t('login.sendResetLink')
                 : trialMode
-                  ? 'Request trial access'
+                  ? t('login.requestTrialAccess')
                   : tab === 'signin'
                     ? t('login.signIn')
                     : t('login.createAccount')}
@@ -318,7 +314,7 @@ export default function LoginPage() {
                   onClick={() => { setTrialMode(true); setError(null); setMessage(null) }}
                   className="block w-full text-sm text-lang hover:underline"
                 >
-                  No account? Request trial access
+                  {t('login.noAccountRequestTrial')}
                 </button>
               </>
             )
