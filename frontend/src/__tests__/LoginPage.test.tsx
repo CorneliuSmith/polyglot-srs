@@ -1,5 +1,6 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import i18n from '../i18n'
 import LoginPage from '../features/auth/LoginPage'
 
 vi.mock('../lib/supabase', () => ({
@@ -110,5 +111,46 @@ describe('LoginPage', () => {
     expect(
       await screen.findByText(/isn’t configured on this server/i),
     ).toBeDefined()
+  })
+
+  describe('the trial-request form translates (regression: it used to be hardcoded English)', () => {
+    afterEach(() => void i18n.changeLanguage('en'))
+
+    it('renders every trial-mode string in Arabic once the site language switches', async () => {
+      await i18n.changeLanguage('ar')
+      mockTrial.mockResolvedValue(undefined)
+      render(<LoginPage />)
+
+      fireEvent.click(screen.getByText(i18n.t('login.noAccountRequestTrial')))
+      // The intro line, the two optional-field labels, and the submit
+      // button all used to be plain JSX strings — none of them moved when
+      // the page did. Each must now resolve through the Arabic catalog.
+      expect(
+        screen.getByText(i18n.t('login.trialIntro', { lng: 'ar' })),
+      ).toBeDefined()
+      expect(
+        screen.getByText(i18n.t('login.trialNameLabel', { lng: 'ar' })),
+      ).toBeDefined()
+      expect(
+        screen.getByText(i18n.t('login.trialNoteLabel', { lng: 'ar' })),
+      ).toBeDefined()
+      expect(
+        screen.getByRole('button', {
+          name: i18n.t('login.requestTrialAccess', { lng: 'ar' }),
+        }),
+      ).toBeDefined()
+
+      fireEvent.change(screen.getByLabelText(i18n.t('login.email', { lng: 'ar' })), {
+        target: { value: 'kate@example.com' },
+      })
+      fireEvent.click(
+        screen.getByRole('button', {
+          name: i18n.t('login.requestTrialAccess', { lng: 'ar' }),
+        }),
+      )
+      expect(
+        await screen.findByText(i18n.t('login.trialReceived', { lng: 'ar' })),
+      ).toBeDefined()
+    })
   })
 })

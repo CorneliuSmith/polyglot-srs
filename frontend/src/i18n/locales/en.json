@@ -353,7 +353,14 @@
     "orContinueWith": "or continue with",
     "googleSignIn": "Sign in with Google",
     "agreePrefix": "By using PolyglotSRS you agree to the",
-    "terms": "Terms of Service"
+    "terms": "Terms of Service",
+    "trialIntro": "Ask for trial access — if it’s approved you’ll get an email with a temporary password to sign in with.",
+    "trialNameLabel": "Name (optional)",
+    "trialNoteLabel": "What would you like to learn? (optional)",
+    "trialReceived": "Request received! If it’s approved you’ll get an email with a temporary password.",
+    "trialError": "Could not send the request — try again in a moment.",
+    "requestTrialAccess": "Request trial access",
+    "noAccountRequestTrial": "No account? Request trial access"
   },
   "switcher": {
     "label": "Site language"

@@ -353,7 +353,14 @@
     "orContinueWith": "o continúa con",
     "googleSignIn": "Iniciar sesión con Google",
     "agreePrefix": "Al usar PolyglotSRS aceptas los",
-    "terms": "Términos del servicio"
+    "terms": "Términos del servicio",
+    "trialIntro": "Solicita acceso de prueba — si se aprueba, recibirás un correo con una contraseña temporal para iniciar sesión.",
+    "trialNameLabel": "Nombre (opcional)",
+    "trialNoteLabel": "¿Qué te gustaría aprender? (opcional)",
+    "trialReceived": "¡Solicitud recibida! Si se aprueba, recibirás un correo con una contraseña temporal.",
+    "trialError": "No se pudo enviar la solicitud — inténtalo de nuevo en un momento.",
+    "requestTrialAccess": "Solicitar acceso de prueba",
+    "noAccountRequestTrial": "¿No tienes cuenta? Solicita acceso de prueba"
   },
   "switcher": {
     "label": "Idioma del sitio"
