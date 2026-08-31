@@ -18,7 +18,6 @@ hic	Quis est hic?	Who is this?	27
 est	Quis est ille?	Who is that?	27
 ille	Quis est ille?	Who is that?	27
 māter	Māter sum.	I'm a mother.	28
-etiam	Etiam.	Yes.	41
 etiam	Etiam hīc sum.	I'm here again.	41
 hic	Etiam hīc sum.	I'm here again.	41
 quoque	Ego quoque.	Me, too.	75
@@ -27,27 +26,18 @@ et	Et nunc?	And now?	87
 nunc	Hīc et nunc.	Here and now.	87
 et	Hīc et nunc.	Here and now.	87
 nunc	Ī nunc.	Go now.	87
-semper	Semper.	Always.	89
-numquam	Numquam.	Never.	90
 hodiē	Nōn hodiē!	Not today!	93
 nōn	Nōn hodiē!	Not today!	93
 ibi	ibi sum.	I'm there.	96
 ubi	Ubi nunc est?	Where is he now?	98
-ubi	Ubi?	Where?	98
-ita	Ita.	That's it.	100
 ita	Ita est.	That's it.	100
 semper	Semper ita est?	Is it always this way?	100
 ita	Semper ita est?	Is it always this way?	100
 satis	Satis est.	That's enough.	102
-satis	Satis!	Enough!	102
 satis	Iam satis est!	Enough already!	102
 iam	Iam satis est!	Enough already!	102
-bene	Bene.	Good.	103
-bene	Bene!	Cool!	103
 ubi	Alter ubi est?	Where is the other one?	114
 alter	Alter ubi est?	Where is the other one?	114
-teneō	Teneō.	I understand.	126
-timeō	Timeō.	I'm afraid.	142
 intellegō	Bene; intellegō.	Right; I understand.	145
 bene	Bene; intellegō.	Right; I understand.	145
 vir	Ego vir sum.	I am a man.	148
@@ -183,8 +173,6 @@ vīnum	Vīnum bibō.	I drink wine.	318
 bibō	Vīnum bibō.	I drink wine.	318
 nōn	Nōn licet.	It's not allowed.	340
 licet	Nōn licet.	It's not allowed.	340
-tandem	Tandem!	Finally!	344
-fortasse	Fortasse.	Maybe.	356
 procul	Procul est.	She's far away.	362
 nihil	Nihil sum.	I am nothing.	369
 nimis	Nimis parvus est.	He is too small.	373

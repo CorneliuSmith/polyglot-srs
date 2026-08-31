@@ -193,9 +193,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 מטוס	עלינו על מטוס קטן ורועש.	We boarded a small, noisy plane.	198	Alinu al matos katan ve-roesh.	authored
 ספר	קראתי ספר מעניין על ציפורים.	I read an interesting book about birds.	199	Karati sefer meanyen al tsiporim.	authored
 עיתון	אני קונה עיתון בדרך לעבודה.	I buy a newspaper on the way to work.	200	Ani kone iton ba-derec'h la-avoda.	authored
-לא	לא.	No.	7		tatoeba
-לא	לא!	No!	7		tatoeba
-לא	לא?	No?	7		tatoeba
 את	לא, לא אני, את!	No, not me, you!	8		tatoeba
 אני	לא, לא אני, את!	No, not me, you!	8		tatoeba
 זה	כַּבִּי את זה.	Turn it off.	10		tatoeba
@@ -225,7 +222,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 גם	גם אני.	So do I.	19		tatoeba
 גם	גם אני!	Me too!	19		tatoeba
 יש	מה יש?	What is it?	22		tatoeba
-יש	יש!	Eureka!	22		tatoeba
 ב	זה מֵבִיש.	This is shameful.	22		tatoeba
 מ	זה מֵבִיש.	This is shameful.	22		tatoeba
 יש	זה מֵבִיש.	This is shameful.	22		tatoeba
@@ -245,10 +241,8 @@ word	sentence	translation	difficulty_rank	transliteration	source
 רק	זה רק הוא.	It's only him.	24		tatoeba
 היא	היא שׂמֵחָה.	She is happy.	25		tatoeba
 אחד	ה׳ אחד.	The Lord is one.	26		tatoeba
-כן	כן.	Yes.	27		tatoeba
 כן	אני גם כן.	Me, too.	27		tatoeba
 גם	אני גם כן.	Me, too.	27		tatoeba
-כן	כן?	Yes?	27		tatoeba
 אנחנו	זה לא אנחנו.	It's not us.	28		tatoeba
 אנחנו	אנחנו ה99%.	We are the 99%.	28		tatoeba
 מי	מי אתה?	Who are you?	29		tatoeba
@@ -267,14 +261,12 @@ word	sentence	translation	difficulty_rank	transliteration	source
 איך	איך היא?	What is she like?	31		tatoeba
 איך	איך הוא?	What is he like?	31		tatoeba
 אז	אז מה?	So what?	32		tatoeba
-אז	אז???	So what?	32		tatoeba
 אז	כן, אז מה?	Yes, what of it?	32		tatoeba
 שם	מי שם?	Who's there?	34		tatoeba
 שם	מי זה שם?	Who's there?	34		tatoeba
 שם	אתה שם?	Are you there?	34		tatoeba
 על	אני לא שם על זה.	I don't give a damn about it.	34		tatoeba
 על	אני לא שם על זה!	I don't give a damn about it!	34		tatoeba
-למה	למה?	Why?	36		tatoeba
 למה	למה אני?	Why me?	36		tatoeba
 למה	למה מי אתה!?	Who do you think you are?	36		tatoeba
 אבל	אבל למה?	But why?	36		tatoeba
@@ -296,7 +288,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 יותר	אני טוב יותר.	I'm better.	42		tatoeba
 יותר	זה טוב יותר.	That's better.	42		tatoeba
 אולי	אולי לא.	Maybe not.	43		tatoeba
-אולי	אולי.	Maybe.	43		tatoeba
 משהו	יש שם משהו.	There's something out there.	44		tatoeba
 משהו	עוד משהו?	Will there be anything else?	44		tatoeba
 משהו	יש פה משהו.	There's something in here.	44		tatoeba
@@ -336,7 +327,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 איפה	איפה אתה?	Where are you?	57		tatoeba
 אבל	אבל איפה אנחנו?	But where are we?	57		tatoeba
 הן	איפה הן?	Where are they?	57		tatoeba
-מתי	מתי?	When?	58		tatoeba
 כמה	כמה זה?	How much is it?	59		tatoeba
 אנשים	כמה אנשים?	How many people?	59		tatoeba
 כמה	כמה אנשים?	How many people?	59		tatoeba
@@ -464,21 +454,15 @@ word	sentence	translation	difficulty_rank	transliteration	source
 אח	"הוא אח""ם."	He is a very important person.	104		tatoeba
 אחות	אני רוצה להיות אחות.	I want to be a nurse.	105		tatoeba
 אחות	אני אחות.	I am a nurse.	105		tatoeba
-שלום	שלום.	Hello!	106		tatoeba
 שלום	שלום עולם!	Hello, world!	106		tatoeba
 עולם	שלום עולם!	Hello, world!	106		tatoeba
 שלום	מה שלום אמא שלך?	How's your mother?	106		tatoeba
 עולם	שלום, עולם!	Hello, world!	106		tatoeba
-תודה	תודה!	Thank you.	107		tatoeba
 תודה	לא, תודה.	No, thank you.	107		tatoeba
-תודה	תודה.	Thank you!	107		tatoeba
 פנים	תודה על כל פנים.	Thanks anyway.	107		tatoeba
-בבקשה	בבקשה.	By all means.	108		tatoeba
 בבקשה	"""תודה."" ""בבקשה""."	"""Thank you."" ""You're welcome."""	108		tatoeba
 בבקשה	מים בבקשה.	Water, please.	108		tatoeba
 סליחה	סליחה, מי זאת?	Excuse me, who is this woman?	109		tatoeba
-סליחה	סליחה.	I'm sorry.	109		tatoeba
-סליחה	סליחה?	I beg your pardon?	109		tatoeba
 מאוד	זה גדול מאוד.	That's very big.	110		tatoeba
 גדול	זה גדול מאוד.	That's very big.	110		tatoeba
 גדול	הוא ילד גדול.	He's a big boy.	110		tatoeba
@@ -511,7 +495,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 קל	זה קל מאוד!	This is very easy!	117		tatoeba
 ארוך	כמה זה ארוך?	How long is this?	118		tatoeba
 ארוך	זה היה ארוך.	It was long.	118		tatoeba
-קצר	קצר.	Make it brief.	119		tatoeba
 קצר	זה קצר.	It's short.	119		tatoeba
 מהיר	הוא מהיר מאוד.	He's very fast.	120		tatoeba
 מהיר	זה היה מהיר.	That was quick.	120		tatoeba
@@ -522,7 +505,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 חם	חם מאוד.	It's very hot.	122		tatoeba
 חם	זה יום חם.	It's a hot day.	122		tatoeba
 קר	היה קר מאוד.	It was really cold.	123		tatoeba
-קר	קר.	It's cold.	123		tatoeba
 קר	קר עכשיו.	It's cold now.	123		tatoeba
 מלא	אני מלא!	I'm stuffed!	124		tatoeba
 מלא	אני מלא.	I'm full.	124		tatoeba
@@ -531,7 +513,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 ריק	למה זה ריק?	Why is it empty?	125		tatoeba
 ריק	זה היה ריק.	It was empty.	125		tatoeba
 הזה	הזה ריק.	This one's empty.	125		tatoeba
-נכון	נכון!	That's right!	126		tatoeba
 נכון	זה דבר טוב, נכון?	That's good, isn't it?	126		tatoeba
 נכון	זה נכון?	Is that true?	126		tatoeba
 אולי	אולי זה נכון.	Maybe that's right.	126		tatoeba
@@ -548,7 +529,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 מעט	אני רוצה מעט מים.	I want some water.	130		tatoeba
 תמיד	זה לא תמיד קל.	It isn't always easy.	131		tatoeba
 תמיד	אני תמיד הולך.	I always walk.	131		tatoeba
-תמיד	תמיד.	Any time.	131		tatoeba
 שוב	לא שוב!	Not again!	134		tatoeba
 שוב	אתה יכול להגיד את זה שוב?	Can you say that again?	134		tatoeba
 שוב	הוא עשה זאת שוב.	He did it again.	134		tatoeba
@@ -608,8 +588,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 למטה	חם פה למטה.	It's hot down here.	170		tatoeba
 למטה	אני למטה.	I'm downstairs.	170		tatoeba
 למטה	הם למטה.	They're downstairs.	170		tatoeba
-קדימה	קדימה!	Let's go!	171		tatoeba
-קדימה	קדימה.	Here we go.	171		tatoeba
 קדימה	קדימה, בבקשה.	Please go ahead.	171		tatoeba
 אחורה	אחורה, אחורה!	Get back, get back!	172		tatoeba
 אחורה	איך זה הולך שם אחורה?	How's it going back there?	172		tatoeba
@@ -657,7 +635,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 מחשב	אני צריך מחשב חדש.	I need a new computer.	201		tatoeba
 מחשב	אני צריך מחשב.	I need a computer.	201		tatoeba
 טלפון	יש פה טלפון.	There's a telephone here.	202		tatoeba
-טלפון	טלפון!	Telephone!	202		tatoeba
 מכתב	היה זה מכתב ארוך.	It was a long letter.	203		tatoeba
 שאלה	זאת שאלה קשה.	This is a difficult question.	204		tatoeba
 תשובה	אני רוצה תשובה.	I want an answer.	205		tatoeba
@@ -841,7 +818,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 לפתוח	לפתוח פה גדול.	Open your mouth wide.	286		tatoeba
 לפתוח	אתה יכול לפתוח אותו?	Can you open it?	286		tatoeba
 לפתוח	אתה יכול לפתוח את זה?	Can you open it?	286		tatoeba
-לסגור	לסגור?	Should I close?	287		tatoeba
 לחכות	אני לא יכול לחכות כל היום.	I can't wait all day.	288		tatoeba
 לחכות	זה יכול לחכות זמן מה?	Can it wait a little bit?	288		tatoeba
 לחכות	אין למה לחכות.	There's no point in waiting.	288		tatoeba
@@ -969,7 +945,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 רוח	היום אין רוח.	There is no wind today.	361		tatoeba
 רוח	אין היום הרבה רוח.	There isn't much wind today.	361		tatoeba
 רוח	אין כאן כל רוח.	Here there's no wind.	361		tatoeba
-אש	אש!	Fire!	362		tatoeba
 אש	תַּעֲרֹךְ לְפָנַי שֻׁלְחָן נֶגֶד צֹרְרָי; דִּשַּׁנְתָּ בַשֶּׁמֶן רֹאשִׁי, כּוֹסִי רְוָיָה.	Thou preparest a table before me in the presence of mine enemies; Thou hast anointed my head with oil; my cup runneth over.	362		tatoeba
 אש	אין אש.	There's no fire.	362		tatoeba
 ים	הֲבֵל הֲבָלִים אָמַר קֹהֶלֶת הֲבֵל הֲבָלִים הַכֹּל הָבֶל.	"""Vanity of vanities,"" says the Preacher; ""Vanity of vanities, all is vanity."""	365		tatoeba
@@ -1058,7 +1033,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 רחוק	זה ממש רחוק.	It's very far away.	412		tatoeba
 שוק	זה לא היה ממש שוק.	This was hardly a shock.	412		tatoeba
 רחוק	אני ממש שם רחוק.	It's way over there.	412		tatoeba
-בדיוק	בדיוק!	Exactly!	413		tatoeba
 בדיוק	בדיוק כך!	Precisely!	413		tatoeba
 בדיוק	זה בדיוק נכון.	That's exactly right.	413		tatoeba
 כמעט	כמעט תמיד.	Almost always.	414		tatoeba
@@ -1073,7 +1047,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 לגמרי	זה לגמרי נכון.	That's absolutely right.	416		tatoeba
 לגמרי	לגמרי לא.	Not at all.	416		tatoeba
 נגד	אני לגמרי נגד זה.	I am completely against it.	416		tatoeba
-בטח	בטח!	Of course!	417		tatoeba
 בטח	היא בטח חולה.	She must be sick.	417		tatoeba
 בטח	זה בטח היה קשה.	That must've been hard.	417		tatoeba
 כנראה	כנראה הולך לרדת גשם.	It's probably going to rain.	419		tatoeba
@@ -1108,7 +1081,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 בהתחלה	בהתחלה זה קשה.	At first, it is difficult.	433		tatoeba
 בהתחלה	היה קשה בהתחלה.	It was hard at first.	433		tatoeba
 בסוף	בסוף הוא היה שם.	Finally he was there.	434		tatoeba
-בקרוב	בקרוב!	Coming soon.	436		tatoeba
 אומר	אני רק אומר!	I'm just saying!	437		tatoeba
 אומר	אני תמיד אומר כן!	I always say yes!	437		tatoeba
 אומר	אם אתה אומר.	If you say so.	437		tatoeba
@@ -1289,10 +1261,7 @@ word	sentence	translation	difficulty_rank	transliteration	source
 בעצם	אני לא מרגיש טוב, בעצם אני מרגיש נורא.	I don't feel good or rather, I feel terrible.	490		tatoeba
 מצוין	הוא משחק מצוין.	He plays very well.	491		tatoeba
 מצוין	זה יין מצוין.	This is excellent wine.	491		tatoeba
-מצוין	מצוין!	Fine!	491		tatoeba
-נהדר	נהדר.	Marvellous.	492		tatoeba
 נהדר	נהדר, מה?	Great, isn't it?	492		tatoeba
-נהדר	נהדר!	Wonderful!	492		tatoeba
 מדהים	זה מדהים.	It's amazing.	493		tatoeba
 מדהים	זה היה מדהים.	That was amazing.	493		tatoeba
 מדהים	זה היה פשוט מדהים.	It was absolutely amazing.	493		tatoeba
@@ -1359,7 +1328,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 אמיתי	זה סיפור אמיתי.	This story is true.	517		tatoeba
 אמיתי	זה אמיתי.	This is true.	517		tatoeba
 בטוח	אתה בטוח?	Are you sure?	518		tatoeba
-בטוח	בטוח?	Are you sure?	518		tatoeba
 בטוח	אני בטוח.	I am sure.	518		tatoeba
 מסוכן	הוא משחק משחק מסוכן.	He's playing a dangerous game.	519		tatoeba
 מסוכן	לשתות הרבה זה מסוכן.	Drinking much is dangerous.	519		tatoeba
@@ -1380,13 +1348,10 @@ word	sentence	translation	difficulty_rank	transliteration	source
 ארבע	הוא עסוק עד שעה ארבע.	He'll be busy until four.	522		tatoeba
 שעה	הוא עסוק עד שעה ארבע.	He'll be busy until four.	522		tatoeba
 ברור	הכל ברור.	Everything is clear.	523		tatoeba
-ברור	ברור.	It's clear.	523		tatoeba
-ברור	ברור?	Do I make myself clear?	523		tatoeba
 קשור	זה בכלל לא קשור.	That's completely irrelevant.	524		tatoeba
 קשור	מה זה קשור?	What does that have to do with it?	524		tatoeba
 אפשרי	הכל אפשרי.	Everything is possible.	525		tatoeba
 אפשרי	כל דבר אפשרי.	Everything is possible.	525		tatoeba
-אפשרי	אפשרי.	It's possible.	525		tatoeba
 נדיר	בשר נדיר.	Meat is scarce.	526		tatoeba
 נפוץ	זה שם נפוץ?	Is that a common name?	527		tatoeba
 נפוץ	זה נפוץ?	Is this common?	527		tatoeba
@@ -1470,7 +1435,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 בעיה	אין בעיה.	No problem.	592		tatoeba
 פתרון	זה פתרון נהדר.	It's an excellent solution.	593		tatoeba
 פתרון	זה פתרון אפשרי אחד.	This is one possible solution.	593		tatoeba
-הצלחה	הצלחה.	Good luck.	594		tatoeba
 סיכוי	אין סיכוי.	No way.	597		tatoeba
 סיכוי	יש רק סיכוי אחד.	There is but one chance.	597		tatoeba
 סכנה	יש סכנה?	Is there any danger?	598		tatoeba
@@ -1544,7 +1508,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 מזל	"מזל""ט!"	Congratulations!	648		tatoeba
 מזל	זה ממש מזל רע!	This is really bad luck!	648		tatoeba
 כבוד	זה היה כבוד.	It was an honor.	649		tatoeba
-כבוד	כבוד!	Respect!	649		tatoeba
 כבוד	אני רוצה כבוד.	I want respect.	649		tatoeba
 אמון	אמון הוא הכל.	Trust is everything.	650		tatoeba
 צחוק	אני לא עושה צחוק.	I am not kidding.	651		tatoeba
@@ -1609,7 +1572,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 חכם	אתה כל כך חכם!	You are so smart!	682		tatoeba
 חכם	זה ילד חכם.	That boy is smart.	682		tatoeba
 חכם	אתה חכם.	You're smart.	682		tatoeba
-טיפש	טיפש!	Idiot!	683		tatoeba
 טיפש	אתה טיפש.	You're an idiot.	683		tatoeba
 טיפש	הוא לא טיפש.	He is not stupid.	683		tatoeba
 נקי	זה לא נקי.	It's not clean.	684		tatoeba
@@ -1636,9 +1598,7 @@ word	sentence	translation	difficulty_rank	transliteration	source
 טעים	כמה טעים!	How delicious!	692		tatoeba
 מוזר	לפעמים הוא יכול להיות מאוד מוזר.	Sometimes he can be a strange guy.	693		tatoeba
 לפעמים	לפעמים הוא יכול להיות מאוד מוזר.	Sometimes he can be a strange guy.	693		tatoeba
-מוזר	מוזר.	That's odd.	693		tatoeba
 מוזר	זה מוזר.	That's strange.	693		tatoeba
-שקט	שקט!	Quiet!	694		tatoeba
 שקט	אני לא אוהב שקט.	I don't like silence.	694		tatoeba
 שקט	היה שקט.	There was a silence.	694		tatoeba
 רועש	זה היה רועש.	It was noisy.	695		tatoeba
@@ -1702,7 +1662,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 עכבר	אני צריך עכבר.	I need a mouse.	736		tatoeba
 עכבר	חתול רץ אחרי עכבר.	A cat ran after a mouse.	736		tatoeba
 נחש	נחש מי אני.	Guess who I am.	737		tatoeba
-נחש	נחש.	Make a guess.	737		tatoeba
 זבוב	יש פה זבוב.	There's a fly in here.	740		tatoeba
 מהנדס	אני מהנדס.	I'm an engineer.	745		tatoeba
 מהנדס	אני רוצה להיות מהנדס.	I want to be an engineer.	745		tatoeba
@@ -1919,7 +1878,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 לחבר	אני מחפש מתנה לחבר שלי.	I'm looking for a gift for a friend of mine.	909		tatoeba
 לחבר	אני רוצה לבחור מתנה לחבר שלי.	I want to pick out a present for my friend.	909		tatoeba
 חשוך	ממש חשוך כאן, אני לא רואה דבר.	It's really dark in here. I can't see anything.	912		tatoeba
-חשוך	חשוך.	It's dark.	912		tatoeba
 חשוך	ממש חשוך פה.	It's really dark in here.	912		tatoeba
 צפוף	זה היה צפוף.	It was crowded.	914		tatoeba
 צפוף	תמיד צפוף פה?	Is it always this crowded here?	914		tatoeba
@@ -2094,7 +2052,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 נותן	אני נותן לה לעשות את זה.	I let her do it.	960		tatoeba
 כוח	יש לה כוח רצון חזק.	She's strong-willed.	960		tatoeba
 עבור	אתה עומד לשלם עבור זה?	Are you gonna pay for it?	961		tatoeba
-עבור	עבור!	Roger!	961		tatoeba
 עבור	אני צריך לשלם עבור זה.	I'll have to pay for it.	961		tatoeba
 העולם	העולם הוא מקום מסוכן.	The world is a dangerous place.	962		tatoeba
 העולם	היה שלום על כל העולם.	There was peace all over the world.	962		tatoeba
@@ -2168,7 +2125,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 הזאת	אני לא גר בעיר הזאת.	I don't live in this city.	989		tatoeba
 שבו	שבו בבקשה.	Please have a seat.	990		tatoeba
 שבו	שבו אותם.	They were taken prisoner.	990		tatoeba
-שבו	שבו.	Take a seat.	990		tatoeba
 כולל	זה כולל הכל?	Does that include everything?	992		tatoeba
 כתב	אתה כתב.	You're a reporter.	993		tatoeba
 כתב	הוא כתב מכתב אחד.	He wrote one letter.	993		tatoeba
@@ -2559,7 +2515,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 דקה	יש לי דקה.	I have a minute.	1148		tatoeba
 צפרדע	יש לי צפרדע.	I have a frog.	1148		tatoeba
 צפרדע	אין לי צפרדע.	I don't have a frog.	1148		tatoeba
-השתתף	השתתף!	Participate!	1149		tatoeba
 מאות	יש לה מאות ספרים.	She has hundreds of books.	1150		tatoeba
 אפשר	אפשר לקבל חשבון, בבקשה?	May I have the check, please?	1152		tatoeba
 אפשר	"""אפשר להיכנס?"" - ""כן, בבקשה!"""	"""May I come in?"" ""Yes, certainly."""	1152		tatoeba
@@ -2643,7 +2598,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 בין	את בין חברים.	You're with friends.	1186		tatoeba
 חמישה	יש לי חמישה חברים.	I have five friends.	1186		tatoeba
 מגלה	זה מגלה רבות.	This is very telling.	1190		tatoeba
-הצטרף	הצטרף.	Come along.	1191		tatoeba
 הצטרף	הוא הצטרף.	He jumped on.	1191		tatoeba
 למען	מה, למען השם, אתה עושה פה?	What in the world are you doing here?	1194		tatoeba
 למד	איפה הוא למד את זה?	Where did he learn this?	1196		tatoeba
@@ -2690,7 +2644,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 ראה	הוא לא ראה דבר.	He didn't see a thing.	1217		tatoeba
 ראה	מישהו כבר ראה את זה?	Has anyone seen it yet?	1217		tatoeba
 כיצד	נראה כיצד זה הולך.	We'll see how it goes.	1218		tatoeba
-שער	שער!	Goal!	1220		tatoeba
 הבא	הבא לי כוס קפה.	Get me a cup of coffee.	1221		tatoeba
 הבא	מה עם יום ראשון הבא?	What about next Sunday?	1221		tatoeba
 הבא	אפשר לבחור את השיר הבא?	Can I pick the next song?	1221		tatoeba
@@ -2909,8 +2862,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 פרטי	אני לוקח מורה פרטי.	I'm using a private teacher.	1325		tatoeba
 פרטי	זה פרטי.	That's private.	1325		tatoeba
 מטוס	יש לו מטוס פרטי.	He has a private airplane.	1325		tatoeba
-נבחרת	נבחרת.	You've been selected.	1328		tatoeba
-נבחרת	נבחרת?	Were you selected?	1328		tatoeba
 נוצר	זה נוצר על ידי מחשב.	It's computer-generated.	1329		tatoeba
 ידי	זה נוצר על ידי מחשב.	It's computer-generated.	1329		tatoeba
 נודע	אני רוצה להיות אמן נודע.	I want to become a famous artist.	1331		tatoeba
@@ -3050,7 +3001,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 הכי	הוא היה הכי טוב.	He came out on top.	1396		tatoeba
 הכי	אני הכי טוב.	I'm the best.	1396		tatoeba
 הכי	אתה הכי טוב.	You're the best.	1396		tatoeba
-סמוך	סמוך.	Count on it.	1399		tatoeba
 שירה	היא כתבה הרבה שירה.	She wrote a lot of poems.	1402		tatoeba
 שירה	זאת שירה.	It's poetry.	1402		tatoeba
 אמנם	הוא אמנם אמר כך.	He did say so.	1404		tatoeba
@@ -3417,7 +3367,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 אמור	אתה לא אמור להיות כאן.	You're not supposed to be in here.	1507		tatoeba
 אמור	זה לא היה אמור להיות כך.	It wasn't supposed to be this way.	1507		tatoeba
 לאהוב	תום אמור לאהוב להיות פה.	Tom should like it here.	1507		tatoeba
-בהצלחה	בהצלחה!	I wish you good luck.	1508		tatoeba
 בהצלחה	בהצלחה עם זה, תום.	Good luck with that, Tom.	1508		tatoeba
 בהצלחה	בהצלחה, תום.	Good luck, Tom.	1508		tatoeba
 חזקה	היא חזקה.	She is strong.	1510		tatoeba
@@ -3490,7 +3439,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 התנגדות	אין התנגדות.	No objection.	1548		tatoeba
 התנגדות	אין לי כל התנגדות.	I don't have any objection.	1548		tatoeba
 התנגדות	לא הייתה לו כל התנגדות.	He had no objection.	1548		tatoeba
-לחיים	לחיים!	To life!	1552		tatoeba
 לחיים	לחיים ללא אהבה אין שום משמעות.	Life without love has no meaning at all.	1552		tatoeba
 לחיים	לחיים יש משמעות?	Does life have meaning?	1552		tatoeba
 נפש	אני שווה נפש.	I don't care.	1553		tatoeba
@@ -3776,7 +3724,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 יעיל	זה יעיל ב-99.9%.	It's 99.9% effective.	1728		tatoeba
 יעיל	זה מידע יעיל.	This is useful information.	1728		tatoeba
 יעיל	זה לא יעיל להתלונן.	It won't do any good to complain.	1728		tatoeba
-מדוע	מדוע?	Why?	1729		tatoeba
 מדוע	מדוע אתה עייף כל כך היום?	Why are you so tired today?	1729		tatoeba
 מדוע	מדוע אתה לא מקבל את זה?	Why don't you accept that?	1729		tatoeba
 מוביל	תום מוביל.	Tom's winning.	1730		tatoeba
@@ -4294,7 +4241,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 סוסים	תום מגדל סוסים.	Tom raises horses.	2045		tatoeba
 סייע	תום סייע.	Tom helped out.	2046		tatoeba
 סייע	תום סייע לי.	Tom assisted me.	2046		tatoeba
-עמוד	עמוד!	Stand up!	2047		tatoeba
 עמוד	חסר שם עמוד.	There is a page missing.	2047		tatoeba
 עמוד	עמוד ישר.	Stand up straight.	2047		tatoeba
 בשורה	עמוד בשורה.	Stand in line.	2047		tatoeba
@@ -4934,7 +4880,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 חשד	אף אחד לא חשד.	Nobody suspected.	2460		tatoeba
 חשד	איש לא חשד בהם.	No one suspected them.	2460		tatoeba
 יבוא	אולי הוא יבוא.	Perhaps he will come.	2462		tatoeba
-יבוא	יבוא!	Come in.	2462		tatoeba
 יבוא	זה יבוא בסדר בסוף.	It'll come all right in the end.	2462		tatoeba
 ידיים	ידיים למעלה!	Put your hands up!	2463		tatoeba
 ידיים	הוא הרים ידיים.	He gave in.	2463		tatoeba
@@ -5030,8 +4975,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 כדורי	יש לי עט כדורי, אבל אני רוצה אחר.	I have a ball-point pen, but I want another.	2508		tatoeba
 כדורי	אני צריכה עט כדורי.	I need a ball point pen.	2508		tatoeba
 כדורי	אני צריך עט כדורי.	I need a ball point pen.	2508		tatoeba
-לבריאות	לבריאות!	God bless you!	2509		tatoeba
-לבריאות	לבריאות.	Bless you.	2509		tatoeba
 לבריאות	זה טוב לבריאות ללכת כל יום.	It's good for your health to walk every day.	2509		tatoeba
 בהכרח	האם בהכרח יש קשר בין דיאטה לבריאות?	Must there be a link between diet and health?	2509		tatoeba
 מאכל	מאכל זה מסוכן לבריאות.	That dish is dangerous to your health.	2509		tatoeba
@@ -5162,7 +5105,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 גביע	ג'יין רצתה גביע גלידה.	Jane wanted an ice cream cone.	2595		tatoeba
 רצתה	ג'יין רצתה גביע גלידה.	Jane wanted an ice cream cone.	2595		tatoeba
 שרת	האם אי פעם שרת מול קהל?	Have you ever sung in public?	2597		tatoeba
-שרת	שרת.	You were singing.	2597		tatoeba
 תקדים	זה באמת חסר תקדים.	This is really unprecedented.	2598		tatoeba
 אוטו	איזה אוטו הוא שלנו?	Which car is ours?	2599		tatoeba
 אוטו	כמעט פגע בי אוטו היום.	I almost got hit by a car today.	2599		tatoeba
@@ -5183,12 +5125,10 @@ word	sentence	translation	difficulty_rank	transliteration	source
 סניף	איפה יש סניף דואר?	Where is the post office?	2609		tatoeba
 דואר	איפה יש סניף דואר?	Where is the post office?	2609		tatoeba
 דואר	על מכתב זה יש בול דואר זר.	This letter bears a foreign stamp.	2609		tatoeba
-הכנס	הכנס.	Come inside.	2611		tatoeba
 הכנס	איך היה לך הכנס?	How was your conference?	2611		tatoeba
 הכנס	הכנס עכשיו בבקשה.	Please enter now.	2611		tatoeba
 התכוון	הוא לא התכוון לפגוע.	He meant no harm.	2613		tatoeba
 התכוון	תום התכוון לתת לך את זה.	Tom meant for you to have this.	2613		tatoeba
-התקדם	התקדם.	Come forward.	2614		tatoeba
 התקדם	תום לא התקדם.	Tom didn't get any further.	2614		tatoeba
 התקדם	התקדם בבקשה.	Please proceed.	2614		tatoeba
 חזון	תום בעל חזון.	Tom is a visionary.	2616		tatoeba
@@ -5337,7 +5277,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 בהירות	בהירות לפני הכל.	Clarity comes first.	2747		tatoeba
 בטיחות	בטיחות במקום הראשון.	Safety comes first.	2748		tatoeba
 דחף	תום דחף אותי.	Tom pushed me.	2750		tatoeba
-דחף	דחף!	Push!	2750		tatoeba
 דחף	תום דחף חזק.	Tom pushed hard.	2750		tatoeba
 דיו	הוא לא היה מהיר דיו.	He was not quick enough.	2751		tatoeba
 דיו	תום אינו חזק דיו.	Tom isn't strong enough.	2751		tatoeba
@@ -5384,11 +5323,9 @@ word	sentence	translation	difficulty_rank	transliteration	source
 לשון	זה לא לשון קודש.	This isn't a sacred language.	2788		tatoeba
 קודש	זה לא לשון קודש.	This isn't a sacred language.	2788		tatoeba
 קום	קום מוקדם.	Get up early.	2789		tatoeba
-קום	קום!	Stand up!	2789		tatoeba
 קום	קום בבקשה.	Stand up, please.	2789		tatoeba
 רוצח	אתה רוצח.	You're a murderer.	2791		tatoeba
 רוצח	תום רוצח.	Tom is a murderer.	2791		tatoeba
-רוצח	רוצח!	Murderer!	2791		tatoeba
 שבעת	אני לא שבעת רצון.	I'm displeased.	2792		tatoeba
 משפטים	אנחנו רוצים משפטים שלמים.	We want complete sentences.	2794		tatoeba
 שלמים	אנחנו רוצים משפטים שלמים.	We want complete sentences.	2794		tatoeba

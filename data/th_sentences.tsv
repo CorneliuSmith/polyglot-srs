@@ -1,20 +1,11 @@
 word	sentence	translation	difficulty_rank
-ใช่	ใช่	Yes.	1
-ไม่	ไม่	No.	2
-ขอบคุณ	ขอบคุณ	Thanks!	7
 โอเค	ฉันโอเค	I'm OK.	13
 ฉัน	ฉันโอเค	I'm OK.	13
-แน่นอน	แน่นอน!	Of course!	14
-ดี	ดี!	Great!	15
-แล้ว	แล้ว?	Then what?	16
 แล้ว	ใช่แล้ว	That's right!	16
 ใช่	ใช่แล้ว	That's right!	16
-ทำไม	ทำไม?	Why?	17
 ไม่เป็นไร	ฉันไม่เป็นไร	I'm OK.	19
 ฉัน	ฉันไม่เป็นไร	I'm OK.	19
 ตอนนี้	ตอนนี้ 3.30 น.	It's 3:30.	26
-สวัสดี	สวัสดี	Hi.	30
-สวัสดี	สวัสดี!	Hello!	30
 นี่	นี่คืออะไร?	What is this?	34
 คือ	นี่คืออะไร?	What is this?	34
 อะไร	นี่คืออะไร?	What is this?	34
@@ -23,11 +14,8 @@ word	sentence	translation	difficulty_rank
 ผม	นี่เพื่อนผม	This is my friend.	37
 ไม่	ไม่นะ!	Oh no!	41
 นะ	ไม่นะ!	Oh no!	41
-เยี่ยม	เยี่ยม!	Great!	43
 นี่	นี่ไง	This is it.	45
 ไง	นี่ไง	This is it.	45
-หยุด	หยุด	Stop!	49
-หยุด	หยุด!	Stop!	49
 ขอโทษ	ขอโทษครับ	Excuse me.	52
 ครับ	ขอโทษครับ	Excuse me.	52
 ขอโทษ	ขอโทษค่ะ	Excuse me.	52
@@ -61,7 +49,6 @@ word	sentence	translation	difficulty_rank
 มัน	มันโอเค	It's OK.	69
 อะไร	มันคืออะไร?	What is it?	69
 มัน	มันคืออะไร?	What is it?	69
-ถูกต้อง	ถูกต้อง!	Correct!	71
 ช่วยด้วย	ช่วยด้วย!	Help!	72
 เร็ว	เร็ว ๆ!	Hurry!	75
 ไป	ไปเลยตอนนี้	Go now.	78
@@ -77,8 +64,6 @@ word	sentence	translation	difficulty_rank
 ไม่ได้	ทำไมคุณมาไม่ได้?	Why can't you come?	83
 คุณ	ทำไมคุณมาไม่ได้?	Why can't you come?	83
 มา	ทำไมคุณมาไม่ได้?	Why can't you come?	83
-ออกไป	ออกไป	Get out.	84
-ออกไป	ออกไป!	Get out!	84
 อย่า	อย่าหยุดเขา	Don't stop him.	86
 เขา	อย่าหยุดเขา	Don't stop him.	86
 หยุด	อย่าหยุดเขา	Don't stop him.	86
@@ -87,7 +72,6 @@ word	sentence	translation	difficulty_rank
 เพื่อน	เขาไม่มีเพื่อนเลย	He doesn't have any friends.	86
 เลย	เขาไม่มีเพื่อนเลย	He doesn't have any friends.	86
 ใคร	คุณคือใคร?	Who are you?	87
-ใคร	ใคร?	Who?	87
 มา	ใครมา?	Who came?	87
 ใคร	ใครมา?	Who came?	87
 ลาก่อน	ลาก่อน!	Goodbye!	88
@@ -101,15 +85,12 @@ word	sentence	translation	difficulty_rank
 เรา	นี่เพื่อนเรา	This is my friend.	97
 มี	เธอมีอะไร?	What does she have?	100
 เธอ	เธอมีอะไร?	What does she have?	100
-ระวัง	ระวัง	Be careful.	106
-ระวัง	ระวัง!	Look out!	106
 หรือ	อีกแล้วหรือ	Is it happening again?	108
 อีก	อีกแล้วหรือ	Is it happening again?	108
 นี้	นี้อะไร	What is this?	111
 วิ่ง	เขาวิ่ง	He ran.	113
 เขา	เขาวิ่ง	He ran.	113
 วิ่ง	คุณวิ่ง	You run.	113
-วิ่ง	วิ่ง	Run.	113
 ทำไม	ทำไมคุณวิ่ง?	Why are you running?	113
 ราตรีสวัสดิ์	ราตรีสวัสดิ์	Goodnight.	115
 แม่	คุณไม่ใช่แม่ของฉัน	You aren't my mother.	117
@@ -120,7 +101,6 @@ word	sentence	translation	difficulty_rank
 ของ	มันไม่ใช่วันของเรา	It just wasn't our day.	117
 ของ	นี่คือเพื่อนของผม	This is my friend.	117
 ผม	นี่คือเพื่อนของผม	This is my friend.	117
-ที่ไหน	ที่ไหน?	Where?	122
 ว่า	ว่าไง?	What's up?	125
 ไง	ว่าไง?	What's up?	125
 นะ	คุณว่าอะไรนะ	What did you say?	125
@@ -193,7 +173,6 @@ word	sentence	translation	difficulty_rank
 ยินดีต้อนรับ	ยินดีต้อนรับ	Welcome.	160
 ตาย	ทอมตาย	Tom died.	161
 ตาย	ตายยัง?	Dead?	161
-ตาย	ตาย!	Die!	161
 เพราะ	ทอมตายเพราะฉัน	Tom died because of me.	161
 ทุกคน	ทุกคนตายไปแล้ว	Everyone's dead.	161
 ล่ะ	แล้วคุณล่ะ	How about you?	162
@@ -218,7 +197,6 @@ word	sentence	translation	difficulty_rank
 หมอ	หมอยังไม่มาที่นี่	The doctor hasn't gotten here yet.	174
 ที่นี่	หมอยังไม่มาที่นี่	The doctor hasn't gotten here yet.	174
 สุดยอด	สุดยอด!	Awesome!	175
-ต่อไป	ต่อไป	Go on.	176
 ถูกต้อง	นั่นถูกต้องอย่างแน่นอน	That's absolutely right.	178
 อย่าง	นั่นถูกต้องอย่างแน่นอน	That's absolutely right.	178
 แน่นอน	นั่นถูกต้องอย่างแน่นอน	That's absolutely right.	178
@@ -228,15 +206,12 @@ word	sentence	translation	difficulty_rank
 อีก	ฉันไม่ใช่เด็กอีกต่อไป	I'm not a child anymore.	180
 เด็ก	ฉันไม่ใช่เด็กอีกต่อไป	I'm not a child anymore.	180
 ต่อไป	ฉันไม่ใช่เด็กอีกต่อไป	I'm not a child anymore.	180
-ยิง	ยิง!	Fire!	181
 ยิง	คุณยิงทอมหรือ?	Did you shoot Tom?	181
 พวกเขา	พวกเขาไปแล้ว	They're gone.	184
 อาจารย์	พวกเขาเป็นอาจารย์	They are teachers.	184
 พวกเขา	พวกเขาเป็นอาจารย์	They are teachers.	184
 พวกเขา	พวกเขาเป็นเพื่อนเรา	They're our friends.	184
-เงียบ	เงียบ!	Shut up!	188
 เงียบ	เงียบ ๆ	Be quiet.	188
-เงียบ	เงียบ	Keep quiet.	188
 ด้วย	ฉันด้วยเหมือนกัน	Me, too.	190
 เหมือนกัน	ฉันด้วยเหมือนกัน	Me, too.	190
 ทุกอย่าง	ทุกอย่างเรียบร้อยดี	Everything's fine.	195
@@ -333,9 +308,7 @@ word	sentence	translation	difficulty_rank
 มั้ย	เข้าใจมั้ย?	Got it?	252
 มั้ย	แม่คุณสบายดีมั้ย?	How is your mother?	252
 ตรงนั้น	มีใครอยู่ตรงนั้นมั้ย?	Is somebody there?	252
-ตื่น	ตื่น	Get up.	257
 ตื่น	ฉันตื่น	I'm up.	257
-ตื่น	ตื่น!	Wake up!	257
 เพราะ	คุณตื่นเพราะอะไร?	What woke you up?	257
 รอ	ทุกคนรอ	Everybody waited.	261
 ทุกคน	ทุกคนรอ	Everybody waited.	261
@@ -370,7 +343,6 @@ word	sentence	translation	difficulty_rank
 ผู้ชาย	ทอมคือผู้ชายคนนั้นเหรอ?	Is that boy Tom?	271
 บ้า	แม่ผมบ้าไปแล้ว	My mother is crazy.	273
 บ้า	คุณบ้าหรือ?	Are you crazy?	273
-บ้า	บ้า!	Crazy!	273
 เปลี่ยน	คุณไม่ได้เปลี่ยนไปเลย	You haven't changed at all.	277
 มากกว่า	ผมรักคุณมากกว่าที่คุณรักผม	I love you more than you love me.	279
 ผมรักคุณ	ผมรักคุณมากกว่าที่คุณรักผม	I love you more than you love me.	279
@@ -419,7 +391,6 @@ word	sentence	translation	difficulty_rank
 ปล่อย	คุณปล่อยให้ฉันไปแล้วได้ไหม?	Will you please let me go now?	298
 ปล่อย	พวกเขาปล่อยฉันไป	They let me go.	298
 ปล่อย	ปล่อยฉันไป	Let me go.	298
-ฟัง	ฟัง	Listen.	299
 ฟัง	ฟังนะ	Listen.	299
 ฟัง	ทอมฟัง	Tom listens.	299
 ้	เฮ้ฟังฉัน	Hey, listen to me.	299
@@ -529,7 +500,6 @@ word	sentence	translation	difficulty_rank
 ตำรวจ	คุณดูเหมือนตำรวจ	You look like a cop.	344
 ดูเหมือน	คุณดูเหมือนตำรวจ	You look like a cop.	344
 ดูเหมือน	ทอมดูเหมือนคุณ	Tom looks like you.	344
-ยอดเยี่ยม	ยอดเยี่ยม!	Wonderful!	347
 ยอดเยี่ยม	ทอมเป็นพ่อที่ยอดเยี่ยม	Tom is an excellent father.	347
 ออก	ฉันออก	I quit.	348
 ออก	เราพร้อมที่จะออกแล้ว	We're ready to leave.	348
@@ -539,7 +509,6 @@ word	sentence	translation	difficulty_rank
 เสียใจ	คุณเสียใจไหมที่ทำอย่างนั้น	Do you regret having done that?	351
 กลับบ้าน	ฉันกลับบ้าน	I go home.	354
 กลับบ้าน	คุณจะกลับบ้านเมื่อไหร่?	When will you come home?	354
-กลับบ้าน	กลับบ้าน	Go home.	354
 ล่ะ	ทำไมคุณไม่กลับบ้านล่ะ	Why don't you go back home?	354
 ทีม	ฉันไม่ได้อยู่ในทีมของทอม	I'm not on Tom's team.	356
 เสียง	นั่นมันเสียงอะไร?	What is that noise?	357
@@ -618,7 +587,6 @@ word	sentence	translation	difficulty_rank
 ปืน	ผมไม่เคยยิงปืน	I've never shot a gun.	410
 ผิด	เธอผิด	She was wrong.	412
 ผิด	ฉันผิดหรือเปล่า?	Am I wrong?	412
-ผิด	ผิด	Wrong.	412
 ร้อน	ฉันร้อน	I'm hot.	414
 พรุ่งนี้	พรุ่งนี้จะร้อนไหม?	Will it be hot tomorrow?	414
 ร้อน	พรุ่งนี้จะร้อนไหม?	Will it be hot tomorrow?	414
@@ -649,7 +617,6 @@ word	sentence	translation	difficulty_rank
 แ	คุณมีไฟแช็คไหม?	Do you have a lighter?	428
 ็	คุณมีไฟแช็คไหม?	Do you have a lighter?	428
 ค	คุณมีไฟแช็คไหม?	Do you have a lighter?	428
-อร่อย	อร่อย	Delicious.	432
 สัปดาห์	สามสัปดาห์ผ่านไป	Three weeks went by.	436
 ผ่าน	สามสัปดาห์ผ่านไป	Three weeks went by.	436
 สัปดาห์	สองสัปดาห์ผ่านไป	Two weeks went by.	436
@@ -720,7 +687,6 @@ word	sentence	translation	difficulty_rank
 ร้องไห้	คุณร้องไห้ทำไม?	Why are you crying?	484
 ร้องไห้	เธอร้องไห้	She cried.	484
 ร้องไห้	ฉันหยุดร้องไห้ไม่ได้	I couldn't stop crying.	484
-อาหาร	อาหาร!	Food!	485
 อาหาร	เราให้อาหารพวกเขา	We gave them food.	485
 อาหาร	นี่คืออาหาร	This is food.	485
 กาแฟ	คุณดื่มกาแฟไหม	Do you drink coffee?	486
@@ -779,7 +745,6 @@ word	sentence	translation	difficulty_rank
 ตะโกน	หยุดตะโกน!	Stop yelling!	535
 ยินดี	ฉันยินดีที่จะช่วยคุณ	I will gladly help you.	538
 ยินดี	ผมยินดีที่จะทำอย่างนั้น	I'd be glad to do that.	538
-ยิ้ม	ยิ้ม!	Smile.	540
 ยิ้ม	เธอยิ้ม	She smiled.	540
 ยิ้ม	ทอมไม่ยิ้ม	Tom isn't smiling.	540
 แต่	ทอมไม่ได้พูดอะไรได้แต่ยิ้ม	Tom didn't say anything, but just smiled.	540
@@ -935,8 +900,6 @@ word	sentence	translation	difficulty_rank
 นักข่าว	ฉันเป็นนักข่าว	I'm a journalist.	628
 หลัง	คุณชอบบ้านหลังนี้ไหม	Do you like this house?	629
 หลัง	ผมต้องการกาแฟหลังอาหาร	I'd like my coffee after the meal.	629
-กระโดด	กระโดด	Jump.	633
-กระโดด	กระโดด!	Jump!	633
 กระโดด	กระโดดไป	Hop in.	633
 เต้น	คุณชอบเต้นไหม?	Do you like dancing?	636
 เถอะ	มาเต้นกันเถอะ	Let's dance.	636
@@ -1797,7 +1760,6 @@ word	sentence	translation	difficulty_rank
 แคนาดา	ในแคนาดาผู้คนพูดภาษาอังกฤษและฝรั่งเศส	In Canada, people speak English and French.	1237
 แคนาดา	คุณเป็นคนแคนาดา ใช่ไหม?	You're Canadian, right?	1237
 แคนาดา	พวกเขาพูดภาษาอังกฤษและฝรั่งเศสในแคนาดา	They speak English and French in Canada.	1237
-อาบน้ำ	อาบน้ำ	Take a bath.	1238
 อาบน้ำ	ฉันอาบน้ำก่อนนอนเสมอ	I always take a bath before going to bed.	1238
 อาบน้ำ	ฉันกำลังอาบน้ำ	I'm taking a bath.	1238
 เบา	เบาลง!	Quieter!	1244
@@ -1910,7 +1872,6 @@ word	sentence	translation	difficulty_rank
 ไวรัส	มันไม่ใช่ไวรัส	It's not a virus.	1325
 สน	ใครสน?	Who cares?	1327
 สมอง	ผมอยากพักสมองจากงาน	I want to get my mind off work.	1328
-พักผ่อน	พักผ่อน	Relax.	1330
 คนไข้	ผมโทรหาคนไข้	I called in sick.	1331
 ข้างล่าง	อย่าลงไปข้างล่างนะ	Don't go down there.	1333
 ลงไป	อย่าลงไปข้างล่างนะ	Don't go down there.	1333
@@ -2323,7 +2284,6 @@ word	sentence	translation	difficulty_rank
 เก่ง	ฉันพูดภาษาฝรั่งเศสไม่เก่ง	I can't speak French well.	1635
 เก่ง	เขาร้องเพลงเก่ง	He is good at singing.	1635
 อารี	คุณเขียนไดอารี่ตลอดไหม?	Do you keep a diary?	1636
-ล้าง	ล้าง	Wash up.	1643
 ล้าง	ล้างหน้าและมือของคุณ	Wash your face and hands.	1643
 ล้าง	ผมอยากล้างรถ	I want to wash my car.	1643
 บ่าย	ผมตั้งใจจะล้างรถบ่ายนี้	I plan to wash my car this afternoon.	1643
@@ -3945,7 +3905,6 @@ word	sentence	translation	difficulty_rank
 อัตโนมัติ	เมื่อคุณเปิดประตูไฟจะสว่างขึ้นโดยอัตโนมัติ	When you open the door, the light comes on automatically.	3676
 สว่าง	เมื่อคุณเปิดประตูไฟจะสว่างขึ้นโดยอัตโนมัติ	When you open the door, the light comes on automatically.	3676
 หิมะตก	หิมะตกที่นี่	It's snowing here.	3679
-หิมะตก	หิมะตก	It snowed.	3679
 หิมะตก	ที่นี่ไม่มีหิมะตกมาหลายปีแล้ว	It hasn't snowed here in years.	3679
 ฤดู	คุณชอบฤดูไหนมากที่สุด	Which season do you like best?	3685
 อด	ฉันอดหัวเราะไม่ได้เมื่อได้ยินเรื่องนั้น	I couldn't help laughing when I heard that story.	3688

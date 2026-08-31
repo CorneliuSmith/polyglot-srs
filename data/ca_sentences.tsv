@@ -1,7 +1,5 @@
 word	sentence	translation	difficulty_rank
-que	Que?	What?	1
 ha	Ha ha ha!	Hahaha!	14
-com	Com?	What?	20
 hi	Què hi ha?	What is going on?	23
 què	Què hi ha?	What is going on?	23
 ha	Què hi ha?	What is going on?	23
@@ -35,7 +33,6 @@ ho	Això no ho has de fer.	You don't have to do this.	41
 de	Això no ho has de fer.	You don't have to do this.	41
 has	Això no ho has de fer.	You don't have to do this.	41
 fer	Això no ho has de fer.	You don't have to do this.	41
-ara	Ara!	Now!	43
 hi	No n'hi ha cap.	There aren't any.	49
 ha	No n'hi ha cap.	There aren't any.	49
 cap	No n'hi ha cap.	There aren't any.	49
@@ -98,7 +95,6 @@ vull	Vull veure't.	I want to see you.	74
 sí	Sí que ho vull.	I do want it.	74
 vull	Sí que ho vull.	I do want it.	74
 que	Sí que ho vull.	I do want it.	74
-fet	Fet!	Done!	75
 hi	Hi estic d'acord.	I agree.	76
 acord	Hi estic d'acord.	I agree.	76
 estic	Hi estic d'acord.	I agree.	76
@@ -118,7 +114,6 @@ has	Ho has fet mai?	Have you ever done it?	81
 mai	Ho has fet mai?	Have you ever done it?	81
 fet	Ho has fet mai?	Have you ever done it?	81
 gràcies	No, gràcies.	No, thank you.	85
-gràcies	Gràcies!	Thank you!	85
 estàs	Com estàs?	How are you?	87
 amb	Amb qui estàs?	Who are you with?	87
 estàs	Amb qui estàs?	Who are you with?	87
@@ -175,7 +170,6 @@ mi	Sí, a mi també.	Yeah, me too.	110
 també	Sí, jo també.	Yeah, me too.	110
 hola	Hola, com va?	Hello, how are you?	111
 va	Hola, com va?	Hello, how are you?	111
-hola	Hola.	Hello!	111
 hola	"""Hola, qui és?"""	"""Hello, who is this?"""	111
 tots	Hola a tots!	Hello everyone!	111
 tots	Hola a tots.	Hi, everybody.	111
@@ -251,7 +245,6 @@ el	El seu lloc és aquí.	He belongs here.	156
 seu	El seu lloc és aquí.	He belongs here.	156
 aquí	El seu lloc és aquí.	He belongs here.	156
 lloc	El seu lloc és aquí.	He belongs here.	156
-fora	Fora!	Get out!	159
 plau	Si us plau.	Please.	163
 us	Si us plau.	Please.	163
 si	Si us plau.	Please.	163
@@ -289,7 +282,6 @@ tinc	Tinc una cosa a dir-te.	I have something to tell you.	184
 quan	Quan te'n vas?	When will you leave?	184
 te	Quan te'n vas?	When will you leave?	184
 te	He de dir-te una cosa.	There's one thing I must tell you.	184
-merda	Merda!	Shit.	186
 un	Un altre cop?	Come again?	196
 cop	Un altre cop?	Come again?	196
 deixa	Deixa de fer això.	Stop doing that.	198
@@ -328,7 +320,6 @@ són	Això són diners de veritat?	Is that real money?	224
 raó	Tot passa per una raó	Everything happens for a reason.	226
 raó	Sé què tens raó.	I know you're right.	226
 tens	Sé què tens raó.	I know you're right.	226
-escolta	Escolta!	Listen!	228
 escolta	Escolta'm!	Listen to me!	228
 teu	On és el teu germà?	Where is your brother?	230
 germà	On és el teu germà?	Where is your brother?	230
@@ -567,7 +558,6 @@ aigua	L'aigua és vida.	Water is life.	335
 vida	L'aigua és vida.	Water is life.	335
 aigua	Home a l'aigua!	Man overboard!	335
 home	Home a l'aigua!	Man overboard!	335
-aigua	Aigua!	Water!	335
 penso	Penso en tu.	I'm thinking about you.	337
 en	Penso en tu.	I'm thinking about you.	337
 persona	Pare és una bona persona.	Father is a good person.	339
@@ -580,7 +570,6 @@ moltes	Moltes gràcies.	Thank you very much!	341
 moltes	Moltes gràcies!	Thank you very much!	341
 moltes	Moltes gràcies, de veritat.	Thank you very much indeed.	341
 penses	Penses molt en ella?	Do you think about her a lot?	346
-adéu	Adéu!	Goodbye!	351
 menys	Ho sap tothom menys jo.	Everybody knows it except me.	352
 tothom	Ho sap tothom menys jo.	Everybody knows it except me.	352
 menys	5 són menys que 8.	5 is less than 8.	352
@@ -719,7 +708,6 @@ hora	Em podries dir l'hora?	Could you tell me the time?	431
 cos	Em fa mal tot el cos!	My whole body hurts!	432
 mal	Em fa mal tot el cos!	My whole body hurts!	432
 ràpid	El cotxe és molt ràpid.	The car is very fast.	433
-ràpid	Ràpid!	Quick!	433
 necessitem	Necessitem ajuda.	We need help.	434
 exactament	Això és exactament el què va passar.	That's exactly what happened.	435
 exactament	Sembla exactament ella.	It sounds exactly like her.	435
@@ -738,8 +726,6 @@ fan	Cinc i dos fan set.	Five plus two is seven.	443
 set	Cinc i dos fan set.	Five plus two is seven.	443
 dos	Cinc i dos fan set.	Five plus two is seven.	443
 facis	No ho facis mai més.	Don't ever do that again.	444
-torna	Torna.	Come back.	445
-torna	Torna!	Come back!	445
 torna	Torna aquí!	Get back here!	445
 tranquil	És tranquil, oi?	It is restful, isn't it?	446
 oi	És tranquil, oi?	It is restful, isn't it?	446
@@ -1014,8 +1000,6 @@ unes	Puc fer unes preguntes?	Can I ask some questions?	646
 preguntes	Hi ha preguntes?	Are there any questions?	646
 vine	Vine quan vulguis.	Come whenever you like.	647
 vulguis	Vine quan vulguis.	Come whenever you like.	647
-correcte	Correcte!	Right!	648
-correcte	Correcte?	Correct?	648
 tornat	No sabia que havies tornat.	I didn't know you'd come back.	652
 havies	No sabia que havies tornat.	I didn't know you'd come back.	652
 perfecte	Ningú és perfecte.	Nobody is perfect.	653
@@ -1078,7 +1062,6 @@ aviat	Crec que tornaré aviat.	I think I'll come back soon.	691
 tornaré	Crec que tornaré aviat.	I think I'll come back soon.	691
 tornaré	No sé exactament quan tornaré a ser aquí.	I don't know exactly when I'll be back.	691
 torni	En tornaré a parlar amb ell quan torni per aquí.	I'll talk about it with him again when he's back here.	691
-calma	Calma!	Calm down!	697
 calma	Calma't!	Calm down!	697
 oncle	És el meu oncle.	He's my uncle.	699
 gana	Sempre tinc gana.	I'm always hungry.	700
@@ -1146,7 +1129,6 @@ pena	Val la pena?	Is it worth it?	748
 intentar	Val la pena intentar-ho.	It's worth a try.	748
 idiota	Ella és una idiota.	She's an idiot.	749
 idiota	Ets idiota?	Are you an idiot?	749
-idiota	Idiota!	Idiot!	749
 avió	Puc menjar a l'avió?	Can I eat on the plane?	752
 faltar	Crec que ningú em va trobar a faltar.	I think nobody missed me.	755
 trobar	Crec que ningú em va trobar a faltar.	I think nobody missed me.	755
@@ -1187,7 +1169,6 @@ gaire	El menjar no feia gaire bon gust.	The food didn't taste very good.	777
 gust	El menjar no feia gaire bon gust.	The food didn't taste very good.	777
 feia	El menjar no feia gaire bon gust.	The food didn't taste very good.	777
 normal	Ets normal.	You're normal.	780
-increïble	Increïble!	Incredible!	784
 coses	No deixi les seves coses enrere.	Don't leave your stuff behind.	789
 enrere	No deixi les seves coses enrere.	Don't leave your stuff behind.	789
 deixi	No deixi les seves coses enrere.	Don't leave your stuff behind.	789
@@ -1327,7 +1308,6 @@ serà	Això serà suficient, almenys per començar.	That will do, at least to be
 almenys	Això serà suficient, almenys per començar.	That will do, at least to begin with.	910
 corre	El cavall corre de pressa.	The horse ran fast.	912
 cavall	El cavall corre de pressa.	The horse ran fast.	912
-corre	Corre.	Run!	912
 llegir	No vull llegir aquest llibre.	I don't want to read this book.	913
 algun	Tens algun llibre per llegir?	Do you have a book to read?	913
 llegir	Tens algun llibre per llegir?	Do you have a book to read?	913
@@ -1520,7 +1500,6 @@ estava	Oh, estava malalt.	Oh, I was ill.	1116
 oh	Oh, estava malalt.	Oh, I was ill.	1116
 faran	Li ho faran saber.	They'll let her know.	1117
 saber	Li ho faran saber.	They'll let her know.	1117
-benvingut	Benvingut!	Welcome.	1119
 benvingut	Ets benvingut.	You're welcome.	1119
 veniu	Veniu ací tots els dies?	Do you come here every day?	1123
 dies	Veniu ací tots els dies?	Do you come here every day?	1123
@@ -1691,7 +1670,6 @@ parell	Sembla que aquell parell estan fets l'un per l'altre.	It seems those two 
 mòbil	Tens un mòbil?	Do you have a cellphone?	1319
 mòbil	Pots deixar-me el mòbil, si us plau?	Can I borrow your cellphone, please?	1319
 mòbil	Em pots deixar el mòbil, si us plau?	Can I borrow your cellphone, please?	1319
-encantat	Encantat.	Charmed.	1320
 havia	Sé que aquí hi havia una església gran.	I know that there was a big church here.	1328
 església	Sé que aquí hi havia una església gran.	I know that there was a big church here.	1328
 dòlars	Et dono cinc dòlars.	I'll give you five dollars.	1332
@@ -1754,14 +1732,12 @@ cansat	Estic cansat.	I am tired.	1382
 vindrà	Malgrat que està ocupat, vindrà.	Although he is busy, he can come.	1383
 ocupat	Malgrat que està ocupat, vindrà.	Although he is busy, he can come.	1383
 malgrat	Malgrat que està ocupat, vindrà.	Although he is busy, he can come.	1383
-correu	Correu.	Run!	1385
 començat	Vull que acabi la setmana que ve i no ha ni començat.	I want next week to end when it hasn't even started yet.	1388
 acabi	Vull que acabi la setmana que ve i no ha ni començat.	I want next week to end when it hasn't even started yet.	1388
 esperem	Esperem fins que acabi.	Let's wait until it finishes.	1388
 acabi	Esperem fins que acabi.	Let's wait until it finishes.	1388
 membre	Sóc un membre de l'empresa.	I am a member of the firm.	1391
 empresa	Sóc un membre de l'empresa.	I am a member of the firm.	1391
-escolteu	Escolteu!	Listen!	1392
 disculpi	Disculpi, quina hora és?	Excuse me, what time is it?	1394
 volar	L'au va volar alt.	The bird flew high.	1395
 au	L'au va volar alt.	The bird flew high.	1395
@@ -1876,15 +1852,12 @@ convertit	M'he convertit en director.	I've become a director.	1544
 director	M'he convertit en director.	I've become a director.	1544
 brillant	És una idea brillant.	That's a bright idea.	1555
 idea	És una idea brillant.	That's a bright idea.	1555
-brillant	Brillant!	Brilliant!	1555
 òbviament	Òbviament.	Obviously.	1556
-lladre	Lladre!	Thief!	1562
 adreça	No sé la seva adreça.	I don't know her address.	1564
 adreça	Quina és la teva adreça?	What is your address?	1564
 adreça	Tinc la seva adreça.	I have her address.	1564
 sentir	Vaig sentir la necessitat de fer alguna cosa.	I felt that I needed to do something.	1565
 necessitat	Vaig sentir la necessitat de fer alguna cosa.	I felt that I needed to do something.	1565
-meravellós	Meravellós!	Wonderful!	1567
 criminal	Ets un criminal.	You're a criminal.	1571
 anglès	Que parla anglès, ell?	Does he speak English?	1575
 anglès	Fa sis anys que vaig començar a aprendre anglès.	It is six years since I started to study English.	1575
@@ -1981,7 +1954,6 @@ cambra	Estic atrapat fora de la meva cambra.	I'm locked out of my room.	1679
 vegades	L'he vist un milió de vegades.	I've seen it a million times.	1684
 milió	L'he vist un milió de vegades.	I've seen it a million times.	1684
 calent	Vaig calent.	I’m horny.	1685
-ridícul	Ridícul!	Ridiculous!	1689
 ridícul	Això és ridícul!	This is ridiculous!	1689
 ridícul	Allò és ridícul.	That's ridiculous.	1689
 banc	On està el banc més proper?	Where is the nearest bank?	1696
@@ -2313,7 +2285,6 @@ grans	No m'agraden les ciutats grans.	I don't like big cities.	2168
 rics	Com s'han fet tan rics?	How have they got so rich?	2171
 voleu	Voleu fer-vos rics?	Do you want to get rich?	2171
 rics	Voleu fer-vos rics?	Do you want to get rich?	2171
-enhorabona	Enhorabona!	Congratulations!	2172
 enhorabona	L'enhorabona!	Congratulations!	2172
 caure	Van caure molts arbres.	Many trees fell down.	2188
 molts	Van caure molts arbres.	Many trees fell down.	2188
@@ -2666,8 +2637,6 @@ preocupar	No hi ha cap motiu per preocupar-se.	There's no reason to worry.	2952
 realitat	Què és en realitat la cultura?	What is actually culture?	2960
 cultura	Què és en realitat la cultura?	What is actually culture?	2960
 cultura	Què és realment la cultura?	What is actually culture?	2960
-condueix	Condueix.	Drive.	2961
-condueix	Condueix!	Drive!	2961
 condueix	Ella condueix el seu cotxe.	She's driving her car.	2961
 dimecres	És dimecres.	It's Wednesday.	2962
 dimecres	Som a dimecres.	It's Wednesday.	2962
@@ -2752,7 +2721,6 @@ habitació	Hi ha una habitació disponible per a aquesta nit?	Is there a room av
 quedis	No cal que et quedis aquí tot el temps.	You don't need to stay around all the time.	3169
 cal	No cal que et quedis aquí tot el temps.	You don't need to stay around all the time.	3169
 apa	Apa, som-hi.	Okay, let's go.	3172
-apa	Apa!	Ah!	3172
 lleó	Un gos viu és millor que un lleó mort.	A living dog is better than a dead lion.	3174
 sabrem	No ho sabrem mai.	We'll never know.	3179
 instant	No vull perdre un instant més.	I don't want to waste a moment more.	3188
@@ -3113,7 +3081,6 @@ tapa	Tapa't les orelles.	Plug your ears.	4079
 orelles	Tapa't les orelles.	Plug your ears.	4079
 decideix	Decideix tu mateix què creus que és normal.	Decide for yourself what you think is normal.	4089
 normal	Decideix tu mateix què creus que és normal.	Decide for yourself what you think is normal.	4089
-decideix	Decideix.	Decide.	4089
 nostra	La nostra bandera és vermella i negra.	Our flag is red and black.	4094
 bandera	La nostra bandera és vermella i negra.	Our flag is red and black.	4094
 negra	La nostra bandera és vermella i negra.	Our flag is red and black.	4094
@@ -3137,8 +3104,6 @@ matemàtiques	Estic per sota d'ell en matemàtiques.	I am inferior to him in mat
 sota	Estic per sota d'ell en matemàtiques.	I am inferior to him in mathematics.	4143
 llapis	Puc veure el teu llapis.	I can see your pencil.	4150
 vola	El temps vola.	Time flies.	4154
-vola	Vola.	Fly.	4154
-vola	Vola!	Fly!	4154
 menjo	Cada dia menjo galetes per esmorzar.	I have cookies for breakfast every day.	4174
 galetes	Cada dia menjo galetes per esmorzar.	I have cookies for breakfast every day.	4174
 esmorzar	Cada dia menjo galetes per esmorzar.	I have cookies for breakfast every day.	4174

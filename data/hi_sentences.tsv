@@ -1,12 +1,9 @@
 word	sentence	translation	difficulty_rank
-नहीं	नहीं।	No.	4
-नहीं	नहीं.	Nope.	4
 और	एक और!	Another!	10
 एक	एक और!	Another!	10
 है	यह क्या है?	What is this?	14
 क्या	यह क्या है?	What is this?	14
 यह	यह क्या है?	What is this?	14
-क्या	क्या?	What?	14
 है	और क्या है?	What else is there?	14
 क्या	और क्या है?	What else is there?	14
 और	और क्या है?	What else is there?	14
@@ -45,7 +42,6 @@ word	sentence	translation	difficulty_rank
 तो	यह तो कुछ नहीं है।	This is nothing.	32
 यह	यह तो कुछ नहीं है।	This is nothing.	32
 कुछ	यह तो कुछ नहीं है।	This is nothing.	32
-तो	तो?	So?	32
 गया	नहीं, मैं नहीं गया था।	No, I didn't go.	33
 था	नहीं, मैं नहीं गया था।	No, I didn't go.	33
 गया	हो गया।	Done.	33
@@ -58,8 +54,6 @@ word	sentence	translation	difficulty_rank
 और	ठीक हूँ और आप?	I'm fine, and you?	36
 हैं	क्या आप ठीक हैं?	Are you OK?	36
 आप	क्या आप ठीक हैं?	Are you OK?	36
-हाँ	हाँ।	Yes.	41
-हाँ	हाँ!	Yes!	41
 हैं	वे नहीं हैं।	It isn't her.	42
 वे	वे नहीं हैं।	It isn't her.	42
 वे	वे क्या कर रहे हैं?	What're they doing?	42
@@ -93,7 +87,6 @@ word	sentence	translation	difficulty_rank
 होगा	कुछ नहीं होगा।	Nothing'll happen.	51
 उसे	उसे कुछ नहीं होगा।	Nothing will happen to him.	51
 होगा	उसे कुछ नहीं होगा।	Nothing will happen to him.	51
-बहुत	बहुत!	Very!	52
 हम	हम बात कर सकते हैं क्या?	Can we have a talk?	53
 बात	हम बात कर सकते हैं क्या?	Can we have a talk?	53
 सकते	हम बात कर सकते हैं क्या?	Can we have a talk?	53
@@ -103,8 +96,6 @@ word	sentence	translation	difficulty_rank
 सकता	मैं कुछ कर सकता हूँ क्या?	Can I do anything?	54
 सकता	और क्या हो सकता है?	What else would it be?	54
 सकता	मैं भी कर सकता हूँ।	I can do it, too.	54
-जाओ	जाओ।	Go.	55
-जाओ	जाओ!	Go!	55
 जाओ	आ जाओ!	Come!	55
 जा	तुम जा सकते हो।	You may leave.	59
 सकते	तुम जा सकते हो।	You may leave.	59
@@ -126,7 +117,6 @@ word	sentence	translation	difficulty_rank
 से	मुझे नहीं लगता कि तुम इसे ठीक से कर रहे हो।	I don't think you're doing that correctly.	67
 अच्छा	अच्छा नहीं है।	It's not good.	68
 अच्छा	वह भी अच्छा है।	That's good, too.	68
-अच्छा	अच्छा.	Good.	68
 चाहिए	मुझे नहीं चाहिए।	I don't want it.	69
 चाहिए	मुझे वह नहीं चाहिए।	I don't want it.	69
 चाहिए	मुझे यह नहीं चाहिए।	I don't want it.	69
@@ -142,7 +132,6 @@ word	sentence	translation	difficulty_rank
 थे	तुम जा सकते थे।	You could've gone.	74
 चलो	हाँ, चलो।	Yes, let's.	75
 हाँ	हाँ, चलो।	Yes, let's.	75
-चलो	चलो।	Walk.	75
 साथ	क्यों न तुम मेरे साथ चलो?	Why not come with me?	75
 मेरे	क्यों न तुम मेरे साथ चलो?	Why not come with me?	75
 न	क्यों न तुम मेरे साथ चलो?	Why not come with me?	75
@@ -153,7 +142,6 @@ word	sentence	translation	difficulty_rank
 मेरे	मैं तुम्हें मेरे साथ ले जा रहा हूँ।	I'm taking you with me.	77
 ले	मैं तुम्हें मेरे साथ ले जा रहा हूँ।	I'm taking you with me.	77
 ले	उसे बाहर ले जाओ।	Take him outside.	77
-फिर	फिर?	Again?	79
 फिर	फिर से?	Again?	79
 से	फिर से?	Again?	79
 फिर	फिर से!	Again!	79
@@ -276,7 +264,6 @@ word	sentence	translation	difficulty_rank
 लेकिन	वह जाना चाहता है, लेकिन जा नहीं सकता ।	He wants to go, but he can't.	112
 अरे	अरे! यह क्या है?	Hey, what's this?	113
 अरे	अरे! वह क्या है?	Hey, what's that?	113
-अरे	अरे...	Err...	113
 उन्हें	मुझे नहीं पता कि उन्हें क्या पता है।	I don't know what they know.	116
 उन्हें	मैं उन्हें अपने साथ ले जा रहा हूँ।	I'm taking them with me.	116
 उन्हें	मैं उन्हें अपने साथ ले जा रही हूँ।	I'm taking them with me.	116
@@ -288,7 +275,6 @@ word	sentence	translation	difficulty_rank
 थी	मैं बाहर जा रही थी।	I was going out.	118
 देखो	देखो बाहर क्या हो रहा है।	See what's going on outside.	119
 देखो	यह देखो।	Watch this.	119
-देखो	देखो!	Look!	119
 लिए	यह तुम्हारे लिए है।	This is for you.	121
 तुम्हारे	यह तुम्हारे लिए है।	This is for you.	121
 तुम्हारे	मुझे तुम्हारे साथ जाना चाहिए था।	I should've gone with you.	121
@@ -317,7 +303,6 @@ word	sentence	translation	difficulty_rank
 बाद	यह बाद में करते हैं।	Let's do this later.	132
 बाद	बाद में।	Later.	132
 कौन	"""कौन है?"" ""मैं हूँ"""	"""Who is it?"" ""It's me."""	133
-कौन	कौन?	Who?	133
 कौन	वह कौन है?	Who's that?	133
 पास	मुझे नहीं पता मेरे पास यह करने के लिए समय होगा कि नहीं।	I don't know if I'll have time to do it.	135
 समय	मुझे नहीं पता मेरे पास यह करने के लिए समय होगा कि नहीं।	I don't know if I'll have time to do it.	135
@@ -328,7 +313,6 @@ word	sentence	translation	difficulty_rank
 दे	अच्छा वाला दे दो।	Give me a good one.	136
 दो	अच्छा वाला दे दो।	Give me a good one.	136
 दे	यह उसे दे दो।	Give this to her.	136
-नीचे	नीचे!	Down!	137
 देखा	मैंने उसे पहले कभी नहीं देखा था।	I had never seen her before that time.	138
 कभी	मैंने उसे पहले कभी नहीं देखा था।	I had never seen her before that time.	138
 देखा	मैंने तुम्हें देखा नहीं।	I didn't see you.	138
@@ -338,13 +322,10 @@ word	sentence	translation	difficulty_rank
 बार	मैं इस बार नहीं आ सकता।	I can't make it this time.	140
 बार	और एक बार।	Once again.	140
 बार	और एक बार!	Again!	140
-कृपया	कृपया।	Please.	141
 धन्यवाद	उस दिन के लिए बहुत बहुत धन्यवाद।	Thank you for the other day.	142
 बहुत	उस दिन के लिए बहुत बहुत धन्यवाद।	Thank you for the other day.	142
 उस	उस दिन के लिए बहुत बहुत धन्यवाद।	Thank you for the other day.	142
 दिन	उस दिन के लिए बहुत बहुत धन्यवाद।	Thank you for the other day.	142
-धन्यवाद	धन्यवाद!	Thank you!	142
-धन्यवाद	धन्यवाद।	Thanks.	142
 करेंगे	फिर आप क्या करेंगे?	What'll you do then?	144
 लोग	सब लोग कैसे हैं?	How is everyone?	147
 लोग	क्या आप लोग ठीक हो?	Are you guys OK?	147
@@ -384,7 +365,6 @@ word	sentence	translation	difficulty_rank
 जीवन	मैं जीवन से प्यार करता हूँ क्योंकि और है ही क्या।	I love life because what more is there.	154
 आओ	हमारे साथ आओ।	Come along with us.	155
 हमारे	हमारे साथ आओ।	Come along with us.	155
-आओ	आओ!	Come!	155
 जाने	मुझे बाहर जाने दो!	Let me out!	156
 भगवान	भगवान जाने।	Only God knows.	156
 जाने	भगवान जाने।	Only God knows.	156
@@ -444,10 +424,8 @@ word	sentence	translation	difficulty_rank
 साल	मैं २० साल की हूँ।	I am 20 years old.	178
 हर	मैं हर साल जाता हूँ।	I go every year.	178
 जाता	मैं हर साल जाता हूँ।	I go every year.	178
-दूर	दूर!	Away!	179
 हे	हे मेरे भगवान!	Oh, my God!	180
 भगवान	हे मेरे भगवान!	Oh, my God!	180
-हे	हे.	Hey.	180
 हे	हे भगवान!	Christ!	180
 भगवान	हे भगवान!	Christ!	180
 होने	आज रात क्या होने वाला है?	What's going to happen tonight?	181
@@ -471,7 +449,6 @@ word	sentence	translation	difficulty_rank
 कम	एक कम है।	There is one less.	190
 सच	वह सच नहीं था।	That wasn't real.	191
 सच	नहीं, यह सच नहीं हो सकता।	No, it cannot be true.	191
-सच	सच?	Really?	191
 लग	तुम ठीक लग रहे हो।	You look fine.	192
 लग	तुम ठीक लग रही हो।	You look fine.	192
 लग	आप ठीक लग रहे हैं।	You look fine.	192
@@ -482,7 +459,6 @@ word	sentence	translation	difficulty_rank
 पसंद	हाँ, मुझे यह बहुत पसंद है।	Yes, I like it very much.	194
 हर	मुझे हर एक पसंद है।	I like each of them.	194
 चला	तुम्हें कैसे पता चला?	How did you find out?	195
-चला	चला!	Drive!	195
 लोगों	इन लोगों को जाने दो।	Let these people go.	196
 इन	इन लोगों को जाने दो।	Let these people go.	196
 अच्छी	काम एक तरह से अच्छी तरह से किया गया था।	The work was well done in a way.	197
@@ -523,7 +499,6 @@ word	sentence	translation	difficulty_rank
 कह	आप ऐसा कह सकते हैं ।	You could say that.	206
 इसके	मुझे इसके बारे में कुछ भी नहीं पता।	I know nothing whatever about it.	207
 इसके	इसके बाद क्या है?	What's next?	207
-रुको	रुको!	Stop!	208
 तैयार	अगर तुम मदद चाहते हो, तो मैं मदद करने के लिए तैयार हूँ।	I'm willing to help you if you want me to.	209
 अगर	अगर तुम मदद चाहते हो, तो मैं मदद करने के लिए तैयार हूँ।	I'm willing to help you if you want me to.	209
 तैयार	सब कुछ तैयार है?	Is everything ready?	209
@@ -536,7 +511,6 @@ word	sentence	translation	difficulty_rank
 उनके	तुम्हें उनके बारे में क्या अच्छा लगता है?	What do you like about him?	213
 उनके	हम उनके बारे में बात कर रहे हैं।	We're talking about him.	213
 जैसे	तुम सब एक जैसे हो।	You're all the same.	214
-जैसे	जैसे?	Such as?	214
 इतना	हमारे पास इतना ही है।	It's all we have.	215
 जल्दी	हम जल्दी में थे।	We were in a hurry.	216
 जल्दी	हम जल्दी में हैं।	We're in a hurry.	216
@@ -590,7 +564,6 @@ word	sentence	translation	difficulty_rank
 बकवास	यह क्या बकवास है?	What is this nonsense?	237
 बंद	बकवास बंद कर!	Cut the crap!	237
 बकवास	बकवास बंद कर!	Cut the crap!	237
-बकवास	बकवास।	Nonsense.	237
 मुझसे	मुझसे और काम नहीं किया जाएगा।	I can't take any more work.	240
 चला	मुझसे और नहीं चला जाएगा।	I can't walk any further.	240
 मुझसे	मुझसे और नहीं चला जाएगा।	I can't walk any further.	240
@@ -641,9 +614,7 @@ word	sentence	translation	difficulty_rank
 तीन	अब उनके तीन बच्चे हैं।	Now they have three children.	258
 तीन	हम तीन हैं।	There are three of us.	258
 मिनट	हमारे पास तो बस तीन ही मिनट हैं।	We've only got three minutes.	258
-सुनो	सुनो।	Listen.	259
 सुनो	बस मेरी बात सुनो।	Just listen to me.	259
-सुनो	सुनो!	Listen!	259
 पैसे	मेरे पास अभी कोई पैसे नहीं हैं।	I have no money with me.	260
 पैसे	तुम्हारे पास कुछ पैसे नहीं हैं क्या?	Haven't you got any money?	260
 पैसे	मुझे अपने पैसे वापस चाहिए।	I'd like to get a refund.	260
@@ -658,7 +629,6 @@ word	sentence	translation	difficulty_rank
 दोनों	हम दोनों ने देखा है।	We've both seen it.	263
 ने	हम दोनों ने देखा है।	We've both seen it.	263
 दोनों	तुम दोनों देख रहे हो।	The two of you are watching.	263
-पुलिस	पुलिस!	Police!	264
 देना	कोई अच्छा वाला देना।	Give me a good one.	265
 देना	मुझे आपको सच बता देना चाहिए था।	I should have told you the truth.	265
 कहीं	मैंने उसे कहीं भी नहीं देखा है।	I haven't seen them anywhere.	267
@@ -677,10 +647,8 @@ word	sentence	translation	difficulty_rank
 सोचा	बिना सोचे कुछ मत कहना।	Don't say anything without thinking.	273
 आगे	आगे आओ।	Come forward.	274
 आगे	आगे आ जाओ।	Come forward.	274
-आगे	आगे!	Forward!	274
 पागल	तुमने मुझे पागल कर दिया।	You made me lose my mind.	275
 पागल	हम सब पागल हैं।	We're all crazy.	275
-पागल	पागल!	Crazy!	275
 सुना	मैंने वह नहीं सुना।	I didn't hear it.	276
 सुना	सुना है तुम फिर से शादी कर रहे हो।	I hear you're getting married again.	276
 सुना	सुना है तुम फिर से शादी कर रही हो।	I hear you're getting married again.	276
@@ -785,10 +753,7 @@ word	sentence	translation	difficulty_rank
 देखते	तुम मुझे देखते हो।	You see me.	316
 देखते	आप मुझे देखते हैं।	You see me.	316
 देर	मुझे देर हो सकती है।	I might be late.	317
-बिल्कुल	बिल्कुल।	Of course.	319
-बिल्कुल	बिल्कुल!	Absolutely!	319
 वाह	वाह-वाह!	Cheers!	321
-वाह	वाह!	Hooray!	321
 लो	सोच लो।	Think about it.	322
 सोच	सोच लो।	Think about it.	322
 सोच	मैं तुम्हारे बारे में सोच रहा हूँ।	I'm thinking about you.	322
@@ -807,7 +772,6 @@ word	sentence	translation	difficulty_rank
 दरवाजा	जल्दी से दरवाजा बंद कर दो।	Shut the door quickly.	327
 दी	उसने अपने ही घर को आग लगा दी।	He set fire to his own house.	329
 आग	उसने अपने ही घर को आग लगा दी।	He set fire to his own house.	329
-आग	आग!	Fire!	329
 आग	मैं आग को हाथ नहीं लगा सकता।	I cannot touch fire.	329
 देता	मैं आपको सब कुछ बता देता हूँ।	I tell you everything.	330
 देता	मैं बता सकता तो मैं तुम्हें बता देता।	I would tell you if I could.	330
@@ -860,7 +824,6 @@ word	sentence	translation	difficulty_rank
 सबसे	उसे मेरे सबसे अच्छे दोस्त से प्यार हो गया।	He fell in love with my best friend.	349
 वादा	वादा रहा।	It's a promise.	350
 हमला	मुझ पर हमला हुआ है।	I've been attacked.	351
-हमला	हमला!	Charge!	351
 सबसे	मेरा भगवान सबसे महान है.	My god is the greatest!	352
 महान	मेरा भगवान सबसे महान है.	My god is the greatest!	352
 आए	तुम क्यों नहीं आए?	Why didn't you come?	353
@@ -942,7 +905,6 @@ word	sentence	translation	difficulty_rank
 लड़ाई	मेरी कल मेरे भाई के साथ लड़ाई हुई थी।	I had a fight with my older brother yesterday.	394
 लड़ाई	यह लड़ाई मेरी है।	This fight is mine.	394
 शुक्रिया	आपका बहुत बहुत शुक्रिया!	Thank you very much!	395
-शुक्रिया	शुक्रिया!	Thank you!	395
 कह	कम से कम शुक्रिया तो कह सकते हो।	You might at least say thank you.	395
 शुक्रिया	कम से कम शुक्रिया तो कह सकते हो।	You might at least say thank you.	395
 कम	कम से कम शुक्रिया तो कह सकते हो।	You might at least say thank you.	395
@@ -967,7 +929,6 @@ word	sentence	translation	difficulty_rank
 जीवन	जब तक जीवन है, आशा है।	As long as there is life, there is hope.	402
 चुप	तुम चुप करो!	Hey you, shut up!	403
 चुप	बस चुप करो और सुनो!	Just shut up and listen!	403
-चुप	चुप!	Hush!	403
 रहने	उसने हमें चुप रहने के लिए कहा।	She asked us to be quiet.	403
 रहो	अभी के लिए चुप रहो।	For now, keep quiet.	403
 उपयोग	मुझे लगता है कि वे आपका उपयोग कर रहे हैं।	I think they are using you.	404
@@ -1002,7 +963,6 @@ word	sentence	translation	difficulty_rank
 पापा	मेरे पापा का घर है।	This is my father's house.	417
 शांत	शांत रहो और आराम करो।	Stay quiet and rest.	420
 शांत	वे शांत हैं।	They're quiet.	420
-शांत	शांत!	Quiet!	420
 पुराने	वे पुराने दोस्त हैं।	They're old friends.	421
 सा	मुझे वह अच्छा सा लगता है।	I sort of like him.	422
 सा	तुम्हारा वाला कौन सा है?	Which one's yours?	422
@@ -1042,14 +1002,11 @@ word	sentence	translation	difficulty_rank
 छोटी	वह मुझसे दो साल छोटी है।	She is two years younger than me.	441
 छोटी	बहुत छोटी थी।	It was very small.	441
 अलविदा	अलविदा कहिए।	Say goodbye.	442
-अलविदा	अलविदा!	Goodbye!	442
 होगी	उनकी शादी अगले महीने होगी।	They will get married next month.	444
 महीने	उनकी शादी अगले महीने होगी।	They will get married next month.	444
 अगले	उनकी शादी अगले महीने होगी।	They will get married next month.	444
 भाग	मेरा भाग जाने का मन हुआ।	I felt like running away.	445
 भाग	वह भाग नहीं रही है।	She isn't running.	445
-भाग	भाग!	Run!	445
-नमस्ते	नमस्ते।	Hello!	446
 नमस्ते	नमस्ते दुनिया।	Hello, world!	446
 नमस्ते	नमस्ते, आप कैसे हैं?	Hello and how are you?	446
 सारे	वह बहुत सारे लोगों को जानता है।	He knows a lot of people.	447
@@ -1096,7 +1053,6 @@ word	sentence	translation	difficulty_rank
 व्यक्ति	आप अच्छे व्यक्ति हैं।	You are a good person.	466
 व्यक्ति	तुम अच्छी व्यक्ति हो।	You are a good person.	466
 मूर्ख	अगर मैं मूर्ख हूँ तो तुम भी हो।	If I am a fool, you are another.	467
-मूर्ख	मूर्ख!	Idiot!	467
 मालिक	आप इस घर के मालिक हैं क्या?	Are you the owner of this house?	469
 मालिक	मालिक मैं हूँ।	I'm the owner.	469
 रखें	यह रखें।	Keep this.	472
@@ -1207,7 +1163,6 @@ word	sentence	translation	difficulty_rank
 मिलने	मैं कल उससे मिलने जा रहा हूँ।	I'm going to meet him tomorrow.	516
 मिलने	वह कल तुमसे मिलने आया था।	He came to see you yesterday.	516
 निश्चित	निश्चित ही	Definitely!	517
-निश्चित	निश्चित।	Certainly.	517
 करनी	मुझे लगा कि मुझे उसकी मदद करनी चाहिए।	I felt that I should help her.	518
 करनी	किसी को तो बात करनी होगी।	Somebody has to talk.	518
 करनी	मुझे तुमसे बात करनी है।	I'd like to talk to you.	518
@@ -1240,7 +1195,6 @@ word	sentence	translation	difficulty_rank
 इंतज़ार	मैं आपका इंतज़ार कर रहा था।	I was waiting for you.	529
 जी	मैं तुम्हारे बिना जी नहीं सकता।	I can't live without you.	530
 बिना	मैं तुम्हारे बिना जी नहीं सकता।	I can't live without you.	530
-जी	जी!	Yes!	530
 जी	जी हाँ!	Yes!	530
 बिना	मैं उसके बिना नहीं जी सकता।	I can't live without him.	530
 अस्पताल	क्या मुझे अस्पताल में रहना होगा?	Do I have to stay in the hospital?	532
@@ -1253,7 +1207,6 @@ word	sentence	translation	difficulty_rank
 पृथ्वी	पृथ्वी से प्यार करो।	Love the earth.	536
 पूछ	सवाल हम पूछ रहे हैं।	We're asking the questions.	538
 पूछ	पूछ मत।	Don't ask.	538
-पूछ	पूछ।	Ask.	538
 लगभग	यह लगभग सही है।	That is almost correct.	539
 नफरत	क्या तुम मुझ से नफरत करते हो?	Do you hate me?	540
 नफरत	क्या आप मुझ से नफरत करते हैं?	Do you hate me?	540
@@ -1334,7 +1287,6 @@ word	sentence	translation	difficulty_rank
 दिखते	तुम कितने अलग दिखते हो।	You look so different.	584
 शांति	शांति से खड़े रहो।	Stand still and keep silent.	586
 शांति	शांति है।	There is silence.	586
-शांति	शांति।	Peace.	586
 आश्चर्य	इससे मुझें आश्चर्य नहीं होता।	It doesn't surprise me.	587
 इससे	इससे मुझें आश्चर्य नहीं होता।	It doesn't surprise me.	587
 आश्चर्य	अधिक आश्चर्य की बात क्या है?	What's more surprising?	587
@@ -1390,7 +1342,6 @@ word	sentence	translation	difficulty_rank
 खोज	तुम क्या खोज रही हो?	What are you searching for?	607
 बढ़िया	यह बढ़िया जगह है।	This is a great place.	609
 बढ़िया	बढ़िया योजना थी।	It was a great plan.	609
-बढ़िया	बढ़िया!	Great!	609
 चोरी	मेरे पैसे चोरी हो गए।	My money was stolen.	612
 खुद	मैं खुद राष्ट्रपति से मिला।	I met the president himself.	615
 राष्ट्रपति	मैं खुद राष्ट्रपति से मिला।	I met the president himself.	615
@@ -1470,7 +1421,6 @@ word	sentence	translation	difficulty_rank
 राज्य	मैं ही राज्य हूँ!	I am the State!	667
 राज्य	तुम्हारे देश में कितने राज्य हैं?	How many states are there in your country?	667
 जादू	जादू थी।	It was magic.	668
-जादू	जादू।	It's magic.	668
 जादू	जादू है।	It's magic.	668
 चिल्लाया	उन्होंने मदद के लिए चिल्लाया।	They shouted for help.	669
 चिल्लाना	वह चिल्लाने लगा।	He began to shout.	669
@@ -1534,7 +1484,6 @@ word	sentence	translation	difficulty_rank
 कपड़े	मुझे घर जा कर कपड़े बदलने हैं।	I have to go home and change.	701
 चलिए	हमें घर ले चलिए।	Take us home.	706
 चलिए	मुझे बस घर ले चलिए।	Just take me home.	706
-चलिए	चलिए!	Walk!	706
 जाती	मैं स्कूल चल कर जाती हूँ।	I go to school on foot.	707
 जाती	तुम किस समय घर जाती हो?	What time do you go home?	707
 जाती	तुम स्कूल जाती हो।	You go to school.	707
@@ -1547,8 +1496,6 @@ word	sentence	translation	difficulty_rank
 दूसरा	हमें एक दूसरा मौका दिया गया है।	We've been given a second chance.	715
 संभव	संभव है।	It's possible.	716
 संभव	मुझे नहीं लगता कि ऐसा संभव भी है।	I don't think that's even possible.	716
-सावधान	सावधान!	Attention!	720
-सावधान	सावधान।	Caution.	720
 पहुँच	मैं कहाँ तक पहुँच गया हूँ?	How far along am I?	721
 सांस	सांस ले।	Inhale.	722
 सांस	सांस लो।	Inhale.	722
@@ -1582,8 +1529,6 @@ word	sentence	translation	difficulty_rank
 करूँगा	अगर मैं अभी नहीं करूँगा तो कभी नहीं करूँगा।	If I don't do it now, I never will.	738
 दें	अगर बाकी लोग कर भी दें, मैं नहीं करूँगा।	Even if all others do, I will not.	738
 बाकी	अगर बाकी लोग कर भी दें, मैं नहीं करूँगा।	Even if all others do, I will not.	738
-फेंक	फेंक।	Throw.	739
-उठो	उठो।	Get up.	740
 उठो	उठो और चलो।	Stand up and walk.	740
 दिनों	वह कितने दिनों से बीमार है?	How long has she been sick?	742
 बीमार	वह कितने दिनों से बीमार है?	How long has she been sick?	742
@@ -1643,11 +1588,8 @@ word	sentence	translation	difficulty_rank
 टूट	उनकी शादी टूट रही थी।	Their marriage was falling apart.	787
 भोजन	उसने हमारे लिए बहुत ही शानदार भोजन तैयार किया।	She cooked us a wonderful meal.	788
 शानदार	उसने हमारे लिए बहुत ही शानदार भोजन तैयार किया।	She cooked us a wonderful meal.	788
-शानदार	शानदार!	Splendid!	788
 फैसला	फैसला मेरा था।	The decision is mine.	797
 फैसला	हम हर एक फैसला एक साथ लेते हैं।	We make every decision together.	797
-ज़रूर	ज़रूर!	Sure!	798
-ज़रूर	ज़रूर।	Of course.	798
 प्रतीक्षा	तुम कितनी देर से प्रतीक्षा कर रहे हो?	How long have you waited?	799
 प्रतीक्षा	हम उसकी प्रतीक्षा कर रहे हैं।	We're waiting for him.	799
 थोड़ी	बच्चे पर ध्यान रखना थोड़ी देर के लिए।	Keep an eye on the baby for a while.	800
@@ -1715,7 +1657,6 @@ word	sentence	translation	difficulty_rank
 बच	मौत से कोई नहीं बच सकता है।	Nobody can escape death.	842
 मौत	मौत से कोई नहीं बच सकता है।	Nobody can escape death.	842
 बच	सब बच गए।	Everyone was saved.	842
-भागो	भागो!	Run!	844
 भागो	आग! भागो!	Fire! Run!	844
 भागो	अपनी जान बचा कर भागो!	Run for your life!	844
 साबित	तुम वह साबित नहीं कर सकते।	You can't prove that.	847
@@ -1792,7 +1733,6 @@ word	sentence	translation	difficulty_rank
 पहचान	क्या तुम उस आदमी को उसकी तस्वीर से पहचान सकते हो?	Can you identify the man in this picture?	881
 पूछो	पूछो मत।	Don't ask.	882
 पूछो	मुझसे मत पूछो।	Don't ask me.	882
-पूछो	पूछो।	Ask.	882
 मिलना	मैं उसके पिता से मिलना चाहता हूँ।	I would like to meet his father.	883
 मिलना	हम उससे मिलना चाहते हैं।	We want to meet him.	883
 दीवार	उस दीवार के पीछे क्या है?	What's behind the wall?	888
@@ -1802,7 +1742,6 @@ word	sentence	translation	difficulty_rank
 इलाज	आप मेरे इलाज हैं।	You're my cure.	889
 समझे	तुम समझे नहीं।	You didn't understand.	890
 समझे	समझे कि नहीं?	Got it?	890
-समझे	समझे?	Understood?	890
 फर्क	इसमें कोई फर्क नहीं है।	There is no difference.	894
 इसमें	इसमें कोई फर्क नहीं है।	There is no difference.	894
 दिखाई	तुम्हें मैं दिखाई देता हूँ।	You see me.	897
@@ -1826,7 +1765,6 @@ word	sentence	translation	difficulty_rank
 जाओगे	क्या तुम मेरा सामान ऊपर ले जाओगे?	Would you carry my luggage upstairs?	905
 जाओगे	तुम अभी ठीक हो जाओगे।	You'll be OK now.	905
 उठा	वह जल्दी नहीं उठा।	He did not get up early.	906
-पक्का	पक्का?	Are you sure?	907
 दिखा	हमें कुछ नहीं दिखा।	We didn't see anything.	908
 स्टेशन	तुम स्टेशन पर किसका इंतज़ार कर रहे थे?	Who were you waiting for at the station?	909
 किसका	तुम स्टेशन पर किसका इंतज़ार कर रहे थे?	Who were you waiting for at the station?	909
@@ -1846,7 +1784,6 @@ word	sentence	translation	difficulty_rank
 सूची	उसका नाम सूची में और नीचे है।	His name is further down the list.	918
 सूची	उनका नाम सूची में और नीचे है।	His name is further down the list.	918
 पे	तुम घर पे हो क्या?	Are you at home?	920
-रुक	रुक!	Stop!	926
 रुक	रुक जाओ!	Wait!	926
 रुक	बस एक मिनट रुक।	Just wait a minute.	926
 आँखा	तुम्हारी आँखे खराब हैं क्या?	Are your eyes bad?	927
@@ -2118,7 +2055,6 @@ word	sentence	translation	difficulty_rank
 बीच	आठ से दस बजे के बीच हुई।	It happened between eight and ten.	1100
 आठ	वह आठ साल का था जब उसने अपने माता-पिता को छोड़ दिया।	He left his parents when he was eight years old.	1100
 शर्त	शर्त थी।	It was a bet.	1102
-शर्त	शर्त?	Bet?	1102
 व्यक्तिगत	व्यक्तिगत रूप से, मुझे यह वाला पसंद आया।	Personally, I liked this one.	1108
 रूप	व्यक्तिगत रूप से, मुझे यह वाला पसंद आया।	Personally, I liked this one.	1108
 शुरुआत	फिर से शुरुआत करते हैं।	Let's begin again.	1109
@@ -2193,7 +2129,6 @@ word	sentence	translation	difficulty_rank
 जानवर	मैं एक जानवर हूँ I	I'm an animal.	1168
 उड़	मेरी दादी उड़ सकती है।	My grandmother can fly.	1169
 दादी	मेरी दादी उड़ सकती है।	My grandmother can fly.	1169
-उड़	उड़!	Fly!	1169
 पढ़	तुमने पूरा पढ़ लिया क्या?	Did you read it at all?	1171
 पढ़	तुम इस समय क्या पढ़ रहे हो?	What are you reading now?	1171
 पढ़	अब तुम क्या पढ़ रहे हो?	What are you reading now?	1171
@@ -2496,8 +2431,6 @@ word	sentence	translation	difficulty_rank
 भाषण	मुझे भाषण देना अच्छा नहीं लगता।	I don't like giving speeches.	1384
 उम्मीद	उम्मीद मत छोड़ो।	Don't give up hope.	1390
 छोड़ो	उम्मीद मत छोड़ो।	Don't give up hope.	1390
-छोड़ो	छोड़ो!	Leave!	1390
-छोड़ो	छोड़ो।	Anyway.	1390
 ठंड	ठंड हो रही है।	It's cold.	1393
 ठंड	मुझसे यह ठंड सही नहीं जाएगी।	I can't put up with this cold.	1393
 ठंड	उस दिन ठंड थी, और ऊपर से बारिश होने लगी।	It was cold that day, and moreover it began to rain.	1393
@@ -2801,7 +2734,6 @@ word	sentence	translation	difficulty_rank
 दिलचस्प	तुम कोई दिलचस्प किताब पढ़ रहे हो क्या?	Are you reading an interesting book?	1617
 दिलचस्प	तुम कोई दिलचस्प किताब पढ़ रही हो क्या?	Are you reading an interesting book?	1617
 दोबारा	उसने अपना नाम दोबारा धीरे से बोला।	He repeated his name slowly.	1619
-दोबारा	दोबारा!	Repeat!	1619
 न्यूयॉर्क	जॉन न्यूयॉर्क में रहता है।	John lives in New York.	1621
 न्यूयॉर्क	न्यूयॉर्क दुनिया का सबसे बड़ा शहर है।	New York is the world's biggest city.	1621
 बाथरूम	मुझे बाथरूम जाना है।	I have to go to the bathroom.	1624
@@ -2937,7 +2869,6 @@ word	sentence	translation	difficulty_rank
 नाटक	मैं एक नाटक पढ़ रहा हूँ।	I am reading a play.	1696
 भला	वह आदमी तो भला है, पर बात बहुत ज़्यादा करता है।	He is a nice man, except that he talks too much.	1697
 भला	कर भला तो हो भला।	You reap what you sow.	1697
-भला	भला.	Good.	1697
 समझदार	वे उसे समझदार मानते हैं।	They consider him intelligent.	1698
 मानते	वे उसे समझदार मानते हैं।	They consider him intelligent.	1698
 समझदार	तुम्हें थोड़ा ज़्यादा समझदार होना चाहिए।	You should be a little more sensible.	1698
@@ -2951,7 +2882,6 @@ word	sentence	translation	difficulty_rank
 जंगली	वह जंगली जानवरों के बारे में बहुत कुछ जानता है।	He knows a lot about wild animals.	1712
 जानवरों	उन्हें जंगली जानवरों के बारे में बहुत कुछ पता है।	He knows a lot about wild animals.	1712
 जंगली	उन्हें जंगली जानवरों के बारे में बहुत कुछ पता है।	He knows a lot about wild animals.	1712
-जंगली	जंगली!	Wild!	1712
 तस्वीरें	इस किताब में बहुत सारी तस्वीरें हैं।	This book contains many pictures.	1714
 सारी	इस किताब में बहुत सारी तस्वीरें हैं।	This book contains many pictures.	1714
 तस्वीरें	ये तस्वीरें सच में बहुत सुंदर हैं।	These pictures are really very beautiful.	1714
@@ -3077,7 +3007,6 @@ word	sentence	translation	difficulty_rank
 बाघ	वह बाघ नहीं है।	That is not a tiger.	1818
 रस	तुम्हें कैसा रस चाहिए?	What kind of juice do you want?	1821
 रस	आप को कैसा रस चाहिए?	What kind of juice do you want?	1821
-आक्रमण	आक्रमण!	Attack!	1823
 संघ	मेरा जन्म सोवियत संघ में हुआ।	I was born in the Soviet Union.	1825
 जन्म	मेरा जन्म सोवियत संघ में हुआ।	I was born in the Soviet Union.	1825
 सोवियत	मेरा जन्म सोवियत संघ में हुआ।	I was born in the Soviet Union.	1825
@@ -3131,7 +3060,6 @@ word	sentence	translation	difficulty_rank
 समान	सब लोगों के लिए एक समान है।	It's the same for everyone.	1860
 समान	उनमें एक चीज़ समान है।	They have one thing in common.	1860
 उठ	मैं उस दिन सुबह ५ बजे उठ गयी थी.	I woke up at 4 AM that day.	1863
-उठ	उठ।	Get up.	1863
 उठ	उठ जाओ और चलो।	Stand up and walk.	1863
 भरेगा	विमान एक घंटे में उड़ान भरेगा।	The plane will take off in one hour.	1864
 उड़ान	विमान एक घंटे में उड़ान भरेगा।	The plane will take off in one hour.	1864
@@ -3150,7 +3078,6 @@ word	sentence	translation	difficulty_rank
 चाहो	चाहो तो तुम जा सकती हो।	You may go.	1874
 जिससे	तुम्हें इसे लिख लेना चाहिए, जिससे पहले कि तुम भूल जाओ।	You should write it down before you forget it.	1875
 लिख	तुम्हें इसे लिख लेना चाहिए, जिससे पहले कि तुम भूल जाओ।	You should write it down before you forget it.	1875
-लिख	लिख!	Write!	1875
 लिख	लिख कर लेना चाहिए था।	You should have written it down.	1875
 मरा	मैं भूख से मरा जा रहा हूँ।	I'm starving!	1879
 मरा	भारत मरा देश है।	India is my country.	1879
@@ -3160,7 +3087,6 @@ word	sentence	translation	difficulty_rank
 जीते	हम जीते।	We won.	1883
 देखिए	यह देखिए।	Watch this.	1887
 देखिए	उस लड़की को देखिए!	Look at that girl!	1887
-देखिए	देखिए!	Look!	1887
 निर्दोष	किसी को भी उसके निर्दोष होने का यकीन नहीं है।	No one believes that he is innocent.	1890
 निर्दोष	किसी ने भी उसके निर्दोष होने पर विश्वास नहीं किया।	No one believed in his innocence.	1890
 दिल्ली	मैं नई दिल्ली में रहता हूँ।	I live in New Delhi.	1891
@@ -3379,7 +3305,6 @@ word	sentence	translation	difficulty_rank
 दिमाग	लोगों के दिल-व-दिमाग में भय भरा हुआ था।	People were filled with fright.	2058
 समलैंगिक	वह समलैंगिक है।	He is gay.	2060
 समलैंगिक	वे समलैंगिक हैं।	He is gay.	2060
-समलैंगिक	समलैंगिक.	Faggot.	2060
 उसमें	उसमें कोई शक नहीं है।	There is no doubt.	2062
 उसमें	मुझे उसमें विश्वास है।	I believe in it.	2062
 जिन्होंने	ये वे लोग है जिन्होंने वह विस्फोट देखा।	These are the people who saw the explosion.	2063
@@ -3401,7 +3326,6 @@ word	sentence	translation	difficulty_rank
 डालेंगे	वे लोग मुझे मार डालेंगे।	They will kill me.	2082
 होंगी	आप यहाँ मेरे साथ होंगी।	You'll be here with me.	2085
 गलतियों	बहुत कम लोग अपनी गलतियों को मानते हैं।	Few people will admit their faults.	2087
-खाओ	खाओ!	Eat!	2090
 खाओ	कुछ तो खाओ।	Eat something.	2090
 खाओ	अपना खाना खाओ।	Eat your food.	2090
 चमत्कार	अब तो उसे कोई चमत्कार ही बचा सकता है।	Nothing but a miracle can save her now.	2092
@@ -3565,7 +3489,6 @@ word	sentence	translation	difficulty_rank
 संकट	२००९ में एक वित्तीय संकट हुई थी।	There was a financial crisis in 2009.	2292
 वित्तीय	२००९ में एक वित्तीय संकट हुई थी।	There was a financial crisis in 2009.	2292
 उतर	लोग उतर रहे हैं।	People are getting down.	2293
-उतर	उतर!	Get down!	2293
 ध्वज	यह ध्वज बहुत सुंदर है।	This flag is very beautiful.	2295
 सलाम	मैं उनके ध्वज को सलाम नहीं करती।	I don't salute their flag.	2295
 ध्वज	मैं उनके ध्वज को सलाम नहीं करती।	I don't salute their flag.	2295
@@ -3634,7 +3557,6 @@ word	sentence	translation	difficulty_rank
 चाबी	यह आपकी चाबी है।	This is your key.	2353
 चाबी	तुम्हारी चाबी अभी भी मेरे पास है।	I still have your key.	2353
 उतरो	उतरो!	Get down!	2354
-उत्तम	उत्तम!	Perfect!	2357
 बयान	उसका बयान यह है।	His statement runs as follows.	2359
 बयान	मुझे उसके बयान की सच्चाई पर शक है।	I doubt the truth of his statement.	2359
 सच्चाई	मुझे उसके बयान की सच्चाई पर शक है।	I doubt the truth of his statement.	2359
@@ -3654,7 +3576,6 @@ word	sentence	translation	difficulty_rank
 गंभीर	विवाह एक गंभीर मामला है।	Marriage is a serious matter.	2365
 मामला	विवाह एक गंभीर मामला है।	Marriage is a serious matter.	2365
 स्वादिष्ट	वह स्वादिष्ट था।	That was delicious.	2370
-स्वादिष्ट	स्वादिष्ट।	Delicious.	2370
 अधिकारियों	अधिकारियों ने सच्चाई को आम जनता से छिपा कर रखा हुआ है।	The authorities have been hiding the facts from the public.	2377
 जनता	अधिकारियों ने सच्चाई को आम जनता से छिपा कर रखा हुआ है।	The authorities have been hiding the facts from the public.	2377
 रखा	अधिकारियों ने सच्चाई को आम जनता से छिपा कर रखा हुआ है।	The authorities have been hiding the facts from the public.	2377
@@ -3839,7 +3760,6 @@ word	sentence	translation	difficulty_rank
 खाड़ी	१९९० के दशक की शुरुआत खाड़ी युद्ध से शुरू हुई।	The 1990s began with the Gulf War.	2574
 दशक	१९९० के दशक की शुरुआत खाड़ी युद्ध से शुरू हुई।	The 1990s began with the Gulf War.	2574
 चतुर	उससे चतुर कोई नहीं है।	Nobody is cleverer than he.	2575
-चतुर	चतुर!	Brilliant!	2575
 छड़ी	छड़ी मारने से पानी अलग नहीं होता।	Water cannot be separated by hitting it with a stick.	2578
 मारने	छड़ी मारने से पानी अलग नहीं होता।	Water cannot be separated by hitting it with a stick.	2578
 छड़ी	मेरी छड़ी कहाँ है?	Where's my cane?	2578
@@ -3862,7 +3782,6 @@ word	sentence	translation	difficulty_rank
 बूढ़ी	वह अपनी बूढ़ी माँ की देखभाल करती है।	She takes care of her old mother.	2599
 बूढ़ी	मैं बहुत बूढ़ी नहीं हूँ ।	I'm not very old.	2599
 झूठे	तुम झूठे हो।	You are a liar.	2601
-झूठे	झूठे!	Liar!	2601
 झूठे	झूठे कहीं के!	Liar!	2601
 सूर्य	सूर्य चंद्रमा से बहुत ज़्यादा बड़ा है।	The sun is much larger than the moon.	2602
 चंद्रमा	सूर्य चंद्रमा से बहुत ज़्यादा बड़ा है।	The sun is much larger than the moon.	2602
@@ -4138,7 +4057,6 @@ word	sentence	translation	difficulty_rank
 इतालवी	वह इतालवी है।	He is an Italian.	2952
 मातृभाषा	इतालवी मेरी मातृभाषा है।	Italian is my mother tongue.	2952
 बोलना	वह बोलना चाहती है।	She wants to speak.	2957
-बोलना	बोलना.	Speaking.	2957
 बोलना	बोलना और लिखना अलग हैं।	Speaking and writing are different.	2957
 रुकने	तुम्हें रुकने की ज़रूरत नहीं है।	You needn't wait.	2960
 रुकने	आपको रुकने की ज़रूरत नहीं है।	You needn't wait.	2960
@@ -4193,7 +4111,6 @@ word	sentence	translation	difficulty_rank
 जलेगा	जलेगा।	It will burn.	3018
 मामा	यह घड़ी मुझे मेरे मामा ने दी थी।	This watch was given me by my uncle.	3019
 थैला	थैले में क्या था?	What was in that bag?	3020
-बेतुका	बेतुका!	Ridiculous!	3021
 सिक्का	सिक्का सोने का है।	The coin is gold.	3023
 सिक्का	सोने का सिक्का है।	There is a gold coin.	3023
 मशहूर	वह अचानक से मशहूर बन गई।	She suddenly became famous.	3029
@@ -4203,7 +4120,6 @@ word	sentence	translation	difficulty_rank
 हराया	तुमने उसे हराया है।	You've defeated her.	3034
 हराया	आपने उसे हराया है।	You've defeated her.	3034
 हराया	तुमने उन्हें हराया है।	You've defeated her.	3034
-लड़ो	लड़ो!	Fight!	3037
 उल्टी	मुझे उल्टी आ रही है।	I feel like throwing up.	3038
 किलोमीटर	एक किलोमीटर में एक हज़ार मीटर होते हैं।	There are a thousand meters in a kilometer.	3039
 मीटर	एक किलोमीटर में एक हज़ार मीटर होते हैं।	There are a thousand meters in a kilometer.	3039
@@ -4350,13 +4266,11 @@ word	sentence	translation	difficulty_rank
 स्वच्छ	हमें सार्वजनिक स्थानों को स्वच्छ रखना चाहिए।	Let's keep public places clean.	3224
 स्थानों	हमें सार्वजनिक स्थानों को स्वच्छ रखना चाहिए।	Let's keep public places clean.	3224
 सार्वजनिक	हमें सार्वजनिक स्थानों को स्वच्छ रखना चाहिए।	Let's keep public places clean.	3224
-डरपोक	डरपोक!	Chicken!	3228
 चिट्ठी	मेरे पास कल उसकी एक चिट्ठी आई।	I had a letter from her yesterday.	3230
 चिट्ठी	मुझे उसकी चिट्ठी का जवाब देना है।	I have to answer his letter.	3230
 चिट्ठी	यह उसकी चिट्ठी का जवाब है।	It's an answer to her letter.	3230
 मरो	लड़ो या मरो।	Fight or die.	3231
 लड़ो	लड़ो या मरो।	Fight or die.	3231
-मरो	मरो!	Die!	3231
 शराब	शराब की एक बूंद भी मत पियो।	Don't drink any alcohol.	3237
 पियो	शराब की एक बूंद भी मत पियो।	Don't drink any alcohol.	3237
 बूंद	शराब की एक बूंद भी मत पियो।	Don't drink any alcohol.	3237
@@ -4541,7 +4455,6 @@ word	sentence	translation	difficulty_rank
 झूठी	मैं मेरे जीवन में हमेशा से झूठी थी। इसी लिए लोग मुझे पसंद करते थे।	For all my life, I was a liar. That's why people liked me.	3506
 इसी	मैं मेरे जीवन में हमेशा से झूठी थी। इसी लिए लोग मुझे पसंद करते थे।	For all my life, I was a liar. That's why people liked me.	3506
 झूठी	तुम झूठी हो।	You are a liar.	3506
-झूठी	झूठी!	Liar!	3506
 फ़ोटो	मैंने उससे कुछ फ़ोटो लेने पूछा।	I asked him to take some pictures.	3507
 फ़ोटो	यह हवाई अड्डे का फ़ोटो है।	This is a photograph of the airport.	3507
 अड्डा	यह हवाई अड्डे का फ़ोटो है।	This is a photograph of the airport.	3507
@@ -4572,7 +4485,6 @@ word	sentence	translation	difficulty_rank
 माँगने	मुझसे पैसे माँगने में कोई फ़ायदा नहीं है।	It is no use asking me for money.	3554
 उठाना	तुम्हें इस मौके का फ़ायदा उठाना चाहिए।	You should make use of this chance.	3554
 नाच	हम नाच रहे हैं।	We're dancing.	3558
-नाच	नाच।	Dance.	3558
 नाच	हम नाच नहीं सकते।	We cannot dance.	3558
 आईना	कृपया अंदर आईये।	Do come in, please.	3562
 आईना	ज़िंदगी एक आईना है!	Life is a mirror!	3562
@@ -4634,7 +4546,6 @@ word	sentence	translation	difficulty_rank
 मानता	वह मानता था कि पृथ्वी गोल है।	He believed that the earth was round.	3654
 गोल	वह मानता था कि पृथ्वी गोल है।	He believed that the earth was round.	3654
 गोल	वे मानते थे कि पृथ्वी गोल है।	He believed that the earth was round.	3654
-गोल	गोल!	Goal!	3654
 फ़ैसला	उसने सिगरेट पीना छोड़ने का फ़ैसला किया।	He decided to quit smoking.	3656
 फ़ैसला	उसने पार्टी में न जाने का फ़ैसला किया।	He decided not to go to the party.	3656
 फ़ैसला	मेरा फ़ैसला है।	It's my decision.	3656
@@ -4683,7 +4594,6 @@ word	sentence	translation	difficulty_rank
 मानती	वह भगवान को मानती है।	She believes in God.	3754
 किसको	पत्र किसको लिखा गया था?	Who was the letter written to?	3759
 किसको	किसको पता है?	Who knows?	3759
-कूदो	कूदो.	Jump.	3760
 कमाई	मैं अपनी कमाई से संतुष्ट हूँ।	I'm satisfied with my current income.	3763
 बिल्लियों	बिल्लियों को धूप में खेलना अच्छा लगता है।	Cats like playing in the sun.	3767
 धूप	बिल्लियों को धूप में खेलना अच्छा लगता है।	Cats like playing in the sun.	3767
@@ -5164,7 +5074,6 @@ word	sentence	translation	difficulty_rank
 झील	हम झील के पास एक होटल में ठहरे।	We stayed at a hotel by the lake.	4497
 ठहरा	हम झील के पास एक होटल में ठहरे।	We stayed at a hotel by the lake.	4497
 लज़ीज़	वह लज़ीज़ था।	That was delicious.	4504
-लज़ीज़	लज़ीज़।	Delicious.	4504
 सीमा	मज़ाक़ की भी एक सीमा होती है ।	Even jokes have a limit.	4506
 मज़ाक़	मज़ाक़ की भी एक सीमा होती है ।	Even jokes have a limit.	4506
 वस्तुओं	मुझे निम्नलिखित वस्तुओं की आवश्यकता है।	I need the following items.	4510
@@ -5177,7 +5086,6 @@ word	sentence	translation	difficulty_rank
 सिर्फ	निकम्मे लोग सिर्फ खाने पीने के लिए जीते हैं।	Worthless people live only to eat and drink.	4523
 बहरा	मैं पूरी तरह से बहरा हूँ।	I'm completely deaf.	4526
 झूला	झूला ऊपर नीचे हो रहा है।	The swing is moving up and down.	4527
-घिनौना	घिनौना!	Disgusting!	4529
 गुड़िया	बक्से में एक गुड़िया है।	There is a doll in the box.	4532
 गुड़िया	बक्से में एक गुड़िया होती है।	There is a doll in the box.	4532
 तारीफ़	मेरे देश की तारीफ़ किसी को नहीं करनी थी।	Nobody wanted to praise my country.	4533
@@ -5401,7 +5309,6 @@ word	sentence	translation	difficulty_rank
 हल्का	उसकी गाल पर जो चोट का निशान है वह अब बहुत हल्का हो गया है।	The scar on his cheek hardly shows now.	4971
 गाल	उसकी गाल पर जो चोट का निशान है वह अब बहुत हल्का हो गया है।	The scar on his cheek hardly shows now.	4971
 चोट	उसकी गाल पर जो चोट का निशान है वह अब बहुत हल्का हो गया है।	The scar on his cheek hardly shows now.	4971
-लिखो	लिखो!	Write!	4982
 बेकरी	बेकरी कहाँ है?	Where's the bakery?	4984
 बेकरी	बेकरी बंद है।	The bakery is closed.	4984
 नौकरानी	वह नौकरानी रखता है।	He employs a maid.	4987
@@ -5748,7 +5655,6 @@ word	sentence	translation	difficulty_rank
 नासमझ	नासमझ!	Fool!	5681
 ख़ाली	ख़ाली है।	It's empty.	5690
 चुम्मा	एक चुम्मा या दो?	One kiss or two?	5691
-चुम्मा	चुम्मा!	Kisses!	5691
 उच्चारण	इस शब्द का इतालवी उच्चारण क्या है?	What's the Italian pronunciation of this word?	5695
 सहना	तुम्हें दर्द सहना ही पड़ेगा।	You must endure the pain.	5712
 सहना	आपको दर्द सहना ही पड़ेगा।	You must endure the pain.	5712
@@ -5772,7 +5678,6 @@ word	sentence	translation	difficulty_rank
 अभिनेता	वह अभिनेता है।	He is an actor.	5791
 अभिनेता	तुम्हारा सबसे पसंदीदा अमरीकी अभिनेता कौन है?	Who's your favorite American actor?	5791
 बुद्धू	मैं कितनी बुद्धू हूँ।	I'm so stupid.	5794
-बुद्धू	बुद्धू!	Dumbass!	5794
 चौबीस	एक दिन में चौबीस घंटे होते हैं।	A day has twenty-four hours.	5796
 सीखो	नम्रता सीखो।	Learn humility.	5802
 नम्रता	नम्रता सीखो।	Learn humility.	5802
@@ -6020,7 +5925,6 @@ word	sentence	translation	difficulty_rank
 थैली	उन्होंने अपनी थैली खोल दी।	He opened his bag.	6420
 चूतिया	क्या चूतिया है!	What an asshole!	6428
 चूतिये	चूतिये!	Asshole!	6428
-चूतिया	चूतिया।	Asshole.	6428
 पड़ना	तुम्हें कितने उदाहरण देने पड़ेंगे?	How many examples do I need to give you?	6437
 पड़ना	आपको कितने उदाहरण देने पड़ेंगे?	How many examples do I need to give you?	6437
 पोंछो	अपने हाथ इस तौलिए से पोंछो।	Wipe your hands with this towel.	6440
@@ -6551,12 +6455,10 @@ word	sentence	translation	difficulty_rank
 भागते	वे भागते रहे।	They kept running.	8771
 गानों	इन गानों से मैं सो जाता हूँ।	This music puts me to sleep.	8778
 बदतमीज़	कितने बदतमीज़ हो तुम!	How rude of you!	8797
-बदतमीज़	बदतमीज़!	How rude of you!	8797
 उठानी	आप आराम की ज़िंदगी चाहते हैं तो आप को कुछ परेशानी तो उठानी ही होगी।	If you want a place in the sun, you've got to put up with a few blisters.	8801
 परेशानी	आप आराम की ज़िंदगी चाहते हैं तो आप को कुछ परेशानी तो उठानी ही होगी।	If you want a place in the sun, you've got to put up with a few blisters.	8801
 पढ़ो	तुम यह किताब न ही पढ़ो बेहतर होगा।	You had better not read this book.	8803
 पढ़ो	जितनी किताबें पढ़ सकते हो पढ़ो।	Read as many books as possible.	8803
-पढ़ो	पढ़ो!	Study!	8803
 छानबीन	हमने मामले की हर पहलू से छानबीन करी।	We investigated the matter from all angles.	8806
 मामले	हमने मामले की हर पहलू से छानबीन करी।	We investigated the matter from all angles.	8806
 पहलू	हमने मामले की हर पहलू से छानबीन करी।	We investigated the matter from all angles.	8806
@@ -6617,7 +6519,6 @@ word	sentence	translation	difficulty_rank
 कहेंगी	तब आप क्या कहेंगी?	What will you say then?	9009
 ठहरना	थोड़ी देर ठहरिए। मैं उन्हें फ़ोन देता हूँ।	Please hang on. I'll put him on the phone.	9012
 ठहरना	कृपया पाँच मिनट ठहरिए।	Please wait five minutes.	9012
-ठहरना	ठहरना!	Stay!	9012
 क्योटो	मैं क्योटो गया हुआ हूँ।	I have been to Kyoto.	9019
 क्योटो	वह पिछले साल क्योटो गया था।	He visited Kyoto last year.	9019
 क्योटो	क्योटो में बहुत सारे पुराने मंदिर हैं।	There are many old temples in Kyoto.	9019

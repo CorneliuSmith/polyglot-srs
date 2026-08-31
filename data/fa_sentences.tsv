@@ -213,7 +213,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 و	و شما	And you?	33		tatoeba
 آن	این یا آن؟	This one or that one?	37		tatoeba
 یا	این یا آن؟	This one or that one?	37		tatoeba
-نه	نه؟	No.	39		tatoeba
 چرا	چرا من؟	Why me?	47		tatoeba
 من	چرا من؟	Why me?	47		tatoeba
 نه	چرا که نه؟	Why not?	47		tatoeba
@@ -232,10 +231,8 @@ word	sentence	translation	difficulty_rank	transliteration	source
 هستی	حالا تو کی هستی؟	Who are you, anyway?	57		tatoeba
 کی	حالا تو کی هستی؟	Who are you, anyway?	57		tatoeba
 حالا	حالا تو کی هستی؟	Who are you, anyway?	57		tatoeba
-متشکرم	متشکرم	Thank you!	66		tatoeba
 متشکرم	خیلی متشکرم.	Thanks a lot!	66		tatoeba
 خیلی	خیلی متشکرم.	Thanks a lot!	66		tatoeba
-متشکرم	متشکرم.	Thank you.	66		tatoeba
 هستیم	ما اینجا هستیم.	We are here.	68		tatoeba
 اینجا	ما اینجا هستیم.	We are here.	68		tatoeba
 ما	ما اینجا هستیم.	We are here.	68		tatoeba
@@ -374,9 +371,7 @@ word	sentence	translation	difficulty_rank	transliteration	source
 خوب	واقعا خوب بود.	It was really good.	348		tatoeba
 واقعا	واقعا خوب بود.	It was really good.	348		tatoeba
 بود	واقعا خوب بود.	It was really good.	348		tatoeba
-واقعا	واقعا؟	Really?	348		tatoeba
 زشت	این واقعاً زشت است.	It's really gross.	348		tatoeba
-دقیقا	دقیقا!	Exactly!	352		tatoeba
 امروز	چرا امروز اینجا هستی؟	Why are you here today?	361		tatoeba
 چهار	دو دو تا چهار تا.	Twice two is four.	376		tatoeba
 دو	دو دو تا چهار تا.	Twice two is four.	376		tatoeba
@@ -669,7 +664,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 سه	او سه روز پیش از اینجا رفت.	He left three days ago.	738		tatoeba
 حرکت	زمین ناگهان شروع به حرکت کرد.	The earth suddenly began to move.	740		tatoeba
 ناگهان	زمین ناگهان شروع به حرکت کرد.	The earth suddenly began to move.	740		tatoeba
-حمله	حمله!	Attack!	745		tatoeba
 ممکن	این غیر ممکن!	This is impossible!	755		tatoeba
 غیر	این غیر ممکن!	This is impossible!	755		tatoeba
 ممکن	برای او غیر ممکن است که آن را تا یک ساعت دیگر تمام کند.	It is impossible for him to finish it in an hour.	755		tatoeba
@@ -808,7 +802,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 بار	چند بار آن رخ داد؟	How many times did that happen?	904		tatoeba
 داد	چند بار آن رخ داد؟	How many times did that happen?	904		tatoeba
 رخ	چند بار آن رخ داد؟	How many times did that happen?	904		tatoeba
-جدا	جدا؟	Really?	910		tatoeba
 بلکه	عشق فقط یک احساس نیست بلکه یک هنر هم است.	Love is not just a feeling, but also an art.	920		tatoeba
 فقط	عشق فقط یک احساس نیست بلکه یک هنر هم است.	Love is not just a feeling, but also an art.	920		tatoeba
 هنر	عشق فقط یک احساس نیست بلکه یک هنر هم است.	Love is not just a feeling, but also an art.	920		tatoeba
@@ -906,7 +899,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 عالی	عالی! خیلی خوب!	Great!	1062		tatoeba
 حال	خیلی با حال! بسیار عالی!	Fantastic!	1062		tatoeba
 عالی	خیلی با حال! بسیار عالی!	Fantastic!	1062		tatoeba
-عالی	عالی!	Excellent!	1062		tatoeba
 برخوردار	این موضوع از اهمیت کمی برخوردار است.	This fact is of little consequence.	1064		tatoeba
 اهمیت	این موضوع از اهمیت کمی برخوردار است.	This fact is of little consequence.	1064		tatoeba
 موضوع	این موضوع از اهمیت کمی برخوردار است.	This fact is of little consequence.	1064		tatoeba
@@ -1544,7 +1536,6 @@ word	sentence	translation	difficulty_rank	transliteration	source
 بودند	کل خانواده در بستر بیماری افتاده بودند.	The whole family was sick in bed.	1927		tatoeba
 افتاده	حادثه او را از کار افتاده کرد.	His accident incapacitated him for work.	1927		tatoeba
 حادثه	حادثه او را از کار افتاده کرد.	His accident incapacitated him for work.	1927		tatoeba
-تمرین	تمرین	Practise.	1951		tatoeba
 نیازمند	دوست نیازمند هنوز یک دوست است.	A friend in need is a friend indeed.	1963		tatoeba
 هنوز	دوست نیازمند هنوز یک دوست است.	A friend in need is a friend indeed.	1963		tatoeba
 درد	درد به تدریج شروع شد.	The pain started gradually.	1969		tatoeba

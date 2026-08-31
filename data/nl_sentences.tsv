@@ -1,13 +1,9 @@
 word	sentence	translation	difficulty_rank
-ik	Ik?	Me?	1
 is	Dat is het.	That's it.	6
 dat	Dat is het.	That's it.	6
 het	Dat is het.	That's it.	6
 is	Het is 8:30.	It's 8:30.	6
 het	Het is 8:30.	It's 8:30.	6
-niet	Niet?	Right?	8
-niet	Niet.	No.	8
-en	En?	So what?	9
 en	En u?	And you?	9
 u	En u?	And you?	9
 van	Het is van u?	Is it yours?	10
@@ -16,10 +12,8 @@ u	Het is van u?	Is it yours?	10
 het	Het is van u?	Is it yours?	10
 dat	Wat is dat?	What is it?	11
 wat	Wat is dat?	What is it?	11
-wat	Wat?	What?	11
 wat	Wat is het?	What is it?	11
 en	En wat?	And what?	11
-te	Te.	Too much.	16
 zijn	Dat zijn ze.	That's them.	17
 ze	Dat zijn ze.	That's them.	17
 dat	Dat zijn ze.	That's them.	17
@@ -92,8 +86,6 @@ nog	Weet je nog?	Do you remember?	42
 nog	Ik weet het nog niet.	I don't know yet.	42
 nog	We zijn er nog niet.	We're not there yet.	42
 ja	Ja, ik weet het.	Yes, I know.	43
-ja	Ja.	Yes.	43
-ja	Ja!	Yes!	43
 hem	Ik heb hem!	Got it!	44
 hem	Dit is van hem.	This is his.	44
 hem	Het is van hem.	It's his.	44
@@ -129,7 +121,6 @@ haar	Dat is van haar.	That's hers.	51
 haar	Dit is van haar.	This is hers.	51
 met	Ik wil met haar zijn.	I wanna be with her.	51
 nee	Nee, ik weet het niet.	No, I don't know.	52
-nee	Nee.	No.	52
 nee	Ja en nee.	Yes and no.	52
 o	O nee!	Oh no!	52
 o	O, nee.	Oh no.	52
@@ -242,7 +233,6 @@ laat	Waarom ben je zo laat nog op?	What keeps you up so late?	81
 kunnen	Als ik zo zou kunnen zijn...	If I could be like that...	82
 kunnen	Waar zou ze kunnen zijn?	Where could she be?	82
 kunnen	We kunnen er iets aan doen.	There is something we can do.	82
-dus	Dus?	So what?	83
 dus	Dus dat is waarom!	So that's why!	83
 jou	En met jou, hoe gaat het met jou?	And you, how are you?	84
 jou	Ik laat het aan jou.	I'll leave it up to you.	84
@@ -258,7 +248,6 @@ wie	Wie denk je dat ik ben?	Who do you think I am?	86
 alles	Ik weet alles.	I know everything.	87
 alles	Dat is alles wat ik over hem weet.	This is all that I know about him.	87
 alles	Ik zal alles voor u doen.	I will do anything for you.	87
-echt	Echt?	Really?	88
 echt	Echt goed!	Really good!	88
 echt	Ik weet het echt niet.	I really don't know.	88
 o	O! Echt waar?	Oh! Really?	88
@@ -308,7 +297,6 @@ zei	Wat hij zei, is niet waar.	What he said is not true.	101
 terug	Ik ben zo terug.	I will be back soon.	102
 terug	Ik ga niet terug.	I'm not going back.	102
 terug	Ik kom terug.	I'll come back.	102
-oké	Oké.	Okay.	103
 oké	Doe dat niet nog eens, oké?	Don't do that again, OK?	103
 oké	Kom niet meer terug, oké?	Do not come back, OK?	103
 mee	Wil je niet met me mee?	Don't you want to come along?	104
@@ -410,7 +398,6 @@ gedaan	Dat kan hij niet gedaan hebben.	He can't have done that.	138
 gedaan	Je hebt het gedaan!	You've done it!	138
 gedaan	En ik weet dat je het niet voor mij gedaan hebt.	And I know you didn't do it for me.	138
 dood	Deze man is dood.	That man is dead.	139
-dood	Dood?	Dead?	139
 dood	Ze is dood.	She is dead.	139
 uw	Uw dood is mijn leven.	Your death is my life.	139
 zeker	Hij weet zeker dat hij komt.	He is sure that he will come.	140
@@ -497,7 +484,6 @@ willen	Wat willen ze dat we doen?	What do they want us to do?	164
 zich	Waarom hebben ze zich nog niet laten zien?	Why haven't they shown up yet?	165
 zich	Kijk eens wie ze bij zich heeft.	Look who's with her.	165
 bedankt	Bedankt, dat is alles.	Thanks, that's all.	166
-bedankt	Bedankt!	Thank you!	166
 bedankt	Nee, bedankt.	No, thank you.	166
 erg	Heel erg bedankt!	Thank you very much!	167
 erg	Al bij al is het niet zo erg.	In the end, it's not that bad.	167
@@ -575,7 +561,6 @@ genoeg	Hij had niet genoeg geld.	He did not have enough money.	191
 genoeg	Zo is het wel genoeg.	That will do.	191
 genoeg	Zo is het genoeg.	That will do.	191
 sorry	Sorry, maar dat kan gewoon niet.	I'm sorry, but it's just not possible.	192
-sorry	Sorry...	Sorry...	192
 sorry	Sorry, ik weet niet wat ik anders moet zeggen.	I'm sorry, I don't know what else to say.	192
 vast	Daar zit iets vast.	There's something stuck.	193
 vast	Ik vast.	I'm fasting.	193
@@ -603,7 +588,6 @@ leuk	Dat vind ik erg leuk.	I like it very much.	200
 leuk	Ik vind je niet meer leuk.	I don't like you anymore.	200
 natuurlijk	Natuurlijk mag dat.	Of course, you may.	201
 natuurlijk	Natuurlijk ga ik.	Of course I will go.	201
-natuurlijk	Natuurlijk!	Definitely!	201
 alle	Ik hou van alle twee.	I like both.	202
 alle	Ik zou niet willen dat alle mensen doen zoals ik.	I wouldn't want everyone acting like me.	202
 alle	Die dag was niet anders dan alle andere.	That day was no different from any other.	202
@@ -662,7 +646,6 @@ zonder	Ga maar zonder mij.	You go on without me.	219
 steeds	Ik hou nog steeds van je.	I still love you.	220
 steeds	Is hij nog steeds hier?	Is he still here?	220
 steeds	Hij doet het nog steeds niet.	It's still not working.	220
-hallo	Hallo.	Hello!	221
 hallo	Hallo allemaal!	Hello everyone!	221
 hallo	Hallo? Bent u er nog?	Hello? Are you still here?	221
 houden	Hij zal voor altijd van haar houden.	He will love her forever.	222
@@ -723,7 +706,6 @@ auto	Ik heb een auto.	I have a car.	240
 onze	Dit is onze auto.	This is our car.	240
 onze	Daar staat onze auto.	Our car is there.	240
 luister	Luister naar me.	Listen to me.	241
-luister	Luister!	Listen!	241
 luister	Ik luister.	I'm listening.	241
 grote	Het is de grote.	It's the big one.	242
 grote	Ik heb zo'n grote auto niet nodig.	I don't need a car that big.	242
@@ -772,7 +754,6 @@ kinderen	Neem uw kinderen mee.	Bring your children along.	256
 kinderen	Heeft u kinderen?	Do you have any children?	256
 kinderen	Hebben jullie kinderen?	Do you have any children?	256
 gek	Hij is niet gek.	He is not stupid.	257
-gek	Gek!	Crazy!	257
 gek	Ik ben gek op hem!	I'm crazy about him!	257
 hand	Wat is er aan de hand?	What is going on?	258
 hand	Ze heeft haar kinderen niet in de hand.	She can't control her children.	258
@@ -783,7 +764,6 @@ vraag	De vraag is dit.	The question is this.	259
 laatste	Dit is de laatste keer.	This is the last time.	260
 laatste	Ik ben de laatste die hem heeft gezien.	I'm the last one who saw him.	260
 laatste	Ze kwam als laatste.	She came last.	260
-geweldig	Geweldig!	Great!	261
 geweldig	Ik heb een geweldig leven.	I have a great life.	261
 geweldig	Dat is geweldig!	That's great!	261
 hadden	Ik zou het leuk vinden als we meer geld hadden.	I would like it if we had more money.	262
@@ -924,7 +904,6 @@ eigenlijk	Wie weet er nou eigenlijk echt waarom?	Who really knows why?	307
 werken	Nu is de tijd om samen te werken.	Now is the time when we must work together.	308
 werken	Ze ging door met werken.	She went on working.	308
 werken	Ze werken niet eens een beetje.	They are not working even a bit.	308
-verdomme	Verdomme!	Fuck!	309
 verdomme	Wat heeft hij verdomme net gedaan?	What the fuck did he just do?!	309
 verdomme	Wat is er verdomme met je aan de hand?	What the fuck is your reasoning?	309
 horen	Het spijt me dat te horen.	I'm sorry to hear that.	310
@@ -973,7 +952,6 @@ verder	Het leven gaat verder.	Life goes on.	323
 vroeg	Ik vroeg hem naar zijn naam.	I asked him what his name was.	324
 vroeg	Mijn moeder staat nooit vroeg op.	My mother never gets up early.	324
 vroeg	Ik vroeg hem waar hij heen ging.	I asked him where he was going.	324
-stop	Stop!	Stop!	325
 stop	Stop met praten en luister.	Stop talking and listen.	325
 stop	Stop de auto!	Stop the car.	325
 wachten	Ik kan alleen maar wachten.	I can only wait.	326
@@ -1333,7 +1311,6 @@ waarschijnlijk	Maar het is niet erg waarschijnlijk.	But the possibility seems un
 waarschijnlijk	Als het u zo verteld is, klopt het waarschijnlijk.	If this is the way you were told, it is probably correct.	445
 waarschijnlijk	We zijn waarschijnlijk een paar dagen weg.	We'll probably be away for a few days.	445
 hoi	Hoi, hoe gaat het?	Hello, how are you?	446
-hoi	Hoi.	Hello!	446
 hoi	Hoi, wat gaan we morgen doen?	Hey, what are we going to do tomorrow?	446
 mogelijk	Kom alsjeblieft zo snel mogelijk naar huis.	Please come home as quickly as possible.	447
 mogelijk	Ik denk dat het mogelijk is.	I think that it's possible.	447
@@ -1430,7 +1407,6 @@ zult	Je zult wel denken dat ik gek ben, maar dat klopt niet.	You think, I must b
 zult	Je zult het nodig hebben.	You're going to need it.	477
 duidelijk	Het was niet duidelijk of ze gedaan hadden of niet.	It was not clear whether they had done or not.	478
 duidelijk	Ik denk dat ik niet duidelijk genoeg ben geweest.	I guess I haven't made myself clear.	478
-duidelijk	Duidelijk.	Obviously.	478
 stel	Stel niet uit tot morgen wat je vandaag kunt doen.	Don't put off until tomorrow what you can do today.	479
 stel	Stel niet zo veel vragen!	Don't ask so many questions.	479
 stel	Ik stel mijn vader vragen.	I am asking questions to my father.	479
@@ -1571,7 +1547,6 @@ oud	Mijn ouders zijn oud.	My parents are old.	524
 oud	Hij was heel oud.	He was very old.	524
 neer	Hij ging de kamer op en neer.	He walked up and down the room.	525
 neer	Ik kijk op je neer.	I look down on you!	525
-neer	Neer!	Down!	525
 buurt	Is er een telefoon in de buurt?	Can one find a telephone near by?	526
 buurt	Dat soort dingen moet je niet zeggen als er kinderen in de buurt zijn.	You shouldn't say that kind of thing when children are around.	526
 buurt	Je moet uit de buurt blijven van haar.	You should stay away from her.	526
@@ -1587,7 +1562,6 @@ rest	Ik vertel je de rest morgen.	I will tell you the rest tomorrow.	529
 stond	Hij stond altijd klaar om mensen te helpen die problemen hadden.	He was always ready to help people in trouble.	530
 stond	Daarom stond ik vroeg op deze morgen.	That is why I got up early this morning.	530
 stond	Hij stond op.	He stood up.	530
-begrepen	Begrepen.	Roger that.	531
 begrepen	Even zien of ik dat goed begrepen heb.	Let's see if I've got that right.	531
 begrepen	Misschien heb je me niet begrepen.	Maybe you didn't understand me.	531
 drinken	Wilt u iets drinken?	Would you like to drink anything?	532
@@ -1605,9 +1579,7 @@ beneden	We zijn beneden als je ons nodig hebt.	We'll be downstairs if you need u
 vergeet	Vergeet ons niet!	Don't forget about us!	536
 vergeet	Ik zal het hem zeggen, als ik het niet vergeet.	I'll tell him, if I don't forget.	536
 vergeet	Vergeet mij niet!	Don't forget about me!	536
-vooruit	Vooruit.	Move.	537
 vooruit	Vooruit, neem er nog een.	Please take another one.	537
-vooruit	Vooruit!	Forward!	537
 hoort	Hoort u mij?	Do you hear me?	538
 hoort	Hoort dat te gebeuren?	Is that supposed to happen?	538
 hoort	Je hoort gelukkig te zijn.	You're supposed to be happy.	538
@@ -1708,7 +1680,6 @@ tweede	Geef me alsjeblieft een tweede kans.	Please give me a second chance.	570
 onderzoek	De politie doet onderzoek naar de moord.	The police are investigating the murder.	571
 onderzoek	Hij doet onderzoek naar het probleem.	He is researching the problem.	571
 onderzoek	Onderzoek het.	Examine it.	571
-welkom	Welkom!	Welcome.	572
 welkom	Waarheid is niet altijd welkom!	The truth isn't always welcome!	572
 welkom	Welkom bij ons.	Welcome to our home.	572
 hard	Je moet hard leren.	You must study hard.	573
@@ -1727,7 +1698,6 @@ aardig	Ik vertelde haar dat je een aardig meisje bent.	I told her that you're a 
 aardig	Wat aardig van u!	How nice of you!	577
 aardig	Wees aardig voor anderen.	Be kind to others!	577
 klootzak	Wat een klootzak!	What an asshole!	578
-klootzak	Klootzak!	Asshole!	578
 klootzak	Mijn baas is een klootzak.	My boss is an asshole.	578
 stuk	Wat is de naam van dat stuk?	What's the name of that piece?	579
 stuk	Mijn auto is stuk.	My car is broken.	579
@@ -1757,7 +1727,6 @@ vandaan	Ik wist niet waar het vandaan kwam.	I didn't know where it came from.	58
 vandaan	Waar kom je vandaan?	Where do you come from?	587
 vandaan	Is het hier ver vandaan?	Is it far from here?	587
 lieverd	Hij is zo'n lieverd.	He's such a sweetheart.	589
-lieverd	Lieverd!	My darling!	589
 lieverd	Ze is een lieverd.	She's a cutie.	589
 zichzelf	Waarom doden mensen zichzelf?	Why do people kill themselves?	590
 zichzelf	Hij wist van het nieuws, maar hij hield het voor zichzelf.	He knew the news, but he kept it to himself.	590
@@ -1877,7 +1846,6 @@ gevoel	Ik had precies hetzelfde gevoel.	I had the exact same feeling.	628
 gegaan	Ik zou naar de film zijn gegaan, als ik tijd had gehad.	I would have gone to the movies if I had had the time.	629
 gegaan	Als ik tijd had gehad, was ik naar de film gegaan.	I would have gone to the movies if I had had the time.	629
 gegaan	Hij had niks te zeggen, dus is hij maar gegaan.	He had nothing to say, so he went away.	629
-voorzichtig	Voorzichtig!	Careful!	630
 voorzichtig	Wees voorzichtig op de weg naar huis.	Be careful on your way back home.	630
 voorzichtig	Wees voorzichtig met wat je zegt!	Be careful what you say!	630
 hond	Wat een grote hond!	What a big dog!	631
@@ -1886,7 +1854,6 @@ hond	De naam van de hond is Ken.	The dog's name is Ken.	631
 rijden	Laten we naar het meer rijden.	Let's drive to the lake.	632
 rijden	Mijn grote broer kan rijden.	My older brother knows how to drive.	632
 rijden	Ik wil niet rijden.	I don't want to drive.	632
-eindelijk	Eindelijk!	Finally!	633
 eindelijk	De pijn ging eindelijk weg.	The pain finally went away.	633
 eindelijk	Ik begrijp eindelijk wat je me probeerde te zeggen.	I finally understand what you were trying to tell me.	633
 gesproken	Waar hebben jullie over gesproken?	What did you talk about?	634
@@ -1912,7 +1879,6 @@ heren	Luister, heren.	Listen, gentlemen.	640
 voelen	Ik zou me ook zo voelen.	I'd feel the same way.	641
 voelen	Jij zou je ook zo voelen.	You'd feel the same way.	641
 voelen	U zult zich beter voelen.	You'll feel better.	641
-moordenaar	Moordenaar!	Murderer!	642
 moordenaar	U bent een moordenaar.	You're a murderer.	642
 moordenaar	Jij bent een moordenaar.	You're a murderer.	642
 mens	Hij ziet er een goed mens uit.	He seems like a good person.	643
@@ -1935,7 +1901,6 @@ prachtig	Wat een prachtig weer.	What marvelous weather.	648
 prachtig	Zijn nieuwe auto is prachtig.	His new car is wonderful.	648
 hoezo	Echt? Hoezo?	Really? Why?	649
 hoezo	En hoezo niet?	And why not?	649
-hoezo	Hoezo?	What do you mean?	649
 kopen	Waarom wil je dit boek kopen?	Why do you want to buy this book?	650
 kopen	Als ik geld had, kon ik het kopen.	If I had money, I could buy it.	650
 kopen	Wij gaan volgende week een nieuwe auto kopen.	We will purchase a new car next week.	650
@@ -2008,7 +1973,6 @@ heer	Hij is een heer. Hij kan zoiets niet gezegd hebben.	He is a gentleman. He c
 herinner	Herinner je je mij nog?	Do you remember me?	673
 herinner	Ik herinner me je naam niet.	I don't remember your name.	673
 herinner	O, ja, dat herinner ik me.	Oh, yes, I remember.	673
-jezus	Jezus!	Christ!	674
 jezus	Jezus haat je.	Jesus hates you.	674
 jezus	Jezus haat u.	Jesus hates you.	674
 opnieuw	Dat is allemaal al eens eerder gebeurd, en het zal opnieuw gebeuren.	All that has happened before, and will happen again.	675
@@ -2020,9 +1984,7 @@ serieus	Neem het niet serieus.	Don't take it seriously.	676
 zomaar	Hij ging zomaar weg.	He left for no reason whatsoever.	677
 zomaar	Dit is niet zomaar gebeurd.	This happened for a reason.	677
 zomaar	Ik kan niet zomaar hier blijven.	I can't just stay here.	677
-pardon	Pardon.	Excuse me.	678
 pardon	Pardon, hoe laat is het?	Excuse me, what time is it?	678
-pardon	Pardon?	Pardon?	678
 gevraagd	Ik heb haar gevraagd met mij te trouwen, en ze heeft ja gezegd.	I asked her to marry me and she accepted.	679
 gevraagd	Ik heb hem gevraagd om dat te doen.	I asked him to do that.	679
 gevraagd	Waarom heb je niets gevraagd?	Why didn't you ask?	679
@@ -2230,7 +2192,6 @@ relatie	Hoe was je relatie met je vader toen je een kind was?	What was your rela
 relatie	Ze hebben een open relatie.	They have an open relationship.	748
 relatie	Wat is er gebeurd met je relatie met hem?	What happened with your relation with him?	748
 trek	Heb je geen trek?	Are you not hungry?	749
-trek	Trek!	Pull!	749
 trek	Ik heb geen trek.	I have no appetite.	749
 afgelopen	We hebben goed weer gehad de afgelopen tijd.	We've been having good weather.	750
 afgelopen	Wat heb je afgelopen nacht gedaan?	What did you do last night?	750
@@ -2289,7 +2250,6 @@ maand	Kom naar mijn huis op het einde van de maand.	Come to my house at the end 
 maand	Ik beloof het dat ik het nog voor het einde van de maand zal doen.	I promise I'll do that before the end of the month.	768
 onzin	Uw antwoord is onzin.	Your answer doesn't make sense.	769
 onzin	Zeg geen onzin!	Don't talk nonsense!	769
-onzin	Onzin.	Nonsense.	769
 meid	Meid, wat heb je toch prachtig haar.	Girl, what beautiful hair you have.	770
 meid	Ik ben uw meid niet.	I'm not your servant.	770
 meid	Deze meid is mijn vriendin.	This girl is my girlfriend.	770
@@ -2327,13 +2287,11 @@ grootste	Ik ben het voor het grootste deel eens met wat hij zei.	For the most pa
 grootste	Hij is de grootste van de drie.	He is the tallest of the three.	781
 grootste	Jij bent de grootste.	You are tallest.	781
 ter	Het is de grootste ter wereld.	It's the largest in the world.	781
-succes	Succes.	Good luck.	782
 succes	Ik denk dat hij succes zal hebben.	I think that he will succeed.	782
 succes	Het feest was een groot succes.	The party was a great success.	782
 vertrekken	Wanneer ben je klaar om te vertrekken?	When will you get ready to leave?	783
 vertrekken	Laat ons vertrekken van zodra hij terug is.	Let's leave as soon as he gets back.	783
 vertrekken	Je moet nu niet vertrekken.	You must not leave right now.	783
-jawel	Jawel.	Yes, it does.	784
 jawel	Jawel, ik heb het gedaan.	Yes, I did it.	784
 muziek	Hou je van muziek?	Do you love music?	785
 muziek	Zij, en ook haar vrienden, zijn gek op muziek.	She as well as her friends is fond of music.	785
@@ -2414,7 +2372,6 @@ naast	Ze zat naast me.	She sat next to me.	811
 naast	Ze zat naast mij.	She sat next to me.	811
 vooral	Het is vooral moeilijk voor mensen zoals ik.	It is especially difficult for people like me.	812
 vooral	Wat voor soort muziek luister je vooral?	What kind of music do you listen to most often?	812
-fantastisch	Fantastisch!	Terrific!	813
 fantastisch	Te veel van het goede is fantastisch!	Too much of a good thing is wonderful!	813
 fantastisch	Was dat niet fantastisch?	Wasn't that fantastic?	813
 gered	Het heeft me gered.	It saved me.	814
@@ -2512,7 +2469,6 @@ verliefd	We zullen nooit opnieuw verliefd worden.	We will never fall in love aga
 peter	Peter werd verliefd op het meisje.	Peter fell in love with the girl.	843
 jammer	Jammer dat ik niet hoef af te vallen.	It's too bad that I don't need to lose weight.	844
 jammer	Het is jammer dat je niet met ons mee kan.	It is a pity that you can't join us.	844
-jammer	Jammer.	Too bad.	844
 gedacht	"""Daar heb ik nog nooit aan gedacht,"" zei de oude man. ""Wat moeten we doen?"""	"""I have never thought about it,"" said the old man. ""What should we do?"""	845
 gedacht	Ik had nooit gedacht dat ik zelf deze fout zou maken.	I never thought I'd make this mistake myself.	845
 gedacht	Dat zou ik nooit gedacht hebben.	I would never have guessed that.	845
@@ -2562,7 +2518,6 @@ schelen	Kan het ons wat schelen?	Do we care?	860
 schelen	Het kan me niet schelen wat hij doet.	I don't care what he does.	860
 schelen	Ik weet dat het je niks kan schelen.	I know you don't care.	860
 goedemorgen	Goedemorgen, hoe maakt u het?	Hello, how are you?	861
-goedemorgen	Goedemorgen!	Good morning!	861
 goedemorgen	Hallo! Goedemorgen!	Hello! Good morning!	861
 heren	Goedemorgen dames en heren!	Good morning, ladies and gentlemen!	861
 dragen	Laat Tom het dragen.	Let Tom carry it.	862
@@ -2572,7 +2527,6 @@ iedere	Ik ga iedere dag naar het werk.	I go to work every day.	863
 iedere	Doet u dit iedere dag?	Do you do this every day?	863
 iedere	Tom staat iedere morgen om zes uur op.	Tom gets up at six every morning.	863
 excuseer	Excuseer, mag ik door?	Excuse me. May I get by?	864
-excuseer	Excuseer.	I apologize.	864
 excuseer	Excuseer, weet u hoe laat het nu is?	Excuse me, do you know what time it is?	864
 stom	Denk je dat ik stom ben?	Do you think I'm stupid?	865
 stom	Dit is een stom spel.	This is a stupid game.	865
@@ -2654,8 +2608,6 @@ vertrouw	Wat hij ook zegt, vertrouw hem niet.	No matter what he says, don't trus
 daarvoor	Is het daarvoor dat u kwaad bent?	Is that why you're upset?	891
 daarvoor	Is het daarvoor dat je kwaad bent?	Is that why you're upset?	891
 daarvoor	Hij gaf me alles maar nam niets daarvoor terug.	He gave me everything but took nothing in return.	891
-shit	Shit!	Fuck!	892
-shit	Shit.	Crap.	892
 trekken	Als jullie elkaar niet leuk vinden, waarom trekken jullie dan altijd samen op?	If you don't like each other, why do you always hang out together?	893
 trekken	Hoeveel foto's is Tom van plan te trekken?	How many pictures does Tom plan on taking?	893
 trekken	Hoeveel foto's wil Tom trekken?	How many pictures does Tom plan on taking?	893
@@ -2710,7 +2662,6 @@ moe	Ik ben moe nu.	I'm tired now.	910
 moe	Ik was erg moe, daarom ging ik vroeg naar bed.	Being very tired, I went to bed early.	910
 deal	Waarom maakte ze die deal?	Why did she make that deal?	911
 deal	Wat een mooie deal!	What a sweet deal!	911
-deal	Deal?	Do we have a deal here?	911
 tafel	Deze oude tafel wordt nog steeds gebruikt.	This old table is still in use.	912
 tafel	Dat is een tafel.	That is a table.	912
 tafel	Het geld op tafel is niet van mij.	The money on the table isn't mine.	912
@@ -2802,12 +2753,9 @@ liep	Tom liep terug het huis binnen en deed de deur dicht.	Tom walked back insid
 liep	Alles liep hem tegen.	Everything went wrong for him.	945
 tuurlijk	"""Mag ik erbij komen?"" ""Tuurlijk."""	"""Can I join you?"" ""Sure."""	946
 tuurlijk	Tuurlijk, waarom niet?	Sure, why not?	946
-tuurlijk	Tuurlijk.	Sure.	946
 red	Help! Red me!	Help! Rescue me!	947
 red	Red Tom.	Save Tom.	947
 red	Red jezelf.	Save yourself.	947
-gefeliciteerd	Gefeliciteerd.	Congratulations!	948
-gefeliciteerd	Gefeliciteerd!	Congratulations!	948
 gefeliciteerd	Gefeliciteerd mijn vriend!	Happy birthday, my friend!	948
 koud	Het is koud.	It's cold.	949
 koud	Het is best koud vandaag.	It's rather cold today.	949
@@ -2850,7 +2798,6 @@ gewerkt	Ik had de hele dag hard gewerkt, en dus was ik heel moe.	I worked hard a
 gewerkt	Heb je gisteren gewerkt?	Did you work yesterday?	961
 helaas	Nee. Ik moet helaas weer vroeg terug.	No. I'm sorry, I've got to go back early.	962
 helaas	Helaas is het waar.	It is unfortunately true.	962
-helaas	Helaas.	Too bad.	962
 grapje	Luister niet naar me, ik maak maar een grapje.	Don't listen to me, I'm just kidding.	963
 grapje	Het is maar een grapje.	It is nothing but a joke.	963
 grapje	Niet naar hem luisteren. Hij maakt maar een grapje.	Don't listen to him. He's just kidding.	963
@@ -2934,7 +2881,6 @@ max	Je bent gewoon de max.	You're simply stunning.	991
 betrokken	Misschien was Tom erbij betrokken.	Maybe Tom was involved.	992
 betrokken	Ik ga daar niet in betrokken raken.	I am not getting involved.	992
 betrokken	Waarom zouden we betrokken raken?	Why should we get involved?	992
-wegwezen	Wegwezen!	Get out!	993
 wegwezen	Tom moet hier wegwezen.	Tom has got to get out of here.	993
 wegwezen	Laten we hier wegwezen voordat de politie komt.	Let's get out of here before the police come.	993
 plannen	Waarom heeft hij zijn plannen veranderd?	Why did he change his plans?	994
@@ -2980,18 +2926,15 @@ club	Die club is veel te groot.	That club is way too big.	1007
 club	Welkom bij de club.	Welcome to the club.	1007
 club	Welkom bij de club, Tom.	Welcome to the club, Tom.	1007
 respect	Ik heb alle respect voor jou verloren.	I have lost all respect for you.	1008
-respect	Respect!	Respect!	1008
 respect	Met alle respect.	With all due respect.	1008
 steek	Laat me niet in de steek zoals de vorige keer.	Don't let me down like you did the other day.	1009
 steek	Steek de straat over.	Cross the street.	1009
 steek	Steek je hand op.	Raise your hand.	1009
 waarvoor	Waarvoor wordt dit gebruikt?	What is this thing used for?	1010
 waarvoor	Waarvoor heb je het gedaan?	What did you do it for?	1010
-waarvoor	Waarvoor?	For what reason?	1010
 missie	Begrijp je de missie?	Do you understand the mission?	1011
 cool	Dit is niet cool.	This is not cool.	1012
 cool	Je vader is echt cool.	Your dad is really cool.	1012
-cool	Cool!	Cool!	1012
 amerika	Hij wil naar Amerika.	He wants to go to America.	1013
 amerika	Ik zou graag naar Amerika gaan.	I would like to go to the USA.	1013
 amerika	Ik ben in Amerika geboren.	I was born in America.	1013
@@ -3052,7 +2995,6 @@ midden	Ze stond in het midden van de kamer.	She was standing in the middle of th
 midden	Zij belde me in het midden van de nacht op.	She rang me in the middle of the night.	1033
 midden	Tom was in het midden van de kamer.	Tom was in the center of the room.	1033
 hopelijk	Hopelijk heeft u gelijk.	I hope you're right.	1034
-hopelijk	Hopelijk!	Hopefully!	1034
 hopelijk	Hopelijk vergeten we nooit dat we broer en zus zijn.	Hopefully we will never forget that we're siblings.	1034
 lijn	Blijf nog even aan de lijn alstublieft.	Please hold the line a moment.	1035
 lijn	Wie heb ik aan de lijn?	Who is it?	1035
@@ -3114,7 +3056,6 @@ wedstrijd	Welk team zal de wedstrijd winnen?	Which team will win the game?	1054
 wedstrijd	Wanneer begint de wedstrijd?	What time will the game start?	1054
 wedstrijd	De wedstrijd vond niet plaats.	The match didn't take place.	1054
 sluiten	Ik wil de deur sluiten.	I want to close the door.	1055
-sluiten	Sluiten.	Close.	1055
 sluiten	Tom zei dat hij dacht dat hij heeft vergeten de deur te sluiten.	Tom said he thought that he forgot to lock the door.	1055
 daarvan	Niets daarvan was waar.	None of that was true.	1056
 daarvan	Veel daarvan zijn van mij.	Many of these are mine.	1056
@@ -3794,7 +3735,6 @@ haalt	Haalt u alstublieft die stoel weg, want hij staat in de weg.	Please remove
 ontsnappen	Niemand kan de dood ontsnappen.	Nobody can escape death.	1289
 ontsnappen	We zullen niet kunnen ontsnappen.	We won't be able to escape.	1289
 ontsnappen	Gelukkig konden zij ontsnappen.	Fortunately, they were able to escape.	1289
-gooien	Gooien.	Throw.	1290
 gooien	Ik had geen andere keuze dan hem eruit te gooien.	I had no choice but to throw him out.	1290
 gooien	Ik weet wel dat ik niet zo goed een bal kan gooien.	I know I can't throw a ball very well.	1290
 rechts	Rechts houden.	Keep to the right.	1291
@@ -3839,9 +3779,7 @@ bespreken	Ze bespreken het probleem.	They are discussing the problem.	1304
 noemt	Iedereen noemt me Tom.	Everyone calls me Tom.	1305
 noemt	Hij is wat je noemt een heer.	He is what is called a gentleman.	1305
 noemt	Noemt u mij een idioot?	Are you calling me an idiot?	1305
-verdorie	Verdorie!	Darn it!	1306
 verdorie	Ik heb verdorie geen idee wat je bedoelt.	I haven't the faintest idea what you mean.	1306
-verdorie	Verdorie.	Damn.	1306
 ervaring	We leren uit ervaring dat mensen nooit iets leren uit ervaring.	We learn from experience that men never learn anything from experience.	1307
 ervaring	Tom heeft geen ervaring.	Tom lacks experience.	1307
 ervaring	Ik spreek uit ervaring.	I'm speaking from experience.	1307
@@ -4098,7 +4036,6 @@ klote	Nu is het allemaal naar de klote.	Now it's all gone to shit.	1396
 leider	Tom is de leider.	Tom is the leader.	1397
 leider	Men keek tegen hem op als hun leider.	He was looked up to as their leader.	1397
 leider	Tom is onze leider.	Tom is our leader.	1397
-actie	Actie!	Action!	1398
 actie	We hebben minder praten en meer actie nodig.	We need less talk and more action.	1398
 actie	Van waar ik sta kan ik de actie niet zien.	From my vantage point, I can't see the action.	1398
 waardoor	Ik wil niets doen waardoor Tom boos kan worden.	I don't want to do anything that might make Tom angry.	1399
@@ -4124,7 +4061,6 @@ directeur	Ik sprak met de directeur zelf.	I spoke to the principal himself.	1405
 directeur	Ik heb met de directeur zelf gesproken.	I spoke to the principal himself.	1405
 cliënt	Het werk van een advocaat is om te bewijzen dat zijn cliënt onschuldig is.	The job of a lawyer is to prove his client is innocent.	1406
 goedenavond	Goedenavond, hoe maakt u het?	Good evening, how are you?	1407
-goedenavond	Goedenavond.	Good evening.	1407
 goedenavond	Goedenavond, Tom.	Good evening, Tom.	1407
 advies	Ik zal je een goed advies geven.	I'll give you a piece of good advice.	1408
 advies	Waarom vragen we hem niet om advies?	Why don't we ask for his advice?	1408
@@ -4136,7 +4072,6 @@ uren	Ik wacht al uren lang.	I've been waiting for hours.	1411
 uren	Hij stierf enkele uren later.	He died a few hours later.	1411
 uren	Hoeveel uren slaap heb je nodig?	How many hours of sleep do you need?	1411
 welterusten	Welterusten, mama.	Good night, Mom.	1412
-welterusten	Welterusten.	Sleep well!	1412
 welterusten	Welterusten, moeder.	Goodnight, Mother.	1412
 tijden	Hoe gaat het met je? Ik heb je al tijden niet gezien.	How are you doing? I haven't seen you for an age!	1413
 tijden	Dat is die beste film die ik in tijden gezien heb.	That's the best movie I've seen in ages.	1413
@@ -4396,7 +4331,6 @@ daniel	Daniel probeerde naar buiten te rennen.	Daniel tried to run outside.	1501
 trap	Hij ging langzaam de trap op.	He went up the steps slowly.	1502
 trap	Vertrouwen is het nemen van de eerste stap, zelfs als je niet de hele trap kunt zien.	Faith is taking the first step, even when you don't see the whole staircase.	1502
 trap	Er komt iemand de trap op.	There's somebody coming up the stairs.	1502
-aanvallen	Aanvallen!	Charge!	1503
 aanvallen	Ze zullen aanvallen.	They'll attack.	1503
 aanvallen	Zij zijn niet bang voor aanvallen.	They're not afraid of attacks.	1503
 leer	Leer mij hoe men dat doet.	Teach me how to do that.	1504
@@ -4493,7 +4427,6 @@ sommigen	Sommigen zeggen dit, en anderen zeggen dat.	Some say this, and others s
 sommigen	Volgens mij zijn alle mensen goed, maar sommigen zijn beter dan anderen.	In my opinion, everybody is good but some people are better than others.	1535
 sommigen	Sommigen zeggen dat hij nooit bestaan heeft.	Some say he never existed.	1535
 momentje	Heb je 'n momentje om met me te praten?	Do you have a moment to speak with me?	1536
-momentje	Momentje!	Just a moment.	1536
 momentje	Een momentje, alsjeblieft!	Give me a second, please.	1536
 medische	Heeft u medische hulp nodig?	Do you need medical help?	1537
 medische	Heb je medische hulp nodig?	Do you need medical help?	1537
@@ -4585,7 +4518,6 @@ tanden	Ik heb veel slechte tanden.	I have a lot of bad teeth.	1567
 rapport	Herinner mij het rapport morgen op te sturen alstublieft.	Please remind me to mail the report tomorrow.	1568
 rapport	Schrijf een rapport.	Write a report.	1568
 rapport	Ik ben bang dat ik het rapport niet op tijd af heb.	I'm afraid that I won't finish the report on time.	1568
-super	Super!	Right on!	1569
 super	Het is super.	It's awesome.	1569
 vrije	Wat doe je in je vrije tijd?	What do you do in your free time?	1570
 vrije	Wat doen jullie in je vrije tijd?	What do you do in your free time?	1570
@@ -4596,7 +4528,6 @@ geheimen	Iedereen heeft geheimen.	Everyone has secrets.	1571
 opeens	Het is opeens koud geworden, hè?	It has suddenly gotten cold, hasn't it?	1572
 opeens	Waarom is het opeens zo stil?	Why is it so quiet all of a sudden?	1572
 beest	Ik heb hem het beest zien slaan.	I saw him beating the animal.	1573
-afgesproken	Afgesproken?	Deal?	1574
 afgesproken	Ik heb om zes uur met hem afgesproken.	I have an appointment with him at six.	1574
 afgesproken	We hebben vanavond daar afgesproken. Kom mee!	We're going to meet there tonight. Come with us!	1574
 halve	Een goed begin is het halve werk.	Well begun is half done.	1575
@@ -4680,7 +4611,6 @@ verlaat	Binnen zes maanden verlaat ze het land.	She's leaving the country in six
 verlaat	Ik wil dat je mijn huis verlaat.	I want you out of my house.	1604
 verlaat	Verlaat het schip!	Abandon ship!	1604
 duivel	Tom weet het verschil niet tussen God en de Duivel.	Tom doesn't know the difference between God and the Devil.	1605
-duivel	Duivel!	Devil!	1605
 duivel	Ik geloof niet in de duivel.	I don't believe in the Devil.	1605
 overkomen	Jij bent het beste wat me ooit overkomen is.	You're the best thing that's ever happened to me.	1606
 overkomen	Het had iedereen kunnen overkomen.	It could've happened to anyone.	1606
@@ -4693,7 +4623,6 @@ pond	Ik zou het niet erg vinden een paar pond te verliezen.	I wouldn't mind losi
 pond	Een pond was vijf dollar.	A pound was five dollars.	1608
 ballen	Ballen zijn rond.	Balls are round.	1609
 ballen	Blijf van mijn ballen af.	Don't touch my balls.	1609
-ballen	Ballen!	Balls!	1609
 duizenden	Binnen ieder mens zijn er duizenden.	Within every man are thousands.	1610
 duizenden	Duizenden mensen zijn van de honger gestorven.	Thousands of people died of hunger.	1610
 gedoe	Het hele gedoe slaat nergens op.	The whole thing doesn't make sense.	1611
@@ -4794,7 +4723,6 @@ duizend	Ik heb nog duizend dingen te doen.	I still have a thousand things to do.
 duizend	Een beeld zegt meer dan duizend woorden.	A picture speaks a thousand words.	1646
 beeld	Een beeld zegt meer dan duizend woorden.	A picture speaks a thousand words.	1646
 duizend	Geef mij duizend kussen.	Give me a thousand kisses.	1646
-wow	Wow!	Whoa!	1647
 wow	Wow! Interessant!	Wow! Interesting!	1647
 aangedaan	Zij heeft het licht aangedaan.	She turned on the light.	1648
 aangedaan	Wie heeft je dit aangedaan?	Who did this to you?	1648
@@ -4981,7 +4909,6 @@ sterker	Mijn zoon denkt dat vrouwen sterker dan mannen zijn.	My son thinks women
 vluchten	Wanneer ze in gevaar zijn, vluchten ze.	When they are in danger, they run away.	1712
 vluchten	Vecht of ga vluchten.	Fight or flight.	1712
 vluchten	Tom probeerde te vluchten.	Tom tried to run away.	1712
-pers	Pers!	Push!	1713
 pers	Tom heeft met de pers gesproken.	Tom talked to the press.	1713
 project	Ik ben tegen dit project.	I am against this project.	1714
 project	Ik ben van plan het project door te zetten.	I intend to see the project through.	1714
@@ -5120,7 +5047,6 @@ aannemen	Laten we aannemen dat het klopt.	Let's suppose it's true.	1764
 aannemen	Laten we aannemen dat het waar is.	Let's suppose it's true.	1764
 aannemen	Laten we aannemen dat het nieuws klopt.	Let us suppose that the news is true.	1764
 uitstekend	Uw plan klinkt uitstekend.	Your plan sounds great.	1765
-uitstekend	Uitstekend!	Excellent!	1765
 uitstekend	Jouw plan klinkt uitstekend.	Your plan sounds great.	1765
 tegenover	Tegenover het park is er een mooie rivier.	Opposite the park there is a beautiful river.	1766
 tegenover	Ga recht tegenover elkaar staan, alsjeblieft.	Please stand face to face.	1766
@@ -5185,7 +5111,6 @@ roken	Ze is gestopt met roken.	She stopped smoking.	1787
 roken	Ik ben gestopt met roken.	I quit smoking.	1787
 roken	Ik ben een jaar geleden gestopt met roken.	I gave up smoking a year ago.	1787
 gaaf	Zijn auto is echt gaaf.	His car is really cool.	1789
-gaaf	Gaaf!	Cool!	1789
 gaaf	Je ziet er gaaf uit.	You look cool.	1789
 tegenwoordig	Tegenwoordig spelen kinderen niet buiten.	Nowadays children do not play outdoors.	1790
 tegenwoordig	Tegenwoordig neemt de persoonlijke vrijheid af.	Personal liberty is diminishing nowadays.	1790
@@ -5198,7 +5123,6 @@ zette	Ik zette mij naast hem.	I sat next to him.	1792
 zette	Ken zette zich naast mij.	Ken sat next to me.	1792
 opzij	Je zou wat geld opzij moeten leggen voor jouw bruiloft.	You'd best set some money aside for your wedding.	1793
 opzij	Ga opzij.	Step aside.	1793
-opzij	Opzij!	Get out of the way!	1793
 gaande	Wat is er gaande?	What's up?	1794
 gaande	Er is altijd iets gaande hier.	There is always something happening here.	1794
 gaande	Wat is hier gaande?	What's going on here?	1794
@@ -5246,7 +5170,6 @@ mooiste	Het was het mooiste gezicht dat hij in zijn leven gezien had.	It was the
 mooiste	Waar is de mooiste plaats op aarde?	Where is the most beautiful place in the world?	1808
 mooiste	Wat is de mooiste plek van de wereld?	What's the most beautiful place in the world?	1808
 sukkel	Elke minuut wordt er een sukkel geboren.	There's a sucker born every minute.	1811
-sukkel	Sukkel!	Dumbass!	1811
 sukkel	Jij sukkel!	You dork!	1811
 stopte	Hij stopte de auto.	He stopped the car.	1812
 stopte	Hij stopte om te roken.	He stopped for a smoke.	1812
@@ -5462,7 +5385,6 @@ bescherming	Ik heb jouw bescherming niet nodig.	I don't need your protection.	18
 bescherming	Ik heb uw bescherming niet nodig.	I don't need your protection.	1889
 stilte	Ben je bang van de stilte?	Are you afraid of silence?	1890
 stilte	Tom wilde alleen maar wat rust en stilte.	Tom just wanted some peace and quiet.	1890
-stilte	Stilte!	Silence!	1890
 bak	Ik bak vis.	I am frying fish.	1891
 bak	Ik bak er niks van.	I suck at this.	1891
 bak	Wil je dat we allemaal de bak in gaan?	Do you want all of us to go to jail?	1891
@@ -5480,7 +5402,6 @@ zojuist	Ik heb zojuist jouw brief ontvangen.	I just received your letter.	1895
 zojuist	Ik heb zojuist uw brief ontvangen.	I just received your letter.	1895
 zojuist	De kat is zojuist naast mij overleden.	The cat has just passed by beside me.	1895
 vormen	Jullie vormen een prachtig team.	You guys make a great team.	1896
-vaarwel	Vaarwel.	Farewell!	1897
 vaarwel	Zeg vaarwel.	Say goodbye.	1897
 vaarwel	Ze zei vaarwel.	She said goodbye.	1897
 storm	Na de storm werd de zee terug kalm.	After the storm, the sea was quiet again.	1898
@@ -5575,7 +5496,6 @@ vertrok	Het vliegtuig vertrok om half drie.	The plane took off at 2:30.	1929
 verdomd	Het is verdomd koud!	It's so fucking cold!	1930
 boel	De boel zag er verdomd verkeerd uit.	It was fucking sketchy.	1930
 verdomd	De boel zag er verdomd verkeerd uit.	It was fucking sketchy.	1930
-verdomd	Verdomd!	Damn!	1930
 vervelend	Gisteren werd ik een god, maar ik vond dat te vervelend, dus vandaag werd ik een duivel.	Yesterday I became a god, but found that a bit boring, so today I became a devil.	1931
 vervelend	Doe toch niet zo vervelend!	Stop being such a pest!	1931
 vervelend	Het is erg vervelend.	It's really annoying.	1931
@@ -5584,7 +5504,6 @@ rekenen	Op hem kan je rekenen.	You can rely on him.	1932
 rekenen	Je kan op hem rekenen.	You can count on him.	1932
 klap	Twee vliegen in een klap slaan.	To kill two birds with one stone.	1933
 klap	Zo sla ik twee vliegen in één klap.	That way I kill two birds with one stone.	1933
-klap	Klap.	Clap.	1933
 aanbieden	Ik zou je een koffie aanbieden als je tijd had.	I would offer you a coffee if you had the time.	1934
 aanbieden	Kan ik u iets te drinken aanbieden?	Can I get you something to drink?	1934
 aanbieden	Mag ik je een drankje aanbieden?	Let me buy you a drink.	1934
@@ -5609,7 +5528,6 @@ gewend	We zijn het gewend om schoenen te dragen.	We are accustomed to wearing sh
 reactie	Wat was haar reactie?	What was her reaction?	1942
 reactie	Wat was zijn reactie?	What was his reaction?	1942
 reactie	Wat is je reactie?	What's your reaction?	1942
-jazeker	Jazeker.	Yes indeed.	1943
 jazeker	Jazeker. Komt eraan.	Sure. Right away.	1943
 jazeker	"""Houdt hij van muziek?"" "" Jazeker."""	"""Does he like music?"" ""Yes, he does."""	1943
 blauw	De lucht is blauw.	The sky is blue.	1944
@@ -6037,7 +5955,6 @@ naakt	De man is naakt.	The man is naked.	2089
 naakt	Ze waren allebei naakt.	Both were naked.	2089
 naakt	Zou je ooit naakt zwemmen?	Would you ever go skinny dipping?	2089
 neen	Ja of neen?	Yes or no?	2090
-neen	Neen!	No!	2090
 neen	Neen, ik heb niet geholpen.	No, I didn't help.	2090
 plegen	Ze probeert zelfmoord te plegen.	She's trying to commit suicide.	2091
 plegen	Hij probeert zelfmoord te plegen.	He's trying to commit suicide.	2091
@@ -6146,8 +6063,6 @@ verdien	Ik verdien €100 per dag.	I make €100 a day.	2129
 verdien	Hoeveel verdien je per week?	How much do you earn per week?	2129
 verdien	Ik verdien geluk.	I deserve happiness.	2129
 godverdomme	Waarom ben je godverdomme altijd zo trots op jezelf?	Why are you always so damn proud of yourself?	2130
-godverdomme	Godverdomme.	God damn it.	2130
-godverdomme	Godverdomme!	God damn it!	2130
 eenzaam	Ik ben eenzaam zonder jou.	I'm lonely without you.	2131
 eenzaam	Ze zag er eenzaam uit.	She looked lonely.	2131
 eenzaam	Tom voelde zich erg eenzaam.	Tom felt very lonely.	2131
@@ -6168,7 +6083,6 @@ ontmoeting	Dat was onze eerste ontmoeting.	That was our first encounter.	2137
 telt	Alles telt.	Everything matters.	2138
 telt	Voor Tom telt alleen een knap gezicht.	Tom only cares about pretty faces.	2138
 telt	Elke minuut telt.	Every minute counts.	2138
-handel	Handel!	Take action.	2139
 zwijgen	U hebt het recht om te zwijgen.	You have the right to remain silent.	2140
 zwijgen	Waar men niet over kan spreken, moet men over zwijgen.	Whereof one cannot speak, thereof one must be silent.	2140
 zwijgen	Zwijgen en luisteren!	Shut up and listen!	2140
@@ -6387,7 +6301,6 @@ zelfde	Tom heeft het zelfde ding gedaan.	Tom did the same thing.	2216
 zelfde	Hij is in deze zelfde kamer geboren.	He was born in this very room.	2216
 zelfde	Jij zou het zelfde gedaan hebben.	You'd have done the same.	2216
 proost	Proost op een lang en gelukkig leven!	Here's to a long and happy life!	2218
-proost	Proost!	Bottoms up!	2218
 proost	Proost! Gezondheid!	Cheers! Good health!	2218
 kloppen	Ik heb een oplossing gevonden, maar ik had ze zo snel, dat ze niet kan kloppen.	I found a solution, but I found it so fast that it can't be the right solution.	2219
 kloppen	Ik hoorde iemand op de deur kloppen.	I heard a knock at the door.	2219
@@ -6620,7 +6533,6 @@ bepalen	Het is niet aan mij om dat te bepalen.	It's not for me to say.	2299
 briefje	Ik heb een briefje op mijn bureau gevonden, maar ik weet niet van wie het is.	I found a note on my desk, but I don't know whose it is.	2300
 briefje	Wie denk je dat dit briefje geschreven heeft?	Who do you think wrote this note?	2300
 briefje	Ik schrijf Tom een briefje.	I'm going to write Tom a note.	2300
-fuck	Fuck!	Fuck!	2301
 fuck	Waar de fuck heb je het over?	What the fuck are you talking about?	2301
 berichten	Zijn er berichten voor mij?	Are there any messages for me?	2302
 berichten	Ik heb u enkele berichten achtergelaten.	I left you a couple messages.	2302
@@ -6752,7 +6664,6 @@ verwachtte	Zij was de laatste persoon die ik verwachtte te zien op zo'n plek.	Sh
 scheelt	Wat scheelt er met je? Je ziet er bleek uit.	What's the matter with you? You look pale.	2350
 scheelt	Het lijkt of er iets scheelt.	Something seems wrong.	2350
 scheelt	Wat scheelt er met jullie?	What's wrong with you, guys?	2350
-ophangen	Ophangen.	Hang up.	2351
 ophangen	Ik moet nu ophangen. Iemand wacht om de telefoon te gebruiken.	I've got to hang up now. Someone is waiting to use the phone.	2351
 douche	Zij gaat elke ochtend onder de douche.	She showers every morning.	2352
 douche	Ik moet onder de douche.	I need to take a shower.	2352
@@ -6762,7 +6673,6 @@ reageren	Ik vraag me af hoe Tom gaat reageren.	I wonder how Tom is going to reac
 reageren	Ik vraag me af hoe Tom zal reageren.	I wonder how Tom is going to react.	2353
 zwijg	Zwijg en luister, jongen!	Shut up and listen, kid.	2354
 zwijg	Doe mij een plezier en zwijg.	Do me a favour and shut up.	2354
-zwijg	Zwijg!	Shut up!	2354
 alcohol	Ik drink geen alcohol.	I don't drink alcohol.	2355
 alcohol	Hij drinkt nooit alcohol.	He never drinks alcohol.	2355
 alcohol	Je bent te jong om alcohol te drinken.	You're too young to have alcohol.	2355
@@ -6796,7 +6706,6 @@ noch	Noch ben ik rijk, noch wil ik rijk worden.	I am not rich, nor do I wish to 
 noch	Noch het ene, noch het andere.	Neither the one nor the other.	2366
 noch	Ik vond mijn vader noch op zijn kamer, noch in de tuin.	I found my father neither in his room nor in the garden.	2366
 wedden	Ik durf wedden dat Tom nooit zo tegen jou gepraat heeft.	I bet Tom never spoke to you like that.	2367
-wedden	Wedden?	Wanna bet?	2367
 wedden	Ik zou daar niet op wedden.	I wouldn't bet on that.	2367
 meedoen	Kom maar meedoen.	Join us.	2368
 meedoen	"""Mag ik meedoen?"" ""Ja hoor."""	"""Can I join you?"" ""Sure."""	2368
@@ -7148,7 +7057,6 @@ neerschieten	Ik ging hem neerschieten.	I was going to shoot them.	2492
 neerschieten	Ik wil je niet neerschieten maar ik doe het als het moet.	I don't want to shoot you, but I will if I have to.	2492
 vloek	Het is een vloek.	It's a curse.	2493
 vloek	Waarom vloek je?	Why are you cursing?	2493
-vloek	Vloek!	Swear!	2493
 stijl	Tom heeft stijl haar.	Tom has straight hair.	2494
 stijl	Hij heeft stijl.	He's got style.	2494
 stijl	De stijl bevalt me, maar heb je het in een andere kleur?	The style is nice, but do you have it in a different color?	2494
@@ -7160,7 +7068,6 @@ rand	Ze ging op de rand van het bed zitten.	She sat down on the side of the bed.
 rand	Het station ligt aan de rand van het centrum.	The station is on the edge of the city centre.	2496
 verrader	Er is een verrader onder ons.	We have a traitor among us.	2497
 verrader	Jij verrader!	You traitor!	2497
-verrader	Verrader!	Traitor!	2497
 tel	Wacht tot ik tot tien tel.	Wait till I count to ten.	2498
 tel	Als je boos bent, tel dan tot tien voordat je wat zegt.	When angry, count to ten before you speak.	2498
 tel	Ik tel tot drie, en dan vuur ik!	I will count to three, and then I will fire!	2498
@@ -7266,7 +7173,6 @@ overeenkomst	We hebben een overeenkomst gesloten.	We've made a deal.	2537
 overeenkomst	We hebben een overeenkomst.	We have an understanding.	2537
 overeenkomst	Ik wacht op een overeenkomst.	I am awaiting an agreement.	2537
 spring	Spring eens binnen en breng al je vrienden mee!	Drop by and bring all your friends!	2538
-spring	Spring.	Jump.	2538
 spring	Spring zo hoog mogelijk.	Jump as high as you can.	2538
 schilderij	Hoe oud is dat schilderij?	How old is that painting?	2539
 schilderij	Ik was 23 jaar toen ik dat schilderij gemaakt heb.	When I painted this picture, I was 23 years old.	2539
@@ -7329,7 +7235,6 @@ slang	Is die slang dood of levend?	Is the snake alive or dead?	2558
 slang	Leeft die slang?	Is the snake alive?	2558
 slang	Hij was erg bang toen hij deze grote slang zag.	He was very scared when he saw this big snake.	2558
 amen	Hij zegt overal amen op.	He's a yes-man.	2559
-amen	Amen.	Amen.	2559
 student	Ik heb al met deze student gesproken.	I already talked to this student.	2560
 student	De boeken van deze student zijn nieuw.	This student's books are new.	2560
 student	Ik heb de boeken aan deze student gegeven.	I gave the books to this student.	2560
@@ -7349,15 +7254,12 @@ ouwe	Hallo, ouwe makker!	Greetings, old friend!	2564
 duisternis	In de duisternis kon ze hem en zijn gasten horen praten en lachen.	In the darkness, she could hear him and his guests chatting and laughing.	2565
 duisternis	De duisternis valt.	Darkness is falling.	2565
 duisternis	Waar licht is, is ook duisternis.	Where there's light, there's darkness, too.	2565
-briljant	Briljant!	Brilliant!	2566
 briljant	Wat een briljant idee!	What a brilliant idea!	2566
 briljant	Dat is briljant.	That's brilliant.	2566
 schouder	Een broer is als een schouder.	A brother is like a shoulder.	2567
 schouder	Hij raakte mijn schouder aan.	He touched my shoulder.	2567
 schouder	Haal je hand van mijn schouder.	Take your hand off my shoulder.	2567
-godzijdank	Godzijdank.	Thank God.	2568
 godzijdank	Godzijdank dat het voorbij is.	Thank God it's over.	2568
-godzijdank	Godzijdank!	Thank goodness!	2568
 lacht	Wie het laatst lacht, lacht het best.	He who laughs last laughs best.	2569
 lacht	Ik hou niet van de manier waarop ze lacht.	I don't like the way she laughs.	2569
 lacht	Een persoon die lacht, is gelukkig.	A person who laughs is happy.	2569
@@ -7418,7 +7320,6 @@ nieuwsgierig	Ze is nieuwsgierig naar wie de bloemen stuurde.	She's curious to fi
 helder	De lucht zal snel helder worden.	Soon the sky will become bright.	2589
 helder	Alles is helder.	Everything is clear.	2589
 helder	De maan is helder.	The moon is bright.	2589
-omlaag	Omlaag!	Down!	2590
 omlaag	Omhoog of omlaag?	Up or down?	2590
 omlaag	Doe je raam omlaag.	Roll your window down.	2590
 borsten	Tom vond het niet erg dat Maria kleine borsten had.	Tom didn't mind that Mary had small breasts.	2591
@@ -7557,7 +7458,6 @@ aanwezigheid	Ik stoor me aan zijn aanwezigheid.	His presence bothers me.	2642
 stemming	Ik ben niet in de stemming.	I'm not in the mood.	2643
 stemming	Ik was gewoon niet in de stemming.	I was not in the mood.	2643
 stemming	Ik dacht dat je misschien niet in de stemming was.	I think that maybe you weren't in the mood.	2643
-bravo	Bravo!	Bravo!	2644
 overleefd	Ik ben de enige die het ongeluk overleefd heeft.	I'm the only one who survived the accident.	2645
 overleefd	Ze heeft haar man tien jaar overleefd.	She survived her husband by ten years.	2645
 overleefd	Op een of andere manier hebben we het overleefd.	Somehow we survived.	2645
@@ -7580,7 +7480,6 @@ gericht	Alle ogen waren op haar gericht.	All eyes turned towards her.	2652
 gericht	De ogen van de wereld zijn op jou gericht.	The eyes of the world are upon you.	2652
 duwen	Laten we vooruit duwen.	Let's push on.	2654
 duwen	Hou op me van achter te duwen!	Stop pushing me from behind!	2654
-duwen	Duwen!	Push!	2654
 tip	Ze gaf hem de tip af te vallen.	She advised him to lose weight.	2655
 tip	Geef me een tip.	Give me a tip.	2655
 tip	Ik had het woord op de tip van mijn tong.	I had the word on the tip of my tongue.	2655
@@ -7763,7 +7662,6 @@ beloven	Je moet me alleen één ding beloven.	You just have to promise me one th
 hut	Zij woonde alleen in een hut.	She was living alone in a hut.	2720
 hut	Tom kon niemand in de hut vinden.	Tom didn't find anyone in the shack.	2720
 goedenacht	Goedenacht. Droom maar lekker.	Good night. Sweet dreams.	2721
-goedenacht	Goedenacht.	Good night!	2721
 goedenacht	Ik zei hem goedenacht.	I wished him a good night.	2721
 volgend	Hier wordt volgend jaar een nieuw hotel gebouwd.	A new hotel will be built here next year.	2722
 volgend	Gaat ze volgend jaar naar de Verenigde Staten?	Will she go to the United States next year?	2722
@@ -8021,7 +7919,6 @@ koekjes	Deze koekjes hebben de vorm van sterren.	These cookies are star-shaped.	
 koekjes	Wil je nog wat meer koekjes?	Would you like some more cookies?	2816
 koekjes	Mama liet de kinderen koekjes eten.	Mom let the children eat cookies.	2816
 weglopen	Ik wilde weglopen met Tom.	I wanted to run away with Tom.	2817
-weglopen	Weglopen!	Run away!	2817
 weglopen	Tom zag Maria weglopen.	Tom saw Mary walk away.	2817
 leuker	Welke kleur denk je dat Tom leuker zal vinden?	Which color do you think Tom will like better?	2818
 leuker	Ik denk dat je deze leuker vindt.	I think you'll like this one better.	2818
@@ -8525,7 +8422,6 @@ achtergrond	Hij is altijd op de achtergrond.	He is always in the background.	302
 bijzonders	Er is niets bijzonders gebeurd tijdens onze reis.	Nothing out of the ordinary happened on our trip.	3025
 bijzonders	Niks bijzonders.	Nothing much.	3025
 bijzonders	Er is niets bijzonders gebeurd.	Nothing special happened.	3025
-broeders	Broeders!	Brothers!	3026
 broeders	Bedankt, broeders.	Thanks, brothers.	3026
 dubbel	Jouw boek is dubbel zo groot als dat van mij.	Your book is double the size of mine.	3027
 dubbel	Tom verdient dubbel zoveel als ik.	Tom earns twice as much as me.	3027
@@ -8592,8 +8488,6 @@ daad	Doe ik ook eens een keer een goede daad... haalt het niks uit.	For once in 
 daad	Woord en daad is niet hetzelfde.	Words and actions aren't the same thing.	3052
 daad	In het begin was de daad.	In the beginning was the deed.	3052
 kut	Dat is mijn kut.	That's my pussy.	3053
-kut	Kut!	Fuck!	3053
-kut	Kut.	Fuck.	3053
 knop	Raak die knop niet aan!	Don't touch that button!	3054
 knop	Blijf van die blauwe knop af!	Don't touch that blue button.	3054
 knop	Druk niet op die knop.	Do not push that button.	3054
@@ -8665,7 +8559,6 @@ eigendom	Dit is mijn eigendom.	This is my property.	3079
 verschrikkelijke	We hebben gisteravond een verschrikkelijke film gezien.	We saw a terrible movie last night.	3080
 verschrikkelijke	Het was een verschrikkelijke dag.	It was a terrible day.	3080
 verschrikkelijke	Ik heb verschrikkelijke hoofdpijn.	I'm suffering from a bad headache.	3080
-criminelen	Criminelen!	Criminals!	3081
 criminelen	Zijn het criminelen?	Are they criminals?	3081
 criminelen	Ze hebben de criminelen gearresteerd.	They arrested the criminals.	3081
 bood	Tom bood Maria een drankje aan.	Tom offered a drink to Mary.	3082
@@ -8743,7 +8636,6 @@ kandidaat	Ik ben geen kandidaat meer om president te worden.	I gave up running f
 kandidaat	Alleen vrouwen mogen zich kandidaat stellen.	Only women may apply.	3110
 smeerlap	Wat is Tom toch een smeerlap.	Tom is such a slob.	3111
 smeerlap	Tom is echt een smeerlap.	Tom is such a slob.	3111
-smeerlap	Smeerlap!	You pig!	3111
 sigaretten	Waar zijn mijn sigaretten?	Where are my cigarettes?	3112
 sigaretten	Ik rook sigaretten.	I smoke cigarettes.	3112
 sigaretten	Ik heb sigaretten nodig.	I need cigarettes.	3112
@@ -9094,7 +8986,6 @@ snappen	Snappen jullie?	Do you get it?	3254
 snappen	Dat snappen we.	We understand that.	3254
 snappen	Ik begin het te snappen.	I'm starting to get it.	3254
 knuffel	Ik heb een knuffel nodig.	Please give me a hug.	3255
-knuffel	Knuffel!	Hugs!	3255
 knuffel	Ik kan Tom geen knuffel geven als hij geen knuffel wil.	I can't hug Tom if he doesn't want to be hugged.	3255
 diensten	Ik werk dubbele diensten.	I'm working double shifts.	3256
 diensten	We hebben je diensten niet nodig.	We don't need your services.	3256
@@ -9309,7 +9200,6 @@ eerlijke	Ben je echt geïnteresseerd in mijn eerlijke mening?	Are you really int
 eerlijke	Bent u echt geïnteresseerd in mijn eerlijke mening?	Are you really interested in my honest opinion?	3340
 eerlijke	Zijn jullie echt geïnteresseerd in mijn eerlijke mening?	Are you really interested in my honest opinion?	3340
 rotzak	Wat een rotzak!	What an asshole!	3341
-rotzak	Rotzak!	Asshole!	3341
 rotzak	Mijn baas is een rotzak.	My boss is an asshole.	3341
 mysterie	Het is niemand gelukt het mysterie op te lossen.	No one has succeeded in solving the mystery.	3342
 mysterie	Tom is een mysterie.	Tom is a mystery.	3342
@@ -9330,7 +9220,6 @@ waag	Ik waag mijn kansen met hem.	I'll take my chances with him.	3349
 waag	Waag je kans.	Bite the bullet.	3349
 waag	Waag uw kans.	Bite the bullet.	3349
 beest	"""Ik zal mijn hond meenemen, zodat je hem kunt ontmoeten."" ""Wat?! Waag het niet om dat beest hierheen te brengen!"""	"""I'll bring my dog along, so you can meet him."" ""What?! Don't you dare bring that animal here!"""	3349
-go	Go!	Go!	3350
 massa	Er kwamen massa's mensen naar het concert.	Scores of people came to the concert.	3351
 gewonden	Tom zei dat er geen gewonden waren.	Tom said nobody was hurt.	3352
 gewonden	Er waren vijf gewonden.	There were five injured.	3352
@@ -9340,7 +9229,6 @@ ontkennen	Men kan niet ontkennen dat het Chinees de meest gesproken taal is op a
 getrokken	Hier zit de slechte kies die getrokken moet worden.	Here is the bad tooth, it must be extracted.	3354
 bezet	Ik ben bang dat de lijn bezet is.	I'm afraid the line is busy.	3355
 bezet	Pardon, is die plaats bezet?	Pardon me, is that seat taken?	3355
-bezet	Bezet!	It's occupied.	3355
 troepen	Onze troepen hebben de stad bezet.	Our forces occupied the city.	3355
 opgevoed	Hij is opgevoed door zijn oma.	He was raised by his grandmother.	3356
 opgevoed	Ik ben niet zo opgevoed.	I wasn't raised that way.	3356
@@ -9355,10 +9243,8 @@ heuvel	Mijn huis staat op een heuvel.	My house is on a hill.	3359
 heuvel	Ik liep de heuvel op.	I walked up the hill.	3359
 heuvel	Vanaf de heuvel kunnen we een prachtig uitzicht over de zee krijgen.	We can get a beautiful view of the sea from the hill.	3359
 bid	Ik bid ervoor dat je veel geluk zult hebben.	I pray that you will have the best of luck.	3360
-bid	Bid.	Pray.	3360
 bid	Bid en werk.	Pray and work.	3360
 verdwijn	Verdwijn uit mijn leven!	Get out of my life!	3361
-verdwijn	Verdwijn!	Disappear!	3361
 verdwijn	Verdwijn uit mijn bed.	Get out of my bed.	3361
 accepteer	Ik accepteer jouw uitdaging.	I accept your challenge.	3362
 accepteer	Ik accepteer uw uitdaging.	I accept your challenge.	3362
@@ -9392,7 +9278,6 @@ glazen	Ik haal glazen.	I'll get some glasses.	3370
 hitte	Tom viel flauw van de hitte.	Tom passed out from the heat.	3371
 hitte	Ik was gewend aan de hitte.	I was used to the heat.	3371
 hitte	Hij kon vanwege de hitte niet slapen.	He could not sleep because of the heat.	3371
-set	Set.	Three of a kind.	3372
 maling	Laat je niet in de maling nemen.	Don't be deceived.	3373
 maling	Laten we onszelf nu niet in de maling nemen.	Let's not kid ourselves.	3373
 maling	Nemen jullie me in de maling?	Are you joshin' me?	3373
@@ -9533,7 +9418,6 @@ eeuwige	Geloof je in het eeuwige leven?	Do you believe in eternal life?	3433
 uzelf	Gaat u lekker op de bank zitten en maak het uzelf gemakkelijk.	Sit on the sofa and feel at ease.	3434
 uzelf	U kan er een voor uzelf maken.	You can make your own.	3434
 uzelf	Sta op en stel uzelf voor, alstublieft.	Stand up and introduce yourself, please.	3434
-attentie	Attentie!	Attention!	3435
 eenheden	Attentie alle eenheden.	Attention, all units.	3435
 attentie	Attentie alle eenheden.	Attention, all units.	3435
 plant	Ik wil een plant aan mama geven.	I want to give Mom a plant.	3436
@@ -9646,7 +9530,6 @@ kanaal	Mag ik een ander kanaal zetten?	Can I change the channel?	3476
 kanaal	Mag ik het kanaal veranderen?	Can I change the channel?	3476
 gemeld	Heb jij gemeld wat er was gebeurd?	Did you report what happened?	3477
 watje	Wees niet zo'n watje.	Don't be such a wimp.	3478
-watje	Watje!	Wimp!	3478
 dient	Waarvoor dient dit?	What is this thing used for?	3479
 dient	Er is altijd iets dat gedaan dient te worden.	There's always something that needs to be done.	3479
 marine	Mijn neef dient in de marine.	My cousin serves in the Marines.	3479
@@ -9896,7 +9779,6 @@ lesje	Heb je je lesje geleerd?	Did you learn your lesson?	3572
 wegkomen	Je kan niet wegkomen.	You can't get away.	3573
 wegkomen	In Rusland, zou je daar niet mee wegkomen.	In Russia, you wouldn't get away with that.	3573
 wegkomen	Laat Tom er niet mee wegkomen.	Don't let Tom get away with it.	3573
-flikker	Flikker.	Faggot.	3574
 flikker	Flikker op!	Eat shit!	3574
 flikker	"""Flikker op!"" ""Wat zei je net, klootzak?"""	"""Fuck off!"" ""What did you just say, asshole?"""	3574
 lager	Kun je het lager zetten?	Could you turn it down?	3575
@@ -9994,7 +9876,6 @@ verwerken	Heb je er zo lang over gedaan om te verwerken wat ik zei?	Did it take 
 verwerken	Ik kan het incident maar niet verwerken.	I can't get over the incident.	3616
 trouwt	Tom trouwt volgende maand.	Tom is getting married next month.	3617
 halt	Halt, of ik schiet.	Stop, or I'll shoot.	3618
-halt	Halt!	Stop!	3618
 halt	Halt, wacht!	Stop, wait!	3618
 auditie	Ze heeft afgelopen week auditie gedaan.	She went in for the audition last week.	3619
 auditie	Hoe was je auditie?	How was your audition?	3619
@@ -10284,7 +10165,6 @@ uniek	Iedere persoon is uniek.	Every person is unique.	3733
 uniek	Ieder van ons is uniek.	Every one of us is unique.	3733
 uniek	Ieder mens is uniek.	Every person is unique.	3733
 recente	Is dit een recente foto?	Is it a recent picture?	3734
-duw	Duw!	Push!	3735
 duw	Duw niet!	Don't push!	3735
 duw	Duw erop.	Push it.	3735
 lek	De band is lek.	The tire leaks air.	3738
@@ -10401,7 +10281,6 @@ mannetje	Is het een mannetje of een vrouwtje?	Is it a male or a female?	3784
 vrouwtje	Is het een mannetje of een vrouwtje?	Is it a male or a female?	3784
 vrouwtje	Dit is een oud vrouwtje.	This is an old woman.	3784
 tof	Je jurk is heel tof.	Your dress is very nice.	3785
-tof	Tof!	Great!	3785
 streng	Hij was streng voor zijn kinderen.	He was severe with his children.	3786
 streng	De winter zal streng zijn.	The winter will be severe.	3786
 streng	Is je vader streng?	Is your father stern?	3786
@@ -10409,7 +10288,6 @@ grootmoeder	Mijn grootmoeder is de oudste van deze stad.	My grandmother is the o
 grootmoeder	Zijn moeder stierf toen hij jong was, en zijn grootmoeder heeft hem opgevoed.	His mother died when he was young, and his grandmother brought him up.	3787
 grootmoeder	Mijn grootmoeder maakte me een nieuwe jurk.	My grandmother made me a new dress.	3787
 clown	De clown trok een grappig gezicht.	The clown made a funny face.	3789
-clown	Clown!	Clown!	3789
 clown	De clown liet me lachen.	The clown made me laugh.	3789
 zweet	Meestal zweet ik niet zo.	I don't usually sweat like this.	3791
 zweet	Tom zweet.	Tom is sweating.	3791
@@ -10575,7 +10453,6 @@ misselijk	Ik voel me erg misselijk.	I feel very sick.	3868
 misselijk	Ik denk dat ik misselijk word.	I'm going to be sick.	3868
 misselijk	Ik word er misselijk van.	It sickens me.	3868
 bingo	Bingo is iets voor oma's.	Bingo is something that grandmothers play.	3870
-bingo	Bingo!	Bingo!	3870
 wolven	Normaal gesproken vallen wolven geen mensen aan.	Wolves won't usually attack people.	3871
 wolven	Wolven eten geen sla.	Wolves don't eat salad.	3871
 wolven	Wolven vallen normaal gesproken geen mensen aan.	Wolves usually don't attack people.	3871
@@ -10662,7 +10539,6 @@ verse	Ik wil verse vis eten.	I want to eat fresh fish.	3908
 zwaartekracht	Als je de zwaartekracht in je voordeel kunt gebruiken, doe dat dan.	If you can use gravity to your advantage, do so.	3909
 zwaartekracht	Zelfs als er op deze aarde geen zwaartekracht zou zijn, zou ik toch voor je vallen.	Even if there wasn't any gravity on earth, I would still fall for you.	3909
 vanwaar	Vanwaar kennen jullie elkaar?	Where do you know each other from?	3910
-vanwaar	Vanwaar?	From where?	3910
 vanwaar	Vanwaar heb je al dat geld?	Where did you get all that money?	3910
 helm	Men moet een helm opzetten om het hoofd te beschermen.	One has to put on a helmet to protect the head.	3911
 helm	Je hebt mijn helm.	You've got my helmet.	3911
@@ -10691,7 +10567,6 @@ opstand	De ergste opstand had in Chicago plaats.	The worst riot was in Chicago.	
 schild	Het leger gebruikt burgers als menselijk schild.	The army use civilians as human shields.	3920
 schild	Ik heb een schild nodig.	I need a shield.	3920
 schild	Wat voeren jullie in je schild?	What are you guys up to?	3920
-sukkels	Sukkels!	Suckers!	3921
 zinloos	Als een zin alles kan betekenen, is hij zinloos.	If a sentence may mean anything you want it to mean, it is meaningless.	3922
 zinloos	Dit is zinloos.	This is pointless.	3922
 zinloos	Technologie op zichzelf is zinloos tenzij het nuttig is voor de mensheid.	Technology is in itself meaningless unless it serves mankind.	3922
@@ -10904,7 +10779,6 @@ koper	Is het gemaakt van koper?	Is it made of copper?	4010
 vervloekt	Wees vervloekt!	Curse you!	4011
 vervloekt	De ring is vervloekt.	The ring is cursed.	4011
 tegenstander	De tegenstander is erg goed.	The opposing team is very good.	4012
-au	Au!	Ouch!	4013
 satelliet	De satelliet bevindt zich in een baan om de maan.	The satellite is in orbit around the moon.	4014
 satelliet	De maan van de aarde is een natuurlijke satelliet.	The earth's moon is a natural satellite.	4014
 zogenaamde	De maan is een zogenaamde natuurlijke satelliet.	The Moon is a so-called natural satellite.	4014
@@ -10958,7 +10832,6 @@ paranoïde	Ik ben nog steeds paranoïde.	I'm still paranoid.	4034
 uitmaakt	Ik denk niet dat het Tom wat uitmaakt.	I don't think Tom cares.	4035
 uitmaakt	Zie ik eruit alsof het me wat uitmaakt?	Do I look like I care?	4035
 uitmaakt	Ik denk dat het wel uitmaakt.	I think it does matter.	4035
-ongetwijfeld	Ongetwijfeld.	No doubt.	4036
 ongetwijfeld	Ze zijn ongetwijfeld meer dan alleen vrienden.	They're definitely more than just friends.	4036
 ongetwijfeld	Ze voelen zich ongetwijfeld bedreigd.	No doubt they feel threatened.	4036
 go	Als er intelligent leven buiten de aarde bestaat, dan speelt het ongetwijfeld go.	If there is intelligent life outside the Earth, they certainly play Go.	4036
@@ -11641,7 +11514,6 @@ blond	Maar ik raak er wel aan gewend weer blond te zijn.	But I'll get used to be
 systemen	Politieke systemen veranderen, maar de mensen blijven altijd gelijk.	Political systems change, but people always stay the same.	4320
 politieke	Politieke systemen veranderen, maar de mensen blijven altijd gelijk.	Political systems change, but people always stay the same.	4320
 schurk	Je bent een schurk.	You're a monster.	4321
-schurk	Schurk!	Scoundrel!	4321
 schurk	Wie is je favoriete schurk in de films?	Who's your favorite movie villain?	4321
 teleurstellen	Ik wil je alleen laten weten dat ik je niet zal teleurstellen.	I just want to let you know that I won't let you down.	4323
 teleurstellen	Ik wil Tom echt niet teleurstellen.	I really don't want to disappoint Tom.	4323
@@ -11810,7 +11682,6 @@ omkleden	Tom is zich aan het omkleden.	Tom is changing his clothes.	4393
 haai	Hij werd aangevallen door een haai.	He was attacked by a shark.	4395
 haai	Tom werd aangevallen door een haai.	Tom got attacked by a shark.	4395
 haai	Een haai viel Tom aan.	A shark attacked Tom.	4395
-ademhalen	Ademhalen!	Breathe!	4396
 ademhalen	Heeft u moeite met ademhalen als u plat ligt?	Do you have difficulty breathing when you lie down flat?	4396
 ademhalen	Heb je moeite met ademhalen als je plat ligt?	Do you have difficulty breathing when you lie down flat?	4396
 zakenman	Tom is een slimme zakenman.	Tom is a shrewd businessman.	4397
@@ -12327,7 +12198,6 @@ rugzak	Deze blauwe rugzak is zwaar.	This blue backpack is heavy.	4615
 rugzak	Ze draagt een rugzak op haar rug.	She is carrying a backpack on her back.	4615
 alfa	Ik ben Alfa.	I am Alpha.	4616
 tests	Uit DNA-tests bleek dat hij onschuldig was.	DNA tests showed he was innocent.	4617
-bukken	Bukken!	Duck!	4618
 bukken	Ik kan niet bukken.	I can't bend over.	4618
 bukken	Iedereen bukken!	Everyone get down!	4618
 jongere	Hoe gaat het met je jongere zus?	How's your little sister?	4619
@@ -12355,7 +12225,6 @@ verbinden	Je kunt de wond beter meteen verbinden.	You'd better bandage the wound
 nabij	Mijn woning is nabij.	My apartment is near.	4633
 nabij	Mijn flat is nabij.	My apartment is near.	4633
 nabij	Ik woonde nabij een park.	I used to live near a park.	4633
-toegewezen	Toegewezen.	The objection is sustained.	4634
 toegewezen	Tom kreeg die taak toegewezen.	Tom was assigned that task.	4634
 toegewezen	Om heel eerlijk te zijn kan ik niet zeggen dat de kamer die mij is toegewezen prettig was.	In all honesty, I could not say the room allotted to me was comfortable.	4634
 zake	Kom ter zake.	Get to the point.	4635
@@ -12382,7 +12251,6 @@ kleden	Hoe moet ik mezelf kleden?	How am I supposed to dress?	4643
 heftig	Het ging er heftig aan toe.	It was pretty intense.	4644
 gil	Als je iets nodig hebt, geef dan een gil.	If you need anything, just give me a holler.	4645
 gil	Waarom gil je?!	Why are you screaming?!	4645
-gil	Gil.	Scream.	4645
 rapporten	We komen wat rapporten tekort.	We're missing some of our reports.	4646
 rozen	Het leven gaat niet altijd over rozen.	In life there are ups and downs.	4647
 rozen	Ik vind rode rozen leuk.	I like red roses.	4647
@@ -12777,7 +12645,6 @@ ham	Neem wat ham.	Have some ham.	4837
 ham	Tom at een deel van de ham en legde toen de rest in de koelkast.	Tom ate part of the ham, and then put the rest into the refrigerator.	4837
 ham	Ik hou van ham en eieren.	I like ham and eggs.	4837
 proficiat	Proficiat met uw diploma.	Congratulations on your diploma.	4838
-proficiat	Proficiat!	Congratulations!	4838
 proficiat	Hartelijk proficiat aan allen die de naam van een bloem dragen!	Many happy returns to all who bear the name of a flower!	4838
 beland	Tom is in het ziekenhuis beland.	Tom ended up in the hospital.	4839
 beland	Hoe ben je hier beland?	How did you end up here?	4839
@@ -12846,7 +12713,6 @@ beoordelen	Wie ben jij om mij te beoordelen?	Who are you to judge me?	4863
 beoordelen	Ze konden mij niet beoordelen.	They couldn't judge me.	4863
 beoordelen	Wie ben ik om anderen te beoordelen?	Who am I to judge other people?	4863
 inhoud	We zeggen dat we mensen beoordelen op basis van hun inhoud, maar beoordelen we ze uiteindelijk niet gewoon op hun uiterlijk?	We say that we judge people based on their contents, but in the end, don't we just judge them based on their exterior?	4863
-zachter	Zachter!	Quieter!	4865
 zachter	Ik zet het geluid van de radio zachter.	I am turning the sound of the radio down.	4865
 zachter	Wees lief en zet de radio wat zachter.	Be an angel and turn the radio down.	4865
 lastige	Hier is het lastige gedeelte.	Here's the tricky part.	4866
@@ -12873,7 +12739,6 @@ winkels	Zijn de winkels open op zaterdag?	Are the shops open on Saturday?	4875
 verschillend	Maar mensen zijn verschillend.	But human beings are different.	4876
 verschillend	Ieder persoon is verschillend.	Every person is different.	4876
 verschillend	Al deze boeken zijn verschillend.	All of these books are different.	4876
-persen	Persen!	Push!	4877
 kameraad	Onze kameraad leest een roman.	Our comrade is reading a novel.	4878
 mishandeling	Tom was getuige van de mishandeling.	Tom witnessed the assault.	4879
 vormt	Het thuis vormt de identiteit.	The home shapes the identity.	4880
@@ -13006,7 +12871,6 @@ album	Ik zal je mijn album laten zien.	I'll show my album to you.	4935
 gillen	Waarom gillen jullie?	Why are you screaming?!	4936
 gillen	We gillen.	We're screaming.	4936
 gillen	Wij gillen.	We're screaming.	4936
-voorwaarts	Voorwaarts!	Forward!	4938
 voorwaarts	Één stap voorwaarts, twee stappen terug.	One step forward, two steps back.	4938
 mexicaanse	De Mexicaanse regering gaf zich over.	The government of Mexico surrendered.	4940
 mexicaanse	Waar is de Mexicaanse ambassade?	Where is the Mexican embassy?	4940
@@ -13090,14 +12954,12 @@ collectie	Dit is een fantastische collectie.	This is an amazing collection.	4968
 den	De mensheid zal op den duur zichzelf vernietigen.	Humanity will eventually destroy itself.	4969
 storing	Door een storing konden we zaterdag geen televisie kijken.	Due to a malfunction we were unable to watch television on Saturday.	4970
 tjonge	Tjonge, het is vandaag erg koud.	Wow, it's pretty cold today.	4971
-tjonge	Tjonge!	Boy!	4971
 tjonge	Tjonge-jonge!	Holy cow!	4971
 romeo	Romeo kan zelfs zijn eigen naam niet schrijven.	Romeo can't even write his own name.	4972
 romeo	O Romeo, Romeo, waarom ben je Romeo?	O Romeo Romeo, wherefore art thou Romeo?	4972
 routine	Ze kennen de routine.	They know the routine.	4974
 routine	Dit was routine.	This was routine.	4974
 oplichter	Wat een oplichter!	What a phony!	4975
-oplichter	Oplichter!	You fraud!	4975
 oplichter	Tom is een oplichter.	Tom is a con artist.	4975
 onderbreken	Ik wil hen niet onderbreken.	I don't want to interrupt them.	4977
 onderbreken	Het spijt met dat ik je moet onderbreken, maar ik moet iets zeggen.	I hate to interrupt you, but I need to say something.	4977
@@ -13617,7 +13479,6 @@ nier	Ik heb een nieuwe nier nodig.	I need a new kidney.	5212
 nier	Ze hebben een nier verwijderd.	They removed a kidney.	5212
 klim	Klim er niet op!	Don't climb on this!	5215
 klim	Klim langzaam omhoog, Tom!	Climb up slowly, Tom!	5215
-klim	Klim.	Climb.	5215
 codes	Er zijn te veel codes om te onthouden.	There are too many codes to remember.	5217
 glad	De zee was erg glad.	The sea was very smooth.	5218
 glad	Wees voorzichtig. De vloer is glad.	Be careful. The floor is slippery.	5218
@@ -13644,7 +13505,6 @@ waardig	Tom ziet er waardig uit.	Tom looks dignified.	5229
 realiseren	Na zes maanden in China zul je je realiseren dat je spijt hebt dat je die pizza niet hebt aangenomen voordat je vertrok.	After six months in China, you will realize that you regret not accepting that pizza before you left.	5231
 realiseren	Dat realiseren we ons.	We realize that.	5231
 realiseren	Tom was slim genoeg om zich te realiseren dat hij daar niet hoorde te zijn.	Tom was smart enough to realize that he shouldn't be there.	5231
-protest	Protest!	Objection!	5232
 alien	Luister, alien.	Listen, alien.	5233
 alien	Denk je dat Tom een alien zou kunnen zijn?	Do you think Tom could be an alien?	5233
 alien	Ik ben geen alien.	I'm not an alien.	5233
@@ -13702,7 +13562,6 @@ religieuze	Tom heeft een heleboel religieuze boeken, maar hij heeft ze nog nooit
 platteland	Hij woont op het platteland.	He dwells in the country.	5258
 platteland	Steeds wanneer ik naar deze foto kijk, herinner ik me die gelukkige dagen op het platteland.	I never see this photo without being reminded of my happy days in the countryside.	5258
 platteland	Levend op het platteland, zoals hij dat deed, kwam hij zelden in de stad.	Living as he did in the remote countryside, he seldom came into town.	5258
-gediend	Gediend?	Served?	5262
 gediend	Tom heeft tot 2013 in het leger gediend.	Tom served in the Army until 2013.	5262
 gediend	De vrouw heeft haar doel gediend.	The woman served her purpose.	5262
 broodjes	Het boek van Tom over zijn leven met Maria ging als verse broodjes van de hand.	Tom's book about his life with Mary sold like hot cakes.	5263
@@ -13859,13 +13718,11 @@ bijen	Bijen vliegen van bloem tot bloem.	Bees fly from flower to flower.	5327
 bijen	Ze werkten als bijen.	They worked like bees.	5327
 bijen	Bloemen trekken bijen aan.	Flowers attract bees.	5327
 aankleden	Ik moet me aankleden voor school.	I've got to get dressed for school.	5328
-aankleden	Aankleden.	Get dressed.	5328
 aankleden	Ik ben me nog aan het aankleden.	I'm still getting dressed.	5328
 conferentie	Morgen is de conferentie afgelopen.	The conference will end tomorrow.	5329
 conferentie	Deze conferentie is goed.	This conference is good.	5329
 conferentie	De conferentie eindigde om vijf uur.	The conference ended at five.	5329
 oprotten	Wat mij betreft kun je oprotten!	You can fuck off for all I care!	5330
-oprotten	Oprotten!	Get outta here!	5330
 oprotten	Oprotten. ’k Heb ’t druk.	Scram. I'm busy.	5330
 vos	Die vos moet de hen gedood hebben.	That fox must have killed the hen.	5332
 vos	Er kwam een vos langs.	A fox came along.	5332
@@ -14013,9 +13870,7 @@ schuiven	Ik zal de dingen niet meer op de lange baan schuiven, dat beloof ik voo
 puzzel	Met een beetje meer geduld zou je deze puzzel opgelost kunnen hebben.	You could have solved this puzzle with a little more patience.	5401
 puzzel	De puzzel was bijna klaar.	The puzzle was almost finished.	5401
 puzzel	Tom probeerde de puzzel op te lossen.	Tom tried to solve the puzzle.	5401
-insgelijks	Insgelijks.	Same here.	5402
 insgelijks	"""Prettig kennis te maken."" ""Insgelijks."""	"""Nice to meet you."" ""Nice to meet you, too."""	5402
-insgelijks	Insgelijks!	Likewise!	5402
 vervolgd	Wordt vervolgd.	To be continued.	5403
 vervolgd	Tom voelde zich vervolgd.	Tom felt persecuted.	5403
 vervolgd	Ik voelde me vervolgd.	I felt persecuted.	5403
@@ -14059,7 +13914,6 @@ knuffelen	Kan ik u tenminste knuffelen?	Can I at least hug you?	5419
 knuffelen	Kan ik jullie tenminste knuffelen?	Can I at least hug you?	5419
 opknappen	Kan ik me ergens opknappen?	Can I clean up somewhere?	5420
 opknappen	Ik ben het kantoor aan het opknappen.	I am redecorating the office.	5420
-hoera	Hoera!	Hurray!	5421
 hoera	Hoera voor Italiaanse vrouwen!	Hurray for Italian women!	5421
 ophoudt	Laat ons in de auto zitten tot wanneer de regen ophoudt.	Let's sit in the car until the rain lets up.	5422
 ophoudt	Laten we in de auto gaan zitten totdat de regen ophoudt.	Let's go sit in the car until the rain stops.	5422
@@ -14068,7 +13922,6 @@ verzameld	Ik heb nog niet genoeg materiaal verzameld om een boek te kunnen schri
 gegevens	Ik heb online wat gegevens verzameld.	I collected some data online.	5423
 verzameld	Ik heb online wat gegevens verzameld.	I collected some data online.	5423
 verzameld	Ik heb al aardig wat hout verzameld.	I have collected quite a lot of wood already.	5423
-focus	Focus.	Focus.	5424
 ademhaling	Focus op je ademhaling.	Focus on your breathing.	5424
 focus	Focus op je ademhaling.	Focus on your breathing.	5424
 noten	Tom is allergisch voor noten.	Tom is allergic to nuts.	5425
@@ -14107,7 +13960,6 @@ discipline	Discipline is vrijheid.	Discipline is freedom.	5441
 discipline	Discipline maakt vrijheid mogelijk.	Discipline enables freedom.	5441
 integendeel	Integendeel, u spreekt werkelijk heel goed Engels.	On the contrary, you speak English very well, indeed!	5442
 integendeel	"""Ben je klaar?"" ""Integendeel, ik ben nog niet eens begonnen."""	"""Have you finished?"" ""On the contrary, I have not even begun yet."""	5442
-integendeel	Integendeel.	On the contrary.	5442
 joh	Hé joh, wat ben jij nou voor mens?	Come on, what kind of human are you?	5443
 joh	Nee joh, met die hitte moet je niet douchen.	No way, you shouldn't shower in this heat.	5443
 ontvangt	Als u tot het einde van het jaar bij het bedrijf blijft, ontvangt u een bonus.	If you stay with the company until the end of the year, you will receive a bonus.	5445
@@ -14583,7 +14435,6 @@ opzettelijk	Ze heeft hem opzettelijk in gevaar gebracht.	She deliberately expose
 opzettelijk	Was dat opzettelijk?	Was that intentional?	5651
 opzettelijk	Tom deed het opzettelijk.	Tom did it on purpose.	5651
 observeren	Ik heb het gevoel dat iemand ons aan het observeren is.	I feel like someone is watching us.	5652
-observeren	Observeren!	Observe.	5652
 observeren	Met de ogen zien we, kijken we, observeren we en lezen we.	With our eyes we see, we look, we observe, and we read.	5652
 verdrag	Veel Amerikanen waren tegen het verdrag.	Many Americans opposed the treaty.	5653
 verdrag	Veel Amerikanen hebben zich tegen het verdrag verzet.	Many Americans opposed the treaty.	5653
@@ -14747,7 +14598,6 @@ negatieve	Het product van twee negatieve getallen is positief.	The product of tw
 rijtje	Ze zette haar cd's op een rijtje op de plank.	She put her CDs in a row on the shelf.	5729
 rijtje	Tom kon zijn gedachten niet op een rijtje zetten.	Tom couldn't put his thoughts in order.	5729
 gegroet	Gisteren heb ik je zoon ontmoet en hij heeft me beleefd gegroet.	I met your son yesterday and he greeted me politely.	5730
-gegroet	Gegroet!	Greetings!	5730
 gegroet	Hartelijk gegroet.	Many greetings.	5730
 wereldoorlog	De Eerste Wereldoorlog begon in 1914.	World War I began in the year 1914.	5732
 wereldoorlog	De Tweede Wereldoorlog brak uit in 1939.	It was in 1939 that the Second World War broke out.	5732
@@ -14958,7 +14808,6 @@ weldra	Er komen weldra vele soorten bloemen uit.	Many kinds of flowers will come
 intens	De ervaring was te intens voor mij.	The experience was too intense for me.	5827
 intens	De ervaring was te intens voor me.	The experience was too intense for me.	5827
 afblijven	De dokter zei hem dat hij van de drank moest afblijven.	He was told to abstain from drinking by the doctor.	5828
-afblijven	Afblijven!	Hands off!	5828
 romeinen	De bruiloft van de Romeinen is voorbij.	The wedding of the Romans is over.	5829
 romeinen	Als u in Rome bent, doe dan zoals de Romeinen doen.	When in Rome, do as the Romans do.	5829
 romeinen	De brug is gebouwd door de Romeinen.	The bridge was built by the Romans.	5829
@@ -15022,7 +14871,6 @@ vernietigt	Cultuur vernietigt taal.	Culture destroys language.	5858
 lagere	Ga je naar de lagere school?	Do you go to an elementary school?	5859
 lagere	Laat ons naar een winkel met lagere prijzen gaan.	Let's go to a store with lower prices.	5859
 tering	Krijg de tering!	To the devil with you!	5860
-tering	Tering!	Fuck!	5860
 tering	Krijg de tering.	Fuck you.	5860
 weerwolf	Zou je nog steeds van me houden als ik geen weerwolf was?	Would you still love me if I wasn't a werewolf?	5861
 weerwolf	Ik heb gehoord dat Tom een weerwolf is.	I heard Tom was a werewolf.	5861
@@ -15069,7 +14917,6 @@ ambassadeur	De ambassadeur keerde terug.	The ambassador returned.	5880
 ontwerpen	De nieuwe ontwerpen zijn veel beter dan de oude.	The new designs are much better than the old ones.	5881
 doorgang	Er is een geheime doorgang.	There's a secret passage.	5882
 doorgang	Geen doorgang!	No trespassing!	5882
-doorgang	Doorgang.	Pass.	5882
 kantine	Tom eet normaal gesproken lunch in de kantine.	Tom usually eats lunch in the cafeteria.	5883
 kantine	"""De kantine was leeg."" ""Hoezo leeg? Was er helemaal niemand?"" ""Geen levende ziel."""	"""The canteen was empty."" ""Empty? No one there at all?"" ""Not a soul."""	5883
 geschreeuw	Ik hoorde geschreeuw.	I heard screams.	5884
@@ -15368,7 +15215,6 @@ wortels	Toen ik klein was moest ik iedere dag wortels eten van moeder.	Mother ma
 wenste	Ik wenste dat ik rijk was.	I wish I were rich.	6024
 wenste	Ik wenste dat ik Engels kon spreken.	I wish I could speak English.	6024
 wenste	Hij wenste haar vrolijke feesten toe.	He had wished her happy holidays.	6024
-flauwekul	Flauwekul.	Bullshit.	6025
 flauwekul	Dat is flauwekul!	What nonsense!	6025
 flauwekul	Wat een flauwekul!	What a joke!	6025
 betrapte	Ik betrapte hem op het stelen van geld.	I caught him stealing the money.	6026
@@ -15594,7 +15440,6 @@ whiskey	Tom hield een glas whiskey in zijn ene hand en een sigaret in de andere.
 geneesmiddel	Bent u allergisch voor dit geneesmiddel?	Are you allergic to this medicine?	6135
 geneesmiddel	De slaap is een perfect geneesmiddel.	Sleep is a perfect medicine.	6135
 geneesmiddel	Ik heb wat geld nodig om wat geneesmiddel voor mijn moeder te kopen.	I need to borrow some money to buy some medicine for my mother.	6135
-reageer	Reageer.	Comment.	6136
 reageer	Ik reageer overdreven.	I'm overreacting.	6136
 brandende	Hij redde het kind uit het brandende huis.	He rescued the child from the burning house.	6137
 brandende	Een stervende oude man is als een brandende bibliotheek.	A dying old man is like a burning library.	6137
@@ -15638,7 +15483,6 @@ genoteerd	Ik heb zijn telefoonnummer genoteerd.	I wrote down his phone number.	6
 genoteerd	Ik heb het genoteerd.	I wrote it down.	6162
 genoteerd	Ze heeft een paar zinnen genoteerd.	She recorded a few sentences.	6162
 plas	Tom stapte in een plas water.	Tom stepped in a puddle of water.	6165
-plas	Plas!	Pee!	6165
 plas	De plas is heel diep.	The pool is very deep.	6165
 bedreigingen	Ik heb bedreigingen ontvangen.	I've received threats.	6166
 instrumenten	Speel je ook nog andere instrumenten behalve de piano?	Do you play any other instruments besides the piano?	6167
@@ -15798,7 +15642,6 @@ lampen	Verkoop je deze lampen?	Are you selling these lamps?	6248
 getrapt	Hij is snel op zijn tenen getrapt.	He is quick to take offence.	6251
 getrapt	Ik werd uit de middelbare school getrapt.	I was kicked out of high school.	6251
 getrapt	Tom is erin getrapt.	Tom fell for it.	6251
-oeps	Oeps!	Whoops!	6253
 mannelijk	Een jongen is een mannelijk kind.	A boy is a male child.	6254
 mannelijk	Hij is sterk en mannelijk.	He is strong and manly.	6254
 munten	Chris krijgt 7 gouden munten!	Chris gets 7 gold coins!	6255
@@ -15836,7 +15679,6 @@ filosofie	Wat is filosofie?	What is philosophy?	6269
 kleintjes	Vele kleintjes maken een grote.	Many a little makes a mickle.	6271
 kleintjes	De grote vissen eten de kleintjes.	The big fish eat the small ones.	6271
 kleintjes	Grote vissen eten de kleintjes.	Big fish eat the small ones.	6271
-daarginds	Daarginds!	Over there!	6272
 daarginds	Het is daarginds.	It's just over there.	6272
 daarginds	Mijn koffer staat daarginds.	My suitcase is over there.	6272
 dumpte	Ze dumpte hem.	She dumped him.	6274
@@ -16038,7 +15880,6 @@ langskomt	Als Maria langskomt, geef haar alsjeblieft dit document.	If Mary drops
 document	Als Maria langskomt, geef haar alsjeblieft dit document.	If Mary drops by, please give her this document.	6376
 langskomt	Ik zou het leuk vinden als je een keer langskomt.	I'd like you to come over sometime.	6376
 langskomt	Ik wil graag dat je een keer langskomt.	I'd like you to come over sometime.	6376
-opstijgen	Opstijgen!	Lift off!	6377
 bedriegt	Tom bedriegt zijn vrouw.	Tom is cheating on his wife.	6379
 bedriegt	Schijn bedriegt.	Appearances deceive.	6379
 bedriegt	Je vrouw bedriegt je.	Your wife is cheating on you.	6379
@@ -16181,7 +16022,6 @@ kaars	Steek de kaars aan.	Light the candle.	6463
 vuilnisbak	Uw vuilnisbak staat in brand.	Your garbage can is on fire.	6465
 vuilnisbak	De vuilnisbak is vol.	The dustbin is full.	6465
 vuilnisbak	Tom heeft geen vuilnisbak.	Tom doesn't have a trash can.	6465
-onvoorstelbaar	Onvoorstelbaar!	Unimaginable!	6466
 onvoorstelbaar	Zoiets was ooit onvoorstelbaar.	Such a thing used to be unthinkable.	6466
 ellendig	Plotseling voelde ze zich zeer klein, waardeloos en ellendig.	Suddenly she felt tiny, worthless and miserable.	6467
 ellendig	Ik voelde me echt ellendig.	I felt really miserable.	6467
@@ -16889,7 +16729,6 @@ update	Update uw software.	Update your software.	6834
 update	Update jullie software.	Update your software.	6834
 bedtijd	Tijd voor een heet bad, en dan is het bedtijd.	Time for a hot bath, and then it's bedtime.	6837
 bedtijd	Het is bedtijd.	It's time for bed.	6837
-bedtijd	Bedtijd!	Go to bed!	6837
 verdenken	Ik wist dat je mij zou verdenken.	I knew you would suspect me.	6838
 spoel	Spoel nooit drugs door het toilet.	Never flush drugs down the toilet.	6839
 spoel	Spoel nooit medicijnen door het toilet.	Never flush medicines down the toilet.	6839
@@ -17164,7 +17003,6 @@ suggestie	Ik ben me ervan bewust dat ik hier nieuw ben, maar ik heb een suggesti
 suggestie	Tom deed een goede suggestie.	Tom made a good suggestion.	6989
 communisten	Werkte hij voor de communisten? Ik denk dat we het nooit zullen weten.	Did he work for the communists? I guess we'll never know.	6990
 beken	Ik beken.	I confess.	6991
-beken	Beken!	Confess!	6991
 laad	Ik laad mijn telefoon iedere dag op.	I charge my telephone every day.	6993
 laad	Laad de kanonnen!	Load the cannons!	6993
 kanonnen	Laad de kanonnen!	Load the cannons!	6993
@@ -17485,7 +17323,6 @@ botsing	De auto ontplofte enkele momenten na de botsing.	The car exploded a few 
 ontplofte	De auto ontplofte enkele momenten na de botsing.	The car exploded a few moments after the collision.	7169
 ontplofte	Ik wilde net vertrekken toen de bom ontplofte.	I was just about to leave when the bomb exploded.	7169
 nonsens	Hij raakte zo opgewonden dat hij nonsens vertelde.	He became so excited that what he said made no sense at all.	7170
-nonsens	Nonsens!	Nonsense!	7170
 nonsens	Jouw antwoord is nonsens.	Your answer doesn't make sense.	7170
 wurgen	Ik zou Tom graag wurgen.	I'd like to strangle Tom.	7171
 wurgen	Ik ga hem wurgen.	I'm going to strangle him.	7171
@@ -17590,7 +17427,6 @@ afluisteren	Tom is aan het afluisteren.	Tom's eavesdropping.	7229
 geproefd	Ze hebben het brood geproefd.	They tasted the bread.	7230
 geproefd	Dit is de beste ramen die ik ooit heb geproefd.	This is the best ramen I've ever tasted.	7230
 geproefd	Zo iets heb ik nog nooit geproefd.	I've never tasted anything like it.	7230
-buig	Buig!	Lean!	7231
 buig	Buig je neer!	Bow down!	7231
 continent	Amerika is geen land, het is een continent.	America isn't a country, it's a continent.	7232
 continent	Europa is een continent.	Europe is a continent.	7232
@@ -17683,8 +17519,6 @@ bedekken	Ga in deze hitte niet weg zonder je hoofd te bedekken.	Don't go out in 
 kloof	Die kloof wordt kleiner.	That gap is narrowing.	7288
 kloof	De kloof tussen rijk en arm wordt steeds groter.	The gap between rich and poor is getting wider.	7288
 bah	Bah! Heeft hij dat echt gezegd? Onmogelijk!	No! Did he really say that? You can't be serious!	7290
-bah	Bah!	Yikes!	7290
-bah	Bah.	Yuck.	7290
 tomaten	Ik hou niet van de smaak van tomaten.	I don't like the flavour of tomatoes.	7291
 tomaten	Heb je ooit tomaten met suiker gegeten?	Have you ever eaten tomatoes with sugar?	7291
 tomaten	Houdt Tom van tomaten?	Does Tom like tomatoes?	7291
@@ -17754,7 +17588,6 @@ bederven	In de zomer bederven eieren snel.	In summer, eggs go bad quickly.	7330
 vijver	Ik wist niet dat hier een vijver was.	I didn't know there was a pond here.	7331
 vijver	Een oude vijver. Een kikker springt erin. Het geluid van water.	An old pond. A frog jumps in. The sound of water.	7331
 vijver	Die vijver is drie meter diep.	The pond is 3 meters deep.	7331
-clowns	Clowns!	Clowns!	7332
 clowns	Clowns huilen ook.	Clowns also cry.	7332
 noordpool	De Noordpool bereiken is niet makkelijk.	To reach the North Pole is not easy.	7334
 noordpool	De Kerstman woont op de Noordpool.	Santa lives at the North Pole.	7334
@@ -17877,7 +17710,6 @@ zanger	Mijn droom is het, een beroemde zanger te worden.	My dream is to become a
 bezoekt	Hij bezoekt mij soms.	He sometimes comes to see me.	7403
 bezoekt	Mijn oom bezoekt mij af en toe.	My uncle comes to see me from time to time.	7403
 bezoekt	Ze bezoekt nu Parijs.	She is visiting Paris.	7403
-verdraaid	Verdraaid!	Blast!	7404
 verdraaid	Verdraaid! Dat is niet slecht!	Damn! It's not bad!	7404
 potlood	Heb je een potlood?	Have you got a pencil?	7406
 potlood	Ik heb een envelop, papier en een potlood of pen nodig.	I need an envelope, a piece of paper, and a pencil or a pen.	7406
@@ -17958,7 +17790,6 @@ biologie	Ik heb nooit van biologie gehouden.	I never liked biology.	7455
 biologie	Ik geef biologie en Frans.	I teach biology and French.	7455
 biologie	Mijn favoriete vak is biologie.	My favorite subject is biology.	7455
 graad	Zij heeft een graad in biologie.	She has a degree in biology.	7455
-gejaagd	Gejaagd.	Hunted.	7456
 tonijn	Heeft u tonijn?	Do you have tuna fish?	7457
 tonijn	Tom houdt van tonijn.	Tom likes tuna.	7457
 tonijn	Tonijn kan heel snel zwemmen.	Tuna can swim very fast.	7457
@@ -18053,10 +17884,8 @@ verscheurd	Hij werd verscheurd door een beer.	He was mauled by a bear.	7509
 dimensie	Tom komt uit een andere dimensie.	Tom comes from another dimension.	7510
 menselijkheid	Dit is een misdaad tegen de menselijkheid.	This is a crime against humanity.	7511
 geconcentreerd	Ik bleef geconcentreerd.	I kept focused.	7512
-schandalig	Schandalig!	Scandalous!	7513
 schandalig	Jouw gedrag was schandalig.	Your behavior was disgraceful.	7513
 schandalig	Hij is schandalig rijk.	He is filthy rich.	7513
-auw	Auw!	Ow!	7515
 auw	Auw! Het doet pijn!	Ow! That hurts!	7515
 auw	"""Auw, auw, auw."" ""Gaat het?"""	"""Ow-ow-ouch."" ""Are you alright?"""	7515
 schopte	Toen hij me beet, reageerde ik en schopte hem.	When he bit me, I reacted and kicked him.	7516
@@ -18240,7 +18069,6 @@ elegant	Maria is elegant.	Mary is graceful.	7613
 duimen	Ik zal voor je duimen.	I will keep my fingers crossed for you.	7614
 likken	Het eten was om duimen en vingers af te likken.	The food was finger-licking good.	7614
 duimen	Het eten was om duimen en vingers af te likken.	The food was finger-licking good.	7614
-duimen	Duimen.	Cross your fingers.	7614
 getuigt	Het getuigt van slechte manieren om geluiden te maken tijdens het eten.	It is bad manners to make a noise while you eat.	7615
 geluiden	Het getuigt van slechte manieren om geluiden te maken tijdens het eten.	It is bad manners to make a noise while you eat.	7615
 beschuldig	Beschuldig hem niet daarvan.	Don't accuse him of that.	7616
@@ -18331,7 +18159,6 @@ schaamt	Ze schaamt zich voor wat ze heeft gedaan.	She is ashamed of what she's d
 schaamt	Tom schaamt zich.	Tom's embarrassed.	7653
 schaamt	Mijn zoon schaamt zich voor zijn gedrag.	My son is ashamed of his behavior.	7653
 verklikker	Tom is een verklikker.	Tom is a snitch.	7654
-verklikker	Verklikker!	What a balance!	7654
 plagen	Terwijl hij een pizza at, was hij zijn zus aan het plagen.	While eating a pizza he was annoying his sister.	7655
 plagen	Stop met me te plagen.	Quit teasing me.	7655
 plagen	Waarom moet je mij plagen?	Why must you tease me?	7655
@@ -18553,7 +18380,6 @@ kool	Je kan niet de kool en de geit sparen.	You can't have your cake and eat it 
 kool	Ik hou van kool.	I like cabbage.	7787
 kool	Ik hou van kool!	I love cabbage!	7787
 begeleider	Mijn begeleider weet wat hij doet.	My supervisor knows what he's doing.	7788
-hierlangs	Hierlangs!	Walk this way.	7790
 hierlangs	Komt ze hierlangs?	Does she pass by here?	7790
 hierlangs	Dames en heren, hierlangs alstublieft.	Ladies and gentlemen, please come this way.	7790
 politieagenten	De politieagenten hebben mij vaak aangehouden.	The policemen have stopped me many times.	7791
@@ -18635,7 +18461,6 @@ gedanst	Ze heeft met hem gedanst.	She danced with him.	7841
 gedanst	Ik heb gedanst.	I danced.	7841
 overgedragen	Het virus kan worden overgedragen door te kussen.	The virus can be transmitted by kissing.	7843
 wonderbaarlijk	Zijn nieuwe auto is wonderbaarlijk.	His new car is wonderful.	7844
-wonderbaarlijk	Wonderbaarlijk!	Wonderful!	7844
 wonderbaarlijk	Iemand liefhebben is zo wonderbaarlijk.	To love someone is so wonderful.	7844
 app	Deze app meldt je automatisch aan wanneer je hem opent.	This app automatically signs you in when you open it.	7845
 meldt	Deze app meldt je automatisch aan wanneer je hem opent.	This app automatically signs you in when you open it.	7845
@@ -19487,7 +19312,6 @@ noot	De eekhoorn eet een noot.	The squirrel is eating a nut.	8314
 vage	Tom heeft slechts een vage herinnering aan zijn grootvader.	Tom only has a faint memory of his grandfather.	8315
 vage	Tom heeft slechts een vage herinnering aan zijn opa.	Tom only has a faint memory of his grandfather.	8315
 opbiechten	Ik wil iets opbiechten.	I want to make a confession.	8317
-opbiechten	Opbiechten!	Confess!	8317
 opdrinken	Ikzelf kan het in tien seconden helemaal opdrinken.	Me, I can drink it all up in ten seconds.	8318
 ikzelf	Ikzelf kan het in tien seconden helemaal opdrinken.	Me, I can drink it all up in ten seconds.	8318
 vermoordden	Zij vermoordden Tom.	They murdered Tom.	8319
@@ -19662,7 +19486,6 @@ tegenslag	Wat een tegenslag dat je vader is gestorven, mijn kind. Helaas kan ik 
 venetië	Wij vinden Venetië een fantastische stad.	We think Venice a fascinating city.	8421
 venetië	Ben je al eens in Venetië geweest?	Have you ever been to Venice?	8421
 venetië	Venetië is een romantische stad.	Venice is a romantic city.	8421
-schoften	Schoften!	Bastards!	8422
 dreigement	Ik herinner me elk dreigement.	I remember every threat.	8423
 ongelegen	Hij kwam binnen op een ongelegen tijdstip.	He came at an inopportune time.	8424
 ongelegen	Kom ik ongelegen?	Am I catching you at a bad time?	8424
@@ -19701,7 +19524,6 @@ overgegeven	Ik heb overgegeven.	I vomited.	8440
 overgegeven	Ik heb drie keer overgegeven.	I threw up three times.	8440
 keurig	Dit is keurig.	This is neat.	8441
 keurig	Dat is keurig.	That's neat.	8441
-keurig	Keurig!	Neat!	8441
 vervanging	Het is een woord waarvoor ik graag een vervanging zou vinden.	It's a word I'd like to find a substitute for.	8444
 kalf	Het kalf werd vanochtend geboren.	The calf was born this morning.	8445
 kalf	De koe vergat dat ze ooit een kalf was.	The cow forgot that it once was a calf.	8445
@@ -20123,7 +19945,6 @@ skiën	Hij kan totaal niet zwemmen, maar voor skiën is hij de beste.	He can't s
 skiën	Hoeveel keer per jaar gaat ge skiën?	How often do you go skiing every year?	8723
 beschaafd	Ik heb me bij het skiën beschaafd.	I got a scrape while skiing.	8723
 imbeciel	Jij imbeciel!	You imbecile!	8724
-imbeciel	Imbeciel!	You imbecile!	8724
 zend	Ik zend hem naar Californië.	I am sending him to California.	8725
 zend	Zend ons wat je wilt vertalen.	Send us what you want to translate.	8725
 zend	Ik zend je een berichtje.	I'll send you a message.	8725
@@ -20240,7 +20061,6 @@ gekeerd	De helft van de aarde die niet naar de zon is gekeerd is altijd donker.	
 gekeerd	Zij staat met haar rug naar mij toe gekeerd.	She stands with her back turned to me.	8803
 dwazen	Dwazen zijn gelukkig.	Fools are happy.	8805
 dwazen	De wereld is vol dwazen.	The world is full of fools.	8805
-dwazen	Dwazen!	Buffoons!	8805
 besta	Ik denk, dus ik besta.	I think, therefore I am.	8806
 besta	Hij weet niet eens dat ik besta.	He doesn't even know that I exist.	8806
 besta	Besta ik?	Do I exist?	8806
@@ -20829,7 +20649,6 @@ zwem	Ik zwem elke dag.	I swim every day.	9152
 zwem	Ik zwem eenmaal per week.	I swim once a week.	9152
 zwem	Ik zwem één keer per week.	I swim once a week.	9152
 opgepast	Opgepast voor de hond!	Beware of the dog!	9153
-opgepast	Opgepast!	Incoming!	9153
 opgepast	Opgepast, de thee is heel warm.	Careful, the tea is piping hot.	9153
 groepje	Er was een groepje kinderen in het park aan het spelen.	There was a group of children playing in the park.	9154
 frietjes	Wil je daar frietjes bij?	Do you want fries with that?	9156
@@ -20868,7 +20687,6 @@ veiligste	Dit is de veiligste plek die ik ken.	This is the safest place I know.	
 zaaien	Wij zaaien.	We're planting seeds.	9186
 zaaien	Boeren zaaien in de lente.	Farmers sow seeds in the spring.	9186
 zaaien	Je moet zaaien naar de zak.	You have to sow to the sack.	9186
-sabotage	Sabotage!	Sabotage!	9187
 sabotage	Dit is sabotage.	This is sabotage.	9187
 uitgedroogd	Tom is uitgedroogd.	Tom's dehydrated.	9188
 gevestigd	De lucht in deze stad is giftig vanwege de vele fabrieken die hier zijn gevestigd.	The air in this city is toxic because of the many factories located here.	9189
@@ -20954,7 +20772,6 @@ mirakel	Het leven is een mirakel.	Life is a miracle.	9232
 orgaan	De lever is een orgaan in het menselijk lichaam.	The liver is an organ of the human body.	9233
 domkop	Je bent zo een domkop!	You're such an idiot!	9234
 domkop	Je bent zo'n domkop!	You're such an idiot!	9234
-domkop	Domkop!	You blockhead!	9234
 nachtdienst	Tom werkt momenteel de nachtdienst.	Tom is now working night shift.	9235
 recepten	Ik heb de recepten op een briefje geschreven.	I wrote the recipes on a note.	9238
 kapitaal	We hebben kapitaal nodig.	We need capital.	9240
@@ -21203,7 +21020,6 @@ aquarium	Ik heb een aquarium.	I have a fish tank.	9393
 aquarium	Tom heeft een aquarium.	Tom has an aquarium.	9393
 aquarium	Mijn hobby is mijn aquarium.	My hobby is my aquarium.	9393
 dronkaard	Hij is een dronkaard.	He's a drunkard.	9394
-dronkaard	Dronkaard!	Drunkard!	9394
 verstoppertje	Laten we verstoppertje spelen.	Let's play hide and seek.	9397
 verstoppertje	Hoe speel je verstoppertje?	Hide-and-seek, how is it played?	9397
 verstoppertje	Als iemand verstoppertje wil spelen, moet die mijn vinger grijpen.	If anyone wants to play hide-and-seek, they should grab my finger.	9397
@@ -21233,7 +21049,6 @@ rivaal	Ze is mijn rivaal.	She's my rival.	9410
 rivaal	Hij is mijn rivaal.	He's my rival.	9410
 rivaal	Zij is mijn rivaal.	She's my rival.	9410
 haaks	Hou je haaks.	Take care.	9411
-stomkop	Stomkop!	You idiot!	9412
 stomkop	Wat een stomkop!	What a dumbass!	9412
 wand	In de wand zit een groot gat.	There is a large hole in the wall.	9413
 afstandelijk	In deze moderne tijd zijn de mensen afstandelijk.	In the modern age, humans are detached.	9414
@@ -21511,7 +21326,6 @@ dwingt	Niemand dwingt je hiertoe.	No one is forcing you to do this.	9617
 hiertoe	Niemand dwingt je hiertoe.	No one is forcing you to do this.	9617
 hiertoe	Tom werd hiertoe gedwongen.	Tom was made to do so.	9617
 hiertoe	Hoe heeft Tom je hiertoe overgehaald?	How did Tom ever talk you into this?	9617
-verworpen	Verworpen!	Overruled!	9618
 verworpen	Bezwaar verworpen.	Objection overruled.	9618
 verworpen	Ik heb dit voorstel verworpen.	I rejected this proposition.	9618
 heup	De werkers waren bloot tot aan de heup.	The workers were naked to the waist.	9620
@@ -21578,7 +21392,6 @@ telde	Het kind telde er tien.	The child counted ten.	9660
 telde	Zijn mening telde niet mee.	His opinion was unimportant.	9660
 telde	Ik telde de schapen.	I was counting the sheep.	9660
 sarcasme	Hij houdt erg van sarcasme.	He likes sarcasm a lot.	9662
-sarcasme	Sarcasme?	Sarcasm?	9662
 kouder	Gisteren was het kouder dan vandaag.	It was colder yesterday than today.	9663
 kouder	Het was koud gisteren, maar vandaag is het nog kouder.	It was cold yesterday, but it's even colder today.	9663
 kouder	Het wordt steeds kouder.	It's getting colder and colder.	9663
@@ -21811,7 +21624,6 @@ verwennen	Mag ik je hond verwennen?	Can I spoil your dog?	9807
 uitverkorene	Ik ben de uitverkorene.	I am the chosen one.	9808
 wissel	Wissel met mij van plaats.	Switch places with me.	9809
 wissel	Wissel van plaats met me.	Switch places with me.	9809
-wissel	Wissel.	Alternate.	9809
 argentinië	Peru is, na Brazilië en Argentinië, het derde grootste land van Zuid-Amerika.	Peru is the third largest country in South America after Brazil and Argentina.	9810
 peru	Peru is, na Brazilië en Argentinië, het derde grootste land van Zuid-Amerika.	Peru is the third largest country in South America after Brazil and Argentina.	9810
 peru	Gaat hij morgen niet naar Peru?	Isn't he going to Peru tomorrow?	9810
@@ -22105,7 +21917,6 @@ bushalte	De bushalte is hier tien minuten lopen vandaan.	It's a ten minutes walk
 bushalte	Waar is de bushalte?	Where's the bus stop?	9995
 bushalte	Kunt u mij de weg naar de bushalte wijzen?	Could you show me the way to the bus stop?	9995
 lastpak	Tom is een lastpak.	Tom is a pain in the ass.	9998
-lastpak	Lastpak!	You little snot!	9998
 lastpak	Je bent een lastpak!	You're a piece of work!	9998
 gevangenschap	Hij werd in gevangenschap gehouden.	He was held in captivity.	9999
 experimenten	Laat het ons eerst hebben over de experimenten die uitgevoerd worden in laboratoria.	First, let us talk about the experiments conducted in laboratories.	19999

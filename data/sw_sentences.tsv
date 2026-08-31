@@ -13,9 +13,6 @@ ndani	Wote ndani!	All aboard!	77	CL2.all · inside
 sisi	Sisi ni wanafunzi.	We are students.	78	1PL · COP · CL2.student
 ni	Sisi ni wanafunzi.	We are students.	78	1PL · COP · CL2.student
 wanafunzi	Sisi ni wanafunzi.	We are students.	78	1PL · COP · CL2.student
-habari	Habari?	How are things?	82	CL9.news
-jambo	Jambo!	Hi!	100	CL5.matter
-nini	Nini?	What?	108	what
 kwa	Kwa nini!?	Why!	108	for · what
 nini	Kwa nini!?	Why!	108	for · what
 ni	Mtu ni mwenye nguvu.	The man is strong.	112	CL1.person · COP · CL1.having · CL9.strength
@@ -281,7 +278,6 @@ mlango	Mke akasimama kutoka kwa kiti chake. Kisha akatazama mlango.	The wife sto
 kisha	Mke akasimama kutoka kwa kiti chake. Kisha akatazama mlango.	The wife stood up from her chair. She then looked at the door.	447	CL1.wife · CL1.CONSEC.stand · from · at · CL7.chair · CL7.3SG.POSS · then · CL1.CONSEC.look · CL3.door
 hiyo	Hiyo ni siri?	Is that a secret?	455	CL9.that · COP · CL9.secret
 siri	Hiyo ni siri?	Is that a secret?	455	CL9.that · COP · CL9.secret
-sawa	Sawa.	It doesn't matter.	471	okay
 sawa	Sawa, sawa.	Alright, OK.	471	okay · okay
 sasa	Hapo, hapo. Ni afadhali kwa sasa.	There, there. It's all better now.	487	CL16.there · CL16.there · COP · better · for · now
 afadhali	Hapo, hapo. Ni afadhali kwa sasa.	There, there. It's all better now.	487	CL16.there · CL16.there · COP · better · for · now
@@ -388,7 +384,6 @@ kuhusu	Kuna mashaka mengi kuhusu mtoto.	There are many doubts to a child.	680	CL
 mashaka	Nilikuwa na mashaka.	I was suspicious.	680	1SG.PST.be · with · CL6.doubt
 tena	Mimi si mtoto mdogo tena.	I'm not a little boy anymore.	688	1SG · NEG.COP · CL1.child · CL1.small · again
 mdogo	Mimi si mtoto mdogo tena.	I'm not a little boy anymore.	688	1SG · NEG.COP · CL1.child · CL1.small · again
-sikiliza	Sikiliza.	Listen.	695	listen.IMP
 onekana	Anaonekana kuwa mgonjwa.	She looks like she's sick.	696	CL1.PRES.appear · INF.be · CL1.sick
 mgonjwa	Anaonekana kuwa mgonjwa.	She looks like she's sick.	696	CL1.PRES.appear · INF.be · CL1.sick
 mwili	Ninapenda mwili wako.	I like your body.	703	1SG.PRES.like · CL3.body · CL3.2SG.POSS
@@ -671,7 +666,6 @@ imani	Je, unaimani kweli ni muhimu kufanya hivyo?	Do you really believe it's nec
 badala	Ni ukumbi badala ya chumba.	It is a hall rather than a room.	1155	COP · CL11.hall · instead · CL9.of · CL7.room
 ukumbi	Ni ukumbi badala ya chumba.	It is a hall rather than a room.	1155	COP · CL11.hall · instead · CL9.of · CL7.room
 chumba	Ni ukumbi badala ya chumba.	It is a hall rather than a room.	1155	COP · CL11.hall · instead · CL9.of · CL7.room
-sijui	Sijui.	I don't know.	1157	1SG.NEG.know
 mtupu	Huo ni uongo mtupu.	That's nothing but a lie!	1161	CL11.that · COP · CL11.lie · CL11.mere
 uongo	Huo ni uongo mtupu.	That's nothing but a lie!	1161	CL11.that · COP · CL11.lie · CL11.mere
 huo	Huo ni uongo mtupu.	That's nothing but a lie!	1161	CL11.that · COP · CL11.lie · CL11.mere
@@ -833,7 +827,6 @@ nafasi	Hii ni nafasi nzuri sana ya kupoteza.	This is too good a chance to lose.	
 maisha	Watoto ni maua ya maisha yetu.	Children are the flowers of our lives.	1489	CL2.child · COP · CL6.flower · CL6.of · CL6.life · CL6.1PL.POSS
 watoto	Watoto ni maua ya maisha yetu.	Children are the flowers of our lives.	1489	CL2.child · COP · CL6.flower · CL6.of · CL6.life · CL6.1PL.POSS
 maua	Watoto ni maua ya maisha yetu.	Children are the flowers of our lives.	1489	CL2.child · COP · CL6.flower · CL6.of · CL6.life · CL6.1PL.POSS
-anakula	Anakula.	He is eating.	1500	CL1.PRES.eat
 mkate	Mwanamume anakula mkate.	The man is eating bread.	1500	CL1.man · CL1.PRES.eat · CL3.bread
 anakula	Mwanamume anakula mkate.	The man is eating bread.	1500	CL1.man · CL1.PRES.eat · CL3.bread
 mwanamume	Mwanamume anakula mkate.	The man is eating bread.	1500	CL1.man · CL1.PRES.eat · CL3.bread

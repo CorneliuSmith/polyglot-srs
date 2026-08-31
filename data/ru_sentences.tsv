@@ -7,7 +7,6 @@ word	sentence	translation	difficulty_rank
 не	Не я.	Not me.	2
 я	Не я.	Not me.	2
 а	Не-а!	No!	2
-что	Что?	What?	3
 и	И что?	So what?	3
 что	И что?	So what?	3
 что	Что ж?	Well?	3
@@ -26,20 +25,16 @@ word	sentence	translation	difficulty_rank
 мы	А мы что?	What about us?	11
 как	Как ты?	What're you up to?	12
 как	Я как ты.	I am like you.	12
-как	Как?	How?	12
 и	И как!	And how!	12
 вы	Это Вы?	Is it you?	13
 вы	А вы?	How about you?	13
 вы	Это вы?	Is this you?	13
-да	Да.	Yes.	14
-да	Да!	Yes!	14
 да	Это он, да?	It's him, isn't it?	14
 в	Во́да!	You're it!	14
 мне	Это мне?	Is it for me?	15
 мне	Это не мне.	This is not for me.	15
 мне	Это мне.	This one's for me.	15
 нет	Нет, не я, а ты!	No I'm not; you are!	17
-нет	Нет.	No!	17
 нет	Нет, нет и нет!	No, no, no!	17
 о	О нет, это он!	Oh no, it's him!	17
 о	О нет!	Oh no!	17
@@ -101,15 +96,11 @@ word	sentence	translation	difficulty_rank
 для	Это для тебя.	It's for you.	39
 для	Это не для тебя.	This isn't for you.	39
 ну	Ну и что?	So what?	40
-ну	Ну?	So?	40
 ну	Так, ну и...?	Yeah, and?	40
-когда	Когда?	When?	41
 когда	Когда это?	When is it?	41
-хорошо	Хорошо.	All right.	42
 хорошо	Хорошо. А ты?	Fine. And you?	42
 хорошо	Что хорошо для тебя, хорошо и для меня.	What is good for you is good for me.	42
 здесь	Они еще не здесь.	They aren't here yet.	43
-здесь	Здесь?	Is it here?	43
 здесь	Мы здесь.	We are here.	43
 если	Если что, я здесь.	I'm here if you need me.	43
 был	Это был не он.	It wasn't him.	45
@@ -185,7 +176,6 @@ word	sentence	translation	difficulty_rank
 уже	Она уже здесь?	Is she here yet?	64
 уже	Я уже здесь!	I'm here already!	64
 уже	Он уже здесь.	He is already here.	64
-спасибо	Спасибо!	Thank you!	65
 спасибо	Нет, спасибо.	No, thank you.	65
 спасибо	Спасибо, хорошо. А вы?	Fine, thank you. And you?	65
 или	Да или нет?	Yes or no?	66
@@ -227,7 +217,6 @@ word	sentence	translation	difficulty_rank
 была	Была не была!	Here goes nothing.	77
 была	И где ты была?	So where were you?	77
 была	Где ты была?	Where have you been?	77
-ладно	Ладно.	All right.	78
 ладно	Ладно, кто ты?	Okay, who are you?	78
 ладно	Да ладно тебе.	Oh, come on.	78
 знаешь	Ты знаешь, кто она?	Do you know who she is?	79
@@ -273,13 +262,10 @@ word	sentence	translation	difficulty_rank
 ли	Я не знаю, будет ли у меня время.	I don't know if I'll have time.	92
 ли	Я не знаю, есть ли все еще у меня это.	I don't know if I still have it.	92
 ли	Не знаю, хорошо ли это.	I don't know if it is good.	92
-пока	Пока.	Bye!	93
-пока	Пока!	Bye!	93
 пока	Пока нет.	Not yet.	93
 даже	Я даже не знаю его.	I don't even know him.	94
 даже	Я даже не был там.	I wasn't even there.	94
 даже	Он даже там не был.	He wasn't even there.	94
-привет	Привет!	Hello!	95
 привет	Привет! Как ты?	Hi. How are you?	95
 привет	«Привет, как всё?» – «Да так, ничего».	"""Hey, what's up?"" ""Oh, not much."""	95
 сказал	Я бы так и сказал.	This is what I would have said.	96
@@ -343,8 +329,6 @@ word	sentence	translation	difficulty_rank
 твой	Это твой.	It's yours.	116
 твой	Я твой, а ты мой.	I am yours and you are mine.	116
 твой	Я твой, а ты моя.	I am yours and you are mine.	116
-пожалуйста	Пожалуйста.	It was nothing.	117
-пожалуйста	Пожалуйста!	Please.	117
 пожалуйста	«Спасибо!» — «Пожалуйста!»	"""Thank you."" ""You're welcome."""	117
 тобой	Я хочу быть тобой.	I want to be you.	118
 с	Что с тобой?	Are you all right?	118
@@ -361,13 +345,10 @@ word	sentence	translation	difficulty_rank
 сделать	Конечно. Что я могу сделать?	Certainly. What can I do?	121
 лучше	Не могу сделать ничего лучше.	I can't do any better.	122
 лучше	Лучше, чем ничего.	Better than nothing.	122
-лучше	Лучше.	It's better.	122
 можешь	Ты можешь сделать это!	You can do it.	123
 можешь	"Ты не можешь сказать ""нет""."	You can't say no.	123
 можешь	Только ты можешь это сделать.	You alone can do this.	123
-сюда	Сюда.	This way.	124
 сюда	Давай сюда.	Come on in here.	124
-сюда	Сюда!	Over here!	124
 мной	«Ты со мной?» — «Да».	"""You with me?"" ""Yes."""	125
 мной	Они со мной.	They're with me.	125
 мной	Я хочу, чтобы ты был здесь и сейчас со мной.	I wish you were here with me now.	125
@@ -385,7 +366,6 @@ word	sentence	translation	difficulty_rank
 дело	Это не его дело.	That is no business of his.	129
 можно	Конечно можно.	Of course, you may.	130
 можно	Можно сказать и так.	You may as well say so.	130
-можно	Можно?	May I?	130
 ей	Я не могу сказать ей это сейчас. Это уже не так просто.	I can't tell her now. It's not that simple anymore.	131
 ей	Я думаю, ей 40.	I guess that she is 40.	131
 ей	Ей это нужно.	She needs it.	131
@@ -492,7 +472,6 @@ word	sentence	translation	difficulty_rank
 по	Мне не по себе.	I'm feeling nervous.	167
 по	Мне было не по себе.	I felt uncomfortable.	167
 зачем	Зачем ты был там?	Why were you there?	168
-зачем	Зачем?	For what?	168
 зачем	Зачем она здесь?	Why is she here?	168
 должна	Что я теперь должна делать?	What am I to do now?	169
 должна	Я не должна была идти.	I didn't have to go.	169
@@ -556,7 +535,6 @@ word	sentence	translation	difficulty_rank
 сделал	Зачем ты это сделал?	What did you do that for?	192
 мои	Вы мои.	You're mine.	193
 мои	Они мои.	They're mine.	193
-мои	Мои.	They're mine.	193
 кажется	Кажется, что-то не так.	It seems to me that something is wrong.	194
 кажется	Всё не то, чем кажется.	Things are not what they seem.	194
 кажется	Кажется, что-то случилось.	It seems that something has happened.	194
@@ -575,7 +553,6 @@ word	sentence	translation	difficulty_rank
 эта	Эта для тебя.	This one's for you.	199
 эта	Эта моя.	This one's mine.	199
 эта	Эта больше.	This one is bigger.	199
-которые	Которые?	Which ones?	200
 два	Один и один будет два.	One and one makes two.	201
 два	Да, два.	Yes, two.	201
 два	Я сделал два.	I made two.	201
@@ -621,7 +598,6 @@ word	sentence	translation	difficulty_rank
 прости	Прости меня, пожалуйста.	Please forgive me.	214
 прости	Прости, я люблю тебя.	I'm sorry, I love you.	214
 прости	Прости, но я люблю тебя.	I'm sorry, I love you.	214
-отлично	Отлично!	Great!	215
 отлично	Отлично. Где?	Fine. Where?	215
 отлично	Всё было отлично.	Everything was very good.	215
 похоже	Это похоже на него.	It is characteristic of him.	216
@@ -681,14 +657,12 @@ word	sentence	translation	difficulty_rank
 разве	Я вам разве не говорил об этом?	Didn't I tell you so?	233
 разве	Разве это возможно?	Is that even possible?	233
 слушай	Не слушай его!	Don't listen to him.	234
-слушай	Слушай!	Listen!	234
 слушай	Пожалуйста, слушай.	Please listen.	234
 лишь	Том лишь хотел поговорить.	Tom just wanted to talk.	236
 лишь	Могу лишь сказать, что я не хотел бы идти.	All I can say is that I'd rather not go.	236
 лишь	Это всего лишь деньги.	It's only money.	236
 ага	Ага, я тоже так думаю.	Yeah. I think so, too.	237
 ага	Ага, я хочу, чтобы ты это сделал.	Yeah, I want you to do it.	237
-ага	Ага.	Yep.	237
 можете	Вы можете найти её?	Can you find her?	238
 можете	Что вы можете сделать?	What can you do?	238
 можете	Можете мне помочь найти это?	Could you help me to find it?	238
@@ -871,7 +845,6 @@ word	sentence	translation	difficulty_rank
 насчёт	Как насчёт 12:45?	How about 12:45?	297
 этой	Как насчёт этой?	How about this one?	297
 хватит	Ну что, на сегодня хватит?	Well, shall we call it a day?	298
-хватит	Хватит.	That will do.	298
 хватит	Пока хватит.	That's enough for now.	298
 понял	Я понял.	I understood.	299
 понял	Ты не понял.	You didn't understand.	299
@@ -916,8 +889,6 @@ word	sentence	translation	difficulty_rank
 вообще	А ты кто такой, вообще?	And just who are you, exactly?	312
 вообще	Вообще-то, Том этого не говорил.	Tom didn't actually say that.	312
 пошли	Пошли домой!	Let's go home!	313
-пошли	Пошли.	Come on!	313
-пошли	Пошли!	Come on!	313
 мать	Это моя мать.	This is my mother.	314
 мать	"""Кто это?"" - ""Это твоя мать""."	"""Who is it?"" ""It's your mother."""	314
 мать	Ты - моя мать.	You are my mother.	314
@@ -975,7 +946,6 @@ word	sentence	translation	difficulty_rank
 извините	Э, вы меня извините?	Uh, will you excuse me?	332
 э	Э, вы меня извините?	Uh, will you excuse me?	332
 извините	Извините меня.	I'm sorry.	332
-извините	Извините.	I'm sorry.	332
 вижу	Я не вижу его.	I don't see him.	333
 вижу	Я вижу этот дом.	I see this house.	333
 вижу	Я ничего не вижу.	I don't see anything.	333
@@ -1038,7 +1008,6 @@ word	sentence	translation	difficulty_rank
 которая	Которая твоя?	Which one's yours?	354
 подожди	Подожди меня!	Wait for me!	355
 подожди	Просто подожди меня там.	Just wait for me there.	355
-подожди	Подожди!	Wait!	355
 руки	Я мою руки.	I wash my hands.	356
 руки	Дай мне свои руки.	Give me your hands.	356
 руки	Где мои руки?	Where are my hands?	356
@@ -1268,7 +1237,6 @@ word	sentence	translation	difficulty_rank
 говорят	Говорят, что он никогда не вернется.	They say that he will never return.	430
 говорят	Мне всё равно, что говорят люди.	I don't care what people say.	430
 правильно	Так говорить - не правильно.	It is not proper that you talk that way.	431
-правильно	Правильно!	Right!	431
 правильно	Это правильно?	Is that correct?	431
 убил	Ты убил моего отца.	You killed my father.	432
 убил	Кто ее убил?	Who killed her?	432
@@ -1319,7 +1287,6 @@ word	sentence	translation	difficulty_rank
 нужны	Ей очень нужны были деньги.	She badly needed the money.	447
 нужны	Тебе нужны деньги?	You need money?	447
 здорово	Это было бы здорово.	That would be fine.	448
-здорово	Здорово!	Wow!	448
 здорово	Это просто здорово.	That's just awesome.	448
 номер	Какой мой номер?	What is my room number?	449
 номер	Ты - номер один!	You are number one!	449
@@ -1489,18 +1456,15 @@ word	sentence	translation	difficulty_rank
 парня	Я хочу парня.	I want a boyfriend.	505
 момент	Где она была в тот момент?	Where was she at that moment?	506
 момент	Я буду готов в момент.	I'll be ready in a jiffy.	506
-момент	Момент...	Just a moment ...	506
 утро	Она была там всё утро.	She was there all morning.	507
 утро	Уже утро.	It is already morning.	507
 утро	Том был там всё утро.	Tom was there all morning.	507
-здравствуйте	Здравствуйте!	Hello.	508
 здравствуйте	Здравствуйте, все!	Hello everybody!	508
 здравствуйте	"Не хочу говорить ""здравствуйте""."	"I don't want to say ""hello""."	508
 стал	Мне не нравится, кем ты стал.	I don't like who you've become.	509
 стал	Какой ты стал большой!	How big you've gotten!	509
 стал	Я бы не стал этого делать.	I wouldn't do that.	509
 скорее	Скорее всего, всё будет в порядке.	It is likely to be fine.	510
-скорее	Скорее!	Hurry up.	510
 скорее	Чем скорее, тем лучше.	The sooner, the better.	510
 ох	Ох, я не знала этого!	Oh, I didn't know that!	511
 собственный	У него есть собственный дом.	He has a house of his own.	512
@@ -1570,7 +1534,6 @@ word	sentence	translation	difficulty_rank
 имеет	Она ничего не имеет против.	She has nothing against it.	532
 имеет	Она имеет детей?	Does she have children?	532
 под	Что Том имеет под этим в виду?	What does Tom mean by that?	532
-стой	Стой!	Stop!	533
 стой	Не стой рядом со мной.	Don't stand near me.	533
 стой	Стой здесь.	Stop right here.	533
 дней	«Я видел ее пять дней назад», — сказал он.	"""I saw her five days ago,"" he said."	534
@@ -1585,7 +1548,6 @@ word	sentence	translation	difficulty_rank
 голову	Я мою голову почти каждый день.	I wash my hair almost every day.	536
 ах	Ах да, это верно.	Oh yes, that's right.	537
 ах	Ах, так!	Oh, really?	537
-ах	Ах!	Ugh!	537
 столько	Ты не должен столько есть за один раз.	You must not eat too much food at one time.	538
 столько	Пожалуйста, возьми с собой столько, сколько тебе нужно.	Please take with you as much as you need.	538
 столько	Я столько о тебе думал.	I thought about you a lot.	538
@@ -1598,7 +1560,6 @@ word	sentence	translation	difficulty_rank
 девушка	Это потому, что ты девушка.	That's because you're a girl.	541
 девушка	Мне не нравится твоя девушка.	I don't like your girlfriend.	541
 девушка	Кто эта девушка?	Who is this girl?	541
-довольно	Довольно!	Enough!	542
 довольно	Ну, всё. С меня довольно.	That's it. I'm outta here.	542
 довольно	Я довольно хорошо себя чувствую.	I do feel pretty good.	542
 доме	Кто в доме?	Who is in the house?	543
@@ -1610,7 +1571,6 @@ word	sentence	translation	difficulty_rank
 оба	Я думаю, мы оба должны уйти.	I think we both should leave.	545
 оба	Я думаю, что мы оба знаем, почему я здесь.	I think we both know why I'm here.	545
 оба	Мне нужно поговорить с вами обоими.	I need to talk to both of you.	545
-увидимся	Увидимся.	See you again.	546
 увидимся	Когда мы увидимся в следующий раз?	When can I see you next time?	546
 увидимся	Вечером увидимся! Пока!	See you tonight! See you soon!	546
 шанс	Ну, давай! Дай мне шанс.	Come on! Give me a chance.	547
@@ -1628,7 +1588,6 @@ word	sentence	translation	difficulty_rank
 какого	До какого времени?	Til when?	551
 какого	Какого бы ты хотел?	Which one would you like?	551
 какого	Какого вы хотите?	Which one do you want?	551
-быстрее	Быстрее!	Faster!	552
 быстрее	Она делает это быстрее, чем ты.	She does it faster than you.	552
 быстрее	Ну, иди быстрее.	Well, go faster.	552
 рассказать	Можешь рассказать ему, мне всё равно.	You can tell him for all I care.	553
@@ -1641,7 +1600,6 @@ word	sentence	translation	difficulty_rank
 бог	Бог в помощь!	Godspeed!	555
 бог	Бог есть.	God is.	555
 интересно	Это интересно.	That is intriguing.	556
-интересно	Интересно.	I am curious.	556
 интересно	Мне просто интересно.	I'm just curious.	556
 затем	Мы здесь только затем, чтобы помочь Тому.	We're only here to help Tom.	557
 затем	Мы здесь затем, чтобы помочь Тому.	We're here to help Tom.	557
@@ -1685,7 +1643,6 @@ word	sentence	translation	difficulty_rank
 какие	Какие у вас проблемы?	What's your problem?	570
 какие	Я знаю, какие они.	I know what they are.	570
 какие	Я не сделаю этого ни за какие деньги.	You couldn't pay me to do that.	570
-ой	Ой...	Oh boy...	571
 ой	Ой, Том, возьми меня с собой!	Oh, Tom, take me with you!	571
 ой	Ой да ладно!	Give me a break!	571
 важный	Что самое важное в жизни?	What's most important in life?	572
@@ -1716,7 +1673,6 @@ word	sentence	translation	difficulty_rank
 пройти	Это пройдет через несколько дней.	It'll pass in a few days.	580
 пройти	Как у тебя прошел день?	How's your day been?	580
 алло	«Алло, это кто?»	"""Hello, who is this?"""	581
-алло	Алло!	Hello!	581
 алло	Алло, кто это?	Hello, who's that?	581
 посмотреть	Я просто хотел посмотреть, что будет.	I just wanted to see what would happen.	582
 посмотреть	Я только хотел посмотреть, что происходит.	I simply wanted to see what was going on.	582
@@ -1876,7 +1832,6 @@ word	sentence	translation	difficulty_rank
 город	Мой город уже не тот, что был раньше.	My town is not what it used to be.	637
 город	Какой прекрасный город!	What a splendid city!	637
 город	Это будет прекрасный город.	It will be a wonderful town.	637
-внимание	Внимание!	Attention!	638
 внимание	Я весь внимание.	I am all ears.	638
 внимание	Спасибо за внимание.	Thank you for listening.	638
 спать	Мне пора идти спать.	I have to go to sleep.	639
@@ -2179,7 +2134,6 @@ word	sentence	translation	difficulty_rank
 следует	Скажи ему, куда ему следует идти.	Tell him where he should go.	740
 неужели	Да неужели?	Really?	741
 неужели	Неужели он действительно так сказал? Не верю!	No! Did he really say that? You can't be serious!	741
-неужели	Неужели?	Do tell!	741
 готова	Когда ты будешь готова идти?	When will you get ready to leave?	742
 готова	Машина готова.	The car is ready.	742
 готова	Я ещё не готова.	I'm not ready yet.	742
@@ -2191,7 +2145,6 @@ word	sentence	translation	difficulty_rank
 смотрите	Смотрите прямо перед собой.	Look in front of you.	744
 круто	Это не круто.	This is not cool.	745
 круто	Здесь действительно круто.	It's really cool here.	745
-круто	Круто!	Wow!	745
 история	Твоя история очень странная.	Yours is a very strange story.	746
 история	Как ни странно, эта история - правда.	Strange as it is, the story is true.	746
 история	Какая странная история!	What a queer story!	746
@@ -2212,7 +2165,6 @@ word	sentence	translation	difficulty_rank
 женщины	Чего хотят женщины?	What do women want?	751
 нашу	Теперь, давайте начнем нашу работу.	Now, let's begin our job.	752
 нашу	За всю нашу работу нам даже спасибо не сказали.	We got no thanks for all our work.	752
-заткнись	Заткнись!	Shut your big mouth.	753
 заткнись	Заткнись и слушай!	Shut up and listen!	753
 заткнись	Эй ты, заткнись!	Hey you, shut up!	753
 минуту	Одну минуту.	Just a minute.	754
@@ -2263,7 +2215,6 @@ word	sentence	translation	difficulty_rank
 например	«У вас так много общего». – «Чего, например?»	"""You've got so much in common."" ""Like what?"""	769
 дерьмо	Что это за дерьмо?	What is this shit?	770
 дерьмо	Вот дерьмо!	Shit!	770
-дерьмо	Дерьмо!	Shit.	770
 полиции	Почему Вы не хотите помочь полиции?	Why don't you want to help the police?	771
 полиции	Почему ты не хочешь помочь полиции?	Why don't you want to help the police?	771
 полиции	Что ты сказал полиции?	What did you tell the police?	771
@@ -2329,7 +2280,6 @@ word	sentence	translation	difficulty_rank
 убийство	Убийство произошло вчера.	The murder happened yesterday.	795
 убийство	Это убийство.	It's murder.	795
 послушайте	А теперь, прежде чем я скажу что-то ещё, послушайте это:	Now, before I say any more, listen to this.	796
-послушайте	Послушайте!	Listen!	796
 послушайте	Пожалуйста, послушайте.	Please listen.	796
 посмотрите	Посмотрите на меня, пожалуйста.	Please look at me.	797
 посмотрите	Вы только посмотрите!	Lo and behold!	797
@@ -2352,7 +2302,6 @@ word	sentence	translation	difficulty_rank
 говоря	Он вернулся домой, ничего нам не говоря.	He returned home without telling us.	802
 говоря	Честно говоря, мне не нравится эта идея.	Frankly speaking, I don't like the idea.	802
 говоря	О чём он думал, говоря это?	What was he thinking when he said that?	802
-неплохо	Неплохо.	Not bad.	803
 неплохо	Звучит неплохо!	That sounds good!	803
 неплохо	Это неплохо.	That's not bad.	803
 прошлой	Что случилось прошлой ночью?	What happened last night?	804
@@ -2365,7 +2314,6 @@ word	sentence	translation	difficulty_rank
 узнал	Я только вчера узнал правду.	Not until yesterday did I know the truth.	806
 узнал	Я его сразу узнал.	I recognised him immediately.	806
 прекрати	Прекрати сейчас же!	Stop it this minute!	807
-прекрати	Прекрати!	Stop that!	807
 прекрати	Так больно. Прекрати!	It's so painful. Stop it!	807
 чуть	Я чуть того.	I'm a little crazy.	808
 чуть	Ты чуть не умер.	You almost died.	808
@@ -2380,7 +2328,6 @@ word	sentence	translation	difficulty_rank
 господа	Прошу сюда, господа!	This way, gentlemen!	811
 господа	Послушайте, господа.	Listen, gentlemen.	811
 слушайте	Не слушайте его!	Don't listen to him.	812
-слушайте	Слушайте!	Listen!	812
 слушайте	Пожалуйста, слушайте.	Please listen.	812
 наше	Это не наше дело.	That's not our business.	813
 наше	Это наше.	This is ours.	813
@@ -2492,7 +2439,6 @@ word	sentence	translation	difficulty_rank
 родители	Они не мои настоящие родители.	They are not my real parents.	850
 родители	Мои родители сейчас оба дома.	Both my parents are at home now.	850
 поехали	Ну, поехали!	Well, let's get going!	851
-поехали	Поехали.	Drive on.	851
 поехали	Я хочу, чтобы вы поехали туда.	I want you to go there.	851
 стало	Что с ним стало с тех пор?	What has become of him since then?	852
 стало	Вы знаете, что с ним стало?	Do you know what has become of him?	852
@@ -2505,7 +2451,6 @@ word	sentence	translation	difficulty_rank
 очевидно	Очевидно, что он сделал это.	It is evident that he did it.	855
 помогите	Пожалуйста, помогите мне.	Please help me.	856
 помогите	Помогите мне.	Help me.	856
-помогите	Помогите!	Help!	856
 школу	Я не хочу идти в школу.	I don't want to go to school.	857
 школу	Я иду в школу.	I walk to school.	857
 школу	Он был слишком маленьким, чтобы идти в школу.	He was too young to go to school.	857
@@ -2606,7 +2551,6 @@ word	sentence	translation	difficulty_rank
 человеком	Том был таким счастливым человеком.	Tom was such a happy person.	889
 человеком	Ты стал великим человеком!	You have become a great man!	889
 человеком	В этом мире трудно оставаться человеком.	In this world, it's difficult to go on behaving like a human being.	889
-бывает	Бывает.	Stuff happens.	890
 бывает	Из ничего ничего не бывает.	Nothing can come of nothing.	890
 бывает	Счастливой любви не бывает.	There is no happy love.	890
 ужин	Что сегодня на ужин?	What do we eat tonight?	891
@@ -2621,7 +2565,6 @@ word	sentence	translation	difficulty_rank
 позвонить	Откуда мы можем позвонить?	Where can one make a phone call?	894
 позвонить	Можно ли позвонить вам завтра?	May I call you tomorrow?	894
 позвонить	Я забыл позвонить ему сегодня.	I forgot to call him today.	894
-наконец	Наконец!	Finally!	895
 наконец	Ей наконец пришла в голову хорошая идея.	At last, she hit on a good idea.	895
 наконец	Спасибо, я наконец понимаю.	Thank you, I finally understand.	895
 стала	Она бы не стала с ним говорить.	She wouldn't speak to him.	896
@@ -2636,7 +2579,6 @@ word	sentence	translation	difficulty_rank
 представить	Не могу представить себе жизнь без него.	I can't conceive of living without him.	899
 представить	Не могу представить себе, что ты тогда его не видел.	I cannot believe you did not see him then.	899
 представить	Я никогда не мог себе представить, что ты можешь сказать это.	I never imagined that you would say that.	899
-смешно	Смешно!	Ridiculous!	900
 смешно	Это не смешно.	It's no laughing matter.	900
 смешно	Это не смешно!	It is not funny!	900
 абсолютно	Это абсолютно невозможно.	It is absolutely impossible.	901
@@ -2691,7 +2633,6 @@ word	sentence	translation	difficulty_rank
 любом	В любом случае это не важно.	Either way, it's not important.	918
 любом	В любом случае это не твоё дело.	In any case, it's none of your business.	918
 любом	В любом случае уже слишком поздно.	It's too late, anyhow.	918
-оставь	Оставь!	Leave it!	919
 оставь	Оставь это мне.	Leave it to me.	919
 оставь	Пожалуйста, просто оставь меня одного.	Please just leave me alone.	919
 связи	Связи нет.	Communications are down.	920
@@ -2715,7 +2656,6 @@ word	sentence	translation	difficulty_rank
 воды	Невозможно жить без воды.	It is impossible to live without water.	926
 воды	Воды больше, чем нужно.	There is more water than is needed.	926
 воды	Вы не можете жить без воды.	You can't live without water.	926
-окей	Окей.	Okay.	927
 окей	Я надеюсь, что всё окей.	I hope everything's OK.	927
 окей	О, окей.	Oh, OK.	927
 речь	Но не об этом речь.	But that's not the point.	928
@@ -2731,7 +2671,6 @@ word	sentence	translation	difficulty_rank
 поводу	У тебя есть что сказать по этому поводу?	Do you have anything to say regarding this?	931
 поводу	По этому поводу ничего не было сказано.	Nothing was said concerning the matter.	931
 перестань	Перестань вести себя как ребёнок.	Quit acting like a child.	932
-перестань	Перестань!	Stop it.	932
 перестань	Это не смешно! Перестань!	It's not funny! Stop it!	932
 увидел	Я хочу, чтобы ты её увидел.	I want you to see her.	933
 увидел	Я увидел, что он был прав.	I saw that he was right.	933
@@ -2771,7 +2710,6 @@ word	sentence	translation	difficulty_rank
 искать	Перестань искать себе проблемы, Том.	Stop looking for problems, Tom.	943
 тихо	Ты можешь остаться здесь, если ты будешь вести себя тихо.	You can stay here as long as you keep quiet.	944
 тихо	Можешь оставаться здесь, если будешь вести себя тихо.	You can stay here as long as you keep quiet.	944
-тихо	Тихо!	Oh, hush!	944
 оставил	Кто-то, должно быть, это оставил там.	Someone must have left it there.	945
 оставил	Я оставил тебе сообщение.	I left you a message.	945
 оставил	Боже мой! Боже мой! для чего Ты оставил меня?	My God, my God, why hast thou forsaken me?	945
@@ -2823,7 +2761,6 @@ word	sentence	translation	difficulty_rank
 рано	Он рано пошел спать.	He went to bed early.	961
 рано	Лучше ли будет, если начать рано?	Would it be better to start early?	961
 рано	Сегодня ты очень рано.	You are very early this morning.	961
-удачи	Удачи!	Good luck.	962
 удачи	До свидания и удачи.	Goodbye and good luck.	962
 удачи	Конечно. Удачи!	Sure. Good luck!	962
 еду	Я еду вместе с тобой.	I am going with you.	963
@@ -2863,7 +2800,6 @@ word	sentence	translation	difficulty_rank
 брата	У меня два брата.	I've got two brothers.	975
 брата	У меня есть два брата.	I have two brothers.	975
 сумасшедший	Наш мир — сумасшедший дом.	The world is a den of crazies.	976
-сумасшедший	Сумасшедший!	Crazy!	976
 сумасшедший	Это дом сумасшедших.	This is a crazy house.	976
 конца	До конца года осталось лишь несколько дней.	There are only a few days left before the end of the year.	977
 конца	Я знаю эту историю от начала до конца.	I know the story from beginning to end.	977
@@ -2872,7 +2808,6 @@ word	sentence	translation	difficulty_rank
 получится	Десять против одного, что у него получится.	Ten to one he will succeed.	978
 получится	Что, если у меня не получится?	What if I fail?	978
 блин	Блин, а раньше ты не мог об этом сказать?	Shit, you couldn't have told me earlier?	979
-блин	Блин.	Crap.	979
 блин	Кто хочет блинов?	Who wants pancakes?	979
 право	Каждый имеет право сказать то, что он думает.	Everyone has a right to say what he thinks.	980
 право	У меня есть право говорить то, что я думаю.	I have the right to say what I think.	980
@@ -2889,8 +2824,6 @@ word	sentence	translation	difficulty_rank
 мира	Для мира ты кто-то, но для кого-то ты — мир.	For the world, you are somebody, but for somebody you are the world.	986
 мира	Он из другого мира.	He is from another world.	986
 мира	Все в мире хотят мира.	Everybody in the world desires peace.	986
-успокойся	Успокойся.	Take it easy.	987
-успокойся	Успокойся!	Calm down!	987
 успокойся	Пожалуйста, успокойся.	Please calm down.	987
 проверить	Мне нужно проверить.	I need to check.	988
 проверить	Я бы хотел помочь Тому проверить это.	I'd like to help Tom prove it.	988
@@ -2944,8 +2877,6 @@ word	sentence	translation	difficulty_rank
 другим	Она нравится другим девочкам.	She is popular with other girls.	1005
 другим	Я стал совершенно другим человеком после той ночи.	I'm a completely new person since that night.	1005
 другим	Не говори другим, ладно?	Don't tell the others, OK?	1005
-уходи	Уходи!	Get away!	1006
-уходи	Уходи.	Get away!	1006
 уходи	Уходи отсюда!	Go away from here!	1006
 среди	Они среди нас!	They are among us!	1007
 среди	Среди нас ни одного, кто не хотел бы тебе помочь.	There is not one of us who does not want to help you.	1007
@@ -2990,7 +2921,6 @@ word	sentence	translation	difficulty_rank
 блядь	Том! Что ты, блядь, делаешь?	Tom! What the fuck are you doing?	1021
 блядь	Что ты, блядь, делаешь?	What the fuck are you doing?	1021
 неважно	Мне уже неважно.	I don't mind anymore.	1022
-неважно	Неважно!	Never mind!	1022
 неважно	Ты говоришь, это неважно?	Are you saying this doesn't matter?	1022
 нашёл	Я наконец-то нашёл решение этой проблемы.	I finally found the solution to the problem.	1024
 нашёл	Кто нашёл, тот и взял.	Finders keepers.	1024
@@ -3046,8 +2976,6 @@ word	sentence	translation	difficulty_rank
 вниз	Не смотри вниз.	Don't look down.	1041
 вниз	Не смотрите вниз.	Don't look down.	1041
 вниз	Я пойду вниз.	I'll go downstairs.	1041
-молодец	Молодец.	That a boy!	1042
-молодец	Молодец!	Well done!	1042
 молодец	Ты молодец.	You are a good boy.	1042
 наверняка	Ты не можешь знать этого наверняка.	You can't know that for sure.	1043
 наверняка	Наверняка никто не станет искать это предложение.	Surely no one will look for this sentence.	1043
@@ -3141,7 +3069,6 @@ word	sentence	translation	difficulty_rank
 закончить	Для меня невозможно закончить эту работу за день.	It is impossible for me to finish this work in a day.	1073
 закончить	Нам нужно закончить работу.	We need to finish the job.	1073
 эм	Эм, секунду. Дай мне закончить с этим.	Eh, just a second, let me finish this.	1073
-огонь	Огонь!	Fire!	1074
 огонь	Сделай огонь поменьше.	Turn the flame down low.	1074
 огонь	Не играйте с огнём.	Don't play with fire.	1074
 остальные	Он пришел после того, как пришли все остальные.	He came after everybody had come.	1075
@@ -3300,7 +3227,6 @@ word	sentence	translation	difficulty_rank
 является	Он часто не является на встречи.	He often absents himself from meetings.	1126
 является	Что является более важным?	What's more important?	1126
 является	Кем, как ты думаешь, является этот человек?	Who do you think that man is?	1126
-брось	Брось!	Leave it!	1127
 брось	Брось, ты же так не думаешь!	Come on, you really don't mean that!	1127
 брось	Я сказал, брось!	I said drop it!	1127
 сексуальный	У тебя очень сексуальные ноги.	You have very sexy legs.	1128
@@ -3316,7 +3242,6 @@ word	sentence	translation	difficulty_rank
 волосы	У вас очень хорошие волосы.	Your hair is very nice.	1133
 волосы	Ненавижу свои волосы.	I hate my hair.	1133
 волосы	Это мои настоящие волосы.	This is my real hair.	1133
-невероятно	Невероятно!	Unbelievable!	1134
 невероятно	Это невероятно.	It's unbelievable.	1134
 невероятно	Это невероятно!	It's incredible!	1134
 произойти	Я полагаю, вы хотите, чтобы я рассказал Тому о произошедшем.	I suppose you want me to tell Tom what happened.	1135
@@ -3392,7 +3317,6 @@ word	sentence	translation	difficulty_rank
 своему	Делай свою работу по-своему.	Do your work in your own way.	1158
 своему	Том всё делает по-своему.	Tom does things in his own way.	1158
 идиот	Можешь мне этого не говорить, идиот.	You don't have to tell me that, fool.	1159
-идиот	Идиот!	Idiot!	1159
 идиот	Ты идиот.	You're an idiot.	1159
 богу	Слава богу.	Thank God.	1160
 слава	Слава богу.	Thank God.	1160
@@ -3421,7 +3345,6 @@ word	sentence	translation	difficulty_rank
 услышать	Лучше один раз увидеть, чем семь раз услышать.	To see is to believe.	1167
 услышать	Я хочу услышать все твои новости.	I want to hear all your news.	1167
 здравствуй	Здравствуй, мир!	Hello, world!	1168
-здравствуй	Здравствуй.	Hello!	1168
 здравствуй	Моя сестра не сказала «здравствуй».	"My sister did not say ""Hello."""	1168
 замуж	Она хотела выйти замуж немедленно.	She wanted to get married immediately.	1169
 замуж	Они решили выйти замуж.	They decided to marry.	1169
@@ -3517,7 +3440,6 @@ word	sentence	translation	difficulty_rank
 жену	Я люблю свою жену.	I love my wife.	1201
 жену	Ты любишь свою жену, правда?	You love your wife, right?	1201
 жену	Том оставил свою жену и семью.	Tom deserted his wife and family.	1201
-неправильно	Неправильно.	Wrong.	1202
 неправильно	Неправильно делать что-то плохое только из-за того, что кто-то еще сделал что-то плохое.	It's not right for you to do something bad just because someone else has done something bad.	1202
 неправильно	Всё, что может быть неправильно понято, будет неправильно понято.	Anything that can be misunderstood will be.	1202
 уничтожить	Он должен быть уничтожен.	It needs to be destroyed.	1203
@@ -3544,7 +3466,6 @@ word	sentence	translation	difficulty_rank
 взяли	Вы взяли не тот ключ.	You took the wrong key.	1210
 взяли	Где вы это взяли?	Where did you get that?	1210
 взяли	Я хочу, чтобы вы взяли меня с собой.	I want you to take me with you.	1210
-поздравляю	Поздравляю!	Congratulations!	1211
 поздравляю	Поздравляю всех!	Congratulations to all!	1211
 поздравляю	Поздравляю тебя!	Congratulations to you!	1211
 заставить	Мы заставим их говорить во что бы то ни стало.	We'll get them to talk no matter what it takes.	1212
@@ -3626,7 +3547,6 @@ word	sentence	translation	difficulty_rank
 секунд	Тебе осталось жить десять секунд.	You have ten seconds left to live.	1239
 секунд	За сколько секунд ты это сделал?	How many seconds did it take you to do that?	1239
 секунд	За сколько секунд вы это сделали?	How many seconds did it take you to do that?	1239
-стоп	Стоп!	Stop!	1240
 стоп	Стоп. Я не хочу.	Stop. I don't want to.	1240
 стоп	Стоп машина!	Stop the engine!	1240
 дали	Сколько они дали тебе за твою старую машину?	How much did they give you for your old car?	1241
@@ -3773,7 +3693,6 @@ word	sentence	translation	difficulty_rank
 поехать	Вы можете поехать туда.	You may go there.	1289
 поехать	Я хочу поехать с тобой, Том.	I want to go with you, Tom.	1289
 садись	Садись в машину.	Get into the car.	1290
-садись	Садись.	Sit down.	1290
 садись	Садись туда, куда хочешь.	Sit wherever you like.	1290
 миллионов	Мой отец сказал, что дом стоит несколько миллионов.	My dad said that the house costs a few million.	1291
 дочери	У меня две дочери.	I have two daughters.	1292
@@ -3787,7 +3706,6 @@ word	sentence	translation	difficulty_rank
 тупой	Он тупой.	He is thick-headed.	1294
 ха	Ха-ха-ха, очень смешно.	Ha ha ha, very funny.	1295
 ха	Ха-ха-ха!	Hahaha!	1295
-ха	Ха!	Ha!	1295
 нечто	Произошло нечто ужасное.	Something terrible's happened.	1296
 нечто	Нечто плохое должно было произойти.	Something bad was about to happen.	1296
 нечто	Это нечто такое, что я должен сделать один.	This is something I need to do alone.	1296
@@ -3899,7 +3817,6 @@ word	sentence	translation	difficulty_rank
 оставьте	Пожалуйста, оставьте мне это.	Please, leave it to me.	1336
 оставьте	Пожалуйста, оставьте это для меня.	Please, leave it to me.	1336
 увидишь	Ты увидишь.	You'll see.	1338
-увидишь	Увидишь.	You'll see.	1338
 увидишь	Если увидишь, скажи.	If you see, let me know.	1338
 глупый	Это самая глупая вещь, которую я когда-либо говорил.	That's the stupidest thing I've ever said.	1339
 глупый	У меня есть один глупый вопрос.	I have a stupid question.	1339
@@ -4319,7 +4236,6 @@ word	sentence	translation	difficulty_rank
 подумай	Подумай о своей семье!	Think of your family.	1481
 забавно	Забавно, что он это сказал.	It is funny for him to say so.	1482
 забавно	Забавно, что ты так сказал.	It's funny you should say that.	1482
-забавно	Забавно.	It's funny.	1482
 главный	Ты тут главный?	Are you the boss?	1483
 главный	Я здесь главный.	I'm in charge here.	1483
 главный	Кто у вас тут главный?	Who's the top man here?	1483
@@ -4332,7 +4248,6 @@ word	sentence	translation	difficulty_rank
 остался	Он хочет, чтобы ты остался здесь.	He wants you to stay here.	1486
 остался	Остался только один день, нравится нам это или нет.	There is only one day left, whether we like it or not.	1486
 остался	Мне уйти или ты хочешь, чтобы я остался?	Should I go or would you like me to stay?	1486
-вставай	Вставай.	Get up.	1487
 вставай	Давай, вставай.	Come on, get up.	1487
 вставай	Не вставай.	Don't stand up.	1487
 снять	Сколько денег вы бы хотели снять?	How much money you would like to withdraw?	1488
@@ -4365,8 +4280,6 @@ word	sentence	translation	difficulty_rank
 бедный	Она так же бедна, как всегда.	She is as poor as ever.	1497
 бедный	Даже просто посмотрев на его дом, станет понятно, что он беден.	Just seeing his house lets you know that he is poor.	1497
 бедный	Он не знает, что значит быть бедным.	He doesn't know what it is to be poor.	1497
-отдай	Отдай!	Give it back!	1498
-отдай	Отдай.	Hand it over.	1498
 отдай	Отдай это!	Give it back.	1498
 вечеринка	В том доме, похоже, вечеринка.	There appears to be a party in that house.	1499
 вечеринка	Завтра вечером у нас будет вечеринка.	We have a party tomorrow evening.	1499
@@ -4399,7 +4312,6 @@ word	sentence	translation	difficulty_rank
 подходит	Не подходит.	This doesn't fit.	1508
 подходит	Мне это подходит.	It suits me.	1508
 беги	Не беги так быстро.	Don't run so fast.	1509
-беги	Беги!	Run!	1509
 беги	Быстрее, беги за ним.	Quick, run after him.	1509
 ничто	Ничто живое не может жить без воды.	No living thing could live without air.	1510
 ничто	Ничто не двигалось.	All was still.	1510
@@ -4788,9 +4700,7 @@ word	sentence	translation	difficulty_rank
 стол	Этот стол такой же большой, как наш.	This table is just as large as ours.	1646
 стол	В комнате есть столы.	There are desks in the room.	1646
 стол	Это стол.	This is a desk.	1646
-ублюдок	Ублюдок!	Bastard!	1647
 ублюдок	Этот ублюдок пытался меня убить.	That bastard tried to kill me.	1647
-ублюдок	Ублюдок.	Asshole.	1647
 тысячи	Там было около тысячи человек.	There were about one thousand people.	1649
 тысячи	Тысячи людей были там.	Thousands of people were there.	1649
 тысячи	Было около тысячи человек.	There were about a thousand people.	1649
@@ -4841,7 +4751,6 @@ word	sentence	translation	difficulty_rank
 проклятие	Я не верю в проклятия.	I don't believe in curses.	1666
 проклятие	Проклятье!	Damn it!	1666
 класс	Это не класс.	This is not cool.	1668
-класс	Класс!	Terrific!	1668
 класс	Весь класс смеялся над его шуткой.	The whole class laughed at his joke.	1668
 смотрел	Это случилось, пока я не смотрел.	It happened while I wasn't looking.	1669
 смотрел	Он смотрел на все красивые вещи в моём доме.	He looked at all the beautiful things in my house.	1669
@@ -4928,8 +4837,6 @@ word	sentence	translation	difficulty_rank
 вернулись	Когда вы вернулись из Лондона?	When did you come back from London?	1696
 вернулись	Том хочет, чтобы мы вернулись.	Tom wants us to come back.	1696
 вернулись	Я знал, что вы бы вернулись домой.	I knew you'd come home.	1696
-убирайся	Убирайся!	Get out!	1697
-убирайся	Убирайся.	Get out.	1697
 убирайся	Теперь убирайся.	Now get out.	1697
 боишься	Если боишься, держи меня за руку.	Keep hold of my hand if you're afraid.	1698
 боишься	Почему ты боишься?	Why are you afraid?	1698
@@ -5002,7 +4909,6 @@ word	sentence	translation	difficulty_rank
 самым	Я чувствую себя самым счастливым человеком в мире.	I feel like the happiest person in the world.	1722
 самым	Пусть этот день будет самым счастливым в вашей жизни.	May this day be the happiest day in your life.	1722
 великолепно	О! Ты ли это? Выглядишь великолепно.	Wow! Is that you? You look wonderful.	1723
-великолепно	Великолепно!	That's great!	1723
 великолепно	Я думаю, что ты выглядишь великолепно.	I think you look great.	1723
 песню	Я не знал эту песню.	I didn't know that song.	1724
 песню	Все знали эту песню.	Everyone knew the song.	1724
@@ -5038,7 +4944,6 @@ word	sentence	translation	difficulty_rank
 появился	В дверях появился мужчина.	A man appeared at the door.	1735
 тише	Ты можешь быть тише, пожалуйста?	Can you please be quiet?	1736
 тише	Мы должны говорить тише.	We should lower our voices.	1736
-тише	Тише!	Quieter!	1736
 одежду	Он дал нам одежду, а также деньги.	He gave us clothes, and money as well.	1737
 одежду	Они взяли еду и одежду.	They took food and clothing.	1737
 одежду	Мне нужно купить новую одежду.	I have to get some new clothes.	1737
@@ -5124,12 +5029,8 @@ word	sentence	translation	difficulty_rank
 души	На улице не было видно ни души.	Not a soul was to be seen in the street.	1765
 души	В городе не было ни души.	Not a soul was to be seen in the town.	1765
 души	Не было видно ни души.	There wasn't a soul in sight.	1765
-расслабься	Расслабься!	Take it easy!	1766
-расслабься	Расслабься.	Just relax.	1766
 расслабься	Все в порядке. Просто расслабься. Будь собой.	You're doing fine. Just relax. Be yourself.	1766
-супер	Супер!	Terrific!	1767
 супер	Спасибо, ты супер!	Thanks, you're fantastic!	1767
-супер	Супер.	This is great.	1767
 ждал	Я ждал этого!	I was expecting it!	1768
 ждал	А я всё ждал.	I waited and waited.	1768
 ждал	Долго ждал?	How long have you waited?	1768
@@ -5163,7 +5064,6 @@ word	sentence	translation	difficulty_rank
 офисе	Сейчас в офисе никого нет.	At the moment, there isn't anyone in the office.	1777
 сука	Это сука.	She's a dog.	1778
 сука	Она самая настоящая сука.	She's a total bitch.	1778
-сука	Сука.	Bitch.	1778
 слегка	Думаю, все мы слегка поехавшие.	I think we're all a bit crazy.	1779
 слегка	Том слегка не в себе.	Tom is a little nuts.	1779
 слегка	Я был слегка занят.	I've been a little busy.	1779
@@ -5187,7 +5087,6 @@ word	sentence	translation	difficulty_rank
 анна	Анна не может найти работу.	Ann can't find a job.	1784
 красиво	Это слово действительно красиво.	This word is really beautiful.	1785
 красиво	Это так красиво!	It's so beautiful.	1785
-красиво	Красиво.	It's beautiful.	1785
 запись	Она дала мне доступ к своим записям.	She gave me access to her records.	1786
 запись	Я начал запись.	I started recording.	1786
 причины	Нет причины, почему я не должен этого делать.	There is no reason why I shouldn't do it.	1787
@@ -5285,7 +5184,6 @@ word	sentence	translation	difficulty_rank
 бери	Бери что хочешь.	Take anything you want.	1818
 бери	Не бери в голову.	Take it easy.	1818
 чушь	Ты говоришь чушь, мой друг.	You are speaking nonsense, my friend.	1819
-чушь	Чушь.	Nonsense.	1819
 чушь	Что это за чушь?	What kind of nonsense is that?	1819
 система	Старая система работает.	The old system works.	1820
 система	Система работала хорошо.	The system worked well.	1820
@@ -5620,7 +5518,6 @@ word	sentence	translation	difficulty_rank
 центре	Он жил в центре Лондона.	He lived in the center of London.	1935
 началось	Вот так это и началось.	That's how it started.	1936
 началось	Да, уже началось.	Yes, it has already started.	1936
-началось	Началось.	It has begun.	1936
 президента	Мы должны верить в нашего президента.	We must have faith in the president.	1937
 президента	Для президента компании ты слишком молодо выглядишь.	You look too young to be a company president.	1937
 зелёный	Зеленый тебе идет.	Green suits you.	1938
@@ -5683,7 +5580,6 @@ word	sentence	translation	difficulty_rank
 ищем	Мы оба ищем что-то, чего здесь нет.	We are both looking for something that isn't there.	1957
 ищем	Мы всё ещё ищем.	We're still looking.	1957
 согласна	Я согласна.	I agree.	1958
-согласна	Согласна.	So be it.	1958
 согласна	Я с тобой не согласна.	I don't agree with you.	1958
 останусь	Я останусь дома.	I will stay at home.	1959
 останусь	Я останусь у тебя на несколько дней.	I will stay at your place for some days.	1959
@@ -5840,7 +5736,6 @@ word	sentence	translation	difficulty_rank
 нравишься	Ты мне нравишься.	I like you.	2009
 заходи	Заходи ко мне завтра, хорошо?	Come and see me tomorrow, won't you?	2010
 заходи	Пожалуйста, заходи.	Please come inside.	2010
-заходи	Заходи.	Come in.	2010
 северный	Где находится северная часть города?	Where is the northern part of the city?	2011
 злой	Не все люди - злые черти.	Not all people are evil bastards.	2012
 злой	Почему ты всегда такой злой?	Why are you always so evil?	2012
@@ -5944,7 +5839,6 @@ word	sentence	translation	difficulty_rank
 бумаги	Сколько бумаги тебе нужно?	What quantity of paper do you need?	2048
 бумаги	Книга сделана из бумаги.	A book is made of paper.	2048
 бумаги	Мне нужно немного бумаги.	I want some paper.	2048
-холодно	Холодно.	It's cold.	2049
 холодно	Вчера было холодно.	It was cold yesterday.	2049
 холодно	Сегодня утром мне холодно.	I feel cold this morning.	2049
 руками	Почти невозможно поверить, что все эти прекрасные вещи были созданы человеческими руками так давно.	It's almost hard to believe all these beautiful things were made by hand such a long time ago.	2050
@@ -5998,7 +5892,6 @@ word	sentence	translation	difficulty_rank
 чувствовал	Я не очень хорошо себя чувствовал, но всё равно пошёл на работу.	I didn't feel very well, but I went to work anyway.	2065
 чудесно	Как же это чудесно!	How wonderful this is!	2066
 чудесно	Насколько это чудесно?	How wonderful is that?	2066
-чудесно	Чудесно!	Wonderful!	2066
 специально	Ты специально сделала ошибку, ведь так?	You made the mistake on purpose, didn't you?	2067
 специально	Я не специально.	I didn't mean it.	2067
 специально	Мне стало ясно, что он сделал это специально.	It occurred to me that he had done it on purpose.	2067
@@ -6078,7 +5971,6 @@ word	sentence	translation	difficulty_rank
 бороться	Она боролась до конца.	She fought until the end.	2091
 остановись	Остановись здесь.	Stop here.	2092
 остановись	Остановись тут.	Stop here.	2092
-остановись	Остановись!	Stop!	2092
 вариант	Я хочу третий вариант.	I want a third alternative.	2093
 вариант	Это первый вариант.	That's the first option.	2093
 вариант	Этот вариант вряд ли возможен.	That's hardly an option.	2093
@@ -6251,7 +6143,6 @@ word	sentence	translation	difficulty_rank
 уходит	Сколько дней обычно уходит на то, чтобы туда добраться?	How many days does it usually take to get there?	2149
 уходит	Во сколько уходит первый поезд?	What time does the first train leave?	2149
 уходит	Солнце приходит и уходит.	The sun comes and goes.	2149
-угу	Угу.	Yep.	2150
 кровати	Мальчик упал с кровати.	The boy fell off the bed.	2151
 кровати	Уже очень поздно, так что мне надо быть уже в кровати.	It's very late, so I should already be in bed.	2151
 кровати	Можешь спать на моей кровати, если хочешь.	You can sleep in my bed if you want.	2151
@@ -6267,7 +6158,6 @@ word	sentence	translation	difficulty_rank
 сладкий	Этот чай слишком сладкий.	This tea is too sweet.	2155
 сладкий	Я не могу пить такой сладкий кофе.	I can't drink coffee as sweet as this.	2155
 сладкий	Мой чай слишком сладкий.	My tea is too sweet.	2155
-телефонный	Мой телефонный номер 234-6868, а номер моей комнаты 1228.	The telephone number is 234-6868, and my room is 1228.	2156
 телефонный	Дай мне свой телефонный номер.	Give me your telephone number.	2156
 телефонный	У вас есть телефонный номер, по которому мы с вами сможем держать связь?	Do you have a number where we can contact you?	2156
 мужем	Он станет хорошим мужем для моей сестры.	He will make my sister a good husband.	2157
@@ -6446,7 +6336,6 @@ word	sentence	translation	difficulty_rank
 проводить	Разве не ты всё время говоришь, что мы должны проводить больше времени вместе?	Aren't you the one who's always saying we should spend more time together?	2218
 проводить	К сожалению, я не могу проводить вас.	I'm sorry I cannot go with you.	2218
 проводить	К сожалению, я не могу проводить тебя.	I'm sorry I cannot go with you.	2218
-ура	Ура!	Hooray!	2219
 мёртв	Мой дядя мёртв три года.	My uncle has been dead for three years.	2220
 мёртв	Этот человек мёртв.	That man is dead.	2220
 мёртв	Они не могли сказать, жив он или мёртв.	They could not tell whether he was dead or alive.	2220
@@ -6544,7 +6433,6 @@ word	sentence	translation	difficulty_rank
 душе	Они в душе.	They're in the shower.	2251
 душе	Он в душе.	He's in the shower.	2251
 взгляни	Взгляни на нас.	Look at us.	2252
-взгляни	Взгляни.	Take a look.	2252
 взгляни	Взгляни на это!	Look at that!	2252
 основном	В основном я согласен с тем, что он сказал.	For the most part, I agree with what he said.	2253
 основном	Эти письма в основном от моей матери.	These letters, in the main, are from my mother.	2253
@@ -6700,7 +6588,6 @@ word	sentence	translation	difficulty_rank
 билет	Где я могу купить билет?	Where can I buy a ticket?	2306
 билет	Он купил билет на самолёт.	He bought a plane ticket.	2306
 билет	Она оставила билет дома.	She left her ticket at home.	2306
-выпьем	Выпьем?	May I offer you a glass?	2307
 выпьем	Мы выпьем за твоё здоровье.	We will drink to your health.	2307
 выпьем	Давай выпьем за твоё здоровье!	Let's drink to your health!	2307
 работаем	Я думал, что сделать это будет легко, но мы работаем уже целый день, а всё ещё не закончили.	I thought doing this would be easy, but we've been working all day and we're still not finished.	2308
@@ -6806,8 +6693,6 @@ word	sentence	translation	difficulty_rank
 занята	Хотя она была занята, она все равно пришла проводить меня.	Even though she was very busy, she came to see me off all the same.	2344
 занята	Я занята.	I'm busy.	2344
 отвали	Отвали! Я занят!	Shove off! I'm busy!	2345
-отвали	Отвали.	Back off.	2345
-отвали	Отвали!	Back off!	2345
 цвет	Он потерял цвет.	He lost color.	2346
 цвет	Этот цвет вам идёт.	This color becomes you.	2346
 цвет	Мне нравится зелёный цвет.	I like the green colour.	2346
@@ -6946,7 +6831,6 @@ word	sentence	translation	difficulty_rank
 районе	Я живу в этом районе.	I live in this neighborhood.	2392
 сядь	Сядь, пожалуйста!	Sit down, please.	2393
 сядь	«Ах, дорогой, — сказала она, — сядь, расслабься и закрой глаза».	"""Oh, darling,"" she said, ""sit down, relax, and close your eyes."""	2393
-сядь	Сядь!	Sit down!	2393
 наоборот	Всем известно, что она ему нравится, и наоборот.	Everybody knows that he likes her and vice versa.	2394
 наоборот	Он сделал всё наоборот.	He did the opposite.	2394
 наоборот	Разве не наоборот?	Isn't it the other way around?	2394
@@ -7127,7 +7011,6 @@ word	sentence	translation	difficulty_rank
 пяти	Он говорит на пяти языках.	He can speak five languages.	2457
 скучно	Мне скучно.	I'm bored.	2458
 скучно	Если станет скучно, уйду домой.	If it gets boring, I will go home.	2458
-скучно	Скучно.	It's boring.	2458
 грёбаный	Мне так сейчас скучно. Время буквально шесть часов грёбаного утра.	I'm so bored right now. It's literally six in the fucking morning.	2458
 приходил	Однако, мальчик долгое время не приходил.	But the boy stayed away for a long time.	2459
 приходил	Кто приходил?	Who has come?	2459
@@ -7396,7 +7279,6 @@ word	sentence	translation	difficulty_rank
 перестать	Я не мог перестать смеяться.	I couldn't stop laughing.	2550
 перестать	Я не могу перестать думать об этом.	I can't stop thinking about that.	2550
 перестать	Я не могу перестать смеяться.	I can't stop laughing.	2550
-отойди	Отойди!	Get away!	2551
 отойди	Отойди в сторону.	Step aside.	2551
 отойди	Отойди от меня!	Get away from me!	2551
 покинуть	Лишь покинув школу я понял, как важно учиться.	It wasn't until I left school that I realized the importance of study.	2552
@@ -7452,8 +7334,6 @@ word	sentence	translation	difficulty_rank
 любим	Мы любим её, и она тоже любит нас.	We love her, and she loves us, too.	2568
 любим	Пока мы любим друг друга, всё будет в порядке.	As long as we love each other, we'll be all right.	2568
 стив	Стив был любим всеми.	Steve was loved by all.	2568
-успокойтесь	Успокойтесь.	Calm down.	2569
-успокойтесь	Успокойтесь!	Settle down!	2569
 успокойтесь	Теперь успокойтесь.	Now calm down.	2569
 имеем	Чем больше мы имеем, тем больше мы хотим иметь.	The more we have, the more we want.	2570
 имеем	Как ты думаешь, с кем мы имеем дело?	Who do you think we're dealing with?	2570
@@ -7564,7 +7444,6 @@ word	sentence	translation	difficulty_rank
 уехала	Твой брат сказал, что ты уехала в Париж.	Your brother said you'd gone to Paris.	2608
 уехала	Она должна быть здесь, потому как она уехала рано.	She should be there now because she left early.	2608
 виновата	Но она не виновата!	But she's innocent!	2609
-виновата	Виновата.	I'm guilty.	2609
 виновата	Это не ты виновата.	It's not your fault.	2609
 ищешь	Вот книга, которую ты ищешь.	Here is the book you are looking for.	2610
 ищешь	Что ты ищешь?	What are you looking for?	2610
@@ -7699,7 +7578,6 @@ word	sentence	translation	difficulty_rank
 переживай	Не переживай. Она знает, что делает.	Don't worry. She knows what she's doing.	2655
 начнём	Мы скоро начнём работу.	We'll begin work soon.	2656
 начнём	Давайте начнём рано утром, идёт?	Let's start early in the morning, shall we?	2656
-начнём	Начнём?	Shall we start?	2656
 руке	Покажи мне, что у тебя в левой руке.	Show me what you have in your left hand.	2657
 руке	Скажи мне, что у тебя в руке.	Tell me what you have in hand.	2657
 руке	Скажи, что у тебя в руке.	Tell me what you have in your hand.	2657
@@ -7772,9 +7650,7 @@ word	sentence	translation	difficulty_rank
 кровью	Умирая, она пыталась написать имя убийцы собственной кровью.	As she was dying, she tried to write the murderer's name with her own blood.	2680
 зад	У неё большой зад.	She has a big butt.	2681
 счета	Вот номер моего счета.	Here's my account number.	2682
-ерунда	Ерунда!	Nonsense!	2683
 ерунда	Не говори ерунды.	Don't talk rubbish!	2683
-ерунда	Ерунда.	Bullshit.	2683
 дерево	Мой отец был деревом.	My father was a tree.	2684
 дерево	Какое огромное дерево!	What a tall tree it is!	2684
 дерево	Он не знает, настоящее ли это дерево.	He doesn't know if that tree is real.	2684
@@ -7939,7 +7815,6 @@ word	sentence	translation	difficulty_rank
 послать	Я собираюсь послать это письмо.	I'm going to mail this letter.	2736
 хрень	Что это за хрень?	What on Earth is this?	2737
 хрень	Хрень какая-то.	It's bullshit.	2737
-секундочку	Секундочку.	Hold on a second.	2738
 секундочку	Подожди секундочку.	Wait a moment.	2738
 секундочку	Подождите секундочку.	Wait one second.	2738
 перезвоню	Я перезвоню тебе позже.	I'll call you back later.	2739
@@ -8020,7 +7895,6 @@ word	sentence	translation	difficulty_rank
 поведение	Тебе должно быть стыдно за своё поведение.	You should be ashamed of your behavior.	2767
 поведение	Мне стыдно за поведение моего сына.	I am ashamed of my son's conduct.	2767
 начинай	Боишься - не начинай, начал - не бойся.	Do not start if afraid, once begun do not be afraid.	2768
-начинай	Начинай!	Begin!	2768
 начинай	Начинай петь.	Start singing.	2768
 ванной	Иногда я слышу, как мой отец поёт в ванной.	I sometimes hear my father singing in the bathroom.	2769
 ванной	Он любит петь в ванной.	He likes to sing in the bathtub.	2769
@@ -8107,7 +7981,6 @@ word	sentence	translation	difficulty_rank
 привезти	Я сказал Тому, что привезу ему подарок.	I told Tom that I'd get him a gift.	2799
 привезти	Я забыла сказать тебе, что привезти.	I forgot to tell you what to bring.	2799
 привезти	Я хочу привезти сюда свою семью.	I want to bring my family here.	2799
-браво	Браво!	Way to go!	2800
 браво	Браво, мой друг.	Well done, my friend.	2800
 браво	Браво, Том!	Bravo, Tom!	2800
 острый	Этот нож очень острый.	This knife is very sharp.	2801
@@ -8355,7 +8228,6 @@ word	sentence	translation	difficulty_rank
 условия	Он согласился на ваши условия.	He agreed to your terms.	2886
 ай	«А-а-ай!» — «Ты в порядке?»	"""Ow-ow-ouch."" ""Are you alright?"""	2887
 ай	Ай! Больно!	Ow! That hurts!	2887
-ай	Ай!	Ouch!	2887
 научиться	Он научится это делать за три часа.	He will learn to do it in three hours.	2888
 научиться	Каждый должен научиться готовить.	Every man should learn how to cook.	2888
 научиться	Я всегда хотел научиться готовить как ты.	I've always wanted to learn to cook like you.	2888
@@ -8379,7 +8251,6 @@ word	sentence	translation	difficulty_rank
 отдел	Где мужской отдел?	Where's the men's section?	2894
 жди	Жди здесь, пока он не вернётся.	Wait here till he comes back.	2895
 жди	Жди здесь.	Wait here.	2895
-жди	Жди!	Wait!	2895
 старше	Я стал старше, поэтому я стал смотреть на вещи по-другому.	I got older, and so I started looking at things differently.	2896
 старше	Он старше меня на три года.	He is three years senior to me.	2896
 старше	Она на два года старше тебя.	She's two years older than you.	2896
@@ -8534,8 +8405,6 @@ word	sentence	translation	difficulty_rank
 отпуск	Где ты собираешься провести отпуск?	Where are you going to spend the vacation?	2946
 отпуск	Она убедила мужа провести отпуск во Франции.	She talked her husband into having a holiday in France.	2946
 отпуск	Что вы делали в прошлый отпуск?	What did you do last vacation?	2946
-аминь	Аминь!	So be it!	2947
-аминь	Аминь.	Amen.	2947
 движение	Он играл важную роль в движении.	He played a major part in the movement.	2948
 движение	Он всегда в движении.	He is always on the move.	2948
 движение	Мы должны продолжать движение.	We should keep moving.	2948
@@ -8672,7 +8541,6 @@ word	sentence	translation	difficulty_rank
 приходи	Всегда приходи к тому времени, к которому обещал.	Always come by the time promised.	2995
 приходи	Приходи, если сможешь.	Come if possible.	2995
 приходи	Приходи как можно скорее.	Come as soon as possible.	2995
-быстрей	Быстрей!	Hurry up.	2996
 быстрей	Ну, иди быстрей.	Well, go faster.	2996
 быстрей	Ну, идите быстрей.	Well, go faster.	2996
 следующем	Я смогу увидеть его в следующем году.	I'll be able to see him next year.	2997
@@ -8813,7 +8681,6 @@ word	sentence	translation	difficulty_rank
 близки	Я знаю, как вы с Томом близки.	I know how close you are to Tom.	3043
 взгляните	Взгляните, правилен ли мой ответ.	See if my answer is correct.	3044
 взгляните	Взгляните на нас.	Look at us.	3044
-взгляните	Взгляните.	Have a look.	3044
 охрана	Где охрана?	Where are the guards?	3045
 охрана	Охрана нас не видела.	The guards didn't see us.	3045
 лице	Взглянул я и не узнал прежнего человека: то в лице его была смерть, а теперь вдруг стал живой, и в лице его я узнал бога.	I looked up, and did not recognize the same man: before, I had seen death in his face; but now he was alive, and I recognized in him the presence of God.	3046
@@ -9262,9 +9129,7 @@ word	sentence	translation	difficulty_rank
 рождества	Весёлого Рождества!	Merry Christmas!	3202
 рождества	До Рождества всего две недели.	Christmas is just two weeks from now.	3202
 рождества	Всем весёлого Рождества и счастливого Нового года.	Merry Christmas and a happy New Year to everyone.	3202
-фу	Фу!	Ugh!	3203
 фу	Фу! Как тебе не стыдно?	Ugh! How are you not ashamed of yourself?	3203
-фу	Фу.	Yuck.	3203
 ходила	Она ни к кому не ходила.	She didn't visit anybody.	3204
 ходила	Моя дочь ходила в школу.	My daughter went to school.	3204
 ходила	Вчера я ходила в больницу.	I went to the hospital yesterday.	3204
@@ -9441,7 +9306,6 @@ word	sentence	translation	difficulty_rank
 приняла	Она приняла его подарок.	She accepted his gift.	3267
 входите	Входите, пожалуйста!	Please come in.	3268
 входите	Вы входите или нет?	Are you coming in or not?	3268
-входите	Входите.	Come in.	3268
 последнего	Он очень изменился с последнего раза.	He changed a lot since the last time.	3269
 последнего	Мы будем драться до последнего.	We will fight to the last.	3269
 последнего	Мы будем сражаться до последнего.	We will fight to the last.	3269
@@ -9482,7 +9346,6 @@ word	sentence	translation	difficulty_rank
 плана	Ничего не остаётся, кроме как отказаться от моего плана.	There was nothing for it but to give up my plan.	3283
 плана	Ты за или против плана?	Are you for or against the plan?	3283
 плана	Нам пришлось отказаться от своего плана.	We had to abandon our plan.	3283
-верни	Верни!	Give it back!	3284
 верни	Между нами всё кончено. Верни мне моё кольцо!	It's over between us. Give me back my ring!	3284
 верни	Верни мне эту книгу.	Give that book back to me.	3284
 сок	Вы любите сок?	Do you like juice?	3285
@@ -9750,7 +9613,6 @@ word	sentence	translation	difficulty_rank
 названием	Я с планеты под названием Земля.	I come from a planet called Earth.	3376
 названием	Том с планеты под названием Земля. Это очень далеко.	Tom comes from a planet called Earth. It's very far away.	3376
 названием	Под каким названием?	Under what name?	3376
-отстань	Отстань!	Leave me alone!	3377
 отстань	Отстань от меня!	Stop bugging me!	3377
 отстань	Отстань от меня.	Get off my back.	3377
 предпочитаю	Я скорее предпочитаю читать, а не писать.	I prefer reading to writing.	3378
@@ -9768,7 +9630,6 @@ word	sentence	translation	difficulty_rank
 концерт	Приходи на мой концерт завтра вечером.	Come to my concert tomorrow evening.	3382
 концерт	Его концерт был очень хорошим.	His concert was very good.	3382
 отвечай	Давай, отвечай быстрее.	Come on, answer quickly.	3383
-отвечай	Отвечай!	Answer me!	3383
 отвечай	Отвечай, когда тебя называют по имени.	Answer to your name when it is called.	3383
 разговоры	Сейчас нам нужны действия, а не разговоры.	All we need now is action, not discussion.	3384
 разговоры	Это всё пустые разговоры.	That's idle talk.	3384
@@ -10509,7 +10370,6 @@ word	sentence	translation	difficulty_rank
 спасла	Она всех нас спасла.	She saved us all.	3638
 спасла	Я спасла Тому жизнь.	I saved Tom's life.	3638
 попробуйте	Попробуйте ещё раз.	Try once again.	3639
-попробуйте	Попробуйте!	Try!	3639
 попробуйте	Попробуйте это.	Taste this.	3639
 милорд	Милорд, Ваше слово для меня — закон.	M'lord, your word is my command.	3640
 станут	Если ты будешь слишком много говорить неправду, то люди тебе не станут верить.	If you tell too many lies, people won't ever believe your words.	3641
@@ -10632,7 +10492,6 @@ word	sentence	translation	difficulty_rank
 отличие	Я могу увидеть отличие.	I can see a difference.	3684
 веди	Веди себя хорошо.	Behave yourself.	3685
 веди	Веди себя тихо на уроке.	Be quiet during the lesson.	3685
-веди	Веди.	Lead the way.	3685
 действует	Я узнаю, как действует лекарство.	I will find out how the medicine works.	3686
 действует	Он действует от своего имени.	He is acting on his own behalf.	3686
 действует	Это правило не действует.	This rule does not apply.	3686
@@ -10760,7 +10619,6 @@ word	sentence	translation	difficulty_rank
 поступила	Я сожалею, что так поступила.	I regret having done such a thing.	3723
 шевелись	Пожалуйста, шевелись быстрее.	Please move quickly.	3724
 шевелись	Давай, шевелись.	Come on, move it.	3724
-шевелись	Шевелись!	Get a move on!	3724
 поближе	Подойди поближе!	Come a bit closer.	3725
 поближе	Я хотел бы познакомиться с тобой поближе.	I'd like to get to know you better.	3725
 поближе	Я хотел бы познакомиться с вами поближе.	I'd like to get to know you better.	3725
@@ -11348,7 +11206,6 @@ word	sentence	translation	difficulty_rank
 разочаровать	Я был разочарован тем, как мало там было работы.	I was disappointed at there being so little to do.	3928
 разочаровать	Я очень разочарован из-за новостей.	I was very disappointed at the news.	3928
 проваливай	Если тебе что-то не нравится, то проваливай отсюда!	If you have a problem with it, then get lost!	3929
-проваливай	Проваливай!	Get outta here!	3929
 проваливай	А теперь проваливай.	Now beat it.	3929
 скорый	Она в скором времени сюда придёт.	She will come here before long.	3930
 скорый	Спасибо за ваш скорейший ответ!	Thanks for your quick answer!	3930
@@ -11385,7 +11242,6 @@ word	sentence	translation	difficulty_rank
 относительно	Всё в жизни относительно.	Everything in life is relative.	3941
 остановитесь	Остановитесь здесь.	Stop here.	3942
 остановитесь	Остановитесь тут.	Stop here.	3942
-остановитесь	Остановитесь!	Stop!	3942
 имели	К сожалению, мы не имели возможности помочь вам.	We're sorry we weren't able to help you.	3943
 имели	Все её песни имели огромный успех.	All of her songs became hits.	3943
 имели	Я понимаю, что вы имели в виду.	I understand what you meant.	3943
@@ -11412,7 +11268,6 @@ word	sentence	translation	difficulty_rank
 мешок	У тебя мешки под глазами.	You've got bags under your eyes.	3950
 мешок	У Вас мешки под глазами.	You've got bags under your eyes.	3950
 засранец	Какой засранец!	What an asshole!	3951
-засранец	Засранец!	Asshole!	3951
 засранец	Том просто засранец.	Tom is just a dick.	3951
 городу	Вчера я видел его идущим по городу.	Yesterday I saw him walking through the city.	3953
 городу	Я искал маленькую квартиру по всему городу.	I've searched everywhere for a small apartment.	3953
@@ -11460,7 +11315,6 @@ word	sentence	translation	difficulty_rank
 издеваешься	Да ты издеваешься, что ли?	Are you freaking kidding me?!	3968
 издеваешься	Ты издеваешься надо мной?	Are you messing with me?	3968
 выходите	Вы выходите?	Are you getting off?	3969
-выходите	Выходите!	Get down.	3969
 выходите	Выходите из машины.	Get out of the car.	3969
 парнями	Том не может пойти выпить с парнями сегодня вечером. Он должен остаться дома и позаботиться о своей матери.	Tom can't go out drinking with the guys tonight. He has to stay home and take care of his mother.	3970
 парнями	Я очень горжусь этими парнями.	I'm really proud of those guys.	3970
@@ -11477,7 +11331,6 @@ word	sentence	translation	difficulty_rank
 че	Че?	What?!	3974
 фигня	Та же фигня.	The same old problem.	3975
 фигня	Такая же фигня.	I'm experiencing the same issue.	3975
-фигня	Фигня.	Poppycock.	3975
 представьте	Представьте себя на его месте.	Imagine yourself to be in his place.	3976
 представьте	Представьте, что меня здесь нет.	Imagine that I'm not here.	3976
 представьте	Пожалуйста, представьте меня Тому.	Please introduce me to Tom.	3976
@@ -11549,7 +11402,6 @@ word	sentence	translation	difficulty_rank
 расскажет	Он не расскажет мне, что произошло.	He won't tell me what happened.	3999
 расскажет	Я буду тем единственным, кто расскажет Тому, а не ты.	I'll be the one who has to tell Tom, not you.	3999
 расскажет	Рано или поздно он всё мне расскажет.	Sooner or later he will tell me everything.	3999
-бум	Бум!	Kaboom!	4000
 открытый	Он держал все окна открытыми.	He kept all the windows open.	4001
 открытый	Не оставляйте окна открытыми.	Don't leave the windows open.	4001
 открытый	Держите окна открытыми, пожалуйста.	Please keep the windows open.	4001
@@ -11602,7 +11454,6 @@ word	sentence	translation	difficulty_rank
 сложнее	Это сложнее, чем ты думаешь.	It's more difficult than you think.	4020
 сложнее	Это сложнее, чем вы думаете.	It's more difficult than you think.	4020
 сложнее	Женщины сложнее устроены, чем мужчины.	Women are more complicated than men.	4020
-жалко	Жалко.	What a pity!	4021
 жалко	Мне её жалко.	I feel sorry for her.	4021
 жалко	Мне жалко Тома.	I feel sorry for Tom.	4021
 нету	Сейчас нету еды.	There's no food right now.	4022
@@ -11868,7 +11719,6 @@ word	sentence	translation	difficulty_rank
 встречаюсь	Простите, но я уже встречаюсь кое с кем.	I'm sorry, but I'm already dating someone.	4113
 встречаюсь	Я встречаюсь со многими людьми.	I meet a lot of people.	4113
 клёво	Было бы клёво.	That would be cool.	4114
-клёво	Клёво.	It's awesome.	4114
 клёво	Это так клёво!	It's so cool!	4114
 открою	Я никому не открою твой секрет.	Your secret will be safe with me.	4115
 открою	Ты не будешь против, если открою дверь?	Do you mind opening the door?	4115
@@ -12425,7 +12275,6 @@ word	sentence	translation	difficulty_rank
 дадут	Они не дадут этому хода.	They won't let this pass.	4305
 присаживайтесь	Присаживайтесь, пожалуйста.	Take a seat, please.	4306
 присаживайтесь	Присаживайтесь куда вам удобно.	Sit wherever you like.	4306
-присаживайтесь	Присаживайтесь.	Have a seat.	4306
 сиськи	У неё большие сиськи.	She has big boobs.	4307
 сиськи	Ты никогда не получишь мои сиськи.	You'll never get my boobs.	4307
 сиськи	Я думал, ее сиськи больше.	I thought her boobs were bigger.	4307
@@ -12589,7 +12438,6 @@ word	sentence	translation	difficulty_rank
 жестоко	С его стороны было жестоко сказать ей такое.	It was cruel of him to say such things to her.	4360
 жестоко	Это было жестоко.	It was cruel.	4360
 впечатляет	Очень впечатляет.	This is very impressive.	4361
-впечатляет	Впечатляет.	That was impressive.	4361
 впечатляет	Это действительно впечатляет.	This is really impressive.	4361
 подругой	Я счастлив со своей подругой.	I am happy with my girlfriend.	4363
 подругой	Я считаю её хорошей подругой.	I consider her a good friend.	4363
@@ -12603,7 +12451,6 @@ word	sentence	translation	difficulty_rank
 предположить	Я и предположить не мог.	I couldn't even guess.	4366
 предположить	Я предположил, что она там.	I assumed that she was there.	4366
 предположить	Я предположил, что появится призрак.	I supposed a ghost would appear.	4366
-херня	Херня.	Bullshit.	4367
 херня	Что за херню ты только что сказал?	What the fuck did you just say?	4367
 херня	А вот это уже серьёзная херня.	Shit just got real.	4367
 сухой	Сухое дерево быстро горит.	Dry wood burns quickly.	4369
@@ -12924,7 +12771,6 @@ word	sentence	translation	difficulty_rank
 мешает	Тому ничто не мешает.	Nothing bothers Tom.	4481
 мешает	Том мне не мешает.	Tom isn't bothering me.	4481
 глупость	Это что за глупость?	What is this nonsense?	4482
-глупость	Глупость.	Nonsense.	4482
 глупость	Глупостью с твоей стороны было совершить такую ошибку.	It is stupid of you to make such a mistake.	4482
 собственность	Эта земля — моя собственность.	This land is my property.	4483
 собственность	Вам вход сюда запрещён. Это частная собственность.	You are not allowed here. This is private property.	4483
@@ -12996,12 +12842,9 @@ word	sentence	translation	difficulty_rank
 сосредоточиться	Из-за последних событий совершенно не могу сосредоточиться на работе.	Due to recent events, it is completely impossible for me to focus on my work.	4508
 сосредоточиться	Я должен сосредоточиться.	I must concentrate.	4508
 сосредоточиться	Я должна сосредоточиться.	I must concentrate.	4508
-берегись	Берегись!	Look out!	4509
 берегись	Берегись здесь воров.	Beware of pickpockets here.	4509
 берегись	Берегись дикой собаки!	Look out for the wild dog!	4509
 мудак	Он мудак.	He's a jerk.	4510
-мудак	Мудак.	Jerk.	4510
-мудак	Мудак!	Douchebag!	4510
 отделение	Я пропустил первое отделение концерта.	I missed the first part of the concert.	4511
 отделение	Я ищу отделение полиции. Вы можете мне помочь?	I'm looking for the police station. Can you help me?	4511
 университете	Ты встретил его в университете?	You met him at the university?	4512
@@ -13220,7 +13063,6 @@ word	sentence	translation	difficulty_rank
 градусов	Температура упала на несколько градусов.	The temperature fell several degrees.	4580
 градусов	Температура поднялась до 30 градусов.	The temperature went up to 30 degrees.	4580
 марш	Марш в постель!	Go to bed!	4581
-марш	Марш!	Go!	4581
 упасть	Всё, что летает, рано или поздно упадёт.	Everything which flies will sooner or later fall down.	4583
 упасть	Будь осторожней, а то упадёшь.	Take care lest you should fall.	4583
 упасть	Дерево было готово упасть в любое мгновение.	The tree was ready to fall at any moment.	4583
@@ -13712,7 +13554,6 @@ word	sentence	translation	difficulty_rank
 застрелить	Многие люди живы, потому что застрелить их не позволяет закон.	Many people are alive because it's illegal to shoot them.	4756
 бегите	Огонь! Бегите!	Fire! Run!	4757
 бегите	Не бегите.	Don't run.	4757
-бегите	Бегите!	Run!	4757
 расходы	Я беру расходы на себя.	I'll foot the bill.	4758
 расходы	У меня не так уж много денег на расходы.	I don't have a great deal of money to spend.	4758
 расходы	Он взял расходы на себя.	He took charge of the expenses.	4758
@@ -13847,7 +13688,6 @@ word	sentence	translation	difficulty_rank
 белых	Кто эти мужчины в белых костюмах?	Who are those men in white suits?	4800
 белых	Соедините меня, пожалуйста, с доктором Белых.	Please connect me with Dr. White.	4800
 болван	Ну и болван же я.	I'm such a fool.	4801
-болван	Болван!	You blockhead!	4801
 болван	Заткнись, болван!	Silence, you fool!	4801
 тишина	В комнате была тишина.	There was quiet in the room.	4802
 тишина	Тот, кто не умеет хранить тишину, так же не знает, как нужно говорить.	He who does not know how to remain silent, does not know how to speak either.	4802
@@ -13862,8 +13702,6 @@ word	sentence	translation	difficulty_rank
 заслуживаешь	Ты заслуживаешь большего.	You deserve more.	4805
 заслуживаешь	Я думаю, что ты этого заслуживаешь.	I think you deserve this.	4805
 бедняжка	О, бедняжка!	Oh, you poor thing!	4806
-бедняжка	Бедняжка.	Poor thing.	4806
-бедняжка	Бедняжка!	Poor thing.	4806
 напишу	Я напишу письмо завтра.	I am going to write a letter tomorrow.	4807
 напишу	Я сразу же ему напишу.	I will write to him at once.	4807
 напишу	Я напишу или позвоню тебе на следующей неделе.	I'll write to you or I'll phone you next week.	4807
@@ -14294,7 +14132,6 @@ word	sentence	translation	difficulty_rank
 моря	У него дом у моря.	He has a house by the sea.	4955
 уровня	Мёртвое море находится ниже уровня моря.	The Dead Sea lies below sea level.	4955
 ублюдки	Не все люди — злые ублюдки.	Not all people are evil bastards.	4956
-ублюдки	Ублюдки!	Bastards!	4956
 битва	Битва продолжается!	The battle goes on!	4957
 битва	Битва была короткой.	The battle was short.	4957
 битва	Битва продолжается.	The fight continues.	4957
@@ -14808,7 +14645,6 @@ word	sentence	translation	difficulty_rank
 поженились	Это церковь, в которой мы поженились.	This is the church where we got married.	5138
 поженились	Сказать по правде, мы поженились в прошлом году.	To tell the truth, we got married last year.	5138
 поженились	Они поженились.	They got married.	5138
-приветствую	Приветствую!	Hail!	5139
 приветствую	Земля свободы, земля будущего, приветствую тебя.	Land of liberty, land of the future, I salute you!	5139
 приветствую	Я приветствую вас.	I greet you.	5139
 деревни	Он был вынужден уйти из деревни.	He had to leave the village.	5140
@@ -14942,7 +14778,6 @@ word	sentence	translation	difficulty_rank
 вернёшься	Когда ты вернёшься?	When will you be back?	5184
 вернёшься	Может быть, вернёшься ко мне?	Maybe you'll come back to me?	5184
 отдайте	Отдайте мою сумку.	Give me back my bag.	5186
-отдайте	Отдайте.	Hand it over.	5186
 отдайте	Отдайте это!	Give it back.	5186
 долю	Отдайте мне мою долю.	Give me my portion.	5186
 документов	Сколько документов ты должен перевести?	How many documents do you have to translate?	5187
@@ -14964,7 +14799,6 @@ word	sentence	translation	difficulty_rank
 собирать	Ты должен продолжать собирать информацию.	You must gather further information.	5193
 собирать	Дети собирают цветы в саду.	The kids are picking flowers in the garden.	5193
 собирать	Это было его работой, собирать яйца.	It was his job to gather eggs.	5193
-гм	Гм.	Hmm...	5194
 бросать	Я бросаю курить.	I'm giving up smoking.	5195
 бросать	Нельзя бросать мусор на улице.	You mustn't throw litter in the street.	5195
 бросать	Тебе не следовало никогда бросать мужа.	You never should've left your husband.	5195
@@ -14981,7 +14815,6 @@ word	sentence	translation	difficulty_rank
 скорая	Нам нужна скорая помощь.	We need an ambulance.	5199
 скорая	Он умер до того, как приехала скорая.	He died before the ambulance arrived.	5199
 молчи	Молчи и слушай!	Be quiet and listen!	5200
-молчи	Молчи!	Quiet!	5200
 молчи	Молчи и слушай, когда я говорю!	When I speak, you be quiet and listen!	5200
 жители	Жители деревни вышли на поиски пропавшего ребёнка.	The villagers went in search of the missing child.	5201
 жители	Я знаю город, жители которого никогда не курили.	I know of a city whose inhabitants never smoked.	5201
@@ -15231,7 +15064,6 @@ word	sentence	translation	difficulty_rank
 склад	Не могли бы вы достать ещё немного бумаги со склада? У нас закончилась.	Could you get some more paper from the stockroom? We ran out.	5286
 склад	Не мог бы ты достать ещё немного бумаги со склада? У нас закончилась.	Could you get some more paper from the stockroom? We ran out.	5286
 прощайте	Он сказал «Прощайте, все» и встал.	He said 'Goodbye everyone' and stood up.	5287
-прощайте	Прощайте.	Farewell!	5287
 читаешь	Важно не то, сколько книг ты читаешь, а то, какие книги ты читаешь.	What is important is not how many books you read, but what books you read.	5288
 читаешь	Сколько книг в месяц ты читаешь?	How many books do you read a month?	5288
 читаешь	Правда? У тебя есть любимый писатель, которого ты всегда читаешь?	Really? You have a favorite writer you always read?	5288
@@ -15276,7 +15108,6 @@ word	sentence	translation	difficulty_rank
 смена	В какое время твоя смена?	What time's your shift?	5303
 смена	Моя смена заканчивается через пару часов.	My shift's over in a couple of hours.	5303
 смена	Смена Тома начинается в полночь.	Tom's shift starts at midnight.	5303
-войдите	Войдите!	Come in.	5304
 войдите	Войдите в комнату.	Enter the room.	5304
 войдите	Пожалуйста, войдите в моё положение.	Please understand my position.	5304
 живёшь	В этом мире живёшь только раз.	One lives but once in the world.	5305
@@ -15461,7 +15292,6 @@ word	sentence	translation	difficulty_rank
 отдых	Что нам сейчас нужно — это отдых.	What we need now is a rest.	5369
 отдых	Они сейчас на отдыхе.	They are now at rest.	5369
 отдых	Мне нужен отдых.	I need to rest.	5369
-фантастика	Фантастика!	Fantastic!	5370
 фантастика	Разве это не фантастика?	Isn't that fantastic?	5370
 фантастика	Том любит научную фантастику.	Tom likes science fiction.	5370
 услышали	Они услышали за спиной шум.	They heard a noise behind them.	5371
@@ -15694,7 +15524,6 @@ word	sentence	translation	difficulty_rank
 глубине	В глубине души все люди добрые.	All people are good at the bottom of their hearts.	5452
 глубине	В глубине души он хороший человек.	He is a good man at heart.	5452
 глубине	В глубине души Том знал, что поступил неправильно.	In his heart of hearts Tom knew he'd done the wrong thing.	5452
-начинайте	Начинайте!	Begin!	5453
 начинайте	Начинайте петь.	Start singing.	5453
 начинайте	Начинайте считать.	Start counting.	5453
 коробки	Внутри этой коробки что-то есть.	There's something inside this box.	5454
@@ -15749,7 +15578,6 @@ word	sentence	translation	difficulty_rank
 злюсь	Я немного злюсь на тебя.	I'm a little angry with you.	5471
 злюсь	Я злюсь, потому что она не позвонила мне.	I'm angry that she didn't call me.	5471
 злюсь	Я никогда не злюсь без причины.	I'm never angry without reason.	5471
-повернись	Повернись.	Turn around.	5472
 повернись	Повернись на спину.	Turn on your back.	5472
 повернись	Теперь повернись.	Now turn around.	5472
 потрясающий	Этот отель имеет потрясающий вид на море.	This hotel has a magnificent view of the sea.	5473
@@ -15907,7 +15735,6 @@ word	sentence	translation	difficulty_rank
 семи	В мире существует более семи тысяч языков.	There are more than seven thousand languages in the world.	5526
 бабуля	Она стала матерью её бабули.	She gave birth to her grandmother.	5527
 бабуля	Съедим бабулю!	Let's eat grandma!	5527
-бабуля	Бабуля!	Granny!	5527
 зови	Если нужна будет помощь, зови.	If you need any help, ask me.	5528
 зови	Зови меня Томом.	Call me Tom.	5528
 зови	Не зови Тома.	Don't call Tom.	5528
@@ -16311,7 +16138,6 @@ word	sentence	translation	difficulty_rank
 молодцы	Мы молодцы.	We did great.	5671
 банда	Я в банде.	I'm in a gang.	5672
 банда	Вы просто банда трусов.	You're just a bunch of cowards.	5672
-протестую	Протестую!	Objection!	5673
 протестую	Протестую, ваша честь.	Objection, your honor.	5673
 протестую	Протестую, Ваша честь.	Objection, Your Honor.	5673
 члена	У женщин нет члена.	Women don't have dicks.	5674
@@ -16598,7 +16424,6 @@ word	sentence	translation	difficulty_rank
 номером	Думаю, Вы ошиблись номером.	I think you have the wrong number.	5774
 номером	Извините, вы ошиблись номером.	I'm sorry, you have the wrong number.	5774
 повтори	Пожалуйста, повтори своё имя ещё раз.	Could you tell me your name again?	5775
-повтори	Повтори.	Say that again.	5775
 повтори	Повтори своё имя!	Repeat your name!	5775
 понадобиться	Позвони мне, если я понадоблюсь.	Call me if you need my assistance.	5776
 понадобиться	Думаю, тебе может понадобиться помощь.	I think you might need some help.	5776
@@ -16622,7 +16447,6 @@ word	sentence	translation	difficulty_rank
 вошли	Я не слышал, как вы вошли.	I didn't hear you come in.	5783
 вошли	Я не слышал, как Вы вошли.	I didn't hear you come in.	5783
 увы	Увы, она умерла молодой.	Alas, she died young.	5784
-увы	Увы.	Too bad.	5784
 увы	Увы! Вы меня не знаете.	Alas! You do not know me, Sir.	5784
 анонимный	Мы получили анонимный звонок.	We got an anonymous call.	5785
 анонимный	Вы можете остаться анонимным.	You may remain anonymous.	5785
@@ -17273,7 +17097,6 @@ word	sentence	translation	difficulty_rank
 поверила	Она поверила ему, когда он сказал, что любит её.	She believed him when he said he loved her.	6019
 поверила	Я не сказала, что я поверила в это.	I didn't say I believed it.	6019
 поверила	Я была так глупа, что поверила ему.	I was foolish enough to believe him.	6019
-подумаешь	Подумаешь!	Big deal!	6021
 подумаешь	Подумаешь, какая херня!	Big fucking deal!	6021
 одет	Извините за то, что я так одет.	Pardon me for being in this dress.	6022
 одет	Не стоит судить о человеке по тому, как он одет.	Don't judge a man by the clothes he wears.	6022
@@ -17347,7 +17170,6 @@ word	sentence	translation	difficulty_rank
 флаг	Не следует ли нам поменять флаг?	Should we change the flag?	6045
 флаг	Смените флаг, пожалуйста.	Change the flag, please.	6045
 флаг	У каждой страны есть государственный флаг.	Every country has its national flag.	6045
-ступай	Ступай!	Go!	6046
 ступай	Ступай с миром.	Go in peace.	6046
 змея	Эту змею не опасно трогать?	Is this snake safe to touch?	6047
 змея	Эта змея жива или мертва?	Is the snake alive or dead?	6047
@@ -17804,7 +17626,6 @@ word	sentence	translation	difficulty_rank
 сериал	Том любит смотреть сериалы.	Tom likes to watch soap operas.	6203
 сериал	Вы любите смотреть сериалы?	Do you like watching TV series?	6203
 сериал	Любите ли вы смотреть сериалы?	Do you like watching TV series?	6203
-тсс	Тсс!	Hush!	6205
 тсс	Тсс, я читаю.	Shhhh, I'm reading.	6205
 тсс	Тсс! Это секрет.	Shush! It's a secret.	6205
 проверять	Он проверяет двигатель каждый день.	He does an engine test every day.	6206
@@ -17862,7 +17683,6 @@ word	sentence	translation	difficulty_rank
 необычно	Это необычно.	That's unusual.	6224
 необычно	Это необычно, сомнений нет.	That's an unusual thing, undoubtedly.	6224
 необычно	Как необычно!	How adventurous!	6224
-вспомни	Вспомни!	Remember!	6225
 вспомни	Вспомни об этом!	Remember this!	6225
 вспомни	Вспомни, о чём я тебе вчера сказал.	Remember what I said to you yesterday.	6225
 героя	Мы смотрим на него как на героя.	We regard him as our hero.	6226
@@ -18283,7 +18103,6 @@ word	sentence	translation	difficulty_rank
 плоть	Ты моя плоть и кровь.	You are my flesh and blood.	6370
 плоть	Вы моя плоть и кровь.	You are my flesh and blood.	6370
 обещаешь	Если что-то обещаешь - держи слово.	If you promise something, keep your word.	6371
-обещаешь	Обещаешь?	Do you promise?	6371
 обещаешь	Обещаешь, что сделаешь это?	Do you promise me you'll do that?	6371
 завидую	Я завидую твоему успеху.	Your success excites my envy.	6372
 завидую	Я завидую твоей удаче.	I envy you your luck.	6372
@@ -18404,7 +18223,6 @@ word	sentence	translation	difficulty_rank
 выходят	Его романы выходят также и на французском.	His novels also appear in French.	6410
 выходят	Команды выходят на поле.	The teams are coming onto the field.	6410
 присаживайся	Присаживайся и чувствуй себя как дома!	Sit down and make yourself comfortable!	6411
-присаживайся	Присаживайся.	Have a seat.	6411
 присаживайся	Присаживайся, Том.	Take a seat, Tom.	6411
 растут	Эти цветы растут в теплых странах.	These flowers grow in warm countries.	6412
 растут	Цены растут.	Prices are going up.	6412
@@ -18631,7 +18449,6 @@ word	sentence	translation	difficulty_rank
 бумага	У вас есть бумага?	Do you have paper?	6492
 бумага	Бумага белая.	Paper is white.	6492
 бумага	Это деловая бумага.	This is a business paper.	6492
-подойдите	Подойдите!	Come over!	6493
 подойдите	Подойдите поближе!	Come a bit closer.	6493
 подойдите	Подойдите сюда и помогите мне.	Come over here and help me.	6493
 злобный	Ты злобный.	You're wicked.	6494
@@ -18711,7 +18528,6 @@ word	sentence	translation	difficulty_rank
 уйдёт	На то, чтобы прочитать эту книгу, уйдёт около недели.	It'll take a week or so to read through this book.	6521
 уйдёт	Поторопись, или поезд уйдёт без тебя.	Hurry, or the train will leave you behind.	6521
 поразительно	Это просто поразительно.	This is simply amazing.	6522
-поразительно	Поразительно!	This is astounding.	6522
 поразительно	Разве это не поразительно?	Isn't this amazing?	6522
 придумаем	Давайте придумаем новый план.	Let's come up with a new plan.	6523
 шторм	Есть опасность шторма.	There is a threat of a storm.	6524
@@ -18726,7 +18542,6 @@ word	sentence	translation	difficulty_rank
 дороже	Его камера в три раза дороже моей.	His camera is three times as expensive as mine.	6528
 дороже	Нет ничего дороже любви.	Nothing is as precious as love.	6528
 щас	Ага, щас!	My ass!	6529
-щас	Щас!	Now!	6529
 проклят	Будь я проклят, если это правда.	I'll be damned if it's true.	6530
 проклят	Этот дом проклят.	This house is cursed.	6530
 график	Всё по графику.	Everything is on schedule.	6531
@@ -18847,7 +18662,6 @@ word	sentence	translation	difficulty_rank
 развода	Сколько времени прошло после вашего развода?	How long has it been since your divorce?	6568
 процессе	Я тогда был в процессе развода.	I was going through a divorce at that time.	6568
 шевелитесь	Пожалуйста, шевелитесь быстрее.	Please move quickly.	6569
-шевелитесь	Шевелитесь!	Get a move on!	6569
 шевелитесь	Не шевелитесь, пока я не вернусь.	Don't move till I get back.	6569
 кошелёк	Я потерял кошелёк.	I have lost my wallet.	6570
 кошелёк	Я ищу кошелёк.	I'm looking for a wallet.	6570
@@ -18923,7 +18737,6 @@ word	sentence	translation	difficulty_rank
 спальню	Она поднялась в свою спальню.	She went upstairs to her bedroom.	6597
 спальню	Хочешь увидеть мою спальню?	Do you want to see my bedroom?	6597
 спальню	Том привёл в порядок свою спальню.	Tom put his bedroom in order.	6597
-прыгай	Прыгай!	Jump!	6598
 прыгай	Сделай три шага и прыгай.	Take three steps and jump.	6598
 прыгай	Пожалуйста, не прыгай.	Please don't jump.	6598
 заметит	Никто не заметит.	Nobody will notice.	6600
@@ -19133,7 +18946,6 @@ word	sentence	translation	difficulty_rank
 великолепна	Она была великолепна.	She was great.	6670
 сдаюсь	Я никогда не сдаюсь.	I never give up.	6671
 сдаюсь	Я сдаюсь.	I give up.	6671
-сдаюсь	Сдаюсь.	I give up.	6671
 отказываюсь	Я отказываюсь обсуждать этот вопрос.	I refuse to discuss the question.	6672
 отказываюсь	Я отказываюсь с вами разговаривать!	I refuse to talk to you!	6672
 отказываюсь	Я отказываюсь отвечать.	I refuse to answer.	6672
@@ -19160,7 +18972,6 @@ word	sentence	translation	difficulty_rank
 фамилию	Фамилию Тома непросто произнести.	Tom's last name isn't easy to pronounce.	6681
 фамилию	Фамилию Тома нелегко произнести.	Tom's last name isn't easy to pronounce.	6681
 вру	Я не вру. Богом клянусь!	I'm not lying. I swear to God!	6682
-вру	Вру.	I'm lying.	6682
 вру	Я не вру.	I don't lie.	6682
 оставит	Он нас в покое не оставит.	He won't leave us alone.	6683
 оставит	Она не оставит меня одного.	She won't leave me alone.	6683
@@ -19287,7 +19098,6 @@ word	sentence	translation	difficulty_rank
 любимых	Путешествовать за границу - одно из моих любимых занятий.	Traveling abroad is one of my favorite things.	6728
 любимых	Это один из моих любимых фильмов.	It's one of my favorite movies.	6728
 лови	Лови мяч.	Catch the ball.	6729
-лови	Лови!	Grab that.	6729
 лови	Лови это.	Grab that.	6729
 выпуск	Тому осталось три месяца до выпуска.	Tom has three months left until he graduates.	6730
 выпуск	Вечерний выпуск газеты уже вышел?	Has the evening edition of the newspaper come out already?	6730
@@ -19340,7 +19150,6 @@ word	sentence	translation	difficulty_rank
 диагноз	Каков диагноз?	What is the diagnosis?	6750
 диагноз	Каков был диагноз?	What was the diagnosis?	6750
 диагноз	Каков твой диагноз?	What's your diagnosis?	6750
-наслаждайтесь	Наслаждайтесь.	Have fun.	6751
 наслаждайтесь	Наслаждайтесь каникулами.	Enjoy your vacation.	6751
 наслаждайтесь	Садитесь и наслаждайтесь.	Sit back and enjoy it.	6751
 ромео	Поверив в то, что Джульетта мертва, Ромео решил убить себя.	Romeo, believing that Juliet was dead, decided to kill himself.	6752
@@ -19719,7 +19528,6 @@ word	sentence	translation	difficulty_rank
 сомневаться	Поэтому не сомневайся.	So don't hesitate.	6884
 сомневаться	В верном сердце никогда не следует сомневаться.	A true heart should never be doubted.	6884
 взаимно	Любовь — это когда оба любят взаимно. Когда любит один — это болезнь.	Love is when both love mutually. When one loves is a disease.	6885
-взаимно	Взаимно.	The pleasure is mine.	6885
 взаимно	Это чувство взаимно.	The feeling is mutual.	6885
 отпустили	Они меня отпустили.	They let me go.	6886
 отпустили	Тома вчера отпустили с работы, потому что он заболел.	Tom was excused from work yesterday because he was sick.	6886
@@ -19830,7 +19638,6 @@ word	sentence	translation	difficulty_rank
 коме	Том всё ещё в коме.	Tom is still in a coma.	6922
 говнюк	"""Эй, ты!"" - ""Да?"" - ""Видишь этого говнюка?"" - ""Да"". - ""Я ему должен денег?"" - ""Да!"" - ""Да пошла ты!"" - ""Да..."""	"""Hey, you!"" ""Yes?"" ""See this piece of shit here?"" ""Yes."" ""Do I owe him money?"" ""Yes!"" ""...Screw you!"" ""Yes..."""	6923
 говнюк	Что за говнюк!	What a jerk!	6923
-говнюк	Говнюк!	Wanker.	6923
 прихожу	Каждое 4 июля я прихожу сюда.	I come here every Fourth of July.	6924
 прихожу	Я прихожу сюда каждый день.	I come here every day.	6924
 прихожу	Я всегда прихожу домой в шесть часов.	I always get home by six o'clock.	6924
@@ -19975,7 +19782,6 @@ word	sentence	translation	difficulty_rank
 живи	Забудь про прошлое, живи настоящим, думай о будущем.	Forget about the past, live in the present, think about the future.	6979
 признаюсь	Признаюсь, я не понимаю.	I confess that I don't understand.	6980
 признаюсь	Признаюсь, что я устал.	I admit that I'm tired.	6980
-признаюсь	Признаюсь.	I confess.	6980
 отчасти	Я был отчасти прав.	I was half right.	6981
 отчасти	Я была отчасти права.	I was half right.	6981
 отчасти	То, что говорит Том, верно лишь отчасти.	What Tom says is only partly right.	6981
@@ -19995,7 +19801,6 @@ word	sentence	translation	difficulty_rank
 случаи	Частные случаи мы не берём.	We're not considering particular cases.	6986
 случаи	Это крайние случаи.	They are the extreme cases.	6986
 случаи	Подобные случаи очень редки.	Accidents like this are very rare.	6986
-спасите	Спасите!	Help!	6987
 спасите	Спасите меня.	Save me.	6987
 спасите	На помощь! Спасите меня!	Help! Rescue me!	6987
 установил	Том установил ловушку.	Tom set a trap.	6988
@@ -20110,7 +19915,6 @@ word	sentence	translation	difficulty_rank
 алкоголя	Мне не нравится вкус алкоголя.	I don't like the taste of alcohol.	7027
 приезжай	Приезжай и посмотри.	Come and look.	7028
 приезжай	Приезжай к нам ещё в следующем году.	Come visit us again next year.	7028
-приезжай	Приезжай.	Come over.	7028
 сохранять	Мы должны сохранять спокойствие.	We must keep calm.	7029
 сохранять	Сохраняйте спокойствие.	Stay calm.	7029
 сохранять	Холодильник сохраняет мясо свежим.	A refrigerator keeps meat fresh.	7029
@@ -20163,7 +19967,6 @@ word	sentence	translation	difficulty_rank
 притормози	Притормози на этом месте.	Pull over right here.	7048
 притормози	Эй, притормози!	Hey, slow down!	7048
 приготовьтесь	Приготовьтесь умереть!	Prepare to die.	7049
-приготовьтесь	Приготовьтесь.	Get ready.	7049
 приготовьтесь	Приготовьтесь к бою.	Prepare for combat.	7049
 подозреваю	Я подозреваю, что он лжёт.	I suspect that he is lying.	7050
 подозреваю	Подозреваю, что ты голодный.	I suppose you're hungry.	7050
@@ -20359,7 +20162,6 @@ word	sentence	translation	difficulty_rank
 магию	Том верит в магию.	Tom believes in magic.	7117
 магию	Я не верю в магию.	I don't believe in magic.	7117
 магию	Том верит в магию?	Does Tom believe in magic?	7117
-просыпайся	Просыпайся!	Wake up!	7118
 просыпайся	Просыпайся, Том.	Wake up, Tom.	7118
 просыпайся	Том, просыпайся.	Tom, wake up.	7118
 пищу	Вы вскоре привыкнете есть японскую пищу.	You'll soon get used to eating Japanese food.	7119
@@ -20372,9 +20174,7 @@ word	sentence	translation	difficulty_rank
 надежде	Он пришёл в надежде увидеть тебя.	He came hoping to meet you.	7121
 надежде	Он пришёл в надежде увидеть вас.	He came hoping to see you.	7121
 чепуха	Он сказал, что хотел положить конец этой чепухе.	He said he wanted to put an end to such a trifle.	7122
-чепуха	Чепуха.	That's nonsense.	7122
 чепуха	На твоём месте я бы не говорил такой чепухи.	If I were you, I would not have said such nonsense.	7122
-гениально	Гениально.	Terrific!	7123
 гениально	Это просто гениально.	That's pure genius.	7123
 гениально	Это было гениально.	It was a stroke of genius.	7123
 принимают	В этом ресторане принимают только наличные деньги.	This restaurant only accepts cash.	7124
@@ -20616,7 +20416,6 @@ word	sentence	translation	difficulty_rank
 депрессии	Она в депрессии.	She's in a depression.	7203
 депрессии	Она была в депрессии.	She was depressed.	7203
 депрессии	Я и правда был в депрессии.	I was really depressed.	7203
-волнуешься	Волнуешься?	Are you excited?	7204
 волнуешься	Ты волнуешься за Тома, не правда ли?	You're worried about Tom, aren't you?	7204
 волнуешься	"""Волнуешься?"" - ""Немного""."	"""Are you nervous?"" ""A little bit."""	7204
 ответов	Мы хотим ответов.	We want answers.	7205
@@ -20644,7 +20443,6 @@ word	sentence	translation	difficulty_rank
 подтверждение	Какие у вас есть подтверждения?	What proof do you have?	7212
 подтверждение	Человек всегда думает перед смертью о прошлом, будто отчаянно ища подтверждения, что действительно жил.	Man always thinks about the past before he dies, as if he were frantically searching for proof that he truly lived.	7212
 бедняга	Бедняга Том, мне тебя жаль.	Poor Tom, I'm sorry for you.	7213
-бедняга	Бедняга.	Poor bastard.	7213
 бедняга	Бедняга! Неудивительно, что он плачет.	Poor thing, no wonder he's crying.	7213
 жениха	Ты знаешь жениха?	Do you know the groom?	7214
 жениха	Это друзья жениха.	These are the groomsmen.	7214
@@ -20842,7 +20640,6 @@ word	sentence	translation	difficulty_rank
 продолжаешь	Ты сумасшедший, если продолжаешь работать в том месте.	You are crazy if you continue to work in that place.	7282
 продолжаешь	Почему ты продолжаешь давать ему деньги?	Why do you keep giving him money?	7282
 продолжаешь	Почему ты продолжаешь спорить с Томом?	Why do you continue to argue with Tom?	7282
-отдохни	Отдохни.	Take a rest.	7283
 отдохни	Присядь и отдохни немного.	Sit down and rest for a while.	7283
 отдохни	Пожалуйста, отдохни несколько дней.	Please take a rest for a few days.	7283
 микрофон	Микрофон по какой-то причине до этого не работал.	For some reason the microphone didn't work earlier.	7285
@@ -21181,11 +20978,9 @@ word	sentence	translation	difficulty_rank
 разберёмся	Давай-ка разберёмся.	Let me get this straight.	7401
 разберёмся	Мы во всём разберёмся.	We'll straighten everything out.	7401
 разберёмся	Мы в этом разберёмся.	We'll figure this out.	7401
-расслабьтесь	Расслабьтесь.	At ease.	7402
 расслабьтесь	Расслабьтесь и не принимайте близко к сердцу.	Please relax and take it easy.	7402
 расслабьтесь	Сядьте и расслабьтесь ненадолго.	Sit down and take it easy for a while.	7402
 попытайся	Попытайся ещё.	Try it again.	7403
-попытайся	Попытайся.	Give it a try.	7403
 попытайся	Попытайся вспомнить!	Try to remember.	7403
 мик	После этого Мики отвезли в больницу.	After this, Miki was taken to the hospital.	7404
 мик	Это тот город, где родилась Мика.	This is the city where Mika was born.	7404
@@ -21253,7 +21048,6 @@ word	sentence	translation	difficulty_rank
 переспал	Ты бы переспал со мной?	Would you sleep with me?	7428
 спускайся	Джимми, завтрак готов. Спускайся.	Jimmy, breakfast is ready. Come downstairs.	7429
 спускайся	Спускайся оттуда!	Get down from there.	7429
-спускайся	Спускайся!	Get down.	7429
 решением	Я не думаю, что это было мудрым решением.	I don't think that was a wise decision.	7430
 решением	Я не спорю с твоим решением.	I don't disagree with your decision.	7430
 решением	Это не было простым решением.	It wasn't an easy decision.	7430
@@ -21389,7 +21183,6 @@ word	sentence	translation	difficulty_rank
 теста	Посмотрим, из какого теста ты сделан.	Let's see what you're made of.	7477
 соберись	Соберись и сделай это снова.	Take heart and do it again.	7478
 соберись	Соберись с духом и скажи правду.	Summon up your courage and tell the truth.	7478
-соберись	Соберись!	Put yourself together.	7478
 достиг	Кто последним достиг цели?	Who was the last to reach the goal?	7479
 достиг	Я достиг всего, чего хотел в жизни.	My life is perfectly fulfilled.	7479
 достиг	Неудивительно, что он достиг цели.	It is no wonder that he has succeeded.	7479
@@ -21816,7 +21609,6 @@ word	sentence	translation	difficulty_rank
 пустяки	Не трать время на пустяки.	Don't waste your time on trifles.	7632
 пустяки	Минус двадцать градусов? Пустяки.	Minus twenty degrees? That's nothing.	7632
 валяй	Не валяй дурака!	Don't play dumb!	7633
-валяй	Валяй!	Fire away!	7633
 валяй	Не валяй дурака, Том.	Don't play dumb, Tom.	7633
 приношу	Мне очень жаль, что я часто приношу тебе неприятности.	I'm sorry to trouble you so often.	7634
 приношу	Приношу извинения за Тома.	I apologize for Tom.	7634
@@ -21902,7 +21694,6 @@ word	sentence	translation	difficulty_rank
 ударь	Ударь меня.	Hit me.	7664
 ударь	Ударь меня как можно сильнее.	Hit me as hard as you can.	7664
 лады	Ты ничего не слышал. Да и вообще, тебя тут не было. Лады?	You didn't hear anything... In fact you weren't even here. Okay?	7665
-лады	Лады.	Aight.	7665
 медаль	Я выиграл золотую медаль.	I won the gold medal.	7668
 медаль	Они выиграли серебряную медаль.	They won the silver medal.	7668
 медаль	Ты заслуживаешь медали.	You deserve a medal.	7668
@@ -22052,7 +21843,6 @@ word	sentence	translation	difficulty_rank
 проиграть	Не проиграю!	I won't lose!	7720
 проиграть	Я верю, что в конечном счете я не окажусь проигравшим.	I trust that, in the long run, I will not be a loser.	7720
 битвы	Можно выиграть все битвы и всё же проиграть войну.	You can win all the battles yet lose the war.	7720
-вставайте	Вставайте!	Get out of bed!	7721
 вставайте	Не вставайте.	Don't stand up.	7721
 вставайте	Вставайте сейчас же!	Get up, now!	7721
 сирена	Том слышал звук сирен.	Tom could hear sirens.	7722
@@ -22156,7 +21946,6 @@ word	sentence	translation	difficulty_rank
 механизм	Наверняка что-то не так с механизмом.	Something must be wrong with the machinery.	7756
 запомните	Запомните эти правила.	Remember these rules.	7757
 запомните	Запомните это.	Memorize it.	7757
-запомните	Запомните!	Remember!	7757
 кислород	Любовь как кислород.	Love is like oxygen.	7758
 кислород	Кислород очень важен для жизни на Земле.	Oxygen is very important for life on Earth.	7758
 едете	Вы туда едете по работе?	Are you going there on business?	7759
@@ -22279,7 +22068,6 @@ word	sentence	translation	difficulty_rank
 евреи	Не все евреи религиозны.	Not all Jews are religious.	7797
 евреи	Мы евреи.	We're Jews.	7797
 тяни	Не тяни кота за хвост!	Don't keep me in suspense!	7798
-тяни	Тяни!	Pull!	7798
 тяни	Не тяни слишком долго.	Don't take too long.	7798
 сдавайся	Не сдавайся, если не получится.	Don't give up if you fail.	7799
 сдавайся	Ты побеждён. Сдавайся.	You have been beaten. Give in!	7799
@@ -22423,7 +22211,6 @@ word	sentence	translation	difficulty_rank
 предположительно	Том предположительно здоров.	Tom is supposedly healthy.	7852
 предположительно	Предположительно, он лидер группы.	He's the putative leader of the bunch.	7852
 предположительно	Она предположительно пошла в магазин.	She allegedly went to the store.	7852
-умри	Умри!	Die!	7853
 умри	Сражайся или умри.	Fight or die.	7853
 умри	Сдавайся или умри!	Surrender or die!	7853
 тварь	Умри, тварь!	Die, beast!	7853
@@ -22538,7 +22325,6 @@ word	sentence	translation	difficulty_rank
 беременность	Я хочу получить тест на беременность.	I'd like to get a pregnancy test.	7890
 беременность	Давай сделаем тест на беременность.	Let's do a pregnancy test.	7890
 беременность	Это моя первая беременность.	This is the first time I've ever been pregnant.	7890
-поторопитесь	Поторопитесь!	Hurry!	7891
 поторопитесь	Поторопитесь! Поезд вот-вот уйдёт.	Hurry up! The train is about to leave.	7891
 поторопитесь	Поторопитесь, пожалуйста.	Hurry up, please.	7891
 забирает	Смерть забирает людей одного за другим.	Death takes people one by one.	7893
@@ -22614,7 +22400,6 @@ word	sentence	translation	difficulty_rank
 пиццы	Думаю, у меня есть остатки пиццы в холодильнике.	I think I have some leftover pizza in the fridge.	7922
 квартале	Большинство домов в этом квартале были построены в 2013 году.	Most of the houses on this block were built in 2013.	7923
 квартале	Я живу в относительно безопасном квартале.	I live in a relatively safe neighborhood.	7923
-спите	Спите?	Are you sleeping?	7924
 спите	Сколько часов в день вы спите?	How many hours a day do you sleep?	7924
 спите	Вы спите?	Are you sleeping?	7924
 анджела	Анджела не ангел.	Angela is not an angel.	7925
@@ -22706,7 +22491,6 @@ word	sentence	translation	difficulty_rank
 вдова	Он оставляет вдову и дочку.	He leaves a widow and a daughter.	7955
 двигай	Давай, двигай.	Come on, move it.	7956
 двигай	Ничего не двигай.	Don't move anything.	7956
-двигай	Двигай!	Move!	7956
 страницу	Мир — это книга. И те, кто не путешествуют, читают только одну страницу.	The world is a book, and those who do not travel read only a page.	7957
 страницу	Пожалуйста, прочитайте страницу 94.	Please read page ninety-four.	7957
 страницу	Я не прочитал ещё последнюю страницу романа.	I haven't read the final page of the novel yet.	7957
@@ -23373,7 +23157,6 @@ word	sentence	translation	difficulty_rank
 планирую	Завтра я планирую весь день оставаться дома.	I plan to stay at home all day tomorrow.	8193
 планирую	Я планирую оставаться там одну неделю.	I plan to stay there one week.	8193
 планирую	Вечером я планирую учиться.	I'm planning to study tonight.	8193
-выйдите	Выйдите!	Leave!	8194
 выйдите	Все, кого я не назвал по имени, — выйдите наружу.	All those I didn't call by name, go outside.	8194
 выйдите	Поднимите руки вверх и выйдите из машины.	Put your hands up and step out of the vehicle.	8194
 американского	Британский английский во многом отличается от американского.	British English differs from American English in many ways.	8195
@@ -23530,7 +23313,6 @@ word	sentence	translation	difficulty_rank
 попросите	Попросите Тома сесть.	Tell Tom to take a seat.	8247
 попросите	Пойдите попросите Тома.	Go and ask Tom.	8247
 попросите	Позвоните Тому и попросите его вернуться.	Call Tom and ask him to come back.	8247
-поздравляем	Поздравляем!	Congratulations!	8248
 поздравляем	Поздравляем! Вы только что выиграли миллион долларов!	Congratulations! You just won a million dollars!	8248
 поздравляем	Поздравляем с победой!	Congratulations on the victory!	8248
 собрания	Все наши собрания проходят на французском языке.	All of our meetings are in French.	8250
@@ -23797,7 +23579,6 @@ word	sentence	translation	difficulty_rank
 типичный	Том не похож на типичного профессора колледжа.	Tom doesn't act like the typical college professor.	8344
 типичный	Это типичное его поведение.	This behaviour is typical of him.	8344
 типичный	Погода в этом году не очень типичная.	This year's weather isn't very typical.	8344
-чао	Чао!	Bye!	8345
 голосование	Мы выбрали председателя голосованием.	We selected the chairman by a vote.	8346
 голосование	Голосование по вопросу было закрыто.	The vote on the question was close.	8346
 голосование	Давайте вынесем это на голосование.	Let's put it to a vote.	8346
@@ -23922,7 +23703,6 @@ word	sentence	translation	difficulty_rank
 императора	День рождения императора пришёлся на воскресенье.	The Emperor's Birthday fell on Sunday.	8389
 императора	Все уважают императора.	All respect the emperor.	8389
 получи	Получи жизнь!	Get a life!	8390
-получи	Получи!	Have at you!	8390
 получи	Получи я это письмо раньше, я бы поступил по-другому.	Had I gotten this letter sooner, I'd have acted differently.	8390
 совету	Благодаря вашему совету у меня всё получилось.	I was able to succeed because of your advice.	8391
 совету	Благодаря его совету, мы смогли закончить раньше, чем ожидали.	Thanks to his advice, we could finish it earlier than we had expected.	8391
@@ -23937,7 +23717,6 @@ word	sentence	translation	difficulty_rank
 чудес	Не ожидай чудес.	Don't expect miracles.	8394
 чудес	Для детей мир полон удивительных чудес.	For children, this world is full of wonders and miracles.	8394
 чудес	Не жди чудес.	Don't expect miracles.	8394
-выкладывай	Выкладывай.	Speak up!	8395
 выкладывай	Выкладывай, Том.	Spit it out, Tom.	8395
 выкладывай	Перестань ходить вокруг да около и выкладывай всё как есть.	Stop beating around the bush and give it to me straight!	8395
 аварийный	В этом здании нет аварийного выхода.	That building has no emergency exit.	8396
@@ -24031,7 +23810,6 @@ word	sentence	translation	difficulty_rank
 хана	Мне хана!	I am toast.	8428
 врасплох	Я поймал его врасплох.	I caught him by surprise.	8429
 врёшь	Ты врёшь.	You are lying.	8430
-врёшь	Врёшь!	You're lying!	8430
 врёшь	Ты врёшь, да?	You're lying, aren't you?	8430
 поживает	Как поживает мой сын?	How's my son doing?	8431
 поживает	Как поживает твоя жена?	How's your wife?	8431
@@ -24158,7 +23936,6 @@ word	sentence	translation	difficulty_rank
 предпринять	Ты собираешься что-то предпринять по этому поводу?	Are you going to do something about it?	8478
 предпринять	Они предприняли большие усилия, чтобы решить проблему.	They made a great effort to settle the problem.	8478
 аплодисменты	Толпа встретила победителя аплодисментами.	The crowd gave the winner a big hand.	8479
-аплодисменты	Аплодисменты!	Applause!	8479
 убирать	Кто будет убирать весь этот беспорядок?	Who's going to clear up all this mess?	8480
 убирать	Я не хочу убирать собачье дерьмо.	I don't wanna clean up dog shit.	8480
 убирать	Я видел, как она убирала комнату.	I saw her clean the room.	8480
@@ -24414,7 +24191,6 @@ word	sentence	translation	difficulty_rank
 официант	Я спросил официанта, нельзя ли занять столик получше.	I asked the waiter to see about getting us a better table.	8574
 официант	Требуется официант.	Waiter needed.	8574
 официант	Том попросил у официанта меню.	Tom asked the waiter for a menu.	8574
-вспомните	Вспомните!	Remember!	8575
 вспомните	Вспомните об этом!	Remember this!	8575
 вспомните	Вспомните, каким был парк и какой он теперь!	Remember what the park was, and what it now is!	8575
 опаздывает	Я задаю себе вопрос: почему он опаздывает?	I do wonder - why is he late?	8576
@@ -24471,7 +24247,6 @@ word	sentence	translation	difficulty_rank
 заведения	Напитки за счёт заведения.	The drinks are on the house.	8594
 заведения	За счёт заведения.	It's on the house.	8594
 заведения	Этот напиток за счёт заведения.	This drink is on the house.	8594
-пригнись	Пригнись!	Duck!	8595
 гнева	Где я могу найти выход для своего гнева?	Where can I find an outlet for all my anger?	8596
 гнева	Он не помнил себя от гнева.	He was beside himself with rage.	8596
 гнева	У вас нет причин для гнева.	You have no cause for anger.	8596
@@ -25087,7 +24862,6 @@ word	sentence	translation	difficulty_rank
 коня	Он упал с коня.	He fell off the horse.	8816
 коня	Привяжите коня к тому дереву.	Tie the horse to that tree.	8816
 коня	Как зовут твоего коня?	What's your horse's name?	8816
-упс	Упс!	Whoops!	8817
 ревнуешь	Я бы сказал, что ты ревнуешь.	I'd say you're jealous.	8818
 ревнуешь	Я бы сказала, что ты ревнуешь.	I'd say you're jealous.	8818
 ревнуешь	Ты её ревнуешь?	Are you jealous of her?	8818
@@ -25860,7 +25634,6 @@ word	sentence	translation	difficulty_rank
 психологический	Врач считает, что проблема Тома психологического характера.	The doctor thinks Tom's problem is psychological.	9100
 ебать	Вы ебать как вежливы!	You're polite as fuck!	9101
 ебать	Ебать вас всех к чёртовой матери!	Fuck you all to hell!	9101
-ебать	Ебать!	Fuck!	9101
 рабочего	Это слишком много для рабочего дня.	This is too much for a day's work.	9102
 рабочего	В конце рабочего дня все торопятся побыстрее попасть домой.	At the end of a working day, everybody is in a hurry to get home.	9102
 рабочего	Том вышел из-за рабочего стола.	Tom stepped out from behind his desk.	9102
@@ -26148,7 +25921,6 @@ word	sentence	translation	difficulty_rank
 топливо	У нас почти кончилось топливо.	We're almost out of fuel.	9197
 тел	Еда — это топливо наших тел.	Food is fuel for our bodies.	9197
 блестяще	Я сдал тест блестяще.	I passed the test with flying colors.	9198
-блестяще	Блестяще!	Brilliant!	9198
 блестяще	План Тома сработал блестяще.	Tom's plan worked brilliantly.	9198
 боссу	Сами написала письмо своему боссу.	Sami e-mailed his boss.	9199
 боссу	Твоему боссу понравится это.	Your boss is going to love that.	9199
@@ -26330,7 +26102,6 @@ word	sentence	translation	difficulty_rank
 прогулки	Это был идеальный день для прогулки.	It was an ideal day for walking.	9265
 прогулки	Вчера не было ни слишком жарко, ни слишком холодно. Это был идеальный день для прогулки.	Yesterday it was neither too warm nor too cold. It was an ideal day for taking a walk.	9265
 гол	Сколько голов - столько умов.	Many men, many minds.	9266
-гол	Гол!	Goal!	9266
 гол	Судья отменил чистый гол.	The referee disallowed a clear goal.	9266
 встали	Они встали на защиту прав своего народа.	They stood up for the rights of their nation.	9267
 встали	Мы встали в очередь за билетами на концерт.	We queued up to get tickets for the concert.	9267
@@ -26344,8 +26115,6 @@ word	sentence	translation	difficulty_rank
 психический	Ты должен принять во внимание его психическое состояние.	You should take account of his mental condition.	9270
 психический	Ты должен принимать во внимание его психическое состояние.	You should take account of his mental condition.	9270
 тормози	Не тормози резко.	Don't brake suddenly.	9271
-тормози	Тормози!	Hit the brakes!	9271
-тормози	Тормози.	Brake.	9271
 улыбнись	Улыбнись мне, пожалуйста.	Smile at me, please.	9272
 улыбнись	Улыбнись мне своей лучшей улыбкой.	Give me your best smile.	9272
 улыбнись	Улыбнись, пожалуйста!	Please smile.	9272
@@ -26892,7 +26661,6 @@ word	sentence	translation	difficulty_rank
 майку	Тебе надо сменить майку, она вся мокрая.	You must change your shirt - it's got wet.	9465
 майку	Кошка нравится Майку.	The cat is liked by Mike.	9465
 майку	Он снял майку.	He took off the wife-beater.	9465
-действуй	Действуй!	Do it!	9466
 действуй	Действуй быстрее!	Act faster!	9466
 действуй	Вместо того чтобы переживать, действуй.	Instead of fretting, take action.	9466
 терапия	Терапия не имела успеха.	The therapy was unsuccessful.	9467
@@ -27102,7 +26870,6 @@ word	sentence	translation	difficulty_rank
 лена	Лена читает журнал для подростков.	Lena is reading a teen magazine.	9537
 потанцуем	Может, потанцуем?	Let's dance, shall we?	9539
 потанцуем	Давай потанцуем под её песню.	Let's dance to her song.	9539
-потанцуем	Потанцуем?	Shall we dance?	9539
 ванная	Где ванная комната?	Where is the washroom?	9540
 ванная	В этом доме две ванные комнаты.	This house has two bathrooms.	9540
 ванная	Вы можете показать мне, где ванная комната?	Can you show me where the bathroom is?	9540
@@ -27136,7 +26903,6 @@ word	sentence	translation	difficulty_rank
 порвала	Она порвала с ним.	She has broken with him.	9550
 порвала	Она порвала письмо, прочитав его.	She tore the letter up after reading it.	9550
 порвала	Я порвала штаны.	I ripped my pants.	9550
-потерпи	Потерпи.	Be patient.	9551
 потерпи	Потерпи немного.	Have a little patience.	9551
 потерпи	Ну, Том, потерпи.	Come on, Tom, be patient.	9551
 взрослым	Становись взрослым, Том.	Grow up, Tom.	9552
@@ -27152,7 +26918,6 @@ word	sentence	translation	difficulty_rank
 фотограф	Я фотограф-любитель.	I'm a shutterbug.	9555
 фотограф	Она профессиональный фотограф.	She's a professional photographer.	9555
 приготовься	Приготовься умереть!	Prepare to die.	9556
-приготовься	Приготовься.	Get ready.	9556
 приготовься	Приготовься к школе.	Get ready for school.	9556
 мотель	Вернёмся в мотель.	Let's go back to the motel.	9557
 мотель	Давай вернёмся в мотель.	Let's go back to the motel.	9557
@@ -27357,7 +27122,6 @@ word	sentence	translation	difficulty_rank
 объяснишь	Как ты объяснишь своё плохое поведение?	What account can you give of your misbehavior?	9628
 объяснишь	Ты объяснишь это простыми словами?	Will you explain it in plain English?	9628
 объяснишь	Ты объяснишь это человеческим языком?	Will you explain it in plain English?	9628
-учись	Учись.	Study!	9629
 учись	Век живи — век учись.	Live and learn.	9629
 учись	Не учись.	Don't study.	9629
 форт	Этот форт построен для защиты города от вторжения.	It's a fort built to defend the town from invasion.	9630
@@ -27566,7 +27330,6 @@ word	sentence	translation	difficulty_rank
 взволнована	Я очень взволнована.	I'm very excited.	9701
 куришь	Ведь ты же не куришь, да?	You don't smoke, do you?	9702
 куришь	Ты куришь?	Do you smoke?	9702
-куришь	Куришь?	Do you smoke?	9702
 ирландский	Больше всего Тому нравится слушать американский английский, но звуки ирландского английского ему тоже по душе.	Tom likes listening to American English the most, but he also likes the sound of Irish English.	9703
 ирландский	Я не говорю на ирландском.	I don't speak Irish.	9703
 потихоньку	Я потихоньку учу ирландский язык.	I'm learning Irish slowly.	9703
@@ -27985,8 +27748,6 @@ word	sentence	translation	difficulty_rank
 разочарование	К моему разочарованию, письмо не пришло.	To my disappointment, his letter didn't come.	9855
 разочарование	К нашему великому разочарованию, игра была отменена.	To our great disappointment, the game was called off.	9855
 разочарование	Его новый фильм вызывает разочарование.	His new movie is disappointing.	9855
-погляди	Погляди!	Check it out!	9856
-погляди	Погляди.	Have a look.	9856
 погляди	Погляди на женщину вон там!	Look at the woman over there!	9856
 мошенничество	Это было мошенничество.	It was a fake.	9857
 мошенничество	Очевидно, что это мошенничество.	Clearly, it's a fraud.	9857
@@ -28047,7 +27808,6 @@ word	sentence	translation	difficulty_rank
 связалась	Я связалась с Томом.	I contacted Tom.	9881
 связалась	Я скажу ей, чтобы она с тобой связалась.	I'll tell her to contact you.	9881
 связалась	Я скажу ей, чтобы она с вами связалась.	I'll tell her to contact you.	9881
-паршиво	Паршиво.	This sucks.	9882
 паршиво	Давненько я не чувствовал себя так паршиво.	Been a long while since I felt this awful.	9882
 кадров	Я не буду выполнять приказы какого-то идиота из отдела кадров.	I will not be dictated to by some idiot in the personnel department.	9883
 кадров	Алло, это отдел кадров?	Hello, is this the personnel department?	9883

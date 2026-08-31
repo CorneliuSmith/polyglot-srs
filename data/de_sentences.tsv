@@ -1,5 +1,4 @@
 word	sentence	translation	difficulty_rank
-ich	Ich?	Me?	1
 das	Das ist sie.	That's the one.	4
 ist	Das ist sie.	That's the one.	4
 sie	Das ist sie.	That's the one.	4
@@ -21,17 +20,13 @@ du	Und du?	And you?	9
 und	Und du?	And you?	9
 ich	Und ich?	What about me?	9
 und	Und ich?	What about me?	9
-und	Und?	Now what?	9
 du	Ich nicht, und du?	Not me. And you?	9
 was	Was ist das?	What is it?	12
-was	Was?	What?	12
 was	Es ist, was es ist.	It is what it is.	12
 zu	Sie ist zu.	It's closed.	13
 er	Er ist es.	It is he.	14
 er	Das ist er.	That's the one.	14
 er	Das ist er nicht.	That's not him.	14
-ja	Ja.	Yes.	17
-ja	Ja!	Yes!	17
 ja	Ja und?	So what?	17
 ein	Ist das ein Ja?	Is that a yes?	17
 du	„Ich?“ „Ja, du!“	"""Me?"" ""Yes, you!"""	17
@@ -85,7 +80,6 @@ mit	Was ist mit ihr?	What about her?	37
 ihr	Was ist mit ihr?	What about her?	37
 ihr	Er ist nicht wie ihr.	He's not like you.	37
 ihr	Sie ist nicht wie ihr.	She's not like you.	37
-nein	Nein!	No!	38
 nein	Ja und nein.	Yes and no.	38
 o	O nein!	Oh, no!	38
 nein	O nein!	Oh, no!	38
@@ -246,7 +240,6 @@ bei	Wir sind bei dir.	We're with you.	84
 also	Also, hier sind wir!	Well, here we are!	85
 also	Da bin ich also.	So, I'm arrived.	85
 also	Ich will, also kann ich!	I want to, so I can!	85
-bitte	Bitte.	Please.	86
 bitte	Wie bitte?	Pardon me?	86
 bitte	Ja, bitte.	Yes, please.	86
 immer	Er ist immer noch hier.	He is still here.	87
@@ -256,7 +249,6 @@ als	Sie hat immer mehr als ich.	She always has more than me.	87
 hab	Hab dich!	Gotcha!	88
 hab	Ich hab's.	I got it.	88
 hab	Hab dich.	Gotcha.	88
-warum	Warum?	Why?	89
 warum	Warum ist er hier?	Why is he here?	89
 warum	Warum ich?	Why me?	89
 keine	Warum hast du keine?	Why don't you have one?	89
@@ -340,7 +332,6 @@ gibt	Geht nicht gibt's nicht.	"There's no such word as ""can't""."	114
 gibt	Es gibt immer etwas zu tun.	There is always something to do.	114
 okay	Okay, los geht's.	Okay, let's go.	115
 okay	Jetzt ist alles okay.	Everything is all right now.	115
-okay	Okay.	Okay.	115
 wissen	Wissen Sie, wer sie sind?	Do you know who they are?	116
 wissen	Das will ich nicht wissen.	I don't want to know about it.	116
 wissen	Ich will es auch wissen!	I also want to know!	116
@@ -360,7 +351,6 @@ werde	Ich werde es tun.	I'll do it.	120
 nie	Ich werde es nie wieder tun.	I will never do it again.	121
 nie	Ich will dich nie wieder sehen.	I don't ever want to see you again.	121
 nie	Ich werde es nie wieder machen.	I will not do it again.	121
-wirklich	Wirklich?	Really?	122
 wirklich	Nein, nicht wirklich.	No, not really.	122
 wirklich	„Wirklich?“ „Ja, wirklich.“	"""Really?"" ""Yes, really."""	122
 kein	Gibt kein Aber!	There's no but about it!	123
@@ -470,7 +460,6 @@ lassen	Lassen Sie das mich machen.	Let me do this.	158
 lassen	Lassen Sie mich sehen.	Let me have a look at it.	158
 lassen	Lassen Sie mich gehen!	Let me go!	158
 hallo	Hallo? Bist du noch da?	Hello? Are you still here?	159
-hallo	Hallo!	Hello!	159
 hallo	Hallo! Wie geht’s?	Hello, how are you?	159
 meinen	Ich weiß, was Sie meinen.	I know what you mean.	160
 meinen	Was meinen Sie damit?	What do you mean by it?	160
@@ -494,7 +483,6 @@ könnte	Wenn ich so sein könnte...	If I could be like that...	166
 könnte	Er könnte es machen.	He could do it.	166
 könnte	Was könnte er meinen?	What could he mean?	166
 genau	Das ist genau das, was ich wollte.	This is just what I wanted.	167
-genau	Genau!	Exactly!	167
 genau	Ich weiß es noch nicht genau.	I don't know exactly yet.	167
 waren	Hier waren wir schon mal.	We've been here before.	168
 waren	Wo waren Sie?	Where have you been?	168
@@ -569,7 +557,6 @@ mutter	Meine Mutter ist schön.	My mother is beautiful.	190
 musst	Du musst viel aus der Zeit machen.	You must make much of time.	191
 musst	Du musst gehen.	You have to go.	191
 musst	Das ist alles, was du jetzt machen musst.	This is all you have to do now.	191
-raus	Raus!	Get out!	192
 raus	Ich muss hier raus.	I've got to get out of here.	192
 raus	Lass mich raus!	Let me out!	192
 gemacht	Er hat es so gemacht, wie ich es ihm gesagt hatte.	He did as I told him.	193
@@ -589,7 +576,6 @@ dachte	So viel dachte ich mir.	I thought as much.	197
 dachte	Ich dachte, er würde kommen.	I thought he would come.	197
 dachte	Dann dachte seine Mutter nach.	Then his mother thought.	197
 besser	Das, was du nicht hast, ist besser als das, was du hast.	What you don't have is better than what you do have.	198
-besser	Besser.	That's better.	198
 besser	Besser als nichts.	Better than nothing.	198
 wieso	Wieso tut dir etwas leid, das du nicht gemacht hast?	Why are you sorry for something you haven't done?	199
 wieso	Wirklich? Wieso?	Really? Why?	199
@@ -647,7 +633,6 @@ lange	Lange nicht gesehen.	Long time, no see.	216
 lange	Ich habe ihn schon lange nicht mehr gesehen.	I haven't seen him for a long time.	216
 natürlich	Ja, natürlich.	Yes, of course.	217
 natürlich	Natürlich. Was kann ich tun?	Sure. What can I do?	217
-natürlich	Natürlich.	Of course.	217
 ach	Ach, ich bitte dich, glaube mir!	Oh please, believe me.	218
 ach	Ach so!	Ah, okay!	218
 ach	Ach nein! Wirklich?	Oh no, really?	218
@@ -839,7 +824,6 @@ ganze	Lass uns doch die ganze Nacht durch reden, oder?	Let's talk the night away
 genug	Du bist nicht schnell genug.	You're not fast enough.	278
 genug	Er hatte nicht genug Geld.	He did not have enough money.	278
 genug	Wir haben genug Zeit.	We have enough time.	278
-scheiße	Scheiße!	Shit.	279
 scheiße	Was ist das denn für eine Scheiße?	What is this shit?	279
 scheiße	Liebe ist scheiße.	Love sucks.	279
 brauchen	Kinder brauchen Liebe.	Children need loving.	280
@@ -921,7 +905,6 @@ fertig	Ich bin fertig.	I am ready.	305
 fertig	Sind Sie mit Ihrer Arbeit fertig?	Have you finished your work?	305
 fertig	Sind Sie fertig?	Have you finished?	305
 halt	Halt dich da raus!	You keep out of this.	306
-halt	Halt!	Stop!	306
 halt	Halt mich doch auf, wenn du kannst!	Stop me if you can.	306
 allein	Ich denke immer an ihn, wenn ich allein bin.	I always think of him when I'm alone.	307
 allein	Sie ist nicht mehr allein.	She isn't alone anymore.	307
@@ -944,9 +927,7 @@ sache	Sie ist jetzt ganz bei der Sache.	She's hard at it now.	312
 hilfe	Es gibt viel zu tun, willst du Hilfe?	There's quite a lot of things to do; do you want some help?	313
 hilfe	Ich brauche seine Hilfe.	I need his help.	313
 hilfe	Ich brauche deine Hilfe.	I need your help.	313
-verdammt	Verdammt.	Damn.	314
 verdammt	Verdammt noch mal, was geht hier vor?	What the fuck is going on here?	314
-verdammt	Verdammt!	Damn it!	314
 ne	Wir haben heute nicht viel gemacht, ne?	We didn't do much today, did we?	315
 ne	Sie ist ’ne ganz Liebe.	She's a total sweetheart.	315
 ne	Was für 'ne Scheiße ist das denn?	What kind of crapola is this?	315
@@ -1058,7 +1039,6 @@ mag	Mein Bruder mag Musik.	My brother likes music.	350
 sieh	Sieh mich an.	Look at me.	351
 sieh	Geh hin und sieh nach, wer es ist.	Go and see who it is.	351
 sieh	Sieh dir dieses Haus an.	Look at this house.	351
-echt	Echt?	Really?	352
 echt	Ist das echt?	Is this real?	352
 echt	Wir sind echt gut.	We're really good.	352
 gib	Gib mir Zeit, dir alles zu geben, was ich habe!	Give me time to give you everything I have!	353
@@ -1337,7 +1317,6 @@ teufel	Sie ist ein Teufel.	She's a demoness.	446
 teufel	Wo ist der Teufel zu Hause?	Where does the devil live?	446
 verstanden	Hast du verstanden, was er gesagt hat?	Did you understand what he said?	447
 verstanden	Ich habe verstanden, was sie gesagt hat.	I got what she was saying.	447
-verstanden	Verstanden?	Got it?	447
 verloren	Ich habe meine Uhr verloren.	I have lost my watch.	448
 verloren	Mein Vater gab mir eine Uhr, aber ich habe sie verloren.	My father gave me a watch, but I lost it.	448
 verloren	Ich habe all mein Geld verloren.	I've lost all my money.	448
@@ -1398,7 +1377,6 @@ letzten	Ich habe sie in der letzten Zeit nicht gesehen.	I haven't seen anything 
 schatz	Ich liebe dich, mein Schatz.	I love you, sweetheart.	467
 schatz	Ach, ich danke dir, mein Schatz!	Ah, I thank you, my dear.	467
 schatz	Gute Nacht, Schatz!	Good night, sweetheart.	467
-endlich	Endlich!	Finally!	468
 endlich	Endlich habe ich eine Arbeit gefunden.	Finally, I found a job.	468
 endlich	Der Mann ging endlich weg.	The man went off at last.	468
 he	He, du da!	Hey, you there!	469
@@ -1627,8 +1605,6 @@ schule	Ich bin zu spät in die Schule gekommen.	I was late to school.	544
 schule	Ich mag die Schule nicht.	I don't like school.	544
 schule	Das ist unsere Schule.	That is our school.	544
 entschuldigung	Ich habe keine Entschuldigung.	I have no excuse.	545
-entschuldigung	Entschuldigung...	Sorry...	545
-entschuldigung	Entschuldigung!	I'm sorry.	545
 wort	Ich weiß nicht, was dieses Wort bedeutet.	I don't know what this word means.	546
 wort	Was bedeutet dieses Wort?	What does this word mean?	546
 wort	Er hat kein Wort gesagt.	He didn't say a word.	546
@@ -1644,7 +1620,6 @@ typ	Er ist mein Typ!	He is my type!	549
 schlafen	Du solltest schlafen.	You should sleep.	550
 schlafen	Ich denke, ich werde schlafen gehen.	I think I'm gonna go to sleep.	550
 schlafen	Meine Frau versucht zu schlafen.	My wife's trying to sleep.	550
-äh	Äh...	Er...	551
 tu	Tu, was immer du willst!	Do whatever you want to do.	552
 tu	Tu das, was richtig ist!	Do what's right!	552
 tu	Tu etwas!	Do something!	552
@@ -1842,7 +1817,6 @@ pass	Pass gut auf dich auf.	Take good care of yourself.	616
 pass	Pass auf!	Watch out!	616
 pass	Kann ich Ihren Pass sehen?	May I see your passport?	616
 willkommen	Willkommen zu Hause.	Welcome home.	617
-willkommen	Willkommen!	Welcome.	617
 willkommen	Du bist hier willkommen.	You are welcome here.	617
 plan	Zeigen Sie mir das bitte auf dem Plan.	Please, can you indicate this to me on the map?	618
 plan	Bist du für oder gegen meinen Plan?	Are you for or against my plan?	618
@@ -2285,7 +2259,6 @@ körper	Die Polizei fand den Körper nicht.	Police didn't discover the body.	763
 solche	Ich habe keine Freunde, mit denen ich über solche Sachen reden könnte.	I have no friends to whom I could speak about such matters.	764
 solche	Man kann solche Dinge nicht überall finden.	Such a thing cannot be found everywhere.	764
 solche	Das Leben ist zu kurz, um sich um solche Dinge Sorgen zu machen.	Life is too short to worry about things like that.	764
-mist	Mist!	Darn!	765
 mist	Mist! Meine Freundin ist schon zurück! Was sollen wir machen?	Crap! My girlfriend is already back! What should we do?!	765
 mist	Hör auf mit dem Mist!	Cut the crap!	765
 findet	So etwas findet man nicht überall.	That kind of thing can't be found just anywhere.	766
@@ -2418,7 +2391,6 @@ wisst	Ihr wisst nicht, wer ich bin.	You don't know who I am.	808
 wisst	Wisst ihr, wem dieses Auto gehört?	Do you know whose car this is?	808
 wisst	Wisst ihr, was sie gesagt hat?	Do you know what she said?	808
 großartig	Das ist wirklich großartig!	That's really great!	809
-großartig	Großartig!	Great!	809
 großartig	Großartig, nicht wahr?	Great, isn't it?	809
 lacht	Lacht mit ihnen.	Laugh with them.	810
 lacht	Er lacht immer.	He is always laughing.	810
@@ -2494,7 +2466,6 @@ schlimm	Das ist nicht schlimm.	That's not bad.	833
 schlimm	Sieht das schlimm aus?	Does it look bad?	833
 unglaublich	Es ist unglaublich.	It's unbelievable.	835
 unglaublich	Es ist unglaublich, dass er so etwas getan hat.	It is strange that he should have done such a thing.	835
-unglaublich	Unglaublich!	Incredible!	835
 wärst	Wärst du ein bisschen früher gekommen, hättest du sie treffen können.	Had you come a little earlier, you could have met her.	836
 wärst	Ich dachte, du wärst mein Freund.	I thought you were my friend.	836
 wärst	Hast du nicht gesagt, du wärst daran nicht interessiert?	I thought you said you weren't interested.	836
@@ -2553,7 +2524,6 @@ vorher	Warum hast du mir das denn nicht vorher gesagt?	Why didn't you tell me th
 vorher	Falls ich nicht kommen kann, werde ich Sie vorher anrufen.	In case I can't come, I'll give you a call beforehand.	856
 vorher	Es tut mir leid, ich weiß, was ich dir vorher gesagt habe, aber vergiss es!	I'm sorry, I know what I said earlier, but forget it.	856
 schneller	Niemand in seiner Klasse ist schneller als er.	No one in his class is faster than he is.	857
-schneller	Schneller!	Faster!	857
 schneller	Er kann schneller laufen als ich.	He is able to run faster than I am.	857
 liebt	Meine Mutter liebt Musik.	My mother loves music.	858
 liebt	Ich liebe sie und sie liebt mich.	I love her and she loves me.	858
@@ -2615,13 +2585,11 @@ tages	Du wirst mich eines Tages vergessen.	You'll forget about me someday.	878
 tages	Eines Tages habe ich ihn getroffen.	One day I met him.	878
 tages	Eines Tages wirst du die Wahrheit erfahren.	You will know the truth some day.	878
 unmöglich	Es ist mir unmöglich, es dir zu erklären.	It's impossible for me to explain it to you.	879
-unmöglich	Unmöglich!	No way!	879
 unmöglich	Nichts ist unmöglich für den, der es nicht selbst machen muss.	Nothing is impossible for the man who doesn't have to do it himself.	879
 liebling	Wie geht es dir, Liebling?	How are you, darling?	880
 liebling	Du bist mein Liebling.	You're the apple of my eye.	880
 liebling	Liebling, komm zurück ins Bett.	Come back to bed, honey.	880
 tatsächlich	Er hat es tatsächlich selbst gemacht.	As a matter of fact, he did it by himself.	881
-tatsächlich	Tatsächlich?	Seriously?	881
 tatsächlich	Ja, jemand hat das tatsächlich gesagt.	Yes, someone actually said that.	881
 folgen	Wenn Sie mir bitte folgen...	If you will come this way...	882
 folgen	Du musst ihm einfach nur folgen.	You only have to follow him.	882
@@ -2955,7 +2923,6 @@ benutzen	Darf ich Ihr Telefon benutzen?	May I use your phone?	993
 wach	Kaffee hält mich wach.	Coffee keeps me awake.	994
 wach	Wach auf!	Wake up!	994
 wach	Mein Bruder bleibt oft die ganze Nacht lang wach.	My brother often stays awake the whole night.	994
-wozu	Wozu?	For what?	995
 wozu	Wozu willst du das wissen?	What do you want to know that for?	995
 wozu	Wozu wollen Sie das wissen?	What do you want to know that for?	995
 arm	Willst du mich verdammt nochmal auf den Arm nehmen?!	Are you freaking kidding me?!	996
@@ -3032,7 +2999,6 @@ rüber	Um wie viel Uhr möchtest du, dass ich morgen Abend rüber komme?	What ti
 rüber	Komm rüber und hilf mir.	Come over here and help me.	1019
 tschüss	Tschüss, bis morgen.	Goodbye till tomorrow.	1020
 tschüss	Tschüss und viel Glück!	Goodbye and good luck.	1020
-tschüss	Tschüss!	Goodbye!	1020
 nennt	"Sein Vater nennt ihn ""Tom""."	His dad calls him Tom.	1021
 nennt	Vater und Mutter zusammen nennt man Eltern.	Father and mother together are called parents.	1021
 nennt	Wie nennt man dich?	What does one call you?	1021
@@ -3325,8 +3291,6 @@ fürchte	Ich fürchte, er ist krank.	I'm afraid he is ill.	1117
 fürchte	Ich fürchte nicht den Tod, sondern das Sterben.	I do not fear death, but dying.	1117
 verschwinde	Verschwinde aus meinem Leben!	Get out of my life!	1118
 verschwinde	Verschwinde, du Hund!	Get your carcass out of here!	1118
-verschwinde	Verschwinde!	Beat it.	1118
-erwischt	Erwischt.	You got me!	1119
 erwischt	Ich hab' den letzten Zug noch erwischt.	I managed to catch the last train.	1119
 erwischt	Ich wurde fast von einem Auto erwischt.	I was almost hit by a car.	1119
 verkauft	Das Haus wurde verkauft.	The house has been sold.	1120
@@ -3463,7 +3427,6 @@ euren	Sagt mir alles über euren Plan.	Tell me all about your plan.	1165
 diesmal	Diesmal sieht es so aus, als ob er die Wahrheit sagen würde.	This time it seems as if he is telling the truth.	1166
 diesmal	Diesmal bist du zu weit gegangen.	You have gone too far this time.	1166
 diesmal	Wir haben diesmal gewonnen.	We won this time.	1166
-schade	Schade.	What a pity!	1167
 schade	Es ist schade, dass sie krank ist.	It's too bad she's ill.	1167
 schade	Wie schade!	What a pity!	1167
 persönlich	Ich habe von ihm gehört, aber ich kenne ihn nicht persönlich.	I know of him, but I don't know him personally.	1168
@@ -3919,7 +3882,6 @@ schuhe	Ich habe ein Paar Schuhe gekauft.	I bought a pair of shoes.	1320
 schuhe	Wo sind die Schuhe?	Where're the shoes?	1320
 sarah	Sarah war meine erste Liebe.	Sarah was my first love.	1321
 sarah	Da kommt Sarah.	Here comes Sarah.	1321
-glückwunsch	Glückwunsch!	Congratulations!	1322
 glückwunsch	Ich habe gehört, dass du gewonnen hast. Glückwunsch!	I heard you won. Congratulations!	1322
 niemandem	Er hat mir versprochen, es niemandem zu sagen.	He promised me that he won't tell anybody.	1323
 niemandem	Es ist ein Geheimnis. Erzähl es niemandem!	It's a secret; don't give it away to anyone.	1323
@@ -3958,13 +3920,11 @@ stöhnt	Tom stöhnt.	Tom is groaning.	1334
 stöhnt	Tom stöhnt immer über seine Arbeit.	Tom always complains about his job.	1334
 herein	Herein bitte.	Please come in.	1335
 herein	Komm herein.	Come in.	1335
-herein	Herein!	Come in.	1335
 kleid	Das ist ein schönes Kleid.	That's a beautiful dress.	1336
 kleid	Das Kleid steht dir sehr gut.	The dress suits you very well.	1336
 kleid	Sie hat ein schönes Kleid an.	She got a beautiful dress on.	1336
 zerstören	Ich weiß, was dir wichtig ist und ich werde alles tun, was ich kann, um es zu zerstören.	I know what you love and I'll do everything I can in order to destroy it.	1337
 zerstören	Diese Nachricht wird sich in fünf Sekunden selbst zerstören.	This message will self-destruct in five seconds.	1337
-jawohl	Jawohl!	Sir, yes, sir!	1338
 jawohl	Jawohl! Ich stimme zu.	Yes! I agree.	1338
 gegessen	Wann hast du gegessen?	What time did you eat?	1339
 gegessen	Ich habe die letzten 3 Tage nichts gegessen.	I have eaten nothing for the past three days.	1339
@@ -4085,7 +4045,6 @@ brauch	Ich brauch gar nicht zu sagen, dass er den Preis nicht bekommen hat.	Need
 vorne	Schau mal — die Frau da vorne!	Look at the woman over there!	1379
 vorne	Wir können noch mal von vorne anfangen.	We can start over again.	1379
 vorne	Lass uns noch mal von vorne anfangen!	Let's start over again.	1379
-stopp	Stopp!	Stop!	1380
 stopp	Stopp sie.	Stop them.	1380
 stopp	Stopp sie!	Stop them!	1380
 übel	Ist Ihnen nicht übel?	Don't you have nausea?	1381
@@ -4301,7 +4260,6 @@ welchen	Welchen Zug nimmst du?	Which train are you catching?	1452
 welchen	Es wäre besser gewesen, wenn du ihn gefragt hättest, welchen Weg du nehmen sollst.	You had better ask him which way to take.	1452
 welchen	Welchen Tag haben wir heute?	What's the day today?	1452
 sorry	Sorry, wenn das hart klingt.	Sorry if that sounds harsh.	1453
-fantastisch	Fantastisch!	Fantastic!	1454
 fantastisch	Dein Haus ist fantastisch.	Your house is fantastic.	1454
 fantastisch	Du siehst fantastisch aus.	You look fantastic.	1454
 schaut	Er schaut sich nach einer Arbeit um.	He is looking for a job.	1455
@@ -4415,8 +4373,6 @@ verdienen	Frauen verdienen weniger als Männer.	Women earn less than men.	1490
 verdienen	Wie viel Geld wollen Sie verdienen?	How much money do you want to earn?	1490
 verdienen	Sie wollten Geld verdienen.	They wanted to earn money.	1490
 aha	"""Aha"", werden sie sagen."	'Aha', they will say.	1491
-aha	Aha.	I see.	1491
-aha	Aha!	Got it!	1491
 unterhalten	Ich muss eine große Familie unterhalten.	I have to support a large family.	1492
 unterhalten	Wir haben uns bis zwei Uhr früh unterhalten.	We talked until two in the morning.	1492
 unterhalten	Können wir uns unter vier Augen unterhalten?	Can we talk in private?	1492
@@ -4537,7 +4493,6 @@ bus	Kannst du mir sagen, wann der nächste Bus kommt?	Can you tell me when the n
 bus	Alle zehn Minuten fährt ein Bus.	The bus leaves every ten minutes.	1532
 angriff	Tom hat das Problem sofort in Angriff genommen.	Tom tackled the problem immediately.	1533
 angriff	Lass es uns in Angriff nehmen!	Let's do it!	1533
-angriff	Angriff!	Attack!	1533
 verhalten	Es gibt keine Entschuldigung für sein Verhalten.	There's no excuse for his behavior.	1534
 verhalten	Ich denke, dass sein Verhalten richtig war.	I think the actions he took were right.	1534
 verhalten	Sein Verhalten verdient Respekt.	His behavior is worthy of respect.	1534
@@ -4552,7 +4507,6 @@ treten	Es tut mir leid. Ich wollte euch nicht treten.	I'm so sorry. I didn't mea
 treten	Es tut mir leid. Ich wollte Sie nicht treten.	I'm so sorry. I didn't mean to kick you.	1537
 quatsch	Das ist Quatsch.	That's nonsense.	1538
 quatsch	Mach keinen Quatsch!	Don't mess around!	1538
-quatsch	Quatsch.	Poppycock.	1538
 trifft	Wenn der Ball Dich irgendwo trifft außer am Kopf oder den Händen, bist Du draußen.	If the ball hits you somewhere else than on the head or hands, you're out.	1539
 trifft	Seine Antwort trifft es.	His answer is to the point.	1539
 trifft	Die Klasse trifft sich einmal die Woche.	The class meets once a week.	1539
@@ -5365,7 +5319,6 @@ scherz	Du bist mit deinem Scherz zu weit gegangen.	You went too far in your joke
 erzählte	Der Lehrer erzählte, dass die Erde eine Kugel sei.	The teacher said that the earth is round.	1816
 erzählte	Er erzählte überall Lügen über sie.	He went around spreading lies about her.	1816
 erzählte	Ich erzählte ihm von unserer Schule.	I told him about our school.	1816
-wichser	Wichser.	Wanker.	1817
 wichser	Ich wusste gar nicht, dass du so ein Wichser bist.	I didn't know you were such a wanker.	1817
 wichser	Du bist ein Wichser.	You're a jerk.	1817
 langweilig	Los, spiel' mit mir, mir ist so langweilig!	Come on, play with me, I'm so bored!	1818
@@ -5378,7 +5331,6 @@ geschäfte	Wie gehen deine Geschäfte?	How's your business going?	1820
 geschäfte	Neben meinem Zuhause sind ein paar Geschäfte.	There are a few shops next to my house.	1820
 geschäfte	Die Geschäfte laufen besser.	Business is improving.	1820
 kapiert	Ich habe nichts davon kapiert.	I didn't understand any of that.	1822
-kapiert	Kapiert?	Understood?	1822
 kapiert	Warum kapiert ihr das nicht?	Why don't you understand?	1822
 nachher	Ich komme nachher, um Sie zu treffen.	I'll come and see you later.	1823
 nachher	Ruf mich nachher an.	Give me a call later.	1823
@@ -5754,7 +5706,6 @@ merken	Wenn du das was du tust liebst, wird man es merken.	When you love what yo
 merken	Sie werden es früher oder später merken.	They will find out sooner or later.	1948
 schande	Ich möchte lieber umgebracht werden, als in Schande zu leben.	I would rather be killed than live in disgrace.	1949
 schande	Was für eine Schande!	What a shame!	1949
-schande	Schande!	Too bad.	1949
 fuck	Fuck.	Fuck.	1950
 fühlte	Ich hatte zwei Stunden lang gearbeitet, als ich mich plötzlich krank fühlte.	I had been working for two hours when I suddenly felt sick.	1951
 fühlte	Da er länger als sonst gearbeitet hatte, fühlte er sich müde.	As he had worked longer than usual, he felt tired.	1951
@@ -5862,7 +5813,6 @@ klopfen	Er hat versucht, an die Tür zu klopfen.	He tried to knock at the door.	
 klopfen	Tom hörte ein Klopfen an der Tür.	Tom heard a knock at the door.	1987
 klopfen	Ich habe dich nicht klopfen gehört.	I didn't hear you knock.	1987
 spuren	Lasse keine Spuren zurück!	Don't leave a trace.	1988
-dreck	Dreck!	Rubbish!	1989
 dreck	Jeder hat Dreck am Stecken.	Everyone has skeletons in the closet.	1989
 dreck	Aus Dreck wird Gold gemacht.	Where there's muck there's brass.	1989
 seiten	Das Buch hatte viele Seiten.	That book had a lot of pages.	1990
@@ -6380,7 +6330,6 @@ artikel	Dieser Artikel ist ohne Wert.	This article is of no value.	2162
 gesetzt	Kaum hatten wir uns gesetzt, schon brachte sie uns Kaffee.	No sooner had we sat down than she brought us coffee.	2163
 gesetzt	Ich wurde von meinem Chef unter Druck gesetzt.	I've come under pressure from my boss.	2163
 gesetzt	Tom hat alles auf eine Karte gesetzt.	Tom put all his eggs in one basket.	2163
-jederzeit	Jederzeit.	Any time.	2164
 jederzeit	Ein Unfall kann jederzeit passieren.	An accident may happen at any time.	2164
 jederzeit	Du kannst mich jederzeit anrufen.	You can call me any time.	2164
 kompliziert	Die Operation ist recht kompliziert.	The surgery is quite difficult.	2165
@@ -6495,7 +6444,6 @@ reparieren	Sie müssen ihr Auto reparieren.	They have to repair their car.	2206
 reparieren	Ich will diese Uhr reparieren.	I want to mend this watch.	2206
 hä	Hä? Oder vielleicht haben wie viele von was was wie getan? Was denkst du?	Huh? Or maybe did how many of what do what how? What do you think?	2207
 hä	„Tom, sag mal ‚Ich liebe dich!‘!“ – „Hä, was?“ – „Sag mal ‚Ich liebe dich!‘!“ – „Wieso?“ – „Na, einfach so!“ – „Ich liebe dich!“ – „Danke!“ – „Und was sollte das jetzt?“ – „Ach, nichts! Denk dir nichts dabei!“	"""Tom, say 'I love you'."" ""Er, what?"" ""Say 'I love you'."" ""Why?"" ""Just because!"" ""I love you."" ""Ta!"" ""What's that all about?"" ""Oh, nothing! Think nothing of it."""	2207
-hä	Hä?	Huh?	2207
 gerechtigkeit	Gerechtigkeit ist teuer.	Justice is expensive.	2208
 gerechtigkeit	Hast du keinen Sinn für Gerechtigkeit?	Don't you have a sense of justice?	2208
 gerechtigkeit	Wir wollen Gerechtigkeit.	We want justice.	2208
@@ -6700,7 +6648,6 @@ erzählst	Ich hätte gerne, dass du mir die Wahrheit erzählst.	I want you to te
 erzählst	Was erzählst du mir?	You're telling me.	2274
 erzählst	Warum erzählst du mir das alles?	Why are you telling me all this?	2274
 bastard	Dich Bastard bring ich um!	You bastard, I'll kill you!	2275
-bastard	Bastard!	Bastard!	2275
 interessieren	Für was interessieren Sie sich?	What are you interested in?	2276
 interessieren	Mich interessieren diese Geschichten sehr.	I am very interested in these stories.	2276
 interessieren	Niemals wieder würde sie sich für die Stadt interessieren.	Never again would she be curious about the city.	2276
@@ -6762,7 +6709,6 @@ verräter	Aus den Soldaten wurden Verräter.	The soldiers turned traitor.	2294
 wichtigste	Offensichtlich ist das der wichtigste Punkt.	Clearly, this is the most important point.	2295
 wichtigste	Man kann über jeden Fehler etwas sagen; aber egal was man über ihn sagt, die wichtigste Aussage über ihn ist, dass er ein Fehler ist.	There is something to be said for every error; but, whatever may be said for it, the most important thing to be said about it is that it is erroneous.	2295
 wichtigste	Du bist die wichtigste Person in meinem Leben.	You are the most important person in my life.	2295
-prost	Prost!	Cheers!	2296
 prost	Auf dein Wohl! Prost!	Here's to you! Cheers!	2296
 prost	Prost und auf bessere Tage!	To your health and better days!	2296
 brust	Ich habe Schmerzen in der Brust.	I have a chest pain.	2297
@@ -7409,7 +7355,6 @@ behauptet	Tom lügt! Ich habe das, was er behauptet, nicht getan.	Tom is lying. 
 kilometer	Der alte Mann versuchte, 5 Kilometer zu schwimmen.	The old man attempted to swim five kilometers.	2520
 kilometer	Es sind 50 Kilometer nach Paris.	It's fifty kilometers to Paris.	2520
 kilometer	Wir sind um die sechs Kilometer weit gegangen.	We walked for about 6 kilometers.	2520
-beeilung	Beeilung!	Hurry.	2521
 beeilung	Beeilung! Wir haben keine Zeit zu verlieren.	Hurry! There's no time to lose.	2521
 angeblich	Angeblich ist er hier gestorben.	He is said to have died here.	2522
 angeblich	Sie hat ihn angeblich umgebracht.	She allegedly killed him.	2522
@@ -7557,7 +7502,6 @@ fremde	Der Fremde kam auf mich zu.	The stranger came toward me.	2569
 fremde	Er konnte eine fremde Frau nicht als seine Mutter akzeptieren.	He could not accept a strange woman as his mother.	2569
 fremde	Ich sah dort eine fremde Frau.	I saw a strange woman there.	2569
 gnade	Leute, die Kindern wehtun, verdienen keine Gnade.	People who hurt children do not deserve mercy.	2570
-gnade	Gnade!	Have mercy.	2570
 gnade	Erwarte keine Gnade.	Expect no mercy.	2570
 entspannen	Entspannen Sie sich.	Relax!	2571
 entspannen	Kam sie hierher um sich zu entspannen?	Did she come here to relax?	2571
@@ -7578,7 +7522,6 @@ vernünftig	Seine Meinung ist vernünftig.	His opinion is reasonable.	2576
 vernünftig	Du solltest vernünftig genug sein, nicht zu trinken, zumindest während du krank bist.	You should have enough sense not to drink, at least during your illness.	2576
 vernünftig	Der Preis ist vernünftig.	The price is reasonable.	2576
 fein	Ich muss mich fein machen.	I have to dress up.	2577
-fein	Fein!	Fine!	2577
 greifen	Wir greifen an.	We'll attack.	2578
 greifen	Kann ich dir irgendwie unter die Arme greifen?	Is there anything I can do to help out?	2578
 greifen	Wieso greifen wir nicht an?	Why don't we attack?	2578
@@ -7819,8 +7762,6 @@ schlacht	Die Schlacht geht weiter!	The battle goes on!	2659
 beziehungen	Du musst noch viel über Beziehungen lernen.	You still have a lot to learn about relationships.	2660
 beziehungen	Menschliche Beziehungen sind kompliziert.	Human relationships are complex.	2660
 beziehungen	Wir unterhalten gute Beziehungen.	We have a good rapport.	2660
-abgemacht	Abgemacht!	It's a bargain.	2661
-abgemacht	Abgemacht?	Deal?	2661
 abgemacht	Abgemacht! Wir treffen uns vor dem Kino!	Great! We'll meet at the movie theater.	2661
 schreie	Schrei nicht, sonst schreie ich lauter.	Don't scream, or I'll scream louder.	2662
 schreie	Ich schreie meine Kinder an.	I am shouting at my kids.	2662
@@ -8930,7 +8871,6 @@ verlasse	Ich verlasse dich morgen.	I'm leaving you tomorrow.	3054
 überfallen	Tom wurde überfallen, als er spät am Abend spazieren ging.	Tom was robbed while walking late at night.	3055
 überfallen	Ich wurde gerade überfallen.	I was just mugged.	3055
 umdrehen	Verzeihung! Kannst du dich mal umdrehen?	I'm sorry. Would you mind turning around?	3056
-umdrehen	Umdrehen!	Turn around!	3056
 umdrehen	Du musst dich umdrehen.	You've got to turn round.	3056
 kilo	Er ist 10 Kilo schwerer als ich.	He outweighs me by 10 kg.	3057
 negativ	Ihre Antwort war negativ.	His reply was negative.	3058
@@ -9263,7 +9203,6 @@ funk	Sie hörten es über Funk.	They heard it on the radio.	3178
 grüß	Grüß deinen Vater von mir.	Say hello to your father for me.	3179
 grüß	Grüß deine Mama von mir.	Say hello to your mum for me.	3179
 grüß	Grüß deine Eltern von mir.	Give my regards to your parents.	3179
-hurensohn	Hurensohn!	Son of a bitch!	3180
 hurensohn	Du Hurensohn!	You son of a bitch!	3180
 hurensohn	Du bist ein Hurensohn!	You are a son of a bitch!	3180
 mögliche	Soweit ich weiß, ist es die einzige mögliche Übersetzung.	As far as I know, this is the only translation available.	3181
@@ -10847,7 +10786,6 @@ sing	Sing uns noch ein Lied!	Sing us another song!	3741
 sing	Sing ein anderes Lied für uns!	Sing us another song!	3741
 glückliche	Ich erinnere mich oft an meine glückliche Kindheit.	I often remember my happy childhood.	3742
 glückliche	Sie hatte eine glückliche Kindheit.	She had a happy childhood.	3742
-glückliche	Der Satz mit der Nummer 888888 wird seinem Besitzer glückliche Jahre bringen.	Sentence Number 888,888 will bring its owner years of happiness.	3742
 friedhof	Er wurde auf diesem Friedhof begraben.	He was buried in this graveyard.	3743
 friedhof	Tom ist auf diesem Friedhof begraben.	Tom is buried in this cemetery.	3743
 irrtum	Wir lernen durch Versuch und Irrtum.	We learn by trial and error.	3744
@@ -11801,9 +11739,7 @@ charakter	Er ist ein Mann von Charakter.	He is a man of character.	4083
 charakter	Ihr Charakter hat sich vollkommen geändert.	She has totally changed her character.	4083
 charakter	Ruhm ist das, was du scheinst, der Charakter ist das, was du bist.	Reputation is what you seem; character is what you are.	4083
 anzeichen	Es ist ein Anzeichen für ihren Charakter.	It is an index of her character.	4083
-krass	Krass!	Amazing!	4084
 krass	Das ist so krass.	That's so extreme.	4084
-krass	Krass.	Wicked.	4084
 weiterer	Vor einer Woche ist ein weiterer der Helden meiner Kindheit gestorben.	One week ago, another one of my childhood heroes died.	4085
 weiterer	Da liegt noch ein weiterer Fehler vor.	There's another mistake here.	4085
 weiterer	Morgen ist ein weiterer Tag.	Tomorrow is another day.	4085
@@ -11964,7 +11900,6 @@ fängst	Damit fängst du doch nichts an!	I don't think you want that.	4145
 erklär	Bitte erklär mir die Regel.	Please explain the rule to me.	4146
 erklär	Bitte erklär mir diesen Satz!	Please explain this sentence to me.	4146
 erklär	Erklär mir, warum Tom nicht hier ist.	Explain to me why Tom isn't here.	4146
-einspruch	Einspruch!	Objection!	4147
 einspruch	„Einspruch!“ — „Abgelehnt!“	"""Objection!"" ""Overruled!"""	4147
 einspruch	Der Richter gab dem Einspruch statt.	The judge sustained the objection.	4147
 angeln	Er ging immer am Fluss angeln, als er klein war.	He always went fishing on the river when he was young.	4148
@@ -12169,7 +12104,6 @@ reißt	Dieser Stoff reißt leicht.	This cloth tears easily.	4222
 zeigst	Zeigst du mir, was du gekauft hast?	Will you show me what you bought?	4223
 zeigst	Zeigst du mir, was du gestern gekauft hast?	Will you show me what you bought yesterday?	4223
 zeigst	Zeigst du mir das Bild mal?	Can you show me that picture?	4223
-stirb	Stirb!	Die!	4224
 stirb	Stirb nicht, Tom.	Tom, don't die.	4224
 stirb	Stirb endlich!	Die already!	4224
 gefickt	Sie haben die ganze Nacht gefickt.	They fucked all night long.	4226
@@ -12255,7 +12189,6 @@ stabil	Tom ist nicht stabil.	Tom isn't stable.	4256
 stabil	Man sieht, dass das Haus stabil gebaut wurde.	You can see that the house was solidly built.	4256
 ausgeschlossen	Er hat sich vielleicht mit seiner Frau gestritten, aber es ist ausgeschlossen, dass er sie geschlagen hat.	Perhaps he had an argument with his wife, but it's out of the question that he hit her.	4257
 ausgeschlossen	Er wurde von der Gesellschaft ausgeschlossen.	He was excluded from the society.	4257
-ausgeschlossen	Ausgeschlossen!	No way!	4257
 aufgehoben	Tom hat es nicht aufgehoben.	Tom didn't pick it up.	4259
 aufgehoben	Dieses Stück Kuchen habe ich für dich aufgehoben.	I was saving this piece of cake for you.	4259
 aufgehoben	Jemand muss es aufgehoben haben.	Somebody must've picked it up.	4259
@@ -12524,7 +12457,6 @@ blödmann	Er ist ein Blödmann.	He's a jerk.	4353
 blödmann	Ich kam mir wie ein Blödmann vor.	I felt dumb.	4353
 blödmann	Tom ist ein Blödmann.	Tom is a moron.	4353
 hurra	Hurra! Ich hab’s gefunden!	Hurray! I have found it!	4354
-hurra	Hurra!	Hurray!	4354
 symptome	Was sind die Symptome?	What are the symptoms?	4356
 symptome	Was für Symptome haben Sie?	What symptoms do you have?	4356
 symptome	Ich zeige die gleichen Symptome wie du.	I have the same symptoms as you do.	4356
@@ -13325,7 +13257,6 @@ vergeht	So vergeht der Ruhm der Welt.	Thus passes the glory of the world.	4661
 vergeht	Die Zeit vergeht schnell, nicht wahr?	Time goes by very quickly, doesn't it?	4661
 vergeht	Wie die Zeit vergeht.	How time flies!	4661
 beruhig	Beruhig dich und sei gelassen!	Calm down and be cool.	4662
-zielen	Zielen!	Take aim at the target.	4663
 zielen	Zielen. Feuer!	Aim. Fire!	4663
 zielen	Zielen Sie höher!	Aim higher.	4663
 fans	Der Sieg brachte die Fans außer Rand und Band.	The fans were ecstatic about the win.	4664
@@ -14196,7 +14127,6 @@ schützt	Wir sollten Kindern sagen, wie man sich selbst schützt.	We should tell
 schützt	Das schützt deine Haut.	This will protect your skin.	4988
 schützt	Salz schützt Fisch vor dem Verderben.	Salt preserves fish from spoilage.	4988
 rückzug	Ihnen blieb nur der Rückzug.	They had no alternative but to retreat.	4989
-rückzug	Rückzug!	Fall back!	4989
 konzentriert	Sie hat sich auf eine Sache konzentriert.	She concentrated on one thing.	4990
 konzentriert	Ich bin zu sehr auf meine Karriere konzentriert.	I am too focused on my career.	4990
 konzentriert	Konzentriert euch auf dieses Problem.	Concentrate your attention on this problem.	4990
@@ -14782,7 +14712,6 @@ studium	Was willst du nach dem Studium machen?	What will you do after graduation
 kreditkarte	Kann ich mit Kreditkarte bezahlen?	Can I pay by credit card?	5215
 kreditkarte	Ihre Kreditkarte, bitte.	Your credit card, please.	5215
 kreditkarte	Ich würde gern per Kreditkarte bezahlen.	I'd like to pay by credit card.	5215
-schwuchtel	Schwuchtel.	Faggot.	5216
 schwuchtel	"Er nannte mich ""Schwuchtel""."	"He called me ""fag."""	5216
 schwuchtel	"Er hat mich ""Schwuchtel"" genannt."	"He called me ""fag."""	5216
 donner	Der Blitz kommt vor dem Donner.	Lightning precedes thunder.	5218
@@ -17386,7 +17315,6 @@ drohung	Die Antwort nimmt fast den Charakter einer Drohung an.	This answer almos
 drohung	Tom ging nicht davon aus, dass Maria ihre Drohung wirklich wahr machen würde.	Tom didn't think that Mary would actually carry out her threat.	6203
 wende	Wie wende ich das an?	How do I use this?	6204
 wende	„Wende dich dorthin!“ – „Wohin?“	"""Turn there."" ""Where?"""	6204
-wende	Wende!	Turn the car around.	6204
 gefoltert	Er wurde gefoltert und ermordet.	He was tortured and murdered.	6205
 gefoltert	Tom wurde gefoltert.	Tom was tortured.	6205
 gefoltert	Tom wurde von der Polizei gefoltert.	Tom was tortured by the police.	6205
@@ -17782,7 +17710,6 @@ konzept	Tom hat Schwierigkeiten mit dem Konzept.	Tom is struggling with the conc
 konzept	Tom tut sich schwer mit dem Konzept.	Tom is struggling with the concept.	6350
 look	Dieses Mädchen hat seinen Look verändert.	This girl changed her look.	6351
 keineswegs	Dieser Politiker ist keineswegs ehrlich.	That politician is by no means honest.	6352
-keineswegs	Keineswegs.	No way.	6352
 keineswegs	Das ist keineswegs sicher.	It is by no means certain.	6352
 faden	Sie hat den Faden verloren.	She's lost the plot.	6353
 faden	Sein Leben hängt nur an einem einzigen Faden.	His life is hanging by a thread.	6353
@@ -17880,7 +17807,6 @@ enge	Wie viele enge Freunde haben Sie?	How many close friends do you have?	6391
 nickerchen	Kaum war sie fertig, legte sie sich für ein Nickerchen hin.	The moment she'd finished, she lay down for a nap.	6392
 nickerchen	Großvater hält auf dem Sofa ein Nickerchen.	Grandfather is napping on the sofa.	6392
 nickerchen	Sie hält ein Nickerchen.	She's taking a nap.	6392
-juhu	Juhu!	Yay!	6393
 lungen	Blätter verhalten sich zu Pflanzen wie Lungen zu Tieren.	Leaves are to plants what lungs are to animals.	6394
 lungen	Meine Lungen tun mir weh.	My lungs hurt.	6394
 lungen	Meine Lungen schmerzen.	My lungs hurt.	6394
@@ -18007,7 +17933,6 @@ verlobung	Sie gaben die Verlobung ihrer Tochter bekannt.	They announced the enga
 verlobung	Ich gratuliere zu eurer Verlobung.	I congratulate you on your engagement.	6440
 funken	Ein Funken Hoffnung bestand immer noch.	There was still a glimmer of hope left.	6441
 gleichfalls	"""Frohes Neues!"" - ""Gleichfalls!"""	"""A Happy New Year!"" ""I wish you the same!"""	6442
-gleichfalls	Gleichfalls.	Likewise.	6442
 gleichfalls	Danke gleichfalls!	Thanks. You too!	6442
 geringsten	Ich habe nicht den geringsten Zweifel.	I don't have the slightest doubt.	6443
 geringsten	Ich bin ohne den geringsten Zweifel davon überzeugt, dass sie unschuldig ist.	I believe, beyond a shadow of a doubt, that she is innocent.	6443
@@ -18249,7 +18174,6 @@ einbrecher	Die Polizisten nahmen den Einbrecher fest.	The police officers arrest
 einbrecher	Der Einbrecher kam durch ein Fenster.	The burglar came in through a window.	6540
 stehenbleiben	Stehenbleiben oder ich schieße!	Stop or I'll shoot.	6541
 stehenbleiben	Halt! Stehenbleiben, oder ich schieße!	Halt! Stay right where you are or I'll shoot!	6541
-stehenbleiben	Stehenbleiben!	Freeze!	6541
 erwartungen	Sein neues Buch hat unsere Erwartungen nicht erfüllt.	His new book did not come up to our expectations.	6542
 erwartungen	Es blieb hinter meinen Erwartungen zurück.	It fell short of my expectation.	6542
 erwartungen	Ich muss seinen Erwartungen gerecht werden.	I must live up to his expectations.	6542
@@ -19213,7 +19137,6 @@ schweres	Er hatte ein schweres Leben.	He lived a hard life.	6918
 schweres	Man weiß nicht, wann ein schweres Erdbeben in Tokio sein wird.	There is no knowing when a severe earthquake will happen in Tokyo.	6918
 schweres	Er führte danach ein schweres Leben.	He led a hard life after that.	6918
 einatmen	Bitte tief einatmen!	Please take a deep breath.	6919
-einatmen	Einatmen!	Inhale.	6919
 einatmen	Tief durch den Mund einatmen!	Breathe deeply through your mouth.	6919
 zurückhalten	Ich konnte meine Tränen nicht zurückhalten.	I couldn't control my tears.	6920
 zurückhalten	Sie konnte ihr Lachen nicht zurückhalten.	She couldn't hold back her laughter.	6920
@@ -19688,7 +19611,6 @@ revier	Der Hund markiert sein Revier.	The dog is marking its territory.	7103
 markiert	Der Hund markiert sein Revier.	The dog is marking its territory.	7103
 ehrenwort	Er gab mir sein Ehrenwort.	He gave me his word.	7104
 ehrenwort	Reicht dir nicht mein Ehrenwort?	Can't you just take my word for it?	7104
-ehrenwort	Ehrenwort!	On my honour!	7104
 schlamm	Sein Gesicht war von Schlamm bedeckt.	His face was covered with mud.	7105
 schlamm	Der Hund ist mit Schlamm bedeckt.	The dog is covered in mud.	7105
 schlamm	Er war von Kopf bis Fuß mit Schlamm bedeckt.	He was covered in mud from head to toe.	7105
@@ -21382,7 +21304,6 @@ uhren	In meinem Zimmer gibt es keine Uhren.	There are no clocks in my room.	7754
 erobert	Das ist er: jener Mann, der mein Herz erobert hat.	That's him – the man who won my heart.	7755
 bandit	Der Kerl ist ein Bandit.	That guy is an outlaw.	7756
 bandit	Dieser Typ ist ein Bandit.	This guy is a bandit.	7756
-bandit	Bandit!	Bandit!	7756
 linien	Diese zwei Linien schneiden sich unter einem rechten Winkel.	These two lines cut across each other at right angles.	7757
 linien	Sowohl das Wort als auch das Bild stellten einen Apfel in Linien dar.	Both word and picture represented an apple by means of lines.	7757
 linien	Sie zogen zwei Linien.	They drew two lines.	7757
@@ -21737,7 +21658,6 @@ gerichtssaal	Alle, die größer als eine Meile sind, haben den Gerichtssaal sofo
 gerichtssaal	Die Geschworenen kamen in den Gerichtssaal.	The jurors came into the courtroom.	7900
 donnerwetter	Donnerwetter! Das ist nicht schlecht!	Damn! It's not bad!	7901
 donnerwetter	Donnerwetter, dieses Eis ist echt gut!	Damn, this ice cream is really good!	7901
-donnerwetter	Donnerwetter!	Wow!	7901
 studentin	Ich bin eine neue Studentin.	I am a new student.	7902
 studentin	Ich habe ihn einmal als Studentin getroffen.	I once met him when I was a student.	7902
 studentin	Sie ist Studentin.	She is a student.	7902
@@ -22383,7 +22303,6 @@ kaltes	Bitte kaltes Wasser.	Cold water, please.	8179
 eingedrungen	Der Einbrecher muss über das Dach in die Villa eingedrungen sein.	The burglar must have entered the mansion from the roof.	8180
 eingedrungen	Es wäre sicherlich nicht allzu schwierig, herauszufinden, wer in unser System eingedrungen ist.	I'm sure it wouldn't be too hard to find out who hacked into our system.	8180
 eingedrungen	Wir müssen vermuten, dass in der vergangen Nacht ein Verbrecher ins Haus eingedrungen ist.	We must suspect that last night a criminal broke into the house.	8180
-huch	Huch!	Yikes!	8181
 huch	„Huch, Anne! Was bist du groß geworden!“ sagte sie und konnte es fast gar nicht glauben.	"""Why, Anne, how you've grown!"" she said, almost unbelievingly."	8181
 huch	Huch, ist das kalt!	Brr – it's cold!	8181
 vorläufig	Vorläufig brauchen wir nichts.	For the time being, we don't need anything.	8182
@@ -23968,7 +23887,6 @@ anpassung	Evolution ist Anpassung.	Evolution is adaptation.	8848
 evolution	Wir sind das Resultat von 4½ Milliarden Jahren Evolution.	We're the result of 4.5 billion years of evolution.	8848
 blas	Blas die Kerzen aus!	Blow out the candles.	8849
 vulkanier	Vulkanier haben spitze Ohren.	Vulcans have pointy ears.	8850
-gratulation	Gratulation!	Congratulations!	8852
 gratulation	Gratulation zu deinem Geburtstag!	Happy birthday to you!	8852
 marmelade	Kultur ist wie Marmelade: je weniger man hat, desto mehr verteilt man sie.	Culture is like jam: the less one has, the more one spreads it.	8853
 marmelade	Reich mir bitte die Marmelade.	Please pass me the jam.	8853
@@ -26050,7 +25968,6 @@ legten	Wir legten 100 Kilometer mit dem Auto zurück, bevor es dunkel wurde.	We 
 legten	Tom und Maria legten die Fahne zusammen.	Tom and Mary folded up the flag.	9713
 legten	Sie legten besser eine kleine Pause ein.	You had better take a little rest.	9713
 klatsch	Eine Konferenz ist der Klatsch der Männer.	A conference is the gossip of men.	9714
-klatsch	Klatsch.	Clap.	9714
 klatsch	Ich will keinen Klatsch hören.	I don't want to hear gossip.	9714
 schicksals	Ich bin der Herr meines Schicksals; ich bin der Hauptmann meiner Seele.	I am the master of my fate; I am the captain of my soul.	9715
 schicksals	Du bist der Herr deines Schicksals.	You are the master of your own destiny.	9715
@@ -27566,7 +27483,6 @@ illegale	Das ist eine illegale Transaktion.	This is an illegal transaction.	1999
 direkte	Es gibt keine direkte Verbindung. Sie müssen in Paris umsteigen.	There isn't a direct train. You must change in Paris.	19999
 verweigern	Wir behalten uns das Recht vor, eine Dienstleistung zu verweigern.	We reserve the right to refuse service.	19999
 illegalen	Die Täter der illegalen Abholzung wurden von der Polizei verhaftet.	The illegal loggers were arrested by the police.	19999
-gesichert	Das war soeben Satz Nummer eintausend, der sich jetzt in der Datenbank befindet, die hoffentlich oft und gut gesichert wird.	That was just sentence number one thousand, which is now in the database, which hopefully is often and well backed up.	19999
 totes	Ich bin ein totes Kaninchen auf der Autobahn.	I'm a dead rabbit on the freeway.	19999
 totes	Wenn du denkst, dass du ein totes Pferd reitest, steige ab!	If you think you're riding a dead horse, get off!	19999
 beteiligung	Grundsätzlich bedarf es einer größeren Beteiligung.	In principle, there is a need for greater participation.	19999
