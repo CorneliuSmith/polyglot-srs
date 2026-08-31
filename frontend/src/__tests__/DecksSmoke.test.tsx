@@ -10,6 +10,7 @@ vi.mock('react-router-dom', async (orig) => ({
 }))
 vi.mock('../api/review', () => ({
   getLearnDecks: vi.fn(),
+  getTopicSummary: vi.fn(() => Promise.resolve([])),
 }))
 vi.mock('../api/profile', () => ({
   getLanguages: vi.fn(() => Promise.resolve([{ id: 'lang-es', code: 'es', name: 'Spanish' }])),

@@ -17,6 +17,11 @@ import { getMyRoles } from '../../api/contribute'
 import { getOnboardingStatus } from '../../api/onboarding'
 import { usePrefsStore } from '../../stores/prefsStore'
 import { getLanguages } from '../../api/profile'
+import {
+  DeckViewToggle,
+  TopicDeckRows,
+  useTopicDecks,
+} from '../decks/TopicDecks'
 import { languageDisplayName } from '../../lib/languages'
 import LanguagePicker from '../../components/LanguagePicker'
 import PlacementOffer from '../onboarding/PlacementOffer'
@@ -222,6 +227,9 @@ export default function DashboardPage() {
   const activeLanguage = allLanguages.find((l) => l.id === activeLanguageId)
   const dailyLearnGoal = usePrefsStore((s) => s.dailyLearnGoal)
   const [learnOpen, setLearnOpen] = useState(false)
+  // The Topic Lens inside the deck panel: same pool, re-grouped by
+  // meaning. Toggle renders only when this course has sorted words.
+  const [deckView, setDeckView] = useState<'level' | 'topic'>('level')
   const [reviewOpen, setReviewOpen] = useState(false)
   const [navOpen, setNavOpen] = useState(false)
 
@@ -256,6 +264,7 @@ export default function DashboardPage() {
     enabled: !!activeLanguageId,
   })
   const visibleDecks = decks.filter((d) => d.total > 0)
+  const { topics, hasTopics } = useTopicDecks(activeLanguageId)
   // Learn only counts what the learner actually QUEUED — a deck they haven't
   // added shouldn't inflate "new items available".
   const newAvailable = visibleDecks
@@ -546,7 +555,21 @@ export default function DashboardPage() {
             {/* Deck sections (like Bunpro's Learn Queue Decks) */}
             {learnOpen && (
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-                {visibleDecks.length === 0 ? (
+                {hasTopics && (
+                  <div className="px-4 pt-3">
+                    <DeckViewToggle view={deckView} onChange={setDeckView} />
+                  </div>
+                )}
+                {hasTopics && deckView === 'topic' ? (
+                  <TopicDeckRows
+                    topics={topics}
+                    onLearn={(topic) =>
+                      navigate(
+                        `/learn?type=vocabulary&topic=${encodeURIComponent(topic)}`,
+                      )
+                    }
+                  />
+                ) : visibleDecks.length === 0 ? (
                   <p className="px-4 py-3 text-sm text-gray-500">
                     {t('dashboard.noDecks')}
                   </p>

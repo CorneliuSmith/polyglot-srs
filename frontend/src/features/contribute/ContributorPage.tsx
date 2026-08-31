@@ -42,6 +42,7 @@ import ReviewInbox, { useReviewInbox } from './ReviewInbox'
 import TesterRecommendationsPanel from './TesterRecommendationsPanel'
 import GymDrillsPanel from './GymDrillsPanel'
 import AiLevelsPanel from './AiLevelsPanel'
+import AiTopicsPanel from './AiTopicsPanel'
 import GenerationPanel from './GenerationPanel'
 import TranslationReviewsPanel from './TranslationReviewsPanel'
 import RecordingsPanel, { RecordingsReviewQueue } from './RecordingsPanel'
@@ -1089,6 +1090,11 @@ export default function ContributorPage() {
                     finalise the level and the deck placement. */}
                 {(data.can_trial_review ?? false) && (
                   <AiLevelsPanel languageId={activeLanguageId} />
+                )}
+                {/* The classifier's semantic buckets — same review contract
+                    as AI levels: provisional until confirmed. */}
+                {(data.can_trial_review ?? false) && (
+                  <AiTopicsPanel languageId={activeLanguageId} />
                 )}
                 {/* Gym corpus, browsable by form category — view/edit the drills
                     the Gym serves, not just the ones pending review above. */}

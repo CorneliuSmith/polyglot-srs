@@ -81,6 +81,9 @@ function LearnInner() {
   // Deck-scoped learning: /learn?type=grammar&level=A1 draws only from that
   // deck (and queues it if it wasn't queued yet).
   const level = searchParams.get('level') ?? undefined
+  // Topic Lens scope — the server treats an unknown slug as unscoped, so
+  // a stale link still learns.
+  const topic = searchParams.get('topic') ?? undefined
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const qwertyTranslit = usePrefsStore((s) => s.qwertyTranslit)
   const showTashkeel = usePrefsStore((s) => s.showTashkeel)
@@ -138,7 +141,7 @@ function LearnInner() {
   const [sessionKey] = useState(() => `${Date.now()}-${Math.random()}`)
   const learnQuery = useQuery({
     queryKey: ['learn-session', sessionKey],
-    queryFn: () => startLearnSession(activeLanguageId!, cardType, level),
+    queryFn: () => startLearnSession(activeLanguageId!, cardType, level, topic),
     enabled: !!activeLanguageId && readinessSettled && !gated,
     staleTime: Infinity,
     gcTime: Infinity,

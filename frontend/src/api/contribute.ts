@@ -1547,6 +1547,71 @@ export async function confirmVocabLevel(
   })
 }
 
+// ── Topic Lens review (docs/plans/topic-lens.md) ───────────────────────────
+// Provisional semantic buckets from the classifier, confirmed singly or in
+// bulk by (language, bucket) — plus bulk reject, the bad-run recovery.
+
+export interface AiTopicWord {
+  id: string
+  word: string
+  part_of_speech: string | null
+  topic: string
+  definition: string | null
+}
+
+export interface AiTopicsResult {
+  counts: { topic: string; pending: number }[]
+  words: AiTopicWord[]
+  can_publish: boolean
+}
+
+export async function getAiTopics(
+  languageId: string,
+  topic?: string,
+): Promise<AiTopicsResult> {
+  const response = await apiClient.get<AiTopicsResult>(
+    '/api/contribute/review/ai-topics',
+    { params: { language_id: languageId, ...(topic ? { topic } : {}) } },
+  )
+  return response.data
+}
+
+/** Confirm or re-bucket one word → marks its topic curated (trusted). */
+export async function confirmVocabTopic(
+  vocabularyId: string,
+  topic: string,
+): Promise<void> {
+  await apiClient.post(`/api/contribute/review/vocab/${vocabularyId}/topic`, {
+    topic,
+  })
+}
+
+/** Confirm a whole (language, bucket) — the reviewer's signature that they
+ * sampled the listed words first. */
+export async function bulkConfirmTopics(
+  languageId: string,
+  topic: string,
+): Promise<number> {
+  const response = await apiClient.post<{ confirmed: number }>(
+    `/api/contribute/review/ai-topics/${languageId}/confirm`,
+    { topic },
+  )
+  return response.data.confirmed
+}
+
+/** Clear provisional tags — one bucket, or (topic omitted) the language's
+ * whole pending set — so a bad classification run re-queues. */
+export async function bulkRejectTopics(
+  languageId: string,
+  topic?: string,
+): Promise<number> {
+  const response = await apiClient.post<{ cleared: number }>(
+    `/api/contribute/review/ai-topics/${languageId}/reject`,
+    { topic: topic ?? null },
+  )
+  return response.data.cleared
+}
+
 // ── Plan message allotments (admin) ────────────────────────────────────────
 // The monthly message cap for each account type. Stored in the database, so
 // an admin can change one without a redeploy; every tier is always present in
