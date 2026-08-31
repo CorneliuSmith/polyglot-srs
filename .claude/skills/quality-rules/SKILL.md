@@ -226,6 +226,37 @@ rate, say so — that result matters more than the phase closing quietly.
     translated across. Fragments were the floor (CHECKS §21); this is the
     ceiling. (CHECKS §23)
 
+38. **A rejection count is a claim about your MATCHER before it is a claim
+    about the content — verify the rejects.** On 30-31 Aug this was wrong six
+    times in one day, always in the same direction: 55,526 "fold-only"
+    sentence matches were 1,027 real ones; 100 Thai glosses "with the wrong
+    cell count" were correct; 146 salvaged sentences "missing their word" had
+    144 present; 75 Arabic sentences likewise; 121 "unanswerable" drills were
+    45. Look at ten rejects before the number goes in a report or drives a
+    deletion. (CHECKS §20, §22, §24)
+39. **Tokenize on letters PLUS marks; fold case, never marks.** Python's
+    `\w` and JS `\p{L}` both drop Mn/Mc, so `नहीं` becomes `नह` and `ใช่`
+    becomes `ใช` — three separate false findings came from that. And where the
+    mark IS the content — `ё`/`е`, `hic`/`hīc`, Yoruba tone — folding it
+    invents a defect. Case folding is almost always safe; mark folding almost
+    never is.
+40. **Select against the RULE, and iterate the source of truth.** §23 said
+    7-14 words; the pass selected words whose best sentence was ≤3 tokens, an
+    adjacent number invented on the spot, and left 2,066 top-2000 words still
+    failing the actual rule. The same pass iterated the sentence bank, so
+    words with NO sentence were invisible to it. Iterate the frequency list —
+    the derived collection cannot show you what is missing from it.
+41. **A new row's RANK decides whether it is ever seen.** 2,743 authored
+    sentences were appended with `difficulty_rank = max + 1`, sorted last, and
+    never drawn — the card kept showing the fragments they were written to
+    replace. Writing content is not shipping it; check what the reader
+    actually gets. (CHECKS §24)
+42. **A protection rule can shield junk — check what it is protecting.**
+    `prune_sentences` exempted `curated`/`ai` rows because no rebuild
+    reproduces them, which is false for a row that is only the word it
+    teaches. The exemption was preserving exactly the defect the owner
+    reported from a card.
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one
