@@ -116,10 +116,53 @@ class TestTrialRequest:
         assert resp.json() == {"received": True}
         mail.assert_not_awaited()
 
+    def test_every_admin_account_is_told(self, client):
+        """The recipients come from the roles table, so an admin hears about
+        this whether or not anyone ever set ADMIN_NOTIFY_EMAIL — the config
+        value that was never documented and never set."""
+        quiet = FakeSettings()
+        quiet.admin_notify_email = ""   # deliberately unset
+        with patch("backend.routers.auth.get_settings", return_value=quiet), \
+             patch("backend.routers.auth.trials_table_present",
+                   new=AsyncMock(return_value=True)), \
+             patch("backend.routers.auth.add_trial_request",
+                   new=AsyncMock(return_value=True)), \
+             patch("backend.routers.auth.admin_recipients",
+                   new=AsyncMock(return_value=[
+                       {"id": "a1", "email": "owner@example.com"},
+                       {"id": "a2", "email": "second@example.com"},
+                   ])), \
+             patch("backend.routers.auth.send_email",
+                   new=AsyncMock(return_value=True)) as mail:
+            resp = client.post("/api/auth/trial-request",
+                               json={"email": "kate@example.com"})
+        assert resp.status_code == 200
+        assert {c.args[0] for c in mail.await_args_list} == {
+            "owner@example.com", "second@example.com",
+        }
+
+    def test_the_env_address_is_an_extra_recipient_not_a_duplicate(self, client):
+        """ADMIN_NOTIFY_EMAIL still works — for a pager or shared inbox that
+        owns no account — but an admin who IS that address gets one email."""
+        with patch("backend.routers.auth.trials_table_present",
+                   new=AsyncMock(return_value=True)), \
+             patch("backend.routers.auth.add_trial_request",
+                   new=AsyncMock(return_value=True)), \
+             patch("backend.routers.auth.admin_recipients",
+                   new=AsyncMock(return_value=[
+                       {"id": "a1", "email": "owner@example.com"},  # == the env one
+                   ])), \
+             patch("backend.routers.auth.send_email",
+                   new=AsyncMock(return_value=True)) as mail:
+            resp = client.post("/api/auth/trial-request",
+                               json={"email": "kate@example.com"})
+        assert resp.status_code == 200
+        assert [c.args[0] for c in mail.await_args_list] == ["owner@example.com"]
+
     def test_an_unset_notify_address_still_queues_the_request(self, client):
-        """The failure the owner actually hit: ADMIN_NOTIFY_EMAIL unset, so
-        no mail is even attempted. The request must still land — the queue
-        and the staff bell are the record, mail is the convenience."""
+        """Nobody to mail at all — no admin account and no ADMIN_NOTIFY_EMAIL.
+        The request must still land: the queue and the staff bell are the
+        record, mail is only the convenience."""
         quiet = FakeSettings()
         quiet.admin_notify_email = ""
         with patch("backend.routers.auth.get_settings", return_value=quiet), \
@@ -127,6 +170,8 @@ class TestTrialRequest:
                    new=AsyncMock(return_value=True)), \
              patch("backend.routers.auth.add_trial_request",
                    new=AsyncMock(return_value=True)) as add, \
+             patch("backend.routers.auth.admin_recipients",
+                   new=AsyncMock(return_value=[])), \
              patch("backend.routers.auth.send_email",
                    new=AsyncMock()) as mail:
             resp = client.post("/api/auth/trial-request",

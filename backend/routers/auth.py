@@ -11,6 +11,7 @@ from pydantic import BaseModel, Field
 
 from backend.config import get_settings
 from backend.dependencies import get_current_user
+from backend.repositories.admins import admin_recipients
 from backend.repositories.cards import pretranslate_upcoming
 from backend.repositories.experiments import (
     assign_variant,
@@ -77,20 +78,35 @@ async def request_trial(body: TrialRequestBody, request: Request):
     # Announce NEW requests only (a duplicate would let a stranger make the
     # admin's inbox ring on someone else's behalf). The request itself is
     # already safe in the queue — and the staff bell counts it — so mail is
-    # a convenience, never the record. Each way it can fail says so in the
-    # log: this went unnoticed in production for weeks because an unset
-    # ADMIN_NOTIFY_EMAIL announced nothing and logged nothing either.
-    admin_to = get_settings().admin_notify_email
-    if added and not admin_to:
+    # a convenience, never the record.
+    #
+    # Recipients are the ACCOUNTS holding the admin role, plus
+    # ADMIN_NOTIFY_EMAIL if it names an extra inbox. It used to be that env
+    # var alone, which nobody had set (it wasn't in .env.example either), so
+    # every request announced itself into the void. Roles are already in the
+    # database and cannot drift out of date.
+    if not added:
+        return {"received": True}
+
+    async with privileged_connection() as conn:
+        recipients = [a["email"] for a in await admin_recipients(conn)]
+    extra = get_settings().admin_notify_email
+    if extra and extra not in recipients:
+        recipients.append(extra)
+
+    if not recipients:
         logger.warning(
-            "trial request queued but NOT emailed: ADMIN_NOTIFY_EMAIL is "
-            "unset. The request is in the admin panel's Trial requests queue."
+            "trial request queued but NOT emailed: no account holds the admin "
+            "role and ADMIN_NOTIFY_EMAIL is unset. The request is in the "
+            "admin panel's Trial requests queue."
         )
-    if added and admin_to:
-        who = escape(body.name or body.email)
-        note = f"<p>{escape(body.note)}</p>" if body.note else ""
+        return {"received": True}
+
+    who = escape(body.name or body.email)
+    note = f"<p>{escape(body.note)}</p>" if body.note else ""
+    for to in recipients:
         sent = await send_email(
-            admin_to,
+            to,
             f"PolyglotSRS: trial access request from {body.email}",
             f"<p><strong>{who}</strong> ({escape(body.email)}) asked for "
             f"trial access.</p>{note}"
@@ -103,8 +119,7 @@ async def request_trial(body: TrialRequestBody, request: Request):
             # only delivers to the account owner's own verified address).
             logger.warning(
                 "trial request queued but the announcement email to %s did "
-                "not send. It is in the Trial requests queue either way.",
-                admin_to,
+                "not send. It is in the Trial requests queue either way.", to,
             )
     return {"received": True}
 

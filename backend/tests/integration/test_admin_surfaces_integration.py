@@ -234,6 +234,55 @@ async def test_pending_trial_requests_count_on_the_real_table(pool):
         )
 
 
+async def test_admin_recipients_and_digest_stamp_on_the_real_schema(pool):
+    """Who the admin emails go to, resolved from the roles table.
+
+    The env var they replace was never set, so the query that finds these
+    accounts is the whole feature — it runs against auth.users, which lives
+    behind the shim, and it must not double up on someone holding the role
+    for two languages.
+    """
+    from backend.repositories.admins import (
+        admin_recipients,
+        admins_due_for_digest,
+        mark_digest_sent,
+    )
+
+    lang, admin_id = await _seed_account(pool, "digest-admin@example.com")
+    _, other_id = await _seed_account(pool, "digest-learner@example.com")
+    async with pool.privileged_connection() as conn:
+        # The same person, admin on one language and on all of them: a
+        # DISTINCT failure here mails them twice per notification.
+        await conn.execute(
+            "INSERT INTO contributor_roles (user_id, language_id, role) "
+            "VALUES ($1, NULL, 'admin'), ($1, $2, 'admin') "
+            "ON CONFLICT DO NOTHING",
+            admin_id, lang,
+        )
+        # A contributor is not an admin and must never be mailed as one.
+        await conn.execute(
+            "INSERT INTO contributor_roles (user_id, language_id, role) "
+            "VALUES ($1, $2, 'contributor') ON CONFLICT DO NOTHING",
+            other_id, lang,
+        )
+
+        emails = [a["email"] for a in await admin_recipients(conn)]
+        assert emails.count("digest-admin@example.com") == 1
+        assert "digest-learner@example.com" not in emails
+
+        # Never stamped → due. Stamped now → not due for the next 23 hours.
+        due = [a["id"] for a in await admins_due_for_digest(conn, 23)]
+        assert admin_id in due
+        await mark_digest_sent(conn, admin_id)
+        due_again = [a["id"] for a in await admins_due_for_digest(conn, 23)]
+        assert admin_id not in due_again
+
+        await conn.execute(
+            "DELETE FROM contributor_roles WHERE user_id = ANY($1::uuid[])",
+            [admin_id, other_id],
+        )
+
+
 async def test_review_prompt_query_executes(pool):
     """The tester-prompt rotation's md5 ORDER BY was once verified only as a
     substring of the SQL text — run the actual query."""

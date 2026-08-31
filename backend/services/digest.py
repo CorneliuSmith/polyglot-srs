@@ -23,6 +23,9 @@ logger = logging.getLogger(__name__)
 
 SWEEP_SECONDS = 60 * 60  # hourly: the digest is day-granular, not hour-granular
 DIGEST_HOUR_UTC = 16
+# The admin operations digest runs early, before the learner mail: it is the
+# one that can need a reply the same day (someone is waiting for access).
+ADMIN_DIGEST_HOUR_UTC = 7
 # The recs engine runs the hour BEFORE the digest, so the digest always
 # carries this week's fresh picks rather than last week's.
 RECS_HOUR_UTC = 15
@@ -189,6 +192,196 @@ def picks_html(*, language_name: str, items: list[dict], app_url: str) -> str:
         f'style="color:#6b7280">Adjust your profile or turn them off</a>.</p>'
         f"</div>"
     )
+
+
+def admin_digest_html(
+    *,
+    trial_pending: int,
+    trial_samples: list[dict],
+    languages: list[dict],
+    app_feedback: int,
+    app_url: str,
+) -> str:
+    """The admin's operations digest — what is waiting, and where.
+
+    Same shell as the learner emails; different question. Every section is
+    omitted when its count is zero, and the sweep does not send at all when
+    everything is zero: an email that usually says "nothing to do" is the
+    one people filter away, and then the one that mattered goes with it.
+
+    Pure function of its inputs, so the whole email can be rendered and read
+    in a test without a mail account or a database.
+    """
+    blocks: list[str] = []
+
+    if trial_pending:
+        # First, and named individually: these are people waiting on a reply
+        # from a human, which no other queue here is.
+        who = "".join(
+            f'<div style="padding:8px 0;border-top:1px solid #f3f4f6;font-size:14px">'
+            f'{escape(str(s.get("name") or s.get("email") or ""))}'
+            + (
+                f'<span style="{_MUTED};display:block">'
+                f'{escape(str(s.get("email") or ""))}</span>'
+                if s.get("name") and s.get("email")
+                else ""
+            )
+            + (
+                f'<div style="margin:4px 0 0;font-size:13px;color:#3f6212;'
+                f'background:#f7fee7;border-radius:8px;padding:8px">'
+                f'{escape(str(s["note"]))}</div>'
+                if s.get("note")
+                else ""
+            )
+            + "</div>"
+            for s in trial_samples[:5]
+        )
+        more = (
+            f'<p style="{_MUTED};margin-top:8px">'
+            f"and {trial_pending - len(trial_samples[:5])} more</p>"
+            if trial_pending > len(trial_samples[:5])
+            else ""
+        )
+        blocks.append(
+            f'<div style="{_CARD}">'
+            f'<div style="font-size:16px;font-weight:700;margin:0 0 4px">'
+            f"{trial_pending} "
+            f"{'person is' if trial_pending == 1 else 'people are'} "
+            f"waiting for access</div>"
+            f'<p style="{_MUTED}">Approve or reject them in Workspace &rarr; '
+            f"Admin &rarr; People.</p>"
+            f"{who}{more}"
+            f'<div style="margin:12px 0 0">'
+            f'<a href="{escape(app_url)}/contribute?tab=admin&amp;section=people" '
+            f'style="display:inline-block;background:#166534;color:#ffffff;'
+            f"text-decoration:none;font-weight:600;font-size:15px;"
+            f'padding:12px 22px;border-radius:10px">Open trial requests</a></div>'
+            f"</div>"
+        )
+
+    busy = [lang for lang in languages if lang.get("total")]
+    if busy:
+        rows = "".join(
+            f'<div style="padding:8px 0;border-top:1px solid #f3f4f6;font-size:14px">'
+            f'{escape(str(lang.get("name") or ""))}'
+            f'<span style="float:right;font-weight:700">{int(lang["total"])}</span>'
+            f"</div>"
+            for lang in busy[:12]
+        )
+        total = sum(int(lang["total"]) for lang in busy)
+        blocks.append(
+            f'<div style="{_CARD}">'
+            f'<div style="font-size:16px;font-weight:700;margin:0 0 4px">'
+            f"{total} waiting for review</div>"
+            f'<p style="{_MUTED}">Across '
+            f"{len(busy)} language{'s' if len(busy) != 1 else ''}.</p>"
+            f"{rows}"
+            f'<div style="margin:12px 0 0">'
+            f'<a href="{escape(app_url)}/contribute?tab=review" '
+            f'style="color:#166534;font-weight:600;font-size:14px;'
+            f'text-decoration:none">Open the review queues &rarr;</a></div>'
+            f"</div>"
+        )
+
+    if app_feedback:
+        blocks.append(
+            f'<div style="{_CARD}">'
+            f'<div style="font-size:16px;font-weight:700;margin:0 0 4px">'
+            f"{app_feedback} report{'s' if app_feedback != 1 else ''} "
+            f"about the app itself</div>"
+            f'<p style="{_MUTED}">These belong to no course, so they appear in '
+            f"no language's queue.</p>"
+            f'<div style="margin:12px 0 0">'
+            f'<a href="{escape(app_url)}/contribute?tab=admin" '
+            f'style="color:#166534;font-weight:600;font-size:14px;'
+            f'text-decoration:none">Open the feedback queue &rarr;</a></div>'
+            f"</div>"
+        )
+
+    return (
+        f'<div style="{_WRAPPER}">'
+        f'<div style="{_CARD}">'
+        f'<p style="margin:0 0 4px;font-size:16px;font-weight:700">'
+        f"What's waiting for you</p>"
+        f'<p style="{_MUTED}">Sent only when something is actually waiting — '
+        f"no news means nothing is.</p>"
+        f"</div>"
+        + "".join(blocks)
+        + f'<p style="{_MUTED};text-align:center;margin-top:16px">'
+        f"You're getting this because your account holds the admin role.</p>"
+        f"</div>"
+    )
+
+
+async def sweep_admin_digests(conn) -> int:
+    """Mail every admin ACCOUNT what is waiting for them. Returns sends.
+
+    Owner: "I want an email sent to the admin accounts to like the language
+    recommendations." Recipients come from the roles table, not from
+    ADMIN_NOTIFY_EMAIL — a config value that was never documented and never
+    set, which is how a queue of people asking for access sat unread.
+
+    Silent by design when every queue is empty: a digest that usually says
+    "nothing to do" trains its way into a filter, taking the one that
+    mattered with it.
+    """
+    if not email_configured():
+        return 0  # log-only mode: don't burn the send stamps
+    now = datetime.now(UTC)
+    if now.hour != ADMIN_DIGEST_HOUR_UTC:
+        return 0
+    # One worker per database does the pass, like the recs sweep — two
+    # uvicorn workers would otherwise each mail every admin.
+    if not await conn.fetchval(
+        "SELECT pg_try_advisory_xact_lock(hashtext('admin_digest_sweep'))"
+    ):
+        return 0
+
+    from backend.repositories.admins import admins_due_for_digest, mark_digest_sent
+
+    # A day minus an hour: the hour gate already makes this daily, and an
+    # exact 24h would race its own scheduling drift and skip a day.
+    recipients = await admins_due_for_digest(conn, 23)
+    if not recipients:
+        return 0
+
+    from backend.repositories.contributor import review_inbox_by_language
+    from backend.repositories.feedback import open_feedback_by_language
+    from backend.repositories.trials import (
+        count_pending_trial_requests,
+        list_trial_requests,
+    )
+
+    trial_pending = await count_pending_trial_requests(conn)
+    trial_samples = [
+        r for r in (await list_trial_requests(conn) if trial_pending else [])
+        if r["status"] == "pending"
+    ]
+    languages = await review_inbox_by_language(conn)
+    app_feedback = sum(
+        f["count"] for f in await open_feedback_by_language(conn)
+        if f["language_id"] is None
+    )
+    review_total = sum(int(lang.get("total") or 0) for lang in languages)
+    if not (trial_pending or review_total or app_feedback):
+        return 0
+
+    app_url = getattr(get_settings(), "app_url", "").rstrip("/")
+    html = admin_digest_html(
+        trial_pending=trial_pending,
+        trial_samples=trial_samples,
+        languages=languages,
+        app_feedback=app_feedback,
+        app_url=app_url,
+    )
+    waiting = trial_pending + review_total + app_feedback
+    subject = f"PolyglotSRS: {waiting} waiting for you"
+    sent = 0
+    for admin in recipients:
+        if await send_email(admin["email"], subject, html):
+            await mark_digest_sent(conn, admin["id"])
+            sent += 1
+    return sent
 
 
 async def sweep_weekly_recommendations(conn) -> int:
@@ -410,4 +603,15 @@ async def digest_loop() -> None:
             raise
         except Exception as exc:  # noqa: BLE001 — the loop must survive anything
             logger.warning("weekly digest sweep failed: %s", exc)
+        # The admin operations digest — its own guarded block, so a learner
+        # sweep failing never costs the admin their report and vice versa.
+        try:
+            async with privileged_connection() as conn:
+                n = await sweep_admin_digests(conn)
+            if n:
+                logger.info("admin digests: sent %d", n)
+        except asyncio.CancelledError:
+            raise
+        except Exception as exc:  # noqa: BLE001 — the loop must survive anything
+            logger.warning("admin digest sweep failed: %s", exc)
         await asyncio.sleep(SWEEP_SECONDS)
