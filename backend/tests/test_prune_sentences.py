@@ -99,3 +99,25 @@ def test_an_empty_committed_bank_deletes_nothing(monkeypatch):
     rep = asyncio.run(ps.survey(_Conn(), "en"))
     assert rep["skipped"] == "no committed bank"
     assert rep["delete"] == []
+
+
+class TestContextFreeRowsLoseTheirExemption:
+    """`curated`/`ai` rows are exempt because no rebuild reproduces them.
+    A row that is only the headword has nothing to reproduce, and the
+    exemption was shielding junk: the Russian `да` card kept "Да." and "Да!"
+    as source='ai' through a full prune, beside the real sentences that had
+    just been authored for it. 221 such rows in ru+ar alone."""
+
+    def test_a_bare_headword_is_prunable_even_when_ai(self):
+        assert ps._context_free("Да.", "да")
+        assert ps._context_free("Да!", "да")
+        assert ps._context_free("¿No?", "no")
+
+    def test_a_real_sentence_keeps_its_exemption(self):
+        assert not ps._context_free("Да, я согласился помочь с переездом.", "да")
+        assert not ps._context_free("Это он, да?", "да")
+
+    def test_it_does_not_count_whitespace(self):
+        """Thai has no spaces; comparing to the headword still works."""
+        assert ps._context_free("ใช่", "ใช่")
+        assert not ps._context_free("ผมกินข้าว", "กิน")

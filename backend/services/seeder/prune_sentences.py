@@ -50,6 +50,29 @@ ROLLBACK_DIR = REPO / "out"
 PRUNABLE_SOURCES = ("tatoeba",)
 
 
+def _context_free(sentence: str, word: str) -> bool:
+    """True when the sentence is only the word it teaches, punctuation aside.
+
+    CHECKS §21: such a row cannot show a learner how the word behaves, so it
+    has no value to preserve — which is the ONLY reason `curated`/`ai` rows
+    are otherwise exempt. Without this the protection rule shields junk: the
+    Russian card for `да` kept "Да." and "Да!" as source='ai' through a full
+    prune, sitting beside the real sentences that had just been authored for
+    it. 221 such rows in ru+ar alone.
+
+    Script-independent by construction — it compares the punctuation-stripped
+    sentence to the headword rather than counting whitespace tokens, which is
+    meaningless for Thai and misleading for Korean (CHECKS §22).
+    """
+    import unicodedata
+
+    bare = "".join(
+        c for c in (sentence or "")
+        if not unicodedata.category(c).startswith("P")
+    ).strip()
+    return bare.casefold() == (word or "").strip().casefold()
+
+
 def file_pairs(code: str) -> set[tuple[str, str]]:
     """(word, sentence) the committed bank endorses, lowercased on the word."""
     path = DATA_DIR / f"{code}_sentences.tsv"
@@ -92,13 +115,22 @@ async def survey(conn: asyncpg.Connection, code: str) -> dict:
 
     delete, kept_empty = [], []
     for word, group in by_word.items():
+        # A context-free row is a candidate whatever its source: the exemption
+        # exists to protect work a rebuild cannot reproduce, and there is
+        # nothing there to protect.
+        def _prunable(r):
+            return (
+                r["source"] in PRUNABLE_SOURCES
+                or _context_free(r["sentence"], word)
+            )
+
         survivors = [
             r for r in group
-            if r["source"] not in PRUNABLE_SOURCES or (word, r["sentence"]) in keep
+            if not _prunable(r) or (word, r["sentence"]) in keep
         ]
         candidates = [
             r for r in group
-            if r["source"] in PRUNABLE_SOURCES and (word, r["sentence"]) not in keep
+            if _prunable(r) and (word, r["sentence"]) not in keep
         ]
         if not candidates:
             continue
