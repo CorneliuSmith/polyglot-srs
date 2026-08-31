@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom'
 
 /**
  * Terms of Service — a public page (no auth) linked from the login screen
- * and Settings. Written in plain language and kept honest about the beta:
- * community/AI-drafted content, AI tutor limits, and what we store.
+ * and Settings. Written in plain language and kept honest about where the
+ * product actually is: community/AI-drafted content, AI tutor limits, and
+ * what we store.
  *
  * 2026-08-09 revision (owner: "up-to-date with more modern standards"):
  * covers what shipped since July — trial accounts with temporary
@@ -47,7 +48,7 @@ export default function TermsPage() {
               agree, don't use the service.
             </p>
             <p>
-              The service is currently in <strong>beta</strong>. Features may
+              The service is still early and actively evolving. Features may
               change, break, or be removed, and we may need to reset or migrate
               data as the product evolves. We will avoid that wherever possible
               and tell you when it happens.
@@ -78,8 +79,9 @@ export default function TermsPage() {
               and use them only to decide on and process your request. Granting
               access is at our discretion; trials may be free or individually
               priced, may have usage allowances, and may end when the trial
-              period or the beta does. If your request is declined or you
-              change your mind, you can ask us to delete the request.
+              period ends or when we move past this early stage. If your
+              request is declined or you change your mind, you can ask us to
+              delete the request.
             </p>
           </Section>
 
@@ -108,7 +110,7 @@ export default function TermsPage() {
               in progress for parts of the catalogue, and some items are marked
               as drafts. Content may contain errors. If something looks wrong,
               use the in-app report option — corrections are part of how the
-              beta improves.
+              service improves.
             </p>
           </Section>
 
@@ -255,7 +257,7 @@ export default function TermsPage() {
           <Section title="14. Disclaimers and liability">
             <p>
               The service is provided "as is", without warranties of any kind,
-              during the beta especially. To the maximum extent permitted by
+              especially while it is still this new. To the maximum extent permitted by
               law, our liability for any claim related to the service is
               limited to the amount you paid us in the twelve months before the
               claim. Nothing in these terms excludes or limits liability that

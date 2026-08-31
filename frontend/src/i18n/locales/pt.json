@@ -338,7 +338,7 @@
     "inReviews": "Nas revisões ✓"
   },
   "login": {
-    "privateBeta": "Beta privado — entre com a conta criada pelo seu administrador.",
+    "privateBeta": "Somente por convite — entre com a conta criada pelo seu administrador.",
     "signIn": "Entrar",
     "signUp": "Cadastrar",
     "resetIntro": "Digite o e-mail da sua conta e enviaremos um link para escolher uma nova senha.",

@@ -403,7 +403,7 @@ function AccountRow({
   )
 }
 
-/** Mint a beta account (invite-only signup is disabled — the admin
+/** Mint an account by hand (invite-only signup is disabled — the admin
  * creates email+password logins and hands them to friends). */
 /** Turn a create-account failure into something an admin can act on: the
  * server's reason if there is one, a validation summary, or — the case that
@@ -452,7 +452,7 @@ function InviteForm() {
   return (
     <div className="rounded-lg border border-gray-200 bg-gray-50 p-3 space-y-2">
       <p className="text-xs text-gray-500">
-        Create a beta account and share the password with your friend — they
+        Create an account and share the password with your friend — they
         can change it later via “Forgot password?”.
       </p>
       <div className="flex flex-wrap gap-2">

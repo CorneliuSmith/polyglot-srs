@@ -338,7 +338,7 @@
     "inReviews": "In reviews ✓"
   },
   "login": {
-    "privateBeta": "Private beta — sign in with the account your admin created for you.",
+    "privateBeta": "Invite-only — sign in with the account your admin created for you.",
     "signIn": "Sign In",
     "signUp": "Sign Up",
     "resetIntro": "Enter your account email and we’ll send you a link to choose a new password.",
