@@ -28694,3 +28694,456 @@ word	sentence	translation	difficulty_rank
 основе	Любовь — единственная реальность, и это не просто чувство. Это высшая истина, лежащая в основе творения.	Love is the only reality, and it is not a mere sentiment. It is the ultimate truth that lies at the heart of creation.	19999
 угу	Угу, именно так.	Yep, that's the case.	19999
 мотеле	Вы когда-нибудь останавливались в мотеле?	Have you ever stayed at a motel?	19999
+я	Я каждое утро варю кофе, пока весь дом ещё спит.	Every morning I make coffee while the whole house is still asleep.	20000
+я	На планёрке я предложил сдвинуть сроки, но начальник только поморщился.	At the morning briefing I suggested pushing the deadlines back, but the boss just winced.	20001
+я	Я ужасно нервничаю перед защитой диплома, хотя всё давно выучила.	I'm terribly nervous about my thesis defence, even though I learned it all ages ago.	20002
+не	Я не выключила утюг и вернулась с полдороги домой.	I hadn't switched the iron off, so I turned back home halfway there.	20003
+не	Директор не отвечает на письма уже неделю, и все нервничают.	The director hasn't answered any emails for a week now, and everyone is on edge.	20004
+не	Обидно не то, что машину поцарапали, а то, что записку не оставили.	What stings isn't that they scratched the car — it's that they left no note.	20005
+что	Мама позвонила и сказала, что варенье в подвале уже закончилось.	Mum rang and said that the jam in the cellar had already run out.	20006
+что	Я заметил, что коллеги перестали приглашать меня на обед.	I noticed that my colleagues had stopped inviting me to lunch.	20007
+что	Хорошо, что мы взяли зонт: дождь начался прямо у входа в театр.	It's a good thing we took an umbrella — the rain started right at the theatre entrance.	20008
+и	Бабушка испекла пирог и вынесла его на холодный балкон.	Grandma baked a pie and took it out onto the cold balcony.	20009
+и	На новой работе я и отчёты пишу, и кофе всем варю.	In my new job I both write the reports and make everyone's coffee.	20010
+и	Я так устал, что и ужинать не стал, сразу лёг спать.	I was so tired that I didn't even have dinner — I went straight to bed.	20011
+ты	Ты опять оставил грязные кроссовки прямо в коридоре у двери.	You've left your dirty trainers right in the hallway by the door again.	20012
+ты	Слушай, ты завтра идёшь на день рождения к Насте?	Listen, are you going to Nastya's birthday party tomorrow?	20013
+ты	Ты единственный, кто меня тогда поддержал, и я это помню.	You're the only one who stood by me back then, and I haven't forgotten it.	20014
+он	Холодильник гудит всю ночь — он старый, но выбрасывать жалко.	The fridge hums all night — it's old, but it seems a shame to throw it out.	20015
+он	Он работает в этой школе тридцать лет и знает всех родителей.	He has worked at this school for thirty years and knows every parent.	20016
+он	Он обещал позвонить из аэропорта, но так и не позвонил.	He promised to ring from the airport, but he never did.	20017
+как	Расскажи, как ты добрался до дачи, когда отменили электричку.	Tell me how you got out to the dacha when the local train was cancelled.	20018
+как	Он говорит по-русски как местный, хотя приехал только прошлой осенью.	He speaks Russian like a local, even though he only arrived last autumn.	20019
+как	Как только начальник ушёл в отпуск, в офисе все выдохнули.	The moment the boss went off on holiday, everyone in the office breathed out.	20020
+вы	Вы забыли сдачу на прилавке, и я догнал вас уже у выхода.	You left your change on the counter, and I only caught up with you at the door.	20021
+вы	Ребята, вы приедете к нам на шашлыки в субботу?	Guys, are you coming over to ours for a barbecue on Saturday?	20022
+вы	Вы меня простите, но я категорически не согласен с решением совета.	Do forgive me, but I flatly disagree with the council's decision.	20023
+да	Да, я согласился помочь с переездом, хотя ненавижу таскать коробки.	Yes, I agreed to help with the move, even though I hate lugging boxes.	20024
+да	Ты же завтра встретишь меня на вокзале, да?	You are going to meet me at the station tomorrow, aren't you?	20025
+да	Да не волнуйся ты, этот экзамен все хоть раз заваливали.	Oh, do stop worrying — everyone has failed that exam at least once.	20026
+мне	Мне холодно даже в свитере — батареи в квартире опять еле тёплые.	I'm cold even in a jumper — the radiators in the flat are barely warm again.	20027
+мне	Мне дали два дня, чтобы доделать отчёт до приезда комиссии.	They gave me two days to finish the report before the inspection team arrived.	20028
+мне	Мне до сих пор снится дом бабушки в деревне под Тверью.	I still dream about my grandmother's house in the village near Tver.	20029
+у	У бабушки на даче всегда пахнет укропом и старыми книгами.	At my grandmother's dacha it always smells of dill and old books.	20030
+у	У нас в офисе сломался кондиционер, и все сидят с открытыми окнами.	The air conditioning broke at our office, so everyone is sitting with the windows open.	20031
+у	Она полчаса стояла у окна и ждала, когда он наконец позвонит.	She stood by the window for half an hour, waiting for him to finally call.	20032
+меня	Меня разбудил сосед, который в семь утра начал сверлить стену.	I was woken up by the neighbour, who started drilling into the wall at seven in the morning.	20033
+меня	У меня на работе никто не знает, что я пишу стихи.	Nobody at my work knows that I write poetry.	20034
+меня	Меня до сих пор злит, что он ушёл, не попрощавшись.	It still makes me angry that he left without saying goodbye.	20035
+так	Бабушка учила меня лепить пельмени именно так, защипывая края двумя пальцами.	Grandma taught me to make pelmeni exactly like this, pinching the edges with two fingers.	20036
+так	Вчера было так холодно, что я перестал чувствовать пальцы на остановке.	It was so cold yesterday that I lost all feeling in my fingers at the bus stop.	20037
+так	Так мы и познакомились: он занял мне место в очереди.	That's how we met — he saved me a place in the queue.	20038
+а	Я мою посуду, а брат в это время играет в приставку.	I'm washing the dishes while my brother sits there playing video games.	20039
+а	Начальник обещал премию в декабре, а выплатили её только в марте.	The boss promised a bonus in December, but they only paid it out in March.	20040
+а	Мне уже сорок, а я до сих пор не научился плавать.	I'm forty already, and I still haven't learned to swim.	20041
+его	Его куртка так и висит в прихожей с прошлой зимы.	His jacket has been hanging in the hallway since last winter.	20042
+его	Его перевели в московский офис, и без него в отделе стало тихо.	They transferred him to the Moscow office, and the department went quiet without him.	20043
+его	Его не было на похоронах, и родня до сих пор об этом шепчется.	He wasn't at the funeral, and the relatives are still whispering about it.	20044
+все	К вечеру все разъехались, и на даче остались только мы с дедом.	By evening everyone had gone home, and only my grandfather and I were left at the dacha.	20045
+все	На планёрке все делают вид, что читали отчёт до конца.	At the morning meeting everyone pretends they read the report all the way through.	20046
+все	Все мои друзья уже переехали, а я почему-то остался здесь.	All my friends have moved away, and for some reason I'm still here.	20047
+она	Дед починил старую машину, и теперь она заводится даже в мороз.	Grandpa got the old car running again, and now it starts even in a hard frost.	20048
+она	Она работает у нас с весны и уже знает всех клиентов по имени.	She's been working with us since the spring and already knows every client by name.	20049
+она	Она так и не позвонила, хотя обещала написать сразу после приезда.	She never did call, even though she promised to write as soon as she arrived.	20050
+за	Ключи всё это время лежали за холодильником, куда их уронил кот.	The keys had been lying behind the fridge the whole time, where the cat had knocked them.	20051
+за	За квартиру в центре я плачу почти всю свою зарплату.	A flat in the centre eats up nearly my whole salary.	20052
+за	Мама до сих пор не простила отца за тот испорченный Новый год.	Mum still hasn't forgiven Dad for the New Year's he ruined.	20053
+тебе	Я оставил тебе борщ в кастрюле, разогрей, когда вернёшься с работы.	I left you some borscht in the pot — heat it up when you get back from work.	20054
+тебе	Тебе не кажется, что новый начальник слишком любит длинные совещания?	Don't you think the new boss is a bit too fond of long meetings?	20055
+тебе	Мама вчера весь вечер расспрашивала о тебе и просила передать привет.	Mum spent all evening yesterday asking about you and sent you her regards.	20056
+есть	У нас в деревне есть колодец, вода в нём ледяная даже летом.	There's a well in our village; the water in it is icy even in summer.	20057
+есть	У меня есть знакомый в этом банке, он поможет с документами.	I've got a contact at that bank — he'll help with the paperwork.	20058
+есть	После ночной смены мне не хочется ни спать, ни есть, ни разговаривать.	After a night shift I don't feel like sleeping, or eating, or talking.	20059
+ну	Ну, ставь чайник, раз уж мы всё равно не спим.	Well, put the kettle on then — we're not sleeping anyway.	20060
+ну	Ну что, начальник опять перенёс совещание на вечер пятницы?	So, the boss has moved the meeting to Friday evening again?	20061
+ну	Ну и мороз сегодня — я до остановки еле дошёл!	It's absolutely freezing today — I only just made it to the bus stop!	20062
+было	В доме было тихо, только на кухне капала вода.	It was quiet in the house; only the water was dripping in the kitchen.	20063
+было	У нас на даче раньше было электричество, но провода украли.	We used to have electricity at the dacha, but the wires got stolen.	20064
+было	Мне было стыдно признаться, что я забыл её день рождения.	I was ashamed to admit that I had forgotten her birthday.	20065
+кто	Кто съел последний пирожок и не сказал ни слова?	Who ate the last pirozhok and didn't say a word about it?	20066
+кто	Кто отвечает за отчёт, пока Марина в отпуске до среды?	Who's handling the report while Marina is on leave until Wednesday?	20067
+кто	Тот, кто вырос в деревне, никогда не боится ночной тишины.	Someone who grew up in the countryside is never frightened by the silence at night.	20068
+будет	Завтра будет дождь, так что зонт положи в рюкзак заранее.	There'll be rain tomorrow, so put an umbrella in your backpack in advance.	20069
+будет	Пока я в командировке, соседка будет кормить кота и поливать цветы.	While I'm away on a business trip, my neighbour will feed the cat and water the plants.	20070
+будет	Не переживай: через неделю тебе будет смешно вспоминать этот разговор.	Don't worry — in a week you'll find it funny to look back on this conversation.	20071
+почему	Почему ты не разбудил меня, я же просил в семь?	Why didn't you wake me up? I did ask you to, at seven.	20072
+почему	Я до сих пор не понимаю, почему нам отказали в визе.	I still don't understand why they turned us down for the visa.	20073
+почему	Почему все молчат, когда начальник несёт откровенную чушь на планёрке?	Why does everybody stay silent when the boss talks utter nonsense at the morning meeting?	20074
+вам	Вам помочь донести сумки или вы дождётесь мужа у подъезда?	Shall I help you carry the bags up, or will you wait for your husband by the entrance?	20075
+вам	Я вам перезвоню сразу, как только бухгалтерия подтвердит оплату.	I'll call you back the moment accounting confirms the payment.	20076
+вам	Вам очень идёт это пальто, в нём вы выглядите моложе.	That coat really suits you; it makes you look younger.	20077
+уже	Мы уже поужинали, но я оставил тебе борщ на плите.	We've already had dinner, but I left you some borscht on the stove.	20078
+уже	Она уже второй час сидит в очереди к терапевту.	She's been sitting in the queue for the doctor for over an hour now.	20079
+уже	Уже поздно извиняться: поезд ушёл, и она сменила номер телефона.	It's too late to apologise now — that ship has sailed, and she's changed her number.	20080
+ещё	Налей мне ещё чаю, пожалуйста, и подвинь варенье поближе.	Pour me some more tea, please, and move the jam a bit closer.	20081
+ещё	Директор ещё не подписал договор, поэтому мы ждём до понедельника.	The director hasn't signed the contract yet, so we're waiting until Monday.	20082
+ещё	Что ещё я должен сделать, чтобы ты наконец мне поверила?	What else do I have to do to make you finally believe me?	20083
+мой	Мой сосед сверху опять сверлит стену в воскресенье утром.	My upstairs neighbour is drilling into the wall again on a Sunday morning.	20084
+мой	Коллеги случайно выбросили мой отчёт вместе со старыми черновиками.	My colleagues accidentally threw my report out along with the old drafts.	20085
+мой	Этот старый велосипед мой, я купил его ещё в школе.	This old bicycle is mine — I bought it back when I was at school.	20086
+ладно	Ладно, я сам вымою посуду, только не ворчи весь вечер.	All right, I'll wash the dishes myself — just don't grumble all evening.	20087
+ладно	Да ладно, неужели он правда бросил институт ради музыки?	Oh come on, did he really drop out of university for the sake of music?	20088
+ладно	Ладно, договорились: вы присылаете макет, а я оплачиваю до пятницы.	Okay, it's a deal: you send the design over, and I pay by Friday.	20089
+теперь	Раньше мы жили в общежитии, а теперь снимаем квартиру у метро.	We used to live in a dorm, but now we rent a flat near the metro.	20090
+теперь	Она десять лет проработала учителем, а теперь открыла свою пекарню.	She taught school for ten years, and now she has opened her own bakery.	20091
+теперь	Теперь я понимаю, почему бабушка всегда просила закрывать окно на ночь.	Now I understand why Grandma always asked us to shut the window at night.	20092
+ему	Я связала брату свитер, но он оказался ему мал.	I knitted my brother a sweater, but it turned out too small for him.	20093
+ему	Коллега уходит на пенсию, и мы всем отделом купили ему путёвку в санаторий.	A colleague is retiring, and the whole department bought him a stay at a sanatorium.	20094
+ему	Деду восемьдесят, но ему до сих пор нравится колоть дрова на даче.	Grandpa is eighty, but he still enjoys chopping firewood at the dacha.	20095
+пока	Ремонт мы пока отложили: денег хватает только на новые окна.	We have put the renovation off for now — we only have enough money for new windows.	20096
+пока	Пока я работаю на полставки, но осенью обещали перевести на полную.	For the time being I work half-time, but they promised to move me to full-time in the autumn.	20097
+пока	Не говори маме про экзамен, пусть она пока ни о чём не волнуется.	Don't tell Mum about the exam — let her not worry about anything for now.	20098
+давай	Давай купим билеты заранее, а то в августе на юг не уедешь.	Let's buy the tickets in advance, or we'll never get down south in August.	20099
+давай	Давай не будем спорить при клиентах, обсудим всё после совещания.	Let's not argue in front of the clients; we'll talk it all over after the meeting.	20100
+давай	Давай, ещё один этаж — наверху бабушка ждёт нас с пирогами.	Come on, one more flight — Grandma is waiting upstairs with pies.	20101
+эй	Эй, ты забыл зонт на столике в кафе, вернись!	Hey, you left your umbrella on the café table — come back!	20102
+эй	Эй, водитель, откройте заднюю дверь, я выхожу у рынка!	Hey, driver, open the back door — I'm getting off at the market!	20103
+эй	Эй, соседи сверху, вы там что, всю ночь двигаете мебель?	Hey, neighbours upstairs — are you shoving furniture around up there all night?	20104
+конечно	Мама, конечно, приготовила борщ, хотя я просила её не хлопотать.	Of course Mum made borscht, even though I had asked her not to go to any trouble.	20105
+конечно	Конечно, приходи в субботу, мы всё равно будем дома весь день.	Of course, come over on Saturday — we'll be home all day anyway.	20106
+конечно	Он, конечно, талантливый программист, но работать с ним почти невозможно.	He's a talented programmer, sure, but working with him is next to impossible.	20107
+пожалуйста	Передайте, пожалуйста, соль — я, кажется, недосолила суп.	Pass the salt, please — I think I under-salted the soup.	20108
+пожалуйста	— Спасибо, что подменили меня в субботу! — Пожалуйста, обращайтесь в любое время.	Thanks for covering my shift on Saturday! — You're welcome, ask me any time.	20109
+пожалуйста	Ну пожалуйста, останься ещё на полчаса, без тебя весь вечер развалится.	Oh please, stay another half hour — the whole evening will fall apart without you.	20110
+сюда	Поставь коробку сюда, к двери, чтобы утром её не забыть.	Put the box here by the door so we don't forget it in the morning.	20111
+сюда	Мы переехали сюда из Новосибирска, и здесь зимой гораздо теплее.	We moved here from Novosibirsk, and the winters here are much milder.	20112
+сюда	Иди сюда, я тебя обниму — ты же весь дрожишь от холода.	Come here, let me give you a hug — you're shivering all over with cold.	20113
+боже	Боже, я оставила утюг включённым и вспомнила об этом в автобусе!	God, I left the iron on and only remembered it on the bus!	20114
+боже	Боже мой, как ты вырос — я не видела тебя с самой школы!	My God, how you've grown — I haven't seen you since school!	20115
+боже	Боже, помоги ей выздороветь, — шептала бабушка перед иконой в углу.	Lord, help her get well, Grandma whispered in front of the icon in the corner.	20116
+жизнь	После рождения дочки наша жизнь превратилась в расписание кормлений и прогулок.	After our daughter was born, our life turned into a schedule of feedings and walks.	20117
+жизнь	Дед всю жизнь проработал на заводе и до сих пор скучает по цеху.	Grandpa worked at the factory his whole life and still misses the shop floor.	20118
+жизнь	Я впервые в жизни увидела море и стояла на берегу минут двадцать.	I saw the sea for the first time in my life and stood on the shore for a good twenty minutes.	20119
+возможно	Возможно, я забыл ключи на даче, поэтому придётся возвращаться завтра.	I may have left the keys at the dacha, so I'll have to go back tomorrow.	20120
+возможно	Сдать отчёт за один вечер вполне возможно, если никто не будет отвлекать.	Handing the report in within one evening is perfectly possible, as long as nobody interrupts.	20121
+возможно	Возможно, я была слишком резкой с сестрой, но она первая начала.	Maybe I was too harsh with my sister, but she started it.	20122
+моей	У моей бабушки на балконе стоит банка с вареньем ещё с прошлого лета.	There's been a jar of jam standing on my grandmother's balcony since last summer.	20123
+моей	Моей начальнице не понравилась идея перенести совещание на утро субботы.	My boss didn't like the idea of moving the meeting to Saturday morning.	20124
+моей	В моей комнате всегда беспорядок, но я прекрасно знаю, где что лежит.	My room is always a mess, but I know perfectly well where everything is.	20125
+люди	В очереди за билетами люди стояли с пяти утра и грелись чаем.	People had been queuing for tickets since five in the morning, keeping warm with tea.	20126
+люди	Люди у нас на заводе давно привыкли, что автобус приходит с опозданием.	People at our factory got used long ago to the works bus turning up late.	20127
+люди	Мне кажется, люди стали реже звонить друг другу просто так.	It seems to me people ring each other just for a chat far less often now.	20128
+человек	В нашем подъезде живёт человек, который чинит велосипеды всем соседям бесплатно.	There's a man living in our stairwell who mends all the neighbours' bikes for free.	20129
+человек	На собрание пришло всего восемь человек, хотя приглашали весь коллектив.	Only eight people came to the meeting, even though the whole staff had been invited.	20130
+человек	Он хороший человек, просто не умеет говорить о своих чувствах.	He's a good man, he just doesn't know how to talk about his feelings.	20131
+мои	Мои очки опять куда-то пропали, наверное, лежат под подушкой.	My glasses have gone missing again — they're probably under the pillow.	20132
+мои	Мои коллеги каждую пятницу ходят в бар, а я сразу еду домой.	My colleagues go to the bar every Friday, whereas I head straight home.	20133
+мои	Мои родители почему-то уверены, что я не умею готовить сама.	For some reason my parents are convinced that I can't cook for myself.	20134
+друг	Мой школьный друг приехал без предупреждения и остался ночевать у нас на диване.	My old school friend turned up without warning and stayed the night on our sofa.	20135
+друг	Мой друг работает поваром и вечно жалуется, что не высыпается.	A friend of mine works as a cook and is forever complaining that he never gets enough sleep.	20136
+друг	Настоящий друг скажет тебе правду, даже если ты не хочешь её слышать.	A real friend will tell you the truth, even when you don't want to hear it.	20137
+эта	Эта кастрюля досталась мне от бабушки, и я до сих пор в ней готовлю.	This pot came down to me from my grandmother, and I still cook in it.	20138
+эта	Эта маршрутка идёт до вокзала, а следующая свернёт к рынку.	This minibus goes to the station, while the next one turns off towards the market.	20139
+эта	Эта песня всегда напоминает мне лето, когда мы жили у моря.	This song always reminds me of the summer when we lived by the sea.	20140
+сколько	Посмотри, сколько яиц осталось в холодильнике: я хочу испечь блины.	Have a look how many eggs are left in the fridge — I want to make pancakes.	20141
+сколько	Сколько стоит доехать до аэропорта на такси в шесть утра?	How much does it cost to get to the airport by taxi at six in the morning?	20142
+сколько	Сколько денег мы потратили на этот ремонт, страшно вспомнить!	The amount of money we spent on that renovation — it doesn't bear thinking about!	20143
+людей	В субботу на рынке собирается столько людей, что до прилавка не пробиться.	So many people pack the market on Saturday that there's no getting through to the stall.	20144
+людей	На стройку взяли новых людей, но половина уволилась уже через неделю.	They took on new people at the building site, but half of them had quit within a week.	20145
+людей	Я стесняюсь незнакомых людей и обычно молчу весь вечер в гостях.	I get shy around people I don't know and usually stay silent all evening when we're visiting.	20146
+видел	Ты не видел, куда я положил зарядку от телефона?	Have you seen where I put the phone charger?	20147
+видел	Вчера я видел твоего брата на остановке, но он меня не заметил.	I saw your brother at the bus stop yesterday, but he didn't spot me.	20148
+видел	Я никогда не видел, чтобы отец так радовался обычному подарку.	I'd never seen my father so pleased with such an ordinary present.	20149
+отлично	Сын отлично сдал химию и весь вечер ходил по квартире гордый.	My son aced his chemistry exam and strutted around the flat all evening.	20150
+отлично	Новый бариста отлично варит кофе, поэтому очередь тянется до самой улицы.	The new barista makes excellent coffee, so the queue stretches all the way outside.	20151
+отлично	Мы отлично провели выходные на даче, хотя всё время лил дождь.	We had a great weekend at the dacha, even though it rained the whole time.	20152
+парень	Парень из соседней квартиры каждое утро чинит мотоцикл прямо под моими окнами.	The guy from the flat next door fixes his motorbike right under my windows every morning.	20153
+парень	В маршрутке я попросил парня передать деньги за проезд водителю.	On the minibus I asked a guy to pass my fare up to the driver.	20154
+парень	Этому парню я одолжил дрель, и с тех пор его никто не видел.	I lent that guy my drill, and nobody has seen him since.	20155
+всем	В субботу мы всем домом убирали двор и жарили шашлык.	On Saturday the whole building turned out to clean the yard and grill shashlik.	20156
+всем	Начальник обсуждает премии со всем отделом, а меня даже не позвали.	The boss is discussing bonuses with the entire department, and they didn't even invite me.	20157
+всем	Я всем сердцем желаю тебе удачи на завтрашнем собеседовании.	I wish you the best of luck with all my heart at tomorrow's interview.	20158
+три	Мама попросила купить три батона, а я опять всё забыл.	Mum asked me to pick up three loaves of white bread, and once again I forgot the lot.	20159
+три	Три сотрудника уволились за месяц, и теперь отдел работает по выходным.	Three people quit in the space of a month, and now the department works weekends.	20160
+три	Три года я копил на эту гитару и наконец купил её вчера.	I put money aside for that guitar for three years, and yesterday I finally bought it.	20161
+доктор	Доктор осмотрел горло и сказал, что мне придётся неделю сидеть дома.	The doctor looked at my throat and said I'd have to stay home for a week.	20162
+доктор	Доктор исторических наук читает у нас лекции по вторникам и вечно опаздывает.	A doctor of historical sciences lectures to us on Tuesdays and is always late.	20163
+доктор	Я записалась к доктору на пятницу, хотя ужасно боюсь уколов.	I booked an appointment with the doctor for Friday, even though I'm terrified of injections.	20164
+слушай	Слушай внимательно, что говорит бабушка, а то опять всё перепутаешь.	Listen carefully to what Grandma is saying, or you'll mix everything up again.	20165
+слушай	Слушай, давай встретимся у метро в семь и пойдём в кино.	Listen, let's meet by the metro at seven and go to the cinema.	20166
+слушай	Не слушай соседей, они всегда придумывают про новых жильцов всякие глупости.	Don't listen to the neighbours, they always make up nonsense about the new tenants.	20167
+отсюда	Отсюда до дачи мы обычно едем на электричке почти два часа.	From here it's usually a good two hours on the commuter train to the dacha.	20168
+отсюда	Отдел переехал отсюда на третий этаж, а мой стол почему-то забыли.	The department moved out of here up to the third floor, and somehow they left my desk behind.	20169
+отсюда	Он вырос в деревне, отсюда и его любовь к тишине.	He grew up in a village — hence his love of quiet.	20170
+нужна	Мне очень нужна твоя помощь, ведь я одна этот шкаф не подвину.	I really need your help, because I can't shift this wardrobe on my own.	20171
+нужна	Начальнику была нужна моя подпись, поэтому я вернулся в офис вечером.	The boss needed my signature, so I went back to the office in the evening.	20172
+нужна	Тебе ещё будет нужна эта справка, так что не выбрасывай её.	You'll still need this certificate, so don't throw it away.	20173
+пошли	После ужина мы пошли гулять вдоль реки и вернулись уже затемно.	After dinner we went for a walk along the river and got back after dark.	20174
+пошли	Коллеги пошли обедать без меня, потому что я застрял на совещании.	My colleagues went to lunch without me because I was stuck in a meeting.	20175
+пошли	Дела в мастерской пошли плохо, и отец впервые заговорил о продаже.	Things went badly at the workshop, and for the first time Dad talked about selling it.	20176
+твои	Твои носки опять валяются под диваном, а через час придут гости.	Your socks are lying under the sofa again, and the guests arrive in an hour.	20177
+твои	Мне очень понравились твои фотографии с Байкала, особенно та, где туман.	I really liked your photos from Lake Baikal, especially the one with the fog.	20178
+твои	Начальник спросил, где твои отчёты за июль, а я промолчал.	The boss asked where your July reports were, and I said nothing.	20179
+зовут	Мою бабушку зовут Валентина, но в деревне все зовут её Валей.	My grandmother is called Valentina, but in the village everyone calls her Valya.	20180
+зовут	Меня зовут Андрей, я новый бухгалтер и работаю в соседнем кабинете.	My name is Andrei, I'm the new accountant and I work in the office next door.	20181
+зовут	Нас зовут на дачу в субботу, но мне ужасно не хочется ехать.	We've been invited to the dacha on Saturday, but I really don't feel like going.	20182
+наши	Наши соседи сверху снова нас затопили, вода дошла до коридора.	Our upstairs neighbours have flooded us again; the water reached the hallway.	20183
+наши	Наши инженеры закончат проект в пятницу, если заказчик наконец пришлёт чертежи.	Our engineers will finish the project on Friday, if the client finally sends the drawings.	20184
+наши	Вчера наши выиграли у испанцев, и весь двор кричал до полуночи.	Yesterday our lot beat the Spanish, and the whole courtyard was shouting until midnight.	20185
+которая	Кастрюля, которая стоит на верхней полке, досталась мне от бабушки.	The saucepan that sits on the top shelf came down to me from my grandmother.	20186
+которая	Это та коллега, которая перевела нам договор за одну ночь.	That's the colleague who translated the contract for us in a single night.	20187
+которая	Мне не нравится реклама, которая обещает счастье за девятьсот девяносто девять рублей.	I can't stand advertising that promises you happiness for nine hundred and ninety-nine roubles.	20188
+пора	В августе у нас грибная пора, и вся семья уезжает в лес.	August is mushroom season where we live, and the whole family heads off to the forest.	20189
+пора	Уже поздно, нам пора возвращаться, иначе опоздаем на последнюю электричку.	It's late, we should be heading back, or we'll miss the last suburban train.	20190
+пора	Студенческая пора прошла в общаге на окраине, но вспоминаю её с нежностью.	My student years went by in a dorm out on the edge of town, but I look back on them fondly.	20191
+ваши	Ваши дети опять гоняли мяч у нас под окнами до самой ночи.	Your kids were out kicking a ball around under our windows again until late at night.	20192
+ваши	Ваши документы уже у юриста, он позвонит вам в понедельник утром.	Your documents are already with the lawyer; he'll ring you on Monday morning.	20193
+ваши	Ваши замечания меня задели, хотя по сути вы были совершенно правы.	Your comments stung me, although in substance you were completely right.	20194
+важно	Кот важно прошёл по столу и улёгся прямо на мои бумаги.	The cat strutted grandly across the table and settled right on top of my papers.	20195
+важно	На собеседовании важно не врать, потому что любую мелочь легко проверить.	In an interview it's important not to lie, because every small detail is easy to check.	20196
+важно	Мне важно, чтобы ты сказал это сам, а не через сестру.	It matters to me that you say it yourself, and not through your sister.	20197
+будь	Будь осторожнее с этим чайником: у него ручка еле держится.	Be more careful with that kettle — the handle is barely holding on.	20198
+будь	Будь добр, отправь заказчику смету до обеда, я весь день на встречах.	Do me a favour and send the client the quote before lunch; I'm in meetings all day.	20199
+будь	Не будь таким гордым, позвони отцу первым, он тебя ждёт.	Don't be so proud — ring your father first, he's waiting for you.	20200
+серьёзно	Дедушка серьёзно заболел зимой, и мы по очереди дежурили у его постели.	Grandad fell seriously ill in the winter, and we took turns keeping watch at his bedside.	20201
+серьёзно	К экзамену он готовился серьёзно — три месяца просидел в библиотеке.	He prepared for the exam in earnest — he spent three months in the library.	20202
+серьёзно	Ты серьёзно собираешься уволиться, или это просто усталость после отчёта?	Are you seriously planning to resign, or is it just exhaustion after the report?	20203
+чувак	Чувак, ты забыл ключи на подоконнике, я тебе их завтра занесу.	Dude, you left your keys on the windowsill — I'll drop them round tomorrow.	20204
+чувак	В маршрутке рядом со мной сидел чувак с огромным аквариумом на коленях.	On the minibus a guy was sitting next to me with a huge fish tank on his lap.	20205
+чувак	Этот чувак играет на гитаре в переходе лучше многих известных музыкантов.	That guy busking in the underpass plays guitar better than plenty of famous musicians.	20206
+капитан	Капитан объявил, что из-за шторма мы зайдём в порт только утром.	The captain announced that because of the storm we'd only reach port in the morning.	20207
+капитан	Наш капитан пропускает финал: он растянул связки на последней тренировке.	Our captain is missing the final — he pulled a ligament at the last training session.	20208
+капитан	Мой сосед — капитан в отставке, и он до сих пор встаёт в шесть.	My neighbour is a retired captain, and he still gets up at six.	20209
+бог	Бабушка каждое утро зажигает лампаду и тихо благодарит Бога за детей.	Every morning Grandma lights the icon lamp and quietly thanks God for her children.	20210
+бог	На экзамене я молился всем богам сразу, но всё равно провалился.	During the exam I prayed to every god at once, and still failed.	20211
+бог	Отец всегда повторял, что Бог видит всё, даже мелкое враньё.	My father always used to say that God sees everything, even the smallest lie.	20212
+интересно	Наш новый преподаватель так интересно рассказывает о войне, что никто не смотрит в телефон.	Our new lecturer talks about the war so interestingly that nobody looks at their phone.	20213
+интересно	Интересно, кто съел последний кусок торта, пока я была в душе.	I wonder who ate the last piece of cake while I was in the shower.	20214
+интересно	Мне было интересно слушать деда, пока он не начал повторяться.	I enjoyed listening to Grandad until he started repeating himself.	20215
+милая	Милая, посмотри в холодильнике — я вчера оставил тебе кусок пирога.	Darling, have a look in the fridge — I left you a slice of pie yesterday.	20216
+милая	Милая девушка из приёмной запомнила моё имя с первого раза.	The nice girl from the front office remembered my name the first time round.	20217
+милая	Она такая милая, что ей невозможно отказать, даже когда она явно неправа.	She is so sweet that you simply cannot say no to her, even when she is clearly in the wrong.	20218
+алло	Алло, мам, я уже в поезде, буду дома часов в десять.	Hello, Mum, I'm on the train already — I'll be home around ten.	20219
+алло	Алло, это регистратура? Я хотел бы перенести запись к врачу на пятницу.	Hello, is that the front desk? I'd like to move my doctor's appointment to Friday.	20220
+алло	Алло! Алло! Вас совсем не слышно — перезвоню, когда выйду из метро.	Hello? Hello? I can't hear you at all — I'll ring back when I come out of the metro.	20221
+посмотрим	Давай посмотрим прогноз погоды, прежде чем тащить палатку на дачу.	Let's check the weather forecast before we drag the tent out to the dacha.	20222
+посмотрим	Мы посмотрим ваше резюме на этой неделе и позвоним в любом случае.	We'll look over your CV this week and ring you either way.	20223
+посмотрим	Он обещает вернуть деньги в среду — ну, посмотрим, я ему не верю.	He promises to pay the money back on Wednesday — well, we'll see; I don't believe him.	20224
+мёртвый	Кот принёс во двор мёртвую мышь и гордо положил её на крыльцо.	The cat brought a dead mouse into the yard and proudly laid it on the porch step.	20225
+мёртвый	Латынь называют мёртвым языком, но врачи до сих пор пишут на ней рецепты.	Latin is called a dead language, yet doctors still write their prescriptions in it.	20226
+мёртвый	В мёртвой тишине зала кто-то уронил ключи, и все обернулись.	In the dead silence of the hall someone dropped their keys and everyone turned round.	20227
+внимание	Не обращай внимания на её слова — она всегда ворчит перед отъездом.	Don't take any notice of what she says — she always grumbles before a trip.	20228
+внимание	Новый стажёр сразу привлёк внимание всего отдела своим ярким галстуком.	The new intern immediately caught the whole department's attention with his loud tie.	20229
+внимание	Он слушал бабушку с таким вниманием, будто слышит эту историю впервые.	He listened to his grandmother so attentively, as if he were hearing the story for the first time.	20230
+которое	Я нашла в шкафу платье, которое мама носила ещё студенткой.	I found a dress in the wardrobe that Mum used to wear back when she was a student.	20231
+которое	Это то самое письмо, которое пришло из налоговой и всех переполошило.	This is the very letter that came from the tax office and threw everyone into a panic.	20232
+которое	Лето, которое мы провели на даче у бабушки, я помню до сих пор.	The summer we spent at my grandmother's dacha I still remember to this day.	20233
+семья	По воскресеньям вся семья собирается у бабушки и лепит пельмени.	On Sundays the whole family gets together at Grandma's and makes pelmeni.	20234
+семья	Ради новой работы он перевёз семью в Новосибирск и ни разу не пожалел.	For the sake of a new job he moved his family to Novosibirsk and has never once regretted it.	20235
+семья	В нашей семье не принято обсуждать деньги, и меня это давно раздражает.	In our family money is not something you discuss, and that has annoyed me for a long time.	20236
+оружие	Дед держал охотничье оружие в сейфе и никогда не показывал его внукам.	Grandad kept his hunting weapons in a safe and never showed them to his grandchildren.	20237
+оружие	Депутаты снова спорят о законе об оружии, а решения так и нет.	The MPs are arguing about the firearms law again, and there is still no decision.	20238
+оружие	Молчание было её единственным оружием, и муж сдавался уже к вечеру.	Silence was her only weapon, and by evening her husband would give in.	20239
+огромный	В нашем дворе растёт огромный тополь, который каждый июнь засыпает балкон пухом.	A huge poplar grows in our courtyard, and every June it buries the balcony in fluff.	20240
+огромный	Начальник свалил на меня огромный отчёт за час до конца рабочего дня.	The boss dumped a huge report on me an hour before the end of the workday.	20241
+огромный	Я до сих пор испытываю огромную благодарность к учительнице, которая меня не бросила.	I still feel enormous gratitude toward the teacher who never gave up on me.	20242
+милый	Наш новый сосед оказался милым стариком: он каждое утро подметает подъезд.	Our new neighbour turned out to be a sweet old man — he sweeps the stairwell every morning.	20243
+милый	Без этой милой женщины из регистратуры я бы никогда не попал к врачу.	Without that lovely woman at the clinic reception desk I would never have got in to see a doctor.	20244
+милый	Мне не нужен милый начальник, мне нужен тот, кто отвечает за свои слова.	I don't need a nice boss, I need one who stands behind his word.	20245
+личный	Я не даю клиентам личный номер, все записи идут через администратора.	I don't give clients my personal number; all the bookings go through the receptionist.	20246
+личный	На проходной охранник записал мои личные вещи в тетрадь и выдал пропуск.	At the security gate the guard wrote my personal belongings down in a notebook and issued me a pass.	20247
+личный	Отец никогда не рассказывал о своей личной жизни, даже когда мы остались вдвоём.	Father never talked about his personal life, not even when the two of us were left alone.	20248
+круто	Тропинка круто поднимается от реки, и с рюкзаком там идти тяжело.	The path climbs steeply up from the river, and it's hard going there with a backpack.	20249
+круто	Водитель маршрутки круто свернул во двор, и сумки поехали по полу.	The minibus driver turned sharply into a courtyard, and the bags went sliding across the floor.	20250
+круто	После армии его жизнь круто изменилась: он поступил в институт и женился.	After the army his life changed abruptly: he got into university and got married.	20251
+заткнись	Заткнись хоть на минуту, я не слышу, что говорят по телефону.	Shut up for just a minute, I can't hear what they're saying on the phone.	20252
+заткнись	Заткнись сейчас же, иначе весь отдел услышит, как ты обсуждаешь начальника.	Shut up right now, or the whole department will hear you badmouthing the boss.	20253
+заткнись	Я устал от твоих советов, так что просто заткнись и веди машину.	I'm sick of your advice, so just shut up and drive.	20254
+неплохо	Для первого раза ты неплохо испёк блины, только последний немного подгорел.	For a first try you did a decent job with the pancakes; only the last one burned a little.	20255
+неплохо	Прошлым летом мы неплохо заработали на ремонте дач под Тверью.	Last summer we made pretty good money renovating dachas outside Tver.	20256
+неплохо	Неплохо бы отдохнуть недельку, но отпуск дадут только в ноябре.	It would be nice to take a week off, but they won't give me leave until November.	20257
+прекрати	Прекрати стучать ложкой по тарелке, у меня от этого голова раскалывается.	Stop banging your spoon on the plate, it's splitting my head open.	20258
+прекрати	Прекрати спорить с водителем, мы всё равно выйдем на следующей остановке.	Stop arguing with the driver, we're getting off at the next stop anyway.	20259
+прекрати	Прекрати этот цирк, бабушка волнуется, а ты уже второй час кричишь.	Stop this circus — grandma is worried, and you've been shouting for over an hour.	20260
+слушайте	Слушайте внимательно, я объясняю схему только один раз перед сменой.	Listen carefully, I'm only going through the procedure once before the shift.	20261
+слушайте	Слушайте, вы не подскажете, как доехать до вокзала на этой маршрутке?	Listen, could you tell me how to get to the train station on this minibus?	20262
+слушайте	Слушайте маму, она вырастила троих и знает, как сбить температуру.	Listen to your mother — she raised three children and knows how to bring a fever down.	20263
+агент	Агент по недвижимости показал нам квартиру с окнами во двор и старой плитой.	The estate agent showed us a flat with windows onto the courtyard and an old stove.	20264
+агент	Страховой агент второй день звонит мне и предлагает продлить полис.	The insurance agent has been calling me for two days now, trying to get me to renew my policy.	20265
+агент	Дед до сих пор уверен, что его сосед был агентом иностранной разведки.	Grandpa is still convinced that his neighbour was an agent of a foreign intelligence service.	20266
+детектив	Мама читает детективы в электричке и всегда угадывает убийцу к середине книги.	Mum reads detective novels on the commuter train and always works out the killer by halfway through.	20267
+детектив	Частный детектив следил за мужем клиентки и снимал всё на телефон.	The private detective tailed the client's husband and filmed everything on his phone.	20268
+детектив	После смены я включаю какой-нибудь детектив и засыпаю на первом же допросе.	After my shift I put on some detective film and I'm asleep by the first interrogation.	20269
+помогите	Помогите мне занести коляску на третий этаж, лифт опять сломался.	Help me carry the pushchair up to the third floor — the lift has broken down again.	20270
+помогите	Помогите новенькой разобраться с кассой, у неё сегодня первая смена.	Give the new girl a hand with the till; it is her first shift today.	20271
+помогите	Помогите же ей, она третий час одна разбирает эти коробки!	Do help her — she has been sorting those boxes on her own for three hours!	20272
+спокойной	Спокойной ночи, сынок, я оставлю дверь в коридор чуть приоткрытой.	Good night, love — I will leave the door to the hallway open a crack.	20273
+спокойной	Бабушка осталась спокойной, даже когда на даче отключили свет и воду.	Grandmother stayed perfectly calm even when the power and water went off at the dacha.	20274
+спокойной	Я тихо завидую твоей спокойной работе в архиве: у нас вечные авралы.	I quietly envy your peaceful job in the archive — in our department it is one panic after another.	20275
+мадам	Мадам, ваш столик у окна готов, позвольте вас проводить.	Madam, your table by the window is ready; allow me to show you to it.	20276
+мадам	Ну что, мадам, вы наконец соизволили встать в час дня?	Well then, madam, you have finally deigned to get up at one in the afternoon?	20277
+мадам	Наша преподавательница французского просила называть её мадам, а не Ольгой Петровной.	Our French teacher asked us to call her madame rather than Olga Petrovna.	20278
+смешно	Дедушка так смешно передразнивал диктора, что бабушка расплескала весь чай.	Grandad mimicked the newsreader so comically that Grandma spilled her whole cup of tea.	20279
+смешно	Мне почему-то стало смешно прямо посреди этого серьёзного утреннего собрания.	For some reason I got the giggles right in the middle of that solemn morning meeting.	20280
+смешно	Смешно требовать пунктуальности от человека, который сам вечно опаздывает на планёрку.	It is laughable to demand punctuality from a man who is always late to the stand-up himself.	20281
+абсолютно	В холодильнике абсолютно пусто, придётся идти в магазин под дождём.	The fridge is absolutely empty, so I will have to go to the shop in the rain.	20282
+абсолютно	Начальник абсолютно ничего не понял в моём отчёте и попросил переделать.	The boss understood absolutely nothing in my report and told me to redo it.	20283
+абсолютно	Я абсолютно согласен с тобой, только вслух этого на собрании не скажу.	I completely agree with you, I just will not say so out loud at the meeting.	20284
+связи	В деревне у бабушки связи почти нет, приходится ловить сигнал у калитки.	There is barely any signal at Grandma's village; you have to catch it out by the gate.	20285
+связи	В связи с ремонтом метро автобусы ходят по изменённому маршруту.	Because of the metro repairs the buses are running along a changed route.	20286
+связи	Начальник просил быть на связи все выходные, даже во время шашлыков.	The boss asked me to stay reachable all weekend, even during the barbecue.	20287
+босс	Новый босс отменил все пятничные планёрки и сразу стал любимцем отдела.	The new boss scrapped every Friday stand-up and instantly became the department's favourite.	20288
+босс	Мой босс звонит по воскресеньям, будто выходных вообще не существует.	My boss rings on Sundays as if weekends simply did not exist.	20289
+босс	На корпоративе выяснилось, что наш строгий босс прекрасно играет на гитаре.	At the office party it turned out that our stern boss plays the guitar beautifully.	20290
+слышишь	Слышишь, как соседи сверху опять двигают мебель в три часа ночи?	Can you hear the neighbours upstairs shifting furniture again at three in the morning?	20291
+слышишь	Ты хорошо слышишь докладчика с последнего ряда или пересядем ближе?	Can you hear the speaker all right from the back row, or shall we move closer?	20292
+слышишь	Ты разве не слышишь, что я тебе уже полчаса говорю?	Do you really not hear what I have been telling you for half an hour?	20293
+успокойся	Да успокойся ты, это просто кот уронил кастрюлю на кухне.	Oh, calm down — it was just the cat knocking a pot over in the kitchen.	20294
+успокойся	Сначала успокойся, а потом расскажи начальнику, что случилось на складе.	Calm down first, and then tell the boss what happened at the warehouse.	20295
+успокойся	Успокойся наконец, из-за твоих криков соседи снова вызовут полицию.	Calm down, will you — with all your shouting the neighbours will call the police again.	20296
+умный	Наш кот такой умный, что научился лапой открывать дверцу холодильника.	Our cat is so clever that he has learned to open the fridge door with his paw.	20297
+умный	На собеседовании умный парень сразу нашёл ошибку в нашем тестовом задании.	At the interview one sharp young man immediately spotted the mistake in our test task.	20298
+умный	Ты слишком умный, чтобы верить каждому обещанию из рекламы банка.	You are far too clever to believe every promise in a bank advert.	20299
+уходи	Не уходи, пока не попрощаешься с бабушкой — она весь день тебя ждала.	Don't leave before you've said goodbye to Grandma — she's been waiting for you all day.	20300
+уходи	Если начальник опять унижает тебя при коллегах, уходи и не оглядывайся.	If your boss humiliates you in front of your colleagues again, walk out and don't look back.	20301
+уходи	Уходи, я не хочу продолжать этот разговор в три часа ночи.	Go away — I'm not carrying on this conversation at three in the morning.	20302
+вниз	Не тяни жалюзи вниз так резко — в прошлый раз ты сорвал крепление.	Don't yank the blind down so hard — last time you pulled the bracket right off.	20303
+вниз	Летом мы с друзьями сплавлялись вниз по Волге на старых байдарках.	In the summer my friends and I paddled down the Volga in old kayaks.	20304
+вниз	На середине подъёма я посмотрел вниз и впервые испугался высоты.	Halfway up the climb I looked down and felt afraid of heights for the first time.	20305
+молодец	Ты у меня молодец: каждое утро встаёшь в шесть и бежишь на тренировку.	You're a star — every morning you're up at six and off to training.	20306
+молодец	Директор при всех сказал, что я молодец, и выписал мне премию.	The director said in front of everyone that I'd done a great job, and put a bonus through for me.	20307
+молодец	Твой брат молодец: не бросил учёбу, хотя работал на двух работах.	Your brother's done well — he didn't drop out even though he was working two jobs.	20308
+связь	В деревне у бабушки связь пропадает, и звонить приходится с холма.	At Grandma's in the village the signal keeps dropping, so you have to make your calls from the hill.	20309
+связь	После армии мы потеряли связь, но недавно нашли друг друга в соцсетях.	We lost touch after the army, but recently we found each other on social media.	20310
+связь	Врач уверен, что есть прямая связь между бессонницей и вечерним кофе.	The doctor is convinced there's a direct link between insomnia and coffee in the evening.	20311
+весело	Бабушка весело подмигнула внуку и сунула ему конфету в карман.	Grandma winked cheerfully at her grandson and slipped a sweet into his pocket.	20312
+весело	На корпоративе было весело, пока начальник не начал петь караоке.	The office party was good fun until the boss started singing karaoke.	20313
+весело	Мне совсем не весело, когда ты шутишь про мой акцент при друзьях.	I don't find it funny at all when you make jokes about my accent in front of my friends.	20314
+ы	«Ы», — написал брат и скинул фотку кота, застрявшего в пакете.	'Heh,' my brother wrote, and sent over a photo of the cat stuck in a shopping bag.	20315
+ы	Начальник опять шутит в общем чате, и все послушно пишут «ы».	The boss is cracking jokes in the group chat again, and everyone dutifully types 'heh'.	20316
+ы	Ы, я полчаса искал очки, а они всё это время были на лбу.	Heh — I spent half an hour hunting for my glasses and they were on my forehead the whole time.	20317
+невероятно	На рынке черешня невероятно дорогая, но мама всё равно взяла целый килограмм.	Cherries are unbelievably expensive at the market, but Mum bought a whole kilo anyway.	20318
+невероятно	Новый бухгалтер работает невероятно быстро и уже закрыл отчёты за квартал.	The new accountant works incredibly fast and has already closed the quarterly reports.	20319
+невероятно	Мне невероятно повезло: последние билеты на концерт я купил за час до начала.	I was incredibly lucky — I bought the last concert tickets an hour before it started.	20320
+шеф	Шеф вызвал меня к себе и попросил переделать презентацию к утру.	The boss called me into his office and asked me to redo the presentation by morning.	20321
+шеф	Шеф, довези до вокзала за пятьсот, я опаздываю на последний поезд.	Boss, run me to the station for five hundred — I'm about to miss the last train.	20322
+шеф	С этим шефом я готов работать даже в выходные — он никогда не орёт.	I'd put in weekends for this boss — he never yells at anyone.	20323
+новые	Мы повесили на кухне новые шторы, и комната сразу стала светлее.	We hung new curtains in the kitchen and the room immediately felt brighter.	20324
+новые	На следующей неделе нам выдадут новые пропуска, а старые перестанут работать.	Next week they're giving us new passes, and the old ones will stop working.	20325
+новые	Новые соседи сверху делают ремонт, и я уже месяц не высыпаюсь.	The new neighbours upstairs are doing up their flat, and I haven't had a proper night's sleep for a month.	20326
+близко	Магазин так близко, что я бегаю туда за хлебом прямо в тапочках.	The shop is so close that I nip over for bread in my slippers.	20327
+близко	Не принимай замечания на планёрке так близко к сердцу, там всех ругают.	Don't take the criticism at the morning meeting so much to heart — they tell everyone off there.	20328
+близко	Мы с соседом близко знакомы — вместе строили баню на его участке.	My neighbour and I know each other well — we built the bathhouse on his plot together.	20329
+поздравляю	Поздравляю тебя с днём рождения и желаю поскорее выбраться из больницы.	Happy birthday — and I hope you get out of the hospital soon.	20330
+поздравляю	Поздравляю вас с повышением, Игорь Петрович: кабинет напротив теперь ваш.	Congratulations on the promotion, Igor Petrovich — the office across the hall is yours now.	20331
+поздравляю	Ну поздравляю: ты опять опоздал, и наш столик в ресторане уже отдали.	Well, congratulations — you're late again, and they've given our table at the restaurant away.	20332
+месье	Официант в парижском кафе наклонился и тихо спросил: «Месье желает вина?»	"The waiter in the Paris café leaned over and asked quietly, ""Does monsieur care for some wine?"""	20333
+месье	Брат надел галстук, и мама засмеялась: «Куда собрался, месье?»	"My brother put on a tie, and Mum laughed: ""And where are you off to, monsieur?"""	20334
+месье	Наш новый клиент — месье Лоран, он прилетает из Лиона в среду.	Our new client is Monsieur Laurent; he flies in from Lyon on Wednesday.	20335
+ха	Первоклассник пыхтел над прописью: буква ха у него всё время заваливалась набок.	The first-grader laboured over his copybook — his letter kha kept keeling over sideways.	20336
+ха	Секретарь напечатала мою фамилию без буквы ха, и пропуск пришлось переделывать.	The secretary typed my surname without the letter kha, so the building pass had to be redone.	20337
+ха	Иностранцы вечно спотыкаются на нашей букве ха и произносят её как «к».	Foreigners are forever tripping over our letter kha and end up saying it like a k.	20338
+записи	Врач принял меня без записи, потому что в коридоре никого не было.	The doctor saw me without an appointment, because there was nobody in the corridor.	20339
+записи	На записи совещания отчётливо слышно, как директор вздохнул при слове «бюджет».	"On the recording of the meeting you can clearly hear the director sigh at the word ""budget""."	20340
+записи	В новую парикмахерскую я не попал: там стригут только по записи.	I couldn't get into the new hairdresser's — they only cut hair by appointment.	20341
+убью	Если ты ещё раз возьмёшь мою машину без спроса, я тебя убью.	If you take my car without asking one more time, I'll kill you.	20342
+убью	Комар всю ночь звенел над ухом, и сегодня я его точно убью.	A mosquito whined by my ear all night, and today I'm definitely going to kill it.	20343
+убью	Пока машину чинят, я убью пару часов в кафе напротив вокзала.	While they're fixing the car, I'll kill a couple of hours in the café across from the station.	20344
+увидишь	Когда выйдешь из метро, сразу увидишь синюю вывеску нашей аптеки.	When you come out of the metro, you'll see our pharmacy's blue sign right away.	20345
+увидишь	Если увидишь Лену на даче, скажи ей, что ключи под ковриком.	If you see Lena at the dacha, tell her the keys are under the mat.	20346
+увидишь	Вот увидишь: через год ты будешь скучать по этому шумному общежитию.	You'll see — a year from now you'll be missing this noisy dorm.	20347
+продолжай	Продолжай мешать суп, а я пока порежу зелень и накрою на стол.	Keep stirring the soup while I chop the herbs and set the table.	20348
+продолжай	Продолжай, я записываю: во сколько ты вышел из офиса?	Go on, I'm writing it down — what time exactly did you leave the office?	20349
+продолжай	Продолжай занятия музыкой, даже если бабушка считает это пустой тратой времени.	Keep up your music lessons, even if grandma thinks it's a waste of time.	20350
+будьте	Будьте добры, передайте за проезд, у меня руки заняты сумками.	Would you mind passing the fare forward — my hands are full of bags.	20351
+будьте	Будьте внимательны на собеседовании: директор задаёт одни и те же вопросы дважды.	Be on your guard in the interview — the director asks the same questions twice.	20352
+будьте	Проходите, будьте как дома: чайник уже кипит, а пирог ещё тёплый.	Come in, make yourselves at home — the kettle's boiling and the pie is still warm.	20353
+снаружи	Изнутри окна я вымыл сам, а снаружи их моют промышленные альпинисты.	I did the inside of the windows myself; the outside gets done by rope-access climbers.	20354
+снаружи	Охранник не пустил нас внутрь, и мы прождали снаружи под дождём почти час.	The guard wouldn't let us in, so we ended up waiting outside in the rain for nearly an hour.	20355
+снаружи	Снаружи дом выглядит заброшенным, но внутри бабушка поддерживает идеальный порядок.	From the outside the house looks abandoned, but inside grandma keeps everything spotless.	20356
+джей	Дочка старательно выводит в тетради букву джей и просит меня проверить.	My daughter is carefully forming the letter J in her notebook and asking me to check it.	20357
+джей	Коллега диктовал пароль так быстро, что я записал джи вместо джей.	A colleague dictated the password so fast that I wrote down G instead of J.	20358
+джей	На старом кулоне выгравирована буква джей, но никто в семье не помнит почему.	There's a letter J engraved on the old locket, but nobody in the family remembers why.	20359
+отпусти	Отпусти собаку с поводка, во дворе всё равно никого нет.	Let the dog off the leash, there's nobody in the yard anyway.	20360
+отпусти	Отпусти меня с работы на час раньше, у сына сегодня выступление.	Let me leave work an hour early, my son has a performance today.	20361
+отпусти	Отпусти уже эту обиду, прошло десять лет, а ты всё вспоминаешь.	Let that grudge go already — it's been ten years and you still bring it up.	20362
+офицер	Мой дед был кадровым офицером и до сих пор встаёт в шесть.	My grandfather was a career officer and he still gets up at six.	20363
+офицер	Офицер каждое утро выводит новобранцев на плац и проверяет их форму.	Every morning the officer marches the recruits out to the parade ground and inspects their uniforms.	20364
+офицер	Мне жаль этого офицера: его перевели на север сразу после свадьбы.	I feel sorry for that officer — he was transferred north right after his wedding.	20365
+эмиль	Эмиль каждое утро выгуливает соседского спаниеля, чтобы заработать на велосипед.	Every morning Emil walks the neighbour's spaniel to earn money for a bike.	20366
+эмиль	Мы попросили Эмиля перевести письмо, он вырос в Казани и знает татарский.	We asked Emil to translate the letter — he grew up in Kazan and knows Tatar.	20367
+эмиль	С Эмилем всегда весело, но на него совершенно нельзя положиться.	Emil is always fun to be around, but you absolutely can't rely on him.	20368
+величество	Ваше Величество, посол уже час ждёт в приёмной у камина.	Your Majesty, the ambassador has been waiting by the fireplace in the anteroom for an hour.	20369
+величество	Прошение было подано Его Величеству ещё весной, а ответа так и нет.	The petition was submitted to His Majesty back in the spring, and there's still no answer.	20370
+величество	Нас свёл его величество случай: мы столкнулись в очереди за билетами.	It was His Majesty Chance that brought us together — we bumped into each other in the ticket queue.	20371
+вставай	Вставай, солнце уже высоко, а мы обещали бабушке приехать к завтраку.	Get up, the sun is already high, and we promised Grandma we'd be there for breakfast.	20372
+вставай	Вставай, наша остановка следующая, водитель маршрутки долго ждать не будет.	Get up, our stop is next — the minibus driver won't wait around for long.	20373
+вставай	Вставай пораньше хотя бы неделю, и ты сам заметишь разницу.	Get up earlier for just a week and you'll notice the difference yourself.	20374
+отдай	Отдай брату его наушники, ты берёшь их без спроса каждый день.	Give your brother his headphones back — you take them without asking every single day.	20375
+отдай	Отдай эти документы в бухгалтерию до обеда, иначе зарплату задержат.	Hand these documents in to accounting before lunch, or they'll hold up your pay.	20376
+отдай	Отдай долг сейчас, а то из-за этих денег вы поссоритесь навсегда.	Pay the debt back now, or that money will end your friendship for good.	20377
+открой	Открой окно, на кухне до сих пор пахнет пригоревшим луком.	Open the window, the kitchen still smells of burnt onion.	20378
+открой	Открой учебник на тридцатой странице и прочитай вслух второй абзац.	Open your textbook to page thirty and read the second paragraph aloud.	20379
+открой	Открой мне наконец правду, я всё равно узнаю её от соседей.	Just tell me the truth at last — I'll hear it from the neighbours anyway.	20380
+врач	Врач посоветовал маме больше гулять и совсем отказаться от соли.	The doctor advised Mum to walk more and to give up salt completely.	20381
+врач	Моя сестра работает врачом в поликлинике и принимает по тридцать человек в день.	My sister works as a doctor at the clinic and sees thirty patients a day.	20382
+врач	К этому врачу невозможно попасть: талоны разбирают за пять минут.	It's impossible to get an appointment with that doctor — the slots are gone in five minutes.	20383
+пожалуй	Я, пожалуй, останусь дома — на улице такой ветер, что деревья гнутся.	I think I'll stay home — the wind out there is bending the trees.	20384
+пожалуй	Пожалуй, я соглашусь на эту должность, хотя зарплата меня не радует.	I suppose I'll take the position, though the salary doesn't thrill me.	20385
+пожалуй	Это, пожалуй, лучший борщ, который я ел за последние годы.	That's probably the best borscht I've had in years.	20386
+вверх	Цены на бензин снова ползут вверх, а зарплата стоит на месте.	Petrol prices are creeping up again while wages don't budge.	20387
+вверх	Мы тащили диван вверх по лестнице на пятый этаж почти час.	We hauled the sofa up the stairs to the fifth floor for nearly an hour.	20388
+вверх	Посмотри вверх — над дачей сегодня столько звёзд, что дух захватывает.	Look up — there are so many stars over the dacha tonight it takes your breath away.	20389
+наверху	Я весь вечер искал очки внизу, а они спокойно лежали наверху.	I spent the whole evening looking for my glasses downstairs, and all along they were lying up above.	20390
+наверху	Бухгалтерия сидит наверху, поэтому за справкой придётся подняться на третий этаж.	Accounting is up above, so you'll have to go up to the third floor to get the certificate.	20391
+наверху	Наверху, на чердаке дачи, до сих пор пахнет бабушкиными яблоками.	Up above, in the attic of the dacha, it still smells of my grandmother's apples.	20392
+сигнал	У бабушки в деревне сигнал ловится только на крыльце, и то через раз.	At my grandmother's place in the village you only get a signal on the porch, and even then only half the time.	20393
+сигнал	Как только поезд тронется, дай мне сигнал из окна.	As soon as the train starts moving, give me a signal from the window.	20394
+сигнал	Её молчание за ужином я воспринял как сигнал, что пора уходить.	I took her silence over dinner as a signal that it was time to go.	20395
+чертовски	После смены в пекарне я чертовски устал и уснул прямо в кресле.	After my shift at the bakery I was damn tired and fell asleep right there in the armchair.	20396
+чертовски	Новый бухгалтер чертовски дотошен: он нашёл ошибку двухлетней давности.	The new accountant is devilishly meticulous — he dug up a mistake two years old.	20397
+чертовски	Мне чертовски жаль, что мы поссорились из-за такой ерунды.	I'm terribly sorry we fell out over such nonsense.	20398
+найди	Найди в шкафу тёплый шарф, на улице сегодня минус двадцать.	Find a warm scarf in the wardrobe — it's minus twenty outside today.	20399
+найди	Найди мне вчерашний договор, клиент ждёт ответа уже полчаса.	Get me yesterday's contract — the client has been waiting half an hour for an answer.	20400
+найди	Найди в себе силы позвонить отцу, вы не разговариваете уже год.	Find it in yourself to call your father — the two of you haven't spoken in a year.	20401
+убирайся	Убирайся из моей комнаты, я же просил не трогать мои вещи!	Get out of my room — I did ask you not to touch my things!	20402
+убирайся	Директор побагровел и заорал: «Убирайся, чтобы я тебя здесь больше не видел!»	"The director went purple and roared, ""Get out — and don't let me see you here again!"""	20403
+убирайся	Убирайся отсюда и не звони мне больше — я устала от твоего вранья.	Get out of here and stop calling me — I'm sick of your lying.	20404
+обожаю	Обожаю, когда в новогоднюю ночь вся семья собирается за одним столом.	I love it when the whole family gathers around one table on New Year's Eve.	20405
+обожаю	Я обожаю своих учеников, хотя после уроков валюсь с ног.	I adore my pupils, even though I'm dead on my feet after classes.	20406
+обожаю	Обожаю гулять по набережной после дождя, когда город пахнет свежестью.	I love walking along the embankment after the rain, when the city smells fresh.	20407
+расследование	Журналистка два года вела расследование и вскрыла схему хищений в фонде.	The journalist ran an investigation for two years and exposed an embezzlement scheme at the foundation.	20408
+расследование	После пожара в школе началось расследование, и уроки отменили на неделю.	After the fire an investigation was opened at the school, and classes were cancelled for a week.	20409
+расследование	Из-за расследования отцу запретили выезжать за границу, и дома все ходят подавленные.	Because of the investigation my father has been barred from travelling abroad, and everyone at home goes about dejected.	20410
+срочно	Мне срочно нужно в аптеку: у ребёнка поднялась температура.	I urgently need to get to the pharmacy — my child has come down with a fever.	20411
+срочно	Начальник позвонил в субботу и потребовал срочно выйти на работу.	The boss rang on Saturday and demanded that I come in to work immediately.	20412
+срочно	Врач сказал, что операцию нужно делать срочно, иначе будет поздно.	The doctor said the operation has to be done urgently, otherwise it will be too late.	20413
+супер	Супер, ты успел купить билеты, теперь можно спокойно собирать чемодан!	Great, you managed to get the tickets — now we can pack the suitcase without rushing!	20414
+супер	Ребята, вы вчера отыграли просто супер — зал стоял и аплодировал.	Guys, you played brilliantly last night — the whole hall stood up and applauded.	20415
+супер	Супер, я забыл ключи дома, а соседка уехала на дачу.	Great — I've left my keys at home, and the neighbour has gone off to her dacha.	20416
+туалет	В школьном туалете вечно нет бумаги, поэтому дети носят салфетки с собой.	There's never any paper in the school toilet, so the kids bring tissues with them.	20417
+туалет	Извините, я отойду в туалет и вернусь через пару минут.	Excuse me, I'll step out to the toilet and be back in a couple of minutes.	20418
+туалет	В деревне туалет был во дворе, и зимой мы бегали туда в валенках.	In the village the toilet was out in the yard, and in winter we ran out there in felt boots.	20419
+ждут	Родители ждут нас к ужину, а мы застряли в пробке.	My parents are expecting us for dinner, and we're stuck in traffic.	20420
+ждут	Люди на остановке уже двадцать минут ждут маршрутку под дождём.	The people at the stop have been waiting twenty minutes for the minibus in the rain.	20421
+ждут	Все в отделе ждут перемен, но начальство молчит третий месяц.	Everyone in the department is waiting for changes, but management has been silent for three months.	20422
+работала	Старая стиральная машина работала так шумно, что мы включали её только ночью.	The old washing machine ran so noisily that we only switched it on at night.	20423
+работала	Летом я работала официанткой в кафе и копила на поездку в Питер.	Over the summer I worked as a waitress in a café and saved up for a trip to Petersburg.	20424
+работала	Мама работала на двух работах, и мы почти не видели её дома.	Mum was working two jobs, and we hardly ever saw her at home.	20425
+полковник	Сосед сверху — полковник в отставке, каждое утро бегает вокруг парка.	The neighbour upstairs is a retired colonel; every morning he runs laps around the park.	20426
+полковник	На построении полковник объявил, что учения переносятся на следующую неделю.	At the formation the colonel announced that the exercises were being postponed to next week.	20427
+полковник	Все в части знали: полковник никогда не кричит, но спорить с ним бесполезно.	Everyone in the unit knew the colonel never shouts, but there's no point arguing with him.	20428
+возьмите	Возьмите зонт, к вечеру обещали сильный дождь с ветром.	Take an umbrella — they've forecast heavy rain and wind by evening.	20429
+возьмите	Возьмите талон в автомате и подождите, пока на табло появится ваш номер.	Take a ticket from the machine and wait until your number comes up on the board.	20430
+возьмите	Возьмите себя в руки: экзамен ещё не начался, а вы уже дрожите.	Pull yourself together — the exam hasn't even started and you're already shaking.	20431
+уходите	Вы уже уходите? Посидите ещё немного, я как раз поставила чайник.	Are you leaving already? Stay a little longer, I've just put the kettle on.	20432
+уходите	Если вы уходите раньше шести, оставьте ключи от кабинета на вахте.	If you leave before six, drop the office keys off at the front desk.	20433
+уходите	Вы каждый вечер уходите с работы злым, и это меня пугает.	You come away from work angry every evening, and that frightens me.	20434
+система	В нашем доме новая система отопления, и зимой наконец стало тепло.	Our building has a new heating system, and this winter it's finally warm.	20435
+система	Система выдала ошибку, и бухгалтерия полдня не могла провести платежи.	The system threw an error, and accounting couldn't put the payments through for half a day.	20436
+система	Мне нравится его система: он повторяет слова каждое утро в метро.	I like his system: he goes over his vocabulary every morning on the metro.	20437
+полицейский	Полицейский патруль дежурил у школы, пока дети переходили дорогу.	A police patrol was posted by the school while the children crossed the road.	20438
+полицейский	Полицейский участок работает круглосуточно, но заявление у нас приняли только утром.	The police station is open around the clock, but they only took our report in the morning.	20439
+полицейский	Молодой полицейский долго извинялся, но штраф всё равно выписал.	The young policeman apologised at length, but he wrote out the fine anyway.	20440
+собиралась	Я собиралась на работу, когда позвонили из школы и попросили приехать.	I was getting ready for work when the school rang and asked me to come in.	20441
+собиралась	Она собиралась уволиться ещё весной, но ей неожиданно повысили зарплату.	She had been planning to quit back in the spring, but they unexpectedly raised her salary.	20442
+собиралась	Каждое воскресенье вся семья собиралась на даче за большим самоваром.	Every Sunday the whole family used to gather at the dacha around a big samovar.	20443
+спит	Малыш наконец спит, поэтому мы говорим шёпотом и ходим на цыпочках.	The baby is finally asleep, so we're whispering and tiptoeing around.	20444
+спит	Сосед по купе спит с открытым окном, а я мёрзну всю ночь.	The man sharing my compartment sleeps with the window open, and I freeze all night.	20445
+спит	Кот спит на моей подушке и даже не думает уступать место.	The cat sleeps on my pillow and has no intention of giving up the spot.	20446
+результаты	Результаты анализов будут готовы в понедельник, но врач принимает только по вторникам.	The test results will be ready on Monday, but the doctor only sees patients on Tuesdays.	20447
+результаты	На планёрке начальник показал результаты квартала и никого не похвалил.	At the morning meeting the boss showed the quarterly results and praised no one.	20448
+результаты	Результаты экзамена меня расстроили, хотя я готовился всё лето.	The exam results upset me, even though I had studied all summer.	20449
+шучу	Мама, я шучу, никто не собирается продавать твою дачу!	Mum, I'm joking — nobody is going to sell your dacha!	20450
+шучу	На совещаниях я шучу от волнения, и начальник каждый раз хмурится.	At meetings I crack jokes out of nerves, and the boss frowns every time.	20451
+шучу	Не смейся, я не шучу: я правда увольняюсь в конце месяца.	Don't laugh, I'm not joking — I really am quitting at the end of the month.	20452

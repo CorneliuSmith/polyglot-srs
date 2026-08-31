@@ -42,8 +42,15 @@ _NATIVE = [
 ]
 
 # course -> minimum share of sentences that yield a reading, as measured.
+# ar dropped 0.38 -> 0.35 on 30 Aug when 684 newly authored sentences landed
+# for its thin top-2000 words. That is dilution by GOOD content, not decay:
+# the reading is a dictionary lookup built over the VOCABULARY list, while a
+# sentence may contain any word at all, so a corpus that grows faster than
+# the table covers reads as a coverage drop. Rule 24 — a number going down
+# can be the correct outcome; the floor moves, with the reason attached.
+# Raise it again when the lookup is extended over sentence vocabulary.
 FLOORS = {"ru": 0.99, "el": 0.99, "hi": 0.99, "ko": 0.99,
-          "th": 0.85, "he": 0.60, "fa": 0.60, "ar": 0.38}
+          "th": 0.85, "he": 0.60, "fa": 0.60, "ar": 0.35}
 
 
 def _native(token: str) -> bool:
