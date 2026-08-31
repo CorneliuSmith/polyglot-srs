@@ -11,6 +11,13 @@ gives you the one-paragraph version and points at the real thing. See
 [`DEBT.md`](DEBT.md) for the companion list of rough edges and choices worth
 revisiting.
 
+> **This file is maintained, not archived.** A change that adds or drops a
+> dependency, introduces a pattern worth copying, or changes how a core
+> concept works updates this file in the same PR. The rule is in
+> `CLAUDE.md` → *Shipping* → *LEARN.md and DEBT.md are living documents*.
+> If something here contradicts the code, the code is right and this file
+> is a bug — fix it.
+
 ## How to navigate the docs
 
 - **`ARCHITECTURE.md`** — the system diagrams, the request-flow walkthroughs,

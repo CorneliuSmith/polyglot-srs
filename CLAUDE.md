@@ -23,6 +23,40 @@ The bar for merging is unchanged by this:
 Say so plainly if something is merged with a known gap, rather than letting
 the merge imply it was clean.
 
+### LEARN.md and DEBT.md are living documents — update them as you ship
+
+`LEARN.md` (technology choices and concepts, written for the owner's own
+understanding) and `DEBT.md` (strange-looking choices, known gotchas, doc
+drift, designed-but-not-built work) are **maintained**, not one-time
+write-ups. Updating them is part of the work, in the same PR as the change
+— not a follow-up someone gets to later.
+
+Update `LEARN.md` when you:
+
+- add, remove, or swap a dependency, or exclude one on purpose;
+- introduce a new pattern, layer, or convention other code should copy;
+- change how a core concept works (scheduling, visibility, locales, auth,
+  the AI pipeline, the connection kinds).
+
+Add to `DEBT.md` when you:
+
+- leave something deliberately off, stubbed, or flagged (say *why*, and
+  what would have to be true to turn it on);
+- work around a platform or vendor limitation rather than fix it;
+- hit a bug whose cause was non-obvious and would cost the next person the
+  same hour — especially the order-dependent and environment-shaped ones;
+- notice a doc that has drifted out of sync with the code, whether or not
+  you fix it in that PR.
+
+Delete from `DEBT.md` when an entry stops being true. An entry that has
+been fixed is worse than no entry: it sends the next reader looking for a
+problem that isn't there. Same rule as the decision log — a *superseded*
+reason gets rewritten, not silently dropped, but a *resolved* item goes.
+
+The test for both files: could the owner read the entry six months from now
+and act on it without asking a follow-up question? If not, it needs the
+missing sentence, not a shorter one.
+
 ### Known-failing backend tests (environment, not the code)
 
 5 tests fail on a clean checkout in this container and are NOT regressions:
