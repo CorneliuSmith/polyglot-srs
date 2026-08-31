@@ -279,8 +279,10 @@ delivery**, so a mail outage retries rather than silently skipping someone.
 ## Testing
 
 ```bash
-# Frontend
-cd frontend && npx tsc --noEmit && npx vitest run
+# Frontend — npm run build, not tsc --noEmit: the build runs tsc -b, which
+# type-checks the whole project graph and once caught 4 real errors that
+# --noEmit let through into a red CI.
+cd frontend && npx vitest run && npm run build
 
 # Backend — unit only
 .venv/bin/pytest backend/tests -q
