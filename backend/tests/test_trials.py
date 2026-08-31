@@ -116,6 +116,41 @@ class TestTrialRequest:
         assert resp.json() == {"received": True}
         mail.assert_not_awaited()
 
+    def test_an_unset_notify_address_still_queues_the_request(self, client):
+        """The failure the owner actually hit: ADMIN_NOTIFY_EMAIL unset, so
+        no mail is even attempted. The request must still land — the queue
+        and the staff bell are the record, mail is the convenience."""
+        quiet = FakeSettings()
+        quiet.admin_notify_email = ""
+        with patch("backend.routers.auth.get_settings", return_value=quiet), \
+             patch("backend.routers.auth.trials_table_present",
+                   new=AsyncMock(return_value=True)), \
+             patch("backend.routers.auth.add_trial_request",
+                   new=AsyncMock(return_value=True)) as add, \
+             patch("backend.routers.auth.send_email",
+                   new=AsyncMock()) as mail:
+            resp = client.post("/api/auth/trial-request",
+                               json={"email": "kate@example.com"})
+        assert resp.status_code == 200
+        assert resp.json() == {"received": True}
+        add.assert_awaited_once()   # queued regardless
+        mail.assert_not_awaited()   # nothing to send it to
+
+    def test_a_failed_send_does_not_fail_the_request(self, client):
+        """Resend rejecting the mail (unverified sender, bad key) must not
+        turn a stranger's request into an error page."""
+        with patch("backend.routers.auth.trials_table_present",
+                   new=AsyncMock(return_value=True)), \
+             patch("backend.routers.auth.add_trial_request",
+                   new=AsyncMock(return_value=True)) as add, \
+             patch("backend.routers.auth.send_email",
+                   new=AsyncMock(return_value=False)):
+            resp = client.post("/api/auth/trial-request",
+                               json={"email": "kate@example.com"})
+        assert resp.status_code == 200
+        assert resp.json() == {"received": True}
+        add.assert_awaited_once()
+
     def test_503_names_the_missing_migration(self, client):
         with patch("backend.routers.auth.trials_table_present",
                    new=AsyncMock(return_value=False)):

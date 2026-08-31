@@ -3046,7 +3046,9 @@ class TestReviewNotifications:
                        # course; this bucket is exactly what a per-language
                        # map would otherwise lose.
                        {"language_id": None, "language_name": None, "count": 1},
-                   ])):
+                   ])), \
+             patch("backend.routers.contribute.count_pending_trial_requests",
+                   new=AsyncMock(return_value=0)):
             resp = client.get("/api/contribute/notifications",
                               headers=_auth_headers())
         body = resp.json()
@@ -3054,6 +3056,67 @@ class TestReviewNotifications:
         assert body["feedback_total"] == 1
         assert [f["language_id"] for f in body["feedback"]] == [None]
         assert body["is_admin"] is True
+
+    def test_an_admin_is_told_who_is_waiting_for_access(self, client):
+        """Trial requests used to reach the admin ONLY as an email, which
+        needs ADMIN_NOTIFY_EMAIL and a Resend sender Resend will accept —
+        three silent ways to fail (owner: "I am not getting the emails").
+        The bell now carries the same fact, dependent on no mail at all."""
+        with patch("backend.routers.contribute.get_roles",
+                   new=AsyncMock(return_value=[
+                       {"language_id": None, "role": "admin"},
+                   ])), \
+             patch("backend.routers.contribute.review_inbox_by_language",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.contribute.open_feedback_by_language",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.contribute.count_pending_trial_requests",
+                   new=AsyncMock(return_value=3)):
+            resp = client.get("/api/contribute/notifications",
+                              headers=_auth_headers())
+        assert resp.json()["trial_pending"] == 3
+
+    def test_a_reviewer_is_never_told_about_access_requests(self, client):
+        """Who gets an account is the admin's call — not queried, not sent."""
+        with patch("backend.routers.contribute.get_roles",
+                   new=AsyncMock(return_value=[
+                       {"language_id": None, "role": "reviewer"},
+                   ])), \
+             patch("backend.routers.contribute.review_inbox_by_language",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.contribute.count_pending_trial_requests",
+                   new=AsyncMock(return_value=3)) as counted:
+            resp = client.get("/api/contribute/notifications",
+                              headers=_auth_headers())
+        assert resp.json()["trial_pending"] == 0
+        counted.assert_not_awaited()
+
+    def test_a_missing_trials_table_leaves_the_rest_of_the_bell_standing(
+        self, client,
+    ):
+        """The count sits behind its own connection and guard: a deploy
+        ahead of migration 20260921 must lose the number, not the bell."""
+        with patch("backend.routers.contribute.get_roles",
+                   new=AsyncMock(return_value=[
+                       {"language_id": None, "role": "admin"},
+                   ])), \
+             patch("backend.routers.contribute.review_inbox_by_language",
+                   new=AsyncMock(return_value=[
+                       {"id": "11111111-1111-1111-1111-111111111111",
+                        "code": "es", "name": "Spanish", "is_visible": True,
+                        "total": 4, "counts": {}},
+                   ])), \
+             patch("backend.routers.contribute.open_feedback_by_language",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.contribute.count_pending_trial_requests",
+                   new=AsyncMock(
+                       side_effect=asyncpg.exceptions.UndefinedTableError(
+                           "no trial_requests"))):
+            resp = client.get("/api/contribute/notifications",
+                              headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json()["trial_pending"] == 0
+        assert resp.json()["review_total"] == 4
 
     def test_a_missing_table_answers_quiet_rather_than_500(self, client):
         """This runs behind a bell on every page. A deploy ahead of its
@@ -3067,7 +3130,9 @@ class TestReviewNotifications:
                        asyncpg.exceptions.UndefinedTableError("no table")
                    ))), \
              patch("backend.routers.contribute.open_feedback_by_language",
-                   new=AsyncMock(return_value=[])):
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.contribute.count_pending_trial_requests",
+                   new=AsyncMock(return_value=0)):
             resp = client.get("/api/contribute/notifications",
                               headers=_auth_headers())
         assert resp.status_code == 200

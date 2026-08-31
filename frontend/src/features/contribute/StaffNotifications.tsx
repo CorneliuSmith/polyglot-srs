@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { Inbox, MessageSquareWarning, X } from 'lucide-react'
+import { Inbox, MessageSquareWarning, UserPlus, X } from 'lucide-react'
 import { useReviewNotifications } from '../../components/LanguageScopePicker'
 import { originSummary } from '../../lib/reviewTaxonomy'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -28,6 +28,7 @@ export default function StaffNotifications({ onClose }: { onClose: () => void })
 
   const languages = (data?.languages ?? []).filter((l) => l.total > 0)
   const feedback = data?.feedback ?? []
+  const trialPending = data?.trial_pending ?? 0
 
   const open = (languageId: string) => {
     // Scope FIRST, then navigate: landing on the workspace and watching it
@@ -65,10 +66,47 @@ export default function StaffNotifications({ onClose }: { onClose: () => void })
 
         {isLoading && <p className="mt-3 text-sm text-gray-500">Loading…</p>}
 
-        {!isLoading && languages.length === 0 && feedback.length === 0 && (
-          <p className="mt-3 text-sm text-gray-500" data-testid="staff-all-clear">
-            Nothing is waiting on you in any language.
-          </p>
+        {!isLoading && languages.length === 0 && feedback.length === 0 &&
+          trialPending === 0 && (
+            <p className="mt-3 text-sm text-gray-500" data-testid="staff-all-clear">
+              Nothing is waiting on you in any language.
+            </p>
+          )}
+
+        {/* People asking to be let in. Top of the panel deliberately: it is
+            the only queue with someone on the other end waiting for a reply,
+            and the announcement email that used to be its only signal can
+            fail silently three different ways. */}
+        {trialPending > 0 && (
+          <>
+            <p className="mt-3 flex items-center gap-1.5 text-xs uppercase tracking-wide text-gray-500">
+              <UserPlus aria-hidden className="h-3.5 w-3.5" />
+              Trial access requests
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                onClose()
+                navigate('/contribute?tab=admin&section=people')
+              }}
+              data-testid="staff-trial-requests"
+              className="mt-1.5 flex w-full items-center justify-between gap-3 rounded-lg border border-gray-100 px-3 py-2 text-start hover:border-lang/40 hover:bg-gray-50"
+            >
+              <span className="min-w-0">
+                <span className="block truncate text-sm font-medium text-gray-800">
+                  {trialPending === 1
+                    ? 'Someone is waiting for access'
+                    : `${trialPending} people are waiting for access`}
+                </span>
+                <span className="block text-[11px] text-gray-500">
+                  Approve or reject in Trial requests
+                </span>
+              </span>
+              <span className="shrink-0 rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-800">
+                {trialPending}
+              </span>
+            </button>
+          </>
         )}
 
         {languages.length > 0 && (

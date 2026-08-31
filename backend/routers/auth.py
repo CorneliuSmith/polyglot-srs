@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import logging
 from html import escape
 
 import asyncpg
@@ -23,6 +24,7 @@ from backend.services.email import send_email
 from backend.services.experiments import resolve_variants
 from backend.services.rate_limit import RateLimiter
 
+logger = logging.getLogger("auth")
 router = APIRouter()
 
 # The one unauthenticated write in the app. Generous for humans, useless
@@ -73,13 +75,21 @@ async def request_trial(body: TrialRequestBody, request: Request):
         added = await add_trial_request(conn, body.email, body.name, body.note)
 
     # Announce NEW requests only (a duplicate would let a stranger make the
-    # admin's inbox ring on someone else's behalf). Log-only when no
-    # ADMIN_NOTIFY_EMAIL / Resend key — the panel's queue shows it anyway.
+    # admin's inbox ring on someone else's behalf). The request itself is
+    # already safe in the queue — and the staff bell counts it — so mail is
+    # a convenience, never the record. Each way it can fail says so in the
+    # log: this went unnoticed in production for weeks because an unset
+    # ADMIN_NOTIFY_EMAIL announced nothing and logged nothing either.
     admin_to = get_settings().admin_notify_email
+    if added and not admin_to:
+        logger.warning(
+            "trial request queued but NOT emailed: ADMIN_NOTIFY_EMAIL is "
+            "unset. The request is in the admin panel's Trial requests queue."
+        )
     if added and admin_to:
         who = escape(body.name or body.email)
         note = f"<p>{escape(body.note)}</p>" if body.note else ""
-        await send_email(
+        sent = await send_email(
             admin_to,
             f"PolyglotSRS: trial access request from {body.email}",
             f"<p><strong>{who}</strong> ({escape(body.email)}) asked for "
@@ -87,6 +97,15 @@ async def request_trial(body: TrialRequestBody, request: Request):
             "<p>Approve or reject it from the admin panel's "
             "Trial requests queue.</p>",
         )
+        if not sent:
+            # send_email already logged the reason (no key, transport, or a
+            # rejection body — Resend's default onboarding@resend.dev sender
+            # only delivers to the account owner's own verified address).
+            logger.warning(
+                "trial request queued but the announcement email to %s did "
+                "not send. It is in the Trial requests queue either way.",
+                admin_to,
+            )
     return {"received": True}
 
 # Columns added by migration 20260908 (the weekly digest opt-in). The profile

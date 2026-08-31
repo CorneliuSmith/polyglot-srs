@@ -46,7 +46,14 @@ export default function HeaderUtilities({
   // four learner circles are untouched — this is a fifth, not a
   // replacement.
   const { data: staff } = useReviewNotifications()
-  const staffWaiting = (staff?.review_total ?? 0) + (staff?.feedback_total ?? 0)
+  const staffWaiting =
+    (staff?.review_total ?? 0) +
+    (staff?.feedback_total ?? 0) +
+    // People waiting to be let in count toward the badge too — otherwise a
+    // request with no review work alongside it lights nothing at all, which
+    // is exactly how they went unnoticed while the announcement email was
+    // misconfigured.
+    (staff?.trial_pending ?? 0)
 
   // Open the feature tour once, for someone who hasn't dismissed it.
   // "Done" is per EDITION, not forever: a learner who dismissed the

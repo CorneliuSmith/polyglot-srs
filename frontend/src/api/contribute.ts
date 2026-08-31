@@ -1742,6 +1742,11 @@ export interface ReviewNotifications {
   review_total: number
   feedback: FeedbackNotification[]
   feedback_total: number
+  /** Strangers waiting on an access decision (admins only). Carried in the
+   *  bell because the announcement email needs ADMIN_NOTIFY_EMAIL plus a
+   *  working Resend sender — three ways to go quiet without anyone knowing.
+   *  Absent on an older server, which reads as none. */
+  trial_pending?: number
   is_admin: boolean
   /** False for ordinary learners — the endpoint answers them with an empty
    *  set rather than a 403, so the bell can ask on every page load. */

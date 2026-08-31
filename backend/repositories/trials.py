@@ -35,6 +35,22 @@ async def add_trial_request(
     return result.endswith("1")
 
 
+async def count_pending_trial_requests(conn: asyncpg.Connection) -> int:
+    """How many requests are still undecided — the staff bell's signal.
+
+    Email announcement is best-effort (it needs ADMIN_NOTIFY_EMAIL AND a
+    Resend key, and either can be unset or rejected without anyone
+    noticing). A stranger asking for access must not depend on that:
+    this count puts the same fact in the app, where it cannot be lost.
+    Probed, so a pre-migration deploy reads 0 rather than 500ing the bell.
+    """
+    if not await trials_table_present(conn):
+        return 0
+    return await conn.fetchval(
+        "SELECT count(*) FROM trial_requests WHERE status = 'pending'"
+    )
+
+
 async def list_trial_requests(conn: asyncpg.Connection) -> list[dict]:
     """The admin queue: pending first, newest first within each group."""
     rows = await conn.fetch(

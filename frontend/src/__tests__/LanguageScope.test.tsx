@@ -195,4 +195,32 @@ describe('what is waiting, per language', () => {
     renderWithQuery(<StaffNotifications onClose={vi.fn()} />)
     expect(await screen.findByText('Not about one language')).toBeInTheDocument()
   })
+
+  it('tells an admin who is waiting for access, and links at the queue', async () => {
+    // The announcement email needs ADMIN_NOTIFY_EMAIL plus a Resend sender
+    // Resend will accept — three ways to go quiet (owner: "I am not getting
+    // the emails"). The bell must carry the same fact on its own.
+    mockNotifications.mockResolvedValue(
+      notifications({ is_admin: true, trial_pending: 2 }),
+    )
+    renderWithQuery(<StaffNotifications onClose={vi.fn()} />)
+    const row = await screen.findByTestId('staff-trial-requests')
+    expect(row.textContent).toContain('2 people are waiting for access')
+    fireEvent.click(row)
+    // Deep-linked at the panel itself, not the workspace's front page.
+    expect(mockNavigate).toHaveBeenCalledWith(
+      '/contribute?tab=admin&section=people',
+    )
+  })
+
+  it('does not call it all clear while someone waits for access', async () => {
+    mockNotifications.mockResolvedValue(
+      notifications({
+        languages: [], review_total: 0, is_admin: true, trial_pending: 1,
+      }),
+    )
+    renderWithQuery(<StaffNotifications onClose={vi.fn()} />)
+    expect(await screen.findByTestId('staff-trial-requests')).toBeInTheDocument()
+    expect(screen.queryByTestId('staff-all-clear')).not.toBeInTheDocument()
+  })
 })

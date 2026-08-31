@@ -150,6 +150,7 @@ from backend.repositories.recordings import (
 )
 from backend.repositories.speech import aggregate_speech_usage
 from backend.repositories.trials import (
+    count_pending_trial_requests,
     get_trial_request,
     list_trial_requests,
     mark_trial_decided,
@@ -3425,11 +3426,30 @@ async def review_notifications(user: dict = Depends(get_current_user)):
         # rows here would count them twice in the badge.
         feedback = [f for f in feedback if f["language_id"] is None]
 
+    # Strangers asking for access. This used to reach the admin ONLY as an
+    # email, which needs ADMIN_NOTIFY_EMAIL and a Resend key and a sender
+    # Resend will accept — three ways to go silent, none of them visible
+    # from inside the app (owner: "I am not getting the emails"). The
+    # requests were never lost, but nothing said they were there. Now the
+    # bell carries the same fact and does not depend on mail at all.
+    trial_pending = 0
+    if admin:
+        try:
+            async with privileged_connection() as conn:
+                trial_pending = await count_pending_trial_requests(conn)
+        except (
+            asyncpg.exceptions.UndefinedTableError,
+            asyncpg.exceptions.UndefinedColumnError,
+            asyncpg.exceptions.QueryCanceledError,
+        ):
+            trial_pending = 0
+
     return {
         "languages": languages,
         "review_total": sum(lang["total"] for lang in languages),
         "feedback": feedback,
         "feedback_total": sum(f["count"] for f in feedback),
+        "trial_pending": trial_pending,
         "is_admin": admin,
         "is_staff": True,
     }

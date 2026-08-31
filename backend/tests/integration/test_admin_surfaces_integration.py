@@ -197,6 +197,43 @@ async def test_personal_card_provenance_round_trip(pool):
         assert prov["note_title"] is None
 
 
+async def test_pending_trial_requests_count_on_the_real_table(pool):
+    """The bell's access-request signal, against the real schema.
+
+    Counting only 'pending' is the whole contract: an approved request that
+    kept ringing the bell would be worse than the silence this replaced.
+    """
+    from backend.repositories.trials import (
+        add_trial_request,
+        count_pending_trial_requests,
+        list_trial_requests,
+        mark_trial_decided,
+    )
+
+    _, admin_id = await _seed_account(pool, "trial-count-admin@example.com")
+    async with pool.privileged_connection() as conn:
+        before = await count_pending_trial_requests(conn)
+
+        assert await add_trial_request(conn, "asker-one@example.com", "One", None)
+        assert await add_trial_request(conn, "asker-two@example.com", None, "please")
+        # Same email again: deduped, so a stranger cannot inflate the badge.
+        assert await add_trial_request(
+            conn, "asker-one@example.com", "One", None) is False
+        assert await count_pending_trial_requests(conn) == before + 2
+
+        decided = next(
+            r for r in await list_trial_requests(conn)
+            if r["email"] == "asker-one@example.com"
+        )
+        await mark_trial_decided(conn, decided["id"], "approved", admin_id)
+        assert await count_pending_trial_requests(conn) == before + 1
+
+        await conn.execute(
+            "DELETE FROM trial_requests WHERE email = ANY($1::text[])",
+            ["asker-one@example.com", "asker-two@example.com"],
+        )
+
+
 async def test_review_prompt_query_executes(pool):
     """The tester-prompt rotation's md5 ORDER BY was once verified only as a
     substring of the SQL text — run the actual query."""
