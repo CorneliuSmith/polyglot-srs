@@ -8,6 +8,7 @@ be COMPUTED is not it cannot be DONE — and the answer is the one Thai reached:
 look it up.
 """
 import csv
+import random
 
 import pytest
 
@@ -84,42 +85,54 @@ def test_the_cloze_blank_survives():
     assert "{{answer}}" in out
 
 
-@pytest.mark.parametrize("code,floor", [("ar", 0.33), ("he", 0.60), ("fa", 0.60)])
+@pytest.mark.parametrize("code,floor", [("ar", 0.78), ("he", 0.85), ("fa", 0.90)])
 def test_coverage_has_not_silently_dropped(code, floor):
-    """A ratchet. Arabic's floor is lower than the others because its sentences
-    are full of inflected verb forms that are not headwords — the vocabulary is
-    at 100% and the sentences are not, and that gap is real rather than a bug
-    to be fixed by loosening the table.
+    """A ratchet on TOKEN coverage — what share of words the lookup knows.
 
-    HEBREW'S FLOOR WENT DOWN ON PURPOSE, from 0.75 to 0.60. Clitic peeling was
-    covering those sentences and a verification pass judged 22 of 108 peeled
-    Hebrew forms wrong — not near-misses but different words: מחברות read as
-    "from friends" when it is "notebooks", הילדות as "childhood" when it is
-    "the girls", and every ב- prefix given as be- where Hebrew fuses the
-    article and says ba-. Persian was worse, 10 of 11. Peeling is off for both
-    now, and the coverage it was inflating went with it.
+    IT USED TO MEASURE SENTENCES fully covered, and that unit was wrong: a
+    sentence needs EVERY word known, so the number falls as sentences get
+    longer even when the table has not changed. Arabic's floor was moved
+    twice in two days (0.38 -> 0.35 -> 0.33) chasing exactly that, and both
+    times because sentence quality had been RAISED — 684 authored sentences
+    of 7-14 words, then thousands of fragments dropped. A ratchet that falls
+    when the content improves is measuring the wrong thing.
 
-    A number moving down because the wrong answers were removed is the ratchet
-    working, not failing. Do not restore the old floor by re-enabling the
-    peeler.
+    Tokens are independent of how words are grouped into sentences. Measured
+    31 Aug: ar 81.5%, he 89.1%, fa 95.1%, against a sentence-coverage figure
+    of 27.5% for the same Arabic corpus. Both are true; only one answers
+    "how much of this language can the table read".
 
-    ARABIC MOVED TWICE ON 30-31 AUG, 0.38 -> 0.35 -> 0.33, and the mechanism
-    matters more than either number. This measures SENTENCES fully covered,
-    which is a function of sentence LENGTH: a long sentence has more chances
-    to contain a word the lookup does not know, so it fails where a short one
-    passes. Both moves came from deliberately raising sentence quality —
-    first 684 authored sentences of 7-14 words, then dropping 3,552 fragments
-    under five tokens — so the corpus got longer and this number fell while
-    the content improved.
+    HEBREW AND PERSIAN ARE STILL WHERE THE PEELER LEFT THEM. Clitic peeling
+    covered sentences the table could not read, and a verification pass
+    judged 22 of 108 peeled Hebrew forms wrong — different words, not near
+    misses: מחברות read as "from friends" when it is "notebooks". Persian
+    was 10 of 11. Peeling is off for both; do not restore coverage by
+    re-enabling it.
+    """
+    import unicodedata
 
-    That means the floor will keep drifting as §23 is applied to more courses,
-    which makes it a poor ratchet. The fix is to measure TOKEN coverage
-    instead — what share of words the table knows, which is independent of how
-    they are grouped into sentences — and it is not done here because changing
-    a ratchet's unit in the same commit that moves it hides whichever of the
-    two actually mattered."""
+    def _tokens(text):
+        out, cur = [], ""
+        for ch in text:
+            if unicodedata.category(ch).startswith(("L", "M")):
+                cur += ch
+            else:
+                if cur:
+                    out.append(cur)
+                    cur = ""
+        if cur:
+            out.append(cur)
+        return out
+
     with (DATA / f"{code}_sentences.tsv").open(encoding="utf-8-sig", newline="") as fh:
-        rows = [(r.get("sentence") or "").strip() for r in csv.DictReader(fh, delimiter="\t")]
-    rows = [s for s in rows if s]
-    covered = sum(1 for s in rows if semitic_reading(s, code))
-    assert covered / len(rows) > floor, f"{code}: {covered}/{len(rows)}"
+        rows = [r["sentence"] for r in csv.DictReader(fh, delimiter="\t")
+                if (r.get("sentence") or "").strip()]
+    random.seed(11)
+    sample = random.sample(rows, min(400, len(rows)))
+    total = known = 0
+    for sentence in sample:
+        for token in _tokens(sentence):
+            total += 1
+            if semitic_reading(token, code):
+                known += 1
+    assert known / total > floor, f"{code}: {known}/{total} = {known / total:.3f}"
