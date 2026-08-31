@@ -111,7 +111,10 @@
     "speakCaption": "Tenha uma conversa",
     "speakNew": "Novo",
     "speakPitch": "Tenha uma conversa. Correções durante ou no final.",
-    "audioPending": "Ainda não há áudio para {{language}} — não existe voz sintética para este idioma, então estamos reunindo gravações reais de falantes. O áudio vai aparecendo conforme os clipes são aprovados."
+    "audioPending": "Ainda não há áudio para {{language}} — não existe voz sintética para este idioma, então estamos reunindo gravações reais de falantes. O áudio vai aparecendo conforme os clipes são aprovados.",
+    "recsTitle": "Suas indicações",
+    "recsSetUp": "Ativar as recomendações →",
+    "recsSeeAll": "Ver todas →"
   },
   "stages": {
     "beginner": "Iniciante",

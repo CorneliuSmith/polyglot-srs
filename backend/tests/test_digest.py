@@ -5,10 +5,13 @@ from unittest.mock import AsyncMock, patch
 import pytest
 
 from backend.services.digest import (
+    ADMIN_DIGEST_HOUR_UTC,
     DIGEST_HOUR_UTC,
     RECS_HOUR_UTC,
+    admin_digest_html,
     digest_html,
     picks_html,
+    sweep_admin_digests,
     sweep_weekly_digests,
     sweep_weekly_recommendations,
 )
@@ -370,3 +373,207 @@ class TestPicksEmail:
         assert f"{APP}/recommendations" in html
         # And how to turn it off — every recurring email owes people that.
         assert "turn them off" in html
+
+
+class TestAdminDigestBody:
+    """The operations digest: what is waiting, and where to go for it."""
+
+    SAMPLES = [
+        {"name": "Kate", "email": "kate@example.com", "note": "Learning Twi"},
+        {"name": None, "email": "sam@example.com", "note": None},
+    ]
+    LANGS = [
+        {"id": "l1", "name": "Hebrew", "total": 9},
+        {"id": "l2", "name": "Spanish", "total": 4},
+    ]
+
+    def test_leads_with_the_people_waiting_on_a_reply(self):
+        html = admin_digest_html(
+            trial_pending=2, trial_samples=self.SAMPLES,
+            languages=self.LANGS, app_feedback=1, app_url=APP,
+        )
+        assert "2 people are waiting for access" in html
+        assert "Kate" in html and "sam@example.com" in html
+        assert "Learning Twi" in html          # their own words come along
+        # Deep-linked at the panel, not the workspace's front page.
+        assert f"{APP}/contribute?tab=admin&amp;section=people" in html
+        # People come before queues: they are the only ones waiting on a human.
+        assert html.index("waiting for access") < html.index("waiting for review")
+
+    def test_singular_reads_correctly(self):
+        html = admin_digest_html(
+            trial_pending=1, trial_samples=self.SAMPLES[:1],
+            languages=[], app_feedback=0, app_url=APP,
+        )
+        assert "1 person is waiting for access" in html
+
+    def test_counts_the_review_queues_by_language(self):
+        html = admin_digest_html(
+            trial_pending=0, trial_samples=[],
+            languages=self.LANGS, app_feedback=0, app_url=APP,
+        )
+        assert "13 waiting for review" in html   # 9 + 4
+        assert "Across 2 languages" in html
+        assert "Hebrew" in html and "Spanish" in html
+
+    def test_a_quiet_language_is_not_listed(self):
+        html = admin_digest_html(
+            trial_pending=0, trial_samples=[],
+            languages=[{"id": "l1", "name": "Hebrew", "total": 3},
+                       {"id": "l2", "name": "Quiet", "total": 0}],
+            app_feedback=0, app_url=APP,
+        )
+        assert "Hebrew" in html
+        assert "Quiet" not in html
+        assert "Across 1 language" in html
+
+    def test_each_section_is_absent_when_its_count_is_zero(self):
+        html = admin_digest_html(
+            trial_pending=0, trial_samples=[], languages=[],
+            app_feedback=2, app_url=APP,
+        )
+        assert "waiting for access" not in html
+        assert "waiting for review" not in html
+        assert "2 reports about the app itself" in html
+
+    def test_escapes_hostile_content_from_a_stranger(self):
+        # The note and name are typed by whoever filled in the public form.
+        html = admin_digest_html(
+            trial_pending=1,
+            trial_samples=[{"name": "<script>x</script>",
+                            "email": "e@t", "note": "<img onerror=1>"}],
+            languages=[], app_feedback=0, app_url=APP,
+        )
+        assert "<script>" not in html
+        assert "&lt;script&gt;" in html
+        assert "<img onerror" not in html
+
+    def test_says_why_it_arrived_and_that_silence_means_nothing_waits(self):
+        html = admin_digest_html(
+            trial_pending=1, trial_samples=self.SAMPLES[:1],
+            languages=[], app_feedback=0, app_url=APP,
+        )
+        assert "your account holds the admin role" in html
+        assert "no news means nothing is" in html
+
+
+class TestAdminDigestSweep:
+    ADMINS = [{"id": "a1", "email": "owner@example.com"},
+              {"id": "a2", "email": "second@example.com"}]
+
+    def _stack(self, *, admins, trial=0, samples=None, langs=None,
+               feedback=None, accepted=True):
+        stack = ExitStack()
+        stack.enter_context(
+            patch("backend.services.digest.email_configured", return_value=True))
+        dt = stack.enter_context(patch("backend.services.digest.datetime"))
+        dt.now.return_value.hour = ADMIN_DIGEST_HOUR_UTC
+        stack.enter_context(patch(
+            "backend.repositories.admins.admins_due_for_digest",
+            new=AsyncMock(return_value=admins)))
+        self.stamp = stack.enter_context(patch(
+            "backend.repositories.admins.mark_digest_sent", new=AsyncMock()))
+        stack.enter_context(patch(
+            "backend.repositories.trials.count_pending_trial_requests",
+            new=AsyncMock(return_value=trial)))
+        stack.enter_context(patch(
+            "backend.repositories.trials.list_trial_requests",
+            new=AsyncMock(return_value=samples or [])))
+        stack.enter_context(patch(
+            "backend.repositories.contributor.review_inbox_by_language",
+            new=AsyncMock(return_value=langs or [])))
+        stack.enter_context(patch(
+            "backend.repositories.feedback.open_feedback_by_language",
+            new=AsyncMock(return_value=feedback or [])))
+        self.send = stack.enter_context(patch(
+            "backend.services.digest.send_email",
+            new=AsyncMock(return_value=accepted)))
+        return stack
+
+    def _conn(self):
+        conn = AsyncMock()
+        conn.fetchval = AsyncMock(return_value=True)   # holds the advisory lock
+        return conn
+
+    @pytest.mark.asyncio
+    async def test_mails_every_admin_account_not_one_env_var(self):
+        """The whole point: recipients come from the roles table, so nobody
+        has to have set ADMIN_NOTIFY_EMAIL for an admin to hear about this."""
+        conn = self._conn()
+        with self._stack(admins=self.ADMINS, trial=2,
+                         samples=[{"email": "kate@example.com", "name": "Kate",
+                                   "note": None, "status": "pending"}]):
+            assert await sweep_admin_digests(conn) == 2
+        assert {c.args[0] for c in self.send.await_args_list} == {
+            "owner@example.com", "second@example.com",
+        }
+        assert "2 waiting for you" in self.send.await_args.args[1]
+
+    @pytest.mark.asyncio
+    async def test_says_nothing_when_nothing_is_waiting(self):
+        """A digest that usually says "nothing to do" trains its way into a
+        filter, taking the one that mattered with it."""
+        conn = self._conn()
+        with self._stack(admins=self.ADMINS):
+            assert await sweep_admin_digests(conn) == 0
+        self.send.assert_not_called()
+        self.stamp.assert_not_called()
+
+    @pytest.mark.asyncio
+    async def test_only_pending_requests_are_described(self):
+        conn = self._conn()
+        with self._stack(admins=self.ADMINS[:1], trial=1, samples=[
+            {"email": "kate@example.com", "name": "Kate", "note": None,
+             "status": "pending"},
+            {"email": "old@example.com", "name": "Old", "note": None,
+             "status": "approved"},
+        ]):
+            await sweep_admin_digests(conn)
+        body = self.send.await_args.args[2]
+        assert "kate@example.com" in body
+        assert "old@example.com" not in body
+
+    @pytest.mark.asyncio
+    async def test_stamps_only_on_an_accepted_send(self):
+        conn = self._conn()
+        with self._stack(admins=self.ADMINS, trial=1,
+                         samples=[{"email": "k@t", "name": None, "note": None,
+                                   "status": "pending"}],
+                         accepted=False):
+            assert await sweep_admin_digests(conn) == 0
+        # A refused send must retry on the next pass, not read as delivered.
+        self.stamp.assert_not_called()
+
+    @pytest.mark.asyncio
+    async def test_runs_only_at_its_hour(self):
+        conn = self._conn()
+        with patch("backend.services.digest.email_configured", return_value=True), \
+             patch("backend.services.digest.datetime") as dt:
+            dt.now.return_value.hour = (ADMIN_DIGEST_HOUR_UTC + 1) % 24
+            assert await sweep_admin_digests(conn) == 0
+        conn.fetchval.assert_not_called()
+
+    @pytest.mark.asyncio
+    async def test_only_one_worker_runs_the_pass(self):
+        """Every uvicorn worker runs this loop; two of them would mail every
+        admin twice."""
+        conn = self._conn()
+        conn.fetchval = AsyncMock(return_value=False)   # lock held elsewhere
+        with self._stack(admins=self.ADMINS, trial=5):
+            assert await sweep_admin_digests(conn) == 0
+        self.send.assert_not_called()
+
+    @pytest.mark.asyncio
+    async def test_log_only_email_burns_no_stamps(self):
+        conn = AsyncMock()
+        with patch("backend.services.digest.email_configured", return_value=False):
+            assert await sweep_admin_digests(conn) == 0
+        conn.fetchval.assert_not_called()
+
+    @pytest.mark.asyncio
+    async def test_no_admins_due_costs_no_queries(self):
+        """Everyone already had today's — don't scan the queues for nobody."""
+        conn = self._conn()
+        with self._stack(admins=[], trial=9):
+            assert await sweep_admin_digests(conn) == 0
+        self.send.assert_not_called()

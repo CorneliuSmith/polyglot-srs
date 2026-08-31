@@ -60,7 +60,12 @@ async def conn(schema):
 
 
 async def _course(conn, word: str) -> dict:
-    code = f"zz{uuid.uuid4().hex[:4]}"
+    # Full hex, never a slice: every integration file shares ONE
+    # session-scoped schema, so these codes accumulate across the whole
+    # run. `zz` + 4 hex is 65k values for a growing shared namespace,
+    # and CI duly hit the birthday collision. `code` is TEXT UNIQUE with
+    # no width limit, so the truncation was never buying anything.
+    code = f"zz{uuid.uuid4().hex}"
     lang_id = await conn.fetchval(
         "INSERT INTO languages (code, name) VALUES ($1, 'Test') RETURNING id", code)
     await conn.execute(
