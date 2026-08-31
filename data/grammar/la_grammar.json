@@ -47,49 +47,56 @@
           "answer": "puerum",
           "translation": "The girl sees the boy.",
           "hint": "boy, accusative — direct object",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.NOM.SG · ___ · see.PRS.3SG"
         },
         {
           "sentence": "Dominus {{answer}} habet.",
           "answer": "aquam",
           "translation": "The master has water.",
           "hint": "water, accusative",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "master.NOM.SG · ___ · have.PRS.3SG"
         },
         {
           "sentence": "Puer {{answer}} amat.",
           "answer": "īnsulam",
           "translation": "The boy loves the island.",
           "hint": "island, accusative",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "boy.NOM.SG · ___ · love.PRS.3SG"
         },
         {
           "sentence": "{{answer}} puellam vocat.",
           "answer": "Puer",
           "translation": "The boy is calling the girl.",
           "hint": "boy — nominative; he is the one doing the calling",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · girl.ACC.SG · call.PRS.3SG"
         },
         {
           "sentence": "Dominus {{answer}} nōn videt.",
           "answer": "servum",
           "translation": "The master does not see the slave.",
           "hint": "slave — accusative; the person who is not being seen",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "master.NOM.SG · ___ · NEG · see.PRS.3SG"
         },
         {
           "sentence": "Cūr {{answer}} rogās?",
           "answer": "dominum",
           "translation": "Why are you asking the master?",
           "hint": "master — accusative, the one being asked",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "why · ___ · ask.PRS.2SG"
         },
         {
           "sentence": "{{answer}} pater videt.",
           "answer": "Fīliam",
           "translation": "The father sees the daughter.",
           "hint": "daughter — accusative, even though it stands first in the sentence",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · father.NOM.SG · see.PRS.3SG"
         }
       ]
     },
@@ -107,42 +114,48 @@
           "answer": "puella",
           "translation": "The girl lives on the island.",
           "hint": "girl, nominative subject",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · in · island.ABL.SG · live.PRS.3SG"
         },
         {
           "sentence": "Nōmen {{answer}} est Iūlia.",
           "answer": "puellae",
           "translation": "The girl's name is Julia.",
           "hint": "girl, genitive — \"of the girl\"",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "name.NOM.SG · ___ · be.PRS.3SG · Julia.NOM.SG"
         },
         {
           "sentence": "Aquam et {{answer}} habeō.",
           "answer": "terram",
           "translation": "I have water and land.",
           "hint": "land, accusative",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "water.ACC.SG · and · ___ · have.PRS.1SG"
         },
         {
           "sentence": "{{answer}} in silvā ambulant.",
           "answer": "Fēminae",
           "translation": "The women are walking in the forest.",
           "hint": "women — nominative plural; the subject ending here is -ae",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · in · forest.ABL.SG · walk.PRS.3PL"
         },
         {
           "sentence": "{{answer}} nōn habeō.",
           "answer": "Pecūniam",
           "translation": "I do not have money.",
           "hint": "money — accusative object of a negative statement",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · NEG · have.PRS.1SG"
         },
         {
           "sentence": "{{answer}} et fīlius in hortō sunt.",
           "answer": "Fīlia",
           "translation": "The daughter and the son are in the garden.",
           "hint": "daughter — nominative singular, one of the two subjects",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · and · son.NOM.SG · in · garden.ABL.SG · be.PRS.3PL"
         }
       ]
     },
@@ -160,49 +173,56 @@
           "answer": "bellum",
           "translation": "The war is great.",
           "hint": "war — neuter, same form for subject or object",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · great.N.NOM.SG · be.PRS.3SG"
         },
         {
           "sentence": "Puer {{answer}} videt.",
           "answer": "bellum",
           "translation": "The boy sees the war.",
           "hint": "war — neuter object looks just like the subject form",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "boy.NOM.SG · ___ · see.PRS.3SG"
         },
         {
           "sentence": "{{answer}} bonus est.",
           "answer": "dominus",
           "translation": "The master is good.",
           "hint": "master, nominative -us",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · good.M.NOM.SG · be.PRS.3SG"
         },
         {
           "sentence": "Fēmina {{answer}} vocat.",
           "answer": "amīcum",
           "translation": "The woman is calling a friend.",
           "hint": "friend — masculine accusative; unlike a neuter, the ending changes for the object",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "woman.NOM.SG · ___ · call.PRS.3SG"
         },
         {
           "sentence": "Ubi est {{answer}}?",
           "answer": "oppidum",
           "translation": "Where is the town?",
           "hint": "town — neuter subject; the object form would look exactly the same",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "where · be.PRS.3SG · ___"
         },
         {
           "sentence": "{{answer}} in hortō labōrat.",
           "answer": "Servus",
           "translation": "The slave is working in the garden.",
           "hint": "slave — masculine nominative in -us",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · in · garden.ABL.SG · work.PRS.3SG"
         },
         {
           "sentence": "Fīlius {{answer}} scrībit.",
           "answer": "verbum",
           "translation": "The son is writing a word.",
           "hint": "word — neuter object; nothing in the ending marks it as the object",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "son.NOM.SG · ___ · write.PRS.3SG"
         }
       ]
     },
@@ -220,42 +240,48 @@
           "answer": "est",
           "translation": "The girl is good.",
           "hint": "is — 3rd person singular of sum",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.NOM.F.SG · good.NOM.F.SG · ___"
         },
         {
           "sentence": "Nōs bonī {{answer}}.",
           "answer": "sumus",
           "translation": "We are good.",
           "hint": "we are — 1st person plural of sum",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1PL.NOM · good.NOM.M.PL · ___"
         },
         {
           "sentence": "Tū bonus {{answer}}.",
           "answer": "es",
           "translation": "You are good.",
           "hint": "you are — 2nd person singular of sum",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "2SG.NOM · good.NOM.M.SG · ___"
         },
         {
           "sentence": "Puerī in silvā {{answer}}.",
           "answer": "sunt",
           "translation": "The boys are in the forest.",
           "hint": "they are — 3rd person plural of sum",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "boy.NOM.M.PL · in · forest.ABL.F.SG · ___"
         },
         {
           "sentence": "Ubi {{answer}}, amīcī?",
           "answer": "estis",
           "translation": "Where are you, friends?",
           "hint": "you are — 2nd person plural, speaking to more than one person",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "where · ___ · friend.VOC.M.PL"
         },
         {
           "sentence": "Ego rēx nōn {{answer}}.",
           "answer": "sum",
           "translation": "I am not a king.",
           "hint": "I am — 1st person singular of the irregular verb 'to be'",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG.NOM · king.NOM.M.SG · NEG · ___"
         }
       ]
     },
@@ -273,49 +299,56 @@
           "answer": "amat",
           "translation": "The girl loves the boy.",
           "hint": "loves — 3rd person singular",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.NOM.F.SG · boy.ACC.M.SG · ___"
         },
         {
           "sentence": "{{answer}} īnsulam.",
           "answer": "amō",
           "translation": "I love the island.",
           "hint": "I love — 1st person singular, no pronoun needed",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · island.ACC.F.SG"
         },
         {
           "sentence": "Nōs terram {{answer}}.",
           "answer": "amāmus",
           "translation": "We love the land.",
           "hint": "we love — 1st person plural",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL.NOM · land.ACC.F.SG · ___"
         },
         {
           "sentence": "Cūr puerum {{answer}}?",
           "answer": "vocās",
           "translation": "Why are you calling the boy?",
           "hint": "you call — 2nd person singular of a first-conjugation verb",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "why · boy.ACC.M.SG · ___"
         },
         {
           "sentence": "Puerī in viā {{answer}}.",
           "answer": "ambulant",
           "translation": "The boys are walking in the street.",
           "hint": "they walk — 3rd person plural, ending -ant",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "boy.NOM.M.PL · in · street.ABL.F.SG · ___"
         },
         {
           "sentence": "Vōs in oppidō {{answer}}.",
           "answer": "habitātis",
           "translation": "You live in the town.",
           "hint": "you live — 2nd person plural, addressed to a group",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "2PL.NOM · in · town.ABL.N.SG · ___"
         },
         {
           "sentence": "Pater in hortō nōn {{answer}}.",
           "answer": "labōrat",
           "translation": "The father is not working in the garden.",
           "hint": "works — 3rd person singular; the ending alone names who",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "father.NOM.M.SG · in · garden.ABL.M.SG · NEG · ___"
         }
       ]
     },
@@ -333,42 +366,48 @@
           "answer": "magna",
           "translation": "The girl is big.",
           "hint": "big — feminine agreement with puella",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.NOM.F.SG · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Dominus {{answer}} est.",
           "answer": "magnus",
           "translation": "The master is big.",
           "hint": "big — masculine agreement with dominus",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "master.NOM.M.SG · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Bellum {{answer}} est.",
           "answer": "magnum",
           "translation": "The war is big.",
           "hint": "big — neuter agreement with bellum",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "war.NOM.N.SG · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Puer {{answer}} īnsulam videt.",
           "answer": "magnam",
           "translation": "The boy sees a big island.",
           "hint": "big — feminine accusative, matching the island it describes",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "boy.NOM.M.SG · ___ · island.ACC.F.SG · see.PRS.3SG"
         },
         {
           "sentence": "Puerī {{answer}} sunt.",
           "answer": "parvī",
           "translation": "The boys are small.",
           "hint": "small — masculine nominative plural, agreeing with the subject",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "boy.NOM.M.PL · ___ · be.PRS.3PL"
         },
         {
           "sentence": "Fīlius dōnum {{answer}} habet.",
           "answer": "novum",
           "translation": "The son has a new gift.",
           "hint": "new — neuter accusative, agreeing with the word for gift",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "son.NOM.M.SG · gift.ACC.N.SG · ___ · have.PRS.3SG"
         }
       ]
     },
@@ -386,42 +425,48 @@
           "answer": "īnsulā",
           "translation": "The girl lives on the island.",
           "hint": "island, ablative — location, no -m ending",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.NOM.F.SG · in · ___ · live.PRS.3SG"
         },
         {
           "sentence": "Puer in {{answer}} venit.",
           "answer": "īnsulam",
           "translation": "The boy comes onto the island.",
           "hint": "island, accusative — motion into/onto",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "boy.NOM.SG · into · ___ · come.PRS.3SG"
         },
         {
           "sentence": "Aqua in {{answer}} est.",
           "answer": "terrā",
           "translation": "The water is on the land.",
           "hint": "land, ablative — location, not motion",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "water.NOM.SG · in · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Cūr in {{answer}} ambulās?",
           "answer": "silvam",
           "translation": "Why are you walking into the forest?",
           "hint": "forest, accusative — motion into it, not a place you are already standing",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "why · into · ___ · walk.PRS.2SG"
         },
         {
           "sentence": "Hodiē in {{answer}} sum.",
           "answer": "hortō",
           "translation": "I am in the garden today.",
           "hint": "garden, ablative — a second-declension masculine noun saying where someone is",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "today · in · ___ · be.PRS.1SG"
         },
         {
           "sentence": "Fēminae in {{answer}} ambulant.",
           "answer": "templum",
           "translation": "The women walk into the temple.",
           "hint": "temple, accusative — motion into; this neuter noun's object form looks like its subject form",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "woman.NOM.PL · into · ___ · walk.PRS.3PL"
         }
       ]
     },
@@ -439,42 +484,48 @@
           "answer": "amat",
           "translation": "The girl loves the boy. (default subject-object-verb order)",
           "hint": "loves — verb comes last in the neutral order",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.NOM.SG · boy.ACC.SG · ___"
         },
         {
           "sentence": "{{answer}} puella puerum.",
           "answer": "amat",
           "translation": "The girl loves the boy. (verb fronted for emphasis)",
           "hint": "loves — same verb, moved to the front",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · girl.NOM.SG · boy.ACC.SG"
         },
         {
           "sentence": "Puerum {{answer}} amat.",
           "answer": "puella",
           "translation": "The girl loves the boy. (object fronted)",
           "hint": "girl — the subject can move without changing meaning, thanks to its ending",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "boy.ACC.SG · ___ · love.PRS.3SG"
         },
         {
           "sentence": "Aquam habet {{answer}}.",
           "answer": "puer",
           "translation": "The boy has water. (subject held back to the end)",
           "hint": "boy, nominative — the subject sits last here, and only its ending says so",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "water.ACC.SG · have.PRS.3SG · ___"
         },
         {
           "sentence": "Amant {{answer}} puellās.",
           "answer": "puerī",
           "translation": "The boys love the girls. (verb first)",
           "hint": "boys, nominative plural — the subject of a sentence that opens with its verb",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "love.PRS.3PL · ___ · girl.ACC.PL"
         },
         {
           "sentence": "Cūr {{answer}} amat puella?",
           "answer": "īnsulam",
           "translation": "Why does the girl love the island? (subject held to the end)",
           "hint": "island, accusative — the object of a question whose subject comes last",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "why · ___ · love.PRS.3SG · girl.NOM.SG"
         }
       ]
     },
@@ -502,49 +553,56 @@
           "answer": "videt",
           "translation": "The boy sees the girl.",
           "hint": "sees — 3rd person singular",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "boy.NOM.SG · girl.ACC.SG · ___"
         },
         {
           "sentence": "Aquam {{answer}}.",
           "answer": "habeō",
           "translation": "I have water.",
           "hint": "I have — 1st person singular, -eō",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "water.ACC.SG · ___"
         },
         {
           "sentence": "Nōs īnsulam {{answer}}.",
           "answer": "vidēmus",
           "translation": "We see the island.",
           "hint": "we see — 1st person plural",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL.NOM · island.ACC.SG · ___"
         },
         {
           "sentence": "Puellae dominum {{answer}}.",
           "answer": "vident",
           "translation": "The girls see the master.",
           "hint": "they see — 3rd person plural",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "girl.NOM.PL · master.ACC.SG · ___"
         },
         {
           "sentence": "Tū terram {{answer}}.",
           "answer": "vidēs",
           "translation": "You see the land.",
           "hint": "you see — 2nd person singular",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG.NOM · land.ACC.SG · ___"
         },
         {
           "sentence": "Cūr in silvā {{answer}}?",
           "answer": "manētis",
           "translation": "Why are you all staying in the forest?",
           "hint": "you all remain — 2nd person plural present, with the stem's long -e- before the ending",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "why · in · forest.ABL.SG · ___"
         },
         {
           "sentence": "Bellum nōn {{answer}}.",
           "answer": "timeō",
           "translation": "I do not fear war.",
           "hint": "I fear — 1st person singular present of a second-conjugation verb",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "war.ACC.SG · NEG · ___"
         }
       ]
     },
@@ -572,42 +630,48 @@
           "answer": "potest",
           "translation": "The girl can see the water.",
           "hint": "can — 3rd person singular of the 'be able' verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.NOM.SG · water.ACC.SG · see.INF · ___"
         },
         {
           "sentence": "Īnsulam vidēre {{answer}}.",
           "answer": "possum",
           "translation": "I can see the island.",
           "hint": "I am able — 1st person singular",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "island.ACC.SG · see.INF · ___"
         },
         {
           "sentence": "Nōs bellum vidēre {{answer}}.",
           "answer": "possumus",
           "translation": "We can see the war.",
           "hint": "we can — 1st person plural",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL.NOM · war.ACC.SG · see.INF · ___"
         },
         {
           "sentence": "Tū puerum amāre {{answer}}.",
           "answer": "potes",
           "translation": "You can love the boy.",
           "hint": "you can — 2nd person singular",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "2SG.NOM · boy.ACC.SG · love.INF · ___"
         },
         {
           "sentence": "Puerī aquam habēre {{answer}}.",
           "answer": "possunt",
           "translation": "The boys can have water.",
           "hint": "they can — 3rd person plural",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "boy.NOM.PL · water.ACC.SG · have.INF · ___"
         },
         {
           "sentence": "Hodiē labōrāre nōn {{answer}}.",
           "answer": "possum",
           "translation": "Today I cannot work.",
           "hint": "I am able — 1st person singular; the negative in front leaves the verb form unchanged",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "today · work.INF · NEG · ___"
         }
       ]
     },
@@ -635,49 +699,56 @@
           "answer": "amābat",
           "translation": "The girl once loved the boy.",
           "hint": "used to love — imperfect 3rd singular",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.NOM.SG · boy.ACC.SG · once · ___"
         },
         {
           "sentence": "Aquam ōlim {{answer}}.",
           "answer": "habēbam",
           "translation": "I once had water.",
           "hint": "I used to have — imperfect 1st singular",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "water.ACC.SG · once · ___"
         },
         {
           "sentence": "Nōs in īnsulā {{answer}}.",
           "answer": "habitābāmus",
           "translation": "We used to live on the island.",
           "hint": "we were living — imperfect 1st plural",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL.NOM · in · island.ABL.SG · ___"
         },
         {
           "sentence": "Dominus bonus {{answer}}.",
           "answer": "erat",
           "translation": "The master was good.",
           "hint": "was — the imperfect of sum",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "master.NOM.SG · good.NOM.SG.M · ___"
         },
         {
           "sentence": "Puerī bellum {{answer}}.",
           "answer": "vidēbant",
           "translation": "The boys were watching the war.",
           "hint": "were seeing — imperfect 3rd plural",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "boy.NOM.PL · war.ACC.SG · ___"
         },
         {
           "sentence": "Ubi ōlim {{answer}}?",
           "answer": "habitābās",
           "translation": "Where did you use to live?",
           "hint": "you used to live — imperfect 2nd person singular, first conjugation",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "where.Q · once · ___"
         },
         {
           "sentence": "Puerī bonī nōn {{answer}}.",
           "answer": "erant",
           "translation": "The boys were not good.",
           "hint": "were — imperfect 3rd person plural of sum, irregular like the rest of that verb",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "boy.NOM.PL · good.NOM.PL.M · NEG · ___"
         }
       ]
     },
@@ -705,49 +776,56 @@
           "answer": "amābit",
           "translation": "The girl will love the boy tomorrow.",
           "hint": "will love — future 3rd singular",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.NOM.SG · boy.ACC.SG · tomorrow · ___"
         },
         {
           "sentence": "Crās aquam {{answer}}.",
           "answer": "habēbō",
           "translation": "Tomorrow I will have water.",
           "hint": "I will have — future 1st singular",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "tomorrow · water.ACC.SG · ___"
         },
         {
           "sentence": "Nōs īnsulam mox {{answer}}.",
           "answer": "vidēbimus",
           "translation": "We will soon see the island.",
           "hint": "we will see — future 1st plural",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL.NOM · island.ACC.SG · soon · ___"
         },
         {
           "sentence": "Bellum magnum {{answer}}.",
           "answer": "erit",
           "translation": "The war will be great.",
           "hint": "will be — the future of sum",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "war.NOM.SG · great.NOM.SG.N · ___"
         },
         {
           "sentence": "Tū in terrā {{answer}}.",
           "answer": "habitābis",
           "translation": "You will live on the land.",
           "hint": "you will live — future 2nd singular",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG.NOM · in · land.ABL.SG · ___"
         },
         {
           "sentence": "Cūr crās nōn {{answer}}?",
           "answer": "dīcēs",
           "translation": "Why will you not speak tomorrow?",
           "hint": "you will say — future 2nd person singular; a third-conjugation verb, so no -b- appears",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "why.Q · tomorrow · NEG · ___"
         },
         {
           "sentence": "Puellae mox in hortō {{answer}}.",
           "answer": "labōrābunt",
           "translation": "The girls will soon work in the garden.",
           "hint": "they will work — future 3rd person plural, first conjugation with its -b-",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "girl.NOM.PL · soon · in · garden.ABL.SG · ___"
         }
       ]
     },
@@ -775,49 +853,56 @@
           "answer": "Rēx",
           "translation": "The king lives in the city.",
           "hint": "king — nominative subject",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · in · city.ABL.SG · live.PRS.3SG"
         },
         {
           "sentence": "Puella {{answer}} in urbe videt.",
           "answer": "rēgem",
           "translation": "The girl sees the king in the city.",
           "hint": "king — accusative -em",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "girl.NOM.SG · ___ · in · city.ABL.SG · see.PRS.3SG"
         },
         {
           "sentence": "Rēx {{answer}} amat.",
           "answer": "urbem",
           "translation": "The king loves the city.",
           "hint": "city — accusative",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "king.NOM.SG · ___ · love.PRS.3SG"
         },
         {
           "sentence": "Nōmen {{answer}} est Rōma.",
           "answer": "urbis",
           "translation": "The name of the city is Rome.",
           "hint": "city — genitive -is",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "name.NOM.SG · ___ · be.PRS.3SG · Rome.NOM.SG"
         },
         {
           "sentence": "In {{answer}} habitāmus.",
           "answer": "urbe",
           "translation": "We live in the city.",
           "hint": "city — ablative after in (location)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "in · ___ · live.PRS.1PL"
         },
         {
           "sentence": "Fēmina {{answer}} epistulam dat.",
           "answer": "rēgī",
           "translation": "The woman gives the king a letter.",
           "hint": "to the king — dative singular, the person the letter goes to",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "woman.NOM.SG · ___ · letter.ACC.SG · give.PRS.3SG"
         },
         {
           "sentence": "Vōcem {{answer}} nōn audiō.",
           "answer": "mīlitis",
           "translation": "I do not hear the soldier's voice.",
           "hint": "of the soldier — genitive singular; the nominative does not show this stem",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "voice.ACC.SG · ___ · NEG · hear.PRS.1SG"
         }
       ]
     },
@@ -845,49 +930,56 @@
           "answer": "Corpus",
           "translation": "The boy's body is big.",
           "hint": "body — neuter nominative",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · boy.GEN.SG · big.N.NOM.SG · be.PRS.3SG"
         },
         {
           "sentence": "Puer {{answer}} habet.",
           "answer": "tempus",
           "translation": "The boy has time.",
           "hint": "time — neuter; the object looks like the subject form",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "boy.NOM.SG · ___ · have.PRS.3SG"
         },
         {
           "sentence": "{{answer}} puerī est Mārcus.",
           "answer": "Nōmen",
           "translation": "The boy's name is Marcus.",
           "hint": "name — neuter nominative",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · boy.GEN.SG · be.PRS.3SG · Marcus.NOM.SG"
         },
         {
           "sentence": "{{answer}} magna sunt.",
           "answer": "corpora",
           "translation": "The bodies are big.",
           "hint": "bodies — neuter plural in -a",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · big.N.NOM.PL · be.PRS.3PL"
         },
         {
           "sentence": "Rēx {{answer}} novum habet.",
           "answer": "nōmen",
           "translation": "The king has a new name.",
           "hint": "name — neuter accusative, same as the subject form",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "king.NOM.SG · ___ · new.N.ACC.SG · have.PRS.3SG"
         },
         {
           "sentence": "Magister {{answer}} puerōrum nōn scit.",
           "answer": "nōmina",
           "translation": "The teacher does not know the boys' names.",
           "hint": "names — neuter plural object, spelled exactly like the plural subject form",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "teacher.NOM.SG · ___ · boy.GEN.PL · NEG · know.PRS.3SG"
         },
         {
           "sentence": "Satis {{answer}} habēmus.",
           "answer": "temporis",
           "translation": "We have enough time.",
           "hint": "of time — genitive singular after satis; the -us of the nominative is not the stem",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "enough · ___ · have.PRS.1PL"
         }
       ]
     },
@@ -915,49 +1007,56 @@
           "answer": "Ego",
           "translation": "I love the girl. (emphatic)",
           "hint": "I — nominative, used for emphasis",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · girl.ACC.SG · love.PRS.1SG"
         },
         {
           "sentence": "Puella {{answer}} amat.",
           "answer": "mē",
           "translation": "The girl loves me.",
           "hint": "the object form of the first person",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "girl.NOM.SG · ___ · love.PRS.3SG"
         },
         {
           "sentence": "{{answer}} tē vidēmus.",
           "answer": "Nōs",
           "translation": "We see you.",
           "hint": "we — 1st person plural subject",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 2SG.ACC · see.PRS.1PL"
         },
         {
           "sentence": "Ego {{answer}} amō.",
           "answer": "tē",
           "translation": "I love you.",
           "hint": "you — accusative singular of tū",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG.NOM · ___ · love.PRS.1SG"
         },
         {
           "sentence": "Vōs {{answer}} vidētis.",
           "answer": "nōs",
           "translation": "You all see us.",
           "hint": "us — object form, identical to the subject form",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2PL.NOM · ___ · see.PRS.2PL"
         },
         {
           "sentence": "Pater {{answer}} librum dat.",
           "answer": "mihi",
           "translation": "Father gives me a book.",
           "hint": "to me — dative of the first person singular, the one receiving the book",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "father.NOM.SG · ___ · book.ACC.SG · give.PRS.3SG"
         },
         {
           "sentence": "Ego dīcō, sed {{answer}} nōn audīs.",
           "answer": "tū",
           "translation": "I am speaking, but you are not listening.",
           "hint": "you, one person — nominative pronoun, here for contrast with the speaker",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG.NOM · say.PRS.1SG · but · ___ · NEG · hear.PRS.2SG"
         }
       ]
     },
@@ -985,49 +1084,56 @@
           "answer": "Haec",
           "translation": "This girl is good.",
           "hint": "this — feminine nominative singular",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · girl.NOM.SG · good.F.NOM.SG · be.PRS.3SG"
         },
         {
           "sentence": "{{answer}} dominus malus est.",
           "answer": "Ille",
           "translation": "That master is bad.",
           "hint": "that — masculine nominative",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · master.NOM.SG · bad.M.NOM.SG · be.PRS.3SG"
         },
         {
           "sentence": "Puer {{answer}} puellam amat.",
           "answer": "illam",
           "translation": "The boy loves that girl.",
           "hint": "that — feminine accusative",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "boy.NOM.SG · ___ · girl.ACC.SG · love.PRS.3SG"
         },
         {
           "sentence": "{{answer}} bellum magnum est.",
           "answer": "Hoc",
           "translation": "This war is great.",
           "hint": "this — neuter nominative",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · war.NOM.SG · great.N.NOM.SG · be.PRS.3SG"
         },
         {
           "sentence": "Rēx {{answer}} urbem videt.",
           "answer": "hanc",
           "translation": "The king sees this city.",
           "hint": "this — feminine accusative of hic",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "king.NOM.SG · ___ · city.ACC.SG · see.PRS.3SG"
         },
         {
           "sentence": "Puella {{answer}} librum nōn legit.",
           "answer": "hunc",
           "translation": "The girl is not reading this book.",
           "hint": "this — masculine accusative singular, agreeing with the book",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "girl.NOM.SG · ___ · book.ACC.SG · NEG · read.PRS.3SG"
         },
         {
           "sentence": "Puer {{answer}} animal timet.",
           "answer": "illud",
           "translation": "The boy is afraid of that animal.",
           "hint": "that — neuter accusative singular, agreeing with the animal",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "boy.NOM.SG · ___ · animal.ACC.SG · fear.PRS.3SG"
         }
       ]
     },
@@ -1055,49 +1161,56 @@
           "answer": "dīcit",
           "translation": "The girl says a word.",
           "hint": "says — 3rd conjugation, 3rd singular",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.NOM.SG · word.ACC.SG · ___"
         },
         {
           "sentence": "Rēgem in urbe {{answer}}.",
           "answer": "audiō",
           "translation": "I hear the king in the city.",
           "hint": "I hear — 4th conjugation, 1st singular",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "king.ACC.SG · in · city.ABL.SG · ___"
         },
         {
           "sentence": "Puerī dominum {{answer}}.",
           "answer": "audiunt",
           "translation": "The boys hear the master.",
           "hint": "they hear — 3rd plural in -iunt",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "boy.NOM.PL · master.ACC.SG · ___"
         },
         {
           "sentence": "Nōs verba {{answer}}.",
           "answer": "dīcimus",
           "translation": "We say words.",
           "hint": "we say — 1st plural with short -i-",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL.NOM · word.ACC.PL · ___"
         },
         {
           "sentence": "Tū puellam {{answer}}.",
           "answer": "audīs",
           "translation": "You hear the girl.",
           "hint": "you hear — 2nd singular",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG.NOM · girl.ACC.SG · ___"
         },
         {
           "sentence": "Puerī epistulam ad rēgem {{answer}}.",
           "answer": "mittunt",
           "translation": "The boys are sending a letter to the king.",
           "hint": "they send — third conjugation, 3rd plural in -unt",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "boy.NOM.PL · letter.ACC.SG · to · king.ACC.SG · ___"
         },
         {
           "sentence": "Cūr in urbem nōn {{answer}}?",
           "answer": "venītis",
           "translation": "Why don't you all come into the city?",
           "hint": "you all come — 4th conjugation, 2nd plural keeping its long -i-",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "why · into · city.ACC.SG · NEG · ___"
         }
       ]
     },
@@ -1125,49 +1238,56 @@
           "answer": "Portā",
           "translation": "Carry the water, boy!",
           "hint": "carry! — singular command, first conjugation",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · water.ACC.SG · boy.VOC.SG"
         },
         {
           "sentence": "{{answer}} rēgem, puerī!",
           "answer": "Audīte",
           "translation": "Listen to the king, boys!",
           "hint": "listen! — plural command",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · king.ACC.SG · boy.VOC.PL"
         },
         {
           "sentence": "{{answer}} mihi verbum!",
           "answer": "Dīc",
           "translation": "Tell me the word!",
           "hint": "tell! — irregular one-syllable command",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 1SG.DAT · word.ACC.SG"
         },
         {
           "sentence": "{{answer}} puellam, domine!",
           "answer": "Vidē",
           "translation": "See the girl, master!",
           "hint": "see! — singular command of the 2nd conjugation",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · girl.ACC.SG · master.VOC.SG"
         },
         {
           "sentence": "{{answer}} in īnsulam, puellae!",
           "answer": "Venīte",
           "translation": "Come onto the island, girls!",
           "hint": "come! — plural command of venīre",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · into · island.ACC.SG · girl.VOC.PL"
         },
         {
           "sentence": "{{answer}} epistulam ad rēgem, amīcī!",
           "answer": "Mittite",
           "translation": "Send the letter to the king, friends!",
           "hint": "send! — plural command of a third-conjugation verb, short vowel before -te",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · letter.ACC.SG · to · king.ACC.SG · friend.VOC.PL"
         },
         {
           "sentence": "{{answer}} mīlitēs ad urbem!",
           "answer": "Dūc",
           "translation": "Lead the soldiers to the city!",
           "hint": "lead! — one of the four irregular commands that drop the final vowel in the singular",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · soldier.ACC.PL · to · city.ACC.SG"
         }
       ]
     },
@@ -1195,49 +1315,56 @@
           "answer": "Vidēsne",
           "translation": "Do you see the girl?",
           "hint": "do you see? — verb + the question particle",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · girl.ACC.SG"
         },
         {
           "sentence": "{{answer}} aquam habet?",
           "answer": "Quis",
           "translation": "Who has the water?",
           "hint": "who? — asks about a person",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · water.ACC.SG · have.PRS.3SG"
         },
         {
           "sentence": "{{answer}} puer dīcit?",
           "answer": "Quid",
           "translation": "What is the boy saying?",
           "hint": "what? — asks about a thing",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · boy.NOM.SG · say.PRS.3SG"
         },
         {
           "sentence": "{{answer}} dominus bonus?",
           "answer": "Estne",
           "translation": "Is the master good?",
           "hint": "is...? — the verb 'to be' with the question particle attached",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · master.NOM.SG · good.NOM.SG.M"
         },
         {
           "sentence": "{{answer}} puella puerum?",
           "answer": "Amatne",
           "translation": "Does the girl love the boy?",
           "hint": "does she love? — verb first with -ne attached",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · girl.NOM.SG · boy.ACC.SG"
         },
         {
           "sentence": "{{answer}} pānem?",
           "answer": "Habēmusne",
           "translation": "Do we have bread?",
           "hint": "do we have? — first person plural, with the question particle stuck on the end of the verb",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · bread.ACC.SG"
         },
         {
           "sentence": "{{answer}} es magister?",
           "answer": "Tūne",
           "translation": "Are you the teacher?",
           "hint": "you — here the particle rides the pronoun that opens the question instead of the verb",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · be.PRS.2SG · teacher.NOM.SG"
         }
       ]
     },
@@ -1265,49 +1392,56 @@
           "answer": "puellae",
           "translation": "The boy gives water to the girl.",
           "hint": "to the girl — dative",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "boy.NOM.SG · ___ · water.ACC.SG · give.PRS.3SG"
         },
         {
           "sentence": "Fīlius {{answer}} bonus est.",
           "answer": "rēgis",
           "translation": "The king's son is good.",
           "hint": "of the king — genitive",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "son.NOM.SG · ___ · good.NOM.SG.M · be.PRS.3SG"
         },
         {
           "sentence": "Dominus {{answer}} terram dat.",
           "answer": "puerō",
           "translation": "The master gives land to the boy.",
           "hint": "to the boy — dative -ō",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "master.NOM.SG · ___ · land.ACC.SG · give.PRS.3SG"
         },
         {
           "sentence": "Aqua {{answer}} bona est.",
           "answer": "īnsulae",
           "translation": "The water of the island is good.",
           "hint": "of the island — genitive",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "water.NOM.SG · ___ · good.NOM.SG.F · be.PRS.3SG"
         },
         {
           "sentence": "Rēx {{answer}} verba dīcit.",
           "answer": "populō",
           "translation": "The king speaks words to the people.",
           "hint": "to the people — dative",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "king.NOM.SG · ___ · word.ACC.PL · say.PRS.3SG"
         },
         {
           "sentence": "Rēgīna {{answer}} pecūniam nōn dat.",
           "answer": "mīlitī",
           "translation": "The queen does not give money to the soldier.",
           "hint": "to the soldier — dative singular of a third-declension noun",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "queen.NOM.SG · ___ · money.ACC.SG · NEG · give.PRS.3SG"
         },
         {
           "sentence": "Fīlia {{answer}} in hortō sedet.",
           "answer": "dominī",
           "translation": "The master's daughter is sitting in the garden.",
           "hint": "of the master — genitive singular of a second-declension noun",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "daughter.NOM.SG · ___ · in · garden.ABL.SG · sit.PRS.3SG"
         }
       ]
     },
@@ -1335,49 +1469,56 @@
           "answer": "amāvit",
           "translation": "The queen loved the king.",
           "hint": "loved — perfect 3rd singular",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "queen.NOM.SG · king.ACC.SG · ___"
         },
         {
           "sentence": "Herī rēgem {{answer}}.",
           "answer": "vīdī",
           "translation": "Yesterday I saw the king.",
           "hint": "I saw — perfect 1st singular",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "yesterday · king.ACC.SG · ___"
         },
         {
           "sentence": "Verba bona {{answer}}.",
           "answer": "dīximus",
           "translation": "We said good words.",
           "hint": "we said — perfect 1st plural",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "word.ACC.PL · good.ACC.PL.N · ___"
         },
         {
           "sentence": "Puerī in īnsulam {{answer}}.",
           "answer": "vēnērunt",
           "translation": "The boys came onto the island.",
           "hint": "they came — perfect 3rd plural",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "boy.NOM.PL · into · island.ACC.SG · ___"
         },
         {
           "sentence": "Tū semper bonus {{answer}}.",
           "answer": "fuistī",
           "translation": "You have always been good.",
           "hint": "you have been — perfect of sum",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "you.NOM.2SG · always · good.NOM.SG.M · ___"
         },
         {
           "sentence": "Vōs epistulam longam {{answer}}.",
           "answer": "scrīpsistis",
           "translation": "You wrote a long letter.",
           "hint": "you wrote — perfect, second person plural",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "you.NOM.2PL · letter.ACC.SG · long.ACC.SG.F · ___"
         },
         {
           "sentence": "Quid in urbe {{answer}}?",
           "answer": "fēcistī",
           "translation": "What did you do in the city?",
           "hint": "you did or made — perfect, second person singular of faciō",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "what.ACC.SG.N · in · city.ABL.SG · ___"
         }
       ]
     },
@@ -1405,42 +1546,48 @@
           "answer": "amāverat",
           "translation": "The girl had loved the boy for a long time.",
           "hint": "had loved — pluperfect 3rd singular",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.NOM.SG · boy.ACC.SG · long.time · ___"
         },
         {
           "sentence": "Urbem anteā {{answer}}.",
           "answer": "vīderam",
           "translation": "I had seen the city before.",
           "hint": "I had seen — pluperfect 1st singular",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "city.ACC.SG · before · ___"
         },
         {
           "sentence": "Rēx verba {{answer}}.",
           "answer": "dīxerat",
           "translation": "The king had said the words.",
           "hint": "he had said — pluperfect",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "king.NOM.SG · word.ACC.PL · ___"
         },
         {
           "sentence": "Nōs in urbem {{answer}}.",
           "answer": "vēnerāmus",
           "translation": "We had come into the city.",
           "hint": "we had come — pluperfect 1st plural",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL.NOM · into · city.ACC.SG · ___"
         },
         {
           "sentence": "Puerī aquam {{answer}}.",
           "answer": "habuerant",
           "translation": "The boys had had water.",
           "hint": "they had had — pluperfect 3rd plural",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "boy.NOM.PL · water.ACC.SG · ___"
         },
         {
           "sentence": "Antequam vēnī, librum {{answer}}.",
           "answer": "lēgerās",
           "translation": "Before I came, you had read the book.",
           "hint": "you had read — pluperfect, second person singular: perfect stem plus the imperfect of sum for the ending",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "before · come.PRF.1SG · book.ACC.SG · ___"
         }
       ]
     },
@@ -1468,42 +1615,48 @@
           "answer": "Diēs",
           "translation": "The day is long.",
           "hint": "day — fifth declension nominative",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · long.NOM.SG.M · be.PRS.3SG"
         },
         {
           "sentence": "Puer {{answer}} puellae videt.",
           "answer": "manum",
           "translation": "The boy sees the girl's hand.",
           "hint": "hand — accusative of the fourth declension",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "boy.NOM.SG · ___ · girl.GEN.SG · see.PRS.3SG"
         },
         {
           "sentence": "{{answer}} magna est.",
           "answer": "Rēs",
           "translation": "The matter is great.",
           "hint": "thing or matter — fifth-declension nominative",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · great.NOM.SG.F · be.PRS.3SG"
         },
         {
           "sentence": "Multōs {{answer}} in urbe eram.",
           "answer": "diēs",
           "translation": "I was in the city for many days.",
           "hint": "days — accusative of duration, looks like the nominative",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "many.ACC.PL.M · ___ · in · city.ABL.SG · be.PST.IPFV.1SG"
         },
         {
           "sentence": "Puer aquam in {{answer}} habet.",
           "answer": "manū",
           "translation": "The boy has water in his hand.",
           "hint": "hand — ablative after in",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "boy.NOM.SG · water.ACC.SG · in · ___ · have.PRS.3SG"
         },
         {
           "sentence": "Illō {{answer}} rēx in urbem vēnit.",
           "answer": "diē",
           "translation": "On that day the king came into the city.",
           "hint": "day — fifth-declension ablative singular, the case that marks when something happened",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "that.ABL.SG.M · ___ · king.NOM.SG · into · city.ACC.SG · come.PRF.3SG"
         }
       ]
     },
@@ -1531,49 +1684,56 @@
           "answer": "altior",
           "translation": "This boy is taller.",
           "hint": "taller — comparative -ior",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "this.NOM.SG.M · boy.NOM.SG · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Hoc bellum {{answer}} est.",
           "answer": "longius",
           "translation": "This war is longer.",
           "hint": "longer — neuter comparative in -ius",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "this.NOM.SG.N · war.NOM.SG · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Rēx {{answer}} est.",
           "answer": "fortissimus",
           "translation": "The king is very brave.",
           "hint": "very brave — superlative -issimus",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "king.NOM.SG · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Puella {{answer}} quam puer est.",
           "answer": "altior",
           "translation": "The girl is taller than the boy.",
           "hint": "taller — comparative followed by quam",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "girl.NOM.SG · ___ · than · boy.NOM.SG · be.PRS.3SG"
         },
         {
           "sentence": "Haec via {{answer}} est.",
           "answer": "longissima",
           "translation": "This road is very long.",
           "hint": "very long — feminine superlative",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "this.NOM.SG.F · road.NOM.SG · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Mīles hoste {{answer}} est.",
           "answer": "fortior",
           "translation": "The soldier is braver than the enemy.",
           "hint": "braver — comparative of a third-declension adjective; the one compared stands in the ablative, so no quam is needed",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "soldier.NOM.SG · enemy.ABL.SG · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Haec verba {{answer}} sunt.",
           "answer": "vērissima",
           "translation": "These words are very true.",
           "hint": "very true — superlative agreeing with a neuter plural noun",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "this.NOM.PL.N · word.NOM.PL · ___ · be.PRS.3PL"
         }
       ]
     },
@@ -1601,35 +1761,40 @@
           "answer": "bene",
           "translation": "The girl sings well.",
           "hint": "well — irregular adverb of bonus",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.F.NOM.SG · ___ · sing.PRS.3SG"
         },
         {
           "sentence": "Mīlitēs {{answer}} pugnant.",
           "answer": "fortiter",
           "translation": "The soldiers fight bravely.",
           "hint": "bravely — third-declension adverb in -iter",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "soldier.M.NOM.PL · ___ · fight.PRS.3PL"
         },
         {
           "sentence": "Puer {{answer}} dīcit.",
           "answer": "male",
           "translation": "The boy speaks badly.",
           "hint": "badly — irregular adverb of malus",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "boy.M.NOM.SG · ___ · say.PRS.3SG"
         },
         {
           "sentence": "Puella {{answer}} habitat.",
           "answer": "longē",
           "translation": "The girl lives far away.",
           "hint": "far — adverb from longus",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "girl.F.NOM.SG · ___ · live.PRS.3SG"
         },
         {
           "sentence": "Puer {{answer}} currit.",
           "answer": "celeriter",
           "translation": "The boy runs quickly.",
           "hint": "quickly — adverb of celer in -iter",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "boy.M.NOM.SG · ___ · run.PRS.3SG"
         }
       ]
     },
@@ -1657,49 +1822,56 @@
           "answer": "amātur",
           "translation": "The girl is loved by the boy.",
           "hint": "is loved — passive 3rd singular",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.F.NOM.SG · by · boy.M.ABL.SG · ___"
         },
         {
           "sentence": "Urbs ā rēge {{answer}}.",
           "answer": "vidētur",
           "translation": "The city is seen by the king.",
           "hint": "is seen — passive -tur",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "city.F.NOM.SG · by · king.M.ABL.SG · ___"
         },
         {
           "sentence": "Verba ā puellīs {{answer}}.",
           "answer": "audiuntur",
           "translation": "The words are heard by the girls.",
           "hint": "are heard — passive 3rd plural",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "word.N.NOM.PL · by · girl.F.ABL.PL · ___"
         },
         {
           "sentence": "Aqua ā dominō {{answer}}.",
           "answer": "portātur",
           "translation": "The water is carried by the master.",
           "hint": "is carried — passive of portāre",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "water.F.NOM.SG · by · master.M.ABL.SG · ___"
         },
         {
           "sentence": "Nōs ā rēge {{answer}}.",
           "answer": "vidēmur",
           "translation": "We are seen by the king.",
           "hint": "we are seen — passive 1st plural",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1PL.NOM · by · king.M.ABL.SG · ___"
         },
         {
           "sentence": "Cūr ā magistrō nōn {{answer}}?",
           "answer": "laudāris",
           "translation": "Why are you not praised by the teacher?",
           "hint": "you are praised — passive second person singular, the -ris ending",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "why · by · teacher.M.ABL.SG · NEG · ___"
         },
         {
           "sentence": "Ab amīcīs meīs saepe {{answer}}.",
           "answer": "vocor",
           "translation": "I am often called by my friends.",
           "hint": "I am called — passive first person singular, the -or ending",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "by · friend.M.ABL.PL · my.M.ABL.PL · often · ___"
         }
       ]
     },
@@ -1727,42 +1899,48 @@
           "answer": "amāta",
           "translation": "The girl was loved by the boy.",
           "hint": "loved — participle agreeing with a feminine subject",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.F.NOM.SG · by · boy.M.ABL.SG · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Urbs {{answer}} est.",
           "answer": "capta",
           "translation": "The city was captured.",
           "hint": "captured — feminine participle + est",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "city.F.NOM.SG · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Verba {{answer}} sunt.",
           "answer": "audīta",
           "translation": "The words were heard.",
           "hint": "heard — neuter plural participle",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "word.N.NOM.PL · ___ · be.PRS.3PL"
         },
         {
           "sentence": "Puer ā dominō {{answer}} est.",
           "answer": "vīsus",
           "translation": "The boy was seen by the master.",
           "hint": "seen — masculine participle",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "boy.M.NOM.SG · by · master.M.ABL.SG · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Aqua ā puerō {{answer}} est.",
           "answer": "portāta",
           "translation": "The water was carried by the boy.",
           "hint": "carried — feminine participle",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "water.F.NOM.SG · by · boy.M.ABL.SG · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Mīlitēs ab hostibus {{answer}} sunt.",
           "answer": "captī",
           "translation": "The soldiers were captured by the enemy.",
           "hint": "captured — participle agreeing with a masculine plural subject",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "soldier.M.NOM.PL · by · enemy.M.ABL.PL · ___ · be.PRS.3PL"
         }
       ]
     },
@@ -1790,49 +1968,56 @@
           "answer": "quae",
           "translation": "The girl who loves the boy is good.",
           "hint": "who — feminine nominative relative",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.F.NOM.SG · ___ · boy.M.ACC.SG · love.PRS.3SG · good.F.NOM.SG · be.PRS.3SG"
         },
         {
           "sentence": "Puer, {{answer}} aquam portat, bonus est.",
           "answer": "quī",
           "translation": "The boy who carries the water is good.",
           "hint": "who — masculine nominative relative",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "boy.M.NOM.SG · ___ · water.F.ACC.SG · carry.PRS.3SG · good.M.NOM.SG · be.PRS.3SG"
         },
         {
           "sentence": "Bellum, {{answer}} vidēmus, magnum est.",
           "answer": "quod",
           "translation": "The war that we see is great.",
           "hint": "which — neuter relative",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "war.NOM.SG · ___ · see.PRS.1PL · great.NOM.SG.N · be.PRS.3SG"
         },
         {
           "sentence": "Rēx, {{answer}} puella amat, bonus est.",
           "answer": "quem",
           "translation": "The king whom the girl loves is good.",
           "hint": "whom — masculine accusative relative",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "king.NOM.SG · ___ · girl.NOM.SG · love.PRS.3SG · good.NOM.SG.M · be.PRS.3SG"
         },
         {
           "sentence": "Urbs, {{answer}} rēx videt, magna est.",
           "answer": "quam",
           "translation": "The city that the king sees is great.",
           "hint": "which — feminine accusative relative",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "city.NOM.SG · ___ · king.NOM.SG · see.PRS.3SG · great.NOM.SG.F · be.PRS.3SG"
         },
         {
           "sentence": "Puella, {{answer}} librum dedī, laeta est.",
           "answer": "cui",
           "translation": "The girl to whom I gave the book is happy.",
           "hint": "to whom — dative relative, because the verb of giving needs an indirect object",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "girl.NOM.SG · ___ · book.ACC.SG · give.PRF.1SG · happy.NOM.SG.F · be.PRS.3SG"
         },
         {
           "sentence": "Oppidum, in {{answer}} habitāmus, parvum est.",
           "answer": "quō",
           "translation": "The town in which we live is small.",
           "hint": "which — neuter relative in the ablative, the case in takes for a place",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "town.NOM.SG · in · ___ · live.PRS.1PL · small.NOM.SG.N · be.PRS.3SG"
         }
       ]
     },
@@ -1860,49 +2045,56 @@
           "answer": "Laudēmus",
           "translation": "Let us praise the queen!",
           "hint": "let us praise — hortatory present subjunctive",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · queen.ACC.SG"
         },
         {
           "sentence": "{{answer}} rēx!",
           "answer": "Vīvat",
           "translation": "Long live the king!",
           "hint": "may he live — present subjunctive wish",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · king.NOM.SG"
         },
         {
           "sentence": "Utinam puella {{answer}}!",
           "answer": "veniat",
           "translation": "If only the girl would come!",
           "hint": "may she come — present subjunctive after the wish word",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if_only · girl.NOM.SG · ___"
         },
         {
           "sentence": "Utinam in urbe {{answer}}!",
           "answer": "essem",
           "translation": "If only I were in the city!",
           "hint": "I were — imperfect subjunctive of sum",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "if_only · in · city.ABL.SG · ___"
         },
         {
           "sentence": "{{answer}} verba rēgis!",
           "answer": "Audiāmus",
           "translation": "Let us hear the king's words!",
           "hint": "let us hear — hortatory subjunctive",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · word.ACC.PL · king.GEN.SG"
         },
         {
           "sentence": "Utinam māter mea urbem {{answer}}!",
           "answer": "vidēret",
           "translation": "If only my mother could see the city!",
           "hint": "might see — imperfect subjunctive, the infinitive plus a third singular ending",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "if_only · mother.NOM.SG · my.NOM.SG.F · city.ACC.SG · ___"
         },
         {
           "sentence": "Nē bellum {{answer}}!",
           "answer": "gerāmus",
           "translation": "Let us not wage war!",
           "hint": "let us not wage — hortatory subjunctive of a third-conjugation verb, negated with nē",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "NEG · war.ACC.SG · ___"
         }
       ]
     },
@@ -1930,49 +2122,56 @@
           "answer": "videat",
           "translation": "The boy comes to see the girl.",
           "hint": "may see — present subjunctive after ut",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "boy.NOM.SG · come.PRS.3SG · COMP · girl.ACC.SG · ___"
         },
         {
           "sentence": "Rēx dīcit ut populus {{answer}}.",
           "answer": "audiat",
           "translation": "The king speaks so that the people may hear.",
           "hint": "may hear — subjunctive in a purpose clause",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "king.NOM.SG · say.PRS.3SG · COMP · people.NOM.SG · ___"
         },
         {
           "sentence": "Puella tacet nē puer {{answer}}.",
           "answer": "audiat",
           "translation": "The girl is silent so that the boy may not hear.",
           "hint": "may hear — subjunctive after negative nē",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "girl.NOM.SG · be_silent.PRS.3SG · COMP.NEG · boy.NOM.SG · ___"
         },
         {
           "sentence": "Puer venit ut aquam {{answer}}.",
           "answer": "portet",
           "translation": "The boy comes to carry the water.",
           "hint": "may carry — first conjugation swaps its vowel to -e-",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "boy.NOM.SG · come.PRS.3SG · COMP · water.ACC.SG · ___"
         },
         {
           "sentence": "Rēx dīxit ut populus {{answer}}.",
           "answer": "audīret",
           "translation": "The king spoke so that the people might hear.",
           "hint": "might hear — imperfect subjunctive after a past main verb",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "king.NOM.SG · say.PRF.3SG · COMP · people.NOM.SG · ___"
         },
         {
           "sentence": "Puer fūgit nē mīlitēs eum {{answer}}.",
           "answer": "vidērent",
           "translation": "The boy fled so that the soldiers would not see him.",
           "hint": "might see — imperfect subjunctive after nē, plural subject, past main verb",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "boy.NOM.SG · flee.PRF.3SG · COMP.NEG · soldier.NOM.PL · he.ACC.SG.M · ___"
         },
         {
           "sentence": "Venīsne ut nōs {{answer}}?",
           "answer": "adiuvēs",
           "translation": "Are you coming to help us?",
           "hint": "may help — present subjunctive after ut, second person singular of a first-conjugation verb",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "come.PRS.2SG-Q · COMP · we.ACC.PL · ___"
         }
       ]
     },
@@ -2000,42 +2199,48 @@
           "answer": "amet",
           "translation": "The girl is so good that the boy loves her.",
           "hint": "loves — subjunctive after tam ... ut",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.NOM.SG · so · good.NOM.SG.F · be.PRS.3SG · COMP · boy.NOM.SG · she.ACC.SG.F · ___"
         },
         {
           "sentence": "Bellum tam longum erat ut mīlitēs {{answer}}.",
           "answer": "fugerent",
           "translation": "The war was so long that the soldiers fled.",
           "hint": "fled — imperfect subjunctive in past result",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "war.NOM.SG · so · long.NOM.SG.N · be.PST.IPFV.3SG · COMP · soldier.NOM.PL · ___"
         },
         {
           "sentence": "Rēx tam fortis est ut urbem {{answer}}.",
           "answer": "capiat",
           "translation": "The king is so brave that he captures the city.",
           "hint": "captures — present subjunctive result",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "king.NOM.SG · so · brave.NOM.SG.M · be.PRS.3SG · COMP · city.ACC.SG · ___"
         },
         {
           "sentence": "Puer tam celeriter currit ut puella eum nōn {{answer}}.",
           "answer": "videat",
           "translation": "The boy runs so quickly that the girl does not see him.",
           "hint": "sees — result clauses keep ut with nōn",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "boy.NOM.SG · so · quick.ADV · run.PRS.3SG · COMP · girl.NOM.SG · 3SG.M.ACC · NEG · ___"
         },
         {
           "sentence": "Tanta erat urbs ut omnēs eam {{answer}}.",
           "answer": "laudārent",
           "translation": "So great was the city that everyone praised it.",
           "hint": "praised — imperfect subjunctive in a past result clause",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "so.great.NOM.SG.F · be.PST.IPFV.3SG · city.NOM.SG · COMP · all.NOM.PL.M · 3SG.F.ACC · ___"
         },
         {
           "sentence": "Estne labor tam magnus ut eum cōnficere nōn {{answer}}?",
           "answer": "possīmus",
           "translation": "Is the work so great that we cannot finish it?",
           "hint": "are able — first person plural present subjunctive; a negative result keeps ut and adds nōn",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "be.PRS.3SG-Q · work.NOM.SG · so · great.NOM.SG.M · COMP · 3SG.M.ACC · finish.INF · NEG · ___"
         }
       ]
     },
@@ -2063,49 +2268,56 @@
           "answer": "dīceret",
           "translation": "When the king was speaking, the people were silent.",
           "hint": "was speaking — imperfect subjunctive after cum",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "when · king.NOM.SG · ___ · people.NOM.SG · be.silent.PST.IPFV.3SG"
         },
         {
           "sentence": "Cum puella {{answer}}, puer laetus erat.",
           "answer": "vēnisset",
           "translation": "When the girl had come, the boy was happy.",
           "hint": "had come — pluperfect subjunctive",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "when · girl.NOM.SG · ___ · boy.NOM.SG · happy.NOM.SG.M · be.PST.IPFV.3SG"
         },
         {
           "sentence": "Cum urbs magna {{answer}}, multī eam vident.",
           "answer": "sit",
           "translation": "Since the city is great, many people see it.",
           "hint": "is — causal cum takes the subjunctive of esse",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "since · city.NOM.SG · great.NOM.SG.F · ___ · many.NOM.PL.M · 3SG.F.ACC · see.PRS.3PL"
         },
         {
           "sentence": "Cum milites fortiter {{answer}}, urbs tamen capta est.",
           "answer": "pugnarent",
           "translation": "Although the soldiers fought bravely, the city was nevertheless captured.",
           "hint": "were fighting — concessive cum, flagged by tamen",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "although · soldier.NOM.PL · brave.ADV · ___ · city.NOM.SG · nevertheless · capture.PRF.PTCP.PASS.NOM.SG.F · be.PRS.3SG"
         },
         {
           "sentence": "Cum aquam nōn {{answer}}, puer trīstis erat.",
           "answer": "habēret",
           "translation": "Since he had no water, the boy was sad.",
           "hint": "had — imperfect subjunctive, causal cum",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "since · water.ACC.SG · NEG · ___ · boy.NOM.SG · sad.NOM.SG.M · be.PST.IPFV.3SG"
         },
         {
           "sentence": "Cum epistulam {{answer}}, statim respondī.",
           "answer": "lēgissem",
           "translation": "When I had read the letter, I replied at once.",
           "hint": "had read — first person singular pluperfect subjunctive, for action earlier than the main verb",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "when · letter.ACC.SG · ___ · at.once · reply.PRF.1SG"
         },
         {
           "sentence": "Cum multa {{answer}}, tamen tacēs.",
           "answer": "sciās",
           "translation": "Although you know a great deal, you nevertheless say nothing.",
           "hint": "you know — second person singular present subjunctive; tamen in the main clause makes this cum concessive",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "although · many.ACC.PL.N · ___ · nevertheless · be.silent.PRS.2SG"
         }
       ]
     },
@@ -2133,49 +2345,56 @@
           "answer": "cantāre",
           "translation": "The boy says that the girl is singing.",
           "hint": "to sing — present infinitive in reported speech",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "boy.NOM.SG · say.PRS.3SG · girl.ACC.SG · ___"
         },
         {
           "sentence": "Sciō rēgem bonum {{answer}}.",
           "answer": "esse",
           "translation": "I know that the king is good.",
           "hint": "to be — the infinitive that carries the reported claim",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "know.PRS.1SG · king.ACC.SG · good.ACC.SG.M · ___"
         },
         {
           "sentence": "Puella dīcit puerum aquam {{answer}}.",
           "answer": "portāvisse",
           "translation": "The girl says that the boy carried the water.",
           "hint": "to have carried — perfect infinitive",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "girl.NOM.SG · say.PRS.3SG · boy.ACC.SG · water.ACC.SG · ___"
         },
         {
           "sentence": "Rēx dīcit {{answer}} venīre.",
           "answer": "mīlitēs",
           "translation": "The king says that the soldiers are coming.",
           "hint": "the soldiers — the reported subject goes accusative",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "king.NOM.SG · say.PRS.3SG · ___ · come.INF"
         },
         {
           "sentence": "Putō puellam {{answer}} esse.",
           "answer": "bonam",
           "translation": "I think that the girl is good.",
           "hint": "good — agrees with the accusative subject",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "think.PRS.1SG · girl.ACC.SG · ___ · be.INF"
         },
         {
           "sentence": "Putāsne mīlitēs urbem iam {{answer}}?",
           "answer": "cēpisse",
           "translation": "Do you think the soldiers have already captured the city?",
           "hint": "to have captured — perfect infinitive, for action before the verb of thinking",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "think.PRS.2SG-Q · soldier.ACC.PL · city.ACC.SG · already · ___"
         },
         {
           "sentence": "Magister dīxit puerōs bene {{answer}}.",
           "answer": "scrībere",
           "translation": "The teacher said that the boys were writing well.",
           "hint": "to write — present infinitive; it marks the same time as the main verb, which here is past",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "teacher.NOM.SG · say.PRF.3SG · boy.ACC.PL · good.ADV · ___"
         }
       ]
     },
@@ -2203,49 +2422,56 @@
           "answer": "captā",
           "translation": "With the city captured, the soldiers came.",
           "hint": "captured — ablative participle agreeing with the city",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "city.ABL.SG · ___ · soldier.NOM.PL · come.PRF.3PL"
         },
         {
           "sentence": "Rēge {{answer}}, populus tacet.",
           "answer": "dīcente",
           "translation": "While the king is speaking, the people are silent.",
           "hint": "speaking — present participle in the ablative",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "king.ABL.SG · ___ · people.NOM.SG · be_silent.PRS.3SG"
         },
         {
           "sentence": "{{answer}} portātā, puer venit.",
           "answer": "Aquā",
           "translation": "With the water carried, the boy comes.",
           "hint": "the water — the ablative noun of the absolute phrase",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · carry.PRF.PASS.PTCP.ABL.SG.F · boy.NOM.SG · come.PRS.3SG"
         },
         {
           "sentence": "Bellō {{answer}}, laetī erāmus.",
           "answer": "cōnfectō",
           "translation": "With the war finished, we were happy.",
           "hint": "finished — perfect participle in the ablative",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "war.ABL.SG · ___ · happy.NOM.PL.M · be.PST.IPFV.1PL"
         },
         {
           "sentence": "Verbīs {{answer}}, rēx tacuit.",
           "answer": "dictīs",
           "translation": "With the words said, the king fell silent.",
           "hint": "said — ablative plural participle",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "word.ABL.PL · ___ · king.NOM.SG · be_silent.PRF.3SG"
         },
         {
           "sentence": "Mīlitibus {{answer}}, cīvēs in urbe manēbant.",
           "answer": "pugnantibus",
           "translation": "While the soldiers were fighting, the citizens stayed in the city.",
           "hint": "fighting — present participle, ablative plural to match the soldiers",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "soldier.ABL.PL · ___ · citizen.NOM.PL · in · city.ABL.SG · remain.PST.IPFV.3PL"
         },
         {
           "sentence": "Portīs {{answer}}, in urbem venīre nōn poterāmus.",
           "answer": "clausīs",
           "translation": "With the gates shut, we could not come into the city.",
           "hint": "shut — perfect participle, ablative feminine plural agreeing with the gates",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "gate.ABL.PL · ___ · into · city.ACC.SG · come.INF · NEG · be_able.PST.IPFV.1PL"
         }
       ]
     },
@@ -2273,49 +2499,56 @@
           "answer": "loquitur",
           "translation": "The girl speaks with the boy.",
           "hint": "speaks — passive form, active meaning",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "girl.NOM.SG · with · boy.ABL.SG · ___"
         },
         {
           "sentence": "Mīlitēs rēgem {{answer}}.",
           "answer": "sequuntur",
           "translation": "The soldiers follow the king.",
           "hint": "they follow — deponent 3rd plural",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "soldier.NOM.PL · king.ACC.SG · ___"
         },
         {
           "sentence": "Puer aquam portāre {{answer}}.",
           "answer": "cōnātur",
           "translation": "The boy tries to carry the water.",
           "hint": "tries — deponent + infinitive",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "boy.NOM.SG · water.ACC.SG · carry.INF · ___"
         },
         {
           "sentence": "Nōs in urbe {{answer}}.",
           "answer": "loquimur",
           "translation": "We speak in the city.",
           "hint": "we speak — deponent 1st plural",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL.NOM · in · city.ABL.SG · ___"
         },
         {
           "sentence": "Ego tē {{answer}}.",
           "answer": "sequor",
           "translation": "I follow you.",
           "hint": "I follow — deponent 1st singular",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG.NOM · 2SG.ACC · ___"
         },
         {
           "sentence": "Puella dē bellō saepe {{answer}} est.",
           "answer": "locūta",
           "translation": "The girl often spoke about the war.",
           "hint": "spoke — a deponent builds its perfect from a participle plus est, and the participle agrees with a feminine subject",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "girl.NOM.SG · about · war.ABL.SG · often · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Cūr mē nōn {{answer}}?",
           "answer": "sequeris",
           "translation": "Why do you not follow me?",
           "hint": "you follow — deponent second person singular, a passive ending with active meaning",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "why · 1SG.ACC · NEG · ___"
         }
       ]
     },
@@ -2343,49 +2576,56 @@
           "answer": "dēlenda",
           "translation": "Carthage must be destroyed.",
           "hint": "must be destroyed — the famous gerundive of obligation",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "Carthage.NOM.SG · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Aqua {{answer}} est.",
           "answer": "portanda",
           "translation": "The water must be carried.",
           "hint": "must be carried — feminine gerundive + est",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "water.NOM.SG · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Ars {{answer}} difficilis est.",
           "answer": "amandī",
           "translation": "The art of loving is difficult.",
           "hint": "of loving — genitive gerund",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "art.NOM.SG · ___ · difficult.NOM.SG.F · be.PRS.3SG"
         },
         {
           "sentence": "Puer cupidus {{answer}} est.",
           "answer": "videndī",
           "translation": "The boy is eager to see.",
           "hint": "of seeing — gerund after an adjective that takes the genitive",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "boy.NOM.SG · eager.NOM.SG.M · ___ · be.PRS.3SG"
         },
         {
           "sentence": "Verba rēgis {{answer}} sunt.",
           "answer": "audienda",
           "translation": "The king's words must be heard.",
           "hint": "must be heard — neuter plural gerundive",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "word.NOM.PL · king.GEN.SG · ___ · be.PRS.3PL"
         },
         {
           "sentence": "Urbs {{answer}} dēfendenda est.",
           "answer": "nōbīs",
           "translation": "The city must be defended by us.",
           "hint": "by us — the people under the obligation stand in the dative beside a gerundive",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "city.NOM.SG · ___ · defend.GDV.NOM.SG.F · be.PRS.3SG"
         },
         {
           "sentence": "Multa {{answer}} discimus.",
           "answer": "legendō",
           "translation": "We learn many things by reading.",
           "hint": "by reading — the gerund in the ablative, expressing the means",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "many.ACC.PL.N · ___ · learn.PRS.1PL"
         }
       ]
     },
@@ -2413,42 +2653,48 @@
           "answer": "dīcat",
           "translation": "I know what the girl is saying.",
           "hint": "is saying — present subjunctive after a primary main verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "know.PRS.1SG · what.ACC.SG · girl.NOM.SG · ___"
         },
         {
           "sentence": "Rogō quis aquam {{answer}}.",
           "answer": "portet",
           "translation": "I ask who is carrying the water.",
           "hint": "is carrying — subjunctive in an indirect question",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "ask.PRS.1SG · who.NOM.SG · water.ACC.SG · ___"
         },
         {
           "sentence": "Sciēbam quid rēx {{answer}}.",
           "answer": "dīceret",
           "translation": "I knew what the king was saying.",
           "hint": "was saying — imperfect subjunctive after a past main verb",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "know.PST.IPFV.1SG · what.ACC.SG · king.NOM.SG · ___"
         },
         {
           "sentence": "Sciō quid puer {{answer}}.",
           "answer": "dīxerit",
           "translation": "I know what the boy said.",
           "hint": "said — perfect subjunctive for a prior action",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "know.PRS.1SG · what.ACC.SG · boy.NOM.SG · ___"
         },
         {
           "sentence": "Rogāvī quis urbem {{answer}}.",
           "answer": "cēpisset",
           "translation": "I asked who had captured the city.",
           "hint": "had captured — pluperfect subjunctive, past before past",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "ask.PRF.1SG · who.NOM.SG · city.ACC.SG · ___"
         },
         {
           "sentence": "Nesciēbam cūr tū nōn {{answer}}.",
           "answer": "respondērēs",
           "translation": "I did not know why you were not answering.",
           "hint": "you were answering — imperfect subjunctive, 2nd person singular, after a past main verb",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG-know.PST.IPFV.1SG · why · 2SG.NOM · NEG · ___"
         }
       ]
     },
@@ -2476,49 +2722,56 @@
           "answer": "venit",
           "translation": "If the girl comes, I am happy.",
           "hint": "comes — plain indicative for a real condition",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "if · girl.NOM.SG · ___ · happy.NOM.SG.M · be.PRS.1SG"
         },
         {
           "sentence": "Sī puella {{answer}}, laetus sim.",
           "answer": "veniat",
           "translation": "If the girl should come, I would be happy.",
           "hint": "should come — present subjunctive, the should-would type",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if · girl.NOM.SG · ___ · happy.NOM.SG.M · be.PRS.SBJV.1SG"
         },
         {
           "sentence": "Sī puella {{answer}}, laetus essem.",
           "answer": "venīret",
           "translation": "If the girl were coming, I would be happy.",
           "hint": "were coming — imperfect subjunctive, contrary to fact now",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if · girl.NOM.SG · ___ · happy.NOM.SG.M · be.PST.IPFV.SBJV.1SG"
         },
         {
           "sentence": "Sī puella {{answer}}, laetus fuissem.",
           "answer": "vēnisset",
           "translation": "If the girl had come, I would have been happy.",
           "hint": "had come — pluperfect subjunctive, contrary to fact in the past",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "if · girl.NOM.SG · ___ · happy.NOM.SG.M · be.PST.PRF.SBJV.1SG"
         },
         {
           "sentence": "Sī aquam {{answer}}, tibi darem.",
           "answer": "habērem",
           "translation": "If I had water, I would give it to you.",
           "hint": "I had — imperfect subjunctive in a present contrary-to-fact",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · water.ACC.SG · ___ · 2SG.DAT · give.PST.IPFV.SBJV.1SG"
         },
         {
           "sentence": "Sī hīc essēs, tē saepe {{answer}}.",
           "answer": "vidērem",
           "translation": "If you were here, I would see you often.",
           "hint": "I would see — imperfect subjunctive in the main clause of a present contrary-to-fact condition",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "if · here · be.PST.IPFV.SBJV.2SG · 2SG.ACC · often · ___"
         },
         {
           "sentence": "Nisi mē {{answer}}, nihil dīcam.",
           "answer": "rogābis",
           "translation": "Unless you ask me, I will say nothing.",
           "hint": "you ask — a real condition keeps the indicative, and Latin puts the nisi-clause in the future where English uses the present",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "NEG-if · 1SG.ACC · ___ · nothing.ACC.SG · say.FUT.1SG"
         }
       ]
     },
@@ -2546,49 +2799,56 @@
           "answer": "pugnāvisse",
           "translation": "Caesar said that the soldiers had fought bravely.",
           "hint": "to have fought — perfect infinitive in reported discourse",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "Caesar.NOM.SG · say.PRF.3SG · soldier.ACC.PL · brave-ADV · ___"
         },
         {
           "sentence": "Dīxit rēgem, quī urbem {{answer}}, bonum esse.",
           "answer": "tenēret",
           "translation": "He said that the king, who held the city, was good.",
           "hint": "held — subordinate clauses inside reported speech go subjunctive",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "say.PRF.3SG · king.ACC.SG · REL.NOM.SG.M · city.ACC.SG · ___ · good.ACC.SG.M · be.INF"
         },
         {
           "sentence": "Dīxit sē aquam {{answer}}.",
           "answer": "portātūrum",
           "translation": "He said that he would carry the water.",
           "hint": "about to carry — future participle for a reported future",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "say.PRF.3SG · 3SG.REFL.ACC · water.ACC.SG · ___"
         },
         {
           "sentence": "Rēx dīxit sē urbem {{answer}}.",
           "answer": "cēpisse",
           "translation": "The king said that he had captured the city.",
           "hint": "to have captured — perfect infinitive of capere",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "king.NOM.SG · say.PRF.3SG · 3SG.REFL.ACC · city.ACC.SG · ___"
         },
         {
           "sentence": "Caesar dīxit hostēs {{answer}} esse.",
           "answer": "victōs",
           "translation": "Caesar said that the enemy had been defeated.",
           "hint": "defeated — perfect passive infinitive, participle + esse",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "Caesar.NOM.SG · say.PRF.3SG · enemy.ACC.PL · ___ · be.INF"
         },
         {
           "sentence": "Mīles dīxit hostēs ad urbem {{answer}}.",
           "answer": "venīre",
           "translation": "The soldier said that the enemy were coming to the city.",
           "hint": "to be coming — present infinitive for action going on at the moment of the report, which English turns into a past",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "soldier.NOM.SG · say.PRF.3SG · enemy.ACC.PL · to · city.ACC.SG · ___"
         },
         {
           "sentence": "Hostēs dīxērunt sē pācem {{answer}} esse.",
           "answer": "petītūrōs",
           "translation": "The enemy said that they would seek peace.",
           "hint": "about to seek — future participle, accusative plural agreeing with the reported speakers",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "enemy.NOM.PL · say.PRF.3PL · 3PL.REFL.ACC · peace.ACC.SG · ___ · be.INF"
         }
       ]
     },
@@ -2616,49 +2876,56 @@
           "answer": "canō",
           "translation": "Arms and the man I sing, who first from the shores of Troy... (Vergil, Aeneid 1.1)",
           "hint": "I sing — the epic's opening main verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "weapon.ACC.PL · man.ACC.SG-and · ___ · Troy.GEN.SG · REL.NOM.SG.M · first.NOM.SG.M · from · shore.ABL.PL"
         },
         {
           "sentence": "{{answer}} diem, quam minimum crēdula posterō.",
           "answer": "Carpe",
           "translation": "Seize the day, trusting as little as possible in tomorrow. (Horace, Odes 1.11)",
           "hint": "seize! — singular imperative",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · day.ACC.SG · as · little.SUP · trusting.NOM.SG.F · next.DAT.SG.M"
         },
         {
           "sentence": "Ōdī et {{answer}}. Quārē id faciam, fortasse requīris.",
           "answer": "amō",
           "translation": "I hate and I love. Why do I do it, perhaps you ask. (Catullus 85)",
           "hint": "I love — 1st person present, the second verb of the line",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "hate.PRF.1SG · and · ___ · why · that.ACC.SG.N · do.PRS.SBJV.1SG · perhaps · ask.PRS.2SG"
         },
         {
           "sentence": "Gallia est omnis dīvīsa in {{answer}} trēs.",
           "answer": "partēs",
           "translation": "All Gaul is divided into three parts. (Caesar, Gallic War 1.1)",
           "hint": "parts — accusative plural after in",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "Gaul.NOM.SG · be.PRS.3SG · all.NOM.SG.F · divide.PRF.PASS.PTCP.NOM.SG.F · into · ___ · three.ACC.PL.F"
         },
         {
           "sentence": "Tītyre, tū patulae recubāns sub tegmine {{answer}}.",
           "answer": "fāgī",
           "translation": "Tityrus, you, reclining under the cover of a spreading beech... (Vergil, Eclogues 1.1)",
           "hint": "of the beech tree — genitive singular",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "Tityrus.VOC.SG · 2SG.NOM · spreading.GEN.SG.F · recline.PRS.PTCP.NOM.SG · under · cover.ABL.SG · ___"
         },
         {
           "sentence": "Dulce et decōrum est prō patriā {{answer}}.",
           "answer": "morī",
           "translation": "It is sweet and fitting to die for one's country. (Horace, Odes 3.2)",
           "hint": "to die — present infinitive of a deponent verb, passive in form but active in meaning",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "sweet.NOM.SG.N · and · fitting.NOM.SG.N · be.PRS.3SG · for · fatherland.ABL.SG · ___"
         },
         {
           "sentence": "Sunt lacrimae rērum et mentem mortālia {{answer}}.",
           "answer": "tangunt",
           "translation": "There are tears for things, and mortal matters touch the mind. (Vergil, Aeneid 1.462)",
           "hint": "they touch — 3rd person plural present indicative; the subject is the neuter plural, not the accusative standing next to it",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "be.PRS.3PL · tear.NOM.PL · thing.GEN.PL · and · mind.ACC.SG · mortal.NOM.PL.N · ___"
         }
       ]
     },
@@ -2686,49 +2953,56 @@
           "answer": "patientiā",
           "translation": "How long, Catiline, will you abuse our patience? (Cicero, In Catilinam 1)",
           "hint": "our patience — ablative, because ūtī-compounds govern the ablative",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "how_long · finally · abuse.FUT.2SG · Catiline.VOC.SG · ___ · our.ABL.SG.F"
         },
         {
           "sentence": "Ō {{answer}}, ō mōrēs!",
           "answer": "tempora",
           "translation": "O the times, o the customs! (Cicero)",
           "hint": "the times — accusative of exclamation, neuter plural",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "oh · ___ · oh · custom.ACC.PL"
         },
         {
           "sentence": "Quid {{answer}}?",
           "answer": "agis",
           "translation": "How are you? (literally: what are you doing?) — the everyday colloquial greeting",
           "hint": "you are doing — 2nd singular of agere",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "what.ACC.SG.N · ___"
         },
         {
           "sentence": "Cicerō Atticō suō salūtem {{answer}}.",
           "answer": "dīcit",
           "translation": "Cicero sends greetings to his dear Atticus. (the standard letter opening)",
           "hint": "says — the letter-opening formula",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "Cicero.NOM.SG · Atticus.DAT.SG · own.DAT.SG.M · greeting.ACC.SG · ___"
         },
         {
           "sentence": "Si vales, bene est, ego {{answer}}.",
           "answer": "valeo",
           "translation": "If you are well, it is good; I am well. (the stock letter formula)",
           "hint": "I am well — 1st singular of the health verb",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · be_well.PRS.2SG · well · be.PRS.3SG · 1SG.NOM · ___"
         },
         {
           "sentence": "{{answer}} ut valeās.",
           "answer": "Cūrā",
           "translation": "Take care that you keep well. (the standard letter-closing formula)",
           "hint": "take care — singular imperative opening the stock letter-closing, followed by ut + subjunctive",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · COMP · be_well.PRS.SBJV.2SG"
         },
         {
           "sentence": "Cēdant arma {{answer}}.",
           "answer": "togae",
           "translation": "Let arms yield to the toga. (Cicero, De Officiis 1.77 — war giving way to civilian life)",
           "hint": "to the toga, the civilian gown — dative singular, because cēdere governs the dative",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "yield.PRS.SBJV.3PL · weapon.NOM.PL · ___"
         }
       ]
     }
