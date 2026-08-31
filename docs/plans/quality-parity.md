@@ -1028,6 +1028,61 @@ Remaining, in order:
   afterwards (`review_translations` offline mode, `review_hints`,
   gym top-up, example diversity) and what each costs.
 
+### Phase 8 — Example-sentence fitness, all 27 courses (owner, 30 Aug 2026)
+
+**"Sentences need to allow context to be given and determined."** That is the
+requirement, and it is not met. An example sentence exists so a learner can
+see the word doing work; a sentence that is only the word teaches nothing
+about it. Raised from three cards in production — Russian `да` shown with
+"Да." / "Да!", `и` shown with "И?", and a `ё` card whose sentence used a
+different word entirely.
+
+Five distinct defects, each measured across all 27 committed banks. English
+was pruned on 30 Aug and is NOT exempt — it leads the first table.
+
+**1 · The sentence is the taught word alone — 2,671 rows, 24 courses.**
+No context to determine meaning or use, whatever the script.
+
+| | | | | | | |
+| --- | --- | --- | --- | --- | --- | --- |
+| en 306 | it 277 | ru 254 | es 230 | nl 204 | tr 157 | pt 152 |
+| fr 144 | el 143 | hi 128 | ro 123 | de 88 | ko 71 | ca 64 |
+| he 64 | ar 63 | id 62 | th 56 | tl 44 | fa 12 | la 12 |
+| sw 9 | ha 4 | xh 4 | | | | |
+
+**2 · The sentence contains a DIFFERENT written form from the word it
+teaches — 1,027 rows.** Not capitalisation; a real mark or letter. These are
+the ones where "the definition does not match the use":
+
+- `yo` 471 — tone pairs (`fẹ` taught, `fẹ́` in the sentence)
+- `ar` 350 — `أنت` taught, `أنتِ` in the sentence: masculine vs feminine *you*
+- `hi` 140, `ru` 24, `fa` 22, `la` 16 (`hic` "this" taught, `hīc` "here"
+  used — the collision `test_nlp_collisions` already ratchets), `he`/`th`/`tr` 1–2
+
+**3 · Corpus meta-artifacts — 10 rows.** Sentences about the corpus itself:
+"This is the 66,666th Spanish sentence", "Sentence Number 888,888 will bring
+its owner…" (de/en/es/fr/ru/tr). No learner wants these.
+
+**4 · The example does not exercise the sense the definition leads with**
+(rule D2c2, unquantified). The `ё` card is the worst shape of it: the word is
+glossed "yeah!, yo!, oh yeah!" and the sentence uses `-е` as an ordinal
+ending. Definition and sentence are fixed in different files by different
+passes, so nothing currently checks that they agree.
+
+**5 · 22,628 rows in production no committed bank endorses**, across the 26
+courses that have not been pruned. `prune_sentences -l <code> --apply`,
+one course at a time, rollback written first.
+
+**Fixed already, not queued:** the romanisation and phonetics lines rendered
+the literal `{{answer}}` marker, because the marker is Latin and every
+romaniser passed it through untouched. Visible on every script course
+("READING {{answer}}?"). Now blanked to `___` before romanising, so the
+reading still hides the answer and looks like a reading.
+
+**Order.** (1) and (3) are deletions and can run with the prune, per course.
+(2) needs a decision per pair — retag the sentence to the word it actually
+contains, or drop it. (4) needs a check written before it can be counted.
+
 ### Phase 7 — Topic Lens classification (owner decision, 30 Aug 2026: LAST)
 
 **Deferred on purpose.** The feature shipped complete — migration 20261009,

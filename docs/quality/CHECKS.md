@@ -874,3 +874,35 @@ Two further shapes look like the defect and are not:
 
 After the pass: 1 shared-hint group remains, the Turkish harmony set, and it
 is correct as written.
+
+---
+
+## §21 An example sentence must let the learner determine the use (30 Aug 2026)
+
+Owner requirement, from three production cards: *"Sentences need to allow
+context to be given and determined."*
+
+`Да.` for **да**, `И?` for **и**, `Что?` for **что** — the sentence is only
+the word, so it demonstrates nothing about how the word behaves. **2,671
+such rows across 24 courses**, English included after its prune (306, the
+largest single count). Measured by stripping punctuation and comparing the
+remainder to the headword, which is script-independent — a whitespace token
+count is not, and reports nonsense for Thai and Korean.
+
+Two neighbouring rules the same cards exposed:
+
+* **The sentence must contain the word it teaches, in the form it teaches
+  it.** 1,027 rows contain a different written form — Arabic `أنت` taught
+  with `أنتِ` in the sentence (masculine vs feminine *you*), Latin `hic`
+  taught with `hīc` used, Yoruba tone pairs. Case differences are NOT this
+  defect: 53,813 rows differ only by a sentence-initial capital and are
+  correct. Fold case, never marks — the mark is the word.
+* **The example must exercise the sense the definition leads with** (D2c2).
+  The `ё` card glosses "yeah!, yo!, oh yeah!" and its sentence uses `-е` as
+  an ordinal ending. Nothing checks this today; it needs a rule before it
+  can be counted.
+
+Measurement note, third time in one day: Python's `\w` drops Mn/Mc marks, so
+`नहीं` tokenises as `नह` and `ใช่` as `ใช`. A first pass reported 1,713
+form-mismatches, 1,299 of them phantoms from that. Tokenise on
+letters-plus-marks, or the Indic and Thai numbers are fiction.

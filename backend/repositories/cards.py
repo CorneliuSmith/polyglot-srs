@@ -29,6 +29,11 @@ from backend.services.references import clean_references
 from backend.services.srs_stages import stage_for
 from backend.services.topic_taxonomy import HIDDEN_TOPICS
 
+# What a romanised/phonetic line shows where the hidden word sits. Matches
+# the blank the sentence renders and the "___" cell an interlinear gloss
+# uses, so all three layers mark the gap the same way.
+BLANK_READING = "___"
+
 logger = logging.getLogger(__name__)
 
 
@@ -561,11 +566,17 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
         # Computed from the CLOZE, never the raw sentence: romanising the raw
         # text spells the hidden word in Latin letters, which is exactly the
         # answer leak that put 926 rows on the board (CHECKS.md §11).
+        # The marker itself is already Latin, so every romaniser passes it
+        # through untouched and the learner reads "READING {{answer}}?" —
+        # visible on every script course. Swap it for the blank the sentence
+        # above already shows, THEN romanise: the reading still hides the
+        # answer, and now it looks like a reading.
+        blanked = sentence.replace(ANSWER_MARKER, BLANK_READING)
         if not (transliteration or "").strip():
-            transliteration = sentence_reading(sentence, r["language_code"])
+            transliteration = sentence_reading(blanked, r["language_code"])
         # ...and the pronunciation line beneath it, from the CLOZE for the same
         # reason: phonetics of the raw sentence would spell the hidden word.
-        phonetics = sentence_phonetics(sentence, r["language_code"])
+        phonetics = sentence_phonetics(blanked, r["language_code"])
     return {
         **_srs_fields(r),
         "sentence": sentence,
