@@ -1187,7 +1187,7 @@
     },
     "sentenceAudio": {
       "title": "Ouça a frase quando você acerta",
-      "desc": "Após uma resposta correta, a frase completa é lida em voz alta para você ouvi-la inteira. Vale em todos os seus dispositivos."
+      "desc": "Após uma resposta correta — incluindo aquela que só errou os acentos —, a frase completa é lida em voz alta para você ouvi-la inteira. Vale em todos os seus dispositivos."
     }
   },
   "feedback": {

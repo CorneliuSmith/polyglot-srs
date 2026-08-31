@@ -1046,7 +1046,7 @@ describe('leaving the Trailblazer wait', () => {
 })
 
 
-describe('sentence audio on a correct answer', () => {
+describe('sentence audio when the learner got the word', () => {
   const mockTTS = getTTSUrl as ReturnType<typeof vi.fn>
   const mockGetProfile = getProfile as ReturnType<typeof vi.fn>
 
@@ -1081,12 +1081,34 @@ describe('sentence audio on a correct answer', () => {
     )
   })
 
+  it('plays on amber too — hearing it said properly IS the accent correction', async () => {
+    mockValidateAnswer.mockResolvedValue({
+      answer_result: 'correct_sloppy',
+      feedback: 'Almost — check the accents.',
+    })
+    await submit('goes')
+    await waitFor(() =>
+      expect(mockTTS).toHaveBeenCalledWith('en', 'She goes to the market.'),
+    )
+  })
+
   it('stays quiet on a wrong answer — that screen is a correction to read', async () => {
     mockValidateAnswer.mockResolvedValue({
       answer_result: 'wrong',
       feedback: null,
     })
     await submit('go')
+    expect(mockTTS).not.toHaveBeenCalled()
+  })
+
+  it('stays quiet on a wrong FORM — the right word, inflected wrong', async () => {
+    // Orange is not amber: the learner produced the wrong form, so the text
+    // is what teaches. Guards the boundary the amber case just moved.
+    mockValidateAnswer.mockResolvedValue({
+      answer_result: 'wrong_form',
+      feedback: 'Close — wrong tense.',
+    })
+    await submit('going')
     expect(mockTTS).not.toHaveBeenCalled()
   })
 

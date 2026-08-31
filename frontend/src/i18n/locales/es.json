@@ -1187,7 +1187,7 @@
     },
     "sentenceAudio": {
       "title": "Escucha la frase cuando aciertas",
-      "desc": "Tras una respuesta correcta, la frase completa se lee en voz alta para que la oigas entera. Se aplica en todos tus dispositivos."
+      "desc": "Tras una respuesta correcta —incluida la que solo falló en las tildes—, la frase completa se lee en voz alta para que la oigas entera. Se aplica en todos tus dispositivos."
     }
   },
   "feedback": {
