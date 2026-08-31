@@ -6,6 +6,14 @@ genuinely worth fixing, and a couple are just doc drift. Each entry says
 which. Companion to [`LEARN.md`](LEARN.md) — read that first if a term here
 is unfamiliar.
 
+> **This file is maintained, not archived.** Anything left deliberately off,
+> any workaround for a platform limitation, any bug whose cause was
+> non-obvious, and any doc found drifting gets an entry here in the same PR
+> that discovers it — and an entry that stops being true gets **deleted**,
+> not left to send the next reader hunting for a problem that's already
+> fixed. The rule is in `CLAUDE.md` → *Shipping* → *LEARN.md and DEBT.md are
+> living documents*.
+
 ---
 
 ## Deliberate, correct, and easy to mistake for a bug
