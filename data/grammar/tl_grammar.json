@@ -47,49 +47,56 @@
           "answer": "ang",
           "translation": "The child ate.",
           "hint": "topic marker; kumain is actor-focus, so the eater is what the sentence is about",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "eat.PFV · ___ · child"
         },
         {
           "sentence": "Uminom {{answer}} lalaki.",
           "answer": "ang",
           "translation": "The man drank.",
           "hint": "the marker that puts the drinker in the topic slot, since the verb highlights the actor",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "drink.PFV · ___ · man"
         },
         {
           "sentence": "Pumunta {{answer}} babae.",
           "answer": "ang",
           "translation": "The woman went.",
           "hint": "the marker on the phrase the sentence is about; pumunta is actor-focus, so the goer holds that role",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "go.PFV · ___ · woman"
         },
         {
           "sentence": "Saan pumunta {{answer}} bata?",
           "answer": "ang",
           "translation": "Where did the child go?",
           "hint": "the topic marker; pumunta is actor-focus, so the goer takes it, and a question does not change that",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "where.Q · go.PFV · ___ · child"
         },
         {
           "sentence": "Hindi kumain {{answer}} aso kaninang umaga.",
           "answer": "ang",
           "translation": "The dog didn't eat this morning.",
           "hint": "hindi negates the verb but leaves the marking alone; the eater is still what the sentence is about",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · eat.PFV · ___ · dog · earlier-LNK · morning"
         },
         {
           "sentence": "Umalis {{answer}} mga guro.",
           "answer": "ang",
           "translation": "The teachers left.",
           "hint": "the topic marker itself has no plural; it goes in front of the plural word, not after it",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "leave.PFV · ___ · PL · teacher"
         },
         {
           "sentence": "Guro {{answer}} nanay ko.",
           "answer": "ang",
           "translation": "My mother is a teacher.",
           "hint": "no verb here: the job word is the predicate, and the topic marker introduces who is being described",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "teacher · ___ · mother · 1SG.GEN"
         }
       ]
     },
@@ -107,49 +114,56 @@
           "answer": "ng",
           "translation": "The child ate (some) food.",
           "hint": "non-topic marker on the thing acted on; the child already holds the topic slot",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "eat.PFV · NOM · child · ___ · food"
         },
         {
           "sentence": "Bahay {{answer}} kaibigan.",
           "answer": "ng",
           "translation": "friend's house",
           "hint": "possessor marker: the owner of the house, which is not the topic of anything here",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "house · ___ · friend"
         },
         {
           "sentence": "Aklat {{answer}} bata.",
           "answer": "ng",
           "translation": "the child's book",
           "hint": "the marker that ties a thing to its owner, with the owner following the thing owned",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "book · ___ · child"
         },
         {
           "sentence": "Kinain {{answer}} aso ang tinapay.",
           "answer": "ng",
           "translation": "The dog ate the bread.",
           "hint": "the verb puts the bread in the topic slot, so the eater has to be marked as a non-topic actor",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "eat.PFV.OBJ · ___ · dog · NOM · bread"
         },
         {
           "sentence": "Hindi uminom {{answer}} gatas ang bata.",
           "answer": "ng",
           "translation": "The child didn't drink milk.",
           "hint": "the drinker is the topic, so the milk takes the marker for a thing acted on",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · drink.PFV · ___ · milk · NOM · child"
         },
         {
           "sentence": "Bumili ka ba {{answer}} tinapay?",
           "answer": "ng",
           "translation": "Did you buy bread?",
           "hint": "you are the topic of the buying, so the bread gets the non-topic marker; questions use the same one",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "buy.PFV · 2SG.NOM · Q · ___ · bread"
         },
         {
           "sentence": "Nasa mesa ang susi {{answer}} kotse.",
           "answer": "ng",
           "translation": "The car key is on the table.",
           "hint": "the possessor marker works for things as well as people: the key belongs to the car",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "be.LOC · table · NOM · key · ___ · car"
         }
       ]
     },
@@ -167,49 +181,56 @@
           "answer": "sa",
           "translation": "The child went to the house.",
           "hint": "the marker for where the motion is headed",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "go.PFV · NOM · child · ___ · house"
         },
         {
           "sentence": "Uminom ang lalaki {{answer}} bahay.",
           "answer": "sa",
           "translation": "The man drank at the house.",
           "hint": "the marker for the place the drinking happened, not for the thing drunk",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "drink.PFV · NOM · man · ___ · house"
         },
         {
           "sentence": "Kumain kami {{answer}} lungsod.",
           "answer": "sa",
           "translation": "We ate in the city.",
           "hint": "the marker that puts the eating in a place",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "eat.PFV · 1PL.EXCL.NOM · ___ · city"
         },
         {
           "sentence": "Pupunta ka ba {{answer}} palengke?",
           "answer": "sa",
           "translation": "Are you going to the market?",
           "hint": "the marker for the place the going is aimed at; a question takes the same one",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "go.FUT · 2SG.NOM · Q · ___ · market"
         },
         {
           "sentence": "Uuwi ako {{answer}} Lunes.",
           "answer": "sa",
           "translation": "I'm going home on Monday.",
           "hint": "the same marker also introduces a definite time, not only a place",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "go.home.FUT · 1SG.NOM · ___ · Monday"
         },
         {
           "sentence": "Tumakbo ang aso {{answer}} parke.",
           "answer": "sa",
           "translation": "The dog ran in the park.",
           "hint": "the marker for where the running happened",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "run.PFV · NOM · dog · ___ · park"
         },
         {
           "sentence": "Pumasok ang mga bata {{answer}} paaralan.",
           "answer": "sa",
           "translation": "The children went into the school.",
           "hint": "the marker before the place they moved into; it does not change for a plural topic",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "enter.PFV.AF · NOM · PL · child · ___ · school"
         }
       ]
     },
@@ -227,49 +248,56 @@
           "answer": "kumain",
           "translation": "The child ate (some) food.",
           "hint": "ate: the root is kain, and the actor-focus infix goes in right after its first consonant",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · NOM · child · GEN · food"
         },
         {
           "sentence": "{{answer}} ang lalaki ng tubig.",
           "answer": "uminom",
           "translation": "The man drank (some) water.",
           "hint": "drank: built on the root inom, which opens with a vowel, so the actor-focus infix has no consonant to sit behind and attaches at the front",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · NOM · man · GEN · water"
         },
         {
           "sentence": "{{answer}} ang babae ng aklat.",
           "answer": "bumili",
           "translation": "The woman bought a book.",
           "hint": "bought: the root is bili, taking the actor-focus infix behind its first consonant",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · NOM · woman · GEN · book"
         },
         {
           "sentence": "{{answer}} ang bisita kaninang umaga.",
           "answer": "Umalis",
           "translation": "The guest left this morning.",
           "hint": "left, went away: built on the root alis, which opens with a vowel, so the actor-focus infix has no consonant to sit behind and rides in front instead",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · NOM · guest · earlier-LNK · morning"
         },
         {
           "sentence": "Hindi {{answer}} ang bata kahapon.",
           "answer": "pumasok",
           "translation": "The child didn't go to school yesterday.",
           "hint": "went in, attended: the root is pasok, with the actor-focus infix after its first consonant; hindi never alters the verb itself",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · ___ · NOM · child · yesterday"
         },
         {
           "sentence": "{{answer}} ka ba ng jeep kanina?",
           "answer": "Sumakay",
           "translation": "Did you ride a jeep earlier?",
           "hint": "rode, got on: the root is sakay, and the actor-focus infix goes in after its first consonant; ba leaves the verb alone",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · 2SG.NOM · Q · GEN · jeep · earlier"
         },
         {
           "sentence": "{{answer}} ang nanay ko kagabi.",
           "answer": "Tumawag",
           "translation": "My mother called last night.",
           "hint": "called, phoned: the root is tawag, taking the actor-focus infix behind its first consonant",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · NOM · mother · 1SG.GEN · last.night"
         }
       ]
     },
@@ -287,49 +315,56 @@
           "answer": "na",
           "translation": "a good child",
           "hint": "the standalone spelling of the linker between the noun and the adjective after it — written as its own word here, not fused onto the noun",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "child · ___ · ADJ-goodness"
         },
         {
           "sentence": "bahay {{answer}} malaki",
           "answer": "na",
           "translation": "a big house",
           "hint": "the full form of the linker that ties the house to its size, rather than the shortened suffix",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "house · ___ · ADJ-size"
         },
         {
           "sentence": "kaibigan {{answer}} masaya",
           "answer": "na",
           "translation": "a happy friend",
           "hint": "the linker that joins the description to the person it describes",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "friend · ___ · ADJ-joy"
         },
         {
           "sentence": "Mabait {{answer}} guro ang nanay ko.",
           "answer": "na",
           "translation": "My mother is a kind teacher.",
           "hint": "the linker between a quality and the person it describes, here with the quality first; the word before the gap ends in a consonant, so the shortened suffix is not available",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "ADJ-kindness · ___ · teacher · NOM · mother · 1SG.GEN"
         },
         {
           "sentence": "Bumili ako ng masarap {{answer}} tinapay.",
           "answer": "na",
           "translation": "I bought delicious bread.",
           "hint": "the describing word and the thing described need the linker between them, in its full standalone shape",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "buy.PFV.AF · 1SG.NOM · GEN · ADJ-tastiness · ___ · bread"
         },
         {
           "sentence": "Hindi ito malinis {{answer}} tubig.",
           "answer": "na",
           "translation": "This isn't clean water.",
           "hint": "negation does not touch the join between a quality and its noun; the linker still belongs there in full",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG · this.NOM · ADJ-cleanliness · ___ · water"
         },
         {
           "sentence": "Gusto mo ba ng mainit {{answer}} kape?",
           "answer": "na",
           "translation": "Do you want hot coffee?",
           "hint": "the join between the temperature word and the drink; a question leaves it exactly as a statement would have it",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "want · 2SG.GEN · Q · GEN · ADJ-heat · ___ · coffee"
         }
       ]
     },
@@ -347,49 +382,56 @@
           "answer": "mga",
           "translation": "children",
           "hint": "the plural particle that goes before the noun",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · child"
         },
         {
           "sentence": "{{answer}} bahay",
           "answer": "mga",
           "translation": "houses",
           "hint": "the same particle again: the noun itself keeps one single shape for both numbers",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · house"
         },
         {
           "sentence": "{{answer}} aklat",
           "answer": "mga",
           "translation": "books",
           "hint": "the particle that makes a noun plural without altering the noun",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · book"
         },
         {
           "sentence": "Masaya ang {{answer}} bata.",
           "answer": "mga",
           "translation": "The children are happy.",
           "hint": "the plural particle slots between the topic marker and the noun",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "ADJ-joy · NOM · ___ · child"
         },
         {
           "sentence": "Bumili ako ng {{answer}} mangga.",
           "answer": "mga",
           "translation": "I bought mangoes.",
           "hint": "more than one fruit; the plural particle follows the non-topic marker and precedes the noun",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "buy.PFV.AF · 1SG.NOM · GEN · ___ · mango"
         },
         {
           "sentence": "Nasaan ang {{answer}} susi?",
           "answer": "mga",
           "translation": "Where are the keys?",
           "hint": "more than one key: the plural particle sits directly in front of the noun in a question as well",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "LOC-where · NOM · ___ · key"
         },
         {
           "sentence": "May {{answer}} bata sa parke.",
           "answer": "mga",
           "translation": "There are children in the park.",
           "hint": "several of them exist; the plural particle comes right before the noun it counts",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "EXIST · ___ · child · OBL · park"
         }
       ]
     },
@@ -407,49 +449,56 @@
           "answer": "may",
           "translation": "I have food.",
           "hint": "the existential particle that opens a possession statement; the possessor pronoun comes after the thing possessed",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · food · 1SG.NOM"
         },
         {
           "sentence": "{{answer}} bahay sila.",
           "answer": "may",
           "translation": "They have a house.",
           "hint": "the affirmative existence marker, with a plural possessor pronoun at the end",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · house · 3PL.NOM"
         },
         {
           "sentence": "{{answer}} akong pagkain.",
           "answer": "wala",
           "translation": "I have no food.",
           "hint": "the negative counterpart of that existential particle; the pronoun after it takes the -ng linker (akong, not ako)",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 1SG.NOM-LNK · food"
         },
         {
           "sentence": "{{answer}} tubig ka ba?",
           "answer": "May",
           "translation": "Do you have water?",
           "hint": "the existence word that opens even a yes/no question, standing before the thing owned",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · water · 2SG.NOM · Q"
         },
         {
           "sentence": "{{answer}} tao sa labas.",
           "answer": "May",
           "translation": "There's someone outside.",
           "hint": "the same particle with no owner named at all, stating only that something exists",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · person · OBL · outside"
         },
         {
           "sentence": "{{answer}} siyang kotse.",
           "answer": "Wala",
           "translation": "He doesn't have a car.",
           "hint": "the negated existential, with a third-person pronoun carrying the linker after it",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · 3SG.NOM-LNK · car"
         },
         {
           "sentence": "{{answer}} kaming klase bukas.",
           "answer": "Wala",
           "translation": "We have no class tomorrow.",
           "hint": "the negative existential again, here with the exclusive 'we' and its linker",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · 1PL.EXCL.NOM-LNK · class · tomorrow"
         }
       ]
     },
@@ -467,49 +516,56 @@
           "answer": "hindi",
           "translation": "The child didn't eat.",
           "hint": "the general negator, sitting immediately in front of the verb it cancels",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · eat.PFV.AV · NOM · child"
         },
         {
           "sentence": "{{answer}} malaki ang bahay.",
           "answer": "hindi",
           "translation": "The house isn't big.",
           "hint": "the negator, here cancelling a size adjective rather than a verb",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · ADJ-big · NOM · house"
         },
         {
           "sentence": "{{answer}} masaya ang bata.",
           "answer": "hindi",
           "translation": "The child isn't happy.",
           "hint": "the one negator that covers verbs and adjectives alike; it comes first, before the predicate",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · ADJ-happy · NOM · child"
         },
         {
           "sentence": "{{answer}} ako pupunta bukas.",
           "answer": "Hindi",
           "translation": "I'm not going tomorrow.",
           "hint": "the negator for a not-yet-begun action, with the actor pronoun tucked in after it",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · 1SG.NOM · FUT-go.AV · tomorrow"
         },
         {
           "sentence": "{{answer}} ka ba gutom?",
           "answer": "Hindi",
           "translation": "Aren't you hungry?",
           "hint": "the negator at the head of a yes/no question, ahead of the pronoun and the question particle",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · 2SG.NOM · Q · hungry"
         },
         {
           "sentence": "{{answer}} siya kumakain ng karne.",
           "answer": "Hindi",
           "translation": "He doesn't eat meat.",
           "hint": "the negator before an ongoing/habitual verb, with the actor pronoun in between",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · 3SG.NOM · IPFV-eat.AV · GEN · meat"
         },
         {
           "sentence": "{{answer}} mahal ang kape dito.",
           "answer": "Hindi",
           "translation": "The coffee here isn't expensive.",
           "hint": "the negator directly in front of the adjective; the place phrase stays at the end",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · expensive · NOM · coffee · here"
         }
       ]
     },
@@ -527,49 +583,56 @@
           "answer": "Nagluto",
           "translation": "The mother cooked food.",
           "hint": "mag- + luto, completed aspect",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · GEN · food · NOM · mother"
         },
         {
           "sentence": "{{answer}} siya ng bagong sapatos.",
           "answer": "Bumili",
           "translation": "She bought new shoes.",
           "hint": "-um- + bili — buying for oneself",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 3SG.NOM · GEN · new-LNK · shoe"
         },
         {
           "sentence": "{{answer}} ako ng bahay tuwing Sabado.",
           "answer": "Naglilinis",
           "translation": "I clean the house every Saturday.",
           "hint": "mag- + linis, incompleted",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 1SG.NOM · GEN · house · every-LNK · Saturday"
         },
         {
           "sentence": "{{answer}} ang bata sa parke.",
           "answer": "Naglaro",
           "translation": "The child played at the park.",
           "hint": "mag- + laro",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · NOM · child · OBL · park"
         },
         {
           "sentence": "{{answer}} na siya kaninang umaga.",
           "answer": "Umalis",
           "translation": "She already left this morning.",
           "hint": "root alis + -um-, completed; with mag- this same root would mean taking something away instead of departing",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · already · 3SG.NOM · earlier-LK · morning"
         },
         {
           "sentence": "{{answer}} ako mamayang gabi.",
           "answer": "Mag-aaral",
           "translation": "I'll study tonight.",
           "hint": "root aral + mag-, contemplated; a hyphen separates the prefix from the vowel-initial root, whose first syllable doubles",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · 1SG.NOM · later-LK · night"
         },
         {
           "sentence": "Hindi siya {{answer}} kahapon.",
           "answer": "nagtrabaho",
           "translation": "He didn't work yesterday.",
           "hint": "root trabaho + mag-, completed; negation leaves the aspect form untouched",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "NEG · 3SG.NOM · ___ · yesterday"
         }
       ]
     },
@@ -587,42 +650,48 @@
           "answer": "Kumain",
           "translation": "I already ate lunch.",
           "hint": "-um- completed",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · already · 1SG.NOM · GEN · lunch"
         },
         {
           "sentence": "{{answer}} pa siya ngayon.",
           "answer": "Kumakain",
           "translation": "He is still eating now.",
           "hint": "-um- incompleted — reduplicated",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · still · 3SG.NOM · now"
         },
         {
           "sentence": "{{answer}} kami mamaya.",
           "answer": "Kakain",
           "translation": "We will eat later.",
           "hint": "-um- contemplated",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 1PL.EXCL.NOM · later"
         },
         {
           "sentence": "{{answer}} siya ng libro kahapon.",
           "answer": "Nagbasa",
           "translation": "She read a book yesterday.",
           "hint": "mag- completed → nag-",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · 3SG.NOM · GEN · book · yesterday"
         },
         {
           "sentence": "{{answer}} ang mga tao sa labas.",
           "answer": "Naghihintay",
           "translation": "The people are waiting outside.",
           "hint": "root hintay + mag-, incompleted; the first syllable of the root doubles for an action still under way",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · NOM · PL · person · LOC · outside"
         },
         {
           "sentence": "{{answer}} ako ng kape tuwing umaga.",
           "answer": "Umiinom",
           "translation": "I drink coffee every morning.",
           "hint": "root inom + -um-, incompleted; the root opens with a vowel, so the affix goes in front and the root's first syllable doubles",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · 1SG.NOM · GEN · coffee · every-LK · morning"
         }
       ]
     },
@@ -640,49 +709,56 @@
           "answer": "Kinain",
           "translation": "I ate the apple.",
           "hint": "kain + -in, completed aspect",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 1SG.GEN · NOM · apple"
         },
         {
           "sentence": "{{answer}} niya ang libro.",
           "answer": "Binasa",
           "translation": "He read the book.",
           "hint": "basa + -in, completed aspect",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 3SG.GEN · NOM · book"
         },
         {
           "sentence": "{{answer}} mo ba ang pinto?",
           "answer": "Sinara",
           "translation": "Did you close the door?",
           "hint": "sara + -in, completed",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 2SG.GEN · Q · NOM · door"
         },
         {
           "sentence": "{{answer}} natin ang bahay bukas.",
           "answer": "Lilinisin",
           "translation": "We'll clean the house tomorrow.",
           "hint": "linis + -in, contemplated",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · 1PL.INCL.GEN · NOM · house · tomorrow"
         },
         {
           "sentence": "Ano ang {{answer}} mo?",
           "answer": "ginagawa",
           "translation": "What are you doing?",
           "hint": "gawa + -in, incompleted aspect",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "what · NOM · ___ · 2SG.GEN"
         },
         {
           "sentence": "{{answer}} mo ang isda.",
           "answer": "Lutuin",
           "translation": "Cook the fish.",
           "hint": "luto + -in, the bare command form with the suffix intact",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · 2SG.GEN · NOM · fish"
         },
         {
           "sentence": "Hindi ko {{answer}} ang kwarto ko kahapon.",
           "answer": "inayos",
           "translation": "I didn't tidy my room yesterday.",
           "hint": "ayos + -in, completed; the root starts with a vowel, so the completed marker sits in front rather than inside",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "NEG · 1SG.GEN · ___ · NOM · room · 1SG.GEN · yesterday"
         }
       ]
     },
@@ -700,42 +776,48 @@
           "answer": "Binilhan",
           "translation": "I bought from the store.",
           "hint": "bili + -an — the store is the topic",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 1SG.GEN · NOM · store"
         },
         {
           "sentence": "{{answer}} namin ang museo.",
           "answer": "Pinuntahan",
           "translation": "We went to the museum.",
           "hint": "punta + -an — the destination",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 1PL.EXCL.GEN · NOM · museum"
         },
         {
           "sentence": "{{answer}} niya ang bata ng regalo.",
           "answer": "Binigyan",
           "translation": "She gave the child a gift.",
           "hint": "bigay + -an — the recipient",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 3SG.GEN · NOM · child · GEN · gift"
         },
         {
           "sentence": "{{answer}} ko ang mesa.",
           "answer": "Nilinisan",
           "translation": "I cleaned the table.",
           "hint": "linis + -an — the surface",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · 1SG.GEN · NOM · table"
         },
         {
           "sentence": "{{answer}} ng guro ang mga bata tuwing Lunes.",
           "answer": "Tinuturuan",
           "translation": "The teacher teaches the children every Monday.",
           "hint": "turo + -an, incompleted; the learners are the topic, and the root's last vowel raises before the suffix",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · GEN · teacher · NOM · PL · child · every · Monday"
         },
         {
           "sentence": "{{answer}} mo ba ang nanay mo kahapon?",
           "answer": "Tinulungan",
           "translation": "Did you help your mother yesterday?",
           "hint": "tulong + -an, completed; the person helped is the topic, and the root's last vowel raises before the suffix",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · 2SG.GEN · Q · NOM · mother · 2SG.GEN · yesterday"
         }
       ]
     },
@@ -753,49 +835,56 @@
           "answer": "ako",
           "translation": "I ate adobo.",
           "hint": "the ang-set pronoun for the speaker, sitting right after the verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "eat.PFV · ___ · GEN · adobo"
         },
         {
           "sentence": "Masaya {{answer}} ngayon.",
           "answer": "ka",
           "translation": "You are happy now.",
           "hint": "the short second-person topic pronoun, the one that leans on the word before it and can never open the sentence",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "STAT-joy · ___ · now"
         },
         {
           "sentence": "{{answer}} ang guro namin.",
           "answer": "Siya",
           "translation": "She is our teacher.",
           "hint": "the ang-set pronoun for a single other person — gender is not marked",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · NOM · teacher · 1PL.EXCL.GEN"
         },
         {
           "sentence": "Pupunta {{answer}} sa Baguio bukas.",
           "answer": "tayo",
           "translation": "We (you and I) will go to Baguio tomorrow.",
           "hint": "the ang-set 'we' that counts the listener in",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "go.FUT · ___ · LOC · Baguio · tomorrow"
         },
         {
           "sentence": "Hindi {{answer}} kumakain ng karne.",
           "answer": "sila",
           "translation": "They don't eat meat.",
           "hint": "the ang-set pronoun for a group of other people",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · ___ · eat.IPFV · GEN · meat"
         },
         {
           "sentence": "Saan {{answer}} nakatira?",
           "answer": "kayo",
           "translation": "Where do you all live?",
           "hint": "the ang-set pronoun for more than one person you are speaking to",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "where · ___ · STAT-live"
         },
         {
           "sentence": "Wala {{answer}} sa bahay kahapon.",
           "answer": "kami",
           "translation": "We (not you) weren't at home yesterday.",
           "hint": "the ang-set 'we' that shuts the listener out",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "NEG.EXIST · ___ · LOC · house · yesterday"
         }
       ]
     },
@@ -813,49 +902,56 @@
           "answer": "ko",
           "translation": "I ate the apple.",
           "hint": "the ng-set actor for the speaker, since the apple is what the sentence is about",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "eat.PFV.OBJ · ___ · NOM · apple"
         },
         {
           "sentence": "Binasa {{answer}} ang libro.",
           "answer": "niya",
           "translation": "He read the book.",
           "hint": "the ng-set actor for one other person, while the book holds the topic slot",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "read.PFV.OBJ · ___ · NOM · book"
         },
         {
           "sentence": "Ito ang bahay {{answer}}.",
           "answer": "namin",
           "translation": "This is our house.",
           "hint": "the possessor pronoun that follows the noun, 'our' with the listener left out",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "this · NOM · house · ___"
         },
         {
           "sentence": "Nakita {{answer}} ba siya?",
           "answer": "mo",
           "translation": "Did you see her?",
           "hint": "the ng-set actor for a single person you are speaking to",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "see.PFV.OBJ · ___ · Q · 3SG.NOM"
         },
         {
           "sentence": "Hindi {{answer}} alam ang sagot.",
           "answer": "nila",
           "translation": "They don't know the answer.",
           "hint": "the ng-set actor for several other people",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · ___ · know · NOM · answer"
         },
         {
           "sentence": "Tapusin {{answer}} ito bago umuwi.",
           "answer": "natin",
           "translation": "Let's (you and I) finish this before we go home.",
           "hint": "the ng-set actor for 'we' with the listener counted in — the work is shared",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "finish.IMP.OBJ · ___ · this · before · go.home.INF"
         },
         {
           "sentence": "Nasaan ang mga anak {{answer}}?",
           "answer": "ninyo",
           "translation": "Where are your children? (asking both parents)",
           "hint": "the possessor pronoun placed after the noun, for more than one owner you are addressing",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "LOC-where · NOM · PL · child · ___"
         }
       ]
     },
@@ -873,49 +969,56 @@
           "answer": "akin",
           "translation": "Give me the key.",
           "hint": "the sa-set pronoun for the speaker as the one receiving",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "give.IMP.OBJ · 2SG.GEN · LOC · ___ · NOM · key"
         },
         {
           "sentence": "{{answer}} ang bahay na ito.",
           "answer": "Akin",
           "translation": "This house is mine.",
           "hint": "fronted — emphatic possession",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · NOM · house · LK · this"
         },
         {
           "sentence": "Nagbigay siya sa {{answer}} ng pera.",
           "answer": "kanila",
           "translation": "He gave them money.",
           "hint": "the sa-set pronoun for several other people, marked as the recipients",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "give.PFV · 3SG.NOM · LOC · ___ · GEN · money"
         },
         {
           "sentence": "Ang bahay na iyon ay {{answer}}.",
           "answer": "kanila",
           "translation": "That house is theirs.",
           "hint": "the sa-set pronoun standing alone as the predicate — ownership by more than one other person",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NOM · house · LK · that.DIST · TOP · ___"
         },
         {
           "sentence": "{{answer}} ba ang payong na ito?",
           "answer": "Iyo",
           "translation": "Is this umbrella yours?",
           "hint": "the sa-set pronoun for the single person you are speaking to, fronted for emphasis",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · Q · NOM · umbrella · LINK · this"
         },
         {
           "sentence": "Nasa {{answer}} pa ang libro ko.",
           "answer": "kaniya",
           "translation": "He still has my book.",
           "hint": "the sa-set pronoun for one other person, here saying who the book is with",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "be.at-LOC · ___ · still · NOM · book · 1SG.GEN"
         },
         {
           "sentence": "Pupunta kami sa {{answer}} bukas ng hapon.",
           "answer": "inyo",
           "translation": "We'll come over to your place (yours and your family's) tomorrow afternoon.",
           "hint": "the sa-set pronoun standing for the home of the people you are addressing",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "FUT-go · 1PL.EXCL.NOM · LOC · ___ · tomorrow · GEN · afternoon"
         }
       ]
     },
@@ -933,49 +1036,56 @@
           "answer": "si",
           "translation": "Maria ate a mango.",
           "hint": "a personal name takes its own topic marker instead of the ordinary one — one person here",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "eat.PFV.ACT · ___ · Maria · GEN · mango"
         },
         {
           "sentence": "Kinain {{answer}} Juan ang tinapay.",
           "answer": "ni",
           "translation": "Juan ate the bread.",
           "hint": "the name marker for a non-topic actor, doing the job the ng phrase would do for a common noun",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "eat.PFV.OBJ · ___ · Juan · NOM · bread"
         },
         {
           "sentence": "Ibinigay ko ito {{answer}} Ana.",
           "answer": "kay",
           "translation": "I gave this to Ana.",
           "hint": "the name marker used where sa would stand before an ordinary noun",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "OBJ-give.PFV · 1SG.GEN · this · ___ · Ana"
         },
         {
           "sentence": "Dumating {{answer}} Pedro at Rosa.",
           "answer": "sina",
           "translation": "Pedro and Rosa arrived.",
           "hint": "the topic marker for names in the shape used when two people arrive together",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "arrive.PFV.ACT · ___ · Pedro · and · Rosa"
         },
         {
           "sentence": "Nasira ang kotse {{answer}} Ana at Lito.",
           "answer": "nina",
           "translation": "Ana and Lito's car broke down.",
           "hint": "the non-topic name marker in its plural shape, marking who owns the car",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "PFV-break · NOM · car · ___ · Ana · and · Lito"
         },
         {
           "sentence": "Pumunta kami {{answer}} Lola at Lolo noong Pasko.",
           "answer": "kina",
           "translation": "We went to Grandma and Grandpa's place at Christmas.",
           "hint": "the sa-form name marker in its plural shape — the household they visited",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "go.PFV.ACT · 1PL.EXCL.NOM · ___ · grandmother · and · grandfather · PST-LINK · Christmas"
         },
         {
           "sentence": "Hindi {{answer}} Pedro ang kapatid ko.",
           "answer": "si",
           "translation": "Pedro is not my brother.",
           "hint": "even after the negator, a personal name needs the marker reserved for names, never the ordinary topic marker",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "NEG · ___ · Pedro · NOM · sibling · 1SG.GEN"
         }
       ]
     },
@@ -993,49 +1103,56 @@
           "answer": "ba",
           "translation": "Have you eaten already?",
           "hint": "the particle that makes this a yes/no question rather than a statement",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "eat.PFV.ACT · ___ · already · 2PL.NOM"
         },
         {
           "sentence": "{{answer}} ang pangalan mo?",
           "answer": "Ano",
           "translation": "What is your name?",
           "hint": "the question word for a thing or a name, followed by the topic marker",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · NOM · name · 2SG.GEN"
         },
         {
           "sentence": "{{answer}} ka pupunta?",
           "answer": "Saan",
           "translation": "Where are you going?",
           "hint": "the question word for place, the one used with a verb rather than for locating a thing",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 2SG.NOM · FUT-go"
         },
         {
           "sentence": "{{answer}} ka umiiyak?",
           "answer": "Bakit",
           "translation": "Why are you crying?",
           "hint": "the question word that asks for a reason",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · 2SG.NOM · PROG-cry.ACT"
         },
         {
           "sentence": "{{answer}} ang nagluto ng sinigang?",
           "answer": "Sino",
           "translation": "Who cooked the sinigang?",
           "hint": "the question word that asks which person did it",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · NOM · PFV.ACT-cook · GEN · sour.soup"
         },
         {
           "sentence": "{{answer}} kayo dumating sa Maynila?",
           "answer": "Kailan",
           "translation": "When did you all arrive in Manila?",
           "hint": "the question word that asks for a time",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · 2PL.NOM · arrive.PFV.ACT · LOC · Manila"
         },
         {
           "sentence": "{{answer}} po ang isang kilo ng bigas?",
           "answer": "Magkano",
           "translation": "How much is a kilo of rice? (polite)",
           "hint": "the question word that asks a price",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · POL · NOM · one-LINK · kilo · GEN · rice"
         }
       ]
     },
@@ -1053,49 +1170,56 @@
           "answer": "Magandang",
           "translation": "They live in a beautiful house.",
           "hint": "maganda + -ng linker",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · house · NOM · PROG-reside-LOC · 3PL.GEN"
         },
         {
           "sentence": "Ang bata {{answer}} mabait.",
           "answer": "na",
           "translation": "The child is kind.",
           "hint": "the linker written as its own word rather than glued to the word before it",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "NOM · child · ___ · ADJ-kindness"
         },
         {
           "sentence": "{{answer}} ang aso nila.",
           "answer": "Malaki",
           "translation": "Their dog is big.",
           "hint": "a ma- adjective in the predicate slot, first in the sentence, so nothing links it to the topic",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · NOM · dog · 3PL.GEN"
         },
         {
           "sentence": "Isang {{answer}} kotse ang binili niya.",
           "answer": "mabilis na",
           "translation": "He bought a fast car.",
           "hint": "mabilis + na linker",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "one-LNK · ___ · car · NOM · buy.PFV.OBJ · 3SG.GEN"
         },
         {
           "sentence": "Gusto ko ng kape{{answer}} mainit.",
           "answer": "ng",
           "translation": "I want hot coffee.",
           "hint": "the linker in its suffixed shape, welded onto a host that ends in a vowel",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "want · 1SG.GEN · GEN · ___ · ADJ-heat"
         },
         {
           "sentence": "Naghahanap ako ng bahay {{answer}} malapit sa paaralan.",
           "answer": "na",
           "translation": "I'm looking for a house near the school.",
           "hint": "the standalone linker, required here because the noun before it ends in a consonant",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "search.PROG · 1SG.NOM · GEN · house · ___ · ADJ-near · LOC · school"
         },
         {
           "sentence": "{{answer}} ba ang tubig sa gripo?",
           "answer": "Malamig",
           "translation": "Is the water from the tap cold?",
           "hint": "a ma- adjective about temperature, standing as the predicate before the question particle",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · Q · NOM · water · LOC · tap"
         }
       ]
     },
@@ -1113,28 +1237,32 @@
           "answer": "Ibinigay",
           "translation": "I gave him the book.",
           "hint": "i- + bigay — the book is the topic",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 1SG.GEN · NOM · book · LOC · 3SG.LOC"
         },
         {
           "sentence": "{{answer}} niya ang bagong kutsilyo.",
           "answer": "Ipinanghiwa",
           "translation": "He used the new knife to cut.",
           "hint": "ipang- — instrument focus",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 3SG.GEN · NOM · new-LNK · knife"
         },
         {
           "sentence": "{{answer}} mo ang bag ko?",
           "answer": "Idadala",
           "translation": "Will you bring my bag?",
           "hint": "i- + dala, contemplated",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 2SG.GEN · NOM · bag · 1SG.GEN"
         },
         {
           "sentence": "{{answer}} ko ang basura kanina.",
           "answer": "Itinapon",
           "translation": "I threw out the rubbish earlier.",
           "hint": "i- + tapon, completed",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · 1SG.GEN · NOM · rubbish · earlier"
         }
       ]
     },
@@ -1152,28 +1280,32 @@
           "answer": "Nakita",
           "translation": "I saw him yesterday.",
           "hint": "ma- + kita — perception, not deliberate",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 1SG.GEN · 3SG.NOM · yesterday"
         },
         {
           "sentence": "Hindi ko {{answer}} ang sinabi mo.",
           "answer": "narinig",
           "translation": "I didn't hear what you said.",
           "hint": "ma- + rinig",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "NEG · 1SG.GEN · ___ · NOM · say.PFV.OBJ · 2SG.GEN"
         },
         {
           "sentence": "{{answer}} ako sa Maynila noong isang taon.",
           "answer": "Nakapunta",
           "translation": "I managed to go to Manila last year.",
           "hint": "maka- + punta — ability",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 1SG.NOM · LOC · Manila · PST-LNK · one-LNK · year"
         },
         {
           "sentence": "Hindi siya {{answer}} sa pagsusulit.",
           "answer": "nakapasa",
           "translation": "He couldn't pass the exam.",
           "hint": "maka- + pasa, negated",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NEG · 3SG.NOM · ___ · LOC · exam"
         }
       ]
     },
@@ -1191,49 +1323,56 @@
           "answer": "na",
           "translation": "Have you eaten already?",
           "hint": "the completion clitic, 'by now'; it has to sit ahead of the question clitic",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "eat.PFV · ___ · Q · 2PL.NOM"
         },
         {
           "sentence": "Hindi {{answer}} siya dumating.",
           "answer": "pa",
           "translation": "He hasn't arrived yet.",
           "hint": "with hindi it means 'not yet'; the one-syllable clitic for something still outstanding, the opposite of the completion one",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "NEG · ___ · 3SG.NOM · arrive.PFV"
         },
         {
           "sentence": "Salamat {{answer}}.",
           "answer": "po",
           "translation": "Thank you (respectfully).",
           "hint": "the respect marker used to an elder or a stranger; the fuller of the two deferential clitics",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "thanks · ___"
         },
         {
           "sentence": "Maganda {{answer}} ang panahon.",
           "answer": "daw",
           "translation": "The weather is nice, they say.",
           "hint": "reportedly — you are relaying what other people say, not what you saw yourself; the d-spelling is the one wanted here, though after a vowel-final word careful writing prefers its r-twin",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "ADJ-beauty · ___ · NOM · weather"
         },
         {
           "sentence": "Ako {{answer}} ang magbabayad ngayon.",
           "answer": "naman",
           "translation": "I'll be the one to pay this time.",
           "hint": "the softening clitic that flips whose turn it is: this time it is on me, not on you",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG.NOM · ___ · NOM · pay.FUT · now"
         },
         {
           "sentence": "Tapos {{answer}} ang klase.",
           "answer": "na po",
           "translation": "The class is over now (said respectfully).",
           "hint": "two clitics in one slot, in the fixed order: the completion one first, then the fuller of the two respect words",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "finished · ___ · NOM · class"
         },
         {
           "sentence": "Masakit {{answer}} ang ulo ko, kaya hindi ako pumasok.",
           "answer": "kasi",
           "translation": "My head hurt, you see, so I didn't go in.",
           "hint": "the clitic that supplies the reason, clinging right after the first word of its own clause",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "ADJ-pain · ___ · NOM · head · 1SG.GEN · so · NEG · 1SG.NOM · enter.PFV"
         }
       ]
     },
@@ -1251,49 +1390,56 @@
           "answer": "ay",
           "translation": "The house is beautiful.",
           "hint": "topic first, description second: the formal order needs its marker in the middle",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "NOM · house · ___ · ADJ-beauty"
         },
         {
           "sentence": "Si Maria {{answer}} guro.",
           "answer": "ay",
           "translation": "Maria is a teacher.",
           "hint": "a fronted name before a noun predicate; the written, speech-giving register needs its marker here",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "NOM.PERS · Maria · ___ · teacher"
         },
         {
           "sentence": "Ako{{answer}} masaya.",
           "answer": "'y",
           "translation": "I am happy.",
           "hint": "the pronoun ends in a vowel, so in careful writing the marker contracts onto it",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · happy"
         },
         {
           "sentence": "Ang mga bata {{answer}} naglalaro.",
           "answer": "ay",
           "translation": "The children are playing.",
           "hint": "a plural topic fronted before an incompleted verb; the inversion marker still goes in between",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NOM · PL · child · ___ · play.IPFV"
         },
         {
           "sentence": "Ang pagsusulit {{answer}} hindi mahirap.",
           "answer": "ay",
           "translation": "The exam is not difficult.",
           "hint": "fronted topic with a negated predicate; the formal marker still has to stand between them",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NOM · exam · ___ · NEG · difficult"
         },
         {
           "sentence": "Ang pagkain dito{{answer}} masarap.",
           "answer": "'y",
           "translation": "The food here is delicious.",
           "hint": "the fronted phrase ends in a vowel, so in writing the marker shrinks and hooks onto it",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NOM · food · ___ · delicious"
         },
         {
           "sentence": "Bukas {{answer}} magsisimula ang klase namin.",
           "answer": "ay",
           "translation": "Tomorrow our classes begin.",
           "hint": "a time expression has been pulled to the front; formal Filipino puts the same inversion marker after it",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "tomorrow · ___ · begin.FUT · NOM · class · 1PL.EXCL.GEN"
         }
       ]
     },
@@ -1311,35 +1457,40 @@
           "answer": "Mas",
           "translation": "He is taller than me.",
           "hint": "the little comparative word that stands in front of the adjective and pairs with kaysa sa — neither the equality prefix nor the superlative one",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · tall · 3SG · than · DAT · 1SG"
         },
         {
           "sentence": "Siya ang {{answer}} sa klase.",
           "answer": "pinakamatalino",
           "translation": "She is the smartest in the class.",
           "hint": "pinaka- + matalino",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · NOM · ___ · DAT · class"
         },
         {
           "sentence": "{{answer}} ko siya.",
           "answer": "Kasingtaas",
           "translation": "He is as tall as me.",
           "hint": "kasing- — equality",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 1SG.GEN · 3SG"
         },
         {
           "sentence": "Ito ang {{answer}} bahay sa kalye.",
           "answer": "pinakamalaki",
           "translation": "This is the biggest house on the street.",
           "hint": "pinaka- + malaki",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "this · NOM · ___ · house · DAT · street"
         },
         {
           "sentence": "Mas gusto ko ang kape {{answer}} sa tsaa.",
           "answer": "kaysa",
           "translation": "I prefer coffee to tea.",
           "hint": "the word that introduces what the coffee is measured against; it comes directly before sa",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "more · want · 1SG.GEN · NOM · coffee · ___ · DAT · tea"
         }
       ]
     },
@@ -1357,49 +1508,56 @@
           "answer": "Gusto",
           "translation": "I want to sleep.",
           "hint": "desire, not need and not permission; the linker rides on the ng-pronoun that follows",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 1SG.GEN-LNK · sleep.INF"
         },
         {
           "sentence": "{{answer}} niyang pumunta.",
           "answer": "Ayaw",
           "translation": "He doesn't want to go.",
           "hint": "refusal: the built-in negative of wanting, so no hindi is needed in front of it",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 3SG.GEN-LNK · go.INF"
         },
         {
           "sentence": "{{answer}} mong mag-aral.",
           "answer": "Dapat",
           "translation": "You should study.",
           "hint": "obligation — what one ought to do, out of duty rather than circumstance; not a wish, and not a request for permission",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 2SG.GEN-LNK · study.INF"
         },
         {
           "sentence": "{{answer}} ba akong umalis?",
           "answer": "Puwede",
           "translation": "May I leave?",
           "hint": "permission rather than ability; the everyday Spanish-derived one, not its formal native twin",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · Q · 1SG-LNK · leave.INF"
         },
         {
           "sentence": "{{answer}} nilang umalis nang maaga bukas.",
           "answer": "Kailangan",
           "translation": "They need to leave early tomorrow.",
           "hint": "necessity imposed by circumstance rather than by duty; still a pseudo-verb, so it carries no aspect of its own",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · 3PL.GEN-LNK · leave.INF · ADV · early · tomorrow"
         },
         {
           "sentence": "Gusto {{answer}} matulog nang maaga.",
           "answer": "naming",
           "translation": "We (not you) want to sleep early.",
           "hint": "the ng-set 'we' that shuts the listener out, with the linker fused onto its end",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "want · ___ · sleep.INF · ADV · early"
         },
         {
           "sentence": "{{answer}} mo ba itong gawin nang mag-isa?",
           "answer": "Kaya",
           "translation": "Can you manage to do this on your own?",
           "hint": "capability: you are asking whether they are up to it, not whether they are allowed",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · 2SG.GEN · Q · this-LNK · do.INF.OBJ · ADV · alone"
         }
       ]
     },
@@ -1417,49 +1575,56 @@
           "answer": "May",
           "translation": "I have a dog.",
           "hint": "possession stated with the noun straight after it: the short form is the one that admits nothing in between",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · dog · 1SG"
         },
         {
           "sentence": "{{answer}} akong aso.",
           "answer": "Mayroon",
           "translation": "I have a dog.",
           "hint": "the longer existence form, forced here because the pronoun comes before the thing owned; give it in full, not the clipped everyday spelling",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 1SG-LNK · dog"
         },
         {
           "sentence": "{{answer}} akong pera.",
           "answer": "Wala",
           "translation": "I have no money.",
           "hint": "the negative that answers both existence words; the pronoun leans on it with a linker",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 1SG-LK · money"
         },
         {
           "sentence": "{{answer}} bang tao sa loob?",
           "answer": "Mayroon",
           "translation": "Is there anyone inside?",
           "hint": "the longer form again: the yes-no question particle sits between it and the noun, and it is the full spelling that is wanted, not the clipped everyday one",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · Q-LK · person · LOC · inside"
         },
         {
           "sentence": "{{answer}} bagong tindahan sa kanto.",
           "answer": "May",
           "translation": "There's a new store on the corner.",
           "hint": "nobody owns anything here, it is plain existence; use the short word that sits directly before the noun phrase",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · new-LK · store · LOC · corner"
         },
         {
           "sentence": "{{answer}} ka bang barya?",
           "answer": "Wala",
           "translation": "Don't you have any change?",
           "hint": "the one negative word that covers both 'there isn't' and 'doesn't have', with the listener's pronoun leaning on it",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · 2SG · Q-LK · change"
         },
         {
           "sentence": "May natira pa bang kape? — {{answer}}!",
           "answer": "Mayroon",
           "translation": "Is there any coffee left? — There is!",
           "hint": "as a one-word reply nothing follows it, so the short form that must lean on a noun is impossible; give the full written form rather than its clipped everyday variant",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "EXIST · PFV-remain · still · Q-LK · coffee · — · ___"
         }
       ]
     },
@@ -1477,49 +1642,56 @@
           "answer": "Tatlong",
           "translation": "They have three children.",
           "hint": "native + linker — counting people",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · child · 3PL"
         },
         {
           "sentence": "Alas-{{answer}} na ng hapon.",
           "answer": "dos",
           "translation": "It's two in the afternoon.",
           "hint": "Spanish — telling time",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · already · GEN · afternoon"
         },
         {
           "sentence": "{{answer}} piso ang isda.",
           "answer": "Singkuwenta",
           "translation": "The fish costs fifty pesos.",
           "hint": "Spanish — money",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · peso · NOM · fish"
         },
         {
           "sentence": "May {{answer}} libro ako.",
           "answer": "limang",
           "translation": "I have five books.",
           "hint": "native + linker",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "EXIST · ___ · book · 1SG"
         },
         {
           "sentence": "{{answer}} na taong gulang ang bunso ko.",
           "answer": "Anim",
           "translation": "My youngest is six years old.",
           "hint": "ages are counted with the native set, never the Spanish one; the English gives you the value",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · LK · year-LK · age · NOM · youngest.child · 1SG.GEN"
         },
         {
           "sentence": "Nagbayad ako ng {{answer}} piso para sa pamasahe.",
           "answer": "bente",
           "translation": "I paid twenty pesos for the fare.",
           "hint": "fares and prices reach for the Spanish-derived set; the number itself is in the English",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "PFV-pay · 1SG · GEN · ___ · peso · for · LOC · fare"
         },
         {
           "sentence": "{{answer}} ba kayong pupunta sa kasal?",
           "answer": "Apat",
           "translation": "Are four of you going to the wedding?",
           "hint": "counting people takes the native set even inside a question; the English supplies the figure",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · Q · 2PL-LK · FUT-go · LOC · wedding"
         }
       ]
     },
@@ -1537,49 +1709,56 @@
           "answer": "Ito",
           "translation": "This is my book.",
           "hint": "the demonstrative for what the speaker is holding or can touch",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · NOM · book · 1SG.GEN"
         },
         {
           "sentence": "Ano {{answer}}?",
           "answer": "iyan",
           "translation": "What's that (by you)?",
           "hint": "the demonstrative for the thing over by the person being spoken to",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "what · ___"
         },
         {
           "sentence": "Pupunta ako {{answer}} bukas.",
           "answer": "doon",
           "translation": "I'll go there tomorrow.",
           "hint": "the place form for somewhere away from speaker and listener alike",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "FUT-go · 1SG · ___ · tomorrow"
         },
         {
           "sentence": "Ang presyo {{answer}} ay mataas.",
           "answer": "nito",
           "translation": "The price of this is high.",
           "hint": "the ng-set form of the near-speaker demonstrative, marking what the price belongs to",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NOM · price · ___ · TOP · ADJ-height"
         },
         {
           "sentence": "{{answer}} ang bahay ng lola ko.",
           "answer": "Iyon",
           "translation": "That one over there is my grandmother's house.",
           "hint": "the third degree of the set: the house is away from the speaker and away from the listener as well",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · NOM · house · GEN · grandmother · 1SG.GEN"
         },
         {
           "sentence": "Halika {{answer}}, may ipapakita ako sa iyo.",
           "answer": "dito",
           "translation": "Come here, I have something to show you.",
           "hint": "the place form matching the near-speaker demonstrative; the speaker is calling someone over to their own spot",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "come.IMP · ___ · EXIST · OBJ-FUT-CAUS-see · 1SG · LOC · 2SG"
         },
         {
           "sentence": "Ano ang ginagawa mo {{answer}}?",
           "answer": "diyan",
           "translation": "What are you doing there (where you are)?",
           "hint": "the place form for where the listener is standing, not the speaker's spot and not somewhere off beyond them both",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "what · NOM · IPFV-do.OBJ · 2SG.GEN · ___"
         }
       ]
     },
@@ -1597,28 +1776,32 @@
           "answer": "Nagpagawa",
           "translation": "I had a house built.",
           "hint": "magpa- + gawa — the causer is topic",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 1SG · GEN · house"
         },
         {
           "sentence": "{{answer}} ko siya ng pagkain.",
           "answer": "Pinaluto",
           "translation": "I made him cook food.",
           "hint": "pa-...-in — the cook is topic",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 1SG.GEN · 3SG.NOM · GEN · food"
         },
         {
           "sentence": "{{answer}} ko ang damit sa labandera.",
           "answer": "Ipinalaba",
           "translation": "I had the clothes washed by the laundrywoman.",
           "hint": "ipa- — the clothes are topic",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 1SG.GEN · NOM · clothes · LOC · laundrywoman"
         },
         {
           "sentence": "{{answer}} siya ng doktor.",
           "answer": "Nagpatingin",
           "translation": "He had himself examined by a doctor.",
           "hint": "magpa- + tingin",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · 3SG.NOM · GEN · doctor"
         }
       ]
     },
@@ -1636,28 +1819,32 @@
           "answer": "Kakakain",
           "translation": "I just ate.",
           "hint": "ka- + reduplication — recent perfective",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 1SG.GEN · only"
         },
         {
           "sentence": "{{answer}} lang niya.",
           "answer": "Kararating",
           "translation": "He just arrived.",
           "hint": "ka- + rating",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · only · 3SG.GEN"
         },
         {
           "sentence": "{{answer}} lang namin ang bahay.",
           "answer": "Kalilinis",
           "translation": "We just cleaned the house.",
           "hint": "ka- + linis",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · only · 1PL.GEN · NOM · house"
         },
         {
           "sentence": "{{answer}} lang nila ang pelikula.",
           "answer": "Kapapanood",
           "translation": "They just watched the film.",
           "hint": "ka- + panood",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · only · 3PL.GEN · NOM · film"
         }
       ]
     },
@@ -1675,28 +1862,32 @@
           "answer": "pag-aaral",
           "translation": "The child's studying is important.",
           "hint": "pag- + reduplicated aral",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "important · NOM · ___ · GEN · child"
         },
         {
           "sentence": "Ipinagdiwang nila ang {{answer}}.",
           "answer": "kalayaan",
           "translation": "They celebrated freedom.",
           "hint": "ka-...-an from laya",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "celebrate.PFV.OBJ · 3PL.GEN · NOM · ___"
         },
         {
           "sentence": "{{answer}} kumain, natulog siya.",
           "answer": "Pagkatapos",
           "translation": "After eating, he slept.",
           "hint": "pagka- + tapos",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · eat.INF · sleep.PFV · 3SG.NOM"
         },
         {
           "sentence": "Kilala siya sa {{answer}} niya.",
           "answer": "kabaitan",
           "translation": "She is known for her kindness.",
           "hint": "ka-...-an from bait",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "known · 3SG.NOM · LOC · ___ · 3SG.GEN"
         }
       ]
     },
@@ -1714,49 +1905,56 @@
           "answer": "ng",
           "translation": "The person who ate left.",
           "hint": "the host word ends in a vowel, so the linker attaches to it as a suffix instead of standing free",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "NOM · ___ · eat.PFV · TOP · leave.PFV"
         },
         {
           "sentence": "Ang libro{{answer}} binasa ko ay maganda.",
           "answer": "ng",
           "translation": "The book I read is good.",
           "hint": "object focus inside the clause",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "NOM · ___ · read.PFV.OBJ · 1SG.GEN · TOP · beautiful"
         },
         {
           "sentence": "Ang bahay {{answer}} tinitirhan nila ay malaki.",
           "answer": "na",
           "translation": "The house they live in is big.",
           "hint": "the host word ends in a consonant, so the linker cannot attach — it stays a separate word",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NOM · house · ___ · reside.IPFV.LOC · 3PL.GEN · TOP · big"
         },
         {
           "sentence": "Ang babae{{answer}} nagluto ay nanay ko.",
           "answer": "ng",
           "translation": "The woman who cooked is my mother.",
           "hint": "actor focus — she is the topic",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NOM · ___ · cook.PFV · TOP · mother · 1SG.GEN"
         },
         {
           "sentence": "Masarap ang pagkaing {{answer}} ni Lola.",
           "answer": "niluto",
           "translation": "The food that Grandma cooked is delicious.",
           "hint": "the head noun is the thing cooked, so the clause verb must be the form that makes it the topic — root luto, completed",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "delicious · NOM · food-REL · ___ · GEN · grandmother"
         },
         {
           "sentence": "Kilala mo ba ang lalaking {{answer}} kanina?",
           "answer": "tumawag",
           "translation": "Do you know the man who called earlier?",
           "hint": "he is the one doing it, so the clause verb takes the actor-focus infix on tawag, completed",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "known · 2SG.GEN · Q · NOM · man-REL · ___ · earlier"
         },
         {
           "sentence": "Ang tindahang {{answer}} namin kahapon ay sarado na.",
           "answer": "pinuntahan",
           "translation": "The store we went to yesterday is already closed.",
           "hint": "the head noun is the destination, not the goer, so the clause verb has to be the locative focus of punta, completed",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "NOM · store-REL · ___ · 1PL.GEN · yesterday · TOP · closed · already"
         }
       ]
     },
@@ -1774,49 +1972,56 @@
           "answer": "Kung",
           "translation": "If it rains, I won't go.",
           "hint": "an uncertain condition — the rain may or may not come, so the doubtful conjunction is the one that fits",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · rain.INF · NEG · 1SG.NOM · go.FUT"
         },
         {
           "sentence": "{{answer}} uuwi ako, tumatawag ako.",
           "answer": "Kapag",
           "translation": "Whenever I go home, I call.",
           "hint": "the conjunction for something expected to recur, every single time, rather than a doubtful possibility — and the full two-syllable form of it, not the clipped one",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · go.home.FUT · 1SG.NOM · call.IPFV · 1SG.NOM"
         },
         {
           "sentence": "{{answer}} nandito ka.",
           "answer": "Sana",
           "translation": "I wish you were here.",
           "hint": "the particle that carries the wish; Tagalog marks the unreality here rather than on the verb",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · be.at-here · 2SG"
         },
         {
           "sentence": "Hindi ko alam {{answer}} darating siya.",
           "answer": "kung",
           "translation": "I don't know whether he'll come.",
           "hint": "after 'I don't know', this conjunction introduces an embedded yes-or-no question",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NEG · 1SG.GEN · know · ___ · come.FUT · 3SG"
         },
         {
           "sentence": "Kung nandito ka kahapon, hindi {{answer}} ako naligaw.",
           "answer": "sana",
           "translation": "If you had been here yesterday, I wouldn't have gotten lost.",
           "hint": "the unreality particle for a past that did not happen, sitting right after the negator",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "COND · be.at-here · 2SG · yesterday · NEG · ___ · 1SG · get.lost.PFV"
         },
         {
           "sentence": "Ano ang gagawin natin {{answer}} hindi dumating ang bus?",
           "answer": "kung",
           "translation": "What will we do if the bus doesn't come?",
           "hint": "the bus failing to arrive is only a possibility, not an expectation — the doubtful conjunction, here inside a question",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "what · NOM · do.FUT.OBJ · 1PL.GEN · ___ · NEG · come.INF · NOM · bus"
         },
         {
           "sentence": "{{answer}} tapos na ang klase, umuwi ka agad.",
           "answer": "Pag",
           "translation": "When class is over, go home right away.",
           "hint": "the clipped everyday form of the 'when(ever)' conjunction, one syllable shorter than the full one",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · finished · already · NOM · class · go.home.IMP · 2SG · immediately"
         }
       ]
     },
@@ -1834,49 +2039,56 @@
           "answer": "Magkita",
           "translation": "Let's meet tomorrow.",
           "hint": "mag- reciprocal",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 1PL · tomorrow"
         },
         {
           "sentence": "{{answer}} sila sa oras ng bagyo.",
           "answer": "Nagtulungan",
           "translation": "They helped one another during the storm.",
           "hint": "mag-...-an",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 3PL · LOC · time · GEN · storm"
         },
         {
           "sentence": "Gusto kong {{answer}} sa kaniya.",
           "answer": "makipag-usap",
           "translation": "I want to talk with him.",
           "hint": "makipag- — joining in",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "want · 1SG.GEN-LNK · ___ · LOC · 3SG.LOC"
         },
         {
           "sentence": "{{answer}} ang mga bata sa parke.",
           "answer": "Naglalaruan",
           "translation": "The children are playing with each other.",
           "hint": "mag-...-an, incompleted",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · NOM · PL · child · LOC · park"
         },
         {
           "sentence": "{{answer}} siya sa mga pinsan niya kahapon.",
           "answer": "Nakipaglaro",
           "translation": "She played with her cousins yesterday.",
           "hint": "the 'join in with someone' prefix on laro, completed — she went along with a game already going",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · 3SG · LOC · PL · cousin · 3SG.GEN · yesterday"
         },
         {
           "sentence": "Kailan tayo {{answer}} ulit?",
           "answer": "magkikita",
           "translation": "When will we see each other again?",
           "hint": "the mutual 'seeing' verb built on kita, contemplated — the root's first syllable doubles",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "when · 1PL · ___ · again"
         },
         {
           "sentence": "Dapat {{answer}} ang magkakapatid.",
           "answer": "magmahalan",
           "translation": "Siblings should love one another.",
           "hint": "root mahal in the mutual pattern, prefix and suffix together, in the plain form a modal takes",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "should · ___ · NOM · RECP-PL-sibling"
         }
       ]
     },
@@ -1894,49 +2106,56 @@
           "answer": "panulat",
           "translation": "The pen is on the table.",
           "hint": "pang- + sulat — instrument",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "NOM · ___ · TOP · be.at-LOC · table"
         },
         {
           "sentence": "Malakas ang ulan tuwing {{answer}}.",
           "answer": "tag-ulan",
           "translation": "The rain is heavy during the rainy season.",
           "hint": "the season prefix on the word for rain — a vowel-initial root keeps the hyphen",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "strong · NOM · rain · every-LNK · ___"
         },
         {
           "sentence": "Siya ang {{answer}} ko sa opisina.",
           "answer": "katrabaho",
           "translation": "He is my workmate at the office.",
           "hint": "the counterpart prefix, the same one behind the words for friend and sibling, on the ordinary word for work",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG · NOM · ___ · 1SG.GEN · LOC · office"
         },
         {
           "sentence": "Kailangan ko ng {{answer}}.",
           "answer": "pambura",
           "translation": "I need an eraser.",
           "hint": "pang- → pam- before b",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "need · 1SG.GEN · GEN · ___"
         },
         {
           "sentence": "Bumili ako ng {{answer}} para sa proyekto ko.",
           "answer": "pandikit",
           "translation": "I bought glue for my project.",
           "hint": "an instrument noun from the root meaning 'to stick' — the nasal prefix shows up in its n form here",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "buy.PFV · 1SG · GEN · ___ · for · LOC · project · 1SG.GEN"
         },
         {
           "sentence": "Mas gusto ko ang {{answer}} kaysa sa tag-ulan.",
           "answer": "taglamig",
           "translation": "I prefer the cold season to the rainy season.",
           "hint": "the season prefix on the word for cold — a consonant-initial root takes it with no hyphen",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "more · like · 1SG.GEN · NOM · ___ · than · LOC · SEASON-rain"
         },
         {
           "sentence": "Sino ang {{answer}} mo sa bahay?",
           "answer": "kasama",
           "translation": "Who lives with you at home?",
           "hint": "the counterpart prefix on the root meaning 'to go along' — the one who shares the house with you",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "who · NOM · ___ · 2SG.GEN · LOC · house"
         }
       ]
     },
@@ -1954,42 +2173,48 @@
           "answer": "ay",
           "translation": "The child is diligent in studying.",
           "hint": "the inversion particle of formal written Filipino, standing between the fronted topic and the comment about it",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "NOM · child · ___ · diligent · INF-study"
         },
         {
           "sentence": "{{answer}} ako ng math kanina.",
           "answer": "Nag-aral",
           "translation": "I studied math earlier.",
           "hint": "Taglish — English noun in Tagalog frame",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 1SG.NOM · GEN · math · earlier"
         },
         {
           "sentence": "{{answer}} po kayo.",
           "answer": "Maupo",
           "translation": "Please sit down.",
           "hint": "polite register with po",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · POL · 2PL.NOM"
         },
         {
           "sentence": "Nag-{{answer}} na ba kayo?",
           "answer": "meeting",
           "translation": "Have you had the meeting?",
           "hint": "Taglish verbalisation of an English noun",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · already · Q · 2PL.NOM"
         },
         {
           "sentence": "Umulan nang malakas kagabi, {{answer}} nagpatuloy pa rin ang laro.",
           "answer": "ngunit",
           "translation": "It rained hard last night, but the game still went on.",
           "hint": "the contrastive conjunction of news and classroom Filipino; the everyday spoken one is a Spanish loan",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "rain.PFV.ACT · LNK · ADJ-strength · PST-night · ___ · continue.PFV.ACT · still · also · NOM · game"
         },
         {
           "sentence": "Kumain na po ba {{answer}}, Lola?",
           "answer": "kayo",
           "translation": "Have you eaten, Grandma? (respectful)",
           "hint": "politeness reaches for the plural ang-pronoun even though one elder is being addressed",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "eat.PFV.ACT · already · POL · Q · ___ · grandmother"
         }
       ]
     },
@@ -2007,49 +2232,56 @@
           "answer": "Bumili",
           "translation": "I bought a book at the store.",
           "hint": "actor focus — the book is indefinite",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 1SG.NOM · GEN · book · LOC · store"
         },
         {
           "sentence": "{{answer}} ko ang librong iyon.",
           "answer": "Binili",
           "translation": "I bought that book.",
           "hint": "object focus — the book is definite",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 1SG.GEN · NOM · book-LNK · that"
         },
         {
           "sentence": "{{answer}} niya ang bata ng pera.",
           "answer": "Binigyan",
           "translation": "He gave the child money.",
           "hint": "-an — the recipient is in view",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 3SG.GEN · NOM · child · GEN · money"
         },
         {
           "sentence": "{{answer}} niya ang pera sa bata.",
           "answer": "Ibinigay",
           "translation": "He gave the money to the child.",
           "hint": "i- — the money is in view",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · 3SG.GEN · NOM · money · LOC · child"
         },
         {
           "sentence": "Ano ang {{answer}} mo sa kaniya kagabi?",
           "answer": "sinabi",
           "translation": "What did you say to him last night?",
           "hint": "the questioned thing is what the sentence is about, so the verb must put it in topic — root sabi, completed",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "what · NOM · ___ · 2SG.GEN · LOC · 3SG.LOC · PST-night"
         },
         {
           "sentence": "{{answer}} muna ako ng tanghalian bago umalis.",
           "answer": "Kakain",
           "translation": "I'll eat lunch first before leaving.",
           "hint": "no particular meal is in view, so the eater stays the topic — root kain, contemplated",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · first · 1SG.NOM · GEN · lunch · before · leave.INF.ACT"
         },
         {
           "sentence": "Hindi ko pa {{answer}} ang gamot.",
           "answer": "ininom",
           "translation": "I haven't taken the medicine yet.",
           "hint": "a specific, already-known medicine is what the sentence is about — root inom, completed, object in topic",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "NEG · 1SG.GEN · still · ___ · NOM · medicine"
         }
       ]
     },
@@ -2067,49 +2299,56 @@
           "answer": "pa",
           "translation": "He is still eating.",
           "hint": "the eating is unfinished; the enclitic for an action still under way",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "eat.IPFV.ACT · ___ · 3SG.NOM"
         },
         {
           "sentence": "Kumain {{answer}} siya.",
           "answer": "na",
           "translation": "He has eaten already.",
           "hint": "the enclitic that marks the meal as over and its result as current",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "eat.PFV.ACT · ___ · 3SG.NOM"
         },
         {
           "sentence": "Hindi {{answer}} ako natutulog.",
           "answer": "pa",
           "translation": "I haven't slept yet.",
           "hint": "after hindi, the enclitic that makes the sleeping merely not started yet, rather than refused outright",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · ___ · 1SG.NOM · sleep.IPFV.ACT"
         },
         {
           "sentence": "Aalis {{answer}} ako.",
           "answer": "na",
           "translation": "I'm leaving now.",
           "hint": "with a contemplated verb, the enclitic that reads ‘now, at last’ instead of pushing the departure further off",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "leave.FUT.ACT · ___ · 1SG.NOM"
         },
         {
           "sentence": "Gutom ka {{answer}} ba?",
           "answer": "pa",
           "translation": "Are you still hungry?",
           "hint": "the hunger has not ended; the continuing-state enclitic goes ahead of the yes/no marker",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "hungry · 2SG.NOM · ___ · Q"
         },
         {
           "sentence": "Wala {{answer}} akong pera.",
           "answer": "na",
           "translation": "I don't have any money left.",
           "hint": "with an existential, the enclitic saying the money ran out at some point and has stayed gone",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG.EXIST · ___ · 1SG.NOM-LNK · money"
         },
         {
           "sentence": "Mamaya {{answer}} ako uuwi.",
           "answer": "pa",
           "translation": "I'm not going home until later.",
           "hint": "with a contemplated verb, the enclitic that pushes the event off, ruling out anything before the stated time",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "later · ___ · 1SG.NOM · go.home.FUT.ACT"
         }
       ]
     },
@@ -2127,49 +2366,56 @@
           "answer": "Kay",
           "translation": "How beautiful the morning is!",
           "hint": "the literary exclamative that fronts a bare adjective root to mean ‘how …!’, where speech would use ang ganda",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · beauty · GEN · morning"
         },
         {
           "sentence": "\"Hindi ko alam,\" {{answer}} niya.",
           "answer": "ani",
           "translation": "\"I don't know,\" he said.",
           "hint": "the literary quotative for ‘said’ after a quotation in narrative prose, where ordinary speech uses sabi",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "NEG · 1SG.GEN · know · ___ · 3SG.GEN"
         },
         {
           "sentence": "Ang bayan {{answer}} nagkaisa.",
           "answer": "ay",
           "translation": "The nation united.",
           "hint": "the inversion marker standing between a fronted topic and its predicate; formal prose keeps it where speech drops it",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NOM · nation · ___ · unite.PFV.ACT"
         },
         {
           "sentence": "Mahal {{answer}} ang kalayaan.",
           "answer": "nga",
           "translation": "Freedom is indeed precious.",
           "hint": "the affirming enclitic that adds ‘indeed’ to a formal declaration",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "precious · ___ · NOM · free.NMLZ"
         },
         {
           "sentence": "Nagtitipon tayo ngayon {{answer}} mahalaga ang araw na ito.",
           "answer": "sapagkat",
           "translation": "We gather today because this day is important.",
           "hint": "the formal causal conjunction of oratory and legal prose, where conversation would simply say kasi",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "gather.IPFV.ACT · 1PL.INCL.NOM · now · ___ · important · NOM · day · LNK · this"
         },
         {
           "sentence": "Ang {{answer}} ay may tungkuling maglingkod sa mamamayan.",
           "answer": "pamahalaan",
           "translation": "The government has a duty to serve the people.",
           "hint": "the native coinage for the governing body; official and constitutional Filipino avoids the Spanish loan gobyerno",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NOM · ___ · INV · EXIST · duty-LNK · serve.INF.ACT · OBL · citizen"
         },
         {
           "sentence": "Magtagumpay {{answer}} ang ating layunin.",
           "answer": "nawa",
           "translation": "May our purpose prevail.",
           "hint": "the literary optative enclitic that turns a plain statement into a wish, as in blessings and oratory",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "succeed.INF.ACT · ___ · NOM · 1PL.INCL.POSS-LNK · purpose"
         }
       ]
     },
@@ -2187,42 +2433,48 @@
           "answer": "kapatid",
           "translation": "I have two siblings.",
           "hint": "the everyday noun for a brother or sister; it looks like a ka- form, but the parts no longer add up to the meaning",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "two · NOM · ___ · 1SG.GEN"
         },
         {
           "sentence": "Masarap ang {{answer}} dito.",
           "answer": "pagkain",
           "translation": "The food here is delicious.",
           "hint": "the pag- noun that has settled into meaning what is on the plate, not the activity itself",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "delicious · NOM · ___ · here"
         },
         {
           "sentence": "Kasama ang buwis sa {{answer}}.",
           "answer": "presyo",
           "translation": "Tax is included in the price.",
           "hint": "kasama — 'included' here",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "included · NOM · tax · OBL · ___"
         },
         {
           "sentence": "Ang aking mga {{answer}} ay guro.",
           "answer": "magulang",
           "translation": "My parents are teachers.",
           "hint": "the noun for a mother or father; mga does the pluralising here, and the apparent root no longer explains the meaning",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NOM · 1SG.POSS-LNK · PL · ___ · INV · teacher"
         },
         {
           "sentence": "Hindi ko siya {{answer}}; katrabaho ko lang siya.",
           "answer": "kaibigan",
           "translation": "He isn't my friend; he's just a co-worker of mine.",
           "hint": "unlike katrabaho beside it, this one is lexicalised: it names a person you are close to, not a shared act of liking",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · 1SG.GEN · 3SG.NOM · ___ · co-worker · 1SG.GEN · only · 3SG.NOM"
         },
         {
           "sentence": "Masakit ang buong {{answer}} ko.",
           "answer": "katawan",
           "translation": "My whole body aches.",
           "hint": "a ka-…-an noun for the physical self; the syllables left after the prefix are not a word you could look up",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "painful · NOM · whole-LNK · ___ · 1SG.GEN"
         }
       ]
     },
@@ -2240,35 +2492,40 @@
           "answer": "I",
           "translation": "Check your email.",
           "hint": "the focus prefix used for things handed over, here on an English root",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 2SG.GEN · NOM · email · 2SG.GEN"
         },
         {
           "sentence": "{{answer}}-drive ako papuntang opisina.",
           "answer": "Nag",
           "translation": "I drove to the office.",
           "hint": "actor focus, completed aspect, on an English root: the prefix that replaces mag- once the action has happened",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 1SG.NOM · toward-LNK · office"
         },
         {
           "sentence": "{{answer}}-stress ako sa trabaho.",
           "answer": "Na",
           "translation": "I got stressed at work.",
           "hint": "ma- involuntary, completed",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 1SG.NOM · OBL · work"
         },
         {
           "sentence": "Pwede mo bang {{answer}}-explain ulit?",
           "answer": "i",
           "translation": "Can you explain again?",
           "hint": "the conveyance focus prefix again, on the English root following a pseudo-verb of permission",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "can · 2SG.GEN · Q-LNK · ___ · again"
         },
         {
           "sentence": "{{answer}}-deliver ko ang cake sa office niya.",
           "answer": "Pina",
           "translation": "I had the cake delivered to her office.",
           "hint": "causative on an English root, completed and object focus: you did not do it yourself, you got someone else to",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · 1SG.GEN · NOM · cake · OBL · office · 3SG.GEN"
         }
       ]
     }

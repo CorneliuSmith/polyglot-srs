@@ -906,3 +906,33 @@ Measurement note, third time in one day: Python's `\w` drops Mn/Mc marks, so
 `नहीं` tokenises as `नह` and `ใช่` as `ใช`. A first pass reported 1,713
 form-mismatches, 1,299 of them phantoms from that. Tokenise on
 letters-plus-marks, or the Indic and Thai numbers are fiction.
+
+---
+
+## §22 An unspaced script cannot be gloss-checked by whitespace (30 Aug 2026)
+
+The interlinear gloss's contract is one cell per token, joined by ` · `. That
+assumes tokens are whitespace-delimited. **Thai writes without spaces**, so a
+whole drill sentence is ONE token — 205 of Thai's 271 — and a correct
+three-cell gloss of `ผม{{answer}}ข้าว` (`1SG.M · ___ · rice`) reads as a
+count error. The first pass rejected 100 correct Thai glosses that way and
+landed Thai at 19% while every other course in the batch cleared 99%.
+
+`apply_drill_glosses.tokenize` now segments unspaced scripts by borrowing the
+**reading pipeline's own segmentation** — the romaniser emits space-separated
+words and passes `{{answer}}` through as a unit, so it divides the sentence
+the way the learner sees it divided. Thai went 19% → 44%.
+
+**The remaining 105 are not wrong glosses.** They are two segmenters
+disagreeing: the dictionary longest-match segmenter and the author divide
+unspaced text differently, both defensibly. At that point the gate is
+measuring *"do two segmenters agree"*, not *"is this gloss right"*, and it
+should not be read as a defect count.
+
+The real fix is to store the segmentation WITH the gloss so the renderer
+aligns cells to the same units the author used — a schema question, not an
+authoring one. Until then Thai's drill gloss is capped around 44% and that
+ceiling is a known limitation, not a backlog item to grind at.
+
+Applies to any future course written without word spaces (Japanese, Chinese,
+Khmer, Lao). Check the writing system before setting a coverage target.

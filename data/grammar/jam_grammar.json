@@ -64,7 +64,8 @@
           "translation": "I am going to school.",
           "hint": "I",
           "display_order": 1,
-          "cell": "mi"
+          "cell": "mi",
+          "gloss": "___ · PROG · go · LOC · school"
         },
         {
           "sentence": "{{answer}} laik di mango dem.",
@@ -72,7 +73,8 @@
           "translation": "I like the mangoes.",
           "hint": "first person",
           "display_order": 2,
-          "cell": "mi"
+          "cell": "mi",
+          "gloss": "___ · like · DEF · mango · PL"
         },
         {
           "sentence": "{{answer}} a mi breda.",
@@ -80,7 +82,8 @@
           "translation": "He is my brother.",
           "hint": "he (or she — same word)",
           "display_order": 3,
-          "cell": "im"
+          "cell": "im",
+          "gloss": "___ · COP · 1SG.POSS · brother"
         },
         {
           "sentence": "Mi si {{answer}} a maakit.",
@@ -88,7 +91,8 @@
           "translation": "I saw her at the market.",
           "hint": "her — same form as 'he'",
           "display_order": 4,
-          "cell": "im"
+          "cell": "im",
+          "gloss": "1SG · see · ___ · LOC · market"
         },
         {
           "sentence": "{{answer}} fi kom nou!",
@@ -96,7 +100,8 @@
           "translation": "You all should come now!",
           "hint": "plural 'you'",
           "display_order": 5,
-          "cell": "unu"
+          "cell": "unu",
+          "gloss": "___ · should · come · now"
         },
         {
           "sentence": "A we {{answer}} a go?",
@@ -104,7 +109,8 @@
           "translation": "Where are you all going?",
           "hint": "more than one 'you'",
           "display_order": 6,
-          "cell": "unu"
+          "cell": "unu",
+          "gloss": "FOC · where · ___ · PROG · go"
         }
       ]
     },
@@ -132,42 +138,48 @@
           "answer": "a",
           "translation": "I am the new teacher.",
           "hint": "the linking 'is'",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · DEF · new · teacher"
         },
         {
           "sentence": "Im {{answer}} mi neba.",
           "answer": "a",
           "translation": "He is my neighbour.",
           "hint": "is",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · 1SG.POSS · neighbour"
         },
         {
           "sentence": "Dis {{answer}} di bes mango.",
           "answer": "a",
           "translation": "This is the best mango.",
           "hint": "equative marker",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "this · ___ · DEF · good.SUP · mango"
         },
         {
           "sentence": "Dem {{answer}} faama.",
           "answer": "a",
           "translation": "They are farmers.",
           "hint": "are",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3PL · ___ · farmer"
         },
         {
           "sentence": "Yu {{answer}} smadi gud.",
           "answer": "a",
           "translation": "You are a good person.",
           "hint": "the noun-linking word",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · ___ · person · good"
         },
         {
           "sentence": "Mi mada {{answer}} nors.",
           "answer": "a",
           "translation": "My mother is a nurse.",
           "hint": "is",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG.POSS · mother · ___ · nurse"
         }
       ]
     },
@@ -195,42 +207,48 @@
           "answer": "de",
           "translation": "I am at home today.",
           "hint": "the location 'is'",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · LOC · home · today"
         },
         {
           "sentence": "Di pikni dem {{answer}} a skuul.",
           "answer": "de",
           "translation": "The children are at school.",
           "hint": "are (at a place)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF · child · PL · ___ · LOC · school"
         },
         {
           "sentence": "Weh yu {{answer}}?",
           "answer": "de",
           "translation": "Where are you?",
           "hint": "location word",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "where · 2SG · ___"
         },
         {
           "sentence": "Di fuud {{answer}} pan di tiebl.",
           "answer": "de",
           "translation": "The food is on the table.",
           "hint": "is (located)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF · food · ___ · on · DEF · table"
         },
         {
           "sentence": "Mi {{answer}} ya, man.",
           "answer": "de",
           "translation": "I'm here (I'm fine).",
           "hint": "the 'wa gwaan' reply uses it",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · ___ · here · EMPH"
         },
         {
           "sentence": "Di shap {{answer}} a toun.",
           "answer": "de",
           "translation": "The shop is in town.",
           "hint": "located-at",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF · shop · ___ · LOC · town"
         }
       ]
     },
@@ -258,42 +276,48 @@
           "answer": "nais",
           "translation": "The woman is nice.",
           "hint": "nice — no 'is' needed",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF · woman · ___"
         },
         {
           "sentence": "Mi {{answer}} bad tide.",
           "answer": "taiyad",
           "translation": "I'm really tired today.",
           "hint": "tired",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · ___ · INTENS · today"
         },
         {
           "sentence": "Di wata {{answer}}.",
           "answer": "kuol",
           "translation": "The water is cold.",
           "hint": "cold — straight after the noun",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF · water · ___"
         },
         {
           "sentence": "Dem mango de {{answer}}.",
           "answer": "swiit",
           "translation": "Those mangoes are sweet.",
           "hint": "sweet",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEM.PL · mango · DIST · ___"
         },
         {
           "sentence": "Di pikni {{answer}}.",
           "answer": "ongri",
           "translation": "The child is hungry.",
           "hint": "hungry",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF · child · ___"
         },
         {
           "sentence": "Yu fren {{answer}}, man.",
           "answer": "gud",
           "translation": "Your friend is good (alright).",
           "hint": "good",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "2SG.POSS · friend · ___ · man"
         }
       ]
     },
@@ -321,42 +345,48 @@
           "answer": "ron",
           "translation": "He runs every morning.",
           "hint": "run — no -s!",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG · ___ · every · morning"
         },
         {
           "sentence": "Mi {{answer}} im yeside.",
           "answer": "si",
           "translation": "I saw him yesterday.",
           "hint": "see — the adverb carries the past",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · ___ · 3SG · yesterday"
         },
         {
           "sentence": "Di pikni dem {{answer}} rais an piiz.",
           "answer": "nyam",
           "translation": "The children eat rice and peas.",
           "hint": "the Patois 'eat'",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF · child · PL · ___ · rice · and · peas"
         },
         {
           "sentence": "Mi granny {{answer}} a maakit evri satdi.",
           "answer": "go",
           "translation": "My grandmother goes to the market every Saturday.",
           "hint": "bare verb, opposite of 'come' — no final s",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG.POSS · grandmother · ___ · LOC · market · every · Saturday"
         },
         {
           "sentence": "Yu {{answer}} tuu faas!",
           "answer": "taak",
           "translation": "You talk too fast!",
           "hint": "talk",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · ___ · too · fast"
         },
         {
           "sentence": "Wi {{answer}} haad evri die.",
           "answer": "wok",
           "translation": "We work hard every day.",
           "hint": "work",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · ___ · hard · every · day"
         }
       ]
     },
@@ -384,42 +414,48 @@
           "answer": "a",
           "translation": "I am cooking the dinner.",
           "hint": "the '-ing' marker",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · cook · DEF · dinner"
         },
         {
           "sentence": "Di biebi {{answer}} slip.",
           "answer": "a",
           "translation": "The baby is sleeping.",
           "hint": "before the verb",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF · baby · ___ · sleep"
         },
         {
           "sentence": "Wa yu {{answer}} du?",
           "answer": "a",
           "translation": "What are you doing?",
           "hint": "progressive marker",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "what · 2SG · ___ · do"
         },
         {
           "sentence": "Dem {{answer}} plie futbaal.",
           "answer": "a",
           "translation": "They are playing football.",
           "hint": "are …-ing",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3PL · ___ · play · football"
         },
         {
           "sentence": "Di rien {{answer}} faal.",
           "answer": "a",
           "translation": "The rain is falling.",
           "hint": "is …-ing",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF · rain · ___ · fall"
         },
         {
           "sentence": "Im {{answer}} taak wid im mada.",
           "answer": "a",
           "translation": "She is talking with her mother.",
           "hint": "the busy little word again",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG · ___ · talk · with · 3SG.POSS · mother"
         }
       ]
     },
@@ -451,42 +487,48 @@
           "answer": "dem",
           "translation": "The children are at school.",
           "hint": "the plural marker, after the noun",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF · child · ___ · COP.LOC · LOC · school"
         },
         {
           "sentence": "Di mango {{answer}} swiit.",
           "answer": "dem",
           "translation": "The mangoes are sweet.",
           "hint": "plural marker",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF · mango · ___ · sweet"
         },
         {
           "sentence": "Mi si di uman {{answer}} a chorch.",
           "answer": "dem",
           "translation": "I saw the women at church.",
           "hint": "makes 'woman' plural",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · see · DEF · woman · ___ · LOC · church"
         },
         {
           "sentence": "Di daag {{answer}} a baak.",
           "answer": "dem",
           "translation": "The dogs are barking.",
           "hint": "after the noun",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF · dog · ___ · PROG · bark"
         },
         {
           "sentence": "Di tiicha {{answer}} taak tuu long.",
           "answer": "dem",
           "translation": "The teachers talk too long.",
           "hint": "plural",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF · teacher · ___ · talk · too · long"
         },
         {
           "sentence": "Di gyal {{answer}} a sing.",
           "answer": "dem",
           "translation": "The girls are singing.",
           "hint": "plural marker",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF · girl · ___ · PROG · sing"
         }
       ]
     },
@@ -514,42 +556,48 @@
           "answer": "no",
           "translation": "I don't know the answer.",
           "hint": "the negator, before the verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · know · DEF · answer"
         },
         {
           "sentence": "Im {{answer}} de a yaad.",
           "answer": "no",
           "translation": "He is not at home.",
           "hint": "not",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · be.LOC · at · home"
         },
         {
           "sentence": "{{answer}} tach dat!",
           "answer": "Duon",
           "translation": "Don't touch that!",
           "hint": "command negative",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · touch · that"
         },
         {
           "sentence": "Mi {{answer}} go a di pati.",
           "answer": "naa",
           "translation": "I'm not going to the party.",
           "hint": "no + a fused",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · ___ · go · to · DEF · party"
         },
         {
           "sentence": "Dem {{answer}} laik di fuud.",
           "answer": "no",
           "translation": "They don't like the food.",
           "hint": "don't",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3PL · ___ · like · DEF · food"
         },
         {
           "sentence": "Nobadi {{answer}} si notn.",
           "answer": "no",
           "translation": "Nobody saw anything.",
           "hint": "double negative is correct here",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "nobody · ___ · see · nothing"
         }
       ]
     },
@@ -577,42 +625,48 @@
           "answer": "Wa",
           "translation": "What are you doing?",
           "hint": "what",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 2SG · PROG · do"
         },
         {
           "sentence": "{{answer}} yu de?",
           "answer": "We",
           "translation": "Where are you?",
           "hint": "where",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 2SG · be.LOC"
         },
         {
           "sentence": "{{answer}} dat de man?",
           "answer": "Uu",
           "translation": "Who is that man?",
           "hint": "who",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · that · there · man"
         },
         {
           "sentence": "{{answer}} mek yu a krai?",
           "answer": "Wa",
           "translation": "Why are you crying?",
           "hint": "'what makes' = why",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · make · 2SG · PROG · cry"
         },
         {
           "sentence": "{{answer}} di mango kaas?",
           "answer": "Umoch",
           "translation": "How much does the mango cost?",
           "hint": "how much",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · DEF · mango · cost"
         },
         {
           "sentence": "{{answer}} yu du dat?",
           "answer": "Ou",
           "translation": "How did you do that?",
           "hint": "how",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · 2SG · do · that"
         }
       ]
     },
@@ -640,42 +694,48 @@
           "answer": "Di",
           "translation": "The children are playing.",
           "hint": "the",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · child · PL · PROG · play"
         },
         {
           "sentence": "Gi mi {{answer}} mango, nuh?",
           "answer": "wan",
           "translation": "Give me a mango, will you?",
           "hint": "a — 'one'",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "give · 1SG · ___ · mango · Q"
         },
         {
           "sentence": "Pas mi {{answer}} buk pan di tiebl.",
           "answer": "di",
           "translation": "Pass me the book on the table.",
           "hint": "the",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "pass · 1SG · ___ · book · on · DEF · table"
         },
         {
           "sentence": "Im bai {{answer}} nyuu kyaar.",
           "answer": "wan",
           "translation": "He bought a (one) new car.",
           "hint": "one/a",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG · buy · ___ · new · car"
         },
         {
           "sentence": "{{answer}} son at tide.",
           "answer": "Di",
           "translation": "The sun is hot today.",
           "hint": "the",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · sun · hot · today"
         },
         {
           "sentence": "Mi waan {{answer}} glaas a wata.",
           "answer": "wan",
           "translation": "I want a glass of water.",
           "hint": "a",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · want · ___ · glass · of · water"
         }
       ]
     },
@@ -703,42 +763,48 @@
           "answer": "did",
           "translation": "I saw him last week.",
           "hint": "past marker",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · see · 3SG · last · week"
         },
         {
           "sentence": "Im {{answer}} sik bad.",
           "answer": "did",
           "translation": "She was very sick.",
           "hint": "past — works on adjectives",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · sick · very"
         },
         {
           "sentence": "Wi {{answer}} liv a toun wan taim.",
           "answer": "did",
           "translation": "We used to live in town once.",
           "hint": "past marker",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL · ___ · live · LOC · town · one · time"
         },
         {
           "sentence": "Dem {{answer}} nuo di chrut.",
           "answer": "did",
           "translation": "They knew the truth.",
           "hint": "before the verb",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3PL · ___ · know · DEF · truth"
         },
         {
           "sentence": "Yu {{answer}} de de wen it hapn?",
           "answer": "did",
           "translation": "Were you there when it happened?",
           "hint": "past of 'de'",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · ___ · be.LOC · there · when · 3SG · happen"
         },
         {
           "sentence": "Mi {{answer}} waan kom bot mi kudn.",
           "answer": "did",
           "translation": "I wanted to come but I couldn't.",
           "hint": "marks 'wanted'",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · ___ · want · come · but · 1SG · can.PST-NEG"
         }
       ]
     },
@@ -766,42 +832,48 @@
           "answer": "wi",
           "translation": "I will help you tomorrow.",
           "hint": "plain 'will'",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · help · 2SG · tomorrow"
         },
         {
           "sentence": "It {{answer}} rien leta.",
           "answer": "ago",
           "translation": "It's going to rain later.",
           "hint": "'going to'",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · rain · later"
         },
         {
           "sentence": "Dem {{answer}} kom a di pati.",
           "answer": "ago",
           "translation": "They are going to come to the party.",
           "hint": "planned future",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3PL · ___ · come · LOC · DEF · party"
         },
         {
           "sentence": "Yu {{answer}} si im tumaro?",
           "answer": "ago",
           "translation": "Are you going to see him tomorrow?",
           "hint": "going-to future",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "2SG · ___ · see · 3SG · tomorrow"
         },
         {
           "sentence": "Mi {{answer}} memba yu, man.",
           "answer": "wi",
           "translation": "I will remember you.",
           "hint": "will",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · ___ · remember · 2SG · man.VOC"
         },
         {
           "sentence": "Im naa {{answer}} laik dis.",
           "answer": "go",
           "translation": "He is not going to like this.",
           "hint": "the future marker after naa — not wi",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG · NEG-PROG · ___ · like · this"
         }
       ]
     },
@@ -829,42 +901,48 @@
           "answer": "don",
           "translation": "I have already eaten.",
           "hint": "the 'already/finished' marker",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · eat · already"
         },
         {
           "sentence": "Di bos {{answer}} lef.",
           "answer": "don",
           "translation": "The bus has already left.",
           "hint": "completed — already",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF · bus · ___ · leave"
         },
         {
           "sentence": "Im {{answer}} gaan a yaad.",
           "answer": "don",
           "translation": "He has already gone home.",
           "hint": "already",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG · ___ · go.PFV · LOC · home"
         },
         {
           "sentence": "Wi {{answer}} taak bout dat.",
           "answer": "don",
           "translation": "We've already talked about that.",
           "hint": "completive",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · ___ · talk · about · that"
         },
         {
           "sentence": "Di pikni dem {{answer}} bied.",
           "answer": "don",
           "translation": "The children have already bathed.",
           "hint": "finished",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF · child · PL · ___ · bathe"
         },
         {
           "sentence": "Mi did {{answer}} kuk wen dem riich.",
           "answer": "don",
           "translation": "I had already cooked when they arrived.",
           "hint": "with did = 'had already'",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · PST · ___ · cook · when · 3PL · arrive"
         }
       ]
     },
@@ -892,42 +970,48 @@
           "answer": "fi",
           "translation": "That's my book.",
           "hint": "the ownership word",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "be · ___ · 1SG · book · that"
         },
         {
           "sentence": "Di yaad a {{answer}} dem.",
           "answer": "fi",
           "translation": "The house is theirs.",
           "hint": "belonging-to",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF · house · be · ___ · 3PL"
         },
         {
           "sentence": "A fi {{answer}} dis?",
           "answer": "uu",
           "translation": "Whose is this?",
           "hint": "fi + who",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "COP · POSS · ___ · this"
         },
         {
           "sentence": "Dat a {{answer}} yu problem.",
           "answer": "fi",
           "translation": "That's your problem.",
           "hint": "possessive marker",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "that · COP · ___ · 2SG · problem"
         },
         {
           "sentence": "Mi {{answer}} yaad de a kontri.",
           "answer": "mada",
           "translation": "My mother's house is in the country.",
           "hint": "owner noun goes right before",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · ___ · house · be.at · LOC · country"
         },
         {
           "sentence": "Di moni a {{answer}} wi.",
           "answer": "fi",
           "translation": "The money is ours.",
           "hint": "belongs to",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF · money · COP · ___ · 1PL"
         }
       ]
     },
@@ -955,42 +1039,48 @@
           "answer": "se",
           "translation": "He told me that you're not coming.",
           "hint": "the 'that' word",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG · tell · 1SG · ___ · 2SG · NEG.PROG · come"
         },
         {
           "sentence": "Mi nuo {{answer}} yu kyan du it.",
           "answer": "se",
           "translation": "I know that you can do it.",
           "hint": "after 'know'",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · know · ___ · 2SG · can · do · 3SG.N"
         },
         {
           "sentence": "Mi ier {{answer}} di maakit lack tide.",
           "answer": "se",
           "translation": "I hear that the market is closed today.",
           "hint": "after 'hear'",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · hear · ___ · DEF · market · lock · today"
         },
         {
           "sentence": "Dem tink {{answer}} wi fuul.",
           "answer": "se",
           "translation": "They think that we're foolish.",
           "hint": "after 'think'",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3PL · think · ___ · 1PL · foolish"
         },
         {
           "sentence": "Mi biliiv {{answer}} it ago rien.",
           "answer": "se",
           "translation": "I believe that it's going to rain.",
           "hint": "clause opener",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · believe · ___ · 3SG.N · FUT · rain"
         },
         {
           "sentence": "Di tiicha se {{answer}} di tes aad.",
           "answer": "se",
           "translation": "The teacher said that the test is hard.",
           "hint": "the 'that' linker after a verb of telling",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF · teacher · say · ___ · DEF · test · hard"
         }
       ]
     },
@@ -1018,42 +1108,48 @@
           "answer": "fi",
           "translation": "I want to learn Patois.",
           "hint": "'to'",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · want · ___ · learn · Patois"
         },
         {
           "sentence": "Im chrai {{answer}} elp wi.",
           "answer": "fi",
           "translation": "He tried to help us.",
           "hint": "to",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · try · ___ · help · 1PL"
         },
         {
           "sentence": "Yu {{answer}} respek yu eldas.",
           "answer": "fi",
           "translation": "You should respect your elders.",
           "hint": "supposed-to",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "2SG · ___ · respect · 2SG · elder-PL"
         },
         {
           "sentence": "Notn no de {{answer}} du ya so.",
           "answer": "fi",
           "translation": "There's nothing to do here.",
           "hint": "to",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "nothing · NEG · be.at · ___ · do · here · so"
         },
         {
           "sentence": "Pikni no {{answer}} taak so.",
           "answer": "fi",
           "translation": "Children shouldn't talk like that.",
           "hint": "the 'to' particle after no (shouldn't)",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "child · NEG · ___ · talk · so"
         },
         {
           "sentence": "Wi riedi {{answer}} go nou.",
           "answer": "fi",
           "translation": "We're ready to go now.",
           "hint": "to",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · ready · ___ · go · now"
         }
       ]
     },
@@ -1081,42 +1177,48 @@
           "answer": "neva",
           "translation": "I didn't take your money.",
           "hint": "the past negative",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · take · 2SG · money"
         },
         {
           "sentence": "Im {{answer}} kom a di miitn.",
           "answer": "neva",
           "translation": "He didn't come to the meeting.",
           "hint": "didn't",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · come · LOC · DEF · meeting"
         },
         {
           "sentence": "Dem {{answer}} tel mi notn.",
           "answer": "neva",
           "translation": "They didn't tell me anything.",
           "hint": "past negative + double negative",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3PL · ___ · tell · 1SG · nothing"
         },
         {
           "sentence": "Wi {{answer}} nuo se yu de ya.",
           "answer": "neva",
           "translation": "We didn't know you were here.",
           "hint": "didn't",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · ___ · know · COMP · 2SG · be.at · here"
         },
         {
           "sentence": "Yu {{answer}} wash di pliet dem?",
           "answer": "neva",
           "translation": "You didn't wash the plates?",
           "hint": "didn't",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · ___ · wash · DEF · plate · PL"
         },
         {
           "sentence": "Mi {{answer}} miin fi beks yu.",
           "answer": "neva",
           "translation": "I didn't mean to upset you.",
           "hint": "plain 'didn't', not 'never ever'",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · ___ · mean · INF · upset · 2SG"
         }
       ]
     },
@@ -1150,7 +1252,8 @@
           "translation": "I can swim very well.",
           "hint": "can",
           "display_order": 1,
-          "cell": "kyan"
+          "cell": "kyan",
+          "gloss": "1SG · ___ · swim · good · good"
         },
         {
           "sentence": "Yu {{answer}} kom tumaro?",
@@ -1158,7 +1261,8 @@
           "translation": "Can you come tomorrow?",
           "hint": "can",
           "display_order": 2,
-          "cell": "kyan"
+          "cell": "kyan",
+          "gloss": "2SG · ___ · come · tomorrow"
         },
         {
           "sentence": "Mi {{answer}} go a wok nou.",
@@ -1166,7 +1270,8 @@
           "translation": "I have to go to work now.",
           "hint": "have to",
           "display_order": 3,
-          "cell": "hafi"
+          "cell": "hafi",
+          "gloss": "1SG · ___ · go · LOC · work · now"
         },
         {
           "sentence": "Wi {{answer}} finish dis tide.",
@@ -1174,7 +1279,8 @@
           "translation": "We have to finish this today.",
           "hint": "must/have to",
           "display_order": 4,
-          "cell": "hafi"
+          "cell": "hafi",
+          "gloss": "1PL · ___ · finish · this · today"
         },
         {
           "sentence": "Yu {{answer}} did tel mi!",
@@ -1182,7 +1288,8 @@
           "translation": "You should have told me!",
           "hint": "should (+did = should have)",
           "display_order": 5,
-          "cell": "shuda"
+          "cell": "shuda",
+          "gloss": "2SG · ___ · PST · tell · 1SG"
         },
         {
           "sentence": "Dem {{answer}} lisn to di eldas.",
@@ -1190,7 +1297,8 @@
           "translation": "They should listen to the elders.",
           "hint": "should",
           "display_order": 6,
-          "cell": "shuda"
+          "cell": "shuda",
+          "gloss": "3PL · ___ · listen · to · DEF · elder-PL"
         }
       ]
     },
@@ -1219,42 +1327,48 @@
           "answer": "go",
           "translation": "Run and call your father.",
           "hint": "the 'thither' verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "run · ___ · call · 2SG.POSS · father"
         },
         {
           "sentence": "Tek di chier {{answer}} ya.",
           "answer": "kom",
           "translation": "Bring the chair here.",
           "hint": "the 'hither' verb",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "take · DEF · chair · ___ · here"
         },
         {
           "sentence": "Im kya di fuud {{answer}} a yaad.",
           "answer": "gaan",
           "translation": "He carried the food off home.",
           "hint": "'gone' as direction",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG · carry · DEF · food · ___ · LOC · home"
         },
         {
           "sentence": "{{answer}} go bai bred fi mi.",
           "answer": "Ron",
           "translation": "Run and buy bread for me.",
           "hint": "chain starts with 'run'",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · go · buy · bread · for · 1SG"
         },
         {
           "sentence": "Dem waak {{answer}} a riva.",
           "answer": "go",
           "translation": "They walked (off) to the river.",
           "hint": "direction after 'walk'",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3PL · walk · ___ · LOC · river"
         },
         {
           "sentence": "Sen di pikni {{answer}} kaal di dakta.",
           "answer": "go",
           "translation": "Send the child to go call the doctor.",
           "hint": "send + ___ + verb",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "send · DEF · child · ___ · call · DEF · doctor"
         }
       ]
     },
@@ -1282,42 +1396,48 @@
           "answer": "tiif",
           "translation": "He STOLE the money (stealing is what he did).",
           "hint": "double of the main verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "FOC · ___ · 3SG · steal · DEF · money"
         },
         {
           "sentence": "A {{answer}} wi waak kom a toun.",
           "answer": "waak",
           "translation": "We WALKED to town.",
           "hint": "the fronted copy",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "FOC · ___ · 1PL · walk · come · LOC · town"
         },
         {
           "sentence": "A {{answer}} di pikni a krai.",
           "answer": "krai",
           "translation": "The child is really CRYING.",
           "hint": "verb copy up front",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "FOC · ___ · DEF · child · PROG · cry"
         },
         {
           "sentence": "A {{answer}} im sik, no jok.",
           "answer": "sik",
           "translation": "He is really SICK, no joke.",
           "hint": "adjectives cleft too",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "FOC · ___ · 3SG · sick · NEG · joke"
         },
         {
           "sentence": "A {{answer}} dem a ron, no waak.",
           "answer": "ron",
           "translation": "They are RUNNING, not walking.",
           "hint": "contrast cleft",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "FOC · ___ · 3PL · PROG · run · NEG · walk"
         },
         {
           "sentence": "A {{answer}} mi nyam di huol pat.",
           "answer": "nyam",
           "translation": "I ATE the whole pot (eating is what I did).",
           "hint": "double the eating verb",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "FOC · ___ · 1SG · eat · DEF · whole · pot"
         }
       ]
     },
@@ -1345,42 +1465,48 @@
           "answer": "Mek",
           "translation": "Let's go to the beach!",
           "hint": "'let' as let's",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 1PL · go · to · DEF · beach"
         },
         {
           "sentence": "{{answer}} mi si di pikcha.",
           "answer": "Mek",
           "translation": "Let me see the picture.",
           "hint": "let me",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 1SG · see · DEF · picture"
         },
         {
           "sentence": "Yu a {{answer}} mi liet fi wok.",
           "answer": "mek",
           "translation": "You're making me late for work.",
           "hint": "cause",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "2SG · PROG · ___ · 1SG · late · for · work"
         },
         {
           "sentence": "Duon {{answer}} dem chrik yu.",
           "answer": "mek",
           "translation": "Don't let them trick you.",
           "hint": "let/allow",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NEG.IMP · ___ · 3PL · trick · 2SG"
         },
         {
           "sentence": "Wa {{answer}} yu no kom?",
           "answer": "mek",
           "translation": "Why didn't you come?",
           "hint": "'what ___' = why",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "what · ___ · 2SG · NEG · come"
         },
         {
           "sentence": "{{answer}} im taak, man.",
           "answer": "Mek",
           "translation": "Let him speak.",
           "hint": "permit",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · 3SG · talk · man.VOC"
         }
       ]
     },
@@ -1408,42 +1534,48 @@
           "answer": "swiit",
           "translation": "The mango is really sweet.",
           "hint": "double it to intensify",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF · mango · ___"
         },
         {
           "sentence": "Nyam it {{answer}}-likl, no ruch.",
           "answer": "likl",
           "translation": "Eat it little by little, don't rush.",
           "hint": "bit by bit",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "eat · 3SG · ___ · NEG · rush"
         },
         {
           "sentence": "Im de de a {{answer}}-taak all die.",
           "answer": "taak",
           "translation": "He's there talking on and on all day.",
           "hint": "repeated action",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG · be.LOC · there · PROG · ___ · all · day"
         },
         {
           "sentence": "Di fuud {{answer}}-gud, man!",
           "answer": "gud",
           "translation": "The food is really good!",
           "hint": "intensifier double",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF · food · ___ · man.VOC"
         },
         {
           "sentence": "Wa mek yu a {{answer}}-luk pan mi so?",
           "answer": "luk",
           "translation": "Why do you keep looking at me like that?",
           "hint": "keep doing it",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "what · make · 2SG · PROG · ___ · at · 1SG · so"
         },
         {
           "sentence": "Mi onggl av {{answer}} rais fi nyam.",
           "answer": "soso",
           "translation": "I only have plain rice to eat.",
           "hint": "the 'only/plain' doubled word",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · only · have · ___ · rice · INF · eat"
         }
       ]
     },
@@ -1471,42 +1603,48 @@
           "answer": "a",
           "translation": "He was sleeping when I arrived.",
           "hint": "did + the -ing marker",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG · PST · ___ · sleep · when · 1SG · reach"
         },
         {
           "sentence": "Wi {{answer}} a kuk wen di lait gaan.",
           "answer": "did",
           "translation": "We were cooking when the power went.",
           "hint": "the past half of 'was cooking'",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1PL · ___ · PROG · cook · when · DEF · light · go.PST"
         },
         {
           "sentence": "Dem did {{answer}} plie futbaal huol die.",
           "answer": "a",
           "translation": "They were playing football all day.",
           "hint": "the aspect half",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3PL · PST · ___ · play · football · whole · day"
         },
         {
           "sentence": "Mi {{answer}} a taak to im wen yu kaal.",
           "answer": "did",
           "translation": "I was talking to him when you called.",
           "hint": "tense marker first",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · ___ · PROG · talk · to · 3SG · when · 2SG · call"
         },
         {
           "sentence": "Di rien did {{answer}} faal aal nait.",
           "answer": "a",
           "translation": "The rain was falling all night.",
           "hint": "second slot",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF · rain · PST · ___ · fall · all · night"
         },
         {
           "sentence": "Yu did {{answer}} sing luod luod.",
           "answer": "a",
           "translation": "You were singing very loudly.",
           "hint": "was ___-ing",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "2SG · PST · ___ · sing · loud · RED"
         }
       ]
     },
@@ -1534,42 +1672,48 @@
           "answer": "ina",
           "translation": "The children are in the yard.",
           "hint": "in",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF · child · PL · be.LOC · ___ · DEF · yard"
         },
         {
           "sentence": "Put di buk {{answer}} di tiebl.",
           "answer": "pan",
           "translation": "Put the book on the table.",
           "hint": "on",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "put · DEF · book · ___ · DEF · table"
         },
         {
           "sentence": "Kom {{answer}} di rien, man!",
           "answer": "outa",
           "translation": "Come out of the rain!",
           "hint": "out of",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "come.IMP · ___ · DEF · rain · man.VOC"
         },
         {
           "sentence": "Wi go a chorch {{answer}} Sondi.",
           "answer": "pan",
           "translation": "We go to church on Sunday.",
           "hint": "on (a day)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL · go · LOC · church · ___ · Sunday"
         },
         {
           "sentence": "No luk {{answer}} mi so.",
           "answer": "pan",
           "translation": "Don't look at me like that.",
           "hint": "look ___ someone",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "NEG · look.IMP · ___ · 1SG · so"
         },
         {
           "sentence": "Im waak {{answer}} di ous beks beks.",
           "answer": "outa",
           "translation": "He walked out of the house very angry.",
           "hint": "out of",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG · walk · ___ · DEF · house · angry · angry"
         }
       ]
     },
@@ -1597,42 +1741,48 @@
           "answer": "Ef",
           "translation": "If it rains, we're not going.",
           "hint": "if",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 3SG · rain · 1PL · NEG-PROG · go"
         },
         {
           "sentence": "Ef mi did nuo, mi {{answer}} kom.",
           "answer": "wuda",
           "translation": "If I had known, I would have come.",
           "hint": "would (have)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if · 1SG · PST · know · 1SG · ___ · come"
         },
         {
           "sentence": "Ef yu {{answer}} lisn, yu wudn ina problem.",
           "answer": "did",
           "translation": "If you had listened, you wouldn't be in trouble.",
           "hint": "the past marker in the if-clause",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if · 2SG · ___ · listen · 2SG · COND-NEG · in · problem"
         },
         {
           "sentence": "Mi {{answer}} bai it ef mi av moni.",
           "answer": "wuda",
           "translation": "I would buy it if I had money.",
           "hint": "would",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · ___ · buy · 3SG · if · 1SG · have · money"
         },
         {
           "sentence": "Ef im {{answer}} ya, im wuda laaf.",
           "answer": "did de",
           "translation": "If he had been here, he would have laughed.",
           "hint": "past + locative be",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "if · 3SG · ___ · here · 3SG · COND · laugh"
         },
         {
           "sentence": "Wa yu {{answer}} du ef yu win di moni?",
           "answer": "wuda",
           "translation": "What would you do if you won the money?",
           "hint": "would",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "what · 2SG · ___ · do · if · 2SG · win · DEF · money"
         }
       ]
     },
@@ -1660,42 +1810,48 @@
           "answer": "A",
           "translation": "It's YOU I'm talking to, not him.",
           "hint": "the focus marker up front",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 2SG · 1SG · PROG · talk · to · NEG · 3SG"
         },
         {
           "sentence": "{{answer}} we yu did de huol die?",
           "answer": "A",
           "translation": "Where exactly were you all day?",
           "hint": "focus + where",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · where · 2SG · PST · be.LOC · whole · day"
         },
         {
           "sentence": "{{answer}} mi kuk di dina, no yu.",
           "answer": "A",
           "translation": "It was ME who cooked the dinner, not you.",
           "hint": "it's-me cleft",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 1SG · cook · DEF · dinner · NEG · 2SG"
         },
         {
           "sentence": "{{answer}} tide di bos kom orli.",
           "answer": "A",
           "translation": "It's today the bus comes early.",
           "hint": "fronted time focus",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · today · DEF · bus · come · early"
         },
         {
           "sentence": "{{answer}} dat mi did a tel yu!",
           "answer": "A",
           "translation": "THAT's what I was telling you!",
           "hint": "focus on 'that'",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · that · 1SG · PST · PROG · tell · 2SG"
         },
         {
           "sentence": "{{answer}} fi mi kyaar dat.",
           "answer": "A",
           "translation": "That car is MINE.",
           "hint": "focused possession",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · POSS · 1SG · car · that"
         }
       ]
     },
@@ -1723,42 +1879,48 @@
           "answer": "chuu",
           "translation": "The mangoes are sweet, aren't they?",
           "hint": "'isn't it true'",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF · mango · PL · sweet · NEG · ___"
         },
         {
           "sentence": "Yu a kom, {{answer}}?",
           "answer": "no",
           "translation": "You're coming, right?",
           "hint": "the soft tag",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "2SG · PROG · come · ___"
         },
         {
           "sentence": "Di konsert did gud, {{answer}}?",
           "answer": "iihn",
           "translation": "The concert was good, eh?",
           "hint": "the 'eh?' tag",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF · concert · PST · good · ___"
         },
         {
           "sentence": "Kuul dong, {{answer}}.",
           "answer": "man",
           "translation": "Calm down, man.",
           "hint": "the softener (any gender)",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "cool.IMP · down · ___"
         },
         {
           "sentence": "Tek kier a yuself, {{answer}}.",
           "answer": "yaa",
           "translation": "Take care of yourself, you hear?",
           "hint": "warm advice tag",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "take · care · of · 2SG-self · ___"
         },
         {
           "sentence": "Wi ago si yu tumaro, {{answer}}?",
           "answer": "no",
           "translation": "We'll see you tomorrow, won't we?",
           "hint": "seeking agreement",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · FUT · see · 2SG · tomorrow · ___"
         }
       ]
     },
@@ -1786,42 +1948,48 @@
           "answer": "av",
           "translation": "There's a good shop in town.",
           "hint": "'it ___' = there is",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "EXPL · ___ · INDF · good · shop · at · town"
         },
         {
           "sentence": "Rien a {{answer}} tide.",
           "answer": "faal",
           "translation": "It's raining today.",
           "hint": "rain is ___ing",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "rain · PROG · ___ · today"
         },
         {
           "sentence": "Nof piipl {{answer}} a di pati.",
           "answer": "de",
           "translation": "There are lots of people at the party.",
           "hint": "existential 'are (there)'",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "plenty · people · ___ · at · DEF · party"
         },
         {
           "sentence": "Notn no {{answer}} fi nyam ina di ous.",
           "answer": "de",
           "translation": "There's nothing to eat in the house.",
           "hint": "negative existential",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "nothing · NEG · ___ · INF · eat · in · DEF · house"
         },
         {
           "sentence": "It av {{answer}} riva baka di bush.",
           "answer": "wan",
           "translation": "There's a river behind the bush.",
           "hint": "'a/one'",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "EXPL · have · ___ · river · behind · DEF · bush"
         },
         {
           "sentence": "Di son {{answer}} bad tide.",
           "answer": "at",
           "translation": "The sun is very hot today.",
           "hint": "hot (adjective as verb)",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "DEF · sun · ___ · INTENS · today"
         }
       ]
     },
@@ -1850,42 +2018,48 @@
           "answer": "nyam",
           "translation": "Deep Patois for 'he was eating': Im en a nyam.",
           "hint": "the deep-register 'eat'",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "deep · Patois · for · QUOT-3SG.M · be.PST · eat.PROG · 3SG · PST · PROG · ___"
         },
         {
           "sentence": "Mid-register: Im did a {{answer}} di rais.",
           "answer": "iit",
           "translation": "Mid-register: he was eating the rice.",
           "hint": "the English-side 'eat'",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "mid-register · 3SG · PST · PROG · ___ · DEF · rice"
         },
         {
           "sentence": "Deep past marker: Mi {{answer}} si im.",
           "answer": "en",
           "translation": "Deep-register: I saw him. (en = basilect did)",
           "hint": "the basilect 'did'",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "deep · past · marker · 1SG · ___ · see · 3SG"
         },
         {
           "sentence": "Raiz di rejista: 'ting' bikom '{{answer}}'.",
           "answer": "thing",
           "translation": "Raise the register: 'ting' becomes 'thing'.",
           "hint": "th returns as you go up",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "raise · DEF · register · QUOT-ting · become · ___"
         },
         {
           "sentence": "Puoliit plural yu: no 'unu' bot '{{answer}}'.",
           "answer": "yu",
           "translation": "Polite/high-register plural you: not 'unu' but 'yu'.",
           "hint": "the higher-register pronoun",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "polite · plural · 2SG · NEG · QUOT-2PL · but · ___"
         },
         {
           "sentence": "Yaad taak fi 'child': no 'chail' bot '{{answer}}'.",
           "answer": "pikni",
           "translation": "Yard talk for 'child': not 'chail' but 'pikni'.",
           "hint": "the deep-register word",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "yard · talk · for · QUOT-child · NEG · QUOT-child · but · ___"
         }
       ]
     },
@@ -1913,42 +2087,48 @@
           "answer": "koko",
           "translation": "One by one (cocoyam by cocoyam) fills the basket.",
           "hint": "the root vegetable in the patience proverb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "one · RED-one · ___ · fill · basket"
         },
         {
           "sentence": "Wanti wanti kyaan {{answer}}.",
           "answer": "getti",
           "translation": "Those who want can't get.",
           "hint": "rhymes with wanti",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "want-NMLZ · RED-want-NMLZ · can.NEG · ___"
         },
         {
           "sentence": "Chikin meri, {{answer}} de near.",
           "answer": "haak",
           "translation": "When the chicken is merry, the hawk is near.",
           "hint": "the predator bird",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "chicken · merry · ___ · be.LOC · near"
         },
         {
           "sentence": "{{answer}} nuo uu fi fraitn.",
           "answer": "Dopi",
           "translation": "The ghost knows whom to frighten.",
           "hint": "the ghost of folklore",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · know · who · INF · frighten"
         },
         {
           "sentence": "Yu shiek man an, yu no shiek im {{answer}}.",
           "answer": "aat",
           "translation": "You shake a man's hand, not his heart.",
           "hint": "the organ of trust",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · shake · man · hand · 2SG · NEG · shake · 3SG.POSS · ___"
         },
         {
           "sentence": "Ebri mikl mek a {{answer}}.",
           "answer": "mokl",
           "translation": "Every little bit makes a lot. (every mickle makes a muckle)",
           "hint": "rhymes with mikl",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "every · little.bit · make · INDF · ___"
         }
       ]
     },
@@ -1977,42 +2157,48 @@
           "answer": "I-an-I",
           "translation": "Rasta says: I (we) am going to the hills.",
           "hint": "the unified self pronoun",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "Rasta · say · ___ · PROG · go · LOC · DEF · hill-PL"
         },
         {
           "sentence": "No 'understand' — {{answer}}.",
           "answer": "overstand",
           "translation": "Not 'understand' — overstand.",
           "hint": "standing OVER knowledge, not under",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "NEG · understand · — · ___"
         },
         {
           "sentence": "No 'oppressor' — {{answer}}.",
           "answer": "downpressor",
           "translation": "Not 'oppressor' — downpressor.",
           "hint": "pressing goes DOWN",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · oppressor · — · ___"
         },
         {
           "sentence": "Pyuor natral fuud a {{answer}} fuud.",
           "answer": "ital",
           "translation": "Pure natural food is ital food.",
           "hint": "I- + vital",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "pure · natural · food · COP · ___ · food"
         },
         {
           "sentence": "Evriting {{answer}}, man — bles an aamoni.",
           "answer": "irie",
           "translation": "Everything is irie — blessed and in harmony.",
           "hint": "the blessed-harmony word",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "everything · ___ · man · — · blessed · and · harmony"
         },
         {
           "sentence": "Wi a huol wan {{answer}} pan di ridim.",
           "answer": "Iditation",
           "translation": "We're holding a meditation on the riddim.",
           "hint": "I- + meditation",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL · PROG · hold · INDF · ___ · on · DEF · rhythm"
         }
       ]
     },
@@ -2044,42 +2230,48 @@
           "answer": "likl",
           "translation": "Cassidy spelling for 'little': likl.",
           "hint": "phonemic — no double letters",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "Cassidy · spelling · for · little · ___"
         },
         {
           "sentence": "Cassidy spelling fi 'can't': {{answer}}.",
           "answer": "kyaan",
           "translation": "Cassidy spelling for 'can't': kyaan.",
           "hint": "ky- + long vowel",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "Cassidy · spelling · for · can-NEG · ___"
         },
         {
           "sentence": "Cassidy spelling fi 'woman': {{answer}}.",
           "answer": "uman",
           "translation": "Cassidy spelling for 'woman': uman.",
           "hint": "starts with the vowel sound",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "Cassidy · spelling · for · woman · ___"
         },
         {
           "sentence": "Popular spelling 'likkle' a Cassidy '{{answer}}'.",
           "answer": "likl",
           "translation": "The popular spelling 'likkle' is Cassidy 'likl'.",
           "hint": "same word, phonemic system",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "popular · spelling · little · COP · Cassidy · ___"
         },
         {
           "sentence": "Di Jamiekan Nyuu {{answer}} yuuz Cassidy-JLU spelling.",
           "answer": "Testiment",
           "translation": "The Jamaican New Testament uses Cassidy-JLU spelling.",
           "hint": "the 2012 Bible translation",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF · Jamaican · new · ___ · use · Cassidy-JLU · spelling"
         },
         {
           "sentence": "Miss Lou riyal niem a Louise {{answer}}.",
           "answer": "Bennett",
           "translation": "Miss Lou's real name is Louise Bennett.",
           "hint": "the mother of written Patois",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "Miss · Lou · real · name · COP · Louise · ___"
         }
       ]
     }

@@ -2167,7 +2167,8 @@
           "translation": "The movie ended at ten.",
           "hint": "ended — masculine singular of this pattern",
           "transliteration": "haseret ___ beeser.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF-movie · ___ · at-ten"
         },
         {
           "sentence": "המפתחות {{answer}} על השולחן.",
@@ -2175,7 +2176,8 @@
           "translation": "The keys are on the table.",
           "hint": "are located — present, masculine plural, matching a masculine noun",
           "transliteration": "hamaftechot ___ al hashulchan.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF-key.PL · ___ · on · DEF-table"
         },
         {
           "sentence": "אני מעדיף {{answer}} בבית הערב.",
@@ -2183,7 +2185,8 @@
           "translation": "I (m.) prefer to stay home this evening.",
           "hint": "to remain — the infinitive of this pattern, where a ה appears right after the ל",
           "display_order": 6,
-          "transliteration": "aní mi-adíf {{answer}} be-báyit ha'érev."
+          "transliteration": "aní mi-adíf {{answer}} be-báyit ha'érev.",
+          "gloss": "1SG · prefer.PRS.M.SG · ___ · in-house · DEF-evening"
         },
         {
           "sentence": "מתי {{answer}} המוזיאון החדש?",
@@ -2191,7 +2194,8 @@
           "translation": "When will the new museum open?",
           "hint": "will open, m. sg. — the future of this pattern, written with a doubled yod at the front",
           "display_order": 7,
-          "transliteration": "matái {{answer}} ha-muze'ón ha-khadásh?"
+          "transliteration": "matái {{answer}} ha-muze'ón ha-khadásh?",
+          "gloss": "when · ___ · DEF-museum · DEF-new.M.SG"
         }
       ]
     },
@@ -2210,7 +2214,8 @@
           "translation": "The flight was cancelled.",
           "hint": "was cancelled — past, feminine singular, passive of the intensive pattern",
           "transliteration": "hatisa ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF-flight · ___"
         },
         {
           "sentence": "החדר {{answer}}.",
@@ -2218,7 +2223,8 @@
           "translation": "The room is tidy.",
           "hint": "tidied — present, masculine singular of that same passive",
           "transliteration": "hacheder ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF-room · ___"
         },
         {
           "sentence": "אני {{answer}} לחתונה.",
@@ -2226,7 +2232,8 @@
           "translation": "I am invited to the wedding.",
           "hint": "invited — present, masculine singular, passive of the causative pattern",
           "transliteration": "ani ___ lachatuna.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · ___ · to.DEF-wedding"
         },
         {
           "sentence": "השיעור {{answer}} באמצע.",
@@ -2234,7 +2241,8 @@
           "translation": "The lesson was stopped halfway through.",
           "hint": "was stopped — past, masculine singular of that same passive",
           "transliteration": "hashiur ___ baemtsa.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "DEF-lesson · ___ · in.DEF-middle"
         },
         {
           "sentence": "הכללים {{answer}} בשיעור.",
@@ -2242,7 +2250,8 @@
           "translation": "The rules were explained in the lesson.",
           "hint": "were explained — past, plural, passive of the causative pattern",
           "transliteration": "haklalim ___ bashiur.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF-rule.PL · ___ · in.DEF-lesson"
         },
         {
           "sentence": "המחשב {{answer}} על ידי הטכנאי.",
@@ -2250,7 +2259,8 @@
           "translation": "The computer was repaired by the technician.",
           "hint": "was repaired — past, masculine singular; the intensive pattern turned passive, and the doer arrives in a by-phrase",
           "display_order": 6,
-          "transliteration": "hamakhshév {{answer}} al yedéi hatekhnái."
+          "transliteration": "hamakhshév {{answer}} al yedéi hatekhnái.",
+          "gloss": "DEF-computer · ___ · on · hand.PL · DEF-technician"
         },
         {
           "sentence": "האם כבר {{answer}} לדחות את הטיול?",
@@ -2258,7 +2268,8 @@
           "translation": "Has it already been decided to postpone the trip?",
           "hint": "it was decided — past, masculine singular of the passive belonging to the causative pattern; impersonal, with nobody named as deciding",
           "display_order": 7,
-          "transliteration": "ha'ím kvar {{answer}} lidkhót et hatiyúl?"
+          "transliteration": "ha'ím kvar {{answer}} lidkhót et hatiyúl?",
+          "gloss": "Q · already · ___ · INF-postpone · OBJ · DEF-trip"
         }
       ]
     },
@@ -2277,7 +2288,8 @@
           "translation": "If I had time, I would come.",
           "hint": "if, counterfactually — not the word used for a real condition",
           "transliteration": "___ haya li zman, hayiti ba.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · be.PST.3SG.M · to-1SG · time · be.PST.1SG · come.PRS.M.SG"
         },
         {
           "sentence": "אילו היה לי כסף, {{answer}} קונה דירה.",
@@ -2285,7 +2297,8 @@
           "translation": "If I had money, I'd buy an apartment.",
           "hint": "I was — the past of to be, which builds the conditional frame",
           "transliteration": "ilu haya li kesef, ___ kone dira.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "if.COND · be.PST.3SG.M · to-1SG · money · ___ · buy.PRS.M.SG · apartment"
         },
         {
           "sentence": "אילו ידעתי, הייתי {{answer}} לך.",
@@ -2293,7 +2306,8 @@
           "translation": "If I had known, I would have told you.",
           "hint": "saying — the present participle after the past of to be",
           "transliteration": "ilu yadati, hayiti ___ lekha.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "if.COND · know.PST.1SG · be.PST.1SG · ___ · to-2SG.M"
         },
         {
           "sentence": "היא {{answer}} שמחה לעזור.",
@@ -2301,7 +2315,8 @@
           "translation": "She would be glad to help.",
           "hint": "she was — feminine singular of the past of to be, here with a would-meaning",
           "transliteration": "hi ___ smecha laazor.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG.F · ___ · glad.F.SG · INF-help"
         },
         {
           "sentence": "{{answer}} הייתי עשיר, הייתי מטייל בעולם.",
@@ -2309,7 +2324,8 @@
           "translation": "If I were rich, I'd travel the world.",
           "hint": "the shorter counterfactual conjunction, common in writing",
           "transliteration": "___ hayiti ashir, hayiti metayel baolam.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · be.PST.1SG · rich.M.SG · be.PST.1SG · travel.PRS.M.SG · in.DEF-world"
         },
         {
           "sentence": "בכל קיץ היינו {{answer}} לים עם המשפחה.",
@@ -2317,7 +2333,8 @@
           "translation": "Every summer we used to travel to the sea with the family.",
           "hint": "travelling, by car or bus — the present participle, masculine plural; behind the past of to be it reads as a habit rather than a condition",
           "display_order": 6,
-          "transliteration": "be-kól káyits háy'nu {{answer}} le-yam am ha-mishpakhá."
+          "transliteration": "be-kól káyits háy'nu {{answer}} le-yam am ha-mishpakhá.",
+          "gloss": "in-every · summer · be.PST.1PL · ___ · to-sea · with · DEF-family"
         },
         {
           "sentence": "אילו {{answer}} מקשיבים לי, המצב היה אחר.",
@@ -2325,7 +2342,8 @@
           "translation": "If they had listened to me, the situation would have been different.",
           "hint": "they were — third person plural of the past of to be, opening a clause that is contrary to fact",
           "display_order": 7,
-          "transliteration": "ilú {{answer}} makshivím li, hamatsáv hayá akhér."
+          "transliteration": "ilú {{answer}} makshivím li, hamatsáv hayá akhér.",
+          "gloss": "if.COND · ___ · listen.PRS.M.PL · to-1SG · DEF-situation · be.PST.3SG.M · different.M.SG"
         }
       ]
     },
@@ -2344,7 +2362,8 @@
           "translation": "When I got home, it was raining.",
           "hint": "when I arrived — the when-prefix glued onto a past verb",
           "transliteration": "___ habayta, yarad geshem.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · DEF-house-ALL · fall.PST.3SG.M · rain"
         },
         {
           "sentence": "אכלתי לפני {{answer}} מהבית.",
@@ -2352,7 +2371,8 @@
           "translation": "I ate before I left the house.",
           "hint": "that I went out — the linking form used after the word for before",
           "transliteration": "akhalti lifney ___ mehabayit.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "eat.PST.1SG · before · ___ · from-DEF-house"
         },
         {
           "sentence": "אחרי {{answer}} את הסרט, הלכנו לישון.",
@@ -2360,7 +2380,8 @@
           "translation": "After we saw the movie, we went to sleep.",
           "hint": "that we saw — the linking form used after the word for after",
           "transliteration": "acharey ___ et haseret, halakhnu lishon.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "after · ___ · ACC · DEF-movie · go.PST.1PL · INF-sleep"
         },
         {
           "sentence": "נחכה עד {{answer}} הגשם.",
@@ -2368,7 +2389,8 @@
           "translation": "We'll wait until the rain stops.",
           "hint": "that it will end — the future tense after the word for until",
           "transliteration": "nechake ad ___ hageshem.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "wait.FUT.1PL · until · ___ · DEF-rain"
         },
         {
           "sentence": "{{answer}} עייף, אני שותה קפה.",
@@ -2376,7 +2398,8 @@
           "translation": "When I'm tired, I drink coffee.",
           "hint": "when I — the when-prefix attached straight to the pronoun",
           "transliteration": "___ ayef, ani shote kafe.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · tired.M.SG · 1SG · drink.PRS.M.SG · coffee"
         },
         {
           "sentence": "נדבר {{answer}} הפגישה, לא אחריה.",
@@ -2384,7 +2407,8 @@
           "translation": "We'll talk before the meeting, not after it.",
           "hint": "before — the time word standing straight in front of a plain noun, so it carries no linking letter",
           "display_order": 6,
-          "transliteration": "nedabér {{answer}} hapgishá, lo akharéha."
+          "transliteration": "nedabér {{answer}} hapgishá, lo akharéha.",
+          "gloss": "speak.FUT.1PL · ___ · DEF-meeting · NEG · after-3SG.F"
         },
         {
           "sentence": "מה תעשי {{answer}} את הלימודים?",
@@ -2392,7 +2416,8 @@
           "translation": "What will you (f.) do when you finish your studies?",
           "hint": "when you finish — the when-prefix riding on a future verb, second person feminine singular",
           "display_order": 7,
-          "transliteration": "ma ta'así {{answer}} et ha-limudím?"
+          "transliteration": "ma ta'así {{answer}} et ha-limudím?",
+          "gloss": "what · do.FUT.2SG.F · ___ · ACC · DEF-study.PL"
         }
       ]
     },
@@ -2411,7 +2436,8 @@
           "translation": "He said that he was tired.",
           "hint": "that he — the conjunction fused with the pronoun",
           "transliteration": "hu amar ___ ayef.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG.M · say.PST.3SG.M · ___ · tired.M.SG"
         },
         {
           "sentence": "היא סיפרה {{answer}} מחר.",
@@ -2419,7 +2445,8 @@
           "translation": "She said she would come tomorrow.",
           "hint": "that she will come — the tense stays as it was originally spoken",
           "transliteration": "hi sipra ___ machar.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG.F · tell.PST.3SG.F · ___ · tomorrow"
         },
         {
           "sentence": "שאלתי {{answer}} הוא רוצה לבוא.",
@@ -2427,7 +2454,8 @@
           "translation": "I asked whether he wanted to come.",
           "hint": "whether — the same word used for a real condition",
           "transliteration": "shaalti ___ hu rotse lavo.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "ask.PST.1SG · ___ · 3SG.M · want.PRS.M.SG · INF-come"
         },
         {
           "sentence": "אני חושב {{answer}} צודקת.",
@@ -2435,7 +2463,8 @@
           "translation": "I think you're right.",
           "hint": "that you — the conjunction with a feminine singular pronoun",
           "transliteration": "ani choshev ___ tsodeket.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · think.PRS.M.SG · ___ · correct.F.SG"
         },
         {
           "sentence": "הם אמרו {{answer}} יודעים.",
@@ -2443,7 +2472,8 @@
           "translation": "They said they didn't know.",
           "hint": "that not — the conjunction plus the negation word",
           "transliteration": "hem amru ___ yodim.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3PL.M · say.PST.3PL · ___ · know.PRS.M.PL"
         },
         {
           "sentence": "הבטחנו להם {{answer}} בזמן.",
@@ -2451,7 +2481,8 @@
           "translation": "We promised them that we would arrive on time.",
           "hint": "that we will arrive — the linking conjunction on a first person plural future verb; English may drop its that, Hebrew never does",
           "display_order": 6,
-          "transliteration": "hivtákhnu lahém {{answer}} bi-zmán."
+          "transliteration": "hivtákhnu lahém {{answer}} bi-zmán.",
+          "gloss": "promise.PST.1PL · to-3PL.M · ___ · in-time"
         },
         {
           "sentence": "הוא סיפר {{answer}} את הדירה לפני שנה.",
@@ -2459,7 +2490,8 @@
           "translation": "He said he had bought the apartment a year ago.",
           "hint": "that he bought — the conjunction on a plain past verb, third person masculine; Hebrew does not shift the tense backwards the way English does",
           "display_order": 7,
-          "transliteration": "hu sipér {{answer}} et ha-dirá lif'néi shaná."
+          "transliteration": "hu sipér {{answer}} et ha-dirá lif'néi shaná.",
+          "gloss": "3SG.M · tell.PST.3SG.M · ___ · ACC · DEF-apartment · before · year"
         }
       ]
     },
@@ -2478,7 +2510,8 @@
           "translation": "He saw me at the market.",
           "hint": "me — the object marker carrying a first person ending",
           "transliteration": "hu raa ___ bashuk.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG.M · see.PST.3SG.M · ___ · in-DEF-market"
         },
         {
           "sentence": "אני מכיר {{answer}} היטב.",
@@ -2486,7 +2519,8 @@
           "translation": "I know her well.",
           "hint": "her — the object marker with a feminine third person ending",
           "transliteration": "ani makir ___ heytev.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · know.PRS.M.SG · ___ · well"
         },
         {
           "sentence": "פגשנו {{answer}} אתמול.",
@@ -2494,7 +2528,8 @@
           "translation": "We met them yesterday.",
           "hint": "them — the plural object form",
           "transliteration": "pagashnu ___ etmol.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "meet.PST.1PL · ___ · yesterday"
         },
         {
           "sentence": "{{answer}} אתמול בעיר.",
@@ -2502,7 +2537,8 @@
           "translation": "I saw him yesterday in town.",
           "hint": "I saw him, in a single literary word — the pronoun is welded onto the verb",
           "transliteration": "___ etmol bair.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · yesterday · in-DEF-city"
         },
         {
           "sentence": "היא אוהבת {{answer}}.",
@@ -2510,7 +2546,8 @@
           "translation": "She loves you.",
           "hint": "you — the object form of the second person",
           "transliteration": "hi ohevet ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.F · love.PRS.F.SG · ___"
         },
         {
           "sentence": "למה לא הזמנת {{answer}} למסיבה?",
@@ -2518,7 +2555,8 @@
           "translation": "Why didn't you invite us to the party?",
           "hint": "us — the everyday object form for a first person plural, built on the object marker",
           "display_order": 6,
-          "transliteration": "láma lo hizmánta {{answer}} la-mesibá?"
+          "transliteration": "láma lo hizmánta {{answer}} la-mesibá?",
+          "gloss": "why · NEG · invite.PST.2SG.M · ___ · to-DEF-party"
         },
         {
           "sentence": "{{answer}} מדברת בטלפון, אך לא הפרעתי.",
@@ -2526,7 +2564,8 @@
           "translation": "I heard her speaking on the phone, but I did not interrupt.",
           "hint": "I heard her, folded into one word — literary style hangs a third person feminine object on the verb ending, where speech would keep two words",
           "display_order": 7,
-          "transliteration": "{{answer}} medabéret ba-télefon, akh lo hifráti."
+          "transliteration": "{{answer}} medabéret ba-télefon, akh lo hifráti.",
+          "gloss": "___ · speak.PRS.F.SG · in-DEF-phone · but · NEG · interrupt.PST.1SG"
         }
       ]
     },
@@ -2545,7 +2584,8 @@
           "translation": "The meeting was cancelled; however, the notice was sent late.",
           "hint": "however — the written counterpart of the everyday word for but",
           "transliteration": "hayeshiva butla, ___ hahodaa nishlecha meuchar.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF-meeting · cancel.PASS.PST.3SG.F · ___ · DEF-notice · send.PASS.PST.3SG.F · late"
         },
         {
           "sentence": "הכניסה למנויים {{answer}}.",
@@ -2553,7 +2593,8 @@
           "translation": "Entry for subscribers only.",
           "hint": "only — the formal word, which follows what it limits",
           "transliteration": "haknisa limnuyim ___.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF-entry · to-subscriber.PL · ___"
         },
         {
           "sentence": "הטיסה בוטלה {{answer}} מזג האוויר.",
@@ -2561,7 +2602,8 @@
           "translation": "The flight was cancelled due to the weather.",
           "hint": "due to — the written preposition; speech would use a different one",
           "transliteration": "hatisa butla ___ mezeg haavir.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF-flight · cancel.PASS.PST.3SG.F · ___ · blend.CSTR · DEF-air"
         },
         {
           "sentence": "{{answer}} השעה המאוחרת, המשכנו לעבוד.",
@@ -2569,7 +2611,8 @@
           "translation": "Despite the late hour, we kept working.",
           "hint": "despite — used directly before a noun in careful writing",
           "transliteration": "___ hashaa hameucheret, hemshakhnu laavod.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · DEF-hour · DEF-late.F.SG · continue.PST.1PL · INF-work"
         },
         {
           "sentence": "הוא לא הגיע, אף {{answer}}.",
@@ -2577,7 +2620,8 @@
           "translation": "He did not come, although he had promised.",
           "hint": "that he promised — the clause form after the formal word for although",
           "transliteration": "hu lo higia, af ___.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "3SG.M · NEG · arrive.PST.3SG.M · even · ___"
         },
         {
           "sentence": "הסטודנטיות {{answer}} בקבוצות קטנות בסמסטר הבא.",
@@ -2585,7 +2629,8 @@
           "translation": "The students (f.) will study in small groups next semester.",
           "hint": "will study, feminine plural — the future ending careful writing keeps, where speech reaches for the masculine plural instead",
           "display_order": 6,
-          "transliteration": "ha-studéntiot {{answer}} bi-kvutsót ktanót ba-seméster ha-bá."
+          "transliteration": "ha-studéntiot {{answer}} bi-kvutsót ktanót ba-seméster ha-bá.",
+          "gloss": "DEF-student.F.PL · ___ · in-group.F.PL · small.F.PL · in.DEF-semester · DEF-next.M.SG"
         },
         {
           "sentence": "הבקשה {{answer}} נענתה.",
@@ -2593,7 +2638,8 @@
           "translation": "The request has not yet been answered.",
           "hint": "not yet — a single word of official prose; speech needs two words to say the same thing",
           "display_order": 7,
-          "transliteration": "ha-bakashá {{answer}} na'antá."
+          "transliteration": "ha-bakashá {{answer}} na'antá.",
+          "gloss": "DEF-request · ___ · answer.PASS.PST.3SG.F"
         }
       ]
     },
@@ -2612,7 +2658,8 @@
           "translation": "The report submitted yesterday is very long.",
           "hint": "which — the free-standing relative word of written Hebrew",
           "transliteration": "hadoch ___ hugash etmol arokh meod.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "DEF-report · ___ · submit.PASS.PST.3SG.M · yesterday · long.M.SG · very"
         },
         {
           "sentence": "הנושא {{answer}} עליו דיברנו חשוב.",
@@ -2620,7 +2667,8 @@
           "translation": "The topic we spoke about is important.",
           "hint": "which — before a preposition, formal prose prefers the separate word",
           "transliteration": "hanose ___ alav dibarnu chashuv.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "DEF-topic · ___ · about-3SG.M · speak.PST.1PL · important.M.SG"
         },
         {
           "sentence": "האיש {{answer}} כאן הוא שכן שלי.",
@@ -2628,7 +2676,8 @@
           "translation": "The man who lives here is a neighbour of mine.",
           "hint": "who lives — everyday speech glues the relative straight onto the verb",
           "transliteration": "haish ___ kan hu shakhen sheli.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "DEF-man · ___ · here · 3SG.M · neighbour · POSS-1SG"
         },
         {
           "sentence": "{{answer}} לתקציב, נדון בו מחר.",
@@ -2636,7 +2685,8 @@
           "translation": "As for the budget, we'll discuss it tomorrow.",
           "hint": "as for — a frozen formal phrase built on that same relative word",
           "transliteration": "___ lataktsiv, nadun bo machar.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · to.DEF-budget · discuss.FUT.1PL · in-3SG.M · tomorrow"
         },
         {
           "sentence": "ההחלטה {{answer}} התקבלה אמש פורסמה היום.",
@@ -2644,7 +2694,8 @@
           "translation": "The decision taken last night was published today.",
           "hint": "which — the formal relative, here inside a news sentence",
           "transliteration": "hahachlata ___ hitkabla emesh pursema hayom.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "DEF-decision · ___ · accept.PASS.PST.3SG.F · last_night · publish.PASS.PST.3SG.F · DEF-day"
         },
         {
           "sentence": "זה הסרט {{answer}} עליו אתמול.",
@@ -2652,7 +2703,8 @@
           "translation": "This is the film we talked about yesterday.",
           "hint": "that we talked — speech never uses the free-standing relative here: it glues the relative straight onto the verb and leaves the preposition standing at the end.",
           "display_order": 6,
-          "transliteration": "ze ha-séret {{answer}} aláv etmól."
+          "transliteration": "ze ha-séret {{answer}} aláv etmól.",
+          "gloss": "this.M.SG · DEF-film · ___ · about-3SG.M · yesterday"
         },
         {
           "sentence": "הוא עשה את כל {{answer}} ביקשנו ממנו.",
@@ -2660,7 +2712,8 @@
           "translation": "He did everything we asked of him.",
           "hint": "that — the separate written relative, here with no noun in front of it, leaning only on the word for 'all'.",
           "display_order": 7,
-          "transliteration": "hu asá et kol {{answer}} bikáshnu miménu."
+          "transliteration": "hu asá et kol {{answer}} bikáshnu miménu.",
+          "gloss": "3SG.M · do.PST.3SG.M · OBJ · all · ___ · ask.PST.1PL · from-3SG.M"
         }
       ]
     },
@@ -2679,7 +2732,8 @@
           "translation": "He works in the Prime Minister's Office.",
           "hint": "the government — the last link, and the only one allowed the article",
           "transliteration": "hu oved bemisrad rosh ___.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG.M · work.PTCP.M.SG · in-office.CSTR · head.CSTR · ___"
         },
         {
           "sentence": "{{answer}} הספר החדש נפתח היום.",
@@ -2687,7 +2741,8 @@
           "translation": "The new school opened today.",
           "hint": "house of — the first link of the compound meaning school",
           "transliteration": "___ hasefer hechadash niftach hayom.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · DEF-book · DEF-new.M.SG · open.PASS.PST.3SG.M · DEF-day"
         },
         {
           "sentence": "קראנו את דוח ועדת {{answer}}.",
@@ -2695,7 +2750,8 @@
           "translation": "We read the report of the commission of inquiry.",
           "hint": "the investigation — the final link of a three-noun chain",
           "transliteration": "karanu et doch vaadat ___.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "read.PST.1PL · OBJ · report.CSTR · committee.CSTR · ___"
         },
         {
           "sentence": "עורך {{answer}} הגיע לפגישה.",
@@ -2703,7 +2759,8 @@
           "translation": "The lawyer arrived at the meeting.",
           "hint": "the law — the second half of the compound that means lawyer",
           "transliteration": "orekh ___ higia lapgisha.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "arranger.CSTR · ___ · arrive.PST.3SG.M · to.DEF-meeting"
         },
         {
           "sentence": "תלמידי בית {{answer}} יצאו לטיול.",
@@ -2711,7 +2768,8 @@
           "translation": "The school's pupils went on a trip.",
           "hint": "the book — the closing link of a chain that begins with pupils",
           "transliteration": "talmidey beit ___ yatsu letiyul.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "pupil.PL.CSTR · house.CSTR · ___ · go_out.PST.3PL · to-trip"
         }
       ]
     },
@@ -2730,7 +2788,8 @@
           "translation": "And there was light.",
           "hint": "and there was — a past narrated by a future-looking form",
           "transliteration": "___ or.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · light"
         },
         {
           "sentence": "{{answer}} משה אל העם.",
@@ -2738,7 +2797,8 @@
           "translation": "And Moses said to the people.",
           "hint": "and he said — the classic narrative past with a prefixed vav",
           "transliteration": "___ moshe el haam.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · Moses · to · DEF-people"
         },
         {
           "sentence": "{{answer}} ביום ההוא.",

@@ -920,7 +920,8 @@
           "translation": "There is one cat.",
           "hint": "counter for animals",
           "display_order": 3,
-          "transliteration": "goyangi han {{answer}}ga isseoyo."
+          "transliteration": "goyangi han {{answer}}ga isseoyo.",
+          "gloss": "cat · one · ___ · exist.PRS.POL"
         },
         {
           "sentence": "책 네 {{answer}}을 샀어요.",
@@ -928,7 +929,8 @@
           "translation": "I bought four books.",
           "hint": "counter for books",
           "display_order": 4,
-          "transliteration": "chaek ne {{answer}}eul sasseoyo."
+          "transliteration": "chaek ne {{answer}}eul sasseoyo.",
+          "gloss": "book · four · ___ · buy.PST.POL"
         },
         {
           "sentence": "커피 {{answer}} 잔 주세요.",
@@ -954,7 +956,8 @@
           "translation": "I met two teachers.",
           "hint": "the respectful counter for people; 명 would be too blunt for teachers",
           "display_order": 7,
-          "transliteration": "seonsaengnim du {{answer}}eul mannasseoyo."
+          "transliteration": "seonsaengnim du {{answer}}eul mannasseoyo.",
+          "gloss": "teacher.HON · two · ___ · meet.PST.POL"
         }
       ],
       "source": "ai",
@@ -983,7 +986,8 @@
           "translation": "I bought bread and milk.",
           "hint": "'and' between nouns (colloquial)",
           "display_order": 1,
-          "transliteration": "ppang{{answer}} uyureul sasseoyo."
+          "transliteration": "ppang{{answer}} uyureul sasseoyo.",
+          "gloss": "___ · milk.ACC · buy.PST.POL"
         },
         {
           "sentence": "친구{{answer}} 영화를 봤어요.",
@@ -991,7 +995,8 @@
           "translation": "I watched a movie with a friend.",
           "hint": "'together with'",
           "display_order": 2,
-          "transliteration": "chingu{{answer}} yeonghwareul bwasseoyo."
+          "transliteration": "chingu{{answer}} yeonghwareul bwasseoyo.",
+          "gloss": "___ · movie.ACC · see.PST.POL"
         },
         {
           "sentence": "저{{answer}} 가고 싶어요.",
@@ -999,7 +1004,8 @@
           "translation": "I want to go too.",
           "hint": "'also' — replaces the topic particle",
           "display_order": 3,
-          "transliteration": "jeo{{answer}} gago sipeoyo."
+          "transliteration": "jeo{{answer}} gago sipeoyo.",
+          "gloss": "___ · go.CONN · want.PRS.POL"
         },
         {
           "sentence": "커피{{answer}} 차를 좋아해요.",
@@ -1007,7 +1013,8 @@
           "translation": "I like coffee and tea.",
           "hint": "formal 'and' after a vowel",
           "display_order": 4,
-          "transliteration": "keopi{{answer}} chareul joahaeyo."
+          "transliteration": "keopi{{answer}} chareul joahaeyo.",
+          "gloss": "___ · tea.ACC · like.PRS.POL"
         },
         {
           "sentence": "책{{answer}} 공책을 주세요.",
@@ -1015,7 +1022,8 @@
           "translation": "Please give me a book and a notebook.",
           "hint": "formal 'and' after a consonant",
           "display_order": 5,
-          "transliteration": "chaek{{answer}} gongchaegeul juseyo."
+          "transliteration": "chaek{{answer}} gongchaegeul juseyo.",
+          "gloss": "___ · notebook.ACC · give.HON.IMP.POL"
         },
         {
           "sentence": "동생{{answer}} 한국어를 배워요.",
@@ -1779,7 +1787,8 @@
           "translation": "Are you going swimming this weekend?",
           "hint": "수영하다 — the ending that gives the trip its purpose, attached to a vowel stem",
           "display_order": 7,
-          "transliteration": "jumare suyeong{{answer}} gal geoyeyo?"
+          "transliteration": "jumare suyeong{{answer}} gal geoyeyo?",
+          "gloss": "weekend.LOC · ___ · go.FUT.PTCP · thing.be.PRS.POL"
         }
       ],
       "source": "ai",
@@ -1808,7 +1817,8 @@
           "translation": "My older brother is taller than me.",
           "hint": "'than' — attaches to the one being beaten",
           "display_order": 1,
-          "transliteration": "hyeongeun jeo{{answer}} keoyo."
+          "transliteration": "hyeongeun jeo{{answer}} keoyo.",
+          "gloss": "older.brother.TOP · ___ · big.PRS.POL"
         },
         {
           "sentence": "오늘은 어제보다 {{answer}} 더워요.",
@@ -1843,7 +1853,8 @@
           "translation": "The subway is faster than the bus.",
           "hint": "'than'",
           "display_order": 5,
-          "transliteration": "jihacheori beoseu{{answer}} ppallayo."
+          "transliteration": "jihacheori beoseu{{answer}} ppallayo.",
+          "gloss": "subway.NOM · ___ · fast.PRS.POL"
         },
         {
           "sentence": "이 식당이 저 식당보다 {{answer}} 비싸요.",
@@ -1890,7 +1901,8 @@
           "translation": "Thank you very much.",
           "hint": "하다 in the formal style",
           "display_order": 1,
-          "transliteration": "jeongmal gamsa{{answer}}."
+          "transliteration": "jeongmal gamsa{{answer}}.",
+          "gloss": "really · ___"
         },
         {
           "sentence": "저는 매일 회사에 {{answer}}.",
@@ -1934,7 +1946,8 @@
           "translation": "We will now begin the meeting.",
           "hint": "하다 + 겠 (intention) in the formal style",
           "display_order": 6,
-          "transliteration": "hoeuireul sijak{{answer}}."
+          "transliteration": "hoeuireul sijak{{answer}}.",
+          "gloss": "meeting.ACC · ___"
         },
         {
           "sentence": "저는 작년에 한국에 {{answer}}.",

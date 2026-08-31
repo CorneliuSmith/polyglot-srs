@@ -75,10 +75,40 @@ def harvest(paths: list[Path]) -> dict[str, str]:
     return glosses
 
 
-def check(gloss: str, sentence: str, answer: str) -> str | None:
+# Scripts that do not put spaces between words. Counting whitespace there is
+# meaningless: a whole Thai sentence is ONE token, so a correct three-cell
+# gloss of ผม{{answer}}ข้าว ("1SG.M · ___ · rice") looks like a count error.
+# 100 correct Thai glosses were rejected that way before this existed.
+UNSPACED = {"th"}
+
+
+def tokenize(sentence: str, code: str = "") -> list[str]:
+    """The units a gloss must have one cell for.
+
+    For unspaced scripts, borrow the segmentation the reading pipeline
+    already performs — the romaniser emits space-separated words and passes
+    {{answer}} through as a unit, so its output segments the sentence the
+    same way a learner reads it. Falls back to whitespace when no reading is
+    available, which is the old behaviour and right for every other course.
+    """
+    if code in UNSPACED:
+        try:
+            import sys
+            sys.path.insert(0, str(REPO))
+            from backend.services.readings import sentence_reading
+
+            reading = sentence_reading(sentence, code)
+            if reading and reading.split():
+                return reading.split()
+        except Exception:  # noqa: BLE001 — a missing reader must not block a gloss
+            pass
+    return sentence.split()
+
+
+def check(gloss: str, sentence: str, answer: str, code: str = "") -> str | None:
     """The reason to refuse *gloss*, or None when it may be written."""
     cells = [c.strip() for c in gloss.split("·")]
-    tokens = sentence.split()
+    tokens = tokenize(sentence, code)
     if len(cells) != len(tokens):
         return "cell count != token count"
     if gloss.count("___") != 1:
@@ -132,7 +162,7 @@ def main() -> int:
             rejected["drill not found"] += 1
             continue
         why = check((gloss or "").strip(), (drill.get("sentence") or "").strip(),
-                    (drill.get("answer") or "").strip())
+                    (drill.get("answer") or "").strip(), code)
         if why:
             rejected[why] += 1
             continue

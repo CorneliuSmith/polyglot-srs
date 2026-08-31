@@ -47,49 +47,56 @@
           "answer": "mau",
           "translation": "I want to eat.",
           "hint": "want — same form for every subject",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · eat"
         },
         {
           "sentence": "Kami {{answer}} makan.",
           "answer": "mau",
           "translation": "We want to eat.",
           "hint": "want — unchanged, no conjugation for \"we\"",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1PL.EXCL · ___ · eat"
         },
         {
           "sentence": "Dia {{answer}} makan.",
           "answer": "mau",
           "translation": "He/she wants to eat.",
           "hint": "want — unchanged, no -s ending like English",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG · ___ · eat"
         },
         {
           "sentence": "Mereka tidak {{answer}} kopi.",
           "answer": "minum",
           "translation": "They don't drink coffee.",
           "hint": "drink — one form serves every subject, in a negative sentence too",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3PL · NEG · ___ · coffee"
         },
         {
           "sentence": "Kamu {{answer}} ke pasar kemarin?",
           "answer": "pergi",
           "translation": "Did you go to the market yesterday?",
           "hint": "go — there is no past form to reach for, even in a question about yesterday",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · ___ · to · market · yesterday"
         },
         {
           "sentence": "Ibu saya {{answer}} di Bandung.",
           "answer": "tinggal",
           "translation": "My mother lives in Bandung.",
           "hint": "live, reside — Indonesian has nothing like the English third-person ending",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "mother · 1SG · ___ · at · Bandung"
         },
         {
           "sentence": "Kemarin kami {{answer}} di rumah teman saya.",
           "answer": "tidur",
           "translation": "Yesterday we slept at my friend's house.",
           "hint": "sleep — the plain verb covers a past event; only the time word says when",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "yesterday · 1PL.EXCL · ___ · at · house · friend · 1SG"
         }
       ]
     },
@@ -107,42 +114,48 @@
           "answer": "besar",
           "translation": "a big house",
           "hint": "big — placed after the noun",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "house · ___"
         },
         {
           "sentence": "buku {{answer}}",
           "answer": "baru",
           "translation": "a new book",
           "hint": "new — after the noun, not before",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "book · ___"
         },
         {
           "sentence": "teman {{answer}}",
           "answer": "baik",
           "translation": "a good friend",
           "hint": "good — adjective follows the noun",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "friend · ___"
         },
         {
           "sentence": "Dia punya {{answer}}.",
           "answer": "kucing hitam",
           "translation": "He has a black cat.",
           "hint": "a black cat — name the animal first, then its colour",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG · have · ___"
         },
         {
           "sentence": "Ini {{answer}} saya.",
           "answer": "teman baru",
           "translation": "This is my new friend.",
           "hint": "new friend — the describing word sits between the noun and its owner",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "this · ___ · 1SG"
         },
         {
           "sentence": "Kami makan di restoran {{answer}} itu.",
           "answer": "kecil",
           "translation": "We eat at that small restaurant.",
           "hint": "small — it follows the noun and comes before the word meaning 'that'",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL.EXCL · eat · at · restaurant · ___ · that"
         }
       ]
     },
@@ -160,49 +173,56 @@
           "answer": "tidak",
           "translation": "This house isn't big.",
           "hint": "not — negates the adjective besar",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "house · this · ___ · big"
         },
         {
           "sentence": "Saya {{answer}} suka.",
           "answer": "tidak",
           "translation": "I don't like (it).",
           "hint": "not — negates the verb suka",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · ___ · like"
         },
         {
           "sentence": "Ini {{answer}} buku saya.",
           "answer": "bukan",
           "translation": "This isn't my book.",
           "hint": "not — negates the noun/identity, not tidak",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "this · ___ · book · 1SG"
         },
         {
           "sentence": "Kenapa kamu {{answer}} datang kemarin?",
           "answer": "tidak",
           "translation": "Why didn't you come yesterday?",
           "hint": "not — the negator for a verb; the question word in front makes no difference",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "why · 2SG · ___ · come · yesterday"
         },
         {
           "sentence": "Saya {{answer}} orang Jepang.",
           "answer": "bukan",
           "translation": "I'm not Japanese.",
           "hint": "not — what follows names who someone is, a noun, so the verb negator is wrong here",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · ___ · person · Japan"
         },
         {
           "sentence": "Dia {{answer}} mau makan.",
           "answer": "tidak",
           "translation": "He doesn't want to eat.",
           "hint": "not — it goes in front of the verb it cancels, ahead of the word for 'want'",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG · ___ · want · eat"
         },
         {
           "sentence": "Mobil itu {{answer}} punya saya.",
           "answer": "bukan",
           "translation": "That car isn't mine.",
           "hint": "not — 'punya saya' says whose it is, and identity like that takes the noun negator",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "car · that · ___ · have · 1SG"
         }
       ]
     },
@@ -220,42 +240,48 @@
           "answer": "saya",
           "translation": "my house",
           "hint": "my — just place the pronoun after the noun",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "house · ___"
         },
         {
           "sentence": "buku {{answer}}",
           "answer": "dia",
           "translation": "his/her book",
           "hint": "his/her — no possessive marker needed",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "book · ___"
         },
         {
           "sentence": "teman {{answer}}",
           "answer": "kita",
           "translation": "our friend (yours and mine)",
           "hint": "our — inclusive \"we,\" right after the noun",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "friend · ___"
         },
         {
           "sentence": "Nama {{answer}} siapa?",
           "answer": "kamu",
           "translation": "What's your name?",
           "hint": "your (one person, informal) — the owner word simply follows the thing owned, even in a question",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "name · ___ · who"
         },
         {
           "sentence": "Ini mobil {{answer}}.",
           "answer": "ayah saya",
           "translation": "This is my father's car.",
           "hint": "my father, as the owner — an owner slot can itself be a noun with its own owner, in the same order",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "this · car · ___"
         },
         {
           "sentence": "Anjing {{answer}} sangat besar.",
           "answer": "mereka",
           "translation": "Their dog is very big.",
           "hint": "their — no special possessive form exists; the plain pronoun sits right after the noun",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "dog · ___ · very · big"
         }
       ]
     },
@@ -273,49 +299,56 @@
           "answer": "buku-buku",
           "translation": "There are books at home.",
           "hint": "books — the plural repeats the singular whole, with a hyphen joining the two halves",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "at · house · exist · ___"
         },
         {
           "sentence": "Di kota ada {{answer}}.",
           "answer": "anak-anak",
           "translation": "There are children in the city.",
           "hint": "children — no plural ending exists; the noun is doubled instead, the two halves joined by a hyphen",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "at · city · exist · ___"
         },
         {
           "sentence": "Saya punya {{answer}}.",
           "answer": "teman-teman",
           "translation": "I have friends.",
           "hint": "friends — the noun is spoken twice, hyphenated, to mean more than one (punya = 'to have')",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · have · ___"
         },
         {
           "sentence": "Di mana {{answer}} itu sekarang?",
           "answer": "orang-orang",
           "translation": "Where are those people now?",
           "hint": "people — this plural is made by repetition, not by an ending",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "at · where · ___ · that · now"
         },
         {
           "sentence": "Saya suka {{answer}} tua di kota ini.",
           "answer": "rumah-rumah",
           "translation": "I like the old houses in this city.",
           "hint": "houses — repeat the noun in full, and keep the describing word after it",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · like · ___ · old · at · city · this"
         },
         {
           "sentence": "Pada hari Minggu, {{answer}} tutup.",
           "answer": "toko-toko",
           "translation": "On Sundays, the shops are closed.",
           "hint": "shops — say the noun twice, hyphenated, for the plural",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "on · day · Sunday · ___ · close"
         },
         {
           "sentence": "Dia tidak suka {{answer}} besar.",
           "answer": "kota-kota",
           "translation": "She doesn't like big cities.",
           "hint": "cities — the doubled noun carries the plural; a negative sentence needs no other marking",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "3SG · NEG · like · ___ · big"
         }
       ]
     },
@@ -333,42 +366,48 @@
           "answer": "sudah",
           "translation": "I have already eaten.",
           "hint": "already — marks a completed action, before the verb",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · eat"
         },
         {
           "sentence": "Saya {{answer}} makan.",
           "answer": "belum",
           "translation": "I haven't eaten yet.",
           "hint": "not yet — before the verb",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · ___ · eat"
         },
         {
           "sentence": "Saya {{answer}} makan.",
           "answer": "akan",
           "translation": "I will eat.",
           "hint": "will — marks the future, before the verb",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · ___ · eat"
         },
         {
           "sentence": "Kamu {{answer}} minum obat?",
           "answer": "sudah",
           "translation": "Have you taken your medicine yet?",
           "hint": "already — the completion marker, in front of the verb in a question too",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "2SG · ___ · drink · medicine"
         },
         {
           "sentence": "Besok kami {{answer}} pergi ke Bali.",
           "answer": "akan",
           "translation": "Tomorrow we will go to Bali.",
           "hint": "will — the future marker still comes before the verb, even when a time word names the day",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "tomorrow · 1PL.EXCL · ___ · go · to · Bali"
         },
         {
           "sentence": "Anak saya {{answer}} besar sekarang.",
           "answer": "sudah",
           "translation": "My child is grown up now.",
           "hint": "already — the same completion marker works in front of a describing word, not only a verb",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "child · 1SG · ___ · big · now"
         }
       ]
     },
@@ -386,49 +425,56 @@
           "answer": "apakah",
           "translation": "Do you want to eat?",
           "hint": "the yes/no question word that stands in front of the whole clause; nothing behind it moves",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · 2SG · want · eat"
         },
         {
           "sentence": "{{answer}} dia suka buku ini?",
           "answer": "apakah",
           "translation": "Does he/she like this book?",
           "hint": "the question marker Indonesian puts at the very start — the statement order is kept intact after it",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 3SG · like · book · this"
         },
         {
           "sentence": "{{answer}} ini rumah kamu?",
           "answer": "apakah",
           "translation": "Is this your house?",
           "hint": "the front-of-sentence marker that turns a statement into a yes/no question",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · this · house · 2SG"
         },
         {
           "sentence": "{{answer}} kamu tidak suka kopi?",
           "answer": "apakah",
           "translation": "Don't you like coffee?",
           "hint": "the yes/no question word still leads, even when the sentence already carries a negative",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · 2SG · NEG · like · coffee"
         },
         {
           "sentence": "{{answer}} mereka sudah datang?",
           "answer": "apakah",
           "translation": "Have they arrived yet?",
           "hint": "open the question with the marker; the completed-action word stays in its usual place before the verb",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · 3PL · PRF · come"
         },
         {
           "sentence": "{{answer}} kita bisa duduk di sini?",
           "answer": "apakah",
           "translation": "Can we sit here?",
           "hint": "front the yes/no question word — subject and verb behind it keep statement order",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · 1PL.INCL · can · sit · at · here"
         },
         {
           "sentence": "{{answer}} Anda punya waktu sebentar?",
           "answer": "apakah",
           "translation": "Do you have a moment? (formal)",
           "hint": "the question opener expected in polite and written Indonesian, placed before the subject",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · 2SG.POL · have · time · moment"
         }
       ]
     },
@@ -446,49 +492,56 @@
           "answer": "anda",
           "translation": "Would you like to eat? (formal/polite)",
           "hint": "you, formal/polite — used with strangers or in writing",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · want · eat"
         },
         {
           "sentence": "{{answer}} pergi ke rumah, bukan kamu.",
           "answer": "kami",
           "translation": "We (not you) are going home.",
           "hint": "we, excluding the listener",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · go · to · house · NEG · 2SG"
         },
         {
           "sentence": "{{answer}} pergi ke kota.",
           "answer": "kita",
           "translation": "We (including you) are going to the city.",
           "hint": "we, including the listener",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · go · to · city"
         },
         {
           "sentence": "{{answer}} tinggal di mana sekarang?",
           "answer": "kamu",
           "translation": "Where do you live now?",
           "hint": "you — speaking to a friend of your own age; the polite written form would sound stiff here",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · live · at · where · now"
         },
         {
           "sentence": "Silakan isi formulir ini sebelum {{answer}} masuk.",
           "answer": "Anda",
           "translation": "Please fill in this form before you enter.",
           "hint": "you — the distant, respectful form a public notice uses for a reader it has never met",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "please.POL · fill.IMP · form · this · before · ___ · enter"
         },
         {
           "sentence": "{{answer}} sudah makan, tapi kamu belum.",
           "answer": "kami",
           "translation": "We have already eaten, but you haven't.",
           "hint": "we — one side of the contrast, and the person addressed is on the other side",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · PRF · eat · but · 2SG · NEG.PRF"
         },
         {
           "sentence": "Ayo, {{answer}} berangkat sekarang!",
           "answer": "kita",
           "translation": "Come on, let's leave now!",
           "hint": "we — an invitation gathers the listener in rather than leaving them out",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "IMP · ___ · depart · now"
         }
       ]
     },
@@ -506,49 +559,56 @@
           "answer": "membaca",
           "translation": "I read a book every night.",
           "hint": "baca + meN- → mem- before b",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · book · every · night"
         },
         {
           "sentence": "Dia {{answer}} surat untuk ibunya.",
           "answer": "menulis",
           "translation": "He writes a letter to his mother.",
           "hint": "tulis + meN- → men-, and t drops",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · letter · for · mother-3SG.POSS"
         },
         {
           "sentence": "Mereka {{answer}} paket itu kemarin.",
           "answer": "mengirim",
           "translation": "They sent that parcel yesterday.",
           "hint": "kirim + meN- → meng-, and k drops",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3PL · ___ · parcel · that · yesterday"
         },
         {
           "sentence": "Kami {{answer}} film di bioskop.",
           "answer": "menonton",
           "translation": "We watch a film at the cinema.",
           "hint": "tonton + meN- → men-, t drops",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1PL.EXCL · ___ · film · at · cinema"
         },
         {
           "sentence": "Apakah kamu {{answer}} kamar ini setiap bulan?",
           "answer": "menyewa",
           "translation": "Do you rent this room every month?",
           "hint": "sewa + meN- — the nasal form that goes with an s root, and the s itself drops out",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "Q · 2SG · ___ · room · this · every · month"
         },
         {
           "sentence": "Saya belum {{answer}} rambut sejak bulan lalu.",
           "answer": "memotong",
           "translation": "I haven't cut my hair since last month.",
           "hint": "potong + meN- — the same nasal as before b, but a p drops where the b of baca stays",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · NEG.PRF · ___ · hair · since · month · last"
         },
         {
           "sentence": "Dari jendela kamar, saya {{answer}} laut.",
           "answer": "melihat",
           "translation": "From my bedroom window I see the sea.",
           "hint": "lihat + meN- — before l the nasal vanishes and the root keeps every letter",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "from · window · room · 1SG · ___ · sea"
         }
       ]
     },
@@ -566,42 +626,48 @@
           "answer": "bermain",
           "translation": "The children play in the park.",
           "hint": "main + ber- — intransitive",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "child-PL · ___ · LOC · park"
         },
         {
           "sentence": "Ayah saya {{answer}} di rumah sakit.",
           "answer": "bekerja",
           "translation": "My father works at the hospital.",
           "hint": "kerja + ber- → be- (irregular)",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "father · 1SG · ___ · LOC · house · sick"
         },
         {
           "sentence": "Kami {{answer}} setiap hari Minggu.",
           "answer": "berenang",
           "translation": "We swim every Sunday.",
           "hint": "renang + ber- → be- before r",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL.EXCL · ___ · every · day · Sunday"
         },
         {
           "sentence": "Dia {{answer}} ke sekolah setiap pagi.",
           "answer": "berjalan",
           "translation": "She walks to school every morning.",
           "hint": "jalan + ber-",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG · ___ · to · school · every · morning"
         },
         {
           "sentence": "Ibu saya {{answer}} pendek sekarang.",
           "answer": "berambut",
           "translation": "My mother has short hair now.",
           "hint": "rambut + ber- — the 'having' sense: the prefix on a noun says the subject possesses it",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "mother · 1SG · ___ · short · now"
         },
         {
           "sentence": "Jangan {{answer}} terlalu cepat, saya tidak mengerti.",
           "answer": "berbicara",
           "translation": "Don't speak too fast, I don't understand.",
           "hint": "bicara + ber- — no object follows; the person you address arrives with dengan",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "NEG.IMP · ___ · too · fast · 1SG · NEG · understand"
         }
       ]
     },
@@ -619,49 +685,56 @@
           "answer": "dibaca",
           "translation": "That book is read by thousands of people.",
           "hint": "baca + di- — the object leads",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "book · that · ___ · by · thousand-PL · person"
         },
         {
           "sentence": "Surat ini {{answer}} kemarin.",
           "answer": "dikirim",
           "translation": "This letter was sent yesterday.",
           "hint": "kirim + di-",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "letter · this · ___ · yesterday"
         },
         {
           "sentence": "Rumah itu {{answer}} tahun lalu.",
           "answer": "dijual",
           "translation": "That house was sold last year.",
           "hint": "jual + di-",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "house · that · ___ · year · last"
         },
         {
           "sentence": "Pintu {{answer}} oleh penjaga.",
           "answer": "dibuka",
           "translation": "The door was opened by the guard.",
           "hint": "buka + di-",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "door · ___ · by · AGT-guard"
         },
         {
           "sentence": "Kapan gedung ini {{answer}}?",
           "answer": "dibangun",
           "translation": "When was this building built?",
           "hint": "bangun + di- — the thing affected is the subject and the builder is left unsaid",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "when · building · this · ___"
         },
         {
           "sentence": "Pintu belakang tidak {{answer}} tadi malam.",
           "answer": "dikunci",
           "translation": "The back door wasn't locked last night.",
           "hint": "kunci + di- — the door leads the sentence, so the verb takes the passive prefix, not meN-",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "door · back · NEG · ___ · earlier · night"
         },
         {
           "sentence": "Kue ini {{answer}} oleh ibu saya setiap tahun.",
           "answer": "dibuat",
           "translation": "This cake is made by my mother every year.",
           "hint": "buat + di- — ordinary Indonesian, not stiff English; the maker follows oleh",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "cake · this · ___ · by · mother · 1SG · every · year"
         }
       ]
     },
@@ -679,35 +752,40 @@
           "answer": "lebih",
           "translation": "He is taller than me.",
           "hint": "the 'more' marker that sits in front of the adjective, paired with the 'than' word later in the sentence",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG · ___ · tall · than · 1SG"
         },
         {
           "sentence": "Ini restoran {{answer}} enak di kota.",
           "answer": "paling",
           "translation": "This is the tastiest restaurant in town.",
           "hint": "the free-standing superlative word placed before the adjective — the two-word alternative to the ter- prefix",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "this · restaurant · ___ · tasty · LOC · town"
         },
         {
           "sentence": "Gunung itu yang {{answer}} di Indonesia.",
           "answer": "tertinggi",
           "translation": "That is the highest mountain in Indonesia.",
           "hint": "ter- + tinggi",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "mountain · that · REL · ___ · LOC · Indonesia"
         },
         {
           "sentence": "Adik saya {{answer}} tinggi dengan saya.",
           "answer": "setinggi",
           "translation": "My sibling is as tall as me.",
           "hint": "se- + adjective",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "younger.sibling · 1SG · ___ · tall · with · 1SG"
         },
         {
           "sentence": "Naik kereta lebih cepat {{answer}} naik bus.",
           "answer": "daripada",
           "translation": "Taking the train is faster than taking the bus.",
           "hint": "the word that introduces what something is measured against, after the adjective",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "ride · train · COMP · fast · ___ · ride · bus"
         }
       ]
     },
@@ -725,49 +803,56 @@
           "answer": "orang",
           "translation": "There are three teachers here.",
           "hint": "Teachers are people, so the classifier for humans goes between the number and the noun.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "exist · three · ___ · teacher · LOC · here"
         },
         {
           "sentence": "Saya punya dua {{answer}} kucing.",
           "answer": "ekor",
           "translation": "I have two cats.",
           "hint": "Cats are animals; use the classifier reserved for creatures, not the one for people.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · have · two · ___ · cat"
         },
         {
           "sentence": "Dia membeli lima {{answer}} buku.",
           "answer": "buah",
           "translation": "She bought five books.",
           "hint": "Books are neither people nor animals, so the classifier for inanimate things belongs here.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG · ACT-buy · five · ___ · book"
         },
         {
           "sentence": "Sepuluh {{answer}} mahasiswa datang.",
           "answer": "orang",
           "translation": "Ten students came.",
           "hint": "Students are people too, so the same human classifier follows the number.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "ten · ___ · student · come"
         },
         {
           "sentence": "Mau pesan meja untuk berapa {{answer}}?",
           "answer": "orang",
           "translation": "How many people would you like to book a table for?",
           "hint": "The count is of human beings, and here the classifier stands on its own with no noun after it.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "want · order · table · for · how.many · ___"
         },
         {
           "sentence": "Kami melihat tiga {{answer}} burung di pohon itu.",
           "answer": "ekor",
           "translation": "We saw three birds in that tree.",
           "hint": "Birds are animals, so the number takes the animal classifier before the noun.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL.EXCL · ACT-see · three · ___ · bird · LOC · tree · that"
         },
         {
           "sentence": "Kamu perlu berapa {{answer}} kursi untuk rapat besok?",
           "answer": "buah",
           "translation": "How many chairs do you need for tomorrow's meeting?",
           "hint": "Chairs are inanimate things, so the number takes the classifier used for objects.",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "2SG · need · how.many · ___ · chair · for · meeting · tomorrow"
         }
       ]
     },
@@ -785,42 +870,48 @@
           "answer": "Ada",
           "translation": "There is a problem with this computer.",
           "hint": "Opens the sentence with bare existence: something is out there, and no subject is needed before it.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · problem · with · computer · this"
         },
         {
           "sentence": "Dia {{answer}} di kantor sekarang.",
           "answer": "ada",
           "translation": "He is at the office now.",
           "hint": "Says the person is physically present, with the place phrase following it.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · LOC · office · now"
         },
         {
           "sentence": "Tidak {{answer}} orang di rumah.",
           "answer": "ada",
           "translation": "There is nobody at home.",
           "hint": "After tidak comes the existence verb; together they say nobody is there.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "NEG · ___ · person · LOC · house"
         },
         {
           "sentence": "{{answer}} pertanyaan?",
           "answer": "Ada",
           "translation": "Any questions?",
           "hint": "Existence again, this time opening a short question that invites the listener to speak up.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · NMLZ-ask-NMLZ"
         },
         {
           "sentence": "Kamu {{answer}} uang kecil?",
           "answer": "ada",
           "translation": "Do you have small change?",
           "hint": "The everyday spoken way to ask whether someone has something on them; careful writing would use punya instead.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · ___ · money · small"
         },
         {
           "sentence": "Di kulkas masih {{answer}} sedikit susu.",
           "answer": "ada",
           "translation": "There is still a little milk in the fridge.",
           "hint": "The existence word that says something is there, placed right after masih.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "LOC · fridge · still · ___ · a.little · milk"
         }
       ]
     },
@@ -838,49 +929,56 @@
           "answer": "mana",
           "translation": "Where do you live?",
           "hint": "The question word for place — Indonesian leaves it in the very slot the answer would fill, right after di.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "2SG · live · LOC · ___"
         },
         {
           "sentence": "{{answer}} nama kamu?",
           "answer": "Siapa",
           "translation": "What is your name?",
           "hint": "Indonesian asks for a name with the person question word, not the one for things.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · name · 2SG"
         },
         {
           "sentence": "{{answer}} kamu datang?",
           "answer": "Kapan",
           "translation": "When are you coming?",
           "hint": "The time question: on what day, at what hour.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 2SG · come"
         },
         {
           "sentence": "{{answer}} harganya?",
           "answer": "Berapa",
           "translation": "How much is it?",
           "hint": "Asking a quantity, here the amount of money something costs.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · price-3SG.POSS"
         },
         {
           "sentence": "Kamu sedang membaca {{answer}}?",
           "answer": "apa",
           "translation": "What are you reading?",
           "hint": "The word for 'what', left in the object slot where the answer would go rather than moved to the front.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · PROG · ACT-read · ___"
         },
         {
           "sentence": "{{answer}} cara pergi ke stasiun?",
           "answer": "Bagaimana",
           "translation": "How do I get to the station?",
           "hint": "The manner question, fronted here: it asks by what means or in what way.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · way · go · to · station"
         },
         {
           "sentence": "Kamu pergi ke pasar dengan {{answer}}?",
           "answer": "siapa",
           "translation": "Who are you going to the market with?",
           "hint": "The person question word again, this time left in place after the preposition instead of moved to the front.",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "2SG · go · to · market · with · ___"
         }
       ]
     },
@@ -898,49 +996,56 @@
           "answer": "bisa",
           "translation": "I can speak Indonesian.",
           "hint": "Ability, something you have learned to do; the modal goes straight before the verb and never changes shape.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · INTR-speak · language · Indonesia"
         },
         {
           "sentence": "Kamu {{answer}} masuk sekarang.",
           "answer": "boleh",
           "translation": "You may come in now.",
           "hint": "Granting permission rather than describing what someone is able to do.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "2SG · ___ · enter · now"
         },
         {
           "sentence": "Kita {{answer}} pergi sekarang.",
           "answer": "harus",
           "translation": "We must go now.",
           "hint": "Obligation with no choice about it, marked by a word before the verb.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1PL.INCL · ___ · go · now"
         },
         {
           "sentence": "Dia tidak {{answer}} datang hari ini.",
           "answer": "bisa",
           "translation": "He can't come today.",
           "hint": "Negated ability: something prevents him, so tidak plus the modal of being able.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG · NEG · ___ · come · day · this"
         },
         {
           "sentence": "Kamu {{answer}} minum apa?",
           "answer": "mau",
           "translation": "What would you like to drink?",
           "hint": "Taking an order: the plain spoken verb of wanting rather than the more formal ingin, standing directly before the verb.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · ___ · drink · what"
         },
         {
           "sentence": "Apakah saya {{answer}} duduk di sini?",
           "answer": "boleh",
           "translation": "May I sit here?",
           "hint": "Asking for permission rather than stating ability; the modal sits between the subject and the verb.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "Q · 1SG · ___ · sit · LOC · here"
         },
         {
           "sentence": "Kamu tidak {{answer}} khawatir, saya sudah membeli tiketnya.",
           "answer": "perlu",
           "translation": "You don't need to worry, I've already bought the tickets.",
           "hint": "Telling someone there is no need at all, which is not the same as lifting an obligation with harus.",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "2SG · NEG · ___ · worry · 1SG · PRF · AV-buy · ticket-DEF"
         }
       ]
     },
@@ -958,49 +1063,56 @@
           "answer": "di",
           "translation": "The book is on the table.",
           "hint": "Nothing is moving, so the static preposition pairs with atas to name the surface.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "book · that · exist · ___ · top · table"
         },
         {
           "sentence": "Saya pergi {{answer}} pasar.",
           "answer": "ke",
           "translation": "I'm going to the market.",
           "hint": "Movement toward a destination takes the goal preposition, not the static one.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · go · ___ · market"
         },
         {
           "sentence": "Dia datang {{answer}} Jakarta.",
           "answer": "dari",
           "translation": "She comes from Jakarta.",
           "hint": "The city is where she started out, so this is the source preposition.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG · come · ___ · Jakarta"
         },
         {
           "sentence": "Kucing itu {{answer}} bawah kursi.",
           "answer": "di",
           "translation": "The cat is under the chair.",
           "hint": "Position underneath something, stated with the static preposition before bawah.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "cat · that · ___ · bottom · chair"
         },
         {
           "sentence": "Kamu berasal {{answer}} mana?",
           "answer": "dari",
           "translation": "Where are you from?",
           "hint": "Origin: the preposition that marks the starting point someone comes out of.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "2SG · INTR-origin · ___ · where"
         },
         {
           "sentence": "Saya menunggu kamu {{answer}} depan sekolah.",
           "answer": "di",
           "translation": "I'll wait for you in front of the school.",
           "hint": "Nobody is moving, so the static at/in/on preposition pairs with depan.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · AV-wait · 2SG · ___ · front · school"
         },
         {
           "sentence": "Anak-anak tidak boleh masuk {{answer}} dapur.",
           "answer": "ke",
           "translation": "The children are not allowed into the kitchen.",
           "hint": "Motion into a place: the goal preposition follows the verb of entering.",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "child-PL · NEG · may · enter · ___ · kitchen"
         }
       ]
     },
@@ -1018,49 +1130,56 @@
           "answer": "sedang",
           "translation": "I'm eating right now.",
           "hint": "In progress as you speak: the standard marker that goes before the verb, not the colloquial lagi.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · eat · now"
         },
         {
           "sentence": "Dia {{answer}} tinggal di sini.",
           "answer": "masih",
           "translation": "She still lives here.",
           "hint": "The situation began earlier and has not stopped, and one word before the verb says so.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · live · LOC · here"
         },
         {
           "sentence": "Kamu {{answer}} ke Bali?",
           "answer": "pernah",
           "translation": "Have you ever been to Bali?",
           "hint": "Asking about experience at any point in a life, not about one particular time.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "2SG · ___ · ALL · Bali"
         },
         {
           "sentence": "Saya {{answer}} saja sampai.",
           "answer": "baru",
           "translation": "I've just arrived.",
           "hint": "A moment ago, very recently; the marker pairs with saja here.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · ___ · only · arrive"
         },
         {
           "sentence": "Saya belum {{answer}} makan durian.",
           "answer": "pernah",
           "translation": "I have never eaten durian.",
           "hint": "Never so far in a lifetime: after belum comes the marker of experience.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · NEG.yet · ___ · eat · durian"
         },
         {
           "sentence": "Maaf, saya tidak bisa bicara sekarang, saya {{answer}} rapat.",
           "answer": "sedang",
           "translation": "Sorry, I can't talk right now, I'm in a meeting.",
           "hint": "In the middle of something at this very moment, which is why the call has to wait.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "sorry · 1SG · NEG · can · speak · now · 1SG · ___ · meeting"
         },
         {
           "sentence": "Kamu {{answer}} lapar atau sudah kenyang?",
           "answer": "masih",
           "translation": "Are you still hungry, or are you full now?",
           "hint": "Asking whether the state carries on, set against sudah in the same question.",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "2SG · ___ · hungry · or · PRF · full"
         }
       ]
     },
@@ -1078,42 +1197,48 @@
           "answer": "membelikan",
           "translation": "I bought my sibling a book.",
           "hint": "beli + meN- + -kan — for someone",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · younger.sibling · 1SG · one-CLF · book"
         },
         {
           "sentence": "Dia {{answer}} gelas itu.",
           "answer": "menjatuhkan",
           "translation": "He dropped the glass.",
           "hint": "jatuh + -kan — made it fall",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · glass · that"
         },
         {
           "sentence": "Tolong {{answer}} pintu.",
           "answer": "bukakan",
           "translation": "Please open the door (for me).",
           "hint": "buka + -kan — imperative, benefactive",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "please · ___ · door"
         },
         {
           "sentence": "Mereka {{answer}} perusahaan itu.",
           "answer": "membesarkan",
           "translation": "They grew that company.",
           "hint": "besar + -kan — causative",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3PL · ___ · NMLZ-effort-NMLZ · that"
         },
         {
           "sentence": "Bisakah kamu {{answer}} saya segelas air?",
           "answer": "mengambilkan",
           "translation": "Could you get me a glass of water?",
           "hint": "From ambil 'to fetch'; before a vowel the active nasal is the velar one, and the benefactive ending marks the water as fetched for another person.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "can-Q · 2SG · ___ · 1SG · one-glass · water"
         },
         {
           "sentence": "Perawat itu {{answer}} nenek di kursi roda.",
           "answer": "mendudukkan",
           "translation": "The nurse sat grandma down in the wheelchair.",
           "hint": "From duduk 'to sit'; the causative suffix makes it something done TO a person, and the root's final k doubles in front of it.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "AGT-care · that · ___ · grandmother · LOC · chair · wheel"
         }
       ]
     },
@@ -1131,42 +1256,48 @@
           "answer": "menduduki",
           "translation": "The army occupied the city.",
           "hint": "duduk + -i — the city is the LOCATION",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "army · ___ · city · that"
         },
         {
           "sentence": "Dia {{answer}} rumah kami kemarin.",
           "answer": "mendatangi",
           "translation": "He came to our house yesterday.",
           "hint": "datang + -i — goal as object",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · house · 1PL.EXCL · yesterday"
         },
         {
           "sentence": "Petani {{answer}} sawah dengan padi.",
           "answer": "menanami",
           "translation": "The farmer planted the field with rice.",
           "hint": "tanam + -i — covers the field",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "AGT-farm · ___ · ricefield · with · rice"
         },
         {
           "sentence": "Jangan {{answer}} anak itu.",
           "answer": "memukuli",
           "translation": "Don't beat that child.",
           "hint": "pukul + -i — repeated action",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NEG.IMP · ___ · child · that"
         },
         {
           "sentence": "Apakah kamu sudah {{answer}} dokter itu?",
           "answer": "menghubungi",
           "translation": "Have you contacted that doctor yet?",
           "hint": "From hubung 'to connect'; the location suffix aims the verb straight at the doctor, so no preposition is needed.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "Q · 2SG · PRF · ___ · doctor · that"
         },
         {
           "sentence": "Kami {{answer}} tangga sampai lantai lima.",
           "answer": "menaiki",
           "translation": "We climbed the stairs up to the fifth floor.",
           "hint": "From naik 'to go up'; the suffix makes the stairs the direct object of the climb instead of a place phrase.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1PL.EXCL · ___ · stairs · until · floor · five"
         }
       ]
     },
@@ -1184,49 +1315,56 @@
           "answer": "penulis",
           "translation": "She is a famous writer.",
           "hint": "tulis + peN- → pen-, t drops",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG · one-person · ___ · PASS-know"
         },
         {
           "sentence": "Buku ini punya banyak {{answer}}.",
           "answer": "pembaca",
           "translation": "This book has many readers.",
           "hint": "baca + peN- → pem-",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "book · this · have · many · ___"
         },
         {
           "sentence": "Para {{answer}} pulang jam lima.",
           "answer": "pekerja",
           "translation": "The workers go home at five.",
           "hint": "kerja + peN- → pe-",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "PL · ___ · go.home · hour · five"
         },
         {
           "sentence": "Dia {{answer}} bahasa Indonesia.",
           "answer": "pengajar",
           "translation": "He is a teacher of Indonesian.",
           "hint": "ajar + peN- → peng-",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG · ___ · language · Indonesia"
         },
         {
           "sentence": "Di kamar ini tidak ada {{answer}} ruangan.",
           "answer": "pendingin",
           "translation": "There is no air conditioner in this room.",
           "hint": "From dingin 'cold'; the doer prefix names instruments as well as people, and before d its nasal is the dental one.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "LOC · room · this · NEG · exist · ___ · space-NMLZ"
         },
         {
           "sentence": "Siapa {{answer}} lagu ini?",
           "answer": "penyanyi",
           "translation": "Who is the singer of this song?",
           "hint": "From nyanyi 'to sing'; the doer prefix merges with the root's own nasal at the joint.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "who · ___ · song · this"
         },
         {
           "sentence": "Saya bertanya kepada {{answer}} tentang harganya.",
           "answer": "penjual",
           "translation": "I asked the seller about the price.",
           "hint": "From jual 'to sell'; the doer prefix takes the same nasal before j that the active verb prefix takes.",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · INTR-ask · to · ___ · about · price-3SG.POSS"
         }
       ]
     },
@@ -1244,49 +1382,56 @@
           "answer": "kebebasan",
           "translation": "They fought for freedom.",
           "hint": "bebas + ke-...-an",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3PL · AV-CAUS-struggle-BEN · ___"
         },
         {
           "sentence": "Dia bekerja di {{answer}} besar.",
           "answer": "perusahaan",
           "translation": "He works at a big company.",
           "hint": "usaha + per-...-an",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · INTR-work · LOC · ___ · big"
         },
         {
           "sentence": "Saya {{answer}} di jalan.",
           "answer": "kehujanan",
           "translation": "I got caught in the rain on the way.",
           "hint": "hujan + ke-...-an — adversative",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · ___ · at · road"
         },
         {
           "sentence": "{{answer}} ekonomi membaik.",
           "answer": "Keadaan",
           "translation": "The economic situation is improving.",
           "hint": "ada + ke-...-an",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · economy · AV-good"
         },
         {
           "sentence": "Saya meminjam buku ini dari {{answer}} kota.",
           "answer": "perpustakaan",
           "translation": "I borrowed this book from the city library.",
           "hint": "From pustaka 'books, literature'; the circumfix that names a place or an institution, the same one behind the word for a company.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · AV-borrow · book · this · from · ___ · city"
         },
         {
           "sentence": "Bagaimana {{answer}} ibumu sekarang?",
           "answer": "kesehatan",
           "translation": "How is your mother's health now?",
           "hint": "From sehat 'healthy'; the circumfix that turns a quality into the abstract state of having it.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "how · ___ · mother-2SG.POSS · now"
         },
         {
           "sentence": "Saya belum mendapat {{answer}} untuk berbicara dengan dia.",
           "answer": "kesempatan",
           "translation": "I haven't had a chance to talk with him yet.",
           "hint": "From sempat 'to have time for'; the same abstract-noun circumfix, naming what you are given rather than what you do.",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "1SG · not.yet · AV-get · ___ · for · INTR-talk · with · 3SG"
         }
       ]
     },
@@ -1304,49 +1449,56 @@
           "answer": "yang",
           "translation": "That tall person is my teacher.",
           "hint": "The relativiser hooks the adjective onto the noun in front of it, giving 'the person who is tall'.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "person · ___ · tall · that · teacher · 1SG"
         },
         {
           "sentence": "Buku {{answer}} saya baca kemarin hilang.",
           "answer": "yang",
           "translation": "The book I read yesterday is lost.",
           "hint": "Here it introduces a whole clause describing the book. English can leave this word out ('the book I read'); Indonesian keeps it.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "book · ___ · 1SG · read · yesterday · lost"
         },
         {
           "sentence": "Saya mau {{answer}} merah.",
           "answer": "yang",
           "translation": "I want the red one.",
           "hint": "With no noun in front of it, the relativiser stands on its own and means 'the one that is...'.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · want · ___ · red"
         },
         {
           "sentence": "Ini rumah {{answer}} dibangun ayah saya.",
           "answer": "yang",
           "translation": "This is the house my father built.",
           "hint": "The same word again, this time in front of a di- passive clause: 'the house that was built by my father'.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "this · house · ___ · PASS-build · father · 1SG"
         },
         {
           "sentence": "Mana {{answer}} lebih murah, ini atau itu?",
           "answer": "yang",
           "translation": "Which one is cheaper, this or that?",
           "hint": "A choice question needs the relativiser after mana: 'which is the one that is cheaper'.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "which · ___ · COMP · cheap · this · or · that"
         },
         {
           "sentence": "Dia siswa {{answer}} paling rajin di kelas.",
           "answer": "yang",
           "translation": "He is the most diligent student in the class.",
           "hint": "The linker goes between the noun and a superlative description built with paling.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG · student · ___ · SUP · diligent · at · class"
         },
         {
           "sentence": "Rumah {{answer}} di sebelah kantor pos itu sudah dijual.",
           "answer": "yang",
           "translation": "The house next to the post office has already been sold.",
           "hint": "The same relativiser can head a bare place phrase, not only a clause: 'the house that is beside...'.",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "house · ___ · at · side · office · post · that · PRF · PASS-sell"
         }
       ]
     },
@@ -1364,42 +1516,48 @@
           "answer": "saya",
           "translation": "I read that letter yesterday.",
           "hint": "type 2 — pronoun + bare root",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "letter · that · ___ · read · yesterday"
         },
         {
           "sentence": "Buku ini {{answer}} oleh Ali.",
           "answer": "dibaca",
           "translation": "This book was read by Ali.",
           "hint": "type 1 — di- for a third person",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "book · this · ___ · by · Ali"
         },
         {
           "sentence": "Nasi itu sudah {{answer}} makan.",
           "answer": "kamu",
           "translation": "You've eaten that rice.",
           "hint": "Type 2 again: after the aspect marker the actor's pronoun sits straight before the bare root. One listener, addressed informally - the everyday counterpart of the polite Anda, not the plural kalian.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "rice · that · PRF · ___ · eat"
         },
         {
           "sentence": "Pekerjaan itu {{answer}} oleh mereka.",
           "answer": "diselesaikan",
           "translation": "That work was finished by them.",
           "hint": "type 1",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "NMLZ-work-NMLZ · that · ___ · by · 3PL"
         },
         {
           "sentence": "Masalah ini harus {{answer}} selesaikan bersama.",
           "answer": "kita",
           "translation": "We have to solve this problem together.",
           "hint": "Type 2: the actor's pronoun goes after the modal and directly before the bare root. Use the 'we' that includes the listener.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "problem · this · must · ___ · finish-CAUS · together"
         },
         {
           "sentence": "Kue ini {{answer}} nenek saya.",
           "answer": "dibuat",
           "translation": "This cake was made by my grandmother.",
           "hint": "Type 1 on buat 'to make'. Oleh may be left out when the actor follows the verb immediately.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "cake · this · ___ · grandmother · 1SG"
         }
       ]
     },
@@ -1417,49 +1575,56 @@
           "answer": "untuk",
           "translation": "I came to study.",
           "hint": "the purpose preposition that sits straight in front of a bare verb — no new subject can follow it",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · come · ___ · INTR-learn"
         },
         {
           "sentence": "Dia bekerja keras {{answer}} anaknya bisa sekolah.",
           "answer": "supaya",
           "translation": "He works hard so his child can study.",
           "hint": "the everyday conjunction that opens a full purpose clause with its own subject",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · INTR-work · hard · ___ · child-3SG.POSS · can · school"
         },
         {
           "sentence": "Tolong bicara pelan {{answer}} saya mengerti.",
           "answer": "agar",
           "translation": "Please speak slowly so that I understand.",
           "hint": "the formal-register partner of the everyday purpose conjunction — the one you meet in writing and in polite requests",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "please · speak · slow · ___ · 1SG · AV-understand"
         },
         {
           "sentence": "Ini {{answer}} kamu.",
           "answer": "untuk",
           "translation": "This is for you.",
           "hint": "the purpose preposition, this time before a person: it marks who a thing is meant for",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "this · ___ · 2SG"
         },
         {
           "sentence": "{{answer}} apa kamu belajar bahasa Indonesia?",
           "answer": "Untuk",
           "translation": "What are you learning Indonesian for?",
           "hint": "the purpose preposition opening a 'what for?' question — the same word that precedes a bare verb",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · what · 2SG · INTR-learn · language · Indonesia"
         },
         {
           "sentence": "Ibu menyiapkan sarapan lebih pagi {{answer}} kami tidak terlambat.",
           "answer": "supaya",
           "translation": "Mum made breakfast earlier so that we wouldn't be late.",
           "hint": "everyday conjunction, spoken register: the clause after it has a different subject from the main clause, and it is negative",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "mother · AV-ready-CAUS · breakfast · more · morning · ___ · 1PL.EXCL · NEG · STAT-late"
         },
         {
           "sentence": "Sekolah menambah jam belajar {{answer}} siswa siap menghadapi ujian.",
           "answer": "agar",
           "translation": "The school added study hours so that the students are ready to face the exam.",
           "hint": "the written-register purpose conjunction a school announcement would choose over the everyday one",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "school · AV-add · hour · INTR-learn · ___ · student · ready · AV-face-APPL · test-NMLZ"
         }
       ]
     },
@@ -1477,49 +1642,56 @@
           "answer": "Kalau",
           "translation": "If it rains, I won't go.",
           "hint": "the everyday spoken 'if' — the one you would say to a friend, not the written or legal ones",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · rain · 1SG · NEG · go"
         },
         {
           "sentence": "{{answer}} Anda setuju, silakan tanda tangan.",
           "answer": "Jika",
           "translation": "If you agree, please sign.",
           "hint": "the formal written 'if' that goes with Anda and a signature line; plainer than the bureaucratic one, and it never doubles as 'when'",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · 2SG.POL · agree · please · sign · hand"
         },
         {
           "sentence": "{{answer}} saya kaya, saya akan keliling dunia.",
           "answer": "Seandainya",
           "translation": "If I were rich, I'd travel the world.",
           "hint": "the verb carries no unreality in Indonesian, so the conjunction must — the one that flags the condition as contrary to fact",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · 1SG · rich · 1SG · FUT · go.around · world"
         },
         {
           "sentence": "{{answer}} perlu, hubungi saya.",
           "answer": "Bila",
           "translation": "If necessary, contact me.",
           "hint": "the short written conditional that also reads as 'when', standard in instructions and notices",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · necessary · connect-APPL · 1SG"
         },
         {
           "sentence": "Saya tidak akan pergi {{answer}} kamu tidak ikut.",
           "answer": "kalau",
           "translation": "I won't go if you don't come along.",
           "hint": "the same everyday conditional, this time joining the two clauses in the middle rather than opening the sentence",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · NEG · FUT · go · ___ · 2SG · NEG · follow"
         },
         {
           "sentence": "{{answer}} saya, harga itu terlalu mahal.",
           "answer": "Kalau",
           "translation": "As for me, that price is too expensive.",
           "hint": "no condition here at all: the everyday conditional word doing its other job, fronting a topic — 'speaking for myself'",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · 1SG · price · that · too · expensive"
         },
         {
           "sentence": "{{answer}} kemarin tidak hujan, kami pasti sudah berangkat.",
           "answer": "Seandainya",
           "translation": "If it hadn't rained yesterday, we would certainly have left.",
           "hint": "the rain did fall, so the plain everyday word would be too weak — use the conjunction that marks a condition as contrary to fact",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · yesterday · NEG · rain · 1PL.EXCL · certain · PRF · INTR-depart"
         }
       ]
     },
@@ -1537,49 +1709,56 @@
           "answer": "sekelas",
           "translation": "We're in the same class at university.",
           "hint": "se- — same",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1PL.EXCL · ___ · LOC · university"
         },
         {
           "sentence": "Rumahnya {{answer}} istana.",
           "answer": "sebesar",
           "translation": "His house is as big as a palace.",
           "hint": "se- + adjective — as … as",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "house-3SG.POSS · ___ · palace"
         },
         {
           "sentence": "Saya menunggu {{answer}}.",
           "answer": "sehari",
           "translation": "I waited one day.",
           "hint": "se- — one",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · AV-wait · ___"
         },
         {
           "sentence": "{{answer}} keluarga datang.",
           "answer": "Sekeluarga",
           "translation": "The whole family came.",
           "hint": "se- — the whole of",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · family · come"
         },
         {
           "sentence": "Bahasa Indonesia tidak {{answer}} yang kamu kira.",
           "answer": "sesulit",
           "translation": "Indonesian isn't as hard as you think.",
           "hint": "the equality prefix on sulit — 'as … as', negated here, with a whole clause as the yardstick",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "language · Indonesia · NEG · ___ · REL · 2SG · think"
         },
         {
           "sentence": "Dia {{answer}} dengan saya, tetapi kami jarang bertemu.",
           "answer": "sekantor",
           "translation": "He works in the same office as me, but we rarely run into each other.",
           "hint": "kantor takes the 'same' prefix — one word does the work of 'in the same office as'",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG · ___ · with · 1SG · but · 1PL.EXCL · rarely · INTR-meet"
         },
         {
           "sentence": "Ada {{answer}} tamu yang menunggu Anda di lobi.",
           "answer": "seorang",
           "translation": "There is a guest waiting for you in the lobby.",
           "hint": "the 'one' prefix fused to the classifier for people — the ordinary way to introduce a single unnamed person",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "exist · ___ · guest · REL · AV-wait · 2SG.POL · LOC · lobby"
         }
       ]
     },
@@ -1597,49 +1776,56 @@
           "answer": "terjatuh",
           "translation": "I fell on the stairs.",
           "hint": "ter- — accidental, nobody's fault",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · ___ · LOC · stairs"
         },
         {
           "sentence": "Dompet saya {{answer}} di rumah.",
           "answer": "tertinggal",
           "translation": "I left my wallet at home.",
           "hint": "ter- — unintended",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "wallet · 1SG.POSS · ___ · LOC · house"
         },
         {
           "sentence": "Pintu itu {{answer}} sejak pagi.",
           "answer": "terbuka",
           "translation": "That door has been open since morning.",
           "hint": "ter- — a state, not an event",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "door · DEM.DIST · ___ · since · morning"
         },
         {
           "sentence": "Batu itu tidak {{answer}} olehnya.",
           "answer": "terangkat",
           "translation": "He couldn't lift that stone.",
           "hint": "ter- — capability, negated",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "stone · DEM.DIST · NEG · ___ · by-3SG"
         },
         {
           "sentence": "Maaf, pesan itu {{answer}} ke grup yang salah.",
           "answer": "terkirim",
           "translation": "Sorry, that message went to the wrong group.",
           "hint": "kirim + ter- — it went off by accident, not because anyone decided to",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "sorry · message · DEM.DIST · ___ · to · group · REL · wrong"
         },
         {
           "sentence": "Aturan itu {{answer}} jelas di halaman pertama.",
           "answer": "tertulis",
           "translation": "That rule is set out clearly on the first page.",
           "hint": "tulis + ter- — the standing state of the page, not the act someone performed, which would take di-",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "arrange-NMLZ · DEM.DIST · ___ · clear · LOC · page · first"
         },
         {
           "sentence": "Apakah suara saya {{answer}} dari belakang?",
           "answer": "terdengar",
           "translation": "Can my voice be heard from the back?",
           "hint": "dengar + ter- — the question is whether it is possible at all, not whether anyone is doing it",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "Q · voice · 1SG.POSS · ___ · from · back"
         }
       ]
     },
@@ -1657,49 +1843,56 @@
           "answer": "memperbesar",
           "translation": "We'll enlarge this office.",
           "hint": "memper- + besar",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1PL.EXCL · FUT · ___ · office · DEM.PROX"
         },
         {
           "sentence": "Dia sedang {{answer}} mobilnya.",
           "answer": "memperbaiki",
           "translation": "He is repairing his car.",
           "hint": "memper- + baik + -i",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · PROG · ___ · car-3SG.POSS"
         },
         {
           "sentence": "Pemerintah {{answer}} jalan itu.",
           "answer": "memperluas",
           "translation": "The government widened that road.",
           "hint": "memper- + luas",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "AGT-command · ___ · road · DEM.DIST"
         },
         {
           "sentence": "Mereka {{answer}} hubungan kedua negara.",
           "answer": "mempererat",
           "translation": "They strengthened relations between the two countries.",
           "hint": "memper- + erat",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3PL · ___ · connect-NMLZ · COLL-two · country"
         },
         {
           "sentence": "Saya harus {{answer}} paspor saya bulan depan.",
           "answer": "memperpanjang",
           "translation": "I have to renew my passport next month.",
           "hint": "panjang + memper- — making something run longer, here a document's validity",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · must · ___ · passport · 1SG.POSS · month · front"
         },
         {
           "sentence": "Apakah kita bisa {{answer}} proses ini?",
           "answer": "mempercepat",
           "translation": "Can we speed up this process?",
           "hint": "cepat + memper- — make it go faster; asked as a question about the whole process",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "Q · 1PL.INCL · can · ___ · process · DEM.PROX"
         },
         {
           "sentence": "Undang-undang melarang siapa pun {{answer}} orang lain.",
           "answer": "memperbudak",
           "translation": "The law forbids anyone from enslaving another person.",
           "hint": "budak + memper- — the noun sense of the prefix: treat a person AS one",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "law · AV-forbid · who · even · ___ · person · other"
         }
       ]
     },
@@ -1717,49 +1910,56 @@
           "answer": "jalan-jalan",
           "translation": "We strolled on the beach yesterday.",
           "hint": "reduplication — casual activity",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1PL.EXCL · ___ · LOC · beach · yesterday"
         },
         {
           "sentence": "Dia menjual {{answer}} di pasar.",
           "answer": "buah-buahan",
           "translation": "He sells all sorts of fruit at the market.",
           "hint": "-an reduplication — variety",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · AV-sell · ___ · LOC · market"
         },
         {
           "sentence": "Mereka {{answer}} saat kesulitan.",
           "answer": "tolong-menolong",
           "translation": "They help one another in hard times.",
           "hint": "reduplication — reciprocal",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3PL · ___ · moment · NMLZ-difficult-NMLZ"
         },
         {
           "sentence": "Saya {{answer}} pergi ke sana.",
           "answer": "sesekali",
           "translation": "I go there now and then.",
           "hint": "se- + reduplication — occasionally",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "1SG · ___ · go · to · there"
         },
         {
           "sentence": "Saya sudah membaca dua {{answer}} minggu ini.",
           "answer": "buku",
           "translation": "I have already read two books this week.",
           "hint": "the numeral is already doing the counting, so the noun must NOT be doubled — leave it in its plain form",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "1SG · PRF · AV-read · two · ___ · week · DEM.PROX"
         },
         {
           "sentence": "Makanlah {{answer}}, masih banyak waktu.",
           "answer": "pelan-pelan",
           "translation": "Eat slowly, there is still plenty of time.",
           "hint": "doubling an adjective here says HOW the action is done, not how many — join the two halves with a hyphen",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "eat-IMP · ___ · still · many · time"
         },
         {
           "sentence": "Dia ditangkap karena diduga menjadi {{answer}} asing.",
           "answer": "mata-mata",
           "translation": "He was arrested on suspicion of being a foreign spy.",
           "hint": "a doubled body-part noun frozen into a job title — the halves no longer add up to two of anything",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "3SG · PASS-arrest · because · PASS-suspect · AV-become · ___ · foreign"
         }
       ]
     },
@@ -1777,42 +1977,48 @@
           "answer": "bahwa",
           "translation": "He said that he would come.",
           "hint": "the connector that opens a reported clause after a verb of saying — kept in writing, commonly dropped in speech",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG · AV-say-APPL · ___ · 3SG · FUT · come"
         },
         {
           "sentence": "Saya pikir {{answer}} ini salah.",
           "answer": "bahwa",
           "translation": "I think that this is wrong.",
           "hint": "the same reported-clause connector, here after a verb of thinking rather than of speaking",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "1SG · think · ___ · this · wrong"
         },
         {
           "sentence": "Mereka {{answer}} sudah selesai.",
           "answer": "bilang",
           "translation": "They said it was already finished.",
           "hint": "the everyday spoken verb for 'say', filling the verb slot right after the subject — not the one a news report would use",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3PL · ___ · PRF · finish"
         },
         {
           "sentence": "Menteri {{answer}} bahwa harga akan turun.",
           "answer": "menyatakan",
           "translation": "The minister stated that prices would fall.",
           "hint": "the most formal reporting verb, built on the root for 'evident' rather than the neutral one from 'word' — what ministers do at a podium",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "minister · ___ · COMP · price · FUT · fall"
         },
         {
           "sentence": "{{answer}} dokter, saya harus banyak istirahat.",
           "answer": "Kata",
           "translation": "The doctor says I have to rest a lot.",
           "hint": "informal reporting that opens the sentence with the bare noun for 'a saying', the speaker named straight after it — not the preposition menurut",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · doctor · 1SG · must · much · rest"
         },
         {
           "sentence": "Dia bertanya {{answer}} saya bisa datang besok.",
           "answer": "apakah",
           "translation": "He asked whether I could come tomorrow.",
           "hint": "a reported yes/no question takes the formal question marker, not the connector used for reported statements",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG · INTR-ask · ___ · 1SG · can · come · tomorrow"
         }
       ]
     },
@@ -1830,49 +2036,56 @@
           "answer": "lah",
           "translation": "HE is the one responsible.",
           "hint": "the focus clitic glued to the pronoun, throwing the weight of the sentence onto it — 'HE, and nobody else'",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · REL · INTR-bear · answer"
         },
         {
           "sentence": "Benar{{answer}} berita itu?",
           "answer": "kah",
           "translation": "Is that news true?",
           "hint": "the formal question clitic, attached to the word being questioned — it turns a written statement into a yes/no question",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · news · that"
         },
         {
           "sentence": "Saya{{answer}} tidak tahu.",
           "answer": "pun",
           "translation": "Even I don't know.",
           "hint": "the 'even' particle after the subject, conceding that the speaker is no exception either",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "___ · NEG · know"
         },
         {
           "sentence": "Silakan{{answer}} duduk.",
           "answer": "lah",
           "translation": "Please, do sit down.",
           "hint": "the softening particle on the invitation verb — it makes an offer warm rather than commanding",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · sit"
         },
         {
           "sentence": "Siapa{{answer}} yang mengirim surat ini?",
           "answer": "kah",
           "translation": "Who was it that sent this letter?",
           "hint": "the formal question clitic again, here fused to the question word itself, which makes the asking weightier",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · REL · AV-send · letter · this"
         },
         {
           "sentence": "Adik saya {{answer}} ingin ikut.",
           "answer": "pun",
           "translation": "My younger sibling wants to come too.",
           "hint": "the 'too, as well' particle standing after the subject — outside a few frozen conjunctions it is written as its own word, not glued on",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "younger.sibling · 1SG · ___ · want · join"
         },
         {
           "sentence": "Mari{{answer}} kita mulai rapat ini.",
           "answer": "lah",
           "translation": "Let us begin this meeting.",
           "hint": "glued to mari, this particle turns 'come on' into a formal 'let us' at the head of the sentence",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "___ · 1PL.INCL · begin · meeting · this"
         }
       ]
     },
@@ -1890,49 +2103,56 @@
           "answer": "sehingga",
           "translation": "It rained hard, so the road flooded.",
           "hint": "the one-word connector that hangs the result on the clause before it, mid-sentence after the comma — written style",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "rain · heavy · ___ · road · flood"
         },
         {
           "sentence": "{{answer}} lelah, dia tetap bekerja.",
           "answer": "Meskipun",
           "translation": "Although tired, he kept working.",
           "hint": "'although' at the head of the sentence, before the comma — the concessive that begins with m-",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · tired · 3SG · still · INTR-work"
         },
         {
           "sentence": "Harga naik. {{answer}}, penjualan tetap baik.",
           "answer": "Namun",
           "translation": "Prices rose. However, sales stayed good.",
           "hint": "the formal sentence-opening 'however', set off by its own comma — where a joined clause would take tetapi",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "price · rise · ___ · NMLZ-sell-NMLZ · still · good"
         },
         {
           "sentence": "Dia rajin, {{answer}} adiknya malas.",
           "answer": "sedangkan",
           "translation": "He is diligent, whereas his brother is lazy.",
           "hint": "sets two people side by side in contrast — 'whereas', a plain opposition rather than a concession",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG · diligent · ___ · younger.sibling-3SG.POSS · lazy"
         },
         {
           "sentence": "Anggaran belum cair. {{answer}}, proyek itu belum bisa dimulai.",
           "answer": "Oleh karena itu",
           "translation": "The budget has not been disbursed. Therefore, the project cannot be started yet.",
           "hint": "three words opening a new sentence to state the consequence — the formal counterpart of spoken jadi",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "budget · not.yet · liquid · ___ · project · that · not.yet · can · PASS-begin"
         },
         {
           "sentence": "{{answer}}, apa lagi yang harus kita siapkan?",
           "answer": "Selain itu",
           "translation": "Apart from that, what else do we have to prepare?",
           "hint": "two words that set aside what has already been covered and add a further item, opening the question",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "___ · what · more · REL · must · 1PL.INCL · ready-CAUS"
         },
         {
           "sentence": "Semua orang setuju, {{answer}} yang biasanya paling kritis.",
           "answer": "bahkan",
           "translation": "Everyone agreed, even the ones who are usually the most critical.",
           "hint": "pushes the claim one step further to the least expected case — 'even', mid-sentence after the comma",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "all · person · agree · ___ · REL · usual-DEF · SUP · critical"
         }
       ]
     },
@@ -1950,49 +2170,56 @@
           "answer": "dijual",
           "translation": "That house was sold last year.",
           "hint": "agentless di- passive",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "house · DIST · ___ · year · last"
         },
         {
           "sentence": "Masalah ini harus {{answer}}.",
           "answer": "diselesaikan",
           "translation": "This problem must be resolved.",
           "hint": "agentless, after a modal",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "problem · PROX · must · ___"
         },
         {
           "sentence": "Buku itu ditulis {{answer}} seorang dokter.",
           "answer": "oleh",
           "translation": "That book was written by a doctor.",
           "hint": "the preposition that names the doer of a passive — 'by', and freely dropped before a plain noun",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "book · DIST · PASS-write · ___ · one-CLF · doctor"
         },
         {
           "sentence": "Bahasa Indonesia {{answer}} di seluruh negeri.",
           "answer": "digunakan",
           "translation": "Indonesian is used throughout the country.",
           "hint": "agentless — the natural choice",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "language · Indonesia · ___ · LOC · whole · country"
         },
         {
           "sentence": "Kapan rumah ini {{answer}}?",
           "answer": "dibangun",
           "translation": "When was this house built?",
           "hint": "di- passive of the verb for building — a question about the date, with no builder named at all",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "when · house · PROX · ___"
         },
         {
           "sentence": "Piring itu belum {{answer}} sejak pagi.",
           "answer": "dicuci",
           "translation": "Those dishes have not been washed since this morning.",
           "hint": "di- passive of the verb for washing, negated with belum — nobody is named as the washer",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "plate · DIST · NEG.yet · ___ · since · morning"
         },
         {
           "sentence": "Di sini nasi {{answer}} dengan tangan.",
           "answer": "dimakan",
           "translation": "Here rice is eaten by hand.",
           "hint": "where English reaches for an impersonal 'you eat it', Indonesian turns the verb passive with di- and names nobody",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "LOC · here · rice · ___ · INS · hand"
         }
       ]
     },
@@ -2010,49 +2237,56 @@
           "answer": "Gue",
           "translation": "I don't know.",
           "hint": "the Jakarta first-person pronoun that replaces saya among friends — the spelling ending in -e, not its -a twin",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · NEG · know"
         },
         {
           "sentence": "Tolong {{answer}} kopi.",
           "answer": "bikinin",
           "translation": "Make me a coffee.",
           "hint": "-in for -kan, colloquial",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "please · ___ · coffee"
         },
         {
           "sentence": "Dia {{answer}} udah pergi.",
           "answer": "kayaknya",
           "translation": "Seems he's already gone.",
           "hint": "the colloquial hedge for 'it seems', where baku prose would write sepertinya",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG · ___ · PRF · go"
         },
         {
           "sentence": "{{answer}} mau ke mana?",
           "answer": "Lu",
           "translation": "Where are you going?",
           "hint": "the two-letter Jakarta second-person pronoun that replaces anda between friends — the spelling with -u, not its -o twin",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · want · ALL · where"
         },
         {
           "sentence": "{{answer}} makan belum?",
           "answer": "Udah",
           "translation": "Have you eaten yet?",
           "hint": "Jakarta speech clips the first letter off the baku completive marker; here it opens the question",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · eat · NEG.yet"
         },
         {
           "sentence": "Dia {{answer}} baju baru kemarin.",
           "answer": "beli",
           "translation": "He bought a new shirt yesterday.",
           "hint": "colloquial speech drops the meN- prefix entirely — give the bare root of the verb for buying",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "3SG · ___ · shirt · new · yesterday"
         },
         {
           "sentence": "Kopi di sini enak {{answer}}!",
           "answer": "banget",
           "translation": "The coffee here is really good!",
           "hint": "the Jakarta intensifier that follows the adjective, standing in for baku sekali",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "coffee · LOC · here · tasty · ___"
         }
       ]
     },
@@ -2070,49 +2304,56 @@
           "answer": "Pembangunan",
           "translation": "Construction of the toll road is underway.",
           "hint": "peN-...-an — the process",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "___ · road · toll · PROG · INTR-proceed"
         },
         {
           "sentence": "{{answer}} pemerintah berubah.",
           "answer": "Kebijakan",
           "translation": "Government policy has changed.",
           "hint": "ke-...-an — the state/abstraction",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · NMLZ-govern · INTR-change"
         },
         {
           "sentence": "Dia melakukan {{answer}} selama dua tahun.",
           "answer": "penelitian",
           "translation": "She conducted research for two years.",
           "hint": "peN-...-an from teliti",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG · AV-do-APPL · ___ · for · two · year"
         },
         {
           "sentence": "{{answer}} negara adalah prioritas.",
           "answer": "Keamanan",
           "translation": "National security is a priority.",
           "hint": "ke-...-an from aman",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · state · COP · priority"
         },
         {
           "sentence": "Kapan {{answer}} ketua baru dilaksanakan?",
           "answer": "pemilihan",
           "translation": "When will the election of the new chairman be held?",
           "hint": "peN-...-an turns 'to choose' into the event itself — a p-initial root disappears into the nasal",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "when · ___ · chairman · new · PASS-carry.out-APPL"
         },
         {
           "sentence": "Anggaran {{answer}} dinaikkan tahun ini.",
           "answer": "pendidikan",
           "translation": "The education budget was raised this year.",
           "hint": "peN-...-an on the root for 'to educate' — a d-initial root keeps its d after the nasal",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "budget · ___ · PASS-rise-CAUS · year · PROX"
         },
         {
           "sentence": "Tes ini mengukur {{answer}} bahasa siswa.",
           "answer": "kemampuan",
           "translation": "This test measures the students' language ability.",
           "hint": "ke-...-an on the root for 'able' — the abstract quality, not a person and not a process",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "test · this · AV-measure · ___ · language · student"
         }
       ]
     },
@@ -2130,42 +2371,48 @@
           "answer": "mengajar",
           "translation": "She teaches at the school.",
           "hint": "No suffix on the verb at all. The unsuffixed meN- form is what you get when the subject taught simply follows the verb and no recipient is introduced with kepada: teaching as the work she does, not teaching aimed at particular people.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "3SG · ___ · mathematics · LOC · school"
         },
         {
           "sentence": "Dia {{answer}} saya bahasa Jawa.",
           "answer": "mengajari",
           "translation": "She teaches me Javanese.",
           "hint": "The person receiving the lessons is the direct object, not the subject being taught; that is what puts the -i suffix on the verb.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "3SG · ___ · 1SG · language · Javanese"
         },
         {
           "sentence": "Saya {{answer}} musik setiap malam.",
           "answer": "mendengarkan",
           "translation": "I listen to music every night.",
           "hint": "Attending to the sound on purpose rather than just catching it; the deliberate verb carries -kan over the plain perception form.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "1SG · ___ · music · every · night"
         },
         {
           "sentence": "Guru {{answer}} nilai kejujuran.",
           "answer": "menanamkan",
           "translation": "The teacher instils the value of honesty.",
           "hint": "Planting in the figurative sense, a value into people: what is instilled stays the object, and the verb carries -kan.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "teacher · ___ · value · NMLZ-honest-NMLZ"
         },
         {
           "sentence": "Apakah kamu tidak {{answer}} suara aneh tadi malam?",
           "answer": "mendengar",
           "translation": "Didn't you hear a strange noise last night?",
           "hint": "Sound that simply reached your ears, with no effort behind it: the bare meN- verb takes no suffix, unlike the one for attending on purpose.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "Q · 2SG · NEG · ___ · sound · strange · earlier · night"
         },
         {
           "sentence": "Ibu saya {{answer}} bahasa Inggris kepada anak-anak di desa itu.",
           "answer": "mengajarkan",
           "translation": "My mother teaches English to the children in that village.",
           "hint": "What is passed on is the subject matter, and the people receiving it are marked with kepada; that pairing calls for the -kan suffix rather than the plain verb.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "mother · 1SG.POSS · ___ · language · English · to · child-PL · LOC · village · that"
         }
       ]
     },
@@ -2183,49 +2430,56 @@
           "answer": "bahwa",
           "translation": "The minister stated that prices would be stable.",
           "hint": "A minister quoted in a formal report keeps the complementiser that introduces the reported clause; ordinary speech would leave it out.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "minister · AV-evident-CAUS · ___ · price · FUT · stable"
         },
         {
           "sentence": "\"{{answer}} udah denger belum?\" tanya temannya.",
           "answer": "Lu",
           "translation": "\"Have you heard yet?\" his friend asked.",
           "hint": "Inside the quotation the friend drops all the way into Jakarta street slang, not merely informal standard: the second-person pronoun that pairs with gue, borrowed from Hokkien, rather than the neutral form a textbook teaches or the polite written one.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "___ · PRF · hear · not.yet · ask · friend-3SG.POSS"
         },
         {
           "sentence": "Pemerintah {{answer}} langkah baru.",
           "answer": "mengambil",
           "translation": "The government is taking a new step.",
           "hint": "full meN- — narration stays formal",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "government · ___ · step · new"
         },
         {
           "sentence": "Dia bilang, \"{{answer}} aja deh.\"",
           "answer": "Udah",
           "translation": "He said, \"Just leave it.\"",
           "hint": "Reported speech keeps the speaker's own register, so the perfective adverb turns up in its clipped colloquial shape rather than the standard written one.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "3SG · say · ___ · just · PRT"
         },
         {
           "sentence": "\"Apakah {{answer}} sudah menerima surat resmi kami?\" tanya petugas itu dengan sopan.",
           "answer": "Anda",
           "translation": "\"Have you received our official letter?\" the officer asked politely.",
           "hint": "An official speaking on the record addresses the public with the polite written second-person pronoun, the one that keeps its capital letter mid-sentence; the Jakarta form belongs in the other quotations.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "Q · ___ · PRF · AV-receive · letter · official · 1PL.POSS · ask · officer · that · with · polite"
         },
         {
           "sentence": "\"Gue udah {{answer}} sama dia kemarin,\" katanya kepada atasannya.",
           "answer": "ngomong",
           "translation": "\"I already talked to him yesterday,\" he told his boss.",
           "hint": "Inside the quotation the register drops: the verb for speaking appears with the Jakarta nasal prefix on a colloquial root, not the ber- form the narration would use.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "1SG · PRF · ___ · with · 3SG · yesterday · say-3SG · to · boss-3SG.POSS"
         },
         {
           "sentence": "\"Kaget banget gue!\" kata seorang warga. Gedung {{answer}} memang berada tepat di seberang rumahnya.",
           "answer": "tersebut",
           "translation": "\"I got such a shock!\" said one resident. The building in question is indeed right across from his house.",
           "hint": "The register climbs again once the quotation ends: in the reporter's own prose, something already named is picked out with the written-register demonstrative rather than the everyday pointing word.",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "shocked · very · 1SG · say · one-CLF · resident · building · ___ · indeed · INTR-exist · exactly · LOC · across · house-3SG.POSS"
         }
       ]
     },
@@ -2243,35 +2497,40 @@
           "answer": "mengerti",
           "translation": "I don't understand what you mean.",
           "hint": "Learned whole: the verb for grasping what someone means carries meN- over a root that no longer stands on its own.",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "1SG · NEG · ___ · meaning · 2SG.POL.POSS"
         },
         {
           "sentence": "Usaha itu akhirnya {{answer}}.",
           "answer": "berhasil",
           "translation": "That effort finally succeeded.",
           "hint": "A ber- verb that has drifted from the noun beneath it; 'come off, work out' is not what the prefix plus that noun would predict, so it is stored as one item.",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "effort · that · finally · ___"
         },
         {
           "sentence": "Dia punya {{answer}} besar di sini.",
           "answer": "pengaruh",
           "translation": "He has great influence here.",
           "hint": "It wears what looks like the peN- prefix, but no root is left underneath: an ordinary noun for the sway a person holds, learned as a unit.",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "3SG · have · ___ · big · LOC · here"
         },
         {
           "sentence": "{{answer}} saya bertemu dia.",
           "answer": "Kemarin",
           "translation": "Yesterday I met him.",
           "hint": "The word for the day before today only looks like ke- over a root; nothing is being derived, so the whole form is the vocabulary item.",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "___ · 1SG · INTR-meet · 3SG"
         },
         {
           "sentence": "{{answer}} Anda, apakah harga tiket akan turun tahun depan?",
           "answer": "Menurut",
           "translation": "In your opinion, will ticket prices come down next year?",
           "hint": "It has the shape of an active meN- verb, but the word that introduces whose view this is works as a preposition and never takes an object suffix.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "___ · 2SG.POL · Q · price · ticket · FUT · go.down · year · next"
         }
       ]
     },
@@ -2289,49 +2548,56 @@
           "answer": "ditangkap",
           "translation": "The suspect was arrested by police last night.",
           "hint": "passive, agent after",
-          "display_order": 1
+          "display_order": 1,
+          "gloss": "suspect · ___ · police · earlier · night"
         },
         {
           "sentence": "Harga BBM {{answer}} lima persen.",
           "answer": "naik",
           "translation": "Fuel prices rose five percent.",
           "hint": "bare root — headline style",
-          "display_order": 2
+          "display_order": 2,
+          "gloss": "price · fuel · ___ · five · percent"
         },
         {
           "sentence": "Korban {{answer}} ke rumah sakit terdekat.",
           "answer": "dilarikan",
           "translation": "The victim was rushed to the nearest hospital.",
           "hint": "di- passive, agent omitted",
-          "display_order": 3
+          "display_order": 3,
+          "gloss": "victim · ___ · to · house · sick · SUP-near"
         },
         {
           "sentence": "Rapat {{answer}} hingga pekan depan.",
           "answer": "ditunda",
           "translation": "The meeting was postponed until next week.",
           "hint": "di- passive, agentless",
-          "display_order": 4
+          "display_order": 4,
+          "gloss": "meeting · ___ · until · week · front"
         },
         {
           "sentence": "Presiden {{answer}} Papua Pekan Depan",
           "answer": "ke",
           "translation": "President to visit Papua next week.",
           "hint": "A headline throws out the verb of motion altogether and leaves only the simplest directional preposition in front of the destination.",
-          "display_order": 5
+          "display_order": 5,
+          "gloss": "president · ___ · Papua · week · front"
         },
         {
           "sentence": "Data itu belum kami {{answer}} sampai kemarin sore.",
           "answer": "terima",
           "translation": "We had not received the data as of yesterday afternoon.",
           "hint": "With the affected thing fronted and the agent pronoun standing immediately in front of it, the passive verb appears as a bare root: no meN-, no di-.",
-          "display_order": 6
+          "display_order": 6,
+          "gloss": "data · DEM · NEG.yet · 1PL.EXCL · ___ · until · yesterday · afternoon"
         },
         {
           "sentence": "Puluhan rumah di kampung itu {{answer}} banjir sejak Selasa dini hari.",
           "answer": "terendam",
           "translation": "Dozens of houses in that village have been submerged by floodwater since early Tuesday morning.",
           "hint": "Nobody did this on purpose, so reporting reaches for the resultative ter- prefix rather than di-, and the water that caused it follows with no oleh.",
-          "display_order": 7
+          "display_order": 7,
+          "gloss": "ten-COLL · house · in · village · DEM · ___ · flood · since · Tuesday · early · day"
         }
       ]
     }
