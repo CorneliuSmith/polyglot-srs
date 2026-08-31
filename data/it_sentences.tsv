@@ -1,5 +1,4 @@
 word	sentence	translation	difficulty_rank
-che	Che?	What?	3
 è	Che è?	What is it?	3
 che	Che è?	What is it?	3
 non	Non c'è di che.	Don't mention it.	4
@@ -8,7 +7,6 @@ di	Non c'è di che.	Don't mention it.	4
 che	Non c'è di che.	Don't mention it.	4
 una	È l'una.	It's one o'clock.	11
 è	È l'una.	It's one o'clock.	11
-sono	Sono.	They are.	13
 sono	Che sono?	What am I?	13
 ho	Ho 300$.	I have $300.	14
 ho	L'ho!	I have it!	14
@@ -21,7 +19,6 @@ sono	Lo sono?	They are?	18
 lo	Lo sono.	They are.	18
 lo	Lo sono!	I am!	18
 non	Non lo è.	You are not.	18
-cosa	Cosa?	What?	19
 cosa	È cosa?	You're what?	19
 cosa	Per cosa?	For what?	19
 per	Per cosa?	For what?	19
@@ -29,22 +26,18 @@ e	E per cosa?	And for what?	19
 per	E per cosa?	And for what?	19
 ha	Cosa non ha?	What don't you have?	19
 e	E cosa?	And what?	19
-no	No?	No?	21
 no	No, no, no!	No, no, no!	21
 e	No, no e no!	No, no, and furthermore, no!	21
 no	No, no e no!	No, no, and furthermore, no!	21
 le	Sono le 3:30.	It's 3:30.	22
 le	Sono le 7:45.	It is 7:45.	22
 le	Le ho.	I've got them.	22
-come	Come?	How?	27
 io	Sono io.	It's me.	28
 io	Sono io!	I am!	28
 io	Io lo sono!	I am!	28
 ci	Ci sono.	I'm there.	29
 hai	Cosa non hai?	What don't you have?	30
 questo	Questo sono io!	This is me.	31
-bene	Bene!	Fine!	32
-bene	Bene.	Good.	32
 qui	Non è qui.	She's not here.	33
 qui	È qui?	Is it here?	33
 qui	Sono qui.	They are here.	33
@@ -124,10 +117,8 @@ so	Non so.	I don't know.	47
 so	So tutto.	I know everything.	47
 so	Lo so.	I know.	47
 quando	Quando l'ho fatto?	When did I do that?	48
-quando	Quando?	When?	48
 quando	Non so quando.	I don't know when.	48
 sì	Sì e no.	Yes and no.	49
-sì	Sì.	Yes.	49
 sì	Sì o no?	Yes or no?	49
 ora	E ora?	And now?	51
 ora	Non so cosa fare ora.	I don't know what to do now.	51
@@ -146,7 +137,6 @@ ne	Io ne ho una.	I have one.	54
 ne	Ne ho una per te.	I've got one for you.	54
 oh	Oh no!	Oh no!	55
 oh	Oh, sono io!	Oh, that's me!	55
-oh	Oh.	Oh.	55
 questa	Questa è mia!	This is mine!	56
 questa	Questa non è mia.	This isn't mine.	56
 questa	Questa è mia.	This is mine.	56
@@ -156,7 +146,6 @@ detto	Che cosa hai detto?	What did you say?	57
 ti	Ti ho detto di no!	I told you no!	57
 ti	Ti ha detto cosa fare?	Did he tell you what to do?	57
 ok	È tutto OK?	Is everything OK?	58
-ok	OK.	OK.	58
 ok	È tutto OK qui?	Is everything OK here?	58
 va	Come va?	What's up?	59
 va	Ma va'!	You don't say!	59
@@ -182,7 +171,6 @@ tutti	L'abbiamo fatto tutti.	We've all done that.	67
 tutti	Sono tutti qui.	Everyone is here.	67
 tutti	È stato detto a tutti?	Has everyone been told?	67
 grazie	Grazie, è tutto.	Thanks, that's all.	69
-grazie	Grazie!	Thank you!	69
 grazie	No, grazie.	No, thank you.	69
 sta	Come sta?	How are you?	70
 sta	E lei, come sta?	And you, how are you?	70
@@ -202,7 +190,6 @@ voglio	Voglio di più.	I want more.	74
 il	Io voglio il mio.	I want mine.	74
 perché	Perché è qui?	Why is he here?	75
 perché	Ma perché?	But why?	75
-perché	Perché?	Why?	75
 tuo	È tuo?	Is it yours?	76
 tuo	Questo è mio e quello è tuo.	This is mine, and that's yours.	76
 tuo	È tuo quello?	Is that yours?	76
@@ -223,7 +210,6 @@ posso	Sì, posso.	Yes, I can.	81
 posso	Cosa posso fare?	What can I do?	81
 ehi	Ehi, tu!	Hey, you!	82
 ehi	Ehi, lei!	Hey, you!	82
-ehi	Ehi.	Hey.	82
 prima	L'ha fatto prima.	She's done this before.	83
 prima	Lei l'ha fatto prima.	She's done this before.	83
 prima	Sono la prima.	I'm first.	83
@@ -249,7 +235,6 @@ in	Sai cosa c'è che non va in lui?	Do you know what's wrong with him?	88
 siamo	È per questo che siamo qui.	That's why we are here.	89
 siamo	Chi siamo?	Who are we?	89
 siamo	Siamo qui!	We're here!	89
-davvero	Davvero?	Really?	91
 davvero	Davvero? Perché?	Really? Why?	91
 davvero	Oh! Davvero?	Oh! Really?	91
 fa	5 più 3 fa 8.	Add 5 to 3 and you have 8.	92
@@ -335,7 +320,6 @@ proprio	Non so proprio cosa dire.	I just don't know what to say.	118
 proprio	Ha proprio detto così.	He did say so.	118
 proprio	"""Hai qualcosa da fare?"" ""No, non proprio."""	"""Do you have anything to do?"" ""No, not really."""	118
 certo	Sì, certo.	Yes, of course.	119
-certo	Certo!	Of course!	119
 certo	Lo so per certo.	I know it for sure.	119
 tempo	Non so se ho tempo.	I don't know if I have the time.	120
 tempo	Non ho tempo per te.	I don't have time for you.	120
@@ -370,7 +354,6 @@ anni	Ho 18 anni.	I am eighteen years old.	129
 cui	Per cui?	So?	130
 andiamo	Sì, andiamo.	Okay, let's go.	131
 andiamo	Andiamo a casa!	Let's go home!	131
-andiamo	Andiamo!	Let's go!	131
 parte	Quando parte?	When does it start?	132
 parte	Quella non è la mia parte.	That is not my line.	132
 parte	A che ora parte?	What time are you leaving?	132
@@ -440,14 +423,11 @@ fai	Fai qualcosa!	Do something!	152
 signore	Prima le signore.	Ladies first.	153
 signore	Grazie, signore.	Thank you, sir.	153
 signore	Sì, signore!	Yes, Sir!	153
-meglio	Meglio.	That's better.	154
 meglio	Non ho niente di meglio da fare.	I have nothing better to do.	154
 meglio	Quello che non hai è meglio di quello che hai.	What you don't have is better than what you do have.	154
 cazzo	Ma che cazzo è?	What the fuck is that?	155
-cazzo	Cazzo!	Fuck!	155
 cazzo	Cosa cazzo c'è che non va con te?	What the fuck is wrong with you?	155
 dai	Dai, andiamo!	Come on, let's go!	156
-dai	Dai!	Go for it.	156
 dai	Dai questo a loro.	Give this to them.	156
 vuole	Cosa vuole da me?	What do you want from me?	158
 vuole	Cosa vuole fare?	What do you want to do?	158
@@ -555,7 +535,6 @@ i	Hai visto i miei?	Have you seen mine?	192
 i	Ha visto i miei?	Have you seen mine?	192
 aspetta	Che cosa si aspetta?	What does he expect?	193
 aspetta	Aspetta qui, per favore.	Please wait here.	193
-aspetta	Aspetta!	Wait!	193
 avere	Non voglio avere niente a che fare con te.	I want to have nothing to do with you.	194
 avere	Io non voglio avere niente a che fare con te.	I want to have nothing to do with you.	194
 avere	Non voglio avere niente a che fare con voi.	I want to have nothing to do with you.	194
@@ -597,7 +576,6 @@ tipo	Che tipo di lavoro fai?	What sort of work do you do?	206
 tipo	È il mio tipo.	She's my type.	206
 prego	Prego, da questa parte.	Will you step this way, please?	207
 prego	"""Grazie."" ""Prego."""	"""Thank you."" ""You're welcome."""	207
-prego	Prego.	Please.	207
 grande	La mia casa è grande.	My house is big.	208
 grande	Cosa vuoi fare da grande?	What do you want to be when you grow up?	208
 grande	È così grande!	It's so big!	208
@@ -678,7 +656,6 @@ caso	È proprio il mio caso!	It's my very case!	233
 caso	In questo caso, andiamo.	In this case, let's go.	233
 caso	È sempre il caso con lei.	It is always the case with her.	233
 forza	Che la forza sia con te.	May the force be with you.	234
-forza	Forza!	Go for it.	234
 forza	Non ho la tua forza.	I don't have your strength.	234
 tutte	Piace a tutte.	He is liked by everybody.	235
 tutte	Lui piace a tutte.	He is liked by everybody.	235
@@ -754,7 +731,6 @@ volevo	Non lo volevo.	I didn't want that.	257
 volevo	Non proprio quello che volevo.	Not quite what I want.	257
 okay	Tutto okay?	Everything okay?	258
 okay	Okay, andiamo.	Okay, let's go.	258
-okay	Okay.	Okay.	258
 sentito	Non ho sentito quello che hai detto.	I didn't hear what you said.	259
 sentito	Non ho sentito quello che avete detto.	I didn't hear what you said.	259
 sentito	Non l'ho sentito da allora.	I haven't heard from him since then.	259
@@ -911,7 +887,6 @@ amici	Devo il mio successo ai miei amici.	I owe my success to my friends.	309
 fine	Questa è la fine.	This is the end.	310
 fine	Tutto ha una fine.	Everything has an end.	310
 fine	Alla fine non è poi così male.	In the end, it's not that bad.	310
-aiuto	Aiuto!	Help!	311
 aiuto	Devo il mio successo al loro aiuto.	I owe my success to their help.	311
 aiuto	Devo il mio successo al suo aiuto.	I owe my success to your help.	311
 paura	Non ha paura di niente.	She is not afraid of anything.	312
@@ -978,7 +953,6 @@ presto	Presto soldi.	I lend money.	332
 stati	Dove siete stati?	Where have you been?	333
 stati	Quanto tempo siete stati?	How long did you stay?	333
 stati	Siamo sempre stati amici.	We have always been friends.	333
-merda	Merda!	Fuck!	334
 merda	È merda!	That's shit!	334
 merda	Quella è merda!	That's shit!	334
 bambino	Il bambino sta cercando sua madre.	The baby is looking for its mother.	335
@@ -1106,7 +1080,6 @@ ore	Lui è andato a casa tre ore dopo.	He went home three hours later.	375
 passato	Non mi è passato per la testa.	It hadn't crossed my mind.	376
 passato	Tutto era migliore in passato.	Everything was better in the past.	376
 passato	È passato molto tempo da quando l'ho visto.	It has been a long time since I saw him.	376
-magari	Magari!	I wish it were true.	377
 magari	Magari fosse davvero così!	I wish it were really like that!	377
 magari	Magari fosse vero.	I wish it were true.	377
 minuti	Posso essere lì in 30 minuti.	I can be there in 30 minutes.	378
@@ -1133,7 +1106,6 @@ sue	Dove sono le sue cose?	Where are your things?	385
 sue	Queste non sono sue, vero?	These aren't yours, are they?	385
 sue	Queste sono sue.	These are yours.	385
 salve	Salve signore!	Hello sir!	386
-salve	Salve.	Hello!	386
 salve	Salve, c'è qualcuno lì?	Hello, is there anybody there?	386
 settimana	Posso farlo in una settimana.	I can do it in a week.	387
 settimana	Questo era qualche settimana fa!	This was a few weeks ago!	387
@@ -1254,7 +1226,6 @@ lasciato	Ha lasciato la scuola due anni fa.	She left school two years ago.	424
 lasciato	Lei ha lasciato la scuola due anni fa.	She left school two years ago.	424
 lasciato	Ha lasciato il suo lavoro per qualche ragione.	She quit her job for some reason.	424
 ascolta	Ascolta bene quello che dico.	Listen well to what I say.	425
-ascolta	Ascolta!	Listen here!	425
 ascolta	Non ascolta nessuno?	Doesn't anyone listen?	425
 difficile	È più difficile di quello che pensi.	It's more difficult than you think.	426
 difficile	Ha avuto una vita difficile.	She's had a hard life.	426
@@ -1279,14 +1250,12 @@ pensare	Non riesco a pensare a nulla.	I can't think of anything.	432
 pensare	Dovrei pensare che hai ragione.	I should think you are right.	432
 fantastico	Sei davvero fantastico.	You're really wonderful.	433
 fantastico	È fantastico, vero?	That's awesome, right?	433
-fantastico	Fantastico!	Fantastic!	433
 fatta	Ce l'abbiamo fatta!	We succeeded!	434
 fatta	Ce l'hai fatta!	You've done it!	434
 fatta	Ce l'avete fatta!	You made it!	434
 numero	Sono sicuro di avere il numero giusto.	I'm sure I have the right number.	435
 numero	Sono sempre stato il numero uno.	I've always been number one.	435
 numero	Sono sempre stata il numero uno.	I've always been number one.	435
-veramente	Veramente?	Really?	436
 veramente	È veramente una buona idea.	That's really a great idea.	436
 veramente	Lo vuoi veramente?	Do you really want it?	436
 fanno	Gli amici fanno cose insieme.	Friends do things together.	437
@@ -1327,7 +1296,6 @@ problemi	Non ho nulla a che fare con i loro problemi.	I have nothing to do with 
 problemi	Al diavolo i tuoi problemi.	To hell with your problems.	448
 forte	È più forte di te.	He's stronger than you.	449
 forte	Lui era piccolo ma forte.	He was small, but strong.	449
-forte	Forte!	Great!	449
 nessuna	Non voglio andare da nessuna parte.	I don't want to go any place.	450
 nessuna	Non andare da nessuna parte.	Don't go anywhere.	450
 nessuna	Non sarà al sicuro da nessuna parte.	You won't be safe anywhere.	450
@@ -1525,7 +1493,6 @@ lavorare	Non ha bisogno di lavorare.	She doesn't need to work.	516
 unico	Tu sei l'unico a cui penso.	You're the only one I think about.	517
 unico	Lui è il loro unico bambino.	He is the only child they have.	517
 unico	È l'unico bambino che hanno.	He is the only child they have.	517
-esattamente	Esattamente!	Exactly!	518
 esattamente	Non lo so esattamente.	I do not know exactly.	518
 esattamente	Questo non è esattamente quello che volevo.	This isn't exactly what I wanted.	518
 squadra	La nostra squadra ha perso.	Our team lost.	519
@@ -1533,7 +1500,6 @@ squadra	C'è la mia squadra.	There's my team.	519
 squadra	Sono una buona squadra.	They're a good team.	519
 esatto	Sono sicuro di avere il numero esatto.	I'm sure I have the right number.	520
 esatto	Sono sicura di avere il numero esatto.	I'm sure I have the right number.	520
-esatto	Esatto!	Exactly!	520
 possono	Tutti possono farlo.	Anyone can do it.	521
 possono	Non possono avere ragione.	They can't be right.	521
 possono	Loro non possono avere ragione.	They can't be right.	521
@@ -1559,7 +1525,6 @@ avevi	Giusto. Allora avevi tre mesi.	Right. So you had three months.	529
 avevi	Non avevi bisogno di venire così presto.	You didn't need to come so early.	529
 avevi	Non sapevo che avevi una sorella.	I didn't know you had a sister.	529
 cavolo	Che cosa cavolo è questo?	What in the world is this?	530
-cavolo	Cavolo!	Blast!	530
 cavolo	Amo il cavolo!	I love cabbage!	530
 capitano	Queste cose capitano solo a me.	These things only happen to me.	531
 capitano	È il capitano di una squadra.	He's the captain of a team.	531
@@ -1580,7 +1545,6 @@ gioco	Ho perso il gioco.	I lost the game.	536
 gioco	Hai perso il gioco.	You lost the game.	536
 gioco	Avete perso il gioco.	You lost the game.	536
 perfetto	Sappiamo tutti che nessuno è perfetto.	We all know that no one is perfect.	537
-perfetto	Perfetto!	Perfect!	537
 perfetto	Nessuno è perfetto.	Nobody is perfect.	537
 mente	Perché mente?	Why do you lie?	538
 mente	Non mente mai.	He never lies.	538
@@ -1641,7 +1605,6 @@ facile	Credi che sia facile?	Do you believe that it is easy?	556
 farò	Lo farò con piacere.	I'll do it with pleasure.	557
 farò	Farò quello che vuoi.	I'll do whatever you want me to do.	557
 farò	Farò come dici.	I will do as you say.	557
-buongiorno	Buongiorno!	Good morning!	558
 buongiorno	Buongiorno. Come stai oggi?	Good day. How are you today?	558
 buongiorno	Buongiorno. Come sta oggi?	Good day. How are you today?	558
 davanti	Lui è davanti alla porta.	He is in front of the door.	559
@@ -1768,7 +1731,6 @@ scritto	Se avessi avuto più tempo, ti avrei scritto.	If I had had more time, I 
 scritto	Ha scritto ai suoi genitori.	He wrote to his parents.	600
 scritto	Mi ha scritto ieri.	He wrote to me yesterday.	600
 smettila	Smettila! Gli stai facendo male!	Stop! You're hurting him!	601
-smettila	Smettila!	Stop it.	601
 smettila	Smettila di parlare forte.	Stop talking loudly.	601
 vada	Vuoi che me ne vada con te?	Do you want me to go with you?	602
 vada	Non c'è bisogno che tu vada a meno che tu non lo voglia.	You don't need to go unless you want to.	602
@@ -1842,7 +1804,6 @@ musica	A mio padre non piace la musica.	My father doesn't like music.	625
 tieni	Tieni il resto.	Keep the change!	626
 tieni	Tieni da parte questi soldi per me.	Keep this money for me.	626
 tieni	Tieni il resto, per favore.	Keep the change, please.	626
-oddio	Oddio!	Omigod!	627
 oddio	Oddio, che cazzo devo fare?	Oh God, what the fuck am I going to do?	627
 libro	Ha già finito il libro?	Has she finished the book yet?	628
 libro	Parla come se avesse già letto il libro.	He speaks as if he had read the book before.	628
@@ -1867,7 +1828,6 @@ farai	Tanto più fai oggi, tanto meno farai domani.	The more you do now, the les
 farai	Tanto più fai oggi tanto meno farai domani.	The more you do now, the less you'll do tomorrow.	634
 farai	Ti farai male.	You will hurt yourself.	634
 entra	Entra in macchina.	Get into the car.	635
-entra	Entra!	Come in.	635
 entra	Entra, per favore.	Please come in.	635
 venuta	Non è ancora venuta qua.	She has not come here yet.	636
 venuta	"È venuta da me e ha detto ""Come stai?"""	"She came up to me and said ""How are you?"""	636
@@ -2074,7 +2034,6 @@ prove	Le prove erano a suo favore.	The evidence was in his favor.	705
 prove	Ho bisogno di prove.	I need evidence.	705
 funziona	Questo non funziona!	This doesn't work!	706
 funziona	Questa macchina non funziona bene.	This machine does not run well.	706
-funziona	Funziona?	Does it work?	706
 alto	Mio figlio è alto quanto me adesso.	My son is now as tall as I am.	707
 alto	Lui è molto alto.	He is very tall.	707
 alto	Mio padre è alto.	My father is tall.	707
@@ -2089,7 +2048,6 @@ preoccuparti	Non preoccuparti.	Don't worry.	710
 preoccuparti	Non devi preoccuparti per lei.	You need not worry about her.	710
 idiota	Mi prendi per idiota?	Do you take me for a fool?	711
 idiota	Mi credi idiota?	Do you take me for a fool?	711
-idiota	Idiota!	You idiot!	711
 cibo	Gli ha dato cibo e soldi.	He gave them food and money.	712
 cibo	Il cibo non è molto buono qui.	The food isn't very good here.	712
 cibo	Il cibo è buono.	Food is good.	712
@@ -2099,7 +2057,6 @@ fretta	Sono di fretta.	I am in a hurry.	713
 cara	Ciao, mia cara.	Hello, my dear.	714
 cara	Prima di tutto, è troppo cara.	First of all, it is too expensive.	714
 cara	È troppo cara!	It's too expensive!	714
-finalmente	Finalmente!	Finally!	715
 finalmente	Finalmente ha scoperto la verità.	At last he found out the truth.	715
 finalmente	Beh, finalmente siamo qui.	Well, here we are at last.	715
 morti	I miei genitori sono tutti e due morti.	My parents are both dead.	716
@@ -2245,7 +2202,6 @@ armi	Io non ho armi.	I have no weapons.	764
 arriva	Andiamo appena John arriva.	Let's go as soon as John comes.	765
 arriva	C'è una macchina che arriva.	There's a car coming.	765
 arriva	John non è ancora tornato, ma quando arriva ti chiamo.	John has not come yet, but when he does, I will call you.	765
-fermo	Fermo!	Freeze!	766
 fermo	Sono fermo.	I'm decisive.	766
 mese	Ho deciso di lasciare il lavoro alla fine di questo mese.	I've decided to quit my job at the end of this month.	767
 mese	Torna a casa alla fine di questo mese.	She is coming home at the end of this month.	767
@@ -2253,7 +2209,6 @@ mese	Lei torna a casa alla fine di questo mese.	She is coming home at the end of
 chiedere	Non voglio chiedere la tua mano!	I don't want to propose to you!	768
 chiedere	Posso chiedere il vostro nome?	May I ask your name?	768
 chiedere	Voglio chiedere scusa per l'altro giorno.	I want to apologize for the other day.	768
-cristo	Cristo!	Christ!	769
 cristo	Cristo è morto per tutti gli uomini.	Christ died once for all humans.	769
 torno	Torno subito.	I will be back soon.	770
 torno	Torno a casa presto ogni giorno.	I go home early every day.	770
@@ -2294,7 +2249,6 @@ informazioni	Io ho bisogno di informazioni.	I need information.	783
 libero	Sono libero.	I'm free.	784
 libero	Sei libero domani?	Are you free tomorrow?	784
 libero	Sei libero stasera?	Are you free tonight?	784
-stronzo	Stronzo!	Asshole!	785
 stronzo	Che stronzo!	What an asshole!	785
 stronzo	Il mio capo è uno stronzo.	My boss is an asshole.	785
 grandi	Penso che potremmo essere grandi amici.	I think we could be great friends.	786
@@ -2668,7 +2622,6 @@ david	David è a casa.	David is at home.	910
 david	David non può essere a casa.	David can't be at home.	910
 david	David non deve essere a casa.	David can't be at home.	910
 vattene	Prendi la tua roba e vattene.	Pick up your things and go away.	911
-vattene	Vattene!	Get out!	911
 vattene	Vattene subito!	Go away right now!	911
 guai	Sta parlando così forte che stiamo per finire nei guai.	He's talking so loudly that we're going to get in trouble.	912
 guai	Sono nei guai?	Am I in trouble?	912
@@ -2700,7 +2653,6 @@ chiave	Ecco la sua chiave.	Here is your key.	920
 cervello	Il mio cervello è pieno.	My brain is full.	921
 cervello	Non è colpa mia. Me l'ha fatto fare il mio cervello.	It's not my fault. My brain made me do it.	921
 cervello	È troppo per il mio piccolo cervello.	That's too much for my little brain.	921
-coraggio	Coraggio!	Cheer up!	922
 coraggio	Quello che ti serve davvero ora è il coraggio.	What you need the most now is courage.	922
 coraggio	Il coraggio non gli manca di sicuro.	He is certainly not without courage.	922
 interessante	Questo libro sembra interessante.	This book looks interesting.	923
@@ -2708,7 +2660,6 @@ interessante	Ho trovato il libro molto interessante.	I found the book very inter
 interessante	Ho trovato questo film molto interessante.	I found this film very interesting.	923
 peccato	Che peccato!	What a pity!	924
 peccato	Che peccato che è!	What a pity it is!	924
-peccato	Peccato.	Too bad.	924
 questione	È fuori questione.	It's out of the question.	925
 questione	Non parlare di nuovo di questa questione, per favore.	Don't refer to this matter again, please.	925
 questione	Non parlare di nuovo di questa questione, per piacere.	Don't refer to this matter again, please.	925
@@ -2806,7 +2757,6 @@ dottoressa	Lei è una dottoressa.	She is a doctor.	956
 dottoressa	Non è una dottoressa?	Isn't she a doctor?	956
 dottoressa	È una dottoressa.	She is a doctor.	956
 bastardo	Che bastardo!	What an asshole!	957
-bastardo	Bastardo!	Bastard!	957
 bastardo	Stupido bastardo!	You stupid bastard!	957
 potevo	Ho fatto quello che potevo.	I have done what I could.	958
 potevo	Non potevo vedere niente.	I could not see anything.	958
@@ -2918,7 +2868,6 @@ stesse	È da quando lo conosco che dice sempre le stesse cose.	He's been saying 
 stesse	Le foto sono le stesse.	The photographs are the same.	995
 stesse	Sembrava che stesse bene.	It seemed that he was fine.	995
 esiste	Dio esiste.	God exists.	996
-esiste	Esiste?	Does he exist?	996
 esiste	Lui esiste?	Does he exist?	996
 scoprire	Mi sono fatta scoprire.	I made myself discovered.	997
 scoprire	Devo scoprire a chi dare questo.	I need to find out who to give this to.	997
@@ -3042,7 +2991,6 @@ guardia	La buona guardia lo legge.	The good guard reads it.	1037
 guardia	La buona guardia la legge.	The good guard reads it.	1037
 guardia	Due uomini erano di guardia intorno al corpo.	Two men were on watch round the body.	1037
 infatti	Ha detto che sarebbe venuto e infatti è venuto.	He said he would come and he did come.	1038
-infatti	Infatti!	Indeed!	1038
 intendi	Non capisco cosa intendi.	I don't get what you mean.	1039
 intendi	Cosa intendi fare?	What do you intend to do?	1039
 intendi	So cosa intendi.	I know what you mean.	1039
@@ -3061,7 +3009,6 @@ arrivata	Sono arrivata qui proprio adesso.	I arrived here just now.	1043
 lavori	Lavori troppo.	You work too much.	1044
 lavori	Aiuto mia madre nei lavori di casa ogni giorno.	I help my mother with the housework every day.	1044
 lavori	Dove lavori?	Where do you work?	1044
-certamente	Certamente.	Certainly.	1045
 certamente	Lo farò certamente.	I'll certainly do this.	1045
 certamente	La farò certamente.	I'll certainly do this.	1045
 regole	Le regole sono tutto o niente.	Rules are all or nothing.	1046
@@ -3079,7 +3026,6 @@ ballo	Siamo andati al ballo.	We went to the dance.	1050
 ballo	Noi siamo andati al ballo.	We went to the dance.	1050
 ascoltami	Basta parlare e ascoltami.	Stop talking and listen to me.	1051
 ascoltami	Ascoltami, vuoi?	Listen to me, will you?	1051
-ascoltami	Ascoltami.	Listen to me.	1051
 birra	Una birra, per favore.	A beer, please.	1052
 birra	Una birra, per piacere.	A beer, please.	1052
 birra	Ha chiesto una birra.	He asked for a beer.	1052
@@ -3151,11 +3097,9 @@ avremo	Noi avremo finito!	We'll be finished!	1075
 avremo	Penso che avremo bisogno di più tempo.	I think we're going to need more time.	1075
 ferma	Ferma la macchina.	Stop the car.	1076
 ferma	Ferma l'auto.	Stop the car.	1076
-ferma	Ferma!	Freeze!	1076
 borsa	Questa è la stessa borsa che ho perso una settimana fa.	This is the same purse that I lost a week ago.	1077
 borsa	Questa non è la mia borsa.	This isn't my bag.	1077
 borsa	Questa borsa è mia.	This bag is mine.	1077
-prometto	Prometto.	I promise.	1078
 prometto	Lo prometto.	I promise.	1078
 prometto	Te lo prometto.	I promise you.	1078
 palle	Ti piacciono le palle.	You like balls.	1079
@@ -3185,7 +3129,6 @@ salvato	Gli devo molto perché mi ha salvato la vita.	I owe him a great deal bec
 salvato	Mi hai salvato la vita.	You saved my life.	1086
 siediti	Siediti dove vuoi.	Sit wherever you like.	1087
 siediti	Siediti, per favore.	Please sit down.	1087
-siediti	Siediti!	Sit down!	1087
 reale	È reale?	Is this real?	1088
 reale	Questo è reale?	Is this real?	1088
 reale	Questa è reale?	Is this real?	1088
@@ -3216,7 +3159,6 @@ brutta	Ho una brutta situazione a riguardo.	I have a bad feeling about this.	109
 braccio	Il braccio mi fa ancora male.	My arm still hurts.	1097
 braccio	Qualcuno mi ha preso per il braccio.	Somebody caught me by the arm.	1097
 braccio	Il poliziotto ha preso l'uomo per il braccio.	The policeman caught the man by the arm.	1097
-fermati	Fermati!	Stop that!	1098
 fermati	Fermati qui.	Stop here.	1098
 fermati	Perché non li hai fermati?	Why didn't you stop them?	1098
 stavamo	Di cosa stavamo parlando?	What were we talking about?	1099
@@ -3306,7 +3248,6 @@ comprato	Perché l'hai comprato?	Why did you buy it?	1128
 classe	Quanti ragazzi ci sono in classe tua?	How many boys are there in your class?	1129
 classe	Tutti sono arrivati in classe in tempo.	Everybody came to the class on time.	1129
 classe	Ci sono più ragazze che ragazzi in questa classe.	There are more girls than boys in this class.	1129
-ehm	Ehm...	Err...	1130
 ehm	Ehm, forse!	Ahm, maybe!	1130
 cambio	Il cambio è buono.	Change is good.	1131
 scorsa	Non sono riuscito a dormire bene la scorsa notte.	I couldn't sleep well last night.	1132
@@ -3396,7 +3337,6 @@ uniti	Dove vi siete uniti a loro?	Where did you join them?	1161
 trovata	L'ho trovata.	I found you.	1162
 trovata	Dove l'hai trovata?	Where did you find it?	1162
 trovata	L'ha trovata molto importante.	She found it very important.	1162
-eccolo	Eccolo.	There he is.	1163
 eccolo	Eccolo lì.	There he is.	1163
 eccolo	Eccolo qui!	Here he is!	1163
 carne	Non voglio carne.	I don't want meat.	1164
@@ -3493,7 +3433,6 @@ presente	Nessuno di loro è presente.	None of them are present.	1196
 ordini	Tu non dai ordini qui.	You don't give orders here.	1197
 ordini	Abbiamo ricevuto molti ordini dagli Stati Uniti.	We have received many orders from the U.S.	1197
 ordini	Quali sono i tuoi ordini?	What are your orders?	1197
-arrivederci	Arrivederci.	Good-bye!	1198
 arrivederci	Arrivederci e buona fortuna.	Goodbye and good luck.	1198
 arrivederci	È sempre difficile dire arrivederci.	It's always hard to say goodbye.	1198
 caffè	Non mi piace il caffè.	I don't like coffee.	1199
@@ -3502,7 +3441,6 @@ caffè	Non mi piace molto il caffè.	I don't care much for coffee.	1199
 barca	Sembra che siamo sulla stessa barca.	It seems we are in the same boat.	1200
 barca	Siamo sulla stessa barca.	We're on the same boat.	1200
 barca	Voglio una barca che mi porti via lontano da qui.	I want a boat that'll take me far away from here.	1200
-maledizione	Maledizione!	Darn!	1201
 maledizione	È una maledizione.	It's a curse.	1201
 nuovi	Mia madre ha fatto alcuni nuovi vestiti.	My mother made some new clothes.	1202
 nuovi	Siete nuovi?	Are you new?	1202
@@ -3543,8 +3481,6 @@ pensate	Cosa pensate di queste persone?	What do you think of these people?	1214
 parlarti	Posso parlarti?	May I speak with you?	1215
 parlarti	Posso parlarti ora?	May I talk to you now?	1215
 parlarti	Posso parlarti adesso?	May I talk to you now?	1215
-perciò	Perciò?	Therefore?	1216
-congratulazioni	Congratulazioni!	Congratulations!	1217
 congratulazioni	Congratulazioni a tutti!	Congratulations to all!	1217
 congratulazioni	Ho saputo che hai vinto. Congratulazioni!	I heard you won. Congratulations!	1217
 data	Mi è stata data una buona mano.	I was dealt a good hand.	1218
@@ -3620,8 +3556,6 @@ segno	Di che segno sei?	What sign are you?	1243
 mangiato	Ho mangiato fino a star male.	I ate myself sick.	1244
 mangiato	Hai già mangiato?	Have you eaten yet?	1244
 mangiato	Il cane non ha mangiato la carne.	The dog didn't eat the meat.	1244
-calmati	Calmati!	Cool off!	1245
-calmati	Calmati.	Calm down.	1245
 calmati	Per favore, calmati.	Please relax.	1245
 chiudi	Apri la bocca e chiudi gli occhi.	Open your mouth and close your eyes.	1246
 chiudi	Chiudi la porta.	Shut the door.	1246
@@ -3629,7 +3563,6 @@ chiudi	A che ora chiudi?	What time do you close?	1246
 posti	Quali posti volete?	What seats do you want?	1247
 posti	È stato in molti posti.	He has been to many places.	1247
 posti	Lui è stato in molti posti.	He has been to many places.	1247
-accidenti	Accidenti!	Blimey!	1248
 accidenti	Oh, accidenti.	Oh, bother.	1248
 accidenti	Accidenti, guarda che ora si è fatta, devo scappare.	Oh my God, look at the time! I have to run.	1248
 bellissimo	È stato bellissimo.	It has been wonderful.	1249
@@ -3710,7 +3643,6 @@ maestro	Maestro, non capisco cosa stai dicendo.	Teacher, I don't understand what
 fantastica	La tua casa è fantastica.	Your house is fantastic.	1274
 fantastica	La sua macchina nuova è fantastica.	His new car is wonderful.	1274
 fantastica	La scuola è fantastica!	School is fantastic!	1274
-benvenuto	Benvenuto!	Welcome.	1275
 benvenuto	Benvenuto a casa.	Welcome home.	1275
 benvenuto	Ovunque tu vada sarai il benvenuto.	Wherever you go, you'll be welcomed.	1275
 sarebbero	Pensavo che non sarebbero andati a dirlo a nessuno.	I thought you weren't going to tell anyone.	1276
@@ -3748,7 +3680,6 @@ potesse	Pensavo che potesse avere fame.	I thought you might be hungry.	1286
 potesse	Pensavo che potesse essere in grado di aiutarmi.	I think you might be able to help me.	1286
 stronzate	Stanno solo dicendo stronzate.	They're just talking shit.	1287
 stronzate	Loro stanno solo dicendo stronzate.	They're just talking shit.	1287
-stronzate	Stronzate.	Bullshit.	1287
 indirizzo	Fammi sapere il tuo nuovo indirizzo.	Let me know your new address.	1288
 indirizzo	Conosco il suo indirizzo.	I know his address.	1288
 indirizzo	Se avessi saputo il suo indirizzo le avrei scritto.	If I had known her address, I would have written to her.	1288
@@ -3809,8 +3740,6 @@ darti	Voglio darti il mio cuore per sempre.	I want to give you my heart for ever
 serie	Sono ragazze serie.	They are sensible girls.	1308
 serie	Le ragazze serie non ci sono più.	Serious girls don't exist anymore.	1308
 serie	Ora parliamo di cose serie!	Now let us talk about serious matters!	1308
-esci	Esci.	Get out.	1309
-esci	Esci!	Get out!	1309
 esci	Entra o esci.	Enter or exit.	1309
 vittime	Non ci sono vittime.	There are no victims.	1310
 diversi	Ma gli uomini sono diversi.	But human beings are different.	1311
@@ -3864,7 +3793,6 @@ progetto	E infatti questo progetto ha bisogno di tutti.	And actually, this proje
 danno	Il danno è fatto.	The damage is done.	1328
 danno	Fa più danno che bene.	It does more harm than good.	1328
 danno	Il danno è stato fatto.	The damage has been done.	1328
-naturalmente	Naturalmente.	Naturally.	1329
 naturalmente	Naturalmente si è arrabbiato.	Naturally he got angry.	1329
 naturalmente	Naturalmente sto scherzando!	Of course I'm kidding!	1329
 colpevole	È stato trovato colpevole di omicidio.	He was found guilty of murder.	1330
@@ -4099,7 +4027,6 @@ torta	Chi ha fatto questa torta?	Who made this cake?	1410
 torta	Questa torta è dolce.	This cake is sweet.	1410
 pezzo	Non sono stato io a mangiare l'ultimo pezzo di torta.	It wasn't me that ate the last piece of cake.	1410
 guardami	Guardami quando ti parlo!	Look at me when I talk to you!	1411
-guardami	Guardami.	Watch me.	1411
 guardami	Guardami e basta.	Just watch me.	1411
 dirò	Non lo dirò a nessuno.	I'll never tell this to anyone.	1412
 dirò	Beh, ti dirò come scrivere il mio nome.	Well, I'll tell you how to spell my name.	1412
@@ -4125,7 +4052,6 @@ dovremo	Noi dovremo aspettare per cinque ore.	We'll have to wait for five hours.
 londra	Posso chiamare Londra da qui?	Can I telephone London from here?	1420
 londra	Mio zio vive a Londra.	My uncle lives in London.	1420
 londra	Sono a Londra.	I am in London.	1420
-vedrai	Vedrai.	You'll see.	1421
 sara	Vedrai Sara il mese prossimo?	Will you see Sara next month?	1421
 vedrai	Vedrai Sara il mese prossimo?	Will you see Sara next month?	1421
 vedrai	Tu vedrai Sara il mese prossimo?	Will you see Sara next month?	1421
@@ -4171,7 +4097,6 @@ dovevi	Hai fatto quello che dovevi fare.	You did what you had to do.	1435
 dovevi	Quanto dovevi bere?	How much did you have to drink?	1435
 dovevi	Non dovevi comprare il libro.	You didn't need to buy the book.	1435
 aiutami	Vieni qui e aiutami.	Come here and help me.	1436
-aiutami	Aiutami!	Help me!	1436
 aiutami	Aiutami a uscire.	Help me out.	1436
 tranquilla	È una donna tranquilla.	She is a quiet woman.	1437
 tranquilla	Stia tranquilla mentre sto parlando.	Be quiet while I'm speaking.	1437
@@ -4350,7 +4275,6 @@ compito	Fa' il tuo compito adesso.	Do your homework now.	1497
 compito	Fa' il tuo compito immediatamente.	Do your homework right away.	1497
 stronza	Che stronza!	What an asshole!	1498
 stronza	È una vera stronza.	She's a real bitch.	1498
-stronza	Stronza.	Asshole.	1498
 contenta	Sono proprio contenta per te!	I am truly happy for you.	1499
 contenta	Sembri contenta.	You look contented.	1499
 contenta	Sembra contenta.	You look contented.	1499
@@ -4456,7 +4380,6 @@ continui	Continui da sola.	You go on alone.	1533
 fianco	Lei vive di fianco a casa nostra.	She lives next door to us.	1534
 fianco	È al suo fianco.	He's at her side.	1534
 fianco	Lui è al suo fianco.	He's at her side.	1534
-alzati	Alzati!	Get up!	1535
 alzati	Alzati davvero. È davvero tardi.	Do get up, it's very late.	1535
 alzati	Alzati presto, o sarai in ritardo.	Get up early, or you'll be late.	1535
 accettare	Non posso proprio accettare la tua offerta.	I cannot bring myself to accept your offer.	1536
@@ -4511,7 +4434,6 @@ fidati	"""Fidati di me,"" disse."	"""Trust me,"" he said."	1554
 fidati	Fidati, ci sono stato.	Trust me, I've been there.	1554
 fidati	Fidati, ci sono stata.	Trust me, I've been there.	1554
 sveglia	Sono sveglia.	I'm awake.	1555
-sveglia	Sveglia!	Wake up!	1555
 sveglia	Stai sveglia.	Stay awake.	1555
 tiene	Sua zia gli tiene il cane di giorno.	His aunt takes care of his dog during the day.	1556
 tiene	Lei tiene sempre in ordine la sua stanza.	She always keeps her room in good order.	1556
@@ -4564,7 +4486,6 @@ paio	Questo paio di pantaloni è proprio perfetto per me.	This pair of trousers 
 pantaloni	Questo paio di pantaloni è proprio perfetto per me.	This pair of trousers is just right for me.	1573
 pantaloni	Quelli sono i miei pantaloni.	Those are my trousers.	1573
 azione	La prima scena ha molta azione.	The first scene has a lot of action.	1575
-azione	Azione!	Action!	1575
 azione	È ora di mettere in azione il piano.	It's time to put the plan in action.	1575
 sii	Sii gentile con gli altri.	Be kind to others!	1576
 sii	Sii gentile con i piccoli animali.	Be kind to little animals.	1576
@@ -4617,7 +4538,6 @@ risultati	Non sono contento dei tuoi risultati: ecco ciò che volevo dirti.	I'm 
 ridicolo	Non essere ridicolo!	Don't be ridiculous!	1594
 ridicolo	Non sia ridicolo!	Don't be ridiculous!	1594
 ridicolo	Sei ridicolo oggi.	You are being ridiculous today.	1594
-vaffanculo	Vaffanculo!	Fuck you!	1595
 andarci	No, non devi andarci ora.	No, you needn't go right now.	1596
 andarci	Questa volta devi andarci.	This time you must go there.	1596
 andarci	Dimmi perché vuoi andarci.	Tell me why you want to go there.	1596
@@ -4738,7 +4658,6 @@ seguire	Hai fatto bene a non seguire il suo consiglio.	You did well not to follo
 cerchiamo	Cerchiamo di non fare il lavoro.	Let's try to not do the work.	1635
 cerchiamo	Cerchiamo di essere serie.	Let's try to be serious.	1635
 cerchiamo	Cerchiamo di dormire.	Let's try to sleep.	1635
-coglione	Coglione.	Wanker.	1636
 coglione	Che coglione!	What a plonker!	1636
 dettagli	Non sono entrato nei dettagli.	I didn't go into details.	1637
 dettagli	Sono entrato nei dettagli.	I went into details.	1637
@@ -4828,13 +4747,11 @@ campione	Lui è il campione.	He is the champion.	1664
 campione	È stato il campione per tre anni.	He was the champion for three years.	1664
 campione	Sei il campione, non è vero?	You're the champion, aren't you?	1664
 buonasera	Buonasera, come state?	Good evening, how are you?	1665
-buonasera	Buonasera!	Good evening.	1665
 buonasera	Buonasera, Signore e Signori.	Good evening, ladies and gentlemen.	1665
 braccia	Sei la donna più bella che io abbia mai tenuto tra le mie braccia.	You're the most beautiful woman I've ever held in my arms.	1666
 braccia	Tu sei la donna più bella che io abbia mai tenuto tra le mie braccia.	You're the most beautiful woman I've ever held in my arms.	1666
 braccia	Gli è morta tra le braccia.	She died in his arms.	1666
 corte	Ho le braccia corte.	I have short arms.	1666
-decisamente	Decisamente!	Definitely!	1667
 decisamente	È decisamente fuori dalla mia portata.	He's way out of my league.	1667
 decisamente	Lui è decisamente fuori dalla mia portata.	He's way out of my league.	1667
 washington	George Washington è arrivato il giorno prima.	George Washington arrived the day before.	1668
@@ -4864,7 +4781,6 @@ mercato	Il mercato è grande.	The market is big.	1675
 valore	È di grande valore.	It is of great value.	1676
 valore	Ha molti libri di valore.	She has many valuable books.	1676
 valore	Lei ha molti libri di valore.	She has many valuable books.	1676
-sbrigati	Sbrigati!	Hurry up.	1677
 sbrigati	Sbrigati o farai tardi a scuola.	Hurry up, or you'll be late for school.	1677
 sbrigati	Sbrigati o sarai in ritardo.	Hurry up, or you will be late.	1677
 salire	Devo salire su questo treno.	I've got to get on this train.	1678
@@ -4903,7 +4819,6 @@ tanta	Perché c'è così tanta gente?	Why are there so many people?	1688
 morendo	Sto morendo di fame.	I'm dying of hunger.	1689
 morendo	Una volta che siamo morti, non stiamo più morendo.	Once we are dead, we are no longer dying.	1689
 morendo	Io sto morendo di fame.	I'm dying of hunger.	1689
-rilassati	Rilassati!	Take it easy!	1690
 rilassati	Si sono rilassati.	They relaxed.	1690
 rilassati	Loro si sono rilassati.	They relaxed.	1690
 conversazione	Quando si entra in una conversazione si dovrebbe avere qualcosa da dire.	When you enter a conversation, you should have something to say.	1692
@@ -4919,7 +4834,6 @@ pensiero	Il suo unico pensiero è vedere lei.	His one thought is to see her.	169
 rimane	Il negozio rimane aperto tutto il giorno.	The shop stays open all day.	1696
 rimane	Rimane ancora molto da fare.	Much still remains to be done.	1696
 rimane	Ci rimane ancora molto cibo.	We still have a lot of food left.	1696
-benvenuti	Benvenuti!	Welcome.	1697
 benvenuti	Benvenuti in questo mondo!	Welcome to this world!	1697
 benvenuti	Benvenuti a bordo!	Welcome aboard!	1697
 conoscenza	Ho perso conoscenza.	I lost consciousness.	1698
@@ -5029,14 +4943,12 @@ potevi	Hai fatto tutto quello che potevi.	You did all you could.	1737
 preferisco	Preferisco uscire che restare a casa.	I prefer going out to staying at home.	1738
 preferisco	Preferisco il pesce alla carne.	I prefer fish to meat.	1738
 preferisco	Preferisco lavorare che non fare niente.	I prefer working to doing nothing.	1738
-scusatemi	Scusatemi.	Excuse me.	1739
 scusatemi	Scusatemi, chi è questa donna?	Excuse me, who is this woman?	1739
 scusatemi	Scusatemi, però mi sento male.	Excuse me, but I feel sick.	1739
 teoria	In teoria, non c'è differenza tra la teoria e la pratica. Ma, in pratica, ce n'è.	In theory, there is no difference between theory and practice. But, in practice, there is.	1741
 teoria	Penso di avere una teoria a riguardo.	I think I have a theory about that.	1741
 teoria	La teoria senza pratica sarà inutile.	Theory without practice will be no use.	1741
 chiamami	Per favore, chiamami appena possibile.	Please call me at your earliest convenience.	1742
-chiamami	Chiamami!	Call me!	1742
 chiamami	Chiamami questo pomeriggio.	Call me this afternoon.	1742
 dovere	È nostro dovere aiutare.	It's our duty to help.	1743
 dovere	Il dovere dovrebbe venire prima di tutto il resto.	Duty should come before anything else.	1743
@@ -5065,8 +4977,6 @@ volessi	Pensavo volessi il lavoro.	I thought you'd want the work.	1752
 volessi	Pensavo lo volessi indietro.	I thought you wanted this back.	1752
 purtroppo	Purtroppo non avrò molto tempo libero.	Unfortunately I will not have much free time.	1753
 purtroppo	Purtroppo tutto è caro e si mangia meno in generale!	Unfortunately, everything is expensive and you will eat less in general!	1753
-purtroppo	Purtroppo!	Unfortunately!	1753
-eccola	Eccola.	There she is.	1754
 eccola	Eccola lì.	There she is.	1754
 preoccupata	Tua madre è preoccupata per la tua salute.	Your mother is anxious about your health.	1755
 preoccupata	Sua madre è preoccupata per lui.	His mother is worried about him.	1755
@@ -5175,8 +5085,6 @@ caduto	È caduto per terra.	He fell down on the floor.	1790
 caduto	Lui è caduto per terra.	He fell down on the floor.	1790
 caduto	È caduto a pezzi.	It fell to pieces.	1790
 corri	Corri più veloce che puoi.	Run as fast as you can.	1791
-corri	Corri.	You run.	1791
-corri	Corri!	Run!	1791
 cinema	Il cinema era pieno di gente.	The cinema was filled with people.	1792
 cinema	Ero al cinema.	I was at a movie theater.	1792
 cinema	Sono andato al cinema con mio fratello.	I went to the movies with my brother.	1792
@@ -5235,7 +5143,6 @@ numeri	Cosa sono quei numeri?	What are those numbers?	1810
 diamo	Diamo da mangiare al cane tre volte al giorno.	We feed our dog three times a day.	1811
 diamo	Noi diamo da mangiare al cane tre volte al giorno.	We feed our dog three times a day.	1811
 diamo	Diamo loro una mano.	Let's give them a hand.	1811
-credimi	Credimi.	Believe me.	1812
 credimi	Oh per favore, credimi.	Oh please, believe me.	1812
 credimi	Oh per piacere, credimi.	Oh please, believe me.	1812
 compagno	Sono Paul, il tuo compagno di stanza.	I'm your flatmate Paul.	1813
@@ -5329,7 +5236,6 @@ completo	Il suo lavoro è completo ora.	His work is now complete.	1841
 lasciamo	Lasciamo perdere.	Let it go!	1842
 lasciamo	Lasciamo le cose come stanno.	Let's leave it at that.	1842
 lasciamo	Lasciamo la decisione al nostro professore.	Let's leave the decision to our teacher.	1842
-entri	Entri!	Come in.	1843
 entri	Entri, per favore.	Please come in.	1843
 entri	Entri, per piacere.	Please come in.	1843
 liceo	Non basta il liceo.	High school is not enough.	1844
@@ -5409,7 +5315,6 @@ maledetto	Felice maledetto Natale!	Merry bloody Christmas!	1868
 chiamarmi	Puoi chiamarmi Bob.	You can call me Bob.	1869
 chiamarmi	Non chiamarmi più.	Don't call me anymore.	1869
 chiamarmi	Potresti chiamarmi più tardi?	Could you call me later?	1869
-magnifico	Magnifico!	Wonderful!	1870
 magnifico	È magnifico.	That's terrific.	1870
 magnifico	Sei magnifico.	You're wonderful.	1870
 universo	Che età ha l'universo?	How old is the universe?	1871
@@ -5859,7 +5764,6 @@ scomparso	Ha cercato il gatto scomparso per tutto il giorno.	He's been looking f
 modi	I suoi modi non sono quelli di una signora.	Her manners are not those of a lady.	2026
 modi	È grande in molti modi.	He is great in many ways.	2026
 modi	Lui è grande in molti modi.	He is great in many ways.	2026
-entrate	Entrate!	Come in.	2027
 entrate	Entrate, per favore.	Please come in.	2027
 entrate	Per piacere entrate uno alla volta.	Please come in one by one.	2027
 sarete	Cosa sarete?	What are you going to be?	2028
@@ -6049,7 +5953,6 @@ costruire	Non si possono costruire case in questa zona.	Houses can't be built in
 costruire	È stato in grado di costruire una piccola casa.	He was able to build a small house.	2094
 costruire	Spero di costruire una casa nuova l'anno prossimo.	I hope to build a new house next year.	2094
 rete	La rete è enorme.	The net is huge.	2095
-rete	Rete!	Goal!	2095
 rete	E la palla è in rete.	And the ball is in the net.	2095
 ricco	È ricco, non ha bisogno di soldi!	He's rich. He doesn't need money!	2097
 ricco	Hanno detto che lui è molto ricco.	They said he's very rich.	2097
@@ -6100,7 +6003,6 @@ incendio	In caso di incendio, chiama il 119.	In case of fire, call 119.	2112
 incendio	In caso di incendio, chiamate il 119.	In case of fire, call 119.	2112
 incendio	In caso di incendio, chiami il 119.	In case of fire, call 119.	2112
 falso	Chi l'ha detto? È assolutamente falso!	Who said that? It's totally wrong!	2113
-falso	Falso.	False.	2113
 falso	Vero o falso?	True or false?	2113
 dirglielo	Non posso dirglielo adesso. Non è più così semplice.	I can't tell her now. It's not that simple anymore.	2114
 dirglielo	Non dirglielo.	Don't tell them.	2114
@@ -6153,7 +6055,6 @@ aspettiamo	Aspettiamo qui finché non torna.	Let's wait here till he comes back.
 aspettiamo	Aspettiamo altri 5 minuti.	Let's wait for another 5 minutes.	2130
 aspettiamo	Ti aspettiamo qui?	Shall we wait for you here?	2130
 svegliati	Avanti, svegliati.	Come on, wake up.	2131
-svegliati	Svegliati!	Wake up!	2131
 svegliati	Vi ho svegliati.	I woke you up.	2131
 parlano	Tutti parlano una lingua.	Everyone speaks a language.	2132
 parlano	Poche persone parlano la mia lingua.	Few people speak my language.	2132
@@ -6343,7 +6244,6 @@ cinese	Mia moglie è cinese.	My wife is Chinese.	2201
 cinese	Sono cinese.	I am Chinese.	2201
 cinese	Voglio imparare il cinese l'anno prossimo.	I want to learn Chinese next year.	2201
 verranno	Forse verranno e forse no.	Maybe they will come and maybe they won't.	2202
-verranno	Verranno.	They'll come.	2202
 verranno	Loro verranno.	They'll come.	2202
 imbarazzante	È una domanda imbarazzante.	It's an embarrassing question.	2203
 imbarazzante	Sei imbarazzante!	You are embarrassing!	2203
@@ -6412,7 +6312,6 @@ traffico	Il ponte è aperto al traffico.	The bridge is open to traffic.	2223
 avrete	Immagino ne avrete sentito parlare.	I suppose you have heard of it.	2224
 avrete	Avrete la mia risposta domani.	You shall have my answer tomorrow.	2224
 avrete	Avrete bisogno di tempo per capire.	You will need time to understand.	2224
-eccoti	Eccoti.	There you are.	2225
 eccoti	Eccoti qui, mia cara.	There you are, my dear.	2225
 contare	Ci sono più stelle in cielo di quante io ne possa contare.	There are more stars in the sky than I can count.	2226
 contare	Lei ha solo due anni ma è capace a contare fino a 100.	She is only two years old but is able to count to 100.	2226
@@ -6430,7 +6329,6 @@ solamente	Dico solamente la verità.	I speak nothing but the truth.	2230
 solamente	Posso solamente aspettare.	I can only wait.	2230
 solamente	Volevano solamente essere lasciate da sole.	They just wanted to be left alone.	2230
 chissà	Chissà quanto vorrebbe queste ali!	I wonder how it would be to have wings!	2231
-chissà	Chissà!	Who knows!	2231
 chissà	Chissà se c'è qualcuno che può aiutarci.	I wonder if there's someone who can help us.	2231
 sorriso	Mi ha sorriso.	She smiled at me.	2232
 sorriso	Lei mi ha guardato e ha sorriso.	She looked at me and smiled.	2232
@@ -6470,7 +6368,6 @@ riuscivo	Non riuscivo a vedere niente.	I could not see anything.	2244
 riuscivo	Non riuscivo a vedere nulla.	I could not see anything.	2244
 respira	Le fa male mentre respira?	Does it hurt when you breathe?	2245
 respira	Respira con il naso.	Breathe through your nose.	2245
-respira	Respira!	Breathe!	2245
 mettiti	Mettiti la giacca.	Put on your coat.	2246
 mettiti	Fa freddo fuori. Mettiti la giacca.	It is cold outdoors. Put on your coat.	2246
 mettiti	Mettiti al posto mio.	Put yourself in my position.	2246
@@ -6550,7 +6447,6 @@ spaventata	Ho paura di essere spaventata.	I'm afraid of being afraid.	2276
 compagni	Sono i miei compagni di classe.	They are my classmates.	2277
 compagni	Io e lei siamo compagni di classe.	She and I are classmates.	2277
 compagni	Siamo compagni di classe.	We're classmates.	2277
-facciamolo	Facciamolo.	Let's do it.	2278
 facciamolo	Facciamolo ancora.	Let's do this again.	2278
 facciamolo	Facciamolo di nuovo.	Let's do this again.	2278
 tentato	Non tutto è stato tentato.	Every means has not been tried.	2279
@@ -6727,7 +6623,6 @@ carica	Carica il telefono.	Charge your phone.	2342
 carica	Sono in carica qui.	I'm in charge here.	2342
 carica	Io sono in carica qui.	I'm in charge here.	2342
 salta	Provi a vedere quanto salta lontano.	Try to see how far you can jump.	2343
-salta	Salta!	Jump!	2343
 salta	Salta su.	Hop in.	2343
 pensione	Mi mancano tre anni alla pensione.	I have three years left until retirement.	2344
 pensione	Vado in pensione fra quattro anni.	I retire in four years' time.	2344
@@ -6782,7 +6677,6 @@ mucchio	Che mucchio di idioti!	What a bunch of idiots!	2359
 evento	L'evento l'ha reso famoso.	The event made him famous.	2360
 evento	Volete parlare di questo evento?	You want to talk about this event?	2360
 evento	Vuole parlare di questo evento?	You want to talk about this event?	2360
-bugiardo	Bugiardo!	Liar!	2361
 bugiardo	Mi dispiace di averti chiamato bugiardo.	I'm sorry I called you a liar.	2361
 bugiardo	Bugiardo oggi, ladro domani.	Liar today, thief tomorrow.	2361
 riusciti	La porta era chiusa a chiave e non siamo riusciti a entrare.	The door was locked and we couldn't get in.	2363
@@ -6869,7 +6763,6 @@ gelato	Mi piace davvero il gelato.	I do like ice cream.	2389
 perfino	Lavoro perfino di domenica.	I work even on Sunday.	2390
 perfino	Perfino noi siamo persone.	Even we are people.	2390
 perfino	Io lavoro perfino di domenica.	I work even on Sunday.	2390
-spara	Spara!	Shoot!	2391
 spara	Guardi dove spara.	Look where you shoot.	2391
 spara	Vai avanti e spara.	Go ahead and shoot.	2391
 lentamente	Mia madre parla lentamente.	My mother speaks slowly.	2392
@@ -6884,7 +6777,6 @@ vergogna	È senza vergogna.	She has no shame.	2394
 adorabile	Lei è adorabile!	She is adorable!	2395
 adorabile	Beh, è adorabile.	Well, that's adorable.	2395
 adorabile	Sei adorabile!	You are adorable.	2395
-iniziamo	Iniziamo!	Let's begin.	2396
 iniziamo	Iniziamo a tradurre!	Let's start translating!	2396
 iniziamo	Iniziamo la festa.	Let's start the party.	2396
 castello	Il castello è bello.	The castle is beautiful.	2397
@@ -7087,7 +6979,6 @@ lato	Guardate il lato positivo.	Look on the bright side.	2465
 muovetevi	Per piacere muovetevi!	Please hurry up!	2466
 muovetevi	Non muovetevi.	Don't move.	2466
 muovetevi	Muovetevi in silenzio.	Move quietly.	2466
-andiamocene	Andiamocene.	Let's go away.	2467
 andiamocene	Andiamocene presto.	Let's leave early.	2467
 andiamocene	Andiamocene e basta.	Let's just leave.	2467
 diamine	Perché diamine vorresti andare lì?	Why on earth would you want to go there?	2468
@@ -7120,7 +7011,6 @@ fortunata	Come sono fortunata!	How lucky I am!	2477
 fortunata	Sono stata fortunata.	I was lucky.	2477
 usciamo	Usciamo insieme stasera.	Let's get together tonight.	2478
 usciamo	Usciamo dal taxi.	Let's get out of the taxi.	2478
-usciamo	Usciamo!	Let's go out.	2478
 provarci	Smettila di provarci con mia sorella.	Stop flirting with my sister.	2480
 provarci	Dovresti provarci.	You might try that.	2480
 provarci	Posso provarci più tardi?	Can I try it later?	2480
@@ -7181,7 +7071,6 @@ esperto	Io non sono esperto come te.	I'm not as expert as you are.	2505
 esperto	Sono esperto.	I'm experienced.	2505
 esperto	Io sono esperto.	I'm experienced.	2505
 pensaci	Per favore, pensaci.	Please think about it.	2506
-pensaci	Pensaci.	Think about it.	2506
 pensaci	Pensaci con attenzione.	Think about it carefully.	2506
 onda	Il programma sta andando in onda.	The program is on the air.	2507
 onda	È l'onda perfetta.	That is the perfect wave.	2507
@@ -7280,7 +7169,6 @@ probabile	È possibile, ma non probabile.	It's possible, but not probable.	2539
 probabile	Non è probabile che lo abbia fatto di proposito.	It is not likely that he did it on purpose.	2539
 probabile	È probabile che venga.	He's likely to come.	2539
 lasciala	Lasciala dove l'hai trovata.	Leave it where you found it.	2540
-lasciala	Lasciala.	Leave it.	2540
 lasciala	Lasciala là.	Leave it there.	2540
 credono	Tutti quelli che vanno in chiesa credono in Dio.	Whoever goes to church believes in God.	2541
 credono	Alcuni credono in Dio, ma altri no.	Some believe in God, but others do not.	2541
@@ -7318,8 +7206,6 @@ troverai	Cerca e troverai!	Search and you will find!	2553
 tecnologia	Questa tecnologia è una cosa incredibile!	This technology is an incredible thing!	2554
 tecnologia	Non penso che la tecnologia ci dia tutto quello di cui abbiamo bisogno.	I don't think that technology provides us with everything we need.	2554
 tecnologia	Perché la tecnologia mi odia?	Why does technology hate me?	2554
-scappa	Scappa!	Run away!	2555
-scappa	Scappa.	Escape.	2555
 firma	Per piacere firma qui.	Please sign here.	2556
 firma	Firma qui.	Sign here.	2556
 firma	Mi serve la tua firma qui.	I need your signature here.	2556
@@ -7569,7 +7455,6 @@ certi	Potete star certi che faremo tutto il possibile.	You may rest assured that
 gioca	Mio figlio gioca sotto la pioggia.	My son is playing in the rain.	2641
 gioca	Gioca molto bene.	He plays very well.	2641
 gioca	Lui gioca molto bene.	He plays very well.	2641
-figurati	Figurati.	You're welcome.	2642
 figurati	"""Grazie per l'aiuto."" ""Figurati."""	"""Thanks for the help."" ""Don't mention it."""	2642
 figurati	"""Grazie per avermi aiutato."" ""Figurati."""	"""Thank you for helping me."" ""Don't mention it."""	2642
 fabbrica	Forse la fabbrica verrà chiusa per sempre la settimana prossima.	Possibly the factory will be closed down next week.	2643
@@ -7669,8 +7554,6 @@ maschera	Ho tolto la maschera.	I removed the mask.	2682
 visione	Ho avuto una visione.	I had a vision.	2683
 visione	Io ho avuto una visione.	I had a vision.	2683
 visione	Per altri, si tratta di una visione di quello che potrebbe essere.	For others, it is a vision of what could be.	2683
-cominciamo	Cominciamo?	Shall we begin?	2684
-cominciamo	Cominciamo!	Let's start!	2684
 cominciamo	Cominciamo la festa!	Let's start the party.	2684
 nata	Quando è nata?	When was she born?	2685
 nata	A che ora è nata?	What time was she born?	2685
@@ -7684,7 +7567,6 @@ cattivi	Perché siete cattivi con me?	Why are you being mean to me?	2687
 dormendo	Il bambino sta ancora dormendo.	The baby is still sleeping.	2688
 dormendo	La bambina sta ancora dormendo.	The baby is still sleeping.	2688
 dormendo	Sta dormendo?	Is she sleeping?	2688
-eccomi	Eccomi.	Here I am.	2689
 regali	Questi sono dei regali per i miei amici.	These are gifts for my friends.	2690
 regali	Questi sono regali.	These are gifts.	2690
 regali	Dovremmo cominciare a cercare i regali di Natale per i bambini.	We should start getting Christmas gifts for the children.	2690
@@ -7850,7 +7732,6 @@ disposto	Sono disposto a darti tutto quello che ho.	I'm willing to give you ever
 disposto	Sono disposto a darle tutto quello che ho.	I'm willing to give you everything I've got.	2750
 disposto	Sono disposto a scusarmi.	I'm willing to apologize.	2750
 proviamo	Proviamo qualcosa!	Let's try something.	2751
-proviamo	Proviamo.	Let's try!	2751
 proviamo	Ci proviamo.	We try.	2751
 confine	Passò attraverso il confine.	He passed across the border.	2752
 confine	Lui passò attraverso il confine.	He passed across the border.	2752
@@ -7891,7 +7772,6 @@ butta	Come butta?	What's up?	2764
 butta	Butta via le chiavi.	Throw away the keys.	2764
 perdonami	Per piacere, perdonami.	Please forgive me.	2765
 perdonami	Per favore, perdonami.	Please forgive me.	2765
-perdonami	Perdonami!	Forgive me!	2765
 dosso	Togliti di dosso!	Get off my back!	2766
 cambiamento	Ho fatto qualche cambiamento.	I made a few changes.	2767
 cambiamento	Io ho fatto qualche cambiamento.	I made a few changes.	2767
@@ -8029,7 +7909,6 @@ labbra	Le sue labbra sono blu.	Your lips are blue.	2815
 controlli	Vuoi che controlli di nuovo?	Do you want me to check again?	2816
 controlli	Vuole che controlli di nuovo?	Do you want me to check again?	2816
 controlli	Volete che controlli di nuovo?	Do you want me to check again?	2816
-stronzi	Stronzi.	Asshole.	2817
 mangi	Mangi la carne?	Do you eat meat?	2818
 mangi	Mangi a casa o fuori?	Do you eat at home or eat out?	2818
 mangi	Per piacere dimmi perché non mangi carne.	Please tell me why you don't eat meat.	2818
@@ -8165,7 +8044,6 @@ vecchie	Cazzo, noi siamo vecchie!	Fuck, we're old!	2863
 vecchie	Sono vecchie.	They're old.	2863
 aiutatemi	Aiutatemi a uscire.	Help me out.	2864
 aiutatemi	Aiutatemi a farla crescere!	Help me to make it grow!	2864
-aiutatemi	Aiutatemi.	Help me.	2864
 sigaretta	Sono stato tentato e ho iniziato a fumare una sigaretta.	I gave in to temptation and began to smoke a cigarette.	2865
 sigaretta	Si fermò per fumare una sigaretta.	She stopped to smoke a cigarette.	2865
 sigaretta	Ho bisogno di una sigaretta.	I need a smoke.	2865
@@ -8327,7 +8205,6 @@ professionale	Non è professionale.	That's unethical.	2922
 professionale	La tua foto profilo è poco professionale.	Your profile photo is unprofessional.	2922
 profilo	La tua foto profilo è poco professionale.	Your profile photo is unprofessional.	2922
 professionale	Non sarebbe professionale.	That would be unprofessional.	2922
-stop	Stop!	Stop!	2923
 fredda	Era una giornata così fredda che non c'era nessuno per strada.	It was such a cold day that there was nobody on the street.	2924
 fredda	Preferirei rimanere a casa piuttosto che uscire in una giornata così fredda.	I would rather stay at home than go out on such a cold day.	2924
 fredda	Questa birra non è fredda abbastanza.	This beer is not cold enough.	2924
@@ -8449,7 +8326,6 @@ pensavamo	Pensavamo di essere pronti per tutto.	We thought we were ready for any
 fingere	Puoi fingere di essere serio ma non puoi fingere di essere divertente.	You can pretend to be serious, but you can't pretend to be funny.	2970
 fingere	Ho provato a fingere di essere qualcosa che non ero.	I tried to pretend I was something I wasn't.	2970
 fingere	Io ho provato a fingere di essere qualcosa che non ero.	I tried to pretend I was something I wasn't.	2970
-prendilo	Prendilo!	Get him!	2971
 prendilo	Prendilo come viene.	Take it as it comes.	2971
 prendilo	Beh, prendilo.	Well, take it.	2971
 succeda	Qualunque cosa succeda, non cambiare opinione.	Do not change your mind, whatever happens.	2972
@@ -8465,7 +8341,6 @@ creatura	L'uomo è una creatura di circostanze.	Man is a creature of circumstanc
 lassù	Come ti vanno le cose lassù?	How are things for you up there?	2975
 lassù	Come vi vanno le cose lassù?	How are things for you up there?	2975
 lassù	Come le vanno le cose lassù?	How are things for you up there?	2975
-benvenuta	Benvenuta!	Welcome.	2976
 benvenuta	Benvenuta in questo mondo!	Welcome to this world!	2976
 benvenuta	Sei la benvenuta qui.	You are welcome here.	2976
 presentato	Mi ha presentato sua sorella.	He introduced his sister to me.	2977
@@ -8809,7 +8684,6 @@ stress	È necessario evitare lo stress.	It's necessary to avoid stress.	3097
 trasferito	Mi sono appena trasferito.	I just moved.	3098
 trasferito	Mi sono trasferito lo scorso mese.	I moved last month.	3098
 trasferito	Si è trasferito in Germania.	He moved to Germany.	3098
-piantala	Piantala!	Cut it out!	3099
 piantala	Piantala con le stronzate!	Cut the bullshit!	3099
 segretario	L'avvocato è uscito con il segretario.	The lawyer went out with the secretary.	3100
 segretario	Il suo segretario sembrava conoscere la verità.	His secretary seems to know the truth.	3100
@@ -8819,8 +8693,6 @@ demone	È una demone.	She's a demoness.	3101
 bevo	Non bevo tutta quella birra.	I don't drink all that much beer.	3102
 bevo	Bevo caffè dopo cena.	I drink coffee after dinner.	3102
 bevo	Bevo caffè al mattino.	I drink coffee in the morning.	3102
-sciocchezze	Sciocchezze.	Blah.	3103
-sciocchezze	Sciocchezze!	Nonsense!	3103
 sciocchezze	Che sciocchezze!	What nonsense!	3103
 buffo	Il suo cappello era molto buffo.	His hat looked very funny.	3104
 buffo	Il suo cappello sembrava buffo.	Her hat looked funny.	3104
@@ -8978,7 +8850,6 @@ incastrato	Dice di essere stato incastrato.	He says he was framed.	3158
 realmente	Lo hai realmente mai provato?	Have you actually ever tried it?	3159
 cretino	Non essere cretino!	Don't be a douchebag!	3160
 cretino	Non sia cretino!	Don't be a douchebag!	3160
-cretino	Cretino!	Fool!	3160
 vasca	Vorresti una stanza con una vasca o con una doccia?	Would you like a room with a bath or a shower?	3161
 vasca	Vorresti una camera con una vasca o con una doccia?	Would you like a room with a bath or a shower?	3161
 vasca	Vorrebbe una stanza con una vasca o con una doccia?	Would you like a room with a bath or a shower?	3161
@@ -8996,7 +8867,6 @@ limiti	Non ci sono limiti.	There's no limit.	3166
 certi	Sono d'accordo con te entro certi limiti.	I agree with you to a certain extent.	3166
 entriamo	Entriamo in casa!	Let's get in the house.	3167
 entriamo	Perché non entriamo?	Why don't we go in?	3167
-entriamo	Entriamo.	Let's go in.	3167
 andasse	Non ho voglia di lavorare; e se si andasse al cinema invece?	I don't feel like working; what about going to a cinema instead?	3168
 andasse	Non mi va di lavorare; e se si andasse al cinema invece?	I don't feel like working; what about going to a cinema instead?	3168
 andasse	Sembrava che andasse tutto bene.	Everything seemed OK.	3168
@@ -9264,7 +9134,6 @@ cintura	Se non fosse stato per la cintura di sicurezza, non sarei ancora vivo.	I
 lavoriamo	Non lavoriamo mai di domenica.	We never work on Sunday.	3268
 lavoriamo	Lavoriamo assieme.	We work together.	3268
 lavoriamo	Noi lavoriamo assieme.	We work together.	3268
-traditore	Traditore!	Traitor!	3269
 ebrei	Siete ebrei?	Are you Jewish?	3270
 ebrei	I veri ebrei sono gli ebrei.	The real Jews are the Jews.	3270
 sigarette	Fumo sigarette.	I smoke cigarettes.	3271
@@ -9451,7 +9320,6 @@ pianto	Ha pianto tutta la notte.	She wept all the night.	3334
 nascosta	Mi sono nascosta sotto il tavolo.	I hid under the table.	3335
 nascosta	Io mi sono nascosta sotto al tavolo.	I hid under the table.	3335
 nascosta	Dove l'hai nascosta?	Where did you hide it?	3335
-attacchi	Attacchi!	Attack!	3336
 attacchi	Non mi attacchi.	Don't attack me.	3336
 serpente	Il serpente è vivo o morto?	Is the snake alive or dead?	3337
 serpente	È il serpente che ha tentato Eva.	It's the serpent who tempted Eve.	3337
@@ -9557,7 +9425,6 @@ volentieri	Sarebbe venuta volentieri, ma era in vacanza.	She would willingly com
 volentieri	Spesso e volentieri arriva a scuola in ritardo.	More often than not, he is late for school.	3370
 volentieri	Ti aiuto volentieri.	I will gladly help you.	3370
 continuiamo	Continuiamo a guardare.	Let's keep looking.	3371
-continuiamo	Continuiamo.	Let's continue.	3371
 continuiamo	Continuiamo la discussione.	Let's carry on the discussion.	3371
 curioso	Sono molto curioso.	I am very curious.	3372
 curioso	Sono curioso.	I am curious.	3372
@@ -9584,7 +9451,6 @@ album	Lei mi ha mostrato il suo album.	She showed me his album.	3377
 pasto	Abbiamo ordinato il pasto.	We ordered the meal.	3378
 pasto	Il caffè viene dopo il pasto.	Coffee comes after the meal.	3378
 pasto	Il caffè arriva dopo il pasto.	Coffee comes after the meal.	3378
-comincio	Comincio.	I start.	3379
 comincio	Comincio stasera.	I am starting this evening.	3379
 comincio	Comincio questa sera.	I am starting this evening.	3379
 abbi	Abbi fiducia in te.	Have confidence in yourself.	3380
@@ -9832,7 +9698,6 @@ pesca	Mio fratello va a pesca tutti i fine settimana.	My brother goes fishing ev
 pesca	Sono molto interessato alla pesca.	I am very interested in fishing.	3471
 pesca	Io sono molto interessato alla pesca.	I am very interested in fishing.	3471
 muori	Lotta o muori.	Fight or die.	3472
-muori	Muori!	Die!	3472
 muori	Muori al club!	Die at the club!	3472
 elezioni	C'è una possibilità che possa vincere le elezioni?	Is there any possibility that he'll win the election?	3474
 elezioni	Personalmente, non credo che faccia alcuna differenza chi vince le elezioni.	Personally, I don't think it makes any difference who wins the election.	3474
@@ -9914,7 +9779,6 @@ conosca	Penso che lei conosca la verità.	I think that she knows the truth.	3502
 disagio	Si sentì perso e a disagio.	He felt lost and uncomfortable.	3504
 disagio	Ho visto improvvisamente che era a disagio.	I saw at once that he was ill at ease.	3504
 disagio	Mi sento a disagio.	I feel queasy.	3504
-parlami	Parlami!	Talk to me!	3505
 atto	L'intenzione è buona coma l'atto stesso.	The will is as good as the deed.	3506
 coma	L'intenzione è buona coma l'atto stesso.	The will is as good as the deed.	3506
 coma	Eri in coma.	You were in a coma.	3506
@@ -9932,7 +9796,6 @@ atmosfera	È una terribile atmosfera.	It is a terrible atmosphere.	3510
 atmosfera	Mi piace l'atmosfera di questo ristorante.	I like the atmosphere of this restaurant.	3510
 atmosfera	A me piace l'atmosfera di questo ristorante.	I like the atmosphere of this restaurant.	3510
 spostati	Spostati! Mi sei nei piedi.	Move! You're in my way.	3511
-spostati	Spostati.	Move over.	3511
 spostati	Spostati a destra.	Move to the right.	3511
 fatica	A volte faccio fatica a parlare inglese.	Sometimes I struggle to speak English.	3512
 fatica	Faceva fatica a respirare.	He had trouble breathing.	3512
@@ -9975,7 +9838,6 @@ topo	Il topo è grande.	The mouse is big.	3525
 bimbo	Perché il bimbo piange?	Why is the baby crying?	3526
 bimbo	Il mio nuovo bimbo è arrivato!	My new baby arrived!	3526
 bimbo	Questo è il nostro bimbo.	This is our baby.	3526
-andatevene	Andatevene!	Get out!	3527
 andatevene	Andatevene da qui! Tutti quanti!	Get out of here! All of you!	3527
 andatevene	Andatevene subito!	Go away right now!	3527
 secoli	Era secoli fa.	It was ages ago.	3528
@@ -10015,12 +9877,10 @@ civili	Alcuni civili sono stati uccisi.	Some civilians were killed.	3542
 civili	Sono stati uccisi alcuni civili.	Some civilians were killed.	3542
 civili	Alcuni civili furono uccisi.	Some civilians were killed.	3542
 flotta	Come posso abbandonare la flotta?	How can I desert the fleet?	3543
-uccidi	Uccidi!	Kill!	3544
 uccidi	Uccidi quella mosca.	Kill that fly.	3544
 rivedere	Il suo unico desiderio era di rivedere presto suo figlio.	Her one wish was to see her son again.	3545
 rivedere	Voglio rivedere il film.	I want to see the movie again.	3545
 rivedere	Io voglio rivedere il film.	I want to see the movie again.	3545
-ahi	Ahi!	Ow!	3546
 ahi	Ahi! Il mio collo!	Ow! My neck!	3546
 spostare	La fede riesce a spostare le montagne.	Faith can move mountains.	3547
 spostare	Aiutami a spostare questa pietra.	Help me move this stone.	3547
@@ -10096,7 +9956,6 @@ incantesimo	L'incantesimo è stato spezzato.	The spell has been broken.	3573
 sessuali	Le donne non sono oggetti sessuali.	Women are not sex objects.	3574
 sessuali	È venuta in terapia cercando aiuto per le sue relazioni sessuali.	She came into therapy seeking help with her sexual relationships.	3574
 tiri	Tu tiri su la coperta.	You pull up the blanket.	3575
-tiri	Tiri!	Pull!	3575
 tiri	Si tiri indietro.	Back off.	3575
 shock	Sono ancora sotto shock.	I'm still in shock.	3576
 shock	Io sono ancora sotto shock.	I'm still in shock.	3576
@@ -10205,8 +10064,6 @@ dimenticata	Ti sei dimenticata?	Did you forget?	3615
 gomma	Ho una gomma a terra.	I got a flat tire.	3616
 gomma	La gomma ha perso il suo sapore.	The gum has lost its taste.	3616
 gomma	Posso prendere in prestito la tua gomma?	May I borrow your eraser?	3616
-muoviamoci	Muoviamoci!	Let's move!	3617
-muoviamoci	Muoviamoci.	Let's get moving.	3617
 tatuaggio	Hai qualche tatuaggio?	Do you have any tattoos?	3618
 tatuaggio	Ha qualche tatuaggio?	Do you have any tattoos?	3618
 tatuaggio	Avete qualche tatuaggio?	Do you have any tattoos?	3618
@@ -10312,7 +10169,6 @@ confusione	Le notizie hanno creato molta confusione.	The news created a lot of c
 confusione	C'è stato qualche momento di confusione.	There were a few moments of confusion.	3657
 obiezione	Hai qualche obiezione per questo piano?	Do you have any objection to this plan?	3658
 obiezione	Non ho alcuna obiezione alla tua opinione.	I have no objection to your opinion.	3658
-obiezione	Obiezione!	Objection!	3658
 iniziando	Sbrigati! Il concerto sta iniziando.	Hurry up! The concert is starting.	3659
 iniziando	Si dia una mossa! Il concerto sta iniziando.	Hurry up! The concert is starting.	3659
 iniziando	Sto iniziando con la birra.	I'm starting with beer.	3659
@@ -10438,7 +10294,6 @@ difficoltà	Avete difficoltà a capire quello che dicono le donne o i bambini pi
 presenta	Questo compito presenta molte difficoltà.	This assignment presents many difficulties.	3703
 taci	Taci e continua a lavorare!	Just shut up and get on with your work!	3704
 taci	Taci e ascolta, bambino.	Shut up and listen, kid.	3704
-taci	Taci!	Shut up!	3704
 licenza	C'è una grande differenza tra libertà e licenza.	There is a great difference between liberty and license.	3705
 licenza	Posso vedere la tua licenza?	May I see your license?	3705
 licenza	Posso vedere la sua licenza?	May I see your license?	3705
@@ -10460,7 +10315,6 @@ rubata	La mia penna è stata rubata.	My pen has been stolen.	3710
 dichiarato	Ha dichiarato di conoscerti bene.	He claimed he knew you well.	3711
 dichiarato	La corte l'ha dichiarato colpevole.	The court found him guilty.	3711
 dichiarato	Ha dichiarato di avere ragione.	She declared that she was right.	3711
-evviva	Evviva!	Yippee!	3712
 finirà	Questo non finirà mai.	This is never going to end.	3713
 finirà	Questo non finirà bene, me lo sento!	This isn't going to end well, I feel it!	3713
 finirà	La nostra macchina finirà la benzina tra 2 minuti.	Our car will run out of petrol in 2 minutes.	3713
@@ -10524,7 +10378,6 @@ tenendo	La mamma sta tenendo il suo bambino per mano.	The mother is leading her 
 tenendo	Perché mi stai tenendo le mani?	Why are you holding my hands?	3734
 tenendo	So che mi sta tenendo d'occhio.	I know he is watching me.	3734
 sparisci	Sparisci dalla mia vita!	Get out of my life!	3735
-sparisci	Sparisci.	Beat it.	3735
 sperare	Dovrei sperare così.	I should hope so.	3736
 sperare	Io dovrei sperare così.	I should hope so.	3736
 sperare	Non ho ancora smesso di sperare.	I still haven't stopped hoping.	3736
@@ -10715,7 +10568,6 @@ accento	Parla in inglese con accento russo.	He speaks English with a Russian acc
 accento	Lui parla in inglese con accento russo.	He speaks English with a Russian accent.	3804
 accento	Il tuo accento francese è terribile.	Your French accent is terrible.	3804
 baci	Voglio che tu mi baci.	I want you to kiss me.	3807
-baci	Baci!	Kisses!	3807
 baci	Amo il modo in cui mi baci.	I love the way you kiss me.	3807
 ricompensa	Gli hai detto che dovrebbe avere una ricompensa.	You told him that he should have a reward.	3809
 ricompensa	Gli avete detto che dovrebbe avere una ricompensa.	You told him that he should have a reward.	3809
@@ -11151,7 +11003,6 @@ contattare	Ci spiace, ma la persona che stai cercando di contattare non è dispo
 contattare	Li devo contattare.	I must contact them.	3965
 contattare	Le devo contattare.	I must contact them.	3965
 chiediamo	Chiediamo al professore.	Let's ask the teacher.	3966
-chiediamo	Chiediamo.	Let's ask.	3966
 chiediamo	Chiediamo aiuto.	Let's call for help.	3966
 armati	Sono armati.	They're armed.	3967
 armati	Loro sono armati.	They're armed.	3967
@@ -11447,7 +11298,6 @@ usarlo	Vorrei il suo permesso per usarlo.	I'd like your permission to use it.	40
 ambasciatore	L'ambasciatore se ne va dal Giappone stasera.	The ambassador is leaving Japan tonight.	4085
 ambasciatore	L'ambasciatore se ne va dal Giappone stanotte.	The ambassador is leaving Japan tonight.	4085
 ambasciatore	Sai chi è l'ambasciatore giapponese in Francia?	Do you know who the Japanese ambassador to France is?	4085
-fermatevi	Fermatevi!	Stop that!	4086
 fermatevi	Fermatevi qui.	Stop here.	4086
 fermatevi	Non fermatevi qua.	Don't stop here.	4086
 cambiano	I tempi cambiano.	Times change.	4087
@@ -11506,7 +11356,6 @@ vanessa	Vanessa vi sta chiamando.	Vanessa's calling you.	4104
 vanessa	Vanessa la sta chiamando.	Vanessa's calling you.	4104
 zitti	State zitti!	Shut up!	4105
 zitti	State zitti! State parlando troppo.	Shut up! You're talking too much.	4105
-zitti	Zitti!	Hush!	4105
 sareste	Non avevo idea che sareste venuti.	I had no idea that you were coming.	4106
 sareste	Lo sapevo che sareste stati qui.	I knew you'd be here.	4106
 sareste	Io lo sapevo che sareste stati qui.	I knew you'd be here.	4106
@@ -11682,7 +11531,6 @@ sfortuna	La sfortuna non arriva mai da sola.	Misfortunes rarely come singly.	417
 sfortuna	I gatti neri portano sfortuna.	Black cats are bad luck.	4174
 morirà	Chi vive per la spada morirà per la spada.	He who lives by the sword will die by the sword.	4175
 morirà	Se non mangia morirà.	If you don't eat, you'll die.	4175
-morirà	Morirà?	Will he die?	4175
 tentare	Non mi tentare.	Do not tempt me.	4176
 tentare	Non puoi raggiungere l'impossibile senza tentare l'assurdo.	You cannot achieve the impossible without attempting the absurd.	4176
 tentare	Non può raggiungere l'impossibile senza tentare l'assurdo.	You cannot achieve the impossible without attempting the absurd.	4176
@@ -11747,7 +11595,6 @@ economia	Perché dovremmo studiare l'economia?	Why should we study economics?	41
 entusiasta	Sono entusiasta.	I'm enthusiastic.	4200
 entusiasta	Io sono entusiasta.	I'm enthusiastic.	4200
 entusiasta	Lei era entusiasta al suo dire così.	She thrilled to his saying so.	4200
-prendila	Prendila!	Take it!	4201
 prendila	Prendila come viene.	Take it as it comes.	4201
 prendila	Beh, prendila.	Well, take it.	4201
 matti	Il mondo è una gabbia di matti.	The world is a den of crazies.	4202
@@ -11773,8 +11620,6 @@ amiamo	Amiamo il caffè.	We love coffee.	4209
 amiamo	Noi amiamo il caffè.	We love coffee.	4209
 amiamo	Ci amiamo a vicenda.	We love each other.	4209
 rallenta	Ehi, rallenta!	Hey, slow down!	4210
-rallenta	Rallenta!	Slow down!	4210
-rallenta	Rallenta.	Slow down.	4210
 scopre	Scopre alcuni dei segreti di sua madre.	She discovers some of her mother's secrets.	4211
 scopre	Lei scopre alcuni dei segreti di sua madre.	She discovers some of her mother's secrets.	4211
 scopre	Se qualcuno scopre questo, siamo in grossi guai.	If anyone finds out about this, we're in big trouble.	4211
@@ -11813,7 +11658,6 @@ sentono	Molti bambini non sentono molto bene la differenza.	A lot of children do
 sentono	Si sentono tutti i giorni per telefono.	They communicate with each other by telephone every day.	4226
 sentono	Dicono che si sentono bene.	They say they feel fine.	4226
 vedrà	Giri l'angolo e vedrà il negozio che sta cercando.	Turn the corner and you'll see the store you're looking for.	4228
-vedrà	Vedrà.	You'll see.	4228
 vedrà	Ci si vedrà più tardi stasera.	I'll see you later tonight.	4228
 impedire	Non credo che potresti impedire che ciò accada.	I don't think you could stop that from happening.	4229
 impedire	Cosa avrei potuto fare per impedire questo?	What could I have done to prevent this?	4229
@@ -11829,7 +11673,6 @@ cucciolo	Avete deciso il nome per il vostro cucciolo?	Have you decided on a name
 cucciolo	Hai deciso il nome per il tuo cucciolo?	Have you decided on a name for your puppy?	4232
 bentornato	Bentornato. Ci sei mancato!	Welcome back. We missed you!	4233
 bentornato	Bentornato. Ci è mancato!	Welcome back. We missed you!	4233
-bentornato	Bentornato.	Welcome back.	4233
 san	Due biglietti per San Diego, per favore.	Two tickets to San Diego, please.	4234
 diego	Due biglietti per San Diego, per favore.	Two tickets to San Diego, please.	4234
 san	Due biglietti per San Diego, per piacere.	Two tickets to San Diego, please.	4234
@@ -11862,7 +11705,6 @@ uccise	Lui lo uccise.	He killed him.	4243
 streghe	Le streghe non esistono.	Witches don't exist.	4244
 codardo	È troppo codardo per provarci.	He is too much of a coward to attempt it.	4245
 codardo	Lui è troppo codardo per provarci.	He is too much of a coward to attempt it.	4245
-codardo	Codardo!	Chicken!	4245
 vende	Lui vende frutta.	He sells fruit.	4246
 vende	Questo libro si vende bene, di questi giorni.	This book is selling well these days.	4246
 vende	Vende whisky.	He sells whisky.	4246
@@ -12077,7 +11919,6 @@ centesimi	Ho perso circa 80 centesimi.	I've lost about 80 cents.	4333
 opzioni	Quali altre opzioni ho?	What other options do I have?	4334
 opzioni	Non mi lascia con molte opzioni.	That doesn't leave me with a lot of options.	4334
 opzioni	Quello non mi lascia con molte opzioni.	That doesn't leave me with a lot of options.	4334
-guardalo	Guardalo.	Look at him.	4335
 guardalo	Guardalo. Non se lo merita.	Look at him. He doesn't deserve that.	4335
 guardalo	Guardalo e fai quello che fa lui.	Watch him and do what he does.	4335
 rendo	Mi rendo conto che è difficile da credere.	I realize it's hard to believe.	4336
@@ -12232,7 +12073,6 @@ berlino	Sei già stato a Berlino.	You've already been to Berlin.	4391
 centrale	"La prossima fermata è ""Stazione centrale di Berlino""."	The next stop is Berlin Central Station.	4391
 aspettami	Aspettami lì.	Wait there for me.	4392
 aspettami	Aspettami. Sarò di ritorno.	Wait for me. I'll be back.	4392
-aspettami	Aspettami!	Wait for me!	4392
 sposi	Mi sposi.	Marry me.	4393
 sposi	Voglio che mi sposi.	I want you to marry me.	4393
 sposi	Non si sposi.	Don't get married.	4393
@@ -12407,7 +12247,6 @@ suggerisco	Suggerisco di non provare neanche.	I suggest we don't even try.	4456
 suggerisco	Io suggerisco di non provare neanche.	I suggest we don't even try.	4456
 database	Questo database contiene molti errori.	This database contains many errors.	4458
 corre	Come corre veloce!	How fast he runs!	4459
-corre	Corre.	He runs.	4459
 corre	Corre ogni giorno?	Do you run every day?	4459
 costretta	Sono stata costretta a lasciare la scuola.	I was compelled to leave school.	4460
 costretta	Non sarò costretta.	I won't be coerced.	4460
@@ -12452,7 +12291,6 @@ sposarti	Ho saputo che stai per sposarti.	I heard you are going to get married.	
 indipendente	Voglio essere più indipendente.	I want to be more independent.	4476
 indipendente	È indipendente dai suoi genitori.	He is independent of his parents.	4476
 indipendente	Io voglio essere più indipendente.	I want to be more independent.	4476
-spingi	Spingi!	Push!	4477
 abbandonata	Tutti i suoi amici l'hanno abbandonata?	Have all her friends left her?	4480
 abbandonata	Tutte le sue amiche l'hanno abbandonata?	Have all her friends left her?	4480
 abbandonata	Quando mi sono svegliata alla mattina non c'era nessuno in casa. Sono stata abbandonata per tutta la giornata.	When I woke up in the morning, there was no one in the house. I was abandoned for the whole day.	4480
@@ -12576,8 +12414,6 @@ perdiamo	Non perdiamo mai la speranza.	Let's never lose hope.	4527
 metterò	Metterò il suo coraggio alla prova.	I'll put his courage to the test.	4528
 metterò	Io metterò il suo coraggio alla prova.	I'll put his courage to the test.	4528
 metterò	Mi metterò in contatto con loro.	I'll get in touch with them.	4528
-seguitemi	Seguitemi!	Follow me!	4529
-seguitemi	Seguitemi.	Follow me.	4529
 seguitemi	Seguitemi e non abbiate paura.	Follow me and have no fear.	4529
 drogato	Ero drogato.	I was drugged.	4530
 drogato	Io ero drogato.	I was drugged.	4530
@@ -12627,7 +12463,6 @@ gonna	La mia gonna è troppo lunga.	My skirt is too long.	4552
 gonna	La gonna rossa è nuova.	The red skirt is new.	4552
 gonna	Chi è che ha comprato questa gonna ieri?	Who was it that bought this skirt yesterday?	4552
 sorridi	Mi piace come sorridi.	I like the way you smile.	4553
-sorridi	Sorridi.	Smile.	4553
 sorridi	Amo ancora il modo in cui mi sorridi.	I still love the way you smile at me.	4553
 sposarsi	Volevano sposarsi il prima possibile.	They wanted to get married as soon as they could.	4554
 sposarsi	Sue e John hanno deciso di sposarsi.	Sue and John decided to get married.	4554
@@ -12737,8 +12572,6 @@ giuramento	Lui ha detto sotto giuramento che il suo luogo di nascita è l'Italia
 giuramento	Ricorda che sei sotto giuramento.	Remember you are under oath.	4602
 terrorista	Ha detto che non era una terrorista.	She said she wasn't a terrorist.	4603
 terrorista	Disse che non era una terrorista.	She said she wasn't a terrorist.	4603
-seguimi	Seguimi.	Follow me.	4604
-seguimi	Seguimi!	Follow me!	4604
 seguimi	Seguimi e non avere paura.	Follow me and have no fear.	4604
 popolazione	La popolazione era di 18.432 abitanti.	The population was 18,432.	4605
 popolazione	La città ha una grande popolazione.	The city has a large population.	4605
@@ -12752,7 +12585,6 @@ riconosce	Riconosce l'uomo in questa fotografia?	Do you recognize the man in thi
 lunghe	Lui ha le gambe lunghe.	He has long legs.	4608
 lunghe	Le sue gambe sono lunghe.	His legs are long.	4608
 lunghe	Ha le gambe lunghe.	He has long legs.	4608
-vedrete	Vedrete.	You'll see.	4609
 vedrete	Vedrete Sara il mese prossimo?	Will you see Sara next month?	4609
 vedrete	Voi vedrete Sara il mese prossimo?	Will you see Sara next month?	4609
 barista	Barista, ho bisogno di qualcosa da bere.	Barman, I need a drink.	4610
@@ -12809,8 +12641,6 @@ alzi	A che ora ti alzi ogni mattina?	What time do you get up every morning?	4628
 alzi	Ti alzi presto, vero?	You get up early, don't you?	4628
 alzi	Si alzi presto.	Get up early.	4628
 correte	Correte tutti i giorni?	Do you run every day?	4629
-correte	Correte.	You run.	4629
-correte	Correte!	Run!	4629
 coppie	Abbiamo invitato dieci coppie alla festa.	We invited ten couples to the party.	4630
 coppie	Noi abbiamo invitato dieci coppie alla festa.	We invited ten couples to the party.	4630
 coppie	È anche una meta popolare per le coppie.	It's also a popular destination for couples.	4630
@@ -12843,8 +12673,6 @@ muscoli	Ha grossi muscoli e cervello piccolo.	He has big muscles and small brain
 poker	Sa come giocare a poker.	He knows how to play poker.	4642
 poker	Lui sa come giocare a poker.	He knows how to play poker.	4642
 poker	Ho appena imparato a giocare a poker.	I just learned to play poker.	4642
-ascoltatemi	Ascoltatemi.	Listen to me.	4643
-ascoltatemi	Ascoltatemi!	Listen to me!	4643
 ascoltatemi	Ascoltatemi, per favore.	Listen to me, please.	4643
 preda	La morte sta cercando la sua preda.	Death is seeking for his prey.	4644
 preda	A lei piace quando lui è in preda alla rabbia.	She likes it when he's in a rage.	4644
@@ -13079,7 +12907,6 @@ cenare	Vorrei cenare con te.	I'd like to have dinner with you.	4731
 cenare	Vorrei cenare con voi.	I'd like to have dinner with you.	4731
 cenare	Quando lei entrò, avevamo finito di cenare.	When she came inside, we had finished eating dinner.	4731
 sbrigatevi	Sbrigatevi o sarete in ritardo.	Hurry up, or you will be late.	4732
-sbrigatevi	Sbrigatevi!	Hurry up.	4732
 sbrigatevi	Sbrigatevi! Non ho tutta la giornata!	Hurry up! I don't have all day.	4732
 dovunque	Si perde dovunque vada.	He gets lost wherever he goes.	4733
 dovunque	Dovunque tu vada, troverai la stessa cosa.	Wherever you go, you will find the same thing.	4733
@@ -13103,7 +12930,6 @@ aumentare	I biglietti stanno per aumentare di prezzo.	Fees are about to go up.	4
 dicci	Dicci di più.	Tell us more.	4740
 dicci	Dicci qualcosa.	Tell us something.	4740
 dicci	Dicci qualcosa che non sappiamo.	Tell us something we don't know.	4740
-svelto	Svelto!	Hurry up.	4741
 svelto	Devi essere molto più svelto di così se vuoi il posto.	You have to be much quicker than that if you want the job.	4741
 muoviamoci	Svelto, muoviamoci!	Quick, let's move!	4741
 svelto	Svelto, muoviamoci!	Quick, let's move!	4741
@@ -13260,7 +13086,6 @@ senzatetto	Sono una senzatetto.	I'm homeless.	4801
 senzatetto	Io sono una senzatetto.	I'm homeless.	4801
 adolescente	Conosceva l'adolescente.	She knew the teen.	4802
 adolescente	È ancora adolescente, vero?	He's still a teenager, isn't he?	4802
-copione	Copione!	Copycat!	4803
 sostiene	Mio fratello sostiene l'esame d'ingresso oggi.	My brother is taking the entrance examination today.	4804
 sostiene	Sostiene di sapere di cosa sta parlando; perché non sa riguardo a questo?	You purport to know what you're talking about; why don't you know about this?	4804
 sostiene	Questo politico dice che sostiene il governo.	This politician says that he supports the government.	4804
@@ -13292,8 +13117,6 @@ copie	Questa macchina fa 100 copie al minuto.	This machine makes 100 copies a mi
 rivelato	Si è rivelato essere suo padre.	He turned out to be her father.	4813
 rivelato	Lui non ha rivelato il suo segreto.	He didn't reveal his secret.	4813
 rivelato	Quello che ha detto si è rivelato essere falso.	What she said turned out to be false.	4813
-divertitevi	Divertitevi!	Have fun.	4814
-divertitevi	Divertitevi.	Have some fun.	4814
 divertitevi	Divertitevi, ragazzi.	Have fun, you guys.	4814
 prenderà	Che treno prenderà?	What train you are going to take?	4815
 prenderà	Quale prenderà, questo o quello?	Which will you take, this one or that one?	4815
@@ -13445,7 +13268,6 @@ amanti	Non sono solo compagni di stanza. Sono amanti.	They're not just roommates
 amanti	Loro non sono solo compagni di stanza. Sono amanti.	They're not just roommates. They're lovers.	4868
 amanti	Non sono soltanto compagni di stanza. Sono amanti.	They're not just roommates. They're lovers.	4868
 sfigato	Che sfigato!	What a jerk!	4869
-sfigato	Sfigato!	Loser!	4869
 conflitto	La sua opinione è in conflitto con la mia.	His opinion is in conflict with mine.	4870
 conflitto	È in conflitto con suo padre.	She is in conflict with her father.	4870
 conflitto	Lei è in conflitto con suo padre.	She is in conflict with her father.	4870
@@ -13798,7 +13620,6 @@ autostrada	Questa autostrada la porterà fuori dalla città.	This highway will t
 complimento	Lo dico come complimento.	I say this as a compliment.	5002
 complimento	Grazie per il complimento.	Thanks for the compliment.	5002
 riuscirci	Come pensi di riuscirci?	How are you going to do that?	5003
-bingo	Bingo!	Bingo!	5004
 darai	Spero davvero che tu mi darai questa seconda possibilità.	I sincerely hope you'll give me this second chance.	5005
 darai	Mi darai qualcosa da bere?	Will you give me something to drink?	5005
 darai	Mi darai la tua radio per la mia bicicletta?	Will you give me your radio for my bicycle?	5005
@@ -14201,7 +14022,6 @@ psichiatra	Hai veramente bisogno di uno psichiatra.	You really need a psychiatri
 psichiatra	Una bionda sta parlando con il suo psichiatra.	A blonde is speaking to her psychiatrist.	5148
 psichiatra	È uno psichiatra, vero?	He's a psychiatrist, isn't he?	5148
 parliamone	Parliamone dopo la scuola.	Let's talk about it after school.	5149
-parliamone	Parliamone.	Let's speak about it.	5149
 parliamone	Parliamone mentre beviamo qualcosa.	Let's talk about that over drinks.	5149
 attivo	Il nonno è ancora molto attivo per la sua età.	Grandfather is still very active for his age.	5150
 attivo	Lui è attivo nonostante sia molto vecchio.	He is active although he is very old.	5150
@@ -14567,7 +14387,6 @@ martedì	È già martedì?	Is it Tuesday already?	5290
 martedì	Tanto vale aspettare Martedì.	You might as well wait until Tuesday.	5290
 martedì	Potresti, a questo punto, aspettare Martedì.	You might as well wait until Tuesday.	5290
 circolo	Martedì andremo al circolo.	Tuesday we will go to the clubhouse.	5290
-prendetelo	Prendetelo!	Get him!	5291
 prendetelo	Non prendetelo seriamente.	Don't take it seriously.	5291
 prendetelo	Prendetelo come viene.	Take it as it comes.	5291
 prenderanno	Prenderanno questi.	They will get these.	5292
@@ -14641,7 +14460,6 @@ dicembre	Lei è morta in una fredda notte di dicembre.	She died on a cold night 
 dicembre	Natale è il 25 Dicembre.	Christmas is December 25th.	5319
 dicembre	Il giorno di Natale è il 25 dicembre.	Christmas Day is December 25th.	5319
 attacca	L'acido attacca il metallo.	Acid eats into metal.	5320
-attacca	Attacca!	Attack!	5320
 competizione	Non è una competizione.	It's not a competition.	5321
 competizione	La competizione è buona.	Competition is good.	5321
 competizione	C'è molta competizione.	There's a lot of competition.	5321
@@ -15343,8 +15161,6 @@ riuscissi	Se la riuscissi a spiegare, lo farei.	If I could explain it, I would.	
 affamato	Ero affamato e arrabbiato.	I was hungry and angry.	5586
 affamato	Non mi sentivo molto affamato.	I was not feeling very hungry.	5586
 affamato	Suppongo che tu sia affamato.	I suppose you're hungry.	5586
-rispondimi	Rispondimi.	Answer me.	5587
-rispondimi	Rispondimi!	Answer me!	5587
 rispondimi	Per favore, rispondimi.	Please answer me.	5587
 emozione	Ha mostrato segni di grande emozione.	He showed signs of great emotion.	5588
 emozione	Lui ha mostrato segni di grande emozione.	He showed signs of great emotion.	5588
@@ -15583,7 +15399,6 @@ eccitato	È eccitato?	Are you excited?	5680
 eccitato	Sono eccitato.	I'm horny.	5680
 perdonatemi	Per piacere, perdonatemi.	Please forgive me.	5681
 perdonatemi	Per favore, perdonatemi.	Please forgive me.	5681
-perdonatemi	Perdonatemi!	Forgive me!	5681
 circuito	Devi spegnere la corrente prima di controllare il circuito.	You must switch off the power before checking the circuit.	5682
 sappiano	Spero che tutti sappiano cosa significa questo.	I hope everyone knows what this means.	5683
 sappiano	Spero che tutti sappiano cosa significa ciò.	I hope everyone knows what this means.	5683
@@ -15682,7 +15497,6 @@ nudi	Io ero a piedi nudi.	I was barefoot.	5717
 salvarmi	È venuto a salvarmi.	He came to save me.	5718
 salvarmi	Lui è venuto a salvarmi.	He came to save me.	5718
 salvarmi	Venne a salvarmi.	He came to save me.	5718
-finiscila	Finiscila!	Cut it out!	5719
 finiscila	Finiscila prima di andare a letto.	Finish it before you go to bed.	5719
 butto	Butto via molte cose.	I throw lots of things away.	5720
 butto	Io butto via molte cose.	I throw lots of things away.	5720
@@ -15763,7 +15577,6 @@ hobby	I suoi hobby sono suonare la chitarra e cantare.	His hobbies are playing t
 calcoli	È veloce con i calcoli.	He is quick at figures.	5752
 calcoli	Lui è veloce con i calcoli.	He is quick at figures.	5752
 calcoli	Lei è veloce con i calcoli.	She is quick at figures.	5752
-capiamo	Capiamo.	We understand.	5753
 capiamo	Noi capiamo.	We understand.	5753
 capiamo	Non capiamo il francese.	We don't understand French.	5753
 esperimenti	Senza gli esperimenti e la matematica, non avremmo mai capito ciò che capiamo.	Without experiments and mathematics, we would never have understood what we understand.	5753
@@ -16020,10 +15833,8 @@ fotografo	Conosco il fotografo che ha fatto questa fotografia.	I know the photog
 fotografo	Io conosco il fotografo che ha fatto questa foto.	I know the photographer who took this picture.	5857
 corse	Corse da lei.	He ran up to her.	5860
 corse	Il ragazzo corse via.	The boy ran away.	5860
-corse	Corse.	He ran.	5860
 ripulire	Dobbiamo ripulire il tetto dalla neve.	We have to clear the snow from the roof.	5861
 detenuto	Sono detenuto?	Am I being detained?	5862
-calmatevi	Calmatevi.	Calm down.	5863
 calmatevi	Per piacere, calmatevi.	Please calm down.	5863
 calmatevi	Per favore, calmatevi.	Please calm down.	5863
 mandarmi	Non puoi mandarmi lì.	You can't send me there.	5864
@@ -16093,7 +15904,6 @@ sentirla	Cosa? Non riesco a sentirla.	What? I can't hear you.	5890
 sentirla	Non voglio sentirla parlare.	I don't want to hear you speak.	5890
 tienila	Tienila in mente per la prossima volta.	Keep it in mind for the next time.	5891
 tienila	Tienila al caldo.	Keep it warm.	5891
-tienila	Tienila.	Keep it.	5891
 segnato	Mi sono segnato il suo numero di telefono.	I wrote down his phone number.	5893
 segnato	L'orologio ha già segnato mezzogiorno.	The clock has already struck noon.	5893
 segnato	Il sentiero è chiaramente segnato.	The trail is clearly marked.	5893
@@ -16398,7 +16208,6 @@ vogliate	Vi porterò ovunque vogliate.	I'll take you anywhere you want to go.	60
 ribelle	Chi non ama una ribelle?	Who doesn't love a rebel?	6008
 ribelle	Non sono una ribelle.	I'm no rebel.	6008
 ribelle	Io non sono una ribelle.	I'm no rebel.	6008
-avvicinati	Avvicinati.	Come closer.	6009
 avvicinati	Ci siamo avvicinati troppo.	We got too close.	6009
 avvicinati	Avvicinati a me.	Come closer to me.	6009
 ricevo	Non ricevo molta posta.	I don't get much mail.	6012
@@ -16476,7 +16285,6 @@ ragno	Sporco ragno!	Filthy spider!	6040
 ragno	Il ragno è nero.	The spider is black.	6040
 combatti	Combatti o muori.	Fight or die.	6041
 combatti	Torna qui e combatti.	Get back here and fight.	6041
-combatti	Combatti!	Fight!	6041
 spiegarmi	Puoi spiegarmi la strada?	Can you explain the way to me?	6042
 spiegarmi	Può spiegarmi la strada?	Can you explain the way to me?	6042
 spiegarmi	Potete spiegarmi la strada?	Can you explain the way to me?	6042
@@ -16500,7 +16308,6 @@ chiedervi	Vorrei chiedervi qualcosa.	I'd like to ask you something.	6052
 chiedervi	Mi piacerebbe chiedervi qualcosa.	I'd like to ask you something.	6052
 cercarmi	Ti faccio presente che sei stato tu a cercarmi.	I point out that it was you who sought me out.	6053
 omicida	L'omicida è ancora a piede libero.	The murderer is still at large.	6054
-omicida	Omicida!	Murderer!	6054
 ballerina	Prendo lezioni di danza da quando ho tre anni e spero di diventare una ballerina.	I have been taking ballet lessons since I was three and hope to be a ballerina.	6056
 ballerina	La mia ragazza è una brava ballerina.	My girlfriend is a good dancer.	6056
 ballerina	La mia fidanzata è una brava ballerina.	My girlfriend is a good dancer.	6056
@@ -16604,7 +16411,6 @@ cacciatore	L'elefante è stato ucciso dal cacciatore.	The elephant was killed by
 elefante	L'elefante è stato ucciso dal cacciatore.	The elephant was killed by the hunter.	6095
 elefante	L'elefante è grigio.	The elephant is grey.	6095
 elefante	L'elefante piace ai bambini piccoli.	The elephant is liked by little children.	6095
-perderemo	Perderemo.	We're going to lose.	6096
 perderemo	Noi perderemo.	We're going to lose.	6096
 perderemo	Perderemo tutto.	We'll lose everything.	6096
 scheda	Chiudi la scheda.	Close the tab.	6097
@@ -16741,7 +16547,6 @@ teso	Sei troppo teso.	You're too tense.	6153
 teso	È troppo teso.	You're too tense.	6153
 teso	Il volto di John era teso.	John's face was drawn.	6153
 ripeti	Ripeti dopo di me.	Repeat after me.	6154
-ripeti	Ripeti!	Repeat!	6154
 ripeti	Per favore, ripeti.	Please repeat.	6154
 italiani	Cosa mangiano di solito gli italiani per pranzo?	What do Italians usually eat for lunch?	6155
 italiani	Che cosa mangiano di solito gli italiani per pranzo?	What do Italians usually eat for lunch?	6155
@@ -16887,7 +16692,6 @@ urlato	Il ragazzo ha urlato per cercare aiuto, ma non è riuscito a farsi sentir
 urlato	Ha urlato quando ha visto il serpente.	She screamed when she saw the snake.	6208
 urlato	Hanno urlato il più forte possibile.	They shouted as loudly as they could.	6208
 piove	Andrò anche se piove.	I will go even if it rains.	6209
-piove	Piove.	It is raining.	6209
 piove	Piove ancora.	It's still raining.	6209
 firmi	Per piacere firmi qui.	Please sign here.	6210
 firmi	Firmi qui.	Sign here.	6210
@@ -17175,7 +16979,6 @@ atterraggio	Il pilota ci ha spiegato perché l'atterraggio è stato ritardato.	T
 atterraggio	Il pilota ci spiegò perché l'atterraggio fu ritardato.	The pilot explained to us why the landing was delayed.	6340
 credetemi	Oh per favore, credetemi.	Oh please, believe me.	6341
 credetemi	Oh per piacere, credetemi.	Oh please, believe me.	6341
-credetemi	Credetemi.	Believe me.	6341
 sbagliare	Non puoi sbagliare stavolta.	You cannot fail this time.	6343
 sbagliare	Tutti possono sbagliare.	Everyone can be mistaken.	6343
 sbagliare	Tutti si possono sbagliare.	Everyone makes mistakes.	6343
@@ -17284,7 +17087,6 @@ divertita	Lei si è divertita alla festa ieri.	She enjoyed herself at the party 
 casse	Tutte le casse sono vuote.	All the boxes are empty.	6386
 casse	Quante casse di birra dovremmo comprare?	How many cases of beer should we buy?	6386
 casse	Quante casse di birra hai bevuto?	How many cases of beer did you buy?	6386
-ammazza	Ammazza!	Blimey!	6387
 ammazza	Se lo scopre mia madre, mi ammazza!	If my mother finds out, she'll kill me!	6387
 necessariamente	Teoria e pratica non vanno necessariamente assieme.	Theory and practice do not necessarily go together.	6388
 necessariamente	Non è necessariamente così.	It is not necessarily so.	6388
@@ -17433,7 +17235,6 @@ fuma	Fuma 20 sigarette al giorno.	She smokes 20 cigarettes a day.	6451
 fuma	Lui non beve e non fuma.	He neither smokes nor drinks.	6451
 fuma	Fuma moltissimo.	She smokes a lot.	6451
 gia	Fuma da solo una settimana, ma è gia dipendente.	She's only been smoking for a week, but she's already addicted.	6451
-frena	Frena.	Brake.	6452
 frena	La paura di fallire mi frena.	Fear of failure holds me back.	6452
 scritte	Tutte le risposte devono essere scritte secondo le istruzioni.	All answers must be written according to the instructions.	6453
 scritte	Alcune poesie sono state scritte anche da lui.	Some poems were also written by him.	6453
@@ -17642,7 +17443,6 @@ scherza	Non scherza mai.	He never jokes.	6530
 ucciderai	Lo ucciderai?	Are you going to kill him?	6531
 ucciderai	Ci ucciderai?	Are you going to kill us?	6531
 ucciderai	Li ucciderai?	Are you going to kill them?	6531
-spettacolare	Spettacolare!	Awesome!	6532
 spettacolare	Era piuttosto spettacolare.	It was quite spectacular.	6532
 spettacolare	È piuttosto spettacolare.	It's quite spectacular.	6532
 tirarti	Non puoi tirarti indietro.	You can't back out.	6533
@@ -17655,8 +17455,6 @@ rilassarti	Prova a rilassarti.	Try to relax.	6536
 rilassarti	Cerca di rilassarti.	Try to relax.	6536
 rilassarti	Per rilassarti, respira lentamente.	To relax, breathe slowly.	6536
 riposati	Vieni, ragazzo, siediti. Siediti e riposati.	Come, boy, sit down. Sit down and rest.	6537
-riposati	Riposati.	Take a rest.	6537
-riposati	Riposati!	Chill!	6537
 dispiaccia	Spero che non ti dispiaccia.	I hope you don't mind.	6538
 dispiaccia	Spero che non vi dispiaccia.	I hope you don't mind.	6538
 dispiaccia	Spero che non le dispiaccia.	I hope you don't mind.	6538
@@ -17884,7 +17682,6 @@ spiacevole	Era molto spiacevole.	It was very unpleasant.	6624
 afferrato	Ha afferrato la sua mano.	He caught her hand.	6625
 afferrato	Ha afferrato la corda con due mani.	He grasped the rope with two hands.	6625
 afferrato	Lui ha afferrato la corda con due mani.	He grasped the rope with two hands.	6625
-procediamo	Procediamo.	Let's proceed.	6626
 procediamo	Non so nemmeno come sia meglio che procediamo.	I don't even know how best to proceed.	6626
 comunista	Spero che non diventerai mai comunista.	I hope you'll never turn Communist.	6627
 comunista	Spero che non diventerà mai comunista.	I hope you'll never turn Communist.	6627
@@ -18119,7 +17916,6 @@ odiava	Lo odiava.	She hated him.	6722
 odiava	Odiava mentire.	He hated lying.	6722
 hitler	Hitler odiava gli ebrei.	Hitler hated the Jews.	6722
 ebrei	Hitler odiava gli ebrei.	Hitler hated the Jews.	6722
-baciami	Baciami.	Kiss me.	6723
 baciami	Stai zitto e baciami!	Shut up and kiss me!	6723
 baciami	Stai zitta e baciami!	Shut up and kiss me!	6723
 aggredita	Sono stata aggredita.	I've been attacked.	6724
@@ -18223,7 +18019,6 @@ segrete	Noi non possiamo rivelare informazioni segrete.	We can't reveal classifi
 rivelare	Noi non possiamo rivelare informazioni segrete.	We can't reveal classified information.	6763
 applausi	Ha ricevuto molti applausi.	He received much applause.	6764
 applausi	Lui ha ricevuto molti applausi.	He received much applause.	6764
-applausi	Applausi!	Applause!	6764
 insetto	L'insetto è ancora vivo.	The bug is still alive.	6765
 insetto	Come si chiama questo insetto in inglese?	What do you call this insect in English?	6765
 insetto	L'insetto ha sete.	The bug is thirsty.	6765
@@ -18516,7 +18311,6 @@ sacchi	Prendi almeno due sacchi di patate.	Take at least two bags of potatoes.	6
 diecimila	Ci sono diecimila studenti in questa università.	There are ten thousand students in this university.	6875
 diecimila	Una multa di diecimila dollari? Non è niente.	A ten thousand dollar fine? That's nothing.	6875
 diecimila	Una multa di diecimila dollari? Non è nulla.	A ten thousand dollar fine? That's nothing.	6875
-uccidilo	Uccidilo.	Kill it.	6876
 uccidilo	Uccidilo quando lo trovi.	Kill him when you find him.	6876
 schemi	Pensi spesso fuori dagli schemi.	You think outside the box often.	6877
 risonanza	Perché tutta la risonanza?	Why all the fuss?	6878
@@ -18680,7 +18474,6 @@ donazione	Quanto è stata grande la vostra donazione?	How big was your donation?
 griglia	La griglia è calda.	The grill is hot.	6951
 griglia	Ho fatto carne alla griglia.	I made grilled meat.	6951
 griglia	Feci carne alla griglia.	I made grilled meat.	6951
-lasciaci	Lasciaci.	Leave us.	6952
 lasciaci	Lasciaci da soli.	Leave us alone.	6952
 lasciaci	Lasciaci da sole.	Leave us alone.	6952
 prestare	Devi prestare attenzione ai suoi consigli.	You must pay attention to his advice.	6954
@@ -18720,7 +18513,6 @@ competere	Io non posso competere.	I can't compete.	6968
 competere	Non riesco a competere.	I can't compete.	6968
 facciamola	Facciamola ancora.	Let's do this again.	6969
 facciamola	Facciamola di nuovo.	Let's do this again.	6969
-facciamola	Facciamola!	Let's do this!	6969
 granché	Non le importa granché di come va vestita.	She doesn't care how she dresses.	6970
 nonni	I bambini stavano dormendo quando i loro nonni li hanno chiamati.	The children were sleeping when their grandparents called them.	6971
 nonni	I nostri nonni sarebbero venuti a trovarci nei fine settimana.	Our grandparents would come to see us on the weekends.	6971
@@ -18862,7 +18654,6 @@ scommetterci	Vuole scommetterci?	Do you want to bet on that?	7034
 scommetterci	Volete scommetterci?	Do you want to bet on that?	7034
 capirà	Chi capirà la sconfitta?	Who will understand the loss?	7035
 capirà	Chi capirà la perdita?	Who will understand the loss?	7035
-capirà	Capirà.	He'll understand.	7035
 permettimi	Permettimi di rispondere alla tua domanda.	Let me go ahead and answer your question.	7036
 permettimi	Permettimi di aiutare.	Allow me to help.	7036
 permettimi	Permettimi di presentarti mia moglie.	Allow me to introduce my wife to you.	7036
@@ -19077,7 +18868,6 @@ eccitata	È eccitata?	Are you excited?	7123
 eccitata	Sono eccitata.	I'm horny.	7123
 richiamami	Richiamami immediatamente.	Call me right back.	7124
 richiamami	Richiamami fra due giorni.	Call me again in two days.	7124
-richiamami	Richiamami.	Call me back.	7124
 affidato	Mi sono affidato alla sua gentilezza.	I relied on his kindness.	7125
 affidato	Io mi sono affidato alla sua gentilezza.	I relied on his kindness.	7125
 affidato	Mi ha affidato il caso.	He entrusted the case to me.	7125
@@ -19125,7 +18915,6 @@ ramo	Hanno tagliato il ramo con una sega.	They cut the branch with a saw.	7139
 vuoti	Gli alberi saranno presto vuoti.	The trees will soon be bare.	7140
 vuoti	Sono vuoti.	They're hollow.	7140
 vuoti	Loro sono vuoti.	They're hollow.	7140
-passeremo	Passeremo.	We'll pass.	7141
 passeremo	Noi passeremo.	We'll pass.	7141
 calze	Togliti le calze, per favore.	Take off your socks, please.	7142
 calze	Egli indossa le scarpe, ma non le calze.	He wears shoes but wears no socks.	7142
@@ -19175,7 +18964,6 @@ assaggiare	Me la faccia assaggiare.	Let me taste it.	7159
 spogliarellista	Lavora come spogliarellista.	She works as a stripper.	7161
 spogliarellista	Lei lavora come spogliarellista.	She works as a stripper.	7161
 ipocrita	Che ipocrita!	What a phony!	7162
-ipocrita	Ipocrita!	You hypocrite!	7162
 ipocrita	È una tale ipocrita.	She's such a hypocrite.	7162
 dimenticherò	Non ti dimenticherò mai.	I'll never forget you.	7163
 dimenticherò	Non dimenticherò mai la tua gentilezza.	I will never forget your kindness.	7163
@@ -19373,7 +19161,6 @@ evitato	Se fossero partiti prima avrebbero evitato il traffico.	Had they left a 
 evitato	Ha evitato il pericolo.	He avoided danger.	7239
 evitato	Lui ha evitato il pericolo.	He avoided danger.	7239
 vescovo	Il vescovo ha parlato, ma ha evitato di affrontare la questione.	The bishop spoke, but he avoided addressing the issue.	7239
-alt	Alt!	Whoa!	7241
 alt	Alt! Chi va là!	Halt! Who goes there!	7241
 maschere	Mettetevi le vostre maschere.	Put your masks on.	7243
 maschere	Ho comprato diverse maschere di Halloween.	I bought several Halloween masks.	7243
@@ -19404,7 +19191,6 @@ scriva	Marco pensa che lui scriva bene.	Marco thinks he writes well.	7253
 scriva	Scriva presto!	Write soon!	7253
 scriva	Scriva una relazione.	Write a report.	7253
 spostatevi	Spostatevi! Mi siete nei piedi.	Move! You're in my way.	7255
-spostatevi	Spostatevi.	Move over.	7255
 spostatevi	Spostatevi a destra.	Move to the right.	7255
 moderno	Il computer è uno strumento moderno.	A computer is a modern device.	7256
 moderno	Non mi piace il jazz moderno.	I don't dig modern jazz.	7256
@@ -19603,7 +19389,6 @@ casuale	Sto scrivendo una frase casuale.	I'm writing a random sentence.	7344
 casuale	Tutta questa merda casuale mi sta facendo girare la testa.	All this random shit is making me dizzy.	7344
 selvaggia	La festa è stata piuttosto selvaggia.	The party was pretty wild.	7345
 selvaggia	La festa era piuttosto selvaggia.	The party was pretty wild.	7345
-selvaggia	Selvaggia!	Wild!	7345
 uscirai	Uscirai domani?	Will you go out tomorrow?	7346
 uscirai	Uscirai a mangiare?	Will you go out to eat?	7346
 sapersi	È buono a sapersi.	That's good to know.	7348
@@ -19635,7 +19420,6 @@ grassi	Diventare troppo grassi non è buono per la salute.	Becoming too fat is n
 grassi	Sono troppo grassi.	They're too fat.	7359
 tienimi	Tienimi aggiornato.	Keep me updated.	7360
 tienimi	Tienimi la mano.	Hold my hand.	7360
-tienimi	Tienimi.	Hold me.	7360
 pettegolezzi	Sono pettegolezzi.	That's idle talk.	7361
 pettegolezzi	I pettegolezzi non finiscono mai bene.	Gossiping never ends well.	7361
 zecca	È nuovo di zecca.	It's brand new.	7362
@@ -19694,7 +19478,6 @@ officina	Il seminterrato è stato trasformato in officina.	The basement has been
 officina	La mia macchina è in officina.	My car's in the shop.	7383
 bentornata	Bentornata. Ci sei mancata!	Welcome back. We missed you!	7384
 bentornata	Bentornata. Ci è mancata!	Welcome back. We missed you!	7384
-bentornata	Bentornata.	Welcome back.	7384
 obbligata	È stata obbligata a confessare.	She was forced to confess.	7385
 obbligata	Sono stata obbligata a lasciare la scuola.	I was compelled to leave school.	7385
 obbligata	Non sarò obbligata.	I won't be coerced.	7385
@@ -19914,7 +19697,6 @@ nazista	Io non sono una nazista!	I'm not a Nazi!	7484
 nazista	Non sono nazista!	I'm not a Nazi!	7484
 veicoli	Sono stati distrutti sette veicoli.	Seven vehicles were destroyed.	7485
 uccidimi	Uccidimi con le parole!	Kill me with words!	7486
-uccidimi	Uccidimi.	Kill me.	7486
 camminato	Abbiamo camminato molto.	We walked a lot.	7487
 camminato	Abbiamo camminato tutto intorno al lago.	We have walked all around the lake.	7487
 camminato	Ho camminato fino alla stazione.	I walked as far as the station.	7487
@@ -19951,13 +19733,11 @@ sacrificare	È stato sbagliato da parte mia chiedergli di sacrificare il suo tem
 industriale	È una città industriale.	It is an industrial city.	7502
 industriale	Come è iniziata la Rivoluzione Industriale?	How did the Industrial Revolution begin?	7502
 accosta	Accosta qui.	Pull over here.	7503
-accosta	Accosta.	Pull over.	7503
 quattordici	Mio fratello ha lasciato la scuola quando aveva quattordici anni.	My brother left his school when he was fourteen years old.	7504
 quattordici	Avrò quattordici anni.	I am going to be fourteen.	7504
 quattordici	Domani avrò quattordici anni.	I will be fourteen years old tomorrow.	7504
 metteva	Il ragazzino si metteva nei guai quando veniva lasciato da solo.	The little boy got into mischief when he was left alone.	7505
 bandito	Questo libro è bandito.	This book is banned.	7507
-bandito	Bandito!	Bandit!	7507
 convinti	Siamo tutti convinti che sia colpevole.	We are all convinced that he's guilty.	7510
 convinti	Siamo tutti convinti che lui sia colpevole.	We are all convinced that he's guilty.	7510
 convinti	Noi siamo tutti convinti che sia colpevole.	We are all convinced that he's guilty.	7510
@@ -20186,7 +19966,6 @@ misero	Loro si misero in cerchio.	They formed a circle.	7605
 misero	Misero tutta la loro roba in una stanza.	They put all their stuff in a box.	7605
 permetto	Non lo permetto.	I don't allow it.	7606
 permetto	Non la permetto.	I don't allow it.	7606
-puzzi	Puzzi.	You stink.	7608
 puzzi	Tu puzzi.	You stink.	7608
 puzzi	Puzzi di sudore.	You stink of sweat.	7608
 sudore	Puzzi di sudore.	You stink of sweat.	7608
@@ -20293,9 +20072,7 @@ rendermi	Lo so che vuoi rendermi felice.	I know you want to make me happy.	7654
 piacerti	Potrebbe piacerti questo.	You might like this.	7655
 piacerti	Deve piacerti davvero.	You must really like him.	7655
 piacerti	Deve piacerti veramente.	You must really like him.	7655
-balliamo	Balliamo.	Let's dance.	7656
 balliamo	Noi balliamo insieme.	We dance together.	7656
-balliamo	Balliamo?	Shall we dance?	7656
 starete	Starete a casa.	You will stay at home.	7657
 starete	Quanto starete a Londra?	How long are you going to be in London?	7657
 starete	Starete ancora meglio.	You will be even better.	7657
@@ -20399,7 +20176,6 @@ controllata	Io l'ho controllata due volte.	I checked it twice.	7705
 controllata	Ne ho controllata una.	I checked one.	7705
 inizieremo	Inizieremo appena smette di piovere.	We'll start as soon as it stops raining.	7707
 inizieremo	Appena arriva, inizieremo.	As soon as she comes, we will begin.	7707
-inizieremo	Inizieremo.	We'll start.	7707
 fregati	Siete fregati.	You are screwed.	7708
 fregati	Siamo fregati.	We're screwed.	7708
 teme	La gente teme la guerra.	The people fear war.	7710
@@ -20594,7 +20370,6 @@ vediamoci	Vediamoci di domenica.	Let's meet on Sunday.	7789
 tenuti	Non siamo tenuti a partecipare alla riunione.	It is not necessary for us to attend the meeting.	7790
 tenuti	Cosa vi ha tenuti interessati?	What kept you interested?	7790
 tenuti	Si sono tenuti impegnati.	They kept themselves busy.	7790
-spacca	Spacca.	He rocks.	7792
 spacca	Lui spacca.	He rocks.	7792
 spacca	Lei spacca.	She rocks.	7792
 buttati	Dove li hai buttati via?	Where did you throw them away?	7794
@@ -20746,7 +20521,6 @@ portiera	Non aprire mai la portiera di una macchina in movimento.	Never open the
 portiera	Non aprite mai la portiera di una macchina in movimento.	Never open the door of a car that is in motion.	7864
 portiera	Non apra mai la portiera di una macchina in movimento.	Never open the door of a car that is in motion.	7864
 dormiva	La città dormiva.	The town slept.	7865
-dormiva	Dormiva.	You were asleep.	7865
 dormiva	Lei dormiva.	You were asleep.	7865
 sfilata	Andiamo a vedere la sfilata di Pasqua.	Let's go and watch the Easter parade.	7866
 diviso	Sei diviso due fa tre.	Six divided by two is three.	7867
@@ -20764,7 +20538,6 @@ prescindere	A prescindere da chi possa dire questo, non è vero.	Whoever may say
 trasferirsi	Ha insegnato il francese in Italia prima di trasferirsi a Parigi.	She taught French in Italy before moving to Paris.	7871
 trasferirsi	Lei ha insegnato il francese in Italia prima di trasferirsi a Parigi.	She taught French in Italy before moving to Paris.	7871
 trasferirsi	Non era in grado di trasferirsi.	He was unable to move.	7871
-serviti	Serviti.	Help yourself.	7873
 serviti	Si sono serviti.	They helped themselves.	7873
 serviti	A nulla sono serviti gli sforzi dei medici.	All the efforts of the doctors were to no avail.	7873
 pericoli	Qui i bambini possono giocare senza pericoli.	Children can play without danger here.	7874
@@ -20878,7 +20651,6 @@ portaci	Portaci da qualche parte.	Take us somewhere.	7920
 iniziò	Iniziò a piovere e lei si bagnò.	It began to rain and she got wet.	7921
 iniziò	Il ragazzo iniziò a piangere.	The boy began to cry.	7921
 iniziò	Il ragazzo iniziò a urlare.	The boy began to cry.	7921
-aspetteremo	Aspetteremo.	We'll wait.	7922
 aspetteremo	Noi aspetteremo.	We'll wait.	7922
 aspetteremo	Aspetteremo il segnale.	We'll wait for the signal.	7922
 benefici	Quali sono i benefici?	What are the benefits?	7923
@@ -20906,7 +20678,6 @@ accettate	Accettate carte di credito?	Do you accept credit cards?	7932
 accettate	Perché non lo accettate?	Why don't you accept that?	7932
 accettate	Perché non la accettate?	Why don't you accept that?	7932
 lasciatela	Lasciatela dove l'avete trovata.	Leave it where you found it.	7934
-lasciatela	Lasciatela.	Leave it.	7934
 lasciatela	Lasciatela lì.	Leave it there.	7934
 baciarmi	Non vuoi baciarmi?	Don't you want to kiss me?	7935
 baciarmi	Tu non vuoi baciarmi?	Don't you want to kiss me?	7935
@@ -21418,7 +21189,6 @@ incendi	Che cosa fanno i pompieri quando non ci sono incendi?	What do firefighte
 riguardi	Si riguardi.	Take good care of yourself.	8154
 corro	Corro tutti i giorni.	I run every day.	8155
 corro	Io corro.	I run.	8155
-corro	Corro.	I run.	8155
 credevano	Quasi tutti gli studenti credevano alla voce.	Almost all the students believed the rumor.	8156
 credevano	Tutti i suoi amici lo credevano felice.	All his friends believed him happy.	8156
 credevano	Non tutti credevano che questo piano fosse buono.	Not everyone believed this plan was a good one.	8156
@@ -21532,7 +21302,6 @@ patata	Vorrei una bistecca con una patata al forno.	I would like a steak with a 
 aprila	Per piacere, aprila.	Please open it.	8196
 aprila	Per favore, aprila.	Please open it.	8196
 ave	Ave Cesare!	Hail, Caesar!	8197
-ave	Ave!	Hail!	8197
 ave	Ave Maria.	Ave Maria.	8197
 tentazione	Ha ceduto alla tentazione.	He gave in to the temptation.	8199
 tentazione	Lui ha ceduto alla tentazione.	He gave in to the temptation.	8199
@@ -21553,7 +21322,6 @@ resoconto	Hai consegnato il tuo resoconto?	Have you turned in your report?	8204
 basata	Questa storia è basata su eventi reali.	This story is based on actual events.	8205
 basata	L'opera era basata su una storia vera.	The play was based on a true story.	8205
 basata	La fantasia è basata sulla realtà.	Fantasy is based on reality.	8205
-alzatevi	Alzatevi!	Get up!	8207
 alzatevi	Alzatevi presto.	Get up early.	8207
 alzatevi	Alzatevi in piedi!	Stand up!	8207
 soffia	Il vento soffia molto forte.	It is blowing very hard.	8209
@@ -21586,7 +21354,6 @@ prendili	Per favore, prendili.	Please get them.	8219
 prendili	Per piacere, prendili.	Please get them.	8219
 prendili	Prendili entrambi.	Take them both.	8219
 guardatemi	Guardatemi quando vi parlo!	Look at me when I talk to you!	8220
-guardatemi	Guardatemi.	Watch me.	8220
 guardatemi	Non guardatemi.	Don't look at me.	8220
 biologia	Non mi è mai piaciuta la biologia.	I never liked biology.	8223
 biologia	Insegno biologia e francese.	I teach biology and French.	8223
@@ -21700,7 +21467,6 @@ cola	Voglio una bottiglia di Coca-Cola.	I want a bottle of Coca-Cola.	8274
 cola	Io voglio una bottiglia di Coca-Cola.	I want a bottle of Coca-Cola.	8274
 cola	Non bevo Coca-Cola.	I don't drink Coca-Cola.	8274
 vinceremo	Vincere, e vinceremo!	To win, and we will win!	8275
-vinceremo	Vinceremo.	We'll win.	8275
 vinceremo	Noi vinceremo.	We'll win.	8275
 iran	Sono andato in Iran.	I went to Iran.	8277
 iran	Io sono andato in Iran.	I went to Iran.	8277
@@ -21796,7 +21562,6 @@ osservato	L'ho osservato.	I watched him.	8323
 convento	Dicevano che sarebbe entrata in convento.	They said she would enter a convent.	8324
 formidabile	Sei formidabile e ti amo molto.	You're gorgeous and I love you bunches.	8325
 formidabile	Sembri formidabile.	You look amazing.	8325
-formidabile	Formidabile!	Terrific!	8325
 barbiere	Mi sono fatto tagliare i capelli dal barbiere.	I had my hair cut at the barber's.	8326
 barbiere	Dovresti andare dal barbiere.	You should go to the barbershop.	8326
 barbiere	"""Dove sei stato?"" ""Sono stato dal barbiere."""	"""Where have you been?"" ""I've been to the barber's."""	8326
@@ -21895,7 +21660,6 @@ costerà	Costerà trenta euro.	This will cost €30.	8371
 costerà	Questo costerà 30 €.	This will cost €30.	8371
 costerà	Questa costerà 30 €.	This will cost €30.	8371
 giura	Giura che mi sta dicendo la verità?	Do you swear you're telling me the truth?	8372
-giura	Giura!	Swear!	8372
 giura	Giura di essere innocente.	She swears she's innocent.	8372
 avanzato	L'esercito è avanzato sulla collina.	The army advanced up the hill.	8373
 bloccate	Temo che noi siamo bloccate qui.	I'm afraid we're stuck here.	8375
@@ -21910,7 +21674,6 @@ cartolina	Gli hai già inviato una cartolina di Natale?	Have you sent him a Chri
 provoca	La morte mi provoca molta ansia.	Death causes me a lot of anxiety.	8379
 provoca	Mi sento tradito e questo mi provoca dolore.	I feel betrayed, and that causes me pain.	8379
 provoca	Ti prego di comprendere che questa decisione mi provoca dolore e che non è facile.	Please understand that this decision causes me pain, and it isn't easy.	8379
-scompare	Scompare.	You disappear.	8380
 scompare	Lei scompare.	You disappear.	8380
 scompare	Il gatto scompare quando vede il cane.	The cat disappears when it sees the dog.	8380
 salgo	È la prima volta che salgo su una barca.	This is the first time I've ever got on a boat.	8382
@@ -21937,7 +21700,6 @@ venticinque	Ho venticinque anni.	I'm 25 years old.	8390
 venticinque	Io ho venticinque anni.	I'm 25 years old.	8390
 venticinque	Non sarà colpa tua se tuo figlio fa qualcosa che non va: ha venticinque ora, non è vero?	It won't be your fault if your son does anything wrong: he is twenty-five now, isn't he?	8390
 eccole	Eccole qua!	Here they are!	8391
-aiutaci	Aiutaci.	Help us.	8392
 aiutaci	Prendi una scopa e aiutaci a pulire.	Grab a broom and help us clean.	8392
 aiutaci	Per piacere, aiutaci.	Please help us.	8392
 assai	Mi piace assai.	I like it so much.	8393
@@ -22076,7 +21838,6 @@ dimostrarlo	Potete dimostrarlo?	Can you prove it?	8451
 promette	Promette di non bere più.	He promises not to drink anymore.	8452
 promette	Il cielo promette bel tempo.	The sky promises fair weather.	8452
 promette	Promette di non dirlo?	Do you promise not to tell?	8452
-lasciateci	Lasciateci.	Leave us.	8453
 lasciateci	Lasciateci da soli.	Leave us alone.	8453
 lasciateci	Lasciateci da sole.	Leave us alone.	8453
 bacia	L'uomo bacia la donna.	The man kisses the woman.	8454
@@ -22154,9 +21915,7 @@ sposiamo	Ci sposiamo la prossima primavera.	We're getting married next spring.	8
 sposiamo	Quando ci sposiamo?	When are we getting married?	8489
 sbrighiamoci	Abbiamo poco tempo, sbrighiamoci.	We don't have much time. Let's hurry.	8490
 sbrighiamoci	Sbrighiamoci per non perdere tempo.	Let's hurry so as not to waste time.	8490
-sbrighiamoci	Sbrighiamoci.	Let's hurry up.	8490
 scendiamo	Scendiamo le scale lentamente.	Let's go down the stairs slowly.	8491
-scendiamo	Scendiamo.	Let's go down.	8491
 annunciato	Il nome sta per essere annunciato.	The name is to be announced.	8492
 annunciato	Ha annunciato il suo fidanzamento con lui.	She announced her engagement to him.	8492
 annunciato	Lei ha annunciato il suo fidanzamento con lui.	She announced her engagement to him.	8492
@@ -22202,7 +21961,6 @@ celebrità	È una sorta di celebrità.	He is something of a celebrity.	8511
 celebrità	Lui è una sorta di celebrità.	He is something of a celebrity.	8511
 avvicinatevi	Non avvicinatevi al cane.	Don't approach the dog.	8512
 avvicinatevi	Non avvicinatevi troppo a lui.	Don't get too close with him.	8512
-avvicinatevi	Avvicinatevi.	Come closer.	8512
 segnalato	Ho segnalato alla macchina di andare piano.	I signaled the car to go slow.	8513
 segnalato	Chi ti ha segnalato?	Who referred you?	8513
 segnalato	Chi l'ha segnalato?	Who referred you?	8513
@@ -22359,7 +22117,6 @@ omosessuale	Il mio migliore amico è omosessuale.	My best friend is homosexual.	
 volando	Il nostro aereo stava volando sopra l'oceano Pacifico.	Our plane was flying over the Pacific Ocean.	8584
 volando	Il nostro aereo sta volando sopra le nuvole.	Our plane is flying over the clouds.	8584
 volando	L'elicottero sta volando molto basso.	The helicopter is flying very low.	8584
-continuerò	Continuerò.	I will continue.	8585
 continuerò	Io continuerò.	I will continue.	8585
 continuerò	Continuerò a controllare.	I'll keep checking.	8585
 lavorarci	Continuerò a lavorarci sopra.	I'll continue working on it.	8585
@@ -22408,7 +22165,6 @@ ingegneria	L'ingegneria mette in pratica la teoria.	Engineering puts theory into
 timida	Non essere timida.	Don't be shy.	8606
 timida	Non sia timida.	Don't be shy.	8606
 timida	Come molti di noi, era molto timida da bambina.	She was, as many of us were, very shy in her childhood.	8606
-capiranno	Capiranno.	They'll understand.	8607
 capiranno	Loro capiranno.	They'll understand.	8607
 capiranno	Non capiranno mai.	They'll never understand.	8607
 condotti	Molti esperimenti sono stati condotti in questo campo.	Many experiments have been carried out in this field.	8608
@@ -22764,7 +22520,6 @@ giuda	Tu credi che Giuda abbia tradito Gesù Cristo?	Do you believe Judas betray
 giulia	La lingua madre di Giulia è l'italiano.	Julia's native language is Italian.	8773
 aiuteremo	Se dovessi avere dei problemi, io e mio padre ti aiuteremo.	Should you run into trouble, I'll help, and so will my father.	8774
 aiuteremo	Per favore, calmati, ti aiuteremo.	Please take it easy, we will help you.	8774
-aiuteremo	Aiuteremo.	We'll help.	8774
 cartelli	Avrei dovuto leggere i cartelli.	I should have read the signs.	8776
 cartelli	Ci sono cartelli nei dintorni?	Are there any signs nearby?	8776
 sostenuto	Ho sostenuto l'ipotesi.	I favored the hypothesis.	8777
@@ -22837,7 +22592,6 @@ parcheggiare	Non si può parcheggiare qui.	You can't park here.	8805
 parcheggiare	Dove posso parcheggiare?	Where can I park?	8805
 chiamala	Chiamala stasera.	Call her this evening.	8806
 chiamala	Chiamala questa sera.	Call her this evening.	8806
-chiamala	Chiamala.	Call her.	8806
 invidia	Era l'invidia dei suoi amici.	He was the envy of his friends.	8808
 invidia	Lui era l'invidia dei suoi amici.	He was the envy of his friends.	8808
 invidia	L'anziano invidia i giovani.	The old man envies the youth.	8808
@@ -22954,7 +22708,6 @@ trattarsi	L'attenzione dovrebbe essere rivolta al trattarsi bene a vicenda.	The 
 trama	La trama è importante!	Plot is important!	8860
 trama	Non capisco la trama di questo romanzo.	I don't understand this novel's plot.	8860
 trama	Io non capisco la trama di questo romanzo.	I don't understand this novel's plot.	8860
-ricomincia	Ricomincia.	Start again.	8861
 ricomincia	Ricomincia da capo.	Start over.	8861
 ricomincia	La scuola ricomincia presto.	School starts again soon.	8861
 scrittori	Cosa ne pensi di quegli scrittori giapponesi?	What do you think of those Japanese writers?	8862
@@ -23357,8 +23110,6 @@ baita	Ha costruito questa baita da solo.	He built this cabin by himself.	9051
 passerò	Passerò più tardi.	I'll come by later.	9052
 passerò	Io passerò più tardi.	I'll come by later.	9052
 passerò	Passerò domenica prossima a leggere dei romanzi.	I will spend next Sunday reading novels.	9052
-controllati	Controllati.	Control yourself.	9055
-controllati	Controllati!	Control yourself!	9055
 controllati	Controllati le tasche.	Check your pockets.	9055
 andassimo	Sarebbe meglio se andassimo.	We'd better go.	9057
 andassimo	Ha insistito che andassimo.	She insisted we go.	9057
@@ -23452,7 +23203,6 @@ informati	Sarete informati.	You will be informed.	9104
 informati	Tutti sono stati informati che il piano è stato modificato.	Everyone has been informed that the plan has been changed.	9104
 tasto	Premi il tasto.	Press the key.	9105
 muscoli	Si tastò il braccio e si chiese quando gli sarebbero cresciuti i muscoli.	He felt his arm and wondered when his muscles would grow.	9105
-guardatelo	Guardatelo.	Look at it.	9106
 guardatelo	Guardatelo. Non se lo merita.	Look at him. He doesn't deserve that.	9106
 guardatelo	Non guardatelo.	Don't look at it.	9106
 ricostruzione	La ricostruzione con una traduzione può essere limitata.	The reconstruction with a translation can be limited.	9107
@@ -23494,7 +23244,6 @@ sperato	Io avevo sperato di incontrarla lì.	I had hoped to meet her there.	9121
 sperato	Era tutto quello per cui ho sperato.	It was everything I hoped for.	9121
 pensateci	Non pensateci neanche a mangiare la mia cioccolata!	Don't you even think of eating my chocolate!	9122
 pensateci	Non pensateci nemmeno a mangiare la mia cioccolata!	Don't you even think of eating my chocolate!	9122
-pensateci	Pensateci.	Think about it.	9122
 drogati	Siete stati drogati.	You've been drugged.	9123
 drogati	Voi siete stati drogati.	You've been drugged.	9123
 proteine	È una buona fonte di proteine?	Is it a good source of protein?	9124
@@ -24082,7 +23831,6 @@ contribuito	Il giocatore ha contribuito alla vittoria.	The player contributed to
 contribuito	Ho contribuito.	I contributed.	9386
 contribuito	Io ho contribuito.	I contributed.	9386
 imbecilli	Il mondo è pieno di imbecilli.	The world is full of fools.	9387
-imbecilli	Imbecilli.	Imbecile.	9387
 ragiona	Mi piace come ragiona.	I like how you reason.	9388
 ragiona	La donna osserva e l'uomo ragiona.	The woman observes and the man thinks.	9388
 ragiona	Con i bambini piccoli si ragiona in modo diverso.	You think differently talking with little children.	9388
@@ -24182,7 +23930,6 @@ caffetteria	Passava il tempo in una caffetteria a guardare le ragazze passare.	H
 caffetteria	Questa è la caffetteria in cui ho incontrato per la prima volta mia moglie.	This is the coffee shop I first met my wife in.	9437
 caffetteria	Lui passava il tempo in una caffetteria a guardare le ragazze passare.	He killed time in a coffee shop watching girls pass by.	9437
 procedi	OK. Procedi.	OK. Go ahead.	9440
-procedi	Procedi.	Come along.	9440
 procedi	Per piacere, procedi.	Please proceed.	9440
 mettervi	Non volevo mettervi in imbarazzo.	I didn't mean to embarrass you.	9441
 mettervi	Non intendevo mettervi in imbarazzo.	I didn't mean to embarrass you.	9441
@@ -24299,14 +24046,12 @@ obbligo	È l'obbligo di ogni lavoratore pagare le tasse.	It is the obligation of
 atleti	Gli atleti non sono diversi.	Athletes are no different.	9488
 atleti	Quanti chilometri corrono gli atleti in una maratona?	How many kilometers do athletes run in a marathon?	9488
 proceda	OK. Proceda.	OK. Go ahead.	9489
-proceda	Proceda.	Come along.	9489
 proceda	Per piacere, proceda.	Please proceed.	9489
 modifiche	Le modifiche necessarie sono state fatte.	The necessary changes having been made.	9490
 modifiche	I prezzi sono soggetti a modifiche senza preavviso.	The prices are subject to change without notice.	9490
 tragica	La situazione è tragica.	The situation is dire.	9491
 tragica	La tragica notizia ha fatto impazzire sua madre.	The tragic news drove his mother mad.	9491
 tragica	La tragica notizia fece impazzire sua madre.	The tragic news drove his mother mad.	9491
-proveremo	Proveremo.	We'll try.	9492
 proveremo	Noi proveremo.	We'll try.	9492
 proveremo	Proveremo a fare più attenzione.	We'll try to be more careful.	9492
 crederà	Non ci crederà.	She won't believe it.	9493
@@ -24390,7 +24135,6 @@ visibile	L'area bianca è visibile dallo spazio.	The white area is visible from 
 visibile	La piscina è visibile dal giardino.	The pool is visible from the garden.	9529
 lavoravano	I servi lavoravano come formiche.	The servants worked like ants.	9531
 lavoravano	Le donne lavoravano a casa.	Women worked at home.	9531
-lavoravano	Lavoravano.	They were working.	9531
 succhiare	Ha l'abitudine di succhiare la sua matita.	He has a habit of sucking his pencil.	9533
 succhiare	Non puoi insegnare a tua nonna a succhiare le uova.	You can't teach your grandmother to suck eggs.	9533
 succhiare	Non può insegnare a sua nonna a succhiare le uova.	You can't teach your grandmother to suck eggs.	9533
@@ -24542,7 +24286,6 @@ comuni	Sono troppo impegnati a litigare tra loro per occuparsi di ideali comuni.
 ideali	È una buona cosa avere ideali... non credi?	It is good to have ideals... don't you think?	9607
 ideali	Il mio cuore batte al ritmo dei miei ideali.	My heart beats in rhythm with my ideals.	9607
 diverti	Mi diverti.	You amuse me.	9608
-cresci	Cresci!	Grow up!	9611
 cresci	Perché non cresci?	Why don't you grow up?	9611
 cresci	Avanti, cresci.	Come on, grow up.	9611
 distruggerlo	Abbiamo intenzione di distruggerlo.	We intend to destroy it.	9613
@@ -24555,7 +24298,6 @@ navicella	La navicella spaziale non tornò mai più sulla terra.	The spaceship w
 trionfo	L'imperatore tornò a casa in trionfo.	The emperor returned home in triumph.	9614
 imperatore	L'imperatore tornò a casa in trionfo.	The emperor returned home in triumph.	9614
 giuri	Giuri che mi stai dicendo la verità?	Do you swear you're telling me the truth?	9615
-giuri	Giuri!	Swear!	9615
 giuri	Giuri sulla Bibbia.	Swear on the Bible.	9615
 colpirlo	Non avevo intenzione di colpirlo.	I didn't mean to hit him.	9616
 colpirlo	Io non avevo intenzione di colpirlo.	I didn't mean to hit him.	9616
@@ -24581,7 +24323,6 @@ sci	Sono appassionato di sci.	I am fond of skiing.	9625
 sci	Io sono appassionato di sci.	I am fond of skiing.	9625
 sci	Sai di chi sono questi sci?	Do you know whose skis these are?	9625
 provava	Provava nostalgia di casa.	He felt homesick.	9626
-provava	Provava.	She was trying.	9626
 provava	Lei provava.	She was trying.	9626
 riconoscente	Sono riconoscente per la pioggia.	I am thankful for rain.	9627
 riconoscente	Sono riconoscente per i veterani.	I am thankful for veterans.	9627
@@ -24626,7 +24367,6 @@ vestirmi	Non ho ancora pensato su come vestirmi alla cena.	I haven't even though
 vestirmi	Devo vestirmi.	I have to get dressed.	9651
 vestirmi	Io devo vestirmi.	I have to get dressed.	9651
 crepa	La tazza ha una crepa.	The cup has a crack.	9652
-crepa	Crepa!	Die!	9652
 crepa	La crepa è larga venti metri e molto profonda.	The chasm is twenty feet wide and very deep.	9652
 lasciarvi	Non posso lasciarvi.	I can't leave you.	9653
 lasciarvi	Non avrei dovuto lasciarvi da soli.	I shouldn't have left you alone.	9653
@@ -24762,7 +24502,6 @@ casalinga	Sono casalinga.	I am a housewife.	9715
 affittare	Sarà facile trovare qualcuno a cui affittare questa casa.	It'll be easy to find someone to rent this house.	9716
 affittare	Vorrei affittare per una settimana la vostra macchina più economica.	I'd like to rent your most inexpensive car for a week.	9716
 affittare	Dobbiamo affittare una stanza per la nostra festa.	We need to rent a room for our party.	9716
-richiama	Richiama.	Call back.	9717
 richiama	Richiama il tuo cane.	Call back your dog.	9717
 richiama	Richiama i tuoi cani.	Call off your dogs.	9717
 ketchup	Passami il ketchup, per favore.	Pass me the ketchup, please.	9718
@@ -24795,7 +24534,6 @@ interviste	Odio fare interviste.	I hate doing interviews.	9732
 drammatica	Non essere così drammatica.	Don't be so dramatic.	9733
 drammatica	Non sia così drammatica.	Don't be so dramatic.	9733
 drammatica	Basta essere così drammatica.	Stop being so dramatic.	9733
-concentriamoci	Concentriamoci.	Let's concentrate.	9736
 matrigna	Non gli piace la sua matrigna.	He doesn't like his stepmother.	9738
 matrigna	A lui non piace la sua matrigna.	He doesn't like his stepmother.	9738
 matrigna	È la mia matrigna.	She's my stepmother.	9738
@@ -25068,7 +24806,6 @@ compriamo	Compriamo questa radio.	Let's buy this radio.	9873
 cricket	Il baseball è diverso dal cricket.	Baseball is different from cricket.	9874
 cricket	Domani ho una partita di cricket. Mi auguri buona fortuna.	Tomorrow I have a cricket match. Wish me luck.	9874
 cricket	L'India gioca a cricket.	India plays cricket.	9874
-attenda	Attenda!	Hang on!	9875
 attenda	Per piacere, attenda finché non arriva.	Please wait until he arrives.	9875
 attenda	Per favore, attenda finché non arriva.	Please wait until he arrives.	9875
 riprendi	Riprendi in mano la tua vita.	Take charge of your life again.	9876
@@ -25145,7 +24882,6 @@ ditelo	Ditelo a tutti.	Tell everybody.	9916
 ditelo	Ditelo in inglese.	Say it in English.	9916
 assume	Chi si assume la responsabilità per questo?	Who's taking responsibility for this?	9917
 assume	Chi si assume la responsabilità per ciò?	Who's taking responsibility for this?	9917
-assume	Assume?	Are you hiring?	9917
 tonto	È tonto.	He's a bonehead.	9918
 tonto	Lui è tonto.	He's a bonehead.	9918
 tonto	Sei perfino più tonto di me.	You're even dumber than I am.	9918
@@ -25283,7 +25019,6 @@ francesco	Mi chiamo Francesco.	My name is Francesco.	9982
 francesco	Il mio nome è Francesco.	My name is Francesco.	9982
 equivoco	È equivoco.	That's confusing.	9983
 testata	Non l'ho testata.	I haven't tested it.	9984
-perbacco	Perbacco!	Gosh!	9985
 perbacco	Perbacco, incredibile!	Gee, unbelievable!	9985
 perbacco	Perbacco, incredibili!	Gee, unbelievable!	9985
 greci	Siamo greci.	We're Greeks.	9986

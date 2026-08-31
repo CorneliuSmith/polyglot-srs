@@ -1,10 +1,8 @@
 word	sentence	translation	difficulty_rank
-من	من؟	Who?	3
 كان	فليكن!	So be it!	4
 ت	تَرَكناهُم.	We left them behind.	4
 كان	تَرَكناهُم.	We left them behind.	4
 م	تَرَكناهُم.	We left them behind.	4
-لا	لا.	No.	5
 ت	لا تَغِش.	Don't cheat.	5
 لا	لا تَغِش.	Don't cheat.	5
 لا	لا تَسُبّهُ.	Don't call him names.	5
@@ -57,13 +55,10 @@ word	sentence	translation	difficulty_rank
 ي	أَجْنِيْ مِئْةَ يُوْرَو فِيْ اليَوْم.	I make €100 a day.	15
 و	أَجْنِيْ مِئْةَ يُوْرَو فِيْ اليَوْم.	I make €100 a day.	15
 لم	لم لا؟	Why not?	17
-لم	لم؟	Why?	17
 لم	لم نَنْسَ	We didn't forget.	17
 س	لم نَنْسَ	We didn't forget.	17
 ع	عُلم!	Roger!	17
 شيء	لا شيء!	Nothing!	18
-ماذا	ماذا؟	What?	19
-ماذا	ماذا ؟	What?	19
 ل	لِماذا كَذَبْتَ؟	Why did you lie?	19
 ماذا	لِماذا كَذَبْتَ؟	Why did you lie?	19
 ل	لِماذا تَكْذِبُ؟	Why do you lie?	19
@@ -105,9 +100,7 @@ word	sentence	translation	difficulty_rank
 أمر	أوامري مُطْلَقَة.	My orders are absolute.	32
 ة	أوامري مُطْلَقَة.	My orders are absolute.	32
 ق	أوامري مُطْلَقَة.	My orders are absolute.	32
-نعم	نعم!	Yes!	33
 نعم	نعم، فعلت.	Yes, you did.	33
-نعم	نعم.	Yep.	33
 لكن	لكن لا أريد	But I don't want to.	34
 هناك	من هناك؟	Who's there?	35
 هناك	ليس هناك ما يمكنني فعله.	There's nothing I can do.	35
@@ -117,7 +110,6 @@ word	sentence	translation	difficulty_rank
 قال	لا تقل ذلك.	Don't talk like that.	36
 شيء	أنا قلتُ شيئًا.	I said something.	36
 شيء	هل قلتَ شيئًا ؟	Did you say something?	36
-إذا	إذا؟	So?	37
 ف	كل شيء فُقِد.	Everything was lost.	38
 ق	كل شيء فُقِد.	Everything was lost.	38
 كل	كل شيء فُقِد.	Everything was lost.	38
@@ -224,7 +216,6 @@ word	sentence	translation	difficulty_rank
 أحد	لم يكن هناك أحد.	No one was present.	69
 أحد	لا أحد يذهب هناك بعد الآن.	No one goes there anymore.	69
 لماذا	لماذا أنا؟	Why me?	70
-لماذا	لماذا؟	Why?	70
 لماذا	لكن لماذا؟	But why?	70
 لكن	لكن لماذا؟	But why?	70
 و	و لكن لماذا؟	But why?	70
@@ -355,7 +346,6 @@ word	sentence	translation	difficulty_rank
 منزل	إني في المنزل.	I am at home.	118
 منزل	هذا هو منزله.	That is his house.	118
 أكثر	أخبرنا أكثر	Tell us more.	119
-أكثر	أكثر!	More!	119
 طريق	أنت في طريقي.	You are in my way.	120
 طريق	نحن في طريقنا إلى المنزل.	We are on the way home.	120
 طريق	هل يمكنك ان تريني الطريق؟	Can you show me the way?	120
@@ -369,7 +359,6 @@ word	sentence	translation	difficulty_rank
 بخير	انا بخير ماذا عنك انت ؟	I'm fine. How about you?	122
 بخير	انا بخير ، وانت ؟	I am fine, and you?	122
 لذيذ	يبدو لذيذا.	It looks delicious.	123
-لذيذ	لذيذ!	Delicious.	123
 لذيذ	لذيذ جدًا!	Very delicious!	123
 جد	لذيذ جدًا!	Very delicious!	123
 أخرى	مرة أخرى.	Once again.	124
@@ -408,7 +397,6 @@ word	sentence	translation	difficulty_rank
 أم	‫هل تحب أمك؟‬‎	Do you love your mother?	135
 تلك	هل تلك أمك؟	Is that your mom?	135
 تم	ماذا تتمنى؟	What do you wish for?	137
-تم	تم.	Done.	137
 تم	سيتم الامر.	It'll turn up.	137
 حاول	حاولت قتل نفسها.	She attempted to kill herself.	138
 حاول	فلنحاول!	Let's have a try.	138
@@ -470,7 +458,6 @@ word	sentence	translation	difficulty_rank
 ناس	كثير من الناس يقومون بذلك.	A lot of people do that.	156
 توقف	توقف في الحال.	Stop immediately.	157
 توقف	توقف الآن.	Stop right now.	157
-توقف	توقف!	Stop!	157
 شعر	كيف تشعر الآن؟	How do you feel now?	158
 شعر	ستشعر أنك أفضل	You'll feel better.	158
 شعر	هل تشعر بذلك؟	Do you feel that way?	158
@@ -539,7 +526,6 @@ word	sentence	translation	difficulty_rank
 حسب	أريد مساعدته فحسب.	I only want to help him.	181
 آسف	أنا آسف.	I'm sorry.	182
 آسف	يؤسفني أن أقول إنها الحقيقة.	It is unfortunately true.	182
-آسف	آسف...	Sorry...	182
 كم	كم شخص..؟	How many people?	183
 كم	كم من مرة ذهبت؟	How many times have you gone?	183
 كم	كم هذا رائع!.	How fascinating!	183
@@ -890,7 +876,6 @@ word	sentence	translation	difficulty_rank
 دقيقة	سيأخذ دقيقة من وقتك فقط.	It will only take a minute of your time.	307
 غريب	الأمر غريب.	It's pretty weird.	308
 غريب	كان غريبا بحق.	It was very weird.	308
-غريب	غريب.	Strange.	308
 لما	لما لم تقل لها؟	Why didn't you tell her?	309
 لما	اسمع لما عندي ان اقول.	Listen to what I have to say.	309
 لما	آسف لما حدث.	I'm sorry for what happened.	309
@@ -1026,7 +1011,6 @@ word	sentence	translation	difficulty_rank
 معا	اذهبا معا.	Leave together.	358
 معا	كلوا معا.	Eat together.	358
 كلا	كلا معا.	Eat together.	358
-أعلى	أعلى.	Louder.	359
 أعلى	خذها إلى الأعلى.	Take her upstairs.	359
 أعلى	لقد نظر إلى الأعلى.	He looked up.	359
 صوت	من فضلك تكلم بصوت أعلى.	Please speak more loudly.	360
@@ -1051,7 +1035,6 @@ word	sentence	translation	difficulty_rank
 فقد	فقد عمله.	He lost his job.	367
 فقد	أنا سوف أذهب لتفقد العمل	I am going to check the work.	367
 كفى	لا أعلم إن كان لدي ما يكفي من الوقت.	I don't know if I have the time.	368
-كفى	كفى.	That's enough.	368
 كفى	هذا يكفي.	That's enough.	368
 أمام	ما زالت الحياة أمامك.	Life lies in front of you.	369
 أمام	هناك رجل غريب أمام المنزل.	There is a strange man in front of the house.	369
@@ -1130,7 +1113,6 @@ word	sentence	translation	difficulty_rank
 لاحق	حاول مرة أخرى في وقت لاحق.	Please try again later.	393
 رأس	أين هو الرأس؟	Where's the head?	394
 ميت	يريدوك ميتا.	They want to see you dead.	395
-ميت	ميت	Dead?	395
 ميت	من هو ذلك الرجل الميت؟	Who's the dead man?	395
 أهم	من يهمّه؟	Who cares?	396
 أهم	إلى من يهمه الأمر.	To whom it may concern:	396
@@ -1256,7 +1238,6 @@ word	sentence	translation	difficulty_rank
 أوقف	لقد أوقفته، أليس كذلك؟	You stopped it, didn't you?	440
 بالضبط	لا أعلم متى سيصل بالضبط.	I don't know exactly when he will arrive.	441
 بالضبط	هذا بالضبط ما أردته.	It's exactly what I wanted.	441
-بالضبط	بالضبط!	Exactly!	441
 خروج	دخل الغرفة بعد خروجك.	He entered the room after you left.	443
 خروج	يمكنك الخروج.	You are free to go out.	443
 خروج	هل بإمكاني الخروج لألعب؟	May I go out to play?	443
@@ -1390,7 +1371,6 @@ word	sentence	translation	difficulty_rank
 ذات	لا أحب اللعب معه. نحن نفعل دائماً الأشياء ذاتها.	I don't like playing with him. We always do the same things.	489
 ثم	ثم أسرعت إلى المنزل.	Then she hurried home.	490
 أسرع	ثم أسرعت إلى المنزل.	Then she hurried home.	490
-أسرع	أسرع!	Faster!	490
 أسرع	من فضلك تعال بأسرع ما يمكن.	Please come as soon as possible.	490
 مجنون	إنه مجنون.	He is a psycho.	491
 مجنون	إنه مجنون بحبك.	He's crazy about you.	491
@@ -1653,7 +1633,6 @@ word	sentence	translation	difficulty_rank
 رجال	كان هنالك ثلاثة رجال.	There were three men.	579
 معذرة	المعذرة، لا أريد التحدث عن الموضوع.	I'm sorry, but I don't want to talk about it.	582
 معذرة	المعذرة؟	Pardon me?	582
-معذرة	معذرة	Sorry...	582
 قل	كم قلماً عندك؟	How many pens do you have?	583
 قل	على الأقل قل شكراً.	"You might at least say ""thank you."""	583
 قل	قل الحقيقة دائماً.	Always tell the truth.	583
@@ -1702,7 +1681,6 @@ word	sentence	translation	difficulty_rank
 مهما	ليس هذا مهماً.	It's not important.	600
 مهما	إن ذلك ليس مهماً.	This is not important.	600
 بل	ليس مهما ما تقوله، بل ما تفعله.	It's not what you say, but what you do that counts.	600
-جنون	جنون!	Crazy!	601
 جنون	بدى الأمر جنونيّا.	It sounded crazy.	601
 جنون	أعلم أنّ الأمر يبدو جنونيّا نوعا ما.	I know this sounds a little bit crazy.	601
 تماما	أنت محق تماماً!	You're completely right!	602
@@ -1768,7 +1746,6 @@ word	sentence	translation	difficulty_rank
 الماضي	ماذا حصل الأسبوع الماضي؟	What happened last week?	628
 الماضي	كل شيء كان أفضل في الماضي.	Everything was better in the past.	628
 أحبك	أنا أحبك.	I love you.	629
-أحبك	أحبك.	I love you.	629
 أحبك	أحبك أكثر مما تحبني.	I love you more than you love me.	629
 أية	على أية حال.	Whatever.	630
 أية	في أية رحلة أنت؟	What flight are you on?	630
@@ -1816,7 +1793,6 @@ word	sentence	translation	difficulty_rank
 شخصية	هناك الكثير من الأمور التي لا تعرفها عن شخصيتي.	There are a lot of things you don't know about my personality.	647
 شخصية	شخصيتها رائعة.	She has a wonderful personality.	647
 شخصية	لم تكن ترغب في معرفة أي شيئ عن حياته الشخصية.	She didn't want to know anything about his personal life.	647
-مستحيل	مستحيل.	No way.	648
 مستحيل	أنا آسف لكن ذلك مستحيل.	I'm sorry, but it's impossible.	648
 مستحيل	لا شيء مستحيل على الرجل الذي لا يجب عليه عمله بنفسه.	Nothing is impossible for the man who doesn't have to do it himself.	648
 قطع	من المستحيل القول بشكلٍ قطعي.	It's impossible to tell for certain.	648
@@ -2017,7 +1993,6 @@ word	sentence	translation	difficulty_rank
 أغنية	أُحِبّ هذه الأغنية.	I love this song.	722
 سخيف	من السخيف أن تصدقه.	It is foolish to take his word seriously.	723
 سخيف	لا تكن سخيفاً!	Don't be ridiculous.	723
-سخيف	سخيف	Ridiculous!	723
 ورى	سأريك بعض الصور.	I will show you some pictures.	724
 ورى	لدي بعض الصور لأريك.	I have some pictures to show you.	724
 ورى	سأريك المدينة.	I'll show you the city.	724
@@ -2106,7 +2081,6 @@ word	sentence	translation	difficulty_rank
 أراك	آمل أن أراك مجدداً.	I hope to see you again.	756
 بلدة	هل تعرف البلدة التي ولد فيها؟	Do you know the town where he was born?	757
 مذهل	نعم، كان ذلك مذهلاً ، لا يُصدق.	Yes, that was amazing. Unbelievable!	758
-مذهل	مذهل.	Wonderful!	758
 اسم	ما اسمُك؟	What's your name?	759
 اسم	ما اسم صديقك؟	What's your friend's name?	759
 اسم	أنا قط، وليس عندي اسم بعد.	I am a cat. I don't have a name yet.	759
@@ -2436,7 +2410,6 @@ word	sentence	translation	difficulty_rank
 لأي	لا تذكر خطتنا لأي أحد.	Don't mention our plan to anybody.	889
 لأي	إن حصل هذا لأي سبب، فماذا ستفعل؟	If for some reason that should happen, what would you do?	889
 مارس	ولدت في 18 من مارس عام 1994.	I was born on March 18th 1994.	890
-مارس	مارس.	Practise.	890
 فم	أخذت الكلمة من فمي!	That's MY line!	891
 فم	رأيت كلباً يحمل قطعة لحم في فمه.	I saw a dog. The dog held a piece of meat in its mouth.	891
 قطعة	رأيت كلباً يحمل قطعة لحم في فمه.	I saw a dog. The dog held a piece of meat in its mouth.	891
@@ -2518,7 +2491,6 @@ word	sentence	translation	difficulty_rank
 خطبة	ما الخطب؟	What is the problem?	919
 خطبة	أخبرني ما الخطب.	Tell me what the matter is.	919
 خطبة	ما الخطب معك؟	What the fuck is your problem?	919
-ممتاز	ممتاز!	Terrific!	920
 ممتاز	يجب أن يكون حفل عيد الميلاد هذا ممتازا.	This birthday has to be perfect.	920
 متأخر	من الأفضل أن تغادر. إن الوقت متأخر.	You'd better go. It's getting late.	921
 متأخر	الأبطال دائماً يصلون متأخرين.	Heroes always arrive late.	921
@@ -2605,7 +2577,6 @@ word	sentence	translation	difficulty_rank
 محطة	سيقودك هذا الطريق إلى المحطة.	This road leads you to the station.	952
 أدى	يؤدي هذا الطريق إلى المحطة.	This road leads you to the station.	952
 محطة	يؤدي هذا الطريق إلى المحطة.	This road leads you to the station.	952
-مفهوم	مفهوم؟	Capeesh?	954
 غدا	سأساعده غداً.	I will help him tomorrow.	955
 غدا	أراك غداً.	See you tomorrow.	955
 غدا	سأتركك غداً.	I'm leaving you tomorrow.	955
@@ -2694,7 +2665,6 @@ word	sentence	translation	difficulty_rank
 زيارة	بإمكانك زيارتي غداً.	You can visit me tomorrow.	989
 غضب	لهذا غضب.	That is why he got angry.	990
 غضب	هذا سبب غضبه.	That is why he got angry.	990
-غضب	غضب.	He got angry.	990
 معركة	خسروا المعركة.	They lost the battle.	991
 معركة	هذا مكان المعركة.	This is the place where the battle took place.	991
 معركة	المعرفة هي نصف المعركة.	Knowing is half the battle.	991
@@ -2957,7 +2927,6 @@ word	sentence	translation	difficulty_rank
 بدء	عليك البدء في الحال.	You should begin right away.	1098
 بدء	هذا كان في البدء عند الله.	He was with God in the beginning.	1098
 بدء	حان الوقت لبدء علاقة جديدة.	It is time to start a new relationship.	1098
-هدوء	هدوء!	Hush!	1099
 سارة	هل أخبرت سارة؟	Did you tell Sarah?	1100
 سارة	ها قد أتت سارة.	Here comes Sarah.	1100
 نجا	نجا من الحادثة شخص واحد.	Only one person survived the accident.	1101
@@ -2996,7 +2965,6 @@ word	sentence	translation	difficulty_rank
 شرح	من فضلك اشرح لماذا لا يمكنك المجيء.	Please explain why you can't come.	1110
 مباشر	انظر امامك مباشره.	Look straight ahead.	1112
 مباشر	أحب الإجابات المباشرة.	I like straight answers.	1112
-نار	نار!	Fire!	1113
 أنى	فستانك جميل جدا.	Your dress is very nice.	1115
 أنى	يانّي يحبّ التّين.	Yanni loves figs.	1115
 أنى	يانّي يأكل التّين.	Yanni is eating figs.	1115
@@ -3038,7 +3006,6 @@ word	sentence	translation	difficulty_rank
 كأس	هل لي بكأس ماء؟	May I have a glass of water?	1126
 كأس	إنه يشرب كأساً من الماء كل صباح.	He drinks a glass of water every morning.	1126
 كأس	هل لك أن تصبّ لي كأساً من القهوة من فضلك؟	Would you please pour me a cup of coffee?	1126
-حركة	حركة	Action!	1127
 تفقد	تفقدت ما حولي.	I looked around me.	1130
 تفقد	بدأت المحطة تفقد الضغط.	The station began decompressing.	1130
 ضغط	بدأت المحطة تفقد الضغط.	The station began decompressing.	1130
@@ -3389,7 +3356,6 @@ word	sentence	translation	difficulty_rank
 ضمن	هم يضمنون ذلك.	They guarantee it.	1273
 نووي	القنبلة النووية هي سلاح فظيع.	An A-bomb is a terrible weapon.	1274
 قنبلة	القنبلة النووية هي سلاح فظيع.	An A-bomb is a terrible weapon.	1274
-شاذ	شاذ.	Faggot.	1275
 تشغيل	أتمنى أن تتوقف عن تشغيل تلك الموسيقى الغبية.	I wish she would stop playing that stupid music.	1276
 إصلاح	يجب عليَ إصلاحها	I must fix it.	1277
 إصلاح	أنا مازلت أحاول إصلاحها ولكنها لا تعمل.	I keep trying to fix it, but it's still not working.	1277
@@ -3852,12 +3818,10 @@ word	sentence	translation	difficulty_rank
 دافع	دافعوا عن حق أمتهم.	They stood up for the rights of their nation.	1483
 دافع	من عنده دافع لقتل ياني؟	Who has a motive to kill Yanni?	1483
 قف	قف هناك من فضلك.	Just stand there, please.	1484
-قف	قف!	Stand up!	1484
 قف	اذهب و قف أمام سيارتك.	Go and stand next to your car.	1484
 حقق	و أخيراً حقق هدفه.	At last he achieved his goal.	1485
 حقق	لقد حققنا هدفنا.	We reached our goal.	1485
 حقق	حقق حلمه.	He realized his dream.	1485
-وداعا	وداعا.	Farewell!	1486
 وداعا	أنا يجب أن أذهب الآن. وداعا!	I have to go now. Bye!	1486
 وداعا	قالت وداعا.	She said goodbye.	1486
 شهادة	ما الشهادة التي تخرجت بها من الجامعة؟	What did you major in at college?	1488
@@ -3931,8 +3895,6 @@ word	sentence	translation	difficulty_rank
 أسعد	سأسعدها.	I will make her happy.	1519
 أسعد	سيسعدني مساعدتك أي وقت تحب.	I will be glad to help you anytime.	1519
 أسعد	سيسعدني أن أساعدك في أي وقت.	I will be glad to help you anytime.	1519
-استمع	استمع!	Listen!	1520
-استمع	استمع	Listen.	1520
 استمع	استمع إلي	Listen to me.	1520
 مرتين	ضربها مرتين.	He hit her two times.	1521
 خطاب	ما رأيك في خطاب الرئيس؟	What do you think about the president's speech?	1522
@@ -4104,7 +4066,6 @@ word	sentence	translation	difficulty_rank
 سافر	سنسافر إلى الخارج هذا الصيف.	We are going to travel abroad this summer.	1596
 سافر	كم مرة تسافر إلى الخارج عادةً؟	How often do you go abroad?	1596
 سافر	سافرت حول العالم.	She traveled all over the world.	1596
-بارع	بارع	Hotshot!	1598
 بارع	ياني بارع حقا.	Yanni has real talent.	1598
 بارع	هو بارع.	He's talented.	1598
 وفى	عليك دائماً أن تفي بوعدك.	You should always keep your word.	1599
@@ -4749,7 +4710,6 @@ word	sentence	translation	difficulty_rank
 إثارة	لا أريد إثارة الحوض.	I don't want to disturb this pond at all.	1911
 ابنة	هي ابنة عمته.	That's his cousin.	1912
 راهن	قالوا لنا أن نبقى مكاننا في الوقت الراهن.	They advised us to stay put for the time being.	1913
-أكيد	أكيد.	Of course.	1915
 أكيد	أكيد، هذه هي.	Of course it's her.	1915
 أكيد	أكيد عليك أن تدفع. ماذا ظننت؟	Of course you have to pay. What did you think?	1915
 شرعي	أظنّ أنّ لأمّي علاقة غير شرعيّة.	I think that Mom might be having an affair.	1916
@@ -4980,7 +4940,6 @@ word	sentence	translation	difficulty_rank
 حانة	ذهبوا إلى حانة.	They go to a bar.	2017
 حانة	ذهب يانّي إلى حانة محلّيّة.	Yanni went to a local bar.	2017
 مغفل	القانون لا يحمي المغفلين.	Law doesn't protect the fools.	2018
-مغفل	مغفل!	Idiot!	2018
 عبد	قام العبيد بمعظم الأعمال.	Slaves did most of the work.	2019
 عبد	هل سيد العبيد هنا؟	Is Mr. Al-Abeed here?	2019
 عبد	اعبد الله.	Worship God.	2019
@@ -5158,10 +5117,8 @@ word	sentence	translation	difficulty_rank
 فطر	أعادةً ما تشرب الشاي على الفطور؟	Do you usually have tea for breakfast?	2106
 فطر	تساعد أمها كل صباح في المطبخ لإعداد الفطور.	Every morning, she helps her mother make breakfast in the kitchen.	2106
 فطر	نأكل طعام الفطور في المطبخ.	We have breakfast in the kitchen.	2106
-ذهبي	ذهبي	Go.	2107
 جرعة	تجاوزنا الجرعة.	We overdosed.	2108
 جرعة	تجاوز ياني الجرعة.	Yanni overdosed.	2108
-انتبه	انتبه!	Take care!	2109
 انتبه	انتبه! هناك شاحنة قادمة!	Look out! There's a truck coming!	2109
 انتبه	انتبه، ذاك الرجل معه مسدس.	Watch out, the man has a gun.	2109
 مسدس	انتبه، ذاك الرجل معه مسدس.	Watch out, the man has a gun.	2109
@@ -5345,7 +5302,6 @@ word	sentence	translation	difficulty_rank
 سلامة	السلامة ولا الندامة.	Better safe than sorry.	2195
 هبط	هبطت الطائرة بسلام.	The airplane made a safe landing.	2196
 فأر	كان ذلك فأراً.	It was a mouse.	2197
-فأر	فأر!	Mouse!	2197
 إفطار	إضحك قبل الإفطار, سوف تبكي قبل العشاء.	Laugh before breakfast, you'll cry before supper.	2198
 إفطار	كم من الوقت بقي للإفطار؟	How much time is left for iftar?	2198
 إفطار	كم من الوقت بقي لتناول الإفطار؟	How much time is left for iftar?	2198
@@ -5598,7 +5554,6 @@ word	sentence	translation	difficulty_rank
 حيلة	ليس باليد حيلة.	There's nothing I can do.	2331
 حيلة	لا يمكنك تعليم كلب عجوز حيلا جديدة.	You can't teach an old dog new tricks.	2331
 حافة	سقط قلمي من حافة مكتبي.	My pencil fell off the edge of my desk.	2332
-استيقظ	استيقظ!	Wake up!	2334
 استيقظ	من فضلك، استيقظ على الساعة السابعة.	Please wake up at 7.	2334
 استيقظ	استيقظ ياني و وجد نفسه على سرير مستشفى.	Yanni woke up in a hospital bed.	2334
 مصاص	فجأة، استيقظ مصاص الدماء ذاك.	The vampire suddenly woke up.	2334
@@ -5750,7 +5705,6 @@ word	sentence	translation	difficulty_rank
 توفي	عليك أن توفي بوعودك.	You must keep the promises you make.	2413
 فنان	إنه فنان عظيم نحن معجبون به جميعًا.	He is such a great artist that we all admire.	2414
 فنان	يدير فنان عالمي.	Yidir is a universal artist.	2414
-الوداع	الوداع.	Farewell!	2415
 أصعب	الخطوة الأولى دائماً ما تكون الأصعب.	The first step is always the hardest.	2417
 أصعب	إنه أصعب مما تظن.	It's more difficult than you think.	2417
 أصعب	هل اللغة الفرنسية أصعب من الإنجليزية؟	Is French more difficult than English?	2417
@@ -5894,7 +5848,6 @@ word	sentence	translation	difficulty_rank
 حساء	أعددت لك قليلا من الحساء.	I'll make some broth for you.	2504
 حساء	لا تعطه شيئا من هذا الحساء.	Don't give him any of that soup.	2504
 مقبول	هذا مقبول!	That's fine!	2505
-مقبول	مقبول	Fair enough!	2505
 جاسوس	أنا جاسوس.	I am a spy.	2506
 إيذاء	لم أقصد إيذاءك.	I didn't mean to hurt you.	2509
 إيذاء	لم أكن أحاول إيذاء أحد.	I wasn't trying to hurt anybody.	2509
@@ -6128,7 +6081,6 @@ word	sentence	translation	difficulty_rank
 طفولة	هذه هي القرية التي عشت فيها طفولتي.	This is the village where I spent my childhood.	2630
 تبول	الطفل يتبول.	The kid is peeing.	2631
 تبول	هل تبولت في ملابسك مجددا؟	Did you pee yourself again?	2631
-وحشي	وحشي!	Wild!	2632
 نبات	لماذا النباتات لونها أخضر؟	Why are plants green?	2633
 أحمل	احملا الصندوق معا.	Carry the box together.	2635
 سكت	اسكت و اسمعني.	Stop talking and listen to me.	2636
@@ -6880,7 +6832,6 @@ word	sentence	translation	difficulty_rank
 نطق	تدربتْ على نطقها للإنجليزية أمس.	She practiced her English pronunciation yesterday.	2937
 نطق	هذه الكلمة صعبة للنطق.	This word is difficult to pronounce.	2937
 نطق	صعب عليّ فهم الإيطالية عندما تُنطق بسرعة.	It's hard for me to understand Italian when it is spoken quickly.	2937
-صه	صه!	Hush!	2939
 تقييم	عليك أن تعيد تقييم سلوكك.	You need to reassess your behavior.	2942
 حقوق	نحن نعمل من أجل حقوق المرأة.	We're working on women's rights.	2943
 جواز	هل لي أن أُلقي نظرة على جواز سفرك؟	May I look at your passport?	2944
@@ -6927,7 +6878,6 @@ word	sentence	translation	difficulty_rank
 نموذج	الرجاء مساعدتي في ملء هذا النموذج.	Please help me fill out this form.	2960
 إيصال	هل يمكنك إيصالي إلى المحطة؟	Can you give me a ride to the station?	2962
 إيصال	علينا إيصال سامي بسرعة إلى العيادة.	We must get Sami to the clinic quickly.	2962
-إيصال	إيصال؟	Receipt?	2962
 دوام	يبدأ الدوام الدراسي في الثامنة و النصف.	School begins at eight-thirty.	2963
 دوام	لا أريد وظيفة بدوام كامل.	I don't want a full-time job.	2963
 طارئة	ليس لهذه البناية مخرج للطوارئ.	That building has no emergency exit.	2964
@@ -7157,7 +7107,6 @@ word	sentence	translation	difficulty_rank
 سكران	كلهم سكارى.	They all drank.	3094
 سكران	هو سكران.	He is drunk.	3094
 أبله	أخي أبله.	My brother is an idiot.	3098
-أبله	أبله	Idiot!	3098
 ماهر	هل أنت ماهر في لعب التنس؟	Are you good at tennis?	3100
 ماهر	عادة ما يكون الأطفال ماهرين جداً في تعلم اللغات.	Children are often very good at learning foreign languages.	3100
 ماهر	إنها ماهرة في تحدث الإنجليزية.	She is good at speaking English.	3100
@@ -7446,7 +7395,6 @@ word	sentence	translation	difficulty_rank
 تبديل	لم يكن سامي ينوي قطّ تبديل دينه.	Sami had no plan to change his religion at all.	3273
 برق	الحقيقة أني أخاف البرق	I'm really scared of thunderstorms.	3275
 برق	أرسلت لي برقيّة عاجلة للغاية.	She sent me a most urgent telegram.	3275
-انتباه	انتباه!	Attention!	3278
 انتباه	جذبت ليلى انتباه سامي.	Layla attracted Sami's attention.	3278
 لفت	لفتت ليلى انتباه سامي.	Layla caught Sami's eye.	3278
 انتباه	لفتت ليلى انتباه سامي.	Layla caught Sami's eye.	3278
@@ -8142,7 +8090,6 @@ word	sentence	translation	difficulty_rank
 كر	كرّس سامي حياته كلّها من أجل ليلى.	Sami sacrificed his whole life for Layla.	3695
 نسخ	من فضلك اِنسخ هذه الصفحة.	Please copy this page.	3696
 نسخ	من فضلك، انسخ ثلاثة نسخ من هذه الصفحة.	Please make three copies of this page.	3696
-نسخ	نسخ.	Copied.	3696
 كلبة	"سمّى سامي كلبته ""ليلى."""	Sami named his dog Layla.	3697
 قذف	لا تقذفني.	Don't vilify me!	3698
 قصيدة	من كتب هذه القصيدة؟	Who wrote this poem?	3699
@@ -8371,7 +8318,6 @@ word	sentence	translation	difficulty_rank
 قص	لكن للقصّة جانب آخر.	But there is another side to the story.	3860
 منفصل	وصلوا منفصلا.	They arrived separately.	3861
 منفصل	سامي منفصل عن زوجته.	Sami is separated.	3861
-مبارك	مبارك!	Congratulations!	3862
 مبارك	عيد مبارك.	Eid Mubarak.	3862
 مبارك	عيد فطر مبارك.	Happy Ramadan Feast.	3862
 ميعاد	ماذا قال عن ميعاد وصوله؟	What time did he say he'd come?	3863
@@ -9327,7 +9273,6 @@ word	sentence	translation	difficulty_rank
 أبرد	بدأ يبرد الجو.	It's starting to get colder.	4681
 طمأن	اطمئنّ.	At ease.	4682
 طمأن	إطمئن	Fear nothing.	4682
-دجاجة	دجاجة!	Chicken!	4683
 دجاجة	باع لي دجاجة.	He sold me a chicken.	4683
 دجاجة	هل عندها دجاجة؟	Does she have a chicken?	4683
 قارورة	قارورة مياه ، من فضلك.	A glass of water, please.	4688
@@ -9488,7 +9433,6 @@ word	sentence	translation	difficulty_rank
 متأخرا	وصلت متأخراً ليلة أمس.	Last night I arrived late.	4825
 إنكار	لا يمكن إنكار الحقائق.	The fact cannot be denied.	4828
 ابتسم	ابتسم مايك.	Mike smiled.	4829
-ابتسم	ابتسم.	Smile.	4829
 ابتسم	ابتسم سامي.	Sami smiled.	4829
 حدة	من شأن هذا الدواء أن يخفف من شأن حدة صداع رأسك.	This medicine will relieve your headache.	4830
 فرنسية	هل هذه فرنسية؟	Is this French?	4834
@@ -11245,7 +11189,6 @@ word	sentence	translation	difficulty_rank
 تول	لقد تولّينا السيطرة.	We've taken over.	6909
 بترول	هبط سعر البترول هذا الأسبوع.	The price of oil is down this week.	6912
 غطس	غطست في المسبح.	She dived into the swimming pool.	6913
-غطس	غطس.	He dove.	6913
 عميل	سامي عميل فدراليّ.	Tom is an FBI agent.	6916
 فدرالي	سامي عميل فدراليّ.	Tom is an FBI agent.	6916
 زحمة	تأخرت بسبب زحمة الطريق الشديدة.	I was late because of heavy traffic.	6917
@@ -11706,7 +11649,6 @@ word	sentence	translation	difficulty_rank
 متميز	هذا الكوخ مكان متميز جدا.	This hut is a very special place.	7408
 كوخ	هذا الكوخ مكان متميز جدا.	This hut is a very special place.	7408
 متميز	أنت رجل متميز.	You're a remarkable person.	7408
-متميز	متميز	Brilliant!	7408
 زيارات	أكثر من 90 بالمئة من زيارات صفحة وِب من محركات البحث.	More than 90 percent of visits to a web page are from search engines.	7412
 محركات	أكثر من 90 بالمئة من زيارات صفحة وِب من محركات البحث.	More than 90 percent of visits to a web page are from search engines.	7412
 ملخص	اقرأ ملخص القصة.	Read the synopsis.	7415
@@ -12155,7 +12097,6 @@ word	sentence	translation	difficulty_rank
 توحد	أخي مصاب بالتوحد.	My brother has autism.	8270
 توحد	لم تفهم. ياني مصاب بالتوحد.	You don't understand. Yanni is an autist.	8270
 ساهم	ساهم بالكثير من المال.	He kicked in a lot of money.	8272
-ساهم	ساهم!	Participate!	8272
 ساهم	ساهم سامي بالمال في ذلك المنزل.	Sami provided money to the house.	8272
 غامق	كانَ لديه شعرٌ بُنِّيٌّ غامق.	He had dark brown hair.	8279
 رده	لقد كان رده سلبياً.	His reply was negative.	8282

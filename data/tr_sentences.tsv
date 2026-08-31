@@ -1,7 +1,6 @@
 word	sentence	translation	difficulty_rank
 o	Bu o.	That's her.	2
 bu	Bu o.	That's her.	2
-ne	Ne?	What?	3
 o	O ne?	What is it?	3
 ne	O ne?	What is it?	3
 ne	Ne bu?	What is that?	3
@@ -15,8 +14,6 @@ ben	Ben de.	Me, too.	9
 de	Ben de.	Me, too.	9
 ben	Ben de!	Me too!	9
 de	Ben de!	Me too!	9
-ben	Ben.	I am.	9
-çok	Çok!	Very!	10
 var	Ne var?	What's up?	12
 evet	Evet.	It's true.	13
 evet	Evet!	Yes!	13
@@ -24,7 +21,6 @@ evet	Evet?	Yes?	13
 da	O da ne?	What on earth is that?	14
 şey	Bir şey için.	Drink something.	15
 bir	Bir şey için.	Drink something.	15
-şey	Şey...	Er...	15
 var	Var mı?	Does it exist?	16
 mı	Var mı?	Does it exist?	16
 değil	Bir şey değil.	Don't mention it.	17
@@ -47,7 +43,6 @@ iyi	Bu çok iyi bir şey.	That's too much of a good thing.	18
 da	Bu da iyi.	That's good, too.	18
 ş	İş iyi.	Business is good.	18
 i	İş iyi.	Business is good.	18
-hayır	Hayır.	No.	19
 hayır	Hayır, hayır, hayır!	No, no, no!	19
 mı	O bir hayır mı?	Is that a no?	19
 hayır	O bir hayır mı?	Is that a no?	19
@@ -75,7 +70,6 @@ yok	Bir şey yok.	There is nothing.	24
 i	İş yok.	There's no work.	24
 tamam	Tamam mı?	Is that okay?	25
 tamam	Bu tamam mı?	Is this all right?	25
-tamam	Tamam.	OK.	25
 bunu	İç bunu!	Drink this.	27
 ç	İç bunu!	Drink this.	27
 zaman	Zaman yok.	There's no time.	31
@@ -86,7 +80,6 @@ her	Her zaman zaman var.	There's always time.	32
 her	Her şey mi?	Is that everything?	32
 benim	Bu benim değil.	This isn't mine.	33
 benim	Benim için her şey iyi.	Anything is OK with me.	33
-benim	Benim.	That's me.	33
 sana	Sana ne.	It's none of your beeswax.	34
 sana	Sana ne?	It's none of your business.	34
 sana	Sana ne ki?	What do you care?	35
@@ -96,7 +89,6 @@ ya	Ya sen?	And you?	36
 ya	Daha iyi ya!	That's even better.	36
 ya	Ya o?	What about him?	36
 neden	Neden ben?	Why me?	37
-neden	Neden?	Why?	37
 neden	Neden o iyi bir şey?	Why is it a good thing?	37
 beni	Neden beni değil de onu?	Why her and not me?	37
 onu	Neden beni değil de onu?	Why her and not me?	37
@@ -122,7 +114,6 @@ hiç	Bu hiç iyi değil.	This is not good at all.	43
 hiç	Sen de hiç var mı?	Do you have any?	43
 sonra	Ya sonra?	Then what?	44
 sonra	Ve sonra?	And afterward?	44
-sonra	Sonra.	Later.	44
 şimdi	O şimdi burada değil.	He isn't here now.	45
 şimdi	O şimdi iyi mi?	Is that OK now?	45
 şimdi	Şimdi ne var?	What is it now?	45
@@ -143,7 +134,6 @@ misin	O sen misin?	Is it you?	51
 önce	Ne önce ne de sonra.	Neither before nor after.	52
 önce	Önce sen.	You first.	52
 hadi	Hadi ya.	Oh boy...	53
-hadi	Hadi!	Go on!	53
 hadi	Hadi o zaman.	You're on.	53
 bana	Bana bak.	Look at me.	54
 bak	Bana bak.	Look at me.	54
@@ -160,7 +150,6 @@ oldu	Bir şey mi oldu?	Is anything up?	57
 yani	Ne yani?	So what?	58
 e	E yani?	So what?	58
 yani	E yani?	So what?	58
-yani	Yani?	And so?	58
 böyle	Böyle bir şey nasıl oldu?	How did such a thing come about?	59
 böyle	Bu da ne böyle?	What in the world is this?	59
 böyle	Böyle iyi mi?	Is that okay?	59
@@ -171,7 +160,6 @@ olan	Olan budur.	That's what happened.	61
 olan	Olan oldu.	The damage has already been done.	61
 olan	Bu en iyi olanı.	This is the best one.	61
 en	Bu en iyi olanı.	This is the best one.	61
-lütfen	Lütfen!	Please.	62
 lütfen	Evet, lütfen.	Yes, please.	62
 lütfen	Lütfen bana bak.	Please look at me.	62
 işte	Her işte bir hayır vardır.	Every cloud has a silver lining.	63
@@ -189,7 +177,6 @@ kim	O kimdir?	Who is she?	66
 çünkü	"""Neden?"" ""Çünkü!"""	"""Why?"" ""Because!"""	67
 peki	Peki ya sen?	How about you?	68
 peki	Peki ya ben?	What about me?	68
-peki	Peki.	Alright.	68
 artık	O artık burada değil.	He is no longer here.	70
 artık	Artık zaman var mı?	Is there time now?	70
 artık	Artık öyle değil.	It's not like that anymore.	70
@@ -267,7 +254,6 @@ iş	Bir iş istiyorum.	I want a job.	94
 yüz	Yüzünü biliyorum.	I know your face.	95
 yüz	Yüzünde bir şey var.	You've got something on your face.	95
 yüz	Onun yüzünde bir ben var.	She had a mole on her face.	95
-bilmiyorum	Bilmiyorum.	I don't know.	96
 bilmiyorum	Daha sonra ne oldu bilmiyorum.	What happened next, I don't know.	96
 bilmiyorum	Ne zaman bilmiyorum, ama bir gün olacak.	I don't know when, but it'll happen someday.	96
 bile	Onun kim olduğunu bile bilmiyorum.	I don't even know who he is.	96
@@ -278,7 +264,6 @@ bunun	Bunun ne olduğunu biliyorum.	I know what this is.	98
 bunun	Bunun doğru olduğunu biliyorum.	I know this is true.	98
 teşekkürler	Çok teşekkürler!	Thank you very much!	99
 teşekkürler	"""Teşekkürler."" ""Bir şey değil."""	"""Thank you."" ""You're welcome."""	99
-teşekkürler	Teşekkürler!	Thanks!	99
 tüm	Tüm yardım için teşekkürler.	Thanks for all the help.	99
 yeni	Burada yeni misin?	Are you new here?	100
 yeni	O yeni değil.	It isn't new.	100
@@ -303,7 +288,6 @@ p	İp nerede?	Where's the rope?	105
 son	Bu sondur.	This is the end.	106
 son	Son zamanlarda biri burada.	Someone's been here recently.	106
 son	Bu son zamanlarda oldu mu?	Did that happen recently?	106
-tanrım	Tanrım!	Gosh!	107
 tanrım	Benim tanrım daha büyüktür!	My god is greater!	107
 şeyi	Her şeyi biliyorum.	I know everything.	109
 şeyi	Her şeyi istiyorum.	I want everything.	109
@@ -338,14 +322,12 @@ et	Yardım et!	Help!	118
 et	Lütfen bana yardım et.	Help me, please.	118
 et	Et, lütfen.	Meat, please.	118
 tanrım	Tanrım, bana yardım et!	Oh God, help me!	118
-harika	Harika!	Wonderful!	119
 harika	Harika, değil mi?	Great, isn't it?	119
 harika	O harika.	That's great.	119
 gerek	Ona gerek yok.	There's no need for it.	120
 gerek	Onun için hiç gerek yok.	There's no need for that.	120
 ilk	Her şey için bir ilk vardır.	There's always a first time for everything.	121
 ilk	Biraz ilk yardım biliyorum.	I know some first aid.	121
-dur	Dur!	Stop!	122
 dur	Onu durdur, lütfen.	Stop it, please.	122
 dur	Onu şimdi durdurun.	Stop that now.	122
 geri	Geri dur.	Keep back.	122
@@ -382,7 +364,6 @@ küçük	O güzel küçük kıza bakın.	Look at that pretty little girl.	135
 küçük	Biraz daha küçük olanı var mı?	Do you have one a little smaller?	135
 küçük	Bu çok küçük.	It's too small.	135
 gel	Lütfen gel.	Please come.	136
-gel	Gel!	Come!	136
 gel	Gel ve yardım et.	Come over and help out.	136
 a	Lütfen 2.30'a kadar gel.	Please come by 2:30.	136
 size	Bu size hiç olur mu?	Does that ever happen to you?	137
@@ -430,7 +411,6 @@ ver	Bana sadece biraz ver.	Give me just a little.	151
 anne	Anne nerede?	Where's Mum?	152
 anne	Teşekkürler anne.	Thanks, Mom.	152
 anne	O, annelerinden daha güzel.	She's not more beautiful than their mother.	152
-selam	Selam.	Hello!	154
 selam	Selamlar!	Greetings!	154
 selam	Selam, ne var ne yok?	Hello there, what's new?	154
 baba	Baba kim?	Who is the father?	155
@@ -456,7 +436,6 @@ vardı	Başka bir sorun vardı.	There was another problem.	160
 bizim	Bu bizim için.	This one is for us.	161
 bizim	Sorun bizim değil.	The problem isn't ours.	161
 bizim	O bizim için.	It's for us.	161
-geldi	Geldi.	She came.	162
 geldi	Son olarak geldi.	She came last.	162
 geldi	O az önce geldi.	He's just arrived.	162
 sizi	Sizi istiyorum.	I want you.	163
@@ -533,7 +512,6 @@ beni	Beni 2:30'da al.	Pick me up at 2:30.	185
 bizi	Geri gel ve sonra bizi al.	Come back and pick us up later.	185
 söyle	Onu başka bir şekilde söyle.	Say it in another way.	186
 söyle	Lütfen ona selam söyle.	Please say hello to her.	186
-söyle	Söyle.	Say it.	186
 para	Ne kadar para?	Too much money?	187
 para	Sadece para hakkında mı?	Is it only about money?	187
 para	Bu para değil.	This isn't money.	187
@@ -571,7 +549,6 @@ onlar	Onlar üçte burada olacaklar.	They'll be here at three.	198
 onlar	Onlar kimdir?	Who are they?	198
 onlar	Onlar güzel.	They are pretty.	198
 birlikte	Onlar tekrar birlikte mi?	Are they together again?	198
-haydi	Haydi!	Come on!	199
 haydi	Oh, haydi.	Oh, come on.	199
 haydi	Haydi. Onu bana ver.	Come on, give it to me.	199
 hep	Bu hepsinin en kötüsüdür.	This is the worst of all.	200
@@ -651,7 +628,6 @@ nedir	Doğru zaman nedir?	What's the right time?	224
 insanlar	Onlar iyi insanlar.	They are good people.	225
 insanlar	Bu insanlar kimdir?	Who are these people?	225
 insanlar	Bütün bu insanlar neden burada?	Why are all these people here?	225
-nereye	Nereye?	Where?	226
 nereye	Tamam. Nereye?	Fine. Where?	226
 hepsi	Hepsi bu kadar.	That's it.	227
 hepsi	Bana göre hepsi aynı.	It's all the same to me.	227
@@ -794,7 +770,6 @@ geç	Artık çok geç.	It's too late now.	270
 geç	Geç oldu.	It's late.	270
 özür	Bir özür için biraz geç.	It's a little late for an apology.	270
 siz	Önce siz geçin.	After you.	270
-elbette	Elbette.	Of course.	271
 elbette	Evet, elbette.	Yes, of course.	271
 elbette	Seni elbette seviyorum.	I do love you.	271
 sabah	Sabah 7:50.	It's 7:50 in the morning.	272
@@ -803,7 +778,6 @@ sabah	Yarın sabah iyi olacak.	Tomorrow morning will be OK.	272
 ev	Ev güzel.	The house is pretty.	273
 ev	Ev gibi bir şey yoktur.	There's no place like home.	273
 ev	Bu ev çok iyi.	This house is very good.	273
-yanlış	Yanlış.	Wrong.	274
 yanlış	Yanlış bir şey mi var?	Is something wrong?	274
 yanlış	Saat yanlış.	The clock is wrong.	274
 yapma	Aynı hatayı tekrar yapma.	Don't make the same mistake again.	275
@@ -855,7 +829,6 @@ mutlu	Uzun ve mutlu bir hayata!	Here's to a long and happy life!	290
 mutlu	Şimdi mutlu musun?	Are you happy now?	290
 ye	Beni ye!	Eat me!	291
 ye	Bir şeyler ye lütfen.	Please eat something.	291
-ye	Ye!	Eat!	291
 dün	O dün bizi görmek için geldi.	She came to see us yesterday.	292
 dün	Dün gece ne oldu?	What happened last night?	292
 dün	O, dün gece eve geç geldi.	He came home late last night.	292
@@ -871,7 +844,6 @@ kal	Burada kal ve onu bekle, lütfen.	Stay here and wait for him, please.	295
 ondan	Seni ondan daha çok seviyorum.	I love you more than her.	297
 ondan	Bunu ondan daha çok seviyorum.	I like this better than that.	297
 ondan	O, ondan üç yıl daha büyüktür.	He's three years older than she is.	297
-dikkat	Dikkat!	Attention!	298
 dikkat	Lütfen dikkat et.	Please pay attention.	298
 dikkat	Lütfen dikkat!	Attention please!	298
 nereden	Oh! O nereden geldi?	Whoa! Where did that come from?	299
@@ -932,7 +904,6 @@ geçen	Geçen gün için teşekkür ederim.	Thank you for the other day.	315
 geçen	Geçen hafta sadece onları gördüm.	I just saw them last week.	315
 yeter	Bu kadarı yeter.	I've had enough.	318
 yeter	Bu para yeter mi?	Is this enough money?	318
-yeter	Yeter!	Enough!	318
 etme	Merak etme.	Don't worry.	319
 etme	Şimdi bana teşekkür etme.	Don't thank me now.	319
 etme	Sadece merak etme.	Just don't worry.	319
@@ -1171,7 +1142,6 @@ yardımcı	Bana yardımcı olur musun?	Will you help me?	399
 söylemek	Sana önemli bir şey söylemek istiyorum.	I want to tell you something important.	400
 söylemek	Yalan söylemek yanlıştır.	It is wrong to tell a lie.	400
 söylemek	Söylemek yapmaktan kolaydır.	Easier said than done.	400
-anlıyorum	Anlıyorum.	I'm catching on.	401
 anlıyorum	Seni anlıyorum.	I understand you.	401
 anlıyorum	Evet, anlıyorum. Teşekkür ederim.	Yes, I understand. Thank you.	401
 henüz	Et henüz hazır değil.	The meat's not ready yet.	402
@@ -1318,12 +1288,10 @@ kardeş	Kız kardeşini görmek istiyorum.	I'd like to see your sister.	451
 kardeş	Kaç kardeşin var?	How many brothers do you have?	451
 veya	Hiç erkek kardeşin veya kız kardeşin var mı?	Do you have any brothers or sisters?	451
 sakın	Lütfen konuşmaktan sakın.	Please refrain from talking.	452
-sakın	Sakın!	Don't you dare!	452
 sakın	Bunu sakın bir daha yapma.	Don't you ever do that again.	452
 saniye	Bir saniye, lütfen.	Just a moment, please.	453
 saniye	Bir saniye bekle.	Hold on a second.	453
 saniye	Bana bir saniye ver.	Give me a second.	453
-anladım	Anladım.	I got it.	454
 anladım	Onu doğru anladım mı?	Did I get it right?	454
 anladım	Neredeyse her şeyi anladım.	I understood almost everything.	454
 çeviri	Bu çeviri ondan daha iyi.	This translation is better than that one.	455
@@ -1334,7 +1302,6 @@ işim	O benim işim değil.	That's not my thing.	456
 işim	Bu benim işim.	It's my job.	456
 rahat	Rahatına bak.	Make yourself comfortable.	457
 rahat	Lütfen rahat olun.	Please make yourself comfortable.	457
-rahat	Rahat!	Stand at ease!	457
 arada	Bu arada, bu akşam boş musun?	By the way, are you free tonight?	458
 arada	Bu arada, dün onu gördüm.	By the way, I saw him yesterday.	458
 arada	Bu arada, son zamanlarda onu gördün mü?	By the way, have you seen him lately?	458
@@ -1347,7 +1314,6 @@ sır	O, sırdır.	It's secret.	460
 zarar	Zararı yok.	There's no harm done.	461
 zarar	Zarar nedir?	What's the harm?	461
 çalışıyorum	Senin için çalışıyorum.	I work for you.	462
-çalışıyorum	Çalışıyorum.	I am studying.	462
 çalışıyorum	Şimdi çalışıyorum.	I am studying now.	462
 sürü	Bir sürü insan vardı.	There were lots of people.	463
 sürü	Bir sürü zaman boşa gitti.	A lot of time was wasted.	463
@@ -1363,7 +1329,6 @@ kimin	Bu kimin?	Whose is this?	467
 kimin	Bu kimin hatası?	Whose fault is it?	467
 kimin	Bu kimin birası?	Whose beer is this?	467
 alo	Alo? Hâlâ burada mısın?	Hello? Are you still here?	468
-alo	Alo?	Hello?	468
 alo	Bir şey olursa bana alo de.	If something happens, call me.	468
 şe	Bu yer her şeye sahiptir.	This place has everything.	469
 şe	İşe geri git.	Go back to work.	469
@@ -1506,7 +1471,6 @@ gizli	Bu çok gizli.	This is top secret.	514
 içine	Onun içine etme!	Don't screw it up!	515
 içine	Onun içine bak, ne dersin?	Look into that, would you?	515
 içine	Bir ay içine görüşürüz.	See you in a month.	515
-siktir	Siktir!	Fuck you!	516
 siktir	Siktir git!	Fuck you!	516
 siktir	Siktir et onu!	Fuck that!	516
 acele	Acele et!	Hurry up.	517
@@ -1558,9 +1522,7 @@ tuhaf	Tuhaf bir adam bize doğru geldi.	A strange man came up to us.	530
 çek	Onu açık çekin.	Pull it open.	531
 çek	Çek elini!	Hands off!	531
 çek	Onu içeri çek.	Pull it in.	531
-günaydın	Günaydın.	Good morning!	532
 günaydın	Herkese günaydın.	Good morning, everybody.	532
-günaydın	Günaydın!	Good morning!	532
 kapıyı	Biraz kapıyı aç!	Open the door a bit!	533
 kapıyı	Kapıyı biraz aç!	Open the door a bit!	533
 kapıyı	Kapıyı tutun.	Hold the door.	533
@@ -1679,7 +1641,6 @@ peş	Polis adamın peşinde.	The police are after the man.	571
 peş	O neyin peşinde?	What is he after?	571
 peş	O daha iyi bir iş peşinde.	He is after a better job.	571
 nasılsın	Merhaba, nasılsın?	Hello, how are you?	572
-nasılsın	Nasılsın?	How is it going?	572
 nasılsın	Merhaba! Nasılsın?	Hi! How are you?	572
 bilmek	Şu an nerede olduğunu bilmek istiyorum.	I want to know where you are now.	573
 bilmek	Burada ne olduğunu bilmek istiyorum.	I demand to know what's going on here.	573
@@ -1749,7 +1710,6 @@ doğum	Onun bir doğumda iki güzel kızı oldu.	She had two beautiful girls at 
 doğum	Yarın onun doğum günü.	Tomorrow is her birthday.	594
 doğum	Ben gün doğumunu gördüm.	I saw the sunrise.	594
 geliyorum	Bugün geliyorum.	I am coming today.	595
-geliyorum	Geliyorum.	I'm coming.	595
 geliyorum	Ben geliyorum.	I am coming.	595
 ajan	Ben bir ajan değilim.	I'm not a spy.	596
 at	Ne hızlı bir at!	What a fast horse that is!	597
@@ -1838,7 +1798,6 @@ park	Bu park ne kadar büyük?	How big is this park?	627
 park	Park herkese açıktır.	The park is open to everybody.	627
 park	Bu park ondan daha güzel.	This park is more beautiful than that.	627
 affedersiniz	Affedersiniz, bu kadın kim?	Excuse me, who is this woman?	629
-affedersiniz	Affedersiniz.	I beg your pardon?	629
 affedersiniz	Affedersiniz, burası hangi yerdir.	Pardon me, what place is this?	629
 evine	Başka herkes gece için evine gitti.	Everyone else has gone home for the night.	630
 evine	O kendi evine sahip.	He owns his own house.	630
@@ -1940,7 +1899,6 @@ patron	Patron açık bir kişidir.	The boss is an open person.	662
 patron	Patron sensin.	You're the boss.	662
 yeterli	Bir gün için bu kadarı yeterli.	Enough for one day.	663
 yeterli	Bir gün için yeterli.	It is enough for one day.	663
-yeterli	Yeterli.	That will do.	663
 görünüş	Görünüşünden memnun musun?	Are you happy with how you look?	664
 görünüş	Onun yüzünde her zaman ciddi bir görünüş var.	She always has a serious look on her face.	664
 görünüş	O harika bir görünüş.	That's a great look.	664
@@ -2036,7 +1994,6 @@ inanılmaz	Bu inanılmaz.	This is incredible.	696
 tıpkı	Tıpkı bebek gibi.	He's just like a baby.	697
 tıpkı	Tıpkı filmlerde olduğu gibi.	It was just like in the movies.	697
 tıpkı	Tıpkı sizin gibi yaptım.	I did that the same way you did.	697
-anlaşıldı	Anlaşıldı.	That is all right.	698
 anlaşıldı	Anlaşıldı mı?	Is that clear?	698
 anlaşıldı	O anlaşıldı mı?	Is that understood?	698
 alt	O, eve altıda mı gelir?	Does he come home at six?	699
@@ -2497,7 +2454,6 @@ güneş	Güneş bir yıldızdır.	The sun is a star.	855
 aramız	Onlar aramızda!	They are among us!	856
 aramız	Bu kesinlikle aramızdadır.	This is strictly between us.	856
 aramız	On yıldır aramızda değil.	He has been dead for ten years.	856
-orası	Orası 223-1374 mü?	Is this 223-1374?	857
 orası	Orası güvenli mi?	Is it safe in there?	857
 orası	Orası onun evi.	That's his home.	857
 ilaç	Zaman en iyi ilaçtır.	Time heals all broken hearts.	858
@@ -2571,7 +2527,6 @@ istemem	Bir içki istemem.	I don't want a drink.	881
 istemem	Burada olmak bile istemem.	I don't even want to be here.	881
 istemem	Yalnız olmak istemem.	I don't want to be alone.	881
 affedersin	Affedersin, anlamıyorum.	Sorry, I don't understand.	882
-affedersin	Affedersin!	Pardon!	882
 affedersin	Affedersin, saat kaç?	Excuse me, what time is it?	882
 iyilik	Bana bir iyilik yapar mısın?	Would you do me a favor?	883
 iyilik	Aslında, senden bir iyilik istiyorum.	Actually, I have a favor to ask of you.	883
@@ -2579,9 +2534,7 @@ iyilik	Bana bir iyilik yap.	I need a favor.	883
 altın	Kızın altın saçı var.	The girl has golden hair.	884
 altın	O altın kadar iyi.	He's as good as gold.	884
 altın	Onlar altın kadar iyi.	They're as good as gold.	884
-aferin	Aferin!	Well done!	885
 aferin	Aferin, böyle devam et.	Keep up the good work.	885
-aferin	Aferin.	Good for you.	885
 sıkı	Çok sıkı çalışıyorum.	I am studying very hard.	887
 sıkı	Kapıyı sıkı kapat.	Shut the door tight.	887
 sıkı	Sıkı tutun.	Hang on tight.	887
@@ -2603,9 +2556,7 @@ kadının	O kadının nesi var?	What's wrong with that woman?	893
 yapmayı	O işi yapmayı kabul etti.	He's agreed to do the job.	895
 yapmayı	Bunu yapmayı seviyorum.	I love doing this.	895
 yapmayı	Şimdi onu yapmayı canım istemiyor.	I don't feel like doing that right now.	895
-defol	Defol.	Beat it.	896
 defol	Defolun, çocuklar!	Beat it, kids!	896
-defol	Defol!	Get out!	896
 herif	Defol, aptal herif!	Get lost, stupid jerk!	896
 resmi	Bu resmi kim yaptı?	Who painted this picture?	897
 resmi	Bu güzel resmi kim yaptı?	Who painted this beautiful picture?	897
@@ -2670,7 +2621,6 @@ orospu	O bir orospu.	She's a slut.	916
 orospu	Bu kadın bir orospu.	This woman is a prostitute.	916
 orospu	Orospu çocuğu!	Son of a bitch!	916
 gitme	Evet, gitme zamanı.	Yes, it's time to go.	917
-gitme	Gitme.	Don't leave.	917
 gitme	İşe gitme zamanı geldi.	It's time to get to work.	917
 günün	Doğum günün ne zaman?	When is your birthday?	918
 günün	Günün nasıl geçti?	How was your day?	918
@@ -2761,17 +2711,14 @@ nedeni	Bunu yapmak istememenin gerçek nedeni nedir?	What's the real reason you 
 nedeni	Nedeni hakkında gerçekten emin değilim.	I'm really not sure why.	947
 bok	Bu bok ne?	What is this shit?	948
 bok	Her gün aynı bok.	Same shit, different day.	948
-bok	Bok!	Shit.	948
 yaklaşık	O yaklaşık olarak 40 yaşında.	He is about forty.	949
 yaklaşık	Yaklaşık bir ay.	It's about one month.	949
 yaklaşık	Yaklaşık 1.000 kişi vardı.	There were about 1,000 people.	949
 tarih	Doğum tarihin ne?	What is your date of birth?	950
 tarih	Kesin tarihten emin değilim.	I'm not sure of the exact date.	950
 tarih	Tarih nedir?	What is the date?	950
-mantıklı	Mantıklı.	That makes sense.	951
 mantıklı	Bu oldukça mantıklı geliyor.	That makes perfect sense to me.	951
 mantıklı	Bu mantıklı değil.	This makes no sense.	951
-niçin	Niçin?	Why?	952
 niçin	Niçin ben?	Why me?	952
 niçin	Hayat niçin o kadar acı dolu?	Why is life so full of suffering?	952
 tarz	Onun kendi tarzı vardı.	He would have his own way.	953
@@ -2937,7 +2884,6 @@ arama	Onu şimdi arama.	Don't call him now.	1009
 mektup	Bu mektup yaşlı bayanadır.	This letter is to the old woman.	1010
 mektup	Mektup bitti.	The letter was finished.	1010
 mektup	Mektup arkadaşın olmak istiyorum.	I would like to be your pen pal.	1010
-hani	Hani?	Where?	1011
 erkekler	Erkekler geliyor.	The men are coming.	1012
 erkekler	Bütün erkekler böyle değil.	Not all men are like that.	1012
 erkekler	Neden erkekler için tamam, ama kızlar için değil?	Why is it okay for boys, but not for girls?	1012
@@ -2972,7 +2918,6 @@ farkında	Başkan tamamen durumun farkında.	The president is fully aware of the
 çıkmak	Dışarı çıkmak istemiyor musun?	Don't you want to go out?	1022
 çıkmak	Canım dışarı çıkmak istemiyor.	I don't feel like going out.	1022
 dış	Ben şehir dışına çıkmak istiyorum.	I want to get out of town.	1022
-öl	Öl!	Fuck you!	1023
 öl	Adam ölüden başka bir şey değil.	The man is all but dead.	1023
 öl	O, beş yıldır ölüdür.	She has been dead five years.	1023
 ödül	Bir ödül hatası yaptım.	I have made a tremendous mistake.	1024
@@ -3066,7 +3011,6 @@ televizyon	Evde bir televizyon var mı?	Is there a television in the house?	1056
 iptal	Onu iptal ettim.	I canceled it.	1057
 iptal	Onları iptal et.	Call them off.	1057
 iptal	Kim iptal etti?	Who canceled?	1057
-anlamadım	Anlamadım.	I don't get it.	1058
 anlamadım	Onu hiç anlamadım.	I did not understand him at all.	1058
 anlamadım	Bunu hiç anlamadım.	I didn't understand any of that.	1058
 şanslı	Yedi şanslı bir sayıdır.	Seven is a lucky number.	1059
@@ -3151,7 +3095,6 @@ arıyorum	Bir iş arıyorum.	I'm looking for a job.	1085
 oyunu	Bu oyunu severim.	I love this game.	1086
 oyunu	Bu oyunu bilmiyorum.	I don't know this game.	1086
 oyunu	Bu oyunu seviyorum.	I like this game.	1086
-şimdilik	Şimdilik.	For the time being.	1087
 şimdilik	Şimdilik bu kadar yeterli.	That's enough for now.	1087
 şimdilik	O şimdilik yeterli olacaktır.	That will be enough for now.	1087
 giden	Yanlış giden bir şeyin var mı?	Is there anything wrong with you?	1088
@@ -3198,7 +3141,6 @@ doğal	O doğal değil.	It's not natural.	1102
 başlıyor	O şimdi başlıyor.	It's starting now.	1103
 başlıyor	Parti şimdi başlıyor.	The party is just beginning.	1103
 başlıyor	Film başlıyor.	The movie starts.	1103
-piç	Piç!	Bastard!	1104
 piç	Bunu al, seni piç!	Take this, you bastard!	1104
 bilgisayar	Ben bir bilgisayar istiyorum.	I want a computer.	1105
 bilgisayar	Bilgisayar yeni.	The computer is new.	1105
@@ -3208,7 +3150,6 @@ amca	Ona amca diyor.	He calls him uncle.	1106
 sürpriz	Ne sürpriz!	What a surprise!	1107
 sürpriz	Seni burada görmek ne hoş sürpriz!	What a pleasant surprise to see you here!	1107
 sürpriz	Ne güzel bir sürpriz!	What a nice surprise!	1107
-buyurun	Buyurun!	Come in!	1108
 buyurun	Buyurun lütfen.	Help yourself, please.	1108
 buyurun	Buyurun alın.	Help yourself.	1108
 kapalı	Kapıyı kapalı tut.	Keep the door closed.	1109
@@ -3295,7 +3236,6 @@ oğlu	Senin yaşında bir oğlu var.	He has a son of your age.	1137
 oğlu	Onun doktor olan bir oğlu var.	She has a son who is a doctor.	1137
 korkuyorum	Ben ölmekten korkuyorum.	I am afraid of dying.	1138
 korkuyorum	Onun hayatı için korkuyorum.	I'm afraid for his life.	1138
-korkuyorum	Korkuyorum.	I am afraid.	1138
 bil	Kaza olursa, bana bildir.	If the accident happens, report to me.	1139
 bil	Daha sonra sonuçları bana bildirin.	Let me know the results later.	1139
 bil	Lütfen bize bildirin.	Please let us know.	1139
@@ -3474,7 +3414,6 @@ arıyorsun	Birini mi arıyorsun?	Are you looking for someone?	1201
 arıyorsun	Ne tür bilgi arıyorsun?	What kind of information are you looking for?	1201
 arıyorsun	Bir şey mi arıyorsun?	Are you looking for something?	1201
 of	Of, hadi canım sen de.	Oh, come off it.	1204
-of	Of!	Ouch!	1204
 of	Of bunu tekrar yaptım.	Oops, I did it again.	1204
 yeşil	Bir yeşil ışık açık.	A green light is on.	1205
 yeşil	Yeşil bir alan güzel bir alandır.	A green field is a beautiful field.	1205
@@ -3691,7 +3630,6 @@ evim	Bu benim evim.	This is my home.	1280
 evim	Benim bir evim var.	I have a house.	1280
 evim	Bu benim evimdir.	This is my home.	1280
 yat	Huzur içinde yat.	Rest in peace.	1281
-yat	Yat.	Go to bed.	1281
 yat	Bugün erken yat.	Go to sleep early today.	1281
 başı	Onun başı belada.	He is in great trouble.	1282
 başı	Şimdi onun başı belada.	He is in trouble now.	1282
@@ -3975,7 +3913,6 @@ alışveriş	O, alışverişe gitti.	She has gone shopping.	1379
 alışveriş	Anne az önce alışveriş için dışarı çıktı.	Mother has just gone out shopping.	1379
 alışveriş	Anne az önce alışverişe gitti.	Mother has just gone shopping.	1379
 merkezi	Alışveriş merkezi nerede?	Where's the shopping center?	1379
-nasılsınız	Nasılsınız?	How are you?	1380
 nasılsınız	Bu sabah nasılsınız?	How are you this morning?	1380
 nasılsınız	Günaydın, nasılsınız?	Good morning, how are you doing?	1380
 çıplak	Adam çıplak.	The man is naked.	1381
@@ -4359,7 +4296,6 @@ kas	Onların kasları sert.	Their muscles are stiff.	1515
 kas	Kalp bir kastır.	The heart is a muscle.	1515
 kas	Lütfen bunu kasaya koy.	Please put this in the safe.	1515
 beyin	Beyin her akıl, ruh ve kas enerjisinin merkezidir.	The brain is the center of every mind, soul, and muscle energy.	1515
-girin	Girin!	Enter!	1516
 girin	Lütfen içeri girin.	Please step inside.	1516
 girin	Acele edin ve içeri girin.	Hurry up and get in.	1516
 delik	Delik ne kadar derin?	How deep is the hole?	1517
@@ -4508,7 +4444,6 @@ yasak	Sigara içmek kesinlikle yasaktır.	Smoking is strictly prohibited.	1563
 fikri	Onun yeni bir fikri vardı.	He had a new idea.	1567
 fikri	Birden aklıma ona sürpriz yapma fikri geldi.	The idea of surprising her suddenly crossed my mind.	1567
 fikri	Onun fikri hiç mantıklı değil.	His idea doesn't make any sense at all.	1567
-şerefe	Şerefe!	Cheers!	1568
 şerefe	Haydi şerefe!	Here's to you!	1568
 şerefe	Hadi şerefe!	Here's looking at you, kid.	1568
 model	O, oğlu için bir model uçak yaptı.	He made a model airplane for his son.	1569
@@ -4606,7 +4541,6 @@ prens	O bir prense aşık oldu.	She fell in love with a prince.	1600
 motor	Motorda sorun var.	Something is wrong with the engine.	1601
 motor	Motorda herhangi bir sorun yok.	There is nothing the matter with the motor.	1601
 motor	O bir motor test etti.	She tested an engine.	1601
-kod	Numara 932-8647 ama alan kodunu bilmiyorum.	The number is 932-8647, but I don't know the area code.	1602
 kod	Acil kodu nedir?	What's the emergency code?	1602
 kod	Gizli servis kod adın nedir?	What's your secret service code name?	1602
 tren	Bak! Tren geldi!	Look! The train has arrived!	1603
@@ -4647,7 +4581,6 @@ kadına	O, kadına selam verdi.	He greeted the woman.	1613
 kadına	Genç bir kadına aşık oldu.	He fell in love with a younger woman.	1613
 yapmayın	Etrafta şaka yapmayın.	Quit joking around.	1614
 yapmayın	Sessiz olun, lütfen! Ses yapmayın.	Be quiet, please! Don't make a sound.	1614
-yapmayın	Yapmayın!	Don't do it!	1614
 tarihi	Biz tarihi ilgi yerlerini ziyaret ettik.	We visited places of historic interest.	1615
 tarihi	Ben tarihi severim.	I like history.	1615
 tarihi	Bu tarihi bir şehir.	This is a historic city.	1615
@@ -4694,7 +4627,6 @@ gelirim	Her zaman biraz erken gelirim.	I always arrive a little ahead of time.	1
 gelirim	Barış içinde gelirim.	I come in peace.	1628
 büyü	O, ona bir büyü yaptı.	She put him under a spell.	1629
 büyü	Biraz büyü.	Grow up a little.	1629
-büyü	Büyü!	Grow up!	1629
 şehrin	Şehrin merkezinde güzel bir park var.	There's a nice park in the center of town.	1630
 şehrin	Şehrin merkezinde muhteşem bir park var.	There's a splendid park in the centre of the town.	1630
 şehrin	Şehrin bu bölümünü iyi bilirim.	I know this part of the city well.	1630
@@ -5258,7 +5190,6 @@ açlık	Hayvan açlıktan öldü.	The animal died from hunger.	1829
 açlık	Birçok insan açlıktan ve hastalıktan öldü.	Many died of hunger and disease.	1829
 şerefsiz	O şerefsizdir.	He is dishonored.	1830
 şerefsiz	O şerefsiz.	That's dishonest.	1830
-şerefsiz	Şerefsiz!	Douchebag!	1830
 kariyer	Yeni yıl! Yeni kariyer!	New Year! New Career!	1831
 kariyer	Onun kariyeri risk altında.	His career is on the line.	1831
 kariyer	O kesinlikle bir kariyer kadınıdır.	She is certainly a career woman.	1831
@@ -5334,11 +5265,9 @@ ateşi	Ateşi canlı tut.	Keep the fire alive.	1857
 ateşi	Çocuğun yüksek ateşi var.	The boy has a high fever.	1857
 ateşi	Annemin ateşi var.	Mom has a fever.	1857
 göreceksin	Onu göreceksin.	You'll see it.	1858
-göreceksin	Göreceksin.	You will see.	1858
 göreceksin	Kimi göreceksin?	Who are you going to see?	1858
 göreceğiz	Sizi göreceğiz.	We'll see you.	1859
 göreceğiz	Bunu yakında göreceğiz.	That remains to be seen.	1859
-göreceğiz	Göreceğiz.	We'll see.	1859
 şikayet	Annesi sürekli bundan şikayet eder.	His mother is constantly complaining about it.	1860
 şikayet	Seni şikayet edeceğim.	I'm going to report you.	1860
 şikayet	Sizi şikayet edeceğim.	I'm going to report you.	1860
@@ -5440,7 +5369,6 @@ uyuşturucu	O ya deli ya da uyuşturucu etkisi altında.	He's either crazy or on
 amerikalı	O, Amerikalı bir beyefendi değil mi?	Isn't he an American gentleman?	1893
 amerikalı	O, Amerikalı bir hanım ile evli.	He is married to an American lady.	1893
 amerikalı	O bir Amerikalı.	He is an American.	1893
-korkma	Korkma.	Don't be afraid.	1895
 korkma	Soru sormaktan korkma.	Don't be afraid to ask questions.	1895
 korkma	Hatalar yapmaktan korkma.	Don't be scared of making mistakes.	1895
 arabam	Arabam Almandır.	My car is German.	1897
@@ -5603,7 +5531,6 @@ yasa	Bu yasa 1918 yılında çıktı.	This law came into existence in 1918.	1947
 tanıdık	O şarkı bana tanıdık geliyor.	That song sounds familiar to me.	1950
 tanıdık	O, bir arkadaş değil ama bir tanıdıktır.	He is not a friend, but an acquaintance.	1950
 tanıdık	O herkese tanıdıktır.	He is known to everyone.	1950
-yaşasın	Yaşasın!	Hooray!	1951
 kadeh	Bir kadeh kırmızı şarap ister misin?	Would you like a glass of red wine?	1952
 kadeh	Benim gibi ol ve bir kadeh şarap iç.	Be like me and have a glass of wine.	1952
 kadeh	Kadehini kaldır.	Raise your glass.	1952
@@ -5631,8 +5558,6 @@ diz	Sonenin on dört dizesi var.	The sonnet has fourteen verses.	1959
 şark	O şarkıdan nefret ediyorum.	I hate that song.	1960
 mesela	Mesela, bu bir aşk şarkısı.	For example, this is a love song.	1960
 dayan	Haydi, dayan!	Come on, hang in there!	1961
-dayan	Dayan!	Hang on!	1961
-dayan	Dayan.	Hang in there.	1961
 kadınların	Anne olan kadınların sayısı az.	The number of women who become mothers is small.	1962
 kadınların	Benim için alkol, kadınların ve çocukların en kötü düşmanıdır.	For me, alcohol is the worst enemy of women and children.	1962
 kadınların	Ev kadınların dünyasıdır, dünya erkeklerin evidir.	The home is the woman's world, the world is the man's home.	1962
@@ -5926,8 +5851,6 @@ değiştirmek	Onu değiştirmek istiyorum.	I'd like to replace it.	2062
 değiştirmek	Odamı değiştirmek istiyorum.	I'd like to change my room.	2062
 değiştirmek	Hayatımı değiştirmek istiyorum.	I want to change my life.	2062
 bravo	Bravo, arkadaşlar.	Well done, guys.	2063
-bravo	Bravo.	Good for you.	2063
-bravo	Bravo!	Bravo!	2063
 uğruna	Onun şimdi uğruna yaşamak için hiçbir şeyi yok.	Now he has nothing to live for.	2064
 uğruna	Kadın onu başka bir erkek uğruna terk etti.	She left him for another man.	2064
 uğruna	Para uğruna yaptı.	He did it for money.	2064
@@ -6977,7 +6900,6 @@ direkt	O bir direkt uçuş mu?	Is it a direct flight?	2446
 direkt	Bu Londra'ya giden direkt bir yoldur.	This is a direct road to London.	2446
 direkt	Direkt eve gideceğim.	I'll go straight home.	2446
 ağlama	Lütfen ağlama.	Please don't cry.	2447
-ağlama	Ağlama.	Don't cry.	2447
 ağlama	Ağlama. Her şey iyi olacak.	Don't cry. Everything will be OK.	2447
 üstün	Borçları 1,000 doların üstündedir.	His debts amount to over $1,000.	2449
 üstün	Bu senin para üstün.	This is your change.	2449
@@ -7019,7 +6941,6 @@ teknoloji	Teknoloji muhteşemdir.	Technology is amazing.	2458
 şirketin	Şirketin var.	You've got company.	2459
 şirketin	O şirketin hizmetinden memnun değilim.	I'm not satisfied with that company's service.	2459
 eğil	Eğil ve öyle kal.	Get down and stay down.	2460
-eğil	Eğil!	Stay down!	2460
 taciz	Onu taciz etme.	Don't harass her.	2461
 taciz	Karımı taciz etmeyi kesin.	Stop bothering my wife.	2461
 uyarı	Tüm uyarılara kulak verin.	Heed all warnings.	2462
@@ -7120,7 +7041,6 @@ stres	Herhangi bir stres altında mısın?	Are you under any stress?	2496
 stres	Stres bir katil.	Stress is a killer.	2496
 uslu	Uslu kedi!	Good cat!	2497
 giren	Sana giren çıkan ne?	What business is that of yours?	2499
-naber	Naber?	What's up?	2500
 naber	Naber millet?	What's up, everybody?	2500
 naber	Naber ahbap?	What's up, dude?	2500
 porno	Bu porno değil, sanat.	It's not porn, it's art.	2501
@@ -7172,7 +7092,6 @@ görürsün	Sence onu ne zaman görürsün?	When do you think you'll see him?	25
 gök	Evrende birçok gökada var.	There are many galaxies in the universe.	2519
 gök	Kuş göktedir.	The bird is in the sky.	2519
 gök	Kuş gökte	The bird is in the sky.	2519
-kımıldama	Kımıldama.	Don't move.	2520
 kımıldama	Bir süre kımıldama, lütfen.	Hold still for a moment, please.	2520
 kımıldama	Şimdi kımıldama.	Now lie still.	2520
 seçme	Futbol seçmeleri bugün.	The soccer tryouts are today.	2521
@@ -7291,7 +7210,6 @@ gürültü	Gürültü yapmayın!	Don't make noise!	2561
 gürültü	Bebek uyuyor. Gürültü yapmayın.	The baby is asleep. Don't make a noise.	2561
 boyun	Boyun ne kadar?	How tall are you?	2562
 boyun	Yeşil uzaylı, insansıdır ve 3.7 metre boyundadır.	The green alien is humanoid and stands at 3.7 metres.	2562
-örneğin	Örneğin?	Such as?	2564
 örneğin	Burada ilginç bir örneğin var.	You have here an interesting example.	2564
 çal	Kapıyı çal.	Knock on the door.	2565
 çal	O şarkıyı tekrar çal.	Play that song again.	2565
@@ -7766,8 +7684,6 @@ duman	Ateş olmayan yerden duman çıkmaz.	There is no smoke without fire.	2743
 duman	Duman ortaya çıktı.	Smoke appeared.	2743
 duman	Şu dumana bakın.	Look at that smoke.	2743
 uç	Ben hayatı uçlarda yaşamayı severim.	I love living on the edge.	2744
-uç	Uç.	Fly.	2744
-uç	Uç!	Fly!	2744
 şahsen	Ben şahsen oyuna katılmak istiyorum.	For myself, I would like to take part in the game.	2745
 şahsen	Onlara şahsen söyle.	Tell them in person.	2745
 şahsen	Ona şahsen söyle.	Tell him in person.	2745
@@ -8073,7 +7989,6 @@ blok	Benim evimden yaklaşık dört blok.	It's about four blocks from my house.	
 elleri	Onun büyük elleri var.	He has big hands.	2857
 elleri	Onun elleri kirli.	Her hands are dirty.	2857
 elleri	Onun elleri pis.	His hands are dirty.	2857
-girme	Girme.	Don't enter.	2858
 girme	Odama girme.	Don't go in my room.	2858
 girme	Yoluma girme.	Don't get in my way.	2858
 gözlük	Bu gözlükler güzel.	These glasses are beautiful.	2859
@@ -8097,7 +8012,6 @@ demin	Demin sadece kazayı gördüm.	I only just saw the accident.	2864
 demin	Demin neler oldu?	What the hell just happened?	2864
 demin	Mektup demin geldi.	The letter has just arrived.	2864
 gol	Bu gece ilk golü kim atar?	Who will score the first goal tonight?	2865
-gol	Gol!	Goal!	2865
 gol	Daha fazla gol atmak istiyorum.	I want to score more goals.	2865
 erkenden	Erkenden eve gitmek için izin istiyorum.	I want permission to go home early.	2866
 erkenden	Filmi erkenden terk ettiler.	They left the movie early.	2866
@@ -8293,7 +8207,6 @@ başbakan	Başbakan muhtemelen istifa edecek.	The premier is likely to resign.	2
 başbakan	Başbakan istifa etti.	The Prime Minister has resigned.	2935
 başbakan	Başbakan olarak istifa etmek zorunda kaldı.	He was forced to resign as prime minister.	2935
 açım	Ben açım.	I'm hungry!	2936
-açım	Açım!	I feel hungry.	2936
 açım	Biraz açım.	I'm a bit hungry.	2936
 kralın	Kralın ölümü bir savaşa yol açtı.	The death of the king brought about a war.	2937
 kralın	Kralın bütün adamları.	All the king's men.	2937
@@ -8419,7 +8332,6 @@ vücudu	Anne tavşan kendi vücudu ile yavrularını sıcak tutar.	A mother rabb
 vücudu	Muhteşem bir vücudu var.	He has a body to die for.	2985
 vücudu	Mükemmel bir vücudu var.	He has a perfect body.	2985
 kaybol	Kaybol, çocuk!	Get lost, kid!	2986
-kaybol	Kaybol!	Disappear!	2986
 kaybol	Gözümden kaybol.	You disappear.	2986
 çatı	Ağaç yaklaşık çatı kadar yüksektir.	The tree is about as high as the roof.	2987
 çatı	Çatı çok alçak.	The roof is very low.	2987
@@ -9030,7 +8942,6 @@ dilek	Bir dilek tut.	Make a wish.	3215
 dilek	Bütün bu harika doğum günü dilekleri için teşekkürler.	Thank you everyone for all the wonderful birthday wishes.	3215
 dilek	Doğum günü dilekleri için herkese teşekkürler.	Thank you to everyone for the birthday wishes.	3215
 kaçtım	Sonunda kaçtım.	I finally escaped.	3216
-kaçtım	Kaçtım.	I ran away.	3216
 kaçtım	Ben evden kaçtım.	I ran away from home.	3216
 köpeğin	Köpeğin çok büyük.	Your dog is very big.	3217
 köpeğin	Bir köpeğin dışında, bir kitap insanın en iyi arkadaşıdır. Bir köpeğin içinde, okumak için çok karanlıktır.	Outside of a dog, a book is man's best friend. Inside of a dog, it's too dark to read.	3217
@@ -9173,7 +9084,6 @@ mazeret	Bir mazeretin var mı?	Do you have an alibi?	3270
 buluşmak	Yakında buluşmak için bir randevu verdik.	We made a date to meet soon.	3271
 buluşmak	Kız arkadaşı ile Cumartesi günleri buluşmaktadır.	He meets his girlfriend Saturdays.	3271
 buluşmak	Okulda buluşmak için söz verdik.	We made a promise to meet at school.	3271
-neredeyiz	Neredeyiz?	Where are we?	3272
 neredeyiz	Biz şimdi neredeyiz?	Where are we now?	3272
 neredeyiz	Şu anda neredeyiz?	Where are we now?	3272
 gelmedin	Neden gelmedin?	Why didn't you come?	3273
@@ -9456,7 +9366,6 @@ görünmek	Kim genç ve seksi görünmek istemez ki?	Who doesn't want to look yo
 görünmek	Zengin görünmek istiyorum.	I want to look rich.	3378
 görünmek	Güzel görünmek neden bu kadar önemli?	Why is it so important to look pretty?	3378
 kaçma	Ona bir kaçma şansı verdiler.	They gave him a chance to escape.	3379
-kaçma	Kaçma.	Don't run away.	3379
 kaçma	Konserden kaçma!	Don't sneak out of the concert!	3379
 gizem	Hayatta birçok gizemler vardır.	There are many mysteries in life.	3380
 gizem	Gizemleri seviyorum.	I like mysteries.	3380
@@ -9470,7 +9379,6 @@ işime	Sadece işime karışma.	Just stay out of my business.	3382
 psikopat	Ben bir psikopat değilim.	I'm not a psychopath.	3383
 hızlıca	Durum hızlıca kontrolden çıktı.	The situation quickly got out of control.	3384
 hızlıca	Ben sadece hızlıca bir bakmak istiyorum.	I just want to take a quick look.	3384
-budala	Budala!	Fool!	3385
 budala	O tamamen budala.	He is completely clueless.	3385
 budala	Ben budala değilim.	I'm not clueless.	3385
 ehliyet	Lütfen bana ehliyetini göster.	Please show me your driver's license.	3386
@@ -9615,7 +9523,6 @@ edilir	O, dünyanın en büyük bilim adamlarından biri olarak kabul edilir.	He
 edilir	Burada, herkes saygı duyar ve takdir edilir.	Here, everybody feels respected and appreciated.	3447
 edilir	Kahvaltı sabah 07:00-11:00 arası servis edilir.	Breakfast is served from 7:30 a.m. to 11:00 a.m.	3447
 yaklaşma	Ateşe yaklaşma.	Don't go near the fire.	3448
-yaklaşma	Yaklaşma!	Keep out!	3448
 yaklaşma	Bana yaklaşma.	Don't come near me.	3448
 aileye	Bir aileye sahip olmak mükemmel.	It's great to have a family.	3449
 aileye	O, fakir aileye biraz yiyecek verdi.	She gave some food to the poor family.	3449
@@ -9637,7 +9544,6 @@ kapak	Göz kapakların kapalı, ama uyanık olduğunu biliyorum.	Your eyelids ar
 kravat	Bu kravat ne kadar?	How much is this tie?	3455
 kravat	O, bana hoş bir kravat buldu.	He found me a nice tie.	3455
 kravat	Senin o kravatını seviyorum.	I like that tie of yours.	3455
-göreceksiniz	Göreceksiniz.	You'll see.	3456
 göreceksiniz	Ne göreceksiniz?	What are you going to see?	3456
 göreceksiniz	Bugün evi göreceksiniz.	You'll see the house today.	3456
 takılmak	Takılmak için favori kişin kim?	Who's your favorite person to hang out with?	3457
@@ -10362,7 +10268,6 @@ atom	Atomlar çok, çok küçüktür.	Atoms are very, very small.	3729
 karının	Karının adı ne?	What's your wife's name?	3730
 karının	Karının ismi nedir?	What's your wife's name?	3730
 karının	Karının işi nedir?	What's your wife's job?	3730
-alınma	Alınma.	Don't be insulted.	3731
 alınma	Üzerine alınma.	Don't take it amiss!	3731
 alınma	Üzerine alınma!	No offense!	3731
 geçirme	Kaza geçirme riskini göze aldı.	He ran the risk of having an accident.	3732
@@ -10809,7 +10714,6 @@ kazan	Kazan'da bir metro var.	There is a metro in Kazan.	3900
 kazan	Biraz zaman kazan.	Take some time.	3900
 kazan	Herkes kazanları sever.	Everyone loves winners.	3900
 mafya	Bu gizli bar mafya tarafından kontrol edilir.	This speakeasy is controlled by the mob.	3901
-acıktım	Acıktım.	I felt hungry.	3902
 acıktım	Ben çok acıktım.	I was very hungry.	3902
 acıktım	Uzun bir yürüyüşten sonra acıktım.	I felt hungry after the long walk.	3902
 isimler	Bazı insanlar iş bulmak için sahte isimler kullanmak zorunda kaldı.	Some people had to use false names to get work.	3903
@@ -11128,7 +11032,6 @@ yolculuklar	Çin için iyi yolculuklar!	Have a safe trip to China!	4032
 yolculuklar	Eve güvenli yolculuklar.	Have a safe trip home.	4032
 nefis	Onun gerçekten nefis tadı var.	It tastes really yummy.	4033
 nefis	Bu çorba nefis.	This soup is exquisite.	4033
-nefis	Nefis	Yummy!	4033
 atları	O atları iyi idare eder.	He handles horses well.	4034
 atları	Atları severim.	I like horses.	4034
 atları	Kız atları seviyor.	The girl likes horses.	4034
@@ -11235,7 +11138,6 @@ peynirli	Annem bize öğle yemeği için peynirli sandviç yaptı.	Mother made u
 gitmedin	Çok ileri gitmedin mi?	Haven't you gone too far?	4079
 gitmedin	Neden ofise gitmedin?	Why did you not go to the office?	4079
 gitmedin	Niçin ofise gitmedin?	Why didn't you go to the office?	4079
-anlayacaksın	Anlayacaksın.	You'll catch on.	4080
 anlayacaksın	Bir gün anlayacaksın.	You'll understand someday.	4080
 anlayacaksın	Zamanla anlayacaksın.	In time, you will understand.	4080
 zamanla	Zamanla anlayacaksın.	In time, you will understand.	4080
@@ -11505,7 +11407,6 @@ karara	Biz o karara pişman değiliz.	We don't regret that decision.	4193
 çiftçi	O, bir çiftçi olmak istedi.	He wanted to be a farmer.	4194
 çiftçi	Milyonlarca çiftçi başka iş aramak zorunda kaldı.	Millions of farmers had to look for other work.	4194
 çiftçi	O bir çiftçi.	He's a farmer.	4194
-eyvah	Eyvah!	Yikes!	4196
 eyvah	Eyvahlar olsun!	Oh, woe is me!	4196
 eyvah	"O ""Eyvah!"" ""Bana ne olacak?"" dedi."	"""Alas!"" he said, ""what will become of me?"""	4196
 şarkılar	Babası onun için kuş şarkılarının kayıtlarını aldı.	His father got records of bird songs for him.	4197
@@ -11939,7 +11840,6 @@ görürüz	Biz burada nadiren kar görürüz.	We seldom have snow here.	4376
 görürüz	Sokakta bir sürü araba görürüz.	We see a lot of cars on the street.	4376
 görürüz	Onu her gün görürüz.	We see him every day.	4376
 hücum	Herkes bana doğru hücum etti.	Everybody rushed towards me.	4377
-hücum	Hücum!	Attack!	4377
 soğan	Kaç tane soğan?	How many onions?	4378
 soğan	Ben iki kilo soğan istiyorum.	I'd like two kilos of onions.	4378
 soğan	Soğandan nefret ediyorum.	I hate onions.	4378
@@ -11952,7 +11852,6 @@ yatma	Yatma zamanı.	It is time to go to bed.	4381
 yatma	Neredeyse yatma zamanıdır.	It's almost time to go to bed.	4381
 yatma	Yatma zamanı geldi. Radyoyu kapat.	It's time to go to bed. Turn off the radio.	4381
 leziz	Bu oldukça leziz.	This is quite tasty.	4383
-leziz	Leziz.	Delicious.	4383
 dağınık	Odam dağınık.	My room is a mess.	4384
 dağınık	Sizin oda dağınık.	Your room is out of order.	4384
 dağınık	Onun odası dağınıktır.	His room is untidy.	4384
@@ -12189,7 +12088,6 @@ sarayı	Belediye Sarayı şehrin merkezinde.	The city hall is in the center of t
 kraliyet	Kraliyet Sarayı Paris'teki ünlü bir tarihi yapıdır.	The Royal Palace is a famous historic building in Paris.	4482
 sarayı	Kraliyet Sarayı Paris'teki ünlü bir tarihi yapıdır.	The Royal Palace is a famous historic building in Paris.	4482
 irtibat	Ciddi olarak irtibatta kal.	Seriously, stay in touch.	4483
-kare	Kare.	Four of a kind.	4484
 kare	O yaklaşık üç mil kare.	It's about three square miles.	4484
 kare	Bir kare dört eşit kenara sahiptir.	A square has four equal sides.	4484
 tanı	Bu makul bir tanı.	It's a plausible diagnosis.	4485
@@ -12258,7 +12156,6 @@ domates	Hayır, bunlar domates.	No, it's the tomatoes.	4510
 sosu	Bu kan değil. Bu domates sosu.	It's not blood. It's tomato sauce.	4510
 sosu	1 kilo domates sosu, 2 kilo domatese eşittir.	One kilogram of tomato sauce is equivalent to two kilograms of tomatoes.	4510
 alkış	Alkış vardı.	There was applause.	4512
-alkış	Alkış.	Clap.	4512
 alkış	Çok alkış aldı.	He received much applause.	4512
 turuncu	Benim kravat turuncu.	My tie is orange.	4513
 turuncu	Ona turuncu portakal verdik.	We gave her the orange orange.	4513
@@ -12356,7 +12253,6 @@ ağlamak	İçimden ağlamak geldi.	I felt like crying.	4548
 mezarlık	Ben mezarlıkları ziyaret etmek istiyorum. Bu normal midir?	I like to visit cemeteries. Is that normal?	4549
 mezarlık	Mezarlıklar, ulusal bayramlarda kapalı değildir.	Cemeteries are not closed for national holidays.	4549
 bağırma	Bana bağırma.	Don't yell at me.	4550
-bağırma	Bağırma.	Don't shout.	4550
 bağırma	Sadece bağırma.	Just don't scream.	4550
 skandal	O skandal onun şöhretine mal oldu.	That scandal cost him his reputation.	4551
 skandal	O henüz yeterince büyük bir skandal değil.	It's not yet a big enough scandal.	4551
@@ -12405,7 +12301,6 @@ sebebiyle	Şehir deprem sebebiyle yıkıma uğradı.	The city was devastated by 
 lafını	Hiç lafını bile etme.	Don't give it a second thought.	4567
 lafını	Lafını bile etme.	Think nothing of it.	4567
 lafını	Hiç lafını bile etme!	Don't give it another thought.	4567
-tüh	Tüh!	Alas!	4569
 tüh	Tüh be!	Alas!	4569
 yelken	Onun yelken gibi kulakları var.	She has sail-like ears.	4570
 yelken	O gemi benim için yelken açtı.	That ship has sailed for me.	4570
@@ -12502,7 +12397,6 @@ milli	Milli Kütüphane şüphesiz ilgi noktalarından biridir.	The National Lib
 koleksiyon	Sirkin harika bir vahşi hayvan koleksiyonu var.	The circus has a wonderful collection of wild animals.	4605
 koleksiyon	Koleksiyon halka açıktır.	The collection is open to the public.	4605
 koleksiyon	Bu inanılmaz bir koleksiyon.	This is an amazing collection.	4605
-küstah	Küstah!	Hotshot!	4607
 küstah	O akıllı ama küstah.	He's smart, but arrogant.	4607
 küstah	Ben onlara karşı küstah değilim.	I'm not insolent to them.	4607
 toplar	Toplar yuvarlaktır.	Balls are round.	4608
@@ -12628,7 +12522,6 @@ marş	Konser Milli Marş ile sona erdi.	The concert concluded with the national 
 şirketler	Birçok küçük şirketler iflas etti.	Many small companies went bankrupt.	4668
 şirketler	Şirketler, insanlar değildirler.	Corporations are not people.	4668
 piçler	O kurnaz piçler!	Those cunning bastards!	4669
-piçler	Piçler!	Bastards!	4669
 fevkalade	Fevkalade sıcak.	It's unusually warm.	4670
 fevkalade	O fevkalade.	It's marvelous.	4670
 fevkalade	Bu fevkalade.	That's extraordinary.	4670
@@ -12910,7 +12803,6 @@ kaşık	Kaşıkları severim.	I like spoons.	4793
 kaşık	Bana kaşık verin.	Give me the spoon.	4793
 kulağına	Onun kulağına vurdum.	I smacked him on the ear.	4794
 anlıyoruz	Bana öyle geliyor ki biz onu yanlış anlıyoruz.	It appears to me that we misunderstand him.	4795
-anlıyoruz	Anlıyoruz.	We understand.	4795
 anlıyoruz	Onu anlıyoruz.	We understand that.	4795
 özgürlüğü	Kadınların özgürlüğü hareketinde yer aldı.	She played a part in the women's lib movement.	4797
 özgürlüğü	Bana özgürlüğü mü anlatmak istedin?	You wanted to tell me about freedom?	4797
@@ -13146,7 +13038,6 @@ makineyi	Bu makineyi kim icat etti?	Who invented this machine?	4890
 makineyi	Bu makineyi idare etmek kolaydır.	This machine is easy to handle.	4890
 makineyi	Bu tuhaf makineyi kim icat etti?	Who invented this strange machine?	4890
 takviye	Takviye birliklere ihtiyaç vardı.	Additional troops were needed.	4891
-oha	Oha!	Whoa!	4893
 istemezsiniz	Bu kadar uzun zaman beklemek istemezsiniz.	You don't want to wait such a long time.	4894
 istemezsiniz	Ona ne olduğunu bilmek istemezsiniz.	You don't want to know what happened to her.	4894
 kazanç	Zahmet yoksa kazanç da yok.	No pain, no gain.	4895
@@ -13873,7 +13764,6 @@ birer	Onlar birer birer içeri girdiler.	They came in one by one.	5204
 sürüsü	Havada uçan bir kuş sürüsü gördüm.	I saw a flock of birds flying aloft.	5205
 sürüsü	Bir koyun sürüsü gördüm.	I saw a flock of sheep.	5205
 sürüsü	Bir kuş sürüsü uçuyor.	A flock of birds is flying.	5205
-atlama	Atlama!	Don't jump!	5206
 atlama	Lütfen atlama.	Please don't jump.	5206
 atlama	Bu adımı atlama.	Don't skip this step.	5206
 salaklar	O salaklar içindir.	That's for suckers.	5207
@@ -14021,7 +13911,6 @@ sev	Beni az ama uzun süre sev.	Love me little, love me long.	5290
 sev	ve dedi ki Tanrı: Sev!	And God said: Love!	5290
 sev	Beni sev!	Love me!	5290
 çar	Kara sevdanın çaresi yoktur.	There's no cure for lovesickness.	5290
-susadım	Susadım.	I'm thirsty.	5292
 susadım	Çok susadım. Bir fincan kahve istiyorum.	I am thirsty. I would like to have a cup of coffee.	5292
 susadım	Ben susadım.	I'm thirsty.	5292
 davetli	Ben davetli miyim?	Am I invited?	5293
@@ -14076,7 +13965,6 @@ asma	Şimdi surat asma.	Now don't pout.	5316
 asma	Ona kulak asma; boş konuşuyor.	Don't listen to him, he's talking nonsense.	5316
 agresif	Erkekler kızlardan daha agresiftir.	Boys are more aggressive than girls.	5317
 agresif	O agresif bir kişidir.	He is an aggressive person.	5317
-agresif	Agresif.	He is aggressive.	5317
 reşit	O hâlâ bir reşit değildir.	She's still a minor.	5318
 reşit	Hâlâ reşit değil.	He's still underage.	5318
 reşit	O hâlâ reşit değil.	She's still under age.	5318
@@ -14094,7 +13982,6 @@ trenin	Bu trenin eşya vagonu yok.	This train has no luggage van.	5324
 öğrencilerin	Öğrencilerin yüzde kaçı üniversitelere kabul edilmektedir?	What percentage of the students are admitted to colleges?	5325
 üniform	Öğrencilerin hepsi aynı üniformayı giymek zorundadırlar.	All of the students have to wear the same uniform.	5325
 uyuyacağım	Onun üstünde uyuyacağım.	I'll sleep on it.	5326
-uyuyacağım	Uyuyacağım.	I am going to sleep.	5326
 uyuyacağım	Odamda uyuyacağım.	I'll sleep in my room.	5326
 çubuk	Çubuk makarna sever misin?	Do you like spaghetti?	5327
 mezarı	Onun mezarı orada.	His grave is there.	5328
@@ -14108,7 +13995,6 @@ jeneratör	Jeneratörün var mı?	Do you have a generator?	5331
 kalkar	Anne her zaman sabahları erken kalkar.	Mother always gets up early in the morning.	5333
 kalkar	Genellikle o erken kalkar.	In general, she is an early riser.	5333
 kalkar	Onlar bu evde erken kalkarlar.	They get up early in this house.	5333
-dandik	Dandik.	This is lame.	5334
 dandik	Bu film muhtemelen dandiktir.	This movie is probably cheesy.	5334
 kumaş	O bir yarda kumaş satın aldı.	She bought a yard of cloth.	5335
 kumaş	Bu kumaş ona göre daha üstün.	This cloth is superior to that.	5335
@@ -14121,7 +14007,6 @@ gizlemek	Benden gizlemek zorunda değilsin.	You didn't have to hide from me.	533
 çığır	Durum çığırından çıktı.	The situation got out of hand.	5338
 kayboluyor	Birçok hayat formu kayboluyor.	Many forms of life are disappearing.	5339
 kayboluyor	Oyun parkı demirleri kayboluyor.	Monkey bars are disappearing.	5339
-kayboldum	Kayboldum.	I got lost.	5340
 kayboldum	Kalabalıkta kayboldum.	I was lost in the crowd.	5340
 kayboldum	Ormanda kayboldum.	I got lost in the forest.	5340
 temyiz	Biz destek için temyize gittik.	We made an appeal for support.	5341
@@ -14301,7 +14186,6 @@ hayvanlara	Küçük hayvanlara karşı kibar ol.	Be kind to little animals.	5427
 hayvanlara	O, ayrıca hayvanlara karşı naziktir.	He was also kind to animals.	5427
 şahitlik	Erkeklerden daha çok kadınlar yalancı şahitlik yaparlar.	More women than men commit perjury.	5428
 şahitlik	Kazaya şahitlik etti.	He witnessed the accident.	5428
-tünaydın	Tünaydın.	Good afternoon.	5429
 tünaydın	Tünaydın bayanlar ve baylar.	Good afternoon, ladies and gentlemen.	5429
 karnı	Hepimizin karnı açtı.	We were all hungry.	5430
 karnı	Herkesin karnı açtı.	Everyone was hungry.	5430
@@ -14416,7 +14300,6 @@ sınıfın	O bizim sınıfın sorumlusudur.	He is in charge of our class.	5477
 sınıfın	Sınıfın önüne gel.	Come to the front of the classroom.	5477
 sınıfın	Bizim sınıfın geri kalanı nerede?	Where's the rest of our class?	5477
 sebepsiz	Halkın korkuları sebepsiz değildir.	The people's fears aren't groundless.	5479
-aldırma	Aldırma.	Never mind.	5480
 aldırma	Aldırma, hadi!	Never mind, come on!	5480
 temsil	Bir yetenek ajansı aktörleri temsil eder.	A talent agency represents actors.	5481
 ajansı	Bir yetenek ajansı aktörleri temsil eder.	A talent agency represents actors.	5481
@@ -14575,7 +14458,6 @@ paralel	Kız paralel çubuklarda egzersiz yaptı.	The girl exercised on the para
 paralel	İki cadde birbirine paralel çalışır.	The two streets run parallel to one another.	5550
 çekinme	Tavsiye istemekten çekinme.	Don't hesitate to ask for advice.	5552
 çekinme	Lütfen beni aramaya çekinme.	Please feel free to call me up.	5552
-çekinme	Çekinme.	Don't hold back.	5552
 kırılgan	Mutluluk kırılgan bir çiçektir.	Happiness is a feeble flower.	5553
 kırılgan	Bunlar çok kırılgandırlar.	These are very fragile.	5553
 kırılgan	Bu kırılgan şeyleri güvenli bir yere koyar mısın?	Could you put these fragile things in a safe place?	5553
@@ -14998,7 +14880,6 @@ düzensiz	Bu çok düzensiz.	This is very irregular.	5755
 kulağın	Senin gerçekten müzik kulağın var.	You really have an ear for music.	5758
 soya	Soya sütü, süt için büyük bir alternatiftir.	Soy milk is a great substitute for milk.	5759
 kaybolduk	Biz siste kaybolduk.	We got lost in the fog.	5760
-kaybolduk	Kaybolduk.	We are lost.	5760
 kaybolduk	Biz kaybolduk, değil mi?	We're lost, aren't we?	5760
 tehdidi	Onlar yok olma tehdidi altında.	They are in danger of extinction.	5762
 tehdidi	Tehdidi seven kimse onun içinde yok olur.	One who loves danger, shall perish in it.	5762
@@ -15535,7 +15416,6 @@ sek	O, seksidir.	He's sexy.	5997
 sek	Noel seküler bir tatil değildir.	Christmas is not a secular holiday.	5997
 abartma	Beni abartma.	You overestimate me.	5998
 abartma	Abartma şimdi.	Don't exaggerate now.	5998
-abartma	Abartma.	Don't get carried away.	5998
 yanar	Ateş yanar.	Fire burns.	6001
 yanar	Kırmızı lamba tehlike halinde yanar.	The red lamp lights up in case of danger.	6001
 yanar	Ahşap kolayca yanar.	Woods burn easily.	6001
@@ -15703,7 +15583,6 @@ sevgiyi	Sevgiyi yayın.	Spread the love.	6077
 başarmak	Başarmak için kestirme yoktur.	There is no shortcut to success.	6078
 başarmak	Söylemek kolaydır ve başarmak zordur.	It is easy to say and hard to accomplish.	6078
 başarmak	Başarmaktan başka şansı yok.	He has no choice but to succeed.	6078
-vazgeçme	Vazgeçme.	Don't give up.	6079
 vazgeçme	Benden vazgeçme.	Don't give up on me.	6079
 vazgeçme	Şimdi vazgeçme.	Don't give up now.	6079
 bilgisayarda	Bilgisayarda hasar vardı.	There was damage to the computer.	6080
@@ -15778,7 +15657,6 @@ teşebbüs	Leyla intihara teşebbüs etti.	Layla tried to commit suicide.	6104
 radyoaktif	Bu madde radyoaktif.	This stuff's radioactive.	6106
 ümitsiz	Hasta ümitsiz bir hasta.	The patient is sick beyond all hope.	6109
 ümitsiz	Durum ümitsizdir.	The situation is hopeless.	6109
-ümitsiz	Ümitsiz.	It's hopeless.	6109
 gelişmeler	Son gelişmeler onların seyahat planlarını değiştirmelerine neden oldu.	Recent developments caused them to change their travel plans.	6110
 demokratik	O, demokratik parti üyesidir.	She belongs to the Democratic Party.	6112
 demokratik	Amerikalılar demokratik bir ulustur.	The Americans are a democratic people.	6112
@@ -15836,7 +15714,6 @@ gizemi	Sadece bir gizemi sevmiyor musun?	Don't you just love a mystery?	6139
 gizemi	Sadece bir gizemi sevmez misin?	Don't you just love a mystery?	6139
 birleş	Tek parça yapmak için tüm parçaları birleştirin.	Combine all the parts to make one piece.	6140
 birleş	Dünyanın bütün cümleleri, birleşin!	Sentences of the world, unite!	6140
-birleş	Birleş!	Unite!	6140
 yazman	O kitap etkili bir şekilde yazmana yardım eder.	That book helps you to write effectively.	6141
 yazman	Bana bir mektup yazmanı istiyorum.	I want you to write me a letter.	6141
 yazman	Bu kitap etkili bir şekilde yazmana yardım edecek.	This book will help you write effectively.	6141
@@ -16208,10 +16085,8 @@ oturum	Fotoğraf oturumu nasıl gitti?	How did the photo session go?	6321
 kabaca	Bu size, durum hakkında kabaca bir fikir verecektir.	This will give you an approximate idea of the situation.	6322
 kabaca	Dünyada kabaca bir buçuk milyar Müslüman var.	There are roughly one and a half billion Muslims in the world.	6322
 utanma	Yoksul olmaktan utanma.	Don't be ashamed of being poor.	6323
-utanma	Utanma.	Don't be shy.	6323
 uyuma	Gerçek onun o akşam geç uyumasıdır.	The fact is that he slept late that morning.	6324
 uyuma	Sakın tekrar uyuma!	Don't go back to sleep!	6324
-uyuma	Uyuma.	Don't fall asleep.	6324
 pozisyonu	En iyi uyuma pozisyonu hangisi?	What's the best sleeping position?	6324
 kuşun	Bir kuşun kanatları vardır.	A bird has wings.	6325
 kuşun	Şu kuşun adı ne?	What is the name of that bird?	6325
@@ -16233,7 +16108,6 @@ sürmeyi	Ne zaman araba sürmeyi öğrendin?	When did you learn to drive?	6333
 sürmeyi	Araba sürmeyi bilmiyorum.	I do not know how to drive a car.	6333
 sürmeyi	Bisiklet sürmeyi bilmiyorum.	I don't know how to ride a bicycle.	6333
 masalı	Hayat bir peri masalı gibi değildir.	Life isn't like a fairy tale.	6335
-mis	Mis.	Delicious.	6337
 komedyen	O bir komedyen.	He's a comedian.	6338
 komedyen	O bir komedyendir.	He's a comedian.	6338
 komedyen	O komedyen çok komik.	That comedian is very funny.	6338
@@ -16320,7 +16194,6 @@ tılsım	O bir göz biçiminde gizemli tılsıma sahiptir.	He has a mysterious t
 oğlanın	Şu oğlanın adı ne?	What's that boy's name?	6379
 oğlanın	Bu oğlanın güçlü ve sağlıklı bir vücudu var.	This boy has a strong and healthy body.	6379
 oğlanın	Oğlanın bir atı var.	The boy has a horse.	6379
-uyuyordum	Uyuyordum.	I was sleeping.	6381
 uyuyordum	Neredeyse uyuyordum.	I almost didn't sleep.	6381
 uyuyordum	Ben emirlere uyuyordum.	I was following orders.	6381
 savaşlar	Tüm savaşlar iç savaştır, çünkü tüm insanlar kardeştir.	All wars are civil wars, because all men are brothers.	6382
@@ -16823,7 +16696,6 @@ duymam	Benim bunu duymam önemli.	It's important that I hear this.	6636
 karakolu	Polis karakolu nerede?	Where is the police station?	6637
 mülteci	Göçmenlerin çoğu savaş mültecileri.	Many of the migrants are war refugees.	6638
 sinirlenme	O ona hakaret etti. Onun sinirlenme nedeni budur.	He insulted her. That is why she got angry.	6639
-sinirlenme	Sinirlenme.	Don't get mad.	6639
 sinirlenme	Şimdi, lütfen bu kadar sinirlenme.	Now, please don't get so angry.	6639
 prototip	Bu yalnızca bir prototip.	This is only a prototype.	6640
 prototip	Bu bir prototip.	This is a prototype.	6640
@@ -17224,8 +17096,6 @@ limanda	Limanda çok gemi gördük.	We saw many ships in the harbor.	6858
 smokin	Ben hep smokin giymek istedim.	I've always wanted to wear a tux.	6859
 gidersiniz	Yılda kaç kez plaja gidersiniz?	How many times a year do you go to the beach?	6860
 gidersiniz	Noel için nereye gidersiniz?	Where do you go for Christmas?	6860
-zırva	Zırva.	Bullshit.	6861
-zırva	Zırva!	Rubbish!	6861
 oyuncaklar	Bu oyuncaklar çok popüler.	These toys are very popular.	6864
 oyuncaklar	Tayland'ta insanlar yiyecek içecek ve oyuncaklar için hindistan cevizi kullanırlar.	In Thailand, people use coconuts for food, drinks and toys.	6864
 oyuncaklar	Bu oyuncaklar kimin?	Whose toys are these?	6864
@@ -17553,7 +17423,6 @@ kaybolmak	Ortadan kaybolmak istedim.	I wanted to disappear.	7039
 kaybolmak	Ben ortadan kaybolmak istiyorum.	I want to disappear.	7039
 çizgiler	Uzun çizgiler gereksizdir.	Long lines are unnecessary.	7042
 kaybolma	Sadece gözden kaybolma.	Just don't disappear.	7045
-kaybolma	Kaybolma.	Don't get lost.	7045
 kaybolma	Kaybolma lütfen.	Don't get lost, please.	7045
 filozof	Gözde filozofun kimdir?	Who's your favorite philosopher?	7046
 filozof	Sır ünlü filozofun mezarında gömülü kaldı.	The secret remained buried in the grave of the famous philosopher.	7046
@@ -17889,7 +17758,6 @@ pirzola	Sizde kuzu pirzola var mı?	Do you have any lamb ribs?	7247
 sikmek	Seni sikmek istiyorum.	I want to fuck you.	7253
 kâse	Tuz, kuru maya ve unu büyük bir kâsede karıştırın.	Mix the salt, dry yeast and flour in a big bowl.	7254
 sabotaj	Bu sabotajdır.	This is sabotage.	7255
-sabotaj	Sabotaj!	Sabotage!	7255
 sabotaj	Sabotajdır!	It's sabotage!	7255
 portekiz	Portekiz'in Fransız büyük elçisidir.	She's the French ambassador to Portugal.	7256
 elçi	Portekiz'in Fransız büyük elçisidir.	She's the French ambassador to Portugal.	7256
@@ -18064,7 +17932,6 @@ saçmalığın	Bu saçmalığın dik alası.	That's absolute nonsense.	7353
 bağlama	Ebeveynlerine çok fazla bel bağlama.	Don't depend on your parents too much.	7354
 bağlama	Beni bağlama.	Don't tie me up.	7354
 bağlama	Onu bağlama.	Don't fixate on that.	7354
-olanaksız	Olanaksız.	No way.	7356
 tamamlamak	Bu görevi tamamlamak benim için olanaksız.	This task is impossible for me to accomplish.	7356
 olanaksız	Bu görevi tamamlamak benim için olanaksız.	This task is impossible for me to accomplish.	7356
 olanaksız	Olanaksız geliyor ama gerçek.	It sounds impossible, but it's true.	7356
@@ -18076,7 +17943,6 @@ mumlar	Bu mumlar beyaz değil.	These candles aren't white.	7365
 mumlar	Şu mumlar beyaz değiller.	Those candles aren't white.	7365
 mumlar	Her yerde mumlar vardı.	There were candles everywhere.	7365
 düzmece	Onun hikayesinin düzmece olduğu ortaya çıktı.	His story turned out to be false.	7366
-düzmece	Düzmece.	False.	7366
 liseyi	On yedi yaşında liseyi terk etti.	He left high school at seventeen.	7367
 liseyi	Liseyi çok sevdim.	I loved high school.	7367
 jaguar	Vahşi Jaguarlar hakkında rüya gördü.	She dreamt about wild jaguars.	7368
@@ -18132,7 +17998,6 @@ atina	Atina'ya gideceğim.	I will go to Athens.	7400
 atina	Atina'da varmak iki saatimizi aldı.	It took us two hours to get to Athens.	7400
 atina	O, Atina için ne zaman yola çıkacak?	When will she leave for Athens?	7400
 geleceksiniz	Ne zaman Boston'a geleceksiniz?	When will you come to Boston?	7405
-geleceksiniz	Geleceksiniz.	You will come.	7405
 affetmek	Her şeyi anlamak her şeyi affetmektir.	To understand all is to forgive all.	7406
 affetmek	Affetmek mi yoksa unutmak mı daha zor?	Is it harder to forgive or to forget?	7406
 affetmek	Dünyada yapacak en zor şeylerden biri affetmektir.	One of the toughest things in the world to do is forgive.	7406
@@ -18491,7 +18356,6 @@ r	Parayı R&D için tahsis et.	Allot the money for R&D.	7629
 tahsis	Okumak için bana üç kitap tahsis etti.	He assigned me three books to read.	7629
 tahsis	Bana küçük bir oda tahsis ettiler.	They have assigned me a small room.	7629
 heyecanlanma	Çok heyecanlanma!	Don't get so excited!	7630
-heyecanlanma	Heyecanlanma.	Don't get excited.	7630
 heyecanlanma	Çok heyecanlanma.	Don't get too excited.	7630
 kârlı	Bu kârlı değil mi?	Isn't it profitable?	7631
 kârlı	Bu çok kârlı bir iş.	This is a very profitable business.	7631
@@ -18530,7 +18394,6 @@ maddeleri	Japonya yurt dışından çeşitli ham maddeleri ithal eder.	Japan imp
 asabi	Onların hepsi asabi.	They are all irritable.	7653
 asabi	Çok asabi ve her zaman huzursuz.	She is very nervous and is always ill at ease.	7653
 asabi	Hiç de asabi değilim.	I'm not nervous at all.	7653
-anlayacağım	Anlayacağım.	I'll understand.	7654
 gına	Onun şakalarından gına geldim.	I have had quite enough of his jokes.	7655
 gına	Çocuklar kurallarından gına geldi.	The kids have had enough of your rules.	7655
 gına	Bundan gına geldi.	I'm sick of this.	7655
@@ -18644,7 +18507,6 @@ pasaportu	Onun pasaportu var mı?	Does she have a passport?	7723
 pasaportu	Bu bir Kanada pasaportu.	This is a Canadian passport.	7723
 bloke	Nehri bloke eden baraj çok geniş.	The dam blocking the river is very wide.	7726
 bloke	Özel araba yolunu bloke etme.	Don't block the driveway.	7726
-miyav	Miyav.	Meow.	7727
 miyav	Kediler miyavlar mı?	Do cats meow?	7727
 miyav	Kedi miyavlar.	The cat meows.	7727
 mao	Mao miyavlar mı?	Does Mao meow?	7727
@@ -18833,7 +18695,6 @@ flüt	O ne tür bir flüt?	What kind of flute is that?	7854
 flüt	Bana flütü getir.	Bring me the flute.	7854
 arkadaşlığı	Küçük hediyeler arkadaşlığı canlı tutar.	Little presents keep a friendship alive.	7856
 yatırımcı	Onların yatırımcılara ihtiyacı var.	They need investors.	7858
-utan	Utan!	You should be ashamed!	7859
 makaleyi	O makaleyi tekrar tekrar okudu.	He read the article over and over again.	7860
 makaleyi	Makaleyi okuyun.	Read through the article.	7860
 makaleyi	Bu makaleyi okudun mu?	Have you read this article?	7860
@@ -18926,7 +18787,6 @@ anım	Ne olduğu ile ilgili anım yok.	I have no memory of what happened.	7924
 anım	Senin hakkında hiçbir anım yok.	I have no memory of you.	7924
 koşma	Lütfen sınıfta koşma.	Please don't run in the classroom.	7926
 koşma	Bu odada koşma.	Do not run in this room.	7926
-koşma	Koşma.	Don't run.	7926
 alfa	Alfa, beta ve gama, Yunan harfleridir.	Alpha, beta and gamma are Greek letters.	7928
 harfler	Alfa, beta ve gama, Yunan harfleridir.	Alpha, beta and gamma are Greek letters.	7928
 gama	Alfa, beta ve gama, Yunan harfleridir.	Alpha, beta and gamma are Greek letters.	7928
@@ -18937,7 +18797,6 @@ makam	Onun en iyi arkadaşı onu yetkili makamlara ihbar etti.	His best friend r
 makam	Senin makamın nedir?	What's your position?	7931
 makam	Yalnızca tek makam için üç yüz başvuru sahibi var.	There are three hundred applicants for only one position.	7931
 cihazın	Bu senin çağrı cihazın mı?	Is this your pager?	7932
-uyuyun	Uyuyun.	Get to sleep.	7933
 uyuyun	Birkaç saat uyuyun.	Get a few hours sleep.	7933
 uyuyun	Daha erken uyuyun.	Sleep earlier.	7933
 uyuyorlar	Çocuklar uyuyorlar.	The kids are asleep.	7934
@@ -19099,8 +18958,6 @@ teras	Havuz teras katında.	The pool is on the same level as the terrace.	8035
 papatya	Ben bir papatya çayı istiyorum.	I want a chamomile tea.	8036
 papatya	Bunlar papatya.	These are daisies.	8036
 papatya	Bir papatya istiyorum.	I want a camomile.	8036
-maşallah	Maşallah.	Mashallah.	8037
-maşallah	Maşallah!	Mashallah!	8037
 dergide	Ben üç gün önce onu dergide okudum.	I read it in the magazine three days ago.	8038
 dergide	Onu bir dergide gördüm.	I saw it in a magazine.	8038
 dergide	Bu dergide eğitim sorunları hakkında ilginç bir makale var.	There's an interesting article in this magazine about education problems.	8038
@@ -19793,7 +19650,6 @@ zulüm	Kral, halkına zulüm etti.	The king oppressed his people.	8499
 zulüm	Diğerleri dini zulümden kaçmak için geldi.	Others came to escape religious persecution.	8499
 hayvana	Hayvana zulüm bir günahtır.	Animal cruelty is a sin.	8499
 zulüm	Hayvana zulüm bir günahtır.	Animal cruelty is a sin.	8499
-parola	Parola?	Password?	8500
 parola	Parola uzun.	The password is long.	8500
 parola	Bu zayıf bir parola.	That's a weak password.	8500
 kıtlık	Kıtlıktan dolayı sığır açlıktan öldü.	Because of the famine, the cattle starved to death.	8501
@@ -20303,7 +20159,6 @@ baktılar	Onlar ona tepeden baktılar.	They looked down on him.	8874
 baktılar	Onlar çocuğa baktılar.	They looked after the boy.	8874
 baktılar	Az önce baktılar.	They just looked.	8874
 lolipop	Bana bir lolipop ver.	Give me a lollipop!	8875
-uyuyordun	Uyuyordun.	You were sleeping.	8880
 uyuyordun	Uyuyordun, değil mi?	You were sleeping, weren't you?	8880
 uyuyordun	Nasıl uyuyordun?	How have you been sleeping?	8880
 bluz	Ben bir pamuk bluz tercih ederim.	I prefer a cotton blouse.	8883
@@ -20346,7 +20201,6 @@ dinin	Elbette her dinin kendi kuralları vardır.	Of course every religion has i
 dinin	Dinin geleceği yok.	Religion has no future.	8914
 regl	Regl döneminde.	She has her period.	8915
 ağlayacağım	Neredeyse ağlayacağım.	I am about to cry!	8916
-ağlayacağım	Ağlayacağım.	I'm going to cry.	8916
 ağlayacağım	Ben şimdi ağlayacağım.	I'm gonna go cry now.	8916
 fanatik	O, fanatiklere müdahale etti.	He interfered with the fans.	8917
 fanatik	Onlar inançlarında fanatik.	They are fanatical in their beliefs.	8917
@@ -20531,7 +20385,6 @@ anahtarımı	Anahtarımı geri istiyorum.	I want my key back.	9066
 anahtarımı	Şimdi anahtarımı bana geri ver.	Now give me back my key.	9066
 dilinin	Araç durumu Rus dilinin en zarif yönlerinden biridir.	The instrumental case is one of the most graceful aspects of the Russian language.	9068
 dilinin	21 Şubat, birinin ana dilinin uluslararası günüdür.	February 21st is the International Day of one's Native Language.	9068
-çüş	Çüş!	Whoa!	9069
 terlik	Çoraplar ve terlikler yenidir.	The socks and slippers are new.	9070
 terlik	Terlikler yatağın altındadır.	The slippers are under the bed.	9070
 terlik	Terliklerin sıcak mı?	Are your slippers warm?	9070
@@ -20618,7 +20471,6 @@ masalı	Bu bir kocakarı masalı.	That's an old wives' tale.	9126
 masalı	O sadece bir kocakarı masalı.	That's just an old wives' tale.	9126
 kocakarı	O sadece bir kocakarı masalı.	That's just an old wives' tale.	9126
 mutlular	Onlar mutlular.	They are happy.	9128
-mutlular	Mutlular.	They're happy.	9128
 mutlular	Köpekler yeni yataklarında mutlular.	The dogs are happy with their new beds.	9128
 patika	O bir yol değil fakat bir patika.	It's not a road, but a path.	9130
 patika	Solda gizli bir patika var.	There's a secret path on the left.	9130
@@ -20644,7 +20496,6 @@ portre	O, rahmetli babamın bir portresidir.	It's a portrait of my deceased fath
 rahmetli	O, rahmetli babamın bir portresidir.	It's a portrait of my deceased father.	9146
 amerikalıyım	Ben Amerikalıyım.	I am American.	9147
 amerikalıyım	Ben bir Amerikalıyım.	I'm from America.	9147
-amerikalıyım	Amerikalıyım.	I am from the USA.	9147
 çerçeve	Kaliforniya'da birçok evin ahşap çerçeveleri var.	In California, most houses have frames of wood.	9149
 adaletsiz	Bazen yaşam çok adaletsizdir.	Sometimes, life is so unjust.	9150
 adaletsiz	Hayat bazen çok adaletsizdir.	Life is so unjust sometimes.	9150
@@ -20695,7 +20546,6 @@ sağduyu	Bu sağduyu.	That's common sense.	9178
 sağduyu	Öğrenmek bir şey sağduyu başka bir şeydir.	Learning is one thing, and common sense another.	9178
 palyaçolar	Palyaçolar da ağlar.	Clowns also cry.	9179
 palyaçolar	Tüm palyaçolar komik değildir.	Not all clowns are funny.	9179
-palyaçolar	Palyaçolar!	Clowns!	9179
 sütten	Tereyağı sütten yapılır.	Butter is made from milk.	9181
 sütten	Tereyağı, sütten yapılır.	Butter is made from milk.	9181
 sütten	Peynir sütten yapılır.	Cheese is made from milk.	9181

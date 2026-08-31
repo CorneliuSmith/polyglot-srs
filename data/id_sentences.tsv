@@ -1,6 +1,4 @@
 word	sentence	translation	difficulty_rank
-tidak	Tidak.	No.	9
-tidak	Tidak!	No!	9
 tidak	Tidak, tidak, tidak!	No, no, no!	9
 saya	Saya juga.	Me too.	19
 juga	Saya juga.	Me too.	19
@@ -26,10 +24,7 @@ bisa	Dia tidak bisa.	She can't.	34
 saya	Saya harus pulang.	I have to go home.	35
 harus	Saya harus pulang.	I have to go home.	35
 pulang	Saya harus pulang.	I have to go home.	35
-tolong	Tolong!	Help!	36
 tolong	Tolong saya！	Give me a hand!	36
-ya	Ya!	Yes!	38
-ya	Ya.	Yes.	38
 ya	Ya atau tidak?	Yes or no?	38
 atau	Ya atau tidak?	Yes or no?	38
 dan	Ya dan tidak.	Yes and no.	38
@@ -49,35 +44,28 @@ kami	Kami tidak mau itu.	We don't want it.	39
 itu	Kami tidak mau itu.	We don't want it.	39
 kamu	Kalau kamu mau.	If you want.	39
 kalau	Kalau kamu mau.	If you want.	39
-bukan	Bukan.	No.	40
 jangan	Jangan yang itu.	That's a no-no.	41
 mereka	Ini untuk mereka semua.	This is for them all.	45
 untuk	Ini untuk mereka semua.	This is for them all.	45
 semua	Ini untuk mereka semua.	This is for them all.	45
 karena	Ini semua karena kamu.	This is all because of you.	45
 semua	Ini semua karena kamu.	This is all because of you.	45
-banyak	Banyak!	A lot!	46
 begitu	Dia bilang begitu?	She said that?	49
 bilang	Dia bilang begitu?	She said that?	49
 ada	Dia masih belum ada.	He's not in yet.	53
 belum	Dia masih belum ada.	He's not in yet.	53
 masih	Dia masih belum ada.	He's not in yet.	53
-bagaimana	Bagaimana?	How?	54
 harus	Kenapa harus saya?	Why me?	55
 kenapa	Kenapa harus saya?	Why me?	55
 kenapa	Kamu kenapa?	What's happening to you?	55
-kenapa	Kenapa?	Why?	55
 kita	Mengapa kita tidak pulang?	Why do we not go home?	56
 mengapa	Mengapa kita tidak pulang?	Why do we not go home?	56
-mengapa	Mengapa?	Why?	56
 kapan	Kapan kamu akan pulang?	When are you going home?	57
 akan	Kapan kamu akan pulang?	When are you going home?	57
-kapan	Kapan?	When?	57
 mereka	Kapan mereka pulang?	When are they coming home?	57
 kapan	Kapan mereka pulang?	When are they coming home?	57
 dari	Dari kapan?	Since when?	57
 siapa	Dia siapa?	Who is he?	58
-siapa	Siapa?	Who?	58
 siapa	Mereka ini siapa?	Who are these people?	58
 bilang	Jangan bilang siapa-siapa.	Don't tell anyone.	58
 jangan	Jangan bilang siapa-siapa.	Don't tell anyone.	58
@@ -121,36 +109,29 @@ sekarang	Kamu harus pulang sekarang.	You should go home now.	87
 harus	Kamu harus pulang sekarang.	You should go home now.	87
 sekarang	Kita mau ke mana sekarang? Pulang?	Where are we going now? Home?	87
 kita	Kita mau ke mana sekarang? Pulang?	Where are we going now? Home?	87
-kemarin	Kemarin?	Yesterday?	88
 kemarin	Dia pulang kemarin.	He went home yesterday.	88
 lagi	Saya tidak mau lagi.	I don't want any more.	91
-lagi	Lagi?	Again?	91
 lagi	Apa lagi?	What else?	91
 adalah	Itu adalah kamu lagi.	It's you again.	91
 kembali	Kapan kamu akan kembali?	When will you be back?	92
 akan	Kapan kamu akan kembali?	When will you be back?	92
 kembali	Kamu harus kembali.	You have to go back.	92
-kembali	Kembali!	Come back!	92
 belum	Dia belum kembali.	He hasn't returned yet.	92
 dan	Dan kapan mereka akan kembali?	And when are they coming back?	92
 akan	Dan kapan mereka akan kembali?	And when are they coming back?	92
-mungkin	Mungkin.	Probably.	95
 mungkin	Tidak mungkin!	No way!	95
 mungkin	Mungkin nanti.	Maybe later.	95
 nanti	Mungkin nanti.	Maybe later.	95
 tentu	Tentu saja	Of course.	96
 tentu	Tentu saja!	Of course!	96
-tentu	Tentu!	Sure!	96
 pasti	Tidak pasti.	It's not sure.	97
 hampir	Tadi itu hampir saja.	That was close.	98
-cukup	Cukup!	Enough!	99
 cukup	Itu cukup.	That's enough.	99
 sudah	Sudah cukup!	Enough already!	99
 cukup	Sudah cukup!	Enough already!	99
 sudah	Cukup sudah!	Enough is enough!	99
 sudah	Sudah cukup.	It's enough.	99
 misalnya	Misalnya?	Such as?	103
-jadi	Jadi?	So?	105
 jadi	Bisa jadi.	Maybe.	105
 banyak	Aku mau lebih banyak.	I want a lot more.	107
 aku	Aku mau lebih banyak.	I want a lot more.	107
@@ -230,8 +211,6 @@ bagaimana	Bagaimana kalau dia tidak datang?	What if she doesn't come?	122
 lihat	Lihat saya.	Look at me.	123
 lihat	Lihat saja nanti!	Wait and see.	123
 nanti	Lihat saja nanti!	Wait and see.	123
-lihat	Lihat!	Look!	123
-dengar	Dengar.	Listen.	124
 tahu	Saya tidak tahu kapan dia akan kembali.	I don't know when he'll come back.	125
 tahu	Saya tidak tahu pasti kapan dia akan kembali.	I don't know for certain when he'll come back.	125
 pasti	Saya tidak tahu pasti kapan dia akan kembali.	I don't know for certain when he'll come back.	125
@@ -262,16 +241,12 @@ terlalu	Jangan terlalu banyak bicara.	Do not talk too much.	129
 kata	Saya mau bilang kata itu.	I want to say that word.	130
 kata	Kata siapa?	Says who?	130
 kata	"""Kata siapa?"" ""Kata aku."""	"""Says who?"" ""Says me."""	130
-tulis	Tulis!	Write!	131
-baca	Baca.	Read.	132
 baca	Kamu pernah baca ini?	Have you read this?	132
 baca	Baca ini!	Read this.	132
 beliau	Apa yang beliau baca?	What's she reading?	132
 tanya	Aku ingin tanya kamu.	I'd like to ask you a favor.	133
 tanya	Jangan tanya aku.	Don't ask me.	133
 tanya	Jangan tanya aku. Tanya dia.	Don't ask me. Ask him.	133
-jawab	Jawab!	Answer!	134
-jawab	Jawab.	Respond.	134
 belajar	Aku harus belajar.	I have to study.	135
 belajar	Saya lagi belajar.	I am studying again.	135
 belajar	Aku sama sekali tidak belajar kemarin.	I didn't study at all yesterday.	135
@@ -284,25 +259,19 @@ tidur	Aku harus pergi tidur.	I have to go to sleep.	138
 tidur	Kamu harus tidur.	You should sleep.	138
 tidur	Aku pikir aku akan pergi tidur.	I think I'm gonna go to sleep.	138
 bangun	Kapan kamu bangun?	When did you get up?	139
-bangun	Bangun!	Wake up!	139
 bangun	Mereka masih belum bangun.	They still haven't woken up.	139
 ketika	Ketika aku bangun, dia sudah pergi.	When I woke up, he was gone.	139
 duduk	Aku pikir kau harus duduk.	I think you should sit.	140
-duduk	Duduk!	Sit!	140
 duduk	Di mana kita akan duduk?	Where will we sit?	140
-berdiri	Berdiri!	Stand up!	141
 berdiri	Aku tidak bisa berdiri.	I can't stand.	141
 berdiri	Mengapa kamu berdiri?	Why are you standing?	141
 jalan	Pulang pergi? Hanya sekali jalan.	Round trip? Only one-way.	142
 hanya	Pulang pergi? Hanya sekali jalan.	Round trip? Only one-way.	142
 jalan	Dia mungkin tidak bisa jalan lagi.	He will probably never walk again.	142
-lari	Lari!	Run!	143
 lari	Saya lari	I run.	143
 beli	Apa yang kamu beli?	What did you buy?	146
 beli	Beli apa?	What did you buy?	146
 beli	Kamu beli ini di mana?	Where did you buy this?	146
-tunggu	Tunggu.	Wait.	149
-tunggu	Tunggu!	Wait!	149
 tunggu	Jangan tunggu aku.	Don't wait for me.	149
 cari	Apa yang dia cari?	What did he look up?	150
 cari	Tolong cari mereka.	Please find them.	150
@@ -341,7 +310,6 @@ mengerti	Saya tidak mengerti kata ini.	I can't understand this word.	163
 paham	Aku pikir aku paham.	I think I understand.	164
 paham	Apa kamu paham?	Do you get it?	164
 paham	Tidak ada yang paham.	Nobody understands.	164
-ingat	Ingat!	Remember!	165
 ingat	Saya juga tidak ingat.	I can't remember either.	165
 ingat	Saya tidak ingat itu.	I have no recollection of it.	165
 lupa	Kami tidak pernah lupa.	We never forget.	166
@@ -356,11 +324,9 @@ mulai	Kapan kamu bisa mulai bekerja?	When could you start working?	168
 segera	Kamu harus segera mulai.	You must start soon.	168
 selesai	Aku hampir selesai.	I'm almost done.	169
 hampir	Aku hampir selesai.	I'm almost done.	169
-selesai	Selesai.	Done.	169
 selesai	Selesai belajar.	Finish studying.	169
 berhenti	Aku tidak ingin kau berhenti.	I don't want you to quit.	170
 berhenti	Kenapa kau berhenti?	Why did you stop?	170
-berhenti	Berhenti!	Stop!	170
 satu	Beri aku satu.	Give me one.	171
 ambil	Ambil satu saja.	Take only one.	171
 satu	Ambil satu saja.	Take only one.	171
@@ -521,7 +487,6 @@ air	Dia minum air.	He drinks water.	273
 air	Kamu minum air.	You drink water.	273
 makanan	Apa ada makanan yang tidak kamu suka?	Is there any food you don't like?	274
 makanan	Ini adalah makanan.	It is food.	274
-makanan	Makanan!	Food!	274
 minuman	Bagaimana kalau minuman?	How about a drink?	275
 bagaimana	Bagaimana kalau minuman?	How about a drink?	275
 nasi	Kamu sudah makan nasi?	Have you already eaten rice?	276
@@ -604,7 +569,6 @@ menit	Lima menit lagi! Tolong tunggu lima menit lagi!	Five more minutes! Please 
 menit	Saya bangun sepuluh menit yang lalu.	I woke up ten minutes ago.	293
 lalu	Saya bangun sepuluh menit yang lalu.	I woke up ten minutes ago.	293
 pagi	Aku harus bangun pagi-pagi.	I have to get up early.	294
-pagi	Pagi!	Mornin'!	294
 pagi	Tunggu sampai besok pagi!	Wait until tomorrow morning.	294
 siang	Saya pikir saya bisa datang siang ini.	I think I can come over this afternoon.	295
 siang	Aku belum makan siang.	I haven't eaten lunch yet.	295
@@ -677,7 +641,6 @@ kursi	Kursi ini jelek.	This chair is ugly.	314
 bagus	Itu bagus sekali.	It was really nice.	315
 buruk	Bagus sekali! Tidak buruk juga.	Well done! That's not bad.	315
 bagus	Bagus sekali! Tidak buruk juga.	Well done! That's not bad.	315
-bagus	Bagus.	Good.	315
 besar	Rumah itu besar.	That house is big.	316
 besar	Ini besar.	This is big.	316
 besar	Itu negara yang sangat besar.	It's a very large country.	316
@@ -712,14 +675,12 @@ mudah	Itu sangat mudah.	That was very easy.	325
 bahwa	Aku tahu bahwa ini tidak mudah.	I know this isn't easy.	325
 susah	Itu tidak terlalu susah, bukan?	That wasn't so difficult, was it?	327
 cepat	Tadi itu cepat.	That was fast.	328
-cepat	Cepat!	Hurry!	328
 cepat	Lebih cepat!	Faster!	328
 lambat	Itu sangat lambat.	It's so slow.	329
 lambat	Kamu terlalu lambat.	You were too slow.	329
 panas	Hari ini sangat panas.	Today is extremely hot.	330
 panas	Siapa mau cokelat panas?	Who wants hot chocolate?	330
 panas	Hari ini panas sekali!	It is very warm today!	330
-dingin	Dingin.	It's cold.	331
 dingin	Aku ingin minuman dingin.	I want something cold to drink.	331
 minuman	Aku ingin minuman dingin.	I want something cold to drink.	331
 dingin	Aku ingin minum sesuatu yang dingin.	I want to drink something cold.	331
@@ -738,7 +699,6 @@ penting	Ini tidak penting.	This is not important.	336
 penting	Itu tidak penting.	It's not important.	336
 uang	Uang itu penting.	Money is important.	336
 menarik	Itu tadi menarik, ya?	That was interesting, wasn't it?	337
-menarik	Menarik.	Interesting.	337
 menarik	Itu sama sekali tidak menarik.	It wasn't interesting at all.	337
 bosan	Dia mudah bosan.	He got bored quickly.	338
 bosan	Saya bosan.	I'm bored.	338
@@ -760,7 +720,6 @@ lelah	Kamu lelah, ya?	You are tired, aren't you?	343
 lelah	Dia terlalu lelah untuk bekerja.	He is too tired to work.	343
 lapar	Anda bilang anda lapar.	You said you were hungry.	345
 lapar	Saya lapar.	I am hungry.	345
-lapar	Lapar?	Hungry?	345
 haus	Aku haus.	I'm thirsty.	346
 haus	Aku tidak haus.	I am not thirsty.	346
 haus	Mereka tidak haus.	They're not thirsty.	346
@@ -795,7 +754,6 @@ kakak	Kakak perempuan saya cantik.	My older sister is beautiful.	356
 hitam	Kucing hitam itu cantik.	Black cats are beautiful.	356
 pintar	Dia sangat pintar.	She is very intelligent.	358
 pintar	Dia pintar.	He is intelligent.	358
-pintar	Pintar!	How clever!	358
 bodoh	Saya tidak bodoh.	I'm not stupid.	359
 bodoh	Kamu bodoh.	You're fools.	359
 bodoh	Ini bodoh.	This is silly.	359
@@ -822,10 +780,8 @@ salah	Apa itu salah?	Is that wrong?	365
 salah	Aku tidak tahu apa yang salah dengan itu.	I don't see what's wrong with that.	365
 salah	Aku pikir kau salah.	I think that you're wrong.	365
 jelas	Kau jelas-jelas sudah salah.	It's clear that you're wrong.	366
-jelas	Jelas.	Obviously.	366
 jelas	Aku ingat dengan jelas hari itu.	Well do I remember the day.	366
 aneh	Itu aneh.	It's strange.	367
-aneh	Aneh.	Strange.	367
 aneh	Ini aneh.	It's strange.	367
 enak	Makanan itu enak sekali.	That food is very tasteful.	368
 enak	Minuman ini sangat enak.	This drink is very delicious.	368
@@ -865,7 +821,6 @@ enam	Kita biasanya makan jam enam.	We usually eat at six.	385
 sebenarnya	Dia tahu yang sebenarnya.	He knows the truth.	388
 akhirnya	Akhirnya dia datang.	At last, he came.	389
 akhirnya	Akhirnya hujan berhenti.	At last, the rain stopped.	389
-akhirnya	Akhirnya!	Finally!	389
 sejarah	Aku ingin belajar Sejarah.	I want to study history.	396
 sejarah	Aku suka belajar sejarah.	I like studying history.	396
 seni	Saya belajar tentang sejarah seni.	I study art history.	398
@@ -1293,8 +1248,6 @@ kuno	Saya suka belajar bahasa-bahasa kuno.	I like learning ancient languages.	57
 rahasia	Mengapa ini rahasia?	Why was this a secret?	574
 rahasia	Ini rahasia.	It's confidential.	574
 rahasia	Itu rahasia.	It was confidential.	574
-mustahil	Mustahil!	Impossible!	576
-mustahil	Mustahil.	Impossible.	576
 mustahil	Itu mustahil.	That's impossible.	576
 biasa	Hari ini benar-benar hari yang luar biasa.	This is certainly a glorious day.	577
 biasa	Itu cukup luar biasa.	It was quite fantastic.	577
@@ -1417,7 +1370,6 @@ hasil	Daerah ini kaya akan hasil laut.	This area is rich in marine products.	610
 daerah	Daerah ini kaya akan hasil laut.	This area is rich in marine products.	610
 daerah	Ada banyak hotel di daerah ini.	There are many hotels in this area.	610
 masa	Adalah tidak mungkin untuk kembali ke masa lalu.	It is considered impossible to travel back to the past.	612
-masa	Masa?	Seriously?	612
 bagi	Tentu saja tidur di tempat kami akan lebih murah bagi anda.	It would of course be cheaper for you to sleep at our place.	613
 bagi	Saya mengerti bahwa hal itu tidak mudah bagi anda.	I know that things haven't been easy for you.	613
 bagi	Apa kau pikir itu penting bagi kami?	Do you think that really matters to any of us?	613
@@ -1614,7 +1566,6 @@ menyebabkan	Sesuatu yang kecil dapat menyebabkan hal yang besar.	Small things ca
 menyebabkan	Apa yang menyebabkan ini terjadi?	What would cause this?	717
 menyebabkan	Apa yang menyebabkan itu?	What causes that?	717
 dimulai	Akan dimulai jam berapa?	When will it begin?	718
-dimulai	Dimulai!	Begin!	718
 dimulai	Sudah dimulai sekarang.	It's starting now.	718
 acara	Acara akan segera dimulai.	The show's about to start.	718
 suatu	"Cerita itu dimulai dengan ""Pada suatu hari..."""	"The story begins with ""Once upon a time..."""	718
@@ -1826,7 +1777,6 @@ mencoba	Kami telah mencoba yang terbaik.	We tried our best.	862
 grup	Grup itu sedang sangat aktif saat ini.	That group is presently very active.	865
 aktif	Grup itu sedang sangat aktif saat ini.	That group is presently very active.	865
 aktif	Dia adalah orang yang aktif.	He is an active person.	865
-mati	Mati?	Dead?	866
 mati	Saya takut mati.	I am afraid of dying.	866
 mati	Bunga-bunga ini sudah mati.	These flowers have died.	866
 per	Mereka mati satu per satu.	They died one after another.	866
@@ -2054,7 +2004,6 @@ belas	Mereka makan malam pukul dua belas.	They eat dinner at twelve o'clock.	106
 hingga	Kemarin malam kami bekerja hingga pukul sepuluh.	Last night we worked until 10 p.m.	1066
 gas	Anda memasak dengan gas atau dengan listrik?	Do you cook by gas or electricity?	1067
 listrik	Anda memasak dengan gas atau dengan listrik?	Do you cook by gas or electricity?	1067
-perhatian	Perhatian!	Attention!	1068
 pengetahuan	Pengetahuan tentang komputer adalah dasar daripada segala ilmu pengetahuan.	Knowledge of computers is basic to all sciences.	1074
 dasar	Pengetahuan tentang komputer adalah dasar daripada segala ilmu pengetahuan.	Knowledge of computers is basic to all sciences.	1074
 ilmu	Pengetahuan tentang komputer adalah dasar daripada segala ilmu pengetahuan.	Knowledge of computers is basic to all sciences.	1074
@@ -2322,7 +2271,6 @@ kalah	Tim kita kalah, 2-0.	Our team lost, 2-0.	1294
 kalah	Antara kamu menang atau kalah.	You either win or you lose.	1294
 kalah	Kita kalah.	We lost.	1294
 selamat	Selamat pagi!	Good morning!	1295
-selamat	Selamat!	Congratulations!	1295
 selamat	Selamat ulang tahun!	Happy birthday to you!	1295
 ulang	Selamat ulang tahun!	Happy birthday to you!	1295
 ulang	Selamat ulang tahun.	Happy birthday!	1295
@@ -2786,7 +2734,6 @@ halus	Ini gula halus.	It's powdered sugar.	1776
 mengembalikan	Saya harus mengembalikan buku ini hari ini.	I need to return this book today.	1778
 sempurna	Tidak ada orang yang sempurna.	Nobody is perfect.	1780
 sempurna	Dia sempurna.	He was perfect.	1780
-sempurna	Sempurna!	Perfect!	1780
 kekalahan	Kekalahan itu sangat menghancurkan dia.	The defeat completely crushed him.	1781
 menghancurkan	Kekalahan itu sangat menghancurkan dia.	The defeat completely crushed him.	1781
 konten	Konten ini tidak tersedia di negara Anda.	This content is not available in your country.	1782
@@ -2971,7 +2918,6 @@ bulat	Ia memiliki wajah bulat.	She has a round face.	1948
 memastikan	Susah memastikan apa yang benar-benar terjadi.	It is difficult to ascertain what really happened.	1949
 keyakinan	Dia mempunyai keyakinan yang sangat kuat.	He has very firm convictions.	1952
 kebakaran	Apa kamu dengar tentang kebakaran yang terjadi kemarin?	Did you hear about the fire yesterday?	1953
-kebakaran	Kebakaran!	Fire!	1953
 kebakaran	Pada malam itu terjadi sebuah kebakaran.	A fire broke out that night.	1953
 fisika	Mempelajari fisika dapat mengubah cara berpikir Anda.	Learning physics can change your way of thinking.	1956
 fisika	Dia guru Fisika.	He's a physics teacher.	1956
@@ -3106,7 +3052,6 @@ berdua	Kami berdua punya nama yang sama.	We both have the same name.	2107
 swedia	Dia orang Swedia dan dia orang Swedia. Mereka berdua orang Swedia.	He is Swedish and she is Swedish. Both are Swedish.	2107
 tumbuh	Dia tumbuh menjadi seorang ilmuwan hebat.	She grew up to be a great scientist.	2108
 hebat	Dia tumbuh menjadi seorang ilmuwan hebat.	She grew up to be a great scientist.	2108
-hebat	Hebat!	Brilliant!	2108
 tahan	Aku tidak tahan lagi.	I can't stand it anymore.	2109
 tahan	Aku sudah tidak tahan lagi.	I can't stand it anymore.	2109
 tahan	Aku sudah tidak tahan lagi!	I can't take any more!	2109
@@ -3398,7 +3343,6 @@ soal	Ini bukan soal uang.	It's not about the money.	2285
 soal	Soal makan malam, aku berubah pikiran. Aku tidak begitu lapar saat ini.	I changed my mind about dinner. I'm not really hungry right now.	2285
 soal	Kami benar-benar lupa soal makan siang.	We totally forgot about lunch.	2285
 klasik	Aku tidak tahu apa-apa soal musik klasik.	I don't know anything about classical music.	2285
-sampah	Sampah!	Rubbish!	2287
 maksud	Saya yakin Anda tahu apa maksud saya.	I believe you know what I mean.	2288
 maksud	Saya paham maksud anda.	I got what you mean.	2288
 maksud	Kau pasti tahu apa yang aku maksud.	You know what I am talking about.	2288
@@ -3881,7 +3825,6 @@ dokumenter	Aku biasanya menonton film dokumenter.	I usually watch documentaries.
 dokumenter	Saya jarang menonton film dokumenter.	I seldom watch documentaries.	2782
 gila	Cinta itu gila.	Love is crazy.	2783
 gila	Orang-orang itu gila!	Those folks are insane!	2783
-gila	Gila!	Crazy!	2783
 janji	Aku janji.	I promise.	2786
 janji	Janji adalah janji.	A promise is a promise.	2786
 janji	Aku ada janji dengan dokter gigi.	I have a dentist appointment.	2786
@@ -4019,7 +3962,6 @@ alkohol	Beri tahu mereka aku tidak minum alkohol.	Tell them I don't drink.	2923
 alkohol	Alkohol juga murah di Jerman.	Alcohol is also cheap in Germany.	2923
 mengandung	Apakah minuman ini mengandung alkohol?	Does this drink have alcohol in it?	2923
 alkohol	Apakah minuman ini mengandung alkohol?	Does this drink have alcohol in it?	2923
-diam	Diam!	Shut up!	2927
 diam	Tom meminta kami untuk diam.	Tom asked us to be silent.	2927
 diam	Aku tidak akan diam.	I won't be silent.	2927
 katanya	Dia masih percaya pada kata-katanya.	He still believes her words.	2928

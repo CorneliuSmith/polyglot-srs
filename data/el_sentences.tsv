@@ -4,15 +4,12 @@ word	sentence	translation	difficulty_rank
 ε	Ε, και;	So what?	6
 είναι	Τι είναι;	What is it?	18
 τι	Τι είναι;	What is it?	18
-τι	Τι;	What?	18
 και	Και τι μ' αυτό;	So what?	19
 αυτό	Και τι μ' αυτό;	So what?	19
 μ	Και τι μ' αυτό;	So what?	19
 τι	Και τι μ' αυτό;	So what?	19
 αυτό	Τι είναι αυτό;	What is it?	19
 είναι	Τι είναι αυτό;	What is it?	19
-όχι	Όχι.	No.	24
-ναι	Ναι.	Yes.	25
 εδώ	Δεν είναι εδώ.	They aren't here.	31
 δεν	Δεν είναι εδώ.	They aren't here.	31
 σας	Είναι για σας.	It's for you.	32
@@ -34,7 +31,6 @@ word	sentence	translation	difficulty_rank
 θα	Θα είμαι εδώ.	I'll be here.	38
 όχι	Γιατί όχι;	Why not?	42
 γιατί	Γιατί όχι;	Why not?	42
-γιατί	Γιατί;	Why?	42
 γιατί	Γιατί είμαι εδώ;	Why am I here?	42
 πως	Πως είναι;	How is he?	43
 τώρα	Τώρα είναι 2:30.	It's 2:30 now.	44
@@ -43,11 +39,9 @@ word	sentence	translation	difficulty_rank
 εγώ	Εγώ είμαι!	It's me!	45
 εγώ	Γιατί εγώ;	Why me?	45
 είσαι	Δεν είσαι εγώ.	You're not me.	45
-εντάξει	Εντάξει.	All right.	46
 εντάξει	Είμαι εντάξει.	I'm fine.	46
 εντάξει	Είναι εντάξει;	Is she okay?	46
 ξέρω	Δεν ξέρω.	I have no idea.	49
-ξέρω	Ξέρω.	I know.	49
 ξέρω	Δεν την ξέρω.	I don't know her.	49
 την	Δεν την ξέρω.	I don't know her.	49
 σε	Σε ξέρω.	I know you.	49
@@ -91,7 +85,6 @@ word	sentence	translation	difficulty_rank
 σε	Σε θέλω εδώ.	I want you here.	57
 μπορώ	Δεν μπορώ.	I can't.	59
 μπορώ	Ναί, μπορώ.	Yes, I can.	59
-μπορώ	Μπορώ;	Can I?	59
 τη	Τη ξέρεις;	Do you know her?	60
 ξέρεις	Τη ξέρεις;	Do you know her?	60
 ξέρεις	Τον ξέρεις;	Do you know him?	60
@@ -132,7 +125,6 @@ word	sentence	translation	difficulty_rank
 τίποτα	Δεν έχεις τίποτα.	You have nothing.	68
 έχεις	Δεν έχεις τίποτα.	You have nothing.	68
 με	Με τίποτα!	No way!	68
-ευχαριστώ	Ευχαριστώ!	Thank you!	70
 ευχαριστώ	Όχι, ευχαριστώ.	No, thank you.	70
 ευχαριστώ	Ευχαριστώ πολύ!	Thank you very much!	70
 πολύ	Ευχαριστώ πολύ!	Thank you very much!	70
@@ -158,7 +150,6 @@ word	sentence	translation	difficulty_rank
 που	Δεν είμαι αυτό που κάνω, αλλά αυτό που μπορώ να κάνω!	I'm not what I do, but what I can do!	73
 τώρα	Τι θα κάνω τώρα;	What am I going to do now?	73
 τόσο	Δεν είμαι και τόσο καλά.	I'm not feeling so good.	75
-μπορεί	Μπορεί.	Maybe.	76
 κάνει	Δεν ξέρω τι θα κάνει.	I don't know what he'll do.	77
 κάνει	Τι κάνει;	What's she doing?	77
 ποτέ	Ποτέ δεν ξέρεις...	You never know.	78
@@ -187,12 +178,9 @@ word	sentence	translation	difficulty_rank
 αν	Έλα αν μπορείς.	Come if you can.	86
 γεια	Γεια σου.	Hello!	87
 γεια	Γεια σας.	Hello!	87
-γεια	Γεια!	Hi!	87
 μας	Γειά μας!	Cheers!	87
 μέσα	Έλα μέσα!	Come in!	88
-πάμε	Πάμε.	Let's go!	89
 πάμε	Έλα πάμε!	Let's go!	89
-πάμε	Πάμε!	Let's go!	89
 τα	Δεν τα πάμε καλά.	We don't get along.	89
 σπίτι	Γιατί δεν πάμε σπίτι;	Why don't we go home?	90
 σπίτι	Είναι σπίτι τώρα.	He's at home right now.	90
@@ -216,7 +204,6 @@ word	sentence	translation	difficulty_rank
 την	Ποιος την έχει;	Who has it?	96
 παρακαλώ	Ναι, παρακαλώ.	Yes, please.	97
 παρακαλώ	«Ευχαριστώ.» «Παρακαλώ.»	"""Thank you."" ""You're welcome."""	97
-παρακαλώ	Παρακαλώ!	You are welcome!	97
 πού	Πού πάμε;	Where are we going?	100
 από	Από πού είσαι;	Where are you from?	100
 πού	Από πού είσαι;	Where are you from?	100
@@ -345,7 +332,6 @@ word	sentence	translation	difficulty_rank
 πες	Πες μου τι να κάνω.	Tell me what to do.	145
 πες	Πες μου τι θέλεις.	Tell me what you want.	145
 υπάρχει	Πες μου αν υπάρχει τίποτα που μπορώ να κάνω.	Let me know if there is anything I can do.	145
-σωστά	Σωστά.	This is true.	146
 σωστά	Κάτι κάνουμε σωστά.	We're doing something right.	146
 σωστά	Το κάνω σωστά;	Am I doing it right?	146
 ζωή	Η ζωή είναι ωραία.	Life is wonderful.	148
@@ -383,7 +369,6 @@ word	sentence	translation	difficulty_rank
 κανείς	Είναι κανείς σπίτι;	Is anybody home?	161
 κανείς	Είναι κανείς εδώ;	Anybody here?	161
 κανείς	Δεν υπάρχει κανείς εκεί.	There's nobody there.	161
-ακριβώς	Ακριβώς!	Exactly!	164
 ακριβώς	Πού ακριβώς είμαστε;	Where exactly are we?	164
 ακριβώς	Τι ακριβώς έκανε;	What was she doing exactly?	164
 έκανε	Τι ακριβώς έκανε;	What was she doing exactly?	164
@@ -416,7 +401,6 @@ word	sentence	translation	difficulty_rank
 μέχρι	Μέχρι εδώ ωραία τα λέει.	Well said so far.	171
 λέει	Μέχρι εδώ ωραία τα λέει.	Well said so far.	171
 λέει	Κανείς δε λέει όχι!	Nobody says no!	171
-συγγνώμη	Συγγνώμη.	I'm sorry.	173
 συγγνώμη	Συγγνώμη, τι ώρα είναι;	Excuse me, what time is it?	173
 έκανα	Γιατί το έκανα αυτό;	Why did I do this?	174
 έκανα	Δεν έκανα τίποτα.	I didn't do anything.	174
@@ -436,8 +420,6 @@ word	sentence	translation	difficulty_rank
 καλό	Πρέπει να πω ότι φαίνεται καλό.	I must say it looks good.	177
 φαίνεται	Αυτός φαίνεται καλά.	He seems well.	177
 φαίνεται	Πώς σου φαίνεται;	How does it seem to you?	177
-φυσικά	Φυσικά.	Naturally.	179
-λυπάμαι	Λυπάμαι...	Sorry...	180
 λυπάμαι	Λυπάμαι για αυτό.	I am feeling sad about it.	180
 λυπάμαι	Λυπάμαι πολύ.	I am very sorry.	180
 μέρος	Πού είναι αυτό το μέρος;	Where is this place?	181
@@ -490,7 +472,6 @@ word	sentence	translation	difficulty_rank
 ήσουν	Το ξέρω ότι ήσουν εσύ.	I know it was you.	205
 ήσουν	Ήσουν εκεί;	Were you there?	205
 ήσουν	Δεν έπρεπε να ήσουν εδώ.	You were not supposed to be here.	205
-πάλι	Πάλι!	Again!	207
 πάλι	Πάλι κάνεις λάθος.	You're wrong again.	207
 πάλι	Είμαστε και πάλι μαζί.	We are together again.	207
 μία	Έχουμε η μία την άλλη.	We have each other.	208
@@ -535,7 +516,6 @@ word	sentence	translation	difficulty_rank
 λίγο	Θα πάρει λίγο χρόνο.	It will take some time.	221
 πάρει	Θα πάρει λίγο χρόνο.	It will take some time.	221
 σίγουρα	Ναι, σίγουρα.	Yes, certainly.	222
-σίγουρα	Σίγουρα.	Certainly.	222
 πάρω	Θα το πάρω.	I'll buy it.	223
 πάρω	Αν δε σ' αρέσει αυτό, θα σου πάρω κάτι άλλο.	If you don't like this, I'll get you something else.	223
 πάρω	Θα τον πάρω.	I'll take him.	223
@@ -575,8 +555,6 @@ word	sentence	translation	difficulty_rank
 ξέρει	Αυτή με ξέρει.	She knows me.	235
 ξέρει	Με ξέρει.	She knows me.	235
 πήγαινε	Κάτι δεν πήγαινε καλά.	Something was wrong.	236
-πήγαινε	Πήγαινε.	Go.	236
-πήγαινε	Πήγαινε!	Go!	236
 ποιο	Πες μου ποιο θέλεις.	Tell me which you want.	237
 ποιο	Ποιο απ' αυτά είναι δικό μου;	Which one of them is mine?	237
 ποιο	Ποιο σου είπε ότι θα ήταν εδώ;	Who told you he would be here?	237
@@ -681,7 +659,6 @@ word	sentence	translation	difficulty_rank
 μεγάλη	Ήταν μεγάλη.	It was big.	273
 καταλαβαίνω	Δεν καταλαβαίνω.	I don't get it.	274
 καταλαβαίνω	Δεν το καταλαβαίνω αυτό.	I don't understand this.	274
-καταλαβαίνω	Καταλαβαίνω.	I understand.	274
 πράγμα	Υπάρχει ένα πράγμα που δεν καταλαβαίνω.	There's one thing I don't understand.	274
 ήξερα	Δεν ήξερα πού να πάω.	I did not know where to go.	275
 ήξερα	Το ήξερα.	I knew it.	275
@@ -714,7 +691,6 @@ word	sentence	translation	difficulty_rank
 αμέσως	Θα είμαι μαζί σας αμέσως.	I'll be with you in a second.	284
 αμέσως	Πρέπει να πας αμέσως εκεί.	You have to go there immediately.	284
 ξανά	Έκανες ξανά το ίδιο λάθος.	You have made the very same mistake again.	285
-ξανά	Ξανά!	Again!	285
 ξανά	Το έχει κάνει ξανά και ξανά.	He's done that again and again.	285
 πότε	Πότε μπορώ να τη δώ;	When can I see her?	286
 πότε	Πότε πρόκειται να το κάνεις αυτό;	When are you going to do that?	286
@@ -736,7 +712,6 @@ word	sentence	translation	difficulty_rank
 ήρθε	Μου ήρθε μια ιδέα.	I had an idea.	294
 ήρθε	Μου ήρθε τότε μιά καλή ιδέα.	I hit upon a good idea then.	294
 τότε	Μου ήρθε τότε μιά καλή ιδέα.	I hit upon a good idea then.	294
-ήρθε	Ήρθε.	He came.	294
 κάποιος	Κάποιος ήρθε.	Somebody came.	294
 όσο	Ήρθε όσο πιο γρήγορα μπορούσε.	He came as soon as he could.	294
 μπορούσε	Ήρθε όσο πιο γρήγορα μπορούσε.	He came as soon as he could.	294
@@ -824,7 +799,6 @@ word	sentence	translation	difficulty_rank
 πειράζει	Δεν πειράζει.	Never mind.	325
 πειράζει	Θα το πάρω, αν δε σας πειράζει.	I'll take it if you don't mind.	325
 πειράζει	Θα τον πάρω, αν δε σας πειράζει.	I'll take it if you don't mind.	325
-βοήθεια	Βοήθεια!	Help!	326
 βοήθεια	Χρειάζομαι βοήθεια.	I need help.	326
 βοήθεια	Θέλετε βοήθεια;	Do you want help?	326
 εννοώ	Το εννοώ.	I mean it.	327
@@ -972,7 +946,6 @@ word	sentence	translation	difficulty_rank
 βρήκα	Το βρήκα.	I found it.	379
 βρήκα	Σας βρήκα.	I found you.	379
 βρήκα	Σε βρήκα.	I found you.	379
-τέλεια	Τέλεια!	Perfect!	380
 τέλεια	Δεν είμαι τέλεια.	I'm not perfect.	380
 τέλεια	Όλα ήταν τέλεια.	Everything was perfect.	380
 άλλα	Ήθελα να του πω κάτι, άλλα δεν του το είπα.	I wanted to say something to him, but I didn't.	381
@@ -1102,7 +1075,6 @@ word	sentence	translation	difficulty_rank
 νιώθω	Νιώθω κάτι.	I feel something.	426
 χέρια	Δε νιώθω τα χέρια μου.	I don't feel my hands.	426
 νιώθω	Δε νιώθω τα χέρια μου.	I don't feel my hands.	426
-αντίο	Αντίο.	Goodbye!	427
 υπόθεση	Αυτό είναι δική του υπόθεση.	That is his business.	428
 λεπτά	Περίμενε πέντε λεπτά, σε παρακαλώ.	Please wait five minutes.	429
 πέντε	Περίμενε πέντε λεπτά, σε παρακαλώ.	Please wait five minutes.	429
@@ -1158,8 +1130,6 @@ word	sentence	translation	difficulty_rank
 καμιά	Θα σε πάρω σε καμιά ώρα.	I will call you in an hour.	446
 καμιά	Μα δεν έχεις καμιά ιδέα!	I have no idea!	446
 μα	Μα δεν έχεις καμιά ιδέα!	I have no idea!	446
-βέβαια	Βέβαια!	Of course!	447
-βέβαια	Βέβαια.	Of course.	447
 μπορούν	Μπορούν να το κάνουν.	They can do it.	448
 μπορούν	Μπορούν να λένε αυτά τα πράγματα;	Can they say these things?	448
 υποθέτω	Υποθέτω πως δε θέλετε να φύγω.	I assume you don't want me to leave.	449
@@ -1230,7 +1200,6 @@ word	sentence	translation	difficulty_rank
 ήρθα	Ήρθα όσο πιο γρήγορα μπορούσα.	I came as fast as I could.	473
 ήρθα	Χαίρομαι που ήρθα.	I'm glad I came.	473
 ήρθα	Δεν ήρθα για αυτό.	That's not what I came here for.	473
-νεκρός	Νεκρός;	Dead?	474
 πλάκα	Πλάκα μου κάνεις;	Are you kidding?	475
 βέβαια	Κάνεις πλάκα βέβαια.	You must be kidding!	475
 πλάκα	Κάνεις πλάκα βέβαια.	You must be kidding!	475
@@ -1242,17 +1211,13 @@ word	sentence	translation	difficulty_rank
 νομίζεις	Νομίζεις ότι αυτό είναι παιχνίδι;	Do you think this is a game?	479
 παιχνίδι	Νομίζεις πως αυτό είναι παιχνίδι;	Do you think this is a game?	479
 παιχνίδι	Δεν της αρέσει αυτό το παιχνίδι.	She doesn't like this game.	479
-καλημέρα	Καλημέρα.	Good morning!	480
 καλημέρα	Γεια σας! Καλημέρα!	Hello! Good morning!	480
-καλημέρα	Καλημέρα!	Good morning!	480
 χάρη	Θα μου κάνεις μια χάρη;	Would you do me a favour?	481
 χάρη	«Μας κάνεις μια χάρη;» «Και τι θα ήταν αυτή;»	“Just do us one favor, will you?” “And what would that be?”	481
 καταλαβαίνεις	Δεν καταλαβαίνεις.	You don't understand.	482
-καταλαβαίνεις	Καταλαβαίνεις;	Do you understand?	482
 καταλαβαίνεις	Με καταλαβαίνεις.	You understand me.	482
 εννοώ	Είμαι σίγουρος ότι καταλαβαίνεις τι εννοώ.	I'm sure you know what I mean.	482
 κατάλαβα	Ποτέ δεν το κατάλαβα αυτό.	I never understood this.	484
-κατάλαβα	Κατάλαβα.	I understood.	484
 κατάλαβα	Δεν κατάλαβα τίποτα.	I didn't understand a word.	484
 σκοτώσει	Θέλει να με σκοτώσει.	He wants to kill me.	485
 σημαντικό	Η αγάπη είναι σημαντικό πράγμα.	Love is an important thing.	486
@@ -1368,7 +1333,6 @@ word	sentence	translation	difficulty_rank
 άκουσα	Σε άκουσα.	I heard you.	532
 γιο	Πες μου για τον γιο σου.	Tell me about your son.	533
 γιο	Πείτε μου για τον γιο σας.	Tell me about your son.	533
-προσπαθώ	Προσπαθώ.	I try.	534
 βοηθήσει	Ποιος μπορεί να με βοηθήσει;	Who will help me?	535
 βοηθήσει	Αυτός θα σε βοηθήσει.	He is going to help you.	535
 βοηθήσει	Κανείς δεν μπορεί να με βοηθήσει.	No one can help me.	535
@@ -1443,7 +1407,6 @@ word	sentence	translation	difficulty_rank
 πλέον	Δεν τον πιστεύω πλέον.	I don't believe him any longer.	569
 πλέον	Δεν είμαι πλέον μόνος.	I'm no longer alone.	569
 πλέον	Δεν είμαι μόνη μου πλέον.	I'm no longer alone.	569
-μπράβο	Μπράβο!	Well done!	570
 μάθω	Θα μάθω.	I will learn.	571
 μάθω	Δεν ξέρω και δεν θέλω να μάθω.	I don't know and I don't want to know.	571
 μάθω	Δεν το ξέρω και ούτε και θέλω να το μάθω.	I don't know, nor do I want to know.	571
@@ -1462,7 +1425,6 @@ word	sentence	translation	difficulty_rank
 έξι	Θα σας πάρω με το αυτοκίνητο κατά τις έξι η ώρα.	I'll pick you up by car at around six o'clock.	575
 κατά	Θα σας πάρω με το αυτοκίνητο κατά τις έξι η ώρα.	I'll pick you up by car at around six o'clock.	575
 έξι	Είναι έξι και πέντε.	It's five past six.	575
-πρόσεχε	Πρόσεχε!	Look out!	578
 πρόσεχε	Πρόσεχε τι λες!	Watch your mouth!	578
 ήμασταν	Ήμασταν απλά φίλοι.	We were just friends.	579
 δείτε	Θα δείτε.	You'll see.	582
@@ -1485,11 +1447,9 @@ word	sentence	translation	difficulty_rank
 αξίζει	Αυτό δεν αξίζει πολλά.	This is not worth much.	588
 μαμά	Καληνύχτα, μαμά.	Good night, Mom.	590
 καληνύχτα	Καληνύχτα, μαμά.	Good night, Mom.	590
-καληνύχτα	Καληνύχτα.	Goodnight!	590
 καληνύχτα	Ευχαριστώ και καληνύχτα!	Thanks and good night!	590
 αντίο	Αντίο και καληνύχτα.	Goodbye and good night.	590
 σκέφτομαι	Σκέφτομαι ότι αυτό ήταν δικό του λάθος.	I think that it was his mistake.	592
-σκέφτομαι	Σκέφτομαι.	I'm thinking.	592
 σκέφτομαι	Τι νομίζεις ότι σκέφτομαι;	What do you think I'm thinking?	592
 πήρες	Τον πήρες τηλέφωνο χθες;	Did you ring him yesterday?	595
 πήρες	Τι ώρα πήρες τηλέφωνο;	What time did you call?	595
@@ -1514,7 +1474,6 @@ word	sentence	translation	difficulty_rank
 ποτό	Πού είναι το ποτό σας;	Where's your drink?	604
 ποτό	Πού είναι το ποτό σου;	Where's your drink?	604
 προφανώς	Προφανώς έκανα λάθος.	Obviously I made a mistake.	605
-προφανώς	Προφανώς.	Obviously.	605
 προφανώς	Προφανώς, λέει ψέματα.	Obviously, he is lying.	605
 άφησε	Άφησε με να το κάνω.	Let me do it.	606
 άφησε	Άφησε το εκεί.	Leave it there.	606
@@ -1527,8 +1486,6 @@ word	sentence	translation	difficulty_rank
 περιμένει	Η δουλειά μπορεί να περιμένει.	The work can wait.	608
 περιμένει	Πείτε του να περιμένει.	Tell him to wait.	608
 περιμένει	Πες του να περιμένει.	Tell him to wait.	608
-ηρέμησε	Ηρέμησε!	Calm down!	609
-ηρέμησε	Ηρέμησε.	Calm down.	609
 δίπλα	Είμαστε δίπλα-δίπλα.	We're side by side.	610
 αυτού	Θέλω ένα καλύτερο αυτού.	I want a better one than this.	612
 φίλη	Η φίλη σου είναι εδώ.	Your friend is here.	613
@@ -1634,8 +1591,6 @@ word	sentence	translation	difficulty_rank
 δείπνο	Το δείπνο είναι δικό μου σήμερα.	Dinner today in my account.	660
 δείπνο	Το δείπνο είναι το βράδυ.	Dinner is in the evening.	660
 μετά	Θα φύγουμε αμέσως μετά το δείπνο.	We will leave right after dinner.	660
-υπέροχα	Υπέροχα!	Wonderful!	661
-προσοχή	Προσοχή!	Attention!	662
 προσοχή	Μπορώ να έχω την προσοχή σας, παρακαλώ;	May I have your attention, please?	662
 προσοχή	Προσοχή, παρακαλώ!	Attention please!	662
 βρήκε	Πού βρήκε αυτός αυτά τα χρήματα;	Where did he find the money?	663
@@ -1694,7 +1649,6 @@ word	sentence	translation	difficulty_rank
 υπέροχο	Είσαι ένα υπέροχο άτομο!	You are a wonderful person!	681
 προσπάθησε	Κάποιος προσπάθησε να σας σκοτώσει.	Somebody tried to kill you.	683
 προσπάθησε	Κάποιος προσπάθησε να σε σκοτώσει.	Somebody tried to kill you.	683
-προσπάθησε	Προσπάθησε.	She tried.	683
 δείξω	Θα σου δείξω την πόλη.	I'll show you around the city.	684
 δείξω	Έχω κάτι να σου δείξω.	I've got something to show you.	684
 δείξω	Ήθελα να σου το δείξω.	I wanted to show it to you.	684
@@ -1710,7 +1664,6 @@ word	sentence	translation	difficulty_rank
 θάνατο	Να θυμάσαι το θάνατο, αλλά να σκέφτεσαι τη ζωή!	Remember death, but think about life!	689
 οποίο	Σκέφτεσαι το κορίτσι το οποίο είδες χθες;	Are you thinking of the girl that you saw yesterday?	689
 τιμή	Είναι μεγάλη τιμή για εμένα.	It's such a honor to me.	691
-σκάσε	Σκάσε!	Close your mouth!	692
 φως	Το φως είναι ζωή.	Light is life.	694
 γυρίσω	Δε θέλω να γυρίσω πίσω.	I don't wanna go back.	695
 γυρίσω	Όταν γυρίσω, θα μιλήσουμε.	When I return, we'll talk.	695
@@ -1718,7 +1671,6 @@ word	sentence	translation	difficulty_rank
 γνώμη	Σας παρακαλώ, πείτε μου τη γνώμη σας.	Please tell me your opinion.	697
 γνώμη	Κατά τη γνώμη μου, είσαι όμορφη.	In my opinion, you're beautiful.	697
 γνώμη	Κατά τη γνώμη μου, είστε όμορφη.	In my opinion, you're beautiful.	697
-επιτέλους	Επιτέλους!	Finally!	698
 επιτέλους	Επιτέλους βρήκα δουλειά.	I finally got a job.	698
 παντού	Υπάρχει αίμα παντού.	There's blood everywhere.	699
 εναντίον	Είναι πάντα εναντίον μου.	He's always against me.	701
@@ -1749,7 +1701,6 @@ word	sentence	translation	difficulty_rank
 θεού	Για όνομα τού Θεού.	For heaven's sake.	709
 θεού	Για όνομα τού Θεού!	For God's sake!	709
 θεού	Για όνομα του Θεού!	For God's sake!	709
-υπόσχομαι	Υπόσχομαι.	I promise.	712
 έρχονται	Ήξερα ότι έρχονται.	I knew they were coming.	716
 έρχονται	Έρχονται κι αυτοί;	Are they coming as well?	716
 έρχονται	Πότε έρχονται;	When are they coming?	716
@@ -1862,7 +1813,6 @@ word	sentence	translation	difficulty_rank
 πρώην	Ήρθα πρόσωπο με πρόσωπο με τον πρώην άντρα μου.	I came face to face with my ex-husband.	768
 πρόσωπο	Ήρθα πρόσωπο με πρόσωπο με τον πρώην άντρα μου.	I came face to face with my ex-husband.	768
 παραπάνω	Προσπάθησε λίγο παραπάνω.	Try a little harder.	769
-επίθεση	Επίθεση!	Attack!	771
 σκοτώσεις	Δεν μπορείς να μας σκοτώσεις όλους.	You can't kill us all.	772
 όλους	Δεν μπορείς να μας σκοτώσεις όλους.	You can't kill us all.	772
 σκοτώσεις	Δεν μπορείς να μας σκοτώσεις όλες.	You can't kill us all.	772
@@ -1871,7 +1821,6 @@ word	sentence	translation	difficulty_rank
 πλοίο	Αυτό το πλοίο είναι σαν ένα σπίτι.	This ship is like a house.	773
 έχασα	Έχασα πολύ αίμα.	I lost a lot of blood.	775
 έχασα	Έχασα το παιχνίδι.	I lost the game.	775
-έχασα	Έχασα.	I lost.	775
 συχνά	Είμαι συχνά εδώ.	I'm often here.	776
 συχνά	Δεν έρχομαι πολύ συχνά εδώ.	I don't come here very often.	776
 συχνά	Πόσο συχνά μπορείς και βλέπεις τα παιδιά σου;	How often do you get to see your children?	776
@@ -1926,7 +1875,6 @@ word	sentence	translation	difficulty_rank
 ανάγκη	Είμαι ο μόνος που δεν είχε ανάγκη να το κάνει.	I'm the only one who didn't need to do that.	802
 ανάγκη	Δεν μπορώ να δω καμία ανάγκη να το κάνω.	I can't see any need to do that.	802
 δουλεύω	Έκανα πως δουλεύω.	I pretended to work.	803
-δουλεύω	Δουλεύω.	I am working.	803
 δουλεύω	Δουλεύω ήδη.	I already have a job.	803
 συνήθως	Συνήθως δουλεύω το πρωί.	I usually work in the morning.	803
 ξαφνικά	Πέθανε ξαφνικά.	He suddenly died.	804
@@ -1935,7 +1883,6 @@ word	sentence	translation	difficulty_rank
 μπαρ	Δουλεύω σε μπαρ.	I work at a bar.	807
 μπαρ	Είναι πολύ μικρή για να πάει σε μπαρ.	She is too young to go to bars.	807
 φεύγω	Δε φεύγω.	I'm not leaving.	808
-φεύγω	Φεύγω.	I'm leaving.	808
 φεύγω	Φεύγω αύριο.	I'm leaving tomorrow.	808
 άκουσες	Άκουσες τι είπα.	You heard what I said.	809
 άκουσες	Άκουσες τι είπε;	Did you hear what he said?	809
@@ -1967,7 +1914,6 @@ word	sentence	translation	difficulty_rank
 πίστευα	Ούτε εγώ το πίστευα.	I didn't believe it either.	825
 δουλεύεις	Με δουλεύεις;	Are you pulling my leg?	826
 δουλεύεις	Πού δουλεύεις;	Where do you work?	826
-δουλεύεις	Δουλεύεις;	Are you working?	826
 παίρνω	Λυπάμαι. Παίρνω πίσω αυτό που είπα.	I'm sorry. I take back my words.	827
 παίρνω	Παίρνω ένα βιβλίο.	I take a book.	827
 γιαγιά	Αυτή είναι η γιαγιά μου.	This is my grandmother.	828
@@ -1978,7 +1924,6 @@ word	sentence	translation	difficulty_rank
 παράξενο	Ήταν παράξενο.	It was strange.	830
 παράξενο	Θέλω να σου πω κάτι παράξενο.	I want to tell you something strange.	830
 παρέα	Είστε η παρέα μου!	You are my group of friends.	831
-χάρηκα	Χάρηκα.	I'm pleased to meet you.	833
 τραγούδι	Σου αρέσει αυτό το τραγούδι;	Do you like this song?	834
 τραγούδι	Σ' αρέσει αυτό το τραγούδι;	Do you like this song?	834
 τραγούδι	Σας αρέσει αυτό το τραγούδι;	Do you like this song?	834
@@ -1999,7 +1944,6 @@ word	sentence	translation	difficulty_rank
 γραφείο	Το γραφείο μου είναι παλιό.	My office is old.	838
 χιλιάδες	Μέσα σε κάθε άνθρωπο υπάρχουν χιλιάδες.	Within every man are thousands.	840
 άνθρωπο	Μέσα σε κάθε άνθρωπο υπάρχουν χιλιάδες.	Within every man are thousands.	840
-συγχαρητήρια	Συγχαρητήρια!	Congratulations!	841
 συγχαρητήρια	Συγχαρητήρια για τον γάμο σας.	Congratulations on your marriage.	841
 γάμο	Συγχαρητήρια για τον γάμο σας.	Congratulations on your marriage.	841
 παίρνω	Αντί για αυτό, παίρνω εκείνο.	Instead of this, I take that.	842
@@ -2008,7 +1952,6 @@ word	sentence	translation	difficulty_rank
 φωνή	Κατά φωνή...	Speak of the devil.	844
 φωνή	Άκουσα πως έχεις ωραία φωνή.	I heard you have a beautiful voice.	844
 μπάνιο	Έκανα μπάνιο.	I was taking a bath.	845
-προσπαθεί	Προσπαθεί.	He tries.	846
 φαίνεσαι	Φαίνεσαι να σκέφτεσαι κάτι άλλο.	You seem to be thinking of something else.	847
 ύπνο	Πάω για ύπνο.	I go to bed.	849
 ύπνο	Θέλω να πάω για ύπνο.	I want to go to sleep.	849
@@ -2027,7 +1970,6 @@ word	sentence	translation	difficulty_rank
 ζει	Ζει έξω απ' την πόλη.	He lives outside the city.	857
 κρίμα	Τι κρίμα!	What a pity!	858
 κρίμα	Κρίμα που δεν μπορούσες να έρθεις.	It's a pity that you couldn't come.	858
-κρίμα	Κρίμα...	Sorry...	858
 μικρός	Τι μικρός που είναι ο κόσμος!	What a small world!	859
 πεθάνω	Δε θέλω να πεθάνω.	I don't want to die.	860
 πεθάνω	Δεν είμαι έτοιμος να πεθάνω.	I'm not ready to die.	860
@@ -2048,7 +1990,6 @@ word	sentence	translation	difficulty_rank
 ανήκει	Σε ποιον ανήκει αυτό το σπίτι;	Who owns that house?	871
 γη	Αυτή η γη μου ανήκει.	I own this land.	871
 λιγάκι	Περίμενε λιγάκι.	Wait a bit.	875
-έκπληξη	Έκπληξη!	Surprise!	880
 κόσμου	Δεν ήρθε και το τέλος του κόσμου!	It's not the end of the world!	882
 μαλακίες	Όλο μαλακίες κάνει.	He only messes up.	884
 συνάντηση	Δεν ήμουν σ' εκείνη τη συνάντηση.	I wasn't at that meeting.	886
@@ -2087,7 +2028,6 @@ word	sentence	translation	difficulty_rank
 καταλάβει	Ας δούμε αν το έχω καταλάβει σωστά.	Let's see if I've got that right.	907
 καταλάβει	Ας δούμε αν το έχω καταλάβει καλά.	Let's see if I've got that right.	907
 συγνώμη	Συγνώμη, εγώ δεν έχω καταλάβει τι έχετε πει.	Sorry, I haven't understood what you said.	907
-καλησπέρα	Καλησπέρα.	Good evening.	909
 καλησπέρα	Καλησπέρα, τι κάνεις;	Good evening, how are you?	909
 καλησπέρα	Καλησπέρα σας, κύριε.	Good evening, Sir.	909
 κύριε	Καλησπέρα σας, κύριε.	Good evening, Sir.	909
@@ -2172,7 +2112,6 @@ word	sentence	translation	difficulty_rank
 νέος	Αυτός δεν είναι νέος.	He is not young.	946
 νέος	Δεν είμαι πια νέος.	I'm not young anymore.	946
 δυστυχώς	Δυστυχώς είναι αλήθεια.	It is unfortunately true.	947
-δυστυχώς	Δυστυχώς!	Unfortunately!	947
 δυστυχώς	Δυστυχώς, πρέπει να φύγω.	Unfortunately, I have to go.	947
 κανόνες	Ποιοι είναι οι κανόνες;	What are the rules?	949
 κανόνες	Έχουμε μόνο τρεις κανόνες.	We have only three rules.	949
@@ -2207,7 +2146,6 @@ word	sentence	translation	difficulty_rank
 άνδρας	Ο άνδρας θέλει να μάθει την αλήθεια.	The man wants to know the truth.	961
 ξέχασα	Ξέχασα το βιβλίο.	I forgot the book.	962
 ξέχασα	Δεν ξέχασα.	I didn't forget.	962
-ξέχασα	Ξέχασα.	I forgot.	962
 συγγνώμη	Συγγνώμη, ξέχασα.	Sorry, I forgot.	962
 τελείως	Συγγνώμη, το ξέχασα τελείως.	Sorry, I forgot it completely.	962
 ηλίθιος	Είσαι ηλίθιος;	Are you stupid?	963
@@ -2244,11 +2182,9 @@ word	sentence	translation	difficulty_rank
 αρχίσει	Τι ώρα θα αρχίσει το παιχνίδι;	What time will the game start?	980
 αρχίσει	Τι ώρα θ' αρχίσει το παιχνίδι;	What time will the game start?	980
 μπω	Φοβάμαι να μπω μέσα εκεί.	I'm afraid to go in there.	983
-απίστευτο	Απίστευτο!	Unbelievable!	984
 απίστευτο	Αυτό είναι απίστευτο!	This is unbelievable!	984
 απίστευτο	Είναι απίστευτο.	It's unbelievable.	984
 φτάνει	Φτάνει που σε θέλω εγώ.	It's enough that I want you.	985
-φτάνει	Φτάνει.	It's enough.	985
 τσάι	Αυτό το τσάι μου αρέσει.	I like this tea.	986
 τσάι	Μου αρέσει το τσάι.	I like tea.	986
 τσάι	Χρειάζομαι λίγο τσάι.	I need some tea.	986
@@ -2286,7 +2222,6 @@ word	sentence	translation	difficulty_rank
 άκουσε	Άκουσε και θα εξηγήσω.	Listen and I'll explain.	1014
 ήρθαν	Ποτέ δεν ήρθαν.	They never came.	1015
 ήρθαν	Δεν ήρθαν ποτέ.	They never came.	1015
-ήρθαν	Ήρθαν.	They came.	1015
 κάπου	Κάπου την έχω ξαναδεί μου φαίνεται.	I remember meeting her somewhere.	1016
 ξαναδεί	Κάπου την έχω ξαναδεί μου φαίνεται.	I remember meeting her somewhere.	1016
 ξαναδεί	Έχω ξαναδεί αυτή τη φωτογραφία	I've seen this picture before.	1016
@@ -2582,7 +2517,6 @@ word	sentence	translation	difficulty_rank
 φάει	Δεν έχω φάει πρωινό ακόμα.	I haven't eaten breakfast yet.	1193
 φάει	Δεν έχω φάει.	I haven't eaten.	1193
 φάει	Έχουμε φάει.	We've eaten.	1193
-εξαφανίστηκε	Εξαφανίστηκε.	He disappeared.	1195
 επτά	Ο γιος του εξαφανίστηκε επτά χρόνια πριν.	His son disappeared seven years ago.	1195
 γιος	Ο γιος του εξαφανίστηκε επτά χρόνια πριν.	His son disappeared seven years ago.	1195
 εξαφανίστηκε	Ο γιος του εξαφανίστηκε επτά χρόνια πριν.	His son disappeared seven years ago.	1195
@@ -2651,7 +2585,6 @@ word	sentence	translation	difficulty_rank
 συμφωνώ	Συμφωνώ απολύτως.	I totally agree.	1224
 βγεις	«Δεν πρέπει να βγεις τώρα.» «Γιατί όχι;»	"""You mustn't go out now."" ""Why not?"""	1225
 βγεις	Θα βγεις;	Are you going out?	1225
-μαλάκα	Μαλάκα!	Bastard!	1233
 προσπάθεια	Αξίζει μια προσπάθεια.	It's worth a try.	1235
 καθένας	Ο καθένας πρέπει να κάνει μια προσπάθεια.	Everyone has to make an effort.	1235
 προσπάθεια	Ο καθένας πρέπει να κάνει μια προσπάθεια.	Everyone has to make an effort.	1235
@@ -2708,7 +2641,6 @@ word	sentence	translation	difficulty_rank
 φεύγει	Τι ώρα φεύγει το λεωφορείο;	What time does the bus leave?	1267
 βάρος	Αυτή έχασε βάρος.	She has lost weight.	1269
 βάρος	Μου έφυγε ένα βάρος από την καρδιά.	It's a weight off my shoulders.	1269
-έχασες	Έχασες;	Did you lose?	1271
 έχασες	Πώς το έχασες;	How did you lose it?	1271
 γεύμα	Σου άρεσε το γεύμα;	Did you like the meal?	1274
 γεύμα	Σας άρεσε το γεύμα;	Did you like the meal?	1274
@@ -2956,7 +2888,6 @@ word	sentence	translation	difficulty_rank
 απόδειξη	Πού 'ναι η απόδειξη;	Where's the receipt?	1457
 απόδειξη	Πού είναι η απόδειξη;	Where's the receipt?	1457
 απόδειξη	Πού 'ν' η απόδειξη;	Where's the receipt?	1457
-έφυγα	Έφυγα.	I left.	1460
 έφυγα	Έφυγα για Λονδίνο.	I left for London.	1460
 λονδίνο	Έφυγα για Λονδίνο.	I left for London.	1460
 έφυγα	Έφυγα από την τράπεζα με άδεια χέρια.	I left the bank empty-handed.	1460
@@ -2974,7 +2905,6 @@ word	sentence	translation	difficulty_rank
 παππού	Μένω με τη γιαγιά μου και τον παππού μου.	I'm living with my grandmother and grandfather.	1468
 μένω	Μένω με τη γιαγιά μου και τον παππού μου.	I'm living with my grandmother and grandfather.	1468
 γελοίο	Είναι γελοίο.	It's ridiculous.	1470
-γελοίο	Γελοίο!	Nonsense!	1470
 είδαμε	Σου άρεσε η ταινία που είδαμε χθες;	Did you like the movie we watched yesterday?	1472
 είδαμε	Σας άρεσε η ταινία που είδαμε χθες;	Did you like the movie we watched yesterday?	1472
 είδαμε	Τα είδαμε.	We saw them.	1472
@@ -3114,7 +3044,6 @@ word	sentence	translation	difficulty_rank
 κούκλα	Κούκλα είσαι σήμερα!	You look so pretty today!	1554
 κατάφερα	Κατάφερα να μπω μέσα.	I managed to get in.	1556
 μπω	Κατάφερα να μπω μέσα.	I managed to get in.	1556
-κατάφερα	Κατάφερα.	I made it.	1556
 κατάφερα	Τον κατάφερα να έρθει μαζί μου.	I got him to come with me.	1556
 τελικά	Τα κατάφερα τελικά!	I've finally made it!	1556
 πιες	Πιες λίγο νερό.	Drink some water.	1557
@@ -3248,7 +3177,6 @@ word	sentence	translation	difficulty_rank
 μπορούν	Μπορούν να πουν αυτά τα πράγματα;	Can they say these things?	1637
 πουν	Μπορούν να πουν αυτά τα πράγματα;	Can they say these things?	1637
 χάνεις	Χάνεις τον χρόνο σου.	You are wasting time.	1640
-χάνεις	Χάνεις.	You're losing.	1640
 απασχολημένος	Είμαι πολύ απασχολημένος.	I'm very busy.	1641
 απασχολημένος	Είμαι απασχολημένος.	I'm busy.	1641
 απασχολημένος	Ο πατέρας μου είναι απασχολημένος τώρα.	My father is busy now.	1641
@@ -3266,7 +3194,6 @@ word	sentence	translation	difficulty_rank
 παππούς	Ο παππούς μου κάνει βόλτα κάθε πρωί.	My grandfather takes a walk every morning.	1651
 παππούς	Ο παππούς μου μιλάει πολύ αργά.	My grandfather speaks very slowly.	1651
 παππούς	Ο παππούς μου είναι άρρωστος.	My grandfather is ill.	1651
-αναρωτιόμουν	Αναρωτιόμουν.	I was wondering.	1652
 τέρμα	Τέρμα για σήμερα!	That's enough for today!	1654
 διαφορετική	Είναι διαφορετική.	She's different.	1656
 διαφορετική	Πάντα ήταν διαφορετική.	She was always different.	1656
@@ -3285,7 +3212,6 @@ word	sentence	translation	difficulty_rank
 πόσοι	Πόσοι άνθρωποι είναι εκεί έξω;	How many people are out there?	1663
 άλλα	Με άλλα λόγια, είσαι βλάκας.	In other words, you're an idiot.	1664
 βλάκας	Με άλλα λόγια, είσαι βλάκας.	In other words, you're an idiot.	1664
-ανοησίες	Ανοησίες!	Nonsense!	1667
 βρεθεί	Ελπίζω να βρεθεί σύντομα το κινητό μου.	I hope my cell phone is found soon.	1669
 ντροπή	Ντροπή σου!	Shame on you!	1670
 ντροπή	Ντροπή σας!	Shame on you!	1670
@@ -3333,8 +3259,6 @@ word	sentence	translation	difficulty_rank
 νεκρός	Ο σκύλος είναι νεκρός.	The dog is dead.	1688
 μικρός	Ο σκύλος μου είναι πιο μικρός απ' τον δικό σου.	My dog is smaller than yours is.	1688
 μικρός	Ο σκύλος μου είναι πιο μικρός απ' τον δικό σας.	My dog is smaller than yours is.	1688
-βλακείες	Βλακείες!	Nonsense!	1691
-εξαιρετικά	Εξαιρετικά!	Hotshot!	1694
 ψάχνω	Ψάχνω για τα γυαλιά μου.	I'm looking for my eyeglasses.	1695
 γυαλιά	Ψάχνω για τα γυαλιά μου.	I'm looking for my eyeglasses.	1695
 γαλλία	Είμαι από τη Γαλλία, εσύ;	I'm from France, and you?	1696
@@ -3429,7 +3353,6 @@ word	sentence	translation	difficulty_rank
 κήπο	Έρχομαι από τον κήπο.	I come from the garden.	1771
 κήπο	Δεν βλέπεις τον κήπο μου;	Don't you see my garden?	1771
 μιλάνε	Ο άντρας, για τον οποίο μιλάνε, έχει πεθάνει εδώ και πολύ καιρό.	The man they're talking about has been dead for a long time.	1774
-μιλάνε	Μιλάνε.	They're talking.	1774
 όσοι	Όσοι ζουν καλά ζουν πολλά χρόνια.	A person lives long who lives well.	1775
 ζουν	Όσοι ζουν καλά ζουν πολλά χρόνια.	A person lives long who lives well.	1775
 ασθενοφόρο	Το ασθενοφόρο ήρθε γρήγορα.	The ambulance arrived quickly.	1777
@@ -3508,7 +3431,6 @@ word	sentence	translation	difficulty_rank
 σκληρός	Είστε σκληρός.	You're tough.	1828
 πεινάω	Θα πεινάω.	I'll be hungry.	1829
 πεινάω	Δεν πεινάω καθόλου.	I'm not hungry at all.	1829
-πεινάω	Πεινάω.	I am hungry.	1829
 δώρα	Αυτά είναι δώρα.	These are gifts.	1830
 δώρα	Αυτά τα δώρα είναι για σας.	These gifts are for you.	1830
 γλυκά	Καληνύχτα και όνειρα γλυκά.	Good night and sweet dreams.	1831
@@ -3587,7 +3509,6 @@ word	sentence	translation	difficulty_rank
 λιγάκι	Είμαι λιγάκι κουρασμένος.	I'm a bit tired.	1880
 θέατρο	Πάμε θέατρο;	Shall we go to the theater?	1882
 τρώω	Τρώω το κρέας.	I'm eating the meat.	1883
-τρώω	Τρώω.	I'm eating.	1883
 τρώω	Δεν τρώω ποτέ κρέας.	I never eat meat.	1883
 ίδιος	Δεν τρώω κρέας ο ίδιος.	I don't eat meat myself.	1883
 ανυπομονώ	Ανυπομονώ να τον δω.	I'm looking forward to seeing him.	1884
@@ -3626,7 +3547,6 @@ word	sentence	translation	difficulty_rank
 αναλάβει	Κανείς δε θέλει να αναλάβει την ευθύνη.	Now no one wants to take the blame.	1904
 σάντουιτς	Τρώω σάντουιτς. Εσύ θέλεις;	I'm having a sandwich. Would you like some?	1905
 σάντουιτς	Τρώω σάντουιτς. Εσύ θες;	I'm having a sandwich. Would you like some?	1905
-πρόσεξε	Πρόσεξε!	Look out!	1906
 γιορτή	Καλή Γιορτή της Μητέρας.	Happy Mother's Day!	1910
 μητέρας	Καλή Γιορτή της Μητέρας.	Happy Mother's Day!	1910
 γιορτή	Θα ήθελα να δω τη γιορτή.	I'd like to see the festival.	1910
@@ -3678,7 +3598,6 @@ word	sentence	translation	difficulty_rank
 πέμπτη	Σήμερα είναι Πέμπτη.	Today is Thursday.	1933
 πίνεις	Πίνεις τσάι;	Do you drink tea?	1937
 πίνεις	Πίνεις τσάι.	You drink tea.	1937
-πίνεις	Πίνεις;	Are you drinking?	1937
 χώρος	Υπάρχει χώρος μέσα.	There's room inside.	1938
 χώρος	Υπάρχει μέσα χώρος.	There's room inside.	1938
 πολύς	Υπάρχει πολύς χώρος εδώ μέσα.	There's a lot of room in here.	1938
@@ -3762,8 +3681,6 @@ word	sentence	translation	difficulty_rank
 βοηθήσετε	Ξέρω ότι θέλετε να τον βοηθήσετε.	I know you want to help him.	1992
 βοηθήσετε	Πρέπει να βοηθήσετε τους φίλους σας.	You must help your friends.	1992
 στρατιώτης	Δεν είναι στρατιώτης.	He's not a soldier.	1993
-υποσχέθηκα	Υποσχέθηκα.	I promised.	1994
-ουάου	Ουάου!	Wow!	1995
 πίστεψε	Κανείς δε σε πίστεψε.	Nobody believed you.	1996
 πίστεψε	Κανείς δε σας πίστεψε.	Nobody believed you.	1996
 τομέα	Δεν είμαι ειδικός σ' αυτόν τον τομέα.	I'm not an expert in this field.	2004
@@ -3975,7 +3892,6 @@ word	sentence	translation	difficulty_rank
 δώσει	Θα ήθελα να μου δώσει μια εξήγηση.	I would like her to give me an explanation.	2170
 εξήγηση	Θα ήθελα να μου δώσει μια εξήγηση.	I would like her to give me an explanation.	2170
 γράφω	Τελείωσα να γράφω.	I finished writing.	2171
-γράφω	Γράφω.	I am writing.	2171
 γράφω	Μου αρέσει να γράφω.	I like to write.	2171
 περάσετε	Καλά να περάσετε.	Have a good time.	2173
 περάσετε	Να περάσετε ένα όμορφο απόγευμα.	Have a lovely afternoon.	2173
@@ -4185,7 +4101,6 @@ word	sentence	translation	difficulty_rank
 συνάντησα	Χθες τον συνάντησα για πρώτη φορά.	I met him yesterday for the first time.	2354
 τυχερός	Πόσο τυχερός που είμαι που σε συνάντησα εδώ!	How lucky I am to meet you here!	2354
 κέρδισα	Κέρδισα το πρώτο βραβείο.	I won the first prize.	2355
-κέρδισα	Κέρδισα!	I won!	2355
 σκοπεύω	Σκοπεύω να πω την αλήθεια.	I intend to tell the truth.	2358
 συγγενείς	Έχω πολλούς συγγενείς.	I have many relatives.	2365
 συγγενείς	Είστε συγγενείς;	Are you relatives?	2365
@@ -4211,7 +4126,6 @@ word	sentence	translation	difficulty_rank
 πυρ	«Πυρ!», φώναξε.	"""Fire!"" he cried."	2387
 φώναξε	«Πυρ!», φώναξε.	"""Fire!"" he cried."	2387
 έφτασα	Μόλις έφτασα.	I just arrived now.	2391
-έφτασα	Έφτασα.	I arrived.	2391
 έφτασα	Έφτασα σπίτι μόλις πριν λίγο.	I got home just a while ago.	2391
 εβδομάδες	Έφτασα πριν από δύο εβδομάδες.	I arrived two weeks ago.	2391
 σπάνια	Σπάνια τρώω έξω.	I rarely eat out.	2397
@@ -4248,7 +4162,6 @@ word	sentence	translation	difficulty_rank
 υπέρ	Είσαι υπέρ ή κατά του πολέμου;	Are you for or against the war?	2439
 παράνομο	Είναι παράνομο να έχεις περισσότερες από μία γυναίκες.	It is illegal to have more than one wife.	2440
 περισσότερες	Είναι παράνομο να έχεις περισσότερες από μία γυναίκες.	It is illegal to have more than one wife.	2440
-τηλεφώνησα	Τηλεφώνησα.	I phoned.	2447
 τηλεφώνησα	Του τηλεφώνησα.	I phoned him.	2447
 κυριολεκτικά	Προφανώς δεν το εννοώ κυριολεκτικά.	Obviously I don't mean it literally.	2448
 ανακάλυψε	Ποιος ανακάλυψε το τηλέφωνο;	Who invented the telephone?	2450
@@ -4319,7 +4232,6 @@ word	sentence	translation	difficulty_rank
 προειδοποίηση	Αυτή είναι η τελευταία προειδοποίηση.	This is the last warning.	2523
 καθαρά	Αυτό το ψάρι ζει σε καθαρά νερά.	This fish lives in clear water.	2524
 νερά	Αυτό το ψάρι ζει σε καθαρά νερά.	This fish lives in clear water.	2524
-πεθαίνω	Πεθαίνω.	I'm dying.	2534
 πάντοτε	Δεν έχουμε πάντοτε δίκιο.	We aren't always right.	2535
 πάντοτε	Πάντοτε κάνεις το ίδιο λάθος.	You always make the same mistake.	2535
 πάντοτε	Πάντοτε κάνετε το ίδιο λάθος.	You always make the same mistake.	2535
@@ -4371,7 +4283,6 @@ word	sentence	translation	difficulty_rank
 ποιους	Πείτε μου ποιους θέλετε.	Tell me which you want.	2572
 ποιους	Πες μου ποιους θέλεις.	Tell me which you want.	2572
 ποιους	Σε ποιους μιλάς;	Who are you talking to?	2572
-έπεσα	Έπεσα.	I fell.	2575
 έπεσα	Έπεσα έξω με εσένα.	I was wrong about you.	2575
 ενδιαφέρουσα	Η ιστορία ήταν ενδιαφέρουσα.	The story was interesting.	2576
 ενδιαφέρουσα	Μου είπε μία ενδιαφέρουσα ιστορία.	He told me an interesting story.	2576
@@ -4391,7 +4302,6 @@ word	sentence	translation	difficulty_rank
 σιωπή	Η σιωπή φωνάζει πιο δυνατά από οποιαδήποτε συζήτηση.	The quiet screams louder than any argument.	2593
 πεινάς	Δεν πεινάς;	Aren't you hungry?	2594
 πεινάς	Νομίζω πως πεινάς.	I think you're hungry.	2594
-πεινάς	Πεινάς;	Are you hungry?	2594
 πρόσωπα	Είναι πολύ σημαντικά πρόσωπα.	They are very important people.	2596
 σημαντικά	Είναι πολύ σημαντικά πρόσωπα.	They are very important people.	2596
 επικίνδυνος	Είμαι επικίνδυνος.	I'm dangerous.	2597
@@ -4408,7 +4318,6 @@ word	sentence	translation	difficulty_rank
 μαύρος	Ο δικός μου είναι μαύρος.	Mine is black.	2606
 μαύρος	Ήταν μαύρος.	It was black.	2606
 δήμαρχος	Αυτή θα είναι η επόμενη δήμαρχος.	She will be the next mayor.	2616
-αστειεύομαι	Αστειεύομαι.	I am joking.	2617
 αστειεύομαι	Δεν αστειεύομαι.	I'm not kidding.	2617
 αστειεύομαι	Αστειεύομαι φίλε, ηρέμησε.	I'm kidding, buddy, calm down.	2617
 ηρέμησε	Αστειεύομαι φίλε, ηρέμησε.	I'm kidding, buddy, calm down.	2617
@@ -4447,7 +4356,6 @@ word	sentence	translation	difficulty_rank
 έλαβα	Έλαβα το δώρο σας.	I received your gift.	2648
 θείο	Έμεινα με το θείο μου.	I stayed with my uncle.	2649
 έμεινα	Έμεινα με το θείο μου.	I stayed with my uncle.	2649
-έμεινα	Έμεινα.	I stayed.	2649
 έμεινα	Έμεινα με το στόμα ανοιχτό.	I was stunned.	2649
 γύρισα	Γύρισα από το εξωτερικό.	I returned from abroad.	2650
 εξωτερικό	Γύρισα από το εξωτερικό.	I returned from abroad.	2650
@@ -4733,7 +4641,6 @@ word	sentence	translation	difficulty_rank
 λευκή	Σου αρέσει η λευκή σοκολάτα;	Do you like white chocolate?	2953
 λευκή	Σας αρέσει η λευκή σοκολάτα;	Do you like white chocolate?	2953
 μαθαίνω	Μαθαίνω πολλά από τον πατέρα μου.	I learn a lot from my father.	2955
-μαθαίνω	Μαθαίνω.	I'm learning.	2955
 μαθαίνω	Μου αρέσει να μαθαίνω.	I like learning.	2955
 σημαία	Αυτή είναι μια σημαία.	This is a flag.	2960
 κόκκινη	Ποια σημαία είναι λευκή, κόκκινη και μπλε;	Which flag is white, red, and blue?	2960
@@ -5082,7 +4989,6 @@ word	sentence	translation	difficulty_rank
 μηχανικός	Θέλω να γίνω μηχανικός.	I want to become a mechanic.	3357
 μηχανικός	Η γυναίκα που βγήκε έξω είναι μηχανικός.	The woman who went outdoors is an engineer.	3357
 βγήκε	Η γυναίκα που βγήκε έξω είναι μηχανικός.	The woman who went outdoors is an engineer.	3357
-τρέχω	Τρέχω.	I run.	3360
 τρέχω	Μ' αρέσει να τρέχω.	I like to run.	3360
 τρέχω	Μου αρέσει να τρέχω.	I like to run.	3360
 μπάσκετ	Παίζεις μπάσκετ;	Do you play basketball?	3362
@@ -5090,7 +4996,6 @@ word	sentence	translation	difficulty_rank
 αριθμός	Το επτά θεωρείται τυχερός αριθμός.	Seven is said to be a lucky number.	3364
 έρευνες	Δεν εμπιστεύομαι αυτές τις έρευνες.	I don't trust these surveys.	3366
 απευθείας	Είναι απευθείας πτήση;	Is it a direct flight?	3371
-φοβήθηκα	Φοβήθηκα.	I was frightened.	3373
 φοβήθηκα	Δε φοβήθηκα.	I wasn't afraid.	3373
 φοβήθηκα	Φοβήθηκα όταν το είδα.	I was frightened when I saw that.	3373
 γενιά	Η γιαγιά μου ανήκει σε άλλη γενιά.	My grandmother belongs to another generation.	3375
@@ -5098,7 +5003,6 @@ word	sentence	translation	difficulty_rank
 τυφλός	Είσαι τυφλός;	Are you blind?	3378
 τυφλός	Είστε τυφλός;	Are you blind?	3378
 φανταστικά	Είναι φανταστικά..	They're amazing.	3380
-φανταστικά	Φανταστικά!	Terrific!	3380
 δες	Δες όλα αυτά τα φανταστικά πράγματα.	Look at all this cool stuff.	3380
 φανταστικά	Δες όλα αυτά τα φανταστικά πράγματα.	Look at all this cool stuff.	3380
 στέγη	Θέλω όλοι να μένουμε κάτω από την ίδια στέγη.	I want us all under one roof again.	3382
@@ -5177,7 +5081,6 @@ word	sentence	translation	difficulty_rank
 νόστιμο	Αυτό το τυρί είναι νόστιμο.	This cheese is delicious.	3470
 συνείδηση	Δεν έχεις συνείδηση!	You have no conscience!	3471
 συνείδηση	Τα ζώα έχουν συνείδηση;	Do animals have a conscience?	3471
-βρέχει	Βρέχει.	It is raining.	3473
 βρέχει	Πάλι βρέχει!	It's raining again!	3473
 βρέχει	Βρέχει σήμερα.	It's raining today.	3473
 άρχισε	Άρχισε να βρέχει.	It started raining.	3473
@@ -5283,7 +5186,6 @@ word	sentence	translation	difficulty_rank
 διαταγές	Ακολουθώ διαταγές.	I follow orders.	3639
 αμφιβολίες	Είχα τις αμφιβολίες μου.	I had my doubts.	3640
 αμφιβολίες	Είχα αμφιβολίες.	I had doubts.	3640
-αληθεύει	Αληθεύει.	This is true.	3655
 αληθεύει	Μακάρι να αληθεύει.	Hopefully, that's true.	3655
 υπολογιστής	Αυτός είναι ο υπολογιστής μου.	This is my computer.	3659
 υπολογιστής	Τι κάνει εδώ αυτός ο υπολογιστής;	What's this computer doing here?	3659
@@ -5301,7 +5203,6 @@ word	sentence	translation	difficulty_rank
 δώσατε	Σε ποιον το δώσατε;	Whom did you give it to?	3667
 ψεύτη	Με είπε ψεύτη.	He lied to me.	3668
 κότα	Δεν είμαι κότα.	I'm not chicken.	3669
-κότα	Κότα!	Duck!	3669
 κότα	Η κότα τρώει αυγά;	Does the hen eat eggs?	3669
 έρευνα	Η έρευνα δεν έχει προχωρήσει ούτε ένα βήμα.	The investigation hasn't progressed even one step.	3670
 προχωρήσει	Η έρευνα δεν έχει προχωρήσει ούτε ένα βήμα.	The investigation hasn't progressed even one step.	3670
@@ -5479,7 +5380,6 @@ word	sentence	translation	difficulty_rank
 εύκολα	Τα Ισπανικά είναι εύκολα.	Spanish is easy.	3888
 απέτυχε	Προσπάθησε αρκετές φορές, αλλά απέτυχε.	She tried several times but failed.	3892
 αρκετές	Προσπάθησε αρκετές φορές, αλλά απέτυχε.	She tried several times but failed.	3892
-απέτυχε	Απέτυχε.	It failed.	3892
 απέτυχε	Το πείραμα απέτυχε.	The experiment failed.	3892
 πείραμα	Το πείραμα απέτυχε.	The experiment failed.	3892
 σταθερό	Αυτό το τραπέζι δεν είναι σταθερό.	This table isn't steady.	3894
@@ -5575,7 +5475,6 @@ word	sentence	translation	difficulty_rank
 ήσυχος	Είναι ένας ήσυχος άνθρωπος.	He is a quiet person.	4015
 ήσυχος	Είναι ήσυχος άνθρωπος.	He is a quiet person.	4015
 ήσυχος	Γιατί είσαι τόσο ήσυχος;	Why are you being so quiet?	4015
-αρνούμαι	Αρνούμαι.	I refuse.	4020
 αρνούμαι	Δεν το αρνούμαι.	I don't deny it.	4020
 επιτρέψω	Αρνούμαι να το επιτρέψω αυτό.	I refuse to allow this.	4020
 αρνούμαι	Αρνούμαι να το επιτρέψω αυτό.	I refuse to allow this.	4020
@@ -5599,7 +5498,6 @@ word	sentence	translation	difficulty_rank
 διαφορές	Βρες τις διαφορές.	Find the differences.	4043
 διαφορές	Βρείτε τις διαφορές.	Find the differences.	4043
 λάστιχο	Έμεινα από λάστιχο.	I got a flat tire.	4045
-χάσατε	Χάσατε;	Did you lose?	4047
 χάσατε	Χάσατε πολύ αίμα;	Did you lose a lot of blood?	4047
 διαφορετικές	Η Ιαπωνία και η Κίνα είναι διαφορετικές από πολλές απόψεις.	Japan and China are different in many respects.	4051
 απόψεις	Η Ιαπωνία και η Κίνα είναι διαφορετικές από πολλές απόψεις.	Japan and China are different in many respects.	4051
@@ -5656,7 +5554,6 @@ word	sentence	translation	difficulty_rank
 αλληλογραφία	Πού είναι η αλληλογραφία μου;	Where is my mail?	4094
 βέβαιη	Δεν είμαι βέβαιη.	I'm not certain.	4096
 βέβαιη	Είμαι βέβαιη ότι άφησα την πόρτα ανοιχτή.	I'm sure I left the door open.	4096
-προσεύχομαι	Προσεύχομαι.	I am praying.	4097
 προσεύχομαι	Προσεύχομαι να πάνε όλα καλά.	I'm keeping my fingers crossed.	4097
 κούπα	Χρειάζομαι μια κούπα ζάχαρη.	I need a cup of sugar.	4098
 προσεκτικοί	Δεν ήμαστε αρκετά προσεκτικοί.	We weren't cautious enough.	4103
@@ -5796,7 +5693,6 @@ word	sentence	translation	difficulty_rank
 επίδραση	Κάθε λάθος έχει μια επίδραση.	Every mistake has an effect.	4277
 σόδα	Μπορώ να έχω μια σόδα, παρακαλώ;	Can I have some soda, please?	4281
 πέθανα	Γιατί δεν πέθανα τότε!	Why did I not die then!	4286
-ονειρεύομαι	Ονειρεύομαι;	Am I dreaming?	4289
 ονειρεύομαι	Δεν ονειρεύομαι.	I'm not dreaming.	4289
 ονειρεύομαι	Ξέρω, ότι δεν ονειρεύομαι.	I know I'm not dreaming.	4289
 ύπνος	Ονειρεύομαι μόλις με πάρει ο ύπνος.	I dream as soon as I fall asleep.	4289
@@ -5814,7 +5710,6 @@ word	sentence	translation	difficulty_rank
 επιδόρπιο	Ποιο είναι το αγαπημένο σας επιδόρπιο;	What's your favorite dessert?	4314
 επιδόρπιο	Ποιο είναι το αγαπημένο σου επιδόρπιο;	What's your favorite dessert?	4314
 επιδόρπιο	Ποιο είναι τ' αγαπημένο σου επιδόρπιο;	What's your favorite dessert?	4314
-γκολ	Γκολ!	Goal!	4315
 έβαλα	Έβαλα γκολ.	I scored a goal.	4315
 γκολ	Έβαλα γκολ.	I scored a goal.	4315
 μπίρα	Μια μπίρα, παρακαλώ.	A beer, please.	4317
@@ -5856,7 +5751,6 @@ word	sentence	translation	difficulty_rank
 συγχωρώ	Σε συγχωρώ, επειδή δεν ήξερες τι έκανες.	I forgive you because you didn't know what you were doing.	4377
 ψηλό	Κοίτα εκείνο το ψηλό κτίριο.	Look at that tall building.	4380
 βιάζομαι	Δεν μπορώ να περιμένω, επειδή βιάζομαι.	I can't wait because I'm in a hurry.	4382
-βιάζομαι	Βιάζομαι.	I'm in a hurry.	4382
 βιάζομαι	Δεν βιάζομαι.	I'm not in a rush.	4382
 ψιλά	Συγνώμη, δεν έχω ψιλά.	I'm sorry, I don't have change.	4388
 πουλόβερ	Κάνει κρύο· γιατί δε φοράς ένα πουλόβερ;	It's cold; why don't you put on a sweater?	4392
@@ -6029,7 +5923,6 @@ word	sentence	translation	difficulty_rank
 πιάσατε	Τον πιάσατε τον κλέφτη.	You caught the thief.	4669
 κλέφτη	Τον πιάσατε τον κλέφτη.	You caught the thief.	4669
 πιάσατε	Πιάσατε τον κλέφτη.	You caught the thief.	4669
-διαφωνώ	Διαφωνώ.	I disagree.	4672
 διαφωνώ	Δε διαφωνώ.	I don't disagree.	4672
 διαφωνώ	Συγγνώμη, μου αρέσει να διαφωνώ...	I'm sorry, I like to disagree...	4672
 ανακοίνωση	Ο πρωθυπουργός θα κάνει αύριο μιά ανακοίνωση.	The prime minister will make an announcement tomorrow.	4674
@@ -6120,7 +6013,6 @@ word	sentence	translation	difficulty_rank
 σπιτάκι	Έχει ένα σπιτάκι.	She has a small house.	4778
 πόσος	Πόσος κόσμος είναι εκεί μέσα;	How many people are in there?	4785
 πόσος	Πόσος κόσμος είναι εκεί έξω;	How many people are out there?	4785
-διάβαζα	Διάβαζα.	I was reading.	4788
 διάβαζα	Πού έβαλες το βιβλίο που διάβαζα;	Where did you put the book I was reading?	4788
 συνέχεια	Αν θα μπορούσα, θα διάβαζα συνέχεια.	If I could, I would read all the time.	4788
 διάβαζα	Αν θα μπορούσα, θα διάβαζα συνέχεια.	If I could, I would read all the time.	4788
@@ -6191,7 +6083,6 @@ word	sentence	translation	difficulty_rank
 βάλατε	Πού ακριβώς τη βάλατε;	Where exactly did you put it?	4846
 λύπη	Δεν ξέρω αν νιώθω οργή ή λύπη αυτή τη στιγμή.	I don't know if I feel rage or sadness right now.	4847
 οργή	Δεν ξέρω αν νιώθω οργή ή λύπη αυτή τη στιγμή.	I don't know if I feel rage or sadness right now.	4847
-βαριέμαι	Βαριέμαι.	I'm bored.	4853
 βαριέμαι	Είχα αρχίσει να βαριέμαι λίγο.	I was getting a little bored.	4853
 βαριέμαι	Τον βαριέμαι.	He bores me.	4853
 προσεκτική	Είμαι προσεκτική.	I'm careful.	4854
@@ -6252,7 +6143,6 @@ word	sentence	translation	difficulty_rank
 αλεπού	Αυτός ο τύπος μοιάζει με αλεπού.	This guy looks like a fox.	4957
 αλεπού	Τι λέει η αλεπού;	What does the fox say?	4957
 αλεπού	Η αλεπού τρώει μία κότα.	The fox is eating a hen.	4957
-έπινε	Έπινε.	He was drinking.	4960
 ενοίκιο	Το ενοίκιο είναι ακριβό.	The rent is expensive.	4962
 αποζημίωση	Απαιτώ αποζημίωση!	I demand a refund!	4963
 απαιτώ	Απαιτώ αποζημίωση!	I demand a refund!	4963
@@ -6271,7 +6161,6 @@ word	sentence	translation	difficulty_rank
 γείτονας	Είστε ο καινούργιος μας γείτονας.	You are our new neighbor.	4994
 αληθινοί	Οι αληθινοί ήρωες είμαστε εμείς.	The real heroes are us.	5001
 ήρωες	Οι αληθινοί ήρωες είμαστε εμείς.	The real heroes are us.	5001
-αρχίδι	Αρχίδι!	Bastard!	5004
 ηγέτες	Είναι οι ηγέτες μας.	They're our leaders.	5006
 ηγέτες	Ένας ελεύθερος κόσμος δεν έχει ηγέτες.	A free world doesn't have leaders.	5006
 προσγείωση	Το αεροπλάνο έκανε μια τέλεια προσγείωση.	The plane made a perfect landing.	5007
@@ -6337,7 +6226,6 @@ word	sentence	translation	difficulty_rank
 σχολής	Ο κύριος Τζάκσον είναι ο διευθυντής της σχολής μας.	Mr. Jackson is the principal of our school.	5114
 τραπέζια	Τα τραπέζια είναι άδεια.	The tables are empty.	5132
 οπαδός	Ποια ομάδα ποδοσφαίρου είστε οπαδός;	Which football team are you a fan of?	5133
-απέτυχα	Απέτυχα.	I failed.	5138
 τόξο	Δεν έχω ποτέ δει ουράνιο τόξο.	I've never seen a rainbow.	5142
 ουράνιο	Δεν έχω ποτέ δει ουράνιο τόξο.	I've never seen a rainbow.	5142
 τόξο	Ίσως να δούμε και ουράνιο τόξο!	We may even see a rainbow!	5142
@@ -6402,7 +6290,6 @@ word	sentence	translation	difficulty_rank
 περιλαμβάνει	Αυτή η τιμή περιλαμβάνει γεύματα;	Does this price include meals?	5225
 γεύματα	Αυτή η τιμή περιλαμβάνει γεύματα;	Does this price include meals?	5225
 συμφώνησα	Συμφώνησα να το κάνω.	I agreed to do it.	5235
-συμφώνησα	Συμφώνησα.	I agreed.	5235
 διόρθωση	Έχω κάνει μια διόρθωση.	I've made a correction.	5236
 παραδόσεις	Οι παραδόσεις πλέον δεν έχουν κανέναν νόημα.	Traditions no longer make any sense.	5239
 όμως	Εγώ είμαι φοιτητής, αυτός όμως δεν είναι.	I am a student, but he isn't.	5241
@@ -6639,7 +6526,6 @@ word	sentence	translation	difficulty_rank
 συνέλαβε	Η αστυνομία τον συνέλαβε.	The police arrested him.	5651
 συνέλαβε	Η αστυνομία συνέλαβε 13 ανθρώπους.	Police arrested 13 people.	5651
 ομοφυλόφιλος	Είμαι ομοφυλόφιλος.	I'm a homosexual.	5663
-ομοφυλόφιλος	Ομοφυλόφιλος.	Faggot.	5663
 ομοφυλόφιλος	Δεν είμαι ομοφυλόφιλος.	I'm not gay.	5663
 οικογένειας	Αυτή είναι η χαρά όλης της οικογένειας.	She is the joy of the whole family.	5666
 όλης	Αυτή είναι η χαρά όλης της οικογένειας.	She is the joy of the whole family.	5666
@@ -6787,7 +6673,6 @@ word	sentence	translation	difficulty_rank
 πολιτικοί	Οι πολιτικοί δε λένε πάντοτε την αλήθεια.	Politicians don't always tell the truth.	5977
 ιερά	Κάποια πράγματα είναι ιερά.	Some things are sacred.	5980
 τραγουδάω	Τραγουδάω ένα ωραίο τραγούδι.	I sing a beautiful song.	5986
-τραγουδάω	Τραγουδάω.	I sing.	5986
 τραγουδάω	Δεν τραγουδάω.	I do not sing.	5986
 ενώ	Μου αρέσει να τραγουδάω ενώ κάνω ντους.	I like to sing while taking a shower.	5986
 ντους	Μου αρέσει να τραγουδάω ενώ κάνω ντους.	I like to sing while taking a shower.	5986
@@ -6823,7 +6708,6 @@ word	sentence	translation	difficulty_rank
 θεό	Μάθε τους να μη δέχονται ούτε θεό, ούτε αφέντη.	Teach them to accept neither god nor master.	6052
 αφέντη	Μάθε τους να μη δέχονται ούτε θεό, ούτε αφέντη.	Teach them to accept neither god nor master.	6052
 διψάω	Δεν διψάω.	I'm not thirsty.	6055
-διψάω	Διψάω.	I'm thirsty.	6055
 διψάω	Τώρα διψάω.	Now I am thirsty.	6055
 φέρεις	Μπορείς να φέρεις ένα ποτήρι νερό; Διψάω πολύ.	Can you bring a glass of water? I'm very thirsty.	6055
 ένοχοι	Δεν είμαστε ένοχοι.	We're not guilty.	6056
@@ -7042,7 +6926,6 @@ word	sentence	translation	difficulty_rank
 εξαφανίστηκε	Το μοσχάρι εξαφανίστηκε, αλλά υπάρχει ακόμα μια αγελάδα.	The calf has disappeared, but there is still a cow.	6547
 αγελάδα	Το μοσχάρι εξαφανίστηκε, αλλά υπάρχει ακόμα μια αγελάδα.	The calf has disappeared, but there is still a cow.	6547
 χάθηκα	Συγνώμη, χάθηκα.	Excuse me, I'm lost.	6550
-χάθηκα	Χάθηκα.	I'm lost.	6550
 χάθηκα	Χάθηκα γιατί δεν είχα χάρτη.	I got lost because I didn't have a map.	6550
 μνημείο	Αυτό είναι μπροστά από το μνημείο.	It is in front of the monument.	6553
 συνιστώ	Σου συνιστώ να διαβάσεις αυτό το βιβλίο.	I'd recommend reading this book.	6554
@@ -7350,7 +7233,6 @@ word	sentence	translation	difficulty_rank
 σκεπή	Η σκεπή αυτής της εκκλησίας χρειάζεται επισκευή.	The roof of the church needs repairs.	7240
 επισκευή	Η σκεπή αυτής της εκκλησίας χρειάζεται επισκευή.	The roof of the church needs repairs.	7240
 αυτής	Η σκεπή αυτής της εκκλησίας χρειάζεται επισκευή.	The roof of the church needs repairs.	7240
-έπινες	Έπινες;	Were you drinking?	7245
 σκληρές	Είστε σκληρές.	You're tough.	7246
 μεσάνυχτα	Είναι περασμένα μεσάνυχτα.	It's past midnight.	7248
 περασμένα	Είναι περασμένα μεσάνυχτα.	It's past midnight.	7248
@@ -7422,7 +7304,6 @@ word	sentence	translation	difficulty_rank
 σπίρτο	Έχετε ένα σπίρτο;	Do you have a match?	7443
 σπίρτο	Έχεις ένα σπίρτο;	Do you have a match?	7443
 αγαπημένοι	Αυτοί είναι οι αγαπημένοι μου.	These are my favorites.	7446
-επανέλαβε	Επανέλαβε!	Repeat!	7448
 επανέλαβε	Παρακαλώ επανέλαβε ό,τι λέω.	Please repeat everything that I say.	7448
 επανέλαβε	Σε παρακαλώ επανέλαβε ό,τι λέω.	Please repeat everything that I say.	7448
 βοδινό	Βοδινό, παρακαλώ.	Beef, please.	7471
@@ -7761,7 +7642,6 @@ word	sentence	translation	difficulty_rank
 άδειος	Ο δρόμος είναι άδειος.	The street is empty.	8379
 άδειος	Ήταν άδειος.	It was empty.	8379
 άδειος	Είναι άδειος.	It's empty.	8379
-χιονίζει	Χιονίζει.	It's been snowing.	8397
 χιονίζει	Ποτέ δε χιονίζει εδώ.	It never snows here.	8397
 χιονίζει	Χιονίζει συχνά εδώ.	It often snows here.	8397
 δεκεμβρίου	Χιονίζει τις τελευταίες μέρες του Δεκεμβρίου.	It snows on the last days of December.	8397
@@ -7802,7 +7682,6 @@ word	sentence	translation	difficulty_rank
 έκπληξη	Ανακάλυψα προς μεγάλη μου έκπληξη, πως ήταν πεθαμένη.	I found, to my surprise, that she was dead.	8599
 ογδόντα	Είμαι ογδόντα εννέα χρονών.	I am eighty-nine years old.	8603
 ογδόντα	Είμαι ογδόντα εννιά ετών.	I am eighty-nine years old.	8603
-διψάς	Διψάς;	Are you thirsty?	8608
 διψάς	Δε διψάς;	Aren't you thirsty?	8608
 νότες	Παίζεις λάθος νότες.	You are playing the wrong notes.	8626
 έκαψες	Έκαψες το χαρτί.	You burned the paper.	8627

@@ -1,5 +1,4 @@
 word	sentence	translation	difficulty_rank	gloss
-uxolo	Uxolo...	Sorry...	128	CL11.pardon
 qonda	Ndiyaqonda ngoku.	I understand now.	443	1SG.PRES.understand · now
 ngoku	Ndiyaqonda ngoku.	I understand now.	443	1SG.PRES.understand · now
 ucango	Vula ucango.	Open the door.	479	open.IMP · CL11.door
@@ -14,7 +13,6 @@ ixesha	Uxolo, ngubani ixesha?	Excuse me, what time is it?	1222	CL11.pardon · CO
 ngubani	Uxolo, ngubani ixesha?	Excuse me, what time is it?	1222	CL11.pardon · COP.who · CL5.time
 ixesha	Ngubani ixesha?	What is the time?	1222	COP.who · CL5.time
 ngubani	Ngubani ixesha?	What is the time?	1222	COP.who · CL5.time
-nceda	Nceda!	Help!	1230	help.IMP
 uxolo	Uxolo! Ndingavula ifestile na?	Excuse me! May I open the window?	19999	CL11.pardon · 1SG.POT.open · CL9.window · Q
 na	Uxolo! Ndingavula ifestile na?	Excuse me! May I open the window?	19999	CL11.pardon · 1SG.POT.open · CL9.window · Q
 ifestile	Uxolo! Ndingavula ifestile na?	Excuse me! May I open the window?	19999	CL11.pardon · 1SG.POT.open · CL9.window · Q

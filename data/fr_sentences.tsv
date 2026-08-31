@@ -1,7 +1,6 @@
 word	sentence	translation	difficulty_rank
 et	Et vous ?	How about you?	12
 vous	Et vous ?	How about you?	12
-et	Et ?	So what?	12
 il	Il est 7 h 50.	It's 7:50 in the morning.	13
 est	Il est 7 h 50.	It's 7:50 in the morning.	13
 h	Il est 7 h 50.	It's 7:50 in the morning.	13
@@ -69,10 +68,8 @@ elle	C'est elle.	That's her.	31
 elle	C'est à elle.	That's hers.	31
 bien	C'est bien.	I'm glad to hear that.	33
 bien	C'est bien !	That a boy!	33
-bien	Bien.	Good.	33
 et	Et bien.	Well.	33
 si	Ce n'est pas si bien.	It's not so good.	34
-si	Si.	Yes!	34
 suis	Qui suis-je ?	Who am I?	37
 suis	Je ne suis pas.	I don't follow.	37
 ne	Je ne suis pas.	I don't follow.	37
@@ -91,9 +88,7 @@ du	Je suis du F.B.I.	I'm from the FBI.	37
 me	Tu me suis.	You follow me.	37
 tu	Tu me suis.	You follow me.	37
 la	Suis-la.	Follow her.	37
-non	Non !	No!	38
 non	Non, non et non !	No, no, no!	38
-non	Non.	No.	38
 mais	Non, mais !	Seriously?!	38
 avec	Je suis avec vous.	I'm by your side.	40
 avec	Avec qui est-elle ?	Who's she with?	40
@@ -119,8 +114,6 @@ la	On ne me la fait pas.	I know the ropes.	46
 moi	C'est moi.	It's me.	47
 moi	Il a fait de moi ce que je suis.	He has made me what I am.	47
 moi	« Qui est-ce ? » « C'est moi. »	"""Who is it?"" ""It's me."""	47
-oui	Oui.	Yes.	49
-oui	Oui !	Yes!	49
 oui	Oui et non.	Yes and no.	49
 va	Tout va bien.	It's all right.	50
 va	Ça va ?	You all right?	50
@@ -139,7 +132,6 @@ faire	Il a à faire.	He is busy.	53
 sur	Non, je ne l'ai pas sur moi.	No, I don't have it with me.	55
 sur	Je ne l'ai pas sur moi.	I don't have it with me.	55
 quoi	Pour quoi faire ?	For what?	56
-quoi	Quoi ?	What?	56
 quoi	C'est quoi ?	What's this?	56
 sur	Sur quoi ?	About what?	56
 se	On se fait à tout.	You get used to everything.	57
@@ -258,7 +250,6 @@ aussi	Moi aussi !	So am I!	94
 avoir	Tu peux l'avoir pour rien.	You can have it for nothing.	95
 avoir	Tu t'es fait avoir.	You've been had.	95
 avoir	Tu ne peux pas avoir ça.	You can't have this.	95
-vraiment	Vraiment ?	Really?	96
 vraiment	Merci vraiment.	Thank you very much!	96
 vraiment	Non, pas vraiment.	No, not really.	96
 voir	Je veux te voir.	I want to see you.	97
@@ -402,7 +393,6 @@ dieu	Je crois en Dieu.	I believe in God.	142
 dieu	Dieu l'est.	God is.	142
 dieu	Crois-tu en Dieu ?	Do you believe in God?	142
 ouais	Mais ouais !	Of course!	143
-ouais	Ouais.	Yep.	143
 ouais	Ouais, c'est ce que j'ai dit.	Yeah, that's what I said.	143
 pense	Je ne pense pas, donc je ne suis pas.	I don't think, therefore I am not.	145
 pense	Je pense à vous tout le temps.	I think of you all the time.	145
@@ -498,7 +488,6 @@ vois	Je ne vois rien.	I don't see anything.	174
 vois	Je ne le vois pas.	I don't see him.	174
 désolé	Je suis désolé mais je ne peux pas.	I'm afraid I can't.	175
 désolé	Je suis désolé pour toi.	I am sorry for you.	175
-désolé	Désolé.	I'm sorry.	175
 voilà	Les voilà.	Here they come.	176
 voilà	Nous voilà !	Here we are!	176
 voilà	Le voilà.	Here he comes.	176
@@ -546,7 +535,6 @@ choses	J'ai beaucoup de choses à faire.	I have many things to do.	191
 choses	J'ai beaucoup de choses à faire maintenant.	I have many things to do now.	191
 salut	Salut ! Comment ça va ?	Hi! How are you?	192
 salut	Salut tout le monde !	Hi, everybody!	192
-salut	Salut !	Hello!	192
 cet	Je ne sais pas qui est cet homme.	I don't know who that man is.	193
 cet	Où veux-tu aller cet été ?	Where do you want to go this summer?	193
 cet	Qui est cet homme ?	Who is that man?	193
@@ -729,7 +717,6 @@ nos	Où sont nos enfants ?	Where are our children?	247
 tuer	Ne te fais pas tuer.	Don't get yourself killed.	248
 tuer	Je vais te tuer.	I'll kill you.	248
 tuer	Elle va me tuer.	She's going to kill me.	248
-merde	Merde !	Fuck!	249
 merde	C'est quoi cette merde ?	What is this shit?	249
 merde	C'est de la merde !	That's shit!	249
 hé	Hé, que s'est-il passé ?	Hey, what happened?	250
@@ -814,7 +801,6 @@ sortir	Je dois sortir.	I must go out.	277
 sortir	L'avez-vous vu sortir ?	Did you see him go out?	277
 sortir	Je ne veux pas le voir, encore moins sortir avec lui.	I don't want to see him, let alone go out with him.	277
 super	C'est vraiment super.	That's really great!	278
-super	Super !	Great!	278
 super	Ça a l'air super !	It sounds great!	278
 heure	Quelle heure est-il ?	What time is it?	279
 heure	Elle n'est jamais à l'heure.	She is never on time.	279
@@ -994,7 +980,6 @@ leurs	Ce sont les leurs.	This is theirs.	336
 étaient	Où étaient-ils ?	Where were they?	337
 étaient	Où étaient-elles ?	Where were they?	337
 attention	Fais ton travail avec plus d'attention.	Do your work with more care.	338
-attention	Attention !	Look out!	338
 attention	Ne faites pas attention à lui.	Do not take any notice of him.	338
 donner	Pouvez-vous me donner l'heure ?	Can you tell me the time?	339
 donner	S’il vous plaît, pouvez-vous me donner votre nom ?	Please tell me your name.	339
@@ -1065,7 +1050,6 @@ main	Il m'a pris la main.	He caught hold of my hand.	361
 main	Il m'a pris par la main.	He took me by the hand.	361
 tiens	Tiens-moi la main si tu as peur.	Keep hold of my hand if you're afraid.	362
 tiens	Je ne tiens pas de mon père.	I don't take after my father.	362
-tiens	Tiens.	Hey.	362
 sois	Je veux que tu sois ici.	I want you to be here.	363
 sois	Je vais le faire, que tu sois d'accord ou pas.	I am going to do it whether you agree or not.	363
 sois	Sois toi-même !	Be yourself!	363
@@ -1081,7 +1065,6 @@ matin	Elle était là ce matin.	She was there in the morning.	366
 venu	Personne n'est venu.	Nobody came.	367
 venu	Un homme est venu te voir la nuit dernière.	A man called on you last night.	367
 venu	Merci d'être venu ce soir.	Thanks for coming over tonight.	367
-pardon	Pardon ?	Come again?	368
 pardon	Je vous demande pardon ?	I beg your pardon?	368
 pardon	Je vous demande pardon.	I ask your forgiveness.	368
 suite	J'arrive tout de suite.	I'm coming at once.	370
@@ -1103,7 +1086,6 @@ devant	C'est la porte de devant.	It's the front gate.	375
 devant	Il est devant la porte.	He is in front of the door.	375
 devant	Passe devant !	Go ahead.	375
 enfin	Il est enfin arrivé.	He did come at last.	376
-enfin	Enfin !	Finally!	376
 enfin	J'ai enfin trouvé du travail.	Finally, I found a job.	376
 arrêter	Dis-moi quand m'arrêter.	Tell me when to stop.	377
 arrêter	Dis-moi quand arrêter.	Tell me when to stop.	377
@@ -1338,7 +1320,6 @@ dites	Je pense que ce que vous dites est vrai.	I think what you say is true.	455
 dites	"Dites ""ah""."	Say 'ahhh'.	455
 dites	Dites-moi ce que vous avez dans la main.	Tell me what you have in your hand.	455
 exactement	C'est exactement ce que je voulais.	This is just what I wanted.	456
-exactement	Exactement !	Exactly!	456
 exactement	C'est exactement ce que je veux.	That's exactly what I want.	456
 font	Mes yeux me font mal.	My eyes are sore.	457
 font	Que font-ils ?	What are they doing?	457
@@ -1400,7 +1381,6 @@ fête	Pas mal de monde est venu à la fête.	Quite a few people came to the part
 jeu	C'est un jeu d'enfant.	That's a no-brainer.	476
 jeu	Il y a beaucoup en jeu.	There's a lot on the line.	476
 jeu	C'est le dernier jeu.	This is the last game.	476
-génial	Génial !	Terrific!	477
 génial	C'est vraiment génial !	That's really great!	477
 génial	C'était génial.	That was awesome.	477
 pays	De quel pays viens-tu ?	Which country are you from?	478
@@ -1424,7 +1404,6 @@ personnes	Combien de personnes compte ta famille ?	How many people are there i
 cinq	Je ne connais aucune de ces cinq femmes.	I don't know any of the five ladies.	484
 cinq	J'ai été ici depuis cinq heures.	I have been here since five o'clock.	484
 cinq	C'est assez pour cinq jours.	It's enough for five days.	484
-parfait	Parfait !	Perfect!	485
 parfait	C'était parfait.	That hit the spot.	485
 parfait	Personne n'est parfait.	Nobody is perfect.	485
 laissé	J'ai juste laissé tomber.	I just gave up.	487
@@ -1626,7 +1605,6 @@ ceci	Êtes-vous pour ou contre ceci ?	Are you for or against this?	553
 ceci	Puis-je manger ceci ?	Can I eat this?	553
 ceci	Tout d'abord, je dois dire ceci.	First of all, I must say this.	553
 impossible	Elle demande l'impossible.	She's asking for the impossible.	554
-impossible	Impossible !	No way!	554
 impossible	Rien n'est impossible pour celui qui n'a pas à le faire lui-même.	Nothing is impossible for the man who doesn't have to do it himself.	554
 sorte	Quel sorte de jeu est-ce ?	What sort of play is it?	555
 sorte	Il a essayé de faire en sorte que je l'aide.	He tried to get me to help him.	555
@@ -1833,13 +1811,10 @@ celle	Cette voiture n'est pas aussi belle que celle-là.	This car is not so nice
 appris	J'ai appris à vivre sans elle.	I learned to live without her.	623
 appris	J'ai beaucoup appris de toi.	I learned a lot from you.	623
 appris	Je l'ai appris de toi.	I heard it from you.	623
-seigneur	Seigneur !	Good heavens!	624
 seigneur	Que le Seigneur soit avec vous.	May the Lord be with you.	624
-seigneur	Seigneur !	Good God!	624
 dîner	J'étais à l'heure pour le dîner.	I was on time for dinner.	625
 dîner	Le dîner est prêt.	Dinner is ready.	625
 dîner	Le dîner sera bientôt prêt.	Dinner will be ready soon.	625
-sors	Sors.	Get out.	626
 sors	Sors d'ici, tout de suite !	Get out of here immediately!	626
 sors	Je sors un moment.	I'm going out for a while.	626
 commencé	Le film a commencé à 2 heures.	The film started at 2 o'clock.	627
@@ -1992,7 +1967,6 @@ dormir	Je n'ai pu dormir la nuit dernière.	I couldn't sleep last night.	678
 an	J'ai perdu ma femme l'an dernier.	I lost my wife last year.	679
 an	C'était seulement il y a un an.	That was only a year ago.	679
 an	Il est mort il y a un an.	He died one year ago.	679
-faux	Faux.	Wrong.	680
 faux	Ce que l'on t'a appris est faux.	What you were taught is wrong.	680
 faux	Il avait tout faux.	He was all wrong.	680
 messieurs	Allez-y, messieurs.	Go ahead, gentlemen.	681
@@ -2028,7 +2002,6 @@ puisse	Puisse-t-il vivre longtemps !	May he live long!	690
 écoutez	Soyez calme et écoutez-moi.	Be quiet and listen to me.	691
 messieurs	Écoutez, messieurs.	Listen, gentlemen.	691
 bonsoir	Bonsoir, comment allez-vous ?	Good evening, how are you?	692
-bonsoir	Bonsoir !	Good evening.	692
 bonsoir	Bonsoir, tout le monde !	Good evening, everyone.	692
 content	Je suis content de te revoir.	I'm glad to see you back.	693
 content	Je ne suis pas content de ce que vous avez fait.	I am not pleased with what you have done.	693
@@ -2157,7 +2130,6 @@ millions	Vous n'avez pas besoin de gagner des millions pour être heureux.	You d
 millions	On n'a pas besoin de millions pour être heureux.	You don't need millions to be happy.	734
 millions	Le dernier dieu est mort il y a des millions d'années.	The last god died millions of years ago.	734
 incroyable	C'est une histoire incroyable.	That's an incredible story.	735
-incroyable	Incroyable !	Unbelievable!	735
 incroyable	C'est incroyable.	It's unbelievable.	735
 voyage	Comment vas-tu ? As-tu fait un bon voyage ?	How are you? Did you have a good trip?	736
 voyage	J'espère que tu as fait bon voyage.	I hope you had a nice trip.	736
@@ -2172,7 +2144,6 @@ ressemble	As-tu une idée de ce à quoi ma vie ressemble ?	Do you have any ide
 ressemble	Dites-moi à quoi ressemble cet homme.	Tell me what that man is like.	739
 ressemble	Ça ressemble à un rêve.	It sounds like a dream.	739
 bienvenue	Bienvenue à la maison.	Welcome home.	740
-bienvenue	Bienvenue !	Welcome.	740
 bienvenue	Bienvenue dans notre maison !	Welcome to our home!	740
 disparu	Il a disparu en un instant.	He disappeared in an instant.	741
 disparu	Après tout, la peine a disparu.	After all that, the pain went away.	741
@@ -2495,7 +2466,6 @@ doivent	Ils doivent travailler 8 heures par jour.	They must work 8 hours a day.	
 doivent	Ils doivent l'avoir su tout le temps.	They must have known it all along.	848
 allô	Allô ? T'es toujours là ?	Hello? Are you still here?	849
 allô	« Allô, c'est qui ? »	"""Hello, who is this?"""	849
-allô	Allô ?	Hello?	849
 pareil	Le plus grand bien est pareil à l'eau.	The greatest good is akin to water.	850
 pareil	J'ai jamais rien vu d'pareil.	I've never seen anything like it.	850
 pareil	Jamais il n'était allé dans un endroit pareil.	Never has he been to such a place.	850
@@ -2791,7 +2761,6 @@ cuisine	La cuisine c'est de famille.	Cooking runs in my family.	948
 cuisine	Vivant seul, la cuisine de ma mère me manque.	Living on my own, I really miss my mom's cooking.	948
 monte	Elle monte une nouvelle pièce.	She is getting up a new play.	949
 monte	Monte le son de la musique !	Turn the music up!	949
-monte	Monte.	Hop in.	949
 signifie	Cela signifie probablement la guerre.	This probably means war.	950
 signifie	Que signifie ce mot ?	What does this word mean?	950
 signifie	J'ignore ce que ce mot signifie.	I don't know what this word means.	950
@@ -2856,7 +2825,6 @@ différent	Ce que tu me dis est complètement différent de ce que j'ai entendu 
 différent	Il est différent de son frère.	He differs from his brother.	970
 différent	Je n'arrive pas à me faire à l'idée que le temps est si différent ici.	I can't get over how different the weather is here.	970
 tire	Je me tire.	I'm outta here.	971
-tire	Tire !	Pull!	971
 tire	Tire-toi !	Get the fuck out!	971
 ordres	Il travaille sous mes ordres.	He works under me.	972
 ordres	Je ne prends mes ordres de vous.	I don't take orders from you.	972
@@ -3055,7 +3023,6 @@ journal	Sa photo était dans le journal.	His picture was in the newspaper.	1039
 contact	Notre problème est comment entrer en contact avec lui.	Our problem is how to get in touch with him.	1040
 contact	Reste en contact.	Keep in touch.	1040
 contact	Restez en contact s'il vous plait !	Keep in touch!	1040
-dingue	Dingue !	Crazy!	1041
 dingue	Ça me rend dingue.	It's driving me crazy.	1041
 dingue	C'est dingue.	That's crazy.	1041
 sent	Ça sent bon !	It smells good!	1042
@@ -3151,7 +3118,6 @@ robe	J'aimerais essayer cette robe.	I'd like to try on this dress.	1071
 devient	Notre ville devient de plus en plus grande.	Our city is getting bigger and bigger.	1072
 devient	Notre monde devient de plus en plus petit.	Our world is getting smaller and smaller.	1072
 devient	Elle devient de plus en plus belle.	She is getting prettier.	1072
-félicitations	Félicitations.	Congratulations!	1073
 félicitations	Félicitations pour ton anniversaire.	Congratulations on your anniversary.	1073
 félicitations	Félicitations et merci pour tout !	Congratulations, and thanks for everything!	1073
 opération	Ai-je besoin d'une opération ?	Do I need an operation?	1074
@@ -3164,7 +3130,6 @@ fut	Il fut le dernier à arriver.	He was the last person to arrive.	1076
 fut	Il fut tué dans un accident d'avion.	He was killed in an airplane accident.	1076
 fut	Ce fut une chance pour elle que son mari arrive à ce moment-là.	It was fortunate for her that her husband arrived at that moment.	1076
 tenez	Tenez-vous face à face, s'il vous plaît.	Please stand face to face.	1077
-tenez	Tenez.	Here it is.	1077
 tenez	Tenez, ceci est ma carte de visite.	Look, this is my business card.	1077
 livres	J'ai beaucoup de livres.	I have many books.	1078
 livres	Je n'ai pas lu tous ces livres.	I haven't read all of these books.	1078
@@ -3192,7 +3157,6 @@ vin	Veux-tu du vin blanc ou rouge ?	Would you like white wine or red?	1085
 vin	Il ne peut se passer de vin même pour un jour.	He can't go without wine for even a day.	1085
 dommage	Quel dommage !	What a pity!	1086
 dommage	C'est dommage que vous ne pouvez pas venir à la fête.	It is a pity that you cannot come to the party.	1086
-dommage	Dommage !	What a pity!	1086
 auriez	Auriez-vous l'heure ?	Do you have the time?	1087
 auriez	Vous auriez dû venir un peu plus tôt.	You should have come a little earlier.	1087
 auriez	Vous auriez dû ainsi faire.	You should have done so.	1087
@@ -3286,8 +3250,6 @@ bête	J'étais assez bête pour y croire.	I was foolish enough to believe it.	11
 sérieusement	« Est-il sérieusement malade ? » « J'espère que non. »	"""Is he seriously ill?"" ""I hope not."""	1117
 sérieusement	Tu dis ça sérieusement ?	Do you mean what you say?	1117
 sérieusement	« Sérieusement ? » « Oui sérieusement. »	"""Really?"" ""Yes, really."""	1117
-bravo	Bravo !	Congratulations!	1118
-bravo	Bravo !	That's the way to go!	1118
 approche	Noël approche.	Christmas is just around the corner.	1119
 approche	Mon anniversaire approche.	My birthday approaches.	1119
 approche	La fin approche.	The end is nigh.	1119
@@ -3342,9 +3304,7 @@ procès	Elle lui a fait un procès.	She sued him.	1135
 radio	J'ai entendu les nouvelles à la radio.	I heard the news on the radio.	1136
 radio	J'ai arrêté d'écouter la radio.	I stopped listening to the radio.	1136
 radio	As-tu entendu les nouvelles à la radio ?	Did you hear the news on the radio?	1136
-hum	Hum...	Err...	1137
 hum	Hum ! Je ne veux pas parler de ce sujet maintenant !	Humph! I don't want to speak about this now.	1137
-hum	Hum.	Hmm.	1137
 verra	On verra.	We'll see.	1138
 verra	Personne ne nous verra.	No one will see us.	1138
 verra	On verra ce qui se passe.	We'll see what happens.	1138
@@ -3377,7 +3337,6 @@ certaines	Certaines personnes sont pour le plan et d'autres contre.	Some people 
 certaines	En êtes-vous certaines ?	Are you certain about this?	1147
 ridicule	Comment peut-on être sérieux avec le monde quand le monde lui-même est si ridicule !	How can one be serious with the world when the world itself is so ridiculous!	1148
 ridicule	Il avait l'air vraiment ridicule.	In fact, he looked silly.	1148
-ridicule	Ridicule !	Ridiculous!	1148
 nord	Les gens à travers tout le nord étaient en colère.	People throughout the north were angry.	1149
 nord	« Où allait-il ? » « Il allait vers le nord. »	"""Where was he headed?"" ""He was headed north."""	1149
 nord	Elle vient du nord.	She comes from the north.	1149
@@ -3904,7 +3863,6 @@ faits	Quand avez-vous appris les faits ?	When did you get to know the fact?	13
 ancien	Que ce livre est ancien !	How old this book is!	1328
 ancien	L'un est neuf, l'autre est ancien.	One is new, and the other is old.	1328
 ancien	C'est une lettre de mon ancien professeur.	This is a letter from my old teacher.	1328
-stop	Stop !	Stop!	1329
 stop	Je sais quand dire stop.	I know when to say when.	1329
 stop	J'ai dit stop.	I said stop.	1329
 accepter	Il n'a pas d'autre choix que d'accepter les ordres de son patron.	He cannot help accepting his boss's order.	1330
@@ -4034,7 +3992,6 @@ noms	Je suis vraiment nul avec les noms, mais je n'oublie jamais un visage.	I'm 
 vécu	J'ai vécu ici pendant longtemps.	I have lived here for a long time.	1373
 vécu	Elle a vécu là-bas environ cinq années.	She lived there about five years.	1373
 vécu	Il a vécu ici ces dix années.	He has been living here these ten years.	1373
-courage	Courage !	Cheer up!	1374
 courage	Il faut du courage pour changer une habitude.	Courage is needed to change a custom.	1374
 courage	Je n'ai pas eu le courage de lui dire la vérité.	I didn't have the courage to tell her the truth.	1374
 beauté	C'est une femme d'une grande beauté.	She is a woman of great beauty.	1375
@@ -4081,8 +4038,6 @@ course	Il est arrivé premier de la course.	He took the first place in the race.
 humains	Nous sommes humains.	We are human.	1391
 humains	Vous êtes humains.	You are human.	1391
 humains	La vérité c'est que les humains ne peuvent pas vivre sans air.	The truth is that we can't live without air.	1391
-dégage	Dégage !	Beat it.	1392
-dégage	Dégage !	Go away.	1392
 dégage	Dégage de mon chemin !	Get the hell out my way!	1392
 mille	Je dois dix mille dollars à mon oncle.	I'm in debt to my uncle for $10,000.	1393
 mille	Ma maison est seulement à un mille d'ici.	My house is only a mile from here.	1393
@@ -4106,7 +4061,6 @@ manqué	Je t'ai manqué ?	Did you miss me?	1399
 manqué	J'ai manqué l'école pendant six jours.	I missed school for six days.	1399
 manqué	Tu m'as manqué.	I missed you.	1399
 action	L'action vaut mieux que les mots.	Actions speak louder than words.	1400
-action	Action !	Action!	1400
 action	Je crois que son action était la bonne.	I believe that his action was in the right.	1400
 aidé	Et personne ne vous a aidé ?	And no one helped you?	1401
 aidé	Je l'ai aidé hier.	I helped him yesterday.	1401
@@ -4461,7 +4415,6 @@ préféré	Ce n'est pas mon sujet préféré.	That's not my favorite topic.	1522
 préféré	Il a préféré travailler plutôt que de ne rien faire.	He preferred working to doing nothing.	1522
 préféré	C'est mon projet préféré.	This is my favourite project.	1522
 adieu	Adieu, et merci pour tout le poisson !	So long, and thanks for all the fish!	1523
-adieu	Adieu !	Farewell!	1523
 adieu	Adieu et bonne chance !	Goodbye and good luck.	1523
 costume	Vos chaussures ne vont pas avec ce costume.	Your shoes don't go with that outfit.	1524
 costume	Il faut que je me fasse faire un nouveau costume.	I must get a new suit made.	1524
@@ -4520,7 +4473,6 @@ appelles	Comment est-ce que tu t'appelles ?	What is your name?	1542
 appelles	Je ne veux pas que tu m'appelles tout le temps.	I don't want you to ring me up all the time.	1542
 appelles	Comment tu t’appelles ?	What is your name?	1542
 salaud	T'es vraiment un salaud.	You really are a jerk.	1543
-salaud	Salaud !	Douchebag!	1543
 salaud	T'es un salaud !	You are a son of a bitch!	1543
 magie	Veux-tu voir un tour de magie ?	Do you want to see some magic?	1544
 magie	Voulez-vous voir un tour de magie ?	Do you want to see some magic?	1544
@@ -4733,7 +4685,6 @@ chapeau	Ce chapeau est trop petit pour vous.	It is too small a hat for you.	1618
 gérer	Cela dépend de ta manière de le gérer.	It all depends how you handle it.	1619
 gérer	Il nous faudra le gérer.	We'll have to deal with it.	1619
 gérer	Il m'est impossible de le gérer.	I can't possibly manage it.	1619
-échange	Échange.	Alternate.	1620
 échange	Que veut-il en échange ?	What does he want in return?	1620
 mince	Il est grand et mince.	He is tall and lean.	1621
 mince	Reste mince !	Stay thin.	1621
@@ -4967,7 +4918,6 @@ frappe	On frappe à la porte.	Someone is tapping at the door.	1701
 frappe	La mort frappe tous les hommes.	Death comes to all men.	1701
 frappe	Frappe-moi !	Hit me.	1701
 enchanté	Je suis enchanté de vous rencontrer.	I'm glad to see you.	1702
-enchanté	Enchanté.	The pleasure is mine.	1702
 enchanté	Je suis enchanté d'être ici.	I am delighted to be here.	1702
 gosses	Combien de gosses avez-vous ?	How many kids do you have?	1703
 gosses	Il est temps pour moi d'y aller, les gosses !	It's time for me to go, kids.	1703
@@ -5145,7 +5095,6 @@ x	X marque l'endroit.	X marks the spot.	1760
 mens	Ne me mens pas !	Don't lie to me.	1761
 mens	Ne me mens pas.	Don't lie to me.	1761
 mens	Et surtout, ne mens pas.	Above all, don't tell a lie.	1761
-fantastique	Fantastique !	Fantastic!	1762
 fantastique	Votre maison est fantastique.	Your house is fantastic.	1762
 fantastique	La vue est fantastique.	The view is amazing.	1762
 cent	Tout sera pareil d'ici cent ans.	It will be all the same a hundred years hence.	1763
@@ -5498,14 +5447,12 @@ milliers	En même temps que des milliers d'autres, il a quitté le pays.	Along w
 milliers	Des milliers de gens étaient là.	Thousands of people were there.	1883
 milliers	On en a parlé des milliers de fois.	We've been over this a thousand times.	1883
 heu	Vous.... vous avez un nez... heu... un nez... très grand.	You... You have a nose... err... a very big nose.	1884
-heu	Heu...	Er...	1884
 infirmière	Je veux être infirmière.	I want to be a nurse.	1885
 infirmière	John apprécie cette infirmière.	John likes the nurse.	1885
 infirmière	Elle est peut-être infirmière. Je n'en suis pas sûr.	She may be a nurse. I am not sure.	1885
 métier	Je crois que tu aimes ton métier.	I believe you like your job.	1886
 métier	C'est le meilleur métier du monde !	It's the best job in the world!	1886
 métier	Quel est ton métier ?	What's your job?	1886
-crétin	Crétin !	You blockhead!	1887
 crétin	Arrête de faire le crétin.	Stop acting like a jerk.	1887
 crétin	C'est une espèce de crétin.	He is a bloody fool.	1887
 retirer	Je dois aller retirer de l'argent.	I have to take some money out of the bank.	1888
@@ -5602,7 +5549,6 @@ cherché	J'ai trouvé le livre que j'ai longtemps cherché.	I found the book I h
 cherché	Je t'ai cherché.	I have been looking for you.	1920
 tirez	Tirez la langue, s'il vous plait.	Please stick out your tongue.	1921
 tirez	Attendez, ne vous tirez pas dessus !	Wait, don't shoot at each other!	1921
-tirez	Tirez !	Pull!	1921
 différents	Mère et moi sommes différents en tous points.	Mother and I are different in every way.	1923
 différents	Ils étaient si différents.	They were so different.	1923
 différents	Mais les hommes sont différents.	But human beings are different.	1923
@@ -5948,7 +5894,6 @@ paye	Le mois n'est pas terminé à la fin de ma paye.	Have more month left over 
 paye	Combien est-ce que je vous paye ?	How much am I paying you?	2047
 paye	Combien est-ce que je te paye ?	How much am I paying you?	2047
 allo	Allo, est-ce le service du personnel ?	Hello, is this the personnel department?	2048
-allo	Allo !	Speaking.	2048
 revenez	Revenez demain.	Come again tomorrow.	2049
 revenez	S'il vous plaît revenez dans trois jours.	Please come again in three days' time.	2049
 revenez	Revenez à la maison.	Come back home.	2049
@@ -6232,13 +6177,10 @@ répond	L'argent répond à tout.	Money answers all things.	2150
 répond	Quand je leur téléphone, personne ne répond.	When I phone them nobody answers.	2150
 répond	« Comment ! tu es encore avec un tel ? » et l'on répond : « Que veux-tu ! je l'AIME ! »	"""What! You're still with that guy?"" and we answer: ""What can I do! I LOVE him!"""	2150
 hmm	Hmm, peut-être !	Hmm, maybe!	2151
-hmm	Hmm.	Hmm.	2151
 coûte	La justice coûte cher.	Justice is expensive.	2153
 coûte	Ça coûte les yeux de la tête.	It costs an arm and a leg.	2153
 coûte	Ça coûte combien ?	How much is it?	2153
 reculez	Reculez de quelques pas, s'il vous plait.	Please walk back a few steps.	2154
-reculez	Reculez.	Back off.	2154
-reculez	Reculez !	Stand back!	2154
 dessous	Papa était dans son bureau en dessous de notre appartement.	Daddy was in his office, under our flat.	2155
 dessous	Elle a marché, bras dessus bras dessous, avec son père.	She walked arm in arm with her father.	2155
 dessous	Je les ai vus marcher bras dessus bras dessous.	I saw them walking arm in arm.	2155
@@ -6262,7 +6204,6 @@ caméras	Il y a des caméras de surveillance un peu partout dans le coin.	There 
 caméras	Il y avait des caméras partout.	Cameras were everywhere.	2161
 caméras	À cause des caméras de surveillance, celui qui bouge sera vu.	Because of security cameras, everyone's every move is being watched.	2161
 pousse	Pousse-toi ou je tire.	Out of my way or I shoot you.	2162
-pousse	Pousse !	Push!	2162
 pousse	Ne me pousse pas !	Don't push me.	2162
 fiston	« Pousse-toi, s'il te plaît. » « Tu vas en faire une histoire, fiston ? »	"""Please move aside."" ""Ya wanna make something of it, sonny?"""	2162
 cesse	J'aimerais que la pluie cesse.	I wish the rain would stop.	2163
@@ -6408,7 +6349,6 @@ paroles	Il croit encore ses paroles.	He still believes her words.	2209
 résoudre	Je peux résoudre le problème moi-même.	I can solve the problem by myself.	2210
 résoudre	J’étais capable de résoudre ce problème.	I was able to solve the problem.	2210
 résoudre	J'ai essayé de résoudre le problème.	I attempted to solve the problem.	2210
-chut	Chut !	Hush!	2211
 chut	L'arbre chut.	The tree fell down.	2211
 chut	Chut ! Il dort !	Sh! He's sleeping!	2211
 période	10 ans est une longue période à attendre.	Ten years is a long time to wait.	2212
@@ -6494,7 +6434,6 @@ résultat	Dès que le résultat a été rendu public, je te l'ai donné.	I told 
 résultat	Faites-moi connaître le résultat dès que possible.	Let me know the result as soon as you can.	2239
 résultat	Quelle que soit la manière dont tu t'y prends, le résultat sera le même.	However you do it, the result will be the same.	2239
 roger	Salut Roger. Je vais bien !	Hi, Roger. I'm pretty good!	2240
-roger	Roger !	Roger!	2240
 concernant	C'est un livre concernant les étoiles.	This is a book about stars.	2241
 concernant	Ils n'avaient aucun avis concernant les nouvelles.	They did not think anything of the news.	2241
 concernant	Concernant ceci, je suis responsable.	In relation to this, I am to blame.	2241
@@ -6526,7 +6465,6 @@ vote	Faisons un vote.	We'll decide by voting.	2250
 vote	Nous avons décidé par un vote.	We decided by vote.	2250
 vote	Vote pour nous !	Vote for us!	2250
 dégagez	Dégagez, les gamins !	Beat it, kids!	2251
-dégagez	Dégagez !	Gangway!	2251
 dégagez	Dégagez de mon chemin !	Get the hell out my way!	2251
 anciens	Quelque chose dans son visage me rappelle vraiment un de mes anciens amoureux.	Something in his face really reminded me of an old boyfriend of mine.	2252
 anciens	Si tu te fais de nouveaux amis, n'oublie pas les anciens.	If you make new friends, don't forget the old ones.	2252
@@ -8288,7 +8226,6 @@ documents	J'ai apporté les documents à mon chef.	I brought the documents to my
 effort	Tout effort mérite récompense.	Every effort deserves a reward.	2863
 effort	Il a fait un effort pour résoudre le problème.	He exerted himself to solve the problem.	2863
 effort	Tu dois faire un effort pour t'entendre avec tout le monde.	You must make an effort to get along with everyone.	2863
-enchantée	Enchantée.	The pleasure is mine.	2864
 enchantée	Je suis enchantée d'être ici.	I am delighted to be here.	2864
 enchantée	Je suis enchantée de te rencontrer.	I'm delighted to meet you.	2864
 restent	Les garçons restent des garçons.	Boys will be boys.	2865
@@ -8356,7 +8293,6 @@ croyait	Presque personne ne la croyait.	Almost no one believed her.	2885
 croyait	Il croyait en la vérité.	He believed in the truth.	2885
 sauvage	Bienvenue dans l'Ouest sauvage.	Welcome to the Wild West.	2886
 sauvage	Il est assez sauvage.	He is quite a savage.	2886
-sauvage	Sauvage !	Wild!	2886
 maximum	Il a pris l'assurance maximum.	He took out the maximum insurance.	2887
 maximum	C'est le maximum.	That's the maximum.	2887
 maximum	Fais le maximum !	Do your utmost.	2887
@@ -8454,7 +8390,6 @@ suivante	Personne suivante, s'il vous plaît.	Next person, please.	2920
 suivante	C'est l'étape logique suivante.	It's the next logical step.	2920
 commencez	Une fois que vous commencez, vous devez poursuivre.	Once you begin, you must continue.	2921
 commencez	Commencez par faire les comptes.	Start by doing the books.	2921
-commencez	Commencez !	Begin!	2921
 poule	J'ai la chair de poule lorsque je regarde un film d'horreur.	I get goose bumps when I see a horror movie.	2922
 poule	Cela me donne la chair de poule.	It gave me the creeps.	2922
 poule	Cette vision me donna la chair de poule.	The sight made my flesh creep.	2922
@@ -8656,8 +8591,6 @@ digne	Il est digne d'être le capitaine de notre équipe.	He is worthy to be cap
 cirque	Le cirque est en ville.	The circus is in town.	2994
 cirque	Je suis fatigué de tout ce cirque.	I'm tired of all this rigamarole.	2994
 amen	« Que Dieu soit avec toi. » « Amen. »	"""May God be with you."" ""Amen."""	2995
-amen	Amen.	Amen.	2995
-amen	Amen !	Amen!	2995
 congé	Je veux m'assurer de l'heure à laquelle je peux prendre congé.	I want to make sure what time I'm supposed to leave.	2996
 congé	Je suis en congé cette semaine.	I am on holiday this week.	2996
 congé	Un congé cet été est hors de question.	A holiday this summer is out of the question.	2996
@@ -8714,7 +8647,6 @@ personnelle	Nous en savons peu sur son histoire personnelle.	We know little of h
 épaule	J'ai été blessé à l'épaule.	I got hurt in the shoulder.	3015
 épaule	Mon père a posé sa main sur mon épaule.	Father laid his hand on my shoulder.	3015
 épaule	Il était blessé à l'épaule.	He was wounded in the shoulder.	3015
-pigé	Pigé ?	Got it?	3017
 pigé	Tu l'as pigé ?	Got the hang of it?	3017
 pigé	L'as-tu pigé ?	Got the hang of it?	3017
 menacé	Elle l'a menacé.	She threatened him.	3018
@@ -8858,7 +8790,6 @@ guérir	Mieux vaut prévenir que guérir.	A stitch in time saves nine.	3068
 officiers	Il y avait 10 officiers de police sur le site.	There were ten police officers on the spot.	3069
 recule	Recule, s'il te plaît.	Stand back, please.	3070
 recule	Recule de quelques pas, s'il te plait.	Please walk back a few steps.	3070
-recule	Recule !	Back off.	3070
 machines	Le réel problème n'est pas de savoir si les machines pensent mais si les hommes le font.	The real problem is not whether machines think but whether men do.	3071
 machines	Notre époque est l'époque des machines.	Ours is a mechanical age.	3071
 machines	Les machines à écrire font beaucoup de bruit.	Typewriters are so noisy.	3071
@@ -8972,8 +8903,6 @@ bains	Frappe avant d'entrer dans la salle de bains, d'accord ?	Knock when goin
 officiellement	On ne sort pas ensemble officiellement.	We're not officially dating.	3109
 officiellement	Je fais maintenant officiellement partie de ce groupe.	I'm now officially part of this group.	3109
 officiellement	Je suis officiellement en vacances.	I'm officially on vacation.	3109
-enculé	Enculé !	Fuckin' asshole!	3110
-enculé	Enculé.	Faggot.	3110
 enculé	Tout le monde n'est pas un enculé.	Not everyone is a motherfucker.	3110
 difficiles	Les livres de ce genre sont trop difficiles pour lui.	Books such as these are too difficult for him.	3111
 difficiles	Ne posez pas de questions aussi difficiles.	Don't ask such hard questions.	3111
@@ -9332,7 +9261,6 @@ ivre	Il est ivre.	He is drunk.	3240
 ivre	Attention ! C'est dangereux de conduire ivre.	Take care! It's dangerous to drive drunk.	3240
 ivre	Il était complètement ivre.	He was as drunk as a lord.	3240
 avancez	Avancez à l'intérieur.	Step inside.	3241
-avancez	Avancez !	Drive on.	3241
 avancez	Avancez de deux pas.	Advance two steps.	3241
 témoigner	On ne peut vous forcer à témoigner contre votre mari.	You can't be forced to testify against your husband.	3242
 témoigner	Notre unique témoin refuse de témoigner.	Our only witness is refusing to testify.	3242
@@ -9372,7 +9300,6 @@ pure	Nous devons faire attention de ne boire que de l'eau pure.	We must be caref
 biens	Cela paie sur le long terme d'acheter des biens de grande qualité.	It pays in the long run to buy goods of high quality.	3254
 biens	De nos jours, le prix des biens est très élevé.	Nowadays prices of commodities are very high.	3254
 biens	Tous les biens de Dan ne sont plus.	All Dan's belongings are gone.	3254
-garce	Garce.	Bitch.	3255
 garce	Sale garce !	You bitch!	3255
 garce	Ne sois pas garce.	Don't be a bitch.	3255
 tarte	C'est un morceau de tarte.	That's a piece of pie.	3256
@@ -9722,7 +9649,6 @@ ignorer	Si le téléphone sonne de nouveau, j'ai l'intention de l'ignorer.	If th
 buvez	Buvez un peu de thé.	Drink some tea.	3388
 buvez	Vous buvez quelque chose ?	Would you like a drink?	3388
 buvez	Ne buvez aucun alcool !	Don't drink any alcohol.	3388
-pervers	Pervers !	You pervert!	3389
 pervers	Espèce de pervers !	You pervert!	3389
 pervers	C'est un pervers.	He is a pervert.	3389
 gâché	Mon dieu, tu fais chier. Tu as vraiment gâché le moment.	God, you piss me off. You completely ruined the moment.	3391
@@ -9933,7 +9859,6 @@ pilules	N'oubliez pas de prendre vos pilules !	Don't forget to take your pills.	
 pilules	N'oublie pas de prendre tes pilules !	Don't forget to take your pills.	3464
 pilules	J'ai vraiment besoin des pilules pour moi.	I really need the pills for myself.	3464
 aïe	Aïe ! Aïe ! Aïe ! L'eau du bain est trop chaude.	Oww! Oww! Oww! The bath water is too hot.	3465
-aïe	Aïe !	Ouch!	3465
 aïe	Aïe ! Ça fait mal !	Ow! That hurts!	3465
 empreinte	Je ne vois aucune empreinte nulle part.	I don't see any footprints anywhere.	3466
 sain	Je veux vivre dans une ville tranquille où l'air est sain.	I want to live in a quiet city where the air is clean.	3468
@@ -9992,7 +9917,6 @@ laissera	Elle ne me laissera pas seul.	She won't leave me alone.	3487
 fierté	Eh, j'ai peut-être pas d'argent, mais j'ai toujours ma fierté.	Hey, I may have no money, but I still have my pride.	3488
 fierté	Les mots ont blessé sa fierté.	The words hurt his pride.	3488
 fierté	Sa belle femme est sa fierté.	His beautiful wife is his pride.	3488
-vérifiez	Vérifiez !	Check it out!	3489
 vérifiez	Vérifiez votre commande.	Check your order.	3489
 vérifiez	Vérifiez cela.	Check that.	3489
 travaillais	Je travaillais dans une poste pendant les vacances d'été.	I worked in a post office during the summer vacation.	3490
@@ -10407,7 +10331,6 @@ complexe	C'est une machine très complexe.	That is a very complex machine.	3634
 complexe	C'est complexe.	It's complex.	3634
 zut	Zut ! C'était trop beau pour être vrai.	Shucks! It was too good to be true.	3635
 zut	Et puis zut !	What the heck?	3635
-zut	Zut !	Blast off!	3635
 julie	Dan est venu accueillir Julie à six heures.	Dan came for Julie at six.	3636
 accueillir	Dan est venu accueillir Julie à six heures.	Dan came for Julie at six.	3636
 accueillir	Je suis allé à l'aéroport pour accueillir mon père.	I went to the airport to meet my father.	3636
@@ -10582,7 +10505,6 @@ menaces	Ses menaces ne me font absolument pas peur.	I am not in the least afraid
 menaces	Tes menaces ne me font pas du tout peur.	Your threats don't scare me at all.	3697
 menaces	Vos menaces ne me font pas du tout peur.	Your threats don't scare me at all.	3697
 toast	Il nous faut porter un toast.	We must toast.	3698
-toast	Toast !	Toast!	3698
 toast	J'aimerais porter un toast.	I'd like to make a toast.	3698
 bâton	La langue est un bon bâton.	The tongue wounds more than a lance.	3699
 bâton	J'ai tué le rat avec un bâton.	I killed the rat with a stick.	3699
@@ -10717,7 +10639,6 @@ génération	C'est la personne qui va mener la prochaine génération.	He is the
 génération	Mon grand-père n'est plus en phase avec la jeune génération.	My grandpa is out of step with the younger generation.	3745
 phase	Mon grand-père n'est plus en phase avec la jeune génération.	My grandpa is out of step with the younger generation.	3745
 bâtard	Pardonne à ton ennemi mais rappelle-toi le nom de ce bâtard.	Forgive your enemy, but remember the name of that bastard.	3746
-bâtard	Bâtard !	Bastard!	3746
 bâtard	Ce chien est un bâtard.	This dog is a mongrel.	3746
 torture	Ne te torture pas !	Don't beat yourself up.	3747
 torture	Mes pieds me sont une torture.	My feet are killing me.	3747
@@ -11404,7 +11325,6 @@ gâteaux	Elle adore les gâteaux.	She is fond of cake.	3995
 parait	Ça me parait comme s'il a quelque chose à voir avec l'affaire.	It sounds to me as if he has something to do with the matter.	3996
 parait	Ce n'est pas ce que ça parait.	It's not what it looks like.	3996
 parait	Ce n'est pas si mauvais que cela parait.	It's not as bad as it sounds.	3996
-fonce	Fonce !	Go for it!	3997
 satellite	La Lune est le seul satellite de la Terre.	The moon is the earth's only satellite.	3998
 satellite	La lune de la Terre est un satellite naturel.	The earth's moon is a natural satellite.	3998
 satellite	La Lune n'est pas une planète mais un satellite de la Terre.	The Moon isn't a planet, but a satellite of the Earth.	3998
@@ -11646,7 +11566,6 @@ faisiez	Que faisiez-vous à cette époque ?	What were you doing at that time?	40
 bénisse	Que Dieu te bénisse !	God bless you!	4087
 bénisse	Dieu vous bénisse !	God bless you!	4087
 bénisse	Dieu te bénisse !	God bless you!	4087
-hélas	Hélas !	Alas!	4088
 hélas	Hélas, j'étais en retard.	Alas, I was late.	4088
 sec	C'est sec comme la poussière.	It's dry as dust.	4089
 sec	Il est à sec.	He is out of pocket.	4089
@@ -11776,7 +11695,6 @@ routine	Il aime la routine et s'inquiète des changements.	He likes routine and 
 routine	C'était la routine.	This was routine.	4133
 crève	Je crève d'envie de la revoir.	I am dying to see her again.	4134
 crève	Je crève de faim.	I'm starving!	4134
-crève	Crève !	Die!	4134
 articles	As-tu vérifié tous les articles sur la liste des courses ?	Did you check all the items on the shopping list?	4135
 articles	J'ai dû essayer tous les articles du magasin, mais rien ne me va.	I must have tried on everything in the shop, but nothing looked right on me.	4135
 articles	C'est l'ordinateur avec lequel il écrit ses articles.	That's the computer on which he writes his articles.	4135
@@ -12755,7 +12673,6 @@ méthodes	Il a essayé beaucoup de méthodes différentes.	He tried many differe
 méthodes	Ses méthodes ne sont pas scientifiques.	His methods are not scientific.	4496
 méthodes	Je ne suis pas du tout d'accord avec vos méthodes.	I don't agree with your methods at all.	4496
 boum	On ne l'a pas vue à la boum, mais personne ne sait pourquoi.	She didn't show up at the party, but nobody knows why.	4497
-boum	Boum !	Kaboom!	4497
 boum	Une boum n’est pas une boum, sans nourriture.	A party isn't a party without food.	4497
 atelier	Il est revenu de l'atelier.	He returned from the workshop.	4498
 atelier	J'ai un atelier dans mon garage.	I have a workshop in my garage.	4498
@@ -13638,8 +13555,6 @@ péter	Manger des pommes de terre me fait péter.	Potatoes give me wind.	4815
 occuperai	Je m'occuperai de tes affaires quand tu seras mort.	I'll look after your affairs when you are dead.	4816
 occuperai	Moi, ta mère, je m'occuperai de tout pour toi.	I, your mother, will take care of everything for you.	4816
 occuperai	Je m'occuperai de ce chien.	I'll take care of this dog.	4816
-pédé	Pédé.	Faggot.	4817
-pédé	Pédé !	Faggot!	4817
 pédé	Dieu est un putain de pédé.	God is a fucking faggot.	4817
 désordre	La chambre de mon frère est toujours en désordre.	My brother's room is always a mess.	4818
 désordre	Sa chambre est en désordre.	His room is untidy.	4818
@@ -13679,7 +13594,6 @@ supérieure	Notre dette est supérieure à ce que nous pouvons payer.	Our debt i
 supérieure	C'est parce que la vitesse de la lumière est supérieure à celle du son, que certains ont l'air brillant avant d'avoir l'air con.	It is because light travels faster than sound that some people look brilliant before sounding stupid.	4831
 supérieure	Il appartient à la classe supérieure.	He belongs to the upper class.	4831
 raccroche	Attends une seconde, je reviens tout de suite. Ne raccroche pas !	Hold on a second, I'll be right back. Don't hang up!	4832
-raccroche	Raccroche !	Hang up!	4832
 raccroche	Ne raccroche pas !	Don't hang up!	4832
 ère	Nous sommes à l'ère de l'énergie nucléaire.	We are in the era of atomic energy.	4833
 ère	L'ère du nucléaire n'est pas encore terminée.	The age of nuclear power is not yet over.	4833
@@ -14152,7 +14066,6 @@ demie	L'école se termine à 3 heures et demie.	School is over at 3:30.	5009
 demie	L'école commence à huit heures et demie.	School begins at eight-thirty.	5009
 graves	Ce sont de graves problèmes.	These are serious difficulties.	5010
 graves	Malgré leurs blessures graves, ils étaient tous de bonne humeur.	For all their serious wounds, all of them were in good spirits.	5010
-enfoirés	Enfoirés !	Bastards!	5011
 acceptez	Vous acceptez les cartes de crédit ?	Do you accept credit cards?	5012
 acceptez	Acceptez-vous notre proposition ?	Do you agree to our proposal?	5012
 acceptez	Vous acceptez des cartes de crédit ?	Do you accept credit cards?	5012
@@ -14637,7 +14550,6 @@ chantage	Il lui fait du chantage.	She is being blackmailed by him.	5193
 chantage	C'est du chantage.	This is blackmail.	5193
 chantage	Me fais-tu du chantage ?	Are you blackmailing me?	5193
 poussez	Ne me poussez pas trop fort. C'est dangereux.	Don't push me very hard. It's dangerous.	5195
-poussez	Poussez !	Push!	5195
 poussez	Ne me poussez pas !	Don't push me.	5195
 civile	Ils avaient perdu la guerre civile.	They had lost the Civil War.	5196
 civile	S'il n'y avait pas eu de guerre civile, ils auraient été riches maintenant.	If it had not been for civil war, they would be wealthy now.	5196
@@ -15199,7 +15111,6 @@ visiblement	Il était visiblement nerveux.	He was visibly nervous.	5403
 visiblement	Il était visiblement inquiet.	He was visibly bothered.	5403
 donnant	On peut offrir la vie en donnant son sang.	You can give the gift of life by donating blood.	5405
 ciao	Bon, ciao !	Bye then!	5406
-ciao	Ciao.	Bye.	5406
 ciao	Ciao, grand-père !	See you, grandpa!	5406
 copines	Mike a deux copines.	Mike has two girlfriends.	5407
 copines	Est-ce que tu vois toujours tes copines dans ce café ?	Do you always see your friends in this café?	5407
@@ -15433,7 +15344,6 @@ souhaitez	Si vous souhaitez en savoir davantage, veuillez me contacter.	If you w
 nounou	Elle n'a pas de nounou, c'est pourquoi elle ne peut pas se rendre à la fête.	She doesn't have a babysitter, so she can't go to the party.	5498
 nounou	Linda est devenue la nounou à temps plein des enfants de Dan.	Linda became Dan's children's full-time nanny.	5498
 nounou	Vous êtes la nouvelle nounou ?	Are you the new nanny?	5498
-ralentis	Ralentis !	Slow down.	5499
 ralentis	Pourquoi ne ralentis-tu pas un peu ?	Why don't you slow down a little bit?	5499
 ralentis	Ralentis. Les flics aiment coincer les gens là-haut.	Slow down. Cops like to nab people up there.	5499
 coincer	Ralentis. Les flics aiment coincer les gens là-haut.	Slow down. Cops like to nab people up there.	5499
@@ -15525,7 +15435,6 @@ individu	L'individu n'existe pas pour le bien de la nation.	The individual does 
 individu	C'est un individu plutôt rare.	He's a rather rare individual.	5534
 individu	Chaque être humain est un individu.	Each human being is an individual.	5534
 continuons	Continuons le jeu après le dîner.	Let's continue the game after supper.	5535
-continuons	Continuons !	Just keep moving.	5535
 continuons	Continuons à avancer !	Just keep moving.	5535
 décevoir	Ce serait le dernier à te décevoir.	He'd be the last one to disappoint you.	5536
 décevoir	Je ne voulais pas la décevoir.	I did not mean to disappoint her.	5536
@@ -15685,7 +15594,6 @@ loyal	Ce n'est pas un combat loyal.	It's not a fair fight.	5597
 loyal	Je suis loyal.	I'm loyal.	5597
 respirez	Respirez, nom de Dieu !	Breathe, damn you!	5598
 respirez	Respirez plus profondément !	Breathe deeply!	5598
-respirez	Respirez !	Breathe!	5598
 sueur	Il y avait de la sueur sur son visage.	The sweat stood on his face.	5599
 sueur	Il était couvert de sueur.	He was covered with sweat.	5599
 sueur	Je ne peux rien offrir d'autre que du sang, des efforts, des larmes et de la sueur.	I have nothing to offer but blood, toil, tears and sweat.	5599
@@ -15854,7 +15762,6 @@ honorable	Il me faudra leur faire amende honorable pour mon erreur.	I'll have to
 présume	Si tu vois un homme, présume que c'est un voleur.	Never trust a stranger.	5657
 présume	Je présume que tu as faim.	I suppose you're hungry.	5657
 présume	Je présume que vous avez faim.	I suppose you're hungry.	5657
-pan	Pan !	Bang!	5658
 fusée	La fusée devrait avoir atteint la Lune maintenant.	The rocket ought to have reached the moon by now.	5659
 fusée	Ils ont lancé une fusée.	They launched a rocket.	5659
 fusée	Une fusée a besoin de dix minutes environ pour se mettre en orbite.	A rocket needs about ten minutes to get into orbit.	5659
@@ -16017,7 +15924,6 @@ demandant	En demandant, vous arrivez en ville.	By asking, you get to the city.	5
 épicerie	S'il vous plaît, dites-nous où il y a une épicerie.	Please tell us where there is a grocery store.	5718
 épicerie	Bob a travaillé le samedi comme vendeur à l'épicerie.	Bob worked as a clerk in the grocery store on Saturday.	5718
 épicerie	Je fais la queue à l'épicerie.	I am in the grocery line.	5718
-applaudissements	Applaudissements !	Applause!	5719
 applaudissements	John a entendu des applaudissements.	John heard cheers.	5719
 rentrera	Je ne pense pas que ce soit la bonne boite pour ce jouet ; il n'y rentrera pas.	I don't think this is the box that this toy came in; it won't fit in.	5720
 rentrera	Rentrera-t-elle à la maison à cinq heures ?	Will she come home at five?	5720
@@ -16365,8 +16271,6 @@ mineurs	Les mineurs ne peuvent être mineurs.	Minors can't be miners.	5847
 mineurs	Les mineurs ne sont pas admis.	No minors allowed.	5847
 mineurs	Nous sommes encore mineurs.	We're still underage.	5847
 inspire	Lorsque j'inspire profondément, une douleur me lance le long du côté droit de mon dos.	When I take a deep breath, a pain runs down the right side of my back.	5848
-inspire	Inspire !	Take a breath.	5848
-inspire	Inspire.	Inhale.	5848
 douleurs	J'ai pris un médicament contre les douleurs d'estomac.	I've taken some medicine for my stomach ache.	5849
 douleurs	Je souffre parfois de douleurs dans le bas du dos.	I sometimes suffer from pain in my lower back.	5849
 douleurs	J’ai des douleurs à l’estomac.	I have a stomachache.	5849
@@ -16865,7 +16769,6 @@ alimentation	Elle fait attention à l'alimentation de son enfant.	She is careful
 alimentation	Coupe l'alimentation du tuyau !	Turn the hose off.	6048
 alimentation	Coupez l'alimentation du tuyau !	Turn the hose off.	6048
 fuis	Je pense, donc je fuis.	I think, therefore I flee.	6049
-fuis	Fuis.	Run away.	6049
 fuis	Je fuis la routine à tout prix.	I’m running from routine at all costs.	6049
 jupe	Ma jupe est trop longue.	My skirt is too long.	6050
 jupe	Elle a transformé sa vieille robe en jupe.	She turned her old dress into a skirt.	6050
@@ -17724,7 +17627,6 @@ sixième	Elle le savait grâce à son sixième sens.	She knew it by a sixth sens
 sixième	Le Brésil est devenu la sixième économie du monde.	Brazil became the sixth largest economy in the world.	6378
 sixième	Quel est ton sixième sens ?	What's your sixth sense?	6378
 carré	Un carré a quatre côtés.	A square has four sides.	6379
-carré	Carré.	Four of a kind.	6379
 carré	Peux-tu imaginer ? En fait, le carré de moins un est 'i'.	Can you imagine? Indeed, the square root of minus one is 'i'.	6379
 iris	Le jardin est célèbre pour ses iris.	The garden is famous for its irises.	6380
 iris	L'iris donne à l'œil sa couleur.	The iris gives the eye its color.	6380
@@ -17888,7 +17790,6 @@ sombres	Les nuages sombres sont signe de pluie.	Dark clouds are a sign of rain.	
 sombres	Ces maisons étaient sombres et sales.	These houses were dark and dirty.	6436
 sombres	Elle aime porter des couleurs sombres.	She likes to wear dark colours.	6436
 refusez	Est-ce que vous refusez de partir avec nous ?	Do you refuse to leave with us?	6437
-refusez	Refusez.	Reject.	6437
 refusez	Vous refusez de comprendre.	You refuse to understand.	6437
 volontaires	On a un besoin urgent de volontaires.	There is an urgent need for volunteers.	6438
 volontaires	Nous nous sommes portés volontaires.	We volunteered.	6438
@@ -17951,10 +17852,7 @@ revivre	La mort est le moment durant lequel tu ne peux plus revivre. Tu ne peux 
 revivre	Je ne veux pas revivre une expérience comme celle-là.	I don't want to go through another experience like that.	6458
 revivre	Je ne veux plus jamais revivre ça.	I never want to go through that again.	6458
 interroge	Si tu ne sais pas, interroge-moi.	If you don't know, ask me.	6459
-interroge	Interroge !	Interrogate!	6459
 interroge	La police interroge les témoins.	The police are interviewing witnesses.	6459
-foutaises	Foutaises.	Blah.	6460
-foutaises	Foutaises !	Rubbish!	6460
 foutaises	Ce sont des foutaises.	This is hogwash.	6460
 exécuté	Le roi fut exécuté.	The king was executed.	6461
 exécuté	Le meurtrier fut exécuté.	The murderer was executed.	6461
@@ -18893,7 +18791,6 @@ accouchement	L'accouchement a été très difficile.	The delivery was very diffi
 contenir	Cette boîte est trop petite pour tout contenir.	That box is too small to hold all these things.	6820
 contenir	Il essayait de contenir sa colère.	He tried to hold back his anger.	6820
 contenir	Cette bouteille peut contenir deux litres d'eau chaude.	This jar can hold two liters of hot water.	6820
-hourra	Hourra !	Hooray!	6821
 hourra	Hourra ! Je l'ai trouvé !	Hurray! I have found it!	6821
 ouragan	Le quai a vraiment été battu par l'ouragan.	The pier took a real beating from the hurricane.	6822
 ouragan	C'est quoi, un ouragan ?	What is a hurricane?	6822
@@ -19152,8 +19049,6 @@ effraction	Un voleur s'est introduit par effraction dans la maison pour voler de
 introduit	Le thé a été introduit de Chine.	Tea was introduced from China.	6921
 introduit	Il a introduit le problème de l'éducation dans la conversation.	He introduced the problem of education into the conversation.	6921
 effraction	Il s'est introduit par effraction dans la pièce.	He broke into the room.	6921
-accélère	Accélère.	Accelerate.	6923
-accélère	Accélère !	Go faster!	6923
 accélère	Accélère un peu !	Put your foot down!	6923
 apocalypse	Quand est l'Apocalypse ?	When is the Apocalypse?	6925
 juive	Je suis juive.	I'm a Jew.	6926
@@ -19382,7 +19277,6 @@ résiste	Résiste à la résistance !	Resist resistance!	7010
 résiste	Ne nous résiste pas !	Don't resist us.	7010
 résiste	Ne résiste pas !	Don't resist.	7010
 invasion	On résiste à l'invasion des armées; on ne résiste pas à l'invasion des idées.	One resists the invasion of armies; one does not resist the invasion of ideas.	7010
-renonce	Renonce !	Give up!	7011
 renonce	Toute personne qui refuse d'espérer renonce à la vie.	He who surrenders hope, surrenders life.	7011
 renonce	Ne renonce jamais !	Never give up!	7011
 économique	Avez-vous un billet économique sur une ligne intérieure ?	Do you have a cheap flight ticket on a domestic line?	7012
@@ -19403,7 +19297,6 @@ ruelle	Tournez vers le nord et à la deuxième ruelle vous voilà arrivé.	Turn 
 ruelle	Je ne voudrais pas le croiser dans une ruelle sombre.	I wouldn't want to run into him in a dark alley.	7016
 prions	Prions pour une paix parfaite et éternelle.	Let us pray for a perfect, an eternal, peace.	7017
 prions	Nous prions tous pour le Japon.	We are all praying for Japan.	7017
-prions	Prions !	Let's pray.	7017
 parade	On a bien aimé regarder la parade de cirque.	We enjoyed watching a circus parade.	7018
 parade	Il y avait plusieurs personnes dans les rues quand la parade est passée.	There were lots of people on the street when the parade came by.	7018
 parade	On a vu la parade descendre la rue.	We saw the parade move down the street.	7018
@@ -19617,8 +19510,6 @@ souffler	Peut-être pourriez-vous souffler un mot en ma faveur.	Maybe you could 
 éclaté	La guerre a éclaté en 1939.	War broke out in 1939.	7097
 éclaté	Elle a éclaté de rire.	She burst into laughter.	7097
 applaudissements	Des applaudissements ont éclaté.	Applause broke out.	7097
-beurk	Beurk.	Yuck.	7098
-beurk	Beurk !	Ew!	7098
 beurk	Beurk ! Ça à l'air affreux !	Yuck! That looks awful!	7098
 nombres	L'ensemble des nombres réels est un exemple typique de corps.	A typical example of a field is provided by the real numbers.	7099
 nombres	Il y a de la force dans les nombres.	There is strength in numbers.	7099
@@ -20235,7 +20126,6 @@ remettra	Il s'en remettra.	He'll get over it.	7348
 triomphe	Ce fut le triomphe de la civilisation sur la force.	It was the triumph of civilization over force.	7349
 triomphe	Le charme frappe la vue, mais le mérite triomphe de l'âme.	Charms strike the sight, but merit wins the soul.	7349
 triomphe	L'amour triomphe de tout.	Love conquers all.	7349
-chargez	Chargez !	Charge!	7350
 acquis	J'ai pris comme acquis que vous étiez de notre côté.	I took it for granted that you were on our side.	7351
 acquis	Le savoir ne peut être acquis que par l'étude.	Knowledge can only be obtained by study.	7351
 acquis	Bien mal acquis ne profite jamais.	Ill-gotten gains are short-lived.	7351
@@ -20392,7 +20282,6 @@ emballer	Pourrais-tu l'emballer ?	Could you gift wrap it?	7411
 approuve	J'approuve ce projet.	I agree to this plan.	7412
 approuve	J'approuve son projet.	I agree with his plan.	7412
 approuve	Je n'approuve pas votre décision.	I don't approve your decision.	7412
-grouille	Grouille !	Hurry up.	7413
 grouille	Le lac grouille de poissons.	The lake abounds with fish.	7413
 grouille	La ville grouille toujours de touristes.	The town is always crawling with tourists.	7413
 occupent	Presque tous les parents s'occupent de l'éducation de leurs enfants.	Almost all parents see to the education of their children.	7414
@@ -20432,8 +20321,6 @@ documentaire	Je réalise un documentaire.	I'm making a documentary.	7431
 documentaire	Je ne regarde pas beaucoup de films, mais je ne peux pas résister à un bon documentaire.	I don't watch a lot of movies, but I can't resist a good documentary.	7431
 documentaire	Je vais regarder un documentaire.	I'm going to watch a documentary.	7431
 greffe	Il a besoin d'une greffe de rein.	He needs a kidney transplant.	7434
-disparais	Disparais !	Go away.	7435
-disparais	Disparais !	Leave!	7435
 disparais	Tu disparais.	You disappear.	7435
 conserver	Il ne pouvait conserver son sang-froid plus longtemps.	He couldn't keep his temper any longer.	7436
 conserver	Ce coffre est destiné à conserver les objets de valeur.	This safe is for keeping valuables.	7436
@@ -20497,7 +20384,6 @@ remonté	Il a remonté un énorme poisson hier.	He reeled in a huge fish yesterd
 laisseront	Je suis certain que mes parents ne me laisseront pas aller seul.	I'm sure my parents won't let me go by myself.	7459
 laisseront	Je suis certain que mes parents ne me laisseront pas y aller seul.	I'm sure my parents won't let me go by myself.	7459
 laisseront	Je suis certain que mes parents ne me laisseront pas partir seul.	I'm sure my parents won't let me go by myself.	7459
-bisous	Bisous !	Kisses!	7460
 bisous	Bisous, John.	Lots of love, John.	7460
 bisous	Gros bisous, Jean.	Lots of love, John.	7460
 alexandre	« À qui appartiennent ces soldats ? » « Ce sont ceux d'Alexandre le Grand. »	"""Whose soldiers are these?"" ""They are Alexander the Great's."""	7461
@@ -20844,7 +20730,6 @@ préférable	Il est préférable d'obtenir le conseil de votre avocat.	Better to
 préférable	Je pense que la mort est préférable à la honte.	I think death is preferable to shame.	7601
 téléphoniques	Il est préférable d'utiliser les appels téléphoniques à l'international pour communiquer seulement d'individu à individu.	It's best to make international calls person to person.	7601
 bandit	Ce type est un bandit.	This guy is a bandit.	7602
-bandit	Bandit !	Bandit!	7602
 marks	J'ai gagné 80 marks sur un maximum de 100.	I got 80 marks out of a maximum of 100.	7603
 marks	Ce vieux billet de dix marks n'est plus valable depuis déjà longtemps.	This old ten-mark bill hasn't been valid for a long time.	7603
 musulmans	Juifs, chrétiens et musulmans, nous sommes tous fils de Dieu.	Jews, Christians and Moslems, we all are children of God.	7604
@@ -20912,7 +20797,6 @@ placée	En raison de vos symptômes, vous devez être placée en isolement médi
 placée	À cause de tes symptômes, tu dois être placée en isolement médical temporaire.	Because of your symptoms, you must be temporarily medically isolated.	7624
 hallucinations	Toutes les choses que tu as vues n'étaient que des hallucinations.	All the things you saw were hallucinations.	7625
 hallucinations	J'ai peut-être des hallucinations.	Maybe I'm having hallucinations.	7625
-filez	Filez !	Run for it!	7627
 filez	Filez dans votre voiture !	Get into your car.	7627
 immatriculation	Il doit payer pour faire refaire sa plaque d'immatriculation.	He must pay to have his registration plate re-made.	7628
 immatriculation	Dan a photographié la plaque d'immatriculation.	Dan took a picture of the license plate.	7628
@@ -21145,7 +21029,6 @@ crue	Je ne donne jamais de viande crue à manger à mon chien.	I never feed my d
 crue	Personne ne l'a crue.	No one believed her.	7715
 salutations	N'oubliez pas de transmettre mes salutations à votre charmante épouse.	Don't forget to give my best regards to your lovely wife.	7716
 salutations	Salutations, étranger !	Greetings, stranger.	7716
-salutations	Salutations !	Greetings!	7716
 détient	Elle détient dix pour cent des parts de l'entreprise.	She has a 10 percent interest in the company.	7717
 détient	Il détient deux voitures.	He has two cars.	7717
 détient	La seule règle d'or est que celui qui détient l'or écrit les règles.	The only golden rule is that he who has the gold makes the rules.	7717
@@ -21211,7 +21094,6 @@ bulletin	Je regarde toujours le bulletin météo avant de sortir le matin.	I alw
 bulletin	Le bulletin météo n'est pas fiable du tout.	The weather forecast is not reliable at all.	7738
 avale	Ma gorge me fait mal quand j'avale.	My throat hurts when I swallow.	7739
 avale	Avale-le !	Swallow it!	7739
-avale	Avale !	Swallow!	7739
 graines	N'avale pas de graines, sinon un arbre va pousser dans ton ventre !	Don't swallow seeds, or a tree's gonna grow in your belly!	7739
 croyons	Nous croyons en l'existence de Dieu.	We believe in the existence of God.	7740
 croyons	Nous croyons en Dieu.	We believe in God.	7740
@@ -21484,7 +21366,6 @@ lesbiennes	Je ne comprends pas comment toutes les filles ne sont pas lesbiennes.
 lesbiennes	Elles sont lesbiennes.	They're lesbians.	7847
 lesbiennes	Les gays et les lesbiennes devraient avoir leur droits, non ?	Gay and lesbian people should have their rights, shouldn't they?	7847
 oups	Oups, faux !	Oops, wrong!	7848
-oups	Oups !	Whoops!	7848
 oups	Oups ! Je suis à la mauvaise porte.	Oops! Wrong door.	7848
 briquet	Avez-vous un briquet ?	Have you got a lighter?	7849
 briquet	Son briquet a fait dix ans de service.	His lighter has done ten years' service.	7849
@@ -21680,7 +21561,6 @@ inattendu	Il a rencontré un obstacle inattendu.	He met an unexpected obstacle.	
 briller	Nous avons vu la première étoile briller dans le ciel.	We saw the first star shining in the sky.	7923
 briller	Il n'est guère difficile de briller quand on est entouré d'idiots.	It's not hard to stand out when you're surrounded by idiots.	7923
 briller	J'aime voir tes yeux briller quand tu ris.	I love to see your eyes shine when you laugh.	7923
-affirmatif	Affirmatif.	Affirmative.	7924
 verrouillé	N'avais-tu pas verrouillé ta voiture ?	Didn't you lock up your car?	7925
 verrouillé	Après avoir verrouillé toutes les portes, je suis allé me coucher.	After I locked all the doors, I went to bed.	7925
 verrouillé	C'est étrange. J'aurais pu jurer que j'avais verrouillé cette porte.	That's strange. I could have sworn that I'd locked this door.	7925
@@ -21790,8 +21670,6 @@ clin	Un clin d'œil fut sa seule réponse.	A wink was his only answer.	7971
 clin	Je vais le mettre en route en un clin d'œil.	I'll have it up and running in no time.	7971
 clin	Je vais la mettre en route en un clin d'œil.	I'll have it up and running in no time.	7971
 ramènera	On te ramènera chez toi en un clin d’œil.	We'll have you home before you can say Jack Robinson.	7971
-fuyez	Fuyez.	Run away.	7972
-fuyez	Fuyez !	Run away!	7972
 fuyez	Ne fuyez pas !	Don't run away.	7972
 interrompu	J'ai interrompu toutes mes cartes de crédit sauf une.	I have cut up all but one of my credit cards.	7973
 interrompu	Pourquoi m'a-t-elle interrompu ?	Why did she interrupt me?	7973
@@ -22281,7 +22159,6 @@ absolu	La vérité sur cette affaire est un secret absolu.	The truth of the matt
 absolu	Le seigneur avait un pouvoir absolu sur ses sujets.	The lord held absolute power over his subjects.	8161
 dansez	Dansez avec moi.	Dance with me.	8162
 dansez	Personne ne se soucie de l'air que vous avez lorsque vous dansez.	No one really cares what you look like when you dance.	8162
-dansez	Dansez !	Dance!	8162
 assiettes	J'ai lavé les assiettes après le souper.	I washed the dishes after supper.	8163
 assiettes	Tout ce que tu as à faire, c'est de laver les assiettes.	All you have to do is wash the dishes.	8163
 assiettes	Elle a mis les assiettes sales dans l'évier.	She put the dirty dishes in the sink.	8163
@@ -22387,7 +22264,6 @@ officiers	L’armée de Terre place sous son commandement des officiers généra
 brigade	L’armée de Terre place sous son commandement des officiers généraux de haut rang : général de brigade, général de division, général de corps d’armée et général d’armée.	The French Army is commanded by high-ranking general officers: brigadier general, major general, corps general, and army general.	8202
 division	L’armée de Terre place sous son commandement des officiers généraux de haut rang : général de brigade, général de division, général de corps d’armée et général d’armée.	The French Army is commanded by high-ranking general officers: brigadier general, major general, corps general, and army general.	8202
 mollo	Allez-y mollo sur la bière !	Go easy on the beer!	8203
-mollo	Mollo !	Hold your horses!	8203
 mollo	Vas-y mollo avec le vin.	Go easy on the wine.	8203
 léon	Léon a regardé sous le lit.	Leon checked under the bed.	8204
 léon	Léon a vérifié sous le lit.	Leon checked under the bed.	8204
@@ -22751,7 +22627,6 @@ construite	La statue fut construite en France.	The statue was built in France.	8
 batteur	Actuellement, c'est notre meilleur batteur.	Currently, he's our best batter.	8350
 batteur	Le batteur a fait une overdose.	The drummer overdosed.	8350
 batteur	Le batteur a été enterré la semaine dernière.	The drummer was buried last week.	8350
-rigolez	Rigolez !	Laugh!	8351
 rigolez	Vous rigolez.	You're kidding.	8351
 rigolez	Vous rigolez ?	Are you kidding?	8351
 universitaire	Un travail universitaire vous donnerait bien plus de temps libre.	A university job would give you a lot more free time.	8352
@@ -22783,7 +22658,6 @@ jouera	L'équipe jouera-t-elle ?	Will the team be playing?	8359
 sandwichs	Combien de sandwichs restent-ils ?	How many sandwiches are there left?	8360
 sandwichs	Nous avons mangé des sandwichs pour le petit-déjeuner.	We ate sandwiches for breakfast.	8360
 sandwichs	Combien reste-t-il encore de sandwichs ?	How many sandwiches are there left?	8360
-bâtards	Bâtards !	Bastards!	8361
 bâtards	Bande de bâtards !	Bastards!	8361
 devint	Avec autant de personnes autour de lui, il devint naturellement un peu nerveux.	With so many people around he naturally became a bit nervous.	8362
 devint	Sa voiture devint vite hors de vue.	His car soon went out of sight.	8362
@@ -22881,7 +22755,6 @@ opposer	Tu aurais dû opposer une fin de non-recevoir à sa demande.	You should 
 indigne	Cet homme est indigne de toi.	That man is unworthy of you.	8405
 indigne	Cet homme est indigne de vous.	That man is unworthy of you.	8405
 tapette	Il a été vaincu par la tapette à mouches.	He was defeated by the fly swatter.	8406
-tapette	Tapette !	Faggot!	8406
 accusés	Sommes-nous accusés de quelque chose ?	Are we being charged with something?	8407
 amenés	Nous les avons presque amenés là où nous les voulons.	We almost got them where we want them.	8408
 inoffensif	Est-ce inoffensif ?	Is it safe?	8409
@@ -22912,7 +22785,6 @@ visez	Vous ne visez pas assez haut.	You're not aiming high enough.	8417
 visez	Visez ce chien !	Look at that dog.	8417
 visez	Visez les jambes !	Shoot for the legs!	8417
 pédale	Le grand piano n'a aucune pédale.	The grand piano has no pedal at all.	8418
-pédale	Pédale !	Faggot!	8418
 recommencé	Il a finalement recommencé à sortir avec des filles après huit mois.	After eight months, he eventually started dating girls again.	8419
 recommencé	Elle a recommencé.	She did it again.	8419
 recommencé	Il a recommencé.	He did it again.	8419
@@ -23210,7 +23082,6 @@ bruyant	Je n'aime pas vivre dans un endroit si bruyant.	I dislike living in such
 pourris	Quelques œufs étaient bons, mais les autres étaient pourris.	Some eggs weren't rotten, but the rest of them were.	8540
 pourris	Les enfants ne devraient pas être pourris.	Children should not be spoiled.	8540
 pourris	Pourris-moi la vie !	Fuck my life.	8540
-bouffon	Bouffon !	Buffoon!	8541
 bouffon	Espèce de bouffon !	Buffoon!	8541
 bouffon	Quel bouffon !	What a buffoon!	8541
 apparaître	Il y a des gens dans le monde si affamés que Dieu ne peut pas leur apparaître, sauf sous forme de pain.	There are people in the world so hungry, that God cannot appear to them except in the form of bread.	8542
@@ -23228,7 +23099,6 @@ trembler	La colère le faisait trembler.	Anger caused him to tremble.	8546
 trembler	On a senti la terre trembler.	We felt the ground trembling.	8546
 relaxe	Prendre un bain me relaxe.	Taking a bath makes me relax.	8547
 relaxe	Relaxe, Max !	Take it easy!	8547
-relaxe	Relaxe !	Take it easy!	8547
 affirmer	Tu ferais mieux d'essayer de t'affirmer davantage.	You'd better try to assert yourself more.	8548
 affirmer	Je sais m'affirmer, lorsque c'est nécessaire.	I can be assertive if necessary.	8548
 affirmer	Vous devez apprendre à vous affirmer.	You need to learn how to be assertive.	8548
@@ -24089,7 +23959,6 @@ treize	Ma sœur aura treize ans l'été prochain.	My sister will be thirteen yea
 treize	J'ai treize chats.	I keep thirteen cats.	8886
 treize	Les enfants de moins de treize ans ne sont pas admis dans cette piscine.	Children under thirteen years of age are not admitted to this swimming pool.	8886
 grandis	Tant que t'es vert, c'est que tu grandis. Quand t'es mûr, tu pourris.	When you're green, you grow. When you're ripe, you rot.	8887
-grandis	Grandis !	Grow up!	8887
 grandis	Pourquoi ne grandis-tu pas ?	Why don't you grow up?	8887
 mêlée	Je ne voulais pas que tu sois mêlée à ça.	I didn't want you involved in this.	8888
 mêlée	Je ne voulais pas que vous soyez mêlée à ça.	I didn't want you involved in this.	8888
@@ -24101,8 +23970,6 @@ volait	L'oiseau volait haut dans le ciel.	The bird flew high.	8890
 volait	Le papillon volait.	The butterfly flew.	8890
 volait	Robin des Bois volait les riches.	Robin Hood robbed the rich.	8890
 tuteur	Je n'ai pas besoin de tuteur !	I don't need a tutor!	8891
-apportera	La phrase numéro 888,888 apportera des années de bonheur à son propriétaire.	Sentence Number 888,888 will bring its owner years of happiness.	8892
-apportera	La phrase numéro 888,888 apportera des années de chance à son propriétaire.	Sentence Number 888,888 will bring its owner years upon years of luck.	8892
 apportera	La femme de chambre vous apportera du savon.	The chambermaid will bring you some soap.	8892
 courts	J'aime les cheveux courts.	I like short hair.	8893
 courts	Elle a les cheveux très courts.	Her hair is very short.	8893
@@ -24135,7 +24002,6 @@ notez	Notez vos objectifs.	Write your goals down.	8904
 notez	Notez ceci.	Write this down.	8904
 extinction	On dit que cette espèce d'oiseau est menacée d'extinction.	That species of bird is said to be in danger of dying out.	8905
 extinction	C'est une espèce en voie d'extinction.	It is an endangered species.	8905
-extinction	Extinction.	Shutting down.	8905
 annuaire	Regarde dans l'annuaire.	Look in the phone book.	8906
 annuaire	Le nouvel annuaire téléphonique est arrivé !	The new phone book is here!	8906
 annuaire	Cherche le numéro dans l'annuaire.	Look up the number in the telephone book.	8906
@@ -24373,7 +24239,6 @@ assurée	Ma maison est complètement assurée.	My house is fully insured.	9017
 assurée	La sécurité n'est pas assurée.	Safety is not guaranteed.	9017
 assurée	La victoire n'est pas assurée.	Victory is not assured.	9017
 poursuivez	Poursuivez votre travail.	Go ahead with your work.	9018
-poursuivez	Poursuivez.	Go on.	9018
 poursuivez	Quel objectif poursuivez-vous en étudiant l'anglais ?	What's your purpose in studying English?	9018
 envoyait	John envoyait des cadeaux à Jessica.	John sent Jessica gifts.	9019
 cyril	Je m’appelle Cyril. Enchanté !	My name's Cyril; pleased to meet you!	9020
@@ -24399,7 +24264,6 @@ batteries	Cet ordinateur fonctionne sur batteries.	This computer runs on batteri
 batteries	Ces batteries sont toutes à plat.	These batteries are all dead.	9027
 poursuis	Poursuis ton travail.	Go ahead with your work.	9028
 poursuis	Poursuis ton histoire.	Go ahead with your story.	9028
-poursuis	Poursuis !	Go ahead.	9028
 frein	Le frein a pour fonction d'arrêter la voiture.	The function of the brake is to stop the car.	9030
 frein	Appuie sur la pédale de frein pour allumer tes feux stop.	Press the brake pedal to turn on your brake lights.	9030
 pédale	Appuie sur la pédale de frein pour allumer tes feux stop.	Press the brake pedal to turn on your brake lights.	9030
@@ -24555,7 +24419,6 @@ cornes	Tu dois prendre le taureau par les cornes.	You must take the bull by the 
 mentalement	J'ai beaucoup d'amis pour me soutenir mentalement.	I have a lot of friends to support me mentally.	9089
 mentalement	Tu dois être mentalement épuisé.	You must be mentally exhausted.	9089
 mentalement	Es-tu mentalement dérangé ?	Are you mentally ill?	9089
-sautez	Sautez.	Jump.	9090
 sautez	Sautez le plus haut possible.	Jump as high as you can.	9090
 sautez	Maintenant, mon cher monsieur, sautez par la fenêtre !	Now, my young man, jump out the window!	9090
 posent	Les seules réponses utiles sont celles qui posent de nouvelles questions.	The only useful answers are those that raise new questions.	9091
@@ -24903,7 +24766,6 @@ organe	Le chirurgien a extrait le mauvais organe.	The surgeon removed the wrong 
 éprouve	J'éprouve une profonde sympathie à votre égard.	I feel deep sympathy for you.	9241
 éprouve	J'éprouve de la difficulté à exprimer mon opinion en paroles.	I find it difficult to express my meaning in words.	9241
 éprouve	Mais si une femme éprouve un sentiment particulier pour un homme et ne cherche pas à le cacher, c’est à lui à le découvrir.	But if a woman is partial to a man, and does not endeavour to conceal it, he must find it out.	9241
-nickel	Nickel !	Hunky-dory!	9242
 nickel	Je veux que tout soit nickel.	I want everything spick and span.	9242
 nickel	Nickel ! À toute !	Perfect! See you later!	9242
 reprise	La bourse de Tokyo a montré une forte reprise en fin de journée.	The Tokyo Stock Exchange rallied at the end of the day.	9244
@@ -24937,7 +24799,6 @@ suicidaire	C'est suicidaire.	It's suicidal.	9256
 suicidaire	Il est suicidaire.	He's suicidal.	9256
 suicidaire	Je suis suicidaire.	I am suicidal.	9256
 câlins	On pourrait pas faire des câlins, plutôt ?	Couldn't we cuddle, instead?	9257
-câlins	Câlins !	Hugs!	9257
 câlins	On a commencé à se faire des câlins et à s'embrasser.	We started hugging and kissing each other.	9257
 connaissant	Qui, le connaissant, y croira ?	Who that knows him will believe it?	9258
 connaissant	Te connaissant, je m'attends à tout.	Knowing you, I'm ready for anything.	9258
@@ -25054,7 +24915,6 @@ sucré	Le chocolat a un goût sucré.	Chocolate tastes sweet.	9302
 sucré	Il aime tout ce qui est sucré.	He likes anything sweet.	9302
 sucré	Ce gâteau est sucré.	This cake is sweet.	9302
 coquin	Je donnerais n'importe quoi pour revoir son sourire coquin.	I'd give everything to see his mischievous smile again.	9303
-crotte	Crotte !	Feck!	9304
 crotte	Il ne se prend pas pour de la crotte.	He thinks he is the bee's knees.	9304
 développe	La lecture développe la pensée.	Reading improves the mind.	9305
 développe	La Chine se développe trop rapidement.	China's developing too quickly.	9305
@@ -25188,7 +25048,6 @@ passages	Il y a eu des passages de soleil ce matin.	There was intermittent sunsh
 arrogance	Son arrogance l'a conduit à la ruine.	His arrogance led to his downfall.	9356
 arrogance	Ton ignorance est un sous-produit de ton arrogance.	Your ignorance is a byproduct of your arrogance.	9356
 arrogance	Il a eu l'arrogance de me demander de le marier.	He had the nerve to ask me to marry him.	9356
-baratin	Baratin !	Blarney!	9357
 baratin	Arrête ton baratin !	Come off it!	9357
 baratin	J'ai écouté le baratin du vendeur mais n'ai rien acheté.	I listened to the salesman's spiel but did not buy anything.	9357
 mature	Je voulais rencontrer une femme vraiment mature.	I wanted to meet a really mature woman.	9358
@@ -25603,7 +25462,6 @@ anesthésie	Il a été mis sous anesthésie.	He was put under anesthesia.	9533
 anesthésie	Trop d'alcool anesthésie nos sens.	Too much alcohol blunts our feelings.	9533
 scandaleux	Ces prix sont scandaleux !	These prices are outrageous!	9534
 scandaleux	Les messages de Dan étaient scandaleux.	Dan's messages were scandalous.	9534
-scandaleux	Scandaleux !	Scandalous!	9534
 émotionnellement	Émotionnellement, je suis vidé.	I'm emotionally drained.	9535
 émotionnellement	Les réfugiés ont souffert physiquement et émotionnellement.	The refugees suffered physically and emotionally.	9535
 moines	Ces moines vivent dans le monastère.	These monks live inside the monastery.	9536
@@ -26145,7 +26003,6 @@ taudis	Quel taudis !	What a dump.	9767
 taudis	C'est dans ce taudis que tu habites ?	Is this the hovel you live in?	9767
 stations	Ce train s'arrête à toutes les stations.	This train stops at every station.	9770
 stations	Je ne peux pas régler les stations de la radio. Le bouton de sélection des stations de la radio est cassé.	I can't tune into the radio station. The tuning knob is broken on the radio.	9770
-miam	Miam !	Yum yum!	9771
 miam	Miam le petit oiseau.	Birdy num num.	9771
 miam	Cette nourriture sent bon. Miam miam !	That food smells good. Yum, yum.	9771
 stérile	Je ne peux pas tomber enceinte. Je suis stérile.	I cannot get pregnant. I am sterile.	9773

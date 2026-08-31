@@ -1,13 +1,10 @@
 word	sentence	translation	difficulty_rank
-ako	Ako?	Me?	1
 ako	Hindi ikaw, ako!	It's not you, it's me!	12
 ikaw	Hindi ikaw, ako!	It's not you, it's me!	12
 hindi	Hindi ikaw, ako!	It's not you, it's me!	12
-hindi	Hindi!	No!	12
 ako	Hindi, hindi ako! Ikaw!	No, it is not me! It is you!	12
 ikaw	Hindi, hindi ako! Ikaw!	No, it is not me! It is you!	12
 hindi	Hindi, hindi ako! Ikaw!	No, it is not me! It is you!	12
-oo	Oo.	Yes.	13
 kami	Hindi na kami.	We're not together anymore.	14
 na	Hindi na kami.	We're not together anymore.	14
 na	Hindi na tayo.	We're not together anymore.	15
@@ -15,24 +12,18 @@ tayo	Hindi na tayo.	We're not together anymore.	15
 iyan	Hindi ako iyan.	That wasn't me.	19
 iyan	Ano iyan?	What is that?	23
 ano	Ano iyan?	What is that?	23
-ano	Ano?	What?	23
 siya	Sino siya?	Who is she?	24
 sino	Sino siya?	Who is she?	24
-sino	Sino?	Who?	24
 sila	Sino sila?	Who are those guys?	24
 sino	Sino sila?	Who are those guys?	24
 iyan	Sino iyan?	Who is there?	24
 tayo	Sino tayo?	Who are we?	24
 kung	Kung hindi ako, sino?	If not me, then who?	24
-saan	Saan?	Where?	25
-bakit	Bakit?	Why?	26
 bakit	Bakit ako?	Why me?	26
 bakit	Bakit hindi?	Why not?	26
 pero	Pero bakit?	But why?	26
 siya	Bakit siya at hindi ako?	Why him and not me?	26
 at	Bakit siya at hindi ako?	Why him and not me?	26
-kailan	Kailan?	When?	27
-paano	Paano?	How?	28
 wala	Sino ang wala?	Who is absent?	30
 ang	Sino ang wala?	Who is absent?	30
 kayo	Wala kayo.	You are not here.	30
@@ -85,10 +76,8 @@ oras	Oras na.	It's about time.	63
 oras	Dumating na ang oras.	The time has come.	63
 kaibigan	May kaibigan ako.	I have a friend.	64
 may	May kaibigan ako.	I have a friend.	64
-mabuti	Mabuti.	Good.	68
 maganda	Maganda ang araw.	It's a nice day.	69
 araw	Maganda ang araw.	It's a nice day.	69
-maganda	Maganda.	Good.	69
 masama	Hindi na masama.	Not bad.	70
 bago	Bago ito.	This is new.	73
 ito	Bago ito.	This is new.	73
@@ -110,15 +99,11 @@ lima	Isa, dalawa, tatlo, apat, lima, anim, pito, walo, siyam, sampu.	One, two, t
 isa	Isa, dalawa, tatlo, apat, lima, anim, pito, walo, siyam, sampu.	One, two, three, four, five, six, seven, eight, nine, ten.	88
 anim	Isa, dalawa, tatlo, apat, lima, anim, pito, walo, siyam, sampu.	One, two, three, four, five, six, seven, eight, nine, ten.	88
 pito	Isa, dalawa, tatlo, apat, lima, anim, pito, walo, siyam, sampu.	One, two, three, four, five, six, seven, eight, nine, ten.	88
-salamat	Salamat.	Thanks!	89
-salamat	Salamat!	Thank you!	89
-pakiusap	Pakiusap.	Please.	90
 maganda	Ikaw ay maganda.	You are beautiful.	91
 ikaw	Ikaw ay maganda.	You are beautiful.	91
 ay	Ikaw ay maganda.	You are beautiful.	91
 bilang	Ano ang bilang?	What's the tally?	95
 para	Para saan?	What for?	96
-para	Para!	Stop!	96
 gusto	Hindi niya ako gusto.	She doesn't like me.	100
 niya	Hindi niya ako gusto.	She doesn't like me.	100
 niya	Ikaw ang mahal niya, hindi ako.	It's you that she loves, not me.	100
@@ -253,7 +238,6 @@ hapon	Hindi niya alam na Hapon ako.	He doesn't know that I'm Japanese.	194
 malapit	Malapit na tayo.	We're almost there.	197
 malapit	Malapit na tayo sa bahay.	We're almost home.	197
 kapatid	Salamat, mga kapatid.	Thanks, brothers.	198
-simula	Simula.	Begin.	199
 pamilya	Pamilya tayo.	We are family.	203
 pamilya	Pamilya kami.	We are family.	203
 pamilya	Ang pamilya ay pamilya.	Family is family.	203
@@ -322,7 +306,6 @@ babae	Ang mga batang ito ay lalaki at ang mga iyon ay babae.	These are boys and 
 batang	Ang mga batang ito ay lalaki at ang mga iyon ay babae.	These are boys and those are girls.	269
 batang	Ito ang batang lalaki.	This is the boy.	269
 labas	Labas tayo.	Let's go out.	270
-labas	Labas!	Get out!	270
 labas	Kumain siya sa labas.	He ate out.	270
 ilog	Malawak ang ilog na iyan.	That river is wide.	273
 malawak	Malawak ang ilog na iyan.	That river is wide.	273
@@ -368,7 +351,6 @@ ilang	Ginawa nila ito nang ilang beses.	They did it a few times.	305
 kailangan	Kailangan ako dito.	I'm needed here.	310
 kailangan	Sino ang may kailangan?	Who needs it?	310
 bumalik	Bumalik kayo.	Come back.	311
-bumalik	Bumalik.	Go back.	311
 bumalik	Bumalik na ako.	I'm back.	311
 amerikano	Amerikano siya.	He is American.	316
 doon	Pumunta doon.	Go there.	319
@@ -464,12 +446,9 @@ tiyak	Tiyak na magiging problema iyan.	That's bound to be a problem.	379
 tiyak	Tiyak na magiging problema iyon.	That's bound to be a problem.	379
 mahusay	Mahusay naman ang lahat sa tahanan.	All are well at home.	382
 tahanan	Mahusay naman ang lahat sa tahanan.	All are well at home.	382
-mahusay	Mahusay!	Well done!	382
-mahusay	Mahusay.	Well done.	382
 gayon	Gayon din.	Likewise.	383
 din	Gayon din.	Likewise.	383
 tulong	Kailangan niya ng tulong.	He needs help.	395
-tulong	Tulong!	Help!	395
 silang	Wala silang mga gamot.	They have no medicines.	398
 gamot	Wala silang mga gamot.	They have no medicines.	398
 gamot	Bumili ako ng gamot.	I purchased medicine.	398
@@ -773,7 +752,6 @@ parang	Parang gusto mo nang maging babae.	It seems like you want to become a wom
 malungkot	Parang malungkot siya.	He seems lonely.	631
 ulit	Salamat ulit.	Thanks again.	633
 ulit	Bumalik ka ulit bukas.	Come again tomorrow.	633
-malamang	Malamang.	Obviously.	634
 malamang	Malamang hindi.	Probably not.	634
 kompyuter	Kompyuter ko ito.	This is my computer.	638
 kompyuter	Bago ang kompyuter.	The computer is new.	638
@@ -803,7 +781,6 @@ ating	Sino ang ating kalaban?	Who are we fighting?	675
 taong	Patay iyong taong iyon.	That man is dead.	682
 patay	Patay iyong taong iyon.	That man is dead.	682
 patay	Sila ay hindi patay.	They're not dead.	682
-patay	Patay?	Dead?	682
 magulang	Patay na ang mga magulang niya.	His parents are dead.	682
 kaysa	Mas mahalaga ang mga nabubuhay kaysa sa mga patay.	The living are more valuable than the dead.	684
 nabubuhay	Mas mahalaga ang mga nabubuhay kaysa sa mga patay.	The living are more valuable than the dead.	684
@@ -1003,7 +980,6 @@ ibon	Mga ibon ito.	These are birds.	858
 tawag	Ano ang tawag sa ibon na iyan?	What is the name of that bird?	858
 ibon	Ano ang tawag sa ibon na iyan?	What is the name of that bird?	858
 ibon	Ang mga ibon ay pula.	The birds are red.	858
-bilis	Bilis!	Faster!	863
 bilis	Ang bilis!	So quick!	863
 bumaba	Bumaba ka.	Come downstairs.	866
 bumaba	Bumaba ka dito!	Come down here!	866
@@ -1050,7 +1026,6 @@ kaunti	Mas mahirap ito nang kaunti.	This one's a little harder.	924
 burol	May bahay sa burol.	There is a house on the hill.	926
 propesor	Propesor ko siya.	She's my professor.	928
 kandidato	Sino-sino ang mga kandidato?	Who are the candidates?	931
-puti	Puti.	It's white.	933
 puti	Puti siya.	It's white.	933
 puti	Puti ba?	Is it white?	933
 dati	Puti siya dati.	It was white.	933
@@ -1086,8 +1061,6 @@ ganap	Ano ang ganap sa opisina?	How's things at the office?	970
 tubig	Ang tubig ay isang likido.	Water is a liquid.	972
 likido	Ang tubig ay isang likido.	Water is a liquid.	972
 sandali	Sandali lang.	Just a moment, please.	979
-sandali	Sandali!	Wait!	979
-sandali	Sandali.	Wait.	979
 kaagad	Bumalik kami kaagad.	We returned immediately.	980
 alak	Alak ba ito?	Is this wine?	984
 alak	Pula ang alak.	Wine is red.	984
@@ -1166,7 +1139,6 @@ tubo	Tubo iyon.	That's a pipe.	1046
 tubo	Tubo ito.	This is a pipe.	1046
 malamig	Pagkatapos ng mainit na panahon, naging malamig.	After days of warm weather, it became cold.	1047
 malamig	Malamig ang pagkain.	The food is cold.	1047
-malamig	Malamig.	It's cold.	1047
 apoy	Dahil malamig, gumawa kami ng apoy.	It being cold, we made a fire.	1047
 kamay	Malamig ang kamay niya.	His hand is cold.	1047
 paso	Paso ito.	This is a pot.	1049
@@ -1196,7 +1168,6 @@ maaga	Maaga pa.	It's early.	1071
 maaga	Bakit siya umuwi nang maaga?	Why did she come home early?	1071
 tore	Kita ko ang tore sa bahay ko.	I see the tower from my house.	1073
 mali	Mali ba ako?	Am I not right?	1074
-mali	Mali.	Wrong.	1074
 mali	Mali ka.	You are wrong.	1074
 ulat	Mali-mali ang ulat na ito.	This report is full of errors.	1074
 manggagamot	Manggagamot kami.	We are doctors.	1078
@@ -1382,7 +1353,6 @@ dako	Dako doon!	Over there!	1230
 papasok	Papasok ako sa loob.	I'm coming inside.	1235
 arkitekto	Sino ang arkitekto?	Who is the architect?	1236
 madilim	Madilim na.	It is already dark.	1237
-madilim	Madilim.	It was dark.	1237
 madilim	Medyo madilim na pagdating ko sa bahay.	It was quite dark when I got home.	1237
 pagdating	Medyo madilim na pagdating ko sa bahay.	It was quite dark when I got home.	1237
 tula	Mahilig ako sa tula.	I have an inclination for poetry.	1240
@@ -1412,7 +1382,6 @@ kaso	Kaso, totoo ang kabaligtaran.	However, the reverse is true.	1254
 kabaligtaran	Kaso, totoo ang kabaligtaran.	However, the reverse is true.	1254
 kabaligtaran	Parang totoo ang kabaligtaran.	The reverse seems true.	1254
 lola	May sakit ang lola ko.	My grandmother is sick.	1256
-lola	Lola!	Granny!	1256
 lola	Lola ko siya.	She's my grandma.	1256
 si	Wala na si lola.	Grandma passed away.	1256
 si	Patay na si lola.	Grandma passed away.	1256
@@ -1450,7 +1419,6 @@ sumama	Sumama ang loob ko.	I got upset.	1284
 sumama	Sumama ang loob niya.	He got upset.	1284
 tahimik	Gusto ko ng mga tahimik na pelikula.	I like silent movies.	1285
 pelikula	Gusto ko ng mga tahimik na pelikula.	I like silent movies.	1285
-tahimik	Tahimik!	Be quiet!	1285
 kumuha	Kumuha siya ng libro sa aklatan.	He took a book off the shelf.	1288
 aklatan	Kumuha siya ng libro sa aklatan.	He took a book off the shelf.	1288
 lungsod	Ang aklatan ay nasa kalagitnaan ng lungsod.	The library is in the middle of the city.	1288
@@ -2031,8 +1999,6 @@ katas	Inumin ang katas na ito.	Drink this juice.	1787
 kromosoma	Ilang kromosoma meron ang tao?	How many chromosomes does a human being have?	1788
 sunog	Sunog! Takbo!	Fire! Run!	1791
 takbo	Sunog! Takbo!	Fire! Run!	1791
-takbo	Takbo!	Run!	1791
-takbo	Takbo.	Run.	1791
 talunin	Talunin natin ang Hapon!	Let's beat Japan!	1792
 talunin	Dapat talunin ang kalaban.	The enemy must be defeated.	1792
 talunin	Dapat talunin ang kaaway.	The enemy must be defeated.	1792
@@ -2433,7 +2399,6 @@ sangkot	Hindi kami sangkot.	We're not involved.	2137
 sangkot	Hindi po kami sangkot.	We're not involved.	2137
 sangkot	Hindi tayo sangkot.	We're not involved.	2137
 magnanakaw	Sino ang magnanakaw?	Who was the thief?	2141
-magnanakaw	Magnanakaw!	Thief!	2141
 pansinin	Huwag mo silang pansinin.	Don't pay attention to them.	2145
 kuweba	Madilim na madilim sa loob ng kuweba.	It's pitch black inside the cave.	2151
 kuweba	Madilim na madilim po sa loob ng kuweba.	It's pitch black inside the cave.	2151
@@ -2628,13 +2593,10 @@ oh	Oh, ano'ng nangyari sa kanya?	Well, what happened to her?	2380
 arkeologo	Arkeologo ang lolo ko.	My grandfather was an archaeologist.	2384
 arkeologo	Arkeologo po ang lolo ko.	My grandfather was an archaeologist.	2384
 arkeologo	Arkeologo dati ang lolo ko.	My grandfather was an archaeologist.	2384
-basura	Basura.	Rubbish.	2385
 bisitahin	Bisitahin mo ako kapag nasa bayan ka.	Please look in on me when you're in town.	2386
 destinasyon	Ano ang iyong destinasyon?	What's your destination?	2389
 drayber	Umalis ba sa sasakyan ang drayber?	Did the driver get out of the car?	2390
 imposible	Imposible nang lumabas ngayon.	It's impossible to go out now.	2392
-imposible	Imposible!	Impossible!	2392
-imposible	Imposible.	Impossible.	2392
 ipatupad	Maganda ang ideya, pero mahirap ipatupad.	The idea is good, but it's difficult to implement.	2393
 iskedyul	Wala iyan sa iskedyul ko.	That isn't on my schedule.	2394
 iskedyul	Wala iyon sa iskedyul ko.	That isn't on my schedule.	2394
@@ -2701,7 +2663,6 @@ kompetisyon	Medyo matindi ang kompetisyon.	The competition was pretty rough.	242
 labanan	Matindi ang labanan.	The competition is stiff.	2425
 raw	Medyo matindi raw ang kompetisyon.	I hear the competition is pretty fierce.	2425
 magkapareho	Magkapareho ba sila?	Are they all the same?	2430
-magkapareho	Magkapareho.	It's identical.	2430
 magkapareho	Magkapareho sila.	They're identical.	2430
 basa	Basa ang mga aso.	The dogs are wet.	2435
 basa	Parang basa ang bato.	The rock feels wet.	2435
@@ -2774,7 +2735,6 @@ kanino	Kanino ito?	Whose is this?	2495
 kanino	Para kanino ang mga iyon?	Who are those for?	2495
 kanino	Para kanino ito?	Who is this for?	2495
 panulat	Kanino ang mga panulat na ito?	Whose are these pens?	2495
-maluwag	Maluwag.	It's loose.	2497
 singsing	Maluwag ang singsing.	The ring is loose.	2497
 maluwag	Maluwag ang singsing.	The ring is loose.	2497
 tuktok	Maluwag ang tuktok.	The top is loose.	2497
@@ -2971,8 +2931,6 @@ kabuluhan	Wala nang kabuluhan ang buhay.	Life has lost its meaning.	2698
 lumiit	Bakit lumiit ang damit mo?	Why did your T-shirt shrink?	2702
 lumiit	Bakit po lumiit ang damit ninyo?	Why did your T-shirt shrink?	2702
 paumanhin	Paumanhin po, kung pwede'ng humingi ng pabor.	I'd like to ask you a favor.	2703
-paumanhin	Paumanhin...	Sorry...	2703
-paumanhin	Paumanhin.	I am sorry.	2703
 doble	Ang kita mo ay mga doble ng laki ng akin.	Your income is about twice as large as mine is.	2708
 laki	Ang kita mo ay mga doble ng laki ng akin.	Your income is about twice as large as mine is.	2708
 doble	Ang kita po ninyo ay mga doble ng laki po ng akin.	Your income is about twice as large as mine is.	2708
@@ -3197,7 +3155,6 @@ supot	Ito ang supot ko.	This is my bag.	2966
 eto	Eto ang mga susi mo.	Here are your keys.	2968
 eto	Eto ang batang lalaki.	Here's the boy.	2968
 baliw	Baliw ka ba?	Are you crazy?	2970
-baliw	Baliw!	Crazy!	2970
 baliw	Baliw ka.	You're a lunatic.	2970
 moske	Pumasok siya sa moske.	He came inside the mosque.	2978
 moske	Pumasok po siya sa moske.	He came inside the mosque.	2978
