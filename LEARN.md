@@ -222,6 +222,17 @@ Two conventions built on top of it:
   wrapping the panel, so each panel keeps rendering its own card, actions
   and all — focus mode is the same card one at a time, never a second
   rendering that can drift from the list one.
+- **Card context on a review item** — a change request stores only
+  `target_type` + a nullable `target_id`, so `load_cards` in
+  `repositories/change_requests.py` resolves those into the live row
+  (sentence, answer, hint, translation, plus what situates it) and the board
+  renders the whole card, not a label. It groups by target type, so a board
+  of 200 rows over four kinds costs four queries. Three target kinds
+  (`tutor_message`, `reading`, `other`) have no stored row by design — a
+  tutor reply is generated per learner and never saved, so the quote
+  captured at flag time IS the record — and they degrade to that quote
+  rather than erroring. A card deleted since the request was raised also
+  resolves to nothing, which the board says out loud.
 - **`QueueHelp` / `QUEUE_HELP`** — the "what does this button actually do"
   hover for each queue, written to three beats (what these items are, who
   can act, and what each action *does*). It exists because "Resolve" reads

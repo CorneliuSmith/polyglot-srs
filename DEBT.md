@@ -104,6 +104,19 @@ good as its fidelity to that function's real return type. Prefer an
 integration test against real Postgres for anything where the return shape
 matters.
 
+### A partial mock, caught this time
+
+The same class as above, from the other direction: a `test_contributor.py`
+unit test mocks `list_requests` to return request dicts *without*
+`target_type`, because nothing read that field when the test was written.
+Adding `load_cards` — which does read it — turned that into a `KeyError`
+that only appeared in the full suite. The fix was to make `load_cards`
+total (every field read with `.get()`, an unrecognised row simply gets no
+card), which is the right shape anyway for a function whose whole job is
+attaching optional context: it must never be the reason a board fails to
+render. Worth remembering that a partial mock is a *latent* failure — it
+passes until someone reads a field the fixture never had.
+
 ### Integration tests skip silently, and it has hidden ~79 tests before
 
 Without `INTEGRATION_DATABASE_URL` set, DB-backed tests report as `skipped`,

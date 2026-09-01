@@ -32,6 +32,7 @@ from backend.repositories.change_requests import (
     create_request,
     get_request_language,
     list_requests,
+    load_cards,
     resolve_request,
 )
 from backend.repositories.contributor import (
@@ -2523,6 +2524,14 @@ async def get_change_requests(
         )
     async with privileged_connection() as conn:
         requests = await list_requests(conn, language_id, user["id"], status)
+        # The card each request is about, so the board can be JUDGED and not
+        # just read. Best-effort: a lookup that fails leaves `card` unset and
+        # the row renders exactly as it did before, because a board that
+        # 500s is strictly worse than a board without the context.
+        try:
+            await load_cards(conn, requests)
+        except asyncpg.PostgresError:
+            logger.exception("change-request card lookup failed")
     return {
         "requests": requests,
         "can_resolve": is_admin(roles),
