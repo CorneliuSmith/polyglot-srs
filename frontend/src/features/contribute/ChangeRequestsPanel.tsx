@@ -4,6 +4,7 @@ import {
   resolveChangeRequest,
   voteChangeRequest,
   type ChangeRequest,
+  type ReviewedCard,
 } from '../../api/contribute'
 import QueueStatus from './QueueStatus'
 import QueueHelp, { QUEUE_HELP } from './QueueHelp'
@@ -16,6 +17,69 @@ const FIELD_LABEL: Record<string, string> = {
   answer: 'Answer',
   explanation: 'Explanation',
   other: 'Other',
+}
+
+
+/**
+ * The item the request is about, shown in full.
+ *
+ * The board used to carry a bare label ("abbreviation of doctor") and the
+ * complaint ("gives the answer away"), which is not enough to decide
+ * anything: whether a hint gives the answer away is a question about the
+ * hint AND the sentence AND the answer, and only one of the three was on
+ * screen. The FIELD the request names is highlighted, because the next
+ * question after "what is this card" is always "which part of it".
+ */
+function CardContext({
+  card,
+  field,
+}: {
+  card: ReviewedCard
+  field: string
+}) {
+  const rows: [string, string, string | null][] = [
+    ['sentence', 'Sentence', card.sentence],
+    ['answer', 'Answer', card.answer],
+    ['hint', 'Hint', card.hint],
+    ['translation', 'Translation', card.translation],
+  ]
+  return (
+    <div
+      className="rounded-lg border border-gray-200 bg-gray-50 px-2.5 py-2"
+      data-testid="change-request-card"
+    >
+      {(card.context || card.level) && (
+        <p className="mb-1 text-[10px] uppercase tracking-wide text-gray-500">
+          {card.context}
+          {card.context && card.level && ' · '}
+          {card.level}
+        </p>
+      )}
+      <dl className="space-y-0.5">
+        {rows.map(([key, label, value]) =>
+          value ? (
+            <div
+              key={key}
+              className={`flex gap-2 rounded px-1 text-sm ${
+                key === field ? 'bg-amber-100' : ''
+              }`}
+            >
+              <dt className="w-20 shrink-0 text-[11px] uppercase tracking-wide text-gray-500">
+                {label}
+              </dt>
+              <dd className="min-w-0 flex-1 text-gray-800">
+                {/* The blank is what the learner sees; filling it in is the
+                    only way to tell whether the hint gives it away. */}
+                {key === 'sentence' && card.answer
+                  ? value.replace('{{answer}}', `【${card.answer}】`)
+                  : value}
+              </dd>
+            </div>
+          ) : null,
+        )}
+      </dl>
+    </div>
+  )
 }
 
 /**
@@ -155,9 +219,21 @@ export default function ChangeRequestsPanel({
               )}
               {r.author_email && <span>by {r.author_email}</span>}
             </div>
-            {r.target_label && (
+            {/* The label alone stays only when there is no card behind it
+                — a tutor message or a reading, whose quote IS the record. */}
+            {r.target_label && !r.card && (
               <p className="text-sm text-gray-500 italic truncate">
                 “{r.target_label}”
+              </p>
+            )}
+            {r.card && <CardContext card={r.card} field={r.field} />}
+            {/* A request outlives the row it was raised against. Say the
+                card is gone rather than showing a complaint about nothing. */}
+            {!r.card && r.target_id && r.target_type !== 'tutor_message' &&
+              r.target_type !== 'reading' && r.target_type !== 'other' && (
+              <p className="text-[11px] text-gray-400" data-testid="card-gone">
+                This card no longer exists — it may have been deleted since
+                the request was raised.
               </p>
             )}
             {/* Review Mode flags carry the exact words objected to. Shown

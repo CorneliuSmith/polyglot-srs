@@ -175,6 +175,66 @@ describe('focus mode: one review item at a time', () => {
   })
 })
 
+describe('the card being reviewed is shown in full', () => {
+  beforeEach(() => vi.clearAllMocks())
+
+  const withCard = {
+    ...req('a', 'The hint doesn’t fit with the sentence'),
+    target_type: 'drill',
+    field: 'hint',
+    card: {
+      sentence: 'Casi no {{answer}} vino.',
+      answer: 'queda',
+      hint: 'almost none is left',
+      translation: 'There is almost no wine left.',
+      context: 'Present tense',
+      level: 'A2',
+    },
+  }
+
+  it('shows the sentence, answer, hint and translation', async () => {
+    mockRequests.mockResolvedValue({
+      requests: [withCard], can_resolve: true, can_vote: true,
+    })
+    renderWith(<ChangeRequestsPanel languageId="lang-1" />)
+
+    const card = await screen.findByTestId('change-request-card')
+    // The blank is filled in: whether the hint gives the answer away is not
+    // answerable while the answer is still a {{placeholder}}.
+    expect(card.textContent).toContain('Casi no 【queda】 vino.')
+    expect(card.textContent).toContain('almost none is left')
+    expect(card.textContent).toContain('There is almost no wine left.')
+    expect(card.textContent).toContain('Present tense')
+  })
+
+  it('a deleted card says so rather than showing a complaint about nothing', async () => {
+    mockRequests.mockResolvedValue({
+      requests: [{ ...req('a', 'Remove it'), target_type: 'drill', card: null }],
+      can_resolve: true,
+      can_vote: true,
+    })
+    renderWith(<ChangeRequestsPanel languageId="lang-1" />)
+    expect(await screen.findByTestId('card-gone')).toBeDefined()
+  })
+
+  it('a tutor message keeps its label — it never had a stored card', async () => {
+    mockRequests.mockResolvedValue({
+      requests: [{
+        ...req('a', 'The tutor said something wrong'),
+        target_type: 'tutor_message',
+        target_id: null,
+        target_label: 'what the tutor said',
+        card: null,
+      }],
+      can_resolve: true,
+      can_vote: true,
+    })
+    renderWith(<ChangeRequestsPanel languageId="lang-1" />)
+    expect(await screen.findByText(/what the tutor said/)).toBeDefined()
+    expect(screen.queryByTestId('card-gone')).toBeNull()
+  })
+})
+
 describe('inbox tiles open a queue', () => {
   beforeEach(() => {
     vi.clearAllMocks()

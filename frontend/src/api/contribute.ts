@@ -848,6 +848,28 @@ export interface ChangeRequest {
    * their request is advisory — it can be read and prioritised, never
    * resolved by them. */
   is_advisory?: boolean
+  /** The live card this request is ABOUT, resolved server-side from
+   * target_type + target_id. Absent for the target kinds that have no
+   * stored row (a tutor message, a generated reading), and for a card that
+   * has since been deleted — in both cases the quote and label are all
+   * there is, which is how the board read before this existed. */
+  card?: ReviewedCard | null
+}
+
+/** Enough of any reviewable item to actually judge a complaint about it. */
+export interface ReviewedCard {
+  /** The sentence, or the word itself for a vocabulary target. */
+  sentence: string | null
+  /** What fills the {{answer}} blank, on a drill. */
+  answer: string | null
+  /** The hint shown to the learner — or the reading, on a word. */
+  hint: string | null
+  /** The translation, or the definition/explanation. */
+  translation: string | null
+  /** What situates it: the grammar point a drill belongs to, the word an
+   * example illustrates, a word's part of speech. */
+  context: string | null
+  level: string | null
 }
 
 export interface NewChangeRequest {

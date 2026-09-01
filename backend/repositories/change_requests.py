@@ -128,6 +128,93 @@ async def list_requests(
     ]
 
 
+# The card a request is ABOUT, per target_type. A reviewer cannot judge
+# "gives the answer away" on a hint without the sentence and answer next to
+# it (owner: "it is hard to decide when you don't see the full card") — the
+# board used to show a bare label and the complaint, and nothing else.
+#
+# Three of the seven target types have no row to fetch. 'tutor_message' and
+# 'reading' are generated per learner and never stored, so the QUOTE captured
+# at flag time is the whole record; 'other' names nothing in particular.
+# Those degrade to what the request already carries rather than erroring —
+# the same reason target_id is nullable.
+#
+# Every statement selects the same six columns under the same names, so one
+# loop below reads them all. `context` is whatever situates the item: the
+# grammar point a drill belongs to, the word an example illustrates.
+_CARD_SQL: dict[str, str] = {
+    "drill": """
+        SELECT d.id, d.sentence, d.answer, d.hint, d.translation,
+               gp.title AS context, gp.level
+          FROM drill_sentences d
+          JOIN grammar_points gp ON gp.id = d.grammar_point_id
+         WHERE d.id = ANY($1::uuid[])
+    """,
+    "example_sentence": """
+        SELECT e.id, e.sentence, NULL::text AS answer, NULL::text AS hint,
+               e.translation, v.word AS context, v.level
+          FROM example_sentences e
+          JOIN vocabulary v ON v.id = e.vocabulary_id
+         WHERE e.id = ANY($1::uuid[])
+    """,
+    "vocabulary": """
+        SELECT v.id, v.word AS sentence, NULL::text AS answer,
+               v.reading AS hint,
+               (SELECT t.definition FROM translations t
+                 WHERE t.vocabulary_id = v.id
+                 ORDER BY (t.locale = 'en') DESC LIMIT 1) AS translation,
+               v.part_of_speech AS context, v.level
+          FROM vocabulary v
+         WHERE v.id = ANY($1::uuid[])
+    """,
+    "grammar_point": """
+        SELECT gp.id, gp.title AS sentence, NULL::text AS answer,
+               NULL::text AS hint, gp.explanation AS translation,
+               NULL::text AS context, gp.level
+          FROM grammar_points gp
+         WHERE gp.id = ANY($1::uuid[])
+    """,
+}
+
+_CARD_FIELDS = ("sentence", "answer", "hint", "translation", "context", "level")
+
+
+async def load_cards(conn: asyncpg.Connection, requests: list[dict]) -> None:
+    """Attach a `card` to each request that names one, in place.
+
+    Grouped by target_type so this is one query per KIND present, not one
+    per request — a board of 200 rows spanning four kinds costs four
+    queries.
+
+    A target that has since been deleted simply gets no card. The request
+    outlives the row it was raised against, and "the card this was about is
+    gone" is a legitimate thing for the board to show; it is also why the
+    card is optional on the way out rather than making the request
+    unrenderable.
+    """
+    # Read every field with .get(): this function attaches OPTIONAL context
+    # and must never be the reason a board fails to render. A row without a
+    # target_type simply gets no card.
+    by_type: dict[str, list[str]] = {}
+    for r in requests:
+        target_type = r.get("target_type")
+        if r.get("target_id") and target_type in _CARD_SQL:
+            by_type.setdefault(target_type, []).append(r["target_id"])
+
+    found: dict[tuple[str, str], dict] = {}
+    for target_type, ids in by_type.items():
+        rows = await conn.fetch(_CARD_SQL[target_type], ids)
+        for row in rows:
+            found[(target_type, str(row["id"]))] = {
+                f: row[f] for f in _CARD_FIELDS
+            }
+
+    for r in requests:
+        r["card"] = found.get(
+            (r.get("target_type") or "", r.get("target_id") or "")
+        )
+
+
 async def cast_vote(
     conn: asyncpg.Connection, request_id: str, user_id: str, vote: int
 ) -> bool:
