@@ -74,6 +74,11 @@ export default function TrailblazerWait({
   })
 
   const lane = readiness.data?.[kind]
+  // Why the bar might not be moving, from the process that answered. A
+  // missing provider key is reported at once — no 45-second guess needed,
+  // and nothing will ever land — while an error waits for the stall
+  // window like any other quiet stretch (the next poll may retry it).
+  const fillStatus = readiness.data?.fill?.status
   // The bar tracks the thing that actually opens the gate: cards you could
   // start on. Showing the whole-batch percentage instead meant someone sat
   // watching "5 %" with no idea they were one card from being let in — and
@@ -186,9 +191,13 @@ export default function TrailblazerWait({
               ? t('trailblazer.cardsReady', { have, needed })
               : t('trailblazer.progress', { pct })}
           </p>
-          {stalled && (
+          {(stalled || fillStatus === 'no_provider') && (
             <p className="text-xs text-amber-700" data-testid="trailblazer-stalled">
-              {t('trailblazer.stalled')}
+              {fillStatus === 'no_provider'
+                ? t('trailblazer.noProvider')
+                : fillStatus === 'error'
+                  ? t('trailblazer.fillError')
+                  : t('trailblazer.stalled')}
             </p>
           )}
         </div>

@@ -132,46 +132,176 @@ def kick() -> None:
 
 # One inline fill at a time per (user, language), and few across the
 # process: this runs on the web worker, so it must be impossible for an
-# impatient refresher to stack model calls.
-_INLINE_FILLS: dict[tuple[str, str], float] = {}
+# impatient refresher to stack model calls. The entry is also the fill's
+# STATUS — what /readiness reports back so the wait screen can say WHY it
+# is sitting still instead of just that it is.
+_INLINE_FILLS: dict[tuple[str, str], dict] = {}
 _INLINE_COOLDOWN_S = 90
 _INLINE_CONCURRENCY = asyncio.Semaphore(2)
-# Enough for the start gate (START_CARDS=3) plus the next few cards, small
-# enough that one maker–checker round trip covers it.
-INLINE_FILL_WORDS = 8
-INLINE_FILL_POINTS = 3
-INLINE_FILL_SENTENCES = 8
+# The fill walks the session in READING order: the first few cards get
+# everything (gloss/title, explanation, example sentences, drills) before
+# the next few are touched, so what a learner reads next is what lands
+# next. The first pass is small so the first card opens fast (the gate
+# opens on one ready card); later passes take more cards per round trip.
+# It stops at the card cap or the time budget — the loop owns the rest.
+INLINE_FILL_FIRST = 2
+INLINE_FILL_CHUNK = 6
+INLINE_FILL_MAX_CARDS = 30
+INLINE_FILL_SECONDS = 300
+# Rows per model call within one pass; a pass with more pending than this
+# goes round again (bounded) rather than leaving its own cards half done.
+INLINE_FILL_ROWS = 25
+_INLINE_ROUNDS_PER_KIND = 3
+
+
+def inline_fill_status(user_id: str, language_id: str) -> dict | None:
+    """What the inline fill is doing for this (user, language) in THIS
+    process — None if it has never run here. Copied, not shared."""
+    st = _INLINE_FILLS.get((str(user_id), str(language_id)))
+    if st is None:
+        return None
+    now = asyncio.get_event_loop().time()
+    end = st["finished"] if st["finished"] is not None else now
+    return {
+        "status": st["status"],
+        "detail": st["detail"],
+        "landed": st["landed"],
+        "cards_done": st["cards_done"],
+        "seconds": round(end - st["started"], 1),
+    }
+
+
+def _fill_order(vocab_ids: list, grammar_ids: list) -> list[tuple[str, str]]:
+    """The batch in the order a session shows it: grammar first each round,
+    then a word — the same round-robin add_learn_batch uses — capped."""
+    from backend.repositories.cards import _interleave_typed
+
+    return _interleave_typed(list(grammar_ids), list(vocab_ids),
+                             INLINE_FILL_MAX_CARDS)
+
+
+async def _fill_cards(conn, pair: dict, st: dict,
+                      vocab: list, grammar: list) -> None:
+    """Everything the cards in *vocab* / *grammar* show, in the order it is
+    read: gloss and title/explanation first (what the card opens with and
+    what readiness counts), then the sentence layer under them (example
+    sentences, drill translations and hints). Each kind loops until its
+    rows for these cards are gone or the round cap is hit."""
+    locale, language_id = pair["locale"], pair["language_id"]
+
+    async def rounds(kind, fetch, translate, settle_ids):
+        for _ in range(_INLINE_ROUNDS_PER_KIND):
+            rows = await fetch()
+            if not rows:
+                return
+            done = await translate(rows)
+            await _settle(conn, kind, pair, settle_ids(rows))
+            st["landed"] += done
+            logger.info("inline fill %s→%s: %d/%d %s",
+                        pair["language_code"], locale, done, len(rows), kind)
+            if not done:
+                return  # nothing rendered; the ledger paces the retry
+
+    async def words(rows):
+        items = [{"i": i, "word": r["word"], "pos": r["pos"],
+                  "definition": r["definition"], "example": r["example"]}
+                 for i, r in enumerate(rows)]
+        results = await maker_check_batch(
+            pair["locale_name"], items, source_language=pair["language_name"])
+        by_i = {b["i"]: b for b in results}
+        merged = [{**by_i[i], "id": rows[i]["id"]}
+                  for i in range(len(rows)) if i in by_i]
+        applied, _ = await _apply(conn, locale, merged)
+        return applied
+
+    if vocab:
+        await rounds(
+            "word",
+            lambda: pending_words(conn, language_id, locale, INLINE_FILL_ROWS,
+                                  ids=vocab),
+            words, lambda rows: [r["id"] for r in rows])
+    if grammar:
+        # The title is the first thing on a grammar card, and it was the
+        # one field only the loop ever translated — a card with a Russian
+        # body under an English heading read as half-loaded.
+        await rounds(
+            "grammar_meta",
+            lambda: pending_grammar_meta(conn, language_id, locale,
+                                         INLINE_FILL_ROWS, ids=grammar),
+            lambda rows: _translate_grammar_meta(conn, pair, rows),
+            lambda rows: [r["id"] for r in rows])
+        await rounds(
+            "explanation",
+            lambda: pending_explanations(conn, language_id, locale,
+                                         INLINE_FILL_ROWS, ids=grammar),
+            lambda rows: _translate_explanations(conn, pair, rows),
+            lambda rows: [r["id"] for r in rows])
+    # The "in context" lines. Skipped on the self-pair for examples (the
+    # rendering would restate the sentence); drills render hints only
+    # there (_translate_drills).
+    if vocab and not self_pair(pair):
+        await rounds(
+            "example",
+            lambda: pending_examples(conn, language_id, locale,
+                                     INLINE_FILL_ROWS, vocab_ids=vocab),
+            lambda rows: _translate_examples(conn, pair, rows),
+            lambda rows: list({r["vocabulary_id"] for r in rows}))
+    if grammar:
+        drill_ids = [r["id"] for r in await conn.fetch(
+            """SELECT id FROM drill_sentences
+               WHERE grammar_point_id = ANY($1::uuid[])""", grammar)]
+        if drill_ids:
+            await rounds(
+                "drill",
+                lambda: pending_drills(conn, language_id, locale,
+                                       INLINE_FILL_ROWS, ids=drill_ids),
+                lambda rows: _translate_drills(conn, pair, rows),
+                lambda rows: [r["id"] for r in rows])
 
 
 async def fill_start_batch(
     user_id: str, language_id: str,
     vocab_ids: list, grammar_ids: list,
 ) -> None:
-    """Translate the learner's first cards NOW, in the process they are
-    talking to.
+    """Translate the learner's session NOW, in the process they are
+    talking to, in the order they will read it.
 
     The wait screen used to record demand and kick() the sweep — which
     works only when the kicked process is the one that sweeps. In the
     deployed topology it demonstrably is not, so a learner watched
     "0 of 3" until some other process's quarter-hour timer fired. This
-    path owns the wait screen's promise directly: the handful of glosses
-    and explanations the start gate needs, plus the sentence layer under
-    them (example sentences, drill translations/hints) — without it the
-    first cards opened with translated bodies over English "in context"
-    lines, which read as another failure. A few bounded round trips,
-    written by the web worker itself. The loop remains the bulk engine
-    for everything else; this is the espresso shot, not the pot.
+    path owns the session's promise directly, on the web worker.
 
-    Fire-and-forget safe: never raises, cooldown per (user, language),
-    process-wide concurrency cap of 2.
+    It used to stop at the start gate: eight glosses, three explanations,
+    eight sentences, no titles. That opened the first card fully
+    translated and left the second with English drills until the loop's
+    next sweep — the learner met them, went back, and found them
+    translated "eventually". Now it walks the batch card by card: the
+    first couple of cards get gloss/title, explanation, examples and
+    drills, then the next few, until the batch is done, the card cap is
+    hit, or the time budget runs out. What is read next lands next.
+
+    Fire-and-forget safe: never raises. One fill in flight per (user,
+    language) — a poll that arrives while one runs returns at once — a
+    cooldown after it finishes, and a process-wide cap of 2 so an
+    impatient refresher cannot stack model calls. The entry it keeps in
+    _INLINE_FILLS is what /readiness reports as `fill`.
     """
     key = (str(user_id), str(language_id))
-    now = asyncio.get_event_loop().time()
-    last = _INLINE_FILLS.get(key)
-    if last is not None and now - last < _INLINE_COOLDOWN_S:
-        return
-    _INLINE_FILLS[key] = now
+    loop = asyncio.get_event_loop()
+    now = loop.time()
+    prev = _INLINE_FILLS.get(key)
+    if prev is not None:
+        if prev["status"] == "running":
+            return
+        if now - prev["finished"] < _INLINE_COOLDOWN_S:
+            return
+    st = {"status": "running", "started": now, "finished": None,
+          "detail": None, "landed": 0, "cards_done": 0}
+    _INLINE_FILLS[key] = st
     if not translations_available():
+        st.update(status="no_provider", finished=loop.time(),
+                  detail="no translation provider is configured on this server")
         return
     try:
         async with _INLINE_CONCURRENCY:
@@ -183,6 +313,7 @@ async def fill_start_batch(
                     "FROM user_profiles WHERE id = $1",
                     user_id)
                 if not locale or locale == "en":
+                    st.update(status="done", detail="english")
                     return
                 pair = await conn.fetchrow(
                     """SELECT l.id AS language_id, l.code AS language_code,
@@ -192,6 +323,7 @@ async def fill_start_batch(
                        LEFT JOIN languages loc ON loc.code = $2
                        WHERE l.id = $1""", language_id, locale)
                 if pair is None:
+                    st.update(status="done", detail="no such course")
                     return
                 pair = dict(pair)
                 # A support locale with no languages row still deserves a
@@ -199,84 +331,33 @@ async def fill_start_batch(
                 pair["locale"] = locale
                 pair["locale_name"] = pair["locale_name"] or locale
 
-                # Words first: the start gate counts glossed words, and one
-                # batch covers it.
-                rows = await pending_words(
-                    conn, language_id, locale, INLINE_FILL_WORDS,
-                    ids=list(vocab_ids) or None)
-                if rows:
-                    items = [{"i": i, "word": r["word"], "pos": r["pos"],
-                              "definition": r["definition"],
-                              "example": r["example"]}
-                             for i, r in enumerate(rows)]
-                    results = await maker_check_batch(
-                        pair["locale_name"], items,
-                        source_language=pair["language_name"])
-                    by_i = {b["i"]: b for b in results}
-                    merged = [{**by_i[i], "id": rows[i]["id"]}
-                              for i in range(len(rows)) if i in by_i]
-                    applied, _ = await _apply(conn, locale, merged)
-                    await _settle(conn, "word", pair,
-                                  [r["id"] for r in rows])
-                    logger.info(
-                        "inline fill %s→%s: %d/%d words for a waiting learner",
-                        pair["language_code"], locale, applied, len(rows))
-
-                # The example sentences under those words — the "in context"
-                # block a learner reads in the same first minute. The start
-                # gate doesn't count them, but a card that opens with a
-                # translated gloss over English sentences reads as
-                # half-loaded. Skipped on the self-pair, where a rendering
-                # would just restate the sentence.
-                if vocab_ids and not self_pair(pair):
-                    rows = await pending_examples(
-                        conn, language_id, locale, INLINE_FILL_SENTENCES,
-                        vocab_ids=list(vocab_ids))
-                    if rows:
-                        done = await _translate_examples(conn, pair, rows)
-                        await _settle(conn, "example", pair,
-                                      list({r["vocabulary_id"] for r in rows}))
-                        logger.info(
-                            "inline fill %s→%s: %d/%d example sentences",
-                            pair["language_code"], locale, done, len(rows))
-
-                # Then the explanations of the batch's grammar points — a
-                # grammar card's body, and what its readiness counts.
-                if grammar_ids:
-                    rows = await pending_explanations(
-                        conn, language_id, locale, INLINE_FILL_POINTS,
-                        ids=list(grammar_ids))
-                    if rows:
-                        done = await _translate_explanations(conn, pair, rows)
-                        await _settle(conn, "explanation", pair,
-                                      [r["id"] for r in rows])
-                        logger.info(
-                            "inline fill %s→%s: %d/%d explanations",
-                            pair["language_code"], locale, done, len(rows))
-
-                    # And those points' drill sentences — the "in context"
-                    # lines of a grammar card. pending_drills is keyed by
-                    # drill id, so map the batch's points to their drills
-                    # first. On the self-pair _translate_drills renders
-                    # hints only (the translation would spell out the
-                    # cloze answer).
-                    drill_ids = [r["id"] for r in await conn.fetch(
-                        """SELECT id FROM drill_sentences
-                           WHERE grammar_point_id = ANY($1::uuid[])""",
-                        list(grammar_ids))]
-                    if drill_ids:
-                        rows = await pending_drills(
-                            conn, language_id, locale, INLINE_FILL_SENTENCES,
-                            ids=drill_ids)
-                        if rows:
-                            done = await _translate_drills(conn, pair, rows)
-                            await _settle(conn, "drill", pair,
-                                          [r["id"] for r in rows])
-                            logger.info(
-                                "inline fill %s→%s: %d/%d drills",
-                                pair["language_code"], locale, done, len(rows))
+                order = _fill_order(vocab_ids, grammar_ids)
+                pos, size = 0, INLINE_FILL_FIRST
+                while pos < len(order):
+                    if loop.time() - st["started"] > INLINE_FILL_SECONDS:
+                        st["detail"] = "time budget spent; the sweep has the rest"
+                        break
+                    # Every card walked so far, not just this chunk: the
+                    # pending_* queries return only what is still missing,
+                    # so a row the provider rejected in an earlier pass
+                    # rides again with the next pass's batch instead of
+                    # waiting for the sweep. A one-row batch that fails
+                    # (the dev mock rejects the first item of every batch)
+                    # would otherwise leave that card English for good.
+                    pos += len(order[pos:pos + size])
+                    walked = order[:pos]
+                    await _fill_cards(
+                        conn, pair, st,
+                        [i for t, i in walked if t == "vocabulary"],
+                        [i for t, i in walked if t == "grammar"])
+                    st["cards_done"] = pos
+                    size = INLINE_FILL_CHUNK
+                st["status"] = "done"
     except Exception as exc:  # noqa: BLE001 — a wait-screen helper, never a page
-        logger.warning("inline start-batch fill failed: %s", exc)
+        logger.warning("inline session fill failed: %s", exc)
+        st.update(status="error", detail=str(exc)[:200])
+    finally:
+        st["finished"] = loop.time()
 
 
 async def table_present(conn, table: str) -> bool:

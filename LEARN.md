@@ -327,17 +327,43 @@ found the original version stalling people:
   percentage of the batch. Example sentences are the bulk of the text and
   are translated last, so a batch percentage kept people waiting long after
   something playable existed.
-- **The rest arrives while they study.** Each lane still reports `pct`, and
-  while it is below 1 the frontend re-fetches the *upcoming* cards on every
-  advance — `POST /api/review/lessons/refresh` for learn,
-  `POST /api/review/due/refresh` (ids of the cards after the current one,
-  ≤ 50) for review — and swaps in whichever have gained a translation. The
-  current card is never replaced under someone's fingers. Both are
-  best-effort: a failed refresh leaves the English card.
-- **The readiness call itself does the priming.** Whenever either lane is
-  below 1 it queues `pretranslate_upcoming`, `kick()`s the loop, and runs
-  `fill_start_batch` inline, so a learner who declined the wait still gets
-  the translations they would have waited for.
+- **The rest arrives while they study, in reading order.** The readiness
+  call (`GET /api/review/readiness`) runs `fill_start_batch` in
+  `backend/services/auto_translate.py` as a background task. It walks the
+  *whole* session — grammar and vocab cards interleaved exactly as the
+  session serves them (`_interleave_typed`, the same order `add_learn_batch`
+  uses) — and for each chunk translates, in this order, the words, the
+  grammar titles (`pending_grammar_meta`), the explanations, the example
+  sentences and the drills, before moving to the next chunk. The first
+  chunk is two cards (`INLINE_FILL_FIRST`) so the gate opens fast; then
+  six at a time (`INLINE_FILL_CHUNK`) up to 30 cards or 300 s
+  (`INLINE_FILL_MAX_CARDS`, `INLINE_FILL_SECONDS`). Before this the inline
+  fill translated only the first ≤ 8 words / ≤ 3 explanations / ≤ 8
+  sentences and *no titles*; everything else waited for the 15-minute
+  `auto_translate_loop`, which is why card two was English until the
+  learner came back later. Each pass queries the *still-pending* rows of
+  every card walked so far, so a row the provider rejected once rides
+  again with the next pass instead of waiting for the sweep.
+- **One fill per (user, language) at a time.** `_INLINE_FILLS` holds a
+  status dict per pair (`running` / `done` / `error` / `no_provider`, with
+  `landed` rows and `cards_done`). A running fill is never started twice,
+  and a finished one is not re-run for 90 s. Readiness reports it as
+  `fill`, so the wait screen can say *why* nothing is moving instead of
+  guessing: `no_provider` (no `ANTHROPIC_API_KEY` on the web service) shows
+  at once, `error` names itself once the stall window passes.
+- **The frontend keeps re-arming the fill and swaps on a tick.** While a
+  lane's `pct` is below 1, `LearnPage` and `ReviewSessionPage` re-fetch
+  readiness every 15 s (`READINESS_POLL_MS`) — each poll re-arms the server
+  fill if it has stopped — and every 10 s (`SWAP_POLL_MS`) *as well as on
+  every advance* re-fetch the upcoming cards — `POST
+  /api/review/lessons/refresh` for learn, `POST /api/review/due/refresh`
+  (ids of the cards after the current one, ≤ 50) for review — and swap in
+  whichever have gained a translation. The current card is never replaced
+  under someone's fingers. Both are best-effort: a failed refresh leaves
+  the English card.
+- **The readiness call also queues the slow path.** Whenever either lane is
+  below 1 it queues `pretranslate_upcoming` and `kick()`s the loop, so
+  whatever the inline fill did not reach still lands eventually.
 
 English (or no) support locale short-circuits all of this: `new_here` is
 false and both lanes are open. The waiting room shows the count of cards

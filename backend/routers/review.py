@@ -69,7 +69,12 @@ from backend.repositories.trivia import (
 )
 from backend.repositories.tutor import log_tutor_usage
 from backend.services.allowance import get_allowance, reject_if_unavailable
-from backend.services.auto_translate import fill_start_batch, kick, table_present
+from backend.services.auto_translate import (
+    fill_start_batch,
+    inline_fill_status,
+    kick,
+    table_present,
+)
 from backend.services.fsrs import (
     AnswerResult,
     CardState,
@@ -269,6 +274,14 @@ async def readiness(
     if vocab_ids or grammar_ids:
         asyncio.create_task(fill_start_batch(
             user["id"], language_id, vocab_ids, grammar_ids))
+        # Let the task reach its first await, so the status below already
+        # says "running" — or "no_provider", the moment it declined.
+        await asyncio.sleep(0)
+    # What the fill is doing in THIS process (None if it never ran here).
+    # A bar that never moves is indistinguishable from a hang, and every
+    # cause of it — no provider key above all — was invisible from the
+    # wait screen.
+    state["fill"] = inline_fill_status(user["id"], language_id)
     return state
 
 

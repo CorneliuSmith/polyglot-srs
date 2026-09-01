@@ -1554,7 +1554,9 @@
     "triviaRight": "Correct.",
     "triviaWrong": "Not quite.",
     "triviaNext": "Next question",
-    "stalled": "This is taking longer than it should. You can start in English and it will switch over as it lands."
+    "stalled": "This is taking longer than it should. You can start in English and it will switch over as it lands.",
+    "noProvider": "Translation isn’t switched on for this server, so nothing will arrive while you wait. Start in English — or let whoever runs this site know.",
+    "fillError": "Translating hit an error. It will retry on its own; you can start in English meanwhile."
   },
   "speak": {
     "loading": "Loading…",

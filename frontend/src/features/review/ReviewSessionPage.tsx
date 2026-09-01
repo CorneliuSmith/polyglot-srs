@@ -89,6 +89,12 @@ function CramTopUp({ label }: { label: string }) {
  * set, `?points=id,id`) with the exact same answering flow, but nothing is
  * ever submitted — no FSRS update, no review log, no ghosts.
  */
+// While the queue still reads partly in English: how often the readiness
+// lane is re-asked (which also re-arms the server's fill) and how often
+// the upcoming cards are re-served for the live swap.
+const READINESS_POLL_MS = 15_000
+const SWAP_POLL_MS = 10_000
+
 export default function ReviewSessionPage({ cram = false }: { cram?: boolean }) {
   // Changing the translation language — or the ACTIVE language (beta bug:
   // a session started in English kept serving English cards under a
@@ -209,6 +215,13 @@ function ReviewSessionInner({
     queryFn: () => getSessionReadiness(activeLanguageId!, sessionSize),
     enabled: !!activeLanguageId && !cram,
     retry: 1,
+    // Keep asking while the queue still reads partly in English: each ask
+    // re-arms the server's inline fill once its cooldown or time budget is
+    // up, and the live swap below stands down when the lane reports 100 %.
+    refetchInterval: (query) =>
+      query.state.data != null && query.state.data.review.pct < 1
+        ? READINESS_POLL_MS
+        : false,
   })
   const gated =
     !cram &&
@@ -357,21 +370,29 @@ function ReviewSessionInner({
       .slice(0, 50)
     if (!upcoming.length) return
     let cancelled = false
-    refreshDueCards(activeLanguageId, upcoming)
-      .then((fresh) => {
-        if (cancelled || !fresh.length) return
-        const byId = new Map(fresh.map((c) => [c.id, c]))
-        setCards((prev) =>
-          prev
-            ? prev.map((c, i) =>
-                i > currentIndexRef.current ? (byId.get(c.id) ?? c) : c,
-              )
-            : prev,
-        )
-      })
-      .catch(() => {})
+    // On a tick as well as on advance: the fill lands in reading order
+    // while the learner answers, and the NEXT card is what must be fresh
+    // by the time they reach it — not what it was when they reached this
+    // one.
+    const refresh = () =>
+      refreshDueCards(activeLanguageId, upcoming)
+        .then((fresh) => {
+          if (cancelled || !fresh.length) return
+          const byId = new Map(fresh.map((c) => [c.id, c]))
+          setCards((prev) =>
+            prev
+              ? prev.map((c, i) =>
+                  i > currentIndexRef.current ? (byId.get(c.id) ?? c) : c,
+                )
+              : prev,
+          )
+        })
+        .catch(() => {})
+    refresh()
+    const tick = window.setInterval(refresh, SWAP_POLL_MS)
     return () => {
       cancelled = true
+      window.clearInterval(tick)
     }
     // `cards` is deliberately not a dependency: the swap itself rewrites it,
     // and re-running on that write would refresh once per landed card.

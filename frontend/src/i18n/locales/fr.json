@@ -1554,7 +1554,9 @@
     "triviaRight": "Exact.",
     "triviaWrong": "Pas tout à fait.",
     "triviaNext": "Question suivante",
-    "stalled": "Cela prend plus de temps que prévu. Vous pouvez commencer en anglais : le basculement se fera tout seul."
+    "stalled": "Cela prend plus de temps que prévu. Vous pouvez commencer en anglais : le basculement se fera tout seul.",
+    "noProvider": "La traduction n’est pas activée sur ce serveur : rien n’arrivera pendant l’attente. Commencez en anglais, ou prévenez la personne qui gère le site.",
+    "fillError": "La traduction a rencontré une erreur. Elle réessaiera d’elle-même ; vous pouvez commencer en anglais en attendant."
   },
   "speak": {
     "loading": "Chargement…",

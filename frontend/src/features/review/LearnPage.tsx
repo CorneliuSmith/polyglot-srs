@@ -33,6 +33,12 @@ import type { Lesson, ValidateAnswerResponse } from '../../api/types'
  * example sentences, references — before they ever appear as a review. The
  * learner pages through each new item, then starts the quiz.
  */
+// While a session still reads partly in English: how often the readiness
+// lane is re-asked (which also re-arms the server's fill) and how often
+// the lessons on screen are re-served for the live swap.
+const READINESS_POLL_MS = 15_000
+const SWAP_POLL_MS = 10_000
+
 export default function LearnPage() {
   // Switching the translation language mid-walkthrough remounts the page
   // (key epoch): unconfirmed lessons are suspended by design and re-taught
@@ -141,6 +147,15 @@ function LearnInner() {
     queryFn: () => getSessionReadiness(activeLanguageId!),
     enabled: !!activeLanguageId,
     retry: 1,
+    // Keep asking while any of the session still reads in English. Each
+    // ask is also what re-arms the server's inline fill once its cooldown
+    // or time budget is up, so a long batch keeps landing in reading
+    // order instead of stopping where the first fill stopped; and the
+    // live swap below stands down the moment the lane reports 100 %.
+    refetchInterval: (query) =>
+      query.state.data != null && query.state.data.learn.pct < 1
+        ? READINESS_POLL_MS
+        : false,
   })
   const readinessSettled = readinessQuery.isSuccess || readinessQuery.isError
   const underReady =
@@ -228,6 +243,13 @@ function LearnInner() {
   // for a returning learner), so nearly everything a session shows can
   // still be landing while it runs. Best-effort: a failed refresh just
   // leaves the English already on screen.
+  //
+  // And not only on advance: the fill lands card by card in reading order
+  // while the learner reads, and a refresh that ran when they arrived on
+  // a card is already stale a few seconds later. The owner's Greek/Russian
+  // session was exactly that — the second card opened with English drill
+  // sentences, and going BACK to it found them translated. So the current
+  // card is re-served on a slow tick too, and swaps in place.
   const notFullyLocalized =
     readinessQuery.data != null && readinessQuery.data.learn.pct < 1
   const [swapped, setSwapped] = useState<Record<string, Lesson>>({})
@@ -235,14 +257,18 @@ function LearnInner() {
   useEffect(() => {
     if (!notFullyLocalized || !sessionItems?.length) return
     let cancelled = false
-    refreshLessons(sessionItems)
-      .then((fresh) => {
-        if (cancelled) return
-        setSwapped(Object.fromEntries(fresh.map((l) => [l.card_id, l])))
-      })
-      .catch(() => {})
+    const refresh = () =>
+      refreshLessons(sessionItems)
+        .then((fresh) => {
+          if (cancelled) return
+          setSwapped(Object.fromEntries(fresh.map((l) => [l.card_id, l])))
+        })
+        .catch(() => {})
+    refresh()
+    const tick = window.setInterval(refresh, SWAP_POLL_MS)
     return () => {
       cancelled = true
+      window.clearInterval(tick)
     }
   }, [notFullyLocalized, sessionItems, lessonIndex])
 
