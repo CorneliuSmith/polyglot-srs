@@ -141,9 +141,11 @@ _EXPLICIT_DEFAULTS = {"allow_explicit_content": False}
 # the feature is the default, the toggle is the escape.
 _AUDIO_DEFAULTS = {"sentence_audio_on_correct": True}
 
-# Migration 20261012 (word-by-word glosses). ON by default — the layer is
-# the default and the toggle is the escape, per the request's own wording.
-_GLOSS_DEFAULTS = {"show_glosses": True}
+# Migration 20261012 (word-by-word glosses). OFF by default (owner): the
+# Leipzig notation is unfamiliar enough that meeting it unasked is what
+# learners reported as confusing. Anyone who wants it turns it on, where
+# the Settings toggle also explains what it is.
+_GLOSS_DEFAULTS = {"show_glosses": False}
 
 #: Optional column groups, widest first. Each entry is
 #: (select fragment, defaults to substitute when the columns are absent).
@@ -164,7 +166,7 @@ _OPTIONAL_PROFILE_FIELDS = (
     ("weekly_digest_dow", "0"),
     ("allow_explicit_content", "false"),
     ("sentence_audio_on_correct", "true"),
-    ("show_glosses", "true"),
+    ("show_glosses", "false"),
 )
 
 _ALL_OPTIONAL_DEFAULTS = {

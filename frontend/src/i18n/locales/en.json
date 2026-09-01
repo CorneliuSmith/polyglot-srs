@@ -1193,7 +1193,7 @@
     },
     "glosses": {
       "title": "Word-by-word glosses",
-      "desc": "Show the word-by-word breakdown as one of the hints during review. On by default; turn it off if the notation is more distracting than useful."
+      "desc": "Add the word-by-word breakdown to the hints during review. Off by default — the notation takes some getting used to, so turn it on if you want to see how sentences are built."
     }
   },
   "feedback": {

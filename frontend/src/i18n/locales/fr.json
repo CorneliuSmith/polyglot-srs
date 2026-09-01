@@ -1193,7 +1193,7 @@
     },
     "glosses": {
       "title": "Décompositions mot à mot",
-      "desc": "Affiche la décomposition mot à mot parmi les indices pendant la révision. Activé par défaut ; désactivez-le si la notation vous gêne plus qu'elle ne vous aide."
+      "desc": "Ajoute la décomposition mot à mot aux indices pendant la révision. Désactivé par défaut : la notation demande un peu d'habitude, activez-la si vous voulez voir comment les phrases sont construites."
     }
   },
   "feedback": {

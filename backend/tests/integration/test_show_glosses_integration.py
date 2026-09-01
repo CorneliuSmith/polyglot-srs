@@ -1,15 +1,15 @@
-"""The word-by-word gloss setting: on by default, and safe before its migration.
+"""The word-by-word gloss setting: off by default, and safe before its migration.
 
-Owner: *"make glosses an option that is turned on automatically in the user
-account."* The Leipzig notation (`bark.3SG`) is genuinely useful and
-genuinely unfamiliar — learners reported it as confusing — so it becomes a
-switch rather than something removed or fused to the translation.
+Owner: an option "turned on automatically in the user account", then *"make
+the gloss off by default"*. The Leipzig notation (`bark.3SG`) is genuinely
+useful and genuinely unfamiliar — meeting it unasked is exactly what
+learners reported as confusing — so it becomes an opt-in switch rather than
+something removed or fused to the translation.
 
 Two properties are worth a real database rather than a mock:
 
-  * **the default is ON**, including for a profile row written before this
-    column existed. A learner who never touches Settings must keep the layer
-    they have today;
+  * **the default is OFF**, including for a profile row written before this
+    column existed. Nobody meets the notation without choosing to;
   * **the read degrades** when migration 20261012 has not been applied.
     /auth/me is fetched on every page load, so an unguarded new column on
     `user_profiles` takes the whole app down rather than one setting — the
@@ -39,7 +39,7 @@ async def _user(pool, email: str) -> str:
         ))
 
 
-async def test_the_column_exists_and_defaults_to_on(pool):
+async def test_the_column_exists_and_defaults_to_off(pool):
     user = await _user(pool, "gloss-default@example.com")
     async with pool.privileged_connection() as conn:
         # A profile written WITHOUT naming the column — exactly what every
@@ -49,19 +49,19 @@ async def test_the_column_exists_and_defaults_to_on(pool):
         )
         assert await conn.fetchval(
             "SELECT show_glosses FROM user_profiles WHERE id = $1", user
-        ) is True
+        ) is False
 
 
-async def test_turning_it_off_sticks(pool):
-    user = await _user(pool, "gloss-off@example.com")
+async def test_turning_it_on_sticks(pool):
+    user = await _user(pool, "gloss-on@example.com")
     async with pool.privileged_connection() as conn:
         await conn.execute(
             "INSERT INTO user_profiles (id, batch_size, show_glosses) "
-            "VALUES ($1, 5, false)", user
+            "VALUES ($1, 5, true)", user
         )
         assert await conn.fetchval(
             "SELECT show_glosses FROM user_profiles WHERE id = $1", user
-        ) is False
+        ) is True
 
 
 async def test_the_column_is_not_null_so_a_read_never_returns_none(pool):
@@ -123,7 +123,7 @@ async def test_the_pre_migration_fallback_actually_works(pool):
             f"SELECT id, batch_size{extra} FROM user_profiles WHERE id = $1",
             user,
         )
-        assert row["show_glosses"] is True
+        assert row["show_glosses"] is False
 
 
 async def test_a_missing_column_is_planned_around_not_selected(pool):
@@ -134,7 +134,9 @@ async def test_a_missing_column_is_planned_around_not_selected(pool):
         {"id", "batch_size", "weekly_digest_opt_in", "weekly_digest_dow"}
     )
     assert "show_glosses" not in plan_extra
-    assert plan_defaults["show_glosses"] is True
+    # A database that is behind withholds the layer rather than offering
+    # notation the learner never opted into.
+    assert plan_defaults["show_glosses"] is False
     # ...and the group that IS present is still selected.
     assert "weekly_digest_opt_in" in plan_extra
 
@@ -154,20 +156,21 @@ async def test_a_middle_group_can_be_missing_on_its_own(pool):
     assert defaults["weekly_digest_opt_in"] is False
 
 
-async def test_the_default_survives_an_upsert_that_omits_it(pool):
+async def test_the_choice_survives_an_upsert_that_omits_it(pool):
     """Settings are saved one form at a time; a save that never mentions
-    glosses must not reset them. This is the `COALESCE($12, existing)` shape
-    in the upsert, checked against the database rather than the SQL string."""
+    glosses must not reset them. Checked against the database rather than
+    the SQL string. Turned ON here, since that is the choice a learner has
+    to make deliberately and would be most annoyed to lose."""
     user = await _user(pool, "gloss-upsert@example.com")
     async with pool.privileged_connection() as conn:
         await conn.execute(
             "INSERT INTO user_profiles (id, batch_size, show_glosses) "
-            "VALUES ($1, 5, false)", user
+            "VALUES ($1, 5, true)", user
         )
         await conn.execute(
             """
             INSERT INTO user_profiles (id, batch_size, show_glosses)
-            VALUES ($1, 9, COALESCE(NULL, true))
+            VALUES ($1, 9, COALESCE(NULL, false))
             ON CONFLICT (id) DO UPDATE SET
                 batch_size = COALESCE($2, user_profiles.batch_size),
                 show_glosses = COALESCE(NULL, user_profiles.show_glosses)
@@ -179,5 +182,5 @@ async def test_the_default_survives_an_upsert_that_omits_it(pool):
             user,
         )
         assert row["batch_size"] == 9
-        # The off choice survived a save that was about something else.
-        assert row["show_glosses"] is False
+        # The opt-in survived a save that was about something else.
+        assert row["show_glosses"] is True

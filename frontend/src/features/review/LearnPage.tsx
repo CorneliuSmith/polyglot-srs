@@ -71,14 +71,14 @@ export default function LearnPage() {
 
 function LearnInner() {
   // The account's gloss setting (user_profiles.show_glosses). Absent reads
-  // as ON, same as everywhere else: the layer is the default and the
-  // toggle is the escape, so a deploy ahead of migration 20261012 keeps
-  // showing what learners have today.
+  // as OFF, same as everywhere else: the layer is opt-in, so a deploy
+  // ahead of migration 20261012 withholds it rather than showing it
+  // unasked.
   const { data: glossProfile } = useQuery({
     queryKey: ['profile'],
     queryFn: getProfile,
   })
-  const showGlosses = glossProfile?.show_glosses ?? true
+  const showGlosses = glossProfile?.show_glosses ?? false
   const navigate = useNavigate()
   const { t, i18n } = useTranslation()
   const queryClient = useQueryClient()

@@ -1193,7 +1193,7 @@
     },
     "glosses": {
       "title": "Desgloses palabra por palabra",
-      "desc": "Muestra el desglose palabra por palabra como una de las pistas durante el repaso. Activado por defecto; desactívalo si la notación te distrae más de lo que te ayuda."
+      "desc": "Añade el desglose palabra por palabra a las pistas durante el repaso. Desactivado por defecto: la notación requiere algo de práctica, así que actívalo si quieres ver cómo se construyen las frases."
     }
   },
   "feedback": {

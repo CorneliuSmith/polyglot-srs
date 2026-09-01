@@ -295,9 +295,9 @@ export interface UserProfile {
    *  level so every device behaves the same; absent (migration 20261001
    *  not applied) reads as on. */
   sentence_audio_on_correct?: boolean
-  /** Offer the word-by-word gloss as a hint layer. Absent reads as ON —
-   * the layer is the default, the toggle is the escape, and a deploy
-   * running ahead of migration 20261012 must not withdraw it silently. */
+  /** Offer the word-by-word gloss as a hint layer. Absent reads as OFF —
+   * the layer is opt-in, so a deploy running ahead of migration 20261012
+   * withholds it rather than showing unfamiliar notation unasked. */
   show_glosses?: boolean
   /** Which rollouts this account is in, {experiment_key: variant}. Absent
    *  when the server has no experiments running (or hasn't been migrated),

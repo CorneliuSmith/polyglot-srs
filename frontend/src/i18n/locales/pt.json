@@ -1193,7 +1193,7 @@
     },
     "glosses": {
       "title": "Decomposições palavra por palavra",
-      "desc": "Mostra a decomposição palavra por palavra como uma das pistas durante a revisão. Ativado por predefinição; desative se a notação atrapalhar mais do que ajudar."
+      "desc": "Acrescenta a decomposição palavra por palavra às pistas durante a revisão. Desativado por predefinição: a notação exige alguma prática, por isso ative-a se quiser ver como as frases são construídas."
     }
   },
   "feedback": {

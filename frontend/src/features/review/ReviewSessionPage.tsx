@@ -190,10 +190,11 @@ function ReviewSessionInner({
   // feature is the default, the toggle is the escape.
   const sentenceAudioOnCorrect =
     profileQuery.data?.sentence_audio_on_correct ?? true
-  // Same shape, same reason: account-level, and absent reads as ON so a
-  // deploy running ahead of migration 20261012 keeps the layer everyone
-  // has today rather than silently withdrawing it.
-  const showGlosses = profileQuery.data?.show_glosses ?? true
+  // Account-level like the audio setting above. Absent reads as OFF: the
+  // layer is opt-in (owner), so a deploy running ahead of migration
+  // 20261012 withholds it rather than showing unfamiliar notation to
+  // someone who never asked for it.
+  const showGlosses = profileQuery.data?.show_glosses ?? false
   const profile = profileQuery.data
   // Resolved means settled, not succeeded: a failed profile fetch degrades
   // to the 'en' default rather than stranding the session behind the gate.

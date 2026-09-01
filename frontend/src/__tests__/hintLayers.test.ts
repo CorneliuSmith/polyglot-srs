@@ -168,6 +168,13 @@ describe('every course shows the word-by-word line', () => {
   // DEFAULT_ORDER was ['translation', 'hint']. Fourteen courses lost the layer
   // entirely, and because the omission looked deliberate, authoring for them
   // was ruled out on the strength of a bug.
+  //
+  // These opt in explicitly. What this guards is "every course CAN offer a
+  // gloss to a learner who wants one" — the accidental-omission bug above.
+  // Whether it is offered by default is a separate question, answered OFF
+  // by the account setting and covered by its own tests below; asserting it
+  // here as well would make this suite fail the day that default changes,
+  // which is not what it is for.
   const ALL = ['ru', 'ar', 'el', 'hi', 'ko', 'th', 'he', 'fa', 'mi', 'sw', 'yo',
     'xh', 'ha', 'es', 'fr', 'de', 'it', 'pt', 'ca', 'ro', 'nl', 'en', 'tr',
     'la', 'id', 'tl', 'jam']
@@ -176,7 +183,7 @@ describe('every course shows the word-by-word line', () => {
     const layers = hintLayersFor(code, {
       transliteration: 'READING', gloss: 'a · gloss',
       translation: 'the sentence', hint: 'the meaning', correct_answer: 'zzz',
-    })
+    }, { showGlosses: true })
     expect(layers.map((l) => l.field)).toContain('gloss')
   })
 
@@ -184,14 +191,16 @@ describe('every course shows the word-by-word line', () => {
     expect(hintLayersFor('ru', {
       transliteration: 'READING', gloss: 'a · gloss',
       translation: 'the sentence', hint: 'the meaning', correct_answer: 'zzz',
-    }).map((l) => l.field)).toEqual(['transliteration', 'gloss', 'translation', 'hint'])
+    }, { showGlosses: true }).map((l) => l.field)).toEqual(
+      ['transliteration', 'gloss', 'translation', 'hint'])
   })
 
   it('a Latin-script course starts at the gloss, having no reading to show', () => {
     expect(hintLayersFor('es', {
       gloss: 'a · gloss', translation: 'the sentence', hint: 'the meaning',
       correct_answer: 'zzz',
-    }).map((l) => l.field)).toEqual(['gloss', 'translation', 'hint'])
+    }, { showGlosses: true }).map((l) => l.field)).toEqual(
+      ['gloss', 'translation', 'hint'])
   })
 })
 
@@ -206,7 +215,7 @@ describe('the phonetics layer sits under the reading', () => {
       phonetics: 'khǎo pen khon thai',
       gloss: 'a · gloss', translation: 'the sentence', hint: 'the meaning',
       correct_answer: 'zzz',
-    }).map((l) => l.field)).toEqual(
+    }, { showGlosses: true }).map((l) => l.field)).toEqual(
       ['transliteration', 'phonetics', 'gloss', 'translation', 'hint'])
   })
 
@@ -214,7 +223,7 @@ describe('the phonetics layer sits under the reading', () => {
     const fields = hintLayersFor('ru', {
       transliteration: 'Ya zhivu', gloss: 'a · gloss',
       translation: 'the sentence', hint: 'the meaning', correct_answer: 'zzz',
-    }).map((l) => l.field)
+    }, { showGlosses: true }).map((l) => l.field)
     expect(fields).not.toContain('phonetics')
     expect(fields[0]).toBe('transliteration')
   })
@@ -223,32 +232,35 @@ describe('the phonetics layer sits under the reading', () => {
     expect(hintLayersFor('es', {
       gloss: 'a · gloss', translation: 'the sentence', hint: 'the meaning',
       correct_answer: 'zzz',
-    }).map((l) => l.field)).toEqual(['gloss', 'translation', 'hint'])
+    }, { showGlosses: true }).map((l) => l.field)).toEqual(
+      ['gloss', 'translation', 'hint'])
   })
 })
 
 
-describe('the gloss is an account setting, on by default', () => {
-  // Owner: "make glosses an option that is turned on automatically in the
-  // user account." Learners reported the Leipzig notation as confusing and
-  // as not enough to guess a word from — so the answer is a switch, not a
-  // removal, and not fusing it to the translation.
+describe('the gloss is an account setting, off by default', () => {
+  // Owner: an option "turned on automatically in the user account", then
+  // "make the gloss off by default". Learners reported the Leipzig notation
+  // as confusing and as not enough to guess a word from — meeting it
+  // unasked is the complaint, so it is opt-in.
   const card = {
     gloss: 'almost NEG remain.3SG wine',
     translation: 'There is almost no wine left.',
     hint: 'quedar, impersonal',
   }
 
-  it('offers the gloss when nothing is passed — the default is ON', () => {
+  it('withholds the gloss when nothing is passed — the default is OFF', () => {
+    // A caller that forgets the option must not show unfamiliar notation
+    // to someone who never asked for it.
     expect(hintLayersFor('es', card).map((l) => l.field)).toEqual([
-      'gloss', 'translation', 'hint',
+      'translation', 'hint',
     ])
   })
 
-  it('offers it when the setting is explicitly on', () => {
-    const fields = hintLayersFor('es', card, { showGlosses: true })
-      .map((l) => l.field)
-    expect(fields).toContain('gloss')
+  it('offers it when the learner has turned it on', () => {
+    expect(
+      hintLayersFor('es', card, { showGlosses: true }).map((l) => l.field),
+    ).toEqual(['gloss', 'translation', 'hint'])
   })
 
   it('drops the layer entirely when off — not an empty rung', () => {
@@ -258,22 +270,25 @@ describe('the gloss is an account setting, on by default', () => {
     expect(layers.map((l) => l.field)).toEqual(['translation', 'hint'])
   })
 
-  it('leaves every other layer alone when off', () => {
-    const layers = hintLayersFor('ru', {
+  it('leaves every other layer alone either way', () => {
+    const source = {
       transliteration: 'Ya idu domoy',
       gloss: 'I go.1SG home',
       translation: 'I am going home.',
       hint: 'идти, я',
-    }, { showGlosses: false })
-    expect(layers.map((l) => l.field)).toEqual([
-      'transliteration', 'translation', 'hint',
-    ])
+    }
+    expect(
+      hintLayersFor('ru', source, { showGlosses: false }).map((l) => l.field),
+    ).toEqual(['transliteration', 'translation', 'hint'])
+    expect(
+      hintLayersFor('ru', source, { showGlosses: true }).map((l) => l.field),
+    ).toEqual(['transliteration', 'gloss', 'translation', 'hint'])
   })
 
-  it('the translation keeps its own step either way', () => {
-    // The pairing that briefly existed is gone: the gloss and the
-    // translation are separate reveals again.
-    const on = hintLayersFor('es', card).map((l) => l.field)
+  it('the gloss and the translation are separate steps when both show', () => {
+    // The pairing that briefly existed is gone: two reveals, not one.
+    const on = hintLayersFor('es', card, { showGlosses: true })
+      .map((l) => l.field)
     expect(on.indexOf('gloss')).toBe(0)
     expect(on.indexOf('translation')).toBe(1)
   })

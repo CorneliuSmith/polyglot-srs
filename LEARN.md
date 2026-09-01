@@ -302,18 +302,22 @@ gives help away: reading → pronunciation → word-by-word gloss → translatio
 the authored hint, with the reading step skipped for Latin-script courses.
 Each press of Hint reveals one layer:
 
-**The gloss is an account setting.** A gloss is a Leipzig morphological
-decomposition (`bark.3SG`, `have.NEG`) — it answers *how is this sentence
-built*, a structural question, not *what does it mean*. Learners reported
-it as confusing and as not enough to guess a word from, so
-`user_profiles.show_glosses` (ON by default) decides whether the layer is
-offered at all. The filter is inside `hintLayersFor`, not at each call
+**The gloss is an opt-in account setting.** A gloss is a Leipzig
+morphological decomposition (`bark.3SG`, `have.NEG`) — it answers *how is
+this sentence built*, a structural question, not *what does it mean*.
+Learners reported it as confusing and as not enough to guess a word from,
+and meeting it unasked was the complaint, so `user_profiles.show_glosses`
+(**OFF** by default) decides whether the layer is offered at all. The
+`hintLayersFor` option defaults to off for the same reason: a caller that
+forgets to pass it withholds unfamiliar notation rather than showing it. The filter is inside `hintLayersFor`, not at each call
 site, so the setting holds on every surface that reveals a layer —
 including whichever one is written next — and the hint dots shorten by one
 rather than leaving a rung that reveals nothing.
 
-The gloss also carries an `InfoDot` explaining the notation, because
-`bark.3SG` means nothing to someone who hasn't seen it, and the English
+The gloss carries an `InfoDot` explaining the notation — on the card and,
+more importantly, on the Settings toggle, since that is where someone
+decides whether they want it. It exists because `bark.3SG` means nothing
+to someone who hasn't seen it, and the English
 labels read as a bug rather than the deliberate choice they are (see
 `docs/decisions/2026-08-26-owner-decisions.md` §5 — glosses are structural
 on all 27 courses and their metalanguage is English *by design*, since the

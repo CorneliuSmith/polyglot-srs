@@ -139,16 +139,21 @@ export function safePrompt(text: string, answer: string | null | undefined): str
 /** The ordered hint layers this card can actually reveal. Base form (when the
  * card carries one — i.e. in the Gym) always leads.
  *
- * `showGlosses` is the account setting (`user_profiles.show_glosses`, ON by
- * default). Off means the gloss is not OFFERED — it drops out of the order
- * entirely, so the hint dots shorten by one rather than leaving a rung that
- * reveals nothing. Filtering here rather than at each call site is what
- * makes the setting hold on every surface that reveals a layer, including
- * whichever one is written next. */
+ * `showGlosses` is the account setting (`user_profiles.show_glosses`), OFF
+ * by default: the Leipzig notation is unfamiliar enough that meeting it
+ * unasked is what learners reported as confusing. Off means the gloss is
+ * not OFFERED — it drops out of the order entirely, so the hint dots
+ * shorten by one rather than leaving a rung that reveals nothing.
+ *
+ * Filtering here rather than at each call site is what makes the setting
+ * hold on every surface that reveals a layer, including whichever one is
+ * written next — and the parameter defaults to OFF for the same reason, so
+ * a caller that forgets to pass it withholds the layer rather than showing
+ * it to someone who never asked. */
 export function hintLayersFor(
   languageCode: string,
   card: HintLayerSource,
-  { showGlosses = true }: { showGlosses?: boolean } = {},
+  { showGlosses = false }: { showGlosses?: boolean } = {},
 ): HintLayer[] {
   const order: HintLayerField[] = [
     'base',

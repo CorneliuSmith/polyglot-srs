@@ -893,13 +893,12 @@ export default function SettingsPage() {
             </div>
           </section>
 
-          {/* Word-by-word glosses (owner: "make glosses an option that is
-              turned on automatically in the user account"). On by default —
-              this is the off switch for a learner who finds the notation
-              more confusing than useful. The same InfoDot the review card
-              carries sits here too: this is where someone decides whether
-              they want the layer, so it is where the explanation is worth
-              the most. */}
+          {/* Word-by-word glosses. OFF by default (owner) — the Leipzig
+              notation is unfamiliar enough that meeting it unasked is what
+              learners reported as confusing, so it is opt-in. The same
+              InfoDot the review card carries sits here too, and matters
+              more here: this is where someone decides whether they want
+              the layer, so the explanation has to be at the switch. */}
           <section
             className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3"
             data-testid="show-glosses"
@@ -923,23 +922,23 @@ export default function SettingsPage() {
               <button
                 type="button"
                 role="switch"
-                aria-checked={profile?.show_glosses ?? true}
+                aria-checked={profile?.show_glosses ?? false}
                 aria-label={t('settings.glosses.title')}
                 disabled={reminderMutation.isPending}
                 onClick={() =>
                   reminderMutation.mutate({
-                    show_glosses: !(profile?.show_glosses ?? true),
+                    show_glosses: !(profile?.show_glosses ?? false),
                   })
                 }
                 className={
                   'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
-                  ((profile?.show_glosses ?? true) ? 'bg-lang' : 'bg-gray-300')
+                  ((profile?.show_glosses ?? false) ? 'bg-lang' : 'bg-gray-300')
                 }
               >
                 <span
                   className={
                     'inline-block h-5 w-5 transform rounded-full bg-white transition-transform ' +
-                    ((profile?.show_glosses ?? true)
+                    ((profile?.show_glosses ?? false)
                       ? 'translate-x-5'
                       : 'translate-x-1')
                   }
