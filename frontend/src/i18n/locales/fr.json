@@ -1190,6 +1190,10 @@
     "sentenceAudio": {
       "title": "Écoutez la phrase quand vous avez juste",
       "desc": "Après une bonne réponse — y compris celle où seuls les accents ont manqué —, la phrase complète est lue à voix haute pour que vous l'entendiez en entier. S'applique sur tous vos appareils."
+    },
+    "glosses": {
+      "title": "Décompositions mot à mot",
+      "desc": "Affiche la décomposition mot à mot parmi les indices pendant la révision. Activé par défaut ; désactivez-le si la notation vous gêne plus qu'elle ne vous aide."
     }
   },
   "feedback": {

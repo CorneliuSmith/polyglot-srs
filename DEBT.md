@@ -117,6 +117,26 @@ attaching optional context: it must never be the reason a board fails to
 render. Worth remembering that a partial mock is a *latent* failure — it
 passes until someone reads a field the fixture never had.
 
+### A "graceful degradation" that degraded nothing (fixed)
+
+The profile endpoint's fallback for a not-yet-applied migration was a
+ladder: try the widest SELECT, catch `UndefinedColumnError`, retry a
+narrower one. It could never have worked. `rls_connection` runs inside one
+explicit transaction, so the first failure aborted it and the retry raised
+`InFailedSQLTransactionError` — uncaught — on the endpoint that renders
+every page. It read as defensive for four migrations and was decorative;
+nobody noticed because each migration was applied before the code that
+needed it shipped. Replaced with a probe of `information_schema.columns`
+(`docs/decisions/0001`). Kept here as a *pattern* warning: `try/except` a
+SQL error and continue on the same connection is a no-op wherever the
+connection is inside a transaction, which is everywhere `rls_connection` is
+used.
+
+The same ladder also only dropped column groups from the right, so
+"newest migration applied, an older one not" — a real state when migrations
+are owner-applied and independent — had no attempt that fitted it. The
+replacement plans per column.
+
 ### Integration tests skip silently, and it has hidden ~79 tests before
 
 Without `INTEGRATION_DATABASE_URL` set, DB-backed tests report as `skipped`,

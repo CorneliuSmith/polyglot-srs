@@ -1190,6 +1190,10 @@
     "sentenceAudio": {
       "title": "Escucha la frase cuando aciertas",
       "desc": "Tras una respuesta correcta —incluida la que solo falló en las tildes—, la frase completa se lee en voz alta para que la oigas entera. Se aplica en todos tus dispositivos."
+    },
+    "glosses": {
+      "title": "Desgloses palabra por palabra",
+      "desc": "Muestra el desglose palabra por palabra como una de las pistas durante el repaso. Activado por defecto; desactívalo si la notación te distrae más de lo que te ayuda."
     }
   },
   "feedback": {

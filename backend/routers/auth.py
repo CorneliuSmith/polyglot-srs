@@ -141,14 +141,80 @@ _EXPLICIT_DEFAULTS = {"allow_explicit_content": False}
 # the feature is the default, the toggle is the escape.
 _AUDIO_DEFAULTS = {"sentence_audio_on_correct": True}
 
+# Migration 20261012 (word-by-word glosses). ON by default — the layer is
+# the default and the toggle is the escape, per the request's own wording.
+_GLOSS_DEFAULTS = {"show_glosses": True}
+
 #: Optional column groups, widest first. Each entry is
 #: (select fragment, defaults to substitute when the columns are absent).
-#: Tried in order, dropping one group at a time.
+#: Which ones exist is ASKED, not discovered by failing — see
+#: `_present_profile_columns` and docs/decisions/0001.
 _OPTIONAL_PROFILE_COLUMNS = (
     (", weekly_digest_opt_in, weekly_digest_dow", _DIGEST_DEFAULTS),
     (", allow_explicit_content", _EXPLICIT_DEFAULTS),
     (", sentence_audio_on_correct", _AUDIO_DEFAULTS),
+    (", show_glosses", _GLOSS_DEFAULTS),
 )
+
+
+#: Every optional column, with the SQL literal used when a save does not
+#: name it. Order fixes the placeholder numbering in the upsert.
+_OPTIONAL_PROFILE_FIELDS = (
+    ("weekly_digest_opt_in", "false"),
+    ("weekly_digest_dow", "0"),
+    ("allow_explicit_content", "false"),
+    ("sentence_audio_on_correct", "true"),
+    ("show_glosses", "true"),
+)
+
+_ALL_OPTIONAL_DEFAULTS = {
+    **_DIGEST_DEFAULTS, **_EXPLICIT_DEFAULTS, **_AUDIO_DEFAULTS,
+    **_GLOSS_DEFAULTS,
+}
+
+
+async def _present_profile_columns(conn: asyncpg.Connection) -> set[str]:
+    """Which `user_profiles` columns this database actually has.
+
+    One question, asked up front, instead of finding out by failing —
+    docs/decisions/0001-probe-tables-instead-of-catching-errors.md.
+
+    Catching the error is not merely less tidy here, it does not WORK.
+    `rls_connection` runs everything inside one explicit transaction (it has
+    to: the RLS claims are transaction-scoped). A statement that raises
+    `UndefinedColumnError` aborts that transaction, so the next attempt —
+    the narrower SELECT that was supposed to be the graceful fallback —
+    raises `InFailedSQLTransactionError` instead, which nothing catches and
+    which reaches the client as a 500 on the endpoint that renders every
+    page. The fallback ladder read as defensive and was decorative.
+
+    Verified against a real Postgres rather than reasoned about; see
+    backend/tests/integration/test_show_glosses_integration.py.
+    """
+    rows = await conn.fetch(
+        """
+        SELECT column_name FROM information_schema.columns
+         WHERE table_schema = 'public' AND table_name = 'user_profiles'
+        """
+    )
+    return {r["column_name"] for r in rows}
+
+
+def _profile_column_plan(present: set[str]) -> tuple[str, dict]:
+    """(select fragment, defaults) for the groups this database can serve.
+
+    A group is included only when EVERY column in it exists, so a
+    half-applied migration cannot produce a SELECT naming one column that
+    landed and one that did not.
+    """
+    extra: list[str] = []
+    defaults: dict = {}
+    for frag, group_defaults in _OPTIONAL_PROFILE_COLUMNS:
+        if all(col in present for col in group_defaults):
+            extra.append(frag)
+        else:
+            defaults.update(group_defaults)
+    return "".join(extra), defaults
 
 _UPSERT_SQL = """
     INSERT INTO user_profiles
@@ -210,6 +276,10 @@ class ProfileUpdate(BaseModel):
     # Account-level on purpose: settings that live on the account behave
     # the same everywhere the account is opened.
     sentence_audio_on_correct: bool | None = None
+    # Offer the word-by-word gloss (a Leipzig decomposition: bark.3SG) as a
+    # hint layer. On by default; a learner who finds the notation more
+    # confusing than useful turns it off and the layer stops being offered.
+    show_glosses: bool | None = None
 
 
 @router.get("/me")
@@ -228,25 +298,12 @@ async def get_profile(user: dict = Depends(get_current_user)):
         "created_at, updated_at{extra} "
         "FROM user_profiles WHERE id = $1"
     )
-    # Try every optional group, then each smaller combination, ending with
-    # none. Whatever is missing comes back as its default, so a half-migrated
-    # database serves a complete profile instead of a 500 on every page load.
-    row = None
-    missing: dict = {}
+    # Ask which optional columns exist, then select exactly those. Whatever
+    # is missing comes back as its default, so a half-migrated database
+    # serves a complete profile instead of a 500 on every page load.
     async with rls_connection(user["id"]) as conn:
-        for drop in range(len(_OPTIONAL_PROFILE_COLUMNS) + 1):
-            groups = _OPTIONAL_PROFILE_COLUMNS[: len(_OPTIONAL_PROFILE_COLUMNS) - drop]
-            extra = "".join(frag for frag, _ in groups)
-            missing = {
-                k: v
-                for _, defaults in _OPTIONAL_PROFILE_COLUMNS[len(groups):]
-                for k, v in defaults.items()
-            }
-            try:
-                row = await conn.fetchrow(base.format(extra=extra), user["id"])
-                break
-            except asyncpg.exceptions.UndefinedColumnError:
-                continue
+        extra, missing = _profile_column_plan(await _present_profile_columns(conn))
+        row = await conn.fetchrow(base.format(extra=extra), user["id"])
     if row is not None and missing:
         row = {**dict(row), **missing}
     if row is None:
@@ -401,76 +458,58 @@ async def upsert_profile(
         body.reminder_opt_in,
         body.reminder_hour_utc,
     )
-    digest_frag = {
-        "cols": ", weekly_digest_opt_in, weekly_digest_dow",
-        "vals": ", COALESCE($8, false), COALESCE($9, 0)",
-        "sets": (
-            "weekly_digest_opt_in = "
-            "COALESCE($8, user_profiles.weekly_digest_opt_in), "
-            "weekly_digest_dow = "
-            "COALESCE($9, user_profiles.weekly_digest_dow),"
-        ),
-        "ret": ", weekly_digest_opt_in, weekly_digest_dow",
-    }
-    explicit_frag = {
-        "cols": ", allow_explicit_content",
-        "vals": ", COALESCE($10, false)",
-        "sets": (
-            "allow_explicit_content = "
-            "COALESCE($10, user_profiles.allow_explicit_content),"
-        ),
-        "ret": ", allow_explicit_content",
-    }
-    audio_frag = {
-        "cols": ", sentence_audio_on_correct",
-        "vals": ", COALESCE($11, true)",
-        "sets": (
-            "sentence_audio_on_correct = "
-            "COALESCE($11, user_profiles.sentence_audio_on_correct),"
-        ),
-        "ret": ", sentence_audio_on_correct",
-    }
-
-    def _merge(*parts: dict) -> dict:
-        return {k: "".join(p.get(k, "") for p in parts) for k in
-                ("cols", "vals", "sets", "ret")}
-
-    # Widest first, then narrower, ending with the columns every deploy has.
-    # Two independent migrations (20260908, 20260910) can be applied in
-    # either order or neither, so a settings write must not fail wholesale
-    # because one of them hasn't landed — the rest of the form still saves.
-    attempts = (
-        (_merge(digest_frag, explicit_frag, audio_frag),
-         (*base_args, body.weekly_digest_opt_in, body.weekly_digest_dow,
-          body.allow_explicit_content, body.sentence_audio_on_correct),
-         {}),
-        (_merge(digest_frag, explicit_frag),
-         (*base_args, body.weekly_digest_opt_in, body.weekly_digest_dow,
-          body.allow_explicit_content),
-         _AUDIO_DEFAULTS),
-        (_merge(digest_frag),
-         (*base_args, body.weekly_digest_opt_in, body.weekly_digest_dow),
-         {**_EXPLICIT_DEFAULTS, **_AUDIO_DEFAULTS}),
-        (_merge(),
-         base_args,
-         {**_DIGEST_DEFAULTS, **_EXPLICIT_DEFAULTS, **_AUDIO_DEFAULTS}),
-    )
+    # Build the optional half of the upsert from the columns this database
+    # actually HAS, one column at a time.
+    #
+    # Two faults in the ladder this replaces. It caught UndefinedColumnError
+    # and retried on the same connection — inside rls_connection's single
+    # transaction, where the first failure aborts everything after it, so
+    # the retry raised InFailedSQLTransactionError and the "graceful"
+    # degradation was decorative. And it only ever dropped groups from the
+    # RIGHT, so a database with the newest migration but not a middle one
+    # (migrations are owner-applied and independent — the comment above says
+    # so) had no attempt that fitted it.
+    #
+    # Per column, numbered from $8 in the order they are appended, so any
+    # subset produces a correct statement.
     async with rls_connection(user["id"]) as conn:
-        for fragments, args, defaults in attempts:
-            try:
-                row = await conn.fetchrow(_UPSERT_SQL.format(**fragments), *args)
-            except asyncpg.exceptions.UndefinedColumnError:
+        present = await _present_profile_columns(conn)
+        cols: list[str] = []
+        vals: list[str] = []
+        sets: list[str] = []
+        args: list = []
+        defaults: dict = {}
+        for column, fallback in _OPTIONAL_PROFILE_FIELDS:
+            if column not in present:
+                defaults[column] = _ALL_OPTIONAL_DEFAULTS[column]
                 continue
-            # A saved course + support locale is the earliest possible signal
-            # of what this learner will meet — queue their upcoming content
-            # for translation NOW, so even the first learn session (and every
-            # review after it) opens already localized. Never blocks the save.
-            if (body.active_language_id and body.support_locale
-                    and body.support_locale not in ("auto", "en")):
-                await pretranslate_upcoming(
-                    conn, user["id"], body.active_language_id,
-                    body.batch_size or 10,
-                )
+            n = len(base_args) + len(args) + 1
+            cols.append(column)
+            vals.append(f"COALESCE(${n}, {fallback})")
+            sets.append(f"{column} = COALESCE(${n}, user_profiles.{column}),")
+            args.append(getattr(body, column))
+
+        joined = ", " + ", ".join(cols) if cols else ""
+        fragments = {
+            "cols": joined,
+            "vals": ", " + ", ".join(vals) if vals else "",
+            "sets": " ".join(sets),
+            "ret": joined,
+        }
+        row = await conn.fetchrow(
+            _UPSERT_SQL.format(**fragments), *base_args, *args
+        )
+        # A saved course + support locale is the earliest possible signal
+        # of what this learner will meet — queue their upcoming content
+        # for translation NOW, so even the first learn session (and every
+        # review after it) opens already localized. Never blocks the save.
+        if (body.active_language_id and body.support_locale
+                and body.support_locale not in ("auto", "en")):
+            await pretranslate_upcoming(
+                conn, user["id"], body.active_language_id,
+                body.batch_size or 10,
+            )
+        if row is not None:
             return {**dict(row), **defaults}
     raise HTTPException(
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
