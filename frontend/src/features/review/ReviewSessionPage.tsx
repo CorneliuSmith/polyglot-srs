@@ -32,9 +32,10 @@ import CardFeedback from './CardFeedback'
 import SessionSummary from './SessionSummary'
 import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
 import { composeScript, deleteLastUnit, finalizeInput } from '../keyboards/translit'
-import { hintLayersFor, safePrompt } from './hintLayers'
+import { hintLayersFor, hintSteps, safePrompt } from './hintLayers'
 import TranslateMyCards from './TranslateMyCards'
 import SpeakButton from '../../components/SpeakButton'
+import InfoDot from '../../components/InfoDot'
 import FormsPanel from '../../components/FormsPanel'
 import { TTS_LANGUAGES, getTTSUrl, prefetchTTS } from '../../api/audio'
 import LearningTip from '../tips/LearningTip'
@@ -845,11 +846,15 @@ function ReviewSessionInner({
   const optionalLayers = cram
     ? layers.filter((l) => l.field !== 'base' && l.field !== 'hint')
     : layers
-  const maxHint = optionalLayers.length
+  // Steps, not layers: the gloss and the translation reveal together, so
+  // one press never leaves a learner holding a morphological breakdown of a
+  // word whose meaning is still a press away (see hintSteps).
+  const steps = hintSteps(optionalLayers)
+  const maxHint = steps.length
   const revealedLayers =
     session.phase !== 'answering'
       ? optionalLayers
-      : optionalLayers.slice(0, Math.min(hintLevel, maxHint))
+      : steps.slice(0, Math.min(hintLevel, maxHint)).flat()
   const topHint = revealedLayers.find((l) => l.field === 'hint')
   const answering = session.phase === 'answering'
   const result = session.validationResult?.answer_result
@@ -1079,6 +1084,19 @@ function ReviewSessionInner({
                 >
                   <span className="text-[10px] uppercase tracking-wide text-lang-label/70 me-2">
                     {l.label}
+                    {/* The one layer that needs decoding before it helps.
+                        bark.3SG means nothing to someone who has never seen
+                        Leipzig notation, and the English labels look like a
+                        bug rather than the deliberate choice they are. */}
+                    {l.field === 'gloss' && (
+                      <InfoDot
+                        label={t('review.glossHelpTitle')}
+                        title={t('review.glossHelpTitle')}
+                        testId="gloss-help"
+                      >
+                        {t('review.glossHelpBody')}
+                      </InfoDot>
+                    )}
                   </span>
                   {l.text}
                   {/* Naming the language it is in was only half the fix: the

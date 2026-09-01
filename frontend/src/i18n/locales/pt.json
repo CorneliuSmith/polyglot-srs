@@ -497,7 +497,9 @@
       "manual": "Adicionada à mão",
       "unknown": "Adicionada antes do registro de origem"
     },
-    "sourceNote": "da sua nota “{{title}}”"
+    "sourceNote": "da sua nota “{{title}}”",
+    "glossHelpTitle": "Palavra por palavra",
+    "glossHelpBody": "Uma decomposição de como a frase é construída — não é uma tradução. O ponto separa as partes de uma palavra: bark.3SG é “bark” na terceira pessoa do singular; have.NEG é “have” na negativa. Estas etiquetas ficam sempre em inglês em todos os cursos, para que cada parte tenha sempre o mesmo nome. O significado está na tradução abaixo."
   },
   "about": {
     "title": "O que saber",

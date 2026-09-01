@@ -497,7 +497,9 @@
       "manual": "Ajoutée à la main",
       "unknown": "Ajoutée avant le suivi d'origine"
     },
-    "sourceNote": "de votre note « {{title}} »"
+    "sourceNote": "de votre note « {{title}} »",
+    "glossHelpTitle": "Mot à mot",
+    "glossHelpBody": "Une décomposition de la construction de la phrase, pas une traduction. Le point sépare les parties d'un mot : bark.3SG, c'est « bark » à la troisième personne du singulier ; have.NEG, c'est « have » à la forme négative. Ces étiquettes restent en anglais dans tous les cours, pour que chaque élément porte toujours le même nom. Le sens, c'est la traduction en dessous."
   },
   "about": {
     "title": "À savoir",
