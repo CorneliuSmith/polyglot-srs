@@ -11,6 +11,8 @@ import json
 
 import asyncpg
 
+from backend.repositories.pool import savepoint
+
 
 def _load_items(value) -> list:
     if isinstance(value, (list, dict)):
@@ -251,14 +253,15 @@ async def mark_recommendations_seen(
     stamp column should cost the prompt, not the page it sits on.
     """
     try:
-        await conn.execute(
-            """
-            INSERT INTO media_reco_profile (user_id, last_seen_at)
-            VALUES ($1, now())
-            ON CONFLICT (user_id) DO UPDATE SET last_seen_at = now()
-            """,
-            user_id,
-        )
+        async with savepoint(conn):
+            await conn.execute(
+                """
+                INSERT INTO media_reco_profile (user_id, last_seen_at)
+                VALUES ($1, now())
+                ON CONFLICT (user_id) DO UPDATE SET last_seen_at = now()
+                """,
+                user_id,
+            )
     except asyncpg.exceptions.UndefinedColumnError:
         return
 
@@ -269,20 +272,21 @@ async def unseen_batch(
     """The learner's newest batch if they haven't looked since it was made,
     else None. What the dashboard prompt renders from."""
     try:
-        row = await conn.fetchrow(
-            """
-            SELECT r.id, r.items, r.level, r.created_at
-            FROM media_recommendations r
-            JOIN media_reco_profile p ON p.user_id = r.user_id
-            WHERE r.user_id = $1
-              AND r.language_id = $2
-              AND p.enabled
-              AND (p.last_seen_at IS NULL OR r.created_at > p.last_seen_at)
-            ORDER BY r.created_at DESC
-            LIMIT 1
-            """,
-            user_id, language_id,
-        )
+        async with savepoint(conn):
+            row = await conn.fetchrow(
+                """
+                SELECT r.id, r.items, r.level, r.created_at
+                FROM media_recommendations r
+                JOIN media_reco_profile p ON p.user_id = r.user_id
+                WHERE r.user_id = $1
+                  AND r.language_id = $2
+                  AND p.enabled
+                  AND (p.last_seen_at IS NULL OR r.created_at > p.last_seen_at)
+                ORDER BY r.created_at DESC
+                LIMIT 1
+                """,
+                user_id, language_id,
+            )
     except asyncpg.exceptions.UndefinedColumnError:
         return None
     if not row:

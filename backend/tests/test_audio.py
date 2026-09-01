@@ -14,6 +14,7 @@ from fastapi.testclient import TestClient
 
 from backend.main import create_app
 from backend.services.tts import RATE, VOICES, cache_key, voice_for
+from backend.tests.fakes import mock_conn
 
 TEST_SECRET = "test-jwt-secret-for-unit-tests-32bytes"
 TEST_USER_ID = "550e8400-e29b-41d4-a716-446655440000"
@@ -39,7 +40,7 @@ def _auth_headers() -> dict:
 
 
 def _conn(fetchval_results, cache_rows=None):
-    conn = AsyncMock()
+    conn = mock_conn()
     conn.fetchval = AsyncMock(side_effect=list(fetchval_results))
     # The cache lookup reads (storage_path, audio) as one row now that a
     # clip can be held in the database when its upload failed. Derive the
@@ -266,12 +267,33 @@ class TestTTSEndpoint:
 
         from backend.routers.audio import _text_is_ours
 
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchval = AsyncMock(return_value=True)
         assert asyncio.run(_text_is_ours(conn, "sw", "Si ya maana."))
         sql = conn.fetchval.await_args.args[0]
         assert "gp.title = $2" in sql
         assert "user_cloze_cards" in sql
+
+    def test_a_clozed_sentence_is_ours_whatever_case_the_blank_took(self):
+        # A vocabulary card clozes case-insensitively and the UI speaks the
+        # sentence with `correct_answer` put back — "Gato come." is asked
+        # for as "gato come.". Every sentence-initial word 404ed that way,
+        # one request per card, all session long.
+        import asyncio
+
+        from backend.routers.audio import _case_variants, _text_is_ours
+
+        assert _case_variants("gato come.") == ["gato come.", "Gato come."]
+        assert _case_variants("Gato come.") == ["Gato come.", "gato come."]
+        assert _case_variants("¿gato?") == ["¿gato?"]
+        assert _case_variants("") == [""]
+
+        conn = mock_conn()
+        conn.fetchval = AsyncMock(return_value=True)
+        assert asyncio.run(_text_is_ours(conn, "es", "gato come."))
+        args = conn.fetchval.await_args.args
+        assert "es.sentence = ANY($3::text[])" in args[0]
+        assert args[3] == ["gato come.", "Gato come."]
 
     def test_upload_failure_still_serves_the_clip_inline(self):
         # Storage is an optimization: a broken bucket/key must never

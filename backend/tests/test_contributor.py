@@ -13,6 +13,7 @@ from fastapi.testclient import TestClient
 
 from backend.main import create_app
 from backend.repositories.contributor import can_contribute, is_admin
+from backend.tests.fakes import mock_conn
 
 TEST_SECRET = "test-jwt-secret-for-unit-tests-32bytes"
 TEST_USER_ID = "550e8400-e29b-41d4-a716-446655440000"
@@ -66,12 +67,12 @@ def _auth_headers() -> dict:
 
 @asynccontextmanager
 async def _fake_rls(user_id: str):
-    yield AsyncMock()
+    yield mock_conn()
 
 
 @asynccontextmanager
 async def _fake_priv():
-    yield AsyncMock()
+    yield mock_conn()
 
 
 @pytest.fixture()
@@ -1125,7 +1126,7 @@ class TestEditDrill:
 
 class TestSelfApprovalGuard:
     def test_editor_cannot_approve_own_change(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchval = AsyncMock(return_value=TEST_USER_ID)  # last editor = caller
 
         @asynccontextmanager
@@ -1794,7 +1795,7 @@ class TestGenerationCoverage:
     def test_admin_gets_recs_and_ranked_next(self, client):
         # No per-language model override on record — fetchval returns None,
         # same as a real query against an un-set languages.tutor_model column.
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchval = AsyncMock(return_value=None)
         with _roles([{"language_id": None, "role": "admin"}]), \
              _priv_yielding(conn), \
@@ -1826,7 +1827,7 @@ class TestGenerationRun:
         assert resp.status_code == 403
 
     def test_dry_run_previews_without_generating(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchrow = AsyncMock(return_value={"code": "sw", "name": "Swahili"})
         plan = {"kind": "vocab", "model": "claude-x", "target_per_item": 3,
                 "items_to_process": 40, "sentences_to_attempt": 120,
@@ -1852,7 +1853,7 @@ class TestGenerationRun:
         mock_plan.assert_awaited_once()
 
     def test_real_run_503_when_key_absent(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchrow = AsyncMock(return_value={"code": "sw", "name": "Swahili"})
         with _roles([{"language_id": None, "role": "admin"}]), \
              _priv_yielding(conn), \
@@ -1867,7 +1868,7 @@ class TestGenerationRun:
         assert resp.status_code == 503
 
     def test_real_run_reports_analysis(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchrow = AsyncMock(return_value={"code": "sw", "name": "Swahili"})
         analysis = {"kind": "vocab", "language_code": "sw", "model": "claude-x",
                     "items_processed": 25, "sentences_accepted": 70,
@@ -1891,7 +1892,7 @@ class TestGenerationRun:
         assert body["sentences_persisted"] == 68
 
     def test_unknown_language_404(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchrow = AsyncMock(return_value=None)
         with _roles([{"language_id": None, "role": "admin"}]), \
              _priv_yielding(conn):
@@ -1925,7 +1926,7 @@ class TestGenerationRecheck:
         assert resp.status_code == 403
 
     def test_dry_run_previews_drills_normalized(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchrow = AsyncMock(return_value={"code": "sw", "name": "Swahili"})
         plan = {"kind": "recheck_drills", "model": "claude-x",
                 "points_to_audit": 12, "drills_to_audit": 48,
@@ -1953,7 +1954,7 @@ class TestGenerationRecheck:
         mock_plan.assert_awaited_once()
 
     def test_real_recheck_reports_flags_and_alternatives(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchrow = AsyncMock(return_value={"code": "sw", "name": "Swahili"})
         result = {"kind": "recheck_drills", "model": "claude-x",
                   "points_audited": 12, "drills_flagged": 3,
@@ -1978,7 +1979,7 @@ class TestGenerationRecheck:
         assert body["alternatives_generated"] == 7
 
     def test_vocab_recheck_dispatches_examples(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchrow = AsyncMock(return_value={"code": "sw", "name": "Swahili"})
         result = {"kind": "recheck", "model": "claude-x",
                   "words_audited": 30, "sentences_flagged": 4,
@@ -2004,7 +2005,7 @@ class TestGenerationRecheck:
         mock_dr.assert_not_awaited()
 
     def test_real_recheck_503_when_key_absent(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchrow = AsyncMock(return_value={"code": "sw", "name": "Swahili"})
         with _roles([{"language_id": None, "role": "admin"}]), \
              _priv_yielding(conn), \
@@ -2052,7 +2053,7 @@ class TestReviewPrompt:
         assert resp.json() == {"due": False}
 
     def test_returns_prompt_when_trial_reviewer_and_due(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         prompt = {"target_type": "drill", "target_id": self.DRILL,
                   "language_id": LANG_ID, "context": "Present",
                   "sentence": "Yeye {{answer}} chai.", "answer": "anakunywa",
@@ -2071,7 +2072,7 @@ class TestReviewPrompt:
         assert body["prompt"]["target_id"] == self.DRILL
 
     def test_not_due_within_cooldown(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         with _roles([{"language_id": LANG_ID, "role": "trial_reviewer"}]), \
              _priv_yielding(conn), \
              patch("backend.routers.contribute.trial_prompt_due",
@@ -2083,7 +2084,7 @@ class TestReviewPrompt:
         mock_pick.assert_not_awaited()  # no work picked when not due
 
     def test_answer_approve_records_recommendation(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         with _roles([{"language_id": LANG_ID, "role": "trial_reviewer"}]), \
              _priv_yielding(conn), \
              patch("backend.routers.contribute.add_recommendation",
@@ -2101,7 +2102,7 @@ class TestReviewPrompt:
         mock_record.assert_awaited_once()
 
     def test_answer_skip_records_no_recommendation_but_resets_cooldown(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         with _roles([{"language_id": LANG_ID, "role": "trial_reviewer"}]), \
              _priv_yielding(conn), \
              patch("backend.routers.contribute.add_recommendation",
@@ -2242,7 +2243,7 @@ class TestGeneratedDrillReview:
         assert resp.json()["pending"][0]["cell"] == "yo"
 
     def test_approve_drill(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchval = AsyncMock(return_value=LANG_ID)
         with _roles([{"language_id": LANG_ID, "role": "reviewer"}]), \
              _rls_yielding(conn), \
@@ -2257,7 +2258,7 @@ class TestGeneratedDrillReview:
         assert mock_rev.await_args.args[2] is True
 
     def test_reject_drill(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchval = AsyncMock(return_value=LANG_ID)
         with _roles([{"language_id": LANG_ID, "role": "reviewer"}]), \
              _rls_yielding(conn), \
@@ -2271,7 +2272,7 @@ class TestGeneratedDrillReview:
         assert mock_rev.await_args.args[2] is False
 
     def test_review_404_when_drill_missing(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchval = AsyncMock(return_value=None)   # no such drill
         with _roles([{"language_id": None, "role": "admin"}]), _rls_yielding(conn):
             resp = client.post(
@@ -2281,7 +2282,7 @@ class TestGeneratedDrillReview:
         assert resp.status_code == 404
 
     def test_review_403_for_non_reviewer(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchval = AsyncMock(return_value=LANG_ID)
         with _roles([{"language_id": LANG_ID, "role": "contributor"}]), \
              _rls_yielding(conn):
@@ -2532,7 +2533,7 @@ class TestTesterGates:
         """The advisory verdict itself — for most testers the only thing they
         produce. The NOTE has to reach the repository call intact; it is the
         whole content of the channel."""
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchval = AsyncMock(return_value=LANG)
         with self._tester(), _rls_yielding(conn), \
              patch("backend.routers.contribute.add_recommendation",
@@ -2606,7 +2607,7 @@ class TestTesterGates:
     def test_tester_cannot_publish_a_generated_drill(self, client):
         """Recommending on a drill is theirs; flipping reviewed=true is not —
         that is the line the whole advisory role is drawn on."""
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchval = AsyncMock(return_value=LANG)
         with self._tester(), _rls_yielding(conn), \
              patch("backend.routers.contribute.review_drill",
@@ -2657,7 +2658,7 @@ class TestPlanLimits:
     def test_returns_every_tier_even_before_any_admin_edit(self, client):
         # No DB row for anything yet — every tier still comes back, filled
         # in from the Settings/env default. The panel must never show blank.
-        conn = AsyncMock()
+        conn = mock_conn()
         with _roles([{"language_id": None, "role": "admin"}]), \
              _priv_yielding(conn), \
              patch("backend.routers.contribute.get_plan_message_limits",
@@ -2669,7 +2670,7 @@ class TestPlanLimits:
         assert all(isinstance(v, int) for v in limits.values())
 
     def test_a_stored_override_wins_over_the_default(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         with _roles([{"language_id": None, "role": "admin"}]), \
              _priv_yielding(conn), \
              patch("backend.routers.contribute.get_plan_message_limits",
@@ -2678,7 +2679,7 @@ class TestPlanLimits:
         assert resp.json()["limits"]["free"] == 50
 
     def test_updates_one_tier(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         with _roles([{"language_id": None, "role": "admin"}]), \
              _priv_yielding(conn), \
              patch("backend.routers.contribute.set_plan_message_limit",
@@ -2723,7 +2724,7 @@ class TestPlanLimits:
         assert resp.status_code == 403
 
     def test_missing_migration_reports_503_not_500(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         with _roles([{"language_id": None, "role": "admin"}]), \
              _priv_yielding(conn), \
              patch("backend.routers.contribute.set_plan_message_limit",
@@ -2750,7 +2751,7 @@ class TestMonetizationToggle:
         assert put.status_code == 403
 
     def test_reads_the_stored_flag(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         with _roles([{"language_id": None, "role": "admin"}]), \
              _priv_yielding(conn), \
              patch("backend.routers.contribute.get_flag",
@@ -2760,7 +2761,7 @@ class TestMonetizationToggle:
         assert resp.json() == {"enabled": False}
 
     def test_flips_the_switch(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         with _roles([{"language_id": None, "role": "admin"}]), \
              _priv_yielding(conn), \
              patch("backend.routers.contribute.set_flag",
@@ -2772,7 +2773,7 @@ class TestMonetizationToggle:
         assert mock_set.await_args.args[1:3] == ("monetization", True)
 
     def test_missing_migration_reports_503_not_500(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         with _roles([{"language_id": None, "role": "admin"}]), \
              _priv_yielding(conn), \
              patch("backend.routers.contribute.set_flag",
@@ -2809,7 +2810,7 @@ class TestAiCheckRun:
         assert resp.status_code == 503
 
     def test_checks_a_batch_and_reports_what_remains(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         verdicts = iter([
             {"status": "pass", "notes": ""},
             {"status": "concerns", "notes": "check the gloss"},
@@ -2843,7 +2844,7 @@ class TestAiCheckRun:
         assert save.await_args_list[0].args[1:] == ("p1", "pass", "")
 
     def test_nothing_left_is_a_clean_zero(self, client):
-        conn = AsyncMock()
+        conn = mock_conn()
         with _roles([{"language_id": None, "role": "admin"}]), \
              _priv_yielding(conn), \
              patch("backend.routers.contribute.ai_available", return_value=True), \
@@ -3287,7 +3288,7 @@ class TestPromptRotation:
     async def test_the_pick_shuffles_instead_of_sorting_by_age(self):
         from backend.repositories.contributor import pick_review_prompt
 
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchrow = AsyncMock(return_value=None)
         await pick_review_prompt(
             conn, "u1", all_languages=True, language_ids=[],

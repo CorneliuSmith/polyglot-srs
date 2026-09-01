@@ -224,10 +224,10 @@ function LearnInner() {
   // Live swap: re-serve the lesson payloads on every advance while ANY of
   // this session still reads in English, so content landing mid-session
   // renders without a restart. Keyed on "not fully localized" rather than
-  // on the 60% start threshold — a session can clear that bar with its
-  // glosses done and every example sentence still English, and those are
-  // most of what a vocabulary card actually shows. Best-effort: a failed
-  // refresh just leaves the English already on screen.
+  // on the gate — the gate opens on the FIRST ready card (and never closes
+  // for a returning learner), so nearly everything a session shows can
+  // still be landing while it runs. Best-effort: a failed refresh just
+  // leaves the English already on screen.
   const notFullyLocalized =
     readinessQuery.data != null && readinessQuery.data.learn.pct < 1
   const [swapped, setSwapped] = useState<Record<string, Lesson>>({})

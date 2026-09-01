@@ -12,6 +12,7 @@ vi.mock('../api/review', () => ({
   validateAnswer: vi.fn(),
   submitReview: vi.fn(),
   markCardKnown: vi.fn(),
+  refreshDueCards: vi.fn(() => Promise.resolve([])),
   // These sessions already read in the learner's language, so the
   // trailblazer wait never stands between them and their cards.
   getTrivia: vi.fn(() => Promise.resolve([])),
@@ -19,7 +20,7 @@ vi.mock('../api/review', () => ({
   getSessionReadiness: vi.fn(() =>
     Promise.resolve({
       locale: null,
-      threshold: 0.6,
+      new_here: true,
       learn: { total: 0, ready: 0, pct: 1, ready_enough: true },
       review: { total: 0, ready: 0, pct: 1, ready_enough: true },
       pairs: [],
@@ -67,7 +68,7 @@ vi.mock('../components/SpeakButton', () => ({
 
 import {
   getCramCards, getDueCards, getSessionReadiness, markCardKnown, validateAnswer,
-  submitReview,
+  refreshDueCards, submitReview,
 } from '../api/review'
 import { generateGymDrills } from '../api/gym'
 import { getTTSUrl } from '../api/audio'
@@ -82,6 +83,7 @@ const mockGetCramCards = getCramCards as ReturnType<typeof vi.fn>
 const mockValidateAnswer = validateAnswer as ReturnType<typeof vi.fn>
 const mockSubmitReview = submitReview as ReturnType<typeof vi.fn>
 const mockMarkCardKnown = markCardKnown as ReturnType<typeof vi.fn>
+const mockRefreshDueCards = refreshDueCards as ReturnType<typeof vi.fn>
 const mockUsePrefsStore = usePrefsStore as unknown as ReturnType<typeof vi.fn>
 
 const testCard: DueCard = {
@@ -925,11 +927,11 @@ describe('leaving the Trailblazer wait', () => {
     // Under the bar: the wait screen stands between the learner and the deck.
     mockGetReadiness.mockResolvedValue({
       locale: 'es',
-      threshold: 0.6,
+      new_here: true,
       learn: { total: 10, ready: 1, pct: 0.1, cards: 5, cards_ready: 0,
-               start_cards: 3, ready_enough: false },
+               start_cards: 1, ready_enough: false },
       review: { total: 10, ready: 1, pct: 0.1, cards: 5, cards_ready: 0,
-                start_cards: 3, ready_enough: false },
+                start_cards: 1, ready_enough: false },
       pairs: [],
     })
   })
@@ -970,11 +972,11 @@ describe('leaving the Trailblazer wait', () => {
       new Promise((r) => (resolveProfile = r)),
     )
     mockGetReadiness.mockResolvedValue({
-      locale: 'es', threshold: 0.6,
+      locale: 'es', new_here: true,
       learn: { total: 10, ready: 10, pct: 1, cards: 5, cards_ready: 5,
-               start_cards: 3, ready_enough: true },
+               start_cards: 1, ready_enough: true },
       review: { total: 10, ready: 10, pct: 1, cards: 5, cards_ready: 5,
-                start_cards: 3, ready_enough: true },
+                start_cards: 1, ready_enough: true },
       pairs: [],
     })
     mockGetDueCards.mockResolvedValue([translatedCard])
@@ -996,11 +998,11 @@ describe('leaving the Trailblazer wait', () => {
     // new session — the owner's "cards in the wrong language until
     // something forces a refresh".
     mockGetReadiness.mockResolvedValue({
-      locale: 'es', threshold: 0.6,
+      locale: 'es', new_here: true,
       learn: { total: 10, ready: 10, pct: 1, cards: 5, cards_ready: 5,
-               start_cards: 3, ready_enough: true },
+               start_cards: 1, ready_enough: true },
       review: { total: 10, ready: 10, pct: 1, cards: 5, cards_ready: 5,
-                start_cards: 3, ready_enough: true },
+                start_cards: 1, ready_enough: true },
       pairs: [],
     })
     const stalePark = JSON.stringify({
@@ -1029,11 +1031,11 @@ describe('leaving the Trailblazer wait', () => {
     // Ready enough means no wait screen and no second fetch to pay for.
     mockGetReadiness.mockResolvedValue({
       locale: 'es',
-      threshold: 0.6,
+      new_here: true,
       learn: { total: 10, ready: 10, pct: 1, cards: 5, cards_ready: 5,
-               start_cards: 3, ready_enough: true },
+               start_cards: 1, ready_enough: true },
       review: { total: 10, ready: 10, pct: 1, cards: 5, cards_ready: 5,
-                start_cards: 3, ready_enough: true },
+                start_cards: 1, ready_enough: true },
       pairs: [],
     })
     mockGetDueCards.mockResolvedValue([translatedCard])
@@ -1045,6 +1047,84 @@ describe('leaving the Trailblazer wait', () => {
   })
 })
 
+
+describe('translations landing mid-session', () => {
+  // A returning learner is never made to wait, and a new one starts on the
+  // first ready card — so most of a session's translations can still be
+  // landing while it runs. Upcoming cards are re-served on every advance;
+  // the card on screen is left exactly as the learner saw it.
+  const lane = (pct: number) => ({
+    total: 10, ready: Math.round(pct * 10), pct, cards: 5,
+    cards_ready: Math.round(pct * 5), start_cards: 1, ready_enough: true,
+  })
+  const first: DueCard = { ...testCard, id: 'c1', sentence: 'First {{answer}}.',
+                           translation: 'First (English).' }
+  const second: DueCard = { ...testCard, id: 'c2', sentence: 'Second {{answer}}.',
+                            translation: 'Second (English).' }
+  const third: DueCard = { ...testCard, id: 'c3', sentence: 'Third {{answer}}.',
+                           translation: 'Third (English).' }
+
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockUsePrefsStore.mockImplementation(
+      (selector: (s: { activeLanguageId: string }) => unknown) =>
+        selector({ activeLanguageId: 'lang-123' }),
+    )
+    mockGetDueCards.mockResolvedValue([first, second, third])
+  })
+
+  it('re-serves only the cards still ahead, and swaps them in place', async () => {
+    mockGetReadiness.mockResolvedValue({
+      locale: 'es', new_here: false, learn: lane(1), review: lane(0.4), pairs: [],
+    })
+    mockRefreshDueCards.mockImplementation((_lang: string, ids: string[]) =>
+      Promise.resolve(
+        ids.map((id) =>
+          id === 'c2' ? { ...second, sentence: 'Segunda {{answer}}.' } : null,
+        ).filter(Boolean),
+      ),
+    )
+    renderWithProviders(<ReviewSessionPage />)
+    await screen.findByText(/First/)
+
+    // The mount refresh asks for everything past the first card…
+    await waitFor(() =>
+      expect(mockRefreshDueCards).toHaveBeenCalledWith('lang-123', ['c2', 'c3']),
+    )
+    // …and the card on screen is untouched by it.
+    expect(screen.getByText(/First/)).toBeDefined()
+
+    // Advancing shows the swapped card, and re-asks for what is still ahead.
+    fireEvent.click(screen.getByRole('button', { name: /skip/i }))
+    await screen.findByText(/Segunda/)
+    await waitFor(() =>
+      expect(mockRefreshDueCards).toHaveBeenLastCalledWith('lang-123', ['c3']),
+    )
+  })
+
+  it('never refreshes a session that already reads in the learner\'s language', async () => {
+    mockGetReadiness.mockResolvedValue({
+      locale: 'es', new_here: false, learn: lane(1), review: lane(1), pairs: [],
+    })
+    renderWithProviders(<ReviewSessionPage />)
+    await screen.findByText(/First/)
+    fireEvent.click(screen.getByRole('button', { name: /skip/i }))
+    await screen.findByText(/Second/)
+    expect(mockRefreshDueCards).not.toHaveBeenCalled()
+  })
+
+  it('a failed refresh leaves the English already in the deck', async () => {
+    mockGetReadiness.mockResolvedValue({
+      locale: 'es', new_here: false, learn: lane(1), review: lane(0.4), pairs: [],
+    })
+    mockRefreshDueCards.mockRejectedValue(new Error('offline'))
+    renderWithProviders(<ReviewSessionPage />)
+    await screen.findByText(/First/)
+    await waitFor(() => expect(mockRefreshDueCards).toHaveBeenCalled())
+    fireEvent.click(screen.getByRole('button', { name: /skip/i }))
+    await screen.findByText(/Second/)
+  })
+})
 
 describe('sentence audio when the learner got the word', () => {
   const mockTTS = getTTSUrl as ReturnType<typeof vi.fn>

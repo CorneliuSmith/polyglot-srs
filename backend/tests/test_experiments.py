@@ -31,6 +31,7 @@ from backend.services.experiments import (
     resolve_variants,
     variant_for_bucket,
 )
+from backend.tests.fakes import mock_conn
 
 TEST_SECRET = "test-jwt-secret-for-unit-tests-32bytes"
 TEST_USER_ID = "550e8400-e29b-41d4-a716-446655440000"
@@ -169,19 +170,19 @@ class TestResolutionNeverBreaksThePage:
     """resolve_variants runs on the endpoint the whole app renders from."""
 
     async def test_no_experiments_is_not_an_error(self):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetch = AsyncMock(return_value=[])
         assert await resolve_variants(conn, TEST_USER_ID) == {}
 
     async def test_a_missing_table_serves_a_profile_anyway(self):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetch = AsyncMock(
             side_effect=asyncpg.exceptions.UndefinedTableError("no experiments")
         )
         assert await resolve_variants(conn, TEST_USER_ID) == {}
 
     async def test_a_database_falling_over_serves_a_profile_anyway(self):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetch = AsyncMock(side_effect=RuntimeError("pool is gone"))
         assert await resolve_variants(conn, TEST_USER_ID) == {}
 
@@ -209,7 +210,7 @@ class TestRepositoryDegrades:
     'nothing running' rather than raising."""
 
     async def test_list_is_empty_without_the_table(self):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetch = AsyncMock(
             side_effect=asyncpg.exceptions.UndefinedTableError("nope")
         )
@@ -220,7 +221,7 @@ class TestRepositoryDegrades:
     async def test_a_patch_with_no_fields_touches_nothing(self):
         """Turning nothing on must not issue an UPDATE that stamps
         updated_at and looks like a change in the audit trail."""
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.execute = AsyncMock()
         assert await update_experiment(conn, "ui_skin") is True
         conn.execute.assert_not_awaited()
@@ -228,7 +229,7 @@ class TestRepositoryDegrades:
     async def test_only_the_named_fields_are_written(self):
         """Switching an experiment off must not also reset the percentage
         an admin spent a week arriving at."""
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.execute = AsyncMock(return_value="UPDATE 1")
         await update_experiment(conn, "ui_skin", enabled=False)
         sql = conn.execute.await_args.args[0]
@@ -243,7 +244,7 @@ class TestRepositoryDegrades:
 
 
 def _conn() -> AsyncMock:
-    conn = AsyncMock()
+    conn = mock_conn()
     conn.fetch = AsyncMock(return_value=[])
     conn.fetchval = AsyncMock(return_value=None)
     conn.execute = AsyncMock()

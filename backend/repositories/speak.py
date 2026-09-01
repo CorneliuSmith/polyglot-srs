@@ -13,6 +13,8 @@ import json
 
 import asyncpg
 
+from backend.repositories.pool import savepoint
+
 
 class SpeakUnavailableError(RuntimeError):
     """The Speak tables aren't there yet (migration not applied)."""
@@ -21,11 +23,10 @@ class SpeakUnavailableError(RuntimeError):
 async def tables_ready(conn: asyncpg.Connection) -> bool:
     """Cheap probe for the status endpoint, so the UI can hide the feature
     instead of offering a button that 503s."""
-    try:
-        await conn.fetchval("SELECT 1 FROM speak_sessions LIMIT 1")
-    except asyncpg.exceptions.UndefinedTableError:
-        return False
-    return True
+    # A probe, not a catch: the connection is inside the request's one
+    # transaction, and a failed statement there poisons everything after it
+    # (InFailedSQLTransactionError). Asking the catalogue never fails.
+    return await conn.fetchval("SELECT to_regclass('public.speak_sessions')") is not None
 
 
 async def start_session(
@@ -124,7 +125,8 @@ async def list_turns(
     summary's input."""
     try:
         try:
-            rows = await conn.fetch(_SELECT_TURNS, session_id)
+            async with savepoint(conn):
+                rows = await conn.fetch(_SELECT_TURNS, session_id)
         except asyncpg.exceptions.UndefinedColumnError:
             # 20260929000000 hasn't been applied. The transcript is worth
             # more than the reveal, so read it without the translation

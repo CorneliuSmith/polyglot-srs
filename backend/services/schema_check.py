@@ -120,7 +120,22 @@ async def find_schema_drift(
     """
     expectations = expected_objects(migrations_dir)
     if not expectations:
-        return {"ok": True, "initialized": True, "missing_migrations": [], "missing": []}
+        # No migration files to read means nothing to expect, and "nothing
+        # missing" would be the literal truth of an empty comparison. It
+        # was reported as `ok: true` from production for weeks — the image
+        # excluded supabase/ — while the database was behind. A blind
+        # check says it is blind.
+        return {
+            "ok": False,
+            "initialized": True,
+            "missing_migrations": [],
+            "missing": [],
+            "migrations_known": 0,
+            "error": (
+                "no migration files in this build (supabase/migrations is not "
+                "in the image), so the schema cannot be checked"
+            ),
+        }
 
     rows = await conn.fetch(
         """
@@ -155,4 +170,5 @@ async def find_schema_drift(
         "initialized": True,
         "missing_migrations": sorted({e.migration for e in missing}),
         "missing": [e.describe() for e in missing],
+        "migrations_known": len({e.migration for e in expectations}),
     }

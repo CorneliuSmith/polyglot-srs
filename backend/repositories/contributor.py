@@ -866,11 +866,17 @@ async def review_inbox_by_language(
     wants (it lists everything, badge or no badge) and the alert strip does
     not (it exists only to say "there is traffic over there").
     """
-    present = await _present(conn, _INBOX_TABLES, _INBOX_COLUMNS)
+    # languages.is_visible rides on the same probe: it arrived in 20260831,
+    # and reading it unguarded here is what took the staff bell down (and
+    # with it the profile fetch behind it) on a database one migration behind.
+    present = await _present(
+        conn, _INBOX_TABLES, _INBOX_COLUMNS + ("languages.is_visible",)
+    )
     cols, joins = _inbox_grouped(present)
+    visible = "l.is_visible" if "languages.is_visible" in present else "true"
     rows = await conn.fetch(
         f"""
-        SELECT l.id, l.code, l.name, l.is_visible,
+        SELECT l.id, l.code, l.name, {visible} AS is_visible,
           {cols}
         FROM languages l
         {joins}

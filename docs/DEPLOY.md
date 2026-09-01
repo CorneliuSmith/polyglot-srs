@@ -201,6 +201,22 @@ list lives in ROADMAP WP10.
 
 ## Troubleshooting
 
+- **"I merged it but I don't see it" — first find out what is running.**
+  Signed in as an admin, open **Settings → Admin → Deployment**. It shows
+  the build time, the commit (when the platform passed one — DigitalOcean
+  doesn't by default, so expect it blank), the newest migration the build
+  ships, and which migrations the live database is missing. The same
+  facts from a terminal:
+
+  ```bash
+  curl -s https://<backend>/api/health | jq .build
+  # {"sha": null, "built_at": "2026-09-01T18:02:11Z",
+  #  "latest_migration": "20261012000000_show_glosses.sql"}
+  ```
+
+  A `built_at` older than the merge means the deploy hasn't happened (or
+  failed — check the App Platform build log). A fresh `built_at` with a
+  missing setting means the migration below.
 - **One feature 500s after a deploy and the rest works** — almost always a
   **migration you haven't applied**: the new code reads a column the live
   database doesn't have yet. Ask the app directly:
@@ -215,7 +231,10 @@ list lives in ROADMAP WP10.
   in filename order and the endpoint recovers with no redeploy. The same
   report is logged as an `ERROR` line at every boot, so check the startup
   logs too. *Real example:* the Gym's `/api/review/cram` returned 500 for
-  days because `20260829000000_drill_lemma.sql` was never applied.
+  days because `20260829000000_drill_lemma.sql` was never applied. If the
+  endpoint instead returns an *error* saying it has no migration files,
+  the image was built without `supabase/migrations` — the Dockerfile copies
+  them in on purpose; check `.dockerignore` hasn't re-excluded them.
 - **Frontend loads, every API call fails / CORS errors in the console** —
   `CORS_ORIGINS` must be a JSON array containing the exact frontend origin
   (scheme + host, no trailing slash, no path). Redeploy the backend after

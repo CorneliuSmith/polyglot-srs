@@ -7,6 +7,8 @@ from zoneinfo import ZoneInfo
 
 import asyncpg
 
+from backend.repositories.pool import savepoint
+
 
 def _safe_tz(tz: str | None) -> str:
     """An IANA zone name the database will accept, falling back to UTC.
@@ -270,19 +272,20 @@ async def get_dashboard_stats(
     # already active — a grammar point added from the path browser, a
     # personal cloze — where created_at IS the moment it entered the queue.
     try:
-        learned_today = await conn.fetchval(
-            """
-            SELECT COUNT(*) FROM user_cards
-            WHERE user_id = $1
-              AND language_id = $2
-              AND NOT is_suspended
-              AND COALESCE(learned_at, created_at) AT TIME ZONE $3
-                  >= DATE(now() AT TIME ZONE $3)
-            """,
-            user_id,
-            language_id,
-            tzname,
-        )
+        async with savepoint(conn):
+            learned_today = await conn.fetchval(
+                """
+                SELECT COUNT(*) FROM user_cards
+                WHERE user_id = $1
+                  AND language_id = $2
+                  AND NOT is_suspended
+                  AND COALESCE(learned_at, created_at) AT TIME ZONE $3
+                      >= DATE(now() AT TIME ZONE $3)
+                """,
+                user_id,
+                language_id,
+                tzname,
+            )
     except asyncpg.exceptions.UndefinedColumnError:
         # Migration 20260928 hasn't landed. Fall back to the old measure —
         # wrong in the ways described above, but it is what this deploy has

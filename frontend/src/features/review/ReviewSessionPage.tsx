@@ -8,6 +8,7 @@ import {
   getDueCards,
   getSessionReadiness,
   markCardKnown,
+  refreshDueCards,
   submitReview,
   validateAnswer,
 } from '../../api/review'
@@ -333,6 +334,49 @@ function ReviewSessionInner({
   // learner has already passed.
   const currentIndexRef = useRef(0)
   currentIndexRef.current = session.currentIndex
+
+  // Live swap: while the review queue still reads partly in English (a
+  // returning learner is never made to wait for it, and a new one starts on
+  // the first ready card), re-serve the UPCOMING cards on every advance so
+  // translations landing mid-session render without a restart. Only slots
+  // past the current one change — the card on screen, and anything already
+  // answered, stays exactly as the learner saw it. Best-effort: a failed
+  // refresh leaves the English already in the deck. Cram never waits on a
+  // fill, so it never refreshes.
+  const reviewNotFullyLocalized =
+    !cram && readinessQuery.data != null && readinessQuery.data.review.pct < 1
+  // The deck's size stands in for the deck itself below: it changes when
+  // the snapshot is first taken (and re-taken after the wait), which is
+  // when a refresh is due, but not when a swap rewrites the same slots.
+  const deckSize = cards?.length ?? 0
+  useEffect(() => {
+    if (!reviewNotFullyLocalized || !activeLanguageId || !cards?.length) return
+    const upcoming = cards
+      .slice(session.currentIndex + 1)
+      .map((c) => c.id)
+      .slice(0, 50)
+    if (!upcoming.length) return
+    let cancelled = false
+    refreshDueCards(activeLanguageId, upcoming)
+      .then((fresh) => {
+        if (cancelled || !fresh.length) return
+        const byId = new Map(fresh.map((c) => [c.id, c]))
+        setCards((prev) =>
+          prev
+            ? prev.map((c, i) =>
+                i > currentIndexRef.current ? (byId.get(c.id) ?? c) : c,
+              )
+            : prev,
+        )
+      })
+      .catch(() => {})
+    return () => {
+      cancelled = true
+    }
+    // `cards` is deliberately not a dependency: the swap itself rewrites it,
+    // and re-running on that write would refresh once per landed card.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [reviewNotFullyLocalized, activeLanguageId, deckSize, session.currentIndex])
 
   // Background generation (WP41): with gen=1 the Gym asked for fresh drills.
   // We kick off generation once, in the background, while the learner works

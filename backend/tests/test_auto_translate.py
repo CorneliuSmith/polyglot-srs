@@ -13,6 +13,7 @@ import pytest
 
 from backend.services.auto_translate import discover_pairs
 from backend.services.translate import checker_system, maker_system
+from backend.tests.fakes import FakeTransaction
 
 
 class TestPromptGeneralization:
@@ -41,6 +42,8 @@ class TestPromptGeneralization:
 
 
 class _NoColumnConn:
+    def transaction(self):
+        return FakeTransaction()
     async def fetch(self, *_args):
         raise asyncpg.exceptions.UndefinedColumnError(
             "column l.auto_translate_enabled does not exist"

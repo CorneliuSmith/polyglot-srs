@@ -16,6 +16,7 @@ import pytest
 
 from backend.repositories.onboarding import sample_placement_items
 from backend.services.extract import ANSWER_MARKER
+from backend.tests.fakes import FakeTransaction
 
 LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"]
 
@@ -23,6 +24,8 @@ LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"]
 class FakeConn:
     """Stands in for asyncpg, honouring the `rn <= $2` window each query asks
     for so the variant arithmetic is exercised for real."""
+    def transaction(self):
+        return FakeTransaction()
 
     def __init__(self, *, vocab_depth: int = 40, grammar_depth: int = 12):
         self.vocab_depth = vocab_depth
@@ -98,6 +101,8 @@ class TestPlacementVariants:
 
 class FakeInsightConn:
     """Enough asyncpg surface to exercise get_placement_insight's shaping."""
+    def transaction(self):
+        return FakeTransaction()
 
     def __init__(self, latest=None, previous=None, items=None):
         self.latest = latest
@@ -225,6 +230,8 @@ class TestPlacementInsight:
 class FakeMissingTableConn:
     """A database where migration 20260902 has not been applied — exactly
     what production looks like between a deploy and a db push."""
+    def transaction(self):
+        return FakeTransaction()
 
     def _boom(self):
         raise asyncpg.exceptions.UndefinedTableError(

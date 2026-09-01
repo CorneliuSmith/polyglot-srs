@@ -17,6 +17,7 @@ from fastapi.testclient import TestClient
 from backend.main import create_app
 from backend.routers.auth import trial_request_limiter
 from backend.services.rate_limit import _MemoryBackend
+from backend.tests.fakes import mock_conn
 
 TEST_SECRET = "test-jwt-secret-for-unit-tests-32bytes"
 ADMIN_ID = "550e8400-e29b-41d4-a716-446655440000"
@@ -45,12 +46,12 @@ def _auth_headers() -> dict:
 
 @asynccontextmanager
 async def _fake_priv():
-    yield AsyncMock()
+    yield mock_conn()
 
 
 @asynccontextmanager
 async def _fake_rls(user_id: str):
-    yield AsyncMock()
+    yield mock_conn()
 
 
 @pytest.fixture()

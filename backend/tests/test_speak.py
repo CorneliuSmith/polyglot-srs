@@ -31,6 +31,7 @@ from backend.services.speak import (
     summarize_speak_session,
 )
 from backend.services.tts import SLOW_RATE
+from backend.tests.fakes import mock_conn
 
 TEST_SECRET = "test-jwt-secret-for-unit-tests-32bytes"
 TEST_USER_ID = "550e8400-e29b-41d4-a716-446655440000"
@@ -357,7 +358,7 @@ class TestSummary:
 
 
 def _conn() -> AsyncMock:
-    conn = AsyncMock()
+    conn = mock_conn()
     conn.fetch = AsyncMock(return_value=[])
     conn.fetchval = AsyncMock(return_value=None)
     conn.execute = AsyncMock()
@@ -974,7 +975,6 @@ class _FakeConn:
     UndefinedColumnError, which is exactly what a server that hasn't run
     20260929000000 does.
     """
-
     def __init__(self, fail_on: str | None = None, rows: list | None = None):
         self.fail_on = fail_on
         self.rows = rows or []

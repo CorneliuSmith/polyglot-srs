@@ -108,3 +108,19 @@ class TestExpectedObjects:
         objs = {(e.table, e.column) for e in expected_objects()}
         assert ("drill_sentences", "lemma") in objs
         assert ("grammar_point_overlaps", None) in objs
+
+
+async def test_a_build_with_no_migration_files_says_it_is_blind(tmp_path):
+    """The deployed image excluded supabase/ for weeks, and the check
+    answered `ok: true` against a database that was behind — an empty
+    expectation set has nothing to find missing. It now refuses to vouch."""
+    from backend.services.schema_check import find_schema_drift
+
+    class NoConn:  # must not be consulted: there is nothing to compare
+        async def fetch(self, *_a, **_k):
+            raise AssertionError("queried the database with nothing to check")
+
+    drift = await find_schema_drift(NoConn(), tmp_path / "nowhere")
+    assert drift["ok"] is False
+    assert drift["migrations_known"] == 0
+    assert "supabase/migrations" in drift["error"]

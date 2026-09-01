@@ -17,6 +17,7 @@ from fastapi.testclient import TestClient
 from backend.main import create_app
 from backend.repositories.reader import log_grammar_gaps
 from backend.services.reader import _mock_reading, _validate_reading
+from backend.tests.fakes import mock_conn
 
 TEST_SECRET = "test-jwt-secret-for-unit-tests-32bytes"
 TEST_USER_ID = "550e8400-e29b-41d4-a716-446655440000"
@@ -81,7 +82,7 @@ class TestReadingShape:
 
 class TestGapMatching:
     def _run(self, titles: list[str], structures: list[str]) -> int:
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetch = AsyncMock(
             return_value=[{"t": t.lower()} for t in titles]
         )
@@ -116,7 +117,7 @@ class TestGapMatching:
 
 
 def _conn_for_generate():
-    conn = AsyncMock()
+    conn = mock_conn()
     conn.fetch = AsyncMock(return_value=[])          # learner model queries
     conn.fetchrow = AsyncMock(return_value=None)     # profile row
     conn.fetchval = AsyncMock(return_value=None)     # model override

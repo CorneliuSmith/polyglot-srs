@@ -456,13 +456,13 @@ async def test_readiness_drives_the_wait_and_smart_loading_looks_ahead(
     """The "you're first here" screen's inputs.
 
     Readiness reports how much of the NEXT session already reads in the
-    learner's language, so the UI can start at 60% rather than holding out
-    for a perfect session. And the lookahead is tiered: a pair with nothing
-    translated queues a whole level's worth (that first session is the one
-    that would otherwise stall), and a nearly-spent queue pulls in the level
-    above so moving up doesn't land on a fresh wall of English."""
+    learner's language, so the UI can start on the first usable card rather
+    than holding out for a perfect session. And the lookahead is tiered: a
+    pair with nothing translated queues a whole level's worth (that first
+    session is the one that would otherwise stall), and a nearly-spent
+    queue pulls in the level above so moving up doesn't land on a fresh
+    wall of English."""
     from backend.repositories.cards import (
-        READY_ENOUGH,
         pretranslate_upcoming,
         session_readiness,
     )
@@ -477,7 +477,7 @@ async def test_readiness_drives_the_wait_and_smart_loading_looks_ahead(
         # Nothing translated yet → not ready, and the UI offers the wait.
         st = await session_readiness(conn, uid, course, batch_size=10)
         assert st["locale"] == "rd2"
-        assert st["threshold"] == READY_ENOUGH
+        assert st["new_here"] is True
         # 2 words scored twice (gloss + example meaning lines) + 2 points.
         assert st["learn"]["total"] == 6
         assert st["learn"]["ready"] == 0
@@ -838,7 +838,7 @@ async def test_the_self_pair_is_not_scored_on_work_that_never_happens(pool, monk
     never be earned: the score was capped below the start threshold forever
     and the wait screen could never advance on its own.
     """
-    from backend.repositories.cards import READY_ENOUGH, session_readiness
+    from backend.repositories.cards import session_readiness
 
     _mock_ai(monkeypatch)
     course = await _lang(pool, "sp1", "Selfish", auto=True)
@@ -871,7 +871,6 @@ async def test_the_self_pair_is_not_scored_on_work_that_never_happens(pool, monk
         st = await session_readiness(conn, uid, course, batch_size=10)
         assert st["learn"]["pct"] == 1.0, st["learn"]
         assert st["learn"]["ready_enough"] is True
-        assert st["learn"]["pct"] >= READY_ENOUGH
 
         await conn.execute(
             "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
@@ -900,26 +899,24 @@ async def test_a_normal_pair_still_scores_its_example_lines(pool, monkeypatch):
     del c
 
 
-async def test_a_few_ready_cards_open_the_gate_at_a_low_percentage(
-    pool, monkeypatch,
-):
-    """The gate a learner actually feels: enough CARDS to start on.
+async def test_the_first_ready_card_opens_the_gate(pool, monkeypatch):
+    """The gate a learner actually feels: ONE card they can start on.
 
     The percentage measures the whole batch, glosses and example sentences
     together, and sentences are translated last — so it climbs slowly and
-    stays low long after there is real work available. Gating on it alone
-    left someone sitting at 5% with usable cards already waiting and no way
-    in, which is the shape of every "it got stuck" report.
+    stays low long after there is real work available. Gating on it left
+    someone sitting at 5% with usable cards already waiting and no way in,
+    which was the shape of every "it got stuck" report; gating on three
+    cards was better and still held the owner's testers at "0 of 3" while
+    two perfectly good cards sat there.
 
-    Cards ready is the other way in. Sentences still drive the percentage
-    and still fill during the session (the learn loop re-serves its lessons
-    on every advance), but they no longer keep anyone out.
+    Sentences still drive the percentage and still fill during the session
+    (both loops re-serve their cards on every advance), but they never
+    keep anyone out.
     """
-    from backend.repositories.cards import (
-        READY_ENOUGH,
-        START_CARDS,
-        session_readiness,
-    )
+    from backend.repositories.cards import START_CARDS, session_readiness
+
+    assert START_CARDS == 1
 
     _mock_ai(monkeypatch)
     course = await _lang(pool, "gate1", "Gateish", auto=True)
@@ -930,27 +927,82 @@ async def test_a_few_ready_cards_open_the_gate_at_a_low_percentage(
     async with pool.privileged_connection() as conn:
         # Four cards: two words, two grammar points. Nothing translated.
         st = await session_readiness(conn, uid, course, batch_size=10)
+        assert st["new_here"] is True
         assert st["learn"]["cards"] == 4
         assert st["learn"]["cards_ready"] == 0
-        assert st["learn"]["start_cards"] == START_CARDS
+        assert st["learn"]["start_cards"] == 1
         assert st["learn"]["ready_enough"] is False
 
-        # Two glosses and one explanation land — nothing else. Every example
-        # sentence is still English, so the percentage stays under the bar.
-        for vid in c["words"]:
-            await conn.execute(
-                "INSERT INTO translations (vocabulary_id, locale, definition) "
-                "VALUES ($1, 'gate2', 'rendered')", vid)
+        # One gloss lands — nothing else. Every example sentence is still
+        # English and the percentage is 1 in 6.
         await conn.execute(
-            "INSERT INTO explanation_translations (grammar_point_id, locale, "
-            "explanation) VALUES ($1, 'gate2', 'rendered')", c["points"][0])
+            "INSERT INTO translations (vocabulary_id, locale, definition) "
+            "VALUES ($1, 'gate2', 'rendered')", c["words"][0])
 
         st = await session_readiness(conn, uid, course, batch_size=10)
-        assert st["learn"]["cards_ready"] == START_CARDS
-        # The old gate would still be shut: 3 of 6 points is under 0.6.
-        assert st["learn"]["pct"] < READY_ENOUGH
-        # The new one is open.
+        assert st["learn"]["cards_ready"] == 1
+        assert st["learn"]["pct"] < 0.2
         assert st["learn"]["ready_enough"] is True
+
+        await conn.execute(
+            "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
+            course)
+    del c
+
+
+async def test_a_returning_learner_is_never_asked_to_wait(pool, monkeypatch):
+    """The wait screen is for someone NEW to a course with nothing ready.
+
+    A learner who has studied the course before — any active card, or any
+    answer on record — starts at once whatever the count says, and the
+    rest of the batch lands while they work. Holding returning learners at
+    the game on every visit until the whole batch rendered is what made
+    "study and play the game" not work in terms of time.
+
+    "New" survives an abandoned lesson: learn cards are inserted suspended
+    until the walkthrough is confirmed, so opening a lesson and leaving does
+    not count as having studied.
+    """
+    from backend.repositories.cards import session_readiness
+
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "ret1", "Returnish", auto=True)
+    await _lang(pool, "ret2", "Returnlocale", auto=False)
+    uid = await _learner(pool, "ret@ret1", course, "ret2")
+    c = await _build_course(pool, course, uid, "ret1")
+
+    async with pool.privileged_connection() as conn:
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        assert st["new_here"] is True
+        assert st["learn"]["ready_enough"] is False
+
+        # A lesson opened and abandoned: its cards sit suspended, unanswered.
+        await conn.execute(
+            """INSERT INTO user_cards
+                   (user_id, language_id, card_type, card_id, ease_factor,
+                    interval, repetitions, streak, lapses, next_review,
+                    is_suspended)
+               VALUES ($1, $2, 'vocabulary', $3, 2.5, 0, 0, 0, 0, now(), true)""",
+            uid, course, c["words"][0])
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        assert st["new_here"] is True, "an abandoned lesson is not studying"
+        assert st["learn"]["ready_enough"] is False
+
+        # The walkthrough confirmed: the card is active. Not new any more —
+        # and let straight in with nothing translated at all.
+        await conn.execute(
+            "UPDATE user_cards SET is_suspended = false "
+            "WHERE user_id = $1 AND card_id = $2", uid, c["words"][0])
+        st = await session_readiness(conn, uid, course, batch_size=10)
+        assert st["new_here"] is False
+        assert st["learn"]["cards_ready"] == 0
+        assert st["learn"]["ready_enough"] is True
+        # The review lane's card is due and untranslated; still no wait —
+        # and the progress fields are still reported, because the live
+        # swap keys on them.
+        assert st["review"]["cards"] == 1
+        assert st["review"]["pct"] < 1
+        assert st["review"]["ready_enough"] is True
 
         await conn.execute(
             "UPDATE languages SET auto_translate_enabled = false WHERE id = $1",
@@ -1004,9 +1056,14 @@ async def test_the_review_queue_is_reachable_by_the_fill_that_gates_it(
         assert st["learn"]["ready_enough"] is True   # nothing to wait for
         assert st["review"]["cards"] == 4
         assert st["review"]["cards_ready"] == 0
-        assert st["review"]["ready_enough"] is False
+        assert st["review"]["pct"] < 1
+        # A learner with a due queue is not new here, so the review lane is
+        # open regardless — but it still reports itself short, which is
+        # what drives the inline fill and the live swap while they study.
+        assert st["new_here"] is False
+        assert st["review"]["ready_enough"] is True
 
-        # Translate what the review gate is actually scoring, and it opens.
+        # Translate what the review lane is actually scoring, and it fills.
         for vid in c["words"]:
             await conn.execute(
                 "INSERT INTO translations (vocabulary_id, locale, definition) "
@@ -1063,7 +1120,8 @@ async def test_the_due_queue_is_queued_for_the_loop_as_well(pool, monkeypatch):
 async def test_the_gate_scales_down_to_a_batch_smaller_than_the_threshold(
     pool, monkeypatch,
 ):
-    """A two-card batch must not need three ready cards to start."""
+    """A one-card batch needs one ready card — the gate never asks for more
+    cards than the batch has."""
     from backend.repositories.cards import session_readiness
 
     _mock_ai(monkeypatch)

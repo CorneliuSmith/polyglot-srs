@@ -16,6 +16,7 @@ from backend.services.speech_costs import (
     stt_cost_usd,
     tts_cost_usd,
 )
+from backend.tests.fakes import FakeTransaction
 
 
 class TestTts:
@@ -77,6 +78,8 @@ class TestLedgerNeverBreaksPlayback:
         from backend.repositories.speech import log_speech_usage
 
         class Conn:
+            def transaction(self):
+                return FakeTransaction()
             async def execute(self, *a):
                 raise asyncpg.exceptions.UndefinedTableError("no speech_usage")
 

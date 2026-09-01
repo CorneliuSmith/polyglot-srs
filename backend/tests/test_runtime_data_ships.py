@@ -36,6 +36,16 @@ RUNTIME_DATA = [
     ("data/ar_readings.tsv", "every Arabic reading is silently empty"),
     ("data/he_readings.tsv", "every Hebrew reading is silently empty"),
     ("data/fa_readings.tsv", "every Persian reading is silently empty"),
+    # The schema-drift diagnostic derives its expectations FROM these files.
+    # With none in the image it has nothing to expect, so /api/health/schema
+    # answers `ok: true` against any database at all — including one that
+    # is three migrations behind and 500ing on every endpoint that reads
+    # them. That is how "the health check says fine" and "readiness 500s"
+    # were both true of the same deploy.
+    (
+        "supabase/migrations/20261012000000_show_glosses.sql",
+        "/api/health/schema reports ok:true unconditionally — the diagnostic is blind",
+    ),
 ]
 
 

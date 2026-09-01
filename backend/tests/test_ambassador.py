@@ -19,11 +19,12 @@ from backend.repositories.contributor import (
     can_trial_review,
     is_admin,
 )
+from backend.tests.fakes import mock_conn
 
 
 @asynccontextmanager
 async def _fake_priv():
-    yield AsyncMock()
+    yield mock_conn()
 
 
 LANG = "11111111-1111-1111-1111-111111111111"
@@ -125,7 +126,7 @@ class TestTheMigrationWindow:
     """
 
     def test_a_rejected_role_explains_the_missing_migration(self):
-        from unittest.mock import AsyncMock, patch
+        from unittest.mock import patch
 
         import asyncpg
         import pytest

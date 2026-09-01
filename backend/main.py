@@ -97,6 +97,9 @@ def create_app() -> FastAPI:
                 return
             if drift["ok"]:
                 return
+            if drift.get("error"):
+                log.warning("Schema check is blind: %s", drift["error"])
+                return
             if not drift["initialized"]:
                 log.error(
                     "DATABASE IS EMPTY — no migrations have been applied. "
@@ -172,7 +175,17 @@ def create_app() -> FastAPI:
 
     @_app.get("/api/health")
     async def health():
-        return {"status": "ok"}
+        """Liveness, plus WHAT is live.
+
+        The bare `{"status": "ok"}` this used to return could not settle
+        "is the build with X deployed yet?" — which is the question every
+        "I still don't see it" report turns into. `build` names the commit
+        when the platform supplied one, the image's build time, and the
+        newest migration this build expects; see backend/services/build_info.
+        """
+        from backend.services.build_info import build_info
+
+        return {"status": "ok", "build": build_info()}
 
     @_app.get("/api/health/schema")
     async def health_schema():

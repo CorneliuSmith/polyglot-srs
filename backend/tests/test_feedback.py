@@ -13,16 +13,17 @@ from backend.routers.feedback import (
     my_feedback,
     triage_feedback,
 )
+from backend.tests.fakes import mock_conn
 
 
 @asynccontextmanager
 async def _fake_rls(user_id: str):
-    yield AsyncMock()
+    yield mock_conn()
 
 
 @asynccontextmanager
 async def _fake_priv():
-    yield AsyncMock()
+    yield mock_conn()
 
 
 @pytest.fixture(autouse=True)
@@ -201,7 +202,7 @@ class TestUnassignedScope:
     async def test_the_filter_reaches_the_sql(self):
         from backend.repositories.feedback import list_feedback
 
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetch = AsyncMock(return_value=[])
         await list_feedback(conn, unassigned=True)
         sql, *args = conn.fetch.await_args.args
@@ -211,7 +212,7 @@ class TestUnassignedScope:
     async def test_off_by_default_so_existing_callers_see_everything(self):
         from backend.repositories.feedback import list_feedback
 
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetch = AsyncMock(return_value=[])
         await list_feedback(conn)
         assert conn.fetch.await_args.args[-1] is False

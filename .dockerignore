@@ -27,7 +27,15 @@ data/*
 !data/*_readings.tsv
 docs
 scripts
-supabase
+# The migration FILES ship; nothing else under supabase/ does. They are not
+# applied from the image (migrations are owner-applied) — they are read by
+# backend/services/schema_check.py, which diffs them against the live
+# database to say WHICH migration a 500 is waiting on. With the whole
+# directory excluded that check found no expectations and reported `ok:
+# true` from production for weeks while the database was behind: the
+# diagnostic was blind exactly where it was needed.
+supabase/*
+!supabase/migrations
 scratchpad
 **/__pycache__
 **/*.pyc

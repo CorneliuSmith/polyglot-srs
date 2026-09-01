@@ -144,6 +144,21 @@ export async function refreshLessons(cardIds: string[]): Promise<Lesson[]> {
   return response.data.lessons
 }
 
+/** The review side of the live swap: re-serve due cards already in a
+ * session, by user_card id. A returning learner starts at once, so their
+ * deck can open with sentences still in English; this brings back whatever
+ * has been translated since. Cards not returned are kept as they were. */
+export async function refreshDueCards(
+  languageId: string,
+  ids: string[],
+): Promise<DueCard[]> {
+  const response = await apiClient.post<{ cards: DueCard[] }>(
+    '/api/review/due/refresh',
+    { language_id: languageId, ids },
+  )
+  return response.data.cards
+}
+
 export async function startLearnSession(
   languageId: string,
   cardType: 'vocabulary' | 'grammar' | 'both' = 'vocabulary',

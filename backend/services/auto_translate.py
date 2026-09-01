@@ -46,6 +46,7 @@ from datetime import UTC, datetime, timedelta
 import asyncpg
 
 from backend.config import get_settings
+from backend.repositories.pool import savepoint
 from backend.services.translate import (
     generate_sentence_translations,
     generate_text_translations,
@@ -500,26 +501,27 @@ async def discover_pairs(conn: asyncpg.Connection) -> list[dict]:
     Fails closed (empty) when the toggle column's migration hasn't landed.
     """
     try:
-        rows = await conn.fetch(
-            """
-            SELECT l.id   AS language_id,
-                   l.code AS language_code,
-                   l.name AS language_name,
-                   loc.code AS locale,
-                   loc.name AS locale_name,
-                   count(*) AS learners
-            FROM user_profiles p
-            JOIN languages l   ON l.id = p.active_language_id
-            JOIN languages loc
-                 ON loc.code = COALESCE(p.support_locale, p.ui_language)
-            WHERE l.auto_translate_enabled
-              AND COALESCE(p.support_locale, p.ui_language) IS NOT NULL
-              AND COALESCE(p.support_locale, p.ui_language) <> 'en'
-            GROUP BY l.id, l.code, l.name, loc.code, loc.name
-            ORDER BY count(*) DESC, l.name, loc.code
-            """
-        )
-        return [dict(r) for r in rows]
+        async with savepoint(conn):
+            rows = await conn.fetch(
+                """
+                SELECT l.id   AS language_id,
+                       l.code AS language_code,
+                       l.name AS language_name,
+                       loc.code AS locale,
+                       loc.name AS locale_name,
+                       count(*) AS learners
+                FROM user_profiles p
+                JOIN languages l   ON l.id = p.active_language_id
+                JOIN languages loc
+                     ON loc.code = COALESCE(p.support_locale, p.ui_language)
+                WHERE l.auto_translate_enabled
+                  AND COALESCE(p.support_locale, p.ui_language) IS NOT NULL
+                  AND COALESCE(p.support_locale, p.ui_language) <> 'en'
+                GROUP BY l.id, l.code, l.name, loc.code, loc.name
+                ORDER BY count(*) DESC, l.name, loc.code
+                """
+            )
+            return [dict(r) for r in rows]
     except asyncpg.exceptions.UndefinedColumnError:
         return []
 
@@ -552,38 +554,39 @@ async def baseline_pairs(conn: asyncpg.Connection) -> list[dict]:
     landed (same fail-closed rule as discover_pairs).
     """
     try:
-        rows = await conn.fetch(
-            f"""
-            SELECT l.id   AS language_id,
-                   l.code AS language_code,
-                   l.name AS language_name,
-                   loc.code AS locale,
-                   loc.name AS locale_name,
-                   count(*) AS learners,
-                   count(*) FILTER (
-                     WHERE p.updated_at > now() - interval '{BASELINE_ACTIVE_DAYS} days'
-                        OR EXISTS (
-                          SELECT 1 FROM review_log rl
-                            JOIN user_cards uc ON uc.id = rl.card_id
-                           WHERE rl.user_id = p.id
-                             AND uc.language_id = l.id
-                             AND rl.created_at > now() - interval '{BASELINE_ACTIVE_DAYS} days')
-                   ) AS active_learners,
-                   (SELECT count(*) FROM translations t
-                      JOIN vocabulary v ON v.id = t.vocabulary_id
-                     WHERE v.language_id = l.id AND t.locale = loc.code)
-                     AS translated_words
-            FROM user_profiles p
-            JOIN languages l   ON l.id = p.active_language_id
-            JOIN languages loc
-                 ON loc.code = COALESCE(p.support_locale, p.ui_language)
-            WHERE NOT l.auto_translate_enabled
-              AND COALESCE(p.support_locale, p.ui_language) IS NOT NULL
-              AND COALESCE(p.support_locale, p.ui_language) <> 'en'
-            GROUP BY l.id, l.code, l.name, loc.code, loc.name
-            ORDER BY count(*) DESC, l.name, loc.code
-            """
-        )
+        async with savepoint(conn):
+            rows = await conn.fetch(
+                f"""
+                SELECT l.id   AS language_id,
+                       l.code AS language_code,
+                       l.name AS language_name,
+                       loc.code AS locale,
+                       loc.name AS locale_name,
+                       count(*) AS learners,
+                       count(*) FILTER (
+                         WHERE p.updated_at > now() - interval '{BASELINE_ACTIVE_DAYS} days'
+                            OR EXISTS (
+                              SELECT 1 FROM review_log rl
+                                JOIN user_cards uc ON uc.id = rl.card_id
+                               WHERE rl.user_id = p.id
+                                 AND uc.language_id = l.id
+                                 AND rl.created_at > now() - interval '{BASELINE_ACTIVE_DAYS} days')
+                       ) AS active_learners,
+                       (SELECT count(*) FROM translations t
+                          JOIN vocabulary v ON v.id = t.vocabulary_id
+                         WHERE v.language_id = l.id AND t.locale = loc.code)
+                         AS translated_words
+                FROM user_profiles p
+                JOIN languages l   ON l.id = p.active_language_id
+                JOIN languages loc
+                     ON loc.code = COALESCE(p.support_locale, p.ui_language)
+                WHERE NOT l.auto_translate_enabled
+                  AND COALESCE(p.support_locale, p.ui_language) IS NOT NULL
+                  AND COALESCE(p.support_locale, p.ui_language) <> 'en'
+                GROUP BY l.id, l.code, l.name, loc.code, loc.name
+                ORDER BY count(*) DESC, l.name, loc.code
+                """
+            )
     except (asyncpg.exceptions.UndefinedColumnError,
             asyncpg.exceptions.UndefinedTableError):
         return []
@@ -1137,34 +1140,35 @@ async def _demand_batches(conn: asyncpg.Connection) -> list[dict]:
     """
     batches: dict[tuple, dict] = {}
     try:
-        for kind, joins in _DEMAND_RESOLVERS.items():
-            rows = await conn.fetch(
-                f"""
-                SELECT d.ref_id, d.locale, l.id AS language_id,
-                       l.code AS language_code, l.name AS language_name,
-                       loc.name AS locale_name,
-                       min(d.requested_at) AS first_requested
-                FROM translation_demand d
-                {joins}
-                JOIN languages loc ON loc.code = d.locale
-                WHERE d.kind = $1
-                GROUP BY d.ref_id, d.locale, l.id, l.code, l.name, loc.name
-                ORDER BY min(d.requested_at)
-                LIMIT $2
-                """,
-                kind, DEMAND_LIMIT,
-            )
-            for r in rows:
-                key = (kind, str(r["language_id"]), r["locale"])
-                b = batches.setdefault(key, {
-                    "kind": kind, "language_id": r["language_id"],
-                    "language_code": r["language_code"],
-                    "language_name": r["language_name"],
-                    "locale": r["locale"], "locale_name": r["locale_name"],
-                    "ref_ids": [], "first": r["first_requested"],
-                })
-                b["ref_ids"].append(r["ref_id"])
-                b["first"] = min(b["first"], r["first_requested"])
+        async with savepoint(conn):
+            for kind, joins in _DEMAND_RESOLVERS.items():
+                rows = await conn.fetch(
+                    f"""
+                    SELECT d.ref_id, d.locale, l.id AS language_id,
+                           l.code AS language_code, l.name AS language_name,
+                           loc.name AS locale_name,
+                           min(d.requested_at) AS first_requested
+                    FROM translation_demand d
+                    {joins}
+                    JOIN languages loc ON loc.code = d.locale
+                    WHERE d.kind = $1
+                    GROUP BY d.ref_id, d.locale, l.id, l.code, l.name, loc.name
+                    ORDER BY min(d.requested_at)
+                    LIMIT $2
+                    """,
+                    kind, DEMAND_LIMIT,
+                )
+                for r in rows:
+                    key = (kind, str(r["language_id"]), r["locale"])
+                    b = batches.setdefault(key, {
+                        "kind": kind, "language_id": r["language_id"],
+                        "language_code": r["language_code"],
+                        "language_name": r["language_name"],
+                        "locale": r["locale"], "locale_name": r["locale_name"],
+                        "ref_ids": [], "first": r["first_requested"],
+                    })
+                    b["ref_ids"].append(r["ref_id"])
+                    b["first"] = min(b["first"], r["first_requested"])
     except (asyncpg.exceptions.UndefinedTableError,
             asyncpg.exceptions.UndefinedColumnError):
         return []
@@ -1824,23 +1828,24 @@ async def translation_status(conn: asyncpg.Connection) -> dict:
     # Learners whose course is switched OFF — the most common cause of
     # "I turned it on and nothing happened" being about a different course.
     try:
-        status["switched_off"] = [
-            dict(r) for r in await conn.fetch(
-                """
-                SELECT l.name AS language, l.code,
-                       COALESCE(p.support_locale, p.ui_language) AS locale,
-                       count(*) AS learners
-                FROM user_profiles p
-                JOIN languages l ON l.id = p.active_language_id
-                WHERE NOT l.auto_translate_enabled
-                  AND COALESCE(p.support_locale, p.ui_language) IS NOT NULL
-                  AND COALESCE(p.support_locale, p.ui_language) <> 'en'
-                GROUP BY l.name, l.code,
-                         COALESCE(p.support_locale, p.ui_language)
-                ORDER BY count(*) DESC
-                """
-            )
-        ]
+        async with savepoint(conn):
+            status["switched_off"] = [
+                dict(r) for r in await conn.fetch(
+                    """
+                    SELECT l.name AS language, l.code,
+                           COALESCE(p.support_locale, p.ui_language) AS locale,
+                           count(*) AS learners
+                    FROM user_profiles p
+                    JOIN languages l ON l.id = p.active_language_id
+                    WHERE NOT l.auto_translate_enabled
+                      AND COALESCE(p.support_locale, p.ui_language) IS NOT NULL
+                      AND COALESCE(p.support_locale, p.ui_language) <> 'en'
+                    GROUP BY l.name, l.code,
+                             COALESCE(p.support_locale, p.ui_language)
+                    ORDER BY count(*) DESC
+                    """
+                )
+            ]
     except asyncpg.exceptions.UndefinedColumnError:
         status["migrations"]["languages.auto_translate_enabled"] = False
         return status

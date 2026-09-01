@@ -46,6 +46,7 @@ import LanguageVisibilityPanel from '../contribute/LanguageVisibilityPanel'
 import RolesPanel from '../contribute/RolesPanel'
 import ReviewQueue from '../contribute/ReviewQueue'
 import AnalyticsPanel from '../contribute/AnalyticsPanel'
+import DeploymentPanel from './DeploymentPanel'
 import EngagementPanel from '../contribute/EngagementPanel'
 import {
   ReviewPolicyControl,
@@ -481,6 +482,10 @@ export default function SettingsPage() {
         {activeTab === 'admin' && activeLanguageId && isAdmin && (
           <>
             <RoleGuide role="admin" />
+            {/* First, because it answers the question every other admin
+                report gets asked through: is what I am looking at the
+                build I think it is, on a database that has caught up. */}
+            <DeploymentPanel />
             <AnalyticsPanel />
             <EngagementPanel />
             <LanguageVisibilityPanel />

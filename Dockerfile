@@ -39,7 +39,22 @@ COPY data/*_frequency.tsv ./data/
 #    One glob for every course: th, ar, he and fa today, and whatever comes
 #    next without needing this line edited again.
 COPY data/*_readings.tsv ./data/
+#  - Migration files, so /api/health/schema can diff what this build
+#    expects against what the database has. Not applied from here (owner
+#    applies them); read-only diagnostics. Without them the check has no
+#    expectations and reports ok:true unconditionally — see .dockerignore.
+COPY supabase/migrations ./supabase/migrations
 RUN pip install --no-cache-dir .
+
+# Build stamp, so /api/health can say WHAT is running. The .git directory
+# is not in the build context, so the commit comes in as a build arg when
+# the platform provides one (DigitalOcean/Render do not by default — then it
+# is null and the build time is the identifying fact). The time is written
+# by the build itself, not by the app at boot, so a restart of an old image
+# does not masquerade as a fresh deploy.
+ARG GIT_SHA=""
+ENV BUILD_SHA=${GIT_SHA}
+RUN date -u +%Y-%m-%dT%H:%M:%SZ > /app/BUILD_TIME
 
 # Model/data downloads the app expects at runtime:
 #  - spaCy English model (lemmatization, POS)
