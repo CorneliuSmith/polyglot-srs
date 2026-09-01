@@ -184,3 +184,35 @@ async def test_the_choice_survives_an_upsert_that_omits_it(pool):
         assert row["batch_size"] == 9
         # The opt-in survived a save that was about something else.
         assert row["show_glosses"] is True
+
+
+async def test_a_setting_this_server_cannot_store_is_named(pool):
+    """The half that was missing until someone tried to use the switch.
+
+    When a column is absent the write drops it and the read hands back the
+    default — so a toggle flips, saves nothing, and snaps back with no
+    explanation. `unavailable_settings` carries exactly the substituted
+    keys, so the UI can disable the control and say why instead.
+
+    This is the general shape, not a gloss special case: four older
+    settings have the same silent-inert behaviour before their migrations
+    land, and had no way to report it either.
+    """
+    _, missing = _profile_column_plan({"id", "batch_size"})
+    # Everything optional is unavailable on that bare table...
+    assert sorted(missing) == sorted(
+        [
+            "allow_explicit_content",
+            "sentence_audio_on_correct",
+            "show_glosses",
+            "weekly_digest_dow",
+            "weekly_digest_opt_in",
+        ]
+    )
+
+    # ...and nothing is, on a fully migrated one.
+    async with pool.privileged_connection() as conn:
+        _, none_missing = _profile_column_plan(
+            await _present_profile_columns(conn)
+        )
+    assert none_missing == {}

@@ -295,6 +295,11 @@ export interface UserProfile {
    *  level so every device behaves the same; absent (migration 20261001
    *  not applied) reads as on. */
   sentence_audio_on_correct?: boolean
+  /** Settings this server cannot store yet, because the migration adding
+   * their column has not been applied. A control listed here saves
+   * nothing, so it is shown disabled and labelled rather than left to flip
+   * back on its own. */
+  unavailable_settings?: string[]
   /** Offer the word-by-word gloss as a hint layer. Absent reads as OFF —
    * the layer is opt-in, so a deploy running ahead of migration 20261012
    * withholds it rather than showing unfamiliar notation unasked. */

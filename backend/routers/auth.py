@@ -308,6 +308,13 @@ async def get_profile(user: dict = Depends(get_current_user)):
         row = await conn.fetchrow(base.format(extra=extra), user["id"])
     if row is not None and missing:
         row = {**dict(row), **missing}
+    # Name the settings this database cannot store yet, so the UI can say
+    # "not available on this server" instead of rendering a switch that
+    # saves, reads back its default, and silently snaps off. Every
+    # substituted default is a control that cannot work, and until now the
+    # client had no way to tell one from a real stored value.
+    if row is not None:
+        row = {**dict(row), "unavailable_settings": sorted(missing)}
     if row is None:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -512,7 +519,10 @@ async def upsert_profile(
                 body.batch_size or 10,
             )
         if row is not None:
-            return {**dict(row), **defaults}
+            return {
+                **dict(row), **defaults,
+                "unavailable_settings": sorted(defaults),
+            }
     raise HTTPException(
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
         detail="Could not save the profile",

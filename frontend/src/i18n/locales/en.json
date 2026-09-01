@@ -1194,7 +1194,8 @@
     "glosses": {
       "title": "Word-by-word glosses",
       "desc": "Add the word-by-word breakdown to the hints during review. Off by default — the notation takes some getting used to, so turn it on if you want to see how sentences are built."
-    }
+    },
+    "needsMigration": "Not available on this server yet — it needs a database update."
   },
   "feedback": {
     "open": "Something broken or confusing? Tell us",

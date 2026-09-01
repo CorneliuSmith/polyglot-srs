@@ -248,6 +248,12 @@ export default function SettingsPage() {
 
   // Upgrade (single → all): dev-mock grants directly; real mode redirects
   // to Stripe Checkout. A 503 means billing isn't launched — say so.
+  // A setting whose column this server does not have yet cannot be saved;
+  // the write drops it and the read hands back the default, so the switch
+  // would appear to flip and then undo itself.
+  const glossesUnavailable =
+    profile?.unavailable_settings?.includes('show_glosses') ?? false
+
   const reminderMutation = useMutation({
     mutationFn: (patch: {
       reminder_opt_in?: boolean
@@ -918,13 +924,24 @@ export default function SettingsPage() {
                 <p className="text-xs text-gray-500">
                   {t('settings.glosses.desc')}
                 </p>
+                {/* The column's migration is owner-applied, so the app can
+                    run ahead of it. Saying so beats a switch that flips,
+                    saves nothing, and snaps back with no explanation. */}
+                {glossesUnavailable && (
+                  <p
+                    className="mt-1 text-xs text-amber-700"
+                    data-testid="glosses-unavailable"
+                  >
+                    {t('settings.needsMigration')}
+                  </p>
+                )}
               </div>
               <button
                 type="button"
                 role="switch"
                 aria-checked={profile?.show_glosses ?? false}
                 aria-label={t('settings.glosses.title')}
-                disabled={reminderMutation.isPending}
+                disabled={reminderMutation.isPending || glossesUnavailable}
                 onClick={() =>
                   reminderMutation.mutate({
                     show_glosses: !(profile?.show_glosses ?? false),

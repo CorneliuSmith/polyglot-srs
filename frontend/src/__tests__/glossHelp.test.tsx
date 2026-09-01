@@ -69,3 +69,52 @@ describe('the gloss explains itself', () => {
     )
   })
 })
+
+describe('a setting this server cannot store says so', () => {
+  // The trap this closes: with the column absent, the write drops the value
+  // and the read hands back the default, so the switch flips, saves
+  // nothing, and snaps back with no explanation. Migrations here are
+  // owner-applied, so the app runs ahead of them routinely — this is a
+  // normal state, not an edge case.
+  function GlossToggle({ unavailable }: { unavailable: boolean }) {
+    return (
+      <div>
+        <button
+          type="button"
+          role="switch"
+          aria-checked={false}
+          aria-label="Word-by-word glosses"
+          disabled={unavailable}
+        />
+        {unavailable && (
+          <p data-testid="glosses-unavailable">
+            {i18n.t('settings.needsMigration')}
+          </p>
+        )}
+      </div>
+    )
+  }
+
+  it('disables the switch and explains, rather than letting it snap back', () => {
+    render(<GlossToggle unavailable />)
+    const sw = screen.getByRole('switch') as HTMLButtonElement
+    expect(sw.disabled).toBe(true)
+    expect(screen.getByTestId('glosses-unavailable').textContent).toContain(
+      'database update',
+    )
+  })
+
+  it('says nothing when the server can store it', () => {
+    render(<GlossToggle unavailable={false} />)
+    expect((screen.getByRole('switch') as HTMLButtonElement).disabled).toBe(false)
+    expect(screen.queryByTestId('glosses-unavailable')).toBeNull()
+  })
+
+  it('the explanation is written in every UI locale', () => {
+    for (const lng of ['en', 'es', 'fr', 'pt', 'ru', 'ar']) {
+      const text = i18n.t('settings.needsMigration', { lng })
+      expect(text, `no copy for ${lng}`).not.toBe('settings.needsMigration')
+      expect(text.length, `${lng} is too short to explain`).toBeGreaterThan(20)
+    }
+  })
+})
