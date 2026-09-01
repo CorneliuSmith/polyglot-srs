@@ -300,10 +300,12 @@ async def test_the_inline_fill_carries_the_sentence_layer():
                       new=AsyncMock(return_value=[])), \
          patch.object(auto_translate, "pending_explanations",
                       new=AsyncMock(return_value=[])), \
+         patch.object(auto_translate, "pending_grammar_meta",
+                      new=AsyncMock(return_value=[])), \
          patch.object(auto_translate, "pending_examples",
-                      new=AsyncMock(return_value=ex_rows)), \
+                      new=AsyncMock(side_effect=[ex_rows, []])), \
          patch.object(auto_translate, "pending_drills",
-                      new=AsyncMock(return_value=dr_rows)), \
+                      new=AsyncMock(side_effect=[dr_rows, []])), \
          patch.object(auto_translate, "_translate_examples", tex), \
          patch.object(auto_translate, "_translate_drills", tdr), \
          patch.object(auto_translate, "_settle", new=AsyncMock()) as settle:
@@ -314,6 +316,151 @@ async def test_the_inline_fill_carries_the_sentence_layer():
     settled_kinds = [c.args[1] for c in settle.await_args_list]
     assert "example" in settled_kinds and "drill" in settled_kinds
     auto_translate._INLINE_FILLS.clear()
+
+
+def _fill_conn():
+    conn = AsyncMock()
+    conn.fetchval = AsyncMock(return_value="ru")
+    conn.fetchrow = AsyncMock(return_value={
+        "language_id": "l1", "language_code": "el",
+        "language_name": "Greek", "locale": "ru", "locale_name": "Russian"})
+    conn.fetch = AsyncMock(return_value=[])
+    ctx = MagicMock()
+    ctx.return_value.__aenter__ = AsyncMock(return_value=conn)
+    ctx.return_value.__aexit__ = AsyncMock(return_value=False)
+    return conn, ctx
+
+
+@pytest.mark.asyncio
+async def test_the_inline_fill_walks_the_session_in_reading_order():
+    """The Greek/Russian report: the first card opened fully translated,
+    the second had English drill sentences, and going BACK to it later
+    found them translated. The fill had covered eight sentences across
+    the batch and left the rest to a sweep that runs every quarter hour.
+    It walks the session card by card now: the first cards get their
+    whole sentence layer before the next cards get their glosses, and it
+    keeps going through the batch. Reading order is what gets paid for
+    first — and the grammar TITLE rides along, which only the loop ever
+    translated before (a Russian body under an English heading)."""
+    auto_translate._INLINE_FILLS.clear()
+    conn, ctx = _fill_conn()
+    seen: list[tuple[str, tuple]] = []
+
+    def pending(kind):
+        async def _p(_conn, _lang, _loc, _limit, ids=None, vocab_ids=None,
+                     backoff=False):
+            seen.append((kind, tuple(ids or vocab_ids or [])))
+            return []
+        return _p
+
+    with patch("backend.repositories.pool.privileged_connection", ctx), \
+         patch.object(auto_translate, "translations_available",
+                      return_value=True), \
+         patch.object(auto_translate, "pending_words", new=pending("word")), \
+         patch.object(auto_translate, "pending_grammar_meta",
+                      new=pending("grammar_meta")), \
+         patch.object(auto_translate, "pending_explanations",
+                      new=pending("explanation")), \
+         patch.object(auto_translate, "pending_examples",
+                      new=pending("example")):
+        await auto_translate.fill_start_batch(
+            "u4", "l1", ["v1", "v2", "v3", "v4"], ["g1", "g2", "g3", "g4"])
+
+    # First pass: the first grammar point and the first word, every kind,
+    # BEFORE anything of the second pass is touched.
+    assert seen[:4] == [
+        ("word", ("v1",)), ("grammar_meta", ("g1",)),
+        ("explanation", ("g1",)), ("example", ("v1",)),
+    ], seen
+    # Then the rest of the session in the same order, wider per pass. The
+    # earlier cards stay in the batch: pending_* returns only what is still
+    # missing, so a row the provider rejected gets a second try alongside
+    # the next cards rather than being left to the sweep.
+    assert seen[4] == ("word", ("v1", "v2", "v3", "v4")), seen
+    assert ("grammar_meta", ("g1", "g2", "g3", "g4")) in seen
+    status = auto_translate.inline_fill_status("u4", "l1")
+    assert status["status"] == "done" and status["cards_done"] == 8, status
+    auto_translate._INLINE_FILLS.clear()
+
+
+@pytest.mark.asyncio
+async def test_a_fill_in_flight_is_not_started_twice():
+    """The wait screen polls every five seconds and the fill takes longer
+    than that. The cooldown used to be stamped at the START, so nothing
+    stopped a second fill from racing the first once 90 s had passed while
+    it was still running. A running fill is now the guard itself."""
+    auto_translate._INLINE_FILLS.clear()
+    conn, ctx = _fill_conn()
+    gate = asyncio.Event()
+    entered = 0
+
+    async def slow_pending(*a, **kw):
+        nonlocal entered
+        entered += 1
+        await gate.wait()
+        return []
+
+    with patch("backend.repositories.pool.privileged_connection", ctx), \
+         patch.object(auto_translate, "translations_available",
+                      return_value=True), \
+         patch.object(auto_translate, "pending_words", new=slow_pending):
+        first = asyncio.create_task(
+            auto_translate.fill_start_batch("u5", "l1", ["v1"], []))
+        await asyncio.sleep(0.01)
+        assert auto_translate.inline_fill_status("u5", "l1")["status"] == "running"
+        # Pretend the old cooldown has long expired: still no second fill.
+        auto_translate._INLINE_FILLS[("u5", "l1")]["started"] -= 1000
+        await auto_translate.fill_start_batch("u5", "l1", ["v1"], [])
+        assert entered == 1
+        gate.set()
+        await first
+    assert auto_translate.inline_fill_status("u5", "l1")["status"] == "done"
+    auto_translate._INLINE_FILLS.clear()
+
+
+@pytest.mark.asyncio
+async def test_a_fill_without_a_provider_says_so():
+    """The one cause of "0 of 3 forever" nobody could see from the wait
+    screen: the web worker has no ANTHROPIC_API_KEY, so the fill returned
+    silently and the learner sat there. Now the status names it."""
+    auto_translate._INLINE_FILLS.clear()
+    with patch.object(auto_translate, "translations_available",
+                      return_value=False):
+        await auto_translate.fill_start_batch("u6", "l1", ["v1"], [])
+    status = auto_translate.inline_fill_status("u6", "l1")
+    assert status["status"] == "no_provider", status
+    auto_translate._INLINE_FILLS.clear()
+
+
+def test_readiness_reports_what_the_fill_is_doing(client):
+    """The wait screen can only explain a stall if the server tells it
+    what its own fill did — the process serving THIS request, which is the
+    one whose fill the learner is waiting on."""
+    conn = AsyncMock()
+
+    async def declines(*a):
+        auto_translate._INLINE_FILLS[(TEST_USER_ID, "lang-1")] = {
+            "status": "no_provider", "started": 0.0, "finished": 0.0,
+            "detail": "no translation provider is configured on this server",
+            "landed": 0, "cards_done": 0}
+
+    auto_translate._INLINE_FILLS.clear()
+    with _rls(conn), \
+        patch("backend.routers.review.session_readiness",
+              new=AsyncMock(return_value=_not_ready())), \
+        patch("backend.routers.review.pretranslate_upcoming", new=AsyncMock()), \
+        patch("backend.routers.review.start_batch_ids",
+              new=AsyncMock(return_value=(["v1"], []))), \
+        patch("backend.routers.review.due_batch_ids",
+              new=AsyncMock(return_value=([], []))), \
+        patch("backend.routers.review.kick"), \
+        patch("backend.routers.review.fill_start_batch", declines):
+        resp = client.get(
+            "/api/review/readiness?language_id=lang-1", headers=_auth_headers())
+    auto_translate._INLINE_FILLS.clear()
+
+    assert resp.status_code == 200
+    assert resp.json()["fill"]["status"] == "no_provider"
 
 
 @pytest.mark.asyncio

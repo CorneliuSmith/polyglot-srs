@@ -215,6 +215,22 @@ export interface SessionReadiness {
   review: ReadinessLane
   /** Already-translated words of the upcoming batch — the wait game's pool. */
   pairs: { word: string; gloss: string }[]
+  /** What the server's own inline fill is doing for this session — the
+   * reason behind a bar that isn't moving. Null when it has never run on
+   * the process that answered. */
+  fill?: SessionFill | null
+}
+
+export interface SessionFill {
+  /** `no_provider` is the one a learner can't do anything about and the
+   * owner can: the server has no translation key. */
+  status: 'running' | 'done' | 'error' | 'no_provider'
+  detail: string | null
+  /** Rows translated so far by this fill. */
+  landed: number
+  /** Cards of the session walked so far, in reading order. */
+  cards_done: number
+  seconds: number
 }
 
 export interface LearnDeck {

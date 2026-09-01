@@ -222,6 +222,21 @@ describe('TrailblazerWait', () => {
     expect(await screen.findByTestId('trailblazer-stalled')).toBeInTheDocument()
   })
 
+  it('names a missing provider key at once, instead of guessing at a stall', async () => {
+    // The one cause of "0 % forever" nobody could see from this screen:
+    // the web worker has no translation key, the server's own fill
+    // declined silently, and the learner sat out the whole stall window
+    // for a message that could only say "taking longer". The server now
+    // says why, and there is nothing to wait for — so it shows now.
+    mocked.mockResolvedValue({
+      ...readiness(0, false),
+      fill: { status: 'no_provider', detail: 'no translation provider',
+              landed: 0, cards_done: 0, seconds: 0 },
+    })
+    renderWait(vi.fn(), 60_000)
+    expect(await screen.findByText('trailblazer.noProvider')).toBeInTheDocument()
+  })
+
   it('lets someone leave who wants neither the wait nor English', async () => {
     // The tab bar is hidden on session routes, so before this the only
     // affordance was "Start in English" — a dead end for anyone who wanted

@@ -1554,7 +1554,9 @@
     "triviaRight": "Correcto.",
     "triviaWrong": "No exactamente.",
     "triviaNext": "Siguiente pregunta",
-    "stalled": "Esto está tardando más de lo normal. Puedes empezar en inglés y cambiará solo cuando llegue."
+    "stalled": "Esto está tardando más de lo normal. Puedes empezar en inglés y cambiará solo cuando llegue.",
+    "noProvider": "La traducción no está activada en este servidor, así que no llegará nada mientras esperas. Empieza en inglés o avisa a quien administra el sitio.",
+    "fillError": "La traducción falló. Se reintentará sola; mientras tanto puedes empezar en inglés."
   },
   "speak": {
     "loading": "Cargando…",

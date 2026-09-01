@@ -476,6 +476,36 @@ describe('LearnPage (teach-before-quiz)', () => {
     await screen.findByText('[Português] The verb ser')
   })
 
+  it('re-serves the card on screen on a tick, not only on advance', async () => {
+    // The owner's Greek/Russian session: the second card opened with
+    // English drill sentences, and going BACK to it found them translated.
+    // The refresh that ran on arrival was stale seconds later — the fill
+    // lands card by card while the learner reads — so the card on screen
+    // is asked for again on a slow tick and swaps in place.
+    vi.useFakeTimers({ shouldAdvanceTime: true })
+    try {
+      mockReadiness.mockResolvedValue(readiness(0.2, false))
+      mockLearn.mockResolvedValue({
+        added: 1,
+        items: ['uc-1'],
+        lessons: [grammarLesson],
+      })
+      mockRefresh.mockResolvedValueOnce([grammarLesson])
+      renderPage()
+
+      fireEvent.click(await screen.findByText(/Start in English/i))
+      await waitFor(() => expect(mockRefresh).toHaveBeenCalledTimes(1))
+      // Nothing advanced; a translation lands on the server meanwhile.
+      mockRefresh.mockResolvedValue([
+        { ...grammarLesson, title: '[Português] The verb ser' },
+      ])
+      await vi.advanceTimersByTimeAsync(10_500)
+      await screen.findByText('[Português] The verb ser')
+    } finally {
+      vi.useRealTimers()
+    }
+  })
+
   it('Arabic vocalized reading follows the short-vowels setting', async () => {
     // Real-selector store mock: the tashkeel gate needs showTashkeel and an
     // Arabic active language at the same time.

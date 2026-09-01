@@ -201,3 +201,46 @@ guards —
 Regression tests: the no-loop convergence test now also asserts locale
 example rows and drill_hint_translations exist after the fill; a unit
 test pins the wiring (sentence helpers called, both kinds settled).
+
+## Round 4 (2026-09-01) — card one was whole, card two was English
+
+Owner's report, four screenshots, Russian interface, Greek course: the
+first card arrived fully translated, sentences included; the *next* card
+had an English title and English drill translations; going back to it
+later, they were Russian. *"I don't know how things in the list to be
+covered are being translated. Eventually they are, but still."*
+
+Three things, all Round 3's fill working as written:
+
+1. **It stopped after the start batch.** ≤ 8 words, ≤ 3 explanations,
+   ≤ 8 sentences, ≤ 8 drills — enough for the gate, nothing for the rest
+   of the session. Card two onward waited for the quarter-hour loop.
+2. **Grammar titles were never on its list.** `pending_grammar_meta` /
+   `_translate_grammar_meta` only ran inside `auto_translate_loop`, so a
+   card whose body was translated could still carry an English heading.
+3. **The page only swapped on advance.** Rows that landed while a card
+   was on screen showed up on the way back, never on the way forward.
+
+Fix, in `backend/services/auto_translate.py` and both session pages:
+
+- `fill_start_batch` now walks the **whole session in reading order**
+  (`_interleave_typed`, the order the session itself serves), two cards
+  first, then six per pass, up to 30 cards / 300 s, translating per chunk
+  words → grammar titles → explanations → examples → drills. The old
+  `INLINE_FILL_WORDS/POINTS/SENTENCES` caps are gone.
+- One fill per (user, language) at a time: `_INLINE_FILLS` is a status
+  dict (`running`/`done`/`error`/`no_provider`), reported by readiness as
+  `fill` and shown by the wait screen when it explains a stall.
+- `LearnPage`/`ReviewSessionPage` re-fetch readiness every 15 s while a
+  lane is below 1 (each poll re-arms the fill) and re-serve upcoming cards
+  every 10 s as well as on advance.
+
+Tests: `test_readiness_inline_fill.py` pins the reading order (the first
+calls are word → grammar title → explanation → example for card one, only
+then card two's words), the in-flight guard, and `no_provider` status in
+the readiness JSON; `LearnPage.test.tsx` pins the tick swap.
+
+**"Готово карточек: 0 из 3" in the first screenshot is the pre-#384
+build** — the current one shows the batch percentage for a one-card gate.
+If it appears again after this deploys, check `built_at` in Settings →
+Admin → Deployment before anything else.

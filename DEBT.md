@@ -93,6 +93,25 @@ gate*. What is still true and easy to misread: `review.pct` can sit below 1
 for a returning learner for a long time — that is the live swap's signal,
 not a stuck fill.
 
+### The inline session fill is per-process, and needs the key on the web service
+
+`fill_start_batch` keeps its in-flight guard and cooldown in a module dict
+(`_INLINE_FILLS` in `backend/services/auto_translate.py`). Under more than
+one uvicorn worker, readiness polls from the same learner can land on
+different workers and each start its own fill for the same session. This
+is bounded — every pass re-queries what is *still* pending and the inserts
+are `ON CONFLICT DO NOTHING` — so the cost is duplicated model calls for a
+chunk, not wrong data. Moving the guard to Redis (`SET NX` with a TTL)
+would fix it; not done because the deployed service runs one worker.
+
+Separately: the fill runs *in the web process*, so `ANTHROPIC_API_KEY` must
+be set on the web service, not only on whatever runs `auto_translate_loop`.
+Without it the fill declines with status `no_provider`, readiness reports
+that as `fill.status`, and the wait screen says so
+(`trailblazer.noProvider`). A wait screen showing that message is a config
+problem, not a code one. Before this change the same situation was a bar
+sitting at 0 % with no explanation.
+
 ---
 
 ## Real gotchas — already hit once, will bite again if forgotten
