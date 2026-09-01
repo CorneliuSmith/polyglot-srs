@@ -7,15 +7,21 @@ import QueueStatus from './QueueStatus'
  * myself" and "didn't approve". Reviewers/admins resolve a note once the
  * point has been corrected (or the concern dismissed with cause).
  */
+import QueueHelp, { QUEUE_HELP } from './QueueHelp'
+import { useFocusList } from './useFocusList'
+
 export default function IssuesPanel({
   languageId,
   canResolve,
   awaiting,
+  focus = false,
 }: {
   languageId: string
   canResolve: boolean
   /** What the Review Inbox counts for this queue (see QueueStatus). */
   awaiting?: number
+  /** One at a time with ‹ › instead of the whole list. */
+  focus?: boolean
 }) {
   const queryClient = useQueryClient()
   const { data: notes = [], isError } = useQuery({
@@ -23,6 +29,8 @@ export default function IssuesPanel({
     queryFn: () => getReviewNotes(languageId),
     retry: false,
   })
+
+  const { shown, nav } = useFocusList(notes, focus, 'note')
 
   const resolveMutation = useMutation({
     mutationFn: (noteId: string) => resolveReviewNote(noteId),
@@ -47,9 +55,15 @@ export default function IssuesPanel({
     >
       <h2 className="text-sm font-semibold text-amber-900">
         Open issues ({notes.length})
+        <QueueHelp
+          title="Review notes"
+          help={QUEUE_HELP['issues']}
+          testId="help-issues"
+        />
       </h2>
+      {nav}
       <ul className="space-y-2">
-        {notes.map((n) => (
+        {shown.map((n) => (
           <li key={n.id} className="text-sm">
             <div className="flex items-start gap-2">
               <div className="flex-1">

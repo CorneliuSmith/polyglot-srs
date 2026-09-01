@@ -184,6 +184,20 @@ an agent session can close out.
 
 ---
 
+## Small, real, and already known
+
+### The `overlaps` tile pointed at a panel that isn't on that tab
+
+`OverlapsPanel` is mounted by `ReviewQueue`, which renders in **Settings** —
+not on the Workspace Review tab, where the Review Inbox tile said to look
+("Overlaps panel · Review tab"). The hint is corrected and the tile is
+deliberately not clickable in focus mode, since focusing it could only
+scope the page to nothing. The panel itself is fine; only the signpost was
+wrong. Worth deciding whether that queue should move onto the Review tab
+with the others rather than staying the one exception.
+
+---
+
 ## Naming / cosmetic
 
 ### Product name

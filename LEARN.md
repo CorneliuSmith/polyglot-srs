@@ -203,6 +203,31 @@ maps any value it doesn't recognize (a typo, a legacy spelling) to the
 
 ---
 
+### Review queues: one taxonomy table, many surfaces
+
+`frontend/src/lib/reviewTaxonomy.ts` is the single table describing every
+review queue — where its items come from (`origin`), who may act on them
+(`audience`), and which Review-tab panel acts on them (`panel`). The Review
+Inbox, the staff notification bell, the focused-queue view, and
+`docs/review-workflow.md`'s tables all render from it, so a queue can never
+be described one way in the bell and another in the inbox. Add a queue by
+adding a row here first.
+
+Two conventions built on top of it:
+
+- **Focus mode** — a tile scopes the whole Review tab to one queue
+  (`?queue=<panel>` in the URL, so it is linkable and bookmarkable), and
+  inside it `useFocusList` steps through items one at a time with ‹ › and
+  the arrow keys. The hook returns *a slice plus a nav element* rather than
+  wrapping the panel, so each panel keeps rendering its own card, actions
+  and all — focus mode is the same card one at a time, never a second
+  rendering that can drift from the list one.
+- **`QueueHelp` / `QUEUE_HELP`** — the "what does this button actually do"
+  hover for each queue, written to three beats (what these items are, who
+  can act, and what each action *does*). It exists because "Resolve" reads
+  as "mark it done" while in several panels the underlying action deletes
+  the row, and nothing on screen said which.
+
 ## Frontend
 
 React 19 + Vite 6 + TypeScript (~5.7, project-graph mode via `tsc -b`) +

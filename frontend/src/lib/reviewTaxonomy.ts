@@ -29,6 +29,22 @@ export type QueueOrigin = 'reports' | 'general' | 'ai' | 'contributions'
  * something that 403'd silently and report the inbox as broken. */
 export type QueueAudience = 'all' | 'publish' | 'admin'
 
+/** The Review-tab panel that acts on a queue, for the tile that scopes the
+ * page to it. Only queues acted on IN the Review tab have one: a tile
+ * pointing at the Contribute tab or Settings cannot be focused here, and
+ * says so rather than scoping to an empty page. */
+export type PanelId =
+  | 'tester-recommendations'
+  | 'translation-reviews'
+  | 'generated-drills'
+  | 'ai-levels'
+  | 'ai-topics'
+  | 'change-requests'
+  | 'suggestions'
+  | 'issues'
+  | 'feedback'
+  | 'feedback-queue'
+
 export interface QueueMeta {
   key: keyof ReviewInboxCounts
   label: string
@@ -36,6 +52,10 @@ export interface QueueMeta {
   audience: QueueAudience
   /** Where it is acted on — the panel or page behind the number. */
   hint: string
+  /** The Review-tab panel to scope to when the tile is clicked. Absent
+   * means this queue is acted on somewhere else entirely (the Contribute
+   * tab, the vocab surface, Settings) and the tile is not a link. */
+  panel?: PanelId
   /** Where the acting panel caps its own list, so a count of 150 against a
    * panel that shows 100 says so instead of quietly disagreeing. */
   limit?: number
@@ -56,22 +76,27 @@ export const ORIGIN_ORDER: QueueOrigin[] = [
 export const QUEUE_META: QueueMeta[] = [
   // ── Reports from people ──────────────────────────────────────────────
   { key: 'feedback', label: 'Card feedback', origin: 'reports',
-    audience: 'publish', hint: 'Feedback panel · Review tab', limit: 100 },
+    audience: 'publish', hint: 'Feedback panel · Review tab',
+    panel: 'feedback', limit: 100 },
   { key: 'notes', label: 'Review notes', origin: 'reports',
-    audience: 'publish', hint: 'Point review notes · Review tab', limit: 200 },
+    audience: 'publish', hint: 'Point review notes · Review tab',
+    panel: 'issues', limit: 200 },
   { key: 'tester_recommendations', label: 'Tester recommendations',
     origin: 'reports', audience: 'all',
-    hint: 'Tester recommendations panel · Review tab', limit: 200 },
+    hint: 'Tester recommendations panel · Review tab',
+    panel: 'tester-recommendations', limit: 200 },
 
   // ── General feedback ─────────────────────────────────────────────────
   { key: 'app_feedback', label: 'App feedback', origin: 'general',
     // GET /api/feedback triage is staff-wide to read but the queue's
     // per-language tile pairs with the panel mounted for admins.
-    audience: 'admin', hint: 'General feedback queue · Review tab' },
+    audience: 'admin', hint: 'General feedback queue · Review tab',
+    panel: 'feedback-queue' },
 
   // ── AI awaiting a human ──────────────────────────────────────────────
   { key: 'pending_drills', label: 'Generated drills', origin: 'ai',
-    audience: 'all', hint: 'Generated drills panel · Review tab' },
+    audience: 'all', hint: 'Generated drills panel · Review tab',
+    panel: 'generated-drills' },
   { key: 'flagged_drills', label: 'Flagged drills', origin: 'ai',
     audience: 'all', hint: 'Point drills · flagged' },
   { key: 'pending_examples', label: 'Generated examples', origin: 'ai',
@@ -81,22 +106,36 @@ export const QUEUE_META: QueueMeta[] = [
   { key: 'translation_suggestions', label: 'Translation fixes', origin: 'ai',
     audience: 'all', hint: 'Vocab · needs attention' },
   { key: 'ai_translations', label: 'AI translations', origin: 'ai',
-    audience: 'admin', hint: 'AI translations panel · Review tab' },
+    audience: 'admin', hint: 'AI translations panel · Review tab',
+    panel: 'translation-reviews' },
   { key: 'ai_levels', label: 'AI vocab levels', origin: 'ai',
-    audience: 'all', hint: 'AI levels panel · Review tab' },
+    audience: 'all', hint: 'AI levels panel · Review tab',
+    panel: 'ai-levels' },
   { key: 'ai_topics', label: 'AI topic buckets', origin: 'ai',
-    audience: 'all', hint: 'Topic buckets panel · Review tab' },
+    audience: 'all', hint: 'Topic buckets panel · Review tab',
+    panel: 'ai-topics' },
+  // No panel: OverlapsPanel is mounted by ReviewQueue in SETTINGS, not on
+  // this tab — the hint below has said "Review tab" for a while and is
+  // wrong (DEBT.md). Left unfocusable rather than scoping to a blank page.
   { key: 'overlaps', label: 'Overlapping points', origin: 'ai',
-    audience: 'all', hint: 'Overlaps panel · Review tab' },
+    audience: 'all', hint: 'Overlaps panel · Settings' },
 
   // ── Human contributions ──────────────────────────────────────────────
   { key: 'grammar_pending', label: 'Grammar points', origin: 'contributions',
     audience: 'all', hint: 'Contribute tab · pending review' },
   { key: 'suggestions', label: 'Content suggestions', origin: 'contributions',
-    audience: 'publish', hint: 'Suggestions panel · Review tab', limit: 100 },
+    audience: 'publish', hint: 'Suggestions panel · Review tab',
+    panel: 'suggestions', limit: 100 },
   { key: 'change_requests', label: 'Change requests', origin: 'contributions',
-    audience: 'all', hint: 'Change requests board · Review tab' },
+    audience: 'all', hint: 'Change requests board · Review tab',
+    panel: 'change-requests' },
 ]
+
+/** The queue a focused panel is showing, for the "you are reviewing X" bar.
+ * Two queues never share a panel, so this stays one-to-one. */
+export function queueForPanel(panel: PanelId): QueueMeta | undefined {
+  return QUEUE_META.find((q) => q.panel === panel)
+}
 
 /** Whether this viewer's roles can open the panel behind a queue. */
 export function queueVisible(

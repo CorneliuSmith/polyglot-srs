@@ -9,6 +9,7 @@ import {
   ORIGIN_ORDER,
   QUEUE_META,
   queueVisible,
+  type PanelId,
   type QueueMeta,
 } from '../../lib/reviewTaxonomy'
 
@@ -70,11 +71,16 @@ function visibleQueues(data: ReviewInboxData) {
 export default function ReviewInbox({
   languageId,
   onSwitchLanguage,
+  onFocusQueue,
 }: {
   languageId: string
   /** Switches the workspace's working language — the whole page, every
    * panel, re-scopes to it. */
   onSwitchLanguage?: (languageId: string) => void
+  /** Scopes the Review tab to the one panel that acts on this queue
+   * (owner: "click the sections and view those specific kinds of reviews
+   * to lessen the load mentally"). */
+  onFocusQueue?: (panel: PanelId) => void
 }) {
   const { data, isLoading } = useReviewInbox(languageId)
 
@@ -121,7 +127,12 @@ export default function ReviewInbox({
                 </p>
                 <ul className="mt-1.5 grid grid-cols-2 gap-2 sm:grid-cols-3">
                   {group.map((q) => (
-                    <QueueTile key={q.key} meta={q} count={counts[q.key] ?? 0} />
+                    <QueueTile
+                      key={q.key}
+                      meta={q}
+                      count={counts[q.key] ?? 0}
+                      onFocus={onFocusQueue}
+                    />
                   ))}
                 </ul>
               </section>
@@ -167,10 +178,38 @@ export default function ReviewInbox({
   )
 }
 
-function QueueTile({ meta, count }: { meta: QueueMeta; count: number }) {
+function QueueTile({
+  meta,
+  count,
+  onFocus,
+}: {
+  meta: QueueMeta
+  count: number
+  onFocus?: (panel: PanelId) => void
+}) {
   const capped = meta.limit != null && count > meta.limit
+  // Focusable only when this tab actually holds the panel that acts on it.
+  // A tile whose work happens on the Contribute tab stays a label: clicking
+  // it could only scope the page to nothing.
+  const focusable = meta.panel != null && onFocus != null
+  const Tag = focusable ? 'button' : 'div'
   return (
-    <li className="rounded-lg border border-gray-100 bg-gray-50 px-3 py-2">
+    <li className="rounded-lg border border-gray-100 bg-gray-50">
+      <Tag
+        {...(focusable
+          ? {
+              type: 'button' as const,
+              onClick: () => onFocus!(meta.panel!),
+              title: `Review the ${meta.label.toLowerCase()} queue on its own`,
+            }
+          : {})}
+        data-testid={`queue-tile-${meta.key}`}
+        className={`block w-full px-3 py-2 text-start ${
+          focusable
+            ? 'rounded-lg hover:border-lang hover:bg-lang/5 cursor-pointer'
+            : ''
+        }`}
+      >
       <div className="flex items-center justify-between gap-2">
         <span className="text-xs font-medium text-gray-700">{meta.label}</span>
         <span className="rounded-full bg-lang/10 text-lang px-2 py-0.5 text-xs font-semibold">
@@ -196,6 +235,12 @@ function QueueTile({ meta, count }: { meta: QueueMeta; count: number }) {
           showing first {meta.limit} of {count}
         </span>
       )}
+      {focusable && (
+        <span className="mt-1 block text-[10px] font-medium text-lang">
+          Review these →
+        </span>
+      )}
+      </Tag>
     </li>
   )
 }

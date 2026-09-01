@@ -21,15 +21,21 @@ import QueueStatus from './QueueStatus'
  * Rejections sort first: a "needs work" with an explanation is the item a
  * reviewer should read before publishing anything.
  */
+import QueueHelp, { QUEUE_HELP } from './QueueHelp'
+import { useFocusList } from './useFocusList'
+
 export default function TesterRecommendationsPanel({
   languageId,
   languageCode,
   awaiting,
+  focus = false,
 }: {
   languageId: string
   languageCode?: string
   /** What the Review Inbox counts for this queue (see QueueStatus). */
   awaiting?: number
+  /** One at a time with ‹ › instead of the whole list. */
+  focus?: boolean
 }) {
   const { data, isError } = useQuery({
     queryKey: ['tester-recommendations', languageId],
@@ -39,6 +45,7 @@ export default function TesterRecommendationsPanel({
   })
 
   const items = data?.recommendations ?? []
+  const { shown, nav } = useFocusList(items, focus, 'recommendation')
   if (items.length === 0)
     return (
       <QueueStatus
@@ -62,6 +69,11 @@ export default function TesterRecommendationsPanel({
       <div className="flex items-baseline justify-between gap-2">
         <h2 className="text-sm font-semibold text-gray-800">
           Tester recommendations
+          <QueueHelp
+            title="Tester recommendations"
+            help={QUEUE_HELP['tester-recommendations']}
+            testId="help-tester-recommendations"
+          />
         </h2>
         <span className="text-xs text-gray-500">
           {capped
@@ -74,8 +86,9 @@ export default function TesterRecommendationsPanel({
         item they’re about: approving deletes the pending row, and this note
         with it.
       </p>
+      {nav}
       <ul className="space-y-1.5">
-        {items.map((r: TesterRecommendation) => (
+        {shown.map((r: TesterRecommendation) => (
           <li
             key={r.id}
             className="rounded-lg border border-gray-100 px-2.5 py-1.5"
