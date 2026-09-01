@@ -1,19 +1,4 @@
 word	sentence	translation	difficulty_rank
-mi	Mi a 24.	I'm 24 years old.	1
-a	Mi a 24.	I'm 24 years old.	1
-mi	Mi a 18.	I'm 18 years old.	1
-a	Mi a 18.	I'm 18 years old.	1
-mi	Mi a 25.	I'm 25 years old.	1
-a	Mi a 25.	I'm 25 years old.	1
-gaan	Mi gaan!	Good-bye!	48
-gaan	Mi gaan.	Good-bye.	48
-gud	Gud Mawnin!	Good morning!	103
-mawnin	Gud Mawnin!	Good morning!	103
-gud	Gud Mawnin.	Good morning.	103
-mawnin	Gud Mawnin.	Good morning.	103
-gaan	Mi gaan, Sayoko!	Good-bye, Sayoko!	19999
-yu	Yu egzaastid.	You're exhausted.	19999
-gwaan	Gwaan weh.	Go.	19999
 afta	Wi wash di pliet dem afta dina.	We wash the plates after dinner.	20000
 afta	Mi wi kaal yu afta mi riich a yaad.	I'll call you after I get home.	20001
 bak	Bring bak di kii dem bifuo yu go.	Bring the keys back before you go.	20002
@@ -559,3 +544,606 @@ enimi	Dat man tek mi fi im enimi.	That man treats me like his enemy.	20560
 enimi	Mi no waan no enimi, mi onggl waan liv gud wid evribadi.	I don't want any enemies, I only want to live well with everybody.	20561
 piipl	Di piipl dem a taak bout it aal ova toun.	People are talking about it all over town.	20562
 piipl	Di piipl we liv neks duo nais, man.	The people who live next door are nice, man.	20563
+mi	Mi mada sen mi go a shap fi bai bred an shuga.	My mother sent me to the shop to buy bread and sugar.	0
+mi	Evri mawnin mi tek di bos go a wok bifuo siks aklak.	Every morning I take the bus to work before six o'clock.	0
+mi	Nobadi no nuo mi laik mi granmada, bikaa a im gruo mi.	Nobody knows me the way my grandmother does — she's the one who raised me.	0
+yu	Yu lef yu buk dem pan di bed, an nou yu liet fi skuul.	You left your books on the bed, and now you're late for school.	1
+yu	Ef yu riich a di maakit bifuo mi, bai som akii an saalfish.	If you get to the market before me, buy some ackee and saltfish.	1
+yu	Mi respek yu bikaa yu neva ron gaan wen mi did niid elp.	I respect you because you never ran off when I needed help.	1
+wi	Evri Sondi wi kuk rais an piiz fi di huol famili.	Every Sunday we cook rice and peas for the whole family.	3
+wi	Di tiicha aks wi fi bring wi buk dem kom a skuul tumaro.	The teacher asked us to bring our books to school tomorrow.	3
+wi	Duon waari bout notn, wi wi kom bak fi yu bifuo nait.	Don't worry about anything — we'll come back for you before nightfall.	3
+unu	Pikni, unu mos wash unu an dem bifuo unu sidong fi iit.	Children, you all have to wash your hands before you sit down to eat.	5
+unu	Waa-gwaan, unu a kom a di dansaal wid wi, ar unu stie a yaad?	What's up — are you all coming to the dance with us, or are you staying home?	5
+unu	Mi tank unu fi elp mi muuv di tiebl dem outa di rien.	Thank you all for helping me move the tables out of the rain.	5
+i	Di pat did at bad, suo mi put i dong pan di tiebl kwik.	The pot was really hot, so I put it down on the table quickly.	6
+i	Wen yu don ried di buk, bring i kom gi mi a wok.	When you've finished reading the book, bring it to me at work.	6
+i	Mi neva laik di sang fos taim, bot nou i swiit mi bad.	I didn't like the song at first, but now it really gets to me.	6
+a	Mi breda a wan tiicha, an im wok a di skuul dong di ruod.	My brother is a teacher, and he works at the school down the road.	7
+a	Di rien a faal aad, an mi mada a kuk sinting at fi wi.	The rain is coming down hard, and my mother is cooking something hot for us.	7
+a	Mi beks bikaa a mi wan a wash di pliet dem evri nait.	I'm vexed because I'm the only one washing the plates every night.	7
+de	Di kii dem de pan di tiebl anda di buk we yu lef.	The keys are on the table under the book you left.	8
+de	Nof piipl de a di maakit satdi mawnin, suo riich de-so orli.	There are plenty of people at the market on Saturday morning, so get there early.	8
+de	Duon fraitn, mi wi de ya wid yu di huol nait.	Don't be frightened — I'll be right here with you the whole night.	8
+di	Shet di winda dem kwik, di rien a faal pan di bed.	Shut the windows quickly — the rain is falling on the bed.	9
+di	Di bos lef di skuul giet bifuo di pikni dem riich.	The bus left the school gate before the children got there.	9
+di	Mi tink di fuud a di nyuu shap beta dan di maakit fuud.	I think the food at the new shop is better than the market food.	9
+ago	Mi ago kuk di chikin nou bifuo di lait go out agen.	I'm going to cook the chicken now before the power goes out again.	16
+ago	Di tiicha se im ago gi wi wan big tes neks wiik.	The teacher says he's going to give us a big test next week.	16
+ago	Wen mi granmada si wi a im giet satdi mawnin, im ago krai.	When my grandmother sees us at her gate on Saturday morning, she's going to cry.	16
+gwaan	Gwaan go a yu bed nou, yu ago liet fi skuul tumaro.	Go on to bed now — you'll be late for school tomorrow.	17
+gwaan	Wa a gwaan dong a di maakit? Nof piipl a ron kom.	What's going on down at the market? Plenty of people are running this way.	17
+gwaan	Afta im mada ded, im gwaan tek kier a di huol famili.	After his mother died, he carried on taking care of the whole family.	17
+go	Evri Satdi mawnin mi go a maakit fi bai fish fi Sondi dina.	Every Saturday morning I go to the market to buy fish for Sunday dinner.	19
+go	Di bos gaan aredi, suo wi hafi waak go a wok.	The bus has already left, so we have to walk to work.	19
+go	Mi taiyad fi go a chorch evri Sondi mawnin, bot mi mada naa lisn.	I'm tired of going to church every Sunday morning, but my mother won't hear of it.	19
+luk	Luk anda di bed fi mi shuuz, di taksi de a di giet.	Look under the bed for my shoes — the taxi is at the gate.	22
+luk	Mi a luk fi wan nyuu wok, bikaa di shap a go shet dong.	I'm looking for a new job, because the shop is going to close down.	22
+luk	Yu luk taiyad dis mawnin; yu neva sliip gud las nait?	You look tired this morning; didn't you sleep well last night?	22
+gaan	Bai di taim mi riich a di ruod, di bos gaan lef mi.	By the time I got out to the road, the bus had gone and left me.	47
+gaan	Mi breda gaan a Merika ten yier nou, im no kom bak yet.	My brother has been gone to America ten years now, and he still hasn't come back.	47
+gaan	Aal mi moni gaan pan skuul fi di pikni dem, bot mi no sari.	All my money has gone on schooling for the children, but I'm not sorry.	47
+fi	Mi mada sen mi go a shap fi bai wan dazn eg.	My mother sent me down to the shop to buy a dozen eggs.	55
+fi	Yu fi riich a di miitn bifuo siks, duon kom liet agen.	You're supposed to get to the meeting before six — don't come late again.	55
+fi	A no fi yu buk dat, a fi mi sista, gi it bak.	That's not your book, it belongs to my sister — give it back.	55
+moni	Mi neva av nof moni fi di bos, suo mi waak go a yaad.	I didn't have enough money for the bus, so I walked home.	65
+moni	Mi len mi fren som moni las wiik, bot im naa ansa im fuon.	I lent my friend some money last week, but now he won't answer his phone.	65
+moni	Mi faada aalwiez se moni no gruo pan tri, suo duon wies it.	My father always says money doesn't grow on trees, so don't waste it.	65
+mawnin	Evri mawnin mi gedop a faiv aklak fi kech di fos bos a toun.	Every morning I get up at five o'clock to catch the first bus to town.	69
+mawnin	Wi av wan miitn tumaro mawnin, suo duon riich liet agen.	We have a meeting tomorrow morning, so don't turn up late again.	69
+mawnin	Sondi mawnin swiit mi, bikaa nobadi no hafi ron go a wok.	Sunday morning is sweet to me, because nobody has to rush off to work.	69
+anda	Put di baskit anda di tiebl bifuo di pus nyam op di fish.	Put the basket under the table before the cat eats up the fish.	81
+anda	Di bwai dem a plie futbaal anda di lait pan di ruod evri iivnin.	The boys play football under the street light out on the road every evening.	81
+anda	Afta mi granmada tel di dopi stori, mi haid anda di kova huol nait.	After my grandmother told that duppy story, I hid under the covers the whole night.	81
+ya	Kom ya kwik, di rais a bon pan di faiya.	Come here quick — the rice is burning on the fire.	88
+ya	Mi de ya sins siks aklak a wiet pan di dakta.	I've been here since six o'clock waiting on the doctor.	88
+ya	Afta faiv yier a farin, mi api fi kom bak ya wid mi famili.	After five years abroad, I'm happy to be back here with my family.	88
+wa	Wa yu a kuk ina di pat, di huol yaad smel swiit?	What are you cooking in that pot? The whole yard smells delicious.	91
+wa	Aks di uman a di giet wa taim di maakit shet pan Satdi.	Ask the woman at the gate what time the market closes on Saturday.	91
+wa	Wa mi si a di riva yeside mek mi aat jomp.	What I saw down at the river yesterday made my heart jump.	91
+wai	Wai yu lef di duo open aal nait wen maskita dem a bait?	Why did you leave the door open all night when the mosquitoes are biting?	94
+wai	Nobadi kyaan tel mi wai di bos neva kom dis mawnin.	Nobody can tell me why the bus didn't come this morning.	94
+wai	Wai yu a waari bout wa dem se, wen dem no nuo yu?	Why are you worrying about what they say, when they don't even know you?	94
+evribadi	Evribadi ina di yaad kom out wen dem smel di chikin a frai.	Everybody in the yard came outside when they smelled the chicken frying.	311
+evribadi	Evribadi tel mi se di rien ago stap, bot i stil a faal.	Everybody told me the rain was going to stop, but it's still coming down.	311
+nobadi	Nobadi neva lef notn ina di pat fi mi wen mi riich yaad.	Nobody left anything in the pot for me by the time I got home.	312
+nobadi	Nobadi a di bos stap kuda tel mi wen di neks bos a kom.	Nobody at the bus stop could tell me when the next bus was coming.	312
+nobadi	Nobadi no waan tel di chrut, an dat a wa mek mi beks.	Nobody wants to tell the truth, and that's what has me angry.	312
+wan-wan	Wan-wan mango did lef pan di tri, so mi tek dem gi mi aanti.	Only a few mangoes were left on the tree, so I took them to my aunt.	313
+wan-wan	Di faama dem riich a maakit wan-wan, so di plies neva ful til iivnin.	The farmers arrived at the market one by one, so the place didn't fill up until evening.	313
+wan-wan	Mi granmada aalwiez se wan-wan koko ful baskit, so mi siev likl moni.	My grandmother always says the basket fills one coco at a time, so I put a little money aside.	313
+tuu	Mi bai tuu poun a rais fi di wiik, bot i finish aredi.	I bought two pounds of rice for the week, but it's finished already.	314
+tuu	Tuu bwai fram mi skuul a plie kriket a di paak evri satdi.	Two boys from my school play cricket in the park every Saturday.	314
+tuu	Di myuuzik a di dansaal did tuu loud, so mi gaan yaad orli.	The music at the dancehall was too loud, so I went home early.	314
+chrii	Mi mada kuk chrii pat a fuud fi di huol famili pan Sondi.	My mother cooked three pots of food for the whole family on Sunday.	315
+chrii	Chrii man fram di distrik kom elp mi bild di fens laas wiik.	Three men from the district came and helped me build the fence last week.	315
+chrii	Mi liv a farin chrii yier nou, an mi stil mis mi granmada fuud.	I've been living abroad three years now, and I still miss my grandmother's cooking.	315
+fuor	Fuor a wi shier wan ruum, so mi neva get no sliip laas nait.	Four of us share one room, so I didn't get any sleep last night.	316
+fuor	Di bos lef a fuor aklak, so wi hafi pak di baskit dem kwik.	The bus leaves at four o'clock, so we have to pack the baskets quickly.	316
+fuor	Mi tel di man fuor taim aredi, bot im stil naa lisn.	I've told the man four times already, and he still won't listen.	316
+faiv	Di mango tri ina wi yaad gi faiv baskit a frut dis yier.	The mango tree in our yard gave five baskets of fruit this year.	317
+faiv	Mi hafi wiek op a faiv aklak fi kech di fos bos a toun.	I have to get up at five o'clock to catch the first bus to town.	317
+faiv	Faiv a mi bes fren muuv a farin, an mi mis dem bad.	Five of my closest friends moved abroad, and I miss them badly.	317
+siks	Mi hafi kuk siks dompling bikaa di pikni dem ongri afta skuul.	I have to cook six dumplings because the children are hungry after school.	318
+siks	Siks a wi skwiiz ina di taksi, an di jraiva stil tek muor.	Six of us squeezed into the taxi, and the driver still picked up more.	318
+siks	Mi wok siks die evri wiik, an mi taiyad fi chuu.	I work six days every week, and I'm truly worn out.	318
+sevn	Sevn a wi did sidong roun di tiebl an nyam aal di puding.	Seven of us sat around the table and ate all the pudding.	319
+sevn	Di fishaman dem lef di biich a sevn an neva kom bak til nait.	The fishermen left the beach at seven and didn't come back until nightfall.	319
+sevn	Mi wiet sevn wiik fi di ansa, an mi staat fi waari nou.	I waited seven weeks for the answer, and now I'm starting to worry.	319
+nain	Mi granmada av nain granpikni, an dem aal kaal im Mama.	My grandmother has nine grandchildren, and every one of them calls her Mama.	320
+nain	Di shap open a nain aklak, bot di lain did lang aredi.	The shop opened at nine o'clock, but the line was already long.	320
+nain	Wi plie domino til nain aklak, an mi neva waan go yaad.	We played dominoes until nine o'clock, and I didn't want to go home.	320
+gud	Mi granmada kuk wan gud pat a rais an piiz fi Sondi dina.	My grandmother cooked a good pot of rice and peas for Sunday dinner.	102
+gud	Di nyuu tiicha suo gud dat aal di pikni dem waan go a skuul.	The new teacher is so good that all the children want to go to school.	102
+gud	Mi did tink se di konsert wuda bad, bot it did gud.	I thought the concert was going to be terrible, but it turned out good.	102
+pepa	Mi put tuu moch pepa ina di chikin, an nou mi mout a bon.	I put too much pepper in the chicken, and now my mouth is burning.	145
+pepa	Wen mi go a maakit, mi aalwiez bai pepa fram di siem uman.	When I go to the market, I always buy peppers from the same woman.	145
+pepa	Mi granfaada se fuud widout pepa no wort di taim fi kuk.	My grandfather says food without pepper isn't worth the time it takes to cook.	145
+ti	Evri mawnin mi granmada mek bush ti bifuo di huol yaad wiek.	Every morning my grandmother makes bush tea before the whole household wakes up.	146
+ti	Afta wi don plaant, di faama shier ti wid evribadi anda di tri.	After we finished planting, the farmer shared tea with everyone under the tree.	146
+ti	Mi kyaan sliip ef mi no drink wan kop a ti bifuo bed.	I can't sleep unless I have a cup of tea before bed.	146
+dala	Di bred kaas siks onjred dala nou, bot mi onggl av chrii onjred.	Bread costs six hundred dollars now, but I've only got three hundred.	150
+dala	Di taksi jraiva se im kyaan tek les dan tuu onjred dala.	The route-taxi driver says he can't take less than two hundred dollars.	150
+dala	Mi wuda gi mi las dala fi si mi pikni finish skuul.	I'd give my last dollar to see my child finish school.	150
+an	Wash yu an dem gud bifuo yu tach di fuud pan di tiebl.	Wash your hands properly before you touch the food on the table.	200
+an	Di faama kot im an wid di kotlas, suo im gaan a dakta.	The farmer cut his hand with the machete, so he's gone off to the doctor.	200
+an	Mi granmada uol mi an tait, den im se im no fried fi ded.	My grandmother held my hand tight, then said she wasn't afraid to die.	200
+rang	Mi bai di rang shuuz a maakit, an nou dem tuu tait.	I bought the wrong shoes at the market, and now they're too tight.	234
+rang	Di tiicha se mi ansa rang, bot mi buk se di siem ting.	The teacher says my answer is wrong, but my book says the same thing.	234
+rang	Mi did nuo se sinting rang wen nobadi neva ansa di duo.	I knew something was wrong when nobody answered the door.	234
+smadi	Smadi lef di giet open an aal di guot dem gaan.	Somebody left the gate open and all the goats have wandered off.	307
+smadi	Wi niid smadi we kyan jraiv di bos go a maakit pan Satdi.	We need somebody who can drive the bus to the market on Saturday.	307
+smadi	Ef smadi taak bad bout yu, no ansa dem, jos gwaan wid yu biznis.	If somebody talks badly about you, don't answer them, just get on with your business.	307
+notn	Mi luk ina di pat, bot notn no lef fi dina.	I looked in the pot, but there's nothing left for dinner.	308
+notn	Notn no sel a di shap tide, an di uona a waari.	Nothing has sold at the shop today, and the owner is worried.	308
+notn	Im du notn wen mi beg im fi elp, jos waak pas.	He did nothing when I begged him for help, he just walked on past.	308
+sinting	Sinting a muuv anda di bed, an di pus a luk pan it.	Something is moving under the bed, and the cat is watching it.	309
+sinting	Di tiicha waan tel yu sinting bifuo yu lef di skuul yaad.	The teacher wants to tell you something before you leave the school yard.	309
+sinting	Mi did waan se sinting, bot mi mout kudn open ina di miitn.	I wanted to say something, but I couldn't get my mouth open in the meeting.	309
+evriting	Wen di lait gaan las nait, evriting ina di ous ton daak.	When the power went last night, everything in the house went dark.	310
+evriting	Di rien mash op evriting we wi did av fi sel a maakit.	The rain ruined everything we had to sell at the market.	310
+evriting	Mi no waan moni, evriting mi niid de yaso ina dis yaad.	I don't want money — everything I need is right here in this yard.	310
+ten	Mi hafi wash ten pliet afta di huol famili nyam Sondi dina.	I have to wash ten plates after the whole family eats Sunday dinner.	321
+ten	Di tiicha gi wi ten kwestyan fi di tes, bot mi kudn ansa tuu.	The teacher gave us ten questions for the test, but I couldn't answer two of them.	321
+ten	Mi beg di man fi len mi ten dala, an im laaf afta mi.	I asked the man to lend me ten dollars, and he just laughed at me.	321
+onjred	Mi gi di faama wan onjred dala fi chrii big mango a di maakit.	I gave the farmer a hundred dollars for three big mangoes at the market.	322
+onjred	Wan onjred piipl kom a di konsert, an di chorch did ful op.	A hundred people came to the concert, and the church was packed.	322
+onjred	Mi tel yu wan onjred taim aredi fi shet di giet, man!	I've told you a hundred times already to shut the gate, man!	322
+touzn	Di taksi man aks mi tuu touzn dala fi kya mi go a toun.	The taxi man asked me for two thousand dollars to take me into town.	323
+touzn	Di faama sel faiv touzn dala wort a banana a di maakit pan Satdi.	The farmer sold five thousand dollars' worth of bananas at the market on Saturday.	323
+touzn	Mi wuda gi wan touzn dala fi si mi granmada wan muor taim.	I would give a thousand dollars just to see my grandmother one more time.	323
+fos	Di fos rien staat faal afta mi put di kloz pan di lain.	The first rain started falling right after I put the clothes on the line.	324
+fos	Dis a di fos taim mi ier di likl gyal sing a chorch.	This is the first time I've heard the little girl sing at church.	324
+fos	Mi beks bad bikaa dem aalwiez mek di bwai dem plie fos.	I'm really vexed because they always let the boys play first.	324
+las	Mi granmada kuk di las tuu eg fi mi bifuo mi go a skuul.	My grandmother cooked the last two eggs for me before I went to school.	325
+las	Di las bos gaan aredi, so wi hafi waak go a yaad.	The last bus has already gone, so we have to walk home.	325
+las	Dat a di las taim mi len im mi baisikl, bikaa im brok it.	That's the last time I lend him my bicycle, because he broke it.	325
+neks	Wi a go kil di fowl neks Sondi wen di huol famili kom.	We're going to kill the chicken next Sunday when the whole family comes.	326
+neks	Di tiicha se di neks tes aad, so wi fi ried di huol buk.	The teacher says the next test is hard, so we ought to read the whole book.	326
+neks	Neks taim yu waan tek mi buk, aks mi fos, yu ier mi?	Next time you want to take my book, ask me first — you hear me?	326
+oda	Wan shuuz de anda di bed, bot mi kyaan fain di oda wan.	One shoe is under the bed, but I can't find the other one.	327
+oda	Di oda bwai dem a plie futbaal, bot mi hafi ried mi buk.	The other boys are playing football, but I have to read my book.	327
+oda	Mi no laik ou di oda neba dem a labrish bout mi famili biznis.	I don't like the way the other neighbours gossip about my family's business.	327
+siem	Mi an mi bes fren baan di siem die, so wi shier wan pati.	My best friend and I were born on the same day, so we share one party.	328
+siem	Aal a wi a du di siem wok, bot im get muor moni.	All of us are doing the same work, but he gets more money.	328
+siem	Mi api fi si se dem stil plie rege ina di siem uol dansaal.	I'm happy to see that they still play reggae in the same old dancehall.	328
+difrant	Mi mada kuk sinting difrant tide, a no di siem uol rais an piiz.	My mother cooked something different today — not the same old rice and peas.	329
+difrant	Di nyuu tiicha difrant fram di uol wan; im mek di pikni dem laaf.	The new teacher is different from the old one; he makes the children laugh.	329
+difrant	Toun an kontri a tuu difrant plies, bot mi laik di kontri beta.	Town and country are two different places, but I like the country better.	329
+onggl	Di shap did onggl av wan bred lef, so mi bai it kwik.	The shop only had one loaf of bread left, so I bought it quickly.	330
+onggl	Onggl chrii piipl kom a di miitn, so wi lef an go a yaad.	Only three people came to the meeting, so we left and went home.	330
+onggl	Mi no beks wid yu, mi onggl waan yu tel mi di chrut.	I'm not angry with you; I only want you to tell me the truth.	330
+agen	Di lait gaan agen las nait, an wi sidong ina di daak til maanin.	The power went out again last night, and we sat in the dark until morning.	331
+agen	Di bos pas mi stap agen dis maanin, so mi riich a wok liet.	The bus went past my stop again this morning, so I got to work late.	331
+agen	Mi taiyad fi tel yu di siem ting agen an agen evri die.	I'm tired of telling you the same thing over and over again every day.	331
+aalwiez	Mi granmada aalwiez kuk tuu much fuud, an nobadi kyan finish it.	My grandmother always cooks too much food, and nobody can finish it.	332
+aalwiez	Di tiicha aalwiez aks mi fos, bikaa mi sidong a di frant.	The teacher always asks me first, because I sit at the front.	332
+aalwiez	Yu aalwiez riich liet, an dat a wa mek mi beks wid yu.	You always turn up late, and that's what makes me angry with you.	332
+somtaim	Somtaim di wata lak aaf, so wi kech rien ina wan big bakit.	Sometimes the water gets shut off, so we catch rain in a big bucket.	333
+somtaim	Somtaim di bos no kom at aal, so mi hafi waak a wok.	Sometimes the bus doesn't come at all, so I have to walk to work.	333
+somtaim	Mi mis mi granmada yaad somtaim, an mi jos sidong an baal.	Sometimes I miss my grandmother's house, and I just sit down and cry.	333
+nowe	Mi torn di huol ous opsaid dong, bot di kii dem de nowe.	I turned the whole house upside down, but the keys are nowhere to be found.	334
+nowe	Wi jraiv roun di toun fi wan our an fain nowe fi paak.	We drove around town for an hour and found nowhere to park.	334
+nowe	Dis chat naa go nowe, so mek wi jos drap it rait ya.	This conversation is going nowhere, so let's just drop it right here.	334
+evriwe	Afta di rien, moskita de evriwe roun di ous a nait.	After the rain, there are mosquitoes everywhere around the house at night.	335
+evriwe	Mi luk evriwe a di maakit fi jeli kokonat, bot nobadi naa sel it.	I looked everywhere in the market for jelly coconut, but nobody is selling any.	335
+evriwe	Mi fiil se piipl a wach mi evriwe mi go ina dis likl distrik.	I feel like people are watching me everywhere I go in this little district.	335
+muor	Put muor wata ina di pat, bikaa di rais a bon aredi.	Put more water in the pot, because the rice is already burning.	336
+muor	Dem gi mi muor moni dis mont, bot di wok get haada tuu.	They gave me more money this month, but the work got harder too.	336
+muor	Mi waan muor taim wid mi pikni dem, bot di wok neva don.	I want more time with my children, but the work is never finished.	336
+muos	Muos a di mango pan di tri red aredi, so pik dem tide.	Most of the mangoes on the tree are ripe already, so pick them today.	337
+muos	Muos die mi taiyad, bot mi stil get op an kuk brekfos.	Most days I'm worn out, but I still get up and cook breakfast.	337
+beta	Mi fiil beta nou dat di feva drap an mi kyan nyam.	I feel better now that the fever has broken and I can eat.	338
+beta	Di nyuu tiicha shuo wi di wok beta dan di wan bifuo im.	The new teacher explains the work better than the one before him.	338
+beta	Mi did tink se ting dem wuda beta afta wi muuv a toun.	I thought things would be better after we moved to town.	338
+bes	Mi mada kip di bes chier fi mi granfaada wen im kom vizit.	My mother keeps the best chair for my grandfather when he comes to visit.	339
+bes	Dem gi Delroy di bes prais fi im yam a di maakit tide.	They gave Delroy the best price for his yams at the market today.	339
+bes	Di bes ting mi eva du a muuv bak kom a kontri.	The best thing I ever did was move back to the country.	339
+wosa	Di liik ina di ruuf get wosa evri taim rien faal haad.	The leak in the roof gets worse every time it rains hard.	340
+wosa	Di ruod get wosa afta di big rien, so no bos naa ron tide.	The road got worse after the heavy rain, so no buses are running today.	340
+wosa	Wa mek it wosa, im neva iivn se sari afta aal dat.	What makes it worse is that he never even said sorry after all that.	340
+wos	Di wos rien fi di huol wiik faal las nait pan di zink ruuf.	The worst rain of the whole week came down on the zinc roof last night.	341
+wos	Mondi mawnin a di wos taim fi kech di bos go a toun.	Monday morning is the worst time to catch the bus into town.	341
+wos	Di wos paat a di huol ting a se im no sari fi it.	The worst part of the whole business is that he isn't sorry about it.	341
+dan	Di mango fram kontri swiita dan di wan dem we dem sel a toun.	The mangoes from the country are sweeter than the ones they sell in town.	342
+dan	Mi mek muor moni a di maakit dan mi did mek a di shap.	I make more money at the market than I made at the shop.	342
+dan	Mi wuda ruoda tel di chrut nou dan mek mi mada fain out laata.	I'd rather tell the truth now than have my mother find out later.	342
+bot	Mi kuk di rais an piiz aredi, bot di chikin no don yet.	I've already cooked the rice and peas, but the chicken isn't done yet.	343
+bot	Mi wiet a di bos stap fram siks aklak, bot no bos neva kom.	I waited at the bus stop from six o'clock, but no bus ever came.	343
+bot	Di wok haad an di moni likl, bot mi lov di piipl dem.	The work is hard and the pay is small, but I love the people there.	343
+ar	Yu a wash di kloz tide ar yu a lef it fi Satdi?	Are you washing the clothes today or are you leaving it for Saturday?	344
+ar	Di uman a di maakit aks mi ef mi waan akii ar saalfish tide.	The woman at the market asked me whether I wanted ackee or saltfish today.	344
+ar	Yu a mi fren ar yu a mi enimi? Mi no nuo agen.	Are you my friend or my enemy? I don't know any more.	344
+bikaa	Di lait gaan aal nait bikaa wan big tri faal pan di lain.	The power was out all night because a big tree fell on the line.	345
+bikaa	Mi kyaan kom a di miitn bikaa mi hafi kya mi granmada a dakta.	I can't come to the meeting because I have to take my grandmother to the doctor.	345
+bikaa	Mi neva go bak a dat shap bikaa im taak bad tu mi mada.	I never went back to that shop because he spoke rudely to my mother.	345
+ef	Ef yu no shet di giet, di fowl dem wi kom nyam di rais.	If you don't shut the gate, the chickens will come and eat the rice.	346
+ef	Ef di tiicha aks fi mi, tel im se mi gaan a dakta.	If the teacher asks for me, tell her I've gone to the doctor.	346
+ef	Ef mi did av di moni, mi wuda sen im go a hai skuul.	If I had the money, I would send him to high school.	346
+aldo	Aldo di ous likl, di huol famili fain wan plies fi sliip.	Although the house is small, the whole family found somewhere to sleep.	347
+aldo	Aldo di shap shet aredi, di uman sel mi wan bred chuu di winda.	Although the shop had already closed, the woman sold me a loaf through the window.	347
+aldo	Mi stil memba di sang aldo mi neva ier it fram mi did likl.	I still remember that song although I haven't heard it since I was little.	347
+suo	Di rien staat faal, suo wi ron go tek in di kloz.	The rain started falling, so we ran out to take in the clothes.	348
+suo	Nobadi neva ton op fi wok tide, suo mi wash aal di pliet dem.	Nobody turned up for work today, so I washed all the plates.	348
+suo	Mi taiyad fi beg im, suo mi lef im fi du wa im waan.	I'm tired of pleading with him, so I've left him to do what he wants.	348
+yes	Yes, mi shet di giet aredi, yu no hafi aks mi agen.	Yes, I've already shut the gate, you don't have to ask me again.	349
+yes	Yes man, di wok don, yu kyan kom fi di kii tumaro mawnin.	Yes man, the work is finished, you can come for the key tomorrow morning.	349
+yes	Yes, a mi brok di pliet, bot mi neva miin fi du it.	Yes, I'm the one who broke the plate, but I didn't mean to.	349
+iiya	Iiya, kom elp mi kya dis bag go a di kyaar.	Hey, come and help me carry this bag out to the car.	350
+iiya	Wa gwaan, iiya? Mi no si yu fram di konsert las wiik.	Hi, how are things? I haven't seen you since the concert last week.	350
+iiya	Iiya, no beks wid im, di bwai a onggl chrai fi elp.	Hey, don't be angry with him, the boy is only trying to help.	350
+waa-gwaan	Waa-gwaan, Miss Mary? Mi no si yu a chorch fram las Sondi.	What's up, Miss Mary? I haven't seen you at church since last Sunday.	351
+waa-gwaan	Di bwai dem a di shap griit mi wid waa-gwaan wen mi pas.	The boys outside the shop greet me with a what's-up every time I go by.	351
+waa-gwaan	Waa-gwaan wid yu tide? Yu no taak to nobadi fram mawnin.	What's going on with you today? You haven't spoken to anybody since this morning.	351
+mi-de-ya	Mi mada kaal mi evri Sondi, an mi aalwiez tel im se mi-de-ya.	My mother phones me every Sunday, and I always tell her I'm doing all right.	352
+mi-de-ya	Waa-gwaan, breda? Mi-de-ya, mi a tan op a di shap fi bred.	What's up, brother? I'm here, standing outside the shop waiting on bread.	352
+mi-de-ya	Taim aad an mi brok, bot wen dem aks mi, mi se mi-de-ya.	Times are hard and I'm broke, but when they ask me, I say I'm getting by.	352
+laata	Lef di pliet dem pan di tiebl, mi wi wash dem laata.	Leave the plates on the table, I'll wash them later.	353
+laata	Di dakta bizi nou, im wi si yu laata dis iivnin.	The doctor is busy now; he'll see you later this evening.	353
+laata	Evri wiik im se laata, bot laata neva kom wid mi moni.	Every week he says later, but later never turns up with my money.	353
+suun	Rien ago faal suun, suo ron go tek dong di kloz dem.	Rain is going to fall soon, so run and take the clothes down.	354
+suun	Di las bos ago lef suun, suo mek wi ron go kech it.	The last bus is leaving soon, so let's run and catch it.	354
+suun	Mi granmada sik, bot di dakta se im ago get beta suun.	My grandmother is ill, but the doctor says she'll get better soon.	354
+aredi	Mi wash aal di kloz aredi, suo sidong an res yu fut.	I've already washed all the clothes, so sit down and rest your feet.	355
+aredi	Wen mi riich a di maakit, dem sel out di bes mango aredi.	By the time I reached the market, they had already sold off the best mangoes.	355
+aredi	Mi tel yu aredi se mi no waan go, bot yu no lisn.	I already told you I don't want to go, but you don't listen.	355
+stil	A ten aklak nou an di pikni dem stil naa sliip.	It's ten o'clock now and the children still aren't going to sleep.	356
+stil	Mi de a di shap fram siks aklak an mi stil no finish.	I've been at the shop since six o'clock and I still haven't finished.	356
+stil	Mi granfaada ded, bot im uol chier stil de a di winda.	My grandfather is gone, but his old chair is still there by the window.	356
+yaso	Put dong di baskit yaso, no ova de-so a di duo.	Put the basket down right here, not over there by the door.	357
+yaso	Tan op yaso a di giet, mi ago kaal di taksi fi yu.	Wait right here at the gate; I'll call the taxi for you.	357
+yaso	Mi baan yaso, mi grou yaso, an mi naa lef dis yaad.	I was born right here, I grew up right here, and I'm not leaving this yard.	357
+baksaid	Baksaid! Di pus nyam-op di huol fish we did de pan di tiebl.	Wow! The cat ate up the whole fish that was sitting on the table.	358
+baksaid	Baksaid! Di bos lef mi an nou mi ago liet fi wok agen.	Good grief! The bus left me and now I'll be late for work again.	358
+baksaid	Baksaid, man! Mi neva nuo se yu kuda ron suo fas.	Wow, man! I never knew you could run that fast.	358
+raatid	Raatid! Di rien faal suo aad it nak dong di huol banana tri.	My goodness! The rain fell so hard it knocked the whole banana tree down.	359
+raatid	Raatid, Miss Mary! Yu kuk nof fuud fi di huol striit nyam.	My word, Miss Mary! You've cooked enough food to feed the whole street.	359
+raatid	A raatid mi se wen dem tel mi umoch di kyaar kaas.	All I could say was 'rahtid' when they told me how much the car cost.	359
+blesd	Mi granmada aalwiez se wi blesd fi av fuud pan di tiebl.	My grandmother always says we're blessed to have food on the table.	360
+blesd	Di faama se im blesd bikaa di rien faal pan im banana.	The farmer says he's blessed because the rain fell on his bananas.	360
+blesd	Mi brok, bot mi av mi famili an mi wok, suo mi blesd.	I'm broke, but I have my family and my work, so I'm blessed.	360
+uoltaim	Mi granmada uoltaim a kuk rais an piiz pan Sondi mawnin.	My grandmother is always cooking rice and peas on a Sunday morning.	381
+uoltaim	Di tiicha uoltaim a tel wi se wi mos ried evri nait.	The teacher is forever telling us we have to read every night.	381
+uoltaim	Di neba dem uoltaim a labrish bout mi famili, an dat beks mi.	The neighbours are always gossiping about my family, and that makes me angry.	381
+chrik	Di likl bwai chrik im sista an nyam aal di mango dem.	The little boy tricked his sister and ate every one of the mangoes.	382
+chrik	Di man we sel fish a maakit chrik mi wid di moni.	The man who sells fish at the market cheated me over the money.	382
+chrik	Duon mek nobadi chrik yu wid swiit taak bout kwik dala.	Don't let anybody fool you with sweet talk about quick money.	382
+ting	Put dong di ting dem pan di tiebl bifuo yu go a skuul.	Put your things down on the table before you leave for school.	383
+ting	Di uman a di maakit sel nof ting, fram saalfish tu piepa.	The woman at the market sells all sorts of things, from saltfish to paper.	383
+ting	Di ting we beks mi muos a se im neva se sari.	The thing that angered me most is that he never said sorry.	383
+fuul	Duon mek di pikni fuul yu, im nuo we di moni de.	Don't let the child fool you — he knows exactly where the money is.	384
+fuul	Di man dem a toun tink se wi fuul bikaa wi kom fram kontri.	The men in town think we're fools because we come from the country.	384
+fuul	Mi did luk fuul wen mi kaal di rang niem a di pati.	I looked like a fool when I called the wrong name at the party.	384
+wudn	Mi wudn lef mi pikni a yaad wid smadi we mi no nuo.	I wouldn't leave my child at home with somebody I don't know.	385
+wudn	Mi wudn tek dat wok fi suo likl moni, aldo mi niid it.	I wouldn't take that job for so little money, even though I need it.	385
+wudn	Ef im did tel mi di chrut, mi wudn beks suo bad.	If he had told me the truth, I wouldn't be this angry.	385
+kudn	Di lait gaan las nait, suo mi kudn finish kuk di dina.	The power went out last night, so I couldn't finish cooking dinner.	386
+kudn	Mi did waan kom a di miitn, bot mi kudn get no bos.	I wanted to come to the meeting, but I couldn't get a bus.	386
+kudn	Mi kudn sliip las nait, di daag dem a baak a di giet.	I couldn't sleep last night — the dogs were barking at the gate.	386
+lait	Evri taim rien faal aad, di lait gaan an mi fuon ded.	Every time the rain comes down hard, the power goes and my phone dies.	387
+lait	Di man dem a wok pan di striit lait fram mawnin.	The men have been working on the street lights since morning.	387
+lait	Mi did api wen di lait kom bak, bikaa di pikni dem fried.	I was relieved when the power came back, because the children were frightened.	387
+kier	Tek kier a yu granmada wen mi gaan a maakit, yaa.	Look after your grandmother while I'm away at the market, all right?	388
+kier	Di dakta se mi fi tek kier a mi fut fi tuu wiik.	The doctor said I should take care of my foot for two weeks.	388
+kier	Mi mada tek kier a evribadi, bot nobadi tek kier a im.	My mother takes care of everybody, but nobody takes care of her.	388
+yet	Di rais no don kuk yet, suo sidong an wiet likl bit.	The rice isn't done yet, so sit down and wait a little.	389
+yet	Mi sen di moni tuu wiik gaan, bot im no kaal mi yet.	I sent the money two weeks ago, but he still hasn't called me.	389
+yet	Di pikni dem no riich fram skuul yet an mi a waari.	The children aren't back from school yet and I'm starting to worry.	389
+matimatiks	Evri iivnin mi elp mi bwai wid im matimatiks bifuo dina.	Every evening I help my son with his maths before dinner.	390
+matimatiks	Wi av wan big matimatiks tes neks wiik, suo nobadi a plie.	We have a big maths test next week, so nobody is fooling around.	390
+matimatiks	Mi neva laik matimatiks a skuul, bot nou it elp mi biznis.	I never liked maths at school, but now it helps me run my business.	390
+faava	Evribadi ina di yaad se di nyuu biebi faava im granfaada.	Everybody at the house says the new baby takes after his grandfather.	371
+faava	Di man we sel fish dong a maakit faava mi onkl bad.	The man who sells fish down at the market looks just like my uncle.	371
+faava	Mi kyaan biliiv ou yu faava yu sista wen unu tuu a laaf.	I can't believe how much you look like your sister when the two of you laugh.	371
+mash-op	Di pikni dem plie ina di ous an mash-op mi bes chier.	The children were playing in the house and wrecked my best chair.	372
+mash-op	Di rien faal suo aad, it mash-op di ruod we go a kontri.	The rain fell so hard that it destroyed the road that goes to the country.	372
+mash-op	Mi beks bad, bikaa smadi mash-op mi nyuu baisikl a di giet.	I'm really angry, because somebody wrecked my new bicycle at the gate.	372
+nyam-op	Wen mi kom fram wok, di pikni dem nyam-op aal di dina.	When I got home from work, the children had eaten up all the dinner.	373
+nyam-op	Wi kuk nof chikin fi di pati, bot di fren dem nyam-op evriting.	We cooked plenty of chicken for the party, but our friends devoured the lot.	373
+nyam-op	Mi kyaan biliiv se di guot nyam-op evri flowa we mi plaant yeside.	I can't believe the goat ate up every flower I planted yesterday.	373
+griit	Evri maanin mi granmada griit di neba dem we pas di giet.	Every morning my grandmother greets the neighbours who pass the gate.	374
+griit	Di tiicha mek wi griit im ina Patwa bifuo wi staat fi ried.	The teacher makes us greet him in Patois before we start reading.	374
+griit	It rang fi waak pas yu eldas an no griit dem gud maanin.	It's wrong to walk past your elders and not greet them good morning.	374
+respek	Ina mi granmada ous, respek fi di eldas kom bifuo evriting.	In my grandmother's house, respect for the elders comes before everything.	375
+respek	Wen di uol fishaman pas, evri bwai a di sii gi im respek.	When the old fisherman goes by, every boy at the shore shows him respect.	375
+respek	Mi no waan yu moni, mi onggl waan wan likl respek fram yu.	I don't want your money, all I want is a little respect from you.	375
+bigop	Mi mada bigop mi bifuo di huol famili wen mi pas di tes.	My mother praised me in front of the whole family when I passed the exam.	376
+bigop	Di singa bigop evri smadi we kom out a di dansaal las nait.	The singer gave a shout-out to everyone who came out to the dancehall last night.	376
+bigop	Mi hafi bigop mi tiicha, bikaa a shi mek mi lov fi ried.	I have to big up my teacher, because she's the one who made me love reading.	376
+linkop	Mek wi linkop a di shap afta yu don wash di kloz.	Let's meet up at the shop after you've finished washing the clothes.	377
+linkop	Mi wi linkop wid di oda faama dem a di maakit Satdi maanin.	I'll meet up with the other farmers at the market on Saturday morning.	377
+linkop	Mi api evri taim wi linkop, bikaa yu aalwiez mek mi laaf.	I'm happy every time we get together, because you always make me laugh.	377
+chek	Evri Sondi afta chorch mi chek mi granmada op a di hil.	Every Sunday after church I go and visit my grandmother up on the hill.	378
+chek	Bifuo yu jraiv go a toun, chek di wata ina di kyaar.	Before you drive into town, check the water in the car.	378
+chek	It sad se nobadi neva chek pan di uol man neks duo.	It's sad that nobody ever looks in on the old man next door.	378
+waan-taim	Wi go a di sii waan-taim a mont, wen di kyaar a wok.	We go down to the sea once a month, whenever the car is running.	379
+waan-taim	Di faama tel wi fi pik aal di mango waan-taim, bifuo rien faal.	The farmer told us to pick all the mangoes at once, before the rain came.	379
+waan-taim	Mi si wan dopi waan-taim wen mi did likl, an mi stil fried.	I saw a duppy once when I was small, and I'm still frightened.	379
+tuu-taim	Mi hafi bied di dag tuu-taim a mont, bikaa im lov di doti.	I have to bathe the dog twice a month, because he loves the dirt.	380
+tuu-taim	Di bos pas mi tuu-taim dis maanin bikaa i did ful op.	The bus passed me twice this morning because it was packed.	380
+tuu-taim	Mi aks yu tuu-taim aredi fi kaal mi, bot yu neva kaal bak.	I've asked you twice already to call me, but you never called back.	380
+dis	Dis a di ous we mi granmada baan an grou op.	This is the house where my grandmother was born and grew up.	391
+dis	Di faama tel mi se dis mango dem no riedi yet.	The farmer told me these mangoes aren't ready yet.	391
+dis	Mi kyaan biliiv dis, di piipl dem stil a tan ina di rien.	I can't believe this — the people are still standing out there in the rain.	391
+du	Wa yu a du a yaad suo orli pan wan satdi mawnin?	What are you doing at home so early on a Saturday morning?	392
+du	Di dakta aks mi wa mi did a du wen mi fut brok.	The doctor asked me what I was doing when I broke my foot.	392
+du	Mi sari fi we mi du, bot mi kyaan ton bak nou.	I'm sorry for what I did, but I can't turn back now.	392
+eldas	Mi mada sen mi go elp di eldas dem kya dem bag.	My mother sent me to help the elders carry their bags.	393
+eldas	Di eldas fram di chorch kom a yaad fi taak tu mi faada.	The elders from the church came to the house to talk to my father.	393
+eldas	Di eldas dem wort muor dan gold, bot nobadi no lisn tu dem.	The elders are worth more than gold, but nobody listens to them.	393
+wanti	Mi granmada aalwiez se wanti wanti kyaan getti wen mi staat baal fi muor.	My grandmother always says 'those who want can't get' whenever I start crying for more.	394
+wanti	Im a beg mi fi di las mango, bot wanti wanti kyaan getti.	He's begging me for the last mango, but those who want can't get.	394
+wanti	Mi did waan di wok suo bad, bot wanti wanti kyaan getti.	I wanted that job so badly, but those who want can't get.	394
+kaal	Duon figet fi kaal mi wen yu riich a yaad, yaa.	Don't forget to call me when you get home, you hear?	395
+kaal	Di tiicha did kaal mi mada bikaa mi neva riich skuul pan taim.	The teacher phoned my mother because I didn't get to school on time.	395
+kaal	Im neva kaal mi bak fram las wiik, an dat mek mi beks.	He hasn't called me back since last week, and that makes me angry.	395
+patwa	Mi granmada taak Patwa tu mi fram mi did wan likl pikni.	My grandmother has spoken Patois to me since I was a small child.	396
+patwa	Mi a laan Patwa fi chuu, bikaa mi waan andastan di dansaal sang.	I'm learning Patois for real, because I want to understand the dancehall songs.	396
+patwa	Patwa swiit ina mi ier wen mi granfaada a tel im uol stori.	Patois sounds sweet in my ear when my grandfather is telling his old stories.	396
+fram	Mi aanti sen dis bag a mango fram kontri fi di huol famili.	My aunt sent this bag of mangoes from the country for the whole family.	397
+fram	Di fishaman dem kom bak fram sii wid nof fish dis mawnin.	The fishermen came back from the sea with plenty of fish this morning.	397
+fram	Nobadi no nuo we di myuuzik a kom fram, bot evribadi a daans.	Nobody knows where the music is coming from, but everybody is dancing.	397
+tu	Lisn tu mi gud nou: duon open di giet fi nobadi tide.	Listen to me carefully now: don't open the gate for anybody today.	398
+tu	Mi neva se notn tu di polis wen dem aks mi bout di fait.	I didn't say anything to the police when they asked me about the fight.	398
+tu	Mi neba nais tu mi, im aalwiez sen dina ova wen mi sik.	My neighbour is good to me — she always sends dinner over when I'm sick.	398
+tingk	Mi kyaan tingk strait dis mawnin, di pikni dem a baal fram siks aklak.	I can't think straight this morning; the children have been bawling since six o'clock.	399
+tingk	Mi did tingk se di miitn did don, bot piipl stil a taak.	I thought the meeting was over, but people are still talking.	399
+tingk	Mi laik ou yu tingk, yu aalwiez fain wan ansa we nobadi no si.	I like the way you think — you always find an answer nobody else sees.	399
+naa	Mi naa nyam no mit tide, mi onggl waan som rais an piiz.	I'm not eating any meat today, I just want some rice and peas.	400
+naa	Di bos naa ron pan sondi, suo wi hafi tek wan taksi.	The bus isn't running on Sunday, so we have to take a taxi.	400
+naa	Mi naa taak tu im agen afta ou im tel lai pan mi.	I'm not speaking to him again after the way he lied about me.	400
+jah	Bifuo wi nyam, mi granmada aalwiez tank Jah fi di fuud.	Before we eat, my grandmother always gives thanks to Jah for the food.	361
+jah	Wen di lait gaan las nait, di eldas dem stil a sing tu Jah.	When the power went out last night, the elders were still singing to Jah.	361
+jah	Mi neva biliiv mi wuda si dis die, bot Jah nuo bes.	I never thought I'd live to see this day, but Jah knows best.	361
+ital	Mi aanti kuk wan big pat a ital fuud evri Satdi mawnin.	My aunt cooks a big pot of ital food every Saturday morning.	362
+ital	Mi fren open wan ital shap a toun, an di yuut dem lov it.	My friend opened an ital shop in town, and the young people love it.	362
+ital	Mi breda se ital fuud swiit, bot mi stil waan wan piis a chikin.	My brother says ital food tastes good, but I still want a piece of chicken.	362
+ganja	Mi onkl plaant ganja op a kontri, bot di rien mash-op evriting.	My uncle planted ganja up in the country, but the rain destroyed the lot.	363
+ganja	Wen tuuris kom a Jamieka, som a dem onggl aks bout rege an ganja.	When tourists come to Jamaica, some of them only ask about reggae and ganja.	363
+ganja	Mi mada beks bad wen shi smel ganja ina di bak yaad.	My mother gets really angry when she smells ganja in the back yard.	363
+dopi	Mi granmada se dopi de pan di ruod, so shi no waak a nait.	My grandmother says there are duppies out on the road, so she doesn't walk at night.	364
+dopi	Nobadi no waan bai di uol ous bikaa piipl se dopi liv de-so.	Nobody wants to buy the old house because people say a duppy lives there.	364
+dopi	Mi neva biliiv ina dopi til mi ier sinting a waak ina di ous.	I never believed in duppies until I heard something walking about in the house.	364
+obiya	Wen di biznis brok dong, im breda se a obiya dem wok pan im.	When the business collapsed, his brother said it was obeah somebody had worked on him.	365
+obiya	Di uol man dong a di riva tek moni fi wok obiya fi piipl.	The old man down by the river takes money to work obeah for people.	365
+obiya	Mi granfaada se obiya kyan ton bak pan di wan we sen it.	My grandfather says obeah can turn back on the person who sent it.	365
+anansi	Wen di lait gaan, mi mada tel wi Anansi stori ina di daak.	When the power went out, my mother told us Anansi stories in the dark.	366
+anansi	Duon lisn tu im, im a chrik yu jos laik Anansi chrik Taiga.	Don't listen to him, he's tricking you just the way Anansi tricked Tiger.	366
+anansi	Mi lov Anansi bikaa di likl spaida aalwiez beta dan di big animal dem.	I love Anansi because the little spider always outsmarts the big animals.	366
+labrish	Nof labrish a gwaan a di shap tide bout uu marid uu.	There's plenty of gossip going round the shop today about who married whom.	367
+labrish	Wen mi riich a wok, di labrish bout di nyuu manija did don staat.	By the time I got to work, the gossip about the new manager had already started.	367
+labrish	Mi taiyad a di labrish we gwaan a chorch bout mi kloz evri Sondi.	I'm tired of the gossip that goes on at church about my clothes every Sunday.	367
+chil	Wen di son go dong, wi jos chil pan di veranda an drink ti.	When the sun goes down, we just relax on the veranda and drink tea.	368
+chil	Kom chil wid wi dong a di riva Satdi, wi a kuk fish.	Come and chill with us down by the river on Saturday, we're cooking fish.	368
+chil	Mi kyaan chil wen so moch wok de pan mi ed.	I can't relax with so much work on my mind.	368
+smaal-op	Wi hafi smaal-op roun di tiebl bikaa so moch famili kom fi Krismos.	We had to squeeze up round the table because so much family came for Christmas.	369
+smaal-op	Wen di chorch ful op pan Sondi, di pasta aks wi fi smaal-op.	When the church fills up on Sunday, the pastor asks us to make room.	369
+smaal-op	Mi taiyad fi smaal-op ina di taksi evri mawnin fi go a wok.	I'm tired of squeezing up in the taxi every morning to get to work.	369
+blai	Wen mi kudn pie di huol fier, di taksi man gi mi wan blai.	When I couldn't pay the whole fare, the taxi man let me off.	370
+blai	Di tiicha gi di bwai wan las blai bifuo shi sen im a yaad.	The teacher gave the boy one last chance before she sent him home.	370
+blai	Mi neva get no blai fram nobadi wen mi did yong an brok.	Nobody ever gave me a break when I was young and broke.	370
+ova	Di dag jomp ova di giet an ron dong di striit afta di taksi.	The dog jumped over the gate and ran down the street after the taxi.	401
+ova	Kom ova a mi yaad satdi iivnin, wi a kuk dina fi evribadi.	Come over to my yard on Saturday evening, we're cooking dinner for everybody.	401
+ova	Mi kyaan sliip wen di myuuzik fram di dansaal a kom ova di fens.	I can't sleep when the music from the dancehall comes over the fence.	401
+maanin	Evri maanin mi granmada mek ti an wiek evribadi ina di ous.	Every morning my grandmother makes tea and wakes everybody in the house.	402
+maanin	Wi did a labrish a di giet aal maanin an figet fi kuk dina.	We were gossiping at the gate all morning and forgot to cook dinner.	402
+maanin	Ina di maanin mi kyaan taak tu nobadi bifuo mi drink mi kaafi.	In the morning I can't talk to anybody before I've had my coffee.	402
+kuul	Kuul dong, man, di bos ago kom suun an wi no liet yet.	Calm down, man, the bus is going to come soon and we're not late yet.	403
+kuul	Di polis tel di tuu man fi kuul dong bifuo di fait staat.	The policeman told the two men to calm down before the fight started.	403
+kuul	Wen mi beks bad, mi waak go a di sii fi kuul dong.	When I get really angry, I walk down to the sea to cool off.	403
+sen	Mi mada sen mi go a di shap fi saal an wan dazn eg.	My mother sent me to the shop for salt and a dozen eggs.	404
+sen	Evri wiik mi onkl sen moni kom fi bai buk fi di pikni dem.	Every week my uncle sends money over to buy books for the children.	404
+sen	Mi beks se dem neva sen no ansa afta mi rait chrii taim.	I'm annoyed that they never sent any answer after I wrote three times.	404
+flai	Evri maanin di jankro dem a flai ova di bush a luk fi fuud.	Every morning the john crows are flying over the bush looking for food.	405
+flai	Wan waas flai kom ina di ruum an mek di pikni dem baal out.	A wasp flew into the room and made the children scream.	405
+flai	Mi aanti fried fi flai, suo im neva lef Jamieka wan die yet.	My aunt is afraid to fly, so she has never left Jamaica for a single day.	405
+wort	Dis uol baisikl wort muor dan di nyuu wan we dem a sel.	This old bicycle is worth more than the new one they're selling.	406
+wort	Di faama se im guot wort chrii touzn dala a maakit tide.	The farmer says his goat is worth three thousand dollars at the market today.	406
+wort	Mi granfaada aalwiez se wan gud fren wort muor dan nof moni.	My grandfather always says one good friend is worth more than plenty of money.	406
+gruo	Mi mada gruo pepa, koko an banana baka di ous.	My mother grows peppers, coco and bananas behind the house.	407
+gruo	Di tiicha mek di pikni dem gruo piiz ina wan glaas a wata.	The teacher had the children grow peas in a glass of water.	407
+gruo	Luk ou fas di biebi gruo, im aredi big laik im breda.	Look how fast the baby is growing, he's already as big as his brother.	407
+fraitn	Di dag dem staat baak ina di nait an fraitn di huol famili.	The dogs started barking in the night and frightened the whole family.	408
+fraitn	Di nyuu tiicha no waan fraitn di likl wan dem pan dem fos die.	The new teacher doesn't want to frighten the little ones on their first day.	408
+fraitn	Mi granmada stori bout dopi fraitn mi bad, suo mi no waak a nait.	My grandmother's ghost stories scared me so badly that I don't walk out at night.	408
+taala	Mi likl breda taala dan mi nou, an im onggl ten.	My little brother is taller than me now, and he's only ten.	409
+taala	Dem mek di taala bwai dem tan a di bak fi di skuul pikcha.	They made the taller boys stand at the back for the school photo.	409
+taala	Evribadi se mi taala dan mi faada, bot mi no biliiv dem.	Everybody says I'm taller than my father, but I don't believe them.	409
+finga	Mi kot mi finga wen mi did a kliin di fish fi dina.	I cut my finger while I was cleaning the fish for dinner.	410
+finga	Di nors aks di uol man fi muuv aal ten finga slou-slou.	The nurse asked the old man to move all ten fingers very slowly.	410
+finga	Mi kyaan biliiv se im plie di huol sang wid onggl fuor finga.	I can't believe he played the whole song with only four fingers.	410
+pat	Mi mada put di big pat pan di faiya bifuo di rien staat.	My mother put the big pot on the fire before the rain started.	421
+pat	Di uman dem a kuk di rais ina wan big pat fi di pati.	The women are cooking the rice in a big pot for the party.	421
+pat	Mi no laik wash di pat afta Sondi dina, bot mi hafi du it.	I don't like washing the pot after Sunday dinner, but I have to.	421
+shuo	Di pikni dem waan si di shuo pan di fuon bifuo dem sliip.	The children want to watch the show on the phone before they go to sleep.	422
+shuo	Di shuo a go staat nain aklak, suo mek wi lef di yaad nou.	The show is going to start at nine o'clock, so let's leave the yard now.	422
+shuo	Di shuo las nait swiit mi suo, mi neva waan go a mi yaad.	Last night's show was so good that I didn't want to go home.	422
+daag	Di daag sliip anda di ous di huol die wen di son at.	The dog sleeps under the house all day when the sun is hot.	423
+daag	Mi neba daag dem a baak evri taim smadi pas di giet.	My neighbour's dogs bark every time somebody passes the gate.	423
+daag	Mi lov mi daag muor dan som a di piipl we mi nuo.	I love my dog more than some of the people I know.	423
+aad	Di tes tumaro aad, bot mi ried di huol buk aredi.	Tomorrow's test is hard, but I've already read the whole book.	424
+aad	Wok a di maakit aad wen rien a faal an nobadi no kom.	Working at the market is hard when the rain is falling and nobody comes.	424
+aad	It aad fi figet wan fren we yu gruo op wid.	It's hard to forget a friend you grew up with.	424
+miin	Mi neva miin fi brok di glaas, suo no beks wid mi.	I didn't mean to break the glass, so don't be upset with me.	425
+miin	Wen di tiicha se 'suun kom', im miin se im a go tek taim.	When the teacher says 'soon come', he means he's going to take his time.	425
+miin	Mi no nuo wa yu miin wen yu tel mi se yu aarait.	I don't know what you mean when you tell me you're fine.	425
+soso	Wi neva kuk no mit, suo wi nyam soso rais fi dina.	We didn't cook any meat, so we ate nothing but plain rice for dinner.	426
+soso	Soso man de a di miitn, an dem no waan lisn tu mi.	It's nothing but men at the meeting, and they don't want to listen to me.	426
+soso	Yu a taak soso lai, an evribadi ina di yaad nuo it.	You're talking nothing but lies, and everybody in the yard knows it.	426
+futbaal	Afta skuul di pikni dem plie futbaal ina di striit wid wan uol baal.	After school the children play football in the street with an old ball.	427
+futbaal	Evri Satdi mi onkl an im fren dem plie futbaal a di skuul yaad.	Every Saturday my uncle and his friends play football in the school yard.	427
+futbaal	Wen Jamieka win di futbaal, di huol toun staat daans an sing.	When Jamaica wins at football, the whole town starts dancing and singing.	427
+haad	Mi mada wok haad aal die an stil kuk dina fi wi.	My mother works hard all day and still cooks dinner for us.	428
+haad	Di faama dem wok haad fram mawnin tu nait fi mek wan likl moni.	The farmers work hard from morning till night to make a little money.	428
+haad	Mi chrai haad fi andastan di buk, bot mi tuu taiyad tide.	I'm trying hard to understand the book, but I'm too tired today.	428
+baak	Di daag dem a baak fram mawnin bikaa di pus de pan di fens.	The dogs have been barking since morning because the cat is on the fence.	429
+baak	Wen di daag dem baak, di faama nuo se smadi de a di giet.	When the dogs bark, the farmer knows somebody is at the gate.	429
+baak	Di daag baak hai aal nait, suo nobadi ina di ous kudn sliip.	The dog barked loudly all night, so nobody in the house could sleep.	429
+bikom	Afta di rien faal fi chrii die, di ruod bikom wan riva.	After the rain fell for three days, the road became a river.	430
+bikom	Mi breda staat sel fish a di maakit an bikom wan biznis man.	My brother started selling fish at the market and became a businessman.	430
+bikom	Di likl bwai we yu memba bikom wan big man aredi.	The little boy you remember has already become a grown man.	430
+kwaia	Evri Sondi maanin mi granmada mek mi sing ina di kwaia a chorch.	Every Sunday morning my grandmother makes me sing in the choir at church.	481
+kwaia	Las nait di kwaia praktis chruu di rien fi di konsert a Satdi.	Last night the choir rehearsed right through the rain for Saturday's concert.	481
+kwaia	Mi kyaan stap krai wen di kwaia sing di sang mi mada did lov.	I can't stop crying when the choir sings the song my mother loved.	481
+king	Evri Krismos mi mada tel wi di stori bout di chrii king dem.	Every Christmas my mother tells us the story about the three kings.	482
+king	Fi di skuul plie, dem mek Delroy di king an gi im wan kroun.	For the school play, they made Delroy the king and gave him a crown.	482
+king	Afta im win di daans, im waak chruu di dansaal laik im a king.	After he won the dance contest, he walked through the dancehall like a king.	482
+baskit	Mi granmada put aal di mango dem ina wan big baskit.	My grandmother put all the mangoes into one big basket.	441
+baskit	Di uman a maakit a sel piiz outa wan baskit pan ar ed.	The woman at the market is selling peas out of a basket balanced on her head.	441
+baskit	Mi did beks wen di baskit brok an aal di eg dem mash op.	I was furious when the basket broke and all the eggs got smashed.	441
+fens	Di daag jomp ova di fens agen an ron dong di ruod.	The dog jumped over the fence again and ran off down the road.	442
+fens	Mi faada an mi onkl a fiks di fens bifuo di rien kom.	My father and my uncle are mending the fence before the rain comes.	442
+fens	Mi neba put im fens pan mi lain, an dat beks mi bad.	My neighbour put his fence right on my boundary line, and that made me really angry.	442
+aklak	Di bos lef a siks aklak evri mawnin, so no kom liet.	The bus leaves at six o'clock every morning, so don't turn up late.	443
+aklak	Mi hafi riich a wok a sevn aklak, bot di taksi neva kom.	I have to be at work by seven o'clock, but the taxi never showed up.	443
+aklak	Di miitn ron til ten aklak, an evribadi did taiyad an ongri.	The meeting dragged on until ten o'clock, and everybody was tired and hungry.	443
+sondi	Evri Sondi mawnin mi granmada kuk rais an piiz fi di huol famili.	Every Sunday morning my grandmother cooks rice and peas for the whole family.	444
+sondi	Wi go a chorch pan Sondi, den wi waak go a di bich afta.	We go to church on Sunday, then afterwards we walk down to the beach.	444
+sondi	Mi no laik wen Sondi don, bikaa Mondi mawnin kom tuu kwik.	I hate it when Sunday is over, because Monday morning comes around far too fast.	444
+glaas	Gi mi wan glaas a kuol wata, di son at tuu bad tide.	Give me a glass of cold water, the sun is far too hot today.	445
+glaas	Afta wi don wok, evribadi sidong an drink wan glaas a juus.	After we finished working, everybody sat down and drank a glass of juice.	445
+glaas	Mi did fraitn wen di glaas faal an brok op ina di sink.	I got a fright when the glass fell and smashed to pieces in the sink.	445
+pikcha	Mi mada kip wan uol pikcha a ar faada bai ar bed.	My mother keeps an old photo of her father beside her bed.	446
+pikcha	Mek mi si di pikcha we yu tek a di pati laas nait.	Let me see the photo you took at the party last night.	446
+pikcha	Evri taim mi luk pan dis pikcha, mi memba mi granmada an krai.	Every time I look at this photo, I remember my grandmother and cry.	446
+meri	Di uol man dem did meri an a laaf til di pati don.	The old men were in high spirits and kept laughing until the party ended.	447
+meri	Wen Krismus riich, di huol yaad meri an di myuuzik plie til mawnin.	When Christmas comes around, the whole yard is merry and the music plays till morning.	447
+meri	Im luk meri pan di outsaid, bot mi nuo se im aat brok.	He looks cheerful on the outside, but I know his heart is broken.	447
+haak	Wan haak a flai ova di yaad, a luk fi di chikin dem.	A hawk is circling over the yard, hunting for the chickens.	448
+haak	Di faama shuo mi we di haak kech im bes fowl laas wiik.	The farmer showed me where the hawk snatched his best hen last week.	448
+haak	Mi granmada aalwiez se, chikin meri, haak de nier, an im rait.	My grandmother always says the chicken is merry while the hawk is near, and she's right.	448
+giet	Mi kaal fram di giet, bot nobadi ina di ous ier mi.	I called from the gate, but nobody in the house heard me.	449
+giet	Evri iivnin mi granfaada lien pan di giet an labrish wid di neba.	Every evening my grandfather leans on the gate and chats with the neighbour.	449
+giet	Mi taiyad fi tel di pikni dem fi kip di giet shet a nait.	I'm tired of telling the children to keep the gate shut at night.	449
+koko	Mi mada bwail koko an yam fi dina wen di rien a faal.	My mother boils cocoyam and yam for dinner when the rain is falling.	450
+koko	Di faama dig op im koko fram di grong bifuo di maakit open.	The farmer digs his cocoyam out of the ground before the market opens.	450
+koko	Wan wan koko ful baskit, so tek yu taim an no gi op.	One cocoyam at a time fills the basket, so take your time and don't give up.	450
+dina	Evri Sondi mi granmada kuk dina fi di huol famili.	Every Sunday my grandmother cooks dinner for the whole family.	411
+dina	Mi riich a yaad liet fi dina bikaa di bos brok dong.	I got home late for dinner because the bus broke down.	411
+dina	Di dina we dem sel a di nyuu shap no wort di moni.	The dinner they sell at the new shop isn't worth the money.	411
+faal	Rien a faal fram maanin, suo nobadi no go a maakit tide.	It has been raining since morning, so nobody went to the market today.	412
+faal	Wan mango faal pan di kyaar wen wi did a pas anda di tri.	A mango fell on the car as we were passing under the tree.	412
+faal	Wen mi granfaada faal ina di yaad, evribadi ron kom elp im op.	When my grandfather fell in the yard, everybody ran to help him up.	412
+sting	Wen mi did a pik mango, wan waas sting mi pan mi finga.	While I was picking mangoes, a wasp stung me on the finger.	413
+sting	Evri taim mi nyam dat pepa, it sting mi mout an mek mi krai.	Every time I eat that pepper it burns my mouth and makes me cry.	413
+sting	Di sii wata sting di kot pan mi fut, bot mi stil go swim.	The sea water stung the cut on my foot, but I went swimming anyway.	413
+baal	Mi breda lef im baal ina di yaad an di dag kya it gaan.	My brother left his ball in the yard and the dog carried it off.	414
+baal	Afta skuul di bwai dem plie futbaal wid wan uol baal pan di ruod.	After school the boys play football with an old ball out in the road.	414
+baal	Mi neva kech di baal, an di huol skuul laaf afta mi.	I missed the ball, and the whole school laughed at me.	414
+ful	Mi mada ful op di baskit wid mango an akii fi di maakit.	My mother filled the basket with mangoes and ackee for the market.	415
+ful	Di chorch did ful fram maanin, suo wi hafi sidong a di bak.	The church was full from early morning, so we had to sit at the back.	415
+ful	Mi beli suo ful afta di Sondi dina dat mi kyaan muuv.	My belly is so full after Sunday dinner that I can't move.	415
+iihn	Yu did tel mi se yu a kom a di pati tumaro, iihn?	You told me you were coming to the party tomorrow, right?	416
+iihn	Yu shet di giet bifuo yu lef di ous dis maanin, iihn?	You shut the gate before you left the house this morning, didn't you?	416
+iihn	Dat rege sang we dem plie las nait swiit tuu bad, iihn?	That reggae tune they played last night was really something, wasn't it?	416
+duon	Duon open di duo fi nobadi wen mi gaan a maakit, yu ier mi?	Don't open the door for anybody while I'm at the market, you hear me?	417
+duon	Duon lef di giet open, di guot dem wi kom nyam mi plaant.	Don't leave the gate open, the goats will come and eat my plants.	417
+duon	Duon waari bout wa piipl a se, yu du yu bes aredi.	Don't worry about what people are saying, you already did your best.	417
+baka	Di pus a sliip baka di duo we nobadi kyan si im.	The cat is sleeping behind the door where nobody can see it.	418
+baka	Di faama put im guot dem baka di ous suo nobadi no tiif dem.	The farmer keeps his goats behind the house so nobody steals them.	418
+baka	Mi lef mi baisikl baka di shap an wen mi kom bak it gaan.	I left my bicycle behind the shop, and when I came back it was gone.	418
+dat	Mi no waan dat wan, gi mi di big mango pan di tiebl.	I don't want that one, give me the big mango on the table.	419
+dat	Di tiicha aks uu du dat, bot nobadi ina di ruum no ansa.	The teacher asked who did that, but nobody in the room answered.	419
+dat	Dat a di bes fuud mi nyam fram mi lef Jamieka.	That is the best food I have eaten since I left Jamaica.	419
+eg	Mi kuk siks eg fi di pikni dem bifuo dem go a skuul.	I cooked six eggs for the children before they went to school.	420
+eg	Di uman a di maakit sel mi wan dazn eg fi chrii onjred dala.	The woman at the market sold me a dozen eggs for three hundred dollars.	420
+eg	Mi bag brok an chrii eg faal dong pan di striit, mi did beks.	My bag tore and three eggs fell into the street; I was furious.	420
+miitn	Mi mada se mi fi go a di skuul miitn tumaro mawnin.	My mother says I have to go to the school meeting tomorrow morning.	431
+miitn	Di baas kaal wan miitn bikaa nobadi neva finish dem wok.	The boss called a meeting because nobody had finished their work.	431
+miitn	Mi taiyad fi si di siem miitn evri wiik an notn no chienj.	I'm tired of sitting through the same meeting every week and nothing ever changes.	431
+rejista	Mi granmada mek mi raiz di rejista wen di paasn kom a wi yaad.	My grandmother makes me raise my register when the pastor comes to our house.	432
+rejista	Wen mi go a di jab intavyuu, mi swich di rejista tu Ingglish.	When I went to the job interview, I switched my register over to English.	432
+rejista	Som piipl tingk di lou rejista fuulish, bot a suo wi taak evri die.	Some people think the low register is foolish, but that's how we talk every day.	432
+huol	Mi granmada kuk wan huol pat a rais an piiz fi Sondi dina.	My grandmother cooked a whole pot of rice and peas for Sunday dinner.	433
+huol	Mi wok ina di son wan huol die an mi bak a kil mi.	I worked in the sun a whole day and now my back is killing me.	433
+huol	Huol dis bag fi mi wen mi a pie di taksi man.	Hold this bag for me while I pay the taxi driver.	433
+aarait	Di biebi krai aal nait, bot di dakta se im aarait.	The baby cried all night, but the doctor says he's fine.	434
+aarait	Yu aarait? Yu luk laik yu waak fram toun ina di son.	Are you alright? You look like you walked all the way from town in the sun.	434
+aarait	Mi did fraitn fi di eksam, bot mi aarait afta di fos kwestyan.	I was scared of the exam, but I was fine after the first question.	434
+liet	Mi mada lak di giet a nain aklak, so duon kom yaad liet.	My mother locks the gate at nine o'clock, so don't come home late.	435
+liet	Di bos brok dong pan di ruod, so mi riich wok liet agen.	The bus broke down on the road, so I got to work late again.	435
+liet	Mi no laik riich a pati liet, bikaa aal di fuud don aredi.	I don't like getting to a party late, because all the food is finished already.	435
+win	Mi likl breda win di ries a skuul an im kyaan stap taak.	My little brother won the race at school and he can't stop talking about it.	436
+win	Ef wi win di mach pan Satdi, wi a go daans ina di striit.	If we win the match on Saturday, we're going to be dancing in the street.	436
+win	Im win di lotri las iiya an im no memba im fren dem.	He won the lottery last year and now he doesn't remember his friends.	436
+orli	Mi granfaada gedop orli evri mawnin fi fiid di fowl dem.	My grandfather gets up early every morning to feed the chickens.	437
+orli	Kom a di maakit orli ef yu waan di bes mango.	Come to the market early if you want the best mangoes.	437
+orli	Mi glad se mi lef di ous orli, bikaa di chrafik bad afta faiv.	I'm glad I left the house early, because the traffic is bad after five.	437
+ton	Ton dong di faiya anda di pat bifuo di rais bon.	Turn down the fire under the pot before the rice burns.	438
+ton	Ton lef a di chorch, den yu wi si mi ous pan di kaana.	Turn left at the church, then you'll see my house on the corner.	438
+ton	Di likl bwai ton big man aredi, mi kyaan biliiv i.	That little boy has turned into a grown man already, I can't believe it.	438
+swiit	Di mango pan di tri a mi yaad swiit-swiit dis iiya.	The mangoes on the tree in my yard are really sweet this year.	439
+swiit	Di kiek we mi aanti biek fi di pati swiit, evribadi aks fi muor.	The cake my aunt baked for the party was delicious, everybody asked for more.	439
+swiit	Di dansaal myuuzik did suo swiit dat mi daans aal nait.	The dancehall music was so sweet that I danced all night long.	439
+yaa	No figet fi lak di giet wen yu gaan a shap, yaa.	Don't forget to lock the gate when you go off to the shop, you hear?	440
+yaa	Mi a lef nou, bot mi wi kaal yu wen mi riich yaad, yaa.	I'm leaving now, but I'll call you when I get home, alright?	440
+yaa	Duon waari bout mi, mi wi kom si yu pan Sondi, yaa.	Don't worry about me, I'll come and see you on Sunday, you hear?	440
+hapn	Nobadi no nuo wa hapn tu di fowl dem las nait.	Nobody knows what happened to the chickens last night.	461
+hapn	Wa hapn a di miitn yeside mek evribadi beks tide.	What happened at the meeting yesterday has everybody angry today.	461
+hapn	Notn no hapn tu im yet, bot mi stil a waari evri nait.	Nothing has happened to him yet, but I still worry every night.	461
+strait	Mi granmada aalwiez tel mi fi sidong strait a di tiebl.	My grandmother always tells me to sit up straight at the table.	462
+strait	Bifuo di konsert staat, di kwaia tan op strait an sing.	Before the concert starts, the choir stands up straight and sings.	462
+strait	Aldo im uol, mi granfaada stil waak strait wid im ed op.	Old as he is, my grandfather still walks straight with his head up.	462
+riedi	Di dina riedi, bot di pikni dem stil a plie a di yaad.	Dinner is ready, but the children are still playing in the yard.	463
+riedi	Wi hafi riedi a siks aklak, di bos naa stap fi nobadi.	We have to be ready at six o'clock — the bus won't stop for anybody.	463
+riedi	Mi no riedi fi di tes, mi buk dem stil ina mi bag.	I'm not ready for the test; my books are still in my bag.	463
+kwik	Kom kwik, di rien a faal an di kloz dem pan di lain!	Come quick, it's raining and the clothes are still on the line!	464
+kwik	Di dakta si mi kwik bikaa di nors did nuo mi granmada.	The doctor saw me quickly because the nurse knew my grandmother.	464
+kwik	Mi laik ou kwik im ansa evri kwestyan we di tiicha aks.	I like how quickly he answers every question the teacher asks.	464
+smel	Di huol ous smel gud wen mi mada a kuk di akii an saalfish.	The whole house smells good when my mother is cooking the ackee and saltfish.	465
+smel	Di fish we dem a sel a di maakit smel bad ina di son.	The fish they're selling at the market smells bad in the sun.	465
+smel	Evri taim mi smel mango, mi memba mi granfaada yaad a kontri.	Every time I smell mango, I remember my grandfather's yard in the country.	465
+kaas	Umoch di banana dem kaas a di maakit dis wiik?	How much do the bananas cost at the market this week?	466
+kaas	Di nyuu fuon kaas chrii touzn dala, suo mi lef it a di shap.	The new phone costs three thousand dollars, so I left it in the shop.	466
+kaas	Di taksi kaas muor dan di bos, bot mi tek it ina di rien.	The taxi costs more than the bus, but I take it when it's raining.	466
+tes	Mi mada se mi kyaan go a di dansaal bifuo di tes don.	My mother says I can't go to the dancehall until the test is over.	467
+tes	Di tiicha gi wi wan aad tes an onggl chrii pikni pas it.	The teacher gave us a hard test and only three children passed it.	467
+tes	Mi waari huol nait bout di tes, bot di tiicha se mi du wel.	I worried all night about the test, but the teacher said I did well.	467
+satdi	Evri satdi mawnin mi granmada sen mi go a di maakit fi fish.	Every Saturday morning my grandmother sends me to the market for fish.	468
+satdi	Wi plie futbaal a di skuul yaad evri satdi iivnin.	We play football in the schoolyard every Saturday evening.	468
+satdi	Satdi nait a di onggl taim di huol famili sidong an iit.	Saturday night is the only time the whole family sits down and eats.	468
+pas	Pas mi di saal, mi kyaan riich it fram ova ya.	Pass me the salt — I can't reach it from over here.	469
+pas	Di bos pas di giet bifuo mi riich, suo mi hafi waak a toun.	The bus passed the gate before I got there, so I had to walk to town.	469
+pas	Mi neva tink mi wuda pas di tes, bot mi mada did nuo.	I never thought I would pass the test, but my mother knew I would.	469
+hai	Di bes mango dem de hai pan di tri, an mi kyaan riich dem.	The best mangoes are up high on the tree, and I can't reach them.	470
+hai	Di faama put di baskit hai suo di guot dem kyaan riich di frut.	The farmer puts the basket up high so the goats can't reach the fruit.	470
+hai	Wen di kwaia sing hai, evribadi ina di chorch tan op.	When the choir sings high, everybody in the church stands up.	470
+lain	Di lain a di bank did so lang dat mi neva bada wiet.	The queue at the bank was so long that I didn't even bother to wait.	471
+lain	Wi a tan op ina di taksi lain from siks aklak dis mawnin.	We've been standing in the taxi queue since six o'clock this morning.	471
+lain	Nobadi no laik di lain a di klinik, bot evribadi hafi wiet dem ton.	Nobody likes the queue at the clinic, but everyone has to wait their turn.	471
+nak	Smadi a nak a di duo from mawnin an nobadi no ansa yet.	Somebody has been knocking at the door since morning and nobody has answered yet.	472
+nak	Nak pan di giet wen yu riich, bikaa di daag dem de a yaad.	Knock on the gate when you get here, because the dogs are in the yard.	472
+nak	Mi nak mi fut pan di tiebl an mi kudn waak chrii die.	I banged my foot on the table and couldn't walk for three days.	472
+nashanal	Akii a di nashanal frut, an mi mada kuk it evri Sondi mawnin.	Ackee is the national fruit, and my mother cooks it every Sunday morning.	473
+nashanal	Di huol toun shet dong wen di nashanal tiim a plie a di stiedyam.	The whole town shuts down when the national team plays at the stadium.	473
+nashanal	Mi granmada aalwiez krai wen shi ier di nashanal antem pan Indipendans Die.	My grandmother always cries when she hears the national anthem on Independence Day.	473
+plaant	Mi granfaada plaant chrii mango tri a di bak a di yaad.	My grandfather planted three mango trees at the back of the yard.	474
+plaant	Di faama dem a plaant yam bifuo di rien staat fi faal ina Mie.	The farmers are planting yam before the rains start falling in May.	474
+plaant	Afta di harikien mash op evriting, wi plaant bak di huol gyaadn tugeda.	After the hurricane wrecked everything, we replanted the whole garden together.	474
+konsert	Mi likl sista a sing a di skuul konsert an di famili a go.	My little sister is singing at the school concert and the family is going.	475
+konsert	Di rege konsert a di biich neva don til fuor aklak ina di mawnin.	The reggae concert on the beach didn't finish until four in the morning.	475
+konsert	Mi did waan go a di konsert bot di tikit dem tuu dier.	I wanted to go to the concert but the tickets were too expensive.	475
+len	Len mi yu ombrela til tumaro, bikaa rien a go faal dis iivnin.	Lend me your umbrella until tomorrow, because it's going to rain this evening.	476
+len	Mi neba len mi im laada fi fiks di ruuf afta di stuorm.	My neighbour lent me his ladder to fix the roof after the storm.	476
+len	Duon len im no moni agen, bikaa im neva pie bak di las wan.	Don't lend him any more money, because he never paid back the last lot.	476
+muuv	Wi a muuv go a wan nyuu ous a Puotmuor bifuo skuul staat bak.	We're moving to a new house in Portmore before school starts again.	477
+muuv	Muuv di tiebl dem outa di wie so di dansaal kyan staat.	Move the tables out of the way so the dance can start.	477
+muuv	Di bos neva muuv fi twenti minit, an evribadi ina it staat beks.	The bus didn't move for twenty minutes, and everyone on it got annoyed.	477
+natral	Di juus we mi mek natral, bikaa mi no put no shuga ina it.	The juice I make is natural, because I don't put any sugar in it.	478
+natral	Di bwai av wan natral taalent fi futbaal, an nobadi neva tiich im.	The boy has a natural talent for football, and nobody ever taught him.	478
+natral	It natral fi fiil fried di fos taim yu tan op bifuo piipl.	It's natural to feel scared the first time you stand up in front of people.	478
+jongl	Di bak a di yaad ton ina wan jongl afta chrii wiik a rien.	The back of the yard turned into a jungle after three weeks of rain.	479
+jongl	Di gaid tek wi go ina di jongl fi si di uol Maruun vilij.	The guide took us into the jungle to see the old Maroon village.	479
+jongl	Toun kyan fiil laik wan jongl wen yu fos kom fram kontri.	Town can feel like a jungle when you first come from the country.	479
+kloud	Big blak kloud a gyada ova di ils, so tek in di kloz kwik.	Big black clouds are gathering over the hills, so bring the clothes in quickly.	480
+kloud	Di fishaman dem no go a sii tide bikaa di kloud dem luk dak.	The fishermen aren't going out to sea today because the clouds look dark.	480
+kloud	Wi lidong pan di graas an wach di kloud dem muuv slou ova wi.	We lay on the grass and watched the clouds drift slowly over us.	480
+evri	Evri mawnin mi granmada mek ti bifuo di son kom op.	Every morning my grandmother makes tea before the sun comes up.	451
+evri	Mi hafi elp mi aanti sel frut a maakit evri Satdi mawnin.	I have to help my aunt sell fruit at the market every Saturday morning.	451
+evri	Evri taim mi ier dat sang, mi memba mi granmada an mi waan krai.	Every time I hear that song, I remember my grandmother and I want to cry.	451
+pliet	Afta Sondi dina, a mi ton fi wash di pliet dem.	After Sunday dinner, it's my turn to wash the plates.	452
+pliet	Afta chorch, dem shier out wan pliet a fuud gi evri smadi.	After church, they share out a plate of food for everybody.	452
+pliet	Mi kyaan iit no muor — di pliet did tuu ful fi mi.	I can't eat any more — the plate was too full for me.	452
+bout	No waari bout di dina, mi aredi kuk rais an piiz fi wi.	Don't worry about dinner, I've already cooked rice and peas for us.	453
+bout	Aal di neba dem a labrish bout di nyuu shap dong a di striit.	All the neighbours are gossiping about the new shop down the street.	453
+bout	Mi kyaan stap tink bout wa di dakta se tu mi faada yeside.	I can't stop thinking about what the doctor said to my father yesterday.	453
+chail	Wen di chail did sik, mi kya im go a di klinik orli mawnin.	When the child was sick, I took him to the clinic early in the morning.	454
+chail	Di tiicha se evri chail mos bring wan pen kom a skuul tumaro.	The teacher said every child must bring a pen to school tomorrow.	454
+bizi	Mi kyaan taak nou, mi bizi a kuk dina fi di pikni dem.	I can't talk now, I'm busy cooking dinner for the children.	455
+bizi	Di striit bizi wid piipl a bai fuud bifuo di rien staat faal.	The street is busy with people buying food before the rain starts falling.	455
+bizi	Mi taiyad fi ier se yu bizi — yu neva kaal mi aal wiik.	I'm tired of hearing that you're busy — you didn't call me all week.	455
+kii	Smadi tek di kii aaf di tiebl an nou mi kyaan open di giet.	Somebody took the key off the table and now I can't open the gate.	456
+kii	Mi lef di kii dem wid mi neba til mi kom bak fram farin.	I left the keys with my neighbour until I come back from abroad.	456
+kii	Mi beks wid miself — mi lak di kii dem ina di kyaar agen.	I'm vexed with myself — I locked the keys in the car again.	456
+iditation	Evri mawnin di eldas waak go a di bush fi im Iditation.	Every morning the elder walks up into the bush for his meditation.	457
+iditation	Afta di drum dem stap, I-an-I sidong ina wan lang Iditation.	After the drums stopped, we sat down in a long meditation.	457
+iditation	Wen di dansaal tuu loud, Iditation a di onggl ting we kaam I-an-I.	When the dancehall is too loud, meditation is the only thing that calms me.	457
+wiik	Mi granmada kuk wan big pat a suup evri Satdi fi di huol wiik.	My grandmother cooks a big pot of soup every Saturday for the whole week.	458
+wiik	Mi wok siks die a di wiik an res onggl pan Sondi.	I work six days of the week and only rest on Sunday.	458
+wiik	Di wiik did lang bad, an wen Fraide riich mi onggl waan sliip.	The week was really long, and when Friday came all I wanted was sleep.	458
+res	Sidong an res yu fut, yu waak fram maakit ina di son.	Sit down and rest your feet — you walked all the way from the market in the sun.	459
+res	Di faama res anda di mango tri wen di son tuu haad.	The farmer rests under the mango tree when the sun is too harsh.	459
+res	Mi kyaan res til mi ier se di pikni dem riich a yaad sief.	I can't rest until I hear that the children got home safe.	459
+riich	Di bos brok dong, suo wi neva riich a toun til afta daak.	The bus broke down, so we didn't get to town until after dark.	460
+riich	Wen di boks fram farin riich, di huol famili kom roun fi si.	When the box from abroad arrived, the whole family came round to see.	460
+riich	Wen wi riich a di konsert, di bes ban aredi don plie.	When we got to the concert, the best band had already played.	460

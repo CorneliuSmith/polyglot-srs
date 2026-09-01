@@ -79,7 +79,6 @@ taku	I paingia e koe taku whakaahua?	Did you like my picture?	410	PST · like.PA
 pene	Kei hea te pene nei?	Where was this pen?	421	at · where · the · pen · this
 nei	Kei hea te pene nei?	Where was this pen?	421	at · where · the · pen · this
 hea	Kei hea te pene nei?	Where was this pen?	421	at · where · the · pen · this
-anake	Kotahi anake te urunga.	There is only one pillow.	473	one · only · the · pillow
 urunga	Kotahi anake te urunga.	There is only one pillow.	473	one · only · the · pillow
 pereti	E hia ngā pereti, e hia ngā kapu?	How many plates and cups are there?	556	NUM · how.many · the.PL · plate · NUM · how.many · the.PL · cup
 hia	E hia ngā pereti, e hia ngā kapu?	How many plates and cups are there?	556	NUM · how.many · the.PL · plate · NUM · how.many · the.PL · cup
@@ -138,7 +137,6 @@ mai	He aha i kore ai koe e rata mai ki a mātou?	What didn't you like about us?	
 mātou	He aha i kore ai koe e rata mai ki a mātou?	What didn't you like about us?	814	a · what · PST · NEG · ANAPH · 2SG · FUT · fond · hither · to · PERS · 1PL.EXCL
 kore	He aha i kore ai koe e rata mai ki a mātou?	What didn't you like about us?	814	a · what · PST · NEG · ANAPH · 2SG · FUT · fond · hither · to · PERS · 1PL.EXCL
 rata	He aha i kore ai koe e rata mai ki a mātou?	What didn't you like about us?	814	a · what · PST · NEG · ANAPH · 2SG · FUT · fond · hither · to · PERS · 1PL.EXCL
-whawhai	Kāore mātou i whawhai.	We didn't have a fight.	814	NEG · 1PL.EXCL · PST · fight
 puku	Kei te mamae tōku puku.	My stomach hurts.	815	PROG · PROG · hurt · 1SG.POSS · stomach
 mamae	Kei te mamae tōku puku.	My stomach hurts.	815	PROG · PROG · hurt · 1SG.POSS · stomach
 tōku	Kei te mamae tōku puku.	My stomach hurts.	815	PROG · PROG · hurt · 1SG.POSS · stomach
@@ -243,7 +241,6 @@ wareware	Kāore i wareware i a māua/mātou	We didn't forget.	841	NEG · PST · 
 māua	Kāore i wareware i a māua/mātou	We didn't forget.	841	NEG · PST · forget · by · PERS · 1DU.EXCL/1PL.EXCL
 rata	He aha i kore ai koe e rata mai ki a māua?	What didn't you like about us?	841	a · what · PST · NEG · ANAPH · 2SG · FUT · fond · hither · to · PERS · 1DU.EXCL
 māua	He aha i kore ai koe e rata mai ki a māua?	What didn't you like about us?	841	a · what · PST · NEG · ANAPH · 2SG · FUT · fond · hither · to · PERS · 1DU.EXCL
-whawhai	Kāore māua i whawhai.	We didn't have a fight.	841	NEG · 1DU.EXCL · PST · fight
 moana	Kei te tāhoe au i roto ki te moana.	I'm swimming in the ocean.	844	PROG · PROG · swim · 1SG · at · inside · to · the · sea
 tāhoe	Kei te tāhoe au i roto ki te moana.	I'm swimming in the ocean.	844	PROG · PROG · swim · 1SG · at · inside · to · the · sea
 roto	Kei te tāhoe au i roto ki te moana.	I'm swimming in the ocean.	844	PROG · PROG · swim · 1SG · at · inside · to · the · sea
@@ -257,7 +254,6 @@ tūtaki	Te āhua nei i karo ia i te tūtaki mai ki a au.	I felt as if he shrank 
 nei	Te āhua nei i karo ia i te tūtaki mai ki a au.	I felt as if he shrank from meeting me.	847	the · appearance · this · PST · dodge · 3SG · OBJ · the · meet · hither · to · PERS · 1SG
 āhua	Te āhua nei i karo ia i te tūtaki mai ki a au.	I felt as if he shrank from meeting me.	847	the · appearance · this · PST · dodge · 3SG · OBJ · the · meet · hither · to · PERS · 1SG
 karo	Te āhua nei i karo ia i te tūtaki mai ki a au.	I felt as if he shrank from meeting me.	847	the · appearance · this · PST · dodge · 3SG · OBJ · the · meet · hither · to · PERS · 1SG
-aku	E rua aku ngeru.	I have two cats.	848	NUM · two · 1SG.POSS.PL · cat
 kitea	Ko tēnei te ngeru tino nui kua kitea e au.	This is the biggest cat that I've ever seen.	848	IDENT · this · the · cat · very · big · PERF · see.PASS · by · 1SG
 ngeru	Ko tēnei te ngeru tino nui kua kitea e au.	This is the biggest cat that I've ever seen.	848	IDENT · this · the · cat · very · big · PERF · see.PASS · by · 1SG
 me	Aroha mai, engari me haere koe.	I'm sorry, but you've got to go.	849	love · hither · but · OBLIG · go · 2SG
@@ -284,11 +280,8 @@ mua	E tū ana au kei mua i a koe	I'm standing here before you.	863	PROG · stand
 whero	He whero te pōtae.	A red hat.	864	a · red · the · hat
 tīkina	Tīkina ia hei roto.	Bring her in.	865	fetch.PASS · 3SG · at · inside
 tokorua	Tokorua ōku tuākana.	I have two older sisters.	869	two.people · 1SG.POSS.PL.O · older.sibling.PL
-tuākana	Tokorua ōku tuākana.	I have two older sisters.	869	two.people · 1SG.POSS.PL.O · older.sibling.PL
 tokorua	Tokorua āku tamāhine.	I have two daughters.	869	two.people · 1SG.POSS.PL.A · daughter.PL
-āku	Tokorua āku tamāhine.	I have two daughters.	869	two.people · 1SG.POSS.PL.A · daughter.PL
 tokorua	Tokorua āku tama.	I have two sons.	869	two.people · 1SG.POSS.PL.A · son
-āku	Tokorua āku tama.	I have two sons.	869	two.people · 1SG.POSS.PL.A · son
 pōtae	Kāore ia i te mau pōtae.	He doesn't have a hat on.	874	NEG · 3SG · PROG · PROG · wear · hat
 mau	Kāore ia i te mau pōtae.	He doesn't have a hat on.	874	NEG · 3SG · PROG · PROG · wear · hat
 tepe	I kai au i te miraka tepe.	I ate the yoghurt.	875	PST · eat · 1SG · OBJ · the · milk · congealed
@@ -357,7 +350,6 @@ pea	Ākene pea kei te hē koe.	You are probably wrong.	915	perhaps · perhaps ·
 hē	Ākene pea kei te hē koe.	You are probably wrong.	915	perhaps · perhaps · PROG · PROG · wrong · 2SG
 pūngāwerewere	He whakamataku te pūngāwerewere ki a au.	Spiders scare me.	916	a · frightening · the · spider · to · PERS · 1SG
 whakamataku	He whakamataku te pūngāwerewere ki a au.	Spiders scare me.	916	a · frightening · the · spider · to · PERS · 1SG
-āku	Tokowhā āku tamariki.	I have four children.	917	four.people · 1SG.POSS.PL · children
 tokowhā	Tokowhā āku tamariki.	I have four children.	917	four.people · 1SG.POSS.A.PL · children
 pīkau	I wareware koe i tāku pīkau.	You forgot your backpack.	918	PST · forget · 2SG · OBJ · 1SG.POSS.A · backpack
 wareware	I wareware koe i tāku pīkau.	You forgot your backpack.	918	PST · forget · 2SG · OBJ · 1SG.POSS.A · backpack
@@ -557,3 +549,251 @@ ko	Ko koe te hoa kotahi o Tom i mua.	You were Tom's only friend.	19999	EQ · 2SG
 kotahi	Ko koe te hoa kotahi o Tom i mua.	You were Tom's only friend.	19999	EQ · 2SG · the · friend · one · of · Tom · at · front
 nei	He iti tāu māra nei!	Your garden really is little.	19999	a · small · 2SG.POSS.A · garden · this
 ka	Ka aha a Jane ā te ata?	What is Jane going to do tomorrow morning?	19999	FUT · what · PERS · Jane · at · the · morning
+kā	I te ahiahi ka kā te ahi, ā, ka mahana te whare katoa.	In the evening the fire catches, and the whole house warms up.	11	
+kā	Kua kā kē te ahi mō te hāngī, e tatari ana ngā manuhiri.	The fire is already burning for the hāngī, and the guests are waiting.	11	
+kā	Ka ora tōku ngākau ina kā ngā rama o te whare i te pō.	My heart lifts whenever the lights of the house come on at night.	11	
+he	He kai reka kei runga i te tēpu, engari kua kai kē ngā tamariki.	There's good food on the table, but the children have already eaten.	15	
+he	He kaiako au i te kura, ā, he uaua ngā tamariki i tēnei tau.	I'm a teacher at the school, and the children are a handful this year.	15	
+he	He mamae tōku ngākau, nā te mea kua wehe atu tōku hoa ki Ahitereiria.	My heart aches, because my friend has gone off to Australia.	15	
+āna	Kua oti i tāku tama āna mahi kāinga, nō reira ka tākaro ia.	My boy has finished his homework, so now he gets to play.	18	
+āna	I whakaatu te kaiako i āna pikitia ki ngā mātua i te pō whakanui.	The teacher showed her pictures to the parents on celebration night.	18	
+āna	He whakamīharo āna kōrero i te hui, i tangi ai te nuinga o mātou.	His speeches at the meeting were so moving that most of us wept.	18	
+tama	Kei te tangi te tama a tōku tuahine, kāore anō ia kia moe.	My sister's boy is crying; he still hasn't had any sleep.	35	
+tama	I riro i te tama a Hēmi te tohu tuatahi i te whakataetae waiata.	Hēmi's son took first prize at the singing competition.	35	
+tama	He māia tērā tama; ahakoa te wehi, i eke ia ki te hōiho nanakia.	That child is brave — despite his fear, he got up on the wild horse.	35	
+atua	Ia ata, ka karakia tōku kuia ki te atua i mua i te kai.	Every morning my grandmother prays to God before the meal.	38	
+atua	I kōrero te kaumātua mō ngā atua Māori ki ngā ākonga i te wharenui.	The elder talked to the students about the Māori gods in the meeting house.	38	
+atua	Ki ahau nei, ko Tāwhirimātea te atua tino kaha o ngā tamariki a Rangi.	To my mind, Tāwhirimātea is the most powerful god among Rangi's children.	38	
+iwi	I whati te iwi o tōku ringa i taku hinganga mai i te rākau.	The bone in my arm broke when I fell out of the tree.	45	
+iwi	I huihui te iwi katoa ki te marae mō te tangihanga o te kuia.	The whole tribe gathered at the marae for the old woman's funeral.	45	
+iwi	He kaha tonu tō mātou iwi, ahakoa ngā tau maha o te ngaro whenua.	Our people are still strong, despite the many years of losing land.	45	
+tana	Kua ngaro anō tana pōtae, kei te rapu ia i raro i te moenga.	His hat has gone missing again, and he's hunting for it under the bed.	47	
+tana	I mahue tana pēke ki te tari, nō reira ka hoki mai ia.	He left his bag behind at the office, so he's coming back for it.	47	
+tana	He tino rawe tana waiata hou, ka tangi tonu au ina rongo au.	Her new song is wonderful; I still cry whenever I hear it.	47	
+kupu	Ia pō, ka ako mātou i ētahi kupu hou i mua i te moe.	Every night we learn a few new words before going to sleep.	53	
+kupu	Kāore te kaikōrero i mōhio ki te kupu Māori mō tēnei taputapu hou.	The speaker didn't know the Māori word for this new device.	53	
+kupu	Kotahi noa te kupu i puta mai i tōna waha, i mataku ai mātou.	Only one word came out of his mouth, and it frightened the lot of us.	53	
+rite	He rite tonu tāu tama ki tōna pāpā, arā te kata me te hīkoi.	Your boy is the image of his father — the laugh and the walk.	57	
+rite	I te hui, he rite ngā whakaaro o ngā kaimahi mō te utu hou.	At the meeting the workers' views on the new pay were all alike.	57	
+rite	Kāore rawa i rite te kai o te tāone ki tā tōku kuia.	The food in town is nothing at all like my grandmother's.	57	
+ringa	Horoia ō ringa i mua i te noho ki te tēpu, e tama!	Wash your hands before you sit down at the table, son!	59	
+ringa	I hiki te tamaiti i tōna ringa ki te pātai ki te kaiako.	The child raised his hand to ask the teacher a question.	59	
+ringa	I mamae ōku ringa i te roa o te hoe waka i te awa.	My arms ached from the long paddle up the river.	59	
+ariki	Ka kōrero tōku koroua mō te ariki nāna i ārahi te iwi ki Tāmaki.	My grandfather tells stories about the paramount chief who led the tribe to Auckland.	66	
+ariki	I tū te ariki ki te whaikōrero i mua i te whare tupuna.	The paramount chief stood to deliver the formal speech in front of the ancestral house.	66	
+ariki	Kāore te ariki i whakaae kia hokona te whenua, nā reira i harikoa mātou.	The paramount chief refused to let the land be sold, so we were overjoyed.	66	
+wāhine	Kei te tunu kai ngā wāhine i te kīhini mō te hui āpōpō.	The women are cooking in the kitchen for tomorrow's gathering.	70	
+wāhine	I karanga ngā wāhine o te marae ki ngā manuhiri i te ata.	The women of the marae called the visitors on in the morning.	70	
+wāhine	Kāore ngā wāhine o tō mātou hapū e mataku ki te moana nui.	The women of our sub-tribe are not afraid of the open sea.	70	
+aroaro	Kua takoto te kai i tōku aroaro, engari kāore anō au kia hiakai.	The food is laid out in front of me, but I'm not hungry yet.	74	
+aroaro	I tū te kaikōrero i te aroaro o ngā manuhiri, ka tīmata tāna whaikōrero.	The speaker stood in the presence of the visitors, and his formal speech began.	74	
+aroaro	I whakamā au i tāku kōrero i te aroaro o te whānau katoa.	I was mortified at having spoken in front of the whole family.	74	
+wairua	Ka rongo au i te wairua o tōku kuia ina waiata mātou.	I feel my grandmother's spirit whenever we sing.	83	
+wairua	Ka hoki te wairua ki Hawaiki, koinā te kōrero a ngā kaumātua.	The soul returns to Hawaiki — that is what the elders say.	83	
+wairua	Kua ngoikore tōku wairua i te roa o te mahi, me okioki au.	My spirit has worn thin from the long stretch of work; I need to rest.	83	
+nana	Nana! Kua pakaru te matapihi i te pōro a ngā tamariki.	Look! The window has been smashed by the children's ball.	84	
+nana	Nana, kei te heke mai te waka o ngā manuhiri ki te marae.	Look, the visitors' canoe is coming down to the marae.	84	
+nana	Nana! Kua tipu tāu tama, kua teitei ake ia i a au.	Look at that! Your boy has grown — he's taller than me now.	84	
+tapu	Kaua e kai i konei, he wāhi tapu tēnei mō ngā tūpuna.	Don't eat here — this is a sacred place set aside for the ancestors.	86	
+tapu	I muri i te tangihanga, ka tapu te whare mō ngā rā e toru.	After the funeral the house stays under tapu for three days.	86	
+tapu	Ki ahau nei, he tino tapu te maunga, nō reira kāore au e piki.	To my mind the mountain is deeply sacred, so I will not climb it.	86	
+mano	Kotahi mano tāra te utu o tōku pahikara, ā, kua pakaru kē.	My bike cost a thousand dollars, and it has already fallen apart.	90	
+mano	Neke atu i te rua mano ngā tāngata i tae ki te hui nui.	More than two thousand people turned up to the big gathering.	90	
+mano	Ahakoa e toru mano ngā kilomita, ka hoki au ki te kāinga ia tau.	Even though it's three thousand kilometres, I go home every year.	90	
+whai	I hopu tōku pāpā i tētahi whai nui i te wahapū o te awa.	My father caught a huge stingray at the mouth of the river.	92	
+whai	I whakaatu te kaiako i te hiku o te whai ki ngā ākonga.	The teacher showed the students the stingray's tail.	92	
+whai	Kia tūpato! Kei raro i te onepū tētahi whai e moe ana.	Careful! There's a stingray lying asleep under the sand.	92	
+tohunga	He tohunga tōku whaea ki te tunu parāoa rewena i ia Rātapu.	My mother is an expert at baking rewena bread every Sunday.	93	
+tohunga	I karangatia te tohunga ki te whakawātea i te whare hou i te ata.	The expert was called in to lift the tapu from the new house that morning.	93	
+tohunga	Ki tōku whakaaro, he tohunga rawa atu ia ki te whakairo rākau.	In my opinion he is an absolute master of wood carving.	93	
+hara	Kua hara au, nā te mea i kai au i runga i te tēpu.	I have broken tapu, because I ate sitting up on the table.	94	
+hara	Ki tā ngā kaumātua, kua hara te hunga i takahi i te urupā.	According to the elders, the group who walked over the burial ground have violated tapu.	94	
+hara	Mēnā ka takahi koe i te tapu o te wāhi nei, kua hara koe.	If you trample the tapu of this place, you have committed a transgression.	94	
+muri	I muri i te kai, ka horoia ngā rīhi katoa e ngā tamariki.	After the meal, the children washed every one of the dishes.	95	
+muri	I te pōwhiri, ka noho ngā taitamariki i muri i ngā kaumātua.	At the pōwhiri the young people sat behind the elders.	95	
+muri	Ā muri ake nei, ka mihi koe ki a au mō tēnei tohutohu.	Some day down the track you'll thank me for this advice.	95	
+ihu	Ka pupuri te tamaiti i tōna ihu i te haunga o te ika pirau.	The child held his nose against the stink of the rotting fish.	96	
+ihu	I te pōwhiri ka hongi māua, ka pā tōku ihu ki tōna ihu.	At the pōwhiri we pressed noses, my nose against his.	96	
+ihu	I te hōtoke, ka whero tōku ihu i te makariri, ka kata ngā tamariki.	In winter my nose goes red with the cold and the children laugh.	96	
+hura	Ka hura te whānau i te hāngī, ka puta te kohu ki te rangi.	The family uncovered the hāngī and the steam rose into the sky.	100	
+hura	Ā te Rāhoroi ka hura te whānau i te kōhatu o tō mātou koroua.	On Saturday the family will unveil our grandfather's headstone.	100	
+hura	Nā te āwhā i hura te tuanui o te whare, ka mataku ngā tamariki.	The storm stripped the roof off the house and the children were terrified.	100	
+mohi	Kei te whakatika a Mohi i te taiapa o te kāinga i tēnei ata.	Mohi is out mending the fence at home this morning.	106	
+mohi	I te hui, ka whakamārama a Mohi i te take ki ngā kaumātua.	At the meeting, Mohi explained the matter to the elders.	106	
+mohi	Nā Mohi i arahi tōna iwi puta noa i te koraha, ahakoa te ngenge.	Moses led his people right across the desert, weary as they were.	106	
+matau	Ka whakapaia e Pāpā ngā matau me te aho mō te hī ika āpōpō.	Dad got the hooks and the line ready for tomorrow's fishing.	107	
+matau	Kei te whakairo taku tuakana i tētahi matau kōiwi hei taonga mō tāna tama.	My older brother is carving a bone fishhook as a treasure for his son.	107	
+matau	Ka motu te aho, ka riro taku matau i te ika, ka pōuri au.	The line snapped, the fish made off with my hook, and my heart sank.	107	
+oti	Kua oti i a au te horoi kākahu i mua i te ua.	I got the washing finished before the rain came.	109	
+oti	Kāore anō te mahi kia oti, nō reira ka noho mātou i te tari.	The job isn't done yet, so we're staying on at the office.	109	
+oti	Ka oti ngā whakamātautau, ka rere te koa i roto i ngā ākonga katoa.	When the exams were over, joy ran through all the students.	109	
+pera	I te wā o ōku tūpuna, ka whakarewaina te pera hei hinu rama.	In my ancestors' day the blubber was rendered down into lamp oil.	112	
+pera	Ka tapahia e te hapū te pera o te tohorā i pae ki uta.	The hapū cut the blubber from the whale that had stranded on the shore.	112	
+pera	He kawa te haunga o te pera e kōhuatia ana i te tāhuna.	The stench of blubber being boiled down on the beach is bitter.	112	
+mana	Kei tōku kuia te mana i tō mātou kāinga, ka whakarongo mātou katoa.	My grandmother holds the mana in our house, and we all listen to her.	114	
+mana	Nā ngā kōrero a te kaumātua, ka piki te mana o te marae.	The elder's speech lifted the standing of the marae.	114	
+mana	Ehara te mana i te mea hoko; he mea hōmai kē nā te iwi.	Mana is not something you buy; the people are the ones who confer it.	114	
+kanohi	I te ata makariri, ka horoia e au tōku kanohi ki te wai mātaotao.	On a cold morning I washed my face in the freezing water.	117	
+kanohi	Ka huri ngā kanohi katoa ki te kaikōrero i tōna tūnga ki te paepae.	Every face turned to the speaker as he rose at the paepae.	117	
+kanohi	Ki ahau, he pai ake te kōrero kanohi ki te kanohi i te waea.	To my mind, talking face to face beats a phone call.	117	
+wehi	Ka kaha te wehi o taku teina i te whatitiri, ka piri mai ia.	My little brother's dread of the thunder was so great that he clung to me.	119	
+wehi	Ka tū te haka, ka rere te wehi ki roto i ngā manuhiri katoa.	The haka began, and awe swept through all the visitors.	119	
+wehi	He tika te wehi ki te moana, he tohu whakaute ki a Tangaroa.	Fear of the sea is right; it is a mark of respect for Tangaroa.	119	
+taonga	Kei roto i te pouaka o tōku kuia ngā taonga o te whānau.	The family treasures are kept inside my grandmother's box.	138	
+taonga	Ka whakaatuhia e ngā kaumātua ngā taonga whakairo ki ngā manuhiri i te marae.	The elders show the carved treasures to the visitors at the marae.	138	
+taonga	Ahakoa he iti, he taonga tērā pounamu nā tōku koroua i tuku mai.	Small as it is, that greenstone my grandfather handed down is a treasure.	138	
+tinana	Kua ngenge katoa tōku tinana i muri i te mahi i te māra.	My whole body is worn out after working in the garden.	141	
+tinana	Me whakamahana koe i tō tinana i mua i te tākaro whutupōro.	You need to warm your body up before the rugby game.	141	
+tinana	Ahakoa kua ruhi tōku tinana, kei te kaha tonu tōku wairua.	My body may be worn down, but my spirit is still strong.	141	
+ture	E ai ki te ture, kāore e āhei te hī ika i tēnei awa.	According to the law, fishing is not allowed in this river.	142	
+ture	Kei te ako tāku tamahine i te ture i te whare wānanga o Pōneke.	My daughter is studying law at the university in Wellington.	142	
+ture	He ture tika tērā, engari kāore ngā tāngata o te kāinga e whakarongo ana.	That's a fair law, but the people back home take no notice of it.	142	
+tamahine	Kei te ako tāku tamahine ki te tunu parāoa me tōna kuia.	My daughter is learning to bake bread with her grandmother.	143	
+tamahine	Ka tū te tamahine a Hēmi ki te whakataetae kapa haka ā te Rāhoroi.	Hēmi's daughter is performing at the kapa haka competition on Saturday.	143	
+tamahine	Kua rua tekau ngā tau o tāku tamahine, he pēpi tonu ia ki ahau.	My daughter has turned twenty, but to me she is still a baby.	143	
+āta	Kia āta haere i te huarahi i te ata nei, he hukapapa kei reira.	Take the road carefully this morning — there is frost out there.	149	
+āta	I āta whakarongo te kaiako ki te tamaiti i mua i tāna whakautu.	The teacher listened carefully to the child before she gave her answer.	149	
+āta	Me āta titiro ki ngā whakairo, kei ngaro te kōrero i a koe.	Look at the carvings slowly, or their story will be lost on you.	149	
+hipi	I pakaru te taiapa, nā reira i puta ngā hipi ki te rori.	The fence broke, so the sheep got out onto the road.	150	
+hipi	Ka kutikuti mātou i ngā hipi i mua i te ua o te ahiahi.	We'll shear the sheep before this afternoon's rain comes in.	150	
+hipi	He mea whakamārie ki te ngākau te titiro ki ngā hipi i te puke.	Watching the sheep up on the hill settles the heart.	150	
+koura	I hokona e tōku matua he mōwhiti koura i mua i tō rāua mārenatanga.	My father bought a gold ring before the two of them were married.	151	
+koura	I haere ngā tini tāngata ki Ōtākou ki te keri koura i ngā awa.	Crowds of people went to Otago to dig for gold in the rivers.	151	
+koura	I riro te koura i ngā kamupene, ka mahue he awa paruparu.	The companies took the gold and left a filthy river behind.	151	
+tangi	I oho au i te tangi o te pēpi i waenganui pō.	The baby's crying woke me in the middle of the night.	152	
+tangi	Ka haere mātou ki te tangi o tō mātou kaumātua ā te Rāhoroi.	We're going to our elder's funeral on Saturday.	152	
+tangi	Kāore e mutu te tangi o tōku whaea mō tōna tuakana i mate.	My mother's grieving for her late elder sister has never eased.	152	
+toto	I motu tōku ringa i te maripi, ka heke te toto ki te papa.	I cut my hand on the knife and blood ran down onto the floor.	153	
+toto	I haere ia ki te hōhipera ki te tuku toto i tēnei ata.	She went to the hospital this morning to donate blood.	153	
+toto	Kotahi anō te toto e rere ana i roto i a tātou.	One and the same blood runs through all of us.	153	
+inoi	Kua ako tāku tamaiti i tētahi inoi hou i te kura i tēnei wiki.	My child learned a new prayer at school this week.	154	
+inoi	Ka tīmata ngā hui katoa o te marae ki tētahi inoi me tētahi waiata.	Every gathering at the marae opens with a prayer and a song.	154	
+inoi	I ia pō, ka tuku inoi tōku whaea mō ōna mokopuna kei tāwāhi.	Every night my mother offers a prayer for her grandchildren overseas.	154	
+inu	Kua pau ngā inu i te kāinga, nō reira me haere ki te toa.	The drinks at home have all run out, so someone had better go to the shop.	196	
+inu	I muri i te pōwhiri, ka tukuna ngā inu wera ki ngā manuhiri.	After the pōwhiri, hot drinks were handed round to the visitors.	196	
+inu	Kāore he inu e rite ana ki te wai mātao o te puna.	There is no drink that can match the cold water from the spring.	196	
+whakaatu	I te ata o Matariki, ka whakaatu a Pāpā i ngā whetū ki ahau.	On the morning of Matariki, Dad showed me the stars.	197	
+whakaatu	Ka whakaatu te whare taonga i ngā korowai o ō mātou tūpuna āpōpō.	Tomorrow the museum will put our ancestors' cloaks on display.	197	
+whakaatu	I te tangihanga, kāore ia i hiahia ki te whakaatu i ōna roimata.	At the tangihanga he did not want to let his tears show.	197	
+ahua	Ka ahua te māra kūmara e ngā kuia i ia ata o te raumati.	The kūmara garden was tended by the old women every morning of the summer.	198	
+ahua	I ahua ngā mokopuna e ō rātou kaumātua i te ngaro o ngā mātua.	The grandchildren were looked after by their elders while the parents were away.	198	
+ahua	Mehemea kāore te urupā i ahua e te hapū, kua ngaro ngā kōhatu.	If the urupā had not been cared for by the hapū, the headstones would have been lost.	198	
+raro	Kua oma te ngeru ki raro i te moenga i te whaitiri.	The cat has bolted under the bed because of the thunder.	124	
+raro	I noho ngā manuhiri ki raro i te whakairo nui i te wharenui.	The visitors sat down beneath the big carving inside the meeting house.	124	
+raro	He pai ki ahau te noho i raro i ngā whetū i te raumati.	I love sitting out under the stars in the summer.	124	
+tamariki	I whāngai ngā tamariki i ngā heihei i mua i te kura.	The children fed the chickens before school.	125	
+tamariki	Kei te ako ngā tamariki i te haka mō te whakataetae ā tērā marama.	The children are learning the haka for next month's competition.	125	
+tamariki	Ki taku whakaaro, he māia ngā tamariki o tēnei kura ki te kōrero Māori.	In my view, the children at this school are bold about speaking Māori.	125	
+whawhai	I whawhai ngā kurī e rua mō te wheua i waho i te whare.	The two dogs fought over the bone outside the house.	128	
+whawhai	I whawhai ō tātou tīpuna ki te pupuri i tō tātou whenua.	Our ancestors fought to hold on to our land.	128	
+whawhai	Kua ngenge au i te whawhai ki taku tuakana mō ngā mahi kāinga.	I'm worn out from fighting with my older sister about the housework.	128	
+whakarongo	Ka whakarongo tōku pāpā ki te reo irirangi i a ia e taraiwa ana.	My father listens to the radio while he is driving.	129	
+whakarongo	Me whakarongo tātou ki ngā kōrero a te kaumātua i mua i te kai.	We should listen to the elder's speech before we eat.	129	
+whakarongo	Kāore ia i whakarongo ki aku tohutohu, nā reira i ngaro ai ia.	He didn't listen to my directions, and that's why he got lost.	129	
+aku	Kua pakaru aku hū i te hīkoi roa i te ngahere inanahi.	My shoes fell apart on that long walk in the bush yesterday.	130	
+aku	Ka haere aku mātua ki te marae ā te Rāhoroi ki te āwhina.	My parents are going to the marae on Saturday to help out.	130	
+aku	Kāore aku hoa e mōhio ana ki te take i riri ai au inapō.	My friends have no idea why I lost my temper last night.	130	
+āku	I horoia ngā rīhi e āku tamariki i mua i te kura.	The dishes were washed by my children before school.	131	
+āku	Ka whakaatu au i āku mahi toi ki te whare taonga ā tērā wiki.	I'm showing my artworks at the museum next week.	131	
+āku	Kāore āku kupu i tika i te hui, ā, e whakamā tonu ana au.	My words came out wrong at the meeting, and I'm still embarrassed.	131	
+kainga	Kua kainga ngā keke katoa e ngā tamariki i mua i te tina.	All the cakes have been eaten by the children before lunch.	132	
+kainga	I kainga te hāngī e ngā manuhiri i muri i te pōwhiri.	The hāngī was eaten by the visitors after the welcome ceremony.	132	
+kainga	Kainga ō kai i te wā e wera tonu ana, e tama!	Eat your food while it's still hot, son!	132	
+tino	He tino makariri te whare i te hōtoke, nō reira ka tahuna te ahi.	The house is freezing in winter, so the fire gets lit.	135	
+tino	Kāore te kaiwhakahaere i whakamārama i te tino take o te hui.	The manager never explained what the real point of the meeting was.	135	
+tino	He tino pai ki ahau te kaukau i te awa i ngā rā wera.	I really love swimming in the river on hot days.	135	
+maunga	I piki mātou i te maunga i te ata, ka kite i te hukarere.	We climbed the mountain in the morning and saw the snow.	136	
+maunga	Ka mihi ia ki tōna maunga, ki tōna awa, i mua i tōna ingoa.	He acknowledges his mountain and his river before he gives his own name.	136	
+maunga	Ka mokemoke au ki tōku maunga ina noho au ki tāwāhi.	I get homesick for my mountain whenever I'm living overseas.	136	
+aua	I hopu mātou i ngā aua ki te kupenga i te wahapū.	We caught yellow-eye mullet with the net at the river mouth.	137	
+aua	Ka whakamarokehia ngā aua e ngā koroua hei kai mā te hui.	The old men dry the mullet as food for the gathering.	137	
+aua	He reka ake ngā aua i ngā ika o te toa, ki tāku titiro.	Mullet tastes better than shop-bought fish, if you ask me.	137	
+hoari	I kite mātou i tētahi hoari tawhito i te whare taonga o Pōneke.	We saw an old sword at the museum in Wellington.	155	
+hoari	Kei te pupuri te kaiwhakaari i tētahi hoari rākau i runga i te atamira.	The actor is holding a wooden sword up on the stage.	155	
+hoari	Ki ahau nei, he ātaahua ake te taiaha i te hoari a te Pākehā.	To my mind the taiaha is a finer thing than the Pākehā sword.	155	
+ahakoa	Ahakoa te makariri o te ata, ka kaukau tonu ia i te moana.	Cold as the morning is, she still swims in the sea.	156	
+ahakoa	Ahakoa kāore ia i mōhio ki te reo, ka tū ia ki te mihi.	Even though he didn't know the language, he stood up to greet everyone.	156	
+ahakoa	Ahakoa i hinga tō mātou kapa, i harikoa tonu mātou i te mutunga.	Although our team lost, we were happy anyway by the end.	156	
+hoariri	Ko te ngata te hoariri nui o te māra kai a tōku whaea.	The snail is the great enemy of my mother's vegetable garden.	157	
+hoariri	He hoariri ngā iwi e rua i mua, engari kua hohou te rongo ināianei.	The two tribes were enemies long ago, but peace has been made now.	157	
+hoariri	Ahakoa he hoariri māua i te kura, he hoa piripono māua ināianei.	Although the two of us were enemies at school, we are loyal friends now.	157	
+whakahoki	I whakahoki au i te koti ki te toa, he iti rawa mōku.	I took the coat back to the shop — it was far too small for me.	158	
+whakahoki	Māku e whakahoki ngā tūru ki te wharekai i muri i te hui.	I'll put the chairs back in the dining hall after the meeting.	158	
+whakahoki	Kāore e taea te whakahoki mai i ngā rā o tōku tamarikitanga.	The days of my childhood can never be brought back.	158	
+mahara	Kei te mahara tonu au ki ngā parāoa parai a tōku kuia.	I still think about my grandmother's fry bread.	159	
+mahara	I mahara au ki tōna ingoa i tana tūnga ake i te hui.	I remembered his name the moment he rose to his feet at the meeting.	159	
+mahara	E mahara ana au ki tōku pāpā ina rongo au i tērā waiata.	I think of my father whenever I hear that song.	159	
+mata	Kua ngenge ōku mata i te pānui pukapuka i raro i te rama.	My eyes are tired from reading books under the lamp.	160	
+mata	I tirohia ōku mata e te rata, ā, ka mau mōhiti au ināianei.	The doctor examined my eyes, and now I wear glasses.	160	
+mata	Kua mākū ōna mata i te tangi i te tangihanga o tōna koroua.	His eyes were wet with weeping at his grandfather's tangi.	160	
+taro	I whakatō mātou i te taro ki te māra i muri i te ua.	We planted the taro in the garden once the rain had passed.	162	
+taro	Ka tunua ngā taro me ngā kūmara i te hāngī mō te hui.	The taro and the kūmara are cooked in the hāngī for the gathering.	162	
+taro	He iti te taro i toe, engari i tohatohatia e ia ki ngā tamariki.	Only a little bread was left, but she shared it out among the children.	162	
+waewae	Horoia ō waewae i mua i tō kuhunga mai ki roto i te whare.	Wash your feet before you come inside the house.	163	
+waewae	Kia kaha te takahi o ō waewae i te wā o te haka.	Stamp your feet hard when the haka is being performed.	163	
+waewae	I wiri ōku waewae i taku tūnga ki te kōrero i te marae.	My legs shook as I stood up to speak on the marae.	163	
+kikokiko	I motu te kikokiko o tōku matimati i te maripi hou a Māmā.	I cut the flesh of my finger open on Mum's new knife.	164	
+kikokiko	Ka tapahia e ngā ringawera te kikokiko mō te hākari o āpōpō.	The kitchen crew cut up the meat for tomorrow's feast.	164	
+kikokiko	Kāore au e kai i te kikokiko, he huawhenua anake tāku kai.	I don't eat meat; vegetables alone are what I eat.	164	
+patu	I patu au i te waeroa i te pō, kātahi anō ka moe au.	I killed the mosquito during the night, and only then did I sleep.	165	
+patu	Ka patu ngā tāne i ngā tuna i te taha o te awa.	The men kill the eels down beside the river.	165	
+patu	Kaua e patu i te tamaiti; he nui ake te mana o te kōrero.	Never strike a child — talking with them carries far greater weight.	165	
+teka	Kua pakaru te teka o te arawhata, nō reira kāore au i piki.	The rung of the ladder has broken, so I didn't climb up.	166	
+teka	Kei runga tōku matua i te teka whakamutunga, e whakatika ana i te tuanui.	My father is up on the top rung, fixing the roof.	166	
+teka	Ka wiri ōku waewae ina eke au ki te teka tuatoru o te arawhata.	My legs start shaking whenever I get up to the third rung of the ladder.	166	
+poke	Kua poke katoa ōku ringaringa i te oneone o te māra kūmara.	My hands are completely grimy from the soil of the kūmara garden.	168	
+poke	He poke ngā matapihi o te kura, nō reira ka horoia e mātou āpōpō.	The school windows are grimy, so we'll wash them tomorrow.	168	
+poke	E whakamā ana au, he poke tonu ōku hū i te paru.	I'm embarrassed — my shoes are still grimy with mud.	168	
+mou	Ka hoe mātou ki tērā mou iti ki te hī ika ia Rāhoroi.	We paddle out to that little island to fish every Saturday.	169	
+mou	E noho ana ngā kaitiaki i taua mou, e tiaki ana i ngā manu.	The rangers live out on that island, looking after the birds.	169	
+mou	He ātaahua taua mou, engari kāore he wai māori i reira.	That islet is beautiful, but there's no fresh water on it.	169	
+tupu	Kua tupu ngā kūmara i te māra a tōku kuia, kāore anō kia keria.	The kūmara have grown in my grandmother's garden, but they haven't been dug up yet.	171	
+tupu	Kei te tupu te tokomaha o ngā ākonga i tō mātou kura reo Māori.	The number of students at our Māori-language school keeps growing.	171	
+tupu	I tupu ake au i Te Tai Tokerau, engari kua ngaro aku hoa katoa.	I grew up in the Far North, but all my friends have scattered since.	171	
+whakaora	I whakaora tōku pāpā i te manu i taka mai i te kōhanga.	My father revived the bird that had fallen out of the nest.	172	
+whakaora	Nā ngā tāngata o te hapū i whakaora te tohorā i pae ki uta.	It was the people of the hapū who revived the whale stranded on the shore.	172	
+whakaora	E ngana ana mātou ki te whakaora i te reo o ō mātou tīpuna.	We are striving to bring the language of our ancestors back to life.	172	
+toa	He toa tāku tamaiti, kāore ia i tangi i te wā i werohia ai.	My child is brave — he didn't cry at all when he got his injection.	173	
+toa	He toa taua kōtiro, i tū ia ki te kōrero i te hui.	That girl is brave — she stood up to speak at the meeting.	173	
+toa	Kāore au i te tino toa, engari i kauhoe tonu au ki tērā taha.	I'm not especially brave, but I swam across to the far bank anyway.	173	
+tuākana	Ka āwhina ōku tuākana i a au ki te whakapai i te whare.	My older siblings help me tidy up the house.	175	
+tuākana	Ko ōku tuākana ngā kaikaranga o te rā, nā rātou mātou i ārahi.	My older sisters were the callers that day, and it was they who led us in.	175	
+tuākana	Kua kaumātua kē ōku tuākana, engari kei te tiaki tonu rātou i a au.	My older siblings are elderly now, yet they still look after me.	175	
+hari	Ka hari ngā tamariki i te taha o te ahi i te pō.	The children dance beside the fire at night.	176	
+hari	I hari te katoa i te wharekai i muri i te mārena.	Everyone danced in the dining hall after the wedding.	176	
+hari	Kei te hiahia au ki te hari, engari kua mamae tōku waewae.	I want to dance, but my leg has started hurting.	176	
+mara	Kua mara ngā kānga i te wai o te awa, kua kaha te kakara.	The corn has softened in the river water, and the smell of it is strong now.	177	
+mara	Ia tau, ka tukuna e tōku kuia ngā kānga ki te awa kia mara.	Every year my grandmother puts the corn into the river to steep until it softens.	177	
+mara	Kāore aku tamariki e pai ki te kānga mara, he kaha rawa te haunga.	My children don't like steeped corn — the smell is far too strong for them.	177	
+anake	Ko au anake i noho ki te kāinga i te rā o te hui.	I was the only one who stayed at home on the day of the gathering.	178	
+anake	Kotahi anake te kaiako reo Māori i tō mātou kura, kua tino ngenge ia.	There is only one Māori-language teacher at our school, and she is exhausted.	178	
+anake	Kāore au e mataku ki te haere anake ki te ngahere i te pō.	I'm not afraid of going into the forest alone at night.	178	
+hiriwa	Kei te horoi ngā kuia i ngā pune hiriwa mō te hui nui āpōpō.	The kuia are cleaning the silver spoons for tomorrow's big gathering.	180	
+hiriwa	I riro i a Rāwiri te mētara hiriwa i te whakataetae oma i Rotorua.	Rāwiri took the silver medal at the running championships in Rotorua.	180	
+hiriwa	Ka mau tonu tōku whaea i ngā whakakai hiriwa o tōna māmā hei whakamaharatanga.	My mother still wears her own mum's silver earrings as a keepsake.	180	
+awa	Ka kaukau mātou i te awa ia ahiahi raumati, i muri i te kura.	We swim in the river every summer afternoon, once school is out.	182	
+awa	Kua waipuke te awa i te ua, kua kati te huarahi ki te marae.	The river has flooded from the rain, and the road to the marae is closed.	182	
+awa	Ahakoa kei tāwāhi ia, ka mihi tonu ia ki tōna awa, ki Whanganui.	Even though he lives overseas, he still pays tribute to his river, the Whanganui.	182	
+anga	I kohia e ngā tamariki ngā anga pipi hei whakapaipai i te māra.	The children gathered up pipi shells to decorate the garden with.	183	
+anga	Kua tū te anga o te whare hou, kāore anō te tuanui kia oti.	The frame of the new house is standing, but the roof still isn't finished.	183	
+anga	He ātaahua ki a au te anga pāua, he kanapa moana kei roto.	I think a pāua shell is beautiful — there's a whole shimmering sea inside it.	183	
+tatau	Ka tatau a Māmā i ngā kākahu mākū i mua i te whakairi.	Mum wrings out the wet clothes before she hangs them on the line.	184	
+tatau	I muri i te ruku pāua, ka tatau ngā tāne i ō rātou kākahu.	After diving for pāua, the men wring the water out of their clothes.	184	
+tatau	Kua ngenge ōku ringa i te tatau i ngā paraikete nunui o te wharepuni.	My hands are worn out from wringing the heavy blankets from the sleeping house.	184	
+taka	Ka taka te pōtaka i runga i te papa, ka katakata ngā tamariki.	The spinning top whirls across the floor and the children fall about laughing.	185	
+taka	E taka noa ana te wīra i te paru, kāore te motukā e neke.	The wheel just spins uselessly in the mud and the car won't budge.	185	
+taka	Ka taka haere te wā, ka nui haere taku aroha ki tōku kāinga tupu.	As the years wheel by, my longing for the place I grew up only grows.	185	
+whakahokia	Whakahokia mai taku pukapuka, kua roa au e tatari ana ki a koe.	Give me my book back — I've been waiting on you for ages.	187	
+whakahokia	Ka whakahokia ngā taonga ki te whare taonga i muri i te whakaaturanga.	The treasures will be returned to the museum once the exhibition is over.	187	
+whakahokia	Kua whakahokia ngā kōiwi tūpuna ki te urupā, ā, kua tau te ngākau.	The ancestral remains have been returned to the burial ground, and hearts have settled at last.	187	
+maka	Ka maka taku tama i ngā toenga kai ki ngā heihei i ia ata.	My son throws the leftover food out to the chickens every morning.	189	
+maka	Ka maka a Tama i te pōro ki tōna hoa, kātahi ka piro rātou.	Tama threw the ball out to his teammate, and then they scored.	189	
+maka	I te riri, ka maka a Hēmi i tōna pōtae ki te whenua.	In a rage, Hēmi flung his hat down onto the ground.	189	
+anahera	I mua i te moe, ka inoi te tamaiti kia tiakina e ngā anahera.	Before bed, the child prays to be watched over by the angels.	191	
+anahera	Ki tā tōku kuia, he anahera te nēhi i tiaki i a ia.	My grandmother reckons the nurse who looked after her was an angel.	191	
+anahera	Kua whakairohia ngā anahera ki ngā pou o te whare karakia o te pā.	Angels have been carved into the pillars of the church at the village.	191	
+tauiwi	He maha ngā tauiwi e ako ana i te reo Māori i te wānanga.	Plenty of non-Māori are studying the Māori language at the wānanga.	194	
+tauiwi	Ka pōwhiritia ngā tauiwi ki te marae, ka akona rātou ki ngā tikanga.	The outsiders are formally welcomed onto the marae and taught the protocols.	194	
+tauiwi	I te taenga mai o ngā tauiwi, ka riro te whenua o ngā tūpuna.	When the colonists arrived, the land of the ancestors was lost.	194	
+hinga	I hinga te rākau nui ki runga i te taiapa i te tupuhi inapō.	The big tree came down across the fence in last night's storm.	195	
+hinga	I hinga tō mātou kapa i te whiringa toa, engari i pai te tākaro.	Our team went down in the final, but they played well.	195	
