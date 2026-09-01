@@ -70,6 +70,15 @@ export default function LearnPage() {
 }
 
 function LearnInner() {
+  // The account's gloss setting (user_profiles.show_glosses). Absent reads
+  // as OFF, same as everywhere else: the layer is opt-in, so a deploy
+  // ahead of migration 20261012 withholds it rather than showing it
+  // unasked.
+  const { data: glossProfile } = useQuery({
+    queryKey: ['profile'],
+    queryFn: getProfile,
+  })
+  const showGlosses = glossProfile?.show_glosses ?? false
   const navigate = useNavigate()
   const { t, i18n } = useTranslation()
   const queryClient = useQueryClient()
@@ -667,7 +676,7 @@ function LearnInner() {
                     session at least labels. Name it, and let it explain
                     itself. The translation directly below is what it
                     means; the two belong together. */}
-                {lesson.quiz.gloss && (
+                {showGlosses && lesson.quiz.gloss && (
                   <p className="text-xs text-gray-500 text-center mt-1">
                     <span className="text-[10px] uppercase tracking-wide text-lang-label/70 me-2">
                       {t('review.layerGloss')}

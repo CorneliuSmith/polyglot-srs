@@ -1190,6 +1190,10 @@
     "sentenceAudio": {
       "title": "Hear the sentence when you're right",
       "desc": "After a correct answer — including one that only slipped on the accents — the full sentence is read aloud so you hear it whole. Applies on every device you use."
+    },
+    "glosses": {
+      "title": "Word-by-word glosses",
+      "desc": "Add the word-by-word breakdown to the hints during review. Off by default — the notation takes some getting used to, so turn it on if you want to see how sentences are built."
     }
   },
   "feedback": {

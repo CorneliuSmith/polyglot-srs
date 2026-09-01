@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
+import InfoDot from '../../components/InfoDot'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages, getProfile, updateProfile } from '../../api/profile'
@@ -255,6 +256,7 @@ export default function SettingsPage() {
       weekly_digest_dow?: number
       allow_explicit_content?: boolean
       sentence_audio_on_correct?: boolean
+      show_glosses?: boolean
     }) => updateProfile(patch),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['profile'] }),
   })
@@ -883,6 +885,60 @@ export default function SettingsPage() {
                   className={
                     'inline-block h-5 w-5 transform rounded-full bg-white transition-transform ' +
                     ((profile?.sentence_audio_on_correct ?? true)
+                      ? 'translate-x-5'
+                      : 'translate-x-1')
+                  }
+                />
+              </button>
+            </div>
+          </section>
+
+          {/* Word-by-word glosses. OFF by default (owner) — the Leipzig
+              notation is unfamiliar enough that meeting it unasked is what
+              learners reported as confusing, so it is opt-in. The same
+              InfoDot the review card carries sits here too, and matters
+              more here: this is where someone decides whether they want
+              the layer, so the explanation has to be at the switch. */}
+          <section
+            className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3"
+            data-testid="show-glosses"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h2 className="font-semibold text-gray-800">
+                  {t('settings.glosses.title')}
+                  <InfoDot
+                    label={t('review.glossHelpTitle')}
+                    title={t('review.glossHelpTitle')}
+                    testId="gloss-help"
+                  >
+                    {t('review.glossHelpBody')}
+                  </InfoDot>
+                </h2>
+                <p className="text-xs text-gray-500">
+                  {t('settings.glosses.desc')}
+                </p>
+              </div>
+              <button
+                type="button"
+                role="switch"
+                aria-checked={profile?.show_glosses ?? false}
+                aria-label={t('settings.glosses.title')}
+                disabled={reminderMutation.isPending}
+                onClick={() =>
+                  reminderMutation.mutate({
+                    show_glosses: !(profile?.show_glosses ?? false),
+                  })
+                }
+                className={
+                  'relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ' +
+                  ((profile?.show_glosses ?? false) ? 'bg-lang' : 'bg-gray-300')
+                }
+              >
+                <span
+                  className={
+                    'inline-block h-5 w-5 transform rounded-full bg-white transition-transform ' +
+                    ((profile?.show_glosses ?? false)
                       ? 'translate-x-5'
                       : 'translate-x-1')
                   }

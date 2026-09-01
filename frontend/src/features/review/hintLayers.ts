@@ -137,12 +137,28 @@ export function safePrompt(text: string, answer: string | null | undefined): str
 }
 
 /** The ordered hint layers this card can actually reveal. Base form (when the
- * card carries one — i.e. in the Gym) always leads. */
-export function hintLayersFor(languageCode: string, card: HintLayerSource): HintLayer[] {
+ * card carries one — i.e. in the Gym) always leads.
+ *
+ * `showGlosses` is the account setting (`user_profiles.show_glosses`), OFF
+ * by default: the Leipzig notation is unfamiliar enough that meeting it
+ * unasked is what learners reported as confusing. Off means the gloss is
+ * not OFFERED — it drops out of the order entirely, so the hint dots
+ * shorten by one rather than leaving a rung that reveals nothing.
+ *
+ * Filtering here rather than at each call site is what makes the setting
+ * hold on every surface that reveals a layer, including whichever one is
+ * written next — and the parameter defaults to OFF for the same reason, so
+ * a caller that forgets to pass it withholds the layer rather than showing
+ * it to someone who never asked. */
+export function hintLayersFor(
+  languageCode: string,
+  card: HintLayerSource,
+  { showGlosses = false }: { showGlosses?: boolean } = {},
+): HintLayer[] {
   const order: HintLayerField[] = [
     'base',
     ...(SCRIPT_COURSES.has(languageCode) ? WITH_READING : NO_READING),
-  ]
+  ].filter((f): f is HintLayerField => showGlosses || f !== 'gloss')
   // A field the server flagged is shown, but never under a label that
   // claims it is the learner's language: an Arabic speaker was told
   // "الترجمة" over an English sentence. Withholding it instead would
@@ -168,41 +184,6 @@ export function hintLayersFor(languageCode: string, card: HintLayerSource): Hint
         ...(foreign ? { foreign: true } : {}),
       }
     })
-}
-
-/**
- * The layers grouped into REVEAL STEPS — one press of Hint per step.
- *
- * Exactly one pairing exists: **gloss + translation reveal together.**
- *
- * A gloss is a Leipzig morphological decomposition (`bark.3SG`,
- * `have.NEG`), which answers "how is this sentence BUILT" — a structural
- * question. It does not answer "what does it mean", so a learner who spent
- * a hint on it was left holding a breakdown of a word they still could not
- * produce, and the next press was the one that actually helped. Users said
- * so directly: not enough to guess the word from, and confusing if you have
- * never seen the notation.
- *
- * Pairing them costs one rung of the hint ladder and removes a step that
- * only ever stranded people. The gloss keeps its place — it is shown
- * ABOVE the translation, so the structure is read first and the meaning
- * confirms it, which is the order that teaches.
- *
- * Everything else stays one layer per step, so the dots still match what is
- * actually revealable.
- */
-export function hintSteps(layers: HintLayer[]): HintLayer[][] {
-  const steps: HintLayer[][] = []
-  for (let i = 0; i < layers.length; i += 1) {
-    const next = layers[i + 1]
-    if (layers[i].field === 'gloss' && next?.field === 'translation') {
-      steps.push([layers[i], next])
-      i += 1
-    } else {
-      steps.push([layers[i]])
-    }
-  }
-  return steps
 }
 
 /**

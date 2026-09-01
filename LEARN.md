@@ -113,6 +113,30 @@ The corollary: seeded/default values always use `ON CONFLICT DO NOTHING`,
 never `DO UPDATE` — a migration that gets re-applied (or a seed script that
 gets re-run) must never stomp a value you've since changed by hand.
 
+### Optional profile columns: ask, never catch
+
+`user_profiles` grows a column every time a per-account setting is added,
+and migrations are owner-applied, so the code routinely runs against a
+database that is one migration behind. `backend/routers/auth.py` handles
+that by **asking `information_schema.columns` which optional columns
+exist** and building the SELECT and the upsert to match
+(`_present_profile_columns`, `_profile_column_plan`,
+`_OPTIONAL_PROFILE_FIELDS`).
+
+It is worth knowing *why* it is a probe and not a try/except. The obvious
+shape — try the wide query, catch `UndefinedColumnError`, retry a narrower
+one — **does not work here**: `rls_connection` runs everything inside one
+explicit transaction (the RLS claims are transaction-scoped, so it has to),
+and a statement that errors aborts that transaction. The retry then raises
+`InFailedSQLTransactionError`, which nothing catches, on the endpoint that
+renders every page. That is `docs/decisions/0001-probe-tables-instead-of-
+catching-errors.md` in one paragraph, and the profile endpoint carried the
+broken version of it until the gloss setting was added and it was measured.
+
+If you add a per-account setting: add the column to
+`_OPTIONAL_PROFILE_FIELDS` with its SQL default and to the matching
+defaults dict, and both the read and the write handle a database without it.
+
 ### AI integration: maker-checker, everywhere
 
 Every place the app uses Claude to produce learner-facing content follows
@@ -271,25 +295,29 @@ them is the most common source of "why is this in the wrong language" bugs:
    choice → browser's preferred languages → English. Deliberately never IP
    geolocation.
 
-### Hint layers, and why the gloss is paired with the translation
+### Hint layers, and the gloss setting
 
 `frontend/src/features/review/hintLayers.ts` owns the order in which a card
 gives help away: reading → pronunciation → word-by-word gloss → translation →
 the authored hint, with the reading step skipped for Latin-script courses.
-Each press of Hint reveals one **step**, and `hintSteps` groups the layers
-into steps — currently one grouping exists, and it is worth understanding:
+Each press of Hint reveals one layer:
 
-**A gloss and a translation reveal together.** A gloss is a Leipzig
+**The gloss is an opt-in account setting.** A gloss is a Leipzig
 morphological decomposition (`bark.3SG`, `have.NEG`) — it answers *how is
-this sentence built*, which is a structural question, not *what does it
-mean*. On its own it costs a hint and leaves the learner holding a breakdown
-of a word they still cannot produce, which is exactly what users reported.
-The pairing is in `hintSteps` rather than in the render, so the hint dots,
-the "hint dependence" signal, and every surface that reveals layers all
-count the same steps by construction.
+this sentence built*, a structural question, not *what does it mean*.
+Learners reported it as confusing and as not enough to guess a word from,
+and meeting it unasked was the complaint, so `user_profiles.show_glosses`
+(**OFF** by default) decides whether the layer is offered at all. The
+`hintLayersFor` option defaults to off for the same reason: a caller that
+forgets to pass it withholds unfamiliar notation rather than showing it. The filter is inside `hintLayersFor`, not at each call
+site, so the setting holds on every surface that reveals a layer —
+including whichever one is written next — and the hint dots shorten by one
+rather than leaving a rung that reveals nothing.
 
-The gloss also carries an `InfoDot` explaining the notation, because
-`bark.3SG` means nothing to someone who hasn't seen it, and the English
+The gloss carries an `InfoDot` explaining the notation — on the card and,
+more importantly, on the Settings toggle, since that is where someone
+decides whether they want it. It exists because `bark.3SG` means nothing
+to someone who hasn't seen it, and the English
 labels read as a bug rather than the deliberate choice they are (see
 `docs/decisions/2026-08-26-owner-decisions.md` §5 — glosses are structural
 on all 27 courses and their metalanguage is English *by design*, since the

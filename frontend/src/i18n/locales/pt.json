@@ -1190,6 +1190,10 @@
     "sentenceAudio": {
       "title": "Ouça a frase quando você acerta",
       "desc": "Após uma resposta correta — incluindo aquela que só errou os acentos —, a frase completa é lida em voz alta para você ouvi-la inteira. Vale em todos os seus dispositivos."
+    },
+    "glosses": {
+      "title": "Decomposições palavra por palavra",
+      "desc": "Acrescenta a decomposição palavra por palavra às pistas durante a revisão. Desativado por predefinição: a notação exige alguma prática, por isso ative-a se quiser ver como as frases são construídas."
     }
   },
   "feedback": {

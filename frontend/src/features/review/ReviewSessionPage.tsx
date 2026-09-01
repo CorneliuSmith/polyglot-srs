@@ -32,7 +32,7 @@ import CardFeedback from './CardFeedback'
 import SessionSummary from './SessionSummary'
 import OnScreenKeyboard from '../keyboards/OnScreenKeyboard'
 import { composeScript, deleteLastUnit, finalizeInput } from '../keyboards/translit'
-import { hintLayersFor, hintSteps, safePrompt } from './hintLayers'
+import { hintLayersFor, safePrompt } from './hintLayers'
 import TranslateMyCards from './TranslateMyCards'
 import SpeakButton from '../../components/SpeakButton'
 import InfoDot from '../../components/InfoDot'
@@ -190,6 +190,11 @@ function ReviewSessionInner({
   // feature is the default, the toggle is the escape.
   const sentenceAudioOnCorrect =
     profileQuery.data?.sentence_audio_on_correct ?? true
+  // Account-level like the audio setting above. Absent reads as OFF: the
+  // layer is opt-in (owner), so a deploy running ahead of migration
+  // 20261012 withholds it rather than showing unfamiliar notation to
+  // someone who never asked for it.
+  const showGlosses = profileQuery.data?.show_glosses ?? false
   const profile = profileQuery.data
   // Resolved means settled, not succeeded: a failed profile fetch degrades
   // to the 'en' default rather than stranding the session behind the gate.
@@ -819,7 +824,11 @@ function ReviewSessionInner({
   // recipe stays last because it all but spells out the answer.
   // chart_word is the lemma the Gym drill exercises — expose it as the
   // leading "Base form" hint (see hintLayers.ts).
-  const layers = hintLayersFor(card.language_code, { ...card, base: card.chart_word })
+  const layers = hintLayersFor(
+    card.language_code,
+    { ...card, base: card.chart_word },
+    { showGlosses },
+  )
   // In the GYM the drill's authored hint IS the prompt — the base form + person
   // to produce ("preparar, tú"). It's present for every conjugation drill
   // (unlike chart_word, which needs an NLP backend), so it's shown ALWAYS in its
@@ -846,15 +855,11 @@ function ReviewSessionInner({
   const optionalLayers = cram
     ? layers.filter((l) => l.field !== 'base' && l.field !== 'hint')
     : layers
-  // Steps, not layers: the gloss and the translation reveal together, so
-  // one press never leaves a learner holding a morphological breakdown of a
-  // word whose meaning is still a press away (see hintSteps).
-  const steps = hintSteps(optionalLayers)
-  const maxHint = steps.length
+  const maxHint = optionalLayers.length
   const revealedLayers =
     session.phase !== 'answering'
       ? optionalLayers
-      : steps.slice(0, Math.min(hintLevel, maxHint)).flat()
+      : optionalLayers.slice(0, Math.min(hintLevel, maxHint))
   const topHint = revealedLayers.find((l) => l.field === 'hint')
   const answering = session.phase === 'answering'
   const result = session.validationResult?.answer_result
