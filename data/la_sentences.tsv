@@ -11,7 +11,6 @@ hic	Quis hic?	Who's this?	27
 est	Quis est hic?	Who is this?	27
 hic	Quis est hic?	Who is this?	27
 est	Quis est ille?	Who is that?	27
-hic	Etiam hīc sum.	I'm here again.	41
 quoque	Ego quoque.	Me, too.	75
 nunc	Et nunc?	And now?	87
 nunc	Hīc et nunc.	Here and now.	87
@@ -296,7 +295,7 @@ paene	Paene captus sum.	I almost got caught.	19999
 mulier	Mulier es.	You are a woman.	19999
 amīcus	Amīcus meus nōn es.	You're not my friend.	19999
 mulier	Mulier pulchra est.	She's a beautiful woman.	19999
-os	Opprime ōs.	Shut your mouth.	19999
+ōs	Opprime ōs.	Shut your mouth.	19999
 per	Per vim!	By force!	19999
 frāter	Ūnus frāter mihi est.	I have one brother.	19999
 tandem	Iam intellegisne tandem?	Do you finally understand?	19999

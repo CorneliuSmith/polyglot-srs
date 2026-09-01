@@ -1,12 +1,10 @@
 word	sentence	translation	difficulty_rank	gloss
 kí	Kí l'o fẹ́?	What do you want?	61	what · COP.2SG · want
-ó	Ó fẹ́ lọ.	He wants to go.	61	3SG · want · go
 kí	Kí ló dé?	What happened?	77	what · COP.3SG · arrive
 omi	Omi ni ayé.	Water is life.	111	water · COP · life
 ayé	Omi ni ayé.	Water is life.	111	water · COP · life
 ni	Omi ni ayé.	Water is life.	111	water · COP · life
 láti	Ó wá láti Èkó.	He came from Lagos.	116	3SG · come · from · Lagos
-ó	Ó wá láti Èkó.	He came from Lagos.	116	3SG · come · from · Lagos
 èkó	Ó wá láti Èkó.	He came from Lagos.	116	3SG · come · from · Lagos
 sí	Ìyàwó mi lọ sí oko.	My wife went to the farm.	131	wife · 1SG.POSS · go · to · farm
 ìyàwó	Ìyàwó mi lọ sí oko.	My wife went to the farm.	131	wife · 1SG.POSS · go · to · farm
@@ -23,9 +21,7 @@ ilé	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	138	1
 mo	Mo fẹ́ rà ìwé.	I want to buy a book.	183	1SG · want · buy · book
 ìwé	Mo fẹ́ rà ìwé.	I want to buy a book.	183	1SG · want · buy · book
 ẹnu	Ó yà mí l'ẹ́nu.	It surprises me.	206	3SG · split · 1SG.OBJ · LOC.mouth
-ó	Ó yà mí l'ẹ́nu.	It surprises me.	206	3SG · split · 1SG.OBJ · at.mouth
 mo	Mo lọ sí odò.	I went to the river.	222	1SG · go · to · river
-iwọ	Ìwọ ta ni?	Who is it?	291	2SG · who · COP
 ta	Ìwọ ta ni?	Who is it?	291	2SG · who · COP
 ni	Ìwọ ta ni?	Who is it?	291	2SG · who · COP
 ẹṣin	Ẹṣin jẹ́ funfun.	The horse is white.	470	horse · COP · white
@@ -54,7 +50,6 @@ náà	Ẹṣin náà kìí ṣe funfun.	That horse is not white.	19999	horse · 
 ẹ́	Onísègùn ni ẹ́.	You're a doctor.	19999	doctor · COP · 2SG.OBJ
 yín	Onísègùn ni yín.	You're doctors.	19999	doctor · COP · 2PL.OBJ
 wọn	Onísègùn ni wọ́n.	They're doctors.	19999	doctor · COP · 3PL.OBJ
-rẹ	Owó rẹ̀ wà ní bánkì.	His money is in the bank.	19999	money · 3SG.POSS · be.at · at · bank
 ní	Owó rẹ̀ wà ní bánkì.	His money is in the bank.	19999	money · 3SG.POSS · be.at · at · bank
 owó	Owó rẹ̀ wà ní bánkì.	His money is in the bank.	19999	money · 3SG.POSS · be.at · at · bank
 ọsan	Agogo mejila ọsan.	It's midday.	19999	clock · twelve · afternoon
@@ -78,49 +73,39 @@ ni	Bẹ́ẹ̀ni.	Yes.	37	thus.COP
 bẹ	Bẹ́ẹ̀ni.	Yes.	37	thus.COP
 ki	Kí l'o fẹ́?	What do you want?	53	what · FOC.2SG · want
 l	Kí l'o fẹ́?	What do you want?	53	what · FOC.2SG · want
-lo	Kí ló dé?	What happened?	81	what · FOC.3SG · arrive
-de	Kí ló dé?	What happened?	81	what · FOC.3SG · arrive
 ki	Kí ló dé?	What happened?	81	what · FOC.3SG · arrive
 kọ	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105	1SG · NEG · want · go · to · house-lesson
 ẹ	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105	1SG · NEG · want · go · to · house-lesson
 si	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105	1SG · NEG · want · go · to · house-lesson
-o	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105	1SG · NEG · want · go · to · house-lesson
+ó	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105	1SG · NEG · want · go · to · house-lesson
 ile	Mi ò fẹ́ lọ sí ilé-ẹ́kọ́.	I don't want to go to school.	105	1SG · NEG · want · go · to · house-lesson
 aye	Omi ni ayé.	Water is life.	123	water · COP · life
 eko	Ó wá láti Èkó.	He came from Lagos.	130	3SG · come · from · Lagos
 lati	Ó wá láti Èkó.	He came from Lagos.	130	3SG · come · from · Lagos
 si	Ìyàwó mi lọ sí oko.	My wife went to the farm.	147	wife · 1SG.POSS · go · to · farm
 iyawo	Ìyàwó mi lọ sí oko.	My wife went to the farm.	147	wife · 1SG.POSS · go · to · farm
-ra	Mo fẹ́ rà ìwé.	I want to buy a book.	166	1SG · want · buy · book
 iwe	Mo fẹ́ rà ìwé.	I want to buy a book.	166	1SG · want · buy · book
 s	Mo lọ s'ọ́jà.	I went to the market.	166	1SG · go · to.market
 ja	Mo lọ s'ọ́jà.	I went to the market.	166	1SG · go · to.market
 mo	Mo lọ s'ọ́jà.	I went to the market.	166	1SG · go · to.market
-odo	Mo lọ sí odò.	I went to the river.	227	1SG · go · to · river
 meji	Mo ní ológbò méjì.	I have two cats.	433	1SG · have · cat · two
 ologbo	Mo ní ológbò méjì.	I have two cats.	433	1SG · have · cat · two
 fila	Mo rà fìlà.	I bought a hat.	454	1SG · buy · hat
-ra	Mo rà fìlà.	I bought a hat.	454	1SG · buy · hat
 bawo	Bawo ni?	How are you?	518	how · COP
 ṣokoto	Mo fẹ́ ṣòkòtò.	I want trousers.	535	1SG · want · trousers
-kii	Ẹṣin yìí kìí ṣe funfun.	This horse is not white.	609	horse · this · NEG.HAB · COP · white
 yii	Ẹṣin yìí kìí ṣe funfun.	This horse is not white.	609	horse · this · NEG.HAB · COP · white
 ṣe	Ẹṣin yìí kìí ṣe funfun.	This horse is not white.	609	horse · this · NEG.HAB · COP · white
 naa	Ẹṣin náà kìí ṣe funfun.	That horse is not white.	609	horse · DEF · NEG.HAB · COP · white
-kii	Ẹṣin náà kìí ṣe funfun.	That horse is not white.	609	horse · DEF · NEG.HAB · COP · white
 iwe	Ìwé kìí ṣe titun.	The book isn't new.	609	book · NEG.HAB · COP · new
 ko	kò sí wahála.	There is no problem.	680	NEG · exist · problem
 wahala	kò sí wahála.	There is no problem.	680	NEG · exist · problem
-okun	Àwọn erékùṣù wà ní òkun.	There are islands in the sea.	933	PL · island · be.at · at · sea
 erekuṣu	Àwọn erékùṣù wà ní òkun.	There are islands in the sea.	933	PL · island · be.at · at · sea
-wa	Àwọn erékùṣù wà ní òkun.	There are islands in the sea.	933	PL · island · be.at · at · sea
 awọn	Àwọn erékùṣù wà ní òkun.	There are islands in the sea.	933	PL · island · be.at · at · sea
 yin	Onísègùn ni yín.	You're doctors.	19999	doctor · COP · 2PL
 n	Onísègùn ni wọ́n.	They're doctors.	19999	doctor · COP · 3PL
 wọ	Onísègùn ni wọ́n.	They're doctors.	19999	doctor · COP · 3PL
 owo	Owó rẹ̀ wà ní bánkì.	His money is in the bank.	19999	money · 3SG.POSS · be.at · at · bank
 l	Ó yà mí l'ẹ́nu.	It surprises me.	19999	3SG · split · 1SG.OBJ · at.mouth
-ya	Ó yà mí l'ẹ́nu.	It surprises me.	19999	3SG · split · 1SG.OBJ · at.mouth
 ana	Ṣé o lọ sọjà ni àna?	Did you go to the market yesterday?	19999	Q · 2SG · go · to.market · at · yesterday
 rọ	A fẹ́ àwọn ọ̀rọ̀ ní gbólóhùn pípé.	We want complete sentences.	19999	1PL · want · PL · word · at · sentence · complete
 ọ	A fẹ́ àwọn ọ̀rọ̀ ní gbólóhùn pípé.	We want complete sentences.	19999	1PL · want · PL · word · at · sentence · complete
@@ -243,8 +228,6 @@ ologun	Àwọn ológun ìlú wa jà fún òmìnira.	Our town's warriors fought f
 ija	Ìjà bẹ́ sílẹ̀ láàárín àwọn ọmọ ilé-ìwé náà.	A fight broke out among the schoolchildren.	20036	fight · break · down · among · PL · child · school · DEF
 ati	Mo ra ẹja àti ìrẹsì ní ọjà.	I bought fish and rice at the market.	20037	1SG · buy · fish · and · rice · at · market
 ati	Ọmọ mi ń kọ́ èdè Yorùbá àti èdè Gẹ̀ẹ́sì ní ilé-ìwé.	My child is learning Yoruba and English at school.	20038	child · 1SG.POSS · PROG · learn · language · Yoruba · and · language · English · at · school
-ba	Mo bá a ní ọjà lánàá.	I met him at the market yesterday.	20039	1SG · meet · 3SG.OBJ · at · market · yesterday
-ba	Bí òjò bá rọ̀, a ó dúró nílé.	If it rains, we will stay at home.	20040	if · rain · COND · fall · 1PL · FUT · stay · at.house
 ilu	Gbogbo ìlú ló wá sí ibi ayẹyẹ náà.	The whole town came to the celebration.	20042	all · town · FOC.3SG · come · to · place · celebration · DET
 to	Ó tò wọ́n ní ẹsẹẹsẹ.	He arranged them in order.	20043	3SG · arrange · 3PL.OBJ · in · order
 to	Àwọn ọmọ ilé-ìwé tò ní ìlà níwájú olùkọ́ wọn.	The schoolchildren lined up in a row in front of their teacher.	20044	PL · child · school · line.up · in · row · in.front.of · teacher · 3PL.POSS
@@ -252,7 +235,6 @@ nitori	Kò wá sí ilé-ìwé nítorí àìsàn.	He did not come to school becau
 nitori	A kò lọ sí ọjà nítorí pé òjò ń rọ̀.	We did not go to the market because it was raining.	20046	1PL · NEG · go · to · market · because · COMP · rain · PROG · fall
 tabi	Ṣé o fẹ́ ìrẹsì tàbí ẹ̀wà?	Do you want rice or beans?	20047	Q · 2SG · want · rice · or · beans
 tabi	Mo lè lọ lónìí tàbí kí n dúró di ọ̀la.	I can go today, or wait until tomorrow.	20048	1SG · can · go · today · or · SUBJUNC · 1SG · wait · until · tomorrow
-ọdun	Mo ti wà ní Èkó fún ọdún méjì.	I have been in Lagos for two years.	20049	1SG · PRF · be · in · Lagos · for · year · two
 yi	Ó yí ọkọ̀ náà sí ọ̀tún.	He turned the vehicle to the right.	20051	3SG · turn · vehicle · DET · to · right
 mọ	Èmi kò mọ̀ ọ́ rárá.	I do not know him at all.	20052	1SG.EMPH · NEG · know · 3SG.OBJ · at.all
 mọ	Ṣé o mọ̀ pé ọjà kò ní ṣí lónìí?	Do you know that the market will not open today?	20053	Q · 2SG · know · COMP · market · NEG · FUT · open · today
@@ -277,7 +259,6 @@ igba	Ìyá mi fi igbá pọn omi.	My mother drew water with a calabash.	20072	mo
 igba	Wọ́n bu ẹmu sínú igbá ńlá kan fún àwọn àgbà.	They poured palm wine into a big calabash for the elders.	20073	3PL · scoop · palm.wine · into · calabash · big · a · for · PL · elder
 ku	Bàbá àgbà mi kú ní ọdún tí ó kọjá.	My grandfather died last year.	20075	father · elder · 1SG.POSS · die · in · year · REL · 3SG · pass
 lẹhin	Bàbá àgbà mi jẹ́ ẹni tó lẹ́hìn ní ìlú wa.	My grandfather was a man who left a legacy in our town.	20076	father · elder · 1SG.POSS · be · person · REL · have.legacy · in · town · 1PL.POSS
-lẹhin	A lọ sí ọjà lẹ́hìn oúnjẹ ọ̀sán.	We went to the market after the afternoon meal.	20077	1PL · go · to · market · after · food · afternoon
 ẹru	Ẹ̀rù bà mí nígbà tí mo gbọ́ ariwo náà.	I was afraid when I heard that noise.	20078	fear · seize · 1SG.OBJ · when · REL · 1SG · hear · noise · DEF
 ẹru	Ọmọ náà kò ní ẹ̀rù rárá.	That child has no fear at all.	20079	child · DEF · NEG · have · fear · at.all
 naijiria	Èkó ni ìlú tí ó tóbi jù ní Nàìjíríà.	Lagos is the biggest city in Nigeria.	20080	Lagos · FOC · city · REL · 3SG · be.big · most · in · Nigeria
@@ -285,7 +266,6 @@ naijiria	Mo padà sí Nàìjíríà lóṣù tó kọjá.	I came back to Nigeria
 titi	Ilé ìwé wa yóò wà ní ìsinmi títí di oṣù tó ń bọ̀.	Our school will be on holiday until next month.	20082	house · book · 1PL.POSS · FUT · be.at · in · rest · until · reach · month · REL · PROG · come
 titi	A dúró de wọn títí.	We waited for them for a long time.	20083	1PL · stand · wait.for · 3PL.OBJ · a.long.time
 orilẹ	Kí ni orílẹ̀ ìdílé rẹ?	What is your family's lineage?	20084	what · COP · lineage · family · 2SG.POSS
-orilẹ	Nàìjíríà jẹ́ orílẹ̀ èdè tí ó ní ẹ̀yà púpọ̀.	Nigeria is a country that has many ethnic groups.	20085	Nigeria · be · nation · language · REL · 3SG · have · ethnic.group · many
 ọpọ	Ọ̀pọ̀ ènìyàn ni ó wà ní ọjà lónìí.	There are a lot of people at the market today.	20086	abundance · person · FOC · 3SG · be.at · at · market · today
 ọpọ	A ní ọ̀pọ̀ oúnjẹ nílé.	We have plenty of food at home.	20087	1PL · have · abundance · food · at.home
 ode	Àwọn ọmọ ń ṣeré ní òde.	The children are playing outside.	20088	PL · child · PROG · play · at · outside
@@ -295,8 +275,7 @@ itan	Sọ ìtàn kan fún mi.	Tell me a story.	20091	tell · story · INDEF · t
 wọnyi	Àwọn ìwé wọ̀nyí wúwo gan-an.	These books are very heavy.	20092	PL · book · these · be.heavy · very
 wọnyi	Ta ni ó ra aṣọ wọ̀nyí ní ọjà?	Who bought these clothes at the market?	20093	who · FOC · 3SG · buy · cloth · these · at · market
 ọwọ	Fi ọwọ̀ gbá ilẹ̀ yàrá náà.	Sweep the floor of the room with a broom.	20094	use · broom · sweep · ground · room · DEF
-ọwọ	Wẹ ọwọ́ rẹ kí o tó jẹun.	Wash your hands before you eat.	20095	wash · hand · 2SG.POSS · SBJV · 2SG · before · eat
-ẹgbẹ	Mo darapọ̀ mọ́ ẹgbẹ́ àwọn akọrin ní ọdún tó kọjá.	I joined the singers' group last year.	20096	1SG · join · to · association · PL · singer · in · year · REL · pass
+owó	Wẹ ọwọ́ rẹ kí o tó jẹun.	Wash your hands before you eat.	20095	wash · hand · 2SG.POSS · SBJV · 2SG · before · eat
 igbeyawo	Ìgbéyàwó wọn yóò wáyé ní ọjọ́ Àbámẹ́ta.	Their wedding will take place on Saturday.	20098	marriage · 3PL.POSS · FUT · take.place · on · day · Saturday
 igbeyawo	Ó ti ń ronú nípa ìgbéyàwó.	He has begun thinking about marriage.	20099	3SG · PRF · PROG · think · about · marriage
 njẹ	Ǹjẹ́ ìyá rẹ mọ̀ pé o ń lọ sí ọjà?	Does your mother know that you are going to the market?	20101	Q · mother · 2SG.POSS · know · COMP · 2SG · PROG · go · to · market
@@ -327,20 +306,13 @@ oṣelu	Àwọn òṣèlú ń bá ara wọn jà nítorí owó.	The politicians a
 pọ	Owó rẹ̀ pọ̀ ju ti mi lọ.	He has more money than I do.	20131	money · 3SG.POSS · be.much · exceed · of · 1SG · go
 oke	Ilé wọn wà lórí òkè náà.	Their house is on the hill.	20132	house · 3PL.POSS · be.at · on · hill · DEF
 oke	Àwọn ọmọ ń gun òkè lọ sí oko bàbá wọn.	The children are climbing the hill to their father's farm.	20133	PL · child · PROG · climb · hill · go · to · farm · father · 3PL.POSS
-ọna	Ọ̀nà tó lọ sí ilé wa gùn púpọ̀.	The road that leads to our house is very long.	20134	road · REL · go · to · house · 1PL.POSS · be.long · much
-ọna	Ọ̀nà mìíràn wà láti ṣe é.	There is another way to do it.	20135	way · another · exist · to · do · 3SG.OBJ
 iru	Irú aṣọ wo ni ó fẹ́?	What kind of cloth does he want?	20136	kind · cloth · which · FOC · 3SG · want
 iru	Irú ìwà bẹ́ẹ̀ kò dára fún ọmọdé rárá.	That kind of behaviour is not good for a child at all.	20137	kind · character · such · NEG · be.good · for · child · at.all
-aṣa	Àṣà wa ni láti bọ̀wọ̀ fún àgbà.	It is our custom to respect elders.	20138	custom · 1PL.POSS · COP · to · respect · for · elder
-aṣa	Àwọn ọ̀dọ́ òde òní kò mọ àṣà ilẹ̀ wa mọ́.	Young people of today no longer know the customs of our land.	20139	PL · youth · outside · today · NEG · know · custom · land · 1PL.POSS · again
 oṣu	Oṣù tuntun ti yọ, àjọ̀dún yóò bẹ̀rẹ̀.	The new moon has appeared; the festival will begin.	20140	moon · new · PRF · appear · festival · FUT · begin
 oṣu	Ní oṣù tí ń bọ̀, a ó bẹ̀rẹ̀ iṣẹ́ tuntun.	Next month we will start a new job.	20141	at · month · REL · PROG · come · 1PL · FUT · begin · work · new
 ounjẹ	Oúnjẹ tí ìyá mi sè lánàá dùn gan-an.	The food my mother cooked yesterday was very tasty.	20142	food · REL · mother · 1SG.POSS · cook · yesterday · be.sweet · very
 ounjẹ	Oúnjẹ kò tó fún gbogbo wa.	The food is not enough for all of us.	20143	food · NEG · be.enough · for · all · 1PL
-olori	Olórí ilé ẹ̀kọ́ wa jẹ́ obìnrin.	The head of our school is a woman.	20144	head · house · learning · 1PL.POSS · be · woman
-olori	Wọ́n fi Adé jẹ olórí àwọn òṣìṣẹ́ lọ́dún yìí.	They made Ade the leader of the workers this year.	20145	3PL · take · Ade · become · leader · PL · worker · at.year · this
 pọn	Àwọn ará ìlú pọ́n olóyè náà lé fún iṣẹ́ rere rẹ̀.	The townspeople praised the chief for his good work.	20146	PL · inhabitant · town · praise · chief · DEF · upon · for · work · good · 3SG.POSS
-pọn	Ọ̀gẹ̀dẹ̀ tí mo rà lánàá ti pọ́n.	The banana I bought yesterday has ripened.	20147	banana · REL · 1SG · buy · yesterday · PRF · be.ripe
 iyan	Mo jẹ iyán àti ẹ̀fọ́ ní ilé ìyá mi.	I ate pounded yam and vegetable stew at my mother's house.	20148	1SG · eat · pounded.yam · and · vegetable.stew · at · house · mother · 1SG.POSS
 iyan	Ìyá mi ń gún iyán ní ìdáná.	My mother is pounding yam in the kitchen.	20149	mother · 1SG.POSS · PROG · pound · pounded.yam · at · kitchen
 mẹfa	Mo rà ẹyin mẹ́fà lọ́jà lónìí.	I bought six eggs at the market today.	20150	1SG · buy · egg · six · at.market · today
@@ -375,9 +347,8 @@ oriṣa	Ṣàngó jẹ́ ọ̀kan lára àwọn òrìṣà ilẹ̀ Yorùbá.	Sha
 oriṣa	Bàbá mi ń bọ òrìṣà ìdílé wa.	My father worships our family's orisha.	20181	father · 1SG.POSS · PROG · worship · orisha · family · 1PL.POSS
 atijọ	Ní ayé àtijọ́, àwọn àgbẹ̀ ń fi ọwọ́ ro oko.	In the old days, farmers tilled the farm by hand.	20182	in · world · ancient · PL · farmer · PROG · use · hand · till · farm
 atijọ	Ẹ kú àtijọ́, ọ̀rẹ́ mi!	Long time no see, my friend!	20183	2PL · greet · old.times · friend · 1SG.POSS
-ero	Ọkọ̀ náà kún fún èrò.	The bus is full of passengers.	20184	vehicle · DEF · be.full · of · passenger
-ero	Kí ni èrò rẹ nípa ọ̀rọ̀ yìí?	What is your opinion on this matter?	20185	what · COP · thought · 2SG.POSS · about · matter · this
-apẹrẹ	Ẹ fún mi ní àpẹrẹ kan.	Give me an example, please.	20186	2PL · give · 1SG.OBJ · with · example · INDF
+ẹrọ	Ọkọ̀ náà kún fún èrò.	The bus is full of passengers.	20184	vehicle · DEF · be.full · of · passenger
+ẹrọ	Kí ni èrò rẹ nípa ọ̀rọ̀ yìí?	What is your opinion on this matter?	20185	what · COP · thought · 2SG.POSS · about · matter · this
 apẹrẹ	Ìyá kó gbogbo ẹ̀fọ́ rẹ̀ sínú apẹ̀rẹ̀ ńlá kan.	Mother packed all her vegetables into a big basket.	20187	mother · pack · all · vegetable · 3SG.POSS · into · basket · big · INDF
 ifẹ	Ìfẹ́ ló so ìdílé wa pọ̀.	It is love that holds our family together.	20188	love · FOC.3SG · tie · family · 1PL.POSS · together
 ifẹ	Ìyá mi fi ìfẹ́ tọ́ wa dàgbà.	My mother raised us with love.	20189	mother · 1SG.POSS · use · love · nurture · 1PL.OBJ · grow
@@ -395,7 +366,6 @@ din	Ìyá ń dín ẹja nínú epo pupa.	Mother is frying fish in palm oil.	2020
 din	Ẹ jọ̀wọ́, ẹ dín owó rẹ̀ kù fún mi.	Please bring its price down for me.	20201	2PL · please · 2PL · reduce · money · 3SG.POSS · remain · for · 1SG.OBJ
 fẹran	Àwọn òbí mi fẹ́ràn àlejò, wọ́n ń gba gbogbo ènìyàn sílé.	My parents love guests; they welcome everyone into the house.	20203	PL · parent · 1SG.POSS · love · guest · 3PL · PROG · receive · all · person · to.house
 ọkan	Ọ̀kan péré ni ó kù nínú àwọn àkàrà náà.	Only one of those bean cakes is left.	20204	one · only · FOC · 3SG · remain · inside · PL · bean.cake · DEF
-ọkan	Ọkàn mi kò balẹ̀ rárá.	My mind is not at ease at all.	20205	heart · 1SG.POSS · NEG · settle · at.all
 ominira	Nàìjíríà gba òmìnira lọ́wọ́ àwọn òyìnbó.	Nigeria won its independence from the colonialists.	20206	Nigeria · receive · independence · from.hand · PL · white.person
 ominira	Ẹ kú ọdún òmìnira o!	Happy Independence Day!	20207	2PL · greet · year · independence · EMPH
 agbẹ	Àgbẹ̀ tí kò bá ṣiṣẹ́ kò ní kórè.	A farmer who does not work will not harvest.	20209	farmer · REL · NEG · COND · work · NEG · FUT · harvest
@@ -425,14 +395,11 @@ aworan	Àwòrán ìgbéyàwó àwọn òbí mi wà lára ògiri.	My parents' wed
 ọlọrọ	Ọlọ́rọ̀ náà kọ́ ilé ìwòsàn fún ìlú wa.	That rich man built a hospital for our town.	20233	rich.person · DEF · build · house · healing · for · town · 1PL.POSS
 ọga	Ọ̀gá mi kò dé ibi iṣẹ́ lónìí.	My boss did not come to work today.	20234	boss · 1SG.POSS · NEG · arrive · place · work · today
 ọga	Ta ni ọ̀gá àwọn òṣìṣẹ́ wọ̀nyí?	Who is the boss of these workers?	20235	who · COP · boss · PL · worker · these
-ijẹbu	Ìyá mi wá láti Ìjẹ̀bú.	My mother comes from Ijebu.	20236	mother · 1SG.POSS · come · from · place.name
-ijẹbu	Ọ̀pọ̀ àwọn ará Ìjẹ̀bú ni ń ṣe òwò ní Èkó.	Many Ijebu people are traders in Lagos.	20237	many · PL · people · place.name · FOC · PROG · do · trade · in · Lagos
 lẹyin	Lẹ́yìn tí a jẹun tán, gbogbo wa jókòó láti sọ̀rọ̀.	After we had finished eating, we all sat down to talk.	20238	after · REL · 1PL · eat · finish · all · 1PL · sit · to · talk
 lẹyin	Ọkọ̀ náà dúró lẹ́yìn ilé wa.	The car stopped behind our house.	20239	vehicle · DEF · stop · behind · house · 1PL.POSS
 sọrọ	Mo fẹ́ bá ọ sọ̀rọ̀ díẹ̀.	I want to have a quick word with you.	20240	1SG · want · with · 2SG · talk · little
 sọrọ	Ọ̀gá wa sọ̀rọ̀ nípa iṣẹ́ tuntun náà ní ìpàdé.	Our boss spoke about the new job at the meeting.	20241	boss · 1PL.POSS · talk · about · work · new · DEF · at · meeting
 igbo	Àwọn ọdẹ lọ sínú igbó láti pa ẹranko.	The hunters went into the forest to kill game.	20242	PL · hunter · go · into · forest · to · kill · animal
-igbo	Ọ̀rẹ́ mi ń kọ́ èdè Ìgbò ní ilé-ìwé gíga.	My friend is learning Igbo at university.	20243	friend · 1SG.POSS · PROG · learn · language · people.name · at · school · high
 fọ	Ó fọ̀ fún mi pé òun kò ní wá.	He told me that he would not come.	20244	3SG · say · to · 1SG · COMP · 3SG.LOG · NEG · FUT · come
 fọ	Kí ni bàbá rẹ fọ̀ fún ọ?	What did your father say to you?	20245	what · FOC · father · 2SG.POSS · say · to · 2SG
 ọla	Ọmọ rere ni ọlá fún òbí rẹ̀.	A good child is an honour to his parents.	20246	child · good · COP · honour · for · parent · 3SG.POSS
@@ -445,15 +412,13 @@ tẹlẹ	Mo ti rí ọkùnrin yẹn tẹ́lẹ̀.	I have seen that man before.	2
 tẹlẹ	Wọ́n ń gbé Èkó tẹ́lẹ̀, ṣùgbọ́n wọ́n ti kó lọ sí Ìbàdàn.	They used to live in Lagos, but they have moved to Ibadan.	20253	3PL · PROG · live · Lagos · before · but · 3PL · PERF · move · go · to · Ibadan
 akara	Mo ra àkàrà mẹ́ta ní ọjà lónìí.	I bought three akara at the market today.	20254	1SG · buy · bean.fritter · three · at · market · today
 akara	Ìyá náà máa ń ta àkàrà gbígbóná ní àárọ̀.	That woman sells hot akara in the morning.	20255	mother · DEF · HAB · PROG · sell · bean.fritter · hot · in · morning
-ọlẹ	Ọ̀lẹ kì í ṣiṣẹ́, ṣùgbọ́n ó fẹ́ jẹun.	A lazy person will not work, but he wants to eat.	20256	lazy.person · NEG · HAB · work · but · 3SG · want · eat
-ọlẹ	Kò sí ọ̀lẹ nínú ilé wa; gbogbo wa ni ń ṣiṣẹ́.	There is no lazy person in our house; we all work.	20257	NEG · exist · lazy.person · in · house · 1PL.POSS · all · 1PL · FOC · PROG · work
+olè	Ọ̀lẹ kì í ṣiṣẹ́, ṣùgbọ́n ó fẹ́ jẹun.	A lazy person will not work, but he wants to eat.	20256	lazy.person · NEG · HAB · work · but · 3SG · want · eat
+olè	Kò sí ọ̀lẹ nínú ilé wa; gbogbo wa ni ń ṣiṣẹ́.	There is no lazy person in our house; we all work.	20257	NEG · exist · lazy.person · in · house · 1PL.POSS · all · 1PL · FOC · PROG · work
 oorun	Mo gbọ́ òórùn oúnjẹ dídùn nínú ilé.	I smelled the aroma of good food in the house.	20258	1SG · perceive · smell · food · sweet · in · house
 oorun	Òórùn ẹja tí ó bàjẹ́ kún gbogbo ọjà.	The smell of rotten fish filled the whole market.	20259	smell · fish · REL · 3SG · spoil · fill · all · market
 ṣiṣẹ	Ìyá mi ń ṣiṣẹ́ ní ilé ìwòsàn.	My mother works at the hospital.	20260	mother · 1SG.POSS · PROG · work · at · house · healing
 ṣiṣẹ	Ẹni tí kò bá ṣiṣẹ́ kò gbọdọ̀ jẹun.	Whoever does not work must not eat.	20261	person · REL · NEG · COND · work · NEG · must · eat
 kiniun	A gbọ́ ohùn kìnìún nínú igbó lálẹ́ àná.	We heard the voice of a lion in the forest last night.	20263	1PL · hear · voice · lion · at.inside · forest · at.night · yesterday
-ikun	Ebi ń pa mí, ikùn mi sì ń dún.	I am hungry, and my stomach is rumbling.	20264	hunger · PROG · kill · 1SG.OBJ · belly · 1SG.POSS · and · PROG · sound
-ikun	Ọmọ náà fi ọwọ́ lé ikùn rẹ̀.	The child put his hand on his belly.	20265	child · DEF · take · hand · put.on · belly · 3SG.POSS
 dagba	Ọmọ náà ń dàgbà kíákíá.	The child is growing quickly.	20266	child · DEF · PROG · grow · quickly
 dagba	Igi tí a gbìn lọ́dún tó kọjá ti dàgbà gan-an.	The tree we planted last year has grown a lot.	20267	tree · REL · 1PL · plant · at.year · REL · pass · PRF · grow · very
 adura	Ìyá mi ń gba àdúrà ní gbogbo òwúrọ̀.	My mother prays every morning.	20268	mother · 1SG.POSS · PROG · receive · prayer · at · all · morning
@@ -479,8 +444,6 @@ alẹ	Ìtàn ni àwọn àgbà máa ń pa ní alẹ́.	It is folktales that the 
 igbagbọ	A ní ìgbàgbọ́ pé ohun gbogbo yóò dára.	We have faith that everything will be fine.	20293	1PL · have · faith · that · thing · all · FUT · be.good
 igbe	Oṣù Ìgbé ni a bí mi.	It was in the month of April that I was born.	20294	month · April · FOC · IMPRS · bear · 1SG.OBJ
 igbe	Òjò máa ń rọ̀ púpọ̀ ní oṣù Ìgbé.	It rains a lot in the month of April.	20295	rain · HAB · PROG · fall · much · at · month · April
-ẹda	Ènìyàn ni ẹ̀dá tí ó ní ọgbọ́n jù.	Man is the creature that has the most wisdom.	20296	person · COP · creature · REL · 3SG · have · wisdom · most
-ẹda	Ọlọ́run dá gbogbo ẹ̀dá alààyè.	God created every living creature.	20297	God · create · all · creature · living
 agbara	Olóyè náà ní agbara nínú ìlú wa.	That chief has power in our town.	20298	chief · that · have · power · inside · town · our
 agbara	Iṣẹ́ oko gba agbara púpọ̀.	Farm work takes a lot of strength.	20299	work · farm · take · strength · much
 ere	Kò sí ere nínú iṣẹ́ náà.	There is no profit in that work.	20300	NEG · exist · profit · inside · work · the
@@ -664,7 +627,6 @@ akọ	Ó fà idà náà yọ nínú akọ rẹ̀.	He pulled the sword out of its
 akọ	Fi idà náà sínú akọ rẹ̀.	Put the sword back into its sheath.	20491	put.IMP · sword · DEF · into · sheath · 3SG.POSS
 wura	Ìyàwó náà wọ òrùka wúrà.	The bride wore a gold ring.	20492	bride · DEF · wear · ring · gold
 wura	Wúrà ni wọ́n fi ṣe adé ọba.	It is gold that they used to make the king's crown.	20493	gold · FOC · 3PL · use · make · crown · king
-ọwọn	Ẹja ti di ọ̀wọ́n ní ọjà wa.	Fish has become expensive in our market.	20494	fish · PERF · become · scarce · at · market · 1PL.POSS
 ajẹ	Wọ́n ní àjẹ́ ló fa àìsàn ọmọ náà.	They said it was witchcraft that caused the child's illness.	20496	3PL · say · witchcraft · FOC.3SG · cause · illness · child · DEF
 ajẹ	Ọ̀pọ̀ ènìyàn ṣì ń bẹ̀rù àjẹ́.	Many people still fear witchcraft.	20497	many · person · still · PROG · fear · witchcraft
 ṣiṣe	Ṣíṣe àti sísọ jẹ́ ohun méjì ọ̀tọ̀ọ̀tọ̀.	Doing and saying are two different things.	20498	doing · and · saying · COP · thing · two · different
