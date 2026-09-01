@@ -1005,3 +1005,39 @@ spot, weaker than the §23 rule written the same day. 998 Russian and 1,068
 Arabic words inside the top 2,000 still failed §23 afterwards, and the owner
 caught it from a card. **When a rule exists, select against the rule, not
 against a number that feels adjacent to it.**
+
+---
+
+## §25 Most "the sentence has a different word" is diacritics (31 Aug 2026)
+
+A sweep for sentences whose form differs from the headword by a mark rather
+than by case returned **963 rows**. Judged one at a time by a model reading
+the language, **856 were correct** and needed nothing.
+
+Arabic supplied most of the noise. `شكراً` against a headword `شكرا` is the
+SAME WORD with its tanwīn written out; so are `دائماً`, `تقريباً`, `أيضاً`
+and dozens more. Arabic writes short vowels and nunation optionally, so two
+spellings of one word are the norm, not a defect. Russian `ещё`/`еще` is the
+same again. Case endings (`فوقَ`, `أرضٍ`), stress marks (`На́`) and
+mood vowels (`أشعرُ`) are all inflection, never a new lexeme.
+
+**107 were real**, and the distinction is worth stating because it is not
+about how different the strings look:
+
+* `أما` (as for) vs `إمّا` (either) — the hamza vowel IS the word
+* `صاح` (to shout, root ص ي ح) vs `صاحٍ` (awake, root ص ح و) — same
+  skeleton, unrelated roots
+* `أحمد` (form IV verb) vs the form I imperative of `حمد`
+* Latin `hic`/`hīc`, Yoruba tone pairs — the mark is the lexeme
+* Thai `มาน` matched INSIDE `มานี่` (= มา + นี่, "come here") — an artefact
+  of unspaced script, not a word at all (§22 again)
+
+Acted on: 49 sentences retagged to the word they actually teach, 58 dropped
+where the course has no card for that word. `test_a_word_with_a_real_sentence
+_keeps_no_fragments` then required a floor pass, because retagging moves a
+sentence onto a word that may already hold fragments.
+
+**The rule this leaves.** Do not diff strings and call the difference a
+defect. Ask what the writing system treats as optional — Arabic short vowels,
+Russian ё, Hebrew niqqud are all omissible — and judge only what remains.
+89% of this sweep was the writing system doing what it normally does.

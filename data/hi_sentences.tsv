@@ -557,8 +557,6 @@ word	sentence	translation	difficulty_rank
 सोच	तुम सोच क्या रहे थे?	What were you thinking?	322
 बेटे	उसके पास तीन बेटे हैं।	He has three sons.	324
 बेटे	तुम्हारे बेटे का नाम क्या है?	What's your son's name?	324
-मुझ	मुझें तुम्हारी याद आ रही है।	I miss you.	325
-मुझ	मुझें आपकी याद आ रही है।	I miss you.	325
 मुझ	क्या तुम अभी भी मुझ से बात करना चाहते हो?	Do you still want to talk to me?	325
 पानी	पानी कल बंद हो गया था।	The water was cut off yesterday.	326
 बंद	पानी कल बंद हो गया था।	The water was cut off yesterday.	326
@@ -915,7 +913,6 @@ word	sentence	translation	difficulty_rank
 बनाने	उसकी माँ खाना बनाने में लगी हुई थी।	Her mother was busy cooking the dinner.	547
 इसकी	इसकी तो.	Damn.	548
 सोना	तुम अच्छे से सोये क्या?	Did you sleep well?	550
-सोना	मेरे पास आज रात सोने के लिए जगह नहीं है।	I have no place to sleep tonight.	550
 सोना	तुम कल रात अच्छे से सोये क्या?	Did you have a good sleep last night?	550
 यहीं	यहीं कहीं होगा।	It must be here somewhere.	552
 यहीं	यहीं कहीं होना चाहिए।	It must be here somewhere.	552
@@ -1364,7 +1361,7 @@ word	sentence	translation	difficulty_rank
 पे	तुम घर पे हो क्या?	Are you at home?	920
 रुक	रुक जाओ!	Wait!	926
 रुक	बस एक मिनट रुक।	Just wait a minute.	926
-आँखा	तुम्हारी आँखे खराब हैं क्या?	Are your eyes bad?	927
+आँखें	तुम्हारी आँखे खराब हैं क्या?	Are your eyes bad?	927
 खराब	तुम्हारी आँखे खराब हैं क्या?	Are your eyes bad?	927
 आँखों	मैं तुम्हारी आँखों में मर चुका हूँ।	I don't exist to you.	927
 आँखों	उसने लड़के की आँखों में देखा।	He looked into the boy's eyes.	927
@@ -1947,7 +1944,7 @@ word	sentence	translation	difficulty_rank
 ठंडा	आज मौसम काफ़ी ठंडा है।	It's rather cold today.	1448
 ठंडा	खाना ठंडा हो रहा है।	The food is getting cold.	1448
 ठंडा	आज बहुत ठंडा है ना?	It is very cold today, isn't it?	1448
-दिखा	वे हमें समुद्र तट पर दिखे।	We saw them on the beach.	1449
+देखने	वे हमें समुद्र तट पर दिखे।	We saw them on the beach.	1449
 तट	वे हमें समुद्र तट पर दिखे।	We saw them on the beach.	1449
 समुद्र	वे हमें समुद्र तट पर दिखे।	We saw them on the beach.	1449
 तट	उसके पास समुद्र तट पर एक घर है।	She has a house at the beach.	1449
@@ -2915,7 +2912,7 @@ word	sentence	translation	difficulty_rank
 लेट	अपने कपड़े उतार कर बिस्तर पर लेट जा!	Take off your clothes and lie down on the bed!	2467
 उतार	अपने कपड़े उतार कर बिस्तर पर लेट जाओ!	Take off your clothes and lie down on the bed!	2467
 लेट	अपने कपड़े उतार कर बिस्तर पर लेट जाओ!	Take off your clothes and lie down on the bed!	2467
-सिरा	उन्होंने उसे अपने सिरों के ऊपर उठाया।	They lifted her above their heads.	2472
+सर	उन्होंने उसे अपने सिरों के ऊपर उठाया।	They lifted her above their heads.	2472
 उठाया	उन्होंने उसे अपने सिरों के ऊपर उठाया।	They lifted her above their heads.	2472
 भागना	अपनी जान बचा कर भागिए!	Run for your life!	2473
 फेंको	पत्थर मत फेंको।	Don't throw stones.	2475
@@ -3452,8 +3449,8 @@ word	sentence	translation	difficulty_rank
 उम्मीद	उसने डॉक्टर बन ने की उम्मीद त्याग दी.	He abandoned his hope of becoming a doctor.	3310
 त्याग	उसने डॉक्टर बन ने की उम्मीद त्याग दी.	He abandoned his hope of becoming a doctor.	3310
 नंगा	अपने ही घर में नंगा होने में क्या गलत है?	What's wrong with being nude in your own house?	3314
-बहना	मेरी चार बहने नहीं है।	I don't have four sisters.	3315
-बहना	मेरे पास चार बहने नहीं है।	I don't have four sisters.	3315
+बहन	मेरी चार बहने नहीं है।	I don't have four sisters.	3315
+बहन	मेरे पास चार बहने नहीं है।	I don't have four sisters.	3315
 मुड़ना	हमें पीछे मुड़ना चाहिये।	We must turn back.	3316
 मुड़ना	हमें पीछे मुड़ना चाहिए।	We should turn back.	3316
 दीवारों	पुराना शहर दीवारों से घेरा हुआ है।	The old city is surrounded by walls.	3317
@@ -4266,7 +4263,6 @@ word	sentence	translation	difficulty_rank
 करवाना	तुम मुझसे क्या करवाना चाहते हो?	What do you want me to do?	4753
 माँगा	उसने मुझसे एक एहसान माँगा।	He asked me if I could do him a favor.	4761
 एहसान	उसने मुझसे एक एहसान माँगा।	He asked me if I could do him a favor.	4761
-माँगा	उन्होंने ने मुझसे टूटी हुई खिड़की के लिए पैसे माँगे।	They charged me for the broken window.	4761
 टूटी	उन्होंने ने मुझसे टूटी हुई खिड़की के लिए पैसे माँगे।	They charged me for the broken window.	4761
 माँगा	उसने मुझसे थोड़े पैसे माँगे।	He asked me for some money.	4761
 उड़ते	पंछी उड़ते हैं।	Birds fly.	4767
@@ -4492,7 +4488,7 @@ word	sentence	translation	difficulty_rank
 अनदेखा	बेहतर होगा कि इस बात को अनदेखा किया जाए।	It is better to ignore this point.	5347
 मारें	मारें तो हाथी और लूटें तो भंडार।	If you must kill, kill an elephant and if you must rob, rob a treasury.	5348
 भंडार	मारें तो हाथी और लूटें तो भंडार।	If you must kill, kill an elephant and if you must rob, rob a treasury.	5348
-लूट	मारें तो हाथी और लूटें तो भंडार।	If you must kill, kill an elephant and if you must rob, rob a treasury.	5348
+लौटने	मारें तो हाथी और लूटें तो भंडार।	If you must kill, kill an elephant and if you must rob, rob a treasury.	5348
 विकासशील	भारत एक विकासशील देश है।	India is a developing country.	5350
 प्यासा	मैं बहुत प्यासा था।	I was very thirsty.	5353
 प्यासा	मैं बहुत प्यासा थी।	I was very thirsty.	5353
@@ -4722,7 +4718,7 @@ word	sentence	translation	difficulty_rank
 बाँट	वह हर बच्चे को दो सेव बाँट रही है।	She is dealing out two apples to each child.	5848
 पेड़ों	सेव के पेड़ों में बहुत सारे फल लग गए।	The apple trees set very well.	5848
 अमेरिकी	अमेरिकी झंडे पर पचास सितारें हैं।	There are fifty stars on the American flag.	5850
-सितार	अमेरिकी झंडे पर पचास सितारें हैं।	There are fifty stars on the American flag.	5850
+स्तर	अमेरिकी झंडे पर पचास सितारें हैं।	There are fifty stars on the American flag.	5850
 अरबी	वह अरबी पढ़ सकता है।	He reads Arabic.	5860
 अरबी	वह थोड़ी सी अरबी बोलती है।	She speaks a little Arabic.	5860
 मिस्र	"मिस्र को अरबी में ""मिस्र"" ही कहते हैं।"	"Egypt is called ""Misr"" in Arabic."	5860
@@ -5065,7 +5061,6 @@ word	sentence	translation	difficulty_rank
 तम्बाकू	कमरे में तम्बाकू की महक थी।	The room smelled of tobacco.	6966
 जगाओ	उन्हें जगाओ।	Wake them up.	6979
 खुलती	दुकाने कब खुलती हैं?	When do the shops open?	6983
-दुकाना	दुकाने कब खुलती हैं?	When do the shops open?	6983
 विद्वान	वाह! तुम बड़े विद्वान होगे।	Wow! You must be a genius.	6986
 वाह	वाह! तुम बड़े विद्वान होगे।	Wow! You must be a genius.	6986
 रोमांचक	यह उपन्यास बहुत रोमांचक है।	The novel is very exciting.	7003
@@ -5145,7 +5140,7 @@ word	sentence	translation	difficulty_rank
 झगड़ना	लड़ने-झगड़ने से बात का हल नहीं होगा।	Fighting won't settle anything.	7418
 हल	लड़ने-झगड़ने से बात का हल नहीं होगा।	Fighting won't settle anything.	7418
 आईं	मुझे आपके जैसी अड़चने कभी नहीं आईं।	I've never had problems like yours.	7438
-अड़चना	मुझे आपके जैसी अड़चने कभी नहीं आईं।	I've never had problems like yours.	7438
+अड़चन	मुझे आपके जैसी अड़चने कभी नहीं आईं।	I've never had problems like yours.	7438
 ऑस्ट्रेलियाई	ऑस्ट्रेलियाई औरतें बहुत सुंदर होती हैं।	Australian women are very beautiful.	7467
 औरतें	ऑस्ट्रेलियाई औरतें बहुत सुंदर होती हैं।	Australian women are very beautiful.	7467
 दहशत	उस खबर ने गाँव में दहशत फैला दी।	The news caused alarm throughout the village.	7536
@@ -5786,7 +5781,7 @@ word	sentence	translation	difficulty_rank
 सीधे	घूमफिरकर बात मत करो, सीधे-सीधे बोलो।	Stop beating around the bush.	19999
 निशाना	उसने अपनी बंदूक का निशाना मुझपर लगाया।	He leveled his gun at me.	19999
 पैरों	मैंने हिरण के पैरों के निशानों का पीछा किया।	I followed the deer's tracks.	19999
-निशाना	मैंने हिरण के पैरों के निशानों का पीछा किया।	I followed the deer's tracks.	19999
+निशान	मैंने हिरण के पैरों के निशानों का पीछा किया।	I followed the deer's tracks.	19999
 घंटी	मैं बस स्कूल पहुँचा ही था कि घंटी बज गई।	I had hardly reached the school when the bell rang.	19999
 रेशम	यह रेशम छूने में बहुत नर्म लगता है।	This silk feels smooth.	19999
 छूने	यह रेशम छूने में बहुत नर्म लगता है।	This silk feels smooth.	19999
@@ -6622,7 +6617,7 @@ word	sentence	translation	difficulty_rank
 कूदते	बन्दर एक डाली से दूसरी डाली पर कूदते हैं।	The monkeys jump from branch to branch.	19999
 डाली	बन्दर एक डाली से दूसरी डाली पर कूदते हैं।	The monkeys jump from branch to branch.	19999
 पाजामा	टॉम और मेरी अभी भी पाजामे पहन रहे हैं।	Tom and Mary are still in their pajamas.	19999
-पुरा	पुरे दिन हल्की-हल्की बारिश बरसी।	It rained gently the whole day.	19999
+पर	पुरे दिन हल्की-हल्की बारिश बरसी।	It rained gently the whole day.	19999
 मंजन	मैं रोज़ाना कम से कम तीन बार मंजन करती हूँ ।	I brush my teeth at least three times a day.	19999
 पसीना	टॉम को अब पसीने आ रहे हैं ।	Tom is sweating now.	19999
 जम	मेरे पाँव जम चुके हैं।	My toes are frozen.	19999
