@@ -72,7 +72,24 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("results", nargs="+", help="workflow task .output or journal.jsonl")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument(
+        "--attribute-from", metavar="JSON",
+        help="work list {code: [{w,...}]} used to assign a course to records "
+             "that carry none. A workflow's AUTHOR stage returns bare "
+             "{words:[...]}; the course code is added by the second stage, so "
+             "a run that crashes in post-processing leaves records with no "
+             "code at all. Three did. Without this the work is unattributable "
+             "and gets thrown away.")
     args = ap.parse_args()
+
+    owner: dict[str, str] = {}
+    if args.attribute_from:
+        work = json.loads(Path(args.attribute_from).read_text(encoding="utf-8"))
+        counts: dict[str, set] = defaultdict(set)
+        for code, items in work.items():
+            for it in items:
+                counts[it["w"]].add(code)
+        owner = {w: next(iter(c)) for w, c in counts.items() if len(c) == 1}
 
     supplied: dict[str, dict[str, list]] = defaultdict(dict)
     for path in args.results:
@@ -89,6 +106,27 @@ def main() -> int:
             whole = json.loads(text)
             blobs = [whole.get("result", whole)]
         for b in blobs:
+            # Two shapes reach this. A workflow that finished returns
+            # {code: {word: [sentences]}}. A workflow that CRASHED in its
+            # post-processing leaves per-agent records in the journal shaped
+            # {code, words:[{w, sentences}], fixes:[...]} — three runs died
+            # that way on a template bug, with every agent's work intact, so
+            # reading only the finished shape would have thrown it away.
+            if isinstance(b.get("words"), list) or isinstance(b.get("fixes"), list):
+                code = b.get("code")
+                if not code and owner:
+                    # infer from the work list: whichever course asked for
+                    # these words. Unanimity required — a word claimed by two
+                    # courses is dropped rather than guessed.
+                    claims = {owner.get(w["w"]) for w in (b.get("words") or [])}
+                    claims.discard(None)
+                    code = claims.pop() if len(claims) == 1 else None
+                if code:
+                    for w in b.get("words") or []:
+                        supplied[code][w["w"]] = w["sentences"]
+                    for x in b.get("fixes") or []:      # checker wins
+                        supplied[code][x["w"]] = x["sentences"]
+                continue
             for code, words in b.items():
                 if isinstance(words, dict):
                     supplied[code].update(words)
