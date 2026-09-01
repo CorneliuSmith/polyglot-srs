@@ -5,6 +5,8 @@ import {
   recommend,
   type RecoTally,
 } from '../../api/contribute'
+import QueueHelp, { QUEUE_HELP } from './QueueHelp'
+import { useFocusList } from './useFocusList'
 
 /** "N recommend approve / M reject" from trial reviewers, with whatever
  * they wrote.
@@ -45,8 +47,11 @@ export function RecoSummary({ tally }: { tally?: RecoTally | null }) {
  * they leave an advisory recommendation instead. */
 export default function GeneratedDrillsPanel({
   languageId,
+  focus = false,
 }: {
   languageId: string
+  /** One at a time with ‹ › instead of the whole list. */
+  focus?: boolean
 }) {
   const qc = useQueryClient()
   const { data } = useQuery({
@@ -71,6 +76,7 @@ export default function GeneratedDrillsPanel({
 
   const pending = data?.pending
   const canPublish = data?.can_publish ?? false
+  const { shown, nav } = useFocusList(pending ?? [], focus, 'drill')
   // Nothing pending → don't clutter the Review tab.
   if (!pending || pending.length === 0) return null
   const busy = publishMutation.isPending || recommendMutation.isPending
@@ -83,6 +89,11 @@ export default function GeneratedDrillsPanel({
       <div className="flex items-baseline justify-between">
         <h2 className="text-sm font-semibold text-gray-800">
           Generated drills · awaiting review
+          <QueueHelp
+            title="Generated drills"
+            help={QUEUE_HELP['generated-drills']}
+            testId="help-generated-drills"
+          />
         </h2>
         <span className="text-xs text-amber-600">{pending.length} pending</span>
       </div>
@@ -91,8 +102,9 @@ export default function GeneratedDrillsPanel({
           ? 'AI-generated grammar drills, hidden from learners until you approve them — approved drills become permanent corpus, rejected ones are deleted.'
           : 'AI-generated grammar drills. As a tester you can recommend approve or reject; a full reviewer makes the final call.'}
       </p>
+      {nav}
       <ul className="space-y-1.5">
-        {pending.map((d) => (
+        {shown.map((d) => (
           <li
             key={d.id}
             className="flex items-start justify-between gap-2 rounded-lg border border-gray-100 px-2.5 py-1.5"

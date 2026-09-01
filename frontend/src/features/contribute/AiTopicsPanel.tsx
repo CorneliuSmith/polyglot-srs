@@ -84,7 +84,19 @@ function WordRow({
   )
 }
 
-export default function AiTopicsPanel({ languageId }: { languageId: string }) {
+import QueueHelp, { QUEUE_HELP } from './QueueHelp'
+import { useFocusList } from './useFocusList'
+
+export default function AiTopicsPanel({
+  languageId,
+  focus = false,
+}: {
+  languageId: string
+  /** One BUCKET at a time with ‹ ›. Stepping per word would be the wrong
+   * unit here: the decision is "is this bucket right for these words",
+   * which is why the panel groups them in the first place. */
+  focus?: boolean
+}) {
   const { t } = useTranslation()
   const qc = useQueryClient()
   const [openBucket, setOpenBucket] = useState<string | null>(null)
@@ -107,6 +119,7 @@ export default function AiTopicsPanel({ languageId }: { languageId: string }) {
   })
 
   const counts = data?.counts ?? []
+  const { shown, nav } = useFocusList(inTopicOrder(counts), focus, 'bucket')
   if (counts.length === 0) return null
   const canPublish = data?.can_publish ?? false
   const total = counts.reduce((n, c) => n + c.pending, 0)
@@ -123,6 +136,11 @@ export default function AiTopicsPanel({ languageId }: { languageId: string }) {
       <div className="flex items-baseline justify-between gap-3">
         <h2 className="text-sm font-semibold text-gray-800">
           Topic buckets · awaiting confirmation
+          <QueueHelp
+            title="AI topic buckets"
+            help={QUEUE_HELP['ai-topics']}
+            testId="help-ai-topics"
+          />
         </h2>
         <span className="text-xs text-amber-600">{total} pending</span>
       </div>
@@ -147,8 +165,9 @@ export default function AiTopicsPanel({ languageId }: { languageId: string }) {
           Reject the whole run
         </button>
       )}
+      {nav}
       <ul className="divide-y divide-gray-50">
-        {inTopicOrder(counts.map((c) => ({ ...c, topic: c.topic }))).map((c) => (
+        {shown.map((c) => (
           <li key={c.topic} className="py-2">
             <div className="flex items-center justify-between gap-2">
               <button

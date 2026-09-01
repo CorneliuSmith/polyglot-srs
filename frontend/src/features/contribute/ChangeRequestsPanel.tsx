@@ -6,6 +6,8 @@ import {
   type ChangeRequest,
 } from '../../api/contribute'
 import QueueStatus from './QueueStatus'
+import QueueHelp, { QUEUE_HELP } from './QueueHelp'
+import { useFocusList } from './useFocusList'
 
 const FIELD_LABEL: Record<string, string> = {
   sentence: 'Sentence',
@@ -21,7 +23,14 @@ const FIELD_LABEL: Record<string, string> = {
  * inline from Learn/Review, ranked by vote. Reviewers, contributors, and
  * admins vote; only admins accept or reject.
  */
-export default function ChangeRequestsPanel({ languageId }: { languageId: string }) {
+export default function ChangeRequestsPanel({
+  languageId,
+  focus = false,
+}: {
+  languageId: string
+  /** One at a time with ‹ › instead of the whole board. */
+  focus?: boolean
+}) {
   const queryClient = useQueryClient()
 
   const { data, isError } = useQuery({
@@ -50,15 +59,23 @@ export default function ChangeRequestsPanel({ languageId }: { languageId: string
   // Testers may raise and read, never vote — the server 403s their vote
   // deliberately, so the buttons are hidden rather than left to fail.
   const canVote = data?.can_vote ?? false
+  const { shown, nav } = useFocusList(requests, focus, 'change request')
 
   return (
     <section className="space-y-3" data-testid="change-requests">
       <h2 className="font-semibold text-gray-800">
         Change requests
+        <QueueHelp
+          title="Change requests"
+          help={QUEUE_HELP['change-requests']}
+          testId="help-change-requests"
+        />
         <span className="ms-2 text-xs font-normal text-gray-500">
           suggestions from Learn &amp; Review — vote to prioritise
         </span>
       </h2>
+
+      {nav}
 
       {/* A board that reads "nothing here" after a failed fetch is the exact
           shape of the reported bug: the requests were raised, the admin was
@@ -78,7 +95,7 @@ export default function ChangeRequestsPanel({ languageId }: { languageId: string
         )
       )}
 
-      {requests.map((r: ChangeRequest) => (
+      {shown.map((r: ChangeRequest) => (
         <div
           key={r.id}
           className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 flex gap-3"

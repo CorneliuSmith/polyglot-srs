@@ -13,9 +13,13 @@ import QueueStatus from './QueueStatus'
  * An admin approves (applies to the card) or rejects (dismisses).
  * 'en-hint' rows are flagged English definitions; other locales are
  * English-course L1 glosses. */
+import QueueHelp, { QUEUE_HELP } from './QueueHelp'
+import { useFocusList } from './useFocusList'
+
 export default function TranslationReviewsPanel({
   languageId,
   awaiting,
+  focus = false,
 }: {
   languageId?: string
   /** What the Review Inbox counts for this queue, passed ONLY when the
@@ -23,6 +27,8 @@ export default function TranslationReviewsPanel({
    * self-hiding behaviour — reviewers whose GET 403s shouldn't be shown an
    * error about a queue that isn't theirs. */
   awaiting?: number
+  /** One at a time with ‹ › instead of the whole list. */
+  focus?: boolean
 }) {
   const queryClient = useQueryClient()
   const { data: reviews, isError } = useQuery({
@@ -40,6 +46,8 @@ export default function TranslationReviewsPanel({
     mutationFn: rejectTranslationReview,
     onSuccess: refresh,
   })
+
+  const { shown, nav } = useFocusList(reviews ?? [], focus, 'translation')
 
   if (!reviews || reviews.length === 0) {
     if (awaiting === undefined) return null
@@ -59,7 +67,14 @@ export default function TranslationReviewsPanel({
       data-testid="translation-reviews"
     >
       <div className="flex flex-wrap items-center gap-2">
-        <h2 className="text-sm font-semibold text-gray-800">AI translations</h2>
+        <h2 className="text-sm font-semibold text-gray-800">
+          AI translations
+          <QueueHelp
+            title="AI translations"
+            help={QUEUE_HELP['translation-reviews']}
+            testId="help-translation-reviews"
+          />
+        </h2>
         <span className="rounded-full bg-amber-50 px-2 py-0.5 text-[10px] font-medium text-amber-700">
           AI generated · awaiting review
         </span>
@@ -71,8 +86,9 @@ export default function TranslationReviewsPanel({
         the checker saw a problem but had no fix offer only Dismiss; if the
         current text really is wrong, fix the card itself in the editor.
       </p>
+      {nav}
       <ul className="divide-y divide-gray-50">
-        {reviews.map((r) => (
+        {shown.map((r) => (
           <li key={r.id} className="py-2 flex items-start gap-3">
             <span className="text-[10px] font-mono uppercase rounded bg-gray-100 text-gray-500 px-1.5 py-0.5 mt-0.5">
               {r.locale}

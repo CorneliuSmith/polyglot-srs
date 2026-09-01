@@ -39,6 +39,11 @@ import ExperimentsPanel from './ExperimentsPanel'
 import FeedbackQueuePanel from './FeedbackQueuePanel'
 import GeneratedDrillsPanel from './GeneratedDrillsPanel'
 import ReviewInbox, { useReviewInbox } from './ReviewInbox'
+import {
+  QUEUE_META,
+  queueForPanel,
+  type PanelId,
+} from '../../lib/reviewTaxonomy'
 import TesterRecommendationsPanel from './TesterRecommendationsPanel'
 import GymDrillsPanel from './GymDrillsPanel'
 import AiLevelsPanel from './AiLevelsPanel'
@@ -795,6 +800,15 @@ function paramSection(value: string | null): AdminSection | null {
     : null
 }
 
+/** A ?queue= naming one review panel, so a focused queue is a LINK — the
+ *  bell can point at "the 476 AI translations" and land the reader on that
+ *  queue alone, and a reviewer can bookmark the one they clear daily. */
+function paramPanel(value: string | null): PanelId | null {
+  return QUEUE_META.some((q) => q.panel === value)
+    ? (value as PanelId)
+    : null
+}
+
 export default function ContributorPage() {
   const [searchParams] = useSearchParams()
   const focusPointId = searchParams.get('point')
@@ -826,6 +840,16 @@ export default function ContributorPage() {
   const [adminSection, setAdminSection] = useState<AdminSection>(
     linkedSection ?? 'insights',
   )
+  // Which single review queue the tab is scoped to, or null for the full
+  // stack (owner: "click the sections and view those specific kinds of
+  // reviews to lessen the load mentally"). Opening one from a ?queue= link
+  // is what the staff bell and the inbox tiles both do.
+  const [focusPanel, setFocusPanel] = useState<PanelId | null>(
+    paramPanel(searchParams.get('queue')),
+  )
+  const focusedQueue = focusPanel ? queueForPanel(focusPanel) : undefined
+  // A queue is only "shown" when nothing is focused or IT is the focus.
+  const shows = (panel: PanelId) => focusPanel === null || focusPanel === panel
 
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
   const language = languages.find((l) => l.id === activeLanguageId)
@@ -857,6 +881,10 @@ export default function ContributorPage() {
   useEffect(() => {
     if (data && tab === 'contribute' && !canContribute) setTab('review')
   }, [data, tab, canContribute])
+
+  useEffect(() => {
+    if (tab !== 'review') setFocusPanel(null)
+  }, [tab])
 
   // A 403 means the user has no contributor role for this language.
   const forbidden =
@@ -1054,82 +1082,143 @@ export default function ContributorPage() {
                 {/* One roll-up of everything awaiting review action, above the
                     individual queue panels. Reviewers and admins only —
                     a tester's panels below still ask them their question. */}
-                {canSeeQueues && (
+                {canSeeQueues && focusPanel === null && (
                   <ReviewInbox
                     languageId={activeLanguageId}
                     onSwitchLanguage={setActiveLanguageId}
+                    onFocusQueue={setFocusPanel}
                   />
+                )}
+                {/* Focused on one queue: the inbox collapses to a bar naming
+                    what you are in and the way out. Everything else on the
+                    tab is hidden — that IS the feature ("lessen the load
+                    mentally"), so the escape has to be unmissable. */}
+                {focusPanel !== null && (
+                  <div
+                    className="flex items-center justify-between gap-3 rounded-2xl border border-lang/30 bg-lang/5 px-4 py-2.5"
+                    data-testid="queue-focus-bar"
+                  >
+                    <p className="min-w-0 text-sm font-semibold text-gray-800">
+                      Reviewing:{' '}
+                      <span className="text-lang">
+                        {focusedQueue?.label ?? 'one queue'}
+                      </span>
+                      {focusedQueue && (
+                        <span className="ms-1 text-xs font-normal text-gray-500">
+                          · {inboxCounts?.[focusedQueue.key] ?? 0} waiting
+                        </span>
+                      )}
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setFocusPanel(null)}
+                      className="shrink-0 rounded-md border border-gray-300 bg-white px-2.5 py-1 text-xs font-medium text-gray-700 hover:bg-gray-50"
+                    >
+                      ← All queues
+                    </button>
+                  </div>
                 )}
                 {/* What the testers actually said, with their notes — the
                     channel that used to survive only as a tooltip on a row
                     the next bulk-approve would delete. */}
-                {(data.can_trial_review ?? false) && (
+                {(data.can_trial_review ?? false) &&
+                  shows('tester-recommendations') && (
                   <TesterRecommendationsPanel
                     languageId={activeLanguageId}
                     languageCode={languageCode}
                     awaiting={inboxCounts?.tester_recommendations}
+                    focus={focusPanel === 'tester-recommendations'}
                   />
                 )}
                 {/* AI-proposed glosses the maker-checker wouldn't auto-apply.
                     Moved here from the Admin tab (owner): review work lives
                     in the Review section, badged with its type. Self-hides
                     for non-admins and when the queue is empty. */}
-                <TranslationReviewsPanel
-                  languageId={activeLanguageId}
-                  // Only admins can open this queue, so only they get told
-                  // when it fails to load (see the panel's prop docs).
-                  awaiting={data.is_admin ? inboxCounts?.ai_translations : undefined}
-                />
+                {shows('translation-reviews') && (
+                  <TranslationReviewsPanel
+                    languageId={activeLanguageId}
+                    // Only admins can open this queue, so only they get told
+                    // when it fails to load (see the panel's prop docs).
+                    awaiting={data.is_admin ? inboxCounts?.ai_translations : undefined}
+                    focus={focusPanel === 'translation-reviews'}
+                  />
+                )}
                 {/* Generated grammar drills awaiting review. Full reviewers
                     approve/reject; trial reviewers recommend. Hidden when none
                     pending. */}
-                {(data.can_trial_review ?? false) && (
-                  <GeneratedDrillsPanel languageId={activeLanguageId} />
+                {(data.can_trial_review ?? false) && shows('generated-drills') && (
+                  <GeneratedDrillsPanel
+                    languageId={activeLanguageId}
+                    focus={focusPanel === 'generated-drills'}
+                  />
                 )}
                 {/* Words the model gave a provisional CEFR level — confirm to
                     finalise the level and the deck placement. */}
-                {(data.can_trial_review ?? false) && (
-                  <AiLevelsPanel languageId={activeLanguageId} />
+                {(data.can_trial_review ?? false) && shows('ai-levels') && (
+                  <AiLevelsPanel
+                    languageId={activeLanguageId}
+                    focus={focusPanel === 'ai-levels'}
+                  />
                 )}
                 {/* The classifier's semantic buckets — same review contract
                     as AI levels: provisional until confirmed. */}
-                {(data.can_trial_review ?? false) && (
-                  <AiTopicsPanel languageId={activeLanguageId} />
+                {(data.can_trial_review ?? false) && shows('ai-topics') && (
+                  <AiTopicsPanel
+                    languageId={activeLanguageId}
+                    focus={focusPanel === 'ai-topics'}
+                  />
                 )}
                 {/* Gym corpus, browsable by form category — view/edit the drills
                     the Gym serves, not just the ones pending review above. */}
-                <GymDrillsPanel
-                  languageId={activeLanguageId}
-                  canEdit={data.can_review ?? data.is_admin}
-                />
+                {focusPanel === null && (
+                  <GymDrillsPanel
+                    languageId={activeLanguageId}
+                    canEdit={data.can_review ?? data.is_admin}
+                  />
+                )}
                 {/* Change requests: everyone with a role sees and votes;
                     only admins accept/reject (server-enforced). */}
-                <ChangeRequestsPanel languageId={activeLanguageId} />
-                {(data.can_review ?? data.is_admin) && (
-                  <SuggestionsPanel languageId={activeLanguageId} />
+                {shows('change-requests') && (
+                  <ChangeRequestsPanel
+                    languageId={activeLanguageId}
+                    focus={focusPanel === 'change-requests'}
+                  />
+                )}
+                {(data.can_review ?? data.is_admin) && shows('suggestions') && (
+                  <SuggestionsPanel
+                    languageId={activeLanguageId}
+                    focus={focusPanel === 'suggestions'}
+                  />
                 )}
                 {(data.can_review ?? data.is_admin) && (
                   <>
-                    <IssuesPanel
-                      languageId={activeLanguageId}
-                      canResolve={data.can_review ?? data.is_admin}
-                      awaiting={inboxCounts?.notes}
-                    />
-                    <FeedbackPanel
-                      languageId={activeLanguageId}
-                      awaiting={inboxCounts?.feedback}
-                    />
+                    {shows('issues') && (
+                      <IssuesPanel
+                        languageId={activeLanguageId}
+                        canResolve={data.can_review ?? data.is_admin}
+                        awaiting={inboxCounts?.notes}
+                        focus={focusPanel === 'issues'}
+                      />
+                    )}
+                    {shows('feedback') && (
+                      <FeedbackPanel
+                        languageId={activeLanguageId}
+                        awaiting={inboxCounts?.feedback}
+                        focus={focusPanel === 'feedback'}
+                      />
+                    )}
                   </>
                 )}
                 {/* General app feedback — the fourth stream, finally
                     triageable where the other three live, scoped by the
                     same picker (docs/plans/review-visibility.md C4). The
                     bell's "Open the feedback queue" lands here. */}
-                {data.is_admin && (
+                {data.is_admin && shows('feedback-queue') && (
                   <FeedbackQueuePanel
                     canTriage
                     languageId={activeLanguageId}
                     languageName={language?.name}
+                    focus={focusPanel === 'feedback-queue'}
                   />
                 )}
               </>
@@ -1147,13 +1236,14 @@ export default function ContributorPage() {
                 languageName={language?.name}
               />
             )}
-            {tab === 'review' && canSeeQueues && language?.has_tts === false && (
+            {tab === 'review' && canSeeQueues && focusPanel === null &&
+              language?.has_tts === false && (
               <RecordingsReviewQueue languageId={activeLanguageId} />
             )}
 
             {/* Vocab review surface (WP32): browse + votable suggestions,
                 shown for both Contribute and Review when Vocab is selected. */}
-            {contentKind === 'vocab' && (
+            {contentKind === 'vocab' && focusPanel === null && (
               <VocabReviewPanel
                 languageId={activeLanguageId}
                 languageCode={languageCode}
@@ -1164,11 +1254,12 @@ export default function ContributorPage() {
         )}
 
         {data && tab !== 'admin' && contentKind === 'grammar' &&
-          data.points.length === 0 && (
+          focusPanel === null && data.points.length === 0 && (
             <p className="text-gray-500">No grammar points for this language yet.</p>
           )}
 
         {data && tab !== 'admin' && contentKind === 'grammar' &&
+          focusPanel === null &&
           orderedPoints(data.points, focusPointId).map((point) => (
             <div
               key={point.id}

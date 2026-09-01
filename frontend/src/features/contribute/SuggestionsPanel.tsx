@@ -9,7 +9,17 @@ import type { Suggestion, SuggestionFields, SuggestionSource } from '../../api/c
  * proposing values for a word a human already curated, rather than overwriting
  * it). Doc-sourced ones are badged and filterable, since they cost model spend
  * and admin tracks how often they land. */
-export default function SuggestionsPanel({ languageId }: { languageId: string }) {
+import QueueHelp, { QUEUE_HELP } from './QueueHelp'
+import { useFocusList } from './useFocusList'
+
+export default function SuggestionsPanel({
+  languageId,
+  focus = false,
+}: {
+  languageId: string
+  /** One at a time with ‹ › instead of the whole list. */
+  focus?: boolean
+}) {
   const queryClient = useQueryClient()
   const [source, setSource] = useState<SuggestionSource | 'all'>('all')
 
@@ -31,11 +41,15 @@ export default function SuggestionsPanel({ languageId }: { languageId: string })
     onSuccess: invalidate,
   })
 
-  if (items.length === 0) return null
-
   const docCount = items.filter((s: Suggestion) => s.source === 'extraction').length
-  const shown =
+  const filtered =
     source === 'all' ? items : items.filter((s: Suggestion) => s.source === source)
+  // Above the early return: a hook after one runs conditionally, which
+  // React counts as a changed hook order and throws on the render where
+  // the list first goes empty.
+  const { shown: stepped, nav } = useFocusList(filtered, focus, 'suggestion')
+
+  if (items.length === 0) return null
 
   const FIELDS: [keyof SuggestionFields, string][] = [
     ['definition', 'Definition'],
@@ -67,6 +81,11 @@ export default function SuggestionsPanel({ languageId }: { languageId: string })
       <div className="flex items-center justify-between gap-2 flex-wrap">
         <h2 className="text-sm font-semibold text-lang-dark">
           Suggested edits ({items.length})
+          <QueueHelp
+            title="Content suggestions"
+            help={QUEUE_HELP['suggestions']}
+            testId="help-suggestions"
+          />
         </h2>
         {docCount > 0 && (
           <div className="flex gap-1.5">
@@ -76,7 +95,8 @@ export default function SuggestionsPanel({ languageId }: { languageId: string })
           </div>
         )}
       </div>
-      {shown.map((s: Suggestion) => (
+      {nav}
+      {stepped.map((s: Suggestion) => (
         <div key={s.id} className="border-t border-gray-100 pt-2 text-sm">
           <div className="flex items-baseline justify-between gap-2">
             <span className="font-medium text-gray-800">{s.card_title ?? s.entity_id}</span>

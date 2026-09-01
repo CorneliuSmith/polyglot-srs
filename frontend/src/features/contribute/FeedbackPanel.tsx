@@ -6,14 +6,20 @@ import QueueStatus from './QueueStatus'
  * Open learner feedback for the active language, for contributors to triage.
  * Resolving an item removes it from the queue.
  */
+import QueueHelp, { QUEUE_HELP } from './QueueHelp'
+import { useFocusList } from './useFocusList'
+
 export default function FeedbackPanel({
   languageId,
   awaiting,
+  focus = false,
 }: {
   languageId: string
   /** What the Review Inbox counts for this queue — lets an empty list that
    * should not be empty announce itself instead of rendering nothing. */
   awaiting?: number
+  /** One at a time with ‹ › instead of the whole list. */
+  focus?: boolean
 }) {
   const queryClient = useQueryClient()
 
@@ -22,6 +28,8 @@ export default function FeedbackPanel({
     queryFn: () => getFeedback(languageId),
     retry: false,
   })
+
+  const { shown, nav } = useFocusList(items, focus, 'report')
 
   const resolveMutation = useMutation({
     mutationFn: (id: string) => resolveFeedback(id),
@@ -43,8 +51,14 @@ export default function FeedbackPanel({
     <div className="bg-white rounded-2xl shadow-sm border border-amber-200 p-4 space-y-2">
       <h2 className="text-sm font-semibold text-amber-800">
         Learner feedback ({items.length})
+        <QueueHelp
+          title="Card feedback"
+          help={QUEUE_HELP['feedback']}
+          testId="help-feedback"
+        />
       </h2>
-      {items.map((f) => (
+      {nav}
+      {shown.map((f) => (
         <div key={f.id} className="flex items-start justify-between gap-3 text-sm border-t border-gray-100 pt-2">
           <div>
             <span className="font-medium text-gray-700">{f.card_title ?? f.content_id}</span>

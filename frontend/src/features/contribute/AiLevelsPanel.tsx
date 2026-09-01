@@ -75,7 +75,17 @@ function LevelRow({
  * (decks resolve by level). Trial reviewers see them, flagged provisional.
  * Hidden when there are none.
  */
-export default function AiLevelsPanel({ languageId }: { languageId: string }) {
+import QueueHelp, { QUEUE_HELP } from './QueueHelp'
+import { useFocusList } from './useFocusList'
+
+export default function AiLevelsPanel({
+  languageId,
+  focus = false,
+}: {
+  languageId: string
+  /** One at a time with ‹ › instead of the whole list. */
+  focus?: boolean
+}) {
   const qc = useQueryClient()
   const { data } = useQuery({
     queryKey: ['ai-levels', languageId],
@@ -86,6 +96,7 @@ export default function AiLevelsPanel({ languageId }: { languageId: string }) {
   const onDone = () => qc.invalidateQueries({ queryKey: ['ai-levels', languageId] })
 
   const words = data?.words
+  const { shown, nav } = useFocusList(words ?? [], focus, 'word')
   if (!words || words.length === 0) return null
 
   return (
@@ -96,6 +107,11 @@ export default function AiLevelsPanel({ languageId }: { languageId: string }) {
       <div className="flex items-baseline justify-between">
         <h2 className="text-sm font-semibold text-gray-800">
           AI-estimated levels · awaiting confirmation
+          <QueueHelp
+            title="AI vocab levels"
+            help={QUEUE_HELP['ai-levels']}
+            testId="help-ai-levels"
+          />
         </h2>
         <span className="text-xs text-amber-600">{words.length} pending</span>
       </div>
@@ -104,8 +120,9 @@ export default function AiLevelsPanel({ languageId }: { languageId: string }) {
           ? 'These words had no frequency-based level, so the model estimated one. Confirm or adjust each — that also places it in the matching deck.'
           : 'These words carry a provisional AI-estimated level. A full reviewer confirms them.'}
       </p>
+      {nav}
       <ul className="divide-y divide-gray-50">
-        {words.map((w) => (
+        {shown.map((w) => (
           <LevelRow
             key={w.id}
             word={w}

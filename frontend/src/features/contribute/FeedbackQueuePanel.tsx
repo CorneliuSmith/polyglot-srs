@@ -116,10 +116,14 @@ function FeedbackRow({
  * view loses, and they used to be findable only by scrolling everything. */
 type FeedbackScope = 'language' | 'none' | 'all'
 
+import QueueHelp, { QUEUE_HELP } from './QueueHelp'
+import { useFocusList } from './useFocusList'
+
 export default function FeedbackQueuePanel({
   canTriage,
   languageId,
   languageName,
+  focus = false,
 }: {
   canTriage: boolean
   /** When set (the Review workspace), the panel scopes itself to the same
@@ -128,6 +132,8 @@ export default function FeedbackQueuePanel({
    * exactly as before. */
   languageId?: string | null
   languageName?: string
+  /** One at a time with ‹ › instead of the whole list. */
+  focus?: boolean
 }) {
   const queryClient = useQueryClient()
   const [showClosed, setShowClosed] = useState(false)
@@ -155,6 +161,7 @@ export default function FeedbackQueuePanel({
 
   const all = data?.feedback ?? []
   const items = showClosed ? all : all.filter((f) => f.status !== 'closed')
+  const { shown, nav } = useFocusList(items, focus, 'report')
 
   return (
     <section
@@ -165,6 +172,11 @@ export default function FeedbackQueuePanel({
         <div>
           <h2 className="font-semibold text-gray-800">
             Feedback
+            <QueueHelp
+              title="App feedback"
+              help={QUEUE_HELP['feedback-queue']}
+              testId="help-feedback-queue"
+            />
             {data && data.open_count > 0 && (
               <span className="ms-2 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-800">
                 {data.open_count} open
@@ -225,8 +237,9 @@ export default function FeedbackQueuePanel({
         </p>
       )}
 
+      {nav}
       <ul>
-        {items.map((item) => (
+        {shown.map((item) => (
           <FeedbackRow
             key={item.id}
             item={item}
