@@ -497,7 +497,9 @@
       "manual": "Added by hand",
       "unknown": "Added before source tracking"
     },
-    "sourceNote": "from your note “{{title}}”"
+    "sourceNote": "from your note “{{title}}”",
+    "glossHelpTitle": "Word by word",
+    "glossHelpBody": "A breakdown of how the sentence is built — not a translation. A dot splits a word into its parts: bark.3SG is “bark” in the third person singular, have.NEG is “have”, negated. These labels stay in English in every course so the same part is always named the same way. The translation underneath is what it means."
   },
   "about": {
     "title": "Things to know",

@@ -171,6 +171,41 @@ export function hintLayersFor(languageCode: string, card: HintLayerSource): Hint
 }
 
 /**
+ * The layers grouped into REVEAL STEPS — one press of Hint per step.
+ *
+ * Exactly one pairing exists: **gloss + translation reveal together.**
+ *
+ * A gloss is a Leipzig morphological decomposition (`bark.3SG`,
+ * `have.NEG`), which answers "how is this sentence BUILT" — a structural
+ * question. It does not answer "what does it mean", so a learner who spent
+ * a hint on it was left holding a breakdown of a word they still could not
+ * produce, and the next press was the one that actually helped. Users said
+ * so directly: not enough to guess the word from, and confusing if you have
+ * never seen the notation.
+ *
+ * Pairing them costs one rung of the hint ladder and removes a step that
+ * only ever stranded people. The gloss keeps its place — it is shown
+ * ABOVE the translation, so the structure is read first and the meaning
+ * confirms it, which is the order that teaches.
+ *
+ * Everything else stays one layer per step, so the dots still match what is
+ * actually revealable.
+ */
+export function hintSteps(layers: HintLayer[]): HintLayer[][] {
+  const steps: HintLayer[][] = []
+  for (let i = 0; i < layers.length; i += 1) {
+    const next = layers[i + 1]
+    if (layers[i].field === 'gloss' && next?.field === 'translation') {
+      steps.push([layers[i], next])
+      i += 1
+    } else {
+      steps.push([layers[i]])
+    }
+  }
+  return steps
+}
+
+/**
  * One layer's text, with the answer-leak guard applied to the authored hint.
  *
  * The guard used to live at the Gym's call site alone, which meant the same

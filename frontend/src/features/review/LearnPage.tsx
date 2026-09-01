@@ -14,6 +14,7 @@ import { effectiveSupportLocale, getLanguages, getProfile } from '../../api/prof
 import { usePrefsStore } from '../../stores/prefsStore'
 import { languageDisplayName } from '../../lib/languages'
 import LanguageWrapper from '../../components/LanguageWrapper'
+import InfoDot from '../../components/InfoDot'
 import FormsPanel from '../../components/FormsPanel'
 import ExplanationView from '../../components/ExplanationView'
 import SpeakButton from '../../components/SpeakButton'
@@ -661,8 +662,23 @@ function LearnInner() {
                     {lesson.quiz.transliteration}
                   </p>
                 )}
+                {/* The gloss used to render as a bare line of `bark.3SG`
+                    with nothing naming it — the same notation the review
+                    session at least labels. Name it, and let it explain
+                    itself. The translation directly below is what it
+                    means; the two belong together. */}
                 {lesson.quiz.gloss && (
                   <p className="text-xs text-gray-500 text-center mt-1">
+                    <span className="text-[10px] uppercase tracking-wide text-lang-label/70 me-2">
+                      {t('review.layerGloss')}
+                      <InfoDot
+                        label={t('review.glossHelpTitle')}
+                        title={t('review.glossHelpTitle')}
+                        testId="gloss-help"
+                      >
+                        {t('review.glossHelpBody')}
+                      </InfoDot>
+                    </span>
                     {lesson.quiz.gloss}
                   </p>
                 )}

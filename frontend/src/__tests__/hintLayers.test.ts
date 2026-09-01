@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { hintLayersFor, safePrompt } from '../features/review/hintLayers'
+import { hintLayersFor, hintSteps, safePrompt } from '../features/review/hintLayers'
 
 describe('safePrompt — the Gym prompt must never give the answer', () => {
   it('strips a spelled-out recipe clause', () => {
@@ -224,5 +224,71 @@ describe('the phonetics layer sits under the reading', () => {
       gloss: 'a · gloss', translation: 'the sentence', hint: 'the meaning',
       correct_answer: 'zzz',
     }).map((l) => l.field)).toEqual(['gloss', 'translation', 'hint'])
+  })
+})
+
+describe('hintSteps — a gloss never strands the learner on its own', () => {
+  // The complaint: "not enough to guess the word from, and confusing for
+  // those unfamiliar". A Leipzig gloss answers how the sentence is BUILT,
+  // not what it means, so spending a hint on it bought nothing usable.
+  it('reveals the gloss and the translation in one press', () => {
+    const layers = hintLayersFor('es', {
+      gloss: 'almost NEG remain.3SG wine',
+      translation: 'There is almost no wine left.',
+      hint: 'quedar, impersonal',
+    })
+    const steps = hintSteps(layers)
+
+    expect(steps).toHaveLength(2)
+    expect(steps[0].map((l) => l.field)).toEqual(['gloss', 'translation'])
+    // Structure first, meaning second — the order that teaches.
+    expect(steps[0][0].field).toBe('gloss')
+    expect(steps[1].map((l) => l.field)).toEqual(['hint'])
+  })
+
+  it('leaves every other layer its own step', () => {
+    const layers = hintLayersFor('ru', {
+      transliteration: 'Ya idu domoy',
+      gloss: 'I go.1SG home',
+      translation: 'I am going home.',
+      hint: 'идти, я',
+    })
+    const steps = hintSteps(layers)
+    expect(steps.map((s) => s.map((l) => l.field))).toEqual([
+      ['transliteration'],
+      ['gloss', 'translation'],
+      ['hint'],
+    ])
+  })
+
+  it('a gloss with no translation behind it still stands alone', () => {
+    // Pairing must not invent a layer the card does not carry, or the dots
+    // stop matching what is revealable.
+    const steps = hintSteps(hintLayersFor('es', { gloss: 'go.1SG home' }))
+    expect(steps).toEqual([[expect.objectContaining({ field: 'gloss' })]])
+  })
+
+  it('a translation with no gloss is unaffected', () => {
+    const steps = hintSteps(hintLayersFor('es', {
+      translation: 'I am going home.',
+      hint: 'ir, yo',
+    }))
+    expect(steps.map((s) => s.map((l) => l.field))).toEqual([
+      ['translation'],
+      ['hint'],
+    ])
+  })
+
+  it('counts one fewer press than there are layers when both are present', () => {
+    // The rung the ladder loses is the one that only ever stranded people.
+    const layers = hintLayersFor('es', {
+      gloss: 'g', translation: 't', hint: 'h',
+    })
+    expect(layers).toHaveLength(3)
+    expect(hintSteps(layers)).toHaveLength(2)
+  })
+
+  it('is empty for a card carrying no layers at all', () => {
+    expect(hintSteps(hintLayersFor('es', {}))).toEqual([])
   })
 })

@@ -271,6 +271,32 @@ them is the most common source of "why is this in the wrong language" bugs:
    choice → browser's preferred languages → English. Deliberately never IP
    geolocation.
 
+### Hint layers, and why the gloss is paired with the translation
+
+`frontend/src/features/review/hintLayers.ts` owns the order in which a card
+gives help away: reading → pronunciation → word-by-word gloss → translation →
+the authored hint, with the reading step skipped for Latin-script courses.
+Each press of Hint reveals one **step**, and `hintSteps` groups the layers
+into steps — currently one grouping exists, and it is worth understanding:
+
+**A gloss and a translation reveal together.** A gloss is a Leipzig
+morphological decomposition (`bark.3SG`, `have.NEG`) — it answers *how is
+this sentence built*, which is a structural question, not *what does it
+mean*. On its own it costs a hint and leaves the learner holding a breakdown
+of a word they still cannot produce, which is exactly what users reported.
+The pairing is in `hintSteps` rather than in the render, so the hint dots,
+the "hint dependence" signal, and every surface that reveals layers all
+count the same steps by construction.
+
+The gloss also carries an `InfoDot` explaining the notation, because
+`bark.3SG` means nothing to someone who hasn't seen it, and the English
+labels read as a bug rather than the deliberate choice they are (see
+`docs/decisions/2026-08-26-owner-decisions.md` §5 — glosses are structural
+on all 27 courses and their metalanguage is English *by design*, since the
+value is the decomposition). The explanation itself is translated into all
+six UI locales: a learner who cannot read the explanation is precisely the
+learner it exists for.
+
 `react-simple-keyboard` powers the on-screen keyboard for non-Latin/diacritic
 input; `react-markdown` + `remark-gfm` render the tutor's chat; `@sentry/react`
 is crash telemetry.
